@@ -397,15 +397,32 @@
   function browserTts() {
     var sy = window.speechSynthesis; if (!sy || !window.SpeechSynthesisUtterance) return null;
     var listeners = [], token = 0;
+    // Voices often arrive after the page: refresh the settings window when they do.
+    if ("onvoiceschanged" in sy) sy.onvoiceschanged = function () { if (A.modal && A.modal.kind === "prefs") render(); };
     var tell = function (state) { listeners.forEach(function (f) { f({ state: state }); }); };
+    // The first French voice of a device is often its oldest, robotic one; the natural voices (Edge "Online (Natural)",
+    // Apple "Premium"/"Enhanced", Google) come first so the default sounds like a reader, not a GPS.
+    function voiceQuality(v) {
+      var n = v.name || "";
+      if (/natural|neural|premium|online/i.test(n)) return 3;
+      if (/enhanced|améliorée|google|siri/i.test(n)) return 2;
+      if (/espeak|compact|eloquence|grandma|grandpa|jacques|rocko|shelley|flo|reed|sandy/i.test(n)) return 0;
+      return 1;
+    }
+    function frVoices() {
+      return sy.getVoices().filter(function (v) { return /^fr/i.test(v.lang); }).map(function (v, i) { return { v: v, i: i }; })
+        .sort(function (a, b) { return voiceQuality(b.v) - voiceQuality(a.v) || (/fr-FR/i.test(b.v.lang) - /fr-FR/i.test(a.v.lang)) || a.i - b.i; })
+        .map(function (x) { return x.v; });
+    }
     return {
       browser: true,
-      voices: function () { return sy.getVoices().filter(function (v) { return /^fr/i.test(v.lang); }).map(function (v) { return v.name; }); },
+      voices: function () { return frVoices().map(function (v) { return v.name; }); },
+      quality: voiceQuality,
       onState: function (f) { listeners.push(f); },
       stop: function () { token++; sy.cancel(); tell("idle"); },
       speak: function (lines, opts) {
         var mine = ++token; sy.cancel();
-        var frs = sy.getVoices().filter(function (v) { return /^fr/i.test(v.lang); });
+        var frs = frVoices();
         var fr = frs.filter(function (v) { return opts && opts.voiceName && v.name === opts.voiceName; })[0] || frs[0];
         return lines.reduce(function (p, l) {
           return p.then(function () {
@@ -1361,10 +1378,16 @@
     if (A.tts) {
       var voices = A.tts.browser ? (A.tts.voices() || []) : Object.keys(CLAUDE_VOICES);
       var vs = h("select", { "aria-label": "Voix", onchange: function (e) { setPref("voice", e.target.value); } },
-        h("option", { value: "" }, "Voix par défaut"), voices.map(function (v) { return h("option", { value: v, selected: pref("voice") === v }, A.tts.browser ? v : CLAUDE_VOICES[v]); }));
+        h("option", { value: "" }, A.tts.browser ? "La meilleure de l'appareil" : "Voix par défaut"), voices.map(function (v) { return h("option", { value: v, selected: pref("voice") === v }, A.tts.browser ? v + (A.tts.quality({ name: v }) >= 2 ? "  ★ naturelle" : "") : CLAUDE_VOICES[v]); }));
+      var natural = !A.tts.browser || voices.some(function (v) { return A.tts.quality({ name: v }) >= 2; });
+      var listen = h("button", { type: "button", class: "btn sm", onclick: function () {
+        var o = { language: "fr-FR", rate: pref("rate") }; if (A.tts.browser) o.voiceName = pref("voice") || ""; else if (CLAUDE_VOICES[pref("voice")]) o.voice = pref("voice");
+        A.tts.speak([{ text: "Le vent tourna, et la neige se mit à tomber de biais sur la route. « Avance », souffla-t-elle." }], o);
+      } }, "▶ Écouter");
       var rate = h("input", { type: "range", min: 0.7, max: 1.5, step: 0.05, value: pref("rate"), "aria-label": "Vitesse de lecture", onchange: function (e) { setPref("rate", +e.target.value); } });
       b.appendChild(h("div", { class: "stack tight" }, h("span", { class: "label" }, "Lecture à voix haute"),
-        h("div", { class: "row" }, vs, h("label", { class: "row small" }, "Vitesse", rate, h("span", { class: "mono" }, "×" + Number(pref("rate")).toFixed(2)))),
+        h("div", { class: "row" }, vs, listen, h("label", { class: "row small" }, "Vitesse", rate, h("span", { class: "mono" }, "×" + Number(pref("rate")).toFixed(2)))),
+        natural ? null : h("p", { class: "small muted" }, "Cet appareil n'a pas de voix française naturelle. Sur iPhone ou iPad : Réglages → Accessibilité → Contenu énoncé → Voix → Français, puis télécharger une voix « améliorée » ou « premium ». Sur Android : installer « Services vocaux de Google ». Sur ordinateur, Edge propose des voix naturelles."),
         h("label", { class: "toggle" }, h("input", { type: "checkbox", checked: pref("autoRead"), onchange: function (e) { setPref("autoRead", e.target.checked); } }), h("span", null, h("b", null, "Lire chaque page à voix haute"), h("br"), h("span", { class: "small muted" }, "Après chaque choix, la page suivante est lue sans appuyer sur rien.")))));
     }
     b.appendChild(seg({ ecran: "L'écran lance", vrais: "Je lance mes dés" }, "dice", "Les dés"));
