@@ -31,6 +31,7 @@ STORIES.forEach(function (id) {
 });
 
 var page = P.assemble(built);
+fs.mkdirSync(path.join(ROOT, "dist"), { recursive: true });
 fs.writeFileSync(path.join(ROOT, "dist/index.html"), page);
 console.log("dist/index.html : " + Math.round(page.length / 1024) + " Ko");
 process.exit(failed ? 1 : 0);
