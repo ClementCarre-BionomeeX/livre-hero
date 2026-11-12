@@ -276,3 +276,4 @@ textarea.json { font: 12.5px/1.45 var(--mono); width: 100%; }
 /* A detached ornate capital and cut words are hard for dyslexic readers: plain first letter, no hyphenation. */
 :root[data-font="lisible"] .prose { hyphens: none; }
 :root[data-font="lisible"] .prose p:first-child::first-letter { font: inherit; float: none; padding: 0; color: inherit; text-shadow: none; }
+.neural-row { flex-wrap: wrap; gap: 8px 12px; align-items: center; }

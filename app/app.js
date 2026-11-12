@@ -391,6 +391,124 @@
     rd.readAsText(f);
   }
 
+  // ------------------------------------------------------------------ quality voices (optional download)
+  // Intent: Neural = Piper voices run on the device (site/voix/, built by tests/voix.js), downloaded once on request, kept for offline reading.
+  // Why: Clément, 12/11: the devices' own French voices sound like a GPS; the download is heavy (~90 Mo), so it is never forced.
+  var Neural = (function () {
+    var BASE = "voix/", CACHE = "livre-jeu-voix";
+    var N = { manifest: null, installed: {}, busy: null, progress: 0, error: "" };
+    var worker = null, ctx = null, sources = [], cur = null, seq = 0, handlers = {};
+    N.available = function () {
+      return standalone() && /^https?:$/.test(location.protocol) && "caches" in window && typeof WebAssembly === "object" && "Worker" in window && !!(window.AudioContext || window.webkitAudioContext);
+    };
+    N.init = function () {
+      if (!N.available()) return Promise.resolve();
+      return caches.open(CACHE).then(function (c) { return c.match(BASE + "manifest.json"); })
+        .then(function (hit) { return hit || fetch(BASE + "manifest.json", { cache: "no-cache" }); })
+        .then(function (r) { return r && r.ok ? r.json() : null; })
+        .then(function (m) { N.manifest = m && m.voices ? m : null; return N.refresh(); }).catch(function () { N.manifest = null; });
+    };
+    function filesOf(k) { return N.manifest.common.concat(N.manifest.voices[k].files); }
+    N.refresh = function () {
+      if (!N.manifest) return Promise.resolve();
+      return caches.open(CACHE).then(function (c) {
+        return Promise.all(Object.keys(N.manifest.voices).map(function (k) {
+          return Promise.all(filesOf(k).map(function (f) { return c.match(BASE + f.file); })).then(function (ms) { N.installed[k] = ms.every(Boolean); });
+        }));
+      });
+    };
+    N.keys = function () { return N.manifest ? Object.keys(N.manifest.voices) : []; };
+    N.has = function (k) { return !!(N.manifest && N.installed[k]); };
+    N.label = function (k) { return N.manifest && N.manifest.voices[k] ? N.manifest.voices[k].label : k; };
+    // Bytes still to download for voice k (the engine is shared by all voices).
+    N.sizeOf = function (k) {
+      if (!N.manifest) return 0;
+      var anyInstalled = N.keys().some(function (x) { return N.installed[x]; });
+      return (anyInstalled ? N.manifest.voices[k].files : filesOf(k)).reduce(function (s, f) { return s + f.size; }, 0);
+    };
+    N.install = function (k, onProgress) {
+      var files = filesOf(k).concat([{ file: "manifest.json", size: 0 }]);
+      var total = files.reduce(function (s, f) { return s + f.size; }, 0) || 1, done = 0;
+      try { if (navigator.storage && navigator.storage.persist) navigator.storage.persist(); } catch (e) { /* ignore */ }
+      return caches.open(CACHE).then(function (c) {
+        return files.reduce(function (p, f) {
+          return p.then(function () {
+            return c.match(BASE + f.file).then(function (hit) {
+              if (hit) { done += f.size; onProgress(done / total); return; }
+              return fetch(BASE + f.file, { cache: "no-cache" }).then(function (r) {
+                if (!r.ok) throw new Error(f.file + " : erreur " + r.status);
+                var type = r.headers.get("Content-Type") || "application/octet-stream";
+                if (!r.body || !r.body.getReader) return r.blob().then(function (b) { done += f.size; onProgress(done / total); return c.put(BASE + f.file, new Response(b, { headers: { "Content-Type": type } })); });
+                var reader = r.body.getReader(), chunks = [], got = 0;
+                var pump = function () {
+                  return reader.read().then(function (x) {
+                    if (x.done) return;
+                    chunks.push(x.value); got += x.value.length; onProgress(Math.min(1, (done + got) / total));
+                    return pump();
+                  });
+                };
+                return pump().then(function () { done += f.size; return c.put(BASE + f.file, new Response(new Blob(chunks, { type: type }), { headers: { "Content-Type": type } })); });
+              });
+            });
+          });
+        }, Promise.resolve());
+      }).then(N.refresh);
+    };
+    N.remove = function (k) {
+      return caches.open(CACHE).then(function (c) {
+        var others = N.keys().filter(function (x) { return x !== k && N.installed[x]; });
+        if (!others.length) return caches.delete(CACHE);
+        return Promise.all(N.manifest.voices[k].files.map(function (f) { return c.delete(BASE + f.file); }));
+      }).then(function () { N.installed = {}; return N.refresh(); });
+    };
+
+    // Sentences, so the first one plays while the next are computed.
+    function sentences(text) {
+      return (String(text).match(/[^.!?…]+(?:[.!?…]+[»"”)\s]*|$)/g) || []).map(function (s) { return s.trim(); }).filter(function (s) { return /[\wÀ-ÿ]/.test(s); });
+    }
+    function audio() {
+      if (!ctx) ctx = new (window.AudioContext || window.webkitAudioContext)();
+      if (ctx.state === "suspended") ctx.resume();
+      return ctx;
+    }
+    function getWorker() {
+      if (!worker) {
+        worker = new Worker(BASE + "worker.js");
+        worker.onmessage = function (e) { var f = handlers[e.data.id]; if (f) f(e.data); };
+        worker.onerror = function (e) { Object.keys(handlers).forEach(function (id) { handlers[id]({ id: +id, error: e.message || "voix indisponible" }); }); };
+      }
+      return worker;
+    }
+    N.stop = function () {
+      sources.forEach(function (s) { try { s.stop(); } catch (e) { /* ignore */ } }); sources = [];
+      if (cur) { if (worker) worker.postMessage({ cancel: cur.id }); var c = cur; cur = null; delete handlers[c.id]; c.resolve(null); }
+    };
+    // Resolves with null when done or stopped, with a message when the voice failed.
+    N.speak = function (lines, opts) {
+      N.stop();
+      var ac = audio(), voice = N.manifest.voices[opts.key].model;
+      var list = [];
+      lines.forEach(function (l, li) { sentences(l.text).forEach(function (s, si) { list.push({ text: s, pause: li > 0 && si === 0 ? 0.5 : 0.15 }); }); });
+      if (!list.length) return Promise.resolve(null);
+      var id = ++seq, t = ac.currentTime + 0.05, finished = false;
+      return new Promise(function (resolve) {
+        cur = { id: id, resolve: resolve };
+        var end = function (err) { if (cur && cur.id === id) { cur = null; delete handlers[id]; resolve(err || null); } };
+        var waitEnd = function () { if (!cur || cur.id !== id) return; var left = t - ac.currentTime; if (left <= 0.02) end(); else setTimeout(waitEnd, Math.min(500, left * 1000)); };
+        handlers[id] = function (d) {
+          if (d.error) { end(d.error); return; }
+          if (d.done) { finished = true; waitEnd(); return; }
+          var buf = ac.createBuffer(1, d.audio.length, d.rate); buf.getChannelData(0).set(d.audio);
+          var src = ac.createBufferSource(); src.buffer = buf; src.connect(ac.destination);
+          var at = Math.max(t + list[d.i].pause, ac.currentTime + 0.03); src.start(at); t = at + buf.duration;
+          sources.push(src); src.onended = function () { sources = sources.filter(function (x) { return x !== src; }); if (finished) waitEnd(); };
+        };
+        getWorker().postMessage({ id: id, voice: voice, sentences: list.map(function (s) { return s.text; }), rate: opts.rate || 1 });
+      });
+    };
+    return N;
+  })();
+
   // ------------------------------------------------------------------ reading aloud without claude.ai
   // Intent: create() -> Tts = the browser's own voices, same calls as the claude.ai tts
   // Why: the offline copy has no claude.ai tts; tablets and phones carry French voices that work without network.
@@ -416,12 +534,23 @@
     }
     return {
       browser: true,
-      voices: function () { return frVoices().map(function (v) { return v.name; }); },
-      quality: voiceQuality,
+      // Installed quality voices first ("neural:<key>"), then the device's own.
+      voices: function () { return Neural.keys().filter(Neural.has).map(function (k) { return "neural:" + k; }).concat(frVoices().map(function (v) { return v.name; })); },
+      quality: function (v) { return /^neural:/.test(v.name) ? 4 : voiceQuality(v); },
+      label: function (name) { return /^neural:/.test(name) ? Neural.label(name.slice(7)) + "  ★ qualité" : name + (voiceQuality({ name: name }) >= 2 ? "  ★ naturelle" : ""); },
       onState: function (f) { listeners.push(f); },
-      stop: function () { token++; sy.cancel(); tell("idle"); },
+      stop: function () { token++; sy.cancel(); Neural.stop(); tell("idle"); },
       speak: function (lines, opts) {
-        var mine = ++token; sy.cancel();
+        var mine = ++token; sy.cancel(); Neural.stop();
+        // The default voice is the quality one when the reader installed it.
+        var want = (opts && opts.voiceName) || "", key = /^neural:/.test(want) ? want.slice(7) : !want ? Neural.keys().filter(Neural.has)[0] : null;
+        if (key && Neural.has(key)) {
+          tell("speaking");
+          return Neural.speak(lines, { key: key, rate: opts && opts.rate }).then(function (err) {
+            if (err) { console.error("voix de qualité", err); flash("La voix de qualité n'a pas pu lire ce passage (" + err + ").", true); }
+            if (mine === token) tell("idle");
+          });
+        }
         var frs = frVoices();
         var fr = frs.filter(function (v) { return opts && opts.voiceName && v.name === opts.voiceName; })[0] || frs[0];
         return lines.reduce(function (p, l) {
@@ -1141,6 +1270,32 @@
     }).catch(function () { /* another device will try, or this one at the next change */ }).then(function () { X.syncing = false; });
   }
 
+  // The quality voices in the settings: one row per voice, downloaded only when the reader asks.
+  function renderNeural() {
+    if (!Neural.manifest) return null;
+    var mb = function (n) { return Math.max(1, Math.round(n / 1048576)) + " Mo"; };
+    return h("div", { class: "stack tight neural" },
+      h("span", { class: "label" }, "Voix de qualité"),
+      h("p", { class: "small muted" }, "Des voix bien plus naturelles, calculées par l'appareil lui-même : une fois téléchargées, elles lisent aussi sans réseau. À télécharger de préférence en wifi."),
+      Neural.keys().map(function (k) {
+        var busy = Neural.busy === k;
+        return h("div", { class: "row neural-row" },
+          h("span", null, Neural.label(k)),
+          Neural.has(k) ? h("span", { class: "small muted" }, "✓ installée") : null,
+          busy ? h("span", { class: "mono small" }, "Téléchargement… " + Math.round(Neural.progress * 100) + " %") : null,
+          !Neural.has(k) && !busy ? h("button", { class: "btn sm", disabled: !!Neural.busy, onclick: function () {
+            Neural.busy = k; Neural.progress = 0; render();
+            var last = 0;
+            Neural.install(k, function (x) { Neural.progress = x; var now = Date.now(); if (now - last > 400) { last = now; render(); } })
+              .then(function () { Neural.busy = null; if (!pref("voice") || !/^neural:/.test(pref("voice"))) setPref("voice", "neural:" + k); flash(Neural.label(k) + " est installée."); })
+              .catch(function (e) { Neural.busy = null; flash("Le téléchargement n'a pas abouti : " + e.message + ". Réessaie quand le réseau est meilleur.", true); });
+          } }, "Télécharger (" + mb(Neural.sizeOf(k)) + ")") : null,
+          Neural.has(k) ? h("button", { class: "btn ghost sm", onclick: function () {
+            Neural.remove(k).then(function () { if (pref("voice") === "neural:" + k) setPref("voice", ""); render(); });
+          } }, "Supprimer") : null);
+      }));
+  }
+
   // ------------------------------------------------------------------ read aloud
   function speak(v) {
     if (!A.tts) return;
@@ -1378,7 +1533,7 @@
     if (A.tts) {
       var voices = A.tts.browser ? (A.tts.voices() || []) : Object.keys(CLAUDE_VOICES);
       var vs = h("select", { "aria-label": "Voix", onchange: function (e) { setPref("voice", e.target.value); } },
-        h("option", { value: "" }, A.tts.browser ? "La meilleure de l'appareil" : "Voix par défaut"), voices.map(function (v) { return h("option", { value: v, selected: pref("voice") === v }, A.tts.browser ? v + (A.tts.quality({ name: v }) >= 2 ? "  ★ naturelle" : "") : CLAUDE_VOICES[v]); }));
+        h("option", { value: "" }, A.tts.browser ? "La meilleure de l'appareil" : "Voix par défaut"), voices.map(function (v) { return h("option", { value: v, selected: pref("voice") === v }, A.tts.browser ? A.tts.label(v) : CLAUDE_VOICES[v]); }));
       var natural = !A.tts.browser || voices.some(function (v) { return A.tts.quality({ name: v }) >= 2; });
       var listen = h("button", { type: "button", class: "btn sm", onclick: function () {
         var o = { language: "fr-FR", rate: pref("rate") }; if (A.tts.browser) o.voiceName = pref("voice") || ""; else if (CLAUDE_VOICES[pref("voice")]) o.voice = pref("voice");
@@ -1387,7 +1542,8 @@
       var rate = h("input", { type: "range", min: 0.7, max: 1.5, step: 0.05, value: pref("rate"), "aria-label": "Vitesse de lecture", onchange: function (e) { setPref("rate", +e.target.value); } });
       b.appendChild(h("div", { class: "stack tight" }, h("span", { class: "label" }, "Lecture à voix haute"),
         h("div", { class: "row" }, vs, listen, h("label", { class: "row small" }, "Vitesse", rate, h("span", { class: "mono" }, "×" + Number(pref("rate")).toFixed(2)))),
-        natural ? null : h("p", { class: "small muted" }, "Cet appareil n'a pas de voix française naturelle. Sur iPhone ou iPad : Réglages → Accessibilité → Contenu énoncé → Voix → Français, puis télécharger une voix « améliorée » ou « premium ». Sur Android : installer « Services vocaux de Google ». Sur ordinateur, Edge propose des voix naturelles."),
+        A.tts.browser ? renderNeural() : null,
+        natural || Neural.manifest ? null : h("p", { class: "small muted" }, "Cet appareil n'a pas de voix française naturelle. Sur iPhone ou iPad : Réglages → Accessibilité → Contenu énoncé → Voix → Français, puis télécharger une voix « améliorée » ou « premium ». Sur Android : installer « Services vocaux de Google ». Sur ordinateur, Edge propose des voix naturelles."),
         h("label", { class: "toggle" }, h("input", { type: "checkbox", checked: pref("autoRead"), onchange: function (e) { setPref("autoRead", e.target.checked); } }), h("span", null, h("b", null, "Lire chaque page à voix haute"), h("br"), h("span", { class: "small muted" }, "Après chaque choix, la page suivante est lue sans appuyer sur rien.")))));
     }
     b.appendChild(seg({ ecran: "L'écran lance", vrais: "Je lance mes dés" }, "dice", "Les dés"));
@@ -2067,6 +2223,7 @@
       // Offline copy: ask the browser to keep this site's data (saves) even when the device runs short of space.
       try { if (navigator.storage && navigator.storage.persist) navigator.storage.persist(); } catch (e) { /* ignore */ }
       A.tts = browserTts(); if (A.tts) A.tts.onState(function (x) { A.speaking = x.state !== "idle"; render(); });
+      Neural.init().then(render);
     }
     return refresh();
   }).then(function () { A.busy = false; render(); }, function () { A.busy = false; render(); });

@@ -23,6 +23,8 @@ jobs:
         with:
           node-version: 22
       - run: node tests/site.js
+      # Optional quality voices (site/voix/, ~150 Mo), downloaded by readers only on request.
+      - run: node tests/voix.js
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
