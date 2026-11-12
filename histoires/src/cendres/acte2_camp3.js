@@ -3,7 +3,7 @@
 // on the tents (if she came), and the hunters who came back empty-handed from the high pastures.
 var N = { act: "II", noLead: true, place: "corbeau" };
 function P(o) { return Object.assign({}, N, o); }
-var BACK = [{ label: "Revenir au milieu du camp", to: "II_N_camp" }];
+var BACK = [{ back: "II_N_camp" }];
 module.exports = {
   II_N_lutte: P({ title: "La lutte",
     text: [
@@ -17,7 +17,7 @@ module.exports = {
     ] }),
   II_N_lutte_rodric: P({ title: "Rodric dans le cercle",
     text: ["Rodric enlève son manteau, lentement, le plie, te le confie. Il entre dans le cercle. Bjarki se jette sur lui. Rodric ne bouge pas. Bjarki rebondit. Il recommence. Rodric le prend sous les bras, le soulève comme on soulève un sac de grain, le regarde un moment, à hauteur des yeux, et le repose, debout, hors du cercle. Il y a un silence. Puis tout le clan hurle de rire, Bjarki le premier. Le soir, Bjarki lui apporte une corne de bière. Ils ne se comprennent pas. Ils boivent ensemble jusqu'à minuit."],
-    choices: [{ label: "Revenir au milieu du camp", fx: { conf: { rodric: 5 }, flag: "nord:lutte" }, to: "II_N_camp" }] }),
+    choices: [{ fx: { conf: { rodric: 5 }, flag: "nord:lutte" }, back: "II_N_camp" }] }),
   II_N_lutte_corbe: P({ title: "Dans le cercle",
     text: ["Tu entres. Bjarki rit. Il ne rit pas longtemps. Tu es petite, tu es vive, tu sais où sont les genoux d'un homme et ce qu'ils deviennent quand on passe derrière. Il tombe dans la neige, de tout son long, et tu es assise sur son dos avant qu'il ait compris. Le clan hurle. Bjarki, le nez dans la neige, rit aussi. « La fille d'Askel, dit-il. J'aurais dû me méfier. »"],
     choices: BACK }),

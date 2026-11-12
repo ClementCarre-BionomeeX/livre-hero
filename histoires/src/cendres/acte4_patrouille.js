@@ -92,13 +92,13 @@ module.exports = {
       "Colin te suit. À la porte du moulin, il se retourne vers l'autre, qui est resté assis devant le feu, la broche à la main. Ils se font un petit signe, celui qu'on fait à un voisin.",
       "À Brenne, Herbelot serre Colin dans ses bras, ce qui ne se fait pas entre un lieutenant et un éclaireur. Colin se laisse faire, poliment. Il ne le reconnaît pas. Il dit qu'il aimerait bien retourner pêcher.",
     ],
-    choices: [{ label: "Revenir au camp", fx: { quest: "IV_Q_patrouille", ep: ["perso", 1000] }, to: "IV_br" }] }),
+    choices: [{ fx: { quest: "IV_Q_patrouille", ep: ["perso", 1000] }, back: "IV_br" }] }),
   IV_P_laisser: P({ title: "L'île", place: "brenne",
     text: ["Tu t'assieds avec eux. Tu manges un morceau d'anguille. Ils sont heureux, sur leur île, sans nom, sans ennemi. Tu repars avant l'aube sans les déranger. À Brenne, tu dis à Herbelot que Colin n'a pas déserté. Que c'est plus compliqué. Il te regarde comme si tu lui avais menti, et il a peut-être raison."],
-    choices: [{ label: "Revenir au camp", fx: { quest: "IV_Q_patrouille", ep: ["perso", 800] }, to: "IV_br" }] }),
+    choices: [{ fx: { quest: "IV_Q_patrouille", ep: ["perso", 800] }, back: "IV_br" }] }),
   IV_P_fin: P({ title: "Colin et Colas", place: "brenne",
     text: [
       "Le lendemain, sur la liste de la compagnie Herbelot, il y a deux noms de plus : Colin Mesnil, et en dessous, d'une écriture appliquée, Colas Mesnil, son frère. Les deux frères dorment sous la même tente. Ils ne parlent pas la même langue. Ils pêchent ensemble, le soir, au bord de la Lisse, et toute la compagnie a pris l'habitude de venir les regarder, sans rien dire.",
     ],
-    choices: [{ label: "Revenir au camp", fx: { quest: "IV_Q_patrouille" }, to: "IV_br" }] }),
+    choices: [{ fx: { quest: "IV_Q_patrouille" }, back: "IV_br" }] }),
 };

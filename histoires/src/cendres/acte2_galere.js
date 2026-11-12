@@ -39,11 +39,11 @@ module.exports = {
     choices: [] }),
   II_G_fuite: P({ title: "Le quai", place: "vasselin",
     text: ["Tu te retrouves sur le quai, trempée, essoufflée, sans savoir comment. Sur la galère, on crie, on allume des lanternes. Demain, elle aura changé de place. Ou elle sera partie. Tu ne la reverras pas."],
-    choices: [{ label: "Revenir en ville", fx: { quest: "II_Q_galere", flag: "sud:galere=rien" }, to: "II_S_vasselin" }] }),
+    choices: [{ fx: { quest: "II_Q_galere", flag: "sud:galere=rien" }, back: "II_S_vasselin" }] }),
 
   II_G_partir: P({ title: "La passerelle, à l'aube", place: "vasselin",
     text: ["Tu repars comme tu es venue. Derrière toi, sur les bancs, les rameurs dorment, la tête sur la rame. Au matin, la galère grise lève l'ancre. Tu l'entends partir depuis ta chambre de l'Ancre : la chanson lente des rameurs, en corvannais, qui s'éloigne vers le large, et la cadence qui ne se trompe jamais."],
-    choices: [{ label: "Revenir en ville", fx: { quest: "II_Q_galere", flag: "sud:galere=rien" }, to: "II_S_vasselin" }] }),
+    choices: [{ fx: { quest: "II_Q_galere", flag: "sud:galere=rien" }, back: "II_S_vasselin" }] }),
   II_G_pont: P({ title: "Le pont de la galère", place: "vasselin", hub: true,
     text: [
       { first: true, if: { has: "galere:entree=chant" }, text: "On te fait monter. On te montre la cabine, à la poupe : le capitaine t'attend pour le dessert. Tu dis que tu dois accorder ton luth, au calme. On te laisse sur le pont." },
@@ -69,7 +69,7 @@ module.exports = {
       { with: "rodric", text: "Rodric s'est penché sur le banc d'à côté. Il reste longtemps sans rien dire. Puis il prononce un nom, à voix basse, un nom de village de la Lisse. Le rameur lève la tête. « C'est chez moi, dit-il. Comment vous savez ? » Rodric ne répond pas. Il a les poings serrés à s'en faire blanchir les jointures." },
       "Sous le banc, gravées dans le bois avec un clou, des marques. Des traits, par groupes de sept. Des centaines. Quelqu'un comptait les semaines, avant d'oublier qu'il comptait.",
     ],
-    choices: [{ label: "Revenir sur le pont", fx: { ep: ["perso", 400] }, to: "II_G_pont" }] }),
+    choices: [{ fx: { ep: ["perso", 400] }, back: "II_G_pont" }] }),
   II_G_cabine: P({ title: "La cabine", place: "vasselin",
     text: [
       { if: { has: "galere:entree=chant" }, text: "Le capitaine t'accueille avec un verre de vin et deux invités en robe grise, des clercs de la Chancellerie. Ils ont beaucoup bu. Tu chantes. Tu chantes longtemps, et lentement, des berceuses de la côte, les plus douces que tu saches. Au bout d'une heure, ils dorment tous les trois, la tête sur la table." },
@@ -83,7 +83,7 @@ module.exports = {
     ] }),
   II_G_cabine_cles: P({ title: "Le trousseau", place: "vasselin",
     text: ["Le trousseau glisse de la ceinture sans un bruit. Tu prends aussi le rôle, au passage. Le capitaine grogne dans son sommeil, et dit un nom de femme, et se rendort. En sortant, tu souffles la chandelle."],
-    choices: [{ label: "Revenir sur le pont", fx: { flag: "galere:role" }, to: "II_G_pont" }] }),
+    choices: [{ fx: { flag: "galere:role" }, back: "II_G_pont" }] }),
   II_G_cabine_reveil: P({ title: "Le capitaine",
     combat: { title: "La cabine", enemies: ["garde_noir", "brigand"], terrain: "ville", range: "contact",
       flee: { dom: "discretion", label: "Sauter par la fenêtre de poupe", to: "II_G_fuite" },
@@ -96,7 +96,7 @@ module.exports = {
       "*Joachim, de Lisse : la captivité. Piotr, de Lisse : la captivité. Wenzel, de Lisse : la captivité.* Cent quatre-vingts. Les souvenirs des rameurs. On les garde à bord, avec eux, dans la cale, sous leurs pieds. Comme du lest.",
     ],
     choices: [
-      { label: "Remonter une caisse sur le pont", fx: { flag: "galere:fioles", ep: ["perso", 600] }, to: "II_G_pont" },
+      { label: "Remonter une caisse sur le pont", fx: { flag: "galere:fioles", ep: ["perso", 600] }, back: "II_G_pont" },
       { label: "Laisser les fioles", to: "II_G_pont" },
     ] }),
   II_G_comite: P({ title: "Le comite", place: "vasselin",
@@ -110,7 +110,7 @@ module.exports = {
     ] }),
   II_G_comite_achete: P({ title: "Le sifflet", place: "vasselin",
     text: ["Il soupèse la bourse. Il la glisse dans sa chemise. Puis il te tourne le dos, et il va s'asseoir à la proue, face au large, et il allume une pipe. Il n'a rien vu. Il ne verra rien. Il fume."],
-    choices: [{ label: "Revenir sur le pont", to: "II_G_pont" }] }),
+    choices: [{ back: "II_G_pont" }] }),
   II_G_comite_combat: P({ title: "La coursive",
     combat: { title: "Le comite", enemies: ["brigand"], terrain: "ville", range: "contact",
       win: { fx: { flag: "galere:comite=battu", ep: ["seance", 700] }, to: "II_G_pont" }, lose: { fx: { pv: -3, flag: "galere:alerte" }, to: "II_G_pont" } },
@@ -135,11 +135,11 @@ module.exports = {
       "On les cache. Dans les caves, dans les greniers à filets, dans les cales des barques de pêche. Au matin, la galère grise est vide, et dans tout Vasselin, on n'a rien vu, rien entendu, et on ne sait pas de quoi parle ce capitaine qui court sur le quai en hurlant.",
       { with: "rodric", text: "Rodric est resté le dernier sur la passerelle, à les compter. Cent quatre-vingts. Quand le dernier est passé, il s'assied sur les planches, et il pleure, sans se cacher, comme pleurent les très grands hommes." },
     ],
-    choices: [{ label: "Revenir en ville", fx: { quest: "II_Q_galere", conf: { rodric: 15, lisandre: 10 } }, to: "II_S_vasselin" }] }),
+    choices: [{ fx: { quest: "II_Q_galere", conf: { rodric: 15, lisandre: 10 } }, back: "II_S_vasselin" }] }),
   II_G_fin_ouverte: P({ title: "Les fers ouverts", place: "vasselin",
     text: [
       "Tu ouvres les fers, tous. Ça prend une heure. Les rameurs regardent leurs chevilles. Certains se lèvent, descendent la passerelle, se perdent dans la ville. D'autres restent assis, la rame à la main, et attendent le jour, parce que c'est leur place, et qu'on ne sait pas où aller quand on ne se souvient pas d'où l'on vient.",
       "Au matin, la moitié des bancs sont vides. L'autre moitié rame quand le comite siffle. Ils n'ont plus de fers. Ils rament quand même.",
     ],
-    choices: [{ label: "Revenir en ville", fx: { quest: "II_Q_galere", conf: { rodric: 5 } }, to: "II_S_vasselin" }] }),
+    choices: [{ fx: { quest: "II_Q_galere", conf: { rodric: 5 } }, back: "II_S_vasselin" }] }),
 };

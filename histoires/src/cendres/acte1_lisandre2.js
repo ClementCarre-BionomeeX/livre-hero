@@ -4,7 +4,7 @@
 // to be harnessed for Pallanche (lisandre:destrier).
 var A = { act: "I", place: "vasselin", noLead: true };
 function P(o) { return Object.assign({}, A, o); }
-var BACK = [{ label: "Revenir dans la cour", to: "LI_cour" }];
+var BACK = [{ back: "LI_cour" }];
 module.exports = {
   LI_k_nursery: P({ title: "La chambre de l'aile est",
     text: [

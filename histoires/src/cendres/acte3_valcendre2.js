@@ -3,7 +3,7 @@
 // north gate, where an old guard has been waiting three hundred and twelve years to be relieved (iii:releve).
 var A = { act: "III", noLead: true, place: "valcendre" };
 function P(o) { return Object.assign({}, A, o); }
-var BACK = [{ label: "Revenir dans les rues", to: "III_v_porte" }];
+var BACK = [{ back: "III_v_porte" }];
 module.exports = {
   III_v_tisserand: P({ title: "Le métier des lignées",
     text: [
@@ -19,10 +19,10 @@ module.exports = {
       "Tu tires un fil de l'ourlet de ta chemise. Un fil de lin écru, couleur de farine, que les mains d'Agathe ont tordu un soir d'hiver, à côté du four. Le tisserand le prend. Il le regarde contre la lumière, longtemps, comme on regarde une pierre précieuse dont on ne connaît pas le nom.",
       "Puis il le noue à ton fil coupé, sans un mot, et il reprend la navette. Tu le regardes faire : ton fil repart, maintenant, blanc et gris et couleur de farine, tressé, sur une main de longueur. Il s'arrête. Il te montre. « Personne n'a jamais eu deux couleurs, ici, dit-il. Je ne sais pas ce que ça veut dire. Je trouve ça beau. » Il pose la navette. Il te laisse la suite.",
     ],
-    choices: [{ label: "Revenir dans les rues", to: "III_v_porte" }] }),
+    choices: [{ back: "III_v_porte" }] }),
   III_v_tisserand_coupe: P({ title: "Le fil coupé",
     text: ["Il hoche la tête. Il ne discute pas. Il réenroule la bande, lentement, tambour après tambour, jusqu'à ce que ton fil coupé disparaisse sous des siècles d'autres fils. « Comme tu veux, dit-il. Mais je ne fais pas de nœud. Tant qu'il n'y a pas de nœud, on peut toujours reprendre. » Il remonte sur son banc. La navette repart. Tu restes un moment dans la cour à écouter le métier battre, comme un cœur de bois, pour trois cents ans de gens."],
-    choices: [{ label: "Revenir dans les rues", to: "III_v_porte" }] }),
+    choices: [{ back: "III_v_porte" }] }),
   III_v_porte_nord: P({ title: "La porte du nord",
     text: [
       "La porte du nord de Valcendre ne donne sur rien. Au-delà de l'arche, le blanc, sans route, sans horizon. Personne ne passe par là. Mais il y a une sentinelle. Un vieil homme en armure d'un autre âge, appuyé sur sa lance, la barbe jusqu'à la ceinture, qui regarde le blanc sans ciller.",

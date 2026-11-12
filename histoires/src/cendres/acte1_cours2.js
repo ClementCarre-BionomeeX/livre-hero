@@ -20,10 +20,10 @@ module.exports = {
       "Tu chantes les deux mesures. Juste les deux dernières, celles qui ferment. Maître Grégoire écoute, la tête penchée sur sa harpe, et ses mains retombent sur les cordes, et elles jouent la fin. Les autres suivent.",
       "Vous le faites pour tous les morceaux de la Fête. Neuf. Tu chantes neuf fins. À la dernière, Grégoire pleure un peu dans sa barbe. « Je n'aurais pas cru qu'on puisse oublier comment ça finit, dit-il. On croit toujours que c'est le début qu'on perdra. »",
     ],
-    choices: [{ label: "Redescendre à la cour", to: "LI_cour" }] }),
+    choices: [{ back: "LI_cour" }] }),
   LI_k_repetition_rate: LI({ title: "La galerie",
     text: ["Tu chantes une fin. Ce n'est pas la bonne. Grégoire secoue la tête, poliment. Tu en essaies une autre. Les musiciens se regardent. Au bout d'une heure, ils décident de finir chaque morceau par un accord, n'importe lequel, très fort, pour qu'on applaudisse. Ça marchera. On applaudit toujours après un accord très fort."],
-    choices: [{ label: "Redescendre à la cour", to: "LI_cour" }] }),
+    choices: [{ back: "LI_cour" }] }),
 
   YS_k_maitre: YS({ title: "Le maître d'armes",
     text: [
@@ -37,14 +37,14 @@ module.exports = {
     ] }),
   YS_k_maitre_page: YS({ title: "Ta page",
     text: ["Il l'ouvre, presque au milieu. *Ysolde, fille du capitaine. Six ans. Défaut : frappe trop fort, trop tôt. N'attend pas.* Et en dessous, d'une encre plus récente : *Capitaine. Frappe toujours trop fort. Attend un peu mieux.* Il referme le livre. « J'écrirai la suite quand tu reviendras, dit-il. Reviens. »"],
-    choices: [{ label: "Retourner dans la cour", to: "YS_cour" }] }),
+    choices: [{ back: "YS_cour" }] }),
   YS_k_maitre_lisse: YS({ title: "Les pages de la Lisse",
     text: [
       "Il te regarde longtemps de son œil valide. Puis il ouvre le livre aux dernières pages. Les garçons de ta compagnie, ceux de la guerre. Et à côté de beaucoup de noms, de sa main, la même ligne, recopiée encore et encore : *Lisse, le quatorze brumaire.*",
       "Il n'a rien écrit d'autre. Ni mort, ni blessé, ni rentré. Seulement la date, et le nom du pont.",
       "« Ils sont rentrés, dit-il. Presque tous. Mais je n'ai pas su quoi écrire après. Ils ne savent pas eux-mêmes ce qu'ils ont fait là-bas. Ils disent qu'ils ne s'en souviennent pas. » Il referme le livre. « Moi, je me souviens de leurs têtes, quand ils sont rentrés. Ça, je ne l'ai pas écrit. »",
     ],
-    choices: [{ label: "Retourner dans la cour", to: "YS_cour" }] }),
+    choices: [{ back: "YS_cour" }] }),
 
   III_p_tour_guet: T3({ title: "La tour de guet",
     text: [
@@ -60,5 +60,5 @@ module.exports = {
       "Il se retourne. Il te regarde, et il te voit, et il fronce les sourcils, comme devant une chose qu'il ne comprend pas. « Tu as leurs yeux, dit-il. Les Orsans. » Il ne lève pas sa trompe. Il te regarde encore. « Ils ont des yeux d'enfant, alors. On ne m'avait pas dit. »",
       "Il descend. Lentement, marche après marche. En bas, il pose sa trompe contre le mur de la tour, et il part, à pied, vers les tours blanches, sans se retourner. C'est la première fois depuis trois cents ans qu'il tourne le dos au nord.",
     ],
-    choices: [{ label: "Revenir sur la plaine", to: "III_plaine" }] }),
+    choices: [{ back: "III_plaine" }] }),
 };

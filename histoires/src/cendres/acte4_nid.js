@@ -61,13 +61,13 @@ module.exports = {
     choices: [] }),
   IV_N_berceaux_fin: P({ title: "Le givre", place: "moutier",
     text: ["Quand c'est fini, il ne reste par terre que des choses ordinaires, cassées, mouillées. Une cuillère tordue. Un gant déchiré. Elles ne bougent plus. Tu ne sais pas si tu as tué quelque chose, ou seulement empêché quelque chose de naître. Tu ne sais pas s'il y a une différence."],
-    choices: [{ label: "Revenir à la salle des galeries", to: "IV_N_galeries" }] }),
+    choices: [{ back: "IV_N_galeries" }] }),
   IV_N_berceaux_sac: P({ title: "Le sac", place: "moutier",
     text: [
       "Ça prend longtemps. Tu les mets dans ton sac, dans tes poches, dans ta chemise. Au contact de ta main chaude, le givre fond, et ils redeviennent des choses : une cuillère, un gant, un dé. Ils ont l'air soulagés, si une cuillère peut avoir l'air de quelque chose.",
       "Tu les déposeras au moutier, sur la table du réfectoire. Frère Odon les exposera, sous le cloître, avec un écriteau : OBJETS TROUVÉS. Personne ne viendra les chercher. Mais quelqu'un, un jour, reconnaîtra peut-être un gant.",
     ],
-    choices: [{ label: "Revenir à la salle des galeries", to: "IV_N_galeries" }] }),
+    choices: [{ back: "IV_N_galeries" }] }),
 
   IV_N_reserve: P({ title: "La réserve", place: "moutier",
     text: [
@@ -88,10 +88,10 @@ module.exports = {
       { with: "corbe", text: "Là-haut, sur la montagne, quelque part, quelqu'un vient peut-être de retrouver le nom de son chien." },
       { without: "corbe", text: "Là-haut, sur la montagne, quelque part, quelqu'un vient peut-être de retrouver un nom qu'il croyait donné pour toujours." },
     ],
-    choices: [{ label: "Revenir à la salle des galeries", to: "IV_N_galeries" }] }),
+    choices: [{ back: "IV_N_galeries" }] }),
   IV_N_reserve_rate: P({ title: "Trop épais", place: "moutier",
     text: ["La glace ne cède pas. Tu t'y brises les phalanges. Elle a été faite pour durer, par quelque chose qui avait tout le temps. Tu laisses les noms à leur mur, en te promettant de revenir. Tu sais déjà que tu ne reviendras pas."],
-    choices: [{ label: "Revenir à la salle des galeries", to: "IV_N_galeries" }] }),
+    choices: [{ back: "IV_N_galeries" }] }),
 
   IV_N_pont: P({ title: "Le pont de glace", place: "moutier",
     text: [
@@ -161,8 +161,8 @@ module.exports = {
       "Au moutier, les trois enfants jouent dans le cloître, avec des osselets. Tu ouvres la main au-dessus de chacun. Ils ne remarquent rien. Puis la plus petite lève la tête, et dit, à personne en particulier : « Je m'appelle Jehanne. » Et elle se remet à jouer.",
       "Frère Odon pleure dans sa manche. Il dit que c'est le froid.",
     ],
-    choices: [{ label: "Revenir au moutier", fx: { quest: "IV_Q_nid", flag: "iv:nid_enfants" }, to: "IV_moutier" }] }),
+    choices: [{ fx: { quest: "IV_Q_nid", flag: "iv:nid_enfants" }, back: "IV_moutier" }] }),
   IV_N_remonter: P({ title: "Le jour", place: "moutier",
     text: ["Tu remontes à la corde, longtemps, jusqu'à la lumière. Au moutier, les trois enfants jouent toujours dans le cloître, sans nom. Frère Odon ne te demande rien. Il a vu ta tête."],
-    choices: [{ label: "Revenir au moutier", fx: { quest: "IV_Q_nid" }, to: "IV_moutier" }] }),
+    choices: [{ fx: { quest: "IV_Q_nid" }, back: "IV_moutier" }] }),
 };

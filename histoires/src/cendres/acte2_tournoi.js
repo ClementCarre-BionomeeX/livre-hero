@@ -4,7 +4,7 @@
 // their knights. Each returns to the camp.
 var S = { act: "II", place: "vasselin", noLead: true };
 function P(o) { return Object.assign({}, S, o); }
-var BACK = [{ label: "Revenir au camp des champions", to: "II_S3_soir" }];
+var BACK = [{ back: "II_S3_soir" }];
 module.exports = {
   II_S3_heraut: P({ title: "Le héraut",
     text: [
@@ -35,7 +35,7 @@ module.exports = {
       "Tu défais les courroies, une à une, comme on te l'a appris à la cour pour les chevaliers de la reine, les soirs de fête. Il se laisse faire. Il s'appelle Enguerrand de Valtorte. Il a fait quarante tournois. Celui-ci est le dernier ; il le savait en arrivant.",
       "Quand il est en chemise, il s'assied sur un tabouret, et il te dit, sans que tu demandes : « Demain, dans la mêlée, dis à ton champion de ne jamais se laisser tourner face au soleil. Ils attendent ça. À midi, ils poussent tous pour vous mettre le sud en face. Celui qui a le soleil dans les yeux tombe le premier. » Il tend la main vers une gourde. « Quarante tournois. Il faut bien que ça serve à quelqu'un. »",
     ],
-    choices: [{ label: "Revenir au camp des champions", fx: { flag: "sud3:conseil" }, to: "II_S3_soir" }] }),
+    choices: [{ fx: { flag: "sud3:conseil" }, back: "II_S3_soir" }] }),
   II_S3_enfants: P({ title: "Les enfants du tournoi",
     text: [
       "Entre les tentes, à la lueur des feux, une bande d'enfants joue au tournoi. Des épées de bois, des couvercles pour boucliers, des bâtons pour chevaux. Ils se sont distribué les champions : « Moi, je suis le Lion d'or ! — Moi, les Trois Tours ! »",

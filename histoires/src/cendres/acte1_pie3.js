@@ -23,14 +23,14 @@ module.exports = {
     ],
     choices: [
       { label: "Le lui acheter", fx: { gold: -1, item: "sifflet_linette", ep: ["perso", 300] }, to: "PI_k_brocante_achat" },
-      { label: "Repartir les mains vides", to: "PI_ville" },
+      { label: "Repartir les mains vides", back: "PI_ville" },
     ] }),
   PI_k_brocante_achat: P({ title: "Deux liards",
     text: ["Tu paies. Elle te tend le sifflet, et en plus, sans rien dire, la mèche de cheveux au fil rouge, qu'elle te glisse dans la main. Tu la regardes. « Personne ne la prendra, dit-elle. Et toi, tu as une tête à garder les choses. » Ce ne sont pas les cheveux de Linette. Ce sont ceux de quelqu'un. Tu les gardes quand même. Tu ne sais pas ce que tu en feras."],
-    choices: [{ label: "Revenir dans les bas-quartiers", to: "PI_ville" }] }),
+    choices: [{ back: "PI_ville" }] }),
   PI_k_brocante_vol: P({ title: "Le sifflet",
     text: ["Ta main passe au ras de la couverture, et le sifflet n'est plus là. La vieille n'a rien vu. Ou si : elle lève les yeux, au moment où tu te relèves, et elle te fait un petit signe de tête, à peine, comme on salue un confrère. Elle savait. Elle a laissé faire. Tu ne sauras jamais pourquoi."],
-    choices: [{ label: "Revenir dans les bas-quartiers", to: "PI_ville" }] }),
+    choices: [{ back: "PI_ville" }] }),
   PI_k_brocante_prise: P({ title: "Une main sèche",
     text: ["Une main sèche se referme sur ton poignet, le sifflet encore dans ta paume. « Un sou, dit la vieille, calmement. Pas un de moins. Les objets d'ici ont déjà été volés une fois, petit. » Elle ne te lâche pas. Elle attend. Tu as honte, tout à coup, et ce n'est pas d'avoir été pris."],
     choices: [

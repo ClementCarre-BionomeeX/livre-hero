@@ -3,7 +3,7 @@
 // frozen in the walls like flies in amber. Freeing one (iv:nid_echo) helps to speak to the old Glaneuse.
 var A = { act: "IV", noLead: true, place: "moutier" };
 function P(o) { return Object.assign({}, A, o); }
-var BACK = [{ label: "Revenir dans la salle des galeries", to: "IV_N_galeries" }];
+var BACK = [{ back: "IV_N_galeries" }];
 var RENDU = { has: "nord:rendu=sauvelune" };
 module.exports = {
   IV_N_echos: P({ title: "La galerie des échos",

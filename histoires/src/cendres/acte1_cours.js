@@ -23,22 +23,22 @@ module.exports = {
       "Hugues hoche la tête. Il reprend son marteau. Il ne dit rien. Il ne te regarde plus. Le bruit du marteau te suit dans la cour, régulier, jusqu'au soir, et le soir encore, quand tu essaies de dormir.",
       "Tu as donné des ordres plus durs. Tu en as donné, sur la Lisse, que tu ne te rappelles plus. Celui-là, tu te le rappelleras. Tu le sais en sortant de la forge.",
     ],
-    choices: [{ label: "Retourner dans la cour", fx: { quest: "YS_Q_forge" }, to: "YS_cour" }] }),
+    choices: [{ fx: { quest: "YS_Q_forge" }, back: "YS_cour" }] }),
   YS_Q_forge_corde: YS({ title: "La corde",
     text: [
       "Hugues pose son marteau. Il regarde la pile de fers. Puis il prend la pile à bras-le-corps, et il la verse dans le bac à charbon, d'un coup, avec un bruit de cloche qui tombe.",
       "« Une corde, dit-il. C'est plus long à défaire, une corde. Mais ça ne marque pas les poignets. » Il s'essuie les mains. « Votre père aurait dit pareil. » Tu ne sais pas si c'est vrai. Tu ne lui demandes pas.",
     ],
-    choices: [{ label: "Retourner dans la cour", fx: { quest: "YS_Q_forge" }, to: "YS_cour" }] }),
+    choices: [{ fx: { quest: "YS_Q_forge" }, back: "YS_cour" }] }),
   YS_Q_forge_mauvais: YS({ title: "Le fer aigre",
     text: [
       "Hugues te regarde, longtemps. Puis il sourit, pour la première fois depuis que tu es entrée, un sourire de travers dans la barbe noire. « Du fer aigre, dit-il. Trempé trop vite. Ça a l'air de tenir. Ça casse au premier coup de pierre. » Il reprend son marteau. « Je ne sais pas faire de mauvais fers, capitaine. Mais pour vous, je vais apprendre. »",
       "Le soir, il en dépose une paire sur ta table, sans un mot. Tu la prends. Tu la frappes sur le bord de la table. Elle se brise net, en deux, comme du sucre.",
     ],
-    choices: [{ label: "Retourner dans la cour", fx: { quest: "YS_Q_forge" }, to: "YS_cour" }] }),
+    choices: [{ fx: { quest: "YS_Q_forge" }, back: "YS_cour" }] }),
   YS_Q_forge_refus: YS({ title: "Le métier",
     text: ["« Non, dit Hugues. Un mauvais fer, c'est un fer qui casse au mauvais moment. Sur un cheval, sur une herse. Je ne fais pas ça. Pas même pour vous. » Il te regarde. « Si vous ne voulez pas de fers, dites-le. Mais dites-le, capitaine. Ne me demandez pas de mentir à votre place. » Il attend. Tu ne dis rien. Il reprend son marteau."],
-    choices: [{ label: "Retourner dans la cour", fx: { quest: "YS_Q_forge", flag: "ysolde:fers=faits" }, to: "YS_cour" }] }),
+    choices: [{ fx: { quest: "YS_Q_forge", flag: "ysolde:fers=faits" }, back: "YS_cour" }] }),
 
   // ---------------------------------------------------------------- Vasselin : la couturière
   LI_Q_ourlet: LI({ title: "La couturière de la reine",
@@ -58,19 +58,19 @@ module.exports = {
       "Elle lève les yeux. « Le vôtre ? Ça ne se fait pas. » Puis elle réfléchit, l'aiguille en l'air. « Mais vous êtes chanteuse. Une chanteuse, ça a besoin de se rappeler qui chante. » Elle coud. Huit lettres, en rouge, à l'envers de la soie, là où personne ne les verra.",
       "Tu les sens, après, quand tu marches. Un petit relief contre ta cheville. Tu n'y penses pas. Tu y penseras.",
     ],
-    choices: [{ label: "Redescendre à la cour", fx: { quest: "LI_Q_ourlet" }, to: "LI_cour" }] }),
+    choices: [{ fx: { quest: "LI_Q_ourlet" }, back: "LI_cour" }] }),
   LI_Q_ourlet_ilan: LI({ title: "Ilan",
     text: [
       "Elle ne demande pas qui c'est. Elle coud. Quatre lettres. Elle fait un nœud, coupe le fil avec les dents, et dit, sans te regarder : « C'est un nom de Corvanne. » Tu ne réponds pas. Elle lisse l'ourlet. « Je ne l'ai pas cousu. Je n'ai rien vu. Mais il est là. »",
     ],
-    choices: [{ label: "Redescendre à la cour", fx: { quest: "LI_Q_ourlet" }, to: "LI_cour" }] }),
+    choices: [{ fx: { quest: "LI_Q_ourlet" }, back: "LI_cour" }] }),
   LI_Q_ourlet_heloise: LI({ title: "Héloïse",
     text: [
       "Elle s'arrête. Personne ne lui a jamais demandé ça. Elle a cousu des milliers de noms dans des milliers d'ourlets, depuis quarante ans, des noms d'amants, d'enfants morts, de rois, et jamais le sien.",
       "Elle coud. Lentement. *Héloïse.* Puis elle reste agenouillée, l'aiguille à la main, à regarder les lettres rouges, et elle dit : « Je ne savais pas que c'était si joli, écrit. »",
       "Quand tu pars, elle t'appelle depuis la porte. « Mademoiselle ! Si vous dansez, à la Fête, dansez bien. Je serai là. »",
     ],
-    choices: [{ label: "Redescendre à la cour", fx: { quest: "LI_Q_ourlet" }, to: "LI_cour" }] }),
+    choices: [{ fx: { quest: "LI_Q_ourlet" }, back: "LI_cour" }] }),
 
   // ---------------------------------------------------------------- Le camp : les couleurs
   CO_k_couleurs: CO({ title: "Les couleurs du rite",
@@ -88,5 +88,5 @@ module.exports = {
       "« Quand une Bouche mange un nom, dit la deuxième, elle le mange avec du blanc autour. Sinon il ne passe pas. » Elle rit, sans dents. « Personne ne sait plus pourquoi. On le fait, c'est tout. »",
       "La troisième, qui n'avait rien dit, ajoute, très bas, en regardant le nord : « Ma grand-mère disait que le blanc, ce n'était pas une couleur. C'était un pays. »",
     ],
-    choices: [{ label: "Revenir au camp", to: "CO_camp" }] }),
+    choices: [{ back: "CO_camp" }] }),
 };

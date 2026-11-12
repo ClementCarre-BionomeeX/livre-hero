@@ -11,6 +11,9 @@
   var DOC_MAX_CHARS = 240000;              // stay under the db's 256 KiB per document (choice: margin for encoding)
   var TTS_LINE_MAX = 1900;                 // tts takes up to 2,000 characters a line
   var LOCAL = "livre-heros:";
+  var PLAY_GAP_MS = 3 * 60 * 1000;         // play time counts at most 3 minutes between two choices (a pause is not play)
+  var MARKS_MAX = 8;                       // named bookmarks kept per game
+  var RECIT_CHARS = 180000;                // one part of a game's story ("Mon aventure") stays under the db document limit
   var COLORS = ["#2c7464", "#8f6512", "#65448a", "#a13b2a", "#2f5f8f", "#5b6b2a"];
 
   // ------------------------------------------------------------------ small helpers
@@ -128,6 +131,7 @@
   var A = {
     screen: "home", profiles: [], profile: null, builtins: {}, imported: [], games: [], notice: "", importReport: null,
     create: null, game: null, carnet: null, carnetTab: "heros", confirmDel: null, tts: null, speaking: false, downloads: null, busy: true,
+    modal: null, recap: false, rollAnim: false, open: {}, essai: null, ed: null, recit: null,
   };
   var app = document.getElementById("app");
 
@@ -174,6 +178,7 @@
     app.textContent = "";
     try { renderScreen(); }
     catch (e) {
+      try { console.error("render: " + (e && e.stack)); } catch (x) { /* no console */ }
       app.textContent = "";
       app.appendChild(h("main", { class: "wrap read create" },
         h("h1", null, "Cette page n'a pas pu s'afficher"),
@@ -191,7 +196,13 @@
     else if (A.screen === "msetup") renderMultiSetup();
     else if (A.screen === "mcache") renderMultiCache();
     else if (A.screen === "salle") renderSalle();
+    else if (A.screen === "essai") renderEssai();
+    else if (A.screen === "editor") renderEditor();
+    else if (A.screen === "recit") renderRecit();
     if (A.carnet) renderCarnet();
+    if (A.modal) renderModal();
+    applyPrefs();
+    Ambiance.update();
   }
 
   function topBar(children) { return h("header", { class: "top" }, h("div", { class: "wrap" }, children)); }
@@ -228,7 +239,8 @@
         ? h("div", { class: "confirm small" }, "Retirer " + cur.name + (theirs.length ? " et ses " + theirs.length + " partie" + (theirs.length > 1 ? "s" : "") : "") + " ?",
             h("button", { class: "btn sm danger", onclick: function () { removeProfile(cur, theirs); } }, "Oui, retirer"),
             h("button", { class: "btn sm", onclick: function () { A.confirmDelProfile = null; render(); } }, "Non"))
-        : h("div", null, h("button", { class: "btn ghost sm", onclick: function () { A.confirmDelProfile = cur.id; render(); } }, "Retirer " + cur.name)));
+        : h("div", { class: "row" }, h("button", { class: "btn sm", onclick: function () { A.modal = { kind: "prefs" }; render(); } }, "⚙ Réglages de lecture de " + cur.name),
+            h("button", { class: "btn ghost sm", onclick: function () { A.confirmDelProfile = cur.id; render(); } }, "Retirer " + cur.name)));
     }
     w.appendChild(prof);
 
@@ -241,7 +253,7 @@
           ? h("span", { class: "confirm small" }, "Effacer cette partie ?", h("button", { class: "btn sm danger", onclick: function () { Store.del("parties", g.id).then(refresh).then(function () { A.confirmDel = null; render(); }); } }, "Oui, effacer"), h("button", { class: "btn sm", onclick: function () { A.confirmDel = null; render(); } }, "Non"))
           : h("button", { class: "btn sm ghost", onclick: function () { A.confirmDel = g.id; render(); } }, "Effacer");
         sg.appendChild(h("div", { class: "save-line" },
-          h("div", { class: "grow" }, h("b", null, g.hero + " · " + g.storyTitle), h("div", { class: "small muted" }, (g.archLabel || "") + " niveau " + (g.level || 1) + " · " + (g.where || "") + (g.ended ? " · terminée" : "") + " · " + when(g.updated))),
+          h("div", { class: "grow" }, h("b", null, g.hero + " · " + g.storyTitle + (g.test ? " (essai)" : "")), h("div", { class: "small muted" }, (g.archLabel || "") + " niveau " + (g.level || 1) + " · " + (g.where || "") + (g.ended ? " · terminée" : "") + " · " + when(g.updated))),
           h("button", { class: "btn primary sm", onclick: function () { openGame(g.id); } }, g.ended ? "Relire la fin" : "Reprendre"), del));
       });
       w.appendChild(sg);
@@ -257,6 +269,7 @@
         h("h3", null, m.title), m.subtitle ? h("div", { class: "sub" }, m.subtitle) : null,
         h("p", null, m.summary),
         h("div", { class: "small muted" }, (m.multi ? "À plusieurs, de " + (m.multi.min || 2) + " à " + (m.multi.max || 6) + " joueurs · " : "") + m.acts + " actes · " + m.passages + " passages" + (m.builtin ? "" : " · importée")),
+        m.multi ? null : renderRecords(m),
         h("div", { class: "row" },
           // Clément, 11/11: stories for several players are written for it; the others stay solo.
           m.multi ? h("button", { class: "btn primary", onclick: function () { multiSetup(m.id); } }, "Jouer à plusieurs")
@@ -280,6 +293,8 @@
       canDownload() ? h("button", { class: "btn sm", onclick: exportBackup }, "Exporter toutes les sauvegardes") : null,
       h("span", { class: "label" }, "Importer une sauvegarde"), bkFile));
     w.appendChild(bk);
+    w.appendChild(renderParents());
+    w.appendChild(renderAtelier());
     app.appendChild(w);
   }
   // Intent: remove(Profile, [Game]) -> () ! deletes(Store)
@@ -342,7 +357,7 @@
   // Why: games played in the claude.ai page live in its db, games played offline live in that device; one file moves
   // readers, games and imported stories from one to the other (Clément, 12/11).
   var BACKUP_FORMAT = "livre-heros-sauvegarde", BACKUP_VERSION = 1;
-  var BACKUP_COLLS = ["profils", "parties", "scenarios", "scenarioParts", "multis", "salles"];
+  var BACKUP_COLLS = ["profils", "parties", "scenarios", "scenarioParts", "multis", "salles", "signalements", "recits"];
   function exportBackup() {
     Promise.all(BACKUP_COLLS.map(function (c) { return Store.list(c); })).then(function (r) {
       var out = { format: BACKUP_FORMAT, version: BACKUP_VERSION, exported: Date.now(), collections: {} };
@@ -384,16 +399,19 @@
     var listeners = [], token = 0;
     var tell = function (state) { listeners.forEach(function (f) { f({ state: state }); }); };
     return {
+      browser: true,
+      voices: function () { return sy.getVoices().filter(function (v) { return /^fr/i.test(v.lang); }).map(function (v) { return v.name; }); },
       onState: function (f) { listeners.push(f); },
       stop: function () { token++; sy.cancel(); tell("idle"); },
       speak: function (lines, opts) {
         var mine = ++token; sy.cancel();
-        var fr = sy.getVoices().filter(function (v) { return /^fr/i.test(v.lang); })[0];
+        var frs = sy.getVoices().filter(function (v) { return /^fr/i.test(v.lang); });
+        var fr = frs.filter(function (v) { return opts && opts.voiceName && v.name === opts.voiceName; })[0] || frs[0];
         return lines.reduce(function (p, l) {
           return p.then(function () {
             if (mine !== token) return;
             return new Promise(function (res) {
-              var u = new SpeechSynthesisUtterance(l.text); u.lang = (opts && opts.language) || "fr-FR"; if (fr) u.voice = fr;
+              var u = new SpeechSynthesisUtterance(l.text); u.lang = (opts && opts.language) || "fr-FR"; if (fr) u.voice = fr; if (opts && opts.rate) u.rate = opts.rate;
               u.onend = res; u.onerror = res; tell("speaking"); sy.speak(u);
             });
           });
@@ -405,7 +423,7 @@
   // ------------------------------------------------------------------ creation
   function newGame(id) {
     loadStory(id).then(function (st) {
-      A.create = { story: st, name: "", arch: "", past: (st.past || []).map(function () { return -1; }), toutJouer: true };
+      A.create = { story: st, name: "", arch: "", past: (st.past || []).map(function () { return -1; }), toutJouer: true, difficulty: "aventurier" };
       A.screen = "create"; render(); window.scrollTo(0, 0);
     }).catch(function (e) { flash(e.message, true); });
   }
@@ -434,6 +452,14 @@
     var tg = h("label", { class: "toggle" }, h("input", { type: "checkbox", checked: C.toutJouer, onchange: function (e) { C.toutJouer = e.target.checked; } }),
       h("span", null, h("b", null, "Tout jouer"), h("br"), h("span", { class: "small muted" }, "Un acte ne se termine qu'une fois toutes ses quêtes faites, petites comprises. Décoche pour pouvoir filer droit.")));
     w.appendChild(tg);
+    if (!C.multi) {
+      var dl = h("div", { class: "archs" });
+      Object.keys(M.DIFFICULTY).forEach(function (k) {
+        var d = M.DIFFICULTY[k];
+        dl.appendChild(h("button", { class: "arch" + (C.difficulty === k ? " on" : ""), "aria-pressed": C.difficulty === k ? "true" : "false", onclick: function () { C.difficulty = k; render(); } }, h("b", null, d.label), h("span", { class: "small muted" }, d.tip)));
+      });
+      w.appendChild(h("div", { class: "stack" }, h("span", { class: "label" }, "Difficulté"), dl));
+    }
     function ready() { return C.name.trim() && C.arch && C.past.every(function (x) { return x >= 0; }); }
     var startBtn = h("button", { class: "btn primary", disabled: !ready(), onclick: startGame }, C.multi && C.multi.next ? C.multi.next : "Commencer la lecture");
     w.appendChild(h("div", { class: "row" }, startBtn, h("span", { class: "small muted" }, "Il faut un nom, une voie et une réponse à chaque question.")));
@@ -441,7 +467,7 @@
   }
   // Intent: build(Creation) -> State = the new hero, his past answers applied, the story started
   function buildState(C) {
-    var st = C.story, s = M.freshState(st, { toutJouer: C.toutJouer });
+    var st = C.story, s = M.freshState(st, { toutJouer: C.toutJouer, difficulty: C.difficulty });
     s.name = C.name.trim(); s.arch = C.arch;
     s.events = [];
     (st.past || []).forEach(function (q, qi) { M.apply(st, s, q.answers[C.past[qi]].fx); });
@@ -454,7 +480,7 @@
     var C = A.create, st = C.story, s = buildState(C);
     if (C.multi) { multiCreated(C, s); return; }
     var g = { id: uid(), profil: A.profile.id, story: st.id, storyTitle: st.title, storyVersion: st.version || 1, created: Date.now() };
-    A.game = { doc: g, story: st, s: s, undo: [], log: [] };
+    A.game = { doc: g, story: st, s: s, undo: [], log: [], recit: { k: 0, pages: [] }, since: Date.now() };
     logStep(); persist();
     A.create = null; A.screen = "game"; render(); window.scrollTo(0, 0);
   }
@@ -492,7 +518,10 @@
       if (!g) throw new Error("Partie introuvable.");
       return loadStory(g.story).then(function (st) {
         g.id = id;
-        A.game = { doc: g, story: st, s: upgradeState(st, JSON.parse(g.state)), undo: g.undo || [], log: g.log || [] };
+        A.game = { doc: g, story: st, s: upgradeState(st, JSON.parse(g.state)), undo: g.undo || [], log: g.log || [], recit: { k: Math.max(0, (g.recitParts || 1) - 1), pages: [] }, since: Date.now() };
+        A.recap = !g.ended && (g.log || []).length > 1;
+        var G0 = A.game;
+        if (g.recitParts) Store.get("recits", g.id + "~" + G0.recit.k).then(function (r) { if (r && r.pages && A.game === G0 && !G0.recit.pages.length) G0.recit.pages = r.pages; });
         if ((g.storyVersion || 1) !== (st.version || 1)) A.notice = "Cette histoire a changé depuis la sauvegarde ; si un passage manque, reprends au choix précédent.";
         A.screen = "game"; A.busy = false; render(); window.scrollTo(0, 0);
       });
@@ -504,12 +533,17 @@
   }
   function persist() {
     if (A.game.multi) { multiPersist(); return; }
+    if (A.game.ephemeral) return;
     var G = A.game, s = G.s, st = G.story, d = G.doc, v = M.view(st, s);
     d.state = JSON.stringify(s); d.undo = G.undo; d.log = G.log; d.updated = Date.now();
     d.hero = s.name; d.arch = s.arch; d.archLabel = (M.ARCHS[s.arch] || {}).label; d.level = M.level(s); d.where = where(st, s) || v.title; d.ended = v.kind === "end";
     while (JSON.stringify(d).length > DOC_MAX_CHARS && d.undo.length) d.undo = d.undo.slice(1);
     while (JSON.stringify(d).length > DOC_MAX_CHARS && d.log.length > 20) d.log = d.log.slice(Math.ceil(d.log.length / 4));
-    var meta = {}; for (var k in d) if (k !== "state" && k !== "undo" && k !== "log") meta[k] = d[k];
+    while (JSON.stringify(d).length > DOC_MAX_CHARS && (d.marks || []).length) d.marks = d.marks.slice(1);
+    d.turns = s.turn || 0;
+    keepRecords(st, s, v, d);
+    saveRecit(G, d);
+    var meta = {}; for (var k in d) if (k !== "state" && k !== "undo" && k !== "log" && k !== "marks") meta[k] = d[k];
     A.allGames = (A.allGames || []).filter(function (g) { return g.id !== d.id; }).concat([meta]);
     A.games = A.allGames.filter(function (g) { return A.profile && g.profil === A.profile.id; }).sort(function (a, b) { return (b.updated || 0) - (a.updated || 0); });
     Store.put("parties", d.id, d).catch(function (e) {
@@ -517,27 +551,45 @@
       if (A.screen === "game") render();
     });
   }
-  function logStep() {
+  // Intent: log(ChoiceLabel?, Others?) -> () = one journal line per page: where, what happened, what was chosen to get
+  // here and how many other ways were left (the timeline, "Précédemment…" and "Mon aventure" read it).
+  function logStep(chosen, others) {
     var G = A.game, s = G.s, v = M.view(G.story, s);
-    G.log.push({ t: M.timeLabel(s), title: v.title, ev: s.events.map(function (e) { return e.text; }) });
+    var last = G.log[G.log.length - 1];
+    if (last && chosen) { last.c = chosen; last.alt = others || 0; }
+    G.log.push({ t: M.timeLabel(s), title: v.title, act: s.lastAct || "", ev: s.events.map(function (e) { return e.text; }) });
     if (G.log.length > LOG_MAX) G.log.splice(0, G.log.length - LOG_MAX);
+    if (G.recit && !G.multi) {
+      var rp = G.recit.pages, prev = rp[rp.length - 1];
+      if (prev && chosen) prev.c = chosen;
+      rp.push({ t: M.timeLabel(s), title: v.title, act: s.lastAct || "", text: v.text.slice(), ev: s.events.filter(function (e) { return /quest|feat|good/.test(e.cls || "") && !/roll/.test(e.cls || ""); }).map(function (e) { return e.text; }).slice(0, 6), end: v.kind === "end" });
+    }
   }
   function pick(c) {
     if (A.game.multi) { multiPick(c); return; }
     var G = A.game;
     stopSpeaking();
+    // Real dice: the reader throws before the engine reads the roll.
+    if (c.test && pref("dice") === "vrais" && !c.diced) { A.modal = { kind: "dice", c: c, rolls: [] }; render(); return; }
+    var before = M.view(G.story, G.s), others = before.choices.filter(function (x) { return x.ok && !x.sys && !x.restart && x !== c && x.label !== c.label; }).length;
     G.undo.push(JSON.stringify(G.s)); if (G.undo.length > UNDO_MAX) G.undo.shift();
+    var queue = (c.diced || []).slice();
+    if (c.diced) M.setDice(function () { return queue.length ? queue.shift() : null; });
     try { M.choose(G.story, G.s, c); }
-    catch (e) { G.s = JSON.parse(G.undo.pop()); A.notice = "Ce choix a buté sur une erreur de l'histoire : " + e.message; render(); return; }
-    A.notice = "";
-    logStep(); persist(); render();
+    catch (e) { M.setDice(null); G.s = JSON.parse(G.undo.pop()); A.notice = "Ce choix a buté sur une erreur de l'histoire : " + e.message; render(); return; }
+    M.setDice(null);
+    A.notice = ""; A.recap = false; A.rollAnim = true;
+    var now = Date.now(); G.doc.playMs = (G.doc.playMs || 0) + Math.min(now - (G.since || now), PLAY_GAP_MS); G.since = now;
+    logStep(c.label, others); persist(); render();
     var top = document.querySelector(".page"); if (top) top.scrollIntoView({ block: "start", behavior: "smooth" });
+    if (pref("autoRead") && A.tts) speak(M.view(G.story, G.s));
   }
   function undo() {
     if (A.game.multi) { multiUndo(); return; }
     var G = A.game; if (!G.undo.length) return;
     stopSpeaking();
     G.s = upgradeState(G.story, JSON.parse(G.undo.pop())); G.s.events = [{ text: "Tu reviens au choix précédent.", cls: "" }];
+    if (G.recit && G.recit.pages.length > 1) G.recit.pages.pop();
     persist(); render();
   }
   function paraNum(st, id) {
@@ -567,6 +619,8 @@
     w.appendChild(h("div", { class: "acts", title: cur >= 0 ? acts[cur].title : "" }, acts.map(function (a, i) { return h("span", { class: i < cur ? "done" : i === cur ? "on" : "" }); })));
     var page = h("article", { class: "page read" });
     var num = v.passage ? paraNum(st, s.node) : null;
+    var vig = Vignette.of(st, s); if (vig) page.appendChild(vig);
+    var rc = A.recap && !G.multi ? renderRecap(G) : null; if (rc) page.appendChild(rc);
     page.appendChild(h("div", { class: "page-head" }, h("div", null, h("h2", null, v.title || ""), h("div", { class: "where" }, [cur >= 0 ? acts[cur].title : null, where(st, s)].filter(Boolean).join(" · "))), num ? h("span", { class: "para-num", title: "Numéro du paragraphe" }, "§ " + num) : null));
     if (A.notice) page.appendChild(h("div", { class: "notice" }, A.notice));
     var prose = h("div", { class: "prose" });
@@ -576,7 +630,8 @@
     else v.text.forEach(function (t) { prose.appendChild(h("p", { html: md(t) })); });
     page.appendChild(prose);
     // Clues, items and rolls come after the text (Clément, 11/11: at the top they broke the reading).
-    if (s.events && s.events.length) page.appendChild(h("div", { class: "events", role: "status" }, s.events.map(function (e) { return h("div", { class: "ev " + (e.cls || "") }, e.text); })));
+    if (s.events && s.events.length) page.appendChild(h("div", { class: "events", role: "status" }, s.events.map(function (e) { return h("div", { class: "ev " + (e.cls || "") }, rollBadge(e), e.text); })));
+    A.rollAnim = false;
     if (v.kind === "combat") page.appendChild(renderFight(s));
     if (G.multi && v.wait) page.appendChild(renderWait(v));
     else page.appendChild(renderChoices(v));
@@ -587,7 +642,11 @@
       G.multi && A.multi.kind === "local" && !v.wait ? h("button", { class: "btn sm", onclick: function () { stopSpeaking(); passTurn(); } }, "Passer la main") : null,
       A.tts ? h("button", { class: "btn sm", onclick: function () { A.speaking ? stopSpeaking() : speak(v); } }, A.speaking ? "■ Arrêter la lecture" : "🔈 Lire à voix haute") : null,
       h("button", { class: "btn sm", onclick: function () { A.carnet = true; A.carnetTab = "carte"; render(); } }, "Carte"),
-      h("button", { class: "btn sm", onclick: function () { A.carnet = true; A.carnetTab = "quetes"; render(); } }, "Quêtes")));
+      h("button", { class: "btn sm", onclick: function () { A.carnet = true; A.carnetTab = "quetes"; render(); } }, "Quêtes"),
+      G.multi ? null : h("button", { class: "btn sm", onclick: function () { A.modal = { kind: "mark" }; render(); } }, "🔖 Marque-page"),
+      h("button", { class: "btn sm", "aria-pressed": pref("ambiance") ? "true" : "false", onclick: function () { setPref("ambiance", !pref("ambiance")); } }, pref("ambiance") ? "🔊 Ambiance" : "🔇 Ambiance"),
+      h("button", { class: "btn sm", onclick: function () { A.modal = { kind: "prefs" }; render(); } }, "⚙ Réglages"),
+      h("button", { class: "btn sm", onclick: function () { A.modal = { kind: "report" }; render(); } }, "⚑ Signaler")));
     app.appendChild(w);
   }
   // Intent: render(State) -> Element = foes with their states, then our side in two ranks with PV
@@ -636,8 +695,10 @@
     var qs = M.questsOf(st), done = qs.filter(function (q) { return M.questDone(s, q); });
     return h("div", { class: "ending" }, h("h3", null, "Fin de la lecture"),
       h("div", { class: "small muted" }, s.name + ", " + (M.ARCHS[s.arch] || {}).label + " de niveau " + M.level(s) + (qs.length ? " · " + done.length + " quêtes sur " + qs.length : "") + " · " + M.timeLabel(s)),
+      A.game && !A.game.multi ? endingNote(st, s) : null,
       h("div", { class: "row" },
         A.game && A.game.multi ? null : h("button", { class: "btn primary", onclick: function () { newGame(st.id); } }, "Relire avec un autre héros"),
+        A.game && !A.game.multi ? h("button", { class: "btn", onclick: function () { openRecit(); } }, "📖 Mon aventure") : null,
         h("button", { class: "btn", onclick: function () { A.carnet = true; A.carnetTab = "quetes"; render(); } }, "Ce que tu as fait"),
         h("button", { class: "btn ghost", onclick: leaveGame }, "Bibliothèque")));
   }
@@ -896,6 +957,8 @@
   }
   function leaveGame() {
     stopSpeaking();
+    A.recap = false;
+    if (A.game && A.game.ephemeral) { A.screen = A.game.back || "home"; A.game = null; A.carnet = null; render(); return; }
     if (A.multi && A.multi.unsub) A.multi.unsub.forEach(function (u) { try { u(); } catch (e) { /* already closed */ } });
     A.multi = null; A.game = null; A.carnet = null; A.screen = "home"; refresh().then(render);
   }
@@ -1068,12 +1131,14 @@
     var out = [];
     lines.forEach(function (l) { var t = l.text; while (t.length > TTS_LINE_MAX) { var cut = t.lastIndexOf(". ", TTS_LINE_MAX); cut = cut > 0 ? cut + 1 : TTS_LINE_MAX; out.push({ text: t.slice(0, cut) }); t = t.slice(cut).trim(); } if (t) out.push({ text: t }); });
     A.speaking = true; render();
-    A.tts.speak(out, { language: "fr-FR" }).catch(function () {}).then(function () { A.speaking = false; render(); });
+    var o = { language: "fr-FR", rate: pref("rate") || 1 };
+    if (A.tts.browser) o.voiceName = pref("voice") || ""; else if (CLAUDE_VOICES[pref("voice")]) o.voice = pref("voice");
+    A.tts.speak(out, o).catch(function () {}).then(function () { A.speaking = false; render(); });
   }
   function stopSpeaking() { if (A.tts && A.speaking) { try { A.tts.stop(); } catch (e) { /* ignore */ } A.speaking = false; } }
 
   // ------------------------------------------------------------------ the notebook
-  var TABS = [["heros", "Héros"], ["sac", "Sac"], ["quetes", "Quêtes"], ["indices", "Indices"], ["compagnons", "Compagnons"], ["carte", "Carte"], ["gens", "Gens"], ["journal", "Journal"], ["coulisses", "Coulisses"]];
+  var TABS = [["heros", "Héros"], ["sac", "Sac"], ["quetes", "Quêtes"], ["indices", "Indices"], ["compagnons", "Compagnons"], ["carte", "Carte"], ["gens", "Gens"], ["frise", "Frise"], ["marques", "Marque-pages"], ["exploits", "Hauts faits"], ["journal", "Journal"], ["coulisses", "Coulisses"]];
   function renderCarnet() {
     var G = A.game; if (!G) { A.carnet = null; return; }
     var close = function () { A.carnet = null; render(); };
@@ -1082,7 +1147,7 @@
     d.appendChild(h("div", { class: "drawer-head" }, h("h2", null, "Carnet de " + G.s.name), h("button", { class: "btn sm", onclick: close }, "Fermer")));
     d.appendChild(h("nav", { class: "tabs" }, TABS.map(function (t) { return h("button", { class: "tab" + (A.carnetTab === t[0] ? " on" : ""), onclick: function () { A.carnetTab = t[0]; render(); } }, t[1]); })));
     var body = h("div", { class: "drawer-body" });
-    ({ heros: tabHero, sac: tabBag, quetes: tabQuests, indices: tabClues, compagnons: tabCompanions, carte: tabMap, gens: tabPeople, journal: tabLog, coulisses: tabBackstage })[A.carnetTab](body, G.story, G.s);
+    ({ heros: tabHero, sac: tabBag, quetes: tabQuests, indices: tabClues, compagnons: tabCompanions, carte: tabMap, gens: tabPeople, frise: tabFrise, marques: tabMarks, exploits: tabFeats, journal: tabLog, coulisses: tabBackstage })[A.carnetTab](body, G.story, G.s);
     d.appendChild(body);
     app.appendChild(bg); app.appendChild(d);
   }
@@ -1090,7 +1155,7 @@
   function bar(cls, v, max) { return h("span", { class: "bar " + cls }, h("i", { style: "width:" + Math.max(0, Math.min(100, Math.round(100 * v / max))) + "%" })); }
   function tabHero(b, st, s) {
     var a = M.ARCHS[s.arch] || {}, lv = M.level(s), into = s.ep - lv * M.EP_PER_LEVEL;
-    b.appendChild(h("div", null, h("div", { class: "label" }, a.label + " · niveau " + lv), h("div", { class: "small muted" }, a.tip)));
+    b.appendChild(h("div", null, h("div", { class: "label" }, a.label + " · niveau " + lv), h("div", { class: "small muted" }, a.tip + " Difficulté : " + (M.DIFFICULTY[s.difficulty || "aventurier"] || {}).label + ".")));
     b.appendChild(h("div", { class: "kv" },
       h("span", null, "Points de vie"), bar("pv", s.pv, M.pvMax(s)), h("span", { class: "num" }, s.pv + "/" + M.pvMax(s)),
       h("span", null, "Expérience"), bar("", into, M.EP_PER_LEVEL), h("span", { class: "num" }, s.ep.toLocaleString("fr-FR") + " EP"),
@@ -1181,20 +1246,35 @@
     var root = svg("svg", { viewBox: "0 0 100 80", role: "img", "aria-label": "Carte des lieux connus" });
     (W.routes || []).forEach(function (r) {
       var a = places[r.from], z = places[r.to]; if (!a || !z || !onMap(r.from) || !(s.known[r.from] && s.known[r.to])) return;
-      root.appendChild(svg("line", { x1: a.x, y1: a.y, x2: z.x, y2: z.y, stroke: "var(--muted)", "stroke-width": s.routesDone[r.id] ? 0.7 : 0.4, "stroke-dasharray": s.routesDone[r.id] ? "" : "1.2 1.2" }));
+      // a drawn road: a gentle bend, the same for a route every time (its id seeds it)
+      var bend = ((hash(r.id) % 100) / 100 - 0.5) * 0.35, mx = (a.x + z.x) / 2 - (z.y - a.y) * bend, my = (a.y + z.y) / 2 + (z.x - a.x) * bend;
+      root.appendChild(svg("path", { d: "M" + a.x + " " + a.y + " Q" + mx.toFixed(2) + " " + my.toFixed(2) + " " + z.x + " " + z.y, fill: "none", stroke: "var(--muted)", "stroke-linecap": "round", "stroke-width": s.routesDone[r.id] ? 0.7 : 0.4, "stroke-dasharray": s.routesDone[r.id] ? "" : "1.2 1.2" }));
     });
     Object.keys(places).forEach(function (k) {
       if (!s.known[k] || !onMap(k)) return; var p = places[k], isHere = s.place === k;
-      root.appendChild(svg("circle", { cx: p.x, cy: p.y, r: isHere ? 2 : 1.3, fill: isHere ? "var(--accent)" : "var(--ink)" }));
-      root.appendChild(svg("text", { x: p.x + 2.4, y: p.y + 1 }, p.name));
+      var ic = MAP_ICONS[p.ambiance];
+      if (ic) root.appendChild(svg("path", { d: ic, transform: "translate(" + p.x + " " + (p.y - 0.6) + ")", fill: isHere ? "var(--accent)" : "var(--ink)" }));
+      else root.appendChild(svg("circle", { cx: p.x, cy: p.y, r: isHere ? 2 : 1.3, fill: isHere ? "var(--accent)" : "var(--ink)" }));
+      if (ic && isHere) root.appendChild(svg("circle", { cx: p.x, cy: p.y, r: 3.4, fill: "none", stroke: "var(--accent)", "stroke-width": 0.4 }));
+      root.appendChild(svg("text", { x: p.x + (ic ? 3.2 : 2.4), y: p.y + 1 }, p.name));
     });
     if (s.travel) {
       var r = (W.routes || []).filter(function (x) { return x.id === s.travel.route; })[0], f = places[s.travel.from], t = places[s.travel.to];
       if (r && f && t) { var k = s.travel.step / s.travel.total; root.appendChild(svg("circle", { cx: f.x + (t.x - f.x) * k, cy: f.y + (t.y - f.y) * k, r: 1.6, fill: "var(--accent)" })); }
     }
+    // compass rose
+    root.appendChild(svg("path", { d: "M94 4 L95.2 8 L94 7.3 L92.8 8 Z", fill: "var(--muted)" }));
+    root.appendChild(svg("text", { x: 93.3, y: 3.4, "font-size": 2.4, fill: "var(--muted)" }, "N"));
     b.appendChild(h("div", { class: "map" }, root));
     Object.keys(places).forEach(function (k) { if (s.known[k] && onMap(k)) b.appendChild(h("div", { class: "small" }, h("b", null, places[k].name), " · ", h("span", { class: "muted" }, places[k].desc || ""))); });
   }
+  // Little drawn signs for the map, by place ambiance (centred on the place, about 4 units wide).
+  var MAP_ICONS = {
+    foret: "M-1.8 1.2 L0 -2.4 L1.8 1.2 Z M-0.3 1.2 h0.6 v0.8 h-0.6 Z", montagne: "M-2.4 1.4 L-0.6 -2 L0.4 -0.4 L1.1 -1.3 L2.6 1.4 Z", neige: "M-2.4 1.4 L-0.6 -2 L0.4 -0.4 L1.1 -1.3 L2.6 1.4 Z",
+    ville: "M-2 1.4 V-0.6 L-1 -1.6 L0 -0.6 V1.4 Z M0.4 1.4 V-1.4 L1.3 -2.4 L2.2 -1.4 V1.4 Z", village: "M-1.6 1.2 V-0.4 L0 -1.8 L1.6 -0.4 V1.2 Z", chateau: "M-2 1.4 V-1.6 h0.8 v0.6 h0.8 v-0.6 h0.8 v0.6 h0.8 v-0.6 h0.8 V1.4 Z",
+    temple: "M-2 1.4 V-0.4 L0 -1.8 L2 -0.4 V1.4 Z", souterrain: "M-2 1.4 Q-2 -1.8 0 -1.8 Q2 -1.8 2 1.4 h-1.2 Q0.8 -0.6 0 -0.6 Q-0.8 -0.6 -0.8 1.4 Z",
+    eau: "M-2 0 q1 -1 2 0 q1 1 2 0 v0.6 q-1 1 -2 0 q-1 -1 -2 0 Z", mer: "M-2 0 q1 -1 2 0 q1 1 2 0 v0.6 q-1 1 -2 0 q-1 -1 -2 0 Z", champs: "M-2 1 h4 v0.5 h-4 Z M-1.5 0 h3 v0.5 h-3 Z M-1 -1 h2 v0.5 h-2 Z",
+  };
   function tabPeople(b, st, s) {
     var ks = Object.keys(s.people || {});
     if (!ks.length) b.appendChild(h("div", { class: "notice" }, "Personne encore."));
@@ -1220,6 +1300,734 @@
     if (r.sim) out.push(r.sim.games + " parties · fins : " + Object.keys(r.sim.endings).map(function (k) { return k + " ×" + r.sim.endings[k]; }).join(", "));
     return out.concat(r.errors, r.warnings.slice(0, 60)).join("\n");
   }
+
+  // ------------------------------------------------------------------ reading preferences (per reader)
+  // Intent: pref(Key) -> Value = the reader's own setting, else the default
+  // Why: Clément (12/11): text size, spacing, theme, voice, real dice, sound… follow the reader, not the device.
+  var PREFS = { skin: "histoire", size: "m", spacing: "normal", theme: "auto", font: "livre", voice: "", rate: 1, autoRead: false, dice: "ecran", ambiance: false, volume: 0.6 };
+  var SIZES = { s: ["Petit", 16], m: ["Normal", 18], l: ["Grand", 21], xl: ["Très grand", 24] };
+  var SPACINGS = { serre: ["Serré", 1.5], normal: ["Normal", 1.72], aere: ["Aéré", 2] };
+  var THEMES = { auto: "Comme l'appareil", light: "Clair", sepia: "Sépia", dark: "Sombre" };
+  var FONTS = { livre: ["Livre", "var(--serif)"], droite: ["Sans empattement", "var(--sans)"] };
+  // Skins (Clément, 12/11): each story says how its book looks (`skin` in the story); the reader may keep it or choose.
+  var SKINS = { histoire: "Celui de l'histoire", parchemin: "Parchemin", givre: "Givre", sable: "Sable", enluminure: "Enluminure", sobre: "Sobre" };
+  var CLAUDE_VOICES = { buttery: "Chaude", airy: "Légère", glassy: "Claire", rounded: "Ronde" };
+  function prefsOf() { return (A.profile && A.profile.prefs) || lsGet("prefs") || {}; }
+  function pref(k) { var p = prefsOf(); return p[k] != null ? p[k] : PREFS[k]; }
+  function setPref(k, v) {
+    var p = clone(prefsOf()); p[k] = v;
+    if (A.profile) { A.profile.prefs = p; var prof = A.profile; clearTimeout(setPref.t); setPref.t = setTimeout(function () { Store.put("profils", prof.id, prof).catch(function () {}); }, 600); }
+    else lsSet("prefs", p);
+    render();
+  }
+  function applyPrefs() {
+    var r = document.documentElement, th = pref("theme");
+    if (th === "auto") r.removeAttribute("data-theme"); else r.setAttribute("data-theme", th);
+    // the skin: only inside a book (creation, reading, the book of the adventure); the library stays plain
+    var st = (A.screen === "game" || A.screen === "recit") && A.game ? A.game.story : A.screen === "create" && A.create ? A.create.story : null;
+    var sk = pref("skin"); if (sk === "histoire") sk = st && SKINS[st.skin] ? st.skin : "sobre";
+    if (!st || sk === "sobre") r.removeAttribute("data-skin"); else r.setAttribute("data-skin", sk);
+    r.style.setProperty("--read-size", (SIZES[pref("size")] || SIZES.m)[1] + "px");
+    r.style.setProperty("--read-lh", String((SPACINGS[pref("spacing")] || SPACINGS.normal)[1]));
+    r.style.setProperty("--read-font", (FONTS[pref("font")] || FONTS.livre)[1]);
+  }
+  function seg(map, key, label) {
+    return h("div", { class: "stack tight" }, h("span", { class: "label" }, label), h("div", { class: "seg", role: "group", "aria-label": label },
+      Object.keys(map).map(function (k) { var l = Array.isArray(map[k]) ? map[k][0] : map[k]; return h("button", { class: "btn sm" + (pref(key) === k ? " on" : ""), "aria-pressed": pref(key) === k ? "true" : "false", onclick: function () { setPref(key, k); } }, l); })));
+  }
+
+  // ------------------------------------------------------------------ dialogs: settings, report, real dice, bookmark
+  function renderModal() {
+    var m = A.modal, close = function () { A.modal = null; render(); };
+    var box = h("div", { class: "modal", role: "dialog", "aria-modal": "true" });
+    var bg = h("div", { class: "drawer-bg", onclick: close });
+    ({ prefs: modalPrefs, report: modalReport, dice: modalDice, mark: modalMark })[m.kind](box, close, m);
+    app.appendChild(bg); app.appendChild(box);
+    var f = box.querySelector("[autofocus]"); if (f) setTimeout(function () { f.focus(); }, 0);
+  }
+  function modalHead(box, title, close) { box.appendChild(h("div", { class: "drawer-head" }, h("h2", null, title), h("button", { class: "btn sm", onclick: close }, "Fermer"))); }
+  function modalPrefs(box, close) {
+    modalHead(box, "Réglages de lecture" + (A.profile ? " · " + A.profile.name : ""), close);
+    var b = h("div", { class: "drawer-body" });
+    b.appendChild(seg(SKINS, "skin", "Habillage du livre"));
+    b.appendChild(seg(SIZES, "size", "Taille du texte"));
+    b.appendChild(seg(SPACINGS, "spacing", "Interligne"));
+    b.appendChild(seg(FONTS, "font", "Police"));
+    b.appendChild(seg(THEMES, "theme", "Thème"));
+    b.appendChild(h("p", { class: "prose sample" }, "Le vent tourna, et la neige se mit à tomber de biais sur la route."));
+    if (A.tts) {
+      var voices = A.tts.browser ? (A.tts.voices() || []) : Object.keys(CLAUDE_VOICES);
+      var vs = h("select", { "aria-label": "Voix", onchange: function (e) { setPref("voice", e.target.value); } },
+        h("option", { value: "" }, "Voix par défaut"), voices.map(function (v) { return h("option", { value: v, selected: pref("voice") === v }, A.tts.browser ? v : CLAUDE_VOICES[v]); }));
+      var rate = h("input", { type: "range", min: 0.7, max: 1.5, step: 0.05, value: pref("rate"), "aria-label": "Vitesse de lecture", onchange: function (e) { setPref("rate", +e.target.value); } });
+      b.appendChild(h("div", { class: "stack tight" }, h("span", { class: "label" }, "Lecture à voix haute"),
+        h("div", { class: "row" }, vs, h("label", { class: "row small" }, "Vitesse", rate, h("span", { class: "mono" }, "×" + Number(pref("rate")).toFixed(2)))),
+        h("label", { class: "toggle" }, h("input", { type: "checkbox", checked: pref("autoRead"), onchange: function (e) { setPref("autoRead", e.target.checked); } }), h("span", null, h("b", null, "Lire chaque page à voix haute"), h("br"), h("span", { class: "small muted" }, "Après chaque choix, la page suivante est lue sans appuyer sur rien.")))));
+    }
+    b.appendChild(seg({ ecran: "L'écran lance", vrais: "Je lance mes dés" }, "dice", "Les dés"));
+    b.appendChild(h("p", { class: "small muted" }, "Avec tes dés : deux dés à dix faces, un pour les dizaines, un pour les unités (00 = 100). Tu tapes le résultat, le livre fait le calcul. Les compagnons et les adversaires lancent toujours à l'écran."));
+    b.appendChild(h("div", { class: "stack tight" }, h("span", { class: "label" }, "Ambiance sonore"),
+      h("label", { class: "toggle" }, h("input", { type: "checkbox", checked: pref("ambiance"), onchange: function (e) { setPref("ambiance", e.target.checked); } }), h("span", null, h("b", null, "Jouer l'ambiance du lieu"), h("br"), h("span", { class: "small muted" }, "Vent, pluie, forêt, ville, souterrain… composés par l'appareil, sans fichier."))),
+      h("label", { class: "row small" }, "Volume", h("input", { type: "range", min: 0, max: 1, step: 0.05, value: pref("volume"), "aria-label": "Volume de l'ambiance", onchange: function (e) { setPref("volume", +e.target.value); } }))));
+    box.appendChild(b);
+  }
+  function modalReport(box, close) {
+    modalHead(box, "Signaler quelque chose", close);
+    var G = A.game, b = h("div", { class: "drawer-body" });
+    var ta = h("textarea", { rows: 6, autofocus: true, placeholder: "Ce qui cloche : un texte qui ne colle pas, un choix bizarre, un bouton qui ne fait rien…", "aria-label": "Ce qui cloche" });
+    b.appendChild(h("p", { class: "small muted" }, "Avec ta note, le livre garde la page où tu es, l'état de la partie et tes derniers choix. Claude pourra les lire et corriger à partir du vrai cas."));
+    b.appendChild(ta);
+    b.appendChild(h("div", { class: "row" }, h("button", { class: "btn primary", onclick: function () {
+      var note = ta.value.trim(); if (!note) { ta.focus(); return; }
+      var s = G.s, v = M.view(G.story, s), id = uid();
+      var doc = { created: Date.now(), updated: Date.now(), lecteur: A.profile ? A.profile.name : "", profil: A.profile ? A.profile.id : "", story: G.story.id, storyVersion: G.story.version || 1,
+        node: s.node, title: v.title, where: where(G.story, s), note: note, tour: s.turn || 0,
+        derniers: G.log.slice(-6).map(function (e) { return (e.title || "") + (e.c ? " → « " + e.c + " »" : ""); }),
+        evenements: (s.events || []).map(function (e) { return e.text; }), choix: v.choices.map(function (c) { return (c.ok ? "" : "[grisé] ") + c.label + (c.why && !c.ok ? " (" + c.why + ")" : ""); }),
+        state: JSON.stringify(s) };
+      Store.put("signalements", id, doc).then(function () { A.notice = "Merci, c'est noté. Le signalement est enregistré avec la page et la partie."; }, function () { A.notice = "Signalement gardé dans ce navigateur seulement (l'envoi a échoué)."; }).then(render);
+      A.modal = null; A.notice = "Signalement enregistré."; render();
+    } }, "Enregistrer le signalement")));
+    box.appendChild(b);
+  }
+  // Real dice: the first throw, then again while the open roll goes on (96-100 adds, 01-05 subtracts; again on 96+).
+  function modalDice(box, close, m) {
+    var c = m.c;
+    modalHead(box, "À toi de lancer", close);
+    var b = h("div", { class: "drawer-body" });
+    var more = m.rolls.length > 0;
+    b.appendChild(h("p", null, h("b", null, c.label), c.chance != null ? h("span", { class: "muted" }, " · " + c.chance + " % de chances") : null));
+    if (more) b.appendChild(h("div", { class: "notice" }, m.rolls[0] >= 96 ? "Jet ouvert vers le haut ! Relance, ton résultat s'ajoute." : "Jet ouvert vers le bas… Relance, ton résultat se retranche.", " Déjà : " + m.rolls.join(", ") + "."));
+    else b.appendChild(h("p", { class: "small muted" }, "Lance deux dés à dix faces : les dizaines, puis les unités. 00 vaut 100, 0 et 5 font 5."));
+    var inp = h("input", { type: "number", min: 1, max: 100, inputmode: "numeric", autofocus: true, "aria-label": "Résultat des dés", style: "width:7em;font-size:22px" });
+    var go = function () {
+      var x = parseInt(inp.value, 10); if (inp.value.trim() === "00") x = 100;
+      if (!(x >= 1 && x <= 100)) { inp.focus(); return; }
+      m.rolls.push(x);
+      var first = m.rolls[0], again = m.rolls.length === 1 ? (x >= 96 || x <= 5) : x >= 96;
+      if (again) { render(); return; }
+      A.modal = null; pick(Object.assign({}, c, { diced: m.rolls.slice() }));
+    };
+    inp.addEventListener("keydown", function (e) { if (e.key === "Enter") go(); });
+    b.appendChild(h("div", { class: "row" }, inp, h("button", { class: "btn primary", onclick: go }, "Valider"),
+      h("button", { class: "btn ghost", onclick: function () { A.modal = null; pick(Object.assign({}, c, { diced: m.rolls.slice() })); } }, more ? "L'écran lance la suite" : "L'écran lance pour moi")));
+    box.appendChild(b);
+  }
+  function modalMark(box, close) {
+    var G = A.game, s = G.s;
+    modalHead(box, "Poser un marque-page", close);
+    var b = h("div", { class: "drawer-body" });
+    var inp = h("input", { autofocus: true, maxlength: 40, value: (M.view(G.story, s).title || "").replace(/\*/g, "") + " · " + M.timeLabel(s), "aria-label": "Nom du marque-page" });
+    var save = function () {
+      var d = G.doc; d.marks = d.marks || [];
+      d.marks.push({ id: uid(), name: inp.value.trim() || "Marque-page", at: Date.now(), where: where(G.story, s), state: JSON.stringify(s), level: M.level(s) });
+      if (d.marks.length > MARKS_MAX) d.marks = d.marks.slice(-MARKS_MAX);
+      A.modal = null; A.notice = "Marque-page posé : « " + d.marks[d.marks.length - 1].name + " ». Le carnet les garde (onglet Marque-pages)."; persist(); render();
+    };
+    inp.addEventListener("keydown", function (e) { if (e.key === "Enter") save(); });
+    b.appendChild(h("p", { class: "small muted" }, "Tu pourras revenir ici plus tard depuis le carnet, même après bien des choix. Le livre en garde " + MARKS_MAX + " par partie ; au-delà, le plus ancien s'efface."));
+    b.appendChild(h("div", { class: "row" }, inp, h("button", { class: "btn primary", onclick: save }, "Poser")));
+    box.appendChild(b);
+  }
+  function tabMarks(b, st, s) {
+    var G = A.game, marks = (G.doc.marks || []).slice().reverse();
+    if (G.multi) { b.appendChild(h("div", { class: "notice" }, "Pas de marque-pages dans une partie à plusieurs.")); return; }
+    if (!marks.length) b.appendChild(h("div", { class: "notice" }, "Aucun marque-page. Le bouton « 🔖 Marque-page » sous la page en pose un."));
+    marks.forEach(function (mk) {
+      b.appendChild(h("div", { class: "itemrow" }, h("b", null, mk.name), h("span", { class: "small muted" }, when(mk.at) + " · niveau " + (mk.level || "?")),
+        h("div", { class: "row", style: "grid-column:1/-1" },
+          h("button", { class: "btn sm primary", onclick: function () {
+            stopSpeaking();
+            G.undo.push(JSON.stringify(G.s)); if (G.undo.length > UNDO_MAX) G.undo.shift();
+            G.s = upgradeState(st, JSON.parse(mk.state)); G.s.events = [{ text: "Tu reviens au marque-page « " + mk.name + " ». (« Choix précédent » te ramène où tu étais.)", cls: "" }];
+            A.carnet = null; persist(); render(); window.scrollTo(0, 0);
+          } }, "Revenir ici"),
+          h("button", { class: "btn sm ghost", onclick: function () { G.doc.marks = G.doc.marks.filter(function (x) { return x.id !== mk.id; }); persist(); render(); } }, "Effacer"))));
+    });
+  }
+
+  // ------------------------------------------------------------------ "Précédemment…", the timeline, the dice
+  function renderRecap(G) {
+    var lines = G.log.slice(-7, -1).filter(function (e) { return e.title; });
+    if (!lines.length) return null;
+    var keep = /Indice|Quête|rejoint|quitte|Haut fait|Niveau|Acheté|Tu reçois|Tu obtiens/;
+    return h("aside", { class: "recap" }, h("div", { class: "row" }, h("span", { class: "label grow" }, "Précédemment…"), h("button", { class: "btn ghost sm", onclick: function () { A.recap = false; render(); } }, "Fermer")),
+      h("ol", null, lines.map(function (e) {
+        var evs = (e.ev || []).filter(function (x) { return keep.test(x); }).slice(0, 2);
+        return h("li", null, h("b", null, String(e.title).replace(/\*/g, "")), e.c ? h("span", null, " : tu as choisi « " + e.c + " »") : null, evs.length ? h("div", { class: "small muted" }, evs.join(" · ")) : null);
+      })));
+  }
+  var REDUCED = (function () { try { return window.matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) { return false; } })();
+  function rollBadge(e) {
+    if (!/roll/.test(e.cls || "")) return null;
+    var n = e.roll ? e.roll.die : +((/d100 ouvert (?:\([^)]*\) )?(-?\d+)/.exec(e.text) || [])[1]);
+    if (!(n === n) || n == null) return null;
+    var el = h("span", { class: "die", "aria-hidden": "true" }, String(n));
+    if (A.rollAnim && !REDUCED) {
+      el.classList.add("rolling"); var k = 0;
+      var t = setInterval(function () { k++; if (k >= 9) { clearInterval(t); el.textContent = String(n); el.classList.remove("rolling"); return; } el.textContent = String(1 + Math.floor(Math.random() * 100)); }, 55);
+    }
+    return el;
+  }
+  function tabFrise(b, st, s) {
+    var log = A.game.log, acts = {}; (st.acts || []).forEach(function (a) { acts[a.id] = a.title; });
+    if (!log.length) { b.appendChild(h("div", { class: "notice" }, "Rien encore.")); return; }
+    var left = log.reduce(function (n, e) { return n + (e.alt || 0); }, 0);
+    b.appendChild(h("div", { class: "small muted" }, log.length + " pages lues" + (left ? " · " + left + " chemin" + (left > 1 ? "s" : "") + " laissé" + (left > 1 ? "s" : "") + " de côté en route" : "") + (log.length >= LOG_MAX ? " (les plus anciennes ne sont plus gardées)" : "")));
+    var ol = h("ol", { class: "frise" }), lastAct = null;
+    log.forEach(function (e, i) {
+      if (e.act && e.act !== lastAct) { ol.appendChild(h("li", { class: "frise-act" }, acts[e.act] || e.act)); lastAct = e.act; }
+      ol.appendChild(h("li", { class: i === log.length - 1 ? "now" : "" }, h("b", null, String(e.title || "").replace(/\*/g, "")), h("span", { class: "small muted" }, " · " + e.t),
+        e.c ? h("div", { class: "small" }, "→ « " + e.c + " »") : null,
+        e.alt ? h("div", { class: "small muted" }, e.alt + " autre" + (e.alt > 1 ? "s" : "") + " chemin" + (e.alt > 1 ? "s" : "") + " ici") : null));
+    });
+    b.appendChild(ol);
+  }
+
+  // ------------------------------------------------------------------ endings found and feats, per reader
+  // Intent: keep(Story, State, View, GameDoc) -> () ! writes the reader's profile when something new is earned
+  function keepRecords(st, s, v, d) {
+    if (A.game.ephemeral || A.game.multi || d.test) return;
+    var prof = A.profiles.filter(function (p) { return p.id === d.profil; })[0]; if (!prof) return;
+    var rec = prof.records = prof.records || {}, r = rec[st.id] = rec[st.id] || { endings: {}, feats: {} }, changed = false;
+    Object.keys(s.feats || {}).forEach(function (k) { if (!r.feats[k]) { r.feats[k] = Date.now(); changed = true; } });
+    if (v.kind === "end") { var e = M.endingOf(st, s); if (e && !r.endings[e.id]) { r.endings[e.id] = Date.now(); changed = true; } }
+    if (changed) { prof.updated = Date.now(); Store.put("profils", prof.id, prof).catch(function () {}); }
+  }
+  function recordOf(prof, id) { return ((prof && prof.records) || {})[id] || { endings: {}, feats: {} }; }
+  function renderRecords(m) {
+    var st = A.builtins[m.id]; if (!A.profile || !st) return null;
+    var r = recordOf(A.profile, m.id), ends = M.endingsOf(st), feats = M.featsOf(st);
+    var nE = ends.filter(function (e) { return r.endings[e.id]; }).length, nF = feats.filter(function (f) { return r.feats[f.id]; }).length;
+    var key = "rec:" + m.id, open = A.open[key];
+    var box = h("div", { class: "records" }, h("button", { class: "btn ghost sm", "aria-expanded": open ? "true" : "false", onclick: function () { A.open[key] = !open; render(); } },
+      "Fins trouvées : " + nE + " sur " + ends.length + " · Hauts faits : " + nF + " sur " + feats.length + (open ? " ▴" : " ▾")));
+    if (open) {
+      box.appendChild(h("div", { class: "small" }, h("div", { class: "label" }, "Fins de " + A.profile.name),
+        h("ul", { class: "plain" }, ends.map(function (e) { return r.endings[e.id] ? h("li", null, "✦ " + e.title) : h("li", { class: "muted" }, "· · · une fin encore inconnue"); }))));
+      box.appendChild(h("div", { class: "small" }, h("div", { class: "label" }, "Hauts faits"),
+        h("ul", { class: "plain" }, feats.map(function (f) { return r.feats[f.id] ? h("li", null, "★ " + f.title + (f.desc ? " · " : ""), h("span", { class: "muted" }, f.desc)) : f.story ? h("li", { class: "muted" }, "☆ un haut fait caché") : h("li", { class: "muted" }, "☆ " + f.title + " · " + f.desc); }))));
+    }
+    return box;
+  }
+  function endingNote(st, s) {
+    var e = M.endingOf(st, s); if (!e || A.game.ephemeral) return null;
+    var r = recordOf(A.profiles.filter(function (p) { return p.id === A.game.doc.profil; })[0], st.id), n = M.endingsOf(st).filter(function (x) { return r.endings[x.id]; }).length;
+    return h("div", { class: "notice" }, "Fin découverte : « " + e.title + " ». " + (A.profile ? A.profile.name + " en a trouvé " + n + " sur " + M.endingsOf(st).length + "." : ""));
+  }
+  function tabFeats(b, st, s) {
+    var all = M.featsOf(st), mine = s.feats || {};
+    b.appendChild(h("div", { class: "small muted" }, "Ceux de cette partie. La bibliothèque garde ceux de tout le lecteur."));
+    all.forEach(function (f) {
+      if (mine[f.id]) b.appendChild(h("div", { class: "clue" }, h("b", null, "★ " + f.title), h("div", { class: "small muted" }, f.desc)));
+      else if (!f.story) b.appendChild(h("div", { class: "small muted" }, "☆ " + f.title + " · " + f.desc));
+    });
+    var hidden = all.filter(function (f) { return f.story && !mine[f.id]; }).length;
+    if (hidden) b.appendChild(h("div", { class: "small muted" }, "☆ et " + hidden + " haut" + (hidden > 1 ? "s" : "") + " fait" + (hidden > 1 ? "s" : "") + " caché" + (hidden > 1 ? "s" : "") + " propre" + (hidden > 1 ? "s" : "") + " à cette histoire."));
+  }
+
+  // ------------------------------------------------------------------ "Mon aventure": the game told as a book
+  // Intent: save(Game, GameDoc) -> () ! writes the current part of the game's story (recits/<game>~<k>)
+  // Why: the pages as they were read (texts depend on the moment), kept apart from the save so it stays small.
+  function saveRecit(G, d) {
+    if (G.multi || G.ephemeral || !G.recit) return;
+    var R = G.recit;
+    if (JSON.stringify(R.pages).length > RECIT_CHARS && R.pages.length > 1) {
+      var last = R.pages.pop();
+      Store.put("recits", d.id + "~" + R.k, { pages: R.pages, updated: Date.now() }).catch(function () {});
+      R.k++; R.pages = [last];
+    }
+    d.recitParts = R.k + 1;
+    Store.put("recits", d.id + "~" + R.k, { pages: R.pages, updated: Date.now() }).catch(function () {});
+  }
+  function openRecit() {
+    var G = A.game, d = G.doc, n = d.recitParts || 0, jobs = [];
+    for (var i = 0; i < n - 1; i++) jobs.push(Store.get("recits", d.id + "~" + i));
+    A.recit = { busy: true, pages: [] }; A.carnet = null; A.screen = "recit"; render();
+    Promise.all(jobs).then(function (parts) {
+      var pages = []; parts.forEach(function (p) { if (p && p.pages) pages = pages.concat(p.pages); });
+      pages = pages.concat(G.recit ? G.recit.pages : []);
+      if (!pages.length) pages = G.log.map(function (e) { return { t: e.t, title: e.title, act: e.act, text: [], c: e.c }; });
+      A.recit = { busy: false, pages: pages }; render();
+    });
+  }
+  function recitHtml(st, s, pages) {
+    var acts = {}; (st.acts || []).forEach(function (a) { acts[a.id] = a.title; });
+    var out = ["<h1>" + esc(st.title) + "</h1>", "<p class=\"by\">L'aventure de " + esc(s.name) + ", " + esc((M.ARCHS[s.arch] || {}).label || "") + " · niveau " + M.level(s) + "</p>"], lastAct = null;
+    pages.forEach(function (p) {
+      if (p.act && p.act !== lastAct) { out.push("<h2>" + esc(acts[p.act] || p.act) + "</h2>"); lastAct = p.act; }
+      out.push("<section><h3>" + md(String(p.title || "")) + " <small>" + esc(p.t || "") + "</small></h3>");
+      (p.text || []).forEach(function (t) { out.push("<p>" + md(t) + "</p>"); });
+      if (p.ev && p.ev.length) out.push("<p class=\"ev\">" + p.ev.map(esc).join(" · ") + "</p>");
+      if (p.c) out.push("<p class=\"chosen\">Tu as choisi : « " + esc(p.c) + " »</p>");
+      out.push("</section>");
+    });
+    return out.join("\n");
+  }
+  var RECIT_CSS = "body{font:17px/1.65 Georgia,'Literata',serif;color:#1d2420;background:#fff;max-width:40rem;margin:2rem auto;padding:0 16px}h1{font-size:2.2em;margin:0}h2{margin-top:2.4em;page-break-before:always;border-bottom:1px solid #ccc}h3{margin:1.6em 0 .4em}h3 small{font-weight:normal;color:#777;font-size:.6em}.by{color:#555;font-style:italic}.chosen{font-style:italic;color:#2c7464}.ev{font-size:.85em;color:#666}section{page-break-inside:auto}";
+  function renderRecit() {
+    var G = A.game, st = G.story, s = G.s;
+    app.appendChild(topBar([h("button", { class: "btn ghost sm", onclick: function () { A.screen = "game"; render(); } }, "← Revenir à la partie"), h("span", { class: "brand grow" }, "Mon aventure"),
+      h("button", { class: "btn sm", onclick: function () { try { window.print(); } catch (e) { flash("L'impression n'est pas possible ici ; télécharge le livre puis imprime-le.", true); } } }, "Imprimer ou PDF"),
+      canDownload() ? h("button", { class: "btn sm primary", onclick: function () {
+        download("aventure-" + (s.name || "heros").replace(/[^\wÀ-ÿ-]+/g, "-") + ".html", "<!doctype html><meta charset=utf-8><title>" + esc(st.title) + " · " + esc(s.name) + "</title><style>" + RECIT_CSS + "</style>" + recitHtml(st, s, A.recit.pages));
+      } }, "Télécharger le livre") : null]));
+    var w = h("main", { class: "wrap read recit" });
+    if (A.recit.busy) w.appendChild(h("p", null, "Le livre se rassemble…"));
+    else w.appendChild(h("div", { html: recitHtml(st, s, A.recit.pages) }));
+    w.appendChild(h("p", { class: "small muted noprint" }, "Le fichier téléchargé s'ouvre dans n'importe quel navigateur ; « Imprimer », puis « Enregistrer en PDF », en fait un PDF."));
+    app.appendChild(w);
+  }
+
+  // ------------------------------------------------------------------ parents' corner
+  function hours(ms) { var m = Math.round((ms || 0) / 60000); return m < 60 ? m + " min" : Math.floor(m / 60) + " h " + String(m % 60).padStart(2, "0"); }
+  function renderParents() {
+    var open = A.open.parents;
+    var sec = h("section", { class: "section" }, h("h2", null, h("button", { class: "btn ghost fold", "aria-expanded": open ? "true" : "false", onclick: function () { A.open.parents = !open; render(); } }, (open ? "▾ " : "▸ ") + "Espace parent")));
+    if (!open) return sec;
+    sec.appendChild(h("p", { class: "small muted" }, "Le temps compte la lecture entre deux choix (une pause de plus de trois minutes ne compte que pour trois). Les essais d'auteur ne sont pas comptés."));
+    var tb = h("table", { class: "grid" }, h("thead", null, h("tr", null, ["Lecteur", "Temps de lecture", "Parties", "Choix faits", "Fins trouvées", "Hauts faits", "Dernière lecture"].map(function (x) { return h("th", null, x); }))));
+    var body = h("tbody");
+    A.profiles.forEach(function (p) {
+      var gs = (A.allGames || []).filter(function (g) { return g.profil === p.id && !g.test; });
+      var ms = gs.reduce(function (n, g) { return n + (g.playMs || 0); }, 0), turns = gs.reduce(function (n, g) { return n + (g.turns || 0); }, 0);
+      var last = gs.reduce(function (n, g) { return Math.max(n, g.updated || 0); }, 0), rec = p.records || {}, nE = 0, nF = 0;
+      Object.keys(rec).forEach(function (k) { nE += Object.keys(rec[k].endings || {}).length; nF += Object.keys(rec[k].feats || {}).length; });
+      body.appendChild(h("tr", null, h("td", null, avatar(p), " ", p.name), h("td", null, hours(ms)), h("td", null, gs.length + (gs.filter(function (g) { return g.ended; }).length ? " (" + gs.filter(function (g) { return g.ended; }).length + " finie" + (gs.filter(function (g) { return g.ended; }).length > 1 ? "s" : "") + ")" : "")),
+        h("td", null, String(turns)), h("td", null, String(nE)), h("td", null, String(nF)), h("td", null, last ? when(last) : "·")));
+      gs.forEach(function (g) { body.appendChild(h("tr", { class: "sub" }, h("td", null, "  " + g.storyTitle), h("td", null, hours(g.playMs)), h("td", null, g.ended ? "finie" : "en cours"), h("td", null, String(g.turns || 0)), h("td", { colspan: 3 }, (g.where || "") + " · niveau " + (g.level || 1)))); });
+    });
+    tb.appendChild(body);
+    sec.appendChild(h("div", { class: "scrollx" }, tb));
+    return sec;
+  }
+
+  // ------------------------------------------------------------------ the author's workshop: reports, try a passage, editor
+  function renderAtelier() {
+    var open = A.open.atelier;
+    var sec = h("section", { class: "section" }, h("h2", null, h("button", { class: "btn ghost fold", "aria-expanded": open ? "true" : "false", onclick: function () { A.open.atelier = !open; if (!open) loadSignals(); render(); } }, (open ? "▾ " : "▸ ") + "Atelier d'auteur")));
+    if (!open) return sec;
+    sec.appendChild(h("p", { class: "small muted" }, "Pour écrire et corriger les histoires : essayer un passage précis, modifier une histoire, relire les signalements."));
+    sec.appendChild(h("div", { class: "row" },
+      h("button", { class: "btn", onclick: function () { openEssai(null, null); } }, "▶ Essayer un passage"),
+      h("button", { class: "btn", onclick: function () { A.ed = null; A.screen = "editor"; render(); window.scrollTo(0, 0); } }, "✎ Éditeur d'histoires")));
+    var sig = A.signals || [];
+    sec.appendChild(h("h3", { class: "sub-h" }, "Signalements" + (sig.length ? " · " + sig.length : "")));
+    if (!sig.length) sec.appendChild(h("div", { class: "notice" }, "Aucun. Le bouton « ⚑ Signaler » sous chaque page en ajoute un."));
+    sig.forEach(function (x) {
+      sec.appendChild(h("div", { class: "save-line" }, h("div", { class: "grow" }, h("b", null, (x.lecteur || "?") + " · " + (A.builtins[x.story] ? A.builtins[x.story].title : x.story) + " · § " + x.node),
+        h("div", null, x.note), h("div", { class: "small muted" }, (x.title || "") + " · " + when(x.created))),
+        h("button", { class: "btn sm ghost", onclick: function () { Store.del("signalements", x.id).then(loadSignals); } }, "Effacer")));
+    });
+    if (sig.length && canDownload()) sec.appendChild(h("button", { class: "btn sm", onclick: function () { download("signalements.json", JSON.stringify(sig, null, 1)); } }, "Exporter les signalements"));
+    return sec;
+  }
+  function loadSignals() { return Store.list("signalements").then(function (l) { A.signals = l.sort(function (a, b) { return (b.created || 0) - (a.created || 0); }); render(); }); }
+
+  // Try a passage: a throwaway game that starts anywhere, with the party, things, tags and hour chosen (nothing saved).
+  function openEssai(story, passage, back) {
+    A.essai = { story: story, storyId: story ? story.id : (allStories().filter(function (m) { return !m.multi; })[0] || {}).id, passage: passage || "", arch: "guerrier", level: 0, difficulty: "aventurier", comps: {}, items: "", flags: "", hour: "", back: back || null };
+    A.screen = "essai"; render(); window.scrollTo(0, 0);
+  }
+  function renderEssai() {
+    var E = A.essai, back = function () { A.screen = E.back || "home"; render(); };
+    app.appendChild(topBar([h("button", { class: "btn ghost sm", onclick: back }, E.back === "editor" ? "← Éditeur" : "← Bibliothèque"), h("span", { class: "brand grow" }, "Essayer un passage")]));
+    var w = h("main", { class: "wrap read create" });
+    if (!E.story && E.storyId && !E.loaded) { E.loaded = true; loadStory(E.storyId).then(function (st) { E.story = st; render(); }); }
+    w.appendChild(h("p", { class: "small muted" }, "Une partie jetable qui commence où tu veux, avec le groupe, les objets, les marques et l'heure de ton choix. Rien n'est enregistré, rien ne compte pour les fins ni les hauts faits."));
+    if (!E.back) w.appendChild(h("div", { class: "stack tight" }, h("span", { class: "label" }, "Histoire"), h("select", { onchange: function (e) { E.storyId = e.target.value; E.story = null; E.loaded = false; E.passage = ""; render(); } },
+      allStories().filter(function (m) { return !m.multi; }).map(function (m) { return h("option", { value: m.id, selected: m.id === E.storyId }, m.title); }))));
+    var st = E.story;
+    if (!st) { w.appendChild(h("p", null, "Ouverture de l'histoire…")); app.appendChild(w); return; }
+    var ids = Object.keys(st.passages).sort();
+    var dl = h("datalist", { id: "essai-passages" }, ids.map(function (id) { return h("option", { value: id }, String(st.passages[id].title || "").replace(/\*/g, "")); }));
+    var pin = h("input", { list: "essai-passages", value: E.passage, placeholder: "identifiant du passage (ex. " + st.start + ")", oninput: function (e) { E.passage = e.target.value.trim(); hint.textContent = st.passages[E.passage] ? "« " + String(st.passages[E.passage].title || "").replace(/\*/g, "") + " »" + (st.passages[E.passage].act ? " · acte " + st.passages[E.passage].act : "") : "passage inconnu"; } });
+    var hint = h("span", { class: "small muted" }, st.passages[E.passage] ? "« " + String(st.passages[E.passage].title || "").replace(/\*/g, "") + " »" : "");
+    w.appendChild(h("div", { class: "stack tight" }, h("span", { class: "label" }, "Passage"), pin, dl, hint));
+    w.appendChild(h("div", { class: "row" },
+      h("label", { class: "stack tight" }, h("span", { class: "label" }, "Voie"), h("select", { onchange: function (e) { E.arch = e.target.value; } }, Object.keys(M.ARCHS).map(function (k) { return h("option", { value: k, selected: E.arch === k }, M.ARCHS[k].label); }))),
+      h("label", { class: "stack tight" }, h("span", { class: "label" }, "Niveau"), h("input", { type: "number", min: 0, max: 30, value: E.level || "", placeholder: "celui de l'acte", style: "width:9em", oninput: function (e) { E.level = +e.target.value || 0; } })),
+      h("label", { class: "stack tight" }, h("span", { class: "label" }, "Difficulté"), h("select", { onchange: function (e) { E.difficulty = e.target.value; } }, Object.keys(M.DIFFICULTY).map(function (k) { return h("option", { value: k, selected: E.difficulty === k }, M.DIFFICULTY[k].label); }))),
+      h("label", { class: "stack tight" }, h("span", { class: "label" }, "Heure"), h("select", { onchange: function (e) { E.hour = e.target.value; } }, [["", "celle du départ"], ["10", "le matin"], ["15", "l'après-midi"], ["19", "le soir"], ["23", "la nuit"]].map(function (o) { return h("option", { value: o[0], selected: E.hour === o[0] }, o[1]); })))));
+    var comps = Object.keys(st.companions || {}).filter(function (k) { return !(st.heroes || {})[k]; });
+    if (comps.length) w.appendChild(h("div", { class: "stack tight" }, h("span", { class: "label" }, "Compagnons dans le groupe"), h("div", { class: "row" }, comps.map(function (k) {
+      return h("label", { class: "row small" }, h("input", { type: "checkbox", checked: !!E.comps[k], onchange: function (e) { E.comps[k] = e.target.checked; } }), st.companions[k].name);
+    }))));
+    var itemIds = Object.keys(st.items || {});
+    w.appendChild(h("div", { class: "stack tight" }, h("span", { class: "label" }, "Objets en plus (identifiants séparés par des virgules)"), h("input", { list: "essai-items", value: E.items, oninput: function (e) { E.items = e.target.value; } }),
+      h("datalist", { id: "essai-items" }, itemIds.map(function (k) { return h("option", { value: k }, st.items[k].name); }))));
+    w.appendChild(h("div", { class: "stack tight" }, h("span", { class: "label" }, "Marques posées (une par ligne, comme dans l'histoire)"), h("textarea", { rows: 4, value: E.flags, oninput: function (e) { E.flags = e.target.value; } }, E.flags)));
+    w.appendChild(h("div", { class: "row" }, h("button", { class: "btn primary", onclick: startEssai }, "▶ Lancer l'essai"), E.err ? h("span", { class: "why" }, E.err) : null));
+    app.appendChild(w);
+  }
+  function startEssai() {
+    var E = A.essai, st = E.story;
+    if (!st.passages[E.passage]) { E.err = "Choisis un passage qui existe."; render(); return; }
+    E.err = "";
+    try {
+      M.prepare(st);
+      var s = M.freshState(st, { toutJouer: false, difficulty: E.difficulty });
+      s.name = "Essai"; s.arch = E.arch;
+      M.start(st, s);
+      if (E.level) s.ep = Math.max(s.ep, E.level * M.EP_PER_LEVEL);
+      if (s.pv != null) s.pv = M.pvMax(s);
+      var joins = Object.keys(E.comps).filter(function (k) { return E.comps[k]; });
+      var items = E.items.split(",").map(function (x) { return x.trim(); }).filter(Boolean);
+      var flags = E.flags.split(/\n/).map(function (x) { return x.trim(); }).filter(Boolean);
+      s.events = [];
+      M.apply(st, s, { join: joins, flag: flags, item: items.filter(function (x) { return (st.items || {})[x]; }) });
+      if (E.hour) s.time = Math.floor(s.time / 24) * 24 + (+E.hour);
+      s.travel = null; s.combat = null;
+      M.enter(st, s, E.passage);
+      s.events = [{ text: "Essai : partie jetable, rien n'est enregistré.", cls: "" }].concat(s.events);
+      A.game = { doc: { id: "essai", profil: A.profile ? A.profile.id : "", story: st.id, storyTitle: st.title, test: true }, story: st, s: s, undo: [], log: [], ephemeral: true, back: E.back ? "editor" : "essai" };
+      logStep(); A.screen = "game"; render(); window.scrollTo(0, 0);
+    } catch (e) { E.err = "L'essai n'a pas pu partir : " + e.message; render(); }
+  }
+
+  // ------------------------------------------------------------------ the story editor
+  // Intent: edit(Story) -> Story = passages, paragraphs with their tags, choices; everything else as JSON
+  // Why: Clément (12/11): write a story inside the app, tags chosen from lists, tried at once. What the forms do not
+  // cover stays reachable as the passage's own JSON, so nothing in the format is out of reach.
+  function edStories() { return allStories().filter(function (m) { return !m.multi; }); }
+  function renderEditor() {
+    var E = A.ed;
+    app.appendChild(topBar([h("button", { class: "btn ghost sm", onclick: function () { if (E && E.dirty && !confirmLeave()) return; A.ed = null; A.screen = "home"; refresh().then(render); } }, "← Bibliothèque"),
+      h("span", { class: "brand grow" }, E ? "Éditeur · " + E.story.title + (E.dirty ? " · modifiée" : "") : "Éditeur d'histoires"),
+      E ? h("button", { class: "btn sm", onclick: edCheck }, "Vérifier") : null,
+      E ? h("button", { class: "btn sm primary", onclick: edSave }, "Enregistrer") : null,
+      E && canDownload() ? h("button", { class: "btn sm", onclick: function () { download(E.story.id + ".json", JSON.stringify(E.story, null, 1)); } }, "Exporter") : null]));
+    var w = h("main", { class: "wrap" });
+    if (!E) { edPick(w); app.appendChild(w); return; }
+    if (E.msg) w.appendChild(h("div", { class: "notice" + (E.msgBad ? " bad" : "") }, E.msg));
+    if (E.report) w.appendChild(h("pre", { class: "report" }, E.report));
+    w.appendChild(h("nav", { class: "tabs" }, [["passage", "Passages"], ["histoire", "L'histoire"], ["donnees", "Données (JSON)"]].map(function (t) { return h("button", { class: "tab" + (E.tab === t[0] ? " on" : ""), onclick: function () { E.tab = t[0]; render(); } }, t[1]); })));
+    if (E.tab === "histoire") edStory(w);
+    else if (E.tab === "donnees") edData(w);
+    else edPassages(w);
+    app.appendChild(w);
+  }
+  function confirmLeave() { try { return window.confirm("Des modifications ne sont pas enregistrées. Quitter quand même ?"); } catch (e) { return true; } }
+  function edPick(w) {
+    w.appendChild(h("div", { class: "hero-head" }, h("h1", null, "Éditeur d'histoires"), h("p", null, "Une histoire importée se modifie directement. Une histoire fournie avec le jeu se copie d'abord : la copie apparaît dans la bibliothèque, l'originale ne change pas.")));
+    var cards = h("div", { class: "cards" });
+    edStories().forEach(function (m) {
+      cards.appendChild(h("article", { class: "card" }, h("h3", null, m.title), h("div", { class: "small muted" }, m.passages + " passages" + (m.builtin ? " · fournie" : " · importée")),
+        h("div", { class: "row" }, h("button", { class: "btn primary sm", onclick: function () { edOpen(m, m.builtin); } }, m.builtin ? "Copier pour modifier" : "Modifier"))));
+    });
+    cards.appendChild(h("article", { class: "card" }, h("h3", null, "Nouvelle histoire"), h("p", { class: "small muted" }, "Un squelette : un acte, un lieu, un passage de départ, une fin."),
+      h("div", { class: "row" }, h("button", { class: "btn primary sm", onclick: function () { edLoad(edSkeleton()); } }, "Commencer"))));
+    w.appendChild(cards);
+  }
+  function edSkeleton() {
+    var id = "histoire-" + uid().slice(-5);
+    return { id: id, title: "Nouvelle histoire", subtitle: "", summary: "", version: 1, start: "debut", intro: [], acts: [{ id: "I", title: "Acte I", start: "debut", levels: [1, 3], question: "" }],
+      companions: {}, factions: {}, relics: {}, mysteries: {}, clues: {}, quests: [], people: {}, items: {}, enemies: {}, shops: {}, past: [],
+      world: { places: { village: { name: "Le village", map: "monde", x: 50, y: 40, arrive: "debut", desc: "", ambiance: "village" } }, routes: [], regions: {}, events: {}, start: { place: "village", gold: 10, food: 3 } },
+      banter: [], passages: {
+        debut: { act: "I", title: "Le commencement", place: "village", text: ["Écris ici le premier paragraphe."], choices: [{ label: "Aller jusqu'à la fin", to: "fin" }] },
+        fin: { act: "I", title: "La fin", end: true, text: ["Écris ici la fin."], choices: [] } } };
+  }
+  function edOpen(m, copy) {
+    loadStory(m.id).then(function (st) {
+      var s2 = clone(st);
+      if (copy) { s2.id = st.id + "-" + uid().slice(-4); s2.title = st.title + " (copie)"; s2.version = 1; }
+      edLoad(s2, !!copy);
+    });
+  }
+  function edLoad(st, dirty) { A.ed = { story: st, tab: "passage", sel: st.start, q: "", dirty: dirty !== false, msg: "", report: "" }; render(); window.scrollTo(0, 0); }
+  function edDirty() { if (!A.ed.dirty) { A.ed.dirty = true; var b = document.querySelector(".brand"); if (b) b.textContent += " · modifiée"; } }
+  function edCheck() {
+    var E = A.ed, rep = V.staticCheck(clone(E.story)), strict = rep.errors.length ? [] : V.strictCheck(clone(E.story));
+    E.report = (rep.errors.length ? rep.errors.length + " erreur(s) :\n" + rep.errors.join("\n") : "Aucune erreur.") + (rep.warnings.length ? "\n\nRemarques :\n" + rep.warnings.join("\n") : "") +
+      (strict.length ? "\n\nLecture stricte (" + strict.length + ") :\n" + strict.map(function (x) { return x.msg; }).join("\n") : "");
+    E.msg = ""; render();
+  }
+  // Intent: store(Story) -> Promise ! writes the story in parts under the db's document limit
+  function storeStory(st) {
+    var txt = JSON.stringify(st), parts = Math.ceil(txt.length / PART_CHARS), jobs = [];
+    for (var i = 0; i < parts; i++) jobs.push(Store.put("scenarioParts", st.id + "~" + i, { chunk: txt.slice(i * PART_CHARS, (i + 1) * PART_CHARS) }));
+    return Promise.all(jobs).then(function () { var m = storyMeta(st); m.parts = parts; m.imported = Date.now(); m.updated = Date.now(); return Store.put("scenarios", st.id, m); });
+  }
+  function edSave() {
+    var E = A.ed, st = E.story, rep = V.staticCheck(clone(st));
+    if (rep.errors.length) { E.msg = "Pas enregistrée : " + rep.errors.length + " erreur(s) à corriger d'abord (le détail est ci-dessous)."; E.msgBad = true; E.report = rep.errors.join("\n"); render(); return; }
+    st.version = (st.version || 1) + (E.saved ? 0 : 1); E.saved = true;
+    storeStory(st).then(refresh).then(function () { E.dirty = false; E.msg = "Enregistrée dans la bibliothèque" + (rep.warnings.length ? " (" + rep.warnings.length + " remarque(s), voir Vérifier)." : "."); E.msgBad = false; E.report = ""; render(); },
+      function (e) { E.msg = "L'enregistrement a échoué (" + ((e && e.code) || e) + ")."; E.msgBad = true; render(); });
+  }
+  function edStory(w) {
+    var st = A.ed.story;
+    function line(label, key, area) {
+      var inp = h(area ? "textarea" : "input", { rows: area ? 3 : null, value: st[key] || "", oninput: function (e) { st[key] = e.target.value; edDirty(); } }, area ? (st[key] || "") : null);
+      return h("label", { class: "stack tight" }, h("span", { class: "label" }, label), inp);
+    }
+    var b = h("div", { class: "stack ed-form" }, line("Titre", "title"), line("Sous-titre", "subtitle"), line("Résumé", "summary", true),
+      h("label", { class: "stack tight" }, h("span", { class: "label" }, "Passage de départ"), passageInput(st.start, function (v) { st.start = v; })),
+      h("label", { class: "stack tight" }, h("span", { class: "label" }, "Habillage"), h("select", { onchange: function (e) { if (e.target.value) st.skin = e.target.value; else delete st.skin; edDirty(); } },
+        h("option", { value: "" }, "sobre"), ["parchemin", "givre", "sable", "enluminure"].map(function (k) { return h("option", { value: k, selected: st.skin === k }, SKINS[k]); }))),
+      h("label", { class: "stack tight" }, h("span", { class: "label" }, "Introduction (un paragraphe par ligne vide)"), h("textarea", { rows: 5, oninput: function (e) { st.intro = e.target.value.split(/\n\s*\n/).map(function (x) { return x.trim(); }).filter(Boolean); edDirty(); } }, (st.intro || []).join("\n\n"))),
+      h("div", { class: "small muted" }, "Identifiant : " + st.id + " · version " + (st.version || 1)));
+    w.appendChild(b);
+  }
+  var ED_DATA = [["acts", "Actes"], ["world", "Monde : lieux, routes, régions, événements, départ"], ["companions", "Compagnons"], ["heroes", "Héros jouables"], ["items", "Objets"], ["enemies", "Adversaires"], ["shops", "Boutiques"],
+    ["mysteries", "Mystères"], ["clues", "Indices"], ["quests", "Quêtes"], ["people", "Personnages"], ["factions", "Factions"], ["relics", "Reliques"], ["past", "Ton passé (questions de création)"], ["banter", "Discussions"], ["achievements", "Hauts faits propres à l'histoire"], ["endings", "Titres des fins"]];
+  function edData(w) {
+    var st = A.ed.story;
+    w.appendChild(h("p", { class: "small muted" }, "Chaque bloc s'écrit en JSON, comme dans le fichier de l'histoire. « Appliquer » le remplace s'il se lit bien. Un haut fait : { \"id\": { \"title\": \"…\", \"desc\": \"…\", \"if\": { \"has\": \"une:marque\" } } }. Une ambiance de lieu : \"ambiance\": \"foret\" (foret, ville, village, montagne, neige, souterrain, eau, route, chateau, temple, champs, mer)."));
+    ED_DATA.forEach(function (d) {
+      var key = d[0], open = A.open["ed:" + key];
+      var sec = h("div", { class: "ed-block" }, h("button", { class: "btn ghost fold", onclick: function () { A.open["ed:" + key] = !open; render(); } }, (open ? "▾ " : "▸ ") + d[1]));
+      if (open) {
+        var ta = h("textarea", { class: "mono json", rows: 14, spellcheck: "false" }, JSON.stringify(st[key] == null ? (key === "acts" || key === "quests" || key === "past" || key === "banter" ? [] : {}) : st[key], null, 1));
+        var err = h("span", { class: "why" });
+        sec.appendChild(ta);
+        sec.appendChild(h("div", { class: "row" }, h("button", { class: "btn sm", onclick: function () { try { st[key] = JSON.parse(ta.value); err.textContent = "Appliqué."; edDirty(); } catch (e) { err.textContent = "JSON illisible : " + e.message; } } }, "Appliquer"), err));
+      }
+      w.appendChild(sec);
+    });
+  }
+  function passageInput(val, set, ph) {
+    var st = A.ed.story;
+    if (!document.getElementById("ed-passages")) { /* the datalist is added once per render by edPassages */ }
+    return h("input", { list: "ed-passages", value: val || "", placeholder: ph || "passage", oninput: function (e) { set(e.target.value.trim()); edDirty(); } });
+  }
+  function listInput(val, set, ph, listId) { return h("input", { list: listId || null, value: [].concat(val || []).join(", "), placeholder: ph || "", oninput: function (e) { var l = e.target.value.split(",").map(function (x) { return x.trim(); }).filter(Boolean); set(l.length === 0 ? null : l.length === 1 ? l[0] : l); edDirty(); } }); }
+  function jsonInput(val, set, ph) {
+    var err = h("span", { class: "why" });
+    var ta = h("textarea", { class: "mono json", rows: 2, spellcheck: "false", placeholder: ph || "", oninput: function (e) { var t = e.target.value.trim(); if (!t) { set(null); err.textContent = ""; edDirty(); return; } try { set(JSON.parse(t)); err.textContent = ""; edDirty(); } catch (x) { err.textContent = "JSON illisible"; } } }, val == null ? "" : JSON.stringify(val));
+    return h("span", { class: "stack tight" }, ta, err);
+  }
+  function setKey(o, k, v) { if (v == null || v === "" || v === false || (Array.isArray(v) && !v.length)) delete o[k]; else o[k] = v; }
+  function edPassages(w) {
+    var E = A.ed, st = E.story, P = st.passages, ids = Object.keys(P).sort();
+    var flags = {}; JSON.stringify(st).replace(/"(?:flag|flags|has|after|before)":\s*"([^"]+)"/g, function (_, f) { flags[f] = 1; return _; });
+    w.appendChild(h("datalist", { id: "ed-passages" }, ids.map(function (id) { return h("option", { value: id }, String(P[id].title || "").replace(/\*/g, "")); })));
+    w.appendChild(h("datalist", { id: "ed-flags" }, Object.keys(flags).sort().map(function (f) { return h("option", { value: f }); })));
+    w.appendChild(h("datalist", { id: "ed-comps" }, ["any"].concat(Object.keys(st.companions || {})).map(function (k) { return h("option", { value: k }, k === "any" ? "quelqu'un" : (st.companions[k] || {}).name); })));
+    var grid = h("div", { class: "ed-grid" });
+    // the list
+    var q = (E.q || "").toLowerCase();
+    var list = h("div", { class: "ed-list" });
+    var search = h("input", { type: "search", placeholder: "Chercher (identifiant, titre, texte)", value: E.q, "aria-label": "Chercher un passage", oninput: function (e) { E.q = e.target.value; clearTimeout(edPassages.t); edPassages.t = setTimeout(function () { render(); var s2 = document.querySelector('input[aria-label="Chercher un passage"]'); if (s2) { s2.focus(); s2.setSelectionRange(s2.value.length, s2.value.length); } }, 250); } });
+    list.appendChild(search);
+    var newId = h("input", { placeholder: "nouvel identifiant", "aria-label": "Identifiant du nouveau passage", style: "width:100%" });
+    list.appendChild(h("div", { class: "row" }, newId, h("button", { class: "btn sm", onclick: function () {
+      var id = newId.value.trim().replace(/[^A-Za-z0-9_-]/g, "_"); if (!id) { newId.focus(); return; }
+      if (P[id]) { E.sel = id; render(); return; }
+      var cur = P[E.sel] || {};
+      P[id] = { act: cur.act || (st.acts[0] || {}).id, title: "", place: cur.place, text: [""], choices: [] }; if (!P[id].place) delete P[id].place;
+      E.sel = id; edDirty(); render();
+    } }, "+ Passage")));
+    var shown = ids.filter(function (id) { if (!q) return true; var p = P[id]; return id.toLowerCase().indexOf(q) >= 0 || String(p.title || "").toLowerCase().indexOf(q) >= 0 || (q.length > 2 && JSON.stringify(p.text || "").toLowerCase().indexOf(q) >= 0); });
+    list.appendChild(h("div", { class: "small muted" }, shown.length + " passage" + (shown.length > 1 ? "s" : "") + (shown.length > 300 ? " (les 300 premiers)" : "")));
+    var ul = h("div", { class: "ed-items" });
+    shown.slice(0, 300).forEach(function (id) { ul.appendChild(h("button", { class: "ed-item" + (E.sel === id ? " on" : ""), onclick: function () { E.sel = id; render(); } }, h("span", { class: "mono small" }, id), h("span", { class: "small" }, String(P[id].title || "").replace(/\*/g, "") + (P[id].end ? " · fin" : P[id].hub ? " · carrefour" : "")))); });
+    list.appendChild(ul);
+    grid.appendChild(list);
+    grid.appendChild(edPassageForm(st, E.sel));
+    w.appendChild(grid);
+  }
+  function edPassageForm(st, id) {
+    var p = st.passages[id], f = h("div", { class: "ed-form stack" });
+    if (!p) { f.appendChild(h("div", { class: "notice" }, "Choisis un passage à gauche.")); return f; }
+    var acts = (st.acts || []).map(function (a) { return a.id; }), places = Object.keys((st.world || {}).places || {});
+    function sel(opts, val, set, empty) { return h("select", { onchange: function (e) { set(e.target.value || null); edDirty(); } }, empty != null ? h("option", { value: "" }, empty) : null, opts.map(function (o) { var v = Array.isArray(o) ? o[0] : o, l = Array.isArray(o) ? o[1] : o; return h("option", { value: v, selected: String(val) === String(v) }, l); })); }
+    function chk(o, k, label) { return h("label", { class: "row small" }, h("input", { type: "checkbox", checked: !!o[k], onchange: function (e) { setKey(o, k, e.target.checked); edDirty(); } }), label); }
+    function fld(label, el) { return h("label", { class: "stack tight" }, h("span", { class: "label" }, label), el); }
+    f.appendChild(h("div", { class: "row" }, h("h2", { class: "grow" }, "§ " + id),
+      h("button", { class: "btn sm", onclick: function () { openEssai(st, id, "editor"); } }, "▶ Essayer d'ici"),
+      A.ed.confirmDel === id ? h("span", { class: "confirm small" }, "Supprimer ?", h("button", { class: "btn sm danger", onclick: function () { delete st.passages[id]; A.ed.sel = st.start; A.ed.confirmDel = null; edDirty(); render(); } }, "Oui"), h("button", { class: "btn sm", onclick: function () { A.ed.confirmDel = null; render(); } }, "Non"))
+        : h("button", { class: "btn sm ghost", onclick: function () { A.ed.confirmDel = id; render(); } }, "Supprimer")));
+    f.appendChild(h("div", { class: "ed-row" },
+      fld("Titre", h("input", { value: p.title || "", oninput: function (e) { p.title = e.target.value; edDirty(); } })),
+      fld("Acte", sel(acts, p.act, function (v) { setKey(p, "act", v); }, "—")),
+      fld("Lieu", sel(places.map(function (k) { return [k, st.world.places[k].name]; }), p.place, function (v) { setKey(p, "place", v); }, "—")),
+      fld("Ambiance", sel(M.AMBIANCES.filter(function (x) { return x !== "combat" && x !== "nuit"; }), p.ambiance, function (v) { setKey(p, "ambiance", v); }, "celle du lieu")),
+      fld("Le temps passe", sel([["evening", "jusqu'au soir"], ["night", "jusqu'à la nuit"], ["morning", "jusqu'au matin"], ["noon", "jusqu'à midi"], ["day", "une journée"], [1, "1 heure"], [2, "2 heures"], [4, "4 heures"]], p.takes, function (v) { setKey(p, "takes", v && /^\d+$/.test(v) ? +v : v); }, "non"))));
+    f.appendChild(h("div", { class: "row" }, chk(p, "hub", "carrefour"), chk(p, "back", "retour automatique au carrefour"), chk(p, "end", "fin de l'histoire")));
+    f.appendChild(h("div", { class: "ed-row" },
+      fld("Il faut (with)", listInput(p.with, function (v) { setKey(p, "with", v); }, "compagnons", "ed-comps")),
+      fld("Sans (without)", listInput(p.without, function (v) { setKey(p, "without", v); }, "compagnons", "ed-comps")),
+      fld("Quand", sel([["day", "le jour"], ["night", "la nuit"]], p.when, function (v) { setKey(p, "when", v); }, "toujours")),
+      fld("Après", listInput(p.after, function (v) { setKey(p, "after", v); }, "marque ou passage", "ed-flags")),
+      fld("Avant", listInput(p.before, function (v) { setKey(p, "before", v); }, "marque ou passage", "ed-flags"))));
+    f.appendChild(fld("Effets à la première visite (fx, JSON)", jsonInput(p.fx, function (v) { setKey(p, "fx", v); }, '{ "flag": "une:marque", "gold": 5 }')));
+    // paragraphs
+    p.text = p.text || [];
+    f.appendChild(h("h3", { class: "sub-h" }, "Paragraphes"));
+    p.text.forEach(function (t, i) {
+      var o = typeof t === "string" ? { text: t } : t;
+      var commit = function () { var keys = Object.keys(o).filter(function (k) { return o[k] != null; }); p.text[i] = keys.length === 1 && keys[0] === "text" ? o.text : o; edDirty(); };
+      var set = function (k) { return function (v) { setKey(o, k, v); commit(); }; };
+      var box = h("div", { class: "ed-para" });
+      box.appendChild(h("textarea", { rows: Math.min(10, 2 + Math.floor(String(o.text || "").length / 80)), oninput: function (e) { o.text = e.target.value; commit(); } }, o.text || ""));
+      box.appendChild(h("div", { class: "ed-row small" },
+        fld("Avec", listInput(o.with, set("with"), "", "ed-comps")), fld("Sans", listInput(o.without, set("without"), "", "ed-comps")),
+        fld("Quand", sel([["day", "jour"], ["night", "nuit"]], o.when, set("when"), "toujours")),
+        fld("Après", listInput(o.after, set("after"), "", "ed-flags")), fld("Avant", listInput(o.before, set("before"), "", "ed-flags")),
+        fld("Issue", sel([["win", "jet réussi / victoire"], ["lose", "jet raté / défaite"], ["flee", "fuite"], ["calm", "apaisement"]], o.outcome, set("outcome"), "toutes"))));
+      box.appendChild(h("div", { class: "row small" }, chk(o, "first", "première visite"), chk(o, "again", "visites suivantes"), chk(o, "once", "une seule fois"),
+        h("span", { class: "grow" }),
+        h("button", { class: "btn sm ghost", disabled: i === 0, onclick: function () { var x = p.text.splice(i, 1)[0]; p.text.splice(i - 1, 0, x); edDirty(); render(); } }, "↑"),
+        h("button", { class: "btn sm ghost", disabled: i === p.text.length - 1, onclick: function () { var x = p.text.splice(i, 1)[0]; p.text.splice(i + 1, 0, x); edDirty(); render(); } }, "↓"),
+        h("button", { class: "btn sm ghost", onclick: function () { p.text.splice(i, 1); edDirty(); render(); } }, "Retirer")));
+      if (o.if != null || o.else != null || A.open["edp:" + id + i]) box.appendChild(h("div", { class: "ed-row small" }, fld("Condition (if, JSON)", jsonInput(o.if, set("if"))), fld("Sinon (else)", h("input", { value: o.else || "", oninput: function (e) { setKey(o, "else", e.target.value); commit(); } }))));
+      else box.appendChild(h("button", { class: "btn sm ghost", onclick: function () { A.open["edp:" + id + i] = true; render(); } }, "+ condition, sinon"));
+      f.appendChild(box);
+    });
+    f.appendChild(h("button", { class: "btn sm", onclick: function () { p.text.push(""); edDirty(); render(); } }, "+ Paragraphe"));
+    // choices
+    p.choices = p.choices || [];
+    f.appendChild(h("h3", { class: "sub-h" }, "Choix"));
+    var comps = Object.keys(st.companions || {});
+    p.choices.forEach(function (c, i) {
+      var box = h("div", { class: "ed-para" });
+      var kind = c.back != null ? "back" : c.test ? "test" : "to";
+      box.appendChild(h("div", { class: "ed-row" },
+        fld("Texte du bouton", h("input", { value: c.label || "", placeholder: c.back != null ? "(le moteur écrit « Revenir : … »)" : "", oninput: function (e) { setKey(c, "label", e.target.value); edDirty(); } })),
+        fld("Sorte", sel([["to", "aller à"], ["back", "revenir à"], ["test", "jet de dés"]], kind, function (v) {
+          delete c.to; delete c.back; delete c.test; delete c.win; delete c.lose;
+          if (v === "back") c.back = true; else if (v === "test") { c.test = { dom: "social", diff: 0 }; c.win = { to: id }; c.lose = { to: id }; } else c.to = id;
+          edDirty(); render(); }))));
+      if (kind === "to") box.appendChild(fld("Mène à", passageInput(typeof c.to === "string" ? c.to : "", function (v) { c.to = v; })));
+      if (kind === "back") box.appendChild(fld("Revenir à (vide : le dernier carrefour)", passageInput(c.back === true ? "" : c.back, function (v) { c.back = v || true; })));
+      if (kind === "test") {
+        box.appendChild(h("div", { class: "ed-row" },
+          fld("Domaine", sel(Object.keys(M.DOMAINS).map(function (k) { return [k, M.DOMAINS[k]]; }), c.test.dom, function (v) { c.test.dom = v; })),
+          fld("Difficulté", sel(Object.keys(M.DIFFS).map(function (k) { return [k, M.DIFFS[k]]; }), c.test.diff || 0, function (v) { c.test.diff = +v; })),
+          fld("Nom du jet", h("input", { value: c.test.label || "", placeholder: "ex. Grimper", oninput: function (e) { setKey(c.test, "label", e.target.value); edDirty(); } })),
+          fld("Réussi : mène à", passageInput(c.win && c.win.to, function (v) { c.win = c.win || {}; c.win.to = v; })),
+          fld("Raté : mène à", passageInput(c.lose && c.lose.to, function (v) { c.lose = c.lose || {}; c.lose.to = v; }))));
+      }
+      box.appendChild(h("div", { class: "ed-row small" },
+        fld("Effets (fx, JSON)", jsonInput(c.fx, function (v) { setKey(c, "fx", v); }, '{ "flag": "…", "item": "…", "gold": -2 }')),
+        fld("Possible si (if, JSON)", jsonInput(c.if, function (v) { setKey(c, "if", v); }, '{ "has": "…" }')),
+        fld("Sinon, raison affichée", h("input", { value: c.why || "", oninput: function (e) { setKey(c, "why", e.target.value); edDirty(); } })),
+        fld("Laisse-moi faire", sel(comps.map(function (k) { return [k, st.companions[k].name]; }), c.who, function (v) { setKey(c, "who", v); }, "personne"))));
+      box.appendChild(h("div", { class: "row small" }, chk(c, "once", "une seule fois"), chk(c, "big", "choix lourd"), chk(c, "refuse", "refus de quête"), chk(c, "exit", "fin de l'acte"),
+        h("span", { class: "grow" }),
+        h("button", { class: "btn sm ghost", disabled: i === 0, onclick: function () { var x = p.choices.splice(i, 1)[0]; p.choices.splice(i - 1, 0, x); edDirty(); render(); } }, "↑"),
+        h("button", { class: "btn sm ghost", disabled: i === p.choices.length - 1, onclick: function () { var x = p.choices.splice(i, 1)[0]; p.choices.splice(i + 1, 0, x); edDirty(); render(); } }, "↓"),
+        h("button", { class: "btn sm ghost", onclick: function () { p.choices.splice(i, 1); edDirty(); render(); } }, "Retirer")));
+      f.appendChild(box);
+    });
+    f.appendChild(h("button", { class: "btn sm", onclick: function () { p.choices.push({ label: "", to: id }); edDirty(); render(); } }, "+ Choix"));
+    // raw JSON
+    var rawOpen = A.open["edraw:" + id];
+    f.appendChild(h("button", { class: "btn ghost fold", onclick: function () { A.open["edraw:" + id] = !rawOpen; render(); } }, (rawOpen ? "▾ " : "▸ ") + "Le passage en JSON (tout le reste : combat, boutique, routes…)"));
+    if (rawOpen) {
+      var ta = h("textarea", { class: "mono json", rows: 16, spellcheck: "false" }, JSON.stringify(p, null, 1)), err = h("span", { class: "why" });
+      f.appendChild(ta);
+      f.appendChild(h("div", { class: "row" }, h("button", { class: "btn sm", onclick: function () { try { st.passages[id] = JSON.parse(ta.value); edDirty(); render(); } catch (e) { err.textContent = "JSON illisible : " + e.message; } } }, "Appliquer"), err));
+    }
+    return f;
+  }
+
+  // ------------------------------------------------------------------ pictures: a vignette for the place, drawn by code
+  // Intent: of(Story, State) -> Element | null = a band of landscape drawn from the moment's ambiance (and the night)
+  var Vignette = (function () {
+    var NS = "http://www.w3.org/2000/svg";
+    function s(tag, a, kids) { var e = document.createElementNS(NS, tag); for (var k in a) e.setAttribute(k, a[k]); (kids || []).forEach(function (c) { e.appendChild(c); }); return e; }
+    function rnd(seed) { var x = seed || 1; return function () { x = (x * 1103515245 + 12345) % 2147483648; return x / 2147483648; }; }
+    function ridge(r, y, amp, n) { var d = "M0 90 L0 " + y; for (var i = 0; i <= n; i++) { var x = i * 600 / n; d += " L" + x.toFixed(1) + " " + (y - r() * amp).toFixed(1); } return d + " L600 90 Z"; }
+    function peaks(r, y, n, hgt) { var d = "M0 90 L0 " + y, x = 0; for (var i = 0; i < n; i++) { var w = 600 / n, top = y - hgt * (0.5 + r() * 0.5); d += " L" + (x + w * (0.3 + r() * 0.4)).toFixed(1) + " " + top.toFixed(1) + " L" + (x + w).toFixed(1) + " " + (y - r() * 8).toFixed(1); x += w; } return d + " L600 90 Z"; }
+    function pines(r, y, n, hgt) { var d = ""; for (var i = 0; i < n; i++) { var x = r() * 600, hh = hgt * (0.6 + r() * 0.6), w = hh * 0.35; d += "M" + (x - w).toFixed(1) + " " + y + " L" + x.toFixed(1) + " " + (y - hh).toFixed(1) + " L" + (x + w).toFixed(1) + " " + y + " Z "; } return d; }
+    function roofs(r, y, n) { var d = "", x = 10; for (var i = 0; i < n && x < 590; i++) { var w = 26 + r() * 30, hh = 14 + r() * 16, rh = 10 + r() * 10; d += "M" + x + " 90 L" + x + " " + (y - hh) + " L" + (x + w / 2) + " " + (y - hh - rh) + " L" + (x + w) + " " + (y - hh) + " L" + (x + w) + " 90 Z "; if (r() < 0.3) d += "M" + (x + w * 0.7) + " " + (y - hh - rh * 0.6) + " h4 v-8 h-4 Z "; x += w + 2 + r() * 14; } return d; }
+    function draw(kind, night, seed) {
+      var r = rnd(seed), svgEl = s("svg", { viewBox: "0 0 600 90", preserveAspectRatio: "xMidYMax slice", class: "vignette", role: "img", "aria-label": "Vignette : " + kind });
+      var far = { fill: "var(--vig-far)" }, mid = { fill: "var(--vig-mid)" }, near = { fill: "var(--vig-near)" };
+      svgEl.appendChild(s("rect", { x: 0, y: 0, width: 600, height: 90, fill: "var(--vig-sky)" }));
+      if (night) { svgEl.appendChild(s("circle", { cx: 80 + r() * 440, cy: 18, r: 7, fill: "var(--vig-moon)" })); for (var i = 0; i < 18; i++) svgEl.appendChild(s("circle", { cx: r() * 600, cy: r() * 40, r: 0.7, fill: "var(--vig-moon)" })); }
+      else svgEl.appendChild(s("circle", { cx: 80 + r() * 440, cy: 22, r: 9, fill: "var(--vig-sun)" }));
+      var P = function (d, a) { var o = { d: d }; for (var k in a) o[k] = a[k]; svgEl.appendChild(s("path", o)); };
+      switch (kind) {
+        case "montagne": case "neige": P(peaks(r, 70, 5, 55), far); P(peaks(r, 82, 7, 30), mid); if (kind === "neige") P(peaks(r, 84, 9, 10), { fill: "var(--vig-sky)", opacity: ".5" }); break;
+        case "foret": P(ridge(r, 62, 10, 12), far); P(pines(r, 80, 26, 38), mid); P(pines(r, 92, 14, 30), near); break;
+        case "ville": case "chateau": P(ridge(r, 70, 8, 6), far); P(roofs(r, 78, 30), mid); if (kind === "chateau") P("M250 90 V34 h12 v-8 h10 v8 h12 v-8 h10 v8 h12 V90 Z M330 90 V48 h22 V90 Z", near); break;
+        case "village": case "champs": P(ridge(r, 66, 12, 8), far); if (kind === "village") P(roofs(r, 80, 7), mid); P(ridge(r, 86, 4, 20), near); P(pines(r, 82, 5, 20), mid); break;
+        case "souterrain": svgEl.firstChild.setAttribute("fill", "var(--vig-near)"); P("M0 0 H600 V18 Q560 26 520 14 Q470 30 420 12 Q360 34 300 14 Q240 30 180 12 Q120 28 60 14 Q30 22 0 12 Z", mid); P("M0 90 V72 Q100 60 200 74 Q300 82 400 70 Q500 62 600 74 V90 Z", far); break;
+        case "eau": case "mer": P(ridge(r, 58, 10, 8), far); svgEl.appendChild(s("rect", { x: 0, y: 64, width: 600, height: 26, fill: "var(--vig-water)" })); for (var j = 0; j < 14; j++) P("M" + (r() * 580) + " " + (70 + r() * 16) + " q6 -3 12 0 q6 3 12 0", { fill: "none", stroke: "var(--vig-sky)", "stroke-width": "1" }); break;
+        case "temple": P(ridge(r, 70, 10, 6), far); P("M240 90 V50 L300 26 L360 50 V90 Z M254 90 V54 h8 V90 Z M276 90 V54 h8 V90 Z M316 90 V54 h8 V90 Z M338 90 V54 h8 V90 Z", mid); break;
+        case "combat": P(peaks(r, 80, 9, 30), far); P(ridge(r, 88, 6, 30), mid); for (var k = 0; k < 6; k++) P("M" + (100 + r() * 400) + " 90 l" + (r() * 30 - 15) + " -" + (30 + r() * 30) + " l2 0 Z", near); break;
+        default: P(ridge(r, 64, 10, 8), far); P(ridge(r, 78, 8, 14), mid); P("M300 90 L292 66 L308 66 Z", { fill: "var(--vig-sky)", opacity: ".7" }); P(ridge(r, 88, 3, 20), near);
+      }
+      return svgEl;
+    }
+    return { of: function (st, st8) { var kind = M.ambianceOf(st, st8); if (!kind) return null; return draw(kind, M.isNightNow(st8), hash(st.id + (st8.place || st8.node || "") + kind)); } };
+  })();
+
+  // ------------------------------------------------------------------ ambiance: sounds composed by the device (Web Audio)
+  // Intent: update() -> () ! starts, changes or stops the loop that fits the moment
+  // Why: Clément (12/11): wind, rain, a forest, a town, a cave… with no sound file to carry (the page must stay one file).
+  var Ambiance = (function () {
+    var ctx = null, master = null, cur = null, layers = [], timer = null, noiseBuf = null;
+    function noise() {
+      if (noiseBuf) return noiseBuf;
+      noiseBuf = ctx.createBuffer(1, ctx.sampleRate * 2, ctx.sampleRate); var d = noiseBuf.getChannelData(0);
+      for (var i = 0; i < d.length; i++) d[i] = Math.random() * 2 - 1; return noiseBuf;
+    }
+    function bed(type, freq, q, gain, lfoHz, lfoDepth) {
+      var src = ctx.createBufferSource(); src.buffer = noise(); src.loop = true;
+      var f = ctx.createBiquadFilter(); f.type = type; f.frequency.value = freq; f.Q.value = q || 0.7;
+      var g = ctx.createGain(); g.gain.value = gain; src.connect(f); f.connect(g); g.connect(master); src.start();
+      var out = { stop: function () { try { src.stop(); } catch (e) { /* stopped */ } } };
+      if (lfoHz) { var l = ctx.createOscillator(), lg = ctx.createGain(); l.frequency.value = lfoHz; lg.gain.value = lfoDepth || gain / 2; l.connect(lg); lg.connect(g.gain); l.start(); var s0 = out.stop; out.stop = function () { s0(); try { l.stop(); } catch (e) { /* stopped */ } }; }
+      return out;
+    }
+    function tone(type, f0, f1, dur, gain, at) {
+      var t = at || ctx.currentTime, o = ctx.createOscillator(), g = ctx.createGain(); o.type = type; o.frequency.setValueAtTime(f0, t); if (f1) o.frequency.exponentialRampToValueAtTime(f1, t + dur);
+      g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(gain, t + Math.min(0.02, dur / 4)); g.gain.exponentialRampToValueAtTime(0.0001, t + dur); o.connect(g); g.connect(master); o.start(t); o.stop(t + dur + 0.05);
+    }
+    function drone(freqs, gain) { var os = freqs.map(function (f) { var o = ctx.createOscillator(), g = ctx.createGain(); o.frequency.value = f; g.gain.value = gain; o.connect(g); g.connect(master); o.start(); return o; }); return { stop: function () { os.forEach(function (o) { try { o.stop(); } catch (e) { /* stopped */ } }); } }; }
+    // sporadic sounds: [every min, max seconds, play()]
+    var SPOTS = {
+      bird: function () { var f = 2200 + Math.random() * 1600; tone("sine", f, f * 1.3, 0.12, 0.05); tone("sine", f * 1.1, f * 1.4, 0.1, 0.04, ctx.currentTime + 0.16); },
+      cricket: function () { for (var i = 0; i < 3; i++) tone("sine", 4400, 4300, 0.04, 0.02, ctx.currentTime + i * 0.07); },
+      drip: function () { tone("sine", 1400, 500, 0.18, 0.06); },
+      clink: function () { tone("triangle", 1500 + Math.random() * 800, null, 0.25, 0.025); },
+      crack: function () { tone("square", 900 + Math.random() * 1500, 200, 0.03, 0.03); },
+      drum: function () { tone("sine", 90, 45, 0.35, 0.2); },
+      gull: function () { tone("sawtooth", 1200, 700, 0.3, 0.01); },
+    };
+    var KINDS = {
+      foret: function () { return [bed("lowpass", 320, 0.7, 0.05, 0.08, 0.03)]; }, foretSpots: [["bird", 2, 6]],
+      ville: function () { return [bed("bandpass", 420, 0.8, 0.07, 0.15, 0.03)]; }, villeSpots: [["clink", 3, 8]],
+      village: function () { return [bed("lowpass", 500, 0.7, 0.03, 0.1, 0.015)]; }, villageSpots: [["bird", 4, 10], ["clink", 8, 16]],
+      champs: function () { return [bed("lowpass", 400, 0.7, 0.04, 0.07, 0.02)]; }, champsSpots: [["bird", 3, 8]],
+      montagne: function () { return [bed("lowpass", 600, 0.8, 0.08, 0.06, 0.06)]; },
+      neige: function () { return [bed("lowpass", 900, 0.9, 0.07, 0.09, 0.06), bed("highpass", 3000, 0.7, 0.01)]; },
+      route: function () { return [bed("lowpass", 450, 0.7, 0.05, 0.05, 0.03)]; }, routeSpots: [["bird", 6, 14]],
+      souterrain: function () { return [drone([55, 82.4], 0.02), bed("lowpass", 160, 1, 0.03)]; }, souterrainSpots: [["drip", 1.5, 5]],
+      eau: function () { return [bed("lowpass", 1200, 0.7, 0.06, 0.3, 0.03), bed("bandpass", 2400, 1.5, 0.015, 0.5, 0.01)]; },
+      mer: function () { return [bed("lowpass", 700, 0.7, 0.09, 0.09, 0.08)]; }, merSpots: [["gull", 6, 14]],
+      temple: function () { return [drone([110, 164.8, 220], 0.012)]; },
+      chateau: function () { return [bed("lowpass", 300, 0.7, 0.03), drone([73.4], 0.01)]; }, chateauSpots: [["clink", 9, 18]],
+      combat: function () { return [drone([65.4, 98], 0.02), bed("bandpass", 300, 1, 0.03)]; }, combatSpots: [["drum", 0.8, 1.2]],
+      nuit: function () { return [bed("lowpass", 300, 0.7, 0.025, 0.05, 0.015)]; }, nuitSpots: [["cricket", 0.6, 1.6]],
+    };
+    function stopAll() { layers.forEach(function (l) { l.stop(); }); layers = []; if (timer) { clearInterval(timer); timer = null; } }
+    function play(kind) {
+      stopAll(); cur = kind; if (!kind) return;
+      var k = KINDS[kind] ? kind : "route";
+      layers = KINDS[k]();
+      var spots = (KINDS[k + "Spots"] || []).map(function (x) { return { f: SPOTS[x[0]], lo: x[1], hi: x[2], next: ctx.currentTime + x[1] * Math.random() }; });
+      timer = setInterval(function () { var t = ctx.currentTime; spots.forEach(function (sp) { if (t >= sp.next) { sp.f(); sp.next = t + sp.lo + Math.random() * (sp.hi - sp.lo); } }); }, 120);
+    }
+    return {
+      update: function () {
+        var want = null, G = A.game;
+        if (pref("ambiance") && G && A.screen === "game") { want = M.ambianceOf(G.story, G.s); if (!want && M.isNightNow(G.s)) want = "nuit"; if (!want) want = "village"; }
+        if (!want) { if (cur) { stopAll(); cur = null; } return; }
+        try {
+          if (!ctx) { var AC = window.AudioContext || window.webkitAudioContext; if (!AC) return; ctx = new AC(); master = ctx.createGain(); master.connect(ctx.destination); }
+          if (ctx.state === "suspended") ctx.resume();
+          master.gain.value = Math.max(0, Math.min(1, +pref("volume"))) * 1.4;
+          if (want !== cur) play(want);
+        } catch (e) { /* no sound on this device */ }
+      },
+    };
+  })();
 
   // ------------------------------------------------------------------ start
   loadBuiltins();

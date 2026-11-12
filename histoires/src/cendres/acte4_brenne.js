@@ -82,15 +82,15 @@ module.exports = {
       { if: { has: "ame:lisse" }, text: "Le soir, elle descend à la rivière, là où les trois cents de Lisse se sont assis dans l'herbe, en rang. Elle s'assied avec eux. Elle ne dit rien. Eux non plus." },
       "« Je reste avec vous, te dit-elle ensuite. Mais demain, je prendrai le pont. Personne d'autre ne le tiendra comme il faut. »",
     ],
-    choices: [{ label: "Revenir dans le camp", fx: { flag: ["ysolde:iv=compagnie", "ysolde:pont"], conf: { ysolde: 5 } }, to: "IV_br" }] }),
+    choices: [{ fx: { flag: ["ysolde:iv=compagnie", "ysolde:pont"], conf: { ysolde: 5 } }, back: "IV_br" }] }),
 
   IV_br_ysolde_vient: P({ title: "Ce soir", place: "brenne",
     text: ["Elle regarde le pont encore un moment. Puis elle décroche son manteau. « Une nuit, dit-elle. Je serai revenue avant l'aube. Gautier tiendra. Gautier tient toujours. » Elle descend l'escalier devant toi, deux marches à la fois."],
-    choices: [{ label: "Revenir dans le camp", fx: { flag: "ysolde:pont" }, to: "IV_br" }] }),
+    choices: [{ fx: { flag: "ysolde:pont" }, back: "IV_br" }] }),
 
   IV_br_ysolde_reste: P({ title: "Le pont", place: "brenne",
     text: ["« Non, dit-elle. Pas cette fois. Ma place est ici. Si je pars une nuit, quelqu'un d'autre le tiendra. Et quelqu'un d'autre, je sais ce qu'il fera. » Elle se retourne vers le pont. « Va parler à Corvanne. Dis-leur que la capitaine de Brenne tient le pont. Ils sauront ce que ça veut dire. Ou ils croiront le savoir. »"],
-    choices: [{ label: "Revenir dans le camp", fx: { flag: "ysolde:pont" }, to: "IV_br" }] }),
+    choices: [{ fx: { flag: "ysolde:pont" }, back: "IV_br" }] }),
 
   // ---- The queen
   IV_br_reine: P({ title: "La reine", place: "brenne",
@@ -109,7 +109,7 @@ module.exports = {
       "« Si Corvanne veut parler, je parlerai. Mais Corvanne ne veut pas. Corvanne a perdu onze villages dans la neige, et Corvanne croit que c'est moi. Et la vérité, c'est que c'est peut-être moi. Je ne sais plus ce que j'ai signé. »",
       "Elle se lève. « Allez voir Corvanne. Dites-leur ce que vous voulez. Si vous revenez avec une raison de ne pas me battre demain, je l'écouterai. Sinon, je ferai ce que je dois. Et si à l'aube il n'y a rien, j'enverrai un mot à Pallanche. Une ligne. »",
     ],
-    choices: [{ label: "Sortir de la tente", fx: { flag: "reine:iv=parle", clue: "n_reine_lisse" }, to: "IV_br" }] }),
+    choices: [{ fx: { flag: "reine:iv=parle", clue: "n_reine_lisse" }, back: "IV_br" }] }),
 
   // ---- Hautvent
   IV_br_hautvent: P({ title: "Hautvent", place: "brenne",

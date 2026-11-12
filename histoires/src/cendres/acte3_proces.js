@@ -66,11 +66,11 @@ module.exports = {
 
   III_p_tour_garde: P({ title: "La glace", place: "valcendre",
     text: ["Tu te relèves et tu dis : « Qu'il reste. » Les yeux d'Aldric, dans la glace, se ferment. La foule ne dit rien. Tu ne sais pas si c'est une punition ou une grâce. Tu crois que lui non plus."],
-    choices: [{ label: "Revenir vers les autres statues", to: "III_p_place" }] }),
+    choices: [{ back: "III_p_place" }] }),
 
   III_p_tour_rendu: P({ title: "La flaque", place: "valcendre",
     text: ["Tu dis : « Qu'il parte. » La glace d'Aldric se met à couler, d'abord lentement, puis d'un coup, avec un bruit d'averse. Il ne reste qu'une flaque, et dans la flaque, un instant, le reflet d'une couronne. Quelque part, très loin, très haut, une reine d'Esquarre se réveille en sursaut et ne sait pas pourquoi."],
-    choices: [{ label: "Revenir vers les autres statues", to: "III_p_place" }] }),
+    choices: [{ back: "III_p_place" }] }),
 
   // ---- La Gerbe: Berthe, the grain mother, from whom the valley villages descend
   III_p_gerbe: P({ title: "La Gerbe", place: "valcendre",
@@ -100,11 +100,11 @@ module.exports = {
 
   III_p_gerbe_garde: P({ title: "La glace", place: "valcendre",
     text: ["« Qu'elle reste. » Tu le dis pour Sauvelune, et tu le sais. Berthe, dans la glace, baisse les yeux, et ce n'est pas de la honte, c'est du soulagement. Un vieil Orsan, au premier rang, crache par terre. Un autre lui pose la main sur l'épaule."],
-    choices: [{ label: "Revenir vers les autres statues", to: "III_p_place" }] }),
+    choices: [{ back: "III_p_place" }] }),
 
   III_p_gerbe_rendu: P({ title: "La flaque", place: "valcendre",
     text: ["« Qu'elle parte. » La glace de Berthe fond lentement, comme du beurre au soleil. Dans la vallée des Cendres, cette nuit, des paysans rêveront d'une lueur sur une colline, et d'une petite fille qui demande ce que c'est. Au matin, ils ne sauront pas pourquoi ils ont envie de pleurer en semant."],
-    choices: [{ label: "Revenir vers les autres statues", to: "III_p_place" }] }),
+    choices: [{ back: "III_p_place" }] }),
 
   // ---- La Barque: Osric the ferryman, half-Orsan, who guided the boats in exchange for his wife's life
   III_p_barque: P({ title: "La Barque", place: "valcendre",
@@ -134,11 +134,11 @@ module.exports = {
 
   III_p_barque_garde: P({ title: "La glace", place: "valcendre",
     text: ["« Qu'il reste. » Osric, dans la glace, ne bouge pas. Il regarde toujours vers le quai. Une femme dans la foule, une femme en robe bleue, se détourne et s'en va par une ruelle, sans se presser, et tu ne la revois pas."],
-    choices: [{ label: "Revenir vers les autres statues", to: "III_p_place" }] }),
+    choices: [{ back: "III_p_place" }] }),
 
   III_p_barque_rendu: P({ title: "La flaque", place: "valcendre",
     text: ["« Qu'il parte. » La glace d'Osric se fend en deux, proprement, comme une coque qui touche un roc. L'eau coule entre les pavés, vers la foule, et une femme en robe bleue s'avance, s'agenouille, et trempe la main dedans. Elle reste comme ça longtemps. Puis elle se relève, et elle sourit, et elle te fait un signe de tête, et elle s'en va vers les portes de la ville."],
-    choices: [{ label: "Revenir vers les autres statues", fx: { flag: "iii:iselde" }, to: "III_p_place" }] }),
+    choices: [{ fx: { flag: "iii:iselde" }, back: "III_p_place" }] }),
 
   // ---- Le Cerf: Raoul de Brenne, nineteen, who went in first with the fire. Ysolde's ancestor.
   III_p_cerf: P({ title: "Le Cerf", place: "valcendre",
@@ -176,14 +176,14 @@ module.exports = {
       "« Qu'il reste. » Raoul, dans la glace, a toujours le visage d'un garçon qui pleure sur un muret.",
       { with: "ysolde", text: "Ysolde se tourne vers toi. « Tu l'as fait pour moi, dit-elle. Ne le fais plus. » Elle n'est pas en colère. Elle est fatiguée." },
     ],
-    choices: [{ label: "Revenir vers les autres statues", fx: { conf: { ysolde: -5 } }, to: "III_p_place" }] }),
+    choices: [{ fx: { conf: { ysolde: -5 } }, back: "III_p_place" }] }),
 
   III_p_cerf_rendu: P({ title: "La flaque", place: "valcendre",
     text: [
       "« Qu'il parte. » La glace de Raoul fond d'un coup, comme du givre sous une paume. Il ne reste qu'une flaque, et dans la flaque, un écu au cerf, qui coule lui aussi.",
       { with: "ysolde", text: "Ysolde s'agenouille au bord. Elle ne touche pas l'eau. « Bien, dit-elle. Je saurai. Tout le monde saura. Et on verra ce que vaut un nom, quand on sait ce qu'il y a dessous. »" },
     ],
-    choices: [{ label: "Revenir vers les autres statues", fx: { conf: { ysolde: 10 }, flag: "ysolde:sait_cerf" }, to: "III_p_place" }] }),
+    choices: [{ fx: { conf: { ysolde: 10 }, flag: "ysolde:sait_cerf" }, back: "III_p_place" }] }),
 
   // ---- La Plume et la Clé: Frère Anselin, first Chancellor, who wrote every name before crossing it out
   III_p_plume: P({ title: "La Plume et la Clé", place: "valcendre",
@@ -215,11 +215,11 @@ module.exports = {
 
   III_p_plume_garde: P({ title: "La glace", place: "valcendre",
     text: ["« Qu'il reste. » Anselin, dans la glace, ferme les yeux. Tu as l'impression qu'il a encore froid. Tu as l'impression qu'il préfère."],
-    choices: [{ label: "Revenir vers les autres statues", to: "III_p_place" }] }),
+    choices: [{ back: "III_p_place" }] }),
 
   III_p_plume_rendu: P({ title: "La flaque", place: "valcendre",
     text: ["« Qu'il parte. » La glace d'Anselin ne fond pas comme les autres : elle se craquelle, en mille lignes fines, comme une page qu'on a trop pliée, puis elle tombe en poussière blanche. Dans la tour de Pallanche, au fond du caveau, un registre noir se met à suinter, et l'encre des traits, sur chaque nom, se met à pâlir."],
-    choices: [{ label: "Revenir vers les autres statues", to: "III_p_place" }] }),
+    choices: [{ back: "III_p_place" }] }),
 
   // ---- The speech to the people
   III_p_parole: P({ title: "La parole", place: "valcendre",

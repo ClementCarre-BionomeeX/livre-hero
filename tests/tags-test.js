@@ -16,7 +16,7 @@ var st = {
       choices: [
         { label: "Donner la canne", fx: { drop: "canne" }, to: "C" },
         { label: "Tenter", test: { dom: "social", label: "Parole" }, win: { to: "C" }, lose: { to: "C" } },
-        { label: "Revenir", to: "A" }] },
+        { back: "A" }] },
     C: { act: "I", title: "C", end: true, text: ["C.", { outcome: "win", text: "GAGNE" }, { outcome: "lose", text: "PERDU" }, { without: "hylas", text: "SANS_HYLAS" }] },
   },
 };
@@ -28,7 +28,7 @@ assert(/AVANT_B/.test(txt(s)) && !/APRES_B/.test(txt(s)), "before sur un passage
 // Alone, the cane is in nobody's pack: the choice is closed, since another way exists.
 pick(s, "Aller en B");
 assert.strictEqual(M.view(st, s).choices.filter(function (c) { return c.label === "Donner la canne"; })[0].ok, false, "canne : fermé sans porteur");
-pick(s, "Revenir");
+pick(s, "Revenir : Départ");
 assert(/APRES_B/.test(txt(s)) && !/AVANT_B/.test(txt(s)), "after sur un passage");
 pick(s, "Hylas te rejoint");
 assert(/ACCOMPAGNE/.test(txt(s)) && !/SEUL/.test(txt(s)), "with any, accompagné");
@@ -45,7 +45,7 @@ assert(/GAGNE|PERDU/.test(a) && /GAGNE|PERDU/.test(b) && (/GAGNE/.test(a)) !== (
 // takes: the scene moves the clock and says so in brackets; the button says it ahead.
 var st2 = { id: "t2", title: "T2", start: "A", acts: [{ id: "I", title: "I", levels: [1, 3], start: "A" }], companions: {},
   passages: { A: { act: "I", title: "A", hub: true, text: ["Matin."], choices: [{ label: "Veiller", to: "B" }] },
-    B: { act: "I", title: "B", takes: "night", text: ["Les étoiles."], choices: [{ label: "Revenir", to: "A" }] } } };
+    B: { act: "I", title: "B", takes: "night", text: ["Les étoiles."], choices: [{ back: "A" }] } } };
 var t2 = M.freshState(st2); t2.name = "A"; t2.arch = "voleur"; M.start(st2, t2);
 var c2 = M.view(st2, t2).choices[0]; assert.strictEqual(c2.note, "le temps passe : jusqu'à la nuit");
 M.choose(st2, t2, c2); assert(M.isNight ? M.isNight(t2) : t2.time % 24 === 22, "nuit");

@@ -41,7 +41,7 @@ module.exports = {
       { first: true, if: avec("linette"), text: "Linette marche derrière toi, les yeux baissés, les mains croisées. Elle compte les chandelles à voix basse." },
     ],
     choices: [
-      { label: "Redescendre aux cuisines, où brille encore un feu", hide: { seen: "II_S2_cuisines" }, to: "II_S2_cuisines" },
+      { label: "Redescendre aux cuisines, où brille encore un feu", hide: { seen: "II_S2_cuisines" }, back: "II_S2_cuisines" },
       { label: "Passer par la tribune des musiciens, d'où vient une harpe", hide: { seen: "II_S2_tribune" }, to: "II_S2_tribune" },
       { label: "La chambre bleue", to: "II_S2_isaure" },
     ] }),
@@ -223,7 +223,7 @@ module.exports = {
     ],
     choices: [{ label: "Rentrer à l'Ancre", to: "II_S2_nuit" }] }),
 
-  II_S2_nuit: P({ title: "Le jour à l'Ancre", place: "vasselin",
+  II_S2_nuit: P({ backName: "la table de l'Ancre", title: "Le jour à l'Ancre", place: "vasselin",
     text: [
       { first: true, text: "Tu dors jusqu'à midi. Tu te réveilles avec le goût des chandelles dans la bouche. Les autres sont autour de la table, ils t'attendent pour manger. Ils ne posent pas de questions. Tu racontes quand même." },
       { again: true, text: "La table n'est pas encore desservie. Par la fenêtre, le quai, et le milieu du jour." },
@@ -235,7 +235,7 @@ module.exports = {
       { label: "Parler avec Ysolde", once: true, hide: { not: { present: "ysolde" } }, to: "II_S2_nuit_ysolde" },
       { label: "Parler avec Pie", once: true, hide: { not: { present: "pie" } }, to: "II_S2_nuit_pie" },
       { label: "Parler avec Hylas", once: true, hide: { not: { present: "hylas" } }, to: "II_S2_nuit_hylas" },
-      { label: "Rejoindre Rodric, qui fend du bois dans la cour", hide: { any: [{ not: { present: "rodric" } }, { seen: "II_S2_nuit_rodric" }] }, to: "II_S2_nuit_rodric" },
+      { label: "Rejoindre Rodric, qui fend du bois dans la cour", hide: { any: [{ not: { present: "rodric" } }, { seen: "II_S2_nuit_rodric" }] }, back: "II_S2_nuit_rodric" },
       { label: "Linette, à la fenêtre, avec un crayon", hide: { any: [{ not: { present: "linette" } }, { seen: "II_S2_nuit_linette" }] }, to: "II_S2_nuit_linette" },
       { label: "Sortir prendre l'air", to: "II_S2_nouvelle", big: true },
     ] }),
@@ -245,14 +245,14 @@ module.exports = {
       "L'enfant te demande comment elle était, la reine. Tu dis : fatiguée.",
       "« Chez moi, dit-il, il y avait une vieille, la mère Ganache, qui oubliait tout. Ses enfants, sa maison, son nom. Elle était gaie. Elle chantait toute la journée. » Il réfléchit. « Je ne sais pas si c'était triste. Pour elle, je veux dire. »",
     ],
-    choices: [{ label: "Revenir à la table", fx: { conf: { enfant: 5, lisandre: 5 } }, to: "II_S2_nuit" }] }),
+    choices: [{ fx: { conf: { enfant: 5, lisandre: 5 } }, back: "II_S2_nuit" }] }),
 
   II_S2_nuit_ysolde: P({ title: "Quinze ans", place: "vasselin",
     text: [
       { if: { has: "sud:mordace_ysolde" }, text: "Ysolde a passé la matinée à marcher sur le quai. Elle s'assied à côté de toi. « Il a dit que j'y étais très belle. Sur le pont. » Elle a un rire bref. « J'ai mis quinze ans à devenir quelqu'un que je n'ai pas honte de regarder. Et un greffier a la page où je suis l'autre. »" },
       { if: { not: { has: "sud:mordace_ysolde" } }, text: "Ysolde te demande si la reine a parlé d'elle. Tu dis que non. Elle hoche la tête. « Bien », dit-elle. Tu ne sais pas si elle le pense." },
     ],
-    choices: [{ label: "Revenir à la table", fx: { conf: { ysolde: 5 } }, to: "II_S2_nuit" }] }),
+    choices: [{ fx: { conf: { ysolde: 5 } }, back: "II_S2_nuit" }] }),
 
   II_S2_nuit_pie: P({ title: "Les trois clés", place: "vasselin",
     text: [
@@ -260,7 +260,7 @@ module.exports = {
       { if: { all: [{ item: "cire_cles" }, { not: { seen: "II_S_mouettes" } }] }, text: "Pie a ouvert la boîte et regarde les empreintes avec la tendresse d'un orfèvre. « Il me faut un serrurier, dit-il. Un vrai. Et une nuit. Les voleurs de cette ville en ont forcément un. »" },
       { if: { not: { item: "cire_cles" } }, text: "Pie fait tourner une pièce entre ses doigts. « Une autre fois, dit-il. Il y a toujours une autre fois. » Il dit ça pour toi, pas pour lui." },
     ],
-    choices: [{ label: "Revenir à la table", fx: { conf: { pie: 5 } }, to: "II_S2_nuit" }] }),
+    choices: [{ fx: { conf: { pie: 5 } }, back: "II_S2_nuit" }] }),
 
   II_S2_nuit_hylas: P({ title: "Il avait froid", place: "vasselin",
     text: [
@@ -268,7 +268,7 @@ module.exports = {
       "« Il avait toujours froid, à quinze ans. Il disait que c'était le papier. Qu'à force de toucher des choses mortes, on finit par avoir froid de l'intérieur. » Il se tait. « Là-dessus, il avait raison. Là-dessus, au moins. »",
       { if: { has: "sud2:confidence" }, text: "Quand tu lui répètes ce que Mordace t'a dit, le registre unique, le monde qui étouffe, Hylas pâlit. « C'est moi qui lui ai dit ça, murmure-t-il. Il y a trente ans. C'était une plaisanterie. »" },
     ],
-    choices: [{ label: "Revenir à la table", fx: { conf: { hylas: 5 } }, to: "II_S2_nuit" }] }),
+    choices: [{ fx: { conf: { hylas: 5 } }, back: "II_S2_nuit" }] }),
 
   II_S2_nouvelle: P({ title: "Le crieur", place: "vasselin",
     text: [

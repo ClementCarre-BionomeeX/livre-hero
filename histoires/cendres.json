@@ -3,6 +3,7 @@
  "title": "Les Cendres de l'Hiver",
  "subtitle": "Cinq actes · six héros · un royaume qui oublie",
  "summary": "En plein été, une neige blanche tombe sur Esquarre, et ce qu'elle recouvre, le monde l'oublie. Six personnes que rien ne reliait vont devoir comprendre pourquoi : un enfant de la montagne, une chevalière, un faussaire, un vieux greffier aveugle, une chamane et une chanteuse de cour.",
+ "skin": "givre",
  "voice": "deuxième personne, présent",
  "version": 1,
  "start": "C_six",
@@ -2649,6 +2650,7 @@
   },
   "places": {
    "sauvelune": {
+    "ambiance": "village",
     "name": "Sauvelune",
     "map": "esquarre",
     "x": 18,
@@ -2665,6 +2667,7 @@
     "desc": "Un village de montagne de quatre cents âmes, au-dessus de la vallée de la Sauve. Un moulin, un temple, une fête des foins."
    },
    "pontsaule": {
+    "ambiance": "ville",
     "name": "Pont-de-Saule",
     "map": "esquarre",
     "x": 30,
@@ -2694,6 +2697,7 @@
     "desc": "Le bourg de la vallée, au pied de la route de montagne : un pont de pierre, un marché, une garnison de six hommes."
    },
    "grives": {
+    "ambiance": "village",
     "name": "La Combe-aux-Grives",
     "map": "esquarre",
     "x": 30,
@@ -2702,6 +2706,7 @@
     "desc": "Un hameau d'estive au-dessus de Sauvelune, au bord des Hautes-Combes. Huit chalets, des chèvres, un sanctuaire de pierres levées."
    },
    "brenne": {
+    "ambiance": "chateau",
     "name": "Le fort de Brenne",
     "map": "esquarre",
     "x": 80,
@@ -2718,6 +2723,7 @@
     "desc": "Une forteresse grise sur la frontière de Corvanne, au-dessus de la vallée de la Lisse."
    },
    "hautvent": {
+    "ambiance": "village",
     "name": "Hautvent",
     "map": "esquarre",
     "x": 88,
@@ -2736,6 +2742,7 @@
     "desc": "Un village de tisserands sur la frontière, moitié esquarrois, moitié corvannais, et tout entier suspect."
    },
    "corbeau": {
+    "ambiance": "montagne",
     "name": "Le camp du clan du Corbeau",
     "map": "esquarre",
     "x": 40,
@@ -2771,6 +2778,7 @@
     "desc": "Des tentes de peau au bord des Hautes-Combes."
    },
    "vasselin": {
+    "ambiance": "ville",
     "name": "Vasselin",
     "map": "esquarre",
     "x": 60,
@@ -2787,6 +2795,7 @@
     "desc": "La capitale, ses palais et son port."
    },
    "collines": {
+    "ambiance": "champs",
     "name": "Les collines de Pallanche",
     "map": "esquarre",
     "x": 50,
@@ -2795,6 +2804,7 @@
     "desc": "Des collines d'herbe au nord de Pallanche, d'où l'on voit la ville blanche."
    },
    "lacnoir": {
+    "ambiance": "souterrain",
     "name": "La grotte des Corbeaux",
     "map": "esquarre",
     "x": 34,
@@ -2803,6 +2813,7 @@
     "desc": "Au-dessus du lac noir, qui ne gèle jamais."
    },
    "moutier": {
+    "ambiance": "temple",
     "name": "Le moutier des Veilleurs",
     "map": "esquarre",
     "x": 52,
@@ -2819,6 +2830,7 @@
     "desc": "Un monastère gris face au col de l'Ourse, où l'on veille depuis trois cents ans."
    },
    "cirque": {
+    "ambiance": "neige",
     "name": "Le cirque des Moissons",
     "map": "esquarre",
     "x": 46,
@@ -2827,6 +2839,7 @@
     "desc": "Un bol de neige entre des falaises noires, où les Glaneurs portent ce qu'ils ont glané."
    },
    "col": {
+    "ambiance": "montagne",
     "name": "Le col de l'Ourse",
     "map": "esquarre",
     "x": 50,
@@ -2835,6 +2848,7 @@
     "desc": "L'herbe rase, la grande pierre plate, et la déchirure."
    },
    "plaine": {
+    "ambiance": "neige",
     "name": "La plaine blanche",
     "map": "outreblanc",
     "x": 50,
@@ -2843,6 +2857,7 @@
     "desc": "Le pays où va tout ce qu'on oublie. Pas de ciel, pas d'horizon."
    },
    "cloches": {
+    "ambiance": "ville",
     "name": "Bourdonne",
     "map": "outreblanc",
     "x": 20,
@@ -2851,6 +2866,7 @@
     "desc": "La ville des cloches oubliées."
    },
    "enfance": {
+    "ambiance": "foret",
     "name": "Ellerune",
     "map": "outreblanc",
     "x": 70,
@@ -2859,6 +2875,7 @@
     "desc": "Un hameau de maisons rondes dans une forêt d'arbres brûlés debout."
    },
    "valcendre": {
+    "ambiance": "ville",
     "name": "Valcendre",
     "map": "outreblanc",
     "x": 50,
@@ -2867,6 +2884,7 @@
     "desc": "La capitale des Orsans, intacte depuis trois cent douze ans."
    },
    "chancellerie": {
+    "ambiance": "chateau",
     "name": "La Chancellerie des Noms",
     "map": "esquarre",
     "x": 50,
@@ -2875,6 +2893,7 @@
     "desc": "La tour des Greffiers, au cœur de Pallanche."
    },
    "pallanche": {
+    "ambiance": "ville",
     "name": "Pallanche",
     "map": "esquarre",
     "x": 50,
@@ -3463,6 +3482,7 @@
     ]
    },
    "montagne": {
+    "ambiance": "montagne",
     "name": "La montagne de Sauvelune",
     "chance": 0.5,
     "events": [
@@ -3482,6 +3502,7 @@
     ]
    },
    "plaine": {
+    "ambiance": "champs",
     "name": "La plaine de Pallanche",
     "chance": 0.6,
     "events": [
@@ -3528,6 +3549,7 @@
     ]
    },
    "outreblanc": {
+    "ambiance": "neige",
     "name": "L'Outre-Blanc",
     "chance": 0.6,
     "events": [
@@ -3551,6 +3573,7 @@
     ]
    },
    "combes": {
+    "ambiance": "montagne",
     "name": "La crête des Combes",
     "chance": 0.6,
     "events": [
@@ -3570,6 +3593,7 @@
     ]
    },
    "cretes": {
+    "ambiance": "neige",
     "name": "Les crêtes",
     "chance": 0.6,
     "events": [
@@ -5024,7 +5048,7 @@
      "fx": {
       "item": "ruban"
      },
-     "to": "EN_matin_suite"
+     "back": "EN_matin_suite"
     }
    ]
   },
@@ -5046,7 +5070,7 @@
      "fx": {
       "item": "ruban"
      },
-     "to": "EN_matin_suite"
+     "back": "EN_matin_suite"
     }
    ]
   },
@@ -5188,8 +5212,7 @@
      }
     },
     {
-     "label": "Rentrer au moulin finir ce que tu y as laissé",
-     "to": "EN_matin_suite",
+     "back": "EN_matin_suite",
      "hide": {
       "all": [
        {
@@ -5341,7 +5364,7 @@
    "choices": [
     {
      "label": "Retourner dans la fête, le jambon sous le bras",
-     "to": "EN_place"
+     "back": "EN_place"
     }
    ]
   },
@@ -5433,8 +5456,7 @@
    ],
    "choices": [
     {
-     "label": "Retourner dans la fête",
-     "to": "EN_place"
+     "back": "EN_place"
     }
    ]
   },
@@ -5448,8 +5470,7 @@
    ],
    "choices": [
     {
-     "label": "Retourner dans la fête",
-     "to": "EN_place"
+     "back": "EN_place"
     }
    ]
   },
@@ -5565,8 +5586,7 @@
    ],
    "choices": [
     {
-     "label": "Redescendre à la fête",
-     "to": "EN_place"
+     "back": "EN_place"
     }
    ]
   },
@@ -5581,7 +5601,7 @@
    "choices": [
     {
      "label": "Redescendre à la fête, et revenir demain",
-     "to": "EN_place"
+     "back": "EN_place"
     }
    ]
   },
@@ -5632,8 +5652,7 @@
    ],
    "choices": [
     {
-     "label": "Retourner dans la fête",
-     "to": "EN_place"
+     "back": "EN_place"
     }
    ]
   },
@@ -6349,7 +6368,7 @@
    "choices": [
     {
      "label": "Sortir sans rien dire",
-     "to": "EN_village"
+     "back": "EN_village"
     }
    ]
   },
@@ -6366,7 +6385,7 @@
    "choices": [
     {
      "label": "Sortir, le sifflet dans ta poche",
-     "to": "EN_village"
+     "back": "EN_village"
     }
    ]
   },
@@ -6383,7 +6402,7 @@
    "choices": [
     {
      "label": "Sortir, avec ce trou en toi",
-     "to": "EN_village"
+     "back": "EN_village"
     }
    ]
   },
@@ -6398,11 +6417,10 @@
    ],
    "choices": [
     {
-     "label": "Sortir",
      "fx": {
       "flag": "pim:promesse"
      },
-     "to": "EN_village"
+     "back": "EN_village"
     }
    ]
   },
@@ -6492,8 +6510,7 @@
    ],
    "choices": [
     {
-     "label": "Repartir",
-     "to": "EN_village"
+     "back": "EN_village"
     }
    ]
   },
@@ -6595,8 +6612,7 @@
    ],
    "choices": [
     {
-     "label": "Repartir",
-     "to": "EN_village"
+     "back": "EN_village"
     }
    ]
   },
@@ -6695,8 +6711,7 @@
    ],
    "choices": [
     {
-     "label": "Redescendre au village",
-     "to": "EN_village"
+     "back": "EN_village"
     }
    ]
   },
@@ -6710,8 +6725,7 @@
    ],
    "choices": [
     {
-     "label": "Redescendre au village",
-     "to": "EN_village"
+     "back": "EN_village"
     }
    ]
   },
@@ -6812,6 +6826,7 @@
    ]
   },
   "EN_grenier_ouvert": {
+   "backName": "le grenier",
    "act": "I",
    "title": "Ce qu'il y avait dans le coffre",
    "place": "sauvelune",
@@ -7516,11 +7531,10 @@
    ],
    "choices": [
     {
-     "label": "Repartir",
      "fx": {
       "flag": "enfant:pierres"
      },
-     "to": "EN_grives"
+     "back": "EN_grives"
     }
    ]
   },
@@ -7635,8 +7649,7 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -7696,8 +7709,7 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -7872,8 +7884,7 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -7897,8 +7908,7 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -8018,8 +8028,7 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -8143,8 +8152,7 @@
    ],
    "choices": [
     {
-     "label": "Repartir",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -8219,8 +8227,7 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -8921,8 +8928,7 @@
    ],
    "choices": [
     {
-     "label": "Sortir par l'autre porte",
-     "to": "YS_cour"
+     "back": "YS_cour"
     }
    ]
   },
@@ -8938,7 +8944,7 @@
    "choices": [
     {
      "label": "Sortir avant qu'il revienne",
-     "to": "YS_cour"
+     "back": "YS_cour"
     }
    ]
   },
@@ -9648,8 +9654,7 @@
    ],
    "choices": [
     {
-     "label": "Repartir",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -9664,8 +9669,7 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -9679,8 +9683,7 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -9761,7 +9764,6 @@
    ],
    "choices": [
     {
-     "label": "Remonter en tête de la colonne",
      "hide": {
       "not": {
        "has": "croise:parle_ysolde"
@@ -9773,14 +9775,13 @@
        "sevrin:mefiant"
       ]
      },
-     "to": "@route"
+     "back": "@route"
     },
     {
-     "label": "Remonter en tête de la colonne",
      "hide": {
       "has": "croise:parle_ysolde"
      },
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -10664,8 +10665,7 @@
      "to": "PI_ville"
     },
     {
-     "label": "Sortir dans la nuit",
-     "to": "PI_ville"
+     "back": "PI_ville"
     }
    ]
   },
@@ -10942,8 +10942,7 @@
    ],
    "choices": [
     {
-     "label": "Remonter vers la ville",
-     "to": "PI_ville"
+     "back": "PI_ville"
     }
    ]
   },
@@ -10957,8 +10956,7 @@
    ],
    "choices": [
     {
-     "label": "Remonter vers la ville",
-     "to": "PI_ville"
+     "back": "PI_ville"
     }
    ]
   },
@@ -11009,8 +11007,7 @@
    ],
    "choices": [
     {
-     "label": "Remonter vers la ville",
-     "to": "PI_ville"
+     "back": "PI_ville"
     }
    ]
   },
@@ -11066,7 +11063,7 @@
     },
     {
      "label": "Repartir, avec la nausée",
-     "to": "PI_ville"
+     "back": "PI_ville"
     }
    ]
   },
@@ -11177,8 +11174,7 @@
    ],
    "choices": [
     {
-     "label": "Sortir",
-     "to": "PI_ville"
+     "back": "PI_ville"
     }
    ]
   },
@@ -11193,8 +11189,7 @@
    ],
    "choices": [
     {
-     "label": "Repartir",
-     "to": "PI_ville"
+     "back": "PI_ville"
     }
    ]
   },
@@ -11305,8 +11300,7 @@
    ],
    "choices": [
     {
-     "label": "Redescendre en ville",
-     "to": "PI_ville"
+     "back": "PI_ville"
     }
    ]
   },
@@ -11320,11 +11314,10 @@
    ],
    "choices": [
     {
-     "label": "Redescendre en ville",
      "fx": {
       "quest": "PI_sonneur"
      },
-     "to": "PI_ville"
+     "back": "PI_ville"
     }
    ]
   },
@@ -11338,8 +11331,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir vers Anseau",
-     "to": "PI_sonneur"
+     "back": "PI_sonneur"
     }
    ]
   },
@@ -11353,8 +11345,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir vers Anseau",
-     "to": "PI_sonneur"
+     "back": "PI_sonneur"
     }
    ]
   },
@@ -11405,8 +11396,7 @@
      "to": "PI_inscrire"
     },
     {
-     "label": "Repartir",
-     "to": "PI_ville"
+     "back": "PI_ville"
     }
    ]
   },
@@ -11420,11 +11410,10 @@
    ],
    "choices": [
     {
-     "label": "Repartir",
      "fx": {
       "flag": "pie:mere_inscrite"
      },
-     "to": "PI_ville"
+     "back": "PI_ville"
     }
    ]
   },
@@ -11438,8 +11427,7 @@
    ],
    "choices": [
     {
-     "label": "Repartir",
-     "to": "PI_ville"
+     "back": "PI_ville"
     }
    ]
   },
@@ -11455,7 +11443,7 @@
    "choices": [
     {
      "label": "Repartir, vite",
-     "to": "PI_ville"
+     "back": "PI_ville"
     }
    ]
   },
@@ -12646,8 +12634,7 @@
    ],
    "choices": [
     {
-     "label": "Remonter",
-     "to": "HY_tour"
+     "back": "HY_tour"
     }
    ]
   },
@@ -12661,8 +12648,7 @@
    ],
    "choices": [
     {
-     "label": "Remonter",
-     "to": "HY_tour"
+     "back": "HY_tour"
     }
    ]
   },
@@ -12676,8 +12662,7 @@
    ],
    "choices": [
     {
-     "label": "Remonter",
-     "to": "HY_tour"
+     "back": "HY_tour"
     }
    ]
   },
@@ -12741,7 +12726,7 @@
     },
     {
      "label": "Remonter. Pas aujourd'hui",
-     "to": "HY_tour"
+     "back": "HY_tour"
     }
    ]
   },
@@ -12755,8 +12740,7 @@
    ],
    "choices": [
     {
-     "label": "Remonter",
-     "to": "HY_tour"
+     "back": "HY_tour"
     }
    ]
   },
@@ -12827,7 +12811,7 @@
    "choices": [
     {
      "label": "Remonter, avant qu'on te trouve",
-     "to": "HY_tour"
+     "back": "HY_tour"
     }
    ]
   },
@@ -13618,8 +13602,7 @@
    ],
    "choices": [
     {
-     "label": "Sortir",
-     "to": "CO_camp"
+     "back": "CO_camp"
     }
    ]
   },
@@ -13711,12 +13694,11 @@
    ],
    "choices": [
     {
-     "label": "Revenir au camp",
      "fx": {
       "flag": "ylva:sauvee",
       "quest": "CO_ylva"
      },
-     "to": "CO_camp"
+     "back": "CO_camp"
     }
    ]
   },
@@ -13731,12 +13713,11 @@
    ],
    "choices": [
     {
-     "label": "Revenir au camp",
      "fx": {
       "flag": "ylva:sauvee",
       "quest": "CO_ylva"
      },
-     "to": "CO_camp"
+     "back": "CO_camp"
     }
    ]
   },
@@ -13750,12 +13731,11 @@
    ],
    "choices": [
     {
-     "label": "Redescendre",
      "fx": {
       "flag": "ylva:perdue",
       "quest": "CO_ylva"
      },
-     "to": "CO_camp"
+     "back": "CO_camp"
     }
    ]
   },
@@ -13769,8 +13749,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir au camp",
-     "to": "CO_camp"
+     "back": "CO_camp"
     }
    ]
   },
@@ -13849,8 +13828,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir au camp",
-     "to": "CO_camp"
+     "back": "CO_camp"
     }
    ]
   },
@@ -13911,11 +13889,10 @@
    ],
    "choices": [
     {
-     "label": "Revenir au camp",
      "fx": {
       "flag": "clan:colere"
      },
-     "to": "CO_camp"
+     "back": "CO_camp"
     }
    ]
   },
@@ -13965,8 +13942,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir au camp",
-     "to": "CO_camp"
+     "back": "CO_camp"
     }
    ]
   },
@@ -13981,8 +13957,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir au camp",
-     "to": "CO_camp"
+     "back": "CO_camp"
     }
    ]
   },
@@ -14134,11 +14109,10 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
      "fx": {
       "flag": "corbe:fleche"
      },
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -14250,8 +14224,7 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -14265,8 +14238,7 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -14281,11 +14253,10 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
      "fx": {
       "food": 1
      },
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -14685,8 +14656,7 @@
    ],
    "choices": [
     {
-     "label": "Sortir",
-     "to": "LI_cour"
+     "back": "LI_cour"
     }
    ]
   },
@@ -14700,8 +14670,7 @@
    ],
    "choices": [
     {
-     "label": "Sortir",
-     "to": "LI_cour"
+     "back": "LI_cour"
     }
    ]
   },
@@ -14814,7 +14783,7 @@
    "choices": [
     {
      "label": "Rentrer avant qu'on te voie",
-     "to": "LI_cour"
+     "back": "LI_cour"
     }
    ]
   },
@@ -14828,8 +14797,7 @@
    ],
    "choices": [
     {
-     "label": "Rentrer",
-     "to": "LI_cour"
+     "back": "LI_cour"
     }
    ]
   },
@@ -14844,11 +14812,10 @@
    ],
    "choices": [
     {
-     "label": "Revenir à la cour",
      "fx": {
       "gold": 40
      },
-     "to": "LI_cour"
+     "back": "LI_cour"
     }
    ]
   },
@@ -14994,8 +14961,7 @@
    ],
    "choices": [
     {
-     "label": "Sortir de la salle",
-     "to": "LI_cour"
+     "back": "LI_cour"
     }
    ]
   },
@@ -15051,8 +15017,7 @@
    ],
    "choices": [
     {
-     "label": "Repartir par le couloir des servantes",
-     "to": "LI_cour"
+     "back": "LI_cour"
     }
    ]
   },
@@ -15066,11 +15031,10 @@
    ],
    "choices": [
     {
-     "label": "Repartir",
      "fx": {
       "flag": "ermengarde:sait"
      },
-     "to": "LI_cour"
+     "back": "LI_cour"
     }
    ]
   },
@@ -15276,7 +15240,7 @@
    "choices": [
     {
      "label": "Reprendre la route au matin",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -15314,7 +15278,7 @@
    "choices": [
     {
      "label": "Reprendre la route au matin",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -16572,11 +16536,10 @@
    ],
    "choices": [
     {
-     "label": "Revenir au camp",
      "fx": {
       "quest": "CO_Q_renne"
      },
-     "to": "CO_camp"
+     "back": "CO_camp"
     }
    ]
   },
@@ -16590,11 +16553,10 @@
    ],
    "choices": [
     {
-     "label": "Revenir au camp",
      "fx": {
       "quest": "CO_Q_renne"
      },
-     "to": "CO_camp"
+     "back": "CO_camp"
     }
    ]
   },
@@ -16608,11 +16570,10 @@
    ],
    "choices": [
     {
-     "label": "Revenir au camp",
      "fx": {
       "quest": "CO_Q_renne"
      },
-     "to": "CO_camp"
+     "back": "CO_camp"
     }
    ]
   },
@@ -16626,11 +16587,10 @@
    ],
    "choices": [
     {
-     "label": "Revenir au camp",
      "fx": {
       "quest": "CO_Q_renne"
      },
-     "to": "CO_camp"
+     "back": "CO_camp"
     }
    ]
   },
@@ -16697,7 +16657,6 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans la tour",
      "fx": {
       "quest": "HY_Q_mur",
       "ep": [
@@ -16705,7 +16664,7 @@
        800
       ]
      },
-     "to": "HY_tour"
+     "back": "HY_tour"
     }
    ]
   },
@@ -16719,7 +16678,6 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans la tour",
      "fx": {
       "quest": "HY_Q_mur",
       "ep": [
@@ -16727,7 +16685,7 @@
        500
       ]
      },
-     "to": "HY_tour"
+     "back": "HY_tour"
     }
    ]
   },
@@ -16800,11 +16758,10 @@
    ],
    "choices": [
     {
-     "label": "Revenir à la cour",
      "fx": {
       "quest": "LI_Q_clemence"
      },
-     "to": "LI_cour"
+     "back": "LI_cour"
     }
    ]
   },
@@ -16818,11 +16775,10 @@
    ],
    "choices": [
     {
-     "label": "Revenir à la cour",
      "fx": {
       "quest": "LI_Q_clemence"
      },
-     "to": "LI_cour"
+     "back": "LI_cour"
     }
    ]
   },
@@ -16837,11 +16793,10 @@
    ],
    "choices": [
     {
-     "label": "Revenir à la cour",
      "fx": {
       "quest": "LI_Q_clemence"
      },
-     "to": "LI_cour"
+     "back": "LI_cour"
     }
    ]
   },
@@ -16909,14 +16864,13 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans les bas-quartiers",
      "fx": {
       "quest": "PI_Q_mouche",
       "conf": {
        "pie": 5
       }
      },
-     "to": "PI_ville"
+     "back": "PI_ville"
     }
    ]
   },
@@ -16930,11 +16884,10 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans les bas-quartiers",
      "fx": {
       "quest": "PI_Q_mouche"
      },
-     "to": "PI_ville"
+     "back": "PI_ville"
     }
    ]
   },
@@ -16948,11 +16901,10 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans les bas-quartiers",
      "fx": {
       "quest": "PI_Q_mouche"
      },
-     "to": "PI_ville"
+     "back": "PI_ville"
     }
    ]
   },
@@ -17007,11 +16959,10 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans la cour",
      "fx": {
       "quest": "YS_Q_cheval"
      },
-     "to": "YS_cour"
+     "back": "YS_cour"
     }
    ]
   },
@@ -17025,11 +16976,10 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans la cour",
      "fx": {
       "quest": "YS_Q_cheval"
      },
-     "to": "YS_cour"
+     "back": "YS_cour"
     }
    ]
   },
@@ -17100,11 +17050,10 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur la place",
      "fx": {
       "quest": "EN_Q_mat"
      },
-     "to": "EN_place"
+     "back": "EN_place"
     }
    ]
   },
@@ -17118,11 +17067,10 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur la place",
      "fx": {
       "quest": "EN_Q_mat"
      },
-     "to": "EN_place"
+     "back": "EN_place"
     }
    ]
   },
@@ -17188,11 +17136,10 @@
    ],
    "choices": [
     {
-     "label": "Redescendre dans les bas-quartiers",
      "fx": {
       "quest": "PI_Q_course"
      },
-     "to": "PI_ville"
+     "back": "PI_ville"
     }
    ]
   },
@@ -17206,11 +17153,10 @@
    ],
    "choices": [
     {
-     "label": "Redescendre dans les bas-quartiers",
      "fx": {
       "quest": "PI_Q_course"
      },
-     "to": "PI_ville"
+     "back": "PI_ville"
     }
    ]
   },
@@ -17279,12 +17225,11 @@
    ],
    "choices": [
     {
-     "label": "Revenir à la cour",
      "fx": {
       "quest": "LI_Q_perroquet",
       "gold": 6
      },
-     "to": "LI_cour"
+     "back": "LI_cour"
     }
    ]
   },
@@ -17298,11 +17243,10 @@
    ],
    "choices": [
     {
-     "label": "Revenir à la cour",
      "fx": {
       "quest": "LI_Q_perroquet"
      },
-     "to": "LI_cour"
+     "back": "LI_cour"
     }
    ]
   },
@@ -17316,11 +17260,10 @@
    ],
    "choices": [
     {
-     "label": "Revenir à la cour",
      "fx": {
       "quest": "LI_Q_perroquet"
      },
-     "to": "LI_cour"
+     "back": "LI_cour"
     }
    ]
   },
@@ -17371,11 +17314,10 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans la tour",
      "fx": {
       "quest": "HY_Q_page"
      },
-     "to": "HY_tour"
+     "back": "HY_tour"
     }
    ]
   },
@@ -17389,11 +17331,10 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans la tour",
      "fx": {
       "quest": "HY_Q_page"
      },
-     "to": "HY_tour"
+     "back": "HY_tour"
     }
    ]
   },
@@ -17444,11 +17385,10 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans la cour",
      "fx": {
       "quest": "YS_Q_recrue"
      },
-     "to": "YS_cour"
+     "back": "YS_cour"
     }
    ]
   },
@@ -17462,11 +17402,10 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans la cour",
      "fx": {
       "quest": "YS_Q_recrue"
      },
-     "to": "YS_cour"
+     "back": "YS_cour"
     }
    ]
   },
@@ -17529,12 +17468,11 @@
    ],
    "choices": [
     {
-     "label": "Revenir au camp",
      "fx": {
       "quest": "CO_Q_tambour",
       "flag": "co:tambour=neuf"
      },
-     "to": "CO_camp"
+     "back": "CO_camp"
     }
    ]
   },
@@ -17548,11 +17486,10 @@
    ],
    "choices": [
     {
-     "label": "Revenir au camp",
      "fx": {
       "quest": "CO_Q_tambour"
      },
-     "to": "CO_camp"
+     "back": "CO_camp"
     }
    ]
   },
@@ -17599,11 +17536,10 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur la place",
      "fx": {
       "quest": "EN_Q_fontaine"
      },
-     "to": "EN_place"
+     "back": "EN_place"
     }
    ]
   },
@@ -17661,8 +17597,7 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -17676,8 +17611,7 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -17719,8 +17653,7 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -17734,8 +17667,7 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -17760,8 +17692,7 @@
      "to": "E_fosse_pelle"
     },
     {
-     "label": "Reprendre la route",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -17775,11 +17706,10 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
      "fx": {
       "food": 1
      },
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -17835,8 +17765,7 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -17850,8 +17779,7 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -17907,8 +17835,7 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -17922,8 +17849,7 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -18000,8 +17926,7 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -18057,8 +17982,7 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -18072,8 +17996,7 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -18801,7 +18724,7 @@
    "choices": [
     {
      "label": "Reprendre la route, plus vite",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -19179,8 +19102,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir au centre du camp",
-     "to": "II_N_camp"
+     "back": "II_N_camp"
     }
    ]
   },
@@ -19199,8 +19121,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir au centre du camp",
-     "to": "II_N_camp"
+     "back": "II_N_camp"
     }
    ]
   },
@@ -19267,8 +19188,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir au centre du camp",
-     "to": "II_N_camp"
+     "back": "II_N_camp"
     }
    ]
   },
@@ -19283,14 +19203,13 @@
    ],
    "choices": [
     {
-     "label": "Revenir au centre du camp",
      "fx": {
       "flag": "nord:ysolde_respectee",
       "conf": {
        "ysolde": 5
       }
      },
-     "to": "II_N_camp"
+     "back": "II_N_camp"
     }
    ]
   },
@@ -19306,14 +19225,13 @@
    ],
    "choices": [
     {
-     "label": "Revenir au centre du camp",
      "fx": {
       "flag": "nord:pie_enfants",
       "conf": {
        "pie": 5
       }
      },
-     "to": "II_N_camp"
+     "back": "II_N_camp"
     }
    ]
   },
@@ -19371,14 +19289,14 @@
    ],
    "choices": [
     {
-     "label": "Revenir au centre du camp",
-     "to": "II_N_camp"
+     "back": "II_N_camp"
     }
    ]
   },
   "II_N_feu": {
    "act": "II",
    "noLead": true,
+   "backName": "le feu du camp",
    "takes": "evening",
    "title": "Le feu du soir",
    "place": "corbeau",
@@ -19445,13 +19363,12 @@
    ],
    "choices": [
     {
-     "label": "Revenir au feu",
      "fx": {
       "conf": {
        "enfant": 5
       }
      },
-     "to": "II_N_feu"
+     "back": "II_N_feu"
     }
    ]
   },
@@ -19466,13 +19383,12 @@
    ],
    "choices": [
     {
-     "label": "Revenir au feu",
      "fx": {
       "conf": {
        "ysolde": 5
       }
      },
-     "to": "II_N_feu"
+     "back": "II_N_feu"
     }
    ]
   },
@@ -19499,13 +19415,12 @@
    ],
    "choices": [
     {
-     "label": "Revenir au feu",
      "fx": {
       "conf": {
        "pie": 5
       }
      },
-     "to": "II_N_feu"
+     "back": "II_N_feu"
     }
    ]
   },
@@ -19520,13 +19435,12 @@
    ],
    "choices": [
     {
-     "label": "Revenir au feu",
      "fx": {
       "conf": {
        "hylas": 5
       }
      },
-     "to": "II_N_feu"
+     "back": "II_N_feu"
     }
    ]
   },
@@ -19655,8 +19569,7 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -19670,8 +19583,7 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -19690,8 +19602,7 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -19810,7 +19721,7 @@
    "choices": [
     {
      "label": "Reprendre la route, plus vite",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -19826,8 +19737,7 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -20385,8 +20295,7 @@
    ],
    "choices": [
     {
-     "label": "Ressortir dans la ville",
-     "to": "II_S_vasselin"
+     "back": "II_S_vasselin"
     }
    ]
   },
@@ -20512,8 +20421,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir en ville",
-     "to": "II_S_vasselin"
+     "back": "II_S_vasselin"
     }
    ]
   },
@@ -20591,8 +20499,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir en ville",
-     "to": "II_S_vasselin"
+     "back": "II_S_vasselin"
     }
    ]
   },
@@ -20608,8 +20515,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir en ville",
-     "to": "II_S_vasselin"
+     "back": "II_S_vasselin"
     }
    ]
   },
@@ -20671,8 +20577,7 @@
      "to": "II_S_mouettes_ok"
     },
     {
-     "label": "Repartir",
-     "to": "II_S_vasselin"
+     "back": "II_S_vasselin"
     }
    ]
   },
@@ -20687,8 +20592,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir en ville",
-     "to": "II_S_vasselin"
+     "back": "II_S_vasselin"
     }
    ]
   },
@@ -20702,8 +20606,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir en ville",
-     "to": "II_S_vasselin"
+     "back": "II_S_vasselin"
     }
    ]
   },
@@ -20815,8 +20718,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir en ville",
-     "to": "II_S_vasselin"
+     "back": "II_S_vasselin"
     }
    ]
   },
@@ -20911,14 +20813,13 @@
    ],
    "choices": [
     {
-     "label": "Revenir à la table",
      "fx": {
       "conf": {
        "enfant": 5,
        "lisandre": 5
       }
      },
-     "to": "II_S_nuit"
+     "back": "II_S_nuit"
     }
    ]
   },
@@ -20933,13 +20834,12 @@
    ],
    "choices": [
     {
-     "label": "Revenir à la table",
      "fx": {
       "conf": {
        "ysolde": 5
       }
      },
-     "to": "II_S_nuit"
+     "back": "II_S_nuit"
     }
    ]
   },
@@ -20954,13 +20854,12 @@
    ],
    "choices": [
     {
-     "label": "Revenir à la table",
      "fx": {
       "conf": {
        "pie": 5
       }
      },
-     "to": "II_S_nuit"
+     "back": "II_S_nuit"
     }
    ]
   },
@@ -20975,13 +20874,12 @@
    ],
    "choices": [
     {
-     "label": "Revenir à la table",
      "fx": {
       "conf": {
        "hylas": 5
       }
      },
-     "to": "II_S_nuit"
+     "back": "II_S_nuit"
     }
    ]
   },
@@ -21411,8 +21309,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir au centre de la grotte",
-     "to": "II_N2_grotte"
+     "back": "II_N2_grotte"
     }
    ]
   },
@@ -21427,8 +21324,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir au centre de la grotte",
-     "to": "II_N2_grotte"
+     "back": "II_N2_grotte"
     }
    ]
   },
@@ -21485,11 +21381,10 @@
    ],
    "choices": [
     {
-     "label": "Revenir au centre de la grotte",
      "fx": {
       "clue": "n_cinq_signes"
      },
-     "to": "II_N2_grotte"
+     "back": "II_N2_grotte"
     }
    ]
   },
@@ -21518,11 +21413,10 @@
    ],
    "choices": [
     {
-     "label": "Revenir au centre de la grotte",
      "fx": {
       "flag": "nord:corbeau_guide"
      },
-     "to": "II_N2_grotte"
+     "back": "II_N2_grotte"
     }
    ]
   },
@@ -21649,13 +21543,12 @@
    ],
    "choices": [
     {
-     "label": "Remonter dans la grande salle",
      "fx": {
       "conf": {
        "corbe": 5
       }
      },
-     "to": "II_N2_grotte"
+     "back": "II_N2_grotte"
     }
    ]
   },
@@ -21671,8 +21564,7 @@
    ],
    "choices": [
     {
-     "label": "Remonter dans la grande salle",
-     "to": "II_N2_grotte"
+     "back": "II_N2_grotte"
     }
    ]
   },
@@ -21687,14 +21579,14 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans la grande salle",
-     "to": "II_N2_grotte"
+     "back": "II_N2_grotte"
     }
    ]
   },
   "II_N2_nuit": {
    "act": "II",
    "noLead": true,
+   "backName": "le feu de la grotte",
    "title": "La nuit dans la grotte",
    "place": "lacnoir",
    "text": [
@@ -21764,13 +21656,12 @@
    ],
    "choices": [
     {
-     "label": "Revenir au feu",
      "fx": {
       "conf": {
        "enfant": 5
       }
      },
-     "to": "II_N2_nuit"
+     "back": "II_N2_nuit"
     }
    ]
   },
@@ -21790,13 +21681,12 @@
    ],
    "choices": [
     {
-     "label": "Revenir au feu",
      "fx": {
       "conf": {
        "ysolde": 5
       }
      },
-     "to": "II_N2_nuit"
+     "back": "II_N2_nuit"
     }
    ]
   },
@@ -21841,8 +21731,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir au feu",
-     "to": "II_N2_nuit"
+     "back": "II_N2_nuit"
     }
    ]
   },
@@ -21872,13 +21761,12 @@
    ],
    "choices": [
     {
-     "label": "Revenir au feu",
      "fx": {
       "conf": {
        "hylas": 5
       }
      },
-     "to": "II_N2_nuit"
+     "back": "II_N2_nuit"
     }
    ]
   },
@@ -22096,7 +21984,7 @@
      "hide": {
       "seen": "II_S2_cuisines"
      },
-     "to": "II_S2_cuisines"
+     "back": "II_S2_cuisines"
     },
     {
      "label": "Passer par la tribune des musiciens, d'où vient une harpe",
@@ -22759,6 +22647,7 @@
   "II_S2_nuit": {
    "act": "II",
    "noLead": true,
+   "backName": "la table de l'Ancre",
    "title": "Le jour à l'Ancre",
    "place": "vasselin",
    "text": [
@@ -22838,7 +22727,7 @@
        }
       ]
      },
-     "to": "II_S2_nuit_rodric"
+     "back": "II_S2_nuit_rodric"
     },
     {
      "label": "Linette, à la fenêtre, avec un crayon",
@@ -22874,14 +22763,13 @@
    ],
    "choices": [
     {
-     "label": "Revenir à la table",
      "fx": {
       "conf": {
        "enfant": 5,
        "lisandre": 5
       }
      },
-     "to": "II_S2_nuit"
+     "back": "II_S2_nuit"
     }
    ]
   },
@@ -22908,13 +22796,12 @@
    ],
    "choices": [
     {
-     "label": "Revenir à la table",
      "fx": {
       "conf": {
        "ysolde": 5
       }
      },
-     "to": "II_S2_nuit"
+     "back": "II_S2_nuit"
     }
    ]
   },
@@ -22963,13 +22850,12 @@
    ],
    "choices": [
     {
-     "label": "Revenir à la table",
      "fx": {
       "conf": {
        "pie": 5
       }
      },
-     "to": "II_S2_nuit"
+     "back": "II_S2_nuit"
     }
    ]
   },
@@ -22990,13 +22876,12 @@
    ],
    "choices": [
     {
-     "label": "Revenir à la table",
      "fx": {
       "conf": {
        "hylas": 5
       }
      },
-     "to": "II_S2_nuit"
+     "back": "II_S2_nuit"
     }
    ]
   },
@@ -23100,12 +22985,11 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
      "fx": {
       "join": "ombeline",
       "flag": "nord:ombeline"
      },
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -23120,8 +23004,7 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -23438,11 +23321,10 @@
    ],
    "choices": [
     {
-     "label": "Revenir au cloître",
      "fx": {
       "flag": "nord:tiennot"
      },
-     "to": "II_N3_cloitre"
+     "back": "II_N3_cloitre"
     }
    ]
   },
@@ -23511,8 +23393,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir au prieur",
-     "to": "II_N3_livre"
+     "back": "II_N3_livre"
     }
    ]
   },
@@ -23577,8 +23458,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir au cloître",
-     "to": "II_N3_cloitre"
+     "back": "II_N3_cloitre"
     }
    ]
   },
@@ -23658,8 +23538,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir au cloître",
-     "to": "II_N3_cloitre"
+     "back": "II_N3_cloitre"
     }
    ]
   },
@@ -23697,8 +23576,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir au cloître",
-     "to": "II_N3_cloitre"
+     "back": "II_N3_cloitre"
     }
    ]
   },
@@ -23752,14 +23630,14 @@
      }
     },
     {
-     "label": "Redescendre",
-     "to": "II_N3_cloitre"
+     "back": "II_N3_cloitre"
     }
    ]
   },
   "II_N3_soir": {
    "act": "II",
    "noLead": true,
+   "backName": "les cuisines du moutier",
    "title": "Le soir",
    "place": "moutier",
    "text": [
@@ -23875,13 +23753,12 @@
    ],
    "choices": [
     {
-     "label": "Revenir au feu",
      "fx": {
       "conf": {
        "enfant": 5
       }
      },
-     "to": "II_N3_soir"
+     "back": "II_N3_soir"
     }
    ]
   },
@@ -23895,13 +23772,12 @@
    ],
    "choices": [
     {
-     "label": "Revenir au feu",
      "fx": {
       "conf": {
        "ysolde": 5
       }
      },
-     "to": "II_N3_soir"
+     "back": "II_N3_soir"
     }
    ]
   },
@@ -23915,13 +23791,12 @@
    ],
    "choices": [
     {
-     "label": "Revenir au feu",
      "fx": {
       "conf": {
        "pie": 5
       }
      },
-     "to": "II_N3_soir"
+     "back": "II_N3_soir"
     }
    ]
   },
@@ -23936,14 +23811,13 @@
    ],
    "choices": [
     {
-     "label": "Revenir au feu",
      "fx": {
       "conf": {
        "hylas": 5
       },
       "flag": "hylas:arnoul"
      },
-     "to": "II_N3_soir"
+     "back": "II_N3_soir"
     }
    ]
   },
@@ -23958,13 +23832,12 @@
    ],
    "choices": [
     {
-     "label": "Revenir au feu",
      "fx": {
       "conf": {
        "ombeline": 5
       }
      },
-     "to": "II_N3_soir"
+     "back": "II_N3_soir"
     }
    ]
   },
@@ -25709,11 +25582,10 @@
    ],
    "choices": [
     {
-     "label": "Remonter au bord du cirque",
      "fx": {
       "flag": "nord:geant_souffre"
      },
-     "to": "II_N4_cirque"
+     "back": "II_N4_cirque"
     }
    ]
   },
@@ -25804,8 +25676,7 @@
    ],
    "choices": [
     {
-     "label": "Remonter au bord du cirque",
-     "to": "II_N4_cirque"
+     "back": "II_N4_cirque"
     }
    ]
   },
@@ -25819,8 +25690,7 @@
    ],
    "choices": [
     {
-     "label": "Remonter au bord du cirque",
-     "to": "II_N4_cirque"
+     "back": "II_N4_cirque"
     }
    ]
   },
@@ -25841,13 +25711,12 @@
    ],
    "choices": [
     {
-     "label": "Remonter au bord du cirque",
      "fx": {
       "conf": {
        "hylas": 5
       }
      },
-     "to": "II_N4_cirque"
+     "back": "II_N4_cirque"
     }
    ]
   },
@@ -25863,11 +25732,10 @@
    ],
    "choices": [
     {
-     "label": "Revenir au bord du cirque",
      "fx": {
       "flag": "nord:ysolde_plan"
      },
-     "to": "II_N4_cirque"
+     "back": "II_N4_cirque"
     }
    ]
   },
@@ -25882,11 +25750,10 @@
    ],
    "choices": [
     {
-     "label": "Revenir au bord du cirque",
      "fx": {
       "flag": "nord:gaspard_sait"
      },
-     "to": "II_N4_cirque"
+     "back": "II_N4_cirque"
     }
    ]
   },
@@ -26272,6 +26139,7 @@
   "II_N4_soir": {
    "act": "II",
    "noLead": true,
+   "backName": "le bivouac",
    "title": "Le bivouac",
    "place": "cirque",
    "text": [
@@ -26442,13 +26310,12 @@
    ],
    "choices": [
     {
-     "label": "Revenir au feu",
      "fx": {
       "conf": {
        "enfant": 5
       }
      },
-     "to": "II_N4_soir"
+     "back": "II_N4_soir"
     }
    ]
   },
@@ -26462,13 +26329,12 @@
    ],
    "choices": [
     {
-     "label": "Revenir au feu",
      "fx": {
       "conf": {
        "ysolde": 5
       }
      },
-     "to": "II_N4_soir"
+     "back": "II_N4_soir"
     }
    ]
   },
@@ -26516,13 +26382,12 @@
    ],
    "choices": [
     {
-     "label": "Revenir au feu",
      "fx": {
       "conf": {
        "pie": 5
       }
      },
-     "to": "II_N4_soir"
+     "back": "II_N4_soir"
     }
    ]
   },
@@ -26549,14 +26414,13 @@
    ],
    "choices": [
     {
-     "label": "Revenir au feu",
      "fx": {
       "conf": {
        "hylas": 5
       },
       "flag": "hylas:peuple"
      },
-     "to": "II_N4_soir"
+     "back": "II_N4_soir"
     }
    ]
   },
@@ -28078,8 +27942,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir au camp",
-     "to": "II_N5_col"
+     "back": "II_N5_col"
     }
    ]
   },
@@ -28154,17 +28017,17 @@
    ],
    "choices": [
     {
-     "label": "Revenir au camp",
      "fx": {
       "flag": "nord:ours_vu"
      },
-     "to": "II_N5_col"
+     "back": "II_N5_col"
     }
    ]
   },
   "II_N5_feu": {
    "act": "II",
    "noLead": true,
+   "backName": "le feu, à l'écart du clan",
    "takes": "evening",
    "title": "La veille du rite",
    "place": "col",
@@ -28293,13 +28156,12 @@
    ],
    "choices": [
     {
-     "label": "Revenir au feu",
      "fx": {
       "conf": {
        "enfant": 5
       }
      },
-     "to": "II_N5_feu"
+     "back": "II_N5_feu"
     }
    ]
   },
@@ -28313,14 +28175,13 @@
    ],
    "choices": [
     {
-     "label": "Revenir au feu",
      "fx": {
       "conf": {
        "ysolde": 5
       },
       "flag": "ysolde:ne_tiendra_pas"
      },
-     "to": "II_N5_feu"
+     "back": "II_N5_feu"
     }
    ]
   },
@@ -28347,13 +28208,12 @@
    ],
    "choices": [
     {
-     "label": "Revenir au feu",
      "fx": {
       "conf": {
        "pie": 5
       }
      },
-     "to": "II_N5_feu"
+     "back": "II_N5_feu"
     }
    ]
   },
@@ -28380,13 +28240,12 @@
    ],
    "choices": [
     {
-     "label": "Revenir au feu",
      "fx": {
       "conf": {
        "hylas": 5
       }
      },
-     "to": "II_N5_feu"
+     "back": "II_N5_feu"
     }
    ]
   },
@@ -28400,13 +28259,12 @@
    ],
    "choices": [
     {
-     "label": "Revenir au feu",
      "fx": {
       "conf": {
        "ombeline": 5
       }
      },
-     "to": "II_N5_feu"
+     "back": "II_N5_feu"
     }
    ]
   },
@@ -28420,13 +28278,12 @@
    ],
    "choices": [
     {
-     "label": "Revenir au feu",
      "fx": {
       "conf": {
        "gaspard": 5
       }
      },
-     "to": "II_N5_feu"
+     "back": "II_N5_feu"
     }
    ]
   },
@@ -30099,8 +29956,7 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -30115,8 +29971,7 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -30130,8 +29985,7 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -30269,8 +30123,7 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -30334,8 +30187,7 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -30391,8 +30243,7 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -30443,8 +30294,7 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -30554,8 +30404,7 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -30569,8 +30418,7 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -30644,8 +30492,7 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -30659,8 +30506,7 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -30777,8 +30623,7 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -30796,8 +30641,7 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -30814,8 +30658,7 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -30882,8 +30725,7 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -30897,8 +30739,7 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -30962,8 +30803,7 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -30977,8 +30817,7 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -31048,8 +30887,7 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -31095,14 +30933,13 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
      "fx": {
       "ep": [
        "perso",
        500
       ]
      },
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -31116,8 +30953,7 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -31153,14 +30989,13 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
      "fx": {
       "ep": [
        "perso",
        300
       ]
      },
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -31227,8 +31062,7 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -31242,8 +31076,7 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -31257,8 +31090,7 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -31496,11 +31328,10 @@
    ],
    "choices": [
     {
-     "label": "Revenir au camp",
      "fx": {
       "quest": "II_Q_lignees"
      },
-     "to": "II_N_camp"
+     "back": "II_N_camp"
     }
    ]
   },
@@ -31515,7 +31346,6 @@
    ],
    "choices": [
     {
-     "label": "Revenir au camp",
      "fx": {
       "quest": "II_Q_lignees",
       "flag": "nord:lignee",
@@ -31523,7 +31353,7 @@
        "corbe": 10
       }
      },
-     "to": "II_N_camp"
+     "back": "II_N_camp"
     }
    ]
   },
@@ -31626,11 +31456,10 @@
    ],
    "choices": [
     {
-     "label": "Revenir au cloître",
      "fx": {
       "quest": "II_Q_jardin"
      },
-     "to": "II_N3_cloitre"
+     "back": "II_N3_cloitre"
     }
    ]
   },
@@ -31644,11 +31473,10 @@
    ],
    "choices": [
     {
-     "label": "Revenir au cloître",
      "fx": {
       "quest": "II_Q_jardin"
      },
-     "to": "II_N3_cloitre"
+     "back": "II_N3_cloitre"
     }
    ]
   },
@@ -31715,11 +31543,10 @@
      "to": "II_Q_troupe_scene"
     },
     {
-     "label": "Revenir en ville",
      "fx": {
       "quest": "II_Q_troupe"
      },
-     "to": "II_S_vasselin"
+     "back": "II_S_vasselin"
     }
    ]
   },
@@ -31802,14 +31629,13 @@
    ],
    "choices": [
     {
-     "label": "Revenir en ville",
      "fx": {
       "quest": "II_Q_troupe",
       "conf": {
        "lisandre": 10
       }
      },
-     "to": "II_S_vasselin"
+     "back": "II_S_vasselin"
     }
    ]
   },
@@ -31823,11 +31649,10 @@
    ],
    "choices": [
     {
-     "label": "Revenir en ville",
      "fx": {
       "quest": "II_Q_troupe"
      },
-     "to": "II_S_vasselin"
+     "back": "II_S_vasselin"
     }
    ]
   },
@@ -31957,12 +31782,11 @@
    ],
    "choices": [
     {
-     "label": "Revenir en ville",
      "fx": {
       "quest": "II_Q_phare",
       "flag": "sud:phare=tenu"
      },
-     "to": "II_S_vasselin"
+     "back": "II_S_vasselin"
     }
    ]
   },
@@ -31977,7 +31801,6 @@
    ],
    "choices": [
     {
-     "label": "Revenir en ville",
      "fx": {
       "quest": "II_Q_phare",
       "flag": "sud:fioles_piste",
@@ -31985,7 +31808,7 @@
        "lisandre": 5
       }
      },
-     "to": "II_S_vasselin"
+     "back": "II_S_vasselin"
     }
    ]
   },
@@ -32145,12 +31968,11 @@
    ],
    "choices": [
     {
-     "label": "Revenir en ville",
      "fx": {
       "quest": "II_Q_fioles",
       "flag": "sud:fioles=parties"
      },
-     "to": "II_S_vasselin"
+     "back": "II_S_vasselin"
     }
    ]
   },
@@ -32261,11 +32083,10 @@
    ],
    "choices": [
     {
-     "label": "Revenir en ville",
      "fx": {
       "quest": "II_Q_fioles"
      },
-     "to": "II_S_vasselin"
+     "back": "II_S_vasselin"
     }
    ]
   },
@@ -32281,7 +32102,6 @@
    ],
    "choices": [
     {
-     "label": "Revenir en ville",
      "fx": {
       "quest": "II_Q_fioles",
       "conf": {
@@ -32289,7 +32109,7 @@
        "hylas": 5
       }
      },
-     "to": "II_S_vasselin"
+     "back": "II_S_vasselin"
     }
    ]
   },
@@ -32304,11 +32124,10 @@
    ],
    "choices": [
     {
-     "label": "Revenir en ville",
      "fx": {
       "quest": "II_Q_fioles"
      },
-     "to": "II_S_vasselin"
+     "back": "II_S_vasselin"
     }
    ]
   },
@@ -32322,12 +32141,11 @@
    ],
    "choices": [
     {
-     "label": "Revenir en ville",
      "fx": {
       "quest": "II_Q_fioles",
       "flag": "sud:fioles=laissees"
      },
-     "to": "II_S_vasselin"
+     "back": "II_S_vasselin"
     }
    ]
   },
@@ -32401,11 +32219,10 @@
    ],
    "choices": [
     {
-     "label": "Revenir à la grotte",
      "fx": {
       "quest": "II_Q_peche"
      },
-     "to": "II_N2_grotte"
+     "back": "II_N2_grotte"
     }
    ]
   },
@@ -32420,11 +32237,10 @@
    ],
    "choices": [
     {
-     "label": "Revenir à la grotte",
      "fx": {
       "quest": "II_Q_peche"
      },
-     "to": "II_N2_grotte"
+     "back": "II_N2_grotte"
     }
    ]
   },
@@ -32476,11 +32292,10 @@
    ],
    "choices": [
     {
-     "label": "Revenir au col",
      "fx": {
       "quest": "II_Q_bouches"
      },
-     "to": "II_N5_col"
+     "back": "II_N5_col"
     }
    ]
   },
@@ -32494,11 +32309,10 @@
    ],
    "choices": [
     {
-     "label": "Revenir au col",
      "fx": {
       "quest": "II_Q_bouches"
      },
-     "to": "II_N5_col"
+     "back": "II_N5_col"
     }
    ]
   },
@@ -32557,8 +32371,7 @@
      }
     },
     {
-     "label": "Retourner au camp",
-     "to": "II_S3_soir"
+     "back": "II_S3_soir"
     }
    ]
   },
@@ -32578,11 +32391,10 @@
    ],
    "choices": [
     {
-     "label": "Retourner au camp",
      "fx": {
       "quest": "II_Q_ecuries"
      },
-     "to": "II_S3_soir"
+     "back": "II_S3_soir"
     }
    ]
   },
@@ -32596,11 +32408,10 @@
    ],
    "choices": [
     {
-     "label": "Retourner au camp",
      "fx": {
       "quest": "II_Q_ecuries"
      },
-     "to": "II_S3_soir"
+     "back": "II_S3_soir"
     }
    ]
   },
@@ -33515,8 +33326,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir au bord du cirque",
-     "to": "II_N4_cirque"
+     "back": "II_N4_cirque"
     }
    ]
   },
@@ -33583,8 +33393,7 @@
    ],
    "choices": [
     {
-     "label": "Redescendre",
-     "to": "II_N4_cirque"
+     "back": "II_N4_cirque"
     }
    ]
   },
@@ -33598,8 +33407,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir au bord du cirque",
-     "to": "II_N4_cirque"
+     "back": "II_N4_cirque"
     }
    ]
   },
@@ -33728,8 +33536,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir au camp",
-     "to": "IV_clan_fin"
+     "back": "IV_clan_fin"
     }
    ]
   },
@@ -34337,11 +34144,10 @@
    ],
    "choices": [
     {
-     "label": "Revenir à la plaine",
      "fx": {
       "flag": "acte3:marcheurs"
      },
-     "to": "III_plaine"
+     "back": "III_plaine"
     }
    ]
   },
@@ -34385,7 +34191,6 @@
    ],
    "choices": [
     {
-     "label": "Repartir",
      "fx": {
       "conf": {
        "ysolde": 5,
@@ -34395,7 +34200,7 @@
        "lisandre": 5
       }
      },
-     "to": "III_plaine"
+     "back": "III_plaine"
     }
    ]
   },
@@ -34821,12 +34626,11 @@
      "to": "III_c_sauvelune_don"
     },
     {
-     "label": "Redescendre sur la place",
      "hide": {
       "has": "nord:rendu=sauvelune"
      },
      "after": "III_c_sauvelune_main",
-     "to": "III_c_ville"
+     "back": "III_c_ville"
     }
    ]
   },
@@ -34842,8 +34646,7 @@
    ],
    "choices": [
     {
-     "label": "Redescendre",
-     "to": "III_c_sauvelune"
+     "back": "III_c_sauvelune"
     }
    ]
   },
@@ -34860,8 +34663,7 @@
    ],
    "choices": [
     {
-     "label": "Redescendre",
-     "to": "III_c_ville"
+     "back": "III_c_ville"
     }
    ]
   },
@@ -34903,8 +34705,7 @@
      "to": "III_c_pallanche_felee"
     },
     {
-     "label": "Revenir sur la place",
-     "to": "III_c_ville"
+     "back": "III_c_ville"
     }
    ]
   },
@@ -34919,7 +34720,7 @@
    "choices": [
     {
      "label": "Redescendre, et revenir sur la place",
-     "to": "III_c_ville"
+     "back": "III_c_ville"
     }
    ]
   },
@@ -35032,8 +34833,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur la place",
-     "to": "III_c_ville"
+     "back": "III_c_ville"
     }
    ]
   },
@@ -35048,8 +34848,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur la place",
-     "to": "III_c_ville"
+     "back": "III_c_ville"
     }
    ]
   },
@@ -35063,8 +34862,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur la place",
-     "to": "III_c_ville"
+     "back": "III_c_ville"
     }
    ]
   },
@@ -35129,7 +34927,7 @@
        "pie": 10
       }
      },
-     "to": "III_c_ville"
+     "back": "III_c_ville"
     }
    ]
   },
@@ -35143,8 +34941,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur la place",
-     "to": "III_c_ville"
+     "back": "III_c_ville"
     }
    ]
   },
@@ -35216,8 +35013,7 @@
    ],
    "choices": [
     {
-     "label": "Repartir vers la plaine",
-     "to": "III_plaine"
+     "back": "III_plaine"
     }
    ]
   },
@@ -35291,11 +35087,10 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur la place",
      "fx": {
       "quest": "III_Q_vaure"
      },
-     "to": "III_c_ville"
+     "back": "III_c_ville"
     }
    ]
   },
@@ -35320,11 +35115,10 @@
      "to": "III_b_vaure_promesse"
     },
     {
-     "label": "Revenir sur la place",
      "fx": {
       "quest": "III_Q_vaure"
      },
-     "to": "III_c_ville"
+     "back": "III_c_ville"
     }
    ]
   },
@@ -35339,11 +35133,10 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur la place",
      "fx": {
       "quest": "III_Q_vaure"
      },
-     "to": "III_c_ville"
+     "back": "III_c_ville"
     }
    ]
   },
@@ -35399,8 +35192,7 @@
      }
     },
     {
-     "label": "Revenir sur la place",
-     "to": "III_c_ville"
+     "back": "III_c_ville"
     }
    ]
   },
@@ -35416,8 +35208,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur la place",
-     "to": "III_c_ville"
+     "back": "III_c_ville"
     }
    ]
   },
@@ -35431,8 +35222,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur la place",
-     "to": "III_c_ville"
+     "back": "III_c_ville"
     }
    ]
   },
@@ -35476,8 +35266,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur la place",
-     "to": "III_c_ville"
+     "back": "III_c_ville"
     }
    ]
   },
@@ -35491,8 +35280,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur la place",
-     "to": "III_c_ville"
+     "back": "III_c_ville"
     }
    ]
   },
@@ -35547,8 +35335,7 @@
      }
     },
     {
-     "label": "Revenir sur la place",
-     "to": "III_c_ville"
+     "back": "III_c_ville"
     }
    ]
   },
@@ -35568,8 +35355,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur la place",
-     "to": "III_c_ville"
+     "back": "III_c_ville"
     }
    ]
   },
@@ -35583,8 +35369,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur la place",
-     "to": "III_c_ville"
+     "back": "III_c_ville"
     }
    ]
   },
@@ -35809,11 +35594,10 @@
    ],
    "choices": [
     {
-     "label": "Revenir au centre du hameau",
      "fx": {
       "flag": "enfant:langue"
      },
-     "to": "III_e_hameau"
+     "back": "III_e_hameau"
     }
    ]
   },
@@ -35834,11 +35618,10 @@
    ],
    "choices": [
     {
-     "label": "Revenir au centre du hameau",
      "fx": {
       "flag": "enfant:berceau"
      },
-     "to": "III_e_hameau"
+     "back": "III_e_hameau"
     }
    ]
   },
@@ -35942,11 +35725,10 @@
    ],
    "choices": [
     {
-     "label": "Revenir au centre du hameau",
      "fx": {
       "flag": "enfant:berceuse"
      },
-     "to": "III_e_hameau"
+     "back": "III_e_hameau"
     }
    ]
   },
@@ -36021,8 +35803,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir au centre du hameau",
-     "to": "III_e_hameau"
+     "back": "III_e_hameau"
     }
    ]
   },
@@ -36036,8 +35817,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir au centre du hameau",
-     "to": "III_e_hameau"
+     "back": "III_e_hameau"
     }
    ]
   },
@@ -36143,8 +35923,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir au centre du hameau",
-     "to": "III_e_hameau"
+     "back": "III_e_hameau"
     }
    ]
   },
@@ -36158,8 +35937,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir au centre du hameau",
-     "to": "III_e_hameau"
+     "back": "III_e_hameau"
     }
    ]
   },
@@ -36208,8 +35986,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir au centre du hameau",
-     "to": "III_e_hameau"
+     "back": "III_e_hameau"
     }
    ]
   },
@@ -36223,8 +36000,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir au centre du hameau",
-     "to": "III_e_hameau"
+     "back": "III_e_hameau"
     }
    ]
   },
@@ -36275,7 +36051,7 @@
    "choices": [
     {
      "label": "Sortir du rond, et revenir au centre du hameau",
-     "to": "III_e_hameau"
+     "back": "III_e_hameau"
     }
    ]
   },
@@ -36291,8 +36067,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir au centre du hameau",
-     "to": "III_e_hameau"
+     "back": "III_e_hameau"
     }
    ]
   },
@@ -36338,8 +36113,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur la plaine",
-     "to": "III_plaine"
+     "back": "III_plaine"
     }
    ]
   },
@@ -36353,8 +36127,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur la plaine",
-     "to": "III_plaine"
+     "back": "III_plaine"
     }
    ]
   },
@@ -36400,8 +36173,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur la plaine",
-     "to": "III_plaine"
+     "back": "III_plaine"
     }
    ]
   },
@@ -36415,8 +36187,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur la plaine",
-     "to": "III_plaine"
+     "back": "III_plaine"
     }
    ]
   },
@@ -36463,8 +36234,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur la plaine",
-     "to": "III_plaine"
+     "back": "III_plaine"
     }
    ]
   },
@@ -36478,8 +36248,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur la plaine",
-     "to": "III_plaine"
+     "back": "III_plaine"
     }
    ]
   },
@@ -36526,8 +36295,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur la plaine",
-     "to": "III_plaine"
+     "back": "III_plaine"
     }
    ]
   },
@@ -36541,8 +36309,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur la plaine",
-     "to": "III_plaine"
+     "back": "III_plaine"
     }
    ]
   },
@@ -36588,8 +36355,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur la plaine",
-     "to": "III_plaine"
+     "back": "III_plaine"
     }
    ]
   },
@@ -36603,8 +36369,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur la plaine",
-     "to": "III_plaine"
+     "back": "III_plaine"
     }
    ]
   },
@@ -36650,8 +36415,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur la plaine",
-     "to": "III_plaine"
+     "back": "III_plaine"
     }
    ]
   },
@@ -36665,8 +36429,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur la plaine",
-     "to": "III_plaine"
+     "back": "III_plaine"
     }
    ]
   },
@@ -36885,12 +36648,11 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans la ville",
      "fx": {
       "pv": 4,
       "flag": "iii:pomme"
      },
-     "to": "III_v_porte"
+     "back": "III_v_porte"
     }
    ]
   },
@@ -36918,8 +36680,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans la ville",
-     "to": "III_v_porte"
+     "back": "III_v_porte"
     }
    ]
   },
@@ -36940,11 +36701,10 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans la ville",
      "fx": {
       "flag": "iii:noms_dits"
      },
-     "to": "III_v_porte"
+     "back": "III_v_porte"
     }
    ]
   },
@@ -36960,14 +36720,13 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans la ville",
      "fx": {
       "flag": "iii:ysolde_remparts",
       "conf": {
        "ysolde": 5
       }
      },
-     "to": "III_v_porte"
+     "back": "III_v_porte"
     }
    ]
   },
@@ -36996,14 +36755,13 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans la ville",
      "fx": {
       "flag": "iii:lisandre_choeur",
       "conf": {
        "lisandre": 5
       }
      },
-     "to": "III_v_porte"
+     "back": "III_v_porte"
     }
    ]
   },
@@ -37031,13 +36789,12 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans la ville",
      "fx": {
       "conf": {
        "corbe": 5
       }
      },
-     "to": "III_v_porte"
+     "back": "III_v_porte"
     }
    ]
   },
@@ -37053,13 +36810,12 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans la ville",
      "fx": {
       "conf": {
        "pie": 5
       }
      },
-     "to": "III_v_porte"
+     "back": "III_v_porte"
     }
    ]
   },
@@ -37457,8 +37213,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir vers les autres statues",
-     "to": "III_p_place"
+     "back": "III_p_place"
     }
    ]
   },
@@ -37472,8 +37227,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir vers les autres statues",
-     "to": "III_p_place"
+     "back": "III_p_place"
     }
    ]
   },
@@ -37568,8 +37322,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir vers les autres statues",
-     "to": "III_p_place"
+     "back": "III_p_place"
     }
    ]
   },
@@ -37583,8 +37336,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir vers les autres statues",
-     "to": "III_p_place"
+     "back": "III_p_place"
     }
    ]
   },
@@ -37677,8 +37429,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir vers les autres statues",
-     "to": "III_p_place"
+     "back": "III_p_place"
     }
    ]
   },
@@ -37692,11 +37443,10 @@
    ],
    "choices": [
     {
-     "label": "Revenir vers les autres statues",
      "fx": {
       "flag": "iii:iselde"
      },
-     "to": "III_p_place"
+     "back": "III_p_place"
     }
    ]
   },
@@ -37802,13 +37552,12 @@
    ],
    "choices": [
     {
-     "label": "Revenir vers les autres statues",
      "fx": {
       "conf": {
        "ysolde": -5
       }
      },
-     "to": "III_p_place"
+     "back": "III_p_place"
     }
    ]
   },
@@ -37826,14 +37575,13 @@
    ],
    "choices": [
     {
-     "label": "Revenir vers les autres statues",
      "fx": {
       "conf": {
        "ysolde": 10
       },
       "flag": "ysolde:sait_cerf"
      },
-     "to": "III_p_place"
+     "back": "III_p_place"
     }
    ]
   },
@@ -37933,8 +37681,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir vers les autres statues",
-     "to": "III_p_place"
+     "back": "III_p_place"
     }
    ]
   },
@@ -37948,8 +37695,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir vers les autres statues",
-     "to": "III_p_place"
+     "back": "III_p_place"
     }
    ]
   },
@@ -38236,6 +37982,7 @@
   "III_a_nuit": {
    "act": "III",
    "noLead": true,
+   "backName": "la maison au pied du palais",
    "title": "La dernière nuit",
    "place": "valcendre",
    "hub": true,
@@ -38484,14 +38231,13 @@
    ],
    "choices": [
     {
-     "label": "Redescendre",
      "fx": {
       "conf": {
        "sansnom": 10
       },
       "flag": "sansnom:veut"
      },
-     "to": "III_a_nuit"
+     "back": "III_a_nuit"
     }
    ]
   },
@@ -39217,11 +38963,10 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur la plaine",
      "fx": {
       "quest": "III_Q_gue"
      },
-     "to": "III_plaine"
+     "back": "III_plaine"
     }
    ]
   },
@@ -39300,14 +39045,13 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur la plaine",
      "fx": {
       "quest": "III_Q_gue",
       "conf": {
        "ysolde": 10
       }
      },
-     "to": "III_plaine"
+     "back": "III_plaine"
     }
    ]
   },
@@ -39322,11 +39066,10 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur la plaine",
      "fx": {
       "quest": "III_Q_gue"
      },
-     "to": "III_plaine"
+     "back": "III_plaine"
     }
    ]
   },
@@ -39433,11 +39176,10 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur la plaine",
      "fx": {
       "quest": "III_Q_lac"
      },
-     "to": "III_plaine"
+     "back": "III_plaine"
     }
    ]
   },
@@ -39451,11 +39193,10 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur la plaine",
      "fx": {
       "quest": "III_Q_lac"
      },
-     "to": "III_plaine"
+     "back": "III_plaine"
     }
    ]
   },
@@ -39469,11 +39210,10 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur la plaine",
      "fx": {
       "quest": "III_Q_lac"
      },
-     "to": "III_plaine"
+     "back": "III_plaine"
     }
    ]
   },
@@ -39606,11 +39346,10 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur la plaine",
      "fx": {
       "quest": "III_Q_givre"
      },
-     "to": "III_plaine"
+     "back": "III_plaine"
     }
    ]
   },
@@ -39630,11 +39369,10 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur la plaine",
      "fx": {
       "quest": "III_Q_givre"
      },
-     "to": "III_plaine"
+     "back": "III_plaine"
     }
    ]
   },
@@ -39857,8 +39595,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans le cloître",
-     "to": "IV_moutier"
+     "back": "IV_moutier"
     }
    ]
   },
@@ -39921,8 +39658,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans le cloître",
-     "to": "IV_moutier"
+     "back": "IV_moutier"
     }
    ]
   },
@@ -40025,7 +39761,7 @@
        }
       ]
      },
-     "to": "IV_V_corbe"
+     "back": "IV_V_corbe"
     },
     {
      "label": "Givre, couché à trois pas du feu",
@@ -40120,11 +39856,10 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans le cloître",
      "fx": {
       "flag": "iv:chronique"
      },
-     "to": "IV_moutier"
+     "back": "IV_moutier"
     }
    ]
   },
@@ -40151,12 +39886,11 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans le cloître",
      "fx": {
       "flag": "iv:arnoul",
       "clue": "n_caveau"
      },
-     "to": "IV_moutier"
+     "back": "IV_moutier"
     }
    ]
   },
@@ -41261,11 +40995,10 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur la place",
      "fx": {
       "food": 3
      },
-     "to": "IV_sv_place"
+     "back": "IV_sv_place"
     }
    ]
   },
@@ -41279,11 +41012,10 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur la place",
      "fx": {
       "food": 3
      },
-     "to": "IV_sv_place"
+     "back": "IV_sv_place"
     }
    ]
   },
@@ -41362,8 +41094,7 @@
      "to": "IV_sv_tess"
     },
     {
-     "label": "Redescendre",
-     "to": "IV_sv_place"
+     "back": "IV_sv_place"
     }
    ]
   },
@@ -41378,8 +41109,7 @@
    ],
    "choices": [
     {
-     "label": "Redescendre",
-     "to": "IV_sv_place"
+     "back": "IV_sv_place"
     }
    ]
   },
@@ -41416,7 +41146,6 @@
    ],
    "choices": [
     {
-     "label": "Redescendre",
      "fx": {
       "flag": "tess:iv",
       "ep": [
@@ -41424,7 +41153,7 @@
        1000
       ]
      },
-     "to": "IV_sv_place"
+     "back": "IV_sv_place"
     }
    ]
   },
@@ -41597,11 +41326,10 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur la place",
      "fx": {
       "food": 4
      },
-     "to": "IV_sv_place"
+     "back": "IV_sv_place"
     }
    ]
   },
@@ -41929,6 +41657,7 @@
   "IV_pal": {
    "act": "IV",
    "noLead": true,
+   "backName": "Pallanche",
    "title": "Pallanche, un an après",
    "place": "pallanche",
    "hub": true,
@@ -42355,11 +42084,10 @@
    ],
    "choices": [
     {
-     "label": "Revenir chez la Veuve",
      "fx": {
       "flag": "pal:queue"
      },
-     "to": "IV_pal"
+     "back": "IV_pal"
     }
    ]
   },
@@ -42492,11 +42220,10 @@
    ],
    "choices": [
     {
-     "label": "Revenir à vos plans",
      "fx": {
       "join": "pie"
      },
-     "to": "IV_pal"
+     "back": "IV_pal"
     }
    ]
   },
@@ -42528,11 +42255,10 @@
    ],
    "choices": [
     {
-     "label": "Revenir à vos plans",
      "fx": {
       "flag": "pal:pie_indice"
      },
-     "to": "IV_pal"
+     "back": "IV_pal"
     }
    ]
   },
@@ -42906,7 +42632,7 @@
        2000
       ]
      },
-     "to": "IV_tour_escalier"
+     "back": "IV_tour_escalier"
     }
    ]
   },
@@ -42950,7 +42676,7 @@
        3000
       ]
      },
-     "to": "IV_tour_escalier"
+     "back": "IV_tour_escalier"
     }
    ]
   },
@@ -43072,7 +42798,7 @@
      "fx": {
       "join": "hylas"
      },
-     "to": "IV_tour_escalier"
+     "back": "IV_tour_escalier"
     }
    ]
   },
@@ -43087,12 +42813,11 @@
    ],
    "choices": [
     {
-     "label": "Remonter",
      "fx": {
       "join": "hylas",
       "flag": "hylas:iv=libre"
      },
-     "to": "IV_tour_escalier"
+     "back": "IV_tour_escalier"
     }
    ]
   },
@@ -43873,7 +43598,6 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans le camp",
      "fx": {
       "flag": [
        "ysolde:iv=compagnie",
@@ -43883,7 +43607,7 @@
        "ysolde": 5
       }
      },
-     "to": "IV_br"
+     "back": "IV_br"
     }
    ]
   },
@@ -43897,11 +43621,10 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans le camp",
      "fx": {
       "flag": "ysolde:pont"
      },
-     "to": "IV_br"
+     "back": "IV_br"
     }
    ]
   },
@@ -43915,11 +43638,10 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans le camp",
      "fx": {
       "flag": "ysolde:pont"
      },
-     "to": "IV_br"
+     "back": "IV_br"
     }
    ]
   },
@@ -43976,12 +43698,11 @@
    ],
    "choices": [
     {
-     "label": "Sortir de la tente",
      "fx": {
       "flag": "reine:iv=parle",
       "clue": "n_reine_lisse"
      },
-     "to": "IV_br"
+     "back": "IV_br"
     }
    ]
   },
@@ -44440,8 +44161,7 @@
      "to": "IV_Q_fevrier"
     },
     {
-     "label": "Revenir dans le cloître",
-     "to": "IV_moutier"
+     "back": "IV_moutier"
     }
    ]
   },
@@ -44509,13 +44229,12 @@
    ],
    "choices": [
     {
-     "label": "Revenir à Odon",
      "fx": {
       "conf": {
        "ombeline": 5
       }
      },
-     "to": "IV_Q_odon_fin"
+     "back": "IV_Q_odon_fin"
     }
    ]
   },
@@ -44529,8 +44248,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir à Odon",
-     "to": "IV_Q_odon_fin"
+     "back": "IV_Q_odon_fin"
     }
    ]
   },
@@ -44602,8 +44320,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir à Odon",
-     "to": "IV_Q_odon_fin"
+     "back": "IV_Q_odon_fin"
     }
    ]
   },
@@ -44617,8 +44334,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir à Odon",
-     "to": "IV_Q_odon_fin"
+     "back": "IV_Q_odon_fin"
     }
    ]
   },
@@ -44632,14 +44348,14 @@
    ],
    "choices": [
     {
-     "label": "Revenir à Odon",
-     "to": "IV_Q_odon_fin"
+     "back": "IV_Q_odon_fin"
     }
    ]
   },
   "IV_Q_odon_fin": {
    "act": "IV",
    "noLead": true,
+   "backName": "la table d'Odon",
    "title": "Odon",
    "place": "moutier",
    "text": [
@@ -44688,12 +44404,11 @@
      "to": "IV_Q_odon"
     },
     {
-     "label": "Revenir dans le cloître",
      "fx": {
       "quest": "IV_Q_listes",
       "flag": "odon:aide"
      },
-     "to": "IV_moutier"
+     "back": "IV_moutier"
     }
    ]
   },
@@ -44782,11 +44497,10 @@
    ],
    "choices": [
     {
-     "label": "Revenir au camp",
      "fx": {
       "quest": "IV_Q_ylva"
      },
-     "to": "IV_clan_fin"
+     "back": "IV_clan_fin"
     }
    ]
   },
@@ -44814,14 +44528,13 @@
    ],
    "choices": [
     {
-     "label": "Revenir au camp",
      "fx": {
       "quest": "IV_Q_ylva",
       "conf": {
        "corbe": 5
       }
      },
-     "to": "IV_clan_fin"
+     "back": "IV_clan_fin"
     }
    ]
   },
@@ -44837,11 +44550,10 @@
    ],
    "choices": [
     {
-     "label": "Revenir au camp",
      "fx": {
       "quest": "IV_Q_ylva"
      },
-     "to": "IV_clan_fin"
+     "back": "IV_clan_fin"
     }
    ]
   },
@@ -44917,7 +44629,6 @@
    ],
    "choices": [
     {
-     "label": "Redescendre",
      "fx": {
       "item": [
        "miel_blanc",
@@ -44931,7 +44642,7 @@
        1200
       ]
      },
-     "to": "IV_sv_place"
+     "back": "IV_sv_place"
     }
    ]
   },
@@ -44952,12 +44663,11 @@
    ],
    "choices": [
     {
-     "label": "Redescendre",
      "fx": {
       "quest": "IV_Q_ruches",
       "flag": "mathurin:iv"
      },
-     "to": "IV_sv_place"
+     "back": "IV_sv_place"
     }
    ]
   },
@@ -45051,11 +44761,10 @@
    ],
    "choices": [
     {
-     "label": "Revenir chez la Veuve",
      "fx": {
       "quest": "IV_Q_baudoin"
      },
-     "to": "IV_pal"
+     "back": "IV_pal"
     }
    ]
   },
@@ -45069,11 +44778,10 @@
    ],
    "choices": [
     {
-     "label": "Revenir chez la Veuve",
      "fx": {
       "quest": "IV_Q_baudoin"
      },
-     "to": "IV_pal"
+     "back": "IV_pal"
     }
    ]
   },
@@ -45225,8 +44933,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir chez la Veuve",
-     "to": "IV_pal"
+     "back": "IV_pal"
     }
    ]
   },
@@ -45273,7 +44980,6 @@
    ],
    "choices": [
     {
-     "label": "Revenir chez la Veuve",
      "fx": {
       "quest": "IV_Q_potence",
       "conf": {
@@ -45282,7 +44988,7 @@
        "lisandre": 5
       }
      },
-     "to": "IV_pal"
+     "back": "IV_pal"
     }
    ]
   },
@@ -45433,11 +45139,10 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans le camp",
      "fx": {
       "quest": "IV_Q_thibaut"
      },
-     "to": "IV_br"
+     "back": "IV_br"
     }
    ]
   },
@@ -45451,11 +45156,10 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans le camp",
      "fx": {
       "quest": "IV_Q_thibaut"
      },
-     "to": "IV_br"
+     "back": "IV_br"
     }
    ]
   },
@@ -45469,11 +45173,10 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans le camp",
      "fx": {
       "quest": "IV_Q_thibaut"
      },
-     "to": "IV_br"
+     "back": "IV_br"
     }
    ]
   },
@@ -45487,11 +45190,10 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans le camp",
      "fx": {
       "quest": "IV_Q_thibaut"
      },
-     "to": "IV_br"
+     "back": "IV_br"
     }
    ]
   },
@@ -45636,8 +45338,7 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -45664,8 +45365,7 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -45717,8 +45417,7 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -45768,8 +45467,7 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -45878,8 +45576,7 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -45893,8 +45590,7 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -46017,8 +45713,7 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -46117,8 +45812,7 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -46132,8 +45826,7 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -46210,8 +45903,7 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -46225,8 +45917,7 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -46248,8 +45939,7 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -46312,8 +46002,7 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -46475,8 +46164,7 @@
    ],
    "choices": [
     {
-     "label": "Remonter",
-     "to": "IV_br"
+     "back": "IV_br"
     }
    ]
   },
@@ -46490,8 +46178,7 @@
    ],
    "choices": [
     {
-     "label": "Remonter",
-     "to": "IV_br"
+     "back": "IV_br"
     }
    ]
   },
@@ -46505,8 +46192,7 @@
    ],
    "choices": [
     {
-     "label": "Remonter",
-     "to": "IV_br"
+     "back": "IV_br"
     }
    ]
   },
@@ -46710,7 +46396,6 @@
      "to": "IV_C_hylas_bocal"
     },
     {
-     "label": "Repartir",
      "hide": {
       "not": {
        "any": [
@@ -46733,7 +46418,7 @@
        1200
       ]
      },
-     "to": "IV_pal"
+     "back": "IV_pal"
     }
    ]
   },
@@ -46750,7 +46435,6 @@
    ],
    "choices": [
     {
-     "label": "Repartir",
      "fx": {
       "quest": "IV_C_hylas",
       "flag": "marion:iv=sait",
@@ -46759,7 +46443,7 @@
        1200
       ]
      },
-     "to": "IV_pal"
+     "back": "IV_pal"
     }
    ]
   },
@@ -46843,8 +46527,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans le camp",
-     "to": "IV_br"
+     "back": "IV_br"
     }
    ]
   },
@@ -46858,8 +46541,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans le camp",
-     "to": "IV_br"
+     "back": "IV_br"
     }
    ]
   },
@@ -46901,7 +46583,6 @@
    ],
    "choices": [
     {
-     "label": "Revenir",
      "fx": {
       "flag": "sansnom:ilse",
       "conf": {
@@ -46913,7 +46594,7 @@
        1500
       ]
      },
-     "to": "IV_br"
+     "back": "IV_br"
     }
    ]
   },
@@ -46996,8 +46677,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans le camp",
-     "to": "IV_br"
+     "back": "IV_br"
     }
    ]
   },
@@ -47011,8 +46691,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans le camp",
-     "to": "IV_br"
+     "back": "IV_br"
     }
    ]
   },
@@ -47053,7 +46732,6 @@
    ],
    "choices": [
     {
-     "label": "Revenir",
      "fx": {
       "flag": "rodric:cloches",
       "conf": {
@@ -47065,7 +46743,7 @@
        1200
       ]
      },
-     "to": "IV_br"
+     "back": "IV_br"
     }
    ]
   },
@@ -47311,8 +46989,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir à la salle des galeries",
-     "to": "IV_N_galeries"
+     "back": "IV_N_galeries"
     }
    ]
   },
@@ -47327,8 +47004,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir à la salle des galeries",
-     "to": "IV_N_galeries"
+     "back": "IV_N_galeries"
     }
    ]
   },
@@ -47420,8 +47096,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir à la salle des galeries",
-     "to": "IV_N_galeries"
+     "back": "IV_N_galeries"
     }
    ]
   },
@@ -47435,8 +47110,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir à la salle des galeries",
-     "to": "IV_N_galeries"
+     "back": "IV_N_galeries"
     }
    ]
   },
@@ -47743,12 +47417,11 @@
    ],
    "choices": [
     {
-     "label": "Revenir au moutier",
      "fx": {
       "quest": "IV_Q_nid",
       "flag": "iv:nid_enfants"
      },
-     "to": "IV_moutier"
+     "back": "IV_moutier"
     }
    ]
   },
@@ -47762,11 +47435,10 @@
    ],
    "choices": [
     {
-     "label": "Revenir au moutier",
      "fx": {
       "quest": "IV_Q_nid"
      },
-     "to": "IV_moutier"
+     "back": "IV_moutier"
     }
    ]
   },
@@ -48098,7 +47770,6 @@
    ],
    "choices": [
     {
-     "label": "Revenir au camp",
      "fx": {
       "quest": "IV_Q_patrouille",
       "ep": [
@@ -48106,7 +47777,7 @@
        1000
       ]
      },
-     "to": "IV_br"
+     "back": "IV_br"
     }
    ]
   },
@@ -48120,7 +47791,6 @@
    ],
    "choices": [
     {
-     "label": "Revenir au camp",
      "fx": {
       "quest": "IV_Q_patrouille",
       "ep": [
@@ -48128,7 +47798,7 @@
        800
       ]
      },
-     "to": "IV_br"
+     "back": "IV_br"
     }
    ]
   },
@@ -48142,11 +47812,10 @@
    ],
    "choices": [
     {
-     "label": "Revenir au camp",
      "fx": {
       "quest": "IV_Q_patrouille"
      },
-     "to": "IV_br"
+     "back": "IV_br"
     }
    ]
   },
@@ -48276,8 +47945,7 @@
      "to": "IV_ps_auberge"
     },
     {
-     "label": "Remonter à Sauvelune",
-     "to": "IV_sv_place",
+     "back": "IV_sv_place",
      "big": true
     }
    ]
@@ -48334,8 +48002,7 @@
      }
     },
     {
-     "label": "Ressortir",
-     "to": "IV_ps"
+     "back": "IV_ps"
     }
    ]
   },
@@ -48350,8 +48017,7 @@
    ],
    "choices": [
     {
-     "label": "Ressortir",
-     "to": "IV_ps"
+     "back": "IV_ps"
     }
    ]
   },
@@ -48365,8 +48031,7 @@
    ],
    "choices": [
     {
-     "label": "Ressortir",
-     "to": "IV_ps"
+     "back": "IV_ps"
     }
    ]
   },
@@ -48562,11 +48227,10 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur la place",
      "fx": {
       "quest": "IV_Q_pontsaule"
      },
-     "to": "IV_ps"
+     "back": "IV_ps"
     }
    ]
   },
@@ -48580,11 +48244,10 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur la place",
      "fx": {
       "quest": "IV_Q_pontsaule"
      },
-     "to": "IV_ps"
+     "back": "IV_ps"
     }
    ]
   },
@@ -48656,8 +48319,7 @@
      "to": "IV_Q_hospice_linge"
     },
     {
-     "label": "Ressortir",
-     "to": "IV_pal"
+     "back": "IV_pal"
     }
    ]
   },
@@ -48977,12 +48639,11 @@
    ],
    "choices": [
     {
-     "label": "Revenir chez la Veuve",
      "fx": {
       "quest": "IV_Q_jetons",
       "flag": "iv:jetons=pris"
      },
-     "to": "IV_pal"
+     "back": "IV_pal"
     }
    ]
   },
@@ -48996,8 +48657,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir chez la Veuve",
-     "to": "IV_pal"
+     "back": "IV_pal"
     }
    ]
   },
@@ -49019,8 +48679,7 @@
      "to": "IV_Q_bleu_aubin"
     },
     {
-     "label": "Ressortir",
-     "to": "IV_pal"
+     "back": "IV_pal"
     }
    ]
   },
@@ -49076,8 +48735,7 @@
      }
     },
     {
-     "label": "Ressortir",
-     "to": "IV_pal"
+     "back": "IV_pal"
     }
    ]
   },
@@ -49162,11 +48820,10 @@
    ],
    "choices": [
     {
-     "label": "Ressortir",
      "fx": {
       "quest": "IV_Q_bleu"
      },
-     "to": "IV_pal"
+     "back": "IV_pal"
     }
    ]
   },
@@ -49292,14 +48949,13 @@
    ],
    "choices": [
     {
-     "label": "Revenir en ville",
      "fx": {
       "quest": "II_Q_bassin",
       "conf": {
        "lisandre": 5
       }
      },
-     "to": "II_S_vasselin"
+     "back": "II_S_vasselin"
     }
    ]
   },
@@ -49315,11 +48971,10 @@
    ],
    "choices": [
     {
-     "label": "Revenir en ville",
      "fx": {
       "quest": "II_Q_bassin"
      },
-     "to": "II_S_vasselin"
+     "back": "II_S_vasselin"
     }
    ]
   },
@@ -49334,11 +48989,10 @@
    ],
    "choices": [
     {
-     "label": "Revenir en ville",
      "fx": {
       "quest": "II_Q_bassin"
      },
-     "to": "II_S_vasselin"
+     "back": "II_S_vasselin"
     }
    ]
   },
@@ -49363,7 +49017,7 @@
     {
      "label": "Ressortir sans te faire voir",
      "refuse": true,
-     "to": "II_S_vasselin"
+     "back": "II_S_vasselin"
     }
    ]
   },
@@ -49443,14 +49097,13 @@
    ],
    "choices": [
     {
-     "label": "Revenir en ville",
      "fx": {
       "quest": "II_Q_luthier",
       "conf": {
        "lisandre": 10
       }
      },
-     "to": "II_S_vasselin"
+     "back": "II_S_vasselin"
     }
    ]
   },
@@ -49465,11 +49118,10 @@
    ],
    "choices": [
     {
-     "label": "Revenir en ville",
      "fx": {
       "quest": "II_Q_luthier"
      },
-     "to": "II_S_vasselin"
+     "back": "II_S_vasselin"
     }
    ]
   },
@@ -49485,7 +49137,6 @@
    ],
    "choices": [
     {
-     "label": "Revenir en ville",
      "fx": {
       "quest": "II_Q_luthier",
       "flag": "sud:luthier",
@@ -49493,7 +49144,7 @@
        "lisandre": 5
       }
      },
-     "to": "II_S_vasselin"
+     "back": "II_S_vasselin"
     }
    ]
   },
@@ -49643,11 +49294,10 @@
    ],
    "choices": [
     {
-     "label": "Revenir en ville",
      "fx": {
       "quest": "II_Q_crieur"
      },
-     "to": "II_S_vasselin"
+     "back": "II_S_vasselin"
     }
    ]
   },
@@ -49664,12 +49314,11 @@
    ],
    "choices": [
     {
-     "label": "Revenir en ville",
      "fx": {
       "quest": "II_Q_crieur",
       "flag": "sud:crieur_noms"
      },
-     "to": "II_S_vasselin"
+     "back": "II_S_vasselin"
     }
    ]
   },
@@ -49715,8 +49364,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans la grotte",
-     "to": "II_N2_grotte"
+     "back": "II_N2_grotte"
     }
    ]
   },
@@ -49731,8 +49379,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans la grotte",
-     "to": "II_N2_grotte"
+     "back": "II_N2_grotte"
     }
    ]
   },
@@ -49795,11 +49442,10 @@
      }
     },
     {
-     "label": "Ressortir à reculons",
      "fx": {
       "quest": "II_Q_echo"
      },
-     "to": "II_N2_grotte"
+     "back": "II_N2_grotte"
     }
    ]
   },
@@ -49848,7 +49494,6 @@
      }
     },
     {
-     "label": "Ressortir",
      "fx": {
       "quest": "II_Q_echo",
       "ep": [
@@ -49856,7 +49501,7 @@
        400
       ]
      },
-     "to": "II_N2_grotte"
+     "back": "II_N2_grotte"
     }
    ]
   },
@@ -49886,7 +49531,6 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans la grotte",
      "fx": {
       "quest": "II_Q_echo",
       "flag": "nord:sigrun_entendu",
@@ -49894,7 +49538,7 @@
        "corbe": 10
       }
      },
-     "to": "II_N2_grotte"
+     "back": "II_N2_grotte"
     }
    ]
   },
@@ -49909,11 +49553,10 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans la grotte",
      "fx": {
       "quest": "II_Q_echo"
      },
-     "to": "II_N2_grotte"
+     "back": "II_N2_grotte"
     }
    ]
   },
@@ -50103,7 +49746,6 @@
    ],
    "choices": [
     {
-     "label": "Revenir au col",
      "fx": {
       "quest": "II_Q_refuge",
       "flag": "nord:refuge",
@@ -50112,7 +49754,7 @@
        500
       ]
      },
-     "to": "II_N5_col"
+     "back": "II_N5_col"
     }
    ]
   },
@@ -50128,14 +49770,13 @@
    ],
    "choices": [
     {
-     "label": "Revenir au col",
      "fx": {
       "quest": "II_Q_refuge",
       "conf": {
        "corbe": 5
       }
      },
-     "to": "II_N5_col"
+     "back": "II_N5_col"
     }
    ]
   },
@@ -50183,8 +49824,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir à la maison",
-     "to": "III_a_nuit"
+     "back": "III_a_nuit"
     }
    ]
   },
@@ -50200,8 +49840,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir à la maison",
-     "to": "III_a_nuit"
+     "back": "III_a_nuit"
     }
    ]
   },
@@ -50256,8 +49895,7 @@
      }
     },
     {
-     "label": "Revenir à la maison",
-     "to": "III_a_nuit"
+     "back": "III_a_nuit"
     }
    ]
   },
@@ -50276,13 +49914,12 @@
    ],
    "choices": [
     {
-     "label": "Revenir à la maison",
      "fx": {
       "conf": {
        "sansnom": 5
       }
      },
-     "to": "III_a_nuit"
+     "back": "III_a_nuit"
     }
    ]
   },
@@ -50296,8 +49933,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir à la maison",
-     "to": "III_a_nuit"
+     "back": "III_a_nuit"
     }
    ]
   },
@@ -50394,11 +50030,10 @@
    ],
    "choices": [
     {
-     "label": "Retourner dans l'escalier",
      "fx": {
       "quest": "HY_Q_relieur"
      },
-     "to": "HY_tour"
+     "back": "HY_tour"
     }
    ]
   },
@@ -50412,11 +50047,10 @@
    ],
    "choices": [
     {
-     "label": "Retourner dans l'escalier",
      "fx": {
       "quest": "HY_Q_relieur"
      },
-     "to": "HY_tour"
+     "back": "HY_tour"
     }
    ]
   },
@@ -50523,8 +50157,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur la place",
-     "to": "IV_ps"
+     "back": "IV_ps"
     }
    ]
   },
@@ -50538,8 +50171,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur la place",
-     "to": "IV_ps"
+     "back": "IV_ps"
     }
    ]
   },
@@ -50622,11 +50254,10 @@
    ],
    "choices": [
     {
-     "label": "Retourner dans la cour",
      "fx": {
       "quest": "YS_Q_forge"
      },
-     "to": "YS_cour"
+     "back": "YS_cour"
     }
    ]
   },
@@ -50641,11 +50272,10 @@
    ],
    "choices": [
     {
-     "label": "Retourner dans la cour",
      "fx": {
       "quest": "YS_Q_forge"
      },
-     "to": "YS_cour"
+     "back": "YS_cour"
     }
    ]
   },
@@ -50660,11 +50290,10 @@
    ],
    "choices": [
     {
-     "label": "Retourner dans la cour",
      "fx": {
       "quest": "YS_Q_forge"
      },
-     "to": "YS_cour"
+     "back": "YS_cour"
     }
    ]
   },
@@ -50678,12 +50307,11 @@
    ],
    "choices": [
     {
-     "label": "Retourner dans la cour",
      "fx": {
       "quest": "YS_Q_forge",
       "flag": "ysolde:fers=faits"
      },
-     "to": "YS_cour"
+     "back": "YS_cour"
     }
    ]
   },
@@ -50739,11 +50367,10 @@
    ],
    "choices": [
     {
-     "label": "Redescendre à la cour",
      "fx": {
       "quest": "LI_Q_ourlet"
      },
-     "to": "LI_cour"
+     "back": "LI_cour"
     }
    ]
   },
@@ -50757,11 +50384,10 @@
    ],
    "choices": [
     {
-     "label": "Redescendre à la cour",
      "fx": {
       "quest": "LI_Q_ourlet"
      },
-     "to": "LI_cour"
+     "back": "LI_cour"
     }
    ]
   },
@@ -50777,11 +50403,10 @@
    ],
    "choices": [
     {
-     "label": "Redescendre à la cour",
      "fx": {
       "quest": "LI_Q_ourlet"
      },
-     "to": "LI_cour"
+     "back": "LI_cour"
     }
    ]
   },
@@ -50831,8 +50456,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir au camp",
-     "to": "CO_camp"
+     "back": "CO_camp"
     }
    ]
   },
@@ -50873,8 +50497,7 @@
      "to": "IV_sv_temple_lire"
     },
     {
-     "label": "Ressortir sur la place",
-     "to": "IV_sv_place"
+     "back": "IV_sv_place"
     }
    ]
   },
@@ -50938,8 +50561,7 @@
    ],
    "choices": [
     {
-     "label": "Ressortir sur la place",
-     "to": "IV_sv_place"
+     "back": "IV_sv_place"
     }
    ]
   },
@@ -50959,8 +50581,7 @@
    ],
    "choices": [
     {
-     "label": "Ressortir sur la place",
-     "to": "IV_sv_place"
+     "back": "IV_sv_place"
     }
    ]
   },
@@ -50989,14 +50610,13 @@
    ],
    "choices": [
     {
-     "label": "Ressortir sur la place",
      "fx": {
       "ep": [
        "perso",
        400
       ]
      },
-     "to": "IV_sv_place"
+     "back": "IV_sv_place"
     }
    ]
   },
@@ -51065,8 +50685,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur la place",
-     "to": "IV_sv_place"
+     "back": "IV_sv_place"
     }
    ]
   },
@@ -51098,8 +50717,7 @@
      "to": "IV_sv_pierre_soir"
     },
     {
-     "label": "Redescendre au village",
-     "to": "IV_sv_place"
+     "back": "IV_sv_place"
     }
    ]
   },
@@ -51141,8 +50759,7 @@
    ],
    "choices": [
     {
-     "label": "Redescendre au village",
-     "to": "IV_sv_place"
+     "back": "IV_sv_place"
     }
    ]
   },
@@ -51247,8 +50864,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur la place",
-     "to": "IV_sv_place"
+     "back": "IV_sv_place"
     }
    ]
   },
@@ -51262,8 +50878,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur la place",
-     "to": "IV_sv_place"
+     "back": "IV_sv_place"
     }
    ]
   },
@@ -51277,8 +50892,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur la place",
-     "to": "IV_sv_place"
+     "back": "IV_sv_place"
     }
    ]
   },
@@ -51421,8 +51035,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur la place",
-     "to": "V_ville"
+     "back": "V_ville"
     }
    ]
   },
@@ -51437,7 +51050,6 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur la place",
      "fx": {
       "flag": "v:fillette=porche",
       "ep": [
@@ -51445,7 +51057,7 @@
        500
       ]
      },
-     "to": "V_ville"
+     "back": "V_ville"
     }
    ]
   },
@@ -51471,8 +51083,7 @@
      "to": "IV_ps_lavoir_parler"
     },
     {
-     "label": "Revenir sur la place",
-     "to": "IV_ps"
+     "back": "IV_ps"
     }
    ]
   },
@@ -51488,8 +51099,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur la place",
-     "to": "IV_ps"
+     "back": "IV_ps"
     }
    ]
   },
@@ -51531,7 +51141,6 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur la place",
      "fx": {
       "flag": "iii:clochette",
       "ep": [
@@ -51539,7 +51148,7 @@
        700
       ]
      },
-     "to": "III_c_ville"
+     "back": "III_c_ville"
     }
    ]
   },
@@ -51554,8 +51163,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur la place",
-     "to": "III_c_ville"
+     "back": "III_c_ville"
     }
    ]
   },
@@ -51581,8 +51189,7 @@
      "to": "IV_m_jardin_cueillir"
     },
     {
-     "label": "Revenir au moutier",
-     "to": "IV_moutier"
+     "back": "IV_moutier"
     }
    ]
   },
@@ -51603,8 +51210,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir au moutier",
-     "to": "IV_moutier"
+     "back": "IV_moutier"
     }
    ]
   },
@@ -51789,7 +51395,7 @@
      "fx": {
       "quest": "PI_Q_fiole"
      },
-     "to": "PI_ville"
+     "back": "PI_ville"
     }
    ]
   },
@@ -51850,8 +51456,7 @@
    ],
    "choices": [
     {
-     "label": "Ressortir",
-     "to": "PI_ville"
+     "back": "PI_ville"
     }
    ]
   },
@@ -51865,8 +51470,7 @@
    ],
    "choices": [
     {
-     "label": "Ressortir",
-     "to": "PI_ville"
+     "back": "PI_ville"
     }
    ]
   },
@@ -51895,8 +51499,7 @@
      "to": "III_v_masques_mere"
     },
     {
-     "label": "Retourner dans les rues",
-     "to": "III_v_porte"
+     "back": "III_v_porte"
     }
    ]
   },
@@ -51911,11 +51514,10 @@
    ],
    "choices": [
     {
-     "label": "Retourner dans les rues",
      "fx": {
       "flag": "iii:masque_mere"
      },
-     "to": "III_v_porte"
+     "back": "III_v_porte"
     }
    ]
   },
@@ -51954,8 +51556,7 @@
    ],
    "choices": [
     {
-     "label": "Retourner dans les rues",
-     "to": "III_v_porte"
+     "back": "III_v_porte"
     }
    ]
   },
@@ -52029,7 +51630,6 @@
    ],
    "choices": [
     {
-     "label": "Revenir au camp",
      "fx": {
       "quest": "II_Q_nouveau_ne",
       "flag": "nord:nouveau_ne=garde",
@@ -52037,7 +51637,7 @@
        "corbe": 5
       }
      },
-     "to": "II_N_camp"
+     "back": "II_N_camp"
     }
    ]
   },
@@ -52060,14 +51660,13 @@
    ],
    "choices": [
     {
-     "label": "Revenir au camp",
      "fx": {
       "quest": "II_Q_nouveau_ne",
       "conf": {
        "corbe": 10
       }
      },
-     "to": "II_N_camp"
+     "back": "II_N_camp"
     }
    ]
   },
@@ -52081,11 +51680,10 @@
    ],
    "choices": [
     {
-     "label": "Revenir au camp",
      "fx": {
       "quest": "II_Q_nouveau_ne"
      },
-     "to": "II_N_camp"
+     "back": "II_N_camp"
     }
    ]
   },
@@ -52153,13 +51751,12 @@
    ],
    "choices": [
     {
-     "label": "Revenir au camp",
      "fx": {
       "conf": {
        "corbe": 5
       }
      },
-     "to": "II_N_camp"
+     "back": "II_N_camp"
     }
    ]
   },
@@ -52173,8 +51770,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir au camp",
-     "to": "II_N_camp"
+     "back": "II_N_camp"
     }
    ]
   },
@@ -52191,7 +51787,6 @@
    ],
    "choices": [
     {
-     "label": "Revenir au camp",
      "fx": {
       "ep": [
        "perso",
@@ -52199,7 +51794,7 @@
       ],
       "flag": "nord:conte_mere"
      },
-     "to": "II_N_camp"
+     "back": "II_N_camp"
     }
    ]
   },
@@ -52240,8 +51835,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans le hameau",
-     "to": "III_e_hameau"
+     "back": "III_e_hameau"
     }
    ]
   },
@@ -52281,8 +51875,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans le hameau",
-     "to": "III_e_hameau"
+     "back": "III_e_hameau"
     }
    ]
   },
@@ -52326,8 +51919,7 @@
    ],
    "choices": [
     {
-     "label": "Rentrer",
-     "to": "II_S2_nuit"
+     "back": "II_S2_nuit"
     }
    ]
   },
@@ -52444,8 +52036,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir au camp",
-     "to": "II_S3_soir"
+     "back": "II_S3_soir"
     }
    ]
   },
@@ -52517,8 +52108,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir au camp",
-     "to": "II_S3_soir"
+     "back": "II_S3_soir"
     }
    ]
   },
@@ -52532,8 +52122,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir au camp",
-     "to": "II_S3_soir"
+     "back": "II_S3_soir"
     }
    ]
   },
@@ -52547,8 +52136,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir au camp",
-     "to": "II_S3_soir"
+     "back": "II_S3_soir"
     }
    ]
   },
@@ -52597,8 +52185,7 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -52644,8 +52231,7 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -52710,8 +52296,7 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -52725,8 +52310,7 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -52790,8 +52374,7 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -52841,8 +52424,7 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -52882,8 +52464,7 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -52924,8 +52505,7 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -52987,8 +52567,7 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -53002,8 +52581,7 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -53030,7 +52608,7 @@
     },
     {
      "label": "Repartir avant la fin",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -53045,8 +52623,7 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -53088,8 +52665,7 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -53104,14 +52680,13 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
      "fx": {
       "ep": [
        "perso",
        300
       ]
      },
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -53165,8 +52740,7 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -53221,8 +52795,7 @@
    ],
    "choices": [
     {
-     "label": "Redescendre au Bureau",
-     "to": "V_t_cessions"
+     "back": "V_t_cessions"
     }
    ]
   },
@@ -53280,8 +52853,7 @@
      }
     },
     {
-     "label": "Redescendre",
-     "to": "V_t_cessions"
+     "back": "V_t_cessions"
     }
    ]
   },
@@ -53296,8 +52868,7 @@
    ],
    "choices": [
     {
-     "label": "Redescendre au Bureau",
-     "to": "V_t_cessions"
+     "back": "V_t_cessions"
     }
    ]
   },
@@ -53311,8 +52882,7 @@
    ],
    "choices": [
     {
-     "label": "Redescendre au Bureau",
-     "to": "V_t_cessions"
+     "back": "V_t_cessions"
     }
    ]
   },
@@ -53428,8 +52998,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur la place",
-     "to": "EN_place"
+     "back": "EN_place"
     }
    ]
   },
@@ -53444,14 +53013,13 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur la place",
      "fx": {
       "ep": [
        "perso",
        200
       ]
      },
-     "to": "EN_place"
+     "back": "EN_place"
     }
    ]
   },
@@ -53503,8 +53071,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur la place",
-     "to": "EN_place"
+     "back": "EN_place"
     }
    ]
   },
@@ -53518,8 +53085,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur la place",
-     "to": "EN_place"
+     "back": "EN_place"
     }
    ]
   },
@@ -53609,8 +53175,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur la place",
-     "to": "EN_place"
+     "back": "EN_place"
     }
    ]
   },
@@ -53665,8 +53230,7 @@
      }
     },
     {
-     "label": "Ressortir",
-     "to": "IV_br"
+     "back": "IV_br"
     }
    ]
   },
@@ -53681,8 +53245,7 @@
    ],
    "choices": [
     {
-     "label": "Ressortir dans le camp",
-     "to": "IV_br"
+     "back": "IV_br"
     }
    ]
   },
@@ -53696,8 +53259,7 @@
    ],
    "choices": [
     {
-     "label": "Ressortir dans le camp",
-     "to": "IV_br"
+     "back": "IV_br"
     }
    ]
   },
@@ -53745,8 +53307,7 @@
    ],
    "choices": [
     {
-     "label": "Ressortir dans le camp",
-     "to": "IV_br"
+     "back": "IV_br"
     }
    ]
   },
@@ -53762,8 +53323,7 @@
    ],
    "choices": [
     {
-     "label": "Ressortir dans le camp",
-     "to": "IV_br"
+     "back": "IV_br"
     }
    ]
   },
@@ -53819,14 +53379,13 @@
    ],
    "choices": [
     {
-     "label": "Ressortir dans le camp",
      "fx": {
       "ep": [
        "perso",
        300
       ]
      },
-     "to": "IV_br"
+     "back": "IV_br"
     }
    ]
   },
@@ -53883,8 +53442,7 @@
      "to": "II_n3_hotellerie_yeux"
     },
     {
-     "label": "Revenir au cloître",
-     "to": "II_N3_cloitre"
+     "back": "II_N3_cloitre"
     }
    ]
   },
@@ -53899,8 +53457,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir au cloître",
-     "to": "II_N3_cloitre"
+     "back": "II_N3_cloitre"
     }
    ]
   },
@@ -53914,8 +53471,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir au cloître",
-     "to": "II_N3_cloitre"
+     "back": "II_N3_cloitre"
     }
    ]
   },
@@ -53985,8 +53541,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir au cloître",
-     "to": "II_N3_cloitre"
+     "back": "II_N3_cloitre"
     }
    ]
   },
@@ -54002,11 +53557,10 @@
    ],
    "choices": [
     {
-     "label": "Revenir au cloître",
      "fx": {
       "food": 2
      },
-     "to": "II_N3_cloitre"
+     "back": "II_N3_cloitre"
     }
    ]
   },
@@ -54020,11 +53574,10 @@
    ],
    "choices": [
     {
-     "label": "Revenir au cloître",
      "fx": {
       "food": 1
      },
-     "to": "II_N3_cloitre"
+     "back": "II_N3_cloitre"
     }
    ]
   },
@@ -54072,8 +53625,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur la plaine",
-     "to": "III_plaine"
+     "back": "III_plaine"
     }
    ]
   },
@@ -54088,8 +53640,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur la plaine",
-     "to": "III_plaine"
+     "back": "III_plaine"
     }
    ]
   },
@@ -54211,8 +53762,7 @@
      }
     },
     {
-     "label": "Revenir au camp",
-     "to": "IV_clan_fin"
+     "back": "IV_clan_fin"
     }
    ]
   },
@@ -54240,8 +53790,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir au camp",
-     "to": "IV_clan_fin"
+     "back": "IV_clan_fin"
     }
    ]
   },
@@ -54263,14 +53812,13 @@
    ],
    "choices": [
     {
-     "label": "Revenir au camp",
      "fx": {
       "ep": [
        "perso",
        400
       ]
      },
-     "to": "IV_clan_fin"
+     "back": "IV_clan_fin"
     }
    ]
   },
@@ -54476,12 +54024,11 @@
    ],
    "choices": [
     {
-     "label": "Revenir en ville",
      "fx": {
       "quest": "II_Q_galere",
       "flag": "sud:galere=rien"
      },
-     "to": "II_S_vasselin"
+     "back": "II_S_vasselin"
     }
    ]
   },
@@ -54495,12 +54042,11 @@
    ],
    "choices": [
     {
-     "label": "Revenir en ville",
      "fx": {
       "quest": "II_Q_galere",
       "flag": "sud:galere=rien"
      },
-     "to": "II_S_vasselin"
+     "back": "II_S_vasselin"
     }
    ]
   },
@@ -54614,14 +54160,13 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur le pont",
      "fx": {
       "ep": [
        "perso",
        400
       ]
      },
-     "to": "II_G_pont"
+     "back": "II_G_pont"
     }
    ]
   },
@@ -54701,11 +54246,10 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur le pont",
      "fx": {
       "flag": "galere:role"
      },
-     "to": "II_G_pont"
+     "back": "II_G_pont"
     }
    ]
   },
@@ -54768,7 +54312,7 @@
        600
       ]
      },
-     "to": "II_G_pont"
+     "back": "II_G_pont"
     },
     {
      "label": "Laisser les fioles",
@@ -54810,8 +54354,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur le pont",
-     "to": "II_G_pont"
+     "back": "II_G_pont"
     }
    ]
   },
@@ -54967,7 +54510,6 @@
    ],
    "choices": [
     {
-     "label": "Revenir en ville",
      "fx": {
       "quest": "II_Q_galere",
       "conf": {
@@ -54975,7 +54517,7 @@
        "lisandre": 10
       }
      },
-     "to": "II_S_vasselin"
+     "back": "II_S_vasselin"
     }
    ]
   },
@@ -54990,14 +54532,13 @@
    ],
    "choices": [
     {
-     "label": "Revenir en ville",
      "fx": {
       "quest": "II_Q_galere",
       "conf": {
        "rodric": 5
       }
      },
-     "to": "II_S_vasselin"
+     "back": "II_S_vasselin"
     }
    ]
   },
@@ -55095,12 +54636,11 @@
    ],
    "choices": [
     {
-     "label": "Revenir au camp",
      "fx": {
       "quest": "CO_Q_loup",
       "flag": "corbe:loup=perdue"
      },
-     "to": "CO_camp"
+     "back": "CO_camp"
     }
    ]
   },
@@ -55226,11 +54766,10 @@
    ],
    "choices": [
     {
-     "label": "Revenir au camp",
      "fx": {
       "quest": "CO_Q_loup"
      },
-     "to": "CO_camp"
+     "back": "CO_camp"
     }
    ]
   },
@@ -55246,14 +54785,13 @@
    ],
    "choices": [
     {
-     "label": "Revenir au camp",
      "fx": {
       "quest": "CO_Q_loup",
       "conf": {
        "corbe": 10
       }
      },
-     "to": "CO_camp"
+     "back": "CO_camp"
     }
    ]
   },
@@ -55268,11 +54806,10 @@
    ],
    "choices": [
     {
-     "label": "Revenir au camp",
      "fx": {
       "quest": "CO_Q_loup"
      },
-     "to": "CO_camp"
+     "back": "CO_camp"
     }
    ]
   },
@@ -55393,8 +54930,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir au camp",
-     "to": "IV_br"
+     "back": "IV_br"
     }
    ]
   },
@@ -55408,11 +54944,10 @@
    ],
    "choices": [
     {
-     "label": "Revenir au camp",
      "fx": {
       "flag": "iv:tap_esq_peu"
      },
-     "to": "IV_br"
+     "back": "IV_br"
     }
    ]
   },
@@ -55505,8 +55040,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir au camp",
-     "to": "IV_br"
+     "back": "IV_br"
     }
    ]
   },
@@ -55606,8 +55140,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir au camp",
-     "to": "IV_br"
+     "back": "IV_br"
     }
    ]
   },
@@ -55672,8 +55205,7 @@
    ],
    "choices": [
     {
-     "label": "Redescendre à la cour",
-     "to": "LI_cour"
+     "back": "LI_cour"
     }
    ]
   },
@@ -55687,8 +55219,7 @@
    ],
    "choices": [
     {
-     "label": "Redescendre à la cour",
-     "to": "LI_cour"
+     "back": "LI_cour"
     }
    ]
   },
@@ -55736,8 +55267,7 @@
    ],
    "choices": [
     {
-     "label": "Retourner dans la cour",
-     "to": "YS_cour"
+     "back": "YS_cour"
     }
    ]
   },
@@ -55753,8 +55283,7 @@
    ],
    "choices": [
     {
-     "label": "Retourner dans la cour",
-     "to": "YS_cour"
+     "back": "YS_cour"
     }
    ]
   },
@@ -55796,8 +55325,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur la plaine",
-     "to": "III_plaine"
+     "back": "III_plaine"
     }
    ]
   },
@@ -55911,8 +55439,7 @@
      "to": "IV_O_cranes_peindre"
     },
     {
-     "label": "Revenir à l'entrée des galeries",
-     "to": "IV_O_galeries"
+     "back": "IV_O_galeries"
     }
    ]
   },
@@ -55927,8 +55454,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir à l'entrée des galeries",
-     "to": "IV_O_galeries"
+     "back": "IV_O_galeries"
     }
    ]
   },
@@ -55966,14 +55492,13 @@
    ],
    "choices": [
     {
-     "label": "Revenir aux galeries",
      "fx": {
       "ep": [
        "perso",
        300
       ]
      },
-     "to": "IV_O_galeries"
+     "back": "IV_O_galeries"
     }
    ]
   },
@@ -56153,11 +55678,10 @@
    ],
    "choices": [
     {
-     "label": "Revenir chez la Veuve",
      "fx": {
       "quest": "IV_Q_ossuaire"
      },
-     "to": "IV_pal"
+     "back": "IV_pal"
     }
    ]
   },
@@ -56202,8 +55726,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir au feu du clan",
-     "to": "II_N5_col"
+     "back": "II_N5_col"
     }
    ]
   },
@@ -56217,8 +55740,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir au feu du clan",
-     "to": "II_N5_col"
+     "back": "II_N5_col"
     }
    ]
   },
@@ -56263,8 +55785,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir au feu du clan",
-     "to": "II_N5_col"
+     "back": "II_N5_col"
     }
    ]
   },
@@ -56278,8 +55799,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir au feu du clan",
-     "to": "II_N5_col"
+     "back": "II_N5_col"
     }
    ]
   },
@@ -56331,8 +55851,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir au feu du clan",
-     "to": "II_N5_col"
+     "back": "II_N5_col"
     }
    ]
   },
@@ -56346,8 +55865,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir au feu du clan",
-     "to": "II_N5_col"
+     "back": "II_N5_col"
     }
    ]
   },
@@ -56396,8 +55914,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir au feu du clan",
-     "to": "II_N5_col"
+     "back": "II_N5_col"
     }
    ]
   },
@@ -56411,8 +55928,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir au feu du clan",
-     "to": "II_N5_col"
+     "back": "II_N5_col"
     }
    ]
   },
@@ -56457,8 +55973,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir au feu du clan",
-     "to": "II_N5_col"
+     "back": "II_N5_col"
     }
    ]
   },
@@ -56472,8 +55987,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir au feu du clan",
-     "to": "II_N5_col"
+     "back": "II_N5_col"
     }
    ]
   },
@@ -56518,8 +56032,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir au feu du clan",
-     "to": "II_N5_col"
+     "back": "II_N5_col"
     }
    ]
   },
@@ -56533,8 +56046,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir au feu du clan",
-     "to": "II_N5_col"
+     "back": "II_N5_col"
     }
    ]
   },
@@ -56575,8 +56087,7 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -56658,8 +56169,7 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -56673,8 +56183,7 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -56717,8 +56226,7 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -56778,8 +56286,7 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -56794,14 +56301,13 @@
    ],
    "choices": [
     {
-     "label": "Redescendre",
      "fx": {
       "ep": [
        "perso",
        200
       ]
      },
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -56841,8 +56347,7 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -56864,7 +56369,6 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur la place",
      "fx": {
       "ep": [
        "perso",
@@ -56872,7 +56376,7 @@
       ],
       "flag": "v:fours"
      },
-     "to": "V_ville"
+     "back": "V_ville"
     }
    ]
   },
@@ -56901,8 +56405,7 @@
      "to": "V_v_pont_des"
     },
     {
-     "label": "Revenir sur la place",
-     "to": "V_ville"
+     "back": "V_ville"
     }
    ]
   },
@@ -56916,8 +56419,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur la place",
-     "to": "V_ville"
+     "back": "V_ville"
     }
    ]
   },
@@ -56931,8 +56433,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur la place",
-     "to": "V_ville"
+     "back": "V_ville"
     }
    ]
   },
@@ -56958,8 +56459,7 @@
      "to": "III_v_fontaine_bateau"
     },
     {
-     "label": "Retourner dans les rues",
-     "to": "III_v_porte"
+     "back": "III_v_porte"
     }
    ]
   },
@@ -56974,8 +56474,7 @@
    ],
    "choices": [
     {
-     "label": "Retourner dans les rues",
-     "to": "III_v_porte"
+     "back": "III_v_porte"
     }
    ]
   },
@@ -57071,8 +56570,7 @@
      "to": "II_g_corbeau_blanc_mot"
     },
     {
-     "label": "Revenir dans la grotte",
-     "to": "II_N2_grotte"
+     "back": "II_N2_grotte"
     }
    ]
   },
@@ -57086,8 +56584,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans la grotte",
-     "to": "II_N2_grotte"
+     "back": "II_N2_grotte"
     }
    ]
   },
@@ -57146,7 +56643,7 @@
     },
     {
      "label": "Revenir sous les arcades",
-     "to": "IV_moutier"
+     "back": "IV_moutier"
     }
    ]
   },
@@ -57161,7 +56658,7 @@
    "choices": [
     {
      "label": "Revenir sous les arcades",
-     "to": "IV_moutier"
+     "back": "IV_moutier"
     }
    ]
   },
@@ -57176,7 +56673,7 @@
    "choices": [
     {
      "label": "Revenir sous les arcades",
-     "to": "IV_moutier"
+     "back": "IV_moutier"
     }
    ]
   },
@@ -57378,8 +56875,7 @@
      "big": true
     },
     {
-     "label": "Redescendre dans la ville",
-     "to": "III_v_porte"
+     "back": "III_v_porte"
     }
    ]
   },
@@ -57406,8 +56902,7 @@
      "to": "III_K_apprentie_bief"
     },
     {
-     "label": "Revenir à la grande table",
-     "to": "III_K_atelier"
+     "back": "III_K_atelier"
     }
    ]
   },
@@ -57422,8 +56917,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir à la grande table",
-     "to": "III_K_atelier"
+     "back": "III_K_atelier"
     }
    ]
   },
@@ -57499,8 +56993,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir à la grande table",
-     "to": "III_K_atelier"
+     "back": "III_K_atelier"
     }
    ]
   },
@@ -57514,8 +57007,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir à la grande table",
-     "to": "III_K_atelier"
+     "back": "III_K_atelier"
     }
    ]
   },
@@ -57569,8 +57061,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir à la grande table",
-     "to": "III_K_atelier"
+     "back": "III_K_atelier"
     }
    ]
   },
@@ -57584,8 +57075,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir à la grande table",
-     "to": "III_K_atelier"
+     "back": "III_K_atelier"
     }
    ]
   },
@@ -57639,8 +57129,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir à la grande table",
-     "to": "III_K_atelier"
+     "back": "III_K_atelier"
     }
    ]
   },
@@ -57654,8 +57143,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir à la grande table",
-     "to": "III_K_atelier"
+     "back": "III_K_atelier"
     }
    ]
   },
@@ -57712,8 +57200,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir à la grande table",
-     "to": "III_K_atelier"
+     "back": "III_K_atelier"
     }
    ]
   },
@@ -57727,8 +57214,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir à la grande table",
-     "to": "III_K_atelier"
+     "back": "III_K_atelier"
     }
    ]
   },
@@ -57853,8 +57339,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans la ville",
-     "to": "III_v_porte"
+     "back": "III_v_porte"
     }
    ]
   },
@@ -57876,8 +57361,7 @@
      "to": "V_ar_salle"
     },
     {
-     "label": "Remonter au Bureau",
-     "to": "V_t_cessions"
+     "back": "V_t_cessions"
     }
    ]
   },
@@ -57936,8 +57420,7 @@
      "big": true
     },
     {
-     "label": "Remonter au Bureau",
-     "to": "V_t_cessions"
+     "back": "V_t_cessions"
     }
    ]
   },
@@ -58065,7 +57548,7 @@
    "choices": [
     {
      "label": "Revenir entre les rayonnages",
-     "to": "V_ar_salle"
+     "back": "V_ar_salle"
     }
    ]
   },
@@ -58081,7 +57564,7 @@
    "choices": [
     {
      "label": "Revenir entre les rayonnages",
-     "to": "V_ar_salle"
+     "back": "V_ar_salle"
     }
    ]
   },
@@ -58180,8 +57663,7 @@
      "to": "V_ar_soupirail"
     },
     {
-     "label": "Remonter au Bureau",
-     "to": "V_t_cessions"
+     "back": "V_t_cessions"
     }
    ]
   },
@@ -58197,8 +57679,7 @@
    ],
    "choices": [
     {
-     "label": "Remonter au Bureau",
-     "to": "V_t_cessions"
+     "back": "V_t_cessions"
     }
    ]
   },
@@ -58214,8 +57695,7 @@
    ],
    "choices": [
     {
-     "label": "Remonter au Bureau",
-     "to": "V_t_cessions"
+     "back": "V_t_cessions"
     }
    ]
   },
@@ -58421,8 +57901,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir au troupeau",
-     "to": "III_B_troupeau"
+     "back": "III_B_troupeau"
     }
    ]
   },
@@ -58469,8 +57948,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir au troupeau",
-     "to": "III_B_troupeau"
+     "back": "III_B_troupeau"
     }
    ]
   },
@@ -58484,8 +57962,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir au troupeau",
-     "to": "III_B_troupeau"
+     "back": "III_B_troupeau"
     }
    ]
   },
@@ -58532,8 +58009,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir au troupeau",
-     "to": "III_B_troupeau"
+     "back": "III_B_troupeau"
     }
    ]
   },
@@ -58639,8 +58115,7 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
-     "to": "III_plaine"
+     "back": "III_plaine"
     }
    ]
   },
@@ -58677,8 +58152,7 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
-     "to": "III_plaine"
+     "back": "III_plaine"
     }
    ]
   },
@@ -58697,11 +58171,10 @@
    "choices": [
     {
      "label": "Remonter la queue",
-     "to": "V_q_file"
+     "back": "V_q_file"
     },
     {
-     "label": "Revenir sur la place",
-     "to": "V_ville"
+     "back": "V_ville"
     }
    ]
   },
@@ -58808,8 +58281,7 @@
      "big": true
     },
     {
-     "label": "Revenir sur la place",
-     "to": "V_ville"
+     "back": "V_ville"
     }
    ]
   },
@@ -59501,8 +58973,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur la place",
-     "to": "V_ville"
+     "back": "V_ville"
     }
    ]
   },
@@ -59585,8 +59056,7 @@
      "big": true
     },
     {
-     "label": "Revenir au hameau",
-     "to": "III_e_hameau"
+     "back": "III_e_hameau"
     }
    ]
   },
@@ -59629,7 +59099,7 @@
    "choices": [
     {
      "label": "Revenir sous les arbres noirs",
-     "to": "III_F_bois"
+     "back": "III_F_bois"
     }
    ]
   },
@@ -59648,7 +59118,6 @@
    ],
    "choices": [
     {
-     "label": "Remonter vers les arbres",
      "fx": {
       "ep": [
        "perso",
@@ -59656,7 +59125,7 @@
       ],
       "flag": "iii:riviere_vue"
      },
-     "to": "III_F_bois"
+     "back": "III_F_bois"
     }
    ]
   },
@@ -59877,8 +59346,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir au hameau",
-     "to": "III_e_hameau"
+     "back": "III_e_hameau"
     }
    ]
   },
@@ -59893,8 +59361,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir au hameau",
-     "to": "III_e_hameau"
+     "back": "III_e_hameau"
     }
    ]
   },
@@ -59938,8 +59405,7 @@
    ],
    "choices": [
     {
-     "label": "Redescendre dans la maison",
-     "to": "III_a_nuit"
+     "back": "III_a_nuit"
     }
    ]
   },
@@ -59953,8 +59419,7 @@
    ],
    "choices": [
     {
-     "label": "Redescendre dans la maison",
-     "to": "III_a_nuit"
+     "back": "III_a_nuit"
     }
    ]
   },
@@ -59998,8 +59463,7 @@
    ],
    "choices": [
     {
-     "label": "Redescendre dans la maison",
-     "to": "III_a_nuit"
+     "back": "III_a_nuit"
     }
    ]
   },
@@ -60013,8 +59477,7 @@
    ],
    "choices": [
     {
-     "label": "Redescendre dans la maison",
-     "to": "III_a_nuit"
+     "back": "III_a_nuit"
     }
    ]
   },
@@ -60058,8 +59521,7 @@
    ],
    "choices": [
     {
-     "label": "Redescendre dans la maison",
-     "to": "III_a_nuit"
+     "back": "III_a_nuit"
     }
    ]
   },
@@ -60073,8 +59535,7 @@
    ],
    "choices": [
     {
-     "label": "Redescendre dans la maison",
-     "to": "III_a_nuit"
+     "back": "III_a_nuit"
     }
    ]
   },
@@ -60124,8 +59585,7 @@
    ],
    "choices": [
     {
-     "label": "Redescendre dans la maison",
-     "to": "III_a_nuit"
+     "back": "III_a_nuit"
     }
    ]
   },
@@ -60139,8 +59599,7 @@
    ],
    "choices": [
     {
-     "label": "Redescendre dans la maison",
-     "to": "III_a_nuit"
+     "back": "III_a_nuit"
     }
    ]
   },
@@ -60184,8 +59643,7 @@
    ],
    "choices": [
     {
-     "label": "Redescendre dans la maison",
-     "to": "III_a_nuit"
+     "back": "III_a_nuit"
     }
    ]
   },
@@ -60199,8 +59657,7 @@
    ],
    "choices": [
     {
-     "label": "Redescendre dans la maison",
-     "to": "III_a_nuit"
+     "back": "III_a_nuit"
     }
    ]
   },
@@ -60307,8 +59764,7 @@
      "to": "V_r_relais_craie"
     },
     {
-     "label": "Reprendre la route",
-     "to": "V_r_chemin"
+     "back": "V_r_chemin"
     }
    ]
   },
@@ -60322,8 +59778,7 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
-     "to": "V_r_chemin"
+     "back": "V_r_chemin"
     }
    ]
   },
@@ -60348,8 +59803,7 @@
      "to": "V_r_auberge_marie"
     },
     {
-     "label": "Reprendre la route",
-     "to": "V_r_chemin"
+     "back": "V_r_chemin"
     }
    ]
   },
@@ -60364,8 +59818,7 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
-     "to": "V_r_chemin"
+     "back": "V_r_chemin"
     }
    ]
   },
@@ -60412,8 +59865,7 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
-     "to": "V_r_chemin"
+     "back": "V_r_chemin"
     }
    ]
   },
@@ -60427,8 +59879,7 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
-     "to": "V_r_chemin"
+     "back": "V_r_chemin"
     }
    ]
   },
@@ -60454,8 +59905,7 @@
      "to": "V_r_oratoire_priere"
     },
     {
-     "label": "Reprendre la route",
-     "to": "V_r_chemin"
+     "back": "V_r_chemin"
     }
    ]
   },
@@ -60469,8 +59919,7 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
-     "to": "V_r_chemin"
+     "back": "V_r_chemin"
     }
    ]
   },
@@ -60595,7 +60044,7 @@
    "choices": [
     {
      "label": "Revenir entre les feux",
-     "to": "IV_cv_camp"
+     "back": "IV_cv_camp"
     }
    ]
   },
@@ -60610,7 +60059,7 @@
    "choices": [
     {
      "label": "Revenir entre les feux",
-     "to": "IV_cv_camp"
+     "back": "IV_cv_camp"
     }
    ]
   },
@@ -60638,7 +60087,7 @@
     },
     {
      "label": "Revenir entre les feux",
-     "to": "IV_cv_camp"
+     "back": "IV_cv_camp"
     }
    ]
   },
@@ -60653,7 +60102,7 @@
    "choices": [
     {
      "label": "Revenir entre les feux",
-     "to": "IV_cv_camp"
+     "back": "IV_cv_camp"
     }
    ]
   },
@@ -60704,7 +60153,7 @@
       ],
       "flag": "iv:rodric_pays"
      },
-     "to": "IV_cv_camp"
+     "back": "IV_cv_camp"
     }
    ]
   },
@@ -60875,8 +60324,7 @@
      }
     },
     {
-     "label": "Revenir sur la place",
-     "to": "IV_sv_place"
+     "back": "IV_sv_place"
     }
    ]
   },
@@ -61041,8 +60489,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur la place",
-     "to": "IV_sv_place"
+     "back": "IV_sv_place"
     }
    ]
   },
@@ -61107,8 +60554,7 @@
      "to": "HY_V_cloches"
     },
     {
-     "label": "Rentrer à la tour avant complies",
-     "to": "HY_tour"
+     "back": "HY_tour"
     }
    ]
   },
@@ -61198,7 +60644,7 @@
        "hylas:berengere=fui"
       ]
      },
-     "to": "HY_V_ville"
+     "back": "HY_V_ville"
     }
    ]
   },
@@ -61318,8 +60764,7 @@
    ],
    "choices": [
     {
-     "label": "Remonter dans la voiture",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -61333,8 +60778,7 @@
    ],
    "choices": [
     {
-     "label": "Remonter dans la voiture",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -61375,8 +60819,7 @@
    ],
    "choices": [
     {
-     "label": "Remonter dans la voiture",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -61422,8 +60865,7 @@
    ],
    "choices": [
     {
-     "label": "Remonter dans la voiture",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -61437,8 +60879,7 @@
    ],
    "choices": [
     {
-     "label": "Remonter dans la voiture",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -61479,8 +60920,7 @@
    ],
    "choices": [
     {
-     "label": "Remonter dans la voiture",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -61494,8 +60934,7 @@
    ],
    "choices": [
     {
-     "label": "Remonter dans la voiture",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -61579,8 +61018,7 @@
      "to": "CO_V_cle"
     },
     {
-     "label": "Repartir dans les rues",
-     "to": "CO_V_ville"
+     "back": "CO_V_ville"
     }
    ]
   },
@@ -61594,8 +61032,7 @@
    ],
    "choices": [
     {
-     "label": "Repartir dans les rues",
-     "to": "CO_V_ville"
+     "back": "CO_V_ville"
     }
    ]
   },
@@ -61621,8 +61058,7 @@
      "to": "CO_V_renne"
     },
     {
-     "label": "Repartir dans les rues",
-     "to": "CO_V_ville"
+     "back": "CO_V_ville"
     }
    ]
   },
@@ -61636,8 +61072,7 @@
    ],
    "choices": [
     {
-     "label": "Repartir dans les rues",
-     "to": "CO_V_ville"
+     "back": "CO_V_ville"
     }
    ]
   },
@@ -61652,14 +61087,13 @@
    ],
    "choices": [
     {
-     "label": "Repartir dans les rues",
      "fx": {
       "ep": [
        "perso",
        200
       ]
      },
-     "to": "CO_V_ville"
+     "back": "CO_V_ville"
     }
    ]
   },
@@ -61698,8 +61132,7 @@
      "to": "CO_V_ecrivain_nom"
     },
     {
-     "label": "Sortir de la file",
-     "to": "CO_V_ville"
+     "back": "CO_V_ville"
     }
    ]
   },
@@ -61713,8 +61146,7 @@
    ],
    "choices": [
     {
-     "label": "Repartir dans les rues",
-     "to": "CO_V_ville"
+     "back": "CO_V_ville"
     }
    ]
   },
@@ -61728,8 +61160,7 @@
    ],
    "choices": [
     {
-     "label": "Repartir dans les rues",
-     "to": "CO_V_ville"
+     "back": "CO_V_ville"
     }
    ]
   },
@@ -61770,8 +61201,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir au camp des champions",
-     "to": "II_S3_soir"
+     "back": "II_S3_soir"
     }
    ]
   },
@@ -61785,8 +61215,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir au camp des champions",
-     "to": "II_S3_soir"
+     "back": "II_S3_soir"
     }
    ]
   },
@@ -61827,11 +61256,10 @@
    ],
    "choices": [
     {
-     "label": "Revenir au camp des champions",
      "fx": {
       "flag": "sud3:conseil"
      },
-     "to": "II_S3_soir"
+     "back": "II_S3_soir"
     }
    ]
   },
@@ -61872,8 +61300,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir au camp des champions",
-     "to": "II_S3_soir"
+     "back": "II_S3_soir"
     }
    ]
   },
@@ -61887,8 +61314,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir au camp des champions",
-     "to": "II_S3_soir"
+     "back": "II_S3_soir"
     }
    ]
   },
@@ -62163,7 +61589,7 @@
     },
     {
      "label": "Repartir les mains vides",
-     "to": "PI_ville"
+     "back": "PI_ville"
     }
    ]
   },
@@ -62177,8 +61603,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans les bas-quartiers",
-     "to": "PI_ville"
+     "back": "PI_ville"
     }
    ]
   },
@@ -62192,8 +61617,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans les bas-quartiers",
-     "to": "PI_ville"
+     "back": "PI_ville"
     }
    ]
   },
@@ -62295,8 +61719,7 @@
      "to": "V_v_teinturiers_glace"
     },
     {
-     "label": "Revenir sur la place",
-     "to": "V_ville"
+     "back": "V_ville"
     }
    ]
   },
@@ -62310,8 +61733,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur la place",
-     "to": "V_ville"
+     "back": "V_ville"
     }
    ]
   },
@@ -62340,7 +61762,6 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur la place",
      "fx": {
       "flag": "v:berengere",
       "conf": {
@@ -62351,7 +61772,7 @@
        800
       ]
      },
-     "to": "V_ville"
+     "back": "V_ville"
     }
    ]
   },
@@ -62376,8 +61797,7 @@
      "to": "V_v_orgue_doigt"
     },
     {
-     "label": "Revenir sur la place",
-     "to": "V_ville"
+     "back": "V_ville"
     }
    ]
   },
@@ -62396,11 +61816,10 @@
    ],
    "choices": [
     {
-     "label": "Redescendre",
      "fx": {
       "flag": "v:orgue"
      },
-     "to": "V_ville"
+     "back": "V_ville"
     }
    ]
   },
@@ -62446,8 +61865,7 @@
      "to": "V_v_renne_foin"
     },
     {
-     "label": "Revenir sur la place",
-     "to": "V_ville"
+     "back": "V_ville"
     }
    ]
   },
@@ -62472,8 +61890,7 @@
      "to": "V_v_renne_libre"
     },
     {
-     "label": "Revenir sur la place",
-     "to": "V_ville"
+     "back": "V_ville"
     }
    ]
   },
@@ -62492,8 +61909,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur la place",
-     "to": "V_ville"
+     "back": "V_ville"
     }
    ]
   },
@@ -62534,8 +61950,7 @@
      "to": "IV_ps_soupe"
     },
     {
-     "label": "Ressortir sur le pont",
-     "to": "IV_ps"
+     "back": "IV_ps"
     }
    ]
   },
@@ -62549,8 +61964,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans la salle",
-     "to": "IV_ps_auberge"
+     "back": "IV_ps_auberge"
     }
    ]
   },
@@ -62631,8 +62045,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans la salle",
-     "to": "IV_ps_auberge"
+     "back": "IV_ps_auberge"
     }
    ]
   },
@@ -62646,8 +62059,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans la salle",
-     "to": "IV_ps_auberge"
+     "back": "IV_ps_auberge"
     }
    ]
   },
@@ -62695,8 +62107,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans la salle",
-     "to": "IV_ps_auberge"
+     "back": "IV_ps_auberge"
     }
    ]
   },
@@ -62710,8 +62121,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans la salle",
-     "to": "IV_ps_auberge"
+     "back": "IV_ps_auberge"
     }
    ]
   },
@@ -62773,7 +62183,7 @@
    "choices": [
     {
      "label": "Revenir sous les arcades",
-     "to": "IV_moutier"
+     "back": "IV_moutier"
     }
    ]
   },
@@ -62788,7 +62198,7 @@
    "choices": [
     {
      "label": "Revenir sous les arcades",
-     "to": "IV_moutier"
+     "back": "IV_moutier"
     }
    ]
   },
@@ -62803,7 +62213,7 @@
    "choices": [
     {
      "label": "Revenir sous les arcades",
-     "to": "IV_moutier"
+     "back": "IV_moutier"
     }
    ]
   },
@@ -62855,7 +62265,7 @@
    "choices": [
     {
      "label": "Revenir sous les arcades",
-     "to": "IV_moutier"
+     "back": "IV_moutier"
     }
    ]
   },
@@ -62871,7 +62281,7 @@
    "choices": [
     {
      "label": "Revenir sous les arcades",
-     "to": "IV_moutier"
+     "back": "IV_moutier"
     }
    ]
   },
@@ -62886,7 +62296,7 @@
    "choices": [
     {
      "label": "Revenir sous les arcades",
-     "to": "IV_moutier"
+     "back": "IV_moutier"
     }
    ]
   },
@@ -62929,7 +62339,7 @@
    "choices": [
     {
      "label": "Revenir sous les arcades",
-     "to": "IV_moutier"
+     "back": "IV_moutier"
     }
    ]
   },
@@ -62945,7 +62355,7 @@
    "choices": [
     {
      "label": "Revenir sous les arcades",
-     "to": "IV_moutier"
+     "back": "IV_moutier"
     }
    ]
   },
@@ -62991,8 +62401,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir vers les statues",
-     "to": "III_p_place"
+     "back": "III_p_place"
     }
    ]
   },
@@ -63006,8 +62415,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir vers les statues",
-     "to": "III_p_place"
+     "back": "III_p_place"
     }
    ]
   },
@@ -63053,8 +62461,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir vers les statues",
-     "to": "III_p_place"
+     "back": "III_p_place"
     }
    ]
   },
@@ -63068,8 +62475,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir vers les statues",
-     "to": "III_p_place"
+     "back": "III_p_place"
     }
    ]
   },
@@ -63115,8 +62521,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir vers les statues",
-     "to": "III_p_place"
+     "back": "III_p_place"
     }
    ]
   },
@@ -63130,8 +62535,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir vers les statues",
-     "to": "III_p_place"
+     "back": "III_p_place"
     }
    ]
   },
@@ -63177,8 +62581,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir vers les statues",
-     "to": "III_p_place"
+     "back": "III_p_place"
     }
    ]
   },
@@ -63192,8 +62595,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir vers les statues",
-     "to": "III_p_place"
+     "back": "III_p_place"
     }
    ]
   },
@@ -63239,8 +62641,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir vers les statues",
-     "to": "III_p_place"
+     "back": "III_p_place"
     }
    ]
   },
@@ -63254,8 +62655,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir vers les statues",
-     "to": "III_p_place"
+     "back": "III_p_place"
     }
    ]
   },
@@ -63285,8 +62685,7 @@
      "to": "V_e_dortoir_grave"
     },
     {
-     "label": "Revenir dans le Bureau",
-     "to": "V_t_cessions"
+     "back": "V_t_cessions"
     }
    ]
   },
@@ -63300,8 +62699,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans le Bureau",
-     "to": "V_t_cessions"
+     "back": "V_t_cessions"
     }
    ]
   },
@@ -63333,8 +62731,7 @@
      "to": "V_e_sceaux_mordace"
     },
     {
-     "label": "Revenir dans le Bureau",
-     "to": "V_t_cessions"
+     "back": "V_t_cessions"
     }
    ]
   },
@@ -63349,7 +62746,6 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans le Bureau",
      "fx": {
       "flag": "v:sceau_hylas",
       "conf": {
@@ -63360,7 +62756,7 @@
        800
       ]
      },
-     "to": "V_t_cessions"
+     "back": "V_t_cessions"
     }
    ]
   },
@@ -63374,8 +62770,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans le Bureau",
-     "to": "V_t_cessions"
+     "back": "V_t_cessions"
     }
    ]
   },
@@ -63504,14 +62899,13 @@
    ],
    "choices": [
     {
-     "label": "Revenir au milieu du camp",
      "fx": {
       "conf": {
        "rodric": 5
       },
       "flag": "nord:lutte"
      },
-     "to": "II_N_camp"
+     "back": "II_N_camp"
     }
    ]
   },
@@ -63525,8 +62919,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir au milieu du camp",
-     "to": "II_N_camp"
+     "back": "II_N_camp"
     }
    ]
   },
@@ -63540,8 +62933,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir au milieu du camp",
-     "to": "II_N_camp"
+     "back": "II_N_camp"
     }
    ]
   },
@@ -63593,8 +62985,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir au milieu du camp",
-     "to": "II_N_camp"
+     "back": "II_N_camp"
     }
    ]
   },
@@ -63608,8 +62999,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir au milieu du camp",
-     "to": "II_N_camp"
+     "back": "II_N_camp"
     }
    ]
   },
@@ -63643,8 +63033,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir au milieu du camp",
-     "to": "II_N_camp"
+     "back": "II_N_camp"
     }
    ]
   },
@@ -63689,8 +63078,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans la cour",
-     "to": "YS_cour"
+     "back": "YS_cour"
     }
    ]
   },
@@ -63704,8 +63092,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans la cour",
-     "to": "YS_cour"
+     "back": "YS_cour"
     }
    ]
   },
@@ -63746,8 +63133,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans la cour",
-     "to": "YS_cour"
+     "back": "YS_cour"
     }
    ]
   },
@@ -63761,8 +63147,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans la cour",
-     "to": "YS_cour"
+     "back": "YS_cour"
     }
    ]
   },
@@ -63814,8 +63199,7 @@
      "to": "IV_pal_ecrivain_garde"
     },
     {
-     "label": "Repartir",
-     "to": "IV_pal"
+     "back": "IV_pal"
     }
    ]
   },
@@ -63830,7 +63214,6 @@
    ],
    "choices": [
     {
-     "label": "Revenir chez la Veuve",
      "fx": {
       "flag": "iv:lettre_moulin",
       "ep": [
@@ -63838,7 +63221,7 @@
        500
       ]
      },
-     "to": "IV_pal"
+     "back": "IV_pal"
     }
    ]
   },
@@ -63853,11 +63236,10 @@
    ],
    "choices": [
     {
-     "label": "Revenir chez la Veuve",
      "fx": {
       "flag": "iv:lettre_gardee"
      },
-     "to": "IV_pal"
+     "back": "IV_pal"
     }
    ]
   },
@@ -63885,7 +63267,6 @@
    ],
    "choices": [
     {
-     "label": "Revenir chez la Veuve",
      "fx": {
       "conf": {
        "hylas": 5
@@ -63895,7 +63276,7 @@
        400
       ]
      },
-     "to": "IV_pal"
+     "back": "IV_pal"
     }
    ]
   },
@@ -63936,8 +63317,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur la place",
-     "to": "EN_place"
+     "back": "EN_place"
     }
    ]
   },
@@ -63952,8 +63332,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur la place",
-     "to": "EN_place"
+     "back": "EN_place"
     }
    ]
   },
@@ -63995,8 +63374,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur la place",
-     "to": "EN_place"
+     "back": "EN_place"
     }
    ]
   },
@@ -64010,8 +63388,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur la place",
-     "to": "EN_place"
+     "back": "EN_place"
     }
    ]
   },
@@ -64173,14 +63550,13 @@
    ],
    "choices": [
     {
-     "label": "Revenir à ce qui t'amène",
      "fx": {
       "ep": [
        "perso",
        500
       ]
      },
-     "to": "II_S2_isaure"
+     "back": "II_S2_isaure"
     }
    ]
   },
@@ -64301,8 +63677,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur la place aux Clercs",
-     "to": "V_ville"
+     "back": "V_ville"
     }
    ]
   },
@@ -64318,8 +63693,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur la place aux Clercs",
-     "to": "V_ville"
+     "back": "V_ville"
     }
    ]
   },
@@ -64333,8 +63707,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur la place aux Clercs",
-     "to": "V_ville"
+     "back": "V_ville"
     }
    ]
   },
@@ -64348,8 +63721,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur la place aux Clercs",
-     "to": "V_ville"
+     "back": "V_ville"
     }
    ]
   },
@@ -64391,8 +63763,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur la place aux Clercs",
-     "to": "V_ville"
+     "back": "V_ville"
     }
    ]
   },
@@ -64406,8 +63777,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur la place aux Clercs",
-     "to": "V_ville"
+     "back": "V_ville"
     }
    ]
   },
@@ -64480,8 +63850,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur la place aux Clercs",
-     "to": "V_ville"
+     "back": "V_ville"
     }
    ]
   },
@@ -64495,8 +63864,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur la place aux Clercs",
-     "to": "V_ville"
+     "back": "V_ville"
     }
    ]
   },
@@ -64510,8 +63878,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur la place aux Clercs",
-     "to": "V_ville"
+     "back": "V_ville"
     }
    ]
   },
@@ -64559,8 +63926,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans les rues",
-     "to": "III_v_porte"
+     "back": "III_v_porte"
     }
    ]
   },
@@ -64574,8 +63940,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans les rues",
-     "to": "III_v_porte"
+     "back": "III_v_porte"
     }
    ]
   },
@@ -64617,8 +63982,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans les rues",
-     "to": "III_v_porte"
+     "back": "III_v_porte"
     }
    ]
   },
@@ -64632,8 +63996,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans les rues",
-     "to": "III_v_porte"
+     "back": "III_v_porte"
     }
    ]
   },
@@ -64905,8 +64268,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans le camp",
-     "to": "IV_br"
+     "back": "IV_br"
     }
    ]
   },
@@ -64921,8 +64283,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans le camp",
-     "to": "IV_br"
+     "back": "IV_br"
     }
    ]
   },
@@ -64983,8 +64344,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans le camp",
-     "to": "IV_br"
+     "back": "IV_br"
     }
    ]
   },
@@ -64998,8 +64358,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans le camp",
-     "to": "IV_br"
+     "back": "IV_br"
     }
    ]
   },
@@ -65064,8 +64423,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans la tour",
-     "to": "HY_tour"
+     "back": "HY_tour"
     }
    ]
   },
@@ -65089,8 +64447,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans la tour",
-     "to": "HY_tour"
+     "back": "HY_tour"
     }
    ]
   },
@@ -65104,8 +64461,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans la tour",
-     "to": "HY_tour"
+     "back": "HY_tour"
     }
    ]
   },
@@ -65186,8 +64542,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans la tour",
-     "to": "HY_tour"
+     "back": "HY_tour"
     }
    ]
   },
@@ -65201,8 +64556,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans la tour",
-     "to": "HY_tour"
+     "back": "HY_tour"
     }
    ]
   },
@@ -65217,8 +64571,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans la tour",
-     "to": "HY_tour"
+     "back": "HY_tour"
     }
    ]
   },
@@ -65271,8 +64624,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans la cour",
-     "to": "LI_cour"
+     "back": "LI_cour"
     }
    ]
   },
@@ -65286,8 +64638,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans la cour",
-     "to": "LI_cour"
+     "back": "LI_cour"
     }
    ]
   },
@@ -65372,8 +64723,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans la cour",
-     "to": "LI_cour"
+     "back": "LI_cour"
     }
    ]
   },
@@ -65387,8 +64737,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans la cour",
-     "to": "LI_cour"
+     "back": "LI_cour"
     }
    ]
   },
@@ -65402,8 +64751,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans la cour",
-     "to": "LI_cour"
+     "back": "LI_cour"
     }
    ]
   },
@@ -65452,8 +64800,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans les bas-quartiers",
-     "to": "PI_ville"
+     "back": "PI_ville"
     }
    ]
   },
@@ -65467,8 +64814,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans les bas-quartiers",
-     "to": "PI_ville"
+     "back": "PI_ville"
     }
    ]
   },
@@ -65509,8 +64855,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir au camp",
-     "to": "CO_camp"
+     "back": "CO_camp"
     }
    ]
   },
@@ -65524,8 +64869,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir au camp",
-     "to": "CO_camp"
+     "back": "CO_camp"
     }
    ]
   },
@@ -65572,8 +64916,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur le pont",
-     "to": "II_G_pont"
+     "back": "II_G_pont"
     }
    ]
   },
@@ -65587,8 +64930,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur le pont",
-     "to": "II_G_pont"
+     "back": "II_G_pont"
     }
    ]
   },
@@ -65641,7 +64983,7 @@
     },
     {
      "label": "Redescendre, vite, avant qu'il siffle",
-     "to": "II_G_pont"
+     "back": "II_G_pont"
     }
    ]
   },
@@ -65655,8 +64997,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur le pont",
-     "to": "II_G_pont"
+     "back": "II_G_pont"
     }
    ]
   },
@@ -65670,8 +65011,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur le pont",
-     "to": "II_G_pont"
+     "back": "II_G_pont"
     }
    ]
   },
@@ -65765,8 +65105,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans la salle des galeries",
-     "to": "IV_N_galeries"
+     "back": "IV_N_galeries"
     }
    ]
   },
@@ -65780,8 +65119,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans la salle des galeries",
-     "to": "IV_N_galeries"
+     "back": "IV_N_galeries"
     }
    ]
   },
@@ -65795,8 +65133,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans la salle des galeries",
-     "to": "IV_N_galeries"
+     "back": "IV_N_galeries"
     }
    ]
   },
@@ -65875,8 +65212,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans le bourg",
-     "to": "IV_ps"
+     "back": "IV_ps"
     }
    ]
   },
@@ -65890,8 +65226,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans le bourg",
-     "to": "IV_ps"
+     "back": "IV_ps"
     }
    ]
   },
@@ -65905,8 +65240,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans le bourg",
-     "to": "IV_ps"
+     "back": "IV_ps"
     }
    ]
   },
@@ -65981,8 +65315,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans le bourg",
-     "to": "IV_ps"
+     "back": "IV_ps"
     }
    ]
   },
@@ -65996,8 +65329,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans le bourg",
-     "to": "IV_ps"
+     "back": "IV_ps"
     }
    ]
   },
@@ -66011,8 +65343,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans le bourg",
-     "to": "IV_ps"
+     "back": "IV_ps"
     }
    ]
   },
@@ -66080,8 +65411,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir au bord du cirque",
-     "to": "II_N4_cirque"
+     "back": "II_N4_cirque"
     }
    ]
   },
@@ -66095,8 +65425,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir au bord du cirque",
-     "to": "II_N4_cirque"
+     "back": "II_N4_cirque"
     }
    ]
   },
@@ -66110,8 +65439,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir au bord du cirque",
-     "to": "II_N4_cirque"
+     "back": "II_N4_cirque"
     }
    ]
   },
@@ -66175,8 +65503,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir au bord du cirque",
-     "to": "II_N4_cirque"
+     "back": "II_N4_cirque"
     }
    ]
   },
@@ -66190,8 +65517,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir au bord du cirque",
-     "to": "II_N4_cirque"
+     "back": "II_N4_cirque"
     }
    ]
   },
@@ -66205,8 +65531,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir au bord du cirque",
-     "to": "II_N4_cirque"
+     "back": "II_N4_cirque"
     }
    ]
   },
@@ -66248,8 +65573,7 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
-     "to": "V_r_chemin"
+     "back": "V_r_chemin"
     }
    ]
   },
@@ -66263,8 +65587,7 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
-     "to": "V_r_chemin"
+     "back": "V_r_chemin"
     }
    ]
   },
@@ -66312,8 +65635,7 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
-     "to": "V_r_chemin"
+     "back": "V_r_chemin"
     }
    ]
   },
@@ -66327,8 +65649,7 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
-     "to": "V_r_chemin"
+     "back": "V_r_chemin"
     }
    ]
   },
@@ -66382,8 +65703,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans le village",
-     "to": "EN_village"
+     "back": "EN_village"
     }
    ]
   },
@@ -66449,8 +65769,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans le village",
-     "to": "EN_village"
+     "back": "EN_village"
     }
    ]
   },
@@ -66464,8 +65783,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans le village",
-     "to": "EN_village"
+     "back": "EN_village"
     }
    ]
   },
@@ -66515,8 +65833,7 @@
      "to": "III_r_dieu"
     },
     {
-     "label": "Reprendre la route",
-     "to": "III_plaine"
+     "back": "III_plaine"
     }
    ]
   },
@@ -66544,14 +65861,13 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans la salle",
      "fx": {
       "ep": [
        "perso",
        500
       ]
      },
-     "to": "III_r_salle"
+     "back": "III_r_salle"
     }
    ]
   },
@@ -66597,8 +65913,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans la salle",
-     "to": "III_r_salle"
+     "back": "III_r_salle"
     }
    ]
   },
@@ -66612,8 +65927,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans la salle",
-     "to": "III_r_salle"
+     "back": "III_r_salle"
     }
    ]
   },
@@ -66658,8 +65972,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans la salle",
-     "to": "III_r_salle"
+     "back": "III_r_salle"
     }
    ]
   },
@@ -66673,8 +65986,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans la salle",
-     "to": "III_r_salle"
+     "back": "III_r_salle"
     }
    ]
   },
@@ -66841,8 +66153,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans les rues",
-     "to": "CO_V_ville"
+     "back": "CO_V_ville"
     }
    ]
   },
@@ -66857,8 +66168,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans les rues",
-     "to": "CO_V_ville"
+     "back": "CO_V_ville"
     }
    ]
   },
@@ -66873,8 +66183,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans les rues",
-     "to": "CO_V_ville"
+     "back": "CO_V_ville"
     }
    ]
   },
@@ -66951,8 +66260,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur la place aux Clercs",
-     "to": "V_ville"
+     "back": "V_ville"
     }
    ]
   },
@@ -66966,8 +66274,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur la place aux Clercs",
-     "to": "V_ville"
+     "back": "V_ville"
     }
    ]
   },
@@ -66981,8 +66288,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur la place aux Clercs",
-     "to": "V_ville"
+     "back": "V_ville"
     }
    ]
   },
@@ -67058,8 +66364,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur la place aux Clercs",
-     "to": "V_ville"
+     "back": "V_ville"
     }
    ]
   },
@@ -67073,8 +66378,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur la place aux Clercs",
-     "to": "V_ville"
+     "back": "V_ville"
     }
    ]
   },
@@ -67122,8 +66426,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir au milieu du camp",
-     "to": "IV_cv_camp"
+     "back": "IV_cv_camp"
     }
    ]
   },
@@ -67137,8 +66440,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir au milieu du camp",
-     "to": "IV_cv_camp"
+     "back": "IV_cv_camp"
     }
    ]
   },
@@ -67231,8 +66533,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir au milieu du camp",
-     "to": "IV_cv_camp"
+     "back": "IV_cv_camp"
     }
    ]
   },
@@ -67246,8 +66547,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir au milieu du camp",
-     "to": "IV_cv_camp"
+     "back": "IV_cv_camp"
     }
    ]
   },
@@ -67294,8 +66594,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur la grand-place",
-     "to": "III_c_ville"
+     "back": "III_c_ville"
     }
    ]
   },
@@ -67309,8 +66608,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur la grand-place",
-     "to": "III_c_ville"
+     "back": "III_c_ville"
     }
    ]
   },
@@ -67390,8 +66688,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur la grand-place",
-     "to": "III_c_ville"
+     "back": "III_c_ville"
     }
    ]
   },
@@ -67405,8 +66702,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur la grand-place",
-     "to": "III_c_ville"
+     "back": "III_c_ville"
     }
    ]
   },
@@ -67448,8 +66744,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir au centre du hameau",
-     "to": "III_e_hameau"
+     "back": "III_e_hameau"
     }
    ]
   },
@@ -67463,8 +66758,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir au centre du hameau",
-     "to": "III_e_hameau"
+     "back": "III_e_hameau"
     }
    ]
   },
@@ -67511,8 +66805,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir au centre du hameau",
-     "to": "III_e_hameau"
+     "back": "III_e_hameau"
     }
    ]
   },
@@ -67526,8 +66819,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir au centre du hameau",
-     "to": "III_e_hameau"
+     "back": "III_e_hameau"
     }
    ]
   },
@@ -67585,8 +66877,7 @@
    ],
    "choices": [
     {
-     "label": "Redescendre dans la cour",
-     "to": "YS_cour"
+     "back": "YS_cour"
     }
    ]
   },
@@ -67600,8 +66891,7 @@
    ],
    "choices": [
     {
-     "label": "Redescendre dans la cour",
-     "to": "YS_cour"
+     "back": "YS_cour"
     }
    ]
   },
@@ -67682,8 +66972,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans le Bureau",
-     "to": "V_t_cessions"
+     "back": "V_t_cessions"
     }
    ]
   },
@@ -67748,8 +67037,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans la ville",
-     "to": "II_S_vasselin"
+     "back": "II_S_vasselin"
     }
    ]
   },
@@ -67763,8 +67051,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans la ville",
-     "to": "II_S_vasselin"
+     "back": "II_S_vasselin"
     }
    ]
   },
@@ -67811,8 +67098,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans la ville",
-     "to": "II_S_vasselin"
+     "back": "II_S_vasselin"
     }
    ]
   },
@@ -67826,8 +67112,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans la ville",
-     "to": "II_S_vasselin"
+     "back": "II_S_vasselin"
     }
    ]
   },
@@ -67910,8 +67195,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur la place aux Clercs",
-     "to": "V_ville"
+     "back": "V_ville"
     }
    ]
   },
@@ -67925,8 +67209,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur la place aux Clercs",
-     "to": "V_ville"
+     "back": "V_ville"
     }
    ]
   },
@@ -67940,8 +67223,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur la place aux Clercs",
-     "to": "V_ville"
+     "back": "V_ville"
     }
    ]
   },
@@ -69924,7 +69206,7 @@
      "hide": {
       "seen": "V_q_bout"
      },
-     "to": "V_q_bout"
+     "back": "V_q_bout"
     },
     {
      "label": "Entrer dans la tour",
@@ -70118,8 +69400,7 @@
      "to": "V_t_cessions"
     },
     {
-     "label": "Revenir dans la salle",
-     "to": "V_t_cessions"
+     "back": "V_t_cessions"
     }
    ]
   },
@@ -70135,8 +69416,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans la salle",
-     "to": "V_t_cessions"
+     "back": "V_t_cessions"
     }
    ]
   },
@@ -70826,14 +70106,13 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur la place",
      "fx": {
       "item": [
        "onguent",
        "onguent"
       ]
      },
-     "to": "V_ville"
+     "back": "V_ville"
     }
    ]
   },
@@ -70847,8 +70126,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur la place",
-     "to": "V_ville"
+     "back": "V_ville"
     }
    ]
   },
@@ -70916,8 +70194,7 @@
      }
     },
     {
-     "label": "Redescendre",
-     "to": "V_ville"
+     "back": "V_ville"
     }
    ]
   },
@@ -70933,8 +70210,7 @@
    ],
    "choices": [
     {
-     "label": "Redescendre",
-     "to": "V_ville"
+     "back": "V_ville"
     }
    ]
   },
@@ -70948,8 +70224,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur la place",
-     "to": "V_ville"
+     "back": "V_ville"
     }
    ]
   },
@@ -71029,8 +70304,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur la place",
-     "to": "V_ville"
+     "back": "V_ville"
     }
    ]
   },
@@ -71073,8 +70347,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur la place",
-     "to": "V_ville"
+     "back": "V_ville"
     }
    ]
   },
@@ -71872,8 +71145,7 @@
      }
     },
     {
-     "label": "Revenir dans le Bureau",
-     "to": "V_t_cessions"
+     "back": "V_t_cessions"
     }
    ]
   },
@@ -71888,8 +71160,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans le Bureau",
-     "to": "V_t_cessions"
+     "back": "V_t_cessions"
     }
    ]
   },
@@ -71903,8 +71174,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans le Bureau",
-     "to": "V_t_cessions"
+     "back": "V_t_cessions"
     }
    ]
   },
@@ -71942,8 +71212,7 @@
      "to": "V_e_chapelle_nom"
     },
     {
-     "label": "Revenir dans le Bureau",
-     "to": "V_t_cessions"
+     "back": "V_t_cessions"
     }
    ]
   },
@@ -71958,8 +71227,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans le Bureau",
-     "to": "V_t_cessions"
+     "back": "V_t_cessions"
     }
    ]
   },
@@ -72018,8 +71286,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir dans le Bureau",
-     "to": "V_t_cessions"
+     "back": "V_t_cessions"
     }
    ]
   },

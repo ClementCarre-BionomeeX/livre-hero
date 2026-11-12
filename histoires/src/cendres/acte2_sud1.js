@@ -40,11 +40,11 @@ module.exports = {
       "Tu remontes. Tu dis le nom à l'aubergiste. Il le répète, une fois, deux fois. Puis il va le dire à sa femme, et sa femme sort dans la rue pour le dire aux voisins. Quand vous repartez, on l'entend partout, de porte en porte, comme une nouvelle.",
       "Sur l'enseigne, rien n'est revenu.",
     ],
-    choices: [{ label: "Reprendre la route", to: "@route" }] }),
+    choices: [{ back: "@route" }] }),
 
   II_S_village_rien: P({ title: "Rien", place: null,
     text: ["Les registres du temple sont blancs. Les lettres, au fond des tiroirs, sont adressées à des gens d'ici, dans un village dont le nom est un blanc. Même la marque des tonneaux a été rabotée par quelque chose. Tu remontes de la cave les mains vides. L'aubergiste t'offre un autre verre."],
-    choices: [{ label: "Reprendre la route", to: "@route" }] }),
+    choices: [{ back: "@route" }] }),
 
   II_S_village_neuf: P({ title: "Un nom neuf", place: null,
     text: [
@@ -52,7 +52,7 @@ module.exports = {
       "Les gens se regardent. Puis l'aubergiste dit : « Bellefeuille », et ça a l'air de lui plaire. Une vieille femme secoue la tête et rentre chez elle sans rien dire.",
       { with: "hylas", text: "Hylas, sur le banc, a les mains crispées sur sa canne. « On ne fait pas ça, dit-il très bas. Ça s'appelle une cession. »" },
     ],
-    choices: [{ label: "Reprendre la route", to: "@route" }] }),
+    choices: [{ back: "@route" }] }),
 
   II_S_cortege: P({ title: "Le cortège", place: null,
     text: [
@@ -84,7 +84,7 @@ module.exports = {
       "Tu as fait trois pas hors des vignes quand l'un des gardes noirs tourne la tête vers toi. Il ne crie pas. Il ne bouge pas. Il te regarde, simplement, d'un regard qui n'a rien derrière.",
       "Tu recules. Il te laisse reculer. À la halte du soir, il a quitté sa place à côté de la voiture. Tu ne sais pas où il est allé.",
     ],
-    choices: [{ label: "Reprendre la route, plus vite", to: "@route" }] }),
+    choices: [{ label: "Reprendre la route, plus vite", back: "@route" }] }),
 
   II_S_gue: P({ title: "Dame Ermengarde", place: null,
     text: [
@@ -92,7 +92,7 @@ module.exports = {
       "« Tu as l'air d'une mendiante, dit-elle. Ça te va bien. » Puis, plus bas : « Ne viens pas au palais par la grande porte. Viens par les cuisines, le soir, je dirai qu'on te laisse passer. Il y a des choses que je ne peux pas dire ici. »",
       "Elle remonte en voiture. La cour repart.",
     ],
-    choices: [{ label: "Reprendre la route", to: "@route" }] }),
+    choices: [{ back: "@route" }] }),
 
   II_S_porte: P({ title: "La porte de Mer", place: null,
     fx: { questSeen: "II_S_tournoi" },
@@ -174,7 +174,7 @@ module.exports = {
       "Ermengarde souffle sa chandelle. Dans le noir, elle dit : « Je ne peux rien de plus. Toutes les clés de ce palais sont dans ma poche, sauf celles de la Tour. Il les porte sur lui. Il dort avec. » Un temps. « S'il dort. »",
       "Elle s'en va. Tu restes un moment dans le cellier, dans l'odeur des jambons, avant de retrouver la porte.",
     ],
-    choices: [{ label: "Ressortir dans la ville", to: "II_S_vasselin" }] }),
+    choices: [{ back: "II_S_vasselin" }] }),
 
   II_S_ermengarde_signe: P({ title: "Ce qu'elle signe", place: "vasselin",
     text: [
@@ -208,7 +208,7 @@ module.exports = {
       { if: { has: "lisandre:disgrace" }, text: "Pour le parrain, tu signes du nom de ta mère, que personne à la cour n'a jamais entendu." },
       "Le clerc souffle sur l'encre. En haut de la page, une note de sa main, pour lui-même, que tu lis à l'envers : *Tous les noms, chaque soir, à la Tour.*",
     ],
-    choices: [{ label: "Revenir en ville", to: "II_S_vasselin" }] }),
+    choices: [{ back: "II_S_vasselin" }] }),
 
   II_S_port: P({ title: "La halle aux poissons", place: "vasselin",
     text: [
@@ -229,7 +229,7 @@ module.exports = {
       "La halle se tait. Puis, au fond, quelqu'un répond, avec le cri de l'étal d'en face. Puis un autre. Pendant une minute, la halle entière crie comme il y a vingt ans, et les vieux pleurent en riant.",
       "La vieille femme te serre contre elle. Elle sent le sel et la seiche. « Les bateaux, dit-elle à ton oreille. Si un jour tu as besoin d'un bateau, de nuit, sans lanterne. Demande Jacotte. »",
     ],
-    choices: [{ label: "Revenir en ville", to: "II_S_vasselin" }] }),
+    choices: [{ back: "II_S_vasselin" }] }),
 
   II_S_port_dit: P({ title: "La petite de Jehanne", place: "vasselin",
     text: [
@@ -237,7 +237,7 @@ module.exports = {
       "« Jehanne est morte l'hiver où on t'a prise, dit-elle. Elle a demandé après toi. On lui a dit que tu chantais pour la reine. Ça l'a consolée. » Elle hausse les épaules. « Ça m'aurait consolée aussi. »",
       "Elle retourne à son étal. Avant que tu partes, elle crie, sans se retourner : « Jacotte. Si tu as besoin de quelque chose. On ne sait jamais. »",
     ],
-    choices: [{ label: "Revenir en ville", to: "II_S_vasselin" }] }),
+    choices: [{ back: "II_S_vasselin" }] }),
 
   II_S_mouettes: P({ title: "Les Mouettes", place: "vasselin",
     text: [
@@ -249,7 +249,7 @@ module.exports = {
         win: { fx: { flag: "sud:mouettes", item: "plan_tour", ep: ["perso", 800] }, to: "II_S_mouettes_ok" },
         lose: { fx: { flag: "sud:mouettes_dette" }, to: "II_S_mouettes_dette" } },
       { label: "Payer le plan, trente pièces", if: { gold: { min: 30 } }, why: "Tu n'as pas trente pièces.", fx: { gold: -30, flag: "sud:mouettes", item: "plan_tour" }, to: "II_S_mouettes_ok" },
-      { label: "Repartir", to: "II_S_vasselin" },
+      { back: "II_S_vasselin" },
     ] }),
 
   II_S_mouettes_ok: P({ title: "Le plan", place: "vasselin",
@@ -257,11 +257,11 @@ module.exports = {
       "La prévôte pose son tricot, sort d'un pot de grès un rouleau de toile cirée, et le déplie sur un tonneau. La Tour, étage par étage, de la main d'un architecte mort depuis deux cents ans, avec des annotations plus récentes, au crayon : *garde*, *chien*, *serrure à trois pênes*, *ne pas*.",
       "Au sommet, la grande salle. Un mot, au centre, entouré deux fois : *froid*.",
     ],
-    choices: [{ label: "Revenir en ville", to: "II_S_vasselin" }] }),
+    choices: [{ back: "II_S_vasselin" }] }),
 
   II_S_mouettes_dette: P({ title: "Une dette", place: "vasselin",
     text: ["La prévôte secoue la tête. « Pas de part. Une dette. Tu nous rends un service, un jour, quand on te le demande, et on te donne le plan ce jour-là. » Pie accepte avant que tu aies pu parler. Il connaît ce genre de dettes. Il en a déjà."],
-    choices: [{ label: "Revenir en ville", to: "II_S_vasselin" }] }),
+    choices: [{ back: "II_S_vasselin" }] }),
 
   II_S_ysolde: P({ title: "La fenêtre", place: "vasselin",
     fx: { questSeen: "II_S_lisse" },
@@ -300,7 +300,7 @@ module.exports = {
       "« Ça arrive tout le temps, maintenant, dit-il. Pas avec vous. Avec les autres. Je leur parle, et puis ils oublient que j'étais là. » Il ramasse un caillou et le lance dans l'eau. « Ça ne me fait rien. »",
       "Il ment mal. Il te demande si la mer est vraiment salée. Tu lui dis de goûter. Il se penche, trempe un doigt, et rit, pour la première fois depuis que tu le connais.",
     ],
-    choices: [{ label: "Revenir en ville", to: "II_S_vasselin" }] }),
+    choices: [{ back: "II_S_vasselin" }] }),
 
   // the inn: end of chapter 1
   II_S_nuit: P({ takes: "evening", title: "L'Ancre", place: "vasselin",
@@ -324,26 +324,26 @@ module.exports = {
       "Il te demande de lui chanter quelque chose. Pas pour la cour. Quelque chose de vrai.",
       "Tu lui chantes une berceuse de pêcheurs, à voix basse, pour ne pas déranger les joueurs. Au deuxième couplet, il s'est endormi sur la table, la tête dans ses bras. Les mariniers ont arrêté de jouer pour écouter. Ils reprennent sans rien dire.",
     ],
-    choices: [{ label: "Revenir à la table", fx: { conf: { enfant: 5, lisandre: 5 } }, to: "II_S_nuit" }] }),
+    choices: [{ fx: { conf: { enfant: 5, lisandre: 5 } }, back: "II_S_nuit" }] }),
 
   II_S_nuit_ysolde: P({ title: "L'épée", place: "vasselin",
     text: [
       "Ysolde aiguise son épée, à la chandelle. Elle te demande, sans lever les yeux, si tu as déjà menti à la reine.",
       "Tu dis : « Tous les jours. » Elle hoche la tête. « Moi, jamais. » La pierre passe sur la lame. « Je me demande laquelle de nous deux elle a le mieux connue. »",
     ],
-    choices: [{ label: "Revenir à la table", fx: { conf: { ysolde: 5 } }, to: "II_S_nuit" }] }),
+    choices: [{ fx: { conf: { ysolde: 5 } }, back: "II_S_nuit" }] }),
 
   II_S_nuit_pie: P({ title: "Les poches", place: "vasselin",
     text: [
       "Pie vide ses poches sur la table : une cuillère d'argent de l'auberge à l'enseigne blanche, deux boutons de nacre, une bague de chanteuse, un sifflet de héraut. Il les range par taille.",
       "La bague est la tienne. Tu ne l'as pas sentie partir. Il te la rend avec un grand sourire. « Pour m'entraîner. La Tour, ça va demander de l'entraînement. »",
     ],
-    choices: [{ label: "Revenir à la table", fx: { conf: { pie: 5 } }, to: "II_S_nuit" }] }),
+    choices: [{ fx: { conf: { pie: 5 } }, back: "II_S_nuit" }] }),
 
   II_S_nuit_hylas: P({ title: "L'élève", place: "vasselin",
     text: [
       "Hylas boit sa soupe à petites gorgées. Il parle de Mordace jeune : un garçon de quinze ans qui recopiait les registres la nuit, pour le plaisir, et qui savait par cœur la généalogie de toutes les familles du royaume.",
       "« Il disait qu'un nom mal écrit, c'est une personne qui souffre. » Il pose sa cuillère. « Je crois qu'il le pense toujours. C'est ça, le pire. »",
     ],
-    choices: [{ label: "Revenir à la table", fx: { conf: { hylas: 5 } }, to: "II_S_nuit" }] }),
+    choices: [{ fx: { conf: { hylas: 5 } }, back: "II_S_nuit" }] }),
 };

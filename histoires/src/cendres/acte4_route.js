@@ -17,14 +17,14 @@ module.exports = {
 
   E4_fanchon_nouvelles: P({ title: "Les nouvelles",
     text: ["Elle compte les sous, les mord, les range. « La reine est malade d'un livre, dit-elle. Le Greffier-Majeur ne dort plus. À Corvanne, ils ont une margrave qui a été soldat quarante ans et qui en a assez. Et au moutier des Veilleurs, il y a un frère qui retrouve les gens. » Elle cligne de l'œil. « Trois sont fausses. Une est vraie. » Tu ne sauras jamais laquelle."],
-    choices: [{ label: "Reprendre la route", to: "@route" }] }),
+    choices: [{ back: "@route" }] }),
 
   E4_fanchon_sv: P({ title: "Sauvelune",
     text: [
       { if: { has: "nord:rendu=sauvelune" }, text: "« Sauvelune ? Bien sûr. Ils m'ont acheté trois cents craies. Tout le village écrit son nom partout, même sur les vaches. Une fille de forgeron m'a demandé si j'avais vu passer quelqu'un avec des yeux gris, presque blancs. » Elle te regarde. « Tiens. Comme les tiens. »" },
       { if: { not: { has: "nord:rendu=sauvelune" } }, text: "« Sauvelune ? » Elle cherche. Elle fronce les sourcils. « Il y a un pré, là-haut, au-dessus de Pont-de-Saule. Ma mule s'arrête toujours devant. Elle ne veut pas passer. Je ne sais pas pourquoi. » Elle caresse la mule. « Elle se souvient de quelque chose, elle. »" },
     ],
-    choices: [{ label: "Reprendre la route", to: "@route" }] }),
+    choices: [{ back: "@route" }] }),
 
   E4_cairn: P({ title: "Le cairn",
     text: [
@@ -39,7 +39,7 @@ module.exports = {
 
   E4_cairn_grave: P({ title: "Une pierre de plus",
     text: ["Ça prend une demi-heure, avec le clou. Tu poses ta pierre sur le cairn, tout en haut, en équilibre. Elle tient. Quand tu te retournes, plus bas sur le chemin, tu ne la distingues déjà plus des autres. Elle est faite pour ça."],
-    choices: [{ label: "Reprendre la route", to: "@route" }] }),
+    choices: [{ back: "@route" }] }),
 
   E4_petit_glaneur: P({ title: "Le petit Glaneur",
     text: [
@@ -58,7 +58,7 @@ module.exports = {
       { with: "givre", text: "Givre grogne, pour la forme. Puis il va renifler le petit Glaneur, et ils restent un moment nez à nez, le renard de neige et la chose de neige. Givre lui lèche le front, là où il n'y a pas de sceau." },
       "Le petit Glaneur s'en va vers le nord, vers le col, sans se presser. Il sait où il va, maintenant.",
     ],
-    choices: [{ label: "Reprendre la route", to: "@route" }] }),
+    choices: [{ back: "@route" }] }),
 
   E4_petit_glaneur_combat: P({ title: "Le pierrier",
     combat: { title: "Le petit Glaneur", enemies: ["glaneur_petit"], terrain: "nature", range: "contact",
@@ -82,11 +82,11 @@ module.exports = {
 
   E4_faux_jetons_ok: P({ title: "La file",
     text: ["Tu montres le jeton à l'envers, le plomb qui plie sous l'ongle. La file comprend. Les deux hommes ramassent leur caisse et filent à travers champs. Une femme te demande alors, très sérieusement, si le vrai jeton protège vraiment de la neige. Tu ne sais pas quoi lui répondre. Tu lui dis la vérité : non."],
-    choices: [{ label: "Reprendre la route", to: "@route" }] }),
+    choices: [{ back: "@route" }] }),
 
   E4_faux_jetons_laisse: P({ title: "Le plomb",
     text: ["Tu passes. Derrière toi, les familles paient. Elles repartent avec leurs jetons à l'envers, rassurées. Tu te dis qu'un faux jeton ne protège de rien, et qu'un vrai non plus, et qu'au moins le faux ne met pas leur nom dans le Grand Livre. Tu n'es pas sûr que ce soit un raisonnement."],
-    choices: [{ label: "Reprendre la route", to: "@route" }] }),
+    choices: [{ back: "@route" }] }),
 
   E4_faux_jetons_combat: P({ title: "L'auvent",
     combat: { title: "Les faux greffiers", enemies: [{ id: "brigand", n: 2 }], terrain: "nature", range: "contact",
@@ -108,7 +108,7 @@ module.exports = {
 
   E4_gris_passe: P({ title: "La lanterne",
     text: ["Le greffier lève la lanterne. Tu regardes tes pieds. Il hésite. Derrière toi, un enfant pleure, une charrette se met en travers. Il baisse la lanterne et fait signe de passer. Vingt pas plus loin, tu te rends compte que tu n'as pas respiré."],
-    choices: [{ label: "Reprendre la route", to: "@route" }] }),
+    choices: [{ back: "@route" }] }),
 
   E4_gris_combat: P({ title: "Le barrage",
     combat: { title: "Le barrage du ruisseau", enemies: [{ id: "garde_noir", n: 2 }], terrain: "nature", range: "contact",
@@ -129,11 +129,11 @@ module.exports = {
 
   E4_famille_miel: P({ title: "Le miel",
     text: ["Elle goûte. Elle ferme les yeux. Pendant un long moment, rien. Puis elle dit, tout doucement : « Rose. » Elle regarde la place vide. Elle se met à pleurer, et son mari ne comprend pas, et puis il comprend aussi. Ils ne retrouvent pas leur fille. Ils retrouvent qu'ils en avaient une. C'est tout ce que le miel peut faire."],
-    choices: [{ label: "Reprendre la route", to: "@route" }] }),
+    choices: [{ back: "@route" }] }),
 
   E4_famille_ecuelle: P({ title: "L'écuelle",
     text: ["Elle hoche la tête, comme si tu avais dit quelque chose d'important. Peut-être. Quand tu repars, elle a posé une écuelle sur le banc vide, et elle la remplit d'eau, pour personne."],
-    choices: [{ label: "Reprendre la route", to: "@route" }] }),
+    choices: [{ back: "@route" }] }),
 
   // ---------------------------------------------------------------- iv_est
   E4_deserteurs: P({ title: "Le camp dans le bois",
@@ -153,11 +153,11 @@ module.exports = {
       { after: "deserteurs:nourris", text: "Ils mangent en silence. Le plus vieux te remercie d'un signe de tête. Quand tu repars, ils éteignent le feu, cette fois correctement, et ils prennent la direction du sud, loin de la rivière." },
       { before: "deserteurs:nourris", text: "Ils t'écoutent jusqu'au bout. Le plus vieux secoue la tête, sans colère. « On sait ce que c'est, un pont », répète-t-il. Quand tu repars, ils éteignent le feu, cette fois correctement, et ils prennent la direction du sud, loin de la rivière." },
     ],
-    choices: [{ label: "Reprendre la route", to: "@route" }] }),
+    choices: [{ back: "@route" }] }),
 
   E4_deserteurs_viennent: P({ title: "Vingt",
     text: ["Ils se regardent. Le plus vieux remet ses insignes, qu'il gardait dans sa poche. « Pas pour la reine, dit-il. Pour le pont. » Ils prennent la route de l'est, derrière vous, à une heure de distance, pour qu'on ne les voie pas arriver ensemble. Ils arriveront."],
-    choices: [{ label: "Reprendre la route", to: "@route" }] }),
+    choices: [{ back: "@route" }] }),
 
   E4_corbeaux: P({ title: "Les corbeaux",
     text: [
@@ -165,7 +165,7 @@ module.exports = {
       { with: "corbe", text: "Corbe s'arrête. Elle écoute. « Ils savent, dit-elle. Ils savent toujours où il va y avoir des morts. Ils attendent. » Elle frappe son tambour, une fois. Tous les corbeaux s'envolent en même temps, et le ciel est noir pendant une minute, et puis ils se reposent, un peu plus loin, toujours tournés vers l'est." },
       { without: "corbe", text: "Tu frappes dans tes mains. Aucun ne bouge. Ils ne te regardent même pas. Tu repars avec l'impression d'avoir été compté." },
     ],
-    choices: [{ label: "Reprendre la route", to: "@route" }] }),
+    choices: [{ back: "@route" }] }),
 
   E4_messager: P({ title: "Le messager",
     text: [
@@ -183,5 +183,5 @@ module.exports = {
 
   E4_messager_aide: P({ title: "Pallanche",
     text: ["Tu lui dis : « Pallanche. Le Greffier-Majeur. » Il répète, comme une leçon. Il remonte à cheval, et il repart vers l'ouest, au trot, en répétant à voix haute le nom de la ville et celui de l'homme, pour ne pas les perdre en route."],
-    choices: [{ label: "Reprendre la route", to: "@route" }] }),
+    choices: [{ back: "@route" }] }),
 };

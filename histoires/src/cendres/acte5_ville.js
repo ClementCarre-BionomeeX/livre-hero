@@ -20,10 +20,10 @@ module.exports = {
       "« Oh, dit-elle. Oh, il me manque. » Elle s'essuie les yeux avec son gant. « C'est à moi, ça. Ils ne l'auront pas. »",
       "Elle sort de la queue. Elle va rouvrir sa boutique. Avant de partir, elle te met dans la main deux pots d'onguent, sans rien demander, ce qui ne lui ressemble pas du tout.",
     ],
-    choices: [{ label: "Revenir sur la place", fx: { item: ["onguent", "onguent"] }, to: "V_ville" }] }),
+    choices: [{ fx: { item: ["onguent", "onguent"] }, back: "V_ville" }] }),
   V_v_veuve_non: P({ title: "Son tour", place: "pallanche",
     text: ["Elle referme la main sur le jeton, très fort, comme une petite fille. « Non, dit-elle, toujours gentille. C'est mon tour bientôt. » La queue avance d'un pas. Elle avance avec."],
-    choices: [{ label: "Revenir sur la place", to: "V_ville" }] }),
+    choices: [{ back: "V_ville" }] }),
 
   V_v_cloche: P({ title: "Le clocher de Saint-Aubin", place: "pallanche",
     text: [
@@ -34,7 +34,7 @@ module.exports = {
     choices: [
       { label: "Monter et la faire sonner", test: { dom: "combat", label: "La Bénigne", help: [{ if: { present: "rodric" }, v: 25 }, { if: { has: "rodric:cloches" }, v: 10 }, { if: { present: "ysolde" }, v: 10 }, { if: { present: "gaspard" }, v: 10 }] },
         win: { fx: { flag: "v:cloche", ep: ["perso", 1500] }, to: "V_v_cloche_sonne" }, lose: { fx: { pv: -3 }, to: "V_v_cloche_rate" } },
-      { label: "Redescendre", to: "V_ville" },
+      { back: "V_ville" },
     ] }),
   V_v_cloche_sonne: P({ title: "Le tocsin", place: "pallanche",
     text: [
@@ -42,10 +42,10 @@ module.exports = {
       "Sur la place aux Clercs, dans la queue, des têtes se lèvent. Pas toutes. Quelques-unes. Une femme lâche son jeton. Un homme regarde autour de lui, comme quelqu'un qui se réveille dans une maison qu'il ne reconnaît pas. Un enfant se met à pleurer, à grands cris, et c'est le plus beau bruit que tu aies entendu depuis des jours.",
       "Tout en haut de la tour des Greffiers, derrière une fenêtre, une silhouette s'est arrêtée d'écrire.",
     ],
-    choices: [{ label: "Redescendre", to: "V_ville" }] }),
+    choices: [{ back: "V_ville" }] }),
   V_v_cloche_rate: P({ title: "La corde", place: "pallanche",
     text: ["La cloche bouge d'un pouce, et revient. La corde gelée t'a ouvert les deux paumes. Tu redescends en serrant les poings pour ne pas mettre du sang partout. En bas, la queue n'a pas levé la tête."],
-    choices: [{ label: "Revenir sur la place", to: "V_ville" }] }),
+    choices: [{ back: "V_ville" }] }),
 
   V_v_glaneurs: P({ title: "La moisson", place: "pallanche",
     text: [
@@ -70,7 +70,7 @@ module.exports = {
       "Quand le dernier se défait, ce qu'il avait mangé ne retourne pas d'où ça venait. Ça flotte, au ras de la neige, une brume dorée et bleue, et ça se pose sur la queue au hasard, comme une neige à l'envers.",
       "Un homme, au passage, reçoit un morceau de quelqu'un d'autre. Il se met à fredonner une chanson qu'il ne connaît pas. Il a l'air content. Tu ne sais pas si c'est bien ou mal. Tu sais que c'est mieux que dans le ventre d'un Glaneur.",
     ],
-    choices: [{ label: "Revenir sur la place", to: "V_ville" }] }),
+    choices: [{ back: "V_ville" }] }),
 
   V_v_liseurs: P({ title: "Les Liseurs", place: "pallanche",
     text: [
@@ -87,7 +87,7 @@ module.exports = {
       "Tu montes sur un tonneau. On te tend un bout de liste. Tu lis. Guillemette Dubreuil. Ancel Fournier. Pernelle, sans nom de famille. Jacquot Cordier, dit le Petit. Chaque nom fait un petit nuage dans l'air froid.",
       "Au bout d'une heure, tu n'as plus de voix, et la file n'a pas raccourci. Mais au bout de la rue, une femme dont tu as lu le nom s'est retournée, une seconde, comme quelqu'un qu'on appelle de loin.",
     ],
-    choices: [{ label: "Revenir sur la place", to: "V_ville" }] }),
+    choices: [{ back: "V_ville" }] }),
 
   V_v_baudoin: P({ title: "La porte des copistes", place: "pallanche",
     text: [

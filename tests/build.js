@@ -28,6 +28,10 @@ STORIES.forEach(function (id) {
   rep.errors.forEach(function (e) { console.log("  ERREUR " + e); });
   rep.warnings.forEach(function (e) { console.log("  remarque " + e); });
   if (rep.errors.length) failed = true;
+  // The strict reading (src/validateur.js strictCheck): silent faults, counted here, listed by tests/verif.js.
+  var strict = V.strictCheck(JSON.parse(json)), byKind = {};
+  strict.forEach(function (x) { byKind[x.kind] = (byKind[x.kind] || 0) + 1; });
+  console.log("vérificateur strict : " + (strict.length ? Object.keys(byKind).map(function (k) { return byKind[k] + " " + k; }).join(", ") + " (node tests/verif.js " + id + ")" : "rien à signaler"));
 });
 
 var page = P.assemble(built);

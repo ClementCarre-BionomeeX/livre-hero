@@ -4,7 +4,7 @@
 // effect (ch:corbe:2 → C_carrefour).
 var CO = { act: "I", place: "pallanche", noLead: true };
 function P(o) { return Object.assign({}, CO, o); }
-var BACK = [{ label: "Repartir dans les rues", to: "CO_V_ville" }];
+var BACK = [{ back: "CO_V_ville" }];
 module.exports = {
   CO_V_ville: P({ title: "La ville d'en bas", hub: true,
     text: [
@@ -26,7 +26,7 @@ module.exports = {
     ],
     choices: [
       { label: "Entrer chez la clé", fx: { ep: ["perso", 200] }, to: "CO_V_cle" },
-      { label: "Repartir dans les rues", to: "CO_V_ville" },
+      { back: "CO_V_ville" },
     ] }),
   CO_V_cle: P({ title: "Chez la clé",
     text: ["Un vieil homme, des besicles au bout du nez, lime une clé dans un étau. Il lève les yeux. Il voit tes peintures, tes pieds nus, ton couteau. Il ne s'affole pas. « Une serrure à ouvrir ? » Tu secoues la tête. Tu montres l'enseigne, dehors, puis lui. Il comprend. Il rit. « C'est mon grand-père qui l'a peinte. Il ne savait pas lire non plus. » Il te donne une clé tordue, ratée, de son panier de rebuts. « Tiens. Elle n'ouvre rien. Mais c'est une clé. »"],
@@ -38,7 +38,7 @@ module.exports = {
     ],
     choices: [
       { label: "Lui chanter le chant des troupeaux, tout bas", fx: { ep: ["perso", 400], flag: "corbe:renne_ville" }, to: "CO_V_renne" },
-      { label: "Repartir dans les rues", to: "CO_V_ville" },
+      { back: "CO_V_ville" },
     ] }),
   CO_V_renne: P({ title: "Le chant des troupeaux",
     text: ["Tu t'accroupis contre l'enclos. Tu chantes, tout bas, le chant qu'on chante aux rennes le soir, pour les ramener vers le camp. Il s'approche. Il pose son museau sur ta main, à travers les planches. Le marchand, plus loin, te regarde, les sourcils froncés. Il ne dit rien. Quand tu te relèves, le renne ne regarde plus le nord. Il te regarde partir. C'est pire. Tu ne te retournes pas."],
@@ -48,7 +48,7 @@ module.exports = {
       "Au bout de la rue, la Pallante. Tu n'as jamais vu autant d'eau. Les torrents des Combes sont étroits, blancs, ils crient. Celle-ci est large, brune, et elle ne dit rien. Elle avance. Elle porte des bateaux, des planches, des choses mortes, et elle s'en moque.",
       "Des femmes lavent du linge, à genoux sur les pierres. Elles chantent. Une d'elles te fait signe : il y a de la place. Tu t'agenouilles. Tu plonges les mains. L'eau n'est pas froide. Elle n'est pas propre non plus. Tu te laves le visage quand même. Tes peintures coulent, un peu, et s'en vont avec le reste.",
     ],
-    choices: [{ label: "Repartir dans les rues", fx: { ep: ["perso", 200] }, to: "CO_V_ville" }] }),
+    choices: [{ fx: { ep: ["perso", 200] }, back: "CO_V_ville" }] }),
   CO_V_ecrivain: P({ title: "L'écrivain public",
     text: [
       "Au coin d'une place, un homme assis à une petite table, une plume, de l'encre, des feuilles. Devant lui, une file de gens : une servante, un vieux soldat, une femme avec un bébé. Chacun lui parle à voix basse, et il écrit. Ce qu'ils disent, il le met en traits. Puis il plie la feuille, et ils paient.",
@@ -57,7 +57,7 @@ module.exports = {
     choices: [
       { label: "« Pour ma mère. Askel. Au clan du Corbeau. »", fx: { gold: -1, ep: ["perso", 400], flag: "corbe:lettre_askel" }, to: "CO_V_ecrivain_lettre" },
       { label: "« Écris mon nom. Juste mon nom. »", fx: { gold: -1, ep: ["perso", 400], item: "nom_corbe" }, to: "CO_V_ecrivain_nom" },
-      { label: "Sortir de la file", to: "CO_V_ville" },
+      { back: "CO_V_ville" },
     ] }),
   CO_V_ecrivain_lettre: P({ title: "La lettre",
     text: ["Tu dictes. Tu ne sais pas quoi dire, d'abord. Puis tu dis : la ville, les signes, la rivière, le renne dans l'enclos, le garde en noir. Il écrit tout. À la fin, il te relit. Tu écoutes tes propres mots dans sa bouche, et ils sont devenus autres, plus droits, plus sûrs que toi. « Elle sait lire, votre mère ? » Non. « Alors il faudra que quelqu'un la lui lise. » Il plie la feuille. Tu la ranges contre ta peau. Tu ne sais pas qui la lui lira. Tu la garderas en attendant."],

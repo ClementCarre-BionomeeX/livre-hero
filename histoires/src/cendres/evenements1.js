@@ -1,7 +1,7 @@
 // More road events for Act I, two per region (montagne, cretes, plaine, marches; wired in base.js). Several heroes
 // travel these roads, so the text never agrees an adjective with "tu". Each one returns to the road.
 function P(o) { return Object.assign({ act: "I", noLead: true, place: null }, o); }
-var BACK = [{ label: "Reprendre la route", to: "@route" }];
+var BACK = [{ back: "@route" }];
 module.exports = {
   // ---------------------------------------------------------------- montagne
   E_fanchon_i: P({ title: "La carriole bâchée",
@@ -79,7 +79,7 @@ module.exports = {
       "Une tour de signaux de l'armée, sur une butte. En haut, un soldat agite des fanions vers la tour suivante, à une lieue. Il s'arrête, il attend la réponse. La tour suivante répond. Il note dans un carnet.",
       "« On se transmet les noms des déserteurs, dit-il, quand tu montes. De tour en tour, jusqu'à Pallanche. » Il regarde son carnet. « Ce matin, j'en ai reçu un. Je l'ai transmis. Et puis je me suis rendu compte que c'était mon frère. » Il ferme le carnet. « Je l'ai transmis quand même. C'est mon travail. »",
     ],
-    choices: [{ label: "Redescendre", fx: { ep: ["perso", 200] }, to: "@route" }] }),
+    choices: [{ fx: { ep: ["perso", 200] }, back: "@route" }] }),
   E_gue_marches: P({ title: "Le gué aux pierres",
     text: [
       "Un gué, sur une rivière grise. Des pierres plates, pour passer à pied sec. Sur chaque pierre, quelqu'un a peint une lettre, à la chaux. En marchant de pierre en pierre, on lit une phrase. Tu traverses, et tu lis : *NE M'OUBLIEZ PAS.*",

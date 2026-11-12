@@ -3,7 +3,7 @@
 // and the gate where the porter keeps a lantern lit for those who arrive at night.
 var A = { act: "IV", noLead: true, place: "moutier" };
 function P(o) { return Object.assign({}, A, o); }
-var BACK = [{ label: "Revenir sous les arcades", to: "IV_moutier" }];
+var BACK = [{ label: "Revenir sous les arcades", back: "IV_moutier" }];
 module.exports = {
   IV_m_refectoire: P({ title: "Le réfectoire",
     text: [

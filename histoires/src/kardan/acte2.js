@@ -135,7 +135,7 @@ module.exports = {
         win: { fx: { conf: { sidonie: 5 } }, to: "D_puits_fond" }, lose: { fx: { pv: -3 }, to: "D_puits_fond" } },
       { label: "Lester un collet de cailloux et le laisser filer dans les os, avant de descendre", if: { all: [{ arch: "rodeur" }, { not: { has: "D:puits_collet" } }] }, why: "Il faudrait savoir poser un collet.", hint: "rôdeur",
         fx: { flag: "D:puits_collet" }, to: "D_puits_collet" },
-      { label: "Remonter la pente", to: "D_puits_quitter" },
+      { label: "Remonter la pente", back: "D_puits_quitter" },
     ] },
   D_puits_collet: { act: "II", title: "Le collet dans les os", place: "puits_os",
     text: [
@@ -148,7 +148,7 @@ module.exports = {
         win: { to: "D_puits_fond" }, lose: { fx: { pv: -5 }, to: "D_puits_fond" } },
       { label: "Laisser Sidonie te descendre au bout de sa ceinture et de la tienne", who: "sidonie", test: { dom: "discretion", label: "Descente" },
         win: { fx: { conf: { sidonie: 5 } }, to: "D_puits_fond" }, lose: { fx: { pv: -3 }, to: "D_puits_fond" } },
-      { label: "Remonter la pente", to: "D_puits_quitter" },
+      { label: "Remonter la pente", back: "D_puits_quitter" },
     ] },
   D_puits_quitter: { act: "II", title: "La pente aux os", place: "puits_os", routes: true,
     text: ["Tu recules du bord. Le silence de la crevasse te suit longtemps dans la pente."],
@@ -505,7 +505,7 @@ module.exports = {
     choices: [{ label: "Continuer", to: ROUTE }] },
   E_torche_noir: { act: "II", title: "Le noir",
     text: ["La flamme meurt. Tu restes dans le noir absolu pendant ce qui pourrait être une heure, ou trois, à tâtonner, à te cogner, à essayer de rallumer avec des doigts qui tremblent. Quand la flamme revient enfin, tu as les genoux en sang et tu ne sais plus d'où tu venais."],
-    choices: [{ label: "Repartir", to: ROUTE }] },
+    choices: [{ back: ROUTE }] },
   E_pas: { act: "II", title: "Les pas",
     text: [
       "Derrière toi, des pas. Quand tu t'arrêtes, ils s'arrêtent. Quand tu repars, ils repartent. Pas tout à fait au même rythme : un peu plus lents, un peu plus lourds, comme ceux de quelqu'un qui traîne une jambe, ou un bras.",

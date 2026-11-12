@@ -17,7 +17,7 @@ module.exports = {
     ] }),
   V_e_chambre_dessin: P({ title: "Le papier", place: "pallanche",
     text: ["Tu ôtes l'épingle. Le papier est léger, presque rien. Il y a, au dos, une tache de pomme, et l'empreinte d'un pouce d'enfant dans le crayon. Tu le plies en suivant les plis anciens, pour ne pas en faire de nouveaux, et tu le glisses contre ta poitrine, sous ta chemise."],
-    choices: [{ label: "Redescendre au Bureau", to: "V_t_cessions" }] }),
+    choices: [{ back: "V_t_cessions" }] }),
 
   V_e_horloge: P({ title: "La salle de l'horloge", place: "pallanche",
     text: [
@@ -27,17 +27,17 @@ module.exports = {
     choices: [
       { label: "Bloquer les roues", test: { dom: "nature", label: "Les roues", help: [{ if: { present: "rodric" }, v: 20 }, { if: { present: "ysolde" }, v: 10 }, { if: { item: "corde" }, v: 10 }] },
         win: { fx: { flag: "v:horloge", ep: ["perso", 1500] }, to: "V_e_horloge_bloquee" }, lose: { fx: { pv: -3 }, to: "V_e_horloge_rate" } },
-      { label: "Redescendre", to: "V_t_cessions" },
+      { back: "V_t_cessions" },
     ] }),
   V_e_horloge_bloquee: P({ title: "Minuit moins le quart", place: "pallanche",
     text: [
       "Vous coincez une barre de fer entre deux dents de la grande roue. Elle force. Les poids tirent, la fonte gémit, toute la charpente craque. Puis la roue s'arrête. Le marteau reste levé.",
       "Il est minuit moins le quart, dans la tour. Il le restera. Ça ne changera peut-être rien. Mais quelque part, là-haut, quelqu'un qui écrit en comptant les coups devra compter sans eux.",
     ],
-    choices: [{ label: "Redescendre au Bureau", to: "V_t_cessions" }] }),
+    choices: [{ back: "V_t_cessions" }] }),
   V_e_horloge_rate: P({ title: "La roue", place: "pallanche",
     text: ["La barre glisse. La roue l'arrache de tes mains, la plie comme une paille, la recrache contre le mur. Tu as les paumes en sang. Les poids continuent de descendre, lentement, dans le puits. L'horloge n'a même pas ralenti."],
-    choices: [{ label: "Redescendre au Bureau", to: "V_t_cessions" }] }),
+    choices: [{ back: "V_t_cessions" }] }),
 
   V_t_dessin: P({ title: "Le dessin", place: "pallanche",
     text: [

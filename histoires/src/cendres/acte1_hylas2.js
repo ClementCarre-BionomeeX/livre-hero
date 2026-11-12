@@ -34,10 +34,10 @@ module.exports = {
       "Tu arrives à un nombre. Un peu plus de sept cent mille. Ce n'est pas le nombre des morts du royaume. Ce n'est pas le nombre des nés. C'est, à quelques milliers près, le nombre des vivants d'Esquarre, tel que l'a donné le dernier dénombrement.",
       "« Tous, dit Odilon, très bas. C'est pour les mettre tous. » Il reprend son plioir. Ses mains tremblent un peu. « Moi, je fais les reliures. Je ne lis pas ce qu'on met dedans. Je n'ai jamais lu. » Il le répète deux fois, comme une prière.",
     ],
-    choices: [{ label: "Retourner dans l'escalier", fx: { quest: "HY_Q_relieur" }, to: "HY_tour" }] }),
+    choices: [{ fx: { quest: "HY_Q_relieur" }, back: "HY_tour" }] }),
   HY_Q_relieur_fin: P({ title: "Le plioir",
     text: ["Tu refermes le livre. Il fait un bruit sourd, de porte de cave. Odilon te raccompagne jusqu'au seuil de l'atelier, une main sur ton coude. « Revenez toucher, dit-il. Quand il sera plein, il sera lourd, je pense. Très lourd. Il faudra six hommes pour le monter. »"],
-    choices: [{ label: "Retourner dans l'escalier", fx: { quest: "HY_Q_relieur" }, to: "HY_tour" }] }),
+    choices: [{ fx: { quest: "HY_Q_relieur" }, back: "HY_tour" }] }),
 
   // ---------------------------------------------------------------- Les cuisines
   HY_k_cuisines: P({ title: "Les cuisines de la tour",
@@ -73,8 +73,8 @@ module.exports = {
       { if: { has: "iv:pontsaule=libere" }, text: "Le soir même, une fillette remonte la grand-rue en courant, une fiole débouchée à la main, et elle crie un nom. Le sien. Le petit lâche sa ligne. La ligne tombe dans la Sauve. Personne ne va la repêcher." },
       { if: { not: { has: "iv:pontsaule=libere" } }, text: "Tu redis le nom avec lui, une fois, pour qu'il y ait deux voix. Margot. L'eau ne répond pas. Il hoche la tête, satisfait. « Demain, dit-il. Elle passera peut-être demain. »" },
     ],
-    choices: [{ label: "Revenir sur la place", to: "IV_ps" }] }),
+    choices: [{ back: "IV_ps" }] }),
   IV_ps_pont_verite: P4({ title: "La rivière", place: "pontsaule",
     text: ["Il te regarde comme on regarde un adulte qui ne comprend rien. « Je sais, dit-il. Mais si je ne pêche pas, je fais quoi ? » Il se retourne vers l'eau. Tu n'as pas de réponse. Tu restes un moment derrière lui, puis tu t'en vas."],
-    choices: [{ label: "Revenir sur la place", to: "IV_ps" }] }),
+    choices: [{ back: "IV_ps" }] }),
 };

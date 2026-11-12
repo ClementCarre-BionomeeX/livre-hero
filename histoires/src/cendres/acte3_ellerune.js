@@ -20,10 +20,10 @@ module.exports = {
       "La bûche s'ouvre en deux, net, avec un bruit qu'on n'a pas entendu à Ellerune depuis trois siècles. À l'intérieur, au cœur, le bois n'a pas brûlé. Il est blond, et il sent la sève.",
       "L'homme regarde les deux moitiés longtemps. Puis il te reprend la hache, sans un mot, et il va poser la moitié blonde sur le seuil de la maison de Maëra.",
     ],
-    choices: [{ label: "Revenir au centre du hameau", to: "III_e_hameau" }] }),
+    choices: [{ back: "III_e_hameau" }] }),
   III_el_fendeur_rate: P({ title: "Le billot", place: "enfance",
     text: ["La hache rebondit sur la bûche et te remonte dans les bras jusqu'aux épaules. L'homme reprend la hache. « Ça ne se transmet pas, dit-il, sans méchanceté. C'est aussi bien. » Il recommence à frapper. Tu l'entends encore quand tu es de l'autre côté du hameau, régulier, inutile, obstiné."],
-    choices: [{ label: "Revenir au centre du hameau", to: "III_e_hameau" }] }),
+    choices: [{ back: "III_e_hameau" }] }),
 
   III_el_fileuse: P({ title: "La fileuse", place: "enfance",
     text: [
@@ -39,10 +39,10 @@ module.exports = {
       "Elle coupe le fil avec ses dents. Pour la première fois en trois siècles. Elle te tend le bout, et la pelote, et tu la prends, et elle est lourde, et chaude, comme un chat.",
       "« Ce n'est pas une couverture, dit-elle. Je n'ai jamais su tricoter. Mais ça tient chaud quand même, un fil. Si on l'enroule assez. » Elle pose les mains sur ses genoux, vides, et elle les regarde, et elle sourit, comme quelqu'un qui vient de finir un travail.",
     ],
-    choices: [{ label: "Revenir au centre du hameau", to: "III_e_hameau" }] }),
+    choices: [{ back: "III_e_hameau" }] }),
   III_el_fileuse_fille: P({ title: "La quenouille", place: "enfance",
     text: ["Elle hoche la tête, contente. « Tu es un bon garçon, dit-elle. Ta mère sera fière. » Et elle se remet à filer, et le fil sort, et la pelote grossit. Tu te demandes, en t'éloignant, si sa fille est dans le hameau, à filer elle aussi, et si elles se sont reconnues."],
-    choices: [{ label: "Revenir au centre du hameau", to: "III_e_hameau" }] }),
+    choices: [{ back: "III_e_hameau" }] }),
 
   III_el_puits: P({ title: "Le jeu du puits", place: "enfance",
     text: [
@@ -56,12 +56,12 @@ module.exports = {
     ] }),
   III_el_puits_sauvelune: P({ title: "Sauvelune", place: "enfance",
     text: ["Les enfants se regardent. Personne ne connaît Sauvelune. La petite fille hausse les épaules, gentiment, et reprend la pierre. « Personne ne sort, alors », dit-elle. Tu restes un moment. Tu joues. Personne ne connaît aucun de tes noms. Tu ne connais aucun des leurs. C'est un jeu très triste, et ils rient tout le temps."],
-    choices: [{ label: "Sortir du rond, et revenir au centre du hameau", to: "III_e_hameau" }] }),
+    choices: [{ label: "Sortir du rond, et revenir au centre du hameau", back: "III_e_hameau" }] }),
   III_el_puits_maera: P({ title: "Maëra", place: "enfance",
     text: [
       "« Maëra. »",
       "Tous les enfants le connaissent. Tous. Ils lèvent la main ensemble, en criant. La règle dit qu'un seul est délivré : quand ils sont plusieurs à connaître le nom, c'est celui qui a lancé. La petite fille sort du rond, ravie, en sautant, et elle s'en va en courant vers la maison où l'on chante.",
       "Les autres te regardent avec une envie énorme. Tu leur lances la pierre. Le jeu reprend. Il y a un enfant de moins dans le rond. C'est le premier depuis trois cents ans.",
     ],
-    choices: [{ label: "Revenir au centre du hameau", to: "III_e_hameau" }] }),
+    choices: [{ back: "III_e_hameau" }] }),
 };

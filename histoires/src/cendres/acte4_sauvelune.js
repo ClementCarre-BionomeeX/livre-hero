@@ -103,11 +103,11 @@ module.exports = {
 
   IV_sv_gaspard_vient: P({ title: "La pelle", place: "sauvelune",
     text: ["Il défourne la dernière fournée, range la pelle à sa place, au clou, et couvre les braises de cendre pour qu'elles tiennent. Il fait tout ça lentement, avec soin. Puis il te suit. Il emporte trois miches sous son bras."],
-    choices: [{ label: "Revenir sur la place", fx: { food: 3 }, to: "IV_sv_place" }] }),
+    choices: [{ fx: { food: 3 }, back: "IV_sv_place" }] }),
 
   IV_sv_gaspard_reste: P({ title: "Le four", place: "sauvelune",
     text: ["Il hoche la tête. Il a l'air soulagé, et il a l'air triste de l'être. « Je ferai le pain, dit-il. Quand tu reviendras, il sera chaud. » Il te donne trois miches pour la route."],
-    choices: [{ label: "Revenir sur la place", fx: { food: 3 }, to: "IV_sv_place" }] }),
+    choices: [{ fx: { food: 3 }, back: "IV_sv_place" }] }),
 
   IV_sv_chene: P({ title: "Le chêne", place: "sauvelune",
     text: [
@@ -120,7 +120,7 @@ module.exports = {
     choices: [
       { label: "Graver ton nom. Les deux", hide: RENDU, fx: { flag: "chene:deux_noms", ep: ["perso", 800] }, to: "IV_sv_chene_grave" },
       { label: "Rester avec Tess", hide: { not: RENDU }, to: "IV_sv_tess" },
-      { label: "Redescendre", to: "IV_sv_place" },
+      { back: "IV_sv_place" },
     ] }),
 
   IV_sv_chene_grave: P({ title: "Deux noms", place: "sauvelune",
@@ -128,7 +128,7 @@ module.exports = {
       "Tu prends ton couteau. Tu graves ton nom de Sauvelune, celui qu'on t'a donné au temple, devant le registre du Père Anselme. Puis, en dessous, l'autre : Aëlan.",
       "Le bois est dur. Ça prend une heure. Quand tu as fini, le chêne n'a toujours aucun autre nom. Seulement les tiens. Ça fait un village d'une seule personne.",
     ],
-    choices: [{ label: "Redescendre", to: "IV_sv_place" }] }),
+    choices: [{ back: "IV_sv_place" }] }),
 
   IV_sv_tess: P({ takes: "evening", title: "Tess", place: "sauvelune",
     text: [
@@ -139,7 +139,7 @@ module.exports = {
       { if: { not: { souv: "enfant:tess" } }, text: "Elle dit : « Tu te souviens du printemps, ici, sous le chêne ? » Tu ne t'en souviens pas. Tu l'as donné. Elle le voit. Elle ne dit rien. Elle te prend la main quand même, comme si c'était la première fois, et c'est la première fois." },
       "« Va à ta guerre, dit-elle à la fin. Et reviens. Ou ne reviens pas, mais écris. Je sais lire, maintenant. Anselme nous a tous appris. »",
     ],
-    choices: [{ label: "Redescendre", fx: { flag: "tess:iv", ep: ["perso", 1000] }, to: "IV_sv_place" }] }),
+    choices: [{ fx: { flag: "tess:iv", ep: ["perso", 1000] }, back: "IV_sv_place" }] }),
 
   IV_sv_place: P({ title: "La place", place: "sauvelune", hub: true,
     text: [
@@ -167,5 +167,5 @@ module.exports = {
       { if: { souv: "enfant:serment" }, text: "Tu la finis pour lui. « Je veillerai sur eux. » Il hoche la tête. Il repart vers le moulin." },
       { if: { not: { souv: "enfant:serment" } }, text: "Tu attends la suite. Tu sais qu'il y a une suite, que tu la connaissais. Il te regarde attendre, et il comprend que tu ne sais plus. Il ne te reproche rien. Il te pose la main sur l'épaule, et il repart vers le moulin, un peu plus lentement." },
     ],
-    choices: [{ label: "Revenir sur la place", fx: { food: 4 }, to: "IV_sv_place" }] }),
+    choices: [{ fx: { food: 4 }, back: "IV_sv_place" }] }),
 };

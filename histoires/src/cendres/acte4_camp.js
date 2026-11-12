@@ -12,17 +12,17 @@ module.exports = {
     choices: [
       { label: "Aider le chirurgien, cette nuit", test: { dom: "savoir", label: "Les pansements", help: [{ if: { present: "ombeline" }, v: 20 }, { if: { item: "tisane_veille" }, v: 10 }, { if: { present: "hylas" }, v: 5 }] },
         win: { fx: { flag: "iv:infirmerie", ep: ["perso", 1000] }, to: "IV_br_infirmerie_ok" }, lose: { to: "IV_br_infirmerie_rate" } },
-      { label: "Ressortir", to: "IV_br" },
+      { back: "IV_br" },
     ] }),
   IV_br_infirmerie_ok: P({ title: "La nuit à l'infirmerie", place: "brenne",
     text: [
       "Tu restes la nuit. Tu tiens les lampes, tu fais bouillir l'eau, tu attaches les poignets des blessés qui veulent se lever, et tu leur dis, à chacun, où ils ont mal. « Là. À la cuisse. Tu as reçu un carreau. » Ils te regardent, incrédules. Puis ils regardent leur cuisse. Et ils ont mal, et ils se recouchent.",
       "Au matin, le chirurgien te tend un gobelet de vin chaud. « Tu leur as rendu leurs blessures, dit-il. C'est la première fois que j'entends un blessé dire merci pour ça. » Il boit. « Trois d'entre eux vivront. Ils n'auraient pas vécu. »",
     ],
-    choices: [{ label: "Ressortir dans le camp", to: "IV_br" }] }),
+    choices: [{ back: "IV_br" }] }),
   IV_br_infirmerie_rate: P({ title: "Les bandes", place: "brenne",
     text: ["Tu roules des bandes, maladroitement, et tu en fais tomber la moitié dans la boue. Une sœur grise te les reprend des mains sans un mot. Le chirurgien te montre la sortie d'un mouvement de menton. Il n'a pas le temps. Derrière toi, un blessé se lève en riant, et retombe."],
-    choices: [{ label: "Ressortir dans le camp", to: "IV_br" }] }),
+    choices: [{ back: "IV_br" }] }),
 
   IV_br_plaques: P({ title: "L'aumônier", place: "brenne",
     text: [
@@ -35,13 +35,13 @@ module.exports = {
     ] }),
   IV_br_plaques_toi: P({ title: "Une plaque", place: "brenne",
     text: ["Il te demande ton nom. Tu le lui dis. Le nom de Sauvelune. Il frappe. Puis il te regarde, le poinçon levé, comme s'il attendait autre chose. Tu ne dis rien. Il hoche la tête, et il frappe, en dessous, en petit, un deuxième mot, sans te demander lequel : *Revenu.* « Ça se voit sur toi », dit-il. Tu passes la plaque à ton cou. Elle est froide, puis elle ne l'est plus."],
-    choices: [{ label: "Ressortir dans le camp", to: "IV_br" }] }),
+    choices: [{ back: "IV_br" }] }),
   IV_br_plaques_aide: P({ takes: "evening", title: "Le poinçon", place: "brenne",
     text: [
       "Tu frappes. Il épelle, tu frappes. Les noms passent sous tes mains, cent, deux cents. Des noms de vallées, de fermes, de rues de Vasselin. Un garçon ne sait pas écrire le sien, et ne sait plus très bien le dire. Vous le cherchez ensemble, à trois, avec son voisin de compagnie, qui finit par s'en souvenir pour lui.",
       "Le soir, tu as les mains noires de plomb, et des ampoules, et dans la tête deux cents noms que tu ne retiendras pas. Mais ils sont dans le plomb, et ils y resteront.",
     ],
-    choices: [{ label: "Ressortir dans le camp", to: "IV_br" }] }),
+    choices: [{ back: "IV_br" }] }),
 
   IV_br_recrue: P({ title: "Le petit de Brenne", place: "brenne",
     text: [
@@ -51,5 +51,5 @@ module.exports = {
       { without: "ysolde", if: { has: "ys:recrue=ecuries" }, text: "Aux écuries du fort, un garçon d'une quinzaine d'années panse un grand cheval gris. Il a la voix qui a mué, maintenant, et des épaules. « La capitaine m'a mis aux écuries, l'an dernier, au lieu des piques, dit-il. J'ai appris les chevaux. Demain, je reste ici, avec eux. On ne fait pas monter les palefreniers au pont. » Il flatte le cheval. « Dites-lui que je sais lequel est le sien. Je le garderai. »" },
       { if: { not: { any: [{ has: "ys:recrue=renvoye" }, { has: "ys:recrue=ecuries" }] } }, text: "Dans le rang des piquiers, un garçon trop jeune, qui tient sa pique comme un balai. Il a la voix qui a mué, à peine. Sur sa plaque de plomb, on lit *Brenne*. Il était dans les recrues de printemps de l'an dernier. Il a eu un an pour apprendre. Ça ne se voit pas." },
     ],
-    choices: [{ label: "Ressortir dans le camp", fx: { ep: ["perso", 300] }, to: "IV_br" }] }),
+    choices: [{ fx: { ep: ["perso", 300] }, back: "IV_br" }] }),
 };

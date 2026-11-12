@@ -3,7 +3,7 @@
 // a wedding meal has stopped mid-toast, a carriage in the ditch, a wayside shrine. Each returns to the road.
 var A = { act: "V", noLead: true };
 function P(o) { return Object.assign({}, A, o); }
-var BACK = [{ label: "Reprendre la route", to: "V_r_chemin" }];
+var BACK = [{ back: "V_r_chemin" }];
 module.exports = {
   V_r_chemin: P({ title: "La route de l'ouest", place: null, hub: true,
     text: [
@@ -27,7 +27,7 @@ module.exports = {
     ],
     choices: [
       { label: "Prendre la craie, et récrire ce qui manque", fx: { ep: ["perso", 400], flag: "v:relais" }, to: "V_r_relais_craie" },
-      { label: "Reprendre la route", to: "V_r_chemin" },
+      { back: "V_r_chemin" },
     ] }),
   V_r_relais_craie: P({ title: "La craie", place: null,
     text: ["Tu prends la craie dans sa main levée. Il se laisse faire. Tu écris, en haut du tableau : *Courrier de la reine. Un cheval pie. Attendu.* Tu ne sais pas pourquoi tu écris *attendu*. Tu laisses la craie dans sa main. Au moment où tu passes la porte, derrière toi, tu entends le maître de poste, très bas, dire : « Attendu. » Rien d'autre. Ça suffit pour un relais."],
@@ -39,7 +39,7 @@ module.exports = {
     ],
     choices: [
       { label: "Chercher le marié", fx: { ep: ["perso", 300] }, to: "V_r_auberge_marie" },
-      { label: "Reprendre la route", to: "V_r_chemin" },
+      { back: "V_r_chemin" },
     ] }),
   V_r_auberge_marie: P({ title: "Le marié", place: null,
     text: [
@@ -69,7 +69,7 @@ module.exports = {
     ],
     choices: [
       { label: "Écrire une prière, toi aussi, sur un papier blanc", fx: { ep: ["perso", 400], flag: "v:oratoire" }, to: "V_r_oratoire_priere" },
-      { label: "Reprendre la route", to: "V_r_chemin" },
+      { back: "V_r_chemin" },
     ] }),
   V_r_oratoire_priere: P({ title: "Une prière", place: null,
     text: ["Tu prends un papier. Tu n'as pas d'encre. Tu écris avec le doigt, dans le givre du papier, en appuyant. Tu ne demandes rien pour toi. Tu écris les noms des gens du moulin, puis de ceux qui marchent avec toi, et, tout au bout, après une hésitation, le tien. Tu glisses le papier sous le socle. Le saint sans visage ne dit rien. C'est ce qu'on attend d'un saint."],

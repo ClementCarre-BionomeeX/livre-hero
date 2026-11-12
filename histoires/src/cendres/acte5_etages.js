@@ -12,17 +12,17 @@ module.exports = {
     choices: [
       { label: "Écrire les noms à la main, de mémoire, sur la grande carte", test: { dom: "savoir", label: "La carte", help: [{ if: { present: "linette" }, v: 20 }, { if: { present: "hylas" }, v: 15 }, { if: { present: "corbe" }, v: 5 }, { if: { item: "carte_orsan" }, v: 10 }] },
         win: { fx: { flag: "v:carte", ep: ["perso", 1500] }, to: "V_e_cartes_ok" }, lose: { to: "V_e_cartes_rate" } },
-      { label: "Revenir dans le Bureau", to: "V_t_cessions" },
+      { back: "V_t_cessions" },
     ] }),
   V_e_cartes_ok: P({ title: "Les noms", place: "pallanche",
     text: [
       "Tu prends une plume sur une table. Tu écris. Sauvelune, en haut, à gauche. Pont-de-Saule, en dessous. La Sauve, d'un trait. Les Combes. Le moutier. Le col de l'Ourse. Tout ce que tu as traversé, et tout ce que les autres ont traversé, qu'ils te dictent, penchés sur ton épaule : Brenne, Hautvent, Vasselin, la Lisse, Lisse-en-Corvanne.",
       "L'encre tient. Le blanc s'arrête aux noms que vous écrivez, comme la neige s'arrête au bord d'un toit. Il continue partout ailleurs. Mais là où vous avez écrit, il y a quelque chose, de nouveau.",
     ],
-    choices: [{ label: "Revenir dans le Bureau", to: "V_t_cessions" }] }),
+    choices: [{ back: "V_t_cessions" }] }),
   V_e_cartes_rate: P({ title: "Le blanc", place: "pallanche",
     text: ["Tu écris Sauvelune. L'encre pâlit avant que tu aies fini le *e*. Tu recommences. Elle pâlit encore. Le blanc va plus vite que ta main. Tu reposes la plume. Tu n'as pas le temps. Il faut monter."],
-    choices: [{ label: "Revenir dans le Bureau", to: "V_t_cessions" }] }),
+    choices: [{ back: "V_t_cessions" }] }),
 
   V_e_chapelle: P({ title: "La chapelle des greffiers", place: "pallanche",
     text: [
@@ -34,14 +34,14 @@ module.exports = {
     ],
     choices: [
       { label: "Chercher ton propre nom", fx: { flag: "v:chapelle" }, to: "V_e_chapelle_nom" },
-      { label: "Revenir dans le Bureau", to: "V_t_cessions" },
+      { back: "V_t_cessions" },
     ] }),
   V_e_chapelle_nom: P({ title: "Deux noms", place: "pallanche",
     text: [
       "Tu cherches. Tu le trouves, en bas, le dernier, la pierre encore poudreuse. Ton nom de Sauvelune. Et à côté, de la même main, l'autre. Celui que ta mère chantait.",
       "Il n'y a pas de date de mort. Il y a une date de naissance, et un trait, et rien après le trait. Il n'a pas su quoi écrire. Ou il attend de voir.",
     ],
-    choices: [{ label: "Revenir dans le Bureau", to: "V_t_cessions" }] }),
+    choices: [{ back: "V_t_cessions" }] }),
 
   V_e_cuisines: P({ title: "Les cuisines de la tour", place: "pallanche",
     text: [
@@ -56,5 +56,5 @@ module.exports = {
     ] }),
   V_e_cuisines_plateau: P({ title: "Le plateau", place: "pallanche",
     text: ["Tu prends le plateau. Il est lourd, et la soupe est encore chaude. Tu ne sais pas pourquoi tu le prends. Tu sais seulement que quelqu'un, dans cette tour, pensait encore à lui ce soir, assez pour lui faire une soupe, et que ça doit bien compter pour quelque chose."],
-    choices: [{ label: "Revenir dans le Bureau", to: "V_t_cessions" }] }),
+    choices: [{ back: "V_t_cessions" }] }),
 };

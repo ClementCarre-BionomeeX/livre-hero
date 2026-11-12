@@ -56,7 +56,7 @@ module.exports = {
       "Par la porte entrouverte, tu vois un vieil homme dans un fauteuil, et Ninon qui débouche la fiole sous son nez, comme un flacon de sels. Il respire. Il ferme les yeux. Et il pleure. Il pleure comme un enfant, à gros sanglots, la bouche ouverte, avec un nom dedans. *Clotilde.*",
       "Ninon te regarde, par-dessus son épaule, furieuse. « Tu l'as fait pleurer ! » Puis le vieil homme l'attire contre lui, et l'appelle Ninon, et elle ne dit plus rien.",
     ],
-    choices: [{ label: "Redescendre l'escalier", fx: { quest: "PI_Q_fiole" }, to: "PI_ville" }] }),
+    choices: [{ label: "Redescendre l'escalier", fx: { quest: "PI_Q_fiole" }, back: "PI_ville" }] }),
 
   // ---------------------------------------------------------------- Le tripot
   PI_k_tripot: P({ title: "Le tripot du Pont-Neuf",
@@ -73,10 +73,10 @@ module.exports = {
     text: [
       "Tu gagnes. Il paie, en se penchant par-dessus la table, très bas : « Les blanchisseuses. On en a embauché six de plus, à la tour, ce mois-ci. Six. Pour laver quoi ? Personne ne dort là-dedans. » Il se redresse. « On dit qu'ils lavent des draps pour des gens qu'on n'a jamais vus entrer. Et qu'on ne voit jamais ressortir. »",
     ],
-    choices: [{ label: "Ressortir", to: "PI_ville" }] }),
+    choices: [{ back: "PI_ville" }] }),
   PI_k_tripot_perdu: P({ title: "La mise",
     text: ["Le boucher ramasse ta mise en riant. « Tes dés sont pipés, Pie. Les miens aussi. Les miens sont mieux pipés. » Il te donne une claque dans le dos qui te coupe le souffle. Tu ressors plus pauvre et un peu plus modeste."],
-    choices: [{ label: "Ressortir", to: "PI_ville" }] }),
+    choices: [{ back: "PI_ville" }] }),
 
   // ---------------------------------------------------------------- Acte III : Valcendre
   III_v_masques: P3({ title: "L'atelier des masques", place: "valcendre",
@@ -87,14 +87,14 @@ module.exports = {
     ],
     choices: [
       { label: "Lui demander si elle a fait celui de ta mère", fx: { ep: ["perso", 500] }, to: "III_v_masques_mere" },
-      { label: "Retourner dans les rues", to: "III_v_porte" },
+      { back: "III_v_porte" },
     ] }),
   III_v_masques_mere: P3({ title: "Pas de masque", place: "valcendre",
     text: [
       "Elle secoue la tête. « Ta mère n'en a jamais eu besoin. Quelqu'un, là-haut, se souvient de son visage. Tous les jours. Je ne sais pas qui. Un vieil homme, je crois. Quelqu'un qui ne voit plus rien, et qui la regarde quand même. »",
       "Elle reprend son masque d'enfant de Lisse. « C'est rare, dit-elle. Qu'on se souvienne d'un visage si longtemps. Il faut avoir beaucoup regardé. »",
     ],
-    choices: [{ label: "Retourner dans les rues", fx: { flag: "iii:masque_mere" }, to: "III_v_porte" }] }),
+    choices: [{ fx: { flag: "iii:masque_mere" }, back: "III_v_porte" }] }),
   III_v_bains: P3({ title: "Les bains", place: "valcendre",
     text: [
       "Les bains publics de Valcendre, sous une coupole de marbre blanc. Des bassins, de la vapeur, des gens qui se lavent en silence, longtemps, avec application. L'eau ne mouille pas. Elle laisse seulement, sur la peau, une sensation de propre.",
@@ -109,5 +109,5 @@ module.exports = {
       "Tu entres. L'eau est tiède. Tes muscles se dénouent, les coups, les marches, les nuits par terre, tout s'en va. C'est bon. C'est trop bon. Au bout d'un moment, tu cherches le nom du chien de Mathurin, et tu ne le trouves pas.",
       "Tu sors du bassin d'un coup, en éclaboussant le vieil homme. Il ne s'en offusque pas. Dehors, dans le froid de la rue, le nom revient. Pataud. Il s'appelait Pataud. Tu le répètes trois fois, à voix haute, au milieu de la rue, et des gens se retournent.",
     ],
-    choices: [{ label: "Retourner dans les rues", to: "III_v_porte" }] }),
+    choices: [{ back: "III_v_porte" }] }),
 };

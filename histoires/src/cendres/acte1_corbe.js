@@ -55,7 +55,7 @@ module.exports = {
       "Ses mains s'arrêtent. Ce nom-là, on ne le dit plus sous les tentes. Il y a six hivers, ton frère est descendu vers les villes, et le clan a brûlé son nom dans le feu de la Saint-Corbeau. Depuis, il n'a jamais existé.",
       "« Il dirait que c'est une neige de ville », dit ta mère, très bas. Elle reprend son aiguille. « Il disait toujours ça, de tout ce qu'il n'aimait pas. »",
     ],
-    choices: [{ label: "Sortir", to: "CO_camp" }] }),
+    choices: [{ back: "CO_camp" }] }),
 
   // the lost child
   CO_ylva: P({ title: "Ylva",
@@ -78,24 +78,24 @@ module.exports = {
       "Sa mère pleure en la reprenant. Ylva lui demande qui elle est, très poliment. Sa mère s'arrête de pleurer.",
       "Le soir, Ylva sait de nouveau le nom de sa mère. Elle ne sait plus celui de son père, ni le sien. On l'appelle Ylva. Elle répond, comme on répond à un surnom.",
     ],
-    choices: [{ label: "Revenir au camp", fx: { flag: "ylva:sauvee", quest: "CO_ylva" }, to: "CO_camp" }] }),
+    choices: [{ fx: { flag: "ylva:sauvee", quest: "CO_ylva" }, back: "CO_camp" }] }),
 
   CO_ylva_tambour: P({ title: "Le tambour",
     text: [
       "Tu bats le tambour au bord de la neige jusqu'à ce que tes mains saignent. Le corbeau peint sur la peau a l'air de crier avec toi. Au bout d'une heure, une petite silhouette redescend du blanc, à pas lents, comme quelqu'un qui marche en dormant, et vient s'asseoir à tes pieds pour écouter.",
       "Elle ne reconnaît pas sa mère, d'abord. Puis si. C'est le tambour qu'elle reconnaît, dit-elle. Le tambour du clan.",
     ],
-    choices: [{ label: "Revenir au camp", fx: { flag: "ylva:sauvee", quest: "CO_ylva" }, to: "CO_camp" }] }),
+    choices: [{ fx: { flag: "ylva:sauvee", quest: "CO_ylva" }, back: "CO_camp" }] }),
 
   CO_ylva_tard: P({ title: "Trop haut",
     text: [
       "Quand tu montes enfin, les traces s'arrêtent au milieu de la pente. Elles ne repartent pas. Il n'y a rien autour, pas de corps, pas de robe, juste la neige, lisse comme une peau tendue. Tu restes là jusqu'au soir. Le vent efface les traces sous tes yeux.",
     ],
-    choices: [{ label: "Redescendre", fx: { flag: "ylva:perdue", quest: "CO_ylva" }, to: "CO_camp" }] }),
+    choices: [{ fx: { flag: "ylva:perdue", quest: "CO_ylva" }, back: "CO_camp" }] }),
 
   CO_ylva_perdue: P({ title: "Un honneur",
     text: ["Le soir, sa mère chante devant sa tente, au milieu des autres femmes, le visage peint comme elles. Le chant de joie. Elle chante faux. Elle chante jusqu'au matin."],
-    choices: [{ label: "Revenir au camp", to: "CO_camp" }] }),
+    choices: [{ back: "CO_camp" }] }),
 
   // the letter
   CO_colporteur: P({ title: "Mathias des vallées",
@@ -122,7 +122,7 @@ module.exports = {
 
   CO_lettre_feu: P({ title: "La cire jaune",
     text: ["La cire fond, le vélin se tord et noircit, et pendant une seconde, avant de devenir cendre, des signes apparaissent en rouge dans les flammes. Tu ne sais pas les lire. Tu les regardes jusqu'au bout."],
-    choices: [{ label: "Revenir au camp", to: "CO_camp" }] }),
+    choices: [{ back: "CO_camp" }] }),
 
   // the night of the offerings: a Glaneur fed with names
   CO_veillee: P({ takes: "night", title: "La veillée des offrandes",
@@ -146,7 +146,7 @@ module.exports = {
       "La chose finit par repartir vers le col, sans hâte, puis vers le sud, sur la crête. Ses traces ne s'enfoncent pas.",
       "Cette nuit-là, personne ne te parle. Au matin, quelqu'un a peint un trait noir sur ta tente.",
     ],
-    choices: [{ label: "Revenir au camp", fx: { flag: "clan:colere" }, to: "CO_camp" }] }),
+    choices: [{ fx: { flag: "clan:colere" }, back: "CO_camp" }] }),
 
   CO_veillee_file: P({ title: "Dans la file",
     text: [
@@ -165,14 +165,14 @@ module.exports = {
       "La main se retire. La chose te regarde. Puis elle passe à la suivante.",
       "Tu ne sais plus ce que c'est, de la neige qui fond. Tu as beau chercher, tu ne trouves que celle-ci, blanche, sèche, qui crisse comme du sel. Il te semble que la neige a toujours été comme ça.",
     ],
-    choices: [{ label: "Revenir au camp", to: "CO_camp" }] }),
+    choices: [{ back: "CO_camp" }] }),
 
   CO_veillee_regarde: P({ title: "Treize",
     text: [
       "Tu comptes. Treize s'avancent. Treize reviennent en souriant et en demandant où ils sont. Puis la chose repart, vers le col, puis vers le sud, sur la crête qui mène aux vallées, sans laisser de traces profondes.",
       "Les treize dorment cette nuit-là dans la tente de Hrodna, serrés les uns contre les autres. Personne ne leur a dit leurs noms. Le clan dit que c'est la Mère qui les a.",
     ],
-    choices: [{ label: "Revenir au camp", to: "CO_camp" }] }),
+    choices: [{ back: "CO_camp" }] }),
 
   // end of chapter 1
   CO_preparer: P({ title: "Le col de l'Ourse",
@@ -221,7 +221,7 @@ module.exports = {
       { if: { has: "croise:fleche_corbe" }, text: "Le lendemain, quand tu reviens la chercher, elle n'est plus là. À sa place, des traces de chaussures de montagne, usées, qui suivent la chose, comme toi." },
       { if: { has: "croise:fleche_laissee" }, text: "Le lendemain, quand tu reviens la chercher, elle est toujours plantée là, droite. Mais quelqu'un est passé à côté, a fait le tour, et ne l'a pas touchée. Des chaussures de montagne, usées. Tu reprends ta flèche." },
     ],
-    choices: [{ label: "Reprendre la route", fx: { flag: "corbe:fleche" }, to: "@route" }] }),
+    choices: [{ fx: { flag: "corbe:fleche" }, back: "@route" }] }),
 
   CO_four: R({ title: "Le four",
     fx: { questSeen: "CO_four" },
@@ -244,18 +244,18 @@ module.exports = {
       "« Gaspard. »",
       "Il le répète, étonné. Il se remet à se balancer, mais plus lentement. Quand tu repars, il chante, lui aussi, sans les paroles.",
     ],
-    choices: [{ label: "Reprendre la route", to: "@route" }] }),
+    choices: [{ back: "@route" }] }),
 
   CO_four_rate: R({ title: "Le levain",
     text: ["Tu chantes. Il n'écoute pas. Il parle de levain, de pâte, d'enfourner avant l'aube. Tu repars, et sa voix te suit longtemps dans le vent, plus loin que tu ne l'aurais cru."],
-    choices: [{ label: "Reprendre la route", to: "@route" }] }),
+    choices: [{ back: "@route" }] }),
 
   CO_bergers: R({ title: "Les bergers de la Sauve",
     text: [
       "Une cabane de bergers, au-dessus d'une vallée verte. Les bergers sont là, trois hommes, une femme, et ils ne voient pas la neige qui couvre la moitié de leur pâture. Ils la traversent avec leurs bêtes sans la voir. Les bêtes, si. Elles refusent d'y aller.",
       "Ils te donnent du lait, et du fromage, et te demandent d'où tu viens. Tu dis : des Combes. Ils te regardent sans comprendre. « Les Combes ? Il n'y a rien, là-haut. »",
     ],
-    choices: [{ label: "Reprendre la route", fx: { food: 1 }, to: "@route" }] }),
+    choices: [{ fx: { food: 1 }, back: "@route" }] }),
 
   // the north gate
   CO_portes: R({ title: "La porte du Nord",

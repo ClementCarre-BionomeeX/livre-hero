@@ -4,7 +4,7 @@
 // pot; Rodric's people, if he came (he rings his three bells for them; he keeps them). Each returns to the hub; "Repasser la Lisse" keeps the old effect.
 var A = { act: "IV", noLead: true };
 function P(o) { return Object.assign({}, A, o); }
-var BACK = [{ label: "Revenir entre les feux", to: "IV_cv_camp" }];
+var BACK = [{ label: "Revenir entre les feux", back: "IV_cv_camp" }];
 module.exports = {
   IV_cv_camp: P({ title: "Le camp de Corvanne", place: "brenne", hub: true,
     text: [
@@ -43,7 +43,7 @@ module.exports = {
     ],
     choices: [
       { label: "Lui acheter un lacet, et lui dire ton nom pour la page", fx: { gold: -1, ep: ["perso", 400], flag: "iv:cantiniere" }, to: "IV_cv_cantiniere_nom" },
-      { label: "Revenir entre les feux", to: "IV_cv_camp" },
+      { label: "Revenir entre les feux", back: "IV_cv_camp" },
     ] }),
   IV_cv_cantiniere_nom: P({ title: "À crédit", place: "brenne",
     text: ["Elle te regarde par-dessus son registre. « Tu as payé, dit-elle. Je n'ai pas besoin de ton nom. » Puis elle réfléchit. Elle tourne la page, jusqu'à une page blanche, et elle écrit, en haut, ce que tu lui dis. En dessous : *un lacet, payé comptant.* « Comme ça, dit-elle, s'il t'arrive quelque chose demain, tu ne me devras rien, et quelqu'un saura quand même que tu es passé. C'est le mieux qu'on puisse avoir, à la guerre. »"],
@@ -61,5 +61,5 @@ module.exports = {
       "Un vieux soldat sans dents lui prend les deux mains et dit une phrase, en corvannais, que Rodric ne traduit pas. Puis il montre les trois cloches, cousues à l'épaule de Rodric, et il demande quelque chose. Rodric les fait sonner du bout du doigt, l'une après l'autre, lentement, au milieu du cercle.",
       "Les vieux ferment les yeux. Ils écoutent. À la troisième, l'un d'eux pleure, sans bruit, et les autres font semblant de ne pas le voir. Rodric laisse retomber sa main. « C'est le son du pont, dit-il quand il revient vers toi. Le son qu'il faisait, avant, quand les charrettes passaient. Ils ne l'avaient pas entendu depuis vingt ans. » Il ne dit plus rien de la soirée.",
     ],
-    choices: [{ label: "Revenir entre les feux", fx: { conf: { rodric: 10 }, ep: ["perso", 600], flag: "iv:rodric_pays" }, to: "IV_cv_camp" }] }),
+    choices: [{ label: "Revenir entre les feux", fx: { conf: { rodric: 10 }, ep: ["perso", 600], flag: "iv:rodric_pays" }, back: "IV_cv_camp" }] }),
 };

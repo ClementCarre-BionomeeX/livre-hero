@@ -22,7 +22,7 @@ module.exports = {
       { label: "L'orgue, qui joue faux, à Saint-Gilles", hide: { seen: "HY_V_orgue" }, to: "HY_V_orgue" },
       { label: "L'odeur d'indigo et de garance, rue des Teinturiers", hide: { seen: "HY_V_teinturiers" }, to: "HY_V_teinturiers" },
       { label: "Les cloches de vêpres, depuis un banc de la place des Carmes", hide: { seen: "HY_V_cloches" }, to: "HY_V_cloches" },
-      { label: "Rentrer à la tour avant complies", to: "HY_tour" },
+      { back: "HY_tour" },
     ] }),
   HY_V_pont: P({ title: "Le Pont-Neuf",
     text: [
@@ -51,7 +51,7 @@ module.exports = {
     ],
     choices: [
       { label: "Entrer dans la boutique", to: "HY_V_berengere" },
-      { label: "Repartir, avant qu'elle te voie", fx: { flag: ["hylas:berengere", "hylas:berengere=fui"] }, to: "HY_V_ville" },
+      { label: "Repartir, avant qu'elle te voie", fx: { flag: ["hylas:berengere", "hylas:berengere=fui"] }, back: "HY_V_ville" },
     ] }),
   HY_V_berengere: P({ title: "Bérengère",
     text: [

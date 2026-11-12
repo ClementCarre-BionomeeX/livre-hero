@@ -88,7 +88,7 @@ module.exports = {
       "« Des noms, dit-elle enfin. Des milliers. Mais il ne les mange pas. Il les dit. Il les dit tout le temps, tous, pour ne pas en perdre un. » Elle ouvre les yeux. « Il ne fait pas de mal. Il garde. C'est un Veilleur, lui aussi. Il a juste beaucoup trop à garder. »",
       "« Il souffre, ajoute-t-elle. Comme mes mourants. Exactement pareil. »",
     ],
-    choices: [{ label: "Remonter au bord du cirque", fx: { flag: "nord:geant_souffre" }, to: "II_N4_cirque" }] }),
+    choices: [{ fx: { flag: "nord:geant_souffre" }, back: "II_N4_cirque" }] }),
 
   II_N4_sauvelune: P({ title: "Sauvelune", place: "cirque",
     text: [
@@ -113,11 +113,11 @@ module.exports = {
       "« Je l'ai pris sur le bord de sa lèvre, dit-il. Juste avant qu'il avale. » Il claque des dents. « Je ne sais pas à qui c'est. On le saura bien. »",
       "La lueur, dans ses mains, murmure deux syllabes, et se tait.",
     ],
-    choices: [{ label: "Remonter au bord du cirque", to: "II_N4_cirque" }] }),
+    choices: [{ back: "II_N4_cirque" }] }),
 
   II_N4_pie_rate: P({ title: "La file", place: "cirque",
     text: ["À mi-pente, le Glaneur derrière Pie s'arrête, se penche sur lui, longtemps. Pie ne bouge pas. Puis le Glaneur passe la main sur son visage, doucement, comme pour essuyer de la neige, et reprend sa marche. Pie remonte en courant. Il dit qu'il va bien. Il a oublié comment s'appelait la rue où il est né. Il dit que ce n'est pas grave."],
-    choices: [{ label: "Remonter au bord du cirque", to: "II_N4_cirque" }] }),
+    choices: [{ back: "II_N4_cirque" }] }),
 
   II_N4_hylas: P({ title: "Ce qu'on fait d'un nom", place: "cirque",
     text: [
@@ -125,7 +125,7 @@ module.exports = {
       "Il tourne la tête vers le murmure. « Lui, il fait l'inverse. Il les dit tous, tout le temps, pour que rien ne s'en aille. C'est ce que faisaient les Orsans, je crois, avant d'écrire. Ils se disaient les uns les autres. »",
       { if: { item: "livre_veilles" }, text: "Il pose la main sur le Livre des Veilles, dans ton sac. « Et nous, nous avons écrit qu'il fallait oublier. »" },
     ],
-    choices: [{ label: "Remonter au bord du cirque", fx: { conf: { hylas: 5 } }, to: "II_N4_cirque" }] }),
+    choices: [{ fx: { conf: { hylas: 5 } }, back: "II_N4_cirque" }] }),
 
   II_N4_ysolde: P({ title: "Où frapper", place: "cirque",
     text: [
@@ -133,14 +133,14 @@ module.exports = {
       "« Il n'a pas de cœur, dit-elle. Pas de tête qui compte. Il est fait de ce qu'on lui donne. Si on l'attaque, on attaque ce qu'il y a dedans. » Elle se tait. « J'ai fait ça, une fois, je crois. Attaquer ce qu'il y avait dedans. »",
       "« Mais il a un défaut. Il ne bouge pas quand il mange. Les petits arrivent par fournées, le temps de compter deux cents. Entre deux, il lève la tête. Pendant qu'il avale, il est aveugle. »",
     ],
-    choices: [{ label: "Revenir au bord du cirque", fx: { flag: "nord:ysolde_plan" }, to: "II_N4_cirque" }] }),
+    choices: [{ fx: { flag: "nord:ysolde_plan" }, back: "II_N4_cirque" }] }),
 
   II_N4_gaspard_sait: P({ title: "Le grand", place: "cirque",
     text: [
       "Gaspard regarde le géant avec une sorte de tendresse. « Il était petit, dit-il. Comme moi. Un des premiers. Avant l'homme en noir, avant les sceaux. Il glanait déjà, il y a très longtemps, quand la grande ville a brûlé. Il ramassait les noms de ceux qui brûlaient, pour qu'ils ne se perdent pas. Il n'a jamais arrêté. »",
       "« Il ne sait pas les rendre. Personne ne lui a appris. Mais si on lui chante un nom, il le donne. Un seul. Il ne sait pas en donner plus. »",
     ],
-    choices: [{ label: "Revenir au bord du cirque", fx: { flag: "nord:gaspard_sait" }, to: "II_N4_cirque" }] }),
+    choices: [{ fx: { flag: "nord:gaspard_sait" }, back: "II_N4_cirque" }] }),
 
   II_N4_face: P({ title: "Devant lui", place: "cirque",
     text: [
@@ -235,7 +235,7 @@ module.exports = {
     ],
     choices: [{ label: "« Ombeline. Tu t'appelles Ombeline. »", fx: { flag: ["nord:geant=dort", "ombeline:faim"], quest: "II_N_geant", conf: { ombeline: 10 }, ep: ["perso", 2500] }, to: "II_N4_soir" }] }),
 
-  II_N4_soir: P({ title: "Le bivouac", place: "cirque",
+  II_N4_soir: P({ backName: "le bivouac", title: "Le bivouac", place: "cirque",
     text: [
       "Vous campez au col étroit, entre deux rochers. Personne ne parle beaucoup. Au loin, à l'est, la lueur blanche du col de l'Ourse, plus grande qu'hier.",
       { if: { has: "ombeline:faim" }, text: "Ombeline murmure ses noms. De temps en temps, elle s'arrête, et elle se répète le sien, tout bas, pour l'apprendre." },
@@ -256,11 +256,11 @@ module.exports = {
       { if: { all: [{ has: "nord:sauvelune_entendu" }, { not: { any: [{ has: "nord:rendu=sauvelune" }, { has: "nord:rendu=clan" }, { has: "nord:rendu=arnoul" }, { has: "nord:rendu=bran" }] } }] }, text: "L'enfant regarde le feu. Il met longtemps à parler. « Je les ai entendus, dit-il. Tous. C'est déjà ça. »" },
       { if: { not: { has: "nord:sauvelune_entendu" } }, text: "L'enfant regarde le feu. « Il y avait des voix, dans le cirque. J'ai cru entendre ma mère. » Il secoue la tête. « On entend ce qu'on veut, dans le vent. »" },
     ],
-    choices: [{ label: "Revenir au feu", fx: { conf: { enfant: 5 } }, to: "II_N4_soir" }] }),
+    choices: [{ fx: { conf: { enfant: 5 } }, back: "II_N4_soir" }] }),
 
   II_N4_soir_ysolde: P({ title: "Ce qu'il y avait dedans", place: "cirque",
     text: ["Ysolde nettoie son épée, qui n'a rien à nettoyer. « Au pont, dit-elle soudain, il y avait des gens. Pas des soldats. Des gens. Je le sais parce que j'en rêve depuis le lac. » Elle range l'épée. « Je ne sais pas encore ce que j'ai fait. Mais je sais qui c'était. Ce n'étaient pas des soldats. »"],
-    choices: [{ label: "Revenir au feu", fx: { conf: { ysolde: 5 } }, to: "II_N4_soir" }] }),
+    choices: [{ fx: { conf: { ysolde: 5 } }, back: "II_N4_soir" }] }),
 
   II_N4_soir_pie: P({ title: "Deux syllabes", place: "cirque",
     text: [
@@ -269,12 +269,12 @@ module.exports = {
       { without: "linette", before: "pie:choix=linette", if: { not: { item: "nom_vole" } }, text: "Pie regarde le sud. « Ma sœur est là-bas, dit-il. Dans leur tour. » Il hausse les épaules. « J'espère qu'ils la laissent dormir. Elle dort mal, dans les endroits nouveaux. »" },
       { with: "linette", if: { not: { item: "nom_vole" } }, text: "Pie regarde Linette, qui dort assise, le dos droit. « Elle dort mal, dans les endroits nouveaux, dit-il. Ici, elle dort. » Il hausse les épaules. « C'est peut-être le froid. »" },
     ],
-    choices: [{ label: "Revenir au feu", fx: { conf: { pie: 5 } }, to: "II_N4_soir" }] }),
+    choices: [{ fx: { conf: { pie: 5 } }, back: "II_N4_soir" }] }),
 
   II_N4_soir_hylas: P({ title: "La grande ville", place: "cirque",
     text: [
       { if: { has: "nord:gaspard_sait" }, text: "Hylas te demande ce qu'a dit Gaspard, sur la grande ville qui a brûlé. Tu le lui répètes. Il ne dit rien pendant longtemps. Puis : « Le registre noir dit trois cent douze ans. Gaspard dit il y a très longtemps. Le géant ramassait ceux qui brûlaient. » Il serre son bâton. « Ce n'était pas une ville. C'était un peuple. »" },
       { if: { not: { has: "nord:gaspard_sait" } }, text: "Hylas n'a pas cessé de compter, depuis le cirque. Il ne dit rien pendant longtemps. Puis : « Des milliers de noms. Le registre noir dit trois cent douze ans. Les serments disent : une vallée. » Il serre son bâton. « Une vallée n'a pas tant de noms. Ce n'était pas une vallée. C'était un peuple. »" },
     ],
-    choices: [{ label: "Revenir au feu", fx: { conf: { hylas: 5 }, flag: "hylas:peuple" }, to: "II_N4_soir" }] }),
+    choices: [{ fx: { conf: { hylas: 5 }, flag: "hylas:peuple" }, back: "II_N4_soir" }] }),
 };

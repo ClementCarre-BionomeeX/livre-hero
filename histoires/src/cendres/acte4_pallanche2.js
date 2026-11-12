@@ -15,7 +15,7 @@ module.exports = {
     choices: [
       { label: "Aider sœur Aude à les nourrir", fx: { ep: ["perso", 300] }, to: "IV_Q_hospice_aider" },
       { label: "Lui demander d'où vient tout ce linge", to: "IV_Q_hospice_linge" },
-      { label: "Ressortir", to: "IV_pal" },
+      { back: "IV_pal" },
     ] }),
   IV_Q_hospice_aider: P({ title: "Les cuillères", place: "pallanche",
     text: [
@@ -99,10 +99,10 @@ module.exports = {
       "Quand la patrouille repart, la rue est vide. Le tonneau est renversé, les jetons écrasés dans le ruisseau. On a emmené le grand. Le petit au pinceau est assis sur une marche, plus loin, son pinceau à la main.",
       "« Ils l'ont emmené à la tour, dit-il. Pour l'écrire. » Il ne pleure pas. Il range son pinceau dans sa manche, avec soin, comme une chose qui servira.",
     ],
-    choices: [{ label: "Revenir chez la Veuve", fx: { quest: "IV_Q_jetons", flag: "iv:jetons=pris" }, to: "IV_pal" }] }),
+    choices: [{ fx: { quest: "IV_Q_jetons", flag: "iv:jetons=pris" }, back: "IV_pal" }] }),
   IV_Q_jetons_partir: P({ title: "Au bout de la rue", place: "pallanche",
     text: ["Tu tournes au coin avant que la patrouille arrive. Derrière toi, un bruit de tonneau renversé, des cris d'enfants, puis plus rien. Tu ne te retournes pas. Tu y penses tout le reste de la journée."],
-    choices: [{ label: "Revenir chez la Veuve", to: "IV_pal" }] }),
+    choices: [{ back: "IV_pal" }] }),
 
   // ---------------------------------------------------------------- Le bleu des Teinturiers
   IV_Q_bleu: P({ title: "Les cuves grises", place: "pallanche",
@@ -113,7 +113,7 @@ module.exports = {
     ],
     choices: [
       { label: "Aller voir le vieux Aubin", to: "IV_Q_bleu_aubin" },
-      { label: "Ressortir", to: "IV_pal" },
+      { back: "IV_pal" },
     ] }),
   IV_Q_bleu_aubin: P({ title: "Le vieux Aubin", place: "pallanche",
     text: [
@@ -124,7 +124,7 @@ module.exports = {
     choices: [
       { label: "Chercher le cahier dans la maison", test: { dom: "savoir", label: "Le cahier", help: [{ if: { present: "linette" }, v: 20 }, { if: { present: "pie" }, v: 10 }, { if: { present: "hylas" }, v: 10 }] },
         win: { fx: { item: "cahier_aubin", ep: ["perso", 700] }, to: "IV_Q_bleu_cahier" }, lose: { to: "IV_Q_bleu_rien" } },
-      { label: "Ressortir", to: "IV_pal" },
+      { back: "IV_pal" },
     ] }),
   IV_Q_bleu_cahier: P({ title: "Le cahier bleu", place: "pallanche",
     text: [
@@ -151,5 +151,5 @@ module.exports = {
     choices: [{ label: "Laisser le quartier à son bleu", fx: { quest: "IV_Q_bleu", flag: "iv:bleu=rendu", conf: { linette: 5 } }, to: "IV_pal" }] }),
   IV_Q_bleu_rien: P({ title: "La maison d'Aubin", place: "pallanche",
     text: ["Tu cherches. Les coffres, le grenier, le dessous des lits. Tu trouves des tabliers, des perches, des bouts de drap gris. Pas de cahier. Aubin te regarde fouiller sa maison avec une politesse inquiète, comme un hôte dont l'invité aurait perdu quelque chose. Il te propose une soupe. Elle est très bonne. Elle est grise."],
-    choices: [{ label: "Ressortir", fx: { quest: "IV_Q_bleu" }, to: "IV_pal" }] }),
+    choices: [{ fx: { quest: "IV_Q_bleu" }, back: "IV_pal" }] }),
 };

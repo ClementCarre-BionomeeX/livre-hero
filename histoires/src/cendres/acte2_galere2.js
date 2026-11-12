@@ -4,7 +4,7 @@
 // galere:alerte).
 var S = { act: "II", noLead: true, place: "vasselin" };
 function P(o) { return Object.assign({}, S, o); }
-var BACK = [{ label: "Revenir sur le pont", to: "II_G_pont" }];
+var BACK = [{ back: "II_G_pont" }];
 module.exports = {
   II_G_cambuse: P({ title: "La cambuse",
     text: [
@@ -29,7 +29,7 @@ module.exports = {
     choices: [
       { label: "Lui reprendre sa chanson, là où il l'a laissée", test: { dom: "social", label: "Le mousse", help: [{ if: { item: "luth" }, v: 5 }, { if: { has: "lisandre:fins" }, v: 10 }] },
         win: { fx: { flag: "galere:mousse", ep: ["perso", 600] }, to: "II_G_vigie_chanson" }, lose: { fx: { flag: "galere:alerte" }, to: "II_G_vigie_sifflet" } },
-      { label: "Redescendre, vite, avant qu'il siffle", to: "II_G_pont" },
+      { label: "Redescendre, vite, avant qu'il siffle", back: "II_G_pont" },
     ] }),
   II_G_vigie_chanson: P({ title: "La fin de la chanson",
     text: ["Tu chantes. Doucement, d'en bas, accrochée aux haubans. La suite de sa chanson, une chanson de port, sur un bateau qui ne revient pas et une fille qui ne l'attend plus. Il garde le sifflet aux lèvres. Il ne siffle pas. Au refrain, il chante avec toi, et sa voix ne casse plus. À la fin, il lâche le sifflet. « Je ne vous ai pas vue, dit-il. Je ne vois jamais rien, la nuit. Je suis myope. » Il te montre, du doigt, la ronde de la garde sur le quai, qu'il voit très bien. Il te dit quand elle passe."],

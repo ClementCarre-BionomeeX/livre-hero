@@ -128,7 +128,7 @@ module.exports = {
       "Elle dit ça en riant. Elle a les doigts tachés de mûre, et quand elle les essuie sur ta manche, elle laisse dessus une marque violette que tu ne laveras pas.",
       "Elle détache le ruban rouge de ses cheveux et te le noue au poignet, deux fois. « Pour que tu reviennes à la ronde. »",
     ],
-    choices: [{ label: "Redescendre avec elle jusqu'au moulin", fx: { item: "ruban" }, to: "EN_matin_suite" }] },
+    choices: [{ label: "Redescendre avec elle jusqu'au moulin", fx: { item: "ruban" }, back: "EN_matin_suite" }] },
 
   EN_tess_ronde: { act: "I", title: "Devant tout le monde", place: "sauvelune",
     fx: { quest: "EN_tess" },
@@ -137,7 +137,7 @@ module.exports = {
       "« Devant le Père Anselme surtout. »",
       "Elle rit. C'est un rire qui descend la pente du pré comme une pierre qui roule. Elle détache le ruban rouge de ses cheveux et te le noue au poignet, deux fois. « C'est un gage, dit-elle. Si tu ne viens pas, je le reprends, et ton poignet avec. »",
     ],
-    choices: [{ label: "Redescendre avec elle jusqu'au moulin", fx: { item: "ruban" }, to: "EN_matin_suite" }] },
+    choices: [{ label: "Redescendre avec elle jusqu'au moulin", fx: { item: "ruban" }, back: "EN_matin_suite" }] },
 
   EN_tess_reve: { act: "I", title: "La plaine blanche", place: "sauvelune",
     fx: { quest: "EN_tess" },
@@ -169,7 +169,7 @@ module.exports = {
       { label: "Le concours de tartes, sous le tilleul", to: "EN_k_tartes", hide: { seen: "EN_k_tartes" } },
       { label: "La doyenne Mathilde Aubry, sur sa chaise", to: "EN_k_doyenne", hide: { seen: "EN_k_doyenne" } },
       { label: "Le vieux Gervais, sur son échelle, qui repeint les noms", to: "EN_k_linteaux", hide: { seen: "EN_k_linteaux" } },
-      { label: "Rentrer au moulin finir ce que tu y as laissé", to: "EN_matin_suite", hide: { all: [{ seen: "EN_roue" }, { seen: "EN_pim" }, { seen: "EN_tess" }] } },
+      { back: "EN_matin_suite", hide: { all: [{ seen: "EN_roue" }, { seen: "EN_pim" }, { seen: "EN_tess" }] } },
       { label: "Attendre le soir, et la ronde autour des meules", to: "EN_soir", big: true,
         if: { any: [{ seen: "EN_lutte" }, { seen: "EN_tir" }, { seen: "EN_mathurin" }, { seen: "EN_anselme" }] }, why: "La fête vient à peine de commencer." },
     ] },
@@ -197,7 +197,7 @@ module.exports = {
       "Il reste allongé dans la sciure, les yeux au ciel, sidéré. Puis il éclate de rire, un rire énorme, qui fait trembler les guirlandes. « Le moulin ! Le moulin ! » Il se relève, te soulève de terre, te porte en triomphe autour du cercle comme si c'était lui qui avait gagné.",
       "On te donne le jambon, que tu ne sais pas où mettre, et trois pièces, que tu sais très bien où mettre. Au fond de la foule, tu crois voir Tess applaudir. Elle s'arrête dès qu'elle voit que tu l'as vue.",
     ],
-    choices: [{ label: "Retourner dans la fête, le jambon sous le bras", to: "EN_place" }] },
+    choices: [{ label: "Retourner dans la fête, le jambon sous le bras", back: "EN_place" }] },
 
   EN_lutte_perdu: { act: "I", title: "Dans la sciure", place: "sauvelune",
     text: [
@@ -223,14 +223,14 @@ module.exports = {
       "La flèche part, monte, redescend, et se plante au milieu du cercle rouge, si exactement au milieu que le berger aux dents noires va vérifier avec le pouce, longtemps, comme s'il soupçonnait un tour de sorcellerie.",
       "On te donne deux pièces et une tape dans le dos qui te fait cracher ta bière. Le berger te regarde de travers jusqu'à ce que tu lui rendes la tape. Alors il sourit, de toutes ses dents noires.",
     ],
-    choices: [{ label: "Retourner dans la fête", to: "EN_place" }] },
+    choices: [{ back: "EN_place" }] },
 
   EN_tir_rate: { act: "I", title: "Dans le fumier", place: "sauvelune",
     text: [
       "La flèche part très bien. Elle monte très bien. Elle redescend dans le tas de fumier de l'auberge, à vingt pas à gauche de la cible, où elle effraie un coq qui n'avait rien demandé.",
       "On applaudit quand même. C'est la fête.",
     ],
-    choices: [{ label: "Retourner dans la fête", to: "EN_place" }] },
+    choices: [{ back: "EN_place" }] },
 
   // ---------------------------------------------------------------- Mathurin (side quest: the bees)
   EN_mathurin: { act: "I", title: "Le vieux Mathurin", place: "sauvelune",
@@ -270,14 +270,14 @@ module.exports = {
       "Mathurin ne dit rien pendant longtemps. Il a les yeux mouillés et il ne s'en cache pas.",
       "« Elles se souviennent, dit-il. Elles se souviennent. » Il va chercher dans sa cabane un pot de miel de sapin, presque noir, et te le met dans les mains. « Ça guérit tout. Même le chagrin. Surtout le chagrin. » Puis, plus bas : « La Dame Blanche, petit. Ma grand-mère disait qu'elle ne vient jamais seule. Qu'il y a toujours derrière elle un homme en noir qui écrit. »",
     ],
-    choices: [{ label: "Redescendre à la fête", to: "EN_place" }] },
+    choices: [{ back: "EN_place" }] },
 
   EN_ruches_ko: { act: "I", title: "Le silence", place: "sauvelune",
     text: [
       "Rien. Les abeilles restent où elles sont, en grappes brunes, poudrées de blanc, et le pré reste silencieux comme un temple vide. Mathurin pose une main sur ton bras. « Ce n'est pas toi, dit-il. Ce n'est pas un mal qui se soigne en une heure. »",
       "Il s'assied sur le banc devant sa cabane et ne bouge plus. Il a l'air, lui aussi, d'avoir oublié quelque chose.",
     ],
-    choices: [{ label: "Redescendre à la fête, et revenir demain", to: "EN_place" }] },
+    choices: [{ label: "Redescendre à la fête, et revenir demain", back: "EN_place" }] },
 
   // ---------------------------------------------------------------- Father Anselme
   EN_anselme: { act: "I", title: "Les marches du temple", place: "sauvelune",
@@ -298,7 +298,7 @@ module.exports = {
       "« Rien que tu ne saches. *Un enfant trouvé, sans nom, confié au moulin.* » Il hésite. « Ce n'est pas moi qui l'ai écrit. C'était déjà là quand j'ai ouvert le registre, le lendemain matin. D'une autre encre. D'une autre main. Une écriture penchée, qui débordait de la ligne, comme celle de quelqu'un qui ne voit pas ce qu'il écrit. »",
       "Il retire sa main. « J'ai prié vingt ans pour comprendre ça. Le ciel ne m'a jamais répondu. Il faut croire que ce n'était pas à moi de comprendre. »",
     ],
-    choices: [{ label: "Retourner dans la fête", to: "EN_place" }] },
+    choices: [{ back: "EN_place" }] },
 
   // ---------------------------------------------------------------- the evening: the white snow
   EN_soir: { act: "I", title: "La ronde", place: "sauvelune",

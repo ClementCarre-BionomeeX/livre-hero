@@ -5,7 +5,7 @@
 // and Ewen by the ember. iii:braise=eteinte|emportee|gardee.
 var A = { act: "III", noLead: true };
 function P(o) { return Object.assign({}, A, o); }
-var BACK = [{ label: "Revenir sous les arbres noirs", to: "III_F_bois" }];
+var BACK = [{ label: "Revenir sous les arbres noirs", back: "III_F_bois" }];
 module.exports = {
   III_F_lisiere: P({ title: "Solenn", place: "enfance",
     fx: { questSeen: "III_Q_foret" },
@@ -27,7 +27,7 @@ module.exports = {
       { label: "Le bruit d'eau, en contrebas", hide: { seen: "III_F_riviere" }, to: "III_F_riviere" },
       { label: "Une clairière, avec des cercles de pierres", hide: { seen: "III_F_camp" }, to: "III_F_camp" },
       { label: "Marcher vers la lueur rouge", if: { any: [{ seen: "III_F_arbre" }, { seen: "III_F_riviere" }, { seen: "III_F_camp" }] }, why: "Tu ne sais pas encore où tu mets les pieds.", to: "III_F_braise", big: true },
-      { label: "Revenir au hameau", to: "III_e_hameau" },
+      { back: "III_e_hameau" },
     ] }),
   III_F_arbre: P({ title: "L'arbre qui fume", place: "enfance",
     text: [
@@ -47,7 +47,7 @@ module.exports = {
       "Ils fuient. Ils fuient depuis trois cents ans, dans l'eau, et la rivière les emporte, et ils remontent, et ils fuient de nouveau.",
       { with: "ysolde", text: "Ysolde regarde l'eau sans rien dire. Puis elle s'accroupit, et elle met la main dans le courant, au milieu des reflets, comme pour arrêter quelqu'un. Les reflets passent à travers ses doigts." },
     ],
-    choices: [{ label: "Remonter vers les arbres", fx: { ep: ["perso", 300], flag: "iii:riviere_vue" }, to: "III_F_bois" }] }),
+    choices: [{ fx: { ep: ["perso", 300], flag: "iii:riviere_vue" }, back: "III_F_bois" }] }),
   III_F_camp: P({ title: "Les cinq feux", place: "enfance",
     text: [
       "Une clairière, sur une butte, d'où l'on voit, entre les troncs, la vallée et le hameau. Cinq cercles de pierres noircies, en rond. Cinq feux de camp. Autour de chaque feu, la trace de couvertures, de selles, d'armes posées. On a dormi ici, la veille. On a regardé la vallée.",
@@ -102,11 +102,11 @@ module.exports = {
     choices: [{ label: "Le ramener au hameau", to: "III_F_retour" }] }),
   III_F_gardee: P({ title: "Celui qui se souvient", place: "enfance",
     text: ["Tu le laisses. Il ne te regarde pas partir. Derrière toi, la lueur rouge va et vient, va et vient, comme une respiration. Au hameau, Solenn t'attend à la lisière. Elle voit que tu reviens sans lui. Elle ne dit rien. Elle décroise les bras, enfin, et elle rentre chez elle, en laissant la porte ouverte, au cas où."],
-    choices: [{ label: "Revenir au hameau", to: "III_e_hameau" }] }),
+    choices: [{ back: "III_e_hameau" }] }),
   III_F_retour: P({ title: "La lisière", place: "enfance",
     text: [
       "Solenn vous voit arriver de loin. Elle ne court pas. Elle attend que son frère soit à trois pas. Puis elle le gifle. Puis elle le serre contre elle, si fort qu'il tousse. Elle ne dit rien. Elle ne le lâche pas.",
       "Par-dessus l'épaule de sa sœur, Ewen te fait un signe de la main. Les tempes blanches, à quinze ans. Ça ne repoussera pas. Mais le reste, peut-être.",
     ],
-    choices: [{ label: "Revenir au hameau", to: "III_e_hameau" }] }),
+    choices: [{ back: "III_e_hameau" }] }),
 };

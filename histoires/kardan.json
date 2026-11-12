@@ -3,6 +3,7 @@
  "title": "Le labyrinthe de Kardan",
  "subtitle": "Trois actes · un village trop accueillant, un dédale, une source",
  "summary": "Ton frère Aurèle a pris la route du sud il y a sept ans et n'est jamais revenu. Sa trace s'arrête à Kardan, un village vert au milieu d'une vallée sèche, adossé à une colline creusée d'un immense labyrinthe. On t'y reçoit comme un prince.",
+ "skin": "sable",
  "voice": "deuxième personne, présent",
  "version": 1,
  "start": "K_depart",
@@ -835,6 +836,7 @@
   },
   "places": {
    "sorel": {
+    "ambiance": "village",
     "name": "Sorel",
     "map": "monde",
     "x": 30,
@@ -843,6 +845,7 @@
     "desc": "Le dernier bourg avant la vallée sèche : un relais, un puits, un gibet vide."
    },
    "kardan": {
+    "ambiance": "village",
     "name": "Kardan",
     "map": "monde",
     "x": 52,
@@ -861,6 +864,7 @@
     "desc": "Un village vert au fond de la vallée sèche, adossé à une colline creusée d'un labyrinthe."
    },
    "ravine": {
+    "ambiance": "champs",
     "name": "La ravine aux chardons",
     "map": "monde",
     "x": 78,
@@ -877,6 +881,7 @@
     "desc": "Une entaille dans le plateau, à une demi-journée de Kardan. Les chardons-lune y poussent à l'ombre."
    },
    "fosse": {
+    "ambiance": "souterrain",
     "name": "La Fosse",
     "map": "dedale",
     "x": 14,
@@ -885,6 +890,7 @@
     "desc": "Un puits de pierre sous un rond de ciel inaccessible. On y tombe, on n'en remonte pas."
    },
    "camp": {
+    "ambiance": "souterrain",
     "name": "Le camp des perdus",
     "map": "dedale",
     "x": 34,
@@ -893,6 +899,7 @@
     "desc": "Une salle basse où brûle un feu de mousse sèche. Ceux qui ont survécu s'y retrouvent."
    },
    "puits_os": {
+    "ambiance": "souterrain",
     "name": "Le puits aux os",
     "map": "dedale",
     "x": 20,
@@ -909,6 +916,7 @@
     "desc": "Une crevasse où le dédale jette ce qu'il ne garde pas."
    },
    "noms": {
+    "ambiance": "souterrain",
     "name": "La salle des noms",
     "map": "dedale",
     "x": 56,
@@ -917,6 +925,7 @@
     "desc": "Une rotonde aux murs couverts de noms, du sol jusqu'à hauteur d'homme."
    },
    "jardin": {
+    "ambiance": "eau",
     "name": "Le jardin noyé",
     "map": "dedale",
     "x": 58,
@@ -925,6 +934,7 @@
     "desc": "Une salle où l'eau coule sur la roche en nappes lentes. Des champignons grands comme des enfants."
    },
    "atelier": {
+    "ambiance": "souterrain",
     "name": "L'atelier de Kardan",
     "map": "dedale",
     "x": 78,
@@ -933,6 +943,7 @@
     "desc": "Les plans, les outils et le lit de camp de l'architecte, sous deux siècles de poussière."
    },
    "galerie": {
+    "ambiance": "souterrain",
     "name": "La galerie haute",
     "map": "dedale",
     "x": 36,
@@ -941,6 +952,7 @@
     "desc": "Un couloir en pente où tombe un rai de soleil, par une fente trop haute."
    },
    "coeur": {
+    "ambiance": "temple",
     "name": "Le cœur",
     "map": "dedale",
     "x": 90,
@@ -1102,6 +1114,7 @@
     ]
    },
    "plateau": {
+    "ambiance": "montagne",
     "name": "Le plateau",
     "chance": 0,
     "quiet": [
@@ -1110,6 +1123,7 @@
     ]
    },
    "galeries": {
+    "ambiance": "souterrain",
     "name": "Les galeries",
     "chance": 0.55,
     "events": [
@@ -1132,6 +1146,7 @@
     ]
    },
    "profondeurs": {
+    "ambiance": "souterrain",
     "name": "Les profondeurs",
     "chance": 0.4,
     "events": [
@@ -1325,8 +1340,7 @@
    ],
    "choices": [
     {
-     "label": "Retourner dans la cour",
-     "to": "K_sorel"
+     "back": "K_sorel"
     }
    ]
   },
@@ -1424,7 +1438,7 @@
    "choices": [
     {
      "label": "Reprendre la route à deux",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -1438,7 +1452,7 @@
    "choices": [
     {
      "label": "Reprendre la route à deux",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -1593,8 +1607,7 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -1607,8 +1620,7 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -1620,8 +1632,7 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -1671,7 +1682,7 @@
    "choices": [
     {
      "label": "Reprendre la route, plus lentement",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -1683,8 +1694,7 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -1736,8 +1746,7 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -1750,7 +1759,7 @@
    "choices": [
     {
      "label": "Reprendre la route en serrant ton bras",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -1801,8 +1810,7 @@
    ],
    "choices": [
     {
-     "label": "Reprendre la route",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -2108,8 +2116,7 @@
      "to": "K_nuit"
     },
     {
-     "label": "Ressortir sur la place",
-     "to": "K_kardan"
+     "back": "K_kardan"
     }
    ]
   },
@@ -2339,8 +2346,7 @@
    ],
    "choices": [
     {
-     "label": "Retourner à ta place",
-     "to": "K_puits"
+     "back": "K_puits"
     }
    ]
   },
@@ -2512,8 +2518,7 @@
      }
     },
     {
-     "label": "Retourner sur la place",
-     "to": "K_kardan"
+     "back": "K_kardan"
     }
    ]
   },
@@ -2688,8 +2693,7 @@
      "to": "K_oriel_odeur"
     },
     {
-     "label": "Retourner sur la place",
-     "to": "K_kardan"
+     "back": "K_kardan"
     }
    ]
   },
@@ -2961,8 +2965,7 @@
      }
     },
     {
-     "label": "Retourner sur la place",
-     "to": "K_kardan"
+     "back": "K_kardan"
     }
    ]
   },
@@ -3115,8 +3118,7 @@
    ],
    "choices": [
     {
-     "label": "Redescendre vers la place",
-     "to": "K_kardan"
+     "back": "K_kardan"
     }
    ]
   },
@@ -3193,8 +3195,7 @@
      "to": "K_chapelle_odon"
     },
     {
-     "label": "Ressortir dans la lumière",
-     "to": "K_kardan"
+     "back": "K_kardan"
     }
    ]
   },
@@ -3208,7 +3209,7 @@
    "choices": [
     {
      "label": "Sortir avec lui",
-     "to": "K_kardan"
+     "back": "K_kardan"
     }
    ]
   },
@@ -3274,8 +3275,7 @@
      }
     },
     {
-     "label": "Retourner sur la place",
-     "to": "K_kardan"
+     "back": "K_kardan"
     }
    ]
   },
@@ -3291,8 +3291,7 @@
    ],
    "choices": [
     {
-     "label": "Redescendre au village",
-     "to": "K_kardan"
+     "back": "K_kardan"
     }
    ]
   },
@@ -3305,8 +3304,7 @@
    ],
    "choices": [
     {
-     "label": "Redescendre au village",
-     "to": "K_kardan"
+     "back": "K_kardan"
     }
    ]
   },
@@ -4284,7 +4282,7 @@
     },
     {
      "label": "Remonter la pente",
-     "to": "D_puits_quitter"
+     "back": "D_puits_quitter"
     }
    ]
   },
@@ -4346,7 +4344,7 @@
     },
     {
      "label": "Remonter la pente",
-     "to": "D_puits_quitter"
+     "back": "D_puits_quitter"
     }
    ]
   },
@@ -5660,8 +5658,7 @@
    ],
    "choices": [
     {
-     "label": "Repartir",
-     "to": "@route"
+     "back": "@route"
     }
    ]
   },
@@ -6156,6 +6153,7 @@
   "O_kardan": {
    "act": "III",
    "title": "Kardan, au petit jour",
+   "backName": "la place de Kardan",
    "place": "kardan",
    "hub": true,
    "text": [
@@ -6468,8 +6466,7 @@
    ],
    "choices": [
     {
-     "label": "Retourner sur la place",
-     "to": "O_kardan"
+     "back": "O_kardan"
     }
    ]
   },
@@ -6482,8 +6479,7 @@
    ],
    "choices": [
     {
-     "label": "Retourner sur la place",
-     "to": "O_kardan"
+     "back": "O_kardan"
     }
    ]
   },
@@ -6496,8 +6492,7 @@
    ],
    "choices": [
     {
-     "label": "Retourner sur la place",
-     "to": "O_kardan"
+     "back": "O_kardan"
     }
    ]
   },
@@ -6568,8 +6563,7 @@
    ],
    "choices": [
     {
-     "label": "Retourner sur la place",
-     "to": "O_kardan"
+     "back": "O_kardan"
     }
    ]
   },
@@ -6582,8 +6576,7 @@
    ],
    "choices": [
     {
-     "label": "Retourner sur la place",
-     "to": "O_kardan"
+     "back": "O_kardan"
     }
    ]
   },
@@ -6673,8 +6666,7 @@
    ],
    "choices": [
     {
-     "label": "Retourner sur la place avec lui",
-     "to": "O_kardan"
+     "back": "O_kardan"
     }
    ]
   },
@@ -6687,8 +6679,7 @@
    ],
    "choices": [
     {
-     "label": "Retourner sur la place",
-     "to": "O_kardan"
+     "back": "O_kardan"
     }
    ]
   },
@@ -6816,8 +6807,7 @@
    ],
    "choices": [
     {
-     "label": "Redescendre vers la place",
-     "to": "O_kardan"
+     "back": "O_kardan"
     }
    ]
   },
@@ -7087,8 +7077,7 @@
    ],
    "choices": [
     {
-     "label": "Retourner sur la place",
-     "to": "O_kardan"
+     "back": "O_kardan"
     }
    ]
   },
@@ -7101,8 +7090,7 @@
    ],
    "choices": [
     {
-     "label": "Retourner sur la place",
-     "to": "O_kardan"
+     "back": "O_kardan"
     }
    ]
   },
@@ -7158,8 +7146,7 @@
    ],
    "choices": [
     {
-     "label": "Retourner sur la place",
-     "to": "O_kardan"
+     "back": "O_kardan"
     }
    ]
   },
@@ -7172,8 +7159,7 @@
    ],
    "choices": [
     {
-     "label": "Retourner sur la place",
-     "to": "O_kardan"
+     "back": "O_kardan"
     }
    ]
   },
@@ -7233,8 +7219,7 @@
    ],
    "choices": [
     {
-     "label": "Redescendre sur la place",
-     "to": "O_kardan"
+     "back": "O_kardan"
     }
    ]
   },

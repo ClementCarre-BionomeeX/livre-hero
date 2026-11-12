@@ -20,11 +20,11 @@ module.exports = {
     ],
     choices: [
       { label: "Essayer de répéter le mot", to: "II_g_corbeau_blanc_mot" },
-      { label: "Revenir dans la grotte", to: "II_N2_grotte" },
+      { back: "II_N2_grotte" },
     ] }),
   II_g_corbeau_blanc_mot: P2({ title: "Deux syllabes",
     text: ["Tu essaies. Ta bouche ne sait pas faire les boucles. Ce qui sort ressemble à un mot du clan, un mot pour la neige qui tient. Le corbeau, là-haut, secoue la tête, comme un maître devant un mauvais élève. Puis il cache sa tête sous son aile. Tu gardes les deux syllabes, telles que tu les as entendues, quelque part derrière les yeux."],
-    choices: [{ label: "Revenir dans la grotte", to: "II_N2_grotte" }] }),
+    choices: [{ back: "II_N2_grotte" }] }),
 
   IV_m_cloche: P4({ title: "La cloche refondue",
     text: [
@@ -34,14 +34,14 @@ module.exports = {
     choices: [
       { label: "Aider les frères à la monter", test: { dom: "nature", label: "La cloche", help: [{ if: { present: "corbe" }, v: 10 }, { if: { present: "gaspard" }, v: 10 }, { if: { item: "corde" }, v: 10 }] },
         win: { fx: { flag: "iv:cloche_moutier", ep: ["perso", 800] }, to: "IV_m_cloche_montee" }, lose: { fx: { pv: -2 }, to: "IV_m_cloche_rate" } },
-      { label: "Revenir sous les arcades", to: "IV_moutier" },
+      { label: "Revenir sous les arcades", back: "IV_moutier" },
     ] }),
   IV_m_cloche_montee: P4({ title: "Le premier coup",
     text: ["Vous la montez à la corde, à huit, frères et voyageurs mêlés, en chantant pour tenir l'effort. Elle monte. Elle se cale sur son joug. Frère Odon tire la corde, une fois. Le son descend dans la vallée, rond, lent, très long. Au bout d'un moment, très loin, au nord, une autre cloche lui répond. Personne ne sait laquelle."],
-    choices: [{ label: "Revenir sous les arcades", to: "IV_moutier" }] }),
+    choices: [{ label: "Revenir sous les arcades", back: "IV_moutier" }] }),
   IV_m_cloche_rate: P4({ title: "La corde",
     text: ["La corde glisse, la cloche redescend d'un coup, et vous la retenez de justesse, à trois pieds du sol, les paumes en feu. Frère Odon décide qu'on la montera demain, à la fraîche, avec plus de bras. Elle reste sur ses tréteaux. Elle attendra. Elle a l'habitude, dit-il."],
-    choices: [{ label: "Revenir sous les arcades", to: "IV_moutier" }] }),
+    choices: [{ label: "Revenir sous les arcades", back: "IV_moutier" }] }),
 
   III_a_remparts: P3({ title: "Les remparts", place: "valcendre",
     text: [

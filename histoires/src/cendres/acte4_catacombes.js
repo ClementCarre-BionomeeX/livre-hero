@@ -36,14 +36,14 @@ module.exports = {
     ],
     choices: [
       { label: "Prendre le pinceau, et repeindre les noms effacés", fx: { flag: "iv:ossuaire_pinceau", ep: ["perso", 600] }, to: "IV_O_cranes_peindre" },
-      { label: "Revenir à l'entrée des galeries", to: "IV_O_galeries" },
+      { back: "IV_O_galeries" },
     ] }),
   IV_O_cranes_peindre: P({ title: "Le pinceau", place: "pallanche",
     text: [
       "Tu n'as pas le registre de la paroisse. Mais sur le mur du fond, gravée dans la pierre, il y a la liste des morts de la paroisse, siècle après siècle, que personne n'a pensé à effacer parce que personne ne lit les murs. Tu prends le pinceau. Tu recopies, du mur aux fronts. Un nom par crâne, dans l'ordre.",
       "Tu en fais trente. Puis cinquante. Le pinceau s'use. Tu ne sais pas si tu mets le bon nom sur le bon crâne. Tu te dis que les morts s'arrangeront entre eux.",
     ],
-    choices: [{ label: "Revenir à l'entrée des galeries", to: "IV_O_galeries" }] }),
+    choices: [{ back: "IV_O_galeries" }] }),
   IV_O_loge: P({ title: "La loge du fossoyeur", place: "pallanche",
     text: [
       "Une petite pièce taillée dans le roc, avec une paillasse, une table, une cruche, un crucifix. Le fossoyeur y dormait. Il n'y est plus. Sur la table, son carnet, ouvert, avec une plume.",
@@ -55,7 +55,7 @@ module.exports = {
       "Au croisement de trois galeries, un puits. Pas d'eau. Un trou rond, noir, qui descend plus bas que tout, et d'où monte un froid de janvier. Sur la margelle, des traces. Pas de pieds. Des traces de quelque chose qui rampe, qui monte et qui descend, souvent.",
       "Tu laisses tomber une pierre. Tu n'entends pas le fond. Tu entends, au bout d'un long moment, très loin, une cloche. Une seule. Puis rien.",
     ],
-    choices: [{ label: "Revenir aux galeries", fx: { ep: ["perso", 300] }, to: "IV_O_galeries" }] }),
+    choices: [{ fx: { ep: ["perso", 300] }, back: "IV_O_galeries" }] }),
   IV_O_fond: P({ title: "Le mangeur de noms", place: "pallanche",
     text: [
       "La dernière galerie. Il est là. Blanc, accroupi entre deux étagères, grand comme un veau, sans visage. Il lèche un crâne, lentement, avec une langue grise, et le nom peint sur le front pâlit à chaque passage.",
@@ -93,5 +93,5 @@ module.exports = {
       { if: { has: "iv:ossuaire=nourri" }, text: "Tu lui expliques. Il te regarde comme si tu étais fou. Puis il réfléchit. « Des carnets, dit-il. Des vieux livres de comptes. Des almanachs. Il y en a plein la sacristie. » Il sourit, d'un sourire de vieux qui vient de trouver une bonne affaire. « Je le nourrirai. Il gardera les morts. Comme un chien. »" },
       { if: { not: { any: [{ has: "iv:ossuaire=nettoye" }, { has: "iv:ossuaire=nourri" }] } }, text: "Il voit ta figure. Il ne demande rien. Il te donne à boire, de sa cruche, du vin aigre. « Demain, un rang de plus, dit-il. Et après-demain. Je descendrai repeindre, tant que je pourrai. »" },
     ],
-    choices: [{ label: "Revenir chez la Veuve", fx: { quest: "IV_Q_ossuaire" }, to: "IV_pal" }] }),
+    choices: [{ fx: { quest: "IV_Q_ossuaire" }, back: "IV_pal" }] }),
 };

@@ -4,7 +4,7 @@
 // sister Perrine at Hautvent (iv:perrine, read in IV_br_hautvent).
 var A = { act: "IV", noLead: true, place: "brenne" };
 function P(o) { return Object.assign({}, A, o); }
-var BACK = [{ label: "Revenir dans le camp", to: "IV_br" }];
+var BACK = [{ back: "IV_br" }];
 module.exports = {
   IV_br_tilleul: P({ title: "Le tilleul du fort",
     text: [

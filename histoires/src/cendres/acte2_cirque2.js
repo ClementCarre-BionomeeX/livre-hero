@@ -4,7 +4,7 @@
 // read in IV_clan, or =vent).
 var N = { act: "II", noLead: true, place: "cirque" };
 function P(o) { return Object.assign({}, N, o); }
-var BACK = [{ label: "Revenir au bord du cirque", to: "II_N4_cirque" }];
+var BACK = [{ back: "II_N4_cirque" }];
 module.exports = {
   II_c_poupee: P({ title: "La poupée",
     text: [

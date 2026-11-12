@@ -5,7 +5,7 @@
 // the wolves of the war. Each one returns to the road.
 function P(act) { return function (o) { return Object.assign({ act: act, noLead: true, place: null }, o); }; }
 var P2 = P("II"), P3 = P("III"), P4 = P("IV");
-var BACK = [{ label: "Reprendre la route", to: "@route" }];
+var BACK = [{ back: "@route" }];
 module.exports = {
   // ---------------------------------------------------------------- combes
   E2_source_chaude: P2({ title: "La source chaude",
@@ -142,7 +142,7 @@ module.exports = {
     ],
     choices: [
       { label: "Inviter la mariée à danser", fx: { ep: ["perso", 500], flag: "iv:noce" }, to: "E4_noce_danse" },
-      { label: "Repartir avant la fin", to: "@route" },
+      { label: "Repartir avant la fin", back: "@route" },
     ] }),
   E4_noce_danse: P4({ title: "La danse",
     text: [
@@ -169,7 +169,7 @@ module.exports = {
       "Dans le fossé, au bord de la route des Marches, une tombe. Un monticule de terre, une épée plantée, un casque bleu de Corvanne posé sur la garde. Pas de nom. Quelqu'un a mis des fleurs des champs, fraîches, ce matin.",
       "Plus loin, une paysanne bine son champ. Elle te voit regarder. « C'est moi, les fleurs, dit-elle. Il est mort chez moi, l'automne dernier, en revenant de la Lisse. Il m'a dit son nom. Je l'ai oublié le lendemain. Je n'ai rien cédé, pourtant. Je l'ai juste oublié. Comme ça. » Elle reprend sa binette. « Alors je mets des fleurs. »",
     ],
-    choices: [{ label: "Reprendre la route", fx: { ep: ["perso", 300] }, to: "@route" }] }),
+    choices: [{ fx: { ep: ["perso", 300] }, back: "@route" }] }),
   E4_loups_guerre: P4({ title: "Les loups de la guerre",
     combat: { title: "La meute", enemies: ["loup", "loup", "loup"], terrain: "nature", range: "contact",
       flee: { dom: "nature", label: "Grimper sur le talus", to: "@route" },

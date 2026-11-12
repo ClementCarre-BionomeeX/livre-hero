@@ -3,7 +3,7 @@
 // and talk about the order.
 var Y = { act: "I", noLead: true, place: "brenne" };
 function P(o) { return Object.assign({}, Y, o); }
-var BACK = [{ label: "Revenir dans la cour", to: "YS_cour" }];
+var BACK = [{ back: "YS_cour" }];
 module.exports = {
   YS_k_tilleul: P({ title: "Le tilleul",
     text: [

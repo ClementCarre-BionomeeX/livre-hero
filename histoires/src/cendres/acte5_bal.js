@@ -3,7 +3,7 @@
 // because the snow could not find whom to take (v:bal=danse|masques).
 var A = { act: "V", noLead: true, place: "pallanche" };
 function P(o) { return Object.assign({}, A, o); }
-var BACK = [{ label: "Revenir sur la place aux Clercs", to: "V_ville" }];
+var BACK = [{ back: "V_ville" }];
 module.exports = {
   V_v_bal: P({ title: "Le bal masqué",
     text: [

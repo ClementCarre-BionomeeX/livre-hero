@@ -3,7 +3,7 @@
 // a Gleaner will eat instead of names (iv:ossuaire=nourri).
 var A = { act: "V", noLead: true, place: "pallanche" };
 function P(o) { return Object.assign({}, A, o); }
-var BUREAU = [{ label: "Revenir dans le Bureau", to: "V_t_cessions" }];
+var BUREAU = [{ back: "V_t_cessions" }];
 module.exports = {
   V_e_dortoir: P({ title: "Le dortoir des pages",
     text: [
@@ -13,7 +13,7 @@ module.exports = {
     ],
     choices: [
       { label: "Graver quelque chose, toi aussi, sous un lit vide", fx: { ep: ["perso", 400], flag: "v:dortoir" }, to: "V_e_dortoir_grave" },
-      { label: "Revenir dans le Bureau", to: "V_t_cessions" },
+      { back: "V_t_cessions" },
     ] }),
   V_e_dortoir_grave: P({ title: "Sous le lit",
     text: ["Tu trouves un lit dont le plancher, dessous, est vierge. Un enfant qui n'a rien gardé, ou qui n'a pas osé. Tu prends ton couteau. Tu graves une roue de moulin, avec ses aubes, de travers. Puis, à côté, petit, un sifflet, un chien, une étoile. Ce que tu veux. Ce n'est pas pour toi. C'est pour le prochain enfant qui dormira là, s'il y en a un, et qui regardera dessous, une nuit, et qui saura que quelqu'un est passé avant lui et n'a pas oublié."],
@@ -27,14 +27,14 @@ module.exports = {
     choices: [
       { label: "Laisser Hylas faire ce qu'il veut de son sceau", hide: { not: { present: "hylas" } }, to: "V_e_sceaux_hylas" },
       { label: "Chercher le sceau de Mordace", to: "V_e_sceaux_mordace" },
-      { label: "Revenir dans le Bureau", to: "V_t_cessions" },
+      { back: "V_t_cessions" },
     ] }),
   V_e_sceaux_hylas: P({ title: "Le sceau de Hylas",
     text: [
       "Hylas décroche son sceau de sa ceinture. Le sceau d'argent qu'il porte depuis l'âge de quatorze ans, qui a scellé des milliers de cessions. Il le soupèse. Il le pose sur la table, au milieu de la salle.",
       "Puis il prend un autre sceau, au hasard, un vieux, tout noir, dans un casier, et il frappe. Une fois. Le sien se fend en deux, net, comme une noix. Il ramasse les deux moitiés. Il les met dans le casier vide, sous son étiquette. « Voilà, dit-il. La place est prise. Ils ne pourront plus m'y mettre. »",
     ],
-    choices: [{ label: "Revenir dans le Bureau", fx: { flag: "v:sceau_hylas", conf: { hylas: 10 }, ep: ["perso", 800] }, to: "V_t_cessions" }] }),
+    choices: [{ fx: { flag: "v:sceau_hylas", conf: { hylas: 10 }, ep: ["perso", 800] }, back: "V_t_cessions" }] }),
   V_e_sceaux_mordace: P({ title: "Le casier de Mordace",
     text: ["Il n'y en a pas. Le Greffier-Majeur n'est pas mort, son sceau est là-haut, à sa ceinture. Mais au bout du dernier rang, un casier est déjà étiqueté à son nom, comme celui des autres. Dedans, on a déjà mis quelque chose. Un petit sceau, de bois, taillé au couteau, maladroitement : un chien, gravé à l'envers. Un sceau d'enfant. Il l'a rangé là lui-même, à onze ans, peut-être, le jour où on lui a donné le vrai. Tu le laisses où il est."],
     choices: BUREAU }),

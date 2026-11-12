@@ -29,7 +29,7 @@ module.exports = {
       "En chemin, l'un de ses fils s'arrête, se retourne, regarde la crête. « Elle nous suit », dit-il. Personne ne la voit.",
       "Cette nuit-là, elle prend un cinquième renne, au bord du troupeau, à vingt pas des tentes.",
     ],
-    choices: [{ label: "Revenir au camp", fx: { quest: "CO_Q_loup", flag: "corbe:loup=perdue" }, to: "CO_camp" }] }),
+    choices: [{ fx: { quest: "CO_Q_loup", flag: "corbe:loup=perdue" }, back: "CO_camp" }] }),
   CO_L_taniere: P({ title: "La tanière",
     text: [
       "Tu t'accroupis. La neige du replat n'est pas comme l'autre : plus lisse, plus fine. Tu souffles dessus. Dessous, les empreintes continuent, recouvertes d'une neige blanche, plus blanche que la neige. Quelque chose les efface derrière la louve, à mesure qu'elle passe.",
@@ -55,18 +55,18 @@ module.exports = {
       "Dans la fente, les louveteaux crient. Bjarki les regarde. « On ne peut pas les laisser, dit-il. On ne peut pas les prendre. » Il lève sa lance. Tu détournes la tête. Ça ne dure pas.",
       "En redescendant, personne ne parle. Les rennes sont sauvés. Ce n'est pas une victoire. C'est seulement fini.",
     ],
-    choices: [{ label: "Revenir au camp", fx: { quest: "CO_Q_loup" }, to: "CO_camp" }] }),
+    choices: [{ fx: { quest: "CO_Q_loup" }, back: "CO_camp" }] }),
   CO_L_nommee: P({ title: "Ce qu'elle avait oublié",
     text: [
       "Tu poses ta lance. Tu prends le tambour. Tu bats, doucement, le rythme des veillées, et tu parles à la louve comme on parle au rite, dans la vieille langue. Tu ne lui dis pas un nom. Les loups n'ont pas de nom. Tu lui dis ce qu'il y a derrière elle. Trois petits. Gris. À toi. Ils ont faim.",
       "Elle tourne la tête. Lentement. Ses yeux blancs se posent sur la fente, sur les louveteaux, qui crient. Et, du fond du blanc, quelque chose remonte, une couleur, un jaune de loup, d'abord au bord des pupilles, puis partout.",
       "Elle entre dans la tanière. Elle se couche. Les louveteaux se jettent sur elle. Elle ne vous regarde plus. Elle ne regarde plus que ses petits. Bjarki baisse sa lance, lentement, et il te regarde, toi, comme on regarde une Bouche pour la première fois.",
     ],
-    choices: [{ label: "Revenir au camp", fx: { quest: "CO_Q_loup", conf: { corbe: 10 } }, to: "CO_camp" }] }),
+    choices: [{ fx: { quest: "CO_Q_loup", conf: { corbe: 10 } }, back: "CO_camp" }] }),
   CO_L_chassee: P({ title: "Vers le nord",
     text: [
       "Vous criez, vous frappez les lances sur les rochers, vous lancez des pierres. La louve recule, sans comprendre, puis elle s'en va, vers le nord, vers le col, d'un trot lent, sans se retourner. Elle ne se retourne jamais.",
       "Les louveteaux, vous les ramenez au camp, dans un sac. Les enfants se les disputent. Les vieux disent que c'est une mauvaise idée. Ils grandiront avec les chiens, et ils ne sauront jamais ce qu'ils sont.",
     ],
-    choices: [{ label: "Revenir au camp", fx: { quest: "CO_Q_loup" }, to: "CO_camp" }] }),
+    choices: [{ fx: { quest: "CO_Q_loup" }, back: "CO_camp" }] }),
 };

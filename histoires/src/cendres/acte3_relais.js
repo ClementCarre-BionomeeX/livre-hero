@@ -4,7 +4,7 @@
 // little wooden god nobody prays to any more, sitting by the fire (iii:petit_dieu).
 var A = { act: "III", noLead: true, place: "plaine" };
 function P(o) { return Object.assign({}, A, o); }
-var BACK = [{ label: "Revenir dans la salle", to: "III_r_salle" }];
+var BACK = [{ back: "III_r_salle" }];
 var RENDU = { has: "nord:rendu=sauvelune" };
 module.exports = {
   III_r_salle: P({ title: "Le relais du Gué-Blanc",
@@ -18,7 +18,7 @@ module.exports = {
       { label: "Chercher dans le registre les gens de Sauvelune", hide: { seen: "III_r_sauvelune" }, to: "III_r_sauvelune" },
       { label: "Signer le registre, toi aussi", hide: { seen: "III_r_signer" }, to: "III_r_signer" },
       { label: "Le petit dieu de bois, assis au coin du feu", hide: { seen: "III_r_dieu" }, to: "III_r_dieu" },
-      { label: "Reprendre la route", to: "III_plaine" },
+      { back: "III_plaine" },
     ] }),
   III_r_sauvelune: P({ title: "Les pages de Sauvelune",
     text: [
@@ -26,7 +26,7 @@ module.exports = {
       { if: { not: RENDU }, text: "Il s'arrête. « Sauvelune. Ils sont passés il y a quelques jours, tout un village. Ils ont pris la soupe. » Une page entière, de sa main à lui : ils ne savaient plus signer leur nom. *Un vieux avec des abeilles dans la barbe, il dit qu'il en a douze ruches. Une femme forte, les mains rouges, elle a demandé si quelqu'un avait vu son fils. Un homme qui ne parle pas, qui a réparé le banc. Un petit garçon qui siffle.* Tu lis la page deux fois. Tu poses le doigt sur *son fils*. Anthelme te regarde. Il ne demande rien." },
       { if: RENDU, text: "Il cherche. Il fronce les sourcils. « Sauvelune. Il y avait une page. » Il la trouve : elle est blanche. Pas effacée : blanche, comme si on n'y avait jamais rien écrit. « Ils sont repartis, dit-il. Dans l'autre sens. Quelqu'un les a rappelés. Ça arrive. Pas souvent. » Il passe la main sur la page blanche, content, comme on passe la main sur une table qu'on vient de nettoyer." },
     ],
-    choices: [{ label: "Revenir dans la salle", fx: { ep: ["perso", 500] }, to: "III_r_salle" }] }),
+    choices: [{ fx: { ep: ["perso", 500] }, back: "III_r_salle" }] }),
   III_r_signer: P({ title: "La règle de la maison",
     text: [
       "Il te tend la plume. Tu hésites. Quel nom ? Celui de Sauvelune, que le Père Anselme a écrit au temple, est le seul que tu connaisses. Mais depuis que tu marches dans ce blanc où il te semble être déjà venu, tu n'es plus sûr de n'en avoir qu'un. Anthelme attend. Il a l'habitude des gens qui hésitent, ici.",

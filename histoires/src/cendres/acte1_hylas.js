@@ -85,17 +85,17 @@ module.exports = {
       "Elle s'en va. Baudoin te regarde longtemps, tu le sens à sa façon de ne pas bouger. « Le Greffier-Majeur le saura, maître. »",
       "« Je sais. »",
     ],
-    choices: [{ label: "Remonter", to: "HY_tour" }] }),
+    choices: [{ back: "HY_tour" }] }),
 
   HY_marion_choisit: P({ title: "Ce qu'on garde",
     text: [
       "Tu lui dis ce que dit le reçu. Elle t'écoute. Quand tu as fini, elle reste un long moment immobile. Puis elle dit : « Non. Gardez-le. Je ne veux pas le savoir. Mais je voulais savoir que je l'avais su. » Elle s'en va. Elle ne crie plus.",
     ],
-    choices: [{ label: "Remonter", to: "HY_tour" }] }),
+    choices: [{ back: "HY_tour" }] }),
 
   HY_marion_partie: P({ title: "Dehors",
     text: ["Deux gardes la raccompagnent dans la rue. Elle crie encore longtemps sous les fenêtres. Puis plus du tout. Baudoin reprend sa file. « Suivant. »"],
-    choices: [{ label: "Remonter", to: "HY_tour" }] }),
+    choices: [{ back: "HY_tour" }] }),
 
   // the black register
   HY_caveau: P({ title: "La porte sous les caves",
@@ -109,12 +109,12 @@ module.exports = {
         win: { fx: { ep: ["perso", 600] }, to: "HY_salle_noire" }, lose: { fx: { flag: "hylas:bruit" }, to: "HY_gardien" } },
       { label: "Demander la clé à l'archiviste, en lui mentant", test: { dom: "social", label: "Mensonge", diff: -10 },
         win: { fx: { ep: ["perso", 600] }, to: "HY_salle_noire" }, lose: { fx: { flag: "mordace:soupcon" }, to: "HY_caveau_refus" } },
-      { label: "Remonter. Pas aujourd'hui", to: "HY_tour" },
+      { label: "Remonter. Pas aujourd'hui", back: "HY_tour" },
     ] }),
 
   HY_caveau_refus: P({ title: "L'archiviste",
     text: ["L'archiviste, Frère Amaury, t'écoute jusqu'au bout. « La clé du caveau est chez le Greffier-Majeur, maître. Depuis le printemps. Je lui dirai que vous l'avez demandée. Il sera content de savoir que vous vous intéressez encore aux archives. »"],
-    choices: [{ label: "Remonter", to: "HY_tour" }] }),
+    choices: [{ back: "HY_tour" }] }),
 
   HY_gardien: P({ title: "Ce qui garde la porte",
     combat: { title: "Le gardien du caveau", enemies: ["glaneur_petit"], terrain: "bati", range: "contact",
@@ -135,7 +135,7 @@ module.exports = {
       "*Sauvelune.*",
       { if: { souv: "hylas:enfant" }, text: "Tu restes longtemps la main posée sur ce mot." },
     ],
-    choices: [{ label: "Remonter, avant qu'on te trouve", to: "HY_tour" }] }),
+    choices: [{ label: "Remonter, avant qu'on te trouve", back: "HY_tour" }] }),
 
   // the audience
   HY_mordace: P({ title: "Le Greffier-Majeur",

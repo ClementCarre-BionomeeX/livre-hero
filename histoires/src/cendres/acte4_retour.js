@@ -56,7 +56,7 @@ module.exports = {
       "« Tu ne sais pas ce que tu demandes, dit-elle. Mais personne ne me l'a demandé depuis un an. » Elle va chercher son manteau. Elle dit adieu à chaque berceau, un par un, sans les toucher.",
       "Sur le seuil, elle s'arrête. « Si je prends quelque chose à l'un de vous, dit-elle sans se retourner, dites-le-moi. Je ne m'en apercevrai pas. C'est le pire. »",
     ],
-    choices: [{ label: "Revenir dans le cloître", to: "IV_moutier" }] }),
+    choices: [{ back: "IV_moutier" }] }),
 
   IV_ombeline_part: P({ title: "Une part", place: "moutier",
     text: [
@@ -76,7 +76,7 @@ module.exports = {
       "Tu essaies de te rappeler ce que tu as promis à ton père, un jour, il y a longtemps. Tu sais qu'il y a eu une promesse. Tu ne sais plus laquelle. Tu as un peu moins envie de rentrer.",
       "Ombeline a les yeux pleins de larmes. « Ça ne se fait pas, dit-elle. On ne prend pas la moitié du fardeau des autres. » Elle va chercher son manteau quand même.",
     ],
-    choices: [{ label: "Revenir dans le cloître", to: "IV_moutier" }] }),
+    choices: [{ back: "IV_moutier" }] }),
 
   IV_moutier: P({ title: "Le cloître des Veilleurs", place: "moutier", hub: true,
     text: [
@@ -90,7 +90,7 @@ module.exports = {
       { label: "Frère Odon, et le livre des arrivées", hide: { seen: "IV_Q_odon" }, to: "IV_Q_odon" },
       { label: "Frère Odon, qui t'attend sous les arcades", hide: { any: [{ seen: "IV_N_entree" }, { not: { seen: "IV_Q_odon" } }] }, to: "IV_N_entree" },
       { label: "Veiller avec Ombeline, dans la chapelle", hide: { any: [{ seen: "IV_V_ombeline" }, { not: { present: "ombeline" } }] }, to: "IV_V_ombeline" },
-      { label: "Rejoindre Corbe sur le toit du cloître", hide: { any: [{ seen: "IV_V_corbe" }, { not: { present: "corbe" } }] }, to: "IV_V_corbe" },
+      { label: "Rejoindre Corbe sur le toit du cloître", hide: { any: [{ seen: "IV_V_corbe" }, { not: { present: "corbe" } }] }, back: "IV_V_corbe" },
       { label: "Givre, couché à trois pas du feu", hide: { any: [{ seen: "IV_V_givre" }, { not: { present: "givre" } }] }, to: "IV_V_givre" },
       { label: "Le jardin des simples, derrière le cloître", hide: { seen: "IV_m_jardin" }, to: "IV_m_jardin" },
       { label: "Un novice qui balaie, une coquille à l'épaule", hide: { seen: "IV_m_novice" }, to: "IV_m_novice" },
@@ -111,14 +111,14 @@ module.exports = {
       "*Le dix-neuf de mars, la neige s'est arrêtée. Personne ne sait pourquoi. Frère Odon dit qu'il a senti, cette nuit-là, quelque chose se fermer, très loin au nord, comme une main.*",
       "Tu penses au bourdon de Bourdonne, à la corde qui t'a brûlé les mains. Là-bas, il n'y avait pas de dates.",
     ],
-    choices: [{ label: "Revenir dans le cloître", fx: { flag: "iv:chronique" }, to: "IV_moutier" }] }),
+    choices: [{ fx: { flag: "iv:chronique" }, back: "IV_moutier" }] }),
 
   IV_arnoul: P({ title: "Le prieur", place: "moutier",
     text: [
       { if: { has: "nord:rendu=arnoul" }, text: "« Le Livre des Veilles dit ce qu'il faut faire quand la porte rend quelqu'un, dit Arnoul. Je l'ai lu cent fois. Il dit : *conduisez-le au caveau de la plume et de la clé, et qu'il lise ce qui est barré.* Je n'ai jamais compris. Maintenant je comprends. » Il te prend le poignet, d'une poigne de vieux soldat. « Le registre d'Anselin. Le premier. Celui qu'aucun greffier ne devait ouvrir. Il est sous la tour. Mordace l'a ouvert. Tu es le seul qui puisse le lire jusqu'au bout. Ne le laisse pas à cet homme. »" },
       { if: { not: { has: "nord:rendu=arnoul" } }, text: "Le vieil homme te sourit. Il ne sait pas qui tu es. Il te dit qu'il a fait un rêve, cette nuit : un caveau, sous une tour, et un livre noir qu'on lui demandait de garder. Il ne sait plus pour qui. « C'est drôle, dit-il, les rêves. On dirait des ordres. »" },
     ],
-    choices: [{ label: "Revenir dans le cloître", fx: { flag: "iv:arnoul", clue: "n_caveau" }, to: "IV_moutier" }] }),
+    choices: [{ fx: { flag: "iv:arnoul", clue: "n_caveau" }, back: "IV_moutier" }] }),
 
   IV_depart_sud: P({ title: "Le départ", place: "moutier",
     text: [

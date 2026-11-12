@@ -29,13 +29,46 @@
   var DEFEND_BONUS = 25, FLEE_DIFF = -10, CRIT_OVER = 50, DMG_PER_10 = 1, UNARMED_DMG = 2, COMPANION_DMG = 4, ENEMY_HIT_BONUS = 0;
   var SELL_RATE = 0.5;
 
+  // Difficulty chosen at the start of a game (Clément, 12/11): the engine adjusts the hero's rolls and the foes; the
+  // story has nothing to change. Game choices: Conteur forgives, Héroïque bites.
+  var DIFFICULTY = {
+    conteur: { label: "Conteur", tip: "Pour savourer l'histoire : jets plus faciles, adversaires moins coriaces.", roll: 15, foePv: 0.75, foeHit: -10 },
+    aventurier: { label: "Aventurier", tip: "L'équilibre prévu par l'histoire.", roll: 0, foePv: 1, foeHit: 0 },
+    heroique: { label: "Héroïque", tip: "Pour les vieux routiers : jets plus durs, adversaires plus solides.", roll: -10, foePv: 1.25, foeHit: 10 },
+  };
+  function diffOf(s) { return DIFFICULTY[(s && s.difficulty) || "aventurier"] || DIFFICULTY.aventurier; }
+  function diffTerm(s) { var d = diffOf(s); return d.roll ? (d.roll > 0 ? " + " : " − ") + Math.abs(d.roll) + " (" + d.label.toLowerCase() + ")" : ""; }
+
   var RNG = Math.random;
   function setRng(f) { RNG = f || Math.random; }
+  // Real dice (Clément, 12/11): the page may hand the engine the reader's own d100 throws for the reader's rolls.
+  // DICE() returns 1..100, or null to let the engine roll. Companions and foes always roll with the engine.
+  var DICE = null;
+  function setDice(f) { DICE = f || null; }
   function die(n) { return 1 + Math.floor(RNG() * n); }
   function pick(a) { return a[Math.floor(RNG() * a.length)]; }
 
   // ------------------------------------------------------------------ state
+  // Intent: prepare(Story) -> Story ! a return written `back: "PASSAGE"` gets its destination and its label from the engine
+  // Why: Clément (12/11): no hand-written way back, no exception. The author says where the scene returns; the engine
+  // writes "Revenir : <the passage's title>" ("Reprendre la route" for @route), so a label can never name another place.
+  // An author's own label is kept only when it says more than the way back; the button then shows "→ <destination>".
+  function cap(x) { return x ? x.charAt(0).toUpperCase() + x.slice(1) : x; }
+  // A passage may name itself as a destination (backName) when its title is a moment ("Le soir") rather than a place.
+  function prepare(story) {
+    if (!story || !story.passages || story.__prepared) return story;
+    Object.keys(story.passages).forEach(function (id) {
+      (story.passages[id].choices || []).forEach(function (c) {
+        if (c.back == null || c.back === true) return;
+        c.to = c.back;
+        if (!c.label) { var tp = story.passages[c.back]; c.label = c.back === "@route" ? "Reprendre la route" : "Revenir : " + cap(String((tp && (tp.backName || tp.title)) || c.back).replace(/\*/g, "")); c.autoBack = true; }
+      });
+    });
+    try { Object.defineProperty(story, "__prepared", { value: true, enumerable: false }); } catch (e) { story.__prepared = true; }
+    return story;
+  }
   function freshState(story, opts) {
+    prepare(story);
     opts = opts || {};
     var lv = (story.acts && story.acts[0] && story.acts[0].levels && story.acts[0].levels[0]) || 1;
     var w = story.world || {};
@@ -44,6 +77,7 @@
       fac: {}, met: {}, relics: [], given: [], items: ((w.start && w.start.items) || []).slice(), gold: (w.start && w.start.gold) || 0, food: (w.start && w.start.food) || 0,
       pv: null, fatigue: 0, time: START_HOUR, place: (w.start && w.start.place) || null, known: {}, people: {}, travel: null, combat: null,
       clock: {}, seen: {}, ret: null, events: [], toutJouer: opts.toutJouer !== false, turn: 0, routesDone: {},
+      difficulty: DIFFICULTY[opts.difficulty] ? opts.difficulty : "aventurier", stats: {}, feats: {},
     };
   }
   function levelOfEp(ep) { return Math.min(MAX_LEVEL, Math.max(1, Math.floor(ep / EP_PER_LEVEL))); }
@@ -87,27 +121,31 @@
     }
     return b;
   }
-  function openD100() {
-    var r = die(100), rolls = [r], total = r, x;
-    if (r >= 96) { do { x = die(100); rolls.push(x); total += x; } while (x >= 96); }
-    else if (r <= 5) { do { x = die(100); rolls.push(-x); total -= x; } while (x >= 96); }
+  function openD100(mine) {
+    var d = function () { var v = mine && DICE ? DICE() : null; return v >= 1 && v <= 100 ? Math.floor(v) : die(100); };
+    var r = d(), rolls = [r], total = r, x;
+    if (r >= 96) { do { x = d(); rolls.push(x); total += x; } while (x >= 96); }
+    else if (r <= 5) { do { x = d(); rolls.push(-x); total -= x; } while (x >= 96); }
     return { total: total, rolls: rolls };
   }
+  // The reader's statistics, read by the feats (hauts faits).
+  function stat(s, k, n) { s.stats = s.stats || {}; s.stats[k] = (s.stats[k] || 0) + (n == null ? 1 : n); }
   function helpOf(story, s, t) {
     var h = 0;
     (t.help || []).forEach(function (x) { if (tagsOk(story, s, x, s.node) && evalCond(story, s, x.if)) h += x.v || 0; });
     return h;
   }
   function rollTest(story, s, t, who) {
-    var b = bonus(story, s, t.dom, who), help = helpOf(story, s, t), diff = t.diff || 0;
-    var r = openD100(), total = r.total + b + diff + help, ok = total >= SUCCESS;
+    var b = bonus(story, s, t.dom, who), help = helpOf(story, s, t), diff = t.diff || 0, lv = diffOf(s).roll;
+    var r = openD100(true), total = r.total + b + diff + help + lv, ok = total >= SUCCESS;
+    stat(s, "tests"); if (ok) stat(s, "testsOk"); if (r.rolls[0] >= 96) stat(s, "open");
     return { die: r.total, rolls: r.rolls, bonus: b, help: help, diff: diff, total: total, target: SUCCESS, ok: ok,
       line: "d100 ouvert " + (r.rolls.length > 1 ? "(" + r.rolls.join(" ") + ") " : "") + r.total + " + " + DOMAINS[t.dom] + " " + b +
-        (diff ? (diff > 0 ? " + " : " − ") + Math.abs(diff) + (DIFFS[diff] ? " (" + DIFFS[diff] + ")" : "") : "") + (help ? (help > 0 ? " + " : " − ") + Math.abs(help) + " (aide)" : "") +
+        (diff ? (diff > 0 ? " + " : " − ") + Math.abs(diff) + (DIFFS[diff] ? " (" + DIFFS[diff] + ")" : "") : "") + (help ? (help > 0 ? " + " : " − ") + Math.abs(help) + " (aide)" : "") + diffTerm(s) +
         " = " + total + " (il faut " + SUCCESS + ")" };
   }
   function chance(story, s, t, who) {
-    var need = SUCCESS - bonus(story, s, t.dom, who) - (t.diff || 0) - helpOf(story, s, t);
+    var need = SUCCESS - bonus(story, s, t.dom, who) - (t.diff || 0) - helpOf(story, s, t) - diffOf(s).roll;
     return Math.max(5, Math.min(95, 101 - need));
   }
 
@@ -815,7 +853,8 @@
     var foes = [];
     (fight.enemies || []).forEach(function (e, i) {
       var d = enemyDef(story, e.id || e), n = e.n || 1;
-      for (var j = 0; j < n; j++) foes.push({ key: (e.id || e) + "-" + i + "-" + j, name: d.name + (n > 1 ? " " + (j + 1) : ""), pv: d.pv, pvMax: d.pv, att: d.att, def: d.def, dmg: d.dmg,
+      var fpv = Math.max(1, Math.round(d.pv * diffOf(s).foePv));
+      for (var j = 0; j < n; j++) foes.push({ key: (e.id || e) + "-" + i + "-" + j, name: d.name + (n > 1 ? " " + (j + 1) : ""), pv: fpv, pvMax: fpv, att: d.att, def: d.def, dmg: d.dmg,
         flank: !!d.flank, ranged: !!d.ranged, down: false, open: false, trapped: 0, asleep: false });
     });
     var c = s.combat = { foes: foes, round: 0, win: fight.win, lose: fight.lose, flee: fight.flee || null, talk: fight.talk || null, calm: fight.calm || null,
@@ -844,12 +883,13 @@
   // Intent: strike(Story, State, Foe, Opts) -> Result ! rolls, hurts the foe
   // Why: one attack rule for the hero's blows, shots and techniques; opts carry the technique's modifiers.
   function heroStrike(story, s, foe, o) {
-    var c = s.combat, w = o.weapon, r = openD100(), b = bonus(story, s, o.dom || "combat"), wb = (w && w.att) || 0;
+    var c = s.combat, w = o.weapon, r = openD100(true), b = bonus(story, s, o.dom || "combat") + diffOf(s).roll, wb = (w && w.att) || 0;
     var master = !o.spell && w && s.arch === "guerrier" ? MASTER_HIT : 0, shadow = c.hidden ? SHADOW_HIT : 0, d = foeDef(foe);
     var total = r.total + b + wb + master + shadow + (o.mod || 0) - d;
     var line = (o.label || "Attaque") + " sur " + foe.name + " · d100 ouvert " + r.total + " + " + DOMAINS[o.dom || "combat"] + " " + b + (wb ? " + arme " + wb : "") + (master ? " + maître d'armes " + master : "") +
       (shadow ? " + caché " + shadow : "") + (o.mod ? (o.mod > 0 ? " + " : " − ") + Math.abs(o.mod) : "") + " − défense " + d + " = " + total;
     var wasOpen = foe.open; foe.open = false;
+    if (total - SUCCESS >= CRIT_OVER) stat(s, "crits");
     if (c.hidden && !o.keepHidden) c.hidden = false;
     if (total < SUCCESS) { say(s, o.tech, "ko", foe); ev(s, line + " → manqué", "bad roll"); return { ok: false, total: total }; }
     var dmg = (o.dmg != null ? o.dmg : (w ? w.dmg : UNARMED_DMG)) + (master ? MASTER_DMG : 0) + Math.floor((total - SUCCESS) / 10) * DMG_PER_10, crit = total - SUCCESS >= CRIT_OVER;
@@ -862,7 +902,7 @@
   }
   // Intent: roll(Story, State, Dom, Mod, Label) -> Result
   function heroRoll(story, s, dom, mod, label) {
-    var r = openD100(), b = bonus(story, s, dom), total = r.total + b + (mod || 0);
+    var r = openD100(true), b = bonus(story, s, dom) + diffOf(s).roll, total = r.total + b + (mod || 0);
     return { ok: total >= SUCCESS, total: total, extra: Math.floor((total - SUCCESS) / 10),
       line: label + " · d100 ouvert " + r.total + " + " + DOMAINS[dom] + " " + b + (mod ? (mod > 0 ? " + " : " − ") + Math.abs(mod) : "") + " = " + total };
   }
@@ -996,7 +1036,7 @@
       var who = targetOf(story, s, f);
       if (!who) { ev(s, f.name + " te cherche et ne te trouve pas."); return; }
       var def = defenceOf(story, s, who), malus = (c.dread || 0) + (c.distract || 0) + (c.soothed ? SOOTHE : 0) + (who === "hero" && c.line ? LINE_HIT : 0);
-      var r = openD100(), total = r.total + f.att + ENEMY_HIT_BONUS - def - malus;
+      var r = openD100(), total = r.total + f.att + ENEMY_HIT_BONUS + diffOf(s).foeHit - def - malus;
       var whom = who === "hero" ? "te" : nameOf(story, who);
       var line = r.total + " + " + f.att + " − défense " + def + (malus ? " − " + malus : "") + " = " + total;
       if (total >= SUCCESS) {
@@ -1014,7 +1054,8 @@
     var br = outcome === "win" ? c.win : outcome === "flee" ? c.flee : outcome === "talk" ? c.talk.win : outcome === "calm" ? c.calm : c.lose;
     s.last = outcome === "talk" ? "calm" : outcome;
     if (outcome === "lose") { s.pv = 1; ev(s, "Tu t'effondres. Ce n'est pas la fin.", "bad"); }
-    if (outcome === "win") ev(s, "Victoire.", "good");
+    if (outcome === "win") { ev(s, "Victoire.", "good"); stat(s, "wins"); }
+    if (outcome === "flee") stat(s, "flees");
     if (c.arrowsUsed) { if (outcome === "win" || outcome === "calm" || outcome === "talk") { s.arrows += c.arrowsUsed; ev(s, "Tu ramasses tes flèches (" + s.arrows + ")."); } else ev(s, c.arrowsUsed + " flèche" + (c.arrowsUsed > 1 ? "s" : "") + " perdue" + (c.arrowsUsed > 1 ? "s" : "") + " (reste " + s.arrows + ").", "bad"); }
     Object.keys(s.cpv || {}).forEach(function (k) {
       if (present(s, k) && s.cpv[k] <= 0) {
@@ -1211,6 +1252,7 @@
     var here = s.node && story.passages[s.node] === p ? s.node : null;
     return (p.choices || []).filter(function (c) {
       if (hiddenChoice(story, s, c) || (c.who && !present(s, c.who))) return false;
+      if (c.back === true && (!s.hubLast || s.hubLast === here)) return false;
       if (!tagsOk(story, s, c, here)) return false;
       if (c.once && here && (s.once || {})["c|" + here + "|" + c.label]) return false;
       // A scene is only offered when its cast and its hour are there (the tags of the passages it leads to).
@@ -1257,7 +1299,9 @@
         v.text = [interp(s, plHere.desc || p.title || plHere.name || "…")]; guard(s, "texte vide");
       }
     }
-    v.choices = v.choices.map(function (c) { var a = allowed(story, s, p, c); return Object.assign({}, c, { ok: a.ok, why: a.why, goes: goesTo(story, s, p, c), note: c.refuse ? "refus définitif" : aheadOf(story, s, c) || c.note, chance: c.test ? chance(story, s, c.test, c.who) : null }); });
+    v.choices = v.choices.map(function (c) {
+      if (c.back === true && !c.label) { var hb = story.passages[s.hubLast] || {}; c = Object.assign({}, c, { label: "Revenir : " + cap(interp(s, String(hb.backName || hb.title || "").replace(/\*/g, ""))), autoBack: true }); }
+      var a = allowed(story, s, p, c); return Object.assign({}, c, { ok: a.ok, why: a.why, goes: backGoes(story, s, c) || goesTo(story, s, p, c), note: c.refuse ? "refus définitif" : aheadOf(story, s, c) || c.note, chance: c.test ? chance(story, s, c.test, c.who) : null }); });
     if (p) {
       // Guarantee: no twin buttons. Of several choices with the same words, the one that can be taken stays.
       var byLabel = {};
@@ -1287,6 +1331,11 @@
     var to = typeof c.to === "string" ? c.to : null, tp = to && story.passages[to];
     var tk = tp && takesOf(s, tp.takes);
     return tk ? "le temps passe : " + tk.ahead : "";
+  }
+  function backGoes(story, s, c) {
+    if (c.back == null || c.autoBack) return null;
+    var to = c.back === true ? s.hubLast : c.back, tp = story.passages[to];
+    return tp ? cap(interp(s, String(tp.backName || tp.title || "").replace(/\*/g, ""))) : null;
   }
   function goesTo(story, s, p, c) {
     var places = W(story).places || {};
@@ -1365,11 +1414,74 @@
     greetBack(story, s);
     if (p.combat) { startCombat(story, s, p.combat); s.combat.intro = textList(story, s, p.text).join("\n\n"); }
   }
+  // ------------------------------------------------------------------ feats and endings
+  // Feats (hauts faits, Clément 12/11): a few the engine knows for every story, read from the state, plus those a story
+  // declares (`achievements: { id: { title, desc, if } }`, a JSON condition). Each is told once, when it is earned.
+  var FEATS = [
+    { id: "victoire", title: "Première victoire", desc: "Gagner un combat.", test: function (st, s) { return (s.stats || {}).wins >= 1; } },
+    { id: "dix-victoires", title: "Vieille lame", desc: "Gagner dix combats.", test: function (st, s) { return (s.stats || {}).wins >= 10; } },
+    { id: "critique", title: "Coup de maître", desc: "Porter un coup critique.", test: function (st, s) { return (s.stats || {}).crits >= 1; } },
+    { id: "jet-ouvert", title: "La chance sourit", desc: "Faire 96 ou plus sur un jet.", test: function (st, s) { return (s.stats || {}).open >= 1; } },
+    { id: "acte-complet", title: "Rien laissé derrière", desc: "Finir toutes les quêtes d'un acte.", test: function (st, s) { return (st.acts || []).some(function (a) { var qs = questsOf(st, a.id); return qs.length > 1 && qs.every(function (q) { return questDone(s, q); }); }); } },
+    { id: "loyal", title: "À la vie, à la mort", desc: "Gagner la loyauté d'un compagnon.", test: function (st, s) { return Object.keys(st.companions || {}).some(function (k) { return !(st.heroes || {})[k] && s.met[k] && s.met[k] !== "gone" && (s.conf[k] || 0) >= LOYAL_AT; }); } },
+    { id: "voyageur", title: "Grand voyageur", desc: "Parcourir cinq routes.", test: function (st, s) { return Object.keys(s.routesDone || {}).length >= 5; } },
+    { id: "limier", title: "Fin limier", desc: "Réunir dix indices.", test: function (st, s) { return Object.keys(s.clues || {}).length >= 10; } },
+  ];
+  function featsOf(story) {
+    var out = FEATS.map(function (f) { return { id: f.id, title: f.title, desc: f.desc }; });
+    var dec = story.achievements || {};
+    Object.keys(dec).forEach(function (k) { out.push({ id: "h:" + k, title: dec[k].title || k, desc: dec[k].desc || "", story: true }); });
+    return out;
+  }
+  function checkFeats(story, s) {
+    s.feats = s.feats || {};
+    var dec = story.achievements || {};
+    FEATS.forEach(function (f) { if (!s.feats[f.id] && f.test(story, s)) { s.feats[f.id] = s.turn || 1; ev(s, "Haut fait : " + f.title, "feat"); } });
+    Object.keys(dec).forEach(function (k) { if (!s.feats["h:" + k] && dec[k].if != null && evalCond(story, s, dec[k].if)) { s.feats["h:" + k] = s.turn || 1; ev(s, "Haut fait : " + (dec[k].title || k), "feat"); } });
+  }
+  // Endings: a story says which one was reached with a flag `fin:<id>` (set by the ending's passage), or else each
+  // passage marked `end` is an ending. Titles come from the story (`endings: { id: { title } }`) or from the passage
+  // that sets the flag.
+  function endingsOf(story) {
+    if (story._endings) return story._endings;
+    var dec = story.endings || {}, out = [], seen = {};
+    Object.keys(story.passages || {}).forEach(function (id) {
+      var p = story.passages[id];
+      var fl = [].concat(((p.fx || {}).flag) || [], ((p.fx || {}).flags) || []);
+      fl.forEach(function (f) { if (typeof f === "string" && f.indexOf("fin:") === 0 && !seen[f]) { seen[f] = 1; out.push({ id: f, title: (dec[f.slice(4)] || {}).title || String(p.title || f.slice(4)).replace(/\*/g, "") }); } });
+    });
+    if (!out.length) Object.keys(story.passages || {}).forEach(function (id) { var p = story.passages[id]; if (p.end) out.push({ id: id, title: (dec[id] || {}).title || String(p.title || id).replace(/\*/g, "") }); });
+    try { Object.defineProperty(story, "_endings", { value: out, enumerable: false }); } catch (e) { /* frozen: recompute */ }
+    return out;
+  }
+  function endingOf(story, s) {
+    var p = story.passages[s.node]; if (!p || !p.end) return null;
+    var list = endingsOf(story), f = list.filter(function (e) { return e.id.indexOf("fin:") === 0 && s.flags[e.id]; })[0];
+    return f || list.filter(function (e) { return e.id === s.node; })[0] || { id: s.node, title: String(p.title || s.node) };
+  }
+
+  // Intent: ambiance(Story, State) -> Kind | null = the sound and picture of the moment
+  // Why: Clément (12/11): a passage or a place declares `ambiance` (foret, ville, village, montagne, neige, souterrain,
+  // eau, route, chateau, temple, champs, mer); the engine fills in the rest: a fight, the road, the night.
+  var AMBIANCES = ["foret", "ville", "village", "montagne", "neige", "souterrain", "eau", "route", "chateau", "temple", "champs", "mer", "combat", "nuit"];
+  function ambianceOf(story, s) {
+    if (s.combat) return "combat";
+    var p = (story.passages || {})[s.node] || {}, pl = (W(story).places || {})[p.place || s.place] || {};
+    if (p.ambiance) return p.ambiance;
+    if (s.travel) { var r = routeById(story, s.travel.route) || {}; return r.ambiance || (W(story).regions && (W(story).regions[r.region] || {}).ambiance) || "route"; }
+    return pl.ambiance || null;
+  }
+
   // Intent: apply(Story, State, Choice) -> () ! writes(State), random
   function choose(story, s, c) {
+    chooseInner(story, s, c);
+    checkFeats(story, s);
+  }
+  function chooseInner(story, s, c) {
     s.events = [];
     s.turn++;
     if (c.sys) return chooseSys(story, s, c);
+    if (c.back === true) c = Object.assign({}, c, { to: s.hubLast });
     if (c.once && s.node) { s.once = s.once || {}; s.once["c|" + s.node + "|" + c.label] = 1; }
     if (c.refuse) { var rq = questOfRefusal(story, s, c); if (rq) { s.flags["quete-refus:" + rq.id] = true; ev(s, "Quête refusée : " + rq.title + ". Tu n'y reviendras pas.", "quest"); } else guard(s, "refuse : aucune quête ouverte ici"); }
     s.last = null;
@@ -1416,10 +1528,10 @@
 
   var API = {
     ARCHS: ARCHS, TECHS: TECHS, techsOf: techsOf, partyView: partyView, cpv: cpv, cpvMax: cpvMax, FRONT: FRONT, DOMAINS: DOMAINS, EP: EP, EP_PER_LEVEL: EP_PER_LEVEL, MAX_LEVEL: MAX_LEVEL, DIFFS: DIFFS, LOYAL_AT: LOYAL_AT, SUCCESS: SUCCESS, STEP_HOURS: STEP_HOURS,
-    setRng: setRng, freshState: freshState, level: level, pvMax: pvMax, bonus: bonus, chance: chance, rollTest: rollTest,
+    setRng: setRng, setDice: setDice, ambianceOf: ambianceOf, AMBIANCES: AMBIANCES, isNightNow: function (s) { var h = s.time % 24; return h >= NIGHT_FROM || h < NIGHT_TO; }, DIFFICULTY: DIFFICULTY, featsOf: featsOf, endingsOf: endingsOf, endingOf: endingOf, freshState: freshState, level: level, pvMax: pvMax, bonus: bonus, chance: chance, rollTest: rollTest,
     evalCond: evalCond, describeCond: describeCond, textList: textList, view: view, allowed: allowed, target: target,
     apply: apply, enter: enter, choose: choose, start: start, present: present, loyal: loyal, clueCount: clueCount,
-    money: money, questsOf: questsOf, questState: questState, questDone: questDone, questRefused: questRefused, questStarted: questStarted, questMissed: questMissed, questScenes: questScenes, remaining: remaining, actOf: actOf, interp: interp, nameOf: nameOf,
+    money: money, prepare: prepare, questsOf: questsOf, questState: questState, questDone: questDone, questRefused: questRefused, questStarted: questStarted, questMissed: questMissed, questScenes: questScenes, remaining: remaining, actOf: actOf, interp: interp, nameOf: nameOf,
     isHero: isHero, heroIds: heroIds, heroSheet: heroSheet, heroLevel: heroLevel, setLead: setLead, souvOf: souvOf, souvKept: souvKept, souvCount: souvCount, levelOfEp: levelOfEp,
     item: item, weapon: weapon, armor: armor, useItem: useItem, day: day, timeLabel: timeLabel, routesFrom: routesFrom, isNight: isNight,
   };

@@ -4,7 +4,7 @@
 // for a memory back and no claim was ever granted; a clerk still sits there (v:reclamation=<whom>).
 function P(base) { return function (o) { return Object.assign({ noLead: true }, base, o); }; }
 var YS = P({ act: "I", place: "brenne" }), V = P({ act: "V", place: "pallanche" });
-var YS_BACK = [{ label: "Redescendre dans la cour", to: "YS_cour" }], V_BACK = [{ label: "Revenir dans le Bureau", to: "V_t_cessions" }];
+var YS_BACK = [{ back: "YS_cour" }], V_BACK = [{ back: "V_t_cessions" }];
 module.exports = {
   YS_k_chambre_pere: YS({ title: "La chambre de la tour du Loup",
     text: [

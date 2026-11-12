@@ -100,7 +100,7 @@ module.exports = {
       { label: "Accepter le marché de la Veuve : un faux sceau contre une chose de la tour", hide: { has: "pie:plan_sceau" }, fx: { flag: "pie:plan_sceau", item: "faux_sceau_brut" }, to: "PI_ville" },
       { label: "Lui vendre le coffret des reçus pour réduire ta dette", hide: { not: { item: "coffret_cessions" } }, fx: { drop: "coffret_cessions", gold: 15, flag: "pie:coffret_vendu" }, to: "PI_ville" },
       { label: "Garder le coffret. Ces reçus appartiennent à ceux qui ont vendu", hide: { not: { item: "coffret_cessions" } }, fx: { flag: "pie:coffret_garde" }, to: "PI_ville" },
-      { label: "Sortir dans la nuit", to: "PI_ville" },
+      { back: "PI_ville" },
     ] }),
 
   // ---------------------------------------------------------------- the city (hub of chapter 1)
@@ -167,11 +167,11 @@ module.exports = {
       "Il regarde les six pièces dans sa main. Il ne comprend pas. Tu ne lui expliques pas. Tu ne sais pas toi-même. Peut-être que tu as voulu racheter ce qu'il a vendu, au même prix. Peut-être que tu as voulu qu'il se souvienne d'une chose, au moins, et que cette chose-là soit toi.",
       "Quand tu remontes l'escalier de la Fosse, tu l'entends qui rit, ou qui pleure.",
     ],
-    choices: [{ label: "Remonter vers la ville", to: "PI_ville" }] }),
+    choices: [{ back: "PI_ville" }] }),
 
   PI_corneille_fin: P({ title: "La Fosse",
     text: ["Tu remontes l'escalier de la Fosse sans te retourner. Il ne t'appelle pas. Tu sais déjà que tu reviendras, un jour, et qu'il ne sera plus là, et que tu ne sauras jamais s'il se souvenait de toi."],
-    choices: [{ label: "Remonter vers la ville", to: "PI_ville" }] }),
+    choices: [{ back: "PI_ville" }] }),
 
   PI_corneille_eau: P({ title: "L'eau noire",
     text: [
@@ -187,7 +187,7 @@ module.exports = {
       "Ça dure moins longtemps que tu ne croyais. Après, l'eau redevient lisse, et le courant l'emporte sous les arches, vers les Abattoirs, vers la mer, vers nulle part. Personne n'a rien vu. Personne ne regarde jamais, à la Fosse.",
       "Tu restes accroupi au bord de l'eau jusqu'à ce que tes mains arrêtent de trembler. Elles ne s'arrêtent pas.",
     ],
-    choices: [{ label: "Remonter vers la ville", to: "PI_ville" }] }),
+    choices: [{ back: "PI_ville" }] }),
 
   // the Bureau des Cessions: sell a memory, get a cédant's token for the lower floor
   PI_bureau: P({ title: "Le Bureau des Cessions",
@@ -203,7 +203,7 @@ module.exports = {
       { label: "Observer, et voler un jeton dans la file", test: { dom: "discretion", label: "Larcin", diff: -10 },
         win: { fx: { flag: "pie:plan_cession", item: "jeton_bureau", ep: ["perso", 600], quest: "PI_bureau" }, to: "PI_bureau_jeton" },
         lose: { fx: { flag: "pie:repere_bureau" }, to: "PI_bureau_rate" } },
-      { label: "Repartir, avec la nausée", to: "PI_ville" },
+      { label: "Repartir, avec la nausée", back: "PI_ville" },
     ] }),
 
   PI_bureau_vendre: P({ title: "Ce que vaut Pie",
@@ -227,14 +227,14 @@ module.exports = {
       "« Et voilà », dit Baudoin. Il te tend des pièces, un reçu, et un jeton de bois peint d'une plume. « Revenez quand vous voulez. Le soir de la Fête, nous recevons là-haut. Les gros cédants sont toujours les bienvenus. »",
       { if: { has: "pie:oublie_dette" }, text: "En sortant, tu penses à la Veuve, à son tricot, à ses yeux gentils. Tu ne sais plus pourquoi elle te fait peur. Tu sais que tu devrais." },
     ],
-    choices: [{ label: "Sortir", to: "PI_ville" }] }),
+    choices: [{ back: "PI_ville" }] }),
 
   PI_bureau_jeton: P({ title: "Le jeton",
     text: [
       "Un vieux soldat, une jambe de bois, le jeton qui dépasse de sa ceinture. Tu le frôles dans la file, tu t'excuses, tu passes. Le jeton est dans ta manche. Le soldat ne se retourne pas. Il ne se souviendrait pas de toi, de toute façon. Il est déjà venu trois fois.",
       "C'est un jeton de bois peint d'une plume. *Gros cédant. Étage des Cessions.* Avec ça, le soir de la Fête, on t'ouvrira la porte derrière le comptoir.",
     ],
-    choices: [{ label: "Repartir", to: "PI_ville" }] }),
+    choices: [{ back: "PI_ville" }] }),
 
   PI_bureau_rate: P({ title: "La main dans la ceinture",
     text: [
@@ -265,23 +265,23 @@ module.exports = {
       "Tu lui montres la tour, de l'autre côté du mur. « Le soir de la Fête. La corde de la Grosse. Assez longue pour descendre du clocher jusqu'au mur. »",
       "Il regarde longtemps la tour noire. « La Grosse a cent pas de corde, dit-il. Et le soir de la Fête, je sonne avec toutes les autres. Personne n'entendra rien. »",
     ],
-    choices: [{ label: "Redescendre en ville", to: "PI_ville" }] }),
+    choices: [{ back: "PI_ville" }] }),
 
   PI_sonneur_rate: P({ title: "La Muette",
     text: [
       "Tu essaies. Vous mélangez Margot et Bénigne, vous perdez la Grosse, et Anseau finit par te repousser, très doucement. « Va-t'en, petit. Tu ne les connais pas mieux que moi. » Quand tu redescends l'escalier, il frappe la Muette au marteau, encore et encore, et c'est le seul nom qui lui reste.",
     ],
-    choices: [{ label: "Redescendre en ville", fx: { quest: "PI_sonneur" }, to: "PI_ville" }] }),
+    choices: [{ fx: { quest: "PI_sonneur" }, back: "PI_ville" }] }),
 
   PI_sonneur_poudre: P({ title: "D'où vient la poudre",
     text: [
       "Elle est partout, une fois qu'on sait la voir : dans les rainures des poutres, sur les marches, dans la mousse des gouttières. Une poudre blanche, plus fine que la farine, qui ne fond pas au soleil et qui est froide au doigt. Et elle forme des traînées. Toutes les traînées vont dans le même sens : vers le mur de la Chancellerie, de l'autre côté de la rue.",
     ],
-    choices: [{ label: "Revenir vers Anseau", to: "PI_sonneur" }] }),
+    choices: [{ back: "PI_sonneur" }] }),
 
   PI_sonneur_poudre_rate: P({ title: "De la farine",
     text: ["De la poussière, de la farine, de la chaux. Tu ne vois rien de plus. Les vieux ont toujours les mains blanches de quelque chose."],
-    choices: [{ label: "Revenir vers Anseau", to: "PI_sonneur" }] }),
+    choices: [{ back: "PI_sonneur" }] }),
 
   // the place aux Clercs: a greffier's seal for a model
   PI_place_clercs: P({ title: "La place aux Clercs",
@@ -294,23 +294,23 @@ module.exports = {
       { label: "Prendre l'empreinte du sceau dans un morceau de cire, pendant qu'il écrit", hide: { not: { has: "pie:plan_sceau" } }, test: { dom: "discretion", label: "Larcin" },
         win: { fx: { flag: "pie:modele_sceau", ep: ["perso", 600] }, to: "PI_empreinte" }, lose: { fx: { flag: "pie:repere_clercs" }, to: "PI_empreinte_rate" } },
       { label: "Faire inscrire le nom de Linette dans le Grand Livre", fx: { flag: "pie:linette_inscrite" }, to: "PI_inscrire" },
-      { label: "Repartir", to: "PI_ville" },
+      { back: "PI_ville" },
     ] }),
 
   PI_empreinte: P({ title: "L'empreinte",
     text: ["Tu demandes au greffier d'inscrire ta mère. *Jeanne, blanchisseuse.* Pendant qu'il écrit, ta main traîne sur le pupitre, le pouce sur le sceau, la cire tiède dans ta paume. Quand tu repars, tu as dans ta poche une plume et une clé, à l'envers, nettes comme une gravure."],
-    choices: [{ label: "Repartir", fx: { flag: "pie:mere_inscrite" }, to: "PI_ville" }] }),
+    choices: [{ fx: { flag: "pie:mere_inscrite" }, back: "PI_ville" }] }),
 
   PI_empreinte_rate: P({ title: "Le regard",
     text: ["Le greffier lève les yeux au moment où ton pouce touche le sceau. Il ne dit rien. Il pose la main dessus, et il te regarde jusqu'à ce que tu partes. Ton modèle, ce n'est pas ici que tu le prendras."],
-    choices: [{ label: "Repartir", to: "PI_ville" }] }),
+    choices: [{ back: "PI_ville" }] }),
 
   PI_inscrire: P({ title: "Linette, des Teinturiers",
     text: [
       "Le greffier écrit. *Linette, des Teinturiers.* Il sèche l'encre avec la poudre blanche. Il te sourit. « Elle ne sera pas oubliée. »",
       "Pendant une seconde, en traversant la place, tu ne te souviens plus de la couleur de ses cheveux. Puis ça revient. Châtain. Châtain clair, avec un épi derrière.",
     ],
-    choices: [{ label: "Repartir, vite", to: "PI_ville" }] }),
+    choices: [{ label: "Repartir, vite", back: "PI_ville" }] }),
 
   PI_graver: P({ takes: "morning", title: "Le faux sceau",
     text: [

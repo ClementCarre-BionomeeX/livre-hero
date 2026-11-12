@@ -41,7 +41,9 @@ function tagsSay(t) {
   return out.join(" · ");
 }
 
+var M = require(path.join(root, "src", "moteur.js"));
 function graphOf(story) {
+  M.prepare(story);
   var P = story.passages, W = story.world || {}, places = W.places || {}, nodes = [], edges = [], starts = {}, quests = {};
   (story.acts || []).forEach(function (a) { starts[a.start] = 1; });
   (story.quests || []).forEach(function (q) { if (q.start) quests[q.start] = q.title; });

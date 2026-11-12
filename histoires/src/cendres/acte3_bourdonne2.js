@@ -4,7 +4,7 @@
 // V_e_chapelle).
 var A = { act: "III", noLead: true, place: "cloches" };
 function P(o) { return Object.assign({}, A, o); }
-var BACK = [{ label: "Revenir sur la grand-place", to: "III_c_ville" }];
+var BACK = [{ back: "III_c_ville" }];
 module.exports = {
   III_c_lepreux: P({ title: "La clochette du ladre",
     text: [

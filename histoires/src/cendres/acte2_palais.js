@@ -50,5 +50,5 @@ module.exports = {
       "Tu poses le bol sur la table de chevet, à côté des feuilles signées. La reine le regarde. Elle le prend à deux mains, comme une enfant, et elle boit, à même le bord, sans cuillère. Elle s'arrête. « Mon père, dit-elle, il soufflait dessus. Pour moi. Il disait que les rois ne se brûlent pas la langue, que c'est pour ça qu'ils ont des filles. »",
       "Elle se tait. Elle a dit *mon père* comme on dit un nom qu'on vient de retrouver dans sa poche. Puis elle boit le reste, et elle te rend le bol, et elle a oublié. Mais elle s'est souvenue, une gorgée. Tu l'as vu.",
     ],
-    choices: [{ label: "Revenir à ce qui t'amène", fx: { ep: ["perso", 500] }, to: "II_S2_isaure" }] }),
+    choices: [{ fx: { ep: ["perso", 500] }, back: "II_S2_isaure" }] }),
 };

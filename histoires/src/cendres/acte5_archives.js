@@ -5,7 +5,7 @@
 // go home (v:archives=rendues), or burn them so no one can ever be held to a cession again (v:archives=brulees).
 var A = { act: "V", noLead: true };
 function P(o) { return Object.assign({}, A, o); }
-var BACK = [{ label: "Revenir entre les rayonnages", to: "V_ar_salle" }];
+var BACK = [{ label: "Revenir entre les rayonnages", back: "V_ar_salle" }];
 module.exports = {
   V_ar_escalier: P({ title: "L'escalier de service", place: "pallanche",
     fx: { questSeen: "V_Q_archives" },
@@ -15,7 +15,7 @@ module.exports = {
     ],
     choices: [
       { label: "Descendre", to: "V_ar_salle" },
-      { label: "Remonter au Bureau", to: "V_t_cessions" },
+      { back: "V_t_cessions" },
     ] }),
   V_ar_salle: P({ title: "Les archives", place: "pallanche", hub: true,
     text: [
@@ -28,7 +28,7 @@ module.exports = {
       { label: "L'allée des pauvres, la plus longue", hide: { seen: "V_ar_pauvres" }, to: "V_ar_pauvres" },
       { label: "La vieille femme sous la lampe", hide: { seen: "V_ar_hermeline" }, to: "V_ar_hermeline" },
       { label: "Ouvrir le soupirail, en haut du mur", if: { seen: "V_ar_hermeline" }, why: "La vieille femme n'a pas encore levé la tête.", hide: { has: "v:archives" }, to: "V_ar_soupirail", big: true },
-      { label: "Remonter au Bureau", to: "V_t_cessions" },
+      { back: "V_t_cessions" },
     ] }),
   V_ar_fondateurs: P({ title: "L'allée des fondateurs", place: "pallanche",
     text: [
@@ -89,21 +89,21 @@ module.exports = {
     ] }),
   V_ar_rate: P({ title: "Le tourbillon", place: "pallanche",
     text: ["Tu ouvres trop grand. Le vent s'engouffre, renverse la lampe, fait voler les boîtes. Les fiches tourbillonnent dans la cave, sans sortir, et retombent en désordre. Hermeline gémit, à genoux, et commence déjà à les ramasser. Tu l'aides. Il faudra recommencer, plus doucement, une liasse à la fois."],
-    choices: [{ label: "Recommencer, plus doucement", to: "V_ar_soupirail" }, { label: "Remonter au Bureau", to: "V_t_cessions" }] }),
+    choices: [{ label: "Recommencer, plus doucement", to: "V_ar_soupirail" }, { back: "V_t_cessions" }] }),
   V_ar_rendues: P({ title: "La neige", place: "pallanche",
     text: [
       "Tu tends une liasse vers le soupirail. La neige la prend. Les fiches s'envolent, une à une, dans la rue, et dans la rue elles ne tombent pas : elles montent, avec la neige, vers la colonne, vers le ciel, vers les fenêtres de la ville, et elles entrent par les cheminées. Tu en donnes une autre. Et une autre.",
       "Hermeline te regarde faire. Puis elle prend une liasse, elle aussi. Elle la tend vers la neige. Ses mains sont blanches. Quand la dernière fiche est partie, elles le sont un peu moins.",
       "« Ils vont se souvenir, dit-elle. Tous, cette nuit. De ce qu'ils ont vendu. » Elle s'assied. « Ça va faire mal, dans la ville. Ça va faire du bruit. » Elle sourit. « Ça faisait trop longtemps que c'était silencieux. »",
     ],
-    choices: [{ label: "Remonter au Bureau", to: "V_t_cessions" }] }),
+    choices: [{ back: "V_t_cessions" }] }),
   V_ar_brulees: P({ title: "Le feu", place: "pallanche",
     text: [
       "Tu prends la lampe. Tu la renverses sur la table, sur les liasses. Le papier brûle bien. Le vélin brûle mal, en se tordant, avec une odeur de corne. Hermeline recule. Elle ne t'arrête pas.",
       "Les cessions brûlent. Personne ne retrouvera ce qu'il a donné. Mais personne, jamais, ne pourra plus montrer à quelqu'un la croix qu'il a faite en bas d'une fiche, un jour de faim, et lui dire : tu as signé. La fumée sort par le soupirail, et se mêle à la neige.",
       "Hermeline regarde ses mains. Elles restent blanches. « C'est peut-être mieux, dit-elle. Je ne sais pas. Je n'ai jamais décidé. » Elle s'assied devant le feu, et elle se chauffe, pour la première fois depuis quarante ans.",
     ],
-    choices: [{ label: "Remonter au Bureau", to: "V_t_cessions" }] }),
+    choices: [{ back: "V_t_cessions" }] }),
 
   V_t_fiche: P({ title: "La fiche", place: "pallanche",
     text: [

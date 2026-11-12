@@ -21,13 +21,13 @@ module.exports = {
       "Il hoche la tête. Il en prend une, dans l'herbe, une toute petite, grosse comme un poing. Il la frappe avec l'ongle. Elle sonne. Un son clair, un peu aigu, un son de pierre au soleil.",
       "« Celle-là, dit-il. Elle t'attendait. »",
     ],
-    choices: [{ label: "Revenir sur la place", fx: { flag: "iii:clochette", ep: ["perso", 700] }, to: "III_c_ville" }] }),
+    choices: [{ fx: { flag: "iii:clochette", ep: ["perso", 700] }, back: "III_c_ville" }] }),
   III_b_fondeur_aide: P({ title: "Le moule", place: "cloches",
     text: [
       "Vous cassez le moule à deux, au maillet. La cloche apparaît, noire de terre, puis dorée quand il la brosse. Il la frappe. Elle ne sonne pas. Il la regarde, sans surprise. « Pas encore, dit-il. Elle sonnera quand là-haut quelqu'un passera à l'endroit et pensera : c'est ici. Ça peut prendre cent ans. »",
       "Il la pose avec les autres, dans l'herbe. Il y en a des centaines, qui attendent.",
     ],
-    choices: [{ label: "Revenir sur la place", to: "III_c_ville" }] }),
+    choices: [{ back: "III_c_ville" }] }),
 
   IV_m_jardin: P4({ title: "Le jardin des simples", place: "moutier",
     text: [
@@ -36,7 +36,7 @@ module.exports = {
     ],
     choices: [
       { label: "En cueillir une poignée", fx: { item: "tisane_veille", ep: ["perso", 300] }, to: "IV_m_jardin_cueillir" },
-      { label: "Revenir au moutier", to: "IV_moutier" },
+      { back: "IV_moutier" },
     ] }),
   IV_m_jardin_cueillir: P4({ title: "La veille-neige", place: "moutier",
     text: [
@@ -44,5 +44,5 @@ module.exports = {
       { if: { has: "nord:veille_neige" }, text: "Un frère, qui sarcle à côté, te dit que la première touffe, c'est une femme du clan qui l'a trouvée, l'an dernier, avant l'année blanche, quand personne ne savait ce que c'était. Elle avait dit que c'était une mauvaise herbe. Elle en avait cueilli quand même." },
       "Sur une ardoise, au bout d'une allée, quelqu'un a écrit à la craie : *Ne pas arracher. Elle se souvient pour nous.*",
     ],
-    choices: [{ label: "Revenir au moutier", to: "IV_moutier" }] }),
+    choices: [{ back: "IV_moutier" }] }),
 };

@@ -15,13 +15,13 @@ module.exports = {
     ] }),
   EN_k_ours_sou: P({ title: "Bertrand",
     text: ["L'homme te remercie d'un clin d'œil. L'ours, Bertrand, te regarde passer le sou, et il tend le museau vers ta main, pour la sentir. Il sent longtemps. Puis il éternue, et tous les enfants rient, et toi aussi."],
-    choices: [{ label: "Revenir sur la place", to: "EN_place" }] }),
+    choices: [{ back: "EN_place" }] }),
   EN_k_ours_histoire: P({ title: "D'où vient l'ours",
     text: [
       "« Du nord, dit l'homme, plus bas, quand les enfants sont partis. Des gens du Corbeau me l'ont vendu, ourson, il y a six ans. Sa mère était morte dans une avalanche. Ils m'ont dit qu'il avait un nom, chez eux, mais qu'ils ne pouvaient pas me le dire. Un nom, là-haut, ça ne se donne pas. Alors je l'ai appelé Bertrand. »",
       "Il gratte l'ours entre les oreilles. « Il répond à Bertrand. Mais quand il dort, il grogne autre chose. Toujours la même chose. Deux syllabes. Je crois que c'est son vrai nom. Je crois qu'il s'en souvient. »",
     ],
-    choices: [{ label: "Revenir sur la place", fx: { ep: ["perso", 200] }, to: "EN_place" }] }),
+    choices: [{ fx: { ep: ["perso", 200] }, back: "EN_place" }] }),
 
   EN_k_bal: P({ title: "Les violons",
     text: [
@@ -38,10 +38,10 @@ module.exports = {
       "Elle hausse les épaules, comme si ça lui était égal, et elle dénoue son tablier. Vous dansez. Elle danse mal, comme une forgeronne, en frappant du pied trop fort. Toi aussi. Vous vous marchez dessus. Vous riez.",
       "Au troisième tour, elle te dit à l'oreille, entre deux pas : « Si un jour tu pars, tu reviens. Promets. » Tu promets, sans réfléchir, parce que la musique va vite et que partir ne t'est jamais venu à l'idée.",
     ],
-    choices: [{ label: "Revenir sur la place", to: "EN_place" }] }),
+    choices: [{ back: "EN_place" }] }),
   EN_k_bal_agathe: P({ title: "Une danse avec Agathe",
     text: ["Agathe proteste, pour la forme, puis elle te prend les mains. Elle danse comme on pétrit, avec énergie, en riant. Joris, sur un banc, fait semblant d'être jaloux. À la fin, elle t'embrasse sur les deux joues, essoufflée, et elle dit : « Tu danses comme ton père. » Puis elle se reprend, très vite, sans savoir pourquoi. « Comme Joris, je veux dire. » Et elle rit encore."],
-    choices: [{ label: "Revenir sur la place", to: "EN_place" }] }),
+    choices: [{ back: "EN_place" }] }),
 
   EN_k_tartes: P({ title: "Le concours de tartes",
     text: [
@@ -65,5 +65,5 @@ module.exports = {
       "Les deux femmes se regardent, pour la première fois de la journée. Puis la tante Ferrand coupe une part de sa tarte, et la tend à Agathe, et Agathe coupe une part de la sienne, et la tend à la tante Ferrand, et elles mangent, chacune la tarte de l'autre, sans un mot, pendant que tout le village applaudit.",
       "« L'an prochain, dit Agathe, la bouche pleine. — L'an prochain », dit la tante Ferrand.",
     ],
-    choices: [{ label: "Revenir sur la place", to: "EN_place" }] }),
+    choices: [{ back: "EN_place" }] }),
 };

@@ -53,7 +53,7 @@ module.exports = {
       "Tu leur parles. Les mots viennent tout seuls, dans ta bouche, comme si tu les avais toujours eus. Les deux vieilles se taisent. Puis l'une d'elles se met à pleurer.",
       { with: "lisandre", text: "Lisandre te regarde parler. Elle ne comprend pas un mot. Elle comprend la musique. Elle te regarde comme on regarde quelqu'un pour la première fois." },
     ],
-    choices: [{ label: "Revenir au centre du hameau", fx: { flag: "enfant:langue" }, to: "III_e_hameau" }] }),
+    choices: [{ fx: { flag: "enfant:langue" }, back: "III_e_hameau" }] }),
 
   III_e_maison: P({ title: "Le berceau", place: "enfance",
     text: [
@@ -61,7 +61,7 @@ module.exports = {
       { if: { item: "ours_bois" }, text: "Tu sors de ta poche l'ours de bois du ruisseau, et tu le tiens un moment contre le chevet." },
       "Le berceau est vide. Dans le creux du petit matelas de laine, il y a encore la forme d'un enfant. Elle n'a pas bougé depuis vingt ans.",
     ],
-    choices: [{ label: "Revenir au centre du hameau", fx: { flag: "enfant:berceau" }, to: "III_e_hameau" }] }),
+    choices: [{ fx: { flag: "enfant:berceau" }, back: "III_e_hameau" }] }),
 
   III_e_mere: P({ title: "Maëra", place: "enfance",
     fx: { meet: "maera" },
@@ -93,7 +93,7 @@ module.exports = {
       "Tu t'endors. Tu ne t'étais pas endormi depuis la chute. Tu dors une heure, ou un jour. Quand tu te réveilles, elle a posé une couverture sur toi.",
       "Elle ne t'a rien demandé. Elle sait. Elle a décidé de ne pas te le faire dire.",
     ],
-    choices: [{ label: "Revenir au centre du hameau", fx: { flag: "enfant:berceuse" }, to: "III_e_hameau" }] }),
+    choices: [{ fx: { flag: "enfant:berceuse" }, back: "III_e_hameau" }] }),
 
   III_e_hylas: P({ title: "La lanterne", place: "enfance",
     text: [
@@ -110,11 +110,11 @@ module.exports = {
 
   III_e_hylas_merci: P({ title: "Merci", place: "enfance",
     text: ["Hylas te regarde. Il ne s'attendait pas à ça. Il ouvre la bouche, la referme. Puis il se lève, très droit, et entre enfin dans la clairière, et va jusqu'au seuil de Maëra. Elle lève les yeux. Elle le reconnaît. Elle lui sourit, comme on sourit à quelqu'un qui a tenu parole."],
-    choices: [{ label: "Revenir au centre du hameau", to: "III_e_hameau" }] }),
+    choices: [{ back: "III_e_hameau" }] }),
 
   III_e_hylas_reproche: P({ title: "Tu aurais dû", place: "enfance",
     text: ["« Oui », dit Hylas. Il ne se défend pas. Il ne s'excuse pas. Il reste assis sur sa souche. Au bout d'un long moment, il dit : « Je crois que j'avais peur que tu partes. Que tu veuilles revenir ici. » Il regarde la clairière. « Et tu y es. »"],
-    choices: [{ label: "Revenir au centre du hameau", to: "III_e_hameau" }] }),
+    choices: [{ back: "III_e_hameau" }] }),
 
   III_e_depart: P({ title: "Le départ", place: "enfance",
     fx: { flag: "acte3:enfance_fini", ep: ["histoire", 3000] },

@@ -20,16 +20,16 @@ module.exports = {
     ] }),
   E2_pont_neige_ok: P({ title: "De l'autre côté", place: null,
     text: ["Vous passez. Le dernier pied qui quitte le pont le fait craquer, une seule fois, comme un livre qu'on ferme. Tu ne te retournes pas pour voir s'il tient encore."],
-    choices: [{ label: "Reprendre la route", to: "@route" }] }),
+    choices: [{ back: "@route" }] }),
   E2_pont_neige_chute: P({ title: "La glissade", place: null,
     text: [
       "Le pont cède sous celui qui te suit. Tu as le temps de te jeter à plat ventre et d'attraper un poignet. Pendant un long moment, il n'y a que ça au monde : un poignet, ta main, et le bruit de l'eau dessous.",
       "Vous remontez. Tout le monde saigne un peu, des genoux et des paumes. Personne ne parle avant la halte du soir.",
     ],
-    choices: [{ label: "Reprendre la route", to: "@route" }] }),
+    choices: [{ back: "@route" }] }),
   E2_pont_neige_detour: P({ title: "Le glacier", place: null,
     text: ["Une journée de plus, sur la glace grise, dans un vent qui coupe. Le soir, vous mangez les provisions du lendemain, parce qu'on ne peut pas marcher sur un glacier le ventre vide. Au moins, vous êtes tous là."],
-    choices: [{ label: "Reprendre la route", to: "@route" }] }),
+    choices: [{ back: "@route" }] }),
 
   E2_bergere: P({ title: "La bergère", place: null,
     text: [
@@ -59,7 +59,7 @@ module.exports = {
     choices: [{ label: "Allumer le feu pour elle, et repartir", to: "@route" }] }),
   E2_bergere_perdue: P({ title: "Le chien s'arrête", place: null,
     text: ["Le chien vous mène à travers un éboulis, puis s'arrête au bord du blanc et gémit. Il ne veut pas aller plus loin. La cabane, si elle existe, est de l'autre côté de la ligne. La femme regarde la neige, puis vous. « Ce n'est pas grave, dit-elle. Je vais rester avec lui. » Tu la laisses là, assise au bord du blanc, avec son chien et son sourire poli."],
-    choices: [{ label: "Reprendre la route", to: "@route" }] }),
+    choices: [{ back: "@route" }] }),
 
   E2_troupeau: P({ title: "Le troupeau blanc", place: null,
     text: [
@@ -76,7 +76,7 @@ module.exports = {
       "Le troupeau passe à trente pas. Tu regardes chaque objet et tu te demandes à qui il était. L'enseigne d'auberge dit AU BON ACCUEIL, en lettres effacées. Le berceau est vide. La cloche ne sonne pas, même en cognant contre les pierres.",
       "Quand ils ont disparu derrière la crête, tu t'aperçois que tu as retenu ton souffle tout du long.",
     ],
-    choices: [{ label: "Reprendre la route", to: "@route" }] }),
+    choices: [{ back: "@route" }] }),
   E2_troupeau_combat: P({ title: "La combe", place: null,
     combat: { title: "Les bergers blancs", enemies: ["glaneur_petit", "glaneur_petit", "glaneur_petit"], terrain: "nature", range: "contact",
       flee: { dom: "nature", label: "Remonter la pente en courant", to: "@route" },
@@ -88,7 +88,7 @@ module.exports = {
       "Quand le dernier Glaneur s'est défait en neige, les objets restent plantés dans la combe, immobiles, sans maître. Ils ne savent pas rentrer. Personne ne les attend.",
       "Tu prends le berceau. Il est léger, en bois de noyer, avec une rose sculptée à la tête. Tu le cales dans un creux de rocher, à l'abri, du côté vert de la crête. Quelqu'un, un jour, le trouvera. Ce ne sera pas la bonne personne. Ce sera quand même quelqu'un.",
     ],
-    choices: [{ label: "Reprendre la route", to: "@route" }] }),
+    choices: [{ back: "@route" }] }),
 
   E2_refuge: P({ title: "Le refuge", place: null,
     text: [
@@ -103,7 +103,7 @@ module.exports = {
   E2_refuge_nuit: P({ title: "Au couteau", place: null,
     fx: { pv: 3 },
     text: ["Tu graves ton nom dans le bois, profond, et chacun fait de même. Ça prend la moitié de la nuit. Au matin, les lettres sont toujours là. Tu passes le doigt dedans avant de partir, pour vérifier, et tu as honte de l'avoir fait."],
-    choices: [{ label: "Reprendre la route", to: "@route" }] }),
+    choices: [{ back: "@route" }] }),
 
   E2_corbeau_blesse: P({ title: "Le corbeau blessé", place: null,
     text: [
@@ -124,10 +124,10 @@ module.exports = {
         win: { fx: { flag: "corbe:corbeau_soigne", ep: ["perso", 700] }, to: "E2_corbeau_soigne" }, lose: { to: "E2_corbeau_mort" } }] }),
   E2_corbeau_soigne: P({ title: "Sur ton épaule", place: null,
     text: ["Tu serres l'aile contre le corps avec une bande de cuir, comme on te l'a appris au camp. Le corbeau se laisse faire. Il ne volera pas avant une lune. Il grimpe sur ton épaule, s'y cale, et ne la quitte plus. Les autres trouvent ça inquiétant. Toi, tu trouves ça normal."],
-    choices: [{ label: "Reprendre la route", to: "@route" }] }),
+    choices: [{ back: "@route" }] }),
   E2_corbeau_mort: P({ title: "Le fil coupé", place: null,
     text: ["L'os casse sous tes doigts. Le corbeau ne crie pas. Il meurt dans ta main, sans bruit, avec cette dignité des bêtes qui savent. Tu coupes le fil rouge et tu le noues à ton poignet. Le clan fait ça pour ses messagers."],
-    choices: [{ label: "Reprendre la route", to: "@route" }] }),
+    choices: [{ back: "@route" }] }),
 
   // ------------------------------------------------------------------ cour (sud)
   E2_vendange: P({ title: "Les moissonneurs muets", place: null,
@@ -147,10 +147,10 @@ module.exports = {
       "Une femme reprend, puis un homme, puis tous. Ce n'est pas la vraie chanson. C'est celle qui la remplace. Ils la chantent jusqu'au soir, et quand vous repartez, ils vous ont chargés de pain et de fromage.",
       { with: "hylas", text: "« C'est comme ça que les chansons survivent, dit Hylas sur la route. Pas en se souvenant. En se trompant ensemble. »" },
     ],
-    choices: [{ label: "Reprendre la route", to: "@route" }] }),
+    choices: [{ back: "@route" }] }),
   E2_vendange_rate: P({ title: "Ce n'est pas ça", place: null,
     text: ["Tu chantes. Ils écoutent poliment. Ce n'est pas ça. Ils te remercient, ils te donnent un morceau de pain, et ils se remettent à couper en silence. Tu as chanté devant des rois. Tu n'as jamais eu un public aussi triste."],
-    choices: [{ label: "Reprendre la route", to: "@route" }] }),
+    choices: [{ back: "@route" }] }),
 
   E2_bac: P({ title: "Le passeur", place: null,
     text: [
@@ -173,14 +173,14 @@ module.exports = {
   E2_bac_parle: P({ title: "Le verre", place: null,
     text: [
       "Il hausse les épaules. « Un homme en gris passe à la lune nouvelle. Il prend les fioles pleines, il paie, il repart. Il ne dit pas son nom. Il a de l'encre aux doigts. Toujours la même : une encre qui ne sent rien. » Il vous fait traverser pour rien, ce jour-là, sans qu'on sache pourquoi. Peut-être parce que personne ne lui avait jamais posé la question."],
-    choices: [{ label: "Reprendre la route", to: "@route" }] }),
+    choices: [{ back: "@route" }] }),
   E2_bac_passe: P({ title: "L'autre rive", place: null,
     text: [{ outcome: "win", text: "La barque glisse sur l'eau verte, la corde grince. C'est toi qui tires. Sur l'autre rive, tu te retournes : le passeur est resté assis sur son ponton, et il se tient la mâchoire.", else: "La barque glisse sur l'eau verte, la corde grince. Sur l'autre rive, tu te retournes : le passeur a rallumé sa pipe, et il regarde une autre fiole contre le soleil, comme on regarde un vin." }],
-    choices: [{ label: "Reprendre la route", to: "@route" }] }),
+    choices: [{ back: "@route" }] }),
   E2_bac_nage: P({ title: "À la nage", place: null,
     fx: { pv: -2 },
     text: ["L'eau est froide comme un couteau. Vous arrivez de l'autre côté à cent toises en aval, trempés, ta robe de cour pesant le poids d'un homme. Tu l'essores en jurant dans trois langues."],
-    choices: [{ label: "Reprendre la route", to: "@route" }] }),
+    choices: [{ back: "@route" }] }),
 
   E2_heraut: P({ title: "Le héraut", place: null,
     text: [
@@ -195,10 +195,10 @@ module.exports = {
     ] }),
   E2_heraut_liste: P({ title: "Quarante et un", place: null,
     text: ["Il te donne une copie, impressionné par ta robe déchirée et ton accent de cour. Quarante et un villages. Tu la plies dans ta manche. Le soir, à la halte, tu les comptes sur la carte : ils font une ligne. Une ligne qui monte, droit vers le nord, depuis Pallanche."],
-    choices: [{ label: "Reprendre la route", to: "@route" }] }),
+    choices: [{ back: "@route" }] }),
   E2_heraut_non: P({ title: "Ordre de la Chancellerie", place: null,
     text: ["« La liste est tenue à la tour, madame. » Il replie son parchemin, descend de sa charrette, et s'en va lire ailleurs. Tu as retenu quatre noms. Tu les répètes à voix basse jusqu'au soir, et le lendemain, tu n'en as plus que trois."],
-    choices: [{ label: "Reprendre la route", to: "@route" }] }),
+    choices: [{ back: "@route" }] }),
 
   E2_tire_laine: P({ title: "Le cortège des pèlerins", place: null,
     text: [
@@ -215,10 +215,10 @@ module.exports = {
       { with: "pie", text: "Pie la regarde un long moment. Puis il lui glisse deux sous. « Tu prends à gauche, dit-il. Toujours à gauche, ils sont droitiers. Et tu ne voles pas les gens qui marchent à pied. Ils n'ont rien. » Elle file. Pie a l'air plus vieux, tout d'un coup." },
       { without: "pie", text: "Tu la lâches. Elle file entre les ânes et disparaît. Elle avait des yeux de vieille." },
     ],
-    choices: [{ label: "Reprendre la route", to: "@route" }] }),
+    choices: [{ back: "@route" }] }),
   E2_tire_laine_vole: P({ title: "Plus léger", place: null,
     text: ["Quand tu baisses les yeux, le cordon est coupé net. Tu cherches dans la foule une tête qui court. Personne ne court. Tout le monde chante."],
-    choices: [{ label: "Reprendre la route", to: "@route" }] }),
+    choices: [{ back: "@route" }] }),
 
   // ------------------------------------------------------------------ outreblanc (acte III)
   E3_jouets: P3({ title: "Le champ des jouets", place: null,
@@ -243,7 +243,7 @@ module.exports = {
     ] }),
   E3_jouets_prise: P3({ title: "Dans ta poche", place: null,
     text: ["Tu la lances, une fois, sur un coin de blanc durci. Elle tourne. Elle tourne très longtemps, beaucoup plus longtemps qu'une toupie ne devrait, et elle chante en tournant, un petit bourdon aigu que tu as déjà entendu, quelque part, la tête contre une épaule."],
-    choices: [{ label: "Reprendre la route", to: "@route" }] }),
+    choices: [{ back: "@route" }] }),
 
   E3_soldat: P3({ title: "Le soldat", place: null,
     text: [
@@ -261,10 +261,10 @@ module.exports = {
       { with: "ysolde", text: "Ysolde se met au garde-à-vous devant lui, ce qu'elle n'a fait devant personne depuis Brenne. « Capitaine Ysolde, du fort de Brenne, dit-elle. Tu es relevé, soldat. » Il la regarde. Il pleure, sans changer de visage. Puis il pose sa pique, très soigneusement, et s'en va vers les autres." },
       { without: "ysolde", text: "Tu ne peux rien lui donner. Il le sait. Il te salue, reprend son pas, et repart monter la garde devant un fort qui n'existe plus." },
     ],
-    choices: [{ label: "Reprendre la route", fx: { ep: ["perso", 500] }, to: "@route" }] }),
+    choices: [{ fx: { ep: ["perso", 500] }, back: "@route" }] }),
   E3_soldat_passe: P3({ title: "Sauvelune", place: null,
     text: ["« Sauvelune », dis-tu. Il hoche la tête, gravement. « Passez. » Il s'écarte. Quand tu te retournes, il a repris sa faction, et à chaque file de marcheurs qui passe, tu l'entends demander le mot de passe, et répondre lui-même, d'une voix contente : « Sauvelune. Passez. »"],
-    choices: [{ label: "Reprendre la route", to: "@route" }] }),
+    choices: [{ back: "@route" }] }),
 
   E3_lettres: P3({ title: "La neige de lettres", place: null,
     text: [
@@ -281,7 +281,7 @@ module.exports = {
       "Pas de signature. Pas de nom. Une écriture de femme, qui appuie trop sur la plume.",
       "Tu la plies et tu la remets dans la neige. Elle ne t'était pas destinée. Aucune ne l'était.",
     ],
-    choices: [{ label: "Reprendre la route", fx: { ep: ["perso", 300] }, to: "@route" }] }),
+    choices: [{ fx: { ep: ["perso", 300] }, back: "@route" }] }),
 
   E3_puits: P3({ title: "Le puits des mots", place: null,
     text: [
@@ -295,11 +295,11 @@ module.exports = {
     ] }),
   E3_puits_joris: P3({ title: "Une voix", place: null,
     text: ["Au bout d'un long moment, une voix d'homme, grave, essoufflée, qui dit seulement : « La roue. » Puis plus rien. Tu ne sais pas si c'est Joris. Il disait ça tous les matins, en ouvrant le moulin, comme d'autres disent bonjour. Tu restes penché sur la margelle longtemps après que la voix s'est tue."],
-    choices: [{ label: "Reprendre la route", to: "@route" }] }),
+    choices: [{ back: "@route" }] }),
   E3_puits_rien: P3({ title: "Des inconnus", place: null,
     text: ["Tu écoutes. Ce sont des inconnus. Des milliers d'inconnus qui disent tous, à peu près, les mêmes cinq mots. Tu finis par te redresser, avec le sentiment très net d'avoir lu le courrier de quelqu'un d'autre."],
-    choices: [{ label: "Reprendre la route", to: "@route" }] }),
+    choices: [{ back: "@route" }] }),
   E3_puits_crie: P3({ title: "L'écho", place: null,
     text: ["Tu cries ton nom. Le puits ne le renvoie pas. Il le garde. Tu attends l'écho, qui ne vient pas, et tu comprends, avec un frisson, que ton nom vient de rejoindre les autres, là-dessous, et que si un jour quelqu'un se penche, il l'entendra."],
-    choices: [{ label: "Reprendre la route", to: "@route" }] }),
+    choices: [{ back: "@route" }] }),
 };

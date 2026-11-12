@@ -4,7 +4,7 @@
 // and gets it wrong (iv:complainte=vraie|achetee).
 var A = { act: "IV", noLead: true, place: "pontsaule" };
 function P(o) { return Object.assign({}, A, o); }
-var BACK = [{ label: "Revenir dans le bourg", to: "IV_ps" }];
+var BACK = [{ back: "IV_ps" }];
 var LIBERE = { has: "iv:pontsaule=libere" };
 module.exports = {
   IV_ps_mariette: P({ title: "La maison du passeur",

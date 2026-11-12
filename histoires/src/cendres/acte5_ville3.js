@@ -13,7 +13,7 @@ module.exports = {
       { with: "gaspard", text: "Gaspard entre dans le premier fournil. Il prend la pelle des mains du boulanger, doucement, comme on prend un enfant des bras d'une mère endormie. Il sort le pain noir. Il remet du bois. Il passe au fournil suivant. Il fait toute la rue, sans un mot. Derrière lui, l'odeur change. Ça sent le pain." },
       { without: "gaspard", text: "Tu entres dans le premier fournil. Tu sors le pain noir, à la pelle, et tu le jettes dans la neige. Tu en fais trois. Il y en a cinquante. Il faut monter. Tu laisses les autres brûler." },
     ],
-    choices: [{ label: "Revenir sur la place", fx: { ep: ["perso", 500], flag: "v:fours" }, to: "V_ville" }] }),
+    choices: [{ fx: { ep: ["perso", 500], flag: "v:fours" }, back: "V_ville" }] }),
   V_v_pont: P({ title: "Le Pont-Neuf", place: "pallanche",
     text: [
       "Sur le Pont-Neuf, la neige ne tombe pas. Elle monte. Elle sort de la rivière, en flocons, de la Pallante noire, et elle monte, lentement, vers le ciel, vers la colonne au-dessus de la tour. La rivière se vide de ce qu'elle a vu : six cents ans de noyés, de lavandières, de bateliers, de baisers sous les arches.",
@@ -22,16 +22,16 @@ module.exports = {
     choices: [
       { label: "Attraper un flocon", fx: { ep: ["perso", 300] }, to: "V_v_pont_flocon" },
       { label: "Descendre au tripot, sous l'arche", to: "V_v_pont_des" },
-      { label: "Revenir sur la place", to: "V_ville" },
+      { back: "V_ville" },
     ] }),
   V_v_pont_des: P({ title: "Les dés", place: "pallanche",
     text: [
       "Tu prends les dés. Ils sont froids. Tu les lances. Un six et un as, encore. Tu les relances. Un six et un as. Ils ne savent plus faire que ça : le dernier coup qu'on a joué ici, avant la neige. Tu les laisses sur la table, comme tu les as trouvés.",
     ],
-    choices: [{ label: "Revenir sur la place", to: "V_ville" }] }),
+    choices: [{ back: "V_ville" }] }),
   V_v_pont_flocon: P({ title: "Un flocon", place: "pallanche",
     text: ["Tu tends la main. Un flocon s'y pose, et ne fond pas. Dedans, une seconde, tu vois une femme qui lave du linge, à genoux sur la berge, il y a deux cents ans, et qui chante, et qui lève la tête vers toi comme si elle t'avait vu. Puis le flocon repart, vers le haut. Tu ne le retiens pas. Tu n'as pas le droit de le retenir. Mais tu l'as vue."],
-    choices: [{ label: "Revenir sur la place", to: "V_ville" }] }),
+    choices: [{ back: "V_ville" }] }),
 
   III_v_fontaine: P3({ title: "La fontaine de la grand-place", place: "valcendre",
     text: [
@@ -40,14 +40,14 @@ module.exports = {
     ],
     choices: [
       { label: "Faire un bateau, toi aussi", fx: { ep: ["perso", 400], flag: "iii:bateau" }, to: "III_v_fontaine_bateau" },
-      { label: "Retourner dans les rues", to: "III_v_porte" },
+      { back: "III_v_porte" },
     ] }),
   III_v_fontaine_bateau: P3({ title: "Un bateau de papier", place: "valcendre",
     text: [
       "La fillette te donne une feuille. Tu plies le bateau comme Pim te l'a appris, au bief, un dimanche. Tu écris dessus un nom. Pas le tien. Celui de Pim. Tu le poses sur l'eau.",
       "Il fait un tour. Deux. Au troisième, il penche, et il coule, d'un coup, sans un bruit. Les enfants applaudissent. Quelqu'un, là-haut, a donc pensé à Pim. Tu espères que cela marche aussi dans l'autre sens : que, quelque part, quelqu'un est assis au bord d'un bief, et pense à toi.",
     ],
-    choices: [{ label: "Retourner dans les rues", to: "III_v_porte" }] }),
+    choices: [{ back: "III_v_porte" }] }),
 
   IV_ps_ronde: P({ takes: "evening", act: "IV", title: "La ronde du sergent", place: "pontsaule",
     text: [

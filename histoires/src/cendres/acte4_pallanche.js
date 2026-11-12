@@ -79,7 +79,7 @@ module.exports = {
     ],
     choices: [{ label: "Chercher un toit", to: "IV_pal" }] }),
 
-  IV_pal: P({ title: "Pallanche, un an après", place: "pallanche", hub: true, shop: "veuve",
+  IV_pal: P({ backName: "Pallanche", title: "Pallanche, un an après", place: "pallanche", hub: true, shop: "veuve",
     text: [
       { first: true, text: "La Veuve, aux Teinturiers, prend tout le monde, pourvu qu'on paie ou qu'on ait l'air de pouvoir payer un jour. C'est là que vous posez vos sacs." },
       { again: true, before: "pal:plan", text: "Les Teinturiers, l'arrière-boutique de la Veuve, vos sacs dans un coin. Dehors, la ville va son train, et la tour est toujours là, au-dessus des toits." },
@@ -138,7 +138,7 @@ module.exports = {
       "Tu regardes les pupitres. Tu regardes les mains des greffiers.",
       { if: { has: "proces:plume=rendu" }, text: "Une femme, plus loin, sort de la queue sans raison. Elle reste au milieu de la place, son enfant dans les bras, à regarder la tour. Puis elle s'en va, sans son jeton. Personne ne sait pourquoi. Toi, tu crois savoir." },
     ],
-    choices: [{ label: "Revenir chez la Veuve", fx: { flag: "pal:queue" }, to: "IV_pal" }] }),
+    choices: [{ fx: { flag: "pal:queue" }, back: "IV_pal" }] }),
 
   IV_pal_orlan: P({ title: "La cave", place: "pallanche",
     text: [
@@ -168,7 +168,7 @@ module.exports = {
       "Pie se lève si vite qu'il renverse le banc. Il ne dit rien. Il ne peut rien dire. Elle descend la dernière marche, elle vient jusqu'à lui, et elle lui demande s'il vole toujours. Il dit oui. Il pleure comme un enfant, debout au milieu de la salle, et la Veuve fait sortir tout le monde.",
       "Plus tard, il te dit : « Cette nuit-là, je t'ouvre la porte de service. Et je monte au quatrième. Et je la redescends. Et si elles ne sont plus qu'une après, tant pis, tant mieux, je m'en fiche. Elle sera dehors. »",
     ],
-    choices: [{ label: "Revenir à vos plans", fx: { join: "pie" }, to: "IV_pal" }] }),
+    choices: [{ fx: { join: "pie" }, back: "IV_pal" }] }),
 
   IV_pal_pie_oui: P({ title: "Le marché", place: "pallanche",
     text: [
@@ -183,7 +183,7 @@ module.exports = {
       "Il se lève. Il pose deux sous sur la table, pour son verre. À la porte, il s'arrête. « Mardi, je ne dormirai pas sur la troisième marche de l'escalier de service, dit-il sans se retourner. Je ne dormirai pas du tout, en fait. Je serai au quatrième, avec les pages. Je compterai les chandelles. »",
       "Il sort.",
     ],
-    choices: [{ label: "Revenir à vos plans", fx: { flag: "pal:pie_indice" }, to: "IV_pal" }] }),
+    choices: [{ fx: { flag: "pal:pie_indice" }, back: "IV_pal" }] }),
 
   IV_pal_plan: P({ title: "Le plan", place: "pallanche",
     fx: { flag: "pal:plan" },
@@ -267,7 +267,7 @@ module.exports = {
       { if: { has: "pie:choix=boite" }, without: "pie", before: "pal:pie_indice", text: "Elle te regarde longtemps. Elle n'a pas de souvenirs à te rendre. Mais elle pose la plume. Elle se lève. Elle te donne la main, comme on obéit, et puis, au bout de trois pas, elle la serre, et ça, ce n'est plus de l'obéissance." },
       { if: { not: { has: "pie:choix=boite" } }, text: "Elle te regarde longtemps. Elle n'a pas de souvenirs à te rendre. Mais elle pose la plume. Elle se lève. Elle te donne la main, comme on obéit, et puis, au bout de trois pas, elle la serre, et ça, ce n'est plus de l'obéissance." },
     ],
-    choices: [{ label: "Redescendre avec elle", fx: { join: "linette", flag: ["linette:iv=libre", "tour:linette"], ep: ["perso", 2000] }, to: "IV_tour_escalier" }] }),
+    choices: [{ label: "Redescendre avec elle", fx: { join: "linette", flag: ["linette:iv=libre", "tour:linette"], ep: ["perso", 2000] }, back: "IV_tour_escalier" }] }),
 
   IV_tour_linette_une: P({ title: "Une seule", place: "pallanche",
     text: [
@@ -279,7 +279,7 @@ module.exports = {
       { without: "pie", after: "pal:pie_indice", text: "« Pie, dit-elle. Pie, tu as vu ? J'ai écrit toute la nuit. Je sais écrire ! »" },
       { without: "pie", before: "pal:pie_indice", text: "Elle lève la tête vers toi. « Tu as vu ? J'ai écrit toute la nuit. Je sais écrire ! »" },
     ],
-    choices: [{ label: "Redescendre avec elle", fx: { join: "linette", flag: ["linette:iv=libre", "linette:une", "tour:linette"], ep: ["perso", 3000] }, to: "IV_tour_escalier" }] }),
+    choices: [{ label: "Redescendre avec elle", fx: { join: "linette", flag: ["linette:iv=libre", "linette:une", "tour:linette"], ep: ["perso", 3000] }, back: "IV_tour_escalier" }] }),
 
   IV_tour_caveau: P({ title: "Le caveau", place: "pallanche",
     text: [
@@ -302,14 +302,14 @@ module.exports = {
       "Au-dessus de vos têtes, très haut, une cloche se met à sonner. Pas celle d'Anseau. Celle de la tour. Il sait.",
       { if: { not: HYLAS_LA }, text: "Hylas se lève de son tabouret. « Bien, dit-il. Il était temps que quelqu'un le prenne. Il était temps que ce ne soit pas moi. » Il prend ton bras." },
     ],
-    choices: [{ label: "Remonter, vite", fx: { join: "hylas" }, to: "IV_tour_escalier" }] }),
+    choices: [{ label: "Remonter, vite", fx: { join: "hylas" }, back: "IV_tour_escalier" }] }),
 
   IV_tour_caveau_hylas: P({ title: "Le gardien", place: "pallanche",
     text: [
       "Tu prends Hylas par le bras. Il résiste, d'abord. « Si je pars, il l'ouvrira. » Tu lui dis qu'il l'a déjà ouvert. Il se tait.",
       "Il se lève. Il pose la main une dernière fois sur la reliure, comme on pose la main sur un cercueil, et il te suit.",
     ],
-    choices: [{ label: "Remonter", fx: { join: "hylas", flag: "hylas:iv=libre" }, to: "IV_tour_escalier" }] }),
+    choices: [{ fx: { join: "hylas", flag: "hylas:iv=libre" }, back: "IV_tour_escalier" }] }),
 
   // ---- Mordace on the stairs
   IV_tour_mordace: P({ title: "La lanterne", place: "pallanche",

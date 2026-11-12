@@ -114,14 +114,14 @@ module.exports = {
       "Au-dessus des trois vers, la dernière ligne de la liste, plus grande que les autres, gravée plus profond. Un seul nom. Ardaël.",
       { with: "hylas", text: "Hylas retire sa main de la pierre comme s'il s'était brûlé. Il ne dit rien pendant longtemps." },
     ],
-    choices: [{ label: "Revenir au centre de la grotte", to: "II_N2_grotte" }] }),
+    choices: [{ back: "II_N2_grotte" }] }),
 
   II_N2_mur_chant_moitie: P({ title: "Des noms", place: "lacnoir",
     text: [
       "Ce sont des noms. C'est tout ce qu'on peut te dire avec certitude. Des noms, et après certains, toujours le même signe, comme une marque de propriétaire.",
       "Les trois vers de l'aïeule sont en bas, à part. On n'arrive pas à les déchiffrer. Tu les connais par cœur, et tu ne sais pas les lire.",
     ],
-    choices: [{ label: "Revenir au centre de la grotte", to: "II_N2_grotte" }] }),
+    choices: [{ back: "II_N2_grotte" }] }),
 
   II_N2_mur_carte: P({ title: "La paroi du fond", place: "lacnoir",
     fx: { flag: "nord:carte_vue" },
@@ -132,7 +132,7 @@ module.exports = {
       { if: { all: [{ not: { present: "hylas" } }, { present: "pie" }] }, text: "Pie siffle entre ses dents. « La plume et la clé. Je l'ai imitée cent fois, celle-là. C'est le sceau de la Chancellerie. »" },
       { if: { all: [{ not: { present: "hylas" } }, { not: { present: "pie" } }, { present: "ysolde" }] }, text: "Ysolde touche le cerf. « C'est le blason de Brenne, dit-elle. Ma maison. Il y a trois cents ans. »" },
     ],
-    choices: [{ label: "Revenir au centre de la grotte", fx: { clue: "n_cinq_signes" }, to: "II_N2_grotte" }] }),
+    choices: [{ fx: { clue: "n_cinq_signes" }, back: "II_N2_grotte" }] }),
 
   II_N2_corbeaux: P({ title: "Les corbeaux", place: "lacnoir",
     text: [
@@ -141,7 +141,7 @@ module.exports = {
       { if: { not: { souv: "corbe:corbeau" } }, text: "Il tend le bec vers ta main gauche, cherche quelque chose, ne le trouve pas, et te pince le doigt. Il a l'air déçu. Tu ne sais pas ce qu'il attendait." },
       "Il s'envole vers le boyau du fond, se pose à l'entrée, et attend.",
     ],
-    choices: [{ label: "Revenir au centre de la grotte", fx: { flag: "nord:corbeau_guide" }, to: "II_N2_grotte" }] }),
+    choices: [{ fx: { flag: "nord:corbeau_guide" }, back: "II_N2_grotte" }] }),
 
   II_N2_fond: P({ title: "Le fond", place: "lacnoir",
     text: [
@@ -168,7 +168,7 @@ module.exports = {
       "La glace cesse de craquer. Dans la glace, les mains de la vieille femme se referment, tout doucement, sur le tambour.",
       "Quand tu te tais, il fait plus chaud. Askel pleure sans bruit. « Elle tiendra, dit-elle. Pas toujours. Assez. »",
     ],
-    choices: [{ label: "Remonter dans la grande salle", fx: { conf: { corbe: 5 } }, to: "II_N2_grotte" }] }),
+    choices: [{ fx: { conf: { corbe: 5 } }, back: "II_N2_grotte" }] }),
 
   II_N2_fond_don: P({ title: "Le col au soleil", place: "lacnoir",
     text: [
@@ -176,16 +176,16 @@ module.exports = {
       "Tu le donnes.",
       "La glace cesse de craquer. Tu te redresses. Askel te regarde. Tu lui demandes ce qu'il y a, au col de l'Ourse. Elle ne répond pas. Tu ne comprends pas pourquoi elle pleure.",
     ],
-    choices: [{ label: "Remonter dans la grande salle", to: "II_N2_grotte" }] }),
+    choices: [{ back: "II_N2_grotte" }] }),
 
   II_N2_fond_rate: P({ title: "Le craquement", place: "lacnoir",
     text: [
       "Tu remontes. Derrière toi, au fond du boyau, la glace craque, encore, régulièrement, comme un pas lent.",
       "Askel reste en bas. Elle chante, seule, d'une voix grave que tu ne lui connaissais pas. Elle remonte une heure plus tard, la voix cassée, les lèvres bleues. « Une nuit, dit-elle. Peut-être deux. »",
     ],
-    choices: [{ label: "Revenir dans la grande salle", to: "II_N2_grotte" }] }),
+    choices: [{ back: "II_N2_grotte" }] }),
 
-  II_N2_nuit: P({ title: "La nuit dans la grotte", place: "lacnoir",
+  II_N2_nuit: P({ backName: "le feu de la grotte", title: "La nuit dans la grotte", place: "lacnoir",
     text: [
       "Vous faites un feu de bois flotté sous la fente de la voûte, et la fumée monte droit. Les corbeaux se sont tus. Askel s'est endormie tout de suite, assise contre la paroi, la bouche ouverte, comme une très vieille femme.",
       { if: { has: "nord:chant_lu" }, text: "Sur la grande paroi, la lumière du feu fait bouger les traits. On dirait que les noms respirent." },
@@ -205,14 +205,14 @@ module.exports = {
       "« C'est celle que j'ai vue dans le lac, dit-il. Je crois. » Il hausse les épaules. « Ou j'ai envie que ce soit elle. Quand on n'a pas d'endroit d'où on vient, on en prend un. »",
       { if: { has: "passe:trouve" }, text: "Il dit ça sans amertume. On le lui a répété toute son enfance, à Sauvelune : l'enfant trouvé du moulin." },
     ],
-    choices: [{ label: "Revenir au feu", fx: { conf: { enfant: 5 } }, to: "II_N2_nuit" }] }),
+    choices: [{ fx: { conf: { enfant: 5 } }, back: "II_N2_nuit" }] }),
 
   II_N2_nuit_ysolde: P({ title: "Le cerf", place: "lacnoir",
     text: [
       "Ysolde n'arrive pas à dormir. Elle te dit, à voix basse, sans te regarder : « Dans le lac, j'ai vu un pont. Des gens dessus. Beaucoup. Et moi, à cheval, au bout. » Elle frotte ses mains l'une contre l'autre au-dessus du feu. « Je ne me souviens pas de ce pont. Et je me suis reconnue tout de suite. »",
       { if: { has: "nord:carte_vue" }, text: "Puis : « Le cerf, sur la paroi. Ma maison était là, à la fin de cette ville. Dans le feu. Je me demande de quoi d'autre j'ai hérité, sans le savoir. »" },
     ],
-    choices: [{ label: "Revenir au feu", fx: { conf: { ysolde: 5 } }, to: "II_N2_nuit" }] }),
+    choices: [{ fx: { conf: { ysolde: 5 } }, back: "II_N2_nuit" }] }),
 
   II_N2_nuit_pie: P({ title: "Lire", place: "lacnoir",
     text: [
@@ -226,7 +226,7 @@ module.exports = {
 
   II_N2_nuit_pie_lettres: P({ title: "C, O, R", place: "lacnoir",
     text: ["Vous y passez une heure. Tes C sont trop grands, tes R ressemblent à des corbeaux. Pie est un très mauvais maître, impatient, moqueur, et tu apprends plus vite que tu n'aurais cru. À la fin, ton nom est écrit dans la cendre, de ta main. Tu le regardes longtemps. Puis tu l'effaces, très doucement, du plat de la main, comme on ferme les yeux d'un mort."],
-    choices: [{ label: "Revenir au feu", to: "II_N2_nuit" }] }),
+    choices: [{ back: "II_N2_nuit" }] }),
 
   II_N2_nuit_hylas: P({ title: "Le nom de sa mère", place: "lacnoir",
     text: [
@@ -235,7 +235,7 @@ module.exports = {
       "« Ma mère m'appelait Hyl, dit-il. Juste Hyl. Elle vendait du sel. Personne ne m'a appelé comme ça depuis soixante ans. » Il sourit. « Je croyais l'avoir oublié. Elle aussi, je croyais. »",
       { if: { not: { souv: "hylas:mere" } }, text: "Il fronce les sourcils. « Il y avait une femme, dans cette voix. Je ne sais plus laquelle. »" },
     ],
-    choices: [{ label: "Revenir au feu", fx: { conf: { hylas: 5 } }, to: "II_N2_nuit" }] }),
+    choices: [{ fx: { conf: { hylas: 5 } }, back: "II_N2_nuit" }] }),
 
   II_N2_ombre: P({ title: "L'ombre sur le lac", place: "lacnoir",
     text: [

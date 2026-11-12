@@ -4,7 +4,7 @@
 // villagers each carved an animal that same morning, still fresh (iii:jouets).
 var A = { act: "III", noLead: true, place: "enfance" };
 function P(o) { return Object.assign({}, A, o); }
-var BACK = [{ label: "Revenir au centre du hameau", to: "III_e_hameau" }];
+var BACK = [{ back: "III_e_hameau" }];
 module.exports = {
   III_el_guetteur: P({ title: "Le guetteur",
     text: [

@@ -3,7 +3,7 @@
 // and old Gervais in front of the blank lintels, with his pot of ochre (reads en:linteaux).
 var A = { act: "I", place: "sauvelune", noLead: true };
 function P(o) { return Object.assign({}, A, o); }
-var BACK = [{ label: "Revenir dans le village", to: "EN_village" }];
+var BACK = [{ back: "EN_village" }];
 module.exports = {
   EN_k_doyenne_neige: P({ title: "La chaise de Mathilde",
     text: [

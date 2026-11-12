@@ -12,7 +12,7 @@ module.exports = {
     choices: [
       { label: "Prendre ta place dans la ligne", test: { dom: "nature", label: "La faux", help: [{ if: { present: "gaspard" }, v: 5 }, { if: { present: "corbe" }, v: 10 }] },
         win: { fx: { ep: ["perso", 600] }, to: "IV_f_ligne" }, lose: { fx: { pv: -2 }, to: "IV_f_ligne_rate" } },
-      { label: "Revenir sur la place", to: "IV_sv_place" },
+      { back: "IV_sv_place" },
     ] }),
   IV_f_ligne: P({ title: "La ligne", place: "sauvelune",
     text: [
@@ -60,5 +60,5 @@ module.exports = {
       "Pim ne dit rien. Il regarde le ciel. Il dit, au bout d'un long moment : « La première étoile, c'est la mienne. On avait dit. » Tu ne te souviens pas d'avoir dit ça. Tu dis oui. Il est content.",
       "La charrette entre dans la cour du moulin. La grange sent le foin neuf, à en tourner la tête. Il fait nuit. Personne ne parle de demain.",
     ],
-    choices: [{ label: "Revenir sur la place", to: "IV_sv_place" }] }),
+    choices: [{ back: "IV_sv_place" }] }),
 };

@@ -3,7 +3,7 @@
 // names fade overnight. iv:violons=appris when the boy hums them the Sauvelune dance back.
 var A = { act: "IV", noLead: true, place: "pontsaule" };
 function P(o) { return Object.assign({}, A, o); }
-var BACK = [{ label: "Revenir dans la salle", to: "IV_ps_auberge" }];
+var BACK = [{ back: "IV_ps_auberge" }];
 module.exports = {
   IV_ps_auberge: P({ title: "L'auberge du Saule", hub: true,
     text: [
@@ -13,7 +13,7 @@ module.exports = {
       { label: "Les trois violoneux, à la table du fond", hide: { seen: "IV_ps_violons" }, to: "IV_ps_violons" },
       { label: "L'aubergiste, derrière son comptoir, avec son grand livre", hide: { seen: "IV_ps_livre" }, to: "IV_ps_livre" },
       { label: "Manger une soupe au coin du feu", fx: { gold: -1, pv: 4, food: 1 }, hide: { seen: "IV_ps_soupe" }, to: "IV_ps_soupe" },
-      { label: "Ressortir sur le pont", to: "IV_ps" },
+      { back: "IV_ps" },
     ] }),
   IV_ps_soupe: P({ title: "La soupe",
     text: ["Une soupe aux choux, épaisse, avec un os à moelle qui flotte au milieu. La servante la pose devant toi sans un mot, puis elle reste là, à te regarder manger, le torchon sur l'épaule. « Tu es le fils du meunier de là-haut, dit-elle enfin. Celui qui est parti. » Tu dis oui. Elle hoche la tête. « Je me demandais si j'avais rêvé. » Elle repart. Elle t'apporte du pain, ensuite, sans que tu en demandes."],

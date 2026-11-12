@@ -7,8 +7,8 @@ function col(who, title, text, a, b) {
   ca[who] = a.conf; cb[who] = b.conf;
   o[id] = P({ takes: "night", title: title, place: "col", text: text,
     choices: [{ label: a.label, fx: { conf: ca }, to: id + "_a" }, { label: b.label, fx: { conf: cb }, to: id + "_b" }] });
-  o[id + "_a"] = P({ title: title, place: "col", text: [a.text], choices: [{ label: "Revenir au feu du clan", to: "II_N5_col" }] });
-  o[id + "_b"] = P({ title: title, place: "col", text: [b.text], choices: [{ label: "Revenir au feu du clan", to: "II_N5_col" }] });
+  o[id + "_a"] = P({ title: title, place: "col", text: [a.text], choices: [{ back: "II_N5_col" }] });
+  o[id + "_b"] = P({ title: title, place: "col", text: [b.text], choices: [{ back: "II_N5_col" }] });
   return o;
 }
 var C = {};

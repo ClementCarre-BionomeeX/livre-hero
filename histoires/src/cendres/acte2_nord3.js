@@ -27,14 +27,14 @@ module.exports = {
 
   II_N3_combe_sacs: P({ title: "Les sacs", place: null,
     text: ["Du pain dur, des onguents, des couvertures, des linceuls. Ombeline te regarde faire sans rien dire. Quand tu as fini, elle prend la longe de la première mule, la détache, la pose dans la neige. Puis elle te suit. Tu ne lui as pas demandé de venir. Elle vient quand même."],
-    choices: [{ label: "Reprendre la route", fx: { join: "ombeline", flag: "nord:ombeline" }, to: "@route" }] }),
+    choices: [{ fx: { join: "ombeline", flag: "nord:ombeline" }, back: "@route" }] }),
 
   II_N3_combe_ombeline: P({ title: "Mère Ombeline", place: null,
     text: [
       "Elle marche lentement, mais elle ne s'arrête jamais. Elle ne se plaint de rien. Au bout d'une heure, tu remarques qu'elle murmure, tout le temps, très bas, comme Hylas compte ses pas.",
       "Tu lui demandes ce qu'elle dit. « Leurs noms, dit-elle. Ceux qui sont morts chez moi. Je les dis, pour qu'ils soient dits. » Elle sourit. « Il y en a beaucoup. Ça occupe la route. »",
     ],
-    choices: [{ label: "Reprendre la route", to: "@route" }] }),
+    choices: [{ back: "@route" }] }),
 
   II_N3_porte: P({ title: "Le moutier", place: null,
     text: [
@@ -98,7 +98,7 @@ module.exports = {
       "Tiennot hausse les épaules. « On ne sait pas. Les novices, on ne sait pas. On veille. Toutes les heures, quelqu'un monte à la tour et regarde le col. Et s'il voit la lumière, il sonne. »",
       "Il regarde vers le nord, par la porte. « Elle est là depuis un mois, la lumière. On a sonné tous les jours. Personne n'est venu. »",
     ],
-    choices: [{ label: "Revenir au cloître", fx: { flag: "nord:tiennot" }, to: "II_N3_cloitre" }] }),
+    choices: [{ fx: { flag: "nord:tiennot" }, back: "II_N3_cloitre" }] }),
 
   II_N3_prieur: P({ title: "Dom Arnoul", place: "moutier",
     fx: { meet: "arnoul" },
@@ -131,7 +131,7 @@ module.exports = {
       "« Un Glaneur, dit Arnoul. Comme les petits. Mais les petits ramassent les noms et les rapportent à celui qui les envoie. Celui-là, personne ne l'envoie. Il les garde. Il en a tant mangé qu'il a grandi. »",
       "« Il prend les villages que la neige couvre. Il passe derrière elle, comme un glaneur derrière les moissonneurs, et il ramasse ce qui reste. Les noms, les visages, les chansons. Tout ce qui pourrait encore se souvenir. » Il ferme les yeux. « Il est venu chez nous parce que nous étions les seuls, dans ces montagnes, à nous souvenir de quelque chose. »",
     ],
-    choices: [{ label: "Revenir au prieur", to: "II_N3_livre" }] }),
+    choices: [{ back: "II_N3_livre" }] }),
 
   II_N3_livre: P({ title: "Le Livre des Veilles", place: "moutier",
     text: [
@@ -151,7 +151,7 @@ module.exports = {
       "Arnoul regarde le feu. « Trois cents ans », dit-il. Il ne dit pas si c'est bien.",
       { with: "hylas", text: "Hylas, à la porte, a l'air d'un homme qu'on frappe. Il n'a rien dit pour t'arrêter. Il ne dira rien après." },
     ],
-    choices: [{ label: "Revenir au cloître", to: "II_N3_cloitre" }] }),
+    choices: [{ back: "II_N3_cloitre" }] }),
 
   II_N3_chapelle: P({ title: "La chapelle", place: "moutier",
     text: [
@@ -171,7 +171,7 @@ module.exports = {
       "Quand elle a fini, elle s'assied sur la marche de l'autel. Elle a l'air plus vieille. Elle dit : « Un avait tué son frère, avant d'entrer ici. Un autre avait laissé une femme, à Vasselin, enceinte. Un autre n'avait jamais cru en rien, pas un seul jour, en cinquante ans de prières. » Elle sourit. « Maintenant, c'est à moi. Ils sont tranquilles. »",
       "Dans la glace, le moine au bout de la rangée a cessé de bouger les lèvres.",
     ],
-    choices: [{ label: "Revenir au cloître", to: "II_N3_cloitre" }] }),
+    choices: [{ back: "II_N3_cloitre" }] }),
 
   II_N3_glace: P({ title: "Le frère au balai", place: "moutier",
     text: ["Il est jeune, roux, les joues rondes. Il balayait. La glace qui l'entoure est mince, à peine un doigt. On pourrait la briser. Il y a une torche éteinte dans une niche, et un briquet."],
@@ -186,7 +186,7 @@ module.exports = {
       "Il tombe en poudre. Une poudre blanche, fine, qui ne fond pas, et qui fait un petit tas sur le dallage, avec le balai par-dessus.",
       "Il n'y avait déjà plus personne, dedans. La glace, c'était la seule chose qui le tenait.",
     ],
-    choices: [{ label: "Revenir au cloître", to: "II_N3_cloitre" }] }),
+    choices: [{ back: "II_N3_cloitre" }] }),
 
   II_N3_tour: P({ title: "La tour du guet", place: "moutier",
     text: [
@@ -199,10 +199,10 @@ module.exports = {
     choices: [
       { label: "Dégager la corde de la cloche, pour la nuit", test: { dom: "combat", label: "Force", help: [{ if: { present: "rodric" }, v: 15 }] },
         win: { fx: { flag: "nord:cloche_libre" }, to: "II_N3_cloitre" }, lose: { to: "II_N3_cloitre" } },
-      { label: "Redescendre", to: "II_N3_cloitre" },
+      { back: "II_N3_cloitre" },
     ] }),
 
-  II_N3_soir: P({ title: "Le soir", place: "moutier",
+  II_N3_soir: P({ backName: "les cuisines du moutier", title: "Le soir", place: "moutier",
     text: [
       "Vous mangez dans les cuisines, autour du four, avec Tiennot, qui ne parle pas. La nuit tombe vite, dans la combe.",
       { with: "ombeline", text: "Ombeline s'est assise près du feu et murmure ses noms." },
@@ -220,29 +220,29 @@ module.exports = {
 
   II_N3_nuit_enfant: P({ title: "La peur", place: "moutier",
     text: ["L'enfant te demande si tu as peur. Tu dis oui. Il a l'air soulagé. « Moi aussi. Je croyais que c'était parce que je n'étais pas d'ici. » Il regarde le feu. « Ça me fait du bien que tu aies peur. Ce n'est pas méchant de dire ça ? »"],
-    choices: [{ label: "Revenir au feu", fx: { conf: { enfant: 5 } }, to: "II_N3_soir" }] }),
+    choices: [{ fx: { conf: { enfant: 5 } }, back: "II_N3_soir" }] }),
 
   II_N3_nuit_ysolde: P({ title: "La veille", place: "moutier",
     text: ["Ysolde vérifie son épée, ses sangles, la porte des cuisines, la fenêtre, deux fois. « Au fort, dit-elle, on veillait aussi. On ne savait pas plus qu'eux sur quoi. On disait : Corvanne. » Elle s'arrête devant la fenêtre. « Je commence à croire que tous les murs d'Esquarre sont tournés du mauvais côté. »"],
-    choices: [{ label: "Revenir au feu", fx: { conf: { ysolde: 5 } }, to: "II_N3_soir" }] }),
+    choices: [{ fx: { conf: { ysolde: 5 } }, back: "II_N3_soir" }] }),
 
   II_N3_nuit_pie: P({ title: "Tiennot", place: "moutier",
     text: ["Pie est assis à côté de Tiennot et lui apprend à faire disparaître une noix sous trois gobelets de bois. Le novice ne rit pas, mais il regarde, et ses mains ne tremblent plus. « Quand on a peur, dit Pie sans te regarder, il faut occuper les mains. La tête suit. »"],
-    choices: [{ label: "Revenir au feu", fx: { conf: { pie: 5 } }, to: "II_N3_soir" }] }),
+    choices: [{ fx: { conf: { pie: 5 } }, back: "II_N3_soir" }] }),
 
   II_N3_nuit_hylas: P({ title: "Les cinq", place: "moutier",
     text: [
       "Hylas est resté à la bibliothèque, avec le prieur. Tu les trouves qui parlent à voix basse, l'un dans son fauteuil, l'autre debout, la main sur le dossier. Ils se taisent quand tu entres.",
       "En redescendant, Hylas dit seulement : « Il m'a dit ce qu'on dit au prieur. Je le savais déjà. Je l'avais lu, il y a vingt ans, et j'ai fait comme si. » Il s'appuie au mur. « Les Greffiers aussi ont un serment. Le même, à un mot près. »",
     ],
-    choices: [{ label: "Revenir au feu", fx: { conf: { hylas: 5 }, flag: "hylas:arnoul" }, to: "II_N3_soir" }] }),
+    choices: [{ fx: { conf: { hylas: 5 }, flag: "hylas:arnoul" }, back: "II_N3_soir" }] }),
 
   II_N3_nuit_ombeline: P({ title: "Le poids", place: "moutier",
     text: [
       "Tu demandes à Ombeline combien elle en porte. Elle réfléchit. « Je ne compte plus les souvenirs. Je compte les gens. Quatre mille trois cents, à peu près. » Elle te regarde. « Je les sens tous. Pas en même temps. Comme une maison pleine, où on entend toujours quelqu'un dans une pièce. »",
       "« Et le jour où tu meurs ? » Elle sourit. « Je ne sais pas. Personne ne me l'a jamais demandé. Je crois qu'ils partiront avec moi. Ou qu'ils resteront. Je ne sais pas ce qui serait le mieux. »",
     ],
-    choices: [{ label: "Revenir au feu", fx: { conf: { ombeline: 5 } }, to: "II_N3_soir" }] }),
+    choices: [{ fx: { conf: { ombeline: 5 } }, back: "II_N3_soir" }] }),
 
   II_N3_geant: P({ title: "La main sur le toit", place: "moutier",
     text: [

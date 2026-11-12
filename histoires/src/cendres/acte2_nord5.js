@@ -72,7 +72,7 @@ module.exports = {
       { if: { has: "nord:chant_lu" }, text: "Tu penses aux trois vers, sous la liste. *Qui n'en chante aucun la garde fermée.*" },
       "« Personne n'en est revenu, dit Hrodna. Je préfère te le dire. »",
     ],
-    choices: [{ label: "Revenir au camp", to: "II_N5_col" }] }),
+    choices: [{ back: "II_N5_col" }] }),
 
   II_N5_askel: P({ title: "La robe blanche", place: "col",
     text: [
@@ -94,9 +94,9 @@ module.exports = {
       { if: { not: { souv: "corbe:col" } }, text: "Les gens du clan la touchent en passant, comme une relique. Tu ne sais pas pourquoi. C'est une pierre." },
       "Sur la face qui regarde la déchirure, quelqu'un a gravé, très anciennement, cinq petites figures. Une tour, une gerbe, une barque, un cerf, une plume croisée d'une clé. Et au-dessus, effacée, à peine visible, une sixième, qu'on a voulu gratter : un ours couronné.",
     ],
-    choices: [{ label: "Revenir au camp", fx: { flag: "nord:ours_vu" }, to: "II_N5_col" }] }),
+    choices: [{ fx: { flag: "nord:ours_vu" }, back: "II_N5_col" }] }),
 
-  II_N5_feu: P({ takes: "evening", title: "La veille du rite", place: "col",
+  II_N5_feu: P({ backName: "le feu, à l'écart du clan", takes: "evening", title: "La veille du rite", place: "col",
     text: [
       "Le soir, vous faites votre feu à l'écart du clan, entre deux rochers. La déchirure éclaire tout le col d'une lumière froide, sans ombres. Personne n'arrive à dormir.",
       "Au sud, rien encore. Pas un feu sur les crêtes.",
@@ -113,31 +113,31 @@ module.exports = {
 
   II_N5_feu_enfant: P({ title: "Il m'attend", place: "col",
     text: ["L'enfant te demande ce que tu vas faire, demain. Tu ne réponds pas. Il hoche la tête. « Moi, dit-il, je crois que je vais y aller. Là-dedans. Pas pour le rite. Parce qu'on m'attend. » Il essaie de sourire. « Tu viendrais, toi, si quelqu'un t'attendait derrière une porte comme ça ? »"],
-    choices: [{ label: "Revenir au feu", fx: { conf: { enfant: 5 } }, to: "II_N5_feu" }] }),
+    choices: [{ fx: { conf: { enfant: 5 } }, back: "II_N5_feu" }] }),
 
   II_N5_feu_ysolde: P({ title: "Les gens qui marchent", place: "col",
     text: ["Ysolde a regardé dans la déchirure, elle aussi. « Ils ont des enfants dans les bras, dit-elle. Comme sur le pont. » Elle ne dit pas quel pont. Elle n'en a plus besoin. « S'ils arrivent jusqu'ici, Corbe, je ne les arrêterai pas. Je veux que tu le saches avant. »"],
-    choices: [{ label: "Revenir au feu", fx: { conf: { ysolde: 5 }, flag: "ysolde:ne_tiendra_pas" }, to: "II_N5_feu" }] }),
+    choices: [{ fx: { conf: { ysolde: 5 }, flag: "ysolde:ne_tiendra_pas" }, back: "II_N5_feu" }] }),
 
   II_N5_feu_pie: P({ title: "Les lettres", place: "col",
     text: [
       { if: { has: "corbe:lettres" }, text: "Pie trace un C dans la neige, avec un bâton, et te le tend. « Révision. » Tu écris ton nom. Tes R ressemblent toujours à des corbeaux. Il le regarde longtemps. « Si tu entres là-dedans, dit-il, je l'écrirai partout. Sur tous les murs de Pallanche. Ils ne pourront pas l'oublier. Je suis faussaire, je sais faire durer une écriture. »" },
       { if: { not: { has: "corbe:lettres" } }, text: "Pie lance des cailloux dans la lumière de la déchirure. Ils disparaissent sans bruit. « Si tu entres là-dedans, dit-il, ne compte pas sur moi pour t'oublier. Je n'ai jamais rien rendu de ce que j'ai pris. »" },
     ],
-    choices: [{ label: "Revenir au feu", fx: { conf: { pie: 5 } }, to: "II_N5_feu" }] }),
+    choices: [{ fx: { conf: { pie: 5 } }, back: "II_N5_feu" }] }),
 
   II_N5_feu_hylas: P({ title: "L'ours couronné", place: "col",
     text: [
       { if: { has: "nord:ours_vu" }, text: "Tu décris la pierre à Hylas, les cinq figures, et la sixième, grattée. L'ours couronné. Il reste longtemps immobile. « Dans le registre noir, dit-il enfin, la première page porte ce sceau. Je n'avais jamais su de quelle maison c'était. Il n'y en a pas, en Esquarre. » Il tourne la tête vers la déchirure. « Il y en avait une. »" },
       { if: { not: { has: "nord:ours_vu" } }, text: "Hylas est assis tourné vers la déchirure, comme s'il la voyait. « Je suis déjà venu ici, dit-il. Il y a vingt ans. Je suis entré. Je suis ressorti. » Il ne dit pas avec quoi. Il ne dit pas avec qui." },
     ],
-    choices: [{ label: "Revenir au feu", fx: { conf: { hylas: 5 } }, to: "II_N5_feu" }] }),
+    choices: [{ fx: { conf: { hylas: 5 } }, back: "II_N5_feu" }] }),
 
   II_N5_feu_ombeline: P({ title: "Ceux qui marchent", place: "col",
     text: ["Ombeline a les yeux fermés. « Je les entends, dit-elle. Ceux qui marchent, de l'autre côté. Ils ne sont pas en colère. Ils sont fatigués. Comme mes mourants, juste avant. » Elle ouvre les yeux. « Ils veulent qu'on dise leur nom. C'est tout. C'est énorme. »"],
-    choices: [{ label: "Revenir au feu", fx: { conf: { ombeline: 5 } }, to: "II_N5_feu" }] }),
+    choices: [{ fx: { conf: { ombeline: 5 } }, back: "II_N5_feu" }] }),
 
   II_N5_feu_gaspard: P({ title: "Le four", place: "col",
     text: ["Gaspard regarde la déchirure avec nostalgie. « Je viens de là, dit-il. Avant le four, avant tout. Je crois. » Il a gardé le morceau de galette de la fillette, intact, dans sa main de neige. « Quand j'étais là-bas, j'avais un nom à moi. Je ne m'en souviens plus. Gaspard, c'est celui du boulanger. Je l'ai pris. Je crois qu'il ne m'en veut pas. »"],
-    choices: [{ label: "Revenir au feu", fx: { conf: { gaspard: 5 } }, to: "II_N5_feu" }] }),
+    choices: [{ fx: { conf: { gaspard: 5 } }, back: "II_N5_feu" }] }),
 };

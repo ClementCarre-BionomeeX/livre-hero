@@ -20,19 +20,19 @@ module.exports = {
       "Tu tires sur le battant de toutes tes forces. La cloche bouge, à peine, et frappe un coup, un seul, sourd, mouillé, comme une cloche qui sonne sous l'eau.",
       "La Sonneuse a fermé les yeux. « Ce n'est pas pareil, dit-elle. Quand on la sonne d'ici, ça ne compte pas. » Elle rouvre les yeux. « Mais c'était beau. Merci. »",
     ],
-    choices: [{ label: "Revenir sur la place", fx: { quest: "III_Q_vaure" }, to: "III_c_ville" }] }),
+    choices: [{ fx: { quest: "III_Q_vaure" }, back: "III_c_ville" }] }),
   III_b_vaure_muette: P({ title: "Le battant", place: "cloches",
     text: ["Le battant est soudé par la rouille. Tu t'y suspends de tout ton poids. Rien. La Sonneuse rit, d'un rire de vieille, plein de gencives. « Elle est têtue, dit-elle. Comme moi. Elle attend qu'on pense à elle. Pas qu'on la tire. »"],
     choices: [
       { label: "Lui promettre de parler de Vaure, quand tu remonteras", fx: { flag: "iii:vaure_promis", ep: ["perso", 800] }, to: "III_b_vaure_promesse" },
-      { label: "Revenir sur la place", fx: { quest: "III_Q_vaure" }, to: "III_c_ville" },
+      { fx: { quest: "III_Q_vaure" }, back: "III_c_ville" },
     ] }),
   III_b_vaure_promesse: P({ title: "Vaure", place: "cloches",
     text: [
       "Elle te fait répéter. Vaure-sur-Lac. L'église Saint-Loup. Le lac, les barques plates, les anguilles. Le barrage de l'an mil quatre cent et quelque. Elle-même : Gillette-la-Sonneuse, qui sonnait l'angélus avec un quart d'heure de retard parce qu'elle avait les jambes courtes.",
       "« Une fois, dit-elle. Dis-le une fois, à quelqu'un, là-haut. Ça suffit pour un coup. » Elle te serre la main, très fort, avec ses doigts tordus. « Et si tu oublies, ne t'en fais pas. J'ai l'habitude. »",
     ],
-    choices: [{ label: "Revenir sur la place", fx: { quest: "III_Q_vaure" }, to: "III_c_ville" }] }),
+    choices: [{ fx: { quest: "III_Q_vaure" }, back: "III_c_ville" }] }),
 
   III_b_ecole: P({ title: "La cloche d'école", place: "cloches",
     text: [
@@ -43,7 +43,7 @@ module.exports = {
     choices: [
       { label: "Chercher la huitième rivière", test: { dom: "savoir", label: "La leçon", help: [{ if: { present: "hylas" }, v: 20 }, { if: { has: "passe:temple" }, v: 15 }, { if: { present: "lisandre" }, v: 5 }] },
         win: { fx: { flag: "iii:ecole", ep: ["perso", 900] }, to: "III_b_ecole_riviere" }, lose: { to: "III_b_ecole_rien" } },
-      { label: "Revenir sur la place", to: "III_c_ville" },
+      { back: "III_c_ville" },
     ] }),
   III_b_ecole_riviere: P({ title: "La huitième rivière", place: "cloches",
     text: [
@@ -51,10 +51,10 @@ module.exports = {
       "La maîtresse te regarde, interdite. Puis elle sourit. Ce n'est pas la bonne. Mais elle la répète aux enfants, et les enfants la répètent, et continuent, la neuvième, la dixième, toute la leçon, jusqu'au bout, et à la fin, ils se lèvent tous ensemble et s'en vont en courant, en criant. La classe est finie.",
       "La maîtresse sonne sa cloche à main, une fois. Puis elle s'en va aussi.",
     ],
-    choices: [{ label: "Revenir sur la place", to: "III_c_ville" }] }),
+    choices: [{ back: "III_c_ville" }] }),
   III_b_ecole_rien: P({ title: "La septième rivière", place: "cloches",
     text: ["Tu ne trouves pas. La maîtresse te regarde avec une immense politesse, et se retourne vers ses élèves. Ils reprennent du début. Tu les entends encore réciter quand tu tournes le coin de la rue, et tu sais qu'ils s'arrêteront à la septième."],
-    choices: [{ label: "Revenir sur la place", to: "III_c_ville" }] }),
+    choices: [{ back: "III_c_ville" }] }),
 
   III_b_navire: P({ title: "La cloche du navire", place: "cloches",
     text: [
@@ -67,10 +67,10 @@ module.exports = {
     ] }),
   III_b_navire_rentre: P({ title: "Les châtaignes", place: "cloches",
     text: ["Il lève la tête. Il sourit, de toutes ses dents gâtées. Il range son épissoir, se lève, ajuste son bonnet, et s'en va, d'un pas de marin, vers les files qui marchent. Au-dessus de toi, la cloche de La Fidèle sonne un coup, tout seul, comme quand un navire entre au port."],
-    choices: [{ label: "Revenir sur la place", to: "III_c_ville" }] }),
+    choices: [{ back: "III_c_ville" }] }),
   III_b_navire_verite: P({ title: "Pas de jours", place: "cloches",
     text: ["Il hoche la tête, lentement, comme s'il s'en doutait. « Alors je vais continuer d'épisser, dit-il. Il faut que le bout soit prêt quand on rentrera. » Il se remet au travail. Le bout fait déjà cinquante brasses, enroulé autour de la tour."],
-    choices: [{ label: "Revenir sur la place", to: "III_c_ville" }] }),
+    choices: [{ back: "III_c_ville" }] }),
 
   III_b_noces: P({ title: "La cloche des noces", place: "cloches",
     text: [
@@ -80,7 +80,7 @@ module.exports = {
     choices: [
       { label: "Les amener l'un vers l'autre", test: { dom: "social", label: "Les noces", help: [{ if: { present: "lisandre" }, v: 15 }, { if: { present: "pie" }, v: 10 }, { if: { present: "corbe" }, v: 5 }] },
         win: { fx: { flag: "iii:noces", ep: ["perso", 1200] }, to: "III_b_noces_ok" }, lose: { to: "III_b_noces_rate" } },
-      { label: "Revenir sur la place", to: "III_c_ville" },
+      { back: "III_c_ville" },
     ] }),
   III_b_noces_ok: P({ title: "Le bras", place: "cloches",
     text: [
@@ -89,8 +89,8 @@ module.exports = {
       "La petite cloche fleurie sonne. Toute seule. À la volée.",
       { with: "lisandre", text: "Lisandre s'essuie les yeux d'un revers de main furieux. « Je ne pleure jamais aux mariages, dit-elle. J'en ai chanté cent. » Elle renifle. « Ça doit être l'air d'ici. »" },
     ],
-    choices: [{ label: "Revenir sur la place", to: "III_c_ville" }] }),
+    choices: [{ back: "III_c_ville" }] }),
   III_b_noces_rate: P({ title: "Les deux bouts", place: "cloches",
     text: ["Le vieil homme refuse de bouger. « Elle va venir, dit-il. Elle a dit qu'elle viendrait. » À l'autre bout, la vieille femme dit la même chose, avec les mêmes mots. Tu restes un moment au milieu de la rue, entre eux deux, sous la cloche muette. Tu ne sais pas comment leur dire."],
-    choices: [{ label: "Revenir sur la place", to: "III_c_ville" }] }),
+    choices: [{ back: "III_c_ville" }] }),
 };

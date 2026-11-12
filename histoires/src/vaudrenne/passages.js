@@ -39,7 +39,7 @@ module.exports = {
     choices: [
       { label: "Demander à Mahaut où est passé l'éclusier", to: "V_auberge_joss", hide: { seen: "V_auberge_joss" } },
       { label: "T'asseoir à la table des meuniers", to: "V_auberge_meuniers", hide: { seen: "V_auberge_meuniers" } },
-      { label: "Ressortir sur la place", to: HUB },
+      { back: HUB },
     ] },
   V_auberge_joss: { act: "I", title: "Ce que Mahaut a vu", place: "vaudrenne",
     text: [
@@ -80,7 +80,7 @@ module.exports = {
         win: { fx: { ep: ["perso", 300] }, to: "V_eclusier_dedans" }, lose: { to: "V_eclusier_epaule" } },
       { label: "Enfoncer la porte d'un coup d'épaule", test: { dom: "combat", diff: -10, label: "Combat" },
         win: { to: "V_eclusier_dedans" }, lose: { fx: { pv: -2 }, to: "V_eclusier_epaule" } },
-      { label: "Revenir sur la place", to: HUB },
+      { back: HUB },
     ] },
   V_eclusier_epaule: { act: "I", title: "Une porte têtue", place: "vaudrenne",
     text: [
@@ -95,7 +95,7 @@ module.exports = {
     choices: [
       { label: "Lire le registre", fx: { clue: "e_registre", ep: ["perso", 300] }, to: "V_eclusier_registre", hide: { seen: "V_eclusier_registre" } },
       { label: "Chercher la grande clé", to: "V_eclusier_cle", hide: { any: [{ seen: "V_eclusier_cle" }, { has: "monde:cle_bailli" }, { has: "monde:cle_gardee" }] } },
-      { label: "Ressortir", to: HUB },
+      { back: HUB },
     ] },
   V_eclusier_registre: { act: "I", title: "Le registre de l'écluse", place: "vaudrenne",
     text: [
@@ -120,13 +120,13 @@ module.exports = {
       "Tu la glisses sous ton manteau. Elle pèse plus lourd qu'une clé ne devrait peser.",
       "En refermant la porte derrière toi, tu vois une ombre s'écarter du coin de la tour, un homme en cape de pluie qui s'éloigne à grands pas vers la place. Il ne court pas. Il n'en a pas besoin : il sait où il va.",
     ],
-    choices: [{ label: "Revenir sur la place", to: HUB }] },
+    choices: [{ back: HUB }] },
   V_eclusier_bailli: { act: "I", title: "Une clé bien reçue", place: "vaudrenne",
     text: [
       "L'hôtel du bailli s'ouvre avant que tu aies frappé. Un valet prend la clé dans un mouchoir, comme une chose sale, et revient avec une petite bourse. « M. le bailli vous remercie. La ville vous remercie. »",
       "La porte se referme. À une fenêtre de l'étage, un rideau retombe.",
     ],
-    choices: [{ label: "Revenir sur la place", to: HUB }] },
+    choices: [{ back: HUB }] },
 
   V_chapelle: { act: "I", title: "La chapelle des Noyés", place: "vaudrenne",
     text: [
@@ -137,7 +137,7 @@ module.exports = {
     choices: [
       { label: "Lire ce qui est gravé sous les noms", fx: { clue: "b_regle", ep: ["perso", 300] }, to: "V_chapelle_regle", hide: { seen: "V_chapelle_regle" } },
       { label: "Lui demander ce qu'il y a sous la chapelle", to: "V_crypte", hide: { seen: "V_crypte" } },
-      { label: "Ressortir", to: HUB },
+      { back: HUB },
     ] },
   V_chapelle_regle: { act: "I", title: "Les prés boivent, le port vit", place: "vaudrenne",
     text: [
@@ -154,7 +154,7 @@ module.exports = {
     choices: [
       { label: "Examiner le couloir", test: { dom: "nature", diff: 0, label: "Nature" },
         win: { fx: { clue: "e_crypte", ep: ["perso", 400] }, to: "V_couloir" }, lose: { to: "V_couloir" } },
-      { label: "Remonter : ce n'est pas ton affaire", to: "V_chapelle" },
+      { label: "Remonter : ce n'est pas ton affaire", back: "V_chapelle" },
     ] },
   V_couloir: { act: "I", title: "Le couloir sous la ville", place: "vaudrenne",
     text: [
@@ -166,7 +166,7 @@ module.exports = {
     choices: [
       { label: "Lever la barre et libérer l'homme", monde: "joss", option: "libre", hide: { has: "monde:joss_libre" }, fx: { flag: "monde:joss_libre", ep: ["seance", 1000] }, to: "V_joss", big: true },
       { label: "Le laisser là pour l'instant : le bailli ne doit pas savoir qu'on sait", monde: "joss", option: "laisse", hide: { has: "monde:joss_libre" }, fx: { flag: "monde:joss_laisse" }, to: "V_chapelle", big: true },
-      { label: "Redescendre", if: { has: "monde:joss_libre" }, to: "V_chapelle" },
+      { if: { has: "monde:joss_libre" }, back: "V_chapelle" },
     ] },
   V_joss: { act: "I", title: "Joss Ferrand", place: "vaudrenne",
     text: [
@@ -174,7 +174,7 @@ module.exports = {
       "« Joss Ferrand, éclusier. Le bailli voulait que je tienne les vannes fermées. J'ai dit non. Il m'a dit que j'avais besoin de repos. » Il fait jouer ses épaules. « Deux jours de repos. Ça monte de combien, dehors ? »",
       "Tu lui dis. Il ferme les yeux une seconde, comme s'il comptait. « Alors à minuit, ce sera trop tard pour le Bas-Port, si personne n'ouvre. J'y serai. Avec ou sans ma clé. »",
     ],
-    choices: [{ label: "Remonter avec lui par la chapelle", to: HUB }] },
+    choices: [{ label: "Remonter avec lui par la chapelle", back: HUB }] },
 
   V_quai: { act: "I", title: "Le Bas-Port", place: "vaudrenne",
     text: [
@@ -186,7 +186,7 @@ module.exports = {
       { label: "Porter des sacs avec elle", test: { dom: "nature", diff: 0, label: "Nature" },
         win: { fx: { ep: ["perso", 400], conf: {} }, to: "V_quai_sacs" }, lose: { fx: { pv: -2 }, to: "V_quai_sacs" }, hide: { seen: "V_quai_sacs" } },
       { label: "Lui demander où est son père", to: "V_bastien", hide: { seen: "V_bastien" } },
-      { label: "Remonter vers la place", to: HUB },
+      { back: HUB },
     ] },
   V_quai_sacs: { act: "I", title: "Les sacs", place: "vaudrenne",
     text: [
@@ -210,7 +210,7 @@ module.exports = {
       "Tu parles du registre, des moulins, de la dispute chez le bailli. Bastien pose son sac. Il regarde sa fille, puis l'eau, puis l'escalier.",
       "« Ninon. Va chez les Aubry, chez la veuve Pâris, chez tout le monde. Dis-leur de prendre les petits et les vieux et de monter à la chapelle. » Il se tourne vers toi. « Les hommes restent. Si quelqu'un doit ouvrir ces vannes cette nuit, il aura besoin de bras. »",
     ],
-    choices: [{ label: "Remonter vers la place", to: HUB }] },
+    choices: [{ back: HUB }] },
   V_bastien_ko: { act: "I", title: "Un homme sur son seuil", place: "vaudrenne",
     text: [
       "Il t'écoute jusqu'au bout, puis reprend ses sacs. « Des on-dit d'auberge, étranger. Moi j'ai des peaux dans les cuves. »",
@@ -246,7 +246,7 @@ module.exports = {
     text: [
       "Il sourit sans que rien ne bouge au-dessus de sa bouche. « Comme il vous plaira. Les nuits de crue sont longues pour les gens sans emploi. » Le valet te rend ton manteau, toujours mouillé.",
     ],
-    choices: [{ label: "Sortir", to: HUB }] },
+    choices: [{ back: HUB }] },
 
   V_minuit: { act: "I", title: "Minuit moins le quart", place: "vaudrenne",
     text: [

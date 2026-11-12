@@ -4,7 +4,7 @@
 // sailors, where the painted ex-votos lose their names one by one (sud:exvoto).
 var S = { act: "II", noLead: true, place: "vasselin" };
 function P(o) { return Object.assign({}, S, o); }
-var BACK = [{ label: "Revenir dans la ville", to: "II_S_vasselin" }];
+var BACK = [{ back: "II_S_vasselin" }];
 module.exports = {
   II_S_corderie: P({ title: "La corderie",
     text: [

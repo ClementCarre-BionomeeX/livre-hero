@@ -4,7 +4,7 @@
 // believed dead since the night of the bridge (iv:prisonnier=rendu|reste).
 var A = { act: "IV", noLead: true, place: "brenne" };
 function P(o) { return Object.assign({}, A, o); }
-var BACK = [{ label: "Revenir au milieu du camp", to: "IV_cv_camp" }];
+var BACK = [{ back: "IV_cv_camp" }];
 module.exports = {
   IV_cv_tambour: P({ title: "Le tambour",
     text: [

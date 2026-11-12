@@ -64,11 +64,11 @@ module.exports = {
     text: [
       "Il ne répond pas tout de suite. Il replie son mouchoir, très soigneusement, en quatre, puis en huit. « Un fait, Dame Lisandre, c'est ce qui est écrit. Après la Fête, ce qui sera écrit, c'est ce que vous aurez chanté. » Il lève les yeux. Ils sont pâles, presque blancs. « Moi, je ne fais que recopier. »",
     ],
-    choices: [{ label: "Sortir", to: "LI_cour" }] }),
+    choices: [{ back: "LI_cour" }] }),
 
   LI_orlan_froid: P({ title: "La fenêtre fermée",
     text: ["« Les faits ne sont jamais faux, Dame Lisandre. Ils sont parfois mal chantés. » Il te tourne le dos et regarde par la fenêtre fermée. L'entretien est fini."],
-    choices: [{ label: "Sortir", to: "LI_cour" }] }),
+    choices: [{ back: "LI_cour" }] }),
 
   // Ilan
   LI_ilan: P({ title: "La galerie des cartes",
@@ -101,18 +101,18 @@ module.exports = {
       "Tu lui dis la ballade, le cahier, les rimes en marge. Il écoute, les yeux fermés, comme on écoute une chanson. Quand tu as fini, il dit : « Merci. » Puis : « On part demain pour Pallanche, nous aussi. L'ambassade est invitée à la Fête. » Il ouvre les yeux. « Je ne sais pas encore ce qu'on va faire de ce que tu m'as dit. Mais je m'en souviendrai. »",
       "Tu viens de trahir la reine. Ça ne te fait rien. Ça devrait.",
     ],
-    choices: [{ label: "Rentrer avant qu'on te voie", to: "LI_cour" }] }),
+    choices: [{ label: "Rentrer avant qu'on te voie", back: "LI_cour" }] }),
 
   LI_ecuries_ment: P({ title: "Rien",
     text: ["Il te regarde longtemps, dans la pénombre. « Tu mentais mieux, à Brésille », dit-il. Il s'en va. Les chevaux bougent dans leurs stalles."],
-    choices: [{ label: "Rentrer", to: "LI_cour" }] }),
+    choices: [{ back: "LI_cour" }] }),
 
   LI_ecuries_livre: P({ title: "Ce que la reine sait",
     text: [
       "Tu le dis à Ermengarde, qui le dit à la reine, qui ne dit rien. Le lendemain matin, le secrétaire du chef de l'ambassade de Corvanne est rappelé chez lui pour une affaire de famille. On l'a vu monter dans une voiture fermée, entre deux gardes, avant l'aube.",
       "La reine te fait porter une bague. Un saphir. Tu la mets. Elle te va.",
     ],
-    choices: [{ label: "Revenir à la cour", fx: { gold: 40 }, to: "LI_cour" }] }),
+    choices: [{ fx: { gold: 40 }, back: "LI_cour" }] }),
 
   // the rival singer
   LI_aubrac: P({ takes: "evening", title: "Messire Aubrac",
@@ -149,7 +149,7 @@ module.exports = {
 
   LI_aubrac_perdu: P({ title: "Une fausse note",
     text: ["Tu commences trop haut. Ta voix casse au deuxième couplet. Aubrac a la grâce de ne pas sourire. La cour, si. Tu finis la chanson. Tu la finis toujours."],
-    choices: [{ label: "Sortir de la salle", to: "LI_cour" }] }),
+    choices: [{ back: "LI_cour" }] }),
 
   // the queen's cabinet
   LI_cabinet: P({ title: "Le cabinet de la reine",
@@ -172,13 +172,13 @@ module.exports = {
       "*M.*",
       "Tu la plies et la glisses dans ton corsage. Tu ne sais pas pourquoi. Si on la cherche, on saura que c'est toi.",
     ],
-    choices: [{ label: "Repartir par le couloir des servantes", to: "LI_cour" }] }),
+    choices: [{ back: "LI_cour" }] }),
 
   LI_cabinet_surprise: P({ title: "Ermengarde",
     text: [
       "Une main se pose sur ton épaule. Ermengarde, en chemise de nuit, une bougie à la main. Elle regarde l'écritoire, puis toi. Elle ne dit rien pendant longtemps. Puis : « Va te coucher. Je n'ai rien vu. » Et, au moment où tu passes la porte : « Moi aussi, je les ai lues. »",
     ],
-    choices: [{ label: "Repartir", fx: { flag: "ermengarde:sait" }, to: "LI_cour" }] }),
+    choices: [{ fx: { flag: "ermengarde:sait" }, back: "LI_cour" }] }),
 
   // end of chapter 1
   LI_ecrire: P({ takes: "morning", title: "La ballade",
@@ -235,7 +235,7 @@ module.exports = {
       "Tu chantes, à voix basse. Elle écoute en souriant, les yeux fermés, et au deuxième refrain, elle chante avec toi, faux, avec un accent de Corvanne qu'elle a dû prendre à un soldat, il y a longtemps, et qu'elle ne se savait pas.",
       "« C'est joli, dit-elle à la fin. Qui me l'a apprise ? »",
     ],
-    choices: [{ label: "Reprendre la route au matin", to: "@route" }] }),
+    choices: [{ label: "Reprendre la route au matin", back: "@route" }] }),
 
   LI_reine_question: R({ title: "Ce qui pesait",
     text: [
@@ -246,7 +246,7 @@ module.exports = {
 
   LI_reine_non: R({ title: "Personne",
     text: ["« Personne ne s'en souvient, alors », dit-elle. Elle te renvoie d'un geste. Dans le couloir, tu l'entends fredonner, faux, un air qui n'existe pas."],
-    choices: [{ label: "Reprendre la route au matin", to: "@route" }] }),
+    choices: [{ label: "Reprendre la route au matin", back: "@route" }] }),
 
   LI_pelerins: R({ title: "Les pèlerins",
     text: [

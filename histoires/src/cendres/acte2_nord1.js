@@ -34,7 +34,7 @@ module.exports = {
       { with: "pie", text: "Pie s'assied dans une des empreintes. Il y tient en entier, les genoux sous le menton. Il ne fait pas de plaisanterie." },
       { with: "ysolde", text: "Ysolde mesure une empreinte avec son épée. Puis elle la mesure une deuxième fois." },
     ],
-    choices: [{ label: "Reprendre la route, plus vite", to: "@route" }] }),
+    choices: [{ label: "Reprendre la route, plus vite", back: "@route" }] }),
 
   II_N_arrivee: P({ title: "Le silence du camp", place: null,
     text: [
@@ -103,7 +103,7 @@ module.exports = {
       { if: { has: "ylva:sauvee" }, text: "Ylva joue seule au bord de la neige. Elle chante en jouant, un air que tu reconnais au bout de trois notes : les trois vers. Personne ne les lui a appris. Elle chante juste. Elle s'arrête en te voyant, et te demande, très poliment, qui tu es." },
       { if: { has: "ylva:perdue" }, text: "La mère d'Ylva est assise devant sa tente, le visage peint en blanc, sans un signe. Elle a donné son nom, la deuxième nuit, pour aller rejoindre sa fille. Elle sourit. Elle t'offre du lait." },
     ],
-    choices: [{ label: "Revenir au centre du camp", to: "II_N_camp" }] }),
+    choices: [{ back: "II_N_camp" }] }),
 
   II_N_anciens: P({ title: "Les anciens", place: "corbeau",
     fx: { flag: "nord:anciens_enfant" },
@@ -112,7 +112,7 @@ module.exports = {
       "Elle dit un mot. Un seul, dans la langue que le clan ne parle plus qu'aux morts. Puis elle se rassoit, et les deux autres se mettent à pleurer.",
       "Quand tu leur demandes ce que veut dire le mot, elles font semblant de ne pas comprendre la question.",
     ],
-    choices: [{ label: "Revenir au centre du camp", to: "II_N_camp" }] }),
+    choices: [{ back: "II_N_camp" }] }),
 
   II_N_guerriers: P({ title: "La chevalière", place: "corbeau",
     text: [
@@ -128,14 +128,14 @@ module.exports = {
 
   II_N_guerriers_ok: P({ title: "Sous ta tente", place: "corbeau",
     text: ["Haskel range son couteau. Les autres s'écartent. Ils ne la regardent pas moins. Ysolde passe au milieu d'eux sans se presser et vient s'asseoir près de toi. « Merci », dit-elle, très bas. C'est la première fois qu'elle te dit quelque chose qui n'est pas un ordre."],
-    choices: [{ label: "Revenir au centre du camp", to: "II_N_camp" }] }),
+    choices: [{ back: "II_N_camp" }] }),
 
   II_N_guerriers_duel: P({ title: "Haskel", place: "corbeau",
     text: [
       "Ysolde ôte son baudrier, pose l'épée dans la neige, et ouvre les mains. Haskel se jette sur elle. Elle le reçoit, le fait passer par-dessus sa hanche, et il se retrouve sur le dos, dans la neige, la main de la chevalière posée à plat sur sa poitrine. Elle ne serre pas. Elle attend.",
       "Le cercle se défait en riant. Haskel aussi finit par rire. Le soir, il lui apporte de la viande.",
     ],
-    choices: [{ label: "Revenir au centre du camp", fx: { flag: "nord:ysolde_respectee", conf: { ysolde: 5 } }, to: "II_N_camp" }] }),
+    choices: [{ fx: { flag: "nord:ysolde_respectee", conf: { ysolde: 5 } }, back: "II_N_camp" }] }),
 
   II_N_enfants: P({ title: "Le feu des enfants", place: "corbeau",
     text: [
@@ -143,7 +143,7 @@ module.exports = {
       "Puis une fillette tend la main, prend la pièce, et la fait disparaître à son tour, mieux que lui. Elle dit : « Encore. » Pie lui en apprend un autre. Puis un autre.",
       "Quand tu reviens, une heure plus tard, ils sont douze autour de lui, et il leur apprend à crocheter une serrure de coffre avec une arête de poisson.",
     ],
-    choices: [{ label: "Revenir au centre du camp", fx: { flag: "nord:pie_enfants", conf: { pie: 5 } }, to: "II_N_camp" }] }),
+    choices: [{ fx: { flag: "nord:pie_enfants", conf: { pie: 5 } }, back: "II_N_camp" }] }),
 
   II_N_canne: P({ title: "La canne", place: "corbeau",
     text: [
@@ -158,10 +158,10 @@ module.exports = {
 
   II_N_canne_feu: P({ title: "Le feu", place: "corbeau",
     text: ["Hylas tend la canne. Le vieux la jette au feu. L'ébène brûle lentement, avec une odeur de musc. Hylas reste debout à côté du feu jusqu'à ce que le pommeau d'argent tombe dans la braise. Il le ramasse, brûlant, et le met dans sa poche. Puis il demande ton bras."],
-    choices: [{ label: "Revenir au centre du camp", to: "II_N_camp" }] }),
+    choices: [{ back: "II_N_camp" }] }),
 
   // the fire: end of chapter 1
-  II_N_feu: P({ takes: "evening", title: "Le feu du soir", place: "corbeau",
+  II_N_feu: P({ backName: "le feu du camp", takes: "evening", title: "Le feu du soir", place: "corbeau",
     text: [
       "Le soir, le clan allume un feu au centre du camp, comme toujours. Personne ne chante. Vous êtes assis un peu à l'écart, sur une peau, à partager une viande trop dure.",
       { if: { has: "nord:grotte_connue" }, text: "Demain, la grotte des Corbeaux, au-dessus du lac noir. Une journée de marche." },
@@ -181,14 +181,14 @@ module.exports = {
       { before: "nord:anciens_enfant", text: "Il te demande ce que le clan chante, les soirs où il chante. Tu lui dis : le chant des morts, et que tu n'en sais que trois vers." },
       "Il hoche la tête. Il regarde le col. « Chez moi, dit-il, on chantait une comptine. *Neige d'été, neige d'oubli.* » Il la chante. Elle a le même air que les trois vers.",
     ],
-    choices: [{ label: "Revenir au feu", fx: { conf: { enfant: 5 } }, to: "II_N_feu" }] }),
+    choices: [{ fx: { conf: { enfant: 5 } }, back: "II_N_feu" }] }),
 
   II_N_feu_ysolde: P({ title: "Les remparts", place: "corbeau",
     text: [
       "Ysolde regarde le feu. Elle dit : « Chez moi, au fort, les sentinelles mangent leur pain sur le chemin de ronde, à l'aube. Il sent le levain et le fer mouillé. » Elle se tait. « Je ne sais pas pourquoi je te dis ça. J'ai peur de l'oublier, je crois. Je le dis à quelqu'un pour qu'il le garde. »",
       "Tu le gardes. Tu ne le lui dis pas.",
     ],
-    choices: [{ label: "Revenir au feu", fx: { conf: { ysolde: 5 } }, to: "II_N_feu" }] }),
+    choices: [{ fx: { conf: { ysolde: 5 } }, back: "II_N_feu" }] }),
 
   II_N_feu_pie: P({ title: "La fillette", place: "corbeau",
     text: [
@@ -196,12 +196,12 @@ module.exports = {
       { before: "nord:pie_enfants", text: "Pie fait tourner une pièce entre ses doigts. « Il y a une petite, au feu des enfants, qui n'a pas quitté mes mains des yeux depuis qu'on est là. Huit ans, peut-être. Elle ne rit pas. Elle n'a peur de rien. » La pièce disparaît. « Ma sœur était comme ça. »" },
       { if: { has: "pie:choix=linette" }, text: "Il regarde Linette, qui dort, assise, le dos droit, comme on dort au scriptorium. Il ne dit rien d'autre." },
     ],
-    choices: [{ label: "Revenir au feu", fx: { conf: { pie: 5 } }, to: "II_N_feu" }] }),
+    choices: [{ fx: { conf: { pie: 5 } }, back: "II_N_feu" }] }),
 
   II_N_feu_hylas: P({ title: "Ce qu'on brûle", place: "corbeau",
     text: [
       "« Ton clan brûle les registres, dit Hylas. La Chancellerie brûle ce qui n'est pas dans les registres. » Il tend les mains vers le feu. « Je me suis toujours demandé lequel des deux avait commencé. »",
       "Tu lui dis que le clan ne brûle pas les gens. Il sourit. « Pas encore. »",
     ],
-    choices: [{ label: "Revenir au feu", fx: { conf: { hylas: 5 } }, to: "II_N_feu" }] }),
+    choices: [{ fx: { conf: { hylas: 5 } }, back: "II_N_feu" }] }),
 };

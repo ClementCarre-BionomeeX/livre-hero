@@ -2,7 +2,7 @@
 // village, Mathilde Aubry, a hundred and one, who counts the unbetrothed; and old Gervais, who repaints the family
 // names on the lintels every spring and is late this year (en:linteaux echoes in Act IV, IV_sv_linteaux).
 function P(o) { return Object.assign({ act: "I", place: "sauvelune", noLead: true }, o); }
-var BACK = [{ label: "Revenir sur la place", to: "EN_place" }];
+var BACK = [{ back: "EN_place" }];
 module.exports = {
   EN_k_doyenne: P({ title: "La doyenne",
     text: [

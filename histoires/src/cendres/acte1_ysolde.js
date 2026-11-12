@@ -181,7 +181,7 @@ module.exports = {
       "*Note pour M. : la capitaine de Brenne ne se souvient pas de Lisse. L'effacement tient. Elle obéira.*",
       "Tu glisses le carnet dans ton pourpoint. Tu entends le pas de Sévrin sur le chemin de ronde.",
     ],
-    choices: [{ label: "Sortir par l'autre porte", to: "YS_cour" }] },
+    choices: [{ back: "YS_cour" }] },
 
   YS_reliquaire: { act: "I", title: "Le linge noir", place: "brenne",
     text: [
@@ -189,7 +189,7 @@ module.exports = {
       "Et elle chuchote. Tu approches l'oreille, malgré toi. Ce sont des voix, très loin, très faibles, des centaines, qui disent toutes quelque chose en même temps. Des noms. Tu crois en reconnaître un, au milieu des autres, et ton cœur s'arrête : *Bruyère.* Le nom de ta jument, morte sous toi à Corvanne.",
       "Non. Tu as dû rêver. Tu reposes la boîte, tu remets le linge. Tes doigts sont blancs de froid jusqu'aux phalanges.",
     ],
-    choices: [{ label: "Sortir avant qu'il revienne", to: "YS_cour" }] },
+    choices: [{ label: "Sortir avant qu'il revienne", back: "YS_cour" }] },
 
   YS_chambre_surprise: { act: "I", title: "Surprise", place: "brenne",
     fx: { clue: "n_boite" },
@@ -405,7 +405,7 @@ module.exports = {
       "« On les vide, dit Ombeline simplement. On leur prend tout ce qui les attache : leurs morts, leurs colères, leurs pays. Puis on les vend comme domestiques, comme soldats, comme ouvriers. Des gens parfaits. Sans rancune. Sans racines. » Elle regarde la colonne, dehors, sur la route. « Et ce qu'on leur prend, on le garde. Là-haut, dans la tour noire. Personne ne sait pourquoi. »",
       "« J'ai des enfants, ici, qui sont revenus de là-bas, dit-elle encore. On les appelle les pages blanches. Ils ne savent pas leur nom. Ils écrivent très bien. »",
     ],
-    choices: [{ label: "Repartir", to: "@route" }] },
+    choices: [{ back: "@route" }] },
 
   YS_ilse_selle: { act: "I", title: "Bruyère", place: null,
     text: [
@@ -413,14 +413,14 @@ module.exports = {
       "« Grisaille. »",
       "Elle réfléchit. « Ma poupée, elle s'appelle Bruyère. » Tu manques de lâcher les rênes. *Bruyère.* « Tu veux la tenir ? » Elle te tend la poupée de laine grise, à qui il manque un œil, et s'endort contre toi. Au matin, la fièvre est tombée. Elle ne te reprend pas la poupée. Elle dit qu'elle te la prête.",
     ],
-    choices: [{ label: "Reprendre la route", to: "@route" }] },
+    choices: [{ back: "@route" }] },
 
   YS_ilse_faible: { act: "I", title: "Toute la nuit", place: null,
     text: [
       "Tu la portes devant toi toute la journée, enroulée dans ton manteau. La fièvre ne tombe pas. Au soir, elle délire en corvannais, elle appelle son père, et Maëlle marche à côté de ta jument, la main sur la jambe de sa fille, sans dire un mot.",
       "Au matin, Ilse vit. Elle est faible comme un oiseau tombé du nid. Elle vivra, peut-être. Si on la laisse vivre, là où vous l'emmenez.",
     ],
-    choices: [{ label: "Reprendre la route", to: "@route" }] },
+    choices: [{ back: "@route" }] },
 
   YS_ilse_portee: { act: "I", title: "Sur le dos de sa mère", place: null,
     text: [
@@ -442,8 +442,8 @@ module.exports = {
       { if: { not: { any: [{ has: "croise:eau_rodric" }, { has: "croise:parle_ysolde" }] } }, text: "Il s'écarte pour vous laisser passer, comme les autres. Tu sens son regard dans ton dos pendant une lieue. Tu ne te retournes pas. Tu as appris à ne pas te retourner." },
     ],
     choices: [
-      { label: "Remonter en tête de la colonne", hide: { not: { has: "croise:parle_ysolde" } }, fx: { flag: ["ysolde:sait_neige", "sevrin:mefiant"] }, to: "@route" },
-      { label: "Remonter en tête de la colonne", hide: { has: "croise:parle_ysolde" }, to: "@route" },
+      { hide: { not: { has: "croise:parle_ysolde" } }, fx: { flag: ["ysolde:sait_neige", "sevrin:mefiant"] }, back: "@route" },
+      { hide: { has: "croise:parle_ysolde" }, back: "@route" },
     ] },
 
   YS_boite: { act: "I", title: "La nuit du reliquaire", place: null,

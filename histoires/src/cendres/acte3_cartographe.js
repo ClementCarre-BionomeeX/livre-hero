@@ -6,7 +6,7 @@
 // the finished map. flags iii:carte_<region> plus iii:carte_<region>=vrai|doux, item carte_orsan.
 var A = { act: "III", noLead: true };
 function P(o) { return Object.assign({}, A, o); }
-var BACK = [{ label: "Revenir à la grande table", to: "III_K_atelier" }];
+var BACK = [{ back: "III_K_atelier" }];
 var REGIONS = ["iii:carte_vallee", "iii:carte_ville", "iii:carte_riviere", "iii:carte_nord"];
 var ALL = { all: REGIONS.map(function (f) { return { has: f }; }) };
 function region(id, flag, title, text, vrai, doux) {
@@ -46,7 +46,7 @@ var C = {
       { label: "L'apprentie, assise près de la fenêtre", hide: { seen: "III_K_apprentie" }, to: "III_K_apprentie" },
       { label: "Les tiroirs des vieilles cartes", hide: { seen: "III_K_tiroirs" }, to: "III_K_tiroirs" },
       { label: "Regarder la carte finie", if: ALL, why: "Il reste du blanc sur la carte.", to: "III_K_fin", big: true },
-      { label: "Redescendre dans la ville", to: "III_v_porte" },
+      { back: "III_v_porte" },
     ] }),
   III_K_apprentie: P({ title: "L'apprentie", place: "valcendre",
     text: [
@@ -56,7 +56,7 @@ var C = {
     ],
     choices: [
       { label: "Lui décrire le bief du moulin, un matin d'avril", fx: { ep: ["perso", 400], flag: "iii:apprentie" }, to: "III_K_apprentie_bief" },
-      { label: "Revenir à la grande table", to: "III_K_atelier" },
+      { back: "III_K_atelier" },
     ] }),
   III_K_apprentie_bief: P({ title: "Les vraies couleurs", place: "valcendre",
     text: [
@@ -121,6 +121,6 @@ C.III_K_sortie = P({ title: "Le seuil", place: "valcendre",
     { before: "iii:apprentie", text: "Au bas de la tour, l'apprentie d'Oriel t'a rattrapé, la jeune fille qui dessinait près de la fenêtre. Elle te tend une feuille d'essai, roulée. Dessus, trois collines, toujours les mêmes, d'un trait sûr." },
     "« Pour quand je ne serai plus là, dit-elle. Comme ça, quelqu'un aura vu ce que j'ai vu. » Elle remonte. Sur l'escalier, tu vois le mur à travers ses chevilles.",
   ],
-  choices: [{ label: "Revenir dans la ville", to: "III_v_porte" }] });
+  choices: [{ back: "III_v_porte" }] });
 
 module.exports = C;

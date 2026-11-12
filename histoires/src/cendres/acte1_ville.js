@@ -4,7 +4,7 @@
 // Raven as a cub, who growls his clan name in his sleep (corbe:ours=nomme|chaine).
 function P(base) { return function (o) { return Object.assign({ act: "I", noLead: true, place: "pallanche" }, base, o); }; }
 var HY = P({}), CO = P({});
-var HY_BACK = [{ label: "Reprendre ta canne, et marcher", to: "HY_V_ville" }], CO_BACK = [{ label: "Revenir dans les rues", to: "CO_V_ville" }];
+var HY_BACK = [{ label: "Reprendre ta canne, et marcher", to: "HY_V_ville" }], CO_BACK = [{ back: "CO_V_ville" }];
 module.exports = {
   HY_V_cloches: HY({ title: "Les cent cloches",
     text: [

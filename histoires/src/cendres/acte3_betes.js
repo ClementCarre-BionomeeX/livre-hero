@@ -5,7 +5,7 @@
 // stop walking. The boy can lead them there (iii:betes=pre) or let them go on with the walkers (iii:betes=marche).
 var A = { act: "III", noLead: true };
 function P(o) { return Object.assign({}, A, o); }
-var BACK = [{ label: "Revenir au troupeau", to: "III_B_troupeau" }];
+var BACK = [{ back: "III_B_troupeau" }];
 module.exports = {
   III_B_bergere: P({ title: "La bergère", place: "plaine",
     fx: { questSeen: "III_Q_betes" },
@@ -93,7 +93,7 @@ module.exports = {
       "Les bêtes s'arrêtent. Une à une. Le cheval pie baisse la tête et broute, la selle toujours sur le dos. L'âne se roule. Le petit ours s'assied, sur son derrière, et regarde ses pattes dans l'herbe. Le chien jaune se couche, et il ne regarde plus en arrière.",
       "La bergère plante son bâton dans le pré. Elle s'assied. « Elles vont pouvoir attendre, ici, dit-elle. Quelqu'un viendra peut-être. Sinon, ce n'est pas grave. Elles auront de l'herbe. »",
     ],
-    choices: [{ label: "Reprendre la route", to: "III_plaine" }] }),
+    choices: [{ back: "III_plaine" }] }),
   III_B_pre_rate: P({ title: "Le blanc", place: "plaine",
     text: ["Tu penses au pré. Mais le pré s'échappe : tu vois l'herbe, tu ne la sens pas ; tu vois Pim, tu n'entends pas son rire. Le blanc reste blanc. La bergère te touche l'épaule. « Ce n'est rien, dit-elle. Ils oublient vite, en haut. Même toi, un peu, déjà. » Elle relève son bâton. « On va continuer de marcher. On sait faire. »"],
     choices: [
@@ -103,5 +103,5 @@ module.exports = {
   III_B_quitter: P({ title: "Les clochettes", place: "plaine",
     fx: { flag: "iii:betes", quest: "III_Q_betes" },
     text: ["Le troupeau s'éloigne, avec ses clochettes, vers l'endroit où vont les marcheurs. La bergère ne se retourne pas. Le chien jaune, si. Une seule fois. Puis le blanc les reprend, et longtemps après tu entends encore un grelot, un seul, de plus en plus loin."],
-    choices: [{ label: "Reprendre la route", to: "III_plaine" }] }),
+    choices: [{ back: "III_plaine" }] }),
 };

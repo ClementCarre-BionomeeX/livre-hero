@@ -15,7 +15,7 @@ module.exports = {
     ] }),
   II_S2_nuit_rodric2: P({ title: "Haïr", place: "vasselin",
     text: ["Il pose sa hache. Il réfléchit, longtemps, avec ce sérieux qu'il met à tout. « Je hais la femme qui a signé, dit-il enfin. Celle-là, elle n'existe plus. Celle qui dort au palais, je ne la connais pas. » Il reprend sa hache. « C'est très commode. Je n'aime pas que ce soit commode. »"],
-    choices: [{ label: "Rentrer", to: "II_S2_nuit" }] }),
+    choices: [{ back: "II_S2_nuit" }] }),
   II_S2_nuit_linette: P({ title: "Linette", place: "vasselin",
     text: [
       "Linette s'est installée à la fenêtre, avec un crayon et le dos d'une affiche du tournoi. Elle recopie, de mémoire, les lettres de la cession qu'elle a vue chez la reine. Elle a une mémoire de page. Ça lui fait peur, parfois, de tout retenir.",
@@ -50,7 +50,7 @@ module.exports = {
     choices: [{ label: "Lui laisser deux sous, et repartir", to: "II_S3_soir" }] }),
   II_S3_cartes_jeu: P({ title: "Le jeu", place: "vasselin",
     text: ["« De ma grand-mère, dit-elle. Qui le tenait de la sienne. C'est un jeu du nord, d'après le bois des couleurs. On dit qu'il a été peint l'année de la fondation, pour les fêtes, et qu'on y a mis tous ceux qui comptaient. » Elle range les cartes. « Ceux qui ont fondé le royaume, et puis une de plus. Personne ne sait qui. »"],
-    choices: [{ label: "Revenir au camp", to: "II_S3_soir" }] }),
+    choices: [{ back: "II_S3_soir" }] }),
 
   II_S3_ecuyer: P({ title: "L'écuyer", place: "vasselin",
     text: [
@@ -67,11 +67,11 @@ module.exports = {
       "Le chevalier boit sous sa tente avec son nouvel écuyer. Tu entres. Tu ne parles pas du garçon. Tu parles de la joute du matin, tu lui fais raconter, coup par coup. Il raconte, ravi. Qui a sanglé votre selle, Messire ? Qui a tenu votre lance ? Qui vous a crié de baisser l'épaule, au deuxième passage ?",
       "Il s'arrête. Il fronce les sourcils. Il sort de la tente, il regarde le garçon assis par terre avec son heaume. « Toi, dit-il. C'est toi qui as crié. » Le garçon se lève. Le chevalier ne dit pas qu'il se souvient. Il dit : « Ma selle est mal sanglée. Viens voir. »",
     ],
-    choices: [{ label: "Revenir au camp", to: "II_S3_soir" }] }),
+    choices: [{ back: "II_S3_soir" }] }),
   II_S3_ecuyer_rate: P({ title: "La tente verte", place: "vasselin",
     text: ["Le chevalier t'écoute, poliment, puis il te raccompagne à l'entrée de la tente. « Je n'ai jamais eu d'autre écuyer que celui-là, Madame », dit-il en montrant le nouveau, qui baisse la tête. Dehors, le garçon frotte toujours le heaume. Il ne te demande pas comment ça s'est passé."],
-    choices: [{ label: "Revenir au camp", to: "II_S3_soir" }] }),
+    choices: [{ back: "II_S3_soir" }] }),
   II_S3_ecuyer_pris: P({ title: "Un écuyer", place: "vasselin",
     text: ["Il pose le heaume, très délicatement, devant la tente verte, comme on dépose un enfant devant une porte. Puis il te suit. Il s'appelle Mahé. Le soir même, il a graissé tous les cuirs de la compagnie, et il dort en travers de l'entrée de la tente, comme un chien de garde."],
-    choices: [{ label: "Revenir au camp", to: "II_S3_soir" }] }),
+    choices: [{ back: "II_S3_soir" }] }),
 };

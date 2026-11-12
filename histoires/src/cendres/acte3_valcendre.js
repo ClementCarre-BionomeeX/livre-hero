@@ -45,7 +45,7 @@ module.exports = {
       "Une marchande te tend une pomme. Elle ne veut rien. « Pour le fils de Maëra », dit-elle, et les gens autour hochent la tête.",
       "La pomme a le goût d'une pomme. Exactement. Tu avais oublié que les pommes avaient un goût aussi précis.",
     ],
-    choices: [{ label: "Revenir dans la ville", fx: { pv: 4, flag: "iii:pomme" }, to: "III_v_porte" }] }),
+    choices: [{ fx: { pv: 4, flag: "iii:pomme" }, back: "III_v_porte" }] }),
 
   III_v_statues: P({ title: "Les cinq", place: "valcendre",
     fx: { flag: "iii:statues" },
@@ -57,7 +57,7 @@ module.exports = {
       { with: "ysolde", text: "Ysolde regarde le chevalier au cerf. Il a son menton. Il a ses mains." },
       { with: "hylas", text: "Hylas regarde l'homme à la plume et à la clé. Il a l'air de reconnaître un confrère." },
     ],
-    choices: [{ label: "Revenir dans la ville", to: "III_v_porte" }] }),
+    choices: [{ back: "III_v_porte" }] }),
 
   III_v_noms: P({ title: "La maison des noms dits", place: "valcendre",
     text: [
@@ -65,7 +65,7 @@ module.exports = {
       "« Les Orsans n'écrivaient pas, dit le Sans-Nom. Ils se disaient. Chacun portait cent noms, et les disait chaque jour, et les apprenait à ses enfants. Tant qu'on les dit, ils sont. » Il regarde la salle. « Quand les fondateurs sont venus, ils ont tué ceux qui disaient. Il n'est resté personne pour dire les noms des morts. Alors ils sont tous venus ici. »",
       { if: { has: "nord:chant_lu" }, text: "Tu penses à la grande paroi de la grotte des Corbeaux. Quelqu'un a gravé les noms dans la pierre, malgré tout. Pour qu'ils tiennent sans personne." },
     ],
-    choices: [{ label: "Revenir dans la ville", fx: { flag: "iii:noms_dits" }, to: "III_v_porte" }] }),
+    choices: [{ fx: { flag: "iii:noms_dits" }, back: "III_v_porte" }] }),
 
   III_v_ysolde: P({ title: "Les remparts", place: "valcendre",
     text: [
@@ -73,7 +73,7 @@ module.exports = {
       "« Les murs ne servaient à rien, dit-il dans sa langue, et tu traduis. Ils sont venus par la rivière, de nuit, avec le feu. Le chevalier au cerf est entré le premier. » Il regarde Ysolde. « Il te ressemble. »",
       "Ysolde lui rend son salut, la main ouverte sur le cœur. Elle ne dit rien.",
     ],
-    choices: [{ label: "Revenir dans la ville", fx: { flag: "iii:ysolde_remparts", conf: { ysolde: 5 } }, to: "III_v_porte" }] }),
+    choices: [{ fx: { flag: "iii:ysolde_remparts", conf: { ysolde: 5 } }, back: "III_v_porte" }] }),
 
   III_v_lisandre: P({ title: "Les chœurs", place: "valcendre",
     text: [
@@ -82,7 +82,7 @@ module.exports = {
       { if: { souv: "lisandre:voix" }, text: "Elle chante avec sa vraie voix. Rauque, trop grave. Ici, c'est la voix qui va." },
       { if: { not: { souv: "lisandre:voix" } }, text: "Elle chante juste, et beau, comme à la cour. La vieille femme l'écoute, et secoue la tête, doucement, avec tristesse : il manque quelque chose. Lisandre le sait." },
     ],
-    choices: [{ label: "Revenir dans la ville", fx: { flag: "iii:lisandre_choeur", conf: { lisandre: 5 } }, to: "III_v_porte" }] }),
+    choices: [{ fx: { flag: "iii:lisandre_choeur", conf: { lisandre: 5 } }, back: "III_v_porte" }] }),
 
   III_v_corbe: P({ title: "Celle qui cherche", place: "valcendre",
     text: [
@@ -90,7 +90,7 @@ module.exports = {
       { if: { has: "askel:rite" }, text: "« Ma mère, dit-elle. Elle est entrée par le col, à ma place. Elle doit être quelque part. » Elle la cherche toute la journée, dans les rues blanches. Le soir, une passante lui dit qu'une femme du clan, en robe blanche, est passée par Valcendre, il y a un jour ou cent ans, et a continué vers le nord, vers le bout du blanc, où il n'y a plus rien. Corbe hoche la tête. « Elle tient la porte. Elle chante. » Elle ne la cherche plus." },
       { if: { not: { has: "askel:rite" } }, text: "« L'aïeule, dit-elle. Celle qui m'a appris les chants. Elle est morte dans la glace, dans la grotte. Elle doit être ici. » Elle ne la trouve pas. Le soir, un vieil homme lui dit que ceux qui chantent pour tenir une porte ne viennent pas à Valcendre. Ils restent à la porte." },
     ],
-    choices: [{ label: "Revenir dans la ville", fx: { conf: { corbe: 5 } }, to: "III_v_porte" }] }),
+    choices: [{ fx: { conf: { corbe: 5 } }, back: "III_v_porte" }] }),
 
   III_v_pie: P({ title: "Les voleurs de Valcendre", place: "valcendre",
     text: [
@@ -98,7 +98,7 @@ module.exports = {
       "« Ils n'ont rien à voler, ici, dit Pie quand il te voit. Tout est à tout le monde. Personne ne garde rien. » Il a l'air désemparé. « Je ne sais pas quoi faire de mes mains, dans une ville comme ça. »",
       "Un des gamins lui prend une pièce dans la poche, très proprement, et la lui rend, très fier. Pie éclate de rire.",
     ],
-    choices: [{ label: "Revenir dans la ville", fx: { conf: { pie: 5 } }, to: "III_v_porte" }] }),
+    choices: [{ fx: { conf: { pie: 5 } }, back: "III_v_porte" }] }),
 
   III_v_palais: P({ title: "Le palais de givre", place: "valcendre",
     text: [

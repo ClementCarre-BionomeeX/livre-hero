@@ -1,7 +1,7 @@
 // Act I · road events of the court's procession from Vasselin to Pallanche, for Lisandre (she leads, "tu" feminine).
 // Region "cour", gated in base.js world.events on lead lisandre during her chapter 2. Each returns to the road.
 function P(o) { return Object.assign({ act: "I", noLead: true, place: null }, o); }
-var BACK = [{ label: "Remonter dans la voiture", to: "@route" }];
+var BACK = [{ back: "@route" }];
 module.exports = {
   E_c_harpe: P({ title: "La harpe",
     text: [

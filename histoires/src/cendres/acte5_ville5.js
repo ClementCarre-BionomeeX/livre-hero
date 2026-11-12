@@ -4,7 +4,7 @@
 // the sexton recuts the stones (reads iv:ossuaire=nourri).
 var A = { act: "V", noLead: true, place: "pallanche" };
 function P(o) { return Object.assign({}, A, o); }
-var BACK = [{ label: "Revenir sur la place aux Clercs", to: "V_ville" }];
+var BACK = [{ back: "V_ville" }];
 module.exports = {
   V_v_ecrivain: P({ title: "La table de l'écrivain",
     text: [

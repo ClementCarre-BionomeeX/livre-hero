@@ -5,7 +5,7 @@ var A = { act: "III", noLead: true };
 function P(o) { return Object.assign({}, A, o); }
 function ame(id) { return { flag: ["ame:" + id, "ame:choisie"], ep: ["perso", 2000] }; }
 module.exports = {
-  III_a_nuit: P({ title: "La dernière nuit", place: "valcendre", hub: true,
+  III_a_nuit: P({ backName: "la maison au pied du palais", title: "La dernière nuit", place: "valcendre", hub: true,
     text: [
       { first: true, text: "On vous a donné une maison, au pied du palais. Il n'y fait ni jour ni nuit, mais la ville s'est tue, et les fenêtres des tours se sont éteintes une à une, alors c'est la nuit." },
       "Personne ne dort. Tu as une âme à choisir, et le monde à retrouver demain.",
@@ -43,7 +43,7 @@ module.exports = {
       "« Qu'une femme, quelque part, se retourne dans la rue et dise : tiens, c'est lui. Pas parce qu'il est écrit. Parce qu'elle s'en souvient. »",
       { if: { has: "sansnom:ancre_lisandre" }, text: "Il ne dit pas laquelle. Il n'a pas besoin." },
     ],
-    choices: [{ label: "Redescendre", fx: { conf: { sansnom: 10 }, flag: "sansnom:veut" }, to: "III_a_nuit" }] }),
+    choices: [{ fx: { conf: { sansnom: 10 }, flag: "sansnom:veut" }, back: "III_a_nuit" }] }),
 
   III_a_veille: P({ title: "La veille", place: "valcendre",
     text: [

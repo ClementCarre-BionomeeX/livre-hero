@@ -18,10 +18,10 @@ module.exports = {
       "Il rit, il cligne de l'œil, il finit par te montrer, sous son comptoir, un gros registre de paroisse, relié de cuir, dont il arrache une page à chaque vente. « Acheté à un greffier, à Pallanche. Des noms qui ne servent plus : leurs gens sont morts, ou partis, ou personne ne s'en souvient. Ça serait dommage de les perdre, non ? »",
       "Sur la couverture, à demi effacé, le nom d'un village. Tu ne le connais pas. Personne ici ne le connaît.",
     ],
-    choices: [{ label: "Reprendre la route", to: "@route" }] }),
+    choices: [{ back: "@route" }] }),
   E_foire_rien: P({ title: "Un nom pour toi",
     text: ["« Secret de fabrication, mon garçon. » Il te propose un nom, pour toi, gratuitement, parce que tu as une bonne tête : Florimond. Tu refuses. Il insiste. Tu t'en vas, et pendant une lieue, tu ne peux pas t'empêcher de le répéter dans ta tête, Florimond, Florimond, comme une chanson idiote."],
-    choices: [{ label: "Reprendre la route", to: "@route" }] }),
+    choices: [{ back: "@route" }] }),
 
   E_mendiant: P({ title: "Le frère mendiant",
     text: [
@@ -36,10 +36,10 @@ module.exports = {
     text: [
       "Il mange le pain lentement, en entier, et tu attends. Quand il a fini, il te regarde longtemps, la tête penchée. « Tu vas rentrer chez toi, dit-il. Et ce ne sera pas chez toi. » Il s'essuie la bouche. « C'est tout. C'est ce que je dis à tout le monde. Ça tombe juste, presque toujours. »",
     ],
-    choices: [{ label: "Reprendre la route", to: "@route" }] }),
+    choices: [{ back: "@route" }] }),
   E_mendiant_rien: P({ title: "Rien",
     text: ["« Alors je ne te dis rien, et ça ne te coûte rien », dit-il gaiement. Tu repars. Quand tu te retournes, il a sorti de sous sa robe un pain blanc entier, et il mange, et il te fait un signe de la main."],
-    choices: [{ label: "Reprendre la route", to: "@route" }] }),
+    choices: [{ back: "@route" }] }),
 
   E_fosse: P({ title: "La fosse",
     text: [
@@ -48,11 +48,11 @@ module.exports = {
     ],
     choices: [
       { label: "Prendre une pelle et aider", fx: { ep: ["perso", 400] }, to: "E_fosse_pelle" },
-      { label: "Reprendre la route", to: "@route" },
+      { back: "@route" },
     ] }),
   E_fosse_pelle: P({ title: "Un endroit",
     text: ["Tu creuses jusqu'au soir. Le prêtre dit une prière sans noms, parce qu'il ne les connaît pas. Les valets plantent une croix de bois. Le fossoyeur te donne un quignon et du lard, et te dit que tu as de bons bras, pour un enfant de la montagne. Tu ne lui dis pas que là-haut, chez toi, il n'y aura peut-être bientôt plus personne pour creuser."],
-    choices: [{ label: "Reprendre la route", fx: { food: 1 }, to: "@route" }] }),
+    choices: [{ fx: { food: 1 }, back: "@route" }] }),
 
   // ------------------------------------------------------------ crêtes
   E_orage: P({ title: "L'orage",
@@ -64,10 +64,10 @@ module.exports = {
       win: { fx: { ep: ["seance", 400] }, to: "E_orage_abri" }, lose: { fx: { pv: -3 }, to: "E_orage_trempe" } }] }),
   E_orage_abri: P({ title: "Le surplomb",
     text: ["Tu te glisses sous un surplomb de roche, sec, assez grand pour un mouton, et tu attends, roulé en boule, pendant que la montagne tonne. Quand l'orage passe, la neige blanche, en face, sur les Hautes-Combes, n'a pas bougé. La pluie ne l'a pas touchée. Elle est sèche, sous un ciel qui ruisselle."],
-    choices: [{ label: "Reprendre la route", to: "@route" }] }),
+    choices: [{ back: "@route" }] }),
   E_orage_trempe: P({ title: "Trempé",
     text: ["Tu dévales la pente sous la grêle, tu glisses, tu te relèves, tu te cognes un genou sur une pierre. Tu passes l'orage dans un creux, trempé jusqu'aux os, à compter les secondes entre l'éclair et le tonnerre, comme Joris te l'a appris. Le soir, tu claques des dents jusqu'à ce que le feu prenne."],
-    choices: [{ label: "Reprendre la route", to: "@route" }] }),
+    choices: [{ back: "@route" }] }),
 
   E_chamois: P({ title: "Le chamois",
     text: [
@@ -80,10 +80,10 @@ module.exports = {
     ] }),
   E_chamois_sud: P({ title: "Vers le vert",
     text: ["Tu lances un caillou, puis un autre, du côté de la neige. Le chamois sursaute, fait volte-face, et file vers le sud en trois bonds, vers les alpages verts. Il ne se retourne pas. Toi, tu te retournes longtemps vers le nord."],
-    choices: [{ label: "Reprendre la route", to: "@route" }] }),
+    choices: [{ back: "@route" }] }),
   E_chamois_nord: P({ title: "Vers le blanc",
     text: ["Ton caillou le manque. Le chamois sursaute, et file du mauvais côté, vers le nord, dans la neige blanche, où ses sabots ne laissent pas de trace. Tu le regardes devenir un point gris, puis plus rien."],
-    choices: [{ label: "Reprendre la route", to: "@route" }] }),
+    choices: [{ back: "@route" }] }),
 
   // ------------------------------------------------------------ montagne
   E_source: P({ title: "La source",
@@ -111,7 +111,7 @@ module.exports = {
     ] }),
   E_veuve_soldat_ordre: P({ title: "Ton sceau",
     text: ["Tu écris, sur le dos d'un ordre de marche, à la plume, en appuyant : *Pierre Aubin, de la compagnie du Loup, mort au service. Sa veuve a droit.* Tu signes. Tu scelles. Tu lui donnes en plus deux sous de ta bourse, parce que tu sais ce que vaut un papier, ces temps-ci. Elle serre le papier contre elle comme un enfant."],
-    choices: [{ label: "Reprendre la route", to: "@route" }] }),
+    choices: [{ back: "@route" }] }),
   E_pont_coupe: P({ title: "Le pont coupé",
     text: [
       "Le pont de bois sur le ruisseau des Aulnes a été coupé à la hache, cette nuit. Les entailles sont fraîches. Quelqu'un ne voulait pas qu'on passe, ou ne voulait pas qu'on revienne.",
@@ -120,8 +120,8 @@ module.exports = {
       win: { fx: { ep: ["seance", 500] }, to: "E_pont_coupe_ok" }, lose: { fx: { pv: -2, food: -1 }, to: "E_pont_coupe_rate" } }] }),
   E_pont_coupe_ok: P({ title: "Le gué",
     text: ["Tu fais tendre une corde d'une rive à l'autre, et tout le monde passe en se tenant, les enfants sur les épaules des soldats. Personne ne tombe. De l'autre côté, sur la boue, des traces de bottes qui partent vers l'est. Tu ne les suis pas."],
-    choices: [{ label: "Reprendre la route", to: "@route" }] }),
+    choices: [{ back: "@route" }] }),
   E_pont_coupe_rate: P({ title: "L'eau froide",
     text: ["Au milieu du gué, une femme glisse avec son panier. Un soldat la rattrape, et perd son sac, et les vivres de deux jours partent avec le courant. Vous arrivez de l'autre côté trempés, en colère, et plus légers."],
-    choices: [{ label: "Reprendre la route", to: "@route" }] }),
+    choices: [{ back: "@route" }] }),
 };

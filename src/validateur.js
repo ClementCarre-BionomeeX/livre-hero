@@ -47,6 +47,7 @@
   }
 
   // Intent: validate(Story) -> Problem*
+  var RETURN_VERB = /^(Revenir|Retourner|Redescendre|Remonter|Rentrer|Repartir|Ressortir|Sortir|Regagner|Rejoindre|Reprendre la route)\b/;
   function staticCheck(story) {
     var errs = [], warns = [];
     function E(m) { errs.push(m); } function W(m) { warns.push(m); }
@@ -157,6 +158,19 @@
       if (fx.ep != null && !(typeof fx.ep === "number" || (Array.isArray(fx.ep) && M.EP[fx.ep[0]]))) E(where + " : EP mal formés " + JSON.stringify(fx.ep));
     }
     var ends = 0;
+    // leadsBack(from, to): from "from", the passage "to" is reached again within five choices without crossing a crossroads
+    // (a way back, not a way on).
+    function leadsBack(from, to) {
+      var seen = {}, q = [[from, 0]];
+      while (q.length) {
+        var x = q.shift(); if (x[0] === to) return true; if (seen[x[0]] || x[1] >= 5 || !P[x[0]]) continue; seen[x[0]] = 1;
+        var pp = P[x[0]];
+        if (x[1] > 0 && (pp.hub || pp.routes)) continue; // through a crossroads, it is a new way, not the way back
+        (pp.choices || []).forEach(function (c) { targetsOf(c).forEach(function (k) { q.push([k, x[1] + 1]); }); if (c.fight) ["win", "lose", "flee", "calm"].forEach(function (o) { if (c.fight[o]) q.push([c.fight[o].to, x[1] + 1]); }); });
+        if (pp.combat) ["win", "lose", "flee", "calm"].forEach(function (o) { if (pp.combat[o]) q.push([pp.combat[o].to, x[1] + 1]); });
+      }
+      return false;
+    }
     Object.keys(P).forEach(function (id) {
       var p = P[id], where = "§ " + id;
       if (p.act && !acts[p.act]) E(where + " : acte « " + p.act + " » inconnu.");
@@ -170,6 +184,9 @@
       p.choices.forEach(function (c, i) {
         var w = where + " choix " + (i + 1);
         if (!c.label) E(w + " : pas de texte de bouton.");
+        // No hand-written way back (Clément, 12/11): a return to a passage one comes from is written with back.
+        if (c.back == null && typeof c.to === "string" && !c.test && !c.fight && RETURN_VERB.test(c.label || "") && (P[c.to] && (P[c.to].hub || P[c.to].routes) || leadsBack(c.to, id)))
+          E(w + " : retour écrit à la main vers « " + c.to + " » ; écrire back: \"" + c.to + "\" (le moteur écrit le libellé).");
         if (c.test) {
           if (DOM_KEYS.indexOf(c.test.dom) < 0) E(w + " : domaine « " + c.test.dom + " » inconnu.");
           if (!c.win || !c.lose) E(w + " : un jet demande « win » et « lose ».");
@@ -209,6 +226,70 @@
       });
       if (!hit) out.push("Petite quête « " + q.title + " » : son tag n'est relu par aucun acte suivant ni aucune fin.");
       else if (!inEnd) out.push("Petite quête « " + q.title + " » : pas de ligne dans l'épilogue.");
+    });
+    return out;
+  }
+
+  // Intent: strictCheck(Story) -> [{ kind, msg }] = what the engine cannot catch while playing, found by reading
+  // Why: Clément (12/11): a well-written story must play well. These are the silent faults: a choice whose tag nobody
+  // reads (a deed without consequence), a clue nobody can find, a thing nobody can get, a companion who speaks in a
+  // paragraph that does not say he is there.
+  var COND_PATH = /(^|\.)(if|hide|arriveIf|closes|done|echo|after|before|pretrap|awayUnless|help)(\.|$)/;
+  var SPEECH = /^[^.!?«]{0,40}?(«|\bdit\b|\brépond|\bmurmure|\bsouffle\b|\blance\b|\bdemande|\bhausse|\bsourit|\brit\b|\bgrogne|\bsoupire|\bhoche|\bajoute|\bfait\s+«)/;
+  function strictCheck(story) {
+    var out = [], P = story.passages || {};
+    var setFlags = {}, readStr = {}, given = {}, gotItems = {}, needItems = {};
+    function walk(o, path, key) {
+      if (o == null) return;
+      if (typeof o === "string") {
+        var inCond = COND_PATH.test(path);
+        if (!inCond && (key === "flag" || key === "flags" || key === "flag2")) (setFlags[o] = setFlags[o] || []).push(path.split(".")[2] || "");
+        else if (key !== "unflag") readStr[o] = 1;
+        if (!inCond && (key === "clue" || key === "clues")) given[o] = 1;
+        if (!inCond && (key === "item" || key === "items" || key === "kits")) gotItems[o] = 1;
+        if (key === "drop" || (inCond && key === "item")) needItems[o] = 1;
+        return;
+      }
+      if (Array.isArray(o)) { o.forEach(function (x) { walk(x, path, key); }); return; }
+      if (typeof o === "object") Object.keys(o).forEach(function (k) { walk(o[k], path + "." + k, Array.isArray(o[k]) ? k : k); });
+    }
+    walk(story, "", "");
+    // Shops sell items (sells: [{ item }]) and kits are { arch: [items] }: both are ways to get a thing.
+    Object.keys(story.shops || {}).forEach(function (k) { (story.shops[k].sells || []).forEach(function (x) { gotItems[x.item] = 1; }); });
+    var kits = ((story.world || {}).start || {}).kits || {}; Object.keys(kits).forEach(function (a) { [].concat(kits[a]).forEach(function (x) { gotItems[x] = 1; }); });
+    Object.keys(story.heroes || {}).forEach(function (h) { [].concat(story.heroes[h].items || []).forEach(function (x) { gotItems[x] = 1; }); });
+    var ENGINE_READS = /^(fin:|quete|calme:)/;
+    Object.keys(setFlags).sort().forEach(function (f) {
+      if (readStr[f] || ENGINE_READS.test(f)) return;
+      out.push({ kind: "tag jamais relu", msg: "Tag « " + f + " » posé (" + setFlags[f].slice(0, 3).map(function (x) { return "§ " + x; }).join(", ") + ") mais relu nulle part : ce choix n'a pas de suite." });
+    });
+    Object.keys(story.clues || {}).forEach(function (k) { if (!given[k]) out.push({ kind: "indice introuvable", msg: "Indice « " + k + " » : aucun passage ne le donne." }); });
+    Object.keys(story.items || {}).forEach(function (k) {
+      if (gotItems[k]) return;
+      out.push({ kind: needItems[k] ? "objet demandé introuvable" : "objet introuvable", msg: "Objet « " + k + " » (" + story.items[k].name + ") : rien ne le donne" + (needItems[k] ? ", alors qu'un choix le demande." : ".") });
+    });
+    // A companion who acts or speaks in a paragraph must be said to be there (with), on the paragraph or on its scene.
+    var comps = Object.keys(story.companions || {}).filter(function (k) { return !(story.heroes || {})[k] && story.companions[k].name; });
+    var nameRe = {}; comps.forEach(function (k) { nameRe[k] = new RegExp("(^|[^\\wÀ-ÿ])" + story.companions[k].name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + "(?![\\wÀ-ÿ])"); });
+    function covers(w, k) { w = [].concat(w || []); return w.indexOf(k) >= 0; }
+    // Only companions who can join the party (a companion who never joins is a person met on the way), and not in a
+    // scene that makes them join, meet or leave (they are there by the scene itself).
+    var joins = {}; (function scan(o, key) { if (o == null) return; if (typeof o === "string") { if (key === "join") joins[o] = 1; return; } if (Array.isArray(o)) { o.forEach(function (x) { scan(x, key); }); return; } if (typeof o === "object") Object.keys(o).forEach(function (k) { scan(o[k], k); }); })(P, "");
+    comps = comps.filter(function (k) { return joins[k]; });
+    Object.keys(P).forEach(function (id) {
+      var p = P[id], here = JSON.stringify([p.fx, p.choices, p.combat]);
+      (p.text || []).forEach(function (t, i) {
+        var txt = typeof t === "string" ? t : t && t.text, tag = typeof t === "object" && t ? t : {};
+        if (typeof txt !== "string") return;
+        comps.forEach(function (k) {
+          var m = nameRe[k].exec(txt); if (!m || p.end) return;
+          var before = txt.slice(0, m.index); if ((before.match(/«/g) || []).length > (before.match(/»/g) || []).length) return; // named in a line of dialogue
+          if (new RegExp('"(join|met|leave|meet)":(\\[[^\\]]*)?"' + k + '"').test(here)) return;
+          if (covers(p.with, k) || covers(tag.with, k) || (tag.if && JSON.stringify(tag.if).indexOf('"' + k + '"') >= 0) || (p.if && JSON.stringify(p.if).indexOf('"' + k + '"') >= 0)) return;
+          if (!SPEECH.test(txt.slice(m.index + m[0].length))) return;
+          out.push({ kind: "compagnon sans with", msg: "§ " + id + " paragraphe " + (i + 1) + " : " + story.companions[k].name + " agit ou parle sans tag with: \"" + k + "\"." });
+        });
+      });
     });
     return out;
   }
@@ -293,6 +374,7 @@
   // Intent: validate(Story, Options) -> Report
   // Blocking problems make the story unplayable; warnings are shown but do not block.
   function validate(story, opts) {
+    M.prepare(story);
     var st = staticCheck(story);
     var rep = { errors: st.errors.slice(), warnings: st.warnings.slice(), sim: null };
     if (rep.errors.length) return rep;
@@ -320,6 +402,6 @@
     return null;
   }
 
-  var API = { validate: validate, staticCheck: staticCheck, echoCheck: echoCheck, simulate: simulate, actOfProblem: actOfProblem, readTags: readTags };
+  var API = { validate: validate, strictCheck: strictCheck, staticCheck: staticCheck, echoCheck: echoCheck, simulate: simulate, actOfProblem: actOfProblem, readTags: readTags };
   if (typeof module !== "undefined" && module.exports) module.exports = API; else root.Validateur = API;
 })(typeof self !== "undefined" ? self : this);

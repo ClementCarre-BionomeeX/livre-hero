@@ -29,7 +29,7 @@ module.exports = {
       { label: "Un marchand de complaintes, sous la halle", hide: { seen: "IV_ps_complainte" }, to: "IV_ps_complainte" },
       { label: "La ronde du sergent, le soir", hide: { any: [{ seen: "IV_ps_ronde" }, { not: { seen: "IV_ps_sergent" } }, { seen: "IV_ps_fuite" }] }, to: "IV_ps_ronde" },
       { label: "L'auberge du Saule, au bout du pont", to: "IV_ps_auberge" },
-      { label: "Remonter à Sauvelune", to: "IV_sv_place", big: true },
+      { back: "IV_sv_place", big: true },
     ] }),
 
   IV_ps_recette: P({ title: "La recette de la taille", place: "pontsaule",
@@ -41,17 +41,17 @@ module.exports = {
     choices: [
       { label: "Lui demander ce que la Chancellerie fait des fioles", test: { dom: "social", label: "Fulbert", help: [{ if: { item: "registre_anselin" }, v: 15 }, { if: { present: "hylas" }, v: 15 }, { if: { present: "linette" }, v: 10 }] },
         win: { fx: { flag: "iv:pontsaule_sait", ep: ["perso", 800] }, to: "IV_ps_recette_aveu" }, lose: { to: "IV_ps_recette_rien" } },
-      { label: "Ressortir", to: "IV_ps" },
+      { back: "IV_ps" },
     ] }),
   IV_ps_recette_aveu: P({ title: "Les fioles", place: "pontsaule",
     text: [
       "Fulbert hésite, puis se penche, ravi d'avoir enfin quelqu'un à qui parler de son métier. « On les monte à Pallanche une fois par mois. Au Grand Livre. Le Greffier-Majeur dit que chaque souvenir qu'on lui cède est un poids de moins sur le royaume. » Il baisse la voix. « Entre nous, je crois qu'il les garde. Il y a des étages entiers de bocaux, là-haut. »",
       "Il sourit. Il croit sincèrement faire le bien. Ça se voit. C'est le pire.",
     ],
-    choices: [{ label: "Ressortir", to: "IV_ps" }] }),
+    choices: [{ back: "IV_ps" }] }),
   IV_ps_recette_rien: P({ title: "Le règlement", place: "pontsaule",
     text: ["« Le règlement ne m'autorise pas à en parler, jeune homme », dit-il, aimable. Il trempe sa plume. « Vous payez en écus, ou en nature ? » Tu ressors. Derrière toi, la file avance d'un pas."],
-    choices: [{ label: "Ressortir", to: "IV_ps" }] }),
+    choices: [{ back: "IV_ps" }] }),
 
   IV_ps_sergent: P({ title: "Le sergent roux", place: "pontsaule",
     text: [
@@ -102,10 +102,10 @@ module.exports = {
       "On rend les fioles. Le registre de Fulbert dit qui a donné quoi, et il faut lui reconnaître ça : il tenait ses comptes. Chacun reprend la sienne, la débouche, respire. Un vieil homme retrouve le goût des poires et s'assied sur les marches pour pleurer. Une femme retrouve le nom de sa vache, et rit.",
       "Fulbert part le soir même, à pied, vers Pallanche, son registre sous le bras. Le sergent le regarde passer le pont. « Il va faire son rapport, dit-il. Et ils enverront quelqu'un d'autre. » Il remet sa hallebarde au râtelier, sans l'essuyer. « Mais pas tout de suite. Et moi, je serai là. »",
     ],
-    choices: [{ label: "Revenir sur la place", fx: { quest: "IV_Q_pontsaule" }, to: "IV_ps" }] }),
+    choices: [{ fx: { quest: "IV_Q_pontsaule" }, back: "IV_ps" }] }),
   IV_ps_fuite: P({ title: "La porte de derrière", place: "pontsaule",
     text: ["Vous sortez par derrière, le sergent en boitant, une coupure au bras. La baraque reste ouverte. Le lendemain, il y a une nouvelle affiche sur la porte du corps de garde : le sergent est relevé de ses fonctions, par ordre de la Chancellerie. Il la regarde longtemps. Puis il l'arrache, et il reste."],
-    choices: [{ label: "Revenir sur la place", fx: { quest: "IV_Q_pontsaule" }, to: "IV_ps" }] }),
+    choices: [{ fx: { quest: "IV_Q_pontsaule" }, back: "IV_ps" }] }),
 
   IV_ps_grain: P({ title: "Le marchand de grain", place: "pontsaule",
     text: [

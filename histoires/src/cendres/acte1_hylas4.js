@@ -4,7 +4,7 @@
 // test, which Hylas is asked to judge by ear.
 var HY = { act: "I", place: "pallanche", noLead: true };
 function P(o) { return Object.assign({}, HY, o); }
-var BACK = [{ label: "Revenir dans la tour", to: "HY_tour" }];
+var BACK = [{ back: "HY_tour" }];
 module.exports = {
   HY_k_dortoir: P({ title: "Le dortoir des pages",
     text: [

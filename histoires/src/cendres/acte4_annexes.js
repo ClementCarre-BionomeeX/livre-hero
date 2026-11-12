@@ -16,7 +16,7 @@ module.exports = {
     choices: [
       { label: "Chercher Bonne dans les listes", hide: { seen: "IV_Q_bonne" }, to: "IV_Q_bonne" },
       { label: "Parler à Février", hide: { seen: "IV_Q_fevrier" }, to: "IV_Q_fevrier" },
-      { label: "Revenir dans le cloître", to: "IV_moutier" },
+      { back: "IV_moutier" },
     ] }),
 
   IV_Q_bonne: P({ title: "Bonne", place: "moutier",
@@ -33,11 +33,11 @@ module.exports = {
 
   IV_Q_bonne_ok: P({ title: "Les mains bleues", place: "moutier",
     text: ["Tu prends la main d'Agnès, et tu la poses dans celle de Vincent, sans rien dire. Il regarde la main. Elle est bleue jusqu'au poignet, d'un bleu qui ne part jamais. Il dit : « Bonne. » C'est comme ça qu'il l'appelait, pas comme ça qu'elle s'appelle. Elle rit, d'un rire de jeune fille, et elle dit : « Ta jambe. » Odon note tout. Il a les lunettes embuées."],
-    choices: [{ label: "Revenir à Odon", fx: { conf: { ombeline: 5 } }, to: "IV_Q_odon_fin" }] }),
+    choices: [{ fx: { conf: { ombeline: 5 } }, back: "IV_Q_odon_fin" }] }),
 
   IV_Q_bonne_lent: P({ title: "Les mains bleues", place: "moutier",
     text: ["Tu les amènes l'un devant l'autre. Ils se regardent poliment, comme deux étrangers. Il faut une heure, et que tu leur relises les deux entrées d'Odon, à voix haute, trois fois, pour qu'Agnès regarde enfin la jambe de Vincent, et lui ses mains. Ensuite, ils ne se quittent plus. Ils ne savent pas pourquoi. Ça n'a pas l'air de les gêner."],
-    choices: [{ label: "Revenir à Odon", to: "IV_Q_odon_fin" }] }),
+    choices: [{ back: "IV_Q_odon_fin" }] }),
 
   IV_Q_fevrier: P({ title: "Février", place: "moutier",
     text: [
@@ -56,24 +56,24 @@ module.exports = {
       "Givre souffle sur les doigts du garçon, très doucement, comme on souffle sur une braise. La miette brille un instant et disparaît dans la main.",
       "Le garçon regarde sa main. « Pataud, dit-il. Le chien s'appelait Pataud. » Puis, sans transition, très vite, comme s'il avait peur que ça reparte : « Et moi, Colin. Colin Margerie. De la Varenne. Mon père a la forge. » Il se met à pleurer et à rire, et il court dire à Odon de corriger son livre.",
     ],
-    choices: [{ label: "Revenir à Odon", to: "IV_Q_odon_fin" }] }),
+    choices: [{ back: "IV_Q_odon_fin" }] }),
 
   IV_Q_fevrier_nomme: P({ title: "Un nom", place: "moutier",
     text: ["Tu réfléchis longtemps. Tu lui donnes le nom de quelqu'un de Sauvelune, quelqu'un de bien. Il l'essaie à voix haute, plusieurs fois. « D'accord », dit-il enfin. Il va le dire à Odon, qui l'écrit, à côté de Février, sans barrer Février. « On ne barre rien, ici », dit Odon."],
-    choices: [{ label: "Revenir à Odon", to: "IV_Q_odon_fin" }] }),
+    choices: [{ back: "IV_Q_odon_fin" }] }),
 
   IV_Q_fevrier_garde: P({ title: "Février", place: "moutier",
     text: ["Il hausse les épaules. « Février, c'est le mois où on m'a trouvé, dit-il. C'est déjà quelque chose de vrai. » Il lance un dernier caillou dans le puits, et il écoute. « Mille deux, dit-il. Il est profond. »"],
-    choices: [{ label: "Revenir à Odon", to: "IV_Q_odon_fin" }] }),
+    choices: [{ back: "IV_Q_odon_fin" }] }),
 
-  IV_Q_odon_fin: P({ title: "Odon", place: "moutier",
+  IV_Q_odon_fin: P({ backName: "la table d'Odon", title: "Odon", place: "moutier",
     text: [
       { if: { all: [{ seen: "IV_Q_bonne" }, { seen: "IV_Q_fevrier" }] }, text: "Odon relit ses deux entrées, corrigées. Il retire ses lunettes. « Trois cent quarante-deux noms dans ce livre, dit-il. Il en reste trois cent quarante qui cherchent quelqu'un. » Il remet ses lunettes. « Demain, peut-être. »" },
       { if: { not: { all: [{ seen: "IV_Q_bonne" }, { seen: "IV_Q_fevrier" }] } }, text: "Odon note. Il ne dit rien. Il tourne la page." },
     ],
     choices: [
       { label: "L'autre cas", hide: { all: [{ seen: "IV_Q_bonne" }, { seen: "IV_Q_fevrier" }] }, to: "IV_Q_odon" },
-      { label: "Revenir dans le cloître", fx: { quest: "IV_Q_listes", flag: "odon:aide" }, to: "IV_moutier" },
+      { fx: { quest: "IV_Q_listes", flag: "odon:aide" }, back: "IV_moutier" },
     ] }),
 
   // ---------------------------------------------------------------- Ylva on the great stone
@@ -96,7 +96,7 @@ module.exports = {
       "Tu lui racontes. La plaine sans ciel, les gens qui marchent, la ville aux cloches, la ville aux tours. Elle écoute en mordant le bord de sa couverture.",
       "« Alors elle marche, dit-elle à la fin. Elle n'est pas dans la glace. Elle marche avec les autres. » Elle réfléchit. « Elle marchait très lentement. Elle avait mal aux genoux. Elle va mettre longtemps. » Elle descend de la pierre. « Je reviendrai demain. Pas tous les soirs. Demain. »",
     ],
-    choices: [{ label: "Revenir au camp", fx: { quest: "IV_Q_ylva" }, to: "IV_clan_fin" }] }),
+    choices: [{ fx: { quest: "IV_Q_ylva" }, back: "IV_clan_fin" }] }),
 
   IV_Q_ylva_attente: P({ title: "La nuit", place: "corbeau",
     text: [
@@ -105,7 +105,7 @@ module.exports = {
       { with: "corbe", after: "corbe:iv=sans_nom", text: "Une femme du clan vient la chercher, vers minuit. Elle te fait un signe de tête, et quelque chose comme un remerciement, dans une langue que tu ne parles pas." },
       { without: "corbe", text: "Une femme du clan vient la chercher, vers minuit. Elle te fait un signe de tête, et quelque chose comme un remerciement, dans une langue que tu ne parles pas." },
     ],
-    choices: [{ label: "Revenir au camp", fx: { quest: "IV_Q_ylva", conf: { corbe: 5 } }, to: "IV_clan_fin" }] }),
+    choices: [{ fx: { quest: "IV_Q_ylva", conf: { corbe: 5 } }, back: "IV_clan_fin" }] }),
 
   IV_Q_ylva_nom: P({ title: "Le nom de la grand-mère", place: "corbeau",
     text: [
@@ -113,7 +113,7 @@ module.exports = {
       "Tu chantes. Le chant des morts, sur l'air que le clan connaît, et au bout, un seul nom : Thora, fille d'Unn. Qui chante un seul nom l'appelle.",
       "Il ne se passe rien. Puis, très loin, au col, sur la grande pierre, une lueur. Une seule, petite, qui brille une minute, puis s'éteint. Ylva l'a vue. Elle ne dit rien. Elle se lève, elle replie sa couverture, et elle rentre au camp en chantonnant, comme quelqu'un qui a reçu une réponse.",
     ],
-    choices: [{ label: "Revenir au camp", fx: { quest: "IV_Q_ylva" }, to: "IV_clan_fin" }] }),
+    choices: [{ fx: { quest: "IV_Q_ylva" }, back: "IV_clan_fin" }] }),
 
   // ---------------------------------------------------------------- Mathurin's hives
   IV_Q_ruches: P({ title: "Les ruches", place: "sauvelune",
@@ -136,7 +136,7 @@ module.exports = {
       { if: { has: "nord:rendu=sauvelune" }, text: "Mathurin hoche la tête. « Je te l'avais dit. Folles. Mais pas bêtes. » Il te remplit trois pots. « Donne-le à ceux qui ont perdu quelque chose. Une cuillère. Pas plus. On ne sait jamais ce qu'on retrouve. »" },
       { if: { not: { has: "nord:rendu=sauvelune" } }, text: "Tu remplis trois pots. Tu ne sais pas encore à qui tu les donneras. Tu sais que tu les donneras." },
     ],
-    choices: [{ label: "Redescendre", fx: { item: ["miel_blanc", "miel_blanc", "miel_blanc"], quest: "IV_Q_ruches", flag: "mathurin:iv", ep: ["perso", 1200] }, to: "IV_sv_place" }] }),
+    choices: [{ fx: { item: ["miel_blanc", "miel_blanc", "miel_blanc"], quest: "IV_Q_ruches", flag: "mathurin:iv", ep: ["perso", 1200] }, back: "IV_sv_place" }] }),
 
   IV_Q_ruches_feu: P({ title: "Le feu", place: "sauvelune",
     text: [
@@ -144,7 +144,7 @@ module.exports = {
       "Tu ne sais pas ce que tu as brûlé. Des souvenirs de gens qui ne viendront jamais les chercher. Ou qui seraient venus.",
       { if: { has: "nord:rendu=sauvelune" }, text: "Mathurin te regarde faire sans rien dire. À la fin, il dit : « Ça se défend. » Il ne dit pas si c'est un compliment." },
     ],
-    choices: [{ label: "Redescendre", fx: { quest: "IV_Q_ruches", flag: "mathurin:iv" }, to: "IV_sv_place" }] }),
+    choices: [{ fx: { quest: "IV_Q_ruches", flag: "mathurin:iv" }, back: "IV_sv_place" }] }),
 
   // ---------------------------------------------------------------- Baudoin
   IV_Q_baudoin: P({ title: "Frère Baudoin", place: "pallanche",
@@ -169,11 +169,11 @@ module.exports = {
 
   IV_Q_baudoin_parti: P({ title: "Rentrer", place: "pallanche",
     text: ["Il te donne la liasse. Il a l'air soulagé, puis terrifié d'être soulagé. « Ma mère est à Pont-de-Saule, dit-il. Elle croit que je suis quelqu'un d'important. » Il s'en va par la ruelle, vite, sans se retourner, et il ne remettra jamais les pieds à Pallanche."],
-    choices: [{ label: "Revenir chez la Veuve", fx: { quest: "IV_Q_baudoin" }, to: "IV_pal" }] }),
+    choices: [{ fx: { quest: "IV_Q_baudoin" }, back: "IV_pal" }] }),
 
   IV_Q_baudoin_reste: P({ title: "Dedans", place: "pallanche",
     text: ["Il hoche la tête, lentement. « La nuit où vous entrerez, dit-il, je serai de garde au porche. Je ne verrai rien. Je suis très myope, quand je veux. » Il a un petit sourire tremblant. C'est la chose la plus courageuse qu'il ait faite de sa vie, et il le sait."],
-    choices: [{ label: "Revenir chez la Veuve", fx: { quest: "IV_Q_baudoin" }, to: "IV_pal" }] }),
+    choices: [{ fx: { quest: "IV_Q_baudoin" }, back: "IV_pal" }] }),
 
   // ---------------------------------------------------------------- The Readers' gallows
   IV_Q_potence: P({ title: "La potence", place: "pallanche",
@@ -209,7 +209,7 @@ module.exports = {
 
   IV_Q_potence_rien: P({ takes: "evening", title: "Midi", place: "pallanche",
     text: ["Tu ne fais rien. Tu regardes. Tu te forces à regarder jusqu'au bout, parce que c'est la seule chose que tu peux faire, et que quelqu'un doit avoir vu. Le soir, tu écris leurs trois noms sur le mur de la chambre, chez la Veuve, au charbon, au-dessus du lit."],
-    choices: [{ label: "Revenir chez la Veuve", to: "IV_pal" }] }),
+    choices: [{ back: "IV_pal" }] }),
 
   IV_Q_potence_fin: P({ title: "La cave", place: "pallanche",
     text: [
@@ -217,7 +217,7 @@ module.exports = {
       { if: { all: [{ has: "liseurs:sauves" }, { not: { has: "pal:orlan" } }] }, text: "Le soir, dans une cave où les Liseurs t'ont fait descendre, la fille de vingt ans te serre la main. Elle s'appelle Aude. Elle était copiste au deuxième étage. « Je relirai, dit-elle. Demain. Sur une autre place. » Un frère maigre, enrhumé, éternue, et lui dit de se taire." },
       { if: { has: "liseurs:un_sauve" }, text: "Tu n'as pu en sauver qu'un. Le garçon de quinze ans. Il ne parle pas. Il tient ta manche, toute la soirée, et il ne la lâche qu'en dormant." },
     ],
-    choices: [{ label: "Revenir chez la Veuve", fx: { quest: "IV_Q_potence", conf: { ysolde: 5, pie: 5, lisandre: 5 } }, to: "IV_pal" }] }),
+    choices: [{ fx: { quest: "IV_Q_potence", conf: { ysolde: 5, pie: 5, lisandre: 5 } }, back: "IV_pal" }] }),
 
   // ---------------------------------------------------------------- Thibaut
   IV_Q_thibaut: P({ title: "La prison du camp", place: "brenne",
@@ -243,19 +243,19 @@ module.exports = {
       "« Repos, dit-elle. Tu as quitté la compagnie pour voir ta femme. Tu es revenu à la compagnie. Pour moi, tu as pris une permission sans la demander. » Elle se tourne vers le garde. « Il est à moi. Il sera sur le pont demain, au premier rang, sans arme, à côté de moi. Si quelqu'un veut le pendre ensuite, il viendra me voir. »",
       "Personne ne vient la voir.",
     ],
-    choices: [{ label: "Revenir dans le camp", fx: { quest: "IV_Q_thibaut" }, to: "IV_br" }] }),
+    choices: [{ fx: { quest: "IV_Q_thibaut" }, back: "IV_br" }] }),
 
   IV_Q_thibaut_grace: P({ title: "La grâce", place: "brenne",
     text: ["La reine écoute. Elle signe la grâce sans lire jusqu'au bout. « J'ai pendu assez de garçons de vingt ans pour cette guerre-là, dit-elle. Sans la faire. » Elle te tend le papier. « Portez-le-lui vous-même. Je ne veux pas voir sa tête. Je la reconnaîtrais. »"],
-    choices: [{ label: "Revenir dans le camp", fx: { quest: "IV_Q_thibaut" }, to: "IV_br" }] }),
+    choices: [{ fx: { quest: "IV_Q_thibaut" }, back: "IV_br" }] }),
 
   IV_Q_thibaut_evade: P({ title: "La nuit", place: "brenne",
     text: ["La serrure de la cage est vieille. Tu l'ouvres. Thibaut sort, frotte ses poignets, et te regarde. « Si je passe la Lisse, je suis Corvannais, dit-il. Si je reste, je suis pendu. » Il réfléchit. « Je vais à Hautvent. C'est entre les deux. » Il disparaît dans le noir."],
-    choices: [{ label: "Revenir dans le camp", fx: { quest: "IV_Q_thibaut" }, to: "IV_br" }] }),
+    choices: [{ fx: { quest: "IV_Q_thibaut" }, back: "IV_br" }] }),
 
   IV_Q_thibaut_pendu: P({ title: "L'aube", place: "brenne",
     text: ["Tu n'y arrives pas. À l'aube, dans la cour basse, on pend Thibaut, de la compagnie de Brenne. Il dit son nom avant, très fort, et celui de sa femme, et celui de son village. Quelqu'un l'écrit."],
-    choices: [{ label: "Revenir dans le camp", fx: { quest: "IV_Q_thibaut" }, to: "IV_br" }] }),
+    choices: [{ fx: { quest: "IV_Q_thibaut" }, back: "IV_br" }] }),
 
   // ---------------------------------------------------------------- Lisse-en-Corvanne
   IV_Q_lisse: P({ title: "Lisse-en-Corvanne", place: "brenne",

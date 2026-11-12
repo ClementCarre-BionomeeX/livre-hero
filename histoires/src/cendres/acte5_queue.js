@@ -35,8 +35,8 @@ var C = {
       "Tu ne peux pas les sortir tous de la file. Tu le sais. Mais tu peux la remonter, d'un bout à l'autre, et leur parler, un par un, à ceux qui lèvent les yeux quand tu passes.",
     ],
     choices: [
-      { label: "Remonter la queue", to: "V_q_file" },
-      { label: "Revenir sur la place", to: "V_ville" },
+      { label: "Remonter la queue", back: "V_q_file" },
+      { back: "V_ville" },
     ] }),
   V_q_file: P({ title: "La queue", place: "pallanche", hub: true,
     text: [
@@ -49,7 +49,7 @@ var C = {
       { label: "Deux jeunes gens qui ne se regardent pas", hide: { seen: "V_q_amants" }, to: "V_q_amants" },
       { label: "Un homme qui compte et recompte des pièces", hide: { seen: "V_q_dette" }, to: "V_q_dette" },
       { label: "La tête de la queue, devant la porte", to: "V_q_tete", big: true },
-      { label: "Revenir sur la place", to: "V_ville" },
+      { back: "V_ville" },
     ] }),
 };
 function add(o) { for (var k in o) C[k] = o[k]; }
@@ -91,5 +91,5 @@ C.V_q_fin = P({ title: "Le premier", place: "pallanche",
     { if: atLeast(3), text: "Il pose son jeton sur le seuil de la tour. Puis il sort de la file. Le premier. Derrière lui, quelqu'un hésite, puis un autre. Pas beaucoup. Une dizaine. Ils posent leur jeton sur le seuil, à côté du sien, et ils s'en vont. La file avance d'autant. Elle reste immense. Mais il y a, sur le seuil, un petit tas de plomb qui brille sous la neige." },
     { if: { not: atLeast(3) }, text: "Il te regarde longtemps. Puis il serre son jeton, et il reste. « Je resterai là, dit-il. Devant. Je ne rentrerai pas. Mais je ne partirai pas non plus. Comme ça, ceux qui viendront après moi devront me passer devant. Ça les fera peut-être réfléchir. »" },
   ],
-  choices: [{ label: "Revenir sur la place", to: "V_ville" }] });
+  choices: [{ back: "V_ville" }] });
 module.exports = C;

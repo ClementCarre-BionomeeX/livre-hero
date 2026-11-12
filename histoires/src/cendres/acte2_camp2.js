@@ -25,7 +25,7 @@ module.exports = {
       "Tu le répètes, toi aussi, à l'oreille de l'enfant. Il cesse de pleurer. Il te regarde, avec ces yeux qu'ont les nouveau-nés, qui ne voient rien et qui regardent tout.",
       "« Maintenant, on est deux à le savoir, dit Runa. Si elle m'en prend un, il en reste un. » Elle sourit pour la première fois. « C'est comme ça qu'on faisait, avant les Bouches, je crois. On se le disait à l'oreille. »",
     ],
-    choices: [{ label: "Revenir au camp", fx: { quest: "II_Q_nouveau_ne", flag: "nord:nouveau_ne=garde", conf: { corbe: 5 } }, to: "II_N_camp" }] }),
+    choices: [{ fx: { quest: "II_Q_nouveau_ne", flag: "nord:nouveau_ne=garde", conf: { corbe: 5 } }, back: "II_N_camp" }] }),
   II_Q_nouveau_ne_peint: P({ title: "L'écorce", place: "corbeau",
     text: [
       "Tu prends une bande d'écorce de bouleau, de l'ocre, de la suie. Tu ne sais pas écrire. Mais tu sais peindre les signes du clan, ceux qu'Askel t'a peints sur le visage.",
@@ -33,10 +33,10 @@ module.exports = {
       { before: "corbe:blanc", text: "Tu peins le nom de l'enfant, que Runa te dit à l'oreille. Tu n'as pas de blanc : la craie du lac ne sort que pour la Bouche. Le nom tout seul, nu, serré contre le bord de l'écorce." },
       "Runa coud l'écorce dans la doublure du bonnet de l'enfant. « Elle ne regardera pas là, dit-elle. Personne ne regarde dans un bonnet. »",
     ],
-    choices: [{ label: "Revenir au camp", fx: { quest: "II_Q_nouveau_ne", conf: { corbe: 10 } }, to: "II_N_camp" }] }),
+    choices: [{ fx: { quest: "II_Q_nouveau_ne", conf: { corbe: 10 } }, back: "II_N_camp" }] }),
   II_Q_nouveau_ne_rate: P({ title: "La peinture", place: "corbeau",
     text: ["Tu peins. Le signe ne vient pas. Ta main tremble, l'ocre bave, le nom ressemble à un autre nom, à rien. Tu recommences, deux fois. Runa te prend le pinceau, doucement. « Laisse, dit-elle. Je le lui dirai tous les soirs, moi. Ça suffira peut-être. » Tu ne sais pas si ça suffira. Elle non plus."],
-    choices: [{ label: "Revenir au camp", fx: { quest: "II_Q_nouveau_ne" }, to: "II_N_camp" }] }),
+    choices: [{ fx: { quest: "II_Q_nouveau_ne" }, back: "II_N_camp" }] }),
 
   // ---------------------------------------------------------------- La course sur le lac
   II_k_course: P({ title: "La course du tarn", place: "corbeau",
@@ -54,10 +54,10 @@ module.exports = {
       "Le renne têtu part de travers, s'arrête, repart, et puis, au deuxième tour, il comprend quelque chose, et il file. Tu passes Leif dans le dernier virage, sur un patin, en hurlant comme quand tu avais quinze ans.",
       "Les jeunes t'entourent. Leif te tape dans le dos, dépité et content. « Tu portes le tambour, alors. » Puis il hésite. « Si tu viens au col. Tu viens au col ? » Tu ne réponds pas. Mais tu prends le tambour.",
     ],
-    choices: [{ label: "Revenir au camp", fx: { conf: { corbe: 5 } }, to: "II_N_camp" }] }),
+    choices: [{ fx: { conf: { corbe: 5 } }, back: "II_N_camp" }] }),
   II_k_course_perdu: P({ title: "Dans la neige", place: "corbeau",
     text: ["Le renne têtu s'arrête net au premier virage, et tu continues sans lui, sur le ventre, dix pas sur la glace. Les jeunes rient. Tu ris aussi, la figure dans la neige. Leif t'aide à te relever. « Il fait ça à tout le monde, dit-il. Je voulais voir si tu avais changé. »"],
-    choices: [{ label: "Revenir au camp", to: "II_N_camp" }] }),
+    choices: [{ back: "II_N_camp" }] }),
 
   // ---------------------------------------------------------------- La conteuse
   II_k_conteuse: P({ title: "La conteuse", place: "corbeau",
@@ -67,7 +67,7 @@ module.exports = {
       "« Alors elle descend, de temps en temps, chercher ce qu'on lui a pris. Les noms. Parce que c'est elle qui les avait chantés la première. »",
       "Un enfant demande si c'est vrai. Gunnhild rit. « Rien n'est vrai, dans les histoires. C'est pour ça qu'il faut les retenir. »",
     ],
-    choices: [{ label: "Revenir au camp", fx: { ep: ["perso", 400], flag: "nord:conte_mere" }, to: "II_N_camp" }] }),
+    choices: [{ fx: { ep: ["perso", 400], flag: "nord:conte_mere" }, back: "II_N_camp" }] }),
 
   // ---------------------------------------------------------------- Acte III : Ellerune
   III_el_four: P3({ title: "Le four commun", place: "enfance",
@@ -83,7 +83,7 @@ module.exports = {
     text: [
       "Tu manges. Ça n'a pas de goût. Puis ça en a un. Un goût que tu ne connais pas et que tu reconnais : du blé grillé, de la fumée, et dessous, très loin, quelque chose de doux. Le pain des fêtes, à Sauvelune, au miel et à l'anis. Non. Pas celui-là. Un autre, plus ancien, dont celui-là est le souvenir.",
     ],
-    choices: [{ label: "Revenir dans le hameau", to: "III_e_hameau" }] }),
+    choices: [{ back: "III_e_hameau" }] }),
   III_el_tombes: P3({ title: "Les pierres levées", place: "enfance",
     text: [
       "Derrière la dernière maison, dans l'herbe noire, des pierres levées, petites, une centaine. Pas de noms. Pas de signes. Juste des pierres, debout, chacune de la taille d'un enfant assis.",
@@ -95,5 +95,5 @@ module.exports = {
     ] }),
   III_el_tombes_pere: P3({ title: "Pas de pierre", place: "enfance",
     text: ["Elle te regarde. Elle te reconnaît, ou elle reconnaît quelque chose. « Non, dit-elle. Ton père n'est pas mort dans le feu. Il est parti avant, vers les tours blanches. » Elle se tait. « On lui en a voulu. On ne lui en veut plus. On ne se souvient plus pourquoi. »"],
-    choices: [{ label: "Revenir dans le hameau", to: "III_e_hameau" }] }),
+    choices: [{ back: "III_e_hameau" }] }),
 };

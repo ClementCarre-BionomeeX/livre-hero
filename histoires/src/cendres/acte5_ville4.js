@@ -3,7 +3,7 @@
 // Saint-Gilles that plays one note, and the cattle market where an old reindeer waits (Corbe's, if she sang to it).
 var A = { act: "V", noLead: true, place: "pallanche" };
 function P(o) { return Object.assign({}, A, o); }
-var BACK = [{ label: "Revenir sur la place", to: "V_ville" }];
+var BACK = [{ back: "V_ville" }];
 module.exports = {
   V_v_teinturiers: P({ title: "Rue des Teinturiers",
     text: [
@@ -14,7 +14,7 @@ module.exports = {
     choices: [
       { label: "Laisser Hylas lui parler", hide: { not: { all: [{ present: "hylas" }, { has: "hylas:berengere" }] } }, to: "V_v_berengere" },
       { label: "Casser la glace du ruisseau, pour qu'il coule", fx: { ep: ["perso", 300] }, to: "V_v_teinturiers_glace" },
-      { label: "Revenir sur la place", to: "V_ville" },
+      { back: "V_ville" },
     ] }),
   V_v_teinturiers_glace: P({ title: "Les trois couleurs",
     text: ["Tu frappes la glace du talon. Elle se fend, en étoile, bleu, rouge, jaune. Dessous, l'eau coule encore, lentement, sans bruit, toujours en trois couleurs, qui ne se mélangent pas. Tu y trempes la main. Elle ressort bleue, d'un côté, rouge de l'autre. Un teinturier, à côté de toi, baisse les yeux vers ta main. Il fronce les sourcils, comme quelqu'un qui reconnaît un geste. Il ne bouge pas. Mais il a froncé les sourcils."],
@@ -26,7 +26,7 @@ module.exports = {
       { if: { not: { has: "hylas:berengere=dit" } }, text: "« Vous m'avez vendu un ruban bleu, dit-il. L'an dernier. Vous m'avez rendu trop de monnaie. » Elle le regarde. Elle cherche. « J'en vends beaucoup, des rubans », dit-elle, gentiment. Il hoche la tête. Il lui prend le jeton dans la main. Elle le laisse faire. Elle ne sait pas pourquoi elle le laisse faire." },
       "Il revient vers toi, le jeton de plomb serré dans son poing. Il ne dit rien. Derrière lui, sur le seuil, Bérengère ne regarde plus la place. Elle regarde ses mains vides, puis la rue, puis le dos du vieil homme qui s'en va.",
     ],
-    choices: [{ label: "Revenir sur la place", fx: { flag: "v:berengere", conf: { hylas: 10 }, ep: ["perso", 800] }, to: "V_ville" }] }),
+    choices: [{ fx: { flag: "v:berengere", conf: { hylas: 10 }, ep: ["perso", 800] }, back: "V_ville" }] }),
   V_v_orgue: P({ title: "Une seule note",
     text: [
       "Saint-Gilles est ouverte. Dedans, une seule note, tenue, qui ne s'arrête pas : l'orgue. À la tribune, l'organiste est assis, immobile, souriant, un doigt posé sur une touche, et la note sonne depuis hier soir, un grave qui fait trembler les vitraux.",
@@ -34,7 +34,7 @@ module.exports = {
     ],
     choices: [
       { label: "Monter à la tribune, et lever son doigt", fx: { ep: ["perso", 400] }, to: "V_v_orgue_doigt" },
-      { label: "Revenir sur la place", to: "V_ville" },
+      { back: "V_ville" },
     ] }),
   V_v_orgue_doigt: P({ title: "Le silence",
     text: [
@@ -42,7 +42,7 @@ module.exports = {
       "L'organiste cligne des yeux. Il regarde ses mains sur le clavier. Il regarde la nef vide. Puis, lentement, sans te voir, il pose les deux mains, et il joue le début d'un choral, et quand la basse descend vers la note qui grince, il l'évite, et il en joue une autre, qui n'est pas dans la partition. Il ne sait pas pourquoi. Ses mains le savent.",
       { with: "hylas", text: "En bas, dans la nef, Hylas s'est assis au dernier rang. Il chante, à mi-voix, avec sa voix cassée. Il connaît les paroles." },
     ],
-    choices: [{ label: "Redescendre", fx: { flag: "v:orgue" }, to: "V_ville" }] }),
+    choices: [{ fx: { flag: "v:orgue" }, back: "V_ville" }] }),
   V_v_renne: P({ title: "Le marché aux bêtes",
     text: [
       "Le marché aux bêtes est désert. Les enclos sont ouverts. Les vaches, les cochons sont partis, ou restés debout, sous la neige, sans comprendre. Les marchands sont dans la queue, avec leurs jetons.",
@@ -52,13 +52,13 @@ module.exports = {
     choices: [
       { label: "Couper la corde", fx: { ep: ["perso", 500], flag: "v:renne" }, to: "V_v_renne_libre" },
       { label: "Lui apporter une brassée de foin, d'abord", hide: { seen: "V_v_renne_foin" }, to: "V_v_renne_foin" },
-      { label: "Revenir sur la place", to: "V_ville" },
+      { back: "V_ville" },
     ] }),
   V_v_renne_foin: P({ title: "Le foin",
     text: ["Dans la grange du marché, du foin, sous la neige qui tombe à l'envers par le toit crevé. Tu en prends une brassée. Tu la poses devant lui. Il la regarde. Il ne mange pas. Il a oublié qu'il avait faim, comme les gens de la queue. Puis il baisse la tête, et il prend une bouchée, une seule, lentement. Il mâche. Il te regarde en mâchant. C'est un début."],
     choices: [
       { label: "Couper la corde", fx: { ep: ["perso", 500], flag: "v:renne" }, to: "V_v_renne_libre" },
-      { label: "Revenir sur la place", to: "V_ville" },
+      { back: "V_ville" },
     ] }),
   V_v_renne_libre: P({ title: "Le nord",
     text: [

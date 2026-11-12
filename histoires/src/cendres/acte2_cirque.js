@@ -28,7 +28,7 @@ module.exports = {
       "L'enseigne est lourde, et froide, et la peinture s'écaille. Le mouton est plus gris que bleu. Tu la cales contre un rocher, à l'abri, face au sud, du côté de Sauvelune.",
       "Le soir, en passant, tu vois que quelqu'un de la compagnie a gravé dessous, au couteau, une date et un nom. Personne ne dit qui.",
     ],
-    choices: [{ label: "Revenir au bord du cirque", to: "II_N4_cirque" }] }),
+    choices: [{ back: "II_N4_cirque" }] }),
 
   II_c_falaise: P({ title: "La falaise noire", place: "cirque",
     text: [
@@ -44,10 +44,10 @@ module.exports = {
       "D'en haut, le cirque se lit comme une carte. Le géant au milieu. Les files de Glaneurs qui descendent de toutes les pentes, comme des rayons de roue. Et, entre deux rayons, au sud, un couloir où ne passe personne : une ravine, où la neige est plus grise. On pourrait arriver jusqu'au géant par là, sans croiser une seule file.",
       "Tu regardes le géant longtemps. De là-haut, il n'a pas l'air d'un monstre. Il a l'air d'un très vieil homme assis, qui mange parce qu'on lui apporte à manger.",
     ],
-    choices: [{ label: "Redescendre", to: "II_N4_cirque" }] }),
+    choices: [{ back: "II_N4_cirque" }] }),
   II_c_falaise_chute: P({ title: "La cheminée", place: "cirque",
     text: ["À mi-hauteur, une prise cède. Tu redescends la cheminée beaucoup plus vite que tu ne l'as montée, sur le dos, en t'écorchant tout ce qui dépasse. En bas, les autres te regardent. Tu dis que tu as vu ce qu'il fallait voir. Ce n'est pas vrai."],
-    choices: [{ label: "Revenir au bord du cirque", to: "II_N4_cirque" }] }),
+    choices: [{ back: "II_N4_cirque" }] }),
 
   // ------------------------------------------------------------ Acte IV, au camp du Corbeau
   IV_k_torgal: P4({ title: "Torgal", place: "corbeau",
@@ -76,5 +76,5 @@ module.exports = {
     choices: [{ label: "Écrire tes deux noms dans la cendre", fx: { flag: "iv:clan_lettres", ep: ["perso", 600] }, to: "IV_k_lettres_fin" }] }),
   IV_k_lettres_fin: P4({ title: "Dans la cendre", place: "corbeau",
     text: ["Tu écris. Ton nom de Sauvelune, et l'autre. Les enfants recopient, en tirant la langue. Le plus petit fait une faute à l'autre nom, et la femme ne la corrige pas. « Il s'en souviendra mieux comme ça », dit-elle."],
-    choices: [{ label: "Revenir au camp", to: "IV_clan_fin" }] }),
+    choices: [{ back: "IV_clan_fin" }] }),
 };

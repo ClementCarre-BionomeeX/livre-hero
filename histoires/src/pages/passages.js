@@ -55,12 +55,12 @@ module.exports = {
     text: [
       "Tu montes au grenier quatre à quatre, tu poses la dague sur la couverture pliée, bien en vue, et tu redescends avant que quelqu'un te voie. Tu ne sais pas très bien pourquoi tu as fait ça. Tu n'as pas envie d'y réfléchir.",
     ],
-    choices: [{ label: "Retourner à l'écurie", to: "P_ecurie" }] },
+    choices: [{ back: "P_ecurie" }] },
   P_ecurie_dague_donnee: { act: "I", title: "Les clés de Dame Héloïse", place: "vellane",
     text: [
       "Dame Héloïse prend la dague, la tourne, reconnaît la poignée, et soupire. « Je lui en parlerai. » Elle te regarde un peu trop longtemps. « Et à toi aussi, peut-être, un de ces jours. » Elle accroche la dague à son trousseau, avec les clés.",
     ],
-    choices: [{ label: "Retourner à l'écurie", to: "P_ecurie" }] },
+    choices: [{ back: "P_ecurie" }] },
 
   P_armure: { act: "I", title: "L'armurerie", place: "vellane",
     text: [
@@ -68,7 +68,7 @@ module.exports = {
       "Tu prends le sable fin, l'huile, le chiffon, et tu commences par l'écu, le grand écu de Vellane, d'azur à la tour d'argent.",
     ],
     choices: [
-      { label: "Retourner l'écu pour huiler les sangles", to: "P_armure_ecu", hide: { seen: "P_armure_ecu" } },
+      { label: "Retourner l'écu pour huiler les sangles", back: "P_armure_ecu", hide: { seen: "P_armure_ecu" } },
       { label: "Ramasser le papier tombé près de la porte", to: "P_armure_lettre", hide: { seen: "P_armure_lettre" } },
       { label: "Descendre : on sonne pour le banquet", if: { seen: "P_armure_ecu" }, why: "L'écu n'est pas prêt.", to: "P_banquet" },
     ] },
@@ -263,12 +263,12 @@ module.exports = {
     text: [
       "Il te regarde longtemps, ses gourdes à la main. « Demain soir, sous la montagne, dit-il enfin. Je ne lèverai pas l'épée contre vous. C'est tout ce que je peux. » Il remonte au camp sans se retourner.",
     ],
-    choices: [{ label: "Retourner à ton rocher", to: "P_camp" }] },
+    choices: [{ back: "P_camp" }] },
   P_thibaud_ko: { act: "II", title: "Un garçon qui a peur", place: "vellane",
     text: [
       "Il secoue la tête, se relève, remplit ses gourdes. « Va-t'en, page. Je n'ai rien vu. » C'est déjà beaucoup.",
     ],
-    choices: [{ label: "Retourner à ton rocher", to: "P_camp" }] },
+    choices: [{ back: "P_camp" }] },
   P_camp_cle: { act: "II", title: "La clé de fer noir", place: "vellane",
     text: [
       "Tu attends que le feu ne soit plus qu'une braise, que l'homme d'armes ronfle, que Gauvard se tourne sur le côté. Tu rampes. La ceinture est là, la clé est là, et tes doigts n'ont jamais été aussi lents ni aussi sûrs.",

@@ -15,7 +15,7 @@ module.exports = {
     choices: [
       { label: "Remettre la page arrachée", hide: { not: { item: "registre_page" } }, to: "IV_sv_temple_page" },
       { label: "Lire le registre", to: "IV_sv_temple_lire" },
-      { label: "Ressortir sur la place", to: "IV_sv_place" },
+      { back: "IV_sv_place" },
     ] }),
   IV_sv_temple_page: P({ title: "La page", place: "sauvelune",
     text: [
@@ -32,20 +32,20 @@ module.exports = {
       "Tu trempes la plume. Tu écris, à côté de *sans nom*. Ton nom de Sauvelune. Puis tu t'arrêtes. Puis tu écris l'autre, à la suite, le nom que ta mère chantait, celui de là-bas, en boucles, sans majuscule. Les deux tiennent dans la marge. Tout juste.",
       "L'encre sèche. Elle ne pâlit pas. Tu restes à la regarder un long moment, au cas où. Elle ne pâlit pas.",
     ],
-    choices: [{ label: "Ressortir sur la place", to: "IV_sv_place" }] }),
+    choices: [{ back: "IV_sv_place" }] }),
   IV_sv_temple_vide: P({ title: "La marge blanche", place: "sauvelune",
     text: [
       "Tu reposes la plume. La marge reste blanche, à côté de *sans nom*, un petit vide de la largeur d'un nom. Tu ne sais pas lequel y mettre. Tu n'as pas encore décidé qui tu es. Le registre peut attendre. Il a attendu vingt ans.",
       { if: RENDU, text: "Le Père Anselme referme le registre, doucement. « Tu reviendras quand tu sauras, dit-il. L'encre ne bouge pas. Moi non plus. »" },
     ],
-    choices: [{ label: "Ressortir sur la place", to: "IV_sv_place" }] }),
+    choices: [{ back: "IV_sv_place" }] }),
   IV_sv_temple_lire: P({ takes: "night", title: "Les naissances", place: "sauvelune",
     text: [
       "Tu tournes les pages. Les naissances, les mariages, les morts, d'une écriture penchée, à l'encre brune, sur deux cents ans. Tu cherches les noms que tu connais. Joris, né l'année du grand gel. Agathe, venue de Pont-de-Saule pour se marier. Tess, fille du forgeron. Mathurin, qui avait déjà la barbe blanche quand tu es né.",
       { if: RENDU, text: "Les noms sont noirs, nets, comme écrits d'hier." },
       { if: { not: RENDU }, text: "Les noms sont pâles. Certains sont presque partis, comme une buée sur une vitre. Tu passes le doigt dessus. Ça ne les ramène pas. Mais tu les lis tous, à voix haute, un par un, jusqu'au dernier, et quand tu relèves la tête, il fait nuit." },
     ],
-    choices: [{ label: "Ressortir sur la place", fx: { ep: ["perso", 400] }, to: "IV_sv_place" }] }),
+    choices: [{ fx: { ep: ["perso", 400] }, back: "IV_sv_place" }] }),
 
   IV_sv_linteaux: P({ title: "Les linteaux", place: "sauvelune",
     text: [
@@ -64,7 +64,7 @@ module.exports = {
       { if: { not: RENDU }, text: "Tu peins toutes les maisons. Celles dont tu te souviens. Pour deux d'entre elles, tu ne sais plus ; tu laisses le bois nu, plutôt que d'inventer. Personne ne lira ces noms. Ce n'est pas pour qu'on les lise." },
       "Au moulin, tu n'hésites pas, cette fois. Tu repeins ce que tu avais écrit, l'été d'avant le blanc, lettre pour lettre, et la petite roue en dessous.",
     ],
-    choices: [{ label: "Revenir sur la place", to: "IV_sv_place" }] }),
+    choices: [{ back: "IV_sv_place" }] }),
 
   // ---------------------------------------------------------------- La pierre plate
   IV_sv_pierre: P({ title: "La pierre plate", place: "sauvelune",
@@ -75,7 +75,7 @@ module.exports = {
     ],
     choices: [
       { label: "Rester jusqu'au soir", fx: { ep: ["perso", 400], pv: 3 }, to: "IV_sv_pierre_soir" },
-      { label: "Redescendre au village", to: "IV_sv_place" },
+      { back: "IV_sv_place" },
     ] }),
   IV_sv_pierre_soir: P({ takes: "evening", title: "Le soir sur la vallée", place: "sauvelune",
     text: [
@@ -84,7 +84,7 @@ module.exports = {
       { if: { has: "ame:moulin" }, text: "Une seule cheminée fume, en bas : celle du moulin. Tu regardes la vallée devenir noire. Tu redescends à l'heure de la soupe, par habitude, et tu t'aperçois en route que tu siffles." },
       { if: { not: { any: [RENDU, { has: "ame:moulin" }] } }, text: "En bas, pas une cheminée, sinon le four. Tu regardes la vallée devenir noire. Personne ne t'appelle. Tu redescends quand même, à l'heure de la soupe, par habitude, et tu t'aperçois en route que tu siffles." },
     ],
-    choices: [{ label: "Redescendre au village", to: "IV_sv_place" }] }),
+    choices: [{ back: "IV_sv_place" }] }),
 
   // ---------------------------------------------------------------- Le cimetière
   IV_sv_cimetiere: P({ title: "Le petit cimetière", place: "sauvelune",
@@ -105,11 +105,11 @@ module.exports = {
       { if: { not: { has: "ame:moulin" } }, text: "Tu les demandes à ceux qui sont avec toi, qui ne les savent pas. Alors tu les inventes, un peu, à partir d'une lettre restée, d'une date, de la taille de la tombe. Tu demandes pardon aux morts, à chaque fois, à voix basse. Mathurin aurait trouvé ça très bien. Il disait que les morts ne sont pas regardants." },
       "Au matin, il y a trente noms sur trente tombes. Ils tiennent.",
     ],
-    choices: [{ label: "Revenir sur la place", to: "IV_sv_place" }] }),
+    choices: [{ back: "IV_sv_place" }] }),
   IV_sv_cimetiere_rate: P({ title: "La pierre", place: "sauvelune",
     text: ["Tu graves *J*, puis tu t'arrêtes. Tu ne sais pas la suite. Tu ne l'as jamais su. Joris disait les noms de ses parents au bénédicité, et tu ne l'écoutais pas, tu regardais la soupe. Tu restes devant la pierre avec ton couteau, et la honte, et le *J* tout seul."],
-    choices: [{ label: "Revenir sur la place", to: "IV_sv_place" }] }),
+    choices: [{ back: "IV_sv_place" }] }),
   IV_sv_cimetiere_noix: P({ title: "Les noix", place: "sauvelune",
     text: ["Tu ramasses des noix sous les noyers. Elles sont bonnes, cette année. Tu en remplis tes poches. Personne ne te court après. Tu attends quand même un peu, au cas où. Personne."],
-    choices: [{ label: "Revenir sur la place", to: "IV_sv_place" }] }),
+    choices: [{ back: "IV_sv_place" }] }),
 };

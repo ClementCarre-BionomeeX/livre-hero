@@ -80,7 +80,7 @@ module.exports = {
       "Elle s'assied lourdement sur le banc. Elle met les mains sur sa bouche. Puis elle ouvre les bras, et Pim s'y jette avec une telle force que le banc recule d'un pied.",
       "Elle ne dit rien pendant longtemps. Puis elle te regarde, par-dessus la tête de Pim. Elle sait qui il est. Toi, elle te regarde avec beaucoup d'affection et un peu d'embarras, comme on regarde quelqu'un dont on a oublié le prénom, sans oser le lui demander.",
     ],
-    choices: [{ label: "Sortir sans rien dire", to: "EN_village" }] },
+    choices: [{ label: "Sortir sans rien dire", back: "EN_village" }] },
 
   EN_pim_siffle: { act: "I", title: "La note fausse", place: "sauvelune",
     text: [
@@ -89,7 +89,7 @@ module.exports = {
       "Elle s'arrête au milieu de la phrase, le torchon levé. Les flocons dans ses cheveux fondent d'un coup. Elle regarde Pim. Elle le reconnaît. Et toi, tu ne sais pas si tu dois rire ou pleurer, alors tu fais les deux, et Pim aussi, et Agathe aussi, et c'est un vacarme qui ressemble à la fête d'hier.",
       "Plus tard, elle te demandera comment tu t'appelles. Doucement, gênée. Tu le lui diras.",
     ],
-    choices: [{ label: "Sortir, le sifflet dans ta poche", to: "EN_village" }] },
+    choices: [{ label: "Sortir, le sifflet dans ta poche", back: "EN_village" }] },
 
   EN_pim_souvenir: { act: "I", title: "La Sauve, un jour d'août", place: "sauvelune",
     text: [
@@ -98,7 +98,7 @@ module.exports = {
       "Agathe pousse un cri. Elle regarde Pim, et elle le reconnaît, et elle dit : « La Sauve. Tu as failli te noyer dans la Sauve. » Elle se souvient du jour d'août. Elle s'en souvient comme si elle y avait été, alors qu'elle n'y était pas. Elle s'en souvient avec tes yeux.",
       "Toi, tu ne sais plus. Tu sais que Pim sait nager. Tu ne sais plus qui le lui a appris.",
     ],
-    choices: [{ label: "Sortir, avec ce trou en toi", to: "EN_village" }] },
+    choices: [{ label: "Sortir, avec ce trou en toi", back: "EN_village" }] },
 
   EN_pim_echec: { act: "I", title: "Une voisine aimable", place: "sauvelune",
     text: [
@@ -106,7 +106,7 @@ module.exports = {
       "Pim mange la tartine. Il ne pleure pas. C'est pire.",
       "Tu te promets de revenir. Tu te promets de trouver ce qui fait ça, et de le défaire.",
     ],
-    choices: [{ label: "Sortir", fx: { flag: "pim:promesse" }, to: "EN_village" }] },
+    choices: [{ fx: { flag: "pim:promesse" }, back: "EN_village" }] },
 
   // ---------------------------------------------------------------- the temple and the register
   EN_temple: { act: "I", title: "Le registre", place: "sauvelune",
@@ -136,7 +136,7 @@ module.exports = {
       "Ta main se crispe, l'encre bave, les noms s'effacent devant toi plus vite que tu ne peux les lire. *Ferrand, Marthe… Ferrand, Ma…* et puis rien. Tu recopies une page, et pendant ce temps il en part trois.",
       "Le Père Anselme pose sa main sur la tienne. « Arrête, mon enfant. On ne vide pas la mer avec une écuelle. » Il ferme le registre. « Il faudrait trouver ce qui la fait monter. »",
     ],
-    choices: [{ label: "Repartir", to: "EN_village" }] },
+    choices: [{ back: "EN_village" }] },
 
   EN_temple_arrache: { act: "I", title: "Une page", place: "sauvelune",
     text: [
@@ -175,7 +175,7 @@ module.exports = {
       "« Je te demande de garder quelqu'un. »",
       "Elle trempe le fer. Elle dit oui. Elle dit aussi d'autres choses, qu'on ne répète pas dans un livre, et puis elle te serre contre elle si fort que tu sens le tablier de cuir te marquer la poitrine. « Reviens », dit-elle. Ce n'est pas une prière. C'est un ordre.",
     ],
-    choices: [{ label: "Repartir", to: "EN_village" }] },
+    choices: [{ back: "EN_village" }] },
 
   // ---------------------------------------------------------------- the bees, second day
   EN_ruches2: { act: "I", title: "Le rucher, le lendemain", place: "sauvelune",
@@ -200,14 +200,14 @@ module.exports = {
       { if: { not: { clue: "n_fondre" } }, text: "Mathurin se lève d'un coup. « La Reine-Claude, dit-il. La Grosse Berthe. La Folle. Saint-Ambroise. » Il nomme ses ruches l'une après l'autre, et il se met à rire, et à pleurer, et à jurer, tout ensemble." },
       "Il te donne un pot de miel noir. « La Dame Blanche, dit-il, plus bas. Ma grand-mère disait qu'elle ne vient jamais seule. Qu'il y a toujours derrière elle un homme en noir qui écrit. »",
     ],
-    choices: [{ label: "Redescendre au village", to: "EN_village" }] },
+    choices: [{ back: "EN_village" }] },
 
   EN_ruches2_ko: { act: "I", title: "Les jolies boîtes", place: "sauvelune",
     text: [
       "La fumée monte, les abeilles ne bougent pas. Mathurin te regarde faire avec bienveillance, comme on regarde un jeune homme faire une chose étrange dont il a sûrement de bonnes raisons.",
       "Quand tu repars, il te fait au revoir de la main. Il ne sait pas ton nom. Il ne sait plus le sien. Il a l'air, curieusement, en paix.",
     ],
-    choices: [{ label: "Redescendre au village", to: "EN_village" }] },
+    choices: [{ back: "EN_village" }] },
 
   // ---------------------------------------------------------------- the attic chest
   EN_grenier: { act: "I", title: "Le coffre de Joris", place: "sauvelune",
@@ -240,7 +240,7 @@ module.exports = {
     ],
     choices: [{ label: "Remonter au grenier", fx: { flag: "joris:cle" }, to: "EN_grenier_ouvert" }] },
 
-  EN_grenier_ouvert: { act: "I", title: "Ce qu'il y avait dans le coffre", place: "sauvelune",
+  EN_grenier_ouvert: { backName: "le grenier", act: "I", title: "Ce qu'il y avait dans le coffre", place: "sauvelune",
     fx: { clue: "n_lettre", item: "lettre_hylas", flag: "enfant:lettre", quest: "EN_coffre", ep: ["perso", 800] },
     text: [
       "Il n'y a presque rien dedans. Une couverture d'enfant, d'une laine si blanche et si fine que tu n'en as jamais vu de pareille, une laine qui n'a jamais été teinte, et qui est froide au toucher, même au soleil. Un petit caillou blanc, lisse, poli comme un œuf.",
@@ -448,7 +448,7 @@ module.exports = {
       { if: { souv: "enfant:reve" }, text: "Et tu la lis. Pas tout. Un mot, un seul, gravé sept fois, une fois sur chaque pierre, et qui te revient du fond de ton rêve blanc, avec la voix qui chantait : *Reviens.* Tu ne sais pas comment tu le sais. Tu le sais comme on sait son nom." },
       { if: { not: { souv: "enfant:reve" } }, text: "Tu passes les doigts sur les signes. Ils sont froids. Tu as l'impression, très forte, que tu devrais les comprendre, qu'ils te concernent, qu'ils t'attendaient. Il y a un trou en toi, là où il faudrait les lire." },
     ],
-    choices: [{ label: "Repartir", fx: { flag: "enfant:pierres" }, to: "EN_grives" }] },
+    choices: [{ fx: { flag: "enfant:pierres" }, back: "EN_grives" }] },
 
   EN_traces: { act: "I", title: "Deux pistes", place: null,
     text: [
@@ -484,7 +484,7 @@ module.exports = {
       "« Ils m'ont pris mon nom, dit-il. L'homme en noir. Il m'a mis le sceau, et j'ai glané pour lui, longtemps. Et puis le sceau est tombé, un jour, je ne sais pas. Et maintenant je ne sais plus où aller. » Il te regarde. « Tu sens le pain. Tu sens Sauvelune. »",
       "Il ne te suit pas. Il reste devant son four froid, le pain contre lui. Mais quand tu te retournes, au bout du vallon, il a levé la main.",
     ],
-    choices: [{ label: "Reprendre la route", to: "@route" }] },
+    choices: [{ back: "@route" }] },
 
   EN_four_combat: { act: "I", title: "Le Glaneur du four", place: null,
     combat: { title: "Le Glaneur du four", enemies: ["glaneur_petit"], terrain: "nature", range: "contact",
@@ -498,7 +498,7 @@ module.exports = {
       { if: { has: "gaspard:tue" }, text: "Il se défait en poudre devant son four. Dans la poudre, un murmure s'envole, un seul nom, que le vent emporte avant que tu l'entendes. Tu as l'impression d'avoir tué quelqu'un. Tu ne sais pas qui." },
       { if: { not: { has: "gaspard:tue" } }, text: "Tu te réveilles dans la neige, transi. Le Glaneur est retourné s'accroupir devant son four. Il ne te regarde plus. Tu ne l'intéresses pas : tu n'as pas de nom à prendre." },
     ],
-    choices: [{ label: "Reprendre la route", to: "@route" }] },
+    choices: [{ back: "@route" }] },
 
   EN_portes_nord: { act: "I", title: "Pallanche, par le nord", place: null,
     text: [
@@ -559,7 +559,7 @@ module.exports = {
       "Le géant boit toute la gourde d'un trait. Il te la rend. « Rodric, dit-il, d'une voix de rocaille. Rodric Trois-Cloches, de Corvanne. Je ne l'oublierai pas, l'Esquarrois. » Il sourit, avec ses lèvres fendues. « C'est bien la seule chose qu'on ne me prendra pas, là où ils nous emmènent. »",
       "La colonne repart. Tu ne sais pas ce qu'il a voulu dire.",
     ],
-    choices: [{ label: "Reprendre la route", to: "@route" }] },
+    choices: [{ back: "@route" }] },
 
   EN_colonne_ysolde: { act: "I", title: "La chevalière", place: null,
     text: [
@@ -570,7 +570,7 @@ module.exports = {
       "Elle regarde la colonne de prisonniers, puis la route, devant, qui mène à Pallanche. Ses mains se serrent sur les rênes. « Rentre chez toi, dit-elle. Non. Pardon. » Elle se reprend. « Va à Pallanche, puisque tu y vas. Et ne parle de ça à personne qui porte du noir. »",
       "Elle éperonne sa jument et remonte en tête de la colonne sans se retourner.",
     ],
-    choices: [{ label: "Reprendre la route", to: "@route" }] },
+    choices: [{ back: "@route" }] },
 
   EN_portes_sud: { act: "I", title: "Pallanche, par le sud", place: null,
     text: [
@@ -603,7 +603,7 @@ module.exports = {
 
   E_loups_perdu: { act: "I", title: "Les loups", place: null,
     text: ["Tu te réveilles adossé à un rocher, l'avant-bras en sang. Les loups sont partis avec ton sac de vivres, ou ce qu'il en restait. Ils ne voulaient pas de toi. Ils voulaient le fromage d'Agathe."],
-    choices: [{ label: "Reprendre la route", to: "@route" }] },
+    choices: [{ back: "@route" }] },
 
   E_berger: { act: "I", title: "Le berger", place: null,
     text: [
@@ -632,7 +632,7 @@ module.exports = {
       "Ils te regardent sortir le pain d'Agathe comme s'ils voyaient un tour de magie. Ils le partagent en trois, sans un mot, et vous mangez ensemble, assis dans le fossé.",
       "« On était tisserands, dit le plus vieux. À Roncière. Et puis un matin, plus personne ne nous connaissait au village. Ni ma femme. Ni mon propre frère. On est partis. » Il essuie ses doigts. « Toi aussi, hein ? Ça se voit. »",
     ],
-    choices: [{ label: "Repartir", to: "@route" }] },
+    choices: [{ back: "@route" }] },
 
   E_pelerins: { act: "I", title: "Les pèlerins", place: null,
     text: [
@@ -652,7 +652,7 @@ module.exports = {
 
   E_charrette_ok: { act: "I", title: "La charrette", place: null,
     text: ["À trois, vous remettez la charrette sur ses roues. Le vieil homme te donne un fromage pour la peine, et sa fille te regarde partir avec un intérêt qui ne doit rien au fromage."],
-    choices: [{ label: "Reprendre la route", to: "@route" }] },
+    choices: [{ back: "@route" }] },
 
   E_puits: { act: "I", title: "Le puits", place: null,
     text: ["Un puits au bord de la route, avec un seau et une chaîne. Sur la margelle, quelqu'un a gravé une liste de noms, des dizaines, serrés les uns contre les autres, et au-dessus : *NOUS ÉTIONS DE CHAUMONT. SOUVENEZ-VOUS.* Tu ne connais pas de Chaumont. Il n'y en a sur aucune carte que tu aies vue."],

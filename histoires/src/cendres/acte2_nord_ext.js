@@ -24,13 +24,13 @@ module.exports = {
       "Elle est légère, sèche, l'écorce partie depuis longtemps. Tu la soupèses. Elle a été taillée pour une main plus petite que la tienne. Ta grand-mère ? La sienne ? Personne ne pourra te le dire.",
       "Tu la glisses dans ta ceinture, à côté de la tienne. Quand tu te redresses, tu as l'impression que les corbeaux, là-haut, te regardent. Ils ne disent rien. Ils ne disent jamais rien.",
     ],
-    choices: [{ label: "Revenir dans la grotte", to: "II_N2_grotte" }] }),
+    choices: [{ back: "II_N2_grotte" }] }),
   II_g_offrandes_laissee: P({ title: "Ce qu'on laisse", place: "lacnoir",
     text: [
       "Tu cherches dans tes poches. Un caillou, un bout de ficelle, une boucle de ceinture. Rien qui vaille. Puis tu défais une de tes tresses, la plus longue, et tu coupes la mèche au couteau, et tu la poses sur la baguette, tout au fond, là où personne ne la verra.",
       "Tu ne sais pas pourquoi. Pour que quelque chose de toi reste ici, si le reste ne revient pas. Ça ne pèse rien. Ça pèse quand même.",
     ],
-    choices: [{ label: "Revenir dans la grotte", to: "II_N2_grotte" }] }),
+    choices: [{ back: "II_N2_grotte" }] }),
 
   // ---------------------------------------------------------------- La grotte : l'écho
   II_Q_echo: P({ title: "La salle de l'écho", place: "lacnoir",
@@ -44,7 +44,7 @@ module.exports = {
       { label: "Dire ton nom", to: "II_Q_echo_nom" },
       { label: "Battre le tambour, doucement, pour faire parler les voix", test: { dom: "magie", label: "Les voix", help: [{ if: { item: "tambour" }, v: 15 }, { if: { has: "nord:offrande=prise" }, v: 10 }, { if: { present: "hylas" }, v: 5 }] },
         win: { fx: { flag: "nord:echo", ep: ["perso", 1000] }, to: "II_Q_echo_voix" }, lose: { to: "II_Q_echo_froid" } },
-      { label: "Ressortir à reculons", fx: { quest: "II_Q_echo" }, to: "II_N2_grotte" },
+      { fx: { quest: "II_Q_echo" }, back: "II_N2_grotte" },
     ] }),
   II_Q_echo_nom: P({ title: "Corbe", place: "lacnoir",
     text: [
@@ -54,7 +54,7 @@ module.exports = {
     choices: [
       { label: "Battre le tambour, maintenant", test: { dom: "magie", label: "Les voix", help: [{ if: { item: "tambour" }, v: 20 }, { if: { has: "nord:offrande=prise" }, v: 10 }] },
         win: { fx: { flag: "nord:echo", ep: ["perso", 1000] }, to: "II_Q_echo_voix" }, lose: { to: "II_Q_echo_froid" } },
-      { label: "Ressortir", fx: { quest: "II_Q_echo", ep: ["perso", 400] }, to: "II_N2_grotte" },
+      { fx: { quest: "II_Q_echo", ep: ["perso", 400] }, back: "II_N2_grotte" },
     ] }),
   II_Q_echo_voix: P({ title: "Les voix", place: "lacnoir",
     text: [
@@ -64,13 +64,13 @@ module.exports = {
       { if: { not: { has: "nord:lignee" } }, text: "Tu ressors. Tu ne sais pas lire. Mais tu sais, maintenant, un nom que Torgal cherche depuis des années, et tu le tiens dans la bouche comme un caillou chaud." },
       { if: { has: "nord:lignee" }, text: "Tu ressors. Le nom, tu le savais déjà, par le vieux corbeau de l'aire. Mais tu ne savais pas que d'autres l'avaient chanté avant Torgal, si longtemps, et si nombreux." },
     ],
-    choices: [{ label: "Revenir dans la grotte", fx: { quest: "II_Q_echo", flag: "nord:sigrun_entendu", conf: { corbe: 10 } }, to: "II_N2_grotte" }] }),
+    choices: [{ fx: { quest: "II_Q_echo", flag: "nord:sigrun_entendu", conf: { corbe: 10 } }, back: "II_N2_grotte" }] }),
   II_Q_echo_froid: P({ title: "Le froid", place: "lacnoir",
     text: [
       "Tu bats. La salle reprend le rythme, une fois, deux fois. Puis elle se tait. Un froid descend de la voûte, un froid de glacière, et ta torche baisse. Une voix, tout près de ton oreille, très douce, dit : *Pas toi. Pas encore.*",
       "Tu ressors plus vite que tu n'es entrée. Dans la grande salle, les corbeaux se sont tous envolés d'un coup, et ils tournent sous la voûte, en silence.",
     ],
-    choices: [{ label: "Revenir dans la grotte", fx: { quest: "II_Q_echo" }, to: "II_N2_grotte" }] }),
+    choices: [{ fx: { quest: "II_Q_echo" }, back: "II_N2_grotte" }] }),
 
   // ---------------------------------------------------------------- Le col : le refuge des passeurs
   II_Q_refuge: P({ title: "Le refuge des passeurs", place: "col",
@@ -108,14 +108,14 @@ module.exports = {
       { if: READER, text: "On écrit la date à côté, pour toi. Tu regardes les lettres sécher. Tu te demandes à quoi ressemble ton nom, écrit. On ne l'a pas écrit. Tu n'as pas demandé." },
       "En partant, tu remets une bûche dans la cheminée, pour rien, pour qu'il y ait du bois si quelqu'un revient.",
     ],
-    choices: [{ label: "Revenir au col", fx: { quest: "II_Q_refuge", flag: "nord:refuge", ep: ["perso", 500] }, to: "II_N5_col" }] }),
+    choices: [{ fx: { quest: "II_Q_refuge", flag: "nord:refuge", ep: ["perso", 500] }, back: "II_N5_col" }] }),
   II_Q_refuge_chien: P({ title: "Brun", place: "col",
     text: [
       "Tu l'appelles. Il te regarde. Tu fais trois pas vers le col, tu tapes sur ta cuisse. Il se lève, il te suit jusqu'au seuil. Puis il s'arrête, et il se recouche, en travers, le museau vers la déchirure.",
       "Il garde la maison. On le lui a dit. Tu n'as pas d'ordre plus fort que celui-là à lui donner.",
       "Tu reviens t'asseoir à côté de lui, un moment. Il pose sa tête sur ton pied. Il est très chaud. Puis tu repars, et il ne te suit pas, et tu ne te retournes pas, parce que tu sais déjà qu'il ne t'a pas regardée partir.",
     ],
-    choices: [{ label: "Revenir au col", fx: { quest: "II_Q_refuge", conf: { corbe: 5 } }, to: "II_N5_col" }] }),
+    choices: [{ fx: { quest: "II_Q_refuge", conf: { corbe: 5 } }, back: "II_N5_col" }] }),
 
   // ---------------------------------------------------------------- Acte III, la dernière nuit à Valcendre
   III_a_boulanger: P3({ title: "Le fournil", place: "valcendre",
@@ -129,14 +129,14 @@ module.exports = {
     ] }),
   III_a_boulanger_pain: P3({ title: "Un pain de Valcendre", place: "valcendre",
     text: ["Il te regarde, étonné, comme si personne ne lui avait demandé ça depuis très longtemps. Puis il te donne le plus beau, celui du dessus. « Pour la route, dit-il. Là-haut, ils ont faim, je crois. » Le pain est chaud. Il le restera, tu le sais déjà, jusqu'au bout du blanc."],
-    choices: [{ label: "Revenir à la maison", to: "III_a_nuit" }] }),
+    choices: [{ back: "III_a_nuit" }] }),
   III_a_boulanger_aide: P3({ title: "La pelle", place: "valcendre",
     text: [
       "Il te donne la pelle. Tu enfournes. Tu sais faire : le moulin, à Sauvelune, avait son four, et Agathe te laissait enfourner les jours de fête. Le boulanger te regarde faire, les mains sur les hanches.",
       "« Tu as un poignet de boulanger, dit-il. Ça ne s'apprend pas en un jour. » Tu dis que non, de meunier. Il hausse les épaules. « C'est pareil. Le grain, la farine, le pain. Il n'y a que le feu qui change. »",
       "Quand tu pars, il te dit : « Demain, il y aura un matin. Grâce à toi. Un peu. »",
     ],
-    choices: [{ label: "Revenir à la maison", to: "III_a_nuit" }] }),
+    choices: [{ back: "III_a_nuit" }] }),
 
   III_a_bibliotheque: P3({ title: "La bibliothèque des Orsans", place: "valcendre",
     text: [
@@ -146,7 +146,7 @@ module.exports = {
     choices: [
       { label: "Essayer de le lire", test: { dom: "savoir", label: "Les boucles", help: [{ if: { present: "hylas" }, v: 15 }, { if: { present: "lisandre" }, v: 10 }, { if: { present: "sansnom" }, v: 15 }] },
         win: { fx: { flag: "iii:berceuse", ep: ["perso", 1200] }, to: "III_a_bibliotheque_lue" }, lose: { to: "III_a_bibliotheque_rate" } },
-      { label: "Revenir à la maison", to: "III_a_nuit" },
+      { back: "III_a_nuit" },
     ] }),
   III_a_bibliotheque_lue: P3({ title: "La berceuse", place: "valcendre",
     text: [
@@ -154,8 +154,8 @@ module.exports = {
       "Le troisième couplet dit, à peu près : *Si tu oublies ton nom, mon petit, ne pleure pas. Il est écrit dans ma bouche. Je le garde pour toi.*",
       { with: "sansnom", text: "Ton frère est là, à l'entrée des rayonnages. Il a tout entendu. Il ne dit rien. Il a les lèvres qui bougent, en silence, sur le troisième couplet, qu'il connaissait." },
     ],
-    choices: [{ label: "Revenir à la maison", fx: { conf: { sansnom: 5 } }, to: "III_a_nuit" }] }),
+    choices: [{ fx: { conf: { sansnom: 5 } }, back: "III_a_nuit" }] }),
   III_a_bibliotheque_rate: P3({ title: "Les boucles", place: "valcendre",
     text: ["Les boucles se défont sous tes yeux. Tu reconnais un mot, puis le suivant t'échappe. La vieille femme te reprend le livre, doucement. « Ça viendra, dit-elle. Ou ça ne viendra pas. Les berceuses, on ne les lit pas, de toute façon. On les entend. » Elle remonte à son échelle."],
-    choices: [{ label: "Revenir à la maison", to: "III_a_nuit" }] }),
+    choices: [{ back: "III_a_nuit" }] }),
 };

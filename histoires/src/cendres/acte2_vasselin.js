@@ -35,20 +35,20 @@ module.exports = {
       "« Rossignol, dit-elle à la fin. On m'appelait Rossignol, aux fenaisons. Parce que je faisais la voix du dessous. » Elle fronce les sourcils. « Ce n'était pas mon nom. Mais c'est un nom. Je vais le garder. »",
       "La patronne de l'Ancre, qui a tout vu depuis la halle, s'approche, s'essuie les mains sur son tablier. « J'ai besoin de quelqu'un pour la plonge, dit-elle. Et qui chante, ça ne gâte rien. »",
     ],
-    choices: [{ label: "Revenir en ville", fx: { quest: "II_Q_bassin", conf: { lisandre: 5 } }, to: "II_S_vasselin" }] }),
+    choices: [{ fx: { quest: "II_Q_bassin", conf: { lisandre: 5 } }, back: "II_S_vasselin" }] }),
   II_Q_bassin_lettre: P({ title: "La lettre mouillée", place: "vasselin",
     text: [
       "Dans la poche de sa robe, un papier plié, détrempé, dont l'encre a coulé. Tu le déplies sur les pavés, au soleil. On lit encore : *... de Roncière, au prieuré de ... ma sœur ... si tu ne te souviens plus, va voir ...* et un nom de couvent, à Vasselin, le couvent des Filles-Dieu, sur la colline.",
       "Tu la mènes là-bas, à pied, la main dans la main, elle trempée, toi en robe de cour, toute la ville qui vous regarde passer. La sœur portière la regarde, longtemps. Puis elle ouvre les bras. « Agnès, dit-elle. Ma petite Agnès. »",
       "La femme du bassin se laisse embrasser, très polie, et demande : « C'est moi, Agnès ? » La sœur dit oui. Elle répond : « D'accord. » Et elle entre.",
     ],
-    choices: [{ label: "Revenir en ville", fx: { quest: "II_Q_bassin" }, to: "II_S_vasselin" }] }),
+    choices: [{ fx: { quest: "II_Q_bassin" }, back: "II_S_vasselin" }] }),
   II_Q_bassin_rien: P({ title: "Le quai", place: "vasselin",
     text: [
       "Rien ne prend. Elle te regarde, gentiment, et elle attend que tu aies fini. Au bout d'un moment, les pêcheurs l'emmènent à l'hospice du port, où l'on garde les gens qu'on repêche, et qui sont de plus en plus nombreux, depuis l'été.",
       "En partant, elle se retourne. « Vous chantez bien, dit-elle. Je crois que je chantais, moi aussi. » Puis elle suit les pêcheurs, en sabots mouillés, et tu ne la revois pas.",
     ],
-    choices: [{ label: "Revenir en ville", fx: { quest: "II_Q_bassin" }, to: "II_S_vasselin" }] }),
+    choices: [{ fx: { quest: "II_Q_bassin" }, back: "II_S_vasselin" }] }),
 
   // ---------------------------------------------------------------- Le luthier
   II_Q_luthier: P({ title: "Le luthier de la rue Basse", place: "vasselin",
@@ -60,7 +60,7 @@ module.exports = {
     ],
     choices: [
       { label: "« Maître Fabien. C'est moi. »", to: "II_Q_luthier_parler" },
-      { label: "Ressortir sans te faire voir", refuse: true, to: "II_S_vasselin" },
+      { label: "Ressortir sans te faire voir", refuse: true, back: "II_S_vasselin" },
     ] }),
   II_Q_luthier_parler: P({ title: "Les luths sans cordes", place: "vasselin",
     text: [
@@ -80,20 +80,20 @@ module.exports = {
       "Fabien écoute, la tête penchée, les yeux fermés, comme on écoute une caisse pour savoir si le bois est bon. À la fin, il ouvre les yeux. Il prend un luth sans cordes, sur l'établi, et il dit, très lentement, comme on récite : « Les barres. Puis la table. Puis le manche. Puis le vernis. Six couches. Puis les cordes. » Il te regarde. « Merci, mademoiselle. Je crois que je vous dois une chanson. »",
       "Tu ne le corriges pas.",
     ],
-    choices: [{ label: "Revenir en ville", fx: { quest: "II_Q_luthier", conf: { lisandre: 10 } }, to: "II_S_vasselin" }] }),
+    choices: [{ fx: { quest: "II_Q_luthier", conf: { lisandre: 10 } }, back: "II_S_vasselin" }] }),
   II_Q_luthier_rate: P({ title: "Le rabot", place: "vasselin",
     text: [
       "Tu joues. Il écoute, poliment, comme on écoute un client. À la fin, il hoche la tête. « Le luth est bon, dit-il. Celui qui l'a fait savait son métier. » Il reprend son rabot. La table de sapin est si mince qu'on voit la lumière au travers.",
       "Tu ressors. Derrière toi, le bruit du rabot reprend, régulier, comme une horloge.",
     ],
-    choices: [{ label: "Revenir en ville", fx: { quest: "II_Q_luthier" }, to: "II_S_vasselin" }] }),
+    choices: [{ fx: { quest: "II_Q_luthier" }, back: "II_S_vasselin" }] }),
   II_Q_luthier_finir: P({ title: "Un luth", place: "vasselin",
     text: [
       "Tu restes l'après-midi. Tu ne sais pas faire un luth. Mais tu en as regardé un, le tien, tous les jours pendant dix ans, et tu sais dans quel ordre il est fait, parce qu'il te l'avait expliqué, le jour où tu l'as emporté, et que tu écoutais tout, à l'époque, tout ce qu'on disait, pour ne pas avoir l'air de la petite chanteuse du port.",
       "Tu dis : les barres. Il les colle. Tu dis : la table. Il la pose. Tu dis : le manche. Il hésite, puis ses mains le savent. Au soir, il y a un luth sans vernis sur l'établi, et Fabien le regarde comme on regarde un enfant qu'on vient d'avoir.",
       "« Il faut six couches de vernis, dit-il. Six jours. » Il sourit. « Revenez dans six jours. » Tu ne seras plus là dans six jours. Tu dis que tu reviendras.",
     ],
-    choices: [{ label: "Revenir en ville", fx: { quest: "II_Q_luthier", flag: "sud:luthier", conf: { lisandre: 5 } }, to: "II_S_vasselin" }] }),
+    choices: [{ fx: { quest: "II_Q_luthier", flag: "sud:luthier", conf: { lisandre: 5 } }, back: "II_S_vasselin" }] }),
 
   // ---------------------------------------------------------------- Le crieur des morts
   II_Q_crieur: P({ takes: "evening", title: "Le crieur des morts", place: "vasselin",
@@ -133,7 +133,7 @@ module.exports = {
     choices: [{ label: "Raccompagner Gauthier chez lui", fx: { quest: "II_Q_crieur", flag: "sud:crieur_noms" }, to: "II_S_vasselin" }] }),
   II_Q_crieur_fuite: P({ title: "La ruelle", place: "vasselin",
     text: ["Vous filez par une ruelle, le crieur essoufflé, ta robe déchirée un peu plus. Quand vous vous arrêtez, il te regarde, puis regarde sa clochette, qu'il a gardée. « Je dois faire le tour, dit-il. C'est samedi. » Il repart. Tu le laisses aller. Tu ne sais pas quels noms il dira."],
-    choices: [{ label: "Revenir en ville", fx: { quest: "II_Q_crieur" }, to: "II_S_vasselin" }] }),
+    choices: [{ fx: { quest: "II_Q_crieur" }, back: "II_S_vasselin" }] }),
   II_Q_crieur_cave: P({ title: "La cave aux noms", place: "vasselin",
     text: [
       "Les deux hommes descendent vers le port, entrent dans une cave sous une maison de change, et ressortent sans leurs gourdins. Tu attends. Tu descends.",
@@ -141,5 +141,5 @@ module.exports = {
       "Les noms rayés sont des noms de gens morts dans leur lit, de vieillesse, de fièvre. Mais ce sont tous des gens qui savaient écrire. Des notaires, des maîtres d'école, des clercs, une sage-femme qui tenait un registre des naissances. Ceux qui se souviennent sur le papier.",
       "Tu prends la liste. Tu remontes. Personne ne t'a vue.",
     ],
-    choices: [{ label: "Revenir en ville", fx: { quest: "II_Q_crieur", flag: "sud:crieur_noms" }, to: "II_S_vasselin" }] }),
+    choices: [{ fx: { quest: "II_Q_crieur", flag: "sud:crieur_noms" }, back: "II_S_vasselin" }] }),
 };

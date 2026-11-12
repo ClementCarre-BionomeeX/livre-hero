@@ -32,7 +32,7 @@ module.exports = {
       "Sur l'autre bord, les piquiers bleus ne s'arrêtent pas. Ils chargent. Le hourra se défait. Et ça recommence, avec un peu plus de rage d'un côté, parce que maintenant ils ont gagné, et qu'on ne les laisse pas en profiter.",
       "Tu remontes sur le bord sans te retourner.",
     ],
-    choices: [{ label: "Revenir sur la plaine", fx: { quest: "III_Q_gue" }, to: "III_plaine" }] }),
+    choices: [{ fx: { quest: "III_Q_gue" }, back: "III_plaine" }] }),
   III_Q_gue_verite: P({ title: "Personne", place: "plaine",
     text: [
       "Le sergent te regarde longtemps. « Oublié, dit-il. Même là-bas ? Même chez nous ? » Tu dis oui. Tu dis que dans les villages de la Lisse, on ne sait plus où était le gué aux Saules. Que la guerre des Trois Ans tient en deux lignes dans les livres d'école, et qu'il n'y a pas d'école.",
@@ -49,13 +49,13 @@ module.exports = {
       "Les autres suivent, un par un. Quand le dernier a posé ses armes, le trait gris de la rivière s'efface, et ils se lèvent, tous ensemble, et vont rejoindre les files qui marchent vers la porte.",
       { with: "ysolde", text: "Ysolde reste longtemps au bord du gué vide. « Quinze ans, dit-elle. Je tenais un cheval. » C'est tout ce qu'elle dit." },
     ],
-    choices: [{ label: "Revenir sur la plaine", fx: { quest: "III_Q_gue", conf: { ysolde: 10 } }, to: "III_plaine" }] }),
+    choices: [{ fx: { quest: "III_Q_gue", conf: { ysolde: 10 } }, back: "III_plaine" }] }),
   III_Q_gue_charge: P({ title: "La charge suivante", place: "plaine",
     text: [
       "Ils t'écoutent, une charge. Une seule. Puis un cor sonne, quelque part derrière les piquiers, un cor qui sonne depuis cinquante ans, et ils repartent.",
       "Le vieux sergent reste un moment près de toi, la jambe raide. « Merci quand même, petit », dit-il. Et il repart, en boitant, à l'arrière de sa troupe, comme toujours.",
     ],
-    choices: [{ label: "Revenir sur la plaine", fx: { quest: "III_Q_gue" }, to: "III_plaine" }] }),
+    choices: [{ fx: { quest: "III_Q_gue" }, back: "III_plaine" }] }),
 
   // ------------------------------------------------------------ le lac des reflets
   III_Q_lac: P({ title: "Le lac", place: "plaine",
@@ -85,13 +85,13 @@ module.exports = {
       "Puis le reflet retire sa main, et c'est ton visage qui revient dans le lac, ton visage à toi, avec ses yeux rougis.",
       "Tu ne sais toujours pas son nom. Mais tu sais qu'il chantait faux. C'est déjà quelque chose qui t'appartient.",
     ],
-    choices: [{ label: "Revenir sur la plaine", fx: { quest: "III_Q_lac" }, to: "III_plaine" }] }),
+    choices: [{ fx: { quest: "III_Q_lac" }, back: "III_plaine" }] }),
   III_Q_lac_trouble: P({ title: "Le miroir se trouble", place: "plaine",
     text: ["Ta main passe à travers. Le miroir se trouble, comme de l'eau, et quand il redevient lisse, le reflet est parti. Il n'y a plus que toi, et le blanc. Tu restes un moment à genoux, à attendre qu'il revienne. Il ne revient pas."],
-    choices: [{ label: "Revenir sur la plaine", fx: { quest: "III_Q_lac" }, to: "III_plaine" }] }),
+    choices: [{ fx: { quest: "III_Q_lac" }, back: "III_plaine" }] }),
   III_Q_lac_fin: P({ title: "Te relever", place: "plaine",
     text: ["Tu te relèves. C'est très difficile. Au bord du lac, assis, couchés, il y a des gens qui ne se sont pas relevés. Ils regardent. Ils regardent depuis des années. Ils ont l'air heureux, et ils n'ont plus de visage."],
-    choices: [{ label: "Revenir sur la plaine", fx: { quest: "III_Q_lac" }, to: "III_plaine" }] }),
+    choices: [{ fx: { quest: "III_Q_lac" }, back: "III_plaine" }] }),
 
   // ------------------------------------------------------------ le terrier de Givre
   III_Q_givre: P({ title: "Givre s'en va", place: "plaine",
@@ -136,11 +136,11 @@ module.exports = {
       "« Reste », dis-tu. Il comprend. Il comprend toujours tout ce qu'on lui dit, c'est son défaut. Il te regarde encore un moment, et il rentre dans le terrier, avec les petits, et tu entends des couinements, puis plus rien.",
       "Tu repars sans lui. Pendant longtemps, tu te retournes sans t'en rendre compte, pour voir s'il suit.",
     ],
-    choices: [{ label: "Revenir sur la plaine", fx: { quest: "III_Q_givre" }, to: "III_plaine" }] }),
+    choices: [{ fx: { quest: "III_Q_givre" }, back: "III_plaine" }] }),
   III_Q_givre_vient: P({ title: "Il vient", place: "plaine",
     text: [
       "Il vient. Il te dépasse, il trotte devant, la queue haute, sans se retourner vers le terrier, avec cette dignité exagérée des bêtes qui ont pris une décision difficile et ne veulent pas qu'on en parle.",
       { if: { has: "iii:renardeaux" }, text: "Derrière vous, les quatre petits sortent du terrier et vous regardent partir. Ils ont l'air de bien se porter. Ils sont presque blancs." },
     ],
-    choices: [{ label: "Revenir sur la plaine", fx: { quest: "III_Q_givre" }, to: "III_plaine" }] }),
+    choices: [{ fx: { quest: "III_Q_givre" }, back: "III_plaine" }] }),
 };

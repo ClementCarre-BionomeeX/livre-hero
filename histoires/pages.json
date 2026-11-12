@@ -3,6 +3,7 @@
  "title": "L'Écu de Vellane",
  "subtitle": "À deux · deux pages, un chevalier, une montagne qui dort",
  "summary": "Vous êtes les deux pages de Messire Aubert de Vellane, et vous ne vous supportez pas. À la Saint-Michel, il choisira l'un de vous pour écuyer. Ce matin, son cousin Gauvard arrive au château, et sous le Mont-Veille quelque chose de très ancien dort encore.",
+ "skin": "enluminure",
  "voice": "deuxième personne, présent",
  "version": 1,
  "multi": {
@@ -460,8 +461,7 @@
    ],
    "choices": [
     {
-     "label": "Retourner à l'écurie",
-     "to": "P_ecurie"
+     "back": "P_ecurie"
     }
    ]
   },
@@ -474,8 +474,7 @@
    ],
    "choices": [
     {
-     "label": "Retourner à l'écurie",
-     "to": "P_ecurie"
+     "back": "P_ecurie"
     }
    ]
   },
@@ -490,7 +489,7 @@
    "choices": [
     {
      "label": "Retourner l'écu pour huiler les sangles",
-     "to": "P_armure_ecu",
+     "back": "P_armure_ecu",
      "hide": {
       "seen": "P_armure_ecu"
      }
@@ -1113,8 +1112,7 @@
    ],
    "choices": [
     {
-     "label": "Retourner à ton rocher",
-     "to": "P_camp"
+     "back": "P_camp"
     }
    ]
   },
@@ -1127,8 +1125,7 @@
    ],
    "choices": [
     {
-     "label": "Retourner à ton rocher",
-     "to": "P_camp"
+     "back": "P_camp"
     }
    ]
   },

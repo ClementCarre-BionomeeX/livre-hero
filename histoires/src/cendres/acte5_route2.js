@@ -3,7 +3,7 @@
 // and a sheepdog who still knows, leading the child to a shepherd who no longer does (v:berger).
 var A = { act: "V", noLead: true, place: null };
 function P(o) { return Object.assign({}, A, o); }
-var BACK = [{ label: "Reprendre la route", to: "V_r_chemin" }];
+var BACK = [{ back: "V_r_chemin" }];
 module.exports = {
   V_r_moulin: P({ title: "Le moulin à vent",
     text: [

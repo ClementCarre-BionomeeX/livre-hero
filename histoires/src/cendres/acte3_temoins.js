@@ -7,8 +7,8 @@ function P(o) { return Object.assign({}, A, o); }
 function temoin(id, title, text, a, b) {
   var o = {};
   o[id] = P({ title: title, text: text, choices: [{ label: a.label, fx: { ep: ["perso", 300] }, to: id + "_a" }, { label: b.label, fx: { ep: ["perso", 300] }, to: id + "_b" }] });
-  o[id + "_a"] = P({ title: title, text: [a.text], choices: [{ label: "Revenir vers les statues", to: "III_p_place" }] });
-  o[id + "_b"] = P({ title: title, text: [b.text], choices: [{ label: "Revenir vers les statues", to: "III_p_place" }] });
+  o[id + "_a"] = P({ title: title, text: [a.text], choices: [{ back: "III_p_place" }] });
+  o[id + "_b"] = P({ title: title, text: [b.text], choices: [{ back: "III_p_place" }] });
   return o;
 }
 var C = {};

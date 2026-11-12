@@ -4,7 +4,7 @@
 // the plants' names aloud (v:jardin).
 var A = { act: "V", noLead: true, place: "pallanche" };
 function P(o) { return Object.assign({}, A, o); }
-var BACK = [{ label: "Revenir sur la place aux Clercs", to: "V_ville" }];
+var BACK = [{ back: "V_ville" }];
 module.exports = {
   V_v_cols: P({ title: "La halle aux Tailleurs",
     text: [

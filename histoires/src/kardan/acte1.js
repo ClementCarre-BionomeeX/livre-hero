@@ -32,7 +32,7 @@ module.exports = {
       "Brune vend ce que les voyageurs oublient toujours : des cordes, des torches, une lanterne à volet, des onguents qu'elle prépare elle-même, dans des pots de grès ébréchés, et du pain de route si dur qu'il se garde une semaine.",
       "« Il vous faudra des vivres, dit-elle. Personne ne vous vendra rien entre ici et Kardan, parce qu'il n'y a personne. Et à Kardan, ils ne vous feront rien payer. » Elle dit ça sans sourire.",
     ],
-    choices: [{ label: "Retourner dans la cour", to: "K_sorel" }] },
+    choices: [{ back: "K_sorel" }] },
 
   K_brune: { act: "I", title: "Ce que Brune n'a pas oublié", place: "sorel",
     fx: { item: "onguent", ep: ["perso", 200] },
@@ -62,13 +62,13 @@ module.exports = {
       "Il rompt le pain en deux, compare les morceaux et te tend le plus gros. Il mange lentement, les yeux fermés, comme on prie.",
       "« Je vais à Kardan, moi aussi, dit-il quand il a fini. On dit qu'ils y sont généreux. J'aimerais voir à quoi ressemble un village généreux ; je n'en ai vu que dans les sermons. » Il se lève, remet ses sandales. « Si vous voulez bien d'un compagnon qui marche lentement et parle trop, je suis votre homme. Sinon, je vous suivrai de loin, ce qui revient au même pour les brigands. »",
     ],
-    choices: [{ label: "Reprendre la route à deux", to: ROUTE }] },
+    choices: [{ label: "Reprendre la route à deux", back: ROUTE }] },
   K_odon_piece: { act: "I", title: "La pièce",
     text: [
       "Il regarde la pièce un long moment au creux de sa main, puis la glisse dans une couture de sa robe. « Je la donnerai à quelqu'un qui en aura plus besoin que moi. C'est une façon de la faire durer. »",
       "Puis il ramasse son bâton. « Marcher avec vous ? Volontiers. Je vais à Kardan. Tout le monde va à Kardan. »",
     ],
-    choices: [{ label: "Reprendre la route à deux", to: ROUTE }] },
+    choices: [{ label: "Reprendre la route à deux", back: ROUTE }] },
 
   K_borne: { act: "I", title: "La borne",
     fx: { clue: "a_borne", ep: ["perso", 400] },
@@ -113,18 +113,18 @@ module.exports = {
       "Les enfants boivent longtemps, sans reprendre haleine. La vieille ne boit pas ; elle te regarde. « Si tu vas à Kardan, dit-elle enfin, ne dis pas que tu es seul. Dis que les tiens t'attendent au prochain bourg. Dis-le même si c'est faux. »",
       "Elle ne veut pas t'en dire plus. Elle a déjà trop parlé, et elle le sait.",
     ],
-    choices: [{ label: "Reprendre la route", to: ROUTE }] },
+    choices: [{ back: ROUTE }] },
   E_puits_eau: { act: "I", title: "L'eau sous les joncs",
     text: [
       "Tu creuses à mains nues, puis avec ta lame, sous un bouquet de joncs gris. À une coudée, le sable devient brun ; à deux, il suinte. Tu attends, et l'eau monte dans le trou, trouble, puis claire. Les enfants poussent un cri de joie.",
       "La vieille te donne en échange un chapelet de figues sèches, la dernière chose qu'elle avait. Tu essaies de refuser. Elle te regarde comme on regarde un idiot.",
     ],
-    choices: [{ label: "Reprendre la route", to: ROUTE }] },
+    choices: [{ back: ROUTE }] },
   E_puits_rien: { act: "I", title: "Le sable",
     text: [
       "Tu creuses jusqu'à t'en arracher les ongles. Le sable reste sec et chaud. Quand tu te relèves, les enfants sont rentrés. La vieille a fermé sa porte, doucement, pour ne pas te faire de peine.",
     ],
-    choices: [{ label: "Reprendre la route", to: ROUTE }] },
+    choices: [{ back: ROUTE }] },
 
   E_caravane: { act: "I", title: "La caravane qui fait demi-tour", shop: "caravane",
     text: [
@@ -142,12 +142,12 @@ module.exports = {
       "Il hésite, puis s'approche, et parle bas, comme si les mules pouvaient le répéter. « Il y a des années, on avait un garçon avec nous, un muletier. Il est tombé amoureux d'une fille de Kardan et il est resté. Ils l'ont fêté comme un fils. Trois jours. La quatrième nuit, il n'était plus là. Ils ont dit qu'il était reparti avec un autre convoi. Il n'y avait pas d'autre convoi. »",
       "Il se redresse. « Les gens seuls restent à Kardan, ami. Pour toujours, c'est ce qu'ils disent. Ils trouvent ça joli. »",
     ],
-    choices: [{ label: "Reprendre la route, plus lentement", to: ROUTE }] },
+    choices: [{ label: "Reprendre la route, plus lentement", back: ROUTE }] },
   E_caravane_silence: { act: "I", title: "Le silence du caravanier",
     text: [
       "Il sourit sans répondre, et fait repartir sa file d'un claquement de langue. Le dernier chamelier, un gamin, se retourne longtemps pour te regarder, avec une expression que tu mets un moment à reconnaître : de la pitié.",
     ],
-    choices: [{ label: "Reprendre la route", to: ROUTE }] },
+    choices: [{ back: ROUTE }] },
 
   E_vautours: { act: "I", title: "Les vautours",
     text: [
@@ -164,12 +164,12 @@ module.exports = {
       "Tu frappes deux pierres l'une contre l'autre en criant, et les vautours reculent en sautillant, outrés, sans aller plus loin que le prochain rocher. Dans le bât : une corde de chanvre en bon état, quatre pièces au fond d'une bourse de cuir, et un chapelet de bois. Le chapelet porte un nom brûlé au fer : *Kardan*.",
       "Son propriétaire n'en voulait plus, ou il en a eu peur.",
     ],
-    choices: [{ label: "Reprendre la route", to: ROUTE }] },
+    choices: [{ back: ROUTE }] },
   E_vautours_bec: { act: "I", title: "Le bec",
     text: [
       "Le gros vautour ne recule pas. Il te frappe à l'avant-bras d'un coup de bec qui ouvre la peau jusqu'à l'os, et tu lâches tout pour te protéger le visage. Quand il se décide enfin à s'envoler, tu as le temps d'arracher la bourse du bât. Quatre pièces, pour un bras ouvert.",
     ],
-    choices: [{ label: "Reprendre la route en serrant ton bras", to: ROUTE }] },
+    choices: [{ label: "Reprendre la route en serrant ton bras", back: ROUTE }] },
 
   E_chevrier: { act: "I", title: "Le chevrier",
     fx: { meet: "chevrier" },
@@ -188,7 +188,7 @@ module.exports = {
       "Ismaël réfléchit, la langue entre les dents. « Il y a longtemps… j'étais petit. Un homme du nord, grand, qui sifflait avec un os. Il m'a demandé le chemin, il m'a donné une pièce pour rien. Il riait. » Il hausse les épaules. « Mon père a dit qu'il ne fallait pas s'attacher aux gens qui vont à Kardan. Je n'ai pas compris. Je ne comprends toujours pas. »",
       { if: { has: "passe:sifflet" }, text: "Tu as la main sur le sifflet, dans ta poche. Tu ne le sors pas. Tu ne sais pas pourquoi." },
     ],
-    choices: [{ label: "Reprendre la route", to: ROUTE }] },
+    choices: [{ back: ROUTE }] },
 
   // ---------------------------------------------------------------- Kardan
   K_arrivee: { act: "I", title: "Kardan", place: "kardan",
@@ -243,7 +243,7 @@ module.exports = {
       { label: "Te reposer quelques heures sur un banc de la salle", fx: { time: 4, pv: 6, rest: true }, to: "K_puits_repos" },
       { label: "Monter dormir", if: { seen: "K_fete" }, why: "On t'attend à la fête : Hesna ne te laissera pas monter avant.", hide: { since: "kardan", min: 2 }, fx: { until: 8, pv: "max", rest: true }, to: "K_matin" },
       { label: "Monter dormir, la nuit de la Lune sèche", hide: { since: "kardan", max: 1 }, exit: true, big: true, to: "K_nuit" },
-      { label: "Ressortir sur la place", to: "K_kardan" },
+      { back: "K_kardan" },
     ] },
   K_puits_repos: { act: "I", title: "Un banc au frais", place: "kardan",
     text: [
@@ -318,7 +318,7 @@ module.exports = {
     text: [
       "« Allons, allons ! » Hesna se relève d'un bond, la louche à la main. « On ne parle pas des absents à Kardan, ça porte malheur à l'eau. Vous avez faim ? Vous avez toujours faim, je le vois bien. » Elle repart vers ses marmites en chantonnant. Elle chante faux, et l'air ne t'est pas tout à fait inconnu.",
     ],
-    choices: [{ label: "Retourner à ta place", to: "K_puits" }] },
+    choices: [{ back: "K_puits" }] },
 
   K_matin: { act: "I", title: "Le matin", place: "kardan",
     text: [
@@ -346,7 +346,7 @@ module.exports = {
       { label: "Le réclamer : il appartenait à ton frère", hide: { has: "couteau:aurele" },
         test: { dom: "social", diff: -10, label: "Social", help: [{ if: { item: "lettre_aurele" }, v: 20 }, { if: { item: "sifflet" }, v: 10 }, { if: { fac: "kardan", min: 15 }, v: 5 }] },
         win: { fx: { ep: ["seance", 1500] }, to: "K_couteau_rendu" }, lose: { fx: { fac: { kardan: -5 } }, to: "K_couteau_refus" } },
-      { label: "Retourner sur la place", to: "K_kardan" },
+      { back: "K_kardan" },
     ] },
   K_garance_source: { act: "I", title: "D'où vient le couteau", place: "kardan",
     text: [
@@ -404,7 +404,7 @@ module.exports = {
     ],
     choices: [
       { label: "Lui donner les chardons-lune", if: { item: "chardons" }, why: "Il faut d'abord aller les cueillir dans la ravine, sur le plateau.", hide: { quest: "K_chardon" }, to: "K_oriel_odeur" },
-      { label: "Retourner sur la place", to: "K_kardan" },
+      { back: "K_kardan" },
     ] },
   K_oriel_odeur: { act: "I", title: "L'odeur du sommeil", place: "kardan",
     fx: { drop: "chardons", flag: ["oriel:odeur", "oriel:chardon"], quest: "K_chardon", gold: 8, ep: ["seance", 2000] },
@@ -479,7 +479,7 @@ module.exports = {
       { label: "Lancer ta corde par-dessus le créneau et monter à la force des bras", if: { item: "corde" }, why: "Il te faudrait une corde.", to: "K_tobie_chanson" },
       { label: "Laisser Odon faire la courte échelle et monter sur ses épaules", who: "odon", test: { dom: "nature", label: "Courte échelle" },
         win: { fx: { conf: { odon: 5 } }, to: "K_tobie_chanson" }, lose: { fx: { pv: -2 }, to: "K_place_chute" } },
-      { label: "Retourner sur la place", to: "K_kardan" },
+      { back: "K_kardan" },
     ] },
   K_place_chute: { act: "I", title: "La chute", place: "kardan",
     text: [
@@ -530,7 +530,7 @@ module.exports = {
     text: [
       "Vous parlez encore un moment de choses sans importance : la récolte de grenades, les caravanes, la sécheresse qui gagne au nord. Maève a une manière de clore chaque sujet d'une phrase si juste qu'on n'a plus rien à ajouter. Quand tu te retrouves dehors, tu as l'impression d'avoir été reçu par une reine, et de ne rien savoir de plus.",
     ],
-    choices: [{ label: "Redescendre vers la place", to: "K_kardan" }] },
+    choices: [{ back: "K_kardan" }] },
 
   // the chapel
   K_chapelle: { act: "I", title: "La chapelle blanche", place: "kardan",
@@ -546,13 +546,13 @@ module.exports = {
     ],
     choices: [
       { label: "Proposer à Frère Odon de marcher avec toi, cette fois", if: { met: "odon" }, hide: { any: [{ present: "odon" }, { not: { met: "odon" } }] }, fx: { join: "odon", conf: { odon: 5 } }, to: "K_chapelle_odon" },
-      { label: "Ressortir dans la lumière", to: "K_kardan" },
+      { back: "K_kardan" },
     ] },
   K_chapelle_odon: { act: "I", title: "Le moine et la plaque", place: "kardan",
     text: [
       "« J'accepte, dit Odon, à une condition : que vous me laissiez vous dire ce que je pense de cette plaque. » Il désigne les noms. « On n'écrit pas *à ceux qui ont gardé l'eau* pour des gens qui sont repartis contents. On écrit ça pour des morts. Ou pour des gens qu'on aimerait mieux croire morts. »",
     ],
-    choices: [{ label: "Sortir avec lui", to: "K_kardan" }] },
+    choices: [{ label: "Sortir avec lui", back: "K_kardan" }] },
 
   // the gate of the maze
   K_porte: { act: "I", title: "La porte du dédale", place: "kardan",
@@ -565,7 +565,7 @@ module.exports = {
     choices: [
       { label: "Attendre la relève des gardes et te glisser jusqu'à la porte", hide: { clue: "a_porte" }, test: { dom: "discretion", label: "Discrétion", help: [{ if: { night: true }, v: 15 }, { if: { item: "lanterne" }, v: 5 }] },
         win: { fx: { clue: "a_porte", ep: ["perso", 500] }, to: "K_porte_griffures" }, lose: { fx: { fac: { kardan: -5 } }, to: "K_porte_chasse" } },
-      { label: "Retourner sur la place", to: "K_kardan" },
+      { back: "K_kardan" },
     ] },
   K_porte_griffures: { act: "I", title: "Les griffures", place: "kardan",
     text: [
@@ -574,12 +574,12 @@ module.exports = {
       "Elles viennent de l'intérieur.",
       "Tu entends les pas de la relève dans l'escalier. Tu repars en courant.",
     ],
-    choices: [{ label: "Redescendre au village", to: "K_kardan" }] },
+    choices: [{ back: "K_kardan" }] },
   K_porte_chasse: { act: "I", title: "Les lances", place: "kardan",
     text: [
       "Tu n'as pas fait trois pas qu'une lance se met en travers de ton chemin. Le garde est jeune, et il a peur, ce qui le rend dangereux. « Pas plus loin, étranger. » Son camarade descend l'escalier en courant ; tu l'entends appeler Bastien. Tu lèves les mains, tu souris, tu t'excuses. On te raccompagne jusqu'en bas, poliment. On te regarde partir longtemps.",
     ],
-    choices: [{ label: "Redescendre au village", to: "K_kardan" }] },
+    choices: [{ back: "K_kardan" }] },
 
   // taking stock
   K_point: { act: "I", title: "Sur un banc, sous le platane", place: "kardan",

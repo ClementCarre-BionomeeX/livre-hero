@@ -4,7 +4,7 @@
 // keep one braid until she comes back (corbe:tresse, read in IV_clan_retour).
 function P(base) { return function (o) { return Object.assign({ act: "I", noLead: true }, base, o); }; }
 var PI = P({ place: "pallanche" }), CO = P({ place: "corbeau" });
-var PI_BACK = [{ label: "Revenir dans les bas-quartiers", to: "PI_ville" }], CO_BACK = [{ label: "Revenir au camp", to: "CO_camp" }];
+var PI_BACK = [{ back: "PI_ville" }], CO_BACK = [{ back: "CO_camp" }];
 module.exports = {
   PI_k_lavoir: PI({ title: "Le lavoir des Teinturiers",
     text: [

@@ -3,6 +3,7 @@
  "title": "Les Vannes de Vaudrenne",
  "subtitle": "À plusieurs · une ville, une crue, une nuit",
  "summary": "L'Aune monte depuis trois jours. Le bac ne passe plus, et vous voilà plusieurs voyageurs bloqués à Vaudrenne, une ville de moulins coupée en deux par la rivière : la ville haute et ses meuniers, le Bas-Port et ses tanneurs. Cette nuit, quelqu'un devra décider où l'eau ira.",
+ "skin": "parchemin",
  "voice": "deuxième personne, présent",
  "version": 1,
  "multi": {
@@ -356,8 +357,7 @@
      }
     },
     {
-     "label": "Ressortir sur la place",
-     "to": "V_place"
+     "back": "V_place"
     }
    ]
   },
@@ -496,8 +496,7 @@
      }
     },
     {
-     "label": "Revenir sur la place",
-     "to": "V_place"
+     "back": "V_place"
     }
    ]
   },
@@ -556,8 +555,7 @@
      }
     },
     {
-     "label": "Ressortir",
-     "to": "V_place"
+     "back": "V_place"
     }
    ]
   },
@@ -630,8 +628,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur la place",
-     "to": "V_place"
+     "back": "V_place"
     }
    ]
   },
@@ -645,8 +642,7 @@
    ],
    "choices": [
     {
-     "label": "Revenir sur la place",
-     "to": "V_place"
+     "back": "V_place"
     }
    ]
   },
@@ -682,8 +678,7 @@
      }
     },
     {
-     "label": "Ressortir",
-     "to": "V_place"
+     "back": "V_place"
     }
    ]
   },
@@ -735,7 +730,7 @@
     },
     {
      "label": "Remonter : ce n'est pas ton affaire",
-     "to": "V_chapelle"
+     "back": "V_chapelle"
     }
    ]
   },
@@ -791,11 +786,10 @@
      "big": true
     },
     {
-     "label": "Redescendre",
      "if": {
       "has": "monde:joss_libre"
      },
-     "to": "V_chapelle"
+     "back": "V_chapelle"
     }
    ]
   },
@@ -811,7 +805,7 @@
    "choices": [
     {
      "label": "Remonter avec lui par la chapelle",
-     "to": "V_place"
+     "back": "V_place"
     }
    ]
   },
@@ -865,8 +859,7 @@
      }
     },
     {
-     "label": "Remonter vers la place",
-     "to": "V_place"
+     "back": "V_place"
     }
    ]
   },
@@ -948,8 +941,7 @@
    ],
    "choices": [
     {
-     "label": "Remonter vers la place",
-     "to": "V_place"
+     "back": "V_place"
     }
    ]
   },
@@ -1060,8 +1052,7 @@
    ],
    "choices": [
     {
-     "label": "Sortir",
-     "to": "V_place"
+     "back": "V_place"
     }
    ]
   },

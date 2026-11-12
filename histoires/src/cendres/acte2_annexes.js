@@ -59,13 +59,13 @@ module.exports = {
     choices: [{ label: "Redescendre au camp", to: "II_Q_torgal_fin" }] }),
   II_Q_aire_fuite: P({ title: "En bas", place: "corbeau",
     text: ["Tu redescends. Tu n'as pas le nom. Torgal hoche la tête quand tu le lui dis, sans reproche. Il recommence à chanter, trois noms, et il s'arrête au même endroit. Tu l'entendras s'arrêter là, chaque soir, jusqu'à ce que tu quittes le camp."],
-    choices: [{ label: "Revenir au camp", fx: { quest: "II_Q_lignees" }, to: "II_N_camp" }] }),
+    choices: [{ fx: { quest: "II_Q_lignees" }, back: "II_N_camp" }] }),
   II_Q_torgal_fin: P({ title: "Après Haldis", place: "corbeau",
     text: [
       "Torgal t'écoute dire le nom. Il ne te remercie pas : ça ne se fait pas, au clan, entre gens de la même lignée. Il frappe le tambour, et il chante, d'une traite. Haldis. Sigrun. Et les trente générations qui suivent, qui tiennent de nouveau à quelque chose.",
       "Des gens sortent des tentes pour écouter. Il n'est pas l'heure du rite. Ils écoutent quand même. Quand il arrive à ton nom, tout au bout, il ne s'arrête pas, et personne ne crache.",
     ],
-    choices: [{ label: "Revenir au camp", fx: { quest: "II_Q_lignees", flag: "nord:lignee", conf: { corbe: 10 } }, to: "II_N_camp" }] }),
+    choices: [{ fx: { quest: "II_Q_lignees", flag: "nord:lignee", conf: { corbe: 10 } }, back: "II_N_camp" }] }),
 
   // ------------------------------------------------------------ nord · le jardin du frère Herbier
   II_Q_jardin: P({ title: "Le jardin des simples", place: "moutier",
@@ -92,10 +92,10 @@ module.exports = {
       "Tu coupes les tiges au ras, sans arracher la racine, comme ta mère coupait l'herbe de rite. Deux poignées. Assez pour deux nuits.",
       "En redescendant, tu poses une fleur sur le bloc de glace du frère, à hauteur de son nez. C'est idiot. Tu le fais quand même.",
     ],
-    choices: [{ label: "Revenir au cloître", fx: { quest: "II_Q_jardin" }, to: "II_N3_cloitre" }] }),
+    choices: [{ fx: { quest: "II_Q_jardin" }, back: "II_N3_cloitre" }] }),
   II_Q_jardin_rate: P({ title: "Une poignée", place: "moutier",
     text: ["Les fleurs se défont au premier contact, en poussière grise. Tu en sauves une poignée, une seule, en coupant plus doucement. Assez pour une nuit. Le reste s'en va dans le vent, avec son odeur de pain."],
-    choices: [{ label: "Revenir au cloître", fx: { quest: "II_Q_jardin" }, to: "II_N3_cloitre" }] }),
+    choices: [{ fx: { quest: "II_Q_jardin" }, back: "II_N3_cloitre" }] }),
 
   // ------------------------------------------------------------ sud · la troupe
   II_Q_troupe: P({ title: "Les Gonfaloniers", place: "vasselin",
@@ -125,7 +125,7 @@ module.exports = {
     ],
     choices: [
       { label: "Jouer la Reine à sa place, ce soir", to: "II_Q_troupe_scene" },
-      { label: "Revenir en ville", fx: { quest: "II_Q_troupe" }, to: "II_S_vasselin" },
+      { fx: { quest: "II_Q_troupe" }, back: "II_S_vasselin" },
     ] }),
   II_Q_troupe_scene: P({ takes: "evening", title: "La Reine des Marais", place: "vasselin",
     text: [
@@ -141,10 +141,10 @@ module.exports = {
       "Tu ne joues pas la Reine. Tu joues dame Orane, que tu as regardée toute la journée, ses mains à plat sur le texte. La place se tait. Quelque part, une femme sanglote. Quand le rideau tombe, personne n'applaudit d'abord, puis tout le monde à la fois.",
       "Dans la coulisse, dame Orane t'attend. Elle a pleuré aussi. « C'était ça, dit-elle. C'était exactement ça. » Elle ne se souvient toujours pas du visage. Mais elle sait de nouveau ce que ça faisait, de le perdre, et elle te remercie de le lui avoir rendu, ce qui est la chose la plus étrange qu'on t'ait jamais dite.",
     ],
-    choices: [{ label: "Revenir en ville", fx: { quest: "II_Q_troupe", conf: { lisandre: 10 } }, to: "II_S_vasselin" }] }),
+    choices: [{ fx: { quest: "II_Q_troupe", conf: { lisandre: 10 } }, back: "II_S_vasselin" }] }),
   II_Q_troupe_rate: P({ title: "Une belle voix", place: "vasselin",
     text: ["Tu joues bien. Tu as une belle voix, de beaux gestes, et au quatrième acte, tu pleures avec élégance. Le public applaudit poliment. Maître Gilles te paie, te remercie, et te dit, très gentiment, que tu devrais t'en tenir aux chansons."],
-    choices: [{ label: "Revenir en ville", fx: { quest: "II_Q_troupe" }, to: "II_S_vasselin" }] }),
+    choices: [{ fx: { quest: "II_Q_troupe" }, back: "II_S_vasselin" }] }),
 
   // ------------------------------------------------------------ sud · le phare
   II_Q_phare: P({ title: "Le phare de la Pointe", place: "vasselin",
@@ -188,13 +188,13 @@ module.exports = {
       "Vous tenez l'escalier, en haut, avec la lanterne dans le dos. Ils cognent à la porte une partie de la nuit, puis ils se lassent : la voile est passée, elle a trouvé le chenal. Ils repartent avec leurs falots.",
       "Au matin, le gardien te trouve endormie contre la lanterne, qui brûle encore. Il ne se souvient pas de toi. Il te remercie quand même.",
     ],
-    choices: [{ label: "Revenir en ville", fx: { quest: "II_Q_phare", flag: "sud:phare=tenu" }, to: "II_S_vasselin" }] }),
+    choices: [{ fx: { quest: "II_Q_phare", flag: "sud:phare=tenu" }, back: "II_S_vasselin" }] }),
   II_Q_phare_aube: P({ title: "La goutte", place: "vasselin",
     text: [
       "Sur le chef des naufrageurs, dans la poche de son bon manteau, une fiole vide, en verre fin, avec un bouchon de cire grise. Tu la portes à ton nez : elle ne sent rien. Absolument rien.",
       "Tu la donnes au capitaine du port, avec les six hommes ficelés. Il te remercie. Le soir même, le phare brûle jusqu'à l'aube, et Yvon, qui ne boit plus que de l'eau, n'oublie plus de monter.",
     ],
-    choices: [{ label: "Revenir en ville", fx: { quest: "II_Q_phare", flag: "sud:fioles_piste", conf: { lisandre: 5 } }, to: "II_S_vasselin" }] }),
+    choices: [{ fx: { quest: "II_Q_phare", flag: "sud:fioles_piste", conf: { lisandre: 5 } }, back: "II_S_vasselin" }] }),
 
   // ------------------------------------------------------------ sud · la maison des fioles
   II_Q_fioles: P({ title: "Quai des Cordiers", place: "vasselin",
@@ -231,7 +231,7 @@ module.exports = {
     choices: [] }),
   II_Q_fioles_fuite: P({ takes: "morning", title: "Les ruelles", place: "vasselin",
     text: ["Tu t'enfuis par les ruelles du port, et quand tu reviens, le lendemain, la boutique est fermée, les volets cloués. Sur la porte, un écriteau : À LOUER. Le verrier est parti. La cave aussi, avec ce qu'il y avait dedans."],
-    choices: [{ label: "Revenir en ville", fx: { quest: "II_Q_fioles", flag: "sud:fioles=parties" }, to: "II_S_vasselin" }] }),
+    choices: [{ fx: { quest: "II_Q_fioles", flag: "sud:fioles=parties" }, back: "II_S_vasselin" }] }),
   II_Q_fioles_cave: P({ title: "La greffière", place: "vasselin",
     text: [
       "La cave est basse, chaude, propre. Une table, une lampe, un lutrin. Une femme de quarante ans, en robe grise de greffière, la plume à la main, écrit dans un petit livre noir. À côté d'elle, une file de fioles pleines : on dirait de l'eau, et ça ne reflète pas la lampe.",
@@ -251,23 +251,23 @@ module.exports = {
       "Bertrade regarde la buée s'en aller. « Vous croyez que c'est rendu, dit-elle. Ce n'est pas rendu. C'est lâché. Ça va tomber sur n'importe qui. Une femme, ce soir, va se mettre à pleurer un fils qu'elle n'a jamais eu. » Elle range sa plume. « Mais vous avez raison. Ça ne m'appartenait pas. »",
       "Elle part avant l'aube. Tu ne la revois pas.",
     ],
-    choices: [{ label: "Revenir en ville", fx: { quest: "II_Q_fioles" }, to: "II_S_vasselin" }] }),
+    choices: [{ fx: { quest: "II_Q_fioles" }, back: "II_S_vasselin" }] }),
   II_Q_fioles_rendu: P({ title: "La fiole d'Orane", place: "vasselin",
     text: [
       "Bertrade cherche longtemps sur l'étagère, en comparant les étiquettes à son livre. Elle te tend une fiole. « Je ne rends jamais, dit-elle. Mais elle, je me souviens d'elle. Elle a payé et elle a pleuré, et c'est rare, les gens qui pleurent en payant. »",
       "Tu portes la fiole à dame Orane, dans son chariot. Elle la débouche. Elle respire. Et elle pose la main sur sa bouche, et elle reste comme ça, très longtemps, à regarder quelque chose qui n'est pas dans le chariot.",
       "« Il avait les cheveux qui rebiquaient, dit-elle enfin. Là. Derrière. Je les mouillais le matin. Ça ne servait à rien. »",
     ],
-    choices: [{ label: "Revenir en ville", fx: { quest: "II_Q_fioles", conf: { lisandre: 10, hylas: 5 } }, to: "II_S_vasselin" }] }),
+    choices: [{ fx: { quest: "II_Q_fioles", conf: { lisandre: 10, hylas: 5 } }, back: "II_S_vasselin" }] }),
   II_Q_fioles_livre: P({ title: "Le livre noir", place: "vasselin",
     text: [
       "Pendant qu'elle te parle, une main passe derrière son dos et le petit livre noir change de table. Elle ne le remarque que quand vous êtes déjà sur l'escalier.",
       "Dans la ruelle, tu l'ouvres à la lampe. Des colonnes : un nom, une chose vendue, un prix. Et, à la dernière page, d'une autre main, plus serrée : « Remise mensuelle à M. Une fiole sur dix. »",
     ],
-    choices: [{ label: "Revenir en ville", fx: { quest: "II_Q_fioles" }, to: "II_S_vasselin" }] }),
+    choices: [{ fx: { quest: "II_Q_fioles" }, back: "II_S_vasselin" }] }),
   II_Q_fioles_non: P({ title: "Remontez", place: "vasselin",
     text: ["Bertrade secoue la tête. « Remontez, madame. Revenez quand vous aurez besoin de moi. Tout le monde revient. » Tu remontes. Le verrier, au-dessus, souffle une bulle sans te regarder. Le lendemain, la boutique est ouverte comme d'habitude."],
-    choices: [{ label: "Revenir en ville", fx: { quest: "II_Q_fioles", flag: "sud:fioles=laissees" }, to: "II_S_vasselin" }] }),
+    choices: [{ fx: { quest: "II_Q_fioles", flag: "sud:fioles=laissees" }, back: "II_S_vasselin" }] }),
 
   // ------------------------------------------------------------ nord · la pêche au lac noir
   II_Q_peche: P({ title: "Le lac qui ne gèle pas", place: "lacnoir",
@@ -286,10 +286,10 @@ module.exports = {
       "Elles mordent au crépuscule, d'un coup, toutes ensemble, comme si on leur avait donné un signal. Tu en sors quatre, lourdes, noires du dos au ventre. Vous les faites griller sur des pierres, à l'entrée de la grotte.",
       "Cette nuit-là, tout le monde rêve. Tu rêves d'une roue de moulin qui tourne à l'envers, et d'eau qui remonte la rivière, et d'un enfant debout sur la roue, qui ne tombe pas. Au matin, chacun garde son rêve pour soi. Personne n'a envie de comparer.",
     ],
-    choices: [{ label: "Revenir à la grotte", fx: { quest: "II_Q_peche" }, to: "II_N2_grotte" }] }),
+    choices: [{ fx: { quest: "II_Q_peche" }, back: "II_N2_grotte" }] }),
   II_Q_peche_rien: P({ takes: "night", title: "L'eau noire", place: "lacnoir",
     text: ["Rien ne mord. À la nuit, une seule truite, maigre, qui se décroche au bord et retombe dans l'eau sans faire de rond. Le lac se referme dessus comme un livre. Tu manges ton pain sec."],
-    choices: [{ label: "Revenir à la grotte", fx: { quest: "II_Q_peche" }, to: "II_N2_grotte" }] }),
+    choices: [{ fx: { quest: "II_Q_peche" }, back: "II_N2_grotte" }] }),
 
   // ------------------------------------------------------------ nord · les cairns des Bouches
   II_Q_bouches: P({ title: "Les cairns des Bouches", place: "col",
@@ -308,10 +308,10 @@ module.exports = {
       "Tu graves avec la pointe de ton couteau. Pas des lettres : tu n'en connais aucune. Le signe d'Aude, que ta mère a tracé une fois devant toi, avec un bâton dans la cendre, avant de l'effacer du pied. Tu n'as jamais su pourquoi elle tenait tant à ce que tu le voies. Maintenant tu sais.",
       "Quand tu te relèves, un vieux du clan te regarde, de loin. Il ne dit rien. Il ne crache pas. Il s'en va. Le soir, en passant devant les cairns, tu vois qu'au pied du vingt-troisième, quelqu'un a posé une plume de corbeau.",
     ],
-    choices: [{ label: "Revenir au col", fx: { quest: "II_Q_bouches" }, to: "II_N5_col" }] }),
+    choices: [{ fx: { quest: "II_Q_bouches" }, back: "II_N5_col" }] }),
   II_Q_bouches_laisse: P({ title: "Vingt-trois", place: "col",
     text: ["Tu poses la main sur le vingt-troisième cairn, une seconde. La pierre est froide. Ta grand-mère n'y a pas de nom, et c'est ce qu'elle a voulu, ou ce qu'on a voulu pour elle. Tu ne sauras jamais lequel. Tu retournes au feu."],
-    choices: [{ label: "Revenir au col", fx: { quest: "II_Q_bouches" }, to: "II_N5_col" }] }),
+    choices: [{ fx: { quest: "II_Q_bouches" }, back: "II_N5_col" }] }),
 
   // ------------------------------------------------------------ sud · les écuries du tournoi
   II_Q_ecuries: P({ title: "Les écuries", place: "vasselin",
@@ -324,7 +324,7 @@ module.exports = {
     choices: [
       { label: "Fouiller les mangeoires", test: { dom: "savoir", label: "Les mangeoires", help: [{ if: { present: "ysolde" }, v: 15 }, { if: { present: "hylas" }, v: 10 }, { if: { present: "rodric" }, v: 10 }] },
         win: { fx: { flag: "sud3:ecuries", ep: ["perso", 900] }, to: "II_Q_ecuries_avoine" }, lose: { to: "II_Q_ecuries_rien" } },
-      { label: "Retourner au camp", to: "II_S3_soir" },
+      { back: "II_S3_soir" },
     ] }),
   II_Q_ecuries_avoine: P({ title: "L'avoine grise", place: "vasselin",
     text: [
@@ -333,8 +333,8 @@ module.exports = {
       { with: "ysolde", text: "Ysolde s'agenouille près du plus grand, un gris pommelé, et lui souffle dans les naseaux, longuement, comme on fait aux poulains. Il se calme un peu. « On peut leur réapprendre, dit-elle. Pas en une nuit. »" },
       "Tu vides les mangeoires, tu préviens les trois chevaliers. Demain, ils se battront sur des chevaux d'emprunt, et ils sauront contre qui.",
     ],
-    choices: [{ label: "Retourner au camp", fx: { quest: "II_Q_ecuries" }, to: "II_S3_soir" }] }),
+    choices: [{ fx: { quest: "II_Q_ecuries" }, back: "II_S3_soir" }] }),
   II_Q_ecuries_rien: P({ title: "La paille", place: "vasselin",
     text: ["Tu ne trouves rien. Le palefrenier dit que ça arrive, les chevaux qui deviennent fous la veille d'un tournoi. Il le dit trop vite. Tu ressors avec l'impression d'avoir regardé au mauvais endroit, au bon moment."],
-    choices: [{ label: "Retourner au camp", fx: { quest: "II_Q_ecuries" }, to: "II_S3_soir" }] }),
+    choices: [{ fx: { quest: "II_Q_ecuries" }, back: "II_S3_soir" }] }),
 };

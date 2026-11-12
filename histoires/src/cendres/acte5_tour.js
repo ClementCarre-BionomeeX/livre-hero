@@ -73,7 +73,7 @@ module.exports = {
       { label: "La halle aux Tailleurs, où une affiche est collée à la porte", hide: { seen: "V_v_cols" }, to: "V_v_cols" },
       { label: "Une lanterne qui va et vient, dans le jardin de la Faculté", hide: { seen: "V_v_jardin" }, to: "V_v_jardin" },
       { label: "De la musique, dans un hôtel de la rue des Chanoines", hide: { seen: "V_v_bal" }, to: "V_v_bal" },
-      { label: "Remonter la queue, depuis le bout", hide: { seen: "V_q_bout" }, to: "V_q_bout" },
+      { label: "Remonter la queue, depuis le bout", hide: { seen: "V_q_bout" }, back: "V_q_bout" },
       { label: "Entrer dans la tour", to: "V_t_porche", big: true },
     ] }),
 
@@ -117,7 +117,7 @@ module.exports = {
     choices: [
       { label: "Laisser Ysolde ouvrir le sien", hide: { not: { present: "ysolde" } }, fx: { flag: "ysolde:lisse_rendu", conf: { ysolde: 10 } }, to: "V_t_ysolde_bocal" },
       { label: "Prendre le bocal de Mordace", fx: { item: "bocal_mordace", flag: "v:bocal_mordace" }, to: "V_t_cessions" },
-      { label: "Revenir dans la salle", to: "V_t_cessions" },
+      { back: "V_t_cessions" },
     ] }),
 
   V_t_ysolde_bocal: P({ title: "Le pont, la nuit", place: "pallanche",
@@ -126,7 +126,7 @@ module.exports = {
       "Elle ne tombe pas. Elle ne crie pas. Elle reste debout, dans le Bureau des Cessions, et pendant une minute elle est ailleurs : sur une rive, la nuit, avec une torche, et elle regarde.",
       "Quand elle revient, elle dit seulement : « Il y avait une petite fille avec une chèvre. Elle me regardait. » Puis : « Bien. Je l'ai. Je ne la rends plus. »",
     ],
-    choices: [{ label: "Revenir dans la salle", to: "V_t_cessions" }] }),
+    choices: [{ back: "V_t_cessions" }] }),
 
   V_t_bocaux_ouverts: P({ title: "Les ruches", place: "pallanche",
     text: [

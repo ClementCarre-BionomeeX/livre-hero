@@ -40,15 +40,15 @@ module.exports = {
 
   IV_C_ysolde_cerf: P({ title: "Le cerf", place: "brenne",
     text: ["Elle grave toute la nuit, à genoux sur le tombeau, avec la pointe de la dague, en suivant les rainures. À l'aube, le cerf est revenu sur l'écu du premier Brenne, maladroit, profond. « Qu'on sache qui c'était, dit-elle. Qu'on vienne le voir. Il n'a pas le droit d'être lisse. »"],
-    choices: [{ label: "Remonter", to: "IV_br" }] }),
+    choices: [{ back: "IV_br" }] }),
 
   IV_C_ysolde_deux: P({ title: "Le loup et le cerf", place: "brenne",
     text: ["Elle ne touche pas au tombeau. Elle prend son écu à elle, celui de la compagnie, et sous le loup sur la tour, elle grave un petit cerf, dans le coin, de travers. « Le loup, c'est ce qu'on a voulu être, dit-elle. Le cerf, c'est ce qu'on a été. Je porte les deux. » Le lendemain, Gautier le voit, et ne dit rien, et le surlendemain, il y a un petit cerf gravé sur quarante écus."],
-    choices: [{ label: "Remonter", to: "IV_br" }] }),
+    choices: [{ back: "IV_br" }] }),
 
   IV_C_ysolde_lisse: P({ title: "Lisse", place: "brenne",
     text: ["Elle rengaine la dague. « Pas maintenant, dit-elle. Après le pont. Si je le grave maintenant, je le grave pour me punir. Je veux le graver pour lui. » Elle souffle la lanterne. Vous remontez dans le noir."],
-    choices: [{ label: "Remonter", to: "IV_br" }] }),
+    choices: [{ back: "IV_br" }] }),
 
   // ---------------------------------------------------------------- Pie: old Corneille
   IV_C_pie: P({ title: "L'atelier du faussaire", place: "pallanche",
@@ -107,7 +107,7 @@ module.exports = {
     ],
     choices: [
       { label: "Laisser Hylas lui parler", hide: { any: [{ has: "hylas:annule" }, { has: "marion:garde" }] }, to: "IV_C_hylas_bocal" },
-      { label: "Repartir", hide: { not: { any: [{ has: "hylas:annule" }, { has: "marion:garde" }] } }, fx: { quest: "IV_C_hylas", conf: { hylas: 10 }, ep: ["perso", 1200] }, to: "IV_pal" },
+      { hide: { not: { any: [{ has: "hylas:annule" }, { has: "marion:garde" }] } }, fx: { quest: "IV_C_hylas", conf: { hylas: 10 }, ep: ["perso", 1200] }, back: "IV_pal" },
     ] }),
 
   IV_C_hylas_bocal: P({ title: "Le bocal", place: "pallanche",
@@ -117,7 +117,7 @@ module.exports = {
       "Hylas réfléchit. Il ne ment jamais. « Je crois que c'était la chose la plus importante que vous sachiez. »",
       "Elle hoche la tête. Elle reprend son linge. Quand vous partez, elle frotte toujours, mais beaucoup plus lentement, comme quelqu'un qui pense à autre chose.",
     ],
-    choices: [{ label: "Repartir", fx: { quest: "IV_C_hylas", flag: "marion:iv=sait", ep: ["perso", 1200] }, to: "IV_pal" }] }),
+    choices: [{ fx: { quest: "IV_C_hylas", flag: "marion:iv=sait", ep: ["perso", 1200] }, back: "IV_pal" }] }),
 
   // ---------------------------------------------------------------- Lisandre: the song of Lisse
   IV_C_lisandre: P({ title: "La chanson de Lisse", place: "brenne",
@@ -138,11 +138,11 @@ module.exports = {
       { without: "rodric", text: "Vous y passez la nuit. À l'aube, il y a un couplet. Il parle d'un pont où l'on passe sans arme, d'une chèvre, d'une barque qui a fait onze voyages. Il n'a pas de rime riche. Lisandre dit que c'est très bien comme ça." },
       "« Je le chanterai demain, dit-elle. Si quelqu'un, de l'autre côté, le reprend, on aura gagné quelque chose. Je ne sais pas quoi. Quelque chose. »",
     ],
-    choices: [{ label: "Revenir dans le camp", to: "IV_br" }] }),
+    choices: [{ back: "IV_br" }] }),
 
   IV_C_lisandre_rate: P({ title: "Six couplets", place: "brenne",
     text: ["Vous cherchez toute la nuit. Rien ne vient. Lisandre finit par poser le luth dans l'herbe. « Tant pis, dit-elle. On chantera les six. Les gens savent bien qu'il en manque un. C'est peut-être ça, la chanson. »"],
-    choices: [{ label: "Revenir dans le camp", to: "IV_br" }] }),
+    choices: [{ back: "IV_br" }] }),
 
   // ---------------------------------------------------------------- The Sans-Nom: Ilse
   IV_C_sansnom: P({ title: "Ilse", place: "brenne",
@@ -161,7 +161,7 @@ module.exports = {
       "Le soir, il vient te trouver. « Les petits, dit-il. Ceux qui n'ont pas encore appris à oublier. Ils me gardent. » Il a l'air de quelqu'un qui a reçu un cadeau trop grand et qui ne sait pas où le poser.",
       { if: { has: "sansnom:page" }, text: "« Ildaën, dit-il encore. Elle m'a demandé mon nom. Je le lui ai dit. Elle l'a répété. Elle l'a donné à sa poupée. » Il rit. C'est la première fois que tu l'entends rire comme ça." },
     ],
-    choices: [{ label: "Revenir", fx: { flag: "sansnom:ilse", conf: { sansnom: 15 }, quest: "IV_C_sansnom", ep: ["perso", 1500] }, to: "IV_br" }] }),
+    choices: [{ fx: { flag: "sansnom:ilse", conf: { sansnom: 15 }, quest: "IV_C_sansnom", ep: ["perso", 1500] }, back: "IV_br" }] }),
 
   // ---------------------------------------------------------------- Gaspard: the bread of the eve
   IV_C_gaspard: P({ title: "Le four de campagne", place: "brenne",
@@ -182,11 +182,11 @@ module.exports = {
       { without: "rodric", text: "Toute la nuit, le four brûle. À trois heures, une barque traverse la Lisse en aval du pont, chargée de pains chauds, un passeur de Hautvent aux rames. Les sentinelles de Corvanne la laissent accoster." },
       "À l'aube, des deux côtés, les soldats ont dans la poche le même pain à l'anis et au miel, le pain de la fête des foins de Sauvelune. Ils ne savent pas d'où il vient. Ils savent qu'il est bon.",
     ],
-    choices: [{ label: "Revenir dans le camp", to: "IV_br" }] }),
+    choices: [{ back: "IV_br" }] }),
 
   IV_C_gaspard_moitie: P({ title: "Le pain", place: "brenne",
     text: ["Il n'y a de farine que pour un côté. Gaspard fait le pain quand même, pour le camp d'Esquarre. Il en garde une miche, une seule, qu'il pose au bord de la rivière, face à l'autre rive, sur une pierre. Au matin, elle n'y est plus."],
-    choices: [{ label: "Revenir dans le camp", to: "IV_br" }] }),
+    choices: [{ back: "IV_br" }] }),
 
   // ---------------------------------------------------------------- Rodric: three bells
   IV_C_rodric: P({ title: "Trois cloches", place: "brenne",
@@ -204,5 +204,5 @@ module.exports = {
       { if: { has: "iii:lisse_noms" }, text: "Toi, tu la connais. Tu as porté leurs trois cents noms. Tu cherches dans ta mémoire. Une petite fille avec une chèvre. Tu lui dis le nom." },
       "Rodric recoud les cloches sur son épaule, une par une, très soigneusement. « Je les rendrai, dit-il. Après demain. Aux familles. S'il en reste. »",
     ],
-    choices: [{ label: "Revenir", fx: { flag: "rodric:cloches", conf: { rodric: 10 }, quest: "IV_C_rodric", ep: ["perso", 1200] }, to: "IV_br" }] }),
+    choices: [{ fx: { flag: "rodric:cloches", conf: { rodric: 10 }, quest: "IV_C_rodric", ep: ["perso", 1200] }, back: "IV_br" }] }),
 };

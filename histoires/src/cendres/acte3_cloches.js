@@ -87,7 +87,7 @@ module.exports = {
       { label: "La faire sonner toi-même, à la main", hide: { has: "nord:rendu=sauvelune" }, to: "III_c_sauvelune_main" },
       { label: "Lui donner un souvenir, pour qu'elle sonne toute seule, pour toujours", tag: "Souvenir donné", stain: true, hide: { has: "nord:rendu=sauvelune" }, if: { souv: "enfant:chanson" }, why: "Tu ne l'as plus.",
         fx: { souv: "enfant:chanson", flag: "sauvelune:sonne", ep: ["perso", 2500] }, to: "III_c_sauvelune_don" },
-      { label: "Redescendre sur la place", hide: { has: "nord:rendu=sauvelune" }, after: "III_c_sauvelune_main", to: "III_c_ville" },
+      { hide: { has: "nord:rendu=sauvelune" }, after: "III_c_sauvelune_main", back: "III_c_ville" },
     ] }),
 
   III_c_sauvelune_main: P({ title: "Un coup", place: "cloches",
@@ -96,7 +96,7 @@ module.exports = {
       "La cloche sonne un coup, puis rien. Tu tires encore. Un coup. Elle ne sonne qu'une fois par pensée, et la seule pensée, c'est la tienne. Tu peux tirer toute la journée.",
       "La Sonneuse, en bas, hoche la tête. « Il faut que ce soit eux, là-haut. Ou que tu lui donnes quelque chose qui sonne tout seul. »",
     ],
-    choices: [{ label: "Redescendre", to: "III_c_sauvelune" }] }),
+    choices: [{ back: "III_c_sauvelune" }] }),
 
   III_c_sauvelune_don: P({ title: "La chanson des foins", place: "cloches",
     text: [
@@ -105,7 +105,7 @@ module.exports = {
       "Tu ne sais plus ce que tu viens de chanter. Tu sais seulement qu'elle ne s'arrêtera pas. Là-haut, quelqu'un, quelque part, va penser à Sauvelune sans savoir pourquoi, et puis quelqu'un d'autre, et puis un autre.",
       "La Sonneuse a les larmes aux yeux. « Ça fait cent cinquante ans que je n'ai pas entendu ça. Une cloche qu'on aime. »",
     ],
-    choices: [{ label: "Redescendre", to: "III_c_ville" }] }),
+    choices: [{ back: "III_c_ville" }] }),
 
   III_c_pallanche: P({ title: "Les cent clochettes", place: "cloches",
     text: [
@@ -116,11 +116,11 @@ module.exports = {
     ],
     choices: [
       { label: "Grimper jusqu'à la petite cloche fêlée, tout en haut, et la toucher", fx: { ep: ["perso", 300] }, to: "III_c_pallanche_felee" },
-      { label: "Revenir sur la place", to: "III_c_ville" },
+      { back: "III_c_ville" },
     ] }),
   III_c_pallanche_felee: P({ title: "La cloche fêlée", place: "cloches",
     text: ["Tu grimpes, de poutre en poutre. La petite cloche est fêlée du haut en bas, d'une fente à peine plus large qu'un fil. Tu poses le doigt sur le bronze. Elle ne sonne pas. Elle frémit. Et dans le frémissement, tu entends, très loin, une rue étroite qui sent l'indigo, un ruisseau de trois couleurs, des volets qu'on ouvre, un matin. Pas un son. Un réveil. Elle se souvient de tous les matins qu'elle a sonnés. C'est tout ce qu'elle garde. C'est déjà beaucoup."],
-    choices: [{ label: "Redescendre, et revenir sur la place", to: "III_c_ville" }] }),
+    choices: [{ label: "Redescendre, et revenir sur la place", back: "III_c_ville" }] }),
 
   III_c_lisse: P({ title: "Le clocher carré", place: "cloches",
     text: [
@@ -153,18 +153,18 @@ module.exports = {
       "Ils te les disent. Un par un. Trois cents. Tu les répètes, à voix basse, pour les garder. Tu n'y arriveras pas. Tu en gardes une poignée : une femme qui s'appelait Berthe Aulier, son fils Colin, huit ans. Un vieux, Mathieu Gros-Louis, qui était passeur.",
       "« Dis-les-lui, dit la vieille femme. Si tu la vois. On attendra encore un peu. »",
     ],
-    choices: [{ label: "Revenir sur la place", to: "III_c_ville" }] }),
+    choices: [{ back: "III_c_ville" }] }),
 
   III_c_lisse_temoins: P({ title: "Les témoins", place: "cloches",
     text: [
       "« Là-haut, dit Ysolde, il y a une guerre qui recommence à cause de ce pont, et personne ne sait pourquoi. Corvanne a oublié ses morts. Esquarre a oublié son crime. Moi, j'avais tout oublié. » Elle les regarde. « Si vous partez, ça continuera. Si vous venez, et que vous dites vos noms devant les deux royaumes, ça s'arrêtera peut-être. »",
       "Ils se regardent. La vieille femme dit : « On ne revient pas, d'ici. Personne. Sauf si quelqu'un nous ramène. » Elle te regarde, toi. Elle ne sait pas pourquoi elle te regarde.",
     ],
-    choices: [{ label: "Revenir sur la place", to: "III_c_ville" }] }),
+    choices: [{ back: "III_c_ville" }] }),
 
   III_c_lisse_partis: P({ title: "Ils partent", place: "cloches",
     text: ["Ils se lèvent, tous ensemble, et rejoignent la file des marcheurs, vers la porte. Le clocher carré, derrière eux, se tait. Ysolde les regarde partir jusqu'au dernier. Puis elle se relève, époussette ses genoux, et dit : « Allons-y », de sa voix de capitaine. C'est la seule voix qu'elle a."],
-    choices: [{ label: "Revenir sur la place", to: "III_c_ville" }] }),
+    choices: [{ back: "III_c_ville" }] }),
 
   III_c_linette: P({ title: "La petite fille qui rit", place: "cloches",
     text: [
@@ -186,11 +186,11 @@ module.exports = {
       "Pie ouvre la bouche. Il la referme. Il fait apparaître une pièce derrière son oreille à elle. Elle éclate de rire. « Mon frère sait faire ça aussi ! Mieux que toi ! »",
       "« Sûrement », dit Pie. Sa voix casse. Il reste à genoux à faire des tours de pièce pendant une heure, dans la rue des carillons, pour une petite fille qui attend son frère.",
     ],
-    choices: [{ label: "Revenir sur la place, quand il est prêt", fx: { conf: { pie: 10 } }, to: "III_c_ville" }] }),
+    choices: [{ label: "Revenir sur la place, quand il est prêt", fx: { conf: { pie: 10 } }, back: "III_c_ville" }] }),
 
   III_c_linette_dit: P({ title: "Il va venir", place: "cloches",
     text: ["« Je le connais. Il te cherche. » Elle hoche la tête, très sérieuse. « Je sais. Il l'a promis. » Puis elle retourne à sa marelle. Tu la regardes sauter. Tu te demandes laquelle des deux Linette il voudrait, s'il devait choisir. Tu espères qu'il n'aura pas à choisir."],
-    choices: [{ label: "Revenir sur la place", to: "III_c_ville" }] }),
+    choices: [{ back: "III_c_ville" }] }),
 
   III_c_aymeric: P({ title: "Le prince", place: "cloches",
     text: [
@@ -218,5 +218,5 @@ module.exports = {
       { with: "hylas", text: "Hylas est adossé au mur. Il pleure, sans bruit, ses yeux qui voient grands ouverts." },
       "Au loin, à l'horizon, devant les tours blanches, une forêt d'arbres noirs est apparue, qui n'y était pas.",
     ],
-    choices: [{ label: "Repartir vers la plaine", to: "III_plaine" }] }),
+    choices: [{ back: "III_plaine" }] }),
 };

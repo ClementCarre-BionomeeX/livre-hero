@@ -90,7 +90,7 @@ module.exports = {
       { if: { has: "corbe:ouvre" }, text: "« Quelqu'un a chanté nos noms, ajoute-t-elle. Tous. On l'a entendu jusqu'ici. »" },
       "Tu demandes d'où elle vient. Elle cherche. Elle ne sait plus. Elle sait seulement qu'elle y retourne.",
     ],
-    choices: [{ label: "Revenir à la plaine", fx: { flag: "acte3:marcheurs" }, to: "III_plaine" }] }),
+    choices: [{ fx: { flag: "acte3:marcheurs" }, back: "III_plaine" }] }),
 
   III_halte: P({ title: "La halte", place: "plaine",
     text: [
@@ -101,5 +101,5 @@ module.exports = {
       { if: avec("corbe"), text: "Corbe regarde vers les tours blanches. « Ma mère est là-bas, peut-être. Ou moi. »" },
       { if: avec("lisandre"), text: "Lisandre essaie de chanter, tout bas. Le blanc avale la première note, puis la deuxième. À la troisième, elle s'arrête, et elle rit, d'un rire nerveux, et le rire, lui, résonne." },
     ],
-    choices: [{ label: "Repartir", fx: { conf: { ysolde: 5, pie: 5, hylas: 5, corbe: 5, lisandre: 5 } }, to: "III_plaine" }] }),
+    choices: [{ fx: { conf: { ysolde: 5, pie: 5, hylas: 5, corbe: 5, lisandre: 5 } }, back: "III_plaine" }] }),
 };

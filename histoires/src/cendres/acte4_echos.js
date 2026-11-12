@@ -22,7 +22,7 @@ module.exports = {
     choices: [
       { label: "Lui proposer une course", test: { dom: "nature", label: "Le tarn", help: [{ if: { has: "nord:course" }, v: 10 }, { if: { present: "corbe" }, v: 15 }] },
         win: { fx: { ep: ["perso", 600], flag: "iv:leif" }, to: "IV_k_leif_course" }, lose: { fx: { pv: -1 }, to: "IV_k_leif_course" } },
-      { label: "Revenir au camp", to: "IV_clan_fin" },
+      { back: "IV_clan_fin" },
     ] }),
   IV_k_leif_course: P({ title: "Trois tours", place: "corbeau",
     text: [
@@ -30,7 +30,7 @@ module.exports = {
       { if: { has: "iv:leif" }, text: "Au troisième tour, tu le rattrapes. Il te laisse passer, ou non, tu ne le sauras jamais. Tu franchis la ligne le premier, couvert de neige, et les enfants du camp hurlent ton nom, les deux, mélangés." },
       { if: { not: { has: "iv:leif" } }, text: "Tu finis la course loin derrière, à pied, en tirant le renne par la longe. Les enfants du camp t'applaudissent quand même, très fort, comme on applaudit le dernier." },
     ],
-    choices: [{ label: "Revenir au camp", to: "IV_clan_fin" }] }),
+    choices: [{ back: "IV_clan_fin" }] }),
 
   IV_k_gunnhild: P({ title: "La nouvelle histoire", place: "corbeau",
     text: [
@@ -39,5 +39,5 @@ module.exports = {
       { if: { has: "nord:conte_mere" }, text: "Un enfant proteste : « L'an dernier, tu disais qu'elle descendait chercher les noms ! » Gunnhild hausse les épaules. « L'an dernier, c'était l'an dernier. Les histoires, ça vieillit, comme les gens. Ça apprend des choses. »" },
       "« Et elle a eu chaud ? » demande un petit. Gunnhild réfléchit. « Un peu, dit-elle. C'était une petite couverture. Mais c'était la première. »",
     ],
-    choices: [{ label: "Revenir au camp", fx: { ep: ["perso", 400] }, to: "IV_clan_fin" }] }),
+    choices: [{ fx: { ep: ["perso", 400] }, back: "IV_clan_fin" }] }),
 };

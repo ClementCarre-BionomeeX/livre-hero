@@ -7,8 +7,8 @@ function seul(who, title, text, a, b) {
   ca[who] = a.conf; cb[who] = b.conf;
   o[id] = P({ title: title, place: "valcendre", text: text,
     choices: [{ label: a.label, fx: { conf: ca }, to: id + "_a" }, { label: b.label, fx: { conf: cb }, to: id + "_b" }] });
-  o[id + "_a"] = P({ title: title, place: "valcendre", text: [a.text], choices: [{ label: "Redescendre dans la maison", to: "III_a_nuit" }] });
-  o[id + "_b"] = P({ title: title, place: "valcendre", text: [b.text], choices: [{ label: "Redescendre dans la maison", to: "III_a_nuit" }] });
+  o[id + "_a"] = P({ title: title, place: "valcendre", text: [a.text], choices: [{ back: "III_a_nuit" }] });
+  o[id + "_b"] = P({ title: title, place: "valcendre", text: [b.text], choices: [{ back: "III_a_nuit" }] });
   return o;
 }
 var C = {};

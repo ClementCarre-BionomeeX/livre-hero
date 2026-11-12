@@ -42,13 +42,13 @@ module.exports = {
       "Tu poses les mains sur les épaules de la femme. Elle sourit à la neige. Tu ne sais pas quoi dire. Alors tu chantes, très bas, à son oreille, la seule chose qui te vient : une berceuse. Celle de ta mère, ou une autre, peu importe, toutes les berceuses se ressemblent au troisième couplet.",
       "La femme cligne des yeux. Elle se retourne. Elle voit sa fille. Elle ne sait pas comment elle s'appelle. Mais elle la prend dans ses bras, et elle sort de la queue, et elle s'en va vers une porte, en la serrant si fort que la petite proteste.",
     ],
-    choices: [{ label: "Revenir sur la place", to: "V_ville" }] }),
+    choices: [{ back: "V_ville" }] }),
   V_v_fillette_bras: P({ title: "Dans tes bras", place: "pallanche",
     text: [
       "Tu la prends. Elle se laisse faire, raide, puis elle cache sa figure dans ton cou. Elle est gelée. Tu la portes jusque sous un porche, où il fait moins froid, et tu l'enroules dans ton manteau.",
       "« Tu reviens ? » demande-t-elle. Tu dis oui. Tu ne sais pas si c'est vrai. Elle te dit son nom, pour que tu t'en souviennes en haut. Tu le répètes deux fois, pour qu'elle voie que tu l'as.",
     ],
-    choices: [{ label: "Revenir sur la place", fx: { flag: "v:fillette=porche", ep: ["perso", 500] }, to: "V_ville" }] }),
+    choices: [{ fx: { flag: "v:fillette=porche", ep: ["perso", 500] }, back: "V_ville" }] }),
 
   // ---------------------------------------------------------------- Acte IV, Pont-de-Saule : le lavoir
   IV_ps_lavoir: P4({ title: "Le lavoir", place: "pontsaule",
@@ -58,7 +58,7 @@ module.exports = {
     ],
     choices: [
       { label: "Leur raconter Sauvelune, et l'année blanche", fx: { ep: ["perso", 500], flag: "iv:lavoir" }, to: "IV_ps_lavoir_parler" },
-      { label: "Revenir sur la place", to: "IV_ps" },
+      { back: "IV_ps" },
     ] }),
   IV_ps_lavoir_parler: P4({ title: "Les nouvelles", place: "pontsaule",
     text: [
@@ -66,5 +66,5 @@ module.exports = {
       "Quand tu as fini, il y a un silence. Puis une vieille, au bout, dit : « Le meunier de Sauvelune. Joris. Il avait épousé la petite Agathe, de la rue du Four. » Une autre : « Celle qui chantait faux ? » Une troisième : « Elle ne chantait pas faux, elle chantait fort. »",
       "Et ça repart. Le lavoir se remet à parler, de Joris, d'Agathe, de toi, de n'importe quoi. Tu t'en vas sans qu'on te voie partir. Derrière toi, quelqu'un rit.",
     ],
-    choices: [{ label: "Revenir sur la place", to: "IV_ps" }] }),
+    choices: [{ back: "IV_ps" }] }),
 };

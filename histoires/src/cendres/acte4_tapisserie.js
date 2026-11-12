@@ -25,10 +25,10 @@ module.exports = {
     ] }),
   IV_Q_tap_esq_ok: P({ takes: "evening", title: "Une tablette pleine", place: "brenne",
     text: ["Au soir, tu as rempli la tablette, et le dos de ta chemise, et le revers de ta main. Huit cents noms. Un sergent, à un feu, t'a demandé d'écrire aussi celui de son frère, mort l'an dernier. Tu l'as écrit. Ça fera un mort parmi les vivants, sur la toile. Maëlle ne dira rien."],
-    choices: [{ label: "Revenir au camp", to: "IV_br" }] }),
+    choices: [{ back: "IV_br" }] }),
   IV_Q_tap_esq_rate: P({ title: "Les feux", place: "brenne",
     text: ["Au troisième feu, un capitaine te prend ta tablette et la jette dans les flammes. « Pas d'espions dans mon camp, dit-il. Même pas des petits. » Tu recommences ailleurs. Au soir, tu n'as que quelques dizaines de noms, et un peu de honte de ne pas en avoir plus."],
-    choices: [{ label: "Revenir au camp", fx: { flag: "iv:tap_esq_peu" }, to: "IV_br" }] }),
+    choices: [{ fx: { flag: "iv:tap_esq_peu" }, back: "IV_br" }] }),
   IV_Q_tap_cv: P({ title: "Les noms de Corvanne", place: "brenne",
     text: [
       "Rodric te fait repasser la Lisse, de nuit, dans la barque de son beau-frère. Sur l'autre rive, le camp bleu. Les feux. Les mêmes gens que de ce côté-ci, avec un autre accent.",
@@ -46,7 +46,7 @@ module.exports = {
     choices: [{ label: "Repasser la rivière", to: "IV_br" }] }),
   IV_Q_tap_cv_rate: P({ title: "La sentinelle", place: "brenne",
     text: ["Une sentinelle te voit avant que tu aies ouvert la bouche. On te pousse vers la rivière, à coups de hampe, sans méchanceté, comme on chasse un chien. Rodric te repêche à la barque. « Ils ont peur, dit-il. Demain, ils seront morts ou vivants. Ce soir, ils ont peur. Ce n'est pas le soir pour leur demander leur nom. »"],
-    choices: [{ label: "Revenir au camp", to: "IV_br" }] }),
+    choices: [{ back: "IV_br" }] }),
   IV_Q_tap_fin: P({ takes: "morning", title: "La nuit des métiers", place: "brenne",
     text: [
       "Tu rapportes les noms à Hautvent. Toutes les femmes du village sont là, tous les métiers montés, les lampes allumées. On lit les noms à voix haute, et elles les tissent, en laine brune, en laine bleue, un nom après l'autre, tout au long de la chaîne, toute la nuit.",
@@ -59,5 +59,5 @@ module.exports = {
     ] }),
   IV_Q_tap_fin2: P({ title: "La toile", place: "brenne",
     text: ["Ils la tendront au pont, le matin de la bataille. Ce qu'il en adviendra, tu le verras sur place. Tu n'as pas dormi. Tu as les doigts pleins de laine. Tu as entendu, toute la nuit, tous ces noms, et tu n'en as retenu aucun, et c'est très bien comme ça : ils sont dans la toile."],
-    choices: [{ label: "Revenir au camp", to: "IV_br" }] }),
+    choices: [{ back: "IV_br" }] }),
 };
