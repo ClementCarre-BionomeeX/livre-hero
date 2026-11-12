@@ -1308,7 +1308,8 @@
   var SIZES = { s: ["Petit", 16], m: ["Normal", 18], l: ["Grand", 21], xl: ["Très grand", 24] };
   var SPACINGS = { serre: ["Serré", 1.5], normal: ["Normal", 1.72], aere: ["Aéré", 2] };
   var THEMES = { auto: "Comme l'appareil", light: "Clair", sepia: "Sépia", dark: "Sombre" };
-  var FONTS = { livre: ["Livre", "var(--serif)"], droite: ["Sans empattement", "var(--sans)"] };
+  // lisible (Clément, 12/11): Atkinson Hyperlegible, letters hard to confuse, for young or dyslexic readers; it then dresses the whole page.
+  var FONTS = { livre: ["Livre", "var(--serif)"], droite: ["Sans empattement", "var(--sans)"], lisible: ["Lecture facile (Atkinson)", "'Atkinson Hyperlegible', var(--sans)"] };
   // Skins (Clément, 12/11): each story says how its book looks (`skin` in the story); the reader may keep it or choose.
   var SKINS = { histoire: "Celui de l'histoire", parchemin: "Parchemin", givre: "Givre", sable: "Sable", enluminure: "Enluminure", sobre: "Sobre" };
   var CLAUDE_VOICES = { buttery: "Chaude", airy: "Légère", glassy: "Claire", rounded: "Ronde" };
@@ -1331,6 +1332,7 @@
     r.style.setProperty("--read-size", (SIZES[pref("size")] || SIZES.m)[1] + "px");
     r.style.setProperty("--read-lh", String((SPACINGS[pref("spacing")] || SPACINGS.normal)[1]));
     r.style.setProperty("--read-font", (FONTS[pref("font")] || FONTS.livre)[1]);
+    if (pref("font") === "lisible") r.setAttribute("data-font", "lisible"); else r.removeAttribute("data-font");
   }
   function seg(map, key, label) {
     return h("div", { class: "stack tight" }, h("span", { class: "label" }, label), h("div", { class: "seg", role: "group", "aria-label": label },

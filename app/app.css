@@ -268,3 +268,11 @@ textarea.json { font: 12.5px/1.45 var(--mono); width: 100%; }
 :root[data-skin="enluminure"]:not([data-theme="dark"]) .top .pill.gold { color: var(--gold); }
 :root[data-skin="enluminure"]:not([data-theme="dark"]) .top .btn.primary { color: var(--accent-ink); }
 :root[data-skin="enluminure"]:not([data-theme="dark"]) .tools .btn { color: var(--ink); }
+
+/* Lecture facile: Atkinson Hyperlegible on the whole page, a little more air between letters and words. */
+:root[data-font="lisible"] { --serif: 'Atkinson Hyperlegible', var(--sans); }
+:root[data-font="lisible"] body, :root[data-font="lisible"] button, :root[data-font="lisible"] input, :root[data-font="lisible"] select, :root[data-font="lisible"] textarea { font-family: 'Atkinson Hyperlegible', var(--sans); }
+:root[data-font="lisible"] .prose, :root[data-font="lisible"] .recit p { letter-spacing: .02em; word-spacing: .08em; }
+/* A detached ornate capital and cut words are hard for dyslexic readers: plain first letter, no hyphenation. */
+:root[data-font="lisible"] .prose { hyphens: none; }
+:root[data-font="lisible"] .prose p:first-child::first-letter { font: inherit; float: none; padding: 0; color: inherit; text-shadow: none; }
