@@ -1325,8 +1325,9 @@
     if (th === "auto") r.removeAttribute("data-theme"); else r.setAttribute("data-theme", th);
     // the skin: only inside a book (creation, reading, the book of the adventure); the library stays plain
     var st = (A.screen === "game" || A.screen === "recit") && A.game ? A.game.story : A.screen === "create" && A.create ? A.create.story : null;
+    // A skin the reader chose shows everywhere, the library included; the story's own skin shows inside its book.
     var sk = pref("skin"); if (sk === "histoire") sk = st && SKINS[st.skin] ? st.skin : "sobre";
-    if (!st || sk === "sobre") r.removeAttribute("data-skin"); else r.setAttribute("data-skin", sk);
+    if (sk === "sobre") r.removeAttribute("data-skin"); else r.setAttribute("data-skin", sk);
     r.style.setProperty("--read-size", (SIZES[pref("size")] || SIZES.m)[1] + "px");
     r.style.setProperty("--read-lh", String((SPACINGS[pref("spacing")] || SPACINGS.normal)[1]));
     r.style.setProperty("--read-font", (FONTS[pref("font")] || FONTS.livre)[1]);

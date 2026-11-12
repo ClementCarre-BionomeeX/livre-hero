@@ -249,11 +249,7 @@ textarea.json { font: 12.5px/1.45 var(--mono); width: 100%; }
 :root[data-skin="sable"] { --bg: #dcc9a4; --paper: #f2e5c9; --paper-2: #eadab8; --ink: #36291b; --muted: #6f5d44; --line: #d2bd94; --accent: #9a5a1c; --accent-ink: #fff7ea; --accent-soft: #ecd6b4; --gold: #8a5d10; color-scheme: light;
   --page-bg: radial-gradient(rgb(120 85 40 / .07) 1px, transparent 1.4px) 0 0 / 7px 7px, radial-gradient(rgb(120 85 40 / .05) 1px, transparent 1.4px) 3px 4px / 11px 11px, radial-gradient(ellipse at 50% 0%, rgb(255 255 255 / .35), transparent 60%);
   --page-edge: inset 0 0 60px rgb(150 100 40 / .22); }
-@media (prefers-color-scheme: dark) { :root[data-skin]:not([data-theme="light"]):not([data-theme="sepia"]) { --page-edge: inset 0 0 70px rgb(0 0 0 / .55); color-scheme: dark;
-  --bg: #17120d; --paper: #241c14; --paper-2: #2c2219; --ink: #ecdfc6; --muted: #b19d7e; --line: #4a3b2a; --accent: #e09a5f; --accent-ink: #1c140d; --accent-soft: #4a3220; --gold: #e0b45a;
-  --page-bg: radial-gradient(ellipse at 50% 0%, rgb(255 190 110 / .10), transparent 60%), repeating-linear-gradient(0deg, rgb(255 230 190 / .02) 0 2px, transparent 2px 6px); }
-  :root[data-skin="givre"]:not([data-theme="light"]):not([data-theme="sepia"]) { --bg: #0f151c; --paper: #18212b; --paper-2: #1f2a36; --ink: #e2ebf4; --muted: #9fb2c6; --line: #2f3d4c; --accent: #8cc0ea; --accent-ink: #0d141b; --accent-soft: #23384c;
-    --page-bg: radial-gradient(circle at 12% 0%, rgb(200 225 255 / .10), transparent 40%), radial-gradient(rgb(200 225 255 / .07) 1px, transparent 1.5px) 0 0 / 22px 22px; --page-edge: inset 0 0 60px rgb(0 0 0 / .5); } }
+/* A skin keeps its paper when the device is dark: only the reader's own "Sombre" theme turns it to candlelight. */
 :root[data-skin][data-theme="dark"] { --page-edge: inset 0 0 70px rgb(0 0 0 / .55); color-scheme: dark;
   --bg: #17120d; --paper: #241c14; --paper-2: #2c2219; --ink: #ecdfc6; --muted: #b19d7e; --line: #4a3b2a; --accent: #e09a5f; --accent-ink: #1c140d; --accent-soft: #4a3220; --gold: #e0b45a;
   --page-bg: radial-gradient(ellipse at 50% 0%, rgb(255 190 110 / .10), transparent 60%), repeating-linear-gradient(0deg, rgb(255 230 190 / .02) 0 2px, transparent 2px 6px); }
@@ -267,3 +263,8 @@ textarea.json { font: 12.5px/1.45 var(--mono); width: 100%; }
 :root[data-skin="enluminure"] .page-head h2 { color: var(--accent); }
 :root[data-skin="givre"] .page-head h2 { letter-spacing: .01em; }
 :root[data-skin] .vignette { opacity: .9; }
+:root[data-skin="enluminure"]:not([data-theme="dark"]) .top { color: #f4e8c8; }
+:root[data-skin="enluminure"]:not([data-theme="dark"]) .top .pill, :root[data-skin="enluminure"]:not([data-theme="dark"]) .top .btn:not(.ghost) { color: var(--ink); }
+:root[data-skin="enluminure"]:not([data-theme="dark"]) .top .pill.gold { color: var(--gold); }
+:root[data-skin="enluminure"]:not([data-theme="dark"]) .top .btn.primary { color: var(--accent-ink); }
+:root[data-skin="enluminure"]:not([data-theme="dark"]) .tools .btn { color: var(--ink); }
