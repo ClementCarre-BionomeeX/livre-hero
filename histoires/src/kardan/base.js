@@ -6,6 +6,7 @@ module.exports = {
   subtitle: "Trois actes · un village trop accueillant, un dédale, une source",
   summary: "Ton frère Aurèle a pris la route du sud il y a sept ans et n'est jamais revenu. Sa trace s'arrête à Kardan, un village vert au milieu d'une vallée sèche, adossé à une colline creusée d'un immense labyrinthe. On t'y reçoit comme un prince.",
   skin: "sable",
+  glossary: require("../glossaire.js"), // rare words explained on a tap (Clément, 12/11)
   voice: "deuxième personne, présent",
   version: 1,
   start: "K_depart",

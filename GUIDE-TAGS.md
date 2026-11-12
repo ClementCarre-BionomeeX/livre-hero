@@ -80,3 +80,10 @@ La difficulté (Conteur, Aventurier, Héroïque) se choisit à la création ; le
 - `node tests/verif.js <id> [tag|indice|objet|compagnon]` : la lecture stricte (tags posés jamais relus, indices et objets que rien ne donne, compagnon qui agit sans `with`). `tests/build.js` en donne le compte.
 - `node tests/page-seule.js` : réécrit `dist/index.html` sans le long test des chemins.
 - Dans l'appli, « Atelier d'auteur » : essayer n'importe quel passage, l'éditeur d'histoires, les signalements des lecteurs (collection `signalements` de la page).
+
+## Lecture et jeunes lecteurs (12/11, 2e série)
+- `glossary` (histoire) : `{ "forme|forme2": "définition" }`. Les mots rares sont soulignés de pointillés à leur première apparition sur une page ; un appui ouvre la définition. Les histoires fournies partagent `histoires/src/glossaire.js` (environ 200 mots) ; une histoire peut en ajouter. Définitions purement lexicales, sans rien de l'intrigue.
+- `nudge` (passage) : la phrase du « coup de pouce » pour ce passage. Sans elle, le moteur (`M.nudgeOf`) oriente seul : choix vers des pages pas encore lues (marqués ✦), techniques en combat, ou carnet. Option des réglages, désactivée par défaut, deux fois par acte.
+- `desc` (adversaire) : une phrase pour le bestiaire. Le moteur note les adversaires rencontrés (`s.beasts`) ; lieux connus et objets eus complètent l'atlas, gardés par lecteur sur toutes ses parties.
+- `kid` (histoire) : posé par l'atelier des jeunes auteurs (`{ author, profil }`).
+- Lecture à voix haute : phrase par phrase (surlignée), paroles entre « » lues par une seconde voix si l'option est cochée. Règle de lecture en option.

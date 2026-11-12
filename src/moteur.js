@@ -77,7 +77,7 @@
       fac: {}, met: {}, relics: [], given: [], items: ((w.start && w.start.items) || []).slice(), gold: (w.start && w.start.gold) || 0, food: (w.start && w.start.food) || 0,
       pv: null, fatigue: 0, time: START_HOUR, place: (w.start && w.start.place) || null, known: {}, people: {}, travel: null, combat: null,
       clock: {}, seen: {}, ret: null, events: [], toutJouer: opts.toutJouer !== false, turn: 0, routesDone: {},
-      difficulty: DIFFICULTY[opts.difficulty] ? opts.difficulty : "aventurier", stats: {}, feats: {},
+      difficulty: DIFFICULTY[opts.difficulty] ? opts.difficulty : "aventurier", stats: {}, feats: {}, beasts: {},
     };
   }
   function levelOfEp(ep) { return Math.min(MAX_LEVEL, Math.max(1, Math.floor(ep / EP_PER_LEVEL))); }
@@ -851,8 +851,10 @@
 
   function startCombat(story, s, fight) {
     var foes = [];
+    s.beasts = s.beasts || {};
     (fight.enemies || []).forEach(function (e, i) {
       var d = enemyDef(story, e.id || e), n = e.n || 1;
+      s.beasts[e.id || e] = (s.beasts[e.id || e] || 0) + n; // the bestiary of the reader
       var fpv = Math.max(1, Math.round(d.pv * diffOf(s).foePv));
       for (var j = 0; j < n; j++) foes.push({ key: (e.id || e) + "-" + i + "-" + j, name: d.name + (n > 1 ? " " + (j + 1) : ""), pv: fpv, pvMax: fpv, att: d.att, def: d.def, dmg: d.dmg,
         flank: !!d.flank, ranged: !!d.ranged, down: false, open: false, trapped: 0, asleep: false });
@@ -1274,6 +1276,19 @@
     if (!hp || home === s.node || !ownChoices(story, s, hp).length) return null;
     return { to: home, label: "Revenir : " + interp(s, hp.title || pl.name) };
   }
+  // Intent: nudgeOf(Story, State) -> { text, choices: [label] } = the « coup de pouce » for young readers (an option,
+  // Clément, 12/11): the passage's own `nudge` when its author wrote one; else the choices toward pages not read yet;
+  // else, in a fight, the class's techniques; else the notebook. It orients, it never tells what happens.
+  function nudgeOf(story, s) {
+    var v = view(story, s), p = v.passage;
+    if (p && p.nudge) return { text: interp(s, p.nudge), choices: [] };
+    if (v.kind === "combat") return { text: "Regarde bien les techniques de ta classe et tes compagnons : un ordre ou une ruse peut changer le combat. Fuir ou parlementer n'est pas toujours une défaite.", choices: [] };
+    var open = v.choices.filter(function (c) { return c.ok !== false && !c.sys; });
+    var fresh = open.filter(function (c) { return c.to && story.passages[c.to] && !s.seen[c.to]; }).map(function (c) { return c.label; });
+    if (fresh.length && fresh.length < open.length) return { text: "Les choix marqués ✦ mènent vers des pages que tu n'as pas encore lues.", choices: fresh };
+    if (fresh.length) return { text: "Tout ce qui est proposé ici est encore à découvrir : choisis selon ton héros, il n'y a pas de mauvaise porte.", choices: [] };
+    return { text: "Tu as déjà lu tout ce qui part d'ici. Ouvre ton carnet : une quête, un indice ou une personne rencontrée t'attend peut-être ailleurs.", choices: [] };
+  }
   function view(story, s) {
     var v, p = null;
     if (BUILTIN[s.node]) v = BUILTIN[s.node](story, s);
@@ -1528,7 +1543,7 @@
 
   var API = {
     ARCHS: ARCHS, TECHS: TECHS, techsOf: techsOf, partyView: partyView, cpv: cpv, cpvMax: cpvMax, FRONT: FRONT, DOMAINS: DOMAINS, EP: EP, EP_PER_LEVEL: EP_PER_LEVEL, MAX_LEVEL: MAX_LEVEL, DIFFS: DIFFS, LOYAL_AT: LOYAL_AT, SUCCESS: SUCCESS, STEP_HOURS: STEP_HOURS,
-    setRng: setRng, setDice: setDice, ambianceOf: ambianceOf, AMBIANCES: AMBIANCES, isNightNow: function (s) { var h = s.time % 24; return h >= NIGHT_FROM || h < NIGHT_TO; }, DIFFICULTY: DIFFICULTY, featsOf: featsOf, endingsOf: endingsOf, endingOf: endingOf, freshState: freshState, level: level, pvMax: pvMax, bonus: bonus, chance: chance, rollTest: rollTest,
+    setRng: setRng, setDice: setDice, nudgeOf: nudgeOf, ambianceOf: ambianceOf, AMBIANCES: AMBIANCES, isNightNow: function (s) { var h = s.time % 24; return h >= NIGHT_FROM || h < NIGHT_TO; }, DIFFICULTY: DIFFICULTY, featsOf: featsOf, endingsOf: endingsOf, endingOf: endingOf, freshState: freshState, level: level, pvMax: pvMax, bonus: bonus, chance: chance, rollTest: rollTest,
     evalCond: evalCond, describeCond: describeCond, textList: textList, view: view, allowed: allowed, target: target,
     apply: apply, enter: enter, choose: choose, start: start, present: present, loyal: loyal, clueCount: clueCount,
     money: money, prepare: prepare, questsOf: questsOf, questState: questState, questDone: questDone, questRefused: questRefused, questStarted: questStarted, questMissed: questMissed, questScenes: questScenes, remaining: remaining, actOf: actOf, interp: interp, nameOf: nameOf,

@@ -1,7 +1,8 @@
 "use strict";
 // Quality voice worker (Clément, 12/11): Piper neural voices, run by onnxruntime-web, entirely on the device.
 // Copied to site/voix/worker.js by tests/voix.js, next to ort.wasm.min.js, piper_phonemize.* and the voice models.
-// Message in:  { id, voice, sentences: [text], rate }   ·   { cancel: id }
+// Message in:  { id, voice, sentences: [text | { text, voice }], rate }   ·   { cancel: id }
+// A sentence may name its own voice (narrator and characters read by two voices).
 // Messages out: { id, i, audio: Float32Array, rate }  then  { id, done: true }  ·  { id, error }
 importScripts("ort.wasm.min.js", "piper_phonemize.js");
 ort.env.wasm.numThreads = 1; // GitHub Pages cannot serve the headers threads need
@@ -39,21 +40,24 @@ self.onmessage = function (e) {
   var d = e.data;
   if (d.cancel != null) { cancelled[d.cancel] = true; return; }
   var id = d.id;
-  load(d.voice).then(function (session) {
-    var cfg = configs[d.voice], inf = cfg.inference || {};
-    return phonemize((cfg.espeak && cfg.espeak.voice) || "fr", d.sentences).then(function (ids) {
+  var items = d.sentences.map(function (x) { return typeof x === "string" ? { text: x, voice: d.voice } : { text: x.text, voice: x.voice || d.voice }; });
+  var names = items.map(function (x) { return x.voice; }).filter(function (v, i, a) { return a.indexOf(v) === i; });
+  Promise.all(names.map(load)).then(function () {
+    var cfg0 = configs[names[0]];
+    return phonemize((cfg0.espeak && cfg0.espeak.voice) || "fr", items.map(function (x) { return x.text; })).then(function (ids) {
       var i = 0;
       function next() {
         if (cancelled[id] || i >= ids.length) return null;
-        var p = ids[i];
+        var p = ids[i], v = items[i].voice;
         if (!p || !p.length) { i++; return next(); }
+        var cfg = configs[v], inf = cfg.inference || {};
         var feeds = {
           input: new ort.Tensor("int64", BigInt64Array.from(p.map(BigInt)), [1, p.length]),
           input_lengths: new ort.Tensor("int64", BigInt64Array.from([BigInt(p.length)]), [1]),
           scales: new ort.Tensor("float32", Float32Array.from([inf.noise_scale || 0.667, (inf.length_scale || 1) / (d.rate || 1), inf.noise_w || 0.8]), [3]),
         };
         if (cfg.num_speakers > 1) feeds.sid = new ort.Tensor("int64", BigInt64Array.from([0n]), [1]);
-        return session.run(feeds).then(function (r) {
+        return sessions[v].then(function (session) { return session.run(feeds); }).then(function (r) {
           var audio = new Float32Array(r.output.data);
           self.postMessage({ id: id, i: i, audio: audio, rate: cfg.audio.sample_rate }, [audio.buffer]);
           i++;

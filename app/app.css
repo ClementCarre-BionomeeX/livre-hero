@@ -277,3 +277,33 @@ textarea.json { font: 12.5px/1.45 var(--mono); width: 100%; }
 :root[data-font="lisible"] .prose { hyphens: none; }
 :root[data-font="lisible"] .prose p:first-child::first-letter { font: inherit; float: none; padding: 0; color: inherit; text-shadow: none; }
 .neural-row { flex-wrap: wrap; gap: 8px 12px; align-items: center; }
+/* Reading aloud: the sentence being read, and the reading ruler (Clément, 12/11). */
+::highlight(lecture) { background-color: rgba(255, 196, 64, .45); color: inherit; }
+.prose.has-ruler { position: relative; overflow: clip; overflow-clip-margin: 8px; }
+.prose .ruler { position: absolute; left: -6px; right: -6px; border-radius: 6px; pointer-events: none; box-shadow: 0 0 0 100vmax rgba(20, 14, 8, .24); outline: 2px solid color-mix(in srgb, var(--accent) 50%, transparent); transition: top .18s ease; z-index: 1; }
+.notice.soft { border-style: solid; border-color: color-mix(in srgb, var(--accent) 35%, var(--line)); color: var(--ink, inherit); margin: 8px 0; }
+.notice.nudge { border-style: solid; border-color: var(--accent); color: inherit; margin: 12px 0; }
+/* Bestiary and atlas */
+.codex { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 8px; margin-bottom: 10px; }
+.codex-card { border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px; background: var(--paper); display: flex; flex-direction: column; gap: 3px; overflow: hidden; }
+.codex-card.unknown { opacity: .45; border-style: dashed; align-items: center; justify-content: center; min-height: 56px; }
+.codex-card.place .vignette { margin: -8px -10px 4px; width: calc(100% + 20px); height: 44px; display: block; }
+/* Glossary: rare words, dotted; their definition in a small bubble */
+button.gl { all: unset; cursor: help; border-bottom: 2px dotted color-mix(in srgb, var(--accent) 70%, transparent); }
+button.gl:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
+.gl-pop { position: absolute; z-index: 60; background: var(--paper, #fff); color: var(--ink, #222); border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; box-shadow: 0 8px 24px rgb(0 0 0 / .18); font-size: 15px; line-height: 1.45; }
+.nudge-star { color: var(--gold, #a57414); font-weight: 700; }
+.qr-frame { width: min(340px, 100%); aspect-ratio: 1; margin: 8px auto; background: #fff; border-radius: 8px; }
+.qr-frame svg { width: 100%; height: 100%; display: block; }
+.qr-video { width: 100%; max-height: 50vh; background: #000; border-radius: 8px; object-fit: cover; }
+/* Young authors' workshop */
+.kids .kid-title { font-size: 1.3em; width: 100%; }
+.kid-pages { display: flex; flex-wrap: wrap; gap: 8px; margin: 6px 0 14px; }
+.kid-page { all: unset; cursor: pointer; display: flex; flex-direction: column; gap: 2px; padding: 8px 12px; border: 1px solid var(--line); border-radius: 10px; background: var(--paper); min-width: 110px; }
+.kid-page.on { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent-soft); }
+.kid-page.end { border-style: double; border-width: 3px; }
+.kid-page.add { border-style: dashed; justify-content: center; color: var(--muted); }
+.kid-form { padding: 18px; display: flex; flex-direction: column; gap: 12px; }
+.kid-text { width: 100%; font: inherit; line-height: 1.6; }
+.kid-choice select { max-width: 14em; }
+.kids { display: flex; flex-direction: column; gap: 14px; }

@@ -8,6 +8,7 @@ module.exports = {
   subtitle: "À deux · deux pages, un chevalier, une montagne qui dort",
   summary: "Vous êtes les deux pages de Messire Aubert de Vellane, et vous ne vous supportez pas. À la Saint-Michel, il choisira l'un de vous pour écuyer. Ce matin, son cousin Gauvard arrive au château, et sous le Mont-Veille quelque chose de très ancien dort encore.",
   skin: "enluminure",
+  glossary: require("../glossaire.js"), // rare words explained on a tap (Clément, 12/11)
   voice: "deuxième personne, présent",
   version: 1,
   multi: { min: 2, max: 2 },

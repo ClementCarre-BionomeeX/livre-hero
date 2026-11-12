@@ -7,6 +7,7 @@ module.exports = {
   subtitle: "Cinq actes · six héros · un royaume qui oublie",
   summary: "En plein été, une neige blanche tombe sur Esquarre, et ce qu'elle recouvre, le monde l'oublie. Six personnes que rien ne reliait vont devoir comprendre pourquoi : un enfant de la montagne, une chevalière, un faussaire, un vieux greffier aveugle, une chamane et une chanteuse de cour.",
   skin: "givre",
+  glossary: require("../glossaire.js"), // rare words explained on a tap (Clément, 12/11)
   voice: "deuxième personne, présent",
   version: 1,
   start: "C_six",
