@@ -594,3 +594,32 @@ ul.vote-res { list-style: none; padding: 0; margin: 0 0 12px; display: grid; gap
 .vignette .flame { transform-box: fill-box; transform-origin: 50% 100%; animation: flame .9s ease-in-out infinite; }
 .vignette .flame.f2 { animation-duration: .7s; }
 @media (prefers-reduced-motion: reduce) { .vignette .tw, .vignette .cloud, .vignette .flame { animation: none; } }
+
+/* ---- 7.5 authors' tools */
+.g-bar { flex-wrap: wrap; gap: 8px; margin: .4rem 0; }
+.ed-graph-wrap { overflow: auto; max-height: 72vh; border: 1px solid var(--line); border-radius: 10px; background: var(--paper-2); touch-action: none; }
+.ed-graph { display: block; }
+.g-edge { fill: none; stroke: var(--muted); opacity: .55; }
+.g-edge.hot { stroke: var(--accent); opacity: .85; }
+.g-node { cursor: pointer; }
+.g-node rect { fill: var(--paper); stroke: var(--line); stroke-width: 1.5; }
+.g-node.start rect { stroke: var(--accent); stroke-width: 2.5; }
+.g-node.hub rect { fill: color-mix(in srgb, var(--accent) 12%, var(--paper)); }
+.g-node.end rect { stroke-dasharray: 5 3; }
+.g-node.on rect, .g-node:focus rect { stroke: var(--accent); stroke-width: 3; }
+.g-node:focus { outline: none; }
+.g-node.from rect { fill: color-mix(in srgb, var(--accent) 35%, var(--paper)); }
+.g-id { font-size: 10px; fill: var(--muted); font-family: ui-monospace, monospace; }
+.g-title { font-size: 12.5px; fill: var(--ink); }
+.ed-read { max-width: 46rem; margin: 0 auto; display: flex; flex-direction: column; gap: .6rem; }
+.ed-read h2 { margin: .4rem 0 0; }
+.ed-read .center { text-align: center; }
+.rd-para p { margin: .2rem 0; line-height: 1.6; }
+.rd-para.cond { border-left: 3px solid var(--accent); padding-left: .7rem; }
+.rd-cond { font-size: .8rem; color: var(--accent); font-weight: 600; }
+.rd-else { font-style: italic; color: var(--muted); }
+.rd-choices { padding-left: 1.1rem; display: flex; flex-direction: column; gap: .35rem; }
+.rv-list { list-style: none; padding: 0; display: flex; flex-direction: column; gap: .5rem; }
+.rv-list li { border-bottom: 1px solid var(--line); padding-bottom: .4rem; }
+.pick-heat { font-size: .8rem; padding: 2px 8px; border-radius: 6px; margin-bottom: 4px; background: linear-gradient(90deg, color-mix(in srgb, var(--accent) 30%, transparent) var(--share), transparent var(--share)); }
+.names { flex-wrap: wrap; gap: 6px; }

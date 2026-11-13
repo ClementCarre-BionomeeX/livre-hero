@@ -148,3 +148,16 @@ Rien à déclarer pour : « Sans retour » (choisi à la création), le tableau 
 - **Jetons de destin** : en mode « Sans retour », trois relances par acte pour un jet raté. Ils sont gérés par l'appli et l'auteur n'a rien à faire.
 - **Histoire `cover: { motif, color }`** : la couverture dessinée dans la bibliothèque. Motifs possibles : `dedale`, `flocon`, `sceau`, `oeil`, `vanne`, `ecu`, `etoile` (le motif par défaut). `color` est la couleur de la toile, par exemple `"#4f3a22"`.
 - **Gravures, plans de ville, thème musical par lieu, voix des personnages** : le moteur s'en charge à partir de ce qui existe déjà (ambiance du lieu, passages vus dans un lieu, région, `name` des gens et des compagnons). La voix d'un personnage est retrouvée quand son nom figure dans le même paragraphe que ses paroles.
+
+## Outils d'auteur (7.5)
+
+- `author: "…"` et `age: 10` (au niveau de l'histoire) : l'auteur et l'âge conseillé, montrés dans la bibliothèque et
+  le catalogue partagé. Les thèmes adultes restent dans `adult: { themes: [...] }`.
+- `back: true` sans libellé est accepté par le vérificateur : le moteur écrit « Revenir : … » vers le dernier
+  carrefour. Le vérificateur prépare désormais l'histoire comme le jeu (les `back: "passage"` reçoivent destination et
+  libellé), si bien qu'une histoire écrite dans l'éditeur ou importée se vérifie comme une histoire fournie.
+- `node tests/relecture.js [id] [--all]` : la relecture de style (phrases de plus de 40 mots, mot de 7 lettres ou plus
+  répété à moins de 15 mots, paragraphes de plus de 180 mots, mots longs employés une seule fois, espaces et
+  guillemets à la française, choix de plus de 90 signes). Mêmes règles que l'onglet « Relecture » de l'éditeur.
+- `catalogue/<id>.json` : une histoire proposée au catalogue partagé ; `tests/site.js` la vérifie et l'ajoute à
+  `site/catalogue/index.json`.

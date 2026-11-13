@@ -56,6 +56,19 @@ fs.writeFileSync(path.join(OUT, "manifest.webmanifest"), JSON.stringify({
   ],
 }, null, 1));
 
+// The shared catalogue (Clément, 13/11, piste 44): the stories families propose, in catalogue/<id>.json, checked like
+// an import (a story the checker refuses is left out, and said so), with an index the page reads.
+var CAT = path.join(ROOT, "catalogue"), V = require("../src/validateur.js"), catIndex = [];
+fs.mkdirSync(path.join(OUT, "catalogue"), { recursive: true });
+(fs.existsSync(CAT) ? fs.readdirSync(CAT) : []).filter(function (f) { return /\.json$/.test(f); }).sort().forEach(function (f) {
+  var st; try { st = JSON.parse(fs.readFileSync(path.join(CAT, f), "utf8")); } catch (e) { console.log("catalogue/" + f + " : JSON illisible, laissé de côté"); return; }
+  var rep = V.staticCheck(JSON.parse(JSON.stringify(st)));
+  if (rep.errors.length) { console.log("catalogue/" + f + " : " + rep.errors.length + " erreur(s), laissé de côté — " + rep.errors[0]); return; }
+  fs.writeFileSync(path.join(OUT, "catalogue", st.id + ".json"), JSON.stringify(st));
+  catIndex.push({ id: st.id, title: st.title, subtitle: st.subtitle || "", summary: st.summary || "", author: st.author || "", age: st.age || null, adult: st.adult || null, passages: Object.keys(st.passages || {}).length, acts: (st.acts || []).length });
+});
+fs.writeFileSync(path.join(OUT, "catalogue", "index.json"), JSON.stringify(catIndex));
+
 // The cache name changes with the content, so a new build replaces the old copy on the next visit with network.
 var files = ["./", "index.html", "manifest.webmanifest"].concat(ICONS, ["vendor/qrcode.js", "vendor/jsQR.js"]);
 var version = crypto.createHash("sha1").update(page).update(VENDOR.map(function (f) { return fs.readFileSync(path.join(APP, "vendor", f)); }).join("")).digest("hex").slice(0, 10);

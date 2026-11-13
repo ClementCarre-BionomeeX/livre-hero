@@ -17,7 +17,7 @@ function grimoireCss() {
 // page carries, so the claude.ai page and the site show the same id when they hold the same game.
 function buildOf(storiesJson) {
   var hsh = require("crypto").createHash("sha1");
-  ["src/moteur.js", "src/multi.js", "src/validateur.js", "app/app.js", "app/app.css"].forEach(function (f) { hsh.update(read(f)); });
+  ["src/moteur.js", "src/multi.js", "src/validateur.js", "src/relecture.js", "app/app.js", "app/app.css"].forEach(function (f) { hsh.update(read(f)); });
   storiesJson.forEach(function (j) { hsh.update(JSON.stringify(JSON.parse(j))); });
   var d = new Date(), date = d.toLocaleDateString("fr-FR", { day: "numeric", month: "short", timeZone: "Europe/Paris" }) + " à " + d.toLocaleTimeString("fr-FR", { hour: "2-digit", minute: "2-digit", timeZone: "Europe/Paris" });
   // The version number (VERSION, raised by hand at each batch of changes; the CI tags v<VERSION> on main) comes first.
@@ -41,6 +41,7 @@ function assemble(storiesJson, opts) {
     "<script>" + safe(read("src/moteur.js")) + "</script>",
     "<script>" + safe(read("src/multi.js")) + "</script>",
     "<script>" + safe(read("src/validateur.js")) + "</script>",
+    "<script>" + safe(read("src/relecture.js")) + "</script>",
     "<script>" + safe(read("app/app.js")) + "</script>",
   ]).join("\n");
 }
