@@ -170,3 +170,19 @@ Rien à déclarer pour : « Sans retour » (choisi à la création), le tableau 
 - Les branches `win`, `lose`, `flee`, `calm` d'un jet ou d'un combat acceptent `back: "PASSAGE"` comme un choix.
 - En mode « tout jouer », la quête principale de l'acte ne retient plus la sortie (elle se finit souvent après) : seules les quêtes annexes la retiennent. Une quête annexe qui peut devenir impossible doit déclarer `closes`.
 - Une histoire sans héros prédéfinis demande au lecteur, à la création, si le livre lui parle au masculin ou au féminin ; le texte s'accorde avec `{e}`.
+
+## Une soirée (13/11, 7.8) : le chemin et la seconde lecture
+
+| Où | Clé | Sens |
+|---|---|---|
+| choix (ou branche `win` / `lose` d'un jet ou d'un combat) | `via: "fuite"` | Le chemin que ce choix donne à la page où il mène. Ce n'est pas une condition du choix. |
+| paragraphe, choix | `via: "fuite"` ou `["fuite", "PASSAGE"]` | Montré si l'on est arrivé ici par un choix portant ce `via`, ou en venant de ce passage (un combat ou une route entre les deux ne compte pas). Le validateur refuse un `via` qu'aucun choix ne donne et qui n'est pas un passage. |
+| condition | `{ via: "fuite" }` | La même chose dans un `if` ou un `hide` (pour un choix qui dépend du chemin pris). |
+| paragraphe, choix, passage | `second: true` | Seconde lecture : seulement si le lecteur a déjà trouvé une fin de cette histoire, dans une partie précédente. `second: "gue"` : seulement après cette fin-là. Un paragraphe de seconde lecture porte un ✧ discret dans la marge. Sur un passage, c'est la distribution de la scène : aucun choix n'y mène en première lecture. |
+| condition | `{ second: true }` | La même chose dans un `if`. |
+| passage | `takes: "midnight"` | La scène mène jusqu'à minuit (« Minuit sonne. »). Pour avancer l'horloge sans rien écrire : `fx: { until: 0 }`. |
+| `world.start` | `hour: 17` | L'heure à laquelle commence l'histoire (8 h sans elle). |
+
+Le moteur accorde désormais les boutons comme le texte : `{e}` dans un libellé de choix ou de jet devient « e » au féminin.
+L'appli sait quelles fins chaque lecteur a trouvées ; elle le dit au moteur au début d'une partie (`s.second`). Le validateur
+joue deux parties sur cinq en seconde lecture.

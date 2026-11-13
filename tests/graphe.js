@@ -35,6 +35,8 @@ function tagsSay(t) {
   if (t.after != null) out.push("après " + [].concat(t.after).join(", "));
   if (t.before != null) out.push("avant " + [].concat(t.before).join(", "));
   if (t.outcome != null) out.push("issue : " + [].concat(t.outcome).join(", "));
+  if (t.via != null) out.push("en arrivant par " + [].concat(t.via).join(" ou "));
+  if (t.second != null && t.second !== false) out.push("seconde lecture");
   if (t.once) out.push("une seule fois");
   if (t.if != null) out.push("si " + say(t.if));
   if (t.hide != null) out.push("caché si " + say(t.hide));

@@ -1115,7 +1115,9 @@
     app.appendChild(topBar([h("button", { class: "btn ghost sm", onclick: function () { A.screen = "home"; render(); } }, "← Bibliothèque"), h("span", { class: "brand grow" }, st.title)]));
     var w = h("main", { class: "wrap read create" });
     w.appendChild(h("div", null, h("div", { class: "label" }, C.multi ? C.multi.title : "Nouvelle partie"), h("h1", null, C.multi && C.multi.who ? C.multi.who + ", qui es-tu ?" : "Qui es-tu ?")));
-    if (st.intro) w.appendChild(h("div", { class: "prose", html: st.intro.map(function (p) { return "<p>" + md(p) + "</p>"; }).join("") }));
+    // The intro and the questions of the past agree with the hero as soon as the reader has said how the book speaks.
+    var ac = function (t) { return st.heroes ? t : String(t).replace(/\{e\}/g, C.fem ? "e" : ""); };
+    if (st.intro) w.appendChild(h("div", { class: "prose", html: st.intro.map(function (p) { return "<p>" + md(ac(p)) + "</p>"; }).join("") }));
     var nameIn = h("input", { value: C.name, placeholder: "Ton nom", maxlength: 30, "aria-label": "Nom du héros", oninput: function (e) { C.name = e.target.value; startBtn.disabled = !ready(); } });
     w.appendChild(h("div", { class: "stack" }, h("span", { class: "label" }, "Ton nom"), nameIn));
     // How the text speaks of the hero (Clément, 13/11, Malvoran): the engine fills {e} from s.fem ("assis{e}").
@@ -1135,9 +1137,9 @@
     w.appendChild(h("div", { class: "stack" }, h("span", { class: "label" }, "Ta voie"), archs));
     w.appendChild(renderFacePicker(C, st));
     (st.past || []).forEach(function (q, qi) {
-      var box = h("div", { class: "past" }, h("h3", null, q.q));
+      var box = h("div", { class: "past" }, h("h3", null, ac(q.q)));
       q.answers.forEach(function (a, ai) {
-        box.appendChild(h("button", { class: "answer" + (C.past[qi] === ai ? " on" : ""), "aria-pressed": C.past[qi] === ai ? "true" : "false", onclick: function () { C.past[qi] = ai; render(); } }, a.label));
+        box.appendChild(h("button", { class: "answer" + (C.past[qi] === ai ? " on" : ""), "aria-pressed": C.past[qi] === ai ? "true" : "false", onclick: function () { C.past[qi] = ai; render(); } }, ac(a.label)));
       });
       w.appendChild(box);
     });
@@ -1220,6 +1222,8 @@
   function buildState(C) {
     var st = C.story, s = M.freshState(st, { toutJouer: C.toutJouer, difficulty: C.difficulty, ironman: !C.multi && !!C.ironman });
     s.name = C.name.trim(); s.arch = C.arch; if (C.face) s.face = C.face; if (!st.heroes) s.fem = !!C.fem;
+    // Second reading (tag second): the endings this reader has already reached in this story, known from the start.
+    if (!C.multi && A.profile) { var known = recordOf(A.profile, st.id).endings || {}; if (Object.keys(known).length) { s.second = {}; Object.keys(known).forEach(function (k) { s.second[k] = 1; }); } }
     s.events = [];
     (st.past || []).forEach(function (q, qi) { M.apply(st, s, q.answers[C.past[qi]].fx); });
     var pastEvents = s.events.slice();
@@ -1505,6 +1509,7 @@
   // Intent: once per new version, a short note of what changed (NEWS, newest first), only the versions the reader has
   // not seen on this device. Why: Clément, 13/11 (piste 33).
   var NEWS = [
+    { v: "7.8", items: ["Nouvelle histoire : « La Veillée des Aubiers », une soirée d'une demi-heure, à finir avant le coucher, et à relire.", "Une page peut s'ouvrir autrement selon le chemin par lequel on y arrive.", "Seconde lecture : une fois une fin trouvée, une histoire peut montrer en la relisant des passages nouveaux, marqués d'un ✧ dans la marge.", "Les boutons s'accordent au masculin ou au féminin, comme le texte."] },
     { v: "7.7", items: ["Habillage Enluminure : hors de la page du livre (bibliothèque, création du héros…), le texte était brun sur le bois brun ; il a désormais sa feuille de papier."] },
     { v: "7.6", items: ["Sur le site, la bibliothèque s'ouvre bien plus vite : chaque livre se charge après, en arrière-plan. Pour jouer depuis un fichier sans réseau, il y a livre-jeu-complet.html.", "Le temps de lecture est calculé une fois, puis gardé sur l'appareil.", "Sur téléphone, la barre du haut et les onglets de l'éditeur ne débordent plus.", "Coulisses : à chaque proposition de changement, les écrans principaux sont photographiés avant et après, et comparés."] },
     { v: "7.5", items: ["Éditeur : le graphe de l'histoire, où l'on relie deux passages en tirant un fil.", "Lire sans jouer : parcourir toute une histoire passage par passage, avec des remarques de relecture.", "Relecture de style : phrases trop longues, répétitions, espaces avant la ponctuation.", "Les choix les plus suivis par la famille, dans l'éditeur.", "Gabarits : enquête, voyage, huis clos, siège.", "Un générateur de noms à la manière de chaque histoire.", "Catalogue partagé (sur le site) : ajouter les histoires d'autres familles, ou proposer la sienne, avec âge conseillé et avertissements."] },
@@ -1912,7 +1917,8 @@
     var folded = v.reread && A.unfold !== s.node + "#" + s.turn;
     if (folded) prose.appendChild(h("p", { class: "reread" }, h("span", { class: "muted" }, "Tu connais déjà cette page. "),
       h("button", { class: "btn ghost sm", onclick: function () { A.unfold = s.node + "#" + s.turn; render(); } }, "Relire")));
-    else { var glUsed = {}; v.text.forEach(function (t) { var ht = Glossary.mark(st, md(t), glUsed); prose.appendChild(h("p", { html: pref("syllables") ? Syllables.mark(ht) : ht })); }); }
+    // A paragraph of the second reading (tag second) carries a light mark in the margin.
+    else { var glUsed = {}; v.text.forEach(function (t, ti) { var ht = Glossary.mark(st, md(t), glUsed); prose.appendChild(h("p", { class: (v.second || []).indexOf(ti) >= 0 ? "second" : null, html: pref("syllables") ? Syllables.mark(ht) : ht })); }); }
     // What led to this page (the rolls, their outcome, the blows) comes before the text; what follows from it (clues,
     // items, quests, feats) after (Clément, 11/11 then 13/11).
     var evs = s.events || [], evEl = function (list, cls) { return list.length ? h("div", { class: "events " + cls, role: "status" }, list.map(function (e) { var el = h("div", { class: "ev " + (e.cls || "") }, rollBadge(e)); el.insertAdjacentHTML("beforeend", md(e.text)); return el; })) : null; };
@@ -5318,6 +5324,8 @@
     if (o.before) out.push("avant " + [].concat(o.before).join(", "));
     if (o.first) out.push("première visite"); if (o.again) out.push("visites suivantes"); if (o.once) out.push("une fois");
     if (o.outcome) out.push({ win: "si réussi", lose: "si raté", flee: "si fuite", calm: "si apaisé" }[o.outcome] || o.outcome);
+    if (o.via) out.push("en arrivant par " + [].concat(o.via).join(" ou "));
+    if (o.second != null && o.second !== false) out.push(o.second === true ? "seconde lecture" : "seconde lecture, après " + [].concat(o.second).join(" ou "));
     if (o.if) out.push("si " + condText(o.if));
     return out;
   }
@@ -5698,7 +5706,8 @@
         fld("Quand", sel([["day", "jour"], ["night", "nuit"]], o.when, set("when"), "toujours")),
         fld("Après", listInput(o.after, set("after"), "", "ed-flags")), fld("Avant", listInput(o.before, set("before"), "", "ed-flags")),
         fld("Issue", sel([["win", "jet réussi / victoire"], ["lose", "jet raté / défaite"], ["flee", "fuite"], ["calm", "apaisement"]], o.outcome, set("outcome"), "toutes"))));
-      box.appendChild(h("div", { class: "row small" }, chk(o, "first", "première visite"), chk(o, "again", "visites suivantes"), chk(o, "once", "une seule fois"),
+      box.appendChild(h("div", { class: "ed-row small" }, fld("Arrivée (via)", listInput(o.via, set("via"), "via d'un choix ou passage quitté", "ed-flags"))));
+      box.appendChild(h("div", { class: "row small" }, chk(o, "first", "première visite"), chk(o, "again", "visites suivantes"), chk(o, "once", "une seule fois"), chk(o, "second", "seconde lecture"),
         h("span", { class: "grow" }),
         h("button", { class: "btn sm ghost", disabled: i === 0, onclick: function () { var x = p.text.splice(i, 1)[0]; p.text.splice(i - 1, 0, x); edDirty(); render(); } }, "↑"),
         h("button", { class: "btn sm ghost", disabled: i === p.text.length - 1, onclick: function () { var x = p.text.splice(i, 1)[0]; p.text.splice(i + 1, 0, x); edDirty(); render(); } }, "↓"),
@@ -5722,7 +5731,8 @@
         fld("Sorte", sel([["to", "aller à"], ["back", "revenir à"], ["test", "jet de dés"]], kind, function (v) {
           delete c.to; delete c.back; delete c.test; delete c.win; delete c.lose;
           if (v === "back") c.back = true; else if (v === "test") { c.test = { dom: "social", diff: 0 }; c.win = { to: id }; c.lose = { to: id }; } else c.to = id;
-          edDirty(); render(); }))));
+          edDirty(); render(); })),
+        fld("Arrivée (via)", h("input", { value: c.via || "", placeholder: "ex. fuite", oninput: function (e) { setKey(c, "via", e.target.value.trim() || null); edDirty(); } }))));
       if (kind === "to") box.appendChild(fld("Mène à", passageInput(typeof c.to === "string" ? c.to : "", function (v) { c.to = v; })));
       if (kind === "back") box.appendChild(fld("Revenir à (vide : le dernier carrefour)", passageInput(c.back === true ? "" : c.back, function (v) { c.back = v || true; })));
       if (kind === "test") {

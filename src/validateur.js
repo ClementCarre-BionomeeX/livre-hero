@@ -8,7 +8,7 @@
 
   var COND_KEYS = ["is", "count", "has", "not", "all", "any", "clues", "clue", "mark", "present", "loyal", "met", "gone", "conf", "fear", "relics", "relic",
     "given", "item", "gold", "food", "pv", "clock", "fac", "level", "day", "since", "night", "seen", "arch", "quest", "place", "known", "person", "party",
-    "lead", "away", "team", "souv", "souvenirs", "heroLevel"];
+    "lead", "away", "team", "souv", "souvenirs", "heroLevel", "second", "via"];
   var FX_KEYS = ["regard", "resume", "set", "flag", "flags", "unflag", "clue", "mark", "ep", "catchup", "catchupWhy", "join", "met", "leave", "conf", "fear", "fac", "relic",
     "give", "relicLose", "item", "drop", "gold", "food", "pv", "rest", "time", "until", "stamp", "reveal", "meet", "clock", "quest", "questSeen", "note", "noteCls",
     "assign", "team", "regroup", "away", "lead", "leadQuiet", "souv", "souvBack", "catchupAll", "awayUnless"];
@@ -200,6 +200,13 @@
       }
       return false;
     }
+    // The via tags the choices carry (on the choice, or on a roll's or a fight's branch), and the endings' ids.
+    var viaTags = {}, endIds = {};
+    Object.keys(P).forEach(function (id) {
+      (P[id].choices || []).forEach(function (c) { [c, c.win, c.lose, c.fight && c.fight.win, c.fight && c.fight.lose, c.fight && c.fight.flee, c.fight && c.fight.calm].forEach(function (b) { if (b && b.via) viaTags[b.via] = 1; }); });
+      if (P[id].combat) ["win", "lose", "flee", "calm"].forEach(function (o) { var b = P[id].combat[o]; if (b && b.via) viaTags[b.via] = 1; });
+    });
+    M.endingsOf(story).forEach(function (e) { endIds[e.id] = 1; });
     Object.keys(P).forEach(function (id) {
       var p = P[id], where = "§ " + id;
       if (p.act && !acts[p.act]) E(where + " : acte « " + p.act + " » inconnu.");
@@ -234,7 +241,10 @@
         [].concat(t.with || [], t.without || []).forEach(function (k) { if (k !== "any" && !story.companions[k]) E(where + " : tag with/without, compagnon « " + k + " » inconnu."); });
         if (t.when != null && t.when !== "day" && t.when !== "night") E(where + " : tag when, « " + t.when + " » (attendu : day ou night).");
         if (t.first && t.again) E(where + " : tags first et again ensemble, jamais affiché.");
-        if (t.takes != null && !(typeof t.takes === "number" && t.takes > 0) && ["evening", "night", "morning", "noon", "day"].indexOf(t.takes) < 0) E(where + " : tag takes, « " + t.takes + " » (attendu : evening, night, morning, noon, day ou un nombre d'heures).");
+        if (t.takes != null && !(typeof t.takes === "number" && t.takes > 0) && ["evening", "night", "midnight", "morning", "noon", "day"].indexOf(t.takes) < 0) E(where + " : tag takes, « " + t.takes + " » (attendu : evening, night, midnight, morning, noon, day ou un nombre d'heures).");
+        // via: the tag of a choice that leads somewhere, or the passage one comes from; anything else never shows.
+        [].concat(t.via || []).forEach(function (k) { if (!viaTags[k] && !P[k]) E(where + " : tag via, « " + k + " » n'est le via d'aucun choix ni le nom d'un passage."); });
+        if (t.second != null && t.second !== true && t.second !== false) [].concat(t.second).forEach(function (k) { if (!endIds[k] && !endIds["fin:" + k]) E(where + " : tag second, « " + k + " » n'est pas une fin de l'histoire."); });
         [].concat(t.outcome || []).forEach(function (o) { if (["win", "lose", "flee", "calm"].indexOf(o) < 0) E(where + " : tag outcome, « " + o + " » inconnu."); });
       });
       eachCond(p, function (c) { checkCond(c, where); });
@@ -335,12 +345,14 @@
     var P = story.passages, ids = Object.keys(P);
     var seen = {}, endings = {}, errs = {}, dead = {}, loops = {}, guards = {}, questDone = {}, taken = {}, allowedCount = {}, levelAtEnd = {};
     var archs = Object.keys(M.ARCHS), modes = ["uniform", "curious", "explore", "win", "lose", "explore"];
-    function play(mode, seed, toutJouer) {
+    function play(mode, seed, toutJouer, second) {
       var rnd = seededRng(seed), s = null, fixed = mode === "win" ? 0.94 : mode === "lose" ? 0.02 : null;
       // Fixed dice only on tests: a fight always uses real dice, or two sides that always miss would never end.
       M.setRng(fixed == null ? rnd : function () { return s && s.node === "@combat" ? rnd() : fixed; });
       s = M.freshState(story, { toutJouer: toutJouer });
       s.arch = archs[Math.floor(rnd() * archs.length)]; s.name = "Test";
+      // Two games in five are a second reading: the reader has reached every ending before (tag second).
+      if (second) { s.second = {}; M.endingsOf(story).forEach(function (e) { s.second[e.id] = 1; }); }
       (story.past || []).forEach(function (q) { var a = q.answers[Math.floor(rnd() * q.answers.length)]; try { M.apply(story, s, a.fx); } catch (e) { errs["Ton passé : " + e.message] = 1; } });
       try { M.start(story, s); } catch (e) { errs["départ : " + e.message] = 1; return; }
       for (var step = 0; step < maxSteps; step++) {
@@ -387,13 +399,13 @@
     var n = 0;
     for (var i = 1; i <= games; i++) {
       var mode = modes[i % modes.length];
-      play(mode, i * 7919, i % 2 === 0);
+      play(mode, i * 7919, i % 2 === 0, i % 5 < 2);
       n++;
     }
     M.setRng(null);
     var unreached = ids.filter(function (id) { return !seen[id]; });
     var neverTaken = [];
-    ids.forEach(function (id) { var p = P[id]; (p.choices || []).forEach(function (c) { if (c.restart) return; var k = id + " | " + c.label; if (!taken[k]) neverTaken.push("§ " + id + " : « " + String(c.label).slice(0, 60) + " »" + (allowedCount[k] ? " (possible, jamais pris)" : " (jamais possible)")); }); });
+    ids.forEach(function (id) { var p = P[id]; (p.choices || []).forEach(function (c) { if (c.restart) return; var k = id + " | " + String(c.label).replace(/\{e\}/g, ""); if (!taken[k]) neverTaken.push("§ " + id + " : « " + String(c.label).slice(0, 60) + " »" + (allowedCount[k] ? " (possible, jamais pris)" : " (jamais possible)")); }); });
     return {
       games: n, passages: ids.length, guards: Object.keys(guards), errors: Object.keys(errs), deadEnds: dead, loops: loops, unreached: unreached, endings: endings,
       neverTaken: neverTaken, questDone: questDone, levelAtEnd: levelAtEnd,

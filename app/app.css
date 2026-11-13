@@ -111,6 +111,10 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .ev.roll { font-family: var(--mono); font-size: 12.5px; }
 .prose { font: var(--read-size, 18px)/var(--read-lh, 1.72) var(--read-font, var(--serif)); margin-top: 16px; hyphens: auto; }
 .prose p { margin: 0 0 1em; }
+/* Second reading (tag second): a paragraph the reader could not read the first time, marked lightly in the margin. */
+.prose p.second { position: relative; }
+.prose p.second::after { content: "✧"; position: absolute; left: -1.1em; top: .1em; font-size: .8em; color: var(--accent); opacity: .55; }
+@media (max-width: 520px) { .prose p.second::after { left: -.85em; } }
 .prose p:first-child::first-letter { font-family: var(--title); font-size: 3.1em; float: left; line-height: .82; padding: 6px 8px 0 0; color: var(--accent); }
 .choices { display: grid; gap: 8px; margin-top: 18px; }
 .group-label { margin-top: 12px; }

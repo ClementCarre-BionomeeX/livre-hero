@@ -124,7 +124,7 @@
     return {
       story: story.id, node: null, name: "", arch: "", ep: EP_PER_LEVEL * lv, mark: 0, flags: {}, clues: {}, conf: {}, fear: {},
       fac: {}, met: {}, relics: [], given: [], items: ((w.start && w.start.items) || []).slice(), gold: (w.start && w.start.gold) || 0, food: (w.start && w.start.food) || 0,
-      pv: null, fatigue: 0, time: START_HOUR, place: (w.start && w.start.place) || null, known: {}, people: {}, travel: null, combat: null,
+      pv: null, fatigue: 0, time: (w.start && w.start.hour != null) ? +w.start.hour : START_HOUR, place: (w.start && w.start.place) || null, known: {}, people: {}, travel: null, combat: null,
       clock: {}, seen: {}, ret: null, events: [], toutJouer: opts.toutJouer !== false, turn: 0, routesDone: {},
       difficulty: DIFFICULTY[opts.difficulty] ? opts.difficulty : "aventurier", stats: {}, feats: {}, beasts: {}, ironman: !!opts.ironman, regard: {},
     };
@@ -241,6 +241,8 @@
     if ("quest" in c) return !!s.flags["quete:" + c.quest];
     // is: { key: value | [values] | null } reads a state set by fx.set (null: no value yet).
     if ("is" in c) return Object.keys(c.is).every(function (k) { var v = stateOf(s, k); return c.is[k] === null ? v == null : [].concat(c.is[k]).indexOf(v) >= 0; });
+    if ("second" in c) return secondOk(s, c.second);
+    if ("via" in c) return [].concat(c.via).some(function (k) { return k === s.via || k === s.from; });
     if ("place" in c) return s.place === c.place;
     if ("known" in c) return !!s.known[c.known];
     if ("person" in c) return !!s.people[c.person];
@@ -260,6 +262,8 @@
     morning: { at: 7, skip: function (h) { return h >= 6 && h < 10; }, say: "La nuit passe. Le jour se lève.", ahead: "jusqu'au matin", end: true },
     day: { at: 7, skip: function (h) { return h >= NIGHT_TO && h < NIGHT_FROM; }, say: "La nuit passe. Le jour se lève.", ahead: "jusqu'au jour" },
     noon: { at: 12, skip: function (h) { return h >= 12 && h < 19; }, say: "La matinée passe.", ahead: "jusqu'à midi" },
+    // midnight: an evening that ends on the stroke of twelve (« Une soirée », 13/11).
+    midnight: { at: 0, skip: function (h) { return h < NIGHT_TO; }, say: "Minuit sonne.", ahead: "jusqu'à minuit" },
   };
   var NUMBERS = ["", "une", "deux", "trois", "quatre", "cinq", "six", "sept", "huit", "neuf", "dix", "onze", "douze"];
   // Intent: takes(State, Tag) -> {hours, say, ahead} | null = how far the clock moves for a scene, and what is told
@@ -349,13 +353,26 @@
     if (t.when === "day" && isNight(s)) return false;
     if (t.after != null && ![].concat(t.after).every(function (f) { return happened(s, f); })) return false;
     if (t.before != null && [].concat(t.before).some(function (f) { return happened(s, f); })) return false;
+    // via: how the reader came into this page, the tag of the choice taken (`via` on a choice or on a roll's branch)
+    // or the passage just left (Clément, 13/11, « Une soirée » : a scene opens otherwise after a flight, a quarrel…).
+    if (t.via != null && ![].concat(t.via).some(function (k) { return k === s.via || k === s.from; })) return false;
+    // second: the second reading. The reader has already reached an ending of this story in an earlier game
+    // (true), or this ending (its id, with or without "fin:"). The app gives it at the start of a game (s.second).
+    if (t.second != null && !secondOk(s, t.second)) return false;
     if (t.first && s.seen[node] > 1) return false;
     if (t.again && !(s.seen[node] > 1)) return false;
     return true;
   }
-  var SCENE_TAGS = ["with", "without", "when", "after", "before"];
+  function secondOk(s, k) {
+    var known = s.second || {};
+    if (k === true) return Object.keys(known).length > 0;
+    if (k === false) return !Object.keys(known).length;
+    return [].concat(k).some(function (e) { return !!(known[e] || known["fin:" + e]); });
+  }
+  var SCENE_TAGS = ["with", "without", "when", "after", "before", "second"];
   function sceneOk(story, s, p) { return !SCENE_TAGS.some(function (k) { return p[k] != null; }) || tagsOk(story, s, p, null); }
-  function textList(story, s, list, node) {
+  // marks (optional): receives the place in the returned list of each paragraph shown for a second reading.
+  function textList(story, s, list, node, marks) {
     var out = [];
     node = node || s.node;
     (list || []).forEach(function (t, i) {
@@ -373,7 +390,7 @@
           s.once = s.once || {}; var key = node + "#" + i, visit = s.seen[node] || 1;
           if (s.once[key] == null) s.once[key] = visit; else if (s.once[key] !== visit) return;
         }
-        if (ok && t.text != null) out.push(interp(s, t.text));
+        if (ok && t.text != null) { out.push(interp(s, t.text)); if (marks && t.second != null && t.second !== false) marks.push(out.length - 1); }
         else if (!ok && t.else != null) out.push(interp(s, t.else));
       }
     });
@@ -1152,6 +1169,7 @@
     var c = s.combat; s.combat = null;
     var br = outcome === "win" ? c.win : outcome === "flee" ? c.flee : outcome === "talk" ? c.talk.win : outcome === "calm" ? c.calm : c.lose;
     s.last = outcome === "talk" ? "calm" : outcome;
+    if (br && br.via) s.via = br.via;
     if (outcome === "lose") { s.pv = 1; ev(s, "Tu t'effondres. Ce n'est pas la fin.", "bad"); }
     if (outcome === "win") { ev(s, "Victoire.", "good"); stat(s, "wins"); }
     if (outcome === "flee") stat(s, "flees");
@@ -1412,8 +1430,9 @@
     return (p.choices || []).filter(function (c) {
       if (hiddenChoice(story, s, c) || (c.who && !present(s, c.who))) return false;
       if (c.back === true && (!s.hubLast || s.hubLast === here)) return false;
-      if (!tagsOk(story, s, c, here)) return false;
-      if (c.once && here && (s.once || {})["c|" + here + "|" + c.label]) return false;
+      // On a choice, `via` is what the choice gives to the page it leads to, not a condition: it is read there.
+      if (!tagsOk(story, s, c.via != null ? Object.assign({}, c, { via: null }) : c, here)) return false;
+      if (c.once && here && (s.once || {})["c|" + here + "|" + interp(s, c.label)]) return false;
       // A scene is only offered when its cast and its hour are there (the tags of the passages it leads to).
       var ts = [];
       (function add(to) { if (Array.isArray(to)) to.forEach(function (x) { add(x.to); }); else if (to != null) ts.push(to); })([{ to: c.to }, { to: c.win && c.win.to }, { to: c.lose && c.lose.to }]);
@@ -1461,9 +1480,12 @@
       }
       if (!cs.length) { var back = backChoice(story, s, p); if (back) cs = [back]; }
       cs = cs.concat(shopChoices(story, s, p), tavernChoices(story, s, p), travelChoices(story, s, p), leadChoices(story, s, p));
-      v = { title: interp(s, p.title || ""), kind: p.end ? "end" : "passage", text: textList(story, s, p.text), choices: cs, passage: p };
+      var sec = [];
+      v = { title: interp(s, p.title || ""), kind: p.end ? "end" : "passage", text: textList(story, s, p.text, null, sec), choices: cs, passage: p };
       // A scene that spends the night tells it at its end; one that waits for the evening, at its start.
-      if (s.took && s.took.node === s.node && s.took.turn === s.turn) v.text[s.took.end ? "push" : "unshift"]("*(" + s.took.say + ")*");
+      if (s.took && s.took.node === s.node && s.took.turn === s.turn) { v.text[s.took.end ? "push" : "unshift"]("*(" + s.took.say + ")*"); if (!s.took.end) sec = sec.map(function (i) { return i + 1; }); }
+      // The paragraphs of a second reading: the page may mark them, lightly.
+      if (sec.length) v.second = sec;
       // Back on a page already read whose author wrote no return text (first / again / once): the page folds, the
       // reader goes straight to the choices and may unfold it (Clément's rule, 12/11: no long text replayed).
       else if ((s.seen[s.node] || 0) > 1 && !p.end && !(p.text || []).some(function (x) { return x && typeof x === "object" && (x.first || x.again || x.once); })) v.reread = true;
@@ -1481,6 +1503,8 @@
         c = Object.assign({}, c, { label: lt ? cap(interp(s, String(lt.backName || lt.title || "Continuer").replace(/\*/g, ""))) : "Continuer" });
         guard(s, "un choix sans texte de bouton");
       }
+      // Guarantee: a button agrees with the hero too ({e}, {hero}), like the text.
+      if (/\{[a-z]+\}/.test(c.label)) c = Object.assign({}, c, { label: interp(s, c.label) });
       var a = allowed(story, s, p, c); return Object.assign({}, c, { ok: a.ok, why: a.why, goes: backGoes(story, s, c) || goesTo(story, s, p, c), note: c.refuse ? "refus définitif" : aheadOf(story, s, c) || c.note, chance: c.test ? chance(story, s, c.test, c.who) : null }); });
     if (p) {
       // Guarantee: no twin buttons. Of several choices with the same words, the one that can be taken stays.
@@ -1587,6 +1611,8 @@
     if (id === "@route") { if (!s.travel) throw new Error("@route hors d'un voyage (depuis " + s.node + ")"); advanceTravel(story, s); return; }
     if (!story.passages[id]) throw new Error("passage inconnu " + id + " (depuis " + s.node + ")");
     if (story.passages[id].hub) { var b = dueBanter(story, s, story.passages[id].act); if (b) { s.ret = id; id = b; } }
+    // The passage left (a fight or a road in between does not count): read by the tag `via`.
+    if (s.node && s.node.charAt(0) !== "@" && s.node !== id) s.from = s.node;
     s.node = id;
     var p = story.passages[id];
     if (!sceneOk(story, s, p)) guard(s, "scène jouée alors que ses tags (with, without, when, after, before) ne sont pas remplis");
@@ -1678,13 +1704,14 @@
     if (c.back === true) c = Object.assign({}, c, { to: s.hubLast });
     if (c.once && s.node) { s.once = s.once || {}; s.once["c|" + s.node + "|" + c.label] = 1; }
     if (c.refuse) { var rq = questOfRefusal(story, s, c); if (rq) { s.flags["quete-refus:" + rq.id] = true; ev(s, "Quête refusée : " + rq.title + ". Tu n'y reviendras pas.", "quest"); } else guard(s, "refuse : aucune quête ouverte ici"); }
-    s.last = null;
+    s.last = null; s.via = c.via || null;
     if (c.test) {
       var roll = rollTest(story, s, c.test, c.who);
-      ev(s, (c.who ? nameOf(story, c.who) + " : " : "") + "jet de " + (c.test.label || DOMAINS[c.test.dom]) + " · " + roll.line + " → " + (roll.ok ? "réussite" : "raté"), (roll.ok ? "good" : "bad") + " roll", { roll: roll });
+      ev(s, (c.who ? nameOf(story, c.who) + " : " : "") + "jet de " + interp(s, c.test.label || DOMAINS[c.test.dom]) + " · " + roll.line + " → " + (roll.ok ? "réussite" : "raté"), (roll.ok ? "good" : "bad") + " roll", { roll: roll });
       apply(story, s, c.fx);
       var br = roll.ok ? c.win : c.lose;
       s.last = roll.ok ? "win" : "lose";
+      if (br.via) s.via = br.via;
       apply(story, s, br.fx);
       go(story, s, br.to);
     } else {
