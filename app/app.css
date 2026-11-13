@@ -623,3 +623,8 @@ ul.vote-res { list-style: none; padding: 0; margin: 0 0 12px; display: grid; gap
 .rv-list li { border-bottom: 1px solid var(--line); padding-bottom: .4rem; }
 .pick-heat { font-size: .8rem; padding: 2px 8px; border-radius: 6px; margin-bottom: 4px; background: linear-gradient(90deg, color-mix(in srgb, var(--accent) 30%, transparent) var(--share), transparent var(--share)); }
 .names { flex-wrap: wrap; gap: 6px; }
+
+/* ---- 7.6: seen by the visual checks: on a phone, a long title in the top bar takes one line, cut, not three */
+.top .brand.grow { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+@media (max-width: 560px) { .top .brand { font-size: 18px; } .tabs { overflow-x: auto; flex-wrap: nowrap; scrollbar-width: thin; } .tabs .tab { flex: none; } }
+@media (max-width: 560px) { .top .brand.grow { flex-basis: calc(100% - 150px); } }

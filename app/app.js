@@ -138,23 +138,34 @@
     screen: "home", profiles: [], profile: null, builtins: {}, imported: [], games: [], notice: "", importReport: null,
     create: null, game: null, carnet: null, carnetTab: "heros", confirmDel: null, tts: null, speaking: false, downloads: null, busy: true,
     modal: null, recap: false, rollAnim: false, open: {}, essai: null, ed: null, recit: null,
+    builtinMeta: {}, builtinsReady: null, builtinsErr: false,
   };
+  var BUILTINS_MISSING = "Les livres n'ont pas pu être chargés. Sans réseau, depuis un fichier sur l'appareil, ouvre plutôt livre-jeu-complet.html.";
   var app = document.getElementById("app");
 
+  // Intent: loadBuiltins() -> () ! the stories that come with the game: inside the page (claude.ai, the complete
+  // file), or, on the site, beside it in histoires/<id>.json, fetched after the library shows (from the cache offline).
+  // Why: Clément, 13/11 (piste 35): start faster on an old phone. The library needs only each book's card
+  // (histoires-resume); a book's whole text is read when it is there, and a game waits for it.
   function loadBuiltins() {
-    var el = document.getElementById("histoires-fournies");
-    var list = el ? JSON.parse(el.textContent) : [];
-    list.forEach(function (st) { A.builtins[st.id] = st; });
+    var el = document.getElementById("histoires-fournies"), res = document.getElementById("histoires-resume");
+    if (el) { JSON.parse(el.textContent).forEach(function (st) { A.builtins[st.id] = st; A.builtinMeta[st.id] = storyMeta(st); }); A.builtinsReady = Promise.resolve(); return; }
+    var list = res ? JSON.parse(res.textContent) : [];
+    list.forEach(function (m) { A.builtinMeta[m.id] = m; });
+    A.builtinsReady = Promise.all(list.map(function (m) {
+      return fetch(m.file).then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); }).then(function (st) { A.builtins[st.id] = st; });
+    })).then(function () { render(); }, function () { A.builtinsErr = true; render(); });
   }
   function storyMeta(st) { return { id: st.id, title: st.title, subtitle: st.subtitle || "", summary: st.summary || "", version: st.version || 1, acts: (st.acts || []).length, passages: Object.keys(st.passages || {}).length, multi: st.multi || null, kid: st.kid || null, adult: st.adult || null, cover: st.cover || null, age: st.age || null, author: st.author || null }; }
   function allStories() {
-    var out = Object.keys(A.builtins).map(function (k) { var m = storyMeta(A.builtins[k]); m.builtin = true; return m; });
-    A.imported.forEach(function (m) { if (!A.builtins[m.id]) out.push(m); });
+    var out = Object.keys(A.builtinMeta).map(function (k) { var m = clone(A.builtinMeta[k]); m.builtin = true; return m; });
+    A.imported.forEach(function (m) { if (!A.builtinMeta[m.id]) out.push(m); });
     return out;
   }
   // Intent: load(StoryId) -> Story ! reads(Store)
   function loadStory(id) {
     if (A.builtins[id]) return Promise.resolve(A.builtins[id]);
+    if (A.builtinMeta[id]) return A.builtinsReady.then(function () { if (!A.builtins[id]) throw new Error(BUILTINS_MISSING); return A.builtins[id]; });
     return Store.get("scenarios", id).then(function (meta) {
       if (!meta) throw new Error("Histoire introuvable : " + id);
       var parts = [];
@@ -322,6 +333,7 @@
     var file = h("input", { type: "file", accept: ".json,application/json", "aria-label": "Fichier d'histoire", onchange: function (e) { importStory(e.target.files[0]); e.target.value = ""; } });
     lib.appendChild(h("div", { class: "row" }, h("span", { class: "label" }, "Importer une histoire (.json)"), file));
     if (A.importReport) lib.appendChild(h("pre", { class: "report" }, A.importReport));
+    if (A.builtinsErr) lib.appendChild(h("div", { class: "notice bad" }, BUILTINS_MISSING));
     w.appendChild(lib);
     if (catalogueOn()) w.appendChild(renderCatalogue());
 
@@ -1397,7 +1409,14 @@
     return (st._actWords[actId] = Math.round(steps * avg));
   }
   function actMinutes(st, actId) { var w = actWords(st, actId); return w ? Math.max(ROUND_MIN, Math.round(w / readerWpm(A.profile) / ROUND_MIN) * ROUND_MIN) : 0; }
-  function storyMinutes(st) { var w = (st.acts || []).reduce(function (n, a) { return n + actWords(st, a.id); }, 0); return Math.max(ROUND_MIN, Math.round(w / readerWpm(A.profile) / ROUND_MIN) * ROUND_MIN); }
+  // the word count of a whole game, kept on the device per version of the story: counting walks every act (slow on an old phone)
+  function storyWords(st) {
+    if (st._words != null) return st._words;
+    var key = "mots:" + st.id, k2 = (st.version || 1) + ":" + Object.keys(st.passages || {}).length, got = lsGet(key), w = got && got.k === k2 ? got.w : null;
+    if (typeof w !== "number") { w = (st.acts || []).reduce(function (n, a) { return n + actWords(st, a.id); }, 0); lsSet(key, { k: k2, w: w }); }
+    return (st._words = w);
+  }
+  function storyMinutes(st) { var w = storyWords(st); return Math.max(ROUND_MIN, Math.round(w / readerWpm(A.profile) / ROUND_MIN) * ROUND_MIN); }
   function minutesLabel(m) { return m < 60 ? m + " min" : Math.floor(m / 60) + " h" + (m % 60 ? " " + String(m % 60).padStart(2, "0") : ""); }
 
   // Intent: swipe on the page: left follows the page when only one way is open, right undoes. Off by default.
@@ -1478,6 +1497,7 @@
   // Intent: once per new version, a short note of what changed (NEWS, newest first), only the versions the reader has
   // not seen on this device. Why: Clément, 13/11 (piste 33).
   var NEWS = [
+    { v: "7.6", items: ["Sur le site, la bibliothèque s'ouvre bien plus vite : chaque livre se charge après, en arrière-plan. Pour jouer depuis un fichier sans réseau, il y a livre-jeu-complet.html.", "Le temps de lecture est calculé une fois, puis gardé sur l'appareil.", "Sur téléphone, la barre du haut et les onglets de l'éditeur ne débordent plus.", "Coulisses : à chaque proposition de changement, les écrans principaux sont photographiés avant et après, et comparés."] },
     { v: "7.5", items: ["Éditeur : le graphe de l'histoire, où l'on relie deux passages en tirant un fil.", "Lire sans jouer : parcourir toute une histoire passage par passage, avec des remarques de relecture.", "Relecture de style : phrases trop longues, répétitions, espaces avant la ponctuation.", "Les choix les plus suivis par la famille, dans l'éditeur.", "Gabarits : enquête, voyage, huis clos, siège.", "Un générateur de noms à la manière de chaque histoire.", "Catalogue partagé (sur le site) : ajouter les histoires d'autres familles, ou proposer la sienne, avec âge conseillé et avertissements."] },
     { v: "7.4", items: ["Chaque livre a sa couverture.", "Une gravure ouvre chaque acte.", "Dés en relief : deux dés à dix faces roulent à l'écran (réglable).", "Plan de la ville dans la carte du carnet, avec les lieux déjà visités.", "Petites animations : étoiles, nuages, feu de camp.", "Chaque lieu a son petit air de musique, dans la tonalité de sa région.", "À la lecture à voix haute, un personnage nommé garde sa propre voix."] },
     { v: "7.3", items: ["Salle commune sur le site : chacun sur son appareil (tablette, téléphone), grâce au dossier de sauvegarde partagé ☁.", "Lire à plusieurs sur un même appareil : chacun son rôle (l'un lit, l'autre choisit) ou vote secret (bouton 👥).", "Suivre en direct la partie d'un autre lecteur (« En ce moment », dans la bibliothèque).", "Défis de la famille, et l'album des fins et des hauts faits trouvés par chacun."] },
@@ -5289,8 +5309,19 @@
     if (o.before) out.push("avant " + [].concat(o.before).join(", "));
     if (o.first) out.push("première visite"); if (o.again) out.push("visites suivantes"); if (o.once) out.push("une fois");
     if (o.outcome) out.push({ win: "si réussi", lose: "si raté", flee: "si fuite", calm: "si apaisé" }[o.outcome] || o.outcome);
-    if (o.if) out.push("si " + JSON.stringify(o.if).replace(/[{}"]/g, "").replace(/:/g, " ").slice(0, 80));
+    if (o.if) out.push("si " + condText(o.if));
     return out;
+  }
+  // a condition said in words, short: « passe:lettre », pas (…), (a ou b)
+  function condText(c) {
+    if (c == null) return "";
+    if (typeof c === "string") return "« " + c + " »";
+    if (Array.isArray(c)) return c.map(condText).join(" et ");
+    if ("has" in c) return "« " + c.has + " »";
+    if ("not" in c) return "pas " + condText(c.not);
+    if ("all" in c) return c.all.map(condText).join(" et ");
+    if ("any" in c) return "(" + c.any.map(condText).join(" ou ") + ")";
+    return Object.keys(c).map(function (k) { var v = c[k]; return k + " " + (typeof v === "object" ? JSON.stringify(v).replace(/[{}"]/g, "") : v); }).join(", ");
   }
   function edRead(w) {
     var E = A.ed, st = E.story, P = st.passages, order = E.rorder || (E.rorder = readingOrder(st));

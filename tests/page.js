@@ -24,6 +24,12 @@ function buildOf(storiesJson) {
   var version = fs.existsSync(path.join(ROOT, "VERSION")) ? read("VERSION").trim() : "";
   return { version: version, id: hsh.digest("hex").slice(0, 7), date: date };
 }
+// The library card of a story (same fields as storyMeta in app/app.js), and where its whole text is (site only).
+function cardOf(json) {
+  var st = JSON.parse(json);
+  return { id: st.id, title: st.title, subtitle: st.subtitle || "", summary: st.summary || "", version: st.version || 1, acts: (st.acts || []).length, passages: Object.keys(st.passages || {}).length,
+    multi: st.multi || null, kid: st.kid || null, adult: st.adult || null, cover: st.cover || null, age: st.age || null, author: st.author || null, file: "histoires/" + st.id + ".json" };
+}
 function safe(js) { return js.replace(/<\/script/gi, "<\\/script"); }
 // opts.fonts: the HTML that brings the fonts (Google Fonts links by default); opts.head: lines placed before it.
 function assemble(storiesJson, opts) {
@@ -36,7 +42,8 @@ function assemble(storiesJson, opts) {
     "<style>" + grimoireCss() + "</style>",
     "<style>" + read("app/app.css") + "</style>",
     '<div id="app"></div>',
-    '<script type="application/json" id="histoires-fournies">[' + storiesJson.map(safe).join(",") + "]</script>",
+    opts.external ? '<script type="application/json" id="histoires-resume">' + safe(JSON.stringify(storiesJson.map(cardOf))) + "</script>"
+      : '<script type="application/json" id="histoires-fournies">[' + storiesJson.map(safe).join(",") + "]</script>",
     "<script>window.LIVRE_BUILD = " + JSON.stringify(opts.build || buildOf(storiesJson)) + ";</script>",
     "<script>" + safe(read("src/moteur.js")) + "</script>",
     "<script>" + safe(read("src/multi.js")) + "</script>",
