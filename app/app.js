@@ -2,7 +2,7 @@
 // Livre-jeu page: the library of stories, player profiles, saved games, character creation, the reading screen and
 // the notebook (carnet). Rules live in Moteur (src/moteur.js); this file only shows the state and saves it.
 (function () {
-  var M = window.Moteur, V = window.Validateur;
+  var M = window.Moteur, V = window.Validateur, R = window.Relecture;
   var UNDO_MAX = 25;                       // states kept for "Choix précédent" (each a few KB; a save stays far under 256 KiB)
   var LOG_MAX = 250;                       // journal entries kept in a save
   var PART_CHARS = 180000;                 // an imported story is cut in parts under the 256 KiB document limit
@@ -138,23 +138,34 @@
     screen: "home", profiles: [], profile: null, builtins: {}, imported: [], games: [], notice: "", importReport: null,
     create: null, game: null, carnet: null, carnetTab: "heros", confirmDel: null, tts: null, speaking: false, downloads: null, busy: true,
     modal: null, recap: false, rollAnim: false, open: {}, essai: null, ed: null, recit: null,
+    builtinMeta: {}, builtinsReady: null, builtinsErr: false,
   };
+  var BUILTINS_MISSING = "Les livres n'ont pas pu être chargés. Sans réseau, depuis un fichier sur l'appareil, ouvre plutôt livre-jeu-complet.html.";
   var app = document.getElementById("app");
 
+  // Intent: loadBuiltins() -> () ! the stories that come with the game: inside the page (claude.ai, the complete
+  // file), or, on the site, beside it in histoires/<id>.json, fetched after the library shows (from the cache offline).
+  // Why: Clément, 13/11 (piste 35): start faster on an old phone. The library needs only each book's card
+  // (histoires-resume); a book's whole text is read when it is there, and a game waits for it.
   function loadBuiltins() {
-    var el = document.getElementById("histoires-fournies");
-    var list = el ? JSON.parse(el.textContent) : [];
-    list.forEach(function (st) { A.builtins[st.id] = st; });
+    var el = document.getElementById("histoires-fournies"), res = document.getElementById("histoires-resume");
+    if (el) { JSON.parse(el.textContent).forEach(function (st) { A.builtins[st.id] = st; A.builtinMeta[st.id] = storyMeta(st); }); A.builtinsReady = Promise.resolve(); return; }
+    var list = res ? JSON.parse(res.textContent) : [];
+    list.forEach(function (m) { A.builtinMeta[m.id] = m; });
+    A.builtinsReady = Promise.all(list.map(function (m) {
+      return fetch(m.file).then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); }).then(function (st) { A.builtins[st.id] = st; });
+    })).then(function () { render(); }, function () { A.builtinsErr = true; render(); });
   }
-  function storyMeta(st) { return { id: st.id, title: st.title, subtitle: st.subtitle || "", summary: st.summary || "", version: st.version || 1, acts: (st.acts || []).length, passages: Object.keys(st.passages || {}).length, multi: st.multi || null, kid: st.kid || null, adult: st.adult || null }; }
+  function storyMeta(st) { return { id: st.id, title: st.title, subtitle: st.subtitle || "", summary: st.summary || "", version: st.version || 1, acts: (st.acts || []).length, passages: Object.keys(st.passages || {}).length, multi: st.multi || null, kid: st.kid || null, adult: st.adult || null, cover: st.cover || null, age: st.age || null, author: st.author || null }; }
   function allStories() {
-    var out = Object.keys(A.builtins).map(function (k) { var m = storyMeta(A.builtins[k]); m.builtin = true; return m; });
-    A.imported.forEach(function (m) { if (!A.builtins[m.id]) out.push(m); });
+    var out = Object.keys(A.builtinMeta).map(function (k) { var m = clone(A.builtinMeta[k]); m.builtin = true; return m; });
+    A.imported.forEach(function (m) { if (!A.builtinMeta[m.id]) out.push(m); });
     return out;
   }
   // Intent: load(StoryId) -> Story ! reads(Store)
   function loadStory(id) {
     if (A.builtins[id]) return Promise.resolve(A.builtins[id]);
+    if (A.builtinMeta[id]) return A.builtinsReady.then(function () { if (!A.builtins[id]) throw new Error(BUILTINS_MISSING); return A.builtins[id]; });
     return Store.get("scenarios", id).then(function (meta) {
       if (!meta) throw new Error("Histoire introuvable : " + id);
       var parts = [];
@@ -163,7 +174,8 @@
     });
   }
   function refresh() {
-    return Promise.all([Store.list("profils"), Store.list("scenarios"), Store.list("parties"), Store.list("multis"), Store.list("salles")]).then(function (r) {
+    return Promise.all([Store.list("profils"), Store.list("scenarios"), Store.list("parties"), Store.list("multis"), Room.list("salles"), Room.on() ? Room.list("direct") : Promise.resolve([])]).then(function (r) {
+      A.direct = r[5];
       A.multis = r[3].concat(r[4]).sort(function (a, b) { return (b.updated || 0) - (a.updated || 0); });
       var got = {}; r[0].forEach(function (p) { got[p.id] = 1; });
       (A.profiles || []).forEach(function (p) { if (!got[p.id]) r[0].push(p); });   // just added, not listed yet
@@ -209,6 +221,8 @@
     else if (A.screen === "fiche") renderFiche();
     else if (A.screen === "cartes") renderCards();
     else if (A.screen === "kids") renderKids();
+    else if (A.screen === "spect") renderSpect();
+    else if (A.screen === "album") renderAlbum();
     if (A.carnet) renderCarnet();
     if (A.modal) renderModal();
     applyPrefs();
@@ -226,18 +240,19 @@
   // On the site, version.json says which version is online: when it differs, a button reloads the page.
   var BUILD = window.LIVRE_BUILD || { id: "dev", date: "" };
   function buildLine() {
-    var el = h("p", { class: "small muted build-line" }, "Version " + BUILD.id + (BUILD.date ? " · construite le " + BUILD.date : ""));
-    if (A.newBuild && A.newBuild !== BUILD.id) el.appendChild(h("span", null, " · ", h("b", null, "la version " + A.newBuild + " est en ligne "), h("button", { class: "btn sm primary", onclick: function () { location.reload(); } }, "Mettre à jour")));
+    var el = h("p", { class: "small muted build-line" }, "Version " + (BUILD.version ? BUILD.version + " (" + BUILD.id + ")" : BUILD.id) + (BUILD.date ? " · construite le " + BUILD.date : ""));
+    if (A.newBuild && A.newBuild.id !== BUILD.id) el.appendChild(h("span", null, " · ", h("b", null, "la version " + (A.newBuild.version || A.newBuild.id) + " est en ligne "), h("button", { class: "btn sm primary", onclick: function () { location.reload(); } }, "Mettre à jour")));
     else if (A.buildChecked) el.appendChild(h("span", null, " · à jour"));
     return el;
   }
   function checkBuild() {
     if (!standalone() || !/^https?:$/.test(location.protocol) || BUILD.id === "dev") return;
     fetch("version.json", { cache: "no-store" }).then(function (r) { return r.ok ? r.json() : null; }).then(function (v) {
-      if (!v || !v.id) return; A.buildChecked = true; A.newBuild = v.id; if (A.screen === "home") render();
+      if (!v || !v.id) return; A.buildChecked = true; A.newBuild = v; if (A.screen === "home") render();
     }).catch(function () { /* offline: nothing to say */ });
   }
   function renderHome() {
+    if (!A.newsDone) { A.newsDone = true; var nw = newsToShow(); if (nw.length && !A.modal) A.modal = { kind: "news", news: nw }; }
     var stories = allStories();
     app.appendChild(topBar([h("span", { class: "brand grow" }, "Livre-jeu"),
       Sync.on() ? h("button", { class: "pill small", title: "Les lecteurs et les parties se retrouvent sur chaque appareil branché.", onclick: function () { A.modal = { kind: "sync" }; render(); } }, Sync.busy ? "☁ Synchronisation…" : Sync.error ? "☁ Dossier partagé ⚠" : "☁ Dossier partagé") : h("span", { class: "pill small", title: Store.mode === "db" ? "Les profils, parties et histoires importées suivent ce lien sur tous les appareils." : "Rien n'est partagé : tout reste dans ce navigateur." }, Store.mode === "db" ? "Sauvegardes partagées" : "Sauvegardes dans ce navigateur")]));
@@ -291,17 +306,19 @@
       w.appendChild(sg);
     }
 
+    var live = renderLiveList(); if (live) w.appendChild(live);
     w.appendChild(renderMultiList());
 
     // Library
     var lib = h("section", { class: "section" }, h("h2", null, "Les livres"));
     var cards = h("div", { class: "cards" });
     stories.forEach(function (m) {
-      cards.appendChild(h("article", { class: "card" + (m.adult ? " adult" : "") },
+      cards.appendChild(h("article", { class: "card has-cover" + (m.adult ? " adult" : "") },
+        cover(m, A.builtins[m.id] || null),
         m.adult ? h("div", { class: "adult-tag" }, "Thème adulte") : null,
         h("h3", null, m.title), m.subtitle ? h("div", { class: "sub" }, m.subtitle) : null,
         h("p", null, m.summary),
-        h("div", { class: "small muted" }, (m.multi ? "À plusieurs, de " + (m.multi.min || 2) + " à " + (m.multi.max || 6) + " joueurs · " : "") + m.acts + " actes · " + m.passages + " passages" + (m.builtin ? "" : " · importée")),
+        h("div", { class: "small muted" }, (m.age ? "Dès " + m.age + " ans · " : "") + (A.builtins[m.id] && !m.multi ? "environ " + minutesLabel(storyMinutes(A.builtins[m.id])) + " de lecture par partie · " : "") + (m.multi ? "À plusieurs, de " + (m.multi.min || 2) + " à " + (m.multi.max || 6) + " joueurs · " : "") + m.acts + " actes · " + m.passages + " passages" + (m.builtin ? "" : " · importée")),
         m.multi ? null : renderRecords(m),
         h("div", { class: "row" },
           // Clément, 11/11: stories for several players are written for it; the others stay solo.
@@ -316,7 +333,9 @@
     var file = h("input", { type: "file", accept: ".json,application/json", "aria-label": "Fichier d'histoire", onchange: function (e) { importStory(e.target.files[0]); e.target.value = ""; } });
     lib.appendChild(h("div", { class: "row" }, h("span", { class: "label" }, "Importer une histoire (.json)"), file));
     if (A.importReport) lib.appendChild(h("pre", { class: "report" }, A.importReport));
+    if (A.builtinsErr) lib.appendChild(h("div", { class: "notice bad" }, BUILTINS_MISSING));
     w.appendChild(lib);
+    if (catalogueOn()) w.appendChild(renderCatalogue());
 
     // Backup: move readers and games between the claude.ai page and the offline copy, or between devices.
     var bk = h("section", { class: "section" }, h("h2", null, "Sauvegardes"),
@@ -330,7 +349,9 @@
       Sync.on() ? "☁ Dossier de sauvegarde partagé" + (Sync.busy ? " · synchronisation…" : Sync.error ? " · ⚠ à vérifier" : "") : "☁ Configurer un dossier de sauvegarde partagé")));
     w.appendChild(bk);
     w.appendChild(renderKidsShelf());
-    var fam = renderFamily(); if (fam) w.appendChild(fam);
+    if (A.profile) w.appendChild(renderBilan(A.profile));
+    var fam = renderFamily(); if (fam) { fam.appendChild(h("div", { class: "row" }, h("button", { class: "btn sm", onclick: function () { A.screen = "album"; render(); } }, "📖 Ouvrir l'album de la famille"))); w.appendChild(fam); }
+    var dfs = renderChallenges(); if (dfs) w.appendChild(dfs);
     w.appendChild(renderParents());
     w.appendChild(renderAtelier());
     w.appendChild(buildLine());
@@ -377,9 +398,14 @@
   function importStory(f) {
     if (!f) return;
     var rd = new FileReader();
-    rd.onload = function () {
+    rd.onload = function () { importStoryText(rd.result); };
+    rd.readAsText(f);
+  }
+  // Intent: importText(Text) -> () ! checks the story and adds it to the library (a file, or the shared catalogue)
+  function importStoryText(txt0) {
+    (function () {
       var st;
-      try { st = JSON.parse(rd.result); } catch (e) { A.importReport = "Ce fichier n'est pas du JSON lisible : " + e.message; render(); return; }
+      try { st = JSON.parse(txt0); } catch (e) { A.importReport = "Ce fichier n'est pas du JSON lisible : " + e.message; render(); return; }
       var rep = V.staticCheck(clone(st));
       if (rep.errors.length) { A.importReport = "Histoire refusée, " + rep.errors.length + " erreur(s) :\n" + rep.errors.slice(0, 40).join("\n"); render(); return; }
       var txt = JSON.stringify(st), parts = Math.ceil(txt.length / PART_CHARS), jobs = [];
@@ -387,8 +413,7 @@
       Promise.all(jobs).then(function () { var m = storyMeta(st); m.parts = parts; m.imported = Date.now(); return Store.put("scenarios", st.id, m); })
         .then(refresh).then(function () { A.importReport = "« " + st.title + " » ajoutée à la bibliothèque" + (rep.warnings.length ? " (" + rep.warnings.length + " remarque(s))." : "."); render(); })
         .catch(function (e) { A.importReport = "L'import a échoué (" + ((e && e.code) || e) + ")."; render(); });
-    };
-    rd.readAsText(f);
+    })();
   }
   function removeStory(m) {
     Store.get("scenarios", m.id).then(function (meta) {
@@ -980,11 +1005,12 @@
           if (d.done) { finished = true; waitEnd(); return; }
           var buf = ac.createBuffer(1, d.audio.length, d.rate); buf.getChannelData(0).set(d.audio);
           var src = ac.createBufferSource(); src.buffer = buf; src.connect(ac.destination);
-          var at = Math.max(t + list[d.i].pause, ac.currentTime + 0.03); src.start(at); t = at + buf.duration;
+          var tone = list[d.i].tone || 0; if (tone) src.playbackRate.value = Math.pow(2, tone / 1200);
+          var at = Math.max(t + list[d.i].pause, ac.currentTime + 0.03); src.start(at); t = at + buf.duration / src.playbackRate.value;
           if (opts.onUnit) { var u = list[d.i]; setTimeout(function () { if (cur && cur.id === id) opts.onUnit(u); }, Math.max(0, (at - ac.currentTime) * 1000)); }
           sources.push(src); src.onended = function () { sources = sources.filter(function (x) { return x !== src; }); if (finished) waitEnd(); };
         };
-        getWorker().postMessage({ id: id, voice: model(opts.key), sentences: list.map(function (u) { return { text: u.text, voice: model(u.dial ? dialKey : opts.key) }; }), rate: opts.rate || 1 });
+        getWorker().postMessage({ id: id, voice: model(opts.key), sentences: list.map(function (u) { return { text: u.text, voice: model(u.dial && !(u.who && hash(u.who) % 2) ? dialKey : opts.key) }; }), rate: opts.rate || 1 });
       });
     };
     // The same voice without playing it: each sentence comes back as samples (the audio book).
@@ -1043,6 +1069,7 @@
         opts = opts || {};
         var mine = ++token; sy.cancel(); Neural.stop();
         var units = speechUnits(lines);
+        if (opts.dialogue && opts.story) castVoices(units, opts.story);
         // The default voice is the quality one when the reader installed it.
         var want = opts.voiceName || "", installed = Neural.keys().filter(Neural.has);
         var key = /^neural:/.test(want) ? want.slice(7) : !want ? installed[0] : null;
@@ -1063,9 +1090,10 @@
             if (mine !== token) return;
             return new Promise(function (res) {
               var u = new SpeechSynthesisUtterance(un.text); u.lang = opts.language || "fr-FR";
-              var v = un.dial && fr2 ? fr2 : fr; if (v) u.voice = v;
+              var v = un.dial && fr2 && !(un.who && hash(un.who) % 2) ? fr2 : fr; if (v) u.voice = v;
               if (opts.rate) u.rate = opts.rate;
               if (un.dial && opts.dialogue && !fr2) u.pitch = 1.25;
+              if (un.who) u.pitch = Math.max(0.5, Math.min(2, (u.pitch || 1) * Math.pow(2, un.tone / 1200)));
               u.onstart = function () { if (mine === token && opts.onUnit) opts.onUnit(un); };
               u.onend = res; u.onerror = res; tell("speaking"); sy.speak(u);
             });
@@ -1260,6 +1288,7 @@
     d.turns = s.turn || 0;
     keepRecords(st, s, v, d);
     saveRecit(G, d);
+    liveOut(G);
     var meta = {}; for (var k in d) if (k !== "state" && k !== "undo" && k !== "log" && k !== "marks") meta[k] = d[k];
     A.allGames = (A.allGames || []).filter(function (g) { return g.id !== d.id; }).concat([meta]);
     A.games = A.allGames.filter(function (g) { return A.profile && g.profil === A.profile.id; }).sort(function (a, b) { return (b.updated || 0) - (a.updated || 0); });
@@ -1291,7 +1320,10 @@
     // Shaking the device to throw (option, off by default: children would throw by mistake).
     if (c.test && pref("shakeDice") && pref("dice") !== "vrais" && !c.shaken && Shake.available()) { A.modal = { kind: "shake", c: c }; render(); return; }
     c.shaken = false;
+    if (!c.voted && !c.sys && groupOf(G) && groupOf(G).mode === "vote") { var vv = M.view(G.story, G.s); if (vv.choices.filter(function (x) { return x.ok && !x.restart; }).length > 1) { startVote(G, vv); return; } }
+    c.voted = false;
     var before = M.view(G.story, G.s), others = before.choices.filter(function (x) { return x.ok && !x.sys && !x.restart && x !== c && x.label !== c.label; }).length;
+    if (!G.ephemeral && !/^jeu/.test(c.sys || "")) G.doc.wordsRead = (G.doc.wordsRead || 0) + wordsOf(before.text);
     var snap = JSON.stringify(G.s);
     if (!G.s.ironman) { G.undo.push(snap); if (G.undo.length > UNDO_MAX) G.undo.shift(); }
     notePick(G, before, c);
@@ -1301,14 +1333,17 @@
     try { M.choose(G.story, G.s, c); }
     catch (e) { M.setDice(null); if (!G.s.ironman) G.undo.pop(); G.s = JSON.parse(snap); A.notice = "Ce choix a buté sur une erreur de l'histoire : " + e.message; render(); return; }
     M.setDice(null);
-    A.notice = ""; A.recap = false; A.rollAnim = true;
+    A.notice = ""; A.recap = false; A.rollAnim = true; A.turned = true;
     var now = Date.now(), dt = Math.min(now - (G.since || now), PLAY_GAP_MS); G.doc.playMs = (G.doc.playMs || 0) + dt; G.since = now;
     if (dt > 0) { var dk = dayKey(now), days = G.doc.days = G.doc.days || {}; days[dk] = (days[dk] || 0) + dt; }
     var closed = actTrack(G, act0); if (closed && !A.modal) A.modal = { kind: "chapter", act: closed };
     if (!/^jeu/.test(c.sys || "")) logStep(c.label, others);   // a game of dice at the inn is not a page of the story
+    G.fate = G.s.ironman && !/^jeu/.test(c.sys || "") ? { snap: snap, label: c.label, sys: c.sys || "", act: act0 || "", turn: G.s.turn } : null;
     persist(); bedtimeAfterChoice(); render();
     if (fight0 && fight0.hits && fight0.hits.length) { var partyIds = {}; M.partyView(G.story, G.s).forEach(function (m) { partyIds[m.who] = 1; }); Sfx.blows(fight0.hits, function (k) { return !!partyIds[k]; }); }
-    var top = document.querySelector(".page"); if (top) top.scrollIntoView({ block: "start", behavior: "smooth" });
+    var top = document.querySelector(".page"); if (top) top.scrollIntoView({ block: "start", behavior: REDUCED ? "auto" : "smooth" });
+    // A screen reader starts again at the new page's title (the choice button it was on is gone).
+    var hd = document.querySelector(".page-head h2"); if (hd) { try { hd.focus({ preventScroll: true }); } catch (e) {} }
     if (pref("autoRead") && A.tts) speak(M.view(G.story, G.s));
   }
   // Intent: notePick(Game, View, Choice) -> () = the choice made on this page, by its place among the passage's own
@@ -1336,6 +1371,500 @@
     return st._nums[id];
   }
 
+  // ------------------------------------------------------------------ reading time and the reader's record
+  // Intent: wordsOf([Line]) -> Int ; actMinutes(Story, Act) -> Int = an estimate of one reading of the act: the
+  // shortest way from its first page to the next act, lengthened for the detours a reader takes, at the reader's own
+  // pace when the device has seen enough of it (else WPM_DEFAULT). Only an order of size: "environ 40 min".
+  // Why: Clément, 13/11 (piste 5), to know if there is time for a chapter before bed.
+  var WPM_DEFAULT = 170, WPM_MIN = 60, WPM_MAX = 400, WPM_SAMPLE_MS = 10 * 60 * 1000, PATH_DETOUR = 1.7, ACT_SHARE = 0.45, ROUND_MIN = 5;
+  function wordsOf(lines) {
+    return (lines || []).reduce(function (n, t) { var x = typeof t === "string" ? t : (t && t.text) || ""; return n + String(x).split(/\s+/).filter(Boolean).length; }, 0);
+  }
+  function readerWpm(p) {
+    var w = 0, ms = 0;
+    (A.allGames || []).forEach(function (g) { if (p && g.profil === p.id && !g.test && g.wordsRead) { w += g.wordsRead; ms += g.playMs || 0; } });
+    if (ms < WPM_SAMPLE_MS) return WPM_DEFAULT;
+    return Math.max(WPM_MIN, Math.min(WPM_MAX, w / (ms / 60000)));
+  }
+  function actWords(st, actId) {
+    st._actWords = st._actWords || {};
+    if (st._actWords[actId] != null) return st._actWords[actId];
+    var P = st.passages || {}, ids = Object.keys(P).filter(function (k) { return P[k].act === actId; });
+    if (!ids.length) return (st._actWords[actId] = 0);
+    var avg = ids.reduce(function (n, k) { return n + wordsOf(P[k].text); }, 0) / ids.length;
+    var act = (st.acts || []).filter(function (a) { return a.id === actId; })[0] || {}, steps = 0;
+    if (act.start && P[act.start]) {
+      var dist = {}, q = [act.start]; dist[act.start] = 1;
+      while (q.length && !steps) {
+        var k = q.shift(), p = P[k];
+        (p.choices || []).forEach(function (c) { passageTargets(c).forEach(function (t) {
+          if (steps || dist[t] || !P[t]) return;
+          if (P[t].act && P[t].act !== actId || P[t].end) { steps = dist[k]; return; }
+          dist[t] = dist[k] + 1; q.push(t);
+        }); });
+      }
+    }
+    // A reading wanders: the shortest way lengthened, and never less than a share of the act's pages.
+    steps = Math.max(steps * PATH_DETOUR, ids.length * ACT_SHARE);
+    return (st._actWords[actId] = Math.round(steps * avg));
+  }
+  function actMinutes(st, actId) { var w = actWords(st, actId); return w ? Math.max(ROUND_MIN, Math.round(w / readerWpm(A.profile) / ROUND_MIN) * ROUND_MIN) : 0; }
+  // the word count of a whole game, kept on the device per version of the story: counting walks every act (slow on an old phone)
+  function storyWords(st) {
+    if (st._words != null) return st._words;
+    var key = "mots:" + st.id, k2 = (st.version || 1) + ":" + Object.keys(st.passages || {}).length, got = lsGet(key), w = got && got.k === k2 ? got.w : null;
+    if (typeof w !== "number") { w = (st.acts || []).reduce(function (n, a) { return n + actWords(st, a.id); }, 0); lsSet(key, { k: k2, w: w }); }
+    return (st._words = w);
+  }
+  function storyMinutes(st) { var w = storyWords(st); return Math.max(ROUND_MIN, Math.round(w / readerWpm(A.profile) / ROUND_MIN) * ROUND_MIN); }
+  function minutesLabel(m) { return m < 60 ? m + " min" : Math.floor(m / 60) + " h" + (m % 60 ? " " + String(m % 60).padStart(2, "0") : ""); }
+
+  // Intent: swipe on the page: left follows the page when only one way is open, right undoes. Off by default.
+  var SWIPE_MIN_PX = 70, SWIPE_MAX_SLANT = 0.6;
+  function swipeOn(page, v, G) {
+    var x0 = null, y0 = 0;
+    page.addEventListener("touchstart", function (e) { if (e.touches.length !== 1) { x0 = null; return; } x0 = e.touches[0].clientX; y0 = e.touches[0].clientY; }, { passive: true });
+    page.addEventListener("touchend", function (e) {
+      if (x0 == null) return; var t = e.changedTouches[0], dx = t.clientX - x0, dy = t.clientY - y0; x0 = null;
+      if (Math.abs(dx) < SWIPE_MIN_PX || Math.abs(dy) > Math.abs(dx) * SWIPE_MAX_SLANT) return;
+      if (dx > 0) { if (!G.s.ironman && G.undo.length) undo(); return; }
+      var open = v.choices.filter(function (c) { return c.ok && !c.restart; });
+      if (open.length === 1) pick(open[0]); else flash("Plusieurs suites possibles : choisis-en une.");
+    }, { passive: true });
+  }
+
+  // Intent: renderBilan(Profile) -> Element = the reader's record across every book: time, words, pages, pace,
+  // chapters and books finished, endings, feats, the weeks of reading. Folded by default.
+  // Why: Clément, 13/11 (piste 10).
+  var BILAN_WEEKS = 8, BILAN_BAR_PX = 90;
+  function renderBilan(p) {
+    var open = A.open.bilan;
+    var sec = h("section", { class: "section" }, h("h2", null, h("button", { class: "btn ghost fold", "aria-expanded": open ? "true" : "false", onclick: function () { A.open.bilan = !open; render(); } }, (open ? "▾ " : "▸ ") + "Bilan de lecture de " + p.name)));
+    if (!open) return sec;
+    var gs = (A.allGames || []).filter(function (g) { return g.profil === p.id && !g.test; });
+    var ms = 0, words = 0, wordsMs = 0, pages = 0, chapters = 0, books = 0, byDay = {};
+    gs.forEach(function (g) {
+      ms += g.playMs || 0; pages += g.turns || 0;
+      if (g.wordsRead) { words += g.wordsRead; wordsMs += g.playMs || 0; }
+      var acts = Object.keys(g.actLog || {}).length; chapters += Math.max(0, acts - (g.ended ? 0 : 1));
+      if (g.ended) books++;
+      Object.keys(g.days || {}).forEach(function (k) { byDay[k] = (byDay[k] || 0) + g.days[k]; });
+    });
+    var rec = p.records || {}, nE = 0, nF = 0;
+    Object.keys(rec).forEach(function (k) { nE += Object.keys(rec[k].endings || {}).length; nF += Object.keys(rec[k].feats || {}).length; });
+    var wpm = wordsMs >= WPM_SAMPLE_MS ? Math.round(words / (wordsMs / 60000)) : 0;
+    var figs = [["Temps de lecture", hours(ms)], ["Mots lus", words ? words.toLocaleString("fr-FR") : "·"], ["Pages", String(pages)], ["Allure", wpm ? wpm + " mots/min" : "·"],
+      ["Actes finis", String(chapters)], ["Livres finis", String(books)], ["Fins trouvées", String(nE)], ["Hauts faits", String(nF)]];
+    sec.appendChild(h("dl", { class: "bilan" }, figs.map(function (f) { return h("div", null, h("dt", null, f[0]), h("dd", null, f[1])); })));
+    var weeks = [], now = weekStart(Date.now());
+    for (var i = BILAN_WEEKS - 1; i >= 0; i--) weeks.push({ start: now - i * 7 * 86400000, ms: 0 });
+    Object.keys(byDay).forEach(function (k) { var q = k.split("-"), ws = weekStart(new Date(+q[0], +q[1] - 1, +q[2]).getTime()); weeks.forEach(function (w) { if (Math.abs(w.start - ws) < 3 * 3600000) w.ms += byDay[k]; }); });
+    var top = Math.max.apply(null, weeks.map(function (w) { return w.ms; }).concat([1]));
+    sec.appendChild(h("div", { class: "bilan-weeks", role: "list", "aria-label": "Minutes de lecture par semaine" }, weeks.map(function (w) {
+      var m = Math.round(w.ms / 60000);
+      return h("div", { class: "bw", role: "listitem", title: weekLabel(w.start) + " : " + hours(w.ms) }, h("span", { class: "bw-bar", style: "height:" + Math.round(BILAN_BAR_PX * w.ms / top) + "px" }), h("span", { class: "bw-n" }, m ? String(m) : ""), h("span", { class: "bw-d" }, new Date(w.start).toLocaleDateString("fr-FR", { day: "numeric", month: "short" })));
+    })));
+    sec.appendChild(h("p", { class: "small muted" }, "Minutes de lecture par semaine. Les mots sont comptés depuis la version du 13 novembre ; l'allure s'affiche après dix minutes de lecture."));
+    return sec;
+  }
+
+  // ------------------------------------------------------------------ fate tokens (Sans retour)
+  // Intent: in a « Sans retour » game, FATE_PER_ACT tokens an act let the reader throw again a roll that failed: the
+  // state goes back to before the choice and the same choice is made again with new dice. Elsewhere the reader can
+  // already go back to the previous choice, so tokens exist only where nothing else can undo.
+  // Why: Clément, 13/11 (piste 26).
+  var FATE_PER_ACT = 3;
+  function fateLeft(s) { return Math.max(0, FATE_PER_ACT - ((s.destin || {})[s.lastAct || ""] || 0)); }
+  function fateButton(G) {
+    var f = G.fate, s = G.s; if (!f || !s.ironman || f.turn !== s.turn || G.multi) return null;
+    if (!(s.events || []).some(function (e) { return /\bbad\b/.test(e.cls || "") && /\broll\b/.test(e.cls || ""); })) return null;
+    var left = fateLeft(s);
+    return h("div", { class: "fate" }, h("button", { class: "btn sm", disabled: !left, onclick: function () { useFate(G); } }, "🎲 Jeton de destin : relancer"),
+      h("span", { class: "small muted" }, left ? left + " jeton" + (left > 1 ? "s" : "") + " pour cet acte" : "Plus de jeton pour cet acte"));
+  }
+  function useFate(G) {
+    var f = G.fate; if (!f) return;
+    var back = upgradeState(G.story, JSON.parse(f.snap)); back.destin = back.destin || {}; back.destin[f.act] = (back.destin[f.act] || 0) + 1;
+    var c = M.view(G.story, back).choices.filter(function (x) { return x.label === f.label && (x.sys || "") === f.sys && x.ok; })[0];
+    if (!c) { flash("Ce jet ne peut pas être relancé.", true); return; }
+    G.s = back; G.fate = null; if (G.log.length) G.log.pop(); if (G.recit && G.recit.pages.length > 1) G.recit.pages.pop();
+    pick(c);
+    G.s.events.unshift({ text: "🎲 Le destin relance les dés.", cls: "", pre: 1 });
+    render();
+  }
+
+  // ------------------------------------------------------------------ what is new
+  // Intent: once per new version, a short note of what changed (NEWS, newest first), only the versions the reader has
+  // not seen on this device. Why: Clément, 13/11 (piste 33).
+  var NEWS = [
+    { v: "7.7", items: ["Habillage Enluminure : hors de la page du livre (bibliothèque, création du héros…), le texte était brun sur le bois brun ; il a désormais sa feuille de papier."] },
+    { v: "7.6", items: ["Sur le site, la bibliothèque s'ouvre bien plus vite : chaque livre se charge après, en arrière-plan. Pour jouer depuis un fichier sans réseau, il y a livre-jeu-complet.html.", "Le temps de lecture est calculé une fois, puis gardé sur l'appareil.", "Sur téléphone, la barre du haut et les onglets de l'éditeur ne débordent plus.", "Coulisses : à chaque proposition de changement, les écrans principaux sont photographiés avant et après, et comparés."] },
+    { v: "7.5", items: ["Éditeur : le graphe de l'histoire, où l'on relie deux passages en tirant un fil.", "Lire sans jouer : parcourir toute une histoire passage par passage, avec des remarques de relecture.", "Relecture de style : phrases trop longues, répétitions, espaces avant la ponctuation.", "Les choix les plus suivis par la famille, dans l'éditeur.", "Gabarits : enquête, voyage, huis clos, siège.", "Un générateur de noms à la manière de chaque histoire.", "Catalogue partagé (sur le site) : ajouter les histoires d'autres familles, ou proposer la sienne, avec âge conseillé et avertissements."] },
+    { v: "7.4", items: ["Chaque livre a sa couverture.", "Une gravure ouvre chaque acte.", "Dés en relief : deux dés à dix faces roulent à l'écran (réglable).", "Plan de la ville dans la carte du carnet, avec les lieux déjà visités.", "Petites animations : étoiles, nuages, feu de camp.", "Chaque lieu a son petit air de musique, dans la tonalité de sa région.", "À la lecture à voix haute, un personnage nommé garde sa propre voix."] },
+    { v: "7.3", items: ["Salle commune sur le site : chacun sur son appareil (tablette, téléphone), grâce au dossier de sauvegarde partagé ☁.", "Lire à plusieurs sur un même appareil : chacun son rôle (l'un lit, l'autre choisit) ou vote secret (bouton 👥).", "Suivre en direct la partie d'un autre lecteur (« En ce moment », dans la bibliothèque).", "Défis de la famille, et l'album des fins et des hauts faits trouvés par chacun."] },
+    { v: "7.2", items: ["Jetons de destin : en mode « Sans retour », trois relances par acte pour un jet raté.", "Les adversaires peuvent prendre la fuite quand le combat tourne mal.", "À la fin d'un combat, quelques lignes racontent comment il s'est passé.", "Réglage « Conséquences muettes » : l'histoire ne dit plus quand un compagnon change d'avis sur toi.", "Cette page, à chaque nouvelle version."] },
+    { v: "7.1", items: ["Sur tablette en paysage, le livre s'ouvre sur deux pages.", "Les pages se tournent ; on peut aussi glisser du doigt (à activer dans les Réglages).", "Thème « Lumière du soir » pour lire au lit.", "Temps de lecture estimé, pour chaque livre et chaque acte.", "Lecteur d'écran, fort contraste et couleurs pour daltoniens.", "Bilan de lecture de chaque lecteur, dans la bibliothèque."] },
+    { v: "7.0", items: ["Chaque version porte un numéro, pour savoir si l'on est à jour."] }
+  ];
+  function verNum(v) { var p = String(v || "0").split("."); return (+p[0] || 0) * 1000 + (+p[1] || 0); }
+  function newsToShow() {
+    if (!BUILD.version) return [];
+    var seen = lsGet("nouveautes-vues");
+    if (seen == null) { lsSet("nouveautes-vues", BUILD.version); return []; }   // a first visit has nothing "new"
+    return NEWS.filter(function (n) { return verNum(n.v) > verNum(seen) && verNum(n.v) <= verNum(BUILD.version); });
+  }
+  function modalNews(box, close) {
+    modalHead(box, "Quoi de neuf", function () { lsSet("nouveautes-vues", BUILD.version); close(); });
+    var b = h("div", { class: "drawer-body" });
+    (A.modal.news || []).forEach(function (n) { b.appendChild(h("h3", { class: "sub-h" }, "Version " + n.v)); b.appendChild(h("ul", { class: "news" }, n.items.map(function (t) { return h("li", null, t); }))); });
+    b.appendChild(h("button", { class: "btn primary", onclick: function () { lsSet("nouveautes-vues", BUILD.version); close(); } }, "Bonne lecture"));
+    box.appendChild(b);
+  }
+
+  // ------------------------------------------------------------------ several readers on one device
+  // Intent: a solo game read by several people on one device (G.doc.group = { names, mode }): « roles » says on each
+  // page who reads aloud and who chooses (they take turns); « vote » makes each choice a secret vote, the device passed
+  // from hand to hand, the majority deciding (a tie: the dice). Why: Clément, 13/11 (pistes 19 and 20).
+  var GROUP_MAX = 6;
+  function groupOf(G) { return G && !G.multi && !G.ephemeral && G.doc && G.doc.group && (G.doc.group.names || []).length >= 2 ? G.doc.group : null; }
+  function groupBanner(G, s) {
+    var gr = groupOf(G); if (!gr) return null;
+    var n = gr.names.length, t = s.turn || 0;
+    if (gr.mode === "vote") return h("div", { class: "group-banner", role: "note" }, "🗳 Chaque choix se vote en secret : " + gr.names.join(", ") + ".");
+    return h("div", { class: "group-banner", role: "note" }, h("span", null, "📖 ", h("b", null, gr.names[t % n]), " lit à voix haute"), h("span", null, " · 👆 ", h("b", null, gr.names[(t + 1) % n]), " choisit"));
+  }
+  function modalGroup(box, close) {
+    var G = A.game, gr = G.doc.group || { names: [], mode: "roles" }, names = (gr.names.length ? gr.names : [A.profile ? A.profile.name : "", ""]).slice();
+    var mode = gr.mode || "roles";
+    modalHead(box, "Lire à plusieurs sur cet appareil", close);
+    var b = h("div", { class: "drawer-body" });
+    b.appendChild(h("p", { class: "small muted" }, "Une seule partie, plusieurs lecteurs autour du même écran."));
+    var list = h("div", { class: "stack tight" });
+    var draw = function () {
+      list.textContent = "";
+      names.forEach(function (nm, i) {
+        list.appendChild(h("div", { class: "row" }, h("input", { value: nm, maxlength: 24, "aria-label": "Lecteur " + (i + 1), oninput: function (e) { names[i] = e.target.value; } }),
+          names.length > 2 ? h("button", { class: "btn sm ghost", "aria-label": "Retirer ce lecteur", onclick: function () { names.splice(i, 1); draw(); } }, "✕") : null));
+      });
+      if (names.length < GROUP_MAX) list.appendChild(h("button", { class: "btn sm", onclick: function () { names.push(""); draw(); } }, "+ Un lecteur"));
+    };
+    draw(); b.appendChild(list);
+    var modes = h("div", { class: "seg", role: "group", "aria-label": "Façon de lire" });
+    var mk = function (k, l) { return h("button", { class: "btn sm" + (mode === k ? " on" : ""), "aria-pressed": mode === k ? "true" : "false", onclick: function () { mode = k; modes.querySelectorAll("button").forEach(function (x) { x.classList.toggle("on", x.textContent === l); x.setAttribute("aria-pressed", x.textContent === l ? "true" : "false"); }); } }, l); };
+    modes.appendChild(mk("roles", "Chacun son rôle")); modes.appendChild(mk("vote", "Vote secret"));
+    b.appendChild(h("div", { class: "stack tight" }, h("span", { class: "label" }, "Comment ?"), modes,
+      h("p", { class: "small muted" }, "Chacun son rôle : à chaque page, l'un lit à voix haute et l'autre choisit, puis on tourne. Vote secret : à chaque choix, l'appareil passe de main en main ; la majorité décide, et les dés départagent une égalité.")));
+    b.appendChild(h("div", { class: "row" },
+      h("button", { class: "btn primary", onclick: function () {
+        var ok = names.map(function (x) { return x.trim(); }).filter(Boolean);
+        if (ok.length < 2) { flash("Il faut au moins deux lecteurs.", true); return; }
+        G.doc.group = { names: ok, mode: mode }; persist(); close();
+      } }, "C'est parti"),
+      G.doc.group ? h("button", { class: "btn ghost", onclick: function () { delete G.doc.group; persist(); close(); } }, "Lire seul de nouveau") : null));
+    box.appendChild(b);
+  }
+  // the vote: hidden screen → choices → next reader → result
+  function startVote(G, v) {
+    var open = v.choices.filter(function (c) { return c.ok && !c.restart; });
+    A.modal = { kind: "vote", i: 0, votes: {}, hidden: true, labels: open.map(function (c) { return c.label; }) }; render();
+  }
+  function modalVote(box, close, m) {
+    var G = A.game, gr = groupOf(G); if (!gr) { close(); return; }
+    var stop = function () { A.modal = null; render(); };
+    modalHead(box, "Vote secret", stop);
+    var b = h("div", { class: "drawer-body" });
+    if (m.i < gr.names.length) {
+      var who = gr.names[m.i];
+      if (m.hidden) {
+        b.appendChild(h("p", { class: "vote-pass" }, "Passe l'appareil à ", h("b", null, who), "."));
+        b.appendChild(h("button", { class: "btn primary", autofocus: true, onclick: function () { m.hidden = false; render(); } }, "C'est moi, " + who));
+      } else {
+        b.appendChild(h("p", null, h("b", null, who), ", que fais-tu ? Les autres ne verront pas ton choix."));
+        m.labels.forEach(function (l) { b.appendChild(h("button", { class: "choice", onclick: function () { m.votes[who] = l; m.i++; m.hidden = true; render(); } }, l)); });
+      }
+    } else {
+      var count = {}; Object.keys(m.votes).forEach(function (k) { count[m.votes[k]] = (count[m.votes[k]] || 0) + 1; });
+      var top = Math.max.apply(null, Object.keys(count).map(function (k) { return count[k]; }));
+      var best = m.labels.filter(function (l) { return count[l] === top; });
+      if (!m.win) m.win = best[Math.floor(Math.random() * best.length)];
+      b.appendChild(h("ul", { class: "vote-res" }, m.labels.filter(function (l) { return count[l]; }).map(function (l) {
+        return h("li", { class: l === m.win ? "win" : "" }, h("b", null, count[l] + " voix"), " · " + l, h("span", { class: "small muted" }, " (" + Object.keys(m.votes).filter(function (k) { return m.votes[k] === l; }).join(", ") + ")"));
+      })));
+      if (best.length > 1) b.appendChild(h("p", { class: "small muted" }, "Égalité : les dés ont tranché."));
+      b.appendChild(h("button", { class: "btn primary", autofocus: true, onclick: function () {
+        var c = M.view(G.story, G.s).choices.filter(function (x) { return x.label === m.win && x.ok; })[0];
+        A.modal = null; if (c) { c.voted = true; pick(c); } else render();
+      } }, "Suivre : " + m.win));
+    }
+    box.appendChild(b);
+  }
+
+  // ------------------------------------------------------------------ following another reader's game
+  // Intent: each solo game also writes a small « live » doc (direct/<reader>) to the shared room store after each
+  // choice (Room: the claude.ai db, or the family's save folder on the site); another device opens it read-only and
+  // sees the page change as the reader goes. Why: Clément, 13/11 (piste 23).
+  var LIVE_DEBOUNCE_MS = 2500, LIVE_FRESH_MS = 12 * 3600 * 1000;
+  function liveOut(G) {
+    if (!Room.on() || !G || G.multi || G.ephemeral || G.doc.test || !A.profile) return;
+    clearTimeout(liveOut.t);
+    liveOut.t = setTimeout(function () {
+      var s = G.s, d = { profil: A.profile.id, reader: A.profile.name, color: A.profile.color || "", story: G.story.id, storyTitle: G.story.title, hero: s.name, state: JSON.stringify(s), last: (G.log[G.log.length - 2] || {}).c || "", updated: Date.now() };
+      Store.timed(Room.db().doc("direct/" + safeKey(A.profile.id)).set(d)).catch(function () { /* the next choice will try again */ });
+    }, LIVE_DEBOUNCE_MS);
+  }
+  function renderLiveList() {
+    var mine = A.profile ? A.profile.id : null, now = Date.now();
+    var list = (A.direct || []).filter(function (x) { return x.profil !== mine && now - (x.updated || 0) < LIVE_FRESH_MS && A.builtins[x.story]; });
+    if (!list.length) return null;
+    var sec = h("section", { class: "section" }, h("h2", null, "En ce moment"));
+    list.forEach(function (x) {
+      sec.appendChild(h("div", { class: "save-line" }, h("span", { class: "avatar", style: "background:" + (x.color || COLORS[0]) }, String(x.reader || "?").slice(0, 1).toUpperCase()),
+        h("div", { class: "grow" }, h("b", null, x.reader + " lit " + x.storyTitle), h("div", { class: "small muted" }, x.hero + " · " + when(x.updated))),
+        h("button", { class: "btn sm", onclick: function () { var m = allStories().filter(function (y) { return y.id === x.story; })[0] || {}; adultGate(m, function () { openSpect(x); }); } }, "👁 Suivre")));
+    });
+    return sec;
+  }
+  function openSpect(x) {
+    loadStory(x.story).then(function (st) {
+      if (A.spect && A.spect.unsub) A.spect.unsub();
+      var S = A.spect = { doc: x, story: st, unsub: null };
+      S.unsub = Room.db().doc("direct/" + safeKey(x.profil)).onSnapshot(function (snap) { if (snap.exists && A.spect === S) { S.doc = thaw(snap.data()); if (A.screen === "spect") render(); } }, function () {});
+      A.screen = "spect"; render();
+    });
+  }
+  function renderSpect() {
+    var S = A.spect, st = S.story, s = upgradeState(st, JSON.parse(S.doc.state)), v = M.view(st, s);
+    app.appendChild(topBar([h("button", { class: "btn ghost sm", onclick: function () { if (S.unsub) S.unsub(); A.spect = null; A.screen = "home"; refresh().then(render); } }, "← Bibliothèque"),
+      h("span", { class: "brand grow" }, "👁 Tu suis " + S.doc.reader), h("span", { class: "pill small" }, M.timeLabel(s))]));
+    var w = h("main", { class: "wrap" }), page = h("article", { class: "page read spect", "aria-live": "polite" });
+    page.appendChild(h("div", { class: "page-head" }, h("div", null, h("h2", null, v.title || ""), h("div", { class: "where" }, st.title + " · " + s.name))));
+    if (S.doc.last) page.appendChild(h("div", { class: "notice soft" }, S.doc.reader + " a choisi : « " + S.doc.last + " »"));
+    var prose = h("div", { class: "prose" }); (v.text || []).forEach(function (t) { prose.appendChild(h("p", { html: md(t) })); }); page.appendChild(prose);
+    var ch = h("div", { class: "choices" }); v.choices.filter(function (c) { return !c.restart; }).forEach(function (c) { ch.appendChild(h("button", { class: "choice", disabled: true }, c.label)); });
+    page.appendChild(ch);
+    page.appendChild(h("p", { class: "small muted" }, "La page suit " + S.doc.reader + " : elle change quand un choix est fait."));
+    w.appendChild(page); app.appendChild(w);
+  }
+
+  // ------------------------------------------------------------------ challenges and the family album
+  // Intent: CHALLENGES = goals any reader of the house can meet in a book, from what the records keep; the first to
+  // meet each is named. Why: Clément, 13/11 (piste 21).
+  var CHALLENGES = [
+    { id: "fin1", title: "Atteindre une fin", test: function (st, r) { return firstOf(r.endings); } },
+    { id: "fin3", title: "Trouver trois fins différentes", min: 3, test: function (st, r) { return nthOf(r.endings, 3); } },
+    { id: "fins", title: "Trouver toutes les fins", test: function (st, r) { var e = M.endingsOf(st); return e.length && e.every(function (x) { return r.endings[x.id]; }) ? lastOf(r.endings) : 0; } },
+    { id: "fer", title: "Finir en « Sans retour »", test: function (st, r) { return firstOf(r.iron); } },
+    { id: "fidele", title: "Finir sans qu'aucun compagnon ne t'abandonne", test: function (st, r) { return firstOf(r.loyal); } },
+    { id: "faits", title: "Tous les hauts faits", test: function (st, r) { var f = M.featsOf(st); return f.length && f.every(function (x) { return r.feats[x.id]; }) ? lastOf(r.feats) : 0; } }
+  ];
+  function firstOf(o) { var v = Object.keys(o || {}).map(function (k) { return o[k]; }).sort(); return v[0] || 0; }
+  function lastOf(o) { var v = Object.keys(o || {}).map(function (k) { return o[k]; }).sort(); return v[v.length - 1] || 0; }
+  function nthOf(o, n) { var v = Object.keys(o || {}).map(function (k) { return o[k]; }).sort(); return v[n - 1] || 0; }
+  function renderChallenges() {
+    var books = Object.keys(A.builtins).map(function (k) { return A.builtins[k]; }).filter(function (st) { return !st.multi && !st.kid && A.profiles.some(function (p) { return Object.keys(recordOf(p, st.id).endings || {}).length; }); });
+    if (!books.length) return null;
+    var sec = h("section", { class: "section" }, h("h2", null, "🎯 Défis de la famille"));
+    books.forEach(function (st) {
+      var rows = h("div", { class: "defis" });
+      CHALLENGES.forEach(function (ch) {
+        if (ch.min && M.endingsOf(st).length < ch.min) return;
+        if (ch.id === "faits" && !M.featsOf(st).length) return;
+        var best = null;
+        A.profiles.forEach(function (p) { var t = ch.test(st, recordOf(p, st.id)); if (t && (!best || t < best.t)) best = { p: p, t: t }; });
+        rows.appendChild(h("div", { class: "defi" + (best ? " done" : "") }, h("span", { class: "grow" }, ch.title),
+          best ? h("span", { class: "small" }, avatar(best.p), " ", h("b", null, best.p.name), " · " + new Date(best.t).toLocaleDateString("fr-FR", { day: "numeric", month: "short" })) : h("span", { class: "small muted" }, "à relever")));
+      });
+      var fast = null; A.profiles.forEach(function (p) { var r = recordOf(p, st.id); if (r.best && (!fast || r.best < fast.n)) fast = { p: p, n: r.best }; });
+      if (fast) rows.appendChild(h("div", { class: "defi done" }, h("span", { class: "grow" }, "Le chemin le plus court jusqu'à une fin"), h("span", { class: "small" }, avatar(fast.p), " ", h("b", null, fast.p.name), " · " + fast.n + " pages")));
+      sec.appendChild(h("div", { class: "stack tight" }, h("h3", { class: "sub-h" }, st.title), rows));
+    });
+    return sec;
+  }
+  // Intent: the album: each book's endings and feats as cards, with who found them; what nobody found stays a blank
+  // card (no title, no hint). Why: Clément, 13/11 (piste 24).
+  function renderAlbum() {
+    app.appendChild(topBar([h("button", { class: "btn ghost sm", onclick: function () { A.screen = "home"; render(); } }, "← Bibliothèque"), h("span", { class: "brand grow" }, "Album de la famille")]));
+    var w = h("main", { class: "wrap" });
+    w.appendChild(h("div", { class: "hero-head" }, h("h1", null, "Album de la famille"), h("p", null, "Les fins et les hauts faits trouvés par chacun. Ce que personne n'a encore trouvé reste une page blanche.")));
+    Object.keys(A.builtins).map(function (k) { return A.builtins[k]; }).filter(function (st) { return !st.multi && !st.kid; }).forEach(function (st) {
+      var who = function (key, id) { return A.profiles.filter(function (p) { return recordOf(p, st.id)[key][id]; }); };
+      var ends = M.endingsOf(st), feats = M.featsOf(st);
+      if (!A.profiles.some(function (p) { var r = recordOf(p, st.id); return Object.keys(r.endings).length || Object.keys(r.feats).length; })) return;
+      var sec = h("section", { class: "section" }, h("h2", null, st.title));
+      var grid = h("div", { class: "album" });
+      ends.forEach(function (e) {
+        var ps = who("endings", e.id);
+        grid.appendChild(ps.length ? h("div", { class: "album-card" }, h("span", { class: "label" }, "Fin"), h("b", null, e.title), h("div", { class: "album-who" }, ps.map(function (p) { return avatar(p); })))
+          : h("div", { class: "album-card blank", "aria-label": "Fin encore inconnue" }, h("span", { class: "label" }, "Fin"), h("b", null, "?")));
+      });
+      feats.forEach(function (f) {
+        var ps = who("feats", f.id); if (!ps.length) return;
+        grid.appendChild(h("div", { class: "album-card feat" }, h("span", { class: "label" }, "★ Haut fait"), h("b", null, f.title), h("div", { class: "album-who" }, ps.map(function (p) { return avatar(p); }))));
+      });
+      var hidden = feats.filter(function (f) { return !who("feats", f.id).length; }).length;
+      sec.appendChild(grid);
+      if (hidden) sec.appendChild(h("p", { class: "small muted" }, hidden + " haut" + (hidden > 1 ? "s" : "") + " fait" + (hidden > 1 ? "s" : "") + " encore à découvrir."));
+      w.appendChild(sec);
+    });
+    app.appendChild(w);
+  }
+
+  // ------------------------------------------------------------------ book covers
+  // Intent: cover(StoryMeta) -> Element = a cover drawn by the device: a cloth colour, a gilt frame, the story's emblem
+  // (tag cover.motif: dedale, flocon, sceau, oeil, vanne, ecu, etoile), its title. Why: Clément, 13/11 (piste 16).
+  var COVER_CLOTHS = ["#5b2a2a", "#2f4a3a", "#2c3c5a", "#4f3a22", "#3d2d4d", "#4a4a2a", "#2a4a4d"];
+  var COVER_MOTIFS = {
+    dedale: function (g, s) { for (var i = 0; i < 5; i++) { var r = 8 + i * 9; g.appendChild(s("rect", { x: -r, y: -r, width: 2 * r, height: 2 * r, fill: "none", "stroke-dasharray": (r * 6) + " " + (6 + i * 2), "stroke-dashoffset": i * 11 })); } },
+    flocon: function (g, s) { for (var i = 0; i < 6; i++) { var a = i * 60; g.appendChild(s("path", { d: "M0 0 V-44 M0 -18 l-10 -10 M0 -18 l10 -10 M0 -32 l-8 -8 M0 -32 l8 -8", transform: "rotate(" + a + ")", fill: "none" })); } },
+    sceau: function (g, s) { g.appendChild(s("circle", { r: 40, fill: "none" })); g.appendChild(s("circle", { r: 32, fill: "none", "stroke-dasharray": "3 4" })); g.appendChild(s("path", { d: "M-16 14 L0 -20 L16 14 Z M-22 22 H22", fill: "none" })); },
+    oeil: function (g, s) { g.appendChild(s("path", { d: "M-44 0 Q0 -36 44 0 Q0 36 -44 0 Z", fill: "none" })); g.appendChild(s("circle", { r: 13, fill: "none" })); g.appendChild(s("circle", { r: 5 })); },
+    vanne: function (g, s) { g.appendChild(s("path", { d: "M-40 -30 V30 M40 -30 V30 M-40 -30 H40 M-30 -16 H30 V4 H-30 Z", fill: "none" })); for (var i = 0; i < 3; i++) g.appendChild(s("path", { d: "M-44 " + (16 + i * 8) + " q11 -6 22 0 t22 0 t22 0 t22 0", fill: "none" })); },
+    ecu: function (g, s) { g.appendChild(s("path", { d: "M-32 -36 H32 V0 Q32 28 0 42 Q-32 28 -32 0 Z", fill: "none" })); g.appendChild(s("path", { d: "M0 -36 V42 M-32 -6 H32", fill: "none" })); },
+    etoile: function (g, s) { g.appendChild(s("path", { d: "M0 -42 L10 -12 L42 -12 L16 6 L26 38 L0 18 L-26 38 L-16 6 L-42 -12 L-10 -12 Z", fill: "none" })); },
+  };
+  function cover(m, st) {
+    var NS = "http://www.w3.org/2000/svg", s = function (tag, a, kids) { var e = document.createElementNS(NS, tag); for (var k in a) e.setAttribute(k, a[k]); (kids || []).forEach(function (c) { e.appendChild(c); }); return e; };
+    var c = (st && st.cover) || m.cover || {}, hs = hash(m.id || m.title), cloth = c.color || COVER_CLOTHS[hs % COVER_CLOTHS.length], gold = "#d9b866";
+    var svgEl = s("svg", { viewBox: "0 0 200 300", class: "cover", role: "img", "aria-label": "Couverture : " + m.title });
+    svgEl.appendChild(s("rect", { width: 200, height: 300, rx: 6, fill: cloth }));
+    svgEl.appendChild(s("rect", { x: 0, y: 0, width: 14, height: 300, fill: "#000", opacity: ".18" }));
+    svgEl.appendChild(s("rect", { x: 22, y: 14, width: 166, height: 272, fill: "none", stroke: gold, "stroke-width": "1.4" }));
+    svgEl.appendChild(s("rect", { x: 27, y: 19, width: 156, height: 262, fill: "none", stroke: gold, "stroke-width": ".6" }));
+    var g = s("g", { transform: "translate(105 178)", stroke: gold, fill: gold, "stroke-width": "2", "stroke-linecap": "round" });
+    (COVER_MOTIFS[c.motif] || COVER_MOTIFS.etoile)(g, s); svgEl.appendChild(g);
+    // the title on up to three lines
+    var words = String(m.title).split(/\s+/), lines = [], line = "";
+    words.forEach(function (w) { if ((line + " " + w).trim().length > COVER_LINE && line) { lines.push(line); line = w; } else line = (line + " " + w).trim(); });
+    if (line) lines.push(line);
+    lines.slice(0, 3).forEach(function (l, i) { svgEl.appendChild(s("text", { x: 105, y: 60 + i * 22, "text-anchor": "middle", fill: gold, "font-size": "18", style: "font-family: var(--title)" })).textContent = l; });
+    var tx = svgEl.querySelectorAll("text"); tx.forEach(function (t, i) { t.textContent = lines[i]; });
+    return svgEl;
+  }
+  var COVER_LINE = 15;
+
+  // ------------------------------------------------------------------ voices for the characters
+  // Intent: castVoices([Unit], Story) -> () ! sets unit.who and unit.tone (cents) on the words of a character named
+  // in the same paragraph (« …, dit Brune. » or « Brune hausse les épaules. « … » »): each character keeps the same
+  // tone from page to page. Unnamed speakers keep the plain character voice. No guess at anyone's gender.
+  // Why: Clément, 13/11 (piste 17).
+  var VOICE_TONE_SPAN = 360, VOICE_TONE_MIN = 70;
+  function castVoices(units, st) {
+    var names = [];
+    [st.people || {}, st.companions || {}].forEach(function (box) { Object.keys(box).forEach(function (k) {
+      var n = String((box[k] || {}).name || ""); if (!n) return;
+      n.split(/\s+/).filter(function (w) { return w.length >= 3 && /^[A-ZÀ-Ý]/.test(w) && !/^(Le|La|Les|Du|De|Des|Dame|Maître|Mère|Père|Sire|Frère|Sœur)$/.test(w); }).slice(0, 1).forEach(function (w) { names.push({ re: new RegExp("(^|[^A-Za-zÀ-ÿ])" + w.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + "($|[^A-Za-zÀ-ÿ])"), key: k }); });
+    }); });
+    if (!names.length) return;
+    var byLine = {};
+    units.forEach(function (u, i) { (byLine[u.li] = byLine[u.li] || []).push(i); });
+    Object.keys(byLine).forEach(function (li) {
+      var idx = byLine[li], named = [];
+      idx.forEach(function (i) { if (units[i].dial) return; names.forEach(function (n) { if (n.re.test(units[i].text)) named.push({ i: i, key: n.key }); }); });
+      if (!named.length) return;
+      idx.forEach(function (i) {
+        if (!units[i].dial) return;
+        var best = named.slice().sort(function (a, b) { return Math.abs(a.i - i) + (a.i < i ? 0.5 : 0) - (Math.abs(b.i - i) + (b.i < i ? 0.5 : 0)); })[0];
+        var t = (hash("voix|" + best.key) % VOICE_TONE_SPAN) - VOICE_TONE_SPAN / 2; if (Math.abs(t) < VOICE_TONE_MIN) t = t < 0 ? -VOICE_TONE_MIN : VOICE_TONE_MIN;
+        units[i].who = best.key; units[i].tone = t;
+      });
+    });
+  }
+
+  // ------------------------------------------------------------------ dice in relief
+  // Intent: Dice3D.pair(n) -> Element = two ten-sided dice drawn in 3D on a canvas (tens and units of the d100 roll),
+  // tumbling for DICE3D_MS then lying on the result. Plain canvas, no library. Why: Clément, 13/11 (piste 18).
+  var DICE3D_MS = 950, DICE3D_PX = 46;
+  var Dice3D = (function () {
+    var H = 1, E = 0.105, V = [[0, H, 0], [0, -H, 0]], F = [];
+    for (var i = 0; i < 10; i++) { var a = i * Math.PI / 5, y = i % 2 ? -E : E; V.push([Math.cos(a), y, Math.sin(a)]); }
+    var ring = function (k) { return 2 + ((k % 10) + 10) % 10; };
+    for (var j = 0; j < 5; j++) { F.push([0, ring(2 * j), ring(2 * j + 1), ring(2 * j + 2)]); F.push([1, ring(2 * j + 1), ring(2 * j + 2), ring(2 * j + 3)]); }
+    function sub(a, b) { return [a[0] - b[0], a[1] - b[1], a[2] - b[2]]; }
+    function cross(a, b) { return [a[1] * b[2] - a[2] * b[1], a[2] * b[0] - a[0] * b[2], a[0] * b[1] - a[1] * b[0]]; }
+    function norm(a) { var l = Math.hypot(a[0], a[1], a[2]) || 1; return [a[0] / l, a[1] / l, a[2] / l]; }
+    function centroid(f) { var c = [0, 0, 0]; f.forEach(function (k) { c[0] += V[k][0] / 4; c[1] += V[k][1] / 4; c[2] += V[k][2] / 4; }); return c; }
+    var N = F.map(function (f) { var n = norm(cross(sub(V[f[1]], V[f[0]]), sub(V[f[3]], V[f[0]]))); var c = centroid(f); return n[0] * c[0] + n[1] * c[1] + n[2] * c[2] < 0 ? [-n[0], -n[1], -n[2]] : n; });
+    function axisRot(ax, t) { var c = Math.cos(t), s = Math.sin(t), x = ax[0], y = ax[1], z = ax[2], C = 1 - c; return [[c + x * x * C, x * y * C - z * s, x * z * C + y * s], [y * x * C + z * s, c + y * y * C, y * z * C - x * s], [z * x * C - y * s, z * y * C + x * s, c + z * z * C]]; }
+    function mul(A2, B) { var R = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]; for (var i = 0; i < 3; i++) for (var j = 0; j < 3; j++) for (var k = 0; k < 3; k++) R[i][j] += A2[i][k] * B[k][j]; return R; }
+    function ap(Rm, v) { return [Rm[0][0] * v[0] + Rm[0][1] * v[1] + Rm[0][2] * v[2], Rm[1][0] * v[0] + Rm[1][1] * v[1] + Rm[1][2] * v[2], Rm[2][0] * v[0] + Rm[2][1] * v[1] + Rm[2][2] * v[2]]; }
+    // the rotation that turns face k towards the viewer (+z)
+    function facing(k) { var n = N[k], z = [0, 0, 1], ax = cross(n, z), s = Math.hypot(ax[0], ax[1], ax[2]); if (s < 1e-6) return axisRot([1, 0, 0], 0); return axisRot(norm(ax), Math.atan2(s, n[2])); }
+    function drawDie(cx, R, label, colors, size) {
+      var dpr = window.devicePixelRatio || 1, W = size * dpr, sc = W * 0.36;
+      cx.clearRect(0, 0, W, W);
+      var P = V.map(function (v) { var p = ap(R, v); return [W / 2 + p[0] * sc, W / 2 - p[1] * sc, p[2]]; });
+      var order = F.map(function (f, k) { return { f: f, k: k, z: f.reduce(function (z, i) { return z + P[i][2]; }, 0) }; }).sort(function (a, b) { return a.z - b.z; });
+      order.forEach(function (o) {
+        var n = ap(R, N[o.k]); if (n[2] <= 0) return;
+        cx.beginPath(); o.f.forEach(function (i, j) { if (j) cx.lineTo(P[i][0], P[i][1]); else cx.moveTo(P[i][0], P[i][1]); }); cx.closePath();
+        cx.fillStyle = colors[0]; cx.fill(); cx.fillStyle = "rgba(0,0,0," + (0.45 * (1 - n[2])).toFixed(3) + ")"; cx.fill();
+        cx.strokeStyle = colors[2]; cx.lineWidth = dpr; cx.stroke();
+        if (n[2] > 0.55) {
+          var c = o.f.reduce(function (a2, i) { return [a2[0] + P[i][0] / 4, a2[1] + P[i][1] / 4]; }, [0, 0]);
+          cx.fillStyle = colors[1]; cx.font = "600 " + Math.round(W * (label(o.k).length > 1 ? 0.2 : 0.26)) + "px system-ui, sans-serif"; cx.textAlign = "center"; cx.textBaseline = "middle";
+          cx.globalAlpha = Math.min(1, (n[2] - 0.55) * 3); cx.fillText(label(o.k), c[0], c[1] + (o.f[0] === 0 ? W * 0.03 : -W * 0.03)); cx.globalAlpha = 1;
+        }
+      });
+    }
+    function one(value, tens, colors) {
+      var cv = document.createElement("canvas"), dpr = window.devicePixelRatio || 1; cv.width = cv.height = DICE3D_PX * dpr; cv.className = "die3d"; cv.setAttribute("aria-hidden", "true");
+      var faceOf = function (v) { return (v * 3) % 10; }, valOf = []; for (var v = 0; v < 10; v++) valOf[faceOf(v)] = v;
+      var label = function (k) { var v = valOf[k]; return tens ? (v === 0 ? "00" : String(v * 10)) : String(v); };
+      var Rf = mul(axisRot([0, 0, 1], (Math.random() - 0.5) * 0.5), facing(faceOf(value))), ax = norm([Math.random() - 0.5, Math.random() - 0.5, Math.random() - 0.5]), spins = 3 + Math.random() * 3, t0 = null;
+      var cx = cv.getContext("2d"); if (!cx) return cv;
+      var frame = function (ts) {
+        if (t0 == null) t0 = ts; var k = Math.min(1, (ts - t0) / DICE3D_MS), e = 1 - Math.pow(1 - k, 3);
+        drawDie(cx, mul(Rf, axisRot(ax, (1 - e) * spins * Math.PI * 2)), label, colors, DICE3D_PX);
+        if (k < 1 && cv.isConnected !== false) requestAnimationFrame(frame);
+      };
+      if (A.rollAnim && !REDUCED) requestAnimationFrame(frame); else drawDie(cx, Rf, label, colors, DICE3D_PX);
+      return cv;
+    }
+    return {
+      pair: function (n) {
+        var cs = getComputedStyle(document.documentElement), col = function (v, d) { return (cs.getPropertyValue(v) || "").trim() || d; };
+        var m = ((n % 100) + 100) % 100;
+        return h("span", { class: "dice3d", role: "img", "aria-label": "Dés : " + n },
+          one(Math.floor(m / 10), true, [col("--accent", "#2c7464"), col("--accent-ink", "#fff"), col("--ink", "#222")]),
+          one(m % 10, false, [col("--paper", "#f7f7f1"), col("--ink", "#222"), col("--ink", "#222")]));
+      },
+    };
+  })();
+
+  // ------------------------------------------------------------------ plan of a town
+  // Intent: townPlan(Story, State) -> Element? = the places of the town where the hero is, drawn as a little plan: the
+  // square in the middle, one house per page already read there, the street to it; « tu es ici » on the current one.
+  // Only what was seen. Why: Clément, 13/11 (piste 13).
+  var PLAN_MIN = 3, PLAN_MAX = 12, PLAN_LABEL = 22;
+  function townPlan(st, s) {
+    var plId = s.place; if (!plId || s.travel) return null;
+    var pl = ((st.world || {}).places || {})[plId] || {}, P = st.passages || {};
+    var seenT = {}, spots = [];
+    Object.keys(P).forEach(function (k) { var p = P[k]; if (p.place !== plId || !s.seen[k] || !p.title || p.end || k === pl.arrive || seenT[p.title]) return; seenT[p.title] = 1; spots.push({ id: k, title: p.title }); });
+    if (spots.length < PLAN_MIN) return null;
+    spots = spots.slice(0, PLAN_MAX);
+    var NS = "http://www.w3.org/2000/svg", S = function (tag, a, txt) { var e = document.createElementNS(NS, tag); for (var k in a) e.setAttribute(k, a[k]); if (txt != null) e.textContent = txt; return e; };
+    var W = 600, Hh = 380, cx = W / 2, cy = Hh / 2, R = 140, svgEl = S("svg", { viewBox: "0 0 " + W + " " + Hh, class: "town-plan", role: "img", "aria-label": "Plan de " + (pl.name || plId) });
+    svgEl.appendChild(S("rect", { width: W, height: Hh, fill: "var(--paper-2)", rx: 10 }));
+    if (/eau|mer/.test(pl.ambiance || "")) svgEl.appendChild(S("path", { d: "M0 " + (Hh - 40) + " Q150 " + (Hh - 70) + " 300 " + (Hh - 45) + " T600 " + (Hh - 50) + " V" + Hh + " H0 Z", fill: "var(--vig-water)" }));
+    var r = (function () { var x = hash(st.id + plId) || 1; return function () { x = (x * 1103515245 + 12345) % 2147483648; return x / 2147483648; }; })();
+    spots.forEach(function (sp, i) {
+      var a = -Math.PI / 2 + i * 2 * Math.PI / spots.length + (r() - 0.5) * 0.3, rr = R * (0.85 + r() * 0.3);
+      sp.x = cx + Math.cos(a) * rr * 1.5; sp.y = cy + Math.sin(a) * rr * 0.9;
+      svgEl.appendChild(S("path", { d: "M" + cx + " " + cy + " Q" + (cx + (sp.x - cx) * 0.5 + (r() - 0.5) * 40) + " " + (cy + (sp.y - cy) * 0.5 + (r() - 0.5) * 40) + " " + sp.x + " " + sp.y, stroke: "var(--line)", "stroke-width": 9, fill: "none", "stroke-linecap": "round" }));
+    });
+    svgEl.appendChild(S("ellipse", { cx: cx, cy: cy, rx: 46, ry: 30, fill: "var(--paper)", stroke: "var(--line)", "stroke-width": 2 }));
+    svgEl.appendChild(S("text", { x: cx, y: cy + 5, "text-anchor": "middle", "font-size": 15, fill: "var(--ink)", style: "font-family: var(--title)" }, pl.name || ""));
+    spots.forEach(function (sp) {
+      var here = s.node === sp.id || s.ret === sp.id;
+      svgEl.appendChild(S("path", { d: "M" + (sp.x - 15) + " " + (sp.y + 10) + " V" + (sp.y - 6) + " L" + sp.x + " " + (sp.y - 18) + " L" + (sp.x + 15) + " " + (sp.y - 6) + " V" + (sp.y + 10) + " Z", fill: here ? "var(--accent)" : "var(--paper)", stroke: "var(--ink)", "stroke-width": 1.5 }));
+      var t = sp.title.length > PLAN_LABEL ? sp.title.slice(0, PLAN_LABEL - 1) + "…" : sp.title;
+      svgEl.appendChild(S("text", { x: sp.x, y: sp.y + 28, "text-anchor": "middle", "font-size": 13, fill: "var(--ink)", stroke: "var(--paper-2)", "stroke-width": 3, "paint-order": "stroke" }, t));
+      if (here) svgEl.appendChild(S("text", { x: sp.x, y: sp.y - 24, "text-anchor": "middle", "font-size": 12, fill: "var(--accent)", "font-weight": 600 }, "tu es ici"));
+    });
+    return h("div", { class: "stack tight" }, h("h3", { class: "sub-h" }, "Plan de " + (pl.name || plId)), h("div", { class: "scrollx" }, svgEl));
+  }
+
   function renderGame() {
     var G = A.game, st = G.story, s = G.s, v = G.multi ? multiView() : M.view(st, s);
     var pvMax = M.pvMax(s);
@@ -1343,25 +1872,31 @@
       h("button", { class: "btn ghost sm", onclick: function () { stopSpeaking(); leaveGame(); } }, "← Bibliothèque"),
       G.multi ? multiBadge() : null,
       h("span", { class: "grow" }),
-      h("span", { class: "pill", title: "Points de vie" }, "PV " + s.pv + "/" + pvMax, h("span", { class: "bar pv", style: "width:48px" }, h("i", { style: "width:" + Math.round(100 * s.pv / pvMax) + "%" }))),
+      h("span", { class: "pill", title: "Points de vie", "aria-label": "Points de vie : " + s.pv + " sur " + pvMax }, "PV " + s.pv + "/" + pvMax, h("span", { class: "bar pv", style: "width:48px" }, h("i", { style: "width:" + Math.round(100 * s.pv / pvMax) + "%" }))),
       h("span", { class: "pill gold", title: "Bourse : " + M.money(st, s.gold) }, M.money(st, s.gold, true)),
-      h("span", { class: "pill", title: "Jours de vivres" }, "Vivres " + s.food),
+      h("span", { class: "pill", title: "Jours de vivres", "aria-label": "Vivres : " + s.food + " jour" + (s.food > 1 ? "s" : "") }, "Vivres " + s.food),
       s.mark ? h("span", { class: "pill mark", title: "La Marque" }, "Marque " + s.mark) : null,
       h("span", { class: "pill small" }, M.timeLabel(s)),
-      s.ironman ? h("span", { class: "pill small", title: "Sans retour : chaque choix est définitif" }, "⚔") : null,
+      s.ironman ? h("span", { class: "pill small", title: "Sans retour : chaque choix est définitif. Jetons de destin restants dans cet acte : " + fateLeft(s), "aria-label": "Sans retour, " + fateLeft(s) + " jetons de destin" }, "⚔ 🎲" + fateLeft(s)) : null,
       h("button", { class: "btn sm primary", onclick: function () { A.carnet = true; render(); } }, "Carnet")]));
     var w = h("main", { class: "wrap" });
     // act ruler
     var acts = st.acts || [], cur = acts.map(function (a) { return a.id; }).indexOf(s.lastAct);
-    w.appendChild(h("div", { class: "acts", title: cur >= 0 ? acts[cur].title : "" }, acts.map(function (a, i) { return h("span", { class: i < cur ? "done" : i === cur ? "on" : "" }); })));
-    var page = h("article", { class: "page read" });
+    var actMin = cur >= 0 ? actMinutes(st, acts[cur].id) : 0;
+    w.appendChild(h("div", { class: "acts", role: "img", "aria-label": cur >= 0 ? acts[cur].title + ", acte " + (cur + 1) + " sur " + acts.length : "", title: cur >= 0 ? acts[cur].title + (actMin ? " · environ " + minutesLabel(actMin) + " de lecture" : "") : "" }, acts.map(function (a, i) { return h("span", { class: i < cur ? "done" : i === cur ? "on" : "" }); })));
+    var turnIn = A.turned && pref("pageTurn") && !REDUCED; A.turned = false;
+    var page = h("article", { class: "page read" + (turnIn ? " turn-in" : ""), "aria-labelledby": "page-title" });
+    if (pref("swipe") && !G.multi) swipeOn(page, v, G);
     var num = v.passage ? paraNum(st, s.node) : null;
-    var vig = Vignette.of(st, s); if (vig) page.appendChild(vig);
+    var actFirst = cur >= 0 && acts[cur].start === s.node && !G.multi;
+    var vig = actFirst ? Vignette.engraving(st, s, acts[cur].title) : Vignette.of(st, s); if (vig) page.appendChild(vig);
     if (s.travel) { noteRoad(G, v); var trip = renderTravelStrip(st, s, G); if (trip) page.appendChild(trip); }
     var rc = A.recap && !G.multi ? renderRecap(G) : null, nr = A.recap && !G.multi && !G.ephemeral ? notesRecap(G) : null;
     if (rc) { if (nr) rc.appendChild(nr); page.appendChild(rc); }
     else if (nr) page.appendChild(h("aside", { class: "recap" }, h("div", { class: "row" }, h("span", { class: "grow" }), h("button", { class: "btn ghost sm", onclick: function () { A.recap = false; render(); } }, "Fermer")), nr));
-    page.appendChild(h("div", { class: "page-head" }, h("div", null, h("h2", null, v.title || ""), h("div", { class: "where" }, [cur >= 0 ? acts[cur].title : null, where(st, s)].filter(Boolean).join(" · "))), num ? h("span", { class: "para-num", title: "Numéro du paragraphe" }, "§ " + num) : null));
+    var actStart = cur >= 0 && acts[cur].start === s.node && actMin;
+    page.appendChild(h("div", { class: "page-head" }, h("div", null, h("h2", { id: "page-title", tabindex: "-1" }, v.title || ""), h("div", { class: "where" }, [cur >= 0 ? acts[cur].title : null, where(st, s), actStart ? "environ " + minutesLabel(actMin) + " de lecture" : null].filter(Boolean).join(" · "))), num ? h("span", { class: "para-num", title: "Numéro du paragraphe" }, "§ " + num) : null));
+    var gb = groupBanner(G, s); if (gb) page.appendChild(gb);
     if (A.notice) page.appendChild(h("div", { class: "notice" }, A.notice));
     if (A.bedWarn && !G.multi) page.appendChild(h("div", { class: "notice soft" }, "🌙 Bientôt l'heure de refermer le livre : le récit te proposera de t'arrêter à une page calme."));
     var prose = h("div", { class: "prose" });
@@ -1373,10 +1908,12 @@
     // What led to this page (the rolls, their outcome, the blows) comes before the text; what follows from it (clues,
     // items, quests, feats) after (Clément, 11/11 then 13/11).
     var evs = s.events || [], evEl = function (list, cls) { return list.length ? h("div", { class: "events " + cls, role: "status" }, list.map(function (e) { var el = h("div", { class: "ev " + (e.cls || "") }, rollBadge(e)); el.insertAdjacentHTML("beforeend", md(e.text)); return el; })) : null; };
+    if (pref("quietFx")) evs = evs.filter(function (e) { return !e.conseq; });
     var leadIn = evs.filter(evLeadsIn), after = evs.filter(function (e) { return !evLeadsIn(e); });
     var pre = evEl(leadIn, "before"); if (pre) page.insertBefore(pre, prose);
     page.appendChild(prose);
     var post = evEl(after, "after"); if (post) page.appendChild(post);
+    var fb = fateButton(G); if (fb) page.appendChild(fb);
     A.rollAnim = false;
     if (v.kind === "combat") page.appendChild(renderFight(s));
     if (G.multi && v.wait) page.appendChild(renderWait(v));
@@ -1394,7 +1931,8 @@
       h("button", { class: "btn sm", onclick: function () { A.carnet = true; A.carnetTab = "carte"; render(); } }, "Carte"),
       h("button", { class: "btn sm", onclick: function () { A.carnet = true; A.carnetTab = "quetes"; render(); } }, "Quêtes"),
       G.multi ? null : h("button", { class: "btn sm", onclick: function () { A.modal = { kind: "mark" }; render(); } }, "🔖 Marque-page"),
-      h("button", { class: "btn sm", "aria-pressed": pref("ambiance") ? "true" : "false", onclick: function () { setPref("ambiance", !pref("ambiance")); } }, pref("ambiance") ? "🔊 Ambiance" : "🔇 Ambiance"),
+      G.multi || G.ephemeral ? null : h("button", { class: "btn sm", "aria-pressed": groupOf(G) ? "true" : "false", onclick: function () { A.modal = { kind: "group" }; render(); } }, "👥 À plusieurs"),
+      h("button", { class: "btn sm", "aria-label": "Ambiance sonore", "aria-pressed": pref("ambiance") ? "true" : "false", onclick: function () { setPref("ambiance", !pref("ambiance")); } }, pref("ambiance") ? "🔊 Ambiance" : "🔇 Ambiance"),
       pref("nudge") && !G.multi && v.kind !== "end" ? h("button", { class: "btn sm", disabled: nudgesLeft(G) <= 0, title: "Une phrase pour t'orienter, sans rien révéler", onclick: function () { askNudge(G); } }, "💡 Coup de pouce (" + nudgesLeft(G) + ")") : null,
       h("button", { class: "btn sm", onclick: function () { A.modal = { kind: "prefs" }; render(); } }, "⚙ Réglages"),
       h("button", { class: "btn sm", onclick: function () { A.modal = { kind: "report" }; render(); } }, "⚑ Signaler")));
@@ -1571,6 +2109,8 @@
     var quests = M.questsOf(st).filter(function (q) { return M.questDone(s, q) && L.quests.indexOf(q.id) < 0; });
     if (feats.length || quests.length) b.appendChild(h("ul", { class: "plain chapter-list" },
       quests.map(function (q) { return h("li", null, "✔ " + q.title); }), feats.map(function (f) { return h("li", null, "★ " + f.title); })));
+    var nextAct = (st.acts || []).filter(function (x) { return x.id === s.lastAct; })[0], nextMin = nextAct && nextAct.id !== m.act ? actMinutes(st, nextAct.id) : 0;
+    if (nextMin) b.appendChild(h("p", { class: "small muted" }, "« " + nextAct.title + " » se lit en environ " + minutesLabel(nextMin) + "."));
     b.appendChild(h("button", { class: "btn primary", onclick: close }, "Tourner la page"));
     box.appendChild(b);
   }
@@ -1867,7 +2407,7 @@
   function minPlayers(st) { return Math.max(2, (st.multi && st.multi.min) || 2); }
   function maxPlayers(st) { var m = (st.multi && st.multi.max) || 6; return st.heroes ? Math.min(m, Object.keys(st.heroes).length) : m; }
   function renderMultiSetup() {
-    var S = A.msetup, st = S.story, shared = Store.mode === "db";
+    var S = A.msetup, st = S.story, shared = Room.on();
     app.appendChild(topBar([h("button", { class: "btn ghost sm", onclick: function () { A.msetup = null; A.screen = "home"; render(); } }, "← Bibliothèque"), h("span", { class: "brand grow" }, st.title)]));
     var w = h("main", { class: "wrap read create" });
     w.appendChild(h("div", null, h("div", { class: "label" }, "Jouer à plusieurs"), h("h1", null, st.title)));
@@ -1876,10 +2416,10 @@
       : "Chacun crée son héros, dans le même monde. Chacun avance de son côté ; au début de chaque acte et aux charnières, on attend les autres. Un choix du monde est fixé par le premier qui le fait."));
     var modes = h("div", { class: "archs" });
     [["local", "Sur cet appareil", "On se passe l'appareil. Un écran caché sépare les tours : personne ne voit les choix des autres."],
-     ["salle", "Salle commune", "Chacun sur son appareil, connecté à claude.ai. Les autres doivent être invités sur cette page par e-mail, avec le droit Éditeur."]].forEach(function (m) {
+     ["salle", "Salle commune", Room.site() ? "Chacun sur son appareil (tablette, téléphone…), sur le site, branché sur le même dossier de sauvegarde partagé ☁." : "Chacun sur son appareil, connecté à claude.ai. Les autres doivent être invités sur cette page par e-mail, avec le droit Éditeur."]].forEach(function (m) {
       var off = m[0] === "salle" && !shared;
       modes.appendChild(h("button", { class: "arch" + (S.mode === m[0] ? " on" : ""), "aria-pressed": S.mode === m[0] ? "true" : "false", disabled: off, onclick: function () { S.mode = m[0]; render(); } },
-        h("b", null, m[1]), h("span", { class: "small muted" }, off ? "Indisponible ici : la sauvegarde partagée ne répond pas (page ouverte sans être connecté)." : m[2])));
+        h("b", null, m[1]), h("span", { class: "small muted" }, off ? (standalone() ? "Pour jouer chacun sur son appareil, branche d'abord ce site au dossier de sauvegarde partagé (☁, dans Sauvegardes), sur chaque appareil." : "Indisponible ici : la sauvegarde partagée ne répond pas (page ouverte sans être connecté).") : m[2])));
     });
     w.appendChild(h("div", { class: "stack" }, h("span", { class: "label" }, "Comment ?"), modes));
     var counts = h("div", { class: "row" });
@@ -2100,7 +2640,7 @@
     list.forEach(function (m) {
       var names = m.kind === "salle" ? (m.seats || []).map(function (x) { return x.name; }) : (m.players || []);
       var del = A.confirmDel === "m:" + m.id
-        ? h("span", { class: "confirm small" }, "Effacer ?", h("button", { class: "btn sm danger", onclick: function () { Store.del(m.kind === "salle" ? "salles" : "multis", m.id).then(refresh).then(function () { A.confirmDel = null; render(); }); } }, "Oui"), h("button", { class: "btn sm", onclick: function () { A.confirmDel = null; render(); } }, "Non"))
+        ? h("span", { class: "confirm small" }, "Effacer ?", h("button", { class: "btn sm danger", onclick: function () { (m.kind === "salle" ? Room.del("salles", m.id) : Store.del("multis", m.id)).then(refresh).then(function () { A.confirmDel = null; render(); }); } }, "Oui"), h("button", { class: "btn sm", onclick: function () { A.confirmDel = null; render(); } }, "Non"))
         : h("button", { class: "btn sm ghost", onclick: function () { A.confirmDel = "m:" + m.id; render(); } }, "Effacer");
       sec.appendChild(h("div", { class: "save-line" },
         h("div", { class: "grow" }, h("b", null, m.storyTitle + " · " + (m.kind === "salle" ? "salle commune" : "sur cet appareil")), h("div", { class: "small muted" }, names.join(", ") + " · " + when(m.updated))),
@@ -2109,6 +2649,137 @@
     return sec;
   }
 
+
+  // ------------------------------------------------------------------ shared room on the site (several devices)
+  // Intent: GhDb = the few calls of the claude.ai db that the shared room uses (doc get/set/create/onSnapshot/acquire,
+  // collection get/onSnapshot), kept as JSON files in the family's private save folder on GitHub (the one of
+  // « Dossier de sauvegarde partagé »), under multi/. A doc "a/b" is multi/a/b.json; the collection "a/b/c" is the
+  // folder multi/a/b/c/. Watching = asking every ROOM_POLL_MS with the last ETag: an unchanged answer (304) costs
+  // nothing on GitHub's quota. A first write that must win alone (a world choice, the room's lease) creates its file
+  // and fails if it already exists.
+  // Why: Clément, 13/11 (piste 25): the children on the tablet, him on his phone, both on the site.
+  var ROOM_DIR = "multi/", ROOM_POLL_MS = 4000, ROOM_TRIES = 4, ROOM_FAILS = 5, ROOM_JITTER_MS = 700;
+  var GhDb = (function () {
+    var etags = {}, cache = {}, blobs = {};
+    function cfg() { return Sync.config(); }
+    function url(p) { var c = cfg(); return SYNC_API + "/repos/" + c.owner + "/" + c.repo + "/contents/" + p.split("/").map(encodeURIComponent).join("/"); }
+    function call(method, p, body, cond) {
+      var c = cfg(), headers = { Authorization: "Bearer " + c.token, Accept: "application/vnd.github+json", "X-GitHub-Api-Version": "2022-11-28", "Content-Type": "application/json" };
+      if (cond && etags[p]) headers["If-None-Match"] = etags[p];
+      return fetch(url(p), { method: method, cache: "no-store", headers: headers, body: body ? JSON.stringify(body) : undefined });
+    }
+    function b64(str) { var by = new TextEncoder().encode(str), out = ""; for (var i = 0; i < by.length; i += 0x8000) out += String.fromCharCode.apply(null, by.subarray(i, i + 0x8000)); return btoa(out); }
+    function unb64(s) { var bin = atob(String(s).replace(/\s/g, "")), by = new Uint8Array(bin.length); for (var i = 0; i < bin.length; i++) by[i] = bin.charCodeAt(i); return new TextDecoder().decode(by); }
+    function fail(r) { var e = new Error("GitHub a répondu " + r.status); e.code = r.status === 401 || r.status === 403 ? "denied" : "http" + r.status; throw e; }
+    // one file: { sha, data } or null; the cached copy when GitHub answers "unchanged"
+    function readFile(p) {
+      return call("GET", p, null, true).then(function (r) {
+        if (r.status === 304) return cache[p] || null;
+        if (r.status === 404) { delete etags[p]; cache[p] = null; return null; }
+        if (!r.ok) fail(r);
+        etags[p] = r.headers.get("ETag") || "";
+        return r.json().then(function (m) { return (cache[p] = { sha: m.sha, data: JSON.parse(unb64(m.content)) }); });
+      });
+    }
+    // one folder: [{ id, sha, data }] (the files' contents fetched once per sha: a blob never changes)
+    function readDir(p) {
+      return call("GET", p, null, true).then(function (r) {
+        if (r.status === 304) return cache[p] || [];
+        if (r.status === 404) { delete etags[p]; return (cache[p] = []); }
+        if (!r.ok) fail(r);
+        etags[p] = r.headers.get("ETag") || "";
+        return r.json().then(function (list) {
+          var files = (Array.isArray(list) ? list : []).filter(function (x) { return x.type === "file" && /\.json$/.test(x.name); });
+          return Promise.all(files.map(function (x) {
+            if (blobs[x.sha]) return { id: x.name.replace(/\.json$/, ""), sha: x.sha, data: blobs[x.sha] };
+            var c = cfg();
+            return fetch(SYNC_API + "/repos/" + c.owner + "/" + c.repo + "/git/blobs/" + x.sha, { cache: "force-cache", headers: { Authorization: "Bearer " + c.token, Accept: "application/vnd.github+json" } })
+              .then(function (r2) { if (!r2.ok) fail(r2); return r2.json(); })
+              .then(function (b) { blobs[x.sha] = JSON.parse(unb64(b.content)); return { id: x.name.replace(/\.json$/, ""), sha: x.sha, data: blobs[x.sha] }; });
+          })).then(function (out) { return (cache[p] = out); });
+        });
+      });
+    }
+    function write(p, data, onlyNew, tries) {
+      tries = tries || 0;
+      var known = cache[p], body = { message: "Salle commune", content: b64(JSON.stringify(data)) };
+      if (!onlyNew && known && known.sha) body.sha = known.sha;
+      return call("PUT", p, body).then(function (r) {
+        if (r.ok) return r.json().then(function (m) { cache[p] = { sha: m.content.sha, data: data }; delete etags[p]; return true; });
+        if (r.status === 422 && onlyNew) return false;                       // already there: the other one was first
+        if ((r.status === 409 || r.status === 422) && tries < ROOM_TRIES) {   // our sha is old: read it again, write over
+          delete etags[p]; return sleep(Math.random() * ROOM_JITTER_MS * (tries + 1)).then(function () { return readFile(p); }).then(function () { return write(p, data, onlyNew, tries + 1); });
+        }
+        fail(r);
+      });
+    }
+    function snap(id, data) { return { id: id, exists: data != null, data: function () { return data; } }; }
+    // Polling while someone watches; paused when the page is hidden.
+    var watchers = [];
+    function tick() {
+      if (document.hidden || !watchers.length) return;
+      watchers.forEach(function (w) { if (!w.busy) { w.busy = true; w.read().then(function (x) { w.busy = false; w.fails = 0; if (w.alive) w.seen(x); }, function (e) { w.busy = false; if (++w.fails >= ROOM_FAILS && w.alive && w.err) w.err(e); }); } });
+    }
+    setInterval(tick, ROOM_POLL_MS);
+    function watch(read, seen, err) {
+      var w = { read: read, seen: seen, err: err, alive: true, busy: false, fails: 0 };
+      watchers.push(w); tick();
+      return function () { w.alive = false; watchers = watchers.filter(function (x) { return x !== w; }); };
+    }
+    return {
+      doc: function (path) {
+        var p = ROOM_DIR + path + ".json", id = path.split("/").pop();
+        return {
+          get: function () { return readFile(p).then(function (f) { return snap(id, f ? f.data : null); }); },
+          set: function (data) { return write(p, JSON.parse(JSON.stringify(data)), false); },
+          create: function (data) { return write(p, JSON.parse(JSON.stringify(data)), true); },
+          onSnapshot: function (cb, err) {
+            var last = undefined;
+            return watch(function () { return readFile(p); }, function (f) { var sha = f ? f.sha : null; if (sha !== last) { last = sha; cb(snap(id, f ? f.data : null)); } }, err);
+          },
+          // a lease: a lock file next to the doc, taken when absent or expired
+          acquire: function (o) {
+            var lp = ROOM_DIR + path + ".verrou.json", now = Date.now(), mine = { holder: o.holder, until: now + (o.ttlMs || 10000) };
+            return readFile(lp).then(function (f) {
+              if (f && f.data && f.data.until > now && f.data.holder !== o.holder) return { acquired: false };
+              return write(lp, mine, !f).then(function (ok) { return { acquired: ok !== false }; });
+            });
+          },
+        };
+      },
+      collection: function (path) {
+        var p = ROOM_DIR + path;
+        var q = function (list) { return { docs: list.map(function (x) { return snap(x.id, x.data); }) }; };
+        return {
+          get: function () { return readDir(p).then(q); },
+          onSnapshot: function (cb, err) {
+            var last = undefined;
+            return watch(function () { return readDir(p); }, function (list) { var key = list.map(function (x) { return x.sha; }).join(","); if (key !== last) { last = key; cb(q(list)); } }, err);
+          },
+        };
+      },
+      remove: function (path) {
+        var p = ROOM_DIR + path + ".json";
+        return readFile(p).then(function (f) {
+          if (!f) return;
+          return call("DELETE", p, { message: "Salle effacée", sha: f.sha }).then(function () { delete cache[p]; delete etags[p]; });
+        });
+      },
+    };
+  })();
+  // Intent: Room = where shared rooms live: the claude.ai db on the claude.ai page, the save folder on the site.
+  var Room = {
+    on: function () { return Store.mode === "db" || Sync.on(); },
+    site: function () { return Store.mode !== "db" && Sync.on(); },
+    db: function () { return Store.db || GhDb; },
+    put: function (coll, id, doc) { if (!Room.site()) return Store.put(coll, id, doc); var d = JSON.parse(JSON.stringify(doc)); delete d.id; return GhDb.doc(coll + "/" + id).set(d); },
+    get: function (coll, id) { if (!Room.site()) return Store.get(coll, id); return GhDb.doc(coll + "/" + id).get().then(function (x) { var d = x.exists ? x.data() : null; if (d) d.id = id; return d; }); },
+    list: function (coll) {
+      if (!Room.site()) return Store.list(coll);
+      return GhDb.collection(coll).get().then(function (q) { return q.docs.map(function (x) { var d = x.data(); d.id = x.id; return d; }); }).catch(function () { return []; });
+    },
+    del: function (coll, id) { if (!Room.site()) return Store.del(coll, id); return GhDb.remove(coll + "/" + id); },
+  };
   // ---- shared room, several devices
   function sallePath(gid) { return "salles/" + gid; }
   function seatDoc(p, log) {
@@ -2122,29 +2793,29 @@
     var salle = { kind: "salle", story: st.id, storyTitle: st.title, storyVersion: st.version || 1, created: Date.now(), updated: Date.now(),
       seats: S.seats, base: g.base ? JSON.stringify(g.base) : null, released: {}, round: 0, host: deviceId(), toutJouer: S.toutJouer !== false };
     A.busy = true; A.create = null; A.msetup = null; render();
-    Promise.all(g.players.map(function (p) { return Store.put(sallePath(gid) + "/joueurs", p.id, seatDoc(p)); }))
-      .then(function () { return Store.put("salles", gid, salle); })
+    Promise.all(g.players.map(function (p) { return Room.put(sallePath(gid) + "/joueurs", p.id, seatDoc(p)); }))
+      .then(function () { return Room.put("salles", gid, salle); })
       .then(function () { A.busy = false; openSalle(gid); })
       .catch(function (e) { A.busy = false; flash("La salle n'a pas pu être créée (" + ((e && e.code) || "erreur") + ").", true); A.screen = "home"; render(); });
   }
   function openSalle(gid) {
     A.busy = true; render();
-    Store.get("salles", gid).then(function (sd) {
+    Room.get("salles", gid).then(function (sd) {
       if (!sd) throw new Error("Salle introuvable.");
       return loadStory(sd.story).then(function (st) {
         sd.id = gid;
-        return Store.list(sallePath(gid) + "/joueurs").then(function (seats) {
+        return Room.list(sallePath(gid) + "/joueurs").then(function (seats) {
           var X = A.multi = { kind: "salle", gid: gid, doc: sd, story: st, seats: {}, monde: {}, me: lsGet("salle:" + gid), mine: null, undo: [], log: [], unsub: [], g: null, note: "" };
           seats.forEach(function (x) { X.seats[x.id] = x; });
           var mine = X.me && X.seats[X.me];
           if (mine && mine.log) X.log = mine.log;
           rebuild();
           A.busy = false; A.screen = "salle"; render();
-          if (Store.db) {
+          if (Room.on()) {
             var err = function () { X.offline = true; render(); };
-            X.unsub.push(Store.db.doc(sallePath(gid)).onSnapshot(function (snap) { if (snap.exists) { X.doc = thaw(snap.data()); X.doc.id = gid; onRemote(); } }, err));
-            X.unsub.push(Store.db.collection(sallePath(gid) + "/joueurs").onSnapshot(function (q) { q.docs.forEach(function (d) { X.seats[d.id] = thaw(d.data()); X.seats[d.id].id = d.id; }); onRemote(); }, err));
-            X.unsub.push(Store.db.collection(sallePath(gid) + "/monde").onSnapshot(function (q) { q.docs.forEach(function (d) { var x = thaw(d.data()); if (x.key) X.monde[x.key] = x; }); onRemote(); }, err));
+            X.unsub.push(Room.db().doc(sallePath(gid)).onSnapshot(function (snap) { if (snap.exists) { X.doc = thaw(snap.data()); X.doc.id = gid; onRemote(); } }, err));
+            X.unsub.push(Room.db().collection(sallePath(gid) + "/joueurs").onSnapshot(function (q) { q.docs.forEach(function (d) { X.seats[d.id] = thaw(d.data()); X.seats[d.id].id = d.id; }); onRemote(); }, err));
+            X.unsub.push(Room.db().collection(sallePath(gid) + "/monde").onSnapshot(function (q) { q.docs.forEach(function (d) { var x = thaw(d.data()); if (x.key) X.monde[x.key] = x; }); onRemote(); }, err));
           }
         });
       });
@@ -2177,7 +2848,7 @@
     var X = A.multi; if (!X.mine) return;
     if (X.log.length > MULTI_LOG) X.log.splice(0, X.log.length - MULTI_LOG);
     X.mine.owner = deviceId();
-    Store.put(sallePath(X.gid) + "/joueurs", X.mine.id, seatDoc(X.mine, X.log)).catch(function (e) { A.notice = "La salle n'a pas reçu ton dernier choix (" + ((e && e.code) || "erreur") + ")."; render(); });
+    Room.put(sallePath(X.gid) + "/joueurs", X.mine.id, seatDoc(X.mine, X.log)).catch(function (e) { A.notice = "La salle n'a pas reçu ton dernier choix (" + ((e && e.code) || "erreur") + ")."; render(); });
   }
   function renderSalle() {
     var X = A.multi, g = X.g, st = X.story;
@@ -2186,7 +2857,7 @@
     w.appendChild(h("div", null, h("div", { class: "label" }, "Salle commune"), h("h1", null, st.title)));
     if (A.notice) w.appendChild(h("div", { class: "notice" }, A.notice));
     if (X.offline) w.appendChild(h("div", { class: "notice bad" }, "La salle ne répond plus en direct ; recharge la page pour la rejoindre à nouveau."));
-    w.appendChild(h("p", { class: "small muted" }, "Pour qu'un autre joueur entre, invite-le sur cette page par e-mail avec le droit Éditeur (menu Partager), puis il ouvre la page, va dans « Parties à plusieurs » et prend sa place."));
+    w.appendChild(h("p", { class: "small muted" }, Room.site() ? "Pour qu'un autre joueur entre : sur son appareil, le site doit être branché sur le même dossier de sauvegarde partagé (☁ dans Sauvegardes, ou le code QR de cet appareil). Il ouvre « Parties à plusieurs » et prend sa place. Les coups des autres arrivent en quelques secondes." : "Pour qu'un autre joueur entre, invite-le sur cette page par e-mail avec le droit Éditeur (menu Partager), puis il ouvre la page, va dans « Parties à plusieurs » et prend sa place."));
     var me = X.me;
     g.players.forEach(function (p) {
       var mineSeat = p.id === me, taken = p.owner && p.owner !== deviceId();
@@ -2202,7 +2873,7 @@
     var X = A.multi; X.me = pid; lsSet("salle:" + X.gid, pid);
     var sd = X.seats[pid] || {}; X.log = sd.log || []; X.undo.length = 0;
     rebuild();
-    if (X.mine && X.mine.s) salleSave(); else if (X.mine) { X.mine.owner = deviceId(); Store.put(sallePath(X.gid) + "/joueurs", pid, seatDoc(X.mine, X.log)).catch(function () {}); }
+    if (X.mine && X.mine.s) salleSave(); else if (X.mine) { X.mine.owner = deviceId(); Room.put(sallePath(X.gid) + "/joueurs", pid, seatDoc(X.mine, X.log)).catch(function () {}); }
     render();
   }
   function playSeat(pid) {
@@ -2219,9 +2890,13 @@
   }
   // Intent: claim(Choice) -> Promise<Bool> = true when this device decides the world choice ! writes(db monde/<key>)
   function claimDecision(c) {
-    var X = A.multi, key = MU.decisionKey(c), ref = Store.db.doc(sallePath(X.gid) + "/monde/" + safeKey(key));
+    var X = A.multi, key = MU.decisionKey(c), ref = Room.db().doc(sallePath(X.gid) + "/monde/" + safeKey(key));
     var d = { key: key, option: MU.optionOf(c), label: c.label, by: X.mine.name, pid: X.mine.id, at: Date.now() };
     var read = function () { return Store.timed(ref.get()).then(function (snap) { return snap.exists ? thaw(snap.data()) : null; }); };
+    if (ref.create) return Store.timed(ref.create(d)).then(function (won) { return won ? d : read(); }).then(function (win) {
+      win = win || d; X.monde[key] = win; X.g.decisions[key] = win;
+      return win.option === d.option && win.pid === d.pid;
+    }).catch(function (e) { A.notice = "Le choix du monde n'a pas pu être enregistré (" + ((e && e.code) || "réseau") + "). Réessaie."; render(); return false; });
     var lease = ref.acquire ? Store.timed(ref.acquire({ holder: deviceId(), ttlMs: CLAIM_MS })).catch(function () { return { acquired: true }; }) : Promise.resolve({ acquired: true });
     return lease.then(function (r) { return r.acquired ? null : sleep(CLAIM_WAIT_MS); }).then(read).then(function (ex) {
       if (ex && ex.option) return ex;
@@ -2233,23 +2908,23 @@
   }
   // Intent: sync() -> () ! when every seat waits, one device (the one holding the room's lease) merges and writes
   function trySync() {
-    var X = A.multi; if (!X || X.kind !== "salle" || X.syncing || !Store.db) return;
+    var X = A.multi; if (!X || X.kind !== "salle" || X.syncing || !Room.on()) return;
     var ready = function (g) { return MU.allWaiting(g) && g.players.every(function (p) { return (p.round || 0) === (g.round || 0); }); };
     if (!ready(X.g)) return;
     X.syncing = true;
-    var ref = Store.db.doc(sallePath(X.gid));
+    var ref = Room.db().doc(sallePath(X.gid));
     Store.timed(ref.acquire({ holder: deviceId(), ttlMs: LEASE_MS })).then(function (r) {
       if (!r.acquired) return;
-      return Promise.all([Store.timed(ref.get()), Store.timed(Store.db.collection(sallePath(X.gid) + "/joueurs").get())]).then(function (res) {
+      return Promise.all([Store.timed(ref.get()), Store.timed(Room.db().collection(sallePath(X.gid) + "/joueurs").get())]).then(function (res) {
         X.doc = thaw(res[0].data()); X.doc.id = X.gid;
         res[1].docs.forEach(function (d) { X.seats[d.id] = thaw(d.data()); X.seats[d.id].id = d.id; });
         rebuild();
         var g = X.g; if (!ready(g)) return;
         var rep = MU.sync(X.story, g);
-        return Promise.all(g.players.map(function (p) { return Store.put(sallePath(X.gid) + "/joueurs", p.id, seatDoc(p, p.id === X.me ? X.log : (X.seats[p.id] || {}).log)); })).then(function () {
+        return Promise.all(g.players.map(function (p) { return Room.put(sallePath(X.gid) + "/joueurs", p.id, seatDoc(p, p.id === X.me ? X.log : (X.seats[p.id] || {}).log)); })).then(function () {
           var d = X.doc; d.base = g.base ? JSON.stringify(g.base) : null; d.released = g.released; d.round = g.round; d.updated = Date.now();
           d.lastSync = { at: Date.now(), over: rep.over, stuck: rep.stuck, released: rep.released };
-          return Store.put("salles", X.gid, d);
+          return Room.put("salles", X.gid, d);
         }).then(function () { X.undo.length = 0; A.notice = X.note = syncNote(rep); if (A.game && X.mine) A.game.s = X.mine.s; render(); });
       });
     }).catch(function () { /* another device will try, or this one at the next change */ }).then(function () { X.syncing = false; });
@@ -2291,7 +2966,7 @@
     var o = { language: "fr-FR", rate: pref("rate") || 1 };
     if (A.tts.browser) {
       // The device's voices read sentence by sentence: the text lights up as it goes, the « » may get their own voice.
-      o.voiceName = pref("voice") || ""; o.dialogue = !!pref("dialogue"); o.onUnit = Reading.onUnit;
+      o.voiceName = pref("voice") || ""; o.dialogue = !!pref("dialogue"); o.onUnit = Reading.onUnit; o.story = A.game && A.game.story;
       var seq = ++readSeq;
       A.tts.speak(lines, o).catch(function () {}).then(function () {
         A.speaking = false; Reading.unit = null; render();
@@ -3060,6 +3735,7 @@
     root.appendChild(svg("text", { x: 93.3, y: 3.4, "font-size": 2.4, fill: "var(--muted)" }, "N"));
     b.appendChild(h("div", { class: "map" }, root));
     Object.keys(places).forEach(function (k) { if (s.known[k] && onMap(k)) b.appendChild(h("div", { class: "small" }, h("b", null, places[k].name), " · ", h("span", { class: "muted" }, places[k].desc || ""))); });
+    var tpl = townPlan(st, s); if (tpl) b.appendChild(tpl);
   }
   // Little drawn signs for the map, by place ambiance (centred on the place, about 4 units wide).
   var MAP_ICONS = {
@@ -3108,10 +3784,10 @@
   // ------------------------------------------------------------------ reading preferences (per reader)
   // Intent: pref(Key) -> Value = the reader's own setting, else the default
   // Why: Clément (12/11): text size, spacing, theme, voice, real dice, sound… follow the reader, not the device.
-  var PREFS = { skin: "histoire", size: "m", spacing: "normal", theme: "auto", font: "livre", lettrine: true, voice: "", highlight: true, ruler: false, dialogue: false, glossary: true, nudge: false, syllables: false, voiceChoice: false, autoListen: true, battlePlan: true, relations: true, urgent: true, sfx: true, shakeDice: false, fog: true, rate: 1, autoRead: false, dice: "ecran", ambiance: false, music: false, volume: 0.6 };
+  var PREFS = { skin: "histoire", size: "m", spacing: "normal", theme: "auto", font: "livre", lettrine: true, voice: "", highlight: true, ruler: false, dialogue: false, glossary: true, nudge: false, syllables: false, voiceChoice: false, autoListen: true, battlePlan: true, relations: true, urgent: true, sfx: true, shakeDice: false, fog: true, rate: 1, autoRead: false, dice: "ecran", ambiance: false, music: false, volume: 0.6, spread: "auto", pageTurn: true, swipe: false, contrast: false, cvd: false, quietFx: false, dice3d: true };
   var SIZES = { s: ["Petit", 16], m: ["Normal", 18], l: ["Grand", 21], xl: ["Très grand", 24] };
   var SPACINGS = { serre: ["Serré", 1.5], normal: ["Normal", 1.72], aere: ["Aéré", 2] };
-  var THEMES = { auto: "Comme l'appareil", light: "Clair", sepia: "Sépia", dark: "Sombre" };
+  var THEMES = { auto: "Comme l'appareil", light: "Clair", sepia: "Sépia", dark: "Sombre", soir: "Lumière du soir" };
   // lisible (Clément, 12/11): Atkinson Hyperlegible, letters hard to confuse, for young or dyslexic readers; it then dresses the whole page.
   var FONTS = { livre: ["Livre", "var(--serif)"], droite: ["Sans empattement", "var(--sans)"], lisible: ["Lecture facile (Atkinson)", "'Atkinson Hyperlegible', var(--sans)"],
     // grimoire (Clément, 13/11): a medieval book for dyslexic readers, Atkinson's letters with book serifs and illuminated capitals
@@ -3144,6 +3820,10 @@
     r.style.setProperty("--read-font", (FONTS[pref("font")] || FONTS.livre)[1]);
     if (pref("font") === "lisible" || pref("font") === "grimoire") r.setAttribute("data-font", pref("font")); else r.removeAttribute("data-font");
     if (pref("lettrine")) r.removeAttribute("data-lettrine"); else r.setAttribute("data-lettrine", "non");
+    r.setAttribute("lang", "fr");
+    r.setAttribute("data-spread", pref("spread") === "non" ? "non" : "auto");
+    if (pref("contrast")) r.setAttribute("data-contrast", "fort"); else r.removeAttribute("data-contrast");
+    if (pref("cvd")) r.setAttribute("data-cvd", "oui"); else r.removeAttribute("data-cvd");
   }
   function seg(map, key, label) {
     return h("div", { class: "stack tight" }, h("span", { class: "label" }, label), h("div", { class: "seg", role: "group", "aria-label": label },
@@ -3155,7 +3835,7 @@
     var m = A.modal, close = function () { if (m.kind === "send" || m.kind === "receive") Transfer.stop(); A.modal = null; render(); };
     var box = h("div", { class: "modal", role: "dialog", "aria-modal": "true" });
     var bg = h("div", { class: "drawer-bg", onclick: close });
-    ({ prefs: modalPrefs, report: modalReport, dice: modalDice, mark: modalMark, bedtime: modalBedtime, send: modalSend, receive: modalReceive, words: modalWords, sync: modalSync, chapter: modalChapter, shake: modalShake, adult: modalAdult, keys: modalKeys })[m.kind](box, close, m);
+    ({ prefs: modalPrefs, report: modalReport, dice: modalDice, mark: modalMark, bedtime: modalBedtime, send: modalSend, receive: modalReceive, words: modalWords, sync: modalSync, chapter: modalChapter, shake: modalShake, adult: modalAdult, keys: modalKeys, news: modalNews, group: modalGroup, vote: modalVote })[m.kind](box, close, m);
     app.appendChild(bg); app.appendChild(box);
     var f = box.querySelector("[autofocus]"); if (f) setTimeout(function () { f.focus(); }, 0);
   }
@@ -3210,11 +3890,18 @@
     b.appendChild(seg(FONTS, "font", "Police"));
     if (pref("font") === "grimoire") b.appendChild(prefToggle("lettrine", "Grande lettrine", "Chaque page s'ouvre sur une grande lettre enluminée. À couper si elle gêne la lecture du premier mot."));
     b.appendChild(seg(THEMES, "theme", "Thème"));
+    b.appendChild(h("p", { class: "small muted" }, "« Lumière du soir » : un papier sombre et une encre ambrée, sans lumière bleue, pour lire au lit."));
+    b.appendChild(seg({ auto: "Deux pages", non: "Une seule page" }, "spread", "Tablette ou écran large tenu en paysage"));
+    b.appendChild(prefToggle("pageTurn", "Tourner la page", "Chaque nouvelle page arrive comme une feuille qu'on tourne. Rien ne bouge si l'appareil demande moins d'animations."));
+    b.appendChild(prefToggle("swipe", "Glisser du doigt", "Glisser vers la gauche suit la page quand il n'y a qu'une suite possible ; vers la droite, revient au choix précédent. Coupé par défaut, pour ne pas tourner une page par mégarde."));
+    b.appendChild(prefToggle("contrast", "Fort contraste", "Texte plus foncé, traits plus marqués, choix bien détourés."));
+    b.appendChild(prefToggle("cvd", "Couleurs pour daltoniens", "Réussites en bleu, échecs en orange, au lieu du vert et du rouge ; chaque état garde aussi son signe (✓, ✗)."));
     b.appendChild(prefToggle("nudge", "Coup de pouce (jeunes lecteurs)", "Un bouton 💡, deux fois par acte, donne une phrase pour s'orienter quand on est perdu. Il ne révèle jamais la suite."));
     b.appendChild(prefToggle("glossary", "Expliquer les mots rares", "Les mots peu courants sont soulignés de pointillés : on les touche pour lire leur sens."));
     b.appendChild(prefToggle("syllables", "Syllabes en couleurs", "Une syllabe sur deux change de couleur, comme dans les méthodes de lecture."));
     b.appendChild(prefToggle("fog", "Carte sous le brouillard", "La carte du carnet se dévoile autour des lieux atteints et le long des routes parcourues."));
     b.appendChild(prefToggle("relations", "Relations dans l'onglet Gens", "À côté de chaque personne, ce qu'elle pense de toi (méfiante, alliée, redevable…), quand l'histoire le dit."));
+    b.appendChild(prefToggle("quietFx", "Conséquences muettes", "L'histoire ne dit plus quand la confiance ou la crainte d'un compagnon change : tu le découvres à sa façon d'agir."));
     b.appendChild(prefToggle("urgent", "Choix sous pression", "Dans certaines scènes, un compte à rebours presse le choix ; quand il est écoulé, l'histoire choisit pour toi. Décoche pour lire ces scènes sans minuteur."));
     b.appendChild(prefToggle("battlePlan", "Plan de bataille", "Pendant un combat, un petit plan montre les rangs, les adversaires et les coups de la dernière passe."));
     b.appendChild(prefToggle("ruler", "Règle de lecture", "Une bande suit la ligne en cours et assombrit le reste. Touche une ligne pour l'y amener ; sur ordinateur, les flèches ↑ ↓."));
@@ -3238,10 +3925,11 @@
         A.tts.browser ? renderNeural() : null,
         natural || Neural.manifest ? null : h("p", { class: "small muted" }, "Cet appareil n'a pas de voix française naturelle. Sur iPhone ou iPad : Réglages → Accessibilité → Contenu énoncé → Voix → Français, puis télécharger une voix « améliorée » ou « premium ». Sur Android : installer « Services vocaux de Google ». Sur ordinateur, Edge propose des voix naturelles."),
         A.tts.browser ? prefToggle("highlight", "Surligner la phrase lue", "La phrase que la voix lit s'éclaire dans le texte.") : null,
-        A.tts.browser ? prefToggle("dialogue", "Une autre voix pour les personnages", "Le récit est lu par une voix, les paroles entre « » par une autre. Avec les voix de qualité, installe les deux.") : null,
+        A.tts.browser ? prefToggle("dialogue", "Des voix pour les personnages", "Le récit est lu par une voix, les paroles entre « » par une autre ; un personnage nommé garde sa propre voix d'une page à l'autre. Avec les voix de qualité, installe les deux.") : null,
         h("label", { class: "toggle" }, h("input", { type: "checkbox", checked: pref("autoRead"), onchange: function (e) { setPref("autoRead", e.target.checked); } }), h("span", null, h("b", null, "Lire chaque page à voix haute"), h("br"), h("span", { class: "small muted" }, "Après chaque choix, la page suivante est lue sans appuyer sur rien.")))));
     }
     b.appendChild(seg({ ecran: "L'écran lance", vrais: "Je lance mes dés" }, "dice", "Les dés"));
+    b.appendChild(prefToggle("dice3d", "Dés en relief", "Deux dés à dix faces roulent à l'écran, les dizaines et les unités."));
     b.appendChild(h("p", { class: "small muted" }, "Avec tes dés : deux dés à dix faces, un pour les dizaines, un pour les unités (00 = 100). Tu tapes le résultat, le livre fait le calcul. Les compagnons et les adversaires lancent toujours à l'écran."));
     if (Shake.available()) b.appendChild(h("label", { class: "toggle" }, h("input", { type: "checkbox", checked: !!pref("shakeDice"), onchange: function (e) {
       var on = e.target.checked; if (!on) { setPref("shakeDice", false); return; }
@@ -3350,6 +4038,7 @@
     if (!/roll/.test(e.cls || "")) return null;
     var n = e.roll ? e.roll.die : +((/d100 ouvert (?:\([^)]*\) )?(-?\d+)/.exec(e.text) || [])[1]);
     if (!(n === n) || n == null) return null;
+    if (pref("dice3d") && typeof HTMLCanvasElement !== "undefined") return Dice3D.pair(n);
     var el = h("span", { class: "die", "aria-hidden": "true" }, String(n));
     if (A.rollAnim && !REDUCED) {
       el.classList.add("rolling"); var k = 0;
@@ -3479,6 +4168,8 @@
     if (v.kind === "end") {
       var e = M.endingOf(st, s); if (e && !r.endings[e.id]) { r.endings[e.id] = Date.now(); changed = true; }
       if (e && s.ironman) { var ir = r.iron = r.iron || {}; if (!ir[e.id]) { ir[e.id] = Date.now(); changed = true; } }
+      if (e && !Object.keys(s.met || {}).some(function (k) { return s.met[k] === "gone"; })) { var ly = r.loyal = r.loyal || {}; if (!ly[e.id]) { ly[e.id] = Date.now(); changed = true; } }
+      if (e && s.turn && (!r.best || s.turn < r.best)) { r.best = s.turn; changed = true; }
       // The road taken, for « Comparer en famille »: the choice made at each page, kept for the last games finished.
       if (d.picks && !(r.runs || []).some(function (x) { return x.g === d.id; })) {
         r.runs = (r.runs || []).concat([{ g: d.id, end: e ? e.id : null, t: Date.now(), hero: s.name, picks: d.picks }]).slice(-RUNS_KEPT); changed = true;
@@ -4449,19 +5140,369 @@
   function renderEditor() {
     var E = A.ed;
     app.appendChild(topBar([h("button", { class: "btn ghost sm", onclick: function () { if (E && E.dirty && !confirmLeave()) return; A.ed = null; A.screen = "home"; refresh().then(render); } }, "← Bibliothèque"),
-      h("span", { class: "brand grow" }, E ? "Éditeur · " + E.story.title + (E.dirty ? " · modifiée" : "") : "Éditeur d'histoires"),
-      E ? h("button", { class: "btn sm", onclick: edCheck }, "Vérifier") : null,
-      E ? h("button", { class: "btn sm primary", onclick: edSave }, "Enregistrer") : null,
+      h("span", { class: "brand grow" }, E ? (E.ro ? "Relecture · " : "Éditeur · ") + E.story.title + (E.dirty ? " · modifiée" : "") : "Éditeur d'histoires"),
+      E && !E.ro ? h("button", { class: "btn sm", onclick: edCheck }, "Vérifier") : null,
+      E && !E.ro ? h("button", { class: "btn sm primary", onclick: edSave }, "Enregistrer") : null,
       E && canDownload() ? h("button", { class: "btn sm", onclick: function () { download(E.story.id + ".json", JSON.stringify(E.story, null, 1)); } }, "Exporter") : null]));
     var w = h("main", { class: "wrap" });
     if (!E) { edPick(w); app.appendChild(w); return; }
     if (E.msg) w.appendChild(h("div", { class: "notice" + (E.msgBad ? " bad" : "") }, E.msg));
     if (E.report) w.appendChild(h("pre", { class: "report" }, E.report));
-    w.appendChild(h("nav", { class: "tabs" }, [["passage", "Passages"], ["histoire", "L'histoire"], ["donnees", "Données (JSON)"]].map(function (t) { return h("button", { class: "tab" + (E.tab === t[0] ? " on" : ""), onclick: function () { E.tab = t[0]; render(); } }, t[1]); })));
-    if (E.tab === "histoire") edStory(w);
+    var tabs = E.ro ? [["lire", "Lire"], ["graphe", "Graphe"], ["relire", "Relecture"]] : [["passage", "Passages"], ["graphe", "Graphe"], ["lire", "Lire"], ["relire", "Relecture"], ["histoire", "L'histoire"], ["donnees", "Données (JSON)"]];
+    w.appendChild(h("nav", { class: "tabs" }, tabs.map(function (t) { return h("button", { class: "tab" + (E.tab === t[0] ? " on" : ""), onclick: function () { E.tab = t[0]; render(); } }, t[1]); })));
+    if (E.tab === "graphe") edGraph(w);
+    else if (E.tab === "lire") edRead(w);
+    else if (E.tab === "relire") edReview(w);
+    else if (E.tab === "histoire") edStory(w);
     else if (E.tab === "donnees") edData(w);
     else edPassages(w);
     app.appendChild(w);
+  }
+  // ------------------------------------------------------------------ authors' tools (lot 5)
+  // Intent: edgesOf(Passage) -> [{ to, choice }] = where a passage leads, from any "to"/"back" a choice (or its test,
+  // fight, shop…) names. choice is the choice's place among the passage's choices, or -1 for the passage's own fields.
+  var GRAPH_NODE_W = 150, GRAPH_NODE_H = 36, GRAPH_COL = 200, GRAPH_ROW = 52, GRAPH_PAD = 30, GRAPH_MAX = 260, GRAPH_AROUND = 2, GRAPH_LABEL = 20, GRAPH_DRAG_PX = 4, GRAPH_ROWS = 14, GRAPH_ALL = 40;
+  function edgesOf(p, st) {
+    var out = [], re = /"(?:to|back)":"([^"]+)"/g, m;
+    (p.choices || []).forEach(function (c, i) { var s = JSON.stringify(c); re.lastIndex = 0; while ((m = re.exec(s))) out.push({ to: m[1], choice: i }); });
+    var rest = {}; Object.keys(p).forEach(function (k) { if (k !== "choices" && k !== "text") rest[k] = p[k]; });
+    var s2 = JSON.stringify(rest); re.lastIndex = 0; while ((m = re.exec(s2))) out.push({ to: m[1], choice: -1 });
+    // a passage with the roads: the passages along each road from its place, and the arrival at the other end
+    if (p.routes && st && st.world && p.place) (st.world.routes || []).forEach(function (r) {
+      var dest = r.from === p.place ? r.to : r.twoWay && r.to === p.place ? r.from : null; if (!dest) return;
+      (r.legs || []).forEach(function (l) { if (l.passage) out.push({ to: l.passage, choice: -1 }); });
+      var pl = (st.world.places || {})[dest]; if (pl && pl.arrive) out.push({ to: pl.arrive, choice: -1 });
+    });
+    return out;
+  }
+  // Intent: readingOrder(Story) -> [PassageId] = the passages as a reader meets them (breadth first from the start), then
+  // the ones no road reaches.
+  function readingOrder(st) {
+    var P = st.passages || {}, seen = {}, out = [], q = [st.start].concat((st.acts || []).map(function (a) { return a.start; }));
+    while (q.length) { var id = q.shift(); if (!id || seen[id] || !P[id]) continue; seen[id] = 1; out.push(id); edgesOf(P[id], st).forEach(function (e) { if (!seen[e.to]) q.push(e.to); }); }
+    Object.keys(P).sort().forEach(function (id) { if (!seen[id]) out.push(id); });
+    return out;
+  }
+  // Intent: pickCounts(Story) -> { node: { total, by: { choiceIndex|label: n } } } = the choices the family's readers made
+  // in their finished games of this story (a copy counts the games of its original).
+  // Why: Clément, 13/11 (piste 39): the author sees which roads are taken, on this device.
+  function pickCounts(st) {
+    var ids = [st.id], base = String(st.id).replace(/-[a-z0-9]{4}$/, ""), out = {};
+    if (base !== st.id) ids.push(base);
+    (A.profiles || []).forEach(function (p) { ids.forEach(function (sid) { (recordOf(p, sid).runs || []).forEach(function (r) {
+      Object.keys(r.picks || {}).forEach(function (node) { var o = out[node] = out[node] || { total: 0, by: {} }; o.total++; o.by[r.picks[node]] = (o.by[r.picks[node]] || 0) + 1; });
+    }); }); });
+    return out;
+  }
+  function pickShare(counts, node, i, label) { var o = counts[node]; if (!o || !o.total) return null; var n = (o.by[i] || 0) + (label ? o.by[String(label).slice(0, PICK_LABEL_MAX)] || 0 : 0); return { n: n, total: o.total }; }
+
+  // The graph: passages as boxes, choices as threads; drag a box, or tie two passages with « Relier ».
+  // Why: Clément, 13/11 (piste 37): see the story as a network, and tie two passages by pulling a thread.
+  function edGraph(w) {
+    var E = A.ed, st = E.story, P = st.passages, ids = Object.keys(P), acts = st.acts || [];
+    if (!E.gview) E.gview = ids.length <= GRAPH_ALL ? "tout" : "autour";
+    var counts = pickCounts(st);
+    // which passages are shown
+    var shown = {}, root;
+    if (E.gview === "autour") {
+      root = P[E.sel] ? E.sel : st.start; var into = {};
+      ids.forEach(function (k) { edgesOf(P[k], st).forEach(function (e) { (into[e.to] = into[e.to] || []).push(k); }); });
+      var lvl = {}; lvl[root] = 0; var q = [root];
+      while (q.length) { var c = q.shift(); if (lvl[c] >= GRAPH_AROUND) continue; edgesOf(P[c] || {}, st).map(function (e) { return e.to; }).concat(into[c] || []).forEach(function (n) { if (P[n] && lvl[n] == null) { lvl[n] = lvl[c] + 1; q.push(n); } }); }
+      Object.keys(lvl).forEach(function (k) { shown[k] = 1; });
+    } else if (E.gview === "tout") { root = st.start; ids.forEach(function (k) { shown[k] = 1; }); }
+    else { var act = acts.filter(function (a) { return a.id === E.gview; })[0] || {}; root = act.start; ids.forEach(function (k) { if (String(P[k].act) === String(E.gview)) shown[k] = 1; }); }
+    var list = Object.keys(shown), cut = list.length > GRAPH_MAX;
+    // columns by distance from the root, inside what is shown
+    var depth = {}, q2 = [root]; if (shown[root]) depth[root] = 0;
+    while (q2.length) { var x = q2.shift(); edgesOf(P[x] || {}, st).forEach(function (e) { if (shown[e.to] && depth[e.to] == null) { depth[e.to] = depth[x] + 1; q2.push(e.to); } }); }
+    list.sort(function (a, b) { return (depth[a] == null ? 1e9 : depth[a]) - (depth[b] == null ? 1e9 : depth[b]) || (a < b ? -1 : 1); });
+    list = list.slice(0, GRAPH_MAX);
+    // one column per step from the root; a step with too many passages spreads over several columns
+    var pos = E.gpos || (E.gpos = lsGet("graphe:" + st.id) || {}), at = {}, col = -1, step = null, row = 0;
+    list.forEach(function (k) {
+      var d = depth[k] == null ? -1 : depth[k];
+      if (d !== step || row >= GRAPH_ROWS) { col++; row = 0; step = d; }
+      at[k] = pos[k] && E.gview !== "autour" ? { x: pos[k].x, y: pos[k].y } : { x: GRAPH_PAD + col * GRAPH_COL, y: GRAPH_PAD + row * GRAPH_ROW };
+      row++;
+    });
+    var W = 0, Hh = 0; list.forEach(function (k) { W = Math.max(W, at[k].x + GRAPH_NODE_W + GRAPH_PAD); Hh = Math.max(Hh, at[k].y + GRAPH_NODE_H + GRAPH_PAD); });
+    // the bar
+    var bar = h("div", { class: "row g-bar" },
+      h("label", { class: "row small" }, "Voir ", h("select", { "aria-label": "Partie du graphe", onchange: function (e) { E.gview = e.target.value; render(); } },
+        h("option", { value: "autour", selected: E.gview === "autour" }, "autour du passage choisi"),
+        h("option", { value: "tout", selected: E.gview === "tout" }, "toute l'histoire" + (ids.length > GRAPH_MAX ? " (les " + GRAPH_MAX + " premiers)" : "")),
+        acts.map(function (a) { return h("option", { value: a.id, selected: E.gview === a.id }, a.title || a.id); }))),
+      E.ro ? null : h("button", { class: "btn sm" + (E.link ? " primary" : ""), "aria-pressed": E.link ? "true" : "false", onclick: function () { E.link = !E.link; E.linkFrom = null; render(); } }, E.link ? (E.linkFrom ? "Relier : touche le passage d'arrivée" : "Relier : touche le passage de départ") : "🧵 Relier deux passages"),
+      h("span", { class: "grow" }),
+      P[E.sel] ? h("span", { class: "small" }, "§ " + E.sel + " · " + String(P[E.sel].title || "").replace(/\*/g, "")) : null,
+      P[E.sel] ? h("button", { class: "btn sm", onclick: function () { E.tab = E.ro ? "lire" : "passage"; render(); } }, E.ro ? "Lire" : "Ouvrir") : null);
+    w.appendChild(bar);
+    w.appendChild(h("p", { class: "small muted" }, (cut ? "Trop de passages pour tout montrer : " + GRAPH_MAX + " sur " + Object.keys(shown).length + ". " : "") + "Fais glisser une case pour la ranger (sa place est gardée sur cet appareil). Plus un fil est épais, plus les lecteurs de la famille l'ont suivi."));
+    var NS = "http://www.w3.org/2000/svg", S = function (tag, a, txt) { var e = document.createElementNS(NS, tag); for (var k in a) e.setAttribute(k, a[k]); if (txt != null) e.textContent = txt; return e; };
+    var svgEl = S("svg", { class: "ed-graph", width: W, height: Hh, viewBox: "0 0 " + W + " " + Hh, role: "img", "aria-label": "Graphe des passages" });
+    var defs = S("defs"); var mk = S("marker", { id: "g-arrow", viewBox: "0 0 10 10", refX: 9, refY: 5, markerWidth: 7, markerHeight: 7, orient: "auto-start-reverse" });
+    mk.appendChild(S("path", { d: "M0 0 L10 5 L0 10 z", fill: "var(--muted)" })); defs.appendChild(mk); svgEl.appendChild(defs);
+    var edgeLayer = S("g"), nodeLayer = S("g"), lines = [];
+    function curve(a, b) {
+      var x1 = a.x + GRAPH_NODE_W, y1 = a.y + GRAPH_NODE_H / 2, x2 = b.x, y2 = b.y + GRAPH_NODE_H / 2;
+      if (x2 <= x1) { x1 = a.x + GRAPH_NODE_W / 2; y1 = a.y + GRAPH_NODE_H; x2 = b.x + GRAPH_NODE_W / 2; y2 = b.y + GRAPH_NODE_H; var dy = Math.max(y1, y2) + GRAPH_ROW; return "M" + x1 + " " + y1 + " C" + x1 + " " + dy + " " + x2 + " " + dy + " " + x2 + " " + y2; }
+      var mx = (x1 + x2) / 2; return "M" + x1 + " " + y1 + " C" + mx + " " + y1 + " " + mx + " " + y2 + " " + x2 + " " + y2;
+    }
+    list.forEach(function (k) {
+      var p = P[k], done = {};
+      edgesOf(p, st).forEach(function (e) {
+        if (!at[e.to] || done[e.to + "|" + e.choice] || e.to === k) return; done[e.to + "|" + e.choice] = 1;
+        var c = p.choices && p.choices[e.choice], share = c ? pickShare(counts, k, e.choice, c.label) : null;
+        var wdt = 1.4 + (share && share.total ? 4 * share.n / share.total : 0);
+        var path = S("path", { d: curve(at[k], at[e.to]), class: "g-edge" + (share && share.n ? " hot" : ""), "stroke-width": wdt, "marker-end": "url(#g-arrow)" });
+        if (c && c.label) path.appendChild(S("title", null, c.label + (share ? " · suivi " + share.n + " fois sur " + share.total : "")));
+        edgeLayer.appendChild(path); lines.push({ from: k, to: e.to, el: path });
+      });
+    });
+    list.forEach(function (k) {
+      var p = P[k], g = S("g", { class: "g-node" + (k === E.sel ? " on" : "") + (k === E.linkFrom ? " from" : "") + (p.end ? " end" : p.hub ? " hub" : "") + (k === st.start ? " start" : ""), transform: "translate(" + at[k].x + " " + at[k].y + ")", tabindex: 0, role: "button", "aria-label": "Passage " + k });
+      g.appendChild(S("rect", { width: GRAPH_NODE_W, height: GRAPH_NODE_H, rx: 7 }));
+      var t = String(p.title || k).replace(/\*/g, ""); if (t.length > GRAPH_LABEL) t = t.slice(0, GRAPH_LABEL - 1) + "…";
+      g.appendChild(S("text", { x: 8, y: 15, class: "g-id" }, k.length > GRAPH_LABEL + 4 ? k.slice(0, GRAPH_LABEL + 3) + "…" : k));
+      g.appendChild(S("text", { x: 8, y: 29, class: "g-title" }, t));
+      g.appendChild(S("title", null, k + " · " + (p.title || "")));
+      var drag = null;
+      function act() {
+        if (E.link && !E.ro) {
+          if (!E.linkFrom) { E.linkFrom = k; render(); return; }
+          var from = P[E.linkFrom]; from.choices = from.choices || []; from.choices.push({ label: String(p.title || k).replace(/\*/g, ""), to: k });
+          E.msg = "Choix ajouté dans § " + E.linkFrom + " vers § " + k + " : son texte est à écrire dans l'onglet Passages."; E.msgBad = false;
+          E.sel = E.linkFrom; E.link = false; E.linkFrom = null; edDirty(); render(); return;
+        }
+        E.sel = k; render();
+      }
+      g.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); act(); } });
+      g.addEventListener("pointerdown", function (e) { drag = { x: e.clientX, y: e.clientY, ox: at[k].x, oy: at[k].y, moved: false }; try { g.setPointerCapture(e.pointerId); } catch (x) { /* old browser: the move still follows the pointer while it stays on the box */ } });
+      g.addEventListener("pointermove", function (e) {
+        if (!drag) return; var dx = e.clientX - drag.x, dy = e.clientY - drag.y;
+        if (!drag.moved && Math.abs(dx) + Math.abs(dy) < GRAPH_DRAG_PX) return;
+        drag.moved = true; at[k] = { x: Math.max(0, drag.ox + dx), y: Math.max(0, drag.oy + dy) };
+        g.setAttribute("transform", "translate(" + at[k].x + " " + at[k].y + ")");
+        lines.forEach(function (l) { if (l.from === k || l.to === k) l.el.setAttribute("d", curve(at[l.from], at[l.to])); });
+      });
+      g.addEventListener("pointerup", function () {
+        if (!drag) return; var moved = drag.moved; drag = null;
+        if (!moved) { act(); return; }
+        if (E.gview !== "autour") { pos[k] = at[k]; lsSet("graphe:" + st.id, pos); }
+      });
+      nodeLayer.appendChild(g);
+    });
+    svgEl.appendChild(edgeLayer); svgEl.appendChild(nodeLayer);
+    w.appendChild(h("div", { class: "ed-graph-wrap" }, svgEl));
+    if (E.gview !== "autour" && Object.keys(pos).length) w.appendChild(h("button", { class: "btn sm ghost", onclick: function () { E.gpos = {}; lsSet("graphe:" + st.id, {}); render(); } }, "Ranger à nouveau automatiquement"));
+  }
+
+  // Reading without playing: every passage in the order a reader meets it, with what each paragraph and choice
+  // needs, and a review note per passage kept on this device.
+  // Why: Clément, 13/11 (piste 42): go through the whole story passage by passage, with proofreading notes.
+  function condSay(o) {
+    var out = [];
+    if (o.with) out.push("avec " + [].concat(o.with).join(", "));
+    if (o.without) out.push("sans " + [].concat(o.without).join(", "));
+    if (o.when) out.push(o.when === "night" ? "la nuit" : "le jour");
+    if (o.after) out.push("après " + [].concat(o.after).join(", "));
+    if (o.before) out.push("avant " + [].concat(o.before).join(", "));
+    if (o.first) out.push("première visite"); if (o.again) out.push("visites suivantes"); if (o.once) out.push("une fois");
+    if (o.outcome) out.push({ win: "si réussi", lose: "si raté", flee: "si fuite", calm: "si apaisé" }[o.outcome] || o.outcome);
+    if (o.if) out.push("si " + condText(o.if));
+    return out;
+  }
+  // a condition said in words, short: « passe:lettre », pas (…), (a ou b)
+  function condText(c) {
+    if (c == null) return "";
+    if (typeof c === "string") return "« " + c + " »";
+    if (Array.isArray(c)) return c.map(condText).join(" et ");
+    if ("has" in c) return "« " + c.has + " »";
+    if ("not" in c) return "pas " + condText(c.not);
+    if ("all" in c) return c.all.map(condText).join(" et ");
+    if ("any" in c) return "(" + c.any.map(condText).join(" ou ") + ")";
+    return Object.keys(c).map(function (k) { var v = c[k]; return k + " " + (typeof v === "object" ? JSON.stringify(v).replace(/[{}"]/g, "") : v); }).join(", ");
+  }
+  function edRead(w) {
+    var E = A.ed, st = E.story, P = st.passages, order = E.rorder || (E.rorder = readingOrder(st));
+    var id = P[E.sel] ? E.sel : order[0], i = order.indexOf(id), p = P[id] || {};
+    var notes = lsGet("relecture:" + st.id) || {};
+    function go(k) { E.sel = k; render(); var t = document.querySelector(".ed-read h2"); if (t) t.focus(); window.scrollTo(0, 0); }
+    var nav = h("div", { class: "row" },
+      h("button", { class: "btn sm", disabled: i <= 0, onclick: function () { go(order[i - 1]); } }, "← Précédent"),
+      h("span", { class: "small muted grow center" }, (i + 1) + " / " + order.length),
+      h("button", { class: "btn sm", disabled: i >= order.length - 1, onclick: function () { go(order[i + 1]); } }, "Suivant →"));
+    var box = h("article", { class: "ed-read" });
+    box.appendChild(nav);
+    box.appendChild(h("h2", { tabindex: "-1" }, String(p.title || id).replace(/\*/g, "")));
+    var where = [(st.acts || []).filter(function (a) { return a.id === p.act; }).map(function (a) { return a.title; })[0], p.place && st.world.places[p.place] ? st.world.places[p.place].name : null, p.hub ? "carrefour" : null, p.end ? "fin" : null].filter(Boolean);
+    box.appendChild(h("div", { class: "small muted" }, "§ " + id + (where.length ? " · " + where.join(" · ") : "")));
+    var pc = condSay(p); if (pc.length) box.appendChild(h("div", { class: "rd-cond" }, "Passage : " + pc.join(" · ")));
+    [].concat(p.text || []).forEach(function (t) {
+      var o = typeof t === "string" ? { text: t } : t, c = condSay(o);
+      box.appendChild(h("div", { class: "rd-para" + (c.length ? " cond" : "") }, c.length ? h("div", { class: "rd-cond" }, c.join(" · ")) : null, h("p", null, String(o.text || "").replace(/\*\*?/g, "")), o.else ? h("p", { class: "rd-else" }, "Sinon : " + o.else) : null));
+    });
+    var counts = pickCounts(st);
+    var ul = h("ul", { class: "rd-choices" });
+    (p.choices || []).forEach(function (c, ci) {
+      var tos = edgesOf({ choices: [c] }).map(function (e) { return e.to; }), cc = condSay(c), share = pickShare(counts, id, ci, c.label);
+      if (c.test) cc.unshift("jet de " + (M.DOMAINS[c.test.dom] || c.test.dom));
+      if (c.back === true) tos.push(null);
+      ul.appendChild(h("li", null, h("span", null, c.label || (c.back != null ? "Revenir" : "(sans texte)")),
+        cc.length ? h("span", { class: "rd-cond" }, " " + cc.join(" · ")) : null,
+        share ? h("span", { class: "small muted" }, " · suivi " + share.n + "/" + share.total) : null,
+        tos.map(function (to) { return to && P[to] ? h("button", { class: "btn sm ghost", onclick: function () { go(to); } }, "→ " + String(P[to].title || to).replace(/\*/g, "")) : h("span", { class: "small muted" }, to ? " → § " + to + " (introuvable)" : " → dernier carrefour"); })));
+    });
+    if ((p.choices || []).length) { box.appendChild(h("h3", { class: "sub-h" }, "Choix")); box.appendChild(ul); }
+    var ta = h("textarea", { rows: 3, placeholder: "Une remarque sur ce passage (gardée sur cet appareil)", "aria-label": "Remarque de relecture", oninput: function (e) { var n = lsGet("relecture:" + st.id) || {}; if (e.target.value.trim()) n[id] = e.target.value; else delete n[id]; lsSet("relecture:" + st.id, n); } }, notes[id] || "");
+    box.appendChild(h("label", { class: "stack tight" }, h("span", { class: "label" }, "Remarque de relecture"), ta));
+    box.appendChild(h("div", { class: "row" },
+      E.ro ? null : h("button", { class: "btn sm", onclick: function () { E.sel = id; E.tab = "passage"; render(); } }, "Modifier ce passage"),
+      h("button", { class: "btn sm", onclick: function () { E.sel = id; E.tab = "graphe"; E.gview = "autour"; render(); } }, "Voir dans le graphe"),
+      h("span", { class: "grow" }),
+      h("button", { class: "btn sm ghost", onclick: function () {
+        var n = lsGet("relecture:" + st.id) || {}, keys = order.filter(function (k) { return n[k]; });
+        var txt = "Relecture de « " + st.title + " »\n\n" + (keys.length ? keys.map(function (k) { return "§ " + k + " (" + String(P[k].title || "").replace(/\*/g, "") + ")\n" + n[k]; }).join("\n\n") : "Aucune remarque.") + "\n";
+        if (canDownload()) download("relecture-" + st.id + ".txt", txt); else { E.report = txt; render(); }
+      } }, "Exporter les remarques (" + Object.keys(notes).length + ")")));
+    box.appendChild(nav.cloneNode(true));
+    // the cloned bar lost its handlers: give them back
+    var b2 = box.lastChild.querySelectorAll("button"); b2[0].onclick = function () { go(order[i - 1]); }; b2[1].onclick = function () { go(order[i + 1]); };
+    w.appendChild(box);
+  }
+
+  // The style review, in the editor (same rules as `node tests/relecture.js`).
+  function edReview(w) {
+    var E = A.ed, st = E.story, list = R.issues(st), by = {};
+    list.forEach(function (x) { (by[x.kind] = by[x.kind] || []).push(x); });
+    var kind = E.rkind && by[E.rkind] ? E.rkind : R.KINDS.filter(function (k) { return by[k]; })[0];
+    w.appendChild(h("p", { class: "small muted" }, list.length ? list.length + " remarque" + (list.length > 1 ? "s" : "") + " : ce sont des pistes, pas des fautes. Une répétition peut être voulue." : "Rien à signaler."));
+    if (!list.length) return;
+    w.appendChild(h("nav", { class: "tabs small" }, R.KINDS.filter(function (k) { return by[k]; }).map(function (k) { return h("button", { class: "tab" + (k === kind ? " on" : ""), onclick: function () { E.rkind = k; render(); } }, k + " (" + by[k].length + ")"); })));
+    var ul = h("ul", { class: "rv-list" });
+    by[kind].slice(0, 400).forEach(function (x) {
+      ul.appendChild(h("li", null, h("button", { class: "btn sm ghost mono", onclick: function () { E.sel = x.id; E.tab = E.ro ? "lire" : "passage"; render(); } }, "§ " + x.id), " ", h("b", null, x.msg), h("div", { class: "small muted" }, x.excerpt)));
+    });
+    w.appendChild(ul);
+  }
+
+  // Names that sound like the story: a small letter model learned from the names it already has.
+  // Why: Clément, 13/11 (piste 43): a name generator that respects each story's language and region.
+  var NAMES_ORDER = 2, NAMES_SHOWN = 8, NAMES_MIN_LEN = 4, NAMES_MAX_LEN = 11, NAMES_TRIES = 400, NAMES_MIN_SOURCES = 6;
+  var NAME_ARTICLE = /^(le|la|les|l'|l’|du|de la|des|au|aux)\s*/i;
+  function namesOf(st, kind) {
+    var out = [];
+    if (kind === "lieu") Object.keys((st.world || {}).places || {}).forEach(function (k) { out.push(st.world.places[k].name); });
+    else ["people", "companions"].forEach(function (g) { Object.keys(st[g] || {}).forEach(function (k) { out.push((st[g][k] || {}).name); }); });
+    return out.filter(Boolean).map(function (n) { return String(n).replace(NAME_ARTICLE, "").split(/[\s,]/)[0]; }).filter(function (n) { return n.length >= 3 && /^[A-ZÀ-Ö]/.test(n); });
+  }
+  function makeNames(st, kind) {
+    var src = namesOf(st, kind), from = "cette histoire";
+    if (src.length < NAMES_MIN_SOURCES) { Object.keys(A.builtins).forEach(function (k) { src = src.concat(namesOf(A.builtins[k], kind)); }); from = "toutes les histoires"; }
+    var known = {}, chain = {}, pad = new Array(NAMES_ORDER + 1).join("^");
+    src.forEach(function (n) { var w = pad + n.toLowerCase() + "$"; known[n.toLowerCase()] = 1; for (var i = NAMES_ORDER; i < w.length; i++) { var k = w.slice(i - NAMES_ORDER, i); (chain[k] = chain[k] || []).push(w[i]); } });
+    var out = {}, tries = 0;
+    while (Object.keys(out).length < NAMES_SHOWN && tries++ < NAMES_TRIES) {
+      var s = pad, guard = 0;
+      while (guard++ < 30) { var nx = chain[s.slice(-NAMES_ORDER)]; if (!nx) break; var ch = nx[Math.floor(Math.random() * nx.length)]; if (ch === "$") break; s += ch; }
+      var n = s.slice(NAMES_ORDER);
+      if (n.length < NAMES_MIN_LEN || n.length > NAMES_MAX_LEN || known[n]) continue;
+      out[n.charAt(0).toUpperCase() + n.slice(1)] = 1;
+    }
+    return { names: Object.keys(out), from: from, count: src.length };
+  }
+
+  // Ready skeletons: the shape of a kind of story, with what to write in each passage.
+  // Why: Clément, 13/11 (piste 40): templates for an inquiry, a journey, a closed room, a siege.
+  function tplStory(title, places, acts, passages, more) {
+    var st = edSkeleton(); st.title = title; st.acts = acts; st.start = acts[0].start; for (var k in more || {}) st[k] = more[k];
+    st.world.places = places; st.world.start.place = Object.keys(places)[0]; st.passages = passages; return st;
+  }
+  function tp(act, title, place, text, choices, extra) { var p = { act: act, title: title, text: [].concat(text), choices: choices || [] }; if (place) p.place = place; for (var k in extra || {}) p[k] = extra[k]; return p; }
+  var TEMPLATES = {
+    enquete: { title: "Enquête", desc: "Un crime, des témoins à interroger dans l'ordre qu'on veut, des indices, une accusation qui décide de la fin.", make: function () {
+      return tplStory("Nouvelle enquête", { ville: { name: "La ville", map: "monde", x: 50, y: 40, arrive: "crime", desc: "", ambiance: "ville" } },
+        [{ id: "I", title: "Le crime", start: "crime", levels: [1, 3], question: "Qui a fait cela, et pourquoi ?" }], {
+        crime: tp("I", "Le crime", "ville", "[Ce qu'on découvre : la victime, le lieu, ce qui cloche. Pose le premier indice sans le souligner.]", [{ label: "Commencer l'enquête", to: "enquete" }]),
+        enquete: tp("I", "L'enquête", "ville", "[Le carrefour : où peut-on aller ? Il revient après chaque visite.]", [
+          { label: "Interroger le premier témoin", to: "temoin1", once: true }, { label: "Interroger le deuxième témoin", to: "temoin2", once: true },
+          { label: "Fouiller les lieux du crime", to: "fouille", once: true }, { label: "Accuser quelqu'un", to: "accusation" }], { hub: true }),
+        temoin1: tp("I", "Le premier témoin", "ville", "[Ce qu'il dit, ce qu'il tait. Un détail contredit ce qu'on a vu.]", [{ back: "enquete" }], { fx: { clue: "indice-1" } }),
+        temoin2: tp("I", "Le deuxième témoin", "ville", "[Un mobile apparaît, peut-être un faux.]", [{ back: "enquete" }], { fx: { clue: "indice-2" } }),
+        fouille: tp("I", "Les lieux du crime", "ville", "[Ce qu'on trouve en regardant bien.]", [{ label: "Chercher plus attentivement", test: { dom: "savoir", diff: 0, label: "Fouiller" }, win: { to: "fouille_trouve" }, lose: { to: "fouille_rien" } }, { back: "enquete" }]),
+        fouille_trouve: tp("I", "Un détail", "ville", "[L'indice décisif, dit une fois.]", [{ back: "enquete" }], { fx: { flag: "preuve" } }),
+        fouille_rien: tp("I", "Rien de plus", "ville", "[On ne trouve rien, mais on perd du temps.]", [{ back: "enquete" }]),
+        accusation: tp("I", "L'accusation", "ville", "[Face à tous. Qui accuse-t-on ?]", [{ label: "Accuser le coupable", to: "fin_juste", if: { has: "preuve" }, why: "Il te manque une preuve." }, { label: "Accuser l'innocent", to: "fin_erreur" }]),
+        fin_juste: tp("I", "La vérité", "ville", "[La fin juste.]", [], { end: true, fx: { flag: "verite" } }),
+        fin_erreur: tp("I", "L'erreur", "ville", "[La fin où l'on s'est trompé.]", [], { end: true }) },
+        { mysteries: { crime: { title: "Qui a fait cela ?", act: "I", solved: "verite" } }, clues: { "indice-1": { rev: "crime", text: "[Ce que le premier témoin a laissé échapper.]" }, "indice-2": { rev: "crime", text: "[Le mobile, vrai ou faux.]" } } }); } },
+    voyage: { title: "Voyage", desc: "Partir d'un lieu pour en atteindre un autre, des étapes, des rencontres sur la route, une arrivée.", make: function () {
+      return tplStory("Nouveau voyage", { depart: { name: "Le départ", map: "monde", x: 20, y: 50, arrive: "depart", desc: "", ambiance: "village" }, etape: { name: "L'étape", map: "monde", x: 50, y: 40, arrive: "route", desc: "", ambiance: "route" }, but: { name: "L'arrivée", map: "monde", x: 80, y: 50, arrive: "arrivee", desc: "", ambiance: "montagne" } },
+        [{ id: "I", title: "Le départ", start: "depart", levels: [1, 3], question: "Pourquoi partir, et que laisse-t-on ?" }, { id: "II", title: "La route", start: "route", levels: [2, 4], question: "Qu'est-ce que la route change ?" }], {
+        depart: tp("I", "Le départ", "depart", "[Pourquoi on part. Ce qu'on emporte. Qui reste.]", [{ label: "Prendre la route", to: "route", exit: true }]),
+        route: tp("II", "La route", "etape", "[Le paysage, la fatigue. Une rencontre se prépare.]", [{ label: "Aider le voyageur", to: "rencontre_aide" }, { label: "Passer son chemin", to: "rencontre_passe" }], { takes: "evening" }),
+        rencontre_aide: tp("II", "Le voyageur", "etape", "[Il raconte quelque chose qui servira plus tard.]", [{ label: "Repartir", to: "etape_nuit" }], { fx: { flag: "voyageur:aide" } }),
+        rencontre_passe: tp("II", "Sans s'arrêter", "etape", "[On gagne du temps, on perd autre chose.]", [{ label: "Repartir", to: "etape_nuit" }]),
+        etape_nuit: tp("II", "La nuit à l'étape", "etape", "[Le soir au camp. Une conversation.]", [{ label: "Franchir le col au matin", to: "arrivee" }], { takes: "morning" }),
+        arrivee: tp("II", "L'arrivée", "but", [{ text: "[Ce qu'on trouve en arrivant.]" }, { text: "[Si l'on a aidé le voyageur : son conseil sert ici.]", after: "voyageur:aide" }], [{ label: "Fin du voyage", to: "fin" }]),
+        fin: tp("II", "La fin", "but", "[La fin.]", [], { end: true }) }); } },
+    huisclos: { title: "Huis clos", desc: "Un seul lieu fermé, quelques personnages, la nuit qui avance heure par heure, un secret.", make: function () {
+      return tplStory("Nouveau huis clos", { maison: { name: "La maison", map: "monde", x: 50, y: 50, arrive: "arrivee", desc: "", ambiance: "chateau" } },
+        [{ id: "I", title: "La nuit", start: "arrivee", levels: [1, 2], question: "Que cache cette maison ?" }], {
+        arrivee: tp("I", "L'arrivée", "maison", "[Pourquoi on est enfermé ici. Qui est là.]", [{ label: "Aller au salon", to: "salon" }], { takes: "evening" }),
+        salon: tp("I", "Le salon", "maison", [{ text: "[Le carrefour de la maison.]" }, { text: "[La nuit tombe.]", when: "night" }], [
+          { label: "Monter à l'étage", to: "etage", once: true }, { label: "Descendre à la cave", to: "cave", once: true }, { label: "Parler à l'hôte", to: "hote", once: true },
+          { label: "Attendre l'aube", to: "aube", if: { has: "secret" }, why: "Tu n'as pas encore compris ce qui se passe ici." }], { hub: true }),
+        etage: tp("I", "L'étage", "maison", "[Une chambre fermée. Un bruit.]", [{ back: "salon" }], { takes: 1 }),
+        cave: tp("I", "La cave", "maison", "[Ce qu'on n'aurait pas dû voir.]", [{ back: "salon" }], { takes: 1, fx: { flag: "secret" } }),
+        hote: tp("I", "L'hôte", "maison", "[Ce qu'il dit, et comment il regarde la porte de la cave.]", [{ back: "salon" }], { takes: 1 }),
+        aube: tp("I", "L'aube", "maison", "[La fin.]", [], { end: true, takes: "morning" }) }); } },
+    siege: { title: "Siège", desc: "Une place assiégée, des jours qui passent, des ressources qui baissent, une décision au bout.", make: function () {
+      return tplStory("Nouveau siège", { ville: { name: "La place forte", map: "monde", x: 50, y: 50, arrive: "jour1", desc: "", ambiance: "chateau" } },
+        [{ id: "I", title: "Le siège", start: "jour1", levels: [2, 4], question: "Tenir, négocier ou fuir ?" }], {
+        jour1: tp("I", "Premier jour", "ville", "[L'ennemi arrive. Ce qu'on a pour tenir.]", [{ label: "Faire le tour des remparts", to: "remparts" }, { label: "Réunir le conseil", to: "conseil" }]),
+        remparts: tp("I", "Les remparts", "ville", "[Une faiblesse dans le mur.]", [{ label: "La faire réparer", to: "jour2", fx: { food: -1, flag: "mur:repare" } }, { label: "La laisser", to: "jour2" }], { takes: "day" }),
+        conseil: tp("I", "Le conseil", "ville", "[Les voix qui s'opposent.]", [{ label: "Rationner", to: "jour2", fx: { flag: "rations" } }, { label: "Tenir comme avant", to: "jour2" }], { takes: "day" }),
+        jour2: tp("I", "Deuxième jour", "ville", [{ text: "[L'assaut.]" }, { text: "[Le mur tient, cette fois.]", after: "mur:repare" }], [{ label: "Repousser l'assaut", test: { dom: "combat", diff: -10, label: "Tenir le mur" }, win: { to: "decision" }, lose: { to: "decision", fx: { pv: -3 } } }, { label: "Ouvrir une négociation", to: "decision" }]),
+        decision: tp("I", "La décision", "ville", [{ text: "[Ce qu'il reste. Ce qu'on choisit.]" }, { text: "[Grâce aux rations, il reste de quoi tenir une semaine.]", after: "rations" }], [{ label: "Tenir jusqu'au bout", to: "fin_tenir" }, { label: "Rendre la place", to: "fin_rendre" }]),
+        fin_tenir: tp("I", "On a tenu", "ville", "[La fin.]", [], { end: true }),
+        fin_rendre: tp("I", "La reddition", "ville", "[La fin.]", [], { end: true }) }); } },
+  };
+
+  // The shared catalogue (site only): stories families offer to each other, in the public repository's catalogue/.
+  // Why: Clément, 13/11 (piste 44): exchange stories between families, with warnings and a suggested age.
+  var CATALOGUE_REPO = "https://github.com/ClementCarre-BionomeeX/livre-hero";
+  function catalogueOn() { return standalone() && /^https?:$/.test(location.protocol); }
+  function loadCatalogue() {
+    A.catalogue = { loading: true }; render();
+    fetch("catalogue/index.json", { cache: "no-store" }).then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+      .then(function (list) { A.catalogue = { list: list }; render(); }, function () { A.catalogue = { err: "Le catalogue ne répond pas (pas de réseau ?)." }; render(); });
+  }
+  function renderCatalogue() {
+    var C = A.catalogue, sec = h("section", { class: "section" }, h("h2", null, "Catalogue partagé"));
+    sec.appendChild(h("p", { class: "small muted" }, "Des histoires écrites par d'autres familles. Elles ne sont pas relues par nous : lis l'âge conseillé et les avertissements avant de les ajouter."));
+    if (!C) { sec.appendChild(h("button", { class: "btn", onclick: loadCatalogue }, "Voir le catalogue")); return sec; }
+    if (C.loading) { sec.appendChild(h("p", { class: "small" }, "Chargement…")); return sec; }
+    if (C.err) { sec.appendChild(h("p", { class: "small" }, C.err)); sec.appendChild(h("button", { class: "btn sm", onclick: loadCatalogue }, "Réessayer")); return sec; }
+    if (!C.list.length) sec.appendChild(h("p", { class: "small" }, "Le catalogue est encore vide."));
+    var cards = h("div", { class: "cards" });
+    C.list.forEach(function (m) {
+      var have = allStories().some(function (x) { return x.id === m.id; });
+      cards.appendChild(h("article", { class: "card" }, h("h3", null, m.title), m.subtitle ? h("div", { class: "sub" }, m.subtitle) : null, h("p", null, m.summary || ""),
+        h("div", { class: "small muted" }, [m.author ? "par " + m.author : null, m.age ? "dès " + m.age + " ans" : null, m.passages + " passages"].filter(Boolean).join(" · ")),
+        m.adult && m.adult.themes ? h("div", { class: "small adult-tag" }, "Thème adulte : " + m.adult.themes.join(", ")) : null,
+        h("div", { class: "row" }, have ? h("span", { class: "small muted" }, "Déjà dans ta bibliothèque") : h("button", { class: "btn sm primary", onclick: function () {
+          fetch("catalogue/" + encodeURIComponent(m.id) + ".json", { cache: "no-store" }).then(function (r) { if (!r.ok) throw new Error(r.status); return r.text(); })
+            .then(function (txt) { importStoryText(txt); }, function () { A.importReport = "Le téléchargement de « " + m.title + " » a échoué."; render(); });
+        } }, "Ajouter à ma bibliothèque"))));
+    });
+    sec.appendChild(cards);
+    return sec;
+  }
+  function proposeToCatalogue(st) {
+    download(st.id + ".json", JSON.stringify(st, null, 1));
+    window.open(CATALOGUE_REPO + "/upload/main/catalogue", "_blank", "noopener");
   }
   function confirmLeave() { try { return window.confirm("Des modifications ne sont pas enregistrées. Quitter quand même ?"); } catch (e) { return true; } }
   function edPick(w) {
@@ -4469,11 +5510,20 @@
     var cards = h("div", { class: "cards" });
     edStories().forEach(function (m) {
       cards.appendChild(h("article", { class: "card" }, h("h3", null, m.title), h("div", { class: "small muted" }, m.passages + " passages" + (m.builtin ? " · fournie" : " · importée")),
-        h("div", { class: "row" }, h("button", { class: "btn primary sm", onclick: function () { edOpen(m, m.builtin); } }, m.builtin ? "Copier pour modifier" : "Modifier"))));
+        h("div", { class: "row" }, h("button", { class: "btn primary sm", onclick: function () { edOpen(m, m.builtin); } }, m.builtin ? "Copier pour modifier" : "Modifier"),
+          h("button", { class: "btn sm", onclick: function () { loadStory(m.id).then(function (st) { edLoad(st, false); A.ed.ro = true; A.ed.tab = "lire"; render(); }); } }, "Lire sans jouer"))));
     });
     cards.appendChild(h("article", { class: "card" }, h("h3", null, "Nouvelle histoire"), h("p", { class: "small muted" }, "Un squelette : un acte, un lieu, un passage de départ, une fin."),
       h("div", { class: "row" }, h("button", { class: "btn primary sm", onclick: function () { edLoad(edSkeleton()); } }, "Commencer"))));
     w.appendChild(cards);
+    w.appendChild(h("h2", { class: "sub-h" }, "Partir d'un gabarit"));
+    var tc = h("div", { class: "cards" });
+    Object.keys(TEMPLATES).forEach(function (k) {
+      var t = TEMPLATES[k];
+      tc.appendChild(h("article", { class: "card" }, h("h3", null, t.title), h("p", { class: "small muted" }, t.desc),
+        h("div", { class: "row" }, h("button", { class: "btn sm", onclick: function () { var st = t.make(); st.id = k + "-" + uid().slice(-5); edLoad(st); A.ed.tab = "graphe"; A.ed.gview = "tout"; render(); } }, "Partir de ce gabarit"))));
+    });
+    w.appendChild(tc);
   }
   function edSkeleton() {
     var id = "histoire-" + uid().slice(-5);
@@ -4491,7 +5541,7 @@
       edLoad(s2, !!copy);
     });
   }
-  function edLoad(st, dirty) { A.ed = { story: st, tab: "passage", sel: st.start, q: "", dirty: dirty !== false, msg: "", report: "" }; render(); window.scrollTo(0, 0); }
+  function edLoad(st, dirty) { A.ed = { story: st, tab: "passage", sel: st.start, q: "", dirty: dirty !== false, msg: "", report: "", gpos: null, rorder: null }; render(); window.scrollTo(0, 0); }
   function edDirty() { if (!A.ed.dirty) { A.ed.dirty = true; var b = document.querySelector(".brand"); if (b) b.textContent += " · modifiée"; } }
   function edCheck() {
     var E = A.ed, rep = V.staticCheck(clone(E.story)), strict = rep.errors.length ? [] : V.strictCheck(clone(E.story));
@@ -4523,8 +5573,25 @@
       h("label", { class: "stack tight" }, h("span", { class: "label" }, "Habillage"), h("select", { onchange: function (e) { if (e.target.value) st.skin = e.target.value; else delete st.skin; edDirty(); } },
         h("option", { value: "" }, "sobre"), ["parchemin", "givre", "sable", "enluminure"].map(function (k) { return h("option", { value: k, selected: st.skin === k }, SKINS[k]); }))),
       h("label", { class: "stack tight" }, h("span", { class: "label" }, "Introduction (un paragraphe par ligne vide)"), h("textarea", { rows: 5, oninput: function (e) { st.intro = e.target.value.split(/\n\s*\n/).map(function (x) { return x.trim(); }).filter(Boolean); edDirty(); } }, (st.intro || []).join("\n\n"))),
+      h("div", { class: "ed-row" },
+        h("label", { class: "stack tight" }, h("span", { class: "label" }, "Auteur (pour le catalogue)"), h("input", { value: st.author || "", oninput: function (e) { setKey(st, "author", e.target.value.trim()); edDirty(); } })),
+        h("label", { class: "stack tight" }, h("span", { class: "label" }, "Âge conseillé"), h("input", { type: "number", min: 3, max: 18, value: st.age || "", oninput: function (e) { setKey(st, "age", +e.target.value || null); edDirty(); } }))),
+      h("label", { class: "stack tight" }, h("span", { class: "label" }, "Thèmes adultes (un par ligne ; la bibliothèque les montre avant d'ouvrir le livre)"), h("textarea", { rows: 3, oninput: function (e) { var l = e.target.value.split("\n").map(function (x) { return x.trim(); }).filter(Boolean); if (l.length) st.adult = { themes: l }; else delete st.adult; edDirty(); } }, ((st.adult || {}).themes || []).join("\n"))),
       h("div", { class: "small muted" }, "Identifiant : " + st.id + " · version " + (st.version || 1)));
     w.appendChild(b);
+    // names that sound like this story
+    var nm = A.ed.names, nb = h("div", { class: "ed-block stack" }, h("h3", { class: "sub-h" }, "Noms et lieux"),
+      h("p", { class: "small muted" }, "Des noms inventés à la manière de ceux que l'histoire a déjà. Touche un nom pour le copier."),
+      h("div", { class: "row" }, h("button", { class: "btn sm", onclick: function () { A.ed.names = makeNames(st, "personne"); A.ed.names.kind = "personne"; render(); } }, "Des noms de personnes"),
+        h("button", { class: "btn sm", onclick: function () { A.ed.names = makeNames(st, "lieu"); A.ed.names.kind = "lieu"; render(); } }, "Des noms de lieux")));
+    if (nm) {
+      nb.appendChild(h("div", { class: "row names" }, nm.names.map(function (n) { return h("button", { class: "btn sm ghost", onclick: function (e) { try { navigator.clipboard.writeText(n); e.target.textContent = n + " ✓"; } catch (x) { /* no clipboard: the name stays on screen to copy by hand */ } } }, n); })));
+      nb.appendChild(h("div", { class: "small muted" }, nm.names.length ? "Appris sur " + nm.count + " noms de " + nm.from + "." : "Pas assez de noms pour apprendre : ajoute d'abord quelques " + (nm.kind === "lieu" ? "lieux" : "personnages") + "."));
+    }
+    w.appendChild(nb);
+    if (catalogueOn() || canDownload()) w.appendChild(h("div", { class: "ed-block stack" }, h("h3", { class: "sub-h" }, "Proposer au catalogue partagé"),
+      h("p", { class: "small muted" }, "Le catalogue est public : n'importe qui pourra lire ton histoire. Indique l'âge conseillé et les thèmes adultes. Le bouton télécharge le fichier, puis ouvre la page GitHub où le déposer (un compte GitHub est nécessaire) ; il apparaîtra dans le catalogue une fois accepté."),
+      h("div", { class: "row" }, h("button", { class: "btn sm", onclick: function () { if (A.ed.dirty) { A.ed.msg = "Enregistre d'abord l'histoire."; A.ed.msgBad = true; render(); return; } proposeToCatalogue(st); } }, "Proposer cette histoire"))));
   }
   var ED_DATA = [["acts", "Actes"], ["world", "Monde : lieux, routes, régions, événements, départ"], ["companions", "Compagnons"], ["heroes", "Héros jouables"], ["items", "Objets"], ["enemies", "Adversaires"], ["shops", "Boutiques"],
     ["mysteries", "Mystères"], ["clues", "Indices"], ["quests", "Quêtes"], ["people", "Personnages"], ["factions", "Factions"], ["relics", "Reliques"], ["past", "Ton passé (questions de création)"], ["banter", "Discussions"], ["achievements", "Hauts faits propres à l'histoire"], ["endings", "Titres des fins"]];
@@ -4636,9 +5703,11 @@
     // choices
     p.choices = p.choices || [];
     f.appendChild(h("h3", { class: "sub-h" }, "Choix"));
-    var comps = Object.keys(st.companions || {});
+    var comps = Object.keys(st.companions || {}), counts = pickCounts(st);
+    if (counts[id]) f.appendChild(h("p", { class: "small muted" }, "Dans les parties terminées de la famille, ce passage a été quitté " + counts[id].total + " fois."));
     p.choices.forEach(function (c, i) {
-      var box = h("div", { class: "ed-para" });
+      var box = h("div", { class: "ed-para" }), share = pickShare(counts, id, i, c.label);
+      if (share) box.appendChild(h("div", { class: "pick-heat", style: "--share:" + Math.round(100 * share.n / share.total) + "%" }, "Choisi " + share.n + " fois sur " + share.total));
       var kind = c.back != null ? "back" : c.test ? "test" : "to";
       box.appendChild(h("div", { class: "ed-row" },
         fld("Texte du bouton", h("input", { value: c.label || "", placeholder: c.back != null ? "(le moteur écrit « Revenir : … »)" : "", oninput: function (e) { setKey(c, "label", e.target.value); edDirty(); } })),
@@ -4690,12 +5759,27 @@
     function peaks(r, y, n, hgt) { var d = "M0 90 L0 " + y, x = 0; for (var i = 0; i < n; i++) { var w = 600 / n, top = y - hgt * (0.5 + r() * 0.5); d += " L" + (x + w * (0.3 + r() * 0.4)).toFixed(1) + " " + top.toFixed(1) + " L" + (x + w).toFixed(1) + " " + (y - r() * 8).toFixed(1); x += w; } return d + " L600 90 Z"; }
     function pines(r, y, n, hgt) { var d = ""; for (var i = 0; i < n; i++) { var x = r() * 600, hh = hgt * (0.6 + r() * 0.6), w = hh * 0.35; d += "M" + (x - w).toFixed(1) + " " + y + " L" + x.toFixed(1) + " " + (y - hh).toFixed(1) + " L" + (x + w).toFixed(1) + " " + y + " Z "; } return d; }
     function roofs(r, y, n) { var d = "", x = 10; for (var i = 0; i < n && x < 590; i++) { var w = 26 + r() * 30, hh = 14 + r() * 16, rh = 10 + r() * 10; d += "M" + x + " 90 L" + x + " " + (y - hh) + " L" + (x + w / 2) + " " + (y - hh - rh) + " L" + (x + w) + " " + (y - hh) + " L" + (x + w) + " 90 Z "; if (r() < 0.3) d += "M" + (x + w * 0.7) + " " + (y - hh - rh * 0.6) + " h4 v-8 h-4 Z "; x += w + 2 + r() * 14; } return d; }
-    function draw(kind, night, seed) {
-      var r = rnd(seed), svgEl = s("svg", { viewBox: "0 0 600 90", preserveAspectRatio: "xMidYMax slice", class: "vignette", role: "img", "aria-label": "Vignette : " + kind });
+    // o.engrave: drawn in ink hatching, like an old engraving (the head of a chapter); o.camp: a fire in front.
+    function draw(kind, night, seed, o) {
+      o = o || {};
+      var r = rnd(seed), svgEl = s("svg", { viewBox: "0 0 600 90", preserveAspectRatio: "xMidYMax slice", class: o.engrave ? "gravure-art" : "vignette", role: "img", "aria-label": (o.engrave ? "Gravure : " : "Vignette : ") + kind });
       var far = { fill: "var(--vig-far)" }, mid = { fill: "var(--vig-mid)" }, near = { fill: "var(--vig-near)" };
-      svgEl.appendChild(s("rect", { x: 0, y: 0, width: 600, height: 90, fill: "var(--vig-sky)" }));
-      if (night) { svgEl.appendChild(s("circle", { cx: 80 + r() * 440, cy: 18, r: 7, fill: "var(--vig-moon)" })); for (var i = 0; i < 18; i++) svgEl.appendChild(s("circle", { cx: r() * 600, cy: r() * 40, r: 0.7, fill: "var(--vig-moon)" })); }
-      else svgEl.appendChild(s("circle", { cx: 80 + r() * 440, cy: 22, r: 9, fill: "var(--vig-sun)" }));
+      if (o.engrave) {
+        var pid = "h" + seed, defs = s("defs");
+        [["a", 7, 45, 0.6], ["b", 4, -45, 0.8], ["c", 2.6, 45, 1]].forEach(function (x) {
+          defs.appendChild(s("pattern", { id: pid + x[0], width: x[1], height: x[1], patternUnits: "userSpaceOnUse", patternTransform: "rotate(" + x[2] + ")" }, [s("line", { x1: 0, y1: 0, x2: 0, y2: x[1], stroke: "var(--ink)", "stroke-width": x[3] })]));
+        });
+        svgEl.appendChild(defs);
+        far = { fill: "url(#" + pid + "a)", stroke: "var(--ink)", "stroke-width": ".6" }; mid = { fill: "url(#" + pid + "b)", stroke: "var(--ink)", "stroke-width": ".7" }; near = { fill: "url(#" + pid + "c)", stroke: "var(--ink)", "stroke-width": ".8" };
+      }
+      svgEl.appendChild(s("rect", { x: 0, y: 0, width: 600, height: 90, fill: o.engrave ? "var(--paper)" : "var(--vig-sky)" }));
+      if (night) {
+        svgEl.appendChild(s("circle", { cx: 80 + r() * 440, cy: 18, r: 7, fill: o.engrave ? "none" : "var(--vig-moon)", stroke: o.engrave ? "var(--ink)" : "none" }));
+        for (var i = 0; i < 18; i++) svgEl.appendChild(s("circle", { cx: r() * 600, cy: r() * 40, r: 0.7, fill: o.engrave ? "var(--ink)" : "var(--vig-moon)", class: "tw", style: "animation-delay:" + (r() * 4).toFixed(2) + "s" }));
+      } else {
+        svgEl.appendChild(s("circle", { cx: 80 + r() * 440, cy: 22, r: 9, fill: o.engrave ? "none" : "var(--vig-sun)", stroke: o.engrave ? "var(--ink)" : "none", class: "sun" }));
+        if (!o.engrave && kind !== "souterrain") for (var cl = 0; cl < 2; cl++) svgEl.appendChild(s("ellipse", { cx: r() * 600, cy: 10 + r() * 20, rx: 26 + r() * 20, ry: 4 + r() * 3, fill: "var(--paper)", opacity: ".55", class: "cloud", style: "animation-delay:-" + (r() * 60).toFixed(1) + "s" }));
+      }
       var P = function (d, a) { var o = { d: d }; for (var k in a) o[k] = a[k]; svgEl.appendChild(s("path", o)); };
       switch (kind) {
         case "montagne": case "neige": P(peaks(r, 70, 5, 55), far); P(peaks(r, 82, 7, 30), mid); if (kind === "neige") P(peaks(r, 84, 9, 10), { fill: "var(--vig-sky)", opacity: ".5" }); break;
@@ -4708,10 +5792,21 @@
         case "combat": P(peaks(r, 80, 9, 30), far); P(ridge(r, 88, 6, 30), mid); for (var k = 0; k < 6; k++) P("M" + (100 + r() * 400) + " 90 l" + (r() * 30 - 15) + " -" + (30 + r() * 30) + " l2 0 Z", near); break;
         default: P(ridge(r, 64, 10, 8), far); P(ridge(r, 78, 8, 14), mid); P("M300 90 L292 66 L308 66 Z", { fill: "var(--vig-sky)", opacity: ".7" }); P(ridge(r, 88, 3, 20), near);
       }
+      if (o.camp) {
+        P("M280 90 l20 -8 l20 8 Z M284 88 l32 -6 M284 82 l32 6", { fill: "var(--vig-near)", stroke: "var(--vig-near)", "stroke-width": "2" });
+        svgEl.appendChild(s("path", { d: "M300 80 C292 72 296 64 300 56 C302 64 310 68 304 80 Z", fill: "var(--gold)", class: "flame" }));
+        svgEl.appendChild(s("path", { d: "M300 80 C297 75 298 70 300 66 C301 71 305 74 302 80 Z", fill: "var(--paper)", opacity: ".8", class: "flame f2" }));
+      }
       return svgEl;
     }
     return {
-      of: function (st, st8) { var kind = M.ambianceOf(st, st8); if (!kind) return null; return draw(kind, M.isNightNow(st8), hash(st.id + (st8.place || st8.node || "") + kind)); },
+      of: function (st, st8) { var camp = st8.node === "@camp", kind = M.ambianceOf(st, st8) || (camp ? "foret" : null); if (!kind) return null; return draw(kind, M.isNightNow(st8) || camp, hash(st.id + (st8.place || st8.node || "") + kind), { camp: camp }); },
+      // The engraving at the head of a chapter: the act's first page, in ink.
+      engraving: function (st, st8, title) {
+        var kind = M.ambianceOf(st, st8) || "default", fig = h("figure", { class: "gravure" });
+        fig.appendChild(draw(kind, M.isNightNow(st8), hash(st.id + "|gravure|" + (st8.lastAct || "") + kind), { engrave: true }));
+        fig.appendChild(h("figcaption", null, title)); return fig;
+      },
       // A place's own vignette, for the atlas.
       place: function (st, id) { var pl = st.world.places[id] || {}, rg = ((st.world.regions || {})[pl.region] || {}); var kind = pl.ambiance || rg.ambiance; return kind ? draw(kind, false, hash(st.id + id + kind)) : null; },
     };
@@ -4812,8 +5907,9 @@
     var ctx = null, out = null, cur = null, timer = null, plan = null;
     function rng(seed) { var x = hash(seed) || 1; return function () { x ^= x << 13; x ^= x >>> 17; x ^= x << 5; return ((x >>> 0) % 10000) / 10000; }; }
     // A tune: 4 phrases of 8 steps (A A' B A), a note or a rest per step, the bass on each bar.
-    function compose(key, mood) {
-      var R = rng("musique|" + key), mode = MUSIC_MODES[mood[0]], root = 196 * Math.pow(2, Math.floor(R() * 5) / 12);
+    // A place's tune keeps its region's key (family) and has its own motif (7th series: a theme for each place).
+    function compose(key, mood, family) {
+      var R0 = rng("musique|" + (family || key)), R = rng("musique|" + key), mode = MUSIC_MODES[mood[0]], root = 196 * Math.pow(2, Math.floor(R0() * 5) / 12);
       var motif = [], deg = 0;
       for (var i = 0; i < 8; i++) { deg = Math.max(-2, Math.min(mode.length + 2, deg + Math.round(R() * 4 - 2))); motif.push(R() < (mood[0] === "combat" ? 0.12 : 0.28) && i % 4 ? null : deg); }
       var vary = motif.map(function (d, i) { return i >= 6 && d != null ? d + (R() < 0.5 ? 1 : -1) : d; });
@@ -4830,8 +5926,8 @@
     }
     function drum(t) { var o = ctx.createOscillator(), g = ctx.createGain(); o.frequency.setValueAtTime(110, t); o.frequency.exponentialRampToValueAtTime(45, t + 0.25); g.gain.setValueAtTime(0.5, t); g.gain.exponentialRampToValueAtTime(0.0001, t + 0.3); o.connect(g); g.connect(out); o.start(t); o.stop(t + 0.35); }
     function stop() { if (timer) clearInterval(timer); timer = null; plan = null; cur = null; }
-    function play(key, mood) {
-      stop(); cur = key; var T = compose(key, mood), i = 0, t = ctx.currentTime + 0.1;
+    function play(key, mood, family) {
+      stop(); cur = key; var T = compose(key, mood, family), i = 0, t = ctx.currentTime + 0.1;
       plan = T;
       timer = setInterval(function () {
         while (t < ctx.currentTime + MUSIC_AHEAD_S) {
@@ -4848,12 +5944,14 @@
       // what plays now (for the tests)
       now: function () { return cur; },
       update: function () {
-        var G = A.game, want = null, mood = null;
+        var G = A.game, want = null, mood = null, family = null;
         if (pref("music") && G && A.screen === "game" && !document.hidden) {
           var kind = M.ambianceOf(G.story, G.s) || (M.isNightNow(G.s) ? "nuit" : "village");
           var pl = ((G.story.world || {}).places || {})[((G.story.passages || {})[G.s.node] || {}).place || G.s.place] || {};
           mood = MUSIC_MOODS[kind] || MUSIC_MOODS.village;
-          want = kind === "combat" ? "combat" : (pl.region ? "region:" + pl.region : "ambiance:" + kind) + (kind === "nuit" ? ":nuit" : "");
+          var plId = ((G.story.passages || {})[G.s.node] || {}).place || G.s.place;
+          family = G.story.id + "|" + (pl.region ? "region:" + pl.region : "ambiance:" + kind);
+          want = kind === "combat" ? "combat" : (plId && !G.s.travel ? "lieu:" + plId : pl.region ? "region:" + pl.region : "ambiance:" + kind) + (kind === "nuit" ? ":nuit" : "");
           want = G.story.id + "|" + want;
         }
         if (!want) { if (cur) stop(); return; }
@@ -4861,7 +5959,7 @@
           if (!ctx) { var AC = window.AudioContext || window.webkitAudioContext; if (!AC) return; ctx = new AC(); out = ctx.createGain(); out.connect(ctx.destination); }
           if (ctx.state === "suspended") ctx.resume();
           out.gain.value = Math.max(0, Math.min(1, +pref("volume"))) * MUSIC_GAIN;
-          if (want !== cur) play(want, mood);
+          if (want !== cur) play(want, mood, family);
         } catch (e) { /* no sound on this device */ }
       },
     };

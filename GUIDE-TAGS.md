@@ -139,3 +139,25 @@ anseau: { name: "Anseau", face: { age: "ancien", marks: ["balafre", "lunettes"] 
 | mystère | `answer: { person: "aurele", text: "Aurèle, ton frère." }` | La réponse, montrée une fois `solved` atteint. Avec `person`, chaque soupçon qui nommait quelqu'un est marqué juste ou faux, et le carnet dit depuis quand le lecteur avait vu juste. |
 
 Rien à déclarer pour : « Sans retour » (choisi à la création), le tableau d'enquête, la recherche dans le carnet, le clavier, « Comparer en famille » (l'appli garde le choix fait à chaque page, par sa place parmi les choix du passage : réordonner les choix d'un passage fausse la comparaison des parties déjà finies).
+
+## Septième série (13/11)
+
+- **Ennemi `fearless: true`** : cet adversaire ne fuit jamais. Sans ce tag, un adversaire gravement blessé, ou dont la bande est à moitié tombée, peut prendre la fuite. Le dernier debout ne fuit jamais, pour que le texte de victoire reste vrai. Une fuite compte comme un adversaire hors de combat.
+- **Récit du combat** : à la fin de chaque combat, le moteur écrit quelques lignes (événement `tale`). L'auteur n'a rien à faire.
+- **Conséquences muettes** : les changements de confiance et de crainte d'un compagnon portent la marque `conseq`, et le lecteur peut les masquer dans ses Réglages. Ne pas compter sur ces lignes pour faire passer une information au lecteur.
+- **Jetons de destin** : en mode « Sans retour », trois relances par acte pour un jet raté. Ils sont gérés par l'appli et l'auteur n'a rien à faire.
+- **Histoire `cover: { motif, color }`** : la couverture dessinée dans la bibliothèque. Motifs possibles : `dedale`, `flocon`, `sceau`, `oeil`, `vanne`, `ecu`, `etoile` (le motif par défaut). `color` est la couleur de la toile, par exemple `"#4f3a22"`.
+- **Gravures, plans de ville, thème musical par lieu, voix des personnages** : le moteur s'en charge à partir de ce qui existe déjà (ambiance du lieu, passages vus dans un lieu, région, `name` des gens et des compagnons). La voix d'un personnage est retrouvée quand son nom figure dans le même paragraphe que ses paroles.
+
+## Outils d'auteur (7.5)
+
+- `author: "…"` et `age: 10` (au niveau de l'histoire) : l'auteur et l'âge conseillé, montrés dans la bibliothèque et
+  le catalogue partagé. Les thèmes adultes restent dans `adult: { themes: [...] }`.
+- `back: true` sans libellé est accepté par le vérificateur : le moteur écrit « Revenir : … » vers le dernier
+  carrefour. Le vérificateur prépare désormais l'histoire comme le jeu (les `back: "passage"` reçoivent destination et
+  libellé), si bien qu'une histoire écrite dans l'éditeur ou importée se vérifie comme une histoire fournie.
+- `node tests/relecture.js [id] [--all]` : la relecture de style (phrases de plus de 40 mots, mot de 7 lettres ou plus
+  répété à moins de 15 mots, paragraphes de plus de 180 mots, mots longs employés une seule fois, espaces et
+  guillemets à la française, choix de plus de 90 signes). Mêmes règles que l'onglet « Relecture » de l'éditeur.
+- `catalogue/<id>.json` : une histoire proposée au catalogue partagé ; `tests/site.js` la vérifie et l'ajoute à
+  `site/catalogue/index.json`.

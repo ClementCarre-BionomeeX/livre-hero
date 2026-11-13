@@ -8,6 +8,7 @@ module.exports = {
   summary: "Le prince de Sarvelle est mort dans la nuit, sans testament. Son héritière a neuf ans. Selon la coutume, c'est toi, le Garde du Sceau, un étranger nommé trois mois plus tôt, qui tiens la cité pendant les quarante jours du Deuil. Au quarantième, le Conseil choisira un régent. D'ici là, cinq puissances te font des sourires, et tu as quelque chose à cacher.",
   adult: { themes: ["Meurtre et mort volontaire", "Violence politique et émeutes", "Chantage et manipulation", "Adultère et filiation cachée", "Deuil, culpabilité", "Faim et misère"] },
   skin: "enluminure",
+  cover: { motif: "sceau", color: "#2f4a3a" },
   glossary: require("../glossaire.js"),
   voice: "deuxième personne, présent",
   version: 1,
