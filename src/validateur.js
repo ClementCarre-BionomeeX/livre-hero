@@ -24,6 +24,7 @@
     if ("not" in c) readTags(c.not, out);
     if ("all" in c) readTags(c.all, out);
     if ("any" in c) readTags(c.any, out);
+    if ("count" in c) readTags(c.count, out);
     return out;
   }
   function eachCond(p, f) {
@@ -115,6 +116,7 @@
     function checkFight(f, where) {
       (f.enemies || []).forEach(function (e) { var id = e.id || e; if (typeof id === "string" && !enemies[id]) E(where + " : ennemi « " + id + " » inconnu."); });
       ["win", "lose"].forEach(function (k) { if (!f[k]) E(where + " : combat sans issue « " + k + " »."); });
+      if (f.flee && f.flee.dom && DOM_KEYS.indexOf(f.flee.dom) < 0) E(where + " : fuite, domaine « " + f.flee.dom + " » inconnu.");
       [f.win, f.lose, f.flee, f.talk && f.talk.win, f.calm].forEach(function (b) { if (!b) return; checkFx(b.fx, where); (Array.isArray(b.to) ? b.to.map(function (x) { return x.to; }) : [b.to]).forEach(function (t) { if (t !== "@ret" && t !== "@route" && t !== "@team" && !P[t]) E(where + " : le combat mène à « " + t + " », qui n'existe pas."); }); });
     }
     function checkCond(c, where) {
@@ -125,6 +127,8 @@
       if (k === "not") checkCond(c.not, where);
       if (k === "all" || k === "any") c[k].forEach(function (x) { checkCond(x, where); });
       if (k === "count") c.count.forEach(function (x) { checkCond(x, where); });
+      // Why: { gold: 10 } reads as "always true" in the engine (it expects { min, max }); say so instead of letting it pass.
+      if (["gold", "food", "pv"].indexOf(k) >= 0 && (c[k] === null || typeof c[k] !== "object")) E(where + " : la condition « " + k + " » s'écrit { min: …, max: … }.");
       if (k === "clues" && !story.mysteries[c.clues]) E(where + " : mystère « " + c.clues + " » inconnu.");
       if (k === "clue" && !story.clues[c.clue]) E(where + " : indice « " + c.clue + " » inconnu.");
       if (["present", "loyal", "met", "gone", "conf", "fear"].indexOf(k) >= 0 && !story.companions[c[k]]) E(where + " : compagnon « " + c[k] + " » inconnu.");
