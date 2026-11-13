@@ -1328,6 +1328,8 @@
     return { text: "Tu as déjà lu tout ce qui part d'ici. Ouvre ton carnet : une quête, un indice ou une personne rencontrée t'attend peut-être ailleurs.", choices: [] };
   }
   function view(story, s) {
+    // A saved game reopened gets a story freshly read, never prepared by freshState: the engine prepares it here too.
+    prepare(story);
     var v, p = null;
     if (BUILTIN[s.node]) v = BUILTIN[s.node](story, s);
     else {
@@ -1354,6 +1356,12 @@
     }
     v.choices = v.choices.map(function (c) {
       if (c.back === true && !c.label) { var hb = story.passages[s.hubLast] || {}; c = Object.assign({}, c, { label: "Revenir : " + cap(interp(s, String(hb.backName || hb.title || "").replace(/\*/g, ""))), autoBack: true }); }
+      // Guarantee: every button has words. One left without (a scenario fault) says where it goes.
+      if (typeof c.label !== "string" || !c.label) {
+        var lt = typeof c.to === "string" && story.passages[c.to];
+        c = Object.assign({}, c, { label: lt ? cap(interp(s, String(lt.backName || lt.title || "Continuer").replace(/\*/g, ""))) : "Continuer" });
+        guard(s, "un choix sans texte de bouton");
+      }
       var a = allowed(story, s, p, c); return Object.assign({}, c, { ok: a.ok, why: a.why, goes: backGoes(story, s, c) || goesTo(story, s, p, c), note: c.refuse ? "refus définitif" : aheadOf(story, s, c) || c.note, chance: c.test ? chance(story, s, c.test, c.who) : null }); });
     if (p) {
       // Guarantee: no twin buttons. Of several choices with the same words, the one that can be taken stays.
@@ -1528,6 +1536,7 @@
 
   // Intent: apply(Story, State, Choice) -> () ! writes(State), random
   function choose(story, s, c) {
+    prepare(story);
     s.evIn = false;
     try { chooseInner(story, s, c); } finally { delete s.evIn; }
     checkFeats(story, s);
