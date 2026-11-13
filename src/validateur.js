@@ -70,6 +70,13 @@
       if (!c.name) E("Compagnon " + k + " sans nom.");
       Object.keys(c.bonus || {}).forEach(function (d) { if (DOM_KEYS.indexOf(d) < 0) E("Compagnon " + k + " : domaine « " + d + " » inconnu."); });
     });
+    // A declared face (age, scars, eyes…) uses the engine's words only: the page must be able to draw it.
+    ["people", "companions", "heroes"].forEach(function (kind) {
+      Object.keys(story[kind] || {}).forEach(function (k) {
+        var fc = story[kind][k].face; if (fc === undefined) return;
+        M.faceErrors(fc).forEach(function (m) { E("Visage de « " + k + " » (" + kind + ") : " + m); });
+      });
+    });
     Object.keys(story.heroes || {}).forEach(function (k) {
       var H = story.heroes[k];
       if (!story.companions[k]) E("Héros « " + k + " » : il lui faut aussi une entrée dans companions (nom, confiance).");

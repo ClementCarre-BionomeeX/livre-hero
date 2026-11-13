@@ -349,6 +349,12 @@
   },
   "hylas": {
    "name": "Maître Hylas",
+   "face": {
+    "age": "ancien",
+    "marks": [
+     "aveugle"
+    ]
+   },
    "f": false,
    "role": "Greffier aveugle de la Chancellerie des Noms",
    "wound": "Il a sorti un enfant de l'Outre-Blanc et ne l'a jamais dit.",
@@ -443,6 +449,9 @@
   },
   "rodric": {
    "name": "Rodric Trois-Cloches",
+   "face": {
+    "age": "mur"
+   },
    "f": false,
    "role": "Capitaine de Corvanne, l'ennemi",
    "wound": "Il a perdu trois fils à la guerre, et sonné trois fois la cloche des morts.",
@@ -465,6 +474,10 @@
   },
   "linette": {
    "name": "Linette",
+   "face": {
+    "age": "enfant",
+    "coif": "rase"
+   },
    "f": true,
    "role": "Une page blanche, enfant scribe sans mémoire",
    "wound": "Elle ne se souvient de rien d'avant ses neuf ans.",
@@ -1833,6 +1846,9 @@
   },
   "pim": {
    "name": "Pim",
+   "face": {
+    "age": "enfant"
+   },
    "desc": "Ton petit frère, huit ans, qui pose des questions jusqu'à ce qu'on le menace du grenier."
   },
   "tess": {
@@ -1841,14 +1857,23 @@
   },
   "anselme": {
    "name": "Père Anselme",
+   "face": {
+    "age": "ancien"
+   },
    "desc": "Le prêtre des Saints-Gardiens de Sauvelune, qui tient le registre des naissances et des morts depuis quarante ans."
   },
   "mathurin": {
    "name": "Le vieux Mathurin",
+   "face": {
+    "age": "ancien"
+   },
    "desc": "Apiculteur, conteur, menteur. Il connaît toutes les chansons de la montagne et en invente quand il en manque."
   },
   "gautier": {
    "name": "Sergent Gautier",
+   "face": {
+    "age": "ancien"
+   },
    "desc": "Le plus vieux soldat de Brenne. Il a servi le père d'Ysolde, et il la sert comme on sert une fille qu'on n'a pas eue : en grognant."
   },
   "sevrin": {
@@ -1861,10 +1886,16 @@
   },
   "ilse": {
    "name": "Ilse",
+   "face": {
+    "age": "enfant"
+   },
    "desc": "La plus jeune fille de Maëlle, six ans. Elle ne parle qu'à sa poupée et à la jument d'Ysolde."
   },
   "thibaut": {
    "name": "Thibaut",
+   "face": {
+    "age": "jeune"
+   },
    "desc": "Un des quarante d'Ysolde, dix-neuf ans, porté déserteur il y a un mois."
   },
   "ombeline_p": {
@@ -1873,26 +1904,48 @@
   },
   "veuve": {
    "name": "La Veuve",
+   "face": {
+    "shape": "rond"
+   },
    "desc": "Receleuse des Teinturiers, ferronnière, petite, ronde, en noir. Les yeux les plus gentils de Pallanche."
   },
   "corneille": {
    "name": "Maître Corneille",
+   "face": {
+    "age": "ancien"
+   },
    "desc": "Le vieux faussaire qui a recueilli Pie et sa sœur, puis vendu Linette aux Greffiers."
   },
   "baudoin": {
    "name": "Frère Baudoin",
+   "face": {
+    "age": "jeune"
+   },
    "desc": "Le jeune greffier du Bureau des Cessions. Un visage doux, une écriture d'écolier."
   },
   "anseau": {
    "name": "Anseau",
+   "face": {
+    "age": "ancien"
+   },
    "desc": "Le sonneur de Saint-Gilles, soixante-dix ans, huit cloches dont il oublie les noms."
   },
   "linette_p": {
    "name": "Page Onze",
+   "face": {
+    "age": "enfant",
+    "coif": "rase"
+   },
    "desc": "Une scribe de dix ans, en robe grise, la tête rasée. Un épi derrière la tête."
   },
   "hylas_p": {
    "name": "Un greffier aveugle",
+   "face": {
+    "age": "ancien",
+    "marks": [
+     "aveugle"
+    ]
+   },
    "desc": "Un vieil homme aux yeux blancs, une canne d'ébène, dans les archives de la tour."
   },
   "hrodna": {
@@ -1905,6 +1958,9 @@
   },
   "ylva": {
    "name": "Ylva",
+   "face": {
+    "age": "enfant"
+   },
    "desc": "Une fille du clan, sept ans, partie dans la neige pour voir la Mère."
   },
   "mathias": {
@@ -1913,6 +1969,9 @@
   },
   "bran": {
    "name": "Le garde roux",
+   "face": {
+    "hair": "roux"
+   },
    "desc": "Un garde de la porte du Nord de Pallanche. Il a la mâchoire de Corbe."
   },
   "isaure": {
@@ -1933,6 +1992,9 @@
   },
   "arnoul": {
    "name": "Dom Arnoul",
+   "face": {
+    "age": "ancien"
+   },
    "desc": "Prieur des Veilleurs, quatre-vingt-dix ans, une voix de vieux soldat."
   },
   "ardael": {
@@ -1945,6 +2007,9 @@
   },
   "maera": {
    "name": "Maëra",
+   "face": {
+    "iris": "clair"
+   },
    "desc": "Une femme d'Ellerune, aux yeux gris presque blancs, qui chante en filant une berceuse de quatre notes."
   },
   "aubrac": {

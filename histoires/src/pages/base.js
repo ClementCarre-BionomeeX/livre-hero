@@ -38,10 +38,10 @@ module.exports = {
   },
   quests: [],
   people: {
-    aubert: { name: "Messire Aubert de Vellane", desc: "Votre maître. Soixante ans, une jambe raide, la meilleure lance du comté il y a vingt ans." },
+    aubert: { name: "Messire Aubert de Vellane", face: { age: "mur" }, desc: "Votre maître. Soixante ans, une jambe raide, la meilleure lance du comté il y a vingt ans." },
     heloise: { name: "Dame Héloïse", desc: "Sa sœur, qui tient le château, les clés et les comptes." },
     gauvard: { name: "Sire Gauvard de Morne", desc: "Le cousin. Beau, aimable, endetté jusqu'aux yeux." },
-    thibaud: { name: "Thibaud", desc: "L'écuyer de Gauvard, un garçon de seize ans qui a peur de son maître." },
+    thibaud: { name: "Thibaud", face: { age: "jeune" }, desc: "L'écuyer de Gauvard, un garçon de seize ans qui a peur de son maître." },
     anselme: { name: "Frère Anselme", desc: "Un ermite qui fait des remèdes au moulin des Saules et sait de vieilles choses." },
   },
   items: {
