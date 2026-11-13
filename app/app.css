@@ -628,3 +628,8 @@ ul.vote-res { list-style: none; padding: 0; margin: 0 0 12px; display: grid; gap
 .top .brand.grow { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 @media (max-width: 560px) { .top .brand { font-size: 18px; } .tabs { overflow-x: auto; flex-wrap: nowrap; scrollbar-width: thin; } .tabs .tab { flex: none; } }
 @media (max-width: 560px) { .top .brand.grow { flex-basis: calc(100% - 150px); } }
+
+/* Enluminure: a dark wooden surround and a light page. Outside the reading page (library, hero creation, tools…), the
+   screen's content gets its own sheet of paper, or the ink would sit on the dark wood (Clément, 13/11: unreadable). */
+:root[data-skin="enluminure"]:not([data-theme="dark"]) main.wrap:not(:has(.page)) { background: var(--page-bg, none), var(--paper); color: var(--ink); border: 1px solid var(--line); border-radius: 14px; padding: 8px max(16px, 3vw) 24px; margin-top: 12px; margin-bottom: 24px; box-shadow: var(--shadow); }
+:root[data-skin="enluminure"]:not([data-theme="dark"]):not([data-theme="soir"]) .top .pill.gold { color: #6e4a0a; }
