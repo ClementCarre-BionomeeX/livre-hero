@@ -55,6 +55,9 @@
   var URGENT_MIN = 5, URGENT_MAX = 120;
   // The tavern game, « la Chandelle » (passage tag `taverne`): a six-sided die thrown again and again, the sum kept,
   // a 1 snuffs the candle. The other player throws first and stops at a total between these bounds.
+  // Morale (7th series, Clément 13/11): a badly hurt foe, or one whose band is half fallen, may run; never the last
+  // one standing (the story's victory text stays true), never a foe declared fearless.
+  var MORALE_HURT = 0.35, MORALE_BREAK = 30, MORALE_ROUT_SHARE = 0.5;
   var TAVERN_STOP_LO = 14, TAVERN_STOP_SPREAD = 6, TAVERN_GAMES_PER_DAY = 3, TAVERN_SNUFF = 1, TAVERN_DIE = 6;
   // Intent: faceErrors(face) -> [message] = what a declared face says that the page cannot draw
   function faceErrors(face) {
@@ -288,7 +291,7 @@
       var C = story.companions[k] || {}, say = C.rep || {}, n = C.name || k, bits = [];
       if (r.conf) bits.push({ t: (r.conf > 0 ? say.up || REP_SAY.up : say.down || REP_SAY.down), d: "Confiance " + (r.conf > 0 ? "+" : "−") + Math.abs(r.conf), good: r.conf > 0 });
       if (r.fear) bits.push({ t: (r.fear > 0 ? say.fearUp || REP_SAY.fearUp : say.fearDown || REP_SAY.fearDown), d: "Crainte " + (r.fear > 0 ? "+" : "−") + Math.abs(r.fear), good: r.fear < 0 });
-      bits.forEach(function (b) { ev(s, b.t.replace(/\{n\}/g, n) + " (" + b.d + ")", b.good ? "good" : "bad"); });
+      bits.forEach(function (b) { ev(s, b.t.replace(/\{n\}/g, n) + " (" + b.d + ")", b.good ? "good" : "bad", { conseq: 1 }); });
     });
   }
   function stateOf(s, k) { var f = Object.keys(s.flags).filter(function (x) { return x.indexOf(k + "=") === 0; })[0]; return f ? f.slice(k.length + 1) : null; }
@@ -493,7 +496,7 @@
           continue;
         }
         s[key][k] = Math.max(0, Math.min(100, (s[key][k] || 0) + d));
-        ev(s, story.companions[k].name + " · " + m[1] + " " + (d > 0 ? "+" : "−") + Math.abs(d), (d > 0) === (key === "conf") ? "good" : "bad");
+        ev(s, story.companions[k].name + " · " + m[1] + " " + (d > 0 ? "+" : "−") + Math.abs(d), (d > 0) === (key === "conf") ? "good" : "bad", { conseq: 1 });
       }
     });
     for (k in story.companions || {}) {
@@ -913,7 +916,7 @@
       s.beasts[e.id || e] = (s.beasts[e.id || e] || 0) + n; // the bestiary of the reader
       var fpv = Math.max(1, Math.round(d.pv * diffOf(s).foePv));
       for (var j = 0; j < n; j++) foes.push({ key: (e.id || e) + "-" + i + "-" + j, name: d.name + (n > 1 ? " " + (j + 1) : ""), pv: fpv, pvMax: fpv, att: d.att, def: d.def, dmg: d.dmg,
-        flank: !!d.flank, ranged: !!d.ranged, down: false, open: false, trapped: 0, asleep: false });
+        flank: !!d.flank, ranged: !!d.ranged, fearless: !!d.fearless, down: false, open: false, trapped: 0, asleep: false });
     });
     var c = s.combat = { foes: foes, round: 0, win: fight.win, lose: fight.lose, flee: fight.flee || null, talk: fight.talk || null, calm: fight.calm || null,
       title: fight.title || "Combat", range: fight.range || "contact", terrain: fight.terrain || "", spare: !!fight.spare,
@@ -935,7 +938,41 @@
   function say(s, t, key, foe) { var l = t && t.say && t.say[key]; if (l && l.length) ev(s, interp(s, pick(l).replace(/\{foe\}/g, foe ? foe.name : "")), key === "ok" ? "" : ""); }
   function foeDef(foe) { return foe.def - (foe.open ? OPEN_DEF : 0) - (foe.trapped ? TRAP_DEF : 0) - (foe.asleep ? TRAP_DEF : 0); }
   // The blows of the last exchange, for the battle plan: from / to = "hero", a companion, or a foe's key.
-  function blow(s, from, to, dmg, kind) { var c = s.combat; if (c) (c.hits = c.hits || []).push({ from: from, to: to, dmg: dmg || 0, kind: kind || "arme" }); }
+  function blow(s, from, to, dmg, kind) {
+    var c = s.combat; if (!c) return;
+    (c.hits = c.hits || []).push({ from: from, to: to, dmg: dmg || 0, kind: kind || "arme" });
+    // the whole fight, for its account at the end
+    var t = (c.tally = c.tally || {})[from] = (c.tally || {})[from] || { n: 0, hit: 0, dmg: 0 }; t.n++; if (dmg > 0) { t.hit++; t.dmg += dmg; }
+    var tk = c.taken = c.taken || {}; tk[to] = (tk[to] || 0) + (dmg || 0);
+  }
+  // Intent: foesMorale(Story, State) -> () ! a foe may run (see MORALE_*)
+  function foesMorale(story, s) {
+    var c = s.combat, up = function () { return c.foes.filter(function (f) { return !f.down && !f.asleep; }); };
+    if (up().length < 2) return;
+    var rout = c.foes.filter(function (f) { return f.down; }).length >= c.foes.length * MORALE_ROUT_SHARE;
+    up().forEach(function (f) {
+      if (up().length < 2 || f.fearless || f.trapped || f.down) return;
+      var bad = f.pv <= f.pvMax * MORALE_HURT; if (!bad && !rout) return;
+      if (die(100) > MORALE_BREAK * ((bad ? 1 : 0) + (rout ? 1 : 0))) return;
+      f.down = true; f.fled = true; ev(s, f.name + " prend la fuite.", "good");
+    });
+  }
+  // Intent: combatTale(Story, State, Combat) -> String = the fight told in a few sentences once it is over.
+  var NUMBERS_F = ["aucune", "une", "deux", "trois", "quatre", "cinq", "six", "sept", "huit", "neuf", "dix", "onze", "douze", "treize", "quatorze", "quinze", "seize", "dix-sept", "dix-huit", "dix-neuf", "vingt"];
+  function numF(n) { return n < NUMBERS_F.length ? NUMBERS_F[n] : String(n); }
+  function combatTale(story, s, c) {
+    if (!c.round) return "";
+    var T = c.tally || {}, me = T.hero, out = ["Le combat a duré " + numF(c.round) + " passe" + (c.round > 1 ? "s" : "") + "."];
+    if (me && me.n) out.push(me.hit ? "Tu as touché " + numF(me.hit) + " fois sur " + numF(me.n) + ", pour " + me.dmg + " point" + (me.dmg > 1 ? "s" : "") + " de blessure." : "Aucun de tes coups n'a porté.");
+    var foeKeys = {}; c.foes.forEach(function (f) { foeKeys[f.key] = f; });
+    var comps = Object.keys(T).filter(function (k) { return k !== "hero" && !foeKeys[k] && T[k].hit; });
+    comps.forEach(function (k) { out.push(nameOf(story, k) + " a touché " + numF(T[k].hit) + " fois."); });
+    var taken = (c.taken || {}).hero || 0;
+    out.push(taken ? "Tu as reçu " + taken + " point" + (taken > 1 ? "s" : "") + " de blessure." : "Personne ne t'a atteint.");
+    var fled = c.foes.filter(function (f) { return f.fled; }).map(function (f) { return f.name; });
+    if (fled.length) out.push(fled.length === 1 ? fled[0] + " a pris la fuite." : fled.slice(0, -1).join(", ") + " et " + fled[fled.length - 1] + " ont pris la fuite.");
+    return out.join(" ");
+  }
   function hurt(s, foe, dmg) {
     foe.pv -= dmg; foe.asleep = false;
     if (foe.pv <= 0) { foe.down = true; ev(s, foe.name + " tombe.", "good"); }
@@ -1118,6 +1155,7 @@
     if (outcome === "lose") { s.pv = 1; ev(s, "Tu t'effondres. Ce n'est pas la fin.", "bad"); }
     if (outcome === "win") { ev(s, "Victoire.", "good"); stat(s, "wins"); }
     if (outcome === "flee") stat(s, "flees");
+    var tale = combatTale(story, s, c); if (tale) ev(s, tale, "tale");
     if (c.arrowsUsed) { if (outcome === "win" || outcome === "calm" || outcome === "talk") { s.arrows += c.arrowsUsed; ev(s, "Tu ramasses tes flèches (" + s.arrows + ")."); } else ev(s, c.arrowsUsed + " flèche" + (c.arrowsUsed > 1 ? "s" : "") + " perdue" + (c.arrowsUsed > 1 ? "s" : "") + " (reste " + s.arrows + ").", "bad"); }
     Object.keys(s.cpv || {}).forEach(function (k) {
       if (present(s, k) && s.cpv[k] <= 0) {
@@ -1156,6 +1194,7 @@
     if (c.foes.every(function (f) { return f.down || f.asleep; })) { endCombat(story, s, "win"); return; }
     companionsAct(story, s);
     if (c.foes.every(function (f) { return f.down || f.asleep; })) { endCombat(story, s, "win"); return; }
+    foesMorale(story, s);
     foesAct(story, s);
     c.orders = {};
     if (c.range === RANGE_FAR) c.range = "contact";   // they have closed in

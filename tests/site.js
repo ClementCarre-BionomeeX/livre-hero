@@ -1,6 +1,7 @@
 "use strict";
 // Builds the offline copy in site/ from the built stories histoires/<id>.json (tests/build.js keeps them current):
-//   site/index.html            the whole game in one file, fonts inlined: opens from disk (file://) with nothing else
+//   site/index.html            the game, fonts inlined; the books' texts beside it in site/histoires/ (read after start)
+//   site/livre-jeu-complet.html  the whole game in one file: opens from disk (file://) with nothing else
 //   site/manifest.webmanifest  + icons: makes the page installable (home screen of a tablet or phone)
 //   site/sw.js                 service worker: keeps the page so the installed app opens without network
 // GitHub Pages serves site/ (see .github/workflows/pages.yml).
@@ -32,12 +33,17 @@ var head = [
   '<link rel="apple-touch-icon" href="icone-apple-180.png">',
 ];
 // The service worker only exists over http(s); opened from disk the page simply runs as it is.
-var sw = '<script>if ("serviceWorker" in navigator && /^https?:$/.test(location.protocol)) { var hadSw = !!navigator.serviceWorker.controller; navigator.serviceWorker.register("sw.js", { updateViaCache: "none" }).then(function (r) { r.update(); }).catch(function () {}); navigator.serviceWorker.addEventListener("controllerchange", function () { if (hadSw && !window.__swReloaded) { window.__swReloaded = true; location.reload(); } }); }</script>';
+var sw = '<script>if ("serviceWorker" in navigator && /^https?:$/.test(location.protocol)) { var hadSw = !!navigator.serviceWorker.controller; navigator.serviceWorker.register("sw.js", { updateViaCache: "none" }).then(function (r) { return r.update(); }).catch(function () {}); navigator.serviceWorker.addEventListener("controllerchange", function () { if (hadSw && !window.__swReloaded) { window.__swReloaded = true; location.reload(); } }); }</script>';
 var build = P.buildOf(stories);
-var page = P.assemble(stories, { head: head, fonts: "<style>" + fontCss + "</style>", build: build }) + "\n" + sw + "\n";
+// index.html carries only the books' cards; each book's text is beside it in histoires/ (faster start, piste 35).
+// livre-jeu-complet.html keeps everything in one file, to open from the device's disk without network.
+var page = P.assemble(stories, { head: head, fonts: "<style>" + fontCss + "</style>", build: build, external: true }) + "\n" + sw + "\n";
+var whole = P.assemble(stories, { head: head, fonts: "<style>" + fontCss + "</style>", build: build }) + "\n";
 
-fs.mkdirSync(OUT, { recursive: true });
+fs.mkdirSync(path.join(OUT, "histoires"), { recursive: true });
 fs.writeFileSync(path.join(OUT, "index.html"), page);
+fs.writeFileSync(path.join(OUT, "livre-jeu-complet.html"), whole);
+P.STORIES.forEach(function (id, i) { fs.writeFileSync(path.join(OUT, "histoires", id + ".json"), stories[i]); });
 // The version online, read by the page (no-store) to tell the reader an update is there.
 fs.writeFileSync(path.join(OUT, "version.json"), JSON.stringify(build));
 ICONS.forEach(function (f) { fs.copyFileSync(path.join(APP, f), path.join(OUT, f)); });
@@ -56,9 +62,22 @@ fs.writeFileSync(path.join(OUT, "manifest.webmanifest"), JSON.stringify({
   ],
 }, null, 1));
 
+// The shared catalogue (Clément, 13/11, piste 44): the stories families propose, in catalogue/<id>.json, checked like
+// an import (a story the checker refuses is left out, and said so), with an index the page reads.
+var CAT = path.join(ROOT, "catalogue"), V = require("../src/validateur.js"), catIndex = [];
+fs.mkdirSync(path.join(OUT, "catalogue"), { recursive: true });
+(fs.existsSync(CAT) ? fs.readdirSync(CAT) : []).filter(function (f) { return /\.json$/.test(f); }).sort().forEach(function (f) {
+  var st; try { st = JSON.parse(fs.readFileSync(path.join(CAT, f), "utf8")); } catch (e) { console.log("catalogue/" + f + " : JSON illisible, laissé de côté"); return; }
+  var rep = V.staticCheck(JSON.parse(JSON.stringify(st)));
+  if (rep.errors.length) { console.log("catalogue/" + f + " : " + rep.errors.length + " erreur(s), laissé de côté — " + rep.errors[0]); return; }
+  fs.writeFileSync(path.join(OUT, "catalogue", st.id + ".json"), JSON.stringify(st));
+  catIndex.push({ id: st.id, title: st.title, subtitle: st.subtitle || "", summary: st.summary || "", author: st.author || "", age: st.age || null, adult: st.adult || null, passages: Object.keys(st.passages || {}).length, acts: (st.acts || []).length });
+});
+fs.writeFileSync(path.join(OUT, "catalogue", "index.json"), JSON.stringify(catIndex));
+
 // The cache name changes with the content, so a new build replaces the old copy on the next visit with network.
-var files = ["./", "index.html", "manifest.webmanifest"].concat(ICONS, ["vendor/qrcode.js", "vendor/jsQR.js"]);
-var version = crypto.createHash("sha1").update(page).update(VENDOR.map(function (f) { return fs.readFileSync(path.join(APP, "vendor", f)); }).join("")).digest("hex").slice(0, 10);
+var files = ["./", "index.html", "manifest.webmanifest"].concat(ICONS, ["vendor/qrcode.js", "vendor/jsQR.js"], P.STORIES.map(function (id) { return "histoires/" + id + ".json"; }));
+var version = crypto.createHash("sha1").update(page).update(stories.join("")).update(VENDOR.map(function (f) { return fs.readFileSync(path.join(APP, "vendor", f)); }).join("")).digest("hex").slice(0, 10);
 fs.writeFileSync(path.join(OUT, "sw.js"), [
   '"use strict";',
   "// Generated by tests/site.js. Network first, bypassing the browser cache (the newest game when online), the cached copy when offline.",

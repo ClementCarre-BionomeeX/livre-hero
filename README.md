@@ -7,8 +7,9 @@ combats, compagnons, carnet) et ses histoires, jouables en ligne ou sans réseau
 
 - **Appli installable** : ouvrir la page GitHub Pages du dépôt une fois avec du réseau, puis « Ajouter à l'écran
   d'accueil » (Safari sur iPad/iPhone : bouton Partager ; Chrome sur Android : menu ⋮). Elle s'ouvre ensuite sans réseau.
-- **Fichier seul** : `site/index.html` (produit par `node tests/site.js`) s'ouvre directement dans un navigateur
-  d'ordinateur, sans rien d'autre.
+- **Fichier seul** : `site/livre-jeu-complet.html` (produit par `node tests/site.js`, aussi en ligne à côté du site)
+  s'ouvre directement dans un navigateur d'ordinateur, sans rien d'autre. `site/index.html`, lui, lit les livres à côté
+  de lui (`site/histoires/`) : il démarre plus vite, mais a besoin d'être servi (GitHub Pages, ou l'appli installée).
 - **Sur claude.ai** : la page `dist/index.html` (produite par `node tests/build.js`) est publiée comme artefact.
 
 Les sauvegardes restent dans l'appareil (le navigateur) pour la version hors ligne, et dans claude.ai pour l'artefact.
@@ -33,3 +34,8 @@ node tests/site.js       # écrit site/ : la version hors ligne (à partir de hi
 ```
 
 Chaque push sur `main` republie la version hors ligne sur GitHub Pages (`.github/workflows/pages.yml`).
+
+Essais visuels : `node tests/captures.js site/index.html captures/apres` photographie les écrans principaux (téléphone
+et tablette) ; `node tests/captures.js --compare captures/avant captures/apres captures/comparaison` les compare. Sur
+chaque pull request, `.github/workflows/captures.yml` fait les deux versions sur la même machine et met le rapport
+dans le résumé du run (images dans l'artefact « captures »).

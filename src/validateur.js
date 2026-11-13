@@ -54,6 +54,7 @@
     function E(m) { errs.push(m); } function W(m) { warns.push(m); }
     ["id", "title", "start", "acts", "passages"].forEach(function (k) { if (!story[k]) E("Il manque « " + k + " » à l'histoire."); });
     if (errs.length) return { errors: errs, warnings: warns };
+    M.prepare(story);   // the ways back get their destination and label, as in play (an edited or imported story is raw)
     // Clément, 13/11: a story with adult themes says so, and lists them; the library warns before it opens.
     if (story.adult !== undefined) {
       var ad = story.adult;
@@ -214,14 +215,14 @@
       p.choices = p.choices || [];
       p.choices.forEach(function (c, i) {
         var w = where + " choix " + (i + 1);
-        if (!c.label) E(w + " : pas de texte de bouton.");
+        if (!c.label && c.back !== true) E(w + " : pas de texte de bouton.");   // back: true is labelled in play, after the last crossroads
         // No hand-written way back (Clément, 12/11): a return to a passage one comes from is written with back.
         if (c.back == null && typeof c.to === "string" && !c.test && !c.fight && RETURN_VERB.test(c.label || "") && (P[c.to] && (P[c.to].hub || P[c.to].routes) || leadsBack(c.to, id)))
           E(w + " : retour écrit à la main vers « " + c.to + " » ; écrire back: \"" + c.to + "\" (le moteur écrit le libellé).");
         if (c.test) {
           if (DOM_KEYS.indexOf(c.test.dom) < 0) E(w + " : domaine « " + c.test.dom + " » inconnu.");
           if (!c.win || !c.lose) E(w + " : un jet demande « win » et « lose ».");
-        } else if (c.to == null && !c.travel && !c.fight) E(w + " : pas de destination.");
+        } else if (c.to == null && c.back !== true && !c.travel && !c.fight) E(w + " : pas de destination.");
         if (c.who && !story.companions[c.who]) E(w + " : compagnon « " + c.who + " » inconnu.");
         targetsOf(c).forEach(function (t) { if (t !== "@ret" && t !== "@route" && t !== "@team" && !P[t]) E(w + " : mène à « " + t + " », qui n'existe pas."); });
         if (c.travel && !routes[c.travel]) E(w + " : route « " + c.travel + " » inconnue.");

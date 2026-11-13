@@ -516,3 +516,120 @@ table.keys td:first-child { white-space: nowrap; width: 1%; }
 .compare-list li { font: 14px/1.4 var(--serif); }
 .iron { color: var(--bad); font-size: 12px; }
 .build-line { margin-top: 28px; text-align: center; }
+
+/* 7th series, lot 1: reading comfort (13/11) */
+/* Evening light: dark warm paper, amber ink, no blue. Wins over any skin. */
+:root[data-theme="soir"], :root[data-skin][data-theme="soir"] {
+  --bg: #140e08; --paper: #1f160d; --paper-2: #271c11; --ink: #f0d6ae; --muted: #bf9b6c; --line: #46331f;
+  --accent: #e8a052; --accent-ink: #1a1009; --accent-soft: #3d2915; --gold: #e6b65c; --mark: #d49a8a;
+  --good: #c9b25a; --bad: #e88a5a; --warn: #e6b65c; --shadow: 0 1px 2px rgb(0 0 0 / .4), 0 6px 22px rgb(0 0 0 / .3);
+  --page-bg: radial-gradient(ellipse at 50% 0%, rgb(255 170 80 / .08), transparent 60%); --page-edge: inset 0 0 70px rgb(0 0 0 / .55); color-scheme: dark; }
+/* Colour-blind friendly states: blue for success, orange for failure. */
+html:root[data-cvd="oui"] { --good: #1f6fb2; --bad: #c45a00; }
+@media (prefers-color-scheme: dark) { html:root[data-cvd="oui"]:not([data-theme="light"]):not([data-theme="sepia"]) { --good: #7bb6ea; --bad: #f0a050; } }
+html:root[data-cvd="oui"][data-theme="dark"], html:root[data-cvd="oui"][data-theme="soir"] { --good: #7bb6ea; --bad: #f0a050; }
+/* Strong contrast: darker muted text, firmer lines, outlined choices. */
+html:root[data-contrast="fort"] { --muted: color-mix(in srgb, var(--ink) 88%, var(--paper)); --line: color-mix(in srgb, var(--ink) 55%, var(--paper)); }
+html:root[data-contrast="fort"] .choice { border-width: 2px; border-color: var(--ink); }
+html:root[data-contrast="fort"] .choice:disabled { border-style: dashed; }
+html:root[data-contrast="fort"] .prose { font-weight: 500; }
+html:root[data-contrast="fort"] .page { border-width: 2px; }
+/* Two pages side by side on a wide screen held in landscape. */
+@media (min-width: 1000px) and (orientation: landscape) {
+  :root[data-spread="auto"] .page.read { max-width: 74rem; }
+  :root[data-spread="auto"] .page.read .prose { columns: 2; column-gap: 4.5rem; column-rule: 1px solid var(--line); }
+  :root[data-spread="auto"] .page.read .prose p { break-inside: avoid-column; }
+  :root[data-spread="auto"] .page.read { background-image: linear-gradient(90deg, transparent calc(50% - 22px), rgb(0 0 0 / .06) 50%, transparent calc(50% + 22px)); }
+  :root[data-spread="auto"] .page.read .choices { max-width: 40rem; margin-inline: auto; }
+}
+/* Turning the page. */
+@keyframes turn-in { from { opacity: 0; transform: perspective(1400px) rotateY(-14deg) translateX(18px); transform-origin: left center; } to { opacity: 1; transform: none; } }
+.page.turn-in { animation: turn-in .42s cubic-bezier(.2, .7, .25, 1) both; }
+@media (prefers-reduced-motion: reduce) { .page.turn-in { animation: none; } }
+#page-title:focus { outline: none; }
+#page-title:focus-visible { outline: 2px solid var(--accent); }
+/* The reader's record. */
+.bilan { display: grid; grid-template-columns: repeat(auto-fill, minmax(9.5rem, 1fr)); gap: 10px; margin: 8px 0 14px; }
+.bilan div { background: var(--paper); border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; }
+.bilan dt { font-size: 12px; color: var(--muted); letter-spacing: .03em; }
+.bilan dd { margin: 2px 0 0; font: 600 20px/1.2 var(--sans); font-variant-numeric: tabular-nums; }
+.bilan-weeks { display: grid; grid-template-columns: repeat(8, 1fr); gap: 6px; align-items: end; height: 130px; max-width: 34rem; }
+.bw { display: flex; flex-direction: column; justify-content: flex-end; height: 100%; text-align: center; min-width: 0; }
+.bw-bar { display: block; background: var(--accent); border-radius: 4px 4px 0 0; min-height: 2px; }
+.bw-n { font-size: 11px; font-variant-numeric: tabular-nums; }
+.bw-d { font-size: 10.5px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+html:root[data-cvd="oui"] .ev.good::before { content: "✓ "; } html:root[data-cvd="oui"] .ev.bad::before { content: "✗ "; }
+/* 7th series, lot 2 */
+.ev.tale { font-style: italic; color: var(--ink); border-left: 2px solid var(--line); padding-left: 10px; margin-top: 4px; }
+.fate { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin-top: 10px; }
+ul.news { margin: 4px 0 12px; padding-left: 1.2em; } ul.news li { margin: 3px 0; }
+/* 7th series, lot 3 */
+.group-banner { display: flex; flex-wrap: wrap; gap: 4px 10px; margin-top: 10px; padding: 8px 12px; border-radius: 10px; background: var(--accent-soft); font-size: 14px; }
+.vote-pass { font-size: 20px; margin: 18px 0; }
+ul.vote-res { list-style: none; padding: 0; margin: 0 0 12px; display: grid; gap: 6px; } ul.vote-res li { padding: 8px 10px; border: 1px solid var(--line); border-radius: 8px; } ul.vote-res li.win { border-color: var(--accent); background: var(--accent-soft); }
+.defis { display: grid; gap: 6px; } .defi { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; padding: 8px 12px; border: 1px dashed var(--line); border-radius: 10px; } .defi.done { border-style: solid; background: var(--paper); }
+.album { display: grid; grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr)); gap: 10px; }
+.album-card { display: flex; flex-direction: column; gap: 6px; padding: 12px; min-height: 7rem; border: 1px solid var(--line); border-radius: 10px; background: var(--paper); box-shadow: var(--shadow); }
+.album-card b { font-family: var(--title); font-size: 18px; line-height: 1.2; }
+.album-card.blank { background: transparent; box-shadow: none; border-style: dashed; color: var(--muted); align-items: center; justify-content: center; }
+.album-card.feat b { font-family: var(--sans); font-size: 15px; }
+.album-who { margin-top: auto; display: flex; gap: 4px; flex-wrap: wrap; }
+.page.spect .choice { opacity: .75; }
+/* 7th series, lot 4: covers, engravings, dice in relief, small animations, town plans */
+.card.has-cover { display: grid; grid-template-columns: 96px 1fr; column-gap: 16px; align-content: start; }
+.card.has-cover > * { grid-column: 2; min-width: 0; }
+.card.has-cover > .cover { grid-column: 1; grid-row: 1 / span 8; width: 96px; height: auto; border-radius: 6px; box-shadow: 2px 3px 8px rgb(0 0 0 / .25); }
+@media (max-width: 520px) { .card.has-cover { grid-template-columns: 72px 1fr; column-gap: 12px; } .card.has-cover > .cover { width: 72px; } }
+.gravure { margin: -26px calc(-1 * clamp(18px, 5vw, 48px)) 16px; padding: 14px clamp(18px, 5vw, 48px) 8px; border-bottom: 3px double var(--ink); text-align: center; }
+.gravure-art { display: block; width: 100%; height: 150px; border: 1.5px solid var(--ink); outline: 1px solid var(--ink); outline-offset: 3px; }
+.gravure figcaption { margin-top: 10px; font: 600 13px/1.2 var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.dice3d { display: inline-flex; gap: 2px; vertical-align: middle; margin-right: 6px; }
+.die3d { width: 46px; height: 46px; }
+.town-plan { display: block; width: 100%; min-width: 420px; height: auto; }
+@keyframes tw { 0%, 100% { opacity: .35; } 50% { opacity: 1; } }
+@keyframes cloud { from { transform: translateX(-120px); } to { transform: translateX(720px); } }
+@keyframes flame { 0%, 100% { transform: scale(1, 1); } 30% { transform: scale(.92, 1.08); } 60% { transform: scale(1.06, .94); } }
+.vignette .tw { animation: tw 3.2s ease-in-out infinite; }
+.vignette .cloud { animation: cloud 70s linear infinite; }
+.vignette .flame { transform-box: fill-box; transform-origin: 50% 100%; animation: flame .9s ease-in-out infinite; }
+.vignette .flame.f2 { animation-duration: .7s; }
+@media (prefers-reduced-motion: reduce) { .vignette .tw, .vignette .cloud, .vignette .flame { animation: none; } }
+
+/* ---- 7.5 authors' tools */
+.g-bar { flex-wrap: wrap; gap: 8px; margin: .4rem 0; }
+.ed-graph-wrap { overflow: auto; max-height: 72vh; border: 1px solid var(--line); border-radius: 10px; background: var(--paper-2); touch-action: none; }
+.ed-graph { display: block; }
+.g-edge { fill: none; stroke: var(--muted); opacity: .55; }
+.g-edge.hot { stroke: var(--accent); opacity: .85; }
+.g-node { cursor: pointer; }
+.g-node rect { fill: var(--paper); stroke: var(--line); stroke-width: 1.5; }
+.g-node.start rect { stroke: var(--accent); stroke-width: 2.5; }
+.g-node.hub rect { fill: color-mix(in srgb, var(--accent) 12%, var(--paper)); }
+.g-node.end rect { stroke-dasharray: 5 3; }
+.g-node.on rect, .g-node:focus rect { stroke: var(--accent); stroke-width: 3; }
+.g-node:focus { outline: none; }
+.g-node.from rect { fill: color-mix(in srgb, var(--accent) 35%, var(--paper)); }
+.g-id { font-size: 10px; fill: var(--muted); font-family: ui-monospace, monospace; }
+.g-title { font-size: 12.5px; fill: var(--ink); }
+.ed-read { max-width: 46rem; margin: 0 auto; display: flex; flex-direction: column; gap: .6rem; }
+.ed-read h2 { margin: .4rem 0 0; }
+.ed-read .center { text-align: center; }
+.rd-para p { margin: .2rem 0; line-height: 1.6; }
+.rd-para.cond { border-left: 3px solid var(--accent); padding-left: .7rem; }
+.rd-cond { font-size: .8rem; color: var(--accent); font-weight: 600; }
+.rd-else { font-style: italic; color: var(--muted); }
+.rd-choices { padding-left: 1.1rem; display: flex; flex-direction: column; gap: .35rem; }
+.rv-list { list-style: none; padding: 0; display: flex; flex-direction: column; gap: .5rem; }
+.rv-list li { border-bottom: 1px solid var(--line); padding-bottom: .4rem; }
+.pick-heat { font-size: .8rem; padding: 2px 8px; border-radius: 6px; margin-bottom: 4px; background: linear-gradient(90deg, color-mix(in srgb, var(--accent) 30%, transparent) var(--share), transparent var(--share)); }
+.names { flex-wrap: wrap; gap: 6px; }
+
+/* ---- 7.6: seen by the visual checks: on a phone, a long title in the top bar takes one line, cut, not three */
+.top .brand.grow { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+@media (max-width: 560px) { .top .brand { font-size: 18px; } .tabs { overflow-x: auto; flex-wrap: nowrap; scrollbar-width: thin; } .tabs .tab { flex: none; } }
+@media (max-width: 560px) { .top .brand.grow { flex-basis: calc(100% - 150px); } }
+
+/* Enluminure: a dark wooden surround and a light page. Outside the reading page (library, hero creation, tools…), the
+   screen's content gets its own sheet of paper, or the ink would sit on the dark wood (Clément, 13/11: unreadable). */
+:root[data-skin="enluminure"]:not([data-theme="dark"]) main.wrap:not(:has(.page)) { background: var(--page-bg, none), var(--paper); color: var(--ink); border: 1px solid var(--line); border-radius: 14px; padding: 8px max(16px, 3vw) 24px; margin-top: 12px; margin-bottom: 24px; box-shadow: var(--shadow); }
+:root[data-skin="enluminure"]:not([data-theme="dark"]):not([data-theme="soir"]) .top .pill.gold { color: #6e4a0a; }

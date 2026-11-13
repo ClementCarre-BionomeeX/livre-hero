@@ -1,0 +1,40 @@
+# Visual checks (piste 36): on each pull request, the main screens of the game before and after the change, taken on
+# the same machine, then compared. The report is in the run's summary; the images in the « captures » artifact.
+# The run fails only when the new version shows a page error or cannot reach a screen.
+name: Essais visuels
+on:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  captures:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install --no-save --no-package-lock playwright@1.49.1 && npx playwright install --with-deps chromium
+      - name: Version d'avant
+        run: |
+          BASE=${{ github.event.pull_request.base.sha || 'HEAD~1' }}
+          git worktree add ../avant "$BASE"
+          (cd ../avant && node tests/site.js)
+          node tests/captures.js ../avant/site/index.html captures/avant || true
+      - name: Version d'après
+        run: |
+          node tests/site.js
+          node tests/captures.js site/index.html captures/apres || true
+      - name: Comparaison
+        run: |
+          code=0; node tests/captures.js --compare captures/avant captures/apres captures/comparaison > /dev/null || code=$?
+          cat captures/comparaison/rapport.md >> "$GITHUB_STEP_SUMMARY"
+          exit $code
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: captures
+          path: captures

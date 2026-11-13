@@ -1,0 +1,38 @@
+# Tags every version of the game on main, for going back or bisecting (Clément, 13/11): each commit that changes
+# VERSION gets the tag v<VERSION> and a GitHub release; v6.0 is the state before numbering began.
+name: Numéroter les versions
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: versions
+  cancel-in-progress: false
+jobs:
+  etiqueter:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Étiqueter chaque version
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898315+github-actions[bot]@users.noreply.github.com"
+          tagit() {
+            tag="v$1"
+            if git rev-parse -q --verify "refs/tags/$tag" >/dev/null; then return 0; fi
+            git tag -a "$tag" "$2" -m "$3"
+            git push origin "refs/tags/$tag"
+            gh release create "$tag" --verify-tag --title "Version $1" --notes "$3" || true
+          }
+          tagit 6.0 4f771f58c0cc2f656d103aa1c01b885063b14747 "État du jeu après la 6e série d'améliorations, avant la numérotation des versions."
+          for sha in $(git rev-list --reverse HEAD -- VERSION); do
+            v=$(git show "$sha:VERSION" 2>/dev/null | head -1 | tr -d '[:space:]')
+            [ -n "$v" ] || continue
+            tagit "$v" "$sha" "$(git log -1 --format=%s "$sha")"
+          done
