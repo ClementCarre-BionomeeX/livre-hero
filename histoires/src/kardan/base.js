@@ -30,8 +30,8 @@ module.exports = {
   factions: { kardan: "Les gens de Kardan" },
   relics: {},
   mysteries: {
-    A: { title: "Qu'est-il arrivé à Aurèle à Kardan ?", act: "I" },
-    G: { title: "Qui est le Gardien ?", act: "II" },
+    A: { title: "Qu'est-il arrivé à Aurèle à Kardan ?", act: "I", solved: "aurele:retrouve" },
+    G: { title: "Qui est le Gardien ?", act: "II", answer: { person: "aurele", text: "Aurèle, ton frère." }, solved: "aurele:retrouve" },
     S: { title: "Que fait la Source ?", act: "II" },
     T: { title: "Pourquoi Kardan envoie-t-il des étrangers ?", act: "III" },
   },

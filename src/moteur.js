@@ -47,6 +47,15 @@
   // Which list each key of a face draws from: a colour list takes a name or "#rrggbb", `marks` a list of words.
   var FACE_KEYS = { age: "ages", skin: "skins", hair: "hairs", iris: "irises", back: "backs", eyes: "eyes", nose: "noses", lips: "lips", shape: "shapes", coif: "coifs", beard: "beards", marks: "marks" };
   var FACE_COLOURS = ["skin", "hair", "iris", "back"];
+  // Regards (Clément, 13/11, 6th series): how a person of the story sees the hero, in one word the author picks with
+  // fx.regard: { <person>: "<word>" }. Nothing is said on the page when it changes; the notebook (Gens) shows it.
+  var REGARDS = { hostile: "Hostile", mefiant: "Méfiant", distant: "Distant", neutre: "Sans avis", curieux: "Curieux", cordial: "Cordial",
+    allie: "Allié", redevable: "Redevable", craintif: "Te craint", admiratif: "Admiratif", trahi: "Se sent trahi", rancunier: "Rancunier" };
+  // A pressing scene (passage tag `urgent`: seconds to choose) stays between these bounds.
+  var URGENT_MIN = 5, URGENT_MAX = 120;
+  // The tavern game, « la Chandelle » (passage tag `taverne`): a six-sided die thrown again and again, the sum kept,
+  // a 1 snuffs the candle. The other player throws first and stops at a total between these bounds.
+  var TAVERN_STOP_LO = 14, TAVERN_STOP_SPREAD = 6, TAVERN_GAMES_PER_DAY = 3, TAVERN_SNUFF = 1, TAVERN_DIE = 6;
   // Intent: faceErrors(face) -> [message] = what a declared face says that the page cannot draw
   function faceErrors(face) {
     if (!face || typeof face !== "object" || Array.isArray(face)) return ["« face » s'écrit { age: \"ancien\", marks: [\"balafre\"], … }."];
@@ -109,7 +118,7 @@
       fac: {}, met: {}, relics: [], given: [], items: ((w.start && w.start.items) || []).slice(), gold: (w.start && w.start.gold) || 0, food: (w.start && w.start.food) || 0,
       pv: null, fatigue: 0, time: START_HOUR, place: (w.start && w.start.place) || null, known: {}, people: {}, travel: null, combat: null,
       clock: {}, seen: {}, ret: null, events: [], toutJouer: opts.toutJouer !== false, turn: 0, routesDone: {},
-      difficulty: DIFFICULTY[opts.difficulty] ? opts.difficulty : "aventurier", stats: {}, feats: {}, beasts: {},
+      difficulty: DIFFICULTY[opts.difficulty] ? opts.difficulty : "aventurier", stats: {}, feats: {}, beasts: {}, ironman: !!opts.ironman, regard: {},
     };
   }
   function levelOfEp(ep) { return Math.min(MAX_LEVEL, Math.max(1, Math.floor(ep / EP_PER_LEVEL))); }
@@ -532,6 +541,11 @@
       if (!(story.people || {})[pe]) throw new Error("personnage inconnu " + pe);
       if (!s.people[pe]) { s.people[pe] = true; ev(s, "Rencontré : " + story.people[pe].name, "people"); }
     });
+    if (fx.regard) for (k in fx.regard) {
+      if (!(story.people || {})[k] && !(story.companions || {})[k]) throw new Error("personnage inconnu " + k);
+      if (!REGARDS[fx.regard[k]]) throw new Error("regard inconnu " + fx.regard[k]);
+      s.regard = s.regard || {}; s.regard[k] = fx.regard[k];
+    }
     if (fx.clock) for (k in fx.clock) s.clock[k] = (s.clock[k] || 0) + fx.clock[k];
     [].concat(fx.quest || []).forEach(function (q) {
       if (!(story.quests || []).some(function (x) { return x.id === q; })) throw new Error("quête inconnue " + q);
@@ -1263,8 +1277,66 @@
     return out;
   }
 
+  // ------------------------------------------------------------------ the tavern game (Clément, 13/11, 6th series)
+  // Intent: tavernChoices(Story, State, Passage) -> [Choice] = « s'asseoir à la Chandelle » where the passage says
+  // `taverne: { mise, adversaire }`. The stake leaves the purse when one sits; a win brings it back twice, a tie once.
+  // At most TAVERN_GAMES_PER_DAY games a day: the table is a pastime, not a mine.
+  function tavernOf(p) { var t = p && p.taverne; if (!t) return null; t = t === true ? {} : t; return { mise: Math.max(1, t.mise || 1), adv: t.adversaire || "un joueur de la table" }; }
+  function tavernPlayed(s) { var j = s.jeuJour || {}; return j.day === day(s) ? j.n : 0; }
+  function tavernChoices(story, s, p) {
+    var t = tavernOf(p); if (!t || s.combat || s.travel) return [];
+    var full = tavernPlayed(s) >= TAVERN_GAMES_PER_DAY;
+    return [{ sys: "jeu", group: "jeu", mise: t.mise, adv: t.adv, label: "S'asseoir à la table de Chandelle · mise " + money(story, t.mise, true),
+      if: full ? { not: true } : { gold: { min: t.mise } }, why: full ? "On ne joue plus avec toi aujourd'hui." : "Il te faut " + money(story, t.mise) + " pour miser." }];
+  }
+  var FACES = ["", "⚀", "⚁", "⚂", "⚃", "⚄", "⚅"];
+  function tavernSit(story, s, c) {
+    s.jeuJour = { day: day(s), n: tavernPlayed(s) + 1 };
+    s.gold -= c.mise;
+    var stop = TAVERN_STOP_LO + Math.floor(RNG() * TAVERN_STOP_SPREAD), them = 0, dice = [];
+    while (them < stop) { var d = die(TAVERN_DIE); dice.push(d); if (d === TAVERN_SNUFF) { them = 0; break; } them += d; }
+    s.jeu = { from: s.node, mise: c.mise, adv: c.adv, them: them, theirDice: dice, me: 0, myDice: [], over: null };
+    ev(s, "Mise : −" + money(story, c.mise) + " · bourse : " + money(story, s.gold));
+    s.node = "@jeu";
+  }
+  function tavernEnd(story, s, how) {
+    var j = s.jeu; j.over = how;
+    if (how === "win") { s.gold += 2 * j.mise; ev(s, "Gagné : +" + money(story, 2 * j.mise) + " · bourse : " + money(story, s.gold), "good"); s.stats.tavernWins = (s.stats.tavernWins || 0) + 1; }
+    else if (how === "tie") { s.gold += j.mise; ev(s, "Égalité : la mise te revient · bourse : " + money(story, s.gold)); }
+    else ev(s, "Perdu : la mise reste sur la table.", "bad");
+  }
+  function tavernSys(story, s, c) {
+    var j = s.jeu;
+    if (c.sys === "jeuLeave") { var back = j.from; s.jeu = null; s.node = back; return; }
+    if (c.sys === "jeuAgain") { var t = tavernOf(story.passages[j.from]) || { mise: j.mise, adv: j.adv }; tavernSit(story, s, { mise: t.mise, adv: t.adv }); s.jeu.from = j.from; return; }
+    if (c.sys === "jeuRoll") {
+      var d = die(TAVERN_DIE); j.myDice.push(d);
+      if (d === TAVERN_SNUFF) { j.me = 0; ev(s, "Tu lances : " + FACES[d] + " · ta chandelle s'éteint.", "bad roll"); tavernEnd(story, s, j.them > 0 ? "lose" : "tie"); return; }
+      j.me += d; ev(s, "Tu lances : " + FACES[d] + " · ta chandelle monte à " + j.me + ".", "roll");
+      return;
+    }
+    if (c.sys === "jeuStop") tavernEnd(story, s, j.me > j.them ? "win" : j.me === j.them ? "tie" : "lose");
+  }
+
   // ------------------------------------------------------------------ the current view
   var BUILTIN = {
+    "@jeu": function (story, s) {
+      var j = s.jeu, theirs = j.theirDice.map(function (d) { return FACES[d]; }).join(" ");
+      var text = ["Une table collante, des chopes, une chandelle plantée dans une bouteille. Les règles tiennent en une phrase : on lance un dé tant qu'on veut, on additionne, et un " + FACES[TAVERN_SNUFF] + " souffle tout. On s'arrête quand on veut ; la plus haute chandelle prend les mises."];
+      text.push(cap(j.adv) + " ouvre la partie : " + theirs + (j.them ? ", et s'arrête à **" + j.them + "**." : ". La chandelle s'éteint : rien pour " + j.adv + "."));
+      var cs = [];
+      if (!j.over) {
+        text.push(j.myDice.length ? "Ta chandelle : **" + j.me + "**." : "À toi.");
+        cs.push({ sys: "jeuRoll", group: "jeu", label: j.myDice.length ? "Relancer le dé" : "Lancer le dé" });
+        if (j.myDice.length) cs.push({ sys: "jeuStop", group: "jeu", label: "T'arrêter à " + j.me });
+      } else {
+        text.push(j.over === "win" ? "Tu ramasses les pièces. En face, on hausse les épaules." : j.over === "tie" ? "Chacun reprend sa mise." : "Les pièces changent de côté sans un mot.");
+        var full = tavernPlayed(s) >= TAVERN_GAMES_PER_DAY, t = tavernOf(story.passages[j.from]) || { mise: j.mise };
+        cs.push({ sys: "jeuAgain", group: "jeu", label: "Rejouer · mise " + money(story, t.mise, true), if: full ? { not: true } : { gold: { min: t.mise } }, why: full ? "On ne joue plus avec toi aujourd'hui." : "Il te faut " + money(story, t.mise) + " pour miser." });
+        cs.push({ sys: "jeuLeave", label: "Quitter la table" });
+      }
+      return { title: "La Chandelle", kind: "jeu", text: text, choices: cs };
+    },
     "@road": function (story, s) {
       var t = s.travel, region = (W(story).regions || {})[t.region] || {}, r = routeById(story, t.route);
       var q = (region.quiet && region.quiet.length) ? region.quiet[(t.step + s.turn) % region.quiet.length] : "La route se déroule sans histoire. Les heures passent au pas, et tu gardes l'œil ouvert.";
@@ -1341,7 +1413,7 @@
         cs = cs.concat([{ to: s.hubLast, label: "Revenir : " + interp(s, hp.title || (W(story).places[hp.place] || {}).name || "…"), auto: "back" }]);
       }
       if (!cs.length) { var back = backChoice(story, s, p); if (back) cs = [back]; }
-      cs = cs.concat(shopChoices(story, s, p), travelChoices(story, s, p), leadChoices(story, s, p));
+      cs = cs.concat(shopChoices(story, s, p), tavernChoices(story, s, p), travelChoices(story, s, p), leadChoices(story, s, p));
       v = { title: interp(s, p.title || ""), kind: p.end ? "end" : "passage", text: textList(story, s, p.text), choices: cs, passage: p };
       // A scene that spends the night tells it at its end; one that waits for the evening, at its start.
       if (s.took && s.took.node === s.node && s.took.turn === s.turn) v.text[s.took.end ? "push" : "unshift"]("*(" + s.took.say + ")*");
@@ -1378,9 +1450,19 @@
         var open = v.choices.filter(function (c) { return !c.sys && !c.restart; })[0];
         if (open) { open.ok = true; open.why = ""; open.forced = true; guard(s, "aucun choix possible, le premier est ouvert d'office"); }
       }
+      // A pressing scene (tag `urgent`, Clément 13/11): seconds to choose, on the first reading only. When time runs
+      // out, the choice marked `timeout: true` is taken; without one, the engine takes the last one open and says so.
+      if (p.urgent && v.kind !== "end" && (s.seen[s.node] || 0) <= 1 && !story.multi) {
+        var own = v.choices.filter(function (c) { return c.ok && !c.sys && !c.restart; });
+        var dflt = own.filter(function (c) { return c.timeout; })[0];
+        if (!dflt && own.length) { dflt = own[own.length - 1]; guard(s, "urgent sans choix marqué timeout, le dernier est pris"); }
+        if (dflt) v.urgent = { sec: Math.max(URGENT_MIN, Math.min(URGENT_MAX, +p.urgent || URGENT_MIN)), label: dflt.label };
+      }
     }
     return v;
   }
+  // Intent: solved(Story, State, Mystery) -> Bool = the story has told the answer (`solved`: a flag or a passage read)
+  function mysterySolved(story, s, id) { var m = (story.mysteries || {})[id]; return !!(m && m.solved && happened(s, m.solved)); }
   // Intent: note(State, Fault) -> () = the engine had to step in for something the scenario should have said
   // Why: Clément, 12/11: the engine vouches for the play, not the scenario; what it catches is listed for the author.
   function guard(s, what) { s.guards = s.guards || {}; var k = "§ " + s.node + " : " + what; s.guards[k] = (s.guards[k] || 0) + 1; }
@@ -1574,6 +1656,8 @@
       case "attack": case "shoot": case "tech": case "rank": case "defend": case "use": case "flee": case "talk": combatRound(story, s, c); break;
       case "order": giveOrder(story, s, c); break;
       case "lead": setLead(story, s, c.hero); break;
+      case "jeu": tavernSit(story, s, c); break;
+      case "jeuRoll": case "jeuStop": case "jeuAgain": case "jeuLeave": tavernSys(story, s, c); break;
       case "buy": s.gold -= c.price; s.items.push(c.item); ev(s, "Acheté : " + item(story, c.item).name + " (−" + money(story, c.price) + ", reste " + money(story, s.gold) + ")", "item"); break;
       case "buyFood": s.gold -= c.price; s.food++; ev(s, "Un jour de vivres de plus (" + s.food + ")", "item"); break;
       case "sell": var at = s.items.indexOf(c.item); if (at >= 0) { var it = item(story, c.item), pr = Math.floor(it.price * SELL_RATE); s.items.splice(at, 1); s.gold += pr; ev(s, "Vendu : " + it.name + " (+" + money(story, pr) + ")", "good"); } break;
@@ -1591,7 +1675,7 @@
   }
 
   var API = {
-    FACE: FACE, FACE_KEYS: FACE_KEYS, faceErrors: faceErrors,
+    FACE: FACE, FACE_KEYS: FACE_KEYS, faceErrors: faceErrors, REGARDS: REGARDS, mysterySolved: mysterySolved, happened: happened, TAVERN_GAMES_PER_DAY: TAVERN_GAMES_PER_DAY,
     ARCHS: ARCHS, TECHS: TECHS, techsOf: techsOf, partyView: partyView, cpv: cpv, cpvMax: cpvMax, FRONT: FRONT, DOMAINS: DOMAINS, EP: EP, EP_PER_LEVEL: EP_PER_LEVEL, MAX_LEVEL: MAX_LEVEL, DIFFS: DIFFS, LOYAL_AT: LOYAL_AT, SUCCESS: SUCCESS, STEP_HOURS: STEP_HOURS,
     setRng: setRng, setDice: setDice, nudgeOf: nudgeOf, ambianceOf: ambianceOf, AMBIANCES: AMBIANCES, isNightNow: function (s) { var h = s.time % 24; return h >= NIGHT_FROM || h < NIGHT_TO; }, DIFFICULTY: DIFFICULTY, featsOf: featsOf, endingsOf: endingsOf, endingOf: endingOf, freshState: freshState, level: level, pvMax: pvMax, bonus: bonus, chance: chance, rollTest: rollTest,
     evalCond: evalCond, describeCond: describeCond, textList: textList, view: view, allowed: allowed, target: target,

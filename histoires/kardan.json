@@ -385,11 +385,17 @@
  "mysteries": {
   "A": {
    "title": "Qu'est-il arrivé à Aurèle à Kardan ?",
-   "act": "I"
+   "act": "I",
+   "solved": "aurele:retrouve"
   },
   "G": {
    "title": "Qui est le Gardien ?",
-   "act": "II"
+   "act": "II",
+   "answer": {
+    "person": "aurele",
+    "text": "Aurèle, ton frère."
+   },
+   "solved": "aurele:retrouve"
   },
   "S": {
    "title": "Que fait la Source ?",
@@ -2375,6 +2381,10 @@
    "title": "Le Puits-Vert",
    "place": "kardan",
    "shop": "puits",
+   "taverne": {
+    "mise": 2,
+    "adversaire": "un muletier de passage"
+   },
    "fxEvery": {
     "time": 1
    },
@@ -2713,11 +2723,19 @@
        "ep": [
         "perso",
         500
-       ]
+       ],
+       "regard": {
+        "hesna": "craintif"
+       }
       },
       "to": "K_hesna_aveu"
      },
      "lose": {
+      "fx": {
+       "regard": {
+        "hesna": "distant"
+       }
+      },
       "to": "K_hesna_esquive"
      }
     },
@@ -2986,6 +3004,9 @@
     "quest": "K_couteau",
     "fac": {
      "kardan": 5
+    },
+    "regard": {
+     "garance": "admiratif"
     }
    },
    "text": [
@@ -3025,7 +3046,10 @@
      "couteau:aurele",
      "garance:honte"
     ],
-    "quest": "K_couteau"
+    "quest": "K_couteau",
+    "regard": {
+     "garance": "redevable"
+    }
    },
    "text": [
     "Tu lui racontes. Le garçon de quinze ans qui gravait son couteau neuf avec un clou, sous la table, pendant la leçon. Le pouce qui use la corne.",
@@ -3487,7 +3511,10 @@
         "perso",
         600
        ],
-       "flag": "maeve:lapsus"
+       "flag": "maeve:lapsus",
+       "regard": {
+        "maeve": "mefiant"
+       }
       },
       "to": "K_aieule_lapsus"
      },
@@ -3758,6 +3785,7 @@
    "act": "I",
    "title": "La nuit de la Lune sèche",
    "place": "kardan",
+   "urgent": 25,
    "fx": {
     "until": 23
    },
@@ -3790,6 +3818,7 @@
    "choices": [
     {
      "label": "Boire la tisane, la remercier, et dormir",
+     "timeout": true,
      "to": "K_capture_bu"
     },
     {

@@ -9,7 +9,7 @@
   var COND_KEYS = ["is", "count", "has", "not", "all", "any", "clues", "clue", "mark", "present", "loyal", "met", "gone", "conf", "fear", "relics", "relic",
     "given", "item", "gold", "food", "pv", "clock", "fac", "level", "day", "since", "night", "seen", "arch", "quest", "place", "known", "person", "party",
     "lead", "away", "team", "souv", "souvenirs", "heroLevel"];
-  var FX_KEYS = ["resume", "flag", "flags", "unflag", "clue", "mark", "ep", "catchup", "catchupWhy", "join", "met", "leave", "conf", "fear", "fac", "relic",
+  var FX_KEYS = ["regard", "resume", "flag", "flags", "unflag", "clue", "mark", "ep", "catchup", "catchupWhy", "join", "met", "leave", "conf", "fear", "fac", "relic",
     "give", "relicLose", "item", "drop", "gold", "food", "pv", "rest", "time", "until", "stamp", "reveal", "meet", "clock", "quest", "questSeen", "note", "noteCls",
     "assign", "team", "regroup", "away", "lead", "leadQuiet", "souv", "souvBack", "catchupAll", "awayUnless"];
   var DOM_KEYS = Object.keys(M.DOMAINS);
@@ -66,6 +66,13 @@
     story.acts.forEach(function (a) { acts[a.id] = a; if (!P[a.start]) E("Acte " + a.id + " : son passage de départ « " + a.start + " » n'existe pas."); });
     if (!P[story.start]) E("Le passage de départ « " + story.start + " » n'existe pas.");
     Object.keys(story.clues).forEach(function (k) { if (!story.mysteries[story.clues[k].rev]) E("Indice " + k + " : mystère « " + story.clues[k].rev + " » inconnu."); });
+    // Mysteries the story solves (6th series): the answer may name a person, and `solved` says when it is told.
+    Object.keys(story.mysteries).forEach(function (k) {
+      var my = story.mysteries[k], an = my.answer;
+      if (an && an.person && !(story.people || {})[an.person] && !story.companions[an.person]) E("Mystère " + k + " : la réponse nomme « " + an.person + " », inconnu (people ou companions).");
+      if (an && !my.solved) E("Mystère " + k + " : une réponse sans « solved » (le drapeau ou le passage qui la dit) ne serait jamais montrée.");
+      if (my.solved != null && typeof my.solved !== "string") E("Mystère " + k + " : « solved » est un drapeau ou l'identifiant d'un passage.");
+    });
     Object.keys(story.companions).forEach(function (k) {
       var c = story.companions[k];
       if (!c.name) E("Compagnon " + k + " sans nom.");
@@ -160,6 +167,10 @@
       [].concat(fx.join || [], fx.met || [], fx.leave || []).concat(Object.keys(fx.conf || {}), Object.keys(fx.fear || {}))
         .forEach(function (x) { if (!story.companions[x]) E(where + " : compagnon « " + x + " » inconnu."); });
       Object.keys(fx.fac || {}).forEach(function (x) { if (!story.factions[x]) E(where + " : faction « " + x + " » inconnue."); });
+      Object.keys(fx.regard || {}).forEach(function (x) {
+        if (!people[x] && !story.companions[x]) E(where + " : regard, personnage « " + x + " » inconnu.");
+        if (!M.REGARDS[fx.regard[x]]) E(where + " : regard « " + fx.regard[x] + " » inconnu (" + Object.keys(M.REGARDS).join(", ") + ").");
+      });
       [].concat(fx.relic || [], fx.give || []).forEach(function (x) { if (!story.relics[x]) E(where + " : relique « " + x + " » inconnue."); });
       [].concat(fx.quest || [], fx.questSeen || []).forEach(function (x) { if (!qids[x]) E(where + " : quête « " + x + " » inconnue."); });
       [].concat(fx.item || [], fx.drop || []).forEach(function (x) { if (!items[x]) E(where + " : objet « " + x + " » inconnu."); });
@@ -197,6 +208,9 @@
       if ((!Array.isArray(p.choices) || !p.choices.length) && !p.routes && !p.shop) { E(where + " : aucun choix (seules les fins n'en ont pas)."); return; }
       if (p.place && !places[p.place]) E(where + " : lieu « " + p.place + " » inconnu.");
       if (p.shop && !(story.shops || {})[p.shop]) E(where + " : boutique « " + p.shop + " » inconnue.");
+      if (p.urgent != null && !(typeof p.urgent === "number" && p.urgent >= 5 && p.urgent <= 120)) E(where + " : tag urgent, un nombre de secondes entre 5 et 120.");
+      if (p.urgent != null && !(p.choices || []).some(function (c) { return c.timeout; })) E(where + " : scène urgente sans choix « timeout: true » (celui qui est pris quand le temps est écoulé).");
+      if (p.taverne != null && p.taverne !== true && (typeof p.taverne !== "object" || (p.taverne.mise != null && !(p.taverne.mise >= 1)))) E(where + " : tag taverne, { mise: nombre ≥ 1, adversaire: \"…\" }.");
       p.choices = p.choices || [];
       p.choices.forEach(function (c, i) {
         var w = where + " choix " + (i + 1);

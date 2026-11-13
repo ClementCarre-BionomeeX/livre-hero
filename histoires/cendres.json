@@ -23541,6 +23541,10 @@
    "backName": "la table de l'Ancre",
    "title": "Le jour à l'Ancre",
    "place": "vasselin",
+   "taverne": {
+    "mise": 5,
+    "adversaire": "un marinier aux mains goudronnées"
+   },
    "text": [
     {
      "first": true,

@@ -18,7 +18,7 @@ module.exports = {
     choices: [
       { label: "Aller trouver Ansel", hide: { not: { clue: "m_registre" } }, to: "Q_point_ansel" },
       { label: "Conclure, pour toi seul, qu'il n'y a pas d'empoisonneur de cuisine", hide: { clue: "m_registre" }, fx: { quest: "Q_mort", flag: "mort:doute", ep: ["histoire", 2000] }, to: "Q_point_doute" },
-      { label: "Conclure, pour la ville, qu'un empoisonneur théran a tué le prince", fx: { quest: "Q_mort", flag: "mort:theran", fac: { mer: 10, therance: -20 }, clock: { emprise: 2 }, conf: { livia: -15, ansel: -10 }, ep: ["histoire", 1500] }, to: "Q_point_theran" },
+      { label: "Conclure, pour la ville, qu'un empoisonneur théran a tué le prince", fx: { quest: "Q_mort", flag: "mort:theran", fac: { mer: 10, therance: -20 }, clock: { emprise: 2 }, conf: { livia: -15, ansel: -10 }, ep: ["histoire", 1500], regard: { merande: "hostile" } }, to: "Q_point_theran" },
     ] },
   Q_point_doute: { act: "I", title: "Pas un poison de cuisine", place: "palais",
     text: [
@@ -83,10 +83,10 @@ module.exports = {
       "Puis, au pont des Fièvres, il se passe quelque chose. Une pierre vole au-dessus des têtes et frappe la barque de l'ambassade de Thérance, qui suit celles des Bancs. Une voix crie : *Mort aux empoisonneurs !* D'autres voix la reprennent. La barque de l'ambassadeur ralentit, et sur le pont, des hommes ramassent d'autres pierres.",
     ],
     choices: [
-      { label: "Ordonner à Joris de couvrir la barque de l'ambassadeur", fx: { fac: { therance: 15, mer: -5 }, flag: "fun:protege", conf: { joris: 5 } }, to: "Q_fun_pont_garde" },
+      { label: "Ordonner à Joris de couvrir la barque de l'ambassadeur", fx: { fac: { therance: 15, mer: -5 }, flag: "fun:protege", conf: { joris: 5 }, regard: { merande: "redevable" } }, to: "Q_fun_pont_garde" },
       { label: "Faire arrêter le cortège et te lever pour parler à la foule", test: { dom: "social", label: "Social", help: [{ after: "pain:requisition", v: 15 }, { after: "pain:bourse", v: 10 }, { after: "mort:theran", v: -20 }] },
         win: { fx: { fac: { therance: 10, rames: 5 }, flag: "fun:parole", ep: ["seance", 2000] }, to: "Q_fun_pont_parole" }, lose: { fx: { fac: { therance: -5 }, flag: "fun:hue" }, to: "Q_fun_pont_hue" } },
-      { label: "Ne rien faire : les funérailles ne s'arrêtent pas", fx: { fac: { therance: -15, mer: 5 }, flag: "fun:laisse" }, to: "Q_fun_pont_laisse" },
+      { label: "Ne rien faire : les funérailles ne s'arrêtent pas", fx: { fac: { therance: -15, mer: 5 }, flag: "fun:laisse", regard: { merande: "rancunier" } }, to: "Q_fun_pont_laisse" },
     ] },
   Q_fun_pont_garde: { act: "I", title: "Le pont des Fièvres", place: "palais",
     text: [
@@ -151,10 +151,10 @@ module.exports = {
       "Le comte pose sa tasse. Toute la salle te regarde.",
     ],
     choices: [
-      { label: "Rappeler publiquement l'amiral à l'ordre", fx: { fac: { mer: -15, therance: 15 }, flag: "amiral:affront" }, to: "Q_fun_repas_ordre" },
+      { label: "Rappeler publiquement l'amiral à l'ordre", fx: { fac: { mer: -15, therance: 15 }, flag: "amiral:affront", regard: { ghislain: "rancunier" } }, to: "Q_fun_repas_ordre" },
       { label: "Laisser passer, et aller parler au comte en privé", test: { dom: "social", label: "Social", help: [{ after: "fun:protege", v: 15 }, { after: "fun:laisse", v: -15 }] },
-        win: { fx: { fac: { therance: 10 }, flag: "merande:apaise", ep: ["perso", 500] }, to: "Q_fun_repas_comte" }, lose: { fx: { fac: { therance: -10 } }, to: "Q_fun_repas_froid" } },
-      { label: "Lever ton verre avec l'amiral", fx: { fac: { mer: 15, therance: -20 }, flag: "toast:amiral", clock: { emprise: 1 } }, to: "Q_fun_repas_toast" },
+        win: { fx: { fac: { therance: 10 }, flag: "merande:apaise", ep: ["perso", 500], regard: { merande: "cordial" } }, to: "Q_fun_repas_comte" }, lose: { fx: { fac: { therance: -10 }, regard: { merande: "distant" } }, to: "Q_fun_repas_froid" } },
+      { label: "Lever ton verre avec l'amiral", fx: { fac: { mer: 15, therance: -20 }, flag: "toast:amiral", clock: { emprise: 1 }, regard: { ghislain: "cordial", merande: "mefiant" } }, to: "Q_fun_repas_toast" },
     ] },
   Q_fun_repas_ordre: { act: "I", title: "À l'ordre", place: "palais",
     text: [

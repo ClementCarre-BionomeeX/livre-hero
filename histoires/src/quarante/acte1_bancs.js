@@ -106,10 +106,10 @@ module.exports = {
     choices: [
       { label: "« Il a mangé le bouillon qu'il a servi au prince. Il est vivant. Relâchez-le. »", if: { clue: "m_bertin" }, why: "Il te faudrait une preuve de son innocence.",
         test: { dom: "social", label: "Social", help: [{ with: "livia", v: 10 }, { if: { has: "amiral:respect" }, v: 10 }] },
-        win: { fx: { quest: "Q_bertin", flag: ["bertin:libre", "bertin:sort"], fac: { mer: -5 }, ep: ["seance", 2000] }, to: "Q_bertin_libre" },
+        win: { fx: { quest: "Q_bertin", flag: ["bertin:libre", "bertin:sort"], fac: { mer: -5 }, ep: ["seance", 2000], regard: { bertin: "redevable", ghislain: "mefiant" } }, to: "Q_bertin_libre" },
         lose: { fx: { quest: "Q_bertin", flag: ["bertin:garde", "bertin:sort"], fac: { mer: -10 } }, to: "Q_bertin_garde" } },
-      { label: "Le faire transférer sous la garde du Sceau, par ordre", fx: { quest: "Q_bertin", flag: ["bertin:garde", "bertin:sort"], fac: { mer: -15 }, conf: { joris: -5 } }, to: "Q_bertin_garde" },
-      { label: "Le laisser à l'amiral : tu ne peux pas te battre sur tous les fronts", fx: { quest: "Q_bertin", flag: ["bertin:abandonne", "bertin:sort"], fac: { mer: 5 }, conf: { ansel: -10, livia: -10 }, clock: { emprise: 1 } }, to: "Q_bertin_laisse" },
+      { label: "Le faire transférer sous la garde du Sceau, par ordre", fx: { quest: "Q_bertin", flag: ["bertin:garde", "bertin:sort"], fac: { mer: -15 }, conf: { joris: -5 }, regard: { ghislain: "rancunier" } }, to: "Q_bertin_garde" },
+      { label: "Le laisser à l'amiral : tu ne peux pas te battre sur tous les fronts", fx: { quest: "Q_bertin", flag: ["bertin:abandonne", "bertin:sort"], fac: { mer: 5 }, conf: { ansel: -10, livia: -10 }, clock: { emprise: 1 }, regard: { bertin: "trahi" } }, to: "Q_bertin_laisse" },
     ] },
   Q_bertin_libre: { act: "I", title: "Libre", place: "arsenal",
     text: [
@@ -158,7 +158,7 @@ module.exports = {
       "Orsanne t'écoute avec un intérêt gourmand. « La vaisselle d'or des Térac, dit-il. Quatre cents pièces, deux siècles d'orfèvrerie. Je la connais, j'ai mangé dedans. » Il fait un calcul de tête, très vite. « Je vous prête dix-huit mille besants dessus, à un denier le besant par mois. Si la ville ne rembourse pas au quarantième jour, la Hanse dînera dans l'or des princes. Je trouve l'image plaisante. »",
     ],
     choices: [
-      { label: "Accepter", fx: { flag: ["solde:gage", "dette:hanse"], fac: { sel: 15 }, clock: { emprise: 1 } }, to: "Q_solde_gage_ok" },
+      { label: "Accepter", fx: { flag: ["solde:gage", "dette:hanse"], fac: { sel: 15 }, clock: { emprise: 1 }, regard: { orsanne: "cordial" } }, to: "Q_solde_gage_ok" },
       { label: "Refuser", back: "Q_loge" },
     ] },
   Q_solde_gage_ok: { act: "I", title: "Scellé", place: "loge",
@@ -173,9 +173,9 @@ module.exports = {
       "« Le grain est cher parce qu'il est rare, dit-il. Il est rare parce que les péniches de terre ferme ne descendent plus le fleuve depuis que Thérance a mis un péage à Castel-Brume. Je n'y suis pour rien. » Il te regarde. « Mais je peux faire quelque chose. La Hanse a des réserves. Je peux vendre aux boulangers des Canaux au prix d'avant la mort du prince, pendant tout le Deuil. Il suffit que le Sceau suspende la taxe du sel, pendant tout le Deuil. Une main lave l'autre. »",
     ],
     choices: [
-      { label: "Accepter le marché", fx: { quest: "Q_pain", flag: ["pain:accord", "pain:sort", "taxe:suspendue"], fac: { sel: 15, rames: 10 }, ep: ["seance", 2000] }, to: "Q_pain_accord" },
+      { label: "Accepter le marché", fx: { quest: "Q_pain", flag: ["pain:accord", "pain:sort", "taxe:suspendue"], fac: { sel: 15, rames: 10 }, ep: ["seance", 2000], regard: { orsanne: "cordial" } }, to: "Q_pain_accord" },
       { label: "Le pousser à baisser le prix sans rien en échange", test: { dom: "social", diff: -15, label: "Social", help: [{ with: "livia", v: 10 }, { if: { has: "dette:hanse" }, v: -10 }] },
-        win: { fx: { quest: "Q_pain", flag: ["pain:accord", "pain:sort"], fac: { sel: -5, rames: 15 }, ep: ["seance", 2500] }, to: "Q_pain_force" },
+        win: { fx: { quest: "Q_pain", flag: ["pain:accord", "pain:sort"], fac: { sel: -5, rames: 15 }, ep: ["seance", 2500], regard: { orsanne: "rancunier" } }, to: "Q_pain_force" },
         lose: { fx: { fac: { sel: -5 } }, to: "Q_pain_refus" } },
       { label: "Refuser, et chercher une autre voie", back: "Q_loge" },
     ] },
@@ -231,7 +231,7 @@ module.exports = {
       "Elle pose la cruche. « Je vous demande une seule chose en échange. Au quarantième jour, quand on votera pour la régence, vous proposerez au Conseil de confier l'éducation de l'enfant au Temple. Proposer. Pas voter. Je ne vous achète pas, je vous loue. »",
     ],
     choices: [
-      { label: "Accepter", fx: { flag: ["solde:temple", "ysaure:promesse"], fac: { eaux: 15 } }, to: "Q_solde_temple_ok" },
+      { label: "Accepter", fx: { flag: ["solde:temple", "ysaure:promesse"], fac: { eaux: 15 }, regard: { ysaure: "cordial" } }, to: "Q_solde_temple_ok" },
       { label: "Refuser", back: "Q_temple" },
     ] },
   Q_solde_temple_ok: { act: "I", title: "Loué", place: "temple",
@@ -272,7 +272,7 @@ module.exports = {
     ],
     choices: [{ back: "Q_canaux" }] },
   Q_pain_requisition: { act: "I", title: "Les greniers", place: "canaux",
-    fx: { quest: "Q_pain", flag: ["pain:requisition", "pain:sort"], fac: { sel: -25, rames: 20 }, clock: { emprise: 1 }, conf: { joris: 5, livia: -5 }, ep: ["seance", 2000] },
+    fx: { quest: "Q_pain", flag: ["pain:requisition", "pain:sort"], fac: { sel: -25, rames: 20 }, clock: { emprise: 1 }, conf: { joris: 5, livia: -5 }, ep: ["seance", 2000], regard: { orsanne: "hostile" } },
     text: [
       "Tu rédiges l'ordre sur le parapet d'un pont, avec la plume de Livia, et tu scelles sur la pierre. Joris prend vingt hommes. Les gardes de la Hanse, devant les greniers du port, regardent l'ordre, regardent les vingt hommes, et s'écartent.",
       "Dans l'après-midi, des sacs de farine traversent les ponts sur des dos de débardeurs, et Tessa les compte, un par un, sans sourire. Le soir, Ser Orsanne t'envoie un billet de trois mots : *Je prends note.*",
@@ -331,7 +331,7 @@ module.exports = {
       "Il sourit. « Évidemment, tout le monde saura que Thérance a payé la flotte de Sarvelle. C'est même tout l'intérêt. »",
     ],
     choices: [
-      { label: "Accepter", fx: { flag: "solde:therance", fac: { therance: 20 }, clock: { emprise: 1 } }, to: "Q_solde_therance_ok" },
+      { label: "Accepter", fx: { flag: "solde:therance", fac: { therance: 20 }, clock: { emprise: 1 }, regard: { merande: "cordial" } }, to: "Q_solde_therance_ok" },
       { label: "Refuser", back: "Q_ambassade" },
     ] },
   Q_solde_therance_ok: { act: "I", title: "L'argent", place: "ambassade",

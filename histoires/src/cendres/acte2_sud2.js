@@ -223,7 +223,7 @@ module.exports = {
     ],
     choices: [{ label: "Rentrer à l'Ancre", to: "II_S2_nuit" }] }),
 
-  II_S2_nuit: P({ backName: "la table de l'Ancre", title: "Le jour à l'Ancre", place: "vasselin",
+  II_S2_nuit: P({ backName: "la table de l'Ancre", title: "Le jour à l'Ancre", place: "vasselin", taverne: { mise: 5, adversaire: "un marinier aux mains goudronnées" },
     text: [
       { first: true, text: "Tu dors jusqu'à midi. Tu te réveilles avec le goût des chandelles dans la bouche. Les autres sont autour de la table, ils t'attendent pour manger. Ils ne posent pas de questions. Tu racontes quand même." },
       { again: true, text: "La table n'est pas encore desservie. Par la fenêtre, le quai, et le milieu du jour." },
