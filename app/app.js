@@ -301,7 +301,7 @@
         m.adult ? h("div", { class: "adult-tag" }, "Thème adulte") : null,
         h("h3", null, m.title), m.subtitle ? h("div", { class: "sub" }, m.subtitle) : null,
         h("p", null, m.summary),
-        h("div", { class: "small muted" }, (m.multi ? "À plusieurs, de " + (m.multi.min || 2) + " à " + (m.multi.max || 6) + " joueurs · " : "") + m.acts + " actes · " + m.passages + " passages" + (m.builtin ? "" : " · importée")),
+        h("div", { class: "small muted" }, (A.builtins[m.id] && !m.multi ? "environ " + minutesLabel(storyMinutes(A.builtins[m.id])) + " de lecture par partie · " : "") + (m.multi ? "À plusieurs, de " + (m.multi.min || 2) + " à " + (m.multi.max || 6) + " joueurs · " : "") + m.acts + " actes · " + m.passages + " passages" + (m.builtin ? "" : " · importée")),
         m.multi ? null : renderRecords(m),
         h("div", { class: "row" },
           // Clément, 11/11: stories for several players are written for it; the others stay solo.
@@ -330,6 +330,7 @@
       Sync.on() ? "☁ Dossier de sauvegarde partagé" + (Sync.busy ? " · synchronisation…" : Sync.error ? " · ⚠ à vérifier" : "") : "☁ Configurer un dossier de sauvegarde partagé")));
     w.appendChild(bk);
     w.appendChild(renderKidsShelf());
+    if (A.profile) w.appendChild(renderBilan(A.profile));
     var fam = renderFamily(); if (fam) w.appendChild(fam);
     w.appendChild(renderParents());
     w.appendChild(renderAtelier());
@@ -1292,6 +1293,7 @@
     if (c.test && pref("shakeDice") && pref("dice") !== "vrais" && !c.shaken && Shake.available()) { A.modal = { kind: "shake", c: c }; render(); return; }
     c.shaken = false;
     var before = M.view(G.story, G.s), others = before.choices.filter(function (x) { return x.ok && !x.sys && !x.restart && x !== c && x.label !== c.label; }).length;
+    if (!G.ephemeral && !/^jeu/.test(c.sys || "")) G.doc.wordsRead = (G.doc.wordsRead || 0) + wordsOf(before.text);
     var snap = JSON.stringify(G.s);
     if (!G.s.ironman) { G.undo.push(snap); if (G.undo.length > UNDO_MAX) G.undo.shift(); }
     notePick(G, before, c);
@@ -1301,14 +1303,16 @@
     try { M.choose(G.story, G.s, c); }
     catch (e) { M.setDice(null); if (!G.s.ironman) G.undo.pop(); G.s = JSON.parse(snap); A.notice = "Ce choix a buté sur une erreur de l'histoire : " + e.message; render(); return; }
     M.setDice(null);
-    A.notice = ""; A.recap = false; A.rollAnim = true;
+    A.notice = ""; A.recap = false; A.rollAnim = true; A.turned = true;
     var now = Date.now(), dt = Math.min(now - (G.since || now), PLAY_GAP_MS); G.doc.playMs = (G.doc.playMs || 0) + dt; G.since = now;
     if (dt > 0) { var dk = dayKey(now), days = G.doc.days = G.doc.days || {}; days[dk] = (days[dk] || 0) + dt; }
     var closed = actTrack(G, act0); if (closed && !A.modal) A.modal = { kind: "chapter", act: closed };
     if (!/^jeu/.test(c.sys || "")) logStep(c.label, others);   // a game of dice at the inn is not a page of the story
     persist(); bedtimeAfterChoice(); render();
     if (fight0 && fight0.hits && fight0.hits.length) { var partyIds = {}; M.partyView(G.story, G.s).forEach(function (m) { partyIds[m.who] = 1; }); Sfx.blows(fight0.hits, function (k) { return !!partyIds[k]; }); }
-    var top = document.querySelector(".page"); if (top) top.scrollIntoView({ block: "start", behavior: "smooth" });
+    var top = document.querySelector(".page"); if (top) top.scrollIntoView({ block: "start", behavior: REDUCED ? "auto" : "smooth" });
+    // A screen reader starts again at the new page's title (the choice button it was on is gone).
+    var hd = document.querySelector(".page-head h2"); if (hd) { try { hd.focus({ preventScroll: true }); } catch (e) {} }
     if (pref("autoRead") && A.tts) speak(M.view(G.story, G.s));
   }
   // Intent: notePick(Game, View, Choice) -> () = the choice made on this page, by its place among the passage's own
@@ -1336,6 +1340,96 @@
     return st._nums[id];
   }
 
+  // ------------------------------------------------------------------ reading time and the reader's record
+  // Intent: wordsOf([Line]) -> Int ; actMinutes(Story, Act) -> Int = an estimate of one reading of the act: the
+  // shortest way from its first page to the next act, lengthened for the detours a reader takes, at the reader's own
+  // pace when the device has seen enough of it (else WPM_DEFAULT). Only an order of size: "environ 40 min".
+  // Why: Clément, 13/11 (piste 5), to know if there is time for a chapter before bed.
+  var WPM_DEFAULT = 170, WPM_MIN = 60, WPM_MAX = 400, WPM_SAMPLE_MS = 10 * 60 * 1000, PATH_DETOUR = 1.7, ACT_SHARE = 0.45, ROUND_MIN = 5;
+  function wordsOf(lines) {
+    return (lines || []).reduce(function (n, t) { var x = typeof t === "string" ? t : (t && t.text) || ""; return n + String(x).split(/\s+/).filter(Boolean).length; }, 0);
+  }
+  function readerWpm(p) {
+    var w = 0, ms = 0;
+    (A.allGames || []).forEach(function (g) { if (p && g.profil === p.id && !g.test && g.wordsRead) { w += g.wordsRead; ms += g.playMs || 0; } });
+    if (ms < WPM_SAMPLE_MS) return WPM_DEFAULT;
+    return Math.max(WPM_MIN, Math.min(WPM_MAX, w / (ms / 60000)));
+  }
+  function actWords(st, actId) {
+    st._actWords = st._actWords || {};
+    if (st._actWords[actId] != null) return st._actWords[actId];
+    var P = st.passages || {}, ids = Object.keys(P).filter(function (k) { return P[k].act === actId; });
+    if (!ids.length) return (st._actWords[actId] = 0);
+    var avg = ids.reduce(function (n, k) { return n + wordsOf(P[k].text); }, 0) / ids.length;
+    var act = (st.acts || []).filter(function (a) { return a.id === actId; })[0] || {}, steps = 0;
+    if (act.start && P[act.start]) {
+      var dist = {}, q = [act.start]; dist[act.start] = 1;
+      while (q.length && !steps) {
+        var k = q.shift(), p = P[k];
+        (p.choices || []).forEach(function (c) { passageTargets(c).forEach(function (t) {
+          if (steps || dist[t] || !P[t]) return;
+          if (P[t].act && P[t].act !== actId || P[t].end) { steps = dist[k]; return; }
+          dist[t] = dist[k] + 1; q.push(t);
+        }); });
+      }
+    }
+    // A reading wanders: the shortest way lengthened, and never less than a share of the act's pages.
+    steps = Math.max(steps * PATH_DETOUR, ids.length * ACT_SHARE);
+    return (st._actWords[actId] = Math.round(steps * avg));
+  }
+  function actMinutes(st, actId) { var w = actWords(st, actId); return w ? Math.max(ROUND_MIN, Math.round(w / readerWpm(A.profile) / ROUND_MIN) * ROUND_MIN) : 0; }
+  function storyMinutes(st) { var w = (st.acts || []).reduce(function (n, a) { return n + actWords(st, a.id); }, 0); return Math.max(ROUND_MIN, Math.round(w / readerWpm(A.profile) / ROUND_MIN) * ROUND_MIN); }
+  function minutesLabel(m) { return m < 60 ? m + " min" : Math.floor(m / 60) + " h" + (m % 60 ? " " + String(m % 60).padStart(2, "0") : ""); }
+
+  // Intent: swipe on the page: left follows the page when only one way is open, right undoes. Off by default.
+  var SWIPE_MIN_PX = 70, SWIPE_MAX_SLANT = 0.6;
+  function swipeOn(page, v, G) {
+    var x0 = null, y0 = 0;
+    page.addEventListener("touchstart", function (e) { if (e.touches.length !== 1) { x0 = null; return; } x0 = e.touches[0].clientX; y0 = e.touches[0].clientY; }, { passive: true });
+    page.addEventListener("touchend", function (e) {
+      if (x0 == null) return; var t = e.changedTouches[0], dx = t.clientX - x0, dy = t.clientY - y0; x0 = null;
+      if (Math.abs(dx) < SWIPE_MIN_PX || Math.abs(dy) > Math.abs(dx) * SWIPE_MAX_SLANT) return;
+      if (dx > 0) { if (!G.s.ironman && G.undo.length) undo(); return; }
+      var open = v.choices.filter(function (c) { return c.ok && !c.restart; });
+      if (open.length === 1) pick(open[0]); else flash("Plusieurs suites possibles : choisis-en une.");
+    }, { passive: true });
+  }
+
+  // Intent: renderBilan(Profile) -> Element = the reader's record across every book: time, words, pages, pace,
+  // chapters and books finished, endings, feats, the weeks of reading. Folded by default.
+  // Why: Clément, 13/11 (piste 10).
+  var BILAN_WEEKS = 8, BILAN_BAR_PX = 90;
+  function renderBilan(p) {
+    var open = A.open.bilan;
+    var sec = h("section", { class: "section" }, h("h2", null, h("button", { class: "btn ghost fold", "aria-expanded": open ? "true" : "false", onclick: function () { A.open.bilan = !open; render(); } }, (open ? "▾ " : "▸ ") + "Bilan de lecture de " + p.name)));
+    if (!open) return sec;
+    var gs = (A.allGames || []).filter(function (g) { return g.profil === p.id && !g.test; });
+    var ms = 0, words = 0, wordsMs = 0, pages = 0, chapters = 0, books = 0, byDay = {};
+    gs.forEach(function (g) {
+      ms += g.playMs || 0; pages += g.turns || 0;
+      if (g.wordsRead) { words += g.wordsRead; wordsMs += g.playMs || 0; }
+      var acts = Object.keys(g.actLog || {}).length; chapters += Math.max(0, acts - (g.ended ? 0 : 1));
+      if (g.ended) books++;
+      Object.keys(g.days || {}).forEach(function (k) { byDay[k] = (byDay[k] || 0) + g.days[k]; });
+    });
+    var rec = p.records || {}, nE = 0, nF = 0;
+    Object.keys(rec).forEach(function (k) { nE += Object.keys(rec[k].endings || {}).length; nF += Object.keys(rec[k].feats || {}).length; });
+    var wpm = wordsMs >= WPM_SAMPLE_MS ? Math.round(words / (wordsMs / 60000)) : 0;
+    var figs = [["Temps de lecture", hours(ms)], ["Mots lus", words ? words.toLocaleString("fr-FR") : "·"], ["Pages", String(pages)], ["Allure", wpm ? wpm + " mots/min" : "·"],
+      ["Actes finis", String(chapters)], ["Livres finis", String(books)], ["Fins trouvées", String(nE)], ["Hauts faits", String(nF)]];
+    sec.appendChild(h("dl", { class: "bilan" }, figs.map(function (f) { return h("div", null, h("dt", null, f[0]), h("dd", null, f[1])); })));
+    var weeks = [], now = weekStart(Date.now());
+    for (var i = BILAN_WEEKS - 1; i >= 0; i--) weeks.push({ start: now - i * 7 * 86400000, ms: 0 });
+    Object.keys(byDay).forEach(function (k) { var q = k.split("-"), ws = weekStart(new Date(+q[0], +q[1] - 1, +q[2]).getTime()); weeks.forEach(function (w) { if (Math.abs(w.start - ws) < 3 * 3600000) w.ms += byDay[k]; }); });
+    var top = Math.max.apply(null, weeks.map(function (w) { return w.ms; }).concat([1]));
+    sec.appendChild(h("div", { class: "bilan-weeks", role: "list", "aria-label": "Minutes de lecture par semaine" }, weeks.map(function (w) {
+      var m = Math.round(w.ms / 60000);
+      return h("div", { class: "bw", role: "listitem", title: weekLabel(w.start) + " : " + hours(w.ms) }, h("span", { class: "bw-bar", style: "height:" + Math.round(BILAN_BAR_PX * w.ms / top) + "px" }), h("span", { class: "bw-n" }, m ? String(m) : ""), h("span", { class: "bw-d" }, new Date(w.start).toLocaleDateString("fr-FR", { day: "numeric", month: "short" })));
+    })));
+    sec.appendChild(h("p", { class: "small muted" }, "Minutes de lecture par semaine. Les mots sont comptés depuis la version du 13 novembre ; l'allure s'affiche après dix minutes de lecture."));
+    return sec;
+  }
+
   function renderGame() {
     var G = A.game, st = G.story, s = G.s, v = G.multi ? multiView() : M.view(st, s);
     var pvMax = M.pvMax(s);
@@ -1343,9 +1437,9 @@
       h("button", { class: "btn ghost sm", onclick: function () { stopSpeaking(); leaveGame(); } }, "← Bibliothèque"),
       G.multi ? multiBadge() : null,
       h("span", { class: "grow" }),
-      h("span", { class: "pill", title: "Points de vie" }, "PV " + s.pv + "/" + pvMax, h("span", { class: "bar pv", style: "width:48px" }, h("i", { style: "width:" + Math.round(100 * s.pv / pvMax) + "%" }))),
+      h("span", { class: "pill", title: "Points de vie", "aria-label": "Points de vie : " + s.pv + " sur " + pvMax }, "PV " + s.pv + "/" + pvMax, h("span", { class: "bar pv", style: "width:48px" }, h("i", { style: "width:" + Math.round(100 * s.pv / pvMax) + "%" }))),
       h("span", { class: "pill gold", title: "Bourse : " + M.money(st, s.gold) }, M.money(st, s.gold, true)),
-      h("span", { class: "pill", title: "Jours de vivres" }, "Vivres " + s.food),
+      h("span", { class: "pill", title: "Jours de vivres", "aria-label": "Vivres : " + s.food + " jour" + (s.food > 1 ? "s" : "") }, "Vivres " + s.food),
       s.mark ? h("span", { class: "pill mark", title: "La Marque" }, "Marque " + s.mark) : null,
       h("span", { class: "pill small" }, M.timeLabel(s)),
       s.ironman ? h("span", { class: "pill small", title: "Sans retour : chaque choix est définitif" }, "⚔") : null,
@@ -1353,15 +1447,19 @@
     var w = h("main", { class: "wrap" });
     // act ruler
     var acts = st.acts || [], cur = acts.map(function (a) { return a.id; }).indexOf(s.lastAct);
-    w.appendChild(h("div", { class: "acts", title: cur >= 0 ? acts[cur].title : "" }, acts.map(function (a, i) { return h("span", { class: i < cur ? "done" : i === cur ? "on" : "" }); })));
-    var page = h("article", { class: "page read" });
+    var actMin = cur >= 0 ? actMinutes(st, acts[cur].id) : 0;
+    w.appendChild(h("div", { class: "acts", role: "img", "aria-label": cur >= 0 ? acts[cur].title + ", acte " + (cur + 1) + " sur " + acts.length : "", title: cur >= 0 ? acts[cur].title + (actMin ? " · environ " + minutesLabel(actMin) + " de lecture" : "") : "" }, acts.map(function (a, i) { return h("span", { class: i < cur ? "done" : i === cur ? "on" : "" }); })));
+    var turnIn = A.turned && pref("pageTurn") && !REDUCED; A.turned = false;
+    var page = h("article", { class: "page read" + (turnIn ? " turn-in" : ""), "aria-labelledby": "page-title" });
+    if (pref("swipe") && !G.multi) swipeOn(page, v, G);
     var num = v.passage ? paraNum(st, s.node) : null;
     var vig = Vignette.of(st, s); if (vig) page.appendChild(vig);
     if (s.travel) { noteRoad(G, v); var trip = renderTravelStrip(st, s, G); if (trip) page.appendChild(trip); }
     var rc = A.recap && !G.multi ? renderRecap(G) : null, nr = A.recap && !G.multi && !G.ephemeral ? notesRecap(G) : null;
     if (rc) { if (nr) rc.appendChild(nr); page.appendChild(rc); }
     else if (nr) page.appendChild(h("aside", { class: "recap" }, h("div", { class: "row" }, h("span", { class: "grow" }), h("button", { class: "btn ghost sm", onclick: function () { A.recap = false; render(); } }, "Fermer")), nr));
-    page.appendChild(h("div", { class: "page-head" }, h("div", null, h("h2", null, v.title || ""), h("div", { class: "where" }, [cur >= 0 ? acts[cur].title : null, where(st, s)].filter(Boolean).join(" · "))), num ? h("span", { class: "para-num", title: "Numéro du paragraphe" }, "§ " + num) : null));
+    var actStart = cur >= 0 && acts[cur].start === s.node && actMin;
+    page.appendChild(h("div", { class: "page-head" }, h("div", null, h("h2", { id: "page-title", tabindex: "-1" }, v.title || ""), h("div", { class: "where" }, [cur >= 0 ? acts[cur].title : null, where(st, s), actStart ? "environ " + minutesLabel(actMin) + " de lecture" : null].filter(Boolean).join(" · "))), num ? h("span", { class: "para-num", title: "Numéro du paragraphe" }, "§ " + num) : null));
     if (A.notice) page.appendChild(h("div", { class: "notice" }, A.notice));
     if (A.bedWarn && !G.multi) page.appendChild(h("div", { class: "notice soft" }, "🌙 Bientôt l'heure de refermer le livre : le récit te proposera de t'arrêter à une page calme."));
     var prose = h("div", { class: "prose" });
@@ -1394,7 +1492,7 @@
       h("button", { class: "btn sm", onclick: function () { A.carnet = true; A.carnetTab = "carte"; render(); } }, "Carte"),
       h("button", { class: "btn sm", onclick: function () { A.carnet = true; A.carnetTab = "quetes"; render(); } }, "Quêtes"),
       G.multi ? null : h("button", { class: "btn sm", onclick: function () { A.modal = { kind: "mark" }; render(); } }, "🔖 Marque-page"),
-      h("button", { class: "btn sm", "aria-pressed": pref("ambiance") ? "true" : "false", onclick: function () { setPref("ambiance", !pref("ambiance")); } }, pref("ambiance") ? "🔊 Ambiance" : "🔇 Ambiance"),
+      h("button", { class: "btn sm", "aria-label": "Ambiance sonore", "aria-pressed": pref("ambiance") ? "true" : "false", onclick: function () { setPref("ambiance", !pref("ambiance")); } }, pref("ambiance") ? "🔊 Ambiance" : "🔇 Ambiance"),
       pref("nudge") && !G.multi && v.kind !== "end" ? h("button", { class: "btn sm", disabled: nudgesLeft(G) <= 0, title: "Une phrase pour t'orienter, sans rien révéler", onclick: function () { askNudge(G); } }, "💡 Coup de pouce (" + nudgesLeft(G) + ")") : null,
       h("button", { class: "btn sm", onclick: function () { A.modal = { kind: "prefs" }; render(); } }, "⚙ Réglages"),
       h("button", { class: "btn sm", onclick: function () { A.modal = { kind: "report" }; render(); } }, "⚑ Signaler")));
@@ -1571,6 +1669,8 @@
     var quests = M.questsOf(st).filter(function (q) { return M.questDone(s, q) && L.quests.indexOf(q.id) < 0; });
     if (feats.length || quests.length) b.appendChild(h("ul", { class: "plain chapter-list" },
       quests.map(function (q) { return h("li", null, "✔ " + q.title); }), feats.map(function (f) { return h("li", null, "★ " + f.title); })));
+    var nextAct = (st.acts || []).filter(function (x) { return x.id === s.lastAct; })[0], nextMin = nextAct && nextAct.id !== m.act ? actMinutes(st, nextAct.id) : 0;
+    if (nextMin) b.appendChild(h("p", { class: "small muted" }, "« " + nextAct.title + " » se lit en environ " + minutesLabel(nextMin) + "."));
     b.appendChild(h("button", { class: "btn primary", onclick: close }, "Tourner la page"));
     box.appendChild(b);
   }
@@ -3108,10 +3208,10 @@
   // ------------------------------------------------------------------ reading preferences (per reader)
   // Intent: pref(Key) -> Value = the reader's own setting, else the default
   // Why: Clément (12/11): text size, spacing, theme, voice, real dice, sound… follow the reader, not the device.
-  var PREFS = { skin: "histoire", size: "m", spacing: "normal", theme: "auto", font: "livre", lettrine: true, voice: "", highlight: true, ruler: false, dialogue: false, glossary: true, nudge: false, syllables: false, voiceChoice: false, autoListen: true, battlePlan: true, relations: true, urgent: true, sfx: true, shakeDice: false, fog: true, rate: 1, autoRead: false, dice: "ecran", ambiance: false, music: false, volume: 0.6 };
+  var PREFS = { skin: "histoire", size: "m", spacing: "normal", theme: "auto", font: "livre", lettrine: true, voice: "", highlight: true, ruler: false, dialogue: false, glossary: true, nudge: false, syllables: false, voiceChoice: false, autoListen: true, battlePlan: true, relations: true, urgent: true, sfx: true, shakeDice: false, fog: true, rate: 1, autoRead: false, dice: "ecran", ambiance: false, music: false, volume: 0.6, spread: "auto", pageTurn: true, swipe: false, contrast: false, cvd: false };
   var SIZES = { s: ["Petit", 16], m: ["Normal", 18], l: ["Grand", 21], xl: ["Très grand", 24] };
   var SPACINGS = { serre: ["Serré", 1.5], normal: ["Normal", 1.72], aere: ["Aéré", 2] };
-  var THEMES = { auto: "Comme l'appareil", light: "Clair", sepia: "Sépia", dark: "Sombre" };
+  var THEMES = { auto: "Comme l'appareil", light: "Clair", sepia: "Sépia", dark: "Sombre", soir: "Lumière du soir" };
   // lisible (Clément, 12/11): Atkinson Hyperlegible, letters hard to confuse, for young or dyslexic readers; it then dresses the whole page.
   var FONTS = { livre: ["Livre", "var(--serif)"], droite: ["Sans empattement", "var(--sans)"], lisible: ["Lecture facile (Atkinson)", "'Atkinson Hyperlegible', var(--sans)"],
     // grimoire (Clément, 13/11): a medieval book for dyslexic readers, Atkinson's letters with book serifs and illuminated capitals
@@ -3144,6 +3244,10 @@
     r.style.setProperty("--read-font", (FONTS[pref("font")] || FONTS.livre)[1]);
     if (pref("font") === "lisible" || pref("font") === "grimoire") r.setAttribute("data-font", pref("font")); else r.removeAttribute("data-font");
     if (pref("lettrine")) r.removeAttribute("data-lettrine"); else r.setAttribute("data-lettrine", "non");
+    r.setAttribute("lang", "fr");
+    r.setAttribute("data-spread", pref("spread") === "non" ? "non" : "auto");
+    if (pref("contrast")) r.setAttribute("data-contrast", "fort"); else r.removeAttribute("data-contrast");
+    if (pref("cvd")) r.setAttribute("data-cvd", "oui"); else r.removeAttribute("data-cvd");
   }
   function seg(map, key, label) {
     return h("div", { class: "stack tight" }, h("span", { class: "label" }, label), h("div", { class: "seg", role: "group", "aria-label": label },
@@ -3210,6 +3314,12 @@
     b.appendChild(seg(FONTS, "font", "Police"));
     if (pref("font") === "grimoire") b.appendChild(prefToggle("lettrine", "Grande lettrine", "Chaque page s'ouvre sur une grande lettre enluminée. À couper si elle gêne la lecture du premier mot."));
     b.appendChild(seg(THEMES, "theme", "Thème"));
+    b.appendChild(h("p", { class: "small muted" }, "« Lumière du soir » : un papier sombre et une encre ambrée, sans lumière bleue, pour lire au lit."));
+    b.appendChild(seg({ auto: "Deux pages", non: "Une seule page" }, "spread", "Tablette ou écran large tenu en paysage"));
+    b.appendChild(prefToggle("pageTurn", "Tourner la page", "Chaque nouvelle page arrive comme une feuille qu'on tourne. Rien ne bouge si l'appareil demande moins d'animations."));
+    b.appendChild(prefToggle("swipe", "Glisser du doigt", "Glisser vers la gauche suit la page quand il n'y a qu'une suite possible ; vers la droite, revient au choix précédent. Coupé par défaut, pour ne pas tourner une page par mégarde."));
+    b.appendChild(prefToggle("contrast", "Fort contraste", "Texte plus foncé, traits plus marqués, choix bien détourés."));
+    b.appendChild(prefToggle("cvd", "Couleurs pour daltoniens", "Réussites en bleu, échecs en orange, au lieu du vert et du rouge ; chaque état garde aussi son signe (✓, ✗)."));
     b.appendChild(prefToggle("nudge", "Coup de pouce (jeunes lecteurs)", "Un bouton 💡, deux fois par acte, donne une phrase pour s'orienter quand on est perdu. Il ne révèle jamais la suite."));
     b.appendChild(prefToggle("glossary", "Expliquer les mots rares", "Les mots peu courants sont soulignés de pointillés : on les touche pour lire leur sens."));
     b.appendChild(prefToggle("syllables", "Syllabes en couleurs", "Une syllabe sur deux change de couleur, comme dans les méthodes de lecture."));
