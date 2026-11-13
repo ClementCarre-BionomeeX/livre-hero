@@ -161,3 +161,12 @@ Rien à déclarer pour : « Sans retour » (choisi à la création), le tableau 
   guillemets à la française, choix de plus de 90 signes). Mêmes règles que l'onglet « Relecture » de l'éditeur.
 - `catalogue/<id>.json` : une histoire proposée au catalogue partagé ; `tests/site.js` la vérifie et l'ajoute à
   `site/catalogue/index.json`.
+
+## Le Sceau de Malvoran (13/11)
+
+- `repeatChance: 0.4` sur une région : une route déjà parcourue se refait vite, sans événement ; avec ce tag, les événements de la région pas encore vus peuvent encore venir aux voyages suivants (utile quand le premier voyage est entièrement écrit en étapes).
+- `relicLose: "anneau"` : retire cette relique-là (un vol), au lieu d'une relique au hasard.
+- `set: { cle: "valeur" }` : pose le drapeau `cle=valeur` (comme `flag: "cle=valeur"`).
+- Les branches `win`, `lose`, `flee`, `calm` d'un jet ou d'un combat acceptent `back: "PASSAGE"` comme un choix.
+- En mode « tout jouer », la quête principale de l'acte ne retient plus la sortie (elle se finit souvent après) : seules les quêtes annexes la retiennent. Une quête annexe qui peut devenir impossible doit déclarer `closes`.
+- Une histoire sans héros prédéfinis demande au lecteur, à la création, si le livre lui parle au masculin ou au féminin ; le texte s'accorde avec `{e}`.

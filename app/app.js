@@ -1118,6 +1118,14 @@
     if (st.intro) w.appendChild(h("div", { class: "prose", html: st.intro.map(function (p) { return "<p>" + md(p) + "</p>"; }).join("") }));
     var nameIn = h("input", { value: C.name, placeholder: "Ton nom", maxlength: 30, "aria-label": "Nom du héros", oninput: function (e) { C.name = e.target.value; startBtn.disabled = !ready(); } });
     w.appendChild(h("div", { class: "stack" }, h("span", { class: "label" }, "Ton nom"), nameIn));
+    // How the text speaks of the hero (Clément, 13/11, Malvoran): the engine fills {e} from s.fem ("assis{e}").
+    if (!st.heroes) {
+      var gd = h("div", { class: "row" });
+      [[false, "Au masculin (« tu es assis »)"], [true, "Au féminin (« tu es assise »)"]].forEach(function (g) {
+        gd.appendChild(h("button", { type: "button", class: "btn sm" + (!!C.fem === g[0] ? " primary" : " ghost"), "aria-pressed": !!C.fem === g[0] ? "true" : "false", onclick: function () { C.fem = g[0]; render(); } }, g[1]));
+      });
+      w.appendChild(h("div", { class: "stack" }, h("span", { class: "label" }, "Le livre te parle"), gd));
+    }
     var archs = h("div", { class: "archs" });
     Object.keys(M.ARCHS).forEach(function (k) {
       var a = M.ARCHS[k], best = Object.keys(a.bonus).sort(function (x, y) { return a.bonus[y] - a.bonus[x]; }).slice(0, 2);
@@ -1211,7 +1219,7 @@
   // Intent: build(Creation) -> State = the new hero, his past answers applied, the story started
   function buildState(C) {
     var st = C.story, s = M.freshState(st, { toutJouer: C.toutJouer, difficulty: C.difficulty, ironman: !C.multi && !!C.ironman });
-    s.name = C.name.trim(); s.arch = C.arch; if (C.face) s.face = C.face;
+    s.name = C.name.trim(); s.arch = C.arch; if (C.face) s.face = C.face; if (!st.heroes) s.fem = !!C.fem;
     s.events = [];
     (st.past || []).forEach(function (q, qi) { M.apply(st, s, q.answers[C.past[qi]].fx); });
     var pastEvents = s.events.slice();
