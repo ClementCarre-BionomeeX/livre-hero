@@ -14,6 +14,10 @@
   ]
  },
  "skin": "givre",
+ "cover": {
+  "motif": "oeil",
+  "color": "#3d2d4d"
+ },
  "glossary": {
   "vasque|vasques": "Grand bassin de pierre peu profond, où coule une fontaine.",
   "oriel|oriels": "Fenêtre qui avance sur la façade, comme un petit balcon fermé.",

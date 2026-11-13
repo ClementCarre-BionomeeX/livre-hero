@@ -4,6 +4,10 @@
  "subtitle": "À deux · deux pages, un chevalier, une montagne qui dort",
  "summary": "Vous êtes les deux pages de Messire Aubert de Vellane, et vous ne vous supportez pas. À la Saint-Michel, il choisira l'un de vous pour écuyer. Ce matin, son cousin Gauvard arrive au château, et sous le Mont-Veille quelque chose de très ancien dort encore.",
  "skin": "enluminure",
+ "cover": {
+  "motif": "ecu",
+  "color": "#5b2a2a"
+ },
  "glossary": {
   "vasque|vasques": "Grand bassin de pierre peu profond, où coule une fontaine.",
   "oriel|oriels": "Fenêtre qui avance sur la façade, comme un petit balcon fermé.",

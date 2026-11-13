@@ -146,3 +146,5 @@ Rien à déclarer pour : « Sans retour » (choisi à la création), le tableau 
 - **Récit du combat** : à la fin de chaque combat, le moteur écrit quelques lignes (événement `tale`). L'auteur n'a rien à faire.
 - **Conséquences muettes** : les changements de confiance et de crainte d'un compagnon portent la marque `conseq`, et le lecteur peut les masquer dans ses Réglages. Ne pas compter sur ces lignes pour faire passer une information au lecteur.
 - **Jetons de destin** : en mode « Sans retour », trois relances par acte pour un jet raté. Ils sont gérés par l'appli et l'auteur n'a rien à faire.
+- **Histoire `cover: { motif, color }`** : la couverture dessinée dans la bibliothèque. Motifs possibles : `dedale`, `flocon`, `sceau`, `oeil`, `vanne`, `ecu`, `etoile` (le motif par défaut). `color` est la couleur de la toile, par exemple `"#4f3a22"`.
+- **Gravures, plans de ville, thème musical par lieu, voix des personnages** : le moteur s'en charge à partir de ce qui existe déjà (ambiance du lieu, passages vus dans un lieu, région, `name` des gens et des compagnons). La voix d'un personnage est retrouvée quand son nom figure dans le même paragraphe que ses paroles.

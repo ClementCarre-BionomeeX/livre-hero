@@ -146,7 +146,7 @@
     var list = el ? JSON.parse(el.textContent) : [];
     list.forEach(function (st) { A.builtins[st.id] = st; });
   }
-  function storyMeta(st) { return { id: st.id, title: st.title, subtitle: st.subtitle || "", summary: st.summary || "", version: st.version || 1, acts: (st.acts || []).length, passages: Object.keys(st.passages || {}).length, multi: st.multi || null, kid: st.kid || null, adult: st.adult || null }; }
+  function storyMeta(st) { return { id: st.id, title: st.title, subtitle: st.subtitle || "", summary: st.summary || "", version: st.version || 1, acts: (st.acts || []).length, passages: Object.keys(st.passages || {}).length, multi: st.multi || null, kid: st.kid || null, adult: st.adult || null, cover: st.cover || null }; }
   function allStories() {
     var out = Object.keys(A.builtins).map(function (k) { var m = storyMeta(A.builtins[k]); m.builtin = true; return m; });
     A.imported.forEach(function (m) { if (!A.builtins[m.id]) out.push(m); });
@@ -302,7 +302,8 @@
     var lib = h("section", { class: "section" }, h("h2", null, "Les livres"));
     var cards = h("div", { class: "cards" });
     stories.forEach(function (m) {
-      cards.appendChild(h("article", { class: "card" + (m.adult ? " adult" : "") },
+      cards.appendChild(h("article", { class: "card has-cover" + (m.adult ? " adult" : "") },
+        cover(m, A.builtins[m.id] || null),
         m.adult ? h("div", { class: "adult-tag" }, "Thème adulte") : null,
         h("h3", null, m.title), m.subtitle ? h("div", { class: "sub" }, m.subtitle) : null,
         h("p", null, m.summary),
@@ -987,11 +988,12 @@
           if (d.done) { finished = true; waitEnd(); return; }
           var buf = ac.createBuffer(1, d.audio.length, d.rate); buf.getChannelData(0).set(d.audio);
           var src = ac.createBufferSource(); src.buffer = buf; src.connect(ac.destination);
-          var at = Math.max(t + list[d.i].pause, ac.currentTime + 0.03); src.start(at); t = at + buf.duration;
+          var tone = list[d.i].tone || 0; if (tone) src.playbackRate.value = Math.pow(2, tone / 1200);
+          var at = Math.max(t + list[d.i].pause, ac.currentTime + 0.03); src.start(at); t = at + buf.duration / src.playbackRate.value;
           if (opts.onUnit) { var u = list[d.i]; setTimeout(function () { if (cur && cur.id === id) opts.onUnit(u); }, Math.max(0, (at - ac.currentTime) * 1000)); }
           sources.push(src); src.onended = function () { sources = sources.filter(function (x) { return x !== src; }); if (finished) waitEnd(); };
         };
-        getWorker().postMessage({ id: id, voice: model(opts.key), sentences: list.map(function (u) { return { text: u.text, voice: model(u.dial ? dialKey : opts.key) }; }), rate: opts.rate || 1 });
+        getWorker().postMessage({ id: id, voice: model(opts.key), sentences: list.map(function (u) { return { text: u.text, voice: model(u.dial && !(u.who && hash(u.who) % 2) ? dialKey : opts.key) }; }), rate: opts.rate || 1 });
       });
     };
     // The same voice without playing it: each sentence comes back as samples (the audio book).
@@ -1050,6 +1052,7 @@
         opts = opts || {};
         var mine = ++token; sy.cancel(); Neural.stop();
         var units = speechUnits(lines);
+        if (opts.dialogue && opts.story) castVoices(units, opts.story);
         // The default voice is the quality one when the reader installed it.
         var want = opts.voiceName || "", installed = Neural.keys().filter(Neural.has);
         var key = /^neural:/.test(want) ? want.slice(7) : !want ? installed[0] : null;
@@ -1070,9 +1073,10 @@
             if (mine !== token) return;
             return new Promise(function (res) {
               var u = new SpeechSynthesisUtterance(un.text); u.lang = opts.language || "fr-FR";
-              var v = un.dial && fr2 ? fr2 : fr; if (v) u.voice = v;
+              var v = un.dial && fr2 && !(un.who && hash(un.who) % 2) ? fr2 : fr; if (v) u.voice = v;
               if (opts.rate) u.rate = opts.rate;
               if (un.dial && opts.dialogue && !fr2) u.pitch = 1.25;
+              if (un.who) u.pitch = Math.max(0.5, Math.min(2, (u.pitch || 1) * Math.pow(2, un.tone / 1200)));
               u.onstart = function () { if (mine === token && opts.onUnit) opts.onUnit(un); };
               u.onend = res; u.onerror = res; tell("speaking"); sy.speak(u);
             });
@@ -1469,6 +1473,7 @@
   // Intent: once per new version, a short note of what changed (NEWS, newest first), only the versions the reader has
   // not seen on this device. Why: Clément, 13/11 (piste 33).
   var NEWS = [
+    { v: "7.4", items: ["Chaque livre a sa couverture.", "Une gravure ouvre chaque acte.", "Dés en relief : deux dés à dix faces roulent à l'écran (réglable).", "Plan de la ville dans la carte du carnet, avec les lieux déjà visités.", "Petites animations : étoiles, nuages, feu de camp.", "Chaque lieu a son petit air de musique, dans la tonalité de sa région.", "À la lecture à voix haute, un personnage nommé garde sa propre voix."] },
     { v: "7.3", items: ["Salle commune sur le site : chacun sur son appareil (tablette, téléphone), grâce au dossier de sauvegarde partagé ☁.", "Lire à plusieurs sur un même appareil : chacun son rôle (l'un lit, l'autre choisit) ou vote secret (bouton 👥).", "Suivre en direct la partie d'un autre lecteur (« En ce moment », dans la bibliothèque).", "Défis de la famille, et l'album des fins et des hauts faits trouvés par chacun."] },
     { v: "7.2", items: ["Jetons de destin : en mode « Sans retour », trois relances par acte pour un jet raté.", "Les adversaires peuvent prendre la fuite quand le combat tourne mal.", "À la fin d'un combat, quelques lignes racontent comment il s'est passé.", "Réglage « Conséquences muettes » : l'histoire ne dit plus quand un compagnon change d'avis sur toi.", "Cette page, à chaque nouvelle version."] },
     { v: "7.1", items: ["Sur tablette en paysage, le livre s'ouvre sur deux pages.", "Les pages se tournent ; on peut aussi glisser du doigt (à activer dans les Réglages).", "Thème « Lumière du soir » pour lire au lit.", "Temps de lecture estimé, pour chaque livre et chaque acte.", "Lecteur d'écran, fort contraste et couleurs pour daltoniens.", "Bilan de lecture de chaque lecteur, dans la bibliothèque."] },
@@ -1677,6 +1682,162 @@
     app.appendChild(w);
   }
 
+  // ------------------------------------------------------------------ book covers
+  // Intent: cover(StoryMeta) -> Element = a cover drawn by the device: a cloth colour, a gilt frame, the story's emblem
+  // (tag cover.motif: dedale, flocon, sceau, oeil, vanne, ecu, etoile), its title. Why: Clément, 13/11 (piste 16).
+  var COVER_CLOTHS = ["#5b2a2a", "#2f4a3a", "#2c3c5a", "#4f3a22", "#3d2d4d", "#4a4a2a", "#2a4a4d"];
+  var COVER_MOTIFS = {
+    dedale: function (g, s) { for (var i = 0; i < 5; i++) { var r = 8 + i * 9; g.appendChild(s("rect", { x: -r, y: -r, width: 2 * r, height: 2 * r, fill: "none", "stroke-dasharray": (r * 6) + " " + (6 + i * 2), "stroke-dashoffset": i * 11 })); } },
+    flocon: function (g, s) { for (var i = 0; i < 6; i++) { var a = i * 60; g.appendChild(s("path", { d: "M0 0 V-44 M0 -18 l-10 -10 M0 -18 l10 -10 M0 -32 l-8 -8 M0 -32 l8 -8", transform: "rotate(" + a + ")", fill: "none" })); } },
+    sceau: function (g, s) { g.appendChild(s("circle", { r: 40, fill: "none" })); g.appendChild(s("circle", { r: 32, fill: "none", "stroke-dasharray": "3 4" })); g.appendChild(s("path", { d: "M-16 14 L0 -20 L16 14 Z M-22 22 H22", fill: "none" })); },
+    oeil: function (g, s) { g.appendChild(s("path", { d: "M-44 0 Q0 -36 44 0 Q0 36 -44 0 Z", fill: "none" })); g.appendChild(s("circle", { r: 13, fill: "none" })); g.appendChild(s("circle", { r: 5 })); },
+    vanne: function (g, s) { g.appendChild(s("path", { d: "M-40 -30 V30 M40 -30 V30 M-40 -30 H40 M-30 -16 H30 V4 H-30 Z", fill: "none" })); for (var i = 0; i < 3; i++) g.appendChild(s("path", { d: "M-44 " + (16 + i * 8) + " q11 -6 22 0 t22 0 t22 0 t22 0", fill: "none" })); },
+    ecu: function (g, s) { g.appendChild(s("path", { d: "M-32 -36 H32 V0 Q32 28 0 42 Q-32 28 -32 0 Z", fill: "none" })); g.appendChild(s("path", { d: "M0 -36 V42 M-32 -6 H32", fill: "none" })); },
+    etoile: function (g, s) { g.appendChild(s("path", { d: "M0 -42 L10 -12 L42 -12 L16 6 L26 38 L0 18 L-26 38 L-16 6 L-42 -12 L-10 -12 Z", fill: "none" })); },
+  };
+  function cover(m, st) {
+    var NS = "http://www.w3.org/2000/svg", s = function (tag, a, kids) { var e = document.createElementNS(NS, tag); for (var k in a) e.setAttribute(k, a[k]); (kids || []).forEach(function (c) { e.appendChild(c); }); return e; };
+    var c = (st && st.cover) || m.cover || {}, hs = hash(m.id || m.title), cloth = c.color || COVER_CLOTHS[hs % COVER_CLOTHS.length], gold = "#d9b866";
+    var svgEl = s("svg", { viewBox: "0 0 200 300", class: "cover", role: "img", "aria-label": "Couverture : " + m.title });
+    svgEl.appendChild(s("rect", { width: 200, height: 300, rx: 6, fill: cloth }));
+    svgEl.appendChild(s("rect", { x: 0, y: 0, width: 14, height: 300, fill: "#000", opacity: ".18" }));
+    svgEl.appendChild(s("rect", { x: 22, y: 14, width: 166, height: 272, fill: "none", stroke: gold, "stroke-width": "1.4" }));
+    svgEl.appendChild(s("rect", { x: 27, y: 19, width: 156, height: 262, fill: "none", stroke: gold, "stroke-width": ".6" }));
+    var g = s("g", { transform: "translate(105 178)", stroke: gold, fill: gold, "stroke-width": "2", "stroke-linecap": "round" });
+    (COVER_MOTIFS[c.motif] || COVER_MOTIFS.etoile)(g, s); svgEl.appendChild(g);
+    // the title on up to three lines
+    var words = String(m.title).split(/\s+/), lines = [], line = "";
+    words.forEach(function (w) { if ((line + " " + w).trim().length > COVER_LINE && line) { lines.push(line); line = w; } else line = (line + " " + w).trim(); });
+    if (line) lines.push(line);
+    lines.slice(0, 3).forEach(function (l, i) { svgEl.appendChild(s("text", { x: 105, y: 60 + i * 22, "text-anchor": "middle", fill: gold, "font-size": "18", style: "font-family: var(--title)" })).textContent = l; });
+    var tx = svgEl.querySelectorAll("text"); tx.forEach(function (t, i) { t.textContent = lines[i]; });
+    return svgEl;
+  }
+  var COVER_LINE = 15;
+
+  // ------------------------------------------------------------------ voices for the characters
+  // Intent: castVoices([Unit], Story) -> () ! sets unit.who and unit.tone (cents) on the words of a character named
+  // in the same paragraph (« …, dit Brune. » or « Brune hausse les épaules. « … » »): each character keeps the same
+  // tone from page to page. Unnamed speakers keep the plain character voice. No guess at anyone's gender.
+  // Why: Clément, 13/11 (piste 17).
+  var VOICE_TONE_SPAN = 360, VOICE_TONE_MIN = 70;
+  function castVoices(units, st) {
+    var names = [];
+    [st.people || {}, st.companions || {}].forEach(function (box) { Object.keys(box).forEach(function (k) {
+      var n = String((box[k] || {}).name || ""); if (!n) return;
+      n.split(/\s+/).filter(function (w) { return w.length >= 3 && /^[A-ZÀ-Ý]/.test(w) && !/^(Le|La|Les|Du|De|Des|Dame|Maître|Mère|Père|Sire|Frère|Sœur)$/.test(w); }).slice(0, 1).forEach(function (w) { names.push({ re: new RegExp("(^|[^A-Za-zÀ-ÿ])" + w.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + "($|[^A-Za-zÀ-ÿ])"), key: k }); });
+    }); });
+    if (!names.length) return;
+    var byLine = {};
+    units.forEach(function (u, i) { (byLine[u.li] = byLine[u.li] || []).push(i); });
+    Object.keys(byLine).forEach(function (li) {
+      var idx = byLine[li], named = [];
+      idx.forEach(function (i) { if (units[i].dial) return; names.forEach(function (n) { if (n.re.test(units[i].text)) named.push({ i: i, key: n.key }); }); });
+      if (!named.length) return;
+      idx.forEach(function (i) {
+        if (!units[i].dial) return;
+        var best = named.slice().sort(function (a, b) { return Math.abs(a.i - i) + (a.i < i ? 0.5 : 0) - (Math.abs(b.i - i) + (b.i < i ? 0.5 : 0)); })[0];
+        var t = (hash("voix|" + best.key) % VOICE_TONE_SPAN) - VOICE_TONE_SPAN / 2; if (Math.abs(t) < VOICE_TONE_MIN) t = t < 0 ? -VOICE_TONE_MIN : VOICE_TONE_MIN;
+        units[i].who = best.key; units[i].tone = t;
+      });
+    });
+  }
+
+  // ------------------------------------------------------------------ dice in relief
+  // Intent: Dice3D.pair(n) -> Element = two ten-sided dice drawn in 3D on a canvas (tens and units of the d100 roll),
+  // tumbling for DICE3D_MS then lying on the result. Plain canvas, no library. Why: Clément, 13/11 (piste 18).
+  var DICE3D_MS = 950, DICE3D_PX = 46;
+  var Dice3D = (function () {
+    var H = 1, E = 0.105, V = [[0, H, 0], [0, -H, 0]], F = [];
+    for (var i = 0; i < 10; i++) { var a = i * Math.PI / 5, y = i % 2 ? -E : E; V.push([Math.cos(a), y, Math.sin(a)]); }
+    var ring = function (k) { return 2 + ((k % 10) + 10) % 10; };
+    for (var j = 0; j < 5; j++) { F.push([0, ring(2 * j), ring(2 * j + 1), ring(2 * j + 2)]); F.push([1, ring(2 * j + 1), ring(2 * j + 2), ring(2 * j + 3)]); }
+    function sub(a, b) { return [a[0] - b[0], a[1] - b[1], a[2] - b[2]]; }
+    function cross(a, b) { return [a[1] * b[2] - a[2] * b[1], a[2] * b[0] - a[0] * b[2], a[0] * b[1] - a[1] * b[0]]; }
+    function norm(a) { var l = Math.hypot(a[0], a[1], a[2]) || 1; return [a[0] / l, a[1] / l, a[2] / l]; }
+    function centroid(f) { var c = [0, 0, 0]; f.forEach(function (k) { c[0] += V[k][0] / 4; c[1] += V[k][1] / 4; c[2] += V[k][2] / 4; }); return c; }
+    var N = F.map(function (f) { var n = norm(cross(sub(V[f[1]], V[f[0]]), sub(V[f[3]], V[f[0]]))); var c = centroid(f); return n[0] * c[0] + n[1] * c[1] + n[2] * c[2] < 0 ? [-n[0], -n[1], -n[2]] : n; });
+    function axisRot(ax, t) { var c = Math.cos(t), s = Math.sin(t), x = ax[0], y = ax[1], z = ax[2], C = 1 - c; return [[c + x * x * C, x * y * C - z * s, x * z * C + y * s], [y * x * C + z * s, c + y * y * C, y * z * C - x * s], [z * x * C - y * s, z * y * C + x * s, c + z * z * C]]; }
+    function mul(A2, B) { var R = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]; for (var i = 0; i < 3; i++) for (var j = 0; j < 3; j++) for (var k = 0; k < 3; k++) R[i][j] += A2[i][k] * B[k][j]; return R; }
+    function ap(Rm, v) { return [Rm[0][0] * v[0] + Rm[0][1] * v[1] + Rm[0][2] * v[2], Rm[1][0] * v[0] + Rm[1][1] * v[1] + Rm[1][2] * v[2], Rm[2][0] * v[0] + Rm[2][1] * v[1] + Rm[2][2] * v[2]]; }
+    // the rotation that turns face k towards the viewer (+z)
+    function facing(k) { var n = N[k], z = [0, 0, 1], ax = cross(n, z), s = Math.hypot(ax[0], ax[1], ax[2]); if (s < 1e-6) return axisRot([1, 0, 0], 0); return axisRot(norm(ax), Math.atan2(s, n[2])); }
+    function drawDie(cx, R, label, colors, size) {
+      var dpr = window.devicePixelRatio || 1, W = size * dpr, sc = W * 0.36;
+      cx.clearRect(0, 0, W, W);
+      var P = V.map(function (v) { var p = ap(R, v); return [W / 2 + p[0] * sc, W / 2 - p[1] * sc, p[2]]; });
+      var order = F.map(function (f, k) { return { f: f, k: k, z: f.reduce(function (z, i) { return z + P[i][2]; }, 0) }; }).sort(function (a, b) { return a.z - b.z; });
+      order.forEach(function (o) {
+        var n = ap(R, N[o.k]); if (n[2] <= 0) return;
+        cx.beginPath(); o.f.forEach(function (i, j) { if (j) cx.lineTo(P[i][0], P[i][1]); else cx.moveTo(P[i][0], P[i][1]); }); cx.closePath();
+        cx.fillStyle = colors[0]; cx.fill(); cx.fillStyle = "rgba(0,0,0," + (0.45 * (1 - n[2])).toFixed(3) + ")"; cx.fill();
+        cx.strokeStyle = colors[2]; cx.lineWidth = dpr; cx.stroke();
+        if (n[2] > 0.55) {
+          var c = o.f.reduce(function (a2, i) { return [a2[0] + P[i][0] / 4, a2[1] + P[i][1] / 4]; }, [0, 0]);
+          cx.fillStyle = colors[1]; cx.font = "600 " + Math.round(W * (label(o.k).length > 1 ? 0.2 : 0.26)) + "px system-ui, sans-serif"; cx.textAlign = "center"; cx.textBaseline = "middle";
+          cx.globalAlpha = Math.min(1, (n[2] - 0.55) * 3); cx.fillText(label(o.k), c[0], c[1] + (o.f[0] === 0 ? W * 0.03 : -W * 0.03)); cx.globalAlpha = 1;
+        }
+      });
+    }
+    function one(value, tens, colors) {
+      var cv = document.createElement("canvas"), dpr = window.devicePixelRatio || 1; cv.width = cv.height = DICE3D_PX * dpr; cv.className = "die3d"; cv.setAttribute("aria-hidden", "true");
+      var faceOf = function (v) { return (v * 3) % 10; }, valOf = []; for (var v = 0; v < 10; v++) valOf[faceOf(v)] = v;
+      var label = function (k) { var v = valOf[k]; return tens ? (v === 0 ? "00" : String(v * 10)) : String(v); };
+      var Rf = mul(axisRot([0, 0, 1], (Math.random() - 0.5) * 0.5), facing(faceOf(value))), ax = norm([Math.random() - 0.5, Math.random() - 0.5, Math.random() - 0.5]), spins = 3 + Math.random() * 3, t0 = null;
+      var cx = cv.getContext("2d"); if (!cx) return cv;
+      var frame = function (ts) {
+        if (t0 == null) t0 = ts; var k = Math.min(1, (ts - t0) / DICE3D_MS), e = 1 - Math.pow(1 - k, 3);
+        drawDie(cx, mul(Rf, axisRot(ax, (1 - e) * spins * Math.PI * 2)), label, colors, DICE3D_PX);
+        if (k < 1 && cv.isConnected !== false) requestAnimationFrame(frame);
+      };
+      if (A.rollAnim && !REDUCED) requestAnimationFrame(frame); else drawDie(cx, Rf, label, colors, DICE3D_PX);
+      return cv;
+    }
+    return {
+      pair: function (n) {
+        var cs = getComputedStyle(document.documentElement), col = function (v, d) { return (cs.getPropertyValue(v) || "").trim() || d; };
+        var m = ((n % 100) + 100) % 100;
+        return h("span", { class: "dice3d", role: "img", "aria-label": "Dés : " + n },
+          one(Math.floor(m / 10), true, [col("--accent", "#2c7464"), col("--accent-ink", "#fff"), col("--ink", "#222")]),
+          one(m % 10, false, [col("--paper", "#f7f7f1"), col("--ink", "#222"), col("--ink", "#222")]));
+      },
+    };
+  })();
+
+  // ------------------------------------------------------------------ plan of a town
+  // Intent: townPlan(Story, State) -> Element? = the places of the town where the hero is, drawn as a little plan: the
+  // square in the middle, one house per page already read there, the street to it; « tu es ici » on the current one.
+  // Only what was seen. Why: Clément, 13/11 (piste 13).
+  var PLAN_MIN = 3, PLAN_MAX = 12, PLAN_LABEL = 22;
+  function townPlan(st, s) {
+    var plId = s.place; if (!plId || s.travel) return null;
+    var pl = ((st.world || {}).places || {})[plId] || {}, P = st.passages || {};
+    var seenT = {}, spots = [];
+    Object.keys(P).forEach(function (k) { var p = P[k]; if (p.place !== plId || !s.seen[k] || !p.title || p.end || k === pl.arrive || seenT[p.title]) return; seenT[p.title] = 1; spots.push({ id: k, title: p.title }); });
+    if (spots.length < PLAN_MIN) return null;
+    spots = spots.slice(0, PLAN_MAX);
+    var NS = "http://www.w3.org/2000/svg", S = function (tag, a, txt) { var e = document.createElementNS(NS, tag); for (var k in a) e.setAttribute(k, a[k]); if (txt != null) e.textContent = txt; return e; };
+    var W = 600, Hh = 380, cx = W / 2, cy = Hh / 2, R = 140, svgEl = S("svg", { viewBox: "0 0 " + W + " " + Hh, class: "town-plan", role: "img", "aria-label": "Plan de " + (pl.name || plId) });
+    svgEl.appendChild(S("rect", { width: W, height: Hh, fill: "var(--paper-2)", rx: 10 }));
+    if (/eau|mer/.test(pl.ambiance || "")) svgEl.appendChild(S("path", { d: "M0 " + (Hh - 40) + " Q150 " + (Hh - 70) + " 300 " + (Hh - 45) + " T600 " + (Hh - 50) + " V" + Hh + " H0 Z", fill: "var(--vig-water)" }));
+    var r = (function () { var x = hash(st.id + plId) || 1; return function () { x = (x * 1103515245 + 12345) % 2147483648; return x / 2147483648; }; })();
+    spots.forEach(function (sp, i) {
+      var a = -Math.PI / 2 + i * 2 * Math.PI / spots.length + (r() - 0.5) * 0.3, rr = R * (0.85 + r() * 0.3);
+      sp.x = cx + Math.cos(a) * rr * 1.5; sp.y = cy + Math.sin(a) * rr * 0.9;
+      svgEl.appendChild(S("path", { d: "M" + cx + " " + cy + " Q" + (cx + (sp.x - cx) * 0.5 + (r() - 0.5) * 40) + " " + (cy + (sp.y - cy) * 0.5 + (r() - 0.5) * 40) + " " + sp.x + " " + sp.y, stroke: "var(--line)", "stroke-width": 9, fill: "none", "stroke-linecap": "round" }));
+    });
+    svgEl.appendChild(S("ellipse", { cx: cx, cy: cy, rx: 46, ry: 30, fill: "var(--paper)", stroke: "var(--line)", "stroke-width": 2 }));
+    svgEl.appendChild(S("text", { x: cx, y: cy + 5, "text-anchor": "middle", "font-size": 15, fill: "var(--ink)", style: "font-family: var(--title)" }, pl.name || ""));
+    spots.forEach(function (sp) {
+      var here = s.node === sp.id || s.ret === sp.id;
+      svgEl.appendChild(S("path", { d: "M" + (sp.x - 15) + " " + (sp.y + 10) + " V" + (sp.y - 6) + " L" + sp.x + " " + (sp.y - 18) + " L" + (sp.x + 15) + " " + (sp.y - 6) + " V" + (sp.y + 10) + " Z", fill: here ? "var(--accent)" : "var(--paper)", stroke: "var(--ink)", "stroke-width": 1.5 }));
+      var t = sp.title.length > PLAN_LABEL ? sp.title.slice(0, PLAN_LABEL - 1) + "…" : sp.title;
+      svgEl.appendChild(S("text", { x: sp.x, y: sp.y + 28, "text-anchor": "middle", "font-size": 13, fill: "var(--ink)", stroke: "var(--paper-2)", "stroke-width": 3, "paint-order": "stroke" }, t));
+      if (here) svgEl.appendChild(S("text", { x: sp.x, y: sp.y - 24, "text-anchor": "middle", "font-size": 12, fill: "var(--accent)", "font-weight": 600 }, "tu es ici"));
+    });
+    return h("div", { class: "stack tight" }, h("h3", { class: "sub-h" }, "Plan de " + (pl.name || plId)), h("div", { class: "scrollx" }, svgEl));
+  }
+
   function renderGame() {
     var G = A.game, st = G.story, s = G.s, v = G.multi ? multiView() : M.view(st, s);
     var pvMax = M.pvMax(s);
@@ -1700,7 +1861,8 @@
     var page = h("article", { class: "page read" + (turnIn ? " turn-in" : ""), "aria-labelledby": "page-title" });
     if (pref("swipe") && !G.multi) swipeOn(page, v, G);
     var num = v.passage ? paraNum(st, s.node) : null;
-    var vig = Vignette.of(st, s); if (vig) page.appendChild(vig);
+    var actFirst = cur >= 0 && acts[cur].start === s.node && !G.multi;
+    var vig = actFirst ? Vignette.engraving(st, s, acts[cur].title) : Vignette.of(st, s); if (vig) page.appendChild(vig);
     if (s.travel) { noteRoad(G, v); var trip = renderTravelStrip(st, s, G); if (trip) page.appendChild(trip); }
     var rc = A.recap && !G.multi ? renderRecap(G) : null, nr = A.recap && !G.multi && !G.ephemeral ? notesRecap(G) : null;
     if (rc) { if (nr) rc.appendChild(nr); page.appendChild(rc); }
@@ -2777,7 +2939,7 @@
     var o = { language: "fr-FR", rate: pref("rate") || 1 };
     if (A.tts.browser) {
       // The device's voices read sentence by sentence: the text lights up as it goes, the « » may get their own voice.
-      o.voiceName = pref("voice") || ""; o.dialogue = !!pref("dialogue"); o.onUnit = Reading.onUnit;
+      o.voiceName = pref("voice") || ""; o.dialogue = !!pref("dialogue"); o.onUnit = Reading.onUnit; o.story = A.game && A.game.story;
       var seq = ++readSeq;
       A.tts.speak(lines, o).catch(function () {}).then(function () {
         A.speaking = false; Reading.unit = null; render();
@@ -3546,6 +3708,7 @@
     root.appendChild(svg("text", { x: 93.3, y: 3.4, "font-size": 2.4, fill: "var(--muted)" }, "N"));
     b.appendChild(h("div", { class: "map" }, root));
     Object.keys(places).forEach(function (k) { if (s.known[k] && onMap(k)) b.appendChild(h("div", { class: "small" }, h("b", null, places[k].name), " · ", h("span", { class: "muted" }, places[k].desc || ""))); });
+    var tpl = townPlan(st, s); if (tpl) b.appendChild(tpl);
   }
   // Little drawn signs for the map, by place ambiance (centred on the place, about 4 units wide).
   var MAP_ICONS = {
@@ -3594,7 +3757,7 @@
   // ------------------------------------------------------------------ reading preferences (per reader)
   // Intent: pref(Key) -> Value = the reader's own setting, else the default
   // Why: Clément (12/11): text size, spacing, theme, voice, real dice, sound… follow the reader, not the device.
-  var PREFS = { skin: "histoire", size: "m", spacing: "normal", theme: "auto", font: "livre", lettrine: true, voice: "", highlight: true, ruler: false, dialogue: false, glossary: true, nudge: false, syllables: false, voiceChoice: false, autoListen: true, battlePlan: true, relations: true, urgent: true, sfx: true, shakeDice: false, fog: true, rate: 1, autoRead: false, dice: "ecran", ambiance: false, music: false, volume: 0.6, spread: "auto", pageTurn: true, swipe: false, contrast: false, cvd: false, quietFx: false };
+  var PREFS = { skin: "histoire", size: "m", spacing: "normal", theme: "auto", font: "livre", lettrine: true, voice: "", highlight: true, ruler: false, dialogue: false, glossary: true, nudge: false, syllables: false, voiceChoice: false, autoListen: true, battlePlan: true, relations: true, urgent: true, sfx: true, shakeDice: false, fog: true, rate: 1, autoRead: false, dice: "ecran", ambiance: false, music: false, volume: 0.6, spread: "auto", pageTurn: true, swipe: false, contrast: false, cvd: false, quietFx: false, dice3d: true };
   var SIZES = { s: ["Petit", 16], m: ["Normal", 18], l: ["Grand", 21], xl: ["Très grand", 24] };
   var SPACINGS = { serre: ["Serré", 1.5], normal: ["Normal", 1.72], aere: ["Aéré", 2] };
   var THEMES = { auto: "Comme l'appareil", light: "Clair", sepia: "Sépia", dark: "Sombre", soir: "Lumière du soir" };
@@ -3735,10 +3898,11 @@
         A.tts.browser ? renderNeural() : null,
         natural || Neural.manifest ? null : h("p", { class: "small muted" }, "Cet appareil n'a pas de voix française naturelle. Sur iPhone ou iPad : Réglages → Accessibilité → Contenu énoncé → Voix → Français, puis télécharger une voix « améliorée » ou « premium ». Sur Android : installer « Services vocaux de Google ». Sur ordinateur, Edge propose des voix naturelles."),
         A.tts.browser ? prefToggle("highlight", "Surligner la phrase lue", "La phrase que la voix lit s'éclaire dans le texte.") : null,
-        A.tts.browser ? prefToggle("dialogue", "Une autre voix pour les personnages", "Le récit est lu par une voix, les paroles entre « » par une autre. Avec les voix de qualité, installe les deux.") : null,
+        A.tts.browser ? prefToggle("dialogue", "Des voix pour les personnages", "Le récit est lu par une voix, les paroles entre « » par une autre ; un personnage nommé garde sa propre voix d'une page à l'autre. Avec les voix de qualité, installe les deux.") : null,
         h("label", { class: "toggle" }, h("input", { type: "checkbox", checked: pref("autoRead"), onchange: function (e) { setPref("autoRead", e.target.checked); } }), h("span", null, h("b", null, "Lire chaque page à voix haute"), h("br"), h("span", { class: "small muted" }, "Après chaque choix, la page suivante est lue sans appuyer sur rien.")))));
     }
     b.appendChild(seg({ ecran: "L'écran lance", vrais: "Je lance mes dés" }, "dice", "Les dés"));
+    b.appendChild(prefToggle("dice3d", "Dés en relief", "Deux dés à dix faces roulent à l'écran, les dizaines et les unités."));
     b.appendChild(h("p", { class: "small muted" }, "Avec tes dés : deux dés à dix faces, un pour les dizaines, un pour les unités (00 = 100). Tu tapes le résultat, le livre fait le calcul. Les compagnons et les adversaires lancent toujours à l'écran."));
     if (Shake.available()) b.appendChild(h("label", { class: "toggle" }, h("input", { type: "checkbox", checked: !!pref("shakeDice"), onchange: function (e) {
       var on = e.target.checked; if (!on) { setPref("shakeDice", false); return; }
@@ -3847,6 +4011,7 @@
     if (!/roll/.test(e.cls || "")) return null;
     var n = e.roll ? e.roll.die : +((/d100 ouvert (?:\([^)]*\) )?(-?\d+)/.exec(e.text) || [])[1]);
     if (!(n === n) || n == null) return null;
+    if (pref("dice3d") && typeof HTMLCanvasElement !== "undefined") return Dice3D.pair(n);
     var el = h("span", { class: "die", "aria-hidden": "true" }, String(n));
     if (A.rollAnim && !REDUCED) {
       el.classList.add("rolling"); var k = 0;
@@ -5189,12 +5354,27 @@
     function peaks(r, y, n, hgt) { var d = "M0 90 L0 " + y, x = 0; for (var i = 0; i < n; i++) { var w = 600 / n, top = y - hgt * (0.5 + r() * 0.5); d += " L" + (x + w * (0.3 + r() * 0.4)).toFixed(1) + " " + top.toFixed(1) + " L" + (x + w).toFixed(1) + " " + (y - r() * 8).toFixed(1); x += w; } return d + " L600 90 Z"; }
     function pines(r, y, n, hgt) { var d = ""; for (var i = 0; i < n; i++) { var x = r() * 600, hh = hgt * (0.6 + r() * 0.6), w = hh * 0.35; d += "M" + (x - w).toFixed(1) + " " + y + " L" + x.toFixed(1) + " " + (y - hh).toFixed(1) + " L" + (x + w).toFixed(1) + " " + y + " Z "; } return d; }
     function roofs(r, y, n) { var d = "", x = 10; for (var i = 0; i < n && x < 590; i++) { var w = 26 + r() * 30, hh = 14 + r() * 16, rh = 10 + r() * 10; d += "M" + x + " 90 L" + x + " " + (y - hh) + " L" + (x + w / 2) + " " + (y - hh - rh) + " L" + (x + w) + " " + (y - hh) + " L" + (x + w) + " 90 Z "; if (r() < 0.3) d += "M" + (x + w * 0.7) + " " + (y - hh - rh * 0.6) + " h4 v-8 h-4 Z "; x += w + 2 + r() * 14; } return d; }
-    function draw(kind, night, seed) {
-      var r = rnd(seed), svgEl = s("svg", { viewBox: "0 0 600 90", preserveAspectRatio: "xMidYMax slice", class: "vignette", role: "img", "aria-label": "Vignette : " + kind });
+    // o.engrave: drawn in ink hatching, like an old engraving (the head of a chapter); o.camp: a fire in front.
+    function draw(kind, night, seed, o) {
+      o = o || {};
+      var r = rnd(seed), svgEl = s("svg", { viewBox: "0 0 600 90", preserveAspectRatio: "xMidYMax slice", class: o.engrave ? "gravure-art" : "vignette", role: "img", "aria-label": (o.engrave ? "Gravure : " : "Vignette : ") + kind });
       var far = { fill: "var(--vig-far)" }, mid = { fill: "var(--vig-mid)" }, near = { fill: "var(--vig-near)" };
-      svgEl.appendChild(s("rect", { x: 0, y: 0, width: 600, height: 90, fill: "var(--vig-sky)" }));
-      if (night) { svgEl.appendChild(s("circle", { cx: 80 + r() * 440, cy: 18, r: 7, fill: "var(--vig-moon)" })); for (var i = 0; i < 18; i++) svgEl.appendChild(s("circle", { cx: r() * 600, cy: r() * 40, r: 0.7, fill: "var(--vig-moon)" })); }
-      else svgEl.appendChild(s("circle", { cx: 80 + r() * 440, cy: 22, r: 9, fill: "var(--vig-sun)" }));
+      if (o.engrave) {
+        var pid = "h" + seed, defs = s("defs");
+        [["a", 7, 45, 0.6], ["b", 4, -45, 0.8], ["c", 2.6, 45, 1]].forEach(function (x) {
+          defs.appendChild(s("pattern", { id: pid + x[0], width: x[1], height: x[1], patternUnits: "userSpaceOnUse", patternTransform: "rotate(" + x[2] + ")" }, [s("line", { x1: 0, y1: 0, x2: 0, y2: x[1], stroke: "var(--ink)", "stroke-width": x[3] })]));
+        });
+        svgEl.appendChild(defs);
+        far = { fill: "url(#" + pid + "a)", stroke: "var(--ink)", "stroke-width": ".6" }; mid = { fill: "url(#" + pid + "b)", stroke: "var(--ink)", "stroke-width": ".7" }; near = { fill: "url(#" + pid + "c)", stroke: "var(--ink)", "stroke-width": ".8" };
+      }
+      svgEl.appendChild(s("rect", { x: 0, y: 0, width: 600, height: 90, fill: o.engrave ? "var(--paper)" : "var(--vig-sky)" }));
+      if (night) {
+        svgEl.appendChild(s("circle", { cx: 80 + r() * 440, cy: 18, r: 7, fill: o.engrave ? "none" : "var(--vig-moon)", stroke: o.engrave ? "var(--ink)" : "none" }));
+        for (var i = 0; i < 18; i++) svgEl.appendChild(s("circle", { cx: r() * 600, cy: r() * 40, r: 0.7, fill: o.engrave ? "var(--ink)" : "var(--vig-moon)", class: "tw", style: "animation-delay:" + (r() * 4).toFixed(2) + "s" }));
+      } else {
+        svgEl.appendChild(s("circle", { cx: 80 + r() * 440, cy: 22, r: 9, fill: o.engrave ? "none" : "var(--vig-sun)", stroke: o.engrave ? "var(--ink)" : "none", class: "sun" }));
+        if (!o.engrave && kind !== "souterrain") for (var cl = 0; cl < 2; cl++) svgEl.appendChild(s("ellipse", { cx: r() * 600, cy: 10 + r() * 20, rx: 26 + r() * 20, ry: 4 + r() * 3, fill: "var(--paper)", opacity: ".55", class: "cloud", style: "animation-delay:-" + (r() * 60).toFixed(1) + "s" }));
+      }
       var P = function (d, a) { var o = { d: d }; for (var k in a) o[k] = a[k]; svgEl.appendChild(s("path", o)); };
       switch (kind) {
         case "montagne": case "neige": P(peaks(r, 70, 5, 55), far); P(peaks(r, 82, 7, 30), mid); if (kind === "neige") P(peaks(r, 84, 9, 10), { fill: "var(--vig-sky)", opacity: ".5" }); break;
@@ -5207,10 +5387,21 @@
         case "combat": P(peaks(r, 80, 9, 30), far); P(ridge(r, 88, 6, 30), mid); for (var k = 0; k < 6; k++) P("M" + (100 + r() * 400) + " 90 l" + (r() * 30 - 15) + " -" + (30 + r() * 30) + " l2 0 Z", near); break;
         default: P(ridge(r, 64, 10, 8), far); P(ridge(r, 78, 8, 14), mid); P("M300 90 L292 66 L308 66 Z", { fill: "var(--vig-sky)", opacity: ".7" }); P(ridge(r, 88, 3, 20), near);
       }
+      if (o.camp) {
+        P("M280 90 l20 -8 l20 8 Z M284 88 l32 -6 M284 82 l32 6", { fill: "var(--vig-near)", stroke: "var(--vig-near)", "stroke-width": "2" });
+        svgEl.appendChild(s("path", { d: "M300 80 C292 72 296 64 300 56 C302 64 310 68 304 80 Z", fill: "var(--gold)", class: "flame" }));
+        svgEl.appendChild(s("path", { d: "M300 80 C297 75 298 70 300 66 C301 71 305 74 302 80 Z", fill: "var(--paper)", opacity: ".8", class: "flame f2" }));
+      }
       return svgEl;
     }
     return {
-      of: function (st, st8) { var kind = M.ambianceOf(st, st8); if (!kind) return null; return draw(kind, M.isNightNow(st8), hash(st.id + (st8.place || st8.node || "") + kind)); },
+      of: function (st, st8) { var camp = st8.node === "@camp", kind = M.ambianceOf(st, st8) || (camp ? "foret" : null); if (!kind) return null; return draw(kind, M.isNightNow(st8) || camp, hash(st.id + (st8.place || st8.node || "") + kind), { camp: camp }); },
+      // The engraving at the head of a chapter: the act's first page, in ink.
+      engraving: function (st, st8, title) {
+        var kind = M.ambianceOf(st, st8) || "default", fig = h("figure", { class: "gravure" });
+        fig.appendChild(draw(kind, M.isNightNow(st8), hash(st.id + "|gravure|" + (st8.lastAct || "") + kind), { engrave: true }));
+        fig.appendChild(h("figcaption", null, title)); return fig;
+      },
       // A place's own vignette, for the atlas.
       place: function (st, id) { var pl = st.world.places[id] || {}, rg = ((st.world.regions || {})[pl.region] || {}); var kind = pl.ambiance || rg.ambiance; return kind ? draw(kind, false, hash(st.id + id + kind)) : null; },
     };
@@ -5311,8 +5502,9 @@
     var ctx = null, out = null, cur = null, timer = null, plan = null;
     function rng(seed) { var x = hash(seed) || 1; return function () { x ^= x << 13; x ^= x >>> 17; x ^= x << 5; return ((x >>> 0) % 10000) / 10000; }; }
     // A tune: 4 phrases of 8 steps (A A' B A), a note or a rest per step, the bass on each bar.
-    function compose(key, mood) {
-      var R = rng("musique|" + key), mode = MUSIC_MODES[mood[0]], root = 196 * Math.pow(2, Math.floor(R() * 5) / 12);
+    // A place's tune keeps its region's key (family) and has its own motif (7th series: a theme for each place).
+    function compose(key, mood, family) {
+      var R0 = rng("musique|" + (family || key)), R = rng("musique|" + key), mode = MUSIC_MODES[mood[0]], root = 196 * Math.pow(2, Math.floor(R0() * 5) / 12);
       var motif = [], deg = 0;
       for (var i = 0; i < 8; i++) { deg = Math.max(-2, Math.min(mode.length + 2, deg + Math.round(R() * 4 - 2))); motif.push(R() < (mood[0] === "combat" ? 0.12 : 0.28) && i % 4 ? null : deg); }
       var vary = motif.map(function (d, i) { return i >= 6 && d != null ? d + (R() < 0.5 ? 1 : -1) : d; });
@@ -5329,8 +5521,8 @@
     }
     function drum(t) { var o = ctx.createOscillator(), g = ctx.createGain(); o.frequency.setValueAtTime(110, t); o.frequency.exponentialRampToValueAtTime(45, t + 0.25); g.gain.setValueAtTime(0.5, t); g.gain.exponentialRampToValueAtTime(0.0001, t + 0.3); o.connect(g); g.connect(out); o.start(t); o.stop(t + 0.35); }
     function stop() { if (timer) clearInterval(timer); timer = null; plan = null; cur = null; }
-    function play(key, mood) {
-      stop(); cur = key; var T = compose(key, mood), i = 0, t = ctx.currentTime + 0.1;
+    function play(key, mood, family) {
+      stop(); cur = key; var T = compose(key, mood, family), i = 0, t = ctx.currentTime + 0.1;
       plan = T;
       timer = setInterval(function () {
         while (t < ctx.currentTime + MUSIC_AHEAD_S) {
@@ -5347,12 +5539,14 @@
       // what plays now (for the tests)
       now: function () { return cur; },
       update: function () {
-        var G = A.game, want = null, mood = null;
+        var G = A.game, want = null, mood = null, family = null;
         if (pref("music") && G && A.screen === "game" && !document.hidden) {
           var kind = M.ambianceOf(G.story, G.s) || (M.isNightNow(G.s) ? "nuit" : "village");
           var pl = ((G.story.world || {}).places || {})[((G.story.passages || {})[G.s.node] || {}).place || G.s.place] || {};
           mood = MUSIC_MOODS[kind] || MUSIC_MOODS.village;
-          want = kind === "combat" ? "combat" : (pl.region ? "region:" + pl.region : "ambiance:" + kind) + (kind === "nuit" ? ":nuit" : "");
+          var plId = ((G.story.passages || {})[G.s.node] || {}).place || G.s.place;
+          family = G.story.id + "|" + (pl.region ? "region:" + pl.region : "ambiance:" + kind);
+          want = kind === "combat" ? "combat" : (plId && !G.s.travel ? "lieu:" + plId : pl.region ? "region:" + pl.region : "ambiance:" + kind) + (kind === "nuit" ? ":nuit" : "");
           want = G.story.id + "|" + want;
         }
         if (!want) { if (cur) stop(); return; }
@@ -5360,7 +5554,7 @@
           if (!ctx) { var AC = window.AudioContext || window.webkitAudioContext; if (!AC) return; ctx = new AC(); out = ctx.createGain(); out.connect(ctx.destination); }
           if (ctx.state === "suspended") ctx.resume();
           out.gain.value = Math.max(0, Math.min(1, +pref("volume"))) * MUSIC_GAIN;
-          if (want !== cur) play(want, mood);
+          if (want !== cur) play(want, mood, family);
         } catch (e) { /* no sound on this device */ }
       },
     };

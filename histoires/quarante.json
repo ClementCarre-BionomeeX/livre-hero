@@ -14,6 +14,10 @@
   ]
  },
  "skin": "enluminure",
+ "cover": {
+  "motif": "sceau",
+  "color": "#2f4a3a"
+ },
  "glossary": {
   "vasque|vasques": "Grand bassin de pierre peu profond, où coule une fontaine.",
   "oriel|oriels": "Fenêtre qui avance sur la façade, comme un petit balcon fermé.",

@@ -8,6 +8,7 @@ module.exports = {
   summary: "Tu te réveilles dans un hospice de montagne, la main brûlée, une plaie à la tempe. On t'a trouvé dans la neige à l'aube. À un jour de marche, aux Combes, une famille entière est morte dans sa maison en flammes. Tu ne te souviens pas des trois derniers jours. Le prévôt monte déjà, malgré la tempête, pour te demander ce que tu as vu, ou ce que tu as fait.",
   adult: { themes: ["Meurtre d'une famille, mort d'enfants", "Mémoire, culpabilité, aveux", "Emprise et manipulation par un médecin", "Dépendance au laudanum", "Deuil", "Justice expéditive"] },
   skin: "givre",
+  cover: { motif: "oeil", color: "#3d2d4d" },
   glossary: require("../glossaire.js"),
   voice: "deuxième personne, présent",
   version: 1,

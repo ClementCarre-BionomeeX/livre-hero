@@ -4,6 +4,10 @@
  "subtitle": "Trois actes · un village trop accueillant, un dédale, une source",
  "summary": "Ton frère Aurèle a pris la route du sud il y a sept ans et n'est jamais revenu. Sa trace s'arrête à Kardan, un village vert au milieu d'une vallée sèche, adossé à une colline creusée d'un immense labyrinthe. On t'y reçoit comme un prince.",
  "skin": "sable",
+ "cover": {
+  "motif": "dedale",
+  "color": "#4f3a22"
+ },
  "glossary": {
   "vasque|vasques": "Grand bassin de pierre peu profond, où coule une fontaine.",
   "oriel|oriels": "Fenêtre qui avance sur la façade, comme un petit balcon fermé.",
