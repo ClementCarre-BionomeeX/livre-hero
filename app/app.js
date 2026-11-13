@@ -238,6 +238,7 @@
     }).catch(function () { /* offline: nothing to say */ });
   }
   function renderHome() {
+    if (!A.newsDone) { A.newsDone = true; var nw = newsToShow(); if (nw.length && !A.modal) A.modal = { kind: "news", news: nw }; }
     var stories = allStories();
     app.appendChild(topBar([h("span", { class: "brand grow" }, "Livre-jeu"),
       Sync.on() ? h("button", { class: "pill small", title: "Les lecteurs et les parties se retrouvent sur chaque appareil branché.", onclick: function () { A.modal = { kind: "sync" }; render(); } }, Sync.busy ? "☁ Synchronisation…" : Sync.error ? "☁ Dossier partagé ⚠" : "☁ Dossier partagé") : h("span", { class: "pill small", title: Store.mode === "db" ? "Les profils, parties et histoires importées suivent ce lien sur tous les appareils." : "Rien n'est partagé : tout reste dans ce navigateur." }, Store.mode === "db" ? "Sauvegardes partagées" : "Sauvegardes dans ce navigateur")]));
@@ -1308,6 +1309,7 @@
     if (dt > 0) { var dk = dayKey(now), days = G.doc.days = G.doc.days || {}; days[dk] = (days[dk] || 0) + dt; }
     var closed = actTrack(G, act0); if (closed && !A.modal) A.modal = { kind: "chapter", act: closed };
     if (!/^jeu/.test(c.sys || "")) logStep(c.label, others);   // a game of dice at the inn is not a page of the story
+    G.fate = G.s.ironman && !/^jeu/.test(c.sys || "") ? { snap: snap, label: c.label, sys: c.sys || "", act: act0 || "", turn: G.s.turn } : null;
     persist(); bedtimeAfterChoice(); render();
     if (fight0 && fight0.hits && fight0.hits.length) { var partyIds = {}; M.partyView(G.story, G.s).forEach(function (m) { partyIds[m.who] = 1; }); Sfx.blows(fight0.hits, function (k) { return !!partyIds[k]; }); }
     var top = document.querySelector(".page"); if (top) top.scrollIntoView({ block: "start", behavior: REDUCED ? "auto" : "smooth" });
@@ -1430,6 +1432,54 @@
     return sec;
   }
 
+  // ------------------------------------------------------------------ fate tokens (Sans retour)
+  // Intent: in a « Sans retour » game, FATE_PER_ACT tokens an act let the reader throw again a roll that failed: the
+  // state goes back to before the choice and the same choice is made again with new dice. Elsewhere the reader can
+  // already go back to the previous choice, so tokens exist only where nothing else can undo.
+  // Why: Clément, 13/11 (piste 26).
+  var FATE_PER_ACT = 3;
+  function fateLeft(s) { return Math.max(0, FATE_PER_ACT - ((s.destin || {})[s.lastAct || ""] || 0)); }
+  function fateButton(G) {
+    var f = G.fate, s = G.s; if (!f || !s.ironman || f.turn !== s.turn || G.multi) return null;
+    if (!(s.events || []).some(function (e) { return /\bbad\b/.test(e.cls || "") && /\broll\b/.test(e.cls || ""); })) return null;
+    var left = fateLeft(s);
+    return h("div", { class: "fate" }, h("button", { class: "btn sm", disabled: !left, onclick: function () { useFate(G); } }, "🎲 Jeton de destin : relancer"),
+      h("span", { class: "small muted" }, left ? left + " jeton" + (left > 1 ? "s" : "") + " pour cet acte" : "Plus de jeton pour cet acte"));
+  }
+  function useFate(G) {
+    var f = G.fate; if (!f) return;
+    var back = upgradeState(G.story, JSON.parse(f.snap)); back.destin = back.destin || {}; back.destin[f.act] = (back.destin[f.act] || 0) + 1;
+    var c = M.view(G.story, back).choices.filter(function (x) { return x.label === f.label && (x.sys || "") === f.sys && x.ok; })[0];
+    if (!c) { flash("Ce jet ne peut pas être relancé.", true); return; }
+    G.s = back; G.fate = null; if (G.log.length) G.log.pop(); if (G.recit && G.recit.pages.length > 1) G.recit.pages.pop();
+    pick(c);
+    G.s.events.unshift({ text: "🎲 Le destin relance les dés.", cls: "", pre: 1 });
+    render();
+  }
+
+  // ------------------------------------------------------------------ what is new
+  // Intent: once per new version, a short note of what changed (NEWS, newest first), only the versions the reader has
+  // not seen on this device. Why: Clément, 13/11 (piste 33).
+  var NEWS = [
+    { v: "7.2", items: ["Jetons de destin : en mode « Sans retour », trois relances par acte pour un jet raté.", "Les adversaires peuvent prendre la fuite quand le combat tourne mal.", "À la fin d'un combat, quelques lignes racontent comment il s'est passé.", "Réglage « Conséquences muettes » : l'histoire ne dit plus quand un compagnon change d'avis sur toi.", "Cette page, à chaque nouvelle version."] },
+    { v: "7.1", items: ["Sur tablette en paysage, le livre s'ouvre sur deux pages.", "Les pages se tournent ; on peut aussi glisser du doigt (à activer dans les Réglages).", "Thème « Lumière du soir » pour lire au lit.", "Temps de lecture estimé, pour chaque livre et chaque acte.", "Lecteur d'écran, fort contraste et couleurs pour daltoniens.", "Bilan de lecture de chaque lecteur, dans la bibliothèque."] },
+    { v: "7.0", items: ["Chaque version porte un numéro, pour savoir si l'on est à jour."] }
+  ];
+  function verNum(v) { var p = String(v || "0").split("."); return (+p[0] || 0) * 1000 + (+p[1] || 0); }
+  function newsToShow() {
+    if (!BUILD.version) return [];
+    var seen = lsGet("nouveautes-vues");
+    if (seen == null) { lsSet("nouveautes-vues", BUILD.version); return []; }   // a first visit has nothing "new"
+    return NEWS.filter(function (n) { return verNum(n.v) > verNum(seen) && verNum(n.v) <= verNum(BUILD.version); });
+  }
+  function modalNews(box, close) {
+    modalHead(box, "Quoi de neuf", function () { lsSet("nouveautes-vues", BUILD.version); close(); });
+    var b = h("div", { class: "drawer-body" });
+    (A.modal.news || []).forEach(function (n) { b.appendChild(h("h3", { class: "sub-h" }, "Version " + n.v)); b.appendChild(h("ul", { class: "news" }, n.items.map(function (t) { return h("li", null, t); }))); });
+    b.appendChild(h("button", { class: "btn primary", onclick: function () { lsSet("nouveautes-vues", BUILD.version); close(); } }, "Bonne lecture"));
+    box.appendChild(b);
+  }
+
   function renderGame() {
     var G = A.game, st = G.story, s = G.s, v = G.multi ? multiView() : M.view(st, s);
     var pvMax = M.pvMax(s);
@@ -1442,7 +1492,7 @@
       h("span", { class: "pill", title: "Jours de vivres", "aria-label": "Vivres : " + s.food + " jour" + (s.food > 1 ? "s" : "") }, "Vivres " + s.food),
       s.mark ? h("span", { class: "pill mark", title: "La Marque" }, "Marque " + s.mark) : null,
       h("span", { class: "pill small" }, M.timeLabel(s)),
-      s.ironman ? h("span", { class: "pill small", title: "Sans retour : chaque choix est définitif" }, "⚔") : null,
+      s.ironman ? h("span", { class: "pill small", title: "Sans retour : chaque choix est définitif. Jetons de destin restants dans cet acte : " + fateLeft(s), "aria-label": "Sans retour, " + fateLeft(s) + " jetons de destin" }, "⚔ 🎲" + fateLeft(s)) : null,
       h("button", { class: "btn sm primary", onclick: function () { A.carnet = true; render(); } }, "Carnet")]));
     var w = h("main", { class: "wrap" });
     // act ruler
@@ -1471,10 +1521,12 @@
     // What led to this page (the rolls, their outcome, the blows) comes before the text; what follows from it (clues,
     // items, quests, feats) after (Clément, 11/11 then 13/11).
     var evs = s.events || [], evEl = function (list, cls) { return list.length ? h("div", { class: "events " + cls, role: "status" }, list.map(function (e) { var el = h("div", { class: "ev " + (e.cls || "") }, rollBadge(e)); el.insertAdjacentHTML("beforeend", md(e.text)); return el; })) : null; };
+    if (pref("quietFx")) evs = evs.filter(function (e) { return !e.conseq; });
     var leadIn = evs.filter(evLeadsIn), after = evs.filter(function (e) { return !evLeadsIn(e); });
     var pre = evEl(leadIn, "before"); if (pre) page.insertBefore(pre, prose);
     page.appendChild(prose);
     var post = evEl(after, "after"); if (post) page.appendChild(post);
+    var fb = fateButton(G); if (fb) page.appendChild(fb);
     A.rollAnim = false;
     if (v.kind === "combat") page.appendChild(renderFight(s));
     if (G.multi && v.wait) page.appendChild(renderWait(v));
@@ -3208,7 +3260,7 @@
   // ------------------------------------------------------------------ reading preferences (per reader)
   // Intent: pref(Key) -> Value = the reader's own setting, else the default
   // Why: Clément (12/11): text size, spacing, theme, voice, real dice, sound… follow the reader, not the device.
-  var PREFS = { skin: "histoire", size: "m", spacing: "normal", theme: "auto", font: "livre", lettrine: true, voice: "", highlight: true, ruler: false, dialogue: false, glossary: true, nudge: false, syllables: false, voiceChoice: false, autoListen: true, battlePlan: true, relations: true, urgent: true, sfx: true, shakeDice: false, fog: true, rate: 1, autoRead: false, dice: "ecran", ambiance: false, music: false, volume: 0.6, spread: "auto", pageTurn: true, swipe: false, contrast: false, cvd: false };
+  var PREFS = { skin: "histoire", size: "m", spacing: "normal", theme: "auto", font: "livre", lettrine: true, voice: "", highlight: true, ruler: false, dialogue: false, glossary: true, nudge: false, syllables: false, voiceChoice: false, autoListen: true, battlePlan: true, relations: true, urgent: true, sfx: true, shakeDice: false, fog: true, rate: 1, autoRead: false, dice: "ecran", ambiance: false, music: false, volume: 0.6, spread: "auto", pageTurn: true, swipe: false, contrast: false, cvd: false, quietFx: false };
   var SIZES = { s: ["Petit", 16], m: ["Normal", 18], l: ["Grand", 21], xl: ["Très grand", 24] };
   var SPACINGS = { serre: ["Serré", 1.5], normal: ["Normal", 1.72], aere: ["Aéré", 2] };
   var THEMES = { auto: "Comme l'appareil", light: "Clair", sepia: "Sépia", dark: "Sombre", soir: "Lumière du soir" };
@@ -3259,7 +3311,7 @@
     var m = A.modal, close = function () { if (m.kind === "send" || m.kind === "receive") Transfer.stop(); A.modal = null; render(); };
     var box = h("div", { class: "modal", role: "dialog", "aria-modal": "true" });
     var bg = h("div", { class: "drawer-bg", onclick: close });
-    ({ prefs: modalPrefs, report: modalReport, dice: modalDice, mark: modalMark, bedtime: modalBedtime, send: modalSend, receive: modalReceive, words: modalWords, sync: modalSync, chapter: modalChapter, shake: modalShake, adult: modalAdult, keys: modalKeys })[m.kind](box, close, m);
+    ({ prefs: modalPrefs, report: modalReport, dice: modalDice, mark: modalMark, bedtime: modalBedtime, send: modalSend, receive: modalReceive, words: modalWords, sync: modalSync, chapter: modalChapter, shake: modalShake, adult: modalAdult, keys: modalKeys, news: modalNews })[m.kind](box, close, m);
     app.appendChild(bg); app.appendChild(box);
     var f = box.querySelector("[autofocus]"); if (f) setTimeout(function () { f.focus(); }, 0);
   }
@@ -3325,6 +3377,7 @@
     b.appendChild(prefToggle("syllables", "Syllabes en couleurs", "Une syllabe sur deux change de couleur, comme dans les méthodes de lecture."));
     b.appendChild(prefToggle("fog", "Carte sous le brouillard", "La carte du carnet se dévoile autour des lieux atteints et le long des routes parcourues."));
     b.appendChild(prefToggle("relations", "Relations dans l'onglet Gens", "À côté de chaque personne, ce qu'elle pense de toi (méfiante, alliée, redevable…), quand l'histoire le dit."));
+    b.appendChild(prefToggle("quietFx", "Conséquences muettes", "L'histoire ne dit plus quand la confiance ou la crainte d'un compagnon change : tu le découvres à sa façon d'agir."));
     b.appendChild(prefToggle("urgent", "Choix sous pression", "Dans certaines scènes, un compte à rebours presse le choix ; quand il est écoulé, l'histoire choisit pour toi. Décoche pour lire ces scènes sans minuteur."));
     b.appendChild(prefToggle("battlePlan", "Plan de bataille", "Pendant un combat, un petit plan montre les rangs, les adversaires et les coups de la dernière passe."));
     b.appendChild(prefToggle("ruler", "Règle de lecture", "Une bande suit la ligne en cours et assombrit le reste. Touche une ligne pour l'y amener ; sur ordinateur, les flèches ↑ ↓."));

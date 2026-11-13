@@ -139,3 +139,10 @@ anseau: { name: "Anseau", face: { age: "ancien", marks: ["balafre", "lunettes"] 
 | mystère | `answer: { person: "aurele", text: "Aurèle, ton frère." }` | La réponse, montrée une fois `solved` atteint. Avec `person`, chaque soupçon qui nommait quelqu'un est marqué juste ou faux, et le carnet dit depuis quand le lecteur avait vu juste. |
 
 Rien à déclarer pour : « Sans retour » (choisi à la création), le tableau d'enquête, la recherche dans le carnet, le clavier, « Comparer en famille » (l'appli garde le choix fait à chaque page, par sa place parmi les choix du passage : réordonner les choix d'un passage fausse la comparaison des parties déjà finies).
+
+## Septième série (13/11)
+
+- **Ennemi `fearless: true`** : cet adversaire ne fuit jamais. Sans ce tag, un adversaire gravement blessé, ou dont la bande est à moitié tombée, peut prendre la fuite. Le dernier debout ne fuit jamais, pour que le texte de victoire reste vrai. Une fuite compte comme un adversaire hors de combat.
+- **Récit du combat** : à la fin de chaque combat, le moteur écrit quelques lignes (événement `tale`). L'auteur n'a rien à faire.
+- **Conséquences muettes** : les changements de confiance et de crainte d'un compagnon portent la marque `conseq`, et le lecteur peut les masquer dans ses Réglages. Ne pas compter sur ces lignes pour faire passer une information au lecteur.
+- **Jetons de destin** : en mode « Sans retour », trois relances par acte pour un jet raté. Ils sont gérés par l'appli et l'auteur n'a rien à faire.
