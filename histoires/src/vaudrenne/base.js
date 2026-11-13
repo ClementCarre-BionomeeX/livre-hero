@@ -38,12 +38,12 @@ module.exports = {
   },
   quests: [],
   people: {
-    mahaut: { name: "Mahaut", desc: "Aubergiste de l'Anguille. Elle sert tout le monde et ne croit personne." },
-    morel: { name: "Guérand Morel", desc: "Bailli de Vaudrenne. Gants de peau, voix douce, trois moulins." },
-    ninon: { name: "Ninon", desc: "Une fille du Bas-Port, quatorze ans, les mains tannées comme celles de son père." },
-    bastien: { name: "Bastien", desc: "Tanneur au Bas-Port. Il ne quittera pas sa maison, dit-il, ni pour l'eau ni pour le bailli." },
-    ermengarde: { name: "Ermengarde", desc: "Sacristine de la chapelle des Noyés. Elle avait neuf ans l'année de l'An Gris." },
-    joss: { name: "Joss Ferrand", desc: "L'éclusier de Vaudrenne. Il connaît la rivière comme on connaît un chien qui mord." },
+    mahaut: { name: "Mahaut", face: { age: "mur", skin: "beige", hair: "noisette", coif: "chignon", beard: "sans", eyes: "amande", iris: "gris", nose: "fin", lips: "fines", shape: "allonge", marks: [] }, desc: "Aubergiste de l'Anguille. Elle sert tout le monde et ne croit personne." },
+    morel: { name: "Guérand Morel", face: { age: "mur", skin: "clair", hair: "chatain", coif: "degarni", beard: "sans", eyes: "ronds", iris: "bleu", nose: "retrousse", lips: "fines", shape: "rond", marks: [] }, desc: "Bailli de Vaudrenne. Gants de peau, voix douce, trois moulins." },
+    ninon: { name: "Ninon", face: { age: "jeune", skin: "brun", hair: "noir", coif: "tresses", beard: "sans", eyes: "ronds", iris: "brun", nose: "large", lips: "pleines", shape: "ovale", marks: [] }, desc: "Une fille du Bas-Port, quatorze ans, les mains tannées comme celles de son père." },
+    bastien: { name: "Bastien", face: { age: "mur", skin: "brun", hair: "noir", coif: "crepus", beard: "barbe", eyes: "lourds", iris: "brun", nose: "large", lips: "pleines", shape: "carre", marks: [] }, desc: "Tanneur au Bas-Port. Il ne quittera pas sa maison, dit-il, ni pour l'eau ni pour le bailli." },
+    ermengarde: { name: "Ermengarde", face: { age: "ancien", skin: "ivoire", hair: "blanc", coif: "foulard", beard: "sans", eyes: "brides", iris: "noir", nose: "fin", lips: "fines", shape: "rond", marks: [] }, desc: "Sacristine de la chapelle des Noyés. Elle avait neuf ans l'année de l'An Gris." },
+    joss: { name: "Joss Ferrand", face: { age: "adulte", skin: "hale", hair: "chatain", coif: "court", beard: "moustache", eyes: "tombants", iris: "vert", nose: "busque", lips: "fines", shape: "carre", marks: [] }, desc: "L'éclusier de Vaudrenne. Il connaît la rivière comme on connaît un chien qui mord." },
   },
   items: {
     dague: { name: "Dague", kind: "arme", dmg: 4, att: 5, price: 8, desc: "Courte, équilibrée." },

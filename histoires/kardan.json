@@ -268,6 +268,19 @@
  "companions": {
   "odon": {
    "name": "Frère Odon",
+   "face": {
+    "age": "mur",
+    "skin": "beige",
+    "hair": "gris",
+    "coif": "couronne",
+    "beard": "sans",
+    "eyes": "tombants",
+    "iris": "bleu",
+    "nose": "large",
+    "lips": "pleines",
+    "shape": "rond",
+    "marks": []
+   },
    "f": false,
    "role": "Moine mendiant, lent à juger, prompt à partager",
    "wound": "Il a vu brûler un village au nom d'une juste cause.",
@@ -292,6 +305,19 @@
   },
   "sidonie": {
    "name": "Sidonie Vautrin",
+   "face": {
+    "age": "adulte",
+    "skin": "dore",
+    "hair": "brun",
+    "coif": "court",
+    "beard": "sans",
+    "eyes": "amande",
+    "iris": "vert",
+    "nose": "fin",
+    "lips": "fines",
+    "shape": "allonge",
+    "marks": []
+   },
    "f": true,
    "role": "Contrebandière, trois semaines dans le noir",
    "wound": "Son associé Lucas est mort dans le dédale, pour elle.",
@@ -315,6 +341,21 @@
   },
   "aurele": {
    "name": "Aurèle",
+   "face": {
+    "age": "adulte",
+    "skin": "#cfdcda",
+    "hair": "blanc",
+    "coif": "court",
+    "beard": "barbe",
+    "eyes": "amande",
+    "iris": "clair",
+    "nose": "fin",
+    "lips": "fines",
+    "shape": "ovale",
+    "marks": [
+     "balafre"
+    ]
+   },
    "f": false,
    "role": "Ton frère aîné, ce qu'il en reste",
    "wound": "Sept ans à garder l'eau d'un village qui l'y a jeté.",
@@ -534,57 +575,192 @@
  "people": {
   "brune": {
    "name": "Brune",
+   "face": {
+    "age": "adulte",
+    "skin": "hale",
+    "hair": "brun",
+    "coif": "milong",
+    "beard": "sans",
+    "eyes": "tombants",
+    "iris": "noisette",
+    "nose": "fin",
+    "lips": "fines",
+    "shape": "ovale",
+    "marks": []
+   },
    "desc": "Tient le relais de Sorel, le dernier toit avant la vallée sèche. Elle ne pose pas de questions, mais elle écoute tout."
   },
   "chevrier": {
    "name": "Ismaël le chevrier",
+   "face": {
+    "age": "mur",
+    "skin": "cuivre",
+    "hair": "gris",
+    "coif": "turban",
+    "beard": "barbe",
+    "eyes": "lourds",
+    "iris": "brun",
+    "nose": "busque",
+    "lips": "fines",
+    "shape": "allonge",
+    "marks": []
+   },
    "desc": "Mène vingt chèvres et un bouc qui ne lui obéit pas. Connaît la vallée sèche puits par puits."
   },
   "hesna": {
    "name": "Hesna",
+   "face": {
+    "age": "adulte",
+    "skin": "brun",
+    "hair": "noir",
+    "coif": "boucles",
+    "beard": "sans",
+    "eyes": "ronds",
+    "iris": "brun",
+    "nose": "large",
+    "lips": "pleines",
+    "shape": "rond",
+    "marks": []
+   },
    "desc": "Aubergiste du Puits-Vert. Rit fort, sert large, et regarde parfois ses mains comme si elles appartenaient à quelqu'un d'autre."
   },
   "oriel": {
    "name": "Oriel",
+   "face": {
+    "age": "adulte",
+    "skin": "dore",
+    "hair": "noir",
+    "coif": "foulard",
+    "beard": "sans",
+    "eyes": "brides",
+    "iris": "noir",
+    "nose": "fin",
+    "lips": "fines",
+    "shape": "ovale",
+    "marks": []
+   },
    "desc": "Herboriste. Des doigts tachés de vert jusqu'au poignet, une voix basse, une boutique qui sent le foin et l'amande amère."
   },
   "garance": {
    "name": "Garance",
+   "face": {
+    "age": "adulte",
+    "skin": "acajou",
+    "hair": "noir",
+    "coif": "tresses",
+    "beard": "sans",
+    "eyes": "amande",
+    "iris": "noir",
+    "nose": "large",
+    "lips": "pleines",
+    "shape": "carre",
+    "marks": []
+   },
    "desc": "Forgeronne de Kardan. Plus forte que la plupart des hommes, plus honnête que la plupart des marchands, mais pas entièrement."
   },
   "tobie": {
    "name": "Tobie",
    "face": {
-    "age": "enfant"
+    "age": "enfant",
+    "skin": "hale",
+    "hair": "chatain",
+    "coif": "boucles",
+    "beard": "sans",
+    "eyes": "ronds",
+    "iris": "noisette",
+    "nose": "retrousse",
+    "lips": "fines",
+    "shape": "rond",
+    "marks": [
+     "rousseur"
+    ]
    },
    "desc": "Neuf ans, des genoux écorchés, un cerf-volant en peau de chèvre. Petit-fils de l'Aïeule."
   },
   "maeve": {
    "name": "Maève, l'Aïeule",
    "face": {
-    "age": "ancien"
+    "age": "ancien",
+    "skin": "hale",
+    "hair": "blanc",
+    "coif": "chignon",
+    "beard": "sans",
+    "eyes": "lourds",
+    "iris": "noisette",
+    "nose": "busque",
+    "lips": "fines",
+    "shape": "allonge",
+    "marks": []
    },
    "desc": "La doyenne de Kardan. Elle ne commande rien, et tout le monde lui obéit."
   },
   "mattias": {
    "name": "Le vieux Mattias",
    "face": {
-    "age": "ancien"
+    "age": "ancien",
+    "skin": "ivoire",
+    "hair": "blanc",
+    "coif": "degarni",
+    "beard": "longue",
+    "eyes": "tombants",
+    "iris": "gris",
+    "nose": "fin",
+    "lips": "fines",
+    "shape": "allonge",
+    "marks": []
    },
    "desc": "Jeté dans le dédale il y a trente ans. Il y a gardé sa raison, ou presque, en cultivant des mousses."
   },
   "aurele": {
    "name": "Aurèle",
+   "face": {
+    "age": "adulte",
+    "skin": "#cfdcda",
+    "hair": "blanc",
+    "coif": "court",
+    "beard": "barbe",
+    "eyes": "amande",
+    "iris": "clair",
+    "nose": "fin",
+    "lips": "fines",
+    "shape": "ovale",
+    "marks": [
+     "balafre"
+    ]
+   },
    "desc": "Ton frère aîné. Le Gardien du dédale."
   },
   "bastien": {
    "name": "Bastien",
+   "face": {
+    "age": "adulte",
+    "skin": "cuivre",
+    "hair": "noir",
+    "coif": "rase",
+    "beard": "moustache",
+    "eyes": "amande",
+    "iris": "brun",
+    "nose": "busque",
+    "lips": "fines",
+    "shape": "carre",
+    "marks": []
+   },
    "desc": "Chef de la milice de Kardan : six hommes, quatre lances, une seule conviction."
   },
   "theoz": {
    "name": "Théoz",
    "face": {
-    "age": "mur"
+    "age": "mur",
+    "skin": "hale",
+    "hair": "gris",
+    "coif": "court",
+    "beard": "sans",
+    "eyes": "lourds",
+    "iris": "noisette",
+    "nose": "busque",
+    "lips": "fines",
+    "shape": "allonge",
+    "marks": []
    },
    "desc": "Le fils de l'Aïeule, tiré au sort il y a vingt ans. Le Gardien avant Aurèle."
   }
