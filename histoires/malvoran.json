@@ -78842,15 +78842,7 @@
     {
      "label": "« Je ne la connais pas assez. »",
      "hide": {
-      "any": [
-       {
-        "clues": "V",
-        "min": 3
-       },
-       {
-        "has": "voix:nommee"
-       }
-      ]
+      "has": "voix:nommee"
      },
      "to": "IVR_voix_partielle"
     }

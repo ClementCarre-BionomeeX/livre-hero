@@ -336,6 +336,20 @@
     return out;
   }
 
+  // Intent: liveTargetsOf(Story, State, Choice) -> PassageId* = where the choice can lead now (a conditional list
+  // resolves to its first fitting destination, as the engine does; both outcomes of a test are kept).
+  // Why: counting every destination written in a list made the games chase a passage whose condition was false, and
+  // walk back and forth forever between two pages.
+  function liveTargetsOf(story, s, c) {
+    var out = [];
+    function add(to) {
+      if (Array.isArray(to)) { for (var i = 0; i < to.length; i++) if (M.evalCond(story, s, to[i].if)) return add(to[i].to); if (to.length) add(to[to.length - 1].to); return; }
+      if (to != null) out.push(to);
+    }
+    add(c.to); if (c.win) add(c.win.to); if (c.lose) add(c.lose.to);
+    return out;
+  }
+
   function seededRng(seed) { var x = seed; return function () { x = (x * 1103515245 + 12345) % 2147483648; return x / 2147483648; }; }
 
   // Intent: validate(Story, Options) -> Report ! random
@@ -345,6 +359,102 @@
     var P = story.passages, ids = Object.keys(P);
     var seen = {}, endings = {}, errs = {}, dead = {}, loops = {}, guards = {}, questDone = {}, taken = {}, allowedCount = {}, levelAtEnd = {};
     var archs = Object.keys(M.ARCHS), modes = ["uniform", "curious", "explore", "win", "lose", "explore"];
+    // Snapshots: a few states kept per passage (reservoir), so that a passage random games never reached can be
+    // looked for afterwards from the states that came closest (reachMissing).
+    var SNAPS = 6, snaps = {}, snapN = {}, snapRnd = seededRng(31337), actMax = {}, richOnly = [];
+    function keepSnap(s) {
+      var rnd = snapRnd;
+      if (!P[s.node]) return;
+      var k = s.node, m = snapN[k] = (snapN[k] || 0) + 1, list = snaps[k] = snaps[k] || [];
+      if (list.length < SNAPS) list.push(JSON.stringify(s));
+      else if (rnd() < SNAPS / m) list[Math.floor(rnd() * SNAPS)] = JSON.stringify(s);
+    }
+    // Static graph: every passage a choice, a test branch, a fight or a journey can lead to.
+    function edgesOf(id) {
+      var p = P[id], out = [];
+      function add(to) { if (Array.isArray(to)) to.forEach(function (x) { add(x.to); }); else if (to != null && P[to]) out.push(to); }
+      function fight(f) { if (f) ["win", "lose", "flee", "calm"].forEach(function (o) { if (f[o]) add(f[o].to); }); if (f && f.talk && f.talk.win) add(f.talk.win.to); }
+      (p.choices || []).forEach(function (c) { add(c.to); if (c.win) add(c.win.to); if (c.lose) add(c.lose.to); fight(c.fight); });
+      fight(p.combat);
+      if (p.place) arrivals.forEach(function (a) { out.push(a); });
+      return out;
+    }
+    var arrivals = [];
+    Object.keys(((story.world || {}).places) || {}).forEach(function (k) { var pl = story.world.places[k]; if (P[pl.arrive]) arrivals.push(pl.arrive); (pl.arriveIf || []).forEach(function (a) { if (P[a.passage]) arrivals.push(a.passage); }); });
+    // Intent: reachMissing() ! random — for each passage no random game reached, walk from the kept states of the
+    // passages nearest to it in the graph, always taking the choice (and the test outcome) that brings it closer.
+    // Why: a rare branch (a failed roll after a rare choice) is missed by random games and was reported as an error
+    // although a reader can reach it. What this search cannot reach either is a real fault of the story.
+    function reachMissing() {
+      var rev = {}; ids.forEach(function (id) { edgesOf(id).forEach(function (t) { (rev[t] = rev[t] || []).push(id); }); });
+      // A forced success opens the die (98, then 95: an open-ended roll), so that even a hard test can be won.
+      var rnd = seededRng(4242), fixed = null, s = null, calls = 0;
+      M.setRng(function () { if (fixed == null || !s || s.node === "@combat") return rnd(); calls++; return fixed > 0.5 && calls === 1 ? 0.975 : fixed; });
+      function distTo(target) {
+        var d = {}, q = [target]; d[target] = 0;
+        while (q.length) { var x = q.shift(); (rev[x] || []).forEach(function (y) { if (d[y] == null) { d[y] = d[x] + 1; q.push(y); } }); }
+        return d;
+      }
+      function score(c, d, cur) {
+        var best = Infinity, out = null;
+        function cand(to, f) { [].concat(Array.isArray(to) ? to.map(function (x) { return x.to; }) : to).forEach(function (t) { var v = t === "@ret" ? (d[cur] != null ? d[cur] + 1 : Infinity) : d[t]; if (v != null && v < best) { best = v; out = f; } }); }
+        if (c.sys === "travel") { var pl = (story.world.places || {})[c.dest] || {}; cand([pl.arrive].concat((pl.arriveIf || []).map(function (a) { return a.passage; })), null); return { d: best, fixed: null }; }
+        if (c.sys) return { d: Infinity, fixed: null };
+        var raw = c;
+        function live(to) { if (!Array.isArray(to)) return to; for (var i = 0; i < to.length; i++) if (M.evalCond(story, s, to[i].if)) return live(to[i].to); return to.length ? live(to[to.length - 1].to) : null; }
+        cand(live(raw.to), null); if (raw.win) cand(live(raw.win.to), 0.94); if (raw.lose) cand(live(raw.lose.to), 0.02);
+        if (raw.fight) ["win", "lose", "flee", "calm"].forEach(function (o) { if (raw.fight[o]) cand(raw.fight[o].to, null); });
+        return { d: best, fixed: out };
+      }
+      // Three passes. "plain": the kept states as they were. "rich": the walk starts with as much gold and food as the
+      // richest game had in that act, as a reader who saved could; a passage reached only by paying with that money
+      // is a remark, not an error. "hurt": the walk starts with 1 PV, so that a fight can be lost (fights keep their
+      // real dice), as any reader may lose one.
+      var MONEY = /"(gold|food)"/;
+      ["plain", "plain", "plain", "rich", "rich", "hurt", "hurt"].some(function (pass, round) {
+        var missing = ids.filter(function (id) { return !seen[id]; });
+        if (!missing.length) return true;
+        var found = 0;
+        missing.forEach(function (target) {
+          if (seen[target]) return;
+          var d = distTo(target);
+          // Half the walks start from the nearest kept states, half from any earlier one (a flag set two acts before),
+          // within a fixed budget; one walk in three wanders more.
+          var from = Object.keys(snaps).filter(function (k) { return d[k] != null; }).sort(function (a, b) { return d[a] - d[b]; });
+          var budget = 300, near = [];
+          from.forEach(function (k) { snaps[k].forEach(function (x) { near.push(x); }); });
+          for (var wi = 0; wi < budget && wi < near.length * 4 && !seen[target]; wi++) {
+            var wander = wi % 3 === 2 ? 0.4 : 0.15, half = wi >> 1;
+            s = JSON.parse(wi % 2 === 0 && half < near.length ? near[half] : near[Math.floor(rnd() * near.length)]);
+            // The money added is remembered in the state (_extra), so that a walk resumed from it still knows.
+            var extra = s._extra || { gold: 0, food: 0 }, paid = !!s._paid;
+            if (pass === "rich" && P[s.node] && !s._extra) { var mx = actMax[P[s.node].act] || {}; extra = { gold: Math.max(0, (mx.gold || 0) - (s.gold || 0)), food: Math.max(0, (mx.food || 0) - (s.food || 0)) }; s.gold = (s.gold || 0) + extra.gold; s.food = (s.food || 0) + extra.food; s._extra = extra; }
+            if (pass === "hurt") s.pv = 1;
+            var mark = function (k) { if (seen[k] || !P[k]) return; seen[k] = 1; found++; if (paid) richOnly.push(k); };
+            for (var step = 0; step < 300; step++) {
+              var v; fixed = null;
+              try { v = M.view(story, s); } catch (e) { break; }
+              if (P[s.node]) { mark(s.node); keepSnap(s); }
+              Object.keys(s.seen).forEach(mark);
+              if (seen[target] || v.kind === "end") { if (v.kind === "end" && P[s.node]) endings[s.node] = (endings[s.node] || 0) + 1; break; }
+              var cs = v.choices.filter(function (c) { if (c.ok && !c.sys) allowedCount[s.node + " | " + c.label] = 1; return c.ok && !c.restart; });
+              if (!cs.length) break;
+              var scored = cs.map(function (c) { return { c: c, sc: score(c, d, s.node) }; });
+              var bestD = Math.min.apply(null, scored.map(function (x) { return x.sc.d; }));
+              var pool = rnd() < wander || bestD === Infinity ? scored : scored.filter(function (x) { return x.sc.d === bestD; });
+              var pick = pool[Math.floor(rnd() * pool.length)];
+              if (s._extra && MONEY.test(JSON.stringify(pick.c.if || null))) paid = s._paid = true;
+              fixed = pick.sc.fixed; calls = 0;
+              if (!pick.c.sys) taken[s.node + " | " + pick.c.label] = 1;
+              try { M.choose(story, s, pick.c); } catch (e) { break; }
+              // Spending into the added money: what follows was paid with savings the games did not have.
+              if (s._extra && ((s.gold || 0) < extra.gold || (s.food || 0) < extra.food)) paid = s._paid = true;
+            }
+          }
+        });
+        return false;
+      });
+    }
     function play(mode, seed, toutJouer, second) {
       var rnd = seededRng(seed), s = null, fixed = mode === "win" ? 0.94 : mode === "lose" ? 0.02 : null;
       // Fixed dice only on tests: a fight always uses real dice, or two sides that always miss would never end.
@@ -358,6 +468,8 @@
       for (var step = 0; step < maxSteps; step++) {
         var v;
         seen[s.node] = (seen[s.node] || 0) + 1;
+        keepSnap(s);
+        if (P[s.node]) { var am = actMax[P[s.node].act] = actMax[P[s.node].act] || { gold: 0, food: 0 }; am.gold = Math.max(am.gold, s.gold || 0); am.food = Math.max(am.food, s.food || 0); }
         try {
           v = M.view(story, s);
           v.text.forEach(function (t) { if (/undefined|NaN|\[object|\{[a-z]+\}/.test(t)) throw new Error("texte suspect : " + t.slice(0, 80)); });
@@ -377,14 +489,14 @@
         if (!cs.length) { dead[s.node] = (dead[s.node] || 0) + 1; return; }
         var c, story_ = story;
         // "explore" prefers what no game has seen yet, so rare branches (a late ending) get played too.
-        var globalFresh = mode === "explore" ? cs.filter(function (x) { return !x.sys && targetsOf(x).some(function (t) { return P[t] && !seen[t]; }); }) : [];
+        var globalFresh = mode === "explore" ? cs.filter(function (x) { return !x.sys && liveTargetsOf(story, s, x).some(function (t) { return P[t] && !seen[t]; }); }) : [];
         if (globalFresh.length) c = globalFresh[Math.floor(rnd() * globalFresh.length)];
         else if (mode === "curious" || mode === "win" || mode === "explore") {
           var fresh = cs.filter(function (x) {
             if (x.sys === "travel") { var r = (story_.world.routes || []).filter(function (y) { return y.id === x.route; })[0]; return !s.routesDone[x.route] || !s.seen[(story_.world.places[x.dest] || {}).arrive]; }
             if (x.sys === "buy") return rnd() < 0.5;
             if (x.sys) return false;
-            return targetsOf(x).some(function (t) { return t !== "@ret" && t !== "@route" && P[t] && !s.seen[t]; });
+            return liveTargetsOf(story_, s, x).some(function (t) { return t !== "@ret" && t !== "@route" && P[t] && !s.seen[t]; });
           });
           var pool = fresh.length ? fresh : cs.filter(function (x) { return x.sys !== "sell"; });
           if (!pool.length) pool = cs;
@@ -402,13 +514,14 @@
       play(mode, i * 7919, i % 2 === 0, i % 5 < 2);
       n++;
     }
+    reachMissing();
     M.setRng(null);
     var unreached = ids.filter(function (id) { return !seen[id]; });
     var neverTaken = [];
     ids.forEach(function (id) { var p = P[id]; (p.choices || []).forEach(function (c) { if (c.restart) return; var k = id + " | " + String(c.label).replace(/\{e\}/g, ""); if (!taken[k]) neverTaken.push("§ " + id + " : « " + String(c.label).slice(0, 60) + " »" + (allowedCount[k] ? " (possible, jamais pris)" : " (jamais possible)")); }); });
     return {
       games: n, passages: ids.length, guards: Object.keys(guards), errors: Object.keys(errs), deadEnds: dead, loops: loops, unreached: unreached, endings: endings,
-      neverTaken: neverTaken, questDone: questDone, levelAtEnd: levelAtEnd,
+      neverTaken: neverTaken, questDone: questDone, levelAtEnd: levelAtEnd, richOnly: richOnly,
       questsNeverDone: story.quests.filter(function (q) { return !questDone[q.id] && !q.later; }).map(function (q) { return q.title; }),
       questsLater: story.quests.filter(function (q) { return !questDone[q.id] && q.later; }).map(function (q) { return q.title; }),
       endingsNeverReached: ids.filter(function (id) { return P[id].end && !endings[id]; }),
@@ -431,6 +544,7 @@
     Object.keys(sim.deadEnds).forEach(function (k) { rep.errors.push("§ " + k + " : impasse, aucun choix possible (" + sim.deadEnds[k] + " parties)."); });
     Object.keys(sim.loops).forEach(function (k) { rep.warnings.push("§ " + k + " : " + sim.loops[k] + " parties au hasard n'ont pas fini en 4 000 choix (errance ou boucle)."); });
     sim.unreached.forEach(function (k) { rep.errors.push("§ " + k + " : jamais atteint."); });
+    (sim.richOnly || []).forEach(function (k) { rep.warnings.push("§ " + k + " : atteint seulement avec l'or ou les vivres qu'un lecteur économe aurait gardés (les parties d'essai les avaient dépensés)."); });
     sim.questsNeverDone.forEach(function (t) { rep.errors.push("Quête « " + t + " » : jamais terminée dans les parties d'essai."); });
     (sim.questsLater || []).forEach(function (t) { rep.warnings.push("Quête « " + t + " » : la suite reste à écrire (later)."); });
     sim.endingsNeverReached.forEach(function (k) { rep.warnings.push("Fin § " + k + " : jamais atteinte dans les parties d'essai."); });
