@@ -307,3 +307,41 @@ button.gl:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px;
 .kid-text { width: 100%; font: inherit; line-height: 1.6; }
 .kid-choice select { max-width: 14em; }
 .kids { display: flex; flex-direction: column; gap: 14px; }
+/* Syllables in colour (option) */
+:root { --sy1: inherit; --sy2: #1f56b0; }
+:root[data-theme="dark"] { --sy2: #93b8ff; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]):not([data-theme="sepia"]):not([data-skin]) { --sy2: #93b8ff; } }
+.prose .sy1 { color: var(--sy1); } .prose .sy2 { color: var(--sy2); }
+/* Word game */
+.words-def { font-size: 1.15em; font-style: italic; margin: 10px 0 14px; }
+.words-opt { text-align: left; }
+.words-opt.good { background: #2f8a4a; color: #fff; border-color: #2f8a4a; }
+.words-opt.bad { background: #b03a2e; color: #fff; border-color: #b03a2e; }
+.words-score { font-size: 1.3em; font-weight: 700; margin: 12px 0; }
+/* Audio book */
+.audiobook { border: 1px solid var(--line, #ccc); border-radius: 10px; padding: 10px 14px; margin: 0 0 18px; }
+.audiobook h3 { margin: 0 0 6px; }
+.audiobook audio { width: 100%; margin: 6px 0; }
+.audiobook progress { width: 100%; }
+/* Portraits and coats of arms */
+.hero-head { display: flex; gap: 12px; align-items: center; }
+.hero-line { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin: 4px 0; }
+.with-portrait { display: inline-flex; gap: 8px; align-items: center; }
+.portrait { display: block; flex: none; border-radius: 50%; }
+.faction { display: flex; gap: 12px; align-items: center; margin: 6px 0; }
+.blason { display: block; flex: none; }
+/* Family board */
+.family { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 12px; }
+.family-card { border: 1px solid var(--line, #ccc); border-radius: 10px; padding: 10px 12px; }
+.family-name { display: flex; align-items: center; gap: 6px; margin-bottom: 6px; }
+.family-book { margin: 6px 0; }
+.family-stats { display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: .9em; }
+.family-words { margin-top: 6px; }
+/* Shared save folder */
+.sync-step { border-left: 3px solid var(--accent, #8c2f1c); padding: 4px 0 4px 12px; }
+.sync-step p { margin: 4px 0 8px; }
+.sync-step input { flex: 1; min-width: 12rem; }
+/* Coloured syllables: a ligature (ffl, fi) would melt two colours into one glyph */
+.prose:has(.sy2) { font-variant-ligatures: none; }
+a.btn { text-decoration: none; color: inherit; }
+a.btn.primary { color: var(--accent-ink); }

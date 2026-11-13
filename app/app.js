@@ -106,8 +106,10 @@
     },
     // One write at a time per document: the next one waits for the last (the db asks for it). Always copied to this
     // browser first, so a refused db write loses nothing here.
-    put: function (coll, id, obj) {
+    // raw: a document copied from a backup or the shared folder, kept as it is (no new date, nothing to send back).
+    put: function (coll, id, obj, raw) {
       var self = this, key = coll + "/" + id;
+      if (!raw) { if (coll === "profils" && obj) obj.updated = Date.now(); if (typeof Sync !== "undefined") Sync.touch(); }
       obj = JSON.parse(JSON.stringify(obj));   // the db refuses undefined values
       this.localPut(coll, id, obj);
       if (!this.db) return Promise.resolve();
@@ -119,7 +121,8 @@
       this.chains[key] = next.catch(function () {});
       return next;
     },
-    del: function (coll, id) {
+    del: function (coll, id, raw) {
+      if (!raw && typeof Sync !== "undefined") Sync.tomb(coll, id);
       var idx = (lsGet("idx:" + coll) || []).filter(function (x) { return x !== id; }); lsSet("idx:" + coll, idx);
       try { localStorage.removeItem(LOCAL + coll + ":" + id); } catch (e) { /* ignore */ }
       if (this.db) return this.timed(this.db.doc(coll + "/" + id).delete()).catch(function () {});
@@ -215,7 +218,7 @@
   function renderHome() {
     var stories = allStories();
     app.appendChild(topBar([h("span", { class: "brand grow" }, "Livre-jeu"),
-      h("span", { class: "pill small", title: Store.mode === "db" ? "Les profils, parties et histoires importées suivent ce lien sur tous les appareils." : "Rien n'est partagé : tout reste dans ce navigateur." }, Store.mode === "db" ? "Sauvegardes partagées" : "Sauvegardes dans ce navigateur")]));
+      Sync.on() ? h("button", { class: "pill small", title: "Les lecteurs et les parties se retrouvent sur chaque appareil branché.", onclick: function () { A.modal = { kind: "sync" }; render(); } }, Sync.busy ? "☁ Synchronisation…" : Sync.error ? "☁ Dossier partagé ⚠" : "☁ Dossier partagé") : h("span", { class: "pill small", title: Store.mode === "db" ? "Les profils, parties et histoires importées suivent ce lien sur tous les appareils." : "Rien n'est partagé : tout reste dans ce navigateur." }, Store.mode === "db" ? "Sauvegardes partagées" : "Sauvegardes dans ce navigateur")]));
     var w = h("main", { class: "wrap" });
     w.appendChild(h("div", { class: "hero-head" }, h("h1", null, "La bibliothèque"),
       h("p", null, "Des romans dont tu tiens la plume : chaque histoire se lit, se voyage et se joue jusqu'au bout. Choisis qui lit, puis ouvre un livre.")));
@@ -245,6 +248,7 @@
             h("button", { class: "btn sm danger", onclick: function () { removeProfile(cur, theirs); } }, "Oui, retirer"),
             h("button", { class: "btn sm", onclick: function () { A.confirmDelProfile = null; render(); } }, "Non"))
         : h("div", { class: "row" }, h("button", { class: "btn sm", onclick: function () { A.modal = { kind: "prefs" }; render(); } }, "⚙ Réglages de lecture de " + cur.name),
+            Words.list(cur).length >= WORDS_MIN_GAME ? h("button", { class: "btn sm", onclick: Words.start }, "🎯 Jeu des mots (" + Words.list(cur).length + ")") : null,
             h("button", { class: "btn ghost sm", onclick: function () { A.confirmDelProfile = cur.id; render(); } }, "Retirer " + cur.name)));
     }
     w.appendChild(prof);
@@ -299,8 +303,11 @@
       canDownload() ? h("button", { class: "btn sm", onclick: exportBackup }, "Exporter toutes les sauvegardes") : null,
       h("span", { class: "label" }, "Importer une sauvegarde"), bkFile,
       Transfer.available() ? h("button", { class: "btn sm", onclick: function () { Transfer.receive(); } }, "📷 Recevoir une partie") : null));
+    if (Sync.available()) bk.appendChild(h("div", { class: "row" }, h("button", { class: "btn sm" + (Sync.on() ? "" : " primary"), onclick: function () { A.modal = { kind: "sync" }; render(); } },
+      Sync.on() ? "☁ Dossier de sauvegarde partagé" + (Sync.busy ? " · synchronisation…" : Sync.error ? " · ⚠ à vérifier" : "") : "☁ Configurer un dossier de sauvegarde partagé")));
     w.appendChild(bk);
     w.appendChild(renderKidsShelf());
+    var fam = renderFamily(); if (fam) w.appendChild(fam);
     w.appendChild(renderParents());
     w.appendChild(renderAtelier());
     app.appendChild(w);
@@ -366,10 +373,37 @@
   // readers, games and imported stories from one to the other (Clément, 12/11).
   var BACKUP_FORMAT = "livre-heros-sauvegarde", BACKUP_VERSION = 1;
   var BACKUP_COLLS = ["profils", "parties", "scenarios", "scenarioParts", "multis", "salles", "signalements", "recits"];
-  function exportBackup() {
-    Promise.all(BACKUP_COLLS.map(function (c) { return Store.list(c); })).then(function (r) {
+  // Intent: backupData() -> Promise<Backup> = every collection of this device, in one object
+  function backupData() {
+    return Promise.all(BACKUP_COLLS.map(function (c) { return Store.list(c); })).then(function (r) {
       var out = { format: BACKUP_FORMAT, version: BACKUP_VERSION, exported: Date.now(), collections: {} };
       BACKUP_COLLS.forEach(function (c, i) { out.collections[c] = r[i]; });
+      return out;
+    });
+  }
+  // Intent: mergeBackup(Backup, tombs?) -> Promise<{added, kept}> = per document, the most recent wins; a document
+  // deleted somewhere (tombs["coll/id"] = when) goes away here too, unless it changed after.
+  function mergeBackup(b, tombs) {
+    tombs = tombs || {};
+    var added = 0, kept = 0;
+    return Promise.all(BACKUP_COLLS.map(function (c) {
+      var docs = b.collections[c] || [];
+      return Store.list(c).then(function (have) {
+        var byId = {}; have.forEach(function (o) { byId[o.id] = o; });
+        var gone = have.filter(function (o) { var t = tombs[c + "/" + o.id]; return t && t >= (o.updated || 0); });
+        return Promise.all(gone.map(function (o) { added++; delete byId[o.id]; return Store.del(c, o.id, true); }).concat(docs.map(function (o) {
+          if (!o || !o.id) return null;
+          var t = tombs[c + "/" + o.id]; if (t && t >= (o.updated || 0)) return null;
+          var mine = byId[o.id];
+          if (mine && (mine.updated || 0) >= (o.updated || 0)) { kept++; return null; }
+          var id = o.id, doc = clone(o); delete doc.id; added++;
+          return Store.put(c, id, doc, true).catch(function () {});
+        })));
+      });
+    })).then(function () { return { added: added, kept: kept }; });
+  }
+  function exportBackup() {
+    backupData().then(function (out) {
       var d = new Date(), day = d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0");
       download("livre-heros-sauvegarde-" + day + ".json", JSON.stringify(out));
       lsSet("lastExport", Date.now()); render();
@@ -379,7 +413,7 @@
   // Why: Clément, 12/11: saves kept by the browser alone vanish when its data is cleared.
   var BACKUP_EVERY_MS = 7 * 24 * 3600 * 1000, BACKUP_SNOOZE_MS = 3 * 24 * 3600 * 1000, BACKUP_AFTER_PLAY_MS = 20 * 60 * 1000;
   function renderBackupNudge() {
-    if (Store.mode === "db" || !canDownload()) return null;
+    if (Store.mode === "db" || !canDownload() || Sync.on()) return null;
     var played = (A.allGames || []).reduce(function (t, g) { return t + (g.playMs || 0); }, 0);
     if (played < BACKUP_AFTER_PLAY_MS) return null;
     var now = Date.now(), last = lsGet("lastExport") || 0, snooze = lsGet("backupSnooze") || 0;
@@ -398,21 +432,7 @@
     rd.onload = function () {
       var b; try { b = JSON.parse(rd.result); } catch (e) { flash("Ce fichier n'est pas une sauvegarde lisible.", true); return; }
       if (!b || b.format !== BACKUP_FORMAT || !b.collections) { flash("Ce fichier n'est pas une sauvegarde du livre-jeu.", true); return; }
-      var added = 0, kept = 0;
-      var jobs = BACKUP_COLLS.map(function (c) {
-        var docs = b.collections[c] || [];
-        return Store.list(c).then(function (have) {
-          var byId = {}; have.forEach(function (o) { byId[o.id] = o; });
-          return Promise.all(docs.map(function (o) {
-            if (!o || !o.id) return null;
-            var mine = byId[o.id];
-            if (mine && (mine.updated || 0) >= (o.updated || 0)) { kept++; return null; }
-            var id = o.id, doc = clone(o); delete doc.id; added++;
-            return Store.put(c, id, doc).catch(function () {});
-          }));
-        });
-      });
-      Promise.all(jobs).then(refresh).then(function () { flash("Sauvegarde importée : " + added + " élément(s) ajouté(s) ou mis à jour" + (kept ? ", " + kept + " déjà à jour ici." : ".")); });
+      mergeBackup(b).then(function (r) { return refresh().then(function () { flash("Sauvegarde importée : " + r.added + " élément(s) ajouté(s) ou mis à jour" + (r.kept ? ", " + r.kept + " déjà à jour ici." : ".")); }); });
     };
     rd.readAsText(f);
   }
@@ -467,6 +487,7 @@
     function open(btn) {
       close();
       var c = cache, d = c.defs && c.defs[btn.getAttribute("data-gl")]; if (!d) return;
+      Words.learn(d.head, d.def);
       pop = h("div", { class: "gl-pop", role: "tooltip" }, h("b", null, d.head.charAt(0).toUpperCase() + d.head.slice(1)), " · ", d.def);
       document.body.appendChild(pop);
       var r = btn.getBoundingClientRect(), w = Math.min(320, innerWidth - 24);
@@ -610,6 +631,129 @@
       h("p", { class: "small" }, "Vise les codes affichés sur l'autre appareil (« 📱 Envoyer » à côté de la partie)."),
       h("video", { id: "qr-video", class: "qr-video", muted: true, playsinline: true }),
       h("p", { id: "qr-progress", class: "small muted", style: "text-align:center" }, "En attente du premier code…")));
+  }
+
+  // ------------------------------------------------------------------ syllables in colour
+  // Intent: Syllables.split(word) -> [syllable] = written French syllables (V-CV, VC-CV, consonant + l/r kept
+  // together, ch/ph/th/gn/qu/gu as one sound, vowel groups as one); Syllables.mark(html) wraps them in two colours.
+  // Why: Clément, 12/11: the reading methods for dyslexic children colour one syllable out of two.
+  var Syllables = (function () {
+    var V = "aeiouyàâäéèêëîïôöùûüÿœæ";
+    var KEEP = /^(bl|cl|fl|gl|pl|br|cr|dr|fr|gr|pr|tr|vr|ch|ph|th|gn|qu|gu)$/;
+    function isV(c) { return V.indexOf(c) >= 0; }
+    // Units: letters grouped into vowel nuclei and consonant units.
+    function units(w) {
+      var lw = w.toLowerCase(), out = [], i = 0;
+      while (i < w.length) {
+        var c = lw[i];
+        if ((c === "q" || c === "g") && lw[i + 1] === "u" && isV(lw[i + 2] || "")) { out.push({ v: false, s: w.slice(i, i + 2) }); i += 2; continue; }
+        if (isV(c)) {
+          var j = i + 1;
+          // A vowel group is one nucleus, except a hiatus after é and before a diaeresis.
+          while (j < w.length && isV(lw[j]) && lw[j - 1] !== "é" && "ëï".indexOf(lw[j]) < 0) j++;
+          out.push({ v: true, s: w.slice(i, j) }); i = j; continue;
+        }
+        out.push({ v: false, s: w[i] }); i++;
+      }
+      return out;
+    }
+    function split(w) {
+      var u = units(w), syl = [], cur = "", i = 0;
+      var vIdx = []; u.forEach(function (x, k) { if (x.v) vIdx.push(k); });
+      if (vIdx.length < 2) return [w];
+      // Everything up to the first nucleus belongs to the first syllable; then cut each consonant run between nuclei.
+      var start = 0;
+      for (var n = 0; n < vIdx.length - 1; n++) {
+        var a = vIdx[n], b = vIdx[n + 1], cons = u.slice(a + 1, b).map(function (x) { return x.s; });
+        var cut; // number of consonant units that stay with the left syllable
+        if (cons.length <= 1) cut = 0;
+        else if (KEEP.test(cons.slice(-2).join("").toLowerCase())) cut = cons.length - 2;
+        else cut = cons.length - 1;
+        var end = a + 1 + cut;
+        syl.push(u.slice(start, end).map(function (x) { return x.s; }).join("")); start = end;
+      }
+      syl.push(u.slice(start).map(function (x) { return x.s; }).join(""));
+      return syl;
+    }
+    var WORD = /[A-Za-zÀ-ÖØ-öø-ÿŒœÆæ]+/g;
+    function mark(html) {
+      return html.split(/(<[^>]+>)/).map(function (part) {
+        if (/^</.test(part)) return part;
+        return part.replace(WORD, function (w) {
+          var s = split(w); if (s.length < 2) return "<span class=\"sy1\">" + w + "</span>";
+          return s.map(function (x, k) { return "<span class=\"sy" + (k % 2 ? 2 : 1) + "\">" + x + "</span>"; }).join("");
+        });
+      }).join("");
+    }
+    return { split: split, mark: mark };
+  })();
+
+  // ------------------------------------------------------------------ the reader's word notebook and word game
+  // Intent: Words = every rare word a reader opened is kept in their profile (profile.words), listed in the notebook,
+  // and a little game asks now and then to find a word from its meaning (Clément, 13/11).
+  var WORDS_ROUND = 5, WORDS_MIN_GAME = 3;
+  var Words = (function () {
+    var W = {}, saveT = null;
+    W.list = function (prof) { var m = (prof && prof.words) || {}; return Object.keys(m).map(function (k) { var x = m[k]; x.head = k; return x; }).sort(function (a, b) { return (b.t || 0) - (a.t || 0); }); };
+    W.learn = function (head, def) {
+      var prof = A.profile; if (!prof || (A.game && (A.game.ephemeral || A.game.multi))) return;
+      prof.words = prof.words || {};
+      var w = prof.words[head] = prof.words[head] || { def: def, n: 0, known: 0 };
+      w.def = def; w.n++; w.t = Date.now();
+      clearTimeout(saveT); saveT = setTimeout(function () { Store.put("profils", prof.id, prof).catch(function () {}); }, 1500);
+    };
+    // Every definition the books know, for the wrong answers of the game.
+    function pool() {
+      var out = {};
+      Object.keys(A.builtins).forEach(function (id) { var g = A.builtins[id].glossary || {}; Object.keys(g).forEach(function (k) { out[k.split("|")[0]] = g[k]; }); });
+      return out;
+    }
+    function shuffle(a) { for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)), t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
+    W.round = function () {
+      var mine = W.list(A.profile), all = pool();
+      // The least known words first, then chance.
+      var picks = shuffle(mine.slice()).sort(function (a, b) { return (a.known || 0) - (b.known || 0); }).slice(0, WORDS_ROUND);
+      var heads = Object.keys(all);
+      return shuffle(picks).map(function (w) {
+        var wrong = shuffle(heads.filter(function (h2) { return h2 !== w.head; })).slice(0, 2);
+        return { head: w.head, def: w.def, options: shuffle([w.head].concat(wrong)) };
+      });
+    };
+    W.start = function () { A.modal = { kind: "words", qs: W.round(), i: 0, score: 0, answered: null }; render(); };
+    W.answer = function (opt) {
+      var m = A.modal, q = m.qs[m.i]; if (m.answered) return;
+      m.answered = opt; var ok = opt === q.head;
+      if (ok) { m.score++; var w = A.profile.words[q.head]; if (w) { w.known = (w.known || 0) + 1; Store.put("profils", A.profile.id, A.profile).catch(function () {}); } }
+      render();
+    };
+    return W;
+  })();
+  function modalWords(box, close) {
+    var m = A.modal;
+    modalHead(box, "Le jeu des mots", close);
+    var b = h("div", { class: "drawer-body" });
+    if (m.i >= m.qs.length) {
+      b.appendChild(h("p", { class: "words-score" }, m.score + " sur " + m.qs.length + (m.score === m.qs.length ? " : sans faute !" : m.score >= m.qs.length - 1 ? " : très bien !" : ".")));
+      b.appendChild(h("div", { class: "row" }, h("button", { class: "btn primary", onclick: Words.start }, "Rejouer"), h("button", { class: "btn", onclick: close }, "Fermer")));
+    } else {
+      var q = m.qs[m.i];
+      b.appendChild(h("p", { class: "small muted" }, "Question " + (m.i + 1) + " sur " + m.qs.length + " · Quel mot veut dire :"));
+      b.appendChild(h("p", { class: "words-def" }, "« " + q.def + " »"));
+      b.appendChild(h("div", { class: "stack tight" }, q.options.map(function (o) {
+        var cls = "btn words-opt" + (m.answered ? (o === q.head ? " good" : o === m.answered ? " bad" : "") : "");
+        return h("button", { class: cls, disabled: !!m.answered && o !== q.head && o !== m.answered, onclick: function () { Words.answer(o); } }, o);
+      })));
+      if (m.answered) b.appendChild(h("button", { class: "btn primary", style: "margin-top:12px", onclick: function () { m.i++; m.answered = null; render(); } }, m.i + 1 < m.qs.length ? "Question suivante" : "Voir le score"));
+    }
+    box.appendChild(b);
+  }
+  function tabWords(b) {
+    var list = Words.list(A.profile);
+    if (!list.length) { b.appendChild(h("div", { class: "notice" }, "Les mots rares que tu touches dans le texte (soulignés de pointillés) viennent se ranger ici.")); return; }
+    if (list.length >= WORDS_MIN_GAME) b.appendChild(h("button", { class: "btn sm primary", onclick: function () { A.carnet = null; Words.start(); } }, "🎯 Jeu des mots"));
+    list.forEach(function (w) {
+      b.appendChild(h("div", { class: "clue" }, h("b", null, w.head + (w.known ? " ✓" : "")), h("div", { class: "small" }, w.def)));
+    });
   }
 
   // ------------------------------------------------------------------ following the text while it is read
@@ -801,6 +945,23 @@
         getWorker().postMessage({ id: id, voice: model(opts.key), sentences: list.map(function (u) { return { text: u.text, voice: model(u.dial ? dialKey : opts.key) }; }), rate: opts.rate || 1 });
       });
     };
+    // The same voice without playing it: each sentence comes back as samples (the audio book).
+    // Resolves with null when done or stopped, with a message when the voice failed.
+    var synthId = null;
+    N.synth = function (list, opts, onSentence) {
+      var model = function (k) { return N.manifest.voices[k].model; };
+      var dialKey = opts.dialKey && N.has(opts.dialKey) ? opts.dialKey : opts.key;
+      if (!list.length) return Promise.resolve(null);
+      var id = ++seq; synthId = id;
+      return new Promise(function (resolve) {
+        handlers[id] = function (d) {
+          if (d.error || d.done) { delete handlers[id]; if (synthId === id) synthId = null; resolve(d.error || null); return; }
+          onSentence(d.i, d.audio, d.rate);
+        };
+        getWorker().postMessage({ id: id, voice: model(opts.key), sentences: list.map(function (u) { return { text: u.text, voice: model(u.dial ? dialKey : opts.key) }; }), rate: opts.rate || 1 });
+      });
+    };
+    N.stopSynth = function () { if (synthId != null && worker) { worker.postMessage({ cancel: synthId }); } };
     return N;
   })();
 
@@ -1080,7 +1241,7 @@
     var folded = v.reread && A.unfold !== s.node + "#" + s.turn;
     if (folded) prose.appendChild(h("p", { class: "reread" }, h("span", { class: "muted" }, "Tu connais déjà cette page. "),
       h("button", { class: "btn ghost sm", onclick: function () { A.unfold = s.node + "#" + s.turn; render(); } }, "Relire")));
-    else { var glUsed = {}; v.text.forEach(function (t) { prose.appendChild(h("p", { html: Glossary.mark(st, md(t), glUsed) })); }); }
+    else { var glUsed = {}; v.text.forEach(function (t) { var ht = Glossary.mark(st, md(t), glUsed); prose.appendChild(h("p", { html: pref("syllables") ? Syllables.mark(ht) : ht })); }); }
     page.appendChild(prose);
     // Clues, items and rolls come after the text (Clément, 11/11: at the top they broke the reading).
     if (s.events && s.events.length) page.appendChild(h("div", { class: "events", role: "status" }, s.events.map(function (e) { return h("div", { class: "ev " + (e.cls || "") }, rollBadge(e), e.text); })));
@@ -1094,6 +1255,7 @@
       h("button", { class: "btn sm", disabled: !G.undo.length, onclick: undo, title: G.multi ? "Revenir avant ton dernier choix (pas avant un choix du monde ni une charnière)" : "Revenir avant ton dernier choix" }, "↶ Choix précédent"),
       G.multi && A.multi.kind === "local" && !v.wait ? h("button", { class: "btn sm", onclick: function () { stopSpeaking(); passTurn(); } }, "Passer la main") : null,
       A.tts ? h("button", { class: "btn sm", onclick: function () { A.speaking ? stopSpeaking() : speak(v); } }, A.speaking ? "■ Arrêter la lecture" : "🔈 Lire à voix haute") : null,
+      pref("voiceChoice") && VoiceChoice.available() && !G.multi && v.kind !== "end" ? h("button", { class: "btn sm" + (VoiceChoice.listening ? " primary" : ""), "aria-pressed": VoiceChoice.listening ? "true" : "false", title: "Dis « le deuxième » ou quelques mots du choix", onclick: function () { VoiceChoice.listening ? VoiceChoice.stop() : VoiceChoice.listen(); } }, VoiceChoice.listening ? "🎤 J'écoute…" : "🎤 Choisir à la voix") : null,
       h("button", { class: "btn sm", onclick: function () { A.carnet = true; A.carnetTab = "carte"; render(); } }, "Carte"),
       h("button", { class: "btn sm", onclick: function () { A.carnet = true; A.carnetTab = "quetes"; render(); } }, "Quêtes"),
       G.multi ? null : h("button", { class: "btn sm", onclick: function () { A.modal = { kind: "mark" }; render(); } }, "🔖 Marque-page"),
@@ -1427,7 +1589,7 @@
     A.recap = false;
     if (A.game && A.game.ephemeral) { A.screen = A.game.back || "home"; A.game = null; A.carnet = null; render(); return; }
     if (A.multi && A.multi.unsub) A.multi.unsub.forEach(function (u) { try { u(); } catch (e) { /* already closed */ } });
-    A.multi = null; A.game = null; A.carnet = null; A.screen = "home"; refresh().then(render);
+    A.multi = null; A.game = null; A.carnet = null; A.screen = "home"; refresh().then(render).then(function () { if (Sync.on() && Sync.dirty) Sync.run(true); });
   }
   function renderMultiList() {
     var sec = h("section", { class: "section" }, h("h2", null, "Parties à plusieurs"));
@@ -1628,16 +1790,180 @@
     if (A.tts.browser) {
       // The device's voices read sentence by sentence: the text lights up as it goes, the « » may get their own voice.
       o.voiceName = pref("voice") || ""; o.dialogue = !!pref("dialogue"); o.onUnit = Reading.onUnit;
-      A.tts.speak(lines, o).catch(function () {}).then(function () { A.speaking = false; Reading.unit = null; render(); });
+      var seq = ++readSeq;
+      A.tts.speak(lines, o).catch(function () {}).then(function () {
+        A.speaking = false; Reading.unit = null; render();
+        // Read to the end, not stopped: the book listens for the choice.
+        if (seq === readSeq && pref("voiceChoice") && pref("autoListen") && VoiceChoice.available() && A.screen === "game" && !A.modal) VoiceChoice.listen();
+      });
       return;
     }
     if (CLAUDE_VOICES[pref("voice")]) o.voice = pref("voice");
     A.tts.speak(out, o).catch(function () {}).then(function () { A.speaking = false; render(); });
   }
-  function stopSpeaking() { if (A.tts && A.speaking) { try { A.tts.stop(); } catch (e) { /* ignore */ } A.speaking = false; } Reading.unit = null; }
+  var readSeq = 0;
+  function stopSpeaking() { readSeq++; if (A.tts && A.speaking) { try { A.tts.stop(); } catch (e) { /* ignore */ } A.speaking = false; } Reading.unit = null; }
+
+  // ------------------------------------------------------------------ choosing by voice
+  // Intent: VoiceChoice = the reader says « le deuxième » or a few words of a choice, and the book takes it.
+  // The device's speech recognition (Chrome, Android); only on the site, the artifact frame has no microphone.
+  // Why: Clément, 13/11: young readers, and reading in bed without touching the screen.
+  var VOICE_ORDINALS = [["premier", "premiere", "un", "une", "1", "1er", "1ere"], ["deuxieme", "second", "seconde", "deux", "2", "2e"], ["troisieme", "trois", "3", "3e"],
+    ["quatrieme", "quatre", "4", "4e"], ["cinquieme", "cinq", "5", "5e"], ["sixieme", "six", "6", "6e"], ["septieme", "sept", "7", "7e"], ["huitieme", "huit", "8", "8e"], ["neuvieme", "neuf", "9", "9e"], ["dixieme", "dix", "10", "10e"]];
+  var VOICE_LAST = ["dernier", "derniere"];
+  var VOICE_STOP = { les: 1, des: 1, une: 1, est: 1, que: 1, qui: 1, dans: 1, pour: 1, par: 1, sur: 1, avec: 1, mais: 1, pas: 1, son: 1, ses: 1, mon: 1, mes: 1, ton: 1, tes: 1, leur: 1, aux: 1, choix: 1, choisis: 1, veux: 1, voudrais: 1, prends: 1, alors: 1, celui: 1, celle: 1, numero: 1 };
+  var VOICE_ORDINAL_WORDS = 4;              // a short sentence with a number is a rank, « le deuxième choix »
+  var VoiceChoice = (function () {
+    var V = { listening: false }, rec = null;
+    function Rec() { return window.SpeechRecognition || window.webkitSpeechRecognition; }
+    V.available = function () { return standalone() && !!Rec(); };
+    function norm(t) { return String(t).toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9 ]+/g, " ").replace(/\s+/g, " ").trim(); }
+    function stem(w) { return w.slice(0, 5); }
+    // The choices on screen, in the order the reader sees them.
+    function shown(v) { return v.choices.filter(function (c) { return !c.restart; }); }
+    // Intent: match(text, choices) -> { c } | { rank } | null
+    V.match = function (text, list) {
+      var words = norm(text).split(" ").filter(Boolean);
+      var hasRankWord = words.indexOf("choix") >= 0 || words.indexOf("numero") >= 0;
+      if (words.length <= VOICE_ORDINAL_WORDS || hasRankWord) {
+        for (var i = 0; i < words.length; i++) {
+          if (VOICE_LAST.indexOf(words[i]) >= 0) return { c: list[list.length - 1] };
+          for (var r = 0; r < VOICE_ORDINALS.length; r++) if (VOICE_ORDINALS[r].indexOf(words[i]) >= 0 && r < list.length) {
+            // « un » alone is a rank only when nothing else is said.
+            if ((words[i] === "un" || words[i] === "une") && words.length > 2 && !hasRankWord) continue;
+            return { c: list[r] };
+          }
+        }
+      }
+      var said = words.filter(function (w) { return w.length >= 3 && !VOICE_STOP[w]; }).map(stem);
+      if (!said.length) return null;
+      var scored = list.map(function (c) {
+        var lw = norm(c.label + " " + (c.goes || "")).split(" ").filter(function (w) { return w.length >= 3; }).map(stem);
+        return { c: c, n: said.filter(function (w) { return lw.indexOf(w) >= 0; }).length };
+      }).sort(function (a, b) { return b.n - a.n; });
+      if (scored[0].n > 0 && (scored.length < 2 || scored[0].n > scored[1].n)) return { c: scored[0].c };
+      return null;
+    };
+    V.stop = function () { if (rec) { try { rec.abort(); } catch (e) { /* ignore */ } rec = null; } if (V.listening) { V.listening = false; render(); } };
+    V.listen = function () {
+      var G = A.game; if (!G || !V.available() || A.screen !== "game") return;
+      stopSpeaking(); V.stop();
+      var R = Rec(); rec = new R(); rec.lang = "fr-FR"; rec.interimResults = false; rec.maxAlternatives = 5;
+      var mine = rec, got = false;
+      rec.onresult = function (e) {
+        got = true; var v = M.view(G.story, G.s), list = shown(v), alts = e.results[0], found = null, heard = alts[0].transcript;
+        for (var i = 0; i < alts.length && !found; i++) found = V.match(alts[i].transcript, list);
+        if (!found) { flash("Je n'ai pas reconnu de choix dans « " + heard + " ». Dis par exemple « le deuxième », ou quelques mots du choix.", true); return; }
+        if (!found.c.ok) { flash("« " + found.c.label + " » n'est pas possible pour l'instant" + (found.c.why ? " : " + found.c.why : "") + ".", true); return; }
+        A.notice = ""; pick(found.c);
+      };
+      rec.onerror = function (e) {
+        if (e.error === "not-allowed" || e.error === "service-not-allowed") flash("Le micro est refusé. Autorise-le pour ce site dans le navigateur, puis réessaie.", true);
+        else if (e.error === "no-speech") flash("Je n'ai rien entendu. Appuie sur 🎤 et parle après le petit signal.", true);
+        else if (e.error !== "aborted") flash("La reconnaissance de la voix n'a pas marché (" + e.error + ").", true);
+      };
+      rec.onend = function () { if (rec === mine) { rec = null; V.listening = false; render(); } };
+      try { rec.start(); V.listening = true; render(); } catch (e) { rec = null; flash("Le micro n'a pas pu démarrer.", true); }
+    };
+    return V;
+  })();
+
+  // ------------------------------------------------------------------ drawn portraits and coats of arms
+  // Intent: Heraldry = a portrait for every hero and companion (a bust, the class's mark, colours seeded by the name),
+  // and a coat of arms for every faction (field, division, charge, seeded by its id; a story may set its own: blasons).
+  // Same name, same face, on every device: everything comes from hash(), nothing is stored.
+  var PORTRAIT_SKINS = ["#f1d3b6", "#e2b48f", "#c98f66", "#a86f4c", "#7b4b32", "#f5dcc8"];
+  var PORTRAIT_HAIRS = ["#2a1d15", "#4b3020", "#7a4a26", "#b7752f", "#d9b56a", "#8d8d8d", "#e8e2d6", "#5a1f14"];
+  var PORTRAIT_BACKS = ["#c9d8c5", "#d8cbb4", "#c4cfe0", "#e0c6c6", "#d4d0e6", "#cfe0dc"];
+  var ARCH_GEAR = {
+    guerrier: { cloth: "#7d8790", mark: "M-4 9 L4 -9 M-6 -5 L-2 -7" },                  // a sword over the shoulder
+    rodeur: { cloth: "#4f6b3a", mark: "M-6 -9 Q6 0 -6 9 M-6 -9 L-6 9" },                 // a bow
+    voleur: { cloth: "#3a3a46", mark: "M-7 -2 Q0 -6 7 -2 Q0 2 -7 -2 M-3 -2 h1 M2 -2 h1" }, // a mask
+    mage: { cloth: "#3c3f86", mark: "M0 -8 L2 -2 L8 -2 L3 2 L5 8 L0 4 L-5 8 L-3 2 L-8 -2 L-2 -2 Z" }, // a star
+    pretre: { cloth: "#e6dfcc", mark: "M0 -8 V8 M-6 -3 H6" },                            // a cross
+    barde: { cloth: "#8a3b55", mark: "M-3 6 a3 3 0 1 0 0.1 0 M0 6 V-8 L6 -5" },         // a note
+  };
+  var TINCT = { or: "#d9a92e", argent: "#eeeae0", gueules: "#b3261e", azur: "#2456a6", sinople: "#2f7d3a", sable: "#26231f", pourpre: "#6b2d6b" };
+  var METALS = ["or", "argent"], COLOURS = ["gueules", "azur", "sinople", "sable", "pourpre"];
+  var DIVISIONS = ["plein", "parti", "coupe", "bande", "ecartele", "chevron", "chef"];
+  var CHARGES = {
+    etoile: "M0 -14 L4 -4 L14 -4 L6 2 L9 12 L0 6 L-9 12 L-6 2 L-14 -4 L-4 -4 Z",
+    besant: "M0 -11 a11 11 0 1 0 0.01 0 Z",
+    croix: "M-3 -14 H3 V-3 H14 V3 H3 V14 H-3 V3 H-14 V-3 H-3 Z",
+    croissant: "M6 -12 A13 13 0 1 0 6 12 A10 10 0 1 1 6 -12 Z",
+    tour: "M-9 13 V-6 H-11 V-13 H-7 V-10 H-3 V-13 H3 V-10 H7 V-13 H11 V-6 H9 V13 Z M-3 13 V5 A3 3 0 0 1 3 5 V13 Z",
+    cle: "M-2 -14 a6 6 0 1 0 4 0 Z M-1.5 -4 H1.5 V14 H-1.5 Z M1.5 6 H7 V9 H1.5 Z M1.5 11 H6 V14 H1.5 Z",
+    montagne: "M-14 12 L-4 -8 L0 -2 L5 -12 L14 12 Z",
+    plume: "M10 -14 Q-8 -6 -8 12 L-6 12 Q-2 -2 10 -14 Z",
+  };
+  var Heraldry = (function () {
+    var H = {};
+    function pick(arr, n) { return arr[n % arr.length]; }
+    // Intent: portrait(seed, { arch, f, size }) -> svg markup
+    H.portrait = function (seed, o) {
+      o = o || {}; var x = hash(String(seed || "?")), sz = o.size || 64;
+      var skin = pick(PORTRAIT_SKINS, x), hair = pick(PORTRAIT_HAIRS, x >>> 3), back = pick(PORTRAIT_BACKS, x >>> 6);
+      var gear = ARCH_GEAR[o.arch] || { cloth: pick(["#6d5a40", "#4f5d6b", "#6b4a4a", "#55663f"], x >>> 9), mark: null };
+      var style = (x >>> 12) % 4, beard = o.f === false && (x >>> 14) % 3 === 0, f = !!o.f;
+      var parts = ['<svg class="portrait" viewBox="0 0 64 64" width="' + sz + '" height="' + sz + '" role="img" aria-hidden="true">',
+        '<circle cx="32" cy="32" r="32" fill="' + back + '"/>',
+        '<clipPath id="pc' + x + '"><circle cx="32" cy="32" r="32"/></clipPath><g clip-path="url(#pc' + x + ')">'];
+      if (f && style !== 3) parts.push('<path d="M17 30 Q16 52 22 56 H42 Q48 52 47 30 Z" fill="' + hair + '"/>');   // long hair behind
+      parts.push('<path d="M8 66 Q10 46 32 44 Q54 46 56 66 Z" fill="' + gear.cloth + '"/>');                          // shoulders
+      parts.push('<rect x="27" y="36" width="10" height="10" rx="3" fill="' + skin + '"/>');                         // neck
+      parts.push('<ellipse cx="32" cy="27" rx="12" ry="14" fill="' + skin + '"/>');                                  // head
+      if (o.arch === "voleur" || o.arch === "rodeur" ? style < 2 : false) parts.push('<path d="M16 32 Q14 8 32 8 Q50 8 48 32 Q46 18 32 17 Q18 18 16 32 Z M14 34 Q10 50 18 50 L20 36 Z M50 34 Q54 50 46 50 L44 36 Z" fill="' + gear.cloth + '" opacity=".95"/>'); // a hood
+      else if (style === 2 && !f) parts.push('<path d="M20 22 Q22 12 32 12 Q42 12 44 22 Q38 17 32 17 Q26 17 20 22 Z" fill="' + hair + '"/>'); // short, receding
+      else parts.push('<path d="M19 28 Q17 10 32 10 Q47 10 45 28 Q44 19 36 17 Q30 21 21 21 Q20 24 19 28 Z" fill="' + hair + '"/>');
+      if (beard) parts.push('<path d="M21 30 Q22 44 32 45 Q42 44 43 30 Q40 37 32 37 Q24 37 21 30 Z" fill="' + hair + '"/>');
+      parts.push('<circle cx="27" cy="27" r="1.3" fill="#2b2015"/><circle cx="37" cy="27" r="1.3" fill="#2b2015"/>');
+      parts.push('<path d="M28.5 34 Q32 36 35.5 34" stroke="#7a3e2e" stroke-width="1.2" fill="none" stroke-linecap="round"/>');
+      if (gear.mark) parts.push('<g transform="translate(51 51)"><circle r="11" fill="#fbf4e2" stroke="#8a6a3a" stroke-width="1.5"/><path d="' + gear.mark + '" transform="scale(.75)" stroke="#5a3f1c" stroke-width="2" fill="' + (o.arch === "mage" ? "#c9a24a" : "none") + '" stroke-linecap="round" stroke-linejoin="round"/></g>');
+      parts.push("</g></svg>");
+      return parts.join("");
+    };
+    // Intent: arms(seed, spec?) -> { field, other, division, charge, chargeT } ; the rule of tincture: metal on colour.
+    H.arms = function (seed, spec) {
+      var x = hash(String(seed)), metalFirst = x % 2 === 0;
+      var m = pick(METALS, x >>> 2), c = pick(COLOURS, x >>> 4);
+      var a = { field: metalFirst ? m : c, other: metalFirst ? c : m, division: pick(DIVISIONS, x >>> 7), charge: pick(Object.keys(CHARGES), x >>> 10) };
+      a.chargeT = a.division === "plein" ? a.other : a.field === m ? pick(COLOURS, (x >>> 13) + 1) : pick(METALS, (x >>> 13) + 1);
+      if (a.chargeT === a.field || a.chargeT === a.other) a.chargeT = a.division === "plein" ? a.other : METALS.indexOf(a.field) >= 0 ? "sable" : "or";
+      if (spec) Object.keys(spec).forEach(function (k) { a[k] = spec[k]; });
+      return a;
+    };
+    var SHIELD = "M4 4 H60 V30 Q60 56 32 68 Q4 56 4 30 Z";
+    H.blason = function (seed, spec, size) {
+      var a = H.arms(seed, spec), x = hash(String(seed)), id = "bl" + x, sz = size || 48;
+      var t = function (n) { return TINCT[n] || n; };
+      var div = {
+        plein: "", parti: '<rect x="32" y="0" width="32" height="72" fill="' + t(a.other) + '"/>',
+        coupe: '<rect x="0" y="34" width="64" height="40" fill="' + t(a.other) + '"/>',
+        bande: '<path d="M0 0 L22 0 L64 52 L64 72 L42 72 L0 20 Z" fill="' + t(a.other) + '"/>',
+        ecartele: '<rect x="32" y="0" width="32" height="34" fill="' + t(a.other) + '"/><rect x="0" y="34" width="32" height="40" fill="' + t(a.other) + '"/>',
+        chevron: '<path d="M0 52 L32 22 L64 52 L64 64 L32 34 L0 64 Z" fill="' + t(a.other) + '"/>',
+        chef: '<rect x="0" y="0" width="64" height="20" fill="' + t(a.other) + '"/>',
+      }[a.division] || "";
+      var cy = a.division === "chef" ? 40 : a.division === "chevron" ? 50 : a.division === "coupe" ? 20 : 34;
+      var sc = a.division === "plein" || a.division === "chef" ? 1.1 : 0.75;
+      var cx = a.division === "parti" || a.division === "ecartele" ? 17 : 32;
+      if (a.division === "coupe") cx = 32;
+      return '<svg class="blason" viewBox="0 0 64 72" width="' + sz + '" height="' + Math.round(sz * 72 / 64) + '" role="img" aria-hidden="true">' +
+        '<clipPath id="' + id + '"><path d="' + SHIELD + '"/></clipPath><g clip-path="url(#' + id + ')"><rect width="64" height="72" fill="' + t(a.field) + '"/>' + div +
+        '<path d="' + (CHARGES[a.charge] || CHARGES.etoile) + '" transform="translate(' + cx + " " + cy + ") scale(" + sc + ')" fill="' + t(a.chargeT) + '" stroke="#1a1612" stroke-width=".6"/></g>' +
+        '<path d="' + SHIELD + '" fill="none" stroke="#1a1612" stroke-width="2"/></svg>';
+    };
+    return H;
+  })();
+  function portraitOf(st, k, s) {
+    var hero = st.heroes && st.heroes[k], c = (st.companions || {})[k] || {};
+    var arch = hero ? (hero.player ? s.arch : hero.arch) : c.arch, f = hero && hero.player ? null : hero && hero.f != null ? hero.f : c.f;
+    var name = hero && hero.player ? s.name : (hero && hero.name) || c.name || k;
+    return Heraldry.portrait(st.id + "|" + name, { arch: arch, f: f });
+  }
 
   // ------------------------------------------------------------------ the notebook
-  var TABS = [["heros", "Héros"], ["sac", "Sac"], ["quetes", "Quêtes"], ["indices", "Indices"], ["compagnons", "Compagnons"], ["carte", "Carte"], ["gens", "Gens"], ["frise", "Frise"], ["marques", "Marque-pages"], ["exploits", "Hauts faits"], ["codex", "Bestiaire et atlas"], ["journal", "Journal"], ["coulisses", "Coulisses"]];
+  var TABS = [["heros", "Héros"], ["sac", "Sac"], ["quetes", "Quêtes"], ["indices", "Indices"], ["compagnons", "Compagnons"], ["carte", "Carte"], ["gens", "Gens"], ["frise", "Frise"], ["marques", "Marque-pages"], ["exploits", "Hauts faits"], ["codex", "Bestiaire et atlas"], ["mots", "Mots"], ["journal", "Journal"], ["coulisses", "Coulisses"]];
   function renderCarnet() {
     var G = A.game; if (!G) { A.carnet = null; return; }
     var close = function () { A.carnet = null; render(); };
@@ -1646,7 +1972,7 @@
     d.appendChild(h("div", { class: "drawer-head" }, h("h2", null, "Carnet de " + G.s.name), h("button", { class: "btn sm", onclick: close }, "Fermer")));
     d.appendChild(h("nav", { class: "tabs" }, TABS.map(function (t) { return h("button", { class: "tab" + (A.carnetTab === t[0] ? " on" : ""), onclick: function () { A.carnetTab = t[0]; render(); } }, t[1]); })));
     var body = h("div", { class: "drawer-body" });
-    ({ heros: tabHero, sac: tabBag, quetes: tabQuests, indices: tabClues, compagnons: tabCompanions, carte: tabMap, gens: tabPeople, frise: tabFrise, marques: tabMarks, exploits: tabFeats, codex: tabCodex, journal: tabLog, coulisses: tabBackstage })[A.carnetTab](body, G.story, G.s);
+    ({ heros: tabHero, sac: tabBag, quetes: tabQuests, indices: tabClues, compagnons: tabCompanions, carte: tabMap, gens: tabPeople, frise: tabFrise, marques: tabMarks, exploits: tabFeats, codex: tabCodex, mots: tabWords, journal: tabLog, coulisses: tabBackstage })[A.carnetTab](body, G.story, G.s);
     d.appendChild(body);
     app.appendChild(bg); app.appendChild(d);
   }
@@ -1658,7 +1984,7 @@
   function bar(cls, v, max) { return h("span", { class: "bar " + cls }, h("i", { style: "width:" + Math.max(0, Math.min(100, Math.round(100 * v / max))) + "%" })); }
   function tabHero(b, st, s) {
     var a = M.ARCHS[s.arch] || {}, lv = M.level(s), into = s.ep - lv * M.EP_PER_LEVEL;
-    b.appendChild(h("div", null, h("div", { class: "label" }, a.label + " · niveau " + lv), h("div", { class: "small muted" }, a.tip + " Difficulté : " + (M.DIFFICULTY[s.difficulty || "aventurier"] || {}).label + ".")));
+    b.appendChild(h("div", { class: "hero-head" }, h("span", { html: Heraldry.portrait(st.id + "|" + s.name, { arch: s.arch }) }), h("div", null, h("div", { class: "label" }, a.label + " · niveau " + lv), h("div", { class: "small muted" }, a.tip + " Difficulté : " + (M.DIFFICULTY[s.difficulty || "aventurier"] || {}).label + "."))));
     b.appendChild(h("div", { class: "kv" },
       h("span", null, "Points de vie"), bar("pv", s.pv, M.pvMax(s)), h("span", { class: "num" }, s.pv + "/" + M.pvMax(s)),
       h("span", null, "Expérience"), bar("", into, M.EP_PER_LEVEL), h("span", { class: "num" }, s.ep.toLocaleString("fr-FR") + " EP"),
@@ -1689,7 +2015,7 @@
     others.forEach(function (k) {
       var sh = M.heroSheet(s, k), a = M.ARCHS[sh.arch] || {}, where = s.met[k] === "party" ? "avec toi" : s.met[k] === "away" ? "ailleurs" : s.met[k] === "gone" ? "parti" : "rencontré";
       var pv = s.cpv && s.cpv[k] != null ? s.cpv[k] + "/" + M.cpvMax(st, s, k) + " PV · " : "";
-      b.appendChild(h("div", { class: "small" }, h("b", null, sh.name), " · " + a.label + " de niveau " + M.levelOfEp(sh.ep) + " · " + pv + where + " · souvenirs " + M.souvCount(st, s, k) + "/" + Object.keys(M.souvOf(st, k)).length));
+      b.appendChild(h("div", { class: "small hero-line" }, h("span", { html: Heraldry.portrait(st.id + "|" + sh.name, { arch: sh.arch, f: (st.companions && st.companions[k] || {}).f, size: 32 }) }), h("b", null, sh.name), " · " + a.label + " de niveau " + M.levelOfEp(sh.ep) + " · " + pv + where + " · souvenirs " + M.souvCount(st, s, k) + "/" + Object.keys(M.souvOf(st, k)).length));
     });
   }
   function tabBag(b, st, s) {
@@ -1735,7 +2061,7 @@
     if (!ks.length) b.appendChild(h("div", { class: "notice" }, "Tu voyages seul."));
     ks.forEach(function (k) {
       var c = st.companions[k];
-      b.appendChild(h("div", { class: "itemrow" }, h("b", null, c.name), h("span", { class: "small muted" }, s.met[k] === "party" ? "avec toi" : s.met[k] === "gone" ? "parti" : "rencontré"),
+      b.appendChild(h("div", { class: "itemrow" }, h("b", { class: "with-portrait" }, h("span", { html: portraitOf(st, k, s).replace('width="64" height="64"', 'width="36" height="36"') }), c.name), h("span", { class: "small muted" }, s.met[k] === "party" ? "avec toi" : s.met[k] === "gone" ? "parti" : "rencontré"),
         h("div", { class: "desc" }, c.role || ""),
         h("div", { class: "kv", style: "grid-column:1/-1" }, h("span", { class: "small" }, "Confiance"), bar("conf", s.conf[k] || 0, 100), h("span", { class: "num small" }, s.conf[k] || 0),
           h("span", { class: "small" }, "Crainte"), bar("fear", s.fear[k] || 0, 100), h("span", { class: "num small" }, s.fear[k] || 0))));
@@ -1783,9 +2109,18 @@
     var ks = Object.keys(s.people || {});
     if (!ks.length) b.appendChild(h("div", { class: "notice" }, "Personne encore."));
     ks.forEach(function (k) { var p = st.people[k]; if (p) b.appendChild(h("div", { class: "itemrow" }, h("b", null, p.name), h("span"), h("div", { class: "desc" }, p.desc || ""))); });
+    var fs = Object.keys(st.factions || {}).filter(function (k) { return s.fac && s.fac[k] != null; });
+    if (!fs.length) return;
+    b.appendChild(h("div", { class: "label" }, "Factions"));
+    fs.forEach(function (k) {
+      var v = s.fac[k];
+      b.appendChild(h("div", { class: "faction" }, h("span", { html: Heraldry.blason(st.id + "|" + k, (st.blasons || {})[k], 40) }),
+        h("div", null, h("b", null, st.factions[k]), h("div", { class: "small muted" }, v >= 40 ? "Ils te font confiance." : v > 0 ? "Plutôt bien disposés." : v === 0 ? "Ils ne savent que penser de toi." : v > -40 ? "Méfiants." : "Hostiles."))));
+    });
   }
   function tabLog(b, st, s) {
     var log = A.game.log.slice().reverse(), lastT = null;
+    if (!A.game.multi && !A.game.ephemeral) b.appendChild(h("button", { class: "btn sm", onclick: openRecit }, "📖 Mon aventure : la partie racontée comme un livre"));
     log.forEach(function (e) {
       if (e.t !== lastT) { b.appendChild(h("div", { class: "logday" }, e.t)); lastT = e.t; }
       b.appendChild(h("div", { class: "logentry" }, h("b", null, e.title || ""), e.ev && e.ev.length ? h("div", { class: "small muted" }, e.ev.join(" · ")) : null));
@@ -1808,7 +2143,7 @@
   // ------------------------------------------------------------------ reading preferences (per reader)
   // Intent: pref(Key) -> Value = the reader's own setting, else the default
   // Why: Clément (12/11): text size, spacing, theme, voice, real dice, sound… follow the reader, not the device.
-  var PREFS = { skin: "histoire", size: "m", spacing: "normal", theme: "auto", font: "livre", voice: "", highlight: true, ruler: false, dialogue: false, glossary: true, nudge: false, rate: 1, autoRead: false, dice: "ecran", ambiance: false, volume: 0.6 };
+  var PREFS = { skin: "histoire", size: "m", spacing: "normal", theme: "auto", font: "livre", voice: "", highlight: true, ruler: false, dialogue: false, glossary: true, nudge: false, syllables: false, voiceChoice: false, autoListen: true, rate: 1, autoRead: false, dice: "ecran", ambiance: false, volume: 0.6 };
   var SIZES = { s: ["Petit", 16], m: ["Normal", 18], l: ["Grand", 21], xl: ["Très grand", 24] };
   var SPACINGS = { serre: ["Serré", 1.5], normal: ["Normal", 1.72], aere: ["Aéré", 2] };
   var THEMES = { auto: "Comme l'appareil", light: "Clair", sepia: "Sépia", dark: "Sombre" };
@@ -1852,7 +2187,7 @@
     var m = A.modal, close = function () { if (m.kind === "send" || m.kind === "receive") Transfer.stop(); A.modal = null; render(); };
     var box = h("div", { class: "modal", role: "dialog", "aria-modal": "true" });
     var bg = h("div", { class: "drawer-bg", onclick: close });
-    ({ prefs: modalPrefs, report: modalReport, dice: modalDice, mark: modalMark, bedtime: modalBedtime, send: modalSend, receive: modalReceive })[m.kind](box, close, m);
+    ({ prefs: modalPrefs, report: modalReport, dice: modalDice, mark: modalMark, bedtime: modalBedtime, send: modalSend, receive: modalReceive, words: modalWords, sync: modalSync })[m.kind](box, close, m);
     app.appendChild(bg); app.appendChild(box);
     var f = box.querySelector("[autofocus]"); if (f) setTimeout(function () { f.focus(); }, 0);
   }
@@ -1867,7 +2202,12 @@
     b.appendChild(seg(THEMES, "theme", "Thème"));
     b.appendChild(prefToggle("nudge", "Coup de pouce (jeunes lecteurs)", "Un bouton 💡, deux fois par acte, donne une phrase pour s'orienter quand on est perdu. Il ne révèle jamais la suite."));
     b.appendChild(prefToggle("glossary", "Expliquer les mots rares", "Les mots peu courants sont soulignés de pointillés : on les touche pour lire leur sens."));
+    b.appendChild(prefToggle("syllables", "Syllabes en couleurs", "Une syllabe sur deux change de couleur, comme dans les méthodes de lecture."));
     b.appendChild(prefToggle("ruler", "Règle de lecture", "Une bande suit la ligne en cours et assombrit le reste. Touche une ligne pour l'y amener ; sur ordinateur, les flèches ↑ ↓."));
+    if (VoiceChoice.available()) {
+      b.appendChild(prefToggle("voiceChoice", "Choisir à la voix", "Un bouton 🎤 écoute le lecteur : « le deuxième », « le dernier », ou quelques mots du choix."));
+      if (pref("voiceChoice") && A.tts) b.appendChild(prefToggle("autoListen", "Écouter après la lecture", "Quand une page a été lue jusqu'au bout, le micro s'ouvre tout seul pour le choix."));
+    }
     b.appendChild(h("p", { class: "prose sample" }, "Le vent tourna, et la neige se mit à tomber de biais sur la route."));
     if (A.tts) {
       var voices = A.tts.browser ? (A.tts.voices() || []) : Object.keys(CLAUDE_VOICES);
@@ -2132,7 +2472,7 @@
     var doms = Object.keys(M.DOMAINS).map(function (k) { var v = M.bonus(st, s, k); return "<tr><td>" + esc(M.DOMAINS[k]) + "</td><td class=n>" + (v >= 0 ? "+" : "") + v + "</td><td><i style=\"width:" + Math.max(0, Math.min(100, Math.round(v * 1.25))) + "%\"></i></td></tr>"; }).join("");
     var d = new Date();
     return "<div class=\"fiche-card\">" +
-      "<header><div class=\"seal\">" + esc((s.name || "?").charAt(0).toUpperCase()) + "</div><div><h1>" + esc(s.name) + "</h1>" +
+      "<header><div class=\"seal\">" + Heraldry.portrait(st.id + "|" + s.name, { arch: s.arch, size: 72 }) + "</div><div><h1>" + esc(s.name) + "</h1>" +
       "<p class=\"sub\">" + esc(a.label || "") + " · niveau " + lv + " · " + esc((M.DIFFICULTY[s.difficulty || "aventurier"] || {}).label || "") + "</p>" +
       "<p class=\"story\">" + esc(st.title) + "</p></div></header>" +
       "<div class=\"cols\"><section><h2>Le héros</h2><table class=\"kv\">" +
@@ -2148,7 +2488,7 @@
       "<footer>" + esc(a.tip || "") + "<br>Fiche du " + d.toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric" }) + "</footer></div>";
   }
   var FICHE_CSS = ".fiche-card{max-width:46rem;margin:1rem auto;padding:28px 32px;background:#fbf4e2;color:#2b2015;border:3px double #8a6a3a;border-radius:10px;font:15px/1.5 Georgia,'Literata',serif;box-shadow:inset 0 0 40px rgb(140 100 40 / .18)}" +
-    ".fiche-card header{display:flex;gap:18px;align-items:center;border-bottom:1px solid #c9ad7c;padding-bottom:14px;margin-bottom:10px}.fiche-card .seal{flex:none;width:72px;height:72px;border-radius:50%;background:#8c2f1c;color:#fff6e4;display:grid;place-items:center;font-size:40px;border:3px solid #c9a24a}" +
+    ".fiche-card header{display:flex;gap:18px;align-items:center;border-bottom:1px solid #c9ad7c;padding-bottom:14px;margin-bottom:10px}.fiche-card .seal{flex:none;width:72px;height:72px;border-radius:50%;background:#8c2f1c;color:#fff6e4;display:grid;place-items:center;font-size:40px;border:3px solid #c9a24a;overflow:hidden}.fiche-card .seal svg{width:100%;height:100%}" +
     ".fiche-card h1{margin:0;font-size:2em}.fiche-card .sub{margin:2px 0;font-style:italic}.fiche-card .story{margin:0;color:#6d5a40;font-size:.9em;text-transform:uppercase;letter-spacing:.08em}" +
     ".fiche-card .cols{display:grid;grid-template-columns:1fr 1fr;gap:6px 28px}@media (max-width:600px){.fiche-card .cols{grid-template-columns:1fr}.fiche-card{padding:18px}}" +
     ".fiche-card h2{font-size:1em;text-transform:uppercase;letter-spacing:.1em;color:#8c2f1c;margin:14px 0 6px;border-bottom:1px dotted #c9ad7c}.fiche-card table{width:100%;border-collapse:collapse}.fiche-card td{padding:2px 0}.fiche-card td.n{text-align:right;white-space:nowrap;padding-left:8px}" +
@@ -2175,9 +2515,390 @@
       } }, "Télécharger le livre") : null]));
     var w = h("main", { class: "wrap read recit" });
     if (A.recit.busy) w.appendChild(h("p", null, "Le livre se rassemble…"));
-    else w.appendChild(h("div", { html: recitHtml(st, s, A.recit.pages) }));
+    else { w.appendChild(renderAudioBook(st, s, A.recit.pages)); w.appendChild(h("div", { html: recitHtml(st, s, A.recit.pages) })); }
     w.appendChild(h("p", { class: "small muted noprint" }, "Le fichier téléchargé s'ouvre dans n'importe quel navigateur ; « Imprimer », puis « Enregistrer en PDF », en fait un PDF."));
     app.appendChild(w);
+  }
+
+  // ------------------------------------------------------------------ « Mon aventure » as an audio book
+  // Intent: AudioBook = the pages of the reader's adventure, read by the quality voice installed on the device, made
+  // into one sound file (Ogg Opus through WebCodecs, WAV when the browser has no encoder) to listen to in the car.
+  // Why: Clément, 13/11. Only on the site, and only with a quality voice: the device voices cannot be recorded.
+  var AB_RATE = 48000;                      // Opus always counts in 48 kHz samples
+  var AB_BITRATE = 32000;                   // speech, mono: small file, clear voice
+  var AB_PRESKIP = 312;                     // the usual Opus encoder delay at 48 kHz
+  var AB_BATCH = 30;                        // sentences sent to the voice at once (progress and cancel in between)
+  var AB_WAV_RATE = 22050;                  // the fallback file, 16-bit mono
+  var AudioBook = (function () {
+    var B = { job: null };
+    B.available = function () { return Neural.available() && Neural.keys().some(Neural.has); };
+    B.opus = function () { return typeof window.AudioEncoder === "function" && typeof window.AudioData === "function"; };
+    function resample(src, from, to) {
+      if (from === to) return src;
+      var n = Math.round(src.length * to / from), out = new Float32Array(n), k = from / to;
+      for (var i = 0; i < n; i++) { var x = i * k, j = Math.floor(x), f = x - j; out[i] = (src[j] || 0) * (1 - f) + (src[j + 1] || src[j] || 0) * f; }
+      return out;
+    }
+    // ---- Ogg pages (RFC 3533, RFC 7845): one packet per page.
+    var CRC = (function () { var t = new Uint32Array(256); for (var i = 0; i < 256; i++) { var r = i << 24; for (var j = 0; j < 8; j++) r = r & 0x80000000 ? (r << 1) ^ 0x04c11db7 : r << 1; t[i] = r >>> 0; } return t; })();
+    function oggPage(packet, granule, serial, seq, flags) {
+      var segs = []; for (var left = packet.length; ; left -= 255) { if (left >= 255) segs.push(255); else { segs.push(left); break; } }
+      var head = 27 + segs.length, page = new Uint8Array(head + packet.length), dv = new DataView(page.buffer);
+      page.set([0x4f, 0x67, 0x67, 0x53, 0, flags]);
+      dv.setUint32(6, granule % 0x100000000, true); dv.setUint32(10, Math.floor(granule / 0x100000000), true);
+      dv.setUint32(14, serial, true); dv.setUint32(18, seq, true); page[26] = segs.length; page.set(segs, 27); page.set(packet, head);
+      var c = 0; for (var i = 0; i < page.length; i++) c = ((c << 8) ^ CRC[((c >>> 24) ^ page[i]) & 255]) >>> 0;
+      dv.setUint32(22, c, true);
+      return page;
+    }
+    function opusHead() { var p = new Uint8Array(19), dv = new DataView(p.buffer); p.set([79, 112, 117, 115, 72, 101, 97, 100, 1, 1]); dv.setUint16(10, AB_PRESKIP, true); dv.setUint32(12, AB_RATE, true); return p; }
+    function opusTags(title) {
+      var enc = new TextEncoder(), vendor = enc.encode("livre-jeu"), c = enc.encode("TITLE=" + title);
+      var p = new Uint8Array(8 + 4 + vendor.length + 4 + 4 + c.length), dv = new DataView(p.buffer), o = 0;
+      p.set(enc.encode("OpusTags"), 0); o = 8; dv.setUint32(o, vendor.length, true); o += 4; p.set(vendor, o); o += vendor.length;
+      dv.setUint32(o, 1, true); o += 4; dv.setUint32(o, c.length, true); o += 4; p.set(c, o);
+      return p;
+    }
+    // Intent: OpusSink = samples at 48 kHz in, an Ogg Opus Blob out.
+    function OpusSink(title) {
+      var serial = (Math.random() * 0xffffffff) >>> 0, seq = 0, pages = [], granule = AB_PRESKIP, ts = 0, last = null, err = null;
+      pages.push(oggPage(opusHead(), 0, serial, seq++, 2)); pages.push(oggPage(opusTags(title), 0, serial, seq++, 0));
+      function flush(final) { if (!last) return; granule += last.n; pages.push(oggPage(last.data, granule, serial, seq++, final ? 4 : 0)); last = null; }
+      var enc = new AudioEncoder({
+        output: function (chunk) { flush(false); var d = new Uint8Array(chunk.byteLength); chunk.copyTo(d); last = { data: d, n: Math.round((chunk.duration || 20000) * AB_RATE / 1e6) }; },
+        error: function (e) { err = e; },
+      });
+      enc.configure({ codec: "opus", sampleRate: AB_RATE, numberOfChannels: 1, bitrate: AB_BITRATE });
+      return {
+        push: function (samples) {
+          if (err) throw err;
+          if (!samples.length) return null;
+          var data = new AudioData({ format: "f32", sampleRate: AB_RATE, numberOfFrames: samples.length, numberOfChannels: 1, timestamp: ts, data: samples });
+          ts += Math.round(samples.length * 1e6 / AB_RATE); enc.encode(data); data.close();
+          return enc.encodeQueueSize > 20 ? new Promise(function (r) { setTimeout(r, 50); }) : null;
+        },
+        rate: AB_RATE,
+        finish: function () { return enc.flush().then(function () { if (err) throw err; flush(true); enc.close(); return { blob: new Blob(pages, { type: "audio/ogg" }), ext: "ogg" }; }); },
+        cancel: function () { try { enc.close(); } catch (e) { /* ignore */ } },
+      };
+    }
+    function WavSink() {
+      var parts = [], n = 0;
+      return {
+        push: function (samples) { var p = new Int16Array(samples.length); for (var i = 0; i < samples.length; i++) { var x = Math.max(-1, Math.min(1, samples[i])); p[i] = x < 0 ? x * 0x8000 : x * 0x7fff; } parts.push(p); n += p.length; return null; },
+        rate: AB_WAV_RATE,
+        finish: function () {
+          var h = new DataView(new ArrayBuffer(44)), w = function (o, s) { for (var i = 0; i < s.length; i++) h.setUint8(o + i, s.charCodeAt(i)); };
+          w(0, "RIFF"); h.setUint32(4, 36 + n * 2, true); w(8, "WAVE"); w(12, "fmt "); h.setUint32(16, 16, true); h.setUint16(20, 1, true); h.setUint16(22, 1, true);
+          h.setUint32(24, AB_WAV_RATE, true); h.setUint32(28, AB_WAV_RATE * 2, true); h.setUint16(32, 2, true); h.setUint16(34, 16, true); w(36, "data"); h.setUint32(40, n * 2, true);
+          return Promise.resolve({ blob: new Blob([h.buffer].concat(parts), { type: "audio/wav" }), ext: "wav" });
+        },
+        cancel: function () {},
+      };
+    }
+    // The text of the book, sentence by sentence: act titles, page titles, the pages, the choices.
+    function script(st, s, pages, act) {
+      var acts = {}; (st.acts || []).forEach(function (a) { acts[a.id] = a.title; });
+      var lines = [{ text: st.title + ". L'aventure de " + s.name + "." }], lastAct = null;
+      pages.forEach(function (p) {
+        if (act && p.act !== act) return;
+        if (p.act && p.act !== lastAct) { lines.push({ text: acts[p.act] || "" }); lastAct = p.act; }
+        lines.push({ text: String(p.title || "").replace(/\*/g, "") });
+        (p.text || []).forEach(function (t) { lines.push({ text: t.replace(/\*/g, "") }); });
+        if (p.c) lines.push({ text: "Tu as choisi : " + p.c + "." });
+      });
+      return speechUnits(lines.filter(function (l) { return l.text.trim(); }));
+    }
+    B.actsOf = function (st, pages) {
+      var acts = {}, out = []; (st.acts || []).forEach(function (a) { acts[a.id] = a.title; });
+      pages.forEach(function (p) { if (p.act && out.indexOf(p.act) < 0) out.push(p.act); });
+      return out.map(function (id) { return { id: id, title: acts[id] || id }; });
+    };
+    // Intent: make(Story, State, pages, act|null) -> fills B.job { done, total, url, ext, error }
+    B.make = function (st, s, pages, act) {
+      var units = script(st, s, pages, act), want = pref("voice") || "", installed = Neural.keys().filter(Neural.has);
+      var key = /^neural:/.test(want) && Neural.has(want.slice(7)) ? want.slice(7) : installed[0];
+      var other = pref("dialogue") ? installed.filter(function (k) { return k !== key; })[0] : null;
+      var sink = B.opus() ? OpusSink(st.title + " · " + s.name) : WavSink();
+      var job = B.job = { done: 0, total: units.length, url: null, ext: "", error: "", cancelled: false };
+      var lock = null; try { if (navigator.wakeLock) navigator.wakeLock.request("screen").then(function (l) { lock = l; }).catch(function () {}); } catch (e) { /* ignore */ }
+      var i = 0;
+      function batch() {
+        if (job.cancelled) return Promise.resolve();
+        if (i >= units.length) return Promise.resolve();
+        var part = units.slice(i, i + AB_BATCH), queue = Promise.resolve();
+        return Neural.synth(part, { key: key, dialKey: other, rate: pref("rate") || 1 }, function (k, audio, rate) {
+          queue = queue.then(function () {
+            if (job.cancelled) return;
+            var gap = new Float32Array(Math.round((part[k].pause || 0) * sink.rate));
+            return Promise.resolve(sink.push(gap)).then(function () { return sink.push(resample(audio, rate, sink.rate)); }).then(function () { job.done++; if (A.screen === "recit") render(); });
+          });
+        }).then(function (err) { if (err) throw new Error(err); return queue; }).then(function () { i += part.length; return batch(); });
+      }
+      batch().then(function () {
+        if (job.cancelled) { sink.cancel(); return; }
+        return sink.finish().then(function (r) { job.url = URL.createObjectURL(r.blob); job.ext = r.ext; job.size = r.blob.size; });
+      }).catch(function (e) { sink.cancel(); job.error = String((e && e.message) || e); })
+        .then(function () { if (lock) lock.release().catch(function () {}); render(); });
+      render();
+    };
+    B.cancel = function () { if (B.job) { B.job.cancelled = true; Neural.stopSynth(); } B.job = null; render(); };
+    B.clear = function () { if (B.job && B.job.url) URL.revokeObjectURL(B.job.url); B.job = null; };
+    return B;
+  })();
+  function renderAudioBook(st, s, pages) {
+    var box = h("section", { class: "audiobook noprint" }, h("h3", null, "🎧 Livre audio"));
+    if (!standalone()) return null;
+    if (!AudioBook.available()) { box.appendChild(h("p", { class: "small muted" }, "Pour en faire un livre audio, installe d'abord une voix de qualité (⚙ Réglages de lecture → Lecture à voix haute).")); return box; }
+    var job = AudioBook.job;
+    if (job && !job.url && !job.error) {
+      var pc = job.total ? Math.round(job.done * 100 / job.total) : 0;
+      box.appendChild(h("p", { class: "small" }, "La voix lit ton aventure… " + pc + " % (" + job.done + " phrases sur " + job.total + "). Garde le livre ouvert ; cela prend à peu près le temps de la lecture."));
+      box.appendChild(h("progress", { max: 100, value: pc }));
+      box.appendChild(h("button", { class: "btn sm", onclick: AudioBook.cancel }, "Arrêter"));
+      return box;
+    }
+    if (job && job.error) box.appendChild(h("div", { class: "notice bad" }, "Le livre audio n'a pas pu être fait : " + job.error));
+    if (job && job.url) {
+      var name = "aventure-" + (s.name || "heros").replace(/[^\wÀ-ÿ-]+/g, "-") + "." + job.ext;
+      box.appendChild(h("audio", { controls: true, src: job.url, preload: "metadata" }));
+      box.appendChild(h("div", { class: "row" }, h("a", { class: "btn sm primary", href: job.url, download: name }, "Télécharger (" + (job.size / 1048576).toFixed(1) + " Mo)"),
+        h("button", { class: "btn sm ghost", onclick: function () { AudioBook.clear(); render(); } }, "En refaire un")));
+      return box;
+    }
+    var acts = AudioBook.actsOf(st, pages), sel = h("select", { "aria-label": "Partie à enregistrer" },
+      acts.length > 1 ? h("option", { value: "" }, "Toute l'aventure") : null, acts.map(function (a) { return h("option", { value: a.id }, a.title); }));
+    box.appendChild(h("p", { class: "small muted" }, "La voix de qualité lit ton aventure et en fait un fichier son, à écouter en voiture ou au lit." + (AudioBook.opus() ? "" : " Ce navigateur fera un fichier WAV, assez lourd : mieux vaut un acte à la fois.")));
+    box.appendChild(h("div", { class: "row" }, sel, h("button", { class: "btn sm primary", onclick: function () { AudioBook.make(st, s, pages, sel.value || null); } }, "Fabriquer le livre audio")));
+    return box;
+  }
+
+  // ------------------------------------------------------------------ the shared save folder (GitHub)
+  // Intent: Sync = every device of the family keeps the same readers and games, through one file in a private GitHub
+  // repository: pulled when the book opens, pushed after reading; per document, the most recent wins (as importBackup).
+  // Deleted documents travel as tombstones, so a removed game does not come back from another device.
+  // Why: Clément, 13/11: sync without Claude, set up from one menu, with as much as possible done for him.
+  // The key (a fine-grained token limited to that one repository) stays in this browser only; the public game repository
+  // never sees a save.
+  var SYNC_REPO = "livre-hero-sauvegardes";
+  var SYNC_FILE = "sauvegarde.json";
+  var SYNC_API = "https://api.github.com";
+  var SYNC_EVERY_MS = 5 * 60 * 1000;        // while the book is open, push what changed at most this often
+  var SYNC_TOMB_DAYS = 120;                 // tombstones older than this are forgotten
+  var Sync = (function () {
+    var S = { busy: false, dirty: false, error: "" }, again = false;
+    S.config = function () { return lsGet("sync"); };
+    S.available = function () { return standalone() && typeof fetch === "function"; };
+    S.on = function () { var c = S.config(); return !!(S.available() && c && c.token && c.repo); };
+    S.touch = function () { S.dirty = true; };
+    S.tomb = function (coll, id) { var t = lsGet("tombs") || {}; t[coll + "/" + id] = Date.now(); lsSet("tombs", t); S.dirty = true; };
+    function api(c, method, path, body, accept) {
+      return fetch(SYNC_API + path, {
+        method: method, cache: "no-store",
+        headers: { Authorization: "Bearer " + c.token, Accept: accept || "application/vnd.github+json", "X-GitHub-Api-Version": "2022-11-28", "Content-Type": "application/json" },
+        body: body ? JSON.stringify(body) : undefined,
+      });
+    }
+    function b64(str) { var by = new TextEncoder().encode(str), out = ""; for (var i = 0; i < by.length; i += 0x8000) out += String.fromCharCode.apply(null, by.subarray(i, i + 0x8000)); return btoa(out); }
+    function unb64(s) { var bin = atob(s.replace(/\s/g, "")), by = new Uint8Array(bin.length); for (var i = 0; i < bin.length; i++) by[i] = bin.charCodeAt(i); return new TextDecoder().decode(by); }
+    function why(r) {
+      if (r.status === 401) return "la clé n'est plus valable (expirée ou supprimée) : refais « Configurer un dossier de sauvegarde partagé »";
+      if (r.status === 403) return "la clé n'a pas le droit d'écrire dans le dossier (permission « Contents » en lecture et écriture)";
+      if (r.status === 404) return "le dossier " + SYNC_REPO + " est introuvable pour cette clé";
+      return "GitHub a répondu " + r.status;
+    }
+    // Intent: connect(token) -> config = finds the private repository the key opens, checks it, keeps it on this device.
+    S.connect = function (token) {
+      var c = { token: token.trim() };
+      return api(c, "GET", "/user/repos?per_page=100&sort=updated").then(function (r) {
+        if (r.status === 401) throw new Error("GitHub ne reconnaît pas cette clé : vérifie qu'elle est copiée en entier");
+        return r.ok ? r.json() : [];
+      }).then(function (repos) {
+        if (repos.length) return repos;
+        // Some keys do not list their repositories: look for the folder under the key's own account.
+        return api(c, "GET", "/user").then(function (r) { if (!r.ok) throw new Error(why(r)); return r.json(); })
+          .then(function (u) { return api(c, "GET", "/repos/" + u.login + "/" + SYNC_REPO); })
+          .then(function (r) { return r.ok ? r.json().then(function (x) { return [x]; }) : []; });
+      }).then(function (repos) {
+        var named = repos.filter(function (x) { return x.name === SYNC_REPO; })[0], only = repos.length === 1 ? repos[0] : null, repo = named || only;
+        if (!repo) throw new Error(repos.length ? "cette clé ouvre plusieurs dossiers et aucun ne s'appelle " + SYNC_REPO + ". Refais la clé en choisissant seulement ce dossier." : "cette clé n'ouvre aucun dossier. À l'étape 2, choisis « Only select repositories » puis " + SYNC_REPO + ".");
+        if (!repo.private) throw new Error("le dossier " + repo.full_name + " est public : les sauvegardes des enfants n'y vont pas. Rends-le privé (Settings → Danger zone → Change visibility) ou crée-le de nouveau en privé.");
+        if (repo.permissions && !repo.permissions.push) throw new Error("la clé ne peut que lire " + repo.full_name + " : donne-lui « Contents : Read and write ».");
+        c.owner = repo.owner.login; c.repo = repo.name; c.since = Date.now();
+        lsSet("sync", c);
+        return c;
+      });
+    };
+    // While the book is open: what changed goes out every few minutes, and when the page is hidden (phone locked, tab
+    // left); coming back to the page pulls what the other devices did.
+    var started = false;
+    S.start = function () {
+      if (!S.on()) return;
+      S.run(true);
+      if (started) return; started = true;
+      setInterval(function () { if (S.dirty && S.on()) S.run(true); }, SYNC_EVERY_MS);
+      document.addEventListener("visibilitychange", function () { if (!S.on()) return; if (document.visibilityState === "hidden") { if (S.dirty) S.run(true); } else S.run(true); });
+    };
+    S.disconnect = function () { try { localStorage.removeItem(LOCAL + "sync"); } catch (e) { /* ignore */ } S.error = ""; render(); };
+    function pull(c) {
+      var path = "/repos/" + c.owner + "/" + c.repo + "/contents/" + SYNC_FILE;
+      return api(c, "GET", path).then(function (r) {
+        if (r.status === 404) return { sha: null, data: null };
+        if (!r.ok) throw new Error(why(r));
+        return r.json().then(function (meta) {
+          if (meta.content && meta.encoding === "base64") return { sha: meta.sha, data: JSON.parse(unb64(meta.content)) };
+          // Over 1 MB the contents API leaves the content out: read it raw.
+          return api(c, "GET", path, null, "application/vnd.github.raw+json").then(function (r2) { if (!r2.ok) throw new Error(why(r2)); return r2.text(); })
+            .then(function (t) { return { sha: meta.sha, data: JSON.parse(t) }; });
+        });
+      });
+    }
+    function push(c, sha, data) {
+      var body = { message: "Sauvegarde du " + new Date().toLocaleString("fr-FR"), content: b64(JSON.stringify(data)) };
+      if (sha) body.sha = sha;
+      return api(c, "PUT", "/repos/" + c.owner + "/" + c.repo + "/contents/" + SYNC_FILE, body).then(function (r) {
+        if (r.status === 409 || r.status === 422) return "conflict";
+        if (!r.ok) throw new Error(why(r));
+        return "ok";
+      });
+    }
+    // Intent: run() -> Promise = pull, merge into this device, push when this device has something newer.
+    S.run = function (quiet) {
+      if (!S.on()) return Promise.resolve();
+      if (S.busy) { again = true; return Promise.resolve(); }
+      var c = S.config(); S.busy = true; S.dirty = false; if (!quiet) render();
+      var tries = 0;
+      function once() {
+        return pull(c).then(function (remote) {
+          var rd = remote.data && remote.data.format === BACKUP_FORMAT ? remote.data : null;
+          var tombs = mergeTombs(lsGet("tombs") || {}, (rd && rd.tombs) || {});
+          lsSet("tombs", tombs);
+          return (rd ? mergeBackup(rd, tombs) : Promise.resolve({ added: 0 })).then(function (res) {
+            return backupData().then(function (mine) {
+              mine.tombs = tombs;
+              var changedHere = res.added > 0;
+              if (rd && !newer(mine, rd)) return { pulled: changedHere };
+              return push(c, remote.sha, mine).then(function (st) {
+                if (st === "conflict" && ++tries < 3) return once();
+                if (st === "conflict") throw new Error("un autre appareil écrivait en même temps ; ce sera pour la prochaine fois");
+                return { pulled: changedHere, pushed: true };
+              });
+            });
+          });
+        });
+      }
+      return once().then(function (r) {
+        S.error = ""; c.last = Date.now(); lsSet("sync", c);
+        if (r && r.pulled && !A.game) return refresh();
+      }).catch(function (e) { S.error = String((e && e.message) || e); if (/Failed to fetch|NetworkError|Load failed/.test(S.error)) S.error = "pas de réseau, ce sera pour la prochaine fois"; })
+        .then(function () { S.busy = false; render(); if (again) { again = false; return S.run(true); } });
+    };
+    function mergeTombs(a, b) {
+      var out = {}, old = Date.now() - SYNC_TOMB_DAYS * 864e5;
+      [a, b].forEach(function (t) { Object.keys(t).forEach(function (k) { if (t[k] > old && (!out[k] || out[k] < t[k])) out[k] = t[k]; }); });
+      return out;
+    }
+    // Does this device hold something the shared file has not: a document, a newer one, a deletion?
+    function newer(mine, theirs) {
+      var tk = theirs.tombs || {};
+      if (Object.keys(mine.tombs).some(function (k) { return !tk[k]; })) return true;
+      return BACKUP_COLLS.some(function (cname) {
+        var byId = {}; (theirs.collections[cname] || []).forEach(function (o) { if (o && o.id) byId[o.id] = o; });
+        return (mine.collections[cname] || []).some(function (o) { var t = byId[o.id]; return !t || (o.updated || 0) > (t.updated || 0); });
+      });
+    }
+    // A key passed by QR: the code opens the site with #sync=… and this device is set up.
+    S.fromLink = function () {
+      var m = /^#sync=([A-Za-z0-9_-]+)/.exec(location.hash || ""); if (!m) return false;
+      try { history.replaceState(null, "", location.pathname + location.search); } catch (e) { location.hash = ""; }
+      try {
+        var c = JSON.parse(unb64(m[1].replace(/-/g, "+").replace(/_/g, "/")));
+        if (!c.t || !c.o || !c.r) return false;
+        lsSet("sync", { token: c.t, owner: c.o, repo: c.r, since: Date.now() });
+        A.notice = "Cet appareil est branché sur le dossier de sauvegarde partagé. Les lecteurs et les parties arrivent…"; A.noticeBad = false;
+        return true;
+      } catch (e) { return false; }
+    };
+    S.link = function () {
+      var c = S.config();
+      var code = b64(JSON.stringify({ t: c.token, o: c.owner, r: c.repo })).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+      return location.origin + location.pathname + "#sync=" + code;
+    };
+    S.qr = function () {
+      var ready = window.qrcode ? Promise.resolve() : new Promise(function (res, rej) { var sc = document.createElement("script"); sc.src = "vendor/qrcode.js"; sc.onload = res; sc.onerror = rej; document.head.appendChild(sc); });
+      return ready.then(function () { var q = qrcode(0, "M"); q.addData(S.link()); q.make(); return q.createSvgTag({ cellSize: 4, margin: 4, scalable: true }); });
+    };
+    return S;
+  })();
+  var SYNC_NEW_REPO = "https://github.com/new?name=" + SYNC_REPO + "&visibility=private&description=" + encodeURIComponent("Sauvegardes du livre-jeu (lecteurs et parties)");
+  var SYNC_NEW_KEY = "https://github.com/settings/personal-access-tokens/new?name=" + encodeURIComponent("Livre-jeu sauvegardes") +
+    "&description=" + encodeURIComponent("Lit et écrit le fichier de sauvegarde du livre-jeu dans " + SYNC_REPO + ".") + "&expires_in=none&contents=write";
+  function modalSync(box, close) {
+    var m = A.modal, c = Sync.config();
+    modalHead(box, "Dossier de sauvegarde partagé", close);
+    var b = h("div", { class: "drawer-body stack" });
+    if (Sync.on()) {
+      b.appendChild(h("div", { class: "notice soft" }, "✔ Branché sur le dossier privé ", h("b", null, c.owner + "/" + c.repo), ". ",
+        Sync.busy ? "Synchronisation en cours…" : c.last ? "Dernière synchronisation : " + when(c.last) + "." : ""));
+      if (Sync.error) b.appendChild(h("div", { class: "notice bad" }, "La dernière synchronisation n'a pas abouti : " + Sync.error + "."));
+      b.appendChild(h("p", { class: "small muted" }, "Les lecteurs, leurs parties et leurs réglages se retrouvent sur chaque appareil branché : à l'ouverture du livre, après chaque lecture, et toutes les cinq minutes pendant qu'on lit. Si deux appareils ont touché la même partie, la plus récente l'emporte."));
+      b.appendChild(h("div", { class: "row" }, h("button", { class: "btn primary", disabled: Sync.busy, onclick: function () { Sync.run(); } }, "Synchroniser maintenant"),
+        h("button", { class: "btn", onclick: function () { m.qr = "…"; render(); Sync.qr().then(function (svg) { m.qr = svg; render(); }, function () { m.qr = null; flash("Le code n'a pas pu être dessiné.", true); }); } }, "📱 Brancher un autre appareil")));
+      if (m.qr) b.appendChild(h("div", { class: "stack tight" },
+        h("p", { class: "small" }, "Sur l'autre téléphone ou tablette, ouvre l'appareil photo et vise ce code : le livre s'ouvre et se branche tout seul. Ce code contient la clé : ne le montre qu'à tes appareils."),
+        m.qr === "…" ? h("p", null, "…") : h("div", { class: "qr-frame", html: m.qr })));
+      b.appendChild(h("div", { class: "row" }, h("button", { class: "btn ghost sm", onclick: function () { Sync.disconnect(); } }, "Débrancher cet appareil")));
+      b.appendChild(h("p", { class: "small muted" }, "Débrancher ne supprime rien : les sauvegardes restent ici et dans le dossier. Pour couper l'accès partout, supprime la clé « Livre-jeu sauvegardes » sur GitHub (Settings → Developer settings → Fine-grained tokens)."));
+      box.appendChild(b); return;
+    }
+    b.appendChild(h("p", null, "Un dossier privé sur GitHub garde les lecteurs et les parties, et chaque appareil branché s'y retrouve. Trois étapes, une seule fois ; ensuite, pour chaque autre appareil, il suffit de scanner un code."));
+    b.appendChild(h("p", { class: "small muted" }, "Il faut un compte GitHub (gratuit). Le dossier est privé : personne d'autre ne le voit. Le jeu public n'y touche jamais."));
+    b.appendChild(h("div", { class: "sync-step" }, h("b", null, "1. Créer le dossier privé"),
+      h("p", { class: "small" }, "Le lien ouvre GitHub avec tout rempli (nom « " + SYNC_REPO + " », privé). Clique simplement « Create repository » en bas."),
+      h("a", { class: "btn sm", href: SYNC_NEW_REPO, target: "_blank", rel: "noopener" }, "Ouvrir GitHub : créer le dossier ↗")));
+    b.appendChild(h("div", { class: "sync-step" }, h("b", null, "2. Créer la clé du livre"),
+      h("p", { class: "small" }, "Le lien ouvre la page de la clé, déjà remplie (nom, sans date de fin, droit d'écrire les fichiers). Une seule chose à faire : dans « Repository access », choisis « Only select repositories » puis « " + SYNC_REPO + " ». Clique « Generate token », puis copie la clé (elle commence par github_pat_)."),
+      h("a", { class: "btn sm", href: SYNC_NEW_KEY, target: "_blank", rel: "noopener" }, "Ouvrir GitHub : créer la clé ↗")));
+    var inp = h("input", { type: "password", autocomplete: "off", placeholder: "github_pat_…", "aria-label": "Clé GitHub", value: m.token || "", oninput: function (e) { m.token = e.target.value; } });
+    b.appendChild(h("div", { class: "sync-step" }, h("b", null, "3. Coller la clé ici"),
+      h("div", { class: "row" }, inp, h("button", { class: "btn primary", disabled: !!m.busy, onclick: function () {
+        var t = (m.token || "").trim(); if (!/^(github_pat_|ghp_)/.test(t)) { m.err = "ce n'est pas une clé GitHub (elle commence par github_pat_)"; render(); return; }
+        m.busy = true; m.err = ""; render();
+        Sync.connect(t).then(function () { m.busy = false; m.token = ""; render(); Sync.start(); }, function (e) { m.busy = false; m.err = e.message; render(); });
+      } }, m.busy ? "Vérification…" : "Brancher")),
+      h("p", { class: "small muted" }, "La clé reste dans ce navigateur. Le livre trouve tout seul le dossier, vérifie qu'il est privé et y range une première sauvegarde.")));
+    if (m.err) b.appendChild(h("div", { class: "notice bad" }, "Pas encore : " + m.err + "."));
+    box.appendChild(b);
+  }
+
+  // ------------------------------------------------------------------ the family board
+  // Intent: renderFamily() -> Element = for each reader and each book: endings found, feats, bestiary, words learned.
+  // Counts only, never the names of the endings: a brother must not spoil his sister's book (Clément, 13/11).
+  function renderFamily() {
+    var books = Object.keys(A.builtins).map(function (k) { return A.builtins[k]; }).filter(function (st) { return !st.multi && !st.kid; });
+    var readers = A.profiles.filter(function (p) { return Object.keys(p.records || {}).length || Object.keys(p.words || {}).length; });
+    if (!readers.length || !books.length) return null;
+    var sec = h("section", { class: "section" }, h("h2", null, "🏆 Tableau de la famille"));
+    var grid = h("div", { class: "family" });
+    readers.forEach(function (p) {
+      var ws = Words.list(p), known = ws.filter(function (w) { return w.known; }).length;
+      var card = h("div", { class: "family-card" }, h("div", { class: "family-name" }, avatar(p), " ", h("b", null, p.name)));
+      books.forEach(function (st) {
+        var r = recordOf(p, st.id); if (!Object.keys(r.endings || {}).length && !Object.keys(r.feats || {}).length && !r.codex) return;
+        var ends = M.endingsOf(st), feats = M.featsOf(st), foes = Object.keys(st.enemies || {});
+        var nE = ends.filter(function (e) { return r.endings[e.id]; }).length, nF = feats.filter(function (f) { return r.feats[f.id]; }).length;
+        var nB = foes.filter(function (k) { return r.codex && r.codex.foes[k]; }).length;
+        card.appendChild(h("div", { class: "family-book" }, h("div", { class: "small" }, h("b", null, st.title)),
+          h("div", { class: "family-stats" },
+            h("span", { title: "Fins trouvées" }, "✦ " + nE + "/" + ends.length + " fins"),
+            h("span", { title: "Hauts faits" }, "★ " + nF + "/" + feats.length),
+            foes.length ? h("span", { title: "Bestiaire" }, "🐺 " + Math.round(nB * 100 / foes.length) + " %") : null)));
+      });
+      if (ws.length) card.appendChild(h("div", { class: "small family-words" }, "📚 " + ws.length + " mot" + (ws.length > 1 ? "s" : "") + " rencontré" + (ws.length > 1 ? "s" : "") + (known ? ", " + known + " trouvé" + (known > 1 ? "s" : "") + " au jeu" : "")));
+      grid.appendChild(card);
+    });
+    sec.appendChild(grid);
+    return sec;
   }
 
   // ------------------------------------------------------------------ parents' corner
@@ -2809,7 +3530,10 @@
       try { if (navigator.storage && navigator.storage.persist) navigator.storage.persist(); } catch (e) { /* ignore */ }
       A.tts = browserTts(); if (A.tts) A.tts.onState(function (x) { A.speaking = x.state !== "idle"; render(); });
       Neural.init().then(render);
+      Sync.fromLink();
     }
     return refresh();
-  }).then(function () { A.busy = false; render(); }, function () { A.busy = false; render(); });
+  }).then(function () { A.busy = false; render(); }, function () { A.busy = false; render(); }).then(function () {
+    Sync.start();
+  });
 })();
