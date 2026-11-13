@@ -139,3 +139,12 @@ anseau: { name: "Anseau", face: { age: "ancien", marks: ["balafre", "lunettes"] 
 | mystère | `answer: { person: "aurele", text: "Aurèle, ton frère." }` | La réponse, montrée une fois `solved` atteint. Avec `person`, chaque soupçon qui nommait quelqu'un est marqué juste ou faux, et le carnet dit depuis quand le lecteur avait vu juste. |
 
 Rien à déclarer pour : « Sans retour » (choisi à la création), le tableau d'enquête, la recherche dans le carnet, le clavier, « Comparer en famille » (l'appli garde le choix fait à chaque page, par sa place parmi les choix du passage : réordonner les choix d'un passage fausse la comparaison des parties déjà finies).
+
+## Le Sceau de Malvoran (13/11)
+
+- `repeatChance: 0.4` sur une région : une route déjà parcourue se refait vite, sans événement ; avec ce tag, les événements de la région pas encore vus peuvent encore venir aux voyages suivants (utile quand le premier voyage est entièrement écrit en étapes).
+- `relicLose: "anneau"` : retire cette relique-là (un vol), au lieu d'une relique au hasard.
+- `set: { cle: "valeur" }` : pose le drapeau `cle=valeur` (comme `flag: "cle=valeur"`).
+- Les branches `win`, `lose`, `flee`, `calm` d'un jet ou d'un combat acceptent `back: "PASSAGE"` comme un choix.
+- En mode « tout jouer », la quête principale de l'acte ne retient plus la sortie (elle se finit souvent après) : seules les quêtes annexes la retiennent. Une quête annexe qui peut devenir impossible doit déclarer `closes`.
+- Une histoire sans héros prédéfinis demande au lecteur, à la création, si le livre lui parle au masculin ou au féminin ; le texte s'accorde avec `{e}`.

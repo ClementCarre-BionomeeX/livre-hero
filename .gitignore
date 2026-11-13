@@ -3,3 +3,4 @@ site/
 node_modules/
 .DS_Store
 .voix-cache/
+histoires/src/malvoran/BIBLE.md

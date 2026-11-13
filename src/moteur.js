@@ -99,6 +99,11 @@
   function prepare(story) {
     if (!story || !story.passages || story.__prepared) return story;
     Object.keys(story.passages).forEach(function (id) {
+      // A roll's or a fight's outcome may also say back: "PASSAGE" (a way back after the roll).
+      var P0 = story.passages[id], branches = [];
+      (P0.choices || []).forEach(function (c) { branches.push(c.win, c.lose); if (c.fight) branches.push(c.fight.win, c.fight.lose, c.fight.flee, c.fight.calm); });
+      if (P0.combat) branches.push(P0.combat.win, P0.combat.lose, P0.combat.flee, P0.combat.calm);
+      branches.forEach(function (b) { if (b && b.to == null && typeof b.back === "string") b.to = b.back; });
       (story.passages[id].choices || []).forEach(function (c) {
         if (c.back == null || c.back === true) return;
         c.to = c.back;
@@ -509,7 +514,8 @@
       if (!story.relics[r]) throw new Error("relique inconnue " + r);
       if (s.given.indexOf(r) < 0) { s.given.push(r); var at = s.relics.indexOf(r); if (at >= 0) s.relics.splice(at, 1); ev(s, "Donnée : " + story.relics[r]); }
     });
-    if (fx.relicLose && s.relics.length) { var lost = s.relics.pop(); s.flags["vole:" + lost] = true; ev(s, "Perdue : " + story.relics[lost], "bad"); }
+    if (typeof fx.relicLose === "string") { var li = s.relics.indexOf(fx.relicLose); if (li >= 0) { s.relics.splice(li, 1); s.flags["vole:" + fx.relicLose] = true; ev(s, "Perdue : " + story.relics[fx.relicLose], "bad"); } }
+    else if (fx.relicLose && s.relics.length) { var lost = s.relics.pop(); s.flags["vole:" + lost] = true; ev(s, "Perdue : " + story.relics[lost], "bad"); }
     [].concat(fx.item || []).forEach(function (it) {
       if (!(story.items || {})[it]) throw new Error("objet inconnu " + it);
       var I = story.items[it];
@@ -729,12 +735,14 @@
     t.pending = null;
     var legs = (r.legs || []).filter(function (l) { return l.step === t.step && (l.dir == null || l.dir === dirOf(r, t)) && !s.seen[l.passage] && evalCond(story, s, l.if); });
     if (legs.length) { t.phase = "event"; enter(story, s, legs[0].passage); return; }
-    if (!t.fast) {
-      var region = (W(story).regions || {})[t.region] || {};
+    var region = (W(story).regions || {})[t.region] || {};
+    // A trip already made goes fast, without events, unless the region declares `repeatChance`: its events not yet met
+    // may still come on a later trip (a route whose first trip is all written scenes needs it, or its events never come).
+    if (!t.fast || region.repeatChance) {
       var pool = (region.events || []).map(function (id) { return (W(story).events || {})[id]; }).filter(function (e) {
         return e && !(e.once !== false && s.seen[e.passage]) && evalCond(story, s, e.if);
       });
-      var chanceEv = region.chance == null ? 0.6 : region.chance;
+      var chanceEv = t.fast ? region.repeatChance : region.chance == null ? 0.6 : region.chance;
       if (pool.length && RNG() < chanceEv) {
         var tot = 0; pool.forEach(function (e) { tot += e.weight || 1; });
         var x = RNG() * tot, chosen = pool[0];
@@ -1499,7 +1507,8 @@
     if (c.if && !evalCond(story, s, c.if)) return { ok: false, why: c.why || describeCond(story, c.if) };
     if (c.exit && s.toutJouer) {
       var act = (p && p.act) || (s.lastAct);
-      var left = remaining(story, s, act);
+      // The act's main quest ends in its climax, after the exit: only the other quests hold it (Malvoran, 13/11).
+      var left = remaining(story, s, act).filter(function (q) { return q.kind !== "principale"; });
       if (left.length) return { ok: false, why: "Mode « tout jouer » : il reste " + left.map(function (q) { return "« " + q.title + " »"; }).join(", ") + "." };
     }
     // A choice that pays out of the purse needs the coins, as long as the passage offers another way on (an author's own "if" wins).
