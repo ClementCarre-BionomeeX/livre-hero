@@ -345,3 +345,5 @@ button.gl:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px;
 .prose:has(.sy2) { font-variant-ligatures: none; }
 a.btn { text-decoration: none; color: inherit; }
 a.btn.primary { color: var(--accent-ink); }
+/* A save line on a phone: the title keeps its width, the buttons go under it */
+.save-line > .grow { flex: 1 1 15rem; min-width: min(15rem, 100%); }
