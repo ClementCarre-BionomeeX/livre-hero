@@ -421,3 +421,43 @@ a.btn.primary { color: var(--accent-ink); }
 .adult-modal .btn { width: 100%; justify-content: center; }
 .btn.back-lib { background: #a13b2a; border-color: #a13b2a; color: #fff; font-weight: 700; font-size: 1.1em; padding: 14px 16px; }
 .adult-modal .drawer-body p { margin: 0; }
+
+/* Composing the hero's face */
+.face-pick .portrait { border-radius: 50%; }
+.face-row { display: grid; grid-template-columns: 5.5em 1fr; gap: 8px; align-items: center; }
+.swatches { display: flex; flex-wrap: wrap; gap: 6px; }
+.swatch { width: 28px; height: 28px; border-radius: 50%; border: 2px solid var(--line); padding: 0; cursor: pointer; }
+.swatch.on { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent-soft); }
+/* Throwing by shaking */
+.shake-die { font-size: 64px; text-align: center; animation: shake-wobble 1.2s ease-in-out infinite; }
+@keyframes shake-wobble { 0%, 100% { transform: rotate(0); } 25% { transform: rotate(-12deg) translateX(-4px); } 75% { transform: rotate(12deg) translateX(4px); } }
+@media (prefers-reduced-motion: reduce) { .shake-die { animation: none; } }
+
+/* « Le chemin dans le livre » */
+.seg.wrap { margin: .4rem 0; }
+.bookpath-wrap { overflow: auto; max-height: 60vh; border: 1px solid var(--line, #d8ccb0); border-radius: 8px; padding: 6px; margin: .5rem 0; background: var(--paper, transparent); }
+.bookpath { display: block; margin: 0 auto; }
+.bookpath .bp-edge { stroke: var(--accent); stroke-width: 1.6; fill: none; opacity: .8; }
+.bookpath .bp-ghost { stroke: var(--muted); stroke-width: 1; fill: none; stroke-dasharray: 2 3; opacity: .6; }
+.bookpath .bp-read { fill: var(--accent); cursor: pointer; }
+.bookpath .bp-read.here { fill: var(--bg, #fff); stroke: var(--accent); stroke-width: 2.5; }
+.bookpath .bp-read.pick { stroke: var(--ink, #222); stroke-width: 2; }
+.bookpath .bp-unread { fill: none; stroke: var(--muted); stroke-width: 1.2; opacity: .7; }
+
+/* Notes du lecteur */
+.clue.pinnable { display: grid; grid-template-columns: 1fr auto; gap: 6px; align-items: start; }
+.clue .pin { opacity: .45; filter: grayscale(1); }
+.clue .pin.on { opacity: 1; filter: none; }
+textarea.notes { width: 100%; box-sizing: border-box; font: 16px/1.5 var(--serif); padding: 8px 10px; border: 1px solid var(--line); border-radius: 8px; background: var(--paper); color: var(--ink); resize: vertical; }
+.notes-recap { border-top: 1px dotted var(--line); margin-top: .5rem; padding-top: .4rem; }
+.notes-recap .notes-text { white-space: pre-wrap; font: 15px/1.5 var(--serif); margin: .3rem 0; }
+
+/* Tampons de lecture */
+.stamps { border-top: 1px dotted var(--line); margin-top: .6rem; padding-top: .5rem; display: grid; gap: .35rem; }
+.stamp-row { display: flex; gap: 6px; }
+.stamp-dot { width: 14px; height: 14px; border-radius: 50%; border: 1.5px solid var(--muted); }
+.stamp-dot.on { background: var(--accent); border-color: var(--accent); }
+.stamp-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+.stamp { display: grid; justify-items: center; width: 54px; padding: 4px 0; border: 2px dashed var(--accent); border-radius: 50%; aspect-ratio: 1; align-content: center; color: var(--accent); transform: rotate(-8deg); }
+.stamp:nth-child(2n) { transform: rotate(6deg); }
+.stamp-ink { font-size: 20px; line-height: 1; }

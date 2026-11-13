@@ -102,3 +102,10 @@ La difficulté (Conteur, Aventurier, Héroïque) se choisit à la création ; le
 ## Thème adulte (13/11)
 
 - `adult: { themes: ["Meurtre et violence", "Manipulation psychologique", …] }` (histoire) : la carte de la bibliothèque porte un grand bandeau « Thème adulte ». « Nouvelle partie » (ou « Jouer à plusieurs ») ouvre d'abord un avertissement qui liste ces thèmes, avec « J'ai compris » pour continuer et un gros bouton rouge « Revenir à la bibliothèque ». Le validateur refuse une liste vide.
+
+## Portraits des gens, brouillard, chemin, musique (13/11)
+
+- `people.<id>.f` : `true` pour une femme, `false` pour un homme. Sans lui, le moteur devine d'après le titre (Mère, Dame, Sire, Frère…) ou le « elle / il » de la description ; un portrait apparaît alors à côté du nom dans l'onglet Gens.
+- La carte du carnet est sous le brouillard : elle se dégage autour des lieux connus et le long des routes parcourues. Rien à déclarer ; le lecteur peut l'enlever dans ses réglages.
+- « Le chemin dans le livre » (onglet Frise) dessine l'arbre des pages lues, acte par acte (`act` des passages), et un rond gris sans titre pour chaque chemin offert mais jamais pris. Les liens de retour (`back`) ne comptent pas.
+- La petite musique (option du lecteur) prend un air par région (`region` du lieu), sinon par `ambiance`, et un air de combat. Rien à déclarer.

@@ -210,6 +210,7 @@
     if (A.modal) renderModal();
     applyPrefs();
     Ambiance.update();
+    Music.update();
     Reading.show();
   }
 
@@ -1075,6 +1076,7 @@
         h("b", null, a.label), h("span", { class: "small muted" }, a.tip), h("span", { class: "small" }, best.map(function (d) { return M.DOMAINS[d] + " +" + a.bonus[d]; }).join(" · "))));
     });
     w.appendChild(h("div", { class: "stack" }, h("span", { class: "label" }, "Ta voie"), archs));
+    w.appendChild(renderFacePicker(C, st));
     (st.past || []).forEach(function (q, qi) {
       var box = h("div", { class: "past" }, h("h3", null, q.q));
       q.answers.forEach(function (a, ai) {
@@ -1098,10 +1100,42 @@
     w.appendChild(h("div", { class: "row" }, startBtn, h("span", { class: "small muted" }, "Il faut un nom, une voie et une réponse à chaque question.")));
     app.appendChild(w);
   }
+  // Intent: renderFacePicker(Creation, Story) -> Element = « Ton visage » : the portrait as drawn from the name, and
+  // swatches to change the skin, the hair, the cut, the beard and the background. Optional: untouched, the name decides.
+  // Why: Clément, 13/11.
+  var FACE_COIFS = { court: "Courts", long: "Longs", degarni: "Dégarnis", rase: "Rasés", capuche: "Capuche" };
+  function renderFacePicker(C, st) {
+    var seed = st.id + "|" + (C.name || "").trim(), cur = Heraldry.faceOf(seed, { arch: C.arch, face: C.face });
+    var set = function (k, v) { C.face = C.face || {}; C.face[k] = v; render(); };
+    var swatches = function (label, list, k) {
+      return h("div", { class: "face-row" }, h("span", { class: "small" }, label), h("div", { class: "swatches" }, list.map(function (col) {
+        return h("button", { type: "button", class: "swatch" + (cur[k] === col ? " on" : ""), style: "background:" + col, "aria-label": label + " " + col, "aria-pressed": cur[k] === col ? "true" : "false", onclick: function () { set(k, col); } });
+      })));
+    };
+    var open = A.open.face;
+    var box = h("div", { class: "stack face-pick" }, h("span", { class: "label" }, "Ton visage"),
+      h("div", { class: "row" }, h("span", { html: Heraldry.portrait(seed, { arch: C.arch, face: C.face, size: 96 }) }),
+        h("div", { class: "stack tight" }, h("span", { class: "small muted" }, C.face ? "Composé par toi." : "Tiré de ton nom. Tu peux le changer."),
+          h("div", { class: "row" }, h("button", { type: "button", class: "btn sm", onclick: function () { A.open.face = !open; render(); } }, open ? "Refermer" : "Composer mon visage"),
+            C.face ? h("button", { type: "button", class: "btn sm ghost", onclick: function () { C.face = null; render(); } }, "Revenir à celui du nom") : null))));
+    if (open) {
+      box.appendChild(swatches("Peau", PORTRAIT_SKINS, "skin"));
+      box.appendChild(swatches("Cheveux", PORTRAIT_HAIRS, "hair"));
+      box.appendChild(h("div", { class: "face-row" }, h("span", { class: "small" }, "Coiffure"), h("div", { class: "seg" }, Object.keys(FACE_COIFS).map(function (k) {
+        return h("button", { type: "button", class: "btn sm" + (cur.coif === k ? " on" : ""), "aria-pressed": cur.coif === k ? "true" : "false", onclick: function () { set("coif", k); } }, FACE_COIFS[k]);
+      }))));
+      box.appendChild(h("div", { class: "face-row" }, h("span", { class: "small" }, "Barbe"), h("div", { class: "seg" }, [[false, "Sans"], [true, "Avec"]].map(function (b) {
+        return h("button", { type: "button", class: "btn sm" + (!!cur.beard === b[0] ? " on" : ""), "aria-pressed": !!cur.beard === b[0] ? "true" : "false", onclick: function () { set("beard", b[0]); } }, b[1]);
+      }))));
+      box.appendChild(swatches("Fond", PORTRAIT_BACKS, "back"));
+    }
+    return box;
+  }
+
   // Intent: build(Creation) -> State = the new hero, his past answers applied, the story started
   function buildState(C) {
     var st = C.story, s = M.freshState(st, { toutJouer: C.toutJouer, difficulty: C.difficulty });
-    s.name = C.name.trim(); s.arch = C.arch;
+    s.name = C.name.trim(); s.arch = C.arch; if (C.face) s.face = C.face;
     s.events = [];
     (st.past || []).forEach(function (q, qi) { M.apply(st, s, q.answers[C.past[qi]].fx); });
     var pastEvents = s.events.slice();
@@ -1204,6 +1238,9 @@
     stopSpeaking();
     // Real dice: the reader throws before the engine reads the roll.
     if (c.test && pref("dice") === "vrais" && !c.diced) { A.modal = { kind: "dice", c: c, rolls: [] }; render(); return; }
+    // Shaking the device to throw (option, off by default: children would throw by mistake).
+    if (c.test && pref("shakeDice") && pref("dice") !== "vrais" && !c.shaken && Shake.available()) { A.modal = { kind: "shake", c: c }; render(); return; }
+    c.shaken = false;
     var before = M.view(G.story, G.s), others = before.choices.filter(function (x) { return x.ok && !x.sys && !x.restart && x !== c && x.label !== c.label; }).length;
     G.undo.push(JSON.stringify(G.s)); if (G.undo.length > UNDO_MAX) G.undo.shift();
     var queue = (c.diced || []).slice();
@@ -1213,7 +1250,8 @@
     catch (e) { M.setDice(null); G.s = JSON.parse(G.undo.pop()); A.notice = "Ce choix a buté sur une erreur de l'histoire : " + e.message; render(); return; }
     M.setDice(null);
     A.notice = ""; A.recap = false; A.rollAnim = true;
-    var now = Date.now(); G.doc.playMs = (G.doc.playMs || 0) + Math.min(now - (G.since || now), PLAY_GAP_MS); G.since = now;
+    var now = Date.now(), dt = Math.min(now - (G.since || now), PLAY_GAP_MS); G.doc.playMs = (G.doc.playMs || 0) + dt; G.since = now;
+    if (dt > 0) { var dk = dayKey(now), days = G.doc.days = G.doc.days || {}; days[dk] = (days[dk] || 0) + dt; }
     var closed = actTrack(G, act0); if (closed && !A.modal) A.modal = { kind: "chapter", act: closed };
     logStep(c.label, others); persist(); bedtimeAfterChoice(); render();
     if (fight0 && fight0.hits && fight0.hits.length) { var partyIds = {}; M.partyView(G.story, G.s).forEach(function (m) { partyIds[m.who] = 1; }); Sfx.blows(fight0.hits, function (k) { return !!partyIds[k]; }); }
@@ -1257,7 +1295,9 @@
     var num = v.passage ? paraNum(st, s.node) : null;
     var vig = Vignette.of(st, s); if (vig) page.appendChild(vig);
     if (s.travel) { noteRoad(G, v); var trip = renderTravelStrip(st, s, G); if (trip) page.appendChild(trip); }
-    var rc = A.recap && !G.multi ? renderRecap(G) : null; if (rc) page.appendChild(rc);
+    var rc = A.recap && !G.multi ? renderRecap(G) : null, nr = A.recap && !G.multi && !G.ephemeral ? notesRecap(G) : null;
+    if (rc) { if (nr) rc.appendChild(nr); page.appendChild(rc); }
+    else if (nr) page.appendChild(h("aside", { class: "recap" }, h("div", { class: "row" }, h("span", { class: "grow" }), h("button", { class: "btn ghost sm", onclick: function () { A.recap = false; render(); } }, "Fermer")), nr));
     page.appendChild(h("div", { class: "page-head" }, h("div", null, h("h2", null, v.title || ""), h("div", { class: "where" }, [cur >= 0 ? acts[cur].title : null, where(st, s)].filter(Boolean).join(" · "))), num ? h("span", { class: "para-num", title: "Numéro du paragraphe" }, "§ " + num) : null));
     if (A.notice) page.appendChild(h("div", { class: "notice" }, A.notice));
     if (A.bedWarn && !G.multi) page.appendChild(h("div", { class: "notice soft" }, "🌙 Bientôt l'heure de refermer le livre : le récit te proposera de t'arrêter à une page calme."));
@@ -1464,6 +1504,46 @@
     box.appendChild(b);
   }
 
+  // ------------------------------------------------------------------ throwing the dice by shaking the device
+  // Intent: Shake = with the option on, a test opens « Secoue pour lancer » : a jolt of the device (or the button)
+  // throws, and the engine rolls as usual. Off by default (Clément, 13/11: children would trigger it by mistake).
+  var SHAKE_G = 18;                          // m/s², a deliberate shake (gravity alone is 9.8)
+  var SHAKE_HITS = 2;                        // jolts above it, within SHAKE_WINDOW_MS
+  var SHAKE_WINDOW_MS = 700;
+  var Shake = (function () {
+    var S = {}, handler = null;
+    S.available = function () { return "DeviceMotionEvent" in window; };
+    // iOS asks once, from a tap.
+    S.ask = function () { try { if (window.DeviceMotionEvent && typeof DeviceMotionEvent.requestPermission === "function") return DeviceMotionEvent.requestPermission().catch(function () { return "denied"; }); } catch (e) { /* ignore */ } return Promise.resolve("granted"); };
+    S.stop = function () { if (handler) window.removeEventListener("devicemotion", handler); handler = null; };
+    S.listen = function (done) {
+      S.stop(); var hits = [];
+      handler = function (e) {
+        var g = e.accelerationIncludingGravity || e.acceleration; if (!g) return;
+        var m = Math.sqrt((g.x || 0) * (g.x || 0) + (g.y || 0) * (g.y || 0) + (g.z || 0) * (g.z || 0)), now = Date.now();
+        if (m < SHAKE_G) return;
+        hits = hits.filter(function (t) { return now - t < SHAKE_WINDOW_MS; }); hits.push(now);
+        if (hits.length >= SHAKE_HITS) { S.stop(); done(); }
+      };
+      window.addEventListener("devicemotion", handler);
+    };
+    return S;
+  })();
+  function modalShake(box, close, m) {
+    var c = m.c;
+    var shut = function () { Shake.stop(); close(); };
+    modalHead(box, "Secoue pour lancer", shut);
+    // A shake after the window was closed some other way (Échap, tap outside) throws nothing.
+    var throwIt = function () { Shake.stop(); if (!A.modal || A.modal !== m) return; A.modal = null; c.shaken = true; pick(c); };
+    var b = h("div", { class: "drawer-body stack shake" });
+    b.appendChild(h("p", null, h("b", null, c.label), c.chance != null ? h("span", { class: "muted" }, " · " + c.chance + " % de chances") : null));
+    b.appendChild(h("div", { class: "shake-die", "aria-hidden": "true" }, "🎲"));
+    b.appendChild(h("p", { class: "small muted" }, "Secoue l'appareil d'un coup sec, comme un gobelet de dés."));
+    b.appendChild(h("div", { class: "row" }, h("button", { class: "btn primary", onclick: throwIt }, "Lancer sans secouer"), h("button", { class: "btn ghost", onclick: shut }, "Choisir autre chose")));
+    box.appendChild(b);
+    Shake.listen(throwIt);
+  }
+
   // ------------------------------------------------------------------ the battle plan
   // Intent: battlePlan(Story, State) -> Element = a little drawn field above the choices: our two ranks on the left,
   // the foes on the right (far off at first), every fighter a token with a ring of PV, and the blows of the last
@@ -1508,7 +1588,7 @@
     function label(x, y, t) { t = String(t); if (t.length > 13) t = t.slice(0, 12) + "…"; return '<text x="' + x + '" y="' + (y + PLAN_R + 11) + '" class="pl-name" text-anchor="middle">' + esc(t) + "</text>"; }
     party.forEach(function (m) {
       var p = pos[m.who], down = m.pv <= 0, pick = A.planPick === m.who;
-      var face = m.who === "hero" ? Heraldry.portrait(st.id + "|" + s.name, { arch: s.arch }) : portraitOf(st, m.who, s);
+      var face = m.who === "hero" ? heroFace(st, s) : portraitOf(st, m.who, s);
       face = face.replace(/^<svg class="portrait" viewBox="0 0 64 64" width="\d+" height="\d+"/, '<svg x="' + (p.x - 15) + '" y="' + (p.y - 15) + '" viewBox="0 0 64 64" width="30" height="30"');
       out.push('<g class="pl-tok' + (down ? " down" : "") + (m.hidden ? " hidden" : "") + (pick ? " pick" : "") + '" data-k="' + esc(m.who) + '">' + ring(p.x, p.y, m.pv / m.pvMax, "good") + face +
         (down ? '<path d="M' + (p.x - 10) + " " + (p.y - 10) + " L" + (p.x + 10) + " " + (p.y + 10) + " M" + (p.x + 10) + " " + (p.y - 10) + " L" + (p.x - 10) + " " + (p.y + 10) + '" class="pl-x"/>' : "") +
@@ -2174,25 +2254,32 @@
     var H = {};
     function pick(arr, n) { return arr[n % arr.length]; }
     // Intent: portrait(seed, { arch, f, size }) -> svg markup
+    // Intent: faceOf(seed, { arch, f, face? }) -> Face = { skin, hair, back, coif, beard } ; drawn from the name, then
+    // whatever the reader chose at creation (face) wins. coif: court, long, degarni, capuche, rase.
+    H.faceOf = function (seed, o) {
+      o = o || {}; var x = hash(String(seed || "?")), style = (x >>> 12) % 4, f = !!o.f;
+      var coif = (o.arch === "voleur" || o.arch === "rodeur") && style < 2 ? "capuche" : style === 2 && !f ? "degarni" : f && style !== 3 ? "long" : "court";
+      var d = { skin: pick(PORTRAIT_SKINS, x), hair: pick(PORTRAIT_HAIRS, x >>> 3), back: pick(PORTRAIT_BACKS, x >>> 6), coif: coif, beard: o.f === false && (x >>> 14) % 3 === 0 };
+      if (o.face) Object.keys(o.face).forEach(function (k) { if (o.face[k] != null) d[k] = o.face[k]; });
+      return d;
+    };
     H.portrait = function (seed, o) {
-      o = o || {}; var x = hash(String(seed || "?")), sz = o.size || 64;
-      var skin = pick(PORTRAIT_SKINS, x), hair = pick(PORTRAIT_HAIRS, x >>> 3), back = pick(PORTRAIT_BACKS, x >>> 6);
+      o = o || {}; var x = hash(String(seed || "?") + JSON.stringify(o.face || "")), sz = o.size || 64, F = H.faceOf(seed, o);
       var gear = ARCH_GEAR[o.arch] || { cloth: pick(["#6d5a40", "#4f5d6b", "#6b4a4a", "#55663f"], x >>> 9), mark: null };
-      var style = (x >>> 12) % 4, beard = o.f === false && (x >>> 14) % 3 === 0, f = !!o.f;
       var parts = ['<svg class="portrait" viewBox="0 0 64 64" width="' + sz + '" height="' + sz + '" role="img" aria-hidden="true">',
-        '<circle cx="32" cy="32" r="32" fill="' + back + '"/>',
+        '<circle cx="32" cy="32" r="32" fill="' + F.back + '"/>',
         '<clipPath id="pc' + x + '"><circle cx="32" cy="32" r="32"/></clipPath><g clip-path="url(#pc' + x + ')">'];
-      if (f && style !== 3) parts.push('<path d="M17 30 Q16 52 22 56 H42 Q48 52 47 30 Z" fill="' + hair + '"/>');   // long hair behind
+      if (F.coif === "long") parts.push('<path d="M17 30 Q16 52 22 56 H42 Q48 52 47 30 Z" fill="' + F.hair + '"/>');   // long hair behind
       parts.push('<path d="M8 66 Q10 46 32 44 Q54 46 56 66 Z" fill="' + gear.cloth + '"/>');                          // shoulders
-      parts.push('<rect x="27" y="36" width="10" height="10" rx="3" fill="' + skin + '"/>');                         // neck
-      parts.push('<ellipse cx="32" cy="27" rx="12" ry="14" fill="' + skin + '"/>');                                  // head
-      if (o.arch === "voleur" || o.arch === "rodeur" ? style < 2 : false) parts.push('<path d="M16 32 Q14 8 32 8 Q50 8 48 32 Q46 18 32 17 Q18 18 16 32 Z M14 34 Q10 50 18 50 L20 36 Z M50 34 Q54 50 46 50 L44 36 Z" fill="' + gear.cloth + '" opacity=".95"/>'); // a hood
-      else if (style === 2 && !f) parts.push('<path d="M20 22 Q22 12 32 12 Q42 12 44 22 Q38 17 32 17 Q26 17 20 22 Z" fill="' + hair + '"/>'); // short, receding
-      else parts.push('<path d="M19 28 Q17 10 32 10 Q47 10 45 28 Q44 19 36 17 Q30 21 21 21 Q20 24 19 28 Z" fill="' + hair + '"/>');
-      if (beard) parts.push('<path d="M21 30 Q22 44 32 45 Q42 44 43 30 Q40 37 32 37 Q24 37 21 30 Z" fill="' + hair + '"/>');
+      parts.push('<rect x="27" y="36" width="10" height="10" rx="3" fill="' + F.skin + '"/>');                       // neck
+      parts.push('<ellipse cx="32" cy="27" rx="12" ry="14" fill="' + F.skin + '"/>');                                // head
+      if (F.coif === "capuche") parts.push('<path d="M16 32 Q14 8 32 8 Q50 8 48 32 Q46 18 32 17 Q18 18 16 32 Z M14 34 Q10 50 18 50 L20 36 Z M50 34 Q54 50 46 50 L44 36 Z" fill="' + gear.cloth + '" opacity=".95"/>');
+      else if (F.coif === "degarni") parts.push('<path d="M20 22 Q22 12 32 12 Q42 12 44 22 Q38 17 32 17 Q26 17 20 22 Z" fill="' + F.hair + '"/>');
+      else if (F.coif !== "rase") parts.push('<path d="M19 28 Q17 10 32 10 Q47 10 45 28 Q44 19 36 17 Q30 21 21 21 Q20 24 19 28 Z" fill="' + F.hair + '"/>');
+      if (F.beard) parts.push('<path d="M21 30 Q22 44 32 45 Q42 44 43 30 Q40 37 32 37 Q24 37 21 30 Z" fill="' + F.hair + '"/>');
       parts.push('<circle cx="27" cy="27" r="1.3" fill="#2b2015"/><circle cx="37" cy="27" r="1.3" fill="#2b2015"/>');
       parts.push('<path d="M28.5 34 Q32 36 35.5 34" stroke="#7a3e2e" stroke-width="1.2" fill="none" stroke-linecap="round"/>');
-      if (gear.mark) parts.push('<g transform="translate(51 51)"><circle r="11" fill="#fbf4e2" stroke="#8a6a3a" stroke-width="1.5"/><path d="' + gear.mark + '" transform="scale(.75)" stroke="#5a3f1c" stroke-width="2" fill="' + (o.arch === "mage" ? "#c9a24a" : "none") + '" stroke-linecap="round" stroke-linejoin="round"/></g>');
+      if (gear.mark && !o.noMark) parts.push('<g transform="translate(51 51)"><circle r="11" fill="#fbf4e2" stroke="#8a6a3a" stroke-width="1.5"/><path d="' + gear.mark + '" transform="scale(.75)" stroke="#5a3f1c" stroke-width="2" fill="' + (o.arch === "mage" ? "#c9a24a" : "none") + '" stroke-linecap="round" stroke-linejoin="round"/></g>');
       parts.push("</g></svg>");
       return parts.join("");
     };
@@ -2229,11 +2316,25 @@
     };
     return H;
   })();
+  // A person of the story: `f` when the story says it, else a guess from a title (Mère, Sire…) or the « elle / il » of
+  // the description; with no clue, a face without beard nor long hair.
+  function personFace(st, k, size) {
+    var p = (st.people || {})[k] || {}, f = p.f;
+    if (f == null) {
+      var n = p.name || "", d = " " + (p.desc || "") + " ";
+      if (/^(Mère|Dame|Sœur|Soeur|Madame|Mademoiselle|La |Reine|Tante|Grand-mère|Veuve)/.test(n)) f = true;
+      else if (/^(Père|Frère|Maître|Sire|Messire|Le |Roi|Oncle|Grand-père|Monsieur|Capitaine)/.test(n)) f = false;
+      else { var el = (d.match(/\b[Ee]lle\b/g) || []).length, il = (d.match(/\b[Ii]l\b/g) || []).length; if (el > il) f = true; else if (il > el) f = false; }
+    }
+    return Heraldry.portrait(st.id + "|" + (p.name || k), { f: f, size: size || 40 });
+  }
+  // The hero's own face: the one composed at creation (s.face), else drawn from the name.
+  function heroFace(st, s, size) { return Heraldry.portrait(st.id + "|" + s.name, { arch: s.arch, face: s.face, size: size }); }
   function portraitOf(st, k, s) {
     var hero = st.heroes && st.heroes[k], c = (st.companions || {})[k] || {};
     var arch = hero ? (hero.player ? s.arch : hero.arch) : c.arch, f = hero && hero.player ? null : hero && hero.f != null ? hero.f : c.f;
     var name = hero && hero.player ? s.name : (hero && hero.name) || c.name || k;
-    return Heraldry.portrait(st.id + "|" + name, { arch: arch, f: f });
+    return Heraldry.portrait(st.id + "|" + name, { arch: arch, f: f, face: hero && hero.player ? s.face : null });
   }
 
   // ------------------------------------------------------------------ dictation in the children's workshop
@@ -2281,7 +2382,7 @@
   })();
 
   // ------------------------------------------------------------------ the notebook
-  var TABS = [["heros", "Héros"], ["sac", "Sac"], ["quetes", "Quêtes"], ["indices", "Indices"], ["compagnons", "Compagnons"], ["carte", "Carte"], ["gens", "Gens"], ["frise", "Frise"], ["marques", "Marque-pages"], ["exploits", "Hauts faits"], ["codex", "Bestiaire et atlas"], ["mots", "Mots"], ["journal", "Journal"], ["coulisses", "Coulisses"]];
+  var TABS = [["heros", "Héros"], ["sac", "Sac"], ["quetes", "Quêtes"], ["indices", "Indices"], ["notes", "Notes"], ["compagnons", "Compagnons"], ["carte", "Carte"], ["gens", "Gens"], ["frise", "Frise"], ["marques", "Marque-pages"], ["exploits", "Hauts faits"], ["codex", "Bestiaire et atlas"], ["mots", "Mots"], ["journal", "Journal"], ["coulisses", "Coulisses"]];
   function renderCarnet() {
     var G = A.game; if (!G) { A.carnet = null; return; }
     var close = function () { A.carnet = null; render(); };
@@ -2290,7 +2391,7 @@
     d.appendChild(h("div", { class: "drawer-head" }, h("h2", null, "Carnet de " + G.s.name), h("button", { class: "btn sm", onclick: close }, "Fermer")));
     d.appendChild(h("nav", { class: "tabs" }, TABS.map(function (t) { return h("button", { class: "tab" + (A.carnetTab === t[0] ? " on" : ""), onclick: function () { A.carnetTab = t[0]; render(); } }, t[1]); })));
     var body = h("div", { class: "drawer-body" });
-    ({ heros: tabHero, sac: tabBag, quetes: tabQuests, indices: tabClues, compagnons: tabCompanions, carte: tabMap, gens: tabPeople, frise: tabFrise, marques: tabMarks, exploits: tabFeats, codex: tabCodex, mots: tabWords, journal: tabLog, coulisses: tabBackstage })[A.carnetTab](body, G.story, G.s);
+    ({ heros: tabHero, sac: tabBag, quetes: tabQuests, indices: tabClues, notes: tabNotes, compagnons: tabCompanions, carte: tabMap, gens: tabPeople, frise: tabFrise, marques: tabMarks, exploits: tabFeats, codex: tabCodex, mots: tabWords, journal: tabLog, coulisses: tabBackstage })[A.carnetTab](body, G.story, G.s);
     d.appendChild(body);
     app.appendChild(bg); app.appendChild(d);
   }
@@ -2302,7 +2403,7 @@
   function bar(cls, v, max) { return h("span", { class: "bar " + cls }, h("i", { style: "width:" + Math.max(0, Math.min(100, Math.round(100 * v / max))) + "%" })); }
   function tabHero(b, st, s) {
     var a = M.ARCHS[s.arch] || {}, lv = M.level(s), into = s.ep - lv * M.EP_PER_LEVEL;
-    b.appendChild(h("div", { class: "hero-head" }, h("span", { html: Heraldry.portrait(st.id + "|" + s.name, { arch: s.arch }) }), h("div", null, h("div", { class: "label" }, a.label + " · niveau " + lv), h("div", { class: "small muted" }, a.tip + " Difficulté : " + (M.DIFFICULTY[s.difficulty || "aventurier"] || {}).label + "."))));
+    b.appendChild(h("div", { class: "hero-head" }, h("span", { html: heroFace(st, s) }), h("div", null, h("div", { class: "label" }, a.label + " · niveau " + lv), h("div", { class: "small muted" }, a.tip + " Difficulté : " + (M.DIFFICULTY[s.difficulty || "aventurier"] || {}).label + "."))));
     b.appendChild(h("div", { class: "kv" },
       h("span", null, "Points de vie"), bar("pv", s.pv, M.pvMax(s)), h("span", { class: "num" }, s.pv + "/" + M.pvMax(s)),
       h("span", null, "Expérience"), bar("", into, M.EP_PER_LEVEL), h("span", { class: "num" }, s.ep.toLocaleString("fr-FR") + " EP"),
@@ -2316,6 +2417,8 @@
     if (!A.game.multi) b.appendChild(h("button", { class: "btn sm", onclick: function () { A.carnet = null; A.screen = "fiche"; render(); window.scrollTo(0, 0); } }, "🖨 Fiche du héros à imprimer"));
     if (st.heroes) tabHeroes(b, st, s);
     b.appendChild(h("div", { class: "small" }, "Arme : " + (w ? w.name + " (dégâts " + w.dmg + (w.att ? ", attaque " + (w.att > 0 ? "+" : "") + w.att : "") + ")" : "mains nues (dégâts 2)") + " · Protection : " + (ar ? ar.name + " (+" + ar.def + ")" : "aucune")));
+    var me = !A.game.multi && !A.game.ephemeral && A.profiles.filter(function (p) { return p.id === A.game.doc.profil; })[0], stamps = me && renderStamps(me);
+    if (stamps) b.appendChild(stamps);
   }
   // Intent: render(Story, State) -> () = the lead's souvenirs, then every other playable hero and where he stands
   function tabHeroes(b, st, s) {
@@ -2370,9 +2473,47 @@
       var cs = Object.keys(s.clues).filter(function (k) { return st.clues[k] && st.clues[k].rev === m; });
       if (!cs.length) return; any = true;
       b.appendChild(h("div", { class: "label" }, st.mysteries[m].title + " · " + cs.length + " indice" + (cs.length > 1 ? "s" : "")));
-      cs.forEach(function (k) { b.appendChild(h("div", { class: "clue", html: md(st.clues[k].text) })); });
+      cs.forEach(function (k) { b.appendChild(clueRow(st, k)); });
     });
     if (!any) b.appendChild(h("div", { class: "notice" }, "Rien encore. Regarde, écoute, fouille."));
+  }
+  // ------------------------------------------------------------------ the reader's notes
+  // Intent: Notes = the reader's own page in the carnet: free text and the clues they pinned (📌), kept in the save
+  // (doc.notes, doc.pins) and shown again with « Précédemment… » when the game is resumed. Why: Clément, 13/11.
+  var NOTES_SAVE_MS = 700;
+  var NOTES_MAX = 4000;
+  function pinsOf(G) { return (G && G.doc && G.doc.pins) || {}; }
+  function clueRow(st, k) {
+    var G = A.game, on = !!pinsOf(G)[k], solo = !G.multi && !G.ephemeral;
+    return h("div", { class: "clue pinnable" }, h("div", { html: md(st.clues[k].text) }),
+      solo ? h("button", { class: "btn ghost sm pin" + (on ? " on" : ""), "aria-pressed": on ? "true" : "false", title: on ? "Retirer de mes notes" : "Épingler dans mes notes", "aria-label": on ? "Retirer de mes notes" : "Épingler dans mes notes",
+        onclick: function () { var p = G.doc.pins = G.doc.pins || {}; if (p[k]) delete p[k]; else p[k] = Date.now(); persist(); render(); } }, "📌") : null);
+  }
+  var notesTimer = null;
+  function tabNotes(b, st, s) {
+    var G = A.game;
+    if (G.multi || G.ephemeral) { b.appendChild(h("div", { class: "notice" }, "Les notes se gardent dans une partie à soi.")); return; }
+    var pins = Object.keys(pinsOf(G)).filter(function (k) { return st.clues && st.clues[k] && s.clues[k]; });
+    b.appendChild(h("div", { class: "label" }, "Indices épinglés"));
+    if (!pins.length) b.appendChild(h("div", { class: "small muted" }, "Aucun. Dans l'onglet Indices, 📌 en garde un ici."));
+    pins.forEach(function (k) { b.appendChild(clueRow(st, k)); });
+    b.appendChild(h("label", { class: "label", for: "notes-area" }, "Mes notes"));
+    var saved = h("span", { class: "small muted" }, "");
+    var ta = h("textarea", { id: "notes-area", class: "notes", rows: 9, maxlength: NOTES_MAX, placeholder: "Ce que tu soupçonnes, qui ment, où retourner…" });
+    ta.value = G.doc.notes || "";
+    ta.addEventListener("input", function () {
+      G.doc.notes = ta.value; saved.textContent = "…";
+      clearTimeout(notesTimer); notesTimer = setTimeout(function () { persist(); saved.textContent = "Gardé."; }, NOTES_SAVE_MS);
+    });
+    b.appendChild(ta); b.appendChild(saved);
+  }
+  function notesRecap(G) {
+    var st = G.story, s = G.s, pins = Object.keys(pinsOf(G)).filter(function (k) { return st.clues && st.clues[k] && s.clues[k]; }), txt = (G.doc && G.doc.notes || "").trim();
+    if (!txt && !pins.length) return null;
+    return h("div", { class: "notes-recap" }, h("span", { class: "label" }, "Mes notes"),
+      txt ? h("p", { class: "notes-text" }, txt.length > 400 ? txt.slice(0, 400) + "…" : txt) : null,
+      pins.length ? h("ul", { class: "plain small" }, pins.map(function (k) { return h("li", { html: "📌 " + md(st.clues[k].text) }); })) : null,
+      h("button", { class: "btn ghost sm", onclick: function () { A.carnet = true; A.carnetTab = "notes"; render(); } }, "Ouvrir mes notes"));
   }
   function tabCompanions(b, st, s) {
     var ks = Object.keys(st.companions || {}).filter(function (k) { return s.met[k]; });
@@ -2417,6 +2558,26 @@
       if (cvT && !(s.known[r.from] && s.known[r.to])) root.insertBefore(svg("path", { d: cvT.d, fill: "none", stroke: "var(--muted)", "stroke-linecap": "round", "stroke-width": 0.5, "stroke-dasharray": "1 1.4" }), root.firstChild);
       if (cvT) { var pT = cvT.at(travelAt(r, s.travel)); root.appendChild(svg("circle", { cx: pT.x, cy: pT.y, r: 1.6, fill: "var(--accent)" })); }
     }
+    // Fog over what is not known yet: an old parchment that clears around the places reached and along the roads
+    // walked (Clément, 13/11). Nothing unknown is drawn under it anyway; the fog only shows how much remains.
+    if (pref("fog")) {
+      var defs = svg("defs", {}), mk = svg("mask", { id: "fogmask", maskUnits: "userSpaceOnUse", x: 0, y: 0, width: 100, height: 80 });
+      var rg = svg("radialGradient", { id: "fogclear" }); rg.appendChild(svg("stop", { offset: "0.55", "stop-color": "#000" })); rg.appendChild(svg("stop", { offset: "1", "stop-color": "#fff" }));
+      var blur = svg("filter", { id: "fogblur", x: "-20%", y: "-20%", width: "140%", height: "140%" }); blur.appendChild(svg("feGaussianBlur", { stdDeviation: 2.2 }));
+      var tex = svg("filter", { id: "fogtex", x: 0, y: 0, width: "100%", height: "100%" });
+      tex.appendChild(svg("feTurbulence", { type: "fractalNoise", baseFrequency: 0.06, numOctaves: 3, seed: hash(st.id) % 97, result: "n" }));
+      tex.appendChild(svg("feColorMatrix", { in: "n", type: "matrix", values: "0 0 0 0 0.70  0 0 0 0 0.62  0 0 0 0 0.47  0 0 0 -0.7 1.3", result: "c" }));
+      tex.appendChild(svg("feComposite", { in: "c", in2: "SourceGraphic", operator: "in" }));
+      defs.appendChild(rg); defs.appendChild(blur); defs.appendChild(tex);
+      mk.appendChild(svg("rect", { x: 0, y: 0, width: 100, height: 80, fill: "#fff" }));
+      var clear = svg("g", { filter: "url(#fogblur)" });
+      Object.keys(places).forEach(function (k) { if (s.known[k] && onMap(k)) clear.appendChild(svg("circle", { cx: places[k].x, cy: places[k].y, r: 13, fill: "url(#fogclear)" })); });
+      (W.routes || []).forEach(function (r) {
+        if (!onMap(r.from) || !(s.routesDone[r.id] || (s.travel && s.travel.route === r.id))) return; var cv = routeCurve(W, r); if (cv) clear.appendChild(svg("path", { d: cv.d, stroke: "#000", "stroke-width": 9, fill: "none", "stroke-linecap": "round" }));
+      });
+      mk.appendChild(clear); defs.appendChild(mk); root.insertBefore(defs, root.firstChild);
+      root.appendChild(svg("rect", { x: 0, y: 0, width: 100, height: 80, fill: "#b39c74", filter: "url(#fogtex)", mask: "url(#fogmask)", opacity: 0.95, class: "fog" }));
+    }
     // compass rose
     root.appendChild(svg("path", { d: "M94 4 L95.2 8 L94 7.3 L92.8 8 Z", fill: "var(--muted)" }));
     root.appendChild(svg("text", { x: 93.3, y: 3.4, "font-size": 2.4, fill: "var(--muted)" }, "N"));
@@ -2433,7 +2594,7 @@
   function tabPeople(b, st, s) {
     var ks = Object.keys(s.people || {});
     if (!ks.length) b.appendChild(h("div", { class: "notice" }, "Personne encore."));
-    ks.forEach(function (k) { var p = st.people[k]; if (p) b.appendChild(h("div", { class: "itemrow" }, h("b", null, p.name), h("span"), h("div", { class: "desc" }, p.desc || ""))); });
+    ks.forEach(function (k) { var p = st.people[k]; if (p) b.appendChild(h("div", { class: "itemrow" }, h("b", { class: "with-portrait" }, h("span", { html: personFace(st, k, 36) }), p.name), h("span"), h("div", { class: "desc" }, p.desc || ""))); });
     var fs = Object.keys(st.factions || {}).filter(function (k) { return s.fac && s.fac[k] != null; });
     if (!fs.length) return;
     b.appendChild(h("div", { class: "label" }, "Factions"));
@@ -2468,7 +2629,7 @@
   // ------------------------------------------------------------------ reading preferences (per reader)
   // Intent: pref(Key) -> Value = the reader's own setting, else the default
   // Why: Clément (12/11): text size, spacing, theme, voice, real dice, sound… follow the reader, not the device.
-  var PREFS = { skin: "histoire", size: "m", spacing: "normal", theme: "auto", font: "livre", lettrine: true, voice: "", highlight: true, ruler: false, dialogue: false, glossary: true, nudge: false, syllables: false, voiceChoice: false, autoListen: true, battlePlan: true, sfx: true, rate: 1, autoRead: false, dice: "ecran", ambiance: false, volume: 0.6 };
+  var PREFS = { skin: "histoire", size: "m", spacing: "normal", theme: "auto", font: "livre", lettrine: true, voice: "", highlight: true, ruler: false, dialogue: false, glossary: true, nudge: false, syllables: false, voiceChoice: false, autoListen: true, battlePlan: true, sfx: true, shakeDice: false, fog: true, rate: 1, autoRead: false, dice: "ecran", ambiance: false, music: false, volume: 0.6 };
   var SIZES = { s: ["Petit", 16], m: ["Normal", 18], l: ["Grand", 21], xl: ["Très grand", 24] };
   var SPACINGS = { serre: ["Serré", 1.5], normal: ["Normal", 1.72], aere: ["Aéré", 2] };
   var THEMES = { auto: "Comme l'appareil", light: "Clair", sepia: "Sépia", dark: "Sombre" };
@@ -2515,7 +2676,7 @@
     var m = A.modal, close = function () { if (m.kind === "send" || m.kind === "receive") Transfer.stop(); A.modal = null; render(); };
     var box = h("div", { class: "modal", role: "dialog", "aria-modal": "true" });
     var bg = h("div", { class: "drawer-bg", onclick: close });
-    ({ prefs: modalPrefs, report: modalReport, dice: modalDice, mark: modalMark, bedtime: modalBedtime, send: modalSend, receive: modalReceive, words: modalWords, sync: modalSync, chapter: modalChapter, adult: modalAdult })[m.kind](box, close, m);
+    ({ prefs: modalPrefs, report: modalReport, dice: modalDice, mark: modalMark, bedtime: modalBedtime, send: modalSend, receive: modalReceive, words: modalWords, sync: modalSync, chapter: modalChapter, shake: modalShake, adult: modalAdult })[m.kind](box, close, m);
     app.appendChild(bg); app.appendChild(box);
     var f = box.querySelector("[autofocus]"); if (f) setTimeout(function () { f.focus(); }, 0);
   }
@@ -2532,6 +2693,7 @@
     b.appendChild(prefToggle("nudge", "Coup de pouce (jeunes lecteurs)", "Un bouton 💡, deux fois par acte, donne une phrase pour s'orienter quand on est perdu. Il ne révèle jamais la suite."));
     b.appendChild(prefToggle("glossary", "Expliquer les mots rares", "Les mots peu courants sont soulignés de pointillés : on les touche pour lire leur sens."));
     b.appendChild(prefToggle("syllables", "Syllabes en couleurs", "Une syllabe sur deux change de couleur, comme dans les méthodes de lecture."));
+    b.appendChild(prefToggle("fog", "Carte sous le brouillard", "La carte du carnet se dévoile autour des lieux atteints et le long des routes parcourues."));
     b.appendChild(prefToggle("battlePlan", "Plan de bataille", "Pendant un combat, un petit plan montre les rangs, les adversaires et les coups de la dernière passe."));
     b.appendChild(prefToggle("ruler", "Règle de lecture", "Une bande suit la ligne en cours et assombrit le reste. Touche une ligne pour l'y amener ; sur ordinateur, les flèches ↑ ↓."));
     if (VoiceChoice.available()) {
@@ -2559,8 +2721,13 @@
     }
     b.appendChild(seg({ ecran: "L'écran lance", vrais: "Je lance mes dés" }, "dice", "Les dés"));
     b.appendChild(h("p", { class: "small muted" }, "Avec tes dés : deux dés à dix faces, un pour les dizaines, un pour les unités (00 = 100). Tu tapes le résultat, le livre fait le calcul. Les compagnons et les adversaires lancent toujours à l'écran."));
+    if (Shake.available()) b.appendChild(h("label", { class: "toggle" }, h("input", { type: "checkbox", checked: !!pref("shakeDice"), onchange: function (e) {
+      var on = e.target.checked; if (!on) { setPref("shakeDice", false); return; }
+      Shake.ask().then(function (r) { setPref("shakeDice", r === "granted"); if (r !== "granted") flash("L'appareil refuse de donner ses mouvements à la page.", true); });
+    } }), h("span", null, h("b", null, "Lancer les dés en secouant"), h("br"), h("span", { class: "small muted" }, "Pour un jet, on secoue le téléphone ; un bouton reste là pour lancer sans secouer. Coupé par défaut."))));
     b.appendChild(h("div", { class: "stack tight" }, h("span", { class: "label" }, "Ambiance sonore"),
       h("label", { class: "toggle" }, h("input", { type: "checkbox", checked: pref("ambiance"), onchange: function (e) { setPref("ambiance", e.target.checked); } }), h("span", null, h("b", null, "Jouer l'ambiance du lieu"), h("br"), h("span", { class: "small muted" }, "Vent, pluie, forêt, ville, souterrain… composés par l'appareil, sans fichier."))),
+      prefToggle("music", "Petite musique", "Un air discret, propre à chaque région, et un autre pour les combats ; composé par l'appareil."),
       prefToggle("sfx", "Bruitages de combat", "Une lame qui sonne, une flèche qui siffle, un sort qui scintille ; même volume que l'ambiance."),
       h("label", { class: "row small" }, "Volume", h("input", { type: "range", min: 0, max: 1, step: 0.05, value: pref("volume"), "aria-label": "Volume de l'ambiance", onchange: function (e) { setPref("volume", +e.target.value); } }))));
     box.appendChild(b);
@@ -2665,6 +2832,11 @@
   }
   function tabFrise(b, st, s) {
     var log = A.game.log, acts = {}; (st.acts || []).forEach(function (a) { acts[a.id] = a.title; });
+    if (!A.game.multi) b.appendChild(h("div", { class: "seg" }, [["liste", "La frise"], ["arbre", "Le chemin dans le livre"]].map(function (o) {
+      var on = (A.friseView || "liste") === o[0];
+      return h("button", { class: "btn sm" + (on ? " on" : ""), "aria-pressed": on ? "true" : "false", onclick: function () { A.friseView = o[0]; render(); } }, o[1]);
+    })));
+    if (A.friseView === "arbre" && !A.game.multi) { renderBookPath(b, st, s); return; }
     if (!log.length) { b.appendChild(h("div", { class: "notice" }, "Rien encore.")); return; }
     var left = log.reduce(function (n, e) { return n + (e.alt || 0); }, 0);
     b.appendChild(h("div", { class: "small muted" }, log.length + " pages lues" + (left ? " · " + left + " chemin" + (left > 1 ? "s" : "") + " laissé" + (left > 1 ? "s" : "") + " de côté en route" : "") + (log.length >= LOG_MAX ? " (les plus anciennes ne sont plus gardées)" : "")));
@@ -2676,6 +2848,92 @@
         e.alt ? h("div", { class: "small muted" }, e.alt + " autre" + (e.alt > 1 ? "s" : "") + " chemin" + (e.alt > 1 ? "s" : "") + " ici") : null));
     });
     b.appendChild(ol);
+  }
+
+  // ------------------------------------------------------------------ the path through the book
+  // Intent: bookPath(Story, State, Act?) -> { layers: [[Node]], edges: [[from, to]], read, left } = the passages read,
+  // laid out by distance from the start, each followed by the ways it offered: the ones taken lead on, the others end
+  // in a grey dot with no title. Return links (back) are left out, they would only draw loops.
+  // Why: Clément, 13/11 « le chemin dans le livre », to see how much of the book remains without telling what.
+  var PATH_DX = 18, PATH_DY = 30, PATH_R = 4.5;
+  function passageTargets(c) {
+    var out = [];
+    (function add(to) { if (Array.isArray(to)) to.forEach(function (x) { add(x && x.to); }); else if (typeof to === "string" && to.charAt(0) !== "@") out.push(to); })([{ to: c.to }, { to: c.win && c.win.to }, { to: c.lose && c.lose.to }]);
+    return out;
+  }
+  function bookPath(st, s, act) {
+    var seen = s.seen || {}, P = st.passages, order = Object.keys(seen).filter(function (k) { return P[k]; });
+    var idx = {}, from = {}, parent = {}, actOf = {}, depth = {};
+    order.forEach(function (k, n) { idx[k] = n; });
+    // `seen` keeps the order of reading: a page hangs from the last page read before it that offered a way to it,
+    // else from the page read just before (a road, an event, a meeting led there).
+    order.forEach(function (k) {
+      ((P[k] || {}).choices || []).forEach(function (c) {
+        if (c.back != null && c.back !== false) return;
+        passageTargets(c).forEach(function (t) { if (idx[t] > idx[k]) from[t] = k; });
+      });
+    });
+    var inAct = function (k) { return !act || actOf[k] === act; };
+    order.forEach(function (k, n) {
+      parent[k] = from[k] || (n ? order[n - 1] : null);
+      actOf[k] = P[k].act || (parent[k] ? actOf[parent[k]] : "") || "";
+      depth[k] = parent[k] && inAct(parent[k]) ? depth[parent[k]] + 1 : 0;
+    });
+    var nodes = order.filter(inAct), layers = [], edges = [], ghosts = {}, left = 0;
+    nodes.forEach(function (k) {
+      var pa = parent[k] && inAct(parent[k]) ? parent[k] : null;
+      (layers[depth[k]] = layers[depth[k]] || []).push({ id: k, read: true, parent: pa });
+      if (pa) edges.push([pa, k]);
+    });
+    nodes.forEach(function (k) {
+      var d = depth[k] + 1;
+      ((P[k] || {}).choices || []).forEach(function (c) {
+        if (c.back != null && c.back !== false) return;
+        passageTargets(c).forEach(function (t) {
+          if (!P[t] || seen[t] || ghosts[t]) return; ghosts[t] = 1; left++;
+          (layers[d] = layers[d] || []).push({ id: "?" + t, read: false, parent: k }); edges.push([k, "?" + t]);
+        });
+      });
+    });
+    return { layers: layers.filter(Boolean), edges: edges, read: nodes.length, left: left };
+  }
+  // Intent: renderBookPath(Element, Story, State) -> () = the tree of « Le chemin dans le livre », one act at a time;
+  // a tap on a page read shows its title.
+  function renderBookPath(b, st, s) {
+    var NS = "http://www.w3.org/2000/svg";
+    function svg(tag, attrs, text) { var e = document.createElementNS(NS, tag); for (var k in attrs) e.setAttribute(k, attrs[k]); if (text != null) e.textContent = text; return e; }
+    var acts = (st.acts || []).filter(function (x) { return Object.keys(s.seen || {}).some(function (k) { return (st.passages[k] || {}).act === x.id; }); });
+    var act = A.pathAct && acts.some(function (x) { return x.id === A.pathAct; }) ? A.pathAct : (s.lastAct || (acts[0] || {}).id || "");
+    if (acts.length > 1) b.appendChild(h("div", { class: "seg wrap" }, acts.map(function (x) {
+      return h("button", { class: "btn sm" + (x.id === act ? " on" : ""), "aria-pressed": x.id === act ? "true" : "false", onclick: function () { A.pathAct = x.id; A.pathPick = null; render(); } }, x.title);
+    })));
+    var T = bookPath(st, s, acts.length ? act : null);
+    if (!T.read) { b.appendChild(h("div", { class: "notice" }, "Rien encore dans cette partie du livre.")); return; }
+    b.appendChild(h("div", { class: "small muted" }, T.read + " page" + (T.read > 1 ? "s" : "") + " lue" + (T.read > 1 ? "s" : "") + " ici · " + (T.left ? T.left + " chemin" + (T.left > 1 ? "s" : "") + " jamais pris, en gris" : "aucun chemin laissé de côté")));
+    // place each layer under its parents, in their order
+    var pos = {}, wide = 1;
+    T.layers.forEach(function (L, d) {
+      L.sort(function (x, y) { return ((pos[x.parent] || {}).x || 0) - ((pos[y.parent] || {}).x || 0); });
+      wide = Math.max(wide, L.length);
+      L.forEach(function (n, i) { pos[n.id] = { x: i, y: d, n: n }; });
+    });
+    T.layers.forEach(function (L) { var off = (wide - L.length) / 2; L.forEach(function (n) { pos[n.id].x += off; }); });
+    var W = wide * PATH_DX + PATH_DX, H = T.layers.length * PATH_DY + PATH_DY / 2;
+    var X = function (id) { return PATH_DX + pos[id].x * PATH_DX; }, Y = function (id) { return PATH_DY / 2 + pos[id].y * PATH_DY; };
+    var root = svg("svg", { class: "bookpath", viewBox: "0 0 " + W + " " + H, width: W, height: H, role: "img", "aria-label": "Arbre des pages lues" });
+    T.edges.forEach(function (e) {
+      if (!pos[e[0]] || !pos[e[1]]) return; var x1 = X(e[0]), y1 = Y(e[0]), x2 = X(e[1]), y2 = Y(e[1]), my = (y1 + y2) / 2;
+      root.appendChild(svg("path", { d: "M" + x1 + " " + y1 + " C" + x1 + " " + my + " " + x2 + " " + my + " " + x2 + " " + y2, class: e[1].charAt(0) === "?" ? "bp-ghost" : "bp-edge" }));
+    });
+    Object.keys(pos).forEach(function (id) {
+      var n = pos[id].n, here = id === s.node, pk = A.pathPick === id;
+      var dot = svg("circle", { cx: X(id), cy: Y(id), r: n.read && (st.passages[id] || {}).hub ? PATH_R + 1.5 : PATH_R, class: n.read ? "bp-read" + (here ? " here" : "") + (pk ? " pick" : "") : "bp-unread" });
+      if (n.read) { dot.addEventListener("click", function () { A.pathPick = pk ? null : id; render(); }); dot.appendChild(svg("title", {}, String(st.passages[id].title || "").replace(/\*/g, ""))); }
+      root.appendChild(dot);
+    });
+    b.appendChild(h("div", { class: "bookpath-wrap" }, root));
+    if (A.pathPick && st.passages[A.pathPick] && (s.seen || {})[A.pathPick]) b.appendChild(h("div", { class: "small" }, "Page lue : ", h("b", null, String(st.passages[A.pathPick].title || "").replace(/\*/g, ""))));
+    b.appendChild(h("div", { class: "small muted" }, "● pages lues · ◉ où tu es · ○ un chemin jamais pris, sans dire où il mène."));
   }
 
   // ------------------------------------------------------------------ endings found and feats, per reader
@@ -2881,7 +3139,7 @@
     var doms = Object.keys(M.DOMAINS).map(function (k) { var v = M.bonus(st, s, k); return "<tr><td>" + esc(M.DOMAINS[k]) + "</td><td class=n>" + (v >= 0 ? "+" : "") + v + "</td><td><i style=\"width:" + Math.max(0, Math.min(100, Math.round(v * 1.25))) + "%\"></i></td></tr>"; }).join("");
     var d = new Date();
     return "<div class=\"fiche-card\">" +
-      "<header><div class=\"seal\">" + Heraldry.portrait(st.id + "|" + s.name, { arch: s.arch, size: 72 }) + "</div><div><h1>" + esc(s.name) + "</h1>" +
+      "<header><div class=\"seal\">" + heroFace(st, s, 72) + "</div><div><h1>" + esc(s.name) + "</h1>" +
       "<p class=\"sub\">" + esc(a.label || "") + " · niveau " + lv + " · " + esc((M.DIFFICULTY[s.difficulty || "aventurier"] || {}).label || "") + "</p>" +
       "<p class=\"story\">" + esc(st.title) + "</p></div></header>" +
       "<div class=\"cols\"><section><h2>Le héros</h2><table class=\"kv\">" +
@@ -3331,6 +3589,7 @@
     tb.appendChild(body);
     sec.appendChild(h("div", { class: "scrollx" }, tb));
     sec.appendChild(renderBedtimeSettings());
+    sec.appendChild(renderGoalSettings());
     return sec;
   }
 
@@ -3380,6 +3639,68 @@
               Store.put("profils", p.id, p).catch(function () {}); render();
             } }, BEDTIME[k]);
           })));
+      }));
+  }
+
+  // ------------------------------------------------------------------ reading stamps
+  // Intent: a parent sets a weekly goal per reader (n sittings of m minutes); a week that reaches it gives a stamp in
+  // the reader's carnet. Reading time per day is kept in each game (doc.days), so nothing new goes to the profile but
+  // the goal (prefs.goal = "n×m"). Why: Clément, 13/11 « tampons de lecture ».
+  var GOALS = { "": "Aucun", "2x15": "2 × 15 min", "3x20": "3 × 20 min", "5x20": "5 × 20 min", "7x15": "7 × 15 min" };
+  var STAMPS_SHOWN = 12;                       // the last weeks shown in the carnet
+  function dayKey(t) { var d = new Date(t); return d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0"); }
+  function weekStart(t) { var d = new Date(t); d.setHours(0, 0, 0, 0); d.setDate(d.getDate() - ((d.getDay() + 6) % 7)); return d.getTime(); }
+  function goalOf(p) { var g = String(((p && p.prefs) || {}).goal || ""), m = /^(\d+)x(\d+)$/.exec(g); return m ? { n: +m[1], min: +m[2], key: g } : null; }
+  // Intent: stamps(Profile) -> { goal, weeks: [{ start, days, ok }] (newest first), now } = the sittings that reached
+  // the goal's length, week by week, from every game of this reader.
+  function stampsOf(p) {
+    var goal = goalOf(p); if (!goal) return null;
+    var byDay = {};
+    (A.allGames || []).forEach(function (g) {
+      if (g.profil !== p.id || g.test) return;
+      var days = g.days || (A.game && A.game.doc && A.game.doc.id === g.id ? A.game.doc.days : null) || {};
+      Object.keys(days).forEach(function (k) { byDay[k] = (byDay[k] || 0) + days[k]; });
+    });
+    if (A.game && A.game.doc && A.game.doc.profil === p.id && !(A.allGames || []).some(function (g) { return g.id === A.game.doc.id; })) Object.keys(A.game.doc.days || {}).forEach(function (k) { byDay[k] = (byDay[k] || 0) + A.game.doc.days[k]; });
+    var weeks = {};
+    Object.keys(byDay).forEach(function (k) {
+      if (byDay[k] < goal.min * 60000) return;
+      var p3 = k.split("-"), ws = weekStart(new Date(+p3[0], +p3[1] - 1, +p3[2]).getTime());
+      weeks[ws] = (weeks[ws] || 0) + 1;
+    });
+    var now = weekStart(Date.now());
+    var list = Object.keys(weeks).map(Number).sort(function (x, y) { return y - x; }).map(function (ws) { return { start: ws, days: weeks[ws], ok: weeks[ws] >= goal.n }; });
+    return { goal: goal, weeks: list, now: weeks[now] || 0, nowOk: (weeks[now] || 0) >= goal.n };
+  }
+  function weekLabel(t) { return "semaine du " + new Date(t).toLocaleDateString("fr-FR", { day: "numeric", month: "long" }); }
+  function renderStamps(p) {
+    var S = stampsOf(p); if (!S) return null;
+    var got = S.weeks.filter(function (w) { return w.ok; });
+    var box = h("div", { class: "stamps" }, h("span", { class: "label" }, "Tampons de lecture"),
+      h("div", { class: "small" }, "Cette semaine : " + Math.min(S.now, S.goal.n) + " séance" + (S.goal.n > 1 ? "s" : "") + " sur " + S.goal.n + " (au moins " + S.goal.min + " min chacune)" + (S.nowOk ? ". Tampon gagné !" : ".")),
+      h("div", { class: "stamp-row", role: "list" }, Array.apply(null, Array(S.goal.n)).map(function (_, i) { return h("span", { class: "stamp-dot" + (i < S.now ? " on" : ""), role: "listitem", "aria-label": i < S.now ? "séance faite" : "séance à faire" }); })));
+    if (got.length) box.appendChild(h("div", { class: "stamp-grid" }, got.slice(0, STAMPS_SHOWN).map(function (w) {
+      return h("div", { class: "stamp", title: weekLabel(w.start) }, h("span", { class: "stamp-ink", "aria-hidden": "true" }, "✦"), h("span", { class: "small" }, new Date(w.start).toLocaleDateString("fr-FR", { day: "numeric", month: "short" })));
+    })));
+    if (got.length > STAMPS_SHOWN) box.appendChild(h("div", { class: "small muted" }, "et " + (got.length - STAMPS_SHOWN) + " tampon" + (got.length - STAMPS_SHOWN > 1 ? "s" : "") + " plus ancien" + (got.length - STAMPS_SHOWN > 1 ? "s" : "") + "."));
+    return box;
+  }
+  function renderGoalSettings() {
+    if (!A.profiles.length) return null;
+    return h("div", { class: "stack tight" },
+      h("h3", { class: "sub-h" }, "Objectif de lecture de la semaine"),
+      h("p", { class: "small muted" }, "Chaque semaine (du lundi au dimanche) qui atteint l'objectif donne un tampon dans le carnet du lecteur. Une séance compte quand on a lu au moins le temps demandé dans la journée."),
+      A.profiles.map(function (p) {
+        var cur = (goalOf(p) || {}).key || "", S = stampsOf(p);
+        return h("div", { class: "row" }, h("span", { style: "min-width:8em" }, avatar(p), " ", p.name),
+          h("div", { class: "seg", role: "group", "aria-label": "Objectif pour " + p.name }, Object.keys(GOALS).map(function (k) {
+            return h("button", { class: "btn sm" + (cur === k ? " on" : ""), "aria-pressed": cur === k ? "true" : "false", onclick: function () {
+              p.prefs = p.prefs || {}; p.prefs.goal = k;
+              if (A.profile && A.profile.id === p.id && A.profile !== p) { A.profile.prefs = A.profile.prefs || {}; A.profile.prefs.goal = k; }
+              Store.put("profils", p.id, p).catch(function () {}); render();
+            } }, GOALS[k]);
+          })),
+          S ? h("span", { class: "small muted" }, S.weeks.filter(function (w) { return w.ok; }).length + " tampon(s) · cette semaine " + Math.min(S.now, S.goal.n) + "/" + S.goal.n) : null);
       }));
   }
 
@@ -3928,6 +4249,85 @@
       },
     };
   })();
+
+  // ------------------------------------------------------------------ a little music, composed by the device
+  // Intent: Music.update() -> () ! plays, changes or stops a quiet tune that fits the moment: one per region (or per
+  // ambiance when the place has no region), drawn from its name so it comes back the same, and one for the fights.
+  // Off by default (pref « music »), same volume slider as the ambiance. Why: Clément, 13/11.
+  var MUSIC_GAIN = 0.22;                       // under the ambiance, so it never covers the reading voice
+  var MUSIC_AHEAD_S = 0.6, MUSIC_TICK_MS = 150;
+  var MUSIC_MODES = {
+    clair: [0, 2, 4, 7, 9],                    // pentatonic: fields, villages, roads, woods
+    dorien: [0, 2, 3, 5, 7, 9, 10],           // towns, mountains, castles
+    sombre: [0, 2, 3, 5, 7, 8, 10],           // caves, night, snow, sea
+    sacre: [0, 2, 4, 6, 7, 9, 11],            // temples
+    combat: [0, 1, 3, 5, 7, 8, 10],
+  };
+  var MUSIC_MOODS = {
+    champs: ["clair", 96], village: ["clair", 88], route: ["clair", 100], foret: ["clair", 80],
+    ville: ["dorien", 104], montagne: ["dorien", 72], chateau: ["dorien", 84],
+    souterrain: ["sombre", 60], nuit: ["sombre", 64], neige: ["sombre", 70], mer: ["sombre", 76], eau: ["sombre", 82],
+    temple: ["sacre", 58], combat: ["combat", 132],
+  };
+  var Music = (function () {
+    var ctx = null, out = null, cur = null, timer = null, plan = null;
+    function rng(seed) { var x = hash(seed) || 1; return function () { x ^= x << 13; x ^= x >>> 17; x ^= x << 5; return ((x >>> 0) % 10000) / 10000; }; }
+    // A tune: 4 phrases of 8 steps (A A' B A), a note or a rest per step, the bass on each bar.
+    function compose(key, mood) {
+      var R = rng("musique|" + key), mode = MUSIC_MODES[mood[0]], root = 196 * Math.pow(2, Math.floor(R() * 5) / 12);
+      var motif = [], deg = 0;
+      for (var i = 0; i < 8; i++) { deg = Math.max(-2, Math.min(mode.length + 2, deg + Math.round(R() * 4 - 2))); motif.push(R() < (mood[0] === "combat" ? 0.12 : 0.28) && i % 4 ? null : deg); }
+      var vary = motif.map(function (d, i) { return i >= 6 && d != null ? d + (R() < 0.5 ? 1 : -1) : d; });
+      var bridge = motif.map(function (d) { return d == null ? null : d + 2; });
+      var steps = motif.concat(vary, bridge, motif);
+      var freq = function (d) { var n = mode.length, o = Math.floor(d / n), k = ((d % n) + n) % n; return root * Math.pow(2, o + mode[k] / 12); };
+      return { steps: steps.map(function (d) { return d == null ? null : freq(d); }), bass: [freq(0) / 2, freq(0) / 2, freq(3) / 2, freq(0) / 2], beat: 60 / mood[1] / 2, fight: mood[0] === "combat" };
+    }
+    function note(f, t, dur, type, gain) {
+      var o = ctx.createOscillator(), g = ctx.createGain(), lp = ctx.createBiquadFilter();
+      o.type = type; o.frequency.value = f; lp.type = "lowpass"; lp.frequency.value = 1800;
+      g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(gain, t + 0.03); g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+      o.connect(lp); lp.connect(g); g.connect(out); o.start(t); o.stop(t + dur + 0.05);
+    }
+    function drum(t) { var o = ctx.createOscillator(), g = ctx.createGain(); o.frequency.setValueAtTime(110, t); o.frequency.exponentialRampToValueAtTime(45, t + 0.25); g.gain.setValueAtTime(0.5, t); g.gain.exponentialRampToValueAtTime(0.0001, t + 0.3); o.connect(g); g.connect(out); o.start(t); o.stop(t + 0.35); }
+    function stop() { if (timer) clearInterval(timer); timer = null; plan = null; cur = null; }
+    function play(key, mood) {
+      stop(); cur = key; var T = compose(key, mood), i = 0, t = ctx.currentTime + 0.1;
+      plan = T;
+      timer = setInterval(function () {
+        while (t < ctx.currentTime + MUSIC_AHEAD_S) {
+          var f = T.steps[i % T.steps.length];
+          if (f) note(f, t, T.beat * (T.fight ? 0.9 : 1.8), T.fight ? "square" : "triangle", T.fight ? 0.18 : 0.3);
+          if (i % 8 === 0) note(T.bass[(i / 8) % 4], t, T.beat * 8, "sine", 0.35);
+          if (T.fight && i % 4 === 0) drum(t);
+          i++; t += T.beat;
+          if (i % T.steps.length === 0 && !T.fight) t += T.beat * 4;   // a breath between two rounds of the tune
+        }
+      }, MUSIC_TICK_MS);
+    }
+    return {
+      // what plays now (for the tests)
+      now: function () { return cur; },
+      update: function () {
+        var G = A.game, want = null, mood = null;
+        if (pref("music") && G && A.screen === "game" && !document.hidden) {
+          var kind = M.ambianceOf(G.story, G.s) || (M.isNightNow(G.s) ? "nuit" : "village");
+          var pl = ((G.story.world || {}).places || {})[((G.story.passages || {})[G.s.node] || {}).place || G.s.place] || {};
+          mood = MUSIC_MOODS[kind] || MUSIC_MOODS.village;
+          want = kind === "combat" ? "combat" : (pl.region ? "region:" + pl.region : "ambiance:" + kind) + (kind === "nuit" ? ":nuit" : "");
+          want = G.story.id + "|" + want;
+        }
+        if (!want) { if (cur) stop(); return; }
+        try {
+          if (!ctx) { var AC = window.AudioContext || window.webkitAudioContext; if (!AC) return; ctx = new AC(); out = ctx.createGain(); out.connect(ctx.destination); }
+          if (ctx.state === "suspended") ctx.resume();
+          out.gain.value = Math.max(0, Math.min(1, +pref("volume"))) * MUSIC_GAIN;
+          if (want !== cur) play(want, mood);
+        } catch (e) { /* no sound on this device */ }
+      },
+    };
+  })();
+  document.addEventListener("visibilitychange", function () { Music.update(); });
 
   // ------------------------------------------------------------------ start
   loadBuiltins();
