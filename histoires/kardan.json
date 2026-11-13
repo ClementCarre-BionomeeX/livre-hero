@@ -554,14 +554,23 @@
   },
   "tobie": {
    "name": "Tobie",
+   "face": {
+    "age": "enfant"
+   },
    "desc": "Neuf ans, des genoux écorchés, un cerf-volant en peau de chèvre. Petit-fils de l'Aïeule."
   },
   "maeve": {
    "name": "Maève, l'Aïeule",
+   "face": {
+    "age": "ancien"
+   },
    "desc": "La doyenne de Kardan. Elle ne commande rien, et tout le monde lui obéit."
   },
   "mattias": {
    "name": "Le vieux Mattias",
+   "face": {
+    "age": "ancien"
+   },
    "desc": "Jeté dans le dédale il y a trente ans. Il y a gardé sa raison, ou presque, en cultivant des mousses."
   },
   "aurele": {
@@ -574,6 +583,9 @@
   },
   "theoz": {
    "name": "Théoz",
+   "face": {
+    "age": "mur"
+   },
    "desc": "Le fils de l'Aïeule, tiré au sort il y a vingt ans. Le Gardien avant Aurèle."
   }
  },

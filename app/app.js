@@ -1101,33 +1101,56 @@
     app.appendChild(w);
   }
   // Intent: renderFacePicker(Creation, Story) -> Element = « Ton visage » : the portrait as drawn from the name, and
-  // swatches to change the skin, the hair, the cut, the beard and the background. Optional: untouched, the name decides.
-  // Why: Clément, 13/11.
-  var FACE_COIFS = { court: "Courts", long: "Longs", degarni: "Dégarnis", rase: "Rasés", capuche: "Capuche" };
+  // every trait of Moteur.FACE to change it: age, skin, shape, eyes, nose, mouth, hair, beard, and the particular
+  // signs (vitiligo, freckles, scars, glasses…), several at once. Optional: untouched, the name decides.
+  // Why: Clément, 13/11 — every reader, child or elder, of any origin, must be able to find their own face.
   function renderFacePicker(C, st) {
-    var seed = st.id + "|" + (C.name || "").trim(), cur = Heraldry.faceOf(seed, { arch: C.arch, face: C.face });
+    var F = M.FACE, seed = st.id + "|" + (C.name || "").trim(), cur = Heraldry.faceOf(seed, { arch: C.arch, face: C.face });
     var set = function (k, v) { C.face = C.face || {}; C.face[k] = v; render(); };
+    var rowOf = function (label, el) { return h("div", { class: "face-row" }, h("span", { class: "small" }, label), el); };
     var swatches = function (label, list, k) {
-      return h("div", { class: "face-row" }, h("span", { class: "small" }, label), h("div", { class: "swatches" }, list.map(function (col) {
-        return h("button", { type: "button", class: "swatch" + (cur[k] === col ? " on" : ""), style: "background:" + col, "aria-label": label + " " + col, "aria-pressed": cur[k] === col ? "true" : "false", onclick: function () { set(k, col); } });
+      return rowOf(label, h("div", { class: "swatches" }, Object.keys(F[list]).map(function (n) {
+        var col = F[list][n], on = cur[k] === col;
+        return h("button", { type: "button", class: "swatch" + (on ? " on" : ""), style: "background:" + col, title: n, "aria-label": label + " : " + n, "aria-pressed": on ? "true" : "false", onclick: function () { set(k, col); } });
       })));
+    };
+    var seg = function (label, list, k) {
+      return rowOf(label, h("div", { class: "seg" }, Object.keys(F[list]).map(function (n) {
+        var on = cur[k] === n;
+        return h("button", { type: "button", class: "btn sm" + (on ? " on" : ""), "aria-pressed": on ? "true" : "false", onclick: function () { set(k, n); } }, F[list][n]);
+      })));
+    };
+    var any = function (o) { var ks = Object.keys(o); return ks[Math.floor(Math.random() * ks.length)]; };
+    var shuffle = function () {
+      var f = {}; Object.keys(M.FACE_KEYS).forEach(function (k) { if (k !== "marks" && k !== "age") f[k] = FACE_COLOUR_LIST[k] ? F[M.FACE_KEYS[k]][any(F[M.FACE_KEYS[k]])] : any(F[M.FACE_KEYS[k]]); });
+      f.age = cur.age; f.marks = Math.random() < 0.4 ? [any(F.marks)] : []; if (f.age === "enfant") f.beard = "sans";
+      C.face = f; render();
     };
     var open = A.open.face;
     var box = h("div", { class: "stack face-pick" }, h("span", { class: "label" }, "Ton visage"),
-      h("div", { class: "row" }, h("span", { html: Heraldry.portrait(seed, { arch: C.arch, face: C.face, size: 96 }) }),
+      h("div", { class: "row" }, h("span", { html: Heraldry.portrait(seed, { arch: C.arch, face: C.face, size: 112 }) }),
         h("div", { class: "stack tight" }, h("span", { class: "small muted" }, C.face ? "Composé par toi." : "Tiré de ton nom. Tu peux le changer."),
           h("div", { class: "row" }, h("button", { type: "button", class: "btn sm", onclick: function () { A.open.face = !open; render(); } }, open ? "Refermer" : "Composer mon visage"),
+            open ? h("button", { type: "button", class: "btn sm ghost", onclick: shuffle }, "Au hasard") : null,
             C.face ? h("button", { type: "button", class: "btn sm ghost", onclick: function () { C.face = null; render(); } }, "Revenir à celui du nom") : null))));
     if (open) {
-      box.appendChild(swatches("Peau", PORTRAIT_SKINS, "skin"));
-      box.appendChild(swatches("Cheveux", PORTRAIT_HAIRS, "hair"));
-      box.appendChild(h("div", { class: "face-row" }, h("span", { class: "small" }, "Coiffure"), h("div", { class: "seg" }, Object.keys(FACE_COIFS).map(function (k) {
-        return h("button", { type: "button", class: "btn sm" + (cur.coif === k ? " on" : ""), "aria-pressed": cur.coif === k ? "true" : "false", onclick: function () { set("coif", k); } }, FACE_COIFS[k]);
+      box.appendChild(seg("Âge", "ages", "age"));
+      box.appendChild(swatches("Peau", "skins", "skin"));
+      box.appendChild(seg("Visage", "shapes", "shape"));
+      box.appendChild(seg("Yeux", "eyes", "eyes"));
+      box.appendChild(swatches("Couleur des yeux", "irises", "iris"));
+      box.appendChild(seg("Nez", "noses", "nose"));
+      box.appendChild(seg("Lèvres", "lips", "lips"));
+      box.appendChild(swatches("Cheveux", "hairs", "hair"));
+      box.appendChild(seg("Coiffure", "coifs", "coif"));
+      box.appendChild(seg("Barbe", "beards", "beard"));
+      box.appendChild(rowOf("Signes particuliers", h("div", { class: "seg" }, Object.keys(F.marks).map(function (n) {
+        var on = cur.marks.indexOf(n) >= 0;
+        return h("button", { type: "button", class: "btn sm" + (on ? " on" : ""), "aria-pressed": on ? "true" : "false", onclick: function () { set("marks", on ? cur.marks.filter(function (m) { return m !== n; }) : cur.marks.concat(n)); } }, F.marks[n]);
       }))));
-      box.appendChild(h("div", { class: "face-row" }, h("span", { class: "small" }, "Barbe"), h("div", { class: "seg" }, [[false, "Sans"], [true, "Avec"]].map(function (b) {
-        return h("button", { type: "button", class: "btn sm" + (!!cur.beard === b[0] ? " on" : ""), "aria-pressed": !!cur.beard === b[0] ? "true" : "false", onclick: function () { set("beard", b[0]); } }, b[1]);
-      }))));
-      box.appendChild(swatches("Fond", PORTRAIT_BACKS, "back"));
+      box.appendChild(swatches("Fond", "backs", "back"));
+      // The face stays in sight while the reader scrolls through the choices.
+      box.appendChild(h("div", { class: "face-float", "aria-hidden": "true", html: Heraldry.portrait(seed, { arch: C.arch, face: C.face, size: 92 }) }));
     }
     return box;
   }
@@ -2226,9 +2249,11 @@
   // Intent: Heraldry = a portrait for every hero and companion (a bust, the class's mark, colours seeded by the name),
   // and a coat of arms for every faction (field, division, charge, seeded by its id; a story may set its own: blasons).
   // Same name, same face, on every device: everything comes from hash(), nothing is stored.
-  var PORTRAIT_SKINS = ["#f1d3b6", "#e2b48f", "#c98f66", "#a86f4c", "#7b4b32", "#f5dcc8"];
-  var PORTRAIT_HAIRS = ["#2a1d15", "#4b3020", "#7a4a26", "#b7752f", "#d9b56a", "#8d8d8d", "#e8e2d6", "#5a1f14"];
-  var PORTRAIT_BACKS = ["#c9d8c5", "#d8cbb4", "#c4cfe0", "#e0c6c6", "#d4d0e6", "#cfe0dc"];
+  var PORTRAIT_SKINS = Object.keys(M.FACE.skins).map(function (k) { return M.FACE.skins[k]; });
+  var PORTRAIT_HAIRS = Object.keys(M.FACE.hairs).map(function (k) { return M.FACE.hairs[k]; });
+  var PORTRAIT_IRIS = Object.keys(M.FACE.irises).map(function (k) { return M.FACE.irises[k]; });
+  var PORTRAIT_BACKS = Object.keys(M.FACE.backs).map(function (k) { return M.FACE.backs[k]; });
+  var FACE_COLOUR_LIST = { skin: "skins", hair: "hairs", iris: "irises", back: "backs" };
   var ARCH_GEAR = {
     guerrier: { cloth: "#7d8790", mark: "M-4 9 L4 -9 M-6 -5 L-2 -7" },                  // a sword over the shoulder
     rodeur: { cloth: "#4f6b3a", mark: "M-6 -9 Q6 0 -6 9 M-6 -9 L-6 9" },                 // a bow
@@ -2251,37 +2276,163 @@
     plume: "M10 -14 Q-8 -6 -8 12 L-6 12 Q-2 -2 10 -14 Z",
   };
   var Heraldry = (function () {
-    var H = {};
+    var H = {}, FV = M.FACE;
     function pick(arr, n) { return arr[n % arr.length]; }
-    // Intent: portrait(seed, { arch, f, size }) -> svg markup
-    // Intent: faceOf(seed, { arch, f, face? }) -> Face = { skin, hair, back, coif, beard } ; drawn from the name, then
-    // whatever the reader chose at creation (face) wins. coif: court, long, degarni, capuche, rase.
+    function rgb(c) { var n = parseInt(String(c).replace("#", ""), 16) || 0; return [n >> 16 & 255, n >> 8 & 255, n & 255]; }
+    function mix(a, b, t) { var p = rgb(a), q = rgb(b); return "#" + p.map(function (v, i) { return ("0" + Math.round(v + (q[i] - v) * t).toString(16)).slice(-2); }).join(""); }
+    function lum(c) { var p = rgb(c); return (0.299 * p[0] + 0.587 * p[1] + 0.114 * p[2]) / 255; }
+    function col(list, v) { return FV[list][v] || v; }
+    // Faces drawn from a name: common hair and eye colours come up more often; grey hair comes with age, not by chance.
+    var SEED_HAIRS = ["noir", "noir", "brun", "brun", "chatain", "chatain", "noisette", "roux", "cuivre", "blond", "acajou"];
+    var SEED_IRIS = ["brun", "brun", "brun", "noir", "noisette", "vert", "bleu", "gris"];
+    var SEED_COIF = {
+      true: ["long", "long", "milong", "tresses", "chignon", "boucles", "crepus", "foulard"],
+      false: ["court", "court", "degarni", "rase", "boucles", "crepus", "locks", "turban"],
+      none: ["court", "milong", "boucles", "crepus"],
+    };
+    var SEED_BEARD = ["sans", "sans", "sans", "sans", "barbe", "barbe", "moustache", "longue"];
+    var SCARVES = ["#7a3b4f", "#2f5d73", "#8a6a2c", "#3f6b4a", "#5a4a7a", "#b08a5a"];
+    // Intent: faceOf(seed, { arch, f, face? }) -> Face = { age, skin, hair, back, iris, eyes, nose, lips, shape, coif,
+    // beard, marks } ; drawn from the name, then whatever the reader composed or the story declared (face) wins.
+    // Words are those of Moteur.FACE; colours come out as "#rrggbb".
     H.faceOf = function (seed, o) {
-      o = o || {}; var x = hash(String(seed || "?")), style = (x >>> 12) % 4, f = !!o.f;
-      var coif = (o.arch === "voleur" || o.arch === "rodeur") && style < 2 ? "capuche" : style === 2 && !f ? "degarni" : f && style !== 3 ? "long" : "court";
-      var d = { skin: pick(PORTRAIT_SKINS, x), hair: pick(PORTRAIT_HAIRS, x >>> 3), back: pick(PORTRAIT_BACKS, x >>> 6), coif: coif, beard: o.f === false && (x >>> 14) % 3 === 0 };
-      if (o.face) Object.keys(o.face).forEach(function (k) { if (o.face[k] != null) d[k] = o.face[k]; });
+      o = o || {}; var x = hash(String(seed || "?")), y = hash(String(seed || "?") + "~"), z = hash("marks of " + String(seed || "?")), given = o.face || {};
+      var hood = (o.arch === "voleur" || o.arch === "rodeur") && (x >>> 12) % 4 < 2;
+      var d = {
+        age: "adulte", skin: pick(PORTRAIT_SKINS, x), hair: FV.hairs[pick(SEED_HAIRS, x >>> 3)], back: pick(PORTRAIT_BACKS, x >>> 6),
+        iris: FV.irises[pick(SEED_IRIS, y >>> 3)], eyes: pick(Object.keys(FV.eyes), y), nose: pick(Object.keys(FV.noses), y >>> 6),
+        lips: pick(Object.keys(FV.lips), y >>> 9), shape: pick(Object.keys(FV.shapes), y >>> 11),
+        coif: hood ? "capuche" : pick(SEED_COIF[o.f == null ? "none" : !!o.f], y >>> 20), beard: o.f === false ? pick(SEED_BEARD, x >>> 14) : "sans",
+        marks: [].concat(z % 11 === 0 ? ["rousseur"] : [], z % 13 === 0 ? ["grain"] : [], z % 41 === 0 ? ["vitiligo"] : [], z % 17 === 0 ? ["lunettes"] : []),
+      };
+      Object.keys(given).forEach(function (k) {
+        var v = given[k]; if (v == null) return;
+        d[k] = k === "marks" ? [].concat(v) : k === "beard" && typeof v === "boolean" ? (v ? "barbe" : "sans") : FACE_COLOUR_LIST[k] ? col(FACE_COLOUR_LIST[k], v) : v;
+      });
+      if (given.hair == null) { if (d.age === "mur") d.hair = mix(d.hair, "#9a9a98", 0.45); else if (d.age === "ancien") d.hair = pick(["#b9b9b6", "#e8e2d6", "#8d8d8d"], x >>> 9); }
+      if (d.age === "ancien" && given.coif == null && d.coif === "court" && o.f === false) d.coif = pick(["court", "degarni", "couronne"], x >>> 17);
+      if (d.age === "enfant") { if (given.beard == null) d.beard = "sans"; if (given.coif == null && (d.coif === "degarni" || d.coif === "couronne")) d.coif = "court"; }
       return d;
     };
+    // Where things sit on the head, by age: a child's head is rounder, the eyes larger and lower, the shoulders narrow.
+    var AGE_GEO = {
+      enfant: { rx: 12.3, ry: 12.5, cy: 28.5, ey: 29.2, es: 1.42, dx: 5.6, ny: 1.6, ns: 0.8, my: 36.7, neck: 8, sh: "M13 66 Q15 49 32 47.5 Q49 49 51 66 Z" },
+      jeune: { rx: 11.8, ry: 13.5, cy: 27.4, ey: 27.7, es: 1.28, dx: 5.5, ny: 0.5, ns: 0.92, my: 36.2, neck: 9, sh: "M10 66 Q12 47 32 45 Q52 47 54 66 Z" },
+      adulte: { rx: 12, ry: 14, cy: 27, ey: 27, es: 1.2, dx: 5.5, ny: 0, ns: 1, my: 36, neck: 10, sh: "M8 66 Q10 46 32 44 Q54 46 56 66 Z" },
+    };
+    var EYES = {
+      amande: { w: "M-2.7 .3 Q-.6 -2.1 2.7 -.2 Q.3 1.8 -2.7 .3 Z", lid: "M-2.7 .3 Q-.6 -2.1 2.7 -.2", crease: "M-2.3 -1.5 Q0 -3 2.6 -1.5", r: 1.4 },
+      ronds: { w: "M-2.4 0 Q-2.3 -2.2 0 -2.2 Q2.3 -2.2 2.4 0 Q2.3 1.9 0 1.9 Q-2.3 1.9 -2.4 0 Z", lid: "M-2.4 0 Q-2.3 -2.2 0 -2.2 Q2.3 -2.2 2.4 0", crease: "M-2.2 -2.2 Q0 -3.5 2.4 -2.1", r: 1.55 },
+      // A single eyelid, no crease: the upper line runs smooth from a covered inner corner to a slightly higher outer one.
+      brides: { w: "M-2.7 .5 Q-1.6 -.85 .4 -1.05 Q1.9 -1.05 2.8 -.4 Q.9 1.3 -2.7 .5 Z", lid: "M-2.95 .8 Q-1.7 -.9 .4 -1.1 Q1.9 -1.1 3.05 -.45", r: 1.38 },
+      tombants: { w: "M-2.6 -.4 Q0 -2.2 2.7 .8 Q0 1.7 -2.6 -.4 Z", lid: "M-2.6 -.4 Q0 -2.2 2.9 1", crease: "M-2.2 -1.9 Q.2 -3.1 2.9 -.6", r: 1.4 },
+      lourds: { w: "M-2.6 .2 Q0 -1.2 2.6 .1 Q0 1.6 -2.6 .2 Z", lid: "M-2.7 .2 Q0 -1.3 2.7 .1", hood: "M-2.9 .1 Q0 -1.45 2.9 0 Q0 -3 -2.9 .1 Z", r: 1.35 },
+    };
+    var NOSES = {
+      fin: "M32.5 29 Q33.1 31.2 32.6 32 Q32 32.5 31.2 32",
+      large: "M29.9 31.5 Q30.2 32.9 32 32.5 Q33.8 32.9 34.1 31.5 M32.9 29.2 Q33.2 30.4 33 31",
+      busque: "M32.2 27.8 Q34.5 30.2 33.3 31.9 Q32.3 32.6 31.2 32",
+      retrousse: "M32.6 29.4 Q33.4 30.8 33.2 31.3 Q32.3 32.2 31 31.5",
+    };
+    var CAP = "M19 28 Q17 10 32 10 Q47 10 45 28 Q44 19 36 17 Q30 21 21 21 Q20 24 19 28 Z";
+    var CAP_TIGHT = "M19.5 27 Q18 11.5 32 11.5 Q46 11.5 44.5 27 Q43 18 32 17.5 Q21 18 19.5 27 Z";
+    function ring(cx, cy, rad, r, from, to, n, fill) {
+      var out = ""; for (var i = 0; i < n; i++) { var a = (from + (to - from) * i / (n - 1)) * Math.PI / 180; out += '<circle cx="' + (cx + rad * Math.cos(a)).toFixed(1) + '" cy="' + (cy + rad * Math.sin(a)).toFixed(1) + '" r="' + r + '" fill="' + fill + '"/>'; }
+      return out;
+    }
+    // Intent: portrait(seed, { arch, f, face?, size?, hurt?, noMark? }) -> svg markup ; hurt: 0 unharmed, 1 hurt
+    // (a bruise, a cut), 2 badly hurt (a bandage round the head) — the state of the moment, not a trait of the face.
     H.portrait = function (seed, o) {
-      o = o || {}; var x = hash(String(seed || "?") + JSON.stringify(o.face || "")), sz = o.size || 64, F = H.faceOf(seed, o);
-      var gear = ARCH_GEAR[o.arch] || { cloth: pick(["#6d5a40", "#4f5d6b", "#6b4a4a", "#55663f"], x >>> 9), mark: null };
-      var parts = ['<svg class="portrait" viewBox="0 0 64 64" width="' + sz + '" height="' + sz + '" role="img" aria-hidden="true">',
+      o = o || {}; var x = hash(String(seed || "?") + JSON.stringify(o.face || "") + (o.hurt || "")), sz = o.size || 64, F = H.faceOf(seed, o);
+      var xs = hash(String(seed || "?")), gear = ARCH_GEAR[o.arch] || { cloth: pick(["#6d5a40", "#4f5d6b", "#6b4a4a", "#55663f"], xs >>> 9), mark: null };
+      var G = AGE_GEO[F.age] || AGE_GEO.adulte, has = function (m) { return F.marks.indexOf(m) >= 0; };
+      var rx = G.rx + (F.shape === "rond" ? 0.9 : F.shape === "allonge" ? -1.1 : 0), ry = G.ry + (F.shape === "rond" ? -0.7 : F.shape === "allonge" ? 0.5 : 0), cy = G.cy;
+      var skin = F.skin, shade = mix(skin, "#3a1f12", 0.38), dark = lum(skin) < 0.45, old = F.age === "ancien", ripe = F.age === "mur" || old;
+      var scar = dark ? mix(skin, "#f0cfc4", 0.5) : mix(skin, "#a8554c", 0.55), lip = dark ? mix(skin, "#2a0f0a", 0.5) : mix(skin, "#8a2f28", 0.6);
+      var brow = lum(F.hair) > 0.6 ? mix(F.hair, "#6b5a45", 0.35) : mix(F.hair, "#1c130d", 0.3), scarf = pick(SCARVES, xs >>> 5), ink = "#2b2015";
+      var line = function (d, c, w, extra) { return '<path d="' + d + '" stroke="' + c + '" stroke-width="' + w + '" fill="none" stroke-linecap="round" stroke-linejoin="round"' + (extra || "") + "/>"; };
+      var fill = function (d, c, extra) { return '<path d="' + d + '" fill="' + c + '"' + (extra || "") + "/>"; };
+      var p = ['<svg class="portrait" viewBox="0 0 64 64" width="' + sz + '" height="' + sz + '" role="img" aria-hidden="true">',
         '<circle cx="32" cy="32" r="32" fill="' + F.back + '"/>',
-        '<clipPath id="pc' + x + '"><circle cx="32" cy="32" r="32"/></clipPath><g clip-path="url(#pc' + x + ')">'];
-      if (F.coif === "long") parts.push('<path d="M17 30 Q16 52 22 56 H42 Q48 52 47 30 Z" fill="' + F.hair + '"/>');   // long hair behind
-      parts.push('<path d="M8 66 Q10 46 32 44 Q54 46 56 66 Z" fill="' + gear.cloth + '"/>');                          // shoulders
-      parts.push('<rect x="27" y="36" width="10" height="10" rx="3" fill="' + F.skin + '"/>');                       // neck
-      parts.push('<ellipse cx="32" cy="27" rx="12" ry="14" fill="' + F.skin + '"/>');                                // head
-      if (F.coif === "capuche") parts.push('<path d="M16 32 Q14 8 32 8 Q50 8 48 32 Q46 18 32 17 Q18 18 16 32 Z M14 34 Q10 50 18 50 L20 36 Z M50 34 Q54 50 46 50 L44 36 Z" fill="' + gear.cloth + '" opacity=".95"/>');
-      else if (F.coif === "degarni") parts.push('<path d="M20 22 Q22 12 32 12 Q42 12 44 22 Q38 17 32 17 Q26 17 20 22 Z" fill="' + F.hair + '"/>');
-      else if (F.coif !== "rase") parts.push('<path d="M19 28 Q17 10 32 10 Q47 10 45 28 Q44 19 36 17 Q30 21 21 21 Q20 24 19 28 Z" fill="' + F.hair + '"/>');
-      if (F.beard) parts.push('<path d="M21 30 Q22 44 32 45 Q42 44 43 30 Q40 37 32 37 Q24 37 21 30 Z" fill="' + F.hair + '"/>');
-      parts.push('<circle cx="27" cy="27" r="1.3" fill="#2b2015"/><circle cx="37" cy="27" r="1.3" fill="#2b2015"/>');
-      parts.push('<path d="M28.5 34 Q32 36 35.5 34" stroke="#7a3e2e" stroke-width="1.2" fill="none" stroke-linecap="round"/>');
-      if (gear.mark && !o.noMark) parts.push('<g transform="translate(51 51)"><circle r="11" fill="#fbf4e2" stroke="#8a6a3a" stroke-width="1.5"/><path d="' + gear.mark + '" transform="scale(.75)" stroke="#5a3f1c" stroke-width="2" fill="' + (o.arch === "mage" ? "#c9a24a" : "none") + '" stroke-linecap="round" stroke-linejoin="round"/></g>');
-      parts.push("</g></svg>");
-      return parts.join("");
+        '<clipPath id="pc' + x + '"><circle cx="32" cy="32" r="32"/></clipPath><clipPath id="pe' + x + '"><path d="' + EYES[F.eyes in EYES ? F.eyes : "amande"].w + '"/></clipPath><g clip-path="url(#pc' + x + ')">'];
+      // ---- hair behind the head
+      if (F.coif === "long") p.push(fill("M17 30 Q16 52 22 56 H42 Q48 52 47 30 Z", F.hair));
+      else if (F.coif === "milong") p.push(fill("M17.5 26 Q15 40 20 45.5 H44 Q49 40 46.5 26 Z", F.hair));
+      else if (F.coif === "crepus") p.push('<circle cx="32" cy="21.5" r="15.6" fill="' + F.hair + '"/>' + ring(32, 21.5, 15.2, 2.6, 150, 390, 17, F.hair));
+      else if (F.coif === "boucles") p.push(ring(32, 26, 14, 3.9, 170, 370, 11, F.hair));
+      else if (F.coif === "foulard") p.push(fill("M17 30 Q14 8 32 8 Q50 8 47 30 Q48 46 42 52 H22 Q16 46 17 30 Z", scarf));
+      p.push(fill(G.sh, gear.cloth));                                                                                     // shoulders
+      if (F.coif === "locks") for (var i = 0; i < 7; i++) { var lx = 17.5 + i * 4.8; p.push(line("M" + lx + " 22 Q" + (lx + (i < 3 ? -1.5 : i > 3 ? 1.5 : 0)) + " 38 " + (lx + (i < 3 ? -0.5 : i > 3 ? 0.5 : 0)) + " 51", F.hair, 3)); }
+      p.push('<rect x="' + (32 - G.neck / 2) + '" y="36" width="' + G.neck + '" height="11" rx="3" fill="' + skin + '"/>');           // neck
+      p.push(fill("M" + (32 - G.neck / 2) + " 40.5 Q32 44.5 " + (32 + G.neck / 2) + " 40.5 V38 H" + (32 - G.neck / 2) + " Z", shade, ' opacity=".22"'));
+      if (old) p.push(line("M30.3 42.5 V45.5 M33.7 42.5 V45.5", shade, 0.45, ' opacity=".6"'));
+      p.push('<ellipse cx="' + (32 - rx + 0.3) + '" cy="' + (G.ey + 1.2) + '" rx="1.9" ry="2.7" fill="' + mix(skin, shade, 0.18) + '"/><ellipse cx="' + (32 + rx - 0.3) + '" cy="' + (G.ey + 1.2) + '" rx="1.9" ry="2.7" fill="' + mix(skin, shade, 0.18) + '"/>'); // ears
+      var under = { degarni: null, couronne: null, rase: null, capuche: gear.cloth, foulard: scarf, turban: scarf }, uc = F.coif in under ? under[F.coif] : F.hair;
+      if (uc) p.push(fill("M" + (32 - rx - 1.3) + " 28 A" + (rx + 1.3) + " " + (28 - cy + ry + 1.6) + " 0 0 1 " + (32 + rx + 1.3) + " 28 Z", uc));   // no gap between the head and what covers it
+      p.push('<ellipse cx="32" cy="' + cy + '" rx="' + rx + '" ry="' + ry + '" fill="' + skin + '"/>');                               // head
+      if (F.shape === "carre") p.push(fill("M" + (32 - rx + 0.5) + " " + cy + " L" + (32 - rx + 1.4) + " " + (cy + ry * 0.62) + " Q" + (32 - rx + 3) + " " + (cy + ry) + " 32 " + (cy + ry) + " Q" + (32 + rx - 3) + " " + (cy + ry) + " " + (32 + rx - 1.4) + " " + (cy + ry * 0.62) + " L" + (32 + rx - 0.5) + " " + cy + " Z", skin));
+      // ---- the skin itself
+      if (F.age === "enfant") p.push('<circle cx="25" cy="33.6" r="2.4" fill="#d8644e" opacity=".2"/><circle cx="39" cy="33.6" r="2.4" fill="#d8644e" opacity=".2"/>');
+      if (has("vitiligo")) {
+        var vit = mix(skin, "#fff3ea", 0.8), ve = G.ey - 27;
+        p.push(fill("M33.3 " + (23.4 + ve) + " Q37 " + (21.2 + ve) + " 40.8 " + (23.8 + ve) + " Q42.4 " + (27 + ve) + " 40.3 " + (29.8 + ve) + " Q37 " + (31 + ve) + " 34.2 " + (29.2 + ve) + " Q32.6 " + (26.4 + ve) + " 33.3 " + (23.4 + ve) + " Z" +
+          " M24.6 34 Q27.4 32.8 29.2 35.3 Q29.4 38.6 26.6 39.2 Q23.8 37.6 24.6 34 Z M25.6 " + (cy - ry + 3.2) + " q3 -1.2 4.8 1 q-.9 2.2 -3.6 1.8 q-1.7 -1 -1.2 -2.8 Z M28.6 42 Q31 41 32.4 43.6 Q31.2 46 28.9 45.2 Z", vit, ' opacity=".95"'));
+      }
+      if (has("tache")) p.push(fill("M21.6 24.4 Q24 22.8 25.5 25.2 Q26.4 29 24.6 32.4 Q22.2 33 21.2 30 Q20.6 26.8 21.6 24.4 Z", mix(skin, "#8e2f45", 0.45), ' opacity=".9"'));
+      if (has("brulure")) p.push(fill("M37.6 30.6 Q41.4 28.6 43.3 31 Q43.5 35.4 41 38.6 Q38.6 40.8 36.6 39.6 Q35.5 37 36 34 Q36 31.6 37.6 30.6 Z", mix(skin, "#a8554c", 0.34)) + fill("M39 32 q1.6 -.6 2.4 .8 q-.2 1.6 -1.6 1.6 q-1.2 -.6 -.8 -2.4 Z M37.6 35.8 q1.4 -.2 1.8 1 q-.4 1.2 -1.6 1 q-.8 -.8 -.2 -2 Z", mix(skin, "#f6d9cf", 0.35), ' opacity=".8"'));
+      if (has("rousseur")) p.push('<g fill="' + mix(skin, "#8a4a22", 0.5) + '">' + [[26, 30.6], [27.6, 31.4], [24.8, 31.6], [29, 30.4], [35, 30.4], [36.4, 31.4], [38, 30.6], [39.2, 31.7], [31, 29.6], [33.2, 29.7], [26.4, 32.4], [37.6, 32.5]].map(function (q) { return '<circle cx="' + q[0] + '" cy="' + (q[1] + G.ny) + '" r=".45"/>'; }).join("") + "</g>");
+      if (ripe) p.push(line("M28 21.9 Q32 21.2 36 21.9 M40.9 26 l1.4 -.7 M41 27.4 l1.5 .3 M23.1 26 l-1.4 -.7 M23 27.4 l-1.5 .3 M28.3 32.2 Q27.3 34 27.8 35.6 M35.7 32.2 Q36.7 34 36.2 35.6", shade, 0.45, ' opacity="' + (old ? 0.75 : 0.5) + '"'));
+      if (old) p.push(line("M27.2 19.9 Q32 19.1 36.8 19.9 M23.6 31 Q24.4 34.2 26 36.4 M40.4 31 Q39.6 34.2 38 36.4 M30.6 24 l.5 1.6 M33.4 24 l-.5 1.6", shade, 0.45, ' opacity=".65"'));
+      // ---- hair and headwear in front
+      // Hair, headwear and beard are drawn for a head 12 wide: they follow the width of this one.
+      var fit = '<g transform="translate(32 0) scale(' + (rx / 12).toFixed(3) + ' 1) translate(-32 0)">', c = F.coif;
+      p.push(fit);
+      if (c === "capuche") p.push(fill("M16 32 Q14 8 32 8 Q50 8 48 32 Q46 18 32 17 Q18 18 16 32 Z M14 34 Q10 50 18 50 L20 36 Z M50 34 Q54 50 46 50 L44 36 Z", gear.cloth, ' opacity=".95"'));
+      else if (c === "foulard") p.push(fill("M19.2 28 Q17.5 10.5 32 10.5 Q46.5 10.5 44.8 28 Q43.4 17.6 32 17 Q20.6 17.6 19.2 28 Z M20.4 31 Q23 42.6 32 43.2 Q41 42.6 43.6 31 Q44.6 46 38 49 H26 Q19.4 46 20.4 31 Z", scarf) + line("M22 15.5 Q32 11.5 42 15.5", mix(scarf, "#000000", 0.25), 0.5));
+      else if (c === "turban") p.push(fill("M18.4 24.5 Q15.5 8.5 32 7.5 Q48.5 8.5 45.6 24.5 Q39 19.2 32 19.2 Q25 19.2 18.4 24.5 Z", scarf) + line("M19.5 19 Q30 12.5 44 13.5 M21 22 Q33 15.5 45.4 19 M24 10.8 Q33 9.5 41.5 11.6", mix(scarf, "#000000", 0.28), 0.6));
+      else if (c === "degarni") p.push(fill("M20 22 Q22 12 32 12 Q42 12 44 22 Q38 17 32 17 Q26 17 20 22 Z", F.hair));
+      else if (c === "couronne") p.push(fill("M19.6 30 Q18.2 24.5 20.4 20.6 Q21.4 24 21 30 Z M44.4 30 Q45.8 24.5 43.6 20.6 Q42.6 24 43 30 Z", F.hair));
+      else if (c === "rase") p.push(fill("M20.7 25 Q20.5 13.5 32 13.3 Q43.5 13.5 43.3 25 Q42 18 32 17.5 Q22 18 20.7 25 Z", F.hair, ' opacity=".35"'));
+      else if (c === "chignon") p.push('<circle cx="32" cy="8.8" r="5.2" fill="' + F.hair + '"/>' + fill(CAP_TIGHT, F.hair));
+      else if (c === "crepus") p.push(fill("M20.3 25.5 Q20.6 12.6 32 12.6 Q43.4 12.6 43.7 25.5 Q38.5 17.6 32 17.6 Q25.5 17.6 20.3 25.5 Z", F.hair));
+      else if (c === "boucles") p.push(fill("M20 24 Q21 12 32 12 Q43 12 44 24 Q38 17.5 32 17.5 Q26 17.5 20 24 Z", F.hair) + ring(32, 24.5, 10.4, 2.5, 205, 335, 7, F.hair));
+      else {
+        p.push(fill(c === "tresses" || c === "locks" ? CAP_TIGHT : CAP, F.hair));
+        if (c === "tresses") { [18.4, 45.6].forEach(function (bx) { for (var j = 0; j < 8; j++) p.push('<ellipse cx="' + (bx + (j % 2 ? 0.5 : -0.5)) + '" cy="' + (26.5 + j * 3.3) + '" rx="2.3" ry="2.1" fill="' + F.hair + '"/>'); p.push('<circle cx="' + bx + '" cy="53.4" r="1.3" fill="#c9a24a"/>'); }); p.push(line("M32 11.6 V17.4", mix(F.hair, skin, 0.5), 0.5)); }
+        if (c === "locks") p.push(line("M19.6 23 Q18.4 32 19 41 M44.4 23 Q45.6 32 45 41", F.hair, 2.8) + line("M26 12.6 Q25 15 24.4 18.6 M32 11.6 V17.4 M38 12.6 Q39 15 39.6 18.6", mix(F.hair, skin, 0.4), 0.45));
+      }
+      p.push("</g>");
+      // ---- brows, eyes, nose, mouth
+      var E = EYES[F.eyes in EYES ? F.eyes : "amande"], blindL = has("aveugle"), blindR = has("aveugle") || has("oeil_voile");
+      var odd = lum(F.iris) < 0.3 ? FV.irises.bleu : FV.irises.brun;
+      [-1, 1].forEach(function (side) {
+        var blind = side < 0 ? blindL : blindR, iris = blind ? "#d3dade" : side < 0 && has("vairons") ? odd : F.iris;
+        p.push('<g transform="translate(' + (32 + side * G.dx) + " " + G.ey + ") scale(" + (side * G.es) + " " + G.es + ')">' +
+          line("M-2.9 -3.2 Q-.2 " + (F.eyes === "brides" ? -4 : -4.4) + " 2.9 -3.3", brow, (old ? 0.75 : 0.95) / G.es) +
+          fill(E.w, "#f6f1e8") + '<g clip-path="url(#pe' + x + ')"><circle cx="0" cy="-.1" r="' + E.r + '" fill="' + iris + '"/>' +
+          (blind ? '<circle cx="0" cy="-.1" r="' + (E.r * 0.45) + '" fill="#b9c3c8"/>' : '<circle cx="0" cy="-.1" r="' + (E.r * 0.48) + '" fill="#120c08"/><circle cx=".5" cy="-.6" r=".34" fill="#fff" opacity=".85"/>') + "</g>" +
+          (E.hood ? fill(E.hood, shade, ' opacity=".4"') : "") + (E.crease ? line(E.crease, shade, 0.35, ' opacity=".7"') : "") + line(E.lid, ink, F.eyes === "lourds" ? 0.8 : 0.6) +
+          (ripe ? line("M-2.2 2.2 Q0 3 2.3 2.3", shade, 0.4, ' opacity="' + (old ? 0.8 : 0.5) + '"') : "") + "</g>");
+      });
+      p.push('<g transform="translate(' + (32 * (1 - G.ns)) + " " + (G.ny + 31 * (1 - G.ns)) + ") scale(" + G.ns + ')">' + line(NOSES[F.nose] || NOSES.fin, shade, 0.75) + "</g>");
+      var by = G.my - 36;
+      if (F.beard === "barbe" || F.beard === "longue") p.push(fit + fill(F.beard === "longue" ? "M20.6 29 Q19.5 50 32 57 Q44.5 50 43.4 29 Q41 38.6 32 38.8 Q23 38.6 20.6 29 Z" : "M20.6 29 Q21.5 44 32 45.5 Q42.5 44 43.4 29 Q41 38.6 32 38.8 Q23 38.6 20.6 29 Z", F.hair, ' transform="translate(0 ' + by + ')"') + "</g>");
+      if (F.lips === "pleines") p.push('<g transform="translate(0 ' + G.my + ')">' + fill("M28.4 0 Q30.6 -1.15 32 -.45 Q33.4 -1.15 35.6 0 Q32 2.8 28.4 0 Z", lip) + line("M28.4 0 Q32 .95 35.6 0", mix(lip, "#1a0a06", 0.35), 0.45) + "</g>");
+      else p.push('<g transform="translate(0 ' + G.my + ')">' + line("M28.6 0 Q32 1.9 35.4 0", mix(lip, "#1a0a06", 0.15), 1.1) + "</g>");
+      if (F.beard && F.beard !== "sans") p.push(fill("M27.1 35 Q29.5 32.9 32 33.6 Q34.5 32.9 36.9 35 Q34.3 34.4 32 34.6 Q29.7 34.4 27.1 35 Z", F.hair, ' transform="translate(0 ' + by + ')"') + line("M27.1 35 Q29.5 33.6 32 34.2 Q34.5 33.6 36.9 35", F.hair, 0.7, ' transform="translate(0 ' + by + ')"'));
+      // ---- what life left on the face, and what the face wears
+      if (has("grain")) p.push('<circle cx="36.6" cy="' + (33.7 + by) + '" r=".7" fill="' + mix(skin, "#22130c", 0.75) + '"/>');
+      if (has("tatouage")) p.push(line("M32 20.9 l1 1.2 l-1 1.2 l-1 -1.2 Z M32 " + (38.7 + by) + " v1.7 M30.3 " + (38.5 + by) + " v1.3 M33.7 " + (38.5 + by) + " v1.3", "#27485a", 0.6, ' opacity=".9"'));
+      if (has("cicatrice")) p.push(line("M23.4 " + (30.2 + G.ny) + " l3.6 3.6", scar, 0.85) + line("M24 " + (32 + G.ny) + " l1.2 -1.2 M25.2 " + (33.2 + G.ny) + " l1.2 -1.2", scar, 0.4));
+      if (has("balafre")) p.push(line("M" + (32 + G.dx + 2.6) + " " + (G.ey - 7.6) + " Q" + (32 + G.dx + 1.6) + " " + (G.ey - 1) + " " + (32 + G.dx - 0.6) + " " + (G.ey + 6.6), scar, 0.95));
+      if (has("lunettes")) { var gr = 3.5 * G.es; p.push('<g stroke="#3a2a18" stroke-width=".8" fill="#fff" fill-opacity=".14"><circle cx="' + (32 - G.dx) + '" cy="' + G.ey + '" r="' + gr + '"/><circle cx="' + (32 + G.dx) + '" cy="' + G.ey + '" r="' + gr + '"/></g>' + line("M" + (32 - G.dx + gr) + " " + G.ey + " Q32 " + (G.ey - 1.2) + " " + (32 + G.dx - gr) + " " + G.ey + " M" + (32 - G.dx - gr) + " " + G.ey + " L" + (32 - rx) + " " + (G.ey - 0.6) + " M" + (32 + G.dx + gr) + " " + G.ey + " L" + (32 + rx) + " " + (G.ey - 0.6), "#3a2a18", 0.8)); }
+      if (has("bandeau")) { var ex = 32 - G.dx, ey = G.ey; p.push(line("M" + (32 + rx - 0.4) + " " + (ey - 7) + " L" + (32 - rx + 0.2) + " " + (ey + 2.6), "#1c1612", 1.1) + fill("M" + (ex - 3.5) + " " + (ey - 2.5) + " Q" + ex + " " + (ey - 3.6) + " " + (ex + 3.5) + " " + (ey - 2.5) + " Q" + (ex + 3.9) + " " + (ey + 3.7) + " " + ex + " " + (ey + 4.3) + " Q" + (ex - 3.9) + " " + (ey + 3.7) + " " + (ex - 3.5) + " " + (ey - 2.5) + " Z", "#1c1612")); }
+      if (has("appareil")) p.push(line("M" + (32 + rx + 0.6) + " " + (G.ey - 1.6) + " q1.9 .3 1.7 2.7 q-.2 1.7 -1.2 2.3", "#d9772e", 1.5) + '<circle cx="' + (32 + rx + 0.2) + '" cy="' + (G.ey + 2.4) + '" r=".8" fill="#f1e6c8"/>');
+      if (o.hurt) p.push('<ellipse cx="38.6" cy="' + (31.6 + G.ny) + '" rx="2.6" ry="1.9" fill="#6b3f6b" opacity=".38"/>' + line("M25.6 " + (cy - ry + 7.6) + " l3.2 1.3", "#a3322a", 0.7));
+      if (o.hurt > 1) { var t = cy - ry; p.push(fill("M" + (32 - rx - 0.6) + " " + (t + 9.4) + " Q32 " + (t + 4.6) + " " + (32 + rx + 0.6) + " " + (t + 9.4) + " L" + (32 + rx + 0.8) + " " + (t + 5.6) + " Q32 " + (t + 0.6) + " " + (32 - rx - 0.8) + " " + (t + 5.6) + " Z", "#f3ecdc", ' stroke="#cbbf9f" stroke-width=".4"') + '<circle cx="38" cy="' + (t + 5.4) + '" r="1.3" fill="#a3322a" opacity=".75"/>'); }
+      if (gear.mark && !o.noMark) p.push('<g transform="translate(51 51)"><circle r="11" fill="#fbf4e2" stroke="#8a6a3a" stroke-width="1.5"/><path d="' + gear.mark + '" transform="scale(.75)" stroke="#5a3f1c" stroke-width="2" fill="' + (o.arch === "mage" ? "#c9a24a" : "none") + '" stroke-linecap="round" stroke-linejoin="round"/></g>');
+      p.push("</g></svg>");
+      return p.join("");
     };
     // Intent: arms(seed, spec?) -> { field, other, division, charge, chargeT } ; the rule of tincture: metal on colour.
     H.arms = function (seed, spec) {
@@ -2326,15 +2477,27 @@
       else if (/^(Père|Frère|Maître|Sire|Messire|Le |Roi|Oncle|Grand-père|Monsieur|Capitaine)/.test(n)) f = false;
       else { var el = (d.match(/\b[Ee]lle\b/g) || []).length, il = (d.match(/\b[Ii]l\b/g) || []).length; if (el > il) f = true; else if (il > el) f = false; }
     }
-    return Heraldry.portrait(st.id + "|" + (p.name || k), { f: f, size: size || 40 });
+    return Heraldry.portrait(st.id + "|" + (p.name || k), { f: f, face: p.face, size: size || 40 });
   }
-  // The hero's own face: the one composed at creation (s.face), else drawn from the name.
-  function heroFace(st, s, size) { return Heraldry.portrait(st.id + "|" + s.name, { arch: s.arch, face: s.face, size: size }); }
-  function portraitOf(st, k, s) {
-    var hero = st.heroes && st.heroes[k], c = (st.companions || {})[k] || {};
-    var arch = hero ? (hero.player ? s.arch : hero.arch) : c.arch, f = hero && hero.player ? null : hero && hero.f != null ? hero.f : c.f;
-    var name = hero && hero.player ? s.name : (hero && hero.name) || c.name || k;
-    return Heraldry.portrait(st.id + "|" + name, { arch: arch, f: f, face: hero && hero.player ? s.face : null });
+  // Intent: hurtOf(pv, max) -> 0 | 1 | 2 = what a portrait shows of the wounds of the moment: nothing above half the
+  // hit points, a bruise and a cut under half, a bandage under a quarter. Healed, the face is clean again.
+  var HURT_AT = 0.5, BADLY_HURT_AT = 0.25;
+  function hurtOf(pv, max) { var q = max > 0 ? pv / max : 1; return q <= BADLY_HURT_AT ? 2 : q <= HURT_AT ? 1 : 0; }
+  // The face of the hero being played: the one composed at creation (s.face) for the reader's own hero, else the
+  // face the story gives to the hero who leads.
+  function heroFace(st, s, size) {
+    if (s.lead != null && st.heroes && st.heroes[s.lead]) return portraitOf(st, s.lead, s, size);
+    return Heraldry.portrait(st.id + "|" + s.name, { arch: s.arch, face: s.face, size: size, hurt: hurtOf(s.pv, M.pvMax(s)) });
+  }
+  // Intent: portraitOf(Story, id, State, size?) -> svg = a companion or a hero of the story: the face the story
+  // declares (face) on the name's own; the reader's own hero keeps the face composed at creation, led or not.
+  function portraitOf(st, k, s, size) {
+    var hero = st.heroes && st.heroes[k], c = (st.companions || {})[k] || {}, mine = hero && hero.player, lead = s.lead === k;
+    var sheet = !hero ? {} : lead ? s : (s.heroes && s.heroes[k]) || {};
+    var name = sheet.name || (hero && hero.name) || c.name || k, arch = sheet.arch || (hero && hero.arch) || c.arch;
+    var f = mine ? null : hero && hero.f != null ? hero.f : c.f;
+    var hurt = lead ? hurtOf(s.pv, M.pvMax(s)) : s.cpv && s.cpv[k] != null ? hurtOf(s.cpv[k], M.cpvMax(st, s, k)) : 0;
+    return Heraldry.portrait(st.id + "|" + name, { arch: arch, f: f, face: mine ? s.face : (hero && hero.face) || c.face, hurt: hurt, size: size });
   }
 
   // ------------------------------------------------------------------ dictation in the children's workshop
@@ -2436,7 +2599,7 @@
     others.forEach(function (k) {
       var sh = M.heroSheet(s, k), a = M.ARCHS[sh.arch] || {}, where = s.met[k] === "party" ? "avec toi" : s.met[k] === "away" ? "ailleurs" : s.met[k] === "gone" ? "parti" : "rencontré";
       var pv = s.cpv && s.cpv[k] != null ? s.cpv[k] + "/" + M.cpvMax(st, s, k) + " PV · " : "";
-      b.appendChild(h("div", { class: "small hero-line" }, h("span", { html: Heraldry.portrait(st.id + "|" + sh.name, { arch: sh.arch, f: (st.companions && st.companions[k] || {}).f, size: 32 }) }), h("b", null, sh.name), " · " + a.label + " de niveau " + M.levelOfEp(sh.ep) + " · " + pv + where + " · souvenirs " + M.souvCount(st, s, k) + "/" + Object.keys(M.souvOf(st, k)).length));
+      b.appendChild(h("div", { class: "small hero-line" }, h("span", { html: portraitOf(st, k, s, 32) }), h("b", null, sh.name), " · " + a.label + " de niveau " + M.levelOfEp(sh.ep) + " · " + pv + where + " · souvenirs " + M.souvCount(st, s, k) + "/" + Object.keys(M.souvOf(st, k)).length));
     });
   }
   function tabBag(b, st, s) {

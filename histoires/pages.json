@@ -310,6 +310,9 @@
  "people": {
   "aubert": {
    "name": "Messire Aubert de Vellane",
+   "face": {
+    "age": "mur"
+   },
    "desc": "Votre maître. Soixante ans, une jambe raide, la meilleure lance du comté il y a vingt ans."
   },
   "heloise": {
@@ -322,6 +325,9 @@
   },
   "thibaud": {
    "name": "Thibaud",
+   "face": {
+    "age": "jeune"
+   },
    "desc": "L'écuyer de Gauvard, un garçon de seize ans qui a peur de son maître."
   },
   "anselme": {

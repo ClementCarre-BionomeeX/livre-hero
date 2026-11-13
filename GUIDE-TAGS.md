@@ -109,3 +109,20 @@ La difficulté (Conteur, Aventurier, Héroïque) se choisit à la création ; le
 - La carte du carnet est sous le brouillard : elle se dégage autour des lieux connus et le long des routes parcourues. Rien à déclarer ; le lecteur peut l'enlever dans ses réglages.
 - « Le chemin dans le livre » (onglet Frise) dessine l'arbre des pages lues, acte par acte (`act` des passages), et un rond gris sans titre pour chaque chemin offert mais jamais pris. Les liens de retour (`back`) ne comptent pas.
 - La petite musique (option du lecteur) prend un air par région (`region` du lieu), sinon par `ambiance`, et un air de combat. Rien à déclarer.
+
+## Visages : âge, traits, marques (13/11)
+
+Tout personnage (`people`, `companions`, `heroes`) peut déclarer son visage avec `face` ; ce qui n'est pas déclaré reste tiré du nom. Le validateur refuse tout mot hors de ces listes (`Moteur.FACE`).
+
+```js
+anseau: { name: "Anseau", face: { age: "ancien", marks: ["balafre", "lunettes"] }, desc: "…" }
+```
+
+- `age` : `enfant`, `jeune`, `adulte`, `mur`, `ancien`. Sans `hair`, les cheveux grisonnent (`mur`) ou blanchissent (`ancien`) tout seuls.
+- `skin` : `porcelaine`, `clair`, `ivoire`, `beige`, `dore`, `hale`, `cuivre`, `brun`, `acajou`, `ebene` (ou `#rrggbb`).
+- `hair` : `noir`, `brun`, `chatain`, `noisette`, `roux`, `cuivre`, `blond`, `platine`, `gris`, `blanc`, `acajou` ; `iris` : `noir`, `brun`, `noisette`, `vert`, `bleu`, `gris`, `clair`.
+- `eyes` : `amande`, `ronds`, `brides`, `tombants`, `lourds` ; `nose` : `fin`, `large`, `busque`, `retrousse` ; `lips` : `fines`, `pleines` ; `shape` : `ovale`, `rond`, `carre`, `allonge`.
+- `coif` : `court`, `milong`, `long`, `boucles`, `crepus`, `tresses`, `locks`, `chignon`, `degarni`, `couronne`, `rase`, `foulard`, `turban`, `capuche` ; `beard` : `sans`, `moustache`, `barbe`, `longue`.
+- `marks` (liste) : `rousseur`, `grain`, `vitiligo`, `tache` (de naissance), `cicatrice`, `balafre`, `brulure`, `bandeau`, `oeil_voile`, `aveugle`, `vairons`, `lunettes`, `appareil` (auditif), `tatouage`.
+- Les blessures du moment ne se déclarent pas : le moteur les dessine d'après les points de vie (une ecchymose sous la moitié, un bandage sous le quart) et les efface à la guérison, pour le héros comme pour les compagnons.
+- Le lecteur compose son propre visage avec les mêmes mots à la création du héros (`s.face`).

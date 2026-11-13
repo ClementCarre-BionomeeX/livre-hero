@@ -28,6 +28,38 @@
   var CAMP_HEAL = 0.25, HUNGRY_PV = 2, HUNGER_FATIGUE = 1;
   var DEFEND_BONUS = 25, FLEE_DIFF = -10, CRIT_OVER = 50, DMG_PER_10 = 1, UNARMED_DMG = 2, COMPANION_DMG = 4, ENEMY_HIT_BONUS = 0;
   var SELL_RATE = 0.5;
+  // Faces (Clément, 13/11): the words a story or a reader may use to describe a face. The page draws them
+  // (Heraldry), the validator refuses any other word. Colours go by name here, or by "#rrggbb".
+  var FACE = {
+    ages: { enfant: "Enfant", jeune: "Jeune", adulte: "Adulte", mur: "Mûr", ancien: "Ancien" },
+    skins: { porcelaine: "#f7e3d4", clair: "#f1d3b6", ivoire: "#ecc9a0", beige: "#e2b48f", dore: "#d6a777", hale: "#c98f66", cuivre: "#a86f4c", brun: "#8a5a3c", acajou: "#6b422c", ebene: "#4a2d20" },
+    hairs: { noir: "#16110f", brun: "#2a1d15", chatain: "#4b3020", noisette: "#7a4a26", roux: "#a8431f", cuivre: "#b7752f", blond: "#d9b56a", platine: "#ecdcae", gris: "#8d8d8d", blanc: "#e8e2d6", acajou: "#5a1f14" },
+    irises: { noir: "#1c1410", brun: "#3b2416", noisette: "#7a5a2a", vert: "#4d7a4a", bleu: "#3f6f9e", gris: "#6f7c85", clair: "#a9b6cf" },
+    backs: { sauge: "#c9d8c5", sable: "#d8cbb4", ciel: "#c4cfe0", rose: "#e0c6c6", lilas: "#d4d0e6", menthe: "#cfe0dc" },
+    eyes: { amande: "En amande", ronds: "Ronds", brides: "Bridés", tombants: "Tombants", lourds: "Paupières lourdes" },
+    noses: { fin: "Fin", large: "Large", busque: "Busqué", retrousse: "Retroussé" },
+    lips: { fines: "Fines", pleines: "Pleines" },
+    shapes: { ovale: "Ovale", rond: "Rond", carre: "Carré", allonge: "Allongé" },
+    coifs: { court: "Courts", milong: "Mi-longs", long: "Longs", boucles: "Bouclés", crepus: "Crépus", tresses: "Tresses", locks: "Locks", chignon: "Chignon", degarni: "Dégarnis", couronne: "Couronne", rase: "Rasés", foulard: "Foulard", turban: "Turban", capuche: "Capuche" },
+    beards: { sans: "Sans", moustache: "Moustache", barbe: "Barbe", longue: "Longue barbe" },
+    marks: { rousseur: "Taches de rousseur", grain: "Grain de beauté", vitiligo: "Vitiligo", tache: "Tache de naissance", cicatrice: "Cicatrice", balafre: "Balafre", brulure: "Brûlure", bandeau: "Bandeau sur l'œil", oeil_voile: "Œil voilé", aveugle: "Aveugle", vairons: "Yeux vairons", lunettes: "Lunettes", appareil: "Appareil auditif", tatouage: "Tatouage" },
+  };
+  // Which list each key of a face draws from: a colour list takes a name or "#rrggbb", `marks` a list of words.
+  var FACE_KEYS = { age: "ages", skin: "skins", hair: "hairs", iris: "irises", back: "backs", eyes: "eyes", nose: "noses", lips: "lips", shape: "shapes", coif: "coifs", beard: "beards", marks: "marks" };
+  var FACE_COLOURS = ["skin", "hair", "iris", "back"];
+  // Intent: faceErrors(face) -> [message] = what a declared face says that the page cannot draw
+  function faceErrors(face) {
+    if (!face || typeof face !== "object" || Array.isArray(face)) return ["« face » s'écrit { age: \"ancien\", marks: [\"balafre\"], … }."];
+    var out = [];
+    Object.keys(face).forEach(function (k) {
+      var list = FACE[FACE_KEYS[k]], v = face[k];
+      if (!list) return out.push("clé « " + k + " » inconnue (" + Object.keys(FACE_KEYS).join(", ") + ").");
+      var known = function (w) { return typeof w === "string" && (list.hasOwnProperty(w) || (FACE_COLOURS.indexOf(k) >= 0 && /^#[0-9a-f]{6}$/i.test(w))); };
+      if (k === "marks") { if (!Array.isArray(v)) return out.push("« marks » est une liste."); v.forEach(function (w) { if (!known(w)) out.push("marque « " + w + " » inconnue (" + Object.keys(list).join(", ") + ")."); }); }
+      else if (!known(v)) out.push(k + " « " + v + " » inconnu (" + Object.keys(list).join(", ") + (FACE_COLOURS.indexOf(k) >= 0 ? ", ou #rrggbb" : "") + ").");
+    });
+    return out;
+  }
 
   // Difficulty chosen at the start of a game (Clément, 12/11): the engine adjusts the hero's rolls and the foes; the
   // story has nothing to change. Game choices: Conteur forgives, Héroïque bites.
@@ -1546,6 +1578,7 @@
   }
 
   var API = {
+    FACE: FACE, FACE_KEYS: FACE_KEYS, faceErrors: faceErrors,
     ARCHS: ARCHS, TECHS: TECHS, techsOf: techsOf, partyView: partyView, cpv: cpv, cpvMax: cpvMax, FRONT: FRONT, DOMAINS: DOMAINS, EP: EP, EP_PER_LEVEL: EP_PER_LEVEL, MAX_LEVEL: MAX_LEVEL, DIFFS: DIFFS, LOYAL_AT: LOYAL_AT, SUCCESS: SUCCESS, STEP_HOURS: STEP_HOURS,
     setRng: setRng, setDice: setDice, nudgeOf: nudgeOf, ambianceOf: ambianceOf, AMBIANCES: AMBIANCES, isNightNow: function (s) { var h = s.time % 24; return h >= NIGHT_FROM || h < NIGHT_TO; }, DIFFICULTY: DIFFICULTY, featsOf: featsOf, endingsOf: endingsOf, endingOf: endingOf, freshState: freshState, level: level, pvMax: pvMax, bonus: bonus, chance: chance, rollTest: rollTest,
     evalCond: evalCond, describeCond: describeCond, textList: textList, view: view, allowed: allowed, target: target,
