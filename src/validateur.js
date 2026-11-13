@@ -53,6 +53,12 @@
     function E(m) { errs.push(m); } function W(m) { warns.push(m); }
     ["id", "title", "start", "acts", "passages"].forEach(function (k) { if (!story[k]) E("Il manque « " + k + " » à l'histoire."); });
     if (errs.length) return { errors: errs, warnings: warns };
+    // Clément, 13/11: a story with adult themes says so, and lists them; the library warns before it opens.
+    if (story.adult !== undefined) {
+      var ad = story.adult;
+      if (!ad || typeof ad !== "object" || !Array.isArray(ad.themes) || !ad.themes.length || ad.themes.some(function (t) { return typeof t !== "string" || !t.trim(); }))
+        E("« adult » s'écrit { themes: [\"…\", …] } : la liste, non vide, des thèmes que le lecteur doit connaître avant d'ouvrir le livre.");
+    }
     ["companions", "factions", "relics", "mysteries", "clues"].forEach(function (k) { story[k] = story[k] || {}; });
     story.quests = story.quests || []; story.banter = story.banter || [];
     var P = story.passages, acts = {};

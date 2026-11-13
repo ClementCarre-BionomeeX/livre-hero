@@ -98,3 +98,7 @@ La difficulté (Conteur, Aventurier, Héroïque) se choisit à la création ; le
 
 - Plan de bataille, bruitages, voyage animé, fin d'acte illustrée : rien à déclarer, le moteur garde les coups de chaque passe (`combat.hits`) et l'appli suit la route et les actes.
 - Cartes du bestiaire : la silhouette est devinée d'après le nom de l'adversaire ; pour l'imposer, `look` sur l'ennemi (`loup`, `rat`, `ombre`, `humain`, `serpent`, `araignee`, `oiseau`, `ours`). Le conseil de la carte vient seulement de ses règles (`ranged`, `flank`, défense, vie, attaque), jamais de l'histoire. `desc` s'affiche sur la carte.
+
+## Thème adulte (13/11)
+
+- `adult: { themes: ["Meurtre et violence", "Manipulation psychologique", …] }` (histoire) : la carte de la bibliothèque porte un grand bandeau « Thème adulte ». « Nouvelle partie » (ou « Jouer à plusieurs ») ouvre d'abord un avertissement qui liste ces thèmes, avec « J'ai compris » pour continuer et un gros bouton rouge « Revenir à la bibliothèque ». Le validateur refuse une liste vide.

@@ -143,7 +143,7 @@
     var list = el ? JSON.parse(el.textContent) : [];
     list.forEach(function (st) { A.builtins[st.id] = st; });
   }
-  function storyMeta(st) { return { id: st.id, title: st.title, subtitle: st.subtitle || "", summary: st.summary || "", version: st.version || 1, acts: (st.acts || []).length, passages: Object.keys(st.passages || {}).length, multi: st.multi || null, kid: st.kid || null }; }
+  function storyMeta(st) { return { id: st.id, title: st.title, subtitle: st.subtitle || "", summary: st.summary || "", version: st.version || 1, acts: (st.acts || []).length, passages: Object.keys(st.passages || {}).length, multi: st.multi || null, kid: st.kid || null, adult: st.adult || null }; }
   function allStories() {
     var out = Object.keys(A.builtins).map(function (k) { var m = storyMeta(A.builtins[k]); m.builtin = true; return m; });
     A.imported.forEach(function (m) { if (!A.builtins[m.id]) out.push(m); });
@@ -276,15 +276,16 @@
     var lib = h("section", { class: "section" }, h("h2", null, "Les livres"));
     var cards = h("div", { class: "cards" });
     stories.forEach(function (m) {
-      cards.appendChild(h("article", { class: "card" },
+      cards.appendChild(h("article", { class: "card" + (m.adult ? " adult" : "") },
+        m.adult ? h("div", { class: "adult-tag" }, "Thème adulte") : null,
         h("h3", null, m.title), m.subtitle ? h("div", { class: "sub" }, m.subtitle) : null,
         h("p", null, m.summary),
         h("div", { class: "small muted" }, (m.multi ? "À plusieurs, de " + (m.multi.min || 2) + " à " + (m.multi.max || 6) + " joueurs · " : "") + m.acts + " actes · " + m.passages + " passages" + (m.builtin ? "" : " · importée")),
         m.multi ? null : renderRecords(m),
         h("div", { class: "row" },
           // Clément, 11/11: stories for several players are written for it; the others stay solo.
-          m.multi ? h("button", { class: "btn primary", onclick: function () { multiSetup(m.id); } }, "Jouer à plusieurs")
-            : h("button", { class: "btn primary", onclick: function () { if (!A.profile) { needReader(); return; } newGame(m.id); } }, "Nouvelle partie"),
+          m.multi ? h("button", { class: "btn primary", onclick: function () { adultGate(m, function () { multiSetup(m.id); }); } }, "Jouer à plusieurs")
+            : h("button", { class: "btn primary", onclick: function () { if (!A.profile) { needReader(); return; } adultGate(m, function () { newGame(m.id); }); } }, "Nouvelle partie"),
           canDownload() ? h("button", { class: "btn sm ghost", onclick: function () { loadStory(m.id).then(function (st) { download(m.id + ".json", JSON.stringify(st, null, 1)); }); } }, "Exporter") : null,
           !m.builtin ? (A.confirmDel === "s:" + m.id
             ? h("span", { class: "confirm small" }, "Retirer ?", h("button", { class: "btn sm danger", onclick: function () { removeStory(m); } }, "Oui"), h("button", { class: "btn sm", onclick: function () { A.confirmDel = null; render(); } }, "Non"))
@@ -328,6 +329,24 @@
   function flash(msg, bad) { A.notice = msg; A.noticeBad = !!bad; render(); }
   // Intent: prompt() -> () ! focuses the reader name field
   // Why: "Nouvelle partie" without a reader used to be a dead grey button; now it says what to do.
+  // Intent: gate(StoryMeta, then) -> () ! opens the adult-themes notice when the story declares one
+  // Why: Clément, 13/11: before an adult story opens, the reader sees its themes and confirms, or goes back.
+  function adultGate(m, then) {
+    if (!m.adult) { then(); return; }
+    A.modal = { kind: "adult", story: m, then: then }; render();
+  }
+  function modalAdult(box, close, m) {
+    var st = m.story;
+    box.classList.add("adult-modal");
+    box.appendChild(h("div", { class: "drawer-head" }, h("h2", null, "Thème adulte")));
+    var b = h("div", { class: "drawer-body" });
+    b.appendChild(h("p", null, "« " + st.title + " » est écrite pour des lecteurs adultes. Thèmes présents dans cette histoire\u00a0:"));
+    b.appendChild(h("ul", { class: "adult-themes" }, st.adult.themes.map(function (t) { return h("li", null, t); })));
+    b.appendChild(h("div", { class: "stack" },
+      h("button", { class: "btn primary", onclick: function () { A.modal = null; m.then(); } }, "J'ai compris"),
+      h("button", { class: "btn back-lib", autofocus: true, onclick: close }, "Revenir à la bibliothèque")));
+    box.appendChild(b);
+  }
   function needReader() {
     flash("Écris d'abord le nom du lecteur dans « Qui lit ? », puis « Ajouter ».", true);
     var el = document.querySelector('input[aria-label="Nom du nouveau lecteur"]'); if (el) { el.focus(); el.scrollIntoView({ block: "center" }); }
@@ -2496,7 +2515,7 @@
     var m = A.modal, close = function () { if (m.kind === "send" || m.kind === "receive") Transfer.stop(); A.modal = null; render(); };
     var box = h("div", { class: "modal", role: "dialog", "aria-modal": "true" });
     var bg = h("div", { class: "drawer-bg", onclick: close });
-    ({ prefs: modalPrefs, report: modalReport, dice: modalDice, mark: modalMark, bedtime: modalBedtime, send: modalSend, receive: modalReceive, words: modalWords, sync: modalSync, chapter: modalChapter })[m.kind](box, close, m);
+    ({ prefs: modalPrefs, report: modalReport, dice: modalDice, mark: modalMark, bedtime: modalBedtime, send: modalSend, receive: modalReceive, words: modalWords, sync: modalSync, chapter: modalChapter, adult: modalAdult })[m.kind](box, close, m);
     app.appendChild(bg); app.appendChild(box);
     var f = box.querySelector("[autofocus]"); if (f) setTimeout(function () { f.focus(); }, 0);
   }
