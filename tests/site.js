@@ -33,10 +33,13 @@ var head = [
 ];
 // The service worker only exists over http(s); opened from disk the page simply runs as it is.
 var sw = '<script>if ("serviceWorker" in navigator && /^https?:$/.test(location.protocol)) { var hadSw = !!navigator.serviceWorker.controller; navigator.serviceWorker.register("sw.js", { updateViaCache: "none" }).then(function (r) { r.update(); }).catch(function () {}); navigator.serviceWorker.addEventListener("controllerchange", function () { if (hadSw && !window.__swReloaded) { window.__swReloaded = true; location.reload(); } }); }</script>';
-var page = P.assemble(stories, { head: head, fonts: "<style>" + fontCss + "</style>" }) + "\n" + sw + "\n";
+var build = P.buildOf(stories);
+var page = P.assemble(stories, { head: head, fonts: "<style>" + fontCss + "</style>", build: build }) + "\n" + sw + "\n";
 
 fs.mkdirSync(OUT, { recursive: true });
 fs.writeFileSync(path.join(OUT, "index.html"), page);
+// The version online, read by the page (no-store) to tell the reader an update is there.
+fs.writeFileSync(path.join(OUT, "version.json"), JSON.stringify(build));
 ICONS.forEach(function (f) { fs.copyFileSync(path.join(APP, f), path.join(OUT, f)); });
 // QR codes to pass a game between devices (Clément, 12/11): loaded by the page only when the reader asks for them.
 var VENDOR = ["qrcode.js", "jsQR.js", "jsQR-LICENSE.txt"];

@@ -3401,7 +3401,11 @@
        "ep": [
         "seance",
         2000
-       ]
+       ],
+       "regard": {
+        "bertin": "redevable",
+        "ghislain": "mefiant"
+       }
       },
       "to": "Q_bertin_libre"
      },
@@ -3432,6 +3436,9 @@
       },
       "conf": {
        "joris": -5
+      },
+      "regard": {
+       "ghislain": "rancunier"
       }
      },
      "to": "Q_bertin_garde"
@@ -3453,6 +3460,9 @@
       },
       "clock": {
        "emprise": 1
+      },
+      "regard": {
+       "bertin": "trahi"
       }
      },
      "to": "Q_bertin_laisse"
@@ -3629,6 +3639,9 @@
       },
       "clock": {
        "emprise": 1
+      },
+      "regard": {
+       "orsanne": "cordial"
       }
      },
      "to": "Q_solde_gage_ok"
@@ -3678,7 +3691,10 @@
       "ep": [
        "seance",
        2000
-      ]
+      ],
+      "regard": {
+       "orsanne": "cordial"
+      }
      },
      "to": "Q_pain_accord"
     },
@@ -3715,7 +3731,10 @@
        "ep": [
         "seance",
         2500
-       ]
+       ],
+       "regard": {
+        "orsanne": "rancunier"
+       }
       },
       "to": "Q_pain_force"
      },
@@ -3909,6 +3928,9 @@
       ],
       "fac": {
        "eaux": 15
+      },
+      "regard": {
+       "ysaure": "cordial"
       }
      },
      "to": "Q_solde_temple_ok"
@@ -4058,7 +4080,10 @@
     "ep": [
      "seance",
      2000
-    ]
+    ],
+    "regard": {
+     "orsanne": "hostile"
+    }
    },
    "text": [
     "Tu rédiges l'ordre sur le parapet d'un pont, avec la plume de Livia, et tu scelles sur la pierre. Joris prend vingt hommes. Les gardes de la Hanse, devant les greniers du port, regardent l'ordre, regardent les vingt hommes, et s'écartent.",
@@ -4256,6 +4281,9 @@
       },
       "clock": {
        "emprise": 1
+      },
+      "regard": {
+       "merande": "cordial"
       }
      },
      "to": "Q_solde_therance_ok"
@@ -4380,7 +4408,10 @@
       "ep": [
        "histoire",
        1500
-      ]
+      ],
+      "regard": {
+       "merande": "hostile"
+      }
      },
      "to": "Q_point_theran"
     }
@@ -4615,6 +4646,9 @@
       "flag": "fun:protege",
       "conf": {
        "joris": 5
+      },
+      "regard": {
+       "merande": "redevable"
       }
      },
      "to": "Q_fun_pont_garde"
@@ -4670,7 +4704,10 @@
        "therance": -15,
        "mer": 5
       },
-      "flag": "fun:laisse"
+      "flag": "fun:laisse",
+      "regard": {
+       "merande": "rancunier"
+      }
      },
      "to": "Q_fun_pont_laisse"
     }
@@ -4880,7 +4917,10 @@
        "mer": -15,
        "therance": 15
       },
-      "flag": "amiral:affront"
+      "flag": "amiral:affront",
+      "regard": {
+       "ghislain": "rancunier"
+      }
      },
      "to": "Q_fun_repas_ordre"
     },
@@ -4909,7 +4949,10 @@
        "ep": [
         "perso",
         500
-       ]
+       ],
+       "regard": {
+        "merande": "cordial"
+       }
       },
       "to": "Q_fun_repas_comte"
      },
@@ -4917,6 +4960,9 @@
       "fx": {
        "fac": {
         "therance": -10
+       },
+       "regard": {
+        "merande": "distant"
        }
       },
       "to": "Q_fun_repas_froid"
@@ -4932,6 +4978,10 @@
       "flag": "toast:amiral",
       "clock": {
        "emprise": 1
+      },
+      "regard": {
+       "ghislain": "cordial",
+       "merande": "mefiant"
       }
      },
      "to": "Q_fun_repas_toast"

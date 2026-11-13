@@ -126,3 +126,16 @@ anseau: { name: "Anseau", face: { age: "ancien", marks: ["balafre", "lunettes"] 
 - `marks` (liste) : `rousseur`, `grain`, `vitiligo`, `tache` (de naissance), `cicatrice`, `balafre`, `brulure`, `bandeau`, `oeil_voile`, `aveugle`, `vairons`, `lunettes`, `appareil` (auditif), `tatouage`.
 - Les blessures du moment ne se déclarent pas : le moteur les dessine d'après les points de vie (une ecchymose sous la moitié, un bandage sous le quart) et les efface à la guérison, pour le héros comme pour les compagnons.
 - Le lecteur compose son propre visage avec les mêmes mots à la création du héros (`s.face`).
+
+## Sixième série (13/11) : taverne, scènes pressantes, regards, mystères résolus
+
+| Où | Clé | Sens |
+|---|---|---|
+| passage | `taverne: { mise: 2, adversaire: "un muletier" }` | Une table de jeu, « la Chandelle » : le moteur ajoute « S'asseoir à la table de Chandelle · mise … ». On lance un dé à six faces autant qu'on veut et on additionne ; un 1 éteint la chandelle. L'adversaire joue d'abord. La mise sort de la bourse en s'asseyant, une victoire la rend doublée, une égalité la rend. Trois parties par jour au plus. Écrire `adversaire` sans article majuscule (« un marinier »). |
+| passage | `urgent: 25` | Scène pressante : le lecteur a ce nombre de secondes (5 à 120) pour choisir, à la première lecture seulement. Le lecteur peut couper le minuteur dans ses réglages. |
+| choix | `timeout: true` | Dans une scène `urgent`, le choix pris quand le temps est écoulé. Obligatoire (le validateur le demande ; sans lui, le moteur prend le dernier choix et le note comme faute). |
+| effet | `regard: { hesna: "mefiant" }` | Ce qu'une personne (people ou companions) pense désormais du héros. Rien n'est dit sur la page ; l'onglet Gens l'affiche (option du lecteur). Mots : `hostile`, `mefiant`, `distant`, `neutre`, `curieux`, `cordial`, `allie`, `redevable`, `craintif`, `admiratif`, `trahi`, `rancunier`. |
+| mystère | `solved: "drapeau"` | Le drapeau (ou le passage lu) qui marque le moment où l'histoire a donné la réponse. Avant, l'onglet Soupçons ne juge rien. |
+| mystère | `answer: { person: "aurele", text: "Aurèle, ton frère." }` | La réponse, montrée une fois `solved` atteint. Avec `person`, chaque soupçon qui nommait quelqu'un est marqué juste ou faux, et le carnet dit depuis quand le lecteur avait vu juste. |
+
+Rien à déclarer pour : « Sans retour » (choisi à la création), le tableau d'enquête, la recherche dans le carnet, le clavier, « Comparer en famille » (l'appli garde le choix fait à chaque page, par sa place parmi les choix du passage : réordonner les choix d'un passage fausse la comparaison des parties déjà finies).

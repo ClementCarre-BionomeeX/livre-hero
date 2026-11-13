@@ -13,6 +13,15 @@ function grimoireCss() {
     return "url(data:font/woff2;base64," + fs.readFileSync(path.join(ROOT, "app", f)).toString("base64") + ")";
   });
 }
+// Intent: buildOf([StoryJson]) -> { id, date } = the version shown in the app (Clément, 13/11): a hash of everything the
+// page carries, so the claude.ai page and the site show the same id when they hold the same game.
+function buildOf(storiesJson) {
+  var hsh = require("crypto").createHash("sha1");
+  ["src/moteur.js", "src/multi.js", "src/validateur.js", "app/app.js", "app/app.css"].forEach(function (f) { hsh.update(read(f)); });
+  storiesJson.forEach(function (j) { hsh.update(JSON.stringify(JSON.parse(j))); });
+  var d = new Date(), date = d.toLocaleDateString("fr-FR", { day: "numeric", month: "short", timeZone: "Europe/Paris" }) + " à " + d.toLocaleTimeString("fr-FR", { hour: "2-digit", minute: "2-digit", timeZone: "Europe/Paris" });
+  return { id: hsh.digest("hex").slice(0, 7), date: date };
+}
 function safe(js) { return js.replace(/<\/script/gi, "<\\/script"); }
 // opts.fonts: the HTML that brings the fonts (Google Fonts links by default); opts.head: lines placed before it.
 function assemble(storiesJson, opts) {
@@ -26,6 +35,7 @@ function assemble(storiesJson, opts) {
     "<style>" + read("app/app.css") + "</style>",
     '<div id="app"></div>',
     '<script type="application/json" id="histoires-fournies">[' + storiesJson.map(safe).join(",") + "]</script>",
+    "<script>window.LIVRE_BUILD = " + JSON.stringify(opts.build || buildOf(storiesJson)) + ";</script>",
     "<script>" + safe(read("src/moteur.js")) + "</script>",
     "<script>" + safe(read("src/multi.js")) + "</script>",
     "<script>" + safe(read("src/validateur.js")) + "</script>",
@@ -33,4 +43,4 @@ function assemble(storiesJson, opts) {
   ]).join("\n");
 }
 var STORIES = ["kardan", "cendres", "vaudrenne", "pages", "quarante", "temoin"];
-module.exports = { assemble: assemble, STORIES: STORIES };
+module.exports = { assemble: assemble, buildOf: buildOf, STORIES: STORIES };

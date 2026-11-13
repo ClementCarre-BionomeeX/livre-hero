@@ -225,7 +225,7 @@ module.exports = {
       { label: "T'asseoir sur un banc et faire le point sur ce que tu sais d'Aurèle", if: { clues: "A", min: 3 }, why: "Tu n'en sais pas encore assez pour faire le point : il te faut trois indices.", hide: { quest: "K_trace" }, to: "K_point" },
     ] },
 
-  K_puits: { act: "I", title: "Le Puits-Vert", place: "kardan", shop: "puits",
+  K_puits: { act: "I", title: "Le Puits-Vert", place: "kardan", shop: "puits", taverne: { mise: 2, adversaire: "un muletier de passage" },
     fxEvery: { time: 1 },
     text: [
       "Le Puits-Vert est une grande salle fraîche aux murs chaulés, autour d'un vrai puits dont la margelle sert de comptoir. On y descend des cruches au bout d'une corde, et l'eau en remonte si froide qu'elle embue la terre cuite. Hesna règne sur tout cela avec une louche et un torchon.",
@@ -302,7 +302,7 @@ module.exports = {
     ],
     choices: [
       { label: "Lui dire que c'était ton frère, et que tu as fait trois jours de route pour l'entendre", test: { dom: "social", diff: -20, label: "Social", help: [{ if: { has: "passe:promesse" }, v: 10 }, { if: { has: "puits:partage" }, v: 5 }] },
-        win: { fx: { flag: "hesna:fissure", ep: ["perso", 500] }, to: "K_hesna_aveu" }, lose: { to: "K_hesna_esquive" } },
+        win: { fx: { flag: "hesna:fissure", ep: ["perso", 500], regard: { hesna: "craintif" } }, to: "K_hesna_aveu" }, lose: { fx: { regard: { hesna: "distant" } }, to: "K_hesna_esquive" } },
       { label: "Ne pas insister", to: "K_hesna_esquive" },
     ] },
   K_hesna_aveu: { act: "I", title: "Ce qu'Hesna a gardé", place: "kardan",
@@ -364,7 +364,7 @@ module.exports = {
     ],
     choices: [{ label: "Le glisser à ta ceinture", to: "K_forge" }] },
   K_couteau_bras: { act: "I", title: "Le bras de fer", place: "kardan",
-    fx: { item: "couteau_aurele", flag: ["couteau:aurele", "garance:respect"], quest: "K_couteau", fac: { kardan: 5 } },
+    fx: { item: "couteau_aurele", flag: ["couteau:aurele", "garance:respect"], quest: "K_couteau", fac: { kardan: 5 }, regard: { garance: "admiratif" } },
     text: [
       "Vous vous asseyez de part et d'autre d'un billot. La moitié de la rue se rassemble. Le bras de Garance est un tronc, et pendant un long moment il ne se passe rien, sinon que vos deux visages deviennent rouges et que quelqu'un parie trois œufs contre toi.",
       "Puis tu sens son poignet céder d'un cheveu, et tu y mets tout ce qui te reste : sept ans de route et de colère. Le dos de sa main touche le bois.",
@@ -378,7 +378,7 @@ module.exports = {
     ],
     choices: [{ label: "Masser ton épaule", to: "K_forge" }] },
   K_couteau_rendu: { act: "I", title: "Le couteau rendu", place: "kardan",
-    fx: { item: "couteau_aurele", flag: ["couteau:aurele", "garance:honte"], quest: "K_couteau" },
+    fx: { item: "couteau_aurele", flag: ["couteau:aurele", "garance:honte"], quest: "K_couteau", regard: { garance: "redevable" } },
     text: [
       "Tu lui racontes. Le garçon de quinze ans qui gravait son couteau neuf avec un clou, sous la table, pendant la leçon. Le pouce qui use la corne.",
       { if: { item: "lettre_aurele" }, text: "Tu déplies la lettre et tu lui montres : *toujours mon couteau*." },
@@ -514,7 +514,7 @@ module.exports = {
     ],
     choices: [
       { label: "Lui parler d'Aurèle, en regardant ses mains plutôt que son visage", test: { dom: "social", diff: -10, label: "Lire les gens", help: [{ if: { has: "fete:observe" }, v: 15 }, { if: { has: "hesna:fissure" }, v: 10 }] },
-        win: { fx: { clue: "a_aieule", ep: ["perso", 600], flag: "maeve:lapsus" }, to: "K_aieule_lapsus" }, lose: { to: "K_aieule_the" } },
+        win: { fx: { clue: "a_aieule", ep: ["perso", 600], flag: "maeve:lapsus", regard: { maeve: "mefiant" } }, to: "K_aieule_lapsus" }, lose: { to: "K_aieule_the" } },
       { label: "La remercier pour l'eau et le thé", to: "K_aieule_the" },
     ] },
   K_aieule_lapsus: { act: "I", title: "Le lapsus", place: "kardan",
@@ -595,7 +595,7 @@ module.exports = {
     choices: [{ label: "Te lever", to: "K_kardan" }] },
 
   // the night of the dry moon
-  K_nuit: { act: "I", title: "La nuit de la Lune sèche", place: "kardan",
+  K_nuit: { act: "I", title: "La nuit de la Lune sèche", place: "kardan", urgent: 25,
     fx: { until: 23 },
     text: [
       "La fête de la Lune sèche a duré tout le soir. On a chanté pour l'eau, on a jeté des fleurs dans la fontaine, on a mangé debout. La lune s'est levée énorme et rousse au-dessus de la colline. Maintenant le village se tait, et tu montes à ta chambre.",
@@ -607,7 +607,7 @@ module.exports = {
       "« Bonne nuit, dit Hesna. Bonne nuit. » Elle ne s'en va pas.",
     ],
     choices: [
-      { label: "Boire la tisane, la remercier, et dormir", to: "K_capture_bu" },
+      { label: "Boire la tisane, la remercier, et dormir", timeout: true, to: "K_capture_bu" },
       { label: "Porter la tasse à tes lèvres sans boire, puis faire semblant de dormir", if: { has: "oriel:odeur" }, why: "Il faudrait savoir reconnaître ce qu'il y a dans cette tasse.", to: "K_capture_feinte" },
       { label: "Renvoyer Hesna, vider la tasse par la fenêtre, et barricader ta porte", if: { clues: "A", min: 3 }, why: "Rien ne te donne assez de raisons de te méfier d'Hesna ce soir.", to: "K_capture_assaut" },
     ] },
