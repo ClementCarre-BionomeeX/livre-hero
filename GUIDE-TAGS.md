@@ -93,3 +93,8 @@ La difficulté (Conteur, Aventurier, Héroïque) se choisit à la création ; le
 - Les héros et compagnons ont un portrait dessiné par l'appli (buste, marque de la classe, couleurs tirées du nom). `f: true` sur un compagnon donne un portrait féminin ; rien d'autre à déclarer.
 - Chaque faction a un blason tiré de son identifiant. Pour imposer le sien : `blasons: { <faction>: { field: "azur", other: "or", division: "parti", charge: "tour", chargeT: "argent" } }` au niveau de l'histoire. Émaux : or, argent, gueules, azur, sinople, sable, pourpre. Partitions : plein, parti, coupe, bande, ecartele, chevron, chef. Meubles : etoile, besant, croix, croissant, tour, cle, montagne, plume.
 - Les mots du glossaire ouverts par un lecteur vont dans son carnet de mots (onglet Mots) et nourrissent le jeu des mots : une bonne définition sert deux fois.
+
+## Combat, route et bestiaire (13/11, 4e série)
+
+- Plan de bataille, bruitages, voyage animé, fin d'acte illustrée : rien à déclarer, le moteur garde les coups de chaque passe (`combat.hits`) et l'appli suit la route et les actes.
+- Cartes du bestiaire : la silhouette est devinée d'après le nom de l'adversaire ; pour l'imposer, `look` sur l'ennemi (`loup`, `rat`, `ombre`, `humain`, `serpent`, `araignee`, `oiseau`, `ours`). Le conseil de la carte vient seulement de ses règles (`ranged`, `flank`, défense, vie, attaque), jamais de l'histoire. `desc` s'affiche sur la carte.

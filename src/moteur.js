@@ -878,6 +878,8 @@
   var CRITS = ["frappe à la tempe : il chancelle", "entaille au bras qui tient l'arme", "coup au genou : il plie", "le souffle coupé net", "l'arme lui échappe un instant"];
   function say(s, t, key, foe) { var l = t && t.say && t.say[key]; if (l && l.length) ev(s, interp(s, pick(l).replace(/\{foe\}/g, foe ? foe.name : "")), key === "ok" ? "" : ""); }
   function foeDef(foe) { return foe.def - (foe.open ? OPEN_DEF : 0) - (foe.trapped ? TRAP_DEF : 0) - (foe.asleep ? TRAP_DEF : 0); }
+  // The blows of the last exchange, for the battle plan: from / to = "hero", a companion, or a foe's key.
+  function blow(s, from, to, dmg, kind) { var c = s.combat; if (c) (c.hits = c.hits || []).push({ from: from, to: to, dmg: dmg || 0, kind: kind || "arme" }); }
   function hurt(s, foe, dmg) {
     foe.pv -= dmg; foe.asleep = false;
     if (foe.pv <= 0) { foe.down = true; ev(s, foe.name + " tombe.", "good"); }
@@ -893,12 +895,13 @@
     var wasOpen = foe.open; foe.open = false;
     if (total - SUCCESS >= CRIT_OVER) stat(s, "crits");
     if (c.hidden && !o.keepHidden) c.hidden = false;
-    if (total < SUCCESS) { say(s, o.tech, "ko", foe); ev(s, line + " → manqué", "bad roll"); return { ok: false, total: total }; }
+    if (total < SUCCESS) { say(s, o.tech, "ko", foe); ev(s, line + " → manqué", "bad roll"); blow(s, "hero", foe.key, 0, o.spell ? "sort" : /^Tir/.test(o.label || "") ? "tir" : "arme"); return { ok: false, total: total }; }
     var dmg = (o.dmg != null ? o.dmg : (w ? w.dmg : UNARMED_DMG)) + (master ? MASTER_DMG : 0) + Math.floor((total - SUCCESS) / 10) * DMG_PER_10, crit = total - SUCCESS >= CRIT_OVER;
     var mult = (o.mult || 1) * (shadow ? SHADOW_MULT : 1); if (crit) mult *= 2;
     dmg = dmg * mult;
     say(s, o.tech, "ok", foe);
     ev(s, line + " → touché, " + dmg + " dégâts" + (mult > 1 ? " (×" + mult + ")" : "") + (crit ? " · critique : " + pick(CRITS) : "") + (wasOpen ? " · il était découvert" : ""), "good roll");
+    blow(s, "hero", foe.key, dmg, o.spell ? "sort" : /^Tir/.test(o.label || "") ? "tir" : "arme");
     hurt(s, foe, dmg);
     return { ok: true, total: total };
   }
@@ -999,12 +1002,12 @@
       if (c.rank[k] === FRONT && c.range !== RANGE_FAR) {
         var w = cd.weapon || {}, cb = bonus(story, s, "combat", k);
         total = r.total + cb + (w.att || 0) + bless - foeDef(foe); foe.open = false;
-        if (total >= SUCCESS) { dmg = (w.dmg || COMPANION_DMG) + Math.floor((total - SUCCESS) / 10); ev(s, nm + " frappe " + foe.name + " (" + total + ") : " + dmg + " dégâts", "good"); hurt(s, foe, dmg); }
-        else ev(s, nm + " manque " + foe.name + " (" + total + ")");
+        if (total >= SUCCESS) { dmg = (w.dmg || COMPANION_DMG) + Math.floor((total - SUCCESS) / 10); ev(s, nm + " frappe " + foe.name + " (" + total + ") : " + dmg + " dégâts", "good"); blow(s, k, foe.key, dmg); hurt(s, foe, dmg); }
+        else { ev(s, nm + " manque " + foe.name + " (" + total + ")"); blow(s, k, foe.key, 0); }
       } else if (bonus(story, s, "magie", k) >= COMP_CASTER_FROM && !cd.pacifist) {
         total = r.total + bonus(story, s, "magie", k) + bless - foeDef(foe);
-        if (total >= SUCCESS) { dmg = COMP_BOLT_DMG + Math.floor((total - SUCCESS) / 10); ev(s, nm + " lance sa magie sur " + foe.name + " (" + total + ") : " + dmg + " dégâts", "good"); hurt(s, foe, dmg); }
-        else ev(s, nm + " lance sa magie sur " + foe.name + ", qui lui échappe (" + total + ")");
+        if (total >= SUCCESS) { dmg = COMP_BOLT_DMG + Math.floor((total - SUCCESS) / 10); ev(s, nm + " lance sa magie sur " + foe.name + " (" + total + ") : " + dmg + " dégâts", "good"); blow(s, k, foe.key, dmg, "sort"); hurt(s, foe, dmg); }
+        else { ev(s, nm + " lance sa magie sur " + foe.name + ", qui lui échappe (" + total + ")"); blow(s, k, foe.key, 0, "sort"); }
       }
     });
   }
@@ -1043,10 +1046,11 @@
       var line = r.total + " + " + f.att + " − défense " + def + (malus ? " − " + malus : "") + " = " + total;
       if (total >= SUCCESS) {
         var d = f.dmg + Math.floor((total - SUCCESS) / 10);
+        blow(s, f.key, who, d, f.ranged ? "tir" : "arme");
         if (who === "hero") { s.pv -= d; ev(s, f.name + " te frappe (" + line + ") : −" + d + " PV", "bad"); }
         else { s.cpv[who] = Math.max(0, cpv(story, s, who) - d); ev(s, f.name + " frappe " + whom + " (" + line + ") : −" + d + " PV", "bad"); if (!s.cpv[who]) ev(s, nameOf(story, who) + " tombe à terre.", "bad"); }
       } else {
-        ev(s, f.name + (who === "hero" ? " te manque" : " manque " + whom) + " (" + total + ")");
+        ev(s, f.name + (who === "hero" ? " te manque" : " manque " + whom) + " (" + total + ")"); blow(s, f.key, who, 0, f.ranged ? "tir" : "arme");
         if (who === "hero" && c.line && SUCCESS - total >= RIPOSTE_MARGIN && meleeWeapon(story, s)) { ev(s, "Tu ripostes."); heroStrike(story, s, f, { weapon: meleeWeapon(story, s), label: "Riposte" }); }
       }
     });
@@ -1072,7 +1076,7 @@
   // Intent: play(Story, State, Action) -> () ! one exchange: the hero, the companions, the foes
   function combatRound(story, s, act) {
     var c = s.combat;
-    c.round++; c.defending = false; c.ward = 0; c.dread = 0; c.dodge = false; c.distract = 0;
+    c.round++; c.hits = []; c.defending = false; c.ward = 0; c.dread = 0; c.dodge = false; c.distract = 0;
     if (act.sys === "flee") {
       var bonusFlee = (c.range === RANGE_FAR && c.round === 1 ? FAR_FLEE_BONUS : 0) + c.fleeBonus;
       var r = rollTest(story, s, { dom: c.flee.dom || "discretion", diff: (c.flee.diff == null ? FLEE_DIFF : c.flee.diff) + bonusFlee });

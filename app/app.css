@@ -363,3 +363,52 @@ a.btn { text-decoration: none; color: inherit; }
 a.btn.primary { color: var(--accent-ink); }
 /* A save line on a phone: the title keeps its width, the buttons go under it */
 .save-line > .grow { flex: 1 1 15rem; min-width: min(15rem, 100%); }
+/* Battle plan */
+.plan-box { margin: 0 0 10px; }
+.plan { width: 100%; max-width: 520px; display: block; margin: 0 auto; overflow: visible; }
+.plan .pl-h { font: 600 10px var(--ui, sans-serif); fill: var(--muted); letter-spacing: .04em; text-transform: uppercase; }
+.plan .pl-line { stroke: var(--line); stroke-dasharray: 2 4; }
+.plan .pl-far { font: italic 11px var(--ui, sans-serif); fill: var(--muted); }
+.plan .pl-ring { fill: var(--paper); stroke: var(--line); stroke-width: 4; }
+.plan .pl-pv { fill: none; stroke-width: 4; stroke-linecap: round; }
+.plan .pl-pv.good { stroke: #2f8a4a; }
+.plan .pl-pv.bad { stroke: #b03a2e; }
+.plan .pl-foe { fill: #6e2a22; }
+.plan .pl-ini { font: 700 15px var(--title, serif); fill: #f6e6d0; }
+.plan .pl-mark { font: 700 12px var(--ui, sans-serif); fill: var(--ink); }
+.plan .pl-name { font: 10px var(--ui, sans-serif); fill: var(--ink); }
+.plan .pl-x { stroke: var(--ink); stroke-width: 3; stroke-linecap: round; opacity: .8; }
+.plan .pl-tok { cursor: pointer; }
+.plan .pl-tok.down { opacity: .4; }
+.plan .pl-tok.hidden { opacity: .55; }
+.plan .pl-tok.pick .pl-ring { stroke: var(--accent); stroke-width: 6; }
+.plan .pl-blow { fill: none; stroke-width: 2.2; }
+.plan .pl-blow.miss { stroke-dasharray: 4 4; opacity: .7; }
+.plan .pl-ours { stroke: #2f8a4a; } .plan .pl-ours-f, .plan .pl-ours-t { fill: #2f8a4a; }
+.plan .pl-theirs { stroke: #b03a2e; } .plan .pl-theirs-f, .plan .pl-theirs-t { fill: #b03a2e; }
+.plan .pl-spell { stroke: #6b5bd6; } .plan .pl-spell-f, .plan .pl-spell-t { fill: #6b5bd6; }
+.plan .pl-dmg { font: 700 10px var(--ui, sans-serif); paint-order: stroke; stroke: var(--paper); stroke-width: 3px; }
+.plan-info { text-align: center; color: var(--muted); min-height: 1.4em; }
+/* The journey */
+.trip-box { margin: 4px 0 10px; }
+.trip { width: 100%; max-width: 560px; display: block; margin: 0 auto; }
+.trip .trip-road { fill: none; stroke: var(--line); stroke-dasharray: 2 2; stroke-linecap: round; }
+.trip .trip-done { fill: none; stroke: var(--accent); stroke-linecap: round; stroke-linejoin: round; }
+.trip .trip-notch { fill: var(--muted); }
+.trip .trip-end { fill: var(--ink); }
+.trip .trip-name { fill: var(--ink); font-family: var(--title, serif); }
+.trip .trip-mark { fill: var(--accent); }
+.trip .trip-pawn { fill: var(--accent); stroke: var(--paper); stroke-width: .6; }
+.trip-cap { text-align: center; }
+.codex-beast svg { width: 56px; height: 56px; display: block; margin-bottom: 4px; }
+/* End of an act */
+.chapter-map { width: 100%; max-width: 460px; display: block; margin: 0 auto; }
+.chapter-map .cm-bg { fill: var(--paper); stroke: var(--line); }
+.chapter-map .cm-road { fill: none; stroke: var(--accent); stroke-linejoin: round; stroke-linecap: round; }
+.chapter-map .cm-dot { fill: var(--ink); }
+.chapter-map .cm-dot.last { fill: var(--accent); }
+.chapter-map .cm-name { fill: var(--ink); font-family: var(--title, serif); }
+.chapter-stats { text-align: center; font-style: italic; }
+.chapter-faces { display: flex; flex-wrap: wrap; gap: 12px; }
+.chapter-face { display: flex; flex-direction: column; align-items: center; gap: 2px; width: 72px; text-align: center; }
+.chapter-list li { margin: 2px 0; }

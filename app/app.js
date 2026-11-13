@@ -179,7 +179,7 @@
   // resuming an old save).
   function render() {
     app.textContent = "";
-    Glossary.close();
+    Glossary.close(); if (Dictation.on) Dictation.stop();   // the text box it writes into is redrawn
     try { renderScreen(); }
     catch (e) {
       try { console.error("render: " + (e && e.stack)); } catch (x) { /* no console */ }
@@ -204,6 +204,7 @@
     else if (A.screen === "editor") renderEditor();
     else if (A.screen === "recit") renderRecit();
     else if (A.screen === "fiche") renderFiche();
+    else if (A.screen === "cartes") renderCards();
     else if (A.screen === "kids") renderKids();
     if (A.carnet) renderCarnet();
     if (A.modal) renderModal();
@@ -1188,12 +1189,15 @@
     G.undo.push(JSON.stringify(G.s)); if (G.undo.length > UNDO_MAX) G.undo.shift();
     var queue = (c.diced || []).slice();
     if (c.diced) M.setDice(function () { return queue.length ? queue.shift() : null; });
+    var fight0 = G.s.combat, act0 = G.s.lastAct; actTrack(G, null);   // the exchange's blows stay on it even when the fight ends with this choice
     try { M.choose(G.story, G.s, c); }
     catch (e) { M.setDice(null); G.s = JSON.parse(G.undo.pop()); A.notice = "Ce choix a buté sur une erreur de l'histoire : " + e.message; render(); return; }
     M.setDice(null);
     A.notice = ""; A.recap = false; A.rollAnim = true;
     var now = Date.now(); G.doc.playMs = (G.doc.playMs || 0) + Math.min(now - (G.since || now), PLAY_GAP_MS); G.since = now;
+    var closed = actTrack(G, act0); if (closed && !A.modal) A.modal = { kind: "chapter", act: closed };
     logStep(c.label, others); persist(); bedtimeAfterChoice(); render();
+    if (fight0 && fight0.hits && fight0.hits.length) { var partyIds = {}; M.partyView(G.story, G.s).forEach(function (m) { partyIds[m.who] = 1; }); Sfx.blows(fight0.hits, function (k) { return !!partyIds[k]; }); }
     var top = document.querySelector(".page"); if (top) top.scrollIntoView({ block: "start", behavior: "smooth" });
     if (pref("autoRead") && A.tts) speak(M.view(G.story, G.s));
   }
@@ -1233,6 +1237,7 @@
     var page = h("article", { class: "page read" });
     var num = v.passage ? paraNum(st, s.node) : null;
     var vig = Vignette.of(st, s); if (vig) page.appendChild(vig);
+    if (s.travel) { noteRoad(G, v); var trip = renderTravelStrip(st, s, G); if (trip) page.appendChild(trip); }
     var rc = A.recap && !G.multi ? renderRecap(G) : null; if (rc) page.appendChild(rc);
     page.appendChild(h("div", { class: "page-head" }, h("div", null, h("h2", null, v.title || ""), h("div", { class: "where" }, [cur >= 0 ? acts[cur].title : null, where(st, s)].filter(Boolean).join(" · "))), num ? h("span", { class: "para-num", title: "Numéro du paragraphe" }, "§ " + num) : null));
     if (A.notice) page.appendChild(h("div", { class: "notice" }, A.notice));
@@ -1266,9 +1271,259 @@
     app.appendChild(w);
   }
   // Intent: render(State) -> Element = foes with their states, then our side in two ranks with PV
+  // ------------------------------------------------------------------ the journey on the map
+  // Intent: the road being travelled, drawn above the page: the two ends, one notch per step, the pawn sliding from
+  // the last step to this one, and a mark where something happened on the way (✦ an encounter, ⛺ a camp). The marks
+  // stay on the roads of the notebook's map (doc.routeMarks[route] = [{ at, title, kind }], at = 0..1 from route.from).
+  // Why: Clément, 13/11: to feel the road.
+  var TRAVEL_SLIDE_MS = 900;
+  // The drawn road: a gentle bend seeded by the route's id (the same curve on the map and on the strip).
+  function routeCurve(W, r) {
+    var a = W.places[r.from], z = W.places[r.to]; if (!a || !z) return null;
+    var bend = ((hash(r.id) % 100) / 100 - 0.5) * 0.35, mx = (a.x + z.x) / 2 - (z.y - a.y) * bend, my = (a.y + z.y) / 2 + (z.x - a.x) * bend;
+    return { a: a, z: z, mx: mx, my: my, at: function (t) { var u = 1 - t; return { x: u * u * a.x + 2 * u * t * mx + t * t * z.x, y: u * u * a.y + 2 * u * t * my + t * t * z.y }; },
+      d: "M" + a.x + " " + a.y + " Q" + mx.toFixed(2) + " " + my.toFixed(2) + " " + z.x + " " + z.y };
+  }
+  function travelRoute(st, s) { var t = s.travel; return t ? ((st.world || {}).routes || []).filter(function (x) { return x.id === t.route; })[0] : null; }
+  // Where the pawn is, 0..1 from route.from.
+  function travelAt(r, t) { var k = t.total ? t.step / t.total : 0; return t.from === r.from ? k : 1 - k; }
+  // Intent: noteRoad(Game, View) ! keeps a mark where an encounter or a camp happened on the road
+  function noteRoad(G, v) {
+    var s = G.s, t = s.travel, r = travelRoute(G.story, s); if (!r || G.multi || G.ephemeral) return;
+    var kind = s.node === "@camp" ? "camp" : t.phase === "event" ? "event" : null; if (!kind) return;
+    // A camp is pitched between two steps.
+    var at = kind === "camp" ? (function () { var k = Math.min(1, (t.step + 0.5) / t.total); return t.from === r.from ? k : 1 - k; })() : travelAt(r, t), marks = (G.doc.routeMarks = G.doc.routeMarks || {})[r.id] = G.doc.routeMarks[r.id] || [];
+    var title = kind === "camp" ? "Bivouac" : String(v.title || "").replace(/\*/g, "");
+    // One mark per step and kind: an encounter of several pages keeps the title of its first page.
+    if (!marks.some(function (m) { return Math.abs(m.at - at) < 1e-3 && m.kind === kind; })) marks.push({ at: +at.toFixed(3), title: title, kind: kind });
+  }
+  // The strip is the road straightened out, from where you left (left) to where you go (right).
+  var TRIP_X0 = 10, TRIP_X1 = 90, TRIP_Y = 9;
+  function renderTravelStrip(st, s, G) {
+    var W = st.world || {}, t = s.travel, r = travelRoute(st, s); if (!r) return null;
+    var NS = "http://www.w3.org/2000/svg", aller = t.from === r.from;
+    function svg(tag, attrs, text) { var e = document.createElementNS(NS, tag); for (var k in attrs) e.setAttribute(k, attrs[k]); if (text != null) e.textContent = text; return e; }
+    function X(k) { return TRIP_X0 + (TRIP_X1 - TRIP_X0) * k; }
+    var now = t.total ? t.step / t.total : 0;
+    var root = svg("svg", { viewBox: "0 0 100 20", class: "trip", role: "img", "aria-label": "La route en cours, étape " + t.step + " sur " + t.total });
+    root.appendChild(svg("line", { x1: X(0), y1: TRIP_Y, x2: X(1), y2: TRIP_Y, class: "trip-road", "stroke-width": 0.8 }));
+    root.appendChild(svg("line", { x1: X(0), y1: TRIP_Y, x2: X(now), y2: TRIP_Y, class: "trip-done", "stroke-width": 1.4 }));
+    for (var n = 1; n < t.total; n++) root.appendChild(svg("circle", { cx: X(n / t.total), cy: TRIP_Y, r: 0.7, class: "trip-notch" }));
+    ((G.doc.routeMarks || {})[r.id] || []).forEach(function (m) {
+      var k = aller ? m.at : 1 - m.at, g = svg("text", { x: X(k), y: TRIP_Y - 2.6, "font-size": 3.6, "text-anchor": "middle", class: "trip-mark" }, m.kind === "camp" ? "⛺" : "✦");
+      g.appendChild(svg("title", {}, m.title)); root.appendChild(g);
+    });
+    [[0, W.places[t.from], "start"], [1, W.places[t.to], "end"]].forEach(function (e) {
+      root.appendChild(svg("circle", { cx: X(e[0]), cy: TRIP_Y, r: 1.6, class: "trip-end" }));
+      root.appendChild(svg("text", { x: X(e[0]) + (e[0] ? 1.5 : -1.5), y: TRIP_Y + 6.5, "font-size": 3.4, "text-anchor": e[2], class: "trip-name" }, (e[1] || {}).name || ""));
+    });
+    // The pawn slides from where it stood; a render in the middle of the slide picks it up where it is.
+    var key = t.route + "|" + t.from, T = A.trip;
+    if (!T || T.key !== key) T = A.trip = { key: key, from: now, to: now, t0: 0 };
+    else if (T.to !== now) T = A.trip = { key: key, from: T.to, to: now, t0: Date.now() };
+    var elapsed = Date.now() - T.t0, pawn = svg("circle", { cx: X(now), cy: TRIP_Y, r: 2, class: "trip-pawn" });
+    if (T.from !== now && elapsed < TRAVEL_SLIDE_MS && !matchMedia("(prefers-reduced-motion: reduce)").matches)
+      pawn.appendChild(svg("animate", { attributeName: "cx", from: X(T.from), to: X(now), dur: TRAVEL_SLIDE_MS + "ms", begin: (-elapsed) + "ms", fill: "freeze" }));
+    root.appendChild(pawn);
+    return h("div", { class: "trip-box" }, root, h("div", { class: "small muted trip-cap" }, "En route vers " + ((W.places[t.to] || {}).name || "…") + " · étape " + t.step + " sur " + t.total));
+  }
+  // ------------------------------------------------------------------ combat sounds
+  // Intent: Sfx.blows(hits) = the blows of the exchange just played, one after the other: a blade that rings, an arrow
+  // that whistles, a spell that shimmers, a dull thud when we are hit; a miss is only the swish. Made by the device
+  // (Web Audio), no file; volume of the ambiance, pref « sfx » to switch it off. Why: Clément, 13/11.
+  var SFX_GAP_S = 0.2, SFX_MAX = 6;
+  var Sfx = (function () {
+    var X = {}, ctx = null, noiseBuf = null;
+    function ac() {
+      if (!ctx) { var C = window.AudioContext || window.webkitAudioContext; if (!C) return null; ctx = new C(); }
+      if (ctx.state === "suspended") ctx.resume();
+      return ctx;
+    }
+    function noise(c) {
+      if (!noiseBuf) { noiseBuf = c.createBuffer(1, c.sampleRate, c.sampleRate); var d = noiseBuf.getChannelData(0); for (var i = 0; i < d.length; i++) d[i] = Math.random() * 2 - 1; }
+      var n = c.createBufferSource(); n.buffer = noiseBuf; return n;
+    }
+    function env(c, t, peak, attack, decay) { var g = c.createGain(); g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(peak, t + attack); g.gain.exponentialRampToValueAtTime(0.0001, t + attack + decay); return g; }
+    function swish(c, out, t, from, to, dur, vol) {
+      var n = noise(c), f = c.createBiquadFilter(); f.type = "bandpass"; f.Q.value = 2.5;
+      f.frequency.setValueAtTime(from, t); f.frequency.exponentialRampToValueAtTime(to, t + dur);
+      var g = env(c, t, vol, 0.03, dur); n.connect(f); f.connect(g); g.connect(out); n.start(t); n.stop(t + dur + 0.1);
+    }
+    function tone(c, out, t, type, f0, f1, vol, decay) {
+      var o = c.createOscillator(); o.type = type; o.frequency.setValueAtTime(f0, t); if (f1) o.frequency.exponentialRampToValueAtTime(f1, t + decay);
+      var g = env(c, t, vol, 0.005, decay); o.connect(g); g.connect(out); o.start(t); o.stop(t + decay + 0.05);
+    }
+    function blade(c, out, t, hit) {
+      swish(c, out, t, 700, 2600, 0.16, hit ? 0.25 : 0.35);
+      if (!hit) return;
+      var n = noise(c), f = c.createBiquadFilter(); f.type = "bandpass"; f.frequency.value = 3200; f.Q.value = 4;
+      var g = env(c, t + 0.12, 0.5, 0.002, 0.09); n.connect(f); f.connect(g); g.connect(out); n.start(t + 0.12); n.stop(t + 0.3);
+      tone(c, out, t + 0.12, "triangle", 1240, 980, 0.12, 0.35); tone(c, out, t + 0.12, "sine", 130, 70, 0.35, 0.12);
+    }
+    function arrow(c, out, t, hit) { swish(c, out, t, 2600, 700, 0.24, 0.3); if (hit) tone(c, out, t + 0.22, "sine", 220, 90, 0.4, 0.09); }
+    function spell(c, out, t, hit) {
+      [660, 880, 1320].forEach(function (f, i) {
+        var o = c.createOscillator(), lfo = c.createOscillator(), lg = c.createGain(); o.type = "sine"; o.frequency.value = f * (hit ? 1 : 0.75);
+        lfo.frequency.value = 7 + i; lg.gain.value = 8; lfo.connect(lg); lg.connect(o.frequency);
+        var g = env(c, t + i * 0.04, hit ? 0.12 : 0.06, 0.03, 0.6); o.connect(g); g.connect(out); o.start(t); lfo.start(t); o.stop(t + 0.8); lfo.stop(t + 0.8);
+      });
+    }
+    function thud(c, out, t) {
+      tone(c, out, t, "sine", 110, 55, 0.6, 0.18);
+      var n = noise(c), f = c.createBiquadFilter(); f.type = "lowpass"; f.frequency.value = 500; var g = env(c, t, 0.4, 0.003, 0.12); n.connect(f); f.connect(g); g.connect(out); n.start(t); n.stop(t + 0.2);
+    }
+    X.blows = function (hits, ours) {
+      if (!pref("sfx") || !hits || !hits.length) return;
+      var c = ac(); if (!c) return;
+      var out = c.createGain(); out.gain.value = Math.max(0.05, pref("volume")); out.connect(c.destination);
+      var t = c.currentTime + 0.05;
+      hits.slice(0, SFX_MAX).forEach(function (b, i) {
+        var at = t + i * SFX_GAP_S, hit = b.dmg > 0, mine = ours(b.from);
+        if (b.kind === "sort") spell(c, out, at, hit);
+        else if (b.kind === "tir") arrow(c, out, at, hit);
+        else if (!mine && hit) { swish(c, out, at, 600, 1800, 0.12, 0.2); thud(c, out, at + 0.1); }
+        else blade(c, out, at, hit);
+      });
+    };
+    return X;
+  })();
+
+  // ------------------------------------------------------------------ the end of an act, illustrated
+  // Intent: when the story moves to the next act, a page sums up the act just closed: the road walked on the map,
+  // the companions met, the feats and quests won, the days spent and the experience gained. Only what was lived:
+  // nothing of what comes next. Kept per game in doc.actLog[act] = { met, feats, quests, ep, time, places }.
+  // Why: Clément, 13/11.
+  function actSnap(st, s) {
+    return { met: Object.keys(s.met || {}).filter(function (k) { return s.met[k]; }), feats: Object.keys(s.feats || {}), quests: M.questsOf(st).filter(function (q) { return M.questDone(s, q); }).map(function (q) { return q.id; }),
+      ep: s.ep, time: s.time, places: s.place ? [s.place] : [] };
+  }
+  // Called around each choice: opens the act's record, follows the hero from place to place, tells when an act closed.
+  function actTrack(G, before) {
+    var s = G.s, st = G.story; if (G.multi || G.ephemeral) return null;
+    var L = G.doc.actLog = G.doc.actLog || {}, now = s.lastAct || "";
+    if (now && !L[now]) L[now] = actSnap(st, s);
+    if (now && s.place) { var pl = L[now].places; if (pl[pl.length - 1] !== s.place) pl.push(s.place); }
+    return before && now && before !== now && L[before] ? before : null;
+  }
+  function modalChapter(box, close, m) {
+    var G = A.game, st = G.story, s = G.s, act = (st.acts || []).filter(function (x) { return x.id === m.act; })[0] || { title: m.act }, L = G.doc.actLog[m.act];
+    modalHead(box, "Fin de « " + act.title + " »", close);
+    var b = h("div", { class: "drawer-body stack chapter" });
+    // The road walked, on the map most of it was on.
+    var W = st.world || {}, places = W.places || {}, maps = {};
+    L.places.forEach(function (k) { if (places[k]) { var mp = places[k].map || ""; maps[mp] = (maps[mp] || 0) + 1; } });
+    var mapId = Object.keys(maps).sort(function (x, y) { return maps[y] - maps[x]; })[0];
+    var path = L.places.filter(function (k) { return places[k] && (places[k].map || "") === mapId; });
+    if (path.length > 1) {
+      var pts = path.map(function (k) { return places[k].x.toFixed(1) + "," + places[k].y.toFixed(1); });
+      // Framed on the places of the act, 5:4, with room for the names.
+      var xs = path.map(function (k) { return places[k].x; }), ys = path.map(function (k) { return places[k].y; });
+      var bx0 = Math.min.apply(null, xs), bx1 = Math.max.apply(null, xs), by0 = Math.min.apply(null, ys), by1 = Math.max.apply(null, ys);
+      var bw = Math.max(30, bx1 - bx0 + 30), bh = Math.max(24, by1 - by0 + 16); if (bw / bh > 1.25) bh = bw / 1.25; else bw = bh * 1.25;
+      var vx = (bx0 + bx1) / 2 - bw / 2, vy = (by0 + by1) / 2 - bh / 2, u = bw / 100;
+      var named = {}, svgs = ['<svg class="chapter-map" viewBox="' + [vx, vy, bw, bh].map(function (n) { return n.toFixed(2); }).join(" ") + '" role="img" aria-label="La route de cet acte"><rect x="' + vx.toFixed(2) + '" y="' + vy.toFixed(2) + '" width="' + bw.toFixed(2) + '" height="' + bh.toFixed(2) + '" rx="' + (3 * u).toFixed(2) + '" class="cm-bg" stroke-width="' + (0.4 * u).toFixed(2) + '"/>',
+        '<polyline points="' + pts.join(" ") + '" class="cm-road" stroke-width="' + (0.8 * u).toFixed(2) + '" stroke-dasharray="' + (2 * u).toFixed(2) + " " + (1.2 * u).toFixed(2) + '"/>'];
+      var cxm = (bx0 + bx1) / 2;
+      path.forEach(function (k, i) {
+        var p = places[k], last = i === path.length - 1; svgs.push('<circle cx="' + p.x + '" cy="' + p.y + '" r="' + ((last ? 2 : 1.3) * u).toFixed(2) + '" class="cm-dot' + (last ? " last" : "") + '"/>');
+        if (!named[k]) { named[k] = 1; var right = p.x <= cxm; svgs.push('<text x="' + (p.x + (right ? 2.4 : -2.4) * u).toFixed(2) + '" y="' + (p.y + u).toFixed(2) + '" font-size="' + (3 * u).toFixed(2) + '" text-anchor="' + (right ? "start" : "end") + '" class="cm-name">' + esc(p.name) + "</text>"); }
+      });
+      svgs.push("</svg>");
+      b.appendChild(h("div", { html: svgs.join("") }));
+    }
+    var hours = s.time - L.time, days = Math.max(1, Math.round(hours / 24)), ep = s.ep - L.ep;
+    b.appendChild(h("p", { class: "chapter-stats" }, days + " jour" + (days > 1 ? "s" : "") + " de route et d'aventure" + (ep > 0 ? " · +" + ep.toLocaleString("fr-FR") + " points d'expérience" : "") + " · niveau " + M.level(s)));
+    var newMet = Object.keys(s.met || {}).filter(function (k) { return s.met[k] && L.met.indexOf(k) < 0 && (st.companions || {})[k]; });
+    if (newMet.length) b.appendChild(h("div", { class: "stack tight" }, h("span", { class: "label" }, "Rencontrés"), h("div", { class: "chapter-faces" }, newMet.map(function (k) {
+      return h("div", { class: "chapter-face" }, h("span", { html: portraitOf(st, k, s).replace(/width="64" height="64"/, 'width="56" height="56"') }), h("span", { class: "small" }, st.companions[k].name));
+    }))));
+    var feats = M.featsOf(st).filter(function (f) { return (s.feats || {})[f.id] && L.feats.indexOf(f.id) < 0; });
+    var quests = M.questsOf(st).filter(function (q) { return M.questDone(s, q) && L.quests.indexOf(q.id) < 0; });
+    if (feats.length || quests.length) b.appendChild(h("ul", { class: "plain chapter-list" },
+      quests.map(function (q) { return h("li", null, "✔ " + q.title); }), feats.map(function (f) { return h("li", null, "★ " + f.title); })));
+    b.appendChild(h("button", { class: "btn primary", onclick: close }, "Tourner la page"));
+    box.appendChild(b);
+  }
+
+  // ------------------------------------------------------------------ the battle plan
+  // Intent: battlePlan(Story, State) -> Element = a little drawn field above the choices: our two ranks on the left,
+  // the foes on the right (far off at first), every fighter a token with a ring of PV, and the blows of the last
+  // exchange as arrows (green ours, red theirs, violet the spells, dashed when missed). A tap on a token tells more.
+  // Why: Clément, 13/11: to see the fight at a glance.
+  var PLAN_W = 340, PLAN_ROW = 64, PLAN_TOP = 28, PLAN_R = 19;
+  var PLAN_X = { back: 45, front: 112, foe: 248, foe2: 300, far: 300, far2: 318 };
+  var PLAN_COLS_FOES = 5;                  // above that many foes, a second column
+  function battlePlan(st, s) {
+    var c = s.combat, party = M.partyView(st, s), foes = c.foes, far = c.range === "loin" && c.round === 0;
+    var front = party.filter(function (m) { return m.rank === M.FRONT; }), back = party.filter(function (m) { return m.rank !== M.FRONT; });
+    var foeCols = foes.length > PLAN_COLS_FOES ? 2 : 1, perCol = Math.ceil(foes.length / foeCols);
+    var rows = Math.max(front.length, back.length, perCol, 1), H = PLAN_TOP + rows * PLAN_ROW;
+    var pos = {}, out = [];
+    function column(list, x, key) { var top = PLAN_TOP + (rows - list.length) * PLAN_ROW / 2 + PLAN_ROW / 2; list.forEach(function (m, i) { pos[key(m)] = { x: x, y: top + i * PLAN_ROW }; }); }
+    column(front, PLAN_X.front, function (m) { return m.who; }); column(back, PLAN_X.back, function (m) { return m.who; });
+    for (var k = 0; k < foeCols; k++) column(foes.slice(k * perCol, (k + 1) * perCol), far ? (k ? PLAN_X.far2 : PLAN_X.far) - (foeCols > 1 && !k ? 52 : 0) : (k ? PLAN_X.foe2 : PLAN_X.foe), function (f) { return f.key; });
+    out.push('<svg class="plan" viewBox="0 0 ' + PLAN_W + " " + H + '" role="img" aria-label="Plan de la bataille">');
+    out.push('<defs>' + ["ours", "theirs", "spell"].map(function (k2) { return '<marker id="pl-' + k2 + '" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" class="pl-' + k2 + '-f"/></marker>'; }).join("") + "</defs>");
+    // The ground: our side, the gap, their side.
+    out.push('<text x="' + (PLAN_X.back - 18) + '" y="16" class="pl-h">Ton groupe</text>');
+    out.push('<text x="' + (PLAN_W - 8) + '" y="16" class="pl-h" text-anchor="end">Passe ' + (c.round + 1) + "</text>");
+    out.push('<line x1="' + (PLAN_X.front + 34) + '" y1="' + PLAN_TOP + '" x2="' + (PLAN_X.front + 34) + '" y2="' + (H - 6) + '" class="pl-line"/>');
+    if (far) out.push('<text x="' + ((PLAN_X.front + PLAN_X.far) / 2 - 6) + '" y="' + (H / 2 + 14) + '" class="pl-far" text-anchor="middle">encore loin</text>');
+    // The blows of the last exchange, under the tokens.
+    var seen = {};
+    (c.hits || []).forEach(function (b) {
+      var a = pos[b.from], z = pos[b.to]; if (!a || !z) return;
+      var ours = party.some(function (m) { return m.who === b.from; });
+      var kind = b.kind === "sort" ? "spell" : ours ? "ours" : "theirs";
+      var pair = b.from + ">" + b.to, n = seen[pair] = (seen[pair] || 0) + 1;
+      var dx = z.x - a.x, dy = z.y - a.y, L = Math.sqrt(dx * dx + dy * dy) || 1, ux = dx / L, uy = dy / L;
+      var x1 = a.x + ux * (PLAN_R + 2), y1 = a.y + uy * (PLAN_R + 2), x2 = z.x - ux * (PLAN_R + 4), y2 = z.y - uy * (PLAN_R + 4);
+      var bend = 12 * n, mx = (x1 + x2) / 2 - uy * bend, my = (y1 + y2) / 2 + ux * bend;
+      out.push('<path d="M' + x1.toFixed(1) + " " + y1.toFixed(1) + " Q" + mx.toFixed(1) + " " + my.toFixed(1) + " " + x2.toFixed(1) + " " + y2.toFixed(1) + '" class="pl-blow pl-' + kind + (b.dmg ? "" : " miss") + '" marker-end="url(#pl-' + kind + ')"/>');
+      out.push('<text x="' + mx.toFixed(1) + '" y="' + (my + 3).toFixed(1) + '" class="pl-dmg pl-' + kind + '-t" text-anchor="middle">' + (b.dmg ? "−" + b.dmg : "raté") + "</text>");
+    });
+    function ring(x, y, frac, cls) {
+      var C = 2 * Math.PI * PLAN_R, f = Math.max(0, Math.min(1, frac));
+      return '<circle cx="' + x + '" cy="' + y + '" r="' + PLAN_R + '" class="pl-ring"/><circle cx="' + x + '" cy="' + y + '" r="' + PLAN_R + '" class="pl-pv ' + cls + '" stroke-dasharray="' + (C * f).toFixed(1) + " " + C.toFixed(1) + '" transform="rotate(-90 ' + x + " " + y + ')"/>';
+    }
+    function label(x, y, t) { t = String(t); if (t.length > 13) t = t.slice(0, 12) + "…"; return '<text x="' + x + '" y="' + (y + PLAN_R + 11) + '" class="pl-name" text-anchor="middle">' + esc(t) + "</text>"; }
+    party.forEach(function (m) {
+      var p = pos[m.who], down = m.pv <= 0, pick = A.planPick === m.who;
+      var face = m.who === "hero" ? Heraldry.portrait(st.id + "|" + s.name, { arch: s.arch }) : portraitOf(st, m.who, s);
+      face = face.replace(/^<svg class="portrait" viewBox="0 0 64 64" width="\d+" height="\d+"/, '<svg x="' + (p.x - 15) + '" y="' + (p.y - 15) + '" viewBox="0 0 64 64" width="30" height="30"');
+      out.push('<g class="pl-tok' + (down ? " down" : "") + (m.hidden ? " hidden" : "") + (pick ? " pick" : "") + '" data-k="' + esc(m.who) + '">' + ring(p.x, p.y, m.pv / m.pvMax, "good") + face +
+        (down ? '<path d="M' + (p.x - 10) + " " + (p.y - 10) + " L" + (p.x + 10) + " " + (p.y + 10) + " M" + (p.x + 10) + " " + (p.y - 10) + " L" + (p.x - 10) + " " + (p.y + 10) + '" class="pl-x"/>' : "") +
+        label(p.x, p.y, m.who === "hero" ? "toi" : m.name) + "</g>");
+    });
+    foes.forEach(function (f) {
+      var p = pos[f.key], pick = A.planPick === f.key;
+      var mark = f.asleep ? "z" : f.trapped ? "⌗" : f.open ? "!" : "";
+      out.push('<g class="pl-tok foe' + (f.down ? " down" : "") + (pick ? " pick" : "") + '" data-k="' + esc(f.key) + '">' + ring(p.x, p.y, f.pv / f.pvMax, "bad") +
+        '<circle cx="' + p.x + '" cy="' + p.y + '" r="15" class="pl-foe"/><text x="' + p.x + '" y="' + (p.y + 5) + '" class="pl-ini" text-anchor="middle">' + esc((f.name || "?").charAt(0).toUpperCase()) + "</text>" +
+        (mark ? '<text x="' + (p.x + 14) + '" y="' + (p.y - 12) + '" class="pl-mark" text-anchor="middle">' + mark + "</text>" : "") +
+        (f.ranged ? '<text x="' + (p.x - 15) + '" y="' + (p.y - 12) + '" class="pl-mark" text-anchor="middle">➶</text>' : "") +
+        (f.down ? '<path d="M' + (p.x - 10) + " " + (p.y - 10) + " L" + (p.x + 10) + " " + (p.y + 10) + " M" + (p.x + 10) + " " + (p.y - 10) + " L" + (p.x - 10) + " " + (p.y + 10) + '" class="pl-x"/>' : "") +
+        label(p.x, p.y, f.name) + "</g>");
+    });
+    out.push("</svg>");
+    var box = h("div", { class: "plan-box", html: out.join("") });
+    box.firstChild.addEventListener("click", function (e) {
+      var g = e.target.closest ? e.target.closest("[data-k]") : null;
+      A.planPick = g && A.planPick !== g.getAttribute("data-k") ? g.getAttribute("data-k") : null; render();
+    });
+    // What the tapped token is.
+    var info = null;
+    if (A.planPick) {
+      var m = party.filter(function (x) { return x.who === A.planPick; })[0], f = foes.filter(function (x) { return x.key === A.planPick; })[0];
+      if (m) info = (m.who === "hero" ? s.name + " (toi)" : m.name) + " · " + Math.max(0, m.pv) + "/" + m.pvMax + " PV · " + (m.rank === M.FRONT ? "devant" : "derrière") + (m.hidden ? " · caché" : "") + (m.protect ? " · te protège" : "") + (m.pv <= 0 ? " · à terre" : "");
+      else if (f) info = f.name + " · " + Math.max(0, f.pv) + "/" + f.pvMax + " PV" + (f.ranged ? " · tire de loin" : "") + (f.flank ? " · contourne les rangs" : "") + (f.asleep ? " · endormi" : "") + (f.trapped ? " · pris au piège" : "") + (f.open ? " · découvert" : "") + (f.down ? " · à terre" : "");
+    }
+    box.appendChild(h("div", { class: "small plan-info" }, info || "Touche un combattant pour le détail. Flèches : les coups de la dernière passe."));
+    return box;
+  }
   function renderFight(s) {
     var c = s.combat, st = A.game.story;
-    var box = h("div", { class: "fight" }, h("span", { class: "label" }, "Adversaires · passe " + (c.round + 1) + (c.range === "loin" && c.round === 0 ? " · encore loin" : "")));
+    var box = h("div", { class: "fight" }, pref("battlePlan") ? battlePlan(st, s) : null, h("span", { class: "label" }, "Adversaires · passe " + (c.round + 1) + (c.range === "loin" && c.round === 0 ? " · encore loin" : "")));
     c.foes.forEach(function (f) {
       var tags = [f.down ? "à terre" : null, f.asleep ? "endormi" : null, f.trapped ? "pris au piège" : null, f.open ? "découvert" : null].filter(Boolean).join(" · ");
       box.appendChild(h("div", { class: "foe" + (f.down ? " down" : "") }, h("span", null, f.name, tags ? h("span", { class: "small muted" }, " · " + tags) : null), h("span", { class: "bar pv" }, h("i", { style: "width:" + Math.max(0, Math.round(100 * f.pv / f.pvMax)) + "%" })), h("span", { class: "small mono pvnum" }, Math.max(0, f.pv) + "/" + f.pvMax)));
@@ -1962,6 +2217,50 @@
     return Heraldry.portrait(st.id + "|" + name, { arch: arch, f: f });
   }
 
+  // ------------------------------------------------------------------ dictation in the children's workshop
+  // Intent: Dictation = the child tells the page aloud and it writes itself in the text box; « point », « virgule »,
+  // « point d'interrogation », « point d'exclamation », « deux points », « à la ligne », « nouveau paragraphe » are
+  // turned into signs, and a sentence starts with a capital. Same recognition as choosing by voice (site only).
+  // Why: Clément, 13/11.
+  var DICT_SIGNS = [[/\s*nouveau paragraphe\s*/gi, "\n\n"], [/\s*(à|a) la ligne\s*/gi, "\n"], [/\s*point d'interrogation/gi, " ?"], [/\s*point d'exclamation/gi, " !"],
+    [/\s*points de suspension/gi, "…"], [/\s*deux points/gi, " :"], [/\s*point virgule/gi, " ;"], [/\s*virgule/gi, ","], [/\s*point\b/gi, "."],
+    [/\s*ouvrez les guillemets\s*/gi, " « "], [/\s*fermez les guillemets/gi, " »"], [/\s*tiret\s*/gi, "\n— "]];
+  var Dictation = (function () {
+    var D = { on: false }, rec = null;
+    D.available = function () { return VoiceChoice.available(); };
+    function signs(t) { DICT_SIGNS.forEach(function (r) { t = t.replace(r[0], r[1]); }); return t; }
+    // Insert at the end of the box, with a space or a capital as the text before asks.
+    function append(ta, said) {
+      var before = ta.value, t = signs(said.trim()); if (!t) return;
+      var ends = /[.!?…]\s*$|^\s*$|\n\s*$/.test(before);
+      if (ends) t = t.replace(/^([\s«—]*)(\S)/, function (m0, sp, c) { return sp + c.toUpperCase(); });
+      var glue = !before || /\s$/.test(before) || /^[\s,.;:!?…»\n]/.test(t) ? "" : " ";
+      ta.value = (before + glue + t).replace(/\. (\S)/g, function (m0, c) { return ". " + c.toUpperCase(); });
+      ta.dispatchEvent(new Event("input", { bubbles: true }));
+    }
+    D.toggle = function (ta, btn, live) {
+      if (D.on) { D.stop(); return; }
+      var R = window.SpeechRecognition || window.webkitSpeechRecognition; if (!R) return;
+      rec = new R(); rec.lang = "fr-FR"; rec.continuous = true; rec.interimResults = true;
+      var mine = rec;
+      rec.onresult = function (e) {
+        var interim = "";
+        for (var i = e.resultIndex; i < e.results.length; i++) { var x = e.results[i]; if (x.isFinal) append(ta, x[0].transcript); else interim += x[0].transcript; }
+        live.textContent = interim ? "… " + interim : "";
+      };
+      rec.onerror = function (e) { if (e.error === "not-allowed" || e.error === "service-not-allowed") live.textContent = "Le micro est refusé : autorise-le pour ce site dans le navigateur."; };
+      rec.onend = function () { if (rec === mine && D.on) { try { rec.start(); } catch (e2) { D.stop(); } } };   // Chrome stops after a silence: go on
+      D.on = true; D.btn = btn; D.live = live; btn.textContent = "■ Arrêter la dictée"; btn.classList.add("primary"); live.textContent = "Je t'écoute…";
+      try { rec.start(); } catch (e) { D.stop(); }
+    };
+    D.stop = function () {
+      D.on = false; var r = rec; rec = null; if (r) { try { r.stop(); } catch (e) { /* ignore */ } }
+      if (D.btn) { D.btn.textContent = "🎤 Dicter"; D.btn.classList.remove("primary"); }
+      if (D.live) D.live.textContent = "";
+    };
+    return D;
+  })();
+
   // ------------------------------------------------------------------ the notebook
   var TABS = [["heros", "Héros"], ["sac", "Sac"], ["quetes", "Quêtes"], ["indices", "Indices"], ["compagnons", "Compagnons"], ["carte", "Carte"], ["gens", "Gens"], ["frise", "Frise"], ["marques", "Marque-pages"], ["exploits", "Hauts faits"], ["codex", "Bestiaire et atlas"], ["mots", "Mots"], ["journal", "Journal"], ["coulisses", "Coulisses"]];
   function renderCarnet() {
@@ -2088,9 +2387,16 @@
       if (ic && isHere) root.appendChild(svg("circle", { cx: p.x, cy: p.y, r: 3.4, fill: "none", stroke: "var(--accent)", "stroke-width": 0.4 }));
       root.appendChild(svg("text", { x: p.x + (ic ? 3.2 : 2.4), y: p.y + 1 }, p.name));
     });
+    // Where something happened on the roads: ✦ an encounter, ⛺ a camp.
+    var RM = (A.game && A.game.doc.routeMarks) || {};
+    (W.routes || []).forEach(function (r) {
+      if (!RM[r.id] || !onMap(r.from)) return; var cv = routeCurve(W, r); if (!cv) return;
+      RM[r.id].forEach(function (m) { var p = cv.at(m.at), g = svg("text", { x: p.x, y: p.y + 1, "font-size": 2.6, "text-anchor": "middle", fill: "var(--accent)" }, m.kind === "camp" ? "⛺" : "✦"); g.appendChild(svg("title", {}, m.title)); root.appendChild(g); });
+    });
     if (s.travel) {
-      var r = (W.routes || []).filter(function (x) { return x.id === s.travel.route; })[0], f = places[s.travel.from], t = places[s.travel.to];
-      if (r && f && t) { var k = s.travel.step / s.travel.total; root.appendChild(svg("circle", { cx: f.x + (t.x - f.x) * k, cy: f.y + (t.y - f.y) * k, r: 1.6, fill: "var(--accent)" })); }
+      var r = travelRoute(st, s), cvT = r && routeCurve(W, r);
+      if (cvT && !(s.known[r.from] && s.known[r.to])) root.insertBefore(svg("path", { d: cvT.d, fill: "none", stroke: "var(--muted)", "stroke-linecap": "round", "stroke-width": 0.5, "stroke-dasharray": "1 1.4" }), root.firstChild);
+      if (cvT) { var pT = cvT.at(travelAt(r, s.travel)); root.appendChild(svg("circle", { cx: pT.x, cy: pT.y, r: 1.6, fill: "var(--accent)" })); }
     }
     // compass rose
     root.appendChild(svg("path", { d: "M94 4 L95.2 8 L94 7.3 L92.8 8 Z", fill: "var(--muted)" }));
@@ -2143,7 +2449,7 @@
   // ------------------------------------------------------------------ reading preferences (per reader)
   // Intent: pref(Key) -> Value = the reader's own setting, else the default
   // Why: Clément (12/11): text size, spacing, theme, voice, real dice, sound… follow the reader, not the device.
-  var PREFS = { skin: "histoire", size: "m", spacing: "normal", theme: "auto", font: "livre", lettrine: true, voice: "", highlight: true, ruler: false, dialogue: false, glossary: true, nudge: false, syllables: false, voiceChoice: false, autoListen: true, rate: 1, autoRead: false, dice: "ecran", ambiance: false, volume: 0.6 };
+  var PREFS = { skin: "histoire", size: "m", spacing: "normal", theme: "auto", font: "livre", lettrine: true, voice: "", highlight: true, ruler: false, dialogue: false, glossary: true, nudge: false, syllables: false, voiceChoice: false, autoListen: true, battlePlan: true, sfx: true, rate: 1, autoRead: false, dice: "ecran", ambiance: false, volume: 0.6 };
   var SIZES = { s: ["Petit", 16], m: ["Normal", 18], l: ["Grand", 21], xl: ["Très grand", 24] };
   var SPACINGS = { serre: ["Serré", 1.5], normal: ["Normal", 1.72], aere: ["Aéré", 2] };
   var THEMES = { auto: "Comme l'appareil", light: "Clair", sepia: "Sépia", dark: "Sombre" };
@@ -2190,7 +2496,7 @@
     var m = A.modal, close = function () { if (m.kind === "send" || m.kind === "receive") Transfer.stop(); A.modal = null; render(); };
     var box = h("div", { class: "modal", role: "dialog", "aria-modal": "true" });
     var bg = h("div", { class: "drawer-bg", onclick: close });
-    ({ prefs: modalPrefs, report: modalReport, dice: modalDice, mark: modalMark, bedtime: modalBedtime, send: modalSend, receive: modalReceive, words: modalWords, sync: modalSync })[m.kind](box, close, m);
+    ({ prefs: modalPrefs, report: modalReport, dice: modalDice, mark: modalMark, bedtime: modalBedtime, send: modalSend, receive: modalReceive, words: modalWords, sync: modalSync, chapter: modalChapter })[m.kind](box, close, m);
     app.appendChild(bg); app.appendChild(box);
     var f = box.querySelector("[autofocus]"); if (f) setTimeout(function () { f.focus(); }, 0);
   }
@@ -2207,6 +2513,7 @@
     b.appendChild(prefToggle("nudge", "Coup de pouce (jeunes lecteurs)", "Un bouton 💡, deux fois par acte, donne une phrase pour s'orienter quand on est perdu. Il ne révèle jamais la suite."));
     b.appendChild(prefToggle("glossary", "Expliquer les mots rares", "Les mots peu courants sont soulignés de pointillés : on les touche pour lire leur sens."));
     b.appendChild(prefToggle("syllables", "Syllabes en couleurs", "Une syllabe sur deux change de couleur, comme dans les méthodes de lecture."));
+    b.appendChild(prefToggle("battlePlan", "Plan de bataille", "Pendant un combat, un petit plan montre les rangs, les adversaires et les coups de la dernière passe."));
     b.appendChild(prefToggle("ruler", "Règle de lecture", "Une bande suit la ligne en cours et assombrit le reste. Touche une ligne pour l'y amener ; sur ordinateur, les flèches ↑ ↓."));
     if (VoiceChoice.available()) {
       b.appendChild(prefToggle("voiceChoice", "Choisir à la voix", "Un bouton 🎤 écoute le lecteur : « le deuxième », « le dernier », ou quelques mots du choix."));
@@ -2235,6 +2542,7 @@
     b.appendChild(h("p", { class: "small muted" }, "Avec tes dés : deux dés à dix faces, un pour les dizaines, un pour les unités (00 = 100). Tu tapes le résultat, le livre fait le calcul. Les compagnons et les adversaires lancent toujours à l'écran."));
     b.appendChild(h("div", { class: "stack tight" }, h("span", { class: "label" }, "Ambiance sonore"),
       h("label", { class: "toggle" }, h("input", { type: "checkbox", checked: pref("ambiance"), onchange: function (e) { setPref("ambiance", e.target.checked); } }), h("span", null, h("b", null, "Jouer l'ambiance du lieu"), h("br"), h("span", { class: "small muted" }, "Vent, pluie, forêt, ville, souterrain… composés par l'appareil, sans fichier."))),
+      prefToggle("sfx", "Bruitages de combat", "Une lame qui sonne, une flèche qui siffle, un sort qui scintille ; même volume que l'ambiance."),
       h("label", { class: "row small" }, "Volume", h("input", { type: "range", min: 0, max: 1, step: 0.05, value: pref("volume"), "aria-label": "Volume de l'ambiance", onchange: function (e) { setPref("volume", +e.target.value); } }))));
     box.appendChild(b);
   }
@@ -2411,9 +2719,11 @@
       b.appendChild(h("div", { class: "codex" }, keys.map(function (k) { return found(k) ? card(k) : h("div", { class: "codex-card unknown", "aria-label": "Pas encore trouvé" }, h("b", null, "???")); })));
     };
     var foes = Object.keys(st.enemies || {});
+    if (foes.some(function (k) { return has(cx.foes, nowFoes, k); }) && !A.game.multi) b.appendChild(h("button", { class: "btn sm", onclick: function () { A.carnet = null; A.screen = "cartes"; render(); window.scrollTo(0, 0); } }, "🃏 Cartes à collectionner et à imprimer"));
     section("Créatures et adversaires", foes, function (k) { return has(cx.foes, nowFoes, k); }, function (k) {
-      var e = st.enemies[k];
-      return h("div", { class: "codex-card" }, h("b", null, e.name), e.desc ? h("div", { class: "small" }, e.desc) : null,
+      var e = st.enemies[k], look = beastLook(k, e);
+      return h("div", { class: "codex-card" }, h("div", { class: "codex-beast", html: '<svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="8" fill="' + BEAST_BACKS[hash(st.id + "|" + k) % BEAST_BACKS.length] + '"/><path d="' + BEAST_LOOKS[look] + '" fill="#e9dcc0"/></svg>' }),
+        h("b", null, e.name), e.desc ? h("div", { class: "small" }, e.desc) : null,
         h("div", { class: "small muted" }, "Vie " + e.pv + " · attaque " + e.att + " · défense " + e.def + (e.ranged ? " · à distance" : "") + (e.flank ? " · prend à revers" : "")));
     });
     var places = Object.keys((st.world || {}).places || {});
@@ -2427,6 +2737,82 @@
       return h("div", { class: "codex-card" }, h("b", null, it.name), h("div", { class: "small muted" }, it.kind || ""), it.desc ? h("div", { class: "small" }, it.desc) : null);
     });
   }
+  // ------------------------------------------------------------------ bestiary cards
+  // Intent: beastCard(Story, id, seen) -> html = a collectable card for a creature met: a drawn silhouette (by the
+  // enemy's `look`, else guessed from its name), its strengths as pips, a piece of advice drawn from its rules only
+  // (never from the story), and how many times this reader met it. Printable from the notebook (screen "cartes").
+  // Why: Clément, 13/11.
+  var BEAST_LOOKS = {
+    loup: "M8 42 Q9 31 21 30 L39 29 Q43 21 47 19 L49 12 L52 18 L55 13 L56 20 L61 24 L60 28 L54 30 L50 35 L51 48 L47 48 L45 38 L30 39 L28 48 L24 48 L23 39 Q15 38 11 46 Q6 44 8 42 Z",
+    rat: "M12 44 Q14 32 28 31 Q40 30 46 36 L53 37 L56 34 L57 39 L52 42 Q48 46 38 46 L22 46 Q16 47 12 44 Z M12 44 Q4 46 3 40 Q3 36 7 38",
+    ombre: "M14 56 Q10 30 22 16 Q32 6 42 16 Q54 30 50 56 Q46 50 42 56 Q38 50 32 56 Q26 50 22 56 Q18 50 14 56 Z",
+    humain: "M32 8 a7 7 0 1 1 -0.1 0 Z M22 24 Q32 19 42 24 L45 42 L40 42 L38 56 L34 56 L32 44 L30 56 L26 56 L24 42 L19 42 Z",
+    serpent: "M10 50 Q20 40 30 48 Q40 56 48 44 Q54 34 46 28 Q40 24 44 18 Q48 13 54 16 L58 14 L56 19 Q50 20 50 24 Q54 30 54 38 Q52 54 36 56 Q24 56 18 50 Q14 47 10 50 Z",
+    araignee: "M32 26 a8 7 0 1 1 -0.1 0 Z M32 38 a11 10 0 1 1 -0.1 0 Z",
+    oiseau: "M6 30 Q20 18 30 30 Q32 26 34 30 Q44 18 58 30 Q46 28 36 36 L33 44 L31 44 L28 36 Q18 28 6 30 Z",
+    ours: "M8 48 Q8 26 26 24 Q30 16 36 18 Q44 14 48 22 Q58 26 58 36 L56 48 L50 48 L48 40 L24 42 L22 48 L16 48 L15 42 Q10 44 8 48 Z",
+  };
+  var BEAST_GUESS = [["loup", /loup|chacal|chien|renard|molosse/i], ["rat", /\brat\b|rongeur/i], ["serpent", /serpent|vip[eè]re|guivre/i], ["araignee", /araign/i],
+    ["oiseau", /corbeau|oiseau|chouette|rapace|vautour|aigle|chauve-souris/i], ["ours", /ours|sanglier|troll|ogre/i], ["ombre", /chose|glaneur|spectre|ombre|p[aâ]le|fant[oô]me|revenant/i]];
+  var BEAST_BACKS = ["#35424a", "#4a3a2f", "#2f4a3a", "#4a2f3e", "#3a3550", "#50402a"];
+  var CARD_PIPS = 6;
+  function beastLook(id, e) {
+    if (e.look && BEAST_LOOKS[e.look]) return e.look;
+    var t = (e.name || "") + " " + id; for (var i = 0; i < BEAST_GUESS.length; i++) if (BEAST_GUESS[i][1].test(t)) return BEAST_GUESS[i][0];
+    return "humain";
+  }
+  function beastAdvice(e) {
+    var out = [];
+    if (e.ranged) out.push("Frappe de loin : approche vite, ou mets-toi à couvert.");
+    if (e.flank) out.push("Contourne les rangs : ceux de derrière ne sont pas à l'abri.");
+    if (e.def >= 25) out.push("Bien protégé : la magie et les coups puissants passent mieux.");
+    if (e.pv >= 25) out.push("Endurant : il faut tenir plusieurs passes.");
+    if (e.att >= 35) out.push("Frappe fort : la garde vaut de l'or.");
+    if (!out.length) out.push(e.def <= 10 ? "Peu protégé : chaque coup porte." : "Rien de particulier : du courage et de bons dés.");
+    return out[0];
+  }
+  function pips(n, scale) { var k = Math.max(1, Math.min(CARD_PIPS, Math.round(n / scale))); var s = ""; for (var i = 0; i < CARD_PIPS; i++) s += i < k ? "●" : "○"; return s; }
+  function beastCard(st, id, met) {
+    var e = st.enemies[id], look = beastLook(id, e), x = hash(st.id + "|" + id), back = BEAST_BACKS[x % BEAST_BACKS.length];
+    var weapon = look !== "humain" ? "" : e.ranged ? '<path d="M48 20 Q58 32 48 44 M48 20 L48 44" stroke="#e9dcc0" stroke-width="1.6" fill="none"/>' :
+      /piquier|lance/i.test(e.name) ? '<path d="M47 10 L47 56 M45 14 L47 8 L49 14" stroke="#e9dcc0" stroke-width="1.8" fill="none"/>' : '<path d="M46 22 L52 38 M44 26 L49 24" stroke="#e9dcc0" stroke-width="2" fill="none" stroke-linecap="round"/>';
+    var extra = look === "araignee" ? '<path d="M24 34 L10 26 M24 38 L8 38 M24 42 L10 50 M26 46 L16 58 M40 34 L54 26 M40 38 L56 38 M40 42 L54 50 M38 46 L48 58" stroke="#e9dcc0" stroke-width="1.6"/>' : "";
+    var eyes = look === "ombre" ? '<circle cx="27" cy="26" r="2.2" fill="#f2e6a0"/><circle cx="37" cy="26" r="2.2" fill="#f2e6a0"/>' : "";
+    return '<div class="beast-card">' +
+      '<div class="bc-name">' + esc(e.name) + "</div>" +
+      '<svg class="bc-art" viewBox="0 0 64 64" role="img" aria-label="' + esc(e.name) + '"><rect width="64" height="64" fill="' + back + '"/><circle cx="50" cy="12" r="6" fill="#ffffff18"/>' +
+      '<path d="M0 56 Q16 52 32 56 T64 55 V64 H0 Z" fill="#00000030"/>' + extra + '<path d="' + BEAST_LOOKS[look] + '" fill="#e9dcc0"/>' + weapon + eyes + "</svg>" +
+      '<table class="bc-stats"><tr><td>Attaque</td><td>' + pips(e.att, 8) + "</td></tr><tr><td>Défense</td><td>" + pips(e.def, 6) + "</td></tr><tr><td>Vie</td><td>" + pips(e.pv, 5) + "</td></tr><tr><td>Coups</td><td>" + pips(e.dmg, 1.5) + "</td></tr></table>" +
+      (e.desc ? '<p class="bc-desc">' + esc(e.desc) + "</p>" : "") +
+      '<p class="bc-tip">' + esc(beastAdvice(e)) + "</p>" +
+      '<div class="bc-foot">' + esc(st.title) + (met ? " · rencontré " + met + " fois" : "") + "</div></div>";
+  }
+  var CARDS_CSS = ".beast-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:14px}" +
+    ".beast-card{background:#f7eedb;color:#2b2015;border:6px solid #3b2c1c;outline:2px solid #c9a24a;outline-offset:-10px;border-radius:12px;padding:14px 14px 10px;font:13px/1.35 Georgia,'Literata',serif;break-inside:avoid;display:flex;flex-direction:column;gap:6px}" +
+    ".beast-card .bc-name{font-weight:700;font-size:1.15em;text-align:center;border-bottom:1px solid #c9ad7c;padding-bottom:4px}" +
+    ".beast-card .bc-art{width:100%;aspect-ratio:1/1;border-radius:6px;display:block}" +
+    ".beast-card .bc-stats{width:100%;border-collapse:collapse;font-size:.92em}.beast-card .bc-stats td{padding:1px 0}.beast-card .bc-stats td:last-child{text-align:right;letter-spacing:1px;color:#8c2f1c}" +
+    ".beast-card .bc-desc{margin:0;font-style:italic}.beast-card .bc-tip{margin:0;font-size:.92em;background:#efe1c2;border-radius:6px;padding:4px 6px}" +
+    ".beast-card .bc-foot{margin-top:auto;font-size:.78em;color:#6d5a40;text-align:center;text-transform:uppercase;letter-spacing:.06em}" +
+    "@media print{.beast-cards{grid-template-columns:repeat(3,63mm);gap:4mm}.beast-card{height:88mm;box-sizing:border-box;font-size:11px}}";
+  function metBeasts(st, s) {
+    var cx = (recordOf(A.profile, st.id).codex) || { foes: {} }, now = s.beasts || {};
+    return Object.keys(st.enemies || {}).filter(function (k) { return cx.foes[k] || now[k]; });
+  }
+  function renderCards() {
+    var G = A.game, st = G.story, s = G.s, ids = metBeasts(st, s);
+    app.appendChild(topBar([h("button", { class: "btn ghost sm", onclick: function () { A.screen = "game"; render(); } }, "← Revenir à la partie"), h("span", { class: "brand grow" }, "Cartes du bestiaire"),
+      h("button", { class: "btn sm", onclick: function () { try { window.print(); } catch (e) { flash("L'impression n'est pas possible ici ; télécharge les cartes puis imprime-les.", true); } } }, "Imprimer ou PDF"),
+      canDownload() ? h("button", { class: "btn sm primary", onclick: function () {
+        download("cartes-" + st.id + ".html", "<!doctype html><meta charset=utf-8><meta name=viewport content=\"width=device-width\"><title>Cartes · " + esc(st.title) + "</title><style>body{margin:0;padding:12px;background:#fff}" + CARDS_CSS + "</style><div class=\"beast-cards\">" + ids.map(function (k) { return beastCard(st, k, (s.beasts || {})[k]); }).join("") + "</div>");
+      } }, "Télécharger les cartes") : null]));
+    var w = h("main", { class: "wrap fiche" });
+    w.appendChild(h("style", null, CARDS_CSS));
+    w.appendChild(h("p", { class: "small muted noprint" }, ids.length + " carte" + (ids.length > 1 ? "s" : "") + " sur " + Object.keys(st.enemies || {}).length + ". Chaque créature rencontrée en ajoute une. À l'impression, les cartes ont la taille d'une carte à jouer."));
+    w.appendChild(h("div", { class: "beast-cards", html: ids.map(function (k) { return beastCard(st, k, (s.beasts || {})[k]); }).join("") }));
+    app.appendChild(w);
+  }
+
   // ------------------------------------------------------------------ "Mon aventure": the game told as a book
   // Intent: save(Game, GameDoc) -> () ! writes the current part of the game's story (recits/<game>~<k>)
   // Why: the pages as they were read (texts depend on the moment), kept apart from the save so it stays small.
@@ -3044,8 +3430,15 @@
     var form = h("section", { class: "page kid-form" });
     form.appendChild(h("label", { class: "stack tight" }, h("span", { class: "label" }, "Titre de la page"),
       h("input", { value: p.title, maxlength: 60, oninput: function (e) { p.title = e.target.value; touch(); } })));
-    form.appendChild(h("label", { class: "stack tight" }, h("span", { class: "label" }, "Ce qui se passe (laisse une ligne vide entre deux paragraphes)"),
-      h("textarea", { rows: 9, class: "kid-text", oninput: function (e) { p.text = e.target.value.split(/\n\s*\n/).map(function (x) { return x.trim(); }); touch(); } }, (p.text || []).join("\n\n"))));
+
+    var kidTa = h("textarea", { rows: 9, class: "kid-text", oninput: function (e) { p.text = e.target.value.split(/\n\s*\n/).map(function (x) { return x.trim(); }); touch(); } }, (p.text || []).join("\n\n"));
+    var dictLive = h("span", { class: "small muted dict-live", "aria-live": "polite" });
+    form.appendChild(h("label", { class: "stack tight" }, h("span", { class: "label" }, "Ce qui se passe (laisse une ligne vide entre deux paragraphes)"), kidTa));
+    if (Dictation.available()) {
+      var dictBtn = h("button", { type: "button", class: "btn sm", onclick: function () { Dictation.toggle(kidTa, dictBtn, dictLive); } }, "🎤 Dicter");
+      form.appendChild(h("div", { class: "row" }, dictBtn, dictLive));
+      form.appendChild(h("p", { class: "small muted" }, "Dis « point », « virgule », « point d'interrogation », « à la ligne » ou « nouveau paragraphe » pour la ponctuation."));
+    }
     form.appendChild(h("label", { class: "toggle" }, h("input", { type: "checkbox", checked: !!p.end, onchange: function (e) { p.end = e.target.checked; if (p.end) p.choices = []; touch(); render(); } }), h("span", null, h("b", null, "C'est une fin"), h("br"), h("span", { class: "small muted" }, "L'histoire s'arrête ici."))));
     if (!p.end) {
       form.appendChild(h("div", { class: "label" }, "Les choix (" + KID_CHOICES + " au plus)"));
