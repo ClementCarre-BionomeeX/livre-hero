@@ -38,11 +38,11 @@ module.exports = {
   },
   quests: [],
   people: {
-    aubert: { name: "Messire Aubert de Vellane", face: { age: "mur" }, desc: "Votre maître. Soixante ans, une jambe raide, la meilleure lance du comté il y a vingt ans." },
-    heloise: { name: "Dame Héloïse", desc: "Sa sœur, qui tient le château, les clés et les comptes." },
-    gauvard: { name: "Sire Gauvard de Morne", desc: "Le cousin. Beau, aimable, endetté jusqu'aux yeux." },
-    thibaud: { name: "Thibaud", face: { age: "jeune" }, desc: "L'écuyer de Gauvard, un garçon de seize ans qui a peur de son maître." },
-    anselme: { name: "Frère Anselme", desc: "Un ermite qui fait des remèdes au moulin des Saules et sait de vieilles choses." },
+    aubert: { name: "Messire Aubert de Vellane", face: { age: "mur", skin: "clair", hair: "gris", coif: "court", beard: "barbe", eyes: "lourds", iris: "bleu", nose: "busque", lips: "fines", shape: "carre", marks: [] }, desc: "Votre maître. Soixante ans, une jambe raide, la meilleure lance du comté il y a vingt ans." },
+    heloise: { name: "Dame Héloïse", face: { age: "mur", skin: "clair", hair: "gris", coif: "chignon", beard: "sans", eyes: "amande", iris: "bleu", nose: "fin", lips: "fines", shape: "allonge", marks: [] }, desc: "Sa sœur, qui tient le château, les clés et les comptes." },
+    gauvard: { name: "Sire Gauvard de Morne", face: { age: "adulte", skin: "beige", hair: "chatain", coif: "boucles", beard: "sans", eyes: "amande", iris: "vert", nose: "fin", lips: "pleines", shape: "ovale", marks: [] }, desc: "Le cousin. Beau, aimable, endetté jusqu'aux yeux." },
+    thibaud: { name: "Thibaud", face: { age: "jeune", skin: "ivoire", hair: "noir", coif: "court", beard: "sans", eyes: "brides", iris: "brun", nose: "fin", lips: "fines", shape: "allonge", marks: [] }, desc: "L'écuyer de Gauvard, un garçon de seize ans qui a peur de son maître." },
+    anselme: { name: "Frère Anselme", face: { age: "ancien", skin: "cuivre", hair: "blanc", coif: "couronne", beard: "longue", eyes: "tombants", iris: "noisette", nose: "large", lips: "fines", shape: "rond", marks: [] }, desc: "Un ermite qui fait des remèdes au moulin des Saules et sait de vieilles choses." },
   },
   items: {
     dague: { name: "Dague", kind: "arme", dmg: 4, att: 5, price: 8, desc: "Courte, équilibrée." },
