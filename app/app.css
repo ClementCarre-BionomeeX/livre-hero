@@ -563,3 +563,15 @@ html:root[data-cvd="oui"] .ev.good::before { content: "✓ "; } html:root[data-c
 .ev.tale { font-style: italic; color: var(--ink); border-left: 2px solid var(--line); padding-left: 10px; margin-top: 4px; }
 .fate { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin-top: 10px; }
 ul.news { margin: 4px 0 12px; padding-left: 1.2em; } ul.news li { margin: 3px 0; }
+/* 7th series, lot 3 */
+.group-banner { display: flex; flex-wrap: wrap; gap: 4px 10px; margin-top: 10px; padding: 8px 12px; border-radius: 10px; background: var(--accent-soft); font-size: 14px; }
+.vote-pass { font-size: 20px; margin: 18px 0; }
+ul.vote-res { list-style: none; padding: 0; margin: 0 0 12px; display: grid; gap: 6px; } ul.vote-res li { padding: 8px 10px; border: 1px solid var(--line); border-radius: 8px; } ul.vote-res li.win { border-color: var(--accent); background: var(--accent-soft); }
+.defis { display: grid; gap: 6px; } .defi { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; padding: 8px 12px; border: 1px dashed var(--line); border-radius: 10px; } .defi.done { border-style: solid; background: var(--paper); }
+.album { display: grid; grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr)); gap: 10px; }
+.album-card { display: flex; flex-direction: column; gap: 6px; padding: 12px; min-height: 7rem; border: 1px solid var(--line); border-radius: 10px; background: var(--paper); box-shadow: var(--shadow); }
+.album-card b { font-family: var(--title); font-size: 18px; line-height: 1.2; }
+.album-card.blank { background: transparent; box-shadow: none; border-style: dashed; color: var(--muted); align-items: center; justify-content: center; }
+.album-card.feat b { font-family: var(--sans); font-size: 15px; }
+.album-who { margin-top: auto; display: flex; gap: 4px; flex-wrap: wrap; }
+.page.spect .choice { opacity: .75; }

@@ -163,7 +163,8 @@
     });
   }
   function refresh() {
-    return Promise.all([Store.list("profils"), Store.list("scenarios"), Store.list("parties"), Store.list("multis"), Store.list("salles")]).then(function (r) {
+    return Promise.all([Store.list("profils"), Store.list("scenarios"), Store.list("parties"), Store.list("multis"), Room.list("salles"), Room.on() ? Room.list("direct") : Promise.resolve([])]).then(function (r) {
+      A.direct = r[5];
       A.multis = r[3].concat(r[4]).sort(function (a, b) { return (b.updated || 0) - (a.updated || 0); });
       var got = {}; r[0].forEach(function (p) { got[p.id] = 1; });
       (A.profiles || []).forEach(function (p) { if (!got[p.id]) r[0].push(p); });   // just added, not listed yet
@@ -209,6 +210,8 @@
     else if (A.screen === "fiche") renderFiche();
     else if (A.screen === "cartes") renderCards();
     else if (A.screen === "kids") renderKids();
+    else if (A.screen === "spect") renderSpect();
+    else if (A.screen === "album") renderAlbum();
     if (A.carnet) renderCarnet();
     if (A.modal) renderModal();
     applyPrefs();
@@ -292,6 +295,7 @@
       w.appendChild(sg);
     }
 
+    var live = renderLiveList(); if (live) w.appendChild(live);
     w.appendChild(renderMultiList());
 
     // Library
@@ -332,7 +336,8 @@
     w.appendChild(bk);
     w.appendChild(renderKidsShelf());
     if (A.profile) w.appendChild(renderBilan(A.profile));
-    var fam = renderFamily(); if (fam) w.appendChild(fam);
+    var fam = renderFamily(); if (fam) { fam.appendChild(h("div", { class: "row" }, h("button", { class: "btn sm", onclick: function () { A.screen = "album"; render(); } }, "📖 Ouvrir l'album de la famille"))); w.appendChild(fam); }
+    var dfs = renderChallenges(); if (dfs) w.appendChild(dfs);
     w.appendChild(renderParents());
     w.appendChild(renderAtelier());
     w.appendChild(buildLine());
@@ -1262,6 +1267,7 @@
     d.turns = s.turn || 0;
     keepRecords(st, s, v, d);
     saveRecit(G, d);
+    liveOut(G);
     var meta = {}; for (var k in d) if (k !== "state" && k !== "undo" && k !== "log" && k !== "marks") meta[k] = d[k];
     A.allGames = (A.allGames || []).filter(function (g) { return g.id !== d.id; }).concat([meta]);
     A.games = A.allGames.filter(function (g) { return A.profile && g.profil === A.profile.id; }).sort(function (a, b) { return (b.updated || 0) - (a.updated || 0); });
@@ -1293,6 +1299,8 @@
     // Shaking the device to throw (option, off by default: children would throw by mistake).
     if (c.test && pref("shakeDice") && pref("dice") !== "vrais" && !c.shaken && Shake.available()) { A.modal = { kind: "shake", c: c }; render(); return; }
     c.shaken = false;
+    if (!c.voted && !c.sys && groupOf(G) && groupOf(G).mode === "vote") { var vv = M.view(G.story, G.s); if (vv.choices.filter(function (x) { return x.ok && !x.restart; }).length > 1) { startVote(G, vv); return; } }
+    c.voted = false;
     var before = M.view(G.story, G.s), others = before.choices.filter(function (x) { return x.ok && !x.sys && !x.restart && x !== c && x.label !== c.label; }).length;
     if (!G.ephemeral && !/^jeu/.test(c.sys || "")) G.doc.wordsRead = (G.doc.wordsRead || 0) + wordsOf(before.text);
     var snap = JSON.stringify(G.s);
@@ -1461,6 +1469,7 @@
   // Intent: once per new version, a short note of what changed (NEWS, newest first), only the versions the reader has
   // not seen on this device. Why: Clément, 13/11 (piste 33).
   var NEWS = [
+    { v: "7.3", items: ["Salle commune sur le site : chacun sur son appareil (tablette, téléphone), grâce au dossier de sauvegarde partagé ☁.", "Lire à plusieurs sur un même appareil : chacun son rôle (l'un lit, l'autre choisit) ou vote secret (bouton 👥).", "Suivre en direct la partie d'un autre lecteur (« En ce moment », dans la bibliothèque).", "Défis de la famille, et l'album des fins et des hauts faits trouvés par chacun."] },
     { v: "7.2", items: ["Jetons de destin : en mode « Sans retour », trois relances par acte pour un jet raté.", "Les adversaires peuvent prendre la fuite quand le combat tourne mal.", "À la fin d'un combat, quelques lignes racontent comment il s'est passé.", "Réglage « Conséquences muettes » : l'histoire ne dit plus quand un compagnon change d'avis sur toi.", "Cette page, à chaque nouvelle version."] },
     { v: "7.1", items: ["Sur tablette en paysage, le livre s'ouvre sur deux pages.", "Les pages se tournent ; on peut aussi glisser du doigt (à activer dans les Réglages).", "Thème « Lumière du soir » pour lire au lit.", "Temps de lecture estimé, pour chaque livre et chaque acte.", "Lecteur d'écran, fort contraste et couleurs pour daltoniens.", "Bilan de lecture de chaque lecteur, dans la bibliothèque."] },
     { v: "7.0", items: ["Chaque version porte un numéro, pour savoir si l'on est à jour."] }
@@ -1478,6 +1487,194 @@
     (A.modal.news || []).forEach(function (n) { b.appendChild(h("h3", { class: "sub-h" }, "Version " + n.v)); b.appendChild(h("ul", { class: "news" }, n.items.map(function (t) { return h("li", null, t); }))); });
     b.appendChild(h("button", { class: "btn primary", onclick: function () { lsSet("nouveautes-vues", BUILD.version); close(); } }, "Bonne lecture"));
     box.appendChild(b);
+  }
+
+  // ------------------------------------------------------------------ several readers on one device
+  // Intent: a solo game read by several people on one device (G.doc.group = { names, mode }): « roles » says on each
+  // page who reads aloud and who chooses (they take turns); « vote » makes each choice a secret vote, the device passed
+  // from hand to hand, the majority deciding (a tie: the dice). Why: Clément, 13/11 (pistes 19 and 20).
+  var GROUP_MAX = 6;
+  function groupOf(G) { return G && !G.multi && !G.ephemeral && G.doc && G.doc.group && (G.doc.group.names || []).length >= 2 ? G.doc.group : null; }
+  function groupBanner(G, s) {
+    var gr = groupOf(G); if (!gr) return null;
+    var n = gr.names.length, t = s.turn || 0;
+    if (gr.mode === "vote") return h("div", { class: "group-banner", role: "note" }, "🗳 Chaque choix se vote en secret : " + gr.names.join(", ") + ".");
+    return h("div", { class: "group-banner", role: "note" }, h("span", null, "📖 ", h("b", null, gr.names[t % n]), " lit à voix haute"), h("span", null, " · 👆 ", h("b", null, gr.names[(t + 1) % n]), " choisit"));
+  }
+  function modalGroup(box, close) {
+    var G = A.game, gr = G.doc.group || { names: [], mode: "roles" }, names = (gr.names.length ? gr.names : [A.profile ? A.profile.name : "", ""]).slice();
+    var mode = gr.mode || "roles";
+    modalHead(box, "Lire à plusieurs sur cet appareil", close);
+    var b = h("div", { class: "drawer-body" });
+    b.appendChild(h("p", { class: "small muted" }, "Une seule partie, plusieurs lecteurs autour du même écran."));
+    var list = h("div", { class: "stack tight" });
+    var draw = function () {
+      list.textContent = "";
+      names.forEach(function (nm, i) {
+        list.appendChild(h("div", { class: "row" }, h("input", { value: nm, maxlength: 24, "aria-label": "Lecteur " + (i + 1), oninput: function (e) { names[i] = e.target.value; } }),
+          names.length > 2 ? h("button", { class: "btn sm ghost", "aria-label": "Retirer ce lecteur", onclick: function () { names.splice(i, 1); draw(); } }, "✕") : null));
+      });
+      if (names.length < GROUP_MAX) list.appendChild(h("button", { class: "btn sm", onclick: function () { names.push(""); draw(); } }, "+ Un lecteur"));
+    };
+    draw(); b.appendChild(list);
+    var modes = h("div", { class: "seg", role: "group", "aria-label": "Façon de lire" });
+    var mk = function (k, l) { return h("button", { class: "btn sm" + (mode === k ? " on" : ""), "aria-pressed": mode === k ? "true" : "false", onclick: function () { mode = k; modes.querySelectorAll("button").forEach(function (x) { x.classList.toggle("on", x.textContent === l); x.setAttribute("aria-pressed", x.textContent === l ? "true" : "false"); }); } }, l); };
+    modes.appendChild(mk("roles", "Chacun son rôle")); modes.appendChild(mk("vote", "Vote secret"));
+    b.appendChild(h("div", { class: "stack tight" }, h("span", { class: "label" }, "Comment ?"), modes,
+      h("p", { class: "small muted" }, "Chacun son rôle : à chaque page, l'un lit à voix haute et l'autre choisit, puis on tourne. Vote secret : à chaque choix, l'appareil passe de main en main ; la majorité décide, et les dés départagent une égalité.")));
+    b.appendChild(h("div", { class: "row" },
+      h("button", { class: "btn primary", onclick: function () {
+        var ok = names.map(function (x) { return x.trim(); }).filter(Boolean);
+        if (ok.length < 2) { flash("Il faut au moins deux lecteurs.", true); return; }
+        G.doc.group = { names: ok, mode: mode }; persist(); close();
+      } }, "C'est parti"),
+      G.doc.group ? h("button", { class: "btn ghost", onclick: function () { delete G.doc.group; persist(); close(); } }, "Lire seul de nouveau") : null));
+    box.appendChild(b);
+  }
+  // the vote: hidden screen → choices → next reader → result
+  function startVote(G, v) {
+    var open = v.choices.filter(function (c) { return c.ok && !c.restart; });
+    A.modal = { kind: "vote", i: 0, votes: {}, hidden: true, labels: open.map(function (c) { return c.label; }) }; render();
+  }
+  function modalVote(box, close, m) {
+    var G = A.game, gr = groupOf(G); if (!gr) { close(); return; }
+    var stop = function () { A.modal = null; render(); };
+    modalHead(box, "Vote secret", stop);
+    var b = h("div", { class: "drawer-body" });
+    if (m.i < gr.names.length) {
+      var who = gr.names[m.i];
+      if (m.hidden) {
+        b.appendChild(h("p", { class: "vote-pass" }, "Passe l'appareil à ", h("b", null, who), "."));
+        b.appendChild(h("button", { class: "btn primary", autofocus: true, onclick: function () { m.hidden = false; render(); } }, "C'est moi, " + who));
+      } else {
+        b.appendChild(h("p", null, h("b", null, who), ", que fais-tu ? Les autres ne verront pas ton choix."));
+        m.labels.forEach(function (l) { b.appendChild(h("button", { class: "choice", onclick: function () { m.votes[who] = l; m.i++; m.hidden = true; render(); } }, l)); });
+      }
+    } else {
+      var count = {}; Object.keys(m.votes).forEach(function (k) { count[m.votes[k]] = (count[m.votes[k]] || 0) + 1; });
+      var top = Math.max.apply(null, Object.keys(count).map(function (k) { return count[k]; }));
+      var best = m.labels.filter(function (l) { return count[l] === top; });
+      if (!m.win) m.win = best[Math.floor(Math.random() * best.length)];
+      b.appendChild(h("ul", { class: "vote-res" }, m.labels.filter(function (l) { return count[l]; }).map(function (l) {
+        return h("li", { class: l === m.win ? "win" : "" }, h("b", null, count[l] + " voix"), " · " + l, h("span", { class: "small muted" }, " (" + Object.keys(m.votes).filter(function (k) { return m.votes[k] === l; }).join(", ") + ")"));
+      })));
+      if (best.length > 1) b.appendChild(h("p", { class: "small muted" }, "Égalité : les dés ont tranché."));
+      b.appendChild(h("button", { class: "btn primary", autofocus: true, onclick: function () {
+        var c = M.view(G.story, G.s).choices.filter(function (x) { return x.label === m.win && x.ok; })[0];
+        A.modal = null; if (c) { c.voted = true; pick(c); } else render();
+      } }, "Suivre : " + m.win));
+    }
+    box.appendChild(b);
+  }
+
+  // ------------------------------------------------------------------ following another reader's game
+  // Intent: each solo game also writes a small « live » doc (direct/<reader>) to the shared room store after each
+  // choice (Room: the claude.ai db, or the family's save folder on the site); another device opens it read-only and
+  // sees the page change as the reader goes. Why: Clément, 13/11 (piste 23).
+  var LIVE_DEBOUNCE_MS = 2500, LIVE_FRESH_MS = 12 * 3600 * 1000;
+  function liveOut(G) {
+    if (!Room.on() || !G || G.multi || G.ephemeral || G.doc.test || !A.profile) return;
+    clearTimeout(liveOut.t);
+    liveOut.t = setTimeout(function () {
+      var s = G.s, d = { profil: A.profile.id, reader: A.profile.name, color: A.profile.color || "", story: G.story.id, storyTitle: G.story.title, hero: s.name, state: JSON.stringify(s), last: (G.log[G.log.length - 2] || {}).c || "", updated: Date.now() };
+      Store.timed(Room.db().doc("direct/" + safeKey(A.profile.id)).set(d)).catch(function () { /* the next choice will try again */ });
+    }, LIVE_DEBOUNCE_MS);
+  }
+  function renderLiveList() {
+    var mine = A.profile ? A.profile.id : null, now = Date.now();
+    var list = (A.direct || []).filter(function (x) { return x.profil !== mine && now - (x.updated || 0) < LIVE_FRESH_MS && A.builtins[x.story]; });
+    if (!list.length) return null;
+    var sec = h("section", { class: "section" }, h("h2", null, "En ce moment"));
+    list.forEach(function (x) {
+      sec.appendChild(h("div", { class: "save-line" }, h("span", { class: "avatar", style: "background:" + (x.color || COLORS[0]) }, String(x.reader || "?").slice(0, 1).toUpperCase()),
+        h("div", { class: "grow" }, h("b", null, x.reader + " lit " + x.storyTitle), h("div", { class: "small muted" }, x.hero + " · " + when(x.updated))),
+        h("button", { class: "btn sm", onclick: function () { var m = allStories().filter(function (y) { return y.id === x.story; })[0] || {}; adultGate(m, function () { openSpect(x); }); } }, "👁 Suivre")));
+    });
+    return sec;
+  }
+  function openSpect(x) {
+    loadStory(x.story).then(function (st) {
+      if (A.spect && A.spect.unsub) A.spect.unsub();
+      var S = A.spect = { doc: x, story: st, unsub: null };
+      S.unsub = Room.db().doc("direct/" + safeKey(x.profil)).onSnapshot(function (snap) { if (snap.exists && A.spect === S) { S.doc = thaw(snap.data()); if (A.screen === "spect") render(); } }, function () {});
+      A.screen = "spect"; render();
+    });
+  }
+  function renderSpect() {
+    var S = A.spect, st = S.story, s = upgradeState(st, JSON.parse(S.doc.state)), v = M.view(st, s);
+    app.appendChild(topBar([h("button", { class: "btn ghost sm", onclick: function () { if (S.unsub) S.unsub(); A.spect = null; A.screen = "home"; refresh().then(render); } }, "← Bibliothèque"),
+      h("span", { class: "brand grow" }, "👁 Tu suis " + S.doc.reader), h("span", { class: "pill small" }, M.timeLabel(s))]));
+    var w = h("main", { class: "wrap" }), page = h("article", { class: "page read spect", "aria-live": "polite" });
+    page.appendChild(h("div", { class: "page-head" }, h("div", null, h("h2", null, v.title || ""), h("div", { class: "where" }, st.title + " · " + s.name))));
+    if (S.doc.last) page.appendChild(h("div", { class: "notice soft" }, S.doc.reader + " a choisi : « " + S.doc.last + " »"));
+    var prose = h("div", { class: "prose" }); (v.text || []).forEach(function (t) { prose.appendChild(h("p", { html: md(t) })); }); page.appendChild(prose);
+    var ch = h("div", { class: "choices" }); v.choices.filter(function (c) { return !c.restart; }).forEach(function (c) { ch.appendChild(h("button", { class: "choice", disabled: true }, c.label)); });
+    page.appendChild(ch);
+    page.appendChild(h("p", { class: "small muted" }, "La page suit " + S.doc.reader + " : elle change quand un choix est fait."));
+    w.appendChild(page); app.appendChild(w);
+  }
+
+  // ------------------------------------------------------------------ challenges and the family album
+  // Intent: CHALLENGES = goals any reader of the house can meet in a book, from what the records keep; the first to
+  // meet each is named. Why: Clément, 13/11 (piste 21).
+  var CHALLENGES = [
+    { id: "fin1", title: "Atteindre une fin", test: function (st, r) { return firstOf(r.endings); } },
+    { id: "fin3", title: "Trouver trois fins différentes", min: 3, test: function (st, r) { return nthOf(r.endings, 3); } },
+    { id: "fins", title: "Trouver toutes les fins", test: function (st, r) { var e = M.endingsOf(st); return e.length && e.every(function (x) { return r.endings[x.id]; }) ? lastOf(r.endings) : 0; } },
+    { id: "fer", title: "Finir en « Sans retour »", test: function (st, r) { return firstOf(r.iron); } },
+    { id: "fidele", title: "Finir sans qu'aucun compagnon ne t'abandonne", test: function (st, r) { return firstOf(r.loyal); } },
+    { id: "faits", title: "Tous les hauts faits", test: function (st, r) { var f = M.featsOf(st); return f.length && f.every(function (x) { return r.feats[x.id]; }) ? lastOf(r.feats) : 0; } }
+  ];
+  function firstOf(o) { var v = Object.keys(o || {}).map(function (k) { return o[k]; }).sort(); return v[0] || 0; }
+  function lastOf(o) { var v = Object.keys(o || {}).map(function (k) { return o[k]; }).sort(); return v[v.length - 1] || 0; }
+  function nthOf(o, n) { var v = Object.keys(o || {}).map(function (k) { return o[k]; }).sort(); return v[n - 1] || 0; }
+  function renderChallenges() {
+    var books = Object.keys(A.builtins).map(function (k) { return A.builtins[k]; }).filter(function (st) { return !st.multi && !st.kid && A.profiles.some(function (p) { return Object.keys(recordOf(p, st.id).endings || {}).length; }); });
+    if (!books.length) return null;
+    var sec = h("section", { class: "section" }, h("h2", null, "🎯 Défis de la famille"));
+    books.forEach(function (st) {
+      var rows = h("div", { class: "defis" });
+      CHALLENGES.forEach(function (ch) {
+        if (ch.min && M.endingsOf(st).length < ch.min) return;
+        if (ch.id === "faits" && !M.featsOf(st).length) return;
+        var best = null;
+        A.profiles.forEach(function (p) { var t = ch.test(st, recordOf(p, st.id)); if (t && (!best || t < best.t)) best = { p: p, t: t }; });
+        rows.appendChild(h("div", { class: "defi" + (best ? " done" : "") }, h("span", { class: "grow" }, ch.title),
+          best ? h("span", { class: "small" }, avatar(best.p), " ", h("b", null, best.p.name), " · " + new Date(best.t).toLocaleDateString("fr-FR", { day: "numeric", month: "short" })) : h("span", { class: "small muted" }, "à relever")));
+      });
+      var fast = null; A.profiles.forEach(function (p) { var r = recordOf(p, st.id); if (r.best && (!fast || r.best < fast.n)) fast = { p: p, n: r.best }; });
+      if (fast) rows.appendChild(h("div", { class: "defi done" }, h("span", { class: "grow" }, "Le chemin le plus court jusqu'à une fin"), h("span", { class: "small" }, avatar(fast.p), " ", h("b", null, fast.p.name), " · " + fast.n + " pages")));
+      sec.appendChild(h("div", { class: "stack tight" }, h("h3", { class: "sub-h" }, st.title), rows));
+    });
+    return sec;
+  }
+  // Intent: the album: each book's endings and feats as cards, with who found them; what nobody found stays a blank
+  // card (no title, no hint). Why: Clément, 13/11 (piste 24).
+  function renderAlbum() {
+    app.appendChild(topBar([h("button", { class: "btn ghost sm", onclick: function () { A.screen = "home"; render(); } }, "← Bibliothèque"), h("span", { class: "brand grow" }, "Album de la famille")]));
+    var w = h("main", { class: "wrap" });
+    w.appendChild(h("div", { class: "hero-head" }, h("h1", null, "Album de la famille"), h("p", null, "Les fins et les hauts faits trouvés par chacun. Ce que personne n'a encore trouvé reste une page blanche.")));
+    Object.keys(A.builtins).map(function (k) { return A.builtins[k]; }).filter(function (st) { return !st.multi && !st.kid; }).forEach(function (st) {
+      var who = function (key, id) { return A.profiles.filter(function (p) { return recordOf(p, st.id)[key][id]; }); };
+      var ends = M.endingsOf(st), feats = M.featsOf(st);
+      if (!A.profiles.some(function (p) { var r = recordOf(p, st.id); return Object.keys(r.endings).length || Object.keys(r.feats).length; })) return;
+      var sec = h("section", { class: "section" }, h("h2", null, st.title));
+      var grid = h("div", { class: "album" });
+      ends.forEach(function (e) {
+        var ps = who("endings", e.id);
+        grid.appendChild(ps.length ? h("div", { class: "album-card" }, h("span", { class: "label" }, "Fin"), h("b", null, e.title), h("div", { class: "album-who" }, ps.map(function (p) { return avatar(p); })))
+          : h("div", { class: "album-card blank", "aria-label": "Fin encore inconnue" }, h("span", { class: "label" }, "Fin"), h("b", null, "?")));
+      });
+      feats.forEach(function (f) {
+        var ps = who("feats", f.id); if (!ps.length) return;
+        grid.appendChild(h("div", { class: "album-card feat" }, h("span", { class: "label" }, "★ Haut fait"), h("b", null, f.title), h("div", { class: "album-who" }, ps.map(function (p) { return avatar(p); }))));
+      });
+      var hidden = feats.filter(function (f) { return !who("feats", f.id).length; }).length;
+      sec.appendChild(grid);
+      if (hidden) sec.appendChild(h("p", { class: "small muted" }, hidden + " haut" + (hidden > 1 ? "s" : "") + " fait" + (hidden > 1 ? "s" : "") + " encore à découvrir."));
+      w.appendChild(sec);
+    });
+    app.appendChild(w);
   }
 
   function renderGame() {
@@ -1510,6 +1707,7 @@
     else if (nr) page.appendChild(h("aside", { class: "recap" }, h("div", { class: "row" }, h("span", { class: "grow" }), h("button", { class: "btn ghost sm", onclick: function () { A.recap = false; render(); } }, "Fermer")), nr));
     var actStart = cur >= 0 && acts[cur].start === s.node && actMin;
     page.appendChild(h("div", { class: "page-head" }, h("div", null, h("h2", { id: "page-title", tabindex: "-1" }, v.title || ""), h("div", { class: "where" }, [cur >= 0 ? acts[cur].title : null, where(st, s), actStart ? "environ " + minutesLabel(actMin) + " de lecture" : null].filter(Boolean).join(" · "))), num ? h("span", { class: "para-num", title: "Numéro du paragraphe" }, "§ " + num) : null));
+    var gb = groupBanner(G, s); if (gb) page.appendChild(gb);
     if (A.notice) page.appendChild(h("div", { class: "notice" }, A.notice));
     if (A.bedWarn && !G.multi) page.appendChild(h("div", { class: "notice soft" }, "🌙 Bientôt l'heure de refermer le livre : le récit te proposera de t'arrêter à une page calme."));
     var prose = h("div", { class: "prose" });
@@ -1544,6 +1742,7 @@
       h("button", { class: "btn sm", onclick: function () { A.carnet = true; A.carnetTab = "carte"; render(); } }, "Carte"),
       h("button", { class: "btn sm", onclick: function () { A.carnet = true; A.carnetTab = "quetes"; render(); } }, "Quêtes"),
       G.multi ? null : h("button", { class: "btn sm", onclick: function () { A.modal = { kind: "mark" }; render(); } }, "🔖 Marque-page"),
+      G.multi || G.ephemeral ? null : h("button", { class: "btn sm", "aria-pressed": groupOf(G) ? "true" : "false", onclick: function () { A.modal = { kind: "group" }; render(); } }, "👥 À plusieurs"),
       h("button", { class: "btn sm", "aria-label": "Ambiance sonore", "aria-pressed": pref("ambiance") ? "true" : "false", onclick: function () { setPref("ambiance", !pref("ambiance")); } }, pref("ambiance") ? "🔊 Ambiance" : "🔇 Ambiance"),
       pref("nudge") && !G.multi && v.kind !== "end" ? h("button", { class: "btn sm", disabled: nudgesLeft(G) <= 0, title: "Une phrase pour t'orienter, sans rien révéler", onclick: function () { askNudge(G); } }, "💡 Coup de pouce (" + nudgesLeft(G) + ")") : null,
       h("button", { class: "btn sm", onclick: function () { A.modal = { kind: "prefs" }; render(); } }, "⚙ Réglages"),
@@ -2019,7 +2218,7 @@
   function minPlayers(st) { return Math.max(2, (st.multi && st.multi.min) || 2); }
   function maxPlayers(st) { var m = (st.multi && st.multi.max) || 6; return st.heroes ? Math.min(m, Object.keys(st.heroes).length) : m; }
   function renderMultiSetup() {
-    var S = A.msetup, st = S.story, shared = Store.mode === "db";
+    var S = A.msetup, st = S.story, shared = Room.on();
     app.appendChild(topBar([h("button", { class: "btn ghost sm", onclick: function () { A.msetup = null; A.screen = "home"; render(); } }, "← Bibliothèque"), h("span", { class: "brand grow" }, st.title)]));
     var w = h("main", { class: "wrap read create" });
     w.appendChild(h("div", null, h("div", { class: "label" }, "Jouer à plusieurs"), h("h1", null, st.title)));
@@ -2028,10 +2227,10 @@
       : "Chacun crée son héros, dans le même monde. Chacun avance de son côté ; au début de chaque acte et aux charnières, on attend les autres. Un choix du monde est fixé par le premier qui le fait."));
     var modes = h("div", { class: "archs" });
     [["local", "Sur cet appareil", "On se passe l'appareil. Un écran caché sépare les tours : personne ne voit les choix des autres."],
-     ["salle", "Salle commune", "Chacun sur son appareil, connecté à claude.ai. Les autres doivent être invités sur cette page par e-mail, avec le droit Éditeur."]].forEach(function (m) {
+     ["salle", "Salle commune", Room.site() ? "Chacun sur son appareil (tablette, téléphone…), sur le site, branché sur le même dossier de sauvegarde partagé ☁." : "Chacun sur son appareil, connecté à claude.ai. Les autres doivent être invités sur cette page par e-mail, avec le droit Éditeur."]].forEach(function (m) {
       var off = m[0] === "salle" && !shared;
       modes.appendChild(h("button", { class: "arch" + (S.mode === m[0] ? " on" : ""), "aria-pressed": S.mode === m[0] ? "true" : "false", disabled: off, onclick: function () { S.mode = m[0]; render(); } },
-        h("b", null, m[1]), h("span", { class: "small muted" }, off ? "Indisponible ici : la sauvegarde partagée ne répond pas (page ouverte sans être connecté)." : m[2])));
+        h("b", null, m[1]), h("span", { class: "small muted" }, off ? (standalone() ? "Pour jouer chacun sur son appareil, branche d'abord ce site au dossier de sauvegarde partagé (☁, dans Sauvegardes), sur chaque appareil." : "Indisponible ici : la sauvegarde partagée ne répond pas (page ouverte sans être connecté).") : m[2])));
     });
     w.appendChild(h("div", { class: "stack" }, h("span", { class: "label" }, "Comment ?"), modes));
     var counts = h("div", { class: "row" });
@@ -2252,7 +2451,7 @@
     list.forEach(function (m) {
       var names = m.kind === "salle" ? (m.seats || []).map(function (x) { return x.name; }) : (m.players || []);
       var del = A.confirmDel === "m:" + m.id
-        ? h("span", { class: "confirm small" }, "Effacer ?", h("button", { class: "btn sm danger", onclick: function () { Store.del(m.kind === "salle" ? "salles" : "multis", m.id).then(refresh).then(function () { A.confirmDel = null; render(); }); } }, "Oui"), h("button", { class: "btn sm", onclick: function () { A.confirmDel = null; render(); } }, "Non"))
+        ? h("span", { class: "confirm small" }, "Effacer ?", h("button", { class: "btn sm danger", onclick: function () { (m.kind === "salle" ? Room.del("salles", m.id) : Store.del("multis", m.id)).then(refresh).then(function () { A.confirmDel = null; render(); }); } }, "Oui"), h("button", { class: "btn sm", onclick: function () { A.confirmDel = null; render(); } }, "Non"))
         : h("button", { class: "btn sm ghost", onclick: function () { A.confirmDel = "m:" + m.id; render(); } }, "Effacer");
       sec.appendChild(h("div", { class: "save-line" },
         h("div", { class: "grow" }, h("b", null, m.storyTitle + " · " + (m.kind === "salle" ? "salle commune" : "sur cet appareil")), h("div", { class: "small muted" }, names.join(", ") + " · " + when(m.updated))),
@@ -2261,6 +2460,137 @@
     return sec;
   }
 
+
+  // ------------------------------------------------------------------ shared room on the site (several devices)
+  // Intent: GhDb = the few calls of the claude.ai db that the shared room uses (doc get/set/create/onSnapshot/acquire,
+  // collection get/onSnapshot), kept as JSON files in the family's private save folder on GitHub (the one of
+  // « Dossier de sauvegarde partagé »), under multi/. A doc "a/b" is multi/a/b.json; the collection "a/b/c" is the
+  // folder multi/a/b/c/. Watching = asking every ROOM_POLL_MS with the last ETag: an unchanged answer (304) costs
+  // nothing on GitHub's quota. A first write that must win alone (a world choice, the room's lease) creates its file
+  // and fails if it already exists.
+  // Why: Clément, 13/11 (piste 25): the children on the tablet, him on his phone, both on the site.
+  var ROOM_DIR = "multi/", ROOM_POLL_MS = 4000, ROOM_TRIES = 4, ROOM_FAILS = 5, ROOM_JITTER_MS = 700;
+  var GhDb = (function () {
+    var etags = {}, cache = {}, blobs = {};
+    function cfg() { return Sync.config(); }
+    function url(p) { var c = cfg(); return SYNC_API + "/repos/" + c.owner + "/" + c.repo + "/contents/" + p.split("/").map(encodeURIComponent).join("/"); }
+    function call(method, p, body, cond) {
+      var c = cfg(), headers = { Authorization: "Bearer " + c.token, Accept: "application/vnd.github+json", "X-GitHub-Api-Version": "2022-11-28", "Content-Type": "application/json" };
+      if (cond && etags[p]) headers["If-None-Match"] = etags[p];
+      return fetch(url(p), { method: method, cache: "no-store", headers: headers, body: body ? JSON.stringify(body) : undefined });
+    }
+    function b64(str) { var by = new TextEncoder().encode(str), out = ""; for (var i = 0; i < by.length; i += 0x8000) out += String.fromCharCode.apply(null, by.subarray(i, i + 0x8000)); return btoa(out); }
+    function unb64(s) { var bin = atob(String(s).replace(/\s/g, "")), by = new Uint8Array(bin.length); for (var i = 0; i < bin.length; i++) by[i] = bin.charCodeAt(i); return new TextDecoder().decode(by); }
+    function fail(r) { var e = new Error("GitHub a répondu " + r.status); e.code = r.status === 401 || r.status === 403 ? "denied" : "http" + r.status; throw e; }
+    // one file: { sha, data } or null; the cached copy when GitHub answers "unchanged"
+    function readFile(p) {
+      return call("GET", p, null, true).then(function (r) {
+        if (r.status === 304) return cache[p] || null;
+        if (r.status === 404) { delete etags[p]; cache[p] = null; return null; }
+        if (!r.ok) fail(r);
+        etags[p] = r.headers.get("ETag") || "";
+        return r.json().then(function (m) { return (cache[p] = { sha: m.sha, data: JSON.parse(unb64(m.content)) }); });
+      });
+    }
+    // one folder: [{ id, sha, data }] (the files' contents fetched once per sha: a blob never changes)
+    function readDir(p) {
+      return call("GET", p, null, true).then(function (r) {
+        if (r.status === 304) return cache[p] || [];
+        if (r.status === 404) { delete etags[p]; return (cache[p] = []); }
+        if (!r.ok) fail(r);
+        etags[p] = r.headers.get("ETag") || "";
+        return r.json().then(function (list) {
+          var files = (Array.isArray(list) ? list : []).filter(function (x) { return x.type === "file" && /\.json$/.test(x.name); });
+          return Promise.all(files.map(function (x) {
+            if (blobs[x.sha]) return { id: x.name.replace(/\.json$/, ""), sha: x.sha, data: blobs[x.sha] };
+            var c = cfg();
+            return fetch(SYNC_API + "/repos/" + c.owner + "/" + c.repo + "/git/blobs/" + x.sha, { cache: "force-cache", headers: { Authorization: "Bearer " + c.token, Accept: "application/vnd.github+json" } })
+              .then(function (r2) { if (!r2.ok) fail(r2); return r2.json(); })
+              .then(function (b) { blobs[x.sha] = JSON.parse(unb64(b.content)); return { id: x.name.replace(/\.json$/, ""), sha: x.sha, data: blobs[x.sha] }; });
+          })).then(function (out) { return (cache[p] = out); });
+        });
+      });
+    }
+    function write(p, data, onlyNew, tries) {
+      tries = tries || 0;
+      var known = cache[p], body = { message: "Salle commune", content: b64(JSON.stringify(data)) };
+      if (!onlyNew && known && known.sha) body.sha = known.sha;
+      return call("PUT", p, body).then(function (r) {
+        if (r.ok) return r.json().then(function (m) { cache[p] = { sha: m.content.sha, data: data }; delete etags[p]; return true; });
+        if (r.status === 422 && onlyNew) return false;                       // already there: the other one was first
+        if ((r.status === 409 || r.status === 422) && tries < ROOM_TRIES) {   // our sha is old: read it again, write over
+          delete etags[p]; return sleep(Math.random() * ROOM_JITTER_MS * (tries + 1)).then(function () { return readFile(p); }).then(function () { return write(p, data, onlyNew, tries + 1); });
+        }
+        fail(r);
+      });
+    }
+    function snap(id, data) { return { id: id, exists: data != null, data: function () { return data; } }; }
+    // Polling while someone watches; paused when the page is hidden.
+    var watchers = [];
+    function tick() {
+      if (document.hidden || !watchers.length) return;
+      watchers.forEach(function (w) { if (!w.busy) { w.busy = true; w.read().then(function (x) { w.busy = false; w.fails = 0; if (w.alive) w.seen(x); }, function (e) { w.busy = false; if (++w.fails >= ROOM_FAILS && w.alive && w.err) w.err(e); }); } });
+    }
+    setInterval(tick, ROOM_POLL_MS);
+    function watch(read, seen, err) {
+      var w = { read: read, seen: seen, err: err, alive: true, busy: false, fails: 0 };
+      watchers.push(w); tick();
+      return function () { w.alive = false; watchers = watchers.filter(function (x) { return x !== w; }); };
+    }
+    return {
+      doc: function (path) {
+        var p = ROOM_DIR + path + ".json", id = path.split("/").pop();
+        return {
+          get: function () { return readFile(p).then(function (f) { return snap(id, f ? f.data : null); }); },
+          set: function (data) { return write(p, JSON.parse(JSON.stringify(data)), false); },
+          create: function (data) { return write(p, JSON.parse(JSON.stringify(data)), true); },
+          onSnapshot: function (cb, err) {
+            var last = undefined;
+            return watch(function () { return readFile(p); }, function (f) { var sha = f ? f.sha : null; if (sha !== last) { last = sha; cb(snap(id, f ? f.data : null)); } }, err);
+          },
+          // a lease: a lock file next to the doc, taken when absent or expired
+          acquire: function (o) {
+            var lp = ROOM_DIR + path + ".verrou.json", now = Date.now(), mine = { holder: o.holder, until: now + (o.ttlMs || 10000) };
+            return readFile(lp).then(function (f) {
+              if (f && f.data && f.data.until > now && f.data.holder !== o.holder) return { acquired: false };
+              return write(lp, mine, !f).then(function (ok) { return { acquired: ok !== false }; });
+            });
+          },
+        };
+      },
+      collection: function (path) {
+        var p = ROOM_DIR + path;
+        var q = function (list) { return { docs: list.map(function (x) { return snap(x.id, x.data); }) }; };
+        return {
+          get: function () { return readDir(p).then(q); },
+          onSnapshot: function (cb, err) {
+            var last = undefined;
+            return watch(function () { return readDir(p); }, function (list) { var key = list.map(function (x) { return x.sha; }).join(","); if (key !== last) { last = key; cb(q(list)); } }, err);
+          },
+        };
+      },
+      remove: function (path) {
+        var p = ROOM_DIR + path + ".json";
+        return readFile(p).then(function (f) {
+          if (!f) return;
+          return call("DELETE", p, { message: "Salle effacée", sha: f.sha }).then(function () { delete cache[p]; delete etags[p]; });
+        });
+      },
+    };
+  })();
+  // Intent: Room = where shared rooms live: the claude.ai db on the claude.ai page, the save folder on the site.
+  var Room = {
+    on: function () { return Store.mode === "db" || Sync.on(); },
+    site: function () { return Store.mode !== "db" && Sync.on(); },
+    db: function () { return Store.db || GhDb; },
+    put: function (coll, id, doc) { if (!Room.site()) return Store.put(coll, id, doc); var d = JSON.parse(JSON.stringify(doc)); delete d.id; return GhDb.doc(coll + "/" + id).set(d); },
+    get: function (coll, id) { if (!Room.site()) return Store.get(coll, id); return GhDb.doc(coll + "/" + id).get().then(function (x) { var d = x.exists ? x.data() : null; if (d) d.id = id; return d; }); },
+    list: function (coll) {
+      if (!Room.site()) return Store.list(coll);
+      return GhDb.collection(coll).get().then(function (q) { return q.docs.map(function (x) { var d = x.data(); d.id = x.id; return d; }); }).catch(function () { return []; });
+    },
+    del: function (coll, id) { if (!Room.site()) return Store.del(coll, id); return GhDb.remove(coll + "/" + id); },
+  };
   // ---- shared room, several devices
   function sallePath(gid) { return "salles/" + gid; }
   function seatDoc(p, log) {
@@ -2274,29 +2604,29 @@
     var salle = { kind: "salle", story: st.id, storyTitle: st.title, storyVersion: st.version || 1, created: Date.now(), updated: Date.now(),
       seats: S.seats, base: g.base ? JSON.stringify(g.base) : null, released: {}, round: 0, host: deviceId(), toutJouer: S.toutJouer !== false };
     A.busy = true; A.create = null; A.msetup = null; render();
-    Promise.all(g.players.map(function (p) { return Store.put(sallePath(gid) + "/joueurs", p.id, seatDoc(p)); }))
-      .then(function () { return Store.put("salles", gid, salle); })
+    Promise.all(g.players.map(function (p) { return Room.put(sallePath(gid) + "/joueurs", p.id, seatDoc(p)); }))
+      .then(function () { return Room.put("salles", gid, salle); })
       .then(function () { A.busy = false; openSalle(gid); })
       .catch(function (e) { A.busy = false; flash("La salle n'a pas pu être créée (" + ((e && e.code) || "erreur") + ").", true); A.screen = "home"; render(); });
   }
   function openSalle(gid) {
     A.busy = true; render();
-    Store.get("salles", gid).then(function (sd) {
+    Room.get("salles", gid).then(function (sd) {
       if (!sd) throw new Error("Salle introuvable.");
       return loadStory(sd.story).then(function (st) {
         sd.id = gid;
-        return Store.list(sallePath(gid) + "/joueurs").then(function (seats) {
+        return Room.list(sallePath(gid) + "/joueurs").then(function (seats) {
           var X = A.multi = { kind: "salle", gid: gid, doc: sd, story: st, seats: {}, monde: {}, me: lsGet("salle:" + gid), mine: null, undo: [], log: [], unsub: [], g: null, note: "" };
           seats.forEach(function (x) { X.seats[x.id] = x; });
           var mine = X.me && X.seats[X.me];
           if (mine && mine.log) X.log = mine.log;
           rebuild();
           A.busy = false; A.screen = "salle"; render();
-          if (Store.db) {
+          if (Room.on()) {
             var err = function () { X.offline = true; render(); };
-            X.unsub.push(Store.db.doc(sallePath(gid)).onSnapshot(function (snap) { if (snap.exists) { X.doc = thaw(snap.data()); X.doc.id = gid; onRemote(); } }, err));
-            X.unsub.push(Store.db.collection(sallePath(gid) + "/joueurs").onSnapshot(function (q) { q.docs.forEach(function (d) { X.seats[d.id] = thaw(d.data()); X.seats[d.id].id = d.id; }); onRemote(); }, err));
-            X.unsub.push(Store.db.collection(sallePath(gid) + "/monde").onSnapshot(function (q) { q.docs.forEach(function (d) { var x = thaw(d.data()); if (x.key) X.monde[x.key] = x; }); onRemote(); }, err));
+            X.unsub.push(Room.db().doc(sallePath(gid)).onSnapshot(function (snap) { if (snap.exists) { X.doc = thaw(snap.data()); X.doc.id = gid; onRemote(); } }, err));
+            X.unsub.push(Room.db().collection(sallePath(gid) + "/joueurs").onSnapshot(function (q) { q.docs.forEach(function (d) { X.seats[d.id] = thaw(d.data()); X.seats[d.id].id = d.id; }); onRemote(); }, err));
+            X.unsub.push(Room.db().collection(sallePath(gid) + "/monde").onSnapshot(function (q) { q.docs.forEach(function (d) { var x = thaw(d.data()); if (x.key) X.monde[x.key] = x; }); onRemote(); }, err));
           }
         });
       });
@@ -2329,7 +2659,7 @@
     var X = A.multi; if (!X.mine) return;
     if (X.log.length > MULTI_LOG) X.log.splice(0, X.log.length - MULTI_LOG);
     X.mine.owner = deviceId();
-    Store.put(sallePath(X.gid) + "/joueurs", X.mine.id, seatDoc(X.mine, X.log)).catch(function (e) { A.notice = "La salle n'a pas reçu ton dernier choix (" + ((e && e.code) || "erreur") + ")."; render(); });
+    Room.put(sallePath(X.gid) + "/joueurs", X.mine.id, seatDoc(X.mine, X.log)).catch(function (e) { A.notice = "La salle n'a pas reçu ton dernier choix (" + ((e && e.code) || "erreur") + ")."; render(); });
   }
   function renderSalle() {
     var X = A.multi, g = X.g, st = X.story;
@@ -2338,7 +2668,7 @@
     w.appendChild(h("div", null, h("div", { class: "label" }, "Salle commune"), h("h1", null, st.title)));
     if (A.notice) w.appendChild(h("div", { class: "notice" }, A.notice));
     if (X.offline) w.appendChild(h("div", { class: "notice bad" }, "La salle ne répond plus en direct ; recharge la page pour la rejoindre à nouveau."));
-    w.appendChild(h("p", { class: "small muted" }, "Pour qu'un autre joueur entre, invite-le sur cette page par e-mail avec le droit Éditeur (menu Partager), puis il ouvre la page, va dans « Parties à plusieurs » et prend sa place."));
+    w.appendChild(h("p", { class: "small muted" }, Room.site() ? "Pour qu'un autre joueur entre : sur son appareil, le site doit être branché sur le même dossier de sauvegarde partagé (☁ dans Sauvegardes, ou le code QR de cet appareil). Il ouvre « Parties à plusieurs » et prend sa place. Les coups des autres arrivent en quelques secondes." : "Pour qu'un autre joueur entre, invite-le sur cette page par e-mail avec le droit Éditeur (menu Partager), puis il ouvre la page, va dans « Parties à plusieurs » et prend sa place."));
     var me = X.me;
     g.players.forEach(function (p) {
       var mineSeat = p.id === me, taken = p.owner && p.owner !== deviceId();
@@ -2354,7 +2684,7 @@
     var X = A.multi; X.me = pid; lsSet("salle:" + X.gid, pid);
     var sd = X.seats[pid] || {}; X.log = sd.log || []; X.undo.length = 0;
     rebuild();
-    if (X.mine && X.mine.s) salleSave(); else if (X.mine) { X.mine.owner = deviceId(); Store.put(sallePath(X.gid) + "/joueurs", pid, seatDoc(X.mine, X.log)).catch(function () {}); }
+    if (X.mine && X.mine.s) salleSave(); else if (X.mine) { X.mine.owner = deviceId(); Room.put(sallePath(X.gid) + "/joueurs", pid, seatDoc(X.mine, X.log)).catch(function () {}); }
     render();
   }
   function playSeat(pid) {
@@ -2371,9 +2701,13 @@
   }
   // Intent: claim(Choice) -> Promise<Bool> = true when this device decides the world choice ! writes(db monde/<key>)
   function claimDecision(c) {
-    var X = A.multi, key = MU.decisionKey(c), ref = Store.db.doc(sallePath(X.gid) + "/monde/" + safeKey(key));
+    var X = A.multi, key = MU.decisionKey(c), ref = Room.db().doc(sallePath(X.gid) + "/monde/" + safeKey(key));
     var d = { key: key, option: MU.optionOf(c), label: c.label, by: X.mine.name, pid: X.mine.id, at: Date.now() };
     var read = function () { return Store.timed(ref.get()).then(function (snap) { return snap.exists ? thaw(snap.data()) : null; }); };
+    if (ref.create) return Store.timed(ref.create(d)).then(function (won) { return won ? d : read(); }).then(function (win) {
+      win = win || d; X.monde[key] = win; X.g.decisions[key] = win;
+      return win.option === d.option && win.pid === d.pid;
+    }).catch(function (e) { A.notice = "Le choix du monde n'a pas pu être enregistré (" + ((e && e.code) || "réseau") + "). Réessaie."; render(); return false; });
     var lease = ref.acquire ? Store.timed(ref.acquire({ holder: deviceId(), ttlMs: CLAIM_MS })).catch(function () { return { acquired: true }; }) : Promise.resolve({ acquired: true });
     return lease.then(function (r) { return r.acquired ? null : sleep(CLAIM_WAIT_MS); }).then(read).then(function (ex) {
       if (ex && ex.option) return ex;
@@ -2385,23 +2719,23 @@
   }
   // Intent: sync() -> () ! when every seat waits, one device (the one holding the room's lease) merges and writes
   function trySync() {
-    var X = A.multi; if (!X || X.kind !== "salle" || X.syncing || !Store.db) return;
+    var X = A.multi; if (!X || X.kind !== "salle" || X.syncing || !Room.on()) return;
     var ready = function (g) { return MU.allWaiting(g) && g.players.every(function (p) { return (p.round || 0) === (g.round || 0); }); };
     if (!ready(X.g)) return;
     X.syncing = true;
-    var ref = Store.db.doc(sallePath(X.gid));
+    var ref = Room.db().doc(sallePath(X.gid));
     Store.timed(ref.acquire({ holder: deviceId(), ttlMs: LEASE_MS })).then(function (r) {
       if (!r.acquired) return;
-      return Promise.all([Store.timed(ref.get()), Store.timed(Store.db.collection(sallePath(X.gid) + "/joueurs").get())]).then(function (res) {
+      return Promise.all([Store.timed(ref.get()), Store.timed(Room.db().collection(sallePath(X.gid) + "/joueurs").get())]).then(function (res) {
         X.doc = thaw(res[0].data()); X.doc.id = X.gid;
         res[1].docs.forEach(function (d) { X.seats[d.id] = thaw(d.data()); X.seats[d.id].id = d.id; });
         rebuild();
         var g = X.g; if (!ready(g)) return;
         var rep = MU.sync(X.story, g);
-        return Promise.all(g.players.map(function (p) { return Store.put(sallePath(X.gid) + "/joueurs", p.id, seatDoc(p, p.id === X.me ? X.log : (X.seats[p.id] || {}).log)); })).then(function () {
+        return Promise.all(g.players.map(function (p) { return Room.put(sallePath(X.gid) + "/joueurs", p.id, seatDoc(p, p.id === X.me ? X.log : (X.seats[p.id] || {}).log)); })).then(function () {
           var d = X.doc; d.base = g.base ? JSON.stringify(g.base) : null; d.released = g.released; d.round = g.round; d.updated = Date.now();
           d.lastSync = { at: Date.now(), over: rep.over, stuck: rep.stuck, released: rep.released };
-          return Store.put("salles", X.gid, d);
+          return Room.put("salles", X.gid, d);
         }).then(function () { X.undo.length = 0; A.notice = X.note = syncNote(rep); if (A.game && X.mine) A.game.s = X.mine.s; render(); });
       });
     }).catch(function () { /* another device will try, or this one at the next change */ }).then(function () { X.syncing = false; });
@@ -3311,7 +3645,7 @@
     var m = A.modal, close = function () { if (m.kind === "send" || m.kind === "receive") Transfer.stop(); A.modal = null; render(); };
     var box = h("div", { class: "modal", role: "dialog", "aria-modal": "true" });
     var bg = h("div", { class: "drawer-bg", onclick: close });
-    ({ prefs: modalPrefs, report: modalReport, dice: modalDice, mark: modalMark, bedtime: modalBedtime, send: modalSend, receive: modalReceive, words: modalWords, sync: modalSync, chapter: modalChapter, shake: modalShake, adult: modalAdult, keys: modalKeys, news: modalNews })[m.kind](box, close, m);
+    ({ prefs: modalPrefs, report: modalReport, dice: modalDice, mark: modalMark, bedtime: modalBedtime, send: modalSend, receive: modalReceive, words: modalWords, sync: modalSync, chapter: modalChapter, shake: modalShake, adult: modalAdult, keys: modalKeys, news: modalNews, group: modalGroup, vote: modalVote })[m.kind](box, close, m);
     app.appendChild(bg); app.appendChild(box);
     var f = box.querySelector("[autofocus]"); if (f) setTimeout(function () { f.focus(); }, 0);
   }
@@ -3642,6 +3976,8 @@
     if (v.kind === "end") {
       var e = M.endingOf(st, s); if (e && !r.endings[e.id]) { r.endings[e.id] = Date.now(); changed = true; }
       if (e && s.ironman) { var ir = r.iron = r.iron || {}; if (!ir[e.id]) { ir[e.id] = Date.now(); changed = true; } }
+      if (e && !Object.keys(s.met || {}).some(function (k) { return s.met[k] === "gone"; })) { var ly = r.loyal = r.loyal || {}; if (!ly[e.id]) { ly[e.id] = Date.now(); changed = true; } }
+      if (e && s.turn && (!r.best || s.turn < r.best)) { r.best = s.turn; changed = true; }
       // The road taken, for « Comparer en famille »: the choice made at each page, kept for the last games finished.
       if (d.picks && !(r.runs || []).some(function (x) { return x.g === d.id; })) {
         r.runs = (r.runs || []).concat([{ g: d.id, end: e ? e.id : null, t: Date.now(), hero: s.name, picks: d.picks }]).slice(-RUNS_KEPT); changed = true;
