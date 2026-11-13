@@ -388,7 +388,9 @@
   }
 
   // ------------------------------------------------------------------ effects
-  function ev(s, text, cls, extra) { var e = { text: text, cls: cls || "" }; if (extra) for (var k in extra) e[k] = extra[k]; s.events.push(e); }
+  // An event pushed while a choice is played and before its page is entered led to that page (a roll, its outcome,
+  // a blow): it is marked `pre`, and the page shows it before the text (Clément, 13/11).
+  function ev(s, text, cls, extra) { var e = { text: text, cls: cls || "" }; if (extra) for (var k in extra) e[k] = extra[k]; if (s.evIn === false) e.pre = 1; s.events.push(e); }
   function fmt(n) { return Number(n).toLocaleString("fr-FR"); }
   function heal(s, n) { var before = s.pv; s.pv = Math.min(pvMax(s), s.pv + n); return s.pv - before; }
   function apply(story, s, fx) {
@@ -1410,6 +1412,7 @@
 
   // ------------------------------------------------------------------ moving
   function enter(story, s, id) {
+    if (s.evIn === false) s.evIn = true;
     if (id === "@camp") { s.node = "@camp"; return; }
     if (id === "@route") { if (!s.travel) throw new Error("@route hors d'un voyage (depuis " + s.node + ")"); advanceTravel(story, s); return; }
     if (!story.passages[id]) throw new Error("passage inconnu " + id + " (depuis " + s.node + ")");
@@ -1493,7 +1496,8 @@
 
   // Intent: apply(Story, State, Choice) -> () ! writes(State), random
   function choose(story, s, c) {
-    chooseInner(story, s, c);
+    s.evIn = false;
+    try { chooseInner(story, s, c); } finally { delete s.evIn; }
     checkFeats(story, s);
   }
   function chooseInner(story, s, c) {

@@ -1302,13 +1302,18 @@
     if (A.notice) page.appendChild(h("div", { class: "notice" }, A.notice));
     if (A.bedWarn && !G.multi) page.appendChild(h("div", { class: "notice soft" }, "🌙 Bientôt l'heure de refermer le livre : le récit te proposera de t'arrêter à une page calme."));
     var prose = h("div", { class: "prose" });
+    page.appendChild(prose);
     var folded = v.reread && A.unfold !== s.node + "#" + s.turn;
     if (folded) prose.appendChild(h("p", { class: "reread" }, h("span", { class: "muted" }, "Tu connais déjà cette page. "),
       h("button", { class: "btn ghost sm", onclick: function () { A.unfold = s.node + "#" + s.turn; render(); } }, "Relire")));
     else { var glUsed = {}; v.text.forEach(function (t) { var ht = Glossary.mark(st, md(t), glUsed); prose.appendChild(h("p", { html: pref("syllables") ? Syllables.mark(ht) : ht })); }); }
+    // What led to this page (the rolls, their outcome, the blows) comes before the text; what follows from it (clues,
+    // items, quests, feats) after (Clément, 11/11 then 13/11).
+    var evs = s.events || [], evEl = function (list, cls) { return list.length ? h("div", { class: "events " + cls, role: "status" }, list.map(function (e) { var el = h("div", { class: "ev " + (e.cls || "") }, rollBadge(e)); el.insertAdjacentHTML("beforeend", md(e.text)); return el; })) : null; };
+    var leadIn = evs.filter(evLeadsIn), after = evs.filter(function (e) { return !evLeadsIn(e); });
+    var pre = evEl(leadIn, "before"); if (pre) page.insertBefore(pre, prose);
     page.appendChild(prose);
-    // Clues, items and rolls come after the text (Clément, 11/11: at the top they broke the reading).
-    if (s.events && s.events.length) page.appendChild(h("div", { class: "events", role: "status" }, s.events.map(function (e) { return h("div", { class: "ev " + (e.cls || "") }, rollBadge(e), e.text); })));
+    var post = evEl(after, "after"); if (post) page.appendChild(post);
     A.rollAnim = false;
     if (v.kind === "combat") page.appendChild(renderFight(s));
     if (G.multi && v.wait) page.appendChild(renderWait(v));
@@ -2389,11 +2394,21 @@
     var bg = h("div", { class: "drawer-bg", onclick: close });
     var d = h("aside", { class: "drawer", role: "dialog", "aria-label": "Carnet" });
     d.appendChild(h("div", { class: "drawer-head" }, h("h2", null, "Carnet de " + G.s.name), h("button", { class: "btn sm", onclick: close }, "Fermer")));
-    d.appendChild(h("nav", { class: "tabs" }, TABS.map(function (t) { return h("button", { class: "tab" + (A.carnetTab === t[0] ? " on" : ""), onclick: function () { A.carnetTab = t[0]; render(); } }, t[1]); })));
-    var body = h("div", { class: "drawer-body" });
+    // The tab bar and the page keep their place across a render (Clément, 13/11: a tap on a tab sent the bar back to
+    // its start); a new tab opens at its top.
+    var tabsX = A.tabsX || 0, bodyY = A.carnetY && A.carnetY.tab === A.carnetTab ? A.carnetY.y : 0;
+    var nav = h("nav", { class: "tabs" }, TABS.map(function (t) { return h("button", { class: "tab" + (A.carnetTab === t[0] ? " on" : ""), "aria-current": A.carnetTab === t[0] ? "page" : null, onclick: function () { A.carnetTab = t[0]; render(); } }, t[1]); }));
+    nav.addEventListener("scroll", function () { A.tabsX = nav.scrollLeft; });
+    d.appendChild(nav);
+    var body = h("div", { class: "drawer-body" }), tabNow = A.carnetTab;
+    body.addEventListener("scroll", function () { A.carnetY = { tab: tabNow, y: body.scrollTop }; });
     ({ heros: tabHero, sac: tabBag, quetes: tabQuests, indices: tabClues, notes: tabNotes, compagnons: tabCompanions, carte: tabMap, gens: tabPeople, frise: tabFrise, marques: tabMarks, exploits: tabFeats, codex: tabCodex, mots: tabWords, journal: tabLog, coulisses: tabBackstage })[A.carnetTab](body, G.story, G.s);
     d.appendChild(body);
     app.appendChild(bg); app.appendChild(d);
+    nav.scrollLeft = tabsX; body.scrollTop = bodyY;
+    var on = nav.querySelector(".tab.on");          // the chosen tab stays in view, without moving the bar if it already is
+    if (on && (on.offsetLeft < nav.scrollLeft || on.offsetLeft + on.offsetWidth > nav.scrollLeft + nav.clientWidth)) nav.scrollLeft = Math.max(0, on.offsetLeft - 24);
+    A.tabsX = nav.scrollLeft;
   }
   function escClose(e) {
     if (e.key !== "Escape") return;
@@ -2819,6 +2834,10 @@
       })));
   }
   var REDUCED = (function () { try { return window.matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) { return false; } })();
+  // Intent: leadsIn(Event) -> Bool = shown before the text: a roll, or what the choice did before the page opened;
+  // a found clue, an item, a quest, a feat, a level, a meeting stay after it whatever their moment.
+  var EV_AFTER = /\b(clue|item|quest|feat|level|people|map|souv|lead|stain)\b/;
+  function evLeadsIn(e) { return !EV_AFTER.test(e.cls || "") && (!!e.pre || /\broll\b/.test(e.cls || "")); }
   function rollBadge(e) {
     if (!/roll/.test(e.cls || "")) return null;
     var n = e.roll ? e.roll.die : +((/d100 ouvert (?:\([^)]*\) )?(-?\d+)/.exec(e.text) || [])[1]);
