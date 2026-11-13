@@ -23,6 +23,7 @@ récente l'emporte.
 | `app/` | l'interface (`app.js`, `app.css`), les polices et les icônes de l'appli installable |
 | `histoires/src/<id>/` | les sources des histoires ; `histoires/<id>.json` en est la version construite |
 | `tests/` | construction (`build.js`, `site.js`, `page.js`) et tests |
+| `outils/grimoire-clair/` | la police « Grimoire Clair » (Atkinson Hyperlegible + empattements de livre) et son script de fabrication |
 
 ## Construire
 

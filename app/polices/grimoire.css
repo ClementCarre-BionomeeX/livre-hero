@@ -1,0 +1,5 @@
+/* Grimoire Clair (outils/grimoire-clair): Atkinson Hyperlegible's letters with book serifs, OFL 1.1. One file per style. */
+@font-face { font-family: 'Grimoire Clair'; font-style: normal; font-weight: 400; font-display: swap; src: url(polices/GrimoireClair-Regular.woff2) format('woff2'); }
+@font-face { font-family: 'Grimoire Clair'; font-style: normal; font-weight: 700; font-display: swap; src: url(polices/GrimoireClair-Bold.woff2) format('woff2'); }
+@font-face { font-family: 'Grimoire Clair'; font-style: italic; font-weight: 400; font-display: swap; src: url(polices/GrimoireClair-Italic.woff2) format('woff2'); }
+@font-face { font-family: 'Grimoire Clair'; font-style: italic; font-weight: 700; font-display: swap; src: url(polices/GrimoireClair-BoldItalic.woff2) format('woff2'); }
