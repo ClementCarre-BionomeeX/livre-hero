@@ -20,7 +20,9 @@ function buildOf(storiesJson) {
   ["src/moteur.js", "src/multi.js", "src/validateur.js", "app/app.js", "app/app.css"].forEach(function (f) { hsh.update(read(f)); });
   storiesJson.forEach(function (j) { hsh.update(JSON.stringify(JSON.parse(j))); });
   var d = new Date(), date = d.toLocaleDateString("fr-FR", { day: "numeric", month: "short", timeZone: "Europe/Paris" }) + " à " + d.toLocaleTimeString("fr-FR", { hour: "2-digit", minute: "2-digit", timeZone: "Europe/Paris" });
-  return { id: hsh.digest("hex").slice(0, 7), date: date };
+  // The version number (VERSION, raised by hand at each batch of changes; the CI tags v<VERSION> on main) comes first.
+  var version = fs.existsSync(path.join(ROOT, "VERSION")) ? read("VERSION").trim() : "";
+  return { version: version, id: hsh.digest("hex").slice(0, 7), date: date };
 }
 function safe(js) { return js.replace(/<\/script/gi, "<\\/script"); }
 // opts.fonts: the HTML that brings the fonts (Google Fonts links by default); opts.head: lines placed before it.

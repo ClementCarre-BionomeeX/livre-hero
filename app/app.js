@@ -226,15 +226,15 @@
   // On the site, version.json says which version is online: when it differs, a button reloads the page.
   var BUILD = window.LIVRE_BUILD || { id: "dev", date: "" };
   function buildLine() {
-    var el = h("p", { class: "small muted build-line" }, "Version " + BUILD.id + (BUILD.date ? " · construite le " + BUILD.date : ""));
-    if (A.newBuild && A.newBuild !== BUILD.id) el.appendChild(h("span", null, " · ", h("b", null, "la version " + A.newBuild + " est en ligne "), h("button", { class: "btn sm primary", onclick: function () { location.reload(); } }, "Mettre à jour")));
+    var el = h("p", { class: "small muted build-line" }, "Version " + (BUILD.version ? BUILD.version + " (" + BUILD.id + ")" : BUILD.id) + (BUILD.date ? " · construite le " + BUILD.date : ""));
+    if (A.newBuild && A.newBuild.id !== BUILD.id) el.appendChild(h("span", null, " · ", h("b", null, "la version " + (A.newBuild.version || A.newBuild.id) + " est en ligne "), h("button", { class: "btn sm primary", onclick: function () { location.reload(); } }, "Mettre à jour")));
     else if (A.buildChecked) el.appendChild(h("span", null, " · à jour"));
     return el;
   }
   function checkBuild() {
     if (!standalone() || !/^https?:$/.test(location.protocol) || BUILD.id === "dev") return;
     fetch("version.json", { cache: "no-store" }).then(function (r) { return r.ok ? r.json() : null; }).then(function (v) {
-      if (!v || !v.id) return; A.buildChecked = true; A.newBuild = v.id; if (A.screen === "home") render();
+      if (!v || !v.id) return; A.buildChecked = true; A.newBuild = v; if (A.screen === "home") render();
     }).catch(function () { /* offline: nothing to say */ });
   }
   function renderHome() {
