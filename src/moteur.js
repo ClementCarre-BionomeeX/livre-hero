@@ -177,6 +177,9 @@
       var seenKinds = {};
       s.items.forEach(function (id) { var it = item(story, id); if (it.bonus && it.bonus[dom] && !seenKinds[id]) { seenKinds[id] = 1; b += it.bonus[dom]; } });
       b -= s.fatigue * 5;
+      // At sea (8.1): the sky and the wounds not yet closed weigh on the hero's rolls.
+      if (story.weather) b += weatherMod(story, s, dom);
+      if (s.wounds) b += woundMod(story, s, dom);
     }
     return b;
   }
@@ -223,6 +226,11 @@
     if ("lean" in c) return [].concat(c.is).indexOf(leanOf(story, s, c.lean, c.member)) >= 0;
     if ("battle" in c) { var BB = (s.battles || {})[c.battle]; if (!BB) return false; return (c.is == null || BB.out === c.is) && rng(BB.losses, c.losses && c.losses.min, c.losses && c.losses.max); }
     if ("camp" in c) return c.camp == null || c.camp === "none" ? !s.camp : s.camp === c.camp;
+    if ("temps" in c) return [].concat(c.temps).indexOf(weatherOf(story, s)) >= 0;
+    if ("saison" in c) { var sn = seasonOf(story, s); return !!sn && [].concat(c.saison).indexOf(sn.id) >= 0; }
+    if ("blessure" in c) return woundOk(story, s, c.blessure);
+    if ("cicatrice" in c) return [].concat(c.cicatrice).some(function (k) { return !!s.flags["cicatrice:" + k]; });
+    if ("fatigue" in c) return rng(s.fatigue || 0, c.min, c.max);
     if ("missed" in c) { var mq = (story.quests || []).filter(function (q) { return q.id === c.missed; })[0]; return !!mq && questMissed(story, s, mq); }
     // count: [conditions], min / max: how many of them hold ("at least three of these").
     if ("count" in c) { var nc = c.count.filter(function (x) { return evalCond(story, s, x); }).length; return nc >= (c.min || 0) && (c.max == null || nc <= c.max); }
@@ -345,6 +353,9 @@
     if ("souvenirs" in c) return c.min != null ? "Il faut avoir gardé au moins " + c.min + " souvenirs." : "Il faut avoir donné plus de souvenirs.";
     if ("night" in c) return c.night ? "Seulement la nuit." : "Seulement le jour.";
     if ("stock" in c) { var SD = (story.stocks || {})[c.stock] || {}; return c.min != null ? "Il faut " + c.min + (SD.unit ? " " + unitOf(SD, c.min) : "") + " : " + (SD.name || c.stock) + "." : (SD.name || c.stock) + " : il y en a trop."; }
+    if ("temps" in c) return "Pas par ce temps-ci.";
+    if ("blessure" in c) return c.blessure === false ? "Pas avec une blessure ouverte." : "Seulement avec cette blessure.";
+    if ("fatigue" in c) return c.max != null ? "La fatigue te le défend." : "Il faut avoir veillé davantage.";
     if ("camp" in c) return c.camp && c.camp !== "none" ? "Seulement pour qui a rallié " + (((story.camps || {})[c.camp] || {}).name || c.camp) + "." : "Seulement tant que tu n'as rallié aucun camp.";
     return "Ce chemin est fermé pour l'instant.";
   }
@@ -395,6 +406,11 @@
     }
     // camp: "x" — the scene belongs to that camp: closed once the hero has rallied one of its rivals (8.0).
     if (t.camp != null && !campOk(story, s, t.camp)) return false;
+    // At sea (8.1): under this sky, in this season, with this wound still open, with this scar.
+    if (t.temps != null && [].concat(t.temps).indexOf(weatherOf(story, s)) < 0) return false;
+    if (t.saison != null && !(seasonOf(story, s) && [].concat(t.saison).indexOf(seasonOf(story, s).id) >= 0)) return false;
+    if (t.blessure != null && !woundOk(story, s, t.blessure)) return false;
+    if (t.cicatrice != null && ![].concat(t.cicatrice).some(function (k) { return !!s.flags["cicatrice:" + k]; })) return false;
     if (t.first && s.seen[node] > 1) return false;
     if (t.again && !(s.seen[node] > 1)) return false;
     return true;
@@ -405,7 +421,9 @@
     if (k === false) return !Object.keys(known).length;
     return [].concat(k).some(function (e) { return !!(known[e] || known["fin:" + e]); });
   }
-  var SCENE_TAGS = ["with", "without", "when", "after", "before", "second", "regard", "fresh", "camp"];
+  var SCENE_TAGS = ["with", "without", "when", "after", "before", "second", "regard", "fresh", "camp", "temps", "saison"];
+  // blessure: true = some wound is open; an id or a list: one of these is open; false: none is.
+  function woundOk(story, s, w) { var open = woundsOpen(story, s); if (w === true) return open.length > 0; if (w === false) return !open.length; return [].concat(w).some(function (k) { return open.indexOf(k) >= 0; }); }
   function sceneOk(story, s, p) { return !SCENE_TAGS.some(function (k) { return p[k] != null; }) || tagsOk(story, s, p, null); }
   // marks (optional): receives the place in the returned list of each paragraph shown for a second reading.
   function textList(story, s, list, node, marks) {
@@ -583,6 +601,8 @@
       s.items.push(it);
       // A letter, a register, a deed: the page offers to read it at once (7.9, « Lettres et documents »).
       if (I.kind === "document" && I.text) ev(s, "Document : " + I.name, "item doc", { doc: it }); else ev(s, "Objet : " + I.name, "item");
+      // A chart (8.1): the places it shows go on the reader's map.
+      if (I.reveals) apply(story, s, { reveal: I.reveals });
     });
     // A thing handed over leaves the bag, or the pack of the hero at your side who carries it.
     [].concat(fx.drop || []).forEach(function (it) {
@@ -598,6 +618,12 @@
       else { s.pv = Math.max(1, s.pv + fx.pv); ev(s, "−" + Math.abs(fx.pv) + " PV (" + s.pv + "/" + pvMax(s) + ")", "bad"); }
     }
     if (fx.rest) { s.fatigue = 0; }
+    // At sea (8.1): watches that tire, the sky forced by a scene, wounds opened, dressed, healed.
+    if (fx.fatigue) { var f0 = s.fatigue || 0; s.fatigue = Math.max(0, Math.min(FATIGUE_MAX, f0 + fx.fatigue)); if (s.fatigue !== f0) ev(s, "Fatigue " + (s.fatigue > f0 ? "+" : "−") + Math.abs(s.fatigue - f0) + " · " + interp(s, s.fatigue ? "−" + s.fatigue * 5 + " à tous les jets" : "reposé{e}"), s.fatigue > f0 ? "bad" : "good"); }
+    if (fx.meteo) setWeather(story, s, fx.meteo);
+    [].concat(fx.blessure || []).forEach(function (k) { woundOpen(story, s, k); });
+    [].concat(fx.soigner || []).forEach(function (k) { woundDef(story, k); var W0 = (s.wounds || {})[k]; if (W0 && !W0.healed && !W0.tended) { W0.tended = true; ev(s, "Blessure pansée : " + story.wounds[k].name + ".", "good wound"); woundsTick(story, s); } });
+    [].concat(fx.guerir || []).forEach(function (k) { woundDef(story, k); woundClose(story, s, k); });
     if (fx.time) { s.time += fx.time; }
     [].concat(fx.stamp || []).forEach(function (k) { s.stamps = s.stamps || {}; if (s.stamps[k] == null) s.stamps[k] = day(s); });
     if (fx.until != null) { s.time += ((fx.until - hour(s)) + 24) % 24 || 24; } // sleep or wait until the next such hour
@@ -1720,6 +1746,8 @@
   }
   // Intent: tick(Story, State) ! the days that passed (stocks), the world's moments, the terms of promises
   function tick(story, s) {
+    weatherTick(story, s);
+    if (s.wounds) woundsTick(story, s);
     if (!story.stocks && !story.march && !story.promises && !(story.quests || []).some(function (q) { return q.due; })) return;
     if (s.tickDay == null) s.tickDay = day(s);
     while (s.tickDay < day(s)) { s.tickDay++; newDay(story, s); }
@@ -1936,6 +1964,122 @@
     return { title: interp(s, B.title), kind: "bataille", text: text, choices: cs, battle: plan };
   }
 
+  // ------------------------------------------------------------------ at sea (8.1, « En mer »)
+  // The weather (story.weather: { by, every, start, kinds: { id: { name, mod: { dom: n }, say, desc } }, regions: { <value of
+  // by>: { kind: weight } }, seasons: { <season>: { kind: extra weight } } }): every `every` hours the engine draws the sky
+  // anew from the table of the region the story is in (the state `by`, e.g. mer=large), plus the season's extra weights.
+  // A paragraph, a choice or a scene tagged `temps: "brume"` shows only under that sky; the kinds' `mod` weigh on the
+  // hero's rolls. fx.meteo forces a sky (a storm written in a scene) and holds it for `every` hours, or { is, hours }.
+  // The seasons (story.seasons: [{ id, name, from: { day, hour } }]): the last one reached is the season (tag `saison`).
+  var FATIGUE_MAX = 5, WEATHER_EVERY = 6, ENCOUNTER_EVERY = 6, ENCOUNTER_CHANCE = 0.4;
+  function seasonOf(story, s) { var cur = null; (story.seasons || []).forEach(function (x) { if (!x.from || reached(s, x.from)) cur = x; }); return cur; }
+  function weatherOf(story, s) { var Wt = story.weather; if (!Wt) return null; return s.weather || Wt.start || Object.keys(Wt.kinds || {})[0] || null; }
+  function weatherKind(story, s) { var w = weatherOf(story, s); return w ? (story.weather.kinds || {})[w] || null : null; }
+  function weighted(list, wOf) { var tot = 0; list.forEach(function (x) { tot += wOf(x); }); var x = RNG() * tot; for (var i = 0; i < list.length; i++) { x -= wOf(list[i]); if (x <= 0) return list[i]; } return list[list.length - 1]; }
+  function weatherTable(story, s) {
+    var Wt = story.weather, reg = Wt.by ? stateOf(s, Wt.by) : null, base = (Wt.regions || {})[reg] || Wt.base || {}, t = {};
+    Object.keys(base).forEach(function (k) { t[k] = base[k]; });
+    var se = seasonOf(story, s), add = se && (Wt.seasons || {})[se.id];
+    if (add && Object.keys(base).length) Object.keys(add).forEach(function (k) { t[k] = (t[k] || 0) + add[k]; });
+    return t;
+  }
+  function weatherTick(story, s) {
+    var Wt = story.weather; if (!Wt) return;
+    if (!s.weather) s.weather = weatherOf(story, s);
+    if (s.weatherAt == null) { s.weatherAt = s.time; return; }
+    if (s.time - s.weatherAt < (Wt.every || WEATHER_EVERY)) return;
+    if (s.weatherHold != null && s.time < s.weatherHold) return;
+    s.weatherAt = s.time; s.weatherHold = null;
+    var t = weatherTable(story, s), ks = Object.keys(t).filter(function (k) { return t[k] > 0 && (Wt.kinds || {})[k]; });
+    if (!ks.length) return;
+    var w = weighted(ks, function (k) { return t[k]; });
+    if (w !== s.weather) { s.weather = w; var K = Wt.kinds[w]; ev(s, K.say ? interp(s, K.say) : "Le temps change : " + K.name + ".", "world weather"); }
+  }
+  function setWeather(story, s, f) {
+    var Wt = story.weather; if (!Wt) throw new Error("meteo : l'histoire n'a pas de météo");
+    var id = typeof f === "string" ? f : f.is, K = (Wt.kinds || {})[id]; if (!K) throw new Error("temps inconnu " + id);
+    var hours = typeof f === "object" && f.hours != null ? f.hours : (Wt.every || WEATHER_EVERY);
+    var was = s.weather; s.weather = id; s.weatherAt = s.time; s.weatherHold = s.time + hours;
+    if (was !== id) ev(s, K.say ? interp(s, K.say) : "Le temps change : " + K.name + ".", "world weather");
+  }
+  function weatherMod(story, s, dom) { var K = weatherKind(story, s); return K && K.mod ? K.mod[dom] || 0 : 0; }
+  // Wounds that leave a trace (story.wounds: { id: { name, desc, mod: { dom: n }, days, tended, scar, mark } }): fx.blessure
+  // opens one; it weighs on the rolls (`mod`) until it closes, after `days` days, or `tended` days once fx.soigner has
+  // dressed it (half by default); fx.guerir closes it at once. A closed wound with `scar` leaves a scar (tag and
+  // condition `cicatrice`), and `mark` draws it on the hero's face (a mark of Moteur.FACE).
+  function woundDef(story, k) { var d = (story.wounds || {})[k]; if (!d) throw new Error("blessure inconnue " + k); return d; }
+  function woundsOpen(story, s) { return Object.keys(s.wounds || {}).filter(function (k) { return !s.wounds[k].healed; }); }
+  function woundMod(story, s, dom) { var n = 0; woundsOpen(story, s).forEach(function (k) { n += ((story.wounds[k] || {}).mod || {})[dom] || 0; }); return n; }
+  function woundDays(D, W0) { return W0.tended ? (D.tended != null ? D.tended : Math.ceil((D.days || 3) / 2)) : (D.days || 3); }
+  function woundClose(story, s, k) {
+    var W0 = s.wounds[k], D = woundDef(story, k); if (!W0 || W0.healed) return;
+    W0.healed = s.time;
+    if (D.scar) {
+      s.flags["cicatrice:" + k] = true;
+      if (D.mark) { s.face = Object.assign({}, s.face || {}); var mk = (s.face.marks || []).slice(); if (mk.indexOf(D.mark) < 0) mk.push(D.mark); s.face.marks = mk; }
+    }
+    ev(s, "Blessure refermée : " + D.name + (D.scar ? ". Il en reste " + interp(s, D.scar) + "." : "."), "good wound");
+  }
+  function woundsTick(story, s) {
+    woundsOpen(story, s).forEach(function (k) { var W0 = s.wounds[k], D = woundDef(story, k); if (s.time >= W0.at + 24 * woundDays(D, W0)) woundClose(story, s, k); });
+  }
+  function woundOpen(story, s, k) {
+    var D = woundDef(story, k); s.wounds = s.wounds || {};
+    if (s.wounds[k] && !s.wounds[k].healed) return;
+    s.wounds[k] = { at: s.time, tended: false };
+    var mods = Object.keys(D.mod || {}).map(function (d) { return (D.mod[d] > 0 ? "+" : "−") + Math.abs(D.mod[d]) + " " + DOMAINS[d]; });
+    ev(s, "Blessure : " + D.name + (mods.length ? " (" + mods.join(", ") + " jusqu'à ce qu'elle se referme)" : ""), "bad wound");
+  }
+  // Encounters at sea (story.encounters: { by, every, chance, list: [{ to, region, saison, temps, if, weight, once }] }):
+  // coming back to a crossroads after `every` hours or more, the engine may play an encounter of the region the story is in
+  // (the state `by`), fitting the season and the sky, not met yet. The scene ends with `back: true`.
+  function encounterDue(story, s) {
+    var E = story.encounters; if (!E || s.combat || s.travel) return null;
+    if (s.encAt == null) { s.encAt = s.time; return null; }
+    if (s.time - s.encAt < (E.every || ENCOUNTER_EVERY)) return null;
+    s.encAt = s.time;
+    var reg = E.by ? stateOf(s, E.by) : null, se = seasonOf(story, s), w = weatherOf(story, s);
+    var pool = (E.list || []).filter(function (e) {
+      var p = story.passages[e.to];
+      return p && (e.region == null || [].concat(e.region).indexOf(reg) >= 0) && (e.saison == null || (se && [].concat(e.saison).indexOf(se.id) >= 0)) &&
+        (e.temps == null || [].concat(e.temps).indexOf(w) >= 0) && !(e.once !== false && s.seen[e.to]) && evalCond(story, s, e.if) && sceneOk(story, s, p);
+    });
+    if (!pool.length || RNG() >= (E.chance == null ? ENCOUNTER_CHANCE : E.chance)) return null;
+    return weighted(pool, function (e) { return e.weight || 1; }).to;
+  }
+  // Things put together (story.recipes: { id: { make, of: [items], keep: [items], label, say, with, if, fx, anywhere } }):
+  // on a passage marked `atelier: true` (or on any crossroads, with `anywhere`), the engine offers « Assembler : … » as
+  // soon as one part is in the bag; it is greyed until all are, and says what is missing.
+  function craftChoices(story, s, p) {
+    if (!p || !story.recipes || s.combat || s.travel || (!p.atelier && !p.hub)) return [];
+    return Object.keys(story.recipes).filter(function (k) {
+      var R = story.recipes[k];
+      if (!p.atelier && !R.anywhere) return false;
+      if (R.once !== false && s.flags["fait:" + k]) return false;
+      if (!tagsOk(story, s, R, null) || !evalCond(story, s, R.if)) return false;
+      return (R.of || []).some(function (x) { return s.items.indexOf(x) >= 0; });
+    }).map(function (k) {
+      var R = story.recipes[k], miss = (R.of || []).filter(function (x) { return s.items.indexOf(x) < 0; });
+      return { sys: "craft", recipe: k, group: "atelier", label: "Assembler : " + interp(s, R.label || item(story, R.make).name),
+        if: { all: (R.of || []).map(function (x) { return { item: x }; }) }, why: miss.length ? "Il te manque : " + miss.map(function (x) { return item(story, x).name; }).join(", ") + "." : "" };
+    });
+  }
+  function craft(story, s, k) {
+    var R = story.recipes[k]; if (!R) throw new Error("assemblage inconnu " + k);
+    (R.of || []).forEach(function (x) { if ((R.keep || []).indexOf(x) < 0) { var at = s.items.indexOf(x); if (at >= 0) s.items.splice(at, 1); } });
+    s.flags["fait:" + k] = true;
+    if (R.say) ev(s, interp(s, R.say), "item");
+    apply(story, s, Object.assign({}, R.fx || {}, { item: [].concat(R.make || [], (R.fx || {}).item || []) }));
+  }
+  // Vigils (story.vigils: [{ to, with, label, if }]): on a passage marked `veillee: true`, at night, the engine offers to
+  // keep watch with a companion who is there; one vigil a night, each scene once.
+  function nightKey(s) { return hour(s) < NIGHT_TO ? day(s) - 1 : day(s); }
+  function vigilChoices(story, s, p) {
+    if (!p || !p.veillee || !story.vigils || s.combat || s.travel || !isNight(s) || s.vigilNight === nightKey(s)) return [];
+    return story.vigils.filter(function (v) { var tp = story.passages[v.to]; return tp && !s.seen[v.to] && tagsOk(story, s, v, null) && evalCond(story, s, v.if) && sceneOk(story, s, tp); })
+      .map(function (v) { return { sys: "vigil", to: v.to, group: "veillee", label: interp(s, v.label || ("Veiller avec " + nameOf(story, [].concat(v.with)[0]))) }; });
+  }
+
   // ------------------------------------------------------------------ the current view
   var BUILTIN = {
     "@jeu": function (story, s) {
@@ -2093,7 +2237,7 @@
         cs = cs.concat([{ to: s.hubLast, label: "Revenir : " + interp(s, hp.title || (W(story).places[hp.place] || {}).name || "…"), auto: "back" }]);
       }
       if (!cs.length) { var back = backChoice(story, s, p); if (back) cs = [back]; }
-      cs = cs.concat(councilChoices(story, s, p), battleChoices(story, s, p), montrerChoices(story, s, p), accuseChoices(story, s, p), repayChoices(story, s, p), shopChoices(story, s, p), tavernChoices(story, s, p), travelChoices(story, s, p), leadChoices(story, s, p));
+      cs = cs.concat(councilChoices(story, s, p), battleChoices(story, s, p), montrerChoices(story, s, p), accuseChoices(story, s, p), repayChoices(story, s, p), shopChoices(story, s, p), tavernChoices(story, s, p), craftChoices(story, s, p), vigilChoices(story, s, p), travelChoices(story, s, p), leadChoices(story, s, p));
       var sec = [];
       v = { title: interp(s, p.title || ""), kind: p.end ? "end" : "passage", text: textList(story, s, p.text, null, sec), choices: cs, passage: p };
       // The people here at this hour, then the rumour heard on coming in (7.9).
@@ -2238,6 +2382,8 @@
     if (!s.holdWorld) id = redirect(story, s, id);
     s.holdWorld = false;
     if (story.passages[id].hub) { var b = dueBanter(story, s, story.passages[id].act); if (b) { s.ret = id; id = b; } }
+    // At sea (8.1): back on a crossroads, an encounter of the region, the season and the sky may come first.
+    if (story.passages[id].hub && story.encounters) { var en = encounterDue(story, s); if (en) { s.hubLast = id; s.ret = id; id = en; } }
     // The passage left (a fight or a road in between does not count): read by the tag `via`.
     if (s.node && s.node.charAt(0) !== "@" && s.node !== id) s.from = s.node;
     s.node = id;
@@ -2399,7 +2545,10 @@
       case "bplace": { var bb = s.battle; bb.at[bb.troops[bb.i]] = c.post; bb.i++; if (bb.i >= bb.troops.length) bb.step = "wave"; break; }
       case "border": battleOrder(story, s, c); break;
       case "bnext": { var bn = s.battle, BN = battleDef(story, bn.id); if (bn.wave + 1 >= BN.waves.length || battleLostDay(story, s)) { s.holdWorld = true; battleEnd(story, s); } else { bn.wave++; bn.step = "wave"; bn.res = null; } break; }
-      case "buy": s.gold -= c.price; s.items.push(c.item); ev(s, "Acheté : " + item(story, c.item).name + " (−" + money(story, c.price) + ", reste " + money(story, s.gold) + ")", "item"); break;
+      case "buy": s.gold -= c.price; s.items.push(c.item); ev(s, "Acheté : " + item(story, c.item).name + " (−" + money(story, c.price) + ", reste " + money(story, s.gold) + ")", "item"); if (item(story, c.item).reveals) apply(story, s, { reveal: item(story, c.item).reveals }); break;
+      // At sea (8.1).
+      case "craft": craft(story, s, c.recipe); break;
+      case "vigil": s.vigilNight = nightKey(s); go(story, s, c.to); break;
       case "buyFood": s.gold -= c.price; s.food++; ev(s, "Un jour de vivres de plus (" + s.food + ")", "item"); break;
       case "sell": var at = s.items.indexOf(c.item); if (at >= 0) { var it = item(story, c.item), pr = c.price != null ? c.price : Math.floor(it.price * SELL_RATE); s.items.splice(at, 1); s.gold += pr; ev(s, "Vendu : " + it.name + " (+" + money(story, pr) + ")", "good"); } break;
       default: throw new Error("action inconnue " + c.sys);
@@ -2428,6 +2577,7 @@
     stockNow: stockNow, dailyUse: dailyUse, daysLeft: daysLeft, priceFactor: priceFactor, promiseState: promiseState, PROMISE_STATES: PROMISE_STATES, promiseDef: promiseDef,
     leanOf: leanOf, memberIds: memberIds, memberAbsent: memberAbsent, motionDef: motionDef, VOTES: VOTES, tiesKnown: tiesKnown, TIE_KINDS: TIE_KINDS, rivalsOf: rivalsOf, campOk: campOk,
     battleDef: battleDef, heroForce: heroForce, tick: tick, reached: reached,
+    weatherOf: weatherOf, weatherKind: weatherKind, seasonOf: seasonOf, woundsOpen: woundsOpen, woundDef: woundDef, woundDays: woundDays, FATIGUE_MAX: FATIGUE_MAX,
     item: item, weapon: weapon, armor: armor, useItem: useItem, day: day, timeLabel: timeLabel, routesFrom: routesFrom, isNight: isNight,
   };
   if (typeof module !== "undefined" && module.exports) module.exports = API; else root.Moteur = API;

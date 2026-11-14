@@ -8,13 +8,15 @@
 
   var COND_KEYS = ["is", "count", "has", "not", "all", "any", "clues", "clue", "mark", "present", "loyal", "met", "gone", "conf", "fear", "relics", "relic",
     "given", "item", "gold", "food", "pv", "clock", "fac", "level", "day", "since", "night", "seen", "arch", "quest", "place", "known", "person", "party",
-    "lead", "away", "team", "souv", "souvenirs", "heroLevel", "second", "via", "regard", "fresh", "stock", "days", "promise", "vote", "lean", "battle", "camp", "missed"];
+    "lead", "away", "team", "souv", "souvenirs", "heroLevel", "second", "via", "regard", "fresh", "stock", "days", "promise", "vote", "lean", "battle", "camp", "missed",
+    "temps", "saison", "blessure", "cicatrice", "fatigue"];
   // The siege's conditions (8.0) carry a second key (is, member, hero, losses): they are read by their first key.
-  var SIEGE_KEYS = ["stock", "days", "promise", "vote", "lean", "battle", "camp", "missed"];
+  var SIEGE_KEYS = ["stock", "days", "promise", "vote", "lean", "battle", "camp", "missed", "fatigue"];
   var FX_KEYS = ["regard", "resume", "set", "flag", "flags", "unflag", "clue", "mark", "ep", "catchup", "catchupWhy", "join", "met", "leave", "conf", "fear", "fac", "relic",
     "give", "relicLose", "item", "drop", "gold", "food", "pv", "rest", "time", "until", "stamp", "reveal", "meet", "clock", "quest", "questSeen", "note", "noteCls",
     "assign", "team", "regroup", "away", "lead", "leadQuiet", "souv", "souvBack", "catchupAll", "awayUnless",
-    "stock", "promise", "keep", "break", "forgive", "sway", "sound", "camp", "tie"];
+    "stock", "promise", "keep", "break", "forgive", "sway", "sound", "camp", "tie",
+    "meteo", "blessure", "soigner", "guerir", "fatigue"];
   var DOM_KEYS = Object.keys(M.DOMAINS);
 
   // Collects every tag a condition reads (for the echo check).
@@ -167,6 +169,11 @@
       if (k === "battle" && c.is != null && c.is !== "win" && c.is !== "lose") E(where + " : bataille, « " + c.is + " » (attendu : win ou lose).");
       if (k === "camp" && c.camp != null && c.camp !== "none" && !(story.camps || {})[c.camp]) E(where + " : camp « " + c.camp + " » inconnu.");
       if (k === "missed" && !qids[c.missed]) E(where + " : quête « " + c.missed + " » inconnue.");
+      // At sea (8.1).
+      if (k === "temps") checkSea("temps", c.temps, where);
+      if (k === "saison") checkSea("saison", c.saison, where);
+      if (k === "blessure" && typeof c.blessure !== "boolean") checkSea("blessure", c.blessure, where);
+      if (k === "cicatrice") checkSea("cicatrice", c.cicatrice, where);
       if (k === "souvenirs" && c.souvenirs !== "lead" && !(story.heroes || {})[c.souvenirs]) E(where + " : héros « " + c.souvenirs + " » inconnu.");
     }
     // A souvenir "id" belongs to whoever leads: it must exist for at least one hero; "hero:id" for that hero.
@@ -212,6 +219,15 @@
       }); });
       if (fx.camp != null && !(story.camps || {})[fx.camp]) E(where + " : camp « " + fx.camp + " » inconnu.");
       [].concat(fx.tie || []).forEach(function (x) { if (!(story.ties || []).some(function (t) { return t.id === x; })) E(where + " : lien « " + x + " » inconnu."); });
+      // At sea (8.1).
+      if (fx.meteo != null) checkSea("temps", typeof fx.meteo === "object" ? fx.meteo.is : fx.meteo, where + " (meteo)");
+      [].concat(fx.blessure || [], fx.soigner || [], fx.guerir || []).forEach(function (x) { checkSea("blessure", x, where); });
+      if (fx.fatigue != null && typeof fx.fatigue !== "number") E(where + " : fatigue, un nombre (positif ou négatif).");
+    }
+    // Intent: checkSea(Kind, Ids, Where) ! errors = a sky, a season or a wound the story does not declare (8.1)
+    function checkSea(kind, ids, where) {
+      var known = kind === "temps" ? ((story.weather || {}).kinds || {}) : kind === "saison" ? (story.seasons || []).reduce(function (o, x) { o[x.id] = 1; return o; }, {}) : (story.wounds || {});
+      [].concat(ids).forEach(function (x) { if (!known[x]) E(where + " : " + kind + " « " + x + " » inconnu" + (kind === "saison" ? "e" : "") + " de l'histoire."); });
     }
     // « Enquête en ville » (7.9): schedules, witnesses, rumours, contradictions, fading clues, accusation, deadline.
     var PERIODS = Object.keys(M.PERIODS);
@@ -301,6 +317,45 @@
       if (P[id].combat) ["win", "lose", "flee", "calm"].forEach(function (o) { var b = P[id].combat[o]; if (b && b.via) viaTags[b.via] = 1; });
     });
     M.endingsOf(story).forEach(function (e) { endIds[e.id] = 1; });
+    // At sea (8.1): the sky, the seasons, the wounds, the encounters, the things put together, the vigils, the charts.
+    if (story.weather) {
+      var WK = story.weather.kinds || {};
+      if (!Object.keys(WK).length) E("Météo : aucun temps déclaré (kinds).");
+      if (story.weather.start && !WK[story.weather.start]) E("Météo : temps de départ « " + story.weather.start + " » inconnu.");
+      Object.keys(WK).forEach(function (k) { Object.keys(WK[k].mod || {}).forEach(function (d) { if (DOM_KEYS.indexOf(d) < 0) E("Météo « " + k + " » : domaine « " + d + " » inconnu."); }); if (!WK[k].name) E("Météo « " + k + " » : sans nom."); });
+      Object.keys(story.weather.regions || {}).forEach(function (r) { Object.keys(story.weather.regions[r]).forEach(function (k) { if (!WK[k]) E("Météo, région « " + r + " » : temps « " + k + " » inconnu."); }); });
+      Object.keys(story.weather.seasons || {}).forEach(function (r) { if (!(story.seasons || []).some(function (x) { return x.id === r; })) E("Météo : saison « " + r + " » inconnue."); Object.keys(story.weather.seasons[r]).forEach(function (k) { if (!WK[k]) E("Météo, saison « " + r + " » : temps « " + k + " » inconnu."); }); });
+    }
+    (story.seasons || []).forEach(function (x, i) { if (!x.id || !x.name) E("Saison " + (i + 1) + " : il faut un id et un nom."); moment(x.from, "Saison « " + x.id + " »"); });
+    Object.keys(story.wounds || {}).forEach(function (k) {
+      var D = story.wounds[k], w = "Blessure « " + k + " »";
+      if (!D.name) E(w + " : sans nom.");
+      Object.keys(D.mod || {}).forEach(function (d) { if (DOM_KEYS.indexOf(d) < 0) E(w + " : domaine « " + d + " » inconnu."); });
+      if (D.mark && !(M.FACE.marks || {})[D.mark]) E(w + " : marque « " + D.mark + " » inconnue (" + Object.keys(M.FACE.marks || {}).join(", ") + ").");
+      if (D.mark && !D.scar) E(w + " : une marque sur le visage demande une cicatrice (scar).");
+    });
+    if (story.encounters) (story.encounters.list || []).forEach(function (e, i) {
+      var w = "Rencontre " + (i + 1) + " (" + e.to + ")";
+      if (!P[e.to]) E(w + " : passage inconnu."); else if (!P[e.to].back && !(P[e.to].choices || []).length && !P[e.to].combat) E(w + " : la scène ne ramène nulle part (back: true).");
+      if (e.saison != null) checkSea("saison", e.saison, w); if (e.temps != null) checkSea("temps", e.temps, w); checkCond(e.if, w);
+    });
+    Object.keys(story.recipes || {}).forEach(function (k) {
+      var R = story.recipes[k], w = "Assemblage « " + k + " »";
+      if (!items[R.make]) E(w + " : objet fabriqué « " + R.make + " » inconnu.");
+      if (!(R.of || []).length) E(w + " : aucune pièce (of).");
+      (R.of || []).concat(R.keep || []).forEach(function (x) { if (!items[x]) E(w + " : pièce « " + x + " » inconnue."); });
+      [].concat(R.with || []).forEach(function (x) { if (!story.companions[x]) E(w + " : compagnon « " + x + " » inconnu."); });
+      checkCond(R.if, w); checkFx(R.fx, w);
+      if (!Object.keys(P).some(function (id) { return P[id].atelier || (R.anywhere && P[id].hub); })) E(w + " : aucun passage atelier où l'assembler.");
+    });
+    (story.vigils || []).forEach(function (v, i) {
+      var w = "Veillée " + (i + 1) + " (" + v.to + ")";
+      if (!P[v.to]) E(w + " : passage inconnu.");
+      [].concat(v.with || []).forEach(function (x) { if (!story.companions[x]) E(w + " : compagnon « " + x + " » inconnu."); });
+      checkCond(v.if, w);
+      if (!Object.keys(P).some(function (id) { return P[id].veillee; })) E(w + " : aucun passage marqué veillee.");
+    });
+    Object.keys(items).forEach(function (k) { [].concat(items[k].reveals || []).forEach(function (x) { if (!places[x]) E("Objet « " + k + " » : reveals, lieu « " + x + " » inconnu."); }); });
     // A siege (8.0): stocks, the world that moves on, promises, councils and motions, camps, ties, battles, markets.
     var S0 = story.stocks || {}, LEANS = ["pour", "contre", "abstention", "indecis"];
     Object.keys(S0).forEach(function (k) {
@@ -434,6 +489,10 @@
         [].concat(t.via || []).forEach(function (k) { if (!viaTags[k] && !P[k]) E(where + " : tag via, « " + k + " » n'est le via d'aucun choix ni le nom d'un passage."); });
         if (t.second != null && t.second !== true && t.second !== false) [].concat(t.second).forEach(function (k) { if (!endIds[k] && !endIds["fin:" + k]) E(where + " : tag second, « " + k + " » n'est pas une fin de l'histoire."); });
         [].concat(t.outcome || []).forEach(function (o) { if (["win", "lose", "flee", "calm"].indexOf(o) < 0) E(where + " : tag outcome, « " + o + " » inconnu."); });
+        if (t.temps != null) checkSea("temps", t.temps, where + ", tag temps");
+        if (t.saison != null) checkSea("saison", t.saison, where + ", tag saison");
+        if (t.blessure != null && typeof t.blessure !== "boolean") checkSea("blessure", t.blessure, where + ", tag blessure");
+        if (t.cicatrice != null) checkSea("cicatrice", t.cicatrice, where + ", tag cicatrice");
       });
       eachCond(p, function (c) { checkCond(c, where); });
       eachFx(p, function (fx) { checkFx(fx, where); });
@@ -488,6 +547,8 @@
     walk(story, "", "");
     // Shops sell items (sells: [{ item }]) and kits are { arch: [items] }: both are ways to get a thing.
     Object.keys(story.shops || {}).forEach(function (k) { (story.shops[k].sells || []).forEach(function (x) { gotItems[x.item] = 1; }); });
+    // Things put together at the workbench (8.1) are given by their recipe.
+    Object.keys(story.recipes || {}).forEach(function (k) { [].concat(story.recipes[k].make || []).forEach(function (x) { gotItems[x] = 1; }); });
     var kits = ((story.world || {}).start || {}).kits || {}; Object.keys(kits).forEach(function (a) { [].concat(kits[a]).forEach(function (x) { gotItems[x] = 1; }); });
     Object.keys(story.heroes || {}).forEach(function (h) { [].concat(story.heroes[h].items || []).forEach(function (x) { gotItems[x] = 1; }); });
     var ENGINE_READS = /^(fin:|quete|calme:)/;
@@ -599,6 +660,9 @@
       if (p.battle && (story.battles || {})[p.battle]) { add(story.battles[p.battle].win.to); add(story.battles[p.battle].lose.to); }
       (story.march || []).forEach(function (e) { if (e.to && (!e.acts || e.acts.indexOf(p.act) >= 0)) add(e.to); });
       Object.keys(story.promises || {}).forEach(function (k) { if (story.promises[k].collect) add(story.promises[k].collect); });
+      // 8.1: the encounters at sea come on any crossroads; the vigils, on a passage marked veillee.
+      if (p.hub && story.encounters) (story.encounters.list || []).forEach(function (e) { add(e.to); });
+      if (p.veillee) (story.vigils || []).forEach(function (v) { add(v.to); });
       return out;
     }
     var arrivals = [];
@@ -626,6 +690,7 @@
         if (c.sys === "montrer") { var cf = (story.people[c.who] || {}).confront || {}; cand(Object.keys(cf).map(function (k) { return cf[k]; }), null); return { d: best, fixed: null }; }
         if (c.sys === "accuse" && P[cur] && P[cur].accuse) { cand(P[cur].accuse.to, null); return { d: best, fixed: null }; }
         if (c.sys === "council" && P[cur] && P[cur].council) { cand(P[cur].council.to, null); return { d: best, fixed: null }; }
+        if (c.sys === "vigil") { cand(c.to, null); return { d: best, fixed: null }; }
         if (c.sys === "battle" && P[cur] && P[cur].battle) { var BB = story.battles[P[cur].battle]; cand(BB.win.to, null); cand(BB.lose.to, null); return { d: best, fixed: null }; }
         if (c.sys) return { d: Infinity, fixed: null };
         var raw = c;

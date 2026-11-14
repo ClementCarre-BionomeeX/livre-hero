@@ -235,3 +235,21 @@ recherche des passages jamais atteints sait montrer, relier et accuser.
 | passage | `epilogue: true` + `story.epilogue: [{ if, text }]`, `epilogueTitle` | Sur une fin, le moteur ajoute les lignes d'épilogue qui tiennent : ce que sont devenus les choix du lecteur. Le validateur compte ces lignes comme l'écho des quêtes. |
 | `world` | `noFood: true` | Pas de jauge de vivres personnelle : c'est la ville qui mange. |
 | passage | `creditor: "<personne>"` | Le créancier est là : le choix « Rembourser » s'ajoute. |
+
+## En mer (14/11, 8.1) : météo, saisons, blessures, rencontres, établi, veillées
+
+| Où | Clé | Sens |
+|---|---|---|
+| `story.seasons` | `[{ id, name, from }]` | Les saisons, chacune à partir du jour `from`. Condition et tag `saison: "<id>"`. |
+| `story.weather` | `{ by, every, start, kinds: { <id>: { name, desc, mod, say } }, regions: { <état>: { <temps>: poids } }, seasons: { <saison>: { <temps>: +poids } } }` | Le temps qu'il fait. Toutes les `every` heures, le moteur tire un temps selon la région (la valeur de l'état `by`) et la saison. `mod` : bonus ou malus des tests du héros ; `say` s'écrit dans le fil au changement. L'en-tête montre la saison et le ciel. |
+| fx | `meteo: "<temps>"` ou `{ is, hours }` | Impose un temps (pour `hours` heures). |
+| tag, condition | `temps: "<id>"` ou liste | Le paragraphe ou le choix ne vaut que par ce temps. |
+| `story.wounds` | `{ <id>: { name, desc, mod, days, tended, scar, mark } }` | Les blessures : malus `mod` aux tests pendant `days` jours (`tended` jours une fois soignée). `scar` : une cicatrice reste, qui ajoute la marque `mark` au portrait et pose `cicatrice:<id>`. |
+| fx | `blessure: "<id>"`, `soigner: "<id>" \| true`, `guerir: "<id>" \| true` | Blesser, soigner (la guérison va plus vite), guérir tout de suite. |
+| condition | `blessure: true \| false \| "<id>"`, `cicatrice: "<id>"`, `fatigue: { min, max }` | |
+| fx | `fatigue: n` | La fatigue du héros (0 à 5) : une nuit de sommeil la remet à zéro. |
+| `story.encounters` | `{ by, every, chance, list: [{ to, region, saison, temps, if, weight, once }] }` | En revenant à un carrefour, après `every` heures au moins, le moteur peut jouer une rencontre de la région, de la saison et du temps qu'il fait. La scène finit par `back: true`. |
+| `story.recipes` | `{ <id>: { make, of, keep, label, say, with, if, fx, anywhere } }` | Ce qu'on assemble : sur un passage `atelier: true`, le choix « Assembler : … » paraît dès qu'on a une pièce, grisé avec ce qui manque. Pose `fait:<id>`. |
+| `story.vigils` | `[{ to, with, label, if }]` | Sur un passage `veillee: true`, la nuit, veiller avec un compagnon présent : une veillée par nuit, chaque scène une fois. |
+| objet | `reveals: [lieux]` | Une carte : l'avoir fait paraître ces lieux sur la carte. |
+| `story` | `stocksTab`, `stocksLabel`, `battlesLabel` | Le nom de l'onglet des réserves et de ses rubriques (« Le navire » au lieu de « La ville »). |

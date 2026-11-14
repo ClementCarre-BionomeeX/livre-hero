@@ -1891,6 +1891,7 @@
       h("span", { class: "pill gold", title: "Bourse : " + M.money(st, s.gold) }, M.money(st, s.gold, true)),
       (st.world || {}).noFood ? null : h("span", { class: "pill", title: "Jours de vivres", "aria-label": "Vivres : " + s.food + " jour" + (s.food > 1 ? "s" : "") }, "Vivres " + s.food),
       stockPills(st, s),
+      skyPill(st, s),
       s.mark ? h("span", { class: "pill mark", title: "La Marque" }, "Marque " + s.mark) : null,
       h("span", { class: "pill small" }, M.timeLabel(s)),
       s.ironman ? h("span", { class: "pill small", title: "Sans retour : chaque choix est définitif. Jetons de destin restants dans cet acte : " + fateLeft(s), "aria-label": "Sans retour, " + fateLeft(s) + " jetons de destin" }, "⚔ 🎲" + fateLeft(s)) : null,
@@ -3373,7 +3374,9 @@
     var plan = Object.keys(st.mysteries || {}).some(function (k) { return st.mysteries[k].plan; });
     // A siege (8.0): the city's stocks, the council, debts and promises, who is with whom, when the story has them.
     var has = { ville: !!(st.stocks || st.march), conseil: !!st.councils, dettes: !!st.promises, liens: !!st.ties };
-    return TABS.filter(function (t) { return (t[0] !== "documents" || docs) && (t[0] !== "reconst" || plan) && (has[t[0]] == null || has[t[0]]); });
+    // A story names its stocks' tab (8.1: « Le navire »).
+    return TABS.filter(function (t) { return (t[0] !== "documents" || docs) && (t[0] !== "reconst" || plan) && (has[t[0]] == null || has[t[0]]); })
+      .map(function (t) { return t[0] === "ville" && st.stocksTab ? [t[0], st.stocksTab] : t; });
   }
   function renderCarnet() {
     var G = A.game; if (!G) { A.carnet = null; return; }
@@ -3419,12 +3422,13 @@
     b.appendChild(h("div", { class: "kv" },
       h("span", null, "Points de vie"), bar("pv", s.pv, M.pvMax(s)), h("span", { class: "num" }, s.pv + "/" + M.pvMax(s)),
       h("span", null, "Expérience"), bar("", into, M.EP_PER_LEVEL), h("span", { class: "num" }, s.ep.toLocaleString("fr-FR") + " EP"),
-      h("span", null, "Fatigue"), bar("fear", s.fatigue, 5), h("span", { class: "num" }, s.fatigue ? "−" + s.fatigue * 5 : "aucune"),
+      h("span", null, "Fatigue"), bar("fear", s.fatigue, M.FATIGUE_MAX || 5), h("span", { class: "num" }, s.fatigue ? "−" + s.fatigue * 5 : "aucune"),
       h("span", null, "Bourse"), h("span"), h("span", { class: "num" }, M.money(st, s.gold)),
       h("span", null, "Vivres"), h("span"), h("span", { class: "num" }, s.food + " j"),
       s.mark ? [h("span", null, "Marque"), h("span"), h("span", { class: "num" }, s.mark)] : null));
     b.appendChild(h("div", { class: "label" }, "Domaines (jet : d100 ouvert + bonus, il faut 101)"));
     b.appendChild(h("div", { class: "kv" }, Object.keys(M.DOMAINS).map(function (k) { var v = M.bonus(st, s, k); return [h("span", null, M.DOMAINS[k]), bar("conf", v, 80), h("span", { class: "num" }, (v >= 0 ? "+" : "") + v)]; })));
+    woundRows(b, st, s);
     var w = M.weapon(st, s), ar = M.armor(st, s);
     if (!A.game.multi) b.appendChild(h("button", { class: "btn sm", onclick: function () { A.carnet = null; A.screen = "fiche"; render(); window.scrollTo(0, 0); } }, "🖨 Fiche du héros à imprimer"));
     if (st.heroes) tabHeroes(b, st, s);
@@ -3883,6 +3887,27 @@
   };
   // Relations (6th series): how each one sees you, in the author's word (fx.regard); an option of the reader.
   function regardTag(s, k) { var w = pref("relations") && (s.regard || {})[k]; return w && M.REGARDS[w] ? h("span", { class: "regard small " + w, title: "Ce qu'on pense de toi" }, M.REGARDS[w]) : h("span"); }
+  // ------------------------------------------------------------------ at sea (8.1)
+  // The sky and the season in the top bar (« Équinoxe · grain »), with what the weather does to the rolls.
+  function skyPill(st, s) {
+    var w = M.weatherKind(st, s), se = M.seasonOf(st, s); if (!w && !se) return null;
+    var mods = w && w.mod ? Object.keys(w.mod).filter(function (d) { return w.mod[d]; }).map(function (d) { return (w.mod[d] > 0 ? "+" : "−") + Math.abs(w.mod[d]) + " " + M.DOMAINS[d]; }) : [];
+    var label = [se ? se.name : null, w ? w.name : null].filter(Boolean).join(" · ");
+    return h("span", { class: "pill small sky", title: (w && w.desc ? w.desc + " " : "") + (mods.length ? "Effet sur tes jets : " + mods.join(", ") + "." : ""), "aria-label": "Temps : " + label }, "☁ " + label);
+  }
+  // The wounds still open and the scars, in the hero's tab.
+  function woundRows(b, st, s) {
+    var open = M.woundsOpen(st, s), scars = Object.keys(s.wounds || {}).filter(function (k) { return s.wounds[k].healed && (st.wounds[k] || {}).scar; });
+    if (!open.length && !scars.length) return;
+    b.appendChild(h("div", { class: "label" }, "Blessures"));
+    open.forEach(function (k) {
+      var D = M.woundDef(st, k), W0 = s.wounds[k], left = Math.max(0, Math.ceil((W0.at + 24 * M.woundDays(D, W0) - s.time) / 24));
+      var mods = Object.keys(D.mod || {}).map(function (d) { return (D.mod[d] > 0 ? "+" : "−") + Math.abs(D.mod[d]) + " " + M.DOMAINS[d]; });
+      b.appendChild(h("div", { class: "itemrow wound" }, h("b", null, D.name), h("span", { class: "num" }, mods.join(", ")),
+        h("div", { class: "desc" }, (D.desc ? M.interp(s, D.desc) + " " : "") + (W0.tended ? "Pansée. " : "") + "Se refermera d'ici " + (left <= 1 ? "un jour" : left + " jours") + ".")));
+    });
+    scars.forEach(function (k) { var D = st.wounds[k]; b.appendChild(h("div", { class: "itemrow scar" }, h("b", null, "Cicatrice"), h("span"), h("div", { class: "desc" }, M.interp(s, D.scar)))); });
+  }
   // ------------------------------------------------------------------ a siege (8.0)
   // The pills of the stocks a story marks `pill: true` (« Blé 612 · 14 j »).
   function stockPills(st, s) {
@@ -3899,7 +3924,7 @@
   }
   function tabCity(b, st, s) {
     var ids = Object.keys(st.stocks || {});
-    if (ids.length) b.appendChild(h("div", { class: "label" }, "Les réserves de la ville"));
+    if (ids.length) b.appendChild(h("div", { class: "label" }, st.stocksLabel || "Les réserves de la ville"));
     ids.forEach(function (k) {
       var D = st.stocks[k], v = M.stockNow(st, s, k), use = M.dailyUse(st, s, k), dl = M.daysLeft(st, s, k), max = D.max != null ? D.max : Math.max(D.start || 1, v);
       var by = D.by ? (Object.keys(s.flags).filter(function (f) { return f.indexOf(D.by + "=") === 0; })[0] || "").slice(D.by.length + 1) : "";
@@ -3916,7 +3941,7 @@
     }
     var bs = Object.keys(s.battles || {});
     if (bs.length) {
-      b.appendChild(h("div", { class: "label" }, "Les combats sur les murs"));
+      b.appendChild(h("div", { class: "label" }, st.battlesLabel || "Les combats sur les murs"));
       bs.forEach(function (k) { var R = s.battles[k], B = (st.battles || {})[k] || {}; b.appendChild(h("div", { class: "quest " + (R.out === "win" ? "faite" : "manque") }, h("div", null, M.interp(s, B.title || k), " ", h("span", { class: "state" }, "· " + (R.out === "win" ? "la ligne a tenu" : "la ligne a cédé") + " · pertes " + (R.losses < 15 ? "légères" : R.losses < 35 ? "lourdes" : "terribles"))))); });
     }
   }
