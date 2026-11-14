@@ -279,7 +279,7 @@ Object.assign(P, {
       { label: "« Ne prends rien que tu ne saurais rendre. »", hide: { seen: "IVR_chambre" }, fx: { ep: ["perso", 2000] }, to: "IVR_chamois_mot" },
       { label: "Monter de nuit avec la clé d'Anselme", if: { item: "ivr_cle" }, why: "Il te faudrait la clé de la chambre trois.", hide: { seen: "IVR_chambre" }, to: "IVR_chamois_cle" },
       { label: "Attendre la nuit et forcer la porte de la chambre trois", hide: { seen: "IVR_chambre" }, test: { dom: "discretion", diff: -20, label: "Un escalier de bois qui grince", help: [H_PIP, { if: { item: "pied_de_biche" }, v: 10 }] }, win: { fx: { ep: ["perso", 1500] }, to: "IVR_chamois_nuit" }, lose: { to: "IVR_chamois_surprise" } },
-      { label: "Coliane : « Une serrure d'auberge ? Laisse-moi faire. »", who: "coliane", hide: { seen: "IVR_chambre" }, fx: { conf: { coliane: 3 }, ep: ["perso", 1500] }, to: "IVR_chamois_nuit" },
+      { label: "« Une serrure d'auberge ? Laisse-moi faire », dit Coliane", who: "coliane", hide: { seen: "IVR_chambre" }, fx: { conf: { coliane: 3 }, ep: ["perso", 1500] }, to: "IVR_chamois_nuit" },
       { back: "IVR_bourg" },
     ] },
   IVR_chamois_mot: { act: "IV", title: "Ce qu'elle disait toujours", place: "hautecombe",
@@ -321,7 +321,7 @@ Object.assign(P, {
     choices: [
       { label: "Vider le broc par la lucarne", to: "IVR_chambre_broc" },
       { label: "Chercher ce qu'elle a laissé, en pensant comme elle", test: { dom: "savoir", diff: -10, label: "Où elle cacherait une lettre", help: [{ if: { has: "maitre:maelle" }, v: 15 }, H_CHA] }, win: { fx: { ep: ["perso", 2000] }, to: "IVR_lettre_trouvee" }, lose: { to: "IVR_chambre_eau" } },
-      { label: "Pip : « Je regarde avec ma lumière. »", who: "pip", fx: { conf: { pip: 5 }, ep: ["perso", 2000] }, to: "IVR_chambre_pip" },
+      { label: "« Je regarde avec ma lumière », dit Pip", who: "pip", fx: { conf: { pip: 5 }, ep: ["perso", 2000] }, to: "IVR_chambre_pip" },
     ] },
   IVR_chambre_broc: { act: "IV", title: "Le broc", place: "hautecombe",
     text: [
@@ -331,7 +331,7 @@ Object.assign(P, {
     ],
     choices: [
       { label: "Laisser le broc, et chercher ce qu'elle a laissé", test: { dom: "savoir", diff: -10, label: "Où elle cacherait une lettre", help: [{ if: { has: "maitre:maelle" }, v: 15 }, H_CHA] }, win: { fx: { ep: ["perso", 2000] }, to: "IVR_lettre_trouvee" }, lose: { to: "IVR_chambre_eau" } },
-      { label: "Pip : « Je regarde avec ma lumière. »", who: "pip", fx: { conf: { pip: 5 }, ep: ["perso", 2000] }, to: "IVR_chambre_pip" },
+      { label: "« Je regarde avec ma lumière », dit Pip", who: "pip", fx: { conf: { pip: 5 }, ep: ["perso", 2000] }, to: "IVR_chambre_pip" },
     ] },
   IVR_chambre_pip: { act: "IV", title: "La lumière de Pip", place: "hautecombe", with: "pip",
     text: [
@@ -423,8 +423,8 @@ Object.assign(P, {
     ],
     choices: [
       { label: "Monter sur la table de pierre et gratter la chaux", test: { dom: "savoir", diff: -10, label: "Retrouver une peinture sous la chaux", help: [H_CHA, { if: { has: "passe:cercle" }, v: 10 }] }, win: { fx: { clue: "ivr_fresque", ep: ["perso", 2500] }, to: "IVR_fresque" }, lose: { to: "IVR_voute_rate" } },
-      { label: "Pip : « Je monte voir. »", who: "pip", fx: { clue: "ivr_fresque", conf: { pip: 5 }, ep: ["perso", 2500] }, to: "IVR_fresque" },
-      { label: "Charline : « Un peu de chaleur, et la chaux tombera toute seule. »", who: "charline", fx: { clue: "ivr_fresque", conf: { charline: 5 }, ep: ["perso", 2500] }, to: "IVR_fresque" },
+      { label: "« Je monte voir », dit Pip", who: "pip", fx: { clue: "ivr_fresque", conf: { pip: 5 }, ep: ["perso", 2500] }, to: "IVR_fresque" },
+      { label: "« Un peu de chaleur, et la chaux tombera toute seule », dit Charline", who: "charline", fx: { clue: "ivr_fresque", conf: { charline: 5 }, ep: ["perso", 2500] }, to: "IVR_fresque" },
       { back: "IVR_nef" },
     ] },
   IVR_voute_rate: { act: "IV", title: "La voûte", place: "hautecombe",
@@ -740,7 +740,7 @@ Object.assign(P, {
     choices: [
       { label: "Lui demander une fiole d'eau claire pour le glacier", hide: { has: "IVR:fiole" }, to: "IVR_source_fiole" },
       { label: "Te faire soigner à l'infirmerie", hide: { seen: "IVR_infirmerie" }, to: "IVR_infirmerie" },
-      { label: "Frère Aubin : « Laisse-moi lui parler de ta main. »", who: "aubin", if: { all: [{ loyal: "aubin" }, { mark: { min: 1 } }] }, why: "Il faudrait que Frère Aubin ait toute confiance en toi, et que ta main porte la Marque.", tag: "Marque −1", hide: { any: [{ has: "IVR:source_palie" }, { has: "IVT:marque_palie" }, { has: "IVD:main_lavee" }] }, to: "IVR_source_marque" },
+      { label: "« Laisse-moi lui parler de ta main », dit Frère Aubin", who: "aubin", if: { all: [{ loyal: "aubin" }, { mark: { min: 1 } }] }, why: "Il faudrait que Frère Aubin ait toute confiance en toi, et que ta main porte la Marque.", tag: "Marque −1", hide: { any: [{ has: "IVR:source_palie" }, { has: "IVT:marque_palie" }, { has: "IVD:main_lavee" }] }, to: "IVR_source_marque" },
       { back: "IVR_temple" },
     ] },
   IVR_source_fiole: { act: "IV", title: "La fiole", place: "hautecombe",
@@ -901,17 +901,17 @@ Object.assign(P, {
     choices: [{ back: "IVR_cloitre" }] },
   IVR_citerne_nuit: { act: "IV", title: "La citerne, la nuit", place: "hautecombe", takes: "night", ambiance: "souterrain",
     text: [
-      "Vous descendez les douze marches ensemble, à la lueur de la lampe à huile. Barthélemy tremble. L'eau du bassin est noire et lisse, et au milieu, sous la surface, une forme claire, petite, qui pourrait être un visage. Une voix monte de l'eau, une voix de fillette, joyeuse, un peu essoufflée, comme si elle avait couru : « Papa ! Tu as amené quelqu'un ! Viens, papa, viens, il fait chaud ici, il y a Fifi, tu te souviens de Fifi ? »",
+      "Vous descendez les douze marches ensemble, à la lueur de la lampe à huile. Barthélemy tremble. L'eau du bassin est noire et lisse, et au milieu, sous la surface, une forme claire, petite, qui pourrait être un visage. Une voix monte de l'eau, une voix de fillette, joyeuse, un peu essoufflée, comme si elle avait couru : « Papa ! Tu as amené quelqu'un ! Viens, papa, viens, il fait chaud ici, il y a Bouton, tu te souviens de Bouton ? »",
       "Barthélemy fait un pas. Il ne s'en rend pas compte. Il en fait un deuxième. Ses sabots sont au bord du bassin, et il se penche, les bras ouverts, comme on se penche sur un berceau.",
       { with: "pip", text: "Pip s'est mis entre lui et l'eau. Il brille aussi fort qu'il peut. Barthélemy ne le voit pas." },
     ],
     choices: [
-      { label: "« Fifi ? Margot n'a jamais eu de chien. Elle ne sait pas qui est votre fille. »", if: { clue: "v_margot" }, why: "Il faudrait savoir quelque chose que la voix ignore de Margot.", fx: FIN_MEUNIER("libre"), to: "IVR_meunier_libre" },
+      { label: "« Bouton ? Margot n'a jamais eu de chien. Elle ne sait pas qui est votre fille. »", if: { clue: "v_margot" }, why: "Il faudrait savoir quelque chose que la voix ignore de Margot.", fx: FIN_MEUNIER("libre"), to: "IVR_meunier_libre" },
       { label: "Lui parler de sa fille, la vraie, pour couvrir l'autre voix", test: { dom: "social", diff: -20, label: "Une voix plus forte que celle de l'eau", help: [H_AUB, H_PIP, { if: { clue: "v_sauge" }, v: 10 }] },
         win: { fx: FIN_MEUNIER("libre"), to: "IVR_meunier_libre" }, lose: { to: "IVR_meunier_tombe" } },
       { label: "L'attraper à bras-le-corps et le tirer en arrière", test: { dom: "combat", diff: -10, label: "Un meunier qui veut sa fille", help: [H_THA] },
         win: { fx: FIN_MEUNIER("tenu"), to: "IVR_meunier_tenu" }, lose: { to: "IVR_meunier_tombe" } },
-      { label: "Pip : « Je vais lui montrer ce qu'il y a vraiment dans l'eau. »", who: "pip", fx: { conf: { pip: 10 }, set: { barthelemy: "libre" }, flag: "barthelemy:sort", quest: "IV_barthelemy" }, to: "IVR_meunier_libre" },
+      { label: "« Je vais lui montrer ce qu'il y a vraiment dans l'eau », dit Pip", who: "pip", fx: { conf: { pip: 10 }, set: { barthelemy: "libre" }, flag: "barthelemy:sort", quest: "IV_barthelemy" }, to: "IVR_meunier_libre" },
     ] },
   IVR_meunier_libre: { act: "IV", title: "Ce qu'il y a dans l'eau", place: "hautecombe",
     fx: { ep: ["seance", 3000], regard: { barthelemy: "redevable" } },
@@ -981,8 +981,8 @@ Object.assign(P, {
         win: { fx: { set: { barthelemy: "vaincu" }, flag: "barthelemy:sort", quest: "IV_barthelemy", ep: ["seance", 3500] }, to: "IVR_meunier_vaincu" },
         lose: { fx: { set: { barthelemy: "enfui" }, flag: ["barthelemy:sort", "IVR:source_gatee"], quest: "IV_barthelemy", pv: -3 }, to: "IVR_meunier_fuite" },
         calm: { fx: { set: { barthelemy: "repenti" }, flag: "barthelemy:sort", quest: "IV_barthelemy", ep: ["seance", 3500] }, to: "IVR_meunier_brise" } } },
-      { label: "Thavary : « Je m'occupe de la gourde. »", who: "thavary", fx: { conf: { thavary: 5 }, set: { barthelemy: "vaincu" }, flag: ["barthelemy:sort", "IVR:gourde_thavary"], quest: "IV_barthelemy", ep: ["seance", 3000] }, to: "IVR_meunier_vaincu" },
-      { label: "Coliane : « Il ne m'entendra pas arriver. »", who: "coliane", fx: { conf: { coliane: 5 }, set: { barthelemy: "vaincu" }, flag: ["barthelemy:sort", "IVR:gourde_coliane"], quest: "IV_barthelemy", ep: ["seance", 3000] }, to: "IVR_meunier_vaincu" },
+      { label: "« Je m'occupe de la gourde », dit Thavary", who: "thavary", fx: { conf: { thavary: 5 }, set: { barthelemy: "vaincu" }, flag: ["barthelemy:sort", "IVR:gourde_thavary"], quest: "IV_barthelemy", ep: ["seance", 3000] }, to: "IVR_meunier_vaincu" },
+      { label: "« Il ne m'entendra pas arriver », dit Coliane", who: "coliane", fx: { conf: { coliane: 5 }, set: { barthelemy: "vaincu" }, flag: ["barthelemy:sort", "IVR:gourde_coliane"], quest: "IV_barthelemy", ep: ["seance", 3000] }, to: "IVR_meunier_vaincu" },
     ] },
   IVR_meunier_vaincu: { act: "IV", title: "La gourde crevée", place: "hautecombe",
     text: [
@@ -996,7 +996,7 @@ Object.assign(P, {
   IVR_meunier_brise: { act: "IV", title: "Pas de chien", place: "hautecombe",
     fx: { regard: { barthelemy: "redevable" } },
     text: [
-      "Barthélemy s'arrête de verser. La gourde reste penchée dans sa main. Il ne se retourne pas. « Fifi, dit-il. Elle me parle de Fifi. Toutes les nuits. Le chien. Elle l'aimait tant. » Sa voix se brise sur le dernier mot. « On n'a jamais eu de chien. Sa mère avait peur des chiens. »",
+      "Barthélemy s'arrête de verser. La gourde reste penchée dans sa main. Il ne se retourne pas. « Bouton, dit-il. Elle me parle de Bouton. Toutes les nuits. Le chien. Elle l'aimait tant. » Sa voix se brise sur le dernier mot. « On n'a jamais eu de chien. Sa mère avait peur des chiens. »",
       "Il pose la gourde par terre. Il la regarde. Puis il la renverse, du bout du doigt, et l'eau noire coule sur les dalles et se retire dans les joints, en fumant un peu. « Elle ne la connaît pas, dit-il. Elle ne l'a jamais connue. Je lui ai tout donné, et elle ne l'a jamais connue. » Il se met à rire, un rire terrible, puis il pleure, et c'est mieux.",
       "Au matin, il se présente au portier. Il demande un bandeau gris. Il donne ses mules, sa farine, ses bagues aux frères. Il ne garde que son manteau. Herbelin vide la vasque, attend qu'elle se remplisse, et goûte l'eau. « Pierre et froid », dit-il, soulagé.",
     ],
@@ -1028,7 +1028,7 @@ Object.assign(P, {
     choices: [
       { label: "Te jeter à l'eau et l'attraper", test: { dom: "nature", diff: -10, label: "Cinquante pas, et l'eau froide", help: [H_COL, H_THA] },
         win: { fx: { ep: ["seance", 2500] }, to: "IVR_combe_sauvee" }, lose: { to: "IVR_combe_combat" } },
-      { label: "Pip : « Je suis plus rapide que toi. »", who: "pip", fx: { conf: { pip: 10 }, ep: ["seance", 2500] }, to: "IVR_combe_sauvee" },
+      { label: "« Je suis plus rapide que toi », dit Pip", who: "pip", fx: { conf: { pip: 10 }, ep: ["seance", 2500] }, to: "IVR_combe_sauvee" },
       { label: "Lancer un sort, un cri, n'importe quoi pour qu'elle se retourne", test: { dom: "magie", diff: -10, label: "Couvrir la voix du lac", help: [H_CHA, H_AUB, { if: { item: "eclat" }, v: 10 }] },
         win: { fx: { ep: ["seance", 2500] }, to: "IVR_combe_sauvee" }, lose: { to: "IVR_combe_combat" } },
       { label: "Rester figé{e} sur la rive", timeout: true, to: "IVR_combe_combat" },
@@ -1273,7 +1273,7 @@ Object.assign(P, {
     choices: [
       { label: "« Il a des comptes à rendre à ces sept-là. Écartez-vous. »", test: { dom: "social", diff: -20, label: "Devant cinquante témoins", help: [H_COL, H_AUB, { if: { has: "IVC:contredit" }, v: 15 }, { if: { item: "ivr_temoignage" }, v: 10 }] },
         win: { fx: { ep: ["seance", 2500] }, to: "IVC_jugement" }, lose: { to: "IVC_justice_combat" } },
-      { label: "Thavary : « Laisse-moi lui parler de devoir. »", who: "thavary", fx: { conf: { thavary: 5 }, ep: ["seance", 2500] }, to: "IVC_jugement" },
+      { label: "« Laisse-moi lui parler de devoir », dit Thavary", who: "thavary", fx: { conf: { thavary: 5 }, ep: ["seance", 2500] }, to: "IVC_jugement" },
       { label: "Dégainer", to: "IVC_justice_combat" },
     ] },
   IVC_justice_combat: { act: "IV", title: "Sorel", place: "vaux",
