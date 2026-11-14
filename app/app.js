@@ -1509,6 +1509,7 @@
   // Intent: once per new version, a short note of what changed (NEWS, newest first), only the versions the reader has
   // not seen on this device. Why: Clément, 13/11 (piste 33).
   var NEWS = [
+    { v: "8.0", items: ["Nouvelle histoire : « Le Pain de Sarance », une ville assiégée dont tu tiens les greniers : chaque jour mange le blé, le monde avance sans toi, et le Conseil vote.", "Nouveaux onglets du carnet, quand l'histoire en a : La ville (les réserves, ce qui a changé), Conseil (qui vote quoi), Dettes et promesses, Qui est avec qui.", "Batailles rangées : tu places tes troupes sur les postes, puis tu donnes un ordre à chaque vague."] },
     { v: "7.9", items: ["Nouvelle histoire : « L'Écluse des Tanneurs », une enquête de trois jours dans une ville qui vit : chacun a ses heures et ses lieux, et le temps presse jusqu'à la cloche du soir.", "On peut montrer un indice ou un document à un témoin, et relier deux déclarations qui se contredisent, dans le carnet ou sur le tableau.", "L'accusation se fait en trois temps : qui, pourquoi, et la preuve.", "Nouveaux onglets du carnet, quand l'histoire en a : Documents (les lettres et registres trouvés, à relire) et Reconstitution (qui était où, heure par heure)."] },
     { v: "7.8", items: ["Nouvelle histoire : « La Veillée des Aubiers », une soirée d'une demi-heure, à finir avant le coucher, et à relire.", "Une page peut s'ouvrir autrement selon le chemin par lequel on y arrive.", "Seconde lecture : une fois une fin trouvée, une histoire peut montrer en la relisant des passages nouveaux, marqués d'un ✧ dans la marge.", "Les boutons s'accordent au masculin ou au féminin, comme le texte."] },
     { v: "7.7", items: ["Habillage Enluminure : hors de la page du livre (bibliothèque, création du héros…), le texte était brun sur le bois brun ; il a désormais sa feuille de papier."] },
@@ -1888,7 +1889,8 @@
       h("span", { class: "grow" }),
       h("span", { class: "pill", title: "Points de vie", "aria-label": "Points de vie : " + s.pv + " sur " + pvMax }, "PV " + s.pv + "/" + pvMax, h("span", { class: "bar pv", style: "width:48px" }, h("i", { style: "width:" + Math.round(100 * s.pv / pvMax) + "%" }))),
       h("span", { class: "pill gold", title: "Bourse : " + M.money(st, s.gold) }, M.money(st, s.gold, true)),
-      h("span", { class: "pill", title: "Jours de vivres", "aria-label": "Vivres : " + s.food + " jour" + (s.food > 1 ? "s" : "") }, "Vivres " + s.food),
+      (st.world || {}).noFood ? null : h("span", { class: "pill", title: "Jours de vivres", "aria-label": "Vivres : " + s.food + " jour" + (s.food > 1 ? "s" : "") }, "Vivres " + s.food),
+      stockPills(st, s),
       s.mark ? h("span", { class: "pill mark", title: "La Marque" }, "Marque " + s.mark) : null,
       h("span", { class: "pill small" }, M.timeLabel(s)),
       s.ironman ? h("span", { class: "pill small", title: "Sans retour : chaque choix est définitif. Jetons de destin restants dans cet acte : " + fateLeft(s), "aria-label": "Sans retour, " + fateLeft(s) + " jetons de destin" }, "⚔ 🎲" + fateLeft(s)) : null,
@@ -1933,6 +1935,8 @@
     var fb = fateButton(G); if (fb) page.appendChild(fb);
     A.rollAnim = false;
     if (v.kind === "combat") page.appendChild(renderFight(s));
+    if (v.battle) page.appendChild(renderBattle(v.battle));
+    if (v.council) page.appendChild(renderCouncil(st, v.council));
     if (G.multi && v.wait) page.appendChild(renderWait(v));
     else {
       if (v.urgent && !G.multi && !G.ephemeral && !folded) page.appendChild(urgentBar(G, v));
@@ -2268,7 +2272,7 @@
     }
     return box;
   }
-  var GROUPS = { jeu: "À la table", route: "Prendre la route", shop: "Acheter et vendre", fight: "Que fais-tu ?", order: "Ce tour, tes compagnons · un ordre gratuit chacun ; sans ordre, ils agissent à leur guise", lead: "Qui mène ? · changer de héros ne coûte rien" };
+  var GROUPS = { conseil: "Le vote", bataille: "Tes ordres", dette: "Ce que tu dois", jeu: "À la table", route: "Prendre la route", shop: "Acheter et vendre", fight: "Que fais-tu ?", order: "Ce tour, tes compagnons · un ordre gratuit chacun ; sans ordre, ils agissent à leur guise", lead: "Qui mène ? · changer de héros ne coûte rien" };
   // The « coup de pouce » (option for young readers, Clément, 12/11): NUDGES_PER_ACT per act, kept in the game.
   var NUDGES_PER_ACT = 2;
   function nudgesLeft(G) { var used = (G.s.nudges || {})[G.s.lastAct || "_"] || 0; return Math.max(0, NUDGES_PER_ACT - used); }
@@ -3362,12 +3366,14 @@
   })();
 
   // ------------------------------------------------------------------ the notebook
-  var TABS = [["heros", "Héros"], ["sac", "Sac"], ["quetes", "Quêtes"], ["indices", "Indices"], ["notes", "Notes"], ["soupcons", "Soupçons"], ["tableau", "Tableau d'enquête"], ["documents", "Documents"], ["reconst", "Reconstitution"], ["compagnons", "Compagnons"], ["carte", "Carte"], ["gens", "Gens"], ["frise", "Frise"], ["marques", "Marque-pages"], ["exploits", "Hauts faits"], ["codex", "Bestiaire et atlas"], ["mots", "Mots"], ["journal", "Journal"], ["coulisses", "Coulisses"]];
+  var TABS = [["heros", "Héros"], ["sac", "Sac"], ["quetes", "Quêtes"], ["indices", "Indices"], ["notes", "Notes"], ["soupcons", "Soupçons"], ["tableau", "Tableau d'enquête"], ["documents", "Documents"], ["reconst", "Reconstitution"], ["ville", "La ville"], ["conseil", "Conseil"], ["dettes", "Dettes et promesses"], ["liens", "Qui est avec qui"], ["compagnons", "Compagnons"], ["carte", "Carte"], ["gens", "Gens"], ["frise", "Frise"], ["marques", "Marque-pages"], ["exploits", "Hauts faits"], ["codex", "Bestiaire et atlas"], ["mots", "Mots"], ["journal", "Journal"], ["coulisses", "Coulisses"]];
   // Documents and Reconstitution only show in a story that has them (7.9).
   function tabsOf(st) {
     var docs = Object.keys(st.items || {}).some(function (k) { return st.items[k].kind === "document" && st.items[k].text; });
     var plan = Object.keys(st.mysteries || {}).some(function (k) { return st.mysteries[k].plan; });
-    return TABS.filter(function (t) { return (t[0] !== "documents" || docs) && (t[0] !== "reconst" || plan); });
+    // A siege (8.0): the city's stocks, the council, debts and promises, who is with whom, when the story has them.
+    var has = { ville: !!(st.stocks || st.march), conseil: !!st.councils, dettes: !!st.promises, liens: !!st.ties };
+    return TABS.filter(function (t) { return (t[0] !== "documents" || docs) && (t[0] !== "reconst" || plan) && (has[t[0]] == null || has[t[0]]); });
   }
   function renderCarnet() {
     var G = A.game; if (!G) { A.carnet = null; return; }
@@ -3390,7 +3396,7 @@
     var fill = function () {
       body.textContent = "";
       if ((A.carnetQ || "").trim().length >= SEARCH_MIN) { searchCarnet(body, G.story, G.s, A.carnetQ.trim()); return; }
-      ({ heros: tabHero, sac: tabBag, quetes: tabQuests, indices: tabClues, notes: tabNotes, soupcons: tabSuspects, tableau: tabBoard, documents: tabDocs, reconst: tabRecon, compagnons: tabCompanions, carte: tabMap, gens: tabPeople, frise: tabFrise, marques: tabMarks, exploits: tabFeats, codex: tabCodex, mots: tabWords, journal: tabLog, coulisses: tabBackstage })[A.carnetTab](body, G.story, G.s);
+      ({ heros: tabHero, sac: tabBag, quetes: tabQuests, indices: tabClues, notes: tabNotes, soupcons: tabSuspects, tableau: tabBoard, documents: tabDocs, reconst: tabRecon, ville: tabCity, conseil: tabCouncil, dettes: tabDebts, liens: tabTies, compagnons: tabCompanions, carte: tabMap, gens: tabPeople, frise: tabFrise, marques: tabMarks, exploits: tabFeats, codex: tabCodex, mots: tabWords, journal: tabLog, coulisses: tabBackstage })[A.carnetTab](body, G.story, G.s);
     };
     fill();
     q.addEventListener("input", function () { A.carnetQ = q.value; fill(); });
@@ -3469,7 +3475,8 @@
         var state = M.questState(s, q, st);
         if (state === "manquée" && !M.questStarted(s, q)) return;
         if (state === "à découvrir" && q.kind === "annexe") { b.appendChild(h("div", { class: "quest small muted" }, "Une petite quête t'attend encore quelque part.")); return; }
-        b.appendChild(h("div", { class: "quest " + state.replace(/[^a-z]/g, "") }, h("div", null, q.title, " ", h("span", { class: "state" }, "· " + (q.kind === "principale" ? "principale" : "petite quête") + " · " + state))));
+        var due = q.due && state === "en cours" ? " · avant le jour " + q.due.day + (q.due.hour != null ? ", " + q.due.hour + " h" : "") : "";
+        b.appendChild(h("div", { class: "quest " + state.replace(/[^a-z]/g, "") }, h("div", null, q.title, " ", h("span", { class: "state" }, "· " + (q.kind === "principale" ? "principale" : "petite quête") + " · " + state + due))));
       });
     });
   }
@@ -3876,6 +3883,117 @@
   };
   // Relations (6th series): how each one sees you, in the author's word (fx.regard); an option of the reader.
   function regardTag(s, k) { var w = pref("relations") && (s.regard || {})[k]; return w && M.REGARDS[w] ? h("span", { class: "regard small " + w, title: "Ce qu'on pense de toi" }, M.REGARDS[w]) : h("span"); }
+  // ------------------------------------------------------------------ a siege (8.0)
+  // The pills of the stocks a story marks `pill: true` (« Blé 612 · 14 j »).
+  function stockPills(st, s) {
+    return Object.keys(st.stocks || {}).filter(function (k) { return st.stocks[k].pill; }).map(function (k) {
+      var D = st.stocks[k], v = M.stockNow(st, s, k), dl = M.daysLeft(st, s, k);
+      return h("span", { class: "pill stock" + (dl != null && dl <= 3 ? " low" : ""), title: D.name + " : " + v + (D.unit ? " " + (v > 1 ? D.plural || D.unit : D.unit) : "") + (dl != null ? ", environ " + dl + " jour" + (dl > 1 ? "s" : "") + " au train d'aujourd'hui" : "") }, (D.short || D.name) + " " + v + (dl != null ? " · " + dl + " j" : ""));
+    });
+  }
+  function dueLabel(s, due) {
+    if (!due) return "";
+    var left = M.momentOf(due) - s.time, d = Math.floor(left / 24);
+    var when = "jour " + due.day + (due.hour != null ? ", " + due.hour + " h" : "");
+    return left <= 0 ? "échéance passée (" + when + ")" : (d >= 2 ? "dans " + d + " jours" : d === 1 ? "demain ou presque" : "dans " + left + " h") + " · " + when;
+  }
+  function tabCity(b, st, s) {
+    var ids = Object.keys(st.stocks || {});
+    if (ids.length) b.appendChild(h("div", { class: "label" }, "Les réserves de la ville"));
+    ids.forEach(function (k) {
+      var D = st.stocks[k], v = M.stockNow(st, s, k), use = M.dailyUse(st, s, k), dl = M.daysLeft(st, s, k), max = D.max != null ? D.max : Math.max(D.start || 1, v);
+      var by = D.by ? (Object.keys(s.flags).filter(function (f) { return f.indexOf(D.by + "=") === 0; })[0] || "").slice(D.by.length + 1) : "";
+      b.appendChild(h("div", { class: "itemrow stock-row" + (D.bad ? " bad-gauge" : "") },
+        h("b", null, D.name), h("span", { class: "num" }, v + (D.unit ? " " + (v > 1 ? D.plural || D.unit : D.unit) : "") + (D.max != null ? " / " + D.max : "")),
+        h("div", { class: "desc" }, bar(D.bad ? "fear" : "conf", v, max), " ",
+          use > 0 ? "−" + use + " par jour" + (dl != null ? " · environ " + dl + " jour" + (dl > 1 ? "s" : "") + " au train d'aujourd'hui" : "") : use < 0 ? "+" + (-use) + " par jour" : "stable",
+          by && D.byLabel && D.byLabel[by] ? " · " + D.byLabel[by] : "", D.desc ? h("div", { class: "small muted" }, D.desc) : null)));
+    });
+    var happened = (st.march || []).filter(function (e) { return e.title && (s.marched || {})[e.id]; });
+    if (happened.length) {
+      b.appendChild(h("div", { class: "label" }, "Ce qui a changé"));
+      happened.forEach(function (e) { b.appendChild(h("div", { class: "quest" }, h("div", null, h("span", { class: "state" }, "Jour " + s.marched[e.id].day + " · "), M.interp(s, e.title)))); });
+    }
+    var bs = Object.keys(s.battles || {});
+    if (bs.length) {
+      b.appendChild(h("div", { class: "label" }, "Les combats sur les murs"));
+      bs.forEach(function (k) { var R = s.battles[k], B = (st.battles || {})[k] || {}; b.appendChild(h("div", { class: "quest " + (R.out === "win" ? "faite" : "manque") }, h("div", null, M.interp(s, B.title || k), " ", h("span", { class: "state" }, "· " + (R.out === "win" ? "la ligne a tenu" : "la ligne a cédé") + " · pertes " + (R.losses < 15 ? "légères" : R.losses < 35 ? "lourdes" : "terribles"))))); });
+    }
+  }
+  function tabDebts(b, st, s) {
+    var ids = Object.keys(s.promises || {});
+    if (!ids.length) { b.appendChild(h("div", { class: "notice" }, "Tu ne dois rien à personne, et tu n'as rien promis.")); return; }
+    ids.forEach(function (id) {
+      var P = s.promises[id], D = M.promiseDef(st, id), to = (st.people || {})[D.to];
+      b.appendChild(h("div", { class: "itemrow promise " + P.state.replace(/[^a-z]/g, "") },
+        h("b", { class: to ? "with-portrait" : null }, to ? h("span", { html: personFace(st, D.to, 32) }) : null, (D.kind === "dette" ? "Dette · " : "Promesse · ") + (to ? to.name : "")),
+        h("span", { class: "tag-state" }, M.PROMISE_STATES[P.state] || P.state),
+        h("div", { class: "desc" }, M.interp(s, D.text), D.gold ? " (" + M.money(st, D.gold) + ")" : "", P.state === "en cours" && D.due ? h("div", { class: "small muted" }, "Échéance : " + dueLabel(s, D.due)) : null, P.end ? h("div", { class: "small muted" }, P.end) : null)));
+    });
+  }
+  function tabCouncil(b, st, s) {
+    Object.keys(st.councils || {}).forEach(function (cid) {
+      var C = st.councils[cid], ms = M.memberIds(st, cid);
+      b.appendChild(h("div", { class: "label" }, M.interp(s, C.title || "Le Conseil")));
+      b.appendChild(h("div", { class: "council-seats" }, ms.map(function (k) { var pe = (st.people || {})[k] || {}, off = M.memberAbsent(st, s, cid, k); return h("span", { class: "seat" + (off ? " off" : ""), title: pe.name + (off ? " (absent)" : "") }, h("span", { html: personFace(st, k, 30) }), pe.name); }),
+        C.hero ? h("span", { class: "seat hero" }, h("span", { html: heroFace(st, s, 30) }), "Toi") : null));
+      Object.keys(st.motions || {}).filter(function (m) { return st.motions[m].council === cid; }).forEach(function (m) {
+        var D = st.motions[m], V = (s.votes || {})[m], known = (s.leanKnown || {})[m];
+        if (!V && !known && !(D.shown != null && M.evalCond(st, s, D.shown))) return;
+        var rows = ms.map(function (k) {
+          var pe = (st.people || {})[k] || {}, vote = V ? V.by[k] : known && known[k] ? M.leanOf(st, s, m, k) : null;
+          var word = V ? (vote ? M.VOTES[vote] : "absent") : vote ? (vote === "indecis" ? "hésite" : M.VOTES[vote].toLowerCase()) : "?";
+          return h("span", { class: "vote-chip " + (vote || "unknown") }, pe.name + " : " + word);
+        });
+        if (V && V.by.hero) rows.push(h("span", { class: "vote-chip " + V.by.hero }, "Toi : " + M.VOTES[V.by.hero].toLowerCase()));
+        b.appendChild(h("div", { class: "itemrow motion" }, h("b", null, M.interp(s, D.title)), h("span", { class: "tag-state" }, V ? (V.result === "adopte" ? "adoptée" : "rejetée") + " · " + V.pour + " contre " + V.contre : "à venir"),
+          h("div", { class: "desc" }, h("div", { class: "small" }, M.interp(s, D.text)), h("div", { class: "vote-chips" }, rows))));
+      });
+    });
+  }
+  // Who is with whom: the people met and the camps, on a circle; a line for each tie the hero has found.
+  var TIE_COLOURS = { famille: "var(--gold)", allie: "var(--good)", ennemi: "var(--bad)", amour: "var(--mark)", dette: "var(--warn)", sert: "var(--accent)", secret: "var(--ink)", membre: "var(--line)" };
+  function tabTies(b, st, s) {
+    var ties = M.tiesKnown(st, s).slice();
+    Object.keys(s.people || {}).forEach(function (k) { var pe = (st.people || {})[k] || {}; if (pe.camp && (st.camps || {})[pe.camp]) ties.push({ id: "m:" + k, a: k, b: pe.camp, kind: "membre", label: pe.name + " · " + st.camps[pe.camp].name }); });
+    if (s.camp && st.camps[s.camp]) ties.push({ id: "m:hero", a: "hero", b: s.camp, kind: "membre", label: "Toi · " + st.camps[s.camp].name });
+    if (!ties.length) { b.appendChild(h("div", { class: "notice" }, "Tu ne sais encore rien de ce qui lie les gens d'ici entre eux.")); return; }
+    var nodes = [], at = {};
+    ties.forEach(function (t) { [t.a, t.b].forEach(function (x) { if (at[x] == null) { at[x] = nodes.length; nodes.push(x); } }); });
+    var NS = "http://www.w3.org/2000/svg", S = function (tag, a, txt) { var e = document.createElementNS(NS, tag); for (var k in a) e.setAttribute(k, a[k]); if (txt != null) e.textContent = txt; return e; };
+    var W = 600, Hh = 420, cx = W / 2, cy = Hh / 2, R = 160, svg = S("svg", { viewBox: "0 0 " + W + " " + Hh, class: "ties-plan", role: "img", "aria-label": "Qui est avec qui" });
+    svg.appendChild(S("rect", { width: W, height: Hh, fill: "var(--paper-2)", rx: 10 }));
+    var pos = nodes.map(function (x, i) { var a = -Math.PI / 2 + i * 2 * Math.PI / nodes.length; return { x: cx + Math.cos(a) * R * 1.45, y: cy + Math.sin(a) * R }; });
+    ties.forEach(function (t) { var p1 = pos[at[t.a]], p2 = pos[at[t.b]]; svg.appendChild(S("line", { x1: p1.x, y1: p1.y, x2: p2.x, y2: p2.y, stroke: TIE_COLOURS[t.kind] || "var(--line)", "stroke-width": t.kind === "membre" ? 2 : 3.5, "stroke-dasharray": t.kind === "secret" || t.kind === "membre" ? "6 5" : null })); });
+    nodes.forEach(function (x, i) {
+      var p = pos[i], camp = (st.camps || {})[x], pe = (st.people || {})[x], name = x === "hero" ? "Toi" : camp ? camp.name : pe ? pe.name : x;
+      var g = S("g", {}); g.appendChild(S("circle", { cx: p.x, cy: p.y, r: camp ? 24 : 20, fill: camp ? "var(--accent-soft)" : x === "hero" ? "var(--gold)" : "var(--paper)", stroke: "var(--ink)", "stroke-width": 1.5 }));
+      g.appendChild(S("text", { x: p.x, y: p.y + (camp ? 40 : 36), "text-anchor": "middle", "font-size": 13, fill: "var(--ink)", stroke: "var(--paper-2)", "stroke-width": 3, "paint-order": "stroke" }, name.length > 26 ? name.slice(0, 25) + "…" : name));
+      svg.appendChild(g);
+    });
+    b.appendChild(h("div", { class: "scrollx" }, svg));
+    b.appendChild(h("div", { class: "label" }, "Ce que tu sais"));
+    ties.filter(function (t) { return t.kind !== "membre"; }).forEach(function (t) { b.appendChild(h("div", { class: "quest tie" }, h("span", { class: "tie-dot", style: "background:" + (TIE_COLOURS[t.kind] || "var(--line)") }), h("span", { class: "state" }, (M.TIE_KINDS[t.kind] || t.kind) + " · "), M.interp(s, t.label))); });
+    var mem = ties.filter(function (t) { return t.kind === "membre"; });
+    if (mem.length) b.appendChild(h("div", { class: "small muted" }, "Camps : " + mem.map(function (t) { return t.label; }).join(" ; ") + "."));
+  }
+  // Intent: renderBattle(Plan) -> Element = the posts side by side, the troops at each with their strength, the threat
+  // of the wave and how each post fared.
+  function renderBattle(pl) {
+    var RES = { tient: "tient", plie: "plie", rompt: "rompt", calme: "calme", perdu: "perdu" };
+    return h("div", { class: "battle-plan", role: "group", "aria-label": "Plan de bataille" + (pl.step !== "place" ? ", vague " + (pl.wave + 1) + " sur " + pl.waves : "") },
+      h("div", { class: "small muted" }, pl.step === "place" ? "Le plan : place chacun, puis l'assaut commence." : "Vague " + (pl.wave + 1) + " sur " + pl.waves),
+      h("div", { class: "posts" }, pl.posts.map(function (p) {
+        return h("div", { class: "post" + (p.lost ? " lost" : "") + (p.res ? " r-" + p.res : "") },
+          h("div", { class: "post-head" }, h("b", null, p.name), p.key ? h("span", { class: "key", title: "à tenir coûte que coûte" }, "★") : null),
+          p.lost ? h("div", { class: "small" }, "aux mains de l'ennemi") : h("div", { class: "threat t" + Math.min(6, p.threat), title: "Menace" }, p.threat ? "⚔".repeat(Math.min(6, Math.ceil(p.threat / 1))) : ""),
+          p.troops.map(function (t) { return h("div", { class: "troop" + (t.hero ? " hero" : "") }, h("span", null, t.name), t.vig != null ? bar("pv", t.vig, 100) : null); }),
+          p.res ? h("div", { class: "post-res" }, RES[p.res] || p.res) : null);
+      })));
+  }
+  function renderCouncil(st, c) {
+    return h("div", { class: "council-tally vote-chips" }, c.rows.map(function (r) { return h("span", { class: "vote-chip " + (r.vote || "unknown") }, r.id !== "hero" ? h("span", { html: personFace(st, r.id, 22) }) : null, r.name + (r.vote ? " · " + M.VOTES[r.vote].toLowerCase() : " · absent")); }));
+  }
   function tabPeople(b, st, s) {
     var ks = Object.keys(s.people || {});
     if (!ks.length) b.appendChild(h("div", { class: "notice" }, "Personne encore."));

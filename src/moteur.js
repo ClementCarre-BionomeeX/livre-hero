@@ -58,6 +58,11 @@
   // Morale (7th series, Clément 13/11): a badly hurt foe, or one whose band is half fallen, may run; never the last
   // one standing (the story's victory text stays true), never a foe declared fearless.
   var MORALE_HURT = 0.35, MORALE_BREAK = 30, MORALE_ROUT_SHARE = 0.5;
+  // A siege (8.0): prices follow scarcity, at most SCARCE_MAX times; a pitched battle's arithmetic (forces 1-4, enemy
+  // pressure 0-6 a post, a d6 each side; a post breaks under BATTLE_BREAK, the hero counts as a troop of his own).
+  var SCARCE_MAX = 8, SCARCE_POW = 0.8;
+  var BATTLE_HERO = 2, BATTLE_HERO_PER = 20, BATTLE_CHARGE = 3, BATTLE_CHARGE_COST = 15, BATTLE_HOLD_COST = 5, BATTLE_BEND_COST = 25,
+    BATTLE_BREAK_COST = 40, BATTLE_BREAK = -3, BATTLE_HERO_HURT = 4, BATTLE_MAX_LOST = 2;
   var TAVERN_STOP_LO = 14, TAVERN_STOP_SPREAD = 6, TAVERN_GAMES_PER_DAY = 3, TAVERN_SNUFF = 1, TAVERN_DIE = 6;
   // Intent: faceErrors(face) -> [message] = what a declared face says that the page cannot draw
   function faceErrors(face) {
@@ -129,6 +134,8 @@
       difficulty: DIFFICULTY[opts.difficulty] ? opts.difficulty : "aventurier", stats: {}, feats: {}, beasts: {}, ironman: !!opts.ironman, regard: {},
       // An investigation tells the hour (world.start.clock: true): who is where depends on it (7.9).
       clockShown: !!(w.start && w.start.clock),
+      // A siege (8.0): the city's stocks, the last day they were counted, the camp the hero has rallied.
+      stocks: (function () { var o = {}; Object.keys(story.stocks || {}).forEach(function (k) { o[k] = story.stocks[k].start || 0; }); return o; })(), camp: null,
     };
   }
   function levelOfEp(ep) { return Math.min(MAX_LEVEL, Math.max(1, Math.floor(ep / EP_PER_LEVEL))); }
@@ -208,6 +215,15 @@
     if (c === false) return false;
     if (typeof c === "string") return !!s.flags[c];
     if (Array.isArray(c)) return c.every(function (x) { return evalCond(story, s, x); });
+    // A siege (8.0): a stock and the days it lasts, a promise, a vote, a member's leaning, a battle, the hero's camp.
+    if ("stock" in c) return rng(stockNow(story, s, c.stock), c.min, c.max);
+    if ("days" in c) { var dl = daysLeft(story, s, c.days); return rng(dl == null ? Infinity : dl, c.min, c.max); }
+    if ("promise" in c) { var ps = promiseState(s, c.promise) || "aucune"; return c.is == null ? ps !== "aucune" : [].concat(c.is).indexOf(ps) >= 0; }
+    if ("vote" in c) { var V = (s.votes || {})[c.vote]; if (!V) return c.is === null; return (c.is == null || [].concat(c.is).indexOf(V.result) >= 0) && (c.hero == null || [].concat(c.hero).indexOf(V.by.hero || "aucune") >= 0); }
+    if ("lean" in c) return [].concat(c.is).indexOf(leanOf(story, s, c.lean, c.member)) >= 0;
+    if ("battle" in c) { var BB = (s.battles || {})[c.battle]; if (!BB) return false; return (c.is == null || BB.out === c.is) && rng(BB.losses, c.losses && c.losses.min, c.losses && c.losses.max); }
+    if ("camp" in c) return c.camp == null || c.camp === "none" ? !s.camp : s.camp === c.camp;
+    if ("missed" in c) { var mq = (story.quests || []).filter(function (q) { return q.id === c.missed; })[0]; return !!mq && questMissed(story, s, mq); }
     // count: [conditions], min / max: how many of them hold ("at least three of these").
     if ("count" in c) { var nc = c.count.filter(function (x) { return evalCond(story, s, x); }).length; return nc >= (c.min || 0) && (c.max == null || nc <= c.max); }
     if ("has" in c) return !!s.flags[c.has];
@@ -328,6 +344,8 @@
     if ("souv" in c) return "Ce souvenir n'est plus à toi.";
     if ("souvenirs" in c) return c.min != null ? "Il faut avoir gardé au moins " + c.min + " souvenirs." : "Il faut avoir donné plus de souvenirs.";
     if ("night" in c) return c.night ? "Seulement la nuit." : "Seulement le jour.";
+    if ("stock" in c) { var SD = (story.stocks || {})[c.stock] || {}; return c.min != null ? "Il faut " + c.min + (SD.unit ? " " + unitOf(SD, c.min) : "") + " : " + (SD.name || c.stock) + "." : (SD.name || c.stock) + " : il y en a trop."; }
+    if ("camp" in c) return c.camp && c.camp !== "none" ? "Seulement pour qui a rallié " + (((story.camps || {})[c.camp] || {}).name || c.camp) + "." : "Seulement tant que tu n'as rallié aucun camp.";
     return "Ce chemin est fermé pour l'instant.";
   }
   function nameOf(story, c) { return ((story.companions || {})[c] || {}).name || c; }
@@ -375,6 +393,8 @@
       s.time = keepT;
       if (gone) return false;
     }
+    // camp: "x" — the scene belongs to that camp: closed once the hero has rallied one of its rivals (8.0).
+    if (t.camp != null && !campOk(story, s, t.camp)) return false;
     if (t.first && s.seen[node] > 1) return false;
     if (t.again && !(s.seen[node] > 1)) return false;
     return true;
@@ -385,7 +405,7 @@
     if (k === false) return !Object.keys(known).length;
     return [].concat(k).some(function (e) { return !!(known[e] || known["fin:" + e]); });
   }
-  var SCENE_TAGS = ["with", "without", "when", "after", "before", "second", "regard", "fresh"];
+  var SCENE_TAGS = ["with", "without", "when", "after", "before", "second", "regard", "fresh", "camp"];
   function sceneOk(story, s, p) { return !SCENE_TAGS.some(function (k) { return p[k] != null; }) || tagsOk(story, s, p, null); }
   // marks (optional): receives the place in the returned list of each paragraph shown for a second reading.
   function textList(story, s, list, node, marks) {
@@ -421,6 +441,8 @@
   function questMissed(story, s, q) {
     if (questDone(s, q) || questRefused(s, q)) return false;
     if (q.closes != null && evalCond(story, s, q.closes)) return true;
+    // A quest with a date (quest.due, 8.0): past it, the world has gone on without the hero.
+    if (q.due && reached(s, q.due)) return true;
     var ids = (story.acts || []).map(function (a) { return a.id; }), at = ids.indexOf(s.lastAct), qa = ids.indexOf(q.act);
     return qa >= 0 && at > qa;
   }
@@ -616,6 +638,50 @@
       var sr = souvRef(s, r), S = souvOf(story, sr.hero)[sr.id];
       if (!S) throw new Error("souvenir inconnu " + r);
       if (s.flags["souv:" + sr.hero + ":" + sr.id]) { delete s.flags["souv:" + sr.hero + ":" + sr.id]; ev(s, "Souvenir retrouvé : " + S.label, "good souv"); }
+    });
+    // A siege (8.0): the city's stocks, promises and debts, councils, camps, ties.
+    if (fx.stock) for (k in fx.stock) {
+      if (!(story.stocks || {})[k]) throw new Error("réserve inconnue " + k);
+      var sb = stockNow(story, s, k); setStock(story, s, k, sb + fx.stock[k]);
+      var sd = s.stocks[k] - sb, SD0 = story.stocks[k];
+      if (sd) ev(s, SD0.name + " : " + (sd > 0 ? "+" : "−") + stockLine(story, s, k, Math.abs(sd)) + " → " + stockLine(story, s, k, s.stocks[k]), sd > 0 ? (SD0.bad ? "bad" : "good") : (SD0.bad ? "good" : "bad"));
+    }
+    [].concat(fx.promise || []).forEach(function (id) {
+      var D = promiseDef(story, id); s.promises = s.promises || {};
+      if (s.promises[id]) return;
+      s.promises[id] = { state: "en cours", t: timeLabel(s) };
+      var who = (story.people || {})[D.to] ? story.people[D.to].name : null;
+      ev(s, (D.kind === "dette" ? "Dette" : "Promesse") + " : " + interp(s, D.text) + (who ? " (" + who + ")" : "") + (D.due ? ", avant le jour " + D.due.day + (D.due.hour != null ? " à " + D.due.hour + " h" : "") : ""), "promise");
+    });
+    [].concat(fx.keep || []).forEach(function (id) { promiseDef(story, id); promiseEnd(story, s, id, "tenue"); });
+    [].concat(fx.break || []).forEach(function (id) { promiseDef(story, id); promiseEnd(story, s, id, "rompue"); });
+    [].concat(fx.forgive || []).forEach(function (id) { promiseDef(story, id); promiseEnd(story, s, id, "remise"); });
+    if (fx.sway) Object.keys(fx.sway).forEach(function (m) {
+      var D = motionDef(story, m); s.leans = s.leans || {}; s.leanKnown = s.leanKnown || {};
+      Object.keys(fx.sway[m]).forEach(function (who) {
+        var to = fx.sway[m][who]; if (!VOTES[to] && to !== "indecis") throw new Error("vote inconnu " + to);
+        (s.leans[m] = s.leans[m] || {})[who] = to; (s.leanKnown[m] = s.leanKnown[m] || {})[who] = true;
+        if (VOTES[to]) ev(s, "Conseil · " + (story.people[who] || {}).name + " votera " + (to === "abstention" ? "l'abstention" : to) + " : « " + interp(s, D.title) + " ».", "vote");
+      });
+    });
+    if (fx.sound) Object.keys(fx.sound).forEach(function (m) {
+      var D = motionDef(story, m), who = fx.sound[m] === true ? memberIds(story, D.council) : [].concat(fx.sound[m]);
+      s.leanKnown = s.leanKnown || {};
+      who.forEach(function (k) { (s.leanKnown[m] = s.leanKnown[m] || {})[k] = true; });
+    });
+    if (fx.camp) {
+      var CP = (story.camps || {})[fx.camp]; if (!CP) throw new Error("camp inconnu " + fx.camp);
+      var old = s.camp;
+      if (old !== fx.camp) {
+        if (old) { s.flags["camp-quitte:" + old] = true; var OL = story.camps[old].leader; if (OL) { s.regard = s.regard || {}; s.regard[OL] = "trahi"; } }
+        s.camp = fx.camp; apply(story, s, { set: { camp: fx.camp }, flag: "camp:" + fx.camp });
+        ev(s, "Ton camp : " + CP.name + ". D'autres portes se ferment.", "camp");
+      }
+    }
+    [].concat(fx.tie || []).forEach(function (id) {
+      var T = (story.ties || []).filter(function (x) { return x.id === id; })[0]; if (!T) throw new Error("lien inconnu " + id);
+      s.tiesKnown = s.tiesKnown || {}; if (s.tiesKnown[id]) return; s.tiesKnown[id] = timeLabel(s);
+      ev(s, "Qui est avec qui : " + interp(s, T.label), "tie");
     });
     if (fx.note) ev(s, interp(s, fx.note), fx.noteCls || "");
   }
@@ -1344,19 +1410,20 @@
     if (!p.shop) return [];
     var sh = (story.shops || {})[p.shop];
     if (!sh) return [];
-    var out = [];
+    var out = [], f = priceFactor(story, s, sh);
     (sh.sells || []).forEach(function (x) {
-      var it = item(story, x.item);
+      var it = item(story, x.item), pr = priced(x.price, f);
       if (it.unique !== false && s.items.indexOf(x.item) >= 0) return;
-      out.push({ sys: "buy", item: x.item, price: x.price, group: "shop", label: "Acheter " + it.name + " · " + money(story, x.price, true), if: { gold: { min: x.price } }, why: "Il te faut " + money(story, x.price) + "." });
+      if (x.if != null && !evalCond(story, s, x.if)) return;
+      out.push({ sys: "buy", item: x.item, price: pr, group: "shop", label: "Acheter " + it.name + " · " + money(story, pr, true), if: { gold: { min: pr } }, why: "Il te faut " + money(story, pr) + "." });
     });
-    if (sh.food) out.push({ sys: "buyFood", price: sh.food, group: "shop", label: "Acheter un jour de vivres · " + money(story, sh.food, true), if: { gold: { min: sh.food } }, why: "Il te faut " + money(story, sh.food) + "." });
+    if (sh.food) { var fp = priced(sh.food, f); out.push({ sys: "buyFood", price: fp, group: "shop", label: "Acheter un jour de vivres · " + money(story, fp, true), if: { gold: { min: fp } }, why: "Il te faut " + money(story, fp) + "." }); }
     if (sh.buys !== false) {
       var seen = {};
       s.items.forEach(function (id) {
         var it = item(story, id);
         if (seen[id] || !it.price || it.kind === "document" || it.keep) return; seen[id] = 1;
-        out.push({ sys: "sell", item: id, group: "shop", label: "Vendre " + it.name + " · " + money(story, Math.floor(it.price * SELL_RATE), true) });
+        out.push({ sys: "sell", item: id, price: Math.floor(it.price * SELL_RATE * (it.kind === "vivres" ? f : 1)), group: "shop", label: "Vendre " + it.name + " · " + money(story, Math.floor(it.price * SELL_RATE * (it.kind === "vivres" ? f : 1)), true) });
       });
     }
     return out;
@@ -1540,6 +1607,335 @@
     if (c.sys === "jeuStop") tavernEnd(story, s, j.me > j.them ? "win" : j.me === j.them ? "tie" : "lose");
   }
 
+  // ------------------------------------------------------------------ a siege (« Le siège », 8.0)
+  // Clément, 13/11: a besieged city, factions that fight over the defence, provisions that dwindle every day. The story
+  // declares; the engine does the rest: the city's stocks eaten day after day (story.stocks), the world that moves on
+  // without the reader (story.march), quests with a date (quest.due), prices that follow scarcity (shop.moves, scarce),
+  // debts and promises with their term (story.promises), councils that count the votes (story.councils, story.motions),
+  // camps that close doors (story.camps), the ties the hero has found between people (story.ties), pitched battles
+  // where the reader places troops and gives orders (story.battles), and the epilogue that tells what came of it.
+
+  // --- stocks: { id: { name, unit, plural, start, max, eat, by, extra: [{ if, n }], spoil: { every, share, if }, pill } }
+  // `eat` is what a day takes: a number, or { value of the state `by`: number } (the ration in force). A negative
+  // number makes the stock grow (a gauge that rises). `extra` adds to it while its condition holds.
+  function stockIds(story) { return Object.keys(story.stocks || {}); }
+  function stockNow(story, s, k) { var v = (s.stocks || {})[k]; return v == null ? ((story.stocks || {})[k] || {}).start || 0 : v; }
+  function dailyUse(story, s, k) {
+    var D = (story.stocks || {})[k] || {}, n = 0, e = D.eat;
+    if (typeof e === "number") n = e;
+    else if (e && typeof e === "object") { var by = D.by ? stateOf(s, D.by) : null; n = by != null && e[by] != null ? e[by] : (e.default || 0); }
+    (D.extra || []).forEach(function (x) { if (evalCond(story, s, x.if)) n += x.n || 0; });
+    return n;
+  }
+  // Intent: daysLeft(Story, State, Stock) -> Int | null = how many days the stock lasts at today's rate (null: it does not fall)
+  function daysLeft(story, s, k) { var u = dailyUse(story, s, k); return u > 0 ? Math.floor(stockNow(story, s, k) / u) : null; }
+  function unitOf(D, n) { return Math.abs(n) > 1 ? (D.plural || D.unit || "") : (D.unit || ""); }
+  function stockLine(story, s, k, n) { var D = story.stocks[k] || {}; return n + (D.unit ? " " + unitOf(D, n) : ""); }
+  function setStock(story, s, k, v) {
+    var D = story.stocks[k] || {}, max = D.max != null ? D.max : Infinity;
+    s.stocks = s.stocks || {};
+    s.stocks[k] = Math.max(0, Math.min(max, Math.round(v)));
+    if (s.stocks[k] <= 0) s.flags["epuise:" + k] = true; else delete s.flags["epuise:" + k];
+  }
+  // One new day: each stock takes its day's share (and rots, when it rots); one line says it all.
+  function newDay(story, s) {
+    var bits = [];
+    stockIds(story).forEach(function (k) {
+      var D = story.stocks[k], before = stockNow(story, s, k), use = dailyUse(story, s, k), after = before - use, rot = 0;
+      if (D.spoil && evalCond(story, s, D.spoil.if) && (s.tickDay % (D.spoil.every || 1)) === 0) { rot = Math.ceil(Math.max(0, after) * (D.spoil.share || 0)); after -= rot; }
+      setStock(story, s, k, after);
+      var d = s.stocks[k] - before; if (!d && !D.pill) return;
+      bits.push(D.name + " " + (d > 0 ? "+" : d < 0 ? "−" : "") + (d ? Math.abs(d) : "=") + " → " + stockLine(story, s, k, s.stocks[k]) + (rot ? " (dont " + rot + " " + unitOf(D, rot) + " gâté" + (rot > 1 ? "s" : "") + ")" : ""));
+    });
+    if (bits.length) ev(s, "Jour " + s.tickDay + " · " + bits.join(" · "), "world day");
+  }
+
+  // --- the world moves on (story.march: [{ id, at: { day, hour }, until, if, acts, fx, say, title, to }])
+  // An entry happens once, as soon as its moment is reached and its condition holds, whatever the reader is doing: the
+  // flag `marche:<id>` is set, its effects applied, its line told. With `to`, the next page is that scene (in `acts`),
+  // and the clock stops on the hour of the entry.
+  function marchDue(story, s) {
+    (story.march || []).forEach(function (e) {
+      s.marched = s.marched || {};
+      if (s.marched[e.id]) return;
+      if (e.at && !reached(s, e.at)) return;
+      if (e.until && reached(s, e.until)) return;
+      if (e.acts && e.acts.indexOf(s.lastAct) < 0) return;
+      if (!evalCond(story, s, e.if)) return;
+      s.marched[e.id] = { day: day(s), t: timeLabel(s) };
+      s.flags["marche:" + e.id] = true;
+      apply(story, s, e.fx);
+      if (e.say) ev(s, interp(s, e.say), "world");
+      if (e.to) { s.pending = s.pending || []; s.pending.push({ to: e.to, at: e.at || null, acts: e.acts || null, why: "marche:" + e.id }); }
+    });
+  }
+  // --- debts and promises (story.promises: { id: { to, text, kind: "dette" | "promesse", due, gold, stock, keeps, breaks,
+  // collect, kept, broken } }). fx.promise makes one, fx.keep keeps it, fx.break breaks it, fx.forgive lets it go.
+  // The term passes: the promise is broken. Who was promised sees the hero as `broken` (trahi by default), and with
+  // `collect` the creditor comes: the next page is that scene. A debt in coins is paid back where the creditor is.
+  var PROMISE_STATES = { "en cours": "En cours", tenue: "Tenue", rompue: "Rompue", remise: "Remise" };
+  function promiseDef(story, id) { var d = (story.promises || {})[id]; if (!d) throw new Error("promesse inconnue " + id); return d; }
+  function promiseState(s, id) { var p = (s.promises || {})[id]; return p ? p.state : null; }
+  function promiseEnd(story, s, id, state) {
+    var P = s.promises[id], D = promiseDef(story, id); if (!P || P.state !== "en cours") return;
+    P.state = state; P.end = timeLabel(s);
+    s.flags[(state === "tenue" ? "tenue:" : state === "rompue" ? "rompue:" : "remise:") + id] = true;
+    var who = (story.people || {})[D.to] ? story.people[D.to].name : null, what = interp(s, D.text);
+    if (state === "tenue") { ev(s, (D.kind === "dette" ? "Dette réglée" : "Promesse tenue") + " : " + what + (who ? " (" + who + ")" : ""), "good promise"); if (D.kept && who) apply(story, s, { regard: (function () { var r = {}; r[D.to] = D.kept; return r; })() }); }
+    else if (state === "rompue") {
+      ev(s, (D.kind === "dette" ? "Dette impayée" : "Promesse rompue") + " : " + what + (who ? " (" + who + ")" : ""), "bad promise");
+      if (who) { s.regard = s.regard || {}; s.regard[D.to] = D.broken || "trahi"; }
+      if (D.collect) { s.pending = s.pending || []; s.pending.push({ to: D.collect, why: "promesse:" + id }); }
+    } else ev(s, "Promesse levée : " + what + (who ? " (" + who + ")" : ""), "promise");
+  }
+  function promisesDue(story, s) {
+    Object.keys(s.promises || {}).forEach(function (id) {
+      var P = s.promises[id]; if (P.state !== "en cours") return;
+      var D = promiseDef(story, id);
+      if (D.keeps != null && evalCond(story, s, D.keeps)) promiseEnd(story, s, id, "tenue");
+      else if (D.breaks != null && evalCond(story, s, D.breaks)) promiseEnd(story, s, id, "rompue");
+      else if (D.due && reached(s, D.due)) promiseEnd(story, s, id, "rompue");
+    });
+  }
+  // The people here, for a debt paid back: those whose hours put them in this place now (on a crossroads), and the
+  // person whose talk scene this is.
+  function peopleHere(story, s, p, id) {
+    var out = {};
+    if (p && p.hub && p.place) hereNow(story, s, p.place).forEach(function (x) { out[x.id] = 1; });
+    Object.keys(story.people || {}).forEach(function (k) { (story.people[k].at || []).forEach(function (a) { if (a.talk === id) out[k] = 1; }); });
+    if (p && p.montrer) out[p.montrer] = 1;
+    [].concat((p && p.creditor) || []).forEach(function (k) { out[k] = 1; });
+    return out;
+  }
+  function repayChoices(story, s, p) {
+    if (!p || s.combat || s.travel) return [];
+    var here = peopleHere(story, s, p, s.node), out = [];
+    Object.keys(s.promises || {}).forEach(function (id) {
+      var P = s.promises[id], D = promiseDef(story, id); if (P.state !== "en cours" || !here[D.to] || (!D.gold && !D.stock)) return;
+      var name = story.people[D.to].name;
+      if (D.gold) out.push({ sys: "repay", promise: id, group: "dette", label: "Rembourser " + lowArt(name) + " · " + money(story, D.gold, true), if: { gold: { min: D.gold } }, why: "Il te faut " + money(story, D.gold) + "." });
+      else { var k = Object.keys(D.stock)[0], n = D.stock[k]; out.push({ sys: "repay", promise: id, group: "dette", label: "Rendre " + stockLine(story, s, k, n) + " " + withPrep("à", name), if: { stock: k, min: n }, why: "Il te faut " + stockLine(story, s, k, n) + "." }); }
+    });
+    return out;
+  }
+  // Intent: tick(Story, State) ! the days that passed (stocks), the world's moments, the terms of promises
+  function tick(story, s) {
+    if (!story.stocks && !story.march && !story.promises && !(story.quests || []).some(function (q) { return q.due; })) return;
+    if (s.tickDay == null) s.tickDay = day(s);
+    while (s.tickDay < day(s)) { s.tickDay++; newDay(story, s); }
+    marchDue(story, s);
+    promisesDue(story, s);
+  }
+  // Intent: stopAt(Story, State, Time) -> Time | null = the first moment, before that time, when the world imposes a
+  // scene (march `to`, a creditor who comes): time spent by a choice or a scene stops there, so the scene opens at its hour.
+  function stopAt(story, s, t1) {
+    var best = null;
+    (story.march || []).forEach(function (e) {
+      if (!e.to || !e.at || (s.marched || {})[e.id] || (e.acts && e.acts.indexOf(s.lastAct) < 0)) return;
+      var m = momentOf(e.at); if (m <= s.time || m > t1 || (e.until && momentOf(e.until) <= m)) return;
+      if (best == null || m < best) best = m;
+    });
+    Object.keys(s.promises || {}).forEach(function (id) {
+      var P = s.promises[id], D = (story.promises || {})[id] || {}; if (P.state !== "en cours" || !D.collect || !D.due) return;
+      var m = momentOf(D.due); if (m > s.time && m <= t1 && (best == null || m < best)) best = m;
+    });
+    return best;
+  }
+  // Intent: redirect(Story, State, PassageId) -> PassageId = the scene the world imposes now, if any (march `to`, collect)
+  function redirect(story, s, id) {
+    var p = story.passages[id];
+    if (!s.pending || !s.pending.length || !p || p.end) return id;
+    while (s.pending.length) {
+      var r = s.pending.shift();
+      if (r.acts && r.acts.indexOf(p.act || s.lastAct) < 0) continue; // a crossroads without act keeps the act in progress
+      if (!story.passages[r.to] || r.to === id) continue;
+      return r.to;
+    }
+    return id;
+  }
+
+  // --- markets that move (shop.moves: [{ if, x, say }], shop.scarce: stock, sells[].if)
+  // Intent: priceFactor(Story, State, Shop) -> Number = today's prices against the shop's own
+  function priceFactor(story, s, sh) {
+    var f = 1;
+    (sh.moves || []).forEach(function (m) { if (evalCond(story, s, m.if)) f *= m.x || 1; });
+    if (sh.scarce && (story.stocks || {})[sh.scarce]) { var st0 = story.stocks[sh.scarce].start || 1, now = Math.max(1, stockNow(story, s, sh.scarce)); f *= Math.min(SCARCE_MAX, Math.max(1, Math.pow(st0 / now, SCARCE_POW))); }
+    return Math.round(f * 10) / 10;
+  }
+  function priced(n, f) { return Math.max(1, Math.round(n * f)); }
+  function shopSays(story, s, p) {
+    var sh = p && p.shop && (story.shops || {})[p.shop]; if (!sh) return [];
+    return (sh.moves || []).filter(function (m) { return m.say && evalCond(story, s, m.if); }).map(function (m) { return interp(s, m.say); });
+  }
+
+  // --- camps (story.camps: { id: { name, leader, rivals, desc } }): rallying one closes the doors of its rivals.
+  function rivalsOf(story, c) { var C = (story.camps || {})[c]; if (!C) return []; return C.rivals || Object.keys(story.camps).filter(function (k) { return k !== c; }); }
+  // A scene, a paragraph or a choice tagged camp: "x" belongs to that camp: closed once the hero has rallied a rival.
+  function campOk(story, s, c) { return !s.camp || [].concat(c).some(function (x) { return x === s.camp || rivalsOf(story, s.camp).indexOf(x) < 0; }); }
+
+  // --- councils and votes (story.councils: { id: { title, hero, members: { person: { absent } } } }, story.motions:
+  // { id: { council, title, text, lean: { member: "pour" | "contre" | "abstention" | "indecis" }, say, tie, fx } })
+  // Before the session, fx.sway turns a member (convinced, bought, threatened) and fx.sound learns how one leans. A
+  // passage `council: { motion, to }` opens the vote: each member present votes, the hero last, and the votes are counted.
+  var VOTES = { pour: "Pour", contre: "Contre", abstention: "Abstention" };
+  function motionDef(story, m) { var d = (story.motions || {})[m]; if (!d) throw new Error("motion inconnue " + m); return d; }
+  function leanOf(story, s, m, k) { var o = ((s.leans || {})[m] || {})[k]; return o || (motionDef(story, m).lean || {})[k] || "indecis"; }
+  function memberIds(story, cid) { var C = (story.councils || {})[cid] || {}; return C.order || Object.keys(C.members || {}); }
+  function memberAbsent(story, s, cid, k) { var M0 = ((story.councils || {})[cid] || {}).members || {}; return evalCond(story, s, (M0[k] || {}).absent || false); }
+  function councilChoices(story, s, p) {
+    if (!p || !p.council || s.combat || (s.votes || {})[p.council.motion]) return [];
+    return [{ sys: "council", group: "conseil", label: p.council.label || "Passer au vote" }];
+  }
+  function voteOpen(story, s) {
+    var p = story.passages[s.node], m = p.council.motion, D = motionDef(story, m), by = {};
+    memberIds(story, D.council).forEach(function (k) {
+      if (memberAbsent(story, s, D.council, k)) return;
+      var l = leanOf(story, s, m, k);
+      by[k] = l === "indecis" ? (RNG() < 0.5 ? "pour" : "contre") : l;
+    });
+    s.vote = { m: m, from: s.node, by: by, hero: null };
+    s.node = "@conseil";
+  }
+  function voteCount(by) { var n = { pour: 0, contre: 0, abstention: 0 }; Object.keys(by).forEach(function (k) { n[by[k]] = (n[by[k]] || 0) + 1; }); return n; }
+  function voteResult(story, m, by) { var n = voteCount(by), D = motionDef(story, m); return n.pour > n.contre ? "adopte" : n.pour < n.contre ? "rejete" : (D.tie || "rejete"); }
+  function voteEnd(story, s) {
+    var v = s.vote, D = motionDef(story, v.m), by = Object.assign({}, v.by);
+    if (v.hero) by.hero = v.hero;
+    var res = voteResult(story, v.m, by), n = voteCount(by);
+    s.votes = s.votes || {}; s.votes[v.m] = { result: res, by: by, pour: n.pour, contre: n.contre, abstention: n.abstention, t: timeLabel(s) };
+    var set = {}; set["vote-" + v.m] = res;
+    apply(story, s, { set: set, flag: "vote:" + v.m });
+    ev(s, "Conseil · « " + interp(s, D.title) + " » : " + (res === "adopte" ? "adoptée" : "rejetée") + " (" + n.pour + " pour, " + n.contre + " contre" + (n.abstention ? ", " + n.abstention + " abstention" + (n.abstention > 1 ? "s" : "") : "") + ")", "vote");
+    apply(story, s, (D.fx || {})[res]);
+    var to = story.passages[v.from].council.to;
+    s.vote = null; s.via = "vote";
+    go(story, s, to);
+  }
+
+  // --- ties (story.ties: [{ id, a, b, kind, label, if }]): what the hero has found out about who is with whom.
+  var TIE_KINDS = { famille: "Famille", allie: "Alliés", ennemi: "Ennemis", amour: "Amour", dette: "Dette", sert: "Au service de", secret: "Secret", membre: "Du camp" };
+  function tiesKnown(story, s) {
+    return (story.ties || []).filter(function (t) { return (s.tiesKnown || {})[t.id] || (t.if != null && evalCond(story, s, t.if)); });
+  }
+
+  // --- pitched battles (story.battles: { id: { title, intro, hero, posts: [{ id, name, def, key, if, lost }],
+  // troops: [{ id, name, force, at, if, desc }], waves: [{ text, hits: { post: n } }], orders: [{ id, label, post, def,
+  // once, if, fx }], maxLost, win: { to, fx, via }, lose: { to, fx, via } } }). A passage `battle: "id"` offers to
+  // deploy. The reader places each troop (and the hero), then gives one order a wave; each post holds, bends (the
+  // troops there tire) or breaks (it is lost, its troops fall back). A key post lost, or `maxLost` posts, lose the day.
+  function lowArt(n) { return String(n).replace(/^(Le|La|Les|L['’])(?=[\s'’]|$)/, function (m) { return m.toLowerCase(); }).replace(/^(l['’]) /, "$1"); }
+  function battleDef(story, id) { var b = (story.battles || {})[id]; if (!b) throw new Error("bataille inconnue " + id); return b; }
+  function battleChoices(story, s, p) {
+    if (!p || !p.battle || s.combat || ((s.battles || {})[p.battle] || {}).out) return [];
+    return [{ sys: "battle", group: "bataille", label: p.battleLabel || "Disposer tes troupes" }];
+  }
+  function heroForce(story, s) { return BATTLE_HERO + Math.floor(Math.max(0, bonus(story, s, "combat")) / BATTLE_HERO_PER); }
+  function battleStart(story, s) {
+    var p = story.passages[s.node], B = battleDef(story, p.battle), lost = {}, troops = [];
+    B.posts.forEach(function (x) { if (x.lost != null && evalCond(story, s, x.lost)) lost[x.id] = true; });
+    B.troops.forEach(function (t) { if (evalCond(story, s, t.if)) troops.push(t.id); });
+    if (B.hero !== false) troops.push("hero");
+    s.battle = { id: p.battle, from: s.node, step: "place", i: 0, troops: troops, at: {}, vig: {}, lost: lost, wave: 0, res: null, used: {}, hurt: 0, lostVig: 0 };
+    troops.forEach(function (k) { s.battle.vig[k] = 100; });
+    s.node = "@bataille";
+  }
+  function bPosts(story, s) { var B = battleDef(story, s.battle.id); return B.posts.filter(function (x) { return evalCond(story, s, x.if); }); }
+  function bTroop(story, s, k) { if (k === "hero") return { id: "hero", name: heroName(s) === "le héros" ? "Toi" : "Toi (" + heroName(s) + ")", force: heroForce(story, s) }; return battleDef(story, s.battle.id).troops.filter(function (t) { return t.id === k; })[0] || { id: k, name: k, force: 1 }; }
+  function bForceAt(story, s, post) {
+    var b = s.battle, f = 0;
+    b.troops.forEach(function (k) { if (b.at[k] === post) f += bTroop(story, s, k).force * (k === "hero" ? 1 : b.vig[k] / 100); });
+    return f;
+  }
+  function bThreat(n) { return n <= 0 ? "rien" : n <= 2 ? "une menace légère" : n <= 4 ? "une forte poussée" : "le gros de l'assaut"; }
+  // The post a troop falls back to: the nearest one still held (the next in the list, else the previous).
+  function bFallback(story, s, from) { var ps = bPosts(story, s).filter(function (x) { return !s.battle.lost[x.id]; }); if (!ps.length) return null; var all = bPosts(story, s).map(function (x) { return x.id; }), i = all.indexOf(from); var best = null, bd = Infinity; ps.forEach(function (x) { var d = Math.abs(all.indexOf(x.id) - i); if (d < bd) { bd = d; best = x.id; } }); return best; }
+  function battleOrders(story, s) {
+    var b = s.battle, B = battleDef(story, b.id), W0 = B.waves[b.wave] || {}, hits = W0.hits || {}, out = [];
+    var held = bPosts(story, s).filter(function (x) { return !b.lost[x.id]; });
+    out.push({ sys: "border", kind: "hold", group: "bataille", label: "Tenir les positions" });
+    // Reinforce a threatened post: the engine takes the freshest troop from the quietest post.
+    held.filter(function (x) { return (hits[x.id] || 0) > 0; }).forEach(function (x) {
+      var cand = b.troops.filter(function (k) { return k !== "hero" && b.at[k] !== x.id && !b.lost[b.at[k]] && b.vig[k] > 0; })
+        .sort(function (a1, a2) { return ((hits[b.at[a1]] || 0) - (hits[b.at[a2]] || 0)) || (b.vig[a2] - b.vig[a1]); })[0];
+      if (cand && (hits[b.at[cand]] || 0) < (hits[x.id] || 0)) out.push({ sys: "border", kind: "move", troop: cand, post: x.id, group: "bataille", label: "Envoyer " + bTroop(story, s, cand).name.replace(/^.*$/, lowArt) + " renforcer " + x.name.replace(/^.*$/, lowArt) });
+    });
+    var worst = held.slice().sort(function (a1, a2) { return (hits[a2.id] || 0) - (hits[a1.id] || 0); })[0];
+    if (worst && (hits[worst.id] || 0) > 0 && bForceAt(story, s, worst.id) > 0) out.push({ sys: "border", kind: "charge", post: worst.id, group: "bataille", label: "Contre-attaquer sur " + worst.name.replace(/^.*$/, lowArt) });
+    (B.orders || []).forEach(function (o) {
+      if (o.once && b.used[o.id]) return;
+      if (!evalCond(story, s, o.if)) return;
+      if (o.post && b.lost[o.post]) return;
+      out.push({ sys: "border", kind: "order", order: o.id, group: "bataille", label: interp(s, o.label) });
+    });
+    return out;
+  }
+  function battleOrder(story, s, c) {
+    var b = s.battle, B = battleDef(story, b.id), W0 = B.waves[b.wave] || {}, hits = W0.hits || {}, extra = {};
+    if (c.kind === "move") b.at[c.troop] = c.post;
+    if (c.kind === "charge") extra[c.post] = (extra[c.post] || 0) + BATTLE_CHARGE;
+    if (c.kind === "order") { var o = (B.orders || []).filter(function (x) { return x.id === c.order; })[0]; b.used[o.id] = true; if (o.post) extra[o.post] = (extra[o.post] || 0) + (o.def || 0); apply(story, s, o.fx); }
+    var res = {};
+    bPosts(story, s).forEach(function (x) {
+      if (b.lost[x.id]) { res[x.id] = "perdu"; return; }
+      var h0 = hits[x.id] || 0;
+      if (h0 <= 0) { res[x.id] = "calme"; return; }
+      var def = (x.def || 0) + bForceAt(story, s, x.id) + (extra[x.id] || 0), margin = def + die(6) - (h0 + die(6));
+      var here = b.troops.filter(function (k) { return b.at[k] === x.id; });
+      var tire = function (n) { here.forEach(function (k) { if (k === "hero") return; var v0 = b.vig[k]; b.vig[k] = Math.max(0, b.vig[k] - n); b.lostVig += v0 - b.vig[k]; }); };
+      if (c.kind === "charge" && c.post === x.id) tire(BATTLE_CHARGE_COST);
+      if (margin >= 0) { res[x.id] = "tient"; tire(BATTLE_HOLD_COST); }
+      else if (margin > BATTLE_BREAK) { res[x.id] = "plie"; tire(BATTLE_BEND_COST); }
+      else {
+        res[x.id] = "rompt"; tire(BATTLE_BREAK_COST); b.lost[x.id] = true;
+        if (here.indexOf("hero") >= 0) b.hurt += BATTLE_HERO_HURT;
+        var to = bFallback(story, s, x.id); here.forEach(function (k) { b.at[k] = to; });
+      }
+    });
+    b.res = res; b.step = "result";
+  }
+  function battleLostDay(story, s) {
+    var b = s.battle, B = battleDef(story, b.id), lost = bPosts(story, s).filter(function (x) { return b.lost[x.id]; });
+    return lost.some(function (x) { return x.key; }) || lost.length >= (B.maxLost || BATTLE_MAX_LOST) || !bPosts(story, s).some(function (x) { return !b.lost[x.id]; });
+  }
+  function battleEnd(story, s) {
+    var b = s.battle, B = battleDef(story, b.id), lose = battleLostDay(story, s), br = lose ? B.lose : B.win;
+    var losses = Math.round(b.lostVig / Math.max(1, b.troops.length - 1));
+    s.battles = s.battles || {}; s.battles[b.id] = { out: lose ? "lose" : "win", losses: losses, lost: Object.keys(b.lost) };
+    var set = {}; set["bataille-" + b.id] = lose ? "perdue" : "gagnee";
+    apply(story, s, { set: set, flag: "bataille:" + b.id });
+    ev(s, interp(s, B.title) + " : " + (lose ? "la ligne a cédé." : "la ligne a tenu.") + " Pertes : " + (losses < 15 ? "légères" : losses < 35 ? "lourdes" : "terribles") + ".", lose ? "bad" : "good");
+    if (b.hurt) apply(story, s, { pv: -b.hurt });
+    s.battle = null; s.last = lose ? "lose" : "win"; s.via = br.via || null;
+    if (lose) stat(s, "battlesLost"); else stat(s, "battlesWon");
+    apply(story, s, br.fx);
+    go(story, s, br.to);
+  }
+  function battleView(story, s) {
+    var b = s.battle, B = battleDef(story, b.id), text = [], cs = [], posts = bPosts(story, s);
+    var plan = { title: interp(s, B.title), wave: b.wave, waves: B.waves.length, step: b.step, posts: posts.map(function (x) {
+      var W0 = B.waves[b.wave] || {}, hits = (b.step === "place" ? {} : W0.hits || {});
+      return { id: x.id, name: x.name, key: !!x.key, lost: !!b.lost[x.id], threat: hits[x.id] || 0, res: b.step === "result" ? (b.res || {})[x.id] : null,
+        troops: b.troops.filter(function (k) { return b.at[k] === x.id; }).map(function (k) { var t = bTroop(story, s, k); return { name: t.name, vig: k === "hero" ? null : b.vig[k], hero: k === "hero" }; }) };
+    }) };
+    if (b.step === "place") {
+      var k = b.troops[b.i], t = bTroop(story, s, k);
+      if (b.i === 0 && B.intro) text.push(interp(s, B.intro));
+      text.push(k === "hero" ? "Et toi, où te tiens-tu ?" : "Où places-tu **" + t.name + "** ?" + (t.desc ? " " + interp(s, t.desc) : ""));
+      posts.filter(function (x) { return !b.lost[x.id]; }).forEach(function (x) { cs.push({ sys: "bplace", post: x.id, group: "bataille", label: x.name + (x.key ? " (à tenir coûte que coûte)" : "") }); });
+    } else if (b.step === "wave") {
+      var W1 = B.waves[b.wave];
+      text.push(interp(s, W1.text));
+      posts.forEach(function (x) { if (!b.lost[x.id]) text.push("*" + x.name + " : " + bThreat((W1.hits || {})[x.id] || 0) + ".*"); });
+      cs = battleOrders(story, s);
+    } else {
+      var RES = { tient: "la ligne tient", plie: "la ligne plie, mais tient", rompt: "la ligne rompt : le poste est perdu", calme: "rien ne bouge", perdu: "aux mains de l'ennemi" };
+      posts.forEach(function (x) { text.push("**" + x.name + "** : " + RES[(b.res || {})[x.id] || "calme"] + "."); });
+      var last = b.wave + 1 >= B.waves.length || battleLostDay(story, s);
+      cs.push({ sys: "bnext", group: "bataille", label: last ? "Voir l'issue de la bataille" : "La vague suivante" });
+    }
+    return { title: interp(s, B.title), kind: "bataille", text: text, choices: cs, battle: plan };
+  }
+
   // ------------------------------------------------------------------ the current view
   var BUILTIN = {
     "@jeu": function (story, s) {
@@ -1595,6 +1991,31 @@
       if (a.mobile) said.push("Mobile : " + interp(s, (my.motives || {})[a.mobile]) + ".");
       return { title: my.accuseTitle || "L'accusation", kind: "accuse", text: (said.length ? [said.join(" ")] : []).concat([interp(s, text)]), choices: cs };
     },
+    // A council votes (8.0): each member present, in order, then the hero; the votes are counted.
+    "@conseil": function (story, s) {
+      var v = s.vote, D = motionDef(story, v.m), C = (story.councils || {})[D.council] || {}, text = [interp(s, D.text)], cs = [], rows = [];
+      var sayOf = function (k, vote) { var x = ((D.say || {})[k] || {})[vote]; return x ? " « " + interp(s, x) + " »" : ""; };
+      memberIds(story, D.council).forEach(function (k) {
+        var pe = (story.people || {})[k] || {}, nm = pe.name || k;
+        if (!v.by[k]) { rows.push({ id: k, name: nm, vote: null }); text.push("*" + nm + " : absent" + (pe.f ? "e" : "") + ".*"); return; }
+        rows.push({ id: k, name: nm, vote: v.by[k] });
+        text.push("**" + nm + "** : " + VOTES[v.by[k]].toLowerCase() + "." + sayOf(k, v.by[k]));
+      });
+      var n = voteCount(v.by);
+      if (C.hero && !v.hero) {
+        text.push("Reste ta voix. Pour : " + n.pour + " · Contre : " + n.contre + (n.abstention ? " · Abstention : " + n.abstention : "") + ".");
+        cs.push({ sys: "councilVote", vote: "pour", group: "conseil", label: "Voter pour" });
+        cs.push({ sys: "councilVote", vote: "contre", group: "conseil", label: "Voter contre" });
+        cs.push({ sys: "councilVote", vote: "abstention", group: "conseil", label: "T'abstenir" });
+      } else {
+        var by = Object.assign({}, v.by); if (v.hero) { by.hero = v.hero; rows.push({ id: "hero", name: "Toi", vote: v.hero }); text.push("**Toi** : " + VOTES[v.hero].toLowerCase() + "." + (((D.heroSay || {})[v.hero]) ? " « " + interp(s, D.heroSay[v.hero]) + " »" : "")); }
+        var res = voteResult(story, v.m, by), n2 = voteCount(by);
+        text.push("La motion est **" + (res === "adopte" ? "adoptée" : "rejetée") + "** : " + n2.pour + " voix pour, " + n2.contre + " contre" + (n2.abstention ? ", " + n2.abstention + " abstention" + (n2.abstention > 1 ? "s" : "") : "") + (n2.pour === n2.contre ? ". L'égalité vaut " + (res === "adopte" ? "adoption" : "refus") : "") + ".");
+        cs.push({ sys: "councilEnd", group: "conseil", label: "Continuer" });
+      }
+      return { title: interp(s, C.title || "Le Conseil") + " · " + interp(s, D.title), kind: "conseil", text: text, choices: cs, council: { motion: v.m, rows: rows } };
+    },
+    "@bataille": function (story, s) { return battleView(story, s); },
     "@road": function (story, s) {
       var t = s.travel, region = (W(story).regions || {})[t.region] || {}, r = routeById(story, t.route);
       var q = (region.quiet && region.quiet.length) ? region.quiet[(t.step + s.turn) % region.quiet.length] : "La route se déroule sans histoire. Les heures passent au pas, et tu gardes l'œil ouvert.";
@@ -1672,11 +2093,13 @@
         cs = cs.concat([{ to: s.hubLast, label: "Revenir : " + interp(s, hp.title || (W(story).places[hp.place] || {}).name || "…"), auto: "back" }]);
       }
       if (!cs.length) { var back = backChoice(story, s, p); if (back) cs = [back]; }
-      cs = cs.concat(montrerChoices(story, s, p), accuseChoices(story, s, p), shopChoices(story, s, p), tavernChoices(story, s, p), travelChoices(story, s, p), leadChoices(story, s, p));
+      cs = cs.concat(councilChoices(story, s, p), battleChoices(story, s, p), montrerChoices(story, s, p), accuseChoices(story, s, p), repayChoices(story, s, p), shopChoices(story, s, p), tavernChoices(story, s, p), travelChoices(story, s, p), leadChoices(story, s, p));
       var sec = [];
       v = { title: interp(s, p.title || ""), kind: p.end ? "end" : "passage", text: textList(story, s, p.text, null, sec), choices: cs, passage: p };
       // The people here at this hour, then the rumour heard on coming in (7.9).
-      v.text = v.text.concat(peopleLines(story, s, p));
+      v.text = v.text.concat(peopleLines(story, s, p), shopSays(story, s, p));
+      // The epilogue (8.0): on an ending marked `epilogue`, what came of the hero's choices, told without judging.
+      if (p.epilogue && p.end) { var epi = (story.epilogue || []).filter(function (e) { return tagsOk(story, s, e, s.node) && evalCond(story, s, e.if); }).map(function (e) { return interp(s, e.text); }); if (epi.length) { v.epilogue = epi; v.text = v.text.concat(["**" + (story.epilogueTitle || "Ce qu'il advint") + "**"], epi); } }
       if (s.rumorNow && s.rumorNow.node === s.node && s.rumorNow.turn === s.turn) { var rr = rumorById(story, s.rumorNow.id); if (rr) v.text.push(interp(s, rr.text)); }
       // A scene that spends the night tells it at its end; one that waits for the evening, at its start.
       if (s.took && s.took.node === s.node && s.took.turn === s.turn) { v.text[s.took.end ? "push" : "unshift"]("*(" + s.took.say + ")*"); if (!s.took.end) sec = sec.map(function (i) { return i + 1; }); }
@@ -1701,7 +2124,7 @@
       }
       // Guarantee: a button agrees with the hero too ({e}, {hero}), like the text.
       if (/\{[a-z]+\}/.test(c.label)) c = Object.assign({}, c, { label: interp(s, c.label) });
-      var a = allowed(story, s, p, c); return Object.assign({}, c, { ok: a.ok, why: a.why, goes: backGoes(story, s, c) || goesTo(story, s, p, c), note: c.refuse ? "refus définitif" : aheadOf(story, s, c) || c.note, chance: c.test ? chance(story, s, c.test, c.who) : null }); });
+      var a = allowed(story, s, p, c); return Object.assign({}, c, { ok: a.ok, why: a.why, goes: backGoes(story, s, c) || goesTo(story, s, p, c), note: c.refuse ? "refus définitif" : c.fx && c.fx.camp && c.fx.camp !== s.camp ? "choix de camp : d'autres portes se fermeront" : aheadOf(story, s, c) || c.note, chance: c.test ? chance(story, s, c.test, c.who) : null }); });
     if (p) {
       // Guarantee: no twin buttons. Of several choices with the same words, the one that can be taken stays.
       var byLabel = {};
@@ -1809,6 +2232,11 @@
     // The case is judged at its hour (story.deadline), wherever the reader is: the story goes there, once.
     // The hour of the deadline is the hour of the scene it opens: a long rest that would end past it ends on it.
     if (deadlineDue(story, s, id)) { s.flags["echeance"] = true; s.time = momentOf(story.deadline); id = story.deadline.to; }
+    // A siege (8.0): the days that passed are counted, the world moves on, promises come due; a scene the world
+    // imposes (march `to`, a creditor's `collect`) takes the place of the page, except right after a vote or a battle.
+    tick(story, s);
+    if (!s.holdWorld) id = redirect(story, s, id);
+    s.holdWorld = false;
     if (story.passages[id].hub) { var b = dueBanter(story, s, story.passages[id].act); if (b) { s.ret = id; id = b; } }
     // The passage left (a fight or a road in between does not count): read by the tag `via`.
     if (s.node && s.node.charAt(0) !== "@" && s.node !== id) s.from = s.node;
@@ -1825,10 +2253,11 @@
     s.seen[id] = (s.seen[id] || 0) + 1;
     (story.quests || []).forEach(function (q) { if (q.start === id && !s.flags["quete-vue:" + q.id]) { s.flags["quete-vue:" + q.id] = true; ev(s, "Nouvelle quête : " + q.title, "quest"); } });
     var tk = takesOf(s, p.takes); s.took = null;
-    if (tk) { s.time += tk.hours; s.took = { node: id, turn: s.turn, say: tk.say, end: tk.end }; }
+    if (tk) { var pst = stopAt(story, s, s.time + tk.hours); s.time = pst != null ? pst : s.time + tk.hours; s.took = { node: id, turn: s.turn, say: tk.say, end: tk.end }; }
     if (first) apply(story, s, p.fx);
     apply(story, s, p.fxEvery);
     if (p.rumeur) rumorPick(story, s, p, id); else s.rumorNow = null;
+    tick(story, s);
     greetBack(story, s);
     if (p.combat) { startCombat(story, s, p.combat); s.combat.intro = textList(story, s, p.text).join("\n\n"); }
   }
@@ -1908,7 +2337,7 @@
     // takes on a choice (7.9): the way there spends time (a walk, a talk); the clock moves before the page opens, so
     // the page is read at its new hour, and says so at its top.
     var ctk = c.takes != null ? takesOf(s, c.takes) : null;
-    if (ctk) s.time += ctk.hours;
+    if (ctk) { var cst = stopAt(story, s, s.time + ctk.hours); s.time = cst != null ? cst : s.time + ctk.hours; }
     chooseOn(story, s, c);
     if (ctk && !(s.took && s.took.turn === s.turn && s.took.node === s.node)) s.took = { node: s.node, turn: s.turn, say: ctk.say, end: false };
   }
@@ -1956,15 +2385,30 @@
       case "accuseBack": { var fb = s.acc.from; s.acc = null; go(story, s, fb); break; }
       case "accuseProof": accuseDone(story, s, c.proof); break;
       case "jeuRoll": case "jeuStop": case "jeuAgain": case "jeuLeave": tavernSys(story, s, c); break;
+      // A siege (8.0).
+      case "repay": {
+        var RD = promiseDef(story, c.promise);
+        if (RD.gold) { s.gold = Math.max(0, s.gold - RD.gold); ev(s, "−" + money(story, RD.gold) + " · bourse : " + money(story, s.gold)); }
+        else Object.keys(RD.stock || {}).forEach(function (k) { apply(story, s, { stock: (function () { var o = {}; o[k] = -RD.stock[k]; return o; })() }); });
+        promiseEnd(story, s, c.promise, "tenue"); break;
+      }
+      case "council": voteOpen(story, s); break;
+      case "councilVote": s.vote.hero = c.vote; break;
+      case "councilEnd": s.holdWorld = true; voteEnd(story, s); break;
+      case "battle": battleStart(story, s); break;
+      case "bplace": { var bb = s.battle; bb.at[bb.troops[bb.i]] = c.post; bb.i++; if (bb.i >= bb.troops.length) bb.step = "wave"; break; }
+      case "border": battleOrder(story, s, c); break;
+      case "bnext": { var bn = s.battle, BN = battleDef(story, bn.id); if (bn.wave + 1 >= BN.waves.length || battleLostDay(story, s)) { s.holdWorld = true; battleEnd(story, s); } else { bn.wave++; bn.step = "wave"; bn.res = null; } break; }
       case "buy": s.gold -= c.price; s.items.push(c.item); ev(s, "Acheté : " + item(story, c.item).name + " (−" + money(story, c.price) + ", reste " + money(story, s.gold) + ")", "item"); break;
       case "buyFood": s.gold -= c.price; s.food++; ev(s, "Un jour de vivres de plus (" + s.food + ")", "item"); break;
-      case "sell": var at = s.items.indexOf(c.item); if (at >= 0) { var it = item(story, c.item), pr = Math.floor(it.price * SELL_RATE); s.items.splice(at, 1); s.gold += pr; ev(s, "Vendu : " + it.name + " (+" + money(story, pr) + ")", "good"); } break;
+      case "sell": var at = s.items.indexOf(c.item); if (at >= 0) { var it = item(story, c.item), pr = c.price != null ? c.price : Math.floor(it.price * SELL_RATE); s.items.splice(at, 1); s.gold += pr; ev(s, "Vendu : " + it.name + " (+" + money(story, pr) + ")", "good"); } break;
       default: throw new Error("action inconnue " + c.sys);
     }
   }
   // Intent: start(Story, State) -> () ! gives the archetype's kit (world.start.kits), then enters the first passage
   function start(story, s) {
     s.events = [];
+    if (s.tickDay == null) s.tickDay = day(s);
     if (story.heroes) { initHeroes(story, s); enter(story, s, story.start); return; }
     if (s.pv == null) s.pv = pvMax(s);
     var kit = ((W(story).start || {}).kits || {})[s.arch] || [];
@@ -1981,6 +2425,9 @@
     PERIODS: PERIODS, periodOf: periodOf, hereNow: hereNow, contradict: contradict, contradictionOf: contradictionOf, faded: faded, regardOk: regardOk, rumorById: rumorById, momentOf: momentOf,
     money: money, prepare: prepare, questsOf: questsOf, questState: questState, questDone: questDone, questRefused: questRefused, questStarted: questStarted, questMissed: questMissed, questScenes: questScenes, remaining: remaining, actOf: actOf, interp: interp, nameOf: nameOf,
     isHero: isHero, heroIds: heroIds, heroSheet: heroSheet, heroLevel: heroLevel, setLead: setLead, souvOf: souvOf, souvKept: souvKept, souvCount: souvCount, levelOfEp: levelOfEp,
+    stockNow: stockNow, dailyUse: dailyUse, daysLeft: daysLeft, priceFactor: priceFactor, promiseState: promiseState, PROMISE_STATES: PROMISE_STATES, promiseDef: promiseDef,
+    leanOf: leanOf, memberIds: memberIds, memberAbsent: memberAbsent, motionDef: motionDef, VOTES: VOTES, tiesKnown: tiesKnown, TIE_KINDS: TIE_KINDS, rivalsOf: rivalsOf, campOk: campOk,
+    battleDef: battleDef, heroForce: heroForce, tick: tick, reached: reached,
     item: item, weapon: weapon, armor: armor, useItem: useItem, day: day, timeLabel: timeLabel, routesFrom: routesFrom, isNight: isNight,
   };
   if (typeof module !== "undefined" && module.exports) module.exports = API; else root.Moteur = API;
