@@ -100,7 +100,7 @@ Object.assign(P, {
     text: [
       { outcome: "lose", text: "Tu cherches les mots, et tu ne les trouves pas assez vite. Veyra secoue la tête, comme pour chasser une mouche, et la voix de l'eau lui murmure encore quelque chose que tu n'entends pas." },
       "« Je ne te laisserai pas l'enchaîner une deuxième fois », dit Veyra. Elle tire son épée grise. Un de ses gants noirs, le plus jeune, a désobéi et descend la pente en courant pour se placer à côté d'elle. Ils se mettent en garde ensemble, à la manière de la commanderie, épaule contre épaule.",
-      "Sur l'eau, la femme ne bouge pas. Elle regarde, les mains jointes devant sa robe qui coule, avec l'intérêt poli de quelqu'un qui a parié sur les deux.",
+      "Sur l'eau, la femme reste immobile. Elle regarde, les mains jointes devant sa robe qui coule, avec l'intérêt poli de quelqu'un qui a parié sur les deux.",
     ] },
   VF_veyra_tombe: { act: "V", title: "Veyra à genoux", place: "VF_l_fond",
     fx: { flag: "VF:veyra_tombee", pv: 30 },
@@ -231,7 +231,7 @@ Object.assign(P, {
       L(H("passe:fui"), "« Et Saint-Gilles. Tu es parti{e} avant que l'eau tourne. Tu entends encore ceux qui sont restés, la nuit. Je peux les faire taire. »"),
       { with: "coliane", text: "« Hautgrès ne recommencera pas, dit-elle à Coliane, sans la regarder. Plus jamais d'écluse. Je te le promets. » Coliane reste immobile. Elle a les jointures blanches sur ses couteaux." },
       { with: "thavary", text: "« Et toi, ma belle, tu auras tes terres, dit-elle à Thavary. Toutes. Le verger, les bornes, les toits refaits. Ta grand-mère mourra dans un lit de Thavar. » Thavary serre la mâchoire." },
-      { with: "charline", text: "« Ton père retrouvera ses mains, dit-elle à Charline. Je le ferai, tu sais. Ça m'est facile. » Charline pâlit, puis rougit, et ne dit rien." },
+      { with: "charline", text: "« Ton père retrouvera ses mains, dit-elle à Charline. Je le ferai, tu sais. Ça m'est facile. » Charline pâlit, puis rougit, et se tait." },
       { with: "aubin", text: "« Tes frères auront fini leur office, dit-elle à Aubin. Ils dormiront. Et l'enfant de Morteau aura un père qui n'aura pas à se cacher. » Aubin ferme les yeux." },
       "« Je ne te demande qu'une chose, {hero}. Dis oui. Avec ta main dans mon eau. C'est tout. »",
     ],
@@ -538,7 +538,7 @@ Object.assign(P, {
     fx: { flag: "VF:veyra_face" },
     text: [
       L(H("veyra:ralliee"), "Des pas, sur l'eau, derrière toi. Veyra est descendue du fort. Elle a laissé ses épées tenir l'escalier et elle est venue seule, la main sur une blessure, comme elle te l'avait dit : pour le regarder en face."),
-      L(N(H("veyra:ralliee")), "Veyra traverse l'eau derrière toi, d'un pas qui n'est pas sûr. Elle se tient le flanc. Elle ne dit rien jusqu'au pied de la porte."),
+      L(N(H("veyra:ralliee")), "Veyra traverse l'eau derrière toi, d'un pas qui n'est pas sûr. Elle se tient le flanc. Elle se tait jusqu'au pied de la porte."),
       "Elle lève les yeux vers le visage de pierre. Elle reste comme ça longtemps, la tête renversée, en silence. Puis elle détache son épée grise, celle de l'Ordre, qu'elle avait gardée tout ce temps sous les gants noirs. Elle la pose en travers du genou de pierre.",
       "« Je m'appelle Veyra de Hautcastel, dit-elle. J'ai porté le gant gris vingt ans pour garder la porte que vous tenez. Je l'ai jeté le jour où j'ai su. J'ai cru que je venais vous délivrer. Je venais vous vendre. » Elle se tait. « Je ne vous demande rien. Je voulais que vous sachiez qu'il y en a eu au moins une qui est venue vous regarder. »",
       "L'œil la regarde. « Il y en a eu deux, dit-il, et l'œil se tourne vers toi. Ça fait beaucoup, en quatre cents ans. »",
@@ -839,7 +839,7 @@ Object.assign(P, {
     fx: { flag: "VF:tient_heros", ep: ["histoire", 4000] },
     text: [
       "Tu poses ta besace dans l'eau. Tu enlèves ce que tu portes d'inutile, et tout est inutile, ici. Tu gardes la lettre pliée en quatre. Tu la mets contre ta poitrine.",
-      { with: "pip", text: "Pip comprend avant les autres. Il ne crie pas. Il se pose sur ton épaule et il ne dit rien du tout, et il brille, de toute sa force, pour que tu le voies bien une dernière fois." },
+      { with: "pip", text: "Pip comprend avant les autres. Il ne crie pas. Il se pose sur ton épaule en silence, et il brille, de toute sa force, pour que tu le voies bien une dernière fois." },
       { with: "coliane", text: "Coliane te prend par le col, à deux mains, et te secoue, une fois, fort. Puis elle te lâche. « Imbécile », dit-elle. Elle a les yeux secs. Elle les garde secs exprès." },
       { with: "aubin", text: "Frère Aubin te bénit du pouce, sur le front, comme on bénit les enfants. Il ne s'en excuse pas." },
       { with: "thavary", text: "Thavary te salue de l'épée, à la manière ancienne. Elle se tait. Elle tient le salut plus longtemps qu'il ne faut." },
@@ -965,7 +965,7 @@ Object.assign(P, {
     fx: { flag: "VF:oui", ep: ["histoire", 3000] },
     text: [
       "Tu te tournes vers l'eau, à ses pieds, là où la tache s'est enroulée, et tu l'appelles. Tu ne sais pas son nom. Tu n'en as pas besoin. Elle t'a toujours entendu{e}.",
-      "Elle se déroule, lentement, et se lève, défaite, sans robe, sans cheveux : une forme de vase, à peine debout. Elle ne s'attendait pas à ce que tu l'appelles. Elle s'en remet vite. « Mon offre tient toujours, dit-elle. Je n'en ai jamais eu qu'une. »",
+      "Elle se déroule, lentement, et se lève, défaite, dépouillée : une forme de vase, à peine debout. Elle ne s'attendait pas à ce que tu l'appelles. Elle s'en remet vite. « Mon offre tient toujours, dit-elle. Je n'en ai jamais eu qu'une. »",
       "Tu mets la main dans son eau. « Oui. » Au-dessus de toi, la pierre ferme son œil. Elle ne le rouvre pas. Elle tient la porte, encore, un peu moins qu'avant, et elle ne te regardera plus jamais.",
       { with: "coliane", text: "Coliane se tait. Elle range ses couteaux, et elle tourne le dos, et elle remonte la pente sans t'attendre. Tu ne la rattrapes pas." },
       { with: "pip", text: "Pip quitte ton épaule. Il vole jusqu'à la main de pierre, il s'y pose une seconde, comme on pose la main sur l'épaule de quelqu'un qu'on laisse. Puis il revient. Il ne brille presque plus." },
@@ -1031,7 +1031,7 @@ function epilogue(fin) {
   add(H("charron=achete"), "On se souvient longtemps, à Brumefeuille, du jour où quelqu'un a acheté toute l'eau de Charron pour la donner à la file. Charron aussi s'en souvient. Il ne l'a jamais revendue plus cher que ce jour-là.");
   toi(H("charron=complice"), "Gilles Charron est toujours maire. Il a fait bâtir une aile à sa maison, l'été suivant, et il a fait graver sur le linteau une main ouverte. Il t'envoie une lettre, chaque nouvel an, très aimable. Tu ne l'ouvres plus.",
     "Gilles Charron est toujours maire. Il a fait bâtir une aile à sa maison, l'été suivant, et graver sur le linteau une main ouverte. Il envoie chaque nouvel an une lettre très aimable à une adresse où personne ne l'ouvre.");
-  add(H("charron=laisse"), "Gilles Charron est toujours maire, et toujours marchand de grain, et il a toujours raison. On ne lui a jamais rien reproché. Hortense, au Chaudron, sert sa soupe sans un mot de plus qu'il ne faut à tous ceux qui en parlent.");
+  add(H("charron=laisse"), "Gilles Charron est toujours maire, et toujours marchand de grain, et il a toujours raison. On ne lui a jamais rien reproché. Hortense, au Chaudron, sert sa soupe, avare de mots, à tous ceux qui en parlent.");
   add(H("bucheron=soigne"), "Tiennot, le fils du bûcheron, coupe du bois avec son père dans le Rouvre. Il a gardé au poignet une veine grise qui ne s'en va pas. Il dit que c'est pour se souvenir de ne pas aller seul dans les combes. Il y va quand même.");
   add(H("bucheron=ramene"), "Tiennot, le fils du bûcheron, est vivant. Il a mis tout l'hiver à se remettre, et il parle encore, la nuit, à quelqu'un qui n'est pas là. Son père dort dans la même pièce que lui. Il ne dit pas à qui son fils parle.");
   add(H("bucheron=tard"), "Le bûcheron du Rouvre a taillé une petite croix de chêne pour son fils, et il l'a plantée au fond de la combe, dans le creux du chêne mort. Il y va le dimanche. Il y porte la petite cognée, et il la rapporte.");
@@ -1062,7 +1062,7 @@ function epilogue(fin) {
   // ------------------------------------------------ the guardians (act II)
   T("Ferrance, Morteau et Thavar");
   add(H("livre=rendu"), "La chronique de l'an trois est revenue à l'Athénée, et Maître Corbin l'a fait enchaîner de nouveau, mais à une table où l'on peut s'asseoir. On y lit *Malvoran le Guérisseur*. Les étudiants en recopient la page, en cachette, puis plus en cachette du tout.");
-  toi(H("livre=garde"), "La chronique de l'an trois est dans ta besace, ou dans ta maison, enveloppée dans une couverture. Personne ne l'a grattée, ni brûlée, ni recopiée par-dessus. Un jour, tu la donneras. Tu ne sais pas encore à qui.",
+  toi(H("livre=garde"), "La chronique de l'an trois est dans ta besace, ou dans ta maison, enveloppée dans une couverture. Elle est restée intacte. Un jour, tu la donneras. Tu ne sais pas encore à qui.",
     "La chronique de l'an trois est restée là-haut, enveloppée dans une couverture, au fond d'une besace que quelqu'un a fini par ouvrir. Personne ne l'a grattée, ni brûlée. Elle attend qu'on la lise.");
   add(H("livre=vendu"), "La chronique de l'an trois est dans une bibliothèque d'Hautmont, ou au fond d'un poêle. L'homme aux gants blancs n'a jamais dit lequel. Bertille, la copiste, a quitté le Cercle avec sa part, et elle a ouvert une échoppe d'écrivain public à Ferrance. Elle refuse d'écrire les lettres d'amour.");
   add(H("livre=perdu"), "La chronique de l'an trois a disparu, une nuit, sur le pont des scories. Bertille la cherche encore dans les échoppes des fripiers. Elle dit qu'elle la reconnaîtrait à l'odeur.");
@@ -1264,7 +1264,7 @@ function epilogue(fin) {
   add(ALL({ met: "thavary" }, H("thavary:trahit"), ANY(H("thavary_v=vaincue"), H("thavary_v=remonte"))), "Thavary de Thavar est remontée chez sa grand-mère. Elle a laissé son épée au fort de la Descente. Elle s'entraîne avec un bâton, dans le verger, tous les matins, comme une novice.");
   add(ALL({ met: "thavary" }, H("thavary:trahit"), N(ANY(H("thavary_v=rendu"), H("thavary_v=garde"), H("thavary_v=vaincue"), H("thavary_v=remonte")))), "Thavary de Thavar est partie à la chapelle de la Descente, et on ne l'a plus revue. On dit qu'elle sert Vel-Orin, ou personne. Sa grand-mère met encore son couvert.");
   add(ALL({ met: "thavary" }, N(H("thavary:trahit")), N(H("VF:tient_thavary")), H("thavary_arc=honneur")), "Thavary de Thavar est rentrée au manoir. Elle a payé les dettes de sa maison, toutes, une à une, avec ce qu'elle avait et ce qu'elle a gagné. Il ne lui reste rien. Elle n'a jamais eu l'air aussi riche.");
-  add(ALL({ met: "thavary" }, N(H("thavary:trahit")), N(H("VF:tient_thavary")), H("thavary_arc=liberee")), "Thavary de Thavar a laissé le manoir à sa grand-mère et elle est partie sur les routes, sans dette et sans nom à porter. Elle dort sur le dos, les bras ouverts. Elle ronfle.");
+  add(ALL({ met: "thavary" }, N(H("thavary:trahit")), N(H("VF:tient_thavary")), H("thavary_arc=liberee")), "Thavary de Thavar a laissé le manoir à sa grand-mère et elle est partie sur les routes, délivrée de sa dette et du poids de son nom. Elle dort sur le dos, les bras ouverts. Elle ronfle.");
   add(ALL({ met: "thavary" }, N(H("thavary:trahit")), N(H("VF:tient_thavary")), H("thavary_arc=vengeance")), "Thavary de Thavar a remis l'épée de Thavar au mur. Elle va de cour en cour, et elle raconte, partout, ce que les cinq ont fait. On la reçoit de moins en moins. Elle s'en moque.");
   add(ALL({ met: "thavary" }, N(H("thavary:trahit")), N(H("VF:tient_thavary")), N(ANY(H("thavary_arc=honneur"), H("thavary_arc=liberee"), H("thavary_arc=vengeance")))), "Thavary de Thavar est rentrée au manoir, auprès de sa grand-mère. Elle taille le verger. Elle ne dit pas ce qu'elle a vu sous la montagne.");
 

@@ -20,7 +20,7 @@ Object.assign(P, {
     fx: { meet: "ivr_godefroy" },
     text: [
       "La route quitte la vallée par un chemin de mulets taillé dans le flanc de la montagne. Au bout d'une demi-journée de montée, un pont de pierre enjambe un torrent qui descend de la Fenne en grondant. L'eau est blanche d'écume, et sous l'écume, quand elle se calme dans les remous, elle a une teinte de thé froid. Sur le parapet, un homme en robe grise est assis, les mains dans les manches, et il te regarde venir depuis longtemps.",
-      "Il a soixante ans au moins, le crâne rasé, des mains de paysan et un gant gris à la ceinture, pas à la main. « Frère Godefroy, de Hautecombe, dit-il en se levant. Le Grand Maître m'envoie à ce pont tous les jours depuis la Toussaint. Il m'a dit : *Tu attendras quelqu'un qui marche comme s'il portait plus lourd que son sac.* » Il te détaille sans gêne. « Je crois que c'est vous. »",
+      "Il a soixante ans au moins, le crâne rasé, des mains de paysan et un gant gris passé à la ceinture. « Frère Godefroy, de Hautecombe, dit-il en se levant. Le Grand Maître m'envoie à ce pont tous les jours depuis la Toussaint. Il m'a dit : *Tu attendras quelqu'un qui marche comme s'il portait plus lourd que son sac.* » Il te détaille sans gêne. « Je crois que c'est vous. »",
       { if: { has: "passe:ordre" }, text: "Il remarque ta façon de te tenir, ou celle de poser la main sur ta ceinture là où pendait ton gant, autrefois. « Vous avez servi, dit-il. Trois ans ? Quatre ? On le voit toujours. On a beau partir, on garde la main ouverte. »" },
       { if: { has: "jeton=ordre" }, text: "Quand tu lui montres le jeton de l'Ordre, il ne le regarde pas. « Le sénéchal a écrit au Grand Maître à votre sujet, dit-il. Plusieurs fois. Il dit que vous êtes têtu{e}. Chez Brann, c'est un compliment. »" },
       { if: { has: "jeton=cercle" }, text: "Il voit le jeton d'os à ta ceinture, le cercle brisé du Cercle, et ses lèvres se pincent un instant. Puis il hausse les épaules. « Le Grand Maître a dit que vous viendriez avec ça. Il a dit que ça ne changeait rien. Je ne suis pas sûr d'être d'accord avec lui, mais il est plus vieux que moi. »" },
@@ -62,7 +62,7 @@ Object.assign(P, {
       { if: { has: "R:revele" }, text: "Tu redescends avec un nom dans la bouche. Tu ne l'as dit à personne en bas. Tu ne sais pas encore à qui on peut le dire, ni comment. Tu sais seulement qu'il pèse, et qu'on ne peut plus le poser.", else: "Tu redescends avec la moitié d'une histoire, et la certitude que l'autre moitié est pire. Le vieil homme du temple t'a regardé{e} partir comme on regarde quelqu'un qu'on n'a pas su convaincre." },
       { if: { item: "lettre_maitre" }, text: "La lettre de ta maîtresse est contre ta poitrine, sous ta chemise. Tu la sens à chaque pas, le coin des feuillets qui frotte. Tu ne la relis pas. Tu la connais déjà." },
       { with: "pip", text: "Pip ne se pose pas sur ton épaule, aujourd'hui. Il vole devant, très haut, et de temps en temps il s'arrête et regarde vers l'est, vers le glacier, comme on regarde une maison où l'on a habité." },
-      { with: "aubin", text: "Frère Aubin descend en silence, son bâton de pèlerin sonnant sur les pierres. Une fois, il dit : « Quatre cents ans. » Et il ne dit rien d'autre jusqu'au bas de la montée." },
+      { with: "aubin", text: "Frère Aubin descend en silence, son bâton de pèlerin sonnant sur les pierres. Une fois, il dit : « Quatre cents ans. » Et il se tait jusqu'au bas de la montée." },
     ],
     choices: [{ label: "Descendre vers Vaux", back: ROUTE }] },
 });
@@ -161,7 +161,7 @@ Object.assign(P, {
     choices: [{ label: "Reprendre la route", back: ROUTE }] },
   IVR_E_bete_gloup: { title: "Le bois mort", with: "gloup",
     text: [
-      "Gloup roule jusqu'au pied du talus et s'arrête là, tout petit, devant les deux bêtes qui pourraient l'avaler d'une bouchée. Il fait un bruit. Pas un mot, pas un cri : un bruit d'eau qui coule sous une pierre, très doux, qui monte et qui descend. Le chien noir baisse la tête jusqu'à lui et le renifle longtemps.",
+      "Gloup roule jusqu'au pied du talus et s'arrête là, tout petit, devant les deux bêtes qui pourraient l'avaler d'une bouchée. Il fait un bruit. Un bruit d'eau qui coule sous une pierre, très doux, qui monte et qui descend. Le chien noir baisse la tête jusqu'à lui et le renifle longtemps.",
       "Puis les deux bêtes se retournent et remontent dans le bois mort, sans hâte, et disparaissent entre les troncs gris. Gloup revient vers toi. Il tremble. Il refait, tout bas, le même bruit d'eau sous la pierre. Il connaît cette chanson-là, et il aurait préféré ne pas la connaître.",
     ],
     choices: [{ label: "Le prendre dans tes mains et reprendre la route", fx: { conf: { gloup: 5 } }, back: ROUTE }] },
@@ -208,7 +208,7 @@ Object.assign(P, {
   IVR_E_neige_nuit: { title: "Sous la paroi",
     text: [
       "Vous attendez sous un surplomb, serrés l'un contre l'autre, la chèvre entre vous pour la chaleur. L'enfant s'appelle Mathieu. Il te raconte toute la bergerie, chaque bête et son nom, pour ne pas avoir peur. Quand la neige s'arrête, il fait nuit, et la montagne est bleue sous la lune.",
-      "Les cloches de la bergerie vous guident au matin. La mère de l'enfant ne dit pas merci : elle te serre le bras si fort que tu en gardes la marque. Puis tu redescends sur le chemin, dans la neige fraîche, où tes propres traces de la veille ont disparu.",
+      "Les cloches de la bergerie vous guident au matin. Pour tout merci, la mère de l'enfant te serre le bras si fort que tu en gardes la marque. Puis tu redescends sur le chemin, dans la neige fraîche, où tes propres traces de la veille ont disparu.",
     ],
     choices: [{ label: "Reprendre la route", back: ROUTE }] },
 });
@@ -243,10 +243,10 @@ Object.assign(P, {
   IVR_portier: { act: "IV", title: "Frère Isembert", place: "hautecombe",
     fx: { meet: "ivr_isembert", questSeen: "IV_enfants" },
     text: [
-      "Le portier de l'abbaye est un homme sans âge, très maigre, avec un nez qui a été cassé et mal remis, et un registre ouvert sur les genoux où il note, d'une écriture minuscule, le nom de chaque famille qui monte. Frère Isembert. Il a l'air de n'avoir jamais été surpris par rien, et d'avoir décidé de ne pas commencer maintenant.",
+      "Le portier de l'abbaye est un homme sans âge, très maigre, avec un nez qui a été cassé et mal remis, et un registre ouvert sur les genoux où il note, d'une écriture minuscule, le nom de chaque famille qui monte. Frère Isembert. Il a l'air d'avoir tout vu, et de tenir à sa réputation.",
       "« Le Grand Maître vous recevra après les vêpres, dit-il sans lever les yeux, quand tu lui as dit ton nom. Il a donné l'ordre en septembre. Je l'ai noté. » Il tourne une page. « Il reçoit dans le temple. Il n'en sort plus. Ne lui parlez pas trop fort, il entend très bien. Ne lui parlez pas trop bas non plus, il fait semblant de ne pas entendre. »",
-      "Il pose sa plume. « Si vous avez des bras, on a de quoi les occuper. La source, il faut la garder jour et nuit : les gens voudraient en remplir des tonneaux pour redescendre. Le cloître est plein de pénitents, dont un qui ne dit rien et casse des pierres depuis un mois. Et il y a des enfants de Vaux, cinq, qu'on a vus passer au-dessus de l'abbaye il y a trois jours, vers la combe et son lac. Ils ne sont pas redescendus. » Il reprend sa plume. « Les frères ne montent plus à la combe. L'eau du lac a changé. »",
-      { if: { has: "passe:ordre" }, text: "Il voit ta main droite, et il fait, très vite, le signe de la main ouverte, comme on salue un frère. Puis il se remet à écrire comme si de rien n'était." },
+      "Il pose sa plume. « Si vous avez des bras, on a de quoi les occuper. La source, il faut la garder jour et nuit : les gens voudraient en remplir des tonneaux pour redescendre. Le cloître est plein de pénitents, dont un muet qui casse des pierres depuis un mois. Et il y a des enfants de Vaux, cinq, qu'on a vus passer au-dessus de l'abbaye il y a trois jours, vers la combe et son lac. Ils ne sont pas redescendus. » Il reprend sa plume. « Les frères ne montent plus à la combe. L'eau du lac a changé. »",
+      { if: { has: "passe:ordre" }, text: "Il voit ta main droite, et il fait, très vite, le signe de la main ouverte, comme on salue un frère. Puis il se remet à écrire, du même geste égal." },
     ],
     choices: [
       { label: "Demander audience au Grand Maître dès ce soir", big: true, hide: { seen: "IVR_edrin" }, to: "IVR_vepres" },
@@ -378,7 +378,7 @@ Object.assign(P, {
     choices: [{ label: "Replier la lettre", big: true, to: "IVR_lettre_apres" }] },
   IVR_lettre_apres: { act: "IV", title: "Après la lettre", place: "hautecombe",
     text: [
-      "Tu ne sais pas combien de temps tu restes assis{e} sur le lit. La lumière a changé dans la lucarne quand tu te lèves. Le broc, sur son trépied, déborde toujours, goutte après goutte.",
+      "Tu restes assis{e} sur le lit, longtemps, hors du temps. La lumière a changé dans la lucarne quand tu te lèves. Le broc, sur son trépied, déborde toujours, goutte après goutte.",
       { with: "thavary", text: "Thavary est restée sur le seuil tout le temps de ta lecture, le dos tourné, pour te laisser seul{e} sans te laisser seul{e}. « Une maîtresse qui demande pardon à son élève, dit-elle sans se retourner. Ma grand-mère aurait dit que c'est le monde à l'envers. Moi, je dis que c'est rare. » Elle se tait. « Garde-la bien. »" },
       { with: "coliane", text: "Coliane te prend la lettre des mains, sans demander, et la lit, en remuant les lèvres sur les mots longs. Elle te la rend. « Elle avait peur, dit-elle. Et elle y est allée. » C'est, chez Coliane, la plus haute forme d'éloge, et elle ne la donne presque jamais." },
       { with: "aubin", text: "Frère Aubin a les yeux mouillés et ne s'en cache pas. « *Ne laisse personne pleurer seul dans le noir trop longtemps* », répète-t-il, ou quelque chose d'approchant, même si ce n'est pas ce que dit ta lettre. Il dit qu'il a entendu ça quelque part. Il ne se souvient plus où." },
@@ -498,7 +498,7 @@ Object.assign(P, {
       "Edrin, Grand Maître de l'Ordre de la Main, est très petit sous ses couvertures, très maigre, avec un crâne nu taché de brun et une barbe blanche coupée court. Ses yeux sont deux billes laiteuses. Ses mains, sur la couverture, sont énormes, des mains de forgeron ou de laboureur, avec des nœuds aux articulations comme des racines. Il les tend vers toi, paumes ouvertes, sans chercher à te toucher.",
       "« Asseyez-vous, dit-il. Au sixième siège. C'est le seul qui reste libre, à cette table, depuis quatre cents ans. Personne n'ose. Moi non plus, je n'ai jamais osé. » Sa voix est claire, presque jeune. « Vous marchez comme quelqu'un qui porte plus lourd que son sac. Godefroy vous a trouvé{e}. C'est bien. »",
       { if: { mark: { min: 1 } }, text: "Il renifle, deux fois, comme un chien. Son visage ne change pas. « Vous sentez la vase, dit-il. Sur la main gauche. Elle vous a donné quelque chose. Ne me dites pas quoi. Je le sais. Elle donne toujours la même chose, sous des formes différentes. »" },
-      { with: "pip", text: "Puis il se tourne, lentement, vers ton épaule, là où Pip s'est posé. Ses yeux blancs ne voient pas, mais il tend une main, et il la garde levée à un pouce de la lumière, comme au-dessus d'un feu. « Oh, dit-il, et sa voix se casse. Oh. Vous l'avez amené. » Il ne dit rien d'autre. Il laisse retomber sa main." },
+      { with: "pip", text: "Puis il se tourne, lentement, vers ton épaule, là où Pip s'est posé. Ses yeux blancs ne voient pas, mais il tend une main, et il la garde levée à un pouce de la lumière, comme au-dessus d'un feu. « Oh, dit-il, et sa voix se casse. Oh. Vous l'avez amené. » Il s'en tient là. Il laisse retomber sa main." },
       { if: { has: "passe:ordre" }, text: "« Vous avez porté le gant, ajoute-t-il. Trois ans. On l'entend à votre façon de dire *Grand Maître*. Vous ne le dites pas comme un titre. Vous le dites comme une excuse. »" },
       { if: { given: "cloche" }, text: "« Brann m'a écrit que vous lui aviez confié la Cloche d'Ivo, dit-il encore. Sans rien demander. Brann ne m'écrit jamais rien d'aimable. Cette lettre-là l'était presque. »" },
     ],
@@ -512,7 +512,7 @@ Object.assign(P, {
       "« Oui, dit Edrin. Elle est venue. Elle s'asseyait là où vous êtes. Elle me posait les questions dans le désordre, pour voir si je répondais la même chose deux jours de suite. » Il sourit. « Je ne répondais pas la même chose. Elle l'a vu tout de suite. Au bout d'un mois, j'étais si fatigué de mentir que je lui ai dit la vérité, pour pouvoir dormir. »",
       "« Je lui ai dit de ne pas descendre à Saint-Ivo. Elle m'a dit qu'à mon âge on ne donnait plus d'ordres à personne, seulement des conseils, et qu'elle avait passé l'âge de suivre les conseils. » Ses mains se croisent sur la couverture. « Elle avait raison sur les deux points. »",
       { if: { is: { maitre: "sauve" } }, text: "« On m'a dit qu'elle vit. Qu'on l'a ramenée, à Merle, qu'elle ne parle presque plus. » Il tourne la tête vers la vallée qu'il ne voit pas. « Tant mieux. Tant mieux. Il n'y a pas beaucoup de gens qui reviennent de l'eau. »" },
-      { if: { is: { maitre: "mort" } }, text: "« On m'a dit ce qui s'est passé au gué. » Il ne dit rien pendant un moment. « Je ne vous en veux pas. Elle ne vous en voudrait pas. C'est une phrase qui ne sert à rien, je le sais, mais je l'ai gardée longtemps pour quelqu'un, et c'est à vous qu'elle revient. »" },
+      { if: { is: { maitre: "mort" } }, text: "« On m'a dit ce qui s'est passé au gué. » Il se tait un moment. « Je ne vous en veux pas. Elle ne vous en voudrait pas. C'est une phrase qui ne sert à rien, je le sais, mais je l'ai gardée longtemps pour quelqu'un, et c'est à vous qu'elle revient. »" },
       { if: { is: { maitre: "perdu" } }, text: "« On m'a dit qu'elle est dans l'eau, maintenant. » Il serre les mains. « Alors elle est plus près de lui que nous tous. Ce n'est pas une consolation. C'est seulement vrai. »" },
       { if: { item: "lettre_maitre" }, text: "Tu lui dis que tu as trouvé sa lettre, à l'auberge. Il hoche la tête. « Elle a écrit toutes les nuits. Je le savais. Gisquette me racontait. Gardez-la. Ne me la lisez pas. Je sais ce qu'elle dit de moi, et elle a raison. »" },
     ],
@@ -643,7 +643,7 @@ Object.assign(P, {
     text: [
       "On le porte sur le parvis dans un fauteuil, à l'aube, deux frères sous chaque bras. Il fait très froid. Les gens de la Sorbe sont là, debout, assis, couchés, trois cents peut-être, avec leurs bols vides à la main pour la soupe qui viendra après. Ils ne savent pas pourquoi on a sorti le Grand Maître. Ils se taisent quand il lève ses grandes mains.",
       "Il parle longtemps. Il ne crie pas. Le vent emporte des morceaux de phrases, mais les gens du premier rang les répètent à ceux de derrière, et ainsi de suite, jusqu'au fond du parvis, comme on passe des seaux pendant un incendie. *Ils étaient six. Il soignait. Il s'est proposé. Nous avons eu peur.*",
-      "Quand il se tait, personne ne dit rien pendant un long moment. Puis une vieille femme, au premier rang, se lève, et elle crache aux pieds du fauteuil. Une autre la fait se rasseoir. Un homme pleure. Des enfants demandent ce qui se passe. Quelqu'un, au fond, commence à chanter la comptine des Six, celle qu'on chante aux enfants, et s'arrête au cinquième couplet, et recommence, et s'arrête encore.",
+      "Quand il se tait, le silence dure un long moment. Puis une vieille femme, au premier rang, se lève, et elle crache aux pieds du fauteuil. Une autre la fait se rasseoir. Un homme pleure. Des enfants demandent ce qui se passe. Quelqu'un, au fond, commence à chanter la comptine des Six, celle qu'on chante aux enfants, et s'arrête au cinquième couplet, et recommence, et s'arrête encore.",
       "Le soir, on dit qu'un frère est parti de l'abbaye sans son gant. On dit aussi que trois familles qui voulaient redescendre ont décidé de rester. Tu ne sais pas ce que ça veut dire. Edrin non plus. Il dort tout le jour, et il a l'air, pour la première fois, d'un homme qui dort.",
     ],
     choices: [{ back: "IVR_temple" }] },
@@ -735,7 +735,7 @@ Object.assign(P, {
       { again: true, text: "Frère Herbelin, son gourdin, sa louche. La file des bols. Le bec de pierre et sa barbe de mousse, et l'eau claire qui tombe dans la vasque avec un bruit de rire étouffé." },
       { after: "IVR:source_palie", text: "Herbelin te salue d'un signe de tête. Il ne te parle pas de ce qui s'est passé à la vasque. Il te sert une louche, comme aux autres." },
       { after: "IVR:source_gatee", text: "L'eau de la vasque est toujours claire. Herbelin la goûte chaque matin, du bout de la louche, et chaque matin il fait la grimace. « Rien, dit-il. Elle a toujours un goût de rien. » Les fiévreux de l'infirmerie sont plus nombreux qu'à ton arrivée." },
-      { with: "gloup", first: true, text: "Gloup s'arrête net sur le seuil de la salle. Il regarde l'eau claire comme un enfant regarde le feu : avec envie, avec peur, sans oser avancer. Herbelin le voit et lève son gourdin. Puis il le repose, lentement, et ne dit rien." },
+      { with: "gloup", first: true, text: "Gloup s'arrête net sur le seuil de la salle. Il regarde l'eau claire comme un enfant regarde le feu : avec envie, avec peur, sans oser avancer. Herbelin le voit et lève son gourdin. Puis il le repose, lentement, en silence." },
     ],
     choices: [
       { label: "Lui demander une fiole d'eau claire pour le glacier", hide: { has: "IVR:fiole" }, to: "IVR_source_fiole" },
@@ -758,7 +758,7 @@ Object.assign(P, {
     text: [
       "La rigole sort sous le mur de l'abbaye et descend dans une gorge étroite, entre deux rochers, avant de se perdre dans les éboulis. Tu t'assieds dans le noir, contre la pierre, ta cape serrée autour de toi. Le froid monte du rocher. L'eau chante à côté de toi toute la nuit, tout bas, et elle ne dit pas ton nom, et c'est reposant.",
       "Vers le milieu de la nuit, des pas. Des lanternes sourdes, une charrette à bras, quatre tonneaux vides qui sonnent creux sur les cahots. Cinq hommes, une femme. Des gens de la Sorbe, des paysans, avec des visages creusés. Le premier te voit et s'arrête. Derrière lui, quelqu'un sort un couteau, sans conviction.",
-      { if: { has: "passe:profite" }, text: "L'un d'eux, le plus vieux, te regarde un moment de trop. « Saint-Gilles, dit-il. Je vous connais. Vous avez acheté le pré de mon frère, quand on est partis. Pour trois sous. » Il ne dit rien d'autre. Il n'a pas besoin." },
+      { if: { has: "passe:profite" }, text: "L'un d'eux, le plus vieux, te regarde un moment de trop. « Saint-Gilles, dit-il. Je vous connais. Vous avez acheté le pré de mon frère, quand on est partis. Pour trois sous. » Il s'en tient là. Il n'a pas besoin." },
     ],
     choices: [
       { label: "Leur parler : la source est la dernière, et elle ne suffira pas à tous", test: { dom: "social", diff: -20, label: "Des gens qui ont soif", help: [H_AUB, H_PIP, { if: { has: "passe:aide" }, v: 10 }] }, win: { fx: { ep: ["perso", 2500] }, to: "IVR_source_accord" }, lose: { to: "IVR_source_bagarre" } },
@@ -822,7 +822,7 @@ Object.assign(P, {
     text: [
       "Douze marches, une voûte basse, et un bassin carré creusé dans le roc, plein jusqu'au bord. L'eau est noire et lisse, et elle a cette tiédeur que tu commences à reconnaître, comme celle d'une main. Une lampe à huile brûle dans une niche : quelqu'un descend ici et l'entretient.",
       "Tu parles. Pas pour elle : pour savoir. « Il y a quelqu'un ? » L'eau répète, un temps après toi, avec ta voix : *Il y a quelqu'un ?* Puis, plus bas, d'une autre voix, une voix de femme, douce : *Toujours.* Tu dis ton nom. Elle le répète. Tu dis le nom de ta maîtresse. Elle le répète. Tu commences, sans y croire, la prière des morts que tout le monde sait dans la vallée, *Main ouverte qui nous gardes*, et l'eau ne répète rien. Elle se tait, net, au premier mot, comme une bouche qu'on a fermée d'une main.",
-      { after: "IVR:voix_partielle", text: "Tu restes longtemps au bord du bassin, après, en silence, et l'eau non plus ne dit rien." },
+      { after: "IVR:voix_partielle", text: "Tu restes longtemps au bord du bassin, après, en silence, et l'eau se tait avec toi." },
       { with: "aubin", text: "Frère Aubin reprend la prière là où tu t'es arrêté{e}, et la dit jusqu'au bout. L'eau se tait tout le temps qu'il parle. Quand il a fini, elle dit, avec sa voix à lui, très doucement : *La taverne de Morteau.* Aubin pâlit et remonte l'escalier sans se retourner." },
     ],
     choices: [{ label: "Remonter", back: "IVR_cloitre" }] },
@@ -834,7 +834,7 @@ Object.assign(P, {
       "Barthélemy finit le caillou qu'il était en train de casser. Puis il pose la masse et lève les yeux vers toi. Il n'a pas l'air surpris. Il a l'air d'un homme qui savait qu'il te reverrait et qui n'a jamais su ce qu'il ferait ce jour-là.",
       "« Le bailli m'a banni de la vallée, dit-il. Je suis parti par le sud. Personne ne voulait de moi nulle part : on savait, partout, le meunier qui avait empoisonné son puits. Alors j'ai marché vers l'est, vers la montagne. Ici, ils prennent tout le monde. Ils ne demandent pas. » Il ramasse un caillou, le soupèse. « Je casse les pierres pour le nouveau mur des granges. Ça fait un bruit. Le bruit m'empêche d'écouter l'eau. »",
       "« Depuis le procès, elle ne me parle plus. Margot. Elle s'est tue le jour où vous m'avez livré. » Il te regarde. « Je ne sais pas si je dois vous en vouloir ou vous remercier. Je fais les deux, selon les nuits. »",
-      { with: "coliane", text: "Coliane se tient en retrait, les bras croisés. Elle regarde Barthélemy sans colère et sans pitié, comme on regarde quelqu'un qui a payé, et qui le sait, et qui n'a pas fini de payer." },
+      { with: "coliane", text: "Coliane se tient en retrait, les bras croisés. Elle regarde Barthélemy d'un œil égal, comme on regarde quelqu'un qui a payé, et qui le sait, et qui paiera encore." },
     ],
     choices: [
       { label: "Lui donner des nouvelles de Brumefeuille", to: "IVR_meunier_nouvelles" },
@@ -863,7 +863,7 @@ Object.assign(P, {
       "Il te regarde comme si tu l'avais frappé. Puis son visage se défait, d'un coup, du haut vers le bas, et il pleure, assis sur ses pierres, les mains ouvertes sur les genoux, sans bruit, comme pleurent les hommes qui n'ont pas pleuré à l'enterrement.",
       "« Elle avait peur du noir, dit-il quand il peut. Elle dormait avec la chandelle. Je la mouchais quand elle dormait. » Il s'essuie le visage avec sa manche grise. « La voix dans l'eau, elle n'a jamais eu peur du noir. Jamais. J'aurais dû comprendre là. »",
       "Quand tu pars, il ne reprend pas sa masse. Il reste assis, à regarder ses mains. Le lendemain, un frère te dit que le meunier a demandé à apprendre à écrire, pour graver un nom sur une pierre. Le nom d'une enfant de neuf ans. Il s'applique, dit le frère. Il fait des fautes. Il recommence.",
-      { with: "aubin", text: "Frère Aubin est resté avec lui après ton départ. Tu ne sais pas ce qu'ils se sont dit. Aubin revient tard, les yeux rouges, et il te dit seulement : « Il y a des hommes qui ont besoin qu'on leur dise ce qu'ils savent déjà. »" },
+      { with: "aubin", text: "Frère Aubin est resté avec lui après ton départ. Ce qu'ils se sont dit leur appartient. Aubin revient tard, les yeux rouges, et il te dit seulement : « Il y a des hommes qui ont besoin qu'on leur dise ce qu'ils savent déjà. »" },
     ],
     choices: [{ back: "IVR_cloitre" }] },
   IVR_meunier_vaux: { act: "IV", title: "Descendre", place: "hautecombe",
@@ -926,7 +926,7 @@ Object.assign(P, {
     fx: { ep: ["perso", 2000] },
     text: [
       "Tu le prends par la taille et tu le tires en arrière de toutes tes forces. Il se débat comme un noyé, il te frappe au visage avec son coude, il hurle le nom de sa fille. Vous tombez ensemble sur les marches, et tu ne le lâches pas, et l'eau, dans le bassin, appelle de plus en plus fort, de plus en plus vite, *papa papa papa*, jusqu'à ce que ce ne soit plus qu'un bruit.",
-      "Puis ça s'arrête. Barthélemy ne se débat plus. Il est mou dans tes bras, il sanglote, il dit *je te déteste, je te déteste* sans savoir à qui. Tu le remontes au cloître. Il ne te regarde plus, ni ce jour-là ni les suivants. Mais il ne redescend pas. Les frères murent la citerne la semaine suivante.",
+      "Puis ça s'arrête. Barthélemy ne se débat plus. Il est mou dans tes bras, il sanglote, il dit *je te déteste, je te déteste* sans savoir à qui. Tu le remontes au cloître. Il évite ton regard, ce jour-là et les suivants. Mais il ne redescend pas. Les frères murent la citerne la semaine suivante.",
     ],
     choices: [{ back: "IVR_cloitre" }] },
   IVR_meunier_tombe: { act: "IV", title: "Le bassin", place: "hautecombe", ambiance: "souterrain",
@@ -1022,7 +1022,7 @@ Object.assign(P, {
     choices: [{ label: "Courir", big: true, to: "IVR_combe_lac" }] },
   IVR_combe_lac: { act: "IV", title: "Clarisse", place: "hautecombe", urgent: 20,
     text: [
-      "La fillette entre dans l'eau grise. Elle ne court pas. Elle marche, tranquillement, comme on entre dans une pièce où quelqu'un vous attend. L'eau lui monte aux chevilles, aux genoux. Elle tend les bras devant elle. Elle dit : « Maman. » Les autres enfants regardent, sans bouger, sans crier, comme dans un rêve.",
+      "La fillette entre dans l'eau grise. Elle ne court pas. Elle marche, tranquillement, comme on entre dans une pièce où quelqu'un vous attend. L'eau lui monte aux chevilles, aux genoux. Elle tend les bras devant elle. Elle dit : « Maman. » Les autres enfants regardent, figés, muets, comme dans un rêve.",
       "Il y a cinquante pas jusqu'à la rive. L'eau, autour de la petite, se ride, et des formes s'y lèvent : des femmes de vase, à genoux dans l'eau, qui tendent les bras vers elle, avec des gestes de lavandières qui tordent du linge.",
     ],
     choices: [
@@ -1045,14 +1045,14 @@ Object.assign(P, {
   IVR_combe_sauvee: { act: "IV", title: "Sur la rive", place: "hautecombe",
     text: [
       { outcome: "win", text: "La dernière lavandière se défait entre tes mains en une boue grise qui coule entre tes doigts et retourne au lac. Tu prends la fillette dans tes bras. Elle est glacée et elle ne pleure pas." },
-      "Tu ressors du lac avec la petite dans les bras, trempé{e} jusqu'aux épaules. Elle se débat, un peu, puis plus du tout. Elle regarde par-dessus ton épaule l'eau grise qui s'est refermée et lissée, sans une ride, comme si rien ne s'y était jamais levé. « Maman était là », dit-elle. Puis elle éternue.",
+      "Tu ressors du lac avec la petite dans les bras, trempé{e} jusqu'aux épaules. Elle se débat, un peu, puis plus du tout. Elle regarde par-dessus ton épaule l'eau grise qui s'est refermée et lissée, sans une ride. « Maman était là », dit-elle. Puis elle éternue.",
       "Tu la poses près des autres, sur une couverture. Babet, la grande, s'est approchée avec son bâton. Elle te regarde, puis la petite, puis le lac. Quelque chose a changé dans son visage, mais elle ne lâche pas son bâton.",
     ],
     choices: [{ label: "Parler aux enfants", big: true, to: "IVR_combe_babet" }] },
   IVR_combe_fievre: { act: "IV", title: "Sur la rive", place: "hautecombe",
     fx: { flag: "IVR:fievre" },
     text: [
-      "Tu ne sais pas comment tu ressors du lac. Tu sais que tu as la petite contre toi, et que quelqu'un d'autre te tire par le col : Babet, la grande, entrée dans l'eau jusqu'à la taille avec son bâton, qui a frappé les femmes de vase à grands coups, en hurlant, jusqu'à ce qu'elles lâchent. Vous tombez tous les trois sur la rive, dans les cailloux.",
+      "Tu ressors du lac, par quel chemin, tu l'ignores. Tu sais que tu as la petite contre toi, et que quelqu'un d'autre te tire par le col : Babet, la grande, entrée dans l'eau jusqu'à la taille avec son bâton, qui a frappé les femmes de vase à grands coups, en hurlant, jusqu'à ce qu'elles lâchent. Vous tombez tous les trois sur la rive, dans les cailloux.",
       "La petite respire. Elle tousse de l'eau grise. Babet, à côté d'elle, grelotte, les lèvres bleues, et sur ses bras, là où les mains de vase l'ont tenue, la peau a pris une teinte de cendre. Elle regarde ses bras. Elle se tait. Elle sait ce que c'est, la fièvre grise : tout le monde le sait, au camp.",
     ],
     choices: [{ label: "Parler aux enfants", big: true, to: "IVR_combe_babet" }] },
@@ -1080,7 +1080,7 @@ Object.assign(P, {
   IVR_combe_parle: { act: "IV", title: "Ce que dit le lac", place: "hautecombe",
     text: [
       "Ils mangent comme des chiots, en se battant pour les miettes, et pendant qu'ils mangent, tu parles. Tu leur dis ce que tu sais de la dame de l'eau. Qu'elle n'a pas de visage à elle. Qu'elle prend celui des gens qu'on pleure, parce que c'est le seul moyen qu'elle a qu'on l'écoute. Qu'elle ne connaît pas leurs mères. Qu'elle ne sait que ce qu'ils lui ont dit, eux, en pleurant au bord du lavoir.",
-      "Babet t'écoute jusqu'au bout. Puis elle demande, très bas : « Alors ma mère, elle n'est nulle part ? » Tu ne sais pas quoi répondre. Aymon, qui ne parle pas, prend la main de Babet. Elle le laisse faire.",
+      "Babet t'écoute jusqu'au bout. Puis elle demande, très bas : « Alors ma mère, elle n'est nulle part ? » Tu cherches quoi répondre. Aymon, qui ne parle pas, prend la main de Babet. Elle le laisse faire.",
       { with: "aubin", text: "Frère Aubin s'assied par terre avec eux. « Elle est là où sont les gens qui t'ont aimée, dit-il. Je ne sais pas où c'est. Personne ne le sait. Mais ce n'est pas dans un lac qui ment. » Babet le regarde. « Tu es prêtre ? — Je l'étais. Je ne sais plus. — Ça se voit quand même », dit-elle.", if: { not: { is: { aubin_arc: "pretre" } } } },
       { with: "aubin", if: { is: { aubin_arc: "pretre" } }, text: "« Elle est là où sont les gens qui t'ont aimée, dit Frère Aubin, assis par terre avec eux. Je ne sais pas où c'est. Mais ce n'est pas dans un lac qui ment. » Babet le regarde. « Tu es prêtre ? — Oui, dit-il, sans hésiter, et il a l'air surpris de lui-même. Oui. Je le suis. »" },
       "Au bout d'un long moment, Babet se lève et ramasse les couvertures. « On redescend », dit-elle. Personne ne discute.",
@@ -1089,7 +1089,7 @@ Object.assign(P, {
   IVR_combe_force: { act: "IV", title: "De force", place: "hautecombe",
     fx: { flag: "IVR:enfants_forces", conf: { pip: -5 } },
     text: [
-      "Tu prends Clarisse sous un bras et Colombe sous l'autre. Babet te frappe avec son bâton, fort, dans les reins, en criant. Loys pleure. Aymon ne bouge pas, puis il suit, parce que les autres partent. Il te faut toute ta patience et toute ta force pour les faire passer le col, les cinq, en les tirant, en les portant, en les rattrapant quand ils essaient de remonter.",
+      "Tu prends Clarisse sous un bras et Colombe sous l'autre. Babet te frappe avec son bâton, fort, dans les reins, en criant. Loys pleure. Aymon reste planté là, puis il suit, parce que les autres partent. Il te faut toute ta patience et toute ta force pour les faire passer le col, les cinq, en les tirant, en les portant, en les rattrapant quand ils essaient de remonter.",
       "Au col, Babet s'arrête et regarde une dernière fois le lac, en bas. Il est gris, mat, immobile. Il ne s'est rien levé dedans quand vous êtes partis. Elle ne te dit plus un mot de toute la descente. Elle tient la main de Clarisse, et de temps en temps, elle te regarde, avec une haine tranquille, de grande personne.",
     ],
     choices: [{ label: "Continuer la descente", big: true, to: "IVR_combe_descente" }] },
@@ -1106,7 +1106,7 @@ Object.assign(P, {
   IVR_combe_vaux: { act: "IV", title: "Hodierne", place: "hautecombe",
     text: [
       "Tu les redescends à Vaux le lendemain, les cinq, par le chemin des mulets. Clarisse sur tes épaules, Colombe sur le dos de qui veut bien, Loys qui court devant, Aymon qui ne lâche pas la main de Babet. Ils chantent, à un moment, une chanson de marche qui n'a que deux couplets et qu'ils recommencent jusqu'à ce que tu la saches par cœur.",
-      "Hodierne les voit arriver de loin, depuis l'entrée du camp. Elle ne court pas : elle ne peut pas courir. Elle tombe à genoux dans la boue et elle ouvre les bras, et ses deux enfants se jettent dedans, et elle les serre si fort qu'ils crient. Elle ne te dit pas merci. Elle te regarde par-dessus leurs têtes, et c'est mieux.",
+      "Hodierne les voit arriver de loin, depuis l'entrée du camp. Elle marche : courir est au-dessus de ses forces. Elle tombe à genoux dans la boue et elle ouvre les bras, et ses deux enfants se jettent dedans, et elle les serre si fort qu'ils crient. Elle ne te dit pas merci. Elle te regarde par-dessus leurs têtes, et c'est mieux.",
       { if: { has: "IVR:enfants_forces" }, text: "Babet, elle, ne se retourne pas vers toi. Elle ne t'a pas pardonné le col, ni les bras qui la tiraient. Elle ne te le pardonnera peut-être jamais. Mais elle est en bas, vivante, et elle te déteste en bonne santé." },
       "Les trois autres restent plantés là, dans la boue, au milieu du camp. Puis Hodierne ouvre un bras de plus, et Babet hésite, et elle y va, et elle tire Aymon et Colombe derrière elle. Hodierne les prend tous. Elle n'a pas de quoi les nourrir. Elle les prend quand même. Le camp de Vaux est comme ça, cet hiver : on prend d'abord, on compte après.",
       "Le soir, tu remontes vers Hautecombe. Tu as encore la chanson de marche dans la tête.",
@@ -1188,7 +1188,7 @@ Object.assign(P, {
       { if: { has: "josse=soigne" }, text: "Il se tourne vers toi. « Vous m'avez lavé les jambes, à Morteau, dit-il. Je vous dois d'être debout. » Il regarde Coliane. « Je ne savais pas que vous marchiez avec elle. Je crois que je comprends, maintenant, pourquoi vous ne m'avez pas laissé crever. » Il se trompe. Tu ne lui dis pas." },
       { if: { has: "josse=menace" }, text: "Il te regarde, toi, avec une peur ancienne. « Vous, dit-il. La lame. » Il se tourne vers Coliane. « Alors c'est pour elle que vous vouliez savoir. » Il se trompe. Tu ne lui dis pas." },
       "Il raconte, parce qu'on ne lui demande rien, et qu'il a besoin de parler. Après Morteau, il est revenu au Cercle. Personne ne lui a rien reproché, personne ne lui a rien demandé. Veyra l'a envoyé ici, avec Gautier Sorel, le rouquin, et huit épées : nourrir les réfugiés, leur dire la vérité sur le sixième, recruter pour le printemps. « C'est la première fois que je fais quelque chose de bien, dit-il. Je donne de l'eau claire à des gens qui ont soif. Je leur dis qu'on a menti. Et je sais que c'est pour me racheter, et je sais que ça ne rachète rien. » Il regarde Coliane. « Je n'ai pas oublié Hautgrès un seul jour. Pas un seul. »",
-      { with: "coliane", text: "Coliane ne répond rien. Elle se retourne et s'en va, à grands pas, à travers le camp. Tu la suis des yeux. Avant de disparaître entre les tentes, elle te fait signe, sans se retourner, de la main : *ce soir*." },
+      { with: "coliane", text: "Coliane se tait. Elle se retourne et s'en va, à grands pas, à travers le camp. Tu la suis des yeux. Avant de disparaître entre les tentes, elle te fait signe, sans se retourner, de la main : *ce soir*." },
     ],
     choices: [{ label: "Laisser Josse à son tonneau", back: "IVC_camp" }] },
   IVC_nuit: { act: "IV", title: "Le feu de Coliane", place: "vaux", with: "coliane", takes: "night",
@@ -1210,7 +1210,7 @@ Object.assign(P, {
     ] },
   IVC_decision: { act: "IV", title: "Le matin", place: "vaux", with: "coliane", takes: "morning",
     text: [
-      "Elle ne répond rien. Elle t'écoute, elle regarde le feu, elle hoche la tête, ou non. Puis elle se couche, en boule, près des braises, et elle dort, ou elle fait semblant. Toi, tu ne dors pas.",
+      "Elle se tait. Elle t'écoute, elle regarde le feu, elle hoche la tête, ou non. Puis elle se couche, en boule, près des braises, et elle dort, ou elle fait semblant. Toi, tu ne dors pas.",
       { with: "coliane", if: LOYAL_COUNSEL, text: "Au matin, elle est déjà debout. Elle a rangé ses couteaux. Elle te regarde, et tu comprends qu'elle va faire ce que tu lui as dit. Pas parce que tu l'as dit : parce qu'elle a décidé, cette nuit, de te faire confiance une fois de plus que les autres. C'est lourd. Ça devrait l'être." },
       { with: "coliane", if: { all: [{ not: LOYAL_COUNSEL }, { not: { has: "IVC:conseil_aucun" } }] }, text: "Au matin, elle est déjà debout. Elle a rangé ses couteaux. Elle te regarde un instant, et tu comprends qu'elle a écouté ce que tu lui as dit, et qu'elle a décidé seule. Elle ne te doit pas assez pour faire autrement." },
       { with: "coliane", if: { has: "IVC:conseil_aucun" }, text: "Au matin, elle est déjà debout. Elle a rangé ses couteaux. « Merci, dit-elle. De ne pas m'avoir dit. » Elle a décidé seule. Elle aurait décidé seule de toute façon." },
@@ -1265,7 +1265,7 @@ Object.assign(P, {
   IVC_justice: { act: "IV", title: "La justice", place: "vaux", with: "coliane",
     fx: { meet: "ivc_guiraud", ep: ["seance", 2500] },
     text: [
-      "Coliane ne va pas au tonneau. Elle va d'abord à l'autre bout du camp, chez les gens de la haute Sorbe, et elle cherche, de tente en tente, et elle les trouve : sept personnes, pas plus, qui viennent de Hautgrès et qui sont encore en vie. Un vieillard, surtout, assis sur un tabouret devant une tente rapiécée, avec une canne et une couverture sur les genoux. Guiraud, l'éclusier de Hautgrès. Celui qui gardait l'écluse du haut, cette nuit-là, et qui dormait.",
+      "Coliane ne va pas au tonneau. Elle va d'abord à l'autre bout du camp, chez les gens de la haute Sorbe, et elle cherche, de tente en tente, et elle les trouve : sept personnes en tout, qui viennent de Hautgrès et qui sont encore en vie. Un vieillard, surtout, assis sur un tabouret devant une tente rapiécée, avec une canne et une couverture sur les genoux. Guiraud, l'éclusier de Hautgrès. Celui qui gardait l'écluse du haut, cette nuit-là, et qui dormait.",
       { with: "coliane", text: "« Il est là, lui dit Coliane. Josse Ferlan. Au bout du camp, aux tentes bleues. Je pourrais le tuer. Je veux pas. Je veux que vous le voyiez. Tous. Et que vous disiez, vous, ce qu'on en fait. » Le vieux la regarde longtemps. Puis il se lève, en s'appuyant sur sa canne, et les six autres se lèvent avec lui." },
       "Vous traversez le camp ensemble, lentement, au pas du vieillard. Les gens s'écartent. Certains suivent. Quand vous arrivez aux tentes bleues, il y a déjà cinquante personnes derrière vous. Josse est à son tonneau. Il voit Coliane, il voit les sept de Hautgrès, il voit le vieux Guiraud. Il pose la louche. Sous l'auvent, Gautier Sorel s'avance, la main sur la garde de son épée.",
       "« Cet homme travaille pour le Cercle, dit Sorel. Il n'a de comptes à rendre qu'à Dame Veyra. Retirez-vous. »",
@@ -1287,7 +1287,7 @@ Object.assign(P, {
       flee: { label: "Reculer dans la foule", dom: "discretion", diff: -10, to: "IVC_justice_foule" } } },
   IVC_justice_foule: { act: "IV", title: "La foule", place: "vaux",
     text: [
-      "Sorel te met à terre d'un coup de garde dans la mâchoire, et il lève son épée, et c'est la foule qui l'arrête. Pas un héros, pas une épée : une femme avec un seau, puis un homme avec une pelle, puis vingt, puis cinquante, qui s'avancent en silence jusqu'à ce que les épées du Cercle soient entourées, pressées, poussées contre leurs propres tentes. Sorel regarde autour de lui. Il remet son épée au fourreau.",
+      "Sorel te met à terre d'un coup de garde dans la mâchoire, et il lève son épée, et c'est la foule qui l'arrête. Une femme avec un seau, puis un homme avec une pelle, puis vingt, puis cinquante, qui s'avancent en silence jusqu'à ce que les épées du Cercle soient entourées, pressées, poussées contre leurs propres tentes. Sorel regarde autour de lui. Il remet son épée au fourreau.",
       "« Gardez-le, votre homme, dit-il. Il ne vaut pas une émeute. » Il fait signe aux siens. Ils rentrent sous l'auvent. Les gens de la Sorbe ne s'en vont pas. Ils attendent ce que dira le vieillard.",
     ],
     choices: [{ label: "Laisser parler Guiraud", big: true, to: "IVC_jugement" }] },
@@ -1334,7 +1334,7 @@ Object.assign(P, {
     ] },
   IVC_barrage_josse: { title: "L'homme au registre", place: null,
     text: [
-      "Tu t'assieds sur le bord de la charrette, à côté de lui. Sorel vous regarde, mais il ne dit rien : il compte ses pains. L'homme au registre s'appelle Josse Ferlan. Il est de Hautgrès, dit-il, ou il était. Il n'y a plus de Hautgrès. Il ne dit pas pourquoi. Il dit qu'il fait ça pour se racheter : nourrir les réfugiés, leur dire la vérité sur le sixième, préparer le printemps.",
+      "Tu t'assieds sur le bord de la charrette, à côté de lui. Sorel vous regarde, en silence : il compte ses pains. L'homme au registre s'appelle Josse Ferlan. Il est de Hautgrès, dit-il, ou il était. Il n'y a plus de Hautgrès. Il ne dit pas pourquoi. Il dit qu'il fait ça pour se racheter : nourrir les réfugiés, leur dire la vérité sur le sixième, préparer le printemps.",
       { if: { has: "R:revele" }, text: "Alors tu lui dis l'autre moitié. Celle qu'Edrin t'a dite au temple. Que le sixième s'est proposé. Qu'il tient une porte. Que s'il lâche, ce n'est pas lui qui sortira. Que casser le Sceau, ce n'est pas délivrer : c'est ouvrir la porte au vent. Josse t'écoute en serrant le registre contre lui. Il a les mains qui tremblent." },
       { if: { not: { has: "R:revele" } }, text: "Tu lui demandes s'il sait vraiment ce qu'il y a sous le glacier. S'il a vu. S'il est sûr. Il ouvre la bouche, et il la referme. « Non, dit-il. Je ne sais jamais rien. On ne me dit que ce qu'il faut pour que je fasse ce qu'on veut. » Il regarde les pains dans le sac. « Ça, au moins, je sais que c'est du pain volé. »" },
     ],
@@ -1358,7 +1358,7 @@ Object.assign(P, {
     choices: [{ label: "Reprendre la route", back: ROUTE }] },
   IVC_barrage_vaincu: { title: "La charrette renversée", place: null,
     text: [
-      "La charrette est dans le fossé, Sorel est assis dans la boue, la main sur une épaule ouverte, et ses épées sont en fuite dans les mélèzes. Les mulets du convoi passent en piétinant le registre. Le frère convers fait une prière rapide, pour toi ou pour les blessés, tu ne sais pas.",
+      "La charrette est dans le fossé, Sorel est assis dans la boue, la main sur une épaule ouverte, et ses épées sont en fuite dans les mélèzes. Les mulets du convoi passent en piétinant le registre. Le frère convers fait une prière rapide, pour toi ou pour les blessés.",
       "Josse Ferlan n'a pas bougé. Il est resté assis sur le bord de la charrette renversée, son registre sur les genoux, pendant tout le combat. Il te regarde. « Je ne sais pas me battre, dit-il. Je ne sais rien faire. » Il ramasse son manteau bleu, et il remonte vers les tentes du Cercle, derrière Sorel, en boitant.",
     ],
     choices: [{ label: "Reprendre la route", back: ROUTE }] },

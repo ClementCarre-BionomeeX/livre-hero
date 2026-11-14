@@ -19,7 +19,7 @@ module.exports = {
       text: [
         { first: true, text: "On te trouve au lavoir de Merle, où tu regardes l'Isarde passer, brune et pressée, entre les deux armées. Un garçon de dix-sept ans, maigre, la tunique de l'Ordre déchirée à l'épaule, et la main droite nue : il a perdu son gant gris quelque part, ou il l'a jeté. Il a marché toute la nuit. Il a les pieds en sang dans des sabots qui ne sont pas à lui." },
         { first: true, text: "« Frère Arnoul, de Fort-Gaudre, dit-il en s'asseyant sur la pierre du lavoir sans qu'on l'y invite. Ou ce qu'il en reste. On m'a dit qu'il y avait à Merle quelqu'un qui parlait pour l'Ordre. » Il regarde tes mains, tes armes, ton visage, et tu vois qu'il espérait quelqu'un de plus grand, ou de plus vieux. « Le commandeur a fermé les portes du fort il y a dix jours. Il a fait entrer des cavaliers d'Aldaran par la poterne, la nuit, sans bannière. Ceux d'entre nous qui ont posé des questions sont au cachot. Moi, je suis passé par les latrines. » Il ne sourit pas en le disant." },
-        { again: true, text: "Frère Arnoul t'attend toujours au lavoir, assis sur la même pierre. Il a lavé ses pieds dans l'Isarde et les a enveloppés de chiffons. Il lève la tête chaque fois que quelqu'un descend la rue, et la baisse quand ce n'est pas toi." },
+        { again: true, text: "Frère Arnoul t'attend toujours au lavoir, assis sur la même pierre. Il a lavé ses pieds dans l'Isarde et les a enveloppés de chiffons. Il lève la tête chaque fois que quelqu'un descend la rue, et la baisse quand c'est un autre." },
         { if: { has: "passe:ordre" }, first: true, text: "Tu as porté ce gant trois ans. Tu sais ce que c'est, pour un frère, de l'enlever : on ne le perd pas, on ne l'oublie pas, on le garde même pour dormir. Arnoul surprend ton regard sur sa main nue, et il la cache sous sa cuisse." },
         { if: { has: "jeton=ordre" }, first: true, text: "Le jeton de l'Ordre pèse dans ta bourse. Brann t'a envoyé{e} ici pour parler en son nom. Ce garçon est venu chercher ce nom-là, et il n'y a personne d'autre pour le porter." },
         { with: "thavary", first: true, text: "Thavary écoute, les bras croisés, adossée au montant du lavoir. « Fort-Gaudre tient le gué, dit-elle. Qui tient le fort décide qui traverse. Ce n'est pas une affaire de cachot. C'est toute la guerre. »" },
@@ -83,7 +83,7 @@ module.exports = {
       choices: [{ label: "Reprendre la route", back: ROUTE }] },
     IIIF_leg_bac_refus: { title: "Le bac de la Noue",
       text: [
-        "Ferréol t'écoute jusqu'au bout, poliment, et rallume sa pipe. « C'est bien parlé, dit-il. Deux sous la tête. » La famille te regarde avec une sorte de gêne, comme si c'était toi qui avais demandé l'aumône pour rien.",
+        "Ferréol t'écoute jusqu'au bout, poliment, et rallume sa pipe. « C'est bien parlé, dit-il. Deux sous la tête. » La famille te regarde avec une sorte de gêne, comme si c'était toi qui avais demandé l'aumône en vain.",
         "L'homme finit par tourner sa vache vers l'amont, vers un passage qu'il connaît peut-être, ou qu'il espère. Tu passes seul{e}, pour deux sous, et tu les vois longtemps remonter la rive, petits sous les saules.",
       ],
       choices: [{ label: "Reprendre la route", fx: { gold: -2 }, back: ROUTE }, { label: "Les accompagner jusqu'au gué d'amont avant de reprendre ta route", fx: { time: 2, conf: { aubin: 3, pip: 3 } }, back: ROUTE }] },
@@ -210,7 +210,7 @@ module.exports = {
       ] },
     IIIF_E_maraudeurs_fin: { title: "La ferme du Clos-Rouge",
       text: [
-        "Les maraudeurs s'en vont par les champs, en laissant la charrette. La vieille femme ne bouge pas de sa margelle. Quand tu lui rapportes son horloge, elle la prend sur ses genoux et la regarde comme on regarde un enfant revenu.",
+        "Les maraudeurs s'en vont par les champs, en laissant la charrette. La vieille femme reste assise sur sa margelle. Quand tu lui rapportes son horloge, elle la prend sur ses genoux et la regarde comme on regarde un enfant revenu.",
         "« C'était à mon mari, dit-elle. Elle ne marche plus depuis qu'il est mort. Je la remontais quand même. » Elle te donne, en échange, ce qu'elle a : un pain de seigle et deux pommes ridées. Tu ne peux pas refuser sans l'humilier.",
       ],
       choices: [{ label: "Reprendre la route", fx: { food: 1 }, back: ROUTE }] },
@@ -280,7 +280,7 @@ module.exports = {
         "La route est défoncée par les charrois, et l'eau de pluie stagne dans les ornières, brune, immobile. Tu marches sans y penser. Puis, à la limite de ton regard, dans la plus grande des flaques, tu vois un visage qui n'est pas le tien : une femme, les cheveux défaits, qui te regarde passer.",
         "Quand tu te retournes, il n'y a que le ciel dans l'eau. Une corneille s'y pose et boit.",
         { if: { has: "marque:eclat" }, text: "Ta paume te brûle, à l'endroit de la tache, une chaleur douce, presque agréable, qui dure jusqu'au soir. Tu ne la regardes pas. Tu sais qu'elle a grandi." },
-        { with: "pip", text: "Pip tourne trois fois autour de ta tête, très vite, puis se cache dans ton col. Il ne dit rien de toute l'étape." },
+        { with: "pip", text: "Pip tourne trois fois autour de ta tête, très vite, puis se cache dans ton col. Il se tait pendant toute l'étape." },
       ],
       choices: [{ label: "Reprendre la route", back: ROUTE }] },
 
@@ -319,7 +319,7 @@ module.exports = {
     IIIF_porte_recu: { act: "III", title: "Le commandeur", place: "gaudre",
       fx: { flag: ["IIIF:dedans", "IIIF:invite"], meet: "IIIF_aymar" },
       text: [
-        { with: "thavary", text: "Le nom de Thavar fait plus que le jeton : le portier ouvre en grand et s'incline, et le cavalier derrière lui fait la grimace mais ne dit rien. Thavary passe la porte la tête haute, et tu vois sa mâchoire se serrer quand elle découvre la cour." },
+        { with: "thavary", text: "Le nom de Thavar fait plus que le jeton : le portier ouvre en grand et s'incline, et le cavalier derrière lui fait la grimace et se tait. Thavary passe la porte la tête haute, et tu vois sa mâchoire se serrer quand elle découvre la cour." },
         "On te fait traverser la cour, entre des chevaux et des ballots de fourrage, jusqu'à la salle du chapitre. Le commandeur t'y attend debout, devant une cheminée sans feu. Sire Aymar de Gaudre a soixante ans, les cheveux blancs coupés ras, un grand corps maigre qui a été puissant. Ses mains sont des mains d'épée, larges, couturées ; la droite tremble un peu, et il la tient fermée sur le pommeau de sa dague pour que ça ne se voie pas.",
         "« Quelqu'un du Val, dit-il. Après six ans. » Il sourit, et le sourire est terrible, parce qu'il a l'air vraiment content. « Il fallait une guerre pour que Brann se souvienne de Gaudre. Asseyez-vous. Mangez. Il y a du pain, maintenant, à Gaudre. Du pain blanc. Vous direz au sénéchal d'où il vient, si vous voulez. Je n'ai rien à cacher à quelqu'un qui arrive six ans trop tard. »",
         "Il te donne une cellule au-dessus du réfectoire et la liberté de la cour « jusqu'à demain ». Il ne dit pas ce qui se passera demain. En sortant, tu croises le cavalier de la porte, qui s'adosse au mur pour te regarder passer.",
@@ -377,7 +377,7 @@ module.exports = {
     IIIF_citerne_dedans: { act: "III", title: "La citerne", place: "gaudre",
       fx: { flag: "IIIF:dedans" },
       text: [
-        "Tu passes sous la grille dans une eau si froide qu'elle te coupe le souffle, et tu remontes dans le noir, de l'autre côté, sur une marche de pierre usée par cent ans de seaux. La citerne est une grande salle voûtée, à moitié pleine, où l'eau ne bouge pas. Un escalier en colimaçon monte dans le mur. Tout en haut, une trappe ; et par la trappe, des voix, des sabots, le bruit d'une cour.",
+        "Tu passes sous la grille dans une eau si froide qu'elle te coupe le souffle, et tu remontes dans le noir, de l'autre côté, sur une marche de pierre usée par cent ans de seaux. La citerne est une grande salle voûtée, à moitié pleine, où l'eau est immobile. Un escalier en colimaçon monte dans le mur. Tout en haut, une trappe ; et par la trappe, des voix, des sabots, le bruit d'une cour.",
         "Tu attends que tes dents cessent de claquer. Puis tu montes.",
         { with: "coliane", text: "Coliane passe la première par la trappe, regarde, et te fait signe : la voie est libre. Elle a de l'eau jusque dans les cils, et elle sourit pour la première fois depuis Merle." },
       ],
@@ -515,7 +515,7 @@ module.exports = {
     IIIF_cloche_reparee: { act: "III", title: "La Gaudrine", place: "gaudre",
       fx: { set: { cloche_gue: "reparee" }, flag: "cloche_gue:sort", quest: "IIIF_cloche", ep: ["seance", 1200], fac: { ordre: 5 } },
       text: [
-        "Il te faut monter sur le bord du parapet, au-dessus du vide et du gué, pour atteindre l'anneau sous la robe de la cloche. Le battant est lourd ; tu le passes, tu le fixes avec la cheville de fer que Gildas t'a donnée, tu y noues la corde neuve d'un nœud de marinier. Le vieux frère au balai te tient par la ceinture tout le temps que ça dure, et ne dit pas un mot.",
+        "Il te faut monter sur le bord du parapet, au-dessus du vide et du gué, pour atteindre l'anneau sous la robe de la cloche. Le battant est lourd ; tu le passes, tu le fixes avec la cheville de fer que Gildas t'a donnée, tu y noues la corde neuve d'un nœud de marinier. Le vieux frère au balai te tient par la ceinture tout le temps que ça dure, en silence.",
         "Tu ne la fais pas sonner : on t'entendrait jusqu'aux deux camps. Tu poses seulement la main sur le bronze. Il est froid, et il vibre un peu, du vent, de l'eau, de quelque chose. Le vieux frère prend la corde et l'enroule autour de son poignet. « Maintenant, dit-il, on verra bien qui l'entendra. »",
         { with: "pip", text: "Pip est entré sous la robe de la cloche pendant que tu travaillais, et il en ressort en faisant un petit bruit clair, comme un tintement. Il recommence trois fois, pour le plaisir." },
       ],
@@ -525,7 +525,7 @@ module.exports = {
       text: [
         "On descend au cachot par un escalier qui sue, sous la tour de l'eau. Une lanterne pend à un clou. Le geôlier, un gros homme en manteau d'Aldaran, dort sur un tabouret, la tête contre le mur, et son compagnon taille une pomme avec une dague. Derrière la grille de la grande cellule, quatre frères de Gaudre, maigres, sales, et l'un d'eux, le bras en écharpe, qui te reconnaît pour ce que tu es avant même que tu ouvres la bouche.",
         "« Si tu es venu{e} nous sortir, dit-il tout bas, fais-le vite. Si tu es venu{e} nous regarder, va-t'en. On en a assez d'être regardés. »",
-        { if: { has: "IIIF:geole" }, text: "Ce sont les frères que tu as vus à travers la grille de ta propre cellule. Ils n'ont pas bougé. Ils ont l'air de ne plus savoir bouger." },
+        { if: { has: "IIIF:geole" }, text: "Ce sont les frères que tu as vus à travers la grille de ta propre cellule. Ils sont à la même place, comme si leurs corps avaient oublié le mouvement." },
       ],
       choices: [
         { label: "Ouvrir avec le trousseau de l'intendant", if: { item: "IIIF_cles" }, why: "Il te faut les clés : l'intendant les porte à la ceinture.", to: "IIIF_cachot_ouvert" },
@@ -604,7 +604,7 @@ module.exports = {
       ] },
     IIIF_chambre_surpris: { act: "III", title: "Sur le palier", place: "gaudre",
       text: [
-        "Un pas dans l'escalier. Tu as juste le temps de te redresser. C'est Sire Aymar lui-même, une chandelle à la main. Il regarde la serrure, puis toi, et il ne dit rien pendant un long moment.",
+        "Un pas dans l'escalier. Tu as juste le temps de te redresser. C'est Sire Aymar lui-même, une chandelle à la main. Il regarde la serrure, puis toi, et il se tait un long moment.",
         "« Ce que tu cherches, dit-il enfin, est dans le coffre, au pied du lit. Je t'aurais ouvert, si tu l'avais demandé. » Il passe devant toi, ouvre la porte avec sa propre clé, et la laisse ouverte. « Je t'attends en bas, dans la salle du chapitre. Prends ton temps. Tu en as plus que moi. »",
       ],
       choices: [{ label: "Entrer dans la chambre", to: "IIIF_chambre_lettres" }] },
@@ -695,7 +695,7 @@ module.exports = {
     IIIF_aymar_fuite: { act: "III", title: "La poterne", place: "gaudre",
       fx: { set: { aymar: "enfui" }, flag: "IIIF:aymar_fini", clue: "r3_aymar", item: "IIIF_marche" },
       text: [
-        "Tu es par terre. Tu ne sais pas comment. La pointe de l'épée de Gaudre est posée sur ta gorge, juste au creux, et elle ne bouge pas. Aymar te regarde d'en haut, essoufflé, les yeux brillants.",
+        "Tu es par terre. Tu ne sais pas comment. La pointe de l'épée de Gaudre est posée sur ta gorge, juste au creux, immobile. Aymar te regarde d'en haut, essoufflé, les yeux brillants.",
         "« Pas toi, dit-il. Il y a eu assez de morts dans cette maison qui ne devaient rien à personne. » Il retire la lame. Il jette sur ta poitrine un parchemin plié, qu'il a tiré de son pourpoint : le marché au sceau rouge. « Voilà ce que tu cherchais. Porte-le à qui tu veux. Moi, je m'en vais. »",
         "Le temps que tu te relèves, il est sorti par la porte du fond, celle qui donne sur l'escalier de la citerne. Tu entends, plus bas, un bruit d'eau, puis plus rien. Sur le chemin de ronde, quelqu'un crie qu'on a vu un homme traverser le gué à cheval, vers le nord, seul, sans manteau.",
       ],
@@ -703,7 +703,7 @@ module.exports = {
     IIIF_aymar_livre: { act: "III", title: "Pour le sénéchal", place: "gaudre",
       fx: { set: { aymar: "livre" }, flag: "IIIF:aymar_fini", fac: { ordre: 10 }, conf: { aubin: 5, coliane: 5 }, ep: ["seance", 2500] },
       text: [
-        "Aymar te tend ses poignets lui-même. On les lie avec une sangle de selle, faute de mieux. Il ne dit rien pendant qu'on le fait. Quand c'est fini, il demande seulement qu'on lui laisse son manteau, et qu'on mette l'épée de Gaudre dans la chapelle, pas dans l'armurerie.",
+        "Aymar te tend ses poignets lui-même. On les lie avec une sangle de selle, faute de mieux. Il se tait pendant qu'on le fait. Quand c'est fini, il demande seulement qu'on lui laisse son manteau, et qu'on mette l'épée de Gaudre dans la chapelle, pas dans l'armurerie.",
         { if: { is: { freres_gaudre: "libres" } }, text: "C'est Baudouin qui le conduit à travers la cour, le bras valide sur son épaule, sans le pousser. Les cavaliers d'Aldaran regardent passer leur commandeur ligoté et comprennent, d'un coup, que le fort n'est plus à eux. Sire Ombert n'attend pas la suite : il fait seller, et ils sont partis avant la nuit, par la route du nord, en abandonnant la moitié de l'avoine." },
         { if: { not: { is: { freres_gaudre: "libres" } } }, text: "Les cavaliers d'Aldaran regardent passer leur commandeur ligoté, la main sur la dague, et puis Sire Ombert fait un signe, et ils vont seller. Ils ne se battront pas pour un homme fini. Ils sont partis avant la nuit, par la route du nord, en abandonnant la moitié de l'avoine." },
         "On l'enferme dans sa propre chambre, sous la garde de deux frères. Un cavalier de Gaudre partira à l'aube pour le Val avec le marché, la douzième lettre, et ton rapport. Ce sera au sénéchal de dire ce que vaut un commandeur qui a eu faim. Et ce que vaut un sénéchal qui n'a pas répondu.",
@@ -713,7 +713,7 @@ module.exports = {
     IIIF_aymar_tue: { act: "III", title: "La dague", place: "gaudre",
       fx: { set: { aymar: "tue" }, flag: "IIIF:aymar_fini", conf: { aubin: -10, pip: -10, thavary: 5 }, fear: { pip: 10 }, ep: ["seance", 2500] },
       text: [
-        "Il ne détourne pas les yeux. Il ne ferme pas les yeux non plus. Il te regarde pendant tout le temps que ça prend, et ça ne prend pas longtemps : tu frappes là où on frappe pour que ce soit court. Il fait un petit bruit de surprise, comme quelqu'un à qui on rappelle une chose oubliée, et il s'affaisse contre la table, la joue sur la carte du gué.",
+        "Il garde les yeux ouverts, droit sur toi. Il te regarde pendant tout le temps que ça prend, et ça ne prend pas longtemps : tu frappes là où on frappe pour que ce soit court. Il fait un petit bruit de surprise, comme quelqu'un à qui on rappelle une chose oubliée, et il s'affaisse contre la table, la joue sur la carte du gué.",
         "Les cavaliers d'Aldaran l'apprennent avant que tu sois sorti{e} de la salle. Ils ne vengent pas leur hôte : Sire Ombert fait seller, et ils sont partis avant la nuit, par la route du nord, en abandonnant la moitié de l'avoine. Un homme qui a vendu une fois la route, a dit le conseiller. Il n'aura pas à la vendre encore.",
         { with: "pip", text: "Pip est sorti de la salle avant que tu frappes. Tu le retrouves plus tard sur le parapet, au-dessus du gué, tout petit, et il ne vient pas se poser sur ton épaule. Il reste là-haut toute la soirée, à regarder l'eau." },
         { with: "thavary", text: "Thavary ferme les yeux du mort, d'un geste sûr, comme quelqu'un qui l'a déjà fait. « C'était un chevalier, dit-elle. Il est mort comme un chevalier. C'est plus que beaucoup. »" },
@@ -733,9 +733,9 @@ module.exports = {
       text: [
         "Au soir, Fort-Gaudre est rendu à l'Ordre, si l'on peut appeler l'Ordre une poignée de frères affamés, un vieux chapelain qui tousse et un garçon sans gant. On arrache la flamme bleue de la hampe de la tour. On ouvre la chapelle. Gildas y chante les vêpres devant tout le monde, d'une voix cassée, et les frères répondent si mal que c'en est beau.",
         { if: { is: { freres_gaudre: "tard" } }, text: "On descend au cachot ouvrir la grille. Baudouin et les autres sortent en clignant des yeux, si faibles qu'il faut les porter jusqu'au réfectoire. Ils garderont le fort. Ils ne pourront pas faire plus, pas avant des semaines." },
-        { if: { is: { freres_gaudre: "morts" } }, text: "Au pied de la tour de l'eau, les frères repêchent dans les roseaux, à la gaffe, quatre corps en tunique grise. On les couche dans la chapelle. Gildas dit leurs noms un par un : Baudouin, Hugon, Lothaire, Gerbert. Il ne pleure pas. Il n'a plus l'âge." },
+        { if: { is: { freres_gaudre: "morts" } }, text: "Au pied de la tour de l'eau, les frères repêchent dans les roseaux, à la gaffe, quatre corps en tunique grise. On les couche dans la chapelle. Gildas dit leurs noms un par un : Baudouin, Hugon, Lothaire, Gerbert. Il a les yeux secs. Il a passé l'âge." },
         { if: { is: { freres_gaudre: "libres" } }, text: "Baudouin a pris le commandement du fort, parce qu'il faut bien que quelqu'un le prenne. Il te dit qu'il tiendra la rive nord du gué le jour de la bataille, avec ce qu'il a d'hommes, quel que soit le camp qui traverse. « L'Ordre garde le gué, dit-il. Pas une couronne. Le gué. »" },
-        { if: { seen: "IIIF_route" }, text: "Frère Arnoul arrive de Merle à la nuit, à pied, ayant marché tout le jour. Il entre dans la cour et s'arrête, et regarde, et ne dit rien. Puis il va jusqu'aux latrines, et il en revient avec son gant gris, sale, qu'il a retrouvé là où il l'avait laissé. Il le met." },
+        { if: { seen: "IIIF_route" }, text: "Frère Arnoul arrive de Merle à la nuit, à pied, ayant marché tout le jour. Il entre dans la cour et s'arrête, et regarde, en silence. Puis il va jusqu'aux latrines, et il en revient avec son gant gris, sale, qu'il a retrouvé là où il l'avait laissé. Il le met." },
         { if: { has: "IIIF:bertolde_donne" }, text: "Bertolde l'intendant est assis sur les marches du cellier, sobre, ce qui lui donne l'air d'un malade. Personne ne l'a pendu. Il te regarde passer comme on regarde quelqu'un qui a tenu une promesse dont on ne croyait pas un mot." },
         "Le marché au sceau rouge est dans ton sac. Le gué, en bas, garde ses pieux. Demain ou après-demain, les deux armées viendront y mourir, à moins que quelqu'un ne trouve autre chose à leur proposer.",
       ],
@@ -780,7 +780,7 @@ module.exports = {
       text: [
         { with: "thavary", if: { has: "IIIF:thavary_appat" }, text: "Thavary a un petit rire sec, sans joie. « Me servir de ma propre honte comme d'un appât. Ma grand-mère t'aurait aimé{e}. » Elle reprend la lettre, la relit, la plie. « Je lui écrirai demain. Que je viens. Qu'il m'attende. Et je viendrai, en effet. »" },
         { with: "thavary", if: { not: { has: "IIIF:thavary_appat" } }, text: "Thavary hoche la tête, lentement. Elle reprend sa pierre, la regarde, et la remet dans sa bourse sans s'en servir. « Garde la lettre, dit-elle. Je ne veux plus l'avoir sur moi. Elle pèse plus lourd que l'épée. »" },
-        { with: "thavary", text: "Vous restez là jusqu'à ce que le ciel blanchisse au-dessus de l'Isarde. Elle ne dit plus rien. À un moment, elle s'endort, assise, la tête contre le mur, et tu ne la réveilles pas. Quand elle se réveille, elle te regarde comme si elle ne savait plus très bien qui tu es, puis elle s'en souvient, et elle ne détourne pas les yeux." },
+        { with: "thavary", text: "Vous restez là jusqu'à ce que le ciel blanchisse au-dessus de l'Isarde. Elle ne dit plus rien. À un moment, elle s'endort, assise, la tête contre le mur, et tu ne la réveilles pas. Quand elle se réveille, elle te regarde comme si elle cherchait qui tu es, puis elle s'en souvient, et elle soutient ton regard." },
       ],
       choices: [{ label: "Rejoindre les autres", to: RET }] },
     IIIF_nuit_secret: { act: "III", title: "Le silence de Thavary", with: "thavary",
@@ -949,7 +949,7 @@ module.exports = {
       text: [
         { first: true, text: "Merle ne dort pas. Les gens sont assis devant leurs portes, sur des bancs, sur des sacs, et ils parlent à voix basse, comme dans une maison où il y a un mort. Des chiens aboient de l'autre côté de l'eau, dans le camp de Vel-Orin, et ceux de Merle leur répondent. Sur la colline, les feux d'Aldaran s'éteignent un à un : on dort, là-haut, ou on fait semblant." },
         { again: true, text: "La grève de Merle, au cœur de la nuit. Il reste quelques heures avant l'aube." },
-        { if: { is: { couronne: "aldaran" } }, first: true, text: "Tu portes au bras un ruban bleu, que Nerys t'a noué elle-même. À Merle, on le regarde, et on ne dit rien." },
+        { if: { is: { couronne: "aldaran" } }, first: true, text: "Tu portes au bras un ruban bleu, que Nerys t'a noué elle-même. À Merle, on le regarde, et on se tait." },
         { if: { is: { couronne: "velorin" } }, first: true, text: "Ton contrat de Vel-Orin est plié dans ta chemise. Une page, deux signatures, et une clause pour ta rançon. À Merle, on sait déjà, et on se demande si ça vaut mieux qu'un ruban." },
         { if: { is: { couronne: "paix" } }, first: true, text: "La trêve tient depuis trois heures. On le dit de porte en porte, à Merle, et l'on n'ose pas y croire. Quelqu'un a allumé une chandelle à la fenêtre de l'église. D'autres l'imitent, puis d'autres, et bientôt tout le village est éclairé, comme pour une fête qu'on n'oserait pas commencer." },
         { if: { has: "berthe=sauvee" }, first: true, text: "Parmi les réfugiés de la basse Sorbe, une vieille femme de Brumefeuille te reconnaît. Elle connaît Berthe. « Elle va bien, dit-elle. Elle parle de toi à ses chèvres. » C'est la première fois depuis des jours que quelqu'un te fait rire." },
@@ -1166,7 +1166,7 @@ module.exports = {
     IIIG_champion: { act: "III", title: "Le champion", place: "merle",
       text: [
         "La brume s'est levée. Sur le gué, il ne reste que les morts, les galets gris, et quelques hommes qui cherchent leurs camarades en retournant les corps. Les deux armées sont sur leurs rives, immobiles, épuisées, et regardent l'eau comme on regarde une bête qui dort.",
-        "Quelqu'un traverse. Seul, à pied, depuis l'amont, l'eau aux genoux. Un manteau noir, un masque de cuir noir qui couvre tout le visage, et sur l'épaule, brodée en fil blanc, une tour : la livrée du champion du premier conseiller d'Aldaran. Il ne regarde ni à droite ni à gauche. Il vient droit vers toi, et l'eau, autour de ses jambes, est noire, et elle le suit.",
+        "Quelqu'un traverse. Seul, à pied, depuis l'amont, l'eau aux genoux. Un manteau noir, un masque de cuir noir qui couvre tout le visage, et sur l'épaule, brodée en fil blanc, une tour : la livrée du champion du premier conseiller d'Aldaran. Il regarde droit devant lui. Il vient droit vers toi, et l'eau, autour de ses jambes, est noire, et elle le suit.",
         { if: { seen: "IIIG_veyra" }, text: "Au bout de la grève, le pavillon gris n'est plus là." },
         "À dix pas, le champion s'arrête. Il porte la main à son masque, lentement, et l'ôte, et le laisse tomber dans l'Isarde.",
         { if: { has: "maitre:hauberte" }, text: "Hauberte de Sarn. Tes yeux le savent avant toi : la balafre au menton, les cheveux gris coupés court, la façon de tenir l'épée, basse, la pointe vers ton genou, comme elle te l'a appris dans la cour d'une ferme, il y a des années, en riant de toi. Ses yeux ne rient pas. Ils sont noirs, entièrement, comme de l'eau de puits. Une tache sombre lui monte du col jusqu'à la mâchoire." },
@@ -1199,7 +1199,7 @@ module.exports = {
       text: [
         "Tu ne parles pas à la Voix. Tu parles à ta maîtresse. Tu lui rappelles la cour de la ferme, et l'herbe, et la première fois que tu as compris quelque chose qu'elle t'expliquait, et son visage à ce moment-là. Tu lui dis que l'eau ment. Qu'elle prend la voix de ceux qu'on pleure. Qu'elle ne sait que ce qu'on lui a dit.",
         { with: "aubin", text: "Frère Aubin dit son nom, simplement, d'une voix forte, trois fois, comme on appelle quelqu'un qui s'est perdu dans le brouillard. À la troisième, elle tressaille." },
-        "Elle s'arrête. Son arme descend. L'eau noire, autour d'elle, se met à trembler, et les deux voix se séparent dans sa bouche : l'une dit ton nom avec colère, l'autre le dit avec un étonnement immense, comme quelqu'un qui se réveille dans une chambre qu'il ne reconnaît pas.",
+        "Elle s'arrête. Son arme descend. L'eau noire, autour d'elle, se met à trembler, et les deux voix se séparent dans sa bouche : l'une dit ton nom avec colère, l'autre le dit avec un étonnement immense, comme quelqu'un qui se réveille dans une chambre inconnue.",
         "Elle tombe à genoux dans l'Isarde. Tu es près d'elle avant qu'elle ait fini de tomber.",
       ],
       choices: [{ label: "La retenir", big: true, to: "IIIG_duel_vaincu" }] },
@@ -1228,7 +1228,7 @@ module.exports = {
     IIIG_maitre_sauve: { act: "III", title: "Ramenée", place: "merle",
       fx: { set: { maitre: "sauve" }, ep: ["histoire", 5000], conf: { pip: 10, aubin: 10, coliane: 5 } },
       text: [
-        { with: "aubin", if: { loyal: "aubin" }, text: "Frère Aubin s'agenouille dans l'eau à côté d'elle, pose sa main grise de prières sur la tache de son cou, et ne dit rien du tout. Il reste là. La tache recule sous sa paume, lentement, comme une marée qui hésite, et Aubin serre les dents, et ne retire pas la main." },
+        { with: "aubin", if: { loyal: "aubin" }, text: "Frère Aubin s'agenouille dans l'eau à côté d'elle, pose sa main grise de prières sur la tache de son cou, et se tait. Il reste là. La tache recule sous sa paume, lentement, comme une marée qui hésite, et Aubin serre les dents, et ne retire pas la main." },
         { if: { has: "IIIG:eau_jetee" }, text: "L'eau claire a fait la moitié du chemin. Tu fais le reste à mains nues : tu lui laves le visage, le cou, les mains, avec l'eau de l'Isarde qui est redevenue de l'eau, en frottant jusqu'à ce que la peau soit rouge." },
         { if: { clues: "V", min: 3 }, text: "Tu lui dis ce que tu sais de celle qui parle dans l'eau, tout, dans l'ordre, sans rien oublier : qu'elle prend la voix des morts, qu'elle ne sait que ce qu'on lui dit, qu'elle a besoin qu'on lui ouvre. Tu le lui dis comme on récite une leçon, pour qu'elle puisse s'y tenir. Elle s'y tient." },
         "Tu la portes hors de l'Isarde. Elle ne pèse rien. Sur la grève, on vous fait de la place sans qu'il faille le demander. La tache, sur son cou, n'a pas disparu : elle a pâli, elle s'est rétractée en une petite marque grise, comme une ancienne brûlure. Ses yeux sont à elle. Ils sont pleins de larmes, et elle ne les essuie pas.",
@@ -1243,7 +1243,7 @@ module.exports = {
         { if: { has: "maitre:hauberte" }, text: "Tu fermes les yeux de Hauberte. Tu poses son épée sur sa poitrine, la pointe vers les pieds, à la manière de l'Ordre qu'elle avait quitté sans dire pourquoi." },
         { if: { has: "maitre:ortie" }, text: "Tu fermes les yeux d'Ortie. Tu glisses dans sa main la petite bourse de simples qu'elle portait à la ceinture, pour qu'elle ait quelque chose à elle, là où elle va." },
         { if: { has: "maitre:maelle" }, text: "Tu fermes les yeux de Maëlle. Tu ramasses ses lunettes dans les galets, tu les essuies, tu les lui remets, la branche cassée tenue par le fil." },
-        { with: "thavary", text: "Thavary s'agenouille de l'autre côté du corps, et ne dit rien. Elle reste là avec toi, simplement, aussi longtemps qu'il le faut. C'est la chose la plus douce qu'elle ait jamais faite, et elle ne le saura jamais." },
+        { with: "thavary", text: "Thavary s'agenouille de l'autre côté du corps, en silence. Elle reste là avec toi, simplement, aussi longtemps qu'il le faut. C'est la chose la plus douce qu'elle ait jamais faite, et elle ne le saura jamais." },
       ],
       choices: [{ label: "Te relever", big: true, to: [{ if: { is: { couronne: "paix" } }, to: "IIIG_demasque" }, { if: { is: { couronne: "aldaran" } }, to: "IIIG_victoire_aldaran" }, { to: "IIIG_victoire_velorin" }] }] },
     IIIG_maitre_perdu: { act: "III", title: "L'eau l'emporte", place: "merle",
@@ -1252,7 +1252,7 @@ module.exports = {
         { if: { has: "IIIG:duel_perdu" }, text: "Tu es à genoux dans l'Isarde, l'eau jusqu'à la poitrine, sans arme. Elle est debout au-dessus de toi. Elle pourrait. Elle lève son bras, et le bras s'arrête en l'air, et tremble, et redescend. « Pas toi, dit-elle de sa voix à elle, très vite, comme on dit quelque chose avant qu'on vous coupe la parole. Pas toi. Va-t'en. Va-t'en loin de l'eau. »" },
         { if: { not: { has: "IIIG:duel_perdu" } }, text: "Tu la lâches. La raison t'échappe. Parce que tu ne peux pas la tuer, et que tu ne sais pas la sauver. Elle te regarde comprendre ça, et quelque chose dans son visage te pardonne, et quelque chose d'autre rit." },
         "Puis l'eau noire monte autour d'elle comme une robe qu'on enfile, et elle recule, un pas, deux pas, dans le courant, sans te quitter des yeux. L'Isarde lui arrive à la taille, à la poitrine, aux épaules. Elle ne nage pas. Elle descend, comme on descend un escalier. La dernière chose que tu vois, ce sont ses yeux, l'un noir, l'autre à elle.",
-        "Après, il n'y a plus que la rivière, qui coule vers Merle comme si rien ne s'était passé. On sondera le gué à la gaffe jusqu'au soir. On ne trouvera rien.",
+        "Après, il reste la rivière, qui coule vers Merle du même pas qu'hier. On sondera le gué à la gaffe jusqu'au soir. On ne trouvera rien.",
       ],
       choices: [{ label: "Sortir de l'eau", big: true, to: [{ if: { is: { couronne: "paix" } }, to: "IIIG_demasque" }, { if: { is: { couronne: "aldaran" } }, to: "IIIG_victoire_aldaran" }, { to: "IIIG_victoire_velorin" }] }] },
 
@@ -1260,7 +1260,7 @@ module.exports = {
     IIIG_demasque: { act: "III", title: "Midi sur l'île", place: "merle",
       fx: { flag: "vendrel:demasque", fac: { aldaran: 10, velorin: 10, ordre: 10 }, ep: ["histoire", 6000] },
       text: [
-        "À midi, sur l'île du gué, au milieu des morts qu'on n'a pas fini de ramasser, les deux couronnes sont revenues. Nerys d'Aldaran, le visage gris de n'avoir pas dormi, la manche tachée de sang qui n'est pas le sien. Orsini de Vel-Orin, sans fard, sans bagues : elle les a ôtées pour panser des blessés et ne les a pas remises. Morn derrière elle. Et Vendrel, un pas derrière Nerys, en noir, impeccable, les gants blancs.",
+        "À midi, sur l'île du gué, au milieu des morts qu'on n'a pas fini de ramasser, les deux couronnes sont revenues. Nerys d'Aldaran, le visage gris de veille, la manche tachée du sang d'un autre. Orsini de Vel-Orin, le visage nu, les doigts nus : elle a ôté ses bagues pour panser des blessés et les a laissées de côté. Morn derrière elle. Et Vendrel, un pas derrière Nerys, en noir, impeccable, les gants blancs.",
         "Tu n'as presque rien à dire. Les preuves sont venues toutes seules, dans la matinée.",
         { if: { has: "IIIG:ordre_ombert" }, text: "L'ordre trouvé sur Sire Ombert, à Merle : *Brûler, et crier Vel-Orin.* Morn le compare à la lettre codée de son propre camp, lentement, lettre à lettre, et le pose sur l'autel en silence." },
         { if: { is: { maitre: "sauve" } }, text: "Ta maîtresse, sur sa civière, qu'on a portée jusqu'à l'île parce qu'elle l'a exigé. Elle dit, devant les deux couronnes, de qui elle était le champion, et qui l'a menée au bord du lac de Morteau pour qu'elle y écoute l'eau. Elle le dit d'une voix faible et parfaitement claire." },
@@ -1290,7 +1290,7 @@ module.exports = {
       text: [
         "À midi, Vel-Orin rompt. Les arbalétriers abandonnent la rive basse et se replient sur Sainte-Orme, en bon ordre, comme des marchands qui ferment boutique plus tôt que prévu. Les piquiers d'Aldaran plantent la bannière à la tour d'argent sur les galets de la rive sud, et crient, et pleurent, et s'assoient par terre.",
         "On te fait monter à la colline. Le roi Aldric n'est pas sorti de sa tente. C'est Vendrel qui te reçoit, debout devant l'entrée, les gants blancs toujours immaculés. « Une belle journée pour Aldaran, dit-il. Sa Majesté vous en remercie. » Il regarde le gué, les morts, l'eau qui redevient lentement de l'eau. « Une journée qui a coûté ce qu'elle devait coûter. Ni plus, ni moins. »",
-        "Il ne parle pas du champion. Il ne parle pas de Merle. Il sait que tu sais, et il sait que tu n'as pas de quoi le dire devant les deux couronnes. Nerys, derrière lui, te regarde par-dessus son épaule, et elle a l'air d'avoir perdu la bataille.",
+        "Il passe sous silence le champion, et Merle. Il sait que tu sais, et il sait que tu n'as pas de quoi le dire devant les deux couronnes. Nerys, derrière lui, te regarde par-dessus son épaule, et elle a l'air d'avoir perdu la bataille.",
         { if: { has: "IIIG:vendrel_or" }, text: "Il te salue, en partant, d'un petit geste de la main gantée, vers ta bourse. Deux cents couronnes. Tu les sens toutes, contre ta hanche." },
       ],
       choices: [{ label: "Redescendre au gué", big: true, to: "IIIG_morts" }] },
@@ -1310,7 +1310,7 @@ module.exports = {
         "Partout où l'eau noire est passée, les galets sont restés gris. Un vieux de Merle en ramasse un, le casse avec un autre : il est gris jusqu'au cœur.",
         { if: { has: "passe:aide" }, text: "Tu passes la nuit dans la grange de l'église, avec les blessés. Tu portes, tu tiens, tu donnes à boire. Tes mains savent faire ça depuis Saint-Gilles. Elles n'ont rien oublié." },
         { with: "aubin", text: "Frère Aubin passe de mort en mort, une chandelle à la main, et il dit pour chacun une phrase de l'office, une seule, en le regardant. Il ne saute personne. Ça lui prend la nuit." },
-        { with: "coliane", text: "Coliane retourne les corps pour chercher les visages. Tu ne lui demandes pas qui elle cherche. Elle ne trouve pas. Elle a l'air soulagée et déçue à la fois." },
+        { with: "coliane", text: "Coliane retourne les corps pour chercher les visages. Tu la laisses chercher sans question. Elle ne trouve pas. Elle a l'air soulagée et déçue à la fois." },
         { with: "charline", text: "Charline brûle les vêtements souillés sur un grand feu, au bout de la grève, et elle reste à le regarder brûler, les bras croisés, sans reculer quand la chaleur monte." },
         { with: "gloup", text: "Gloup reste au bord de l'eau toute la nuit, à surveiller l'Isarde. Il grogne doucement quand une traînée sombre passe dans le courant. Personne ne lui a demandé de monter la garde." },
         { with: "pip", text: "Pip a passé la soirée à voler de torche en torche, et maintenant il s'est posé sur l'épaule d'un garçon de Vel-Orin qui a perdu une jambe et qui ne dort pas. Il brille juste assez pour qu'on y voie." },
@@ -1321,13 +1321,13 @@ module.exports = {
       text: [
         "Les jours suivants, la vallée de l'Isarde se vide. Les armées repartent chacune de son côté, lentement, avec leurs blessés dans des chariots. Les mercenaires qui n'ont plus de maître vendent leurs chevaux à Merle pour presque rien, et Anselme les rachète. Le vent tourne au nord. Il gèle, le matin, sur les flaques de la grève.",
         { if: { has: "merle:sauve" }, text: "Merle rebâtit ses deux granges et le toit de l'auberge. Les gens te saluent dans la rue, maintenant, d'un signe de tête, sans sourire, comme on salue quelqu'un qui a fait ce qu'il fallait faire. Le vieux Mauger t'a gardé une barque. Il dit qu'elle est à toi, et qu'elle s'appelle comme toi, et il a peint ton nom sur le bordage, mal." },
-        { if: { not: { has: "merle:sauve" } }, text: "Merle enterre ses morts derrière l'église, dans la terre gelée, et ne rebâtit pas encore. Les gens ne t'en veulent pas. Ils ne te regardent pas non plus. Tu passes dans la rue comme on passe dans un rêve dont on ne se souvient pas." },
+        { if: { not: { has: "merle:sauve" } }, text: "Merle enterre ses morts derrière l'église, dans la terre gelée, et ne rebâtit pas encore. Les gens te laissent en paix, et leurs yeux t'évitent. Tu passes dans la rue comme on passe dans un rêve dont on ne se souvient pas." },
         { if: { is: { maitre: "sauve" } }, text: "Ta maîtresse est restée dans la grange de l'église. Elle dort beaucoup. Quand elle ne dort pas, elle regarde ses mains. Elle t'a dit qu'elle t'écrirait, quand elle saurait de nouveau écrire. Le curé de Merle a promis de la garder jusqu'au printemps." },
         { if: { is: { maitre: "mort" } }, text: "Tu as enterré ta maîtresse sur la colline au-dessus de Merle, d'où l'on voit le gué et Fort-Gaudre. Tu n'as pas mis de nom sur la pierre. Tu le sais. Ça suffit." },
         { if: { is: { maitre: "perdu" } }, text: "Chaque matin, tu descends au gué, et tu regardes l'eau. Tu ne sais pas ce que tu espères y voir. Rien, la plupart du temps. Une fois, un reflet qui avait un temps de retard." },
         { if: { has: "vendrel:demasque" }, text: "À Hautmont, le roi Aldric a fait proclamer que son premier conseiller était mort noyé dans l'Isarde au service de la couronne. Nerys gouverne, en son nom. Elle t'a fait porter un mot, d'une écriture ronde et décidée : *Merci. Ne revenez pas trop vite : ici, on vous craint autant qu'on vous doit.*" },
         { if: { not: { has: "vendrel:demasque" } }, text: "Maître Vendrel est rentré à Hautmont avec le roi. On dit qu'il a été fait comte du Val d'Aune, et qu'il ne desserre plus jamais son col, même pour dormir." },
-        { with: "thavary", if: { has: "thavary:secret" }, text: "Thavary s'est éloignée deux jours, sans dire où. Elle est revenue un soir, à cheval, avec un manteau neuf, doublé, bien trop cher pour elle. Elle n'en a pas parlé. Tu n'as pas demandé." },
+        { with: "thavary", if: { has: "thavary:secret" }, text: "Thavary s'est éloignée deux jours, sans dire où. Elle est revenue un soir, à cheval, avec un manteau neuf, doublé, bien trop cher pour elle. Elle a gardé le silence là-dessus, et toi aussi." },
         { with: "thavary", if: { has: "thavary:aveu" }, text: "Thavary a écrit à sa grand-mère. Elle t'a montré la lettre avant de l'envoyer, ce qu'elle n'avait jamais fait. Il y avait dedans tout ce qu'elle t'avait dit cette nuit-là. Et à la fin : *Je n'ai rien vendu. Je voulais que vous le sachiez par moi.*" },
         { if: { is: { aymar: "livre" } }, text: "De la commanderie du Val, une lettre du sénéchal Brann : Sire Aymar a été jugé devant le chapitre, dégradé, et envoyé finir ses jours au moutier de Hautecombe. Au bas, d'une autre encre, Brann a ajouté : *J'ai lu la douzième lettre.* Rien d'autre." },
       ],
