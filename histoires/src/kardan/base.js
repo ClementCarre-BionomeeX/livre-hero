@@ -184,7 +184,7 @@ module.exports = {
       { id: "g_jardin_atelier", name: "Le passage des voûtes", from: "jardin", to: "atelier", steps: 2, region: "galeries", label: "Passer sous les voûtes vers l'atelier", labelBack: "Repasser sous les voûtes vers le jardin noyé" },
       { id: "g_noms_atelier", name: "Le couloir des plans", from: "noms", to: "atelier", steps: 1, region: "galeries", label: "Prendre le couloir aux murs gravés de plans, vers l'atelier", labelBack: "Prendre le couloir aux murs gravés de plans, vers la salle des noms" },
       { id: "g_atelier_coeur", name: "La descente au cœur", from: "atelier", to: "coeur", steps: 2, region: "profondeurs", label: "Descendre vers le cœur, où chante l'eau", labelBack: "Remonter l'escalier vers l'atelier",
-        if: { has: "chemin:coeur" }, why: "Tu ne sais pas encore où est le cœur." },
+        if: { has: "chemin:coeur" }, why: "Tu ignores encore où est le cœur." },
     ],
     regions: {
       sud: { name: "La vallée sèche", chance: 0.7, events: ["E_puits_secs", "E_caravane", "E_vautours", "E_chevrier"],
@@ -204,11 +204,11 @@ module.exports = {
       galeries: { ambiance: "souterrain", name: "Les galeries", chance: 0.55, events: ["E_rats", "E_eboulement", "E_piege", "E_cadavre", "E_torche", "E_pas", "E_voix"],
         quiet: [
           "La galerie tourne, se divise, se rejoint. Les murs sont de la même pierre ocre partout, taillée à la main en blocs si réguliers qu'on finit par les compter. Tu laisses une marque à la craie à chaque embranchement, comme on le fait dans les histoires.",
-          "Il fait frais, presque froid. Quelque part, très loin, de l'eau goutte, régulière comme une cloche. Tu avances dans le rond de ta lumière, et le noir se referme derrière toi sans un bruit.",
-          "Le sol monte, puis descend, et tu ne sais plus où sont le haut et le bas. Seul le courant d'air te guide encore : il vient de devant, et il sent la pierre mouillée.",
+          "Il fait frais, presque froid. Quelque part, très loin, de l'eau goutte, régulière comme une cloche. Tu avances dans le rond de ta lumière, et le noir se referme derrière toi en silence.",
+          "Le sol monte, puis descend, et tu perds le sens du haut et du bas. Seul le courant d'air te guide encore : il vient de devant, et il sent la pierre mouillée.",
         ],
         camp: [
-          "Tu t'arrêtes quand tes jambes ne te portent plus. Dans le dédale, il n'y a ni jour ni nuit, seulement la fatigue. Tu dors adossé au mur, et tu rêves de soleil.",
+          "Tu t'arrêtes quand tes jambes ne te portent plus. Dans le dédale, la fatigue tient lieu de jour et de nuit. Tu dors adossé au mur, et tu rêves de soleil.",
           "Vous vous serrez autour de la petite flamme. Personne ne parle. Dans la pierre, très loin, un battement lent, régulier, comme un cœur qui dormirait.",
         ] },
       profondeurs: { ambiance: "souterrain", name: "Les profondeurs", chance: 0.4, events: ["E_voix", "E_pas"],

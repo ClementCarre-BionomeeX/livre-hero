@@ -7,7 +7,7 @@ module.exports = {
   P_reveil: { act: "I", title: "Sous les combles", place: "vellane",
     text: [
       "Le coq de Dame Héloïse chante faux, comme tous les matins, et comme tous les matins tu te réveilles avant lui avec la même pensée : *aujourd'hui, faire mieux que {autre}*.",
-      "La chambre des pages est un grenier sous les ardoises, deux paillasses, un coffre, une lucarne. Sur l'autre paillasse, {autre} est déjà en train de lacer ses bottes, le dos tourné, avec cette application exaspérante de quelqu'un qui veut être prêt le premier. Vous ne vous dites pas bonjour. Vous ne vous êtes pas dit bonjour depuis la Toussaint.",
+      "La chambre des pages est un grenier sous les ardoises, deux paillasses, un coffre, une lucarne. Sur l'autre paillasse, {autre} est déjà en train de lacer ses bottes, le dos tourné, avec cette application exaspérante de quelqu'un qui veut être prêt le premier. Vous vous habillez en silence. Votre dernier bonjour date de la Toussaint.",
       { if: { has: "passe:noble" }, text: "Chez ton père, on avait des valets pour lacer les bottes. Ici, on t'a appris à lacer celles des autres. Tu as fini par trouver que ce n'était pas le pire de ce qu'on apprend." },
       { if: { has: "passe:forge" }, text: "Tu as encore, dans les paumes, la corne de la forge. Messire dit que c'est la seule armure qu'on ne vous enlève pas." },
       { if: { has: "passe:cloitre" }, text: "Au monastère, on se levait à matines, dans le noir. Ici, au moins, il y a le coq. Faux, mais vivant." },
@@ -22,7 +22,7 @@ module.exports = {
   P_ecurie: { act: "I", title: "L'écurie", place: "vellane",
     text: [
       "L'écurie sent le foin chaud et le cuir. Brise-Vent, le vieux destrier de Messire, te salue d'un coup de tête dans l'épaule qui manque de te renverser. Les chevaux de Gauvard arrivent derrière toi, fumants, menés par un garçon maigre aux yeux cernés : Thibaud, son écuyer.",
-      "« Bouchonne le gris, dit-il sans te regarder. Monseigneur y tient. » Il s'en va vers les cuisines en traînant les pieds, comme quelqu'un qui n'a pas dormi.",
+      "« Bouchonne le gris, dit-il sans te regarder. Monseigneur y tient. » Il s'en va vers les cuisines en traînant les pieds, comme après une nuit blanche.",
       "Le gris de Gauvard est un beau cheval, crotté jusqu'aux genoux. Tu prends la brosse.",
     ],
     choices: [
@@ -34,26 +34,26 @@ module.exports = {
   P_ecurie_boue: { act: "I", title: "L'argile rouge", place: "vellane",
     text: [
       "Dans la fourchette du sabot, tassée, une argile rouge sombre, presque violette. Il n'y en a qu'à un endroit dans le comté : sur le chemin des bergers qui monte au Mont-Veille, là où personne ne monte plus.",
-      "Gauvard arrive de Morne, à l'ouest. Le Mont-Veille est au nord. Ce n'est pas sur la route. Ce n'est sur la route de rien.",
+      "Gauvard arrive de Morne, à l'ouest. Le Mont-Veille est au nord. C'est à l'écart de la route, à l'écart de toutes les routes.",
     ],
     choices: [{ label: "Finir de bouchonner le gris", to: "P_ecurie" }] },
   P_ecurie_paille: { act: "I", title: "Un cheval nerveux", place: "vellane",
     text: [
-      "Le gris ne veut pas donner le pied. Il piaffe, il souffle, il te marche presque sur la main, et quand Thibaud revient chercher sa selle, il te regarde faire avec un drôle d'air, comme soulagé que tu n'aies rien trouvé. Tu ne sais pas quoi.",
+      "Le gris ne veut pas donner le pied. Il piaffe, il souffle, il te marche presque sur la main, et quand Thibaud revient chercher sa selle, il te regarde faire avec un drôle d'air, comme soulagé de te voir les mains vides. Qu'aurais-tu pu trouver ?",
     ],
     choices: [{ label: "Laisser le gris tranquille", to: "P_ecurie" }] },
   P_ecurie_dague: { act: "I", title: "La dague de {autre}", place: "vellane",
     text: [
       "Dans la paille de la stalle de Brise-Vent, une dague. Tu la connais : poignée tressée de cuir bleu, une encoche dans la garde. C'est celle de {autre}, oubliée là hier soir. Les pages n'ont pas le droit de laisser traîner une lame dans l'écurie. Messire est très dur là-dessus depuis qu'un palefrenier y a perdu un œil.",
-      "Il suffirait de la porter à Dame Héloïse. Ou de la poser, sans un mot, sur la paillasse de {autre}.",
+      "Il suffirait de la porter à Dame Héloïse. Ou de la poser, en silence, sur la paillasse de {autre}.",
     ],
     choices: [
-      { label: "La remettre sur sa paillasse, sans rien dire", fx: { flag: "monde:amitie_dague", ep: ["perso", 300] }, to: "P_ecurie_dague_rendue" },
+      { label: "La remettre sur sa paillasse, en silence", fx: { flag: "monde:amitie_dague", ep: ["perso", 300] }, to: "P_ecurie_dague_rendue" },
       { label: "La porter à Dame Héloïse", fx: { flag: "monde:rancune_dague" }, to: "P_ecurie_dague_donnee" },
     ] },
   P_ecurie_dague_rendue: { act: "I", title: "Une dague sur une paillasse", place: "vellane",
     text: [
-      "Tu montes au grenier quatre à quatre, tu poses la dague sur la couverture pliée, bien en vue, et tu redescends avant que quelqu'un te voie. Tu ne sais pas très bien pourquoi tu as fait ça. Tu n'as pas envie d'y réfléchir.",
+      "Tu montes au grenier quatre à quatre, tu poses la dague sur la couverture pliée, bien en vue, et tu redescends avant que quelqu'un te voie. Tu l'as fait presque malgré toi, et tu préfères penser à autre chose.",
     ],
     choices: [{ back: "P_ecurie" }] },
   P_ecurie_dague_donnee: { act: "I", title: "Les clés de Dame Héloïse", place: "vellane",
@@ -90,14 +90,14 @@ module.exports = {
     choices: [{ label: "Reprendre l'armure", to: "P_armure" }] },
   P_armure_ecu_accuse: { act: "I", title: "Messire Aubert", place: "vellane",
     text: [
-      "Messire Aubert prend la sangle, la regarde longtemps, sans rien dire. Il passe le pouce sur l'entaille. Puis il te la rend.",
-      "« Elle a été coupée par un gaucher, page. De haut en bas. Regarde. » Il se détourne vers la fenêtre. « Je n'ai pas de page gaucher. J'ai deux pages qui ne se regardent pas. » Il sort sans un mot de plus, et sa jambe raide sonne sur les dalles.",
+      "Messire Aubert prend la sangle, la regarde longtemps, en silence. Il passe le pouce sur l'entaille. Puis il te la rend.",
+      "« Elle a été coupée par un gaucher, page. De haut en bas. Regarde. » Il se détourne vers la fenêtre. « Je n'ai pas de page gaucher. J'ai deux pages qui ne se regardent pas. » Il sort là-dessus, et sa jambe raide sonne sur les dalles.",
     ],
     choices: [{ label: "Changer la sangle, les joues en feu", to: "P_armure" }] },
   P_armure_lettre: { act: "I", title: "Un papier plié", place: "vellane",
     text: [
       "Un papier plié en quatre, sali d'une empreinte de botte. Il a dû tomber de la sacoche de quelqu'un qui est passé par ici ce matin : par la porte, tu vois l'escalier qui mène aux chambres d'hôtes.",
-      "Ce n'est pas écrit en clair. Des lettres serrées, sans espaces, comme dans les jeux de moines.",
+      "C'est écrit à mots couverts. Des lettres serrées, sans espaces, comme dans les jeux de moines.",
     ],
     choices: [
       { label: "Essayer de le lire", test: { dom: "savoir", diff: 0, label: "Savoir" },
@@ -172,7 +172,7 @@ module.exports = {
 
   P_nuit: { act: "I", title: "La nuit", place: "vellane",
     text: [
-      "Le banquet finit tard. Vous montez vous coucher, {autre} et toi, l'un derrière l'autre, sans un mot. Au milieu de la nuit, des cris, des portes, des pas dans l'escalier : Messire Aubert est tombé dans sa chambre, et ne se réveille pas.",
+      "Le banquet finit tard. Vous montez vous coucher, {autre} et toi, l'un derrière l'autre, en silence. Au milieu de la nuit, des cris, des portes, des pas dans l'escalier : Messire Aubert est tombé dans sa chambre, et ne se réveille pas.",
     ],
     choices: [{ label: "Descendre", to: "P_chevet", big: true }] },
 
@@ -214,7 +214,7 @@ module.exports = {
   P_anselme_pierre: { act: "II", title: "Le mot de la Veille", place: "saules",
     text: [
       "« Il y a neuf cents ans, les gens d'ici ont endormi Ossaroth avec une pierre et un mot. La pierre est restée sur l'autel, sous la montagne. Le mot, on se l'est transmis, de bouche à oreille, de vieux fou à vieux fou. Je suis le dernier vieux fou. »",
-      "Il te le dit. Ce n'est pas un mot, c'est une phrase, presque une chanson, dans une langue que personne ne parle plus, et il te la fait répéter jusqu'à ce que tu la saches sans y penser.",
+      "Il te le dit. C'est une phrase entière, presque une chanson, dans une langue morte, et il te la fait répéter jusqu'à ce qu'elle te vienne toute seule.",
       "« Écoute bien, maintenant. La Pierre ne se repose pas d'une seule main. L'une la tient sur l'autel, l'autre dit le mot. Un homme seul n'y arrive pas. Gauvard ne l'a jamais compris, parce que Gauvard n'a jamais eu besoin de personne. »",
     ],
     choices: [
@@ -242,7 +242,7 @@ module.exports = {
     text: [
       "Ils sont trois autour du feu. Gauvard parle, l'homme d'armes écoute en mangeant, et Thibaud, un peu à l'écart, tient les chevaux. Tu es assez près pour entendre.",
       "« Demain soir, dit Gauvard. On ouvre la grille, on prend la Pierre, et le ver est à nous. Qui tient la Pierre tient Ossaroth : c'est écrit dans tous les livres. » Il fait sauter une clé de fer noir dans sa main gantée, puis la raccroche à sa ceinture.",
-      "Thibaud ne dit rien. Il regarde la montagne avec une peur qu'il ne cherche même plus à cacher.",
+      "Thibaud se tait. Il regarde la montagne, et sa peur se lit sur tout son visage.",
     ],
     choices: [
       { label: "Attendre qu'ils dorment, et prendre la clé", test: { dom: "discretion", diff: -10, label: "Discrétion" },
@@ -253,7 +253,7 @@ module.exports = {
     text: [
       "Il descend au ruisseau avec deux gourdes, et tu l'attends derrière un rocher. Il sursaute, porte la main à son couteau, te reconnaît. « Le page de Vellane. » Il ne crie pas.",
       "« Ton maître a empoisonné le mien. »",
-      "Thibaud s'assoit sur ses talons, comme si ses jambes ne le portaient plus. « Je sais. J'ai porté la fiole. Je ne savais pas, et puis je savais. » Il a seize ans, peut-être. « Si je l'abandonne, il me fera pendre. Si je reste, il réveille le ver. »",
+      "Thibaud s'assoit sur ses talons, comme si ses jambes venaient de céder. « Je sais. J'ai porté la fiole. Je ne savais pas, et puis je savais. » Il a seize ans, peut-être. « Si je l'abandonne, il me fera pendre. Si je reste, il réveille le ver. »",
     ],
     choices: [
       { label: "Lui dire qu'il a encore le choix, et qu'on se souviendra de celui qu'il fera", test: { dom: "social", diff: 0, label: "Social" },
@@ -292,10 +292,10 @@ module.exports = {
   P_pied: { act: "III", title: "Au pied du Mont-Veille", place: "montveille",
     fx: { ep: ["histoire", 5000] },
     text: [
-      "Le Mont-Veille est une montagne ronde et nue, sans arbres, sans oiseaux, avec une seule entaille dans son flanc : la Gorge. Le soleil se couche. C'est le troisième soir.",
+      "Le Mont-Veille est une montagne ronde et nue, toute en pierre et en vent, avec une seule entaille dans son flanc : la Gorge. Le soleil se couche. C'est le troisième soir.",
       "Et à l'entrée de la Gorge, sur une pierre, quelqu'un t'attend : {autre}.",
       "Vous vous regardez. Vous avez couru tous les deux toute la journée, chacun de son côté, et vous voilà au même endroit, à la même heure, parce qu'il n'y avait qu'un seul endroit et qu'une seule heure.",
-      { if: { all: [{ has: "monde:amitie_dague" }, { has: "monde:amitie_ecu" }] }, text: "Vous n'avez pas besoin de vous dire grand-chose. La dague sur la paillasse, la sangle changée sans un mot : vous savez, l'un et l'autre, ce que l'autre a fait. Vous ne savez pas depuis quand vous le savez." },
+      { if: { all: [{ has: "monde:amitie_dague" }, { has: "monde:amitie_ecu" }] }, text: "Vous n'avez pas besoin de vous dire grand-chose. La dague sur la paillasse, la sangle changée en silence : vous savez, l'un et l'autre, ce que l'autre a fait. Vous ne savez pas depuis quand vous le savez." },
       { if: { any: [{ has: "monde:rancune_dague" }, { has: "monde:rancune_ecu" }] }, text: "Il y a entre vous la dague, la sangle, les mots qu'on a portés à Dame Héloïse ou à Messire. Ça pèse, au pied de la montagne. Ça pèse plus lourd que tu ne pensais." },
       { if: { has: "monde:remede" }, text: "Le remède est parti vers Vellane. Messire vivra, si le fils du meunier court aussi vite qu'il le croit." },
       { if: { has: "monde:mot" }, text: "L'un de vous deux sait le mot de la Veille. Il vous le dit à voix basse, et vous comprenez tous les deux pourquoi Anselme disait : *à deux mains*." },
@@ -308,7 +308,7 @@ module.exports = {
     ] },
   P_main: { act: "III", title: "Une main", place: "montveille",
     text: [
-      "Tu tends la main. {autre} la regarde, puis la prend, et la serre un peu trop fort, comme on serre la main de quelqu'un qu'on a failli perdre. Ni l'un ni l'autre ne dit rien d'intelligent. Ce n'est pas le moment d'être intelligents.",
+      "Tu tends la main. {autre} la regarde, puis la prend, et la serre un peu trop fort, comme on serre la main de quelqu'un qu'on a failli perdre. Vous dites tous les deux des bêtises. L'intelligence attendra.",
       "Derrière vous, sur le chemin des bergers, des chevaux.",
     ],
     choices: [{ label: "Entrer dans la Gorge", to: "P_grille" }] },
@@ -320,7 +320,7 @@ module.exports = {
     choices: [{ label: "Entrer dans la Gorge", to: "P_grille" }] },
   P_grille: { act: "III", title: "La grille", place: "montveille",
     text: [
-      "Au fond de la Gorge, une grille de fer noir ferme une caverne. Elle est vieille de neuf cents ans et elle n'a pas une tache de rouille, ce qui n'est pas normal.",
+      "Au fond de la Gorge, une grille de fer noir ferme une caverne. Elle est vieille de neuf cents ans et son fer est resté net, ce qui est étrange.",
       { if: { has: "monde:clef_grille" }, text: "La clé de Gauvard tourne dans la serrure comme dans du beurre." },
     ],
     choices: [
@@ -336,7 +336,7 @@ module.exports = {
   P_caverne: { act: "III", title: "L'autel", place: "montveille",
     text: [
       "La caverne est immense, et chaude. Le sol est fait d'écailles. Il faut un moment pour le comprendre : vous marchez sur Ossaroth, sur un flanc qui se soulève et s'abaisse, très lentement, tous les cent pas de cœur.",
-      "Au milieu, un autel de pierre, et sur l'autel une pierre ronde, grise, pas plus grosse qu'une tête d'enfant, qui luit faiblement. La Pierre-Veille.",
+      "Au milieu, un autel de pierre, et sur l'autel une pierre ronde, grise, grosse comme une tête d'enfant, qui luit faiblement. La Pierre-Veille.",
       { if: { has: "gauvard_devant" }, text: "Gauvard est déjà devant l'autel. Il tend les mains." },
       { if: { not: { has: "gauvard_devant" } }, text: "Vous arrivez les premiers. Mais derrière vous, des pas résonnent dans la Gorge, et une voix gaie qui dit : « Les enfants de mon cousin ! »" },
     ],

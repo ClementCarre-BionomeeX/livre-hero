@@ -32,18 +32,18 @@ module.exports = {
     choices: [{ label: "Te relever", to: "D_fosse" }] },
   D_fosse_appel: { act: "II", title: "Le rond de ciel", place: "fosse",
     text: [
-      "Tu cries. Ta voix monte le long du puits, se brise sur les parois, te revient en éclats. Tu cries ton nom, celui d'Aurèle, celui d'Hesna. Personne ne répond. Le rond de ciel bleuit, puis blanchit. Un oiseau passe en travers, très haut, et ne s'arrête pas.",
+      "Tu cries. Ta voix monte le long du puits, se brise sur les parois, te revient en éclats. Tu cries ton nom, celui d'Aurèle, celui d'Hesna. Seul l'écho revient. Le rond de ciel bleuit, puis blanchit. Un oiseau passe en travers, très haut, et ne s'arrête pas.",
       "Quand tu te tais, tu entends autre chose, loin dans la galerie. Un bruit régulier, sourd, comme de l'eau qui tombe dans de l'eau. Ou comme un cœur.",
     ],
     choices: [{ label: "Baisser les yeux vers la galerie", to: "D_fosse" }] },
   D_fosse_depart: { act: "II", title: "L'entrée de la galerie", place: "fosse", routes: true,
     text: [
-      "Tu allumes ta lumière. Le noir recule d'un pas, pas davantage. La galerie descend en pente douce. Ses murs portent, à intervalles réguliers, des griffures, et à côté des griffures, des flèches tracées à la suie, et à côté des flèches, d'autres flèches qui indiquent le sens opposé.",
+      "Tu allumes ta lumière. Le noir recule d'un pas, un seul. La galerie descend en pente douce. Ses murs portent, à intervalles réguliers, des griffures, et à côté des griffures, des flèches tracées à la suie, et à côté des flèches, d'autres flèches qui indiquent le sens opposé.",
     ],
     choices: [] },
   D_fosse_retour: { act: "II", title: "La Fosse", place: "fosse", routes: true,
     text: [
-      "Tu reviens au fond du puits. Le rond de ciel est toujours là, inaccessible, d'un bleu de porcelaine. Les os sont toujours là aussi. Rien n'a changé, sinon que tu sais, maintenant, comment ils sont arrivés là.",
+      "Tu reviens au fond du puits. Le rond de ciel est toujours là, inaccessible, d'un bleu de porcelaine. Les os sont toujours là aussi. Tout est à la même place. Mais tu sais, maintenant, comment ils sont arrivés là.",
     ],
     choices: [{ label: "Fouiller les restes de ceux qui sont tombés avant toi", to: "D_fosse_restes", hide: { seen: "D_fosse_restes" } }] },
 
@@ -51,7 +51,7 @@ module.exports = {
   D_camp: { act: "II", title: "Le camp des perdus", place: "camp", hub: true, routes: true,
     fx: { met: "sidonie", meet: "mattias", ep: ["perso", 500] },
     text: [
-      { if: { not: { seen: "D_sidonie" } }, text: "La galerie débouche dans une salle basse où brûle un feu très petit, qui ne fume presque pas. Tu n'as pas fait deux pas qu'une lame se pose sous ton menton, froide, ferme, tenue par quelqu'un que tu n'as pas entendu bouger.", else: "Le feu de mousse brûle toujours au milieu du camp. Mattias tisonne le feu, ou dort, ou parle à ses mousses. Sidonie affûte quelque chose." },
+      { if: { not: { seen: "D_sidonie" } }, text: "La galerie débouche dans une salle basse où brûle un feu très petit, qui ne fume presque pas. Au deuxième pas, une lame se pose sous ton menton, froide, ferme. Celui qui la tient s'est approché en silence.", else: "Le feu de mousse brûle toujours au milieu du camp. Mattias tisonne le feu, ou dort, ou parle à ses mousses. Sidonie affûte quelque chose." },
       { if: { not: { seen: "D_sidonie" } }, text: "« Doucement, dit une voix de femme. Doucement, le nouveau. Pose ta lumière. Voilà. » La lame recule. Elle appartient à une femme d'une trentaine d'années, sèche, brune, les cheveux coupés au couteau, qui te jauge comme on jauge un cheval. « Sidonie Vautrin, dit-elle. Contrebandière. Trois semaines dans ce trou. Et toi, tu es le cadeau de la Lune sèche. Bienvenue chez les perdus. »" },
       { if: { not: { seen: "D_sidonie" } }, text: "Près du feu, un vieillard à la barbe si longue qu'il la porte enroulée autour du cou comme une écharpe te fait un petit signe de la main sans lever les yeux. Il est occupé à arroser, goutte à goutte, avec une cuillère, des plaques de mousse posées sur des pierres plates. « Mattias, dit Sidonie. Trente ans qu'il est là. Il est gentil. Il est fou. L'un n'empêche pas l'autre. »" },
       "Aux murs, des marques : des jours comptés par paquets de cinq, des milliers de jours.",
@@ -67,7 +67,7 @@ module.exports = {
     ] },
   D_camp_sommeil: { act: "II", title: "Le sommeil des perdus", place: "camp",
     text: [
-      "Tu dors contre la paroi tiède. Dans le dédale, on ne rêve pas de la même façon : les rêves sont plus lents, plus clairs, comme si la pierre les filtrait. Tu rêves d'Aurèle à quinze ans, qui grave son couteau sous la table. Il lève la tête et te regarde. Il a l'air très fatigué.",
+      "Tu dors contre la paroi tiède. Dans le dédale, les rêves changent : ils sont plus lents, plus clairs, comme si la pierre les filtrait. Tu rêves d'Aurèle à quinze ans, qui grave son couteau sous la table. Il lève la tête et te regarde. Il a l'air très fatigué.",
       "Quand tu te réveilles, Mattias a remis de la mousse dans le feu. Il fredonne. Sidonie, elle, n'a pas dormi.",
     ],
     choices: [{ label: "Te lever", to: "D_camp" }] },
@@ -103,7 +103,7 @@ module.exports = {
     fx: { drop: "mousse_lumiere", flag: ["mattias:ami", "mattias:passages"], quest: "D_mousses", clue: "s_mattias", ep: ["seance", 2000] },
     text: [
       "Mattias prend la poignée de mousse dans ses deux mains en coupe, et elle éclaire son visage par en dessous, d'un vert de lune. Il a les larmes aux yeux. « Trente ans, dit-il. Trente ans que je la vois en rêve. »",
-      "Il la pose sur une pierre, l'arrose d'une cuillerée d'eau, et pendant un long moment il ne dit rien. Puis il parle, sans te regarder, comme on se confesse.",
+      "Il la pose sur une pierre, l'arrose d'une cuillerée d'eau, et il se tait un long moment. Puis il parle, sans te regarder, comme on se confesse.",
       "« Personne ne mange les gens, ici. J'ai trouvé les os, comme toi : aucun n'est rongé. Ceux qui vont au cœur n'en reviennent pas, mais on n'entend jamais crier. Et le Gardien change. Tous les dix ou vingt ans, sa voix change, quand il chante la nuit. » Il te regarde enfin. « On ne les mange pas. On les *remplace*. Je l'ai compris il y a longtemps. Et j'ai eu peur d'aller voir, parce que j'avais peur d'avoir raison. »",
       "Puis il te dessine dans la poussière, avec son doigt, le chemin de son passage secret. « Quand tu voudras sortir. Si tu veux de moi, je viendrai. Peut-être. »",
     ],
@@ -161,7 +161,7 @@ module.exports = {
       flee: { label: "Remonter à toute vitesse", dom: "discretion", diff: -10, to: "D_puits_fuite" } },
     text: [
       "Les os roulent sous tes pieds avec un bruit de vaisselle. Tu avances vers l'éclat de cuivre, courbé, ta lumière tendue. Tu as fait cinq pas quand les os, devant toi, se mettent à bouger tout seuls.",
-      "Elle en émerge comme on sort de l'eau. Elle est longue, blanche, sans yeux, avec des membres trop nombreux et trop fins qui se plient dans le mauvais sens. Elle n'a pas de bouche, seulement une fente qui s'ouvre sur toute la largeur de la tête. Elle ne fait aucun bruit.",
+      "Elle en émerge comme on sort de l'eau. Elle est longue, blanche, sans yeux, avec des membres trop nombreux et trop fins qui se plient dans le mauvais sens. Pour bouche, elle a une fente qui s'ouvre sur toute la largeur de la tête. Elle est silencieuse.",
       { if: { present: "sidonie" }, text: "Au-dessus, Sidonie hurle le nom de Lucas, et saute." },
     ] },
   D_puits_anneau: { act: "II", title: "L'anneau de cuivre", place: "puits_os", routes: true,
@@ -190,8 +190,8 @@ module.exports = {
       "Et juste à côté :",
       "**AURÈLE**",
       "Les lettres sont larges, régulières, gravées profond, avec un soin patient. Et au bout, pour dater, un 7 barré. Tu poses tes doigts dans les creux de son nom. Tes doigts y entrent tout juste.",
-      "Après lui, les noms ne sont plus gravés : ils sont griffés, à l'ongle, comme si ceux qui les ont écrits n'avaient plus d'outils, ou plus le temps. *Hob. Une femme de Vasque. Lucas.*",
-      { if: { present: "sidonie" }, text: "Sidonie s'agenouille devant le dernier nom. Elle ne dit rien." },
+      "Après lui, les noms sont griffés à l'ongle, par des gens privés d'outils, ou pressés. *Hob. Une femme de Vasque. Lucas.*",
+      { if: { present: "sidonie" }, text: "Sidonie s'agenouille devant le dernier nom. Elle se tait." },
     ],
     choices: [
       { label: "Recopier les noms au charbon, sur le revers de ta chemise et tout ce que tu trouves", hide: { quest: "D_noms" }, fx: { time: 4, item: "noms_copies", flag: "noms:copies", quest: "D_noms", ep: ["seance", 2000] }, to: "D_noms_copie" },
@@ -202,7 +202,7 @@ module.exports = {
   D_noms_copie: { act: "II", title: "Les noms recopiés", place: "noms", routes: true,
     text: [
       "Tu recopies. Ça prend des heures. Tu écris au charbon de bois, sur le dos de ta chemise, sur des lambeaux de tissu, sur un morceau de cuir que tu as gratté. Tu ne peux pas tout prendre : tu prends les plus récents, ceux de Kardan, et autant d'anciens que tu peux. Tu t'arrêtes quand la lumière baisse, les doigts noirs jusqu'aux poignets.",
-      "Tu ne sais pas encore à qui tu les liras. Tu sais seulement qu'il faudra les lire au grand jour, devant des gens qui écouteront.",
+      "Tu trouveras bien à qui les lire. Tu sais seulement qu'il faudra les lire au grand jour, devant des gens qui écouteront.",
     ],
     choices: [] },
   D_noms_page: { act: "II", title: "Derrière la pierre", place: "noms", routes: true,
@@ -237,7 +237,7 @@ module.exports = {
     ],
     choices: [] },
   D_jardin_mousse: { act: "II", title: "Une poignée de lune", place: "jardin", routes: true,
-    text: ["La mousse se détache par plaques, fraîche, souple, et continue de luire dans ta main comme si elle ne savait pas encore qu'on l'a cueillie. Tu l'enveloppes dans un linge humide, comme Mattias te l'a dit."],
+    text: ["La mousse se détache par plaques, fraîche, souple, et continue de luire dans ta main comme si elle se croyait encore sur la pierre. Tu l'enveloppes dans un linge humide, comme Mattias te l'a dit."],
     choices: [] },
   D_jardin_brulure: { act: "II", title: "La mousse qui mord", place: "jardin", routes: true,
     text: ["Tu as gratté trop vite. La mousse-lumière a une sève qui brûle comme l'ortie, et tu as les mains en feu pendant une heure. Mais tu en as une poignée, et elle luit."],
@@ -306,7 +306,7 @@ module.exports = {
       "L'escalier débouche dans une salle ronde, haute comme une église, et il n'y fait pas noir. La lumière vient d'en bas : d'une vasque de pierre verte, large comme une table de festin, posée au centre sur un pied unique, où l'eau bouillonne doucement sans jamais déborder. Elle éclaire tout d'une lueur glauque, mouvante, comme le fond d'une rivière par beau temps. Le bruit que tu entends depuis des jours, c'est elle : un battement lent, profond, qui fait vibrer la pierre sous tes pieds.",
       "Autour de la vasque, des offrandes pourries, des pains de pierre, des fleurs séchées depuis des années. Et contre la vasque, assis par terre, adossé au pied comme on s'adosse à un arbre, quelqu'un.",
       "Il se lève. Il est grand, très maigre, vêtu de lambeaux. Ses cheveux et sa barbe ont poussé jusqu'à sa taille, blancs, ou presque blancs, et sa peau a la couleur de l'eau. Ses yeux luisent du même vert que la vasque. Une de ses mains reste posée sur la pierre, comme si elle y était collée.",
-      "Il te regarde. Il n'a pas l'air d'un monstre. Il a l'air de quelqu'un qui attend depuis très longtemps, et qui n'espère plus.",
+      "Il te regarde. Il a l'air d'un homme qui attend depuis très longtemps, et qui a cessé d'espérer.",
       "« Encore un, dit-il d'une voix enrouée, une voix qui n'a pas servi depuis des années. Bois, si tu veux. Ou va-t'en. Mais décide-toi. Je suis si fatigué. »",
     ],
     choices: [
@@ -320,13 +320,13 @@ module.exports = {
       win: { to: "D_coeur_arret" }, lose: { to: "D_coeur_arret" },
       calm: { to: "D_coeur_apaise" } },
     text: [
-      "Il ne bouge pas quand tu avances. Puis, au dernier moment, il bouge : plus vite que tu ne l'aurais cru possible, sans lâcher la vasque d'une main, il frappe de l'autre, et c'est comme recevoir toute l'eau d'une écluse.",
+      "Il reste immobile quand tu avances. Puis, au dernier moment, il bouge : plus vite que tu ne l'aurais cru possible, sans lâcher la vasque d'une main, il frappe de l'autre, et c'est comme recevoir toute l'eau d'une écluse.",
     ] },
   D_coeur_apaise: { act: "II", title: "Le silence", place: "coeur",
     text: [
       { if: { has: "calme:sommeil" }, text: "Le sommeil tombe sur lui comme une couverture. Il lutte, un long moment, la main crispée sur la vasque ; puis sa tête s'incline, et il s'assied contre la pierre, sans lâcher l'eau, comme un berger qui s'endort en gardant son troupeau." },
       { if: { has: "calme:sommeil" }, text: "Endormi, il n'a plus rien d'un gardien. Tu t'approches. La barbe, la saleté, la peau trop blanche ; et dessous, ce menton, ce pli au coin de la bouche, que tu as vus tous les jours de ton enfance." },
-      { if: { has: "calme:chant" }, text: "Tu ne sais pas pourquoi c'est cette chanson-là qui te vient. Une chanson de veillée, de chez vous, que tout le village chantait faux. Il s'arrête au deuxième vers. Au troisième, il chante avec toi, très bas, d'une voix qui n'a pas servi depuis des années." },
+      { if: { has: "calme:chant" }, text: "C'est cette chanson-là qui te vient, et tu la laisses venir. Une chanson de veillée, de chez vous, que tout le village chantait faux. Il s'arrête au deuxième vers. Au troisième, il chante avec toi, très bas, d'une voix qui n'a pas servi depuis des années." },
       "Il lève les yeux. Des yeux verts, trop clairs, que tu connais.",
       "« Moineau ? »",
     ],
@@ -371,7 +371,7 @@ module.exports = {
   D_choix: { act: "II", title: "La Source", place: "coeur",
     text: [
       "Tu restes debout devant la vasque. L'eau bouillonne doucement, verte, tiède, et son odeur de pierre mouillée et de printemps te monte à la tête. Il suffirait de te pencher.",
-      "Aurèle ne dit rien. Il a tenu parole : il ne te demande rien.",
+      "Aurèle se tait. Il a tenu parole : la décision est à toi.",
       { if: { clues: "S", min: 2 }, text: "Tu penses aux pages de l'architecte, et à la fontaine du bas, sur la place, où tout le village boit." },
       { if: { present: "odon" }, text: "Odon s'est assis sur la dernière marche. Il a les mains jointes, mais il ne prie pas. Il attend, lui aussi." },
       { if: { present: "sidonie" }, text: "Sidonie regarde la vasque avec une haine tranquille. « Brise-la, dit-elle. Brise-la, et qu'ils crèvent de soif, là-haut, avec leurs fleurs et leurs gâteaux au miel. »" },
@@ -381,7 +381,7 @@ module.exports = {
       { label: "Briser la vasque pour le libérer", exit: true, big: true, fx: { flag: ["aurele:libre", "vasque:brisee"], join: "aurele", conf: { sidonie: 10, odon: -5 } }, to: "D_vasque" },
       { label: "Partager le lien, comme l'avait prévu Kardan", if: { clues: "S", min: 2 }, why: "Il faudrait comprendre ce que fait vraiment la Source : deux pages du journal de l'architecte, au moins.", exit: true, big: true, fx: { flag: ["aurele:libre", "lien:partage"], join: "aurele", conf: { odon: 15 } }, to: "D_lien" },
       { label: "Pas encore : remonter dans le dédale, il te reste à faire", to: "D_coeur_attente" },
-      { label: "Frapper jusqu'au bout : ce n'est plus ton frère, c'est la chose qu'ils ont faite de lui", exit: true, big: true, fx: { flag: "aurele:mort", mark: 2, conf: { odon: -20, sidonie: 5 } }, to: "D_frapper" },
+      { label: "Frapper jusqu'au bout : ton frère est devenu la chose qu'ils ont faite de lui", exit: true, big: true, fx: { flag: "aurele:mort", mark: 2, conf: { odon: -20, sidonie: 5 } }, to: "D_frapper" },
     ] },
   D_vasque: { act: "II", title: "La vasque brisée", place: "coeur",
     fx: { ep: ["seance", 3000] },
@@ -406,7 +406,7 @@ module.exports = {
     fx: { ep: ["seance", 2000] },
     text: [
       "Tu lèves ton arme. Aurèle te regarde faire. Il ne se défend pas ; il ferme les yeux, comme on les ferme au soleil.",
-      "La suite, tu ne la raconteras jamais. Ni à toi-même, ni aux autres. Il y a un bruit, et puis il y a un silence, et dans ce silence la Source cesse de battre. Ce n'est pas un ralentissement : c'est un arrêt, net, comme une porte qu'on ferme. La lumière verte de la vasque baisse, baisse, et s'éteint.",
+      "La suite, tu ne la raconteras jamais. Ni à toi-même, ni aux autres. Il y a un bruit, et puis il y a un silence, et dans ce silence la Source cesse de battre. C'est un arrêt, net, comme une porte qu'on ferme. La lumière verte de la vasque baisse, baisse, et s'éteint.",
       "Dans le noir, tu tiens ton frère contre toi. Il est léger. Il sourit. Tu ne sais pas si c'est à toi, ou à la délivrance.",
       { if: { present: "odon" }, text: "Odon allume une torche, en silence. Il ne te regarde pas. Puis il se met à genoux près d'Aurèle, et il prie pour lui, longtemps, à voix basse, d'une voix qui tremble." },
     ],
@@ -504,7 +504,7 @@ module.exports = {
     text: ["Tu racles un peu de résine sur une paroi, tu la mêles à la mèche, tu souffles doucement. La flamme reprend, petite, têtue. Le noir recule d'un pas, de mauvaise grâce."],
     choices: [{ label: "Continuer", to: ROUTE }] },
   E_torche_noir: { act: "II", title: "Le noir",
-    text: ["La flamme meurt. Tu restes dans le noir absolu pendant ce qui pourrait être une heure, ou trois, à tâtonner, à te cogner, à essayer de rallumer avec des doigts qui tremblent. Quand la flamme revient enfin, tu as les genoux en sang et tu ne sais plus d'où tu venais."],
+    text: ["La flamme meurt. Tu restes dans le noir absolu pendant ce qui pourrait être une heure, ou trois, à tâtonner, à te cogner, à essayer de rallumer avec des doigts qui tremblent. Quand la flamme revient enfin, tu as les genoux en sang et tu as perdu ta direction."],
     choices: [{ back: ROUTE }] },
   E_pas: { act: "II", title: "Les pas",
     text: [
@@ -518,7 +518,7 @@ module.exports = {
   E_pas_vu: { act: "II", title: "La silhouette",
     text: [
       "Tu attends dans le noir, sans respirer. Les pas approchent et s'arrêtent tout près de toi. Tu sens une odeur d'eau, de pierre mouillée, de printemps. Tu entends une respiration rauque.",
-      "Tu démasques ta lumière d'un coup. Une silhouette maigre, très grande, aux cheveux blancs qui lui tombent jusqu'aux reins, recule en se protégeant les yeux, et s'enfuit dans la galerie à une vitesse incroyable, sans un bruit. Tu as eu le temps de voir une chose : elle tendait la main vers toi. Pas pour frapper. Comme on tend la main vers quelqu'un qu'on croit reconnaître.",
+      "Tu démasques ta lumière d'un coup. Une silhouette maigre, très grande, aux cheveux blancs qui lui tombent jusqu'aux reins, recule en se protégeant les yeux, et s'enfuit dans la galerie à une vitesse incroyable, en silence. Tu as eu le temps de voir une chose : elle tendait la main vers toi. Pas pour frapper. Comme on tend la main vers quelqu'un qu'on croit reconnaître.",
     ],
     choices: [{ label: "Continuer, le cœur battant", to: ROUTE }] },
   E_pas_rien: { act: "II", title: "Le silence",

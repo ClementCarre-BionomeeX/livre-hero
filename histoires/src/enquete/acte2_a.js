@@ -100,7 +100,7 @@ module.exports.passages = {
 
   N_repos: { act: "II", title: "Ta chambre", place: "pont", backName: "ta chambre du Pot d'Étain",
     text: [
-      "Tu tires le rideau, tu t'allonges sur le lit sans te déshabiller, les mains sous la nuque. Tu ne dors pas vraiment. Tu remets dans l'ordre ce que tu as entendu, qui l'a dit, à quelle heure, et ce qui ne va pas ensemble.",
+      "Tu tires le rideau, tu t'allonges sur le lit sans te déshabiller, les mains sous la nuque. Tu somnoles. Tu remets dans l'ordre ce que tu as entendu, qui l'a dit, à quelle heure, et ce qui ne va pas ensemble.",
       "Quand tu rouvres les yeux, la lumière a changé. Les cloches sonnent les vêpres.",
     ],
     choices: [{ label: "Descendre sur le pont", to: "H_pont" }] },
@@ -111,7 +111,7 @@ module.exports.passages = {
     text: [
       { first: true, text: "Dame Isaline Veillon ne lève pas la tête quand tu t'approches. Elle prend un écu dans une pile, le laisse tomber sur la plaque de marbre, écoute, le pose sur un des deux plateaux de sa balance, regarde l'aiguille, le range. Puis un autre. Elle a des mains brunes, sèches, très précises, et des lunettes rondes qui lui grossissent les yeux." },
       { first: true, text: "« Tu viens pour le petit Maupas, dit-elle enfin. Tout le pont le sait déjà. Tu n'as pas la tête d'un client. »" },
-      { again: true, text: "Dame Veillon fait sonner ses écus sur le marbre. « Encore toi. » Ce n'est ni une plainte ni un bonjour." },
+      { again: true, text: "Dame Veillon fait sonner ses écus sur le marbre. « Encore toi. » C'est un simple constat." },
       { first: true, text: "Tu lui demandes ce qui s'est passé ce matin-là." },
       { first: true, text: "« Il est venu à l'ouverture. Les manches trempées jusqu'au coude, les mains écorchées, comme s'il avait tiré quelque chose de lourd hors de l'eau. Il a posé la bague sur mon comptoir sans me regarder. Je l'ai reconnue tout de suite : une balance gravée dans l'or, et autour, en petites lettres, *Juste poids, juste titre*. Il n'y en a qu'une comme ça à Orbeval. J'ai fermé le globe de la balance dessus. J'ai dit au petit d'attendre. Il a attendu. Il n'a pas couru. » Elle repose un écu. « Un assassin aurait couru. Ou il n'aurait pas apporté la bague chez la seule changeuse qui pouvait la reconnaître. Mais je ne suis pas échevin. »" },
       { regard: { isaline: ["cordial", "allie"] }, text: "Elle te regarde par-dessus ses lunettes, et pour la première fois elle sourit, à peine. « Tu as de la patience, toi. C'est rare chez les jeunes. »" },
@@ -140,7 +140,7 @@ module.exports.passages = {
   P_isaline_essais: { act: "II", title: "Les chiffres", montrer: "isaline", back: true,
     fx: { flag: "ecus:verite", quest: "II_ecus", regard: { isaline: "allie" } },
     text: [
-      "Dame Veillon prend la feuille de Théophane, l'approche de ses lunettes, et la lit lentement, une ligne après l'autre, en remuant les lèvres. Elle ne dit rien pendant longtemps.",
+      "Dame Veillon prend la feuille de Théophane, l'approche de ses lunettes, et la lit lentement, une ligne après l'autre, en remuant les lèvres. Elle se tait longtemps.",
       "« Celui qui a écrit ça sait compter, dit-elle enfin. Ici, le titre du registre : onze deniers d'argent fin sur douze. Là, l'autre chiffre, le vrai, celui qu'il a trouvé en refaisant l'essai lui-même : dix deniers et demi. Un demi-denier sur chaque écu. » Elle pose la feuille sur le marbre et l'aplatit de la paume. « Deux mille écus par semaine. Dix ans. Tu sais combien ça fait, d'argent ? Assez pour acheter ce pont, avec ses maisons. »",
       "« *Tous les jeudis. Toujours lui.* » Elle relit la marge à voix basse. « Les fontes se font le jeudi, à la Monnaie. Et le jeudi, c'est l'essayeur-juré qui fait l'essai et qui signe. » Elle te rend la feuille. « Moi, je ne tire rien de rien. »",
       "Puis, comme tu t'en vas, sans lever les yeux de sa balance : « Si on me le demande, à l'Échevinage, je dirai ce que j'ai pesé. Devant tout le monde. Il serait temps. »",
@@ -215,7 +215,7 @@ module.exports.passages = {
       { via: "P_sibylle", text: "Dame Ombreuil ouvre elle-même la porte de la salle des essais avec une clé qu'elle porte à la ceinture. Elle ne te suit pas à l'intérieur. « Ne touchez à rien qui brûle », dit-elle, et elle referme derrière toi." },
       "La salle des essais est une longue pièce voûtée, au rez-de-chaussée. Un fourneau de briques à soufflet, éteint, froid. Des creusets, des pinces, des coupelles d'os calciné rangées sur une étagère. Une grande table de chêne, impeccable. Et sous un globe de verre, la balance d'essai, si fine qu'on dit qu'elle pèse un cheveu.",
       "Sur la table, rangé au carré, le registre des essais : un gros livre relié de cuir, de la main de l'essayeur. Tu l'ouvres. Une écriture penchée, serrée, régulière, sans une rature. Fonte après fonte, dix ans durant : le nombre d'écus, le titre essayé, *conforme*, la signature. Tu recopies une page, en suivant les lettres de ton mieux.",
-      "Dans un coin, contre le mur, un coffret de chêne ouvert, doublé de velours vert : les poids de laiton de l'Essai, du plus petit, pas plus gros qu'une lentille, au plus gros. Il y a un logement vide. Le plus grand, au bout de la rangée : un cube, à en juger par la forme du creux, de la taille d'un poing. Le reste du coffret est poussiéreux. Le logement vide, lui, est propre, et sent le vinaigre.",
+      "Dans un coin, contre le mur, un coffret de chêne ouvert, doublé de velours vert : les poids de laiton de l'Essai, du plus petit, gros comme une lentille, au plus lourd. Il y a un logement vide. Le plus grand, au bout de la rangée : un cube, à en juger par la forme du creux, de la taille d'un poing. Le reste du coffret est poussiéreux. Le logement vide, lui, est propre, et sent le vinaigre.",
       "Le sol de dalles a été lavé. Tout le sol. Il est encore plus propre que la table.",
       { second: true, text: "Sous la table, contre un pied, quelque chose a échappé au seau et à la brosse : un bouton de corne, arraché, avec un bout de fil brun. L'essayeur ne portait que du gris." },
     ] },
@@ -226,7 +226,7 @@ module.exports.passages = {
     text: [
       { if: { place: "orfevres" }, text: "Une servante aux yeux rouges te fait entrer dans un salon aux volets clos, où brûlent quatre chandelles, même en plein jour. Au-dessus de la cheminée, un grand portrait : un homme assis, en robe grise, les mains posées sur une balance. Au-dessous, droite sur une chaise à dossier haut, une femme en noir t'attend sans se lever." },
       { if: { place: "haute" }, text: "La chapelle de l'Hôtel-Dieu est froide et sent la cire. Devant l'autel, sur deux tréteaux, une bière fermée sous un drap noir brodé d'argent. Une femme en noir veille, seule, droite sur sa chaise. Elle tourne à peine la tête quand tu t'assieds au bout de son banc." },
-      { first: true, text: "Dame Sibylle Ombreuil a quarante-cinq ans, un visage long et pâle, des cheveux blonds tirés en un chignon si serré qu'il lui relève les sourcils. Elle n'a pas pleuré. Elle n'a pas l'air de quelqu'un qui pleure." },
+      { first: true, text: "Dame Sibylle Ombreuil a quarante-cinq ans, un visage long et pâle, des cheveux blonds tirés en un chignon si serré qu'il lui relève les sourcils. Elle a les yeux secs, et le visage d'une femme qui les a toujours eus secs." },
       { regard: { sibylle: "hostile" }, text: "« On a essayé de forcer ma porte d'eau, cette nuit, dit-elle avant que tu aies ouvert la bouche. La servante a vu quelqu'un qui vous ressemblait. Je vous donne le temps de dire ce que vous avez à dire. Ensuite, vous sortez, et vous ne revenez pas. »" },
       { regard: { sibylle: ["neutre", "distant", "mefiant"] }, text: "« Vous travaillez pour la mère du garçon, dit-elle. Je le sais. Tout le monde le sait. Je ne vois pas ce que vous espérez de moi. »" },
       { regard: { sibylle: ["cordial", "craintif"] }, text: "« Encore vous, dit-elle, sans hostilité. Asseyez-vous, puisque vous êtes là. »" },
@@ -244,7 +244,7 @@ module.exports.passages = {
     ] },
   P_sibylle_doux: { act: "II", title: "Dame Ombreuil", montrer: "sibylle", back: true,
     text: [
-      "Tu ne dis rien d'autre. Tu restes assis{e}, les mains sur les genoux, et tu attends.",
+      "Tu t'en tiens là. Tu restes assis{e}, les mains sur les genoux, et tu attends.",
       "Elle attend aussi. Longtemps. Puis elle dit, sans te regarder : « Vingt-deux ans. J'avais vingt-trois ans quand je l'ai épousé. Il était déjà essayeur-juré. Il était déjà comme ça : exact. Il comptait tout, les bougies, le pain, les mots. Il ne m'a jamais frappée, jamais trompée, jamais menti. » Elle s'arrête sur le dernier mot, comme sur une marche qui manque. « Je crois. »",
       "« Je suis fatiguée. Revenez si vous voulez. Mais je n'ai rien de plus à vous dire. »",
     ] },
@@ -297,7 +297,7 @@ module.exports.passages = {
   P_oriane_parle: { act: "II", title: "Oriane", place: "orfevres", montrer: "oriane", back: true,
     text: [
       "Elle baisse la tête. Ses doigts tirent sur un fil de sa manche.",
-      "« Il ne dira rien. Il est comme ça. Quand il a peur, il se tait, et plus il a peur, plus il se tait. » Elle tire le fil, qui casse. « Mon père disait que c'était un sournois. Ce n'est pas un sournois. C'est quelqu'un qui n'a jamais eu le droit de parler, alors il ne sait pas. »",
+      "« Il ne dira rien. Il est comme ça. Quand il a peur, il se tait, et plus il a peur, plus il se tait. » Elle tire le fil, qui casse. « Mon père disait que c'était un sournois. On l'a fait taire toute sa vie, alors les mots lui manquent. »",
       "« On devait partir, dit-elle tout à coup, très vite, comme on saute dans l'eau froide. La nuit de la fête. Tous les deux. À Basse-Aune, et plus loin. Il avait une place sur une barge de sel. Je devais le retrouver au pont des Lavandières, à une heure. »",
       "Elle relève les yeux. « Et il n'est pas venu. Pas à une heure. »",
     ],
@@ -329,7 +329,7 @@ module.exports.passages = {
     fx: { regard: { oriane: "allie" }, flag: "oriane:soulagee" },
     text: [
       "Tu lui dis où était Hugon à dix heures : à la Lanterne Sourde, à perdre trois sous à la Chandelle contre une vieille changeuse qui s'en souvient très bien.",
-      "Oriane ne dit rien. Elle porte la main à sa bouche. Puis elle se met à pleurer, sans bruit, sans se cacher, les yeux grands ouverts, comme quelqu'un qui pose enfin un fardeau qu'il portait sans le savoir.",
+      "Oriane se tait. Elle porte la main à sa bouche. Puis elle se met à pleurer, en silence, à visage découvert, les yeux grands ouverts, comme on pose enfin un fardeau porté trop longtemps.",
       "« Ce n'était pas lui, dit-elle. Dans la salle des essais. Ce n'était pas lui. »",
       "Elle s'essuie le visage d'un revers de manche. « Alors qui ? »",
     ] },
@@ -347,7 +347,7 @@ module.exports.passages = {
     text: [
       { if: { place: "orfevres" }, text: "On te fait attendre une heure dans un vestibule de pierre nue, entre deux gardes qui ne te regardent pas. Puis on t'introduit dans un bureau aux murs couverts de registres, où un homme d'une cinquantaine d'années signe des papiers sans s'arrêter." },
       { if: { place: "haute" }, text: "À l'Échevinage, tu attrapes Malestroit entre deux portes, dans une galerie où des clercs courent avec des liasses. Il s'arrête, parce qu'il y a du monde et qu'un homme qui va être réélu ne bouscule personne en public." },
-      { first: true, text: "Évrard Malestroit a des cheveux noirs, sans doute teints, une moustache impeccable, un visage carré, rasé de frais, et la voix d'un homme qui n'a pas dû hausser le ton depuis vingt ans, parce qu'il n'en a jamais eu besoin." },
+      { first: true, text: "Évrard Malestroit a des cheveux noirs, sans doute teints, une moustache impeccable, un visage carré, rasé de frais, et la voix basse d'un homme obéi depuis vingt ans." },
       { regard: { malestroit: "hostile" }, text: "« Vous, dit-il. Je vous ai déjà dit de sortir. Je ne le dirai pas une troisième fois : la prochaine fois, ce seront mes gens. »" },
       { first: true, regard: { malestroit: ["neutre", "mefiant", "distant"] }, text: "« La mère de l'assassin a engagé quelqu'un, dit-il sans lever les yeux. C'est touchant. Que voulez-vous ? »" },
       { again: true, regard: { malestroit: ["neutre", "mefiant", "distant", "cordial"] }, text: "Malestroit ne lève pas les yeux de ses papiers. « Encore vous. Vous avez le temps que je mets à signer ceci. »" },
@@ -364,7 +364,7 @@ module.exports.passages = {
     fx: { flag: "r:aveu", clue: ["r_lumiere", "r_bourse", "d_note_theo"], item: "note_theo" },
     text: [
       "Tu lui dis ce qu'a vu Brisson : le banquet quitté avant onze heures, le retour vers minuit, les souliers mouillés.",
-      "Malestroit ne nie pas. Il te regarde longtemps, comme on évalue un adversaire au jeu de dames, et il décide que tu n'en vaux pas la peine, ou que la partie est perdue de toute façon.",
+      "Malestroit te regarde longtemps, comme on évalue un adversaire au jeu de dames, et il décide que la partie est perdue, ou que tu es trop petit pour elle.",
       "« Lescot m'a fait porter un billet, la veille de la fête. » Il sort de son pourpoint un petit papier plié, usé aux pliures, et te le met dans la main. « Lisez. Je sais d'où vient l'argent qui manque. Onze heures, à la Monnaie. Je suis allé au rendez-vous. Avec cent écus, dans une bourse. »",
       "« Oui. Pour qu'il se taise. Je savais depuis un an que les écus étaient légers. Je savais qu'on volait à la fonte. Je ne savais pas qui. Je ne voulais pas le savoir, pas avant les élections : un maître de la Monnaie sous qui l'on a volé dix ans n'est pas réélu, on le pend en effigie. J'aurais fait ce qu'il fallait, après. » Il hausse les épaules. « Cela vous dégoûte. Vous n'avez jamais été réélu{e}. »",
       "« Il n'est jamais venu. J'ai attendu une demi-heure dans la cour de la Monnaie, avec ma bourse, comme un imbécile. À onze heures et quart, il y avait de la lumière en face, à la Maison de l'Essai, au rez-de-chaussée, dans la salle des essais. Elle s'est éteinte un peu après. J'ai cru que Lescot était là-bas, chez son maître, à se donner du courage, ou à se faire acheter par un autre. Je suis rentré au banquet. J'avais marché dans le caniveau. »",
@@ -373,7 +373,7 @@ module.exports.passages = {
   P_malestroit_ecus: { act: "II", title: "La porte", montrer: "malestroit", back: true,
     fx: { regard: { malestroit: "hostile" }, flag: "malestroit:menace", pv: -2 },
     text: [
-      "Malestroit lit. Rien ne bouge sur son visage, sauf un petit muscle, au coin de la mâchoire, qui se serre et se desserre.",
+      "Malestroit lit. Son visage reste de pierre, sauf un petit muscle, au coin de la mâchoire, qui se serre et se desserre.",
       "« Qui vous a donné ça ? » Il n'attend pas la réponse. Il sonne. Deux hommes entrent, plus grands que les gardes de la porte, sans livrée.",
       "« Raccompagnez. »",
       "Ils te raccompagnent. Dans l'escalier, l'un d'eux te pousse, et tu rates trois marches. En bas, sur le quai, l'autre te dit à l'oreille, gentiment, que l'eau des canaux est froide en cette saison, et que des gens y tombent tous les jours.",

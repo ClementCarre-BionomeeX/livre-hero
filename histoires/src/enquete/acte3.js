@@ -11,9 +11,9 @@ function endFx(id, more) {
 var GOT = { all: [{ has: "accuse:M:qui" }, { has: "accuse:M:preuve" }] };
 
 // What becomes of the others, told in every ending where the truth came out (or did not).
-var ECUS = { if: { has: "ecus:verite" }, text: "Une semaine plus tard, Dame Isaline Veillon se présente à l'Échevinage avec sa plaque de marbre, sa balance, deux écus et la feuille de Théophane. Elle fait sonner les deux pièces devant les échevins assemblés, l'une après l'autre, et elle ne dit rien d'autre : elle les laisse écouter. On refond les écus de dix années. Il faut deux ans. À Basse-Aune, on recommence à les prendre au compte et non plus au poids." };
-var AMANTS = { if: { has: "amants:mot" }, text: "Au printemps, une barge de sel descend l'Aune vers la mer avec deux passagers qui ne regardent pas en arrière. Gervaise Maupas, sur le pont des Lavandières, agite son tablier jusqu'à ce qu'elle ne voie plus rien. Le batelier, en passant sous le pont, lève la main pour la saluer." };
-var AMANTS_NON = { if: { all: [{ not: { has: "amants:mot" } }, { not: { has: "fin:condamne" } }] }, text: "Hugon Maupas reprend les barges. On le voit parfois, le soir, au pont des Lavandières. Il ne s'y arrête pas. Oriane Ombreuil part en pension chez des cousines, à Vieux-Gué, avant la fin de l'automne ; on dit qu'elle ne lui a jamais pardonné son silence, ou qu'il ne s'est jamais pardonné, on ne sait plus." };
+var ECUS = { if: { has: "ecus:verite" }, text: "Une semaine plus tard, Dame Isaline Veillon se présente à l'Échevinage avec sa plaque de marbre, sa balance, deux écus et la feuille de Théophane. Elle fait sonner les deux pièces devant les échevins assemblés, l'une après l'autre, puis elle se tait et les laisse écouter. On refond les écus de dix années. Il faut deux ans. À Basse-Aune, on recommence à les prendre au compte et non plus au poids." };
+var AMANTS = { if: { has: "amants:mot" }, text: "Au printemps, une barge de sel descend l'Aune vers la mer avec deux passagers tournés vers l'aval. Gervaise Maupas, sur le pont des Lavandières, agite son tablier jusqu'à ce que la barge ait disparu. Le batelier, en passant sous le pont, lève la main pour la saluer." };
+var AMANTS_NON = { if: { all: [{ not: { has: "amants:mot" } }, { not: { has: "fin:condamne" } }] }, text: "Hugon Maupas reprend les barges. On le voit parfois, le soir, au pont des Lavandières. Il ne s'y arrête pas. Oriane Ombreuil part en pension chez des cousines, à Vieux-Gué, avant la fin de l'automne ; on dit qu'elle lui en veut encore de son silence, ou qu'il s'en veut, selon qui raconte." };
 
 module.exports = {
   // ------------------------------------------------------------------ the hearing
@@ -47,10 +47,10 @@ module.exports = {
   C_verite_pris: { act: "III", title: "L'homme du rez-de-chaussée", place: "haute",
     text: [
       "Tu dis le nom. Dans la salle, quelqu'un rit, nerveusement, et se tait aussitôt. Brisson ouvre la bouche, la referme.",
-      "Alors la sergente Hallard fait un signe, et deux de ses hommes amènent un homme grand, voûté, rasé, en habit de drap brun, les mains liées. Il marche droit. Il ne regarde ni la salle ni l'estrade. Au premier rang, quelqu'un pousse un cri : Dame Sibylle Ombreuil, qui s'est levée, et qui reste debout, une main sur la bouche.",
+      "Alors la sergente Hallard fait un signe, et deux de ses hommes amènent un homme grand, voûté, rasé, en habit de drap brun, les mains liées. Il marche droit. Il garde les yeux au sol. Au premier rang, quelqu'un pousse un cri : Dame Sibylle Ombreuil, qui s'est levée, et qui reste debout, une main sur la bouche.",
       { if: { all: [{ has: "sibylle:mains" }, { not: { has: "sibylle:aveu" } }] }, text: "Elle ne regarde pas son visage. Elle regarde ses mains liées." },
       { if: { has: "accuse:M:preuve" }, text: "Tu poses devant le conseil ce que tu as : les preuves, une à une, dans l'ordre où tu les as trouvées. Personne ne t'interrompt. Brisson a cessé d'écrire." },
-      { if: { not: { has: "accuse:M:preuve" } }, text: "Tu n'as pas grand-chose à poser devant le conseil. Mais tu n'en as pas besoin : la veuve, au premier rang, n'a pas besoin de preuves pour reconnaître le grain de beauté sous l'œil gauche, ni la façon de se tenir, ni les mains." },
+      { if: { not: { has: "accuse:M:preuve" } }, text: "Tu n'as pas grand-chose à poser devant le conseil. Mais tu peux t'en passer : la veuve, au premier rang, reconnaît d'elle-même le grain de beauté sous l'œil gauche, la façon de se tenir, les mains." },
       { if: { has: "accuse:M:mobile" }, text: "Quand tu as fini, Gaspard Ombreuil lève les yeux vers toi, pour la première fois. « Oui, dit-il. Disparaître. Qu'on enterre l'essayeur, et qu'on oublie ce qu'il avait signé. C'était un bon calcul. Il n'y manquait qu'une chose. » Il ne dit pas laquelle." },
       { if: { not: { has: "accuse:M:mobile" } }, text: "Quand tu as fini, Gaspard Ombreuil secoue la tête, lentement. « Vous n'avez pas compris pourquoi, dit-il. Le petit allait parler, oui. Mais j'aurais pu l'acheter, ou le chasser. Je voulais *disparaître*. Qu'on enterre l'essayeur, et qu'on oublie ce qu'il avait signé. » Il se tait. Il a l'air presque déçu." },
     ],
@@ -88,7 +88,7 @@ module.exports = {
     ] },
   C_aube: { act: "III", title: "L'aube", place: "teinturiers",
     text: [
-      { if: { has: "aube:guet" }, text: "La sergente Hallard et six hommes du guet, en manteau, attendent avec toi derrière les piles de bois du port. Le ciel pâlit à l'est. Personne ne parle. On entend l'eau." },
+      { if: { has: "aube:guet" }, text: "La sergente Hallard et six hommes du guet, en manteau, attendent avec toi derrière les piles de bois du port. Le ciel pâlit à l'est. Tous se taisent. On entend l'eau." },
       { if: { has: "aube:seul" }, text: "Tu attends seul{e}, derrière les piles de bois du port, emmitouflé{e} dans ton manteau. Le ciel pâlit à l'est. Personne ne viendra t'aider : le guet dort, et le conseil rit encore." },
       "Sur la Vouivre, on largue les amarres d'arrière. Les passagers montent un par un, avec leurs malles : des marchands, une famille avec des enfants qui bâillent. Le patron compte, sur le roof.",
       "Et le dernier, un homme grand, voûté, en habit de drap brun, un large chapeau rabattu sur les yeux, qui ne porte rien, et qui monte à bord en tenant la rambarde de sa main gauche, enveloppée d'un linge.",
@@ -118,7 +118,7 @@ module.exports = {
   // ------------------------------------------------------------------ the wrong names
   C_malestroit: { act: "III", title: "Le maître de la Monnaie", place: "haute",
     text: [
-      "Tu dis le nom. Il y a un silence, puis un bruit de chaises : tous les échevins se sont tournés vers Malestroit. Lui ne bouge pas.",
+      "Tu dis le nom. Il y a un silence, puis un bruit de chaises : tous les échevins se sont tournés vers Malestroit. Lui reste immobile.",
       { if: { any: [{ has: "r:aveu" }, { clue: "r_contra" }, { clue: "r_herault" }] }, text: "Tu dis ce que tu sais : le banquet quitté avant onze heures, le retour à minuit, les souliers mouillés ; la Monnaie, juste en face de la Maison de l'Essai, la nuit même où l'essayeur est mort. L'échevin Brisson confirme, d'une voix forte, chaque mot. Malestroit pâlit." },
       { if: { has: "brisson:paye" }, text: "Brisson te regarde une seconde, une seule, avec la satisfaction d'un homme qui a bien placé son argent." },
       { if: { not: { any: [{ has: "r:aveu" }, { clue: "r_contra" }, { clue: "r_herault" }] } }, text: "Tu n'as presque rien. Mais Brisson se lève, et il a, lui, tout ce qu'il faut : il a vu, dit-il, Malestroit quitter le banquet. La salle gronde." },
@@ -135,7 +135,7 @@ module.exports = {
   C_echec: { act: "III", title: "L'accusation", place: "haute",
     text: [
       { if: { is: { "accuse-M-qui": "hugon" } }, text: "Tu dis le nom de Hugon Maupas. Au premier rang, Gervaise se lève à moitié, et retombe sur son banc, comme si on l'avait frappée. Hugon ne lève même pas la tête. Brisson sourit : « Voilà qui simplifie les choses. »" },
-      { if: { is: { "accuse-M-qui": "sibylle" } }, text: "Tu dis le nom de Dame Sibylle Ombreuil. La veuve ne bouge pas. Elle te regarde, et dans ses yeux il y a quelque chose qui ressemble à de la pitié. Brisson demande, poliment, comment une femme de quarante-cinq ans aurait porté un homme de son poids jusqu'à l'écluse. Tu n'as pas de réponse qui tienne." },
+      { if: { is: { "accuse-M-qui": "sibylle" } }, text: "Tu dis le nom de Dame Sibylle Ombreuil. La veuve reste immobile. Elle te regarde, et dans ses yeux il y a quelque chose qui ressemble à de la pitié. Brisson demande, poliment, comment une femme de quarante-cinq ans aurait porté un homme de son poids jusqu'à l'écluse. Tu n'as pas de réponse qui tienne." },
       { if: { is: { "accuse-M-qui": "oriane" } }, text: "Tu dis le nom d'Oriane Ombreuil. Contre son pilier, la jeune fille en noir devient blanche. Hugon, entre ses gardes, se jette en avant, et il faut trois hommes pour le retenir ; il hurle que c'est faux, que c'est lui, que c'est lui qui a tout fait, qu'on la laisse. Brisson note, ravi : « L'accusé avoue. »" },
       { if: { not: { is: { "accuse-M-qui": ["hugon", "sibylle", "oriane"] } } }, text: "Tu dis un nom, et ce que tu poses devant le conseil ne tient pas. Brisson démonte ton accusation en trois phrases, sans même hausser la voix, et la salle rit." },
     ],
@@ -145,7 +145,7 @@ module.exports = {
     ] },
   C_silence: { act: "III", title: "Le silence", place: "haute",
     text: [
-      "Tu ne dis rien. Tu sens le regard de Gervaise Maupas sur ta nuque, et tu ne te retournes pas.",
+      "Tu te tais. Tu sens le regard de Gervaise Maupas sur ta nuque, et tu gardes les yeux droit devant toi.",
       "Brisson attend, par politesse, le temps de compter jusqu'à cinq. Puis il se tourne vers le conseil.",
     ],
     choices: [{ label: "Attendre le verdict", to: "E_condamne" }] },
@@ -171,14 +171,14 @@ module.exports = {
       ECUS,
       "Hugon Maupas sort de la tour du Guet le lendemain de l'audience, à neuf heures, l'heure des visites. Sa mère est en bas depuis six heures, avec son panier.",
       AMANTS, AMANTS_NON,
-      { if: { has: "hallard:allie" }, text: "La sergente Hallard t'offre une place au guet. Tu ne réponds pas tout de suite. Elle dit qu'elle n'est pas pressée, qu'elle a appris, cette semaine, à ne pas l'être." },
-      { if: { has: "brisson:paye" }, text: "Les dix écus de Brisson, tu les laisses sur le comptoir de Gervaise Maupas, sans rien dire, le matin de ton départ." },
+      { if: { has: "hallard:allie" }, text: "La sergente Hallard t'offre une place au guet. Tu prends ton temps pour répondre. Elle dit qu'elle a tout son temps, qu'elle a appris, cette semaine, à le prendre." },
+      { if: { has: "brisson:paye" }, text: "Les dix écus de Brisson, tu les laisses sur le comptoir de Gervaise Maupas, en silence, le matin de ton départ." },
     ] },
   E_enfui: { act: "III", title: "La Vouivre", place: "teinturiers", end: true,
     fx: endFx("enfui"),
     text: [
       "La Vouivre descend l'Aune, passe les rapides avec la crue, et arrive à Basse-Aune trois jours plus tard, où un homme grand et voûté, rasé de près, débarque avec trois tonneaux d'indigo et disparaît dans le port. On ne le reverra jamais.",
-      "Hugon Maupas n'est pas pendu. Le conseil, ébranlé par ce que tu as dit, et peut-être par ce que la ville commence à murmurer, n'ose plus le juger pour meurtre. Il le garde trois mois en cellule pour le vol de la bague, puis le relâche un matin, sans un mot.",
+      "Hugon Maupas n'est pas pendu. Le conseil, ébranlé par ce que tu as dit, et peut-être par ce que la ville commence à murmurer, n'ose plus le juger pour meurtre. Il le garde trois mois en cellule pour le vol de la bague, puis le relâche un matin, sans explication.",
       "On ne rouvre pas la tombe de l'essayeur. Sous le nom de Gaspard Ombreuil, Théophane Lescot dort dans le caveau d'une famille qui n'était pas la sienne, et à Orbeval on continue à dire que le second de l'essayeur était un voleur qui a filé avec l'argent de la Monnaie.",
       ECUS,
       AMANTS, AMANTS_NON,
@@ -187,9 +187,9 @@ module.exports = {
   E_malestroit: { act: "III", title: "Un coupable commode", place: "haute", end: true,
     fx: endFx("malestroit"),
     text: [
-      "Évrard Malestroit est arrêté le soir même, dans la salle, par la sergente Hallard, qui ne dit pas un mot et ne te regarde pas. Hugon Maupas sort de la tour le lendemain matin.",
+      "Évrard Malestroit est arrêté le soir même, dans la salle, par la sergente Hallard, muette, les yeux ailleurs. Hugon Maupas sort de la tour le lendemain matin.",
       "On juge Malestroit un mois plus tard. On ne peut pas prouver qu'il a tué l'essayeur, mais on prouve tout le reste : le rendez-vous, la bourse, le silence acheté, les écus légers, l'année de mensonges. Cela suffit pour la ville. On ne le pend pas ; on le bannit, et on vend ses biens. L'échevin Brisson devient maître de la Monnaie à la Saint-Martin.",
-      { if: { has: "brisson:paye" }, text: "Il t'envoie, le jour de sa nomination, une seconde bourse de dix écus, avec un billet de remerciements très aimable. Tu ne réponds pas." },
+      { if: { has: "brisson:paye" }, text: "Il t'envoie, le jour de sa nomination, une seconde bourse de dix écus, avec un billet de remerciements très aimable. Tu te tais." },
       "Le lendemain de l'audience, à l'aube, une barge chargée de trois tonneaux d'indigo quitte le port des Teinturiers pour Basse-Aune. Personne ne la regarde partir.",
       ECUS,
       AMANTS, AMANTS_NON,
@@ -210,9 +210,9 @@ module.exports = {
     fx: endFx("condamne"),
     text: [
       "Le conseil délibère le temps qu'il faut pour vider un pichet. Hugon Maupas est condamné à être pendu, le lendemain, à l'aube, pour le meurtre de Gaspard Ombreuil, essayeur-juré de la Monnaie d'Orbeval.",
-      "Il ne dit rien. Il n'a jamais rien dit. On l'emmène.",
+      "Il se tait, comme il s'est toujours tu. On l'emmène.",
       "Le lendemain, à l'aube, pendant qu'on dresse la potence sur la place, une barge chargée de trois tonneaux d'indigo quitte le port des Teinturiers et descend l'Aune vers la mer.",
-      "Gervaise Maupas ne te reproche rien. Elle ne te parle plus, c'est tout. Quand tu la croises, au coin du pont des Lavandières, elle regarde ailleurs, comme on regarde ailleurs quand passe quelqu'un qu'on a connu autrefois.",
+      "Gervaise Maupas t'épargne les reproches. Elle a simplement cessé de te parler. Quand tu la croises, au coin du pont des Lavandières, elle regarde ailleurs, comme on regarde ailleurs quand passe quelqu'un qu'on a connu autrefois.",
     ] },
   E_pilori: { act: "III", title: "Le pilori", place: "haute", end: true,
     fx: endFx("pilori"),

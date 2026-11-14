@@ -19,7 +19,7 @@ module.exports = {
     text: [
       "Le patron essuie un pot, longtemps, avant de répondre.",
       "« Il est entré vers neuf heures, l'essayeur. Ici. Avec sa robe grise et sa bague d'or, au milieu des tanneurs, comme un évêque dans une porcherie. Il est allé droit au petit Maupas, qui buvait avec ses amis, là, à cette table. Il ne lui a rien demandé. Il l'a giflé, du revers, devant tout le monde. Et il a dit, assez fort pour qu'on entende jusque dans la rue : *Si tu t'approches encore de ma fille, je te fais jeter dans l'Aune.* »",
-      "« Le petit n'a pas bougé. Il est devenu tout rouge, puis tout blanc, et il n'a pas bougé. Moi, j'en ai vu, des gars de dix-neuf ans qui se font gifler devant leurs amis. Ils cognent. Lui, il a regardé ses mains. » Il repose le pot. « L'essayeur est reparti. Le petit s'est assis à la table de Chandelle, à dix heures, avec la vieille Veillon. Comme si de rien n'était. »",
+      "« Le petit est resté planté là. Il est devenu tout rouge, puis tout blanc, toujours planté là. Moi, j'en ai vu, des gars de dix-neuf ans qui se font gifler devant leurs amis. Ils cognent. Lui, il a regardé ses mains. » Il repose le pot. « L'essayeur est reparti. Le petit s'est assis à la table de Chandelle, à dix heures, avec la vieille Veillon. Comme si de rien n'était. »",
       "« Le guet m'a demandé si j'avais entendu la menace. J'ai dit oui. Ils n'ont rien demandé d'autre. »",
     ] },
 
@@ -28,7 +28,7 @@ module.exports = {
     fx: { meet: "isaline" },
     taverne: { mise: 3, adversaire: "Dame Veillon" },
     text: [
-      { first: true, text: "Dame Isaline Veillon tient la table de Chandelle de la Lanterne Sourde comme elle tient son comptoir : droite, précise, sans un mot de trop. Elle a ôté ses lunettes ; ses yeux, sans elles, sont petits et très noirs. Devant elle, une pile de sous, un gobelet de cuir, un dé." },
+      { first: true, text: "Dame Isaline Veillon tient la table de Chandelle de la Lanterne Sourde comme elle tient son comptoir : droite, précise, économe de ses mots. Elle a ôté ses lunettes ; ses yeux, sans elles, sont petits et très noirs. Devant elle, une pile de sous, un gobelet de cuir, un dé." },
       { again: true, text: "Dame Veillon, à sa table, fait rouler le dé dans son gobelet. « Assieds-toi ou passe, tu fais de l'ombre. »" },
       { regard: { isaline: ["cordial", "allie"] }, text: "Elle pousse un tabouret vers toi du bout du pied, sans lever les yeux du jeu." },
     ],
@@ -42,7 +42,7 @@ module.exports = {
     text: [
       { first: true, text: "Barthe a soixante ans, les jambes arquées, une barbe blanche jaunie par la pipe, et des mains qui ont tiré des chaînes toute leur vie. Il garde l'écluse des Tanneurs depuis quarante ans ; il y est né, dans la petite maison de pierre accrochée à la porte d'amont." },
       { again: true, text: "Barthe s'appuie sur sa perche. « Encore vous. L'eau a pas changé depuis tout à l'heure. »" },
-      { regard: { barthe: ["cordial", "allie"] }, text: "Il te tend sa blague à tabac sans un mot. C'est, chez lui, une grande marque d'amitié." },
+      { regard: { barthe: ["cordial", "allie"] }, text: "Il te tend sa blague à tabac. C'est, chez lui, une grande marque d'amitié." },
       { first: true, text: "Tu lui demandes comment il a trouvé le corps." },
       { first: true, text: "« La nuit de la fête, les barques à lanternes descendent le canal jusqu'à une heure. Moi, je laisse les deux portes ouvertes, pour qu'elles passent. À une heure, la dernière est passée. J'ai fermé la porte d'amont, comme chaque nuit. Il faisait noir comme dans un four. Je suis allé me coucher. »" },
       { first: true, text: "« À cinq heures et demie, je me lève, j'ouvre la vanne, et je le vois. Contre les portes d'aval, la tête en bas, dans son manteau gris. Il avait passé la nuit à battre contre le bois, à chaque remous. La figure… » Il crache dans le canal. « Il n'avait plus de figure. Les portes, ça ne pardonne pas. »" },
@@ -79,7 +79,7 @@ module.exports = {
   P_chambre: { act: "II", title: "La chambre de Théophane", place: "tanneurs", back: true,
     text: [
       "La chambre est sous le toit, si basse qu'on ne s'y tient debout qu'au milieu. Un lit étroit, une table, une chaise, une planche fixée au mur en guise d'étagère. Une lucarne sur le canal. Tout est propre et nu.",
-      "Le coffre au pied du lit est ouvert, vide. Le sac de voyage et les habits sont partis. Mais sur la planche, au-dessus du lit, il reste un rasoir, dans son étui de cuir, un peigne d'os, et un petit portrait de femme peint sur bois, pas plus grand que la main, dans un cadre de cuivre. « Sa mère, dit la mère Garnaude derrière toi. Morte quand il avait dix ans. Il lui disait bonsoir, le soir. Je l'entendais à travers le plancher. »",
+      "Le coffre au pied du lit est ouvert, vide. Le sac de voyage et les habits sont partis. Mais sur la planche, au-dessus du lit, il reste un rasoir, dans son étui de cuir, un peigne d'os, et un petit portrait de femme peint sur bois, grand comme la main, dans un cadre de cuivre. « Sa mère, dit la mère Garnaude derrière toi. Morte quand il avait dix ans. Il lui disait bonsoir, le soir. Je l'entendais à travers le plancher. »",
       "La mère Garnaude s'est tue. Elle regarde le portrait aussi.",
     ],
     choices: [
@@ -177,13 +177,13 @@ module.exports = {
     text: [
       { if: { place: "haute" }, text: "Le bureau de la sergente Hallard, au premier étage de la tour, est une pièce voûtée où il fait froid même l'été. Un registre ouvert, une chandelle, une épée pendue au mur, et une fenêtre étroite qui donne sur la place." },
       { if: { place: "tanneurs" }, text: "Tu marches à côté de la sergente le long du canal, pendant que ses deux hommes vont devant avec la lanterne. Elle a les mains dans le dos et elle regarde les portes, les fenêtres, les ombres : tout, sauf toi." },
-      { first: true, if: { has: "passe:guet" }, text: "Elle te jauge d'un coup d'œil, de la tête aux bottes. « Vous avez été du guet, vous. Ailleurs. Ça se voit à la façon dont vous regardez les portes. » Ce n'est pas un compliment ; ce n'est pas un reproche non plus." },
-      { first: true, text: "La sergente Hallard a cinquante ans, une cicatrice qui lui tire la bouche vers le bas, et la réputation d'être la seule personne du guet qu'on ne peut pas acheter. On dit aussi qu'elle ne revient jamais sur ce qu'elle a décidé." },
+      { first: true, if: { has: "passe:guet" }, text: "Elle te jauge d'un coup d'œil, de la tête aux bottes. « Vous avez été du guet, vous. Ailleurs. Ça se voit à la façon dont vous regardez les portes. » C'est un constat, dit sans chaleur." },
+      { first: true, text: "La sergente Hallard a cinquante ans, une cicatrice qui lui tire la bouche vers le bas, et la réputation d'être la seule personne incorruptible du guet. On dit aussi que ses décisions sont définitives." },
       { regard: { hallard: ["neutre", "distant", "mefiant"] }, text: "« L'affaire est jugée, dit-elle. Il ne manque que la cloche. J'ai un batelier qui avait la bague du mort dans la poche le lendemain matin, un mobile, une menace devant vingt témoins, et pas d'alibi. Vous m'apportez mieux, je vous écoute. Vous ne m'apportez rien, vous me faites perdre mon temps. »" },
       { regard: { hallard: "cordial" }, text: "« Vous, dit-elle. Asseyez-vous. Vous avez la tête de quelqu'un qui ne dort pas assez. Moi aussi. Qu'est-ce que vous avez trouvé ? »" },
-      { regard: { hallard: "allie" }, text: "« Alors ? » Elle referme son registre. Depuis que tu lui as montré ce que tu sais, elle ne fait plus semblant de ne pas t'attendre." },
+      { regard: { hallard: "allie" }, text: "« Alors ? » Elle referme son registre. Depuis que tu lui as montré ce que tu sais, elle t'attend ouvertement." },
       { if: { all: [{ day: { min: 3 } }, { not: { has: "gaspard:pris" } }] }, text: "« C'est ce soir, dit-elle. À la cloche. Je témoignerai de l'arrestation. Après, ce sera aux échevins. »" },
-      { if: { has: "gaspard:pris" }, text: "Elle a les yeux de quelqu'un qui n'a pas dormi. « Il n'a pas dit un mot de la nuit, en bas, dit-elle. Il a demandé l'heure. Deux fois. Je n'en dis rien à personne avant la cloche, et vous non plus. »" },
+      { if: { has: "gaspard:pris" }, text: "Elle a les yeux rouges d'une nuit de veille. « Il n'a pas dit un mot de la nuit, en bas, dit-elle. Il a demandé l'heure. Deux fois. Je n'en dis rien à personne avant la cloche, et vous non plus. »" },
     ],
     choices: [
       { label: "Lui demander ce que le guet a fait pour retrouver Théophane Lescot", hide: { seen: "P_hallard_theo" }, to: "P_hallard_theo" },
@@ -227,7 +227,7 @@ module.exports = {
       { first: true, text: "Un garde te fait monter trois étages par un escalier en colimaçon, ouvre un judas, puis une porte. La cellule est une pièce de pierre de quatre pas sur trois, avec une fente pour fenêtre, une paillasse, un seau. Hugon Maupas est assis par terre, le dos au mur, les bras autour des genoux." },
       { first: true, text: "Il a dix-neuf ans, de larges épaules de batelier, des cheveux noirs coupés court par sa mère, et il a l'air d'un enfant. Il ne lève pas la tête." },
       { again: true, text: "Hugon est assis à sa place, contre le mur. Il lève les yeux quand la porte s'ouvre, et les baisse quand il voit que ce n'est que toi." },
-      { regard: { hugon: ["neutre", "distant", "mefiant"] }, text: "Tu lui parles. Il ne répond pas. Il regarde la fente de lumière sur le mur d'en face comme s'il pouvait passer par là." },
+      { regard: { hugon: ["neutre", "distant", "mefiant"] }, text: "Tu lui parles. Il se tait. Il regarde la fente de lumière sur le mur d'en face comme s'il pouvait passer par là." },
       { regard: { hugon: ["cordial", "allie"] }, text: "« Vous êtes revenu{e} », dit-il. C'est la première fois qu'il dit quelque chose sans qu'on le lui demande." },
       { if: { day: { min: 3 } }, text: "« C'est ce soir, hein ? » Il ne pose pas vraiment la question." },
     ],
@@ -238,7 +238,7 @@ module.exports = {
     ] },
   P_hugon_mere: { act: "II", title: "La cellule", place: "haute", montrer: "hugon",
     text: [
-      "Il ne bouge pas, mais quelque chose change dans sa façon de respirer.",
+      "Il reste immobile, mais quelque chose change dans sa façon de respirer.",
       "« Tous les matins ? » Il ne te regarde toujours pas. « Ils la laissent pas monter avant neuf heures. Elle doit être là depuis six. Elle a toujours été là trop tôt, partout. »",
       "Il frotte ses yeux avec la paume, très fort. « Dites-lui de rentrer. Dites-lui que je mange. C'est pas vrai, mais dites-lui. »",
     ],
@@ -253,7 +253,7 @@ module.exports = {
   P_hugon_mot: { act: "II", title: "Les mots d'Oriane", place: "haute", montrer: "hugon",
     text: [
       "Tu lui répètes ce qu'a dit Oriane, sur le pont, mot pour mot : qu'elle a attendu jusqu'à quatre heures, qu'elle n'a pas cessé d'attendre, et qu'elle ne lui en veut pas.",
-      "Hugon ne bouge pas. Il ne dit rien. Puis il pose le front sur ses genoux, et ses épaules se mettent à trembler, et il pleure comme pleurent les garçons qui n'ont pas pleuré depuis l'enfance, en silence, avec tout le corps.",
+      "Hugon reste immobile, muet. Puis il pose le front sur ses genoux, et ses épaules se mettent à trembler, et il pleure comme pleurent les garçons qui se retiennent depuis l'enfance, en silence, avec tout le corps.",
       "Tu attends. Ça dure longtemps.",
       "« Dites-lui… » Il relève la tête, s'essuie le nez sur sa manche. « Dites-lui que la barge de sel est partie sans nous, et que c'est ma faute, et que je lui expliquerai. Si je sors. Dites-lui que si je sors, on prendra la prochaine. »",
     ],
@@ -291,7 +291,7 @@ module.exports = {
       "La salle des morts de l'Hôtel-Dieu est une cave voûtée, fraîche, qui sent le vinaigre et la chaux vive. Sœur Ermeline, une petite femme sèche aux manches retroussées, lit le jeton de la sergente, hoche la tête, et soulève le drap.",
       "Tu as déjà vu des morts. Celui-là, tu le regardes vite, puis plus lentement. Le visage n'existe plus : les portes de l'écluse l'ont battu toute la nuit. Les cheveux sont châtains, mouillés encore, collés. Le corps est grand, maigre, plus maigre que tu ne l'aurais cru sous une robe d'essayeur.",
       "Ce sont les mains que tu regardes le plus longtemps. Les ongles sont rongés jusqu'à la chair, à chaque doigt. Et le petit doigt de la main droite est tordu, en dehors, avec une bosse à la deuxième phalange : un os cassé autrefois, et mal ressoudé.",
-      { second: true, text: "À l'annulaire gauche, là où la bague était, la peau est à peine plus pâle. Pas de creux, pas de bourrelet : la marque légère d'un anneau qui n'a pas été porté longtemps." },
+      { second: true, text: "À l'annulaire gauche, là où la bague était, la peau est à peine plus pâle. La peau est à peine marquée : la trace légère d'un anneau porté peu de temps." },
       "« On l'enterre demain à trois heures, dit Sœur Ermeline en remettant le drap. Après, ce sera trop tard pour regarder. »",
     ] },
   P_ermeline: { act: "II", title: "Sœur Ermeline", place: "haute", montrer: "ermeline", back: true,
