@@ -307,7 +307,7 @@
    "healer": true,
    "rep": {
     "up": "Sœur Odeline te regarde un peu plus longtemps que d'habitude, et elle hoche la tête.",
-    "down": "Sœur Odeline refait ton pansement sans un mot. Ses mains sont plus brusques.",
+    "down": "Sœur Odeline refait ton pansement en silence. Ses mains sont plus brusques.",
     "fearUp": "Sœur Odeline garde la porte ouverte quand elle est seule avec toi."
    }
   },
@@ -338,7 +338,7 @@
     "att": 5
    },
    "rep": {
-    "up": "Hennequin te tend sa gourde sans rien dire. C'est beaucoup, venant de lui.",
+    "up": "Hennequin te tend sa gourde. C'est beaucoup, venant de lui.",
     "down": "Hennequin te regarde comme on regarde un dossier qui s'épaissit.",
     "fearUp": "Hennequin garde la main sur la poignée de son épée quand tu parles."
    }
@@ -685,7 +685,7 @@
    "face": {
     "age": "ancien"
    },
-   "desc": "Curé de Vaugrenat. Il a lavé les corps des Hollier. Il ne dit pas tout ce qu'il pense, mais il le pense très fort."
+   "desc": "Curé de Vaugrenat. Il a lavé les corps des Hollier. Il garde une part de ce qu'il pense, et il la pense très fort."
   },
   "dorval": {
    "name": "Le bailli Dorval",
@@ -1202,7 +1202,7 @@
     ]
    },
    "text": [
-    "Un plafond de planches, noirci par la fumée des chandelles. Une fenêtre étroite, où la neige passe à l'horizontale. Un lit de fer, des draps rêches qui sentent la lessive à la cendre. Et ta main droite, posée sur la couverture comme une chose qui n'est pas à toi, emmaillotée de linge jusqu'au poignet.",
+    "Un plafond de planches, noirci par la fumée des chandelles. Une fenêtre étroite, où la neige passe à l'horizontale. Un lit de fer, des draps rêches qui sentent la lessive à la cendre. Et ta main droite, posée sur la couverture comme la main d'un autre, emmaillotée de linge jusqu'au poignet.",
     "Une femme est assise sur un tabouret, à côté du lit. Une religieuse, robe grise, tablier blanc, une quarantaine d'années, des avant-bras de lavandière. Elle tricote. Elle a l'air de tricoter depuis longtemps.",
     "« Ah, dit-elle sans lâcher ses aiguilles. Vous voilà. Je suis Sœur Odeline. Vous êtes à l'hospice du col des Gélines. Notre chien vous a trouvé dans la neige, hier à l'aube, à cent pas de la croix. Vous aviez la main brûlée et la tête ouverte. Vous avez dormi un jour et une nuit. » Elle compte ses mailles. « Comment vous appelez-vous ? »",
     "Tu le lui dis. Ton nom vient tout seul, et ton métier avec : arpenteur du cadastre du duc. Ce qui ne vient pas, quand tu cherches, c'est la suite. Tu te souviens d'être monté de la plaine. D'une diligence, d'une auberge, d'un pont. Ensuite, il y a un trou, comme une marche qui manque dans un escalier qu'on descend dans le noir.",
@@ -1284,7 +1284,7 @@
      "if": {
       "has": "perte:fille"
      },
-     "text": "*Le petit.* Tu n'entends que ce mot. Tu ne sais pas pourquoi il te serre la gorge à ce point. Ou plutôt si : tu le sais depuis six ans."
+     "text": "*Le petit.* Tu n'entends que ce mot. Il te serre la gorge, et la raison t'échappe. Ou plutôt si : tu le sais depuis six ans."
     }
    ],
    "fx": {
@@ -1360,7 +1360,7 @@
    "place": "hospice",
    "text": [
     "Les sœurs ont lavé ta chemise, mais la laine de ta veste garde l'odeur : une fumée grasse, de bois et d'autre chose, de graisse peut-être, que tu ne veux pas nommer. Le bas de ton pantalon est roussi en deux endroits.",
-    "Puis tu regardes tes mains, la gauche surtout, celle qui n'est pas bandée. Sous tes ongles, il n'y a pas de suie. Il y a du foin, des brins jaunes et secs, et quelque chose de brun, de terreux, qui sent l'étable."
+    "Puis tu regardes tes mains, la gauche surtout, la main nue. Tes ongles sont propres : aucune trace de suie. Il y a du foin, des brins jaunes et secs, et quelque chose de brun, de terreux, qui sent l'étable."
    ],
    "choices": [
     {
@@ -1577,7 +1577,7 @@
      "if": {
       "has": "jour:2"
      },
-     "text": "Au bout de la table, le frère du fermier des Combes mange sa soupe sans lever les yeux, sa hache posée sur le banc à côté de lui comme un chien. Personne ne s'assied près de lui."
+     "text": "Au bout de la table, le frère du fermier des Combes mange sa soupe sans lever les yeux, sa hache posée sur le banc à côté de lui comme un chien. Les places autour de lui restent vides."
     }
    ],
    "choices": [
@@ -1641,11 +1641,11 @@
    },
    "text": [
     "« Élias Corvin, dit l'homme en noir en se levant. Médecin à Vaugrenat. Asseyez-vous, je vous en prie. Vous ne devriez pas être debout. » Il te prend le poignet gauche, sans demander, et compte ton pouls en regardant sa montre. Ses doigts sont secs et très propres.",
-    "« Le choc, dit-il. La tête a cogné, et la tête se protège. Elle ferme des portes. Ce n'est pas grave : ce qui est fermé n'est pas perdu. » Il te lâche le poignet. « J'ai étudié à Lorvanne une méthode qui aide à rouvrir ces portes-là. Un peu de laudanum, pour que le corps se repose, et une conversation. On appelle cela le sommeil dirigé. Les souvenirs reviennent. Pas tous. Les plus importants. »",
+    "« Le choc, dit-il. La tête a cogné, et la tête se protège. Elle ferme des portes. Rassurez-vous : ce qui est fermé peut se rouvrir. » Il te lâche le poignet. « J'ai étudié à Lorvanne une méthode qui aide à rouvrir ces portes-là. Un peu de laudanum, pour que le corps se repose, et une conversation. On appelle cela le sommeil dirigé. Les souvenirs reviennent. Pas tous. Les plus importants. »",
     "Il sourit. « Le prévôt va monter, et il va vous poser des questions. Il vaudrait mieux que vous ayez des réponses. Je suis à votre disposition. »",
     {
      "with": "odeline",
-     "text": "Sœur Odeline, sur le pas de la porte, ne dit rien. Elle regarde la mallette de cuir du docteur, posée sur le banc, et elle a les lèvres très serrées."
+     "text": "Sœur Odeline, sur le pas de la porte, se tait. Elle regarde la mallette de cuir du docteur, posée sur le banc, et elle a les lèvres très serrées."
     }
    ],
    "choices": [
@@ -1690,7 +1690,7 @@
        }
       ]
      },
-     "text": "« Pas aujourd'hui, dit le docteur. Une séance par jour, pas davantage. Le reste vient la nuit, tout seul. Revenez demain. »"
+     "text": "« Pas aujourd'hui, dit le docteur. Une séance par jour, une seule. Le reste vient la nuit, tout seul. Revenez demain. »"
     },
     {
      "if": {
@@ -1895,7 +1895,7 @@
     {
      "first": true,
      "with": "odeline",
-     "text": "« Jeanne, dit Sœur Odeline. Ma nièce. Elle ne parle pas. Elle n'a jamais parlé. Laissez-la tranquille, elle a peur des hommes. »"
+     "text": "« Jeanne, dit Sœur Odeline. Ma nièce. Elle est muette depuis toujours. Laissez-la tranquille, elle a peur des hommes. »"
     },
     {
      "again": true,
@@ -2052,7 +2052,7 @@
    "title": "De loin",
    "place": "hospice",
    "text": [
-    "Tu t'assieds sur une malle, près de la porte, aussi loin d'elle que la pièce le permet. Tu parles. De rien : de la neige, de la plaine, du métier d'arpenteur, de la façon dont on mesure un champ avec une chaîne de vingt pas et un peu de patience. Elle ne répond pas. Elle plie ses draps.",
+    "Tu t'assieds sur une malle, près de la porte, aussi loin d'elle que la pièce le permet. Tu parles. De rien : de la neige, de la plaine, du métier d'arpenteur, de la façon dont on mesure un champ avec une chaîne de vingt pas et un peu de patience. Elle écoute. Elle plie ses draps.",
     "Au bout d'un moment, elle s'est rapprochée de la table. Pas de toi. De la table. Ses mains, en pliant, sont des mains de ferme : des cals aux paumes, la corne au pouce, celle qu'on se fait en tenant l'anse d'un seau de traite matin et soir."
    ],
    "choices": [
@@ -2095,7 +2095,7 @@
      "to": "H_jeanne_boussole"
     },
     {
-     "label": "Ranger tes instruments sans rien dire",
+     "label": "Ranger tes instruments en silence",
      "fx": {
       "clue": "j_carte",
       "conf": {
@@ -2149,7 +2149,7 @@
    "title": "Le cri",
    "place": "hospice",
    "text": [
-    "Tu t'approches et tu tends la main. Jeanne ne crie pas : elle n'a pas de voix pour ça. Elle ouvre la bouche grande, sans un son, et elle se jette de côté, renverse une pile de draps, et se recroqueville sous la table, les bras sur la tête.",
+    "Tu t'approches et tu tends la main. Jeanne ouvre la bouche, et aucun cri n'en sort. Elle ouvre la bouche grande, sans un son, et elle se jette de côté, renverse une pile de draps, et se recroqueville sous la table, les bras sur la tête.",
     "Sœur Odeline arrive en courant. Elle se met à genoux, elle ne touche pas la petite, elle parle tout bas. Puis elle se retourne vers toi. « Sortez », dit-elle. Ce n'est pas une prière."
    ],
    "fx": {
@@ -2360,7 +2360,7 @@
    "title": "Le prévôt",
    "place": "hospice",
    "text": [
-    "Abel ne répond pas tout de suite. Il pose sa réussite, carte après carte, jusqu'à ce qu'elle soit bloquée. Puis il ramasse tout.",
+    "Abel prend son temps. Il pose sa réussite, carte après carte, jusqu'à ce qu'elle soit bloquée. Puis il ramasse tout.",
     "« Un vieux soldat à jambe de bois qui dit qu'il a entendu un mot dans un couloir, dit-il. Contre un homme dont la famille vient de brûler. » Il te regarde. « Je le dirai si vous me le demandez. Je vous préviens seulement : on ne me croira pas, et on ne vous croira pas davantage parce que je l'ai dit. »"
    ],
    "choices": [
@@ -2554,7 +2554,7 @@
      "if": {
       "has": "jour:2"
      },
-     "text": "Matthias Hollier est à genoux au premier rang, la tête dans les mains. Il ne prie pas. Il ne bouge pas. Il entend ton pas et ne se retourne pas."
+     "text": "Matthias Hollier est à genoux au premier rang, la tête dans les mains. Il se tient immobile, les mains ouvertes. Il entend ton pas et garde les yeux devant lui."
     }
    ],
    "choices": [
@@ -2582,18 +2582,18 @@
    "title": "Prier",
    "place": "hospice",
    "text": [
-    "Tu t'agenouilles. Les mots ne viennent pas, ni ceux de l'enfance, ni d'autres. Ce qui vient, c'est une odeur de foin, très nette, très forte, au point que tu ouvres les yeux pour voir d'où elle vient. Il n'y a que la chapelle, la cire, la pierre.",
+    "Tu t'agenouilles. Les mots te fuient, ceux de l'enfance comme les autres. Ce qui vient, c'est une odeur de foin, très nette, très forte, au point que tu ouvres les yeux pour voir d'où elle vient. Il n'y a que la chapelle, la cire, la pierre.",
     {
      "if": {
       "has": "perte:fille"
      },
-     "text": "Tu as prié, il y a six ans, trois nuits de suite. Tu n'as plus prié depuis. Ce n'est pas de la colère. C'est de la politesse : on ne redemande pas ce qu'on vous a refusé."
+     "text": "Tu as prié, il y a six ans, trois nuits de suite. Tu n'as plus prié depuis. C'est de la politesse : ce qu'on vous a refusé, on le laisse."
     },
     {
      "if": {
       "has": "perte:frere"
      },
-     "text": "Tu penses à ton frère. Tu ne sais pas pourquoi maintenant. Tu te demandes s'il a appris qu'un arpenteur avait été trouvé dans la neige, et s'il a deviné que c'était toi, et ce qu'il a ressenti."
+     "text": "Tu penses à ton frère. Pourquoi maintenant ? Tu l'ignores. Tu te demandes s'il a appris qu'un arpenteur avait été trouvé dans la neige, et s'il a deviné que c'était toi, et ce qu'il a ressenti."
     }
    ],
    "choices": [
@@ -2674,7 +2674,7 @@
    "title": "Un souvenir",
    "place": "hospice",
    "text": [
-    "Tu fermes les yeux. L'odeur reste, et autour d'elle, quelque chose se construit, sans voix, sans docteur.",
+    "Tu fermes les yeux. L'odeur reste, et autour d'elle, quelque chose se construit tout seul, loin de la voix du docteur.",
     "Une autre étable. Plus petite, plus basse, une lanterne accrochée à une poutre. Une vache couchée sur le flanc, qui souffle, et un veau à moitié sorti, et des mains qui tirent sur les pattes avant, des mains d'enfant, petites et fortes. Tu ne vois pas le visage. Tu vois les mains, et un bout de natte qui pend, châtain clair, et tu entends un rire, un rire essoufflé de triomphe quand le veau glisse d'un coup dans la paille.",
     "Toi, tu tiens la lanterne. Tu le sais parce que la lumière bouge quand tu ris aussi.",
     "Puis plus rien. Brac te lèche la main bandée."
@@ -2932,7 +2932,7 @@
      "if": {
       "has": "gaudry:lettre"
      },
-     "text": "Au matin, la cloche de la chapelle sonne le glas. Le vieux Gaudry est mort dans la nuit. Les sœurs disent qu'il est parti sans un bruit, avec un sourire. Tu touches la lettre contre ta poitrine."
+     "text": "Au matin, la cloche de la chapelle sonne le glas. Le vieux Gaudry est mort dans la nuit. Les sœurs disent qu'il est parti doucement, avec un sourire. Tu touches la lettre contre ta poitrine."
     },
     {
      "if": {
@@ -2963,8 +2963,8 @@
    },
    "text": [
     "Ils sont trois dans la cour, couverts de neige jusqu'à la taille, avec deux mules qui fument. Un homme de cinquante ans, carré, une moustache grise prise de givre, un manteau de prévôté à collet rouge : le prévôt Hennequin. Un jeune sergent, maigre, qui tient les mules et regarde partout. Et un troisième homme, grand, large, une barbe brune, une hache passée dans la ceinture, qui ne regarde que toi.",
-    "« Matthias Hollier, dit le prévôt en secouant son manteau. Le frère. Il a insisté pour monter. Je n'ai pas pu l'en empêcher, et pour tout dire, je n'ai pas essayé : c'est sa famille. » Il te dévisage. « C'est vous, l'arpenteur. Bien. Mère Agnès va nous prêter son bureau. Vous et moi, nous allons parler. »",
-    "Matthias Hollier ne dit rien. Il te regarde passer, et ses yeux sont rouges, et il a les mains ouvertes le long du corps, comme un homme qui se retient de les fermer."
+    "« Matthias Hollier, dit le prévôt en secouant son manteau. Le frère. Il a insisté pour monter. Je l'ai laissé venir : c'est sa famille. » Il te dévisage. « C'est vous, l'arpenteur. Bien. Mère Agnès va nous prêter son bureau. Vous et moi, nous allons parler. »",
+    "Matthias Hollier se tait. Il te regarde passer, et ses yeux sont rouges, et il a les mains ouvertes le long du corps, comme un homme qui se retient de les fermer."
    ],
    "choices": [
     {
@@ -3087,7 +3087,7 @@
    "text": [
     "« Une dispute », répète le prévôt. Il fait signe au sergent, qui écrit, la langue entre les dents. « À quel sujet ? »",
     "Tu ne sais pas. Tu revois la table de bois, les mains à plat, l'homme qui crie. Tu ne sais pas pourquoi il criait. Tu le dis. Le prévôt hoche la tête, lentement.",
-    "« Vous ne vous souvenez de rien, mais vous vous souvenez d'une dispute. » Il ne sourit pas. « C'est le docteur qui vous l'a rendue, celle-là ? Il est très fort, le docteur. Il a rendu beaucoup de choses à beaucoup de gens. » Tu ne sais pas si c'est un reproche, ou une mise en garde."
+    "« Vous ne vous souvenez de rien, mais vous vous souvenez d'une dispute. » Il ne sourit pas. « C'est le docteur qui vous l'a rendue, celle-là ? Il est très fort, le docteur. Il a rendu beaucoup de choses à beaucoup de gens. » Reproche ou mise en garde, tu hésites."
    ],
    "choices": [
     {
@@ -3170,7 +3170,7 @@
      "if": {
       "has": "bourse:mensonge"
      },
-     "text": "Le prévôt sourit, pour la première fois. Ce n'est pas un bon sourire. « Une avance du cadastre, dit-il. En écus de la Compagnie. » Il fait signe au sergent d'écrire, et il n'ajoute rien."
+     "text": "Le prévôt sourit, pour la première fois. C'est un mauvais sourire. « Une avance du cadastre, dit-il. En écus de la Compagnie. » Il fait signe au sergent d'écrire, et il n'ajoute rien."
     },
     "Hennequin remet les écus dans la bourse, un à un, et garde la bourse. « Je vous la rendrai, dit-il. Ou je la donnerai au bailli. On verra. »",
     "Il se lève. « Vous n'êtes pas arrêté. Pas encore. Vous ne quittez pas l'hospice, et de toute façon, personne ne le quitte tant que le vent souffle. Quand il tombera, nous descendrons tous à Vaugrenat, vous, moi, le frère et le docteur. Là, on verra la maison. Et on verra si ça vous rend la mémoire. »",
@@ -3196,7 +3196,7 @@
    "title": "Matthias Hollier",
    "place": "hospice",
    "text": [
-    "Tu t'assieds en face de lui. Il lève les yeux de sa soupe. Il ne dit rien, longtemps. Puis il pose sa cuillère.",
+    "Tu t'assieds en face de lui. Il lève les yeux de sa soupe. Il se tait longtemps. Puis il pose sa cuillère.",
     "« Ils les ont mis dans l'église, dit-il. Les quatre. Le curé les a lavés. Il ne m'a pas laissé voir le petit. » Sa voix est très calme, très basse. « Ma nièce, Lise, on ne l'a pas trouvée. Le curé dit que le feu l'a prise toute entière, qu'elle dormait près du four. Quatorze ans. Elle voulait apprendre à lire les cartes. Elle me l'avait dit, à Noël. » Il te regarde. « Des cartes. Comme les vôtres. »",
     "Il reprend sa cuillère. « Je ne vous accuse de rien. Le prévôt fera son travail. Mais si c'est vous, je le saurai. Et ce jour-là, il n'y aura pas de prévôt. »"
    ],
@@ -3209,7 +3209,7 @@
    },
    "choices": [
     {
-     "label": "Le regarder, et chercher ce qu'il ne dit pas",
+     "label": "Le regarder, et chercher ce qu'il tait",
      "test": {
       "dom": "social",
       "label": "Social",
@@ -3244,7 +3244,7 @@
   },
   "H_matthias_lu": {
    "act": "I",
-   "title": "Ce qu'il ne dit pas",
+   "title": "Ce qu'il tait",
    "place": "hospice",
    "text": [
     "Il parle de sa nièce au passé. Il en parle bien, avec tendresse, avec des détails : les cartes, Noël. Mais quand il dit *on ne l'a pas trouvée*, ses yeux font un petit mouvement de côté, vers le couloir, vers l'escalier qui monte à la lingerie, et reviennent sur toi.",
@@ -3274,7 +3274,7 @@
    "title": "Désolé",
    "place": "hospice",
    "text": [
-    "Matthias te regarde comme si tu lui avais craché dessus. Puis il se lève, prend sa hache sur le banc, et sort sans un mot. Sa soupe fume encore dans le bol."
+    "Matthias te regarde comme si tu lui avais craché dessus. Puis il se lève, prend sa hache sur le banc, et sort. Sa soupe fume encore dans le bol."
    ],
    "choices": [
     {
@@ -3290,7 +3290,7 @@
     "La chaleur, la lourdeur. Plus vite que la première fois : ton corps connaît déjà le chemin. La voix dit : *la nuit. Vous êtes dehors. Il fait froid. Vous tenez quelque chose.*",
     "Tu tiens une lanterne. La neige crisse sous tes pas. Devant toi, la masse noire d'une maison, un toit pointu, une cheminée. Tu marches vers elle. La lanterne se balance au bout de ton bras, et sa lumière court sur la neige devant toi, jaune, régulière.",
     "*Vous marchez vers la maison*, dit la voix. *Vous savez ce que vous allez faire.*",
-    "Tu ne sais pas. Tu sais seulement que la lanterne pèse, et que tu as froid, et que la cheminée de la maison ne fume pas. Elle devrait fumer. En hiver, la nuit, toutes les cheminées fument.",
+    "Tu ne sais pas. Tu sais seulement que la lanterne pèse, et que tu as froid, et que la cheminée de la maison est froide. Elle devrait fumer. En hiver, la nuit, toutes les cheminées fument.",
     "Puis la neige s'éteint, et tu es assis dans la cellule du docteur, en sueur, la bouche pleine d'un goût de cuivre.",
     "« Bien, dit le docteur Corvin en écrivant. Nous approchons. »"
    ],
@@ -3317,7 +3317,7 @@
    "place": "hospice",
    "text": [
     "Tu redescends. Tu as la lanterne dans la main, encore : tu en sens le poids. Tu as beau ouvrir et fermer les doigts, elle est là.",
-    "Mais une chose te reste, qui n'est pas dans la voix du docteur, et que tu ne comprends pas : la cheminée ne fumait pas."
+    "Mais une chose te reste, venue d'ailleurs que de la voix du docteur, et qui t'intrigue : la cheminée était froide."
    ],
    "fx": {
     "flag": "cheminee:froide"
@@ -3362,7 +3362,7 @@
    "title": "Ce que sait Sœur Odeline",
    "place": "hospice",
    "text": [
-    "Sœur Odeline ferme la porte de l'infirmerie, et elle s'assied sur le tabouret, en face de toi, les mains sur les genoux. Elle ne tricote pas. Tu ne l'as jamais vue sans tricot.",
+    "Sœur Odeline ferme la porte de l'infirmerie, et elle s'assied sur le tabouret, en face de toi, les mains sur les genoux. Ses mains sont vides. C'est la première fois que tu la vois sans tricot.",
     "« Le premier matin, dit-elle, le chien est revenu seul et il a aboyé. Je suis sortie avec lui. À cent pas de la porte, dans la neige, il y avait une fille. Pieds nus, en chemise, les mains en sang, les cheveux brûlés d'un côté. Elle ne disait rien. Elle ne pouvait rien dire. Je l'ai portée jusqu'à la lingerie, parce que c'est la pièce la plus chaude. Le chien est reparti. Il est revenu avec vous. »",
     "« Le soir, le frère est monté. Il a demandé une fille. J'ai vu la tête de la petite quand elle a entendu sa voix dans le couloir. Je lui ai coupé les cheveux le soir même, avec mes ciseaux de couture. Mère Agnès a écrit dans son registre ce que je lui ai demandé d'écrire. » Elle te regarde. « Elle s'appelle Lise Hollier. Elle a quatorze ans. Et je ne sais pas encore si c'est de vous qu'elle a peur, ou de lui. »"
    ],
@@ -3402,7 +3402,7 @@
    "text": [
     {
      "with": "odeline",
-     "text": "Sœur Odeline hoche la tête. « Personne ne le sait. C'est pour ça que personne d'autre ne doit savoir qui elle est. Pas le prévôt, pas le docteur, pas le frère. Pas encore. » Elle se lève, et reprend son tricot dans la poche de son tablier. « Elle vous a laissé une poupée de paille, la première nuit. Elle en faisait pour son petit frère. Je ne sais pas ce que ça veut dire. Mais elle ne l'a fait pour personne d'autre. »"
+     "text": "Sœur Odeline hoche la tête. « Personne ne le sait. C'est pour ça que personne d'autre ne doit savoir qui elle est. Le prévôt, le docteur, le frère : tous l'ignorent. Pas encore. » Elle se lève, et reprend son tricot dans la poche de son tablier. « Elle vous a laissé une poupée de paille, la première nuit. Elle en faisait pour son petit frère. Je ne sais pas ce que ça veut dire. Mais elle ne l'a fait pour personne d'autre. »"
     }
    ],
    "choices": [
@@ -3544,7 +3544,7 @@
    "title": "Surpris",
    "place": "hospice",
    "text": [
-    "« Je peux vous aider ? » Le docteur est sur le seuil, sa trousse à la main. Il te regarde, puis regarde la table. Il ne dit rien d'autre. Il entre, range le flacon dans la mallette, et ferme le cahier.",
+    "« Je peux vous aider ? » Le docteur est sur le seuil, sa trousse à la main. Il te regarde, puis regarde la table. Il s'en tient là. Il entre, range le flacon dans la mallette, et ferme le cahier.",
     "« La curiosité est un bon signe, dit-il enfin, avec douceur. Elle montre que l'esprit revient. Mais ne touchez pas à mes médicaments. Certains sont dangereux pour qui ne sait pas les doser. »"
    ],
    "choices": [
@@ -3777,9 +3777,9 @@
    "title": "Le prévôt",
    "place": "hospice",
    "text": [
-    "Tu traverses le couloir, tu enjambes le sergent endormi, et tu frappes à la porte du prévôt. Il ouvre au deuxième coup, en chemise, l'épée déjà à la main : il ne dormait pas non plus. Tu lui dis : à l'étage, quelqu'un, la lingerie.",
+    "Tu traverses le couloir, tu enjambes le sergent endormi, et tu frappes à la porte du prévôt. Il ouvre au deuxième coup, en chemise, l'épée déjà à la main : il veillait, lui aussi. Tu lui dis : à l'étage, quelqu'un, la lingerie.",
     "Il ne pose pas de question. Il monte. Tu le suis. Quand vous arrivez, la porte de la lingerie est grande ouverte, la fenêtre aussi, et la neige entre. Jeanne est debout dans un coin, un fer à repasser à la main, froid, levé au-dessus de sa tête. Il n'y a personne d'autre.",
-    "Le prévôt regarde le lit défait, l'oreiller par terre, la fenêtre. Puis il regarde Jeanne. Longtemps. « Qui es-tu, toi ? » dit-il doucement. Elle ne répond pas."
+    "Le prévôt regarde le lit défait, l'oreiller par terre, la fenêtre. Puis il regarde Jeanne. Longtemps. « Qui es-tu, toi ? » dit-il doucement. Elle se tait."
    ],
    "fx": {
     "flag": [
@@ -3856,7 +3856,7 @@
        }
       ]
      },
-     "text": "Matthias a la lèvre fendue. Il dit qu'il a glissé dans l'escalier en allant aux latrines. Toi, tu as une bosse sur le front. Le prévôt vous regarde tous les deux, et il ne dit rien."
+     "text": "Matthias a la lèvre fendue. Il dit qu'il a glissé dans l'escalier en allant aux latrines. Toi, tu as une bosse sur le front. Le prévôt vous regarde tous les deux, et il se tait."
     },
     {
      "if": {
@@ -3955,7 +3955,7 @@
    "place": "hospice",
    "text": [
     "Sœur Odeline te regarde longtemps. Puis elle soupire. « Vous avez peut-être raison. Je ne sais plus. » Elle prend la main de Jeanne. « Je viendrai avec vous lui parler. Pas devant le frère. »",
-    "Le prévôt vous écoute, dans le bureau de Mère Agnès, porte fermée. Il ne dit rien pendant tout le récit. À la fin, il se lève, va à la fenêtre, et regarde la cour où Matthias charge les mules.",
+    "Le prévôt vous écoute, dans le bureau de Mère Agnès, porte fermée. Il écoute tout le récit en silence. À la fin, il se lève, va à la fenêtre, et regarde la cour où Matthias charge les mules.",
     "« Lise Hollier, dit-il. Vivante. » Il ne se retourne pas. « Personne d'autre ne le sait. Ni le frère, ni le docteur, ni le sergent. Elle descend avec la sœur, comme sa nièce, et elle loge au presbytère, chez le curé Vidal. Je le connais : il ne parle qu'à Dieu, et encore. » Il se retourne. « Et vous, vous restez à portée de ma main. Je ne sais toujours pas de quel côté de la porte vous étiez. »"
    ],
    "fx": {
@@ -3981,12 +3981,12 @@
    },
    "text": [
     "On part à dix heures, en file : le sergent devant avec les mules, Matthias, le docteur, le prévôt, toi, et Sœur Odeline et Jeanne derrière, à distance, comme deux sœurs qui vont au marché. Brac vous accompagne jusqu'à la croix des Gélines, et s'assied là, et vous regarde descendre.",
-    "Tu passes devant la croix. Tu t'arrêtes. Le rocher, la croix de fer, la neige tassée à son pied, comme si quelqu'un s'y était assis longtemps. Personne ne dit rien. Le prévôt attend que tu repartes.",
+    "Tu passes devant la croix. Tu t'arrêtes. Le rocher, la croix de fer, la neige tassée à son pied, comme si quelqu'un s'y était assis longtemps. Tous se taisent. Le prévôt attend que tu repartes.",
     {
      "if": {
       "has": "fente:connue"
      },
-     "text": "Derrière la croix, sur la gauche, une pente d'éboulis enneigés monte vers une dalle de rocher fendue en deux. Tu la regardes. Tu ne dis rien."
+     "text": "Derrière la croix, sur la gauche, une pente d'éboulis enneigés monte vers une dalle de rocher fendue en deux. Tu la regardes. Tu te tais."
     },
     "Le chemin descend dans la forêt. La neige devient lourde, puis mouillée, puis de la boue. À quatre heures, au détour d'un lacet, Vaugrenat apparaît au fond de la vallée : des toits d'ardoise, un clocher pointu, un filet de fumée par cheminée. Toutes les cheminées fument."
    ],
@@ -4026,7 +4026,7 @@
      },
      "text": "Sœur Odeline et Lise sont au presbytère, chez le curé Vidal. Le prévôt y passe deux fois par jour, sans en avoir l'air, en allant à la messe qu'il n'a jamais suivie."
     },
-    "Le soir tombe sur la place. L'auberge sent la soupe aux choux et le vin aigre. Au comptoir, une grosse femme en tablier te regarde entrer avec une expression que tu ne sais pas lire, et puis tu la sais : elle te reconnaît."
+    "Le soir tombe sur la place. L'auberge sent la soupe aux choux et le vin aigre. Au comptoir, une grosse femme en tablier te regarde entrer avec une expression que tu mets un moment à lire : elle te reconnaît."
    ],
    "choices": [
     {
@@ -4128,7 +4128,7 @@
      "if": {
       "has": "matthias:chamois"
      },
-     "text": "Matthias Hollier boit seul à une table près de la porte. Il ne te regarde pas. Il n'a pas besoin de te regarder : tout le monde, ici, le fait pour lui."
+     "text": "Matthias Hollier boit seul à une table près de la porte. Il garde les yeux ailleurs : tout le monde, ici, te regarde pour lui."
     }
    ],
    "choices": [
@@ -4221,7 +4221,7 @@
    "place": "village",
    "text": [
     "Mère Roussel continue d'essuyer le même verre. « J'ai rien entendu, dit-elle. J'entends jamais rien. C'est mon métier, de rien entendre. » Elle pose le verre. « Et puis l'auberge est à Maître Pélissier. Les murs, le comptoir, le tonneau, tout. Je lui paie un loyer. Il me le rappelle tous les mois. »",
-    "Elle reprend un autre verre. Elle ne te regarde pas. Mais elle ne s'en va pas non plus."
+    "Elle reprend un autre verre. Elle évite ton regard. Mais elle reste."
    ],
    "choices": [
     {
@@ -4394,7 +4394,7 @@
    "title": "Rien entendu",
    "place": "village",
    "text": [
-    "Mère Roussel reprend son torchon. « J'ai rien entendu », dit-elle. Elle le dit à son verre, pas à toi."
+    "Mère Roussel reprend son torchon. « J'ai rien entendu », dit-elle. Elle le dit à son verre."
    ],
    "choices": [
     {
@@ -4511,7 +4511,7 @@
    "place": "village",
    "text": [
     "Tu ouvres ton carnet à la page du reçu, et tu le poses sur son bureau. *Vingt écus, pour relevé discret de la parcelle 114.* Et sous la ligne, une signature : un P majuscule, une boucle, un trait.",
-    "Pélissier regarde la page. Il ne la touche pas. Son visage ne change pas, mais il devient gris, lentement, comme une pâte qui cuit.",
+    "Pélissier regarde la page. Il la laisse sur la table. Ses traits restent en place, mais son visage devient gris, lentement, comme une pâte qui cuit.",
     "« Un relevé, dit-il enfin, d'une voix très calme. Une étude préalable. La Compagnie fait faire des études préalables. Il n'y a rien d'illégal à cela. » Il lève les yeux. « Vous savez ce qui est illégal ? C'est de vendre au plus offrant ce qu'on a relevé pour le compte du duc. Un arpenteur du cadastre qui fait des relevés privés, payé en écus, cela s'appelle de la concussion. Cela se juge aussi, aux assises. » Il sourit avec ses petites dents. « Nous avons chacun une page dans ce carnet, voyez-vous. »"
    ],
    "fx": {
@@ -4733,14 +4733,14 @@
    "title": "Quelques gouttes",
    "place": "village",
    "text": [
-    "Le docteur verse dix gouttes dans un verre d'eau, sans un mot. Tu bois. La douleur de ta main recule, recule, devient une rumeur lointaine, puis un souvenir de douleur. Le monde a des bords plus doux.",
+    "Le docteur verse dix gouttes dans un verre d'eau, en silence. Tu bois. La douleur de ta main recule, recule, devient une rumeur lointaine, puis un souvenir de douleur. Le monde a des bords plus doux.",
     "« Revenez quand vous voulez, dit-il. Ma porte est toujours ouverte. »",
     {
      "if": {
       "clock": "brume",
       "min": 4
      },
-     "text": "Tu te surprends, en sortant, à compter les heures jusqu'à la prochaine fois. Tu n'aimes pas ça. Tu n'aimes pas non plus le fait que ça ne t'inquiète pas plus que ça."
+     "text": "Tu te surprends, en sortant, à compter les heures jusqu'à la prochaine fois. Tu n'aimes pas ça. Et ton propre calme t'inquiète."
     }
    ],
    "choices": [
@@ -4784,7 +4784,7 @@
    "title": "Le docteur",
    "place": "village",
    "text": [
-    "Tu sors du cabinet en titubant. Le jour est trop blanc. Bastien te prend le bras sans rien dire.",
+    "Tu sors du cabinet en titubant. Le jour est trop blanc. Bastien te prend le bras.",
     {
      "if": {
       "all": [
@@ -4796,7 +4796,7 @@
        }
       ]
      },
-     "text": "Tu as la main sur la poitrine, et tu sens l'anneau, sous le pansement. Le côté de l'intérieur, disait Sœur Odeline. Tu ne sais plus ce qu'elle voulait dire. Tu ne sais plus ce que tu sais."
+     "text": "Tu as la main sur la poitrine, et tu sens l'anneau, sous le pansement. Le côté de l'intérieur, disait Sœur Odeline. Le sens t'en échappe. Tout ce que tu savais se brouille."
     },
     {
      "if": {
@@ -4836,7 +4836,7 @@
    "place": "village",
    "text": [
     "Tu poses la question doucement. Pourquoi un médecin signe-t-il comme témoin une promesse de vente, chez un notaire, un soir d'hiver, pour un homme dont toute la famille est vivante ?",
-    "Corvin ne répond pas tout de suite. Il range un bocal, puis un autre. « Je témoigne pour beaucoup de gens, dit-il. Pour les mineurs, qui ne savent pas lire. Pour les veuves. C'est un service. » Il se retourne. « Et puis, dans un pays comme le nôtre, quand un homme dit qu'il sera bientôt héritier, on ne lui demande pas comment il le sait. On a appris à ne pas le demander. »",
+    "Corvin prend son temps. Il range un bocal, puis un autre. « Je témoigne pour beaucoup de gens, dit-il. Pour les mineurs, qui ne savent pas lire. Pour les veuves. C'est un service. » Il se retourne. « Et puis, dans un pays comme le nôtre, quand un homme dit qu'il sera bientôt héritier, on ne lui demande pas comment il le sait. On a appris à ne pas le demander. »",
     "Il ouvre la porte. « Bonne journée. »"
    ],
    "fx": {
@@ -4968,7 +4968,7 @@
    "title": "Le docteur revient",
    "place": "village",
    "text": [
-    "La porte du fond s'ouvre plus tôt que prévu. Le docteur te voit penché sur son bureau. Il ne dit rien. Il reprend le cahier, le range dans un tiroir, et ferme le tiroir à clé. « Le patient suivant attend », dit-il simplement."
+    "La porte du fond s'ouvre plus tôt que prévu. Le docteur te voit penché sur son bureau. Il se tait. Il reprend le cahier, le range dans un tiroir, et ferme le tiroir à clé. « Le patient suivant attend », dit-il simplement."
    ],
    "choices": [
     {
@@ -5058,7 +5058,7 @@
    "title": "L'homme qu'on a pendu",
    "place": "village",
    "text": [
-    "Hennequin ne répond pas tout de suite. Il fait signe à Bastien de sortir, attend que la porte soit refermée, et regarde longtemps le poêle éteint. Puis il dit, sans te regarder :",
+    "Hennequin prend son temps. Il fait signe à Bastien de sortir, attend que la porte soit refermée, et regarde longtemps le poêle éteint. Puis il dit, sans te regarder :",
     "« Il s'appelait Josse Aymar. Un charbonnier. On l'avait trouvé près d'une bergère morte, avec du sang sur les mains. Il disait qu'il l'avait trouvée comme ça. Le docteur Corvin l'a fait dormir trois nuits de suite, dans ma cellule, avec ses gouttes. La quatrième nuit, Aymar a raconté comment il l'avait tuée. Avec des détails. Des détails que je lui avais donnés moi-même, sans le vouloir, en l'interrogeant. » Il marche. « Le bailli l'a pendu au printemps. L'hiver suivant, un berger de Sarre s'est vanté de la bergère, ivre, dans une auberge. »",
     "Il s'arrête. « Je ne vous dis pas ça pour que vous ayez pitié de moi. Je vous le dis pour que vous sachiez pourquoi je ne vous ai pas encore mis aux fers. »"
    ],
@@ -5115,7 +5115,7 @@
      "if": {
       "item": "promesse"
      },
-     "text": "La promesse de vente. Il la lit deux fois. Il regarde la date. Il devient très pâle sous sa moustache, et ne dit rien pendant si longtemps que Bastien tousse. « Où avez-vous eu ça ? » Puis : « Non. Ne me le dites pas. Je ne veux pas le savoir. »"
+     "text": "La promesse de vente. Il la lit deux fois. Il regarde la date. Il devient très pâle sous sa moustache, et se tait si longtemps que Bastien tousse. « Où avez-vous eu ça ? » Puis : « Non. Ne me le dites pas. Je ne veux pas le savoir. »"
     },
     {
      "if": {
@@ -5217,7 +5217,7 @@
    "text": [
     "Sœur Odeline monte chez les Roux le soir même. Elle reste trois heures. Quand elle redescend, elle a le visage fermé.",
     "« Les mêmes gouttes, dit-elle. Doublées chaque semaine depuis l'automne. Elle a mal au ventre parce qu'elle est enceinte, et personne ne le lui a dit, et lui le savait. » Elle serre les lèvres. « Je vais la sevrer. Ce sera dur. Elle va le haïr, elle va me haïr, elle va pleurer comme un enfant. Dans dix jours, elle sera elle-même. Si l'enfant tient. »",
-    "Bastien t'attend sur la place. Il ne dit rien. Il te serre la main, la gauche, celle qui n'est pas brûlée, très fort, longtemps."
+    "Bastien t'attend sur la place. Il te serre la main, la gauche, la main valide, très fort, longtemps."
    ],
    "fx": {
     "quest": "V_bastien",
@@ -5257,7 +5257,7 @@
    "title": "Le rapport",
    "place": "village",
    "text": [
-    "Le prévôt écoute, pose sa plume, appelle Bastien dans son bureau, et ferme la porte. Tu n'entends rien. Quand Bastien ressort, il a les yeux rouges et il ne te regarde plus. Le lendemain, c'est un autre sergent, un vieux, sourd, qui te suit sur la place."
+    "Le prévôt écoute, pose sa plume, appelle Bastien dans son bureau, et ferme la porte. Tu n'entends rien. Quand Bastien ressort, il a les yeux rouges et il les détourne de toi. Le lendemain, c'est un autre sergent, un vieux, sourd, qui te suit sur la place."
    ],
    "choices": [
     {
@@ -5552,7 +5552,7 @@
       "conf": "lise",
       "min": 45
      },
-     "why": "Elle n'est pas prête. Elle ne te fait pas encore assez confiance pour revenir sur cette nuit-là.",
+     "why": "Elle a encore besoin de temps. Sa confiance en toi est trop neuve pour revenir sur cette nuit-là.",
      "to": "V_lise_toit"
     },
     {
@@ -5605,7 +5605,7 @@
    "title": "L'ardoise",
    "place": "village",
    "text": [
-    "Tu t'assieds en face d'elle. Tu ne dis rien. Elle non plus. Le curé fait du bruit avec des casseroles, dans l'arrière-cuisine, exprès, pour vous laisser seuls sans en avoir l'air.",
+    "Tu t'assieds en face d'elle. Tu te tais. Elle non plus. Le curé fait du bruit avec des casseroles, dans l'arrière-cuisine, exprès, pour vous laisser seuls sans en avoir l'air.",
     "Au bout d'un long moment, Lise efface son ardoise avec sa manche. Elle écrit, lentement, en lettres maladroites et appliquées :",
     {
      "if": {
@@ -5715,7 +5715,7 @@
    "text": [
     "Tu ouvres ton carnet devant elle, à la page des Combes. Elle se penche. Elle voit, dans la marge, la rose des vents au crayon, le petit bonhomme avec sa chaîne, et son propre nom, *Lise*, de sa propre main.",
     "Elle pose le doigt dessus. Elle reste comme ça très longtemps. Puis elle prend le crayon que tu lui tends, et sous la rose des vents, à côté du N, du S, de l'E, de l'O, elle ajoute une cinquième lettre, au milieu, là où se croisent les branches : *M*. Et elle entoure le M, deux fois, si fort que la mine casse.",
-    "Tu ne sais pas ce que ça veut dire. Elle, si."
+    "Le sens t'en échappe. Elle, si."
    ],
    "fx": {
     "conf": {
@@ -5926,8 +5926,8 @@
    "title": "Ce qu'il n'a pas su dire",
    "place": "village",
    "text": [
-    "Marthe ne sait pas lire. Elle te tend la lettre, et tu lui lis, à voix basse, à l'écart, sous l'auvent. Ce n'est pas long. Un vieil homme qui demande pardon d'être parti, d'avoir bu, d'avoir frappé une fois, une seule, la mère de Marthe, et de ne jamais être revenu parce qu'il avait honte. Qui dit qu'il l'a vue, une fois, au marché, il y a dix ans, et qu'il n'a pas osé. Qui dit : *tu avais ses mains*.",
-    "Marthe écoute jusqu'au bout. Puis elle reprend la lettre, la plie, et la garde serrée contre elle. Elle pleure sans bruit, sans essuyer ses larmes, comme on pleure quand on a l'habitude de travailler en même temps.",
+    "Marthe ne sait pas lire. Elle te tend la lettre, et tu lui lis, à voix basse, à l'écart, sous l'auvent. C'est court. Un vieil homme qui demande pardon d'être parti, d'avoir bu, d'avoir frappé une fois, une seule, la mère de Marthe, et d'être resté au loin, par honte. Qui dit qu'il l'a vue, une fois, au marché, il y a dix ans, et qu'il a passé son chemin. Qui dit : *tu avais ses mains*.",
+    "Marthe écoute jusqu'au bout. Puis elle reprend la lettre, la plie, et la garde serrée contre elle. Elle pleure en silence, les joues mouillées, comme on pleure quand on a l'habitude de travailler en même temps.",
     "« Merci, dit-elle. Demandez-moi ce que vous voulez. Je compte tout ce qui passe ici. »"
    ],
    "choices": [
@@ -6105,8 +6105,8 @@
    "title": "Un souvenir",
    "place": "combes",
    "text": [
-    "La souillarde est si petite que tu dois baisser la tête. L'évier, la fenêtre éclatée. Et c'est là que ça revient, pas comme un rêve : comme une gifle.",
-    "La fumée. Tu ne vois rien, tu tousses, tu as la tête qui saigne et qui sonne. Quelqu'un tousse à côté de toi, plus petit, plus aigu. Tu te traînes jusqu'à la porte, tu trouves l'anneau dans le noir, tu tires, et l'anneau est brûlant, il te mord la main jusqu'à l'os, et tu tires quand même, et la porte ne bouge pas. Elle ne bouge pas. Elle ne bouge pas.",
+    "La souillarde est si petite que tu dois baisser la tête. L'évier, la fenêtre éclatée. Et c'est là que ça revient, comme une gifle.",
+    "La fumée. Tu ne vois rien, tu tousses, tu as la tête qui saigne et qui sonne. Quelqu'un tousse à côté de toi, plus petit, plus aigu. Tu te traînes jusqu'à la porte, tu trouves l'anneau dans le noir, tu tires, et l'anneau est brûlant, il te mord la main jusqu'à l'os, et tu tires quand même, et la porte ne bouge pas. Elle reste immobile. Elle reste immobile.",
     "Alors tu lâches, et tu cherches autre chose. Un tabouret. La fenêtre de la souillarde. Tu frappes jusqu'à ce que le bois éclate. Tu prends l'enfant qui tousse, tu la soulèves, elle est légère, tu la pousses dehors par la fenêtre, dans la neige. Tu passes derrière elle. Tes épaules restent coincées. Tu forces. Tu tombes.",
     "Dehors, la neige, le froid, et une lanterne qui se balance au coin de la maison, et une voix d'homme qui crie un prénom que tu ne comprends pas."
    ],
@@ -6161,7 +6161,7 @@
      "if": {
       "has": "cheminee:froide"
      },
-     "text": "*La cheminée ne fumait pas.* Tu regardes le conduit, et la phrase te revient, et tu ne sais pas d'où elle vient."
+     "text": "*La cheminée ne fumait pas.* Tu regardes le conduit, et la phrase te revient, venue de très loin."
     }
    ],
    "choices": [
@@ -6536,7 +6536,7 @@
     "quest": "V_pas"
    },
    "text": [
-    "Le bailli Dorval arrive en fin d'après-midi, dans une voiture fermée tirée par deux chevaux qui fument. Il descend à l'étude de Maître Pélissier, où il dîne et où il dort. Tout le village le regarde entrer. Personne ne dit rien. Tout le monde a compris.",
+    "Le bailli Dorval arrive en fin d'après-midi, dans une voiture fermée tirée par deux chevaux qui fument. Il descend à l'étude de Maître Pélissier, où il dîne et où il dort. Tout le village le regarde entrer. Tous se taisent. Tout le monde a compris.",
     {
      "if": {
       "conf": "hennequin",
@@ -6573,7 +6573,7 @@
      "if": {
       "has": "lise:vue"
      },
-     "text": "Elle te regarde. Elle ne dit pas : *l'enterrement*. Elle n'a pas besoin."
+     "text": "Elle te regarde. Elle évite le mot *enterrement*, et tout le monde l'entend."
     },
     "La sœur serre son châle. « Il y a deux heures de montée jusqu'aux Combes. Le bailli siège à neuf heures. Il ne repoussera pas l'audience pour une novice qui a fugué. »"
    ],
@@ -6609,7 +6609,7 @@
    "title": "Le prévôt, la nuit",
    "place": "village",
    "text": [
-    "Hennequin ouvre en chemise, l'épée à la main, comme à l'hospice. Il écoute, deux phrases, pas plus. Puis il s'habille, sans un mot, en trente secondes, comme un soldat.",
+    "Hennequin ouvre en chemise, l'épée à la main, comme à l'hospice. Il écoute deux phrases. Puis il s'habille en trente secondes, comme un soldat.",
     {
      "if": {
       "conf": "hennequin",
@@ -6764,7 +6764,7 @@
      "if": {
       "present": "hennequin"
      },
-     "text": "Hennequin marche derrière toi, le souffle court, l'épée nue. Il ne dit rien pendant deux heures. Une fois, il pose la main sur ton épaule pour te faire ralentir, quand tu cours."
+     "text": "Hennequin marche derrière toi, le souffle court, l'épée nue. Il se tait pendant deux heures. Une fois, il pose la main sur ton épaule pour te faire ralentir, quand tu cours."
     },
     {
      "if": {
@@ -6786,7 +6786,7 @@
    "title": "Le trou des anciens",
    "place": "combes",
    "text": [
-    "Dans la galerie, à vingt pas, là où la veine brille, Matthias Hollier. Il a posé sa lampe sur une saillie de roche. Lise est assise par terre, contre la paroi, les poignets liés devant elle avec une corde. Elle n'a pas de bâillon : il n'en a pas besoin. Elle te regarde arriver. Elle ne bouge pas.",
+    "Dans la galerie, à vingt pas, là où la veine brille, Matthias Hollier. Il a posé sa lampe sur une saillie de roche. Lise est assise par terre, contre la paroi, les poignets liés devant elle avec une corde. Il lui a laissé la bouche libre : un bâillon serait inutile. Elle te regarde arriver. Elle reste immobile.",
     {
      "if": {
       "not": {
@@ -7077,7 +7077,7 @@
       "conf": "lise",
       "max": 59
      },
-     "text": "Elle te regarde. Elle ne s'approche pas. Elle hoche la tête, une fois, pour dire qu'elle va bien, ou qu'elle va aller bien, ou qu'elle a compris quelque chose sur toi qu'elle ne te dira pas."
+     "text": "Elle te regarde. Elle reste à distance. Elle hoche la tête, une fois, pour dire qu'elle va bien, ou qu'elle va aller bien, ou qu'elle a compris quelque chose sur toi qu'elle gardera pour elle."
     }
    ],
    "fx": {
@@ -7119,7 +7119,7 @@
      "if": {
       "has": "matthias:pris"
      },
-     "text": "Matthias marche devant, les mains liées, sans relever la tête. Il ne dit pas un mot de toute la descente."
+     "text": "Matthias marche devant, les mains liées, sans relever la tête. Il se tait pendant toute la descente."
     },
     {
      "if": {
@@ -7127,7 +7127,7 @@
      },
      "text": "On ne sait pas où est Matthias. Quelque part au-dessus de vous, dans la montagne, avec sa lampe et ses bottes à gros clous."
     },
-    "À neuf heures moins le quart, vous entrez dans Vaugrenat. Toute la place est devant la salle commune. Les gens s'écartent sans un mot pour vous laisser passer."
+    "À neuf heures moins le quart, vous entrez dans Vaugrenat. Toute la place est devant la salle commune. Les gens s'écartent en silence pour vous laisser passer."
    ],
    "choices": [
     {
@@ -7222,7 +7222,7 @@
      "if": {
       "has": "coffre:ouvert"
      },
-     "text": "Pélissier feuillette ses papiers, s'arrête, recommence. Il cherche quelque chose qui n'y est plus. Il ne demande à personne s'il l'a vu."
+     "text": "Pélissier feuillette ses papiers, s'arrête, recommence. Il cherche quelque chose qui a disparu, et il garde sa question pour lui."
     },
     {
      "if": {
@@ -7254,7 +7254,7 @@
        }
       ]
      },
-     "text": "Le prévôt Hennequin est debout au fond, contre le mur, les bras croisés. Il sait ce que tu lui as montré, ces jours-ci. Il ne dira rien qu'on ne lui demande pas. Mais il est là."
+     "text": "Le prévôt Hennequin est debout au fond, contre le mur, les bras croisés. Il sait ce que tu lui as montré, ces jours-ci. Il répondra aux questions, et s'en tiendra là. Mais il est là."
     },
     {
      "if": {
@@ -7267,7 +7267,7 @@
        }
       ]
      },
-     "text": "Il a les bottes encore boueuses de la montagne. Il n'a pas eu le temps de les faire cirer, ou il ne l'a pas voulu."
+     "text": "Il a les bottes encore boueuses de la montagne. Faute de temps ou par choix, il les a gardées telles quelles."
     },
     "« Affaire des Combes, dit le bailli sans lever les yeux. Quatre morts, un incendie, un témoin qui ne se souvient de rien. » Il tourne une page. « Docteur Corvin, vous avez, me dit-on, recueilli les souvenirs de ce témoin. Je vous écoute. »"
    ],
@@ -7422,7 +7422,7 @@
      "if": {
       "has": "lise:sauvee"
      },
-     "text": "Au fond de la salle, quelqu'un se lève, très vite, une petite silhouette en robe grise, qui ouvre la bouche, et que Sœur Odeline retient par le bras, et qui ne crie pas, parce qu'elle n'a pas de voix pour crier, ou parce qu'elle ne la trouve pas à temps."
+     "text": "Au fond de la salle, quelqu'un se lève, très vite, une petite silhouette en robe grise, qui ouvre la bouche, et que Sœur Odeline retient par le bras, et dont le cri reste dans la gorge."
     },
     "Le bailli écrit. Le docteur ferme les yeux, comme on fait une prière. Pélissier sourit avec ses petites dents."
    ],
@@ -7445,7 +7445,7 @@
        "seen": "J_defense"
       }
      },
-     "text": "Tu te lèves. Tu ne sais pas par où commencer. Puis tu sais : par ce qu'on peut toucher."
+     "text": "Tu te lèves. Par où commencer ? Puis tu sais : par ce qu'on peut toucher."
     },
     {
      "if": {
@@ -7731,7 +7731,7 @@
    "title": "La lavandière",
    "place": "village",
    "text": [
-    "Marthe Gaudry s'avance, les bras croisés sur son tablier. Elle ne baisse pas les yeux. Elle dit : la veille du feu, à la nuit tombée, Matthias Hollier a pris un sac propre sur la pile du lavoir, sans payer, en disant que c'était pour le bois. Elle dit : personne ne porte le bois dans un sac de minerai. Le bailli la remercie. Elle ne répond pas. Elle retourne s'asseoir comme on retourne au lavoir."
+    "Marthe Gaudry s'avance, les bras croisés sur son tablier. Elle ne baisse pas les yeux. Elle dit : la veille du feu, à la nuit tombée, Matthias Hollier a pris un sac propre sur la pile du lavoir, sans payer, en disant que c'était pour le bois. Elle dit : personne ne porte le bois dans un sac de minerai. Le bailli la remercie. Elle se tait. Elle retourne s'asseoir comme on retourne au lavoir."
    ],
    "choices": [
     {
@@ -7809,7 +7809,7 @@
     "Tu poses la promesse de vente sur le drap vert, et tu lis la date à voix haute. Le soir où toute la famille Hollier était vivante. Tu lis les noms des témoins : *Pélissier, notaire. É. Corvin, docteur en médecine.*",
     "Il se fait dans la salle un silence d'une qualité nouvelle. Maître Pélissier, à la droite du bailli, a posé sa plume. Le bailli prend l'acte, le lit, le retourne, regarde le timbre, la signature. Puis il se tourne lentement vers son greffier d'un jour.",
     "« Maître Pélissier. Vous avez reçu, le soir du deuxième jour, une promesse de vente sous condition de succession, de la part d'un homme dont le frère était en parfaite santé. Vous ne vous êtes pas demandé comment il savait qu'il hériterait ? »",
-    "Pélissier ouvre la bouche. Il ne dit rien. Il n'a rien à dire, et il le sait, et tout le monde le voit le savoir."
+    "Pélissier ouvre la bouche. Il se tait. Il est à court de mots, il le sait, et toute la salle le voit."
    ],
    "fx": {
     "flag": [
@@ -7860,7 +7860,7 @@
    "place": "village",
    "text": [
     "La porte s'ouvre. Sœur Odeline entre, et à côté d'elle une fille de quatorze ans, en robe grise, les cheveux courts. La salle met un moment à comprendre. Puis quelqu'un dit le nom, tout bas, et le nom fait le tour des bancs comme une flamme sur une mèche.",
-    "Lise s'avance jusqu'à la table du bailli. Elle ne regarde ni le docteur, ni le notaire, ni son oncle s'il est là. Elle regarde le bailli. Elle parle d'une voix enrouée, lente, qui casse sur certains mots et qu'elle reprend.",
+    "Lise s'avance jusqu'à la table du bailli. Elle garde les yeux sur le prévôt, loin du docteur, du notaire et de son oncle s'il est là. Elle regarde le bailli. Elle parle d'une voix enrouée, lente, qui casse sur certains mots et qu'elle reprend.",
     "Elle dit la nuit du veau, dans l'étable, avec l'arpenteur qui tenait la lanterne. Elle dit le matin, la maison, sa mère dans son lit, rose. Elle dit l'oncle qui arrive, le coup sur la tête de l'arpenteur, la porte qui se ferme, le bruit de la barre. Elle dit la fumée, la souillarde, la fenêtre, la neige. Elle dit l'oncle sur le toit, la nuit d'avant, qu'elle a vu de l'étable, avec sa lanterne, et qu'elle a cru qu'il réparait la cheminée de papa.",
     "Elle se tait. Puis, plus bas : « J'ai cru qu'il réparait. »"
    ],
@@ -7929,7 +7929,7 @@
        }
       ]
      },
-     "text": "« J'ai jugé cent affaires dans cette salle, dit-il enfin. J'ai rarement vu un dossier aussi épais arriver aussi tard. » Il remet ses lunettes. Il ne regarde plus le docteur. Il ne regarde plus le notaire. Il te regarde, toi."
+     "text": "« J'ai jugé cent affaires dans cette salle, dit-il enfin. J'ai rarement vu un dossier aussi épais arriver aussi tard. » Il remet ses lunettes. Il s'est détourné du docteur et du notaire. Il te regarde, toi."
     },
     {
      "if": {
@@ -8252,9 +8252,9 @@
      "if": {
       "has": "pelissier:tombe"
      },
-     "text": "Maître Pélissier est déchu de sa charge. La Compagnie des Plombs le désavoue par lettre, en trois lignes. Il quitte Vaugrenat à l'été, avec sa femme, dans sa propre voiture, sous les yeux des mineurs, qui ne disent rien et qui n'en pensent pas moins."
+     "text": "Maître Pélissier est déchu de sa charge. La Compagnie des Plombs le désavoue par lettre, en trois lignes. Il quitte Vaugrenat à l'été, avec sa femme, dans sa propre voiture, sous les yeux des mineurs, dont le silence en dit long."
     },
-    "Toi, tu es libre. Le bailli te rend ta bourse, les vingt écus neufs, en te regardant par-dessus ses lunettes. Il ne dit rien. Il sait, peut-être. Ou il ne veut pas savoir.",
+    "Toi, tu es libre. Le bailli te rend ta bourse, les vingt écus neufs, en te regardant par-dessus ses lunettes. Il se tait. Il sait, peut-être. Ou il ne veut pas savoir.",
     "Tu repars de Vaugrenat trois jours plus tard, par la diligence de Lorvanne. On te salue sur la place. On t'appelle *le témoin*. C'est ce que tu as été. Tu sais aussi ce que tu as été d'autre, le premier soir, au Chamois. Tu es le seul à le savoir, avec un notaire déchu et un frère aux galères. Ça fait beaucoup de silence à porter pour un seul homme.",
     "—",
     {
@@ -8314,7 +8314,7 @@
      "if": {
       "has": "lise:mensonge"
      },
-     "text": "Lise ne t'a jamais tout à fait pardonné le mensonge du presbytère, quand tu as dit que tu te souvenais de tout. Elle ne te l'a jamais reproché non plus. Elle s'en souvient, c'est tout. Elle se souvient de tout."
+     "text": "Lise ne t'a jamais tout à fait pardonné le mensonge du presbytère, quand tu as dit que tu te souvenais de tout. Elle a toujours gardé ce reproche pour elle. Elle s'en souvient, c'est tout. Elle se souvient de tout."
     },
     {
      "if": {
@@ -8397,7 +8397,7 @@
      "if": {
       "has": "lettre:lue"
      },
-     "text": "Marthe Gaudry t'a fait porter, un jour, une chemise lavée et repassée, pliée dans du papier. Il n'y avait pas de mot. Il n'en fallait pas."
+     "text": "Marthe Gaudry t'a fait porter, un jour, une chemise lavée et repassée, pliée dans du papier. Le paquet parlait tout seul."
     },
     {
      "if": {
@@ -8560,7 +8560,7 @@
        }
       ]
      },
-     "text": "Tu as gardé, dans une boîte, le flacon du docteur et le souvenir de sa page. Tu ne sais pas pourquoi. Peut-être pour te rappeler à quel point il a été facile de te faire croire n'importe quoi."
+     "text": "Tu as gardé, dans une boîte, le flacon du docteur et le souvenir de sa page. La raison t'échappe. Peut-être pour te rappeler à quel point il a été facile de te faire croire n'importe quoi."
     },
     {
      "if": {
@@ -8628,7 +8628,7 @@
        }
       ]
      },
-     "text": "Il y a des souvenirs que tu as refusés, ces jours-là, et que tu as dû reprendre plus tard, quand les preuves sont arrivées. Tu as appris à ne croire ni ta tête, ni celle des autres, sans quelque chose qu'on peut toucher."
+     "text": "Il y a des souvenirs que tu as refusés, ces jours-là, et que tu as dû reprendre plus tard, quand les preuves sont arrivées. Tu as appris à exiger une preuve qu'on peut toucher, de ta tête comme de celle des autres."
     },
     {
      "if": {
@@ -8644,7 +8644,7 @@
        }
       ]
      },
-     "text": "Tu as refusé, au moins une fois, la voix douce du docteur. Tu ne sais pas d'où t'est venue la force. Sœur Odeline dit que c'est de la main : une brûlure, ça ne ment pas."
+     "text": "Tu as refusé, au moins une fois, la voix douce du docteur. D'où t'est venue la force ? Sœur Odeline dit que c'est de la main : une brûlure, ça ne ment pas."
     },
     {
      "if": {
@@ -8657,7 +8657,7 @@
      "if": {
       "has": "perte:fille"
      },
-     "text": "Tu penses à ta fille, souvent. Elle aurait l'âge de Lise, presque. Tu ne les confonds pas. Tu fais attention de ne pas les confondre."
+     "text": "Tu penses à ta fille, souvent. Elle aurait l'âge de Lise, presque. Tu veilles à les tenir séparés."
     },
     {
      "if": {
@@ -8687,19 +8687,19 @@
      "if": {
       "has": "vice:silence"
      },
-     "text": "Tu as parlé, cette fois. Pas toujours au bon moment, pas toujours assez. Mais tu as parlé. C'était la première fois."
+     "text": "Tu as parlé, cette fois. Parfois trop tard, parfois trop peu. Mais tu as parlé. C'était la première fois."
     },
     {
      "if": {
       "has": "passe:cartes"
      },
-     "text": "Tu as rendu ton brevet d'arpenteur. On ne te l'a pas demandé. Tu fais des cartes, maintenant, pour toi, des cartes que personne ne paie et que personne ne vend."
+     "text": "Tu as rendu ton brevet d'arpenteur. On ne te l'a pas demandé. Tu fais des cartes, maintenant, pour toi, des cartes dessinées pour le seul plaisir d'être justes."
     },
     {
      "if": {
       "has": "passe:fuite"
      },
-     "text": "Pour une fois, tu n'es pas parti. Tu es resté jusqu'au bout. Tu ne sais pas encore si tu en es fier, ou seulement fatigué."
+     "text": "Pour une fois, tu n'es pas parti. Tu es resté jusqu'au bout. Fier ou seulement fatigué, tu hésites encore."
     },
     {
      "if": {
@@ -8711,7 +8711,7 @@
      "if": {
       "has": "odeline:confie"
      },
-     "text": "Sœur Odeline t'a confié Lise, ce matin-là à l'hospice, avant de savoir qui tu étais. Elle dit qu'elle ne le regrette pas. Elle dit aussi qu'elle ne le referait pas, et que c'est la même chose."
+     "text": "Sœur Odeline t'a confié Lise, ce matin-là à l'hospice, avant de savoir qui tu étais. Elle dit qu'elle assume son geste, et qu'une fois lui suffit pour la vie."
     },
     {
      "if": {
@@ -8773,7 +8773,7 @@
      "if": {
       "has": "etable:vue"
      },
-     "text": "L'étable des Combes est restée debout. C'est le seul bâtiment qu'on n'a pas touché. Les gens du pays disent qu'elle porte bonheur, ou malheur ; ils n'arrivent pas à se décider."
+     "text": "L'étable des Combes est restée debout. C'est le seul bâtiment qu'on n'a pas touché. Les gens du pays disent qu'elle porte bonheur, ou malheur ; ils hésitent encore."
     },
     {
      "if": {
@@ -8798,7 +8798,7 @@
      "if": {
       "has": "lise:disparue"
      },
-     "text": "Tu repenses parfois à ce que tu as dit au prévôt, le premier jour, d'une enfant que tu ne savais pas nommer. Tu ne savais rien. Tu savais déjà qu'il en manquait une."
+     "text": "Tu repenses parfois à ce que tu as dit au prévôt, le premier jour, d'une enfant dont le nom t'échappait, comme tout le reste. Tu savais déjà qu'il en manquait une."
     },
     {
      "if": {
@@ -8817,7 +8817,7 @@
      "if": {
       "has": "roussel:sait"
      },
-     "text": "Mère Roussel t'a dit un jour, en essuyant un verre : « Je savais tout, vous savez. Dès le premier soir. » Tu ne lui as pas demandé pourquoi elle n'avait rien dit. Tu le sais aussi."
+     "text": "Mère Roussel t'a dit un jour, en essuyant un verre : « Je savais tout, vous savez. Dès le premier soir. » Tu lui as laissé les raisons de son silence. Tu le sais aussi."
     },
     {
      "if": {
@@ -8863,14 +8863,14 @@
       "conf": "odeline",
       "max": 49
      },
-     "text": "Sœur Odeline est remontée à l'hospice au printemps. Elle ne t'a pas écrit. Tu as compris qu'elle n'avait pas fini de se demander de quel côté de la porte tu étais."
+     "text": "Sœur Odeline est remontée à l'hospice au printemps. Aucune lettre d'elle. Tu as compris qu'elle se demandait encore de quel côté de la porte tu étais."
     },
     {
      "if": {
       "conf": "hennequin",
       "min": 50
      },
-     "text": "Le prévôt Hennequin a fait rouvrir le dossier de Josse Aymar, le charbonnier pendu sur des aveux, il y a douze ans. Il a obtenu, au bout de deux ans, une réhabilitation posthume. Il t'a envoyé une copie de l'acte, sans un mot."
+     "text": "Le prévôt Hennequin a fait rouvrir le dossier de Josse Aymar, le charbonnier pendu sur des aveux, il y a douze ans. Il a obtenu, au bout de deux ans, une réhabilitation posthume. Il t'a envoyé une copie de l'acte, sans lettre."
     },
     {
      "if": {
@@ -8929,7 +8929,7 @@
      "if": {
       "has": "matthias:pris"
      },
-     "text": "Matthias Hollier est condamné à mort ; la peine est commuée en galères au printemps. En partant, enchaîné, il passe devant toi sur la place. Il te regarde. Il ne dit rien. Vous savez tous les deux qui a parlé le premier."
+     "text": "Matthias Hollier est condamné à mort ; la peine est commuée en galères au printemps. En partant, enchaîné, il passe devant toi sur la place. Il te regarde. Il se tait. Vous savez tous les deux qui a parlé le premier."
     },
     {
      "if": {
@@ -8940,7 +8940,7 @@
      "text": "Matthias Hollier est condamné à mort ; on ne le prendra pas, ou on le prendra plus tard, cela n'a plus d'importance pour toi."
     },
     "Toi, tu es acquitté du meurtre. Le bailli te condamne pour concussion : la perte de ta charge, une amende de vingt écus, ceux de ta bourse, versés à l'héritière des Combes, et l'interdiction de relever une terre dans le duché pendant dix ans.",
-    "Tu sors de la salle sans rien. Pas de métier, pas d'argent, une main qui ne fermera plus jamais tout à fait. Sur la place, on ne t'appelle pas *le témoin*. On ne t'appelle rien. Mais tu marches droit, et pour la première fois depuis l'hospice, ta tête est d'un seul morceau.",
+    "Tu sors de la salle sans rien. Il te reste une main à demi fermée pour toujours, et ni métier ni argent. Sur la place, le mot *témoin* a disparu, et ton nom avec lui. Mais tu marches droit, et pour la première fois depuis l'hospice, ta tête est d'un seul morceau.",
     "—",
     {
      "if": {
@@ -8999,7 +8999,7 @@
      "if": {
       "has": "lise:mensonge"
      },
-     "text": "Lise ne t'a jamais tout à fait pardonné le mensonge du presbytère, quand tu as dit que tu te souvenais de tout. Elle ne te l'a jamais reproché non plus. Elle s'en souvient, c'est tout. Elle se souvient de tout."
+     "text": "Lise ne t'a jamais tout à fait pardonné le mensonge du presbytère, quand tu as dit que tu te souvenais de tout. Elle a toujours gardé ce reproche pour elle. Elle s'en souvient, c'est tout. Elle se souvient de tout."
     },
     {
      "if": {
@@ -9082,7 +9082,7 @@
      "if": {
       "has": "lettre:lue"
      },
-     "text": "Marthe Gaudry t'a fait porter, un jour, une chemise lavée et repassée, pliée dans du papier. Il n'y avait pas de mot. Il n'en fallait pas."
+     "text": "Marthe Gaudry t'a fait porter, un jour, une chemise lavée et repassée, pliée dans du papier. Le paquet parlait tout seul."
     },
     {
      "if": {
@@ -9245,7 +9245,7 @@
        }
       ]
      },
-     "text": "Tu as gardé, dans une boîte, le flacon du docteur et le souvenir de sa page. Tu ne sais pas pourquoi. Peut-être pour te rappeler à quel point il a été facile de te faire croire n'importe quoi."
+     "text": "Tu as gardé, dans une boîte, le flacon du docteur et le souvenir de sa page. La raison t'échappe. Peut-être pour te rappeler à quel point il a été facile de te faire croire n'importe quoi."
     },
     {
      "if": {
@@ -9313,7 +9313,7 @@
        }
       ]
      },
-     "text": "Il y a des souvenirs que tu as refusés, ces jours-là, et que tu as dû reprendre plus tard, quand les preuves sont arrivées. Tu as appris à ne croire ni ta tête, ni celle des autres, sans quelque chose qu'on peut toucher."
+     "text": "Il y a des souvenirs que tu as refusés, ces jours-là, et que tu as dû reprendre plus tard, quand les preuves sont arrivées. Tu as appris à exiger une preuve qu'on peut toucher, de ta tête comme de celle des autres."
     },
     {
      "if": {
@@ -9329,7 +9329,7 @@
        }
       ]
      },
-     "text": "Tu as refusé, au moins une fois, la voix douce du docteur. Tu ne sais pas d'où t'est venue la force. Sœur Odeline dit que c'est de la main : une brûlure, ça ne ment pas."
+     "text": "Tu as refusé, au moins une fois, la voix douce du docteur. D'où t'est venue la force ? Sœur Odeline dit que c'est de la main : une brûlure, ça ne ment pas."
     },
     {
      "if": {
@@ -9342,7 +9342,7 @@
      "if": {
       "has": "perte:fille"
      },
-     "text": "Tu penses à ta fille, souvent. Elle aurait l'âge de Lise, presque. Tu ne les confonds pas. Tu fais attention de ne pas les confondre."
+     "text": "Tu penses à ta fille, souvent. Elle aurait l'âge de Lise, presque. Tu veilles à les tenir séparés."
     },
     {
      "if": {
@@ -9372,19 +9372,19 @@
      "if": {
       "has": "vice:silence"
      },
-     "text": "Tu as parlé, cette fois. Pas toujours au bon moment, pas toujours assez. Mais tu as parlé. C'était la première fois."
+     "text": "Tu as parlé, cette fois. Parfois trop tard, parfois trop peu. Mais tu as parlé. C'était la première fois."
     },
     {
      "if": {
       "has": "passe:cartes"
      },
-     "text": "Tu as rendu ton brevet d'arpenteur. On ne te l'a pas demandé. Tu fais des cartes, maintenant, pour toi, des cartes que personne ne paie et que personne ne vend."
+     "text": "Tu as rendu ton brevet d'arpenteur. On ne te l'a pas demandé. Tu fais des cartes, maintenant, pour toi, des cartes dessinées pour le seul plaisir d'être justes."
     },
     {
      "if": {
       "has": "passe:fuite"
      },
-     "text": "Pour une fois, tu n'es pas parti. Tu es resté jusqu'au bout. Tu ne sais pas encore si tu en es fier, ou seulement fatigué."
+     "text": "Pour une fois, tu n'es pas parti. Tu es resté jusqu'au bout. Fier ou seulement fatigué, tu hésites encore."
     },
     {
      "if": {
@@ -9396,7 +9396,7 @@
      "if": {
       "has": "odeline:confie"
      },
-     "text": "Sœur Odeline t'a confié Lise, ce matin-là à l'hospice, avant de savoir qui tu étais. Elle dit qu'elle ne le regrette pas. Elle dit aussi qu'elle ne le referait pas, et que c'est la même chose."
+     "text": "Sœur Odeline t'a confié Lise, ce matin-là à l'hospice, avant de savoir qui tu étais. Elle dit qu'elle assume son geste, et qu'une fois lui suffit pour la vie."
     },
     {
      "if": {
@@ -9458,7 +9458,7 @@
      "if": {
       "has": "etable:vue"
      },
-     "text": "L'étable des Combes est restée debout. C'est le seul bâtiment qu'on n'a pas touché. Les gens du pays disent qu'elle porte bonheur, ou malheur ; ils n'arrivent pas à se décider."
+     "text": "L'étable des Combes est restée debout. C'est le seul bâtiment qu'on n'a pas touché. Les gens du pays disent qu'elle porte bonheur, ou malheur ; ils hésitent encore."
     },
     {
      "if": {
@@ -9483,7 +9483,7 @@
      "if": {
       "has": "lise:disparue"
      },
-     "text": "Tu repenses parfois à ce que tu as dit au prévôt, le premier jour, d'une enfant que tu ne savais pas nommer. Tu ne savais rien. Tu savais déjà qu'il en manquait une."
+     "text": "Tu repenses parfois à ce que tu as dit au prévôt, le premier jour, d'une enfant dont le nom t'échappait, comme tout le reste. Tu savais déjà qu'il en manquait une."
     },
     {
      "if": {
@@ -9502,7 +9502,7 @@
      "if": {
       "has": "roussel:sait"
      },
-     "text": "Mère Roussel t'a dit un jour, en essuyant un verre : « Je savais tout, vous savez. Dès le premier soir. » Tu ne lui as pas demandé pourquoi elle n'avait rien dit. Tu le sais aussi."
+     "text": "Mère Roussel t'a dit un jour, en essuyant un verre : « Je savais tout, vous savez. Dès le premier soir. » Tu lui as laissé les raisons de son silence. Tu le sais aussi."
     },
     {
      "if": {
@@ -9548,14 +9548,14 @@
       "conf": "odeline",
       "max": 49
      },
-     "text": "Sœur Odeline est remontée à l'hospice au printemps. Elle ne t'a pas écrit. Tu as compris qu'elle n'avait pas fini de se demander de quel côté de la porte tu étais."
+     "text": "Sœur Odeline est remontée à l'hospice au printemps. Aucune lettre d'elle. Tu as compris qu'elle se demandait encore de quel côté de la porte tu étais."
     },
     {
      "if": {
       "conf": "hennequin",
       "min": 50
      },
-     "text": "Le prévôt Hennequin a fait rouvrir le dossier de Josse Aymar, le charbonnier pendu sur des aveux, il y a douze ans. Il a obtenu, au bout de deux ans, une réhabilitation posthume. Il t'a envoyé une copie de l'acte, sans un mot."
+     "text": "Le prévôt Hennequin a fait rouvrir le dossier de Josse Aymar, le charbonnier pendu sur des aveux, il y a douze ans. Il a obtenu, au bout de deux ans, une réhabilitation posthume. Il t'a envoyé une copie de l'acte, sans lettre."
     },
     {
      "if": {
@@ -9657,7 +9657,7 @@
      "if": {
       "has": "lise:mensonge"
      },
-     "text": "Lise ne t'a jamais tout à fait pardonné le mensonge du presbytère, quand tu as dit que tu te souvenais de tout. Elle ne te l'a jamais reproché non plus. Elle s'en souvient, c'est tout. Elle se souvient de tout."
+     "text": "Lise ne t'a jamais tout à fait pardonné le mensonge du presbytère, quand tu as dit que tu te souvenais de tout. Elle a toujours gardé ce reproche pour elle. Elle s'en souvient, c'est tout. Elle se souvient de tout."
     },
     {
      "if": {
@@ -9740,7 +9740,7 @@
      "if": {
       "has": "lettre:lue"
      },
-     "text": "Marthe Gaudry t'a fait porter, un jour, une chemise lavée et repassée, pliée dans du papier. Il n'y avait pas de mot. Il n'en fallait pas."
+     "text": "Marthe Gaudry t'a fait porter, un jour, une chemise lavée et repassée, pliée dans du papier. Le paquet parlait tout seul."
     },
     {
      "if": {
@@ -9903,7 +9903,7 @@
        }
       ]
      },
-     "text": "Tu as gardé, dans une boîte, le flacon du docteur et le souvenir de sa page. Tu ne sais pas pourquoi. Peut-être pour te rappeler à quel point il a été facile de te faire croire n'importe quoi."
+     "text": "Tu as gardé, dans une boîte, le flacon du docteur et le souvenir de sa page. La raison t'échappe. Peut-être pour te rappeler à quel point il a été facile de te faire croire n'importe quoi."
     },
     {
      "if": {
@@ -9971,7 +9971,7 @@
        }
       ]
      },
-     "text": "Il y a des souvenirs que tu as refusés, ces jours-là, et que tu as dû reprendre plus tard, quand les preuves sont arrivées. Tu as appris à ne croire ni ta tête, ni celle des autres, sans quelque chose qu'on peut toucher."
+     "text": "Il y a des souvenirs que tu as refusés, ces jours-là, et que tu as dû reprendre plus tard, quand les preuves sont arrivées. Tu as appris à exiger une preuve qu'on peut toucher, de ta tête comme de celle des autres."
     },
     {
      "if": {
@@ -9987,7 +9987,7 @@
        }
       ]
      },
-     "text": "Tu as refusé, au moins une fois, la voix douce du docteur. Tu ne sais pas d'où t'est venue la force. Sœur Odeline dit que c'est de la main : une brûlure, ça ne ment pas."
+     "text": "Tu as refusé, au moins une fois, la voix douce du docteur. D'où t'est venue la force ? Sœur Odeline dit que c'est de la main : une brûlure, ça ne ment pas."
     },
     {
      "if": {
@@ -10030,19 +10030,19 @@
      "if": {
       "has": "vice:silence"
      },
-     "text": "Tu as parlé, cette fois. Pas toujours au bon moment, pas toujours assez. Mais tu as parlé. C'était la première fois."
+     "text": "Tu as parlé, cette fois. Parfois trop tard, parfois trop peu. Mais tu as parlé. C'était la première fois."
     },
     {
      "if": {
       "has": "passe:cartes"
      },
-     "text": "Tu as rendu ton brevet d'arpenteur. On ne te l'a pas demandé. Tu fais des cartes, maintenant, pour toi, des cartes que personne ne paie et que personne ne vend."
+     "text": "Tu as rendu ton brevet d'arpenteur. On ne te l'a pas demandé. Tu fais des cartes, maintenant, pour toi, des cartes dessinées pour le seul plaisir d'être justes."
     },
     {
      "if": {
       "has": "passe:fuite"
      },
-     "text": "Pour une fois, tu n'es pas parti. Tu es resté jusqu'au bout. Tu ne sais pas encore si tu en es fier, ou seulement fatigué."
+     "text": "Pour une fois, tu n'es pas parti. Tu es resté jusqu'au bout. Fier ou seulement fatigué, tu hésites encore."
     },
     {
      "if": {
@@ -10054,7 +10054,7 @@
      "if": {
       "has": "odeline:confie"
      },
-     "text": "Sœur Odeline t'a confié Lise, ce matin-là à l'hospice, avant de savoir qui tu étais. Elle dit qu'elle ne le regrette pas. Elle dit aussi qu'elle ne le referait pas, et que c'est la même chose."
+     "text": "Sœur Odeline t'a confié Lise, ce matin-là à l'hospice, avant de savoir qui tu étais. Elle dit qu'elle assume son geste, et qu'une fois lui suffit pour la vie."
     },
     {
      "if": {
@@ -10116,7 +10116,7 @@
      "if": {
       "has": "etable:vue"
      },
-     "text": "L'étable des Combes est restée debout. C'est le seul bâtiment qu'on n'a pas touché. Les gens du pays disent qu'elle porte bonheur, ou malheur ; ils n'arrivent pas à se décider."
+     "text": "L'étable des Combes est restée debout. C'est le seul bâtiment qu'on n'a pas touché. Les gens du pays disent qu'elle porte bonheur, ou malheur ; ils hésitent encore."
     },
     {
      "if": {
@@ -10141,7 +10141,7 @@
      "if": {
       "has": "lise:disparue"
      },
-     "text": "Tu repenses parfois à ce que tu as dit au prévôt, le premier jour, d'une enfant que tu ne savais pas nommer. Tu ne savais rien. Tu savais déjà qu'il en manquait une."
+     "text": "Tu repenses parfois à ce que tu as dit au prévôt, le premier jour, d'une enfant dont le nom t'échappait, comme tout le reste. Tu savais déjà qu'il en manquait une."
     },
     {
      "if": {
@@ -10160,7 +10160,7 @@
      "if": {
       "has": "roussel:sait"
      },
-     "text": "Mère Roussel t'a dit un jour, en essuyant un verre : « Je savais tout, vous savez. Dès le premier soir. » Tu ne lui as pas demandé pourquoi elle n'avait rien dit. Tu le sais aussi."
+     "text": "Mère Roussel t'a dit un jour, en essuyant un verre : « Je savais tout, vous savez. Dès le premier soir. » Tu lui as laissé les raisons de son silence. Tu le sais aussi."
     },
     {
      "if": {
@@ -10206,14 +10206,14 @@
       "conf": "odeline",
       "max": 49
      },
-     "text": "Sœur Odeline est remontée à l'hospice au printemps. Elle ne t'a pas écrit. Tu as compris qu'elle n'avait pas fini de se demander de quel côté de la porte tu étais."
+     "text": "Sœur Odeline est remontée à l'hospice au printemps. Aucune lettre d'elle. Tu as compris qu'elle se demandait encore de quel côté de la porte tu étais."
     },
     {
      "if": {
       "conf": "hennequin",
       "min": 50
      },
-     "text": "Le prévôt Hennequin a fait rouvrir le dossier de Josse Aymar, le charbonnier pendu sur des aveux, il y a douze ans. Il a obtenu, au bout de deux ans, une réhabilitation posthume. Il t'a envoyé une copie de l'acte, sans un mot."
+     "text": "Le prévôt Hennequin a fait rouvrir le dossier de Josse Aymar, le charbonnier pendu sur des aveux, il y a douze ans. Il a obtenu, au bout de deux ans, une réhabilitation posthume. Il t'a envoyé une copie de l'acte, sans lettre."
     },
     {
      "if": {
@@ -10262,7 +10262,7 @@
      "if": {
       "has": "matthias:pris"
      },
-     "text": "Matthias Hollier est relâché le soir même, faute de preuve suffisante. Il quitte le pays à pied, sans un regard pour personne. Le prévôt le regarde partir, les mains dans le dos, sans rien dire, comme on regarde partir un homme qu'on retrouvera."
+     "text": "Matthias Hollier est relâché le soir même, faute de preuve suffisante. Il quitte le pays à pied, les yeux sur la route. Le prévôt le regarde partir, les mains dans le dos, en silence, comme on regarde partir un homme qu'on retrouvera."
     },
     {
      "if": {
@@ -10274,9 +10274,9 @@
      "if": {
       "has": "lise:sauvee"
      },
-     "text": "Lise Hollier est confiée à la tutelle du curé Vidal, à la demande du prévôt, qui a fait valoir ce qu'il fallait faire valoir. Elle vit. Elle a sa terre, ou ce qu'il en reste. Elle n'a pas eu justice. Elle a eu la vie, ce qui n'est pas rien, et ce qui n'est pas assez."
+     "text": "Lise Hollier est confiée à la tutelle du curé Vidal, à la demande du prévôt, qui a fait valoir ce qu'il fallait faire valoir. Elle vit. Elle a sa terre, ou ce qu'il en reste. Elle n'a pas eu justice. Elle a eu la vie. C'est beaucoup, et c'est trop peu."
     },
-    "Toi, tu es libre. On te rend tes instruments. On ne te rend pas tes vingt écus : le bailli les verse aux pauvres de la paroisse, sans explication. Tu repars par la diligence de Lorvanne. Personne ne te salue. On ne t'appelle ni *le témoin*, ni *l'assassin*. On ne t'appelle pas.",
+    "Toi, tu es libre. On te rend tes instruments. On ne te rend pas tes vingt écus : le bailli les verse aux pauvres de la paroisse, sans explication. Tu repars par la diligence de Lorvanne. Personne ne te salue. Les mots *témoin* et *assassin* restent dans les bouches. On ne t'appelle pas.",
     "Il y a eu un accident aux Combes. C'est écrit. Tu sais ce qui s'est passé. Ce n'est écrit nulle part.",
     "—",
     {
@@ -10336,7 +10336,7 @@
      "if": {
       "has": "lise:mensonge"
      },
-     "text": "Lise ne t'a jamais tout à fait pardonné le mensonge du presbytère, quand tu as dit que tu te souvenais de tout. Elle ne te l'a jamais reproché non plus. Elle s'en souvient, c'est tout. Elle se souvient de tout."
+     "text": "Lise ne t'a jamais tout à fait pardonné le mensonge du presbytère, quand tu as dit que tu te souvenais de tout. Elle a toujours gardé ce reproche pour elle. Elle s'en souvient, c'est tout. Elle se souvient de tout."
     },
     {
      "if": {
@@ -10419,7 +10419,7 @@
      "if": {
       "has": "lettre:lue"
      },
-     "text": "Marthe Gaudry t'a fait porter, un jour, une chemise lavée et repassée, pliée dans du papier. Il n'y avait pas de mot. Il n'en fallait pas."
+     "text": "Marthe Gaudry t'a fait porter, un jour, une chemise lavée et repassée, pliée dans du papier. Le paquet parlait tout seul."
     },
     {
      "if": {
@@ -10582,7 +10582,7 @@
        }
       ]
      },
-     "text": "Tu as gardé, dans une boîte, le flacon du docteur et le souvenir de sa page. Tu ne sais pas pourquoi. Peut-être pour te rappeler à quel point il a été facile de te faire croire n'importe quoi."
+     "text": "Tu as gardé, dans une boîte, le flacon du docteur et le souvenir de sa page. La raison t'échappe. Peut-être pour te rappeler à quel point il a été facile de te faire croire n'importe quoi."
     },
     {
      "if": {
@@ -10650,7 +10650,7 @@
        }
       ]
      },
-     "text": "Il y a des souvenirs que tu as refusés, ces jours-là, et que tu as dû reprendre plus tard, quand les preuves sont arrivées. Tu as appris à ne croire ni ta tête, ni celle des autres, sans quelque chose qu'on peut toucher."
+     "text": "Il y a des souvenirs que tu as refusés, ces jours-là, et que tu as dû reprendre plus tard, quand les preuves sont arrivées. Tu as appris à exiger une preuve qu'on peut toucher, de ta tête comme de celle des autres."
     },
     {
      "if": {
@@ -10666,7 +10666,7 @@
        }
       ]
      },
-     "text": "Tu as refusé, au moins une fois, la voix douce du docteur. Tu ne sais pas d'où t'est venue la force. Sœur Odeline dit que c'est de la main : une brûlure, ça ne ment pas."
+     "text": "Tu as refusé, au moins une fois, la voix douce du docteur. D'où t'est venue la force ? Sœur Odeline dit que c'est de la main : une brûlure, ça ne ment pas."
     },
     {
      "if": {
@@ -10679,7 +10679,7 @@
      "if": {
       "has": "perte:fille"
      },
-     "text": "Tu penses à ta fille, souvent. Elle aurait l'âge de Lise, presque. Tu ne les confonds pas. Tu fais attention de ne pas les confondre."
+     "text": "Tu penses à ta fille, souvent. Elle aurait l'âge de Lise, presque. Tu veilles à les tenir séparés."
     },
     {
      "if": {
@@ -10709,19 +10709,19 @@
      "if": {
       "has": "vice:silence"
      },
-     "text": "Tu as parlé, cette fois. Pas toujours au bon moment, pas toujours assez. Mais tu as parlé. C'était la première fois."
+     "text": "Tu as parlé, cette fois. Parfois trop tard, parfois trop peu. Mais tu as parlé. C'était la première fois."
     },
     {
      "if": {
       "has": "passe:cartes"
      },
-     "text": "Tu as rendu ton brevet d'arpenteur. On ne te l'a pas demandé. Tu fais des cartes, maintenant, pour toi, des cartes que personne ne paie et que personne ne vend."
+     "text": "Tu as rendu ton brevet d'arpenteur. On ne te l'a pas demandé. Tu fais des cartes, maintenant, pour toi, des cartes dessinées pour le seul plaisir d'être justes."
     },
     {
      "if": {
       "has": "passe:fuite"
      },
-     "text": "Pour une fois, tu n'es pas parti. Tu es resté jusqu'au bout. Tu ne sais pas encore si tu en es fier, ou seulement fatigué."
+     "text": "Pour une fois, tu n'es pas parti. Tu es resté jusqu'au bout. Fier ou seulement fatigué, tu hésites encore."
     },
     {
      "if": {
@@ -10733,7 +10733,7 @@
      "if": {
       "has": "odeline:confie"
      },
-     "text": "Sœur Odeline t'a confié Lise, ce matin-là à l'hospice, avant de savoir qui tu étais. Elle dit qu'elle ne le regrette pas. Elle dit aussi qu'elle ne le referait pas, et que c'est la même chose."
+     "text": "Sœur Odeline t'a confié Lise, ce matin-là à l'hospice, avant de savoir qui tu étais. Elle dit qu'elle assume son geste, et qu'une fois lui suffit pour la vie."
     },
     {
      "if": {
@@ -10795,7 +10795,7 @@
      "if": {
       "has": "etable:vue"
      },
-     "text": "L'étable des Combes est restée debout. C'est le seul bâtiment qu'on n'a pas touché. Les gens du pays disent qu'elle porte bonheur, ou malheur ; ils n'arrivent pas à se décider."
+     "text": "L'étable des Combes est restée debout. C'est le seul bâtiment qu'on n'a pas touché. Les gens du pays disent qu'elle porte bonheur, ou malheur ; ils hésitent encore."
     },
     {
      "if": {
@@ -10820,7 +10820,7 @@
      "if": {
       "has": "lise:disparue"
      },
-     "text": "Tu repenses parfois à ce que tu as dit au prévôt, le premier jour, d'une enfant que tu ne savais pas nommer. Tu ne savais rien. Tu savais déjà qu'il en manquait une."
+     "text": "Tu repenses parfois à ce que tu as dit au prévôt, le premier jour, d'une enfant dont le nom t'échappait, comme tout le reste. Tu savais déjà qu'il en manquait une."
     },
     {
      "if": {
@@ -10839,7 +10839,7 @@
      "if": {
       "has": "roussel:sait"
      },
-     "text": "Mère Roussel t'a dit un jour, en essuyant un verre : « Je savais tout, vous savez. Dès le premier soir. » Tu ne lui as pas demandé pourquoi elle n'avait rien dit. Tu le sais aussi."
+     "text": "Mère Roussel t'a dit un jour, en essuyant un verre : « Je savais tout, vous savez. Dès le premier soir. » Tu lui as laissé les raisons de son silence. Tu le sais aussi."
     },
     {
      "if": {
@@ -10885,14 +10885,14 @@
       "conf": "odeline",
       "max": 49
      },
-     "text": "Sœur Odeline est remontée à l'hospice au printemps. Elle ne t'a pas écrit. Tu as compris qu'elle n'avait pas fini de se demander de quel côté de la porte tu étais."
+     "text": "Sœur Odeline est remontée à l'hospice au printemps. Aucune lettre d'elle. Tu as compris qu'elle se demandait encore de quel côté de la porte tu étais."
     },
     {
      "if": {
       "conf": "hennequin",
       "min": 50
      },
-     "text": "Le prévôt Hennequin a fait rouvrir le dossier de Josse Aymar, le charbonnier pendu sur des aveux, il y a douze ans. Il a obtenu, au bout de deux ans, une réhabilitation posthume. Il t'a envoyé une copie de l'acte, sans un mot."
+     "text": "Le prévôt Hennequin a fait rouvrir le dossier de Josse Aymar, le charbonnier pendu sur des aveux, il y a douze ans. Il a obtenu, au bout de deux ans, une réhabilitation posthume. Il t'a envoyé une copie de l'acte, sans lettre."
     },
     {
      "if": {
@@ -10921,7 +10921,7 @@
    "text": [
     "La Fente est une faille dans la montagne, à peine plus large qu'un homme, qui monte entre deux murs de roche et redescend de l'autre côté sans passer par le col. De nuit, elle est noire comme un four. Tu la passes à tâtons, ta main brûlée contre la pierre, en comptant tes pas comme on compte une chaîne d'arpenteur.",
     "À midi, tu es de l'autre côté. La vallée de Sarre, verte déjà au fond, sans neige. Personne ne t'y connaît. Personne ne t'y cherche. Tu changes de nom au premier relais.",
-    "Tu ne sais pas ce qui est arrivé à Lise. Tu ne sais pas ce qui s'est dit aux assises, ni ce qu'on a fait de ton absence. Tu ne sais pas si tu es un assassin en fuite ou un témoin qui a eu peur. Tu ne sais pas, et c'est ce que tu as choisi : ne jamais savoir.",
+    "Qu'est-il arrivé à Lise ? Que s'est-il dit aux assises, qu'a-t-on fait de ton absence ? Es-tu un assassin en fuite ou un témoin qui a eu peur ? Tu l'ignores, et tu as choisi de l'ignorer toujours.",
     "Les trois jours ne te reviennent pas. Certains matins, une odeur d'étable, une lanterne à une fenêtre, un enfant qui court devant toi dans la rue, et tu t'arrêtes, au milieu des gens, et tu attends. Rien ne vient. Tu repars.",
     "—",
     {
@@ -10981,7 +10981,7 @@
      "if": {
       "has": "lise:mensonge"
      },
-     "text": "Lise ne t'a jamais tout à fait pardonné le mensonge du presbytère, quand tu as dit que tu te souvenais de tout. Elle ne te l'a jamais reproché non plus. Elle s'en souvient, c'est tout. Elle se souvient de tout."
+     "text": "Lise ne t'a jamais tout à fait pardonné le mensonge du presbytère, quand tu as dit que tu te souvenais de tout. Elle a toujours gardé ce reproche pour elle. Elle s'en souvient, c'est tout. Elle se souvient de tout."
     },
     {
      "if": {
@@ -11064,7 +11064,7 @@
      "if": {
       "has": "lettre:lue"
      },
-     "text": "Marthe Gaudry t'a fait porter, un jour, une chemise lavée et repassée, pliée dans du papier. Il n'y avait pas de mot. Il n'en fallait pas."
+     "text": "Marthe Gaudry t'a fait porter, un jour, une chemise lavée et repassée, pliée dans du papier. Le paquet parlait tout seul."
     },
     {
      "if": {
@@ -11227,7 +11227,7 @@
        }
       ]
      },
-     "text": "Tu as gardé, dans une boîte, le flacon du docteur et le souvenir de sa page. Tu ne sais pas pourquoi. Peut-être pour te rappeler à quel point il a été facile de te faire croire n'importe quoi."
+     "text": "Tu as gardé, dans une boîte, le flacon du docteur et le souvenir de sa page. La raison t'échappe. Peut-être pour te rappeler à quel point il a été facile de te faire croire n'importe quoi."
     },
     {
      "if": {
@@ -11295,7 +11295,7 @@
        }
       ]
      },
-     "text": "Il y a des souvenirs que tu as refusés, ces jours-là, et que tu as dû reprendre plus tard, quand les preuves sont arrivées. Tu as appris à ne croire ni ta tête, ni celle des autres, sans quelque chose qu'on peut toucher."
+     "text": "Il y a des souvenirs que tu as refusés, ces jours-là, et que tu as dû reprendre plus tard, quand les preuves sont arrivées. Tu as appris à exiger une preuve qu'on peut toucher, de ta tête comme de celle des autres."
     },
     {
      "if": {
@@ -11311,7 +11311,7 @@
        }
       ]
      },
-     "text": "Tu as refusé, au moins une fois, la voix douce du docteur. Tu ne sais pas d'où t'est venue la force. Sœur Odeline dit que c'est de la main : une brûlure, ça ne ment pas."
+     "text": "Tu as refusé, au moins une fois, la voix douce du docteur. D'où t'est venue la force ? Sœur Odeline dit que c'est de la main : une brûlure, ça ne ment pas."
     },
     {
      "if": {
@@ -11324,7 +11324,7 @@
      "if": {
       "has": "perte:fille"
      },
-     "text": "Tu penses à ta fille, souvent. Elle aurait l'âge de Lise, presque. Tu ne les confonds pas. Tu fais attention de ne pas les confondre."
+     "text": "Tu penses à ta fille, souvent. Elle aurait l'âge de Lise, presque. Tu veilles à les tenir séparés."
     },
     {
      "if": {
@@ -11354,13 +11354,13 @@
      "if": {
       "has": "vice:silence"
      },
-     "text": "Tu as parlé, cette fois. Pas toujours au bon moment, pas toujours assez. Mais tu as parlé. C'était la première fois."
+     "text": "Tu as parlé, cette fois. Parfois trop tard, parfois trop peu. Mais tu as parlé. C'était la première fois."
     },
     {
      "if": {
       "has": "passe:cartes"
      },
-     "text": "Tu fais des cartes, de l'autre côté de la montagne. Des cartes exactes, sans filons, sans fortunes. Tu ne relèves plus que ce qu'on te demande de relever."
+     "text": "Tu fais des cartes, de l'autre côté de la montagne. Des cartes exactes, qui montrent le terrain et lui seul. Tu ne relèves plus que ce qu'on te demande de relever."
     },
     {
      "if": {
@@ -11378,7 +11378,7 @@
      "if": {
       "has": "odeline:confie"
      },
-     "text": "Sœur Odeline t'a confié Lise, ce matin-là à l'hospice, avant de savoir qui tu étais. Elle dit qu'elle ne le regrette pas. Elle dit aussi qu'elle ne le referait pas, et que c'est la même chose."
+     "text": "Sœur Odeline t'a confié Lise, ce matin-là à l'hospice, avant de savoir qui tu étais. Elle dit qu'elle assume son geste, et qu'une fois lui suffit pour la vie."
     },
     {
      "if": {
@@ -11440,7 +11440,7 @@
      "if": {
       "has": "etable:vue"
      },
-     "text": "L'étable des Combes est restée debout. C'est le seul bâtiment qu'on n'a pas touché. Les gens du pays disent qu'elle porte bonheur, ou malheur ; ils n'arrivent pas à se décider."
+     "text": "L'étable des Combes est restée debout. C'est le seul bâtiment qu'on n'a pas touché. Les gens du pays disent qu'elle porte bonheur, ou malheur ; ils hésitent encore."
     },
     {
      "if": {
@@ -11465,7 +11465,7 @@
      "if": {
       "has": "lise:disparue"
      },
-     "text": "Tu repenses parfois à ce que tu as dit au prévôt, le premier jour, d'une enfant que tu ne savais pas nommer. Tu ne savais rien. Tu savais déjà qu'il en manquait une."
+     "text": "Tu repenses parfois à ce que tu as dit au prévôt, le premier jour, d'une enfant dont le nom t'échappait, comme tout le reste. Tu savais déjà qu'il en manquait une."
     },
     {
      "if": {
@@ -11484,7 +11484,7 @@
      "if": {
       "has": "roussel:sait"
      },
-     "text": "Mère Roussel t'a dit un jour, en essuyant un verre : « Je savais tout, vous savez. Dès le premier soir. » Tu ne lui as pas demandé pourquoi elle n'avait rien dit. Tu le sais aussi."
+     "text": "Mère Roussel t'a dit un jour, en essuyant un verre : « Je savais tout, vous savez. Dès le premier soir. » Tu lui as laissé les raisons de son silence. Tu le sais aussi."
     },
     {
      "if": {
@@ -11530,14 +11530,14 @@
       "conf": "odeline",
       "max": 49
      },
-     "text": "Sœur Odeline est remontée à l'hospice au printemps. Elle ne t'a pas écrit. Tu as compris qu'elle n'avait pas fini de se demander de quel côté de la porte tu étais."
+     "text": "Sœur Odeline est remontée à l'hospice au printemps. Aucune lettre d'elle. Tu as compris qu'elle se demandait encore de quel côté de la porte tu étais."
     },
     {
      "if": {
       "conf": "hennequin",
       "min": 50
      },
-     "text": "Le prévôt Hennequin a fait rouvrir le dossier de Josse Aymar, le charbonnier pendu sur des aveux, il y a douze ans. Il a obtenu, au bout de deux ans, une réhabilitation posthume. Il t'a envoyé une copie de l'acte, sans un mot."
+     "text": "Le prévôt Hennequin a fait rouvrir le dossier de Josse Aymar, le charbonnier pendu sur des aveux, il y a douze ans. Il a obtenu, au bout de deux ans, une réhabilitation posthume. Il t'a envoyé une copie de l'acte, sans lettre."
     },
     {
      "if": {
@@ -11565,7 +11565,7 @@
    },
    "text": [
     "Le coup part. La hache ne fait presque pas de bruit. Matthias tombe contre la veine, et la lampe roule, et s'éteint.",
-    "Dans le noir, Lise ne dit rien. Tu entends sa respiration reprendre, très vite, très court. Tu cherches la lampe à tâtons. Quand tu la rallumes, Lise est debout, collée à la paroi, aussi loin de toi que la galerie le permet. Elle te regarde comme elle regardait son oncle, tout à l'heure. Exactement comme ça.",
+    "Dans le noir, Lise se tait. Tu entends sa respiration reprendre, très vite, très court. Tu cherches la lampe à tâtons. Quand tu la rallumes, Lise est debout, collée à la paroi, aussi loin de toi que la galerie le permet. Elle te regarde comme elle regardait son oncle, tout à l'heure. Exactement comme ça.",
     "Tu la ramènes au village à l'aube. Elle marche devant, sans se retourner. Tu te rends au prévôt sur la place, la hache à la main, devant tout le monde.",
     "Aux assises, Lise témoigne. Elle dit tout : la nuit du veau, le toit, la porte barrée, la fenêtre. Elle dit aussi la galerie, la hache, l'oncle à genoux. Elle ne te regarde pas en le disant. Le bailli t'acquitte des Combes et te condamne pour la galerie : dix ans, parce que la salle entière, au fond, aurait fait comme toi, et que le bailli le sait.",
     "On t'emmène. Lise n'est pas sur la place. Tu ne la reverras pas. C'est ce que tu as tué, aussi, dans la galerie : pas seulement un homme qui le méritait. La seule personne au monde qui savait que tu avais ouvert la porte.",
@@ -11627,7 +11627,7 @@
      "if": {
       "has": "lise:mensonge"
      },
-     "text": "Lise ne t'a jamais tout à fait pardonné le mensonge du presbytère, quand tu as dit que tu te souvenais de tout. Elle ne te l'a jamais reproché non plus. Elle s'en souvient, c'est tout. Elle se souvient de tout."
+     "text": "Lise ne t'a jamais tout à fait pardonné le mensonge du presbytère, quand tu as dit que tu te souvenais de tout. Elle a toujours gardé ce reproche pour elle. Elle s'en souvient, c'est tout. Elle se souvient de tout."
     },
     {
      "if": {
@@ -11710,7 +11710,7 @@
      "if": {
       "has": "lettre:lue"
      },
-     "text": "Marthe Gaudry t'a fait porter, un jour, une chemise lavée et repassée, pliée dans du papier. Il n'y avait pas de mot. Il n'en fallait pas."
+     "text": "Marthe Gaudry t'a fait porter, un jour, une chemise lavée et repassée, pliée dans du papier. Le paquet parlait tout seul."
     },
     {
      "if": {
@@ -11873,7 +11873,7 @@
        }
       ]
      },
-     "text": "Tu as gardé, dans une boîte, le flacon du docteur et le souvenir de sa page. Tu ne sais pas pourquoi. Peut-être pour te rappeler à quel point il a été facile de te faire croire n'importe quoi."
+     "text": "Tu as gardé, dans une boîte, le flacon du docteur et le souvenir de sa page. La raison t'échappe. Peut-être pour te rappeler à quel point il a été facile de te faire croire n'importe quoi."
     },
     {
      "if": {
@@ -11941,7 +11941,7 @@
        }
       ]
      },
-     "text": "Il y a des souvenirs que tu as refusés, ces jours-là, et que tu as dû reprendre plus tard, quand les preuves sont arrivées. Tu as appris à ne croire ni ta tête, ni celle des autres, sans quelque chose qu'on peut toucher."
+     "text": "Il y a des souvenirs que tu as refusés, ces jours-là, et que tu as dû reprendre plus tard, quand les preuves sont arrivées. Tu as appris à exiger une preuve qu'on peut toucher, de ta tête comme de celle des autres."
     },
     {
      "if": {
@@ -11957,7 +11957,7 @@
        }
       ]
      },
-     "text": "Tu as refusé, au moins une fois, la voix douce du docteur. Tu ne sais pas d'où t'est venue la force. Sœur Odeline dit que c'est de la main : une brûlure, ça ne ment pas."
+     "text": "Tu as refusé, au moins une fois, la voix douce du docteur. D'où t'est venue la force ? Sœur Odeline dit que c'est de la main : une brûlure, ça ne ment pas."
     },
     {
      "if": {
@@ -11970,7 +11970,7 @@
      "if": {
       "has": "perte:fille"
      },
-     "text": "Tu penses à ta fille, souvent. Elle aurait l'âge de Lise, presque. Tu ne les confonds pas. Tu fais attention de ne pas les confondre."
+     "text": "Tu penses à ta fille, souvent. Elle aurait l'âge de Lise, presque. Tu veilles à les tenir séparés."
     },
     {
      "if": {
@@ -12000,19 +12000,19 @@
      "if": {
       "has": "vice:silence"
      },
-     "text": "Tu as parlé, cette fois. Pas toujours au bon moment, pas toujours assez. Mais tu as parlé. C'était la première fois."
+     "text": "Tu as parlé, cette fois. Parfois trop tard, parfois trop peu. Mais tu as parlé. C'était la première fois."
     },
     {
      "if": {
       "has": "passe:cartes"
      },
-     "text": "Tu as rendu ton brevet d'arpenteur. On ne te l'a pas demandé. Tu fais des cartes, maintenant, pour toi, des cartes que personne ne paie et que personne ne vend."
+     "text": "Tu as rendu ton brevet d'arpenteur. On ne te l'a pas demandé. Tu fais des cartes, maintenant, pour toi, des cartes dessinées pour le seul plaisir d'être justes."
     },
     {
      "if": {
       "has": "passe:fuite"
      },
-     "text": "Pour une fois, tu n'es pas parti. Tu es resté jusqu'au bout. Tu ne sais pas encore si tu en es fier, ou seulement fatigué."
+     "text": "Pour une fois, tu n'es pas parti. Tu es resté jusqu'au bout. Fier ou seulement fatigué, tu hésites encore."
     },
     {
      "if": {
@@ -12024,7 +12024,7 @@
      "if": {
       "has": "odeline:confie"
      },
-     "text": "Sœur Odeline t'a confié Lise, ce matin-là à l'hospice, avant de savoir qui tu étais. Elle dit qu'elle ne le regrette pas. Elle dit aussi qu'elle ne le referait pas, et que c'est la même chose."
+     "text": "Sœur Odeline t'a confié Lise, ce matin-là à l'hospice, avant de savoir qui tu étais. Elle dit qu'elle assume son geste, et qu'une fois lui suffit pour la vie."
     },
     {
      "if": {
@@ -12086,7 +12086,7 @@
      "if": {
       "has": "etable:vue"
      },
-     "text": "L'étable des Combes est restée debout. C'est le seul bâtiment qu'on n'a pas touché. Les gens du pays disent qu'elle porte bonheur, ou malheur ; ils n'arrivent pas à se décider."
+     "text": "L'étable des Combes est restée debout. C'est le seul bâtiment qu'on n'a pas touché. Les gens du pays disent qu'elle porte bonheur, ou malheur ; ils hésitent encore."
     },
     {
      "if": {
@@ -12111,7 +12111,7 @@
      "if": {
       "has": "lise:disparue"
      },
-     "text": "Tu repenses parfois à ce que tu as dit au prévôt, le premier jour, d'une enfant que tu ne savais pas nommer. Tu ne savais rien. Tu savais déjà qu'il en manquait une."
+     "text": "Tu repenses parfois à ce que tu as dit au prévôt, le premier jour, d'une enfant dont le nom t'échappait, comme tout le reste. Tu savais déjà qu'il en manquait une."
     },
     {
      "if": {
@@ -12130,7 +12130,7 @@
      "if": {
       "has": "roussel:sait"
      },
-     "text": "Mère Roussel t'a dit un jour, en essuyant un verre : « Je savais tout, vous savez. Dès le premier soir. » Tu ne lui as pas demandé pourquoi elle n'avait rien dit. Tu le sais aussi."
+     "text": "Mère Roussel t'a dit un jour, en essuyant un verre : « Je savais tout, vous savez. Dès le premier soir. » Tu lui as laissé les raisons de son silence. Tu le sais aussi."
     },
     {
      "if": {
@@ -12176,14 +12176,14 @@
       "conf": "odeline",
       "max": 49
      },
-     "text": "Sœur Odeline est remontée à l'hospice au printemps. Elle ne t'a pas écrit. Tu as compris qu'elle n'avait pas fini de se demander de quel côté de la porte tu étais."
+     "text": "Sœur Odeline est remontée à l'hospice au printemps. Aucune lettre d'elle. Tu as compris qu'elle se demandait encore de quel côté de la porte tu étais."
     },
     {
      "if": {
       "conf": "hennequin",
       "min": 50
      },
-     "text": "Le prévôt Hennequin a fait rouvrir le dossier de Josse Aymar, le charbonnier pendu sur des aveux, il y a douze ans. Il a obtenu, au bout de deux ans, une réhabilitation posthume. Il t'a envoyé une copie de l'acte, sans un mot."
+     "text": "Le prévôt Hennequin a fait rouvrir le dossier de Josse Aymar, le charbonnier pendu sur des aveux, il y a douze ans. Il a obtenu, au bout de deux ans, une réhabilitation posthume. Il t'a envoyé une copie de l'acte, sans lettre."
     },
     {
      "if": {
@@ -12196,7 +12196,7 @@
   "E_loups": {
    "title": "Les loups",
    "text": [
-    "Le sergent s'arrête net et lève la main. Dans le bois de mélèzes, à trente pas, quelque chose de gris passe entre deux troncs. Puis un second. Ils ne courent pas. Ils marchent à votre allure, de l'autre côté des arbres, comme des gens qui font semblant de ne pas vous suivre.",
+    "Le sergent s'arrête net et lève la main. Dans le bois de mélèzes, à trente pas, quelque chose de gris passe entre deux troncs. Puis un second. Ils marchent à votre allure, de l'autre côté des arbres, l'air de suivre leur propre chemin.",
     "« Fin d'hiver, dit le sergent tout bas. Ils ont faim. Ils ne sont pas idiots non plus. » Il dégage sa hallebarde de son épaule. Les bêtes se sont arrêtées. L'une d'elles s'assoit dans la neige et vous regarde.",
     {
      "with": "lise",
@@ -12247,7 +12247,7 @@
    "title": "Les loups",
    "text": [
     "Tu cries. Le sergent cogne le fer de sa hallebarde contre une pierre, et le bruit claque dans le vallon comme un coup de feu. La bête assise se lève, sans hâte, et retourne dans les arbres. Les autres la suivent.",
-    "Vous marchez encore une demi-heure en regardant derrière vous. Le sergent ne parle plus de rien. À un moment, il dit seulement : « Vous avez déjà fait ça. » Ce n'est pas une question, et tu n'as pas de réponse."
+    "Vous marchez encore une demi-heure en regardant derrière vous. Le sergent ne parle plus de rien. À un moment, il dit seulement : « Vous avez déjà fait ça. » Il n'attend aucune réponse, et tu n'en as aucune."
    ],
    "choices": [
     {
@@ -12358,7 +12358,7 @@
    "title": "Le colporteur",
    "text": [
     "Il réfléchit, la main sur la bretelle de sa hotte. « Vous étiez seul quand je vous ai vu, oui. Vous criiez quelque chose. Un nom, je crois. Mais avec le vent... » Il hausse les épaules. « J'ai cru que vous aviez perdu votre chien. »",
-    "Le sergent te regarde. Tu ne dis rien. Le colporteur reprend sa descente, en sifflant entre ses dents."
+    "Le sergent te regarde. Tu te tais. Le colporteur reprend sa descente, en sifflant entre ses dents."
    ],
    "choices": [
     {
@@ -12502,7 +12502,7 @@
      "if": {
       "not": "lise:connue"
      },
-     "text": "Tu ne sais pas à qui il est. Tu sais seulement qu'il ne faut pas le prendre."
+     "text": "À qui est-il ? Tu sais seulement qu'il doit rester là."
     }
    ],
    "choices": [
@@ -12563,8 +12563,8 @@
   "E_avalanche_coulee": {
    "title": "La coulée",
    "text": [
-    "Tu as mal choisi. La neige part sous tes pieds, toute la plaque d'un coup, et tu glisses avec elle, assis, puis couché, puis tu ne sais plus. Ça ne dure pas. Une dizaine de pas, peut-être. Ça suffit pour te remplir la bouche de neige et te tordre l'épaule contre un rocher.",
-    "Le sergent te tire par le col pour te sortir. Il ne dit rien. Il a eu peur, et ça l'a mis en colère."
+    "Tu as mal choisi. La neige part sous tes pieds, toute la plaque d'un coup, et tu glisses avec elle, assis, puis couché, puis tout se brouille. C'est très court. Une dizaine de pas, peut-être. Ça suffit pour te remplir la bouche de neige et te tordre l'épaule contre un rocher.",
+    "Le sergent te tire par le col pour te sortir. Il se tait. Il a eu peur, et ça l'a mis en colère."
    ],
    "choices": [
     {
@@ -12576,7 +12576,7 @@
    "title": "Le détour",
    "text": [
     "Vous prenez par le bois. C'est plus long, plus raide, et le sergent rumine. Mais quand vous ressortez sur le chemin, une heure plus tard, le couloir a déjà parlé : une langue de neige grise et sale barre le passage jusqu'au torrent.",
-    "Le sergent la regarde longtemps. Puis il partage son pain avec toi, sans un mot, ce qui chez lui tient lieu de remerciement."
+    "Le sergent la regarde longtemps. Puis il partage son pain avec toi, en silence, ce qui chez lui tient lieu de remerciement."
    ],
    "choices": [
     {

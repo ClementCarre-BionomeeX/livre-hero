@@ -458,7 +458,7 @@
    "rev": "M",
    "at": "Minuit",
    "short": "Hugon a pris son sac à minuit",
-   "text": "Gervaise : « Il est rentré à minuit, il a pris le sac où il range ses habits du dimanche, et il est reparti sans un mot. Il est revenu à trois heures, trempé jusqu'aux genoux, sans le sac. Il s'est couché tout habillé. »"
+   "text": "Gervaise : « Il est rentré à minuit, il a pris le sac où il range ses habits du dimanche, et il est reparti en silence. Il est revenu à trois heures, trempé jusqu'aux genoux, sans le sac. Il s'est couché tout habillé. »"
   },
   "m_passage": {
    "rev": "M",
@@ -1867,8 +1867,8 @@
      "text": "« J'ai frappé à toutes les portes, dit-elle. Vous êtes la seule personne qui a ouvert. » Elle te regarde comme on regarde un pont dont on n'est pas sûr qu'il tiendra, et dont on a besoin quand même."
     },
     "« Je m'appelle Gervaise Maupas. Mon fils s'appelle Hugon. Il a dix-neuf ans, il est batelier, il travaille sur les barges de sel. Ce matin, à l'ouverture des boutiques, le guet l'a pris sur le Pont des Changeurs. Ils disent qu'il a tué l'essayeur. »",
-    "Tu ne sais pas ce qu'est un essayeur. Elle le voit.",
-    "« Maître Ombreuil. Gaspard Ombreuil. L'essayeur-juré de la Monnaie, celui qui dit si les écus sont bons. On l'a trouvé à l'aube contre les portes de l'écluse des Tanneurs, noyé. Et mon fils avait sa bague dans la poche. Il voulait la vendre à la changeuse du pont. » Elle serre son panier. « Il dit qu'il ne l'a pas tué. Il ne dit rien d'autre. Il ne veut rien me dire, à moi, sa mère. »",
+    "Le mot essayeur t'est inconnu. Elle le voit.",
+    "« Maître Ombreuil. Gaspard Ombreuil. L'essayeur-juré de la Monnaie, celui qui dit si les écus sont bons. On l'a trouvé à l'aube contre les portes de l'écluse des Tanneurs, noyé. Et mon fils avait sa bague dans la poche. Il voulait la vendre à la changeuse du pont. » Elle serre son panier. « Il dit qu'il ne l'a pas tué, et il s'arrête là. Il se tait même devant moi, sa mère. »",
     "« On le juge dans trois jours, à la cloche du soir, devant les échevins. Si personne ne dit rien d'autre, ils le pendront. Tout le monde sait qu'il s'était battu avec Maître Ombreuil, la veille. Tout le monde. »",
     "Elle fouille dans son tablier et pose sur ta table deux écus d'argent et un anneau de cuivre, mince, usé jusqu'à la corde. « C'est tout ce que j'ai. L'anneau, c'est celui de mon mariage. Il ne vaut rien, mais c'est tout ce que j'ai. »"
    ],
@@ -1906,7 +1906,7 @@
    "title": "La porte refermée",
    "place": "pont",
    "text": [
-    "Elle reprend ses deux écus et son anneau sans un mot. Elle ne supplie pas. Elle hoche la tête, deux fois, comme quelqu'un qui s'y attendait, et elle redescend l'escalier en tenant la rampe.",
+    "Elle reprend ses deux écus et son anneau en silence. Elle ne supplie pas. Elle hoche la tête, deux fois, comme quelqu'un qui s'y attendait, et elle redescend l'escalier en tenant la rampe.",
     "Tu fais ton sac. Le soleil se lève sur le Pont des Changeurs. Par la fenêtre, tu la vois traverser le pont, petite, son panier contre le ventre. Devant le comptoir de la changeuse, elle s'arrête, longtemps. Puis elle repart vers la Haute-Ville, là où est la tour du Guet, et la foule du matin la recouvre."
    ],
    "choices": [
@@ -1946,7 +1946,7 @@
     },
     {
      "via": "paye",
-     "text": "Tu prends les deux écus. Tu lui rends l'anneau. Elle le remet à son doigt sans rien dire, et elle a l'air soulagée : on ne doit rien à quelqu'un qu'on a payé."
+     "text": "Tu prends les deux écus. Tu lui rends l'anneau. Elle le remet à son doigt, et elle a l'air soulagée : on ne doit rien à quelqu'un qu'on a payé."
     },
     {
      "via": "rattrape",
@@ -2045,7 +2045,7 @@
      "regard": {
       "hallard": "neutre"
      },
-     "text": "Au nom de Gervaise Maupas, elle soupire. « La mère. Évidemment. » Elle te regarde mieux, cette fois, des pieds à la tête. « Elle a trouvé quelqu'un pour fouiller. Bon. Fouillez. Mais vous ne me gênez pas, et vous ne me mentez pas. Je n'ai ni le temps de l'un, ni la patience de l'autre. »"
+     "text": "Au nom de Gervaise Maupas, elle soupire. « La mère. Évidemment. » Elle te regarde mieux, cette fois, des pieds à la tête. « Elle a trouvé quelqu'un pour fouiller. Bon. Fouillez. Mais vous ne me gênez pas, et vous ne me mentez pas. L'un me prend mon temps, l'autre ma patience. »"
     },
     "Elle t'emmène un peu à l'écart, contre le mur de la maison de l'éclusier, là où le vent ne porte pas les voix.",
     "« Barthe l'a trouvé à cinq heures et demie, contre les portes d'aval, le visage dans l'eau. Les portes l'avaient bien abîmé ; on a eu du mal à le sortir. Il avait le manteau de l'essayeur, un manteau gris doublé de martre, il n'y en a pas deux comme ça en ville. La veuve est venue à l'Hôtel-Dieu. Elle l'a reconnu depuis la porte de la salle des morts. Au manteau. Elle n'a pas voulu approcher. »",
@@ -2533,7 +2533,7 @@
    "place": "pont",
    "backName": "ta chambre du Pot d'Étain",
    "text": [
-    "Tu tires le rideau, tu t'allonges sur le lit sans te déshabiller, les mains sous la nuque. Tu ne dors pas vraiment. Tu remets dans l'ordre ce que tu as entendu, qui l'a dit, à quelle heure, et ce qui ne va pas ensemble.",
+    "Tu tires le rideau, tu t'allonges sur le lit sans te déshabiller, les mains sous la nuque. Tu somnoles. Tu remets dans l'ordre ce que tu as entendu, qui l'a dit, à quelle heure, et ce qui ne va pas ensemble.",
     "Quand tu rouvres les yeux, la lumière a changé. Les cloches sonnent les vêpres."
    ],
    "choices": [
@@ -2564,7 +2564,7 @@
     },
     {
      "again": true,
-     "text": "Dame Veillon fait sonner ses écus sur le marbre. « Encore toi. » Ce n'est ni une plainte ni un bonjour."
+     "text": "Dame Veillon fait sonner ses écus sur le marbre. « Encore toi. » C'est un simple constat."
     },
     {
      "first": true,
@@ -2658,7 +2658,7 @@
     }
    },
    "text": [
-    "Dame Veillon prend la feuille de Théophane, l'approche de ses lunettes, et la lit lentement, une ligne après l'autre, en remuant les lèvres. Elle ne dit rien pendant longtemps.",
+    "Dame Veillon prend la feuille de Théophane, l'approche de ses lunettes, et la lit lentement, une ligne après l'autre, en remuant les lèvres. Elle se tait longtemps.",
     "« Celui qui a écrit ça sait compter, dit-elle enfin. Ici, le titre du registre : onze deniers d'argent fin sur douze. Là, l'autre chiffre, le vrai, celui qu'il a trouvé en refaisant l'essai lui-même : dix deniers et demi. Un demi-denier sur chaque écu. » Elle pose la feuille sur le marbre et l'aplatit de la paume. « Deux mille écus par semaine. Dix ans. Tu sais combien ça fait, d'argent ? Assez pour acheter ce pont, avec ses maisons. »",
     "« *Tous les jeudis. Toujours lui.* » Elle relit la marge à voix basse. « Les fontes se font le jeudi, à la Monnaie. Et le jeudi, c'est l'essayeur-juré qui fait l'essai et qui signe. » Elle te rend la feuille. « Moi, je ne tire rien de rien. »",
     "Puis, comme tu t'en vas, sans lever les yeux de sa balance : « Si on me le demande, à l'Échevinage, je dirai ce que j'ai pesé. Devant tout le monde. Il serait temps. »"
@@ -2845,7 +2845,7 @@
     },
     "La salle des essais est une longue pièce voûtée, au rez-de-chaussée. Un fourneau de briques à soufflet, éteint, froid. Des creusets, des pinces, des coupelles d'os calciné rangées sur une étagère. Une grande table de chêne, impeccable. Et sous un globe de verre, la balance d'essai, si fine qu'on dit qu'elle pèse un cheveu.",
     "Sur la table, rangé au carré, le registre des essais : un gros livre relié de cuir, de la main de l'essayeur. Tu l'ouvres. Une écriture penchée, serrée, régulière, sans une rature. Fonte après fonte, dix ans durant : le nombre d'écus, le titre essayé, *conforme*, la signature. Tu recopies une page, en suivant les lettres de ton mieux.",
-    "Dans un coin, contre le mur, un coffret de chêne ouvert, doublé de velours vert : les poids de laiton de l'Essai, du plus petit, pas plus gros qu'une lentille, au plus gros. Il y a un logement vide. Le plus grand, au bout de la rangée : un cube, à en juger par la forme du creux, de la taille d'un poing. Le reste du coffret est poussiéreux. Le logement vide, lui, est propre, et sent le vinaigre.",
+    "Dans un coin, contre le mur, un coffret de chêne ouvert, doublé de velours vert : les poids de laiton de l'Essai, du plus petit, gros comme une lentille, au plus lourd. Il y a un logement vide. Le plus grand, au bout de la rangée : un cube, à en juger par la forme du creux, de la taille d'un poing. Le reste du coffret est poussiéreux. Le logement vide, lui, est propre, et sent le vinaigre.",
     "Le sol de dalles a été lavé. Tout le sol. Il est encore plus propre que la table.",
     {
      "second": true,
@@ -2877,7 +2877,7 @@
     },
     {
      "first": true,
-     "text": "Dame Sibylle Ombreuil a quarante-cinq ans, un visage long et pâle, des cheveux blonds tirés en un chignon si serré qu'il lui relève les sourcils. Elle n'a pas pleuré. Elle n'a pas l'air de quelqu'un qui pleure."
+     "text": "Dame Sibylle Ombreuil a quarante-cinq ans, un visage long et pâle, des cheveux blonds tirés en un chignon si serré qu'il lui relève les sourcils. Elle a les yeux secs, et le visage d'une femme qui les a toujours eus secs."
     },
     {
      "regard": {
@@ -3020,7 +3020,7 @@
    "montrer": "sibylle",
    "back": true,
    "text": [
-    "Tu ne dis rien d'autre. Tu restes assis{e}, les mains sur les genoux, et tu attends.",
+    "Tu t'en tiens là. Tu restes assis{e}, les mains sur les genoux, et tu attends.",
     "Elle attend aussi. Longtemps. Puis elle dit, sans te regarder : « Vingt-deux ans. J'avais vingt-trois ans quand je l'ai épousé. Il était déjà essayeur-juré. Il était déjà comme ça : exact. Il comptait tout, les bougies, le pain, les mots. Il ne m'a jamais frappée, jamais trompée, jamais menti. » Elle s'arrête sur le dernier mot, comme sur une marche qui manque. « Je crois. »",
     "« Je suis fatiguée. Revenez si vous voulez. Mais je n'ai rien de plus à vous dire. »"
    ]
@@ -3204,7 +3204,7 @@
    "back": true,
    "text": [
     "Elle baisse la tête. Ses doigts tirent sur un fil de sa manche.",
-    "« Il ne dira rien. Il est comme ça. Quand il a peur, il se tait, et plus il a peur, plus il se tait. » Elle tire le fil, qui casse. « Mon père disait que c'était un sournois. Ce n'est pas un sournois. C'est quelqu'un qui n'a jamais eu le droit de parler, alors il ne sait pas. »",
+    "« Il ne dira rien. Il est comme ça. Quand il a peur, il se tait, et plus il a peur, plus il se tait. » Elle tire le fil, qui casse. « Mon père disait que c'était un sournois. On l'a fait taire toute sa vie, alors les mots lui manquent. »",
     "« On devait partir, dit-elle tout à coup, très vite, comme on saute dans l'eau froide. La nuit de la fête. Tous les deux. À Basse-Aune, et plus loin. Il avait une place sur une barge de sel. Je devais le retrouver au pont des Lavandières, à une heure. »",
     "Elle relève les yeux. « Et il n'est pas venu. Pas à une heure. »"
    ],
@@ -3278,7 +3278,7 @@
    },
    "text": [
     "Tu lui dis où était Hugon à dix heures : à la Lanterne Sourde, à perdre trois sous à la Chandelle contre une vieille changeuse qui s'en souvient très bien.",
-    "Oriane ne dit rien. Elle porte la main à sa bouche. Puis elle se met à pleurer, sans bruit, sans se cacher, les yeux grands ouverts, comme quelqu'un qui pose enfin un fardeau qu'il portait sans le savoir.",
+    "Oriane se tait. Elle porte la main à sa bouche. Puis elle se met à pleurer, en silence, à visage découvert, les yeux grands ouverts, comme on pose enfin un fardeau porté trop longtemps.",
     "« Ce n'était pas lui, dit-elle. Dans la salle des essais. Ce n'était pas lui. »",
     "Elle s'essuie le visage d'un revers de manche. « Alors qui ? »"
    ]
@@ -3320,7 +3320,7 @@
     },
     {
      "first": true,
-     "text": "Évrard Malestroit a des cheveux noirs, sans doute teints, une moustache impeccable, un visage carré, rasé de frais, et la voix d'un homme qui n'a pas dû hausser le ton depuis vingt ans, parce qu'il n'en a jamais eu besoin."
+     "text": "Évrard Malestroit a des cheveux noirs, sans doute teints, une moustache impeccable, un visage carré, rasé de frais, et la voix basse d'un homme obéi depuis vingt ans."
     },
     {
      "regard": {
@@ -3394,7 +3394,7 @@
    },
    "text": [
     "Tu lui dis ce qu'a vu Brisson : le banquet quitté avant onze heures, le retour vers minuit, les souliers mouillés.",
-    "Malestroit ne nie pas. Il te regarde longtemps, comme on évalue un adversaire au jeu de dames, et il décide que tu n'en vaux pas la peine, ou que la partie est perdue de toute façon.",
+    "Malestroit te regarde longtemps, comme on évalue un adversaire au jeu de dames, et il décide que la partie est perdue, ou que tu es trop petit pour elle.",
     "« Lescot m'a fait porter un billet, la veille de la fête. » Il sort de son pourpoint un petit papier plié, usé aux pliures, et te le met dans la main. « Lisez. Je sais d'où vient l'argent qui manque. Onze heures, à la Monnaie. Je suis allé au rendez-vous. Avec cent écus, dans une bourse. »",
     "« Oui. Pour qu'il se taise. Je savais depuis un an que les écus étaient légers. Je savais qu'on volait à la fonte. Je ne savais pas qui. Je ne voulais pas le savoir, pas avant les élections : un maître de la Monnaie sous qui l'on a volé dix ans n'est pas réélu, on le pend en effigie. J'aurais fait ce qu'il fallait, après. » Il hausse les épaules. « Cela vous dégoûte. Vous n'avez jamais été réélu{e}. »",
     "« Il n'est jamais venu. J'ai attendu une demi-heure dans la cour de la Monnaie, avec ma bourse, comme un imbécile. À onze heures et quart, il y avait de la lumière en face, à la Maison de l'Essai, au rez-de-chaussée, dans la salle des essais. Elle s'est éteinte un peu après. J'ai cru que Lescot était là-bas, chez son maître, à se donner du courage, ou à se faire acheter par un autre. Je suis rentré au banquet. J'avais marché dans le caniveau. »",
@@ -3414,7 +3414,7 @@
     "pv": -2
    },
    "text": [
-    "Malestroit lit. Rien ne bouge sur son visage, sauf un petit muscle, au coin de la mâchoire, qui se serre et se desserre.",
+    "Malestroit lit. Son visage reste de pierre, sauf un petit muscle, au coin de la mâchoire, qui se serre et se desserre.",
     "« Qui vous a donné ça ? » Il n'attend pas la réponse. Il sonne. Deux hommes entrent, plus grands que les gardes de la porte, sans livrée.",
     "« Raccompagnez. »",
     "Ils te raccompagnent. Dans l'escalier, l'un d'eux te pousse, et tu rates trois marches. En bas, sur le quai, l'autre te dit à l'oreille, gentiment, que l'eau des canaux est froide en cette saison, et que des gens y tombent tous les jours."
@@ -3477,7 +3477,7 @@
    "text": [
     "Le patron essuie un pot, longtemps, avant de répondre.",
     "« Il est entré vers neuf heures, l'essayeur. Ici. Avec sa robe grise et sa bague d'or, au milieu des tanneurs, comme un évêque dans une porcherie. Il est allé droit au petit Maupas, qui buvait avec ses amis, là, à cette table. Il ne lui a rien demandé. Il l'a giflé, du revers, devant tout le monde. Et il a dit, assez fort pour qu'on entende jusque dans la rue : *Si tu t'approches encore de ma fille, je te fais jeter dans l'Aune.* »",
-    "« Le petit n'a pas bougé. Il est devenu tout rouge, puis tout blanc, et il n'a pas bougé. Moi, j'en ai vu, des gars de dix-neuf ans qui se font gifler devant leurs amis. Ils cognent. Lui, il a regardé ses mains. » Il repose le pot. « L'essayeur est reparti. Le petit s'est assis à la table de Chandelle, à dix heures, avec la vieille Veillon. Comme si de rien n'était. »",
+    "« Le petit est resté planté là. Il est devenu tout rouge, puis tout blanc, toujours planté là. Moi, j'en ai vu, des gars de dix-neuf ans qui se font gifler devant leurs amis. Ils cognent. Lui, il a regardé ses mains. » Il repose le pot. « L'essayeur est reparti. Le petit s'est assis à la table de Chandelle, à dix heures, avec la vieille Veillon. Comme si de rien n'était. »",
     "« Le guet m'a demandé si j'avais entendu la menace. J'ai dit oui. Ils n'ont rien demandé d'autre. »"
    ]
   },
@@ -3497,7 +3497,7 @@
    "text": [
     {
      "first": true,
-     "text": "Dame Isaline Veillon tient la table de Chandelle de la Lanterne Sourde comme elle tient son comptoir : droite, précise, sans un mot de trop. Elle a ôté ses lunettes ; ses yeux, sans elles, sont petits et très noirs. Devant elle, une pile de sous, un gobelet de cuir, un dé."
+     "text": "Dame Isaline Veillon tient la table de Chandelle de la Lanterne Sourde comme elle tient son comptoir : droite, précise, économe de ses mots. Elle a ôté ses lunettes ; ses yeux, sans elles, sont petits et très noirs. Devant elle, une pile de sous, un gobelet de cuir, un dé."
     },
     {
      "again": true,
@@ -3549,7 +3549,7 @@
        "allie"
       ]
      },
-     "text": "Il te tend sa blague à tabac sans un mot. C'est, chez lui, une grande marque d'amitié."
+     "text": "Il te tend sa blague à tabac. C'est, chez lui, une grande marque d'amitié."
     },
     {
      "first": true,
@@ -3687,7 +3687,7 @@
    "back": true,
    "text": [
     "La chambre est sous le toit, si basse qu'on ne s'y tient debout qu'au milieu. Un lit étroit, une table, une chaise, une planche fixée au mur en guise d'étagère. Une lucarne sur le canal. Tout est propre et nu.",
-    "Le coffre au pied du lit est ouvert, vide. Le sac de voyage et les habits sont partis. Mais sur la planche, au-dessus du lit, il reste un rasoir, dans son étui de cuir, un peigne d'os, et un petit portrait de femme peint sur bois, pas plus grand que la main, dans un cadre de cuivre. « Sa mère, dit la mère Garnaude derrière toi. Morte quand il avait dix ans. Il lui disait bonsoir, le soir. Je l'entendais à travers le plancher. »",
+    "Le coffre au pied du lit est ouvert, vide. Le sac de voyage et les habits sont partis. Mais sur la planche, au-dessus du lit, il reste un rasoir, dans son étui de cuir, un peigne d'os, et un petit portrait de femme peint sur bois, grand comme la main, dans un cadre de cuivre. « Sa mère, dit la mère Garnaude derrière toi. Morte quand il avait dix ans. Il lui disait bonsoir, le soir. Je l'entendais à travers le plancher. »",
     "La mère Garnaude s'est tue. Elle regarde le portrait aussi."
    ],
    "choices": [
@@ -3809,7 +3809,7 @@
    "title": "La nuit de Hugon",
    "text": [
     "Gervaise regarde ses mains.",
-    "« Il est rentré à minuit. Je ne dormais pas : je l'attendais, à cause de la gifle, toute la rue en parlait. Il n'a rien dit. Il a pris le sac où il range ses habits du dimanche, sa chemise neuve, ses souliers, et il est reparti sans un mot. Je lui ai demandé où il allait. Il m'a embrassée sur le front. Il ne m'embrasse jamais. »",
+    "« Il est rentré à minuit. Je ne dormais pas : je l'attendais, à cause de la gifle, toute la rue en parlait. Il n'a rien dit. Il a pris le sac où il range ses habits du dimanche, sa chemise neuve, ses souliers, et il est reparti en silence. Je lui ai demandé où il allait. Il m'a embrassée sur le front. Il ne m'embrasse jamais. »",
     "« Il est revenu à trois heures. Trempé jusqu'aux genoux, sans le sac, sans les souliers. Il s'est couché tout habillé, la figure contre le mur. Le matin, il est sorti avant moi. À midi, le guet était à ma porte. »",
     "« Je l'ai pas dit au guet, pour le sac. J'ai eu peur que ça fasse mauvais. »"
    ],
@@ -3972,11 +3972,11 @@
      "if": {
       "has": "passe:guet"
      },
-     "text": "Elle te jauge d'un coup d'œil, de la tête aux bottes. « Vous avez été du guet, vous. Ailleurs. Ça se voit à la façon dont vous regardez les portes. » Ce n'est pas un compliment ; ce n'est pas un reproche non plus."
+     "text": "Elle te jauge d'un coup d'œil, de la tête aux bottes. « Vous avez été du guet, vous. Ailleurs. Ça se voit à la façon dont vous regardez les portes. » C'est un constat, dit sans chaleur."
     },
     {
      "first": true,
-     "text": "La sergente Hallard a cinquante ans, une cicatrice qui lui tire la bouche vers le bas, et la réputation d'être la seule personne du guet qu'on ne peut pas acheter. On dit aussi qu'elle ne revient jamais sur ce qu'elle a décidé."
+     "text": "La sergente Hallard a cinquante ans, une cicatrice qui lui tire la bouche vers le bas, et la réputation d'être la seule personne incorruptible du guet. On dit aussi que ses décisions sont définitives."
     },
     {
      "regard": {
@@ -3998,7 +3998,7 @@
      "regard": {
       "hallard": "allie"
      },
-     "text": "« Alors ? » Elle referme son registre. Depuis que tu lui as montré ce que tu sais, elle ne fait plus semblant de ne pas t'attendre."
+     "text": "« Alors ? » Elle referme son registre. Depuis que tu lui as montré ce que tu sais, elle t'attend ouvertement."
     },
     {
      "if": {
@@ -4021,7 +4021,7 @@
      "if": {
       "has": "gaspard:pris"
      },
-     "text": "Elle a les yeux de quelqu'un qui n'a pas dormi. « Il n'a pas dit un mot de la nuit, en bas, dit-elle. Il a demandé l'heure. Deux fois. Je n'en dis rien à personne avant la cloche, et vous non plus. »"
+     "text": "Elle a les yeux rouges d'une nuit de veille. « Il n'a pas dit un mot de la nuit, en bas, dit-elle. Il a demandé l'heure. Deux fois. Je n'en dis rien à personne avant la cloche, et vous non plus. »"
     }
    ],
    "choices": [
@@ -4145,7 +4145,7 @@
        "mefiant"
       ]
      },
-     "text": "Tu lui parles. Il ne répond pas. Il regarde la fente de lumière sur le mur d'en face comme s'il pouvait passer par là."
+     "text": "Tu lui parles. Il se tait. Il regarde la fente de lumière sur le mur d'en face comme s'il pouvait passer par là."
     },
     {
      "regard": {
@@ -4240,7 +4240,7 @@
    "place": "haute",
    "montrer": "hugon",
    "text": [
-    "Il ne bouge pas, mais quelque chose change dans sa façon de respirer.",
+    "Il reste immobile, mais quelque chose change dans sa façon de respirer.",
     "« Tous les matins ? » Il ne te regarde toujours pas. « Ils la laissent pas monter avant neuf heures. Elle doit être là depuis six. Elle a toujours été là trop tôt, partout. »",
     "Il frotte ses yeux avec la paume, très fort. « Dites-lui de rentrer. Dites-lui que je mange. C'est pas vrai, mais dites-lui. »"
    ],
@@ -4273,7 +4273,7 @@
    "montrer": "hugon",
    "text": [
     "Tu lui répètes ce qu'a dit Oriane, sur le pont, mot pour mot : qu'elle a attendu jusqu'à quatre heures, qu'elle n'a pas cessé d'attendre, et qu'elle ne lui en veut pas.",
-    "Hugon ne bouge pas. Il ne dit rien. Puis il pose le front sur ses genoux, et ses épaules se mettent à trembler, et il pleure comme pleurent les garçons qui n'ont pas pleuré depuis l'enfance, en silence, avec tout le corps.",
+    "Hugon reste immobile, muet. Puis il pose le front sur ses genoux, et ses épaules se mettent à trembler, et il pleure comme pleurent les garçons qui se retiennent depuis l'enfance, en silence, avec tout le corps.",
     "Tu attends. Ça dure longtemps.",
     "« Dites-lui… » Il relève la tête, s'essuie le nez sur sa manche. « Dites-lui que la barge de sel est partie sans nous, et que c'est ma faute, et que je lui expliquerai. Si je sors. Dites-lui que si je sors, on prendra la prochaine. »"
    ],
@@ -4359,7 +4359,7 @@
     "Ce sont les mains que tu regardes le plus longtemps. Les ongles sont rongés jusqu'à la chair, à chaque doigt. Et le petit doigt de la main droite est tordu, en dehors, avec une bosse à la deuxième phalange : un os cassé autrefois, et mal ressoudé.",
     {
      "second": true,
-     "text": "À l'annulaire gauche, là où la bague était, la peau est à peine plus pâle. Pas de creux, pas de bourrelet : la marque légère d'un anneau qui n'a pas été porté longtemps."
+     "text": "À l'annulaire gauche, là où la bague était, la peau est à peine plus pâle. La peau est à peine marquée : la trace légère d'un anneau porté peu de temps."
     },
     "« On l'enterre demain à trois heures, dit Sœur Ermeline en remettant le drap. Après, ce sera trop tard pour regarder. »"
    ]
@@ -4717,7 +4717,7 @@
    },
    "text": [
     "Tu décris le portrait du salon de l'Essai à Maître Ouen : un homme grand, voûté, le front haut, une barbe grise taillée court, un grain de beauté sous l'œil gauche, de longues mains blanches.",
-    "Maître Ouen ne répond pas tout de suite. Il essuie un pot, puis un autre.",
+    "Maître Ouen prend son temps. Il essuie un pot, puis un autre.",
     "« Une barbe, non, dit-il enfin. J'ai pas de client avec une barbe grise. » Il pose le pot. « Mais les mains, oui. Et le grain de beauté. Il y en a un qui l'a juste là. » Il touche sa propre joue, sous l'œil gauche. « Et qui tient son pot comme si c'était une balance. »",
     "Il ne dit pas le nom. Il te regarde, et il reprend son torchon."
    ]
@@ -4844,7 +4844,7 @@
        "min": 3
       }
      },
-     "text": "Les trois tonneaux marqués G. sont à fond de cale, sous une bâche cordée. Un colosse est assis dessus, les bras croisés, et ne bouge pas de la journée."
+     "text": "Les trois tonneaux marqués G. sont à fond de cale, sous une bâche cordée. Un colosse est assis dessus, les bras croisés, du matin au soir."
     }
    ],
    "choices": [
@@ -4914,7 +4914,7 @@
     },
     {
      "again": true,
-     "text": "L'homme au chapeau est à sa place, dans le coin, le dos au mur. Il te voit entrer. Il ne bouge pas."
+     "text": "L'homme au chapeau est à sa place, dans le coin, le dos au mur. Il te voit entrer. Il reste immobile."
     },
     "Ce que l'on voit de son visage, sous le chapeau, est rasé de près, et curieusement pâle du nez au menton, plus pâle que le front et les joues : comme une peau qui n'a pas vu le soleil depuis longtemps. Sous l'œil gauche, un grain de beauté.",
     "Ses mains sont posées à plat sur la table, de chaque côté du pot : longues, blanches, soignées. À l'annulaire de la main gauche, un linge noué, taché de brun, et sous le linge, quand il bouge les doigts, on devine une marque à vif, profonde, comme celle qu'aurait laissée un anneau arraché.",
@@ -5024,9 +5024,9 @@
     }
    },
    "text": [
-    "Il te laisse t'asseoir sans un mot. Il a une voix grave, posée, qui pèse chaque syllabe avant de la poser sur la table.",
+    "Il te laisse t'asseoir. Il a une voix grave, posée, qui pèse chaque syllabe avant de la poser sur la table.",
     "« Ganse. Drapier, à Basse-Aune. J'attends mon bateau. » Il fait tourner son pot entre ses doigts, d'un quart de tour, puis d'un autre, avec une précision d'horloger. « On m'a dit qu'il y avait une enquête, en ville. Un essayeur. Triste affaire. Je ne connaissais pas l'homme. Je ne connais personne ici. »",
-    "Il ne t'a pas demandé ton nom. Il ne t'a pas demandé ce que tu voulais.",
+    "Ton nom, ce que tu veux : il a laissé passer les deux questions.",
     "« Le vin d'ici est mauvais, dit-il. Mais l'eau est pire. » Il se lève, pose une pièce sur la table, une pièce neuve, qui sonne court sur le bois. « Je vous souhaite le bonsoir. »",
     "Il monte l'escalier vers les chambres sans se retourner, lentement, lourdement, en s'arrêtant au palier."
    ],
@@ -5044,7 +5044,7 @@
    "text": [
     "Tu t'assieds en face de lui, et tu dis son nom. Pas fort. Juste assez pour qu'il l'entende, lui, et personne d'autre.",
     "« Gaspard Ombreuil. »",
-    "Il ne sursaute pas. Il ne pâlit pas : il est déjà pâle. Il lève seulement la tête, et le bord du chapeau découvre ses yeux, gris, fatigués, très calmes, et il te regarde comme on regarde un poids qu'on pose sur le plateau, pour savoir ce qu'il vaut.",
+    "Il encaisse sans broncher. Son visage, déjà pâle, garde sa couleur. Il lève seulement la tête, et le bord du chapeau découvre ses yeux, gris, fatigués, très calmes, et il te regarde comme on regarde un poids qu'on pose sur le plateau, pour savoir ce qu'il vaut.",
     "« Oui », dit-il.",
     "C'est tout. Puis, après un long moment : « Vous êtes la personne de la mère Maupas. On m'en a parlé. Je me demandais combien de temps il vous faudrait. » Il fait tourner son pot d'un quart de tour. « Que voulez-vous ? De l'argent ? J'en ai. Plus que vous n'en verrez jamais. »",
     "Sous la table, sa main droite a quitté le pot."
@@ -5129,7 +5129,7 @@
      }
     },
     {
-     "label": "Te lever sans un mot et sortir",
+     "label": "Te lever en silence et sortir",
      "fx": {
       "flag": "ganse:alerte"
      },
@@ -5171,7 +5171,7 @@
      "text": "Le couteau tombe sur le plancher et glisse sous une table. Gaspard Ombreuil se tient le poignet, le souffle court, adossé au mur. Dans la salle, personne n'a bougé ; Maître Ouen essuie un pot. Tu lui lies les mains avec sa propre ceinture, et tu le mènes dehors, à travers toute la ville endormie, jusqu'à la tour du Guet, où la sergente Hallard descend en chemise, une chandelle à la main."
     },
     "On l'enferme au rez-de-chaussée, dans la cellule de dégrisement. Trois étages plus haut, Hugon Maupas dort, ou ne dort pas, et ne sait encore rien.",
-    "La sergente Hallard regarde longtemps l'homme derrière la grille, sans rien dire. Il soutient son regard. Puis elle se tourne vers toi.",
+    "La sergente Hallard regarde longtemps l'homme derrière la grille, en silence. Il soutient son regard. Puis elle se tourne vers toi.",
     "« L'audience est à la cloche, dit-elle. Vous parlerez. Moi, je le présenterai. » Elle se frotte les yeux. « Vingt-six ans de métier. Je l'ai enterré, cet homme. J'étais à l'enterrement. »"
    ],
    "choices": [
@@ -5187,7 +5187,7 @@
    "place": "teinturiers",
    "text": [
     "Il est plus rapide que tu ne l'aurais cru, pour un homme de son âge. Une table renversée, un pot qui éclate, un batelier qui jure, et la porte du Bassin Bleu qui bat dans la nuit.",
-    "Quand tu arrives sur le quai, il n'y a plus que l'eau noire, les barges qui se frottent contre les pilotis, et au bout du quai, la masse sombre de la Vouivre, où ne brille aucune lumière.",
+    "Quand tu arrives sur le quai, il reste l'eau noire, les barges qui se frottent contre les pilotis, et au bout du quai, la masse sombre de la Vouivre, tous feux éteints.",
     "Il ne reviendra pas au Bassin Bleu. Mais il n'a nulle part où aller, sauf là où sont ses tonneaux."
    ],
    "choices": [
@@ -5376,7 +5376,7 @@
    "place": "haute",
    "text": [
     "Tu dis le nom. Dans la salle, quelqu'un rit, nerveusement, et se tait aussitôt. Brisson ouvre la bouche, la referme.",
-    "Alors la sergente Hallard fait un signe, et deux de ses hommes amènent un homme grand, voûté, rasé, en habit de drap brun, les mains liées. Il marche droit. Il ne regarde ni la salle ni l'estrade. Au premier rang, quelqu'un pousse un cri : Dame Sibylle Ombreuil, qui s'est levée, et qui reste debout, une main sur la bouche.",
+    "Alors la sergente Hallard fait un signe, et deux de ses hommes amènent un homme grand, voûté, rasé, en habit de drap brun, les mains liées. Il marche droit. Il garde les yeux au sol. Au premier rang, quelqu'un pousse un cri : Dame Sibylle Ombreuil, qui s'est levée, et qui reste debout, une main sur la bouche.",
     {
      "if": {
       "all": [
@@ -5404,7 +5404,7 @@
        "has": "accuse:M:preuve"
       }
      },
-     "text": "Tu n'as pas grand-chose à poser devant le conseil. Mais tu n'en as pas besoin : la veuve, au premier rang, n'a pas besoin de preuves pour reconnaître le grain de beauté sous l'œil gauche, ni la façon de se tenir, ni les mains."
+     "text": "Tu n'as pas grand-chose à poser devant le conseil. Mais tu peux t'en passer : la veuve, au premier rang, reconnaît d'elle-même le grain de beauté sous l'œil gauche, la façon de se tenir, les mains."
     },
     {
      "if": {
@@ -5556,7 +5556,7 @@
      "if": {
       "has": "aube:guet"
      },
-     "text": "La sergente Hallard et six hommes du guet, en manteau, attendent avec toi derrière les piles de bois du port. Le ciel pâlit à l'est. Personne ne parle. On entend l'eau."
+     "text": "La sergente Hallard et six hommes du guet, en manteau, attendent avec toi derrière les piles de bois du port. Le ciel pâlit à l'est. Tous se taisent. On entend l'eau."
     },
     {
      "if": {
@@ -5660,7 +5660,7 @@
    "title": "Le maître de la Monnaie",
    "place": "haute",
    "text": [
-    "Tu dis le nom. Il y a un silence, puis un bruit de chaises : tous les échevins se sont tournés vers Malestroit. Lui ne bouge pas.",
+    "Tu dis le nom. Il y a un silence, puis un bruit de chaises : tous les échevins se sont tournés vers Malestroit. Lui reste immobile.",
     {
      "if": {
       "any": [
@@ -5745,7 +5745,7 @@
        "accuse-M-qui": "sibylle"
       }
      },
-     "text": "Tu dis le nom de Dame Sibylle Ombreuil. La veuve ne bouge pas. Elle te regarde, et dans ses yeux il y a quelque chose qui ressemble à de la pitié. Brisson demande, poliment, comment une femme de quarante-cinq ans aurait porté un homme de son poids jusqu'à l'écluse. Tu n'as pas de réponse qui tienne."
+     "text": "Tu dis le nom de Dame Sibylle Ombreuil. La veuve reste immobile. Elle te regarde, et dans ses yeux il y a quelque chose qui ressemble à de la pitié. Brisson demande, poliment, comment une femme de quarante-cinq ans aurait porté un homme de son poids jusqu'à l'écluse. Tu n'as pas de réponse qui tienne."
     },
     {
      "if": {
@@ -5822,7 +5822,7 @@
    "title": "Le silence",
    "place": "haute",
    "text": [
-    "Tu ne dis rien. Tu sens le regard de Gervaise Maupas sur ta nuque, et tu ne te retournes pas.",
+    "Tu te tais. Tu sens le regard de Gervaise Maupas sur ta nuque, et tu gardes les yeux droit devant toi.",
     "Brisson attend, par politesse, le temps de compter jusqu'à cinq. Puis il se tourne vers le conseil."
    ],
    "choices": [
@@ -5892,14 +5892,14 @@
      "if": {
       "has": "ecus:verite"
      },
-     "text": "Une semaine plus tard, Dame Isaline Veillon se présente à l'Échevinage avec sa plaque de marbre, sa balance, deux écus et la feuille de Théophane. Elle fait sonner les deux pièces devant les échevins assemblés, l'une après l'autre, et elle ne dit rien d'autre : elle les laisse écouter. On refond les écus de dix années. Il faut deux ans. À Basse-Aune, on recommence à les prendre au compte et non plus au poids."
+     "text": "Une semaine plus tard, Dame Isaline Veillon se présente à l'Échevinage avec sa plaque de marbre, sa balance, deux écus et la feuille de Théophane. Elle fait sonner les deux pièces devant les échevins assemblés, l'une après l'autre, puis elle se tait et les laisse écouter. On refond les écus de dix années. Il faut deux ans. À Basse-Aune, on recommence à les prendre au compte et non plus au poids."
     },
     "Hugon Maupas sort de la tour du Guet le lendemain de l'audience, à neuf heures, l'heure des visites. Sa mère est en bas depuis six heures, avec son panier.",
     {
      "if": {
       "has": "amants:mot"
      },
-     "text": "Au printemps, une barge de sel descend l'Aune vers la mer avec deux passagers qui ne regardent pas en arrière. Gervaise Maupas, sur le pont des Lavandières, agite son tablier jusqu'à ce qu'elle ne voie plus rien. Le batelier, en passant sous le pont, lève la main pour la saluer."
+     "text": "Au printemps, une barge de sel descend l'Aune vers la mer avec deux passagers tournés vers l'aval. Gervaise Maupas, sur le pont des Lavandières, agite son tablier jusqu'à ce que la barge ait disparu. Le batelier, en passant sous le pont, lève la main pour la saluer."
     },
     {
      "if": {
@@ -5916,19 +5916,19 @@
        }
       ]
      },
-     "text": "Hugon Maupas reprend les barges. On le voit parfois, le soir, au pont des Lavandières. Il ne s'y arrête pas. Oriane Ombreuil part en pension chez des cousines, à Vieux-Gué, avant la fin de l'automne ; on dit qu'elle ne lui a jamais pardonné son silence, ou qu'il ne s'est jamais pardonné, on ne sait plus."
+     "text": "Hugon Maupas reprend les barges. On le voit parfois, le soir, au pont des Lavandières. Il ne s'y arrête pas. Oriane Ombreuil part en pension chez des cousines, à Vieux-Gué, avant la fin de l'automne ; on dit qu'elle en veut encore à Hugon de son silence, ou que Hugon s'en veut, selon qui raconte."
     },
     {
      "if": {
       "has": "hallard:allie"
      },
-     "text": "La sergente Hallard t'offre une place au guet. Tu ne réponds pas tout de suite. Elle dit qu'elle n'est pas pressée, qu'elle a appris, cette semaine, à ne pas l'être."
+     "text": "La sergente Hallard t'offre une place au guet. Tu prends ton temps pour répondre. Elle dit qu'elle a tout son temps, qu'elle a appris, cette semaine, à le prendre."
     },
     {
      "if": {
       "has": "brisson:paye"
      },
-     "text": "Les dix écus de Brisson, tu les laisses sur le comptoir de Gervaise Maupas, sans rien dire, le matin de ton départ."
+     "text": "Les dix écus de Brisson, tu les laisses sur le comptoir de Gervaise Maupas, en silence, le matin de ton départ."
     }
    ]
   },
@@ -5949,19 +5949,19 @@
    },
    "text": [
     "La Vouivre descend l'Aune, passe les rapides avec la crue, et arrive à Basse-Aune trois jours plus tard, où un homme grand et voûté, rasé de près, débarque avec trois tonneaux d'indigo et disparaît dans le port. On ne le reverra jamais.",
-    "Hugon Maupas n'est pas pendu. Le conseil, ébranlé par ce que tu as dit, et peut-être par ce que la ville commence à murmurer, n'ose plus le juger pour meurtre. Il le garde trois mois en cellule pour le vol de la bague, puis le relâche un matin, sans un mot.",
+    "Hugon Maupas n'est pas pendu. Le conseil, ébranlé par ce que tu as dit, et peut-être par ce que la ville commence à murmurer, n'ose plus le juger pour meurtre. Il le garde trois mois en cellule pour le vol de la bague, puis le relâche un matin, sans explication.",
     "On ne rouvre pas la tombe de l'essayeur. Sous le nom de Gaspard Ombreuil, Théophane Lescot dort dans le caveau d'une famille qui n'était pas la sienne, et à Orbeval on continue à dire que le second de l'essayeur était un voleur qui a filé avec l'argent de la Monnaie.",
     {
      "if": {
       "has": "ecus:verite"
      },
-     "text": "Une semaine plus tard, Dame Isaline Veillon se présente à l'Échevinage avec sa plaque de marbre, sa balance, deux écus et la feuille de Théophane. Elle fait sonner les deux pièces devant les échevins assemblés, l'une après l'autre, et elle ne dit rien d'autre : elle les laisse écouter. On refond les écus de dix années. Il faut deux ans. À Basse-Aune, on recommence à les prendre au compte et non plus au poids."
+     "text": "Une semaine plus tard, Dame Isaline Veillon se présente à l'Échevinage avec sa plaque de marbre, sa balance, deux écus et la feuille de Théophane. Elle fait sonner les deux pièces devant les échevins assemblés, l'une après l'autre, puis elle se tait et les laisse écouter. On refond les écus de dix années. Il faut deux ans. À Basse-Aune, on recommence à les prendre au compte et non plus au poids."
     },
     {
      "if": {
       "has": "amants:mot"
      },
-     "text": "Au printemps, une barge de sel descend l'Aune vers la mer avec deux passagers qui ne regardent pas en arrière. Gervaise Maupas, sur le pont des Lavandières, agite son tablier jusqu'à ce qu'elle ne voie plus rien. Le batelier, en passant sous le pont, lève la main pour la saluer."
+     "text": "Au printemps, une barge de sel descend l'Aune vers la mer avec deux passagers tournés vers l'aval. Gervaise Maupas, sur le pont des Lavandières, agite son tablier jusqu'à ce que la barge ait disparu. Le batelier, en passant sous le pont, lève la main pour la saluer."
     },
     {
      "if": {
@@ -5978,7 +5978,7 @@
        }
       ]
      },
-     "text": "Hugon Maupas reprend les barges. On le voit parfois, le soir, au pont des Lavandières. Il ne s'y arrête pas. Oriane Ombreuil part en pension chez des cousines, à Vieux-Gué, avant la fin de l'automne ; on dit qu'elle ne lui a jamais pardonné son silence, ou qu'il ne s'est jamais pardonné, on ne sait plus."
+     "text": "Hugon Maupas reprend les barges. On le voit parfois, le soir, au pont des Lavandières. Il ne s'y arrête pas. Oriane Ombreuil part en pension chez des cousines, à Vieux-Gué, avant la fin de l'automne ; on dit qu'elle en veut encore à Hugon de son silence, ou que Hugon s'en veut, selon qui raconte."
     },
     "Toi, tu sais. C'est peu. C'est ce que tu emportes, quand tu quittes Orbeval par la route du sud."
    ]
@@ -5999,26 +5999,26 @@
     ]
    },
    "text": [
-    "Évrard Malestroit est arrêté le soir même, dans la salle, par la sergente Hallard, qui ne dit pas un mot et ne te regarde pas. Hugon Maupas sort de la tour le lendemain matin.",
+    "Évrard Malestroit est arrêté le soir même, dans la salle, par la sergente Hallard, muette, les yeux ailleurs. Hugon Maupas sort de la tour le lendemain matin.",
     "On juge Malestroit un mois plus tard. On ne peut pas prouver qu'il a tué l'essayeur, mais on prouve tout le reste : le rendez-vous, la bourse, le silence acheté, les écus légers, l'année de mensonges. Cela suffit pour la ville. On ne le pend pas ; on le bannit, et on vend ses biens. L'échevin Brisson devient maître de la Monnaie à la Saint-Martin.",
     {
      "if": {
       "has": "brisson:paye"
      },
-     "text": "Il t'envoie, le jour de sa nomination, une seconde bourse de dix écus, avec un billet de remerciements très aimable. Tu ne réponds pas."
+     "text": "Il t'envoie, le jour de sa nomination, une seconde bourse de dix écus, avec un billet de remerciements très aimable. Tu te tais."
     },
     "Le lendemain de l'audience, à l'aube, une barge chargée de trois tonneaux d'indigo quitte le port des Teinturiers pour Basse-Aune. Personne ne la regarde partir.",
     {
      "if": {
       "has": "ecus:verite"
      },
-     "text": "Une semaine plus tard, Dame Isaline Veillon se présente à l'Échevinage avec sa plaque de marbre, sa balance, deux écus et la feuille de Théophane. Elle fait sonner les deux pièces devant les échevins assemblés, l'une après l'autre, et elle ne dit rien d'autre : elle les laisse écouter. On refond les écus de dix années. Il faut deux ans. À Basse-Aune, on recommence à les prendre au compte et non plus au poids."
+     "text": "Une semaine plus tard, Dame Isaline Veillon se présente à l'Échevinage avec sa plaque de marbre, sa balance, deux écus et la feuille de Théophane. Elle fait sonner les deux pièces devant les échevins assemblés, l'une après l'autre, puis elle se tait et les laisse écouter. On refond les écus de dix années. Il faut deux ans. À Basse-Aune, on recommence à les prendre au compte et non plus au poids."
     },
     {
      "if": {
       "has": "amants:mot"
      },
-     "text": "Au printemps, une barge de sel descend l'Aune vers la mer avec deux passagers qui ne regardent pas en arrière. Gervaise Maupas, sur le pont des Lavandières, agite son tablier jusqu'à ce qu'elle ne voie plus rien. Le batelier, en passant sous le pont, lève la main pour la saluer."
+     "text": "Au printemps, une barge de sel descend l'Aune vers la mer avec deux passagers tournés vers l'aval. Gervaise Maupas, sur le pont des Lavandières, agite son tablier jusqu'à ce que la barge ait disparu. Le batelier, en passant sous le pont, lève la main pour la saluer."
     },
     {
      "if": {
@@ -6035,7 +6035,7 @@
        }
       ]
      },
-     "text": "Hugon Maupas reprend les barges. On le voit parfois, le soir, au pont des Lavandières. Il ne s'y arrête pas. Oriane Ombreuil part en pension chez des cousines, à Vieux-Gué, avant la fin de l'automne ; on dit qu'elle ne lui a jamais pardonné son silence, ou qu'il ne s'est jamais pardonné, on ne sait plus."
+     "text": "Hugon Maupas reprend les barges. On le voit parfois, le soir, au pont des Lavandières. Il ne s'y arrête pas. Oriane Ombreuil part en pension chez des cousines, à Vieux-Gué, avant la fin de l'automne ; on dit qu'elle en veut encore à Hugon de son silence, ou que Hugon s'en veut, selon qui raconte."
     },
     {
      "if": {
@@ -6074,13 +6074,13 @@
      "if": {
       "has": "ecus:verite"
      },
-     "text": "Une semaine plus tard, Dame Isaline Veillon se présente à l'Échevinage avec sa plaque de marbre, sa balance, deux écus et la feuille de Théophane. Elle fait sonner les deux pièces devant les échevins assemblés, l'une après l'autre, et elle ne dit rien d'autre : elle les laisse écouter. On refond les écus de dix années. Il faut deux ans. À Basse-Aune, on recommence à les prendre au compte et non plus au poids."
+     "text": "Une semaine plus tard, Dame Isaline Veillon se présente à l'Échevinage avec sa plaque de marbre, sa balance, deux écus et la feuille de Théophane. Elle fait sonner les deux pièces devant les échevins assemblés, l'une après l'autre, puis elle se tait et les laisse écouter. On refond les écus de dix années. Il faut deux ans. À Basse-Aune, on recommence à les prendre au compte et non plus au poids."
     },
     {
      "if": {
       "has": "amants:mot"
      },
-     "text": "Au printemps, une barge de sel descend l'Aune vers la mer avec deux passagers qui ne regardent pas en arrière. Gervaise Maupas, sur le pont des Lavandières, agite son tablier jusqu'à ce qu'elle ne voie plus rien. Le batelier, en passant sous le pont, lève la main pour la saluer."
+     "text": "Au printemps, une barge de sel descend l'Aune vers la mer avec deux passagers tournés vers l'aval. Gervaise Maupas, sur le pont des Lavandières, agite son tablier jusqu'à ce que la barge ait disparu. Le batelier, en passant sous le pont, lève la main pour la saluer."
     },
     {
      "if": {
@@ -6097,7 +6097,7 @@
        }
       ]
      },
-     "text": "Hugon Maupas reprend les barges. On le voit parfois, le soir, au pont des Lavandières. Il ne s'y arrête pas. Oriane Ombreuil part en pension chez des cousines, à Vieux-Gué, avant la fin de l'automne ; on dit qu'elle ne lui a jamais pardonné son silence, ou qu'il ne s'est jamais pardonné, on ne sait plus."
+     "text": "Hugon Maupas reprend les barges. On le voit parfois, le soir, au pont des Lavandières. Il ne s'y arrête pas. Oriane Ombreuil part en pension chez des cousines, à Vieux-Gué, avant la fin de l'automne ; on dit qu'elle en veut encore à Hugon de son silence, ou que Hugon s'en veut, selon qui raconte."
     },
     "Le lendemain de l'audience, à l'aube, une barge chargée de trois tonneaux d'indigo quitte le port des Teinturiers pour Basse-Aune. Un homme grand et voûté, sur le roof, regarde la ville s'éloigner, et il a, dit le patron plus tard, l'air d'un homme qui a fait ses comptes, et qui les a trouvés justes."
    ]
@@ -6119,9 +6119,9 @@
    },
    "text": [
     "Le conseil délibère le temps qu'il faut pour vider un pichet. Hugon Maupas est condamné à être pendu, le lendemain, à l'aube, pour le meurtre de Gaspard Ombreuil, essayeur-juré de la Monnaie d'Orbeval.",
-    "Il ne dit rien. Il n'a jamais rien dit. On l'emmène.",
+    "Il se tait, comme il s'est toujours tu. On l'emmène.",
     "Le lendemain, à l'aube, pendant qu'on dresse la potence sur la place, une barge chargée de trois tonneaux d'indigo quitte le port des Teinturiers et descend l'Aune vers la mer.",
-    "Gervaise Maupas ne te reproche rien. Elle ne te parle plus, c'est tout. Quand tu la croises, au coin du pont des Lavandières, elle regarde ailleurs, comme on regarde ailleurs quand passe quelqu'un qu'on a connu autrefois."
+    "Gervaise Maupas t'épargne les reproches. Elle a simplement cessé de te parler. Quand tu la croises, au coin du pont des Lavandières, elle regarde ailleurs, comme on regarde ailleurs quand passe quelqu'un qu'on a connu autrefois."
    ]
   },
   "E_pilori": {
@@ -6148,7 +6148,7 @@
      "if": {
       "has": "ecus:verite"
      },
-     "text": "Une semaine plus tard, Dame Isaline Veillon se présente à l'Échevinage avec sa plaque de marbre, sa balance, deux écus et la feuille de Théophane. Elle fait sonner les deux pièces devant les échevins assemblés, l'une après l'autre, et elle ne dit rien d'autre : elle les laisse écouter. On refond les écus de dix années. Il faut deux ans. À Basse-Aune, on recommence à les prendre au compte et non plus au poids."
+     "text": "Une semaine plus tard, Dame Isaline Veillon se présente à l'Échevinage avec sa plaque de marbre, sa balance, deux écus et la feuille de Théophane. Elle fait sonner les deux pièces devant les échevins assemblés, l'une après l'autre, puis elle se tait et les laisse écouter. On refond les écus de dix années. Il faut deux ans. À Basse-Aune, on recommence à les prendre au compte et non plus au poids."
     },
     {
      "if": {

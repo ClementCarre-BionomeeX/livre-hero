@@ -1510,7 +1510,7 @@
     "if": {
      "has": "chemin:coeur"
     },
-    "why": "Tu ne sais pas encore où est le cœur."
+    "why": "Tu ignores encore où est le cœur."
    }
   ],
   "regions": {
@@ -1557,12 +1557,12 @@
     ],
     "quiet": [
      "La galerie tourne, se divise, se rejoint. Les murs sont de la même pierre ocre partout, taillée à la main en blocs si réguliers qu'on finit par les compter. Tu laisses une marque à la craie à chaque embranchement, comme on le fait dans les histoires.",
-     "Il fait frais, presque froid. Quelque part, très loin, de l'eau goutte, régulière comme une cloche. Tu avances dans le rond de ta lumière, et le noir se referme derrière toi sans un bruit.",
-     "Le sol monte, puis descend, et tu ne sais plus où sont le haut et le bas. Seul le courant d'air te guide encore : il vient de devant, et il sent la pierre mouillée."
+     "Il fait frais, presque froid. Quelque part, très loin, de l'eau goutte, régulière comme une cloche. Tu avances dans le rond de ta lumière, et le noir se referme derrière toi en silence.",
+     "Le sol monte, puis descend, et tu perds le sens du haut et du bas. Seul le courant d'air te guide encore : il vient de devant, et il sent la pierre mouillée."
     ],
     "camp": [
-     "Tu t'arrêtes quand tes jambes ne te portent plus. Dans le dédale, il n'y a ni jour ni nuit, seulement la fatigue. Tu dors adossé au mur, et tu rêves de soleil.",
-     "Vous vous serrez autour de la petite flamme. Personne ne parle. Dans la pierre, très loin, un battement lent, régulier, comme un cœur qui dormirait."
+     "Tu t'arrêtes quand tes jambes ne te portent plus. Dans le dédale, la fatigue tient lieu de jour et de nuit. Tu dors adossé au mur, et tu rêves de soleil.",
+     "Vous vous serrez autour de la petite flamme. Tous se taisent. Dans la pierre, très loin, un battement lent, régulier, comme un cœur qui dormirait."
     ]
    },
    "profondeurs": {
@@ -1756,7 +1756,7 @@
    "shop": "relais",
    "text": [
     "Brune vend ce que les voyageurs oublient toujours : des cordes, des torches, une lanterne à volet, des onguents qu'elle prépare elle-même, dans des pots de grès ébréchés, et du pain de route si dur qu'il se garde une semaine.",
-    "« Il vous faudra des vivres, dit-elle. Personne ne vous vendra rien entre ici et Kardan, parce qu'il n'y a personne. Et à Kardan, ils ne vous feront rien payer. » Elle dit ça sans sourire."
+    "« Il vous faudra des vivres, dit-elle. Entre ici et Kardan, la route est déserte, vous ne trouverez rien à acheter. Et à Kardan, ils vous offriront tout. » Elle dit ça sans sourire."
    ],
    "choices": [
     {
@@ -2193,7 +2193,7 @@
     "Des clochettes, d'abord, puis des chèvres qui coulent sur la pente comme de l'eau brune, puis un homme jeune, pieds nus, un bâton sur les épaules et les poignets posés dessus. Il s'appelle Ismaël, il te le dit tout de suite, et il te demande d'où tu viens avant même de savoir où tu vas.",
     "Il partage avec toi un fromage de chèvre roulé dans la cendre, très salé. « Kardan ? dit-il. Tu arrives pour la Lune sèche, alors. C'est leur fête. Une fois l'an, au plus sec de l'été, ils remercient l'eau. » Il gratte la tête d'un bouc qui essaie de manger ta manche. « On dit que l'eau de Kardan a un gardien. Un monstre, dans la colline. Ils le nourrissent. »",
     "« De quoi ? »",
-    "Il rit. « De pain. De fleurs. Je ne sais pas. Je ne suis pas de Kardan. Je ne vais jamais plus loin que les jardins, et jamais le soir. »"
+    "Il rit. « De pain. De fleurs. Je l'ignore. Je suis étranger à Kardan. Je m'arrête aux jardins, et je repars avant le soir. »"
    ],
    "choices": [
     {
@@ -2220,12 +2220,12 @@
    "act": "I",
    "title": "L'homme qui sifflait",
    "text": [
-    "Ismaël réfléchit, la langue entre les dents. « Il y a longtemps… j'étais petit. Un homme du nord, grand, qui sifflait avec un os. Il m'a demandé le chemin, il m'a donné une pièce pour rien. Il riait. » Il hausse les épaules. « Mon père a dit qu'il ne fallait pas s'attacher aux gens qui vont à Kardan. Je n'ai pas compris. Je ne comprends toujours pas. »",
+    "Ismaël réfléchit, la langue entre les dents. « Il y a longtemps… j'étais petit. Un homme du nord, grand, qui sifflait avec un os. Il m'a demandé le chemin, il m'a donné une pièce pour rien. Il riait. » Il hausse les épaules. « Mon père a dit qu'il ne fallait pas s'attacher aux gens qui vont à Kardan. Je cherche encore ce qu'il voulait dire. »",
     {
      "if": {
       "has": "passe:sifflet"
      },
-     "text": "Tu as la main sur le sifflet, dans ta poche. Tu ne le sors pas. Tu ne sais pas pourquoi."
+     "text": "Tu as la main sur le sifflet, dans ta poche. Tu le gardes caché. Quelque chose te retient."
     }
    ],
    "choices": [
@@ -2307,7 +2307,7 @@
        }
       ]
      },
-     "text": "Partout où tu passes, on te salue. Un vieux t'offre une grenade, une fille une fleur. Un homme te tape sur l'épaule sans rien dire, comme on le fait aux enterrements."
+     "text": "Partout où tu passes, on te salue. Un vieux t'offre une grenade, une fille une fleur. Un homme te tape sur l'épaule en silence, comme on le fait aux enterrements."
     },
     "La question qui t'a fait venir tient en une ligne : *qu'est-il arrivé à Aurèle, ici ?*"
    ],
@@ -2613,7 +2613,7 @@
    },
    "text": [
     "Ils ont dressé les tables sur la place, sous le platane, et allumé des lampes à huile dans les branches. Tout Kardan est là : soixante personnes, peut-être plus, des vieux, des bébés, des chiens. On te met au bout de la table, sur une chaise à haut dossier qui doit venir de la chapelle. On te sert d'abord. On te sert beaucoup.",
-    "Il y a de l'agneau aux abricots, du pain plat brûlant, des fèves à l'huile, des pastèques fendues, du vin de grenade qui monte à la tête. Un garçon d'une dizaine d'années, Tobie, te regarde manger sans manger lui-même. Une forgeronne aux bras énormes, Garance, te fait goûter son eau-de-vie. Une femme mince aux doigts verts, Oriel, ne dit rien et t'observe.",
+    "Il y a de l'agneau aux abricots, du pain plat brûlant, des fèves à l'huile, des pastèques fendues, du vin de grenade qui monte à la tête. Un garçon d'une dizaine d'années, Tobie, te regarde manger sans manger lui-même. Une forgeronne aux bras énormes, Garance, te fait goûter son eau-de-vie. Une femme mince aux doigts verts, Oriel, t'observe en silence.",
     "À l'autre bout de la table, une vieille femme minuscule, droite comme un piquet, les cheveux blancs tressés en couronne : l'Aïeule, Maève. Quand elle lève son gobelet, la place se tait d'un coup.",
     "« Au Gardien, dit-elle d'une voix claire, et à celui qui le nourrira. »",
     "Soixante gobelets se lèvent. Soixante visages se tournent vers toi, et sourient.",
@@ -3555,7 +3555,7 @@
    "title": "Le thé",
    "place": "kardan",
    "text": [
-    "Vous parlez encore un moment de choses sans importance : la récolte de grenades, les caravanes, la sécheresse qui gagne au nord. Maève a une manière de clore chaque sujet d'une phrase si juste qu'on n'a plus rien à ajouter. Quand tu te retrouves dehors, tu as l'impression d'avoir été reçu par une reine, et de ne rien savoir de plus."
+    "Vous parlez encore un moment de choses sans importance : la récolte de grenades, les caravanes, la sécheresse qui gagne au nord. Maève a une manière de clore chaque sujet d'une phrase si juste que la conversation s'arrête là. Quand tu te retrouves dehors, tu as l'impression d'avoir été reçu par une reine, et d'en savoir aussi peu qu'avant."
    ],
    "choices": [
     {
@@ -3578,9 +3578,9 @@
     "time": 1
    },
    "text": [
-    "La chapelle est petite, blanchie à la chaux, si fraîche qu'on y frissonne. Pas d'image sainte, pas d'autel : une vasque de pierre verte où l'eau coule d'un tuyau de cuivre, et, sur le mur du fond, une grande plaque de bois peinte en noir, couverte de noms en lettres blanches.",
+    "La chapelle est petite, blanchie à la chaux, si fraîche qu'on y frissonne. Pour tout autel, une vasque de pierre verte où l'eau coule d'un tuyau de cuivre, et, sur le mur du fond, une grande plaque de bois peinte en noir, couverte de noms en lettres blanches.",
     "En haut de la plaque, en lettres dorées : *À CEUX QUI ONT GARDÉ L'EAU.*",
-    "Il y a des dizaines de noms. Les plus anciens sont presque effacés. Les plus récents ne sont pas des noms : *un marchand de Vasque. Une femme au chapeau vert. Le muletier de la caravane.* Et le dernier, d'une peinture encore brillante : *L'homme du Nord, l'an de la grêle.*",
+    "Il y a des dizaines de noms. Les plus anciens sont presque effacés. Les plus récents sont des descriptions : *un marchand de Vasque. Une femme au chapeau vert. Le muletier de la caravane.* Et le dernier, d'une peinture encore brillante : *L'homme du Nord, l'an de la grêle.*",
     "L'an de la grêle, à Kardan comme chez vous, c'était il y a sept ans.",
     {
      "if": {
@@ -3726,7 +3726,7 @@
    "place": "kardan",
    "text": [
     "Les gardes descendent, les autres ne sont pas encore montés. Tu as le temps de compter jusqu'à cinquante. Tu franchis les dix pas en courant, plié en deux, et tu te plaques contre la dalle.",
-    "Elle est froide, et elle vibre, très légèrement, comme une peau de tambour. De près, tu vois qu'elle ne joint pas tout à fait le roc : il y a, en bas, une fente large d'un doigt. Et sur le bord de la dalle, du côté du roc, à hauteur de genou, des griffures. Des dizaines. Des ongles, pas des griffes. Certaines sont anciennes, polies par le temps. D'autres sont si fraîches que la poussière de pierre est encore blanche dedans.",
+    "Elle est froide, et elle vibre, très légèrement, comme une peau de tambour. De près, tu vois qu'elle ne joint pas tout à fait le roc : il y a, en bas, une fente large d'un doigt. Et sur le bord de la dalle, du côté du roc, à hauteur de genou, des griffures. Des dizaines. Des traces d'ongles humains. Certaines sont anciennes, polies par le temps. D'autres sont si fraîches que la poussière de pierre est encore blanche dedans.",
     "Elles viennent de l'intérieur.",
     "Tu entends les pas de la relève dans l'escalier. Tu repars en courant."
    ],
@@ -3776,7 +3776,7 @@
      },
      "text": "Et la borne. Il est venu quand même. Aurèle allait toujours voir."
     },
-    "Tu ne sais pas s'il est mort. Tu sais où il est allé. Quelque part derrière cette porte."
+    "Tu ignores s'il est mort. Tu sais où il est allé. Quelque part derrière cette porte."
    ],
    "choices": [
     {
@@ -3839,7 +3839,7 @@
       "clues": "A",
       "min": 3
      },
-     "why": "Rien ne te donne assez de raisons de te méfier d'Hesna ce soir.",
+     "why": "Tu manques de raisons de te méfier d'Hesna ce soir.",
      "to": "K_capture_assaut"
     }
    ]
@@ -3910,7 +3910,7 @@
    },
    "text": [
     "Tu bois sans boire, tu bâilles, tu remercies. Hesna reprend la tasse vide — tu l'as vidée dans ta manche — et elle reste longtemps à te regarder dormir. Puis elle souffle la chandelle et elle pleure, debout dans le noir, sans bruit.",
-    "Ils viennent une heure plus tard. Six, huit, tu ne peux pas compter les yeux fermés. Ils te soulèvent avec une douceur qui te glace. Tu reconnais les voix. Garance, qui porte tes jambes et dit *il est lourd, celui-là*. Bastien, qui commande. Oriel, qui ne dit rien mais dont tu sens l'odeur d'amande. Hesna, qui suit en tenant ta main.",
+    "Ils viennent une heure plus tard. Six, huit, tu ne peux pas compter les yeux fermés. Ils te soulèvent avec une douceur qui te glace. Tu reconnais les voix. Garance, qui porte tes jambes et dit *il est lourd, celui-là*. Bastien, qui commande. Oriel, muette, dont tu sens l'odeur d'amande. Hesna, qui suit en tenant ta main.",
     "On te porte dans la rue, puis dans l'escalier de la colline. On chante, très bas. La porte s'ouvre avec un bruit de meule. Quelqu'un glisse ta lame et ta lanterne dans ta ceinture, en chuchotant : *qu'il ait au moins de la lumière.* Puis on te pose au bord de quelque chose, et on te pousse.",
     "Tu tombes, les yeux grands ouverts, dans un noir qui sent la pierre."
    ],
@@ -3974,7 +3974,7 @@
     "food": -9999
    },
    "text": [
-    "Tu en jettes un dans l'escalier, tu en fais saigner un autre. Il en vient d'autres. Il en vient toujours d'autres : c'est tout Kardan qui monte l'escalier du Puits-Vert, en chemise de nuit, avec des bâtons, des louches, des lanternes. À la fin, ils sont dix sur toi, et la couverture tombe, et quelqu'un te frappe derrière l'oreille, pas trop fort, juste assez.",
+    "Tu en jettes un dans l'escalier, tu en fais saigner un autre. Il en vient d'autres. Il en vient toujours d'autres : c'est tout Kardan qui monte l'escalier du Puits-Vert, en chemise de nuit, avec des bâtons, des louches, des lanternes. À la fin, ils sont dix sur toi, et la couverture tombe, et quelqu'un te frappe derrière l'oreille, juste assez fort.",
     "Tu ne perds pas tout à fait conscience. Tu sens qu'on te porte, qu'on chante, qu'une porte s'ouvre avec un bruit de meule. Quelqu'un te remet ton arme dans la main et te referme les doigts dessus, en disant d'une voix brisée : *il s'est bien battu. Qu'il la garde.*",
     "Puis on te pousse, et tu tombes."
    ],
@@ -4075,7 +4075,7 @@
       }
      },
      "else": "Tu es toujours au fond du puits, sous le rond de ciel. La paille, les os, et la galerie noire qui s'ouvre dans la paroi.",
-     "text": "Tu te réveilles sur le dos, la bouche pleine de poussière. Très haut au-dessus de toi, un rond de ciel pas plus gros qu'une pièce, où pâlissent les dernières étoiles. Autour, la pierre : un puits sans margelle, aux parois lisses comme l'intérieur d'un vase, et toi au fond, sur un lit de paille pourrie et de choses qui craquent quand tu bouges."
+     "text": "Tu te réveilles sur le dos, la bouche pleine de poussière. Très haut au-dessus de toi, un rond de ciel gros comme une pièce, où pâlissent les dernières étoiles. Autour, la pierre : un puits sans margelle, aux parois lisses comme l'intérieur d'un vase, et toi au fond, sur un lit de paille pourrie et de choses qui craquent quand tu bouges."
     },
     {
      "if": {
@@ -4285,7 +4285,7 @@
    "title": "Le rond de ciel",
    "place": "fosse",
    "text": [
-    "Tu cries. Ta voix monte le long du puits, se brise sur les parois, te revient en éclats. Tu cries ton nom, celui d'Aurèle, celui d'Hesna. Personne ne répond. Le rond de ciel bleuit, puis blanchit. Un oiseau passe en travers, très haut, et ne s'arrête pas.",
+    "Tu cries. Ta voix monte le long du puits, se brise sur les parois, te revient en éclats. Tu cries ton nom, celui d'Aurèle, celui d'Hesna. Seul l'écho revient. Le rond de ciel bleuit, puis blanchit. Un oiseau passe en travers, très haut, et ne s'arrête pas.",
     "Quand tu te tais, tu entends autre chose, loin dans la galerie. Un bruit régulier, sourd, comme de l'eau qui tombe dans de l'eau. Ou comme un cœur."
    ],
    "choices": [
@@ -4301,7 +4301,7 @@
    "place": "fosse",
    "routes": true,
    "text": [
-    "Tu allumes ta lumière. Le noir recule d'un pas, pas davantage. La galerie descend en pente douce. Ses murs portent, à intervalles réguliers, des griffures, et à côté des griffures, des flèches tracées à la suie, et à côté des flèches, d'autres flèches qui indiquent le sens opposé."
+    "Tu allumes ta lumière. Le noir recule d'un pas, un seul. La galerie descend en pente douce. Ses murs portent, à intervalles réguliers, des griffures, et à côté des griffures, des flèches tracées à la suie, et à côté des flèches, d'autres flèches qui indiquent le sens opposé."
    ],
    "choices": []
   },
@@ -4311,7 +4311,7 @@
    "place": "fosse",
    "routes": true,
    "text": [
-    "Tu reviens au fond du puits. Le rond de ciel est toujours là, inaccessible, d'un bleu de porcelaine. Les os sont toujours là aussi. Rien n'a changé, sinon que tu sais, maintenant, comment ils sont arrivés là."
+    "Tu reviens au fond du puits. Le rond de ciel est toujours là, inaccessible, d'un bleu de porcelaine. Les os sont toujours là aussi. Tout est à la même place. Mais tu sais, maintenant, comment ils sont arrivés là."
    ],
    "choices": [
     {
@@ -4344,7 +4344,7 @@
        "seen": "D_sidonie"
       }
      },
-     "text": "La galerie débouche dans une salle basse où brûle un feu très petit, qui ne fume presque pas. Tu n'as pas fait deux pas qu'une lame se pose sous ton menton, froide, ferme, tenue par quelqu'un que tu n'as pas entendu bouger.",
+     "text": "La galerie débouche dans une salle basse où brûle un feu très petit, qui ne fume presque pas. Au deuxième pas, une lame se pose sous ton menton, froide, ferme. Celui qui la tient s'est approché en silence.",
      "else": "Le feu de mousse brûle toujours au milieu du camp. Mattias tisonne le feu, ou dort, ou parle à ses mousses. Sidonie affûte quelque chose."
     },
     {
@@ -4477,7 +4477,7 @@
    "title": "Le sommeil des perdus",
    "place": "camp",
    "text": [
-    "Tu dors contre la paroi tiède. Dans le dédale, on ne rêve pas de la même façon : les rêves sont plus lents, plus clairs, comme si la pierre les filtrait. Tu rêves d'Aurèle à quinze ans, qui grave son couteau sous la table. Il lève la tête et te regarde. Il a l'air très fatigué.",
+    "Tu dors contre la paroi tiède. Dans le dédale, les rêves changent : ils sont plus lents, plus clairs, comme si la pierre les filtrait. Tu rêves d'Aurèle à quinze ans, qui grave son couteau sous la table. Il lève la tête et te regarde. Il a l'air très fatigué.",
     "Quand tu te réveilles, Mattias a remis de la mousse dans le feu. Il fredonne. Sidonie, elle, n'a pas dormi."
    ],
    "choices": [
@@ -4592,7 +4592,7 @@
    },
    "text": [
     "Mattias prend la poignée de mousse dans ses deux mains en coupe, et elle éclaire son visage par en dessous, d'un vert de lune. Il a les larmes aux yeux. « Trente ans, dit-il. Trente ans que je la vois en rêve. »",
-    "Il la pose sur une pierre, l'arrose d'une cuillerée d'eau, et pendant un long moment il ne dit rien. Puis il parle, sans te regarder, comme on se confesse.",
+    "Il la pose sur une pierre, l'arrose d'une cuillerée d'eau, et il se tait un long moment. Puis il parle, sans te regarder, comme on se confesse.",
     "« Personne ne mange les gens, ici. J'ai trouvé les os, comme toi : aucun n'est rongé. Ceux qui vont au cœur n'en reviennent pas, mais on n'entend jamais crier. Et le Gardien change. Tous les dix ou vingt ans, sa voix change, quand il chante la nuit. » Il te regarde enfin. « On ne les mange pas. On les *remplace*. Je l'ai compris il y a longtemps. Et j'ai eu peur d'aller voir, parce que j'avais peur d'avoir raison. »",
     "Puis il te dessine dans la poussière, avec son doigt, le chemin de son passage secret. « Quand tu voudras sortir. Si tu veux de moi, je viendrai. Peut-être. »"
    ],
@@ -4841,7 +4841,7 @@
    },
    "text": [
     "Les os roulent sous tes pieds avec un bruit de vaisselle. Tu avances vers l'éclat de cuivre, courbé, ta lumière tendue. Tu as fait cinq pas quand les os, devant toi, se mettent à bouger tout seuls.",
-    "Elle en émerge comme on sort de l'eau. Elle est longue, blanche, sans yeux, avec des membres trop nombreux et trop fins qui se plient dans le mauvais sens. Elle n'a pas de bouche, seulement une fente qui s'ouvre sur toute la largeur de la tête. Elle ne fait aucun bruit.",
+    "Elle en émerge comme on sort de l'eau. Elle est longue, blanche, sans yeux, avec des membres trop nombreux et trop fins qui se plient dans le mauvais sens. Pour bouche, elle a une fente qui s'ouvre sur toute la largeur de la tête. Elle est silencieuse.",
     {
      "if": {
       "present": "sidonie"
@@ -4902,12 +4902,12 @@
     "Et juste à côté :",
     "**AURÈLE**",
     "Les lettres sont larges, régulières, gravées profond, avec un soin patient. Et au bout, pour dater, un 7 barré. Tu poses tes doigts dans les creux de son nom. Tes doigts y entrent tout juste.",
-    "Après lui, les noms ne sont plus gravés : ils sont griffés, à l'ongle, comme si ceux qui les ont écrits n'avaient plus d'outils, ou plus le temps. *Hob. Une femme de Vasque. Lucas.*",
+    "Après lui, les noms sont griffés à l'ongle, par des gens privés d'outils, ou pressés. *Hob. Une femme de Vasque. Lucas.*",
     {
      "if": {
       "present": "sidonie"
      },
-     "text": "Sidonie s'agenouille devant le dernier nom. Elle ne dit rien."
+     "text": "Sidonie s'agenouille devant le dernier nom. Elle se tait."
     }
    ],
    "choices": [
@@ -4973,7 +4973,7 @@
    "routes": true,
    "text": [
     "Tu recopies. Ça prend des heures. Tu écris au charbon de bois, sur le dos de ta chemise, sur des lambeaux de tissu, sur un morceau de cuir que tu as gratté. Tu ne peux pas tout prendre : tu prends les plus récents, ceux de Kardan, et autant d'anciens que tu peux. Tu t'arrêtes quand la lumière baisse, les doigts noirs jusqu'aux poignets.",
-    "Tu ne sais pas encore à qui tu les liras. Tu sais seulement qu'il faudra les lire au grand jour, devant des gens qui écouteront."
+    "Tu trouveras bien à qui les lire. Tu sais seulement qu'il faudra les lire au grand jour, devant des gens qui écouteront."
    ],
    "choices": []
   },
@@ -5102,7 +5102,7 @@
    "place": "jardin",
    "routes": true,
    "text": [
-    "La mousse se détache par plaques, fraîche, souple, et continue de luire dans ta main comme si elle ne savait pas encore qu'on l'a cueillie. Tu l'enveloppes dans un linge humide, comme Mattias te l'a dit."
+    "La mousse se détache par plaques, fraîche, souple, et continue de luire dans ta main comme si elle se croyait encore sur la pierre. Tu l'enveloppes dans un linge humide, comme Mattias te l'a dit."
    ],
    "choices": []
   },
@@ -5328,7 +5328,7 @@
     "L'escalier débouche dans une salle ronde, haute comme une église, et il n'y fait pas noir. La lumière vient d'en bas : d'une vasque de pierre verte, large comme une table de festin, posée au centre sur un pied unique, où l'eau bouillonne doucement sans jamais déborder. Elle éclaire tout d'une lueur glauque, mouvante, comme le fond d'une rivière par beau temps. Le bruit que tu entends depuis des jours, c'est elle : un battement lent, profond, qui fait vibrer la pierre sous tes pieds.",
     "Autour de la vasque, des offrandes pourries, des pains de pierre, des fleurs séchées depuis des années. Et contre la vasque, assis par terre, adossé au pied comme on s'adosse à un arbre, quelqu'un.",
     "Il se lève. Il est grand, très maigre, vêtu de lambeaux. Ses cheveux et sa barbe ont poussé jusqu'à sa taille, blancs, ou presque blancs, et sa peau a la couleur de l'eau. Ses yeux luisent du même vert que la vasque. Une de ses mains reste posée sur la pierre, comme si elle y était collée.",
-    "Il te regarde. Il n'a pas l'air d'un monstre. Il a l'air de quelqu'un qui attend depuis très longtemps, et qui n'espère plus.",
+    "Il te regarde. Il a l'air d'un homme qui attend depuis très longtemps, et qui a cessé d'espérer.",
     "« Encore un, dit-il d'une voix enrouée, une voix qui n'a pas servi depuis des années. Bois, si tu veux. Ou va-t'en. Mais décide-toi. Je suis si fatigué. »"
    ],
    "choices": [
@@ -5388,7 +5388,7 @@
     }
    },
    "text": [
-    "Il ne bouge pas quand tu avances. Puis, au dernier moment, il bouge : plus vite que tu ne l'aurais cru possible, sans lâcher la vasque d'une main, il frappe de l'autre, et c'est comme recevoir toute l'eau d'une écluse."
+    "Il reste immobile quand tu avances. Puis, au dernier moment, il bouge : plus vite que tu ne l'aurais cru possible, sans lâcher la vasque d'une main, il frappe de l'autre, et c'est comme recevoir toute l'eau d'une écluse."
    ]
   },
   "D_coeur_apaise": {
@@ -5412,7 +5412,7 @@
      "if": {
       "has": "calme:chant"
      },
-     "text": "Tu ne sais pas pourquoi c'est cette chanson-là qui te vient. Une chanson de veillée, de chez vous, que tout le village chantait faux. Il s'arrête au deuxième vers. Au troisième, il chante avec toi, très bas, d'une voix qui n'a pas servi depuis des années."
+     "text": "C'est cette chanson-là qui te vient, et tu la laisses venir. Une chanson de veillée, de chez vous, que tout le village chantait faux. Il s'arrête au deuxième vers. Au troisième, il chante avec toi, très bas, d'une voix qui n'a pas servi depuis des années."
     },
     "Il lève les yeux. Des yeux verts, trop clairs, que tu connais.",
     "« Moineau ? »"
@@ -5527,7 +5527,7 @@
    "place": "coeur",
    "text": [
     "Tu restes debout devant la vasque. L'eau bouillonne doucement, verte, tiède, et son odeur de pierre mouillée et de printemps te monte à la tête. Il suffirait de te pencher.",
-    "Aurèle ne dit rien. Il a tenu parole : il ne te demande rien.",
+    "Aurèle se tait. Il a tenu parole : la décision est à toi.",
     {
      "if": {
       "clues": "S",
@@ -5601,7 +5601,7 @@
      "to": "D_coeur_attente"
     },
     {
-     "label": "Frapper jusqu'au bout : ce n'est plus ton frère, c'est la chose qu'ils ont faite de lui",
+     "label": "Frapper jusqu'au bout : ton frère est devenu la chose qu'ils ont faite de lui",
      "exit": true,
      "big": true,
      "fx": {
@@ -5675,7 +5675,7 @@
    },
    "text": [
     "Tu lèves ton arme. Aurèle te regarde faire. Il ne se défend pas ; il ferme les yeux, comme on les ferme au soleil.",
-    "La suite, tu ne la raconteras jamais. Ni à toi-même, ni aux autres. Il y a un bruit, et puis il y a un silence, et dans ce silence la Source cesse de battre. Ce n'est pas un ralentissement : c'est un arrêt, net, comme une porte qu'on ferme. La lumière verte de la vasque baisse, baisse, et s'éteint.",
+    "La suite, tu ne la raconteras jamais. Ni à toi-même, ni aux autres. Il y a un bruit, et puis il y a un silence, et dans ce silence la Source cesse de battre. C'est un arrêt, net, comme une porte qu'on ferme. La lumière verte de la vasque baisse, baisse, et s'éteint.",
     "Dans le noir, tu tiens ton frère contre toi. Il est léger. Il sourit. Tu ne sais pas si c'est à toi, ou à la délivrance.",
     {
      "if": {
@@ -6097,7 +6097,7 @@
    "act": "II",
    "title": "Le noir",
    "text": [
-    "La flamme meurt. Tu restes dans le noir absolu pendant ce qui pourrait être une heure, ou trois, à tâtonner, à te cogner, à essayer de rallumer avec des doigts qui tremblent. Quand la flamme revient enfin, tu as les genoux en sang et tu ne sais plus d'où tu venais."
+    "La flamme meurt. Tu restes dans le noir absolu pendant ce qui pourrait être une heure, ou trois, à tâtonner, à te cogner, à essayer de rallumer avec des doigts qui tremblent. Quand la flamme revient enfin, tu as les genoux en sang et tu as perdu ta direction."
    ],
    "choices": [
     {
@@ -6143,7 +6143,7 @@
    "title": "La silhouette",
    "text": [
     "Tu attends dans le noir, sans respirer. Les pas approchent et s'arrêtent tout près de toi. Tu sens une odeur d'eau, de pierre mouillée, de printemps. Tu entends une respiration rauque.",
-    "Tu démasques ta lumière d'un coup. Une silhouette maigre, très grande, aux cheveux blancs qui lui tombent jusqu'aux reins, recule en se protégeant les yeux, et s'enfuit dans la galerie à une vitesse incroyable, sans un bruit. Tu as eu le temps de voir une chose : elle tendait la main vers toi. Pas pour frapper. Comme on tend la main vers quelqu'un qu'on croit reconnaître."
+    "Tu démasques ta lumière d'un coup. Une silhouette maigre, très grande, aux cheveux blancs qui lui tombent jusqu'aux reins, recule en se protégeant les yeux, et s'enfuit dans la galerie à une vitesse incroyable, en silence. Tu as eu le temps de voir une chose : elle tendait la main vers toi. Pas pour frapper. Comme on tend la main vers quelqu'un qu'on croit reconnaître."
    ],
    "choices": [
     {
@@ -6184,7 +6184,7 @@
      "if": {
       "present": "odon"
      },
-     "text": "Odon s'est arrêté net. « Vous avez entendu ? » Tu fais signe que non. Tu mens. Tu ne sais pas pourquoi."
+     "text": "Odon s'est arrêté net. « Vous avez entendu ? » Tu fais signe que non. Tu mens. La raison t'échappe."
     }
    ],
    "choices": [
@@ -6330,7 +6330,7 @@
      "else": "Aurèle s'endort contre la vasque, la tête sur tes genoux, et il ne se réveille pas. Il a l'air d'un enfant qui a trop couru. Tu le gardes contre toi longtemps. Puis tu le confies à ceux qui sont avec toi, pour qu'ils le remontent au jour."
     },
     "Toi, tu restes. Tu tiens l'eau de Kardan. Tu sens chaque canal, chaque puits, chaque racine qui boit, là-haut, comme on sent ses propres doigts. Tu sens la fontaine de la place déborder, et les enfants qui y trempent les mains, et les femmes qui y lavent le linge en riant.",
-    "Ils ne savent pas que c'est toi. Ils ne le sauront jamais, à moins que quelqu'un ne remonte le leur dire. Tu les entends chanter, une fois par an, à la Lune sèche. Ils chantent pour le Gardien. Ils chantent pour toi.",
+    "Ils ignorent que c'est toi. Ils l'ignoreront toujours, à moins que quelqu'un ne remonte le leur dire. Tu les entends chanter, une fois par an, à la Lune sèche. Ils chantent pour le Gardien. Ils chantent pour toi.",
     "Dans quelques années, un étranger tombera dans la Fosse. Tu l'attendras. Tu ne sais pas encore ce que tu lui diras.",
     "—",
     {
@@ -6505,7 +6505,7 @@
      "if": {
       "gone": "odon"
      },
-     "text": "Frère Odon vous a quittés en chemin. Tu ne sais pas où il marche. Tu espères qu'il a trouvé quelqu'un avec qui partager son pain."
+     "text": "Frère Odon vous a quittés en chemin. Tu ignores où il marche. Tu espères qu'il a trouvé quelqu'un avec qui partager son pain."
     }
    ]
   },
@@ -6534,7 +6534,7 @@
        }
       ]
      },
-     "text": "Aurèle s'est assis dans l'herbe, les jambes étendues, les mains à plat sur la terre. Il ne dit rien. Il regarde le ciel s'éclaircir, et des larmes coulent sur son visage sans qu'il ait l'air de s'en apercevoir."
+     "text": "Aurèle s'est assis dans l'herbe, les jambes étendues, les mains à plat sur la terre. Il se tait. Il regarde le ciel s'éclaircir, et des larmes coulent sur son visage sans qu'il ait l'air de s'en apercevoir."
     },
     {
      "if": {
@@ -6579,7 +6579,7 @@
      },
      "text": "Odon secoue la tête. « Ou alors on descend, et on parle. À Hesna, à Oriel, à l'enfant. À l'Aïeule. On découvre pourquoi. Et on les réunit tous à la fontaine, au jour, et on leur dit ce qu'ils ont fait. Ça fait plus mal que le feu, parfois. Et ça dure plus longtemps. »"
     },
-    "La route du nord, elle, part du bas de la colline et file vers les montagnes, droite, blanche sous la lune. Personne ne t'empêche de la prendre."
+    "La route du nord, elle, part du bas de la colline et file vers les montagnes, droite, blanche sous la lune. Tu es libre de la prendre."
    ],
    "choices": [
     {
@@ -7259,7 +7259,7 @@
    "title": "L'assemblée à la fontaine",
    "place": "kardan",
    "text": [
-    "Ils viennent tous. Tu ne sais pas comment la nouvelle a couru, mais quand le soleil touche la place, tout Kardan est là, autour de la fontaine verte : soixante personnes, les mêmes qu'au banquet, sans les lampes et sans le vin. Bastien et ses miliciens au premier rang, la lance au pied. L'Aïeule sur le seuil de sa maison, là-haut, debout.",
+    "Ils viennent tous. La nouvelle a couru toute seule : quand le soleil touche la place, tout Kardan est là, autour de la fontaine verte : soixante personnes, les mêmes qu'au banquet, moins les lampes et le vin. Bastien et ses miliciens au premier rang, la lance au pied. L'Aïeule sur le seuil de sa maison, là-haut, debout.",
     "Tu montes sur la margelle. Tu parles.",
     {
      "if": {
@@ -7295,7 +7295,7 @@
      "if": {
       "has": "hesna:alliee"
      },
-     "text": "Hesna verse à boire à tout le monde, une cruche après l'autre, sans rien dire. Puis elle pose la cruche et dit : « C'est moi qui leur servais la tasse. À tous. »"
+     "text": "Hesna verse à boire à tout le monde, une cruche après l'autre, en silence. Puis elle pose la cruche et dit : « C'est moi qui leur servais la tasse. À tous. »"
     },
     {
      "if": {
@@ -7440,7 +7440,7 @@
    "title": "Le silence de la place",
    "place": "kardan",
    "text": [
-    "Personne ne répond. Puis quelqu'un, au fond, crie : *menteur*. Puis un autre. Ils ont trop à perdre à te croire. Bastien fait un pas, sa lance en avant, et ses hommes le suivent, et la foule s'ouvre devant eux.",
+    "La place se tait. Puis quelqu'un, au fond, crie : *menteur*. Puis un autre. Ils ont trop à perdre à te croire. Bastien fait un pas, sa lance en avant, et ses hommes le suivent, et la foule s'ouvre devant eux.",
     "Il faut partir. Maintenant."
    ],
    "choices": [
@@ -7611,7 +7611,7 @@
    "title": "La maison de l'Aïeule",
    "place": "kardan",
    "text": [
-    "Tu montes à la maison de l'Aïeule à grandes enjambées, ton arme à la main. La porte est ouverte. Maève est assise devant son métier, et elle ne bouge pas en te voyant. Elle t'attendait.",
+    "Tu montes à la maison de l'Aïeule à grandes enjambées, ton arme à la main. La porte est ouverte. Maève est assise devant son métier, et elle reste immobile en te voyant. Elle t'attendait.",
     "Mais entre elle et toi, il y a Tobie. Il a écarté les bras, comme on le fait pour arrêter une chèvre. Il tremble de tout son corps. « Non, dit-il. Non. C'est ma grand-mère. »"
    ],
    "choices": [
@@ -7644,7 +7644,7 @@
    "place": "kardan",
    "text": [
     "Tu l'écartes. Il tombe contre le coffre, sa tête cogne le bois, et il ne se relève pas tout de suite. Maève se lève. Elle passe devant toi pour aller à lui, et tu la laisses, et puis tu la prends par le bras. Elle ne résiste pas. Elle est légère comme un fagot.",
-    "Tu la fais descendre jusqu'à la place, le couteau sous son menton. Elle ne dit pas un mot. Le village vous regarde passer en silence. Tobie s'est relevé, sur le seuil, la main sur la tête. Il ne pleure pas. Il te regarde."
+    "Tu la fais descendre jusqu'à la place, le couteau sous son menton. Elle se tait. Le village vous regarde passer en silence. Tobie s'est relevé, sur le seuil, la main sur la tête. Il ne pleure pas. Il te regarde."
    ],
    "choices": [
     {
@@ -7698,7 +7698,7 @@
     }
    },
    "text": [
-    "Bastien t'attend devant la porte de la colline, avec ses hommes, la lance basse. Il n'a pas peur, ou il ne le montre pas. « Je savais qu'il en reviendrait un, un jour, dit-il. Je l'ai toujours su. » Il assure sa prise. « Viens. Qu'on en finisse. »"
+    "Bastien t'attend devant la porte de la colline, avec ses hommes, la lance basse. S'il a peur, il le cache bien. « Je savais qu'il en reviendrait un, un jour, dit-il. Je l'ai toujours su. » Il assure sa prise. « Viens. Qu'on en finisse. »"
    ]
   },
   "B_aurele_maison": {
@@ -7741,7 +7741,7 @@
     ]
    },
    "text": [
-    "Ils boivent. Pas tous en même temps, pas tous de bon cœur. L'Aïeule descend la première, et elle boit à la fontaine devant tout le village, à longues gorgées, les yeux fermés. Puis Tobie. Puis Oriel. Puis Bastien, après un long moment, en posant sa lance contre le platane. Puis tous les autres, en file, comme on va à la communion.",
+    "Ils boivent. Chacun à son heure, certains à contrecœur. L'Aïeule descend la première, et elle boit à la fontaine devant tout le village, à longues gorgées, les yeux fermés. Puis Tobie. Puis Oriel. Puis Bastien, après un long moment, en posant sa lance contre le platane. Puis tous les autres, en file, comme on va à la communion.",
     "Chacun d'eux, en se redressant, porte une main à sa poitrine. Ils sentent le lien. Une part, minuscule, à peine plus lourde qu'une pièce dans une poche. Mille porteurs ne s'usent pas.",
     "Sous la colline, la Source bat plus doucement, plus amplement, comme un cœur qui se détend. L'eau de Kardan coule toujours. Elle coule même un peu plus loin qu'avant : le printemps suivant, les puits du hameau sec se remettent à suinter.",
     "On n'envoie plus d'étrangers dans le dédale. La fête de la Lune sèche existe toujours ; on y boit tous à la fontaine, une fois l'an, en disant à voix haute ce qu'on boit. Les étrangers qui passent sont invités à boire aussi. Certains le font.",
@@ -7918,7 +7918,7 @@
      "if": {
       "gone": "odon"
      },
-     "text": "Frère Odon vous a quittés en chemin. Tu ne sais pas où il marche. Tu espères qu'il a trouvé quelqu'un avec qui partager son pain."
+     "text": "Frère Odon vous a quittés en chemin. Tu ignores où il marche. Tu espères qu'il a trouvé quelqu'un avec qui partager son pain."
     }
    ]
   },
@@ -8112,7 +8112,7 @@
      "if": {
       "gone": "odon"
      },
-     "text": "Frère Odon vous a quittés en chemin. Tu ne sais pas où il marche. Tu espères qu'il a trouvé quelqu'un avec qui partager son pain."
+     "text": "Frère Odon vous a quittés en chemin. Tu ignores où il marche. Tu espères qu'il a trouvé quelqu'un avec qui partager son pain."
     }
    ]
   },
@@ -8143,7 +8143,7 @@
      "if": {
       "present": "aurele"
      },
-     "text": "Aurèle est vivant. Il est vieux avant l'âge, il a les cheveux blancs et la peau couleur d'eau, mais il est vivant, et il rit de nouveau, pas souvent."
+     "text": "Aurèle est vivant. Il est vieux avant l'âge, il a les cheveux blancs et la peau couleur d'eau, mais il est vivant, et il rit de nouveau, de loin en loin."
     },
     "—",
     {
@@ -8318,7 +8318,7 @@
      "if": {
       "gone": "odon"
      },
-     "text": "Frère Odon vous a quittés en chemin. Tu ne sais pas où il marche. Tu espères qu'il a trouvé quelqu'un avec qui partager son pain."
+     "text": "Frère Odon vous a quittés en chemin. Tu ignores où il marche. Tu espères qu'il a trouvé quelqu'un avec qui partager son pain."
     }
    ]
   },
@@ -8384,7 +8384,7 @@
        }
       ]
      },
-     "text": "Aurèle marche à tes côtés sur la route du nord. Il ne se retourne pas vers la fumée. Il ne parle pas de Kardan, jamais, et quand on lui demande d'où lui vient la couleur de sa peau, il dit : d'une source."
+     "text": "Aurèle marche à tes côtés sur la route du nord. Il ne se retourne pas vers la fumée. Il se tait sur Kardan, et quand on lui demande d'où lui vient la couleur de sa peau, il dit : d'une source."
     },
     {
      "if": {
@@ -8533,13 +8533,13 @@
        }
       ]
      },
-     "text": "Frère Odon ne t'a pas suivi. Il est resté dans les cendres de Kardan, à partager son pain avec ceux qui n'avaient plus de maison. Il t'a regardé partir sans rien dire, et c'était pire que tout ce qu'il aurait pu dire."
+     "text": "Frère Odon ne t'a pas suivi. Il est resté dans les cendres de Kardan, à partager son pain avec ceux qui n'avaient plus de maison. Il t'a regardé partir en silence, et ce silence pesait plus que des reproches."
     },
     {
      "if": {
       "gone": "odon"
      },
-     "text": "Frère Odon vous a quittés en chemin. Tu ne sais pas où il marche. Tu espères qu'il a trouvé quelqu'un avec qui partager son pain."
+     "text": "Frère Odon vous a quittés en chemin. Tu ignores où il marche. Tu espères qu'il a trouvé quelqu'un avec qui partager son pain."
     }
    ]
   },
@@ -8568,7 +8568,7 @@
        }
       ]
      },
-     "text": "Aurèle marche à côté de toi, lentement, en s'appuyant sur ton épaule. Il ne se retourne pas. « Ils trouveront quelqu'un d'autre, dit-il au bout d'une lieue. Un autre étranger. Ils trouvent toujours. » Tu ne réponds pas. Tu n'as pas de réponse."
+     "text": "Aurèle marche à côté de toi, lentement, en s'appuyant sur ton épaule. Il ne se retourne pas. « Ils trouveront quelqu'un d'autre, dit-il au bout d'une lieue. Un autre étranger. Ils trouvent toujours. » Tu te tais, faute de réponse."
     },
     {
      "if": {
@@ -8757,7 +8757,7 @@
      "if": {
       "gone": "odon"
      },
-     "text": "Frère Odon vous a quittés en chemin. Tu ne sais pas où il marche. Tu espères qu'il a trouvé quelqu'un avec qui partager son pain."
+     "text": "Frère Odon vous a quittés en chemin. Tu ignores où il marche. Tu espères qu'il a trouvé quelqu'un avec qui partager son pain."
     }
    ]
   }
