@@ -1135,7 +1135,7 @@ Object.assign(P, {
 var PANO = [
   { if: { has: "grauk:vivant" }, text: "Là-bas, à l'ouest, sur sa crête, le château des trolls : de la fumée monte de ses cheminées rafistolées. Grauk y règne toujours, gros et vieux, et ne descend toujours pas à ses caves.", else: "Là-bas, à l'ouest, sur sa crête, le château des trolls, sans une fumée. Les trolls l'ont quitté après la mort de leur roi. Les corbeaux l'habitent." },
   { if: { has: "durn:marteau" }, text: "Plus bas, aux Trois-Bornes, une étincelle rouge dans le gris : la forge de Durn, qui bat encore, avec son marteau à manche de frêne." },
-  { if: { is: { aglae: ["libre", "ramenee"] } }, text: "Et la fumée de la Lanterne éteinte, où Aglaé fait la cuisine pour Mère Ternes, et ne parle jamais des deux hivers d'avant." },
+  { if: { is: { aglae: ["libre", "ramenee"] } }, text: "Et la fumée de la Lanterne éteinte, aux Trois-Bornes. Aglaé a retrouvé une cuisine à elle, quelque part là-dessous, et ne parle jamais des deux hivers d'avant." },
   { if: { has: "puits:clair" }, text: "La Sorbe, en bas, est grise sur toute sa longueur. Sauf autour de Brumefeuille, où une tache d'eau claire s'obstine : le puits que tu as rendu, et que la souillure contourne comme un caillou dans un courant.", else: "La Sorbe, en bas, est grise sur toute sa longueur, et Brumefeuille, au bord des marais, n'est plus qu'un amas de toits sans fumée." },
   { if: { is: { berthe: "pendue" } }, text: "Au bord de l'eau, la petite maison de Berthe a perdu son toit. Personne ne l'a reprise." },
   { if: { given: "clou" }, text: "Au nord, sous sa fumée éternelle, Ferrance. La Forge-Mère y garde le Clou de Hildre, et ses feux, vus d'ici, font une lueur rouge sous les nuages." },

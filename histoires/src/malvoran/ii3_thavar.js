@@ -735,7 +735,7 @@ Object.assign(P, {
     choices: [
       { label: "L'éclat de la pierre fendue", hide: { not: { item: "eclat" } }, tag: "Marque −1", fx: { drop: "eclat", mark: -1, set: { iit_don: "eclat" }, ep: ["seance", 2500] }, to: "IIT_gisant_ouvert" },
       { label: "La dague qui ne t'a jamais quitté{e}", hide: { not: { item: "dague" } }, fx: { drop: "dague", set: { iit_don: "dague" }, ep: ["seance", 1500] }, to: "IIT_gisant_ouvert" },
-      { label: "La lettre de ton maître", hide: { not: { item: "lettre" } }, fx: { drop: "lettre", set: { iit_don: "lettre" }, ep: ["seance", 2000] }, to: "IIT_gisant_ouvert" },
+      { label: "La lettre de ta maîtresse", hide: { not: { item: "lettre" } }, fx: { drop: "lettre", set: { iit_don: "lettre" }, ep: ["seance", 2000] }, to: "IIT_gisant_ouvert" },
       { label: "Une poignée de sous", if: { gold: { min: 5 } }, why: "Tu n'as même pas cinq sous.", fx: { gold: -5 }, to: "IIT_gisant_argent" },
       { back: "IIT_gisant" },
     ] },
@@ -750,7 +750,7 @@ Object.assign(P, {
     text: [
       { if: { is: { iit_don: "eclat" } }, text: "Tu poses l'éclat dans la main de pierre. Il bat encore un instant, comme un cœur de moineau, et tu sens la Voix, quelque part, très loin, retenir son souffle. Puis il s'éteint. Ce n'est plus qu'un caillou noir dans une paume grise. Ta propre paume te fait mal, un mal propre, comme une plaie qu'on lave, et quand tu la regardes, la tache a pâli d'un ton." },
       { if: { is: { iit_don: "dague" } }, text: "Tu poses ta dague dans la main de pierre, la poignée vers le vieux Thavar, comme on rend une arme à un capitaine. Elle t'a suivi{e} partout, celle-là. Elle a coupé ton pain et tes cordes, elle t'a gardé{e} la nuit sous ton oreiller. Tu la laisses." },
-      { if: { is: { iit_don: "lettre" } }, text: "Tu déplies une dernière fois la lettre de ton maître, tu la relis à la lueur de la lanterne, et tu la poses dans la main de pierre. *Ne prends rien que tu ne saurais rendre.* Tu ne sais pas si c'est ce qu'on voulait dire. C'est ce que tu fais." },
+      { if: { is: { iit_don: "lettre" } }, text: "Tu déplies une dernière fois la lettre de ta maîtresse, tu la relis à la lueur de la lanterne, et tu la poses dans la main de pierre. *Ne prends rien que tu ne saurais rendre.* Tu ne sais pas si c'est ce qu'on voulait dire. C'est ce que tu fais." },
       "Pendant un long moment, rien. Puis un craquement très doux, comme de la glace qui fond au printemps, et le poing droit de Thavar se desserre, doigt après doigt, lentement, avec une sorte de lassitude. La paume s'ouvre. L'anneau est là, posé au creux, comme une graine.",
       { with: "thavary", text: "Thavary a monté les marches sans s'en rendre compte. Elle regarde la main ouverte, puis la main vide, qui ne l'est plus. « Il voulait qu'on lui donne quelque chose, dit-elle tout bas. Pas qu'on lui prenne. Quatre cents ans qu'on venait lui prendre. »" },
     ],
@@ -1095,7 +1095,7 @@ Object.assign(P, {
       { if: { has: "maitre:ortie" }, text: "Tu reconnais l'écriture avant d'avoir brisé le cachet : les lettres rondes et penchées d'Ortie, qui écrivait comme elle étiquetait ses pots, avec un petit rond à la place des points sur les *i*." },
       { if: { has: "maitre:maelle" }, text: "Tu reconnais l'écriture avant d'avoir brisé le cachet : la fine écriture de cartographe de Maëlle Vautrin, si serrée qu'elle en devient presque illisible, avec ses majuscules ornées qu'elle ne pouvait pas s'empêcher de dessiner." },
       "*Je suis vivante. Ne crois pas ce qu'on te dira de moi. Je suis à la Gorge-Blanche, à la cabane du passeur, au-dessus du torrent, à une journée au nord. Viens, et apporte ce que tu as trouvé : les clés ne sont plus en sûreté nulle part, et l'Ordre sait des choses qu'il ne t'a pas dites. Ne lui montre pas cette lettre. Viens vite. Viens.*",
-      { if: { has: "maitre:disparu" }, text: "La dernière trace de ton maître s'arrêtait à la chapelle noyée de Saint-Ivo : un bâton, une sacoche, et l'eau du lac. Tu tiens la lettre à deux mains, et elles tremblent." },
+      { if: { has: "maitre:disparu" }, text: "La dernière trace de ta maîtresse s'arrêtait à la chapelle noyée de Saint-Ivo : un bâton, une sacoche, et l'eau du lac. Tu tiens la lettre à deux mains, et elles tremblent." },
     ],
     choices: [
       { label: "Examiner la lettre de près", hide: { seen: "IIE_lettre" }, to: "IIE_lettre" },
@@ -1104,7 +1104,7 @@ Object.assign(P, {
   IIE_lettre: { act: "II", title: "L'écriture", place: "commanderie",
     text: [
       "Tu poses la lettre à plat sur la table du réfectoire, près de la fenêtre, et tu la regardes comme on regarde une carte, ligne après ligne.",
-      { outcome: "win", text: "Et tu le vois. Les lettres sont parfaites. Trop parfaites : chaque *t* est barré exactement de la même longueur, chaque boucle a exactement la même rondeur, ce que la main d'une personne vivante ne fait jamais, surtout quand elle écrit vite. C'est l'écriture qu'on obtient quand on recopie une lettre lentement, en la regardant, comme on apprend aux copistes du Cercle. L'encre aussi est trop noire, une encre de bibliothèque. Quelqu'un a imité ton maître, et l'a très bien fait. Quelqu'un sait que tu viendras quand même." },
+      { outcome: "win", text: "Et tu le vois. Les lettres sont parfaites. Trop parfaites : chaque *t* est barré exactement de la même longueur, chaque boucle a exactement la même rondeur, ce que la main d'une personne vivante ne fait jamais, surtout quand elle écrit vite. C'est l'écriture qu'on obtient quand on recopie une lettre lentement, en la regardant, comme on apprend aux copistes du Cercle. L'encre aussi est trop noire, une encre de bibliothèque. Quelqu'un a imité ta maîtresse, et l'a très bien fait. Quelqu'un sait que tu viendras quand même." },
       { outcome: "lose", text: "C'est son écriture. Tu la connais par cœur. Tu cherches une faute, un mot qui sonne faux, et tu n'en trouves pas, ou tu en trouves partout, selon que tu as envie d'y croire ou peur d'y croire. Tu replies la lettre. Tu ne sais pas. Tu sais seulement que tu iras." },
       { with: "charline", text: "Charline Hildrand regarde la lettre par-dessus ton épaule. « Encre de galle, dit-elle, coupée de suie. Celle de l'Athénée. Je l'ai assez renversée pour la reconnaître. »" },
     ],
@@ -1114,7 +1114,7 @@ Object.assign(P, {
     ] },
   IIE_lettre_fin: { act: "II", title: "L'écriture", place: "commanderie",
     text: [
-      { if: { has: "iie:averti" }, text: "Une fausse lettre. Un piège, donc, tendu par quelqu'un qui connaît ton maître, ses mots, sa main, et qui sait ce que tu portes. Tu replies le papier et tu le glisses dans ta ceinture. Tu iras quand même : on ne sait jamais ce qu'on trouve au fond d'un piège. Mais tu iras les yeux ouverts.", else: "Tu replies la lettre et tu la glisses dans ta ceinture. Vraie ou fausse, elle t'appelle, et tu sais que tu iras." },
+      { if: { has: "iie:averti" }, text: "Une fausse lettre. Un piège, donc, tendu par quelqu'un qui connaît ta maîtresse, ses mots, sa main, et qui sait ce que tu portes. Tu replies le papier et tu le glisses dans ta ceinture. Tu iras quand même : on ne sait jamais ce qu'on trouve au fond d'un piège. Mais tu iras les yeux ouverts.", else: "Tu replies la lettre et tu la glisses dans ta ceinture. Vraie ou fausse, elle t'appelle, et tu sais que tu iras." },
       { with: "thavary", text: "Thavary boucle déjà son baudrier. « La Gorge-Blanche, dit-elle. Je connais. Un défilé, un torrent, un pont de cordes, et des rochers partout où l'on voudrait cacher des arbalétriers. Si je voulais prendre quelqu'un, c'est là que je l'attendrais. » Elle vérifie son épée. « Allons-y. »" },
     ],
     choices: [{ label: "Partir pour la Gorge-Blanche", big: true, to: "IIE_route" }] },
@@ -1336,7 +1336,7 @@ module.exports = {
       iit_coupe: { name: "La coupe de la dame Aude", kind: "quete", desc: "Une coupe d'argent noirci, ciselée de fleurs de pommier, au pied en forme de main ouverte. L'argenterie des morts de Thavar." },
       iit_terrier: { name: "Le terrier de Thavar", kind: "document", desc: "Le grand livre des terres de la maison de Thavar, refait en l'an 350, avec sa carte peinte.",
         text: "Une carte des terres de Thavar, champ par champ. Au bas du verger, la limite passe au ruisseau, et les trois bornes y sont dessinées d'une petite main rouge. En marge : « La borne de Thavar, à la main et à l'anneau, est la plus vieille du domaine. Qui la déplace déplace la maison. »" },
-      iie_lettre: { name: "La lettre de la Gorge-Blanche", kind: "document", desc: "Une lettre dans l'écriture de ton maître, apportée par un gamin des fermes.",
+      iie_lettre: { name: "La lettre de la Gorge-Blanche", kind: "document", desc: "Une lettre dans l'écriture de ta maîtresse, apportée par un gamin des fermes.",
         text: "« Je suis vivante. Ne crois pas ce qu'on te dira de moi. Je suis à la Gorge-Blanche, à la cabane du passeur, au-dessus du torrent, à une journée au nord. Viens, et apporte ce que tu as trouvé : les clés ne sont plus en sûreté nulle part, et l'Ordre sait des choses qu'il ne t'a pas dites. Ne lui montre pas cette lettre. Viens vite. Viens. »" },
     },
     enemies: {

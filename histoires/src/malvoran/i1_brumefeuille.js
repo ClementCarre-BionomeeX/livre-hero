@@ -453,7 +453,7 @@ var passages = {
       { if: { has: "passe:aide" }, text: "Tu connais ce silence. C'était le même à Saint-Gilles-des-Prés, il y a sept ans, la semaine où le temple s'est rempli. Tu te souviens du poids des malades sur ton dos. Tes épaules s'en souviennent mieux que toi." },
       { if: { has: "passe:fui" }, text: "Tu connais ce silence. C'était le même à Saint-Gilles-des-Prés, il y a sept ans, la veille du jour où tu es parti{e}. Tu sens monter en toi la vieille envie de faire demi-tour. Tu ne la suis pas. Pas cette fois." },
       { if: { has: "passe:profite" }, text: "Tu connais ce silence. C'était le même à Saint-Gilles-des-Prés, il y a sept ans, quand tu passais de porte en porte avec ta bourse et tes actes de vente tout prêts. Tu regardes l'homme gras aux tonneaux, et tu détournes les yeux avant lui." },
-      "L'homme gras lève la tête, te voit, et te fait un grand sourire par-dessus la file. « Un voyageur ! dit-il. Bienvenue à Brumefeuille. Gilles Charron, maire et marchand de grain. Si vous avez soif, c'est trois sous le seau, et c'est la seule eau propre à dix lieues. » Les femmes de la file ne disent rien.",
+      "L'homme gras lève la tête, te voit, et te fait un grand sourire par-dessus la file. « De la visite ! dit-il. Bienvenue à Brumefeuille. Gilles Charron, maire et marchand de grain. Si vous avez soif, c'est trois sous le seau, et c'est la seule eau propre à dix lieues. » Les femmes de la file ne disent rien.",
     ],
     choices: [{ label: "Entrer dans le village", big: true, to: "I_hub" }] },
 

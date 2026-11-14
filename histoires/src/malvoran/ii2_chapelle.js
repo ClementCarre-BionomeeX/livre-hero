@@ -289,7 +289,7 @@ Object.assign(P, {
       "On parle des anguilles grises. On parle de la commanderie, qui envoie toujours son collecteur pour la dîme du poisson, alors que la moitié des barques sont au fond. On parle de l'eau, à mots couverts : « elle a encore pris un pied au cimetière », « la Berlinde a entendu chanter mardi ». Personne ne dit *les moines*. On dit *eux*, *là-bas*, *ceux de la chapelle*.",
       "Et puis un pêcheur, plus ivre que les autres, lève son pot vers la porte : « À frère Aubin, qui a eu la bonne idée de venir boire avec nous ce soir-là ! Le seul de la bande qui a su choisir sa paroisse ! » Il rit seul. Un autre lui pose la main sur le bras. La jeune femme au nourrisson a laissé tomber une cuillère, l'a ramassée, et elle est passée dans l'arrière-salle sans se retourner.",
       { if: { has: "meunier=livre" }, text: "À la table voisine, un marchand de sel raconte qu'à Brumefeuille, sur la Sorbe, on a livré le meunier à la justice de la Main. « Il versait du poison dans le puits, à ce qu'il paraît. Pour sa fille morte. » Les pêcheurs se taisent, et l'un d'eux regarde le lac par la fenêtre." },
-      { if: { has: "meunier=protege" }, text: "Un marchand de sel qui descend de la Sorbe raconte qu'à Brumefeuille, le meunier qui avait souillé le puits est toujours à son moulin. « Il paraît qu'un voyageur a réglé ça entre quatre yeux. Personne n'a été pendu. C'est rare. Je ne sais pas si c'est bien. »" },
+      { if: { has: "meunier=protege" }, text: "Un marchand de sel qui descend de la Sorbe raconte qu'à Brumefeuille, le meunier qui avait souillé le puits est toujours à son moulin. « Il paraît que quelqu'un de passage a réglé ça entre quatre yeux. Personne n'a été pendu. C'est rare. Je ne sais pas si c'est bien. »" },
       { if: { has: "puits:clair" }, text: "« En tout cas, l'eau du puits est redevenue claire, là-bas, ajoute-t-il. J'en ai bu. » Un des pêcheurs le regarde comme on regarde un homme qui raconte un miracle, avec envie et sans y croire." },
       { if: { has: "berthe=pendue" }, text: "Le marchand de sel dit aussi qu'on a pendu une vieille, là-bas, pour sorcellerie. Il le dit en haussant les épaules. Une des vieilles aux oignons s'arrête d'éplucher, et le regarde jusqu'à ce qu'il baisse les yeux." },
       { if: { has: "grauk:vivant" }, text: "Quelqu'un dit qu'on a vu des trolls descendre de la crête des Trois-Bornes, au marché de la Saint-Luc, avec des peaux à vendre, et qu'ils ont payé. On rit. Personne ne le croit tout à fait." },
@@ -1304,7 +1304,7 @@ module.exports = {
       iic_chapelet: { name: "Le chapelet de frère Benoît", kind: "quete", desc: "Un chapelet de buis noirci, tiré du lac par les pêcheurs de Morteau. Une petite main de plomb au bout, un prénom gratté au couteau." },
       iic_cloche_fausse: { name: "Une cloche de colporteur", kind: "outil", price: 5, desc: "Une petite cloche de bronze verdi, avec un battant et une marque de fondeur de Ferrance. Anselme jurait que c'était celle de saint Ivo." },
       iic_plan_moutier: { name: "Le plan du moutier de Saint-Ivo", kind: "document", desc: "Un vieux plan recopié pour un évêque : la nef, le cloître, la crypte, et un escalier en pointillé « par l'ossuaire »." },
-      iic_sacoche: { name: "La sacoche de ton maître", kind: "document", keep: true, desc: "Trouvée sur la tribune de la nef noyée, avec son bâton.",
+      iic_sacoche: { name: "La sacoche de ta maîtresse", kind: "document", keep: true, desc: "Trouvée sur la tribune de la nef noyée, avec son bâton.",
         text: "« Le lac a monté d'un coup, la nuit du 9 des Brumes. Pas de pluie. Pas de crue en amont. L'eau vient d'en dessous. Je descends ce soir. Si je ne remonte pas, »" },
     },
     enemies: {
@@ -1312,7 +1312,7 @@ module.exports = {
       iic_prieur: { name: "Le prieur noyé", look: "humain", pv: 60, att: 55, def: 20, dmg: 7, desc: "Un vieil homme mort qui tient une cloche sur ses genoux et ne la lâche pas. Il demande qui veille." },
     },
     clues: {
-      i_maitre_chapelle: { rev: "V", text: "Sur la tribune de la nef noyée de Saint-Ivo, le bâton et la sacoche de ton maître. Le carnet s'arrête au milieu d'une phrase : « Je descends ce soir. Si je ne remonte pas, ». Aucune trace ne repart vers le portail." },
+      i_maitre_chapelle: { rev: "V", text: "Sur la tribune de la nef noyée de Saint-Ivo, le bâton et la sacoche de ta maîtresse. Le carnet s'arrête au milieu d'une phrase : « Je descends ce soir. Si je ne remonte pas, ». Aucune trace ne repart vers le portail." },
     },
     quests: [
       { id: "II_ida", act: "II", kind: "annexe", title: "La femme de la taverne", start: "IIC_taverne", echo: ["ida=dit", "ida=tu", "ida=elle"] },

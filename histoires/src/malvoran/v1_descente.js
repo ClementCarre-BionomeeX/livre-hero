@@ -1385,11 +1385,11 @@ Object.assign(P, {
     text: [
       "Ardhal déplie son cou, lentement, et pose sa tête sur la glace devant toi, si près que son souffle te réchauffe le visage. Il est blanc, entièrement, les écailles lisses et propres comme de la neige fraîche. Le noir qui le rongeait, au glacier, a disparu. Il sent la pierre froide et le ciel.",
       "« Te voilà au bout, dit-il, et sa voix est un grondement qui fait trembler la glace sous tes pieds. Il y a quatre cents ans, j'étais là-haut, couché sur la glace, quand ils ont fermé la porte sur lui. Ils m'ont demandé de garder la montagne. Je l'ai gardée. Je savais ce qu'il y avait dessous. » Il ferme à demi les yeux. « C'est la chose dont j'ai le plus honte, de toute ma longue vie. Avoir su, et gardé. »",
-      "« Mon souffle est à toi. Ce que tu choisiras, en bas, il le fera. Geler, si tu dois geler. Réchauffer, si tu dois réchauffer. Je ne choisirai pas pour toi. J'ai assez choisi en me taisant. »",
+      "« Mon souffle est à toi, et le feu blanc qui dort dessous. Ce que tu choisiras, en bas, il le fera. Brûler, si tu dois brûler. Réchauffer, si tu dois réchauffer. Je ne choisirai pas pour toi. J'ai assez choisi en me taisant. »",
     ],
     choices: [
       { label: "« Qu'est-ce que tu as vu, ce jour-là ? »", hide: { seen: "VE_glacier_ardhal_parle" }, to: "VE_glacier_ardhal_parle" },
-      { label: "Accepter son souffle", big: true, fx: { flag: ["V:dragon_fait", "V:ardhal_feu", "ardhal:allie"], ep: ["histoire", 5000], conf: { pip: 5, gloup: 5 } }, back: "VE_glacier" },
+      { label: "Accepter son feu", big: true, fx: { flag: ["V:dragon_fait", "V:ardhal_feu", "ardhal:allie"], ep: ["histoire", 5000], conf: { pip: 5, gloup: 5 } }, back: "VE_glacier" },
     ] },
   VE_glacier_ardhal_parle: { act: "V", title: "Ce qu'a vu Ardhal", place: "VE_l_glacier",
     fx: { ep: ["seance", 1500] },

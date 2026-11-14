@@ -590,7 +590,7 @@ module.exports = {
         { if: { has: "passe:cercle" }, text: "« Copiste à l'Athénée, dit-il en versant le thé. On vous a appris à recopier sans lire. Vous avez lu quand même, n'est-ce pas ? Les meilleurs copistes lisent toujours. »" },
         { if: { has: "passe:libre" }, text: "« La route, les foires, les contrats d'un jour, dit-il en versant le thé. Personne ne vous a jamais acheté{e} pour plus d'une semaine. C'est rare. J'aime les gens rares. »" },
         { if: { has: "passe:profite" }, text: "Il ajoute, sans changer de ton : « Saint-Gilles-des-Prés. Les terres que vous avez rachetées valent huit fois leur prix, aujourd'hui. Mes compliments. Je ne juge pas. Je compte. »" },
-        { if: { has: "maitre:disparu" }, text: "« Et votre maître a disparu à la chapelle de Saint-Ivo, dit-il plus bas. Je suis désolé. Si j'apprends quelque chose, vous le saurez. Je ne vous demanderai rien en échange de ça. »" },
+        { if: { has: "maitre:disparu" }, text: "« Et votre maîtresse a disparu à la chapelle de Saint-Ivo, dit-il plus bas. Je suis désolé. Si j'apprends quelque chose, vous le saurez. Je ne vous demanderai rien en échange de ça. »" },
       ],
       choices: [{ label: "Boire le thé et écouter ce qu'il veut", fx: { ep: ["seance", 1500] }, to: "IIIV_morn_offre" }] },
     IIIV_morn_offre: { act: "III", title: "Ce que veut Morn", place: "sainteorme",
@@ -1455,7 +1455,7 @@ module.exports = {
       choices: [
         { label: "« Qui vous paie ? Et qui payez-vous ? »", hide: { seen: "IIIT_veyra_or" }, to: "IIIT_veyra_or" },
         { label: "« Que faites-vous ici, devant ce mur ? »", hide: { seen: "IIIT_veyra_lui" }, to: "IIIT_veyra_lui" },
-        { label: "Lui demander si elle a vu ton maître", hide: { any: [{ seen: "IIIT_veyra_maitre" }, { not: { has: "maitre:disparu" } }] }, to: "IIIT_veyra_maitre" },
+        { label: "Lui demander si elle a vu ta maîtresse", hide: { any: [{ seen: "IIIT_veyra_maitre" }, { not: { has: "maitre:disparu" } }] }, to: "IIIT_veyra_maitre" },
         { label: "« Ce qui vous parle dans l'eau n'est pas lui. »", hide: { seen: "IIIT_veyra_eau" }, if: { clues: "V", min: 2 }, why: "Il te faudrait savoir ce qui parle dans l'eau pour le lui dire (deux indices sur la Voix).", to: "IIIT_veyra_eau" },
         { label: "L'aider à ouvrir le mur", hide: { not: { seen: "IIIT_veyra_lui" } }, to: "IIIT_mur_ouvrir" },
         { label: "Lui interdire de toucher à ce mur", hide: { not: { seen: "IIIT_veyra_lui" } }, to: "IIIT_mur_garde" },
@@ -1481,7 +1481,7 @@ module.exports = {
         { with: "pip", text: "Pip s'est caché dans ton col dès que Veyra a parlé du mur. Tu le sens trembler. Il ne dit rien." },
       ],
       choices: [{ label: "Réfléchir à ce qu'elle demande", fx: { ep: ["seance", 1500] }, back: "IIIT_veyra" }] },
-    IIIT_veyra_maitre: { act: "III", title: "Ton maître", place: "colline",
+    IIIT_veyra_maitre: { act: "III", title: "Ta maîtresse", place: "colline",
       text: [
         "Veyra réfléchit. « Elle est venue ici, dit-elle enfin. Il y a un an, peut-être un peu plus. Seule. Elle a tout regardé, elle a lu le mortier, elle est repartie sans toucher à rien. Odric l'a vue passer. Il a dit que c'était quelqu'un qui savait ce qu'elle cherchait et qui avait peur de le trouver. »",
         "Elle hésite, ce qui ne lui ressemble pas. « Et il y a autre chose. De l'autre côté du fleuve, au camp d'Aldaran, le conseiller Vendrel a un champion. Masqué. Il ne parle pas, il ne mange pas avec les autres, il se bat comme quelqu'un qu'on a très bien formé il y a longtemps. Vendrel ne l'avait pas avant cet automne. »",
