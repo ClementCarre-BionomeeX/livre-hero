@@ -38,7 +38,7 @@ module.exports = { moves: moves, SLEEP: SLEEP, passages: {
     text: [
       "Les boulangers jurés reçoivent la farine au poids, sous l'œil de deux sergents, et la ville défile devant leurs comptoirs avec ses jetons de plomb : un jeton par bouche, un pain par jeton.",
       { by: "rations", cases: { demi: "Depuis la demi-ration, les gens ne parlent plus dans la file. Ils regardent les pains des autres.", quart: "Au quart de ration, des enfants attendent seuls dans la file, avec les jetons de toute leur famille, pendant que les parents dorment pour moins sentir la faim." }, else: "À ration pleine, la file avance vite. Des commères se racontent la nuit, un vieux siffle, et un boulanger plaisante avec les sergents." },
-      { if: { stock: "moral", max: 30 }, text: "Une femme jette son jeton aux pieds d'un sergent et s'en va sans pain. Personne ne le ramasse." },
+      { if: { stock: "moral", max: 30 }, text: "Une femme jette son jeton aux pieds d'un sergent et s'en va sans pain. Le jeton reste sur le pavé." },
       { if: { stock: "moral", min: 70 }, text: "Quelqu'un te reconnaît et te salue d'un « Bonjour, l'intendance ! » qui fait rire la file." },
       { after: "marche:flux", text: "Les sœurs de l'Hôtel-Dieu passent avec une civière couverte. La file s'écarte, et se referme derrière elles." },
       { once: true, text: "Tu repères vite le tour de main d'un boulanger, un pouce sur le plateau de la balance. Un mot à l'oreille du sergent suffit : le plateau redevient juste." },

@@ -2790,7 +2790,7 @@
       "stock": "moral",
       "max": 30
      },
-     "text": "Une femme jette son jeton aux pieds d'un sergent et s'en va sans pain. Personne ne le ramasse."
+     "text": "Une femme jette son jeton aux pieds d'un sergent et s'en va sans pain. Le jeton reste sur le pavé."
     },
     {
      "if": {
@@ -3907,7 +3907,7 @@
      "if": {
       "item": "lettre_roi"
      },
-     "text": "Tu poses la lettre sur la table, le sceau rompu tourné vers lui. Aussonne ne la touche pas. Il devient très pâle, puis très calme."
+     "text": "Tu poses la lettre sur la table, le sceau rompu tourné vers lui. Aussonne la laisse où elle est. Il devient très pâle, puis très calme."
     },
     {
      "if": {
@@ -4086,7 +4086,7 @@
    "title": "L'arrestation",
    "text": [
     "Aussonne fait fermer les portes du château et appeler Oudart de Lys dans la salle du Conseil. Tu attends dans l'embrasure d'une fenêtre.",
-    "Oudart entre en souriant, voit les quatre sergents, voit ta présence, et cesse de sourire. Il ne tire pas l'épée. Il défait lui-même son ceinturon et le pose sur la table.",
+    "Oudart entre en souriant, voit les quatre sergents, voit ta présence, et cesse de sourire. Il laisse son épée au fourreau, défait lui-même son ceinturon et le pose sur la table.",
     "« Vous me remercierez un jour, capitaine, dit-il. Le jour où le Margrave entrera par la brèche et que vous compterez les morts. »",
     "On l'emmène dans la tour basse. Aussonne reste debout, seul au milieu de la salle, et tu sors sans qu'il te le demande."
    ],
@@ -4537,7 +4537,7 @@
        }
       ]
      },
-     "text": "Tu lui dis ce que tu sais : le bon de grain gâté, la signature de Carbonnel, les sacs au S couronné dans ses caves. Elle t'écoute sans un geste."
+     "text": "Tu lui dis ce que tu sais : le bon de grain gâté, la signature de Carbonnel, les sacs au S couronné dans ses caves. Elle t'écoute, immobile."
     },
     {
      "if": {
@@ -4970,7 +4970,7 @@
   "TC_bon": {
    "title": "Le bon",
    "text": [
-    "Carbonnel regarde le bon comme on regarde un serpent sur son oreiller. Ses lunettes tombent sur le registre. Il ne les ramasse pas.",
+    "Carbonnel regarde le bon comme on regarde un serpent sur son oreiller. Ses lunettes tombent sur le registre. Il les laisse là.",
     "« Elle m'a tenu, dit-il enfin. Vassal. Mes dettes. Trois mille écus, depuis la mauvaise année des draps. Elle a dit qu'elle effacerait tout. Elle a dit que le grain serait mieux gardé dans ses caves que dans les greniers de la ville, que c'était une précaution, qu'on le rendrait. » Il se tord les mains. « Ce n'était pas du grain gâté. C'était du bon blé. Je le savais. »",
     "« Ne me faites pas pendre. J'ai des petits-enfants. »"
    ],
@@ -5315,7 +5315,7 @@
    "text": [
     {
      "via": "soldats",
-     "text": "Les sergents reçoivent leurs miches entières, sous les regards de la file. À l'Hôtel-Dieu, Mère Ysaure coupe le pain blanc en tranches de plus en plus fines. Elle ne vient pas te le reprocher. Elle t'envoie seulement, chaque soir, le nombre des morts."
+     "text": "Les sergents reçoivent leurs miches entières, sous les regards de la file. À l'Hôtel-Dieu, Mère Ysaure coupe le pain blanc en tranches de plus en plus fines. Pour tout reproche, elle t'envoie, chaque soir, le nombre des morts."
     },
     {
      "via": "hospice",
@@ -5645,7 +5645,7 @@
    "text": [
     {
      "first": true,
-     "text": "Mahaut Bréhal a le visage de quelqu'un qui n'a pas dormi depuis deux jours. Elle tord un linge au-dessus d'un baquet, et continue de le tordre longtemps après qu'il ne coule plus."
+     "text": "Mahaut Bréhal a le visage de quelqu'un qui veille depuis deux jours. Elle tord un linge au-dessus d'un baquet, et continue de le tordre longtemps après la dernière goutte."
     },
     {
      "first": true,
@@ -6101,7 +6101,7 @@
    "title": "L'eau sous la Tour du Sel",
    "text": [
     "Jacquemin écoute, puis il siffle entre ses dents. « Une mine. Ils creusent sous le mur. » Il réfléchit. « Mon grand-père disait qu'il y a un vieux conduit, du temps des moines, qui va du bief des Moulins jusqu'au fossé de la Tour du Sel. On l'a muré il y a cent ans. Si on le rouvre et qu'on lève la vanne du bief, l'eau descend toute seule. »",
-    "« La mine est plus basse que le bief, sûrement. Elle se remplit comme un seau. Ceux qui sont dedans… » Il ne finit pas."
+    "« La mine est plus basse que le bief, sûrement. Elle se remplit comme un seau. Ceux qui sont dedans… » Il laisse la phrase en l'air."
    ],
    "choices": [
     {
@@ -6901,7 +6901,7 @@
    "place": "remparts",
    "text": [
     "Le chien aboie. Puis dix chiens. Des torches s'allument partout autour de la butte, et les sergents lâchent leurs pots dans l'herbe pour courir plus vite. Vous repassez le fossé sous les carreaux.",
-    "Trois sergents ne remontent pas l'échelle. Sur le rempart, Oudart de Lys compte les siens, la mâchoire serrée, et ne te dit rien. La Truie est toujours là, intacte, sur sa butte."
+    "Trois sergents ne remontent pas l'échelle. Sur le rempart, Oudart de Lys compte les siens, la mâchoire serrée, en silence. La Truie est toujours là, intacte, sur sa butte."
    ],
    "fx": {
     "stock": {
@@ -6979,7 +6979,7 @@
    "place": "port",
    "text": [
     "Tu pousses trop tard. La barque passe la butte, frotte une souche, se met en travers. Le feu prend trop tôt, dans la paille, et une sentinelle donne l'alerte sur la berge. Tu sautes à l'eau avec les bateliers. Les barques brûlent au milieu de la Dorve, pour rien, en éclairant tout.",
-    "Gilles te repêche à la passe des Saules. Il ne te reproche rien. « La rivière, c'est comme ça. Elle te donne, et elle te reprend. » Mais il regarde longtemps, en silence, ses trois barques qui brûlent au loin."
+    "Gilles te repêche à la passe des Saules. Il garde ses reproches. « La rivière, c'est comme ça. Elle te donne, et elle te reprend. » Mais il regarde longtemps, en silence, ses trois barques qui brûlent au loin."
    ],
    "fx": {
     "stock": {
@@ -7254,9 +7254,9 @@
    "place": "remparts",
    "text": [
     "On te fait sortir par le guichet, avec un drapeau blanc. Messire de Rouvre vient à cheval jusqu'au bord du fossé, et t'écoute poliment.",
-    "Tu ne lui parles pas de pitié. Tu lui parles de ce que dira le pays, des villages qui ne lui ouvriront plus leurs portes, des chroniqueurs qui écriront « Sarance » à côté de « Pont-Aubert ». Tu lui parles du flux, aussi, que sept cents malades porteront dans son camp s'il les garde au bord de ses lignes.",
+    "Tu laisses la pitié de côté. Tu lui parles de ce que dira le pays, des villages qui ne lui ouvriront plus leurs portes, des chroniqueurs qui écriront « Sarance » à côté de « Pont-Aubert ». Tu lui parles du flux, aussi, que sept cents malades porteront dans son camp s'il les garde au bord de ses lignes.",
     "Le héraut sourit à moitié. « Vous avez l'âme d'un marchand, intendant{e}. Monseigneur aime les marchands. » Il repart au galop. Une heure plus tard, la ligne d'arbalétriers s'ouvre, et les gens du Plessis passent, lentement, vers le sud, avec un sauf-conduit.",
-    "Adélaïde est la dernière à passer. Elle ne se retourne pas."
+    "Adélaïde est la dernière à passer. Elle regarde droit devant elle."
    ],
    "fx": {
     "flag": "passage:accorde",
@@ -7397,7 +7397,7 @@
     "Jacquemin pose la main sur la roue de la vanne. Il te regarde. Tu fais signe que oui.",
     "La vanne monte. L'eau du bief s'engouffre dans le conduit avec un bruit de bête, et tout le bief baisse d'un pied en quelques minutes. Au loin, sous la terre, tu crois entendre quelque chose. Des cris, peut-être. Peut-être l'eau seule.",
     "Le matin, dans la salle basse de la Tour du Sel, le seau d'eau est immobile sur les dalles. Il le reste toute la journée, et les jours suivants.",
-    "Jacquemin ne parle pas, en rentrant. Devant le Moulin, il te dit seulement : « Ils étaient combien, en dessous ? » Tu l'ignores."
+    "Jacquemin se tait, en rentrant. Devant le Moulin, il te dit seulement : « Ils étaient combien, en dessous ? » Tu l'ignores."
    ],
    "fx": {
     "flag": "mine:noyee",
@@ -7469,7 +7469,7 @@
    "place": "chateau",
    "text": [
     "Tu as la main dans le coffre quand la porte s'ouvre. Aussonne est sur le seuil, la cape mouillée. Il revient chercher ses gants.",
-    "Il te regarde un long moment. Il ne crie pas. « Sortez. » Tu sors. Dans l'escalier, tu l'entends refermer le coffre avec une clé, et donner un tour de plus."
+    "Il te regarde un long moment. « Sortez », dit-il sans élever la voix. Tu sors. Dans l'escalier, tu l'entends refermer le coffre avec une clé, et donner un tour de plus."
    ],
    "fx": {
     "regard": {
@@ -8284,7 +8284,7 @@
    "title": "L'aube",
    "place": "remparts",
    "text": [
-    "Le soleil se lève sur la Basse-Ville. Les cors du Margrave sonnent la retraite. Dans le fossé, les échelles, les morts, les blessés qui appellent. Sur le chemin de ronde, les vivants ne parlent pas.",
+    "Le soleil se lève sur la Basse-Ville. Les cors du Margrave sonnent la retraite. Dans le fossé, les échelles, les morts, les blessés qui appellent. Sur le chemin de ronde, les vivants se taisent.",
     {
      "if": {
       "all": [
@@ -8342,7 +8342,7 @@
        "rations": "quart"
       }
      },
-     "text": "Au quart de ration, les gens font la queue sans parler. Ils ont les yeux trop grands."
+     "text": "Au quart de ration, les gens font la queue en silence. Ils ont les yeux trop grands."
     },
     "Du rempart, on voit le camp du Margrave sous la pluie. On creuse des fosses, derrière les tentes. Les charrettes du nord ne viennent plus."
    ],
@@ -8580,14 +8580,14 @@
    "title": "La passe des Saules",
    "place": "port",
    "text": [
-    "Jacquemin te regarde un long moment. « Pour de bon ? Cette nuit ? » Il ne te juge pas. Il passe des gens depuis le début du siège : des marchands, un chanoine, une femme avec un nouveau-né. Il sait qui revient et qui ne revient pas.",
+    "Jacquemin te regarde un long moment. « Pour de bon ? Cette nuit ? » Il te regarde sans dureté. Il passe des gens depuis le début du siège : des marchands, un chanoine, une femme avec un nouveau-né. Il sait qui revient et qui ne revient pas.",
     "« À minuit, sous les saules. Pas de bagage. Pas de lumière. Si le poste du Margrave tire, tu te couches au fond de la barque et tu ne bouges plus. »",
     {
      "if": {
       "promise": "jacquemin",
       "is": "en cours"
      },
-     "text": "Tu lui dois encore ses traversées. Il ne t'en parle pas."
+     "text": "Tu lui dois encore ses traversées. Il les passe sous silence."
     }
    ],
    "choices": [
@@ -8635,7 +8635,7 @@
     ]
    },
    "text": [
-    "Le Margrave vous reçoit sous sa tente, assis, sans vous faire asseoir. Gilles parle le premier, trop fort. Puis tu parles, toi, de ce que tu sais : des greniers, des jours, du flux qui court dans son camp autant que dans la ville, de ce que coûte un assaut et de ce que rapporte une ville qui paie l'impôt de bon cœur.",
+    "Le Margrave vous reçoit sous sa tente, assis, et vous laisse debout. Gilles parle le premier, trop fort. Puis tu parles, toi, de ce que tu sais : des greniers, des jours, du flux qui court dans son camp autant que dans la ville, de ce que coûte un assaut et de ce que rapporte une ville qui paie l'impôt de bon cœur.",
     "Il vous écoute jusqu'au bout. Puis il fait appeler son clerc.",
     "La charte est signée le soir même. La commune de Sarance reconnaît le Margrave de Hautpré pour seigneur. Le Margrave reconnaît la commune de Sarance, son maire, ses jurés élus par les métiers, sa cloche et son sceau. Il entrera dans la ville avec cent hommes, pas un de plus.",
     "Aussonne sort du château le lendemain, sous la garde des bateliers. Le Margrave le garde prisonnier jusqu'à la rançon, que le Roi paiera, ou pas.",
