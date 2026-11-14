@@ -76,7 +76,7 @@ module.exports = {
     p_chant: { rev: "P", text: "Grauk, le roi des trolls, ne descend plus à ses caves. Il a fait murer l'escalier avec des tonneaux pleins de pierres, du côté du haut." },
     p_main_pierre: { rev: "P", text: "Au fond des caves, une main de pierre grande comme une charrette sort du roc, paume ouverte vers le haut. Elle est fendue du poignet au majeur." },
     // Act I
-    r1_ruisseau: { rev: "R1", text: "Le ruisseau de la Sorbe coule noir et tiède sur une demi-lieue, puis redevient clair. La souillure vient d'en amont, vers Brumefeuille." },
+    r1_ruisseau: { rev: "R1", text: "Le ruisseau noir est un bras de la Sorbe. Dans la rivière, une veine d'eau noire et tiède longe la rive sans se mêler à l'eau claire. Elle vient d'en amont, vers Brumefeuille." },
     r1_veilleuse: { rev: "R1", text: "La femme qui te regardait passer au bord de la route avait de la farine sur ses bottes, et une odeur de vase sur les mains." },
     r1_pelerins: { rev: "R1", text: "Les pèlerins de la Main contournent Brumefeuille : « On dit que le meunier parle tout seul au bord du bief, et que quelqu'un lui répond. »" },
     r1_puits: { rev: "R1", text: "La margelle du puits de Brumefeuille est blanche de farine du côté du chemin du moulin, et nulle part ailleurs." },
