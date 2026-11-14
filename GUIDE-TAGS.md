@@ -211,3 +211,27 @@ joue deux parties sur cinq en seconde lecture.
 Le validateur vérifie les horaires, les réactions, les rumeurs, les contradictions, l'échéance et l'accusation (la
 réponse doit être parmi les suspects et les mobiles, les preuves doivent exister et ne pas être des leurres), et sa
 recherche des passages jamais atteints sait montrer, relier et accuser.
+
+## Le siège (14/11, 8.0) : réserves, monde en marche, dettes, conseils, camps, liens, batailles
+
+| Où | Clé | Sens |
+|---|---|---|
+| `story.stocks` | `{ <id>: { name, short, unit, plural, start, max, pill, bad, by, eat, byLabel, extra, spoil, desc } }` | Les réserves de la ville (blé, moral, maladie). Chaque nouveau jour, le moteur retire `eat` (un nombre, ou `{ <valeur>: n }` selon l'état `by`, par exemple la ration en vigueur), plus chaque `extra: [{ if, n }]` qui tient. `spoil: { every, share, if }` : une part qui pourrit tous les `every` jours. `pill` : affichée en haut de l'écran. `bad` : une jauge qui fait du mal en montant. |
+| condition | `stock: "<id>", min, max` · `days: "<id>", min, max` | La réserve, ou le nombre de jours qu'elle durera au train actuel. |
+| `story.march` | `[{ id, at: { day, hour }, until, if, acts, fx, say, title, to }]` | Le monde avance sans le héros : à l'heure dite (et si `if` tient), le moteur pose `marche:<id>`, applique `fx`, écrit `say` dans le fil, et impose la scène `to` (seulement dans les actes `acts`). Le temps d'un choix s'arrête sur l'heure de la scène. Sans `at`, l'événement arrive dès que `if` tient. |
+| quête | `due: { day, hour }` | Passé ce moment, la quête est manquée. |
+| boutique | `scarce: "<stock>"`, `moves: [{ if, x, say }]`, `sells: [{ item, price, if }]` | Les prix suivent la rareté de la réserve, et chaque `move` qui tient les multiplie par `x` (sa phrase `say` s'affiche). |
+| `story.promises` | `{ <id>: { to, text, kind, due, gold, stock, keeps, breaks, collect, kept, broken } }` | Une promesse ou une dette (`kind: "dette"`, `gold` à rendre). `keeps` / `breaks` : conditions qui la tiennent ou la rompent ; à `due`, elle est rompue si elle court encore, et le créancier vient (scène `collect`). `kept` / `broken` : le regard de la personne ensuite. On rembourse là où est le créancier. |
+| fx | `promise`, `keep`, `break`, `forgive` | Faire, tenir, rompre une promesse, ou en être délié. |
+| condition | `promise: "<id>", is: "en cours" \| "tenue" \| "rompue"` | |
+| `story.councils`, `story.motions` | `{ <conseil>: { title, hero, order, members: { <personne>: { absent } } } }`, `{ <motion>: { council, title, text, shown, lean, say, heroSay, fx: { adopte, rejete } } }` | Un conseil et ses motions. `lean` : le vote de chacun (`pour`, `contre`, `abstention`, `indecis` tiré au sort). |
+| passage | `council: { motion, to, label }` | Ouvre le vote : chaque membre présent vote dans l'ordre, puis le héros. Le moteur pose `vote:<m>` et `vote-<m>=adopte\|rejete`, applique `fx`, puis va à `to`. |
+| fx | `sway: { <motion>: { <membre>: "pour" } }`, `sound: { <motion>: [membres] }` | Faire changer un vote ; apprendre comment quelqu'un votera (onglet Conseil). |
+| condition | `vote: "<m>", is: "adopte" \| "rejete"`, `hero: "pour"` · `lean: { member, is }` | |
+| `story.camps` | `{ <id>: { name, leader, rivals, desc } }` | Les camps. `fx: { camp: "<id>" }` y range le héros (`camp:<id>`) ; le chef d'un camp quitté le voit trahi. Un paragraphe ou un choix `camp: "<id>"` se ferme quand le héros a rejoint un rival. Condition `camp: "<id>"` (ou `"none"`). |
+| `story.ties` | `[{ id, a, b, kind, label, if }]` | Qui est avec qui (`sert`, `allie`, `dette`, `secret`, `ennemi`…). `fx: { tie: "<id>" }` le fait découvrir ; l'onglet « Qui est avec qui » le dessine. |
+| `story.battles` | `{ <id>: { title, intro, posts: [{ id, name, def, key, if, lost }], troops: [{ id, name, force, if, desc }], waves: [{ text, hits }], orders: [{ id, label, post, def, once, if }], maxLost, win: { to, fx }, lose: { to, fx } } }` | Une bataille rangée. Le lecteur place ses troupes et lui-même sur les postes, puis donne un ordre à chaque vague. Un poste clé perdu, ou plus de `maxLost` postes perdus, et la bataille est perdue. `lose.to` peut être une liste `{ if, to }`. |
+| passage | `battle: "<id>"` | Ouvre la bataille. Le moteur pose `bataille-<id>=gagnee\|perdue` ; condition `battle: "<id>", is: "win" \| "lose", losses`. |
+| passage | `epilogue: true` + `story.epilogue: [{ if, text }]`, `epilogueTitle` | Sur une fin, le moteur ajoute les lignes d'épilogue qui tiennent : ce que sont devenus les choix du lecteur. Le validateur compte ces lignes comme l'écho des quêtes. |
+| `world` | `noFood: true` | Pas de jauge de vivres personnelle : c'est la ville qui mange. |
+| passage | `creditor: "<personne>"` | Le créancier est là : le choix « Rembourser » s'ajoute. |
