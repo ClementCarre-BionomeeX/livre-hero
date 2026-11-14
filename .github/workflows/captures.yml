@@ -9,7 +9,7 @@ permissions:
   contents: read
 jobs:
   captures:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04  # Playwright 1.49 ne sait pas installer ses polices sur ubuntu-latest (26.04)
     steps:
       - uses: actions/checkout@v4
         with:

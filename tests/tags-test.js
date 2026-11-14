@@ -58,4 +58,34 @@ assert(!s4.flags["x:qui=pie"] && s4.flags["x:qui=hylas"], "set remplace la valeu
 assert(M.evalCond(st, s4, { is: { "x:qui": ["hylas", "corbe"] } }) && !M.evalCond(st, s4, { is: { "x:qui": null } }), "is");
 var r = V.validate(st, { games: 50 });
 assert.deepStrictEqual(r.errors || r.errs || [], [], "validateur");
+// via (Clément, 13/11, « Une soirée »): a page opens otherwise according to the choice that led there (its `via`), or
+// to the passage left; second: paragraphs, choices and scenes of a second reading (an ending already reached).
+var st3 = { id: "v", title: "Via", start: "P", acts: [{ id: "I", title: "I", levels: [1, 1], start: "P" }], world: { start: { hour: 17 } },
+  passages: {
+    P: { act: "I", title: "Pont", text: ["Le pont.", { second: true, text: "RELU" }], choices: [{ label: "Par la route", via: "route", to: "C" }, { label: "Par le gué", via: "gue", to: "G" }, { label: "Assis{e}", second: true, to: "S" }] },
+    G: { act: "I", title: "Gué", text: ["Le gué."], choices: [{ label: "Monter", to: "C" }] },
+    C: { act: "I", title: "Cour", text: [{ via: "route", text: "PAR_ROUTE" }, { via: "G", text: "DEPUIS_GUE" }, "La cour."], choices: [{ label: "Attendre", to: "M" }] },
+    S: { act: "I", title: "Secret", second: "fin", text: ["S."], choices: [{ label: "Attendre", to: "M" }] },
+    M: { act: "I", title: "Minuit", takes: "midnight", end: true, fx: { flag: "fin:fin" }, text: ["Minuit."] },
+  } };
+var v3 = M.freshState(st3); v3.name = "A"; v3.arch = "voleur"; v3.fem = true; M.start(st3, v3);
+assert.strictEqual(v3.time, 17, "world.start.hour");
+var pv = M.view(st3, v3);
+assert(!/RELU/.test(pv.text.join("|")) && !pv.second && pv.choices.length === 2, "première lecture : rien de la seconde");
+M.choose(st3, v3, pv.choices[0]); assert(/PAR_ROUTE/.test(txt3(v3)) && !/DEPUIS_GUE/.test(txt3(v3)), "via d'un choix");
+var w3 = M.freshState(st3); w3.name = "A"; w3.arch = "voleur"; M.start(st3, w3);
+M.choose(st3, w3, M.view(st3, w3).choices[1]); M.choose(st3, w3, M.view(st3, w3).choices[0]);
+assert(/DEPUIS_GUE/.test(txt3(w3)) && !/PAR_ROUTE/.test(txt3(w3)), "via du passage quitté");
+assert.strictEqual(M.view(st3, w3).choices[0].note, "le temps passe : jusqu'à minuit");
+M.choose(st3, w3, M.view(st3, w3).choices[0]); assert.strictEqual(w3.time % 24, 0, "minuit");
+var x3 = M.freshState(st3); x3.name = "A"; x3.arch = "voleur"; x3.fem = true; x3.second = { "fin:fin": 1 }; M.start(st3, x3);
+var px = M.view(st3, x3);
+assert(/RELU/.test(px.text.join("|")) && px.second && px.second[0] === 1, "seconde lecture : paragraphe marqué");
+assert(px.choices.some(function (c) { return c.label === "Assise"; }), "seconde lecture : choix, et accord du bouton");
+function txt3(s) { return M.view(st3, s).text.join("|"); }
+var r3 = V.validate(st3, { games: 30 });
+assert.deepStrictEqual(r3.errors, [], "validateur via/second");
+st3.passages.C.text.push({ via: "nulle-part", text: "X" }); st3.passages.G.text.push({ second: "inconnue", text: "X" });
+var e3 = V.staticCheck(st3).errors.join("\n");
+assert(/via, « nulle-part »/.test(e3) && /second, « inconnue »/.test(e3), "validateur : via et second inconnus");
 console.log("tags-test : OK");

@@ -603,7 +603,7 @@ Object.assign(P, {
     ],
     choices: [
       { label: "Dire à voix haute ce qu'elle est", big: true, if: { clues: "V", min: 3 }, why: "Tu n'en sais pas encore assez sur elle pour la nommer : il te faudrait au moins trois indices sur la Voix.", hide: { has: "voix:nommee" }, to: "IVR_nommee" },
-      { label: "« Je ne la connais pas assez. »", hide: { any: [{ clues: "V", min: 3 }, { has: "voix:nommee" }] }, to: "IVR_voix_partielle" },
+      { label: "« Je ne la connais pas assez. »", hide: { has: "voix:nommee" }, to: "IVR_voix_partielle" },
     ] },
   IVR_voix_partielle: { act: "IV", title: "Ce qu'il faut savoir d'elle", place: "hautecombe",
     fx: { flag: "IVR:voix_partielle", ep: ["perso", 1500] },
