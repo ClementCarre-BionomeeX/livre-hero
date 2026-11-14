@@ -12,9 +12,9 @@ module.exports = {
         rodric: false, linette: false, ombeline: false, gaspard: false, givre: false, sansnom: false } },
     text: [
       "Tu te réveilles couché sur le dos. Au-dessus de toi, il n'y a pas de ciel. Il y a du blanc, uni, lumineux, sans soleil, comme l'intérieur d'une coquille d'œuf.",
-      "Tu n'as pas froid. Tu n'as pas chaud. Tu te lèves. Le sol est blanc aussi, ni neige ni sable, quelque chose de doux qui ne garde pas la trace des pas.",
+      "L'air est sans température. Tu te lèves. Le sol est blanc aussi, une matière douce, entre neige et sable, où les pas s'effacent aussitôt.",
       { if: { souv: "enfant:reve" }, text: "Tu connais cet endroit. C'est ton rêve, ton plus vieux souvenir, celui que tu faisais enfant et que tu n'as jamais raconté à personne. Une plaine blanche sans fin. Il ne manque que la voix qui chante." },
-      { if: { not: { souv: "enfant:reve" } }, text: "Tu as l'impression d'être déjà venu. Tu ne sais pas quand. C'est comme un mot qu'on cherche et qui ne vient pas." },
+      { if: { not: { souv: "enfant:reve" } }, text: "Tu as l'impression d'être déjà venu. Quand ? C'est comme un mot sur le bout de la langue." },
       { if: avec("ysolde"), text: "À trois pas, Ysolde se relève, l'épée déjà à la main. Elle regarde autour d'elle comme on inspecte un terrain avant la bataille. Il n'y a rien à inspecter." },
       { if: avec("pie"), text: "Pie est assis, les jambes allongées, et se tâte les poches une à une. Tout y est. Il a l'air presque déçu." },
       { if: avec("hylas"), text: "Hylas est debout, immobile, la tête levée. « Je vois », dit-il. Sa voix tremble. « Du blanc. Seulement du blanc. Mais je vois. »" },
@@ -94,9 +94,9 @@ module.exports = {
 
   III_halte: P({ title: "La halte", place: "plaine",
     text: [
-      "Vous vous asseyez en cercle, dans le blanc. Il n'y a pas de feu à faire. Il n'y a rien à manger, et vous n'avez pas faim. Personne ne sait combien de temps a passé depuis la chute. Une heure, un jour.",
-      { if: avec("ysolde"), text: "Ysolde dit : « Les autres. Ceux qu'on n'a pas tenus. » Elle ne finit pas sa phrase. Elle n'en a pas besoin." },
-      { if: avec("pie"), text: "Pie dit : « Linette était au col. » Il ne dit rien d'autre de toute la halte." },
+      "Vous vous asseyez en cercle, dans le blanc. Il n'y a pas de feu à faire. Les sacs sont vides, et la faim est restée ailleurs. Personne ne sait combien de temps a passé depuis la chute. Une heure, un jour.",
+      { if: avec("ysolde"), text: "Ysolde dit : « Les autres. Ceux qu'on n'a pas tenus. » Elle laisse sa phrase en suspens, et tout le monde l'achève pour elle." },
+      { if: avec("pie"), text: "Pie dit : « Linette était au col. » Il se tait pour le reste de la halte." },
       { if: avec("hylas"), text: "Hylas regarde ses mains. Il les voit. Il les regarde depuis une heure. « Elles sont vieilles », dit-il, étonné." },
       { if: avec("corbe"), text: "Corbe regarde vers les tours blanches. « Ma mère est là-bas, peut-être. Ou moi. »" },
       { if: avec("lisandre"), text: "Lisandre essaie de chanter, tout bas. Le blanc avale la première note, puis la deuxième. À la troisième, elle s'arrête, et elle rit, d'un rire nerveux, et le rire, lui, résonne." },

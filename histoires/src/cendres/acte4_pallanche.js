@@ -21,7 +21,7 @@ module.exports = {
   IV_pal_portes: P({ title: "Les portes de Pallanche", place: "pallanche",
     text: [
       "La ville aux cent cloches. Il y a un an, sur la colline, vous la regardiez blanchir sous la neige. Elle est blanche encore, mais de chaux : on a repeint les façades, et sur chaque façade, en lettres noires, les noms de ceux qui habitent derrière.",
-      { if: REG_REINE, text: "À la porte du Nord, pas de gardes de la reine. Des gardes noirs, au sceau de la plume et de la clé. La ville est à Mordace. Les armées de la reine campent à deux lieues, sans oser approcher. On dit que le Greffier-Majeur a menacé, s'il est assiégé, de céder l'armée entière, d'un trait de plume." },
+      { if: REG_REINE, text: "À la porte du Nord, les gardes de la reine ont disparu. Des gardes noirs, au sceau de la plume et de la clé. La ville est à Mordace. Les armées de la reine campent à deux lieues, sans oser approcher. On dit que le Greffier-Majeur a menacé, s'il est assiégé, de céder l'armée entière, d'un trait de plume." },
       { if: REG_GREF, text: "À la porte du Nord, une potence neuve. Trois corps, en robe grise, avec un écriteau au cou : *Liseur.* La foule passe dessous sans lever les yeux. Les gardes noirs contrôlent chaque visage." },
       { if: REG_CLAN, text: "À la porte du Nord, des gardes noirs, et derrière eux, des greffiers en gris, qui regardent chaque visage, chaque paire d'yeux, et prennent des notes. Ils cherchent quelqu'un. Tu sais qui." },
       "Pour entrer, il faut faire la queue, donner son nom, et le voir écrire. Le greffier de la porte lève les yeux sur chaque visiteur, longtemps.",
@@ -126,7 +126,7 @@ module.exports = {
     text: [
       "Le clocher de Saint-Gilles. Anseau est là-haut, soixante et onze ans, au milieu de ses huit cloches.",
       { if: { has: "anseau:cloches" }, text: "Il sait leurs noms, maintenant, à toutes les huit. Il les a écrits sur les jougs à la peinture rouge. Il te reconnaît. « La nuit des Cloches, dit-il. On en a sonné une, vous et moi. On peut en sonner une autre. »" },
-      { if: { not: { has: "anseau:cloches" } }, text: "Il ne sait plus le nom de ses cloches. Il ne sait plus le sien, certains jours. Mais il sait sonner. « La tour sonne les heures, dit-il, et tout le monde se tait pour l'écouter. Si une cloche sonne à contretemps, tout le monde lève la tête. Même les gardes. Surtout les gardes. »" },
+      { if: { not: { has: "anseau:cloches" } }, text: "Il a perdu le nom de ses cloches, et le sien, certains jours. Mais il sait sonner. « La tour sonne les heures, dit-il, et tout le monde se tait pour l'écouter. Si une cloche sonne à contretemps, tout le monde lève la tête. Même les gardes. Surtout les gardes. »" },
       "Il montre, de sa fenêtre, la tour des Greffiers. « Le clocher de la tour et le mien se répondent. Si je sonne à minuit et demi, la tour croit que c'est une alerte, et ses gardes montent tous au sommet, voir. Ça dure le temps d'un Ave. »",
     ],
     choices: [{ label: "« À minuit et demi, cette nuit-là. »", fx: { flag: "pal:anseau", ep: ["perso", 800] }, to: "IV_pal" }] }),
@@ -150,7 +150,7 @@ module.exports = {
   IV_pal_pie: P({ title: "La nuit de Pie", place: "pallanche",
     text: [
       "Il entre à onze heures, en manteau gris de greffier, avec des taches d'encre jusqu'aux coudes. Il commande un verre. Il se retourne. Il te voit.",
-      "Il ne bouge pas pendant longtemps. Puis il vient s'asseoir à ta table, sans un mot, et il boit son verre d'un coup.",
+      "Il reste longtemps immobile. Puis il vient s'asseoir à ta table, en silence, et il boit son verre d'un coup.",
       "« Elle est là-haut, dit-il. Je suis allé la chercher, après la chute. Je l'ai cherchée tout l'automne. Ils l'avaient. Il m'a proposé un marché : je fabrique pour lui, et je la vois le dimanche, cinq minutes, à travers une grille. Elle ne me reconnaît pas. Elle me regarde comme on regarde un chien gentil. » Il pose le verre. « Je fabrique des noms. Des milliers. Des familles entières qui n'ont jamais existé, pour remplir les pages où il a barré les vraies. Je suis très bon. »",
       { if: { has: "pie:choix=boite" }, text: "Il tapote sa poitrine. Sous sa chemise, la boîte de plomb. « Je l'ai toujours. Je ne l'ai jamais ouverte. Je ne sais pas si c'est à moi de l'ouvrir, ou à elle. »" },
     ],
@@ -165,7 +165,7 @@ module.exports = {
     text: [
       "Tu te lèves, et tu vas chercher, dans la chambre du haut, la petite fille au bonnet de travers. Elle descend l'escalier en se frottant les yeux. Elle voit Pie.",
       "Elle s'arrête sur la dernière marche. Elle penche la tête. « Tu es grand », dit-elle.",
-      "Pie se lève si vite qu'il renverse le banc. Il ne dit rien. Il ne peut rien dire. Elle descend la dernière marche, elle vient jusqu'à lui, et elle lui demande s'il vole toujours. Il dit oui. Il pleure comme un enfant, debout au milieu de la salle, et la Veuve fait sortir tout le monde.",
+      "Pie se lève si vite qu'il renverse le banc. Il se tait. Il ne peut rien dire. Elle descend la dernière marche, elle vient jusqu'à lui, et elle lui demande s'il vole toujours. Il dit oui. Il pleure comme un enfant, debout au milieu de la salle, et la Veuve fait sortir tout le monde.",
       "Plus tard, il te dit : « Cette nuit-là, je t'ouvre la porte de service. Et je monte au quatrième. Et je la redescends. Et si elles ne sont plus qu'une après, tant pis, tant mieux, je m'en fiche. Elle sera dehors. »",
     ],
     choices: [{ fx: { join: "pie" }, back: "IV_pal" }] }),
@@ -250,7 +250,7 @@ module.exports = {
       "Une longue salle, cent pupitres, cent chandelles. À chaque pupitre, une page en gris, la tête rasée, qui recopie. Il est minuit passé et elles recopient. Elles ne lèvent pas les yeux.",
       { if: { has: "rupture:avec:pie" }, text: "Pie s'est arrêté sur le seuil. Il ne peut pas avancer. Il a les mains qui tremblent, ces mains qui n'ont jamais tremblé, sur aucune serrure." },
       "Au deuxième rang, une fille de onze ans, un épi derrière la tête, là où les cheveux repoussent. Elle compte les chandelles à voix basse, en écrivant.",
-      { if: { all: [PIE_DEDANS, { not: { has: "pal:pie_dedans" } }, { has: "pal:pie_indice" }] }, text: "Au bout de la salle, debout près de la fenêtre, un greffier aux mains tachées d'encre compte les chandelles avec elle. Pie. Il te voit. Il ne bouge pas. Puis il hoche la tête, une fois, et il va vers sa sœur." },
+      { if: { all: [PIE_DEDANS, { not: { has: "pal:pie_dedans" } }, { has: "pal:pie_indice" }] }, text: "Au bout de la salle, debout près de la fenêtre, un greffier aux mains tachées d'encre compte les chandelles avec elle. Pie. Il te voit. Il reste immobile. Puis il hoche la tête, une fois, et il va vers sa sœur." },
       { if: { has: "pie:voit_linette_avant" }, text: "Pie est passé devant toi. Il s'agenouille près du pupitre. Elle lève les yeux. Elle le regarde comme on regarde un chien gentil." },
     ],
     choices: [
@@ -274,7 +274,7 @@ module.exports = {
       "La petite fille au bonnet de travers est montée avec vous. Elle s'avance entre les pupitres, sans peur, en regardant les pages au travail comme on regarde un jeu qu'on ne comprend pas. Elle s'arrête au deuxième rang.",
       "Les deux se regardent. Neuf ans, onze ans. L'une a les genoux sales, l'autre la tête rasée. Elles ont le même épi.",
       "La petite tend la main, et touche la joue de la grande, exactement comme on vérifie qu'une page est sèche.",
-      "Il n'y a pas de lumière, pas de bruit. Il y a, une seconde après, une seule fille au deuxième rang, de onze ans, avec un bonnet de laine de travers sur une tête rasée, qui regarde ses mains pleines d'encre, et qui se met à rire, d'un rire qui fait se retourner cent pages.",
+      "Tout est noir et silencieux. Il y a, une seconde après, une seule fille au deuxième rang, de onze ans, avec un bonnet de laine de travers sur une tête rasée, qui regarde ses mains pleines d'encre, et qui se met à rire, d'un rire qui fait se retourner cent pages.",
       { with: "pie", text: "« Pie, dit-elle. Pie, tu as vu ? J'ai écrit toute la nuit. Je sais écrire ! »" },
       { without: "pie", after: "pal:pie_indice", text: "« Pie, dit-elle. Pie, tu as vu ? J'ai écrit toute la nuit. Je sais écrire ! »" },
       { without: "pie", before: "pal:pie_indice", text: "Elle lève la tête vers toi. « Tu as vu ? J'ai écrit toute la nuit. Je sais écrire ! »" },
@@ -325,9 +325,9 @@ module.exports = {
   IV_tour_mordace2: P({ title: "L'offre", place: "pallanche",
     fx: { clue: "n_mordace_offre" },
     text: [
-      "« Ce que je veux ? » Il réfléchit, comme si personne ne le lui avait jamais demandé. « Que ça s'arrête. »",
+      "« Ce que je veux ? » Il réfléchit, comme devant une question neuve. « Que ça s'arrête. »",
       "« Le monde oublie, depuis toujours. Mal. Au hasard. Il oublie les morts qu'il faudrait garder et il garde les querelles qu'il faudrait oublier. Les fondateurs l'ont compris, et ils ont fait ça très mal aussi : un massacre, et un livre, et un trou. Moi, je fais ça bien. Tout le monde écrit. Tout est gardé, au même endroit, bien rangé. Et ce qui fait mal, on le cède, proprement. Une ligne. »",
-      "« Il y a une guerre sur la Lisse. Corvanne et Esquarre vont se tuer sur un pont, pour une neige que ni l'un ni l'autre n'a envoyée. Je peux l'arrêter. Une ligne dans le Grand Livre : *Corvanne, cédée.* Et demain, plus personne ne se souvient qu'il y a eu une Corvanne, ni une guerre. Les Corvannais se réveillent Esquarrois, sans regret, sans mort. La reine me l'a demandé hier. Elle attend ma réponse. »",
+      "« Il y a une guerre sur la Lisse. Corvanne et Esquarre vont se tuer sur un pont, pour une neige venue d'ailleurs. Je peux l'arrêter. Une ligne dans le Grand Livre : *Corvanne, cédée.* Et demain, plus personne ne se souvient qu'il y a eu une Corvanne, ni une guerre. Les Corvannais se réveillent Esquarrois, en paix, tous vivants. La reine me l'a demandé hier. Elle attend ma réponse. »",
       "« Mais une ligne comme ça, il faut quelqu'un pour la porter. Le pacte a besoin d'un passeur, quelqu'un des deux côtés. Toi. » Il baisse la lanterne. « Je ne te force pas. Je ne peux pas. Viens à la Lisse. Regarde le pont. Compte les morts. Et décide. »",
     ],
     choices: [
@@ -346,7 +346,7 @@ module.exports = {
   IV_tour_mordace3: P({ title: "La sortie", place: "pallanche",
     text: [
       "Il s'écarte. Il vous laisse passer. Il lève la lanterne pour éclairer les marches, poliment, comme un hôte qui raccompagne.",
-      { if: { has: "tour:anselin_pris" }, text: "Il voit le registre noir sous ton bras. Il ne dit rien. Ses mains, autour de la lanterne, se crispent, une seule fois. Puis il sourit. « Garde-le. Tu sauras lire ce qui est barré. Moi, je ne sais lire que ce que j'ai écrit. »" },
+      { if: { has: "tour:anselin_pris" }, text: "Il voit le registre noir sous ton bras. Il se tait. Ses mains, autour de la lanterne, se crispent, une seule fois. Puis il sourit. « Garde-le. Tu sauras lire ce qui est barré. Moi, je ne sais lire que ce que j'ai écrit. »" },
       "En bas, la porte est ouverte. Dehors, la place aux Clercs, la nuit, les paquets oubliés, les enfants qui dorment sous le porche.",
     ],
     choices: [{ label: "Sortir de Pallanche avant l'aube", to: "IV_pal_fuite" }] }),

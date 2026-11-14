@@ -9,7 +9,7 @@ module.exports = {
   II_c_poupee: P({ title: "La poupée",
     text: [
       "Dans une des files, un Glaneur plus petit que les autres, la taille d'un enfant de six ans, porte dans ses bras une poupée de chiffon. Une vraie poupée, avec des cheveux de laine jaune, des boutons pour les yeux, et sur le tablier, brodé au point de croix, en rouge : *BERTHILLE*.",
-      "Il avance avec la file. Il arrive près de la bouche du géant. Les autres versent ce qu'ils portent. Lui s'arrête. Il regarde la poupée. Il ne la donne pas. Il recule d'un pas, et la file le pousse, et il revient, et il recule encore, comme un enfant qui ne veut pas aller se coucher.",
+      "Il avance avec la file. Il arrive près de la bouche du géant. Les autres versent ce qu'ils portent. Lui s'arrête. Il regarde la poupée. Il ne la donne pas. Il recule d'un pas, et la file le pousse, et il revient, et il recule encore, comme un enfant qui retarde l'heure du coucher.",
     ],
     choices: [
       { label: "Te glisser jusqu'à lui, et lui prendre la poupée", test: { dom: "discretion", label: "La file des Glaneurs", help: [{ if: { present: "pie" }, v: 15 }, { if: { present: "gaspard" }, v: 10 }] },
@@ -19,14 +19,14 @@ module.exports = {
   II_c_poupee_prise: P({ title: "Berthille",
     text: [
       "Tu descends la pente à plat ventre, dans la neige, entre deux files. Personne ne te voit. Tu arrives derrière lui. Tu tends la main. Il se retourne. Il te regarde, de ses yeux sans couleur, et il te tend la poupée, de lui-même, comme on tend quelque chose qu'on n'a pas le courage de jeter et pas le droit de garder.",
-      "Tu la prends. Il repart, les mains vides, vers la bouche du géant. Il ne verse rien. Il n'a plus rien. Il fait demi-tour et remonte la pente, seul, à contre-courant. Tu remontes avec la poupée sous ta peau de renne. *Berthille.* Quelque part, une petite fille a eu ce nom-là, ou cette poupée-là, ou les deux. Ce nom-là, au moins, n'a pas été mangé.",
+      "Tu la prends. Il repart, les mains vides, vers la bouche du géant. Ses mains sont vides. Il fait demi-tour et remonte la pente, seul, à contre-courant. Tu remontes avec la poupée sous ta peau de renne. *Berthille.* Quelque part, une petite fille a eu ce nom-là, ou cette poupée-là, ou les deux. Ce nom-là, au moins, n'a pas été mangé.",
     ],
     choices: BACK }),
   II_c_poupee_rate: P({ title: "La file",
     text: ["Tu descends. À dix pas, une file se détourne. Les Glaneurs ne t'attaquent pas : ils te bousculent, sans te voir, comme une foule bouscule un enfant au marché. Tu roules dans la neige. Quand tu te relèves, le petit Glaneur est au bord de la bouche. Il tient la poupée contre lui. Puis la file avance, et il avance avec elle, et tu ne vois plus rien."],
     choices: BACK }),
   II_c_poupee_regarder: P({ title: "Le dernier de la file",
-    text: ["Tu regardes. Il recule, il revient, il recule. La file finit de passer. Il reste seul devant la bouche, la poupée dans les bras. Le géant ne le regarde pas. Il attend, comme on attend un enfant qui traîne. Au bout d'un long moment, le petit Glaneur s'assied dans la neige, au pied du géant, la poupée sur les genoux, et il ne bouge plus. Il ne la donnera pas. Il ne s'en ira pas non plus."],
+    text: ["Tu regardes. Il recule, il revient, il recule. La file finit de passer. Il reste seul devant la bouche, la poupée dans les bras. Le géant ne le regarde pas. Il attend, comme on attend un enfant qui traîne. Au bout d'un long moment, le petit Glaneur s'assied dans la neige, au pied du géant, la poupée sur les genoux, et il reste là. Il la gardera, et il restera."],
     choices: BACK }),
   II_c_lievre: P({ title: "Les tentes du Lièvre",
     text: [

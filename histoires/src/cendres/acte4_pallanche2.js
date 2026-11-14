@@ -87,7 +87,7 @@ module.exports = {
   IV_Q_jetons_caches: P({ title: "Sous les tonneaux", place: "pallanche",
     text: [
       "Les caves de la rue des Tonneliers communiquent toutes, par des soupiraux et des trous dans les murs que les enfants connaissent et que les adultes ont oubliés. Vous attendez dans le noir, entre les barriques, que les pas s'éloignent.",
-      "Le grand ne dit rien pendant longtemps. Puis : « Tu ne l'as pas dit. Ce qu'on lui fait, à la femme, une fois écrite. »",
+      "Le grand se tait longtemps. Puis : « Tu ne l'as pas dit. Ce qu'on lui fait, à la femme, une fois écrite. »",
       "Tu lui dis. Le Bureau des Cessions. Les fioles. Le blanc qui gagne sur les cartes. Il écoute sans t'interrompre, en tournant un jeton entre ses doigts.",
       "« Alors je vais en faire des faux qui marchent à l'envers », dit-il. Tu ne comprends pas. Il sourit pour la première fois. « Des jetons qui font sortir de la queue. Tu verras. »",
     ],
@@ -145,7 +145,7 @@ module.exports = {
     choices: [{ label: "Laisser le quartier à son bleu", fx: { quest: "IV_Q_bleu", flag: "iv:bleu=rendu", conf: { linette: 10 } }, to: "IV_pal" }] }),
   IV_Q_bleu_femme: P({ title: "Le cahier recopié", place: "pallanche",
     text: [
-      "La femme de la cuve d'à côté prend le cahier sans un mot, et elle s'assied pour le lire, et elle le lit toute la nuit à la chandelle. Au matin, elle a recopié la recette sur un drap gris, en grandes lettres, et elle l'a pendu à la perche, au-dessus de la rue, où tout le monde peut la lire.",
+      "La femme de la cuve d'à côté prend le cahier en silence, et elle s'assied pour le lire, et elle le lit toute la nuit à la chandelle. Au matin, elle a recopié la recette sur un drap gris, en grandes lettres, et elle l'a pendu à la perche, au-dessus de la rue, où tout le monde peut la lire.",
       "Elle ne réussit pas le bleu d'Aubin. Elle réussit un bleu, un peu plus clair, un peu plus vert, le sien. Aubin le regarde sécher sans comprendre ce qu'il regarde. Mais il hoche la tête. « Pas mal, dit-il. Pas mal, pour une débutante. »",
     ],
     choices: [{ label: "Laisser le quartier à son bleu", fx: { quest: "IV_Q_bleu", flag: "iv:bleu=rendu", conf: { linette: 5 } }, to: "IV_pal" }] }),

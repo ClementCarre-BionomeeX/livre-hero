@@ -7,7 +7,7 @@ module.exports = {
   IV_f_pre: P({ takes: "day", title: "Les foins", place: "sauvelune",
     text: [
       "C'est le jour des foins, au grand pré du bas. Tout le village y est, les hommes la faux sur l'épaule, les femmes avec les râteaux, les enfants avec les cruches. Le ciel est bleu, dur, sans un nuage. Il fait déjà chaud à huit heures.",
-      "Joris te tend une faux. La tienne, celle de l'an dernier, qu'il a gardée, affûtée, pendue au mur de la grange. « On n'allait pas la donner à quelqu'un d'autre », dit-il. Il ne dit pas qu'il a cru que tu ne reviendrais pas. Il l'a affûtée quand même.",
+      "Joris te tend une faux. La tienne, celle de l'an dernier, qu'il a gardée, affûtée, pendue au mur de la grange. « On n'allait pas la donner à quelqu'un d'autre », dit-il. Il garde pour lui qu'il t'a cru perdu. Il l'a affûtée quand même.",
     ],
     choices: [
       { label: "Prendre ta place dans la ligne", test: { dom: "nature", label: "La faux", help: [{ if: { present: "gaspard" }, v: 5 }, { if: { present: "corbe" }, v: 10 }] },
@@ -16,21 +16,21 @@ module.exports = {
     ] }),
   IV_f_ligne: P({ title: "La ligne", place: "sauvelune",
     text: [
-      "Tu prends ta place, entre Joris et le grand Bastien. La faux part, revient, part, revient. L'herbe tombe en andains réguliers, avec un bruit de soie déchirée. Tu n'as pas oublié. Ton corps n'a pas oublié. Il y a des choses qu'on ne cède pas, parce qu'on ne sait pas qu'on les a.",
+      "Tu prends ta place, entre Joris et le grand Bastien. La faux part, revient, part, revient. L'herbe tombe en andains réguliers, avec un bruit de soie déchirée. Ton corps se souvient. Il y a des choses qu'on garde parce qu'on ignore les avoir.",
       "Au bout de la première rangée, Joris s'arrête pour affûter. Il te regarde faire. Il hoche la tête. C'est le plus long compliment qu'il t'ait jamais fait.",
     ],
     choices: [{ label: "Continuer jusqu'à midi", to: "IV_f_midi" }] }),
   IV_f_ligne_rate: P({ title: "La ligne", place: "sauvelune",
     text: [
-      "Tu prends ta place. La faux part de travers, accroche une motte, te tord le poignet. La deuxième fois, tu te coupes au mollet, pas profond, assez pour saigner. Bastien rit. Joris ne rit pas. Il te prend la faux, il te montre, comme quand tu avais dix ans. Le pied, les hanches, le bras qui suit.",
-      "Tu as oublié. Pas l'herbe, pas le pré : le geste. Ton corps l'a donné quelque part, dans le blanc, sans te demander. Tu le réapprends. Au bout d'une heure, tu fauches presque droit.",
+      "Tu prends ta place. La faux part de travers, accroche une motte, te tord le poignet. La deuxième fois, tu te coupes au mollet, juste assez pour saigner. Bastien rit. Joris ne rit pas. Il te prend la faux, il te montre, comme quand tu avais dix ans. Le pied, les hanches, le bras qui suit.",
+      "Tu as oublié. Le geste. Ton corps l'a donné quelque part, dans le blanc, sans te demander. Tu le réapprends. Au bout d'une heure, tu fauches presque droit.",
     ],
     choices: [{ label: "Continuer jusqu'à midi", to: "IV_f_midi" }] }),
   IV_f_midi: P({ title: "Midi", place: "sauvelune",
     text: [
       "À midi, on s'assied à l'ombre de la haie. Agathe a apporté du pain, du lard, des oignons, du fromage. Les cruches passent de main en main. On boit à la régalade, la tête en arrière, et l'eau coule dans le cou, et c'est la meilleure eau du monde.",
       { if: { has: "pim:nom" }, text: "Pim, qui a grandi d'une tête, se lève, monte sur une meule de foin, et entonne la chanson des foins. Tout le monde chante avec lui. Au deuxième couplet, il change les paroles, comme on le fait chaque année, et il met ton nom dedans, et tout le monde rit, et chante ton nom, faux, fort, à pleine gorge." },
-      { if: { not: { has: "pim:nom" } }, text: "Pim, qui a grandi d'une tête, se lève et commence la chanson des foins. Il s'arrête au premier couplet. Il ne sait plus la suite. Personne ne la sait plus. Ils se regardent. Quelqu'un fredonne l'air, sans les paroles. On fredonne tous, un moment, puis on se tait, et on mange." },
+      { if: { not: { has: "pim:nom" } }, text: "Pim, qui a grandi d'une tête, se lève et commence la chanson des foins. Il s'arrête au premier couplet. La suite s'est perdue, pour lui comme pour tous. Ils se regardent. Quelqu'un fredonne l'air, sans les paroles. On fredonne tous, un moment, puis on se tait, et on mange." },
       { if: { has: "mathurin:ruches" }, text: "Le vieux Mathurin a apporté un pot de miel. Il le fait passer, avec une cuillère, et il annonce, pour chaque cuillerée, de quelle ruche elle vient. La Reine-Claude. La Folle. Personne n'écoute. Il le dit quand même." },
     ],
     choices: [
@@ -43,7 +43,7 @@ module.exports = {
   IV_f_faner: P({ title: "Faner", place: "sauvelune",
     text: [
       "Les femmes retournent l'herbe coupée, au râteau, pour qu'elle sèche des deux côtés. Elles chantent autre chose, une chanson de femmes, que les hommes ne connaissent pas. Elles te laissent prendre un râteau. Elles ne s'arrêtent pas de chanter.",
-      { if: { has: "tess:bal" }, text: "Tess est là, dans la rangée, les manches retroussées sur des bras de forgeronne. Elle te fait une place à côté d'elle. Elle ne dit rien du bal de l'an dernier. Elle te pousse du coude, une fois, quand tu fanes de travers. Ça veut tout dire." },
+      { if: { has: "tess:bal" }, text: "Tess est là, dans la rangée, les manches retroussées sur des bras de forgeronne. Elle te fait une place à côté d'elle. Elle se tait sur le bal de l'an dernier. Elle te pousse du coude, une fois, quand tu fanes de travers. Ça veut tout dire." },
     ],
     choices: [{ label: "Charger la charrette", fx: { ep: ["perso", 300] }, to: "IV_f_charrette" }] }),
   IV_f_charrette: P({ title: "La charrette", place: "sauvelune",
@@ -57,7 +57,7 @@ module.exports = {
     ] }),
   IV_f_soir: P({ title: "Le soir des foins", place: "sauvelune",
     text: [
-      "Pim ne dit rien. Il regarde le ciel. Il dit, au bout d'un long moment : « La première étoile, c'est la mienne. On avait dit. » Tu ne te souviens pas d'avoir dit ça. Tu dis oui. Il est content.",
+      "Pim se tait. Il regarde le ciel. Il dit, au bout d'un long moment : « La première étoile, c'est la mienne. On avait dit. » Tu ne te souviens pas d'avoir dit ça. Tu dis oui. Il est content.",
       "La charrette entre dans la cour du moulin. La grange sent le foin neuf, à en tourner la tête. Il fait nuit. Personne ne parle de demain.",
     ],
     choices: [{ back: "IV_sv_place" }] }),

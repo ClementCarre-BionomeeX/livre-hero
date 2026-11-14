@@ -11,7 +11,7 @@ module.exports = {
       "Tu as gardé ta robe de cour. Elle est déchirée à l'ourlet et tachée d'herbe, et tu as noué tes souliers à ta ceinture. À Vasselin, une robe de cour ouvre plus de portes qu'une épée.",
       { with: "enfant", text: "L'enfant de Sauvelune marche à côté de toi et pose des questions sur la capitale. Combien de gens ? Combien de rues ? Est-ce que la mer est vraiment salée ? Tu réponds à tout. Ça fait passer la route." },
       { with: "ysolde", text: "Ysolde marche devant, sans se retourner. C'est elle qui choisit les haltes. Personne ne le lui a demandé, et personne ne le lui conteste." },
-      { with: "pie", text: "Pie a volé un chapeau de paille quelque part avant le premier village. Il le porte de travers et sifflote. Il dit qu'il n'a jamais vu la mer, et qu'il n'est pas pressé." },
+      { with: "pie", text: "Pie a volé un chapeau de paille quelque part avant le premier village. Il le porte de travers et sifflote. Il dit que la mer lui est inconnue, et qu'il a tout son temps." },
       { with: "hylas", text: "Maître Hylas marche lentement. Il a demandé qu'on lui décrive la vallée, et tu le fais, comme tu le ferais d'une chanson : les vignes, les toits rouges, la rivière verte." },
       { with: "rodric", text: "Rodric porte sa hache sur l'épaule et regarde chaque village comme un endroit à défendre ou à prendre. Il ne sait pas encore lequel." },
       { with: ["linette", "pie"], text: "Linette marche à côté de son frère, en robe grise. Elle lit les bornes à voix basse, une à une, comme on lit des cotes." },
@@ -49,7 +49,7 @@ module.exports = {
   II_S_village_neuf: P({ title: "Un nom neuf", place: null,
     text: [
       "Tu montes sur la margelle du puits et tu dis, assez fort pour toute la rue : « Ce village s'appelle Bellefeuille. » C'est le premier mot qui t'est venu. Il y a un tilleul sur la place.",
-      "Les gens se regardent. Puis l'aubergiste dit : « Bellefeuille », et ça a l'air de lui plaire. Une vieille femme secoue la tête et rentre chez elle sans rien dire.",
+      "Les gens se regardent. Puis l'aubergiste dit : « Bellefeuille », et ça a l'air de lui plaire. Une vieille femme secoue la tête et rentre chez elle en silence.",
       { with: "hylas", text: "Hylas, sur le banc, a les mains crispées sur sa canne. « On ne fait pas ça, dit-il très bas. Ça s'appelle une cession. »" },
     ],
     choices: [{ back: "@route" }] }),
@@ -73,7 +73,7 @@ module.exports = {
 
   II_S_coffre: P({ title: "La voiture noire", place: null,
     text: [
-      "À midi, la cour s'arrête sous les platanes du gué. Les gardes noirs ne mangent pas. Ils restent debout autour de la voiture, mais ils ne regardent que la route, et pas les vignes.",
+      "À midi, la cour s'arrête sous les platanes du gué. Les gardes noirs ne mangent pas. Ils restent debout autour de la voiture, les yeux sur la route, le dos aux vignes.",
       "Par la fente d'un rideau de cuir, tu vois l'intérieur. Mordace n'y est pas. Il y a un banc, une écritoire fixée au plancher, et, sous le banc, un coffre de fer noir, cerclé, de la taille d'un enfant couché. Trois serrures. Pas une seule armoirie.",
       "Le coffre est couvert de givre.",
     ],
@@ -81,7 +81,7 @@ module.exports = {
 
   II_S_repere: P({ title: "Un garde noir", place: null,
     text: [
-      "Tu as fait trois pas hors des vignes quand l'un des gardes noirs tourne la tête vers toi. Il ne crie pas. Il ne bouge pas. Il te regarde, simplement, d'un regard qui n'a rien derrière.",
+      "Tu as fait trois pas hors des vignes quand l'un des gardes noirs tourne la tête vers toi. Il reste immobile, muet. Il te regarde, simplement, d'un regard vide.",
       "Tu recules. Il te laisse reculer. À la halte du soir, il a quitté sa place à côté de la voiture. Tu ne sais pas où il est allé.",
     ],
     choices: [{ label: "Reprendre la route, plus vite", back: "@route" }] }),
@@ -115,7 +115,7 @@ module.exports = {
     text: [
       "La mer s'est retirée et laisse, sous la muraille du port, une bande de sable noir et d'algues. Tu la connais. À douze ans, tu passais par là pour rentrer après le couvre-feu, tes souliers à la main, comme aujourd'hui.",
       "L'eau vous arrive aux genoux, puis à la taille. Au bout, une poterne de pêcheurs, jamais fermée, parce que personne à la garde ne sait qu'elle existe.",
-      { if: { all: [{ present: "hylas" }, { present: "rodric" }] }, text: "Hylas se fait porter par Rodric sur les derniers pas. Il n'en dit rien, ni avant ni après." },
+      { if: { all: [{ present: "hylas" }, { present: "rodric" }] }, text: "Hylas se fait porter par Rodric sur les derniers pas. Il garde le silence là-dessus, avant comme après." },
     ],
     choices: [{ label: "Entrer dans Vasselin", fx: { flag: "sud:entree_greve" }, to: "@route" }] }),
 
@@ -158,7 +158,7 @@ module.exports = {
       { if: { not: { has: "sud:ermengarde_gue" } }, text: "Tu passes par les cuisines, où une marmitonne te reconnaît et te laisse entrer pour un baiser sur la joue. Ermengarde arrive un quart d'heure plus tard, dans le cellier, entre les jambons, une chandelle à la main. Elle n'a pas l'air surprise." },
       "« Il a pris la Tour des Archives, dit-elle. Le Greffier-Majeur. Le lendemain de notre retour. La reine a signé. Il a renvoyé les archivistes, sauf deux, qui ne descendent plus. Il a fait monter son coffre de fer dans la grande salle, par six hommes, avec des cordes. Il n'en sort pas. »",
       "« La reine dort. Le jour. Elle se réveille à la nuit, elle demande qui elle est, on le lui dit, elle demande Mordace, et il vient. Ils parlent jusqu'à l'aube. Le matin, elle signe. »",
-      { if: { has: "lisandre:lettre" }, text: "Tu ne lui parles pas de la lettre au sceau noir. Elle te regarde comme si elle savait que tu ne lui en parles pas." },
+      { if: { has: "lisandre:lettre" }, text: "Tu gardes pour toi la lettre au sceau noir. Elle te regarde comme si elle devinait ton secret." },
       { if: { has: "lisandre:disgrace" }, text: "« Et toi, tu es bannie de la cour, dit-elle encore. Elle l'a dit à Pallanche, avant la nuit. Elle ne s'en souvient sûrement plus. Mais lui, oui. »" },
       "« Le tournoi, c'est lui aussi. Il a dit à la reine que le peuple avait besoin de fête. Le vainqueur reçoit sa grâce dans la grande salle des Archives, devant le coffre. Je ne sais pas pourquoi là. »",
     ],
@@ -322,7 +322,7 @@ module.exports = {
   II_S_nuit_enfant: P({ title: "La chanson", place: "vasselin",
     text: [
       "Il te demande de lui chanter quelque chose. Pas pour la cour. Quelque chose de vrai.",
-      "Tu lui chantes une berceuse de pêcheurs, à voix basse, pour ne pas déranger les joueurs. Au deuxième couplet, il s'est endormi sur la table, la tête dans ses bras. Les mariniers ont arrêté de jouer pour écouter. Ils reprennent sans rien dire.",
+      "Tu lui chantes une berceuse de pêcheurs, à voix basse, pour ne pas déranger les joueurs. Au deuxième couplet, il s'est endormi sur la table, la tête dans ses bras. Les mariniers ont arrêté de jouer pour écouter. Ils reprennent en silence.",
     ],
     choices: [{ fx: { conf: { enfant: 5, lisandre: 5 } }, back: "II_S_nuit" }] }),
 

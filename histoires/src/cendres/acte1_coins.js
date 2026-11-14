@@ -17,12 +17,12 @@ module.exports = {
     ] }),
   PI_k_lavoir_battoir: PI({ title: "Le battoir de Jeanne",
     text: [
-      "Tu dis tout. La Fosse, Corneille, les quatre écus, le registre, la tour. Les femmes se sont arrêtées de battre. Guillemette ne dit rien jusqu'à la fin. Puis elle va au fond du lavoir, sous la pierre, là où on range les seaux, et elle revient avec un battoir de bois, noirci, usé en creux par une main qui n'est pas la sienne. Sur le manche, au couteau : un *J*.",
+      "Tu dis tout. La Fosse, Corneille, les quatre écus, le registre, la tour. Les femmes se sont arrêtées de battre. Guillemette écoute jusqu'à la fin. Puis elle va au fond du lavoir, sous la pierre, là où on range les seaux, et elle revient avec un battoir de bois, noirci, usé en creux par la main d'une autre. Sur le manche, au couteau : un *J*.",
       "« Je l'ai gardé, dit-elle. Pour la petite. Je me disais : quand elle sera grande, elle viendra laver ici, et elle aura celui de sa mère. » Elle te le met dans les mains. « Tu le lui donneras. Quand tu l'auras sortie de là. Tu lui diras que sa mère chantait faux et qu'elle tapait plus fort que nous toutes. Elle ne s'en souviendra pas. Tu lui diras quand même. »",
     ],
     choices: PI_BACK }),
   PI_k_lavoir_linge: PI({ title: "La pierre du lavoir",
-    text: ["Tu te mets à genoux, à la troisième place, celle de ta mère, que personne n'a prise. Guillemette te donne un drap et un battoir. Tu tapes. Tu tapes mal. Les femmes rient, et elles te montrent : le poignet, pas le bras, et tu frappes en chantant, sinon ça ne va pas. Elles chantent. Une chanson de lavandières, que tu connais par cœur sans l'avoir jamais apprise, parce que tu l'as entendue tous les jours de ta vie, avant la pluie. Tu chantes avec elles. Faux. Comme ta mère."],
+    text: ["Tu te mets à genoux, à la troisième place, celle de ta mère, que personne n'a prise. Guillemette te donne un drap et un battoir. Tu tapes. Tu tapes mal. Les femmes rient, et elles te montrent : tout est dans le poignet, et tu frappes en chantant, pour tenir le rythme. Elles chantent. Une chanson de lavandières, que tu connais par cœur sans l'avoir jamais apprise, parce que tu l'as entendue tous les jours de ta vie, avant la pluie. Tu chantes avec elles. Faux. Comme ta mère."],
     choices: PI_BACK }),
   CO_k_tresses: CO({ title: "Les tresses",
     text: [
@@ -37,6 +37,6 @@ module.exports = {
     text: ["Elle tresse la septième, plus serrée que les autres. Elle la noue avec un fil rouge. Puis elle prend son couteau et elle la coupe, d'un coup, au ras de la nuque. Tu sens le froid sur ta peau, là où elle était. Elle enroule la tresse, la met dans une petite bourse de cuir, et la bourse sous sa chemise, contre elle. « Six, dit-elle. Ça fera six. Personne ne comptera. » Personne ne compte. Le soir, près des feux, tu sens ce vide sur ta nuque, et c'est la seule chose qui ne te fait pas peur."],
     choices: CO_BACK }),
   CO_k_tresses_non: CO({ title: "Sept",
-    text: ["« Je reviendrai avec, dis-tu. Tu n'en auras pas besoin. » Embla te regarde. Elle ne te croit pas. Elle ne le dit pas. Elle tresse la septième, la noue avec un fil rouge, et elle te pose les mains sur les épaules, un moment, par derrière, sans que tu puisses voir son visage. « Bien sûr », dit-elle. Puis elle ramasse son peigne et son pot, et elle s'en va, très droite, sans courir."],
+    text: ["« Je reviendrai avec, dis-tu. Tu n'en auras pas besoin. » Embla te regarde. Elle doute, et elle garde son doute pour elle. Elle tresse la septième, la noue avec un fil rouge, et elle te pose les mains sur les épaules, un moment, par derrière, sans que tu puisses voir son visage. « Bien sûr », dit-elle. Puis elle ramasse son peigne et son pot, et elle s'en va, très droite, sans courir."],
     choices: CO_BACK }),
 };

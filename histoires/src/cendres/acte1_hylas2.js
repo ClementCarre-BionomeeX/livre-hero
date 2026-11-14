@@ -11,7 +11,7 @@ module.exports = {
     fx: { questSeen: "HY_Q_relieur" },
     text: [
       "Au deuxième, au fond du couloir, l'atelier de reliure. Tu le trouves à l'odeur : la colle de peau, le cuir mouillé, la cire d'abeille. Et au bruit : le petit coup sec du plioir sur le papier, régulier, qui n'a pas changé depuis que tu es entré dans cette tour, il y a soixante-quatre ans.",
-      "« Maître Hylas », dit Odilon, sans s'arrêter de plier. Il est plus vieux que toi. Il a relié tous les registres de la Chancellerie depuis le temps du vieux chancelier. « Vous venez toucher ? Venez toucher. Personne ne vient plus toucher. Les jeunes greffiers ne savent même pas qu'un livre, ça se touche. »",
+      "« Maître Hylas », dit Odilon, sans s'arrêter de plier. Il est plus vieux que toi. Il a relié tous les registres de la Chancellerie depuis le temps du vieux chancelier. « Vous venez toucher ? Venez toucher. Les mains ont cessé de venir. Pour les jeunes greffiers, un livre se lit de loin. »",
     ],
     choices: [
       { label: "Toucher ce qui est sur l'établi", to: "HY_Q_relieur_livre" },
@@ -31,7 +31,7 @@ module.exports = {
   HY_Q_relieur_compte: P({ title: "Le compte",
     text: [
       "Tu calcules à voix basse, comme on t'a appris quand tu étais jeune clerc, sur les doigts, avec la règle des trente lignes. Six cents cahiers, seize pages, deux colonnes, quarante lignes. Odilon t'écoute compter, et il cesse de plier.",
-      "Tu arrives à un nombre. Un peu plus de sept cent mille. Ce n'est pas le nombre des morts du royaume. Ce n'est pas le nombre des nés. C'est, à quelques milliers près, le nombre des vivants d'Esquarre, tel que l'a donné le dernier dénombrement.",
+      "Tu arrives à un nombre. Un peu plus de sept cent mille. Ce chiffre dépasse celui des morts du royaume, et celui des nés. C'est, à quelques milliers près, le nombre des vivants d'Esquarre, tel que l'a donné le dernier dénombrement.",
       "« Tous, dit Odilon, très bas. C'est pour les mettre tous. » Il reprend son plioir. Ses mains tremblent un peu. « Moi, je fais les reliures. Je ne lis pas ce qu'on met dedans. Je n'ai jamais lu. » Il le répète deux fois, comme une prière.",
     ],
     choices: [{ fx: { quest: "HY_Q_relieur" }, back: "HY_tour" }] }),
@@ -60,7 +60,7 @@ module.exports = {
   // ---------------------------------------------------------------- Acte IV, Pont-de-Saule
   IV_ps_pont: P4({ title: "Les pêcheurs du pont", place: "pontsaule",
     text: [
-      "Sur le pont aux sept arches, une rangée d'enfants, les jambes dans le vide, une ligne à la main. Ils ne prennent rien. Ils ne se disputent pas. Ils regardent l'eau.",
+      "Sur le pont aux sept arches, une rangée d'enfants, les jambes dans le vide, une ligne à la main. Ils repartent les mains vides, en bon ordre. Ils regardent l'eau.",
       "Un petit, au bout, plus petit que les autres, a une ligne sans hameçon. Tu lui demandes ce qu'il pêche. « Le nom de ma sœur, dit-il, sérieux. Elle l'a donné à la baraque grise, pour la taille. Le clerc a dit qu'il descendait la rivière jusqu'à Pallanche. Alors je le pêche quand il passe. »",
     ],
     choices: [
@@ -71,7 +71,7 @@ module.exports = {
     text: [
       "Tu t'assieds. Il te prête une ligne, sans hameçon aussi. Vous pêchez. L'eau passe sous le pont, verte, lente. Au bout d'une heure, il dit : « Elle s'appelle Margot. Je le dis tous les jours. Comme ça, si elle passe, elle saura que quelqu'un l'appelle. »",
       { if: { has: "iv:pontsaule=libere" }, text: "Le soir même, une fillette remonte la grand-rue en courant, une fiole débouchée à la main, et elle crie un nom. Le sien. Le petit lâche sa ligne. La ligne tombe dans la Sauve. Personne ne va la repêcher." },
-      { if: { not: { has: "iv:pontsaule=libere" } }, text: "Tu redis le nom avec lui, une fois, pour qu'il y ait deux voix. Margot. L'eau ne répond pas. Il hoche la tête, satisfait. « Demain, dit-il. Elle passera peut-être demain. »" },
+      { if: { not: { has: "iv:pontsaule=libere" } }, text: "Tu redis le nom avec lui, une fois, pour qu'il y ait deux voix. Margot. L'eau se referme. Il hoche la tête, satisfait. « Demain, dit-il. Elle passera peut-être demain. »" },
     ],
     choices: [{ back: "IV_ps" }] }),
   IV_ps_pont_verite: P4({ title: "La rivière", place: "pontsaule",

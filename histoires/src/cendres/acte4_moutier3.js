@@ -35,11 +35,11 @@ module.exports = {
       { label: "Les regarder jouer, assis sur le muret", to: "IV_m_jeu_regarde" },
     ] }),
   IV_m_jeu_pris: P({ title: "Attrapé",
-    text: ["Le petit Glaneur t'attrape par la manche. Il palpe ton bras, ton épaule, ton visage, du bout des doigts, en fronçant le nez. Il ne te connaît pas. Il ne peut pas deviner. Il cherche quand même, très sérieusement. Puis il dit, au hasard : « Le géant ! » Tous les enfants éclatent de rire. Il a perdu. Il garde le bandeau. Il est ravi."],
+    text: ["Le petit Glaneur t'attrape par la manche. Il palpe ton bras, ton épaule, ton visage, du bout des doigts, en fronçant le nez. Tu es un inconnu pour lui : il cherche en vain. Il cherche quand même, très sérieusement. Puis il dit, au hasard : « Le géant ! » Tous les enfants éclatent de rire. Il a perdu. Il garde le bandeau. Il est ravi."],
     choices: BACK }),
   IV_m_jeu_bandeau: P({ title: "Le bandeau",
     text: [
-      "Tu prends le bandeau. Les enfants tournent autour de toi en riant. Tu tends les mains. Tu attrapes un poignet, maigre. Tu palpes. Une tresse. Une cicatrice au menton. Tu ne sais pas qui c'est. Tu ne connais aucun de ces enfants.",
+      "Tu prends le bandeau. Les enfants tournent autour de toi en riant. Tu tends les mains. Tu attrapes un poignet, maigre. Tu palpes. Une tresse. Une cicatrice au menton. Qui est-ce ? Tous ces enfants te sont inconnus.",
       "Alors tu dis un nom, celui qui te vient. Le premier qui vient. Il y a un silence. Puis la petite, sous tes doigts, dit : « Oui. » Tu enlèves le bandeau. Elle te regarde, les yeux ronds. « C'est mon nom, dit-elle. Comment tu savais ? » Tu ne savais pas. Personne ne le saura. Le jeu reprend.",
     ],
     choices: BACK }),

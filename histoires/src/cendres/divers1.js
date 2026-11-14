@@ -7,7 +7,7 @@ module.exports = {
   II_g_corbeau_blanc: P2({ title: "Le corbeau blanc",
     text: [
       "Parmi les centaines de corbeaux de la grotte, un seul est blanc. Il se tient à l'écart, sur une corniche basse, et les autres ne s'approchent pas de lui. Il te regarde depuis que tu es entrée.",
-      "Au clan, on dit qu'un corbeau blanc naît une fois par génération, et qu'il porte le nom de quelqu'un que tout le monde a oublié. On ne le chasse pas. On ne le nourrit pas non plus. On attend qu'il le dise.",
+      "Au clan, on dit qu'un corbeau blanc naît une fois par génération, et qu'il porte le nom de quelqu'un que tout le monde a oublié. On le laisse en paix, à l'écart des restes. On attend qu'il le dise.",
     ],
     choices: [
       { label: "Lui tendre un morceau de viande séchée", fx: { food: -1, ep: ["perso", 400], flag: "nord:corbeau_blanc" }, to: "II_g_corbeau_blanc_viande" },
@@ -16,7 +16,7 @@ module.exports = {
   II_g_corbeau_blanc_viande: P2({ title: "Ce qu'il dit",
     text: [
       "Il descend de sa corniche, en deux sauts. Il prend la viande dans ta main, délicatement, et il l'avale. Puis il te regarde, la tête penchée, et il ouvre le bec. Il ne croasse pas. Il dit un mot. Un seul. Deux syllabes, avec une voix d'enfant.",
-      "Tu ne comprends pas le mot. Ce n'est pas la langue du clan. Ce n'est pas la langue d'en bas. C'est une langue en boucles, douce, qui sonne comme une berceuse. Le corbeau remonte sur sa corniche. Il ne le redira pas.",
+      "Le mot t'échappe : il vient d'une langue étrangère au clan comme aux gens d'en bas. C'est une langue en boucles, douce, qui sonne comme une berceuse. Le corbeau remonte sur sa corniche. Il ne le redira pas.",
     ],
     choices: [
       { label: "Essayer de répéter le mot", to: "II_g_corbeau_blanc_mot" },
@@ -45,7 +45,7 @@ module.exports = {
 
   III_a_remparts: P3({ title: "Les remparts", place: "valcendre",
     text: [
-      "Sur les remparts de Valcendre, la garde fait sa ronde. Des soldats en armure d'argent terni, qui marchent depuis trois cents ans, de tour en tour, et qui regardent le blanc. Il n'y a rien à regarder. Il n'y a jamais rien eu. Ils regardent quand même.",
+      "Sur les remparts de Valcendre, la garde fait sa ronde. Des soldats en armure d'argent terni, qui marchent depuis trois cents ans, de tour en tour, et qui regardent le blanc. L'horizon est vide, et l'a toujours été. Ils regardent quand même.",
       "Le capitaine de la garde s'arrête à côté de toi. « Tu pars demain, dit-il. Pour là-haut. » Il regarde le blanc. « Si tu vois un pays avec des collines vertes et une rivière qui fait un coude, dis-lui qu'on monte encore la garde. Il ne s'en souvient sûrement pas. Dis-le-lui quand même. »",
     ],
     choices: [

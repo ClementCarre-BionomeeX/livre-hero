@@ -16,7 +16,7 @@ module.exports = {
       { back: "IV_ps" },
     ] }),
   IV_ps_soupe: P({ title: "La soupe",
-    text: ["Une soupe aux choux, épaisse, avec un os à moelle qui flotte au milieu. La servante la pose devant toi sans un mot, puis elle reste là, à te regarder manger, le torchon sur l'épaule. « Tu es le fils du meunier de là-haut, dit-elle enfin. Celui qui est parti. » Tu dis oui. Elle hoche la tête. « Je me demandais si j'avais rêvé. » Elle repart. Elle t'apporte du pain, ensuite, sans que tu en demandes."],
+    text: ["Une soupe aux choux, épaisse, avec un os à moelle qui flotte au milieu. La servante la pose devant toi en silence, puis elle reste là, à te regarder manger, le torchon sur l'épaule. « Tu es le fils du meunier de là-haut, dit-elle enfin. Celui qui est parti. » Tu dis oui. Elle hoche la tête. « Je me demandais si j'avais rêvé. » Elle repart. Elle t'apporte du pain, ensuite, sans que tu en demandes."],
     choices: BACK }),
   IV_ps_violons: P({ title: "Les violoneux",
     text: [
@@ -36,7 +36,7 @@ module.exports = {
     ],
     choices: BACK }),
   IV_ps_violons_rate: P({ title: "Un air",
-    text: ["Tu fredonnes. Ce qui sort n'est pas la bourrée. C'est un air d'ailleurs, lent, en boucles, que tu ne te savais pas connaître. Les violoneux t'écoutent, perplexes. « Ce n'est pas d'ici, ça, dit le vieux. C'est joli. Mais ce n'est pas d'ici. » Il repose son archet. Tu t'arrêtes. Tu ne sais pas d'où vient cet air. Tu le sais très bien. Tu n'as pas envie de le dire."],
+    text: ["Tu fredonnes. Ce qui sort n'est pas la bourrée. C'est un air d'ailleurs, lent, en boucles, que tu ne te savais pas connaître. Les violoneux t'écoutent, perplexes. « Ce n'est pas d'ici, ça, dit le vieux. C'est joli. Mais ce n'est pas d'ici. » Il repose son archet. Tu t'arrêtes. D'où te vient cet air ? Tu le sais très bien. Tu n'as pas envie de le dire."],
     choices: BACK }),
   IV_ps_livre: P({ title: "Le livre des voyageurs",
     text: [
@@ -49,9 +49,9 @@ module.exports = {
       { label: "Lui proposer d'écrire au crayon, à la place de l'encre", fx: { ep: ["perso", 400], flag: "iv:livre_crayon" }, to: "IV_ps_livre_crayon" },
     ] }),
   IV_ps_livre_nom: P({ title: "Trois fois",
-    text: ["Tu écris ton nom. Tu repasses chaque lettre, trois fois, en appuyant si fort que la plume crisse et que le papier se creuse. L'aubergiste te regarde faire, sans rien dire. Demain, l'encre sera partie. Mais il restera le creux, dans le papier, et en passant le doigt dessus, on pourra lire, comme un aveugle lit. L'aubergiste passe le doigt, déjà, pour essayer. Il hoche la tête."],
+    text: ["Tu écris ton nom. Tu repasses chaque lettre, trois fois, en appuyant si fort que la plume crisse et que le papier se creuse. L'aubergiste te regarde faire, en silence. Demain, l'encre sera partie. Mais il restera le creux, dans le papier, et en passant le doigt dessus, on pourra lire, comme un aveugle lit. L'aubergiste passe le doigt, déjà, pour essayer. Il hoche la tête."],
     choices: BACK }),
   IV_ps_livre_crayon: P({ title: "Le crayon",
-    text: ["Il te regarde comme si tu avais dit une bêtise. Puis il fouille sous son comptoir, et il sort un bout de mine de plomb, de celles dont se servent les charpentiers. Il écrit un nom, le sien, dans la marge. Il le regarde. Il frotte du pouce. Le plomb tient, il ne pâlit pas, pas tout de suite en tout cas. « On verra demain », dit-il. Mais il a déjà retourné la page d'hier, et il recopie, au crayon, la langue entre les dents, les noms qui restent, avant qu'ils s'en aillent."],
+    text: ["Il te regarde comme si tu avais dit une bêtise. Puis il fouille sous son comptoir, et il sort un bout de mine de plomb, de celles dont se servent les charpentiers. Il écrit un nom, le sien, dans la marge. Il le regarde. Il frotte du pouce. Le plomb tient, il garde sa couleur, pour l'instant. « On verra demain », dit-il. Mais il a déjà retourné la page d'hier, et il recopie, au crayon, la langue entre les dents, les noms qui restent, avant qu'ils s'en aillent."],
     choices: BACK }),
 };

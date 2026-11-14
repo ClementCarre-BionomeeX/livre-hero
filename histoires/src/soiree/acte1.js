@@ -50,7 +50,7 @@ module.exports = {
     text: [
       { first: true, text: "Le chemin longe l'eau sous une rangée de saules têtards, dont les branches nues pendent jusqu'au courant. Là où la rivière s'élargit, elle se fait basse et rapide sur un fond de galets : c'est le gué des Saules, par où passaient les charrettes avant qu'on bâtisse le pont. Les ornières descendent encore dans l'eau, d'un côté, et en ressortent de l'autre." },
       { first: true, text: "Au milieu du gué, il y a un homme." },
-      { first: true, text: "Il est debout dans le courant jusqu'aux genoux, tête nue sous la neige, appuyé sur une longue perche à crochet. Il ne pêche pas. Il ne traverse pas. Il regarde la pente, en face, vers les Aubiers." },
+      { first: true, text: "Il est debout dans le courant jusqu'aux genoux, tête nue sous la neige, appuyé sur une longue perche à crochet. Il reste planté là, les mains vides, face au courant. Il regarde la pente, en face, vers les Aubiers." },
       { first: true, second: true, text: "Il ne regarde pas la ferme. Il regarde une seule fenêtre, celle du fond, la chambre de ta grand-mère, où une chandelle brûle déjà, alors qu'il fait encore jour." },
       { again: true, before: "A_appel", text: "Le gué, les saules, l'eau qui court sur les galets. La neige tombe plus serré. L'homme est toujours au milieu du courant, immobile, et il regarde la pente." },
       { again: true, after: "A_appel", text: "Le gué, les saules, l'eau qui court sur les galets. La neige tombe plus serré. Au milieu du courant, il n'y a plus personne." },
@@ -84,7 +84,7 @@ module.exports = {
       { via: "route", text: "La route finit devant la barrière, sous le noyer. La maison est là, plus basse que dans ta mémoire, le toit chargé de neige, une lumière jaune à la fenêtre de la salle et une autre, plus petite, à celle du fond." },
       { via: "route", text: "Un chien sort de la grange en aboyant, gris, lourd, raide des pattes de derrière. Pataud. Il avait un an quand tu es parti{e}. Il s'arrête à trois pas, renifle, aboie encore une fois pour la forme, puis vient te pousser la main du museau, comme si tu étais descendu{e} au village le matin même." },
       { via: "tard", text: "Il fait nuit quand tu arrives devant la barrière, sous le noyer. La neige tient partout, maintenant. La maison est une masse sombre, avec deux lumières : la grande fenêtre de la salle, et celle du fond, plus petite, où brûle la chandelle de la Longue Nuit." },
-      { via: "tard", text: "Le chien de la ferme sort de la grange en aboyant, et cette fois il ne s'arrête pas : il aboie contre toi, le poil levé, tant que la porte de la maison ne s'est pas ouverte." },
+      { via: "tard", text: "Le chien de la ferme sort de la grange en aboyant, et cette fois il continue : il aboie contre toi, le poil levé, jusqu'à ce que la porte de la maison s'ouvre." },
       { via: "gue", text: "Le chemin du gué finit dans le verger, derrière la grange. Tu passes sous les pommiers que ton grand-père a plantés, la neige jusqu'aux chevilles, et tu arrives par l'arrière, comme autrefois quand tu rentrais trop tard et que tu ne voulais pas qu'on t'entende." },
       { via: "gue", text: "La porte de l'étable est entrouverte. Une lanterne brûle à l'intérieur. Tu entends une vache qui souffle, le seau qu'on racle, et une autre chose, plus basse, que tu mets un moment à reconnaître : quelqu'un pleure, sans bruit, en trayant." },
       { again: true, text: "La cour, le noyer, la neige." },
@@ -98,7 +98,7 @@ module.exports = {
     text: [
       { via: "etable", text: "Isaure est assise sur le tabouret de traite, le front contre le flanc de la vache, et ses mains vont et viennent sans s'arrêter. Elle t'entend. Elle ne se retourne pas tout de suite. Quand elle le fait, elle s'essuie le visage d'un revers de manche, d'un geste brusque, presque une gifle." },
       { via: "etable", text: "« Tu es passé{e} par le gué, dit-elle. Évidemment. Tu as toujours pris le chemin le plus court. »" },
-      { via: "seuil", text: "La porte s'ouvre avant que tu aies frappé. Isaure est sur le seuil, une lanterne levée à la hauteur de ton visage, et elle te dévisage longtemps, sans un mot, comme on examine quelqu'un qu'on doit reconnaître devant un juge." },
+      { via: "seuil", text: "La porte s'ouvre avant que tu aies frappé. Isaure est sur le seuil, une lanterne levée à la hauteur de ton visage, et elle te dévisage longtemps, en silence, comme on examine quelqu'un qu'on doit reconnaître devant un juge." },
       { via: "seuil", text: "« Tu as vieilli », dit-elle enfin." },
       { after: "tard", text: "Puis : « Elle t'a attendu{e} pour souper. Elle n'a pas voulu commencer sans toi. Le petit a faim depuis six heures. »" },
       "Elle a trente-trois ans, et tu lui en donnerais quarante. Les cheveux tirés, un tablier de toile sur une robe noire. La robe de deuil de Jacquet, deux hivers après.",
@@ -112,8 +112,8 @@ module.exports = {
     ] },
   A_jacquet: { act: "I", title: "Jacquet", place: "aubiers",
     text: [
-      "Elle ne bouge pas. Elle attend la suite, et comme la suite ne vient pas, elle dit : « Tu l'as su quand ? »",
-      { if: { has: "deuil:tard" }, text: "Tu lui dis : trois mois après, par un colporteur, dans une auberge, entre deux autres nouvelles. Isaure ouvre la bouche, la referme. Elle regarde ailleurs, vers le noyer. Elle ne dit pas *personne ne t'a écrit ?* Elle ne dit rien du tout." },
+      "Elle reste immobile. Elle attend la suite, et comme tu te tais, elle dit : « Tu l'as su quand ? »",
+      { if: { has: "deuil:tard" }, text: "Tu lui dis : trois mois après, par un colporteur, dans une auberge, entre deux autres nouvelles. Isaure ouvre la bouche, la referme. Elle regarde ailleurs, vers le noyer. Elle garde pour elle le *personne ne t'a écrit ?* Elle garde tout pour elle." },
       { if: { has: "deuil:lache" }, text: "Tu lui dis la vérité : tu l'as su la semaine même, et tu n'es pas venu{e}. Elle hoche la tête, lentement. « Au moins tu ne mens pas, dit-elle. C'est déjà ça. Ça ne sert à rien, mais c'est déjà ça. »" },
       { if: { has: "deuil:loin" }, text: "Tu lui dis où tu étais, et le contrat, et qu'on ne t'aurait pas laissé{e} partir. « Loin, répète-t-elle. Tout le monde est loin. Jacquet aussi, maintenant. »" },
       "Puis elle se détourne. « Entre. Elle t'attend. Et essuie tes bottes, j'ai lavé ce matin. »",
@@ -123,7 +123,7 @@ module.exports = {
     text: [
       { via: "etable", text: "Tu prends le deuxième seau sur le crochet, tu tires le tabouret de la Rousse, et tu t'assois. Tes mains ont oublié, puis elles se souviennent. Pendant un long moment, il n'y a que le bruit du lait dans le fer-blanc, deux fois, en désordre, puis presque en mesure." },
       { via: "seuil", text: "Tu lui prends la lanterne des mains. Elle te la laisse. Tu la tiens pendant qu'elle referme la barrière derrière toi, rentre le seau d'eau, pousse le chien vers la grange : les gestes de chaque soir, que tu as faits mille fois, et que quelqu'un d'autre a faits pendant onze ans." },
-      "« Tu sais encore faire ça », dit Isaure, à la fin. Ce n'est pas un compliment. Ce n'est pas un reproche non plus. C'est quelque chose entre les deux, qui n'a pas encore choisi.",
+      "« Tu sais encore faire ça », dit Isaure, à la fin. C'est à mi-chemin du compliment et du reproche, et ça hésite encore.",
     ],
     choices: [{ label: "Entrer dans la maison avec elle", via: "silence", fx: { regard: { isaure: "neutre" }, flag: "isaure:seau" }, to: "A_salle" }] },
 
@@ -188,7 +188,7 @@ module.exports = {
     ] },
   A_qui: { act: "I", title: "En retard", place: "aubiers", second: true,
     text: [
-      "Elle ne fait pas semblant de ne pas comprendre. Elle te regarde, et pour la première fois ce soir, elle n'a pas l'air vieille du tout. Elle a l'air d'une fille qui guette une voiture sur la route.",
+      "Elle a compris tout de suite, et elle le montre. Elle te regarde, et pour la première fois ce soir, elle a l'air jeune. Elle a l'air d'une fille qui guette une voiture sur la route.",
       "« Quelqu'un qui est en retard, dit-elle. Très en retard. » Elle sourit. « Il a toujours été en retard. »",
       "Et elle ne dit plus rien là-dessus.",
     ],
@@ -211,7 +211,7 @@ module.exports = {
     fx: { drop: "couteau_corne", regard: { colas: "admiratif" }, flag: "colas:couteau" },
     text: [
       "Il le tourne dans ses mains noires de charbon, ouvre la lame, la referme, la rouvre. Il ne dit pas merci. Il dit : « Il est à moi pour de vrai ? » et, quand tu dis oui, il le serre contre lui et regarde la cuisine pour vérifier que sa mère n'a rien vu.",
-      { if: { arch: "guerrier" }, text: "« Tu as tué des gens, avec le tien ? » Tu ne réponds pas. Il hoche la tête comme si tu avais répondu." },
+      { if: { arch: "guerrier" }, text: "« Tu as tué des gens, avec le tien ? » Tu te tais. Il hoche la tête comme si tu avais répondu." },
       "« Je le montrerai à personne, dit-il. Sauf à Pataud. »",
     ],
     choices: [{ back: "A_colas" }] },
@@ -237,7 +237,7 @@ module.exports = {
       "— Pour qu'ils voient la maison de loin, dit Albane. Et à minuit, on la souffle, et on leur dit : bonne route.",
       "— Et s'ils arrivent avant ?",
       "— Alors on leur ouvre. »",
-      { if: { has: "passe:sel" }, text: "Isaure pose sa cuillère. « Tu te souviens de la boîte à sel ? » dit-elle, à personne en particulier. Personne ne répond. Albane la regarde, et elle reprend sa cuillère." },
+      { if: { has: "passe:sel" }, text: "Isaure pose sa cuillère. « Tu te souviens de la boîte à sel ? » dit-elle, à personne en particulier. La table se tait. Albane la regarde, et elle reprend sa cuillère." },
       { if: { has: "passe:benie" }, text: "« Elle t'a dit de partir, dit Isaure à mi-voix, en coupant le pain. À moi, elle ne l'a jamais dit. À moi, elle a dit : reste. » Albane ne la contredit pas." },
       { if: { has: "passe:monde" }, text: "Isaure te demande, sans lever les yeux, si le monde valait le voyage. Tu cherches une réponse. Elle n'attend pas que tu la trouves." },
       { second: true, text: "Albane ne mange pas. Elle a rempli son écuelle et la laisse refroidir devant elle. Toutes les deux minutes, ses yeux vont à la porte, puis reviennent, sans hâte, comme ceux de quelqu'un qui compte." },

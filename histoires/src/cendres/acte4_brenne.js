@@ -10,8 +10,8 @@ module.exports = {
   IV_r_est: P({ title: "La route de l'est", place: null,
     text: [
       "La route de l'est suit la Pallante, puis remonte vers les Marches. Plus vous approchez de la Lisse, plus la route est vide. Les villages sont fermés. Les champs ne sont pas fauchés. Les gens sont partis vers l'ouest, ou se terrent.",
-      "À un carrefour, un pendu. Pas un Liseur : un soldat de la reine, avec un écriteau : *Déserteur.* Et dessous, quelqu'un a ajouté au charbon, d'une écriture d'enfant, son nom, son village, et l'âge qu'il avait. Dix-sept ans.",
-      { with: "ysolde", text: "Ysolde coupe la corde. Elle ne dit rien. Elle creuse elle-même, au bord du chemin, avec sa dague et ses mains, et quand le trou est assez profond, elle y couche le garçon, et elle grave sur une pierre ce qu'il y avait sur l'écriteau, tout, sauf le mot déserteur." },
+      "À un carrefour, un pendu. Un soldat de la reine, avec un écriteau : *Déserteur.* Et dessous, quelqu'un a ajouté au charbon, d'une écriture d'enfant, son nom, son village, et l'âge qu'il avait. Dix-sept ans.",
+      { with: "ysolde", text: "Ysolde coupe la corde. Elle se tait. Elle creuse elle-même, au bord du chemin, avec sa dague et ses mains, et quand le trou est assez profond, elle y couche le garçon, et elle grave sur une pierre ce qu'il y avait sur l'écriteau, tout, sauf le mot déserteur." },
     ],
     choices: [{ label: "Continuer", to: "@route" }] }),
 
@@ -64,7 +64,7 @@ module.exports = {
       { if: YS_AVEC, text: "La compagnie de Brenne campe dans la cour du fort. Quarante hommes. Gautier, le vieux sergent, est assis sur un tonneau, à recoudre une sangle. Il lève les yeux. Il voit Ysolde. Il pose la sangle. Il se lève, très lentement, parce qu'il a soixante-cinq ans et un genou qui ne veut plus. « Capitaine », dit-il. Et il pleure, devant ses hommes, sans se cacher, et aucun de ses hommes ne rit." },
       { if: YS_AVEC, text: "On leur a donné un autre capitaine, cet hiver. Un jeune comte de la cour, qui ne sait pas où est le pont. Les quarante ne lui obéissent qu'à moitié. « On vous attendait, dit Gautier. On ne savait pas qu'on vous attendait. Maintenant on sait. »" },
       { if: { not: YS_AVEC }, text: "Ysolde est en haut de la tour du Loup, seule, à regarder le pont. Elle se retourne en entendant tes pas dans l'escalier. Elle a des cheveux gris, maintenant, sur les tempes. Elle a trente-trois ans." },
-      { if: { not: YS_AVEC }, text: "« Tu es tombé, dit-elle. Je t'ai vu tomber. J'avais la main tendue, et tu ne l'as pas prise, ou je ne l'ai pas tendue assez loin. » Elle se tait. « Ensuite, j'ai fait ce que je sais faire. Je suis revenue à la reine. Je lui ai demandé une seule chose : le commandement du pont de Lisse. Elle me l'a donné. Personne d'autre n'en voulait. »" },
+      { if: { not: YS_AVEC }, text: "« Tu es tombé, dit-elle. Je t'ai vu tomber. J'avais la main tendue, et elle est restée vide, par ta faute ou par la mienne. » Elle se tait. « Ensuite, j'ai fait ce que je sais faire. Je suis revenue à la reine. Je lui ai demandé une seule chose : le commandement du pont de Lisse. Elle me l'a donné. Personne d'autre n'en voulait. »" },
       { if: { all: [{ not: YS_AVEC }, LISSE_SAIT] }, text: "« Je sais ce que j'ai fait sur ce pont, dit-elle. Je l'ai lu. Je ne m'en souviens pas, et je le sais, et c'est pire. Alors cette fois, je le tiens. Et cette fois, il ne brûlera pas. Tout le monde passera. Les nôtres, les leurs, les chèvres. Je l'ai juré. À personne. À moi. »" },
       { if: { all: [{ not: YS_AVEC }, { not: LISSE_SAIT }] }, text: "« Je ne sais toujours pas ce qui s'est passé sur ce pont, dit-elle. Mais tout le monde, ici, change de voix quand on en parle. Alors je le tiens, et je verrai bien. Peut-être que ça reviendra. Peut-être que c'est ce que je mérite. »" },
     ],
@@ -79,7 +79,7 @@ module.exports = {
   IV_br_ysolde_compagnie: P({ title: "La compagnie", place: "brenne",
     text: [
       "Ysolde fait le tour de ses quarante hommes, un par un. Elle dit le nom de chacun. Elle ne se trompe pas une fois. Puis elle va voir le jeune comte, dans sa tente, et elle en ressort une demi-heure plus tard avec le commandement de la compagnie, et le comte en ressort avec l'air de quelqu'un qui a enfin compris quelque chose.",
-      { if: { has: "ame:lisse" }, text: "Le soir, elle descend à la rivière, là où les trois cents de Lisse se sont assis dans l'herbe, en rang. Elle s'assied avec eux. Elle ne dit rien. Eux non plus." },
+      { if: { has: "ame:lisse" }, text: "Le soir, elle descend à la rivière, là où les trois cents de Lisse se sont assis dans l'herbe, en rang. Elle s'assied avec eux. Elle se tait. Eux non plus." },
       "« Je reste avec vous, te dit-elle ensuite. Mais demain, je prendrai le pont. Personne d'autre ne le tiendra comme il faut. »",
     ],
     choices: [{ fx: { flag: ["ysolde:iv=compagnie", "ysolde:pont"], conf: { ysolde: 5 } }, back: "IV_br" }] }),
@@ -118,7 +118,7 @@ module.exports = {
       "Il est assis devant la maison de sa sœur, un manche de hache sur les genoux, trois petites cloches cousues à l'épaule de son pourpoint, qui tintent quand il respire. Rodric. Il te voit.",
       { if: { has: "rodric:oublie_champion" }, text: "Il te salue poliment. Il ne sait plus très bien qui tu es. Puis il fronce les sourcils, et il dit : « Le tournoi. Il y avait un tournoi. Tu étais là. » Il a l'air content d'avoir trouvé." },
       { if: { not: { has: "rodric:oublie_champion" } }, text: "Il se lève, lourdement. « Te voilà, dit-il. On disait que tu étais mort. Moi, je disais que tu étais tombé. Ce n'est pas pareil. »" },
-      "Maëlle sort de la maison, les manches retroussées. Elle ne baisse les yeux devant personne. Elle ne les baisse pas devant toi. Derrière elle, Ilse, sept ans, avec sa poupée.",
+      "Maëlle sort de la maison, les manches retroussées. Elle soutient tous les regards, le tien compris. Derrière elle, Ilse, sept ans, avec sa poupée.",
       { if: { has: "iv:perrine" }, text: "Sous un auvent, une femme file, une tache de vin sur la joue. Tu t'approches. Tu lui dis la phrase d'Hersende, mot pour mot, avec le genièvre. Elle s'arrête de filer. Elle te regarde comme on regarde quelqu'un qui vient de dire une chose très étrange et très juste. « Du genièvre, répète-t-elle. Oui. » Elle reprend son fuseau. Le soir, toute la rue sent le pâté de lièvre. Elle ne sait pas pour qui elle le fait. Elle en garde une part, sur la fenêtre, enveloppée dans un linge." },
       { with: "ysolde", text: "Maëlle voit Ysolde. Elle ne crache pas, cette fois. Elle dit seulement : « Capitaine. » Ysolde répond : « Maëlle. » Et elles restent comme ça, à se regarder, jusqu'à ce qu'Ilse aille prendre la main d'Ysolde, comme si c'était évident." },
     ],
@@ -135,7 +135,7 @@ module.exports = {
   // ---- The Corvanne camp
   IV_cv_rive: P({ title: "La traversée", place: "brenne",
     text: [
-      "La barque est noire, étroite, et elle prend l'eau. Rodric rame sans un bruit. Vous passez à cent pas en aval du pont, sous les peupliers. Le pont, dans la nuit, est blanc comme un os.",
+      "La barque est noire, étroite, et elle prend l'eau. Rodric rame en silence. Vous passez à cent pas en aval du pont, sous les peupliers. Le pont, dans la nuit, est blanc comme un os.",
       "Sur l'autre rive, des sentinelles en manteau bleu. Elles vous voient arriver. Elles ne tirent pas : Rodric chante, à mi-voix, une chanson en corvannais, une chanson de mariniers, et l'une des sentinelles chante le couplet suivant.",
       { if: { not: LI_AVEC }, text: "Au sommet de la berge, quelqu'un vous attend, une lanterne à la main, un manteau bleu sur les épaules. Une femme. Elle lève la lanterne. C'est Lisandre." },
       { if: LI_AVEC, text: "Lisandre saute de la barque avant qu'elle touche la rive, dans l'eau jusqu'aux genoux. Elle remonte la berge en courant. Elle cherche quelqu'un." },
@@ -147,7 +147,7 @@ module.exports = {
 
   IV_cv_lisandre: P({ title: "L'autre rive", place: "brenne",
     text: [
-      "Elle porte le bleu de Corvanne. Elle a les cheveux coupés court, à la mode d'ici. Elle te regarde, et elle sourit, et ce n'est pas le sourire de la cour : c'est un sourire de travers, de quelqu'un qui a appris à rire de sa propre voix.",
+      "Elle porte le bleu de Corvanne. Elle a les cheveux coupés court, à la mode d'ici. Elle te regarde, et elle sourit, d'un sourire de travers, loin des sourires de cour, celui d'une femme qui a appris à rire de sa propre voix.",
       "« Je suis passée de l'autre côté, dit-elle. Après la chute. Je suis descendue du col, j'ai marché jusqu'à la Lisse, et j'ai traversé. Je cherchais quelqu'un. » Elle hausse les épaules. « À Vasselin, on dit que je suis une traîtresse. Ici, on dit que je suis une espionne. Les deux ont raison, un peu. »",
       { if: { any: [{ has: "lisandre:ilan_dit" }, { has: "lisandre:ilan_ment" }] }, text: "« Il est là, dit-elle. Ilan. Il est le chancelier de la margrave, maintenant. Il ne se souvenait pas de moi. Trois jours, il y a deux ans, c'est peu. Alors je lui ai raconté. Il a écouté. Il a dit que c'était une belle histoire. Puis, un soir, il m'a demandé de la raconter encore. »" },
       { if: { has: "lisandre:ilan_livre" }, text: "« Il est là, dit-elle. Ilan. Le chancelier de la margrave. Il est sorti des cachots de Vasselin au printemps, dans un échange de prisonniers. C'est moi qui l'y avais mis. Je suis venue lui dire pardon. Il m'a regardée comme on regarde un pont qu'on a vu brûler. Il ne m'a pas chassée. C'est tout ce que je sais. »" },
@@ -166,9 +166,9 @@ module.exports = {
   IV_cv_margrave: P({ title: "La margrave", place: "brenne",
     text: [
       "Dans la grande tente bleue, autour d'une carte de la Lisse, une femme de soixante ans en cuirasse, le visage carré, les cheveux blancs tirés en arrière : Ottilie, margrave de Corvanne. À côté d'elle, un homme de trente ans, maigre, de l'encre sur les doigts. Ilan.",
-      "Il voit Lisandre. Il ne dit rien. Il pose sa plume.",
+      "Il voit Lisandre. Il se tait. Il pose sa plume.",
       "« Esquarre envoie des enfants, maintenant ? dit la margrave. Ou des fantômes ? » Elle te regarde. Ses yeux s'arrêtent sur les tiens. « Gris presque blancs. On en avait, dans les vieilles familles de la Lisse. Avant. »",
-      "« Onze villages, dit-elle. Onze villages de Corvanne, dans la neige blanche, cet hiver. On y est entrés au printemps. Les gens y étaient. Ils ne savaient plus nos noms. Ils ne savaient plus qu'ils étaient de Corvanne. Ils parlaient esquarrois. » Elle frappe la carte. « Votre reine nous prend nos villages sans tirer l'épée. Demain, nous tirerons la nôtre. »",
+      "« Onze villages, dit-elle. Onze villages de Corvanne, dans la neige blanche, cet hiver. On y est entrés au printemps. Les gens y étaient. Ils avaient perdu nos noms, et jusqu'au souvenir d'être de Corvanne. Ils parlaient esquarrois. » Elle frappe la carte. « Votre reine nous prend nos villages sans tirer l'épée. Demain, nous tirerons la nôtre. »",
     ],
     choices: [
       { label: "Lui dire la vérité : Mordace, les fondateurs, la digue, l'Outre-Blanc", test: { dom: "social", label: "La vérité", help: [{ if: { present: "lisandre" }, v: 15 }, { if: { item: "registre_anselin" }, v: 15 }, { if: { has: "aelan:dit_les_noms" }, v: 10 }, { if: { present: "sansnom" }, v: 10 }] },
@@ -188,7 +188,7 @@ module.exports = {
   IV_cv_doute: P({ title: "La margrave doute", place: "brenne",
     text: [
       "Tu racontes. Elle t'écoute, poliment, comme on écoute un conteur sur une place. À la fin, elle dit : « C'est une belle histoire. Les Esquarrois ont toujours eu de belles histoires. » Elle se lève. « Raccompagnez-les à leur barque. Demain, à l'aube, nous verrons ce que vaut leur pont. »",
-      "Ilan ne bouge pas. Il te regarde, puis il regarde Lisandre. Il a l'air de quelqu'un qui voudrait croire, et qui sait que ce n'est pas une raison.",
+      "Ilan reste immobile. Il te regarde, puis il regarde Lisandre. Il voudrait y croire, et il se méfie de cette envie.",
     ],
     choices: [{ label: "Sortir de la tente", to: "IV_cv_ilan" }] }),
 
@@ -205,8 +205,8 @@ module.exports = {
     text: [
       "Dehors, Ilan vous rattrape. Il a l'air d'un homme qui a pris une décision dans les dix derniers pas.",
       { with: "lisandre", text: "Il s'arrête devant Lisandre. « Raconte-la encore, dit-il. L'histoire. Celle des trois jours. » Elle le regarde. « Maintenant ? » « Maintenant. Je ne sais pas si demain il y aura quelqu'un pour s'en souvenir. »" },
-      { with: "lisandre", text: "Elle la raconte. Il écoute. À la fin, il ne dit pas que c'est une belle histoire. Il dit : « C'était moi. » Et ce n'est pas un souvenir qui revient, tu le vois bien. C'est une décision." },
-      { if: { has: "corvanne:attaque_nuit" }, text: "« Les hommes d'Ostrel, dit-il. Quatre cents, au gué de l'ancien pont, à la troisième heure. Si votre capitaine de Brenne les attend là, il n'y aura pas de surprise, et la margrave n'aura plus de raison de ne pas attendre l'aube. » Il te tend un papier. « Je trahis mon pays. Je crois. Ou je le sauve. Demain on saura. »" },
+      { with: "lisandre", text: "Elle la raconte. Il écoute. À la fin, il t'épargne le « belle histoire ». Il dit : « C'était moi. » Et ce n'est pas un souvenir qui revient, tu le vois bien. C'est une décision." },
+      { if: { has: "corvanne:attaque_nuit" }, text: "« Les hommes d'Ostrel, dit-il. Quatre cents, au gué de l'ancien pont, à la troisième heure. Si votre capitaine de Brenne les attend là, la surprise tombe, et la margrave pourra attendre l'aube. » Il te tend un papier. « Je trahis mon pays. Je crois. Ou je le sauve. Demain on saura. »" },
       { if: { not: { has: "corvanne:attaque_nuit" } }, text: "« Demain, dit-il, je serai sur la rive, à côté d'elle. Si quelqu'un, de votre côté, s'avance sur le pont sans arme, je lui dirai de ne pas tirer. Elle m'écoute, parfois. » Il hésite. « Pas toujours. »" },
     ],
     choices: [{ label: "Faire un tour dans le camp avant de repartir", to: "IV_cv_camp" }] }),
@@ -215,7 +215,7 @@ module.exports = {
   IV_br_veille: P({ title: "La veille", place: "brenne",
     text: [
       "La nuit tombe sur la Lisse. Des deux côtés, des milliers de feux. Des deux côtés, des hommes qui chantent, pour ne pas penser, et ce sont parfois les mêmes chansons.",
-      { if: { has: "corvanne:attaque_nuit" }, text: "À la troisième heure, au gué de l'ancien pont, quatre cents hommes de Corvanne entrent dans l'eau sans un bruit. Sur la berge d'Esquarre, Gautier les attend, avec la compagnie de Brenne, et des torches qu'il n'allume pas. Il les laisse sortir de l'eau. Il les laisse voir qu'ils sont vus. Puis il dit, très fort, en corvannais : « Rentrez chez vous. Il est tard. » Ils rentrent." },
+      { if: { has: "corvanne:attaque_nuit" }, text: "À la troisième heure, au gué de l'ancien pont, quatre cents hommes de Corvanne entrent dans l'eau en silence. Sur la berge d'Esquarre, Gautier les attend, avec la compagnie de Brenne, et des torches qu'il n'allume pas. Il les laisse sortir de l'eau. Il les laisse voir qu'ils sont vus. Puis il dit, très fort, en corvannais : « Rentrez chez vous. Il est tard. » Ils rentrent." },
       { if: { has: "clan:descend" }, text: "Sur la crête au-dessus du camp, des tambours. Le clan du Corbeau est arrivé. Il ne descend pas vers l'armée. Il s'installe sur la colline, entre les deux rives, et il commence à chanter le chant des morts." },
       "Tu ne dors pas. Tu regardes le pont, blanc comme un os, au milieu de la rivière.",
       "Demain, quelqu'un va devoir s'avancer dessus.",

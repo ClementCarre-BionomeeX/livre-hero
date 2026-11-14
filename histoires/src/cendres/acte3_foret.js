@@ -45,7 +45,7 @@ module.exports = {
     text: [
       "En contrebas, une rivière, étroite, rapide, qui coule sur des galets noirs. L'eau est claire. Et dans l'eau, quand tu te penches, il y a des reflets qui ne sont pas les tiens. Des gens qui courent, le long de la berge, dans l'autre sens, en se retournant. Des femmes avec des enfants dans les bras. Des vieux qu'on porte.",
       "Ils fuient. Ils fuient depuis trois cents ans, dans l'eau, et la rivière les emporte, et ils remontent, et ils fuient de nouveau.",
-      { with: "ysolde", text: "Ysolde regarde l'eau sans rien dire. Puis elle s'accroupit, et elle met la main dans le courant, au milieu des reflets, comme pour arrêter quelqu'un. Les reflets passent à travers ses doigts." },
+      { with: "ysolde", text: "Ysolde regarde l'eau en silence. Puis elle s'accroupit, et elle met la main dans le courant, au milieu des reflets, comme pour arrêter quelqu'un. Les reflets passent à travers ses doigts." },
     ],
     choices: [{ fx: { ep: ["perso", 300], flag: "iii:riviere_vue" }, back: "III_F_bois" }] }),
   III_F_camp: P({ title: "Les cinq feux", place: "enfance",
@@ -101,11 +101,11 @@ module.exports = {
     ],
     choices: [{ label: "Le ramener au hameau", to: "III_F_retour" }] }),
   III_F_gardee: P({ title: "Celui qui se souvient", place: "enfance",
-    text: ["Tu le laisses. Il ne te regarde pas partir. Derrière toi, la lueur rouge va et vient, va et vient, comme une respiration. Au hameau, Solenn t'attend à la lisière. Elle voit que tu reviens sans lui. Elle ne dit rien. Elle décroise les bras, enfin, et elle rentre chez elle, en laissant la porte ouverte, au cas où."],
+    text: ["Tu le laisses. Il ne te regarde pas partir. Derrière toi, la lueur rouge va et vient, va et vient, comme une respiration. Au hameau, Solenn t'attend à la lisière. Elle voit que tu reviens sans lui. Elle se tait. Elle décroise les bras, enfin, et elle rentre chez elle, en laissant la porte ouverte, au cas où."],
     choices: [{ back: "III_e_hameau" }] }),
   III_F_retour: P({ title: "La lisière", place: "enfance",
     text: [
-      "Solenn vous voit arriver de loin. Elle ne court pas. Elle attend que son frère soit à trois pas. Puis elle le gifle. Puis elle le serre contre elle, si fort qu'il tousse. Elle ne dit rien. Elle ne le lâche pas.",
+      "Solenn vous voit arriver de loin. Elle ne court pas. Elle attend que son frère soit à trois pas. Puis elle le gifle. Puis elle le serre contre elle, si fort qu'il tousse. Elle se tait. Elle ne le lâche pas.",
       "Par-dessus l'épaule de sa sœur, Ewen te fait un signe de la main. Les tempes blanches, à quinze ans. Ça ne repoussera pas. Mais le reste, peut-être.",
     ],
     choices: [{ back: "III_e_hameau" }] }),

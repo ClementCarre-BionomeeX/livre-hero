@@ -28,11 +28,11 @@ Object.assign(P, {
   III_mission_ordre: { act: "III", title: "La salle des Cinq Mains", place: "commanderie",
     fx: { item: "III_ordre_mission", meet: "brann", fac: { ordre: 5 }, flag: "IIIA:mediateur" },
     text: [
-      "Brann t'attend debout sous les cinq mains de pierre, les poings sur la table, une carte de l'Isarde dépliée devant lui et tenue aux coins par des chandeliers. Il ne te fait pas asseoir. Il ne s'assied pas non plus. Il a l'air d'un homme qui n'a pas dormi, et qui ne compte pas le faire avant longtemps.",
+      "Brann t'attend debout sous les cinq mains de pierre, les poings sur la table, une carte de l'Isarde dépliée devant lui et tenue aux coins par des chandeliers. Il te reçoit debout, et reste debout lui aussi. Il a l'air d'un homme qui a veillé, et qui veillera encore longtemps.",
       "« Aldaran et Vel-Orin vont se battre au gué de l'Isarde avant la Saint-Clément, dit-il. Ça, je ne peux pas l'empêcher. Mais l'Ordre a juré de rester hors des querelles des couronnes, et les deux couronnes nous le rappellent chaque fois que nous ouvrons la bouche. Il me faut quelqu'un qui porte le gant sans en avoir l'air. Quelqu'un que les deux camps écouteront parce qu'il ne leur demande rien. » Il pousse vers toi une lettre scellée de cire grise. « Médiateur. C'est le mot qu'on écrit. Ce que je te demande, c'est d'ouvrir les yeux. »",
-      "Il pose le doigt sur la carte, au bord de la rivière, entre deux taches d'encre bleue et pourpre. « Merle-sur-Isarde. Un village de bateliers, juste entre les deux armées. Le curé m'écrit tous les huit jours ; ses lettres sont de plus en plus courtes. Tu partiras de là. Au nord, le camp d'Aldaran, sous Hautmont-le-Bas : le roi y est, malade, et son conseiller avec lui. » Il ne dit pas le nom du conseiller. Il a la bouche qui se ferme dessus.",
+      "Il pose le doigt sur la carte, au bord de la rivière, entre deux taches d'encre bleue et pourpre. « Merle-sur-Isarde. Un village de bateliers, juste entre les deux armées. Le curé m'écrit tous les huit jours ; ses lettres sont de plus en plus courtes. Tu partiras de là. Au nord, le camp d'Aldaran, sous Hautmont-le-Bas : le roi y est, malade, et son conseiller avec lui. » Il tait le nom du conseiller. Il a la bouche qui se ferme dessus.",
       { if: { given: "cloche" }, text: "« La Cloche est au chapitre, ajoute-t-il, plus bas. On la bénit chaque matin. Je n'oublie pas qui me l'a apportée. »" },
-      { if: { relic: "cloche" }, text: "Son regard descend vers ta besace, là où tu portes la Cloche d'Ivo, et y reste un moment. Il ne dit rien. Il n'a pas besoin de le dire." },
+      { if: { relic: "cloche" }, text: "Son regard descend vers ta besace, là où tu portes la Cloche d'Ivo, et y reste un moment. Il se tait. Il n'a pas besoin de le dire." },
       { if: { is: { jeton: "deux" } }, text: "Puis, en te tendant la lettre : « On m'a dit que tu portes aussi un jeton d'os du Cercle. Je ne te demande pas pourquoi. Je te demande seulement de te souvenir, là-bas, de quel côté de la table tu t'assieds. »" },
       { if: { has: "passe:ordre" }, text: "Il te regarde un moment, puis regarde ta main droite, comme s'il cherchait le gant gris que tu y as porté trois ans. « Tu as gardé des routes où il ne passait personne, dit-il. Celle-ci, il y passe tout le monde. Ça te changera. »" },
     ],
@@ -89,7 +89,7 @@ Object.assign(P, {
       { with: "gloup", text: "Gloup s'est roulé dans ton manteau plié et refuse d'en sortir. Il fait des petits bruits mouillés et inquiets chaque fois que la cloche sonne." },
       { with: "charline", text: "Charline a rempli sa besace de livres et de craie, et presque rien d'autre. « On mange sur la route, dit-elle quand tu lui en fais la remarque. On ne lit pas sur la route. Il faut emporter ce qu'on n'y trouvera pas. »" },
       { with: "aubin", text: "Frère Aubin a demandé au cellérier des bandes de lin, du fil, une aiguille courbe et toute l'eau-de-vie qu'on voudrait lui donner, pour les plaies. On lui en a donné peu. « Là où on va, dit-il, il y aura plus de blessés que de prêtres. Je préfère avoir de quoi recoudre que de quoi bénir. »" },
-      { with: "thavary", text: "Thavary est déjà prête, debout dans la cour, son épée à la hanche et son paquetage au pied, depuis l'aube peut-être. Quand tu prononces le nom d'Aldaran, elle a un mouvement de la mâchoire, très léger, comme quelqu'un qui avale une chose dure. Elle ne dit rien." },
+      { with: "thavary", text: "Thavary est déjà prête, debout dans la cour, son épée à la hanche et son paquetage au pied, depuis l'aube peut-être. Quand tu prononces le nom d'Aldaran, elle a un mouvement de la mâchoire, très léger, comme quelqu'un qui avale une chose dure. Elle se tait." },
       { if: { has: "grauk:allie" }, text: "La veille, un frère revenu de la crête a raconté au réfectoire qu'on avait vu des trolls descendre vers le sud, en bande, de nuit, sans rien piller. Personne ne l'a cru. Toi, tu as pensé à Grauk, et à la parole que vous vous êtes donnée." },
     ],
     choices: [
@@ -101,10 +101,10 @@ Object.assign(P, {
 Object.assign(P, {
   III_r_colonne: { title: "La colonne",
     text: [
-      "Au matin du premier jour, la route s'emplit de gens qui marchent dans l'autre sens. D'abord quelques-uns, puis une file, puis une colonne qui n'en finit pas : des charrettes à bras chargées de matelas et de chaudrons, des vaches maigres tirées par une corde, des vieux sur des ânes, des femmes avec un enfant sur le dos et un autre par la main. Personne ne parle. On entend les roues, les sabots, et une toux qui passe d'un bout à l'autre de la file comme un mot de passe.",
+      "Au matin du premier jour, la route s'emplit de gens qui marchent dans l'autre sens. D'abord quelques-uns, puis une file, puis une colonne qui n'en finit pas : des charrettes à bras chargées de matelas et de chaudrons, des vaches maigres tirées par une corde, des vieux sur des ânes, des femmes avec un enfant sur le dos et un autre par la main. Tous se taisent. On entend les roues, les sabots, et une toux qui passe d'un bout à l'autre de la file comme un mot de passe.",
       "Ils viennent de l'Isarde. Ils vont vers le nord, n'importe où pourvu que ce soit loin de la rivière. Une femme s'est arrêtée au bord du chemin pour changer le linge d'un nourrisson, à même l'herbe gelée, et elle te regarde passer avec tes armes et tes vivres sans rien demander, ce qui est pire.",
       { with: "aubin", text: "Frère Aubin ralentit, puis s'arrête tout à fait. Il regarde la colonne avec l'air d'un homme qui compte, et qui renonce à compter." },
-      { with: "gloup", text: "Un petit garçon, sur une charrette, aperçoit Gloup et tend la main vers lui. Sa mère lui rabat le bras d'une tape, sans un mot, et presse le pas." },
+      { with: "gloup", text: "Un petit garçon, sur une charrette, aperçoit Gloup et tend la main vers lui. Sa mère lui rabat le bras d'une tape, en silence, et presse le pas." },
       { if: { has: "passe:fui" }, text: "Tu as marché comme eux, un matin, il y a sept ans, sur une autre route. Tu te souviens surtout du silence. Personne ne parlait non plus." },
     ],
     choices: [
@@ -115,7 +115,7 @@ Object.assign(P, {
 
   III_r_colonne_pain: { title: "Le pain de la route",
     text: [
-      "Tu lui tends le pain et le fromage dur de ton sac. Elle les regarde un moment sans les prendre, comme si elle cherchait le piège, puis elle les prend, très vite, et les fourre dans son corsage. Elle ne dit pas merci. Elle dit : « Merle. Nous, on était de Ruelle-Basse, juste au-dessus. Ils sont venus le jeudi. » Elle ne dit pas qui.",
+      "Tu lui tends le pain et le fromage dur de ton sac. Elle les regarde un moment sans les prendre, comme si elle cherchait le piège, puis elle les prend, très vite, et les fourre dans son corsage. Elle ne dit pas merci. Elle dit : « Merle. Nous, on était de Ruelle-Basse, juste au-dessus. Ils sont venus le jeudi. » Elle garde le nom pour elle.",
       "Derrière elle, d'autres ont vu. Une main se tend, puis deux. Tu n'as plus rien à donner, et tu dois le dire, et c'est le moment le plus long de la matinée.",
       { with: "pip", text: "Pip descend se poser un instant sur le bord du panier où dort le nourrisson. L'enfant ouvre les yeux, et pour la première fois depuis que la colonne passe, quelqu'un sourit sur cette route." },
       { with: "aubin", text: "Frère Aubin bénit la mère du pouce, sur le front, et lui donne le nom d'une maison de l'Ordre où l'on distribue la soupe. Il ment peut-être. Il a l'air de le savoir et de l'avoir décidé." },
@@ -137,7 +137,7 @@ Object.assign(P, {
       "Au deuxième jour, la route croise le vieux chemin des salines, à l'endroit où un calvaire de bois penche au-dessus d'un fossé plein d'eau. Il y a un homme pendu à la traverse du calvaire. Pas très haut : ses pieds nus touchent presque le sommet de la croix, et tournent un peu dans le vent, dans un sens puis dans l'autre.",
       "On lui a accroché sur la poitrine une planche avec un mot tracé au charbon : ESPION. Il a les mains d'un batelier, larges et calleuses, et une veste de laine brune qui n'est l'uniforme de personne. Les corbeaux n'y ont pas encore touché. Ça s'est fait hier, ou cette nuit.",
       { with: "thavary", text: "Thavary regarde la planche, puis les nœuds. « Une corde de chariot, dit-elle. Pas de gibet, pas de juge, pas de prêtre. C'est une patrouille qui a fait ça pour se distraire. » Sa voix est plate. Sa main, sur la garde de son épée, ne l'est pas." },
-      { with: "coliane", text: "Coliane fait le tour du calvaire sans s'approcher, en regardant le sol, pas le pendu. « Des bottes cloutées, dit-elle. Six ou sept. Ils sont repartis vers le nord. »" },
+      { with: "coliane", text: "Coliane fait le tour du calvaire à distance, les yeux sur le sol. « Des bottes cloutées, dit-elle. Six ou sept. Ils sont repartis vers le nord. »" },
       { if: { is: { berthe: "pendue" } }, text: "Tu penses à Berthe, à Brumefeuille, et à la corde. Tu n'arrives pas à t'en empêcher, et tu n'essaies pas très fort." },
     ],
     choices: [
@@ -171,7 +171,7 @@ Object.assign(P, {
     text: [
       "Au troisième jour, il y a un village sur la carte, à un coude de la route : les Aulnaies, quinze feux et une église. Il n'y a plus de village. Il y a des murs noircis, des poutres effondrées qui fument encore par endroits sous la pluie fine, des chiens qui s'enfuient à votre approche, et une odeur que tu connais sans l'avoir jamais sentie, et que tu n'oublieras pas.",
       "On ne sait pas qui l'a brûlé. Sur un mur, quelqu'un a tracé à la suie la tour d'Aldaran ; sur un autre, quelqu'un d'autre a gratté un croissant de Vel-Orin par-dessus. Le clocher de l'église tient encore, tout seul, au milieu des décombres, comme un homme debout dans une pièce vide.",
-      { with: "charline", text: "Charline marche entre les ruines sans rien dire, très droite, les mains enfoncées dans ses manches. Devant une forge écroulée, elle s'arrête un long moment. Tu la laisses." },
+      { with: "charline", text: "Charline marche entre les ruines en silence, très droite, les mains enfoncées dans ses manches. Devant une forge écroulée, elle s'arrête un long moment. Tu la laisses." },
       { with: "gloup", text: "Gloup refuse d'avancer. Il fait le tour d'une flaque de cendre mouillée en tremblant, et finit par se cacher dans ta botte. Le feu. Il a toujours eu peur du feu." },
     ],
     choices: [
@@ -195,7 +195,7 @@ Object.assign(P, {
   III_r_village_famille: { title: "Les gens de la cave",
     text: [
       "La femme s'appelle Loyse. Elle te dit, en remontant à la lumière grise, ce qu'elle a vu par le soupirail : des cavaliers, sans bannière, qui criaient dans les deux langues, celle des hautes terres et celle du sud. Ils ont mis le feu à l'église d'abord, puis aux granges, et ils sont repartis sans rien prendre. « Rien, répète-t-elle. Même pas les vaches. Qui brûle un village sans prendre les vaches ? »",
-      "Tu n'as pas de réponse. Elle n'en attendait pas. Elle prend la plus petite des filles sur sa hanche, l'autre par la main, et l'homme s'appuie sur elle, et ils s'en vont lentement par le chemin que tu leur as montré.",
+      "Tu cherches une réponse. Elle s'en passait d'avance. Elle prend la plus petite des filles sur sa hanche, l'autre par la main, et l'homme s'appuie sur elle, et ils s'en vont lentement par le chemin que tu leur as montré.",
       { if: { has: "III:aulnaies_merle" }, text: "Elle se retourne une fois, au coude du chemin, pour te faire signe. Elle va vers Merle. Vous vous y reverrez peut-être." },
     ],
     choices: [{ label: "Reprendre la route", back: R }] },
@@ -271,7 +271,7 @@ Object.assign(P, {
     text: [
       "Quand c'est fini, les autres se sont enfuis dans les aulnes, en abandonnant la barricade. Deux des trois qui t'ont attaqué sont vivants, assis dans la boue, et te regardent avec la haine tranquille des vaincus. Le troisième ne se relève pas.",
       "Dans sa besace, il n'y a qu'un croûton, un rosaire, et un sifflet de bois sculpté en forme d'oiseau, comme on en fait pour les enfants. Tu le reposes où tu l'as trouvé.",
-      { with: "pip", text: "Pip ne vient pas se poser sur ton épaule. Il reste un long moment au-dessus du mort, à faible lueur, puis il te rejoint sans rien dire." },
+      { with: "pip", text: "Pip ne vient pas se poser sur ton épaule. Il reste un long moment au-dessus du mort, à faible lueur, puis il te rejoint en silence." },
     ],
     choices: [{ label: "Passer le pont et reprendre la route", fx: { conf: { pip: -5 } }, back: R }] },
 
@@ -304,8 +304,8 @@ Object.assign(P, {
     choices: [{ label: "Reprendre la route", back: R }] },
   EIII_corbeaux_pip: { title: "Le champ des corbeaux",
     text: [
-      { with: "pip", text: "Pip descend se poser entre les yeux du cheval, et il se met à chanter. Ce n'est pas une chanson que tu connais. Ce n'est peut-être pas une chanson du tout : un son très doux, très bas, qui ressemble au bruit de l'eau dans un ruisseau d'été. Le cheval cesse de souffler. Il pose la tête dans l'herbe." },
-      { with: "pip", text: "Quand il ne respire plus, Pip remonte sur ton épaule. Il ne brille presque plus. « Il croyait qu'il était dans son pré, dit-il. Je lui ai laissé croire. C'est mal ? » Tu lui dis que non. Tu n'en es pas sûr{e}, mais tu le lui dis." },
+      { with: "pip", text: "Pip descend se poser entre les yeux du cheval, et il se met à chanter. Ce n'est pas une chanson que tu connais. C'est à peine une chanson : un son très doux, très bas, qui ressemble au bruit de l'eau dans un ruisseau d'été. Le cheval cesse de souffler. Il pose la tête dans l'herbe." },
+      { with: "pip", text: "Quand il ne respire plus, Pip remonte sur ton épaule. Il luit à peine. « Il croyait qu'il était dans son pré, dit-il. Je lui ai laissé croire. C'est mal ? » Tu lui dis que non. Tu n'en es pas sûr{e}, mais tu le lui dis." },
     ],
     choices: [{ label: "Reprendre la route", back: R }] },
 
@@ -326,7 +326,7 @@ Object.assign(P, {
     text: [
       "Tu prends le papier. C'est un ordre de réquisition en bonne forme, au sceau du connétable, pour « les fermes de la rive gauche, de la Vauge à Merle ». Tu regardes la carte, puis la rivière. La ferme est sur la rive droite. Le sergent s'est trompé de berge, ou il a fait semblant.",
       "Tu le lui fais remarquer, assez fort pour que ses hommes entendent. Il y a un silence. Le sergent te reprend le papier, le replie, le regarde comme s'il ne l'avait jamais vu. « Bon, dit-il. La vache reste. » Il fait signe de remettre les cochons à terre. Le grain, lui, reste sur la charrette : il y a des limites à ce qu'on peut perdre devant ses hommes.",
-      "Le paysan te regarde partir sans un mot. Sa femme a pris la vache par le cou, et elle pleure dans le poil de la bête, maintenant que c'est fini.",
+      "Le paysan te regarde partir en silence. Sa femme a pris la vache par le cou, et elle pleure dans le poil de la bête, maintenant que c'est fini.",
     ],
     choices: [{ label: "Reprendre la route", back: R }] },
   EIII_fourrageurs_rachat: { title: "Le prix d'une vache",
@@ -408,9 +408,9 @@ Object.assign(P, {
   EIII_flaque: { title: "L'ornière",
     text: [
       "Il a plu toute la nuit. Le chemin est une suite d'ornières pleines d'une eau brune qui reflète un ciel bas et sale. Tu enjambes la plus large quand quelqu'un dit ton nom, tout près, d'une voix de femme, douce, raisonnable, un peu triste.",
-      "« {hero}. » L'eau de l'ornière ne bouge pas. Ton reflet, lui, te regarde avec un temps de retard. « Tant d'hommes qui meurent pour une ligne sur une carte, dit la Voix. Tant de mères. Ils me demandent tous la même chose, la nuit, au bord de l'eau : que ça s'arrête. Je pourrais. Tu sais que je pourrais. »",
+      "« {hero}. » L'eau de l'ornière est immobile. Ton reflet, lui, te regarde avec un temps de retard. « Tant d'hommes qui meurent pour une ligne sur une carte, dit la Voix. Tant de mères. Ils me demandent tous la même chose, la nuit, au bord de l'eau : que ça s'arrête. Je pourrais. Tu sais que je pourrais. »",
       "« Tu vas voir quelqu'un que tu aimes, au camp des bleus, dit-elle encore. Ne crois pas ce qu'on te dira de moi à ce moment-là. Crois ce que tu verras. » Puis l'eau redevient de l'eau, et il ne reste qu'une ornière, et le vent.",
-      { with: "aubin", text: "Frère Aubin a pâli. Il enjambe l'ornière en faisant un grand détour, et il ne dit rien pendant une heure." },
+      { with: "aubin", text: "Frère Aubin a pâli. Il enjambe l'ornière en faisant un grand détour, et il se tait pendant une heure." },
       { with: "gloup", text: "Gloup s'est mis à trembler et à tirer sur ta botte, comme un enfant qui veut partir. Puis, tout à coup, il s'arrête, et il regarde l'ornière avec quelque chose qui ressemble à de la nostalgie. C'est pire." },
     ],
     choices: [
@@ -553,7 +553,7 @@ Object.assign(P, {
       { first: true, text: "On a poussé les bancs contre les murs et étalé de la paille dans la nef. Il y a une quarantaine de blessés couchés là, en rangs : des gens du village, des réfugiés, et des soldats des deux camps, que le curé a fait mettre côte à côte, sans demander à personne. Un piquier d'Aldaran et un arbalétrier de Vel-Orin partagent la même couverture, faute de mieux, et s'ignorent avec application." },
       { first: true, text: "Rainier passe de l'un à l'autre avec un broc et une cuillère. « Je n'ai pas de chirurgien, dit-il. J'ai deux femmes du village qui savent recoudre, de l'eau bouillie et des prières. Les prières, je les donne aux deux camps. L'eau aussi. C'est la seule chose ici sur laquelle les deux camps sont d'accord : quand ils meurent, ils veulent un curé. »" },
       { again: true, text: "Dans la nef de l'église, les blessés en rangs sur la paille, le broc du curé, l'odeur de vinaigre et de cire. Rainier lève la tête quand tu entres." },
-      { with: "aubin", text: "Frère Aubin enlève son manteau sans un mot et va se laver les mains au bénitier. Rainier le regarde faire, puis lui tend le broc. Les deux prêtres n'ont pas échangé une parole, et ils travaillent déjà ensemble." },
+      { with: "aubin", text: "Frère Aubin enlève son manteau en silence et va se laver les mains au bénitier. Rainier le regarde faire, puis lui tend le broc. Les deux prêtres n'ont pas échangé une parole, et ils travaillent déjà ensemble." },
       { if: { has: "passe:aide" }, text: "Tu as déjà vu une nef comme celle-ci. À Saint-Gilles-des-Prés, il y a sept ans, tu as porté les malades jusqu'au temple l'un après l'autre jusqu'à ce qu'il soit plein. L'odeur est la même. Tes mains se souviennent de ce qu'il faut faire avant toi." },
     ],
     choices: [
@@ -566,7 +566,7 @@ Object.assign(P, {
 
   III_eglise_cure: { act: "III", title: "Ce que sait le curé", place: "merle",
     text: [
-      "Rainier s'assied sur la marche du chœur, enfin, et se frotte les yeux. « Le camp d'Aldaran ? Je monte y dire la messe le dimanche, pour les hommes des hautes terres. Le vieux roi y est, mais on le voit peu ; il tousse derrière une toile. On voit surtout son conseiller, Maître Vendrel. Un homme très poli. Il m'a fait porter du vin de messe, la première semaine. Je ne l'ai pas bu. » Il ne dit pas pourquoi.",
+      "Rainier s'assied sur la marche du chœur, enfin, et se frotte les yeux. « Le camp d'Aldaran ? Je monte y dire la messe le dimanche, pour les hommes des hautes terres. Le vieux roi y est, mais on le voit peu ; il tousse derrière une toile. On voit surtout son conseiller, Maître Vendrel. Un homme très poli. Il m'a fait porter du vin de messe, la première semaine. Je ne l'ai pas bu. » Il garde ses raisons.",
       "« Le connétable, Hugues de Vaux, c'est un vieux soldat, ajoute-t-il. Il ne veut pas cette guerre. Il la fera quand même, très bien. Et la princesse… » Il hésite. « La princesse Nerys vient parfois écouter la messe au fond, avec un manteau sur la tête, comme si on ne la reconnaissait pas. Elle a dix-neuf ans. Elle me demande toujours comment vont les gens de Merle. Elle est la seule. »",
       "Il se relève. « Si vous montez là-haut, montez par la route du moulin. On y arrête moins les gens. Et ne mangez rien qu'on vous donne dans la tente du conseiller. Je dis ça comme ça. Je suis un vieux curé qui se méfie de tout. »",
     ],
@@ -577,7 +577,7 @@ Object.assign(P, {
       "Tu fais ce qu'on te dit de faire. Tu changes des pansements qui collent. Tu fais boire des hommes qui ne peuvent pas lever la tête. Tu tiens la main d'un vieux batelier qui délire et qui t'appelle Lison, et tu réponds au nom de Lison, parce que ça le calme. Les heures passent sans que tu les comptes.",
       "Vers le soir, l'arbalétrier de Vel-Orin et le piquier d'Aldaran qui partagent la même couverture se mettent à parler, à voix basse, chacun dans sa langue, et à se comprendre à moitié. Ils parlent de leurs mères. Puis de la soupe. Puis ils s'endorment, épaule contre épaule. Le curé les regarde longtemps.",
       { with: "charline", text: "Charline a passé l'après-midi à chauffer des pierres dans le feu et à les envelopper de linge pour les mettre aux pieds des blessés qui grelottent. Elle ne parle à personne. Mais une fois, une seule, tu la vois sourire, quand une petite fille lui demande si elle est une fée." },
-      { with: "thavary", text: "Thavary a porté de l'eau toute la journée, sans rien dire, deux seaux à la fois, du puits à la nef. Quand Rainier la remercie, elle se raidit comme si on l'avait insultée. « On ne remercie pas quelqu'un de payer ses dettes », dit-elle. Personne ne sait de quelle dette elle parle. Elle non plus, peut-être." },
+      { with: "thavary", text: "Thavary a porté de l'eau toute la journée, en silence, deux seaux à la fois, du puits à la nef. Quand Rainier la remercie, elle se raidit comme si on l'avait insultée. « On ne remercie pas quelqu'un de payer ses dettes », dit-elle. Personne ne sait de quelle dette elle parle. Elle non plus, peut-être." },
     ],
     choices: [
       { label: "Laisse-moi faire : poser les mains sur les plus atteints", who: "aubin", fx: { conf: { aubin: 10 }, ep: ["seance", 800], fac: { ordre: 5 } }, to: "III_eglise_aubin" },
@@ -613,7 +613,7 @@ Object.assign(P, {
     text: [
       "On te montre une maison au bout de la rue, où une femme étend du linge sous l'auvent pour qu'il ne prenne pas la pluie. Trois enfants autour d'elle. Elle te voit arriver avec la lettre à la main, et elle comprend avant que tu aies ouvert la bouche, parce qu'elle reconnaît sa propre écriture, et parce qu'elle sait que Clarin ne s'en serait jamais séparé vivant.",
       "Elle ne crie pas. Elle finit d'étendre la chemise qu'elle tenait, très soigneusement, en tirant sur les manches pour qu'elles sèchent droites. Puis elle prend la lettre et la serre contre elle. « Où ? » demande-t-elle seulement. Tu lui dis : le carrefour du chemin des salines. Le calvaire.",
-      { if: { seen: "III_r_pendu_terre" }, text: "Tu lui dis aussi qu'il est en terre, au pied de la croix, et qu'il n'est pas resté pendu au vent. Elle ferme les yeux. C'est la seule chose que tu peux lui donner, et tu vois que ce n'est pas rien." },
+      { if: { seen: "III_r_pendu_terre" }, text: "Tu lui dis aussi qu'il est en terre, au pied de la croix, et qu'il n'est pas resté pendu au vent. Elle ferme les yeux. C'est la seule chose que tu peux lui donner, et tu vois que cela compte." },
       { if: { not: { seen: "III_r_pendu_terre" } }, text: "Tu ne lui dis pas que tu l'as laissé là-bas, sur la traverse, avec la planche sur la poitrine. Tu lui dis seulement l'endroit. Elle ira. Tu le vois à sa façon de regarder vers le nord." },
       "Le plus grand des enfants, un garçon de dix ans, te regarde par-dessus l'épaule de sa mère avec une colère qui ne sait pas encore où aller. Tu espères qu'elle n'ira jamais du côté de l'Isarde.",
     ],
@@ -646,9 +646,9 @@ Object.assign(P, {
   III_refugies_morel: { act: "III", title: "Gisèle Morel", place: "merle",
     fx: { meet: "III_perrine" },
     text: [
-      "Elle ne se lève pas quand tu t'assieds près d'elle. Elle a des mains de femme qui a toujours travaillé, et des yeux qui n'ont plus pleuré depuis longtemps parce qu'il n'y avait plus rien à pleurer. Quand tu prononces le nom d'Arnaud, elle tourne la tête.",
+      "Elle ne se lève pas quand tu t'assieds près d'elle. Elle a des mains de femme qui a toujours travaillé, et des yeux secs depuis longtemps, vidés de leurs larmes. Quand tu prononces le nom d'Arnaud, elle tourne la tête.",
       "« Il est venu, dit-elle. La semaine des fourrageurs. Ils avaient tout pris, le seigle, le son, les poules. Il a su ça au camp, je ne sais pas comment. Il est descendu la nuit avec un sac de farine sur le dos, la farine de sa ration, qu'il avait gardée trois semaines. Il me l'a posée là, sur la table. Il est reparti avant le jour. Il voulait être rentré avant l'appel. » Elle serre les mains. « Il est rentré ? »",
-      "Tu lui dis où il est. Elle ne dit rien pendant un long moment. Puis elle fouille dans son corsage et en sort un papier plié, taché de graisse. « Les fourrageurs m'ont laissé ça. Un bon. Le sergent a dit qu'avec ça, le roi me paierait mon grain après la guerre. » Elle te le tend. « Moi, je ne sais pas lire. Vous, peut-être, ça vous servira. »",
+      "Tu lui dis où il est. Elle se tait longtemps. Puis elle fouille dans son corsage et en sort un papier plié, taché de graisse. « Les fourrageurs m'ont laissé ça. Un bon. Le sergent a dit qu'avec ça, le roi me paierait mon grain après la guerre. » Elle te le tend. « Moi, je ne sais pas lire. Vous, peut-être, ça vous servira. »",
     ],
     choices: [{ label: "Prendre le bon de réquisition", fx: { item: "III_billet_morel", ep: ["perso", 500] }, back: "III_refugies" }] },
 
@@ -669,7 +669,7 @@ Object.assign(P, {
       "Joceline raconte comment elle a caché le cidre. Bastien raconte le jour où il a passé un évêque et sa mule, et où la mule est tombée à l'eau, et pas l'évêque. On rit, à voix basse. Le curé, lui, ne raconte rien. Il regarde le feu, et une fois seulement il dit : « On croit toujours que la guerre, c'est les batailles. Ce n'est pas les batailles. C'est les jours entre. »",
       { with: "coliane", text: "Coliane s'est assise par terre près des enfants endormis, le dos au mur, un couteau sur les genoux. Au bout d'un moment, la plus petite a posé sa tête sur sa cuisse sans se réveiller. Coliane n'a plus bougé de la nuit." },
       { with: "gloup", text: "Gloup a trouvé une châtaigne tombée de la braise et la fait rouler devant lui, d'un bout à l'autre de la pièce, avec des petits bruits ravis. Les enfants qui ne dorment pas le regardent faire, et pour la première fois depuis que tu es à Merle, ils rient fort, et personne ne les fait taire." },
-      { with: "thavary", text: "Thavary, assise très droite sur un tabouret près de la porte, ne mange rien et ne dit rien. Quand le curé parle du camp d'Aldaran et de Maître Vendrel, elle se lève et sort prendre l'air. Elle reste dehors longtemps." },
+      { with: "thavary", text: "Thavary, assise très droite sur un tabouret près de la porte, jeûne et se tait. Quand le curé parle du camp d'Aldaran et de Maître Vendrel, elle se lève et sort prendre l'air. Elle reste dehors longtemps." },
       { with: "pip", text: "Pip s'est posé sur le manteau de la cheminée. Il éclaire les visages par en dessous. « Ils sont contents d'être ensemble, te dit-il tout bas. Même si demain ils auront encore peur. C'est ça, une veillée ? » C'est ça." },
     ],
     choices: [{ label: "Dormir là, contre le mur chaud de la cheminée", fx: { rest: true, ep: ["perso", 400], conf: { pip: 5, coliane: 5, gloup: 5, aubin: 5, charline: 5 } }, back: "III_hub" }] },
@@ -735,7 +735,7 @@ Object.assign(P, {
 
   III_fleches_pre: { act: "III", title: "Le pré des Saules", place: "merle",
     text: [
-      "Les chevaux sont là, sous les saules, trois masses noires qui sentent déjà. Sous le plus grand, une jambe d'enfant dépasse, coincée à hauteur du genou. Tassin est vivant. Il a passé une nuit et un jour sous le cheval, à appeler doucement pour que les soldats ne l'entendent pas, et sa mère non plus, et personne. Il a la bouche bleue de froid. Il ne pleure plus : il n'a plus de quoi.",
+      "Les chevaux sont là, sous les saules, trois masses noires qui sentent déjà. Sous le plus grand, une jambe d'enfant dépasse, coincée à hauteur du genou. Tassin est vivant. Il a passé une nuit et un jour sous le cheval, à appeler doucement pour que les soldats ne l'entendent pas, et sa mère non plus, et personne. Il a la bouche bleue de froid. Ses larmes sont taries.",
       "Il n'est pas seul. Adossé au ventre du cheval, de l'autre côté, il y a un soldat. Un garçon à peine plus vieux que Tiphaine, seize ou dix-sept ans, en casaque pourpre au croissant d'or, un carreau d'Aldaran dans la cuisse et une arbalète cassée sur les genoux. C'est lui qui a tenu Tassin au chaud toute la nuit, sous sa cape. Il te regarde arriver avec l'air de quelqu'un qui a déjà accepté de mourir, et qui aurait préféré pas.",
       "« Tancrède, dit-il, dans le parler du sud, chantant et fatigué. Je n'ai pas tiré sur l'enfant. Je n'ai tiré sur personne. Prenez-le, il a froid. »",
       { if: { arch: "pretre" }, text: "Tu vois tout de suite que la cuisse du soldat est infectée, mais que l'artère n'est pas touchée. Il peut vivre. S'il est soigné. S'il marche." },
@@ -749,7 +749,7 @@ Object.assign(P, {
     fx: { set: { fleches: "guillot" }, quest: "III_fleches", ep: ["seance", 1000], fac: { aldaran: 2 } },
     text: [
       { outcome: "lose", text: "Tu dégages la jambe de Tassin en faisant levier avec une lance cassée, et le cheval retombe sur le côté avec un bruit mou. Mais quand tu passes l'épaule sous le bras de Tancrède pour le relever, il crie, tu glisses, et une lanterne s'allume du côté des mercenaires. Il te pousse. « Partez, souffle-t-il. Partez, avec le petit. Moi, ils me prendront. » Tu pars.", else: "Tu dégages la jambe de Tassin avec une lance cassée glissée sous le flanc du cheval. Tancrède t'aide, de ce qu'il peut, en poussant de ses deux mains. Puis il se laisse retomber contre la bête morte. Il ne te demande rien. Il a compris." },
-      "Tu reviens par le fossé, avec Tassin contre ta poitrine, si léger que tu as peur qu'il ne soit plus là. Tiphaine vous attend à l'orée des roseaux. Elle prend son frère, elle le serre, elle ne dit rien du tout, et c'est la chose la plus bruyante que tu aies entendue de la nuit.",
+      "Tu reviens par le fossé, avec Tassin contre ta poitrine, si léger que tu as peur qu'il ne soit plus là. Tiphaine vous attend à l'orée des roseaux. Elle prend son frère, elle le serre en silence, et c'est la chose la plus bruyante que tu aies entendue de la nuit.",
       "Au matin, Tassin a une fièvre de cheval et une jambe noire de bleus, mais pas cassée. Le curé dit qu'il vivra. Du pré des Saules, il ne revient aucun bruit. Plus tard, Bastien te dira qu'une patrouille du Chardon a ramené un prisonnier de Vel-Orin au camp, à l'aube, sur un brancard. Ou peut-être qu'elle l'a laissé sur place. Bastien ne sait pas. Personne ne sait.",
     ],
     choices: [{ back: "III_hub" }] },
@@ -757,7 +757,7 @@ Object.assign(P, {
   III_fleches_deux: { act: "III", title: "Le retour par le fossé", place: "merle",
     text: [
       "Tu glisses une lance cassée sous le flanc du cheval, tu pèses de tout ton poids, et la bête bouge d'un pouce, de deux. Tassin sort comme un bouchon. Puis tu passes le bras de Tancrède autour de ton cou et tu le relèves, et il serre les dents si fort que tu les entends grincer. Il marche. Il traîne la jambe, mais il marche.",
-      { with: "thavary", text: "C'est Thavary qui porte Tassin, enroulé dans sa cape, contre sa poitrine, comme on porte un enfant de sa maison. Elle ne dit pas un mot de tout le retour." },
+      { with: "thavary", text: "C'est Thavary qui porte Tassin, enroulé dans sa cape, contre sa poitrine, comme on porte un enfant de sa maison. Elle se tait pendant tout le retour." },
       "Le retour prend une éternité. Vous rampez, vous vous arrêtez, vous repartez. Une fois, une lanterne passe à dix pas et vous restez allongés dans l'eau du fossé jusqu'à ne plus sentir vos jambes. Puis il y a les roseaux, et Tiphaine qui pleure enfin, et le curé qui sort de l'église avec une couverture dans chaque main.",
       "Dans la sacristie, Tancrède est allongé sur la table des ornements, et le curé lui a ôté son carreau. Il regarde le plafond. « Qu'est-ce que vous allez faire de moi ? » demande-t-il. Rainier te regarde. C'est à toi de répondre.",
     ],
@@ -770,7 +770,7 @@ Object.assign(P, {
     text: [
       "Trois jours plus tard, à la nuit tombée, Bastien charge sur le bac des morts les deux cercueils de la semaine : un piquier et un arbalétrier, cloués dans des planches de volets. Dans le second, il y a de la place pour un homme qui ne serait pas mort. Tancrède s'y allonge, très pâle, et te serre la main avant qu'on pose le couvercle.",
       "« Je dirai à ma mère, dit-il. Je lui dirai qu'il y a des gens, de l'autre côté. » Il cherche ses mots, ne les trouve pas, et laisse tomber. Le bac s'éloigne sur l'eau noire, le long du câble qui grince. De l'autre côté, une lanterne s'agite trois fois. Il est passé.",
-      "Tiphaine est venue voir partir le bac. Elle ne dit rien. Le lendemain, les enfants de Merle ne vont plus sur le pré des Saules. Ils vont seulement au bout du pré, là où l'on voit le village. Ce n'est pas grand-chose. C'est peut-être tout.",
+      "Tiphaine est venue voir partir le bac. Elle se tait. Le lendemain, les enfants de Merle ne vont plus sur le pré des Saules. Ils vont seulement au bout du pré, là où l'on voit le village. Ce n'est pas grand-chose. C'est peut-être tout.",
     ],
     choices: [{ back: "III_hub" }] },
 
@@ -797,7 +797,7 @@ Object.assign(P, {
   III_h_barrage: { title: "Le barrage du moulin",
     text: [
       "À mi-pente, là où la route de Hautmont passe sous un moulin à vent aux ailes arrêtées, Aldaran a planté un barrage : une barrière de bois, un brasero, six piquiers et un sergent recruteur qui tient un registre sur un tonneau. Devant lui, en file, des hommes de Merle et des villages de la rive, que ses soldats ont ramassés dans les champs. On leur mesure la taille contre une perche. Ceux qui dépassent la marque sont inscrits.",
-      "Un garçon roux, pas plus de quinze ans, dépasse d'un doigt. Sa mère s'accroche à sa manche et le sergent la fait écarter. « Le roi a besoin de bras, dit-il. Le roi nourrit ceux qui le servent. C'est plus que ce qu'elle peut faire, elle. » Il trempe sa plume.",
+      "Un garçon roux, quinze ans au plus, dépasse d'un doigt. Sa mère s'accroche à sa manche et le sergent la fait écarter. « Le roi a besoin de bras, dit-il. Le roi nourrit ceux qui le servent. C'est plus que ce qu'elle peut faire, elle. » Il trempe sa plume.",
       { with: "thavary", text: "Thavary s'est arrêtée net. Elle regarde la perche, le registre, le garçon. « Mon grand-père levait des hommes comme ça, dit-elle à voix basse. Il appelait ça l'honneur de la maison. » Elle n'a pas l'air d'en être sûre, ce matin." },
     ],
     choices: [
@@ -860,9 +860,9 @@ Object.assign(P, {
   IIIA_garde: { act: "III", title: "Le poste de garde", place: "hautmont",
     text: [
       "Le sergent de garde est un homme carré, à la moustache grise, qui a vu passer trop de monde depuis trois semaines pour s'étonner de quoi que ce soit. Il a un registre, comme le sergent recruteur, et une plume qu'il trempe dans un encrier gelé en soufflant dessus. « Nom, qualité, raison, dit-il sans lever les yeux. Et ce que vous portez. »",
-      "À côté de lui, adossés à la barrière, deux hommes qui ne sont pas des soldats : manteaux gris, gants gris, pas de tabard, et ce regard sans curiosité des gens qui sont payés pour se souvenir. Ils regardent tout le monde. Ils te regardent.",
+      "À côté de lui, adossés à la barrière, deux hommes qui ne sont pas des soldats : manteaux gris, gants gris, pas de tabard, et ce regard plat des gens qui sont payés pour se souvenir. Ils regardent tout le monde. Ils te regardent.",
       { with: "gloup", text: "Le sergent avise Gloup et lève enfin les yeux. « Ça, dit-il, c'est quoi ? » Gloup se fait tout petit derrière ta botte." },
-      { with: "pip", text: "Pip s'est caché dans ta capuche. Le sergent ne l'a pas vu. L'un des hommes en gris, si : son regard s'est arrêté une seconde sur ton épaule, puis il a repris sa ronde, sans rien dire." },
+      { with: "pip", text: "Pip s'est caché dans ta capuche. Le sergent ne l'a pas vu. L'un des hommes en gris, si : son regard s'est arrêté une seconde sur ton épaule, puis il a repris sa ronde, en silence." },
     ],
     choices: [
       { label: "Présenter la lettre de mission de l'Ordre", hide: { not: { item: "III_ordre_mission" } }, to: "IIIA_garde_ordre" },
@@ -887,7 +887,7 @@ Object.assign(P, {
     fx: { flag: "IIIA:admis", ep: ["perso", 500] },
     text: [
       "Le sergent regarde le jeton d'os comme on regarde une araignée sur une manche. Il appelle quelqu'un. Ce n'est pas un officier qui vient : c'est un des deux hommes en gris, qui prend le billet de Corbin entre deux doigts gantés, le lit sans bouger les lèvres, et te le rend.",
-      "« Le Cercle est le bienvenu au camp de Sa Majesté, dit-il d'une voix très douce. Maître Vendrel a beaucoup de respect pour le savoir. Il sera heureux de vous recevoir quand vous voudrez. » Il ne dit pas son nom. Il fait signe au sergent, qui lève la barrière. Tu es dans le camp, et tu as l'impression très nette d'y être entré{e} par la porte de quelqu'un.",
+      "« Le Cercle est le bienvenu au camp de Sa Majesté, dit-il d'une voix très douce. Maître Vendrel a beaucoup de respect pour le savoir. Il sera heureux de vous recevoir quand vous voudrez. » Il tait son nom. Il fait signe au sergent, qui lève la barrière. Tu es dans le camp, et tu as l'impression très nette d'y être entré{e} par la porte de quelqu'un.",
       { if: { has: "passe:cercle" }, text: "Le gris te regarde encore un moment. « Copiste, n'est-ce pas ? dit-il. On le voit aux doigts. » Tu regardes tes doigts. Il n'y a plus d'encre dessus depuis des années." },
     ],
     choices: [{ label: "Entrer dans le camp", big: true, back: "IIIA_camp" }] },
@@ -897,7 +897,7 @@ Object.assign(P, {
     text: [
       "Thavary s'avance jusqu'au registre. « Thavary de Thavar, dit-elle. Et ceux qui sont avec moi. » Le sergent commence à écrire. Il n'a pas fini le premier mot que l'un des hommes en gris s'est détaché de la barrière.",
       "« Dame de Thavar, dit-il avec une petite inclinaison de la tête. Maître Vendrel sera très heureux de savoir que vous êtes venue. Il vous attendait plus tôt. » Il lève lui-même la barrière. Il ne demande ni ce que vous portez, ni pourquoi vous venez.",
-      "Thavary passe sans un mot, sans le regarder, la mâchoire serrée. Quand tu la rattrapes, de l'autre côté, elle a les joues rouges, et ce n'est pas le froid. « Je ne sais pas de quoi il parle, dit-elle avant que tu aies rien demandé. Ils disent ça à tout le monde. » Elle presse le pas.",
+      "Thavary passe en silence, sans le regarder, la mâchoire serrée. Quand tu la rattrapes, de l'autre côté, elle a les joues rouges, et ce n'est pas le froid. « Je ne sais pas de quoi il parle, dit-elle avant que tu aies rien demandé. Ils disent ça à tout le monde. » Elle presse le pas.",
     ],
     choices: [{ label: "Entrer dans le camp", big: true, back: "IIIA_camp" }] },
 
@@ -921,10 +921,10 @@ Object.assign(P, {
   IIIA_garde_marque: { act: "III", title: "Le froid", place: "hautmont",
     fx: { flag: ["IIIA:admis", "III:marque_camp"] },
     text: [
-      "Tu ne dis rien. Tu poses seulement la main gauche à plat sur le registre, et tu laisses venir ce qui vient. C'est très facile, beaucoup trop facile : un froid qui part de la tache, qui coule dans le bois de la table, qui fait geler l'encre dans la plume du sergent. Il retire sa main comme s'il s'était brûlé. Il a pâli. Il ne sait pas pourquoi il a peur. Il a peur.",
+      "Tu te tais. Tu poses seulement la main gauche à plat sur le registre, et tu laisses venir ce qui vient. C'est très facile, beaucoup trop facile : un froid qui part de la tache, qui coule dans le bois de la table, qui fait geler l'encre dans la plume du sergent. Il retire sa main comme s'il s'était brûlé. Il a pâli. Il ne sait pas pourquoi il a peur. Il a peur.",
       "« Passez, dit-il d'une voix qui n'est pas la sienne. Passez. » Il ne t'a pas inscrit{e}. Il ne s'en souviendra pas très bien, ce soir, quand il voudra raconter.",
       "Les deux hommes en gris, eux, ont tout vu. L'un d'eux se détache de la barrière et s'en va à pas tranquilles, vers le pavillon sans bannière.",
-      { with: "coliane", text: "Coliane te suit, mais à trois pas, plus loin que d'habitude. Elle regarde ta main gauche. Elle ne dit rien. Elle n'a pas besoin." },
+      { with: "coliane", text: "Coliane te suit, mais à trois pas, plus loin que d'habitude. Elle regarde ta main gauche. Elle se tait. Elle n'a pas besoin." },
     ],
     choices: [{ label: "Entrer dans le camp", big: true, back: "IIIA_camp" }] },
 
@@ -956,7 +956,7 @@ Object.assign(P, {
 
   IIIA_infirmerie: { act: "III", title: "L'infirmerie du camp", place: "hautmont",
     text: [
-      "Trois grandes tentes accolées, au bas du camp, là où le terrain est le plus humide, ce qui n'est pas une bonne idée. Il y a plus de malades que de blessés : la dysenterie, la fièvre des marais, les pieds gelés. Les médecins du roi sont deux, et ils ont la peur dans les yeux. Il en meurt une dizaine par jour, sans bataille, sans gloire, et on les enterre derrière les fosses d'aisance, la nuit, pour ne pas faire peur aux autres.",
+      "Trois grandes tentes accolées, au bas du camp, là où le terrain est le plus humide, ce qui n'est pas une bonne idée. Il y a plus de malades que de blessés : la dysenterie, la fièvre des marais, les pieds gelés. Les médecins du roi sont deux, et ils ont la peur dans les yeux. Il en meurt une dizaine par jour, loin de toute bataille, et on les enterre derrière les fosses d'aisance, la nuit, pour ne pas faire peur aux autres.",
       "Dans un coin, à l'écart, trois hommes sont couchés derrière une toile qu'on a tendue exprès. Un aide-chirurgien t'explique à voix basse : ils ont bu à une source, en patrouille, au pied de la colline des Six. Depuis, ils ont des taches noires qui montent des mains, et ils parlent la nuit, tous les trois, à quelqu'un qui n'est pas là. Le conseiller a demandé qu'on les isole et qu'on ne dise rien.",
       { with: "aubin", text: "Frère Aubin passe sous la toile sans demander. Il reste longtemps avec les trois hommes. Quand il ressort, il a le visage gris. « Ils l'entendent, dit-il. Elle leur promet de les ramener chez eux. Je ne peux rien contre ça. Je peux seulement rester avec eux pendant qu'elle parle. »" },
       { with: "gloup", text: "Gloup refuse d'approcher de la toile. Il se colle contre le piquet de la tente, et il fait un bruit que tu ne lui connaissais pas, aigu, comme un chiot qui a peur de l'orage." },
@@ -969,7 +969,7 @@ Object.assign(P, {
   IIIA_palissades: { act: "III", title: "Les palissades", place: "hautmont",
     text: [
       "Au flanc sud du camp, face à la rivière, on creuse un fossé et on plante des pieux. Ce sont des prisonniers de Vel-Orin qui creusent, une cinquantaine, enchaînés par deux, sous la garde de piquiers qui s'ennuient. Ils travaillent dans l'eau jusqu'aux genoux. Ceux qui tombent, on les relève à coups de hampe ; ceux qui ne se relèvent pas, on les détache.",
-      { if: { is: { fleches: "livre" } }, text: "Tu reconnais Tancrède à sa façon de traîner la jambe. Il creuse, enchaîné à un vieux sergent pourpre qui le soutient quand il chancelle. Il te voit. Il ne détourne pas les yeux. Il ne dit rien. Il recommence à creuser." },
+      { if: { is: { fleches: "livre" } }, text: "Tu reconnais Tancrède à sa façon de traîner la jambe. Il creuse, enchaîné à un vieux sergent pourpre qui le soutient quand il chancelle. Il te voit. Il ne détourne pas les yeux. Il se tait. Il recommence à creuser." },
       { if: { is: { fleches: "tard" } }, text: "Parmi les prisonniers, un garçon blond qui traîne la jambe, la cuisse bandée d'un linge noir de crasse. Les gardes l'appellent « le gamin du pré ». Il a tenu un enfant de Merle au chaud toute une nuit, dit-on. Ça ne lui a pas valu de chaîne plus légère." },
       "Un des gardes, voyant que tu regardes, vient s'appuyer à côté de toi. « Ils creusent leur propre tombe, dit-il, content de sa phrase. Enfin, celle de leurs copains, quand ils viendront à l'assaut. » Il rit. Personne ne rit avec lui, même pas les autres gardes.",
     ],
@@ -981,7 +981,7 @@ Object.assign(P, {
   IIIA_ronde: { act: "III", title: "Le camp, la nuit", place: "hautmont", takes: "night",
     text: [
       "Tu fais le tour du camp quand les feux baissent. Les mercenaires chantent encore, en bas, une chanson de marche dont le refrain parle d'une fille de Sarre et d'un tonneau. Les piquiers des hautes terres dorment à dix par tente, serrés pour avoir chaud. Une sentinelle te demande le mot, et te laisse passer quand tu ne le connais pas, parce qu'elle a froid et que tu n'as pas l'air d'un ennemi.",
-      "Le pavillon gris du conseiller est le seul qui soit encore éclairé, tout en haut de la butte. Une lampe, à l'intérieur, découpe sur la toile l'ombre d'un homme seul, penché sur quelque chose de bas et de rond, une cuvette peut-être, ou un bassin. Il ne bouge pas. Tu restes à regarder un long moment, au froid. Il ne bouge toujours pas. Puis la lampe s'éteint.",
+      "Le pavillon gris du conseiller est le seul qui soit encore éclairé, tout en haut de la butte. Une lampe, à l'intérieur, découpe sur la toile l'ombre d'un homme seul, penché sur quelque chose de bas et de rond, une cuvette peut-être, ou un bassin. Il reste immobile. Tu restes à regarder un long moment, au froid. Il ne bouge toujours pas. Puis la lampe s'éteint.",
       { with: "pip", text: "Pip s'est collé contre ton cou, tout tremblant. « Il parle, souffle-t-il. Il parle à l'eau. Et l'eau lui répond. Je ne veux pas entendre ce qu'elle dit. » Il se cache dans ton col jusqu'au matin." },
       { if: { mark: { min: 2 } }, text: "La tache, sur ta main, s'est mise à battre doucement, au rythme de quelque chose qui n'est pas ton cœur, tout le temps que la lampe a brûlé dans le pavillon gris." },
     ],
@@ -1081,7 +1081,7 @@ Object.assign(P, {
       "Maître Vendrel se lève pour t'accueillir. De près, il a un visage fin, intelligent, fatigué, et ce col noir montant qu'il ne desserre pas, même ici. Ses gants blancs sont d'une propreté parfaite. « {hero}, dit-il. On parle de vous jusqu'à Hautmont. Asseyez-vous. Un peu de vin ? Il vient de mes vignes. » Il te sert sans attendre la réponse.",
       "« Je vais être bref, parce que vous êtes une personne intelligente, dit-il. Cette guerre est un malheur. Elle finira vite, si Aldaran gagne vite. J'ai besoin de gens qui voient clair, des deux côtés de la rivière. Je paie bien ceux qui voient clair. Et je n'oublie jamais ceux qui m'ont aidé. »",
       { if: { any: [{ mark: { min: 2 } }, { has: "III:marque_camp" }] }, text: "Son regard s'est posé sur ta main gauche, sur la tache. Il a souri, d'un autre sourire, presque tendre. « Nous avons des amis communs, je crois, dit-il doucement. Ils me parlent de vous. »" },
-      { with: "thavary", text: "« Dame de Thavar, ajoute-t-il en se tournant vers Thavary, ce que je vous ai promis tient toujours, bien entendu. » Thavary ne répond pas. Ses doigts se sont refermés sur la garde de son épée, et pas pour la tirer." },
+      { with: "thavary", text: "« Dame de Thavar, ajoute-t-il en se tournant vers Thavary, ce que je vous ai promis tient toujours, bien entendu. » Thavary se tait. Ses doigts se sont refermés sur la garde de son épée, et pas pour la tirer." },
     ],
     choices: [
       { label: "Accepter son or", tag: "Aldaran +", fx: { gold: 40, flag: "III:vendrel_or", fac: { aldaran: 10 }, conf: { coliane: -10, aubin: -10, pip: -5 }, regard: { vendrel: "cordial" } }, to: "IIIA_vendrel_or" },
@@ -1094,13 +1094,13 @@ Object.assign(P, {
     text: [
       "Il sort d'un coffre une petite bourse de cuir fin, et il la pose devant toi sans la pousser. Tu la prends. Elle est lourde. Dedans, deux couronnes d'or, neuves, si neuves que la tranche coupe presque. « Pour vos frais, dit Vendrel. Ce que vous verrez à Merle, au camp de la duchesse, sur la colline, vous me le direz. Pas tout. Ce qui compte. Vous saurez ce qui compte. »",
       "Il te raccompagne lui-même jusqu'au pan de toile. Il a la main légère sur ton épaule, une main gantée dont tu sens le froid à travers le cuir et ta manche. « Nous allons faire de grandes choses », dit-il.",
-      { with: "coliane", text: "Dehors, Coliane marche à côté de toi sans rien dire pendant un long moment. Puis : « Il t'a payé{e}. Tu sais pour quoi ? » Tu ne réponds pas. « Moi non plus, dit-elle. C'est ça qui me fait peur. »" },
+      { with: "coliane", text: "Dehors, Coliane marche à côté de toi en silence pendant un long moment. Puis : « Il t'a payé{e}. Tu sais pour quoi ? » Tu te tais. « Moi non plus, dit-elle. C'est ça qui me fait peur. »" },
     ],
     choices: [{ back: "IIIA_camp" }] },
 
   IIIA_vendrel_sonde: { act: "III", title: "Ce que dit Vendrel", place: "hautmont",
     text: [
-      "Tu ne bois pas. Tu le laisses parler, et tu l'écoutes comme on écoute un menteur : non pas ce qu'il dit, mais ce qu'il évite. Il parle de la duchesse, des salines, de la mine, du roi qui faiblit, de Nerys, qu'il appelle « notre petite princesse ». Il ne parle jamais de l'Ordre, ni de la Brèche, ni de la Fenne. Pas une fois. Un homme aussi intelligent, qui parle de cette guerre pendant une heure sans prononcer le nom de la montagne qui la domine.",
+      "Tu ne bois pas. Tu le laisses parler, et tu l'écoutes comme on écoute un menteur : en guettant ce qu'il évite. Il parle de la duchesse, des salines, de la mine, du roi qui faiblit, de Nerys, qu'il appelle « notre petite princesse ». Il ne parle jamais de l'Ordre, ni de la Brèche, ni de la Fenne. Pas une fois. Un homme aussi intelligent, qui parle de cette guerre pendant une heure sans prononcer le nom de la montagne qui la domine.",
       "Et il y a autre chose. Pendant tout le temps où il parle, il ne quitte presque pas des yeux le bassin couvert d'un linge, dans le coin, comme on surveille un enfant qui dort, ou un chien qui pourrait se réveiller.",
       "« Réfléchissez à mon offre, dit-il en se levant. On ne réfléchit jamais trop, dans ces temps-ci. » Son sourire n'a pas bougé d'un cheveu.",
     ],
@@ -1116,7 +1116,7 @@ Object.assign(P, {
   IIIA_vendrel_anneau: { act: "III", title: "L'Anneau", place: "hautmont",
     text: [
       "Vendrel ne fait pas semblant d'être surpris. Il repose son verre. « L'Anneau de Thavar, dit-il, est un objet d'histoire, et il devrait être là où l'histoire se fait. Dans un manoir aux toits crevés, il ne sert à rien. Sur les routes, il est en danger. » Il sourit. « Je ne suis pas un voleur. J'achète. Je paie toujours ce que j'achète, et un peu plus. »",
-      { if: { relic: "anneau" }, text: "« Il est dans votre besace, je crois, ajoute-t-il. Vous le sentez peser, la nuit ? Il pèse plus lourd chaque nuit, n'est-ce pas ? On dit que c'est la honte de Thavar. Moi, je crois que c'est autre chose. » Tu ne réponds pas. Il ne s'attendait pas à une réponse." },
+      { if: { relic: "anneau" }, text: "« Il est dans votre besace, je crois, ajoute-t-il. Vous le sentez peser, la nuit ? Il pèse plus lourd chaque nuit, n'est-ce pas ? On dit que c'est la honte de Thavar. Moi, je crois que c'est autre chose. » Tu te tais. Il ne s'attendait pas à une réponse." },
       { if: { given: "anneau" }, text: "« Vous l'avez rendu à la vieille Ermesinde, je sais, ajoute-t-il avec un petit soupir. C'est touchant. Elle est très âgée. Les vieilles dames meurent, et leurs bijoux vont à leurs héritiers. » Il ne regarde pas Thavary en disant cela. Il n'a pas besoin." },
       { with: "thavary", text: "Thavary se lève d'un coup, et son tabouret tombe. « Nous partons », dit-elle. Ce n'est pas à toi qu'elle le dit. Vendrel s'incline, aimable. « Bien sûr, dame de Thavar. Rien ne presse. Rien ne presse jamais, entre nous. »" },
     ],
@@ -1186,7 +1186,7 @@ Object.assign(P, {
       "Le trésorier du roi arrive avec quatre piquiers et un coffre cerclé de fer. On l'ouvre sur une table à tréteaux, devant la tente de Kell, et les lances viennent une par une, en file, toucher leur dû. Le trésorier compte, un sergent écrit, Kell regarde. Ça tinte. Les hommes mordent les pièces, les font sauter dans la main, les regardent briller au soleil d'hiver.",
       "Tu t'approches. Une des pièces roule de la table et vient tomber à tes pieds ; tu la ramasses pour la rendre. Elle est neuve, si neuve que la tranche coupe presque. D'un côté, la tour d'Aldaran. De l'autre, en tout petit, sous le grènetis, la marque d'atelier : une feuille de vigne et une lettre, un O couronné.",
       "Les mercenaires d'Aldaran sont payés en couronnes neuves frappées à Orme-la-Dorée, la capitale de Vel-Orin.",
-      { with: "coliane", text: "Coliane a vu la pièce aussi. Elle ne dit rien. Elle a simplement cessé de mâcher sa pomme, et elle regarde le coffre." },
+      { with: "coliane", text: "Coliane a vu la pièce aussi. Elle se tait. Elle a simplement cessé de mâcher sa pomme, et elle regarde le coffre." },
     ],
     choices: [{ label: "Rendre la pièce au trésorier", back: "IIIA_mercenaires" }] },
 
@@ -1216,7 +1216,7 @@ Object.assign(P, {
 
   IIIA_bras_thavary: { act: "III", title: "Le bras de fer", place: "hautmont", with: "thavary",
     text: [
-      "Thavary s'assied en face de Kell sans un mot, retrousse sa manche, et pose son coude. Le quartier rit. Kell aussi. Il ne rit plus au bout de dix battements de cœur. Thavary n'a pas changé d'expression ; elle regarde un point au-dessus de l'épaule du géant, et elle pousse, régulièrement, comme on pousse une porte coincée. La main de Kell descend. Elle touche.",
+      "Thavary s'assied en face de Kell en silence, retrousse sa manche, et pose son coude. Le quartier rit. Kell aussi. Il ne rit plus au bout de dix battements de cœur. Thavary n'a pas changé d'expression ; elle regarde un point au-dessus de l'épaule du géant, et elle pousse, régulièrement, comme on pousse une porte coincée. La main de Kell descend. Elle touche.",
       "Il y a un silence stupéfait. Puis Kell éclate d'un rire énorme et lui tend une coupe. Thavary la boit d'un trait, la repose, et dit : « Mon grand-père faisait ça avec les palefreniers, pour leur payer leurs gages en vin quand il n'avait plus d'argent. Il gagnait toujours. Il ne les payait jamais. » Elle se lève. Personne ne sait s'il faut rire.",
     ],
     choices: [{ back: "IIIA_mercenaires" }] },
@@ -1240,15 +1240,15 @@ Object.assign(P, {
   IIIA_lice_appel: { act: "III", title: "La lice, avant l'aube", place: "hautmont",
     text: [
       "Ta voix sonne trop fort dans le froid. Le champion s'arrête net, au milieu d'une passe, la lame en l'air. Il ne se retourne pas. Ses épaules se sont soulevées une fois, comme on prend une grande inspiration, et redescendues. La main noire s'est serrée sur la garde jusqu'à ce que les jointures craquent. Il reste ainsi un temps très long. Tu attends qu'il se retourne. Tu ne sais pas si tu le veux.",
-      "Il ne se retourne pas. Il rengaine, prend la lanterne, et s'en va vers le pavillon gris d'un pas égal, sans se presser, sans un regard en arrière.",
+      "Il ne se retourne pas. Il rengaine, prend la lanterne, et s'en va vers le pavillon gris d'un pas égal, lent, les yeux droit devant.",
       "Un des hommes en gris est là, à côté de toi. Tu ne l'as pas entendu venir. « Le champion de Maître Vendrel ne parle à personne, dit-il poliment. Il ne faut pas lui en vouloir. Il a beaucoup souffert. » Il te raccompagne jusqu'à l'allée centrale, une main sur ton coude.",
     ],
     choices: [{ back: "IIIA_camp" }] },
 
   IIIA_lice_suivre: { act: "III", title: "La lice, avant l'aube", place: "hautmont",
     text: [
-      "Il rengaine, prend la lanterne, et quitte la lice par une porte de branches qui donne sur l'arrière du pavillon gris. Tu le suis, à vingt pas, dans l'ombre des tentes. Il marche sans se retourner, sans hâte. Au coin du pavillon, il s'arrête devant un tonneau d'eau de pluie, y plonge la main noire jusqu'au coude, et reste ainsi, immobile, la tête penchée sur l'eau, comme quelqu'un qui écoute.",
-      "Puis deux hommes en gris sortent du pavillon et viennent se placer entre lui et toi, sans un mot, les bras croisés. Le champion retire sa main du tonneau. L'eau qui en coule est noire. Il entre dans le pavillon, et la toile retombe.",
+      "Il rengaine, prend la lanterne, et quitte la lice par une porte de branches qui donne sur l'arrière du pavillon gris. Tu le suis, à vingt pas, dans l'ombre des tentes. Il marche posément, droit devant lui. Au coin du pavillon, il s'arrête devant un tonneau d'eau de pluie, y plonge la main noire jusqu'au coude, et reste ainsi, immobile, la tête penchée sur l'eau, comme quelqu'un qui écoute.",
+      "Puis deux hommes en gris sortent du pavillon et viennent se placer entre lui et toi, en silence, les bras croisés. Le champion retire sa main du tonneau. L'eau qui en coule est noire. Il entre dans le pavillon, et la toile retombe.",
       { if: { mark: { min: 1 } }, text: "La tache de ta propre main s'est mise à te brûler, très fort, pendant qu'il avait la sienne dans l'eau. Elle s'est calmée quand il l'a retirée." },
     ],
     choices: [{ back: "IIIA_camp" }] },
@@ -1298,7 +1298,7 @@ Object.assign(P, {
       "Le coffre bleu sent la poussière et le cèdre. Des titres de propriété roulés, des traités scellés de cires de toutes les couleurs, des généalogies, et tout au fond, dans un étui de cuir durci, un plan ancien, sur une peau qui a jauni jusqu'au brun. Les galeries y sont tracées à l'encre rouge, en arborescence, de plus en plus profondes, sous un massif que tu reconnais à sa forme : la Fenne.",
       "C'est un plan de la mine d'Aldar, daté de l'an 1 du Sceau. Sur la galerie la plus profonde, une autre main a écrit : « fermée par ordre, après la Brèche ».",
       "Il y a d'autres choses, dans le coffre. Des copies d'ordres de cet automne, de l'écriture fine et penchée du conseiller, avec le sceau du roi apposé en dessous, de travers, comme par une main qui tremble. L'ordre de passer l'Isarde est de cette écriture-là.",
-      { with: "charline", text: "Charline a déroulé le plan sur ses genoux, et elle le regarde sans rien dire, très longtemps, en suivant du doigt la galerie la plus basse. « Après la Brèche, dit-elle enfin. Pas avant. Après. » Elle le recopie, trait pour trait, dans son carnet." },
+      { with: "charline", text: "Charline a déroulé le plan sur ses genoux, et elle le regarde en silence, très longtemps, en suivant du doigt la galerie la plus basse. « Après la Brèche, dit-elle enfin. Pas avant. Après. » Elle le recopie, trait pour trait, dans son carnet." },
     ],
     choices: [{ label: "Tout remettre en place et ressortir", back: "IIIA_camp" }] },
 
@@ -1336,7 +1336,7 @@ Object.assign(P, {
 
   IIIA_conseil_guerre: { act: "III", title: "Le conseil de guerre", place: "hautmont",
     text: [
-      "Tu montres sur la carte les bancs de gravier du gué, l'endroit où le courant est le plus faible, la berge où des arbalétriers seraient à couvert. Tu proposes de faire passer les piquiers de nuit, en silence, plutôt qu'à l'aube en fanfare. Les barons écoutent. Kell approuve bruyamment. Hugues te regarde d'un air que tu n'arrives pas à lire, puis il note quelque chose, sans un mot.",
+      "Tu montres sur la carte les bancs de gravier du gué, l'endroit où le courant est le plus faible, la berge où des arbalétriers seraient à couvert. Tu proposes de faire passer les piquiers de nuit, en silence, plutôt qu'à l'aube en fanfare. Les barons écoutent. Kell approuve bruyamment. Hugues te regarde d'un air que tu n'arrives pas à lire, puis il note quelque chose, en silence.",
       "Vendrel, lui, est enchanté. « Voilà quelqu'un qui voit clair », dit-il en te désignant au conseil. Il pose la main sur ton épaule en passant, à la sortie. Sa main est froide, à travers le gant et le drap.",
       { if: { has: "III:vendrel_or" }, text: "« Nos deux couronnes sont bien employées », te glisse-t-il à l'oreille. Personne d'autre n'a entendu. Tu préférerais que quelqu'un ait entendu." },
     ],
@@ -1344,7 +1344,7 @@ Object.assign(P, {
 
   IIIA_conseil_silence: { act: "III", title: "Le conseil de guerre", place: "hautmont",
     text: [
-      "Tu ne dis rien, et tu regardes. Tu vois que les barons des hautes terres regardent Hugues quand ils doutent, et Vendrel quand ils ont peur. Tu vois que Kell regarde le coffre de la solde, posé dans un coin, sous garde. Tu vois que le roi ne regarde personne, qu'il regarde la carte, le gué de Gaudre, sans le voir, et qu'il remue les lèvres comme un homme qui récite une prière dont il a oublié la fin.",
+      "Tu te tais, et tu regardes. Tu vois que les barons des hautes terres regardent Hugues quand ils doutent, et Vendrel quand ils ont peur. Tu vois que Kell regarde le coffre de la solde, posé dans un coin, sous garde. Tu vois que le roi ne regarde personne, qu'il regarde la carte, le gué de Gaudre, sans le voir, et qu'il remue les lèvres comme un homme qui récite une prière dont il a oublié la fin.",
       "Et tu vois Nerys. Elle a laissé tomber son mouchoir. En le ramassant, elle a glissé un papier plié dans la main de Hugues de Vaux, qui l'a mis dans sa manche sans changer de visage. Personne ne l'a vu. Sauf toi. Et peut-être Vendrel, qui sourit à ce moment-là, sans raison apparente.",
       "Vendrel conclut : Sa Majesté décidera demain. Le roi hoche la tête. Le conseil est levé.",
     ],
@@ -1352,7 +1352,7 @@ Object.assign(P, {
 
   IIIA_attentat: { act: "III", title: "Dans l'allée des forges", place: "hautmont",
     text: [
-      "La nuit est tombée pendant le conseil. Tu prends l'allée des forges pour rejoindre ta tente : c'est le plus court, et à cette heure les forgerons ont éteint leurs feux. Il n'y a personne. Puis il y a trois hommes, sortis de l'ombre entre deux enclumes, sans tabard, le visage couvert d'un foulard, une lame courte à la main. Ils ne disent rien. Ils ne demandent pas ta bourse.",
+      "La nuit est tombée pendant le conseil. Tu prends l'allée des forges pour rejoindre ta tente : c'est le plus court, et à cette heure les forgerons ont éteint leurs feux. Il n'y a personne. Puis il y a trois hommes, sortis de l'ombre entre deux enclumes, sans tabard, le visage couvert d'un foulard, une lame courte à la main. Ils se taisent. Ils ne demandent pas ta bourse.",
       { with: "thavary", text: "Thavary a déjà l'épée au clair. « Derrière moi », dit-elle, comme on le dit à quelqu'un de sa maison." },
       { without: "any", text: "Tu es seul{e}. Hugues t'avait dit de ne pas l'être." },
     ],
@@ -1374,7 +1374,7 @@ Object.assign(P, {
   IIIA_attentat_fuite: { act: "III", title: "Dans l'allée des forges", place: "hautmont",
     text: [
       "Le vacarme fait sortir les forgerons de leurs tentes en chemise, puis les sentinelles, puis la moitié du quartier. Les trois hommes disparaissent dans le noir comme s'ils n'avaient jamais été là. On te demande ce qui s'est passé. Tu le dis. On te regarde avec un mélange de pitié et de doute.",
-      "Plus tard, Hugues vient s'asseoir à côté de toi devant le brasero d'une forge. « Je vous avais prévenu{e} », dit-il. Il ne dit rien d'autre. Il reste là jusqu'à l'aube, l'épée sur les genoux.",
+      "Plus tard, Hugues vient s'asseoir à côté de toi devant le brasero d'une forge. « Je vous avais prévenu{e} », dit-il. Il s'en tient là. Il reste là jusqu'à l'aube, l'épée sur les genoux.",
     ],
     choices: [{ back: "IIIA_camp" }] },
 
@@ -1442,14 +1442,14 @@ Object.assign(P, {
       { if: { seen: "III_refugies_morel" }, text: "Tu poses le bon sur la table du connétable. Un papier gras, plié en huit, au sceau de l'intendance : *pris chez la veuve Morel, à Merle, deux sacs de seigle, un de son, sept poules, pour le service du roi*, et la date. Hugues le lit. Il compte sur ses doigts. Le jour des fourrageurs à Merle, le soir où Arnaud a disparu.", else: "Tu parles de Merle, de la veuve Morel, des fourrageurs, d'un garçon qui descend la nuit avec sa ration sur le dos et qui remonte. Tu dis qu'un déserteur ne revient pas. Que celui-ci est revenu. Les piquiers, derrière, ont cessé de bavarder." },
       "Hugues de Vaux se tait un long moment. Puis il dit : « L'accusé s'est absenté sans permission. Il sera puni de vingt coups de baguette et d'un mois de solde. L'accusé est revenu. Il reprendra son rang. » Il regarde Vendrel bien en face. « Un homme qui revient, conseiller, on ne le pend pas. Sinon, ils ne reviendront plus. »",
       "Vendrel incline la tête, aimable. « Le connétable connaît ses hommes », dit-il. Il s'en va sans attendre la fin. Dans la foule des piquiers, quelqu'un a commencé à taper du pied, puis un autre, et ça devient un roulement sourd, qui ne s'arrête que quand Hugues lève la main.",
-      "Arnaud, détaché, ne sait pas quoi faire de ses bras. Il te regarde. Il ne dit rien. Le soir, un piquier t'apporte de sa part un sifflet de bois taillé au couteau, en forme d'oiseau.",
+      "Arnaud, détaché, ne sait pas quoi faire de ses bras. Il te regarde. Il se tait. Le soir, un piquier t'apporte de sa part un sifflet de bois taillé au couteau, en forme d'oiseau.",
     ],
     choices: [{ back: "IIIA_camp" }] },
 
   IIIA_proces_perdu: { act: "III", title: "La sentence", place: "hautmont",
     text: [
       { outcome: "lose", text: "Tu parles, mais les mots ne prennent pas. Le sergent te coupe, un capitaine ricane, Vendrel soupire comme on soupire devant un enfant têtu. Hugues t'écoute jusqu'au bout, puis il secoue la tête, lentement. Il n'a pas assez. Il le regrette. Ça se voit.", else: "Personne ne se lève. Le silence dure. Hugues le laisse durer, plus longtemps que la règle ne le demande, en regardant la foule, en te regardant. Puis il baisse les yeux sur ses papiers." },
-      "« L'accusé sera pendu demain à l'aube, devant sa compagnie », dit Hugues. Sa voix ne tremble pas. Ses mains, à plat sur la table, sont blanches aux jointures. Vendrel incline la tête. Les piquiers s'en vont sans un mot.",
+      "« L'accusé sera pendu demain à l'aube, devant sa compagnie », dit Hugues. Sa voix ne tremble pas. Ses mains, à plat sur la table, sont blanches aux jointures. Vendrel incline la tête. Les piquiers s'en vont en silence.",
       "On ramène Arnaud à son poteau. En passant près de toi, il dit seulement : « Ne le dites pas à ma mère. »",
     ],
     choices: [
@@ -1482,7 +1482,7 @@ Object.assign(P, {
     fx: { set: { deserteur: "pendu" }, quest: "III_deserteur", conf: { pip: -10, aubin: -5 } },
     text: [
       { outcome: "lose", text: "La sentinelle se retourne au moment où tu tiens la clé. Elle crie. Le camp se réveille. On te jette à terre, on te prend la clé, on te donne des coups de hampe dans les côtes, et Hugues arrive en chemise, une lanterne à la main. Il te regarde longtemps. « Allez-vous-en d'ici », dit-il seulement. On te relâche. Arnaud, lui, reste à son poteau jusqu'à l'aube." },
-      "On le pend à l'aube, devant sa compagnie, sur la potence neuve, au bout de l'allée. Il ne dit rien. Il a les yeux ouverts. Il regarde vers le sud, vers Merle, vers la rivière, jusqu'à la fin. Ça prend moins de temps qu'on ne croit, et plus qu'on ne peut le supporter.",
+      "On le pend à l'aube, devant sa compagnie, sur la potence neuve, au bout de l'allée. Il se tait. Il a les yeux ouverts. Il regarde vers le sud, vers Merle, vers la rivière, jusqu'à la fin. Ça prend moins de temps qu'on ne croit, et plus qu'on ne peut le supporter.",
       "Les piquiers rentrent dans leurs tentes en silence. La nuit suivante, il en part quinze, au lieu de dix. Vendrel, à qui on l'annonce, hausse les épaules.",
       { with: "aubin", text: "Frère Aubin a demandé à dire les prières au pied de la potence. On le lui a permis. Il les a dites. Ensuite, il est resté assis par terre, sans bouger, jusqu'à ce qu'on décroche le corps, à midi. « Il voulait revenir, a-t-il dit seulement. Il était revenu. »" },
     ],
@@ -1554,7 +1554,7 @@ Object.assign(P, {
   IIIA_nerys_saisie: { act: "III", title: "La lettre saisie", place: "hautmont",
     fx: { drop: "III_lettre_nerys", set: { nerys: "saisie" }, quest: "III_nerys", regard: { nerys: "trahi", vendrel: "mefiant" }, fac: { aldaran: -5 } },
     text: [
-      "La main gantée de gris se referme sur ton poignet, pas fort, juste assez. L'homme retourne ta manche, et la lettre tombe dans la boue entre vos pieds. Il la ramasse, l'essuie soigneusement sur son manteau, et la met dans sa poche sans la lire. « Merci », dit-il. Il n'ajoute rien. Ils s'en vont vers le pavillon gris.",
+      "La main gantée de gris se referme sur ton poignet, juste assez fort. L'homme retourne ta manche, et la lettre tombe dans la boue entre vos pieds. Il la ramasse, l'essuie soigneusement sur son manteau, et la met dans sa poche sans la lire. « Merci », dit-il. Il n'ajoute rien. Ils s'en vont vers le pavillon gris.",
       "Ce soir-là, deux hommes en gris de plus montent la garde devant la tente de la princesse. On ne la voit plus à la messe du dimanche, ni au banquet, ni nulle part. On dit qu'elle est malade, elle aussi, comme son père. La servante âgée qui cousait dans un coin, on ne la revoit pas du tout.",
     ],
     choices: [{ back: "IIIA_camp" }] },
@@ -1574,7 +1574,7 @@ Object.assign(P, {
     text: [
       "Nerys te reçoit debout, comme la première fois. Quand tu lui dis que la lettre est partie avec le bac des morts, elle ferme les yeux, une seconde, et quelque chose se défait dans ses épaules. Puis elle les rouvre, et elle est de nouveau la princesse d'Aldaran.",
       "Elle ôte de son petit doigt une bague d'argent, très simple, avec une tour gravée en creux. « Elle ouvre ce que mon nom ouvre encore, dit-elle. Les gardes de mon père la connaissent. Le greffier de la chancellerie aussi. Le conseiller ne l'aime pas. » Elle te la met dans la main et te referme les doigts dessus. « Je ne sais pas si la duchesse viendra. Je sais que quelqu'un, dans ce camp, a fait ce que je demandais sans rien demander en échange. C'est déjà plus que je n'espérais. »",
-      { if: { has: "nerys:lue" }, text: "Elle te regarde un moment, la tête un peu penchée. « Vous l'avez lue, n'est-ce pas ? » Tu ne réponds pas. Elle hoche la tête. « J'aurais fait pareil. Au moins, maintenant, nous sommes deux à savoir. »" },
+      { if: { has: "nerys:lue" }, text: "Elle te regarde un moment, la tête un peu penchée. « Vous l'avez lue, n'est-ce pas ? » Tu te tais. Elle hoche la tête. « J'aurais fait pareil. Au moins, maintenant, nous sommes deux à savoir. »" },
     ],
     choices: [{ back: "IIIA_camp" }] },
 });
@@ -1594,8 +1594,8 @@ Object.assign(P, {
 
   III_b_coliane_thavary: { act: "III", title: "Ce que dit le conseiller", banter: true, with: ["coliane", "thavary"],
     text: [
-      "Coliane s'assied à côté de Thavary devant le feu, plus près que d'habitude, et elle affûte un couteau sans la regarder. « Le conseiller te connaît, dit-elle. Il t'appelle par ton nom. Il te parle de promesses. »",
-      "Thavary ne bouge pas. « Beaucoup de gens connaissent mon nom. Il est vieux. Il a été grand. — Et les promesses ? » Thavary se tait si longtemps que tu crois qu'elle ne répondra pas. « Ma maison doit de l'argent à la moitié des usuriers de la Sorbe, dit-elle enfin. Les gens qui ont de l'argent font des promesses aux gens qui en doivent. C'est tout. Ça n'engage que lui. »",
+      "Coliane s'assied à côté de Thavary devant le feu, plus près que d'habitude, et affûte un couteau sans regarder Thavary. « Le conseiller te connaît, dit-elle. Il t'appelle par ton nom. Il te parle de promesses. »",
+      "Thavary reste immobile. « Beaucoup de gens connaissent mon nom. Il est vieux. Il a été grand. — Et les promesses ? » Thavary se tait si longtemps que tu crois qu'elle ne répondra pas. « Ma maison doit de l'argent à la moitié des usuriers de la Sorbe, dit-elle enfin. Les gens qui ont de l'argent font des promesses aux gens qui en doivent. C'est tout. Ça n'engage que lui. »",
       "Coliane range son couteau. « Un homme qui m'a fait une promesse, un jour, a ouvert une écluse sur mon village, dit-elle. Ça n'engageait que lui, aussi. » Elle se lève et s'en va dormir. Thavary reste devant le feu, et elle ne te regarde pas.",
     ],
     choices: [

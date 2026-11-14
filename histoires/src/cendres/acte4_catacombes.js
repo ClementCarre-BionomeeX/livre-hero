@@ -41,7 +41,7 @@ module.exports = {
   IV_O_cranes_peindre: P({ title: "Le pinceau", place: "pallanche",
     text: [
       "Tu n'as pas le registre de la paroisse. Mais sur le mur du fond, gravée dans la pierre, il y a la liste des morts de la paroisse, siècle après siècle, que personne n'a pensé à effacer parce que personne ne lit les murs. Tu prends le pinceau. Tu recopies, du mur aux fronts. Un nom par crâne, dans l'ordre.",
-      "Tu en fais trente. Puis cinquante. Le pinceau s'use. Tu ne sais pas si tu mets le bon nom sur le bon crâne. Tu te dis que les morts s'arrangeront entre eux.",
+      "Tu en fais trente. Puis cinquante. Le pinceau s'use. Le bon nom sur le bon crâne ? Tu fais de ton mieux. Tu te dis que les morts s'arrangeront entre eux.",
     ],
     choices: [{ back: "IV_O_galeries" }] }),
   IV_O_loge: P({ title: "La loge du fossoyeur", place: "pallanche",

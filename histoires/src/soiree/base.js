@@ -70,7 +70,7 @@ module.exports = {
   },
   items: {
     baton: { name: "Bâton de marche", kind: "arme", dmg: 3, att: 0, price: 2, desc: "Un bâton de noisetier, coupé il y a des années sur une autre route." },
-    epee: { name: "Épée de soldat", kind: "arme", dmg: 6, att: 0, price: 20, desc: "Celle qu'on t'a laissée en te rendant ton congé. Tu ne sais pas pourquoi tu l'as emportée jusqu'ici." },
+    epee: { name: "Épée de soldat", kind: "arme", dmg: 6, att: 0, price: 20, desc: "Celle qu'on t'a laissée en te rendant ton congé. Tu l'as emportée jusqu'ici presque malgré toi." },
     couteau: { name: "Couteau de route", kind: "arme", dmg: 3, att: 5, price: 3, desc: "Un couteau pliant, pour le pain et les ficelles." },
     lettre_albane: { name: "La lettre de ta grand-mère", kind: "document", keep: true, desc: "Une feuille pliée en quatre, l'écriture penchée d'Albane, un peu tremblée.",
       text: "*Viens pour la Longue Nuit. Je n'en verrai pas d'autre.*\n\n*Ne dis rien à Isaure, elle s'inquiéterait.*\n\n*Ta grand-mère, Albane Aubier.*" },

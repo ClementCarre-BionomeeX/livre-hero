@@ -33,8 +33,8 @@ module.exports = {
   V_auberge: { act: "I", title: "L'Anguille", place: "vaudrenne", shop: "anguille",
     text: [
       "Une salle basse, des poutres noires, un feu qui fume parce que le vent rabat dans la cheminée. Des meuniers en tablier blanc à une table, des tanneurs aux mains brunes à une autre, et entre les deux un espace vide que personne ne traverse.",
-      "Mahaut est une femme sèche aux cheveux tirés, qui pose les bols sans les cogner et rend la monnaie sans la compter. « Paillasse au grenier, soupe, pain. Pour le reste, on verra. Vous êtes au moins le troisième étranger de la soirée. »",
-      { if: { seen: "V_bailli" }, text: "Elle jette un coup d'œil à ton manteau, sur lequel la pluie n'a pas encore séché depuis l'hôtel du bailli, et ne dit rien. Ça se voit, qu'elle ne dit rien." },
+      "Mahaut est une femme sèche aux cheveux tirés, qui pose les bols en douceur et rend la monnaie d'un seul geste. « Paillasse au grenier, soupe, pain. Pour le reste, on verra. Vous êtes au moins le troisième étranger de la soirée. »",
+      { if: { seen: "V_bailli" }, text: "Elle jette un coup d'œil à ton manteau, encore trempé de la pluie de l'hôtel du bailli, et se tait. Ça se voit, qu'elle se tait." },
     ],
     choices: [
       { label: "Demander à Mahaut où est passé l'éclusier", to: "V_auberge_joss", hide: { seen: "V_auberge_joss" } },
@@ -73,7 +73,7 @@ module.exports = {
   V_eclusier: { act: "I", title: "La maison de l'éclusier", place: "vaudrenne",
     text: [
       "Une maison étroite, collée contre la tour nord de l'écluse comme un enfant contre sa mère. Les volets sont clos. Sur la porte, la marque de la crue de l'An Gris, peinte en rouge, est plus haute que le linteau.",
-      "Personne ne répond. La porte tient par un loquet et une serrure qui a connu de meilleures années.",
+      "La maison reste muette. La porte tient par un loquet et une serrure qui a connu de meilleures années.",
     ],
     choices: [
       { label: "Forcer la serrure", test: { dom: "discretion", diff: 0, label: "Discrétion" },
@@ -106,7 +106,7 @@ module.exports = {
     choices: [{ label: "Refermer le registre", to: "V_eclusier_dedans" }] },
   V_eclusier_cle: { act: "I", title: "Où Lise la cachait", place: "vaudrenne",
     text: [
-      "Tu ne sais pas qui est Lise. Mais la maison est petite, et il n'y a pas tant d'endroits où une femme cache quelque chose dans une maison d'homme seul. Tu cherches sous le lit, dans le poêle, derrière les clés. Rien.",
+      "Lise t'est inconnue. Mais la maison est petite, et une femme a peu d'endroits où cacher quelque chose dans une maison d'homme seul. Tu cherches sous le lit, dans le poêle, derrière les clés. Rien.",
       "C'est la chaise qui te trahit : son pied gauche est plus clair que les autres, plus récent. Il se dévisse. Dedans, roulée dans un chiffon huilé, une clé de fer longue comme ton avant-bras.",
       { if: { has: "e_registre" }, text: "Tu repenses au mot souligné deux fois." },
       "Dehors, la cloche sonne dix heures. Cette clé ouvre le treuil des vannes hautes. Celui qui l'a choisira, à minuit, où ira l'eau. Ou du moins, il aura son mot à dire.",
@@ -118,7 +118,7 @@ module.exports = {
   V_eclusier_garde: { act: "I", title: "Le poids d'une clé", place: "vaudrenne",
     text: [
       "Tu la glisses sous ton manteau. Elle pèse plus lourd qu'une clé ne devrait peser.",
-      "En refermant la porte derrière toi, tu vois une ombre s'écarter du coin de la tour, un homme en cape de pluie qui s'éloigne à grands pas vers la place. Il ne court pas. Il n'en a pas besoin : il sait où il va.",
+      "En refermant la porte derrière toi, tu vois une ombre s'écarter du coin de la tour, un homme en cape de pluie qui s'éloigne à grands pas vers la place. Il marche, du pas de celui qui sait où il va.",
     ],
     choices: [{ back: HUB }] },
   V_eclusier_bailli: { act: "I", title: "Une clé bien reçue", place: "vaudrenne",
@@ -130,7 +130,7 @@ module.exports = {
 
   V_chapelle: { act: "I", title: "La chapelle des Noyés", place: "vaudrenne",
     text: [
-      "Il fait plus froid dedans que dehors. Pas de saints, pas d'autel doré : un seul mur couvert de noms, du sol jusqu'à hauteur d'homme, et devant ce mur une vieille femme qui change les chandelles une par une, avec une patience de rivière.",
+      "Il fait plus froid dedans que dehors. Pour tout décor, un seul mur couvert de noms, du sol jusqu'à hauteur d'homme, et devant ce mur une vieille femme qui change les chandelles une par une, avec une patience de rivière.",
       "« L'An Gris, dit-elle sans se retourner. Il y a quarante et un ans. Deux cent dix-sept noms. J'avais neuf ans, j'étais sur le toit de la tannerie avec mon père. C'est moi qui les ai gravés, plus tard, quand j'ai eu la main assez sûre. »",
       "Elle s'appelle Ermengarde. Elle a des yeux de quelqu'un qui a beaucoup regardé l'eau.",
     ],
@@ -158,7 +158,7 @@ module.exports = {
     ] },
   V_couloir: { act: "I", title: "Le couloir sous la ville", place: "vaudrenne",
     text: [
-      { if: { clue: "e_crypte" }, text: "À trois pas de l'arche, une chandelle de suif blanc, à moitié consumée. Pas de la chandelle d'église : de celle qu'on brûle chez les riches." },
+      { if: { clue: "e_crypte" }, text: "À trois pas de l'arche, une chandelle de suif blanc, à moitié consumée. De la chandelle fine, de celle qu'on brûle chez les riches." },
       "Tu montes longtemps, courbé, dans une odeur de cave et de vieux vin. Le couloir finit contre une porte de chêne bardée de fer, avec un judas. Derrière, une respiration. Puis une voix éraillée, très calme :",
       "« Si c'est encore Ravel avec sa soupe, je ne mange pas. Si c'est quelqu'un d'autre, la barre est de votre côté. »",
       { if: { has: "monde:joss_libre" }, text: "Mais la barre est déjà levée, la porte entrouverte, et il n'y a plus personne derrière : quelqu'un est passé avant toi." },
@@ -190,7 +190,7 @@ module.exports = {
     ] },
   V_quai_sacs: { act: "I", title: "Les sacs", place: "vaudrenne",
     text: [
-      "Une heure de sacs. Le sable mouillé pèse comme du plomb, le jute te scie les doigts, l'eau entre dans tes bottes et n'en ressort plus. La fille s'appelle Ninon. Elle ne parle pas en travaillant, et toi non plus.",
+      "Une heure de sacs. Le sable mouillé pèse comme du plomb, le jute te scie les doigts, l'eau entre dans tes bottes et n'en ressort plus. La fille s'appelle Ninon. Vous travaillez tous les deux en silence.",
       "Quand vous vous arrêtez enfin, adossés au mur d'une tannerie, elle te montre du menton une encoche peinte en rouge au-dessus de vos têtes. « L'An Gris. Ma grand-mère était sur le toit. » Elle regarde l'eau à vos pieds. « Ils disent qu'on ne reverra jamais ça. Ils disaient pareil hier. »",
     ],
     choices: [{ label: "Regarder l'encoche", fx: { clue: "b_niveau" }, to: "V_quai" }] },
@@ -220,8 +220,8 @@ module.exports = {
   V_bailli: { act: "I", title: "L'hôtel du bailli", place: "vaudrenne",
     text: [
       "Un valet t'ouvre, te débarrasse de ton manteau mouillé avec deux doigts et te fait attendre dans une antichambre où tout brille : le parquet, les chandeliers, les boutons de la livrée. Puis on t'introduit.",
-      "Guérand Morel est un homme rond et soigné, aux gants de peau fine qu'il ne retire pas pour écrire. Il a une voix douce, de celles qui n'ont jamais eu besoin de crier. « Un voyageur. Bloqué par l'Aune, comme tous les ans. Asseyez-vous. »",
-      "« J'ai un service à demander aux étrangers de passage. Des gens sans attaches, sans parti. À minuit, à l'écluse, il y aura du désordre : les tanneurs du Bas-Port voudront forcer les vannes hautes, et les ouvrir, ce qui noierait les prés et les moulins dont vit la ville haute. Mes sergents ne suffiront pas. Vingt pièces pour tenir les vannes fermées jusqu'à l'aube. »",
+      "Guérand Morel est un homme rond et soigné, aux gants de peau fine qu'il garde pour écrire. Il a la voix douce des gens qu'on écoute toujours. « Un voyageur. Bloqué par l'Aune, comme tous les ans. Asseyez-vous. »",
+      "« J'ai un service à demander aux étrangers de passage. Des gens libres de toute attache. À minuit, à l'écluse, il y aura du désordre : les tanneurs du Bas-Port voudront forcer les vannes hautes, et les ouvrir, ce qui noierait les prés et les moulins dont vit la ville haute. Mes sergents ne suffiront pas. Vingt pièces pour tenir les vannes fermées jusqu'à l'aube. »",
     ],
     choices: [
       { label: "Accepter ses vingt pièces", fx: { gold: 20, item: "bourse_morel", flag: "paye_bailli" }, to: "V_bailli_oui" },
@@ -260,7 +260,7 @@ module.exports = {
     fx: { ep: ["histoire", 3000] },
     text: [
       "L'écluse est une digue de pierre noire jetée en travers de l'Aune, avec une tour à chaque bout. Ce soir, l'eau arrive à deux mains du parapet. Elle ne fait plus de bruit : elle pousse, c'est tout, comme une épaule contre une porte.",
-      "Sur la digue, il y a déjà du monde. À la tour sud, une dizaine de sergents en cape, piques à l'épaule, autour d'un homme maigre au nez cassé : Ravel. À la tour nord, où est le treuil des vannes hautes, la porte est gardée par quatre hommes qui ne portent pas la livrée du bailli, et qui ne devraient pas être là.",
+      "Sur la digue, il y a déjà du monde. À la tour sud, une dizaine de sergents en cape, piques à l'épaule, autour d'un homme maigre au nez cassé : Ravel. À la tour nord, où est le treuil des vannes hautes, la porte est gardée par quatre hommes en habits de voyage, que rien n'autorise à être là.",
       { if: { has: "monde:joss_libre" }, text: "Et au milieu de la digue, sous la pluie, Joss Ferrand, l'éclusier, debout, les bras croisés, qui regarde l'eau monter. Quand Ravel l'a vu arriver, il est devenu très pâle." },
       { if: { has: "monde:joss_laisse" }, text: "Joss Ferrand n'est pas là. Quelqu'un sait où il est, et l'a laissé où il est." },
       { if: { has: "monde:basport_prevenu" }, text: "Derrière toi, sur le quai, les gens du Bas-Port sont venus en nombre, Bastien en tête, les vieux et les petits à l'abri de la chapelle." },
@@ -273,8 +273,8 @@ module.exports = {
     ] },
   V_ravel: { act: "II", title: "Ravel", place: "vaudrenne",
     text: [
-      "Ravel te place au bout de la ligne, sans un mot, d'un coup de menton. Il sent le vin et la peur. « Personne ne monte à la tour nord, dit-il. Personne. Les ordres. »",
-      "D'ici tu vois tout : la porte du treuil, les quatre hommes qui la gardent, le quai qui se remplit, l'eau qui monte. Et tu comprends que les vingt pièces du bailli, ce n'est pas pour tenir des vannes. C'est pour qu'on puisse dire, demain, que des étrangers les ont tenues.",
+      "Ravel te place au bout de la ligne, d'un coup de menton. Il sent le vin et la peur. « Personne ne monte à la tour nord, dit-il. Personne. Les ordres. »",
+      "D'ici tu vois tout : la porte du treuil, les quatre hommes qui la gardent, le quai qui se remplit, l'eau qui monte. Et tu comprends que les vingt pièces du bailli paient autre chose que des vannes tenues. C'est pour qu'on puisse dire, demain, que des étrangers les ont tenues.",
     ],
     choices: [
       { label: "Rendre la bourse à Ravel et passer de l'autre côté", if: { item: "bourse_morel" }, why: "Tu n'as plus la bourse.", fx: { drop: "bourse_morel", gold: -20, ep: ["perso", 400] }, to: "V_gardes" },
@@ -319,13 +319,13 @@ module.exports = {
     choices: [{ label: "Pousser la roue avec les autres", to: "V_ouvertes" }] },
   V_ouvertes: { act: "II", title: "Les prés boivent", place: "vaudrenne",
     text: [
-      "Il faut six hommes pour faire tourner la roue. Le premier tour est le plus dur ; ensuite la rivière vous aide, et c'est presque trop facile, comme si elle n'attendait que ça.",
-      "Par la meurtrière, tu vois les vannes hautes se lever, et l'Aune se jeter de côté, dans le grand canal qui file vers les prés du Haut. Le grondement change de note. Sur le quai, en bas, quelqu'un crie, puis tout le monde crie, et ce n'est pas de peur.",
+      "Il faut six hommes pour faire tourner la roue. Le premier tour est le plus dur ; ensuite la rivière vous aide, et c'est presque trop facile, comme si elle attendait ce moment.",
+      "Par la meurtrière, tu vois les vannes hautes se lever, et l'Aune se jeter de côté, dans le grand canal qui file vers les prés du Haut. Le grondement change de note. Sur le quai, en bas, quelqu'un crie, puis tout le monde crie, de joie.",
     ],
     choices: [{ label: "Attendre l'aube", to: "V_aube" }] },
   V_fermees: { act: "II", title: "Les blés du bailli", place: "vaudrenne",
     text: [
-      "Personne ne touche à la roue. Ravel monte, essoufflé, voit qu'elle n'a pas bougé, et redescend sans un mot. Le grondement sous le plancher monte d'un ton, puis d'un autre.",
+      "Personne ne touche à la roue. Ravel monte, essoufflé, la trouve à la même place, et redescend en silence. Le grondement sous le plancher monte d'un ton, puis d'un autre.",
       "Par la meurtrière, tu vois l'eau passer par-dessus le quai bas, d'abord en nappe, puis en vague, et entrer dans les rues du Bas-Port comme on entre chez soi.",
     ],
     choices: [{ label: "Attendre l'aube", to: "V_aube" }] },
@@ -338,7 +338,7 @@ module.exports = {
       { if: { all: [{ has: "monde:vannes_fermees" }, { not: { has: "monde:basport_prevenu" } }] }, text: "Personne n'avait prévenu le Bas-Port. Ermengarde, dans la chapelle, prépare déjà son burin." },
       { if: { has: "monde:joss_libre" }, text: "Joss Ferrand note la hauteur de l'eau dans son registre, comme tous les matins depuis trente ans. Puis, sous la ligne, il écrit autre chose, et il porte le registre au juge du roi, à Montclair, par le premier bac." },
       { if: { all: [{ not: { has: "monde:joss_libre" } }, { has: "monde:joss_laisse" }] }, text: "Quelqu'un finit par se souvenir de Joss. On le trouve dans la cave des chanoines, vivant, furieux. Le bailli jure qu'il n'en savait rien." },
-      { if: { has: "paye_bailli" }, text: "Le bailli te fait savoir, par son valet, qu'il te remercie. Tu ne sais pas encore très bien de quoi." },
+      { if: { has: "paye_bailli" }, text: "Le bailli te fait savoir, par son valet, qu'il te remercie. De quoi, tu le sauras plus tard." },
       "Le bac repasse à midi. Vous montez dedans, les voyageurs, sans beaucoup vous parler. Chacun de vous a vu la même nuit d'un autre côté. Sur l'autre rive, vous vous retournez tous en même temps vers Vaudrenne, et aucun de vous ne sait dire si c'est la ville qui a changé, ou vous.",
     ],
     choices: [] },

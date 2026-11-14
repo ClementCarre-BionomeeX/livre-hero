@@ -22,8 +22,8 @@ module.exports = {
       { if: { has: "passe:lettre" }, text: "« La patronne m'a dit que vous saviez lire, dit-elle. Lire et écrire. Et que vous ne posiez pas trop de questions. » Elle reprend son souffle. « Moi, il va falloir que j'en pose. Et je ne sais pas lesquelles. »" },
       { if: { has: "passe:hasard" }, text: "« J'ai frappé à toutes les portes, dit-elle. Vous êtes la seule personne qui a ouvert. » Elle te regarde comme on regarde un pont dont on n'est pas sûr qu'il tiendra, et dont on a besoin quand même." },
       "« Je m'appelle Gervaise Maupas. Mon fils s'appelle Hugon. Il a dix-neuf ans, il est batelier, il travaille sur les barges de sel. Ce matin, à l'ouverture des boutiques, le guet l'a pris sur le Pont des Changeurs. Ils disent qu'il a tué l'essayeur. »",
-      "Tu ne sais pas ce qu'est un essayeur. Elle le voit.",
-      "« Maître Ombreuil. Gaspard Ombreuil. L'essayeur-juré de la Monnaie, celui qui dit si les écus sont bons. On l'a trouvé à l'aube contre les portes de l'écluse des Tanneurs, noyé. Et mon fils avait sa bague dans la poche. Il voulait la vendre à la changeuse du pont. » Elle serre son panier. « Il dit qu'il ne l'a pas tué. Il ne dit rien d'autre. Il ne veut rien me dire, à moi, sa mère. »",
+      "Le mot essayeur t'est inconnu. Elle le voit.",
+      "« Maître Ombreuil. Gaspard Ombreuil. L'essayeur-juré de la Monnaie, celui qui dit si les écus sont bons. On l'a trouvé à l'aube contre les portes de l'écluse des Tanneurs, noyé. Et mon fils avait sa bague dans la poche. Il voulait la vendre à la changeuse du pont. » Elle serre son panier. « Il dit qu'il ne l'a pas tué, et il s'arrête là. Il se tait même devant moi, sa mère. »",
       "« On le juge dans trois jours, à la cloche du soir, devant les échevins. Si personne ne dit rien d'autre, ils le pendront. Tout le monde sait qu'il s'était battu avec Maître Ombreuil, la veille. Tout le monde. »",
       "Elle fouille dans son tablier et pose sur ta table deux écus d'argent et un anneau de cuivre, mince, usé jusqu'à la corde. « C'est tout ce que j'ai. L'anneau, c'est celui de mon mariage. Il ne vaut rien, mais c'est tout ce que j'ai. »",
     ],
@@ -35,7 +35,7 @@ module.exports = {
 
   A_refus: { act: "I", title: "La porte refermée", place: "pont",
     text: [
-      "Elle reprend ses deux écus et son anneau sans un mot. Elle ne supplie pas. Elle hoche la tête, deux fois, comme quelqu'un qui s'y attendait, et elle redescend l'escalier en tenant la rampe.",
+      "Elle reprend ses deux écus et son anneau en silence. Elle ne supplie pas. Elle hoche la tête, deux fois, comme quelqu'un qui s'y attendait, et elle redescend l'escalier en tenant la rampe.",
       "Tu fais ton sac. Le soleil se lève sur le Pont des Changeurs. Par la fenêtre, tu la vois traverser le pont, petite, son panier contre le ventre. Devant le comptoir de la changeuse, elle s'arrête, longtemps. Puis elle repart vers la Haute-Ville, là où est la tour du Guet, et la foule du matin la recouvre.",
     ],
     choices: [
@@ -54,7 +54,7 @@ module.exports = {
   A_accepte: { act: "I", title: "Gervaise Maupas", place: "pont",
     text: [
       { via: "gratuit", text: "Elle ne reprend pas tout de suite ses écus. Elle les regarde sur la table, puis elle te regarde, et quelque chose dans sa figure se défait et se refait. « Vous êtes sûr{e} ? » Tu ramasses les pièces et l'anneau, et tu les lui mets dans la main. Elle referme les doigts dessus." },
-      { via: "paye", text: "Tu prends les deux écus. Tu lui rends l'anneau. Elle le remet à son doigt sans rien dire, et elle a l'air soulagée : on ne doit rien à quelqu'un qu'on a payé." },
+      { via: "paye", text: "Tu prends les deux écus. Tu lui rends l'anneau. Elle le remet à son doigt, et elle a l'air soulagée : on ne doit rien à quelqu'un qu'on a payé." },
       { via: "rattrape", text: "Tu la rattrapes devant le comptoir de la changeuse, au milieu du pont. Elle se retourne. Elle ne te demande pas pourquoi tu as changé d'avis. Elle te prend le bras, et elle le serre, fort." },
       "« Il est à la tour du Guet, dit-elle. En haut de la ville. On peut lui porter du pain le matin, mais on ne peut pas lui parler longtemps. Moi, il ne me parle pas. Vous, peut-être. »",
       "« La sergente qui l'a pris s'appelle Hallard. Elle est encore à l'écluse, avec l'éclusier. Elle n'est pas méchante. Elle est pressée. Ici, tout le monde est pressé que ce soit fini. »",
@@ -93,7 +93,7 @@ module.exports = {
     fx: { clue: ["m_sibylle_porte", "m_fuite_theo"], meet: ["sibylle", "theophane"] },
     text: [
       { regard: { hallard: "cordial" }, text: "Tu lui dis le nom de ta ville et les trois années. Elle grogne : ça ne vaut pas grand-chose, le guet d'une autre ville, mais c'est mieux que rien. « Et maintenant tu travailles pour la mère du gamin. » Ce n'est pas une question. « Bon. Au moins tu sauras ce que c'est, une affaire qu'on boucle trop vite. »" },
-      { regard: { hallard: "neutre" }, text: "Au nom de Gervaise Maupas, elle soupire. « La mère. Évidemment. » Elle te regarde mieux, cette fois, des pieds à la tête. « Elle a trouvé quelqu'un pour fouiller. Bon. Fouillez. Mais vous ne me gênez pas, et vous ne me mentez pas. Je n'ai ni le temps de l'un, ni la patience de l'autre. »" },
+      { regard: { hallard: "neutre" }, text: "Au nom de Gervaise Maupas, elle soupire. « La mère. Évidemment. » Elle te regarde mieux, cette fois, des pieds à la tête. « Elle a trouvé quelqu'un pour fouiller. Bon. Fouillez. Mais vous ne me gênez pas, et vous ne me mentez pas. L'un me prend mon temps, l'autre ma patience. »" },
       "Elle t'emmène un peu à l'écart, contre le mur de la maison de l'éclusier, là où le vent ne porte pas les voix.",
       "« Barthe l'a trouvé à cinq heures et demie, contre les portes d'aval, le visage dans l'eau. Les portes l'avaient bien abîmé ; on a eu du mal à le sortir. Il avait le manteau de l'essayeur, un manteau gris doublé de martre, il n'y en a pas deux comme ça en ville. La veuve est venue à l'Hôtel-Dieu. Elle l'a reconnu depuis la porte de la salle des morts. Au manteau. Elle n'a pas voulu approcher. »",
       "« À sept heures, le petit Maupas a posé la bague de l'essayeur sur le comptoir de la Veillon. La veille au soir, devant toute la Lanterne Sourde, Ombreuil l'avait giflé et menacé de le faire jeter dans l'Aune s'il revoyait sa fille. Le gamin avait les manches trempées et les mains écorchées. Il n'a pas d'endroit où il était cette nuit, ou il ne veut pas le dire. » Elle referme sa tablette. « Mettez-vous à la place des échevins. »",

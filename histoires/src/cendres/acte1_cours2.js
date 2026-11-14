@@ -42,7 +42,7 @@ module.exports = {
     text: [
       "Il te regarde longtemps de son œil valide. Puis il ouvre le livre aux dernières pages. Les garçons de ta compagnie, ceux de la guerre. Et à côté de beaucoup de noms, de sa main, la même ligne, recopiée encore et encore : *Lisse, le quatorze brumaire.*",
       "Il n'a rien écrit d'autre. Ni mort, ni blessé, ni rentré. Seulement la date, et le nom du pont.",
-      "« Ils sont rentrés, dit-il. Presque tous. Mais je n'ai pas su quoi écrire après. Ils ne savent pas eux-mêmes ce qu'ils ont fait là-bas. Ils disent qu'ils ne s'en souviennent pas. » Il referme le livre. « Moi, je me souviens de leurs têtes, quand ils sont rentrés. Ça, je ne l'ai pas écrit. »",
+      "« Ils sont rentrés, dit-il. Presque tous. Mais je n'ai pas su quoi écrire après. Eux-mêmes ignorent ce qu'ils ont fait là-bas. Ils disent que leur mémoire est vide. » Il referme le livre. « Moi, je me souviens de leurs têtes, quand ils sont rentrés. Ça, je ne l'ai pas écrit. »",
     ],
     choices: [{ back: "YS_cour" }] }),
 

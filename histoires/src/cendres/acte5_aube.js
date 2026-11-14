@@ -18,7 +18,7 @@ add(aube("ysolde", "Ysolde, sous l'arche", [
   "Tu t'assieds à côté d'Ysolde. Elle a fini d'écrire les noms de ses hommes sur son bras. Elle souffle sur l'encre pour la sécher.",
   "« Si je les oublie, dit-elle, tu me les liras. Tous. Dans l'ordre. Même si je te dis que ça ne sert à rien. Surtout si je te dis ça. »",
 ], { label: "« Promis. Dans l'ordre. »", conf: c("ysolde", 10), text: "Elle hoche la tête, une fois, comme on reçoit un ordre. Puis elle te tend son bras, et tu lis, à voix haute, les quarante noms, un par un, pour t'entraîner. Elle corrige deux prononciations. À la fin, elle dit « bien », et c'est le plus beau compliment qu'elle t'ait jamais fait." },
-  { label: "« Tu ne les oublieras pas. »", conf: c("ysolde", 5), text: "« Tu n'en sais rien, dit-elle. Personne n'en sait rien, cette nuit. » Mais elle baisse la manche sur les noms, doucement, comme on couvre un enfant qui dort, et elle se lève. « Allons-y. Avant que je change d'avis. » Elle ne changera pas d'avis. Elle n'a jamais changé d'avis de sa vie." }));
+  { label: "« Tu ne les oublieras pas. »", conf: c("ysolde", 5), text: "« Tu n'en sais rien, dit-elle. Personne n'en sait rien, cette nuit. » Mais elle baisse la manche sur les noms, doucement, comme on couvre un enfant qui dort, et elle se lève. « Allons-y. Avant que je change d'avis. » Sa décision est prise, comme toutes celles de sa vie : pour de bon." }));
 add(aube("pie", "Pie, sous l'arche", [
   "Pie fait toujours tourner son jeton de plomb. Il ne s'arrête pas quand tu t'assieds.",
   "« Si ça tourne mal, là-haut, dit-il, je prends Linette, et je file. Je te le dis maintenant, pour que tu ne sois pas surpris. Je ne suis pas un héros. Je suis un voleur qui a mal tourné. »",
@@ -37,12 +37,12 @@ add(aube("corbe", "Corbe, sous l'arche", [
 add(aube("lisandre", "Lisandre, sous l'arche", [
   "Lisandre chante toujours des bouts de tout, pour vérifier. Elle s'arrête quand tu t'assieds.",
   "« Si on gagne, dit-elle, il faudra que quelqu'un en fasse une chanson. Et je ne veux pas. Pour une fois, je ne veux pas. Je veux que ça reste à nous. »",
-], { label: "« Alors ne la fais pas. »", conf: c("lisandre", 10), text: "Elle sourit, un sourire tout petit, sans cour, sans rien. « Ce serait la plus grande histoire de ma vie, dit-elle, et je ne la chanterais pas. » Elle range son luth. « Ça me plaît. C'est la chose la plus orgueilleuse que j'aie jamais décidée. »" },
+], { label: "« Alors ne la fais pas. »", conf: c("lisandre", 10), text: "Elle sourit, un sourire tout petit, tout nu. « Ce serait la plus grande histoire de ma vie, dit-elle, et je ne la chanterais pas. » Elle range son luth. « Ça me plaît. C'est la chose la plus orgueilleuse que j'aie jamais décidée. »" },
   { label: "« Fais-la. Mais chante-la mal. »", conf: c("lisandre", 15), text: "Elle éclate de rire, si fort que la neige tombe de l'arche. « Mal, répète-t-elle. Exprès. Pour que personne ne la retienne entière. Pour qu'on soit obligé de la raconter. » Elle te prend la tête à deux mains et t'embrasse sur le front. « Tu ferais un poète épouvantable. C'est parfait. »" }));
 add(aube("sansnom", "Ton frère, sous l'arche", [
   "Ton frère regarde toujours la neige qui tombe à l'envers. Il a remis son masque de givre. Il l'enlève quand tu t'assieds.",
   "« Si la porte se rouvre, dit-il, je n'aurai plus d'endroit. Ni là-bas, ni ici. Je suis fait de l'entre-deux. » Il fait tourner le masque entre ses doigts. « Je ne sais pas ce que je deviens, si l'entre-deux se ferme. »",
-], { label: "« Tu deviens mon frère. C'est un endroit. »", conf: c("sansnom", 15), text: "Il ne répond pas. Il pose le masque par terre, sur la neige, à l'envers. Il ne le ramasse pas en se levant. Tu le vois marcher vers Pallanche à visage nu, pour la première fois, et les flocons qui tombent à l'envers se posent sur ses cheveux, et restent." },
+], { label: "« Tu deviens mon frère. C'est un endroit. »", conf: c("sansnom", 15), text: "Il se tait. Il pose le masque par terre, sur la neige, à l'envers. Il ne le ramasse pas en se levant. Tu le vois marcher vers Pallanche à visage nu, pour la première fois, et les flocons qui tombent à l'envers se posent sur ses cheveux, et restent." },
   { label: "« Je ne sais pas non plus. On verra ensemble. »", conf: c("sansnom", 10), text: "« Ensemble », dit-il. Il le dit comme un mot d'une langue étrangère qu'on vient d'apprendre, en articulant. Puis il remet son masque, et il se lève, et il marche à côté de toi, exactement à ton pas." }));
 add(aube("gaspard", "Gaspard, sous l'arche", [
   "Gaspard a fini de partager les miches. Il en reste une, qu'il garde dans les mains, sans la rompre.",
@@ -58,7 +58,7 @@ add(aube("linette", "Linette, sous l'arche", [
   "Linette récite toujours, à voix basse, tout ce qu'elle a lu. Elle s'interrompt au milieu d'une enseigne de Pallanche quand tu t'assieds.",
   "« Là-haut, dit-elle, il y a le scriptorium. Ma place. Le pupitre onze. » Elle serre les poings. « J'ai peur que, quand je le verrai, je m'assoie. Que mes mains prennent la plume toutes seules. Elles savent faire ça. Elles l'ont fait un an. »",
 ], { label: "« Si tu t'assieds, je te relèverai. »", conf: c("linette", 15), text: "Elle te regarde avec son sérieux terrible. « Tu promets ? Même si je te mords ? — Même si tu me mords. » Elle hoche la tête, une fois. Puis elle reprend sa récitation, à l'enseigne exacte où elle s'était arrêtée, et elle ne se trompe plus." },
-  { label: "« Tes mains sont à toi, maintenant. »", conf: c("linette", 10), text: "Elle regarde ses mains, longtemps, comme si elle ne les avait jamais vues. Elle les ouvre, les ferme. « À moi », dit-elle. Elle les met dans ses poches, profond, et elle les y garde tout le chemin jusqu'à Pallanche." }));
+  { label: "« Tes mains sont à toi, maintenant. »", conf: c("linette", 10), text: "Elle regarde ses mains, longtemps, comme si elle les découvrait. Elle les ouvre, les ferme. « À moi », dit-elle. Elle les met dans ses poches, profond, et elle les y garde tout le chemin jusqu'à Pallanche." }));
 add(aube("ombeline", "Ombeline, sous l'arche", [
   "Ombeline a les mains jointes, et sa ficelle à nœuds autour du poignet. Elle ne prie pas. Elle compte.",
   "« Mille quarante-trois, dit-elle. Les nœuds. Les mourants. » Elle lève les yeux vers la colonne blanche, au-dessus de la ville. « Là-haut, il y en a des milliers de plus, cette nuit, qui donnent tout sans mourir. Je ne sais pas comment on prend soin de ça. Personne ne me l'a appris. »",

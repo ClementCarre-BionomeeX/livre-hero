@@ -10,7 +10,7 @@ function epilogue(kind) {
     "—",
     // Aurèle
     { if: { has: "aurele:mort" }, text: "Aurèle repose sur le flanc de la colline, sous un cairn de pierres ocre, face au nord. Tu as gravé sur la plus grosse un nom et un 7 barré. Tu n'as pas trouvé d'autres mots." },
-    { if: { all: [{ has: "aurele:libre" }, { present: "aurele" }] }, text: flammes ? "Aurèle marche à tes côtés sur la route du nord. Il ne se retourne pas vers la fumée. Il ne parle pas de Kardan, jamais, et quand on lui demande d'où lui vient la couleur de sa peau, il dit : d'une source." : "Aurèle reprend des forces lentement. Au bout d'un mois, il chante faux de nouveau. Au bout de deux, il te dit pardon, pour le départ, l'argent, le silence. Tu lui dis pardon aussi. Vous ne précisez pas pour quoi." },
+    { if: { all: [{ has: "aurele:libre" }, { present: "aurele" }] }, text: flammes ? "Aurèle marche à tes côtés sur la route du nord. Il ne se retourne pas vers la fumée. Il se tait sur Kardan, et quand on lui demande d'où lui vient la couleur de sa peau, il dit : d'une source." : "Aurèle reprend des forces lentement. Au bout d'un mois, il chante faux de nouveau. Au bout de deux, il te dit pardon, pour le départ, l'argent, le silence. Tu lui dis pardon aussi. Vous ne précisez pas pour quoi." },
     // the knife
     { if: { all: [{ has: "couteau:aurele" }, { not: { has: "aurele:mort" } }, { not: { has: "fin:gardien" } }] }, text: "Aurèle a repris son couteau. Il passe le pouce sur le manche, le soir, sans y penser, et la corne s'use de nouveau à cet endroit-là." },
     { if: { all: [{ has: "couteau:aurele" }, { has: "aurele:mort" }] }, text: "Le couteau d'Aurèle est planté au sommet du cairn, la lame dans la pierre. Garance est montée le voir, une fois. Elle n'a rien dit. Elle a laissé une pièce à côté." },
@@ -31,8 +31,8 @@ function epilogue(kind) {
     { if: { has: "mattias:soleil" }, text: "Mattias a planté ses mousses à l'ombre du platane, sur la place. Il s'assoit à côté tous les jours, au soleil, les yeux mi-clos, et quand les enfants lui demandent ce qu'il fait, il répond : je regarde." },
     { if: { all: [{ has: "mattias:ami" }, { not: { has: "mattias:soleil" } }] }, text: "Mattias est resté dans le dédale, avec ses mousses et sa mousse-lumière. Parfois, la nuit, on croit l'entendre chanter dans les canaux. Personne n'a encore eu le courage d'aller voir s'il va bien." },
     // Odon
-    { if: { all: [{ met: "odon" }, { not: { gone: "odon" } }] }, text: flammes ? "Frère Odon ne t'a pas suivi. Il est resté dans les cendres de Kardan, à partager son pain avec ceux qui n'avaient plus de maison. Il t'a regardé partir sans rien dire, et c'était pire que tout ce qu'il aurait pu dire." : "Frère Odon a repris la route au premier automne, après avoir partagé son pain avec tout le village. Il t'a dit : *on se reverra au sud, il n'y a que du sud.* Tu n'es pas sûr qu'il plaisantait." },
-    { if: { gone: "odon" }, text: "Frère Odon vous a quittés en chemin. Tu ne sais pas où il marche. Tu espères qu'il a trouvé quelqu'un avec qui partager son pain." },
+    { if: { all: [{ met: "odon" }, { not: { gone: "odon" } }] }, text: flammes ? "Frère Odon ne t'a pas suivi. Il est resté dans les cendres de Kardan, à partager son pain avec ceux qui n'avaient plus de maison. Il t'a regardé partir en silence, et ce silence pesait plus que des reproches." : "Frère Odon a repris la route au premier automne, après avoir partagé son pain avec tout le village. Il t'a dit : *on se reverra au sud, il n'y a que du sud.* Tu n'es pas sûr qu'il plaisantait." },
+    { if: { gone: "odon" }, text: "Frère Odon vous a quittés en chemin. Tu ignores où il marche. Tu espères qu'il a trouvé quelqu'un avec qui partager son pain." },
   ];
 }
 
@@ -54,7 +54,7 @@ module.exports = {
       { if: { has: "gardien:remonte" }, text: "Aurèle remonte. Il met trois jours à trouver la sortie, en titubant. Il sort au soleil par la galerie haute, et il tombe à genoux dans l'herbe sèche, et il reste là jusqu'au soir. Puis il prend la route du nord. On dit qu'il est arrivé chez vous avant les pommes, et qu'il a planté un pommier sur la tombe de votre mère.",
         else: "Aurèle s'endort contre la vasque, la tête sur tes genoux, et il ne se réveille pas. Il a l'air d'un enfant qui a trop couru. Tu le gardes contre toi longtemps. Puis tu le confies à ceux qui sont avec toi, pour qu'ils le remontent au jour." },
       "Toi, tu restes. Tu tiens l'eau de Kardan. Tu sens chaque canal, chaque puits, chaque racine qui boit, là-haut, comme on sent ses propres doigts. Tu sens la fontaine de la place déborder, et les enfants qui y trempent les mains, et les femmes qui y lavent le linge en riant.",
-      "Ils ne savent pas que c'est toi. Ils ne le sauront jamais, à moins que quelqu'un ne remonte le leur dire. Tu les entends chanter, une fois par an, à la Lune sèche. Ils chantent pour le Gardien. Ils chantent pour toi.",
+      "Ils ignorent que c'est toi. Ils l'ignoreront toujours, à moins que quelqu'un ne remonte le leur dire. Tu les entends chanter, une fois par an, à la Lune sèche. Ils chantent pour le Gardien. Ils chantent pour toi.",
       "Dans quelques années, un étranger tombera dans la Fosse. Tu l'attendras. Tu ne sais pas encore ce que tu lui diras.",
     ].concat(epilogue("gardien")) },
 
@@ -63,14 +63,14 @@ module.exports = {
     fx: { catchup: 6, catchupWhy: "les jours et les nuits du dédale", ep: ["perso", 500] },
     text: [
       "Tu es dehors. Le vent te passe sur le visage, chargé de thym et de poussière, et tu le respires à pleins poumons. Au-dessus, le ciel d'avant l'aube, d'un bleu d'encre qui pâlit à l'est. En contrebas, Kardan dort : ses jardins en terrasses, noirs, ses toits, sa place, sa fontaine qui brille comme une pièce au fond d'un puits.",
-      { if: { all: [{ has: "aurele:libre" }, { present: "aurele" }] }, text: "Aurèle s'est assis dans l'herbe, les jambes étendues, les mains à plat sur la terre. Il ne dit rien. Il regarde le ciel s'éclaircir, et des larmes coulent sur son visage sans qu'il ait l'air de s'en apercevoir." },
+      { if: { all: [{ has: "aurele:libre" }, { present: "aurele" }] }, text: "Aurèle s'est assis dans l'herbe, les jambes étendues, les mains à plat sur la terre. Il se tait. Il regarde le ciel s'éclaircir, et des larmes coulent sur son visage sans qu'il ait l'air de s'en apercevoir." },
       { if: { has: "aurele:mort" }, text: "Tu as porté le corps d'Aurèle jusqu'ici. Il ne pèse presque rien. Tu le poses dans l'herbe, face au ciel. Tu lui dois au moins ça : la lumière du jour." },
       { if: { has: "lien:partage" }, text: "Là-bas, dans la fontaine de la place, le lien attend. Tu le sens, comme une corde tendue entre la colline et le village. Il faut que quelqu'un le prenne. Il faut que tout Kardan le prenne, ou la Source s'éteindra, et avec elle les jardins." },
       { if: { any: [{ has: "vasque:brisee" }, { has: "aurele:mort" }] }, text: "En bas, la fontaine coule déjà moins fort. Tu ne le vois pas d'ici. Tu le sais." },
       { if: { has: "mattias:soleil" }, text: "Mattias se tient un peu à l'écart, ses mousses serrées contre sa poitrine, et il regarde Kardan avec une expression que tu n'arrives pas à lire." },
       { if: { present: "sidonie" }, text: "Sidonie a déjà repéré le grenier, la maison de l'Aïeule, la porte de la milice. « Le grenier d'abord, dit-elle. Le feu se voit de loin, ça les fera sortir. Puis la fontaine. Puis la vieille. Puis on attend Bastien à la porte, et on règle ça. »" },
       { if: { present: "odon" }, text: "Odon secoue la tête. « Ou alors on descend, et on parle. À Hesna, à Oriel, à l'enfant. À l'Aïeule. On découvre pourquoi. Et on les réunit tous à la fontaine, au jour, et on leur dit ce qu'ils ont fait. Ça fait plus mal que le feu, parfois. Et ça dure plus longtemps. »" },
-      "La route du nord, elle, part du bas de la colline et file vers les montagnes, droite, blanche sous la lune. Personne ne t'empêche de la prendre.",
+      "La route du nord, elle, part du bas de la colline et file vers les montagnes, droite, blanche sous la lune. Tu es libre de la prendre.",
     ],
     choices: [
       { label: "Descendre au village avant que le jour se lève", to: "O_kardan" },
@@ -206,14 +206,14 @@ module.exports = {
 
   O_assemblee: { act: "III", title: "L'assemblée à la fontaine", place: "kardan",
     text: [
-      "Ils viennent tous. Tu ne sais pas comment la nouvelle a couru, mais quand le soleil touche la place, tout Kardan est là, autour de la fontaine verte : soixante personnes, les mêmes qu'au banquet, sans les lampes et sans le vin. Bastien et ses miliciens au premier rang, la lance au pied. L'Aïeule sur le seuil de sa maison, là-haut, debout.",
+      "Ils viennent tous. La nouvelle a couru toute seule : quand le soleil touche la place, tout Kardan est là, autour de la fontaine verte : soixante personnes, les mêmes qu'au banquet, moins les lampes et le vin. Bastien et ses miliciens au premier rang, la lance au pied. L'Aïeule sur le seuil de sa maison, là-haut, debout.",
       "Tu montes sur la margelle. Tu parles.",
       { if: { present: "aurele" }, text: "Tu montres Aurèle, ses cheveux blancs, sa peau couleur d'eau. Un murmure court, comme le vent dans les fèves." },
       { if: { has: "noms:copies" }, text: "Tu sors les noms recopiés et tu les lis, un par un, à voix haute, lentement. *Aldric. Mérovée la Boiteuse. Jehan des Saules.* Au bout de dix noms, la place s'est tue. Au nom de Théoz, une femme se met à pleurer. Au nom d'Aurèle, personne ne respire." },
       { if: { has: "journal:complet" }, text: "Tu lis les trois pages du journal de Kardan. *Mille porteurs ne s'usent pas. La fontaine du bas est faite pour cela.* Quelqu'un crie que c'est un faux. Personne ne le reprend." },
       { if: { has: "tobie:allie" }, text: "Tobie grimpe sur la margelle à côté de toi. Il ne fait pas de discours. Il dit : « Mon père a gardé l'eau pendant vingt ans. Grand-mère a dit qu'il était mort d'une fièvre. » Et il redescend." },
       { if: { has: "oriel:alliee" }, text: "Oriel s'avance. Elle raconte la tisane, les chardons, les commandes avant chaque Lune. Elle donne des noms. Le sien d'abord." },
-      { if: { has: "hesna:alliee" }, text: "Hesna verse à boire à tout le monde, une cruche après l'autre, sans rien dire. Puis elle pose la cruche et dit : « C'est moi qui leur servais la tasse. À tous. »" },
+      { if: { has: "hesna:alliee" }, text: "Hesna verse à boire à tout le monde, une cruche après l'autre, en silence. Puis elle pose la cruche et dit : « C'est moi qui leur servais la tasse. À tous. »" },
       { if: { has: "garance:alliee" }, text: "Garance renverse le coffre au milieu de la place. Les bottes de femme, la flûte, le collier du chien roulent dans la poussière. Personne ne les ramasse." },
       { if: { present: "odon" }, text: "Odon parle le dernier, doucement. Il ne les accuse pas. Il leur demande seulement ce qu'ils feront demain, et après-demain, et dans vingt ans." },
       { if: { has: "lien:partage" }, text: "Puis tu leur dis ce qu'il faut faire. Boire tous à la fontaine, en sachant ce qu'on boit. Porter chacun une part du lien, et que personne n'ait plus à descendre.", else: "Puis tu leur dis ce qui les attend. Que la Source faiblit. Que personne ne descendra plus à leur place. Que cette fois, c'est à eux de choisir, et que ce ne sera pas un étranger." },
@@ -230,7 +230,7 @@ module.exports = {
     ] },
   O_assemblee_non: { act: "III", title: "Le silence de la place", place: "kardan",
     text: [
-      "Personne ne répond. Puis quelqu'un, au fond, crie : *menteur*. Puis un autre. Ils ont trop à perdre à te croire. Bastien fait un pas, sa lance en avant, et ses hommes le suivent, et la foule s'ouvre devant eux.",
+      "La place se tait. Puis quelqu'un, au fond, crie : *menteur*. Puis un autre. Ils ont trop à perdre à te croire. Bastien fait un pas, sa lance en avant, et ses hommes le suivent, et la foule s'ouvre devant eux.",
       "Il faut partir. Maintenant.",
     ],
     choices: [{ label: "Fuir vers la route du nord", to: "F_tarie" }] },
@@ -278,7 +278,7 @@ module.exports = {
     choices: [{ back: "O_kardan" }] },
   O_otage: { act: "III", title: "La maison de l'Aïeule", place: "kardan",
     text: [
-      "Tu montes à la maison de l'Aïeule à grandes enjambées, ton arme à la main. La porte est ouverte. Maève est assise devant son métier, et elle ne bouge pas en te voyant. Elle t'attendait.",
+      "Tu montes à la maison de l'Aïeule à grandes enjambées, ton arme à la main. La porte est ouverte. Maève est assise devant son métier, et elle reste immobile en te voyant. Elle t'attendait.",
       "Mais entre elle et toi, il y a Tobie. Il a écarté les bras, comme on le fait pour arrêter une chèvre. Il tremble de tout son corps. « Non, dit-il. Non. C'est ma grand-mère. »",
     ],
     choices: [
@@ -288,7 +288,7 @@ module.exports = {
   O_otage_pris: { act: "III", title: "L'otage", place: "kardan",
     text: [
       "Tu l'écartes. Il tombe contre le coffre, sa tête cogne le bois, et il ne se relève pas tout de suite. Maève se lève. Elle passe devant toi pour aller à lui, et tu la laisses, et puis tu la prends par le bras. Elle ne résiste pas. Elle est légère comme un fagot.",
-      "Tu la fais descendre jusqu'à la place, le couteau sous son menton. Elle ne dit pas un mot. Le village vous regarde passer en silence. Tobie s'est relevé, sur le seuil, la main sur la tête. Il ne pleure pas. Il te regarde.",
+      "Tu la fais descendre jusqu'à la place, le couteau sous son menton. Elle se tait. Le village vous regarde passer en silence. Tobie s'est relevé, sur le seuil, la main sur la tête. Il ne pleure pas. Il te regarde.",
     ],
     choices: [{ label: "Arriver sur la place avec elle", to: "O_kardan" }] },
   O_otage_renonce: { act: "III", title: "Les bras écartés", place: "kardan",
@@ -299,7 +299,7 @@ module.exports = {
       win: { fx: { flag: "milice:battue", ep: ["seance", 3000] }, to: "F_flammes" },
       lose: { fx: { flag: "milice:perdu" }, to: "F_flammes" } },
     text: [
-      "Bastien t'attend devant la porte de la colline, avec ses hommes, la lance basse. Il n'a pas peur, ou il ne le montre pas. « Je savais qu'il en reviendrait un, un jour, dit-il. Je l'ai toujours su. » Il assure sa prise. « Viens. Qu'on en finisse. »",
+      "Bastien t'attend devant la porte de la colline, avec ses hommes, la lance basse. S'il a peur, il le cache bien. « Je savais qu'il en reviendrait un, un jour, dit-il. Je l'ai toujours su. » Il assure sa prise. « Viens. Qu'on en finisse. »",
     ] },
 
   // ---------------------------------------------------------------- banter
@@ -316,7 +316,7 @@ module.exports = {
   F_pacte: { act: "III", title: "Le pacte rompu", end: true, place: "kardan",
     fx: { quest: "O_kardan", ep: ["histoire", 10000] },
     text: [
-      "Ils boivent. Pas tous en même temps, pas tous de bon cœur. L'Aïeule descend la première, et elle boit à la fontaine devant tout le village, à longues gorgées, les yeux fermés. Puis Tobie. Puis Oriel. Puis Bastien, après un long moment, en posant sa lance contre le platane. Puis tous les autres, en file, comme on va à la communion.",
+      "Ils boivent. Chacun à son heure, certains à contrecœur. L'Aïeule descend la première, et elle boit à la fontaine devant tout le village, à longues gorgées, les yeux fermés. Puis Tobie. Puis Oriel. Puis Bastien, après un long moment, en posant sa lance contre le platane. Puis tous les autres, en file, comme on va à la communion.",
       "Chacun d'eux, en se redressant, porte une main à sa poitrine. Ils sentent le lien. Une part, minuscule, à peine plus lourde qu'une pièce dans une poche. Mille porteurs ne s'usent pas.",
       "Sous la colline, la Source bat plus doucement, plus amplement, comme un cœur qui se détend. L'eau de Kardan coule toujours. Elle coule même un peu plus loin qu'avant : le printemps suivant, les puits du hameau sec se remettent à suinter.",
       "On n'envoie plus d'étrangers dans le dédale. La fête de la Lune sèche existe toujours ; on y boit tous à la fontaine, une fois l'an, en disant à voix haute ce qu'on boit. Les étrangers qui passent sont invités à boire aussi. Certains le font.",
@@ -337,7 +337,7 @@ module.exports = {
       "La fontaine baisse jour après jour. Puis les canaux. Puis les puits. À l'automne, les jardins sont jaunes ; à l'hiver, ils sont gris. Au printemps, Kardan se vide, famille par famille, vers le nord, vers les villes, vers les bourgs où personne ne leur demande d'où ils viennent.",
       "L'Aïeule part la dernière, sur un âne, avec Tobie. Elle ne se retourne pas. On dit qu'elle a vécu encore dix ans, à Sorel, chez Brune, et qu'elle ne parlait jamais de l'eau.",
       "Dans la vallée sèche, au printemps suivant, les vieux puits du hameau se remettent à suinter. L'eau va où on l'appelle. Elle a cessé d'aller où on la retenait.",
-      { if: { present: "aurele" }, text: "Aurèle est vivant. Il est vieux avant l'âge, il a les cheveux blancs et la peau couleur d'eau, mais il est vivant, et il rit de nouveau, pas souvent." },
+      { if: { present: "aurele" }, text: "Aurèle est vivant. Il est vieux avant l'âge, il a les cheveux blancs et la peau couleur d'eau, mais il est vivant, et il rit de nouveau, de loin en loin." },
     ].concat(epilogue("tarie")) },
   F_flammes: { act: "III", title: "Kardan en flammes", end: true, place: "kardan",
     fx: { quest: "O_kardan", mark: 2, ep: ["histoire", 8000] },
@@ -355,7 +355,7 @@ module.exports = {
     fx: { quest: "O_kardan", ep: ["histoire", 7000] },
     text: [
       "Tu tournes le dos à Kardan, et tu prends la route du nord. Le soleil se lève sur ta droite. Derrière toi, le village se réveille, et ne sait pas encore que tu es sorti.",
-      { if: { all: [{ has: "aurele:libre" }, { present: "aurele" }] }, text: "Aurèle marche à côté de toi, lentement, en s'appuyant sur ton épaule. Il ne se retourne pas. « Ils trouveront quelqu'un d'autre, dit-il au bout d'une lieue. Un autre étranger. Ils trouvent toujours. » Tu ne réponds pas. Tu n'as pas de réponse." },
+      { if: { all: [{ has: "aurele:libre" }, { present: "aurele" }] }, text: "Aurèle marche à côté de toi, lentement, en s'appuyant sur ton épaule. Il ne se retourne pas. « Ils trouveront quelqu'un d'autre, dit-il au bout d'une lieue. Un autre étranger. Ils trouvent toujours. » Tu te tais, faute de réponse." },
       { if: { has: "lien:partage" }, text: "Le lien attend dans la fontaine, et personne ne sait qu'il est là. Dans quelques semaines, l'eau baissera, et personne ne saura pourquoi." },
       { if: { has: "aurele:mort" }, text: "Tu portes le couteau d'Aurèle, et une poignée de terre de la colline dans un mouchoir. Tu la verseras sur la tombe de votre mère. C'est tout ce que tu rapportes." },
       "Kardan continue d'attendre ses étrangers. La Lune sèche revient chaque été. On y boit au Gardien, et à celui qui le nourrira. Quelque part au fond de la colline, la Source bat, et attend.",

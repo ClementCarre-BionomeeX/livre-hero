@@ -6,7 +6,7 @@ module.exports = {
   // ------------------------------------------------------------------ wolves
   E_loups: { title: "Les loups",
     text: [
-      "Le sergent s'arrête net et lève la main. Dans le bois de mélèzes, à trente pas, quelque chose de gris passe entre deux troncs. Puis un second. Ils ne courent pas. Ils marchent à votre allure, de l'autre côté des arbres, comme des gens qui font semblant de ne pas vous suivre.",
+      "Le sergent s'arrête net et lève la main. Dans le bois de mélèzes, à trente pas, quelque chose de gris passe entre deux troncs. Puis un second. Ils marchent à votre allure, de l'autre côté des arbres, l'air de suivre leur propre chemin.",
       "« Fin d'hiver, dit le sergent tout bas. Ils ont faim. Ils ne sont pas idiots non plus. » Il dégage sa hallebarde de son épaule. Les bêtes se sont arrêtées. L'une d'elles s'assoit dans la neige et vous regarde.",
       { with: "lise", text: "Lise s'est collée contre ton flanc. Elle ne tremble pas. Elle compte les loups sur ses doigts, et te montre trois." },
     ],
@@ -18,7 +18,7 @@ module.exports = {
   E_loups_fuient: { title: "Les loups",
     text: [
       "Tu cries. Le sergent cogne le fer de sa hallebarde contre une pierre, et le bruit claque dans le vallon comme un coup de feu. La bête assise se lève, sans hâte, et retourne dans les arbres. Les autres la suivent.",
-      "Vous marchez encore une demi-heure en regardant derrière vous. Le sergent ne parle plus de rien. À un moment, il dit seulement : « Vous avez déjà fait ça. » Ce n'est pas une question, et tu n'as pas de réponse.",
+      "Vous marchez encore une demi-heure en regardant derrière vous. Le sergent ne parle plus de rien. À un moment, il dit seulement : « Vous avez déjà fait ça. » Il n'attend aucune réponse, et tu n'en as aucune.",
     ],
     choices: [{ back: ROUTE }] },
   E_loups_pain: { title: "Les loups",
@@ -61,7 +61,7 @@ module.exports = {
   E_colporteur_seul: { title: "Le colporteur",
     text: [
       "Il réfléchit, la main sur la bretelle de sa hotte. « Vous étiez seul quand je vous ai vu, oui. Vous criiez quelque chose. Un nom, je crois. Mais avec le vent... » Il hausse les épaules. « J'ai cru que vous aviez perdu votre chien. »",
-      "Le sergent te regarde. Tu ne dis rien. Le colporteur reprend sa descente, en sifflant entre ses dents.",
+      "Le sergent te regarde. Tu te tais. Le colporteur reprend sa descente, en sifflant entre ses dents.",
     ],
     choices: [{ back: ROUTE }] },
   E_colporteur_achat: { title: "La hotte",
@@ -97,7 +97,7 @@ module.exports = {
     text: [
       "Le sergent attend, appuyé sur sa hallebarde. Il a la politesse de regarder ailleurs. Au pied de la croix, des gens ont laissé des choses : un ruban, une pièce, un épi de seigle tressé. Et, coincé entre deux pierres, un sabot d'enfant, tout petit, noirci, que personne n'a osé ramasser.",
       { with: "lise", text: "Lise s'approche, regarde le sabot, et le laisse où il est. Elle te prend la main, la gauche, celle du bandage, et la serre fort. Elle ne lâche pas, cette fois." },
-      { if: { not: "lise:connue" }, text: "Tu ne sais pas à qui il est. Tu sais seulement qu'il ne faut pas le prendre." },
+      { if: { not: "lise:connue" }, text: "À qui est-il ? Tu sais seulement qu'il doit rester là." },
     ],
     choices: [{ back: ROUTE }] },
 
@@ -120,14 +120,14 @@ module.exports = {
     choices: [{ back: ROUTE }] },
   E_avalanche_coulee: { title: "La coulée",
     text: [
-      "Tu as mal choisi. La neige part sous tes pieds, toute la plaque d'un coup, et tu glisses avec elle, assis, puis couché, puis tu ne sais plus. Ça ne dure pas. Une dizaine de pas, peut-être. Ça suffit pour te remplir la bouche de neige et te tordre l'épaule contre un rocher.",
-      "Le sergent te tire par le col pour te sortir. Il ne dit rien. Il a eu peur, et ça l'a mis en colère.",
+      "Tu as mal choisi. La neige part sous tes pieds, toute la plaque d'un coup, et tu glisses avec elle, assis, puis couché, puis tout se brouille. C'est très court. Une dizaine de pas, peut-être. Ça suffit pour te remplir la bouche de neige et te tordre l'épaule contre un rocher.",
+      "Le sergent te tire par le col pour te sortir. Il se tait. Il a eu peur, et ça l'a mis en colère.",
     ],
     choices: [{ back: ROUTE }] },
   E_avalanche_detour: { title: "Le détour",
     text: [
       "Vous prenez par le bois. C'est plus long, plus raide, et le sergent rumine. Mais quand vous ressortez sur le chemin, une heure plus tard, le couloir a déjà parlé : une langue de neige grise et sale barre le passage jusqu'au torrent.",
-      "Le sergent la regarde longtemps. Puis il partage son pain avec toi, sans un mot, ce qui chez lui tient lieu de remerciement.",
+      "Le sergent la regarde longtemps. Puis il partage son pain avec toi, en silence, ce qui chez lui tient lieu de remerciement.",
     ],
     choices: [{ back: ROUTE }] },
 };

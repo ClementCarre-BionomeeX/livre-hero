@@ -38,12 +38,12 @@ Object.assign(P, {
     fx: { ep: ["histoire", 5000] },
     text: [
       "La pente finit sur une grève de gravier noir, et la grève finit sur l'eau. Tu ne vois pas l'autre bord. Tu ne vois pas de voûte non plus : le noir monte au-dessus de toi sans qu'on sache où il s'arrête, et la lumière que tu portes n'y accroche rien. Il ne fait plus froid. Il fait tiède, d'une tiédeur de bête endormie, et l'air sent le bief en été, la vase chaude, le linge qu'on a laissé tremper trop longtemps.",
-      "Loin sur l'eau, la forme est assise. Tu ne sais pas mesurer sa taille : il n'y a rien à côté d'elle pour comparer. Une tête penchée sur une poitrine, des épaules qui portent quelque chose de plus large qu'elles, un bras levé, plié au coude, la main ouverte vers le haut. Derrière elle, à peine plus claire que le noir, une porte. La forme ne bouge pas. Tu sais pourtant qu'elle vit, parce que l'eau frémit autour d'elle à intervalles réguliers, très lents, comme frémit l'eau d'un seau posé près d'un homme qui respire.",
+      "Loin sur l'eau, la forme est assise. Tu ne sais pas mesurer sa taille : il n'y a rien à côté d'elle pour comparer. Une tête penchée sur une poitrine, des épaules qui portent quelque chose de plus large qu'elles, un bras levé, plié au coude, la main ouverte vers le haut. Derrière elle, à peine plus claire que le noir, une porte. La forme reste immobile. Tu sais pourtant qu'elle vit, parce que l'eau frémit autour d'elle à intervalles réguliers, très lents, comme frémit l'eau d'un seau posé près d'un homme qui respire.",
       "Et entre elle et toi, debout sur l'eau comme sur un plancher, la femme. De près, elle n'est pas plus terrible que de loin. Une robe qui coule sans cesse vers ses pieds et remonte sans cesse vers ses épaules. Des cheveux d'algue lourds d'eau. Un visage qui pourrait être celui de n'importe qui, et qui a, par moments, les yeux de quelqu'un que tu as connu. Elle t'a regardé{e} descendre la pente du début à la fin. Elle attend que tu aies fini de regarder, par politesse.",
       L({ mark: { min: 3 } }, "Ta main gauche se tend vers elle avant que tu l'aies décidé. Tu la rattrapes de la droite, par le poignet, comme on retient un chien qui a reconnu son maître. La tache bat. Elle a chaud. Elle est contente d'être arrivée."),
       L({ mark: { max: 0 } }, "Ta paume est froide et propre. Il n'y a rien en toi qui la connaisse. C'est peut-être pour cela qu'elle te regarde avec tant d'attention, comme on regarde une serrure dont on n'a pas la clé."),
       { with: "pip", text: "Pip s'est collé contre ton cou, si près que tu sens sa chaleur sur ta peau. Il ne regarde pas la femme. Il regarde, très loin derrière elle, la main ouverte. Sa lumière tremble au même rythme que l'eau." },
-      { with: "coliane", text: "Coliane a deux couteaux dans les mains et elle ne s'en rend pas compte. Elle ne dit rien. Elle regarde l'eau sous les pieds de la femme, et tu sais à quoi elle pense : à une écluse, une nuit, et un village qui dormait." },
+      { with: "coliane", text: "Coliane a deux couteaux dans les mains et elle ne s'en rend pas compte. Elle se tait. Elle regarde l'eau sous les pieds de la femme, et tu sais à quoi elle pense : à une écluse, une nuit, et un village qui dormait." },
       { with: "aubin", text: "Frère Aubin a tiré son chapelet de sa manche. Il ne prie pas. Il tient les grains serrés dans son poing, comme une fronde." },
       L(H("V:cles_veyra"), "Derrière toi, sur la pente, des pas. Des bottes ferrées qui glissent sur la glace, un juron étouffé, le cliquetis d'une épée qu'on retient contre sa cuisse. Veyra descend. Tu lui as promis de la laisser tourner les clés. Elle vient chercher sa promesse."),
       L(H("V:pacte_vendrel"), "Au bord de l'eau, à vingt pas sur ta gauche, un homme est assis sur un rocher plat, les mains croisées sur un genou, comme on attend une audience. Des gants blancs. Un col montant. À sa ceinture pend une clé rouge, et au bout de la clé, une goutte de lumière qui vient de tes reliques. Maître Vendrel te fait un petit signe de tête. Il t'attendait."),
@@ -91,7 +91,7 @@ Object.assign(P, {
       { outcome: "win", text: "Tu ne lui dis pas qu'elle s'est trompée. Tu lui demandes seulement qui lui parlait, dans ses rêves. Si c'était la voix d'un homme. Si cette voix avait jamais eu froid, ou peur, ou faim. Si elle lui avait jamais demandé quelque chose pour lui-même, au lieu de lui dire ce qu'elle voulait entendre." },
       { with: "pip", text: "Pip quitte ton épaule. Il vole droit vers la femme, sans hâte, et il s'arrête devant son visage, à un pied, et il brille, de toute sa force. La lumière ne la traverse pas. Elle glisse dessus. Sous la lumière, le visage n'a pas de traits : de la vase lissée par une main, et deux creux à la place des yeux, et rien du tout à la place du cœur." },
       "Veyra regarde. Longtemps. Puis elle enlève ses gants noirs, l'un après l'autre, et elle les jette dans l'eau, aux pieds de la femme. « C'est toi, dit-elle. Depuis le début. Ce n'était pas lui. Il ne m'a jamais rien demandé. Il ne sait même pas que j'existe. »",
-      "La femme de l'eau ne répond pas. Elle sourit, un peu tristement, comme on sourit à une enfant qui vient de comprendre que les cadeaux ne viennent pas du ciel. Veyra tire son épée grise. « Je suis venue délivrer un homme, dit-elle. Je l'aurais vendu à sa pire blessure. » Elle se place à ta gauche, face à l'eau. « Je ne te demande rien. Je frappe avec toi. Après, on verra ce que je dois. »",
+      "La femme de l'eau se tait. Elle sourit, un peu tristement, comme on sourit à une enfant qui vient de comprendre que les cadeaux ne viennent pas du ciel. Veyra tire son épée grise. « Je suis venue délivrer un homme, dit-elle. Je l'aurais vendu à sa pire blessure. » Elle se place à ta gauche, face à l'eau. « Je ne te demande rien. Je frappe avec toi. Après, on verra ce que je dois. »",
     ],
     choices: [{ label: "Avancer avec elle vers l'eau", big: true, to: [{ if: ALL(H("V:pacte_vendrel"), N({ seen: "VF_vendrel" })), to: "VF_vendrel" }, { to: "VF_voix" }] }] },
   VF_veyra_combat: { act: "V", title: "Veyra sur la grève", place: "VF_l_fond",
@@ -100,7 +100,7 @@ Object.assign(P, {
     text: [
       { outcome: "lose", text: "Tu cherches les mots, et tu ne les trouves pas assez vite. Veyra secoue la tête, comme pour chasser une mouche, et la voix de l'eau lui murmure encore quelque chose que tu n'entends pas." },
       "« Je ne te laisserai pas l'enchaîner une deuxième fois », dit Veyra. Elle tire son épée grise. Un de ses gants noirs, le plus jeune, a désobéi et descend la pente en courant pour se placer à côté d'elle. Ils se mettent en garde ensemble, à la manière de la commanderie, épaule contre épaule.",
-      "Sur l'eau, la femme ne bouge pas. Elle regarde, les mains jointes devant sa robe qui coule, avec l'intérêt poli de quelqu'un qui a parié sur les deux.",
+      "Sur l'eau, la femme reste immobile. Elle regarde, les mains jointes devant sa robe qui coule, avec l'intérêt poli de quelqu'un qui a parié sur les deux.",
     ] },
   VF_veyra_tombe: { act: "V", title: "Veyra à genoux", place: "VF_l_fond",
     fx: { flag: "VF:veyra_tombee", pv: 30 },
@@ -224,14 +224,14 @@ Object.assign(P, {
     fx: { flag: "VF:offre_entendue" },
     text: [
       "« Je vais te faire une offre, dit-elle. La dernière. Je t'en ai fait une à chaque fois, tu t'en souviens : sous le moulin, au bord du torrent, ailleurs. Celle-ci est la bonne. Écoute-la jusqu'au bout, après tu feras ce que tu veux. »",
-      "« Ne touche à rien. Laisse-le là où il est, laisse la porte comme elle est, laisse les clés où tu voudras. Remonte. Je ne monterai pas plus haut que les puits que je choisirai, et je n'en choisirai pas beaucoup. Un par vallée. Un par an, peut-être. Les gens se noieront un peu, comme ils se sont toujours noyés. Pas plus. Les rois feront la paix, parce que je leur dirai de la faire. Personne ne saura que c'est moi. Tu vivras très longtemps. Ceux que tu aimes aussi. »",
+      "« Ne touche à rien. Laisse-le là où il est, laisse la porte comme elle est, laisse les clés où tu voudras. Remonte. Je ne monterai haut comme les puits que je choisirai, et je n'en choisirai pas beaucoup. Un par vallée. Un par an, peut-être. Les gens se noieront un peu, comme ils se sont toujours noyés. Pas plus. Les rois feront la paix, parce que je leur dirai de la faire. Personne ne saura que c'est moi. Tu vivras très longtemps. Ceux que tu aimes aussi. »",
       L(H("maitre=mort"), "« Et je te rendrai sa voix. Celle de ta maîtresse. Tu pourras lui parler, le soir, au bord d'un seau. Elle te répondra. Elle te dira que tu as bien fait, au gué. C'est ce que tu veux entendre, non ? »"),
       L(ANY(H("maitre=perdu"), H("V:maitre_laissee")), "« Ta maîtresse est chez moi. Elle n'a plus mal nulle part. Je peux te la laisser, en paix, ou te la rendre à moitié. Comme tu préfères. »"),
       L(H("passe:profite"), "« Et les terres de Saint-Gilles, que tu as rachetées pour rien quand l'eau a tourné, je les laisserai propres. Personne ne viendra te les reprocher. Personne ne s'en souviendra. »"),
       L(H("passe:fui"), "« Et Saint-Gilles. Tu es parti{e} avant que l'eau tourne. Tu entends encore ceux qui sont restés, la nuit. Je peux les faire taire. »"),
-      { with: "coliane", text: "« Hautgrès ne recommencera pas, dit-elle à Coliane, sans la regarder. Plus jamais d'écluse. Je te le promets. » Coliane ne bouge pas. Elle a les jointures blanches sur ses couteaux." },
+      { with: "coliane", text: "« Hautgrès ne recommencera pas, dit-elle à Coliane, sans la regarder. Plus jamais d'écluse. Je te le promets. » Coliane reste immobile. Elle a les jointures blanches sur ses couteaux." },
       { with: "thavary", text: "« Et toi, ma belle, tu auras tes terres, dit-elle à Thavary. Toutes. Le verger, les bornes, les toits refaits. Ta grand-mère mourra dans un lit de Thavar. » Thavary serre la mâchoire." },
-      { with: "charline", text: "« Ton père retrouvera ses mains, dit-elle à Charline. Je le ferai, tu sais. Ça m'est facile. » Charline pâlit, puis rougit, et ne dit rien." },
+      { with: "charline", text: "« Ton père retrouvera ses mains, dit-elle à Charline. Je le ferai, tu sais. Ça m'est facile. » Charline pâlit, puis rougit, et se tait." },
       { with: "aubin", text: "« Tes frères auront fini leur office, dit-elle à Aubin. Ils dormiront. Et l'enfant de Morteau aura un père qui n'aura pas à se cacher. » Aubin ferme les yeux." },
       "« Je ne te demande qu'une chose, {hero}. Dis oui. Avec ta main dans mon eau. C'est tout. »",
     ],
@@ -255,7 +255,7 @@ Object.assign(P, {
       "Frère Aubin entre dans l'eau jusqu'aux genoux, sa coule flottant autour de lui. Il fait le signe de la Main au-dessus de la surface, puis il dit la bénédiction des eaux, celle qu'on disait à Saint-Ivo le jour de la fête du lac, quand les barques des pêcheurs passaient sous le porche une à une.",
       { outcome: "win", text: "L'eau autour de ses jambes s'éclaircit. Pas beaucoup : un rond d'eau grise dans l'eau noire, large comme une meule. Mais le rond s'étend, à chaque verset, et quand il touche la robe de la femme, elle recule. Elle recule vraiment, d'un pas, comme on recule devant une flaque d'eau froide. Aubin ouvre les yeux. « Elle s'en souvient, dit-il. Je le savais. L'eau se souvient de tout. »" },
       { outcome: "lose", text: "L'eau ne s'éclaircit pas. Elle remonte le long de sa coule, lentement, en l'assombrissant, et Aubin s'arrête au milieu d'un verset, la bouche ouverte, parce que les mots ne viennent plus. Tu le tires en arrière par la manche. Il te laisse faire. « Je ne sais plus la fin, dit-il. Je la savais il y a un instant. »" },
-      L({ item: "VE_chapelet" }, "Il a pris le chapelet du prieur Anthelme dans ta besace sans te le demander. Il le rend sans rien dire. Les grains de buis sont tièdes."),
+      L({ item: "VE_chapelet" }, "Il a pris le chapelet du prieur Anthelme dans ta besace sans te le demander. Il le rend en silence. Les grains de buis sont tièdes."),
     ],
     choices: [{ back: "VF_voix" }] },
   VF_aide_charline: { act: "V", title: "La vase qui cuit", place: "VF_l_fond", with: "charline",
@@ -275,8 +275,8 @@ Object.assign(P, {
   VF_aide_gloup: { act: "V", title: "Ce que Gloup leur dit", place: "VF_l_fond", with: "gloup",
     text: [
       "Gloup roule jusqu'au bord de l'eau et s'y arrête, tout petit, tout rond. Il fait un bruit. Un seul, mouillé, très long, qui monte et qui descend. Tu ne l'as jamais entendu le faire. Autour de la femme, l'eau se ride, et des formes commencent à s'en lever : des petites silhouettes de vase, des enfants sans visage, qui sortent de la robe de leur mère et viennent écouter.",
-      { outcome: "win", text: "Gloup refait son bruit. Plus bas, cette fois. Les petites formes hésitent. Puis l'une d'elles, la plus proche, roule jusqu'à lui et se colle contre lui, comme il se colle contre tes bottes. Les autres suivent. Elles ne retournent pas dans la robe. Elles restent là, au bord, en tas, autour de Gloup, à écouter. La femme les rappelle. Elles ne bougent pas. Elle n'aura pas d'enfants pour se battre à sa place." },
-      { outcome: "lose", text: "Les petites formes l'écoutent, puis elles se détournent, et rentrent dans la robe de leur mère, une à une. La dernière se retourne vers Gloup avant de disparaître. Gloup reste au bord, tout aplati. Il revient vers toi très lentement et se colle à ta botte sans un bruit." },
+      { outcome: "win", text: "Gloup refait son bruit. Plus bas, cette fois. Les petites formes hésitent. Puis l'une d'elles, la plus proche, roule jusqu'à lui et se colle contre lui, comme il se colle contre tes bottes. Les autres suivent. Elles ne retournent pas dans la robe. Elles restent là, au bord, en tas, autour de Gloup, à écouter. La femme les rappelle. Elles restent immobiles. Elle n'aura pas d'enfants pour se battre à sa place." },
+      { outcome: "lose", text: "Les petites formes l'écoutent, puis elles se détournent, et rentrent dans la robe de leur mère, une à une. La dernière se retourne vers Gloup avant de disparaître. Gloup reste au bord, tout aplati. Il revient vers toi très lentement et se colle à ta botte en silence." },
     ],
     choices: [{ back: "VF_voix" }] },
   VF_aide_thavary: { act: "V", title: "Le salut de Thavar", place: "VF_l_fond", with: "thavary",
@@ -306,7 +306,7 @@ Object.assign(P, {
       L(H("VF:aide_thavary"), "Sa garde gauche reste ouverte, là où Thavary a frappé deux fois."),
       L(H("ardhal:allie"), "En haut de la pente, Ardhal ouvre la gueule. Le feu descend sur l'eau en une seule nappe blanche, et la vapeur monte jusqu'au noir."),
       L(H("V:ardhal_tenu"), "En haut de la pente, Ardhal ouvre la gueule, parce que ta main le lui ordonne. Le feu descend, gris et blanc. Il ne te regarde pas en le faisant."),
-      L(H("VF:veyra_contre"), "Veyra frappe la première, sans un mot, à la manière de la commanderie."),
+      L(H("VF:veyra_contre"), "Veyra frappe la première, en silence, à la manière de la commanderie."),
       "Puis elle marche sur toi, et l'eau marche avec elle.",
     ] },
   VF_combat_nue: { act: "V", title: "La Voix, nommée", place: "VF_l_fond",
@@ -319,7 +319,7 @@ Object.assign(P, {
       L(H("VF:aide_aubin"), "Le rond d'eau grise qu'a béni Aubin s'est étendu jusqu'à ses pieds. Elle ne s'y appuie pas."),
       L(H("ardhal:allie"), "En haut de la pente, Ardhal ouvre la gueule. Le feu descend sur l'eau en une seule nappe blanche, et la vapeur monte jusqu'au noir."),
       L(H("V:ardhal_tenu"), "En haut de la pente, Ardhal ouvre la gueule, parce que ta main le lui ordonne. Le feu descend, gris et blanc."),
-      L(H("VF:veyra_contre"), "Veyra frappe la première, sans un mot, à la manière de la commanderie."),
+      L(H("VF:veyra_contre"), "Veyra frappe la première, en silence, à la manière de la commanderie."),
       "Elle marche sur toi quand même. Elle a toujours marché.",
     ] },
   VF_chute: { act: "V", title: "Sous l'eau", place: "VF_l_fond",
@@ -341,7 +341,7 @@ Object.assign(P, {
     text: [
       "Tu te relèves. Tes jambes tremblent. La femme te regarde faire avec une sorte de tristesse, comme on regarde quelqu'un qui remonte sur un cheval qui l'a déjà jeté par terre.",
       "« Il ne te remontera pas deux fois, dit-elle. Il n'a plus la force. Tu le sais. » Elle a raison, et tu le sais. Elle aussi a perdu quelque chose dans la première passe : sa robe coule moins vite, et ses enfants de vase ne sont pas revenus.",
-      { with: "any", text: "Ceux qui sont avec toi se mettent en ligne, à ta droite et à ta gauche, sans qu'on le leur dise. Personne ne parle." },
+      { with: "any", text: "Ceux qui sont avec toi se mettent en ligne, à ta droite et à ta gauche, sans qu'on le leur dise. Tous se taisent." },
     ] },
   VF_engloutie: { act: "V", title: "La seconde chute", place: "VF_l_fond",
     fx: { flag: "VF:engloutie" },
@@ -358,7 +358,7 @@ Object.assign(P, {
       "Elle n'est pas morte. Tu le sais en la regardant partir. On ne tue pas une blessure avec une épée. Elle retourne d'où elle vient : au pied de la forme, là où tombaient les larmes. Elle s'y enroule, et elle attend.",
       { with: "pip", text: "Pip regarde la tache disparaître. « Elle est rentrée chez lui, dit-il. C'est chez lui, chez elle. C'est triste. »" },
       { with: "aubin", text: "Frère Aubin s'assied dans le gravier, d'un coup, comme si ses jambes avaient décidé pour lui. Il rit, un peu, sans joie. « J'ai eu peur, dit-il. Je n'ai jamais eu si peur. Même cette nuit-là. »" },
-      { with: "coliane", text: "Coliane essuie ses couteaux sur sa cuisse, un, puis l'autre, et les range. Elle ne dit rien. Elle regarde la forme, au loin." },
+      { with: "coliane", text: "Coliane essuie ses couteaux sur sa cuisse, un, puis l'autre, et les range. Elle se tait. Elle regarde la forme, au loin." },
       L(H("VF:chute"), "Ta poitrine te fait mal à chaque souffle. Il y a encore de son eau dedans. Tu la cracheras longtemps, si tu remontes."),
       "Devant toi, l'eau noire est calme, à présent. Elle ne frémit plus qu'au rythme de la respiration de là-bas. Et elle te porte, si tu y poses le pied : épaisse, tiède, comme un sol de boue durcie qui céderait si tu t'arrêtais.",
     ],
@@ -429,7 +429,7 @@ Object.assign(P, {
       "Tu lèves les yeux le long du bras jusqu'à la main. Il te faut longtemps. Le poignet est épais comme un tronc de chêne de cent ans, la paume large comme l'aire d'une grange, et les doigts sont repliés juste assez pour faire un creux, comme on tient de l'eau qu'on veut boire.",
       "Elle est fendue. Une fissure part du poignet et monte jusqu'à la racine du majeur, assez large pour y passer le bras. Tu as déjà vu cette fissure, sous une crête, au tout début de ta route.",
       "Au creux de la paume, il y a une petite cuvette, lisse, polie, comme une pierre de gué que l'eau a usée. Elle a la taille d'un poing d'enfant. Elle est vide. Quelque chose y est resté posé si longtemps que la pierre en a pris la forme.",
-      { with: "pip", text: "Pip ne dit rien. Il regarde la cuvette. Sa lumière a pris, sans qu'il s'en rende compte, exactement sa forme." },
+      { with: "pip", text: "Pip se tait. Il regarde la cuvette. Sa lumière a pris, sans qu'il s'en rende compte, exactement sa forme." },
       "Tu remarques autre chose. La main est vide, mais tout autour, sur le poignet, sur l'avant-bras, il n'y a rien non plus : pas une bague, pas une amulette, pas un fil. Ceux qui ont enchaîné un homme lui ont tout pris, jusqu'au nom. Il n'a même pas de quoi se couvrir. Tu penses à ce que tu portes dans ta besace, et à ce que tu pourrais lui laisser.",
     ],
     choices: [{ back: "VF_malvoran" }] },
@@ -451,7 +451,7 @@ Object.assign(P, {
       "Son visage est à moitié de pierre. La moitié gauche, celle de la chaîne, est grise et lisse, sans rides, comme une statue d'église qu'on a trop lavée. La moitié droite est encore à lui : une joue creuse, une barbe de quelques jours qui n'a pas poussé depuis quatre cents ans, une bouche fine, et un œil fermé. Il est jeune. C'est ce qui te frappe le plus. Il n'a pas trente ans.",
       "L'œil s'ouvre. Il est brun, très ordinaire, l'œil de n'importe quel garçon de village. Il met longtemps à te trouver. Quand il te trouve, il ne s'étonne pas.",
       "« Il fait jour, là-haut ? » demande-t-il. Sa voix est un bruit de pierre qu'on traîne, très bas, mais c'est une voix, avec des mots. Il ne demande pas qui tu es. Il demande le temps qu'il fait.",
-      { with: "pip", text: "Pip, sur ton épaule, s'est mis à briller si fort que l'œil se plisse. L'œil le regarde. Il ne dit rien. Mais l'eau, en bas, cesse de frémir pendant une respiration entière." },
+      { with: "pip", text: "Pip, sur ton épaule, s'est mis à briller si fort que l'œil se plisse. L'œil le regarde. Il se tait. Mais l'eau, en bas, cesse de frémir pendant une respiration entière." },
     ],
     choices: [
       { label: "« Oui. C'est le matin. Les premières neiges. »", back: "VF_malvoran" },
@@ -505,12 +505,12 @@ Object.assign(P, {
     choices: [{ back: "VF_malvoran" }] },
   VF_m_maitre: { act: "V", title: "Ta maîtresse", place: "VF_l_fond",
     text: [
-      "Tu lui parles de ta maîtresse. Tu ne sais pas pourquoi. Peut-être parce que c'est par elle que tout a commencé : une lettre pliée en quatre, une crête, un château.",
+      "Tu lui parles de ta maîtresse. La raison t'échappe. Peut-être parce que c'est par elle que tout a commencé : une lettre pliée en quatre, une crête, un château.",
       L(H("maitre:hauberte"), "Hauberte de Sarn, chevalière sans cheval, qui t'a appris à tenir une lame et à ne pas t'en servir trop vite."),
       L(H("maitre:ortie"), "Ortie, l'herboriste des marais, qui t'a appris à regarder l'eau avant de la boire."),
       L(H("maitre:maelle"), "Maëlle Vautrin, qui t'a appris à lire le pays comme un livre, et qui a trouvé la page arrachée."),
       L(H("maitre=sauve"), "Il écoute. « Elle est vivante ? » Tu dis oui. Qu'elle ne sait plus écrire, ni très bien parler, mais qu'elle est vivante, et qu'elle a cessé d'entendre l'eau. « Alors elle a eu de la chance, dit-il. Elle a eu quelqu'un qui est venu la chercher. »"),
-      L(H("maitre=mort"), "Il écoute. Tu lui dis le gué, l'eau jusqu'à la poitrine, le menton levé. Tu ne l'as dit à personne. Il ne dit rien pendant longtemps. Puis : « Elle t'a demandé de le faire. Elle a eu de la chance aussi. Moi, personne n'a voulu. »"),
+      L(H("maitre=mort"), "Il écoute. Tu lui dis le gué, l'eau jusqu'à la poitrine, le menton levé. Tu ne l'as dit à personne. Il se tait longtemps. Puis : « Elle t'a demandé de le faire. Elle a eu de la chance aussi. Moi, personne n'a voulu. »"),
       L(H("maitre=perdu"), "Il écoute. « Je l'ai entendue, dit-il. Elle est passée par ici. Par l'eau. Elle parlait de toi. Elle disait : *tiens ta garde haute*. Elle le disait à quelqu'un qui n'était pas là. »"),
       "« Elle t'a envoyé{e} ici, dit-il. Ou elle t'a envoyé{e} ailleurs, et tu es venu{e} ici quand même. C'est pareil. Les gens qui nous envoient quelque part ne savent jamais où on va. »",
     ],
@@ -518,7 +518,7 @@ Object.assign(P, {
   VF_m_pip: { act: "V", title: "La lumière revenue", place: "VF_l_fond", with: "pip",
     fx: { flag: "VF:pip_main", conf: { pip: 15 }, ep: ["histoire", 5000] },
     text: [
-      "Pip quitte ton épaule. Il ne dit rien. Il monte, lentement, le long du bras de pierre, comme une étincelle qui monte d'un feu, et il s'arrête au-dessus de la main ouverte. Il hésite. Puis il descend, et il se pose dans la petite cuvette polie, au creux de la paume. Il y tient exactement.",
+      "Pip quitte ton épaule. Il se tait. Il monte, lentement, le long du bras de pierre, comme une étincelle qui monte d'un feu, et il s'arrête au-dessus de la main ouverte. Il hésite. Puis il descend, et il se pose dans la petite cuvette polie, au creux de la paume. Il y tient exactement.",
       "La main ne se referme pas. Elle tremble. Tout le bras tremble, de l'épaule au bout des doigts, et des écailles de pierre s'en détachent et tombent dans l'eau, plouf, plouf. Puis l'œil se lève, très lentement, vers la paume, et il regarde Pip. Il le regarde comme on regarde quelqu'un qui revient de la guerre, et qu'on avait fini par croire mort.",
       "« Tu es revenu », dit-il.",
       "« Je suis allé voir, dit Pip. Il y a des gens, là-haut. Il y a des moulins, et des trolls, et une bergère qui a un chien. Il y a quelqu'un qui m'a pris avec lui. » Il se tourne vers toi. « C'est lui. C'est ma main. Je me souviens, maintenant. Il me chantait le verset. Il me tenait au chaud. Et un jour, il a ouvert les doigts. »",
@@ -538,8 +538,8 @@ Object.assign(P, {
     fx: { flag: "VF:veyra_face" },
     text: [
       L(H("veyra:ralliee"), "Des pas, sur l'eau, derrière toi. Veyra est descendue du fort. Elle a laissé ses épées tenir l'escalier et elle est venue seule, la main sur une blessure, comme elle te l'avait dit : pour le regarder en face."),
-      L(N(H("veyra:ralliee")), "Veyra traverse l'eau derrière toi, d'un pas qui n'est pas sûr. Elle se tient le flanc. Elle ne dit rien jusqu'au pied de la porte."),
-      "Elle lève les yeux vers le visage de pierre. Elle reste comme ça longtemps, la tête renversée, sans rien dire. Puis elle détache son épée grise, celle de l'Ordre, qu'elle avait gardée tout ce temps sous les gants noirs. Elle la pose en travers du genou de pierre.",
+      L(N(H("veyra:ralliee")), "Veyra traverse l'eau derrière toi, d'un pas qui n'est pas sûr. Elle se tient le flanc. Elle se tait jusqu'au pied de la porte."),
+      "Elle lève les yeux vers le visage de pierre. Elle reste comme ça longtemps, la tête renversée, en silence. Puis elle détache son épée grise, celle de l'Ordre, qu'elle avait gardée tout ce temps sous les gants noirs. Elle la pose en travers du genou de pierre.",
       "« Je m'appelle Veyra de Hautcastel, dit-elle. J'ai porté le gant gris vingt ans pour garder la porte que vous tenez. Je l'ai jeté le jour où j'ai su. J'ai cru que je venais vous délivrer. Je venais vous vendre. » Elle se tait. « Je ne vous demande rien. Je voulais que vous sachiez qu'il y en a eu au moins une qui est venue vous regarder. »",
       "L'œil la regarde. « Il y en a eu deux, dit-il, et l'œil se tourne vers toi. Ça fait beaucoup, en quatre cents ans. »",
     ],
@@ -557,9 +557,9 @@ Object.assign(P, {
     text: [
       "Charline pose la main sur la chaîne et la retire aussitôt, comme d'un fer chaud, alors qu'elle est froide. Puis elle la repose, et la laisse. « C'est Hildre qui l'a forgée, dit-elle. Je reconnais le coup. Mon père frappe pareil. Frappait. » Elle a la voix qui s'étrangle sur le dernier mot.",
       "« Hildre pleurait en la forgeant, dit la pierre. Elle ne pleurait jamais. Elle a pleuré tout le temps qu'il a fallu. Les larmes sont dans le métal : c'est pour ça qu'il ne rouille pas. »",
-      L(H("charline_arc=pardon"), "Charline ne dit rien. Elle passe le pouce sur le maillon, longtemps, comme on passe le pouce sur la cicatrice de quelqu'un qu'on aime. « J'ai pardonné à mon père, dit-elle enfin. Là-haut, dans la tour. Ou il m'a pardonné. Je ne sais plus dans quel sens c'était. »"),
+      L(H("charline_arc=pardon"), "Charline se tait. Elle passe le pouce sur le maillon, longtemps, comme on passe le pouce sur la cicatrice de quelqu'un qu'on aime. « J'ai pardonné à mon père, dit-elle enfin. Là-haut, dans la tour. Ou il m'a pardonné. Je ne sais plus dans quel sens c'était. »"),
       L(H("charline_arc=forge"), "Charline relève la tête. « Je reprendrai la Forge-Mère, dit-elle, comme si elle répondait à une question. Et je ne forgerai jamais de chaîne. Jamais. »"),
-      L(H("charline_arc=brule"), "Charline serre le poing sur le maillon, et une petite fumée monte entre ses doigts. « Le Cercle savait, dit-elle. Ils avaient la page. Ils l'ont arrachée. J'ai brûlé le reste. » La pierre ne répond pas. La fumée se dissipe."),
+      L(H("charline_arc=brule"), "Charline serre le poing sur le maillon, et une petite fumée monte entre ses doigts. « Le Cercle savait, dit-elle. Ils avaient la page. Ils l'ont arrachée. J'ai brûlé le reste. » La pierre se tait. La fumée se dissipe."),
     ],
     choices: [{ back: "VF_malvoran" }] },
   VF_m_thavary: { act: "V", title: "L'héritière de Thavar", place: "VF_l_fond", with: "thavary",
@@ -568,7 +568,7 @@ Object.assign(P, {
       "« Thavary de Thavar, dit-elle. La dernière. Mon ancêtre vous a enchaîné. Il a voté avec les autres. Il a écrit qu'il en avait honte, et il a laissé la honte à ses enfants. Elle est arrivée jusqu'à moi avec l'anneau. » Elle se tait. « Je n'ai rien d'autre à vous rendre que ça. »",
       "L'œil la regarde longtemps. « Relève-toi, dit-il enfin. Thavar s'agenouillait tout le temps. Ça m'agaçait. »",
       L(H("thavary_arc=liberee"), "Thavary se relève. Elle remet l'épée au fourreau. Et elle sourit, pour la première fois depuis que tu la connais, un vrai sourire, un peu de travers. « Je savais que je n'aurais pas dû m'agenouiller », dit-elle."),
-      L(H("thavary_arc=honneur"), "Thavary se relève, droite comme une lance. « Une dette est une dette, dit-elle. Thavar ne l'a pas payée. Moi, je peux. » La pierre ne répond pas. Elle ne dit pas non."),
+      L(H("thavary_arc=honneur"), "Thavary se relève, droite comme une lance. « Une dette est une dette, dit-elle. Thavar ne l'a pas payée. Moi, je peux. » La pierre se tait. Elle ne dit pas non."),
       L(H("thavary_arc=vengeance"), "Thavary se relève. Elle regarde la chaîne, les serrures, les mains gravées. « Ils ont bâti des maisons sur vous, dit-elle. Je les ferai tomber. Toutes. » « Ça ne me relèvera pas », dit la pierre, doucement."),
     ],
     choices: [{ back: "VF_malvoran" }] },
@@ -596,7 +596,7 @@ Object.assign(P, {
       "Tu lèves la main gauche vers son œil. La tache. Elle a gagné le poignet, ou le coude, ou plus haut, selon les jours. Elle bat, ici, plus fort qu'ailleurs, et elle tire vers lui, ou vers la porte derrière lui, tu ne sais pas.",
       "L'œil la regarde. Pour la première fois, il a peur. Ce n'est pas de toi qu'il a peur : c'est de ce que tu tiens.",
       "« Elle t'a donné ce qu'elle m'offre tous les jours, dit-il. La force. La facilité. De quoi tenir n'importe quoi, de quoi tout ouvrir. » Il se tait. « J'ai dit non quatre cents ans. Toi, tu as dit oui quelques fois. Ça ne fait pas de toi quelqu'un de mauvais. Ça fait de toi quelqu'un qui pourrait s'asseoir à ma place, et ne pas tenir la porte. L'ouvrir. »",
-      { with: "pip", text: "Pip se cache derrière ton col. Il ne dit rien. Il tremble." },
+      { with: "pip", text: "Pip se cache derrière ton col. Il se tait. Il tremble." },
     ],
     choices: [{ back: "VF_malvoran" }] },
   VF_don_echarpe: don("L'écharpe d'Isaure", "Tu noues l'écharpe d'Isaure autour du poignet de pierre, là où la chaîne a usé la roche. Elle fait à peine le tour d'un doigt, sur lui. Laine de ses brebis, poils de son chien. L'œil la regarde longtemps. « C'est chaud », dit-il, étonné. Ce n'est pas possible. Il le dit quand même.", "Il replie les doigts de pierre, très lentement, d'un cheveu, pour que l'écharpe ne glisse pas. Tu ne l'avais jamais vu bouger les doigts."),
@@ -626,7 +626,7 @@ Object.assign(P, {
       "« Ce que je prendrai ? » Elle réfléchit, honnêtement. « Un puits par vallée. Un par an. Peut-être un peu plus, les années sèches. Les gens qui s'y pencheront entendront ceux qu'ils ont perdus. Certains se noieront. Pas tous. Ceux qui le voudront le plus. »",
       "« Et lui. » Elle montre la forme assise, au loin, du menton. « Il continuera à tenir. Un peu moins chaque année. Il ne lâchera pas de ton vivant : je te le promets. Après, on verra. Tu ne seras plus là pour t'en soucier. C'est l'avantage. »",
       "« Et ta main. Elle restera dans mon eau. Juste un peu. Tu ne t'en apercevras presque pas. »",
-      { with: "aubin", text: "Frère Aubin dit, très bas : « C'est ce qu'on a dit à Josse, pour l'écluse. Presque rien. » La femme ne répond pas." },
+      { with: "aubin", text: "Frère Aubin dit, très bas : « C'est ce qu'on a dit à Josse, pour l'écluse. Presque rien. » La femme se tait." },
     ],
     choices: [{ back: "VF_offre" }] },
   VF_m_derriere: { act: "V", title: "Derrière la porte", place: "VF_l_fond",
@@ -642,7 +642,7 @@ Object.assign(P, {
       "Tu lui parles du château des trolls, sur la crête, au-dessus des Trois-Bornes. Des caves murées de tonneaux, des mains sur les murs tournées vers le bas, de la salle qui chantait. Et de la main de pierre, paume ouverte, fendue.",
       "« C'est la mienne, dit-il. Celle d'en haut. Quand j'ai lâché la lumière, je l'ai poussée aussi loin que j'ai pu, par la fente, jusqu'à ce que ma main touche le jour. Elle ne l'a pas touché. Elle s'est arrêtée sous un château. » Il a presque l'air de s'en excuser. « Je n'avais pas prévu les trolls. »",
       L(H("grauk:vivant"), "Tu lui dis que le roi des trolls avait peur de ce qui chantait sous son château. « Il avait raison, dit-il. Ce n'était pas moi qui chantais. C'était elle, dans la flaque, au pied de ma main. Moi, je ne chante plus depuis longtemps. »"),
-      L(H("grauk:mort"), "Tu lui dis que le roi des trolls est mort, et pas de ta faute seulement. Il ne dit rien. Il ne connaissait pas Grauk. Il a l'air triste quand même, comme on est triste pour un voisin qu'on n'a jamais vu."),
+      L(H("grauk:mort"), "Tu lui dis que le roi des trolls est mort, et pas de ta faute seulement. Il se tait. Il ne connaissait pas Grauk. Il a l'air triste quand même, comme on est triste pour un voisin qu'on n'a jamais vu."),
     ],
     choices: [{ back: "VF_malvoran" }] },
   VF_m_mains: { act: "V", title: "Main contre main", place: "VF_l_fond",
@@ -650,7 +650,7 @@ Object.assign(P, {
       "Tu grimpes jusqu'à sa paume ouverte, et tu poses ta main à plat contre la pierre, au bord de la cuvette, comme tu l'as posée là-haut, sur la porte de bronze, et sur les marches de l'escalier des mains, parmi des milliers d'autres.",
       "La pierre est tiède. Sous ta paume, tu sens battre quelque chose, très lentement, une fois toutes les quarante de tes respirations. Il ne bouge pas la main. Mais tu sens qu'il sait que tu es là, comme on sait qu'un enfant s'est endormi contre vous sans le regarder.",
       "« Ils mettaient tous leur main, dit-il. Sur les marches, en descendant. Je les sentais. Des milliers. Pour me retenir, je crois. Ou pour me dire qu'ils étaient là. » Il se tait. « Personne ne l'avait encore mise dans la mienne. »",
-      L({ mark: { min: 3 } }, "La tache de ta paume, contre la pierre, se met à brûler. Tu retires la main. Il ne dit rien. Il a senti, lui aussi."),
+      L({ mark: { min: 3 } }, "La tache de ta paume, contre la pierre, se met à brûler. Tu retires la main. Il se tait. Il a senti, lui aussi."),
     ],
     choices: [{ back: "VF_malvoran" }] },
   VF_m_mere: { act: "V", title: "La lavandière de Sorbe", place: "VF_l_fond",
@@ -664,7 +664,7 @@ Object.assign(P, {
     text: [
       "Tu te penches vers l'oreille de pierre. Tu n'as pas besoin de crier. Tu le dis comme on dit un nom à quelqu'un qu'on réveille.",
       "« Malvoran. Tu t'appelais Malvoran. Malvoran le Guérisseur. Tu allais de village en village avec une trousse de cuir et un bol. Tu soignais les fièvres. Tu recousais les bûcherons. Tu étais le sixième, et le plus jeune. Tu t'es proposé. »",
-      "Il ne bouge pas. Puis l'œil se remplit, d'un coup, et déborde, et la larme qui tombe dans l'eau, en bas, ne la noircit pas. Elle l'éclaircit. Un petit rond d'eau claire, au milieu de tout ce noir, qui ne se referme pas.",
+      "Il reste immobile. Puis l'œil se remplit, d'un coup, et déborde, et la larme qui tombe dans l'eau, en bas, ne la noircit pas. Elle l'éclaircit. Un petit rond d'eau claire, au milieu de tout ce noir, qui ne se referme pas.",
       "« Malvoran, répète-t-il. Oui. Oui. C'est ça. » Il le dit encore, plusieurs fois, en essayant les syllabes comme on essaie des bottes qu'on n'a pas mises depuis longtemps. « On m'appelait Malvoran. Ma mère disait Malvo. Elle était lavandière, à Sorbe. » Il rit, ce bruit d'éboulis. « Je me souviens de ma mère. »",
       { with: "pip", text: "Dans sa paume, ou sur ton épaule, Pip brille si fort que tout le fond de la Brèche s'éclaire, pour la première fois, jusqu'aux voûtes : de la roche noire, haute, avec des milliers de mains gravées, toutes tournées vers le bas." },
       { with: "aubin", text: "Frère Aubin s'est mis à genoux dans l'eau. Il pleure sans bruit. Il dit le nom, lui aussi, à voix basse, comme on l'ajoute à une litanie." },
@@ -839,10 +839,10 @@ Object.assign(P, {
     fx: { flag: "VF:tient_heros", ep: ["histoire", 4000] },
     text: [
       "Tu poses ta besace dans l'eau. Tu enlèves ce que tu portes d'inutile, et tout est inutile, ici. Tu gardes la lettre pliée en quatre. Tu la mets contre ta poitrine.",
-      { with: "pip", text: "Pip comprend avant les autres. Il ne crie pas. Il se pose sur ton épaule et il ne dit rien du tout, et il brille, de toute sa force, pour que tu le voies bien une dernière fois." },
+      { with: "pip", text: "Pip comprend avant les autres. Il ne crie pas. Il se pose sur ton épaule en silence, et il brille, de toute sa force, pour que tu le voies bien une dernière fois." },
       { with: "coliane", text: "Coliane te prend par le col, à deux mains, et te secoue, une fois, fort. Puis elle te lâche. « Imbécile », dit-elle. Elle a les yeux secs. Elle les garde secs exprès." },
       { with: "aubin", text: "Frère Aubin te bénit du pouce, sur le front, comme on bénit les enfants. Il ne s'en excuse pas." },
-      { with: "thavary", text: "Thavary te salue de l'épée, à la manière ancienne. Elle ne dit rien. Elle tient le salut plus longtemps qu'il ne faut." },
+      { with: "thavary", text: "Thavary te salue de l'épée, à la manière ancienne. Elle se tait. Elle tient le salut plus longtemps qu'il ne faut." },
       { with: "charline", text: "Charline ouvre la bouche, la referme. Elle te serre dans ses bras, maladroitement, et elle sent le charbon et l'encre." },
       { with: "gloup", text: "Gloup se colle à ta botte, et il faut le décoller doucement, avec les deux mains." },
       { without: "any", text: "Il n'y a personne pour te dire adieu. Tu l'as voulu ainsi, ou la route l'a voulu pour toi. Ça ne change rien à la porte." },
@@ -900,7 +900,7 @@ Object.assign(P, {
     text: [
       "La porte ne s'ouvre pas. Elle ne pousse plus. Tu poses la main dessus, là où il s'appuyait : la pierre est froide, ordinaire, une pierre de montagne. Derrière, tu n'entends rien. Pas de poussée, pas de souffle. Le silence d'une cave vide.",
       "À vos pieds, l'eau noire baisse. Elle baisse comme baisse une rivière à la fin d'un orage, sans bruit, en laissant sur la grève des herbes mortes et une ligne de vase. La tache, celle qui s'était enroulée à ses pieds, n'a plus rien où s'enrouler. Tu la vois une dernière fois : une forme de femme couchée dans une flaque, qui lève la tête vers lui.",
-      "Elle ne dit rien. Lui non plus. Il la regarde, longtemps, avec une sorte de pitié, comme on regarde une lettre de colère qu'on a écrite il y a très longtemps et qu'on retrouve au fond d'un tiroir. Puis il dit, très doucement : « Je n'ai plus besoin de toi. » Et la flaque sèche. Elle sèche en un instant, comme sèche une flaque de juillet sous le soleil, et il ne reste sur la pierre qu'une trace grise en forme de femme, qui pâlit, et qui disparaît.",
+      "Elle se tait. Lui non plus. Il la regarde, longtemps, avec une sorte de pitié, comme on regarde une lettre de colère qu'on a écrite il y a très longtemps et qu'on retrouve au fond d'un tiroir. Puis il dit, très doucement : « Je n'ai plus besoin de toi. » Et la flaque sèche. Elle sèche en un instant, comme sèche une flaque de juillet sous le soleil, et il ne reste sur la pierre qu'une trace grise en forme de femme, qui pâlit, et qui disparaît.",
       "Sous la Fenne, tu entends la montagne bouger. Pas un tremblement : un tassement, long, lent, le bruit d'une plaie qui se referme. La Brèche n'était que ça. Une blessure qu'on n'avait jamais soignée, et qu'on avait fermée par-dessus.",
       L(H("VF:voix_dite"), "Tu l'avais nommée, tout à l'heure. Tu comprends maintenant que tu ne t'étais pas trompé{e}. Une rancune ne survit pas à celui qui cesse de l'avoir."),
       "Il se lève. Il tombe. Tu le rattrapes. Il se relève, appuyé sur ton épaule, et il fait son premier pas, dans l'eau qui baisse, vers la pente, vers le haut. Il demande s'il fait froid, là-haut. Tu dis que oui, que c'est l'hiver, les premières neiges. Il dit que c'est bien. Qu'il aime la neige. Qu'il l'avait oubliée.",
@@ -925,7 +925,7 @@ Object.assign(P, {
       "Puis le feu prend la pierre. Malvoran ne crie pas. Il te regarde à travers le feu, de son œil brun, jusqu'au bout. La pierre craque, éclate, tombe en morceaux brûlants dans l'eau qui siffle, et la vapeur monte jusqu'au noir. Tu entends, à la fin, très bas, à travers le grondement : « Merci. » Peut-être. Peut-être que tu l'inventes.",
       "Et sous ses pieds, dans l'eau, la femme brûle aussi. Elle brûle avec lui, parce qu'elle est de lui. Elle se tord, elle monte, une colonne de vapeur noire en forme de femme debout, qui ouvre la bouche, et pour la première fois elle n'a rien à dire. Puis la colonne se disperse, et il n'y a plus rien.",
       "La porte s'effondre. Derrière, il n'y a pas de monstre. Il y a la Brèche : une fente dans la montagne, noire, profonde, d'où monte une odeur de vase. Elle reste ouverte. Elle ne poussera plus : il n'y a plus personne pour la faire pousser. Mais ce qui en est sorti en quatre cents ans est dans les puits, dans les rivières, dans les bêtes, dans les gens. Ça, aucun feu ne le brûlera.",
-      { with: "pip", text: "Pip a regardé jusqu'au bout. Il ne dit rien. Sa lumière est devenue très pâle, et elle ne revient pas." },
+      { with: "pip", text: "Pip a regardé jusqu'au bout. Il se tait. Sa lumière est devenue très pâle, et elle ne revient pas." },
     ],
     choices: [{ label: "Remonter, avec ce qui reste à laver", big: true, to: "F_detruit" }] },
 
@@ -956,7 +956,7 @@ Object.assign(P, {
       "Tu t'agenouilles au bord et tu mets la main dans son eau. Elle est tiède. Elle se referme autour de tes doigts comme une main d'enfant qui prend la tienne pour traverser la rue. « Oui », dis-tu. Ce n'est pas difficile. C'est même étrangement facile. Ta voix ne tremble pas.",
       "« Merci, dit-elle, et elle a l'air sincère. Tu verras. Ce ne sera pas si terrible. Ce ne sera presque rien. »",
       "Elle s'éloigne sur l'eau, sans se presser, vers la forme assise, et elle s'enroule à ses pieds. Là-bas, très loin, l'œil de la pierre est ouvert, et il te regarde. Tu ne le vois pas assez bien pour savoir ce qu'il y a dedans. Tu préfères ne pas savoir. La porte tient. Elle tiendra encore un peu. Moins qu'avant. Assez.",
-      { with: "coliane", text: "Coliane ne dit rien. Elle range ses couteaux, et elle tourne le dos, et elle remonte la pente sans t'attendre. Tu ne la rattrapes pas." },
+      { with: "coliane", text: "Coliane se tait. Elle range ses couteaux, et elle tourne le dos, et elle remonte la pente sans t'attendre. Tu ne la rattrapes pas." },
       { with: "pip", text: "Pip reste sur ton épaule. Il ne brille presque plus. Il ne te quitte pas. C'est peut-être le pire." },
       { with: "aubin", text: "Frère Aubin fait le signe de la Main, pas sur toi : sur l'eau, là où tu as mis la main. Puis il remonte, lui aussi." },
     ],
@@ -965,9 +965,9 @@ Object.assign(P, {
     fx: { flag: "VF:oui", ep: ["histoire", 3000] },
     text: [
       "Tu te tournes vers l'eau, à ses pieds, là où la tache s'est enroulée, et tu l'appelles. Tu ne sais pas son nom. Tu n'en as pas besoin. Elle t'a toujours entendu{e}.",
-      "Elle se déroule, lentement, et se lève, défaite, sans robe, sans cheveux : une forme de vase, à peine debout. Elle ne s'attendait pas à ce que tu l'appelles. Elle s'en remet vite. « Mon offre tient toujours, dit-elle. Je n'en ai jamais eu qu'une. »",
+      "Elle se déroule, lentement, et se lève, défaite, dépouillée : une forme de vase, à peine debout. Elle ne s'attendait pas à ce que tu l'appelles. Elle s'en remet vite. « Mon offre tient toujours, dit-elle. Je n'en ai jamais eu qu'une. »",
       "Tu mets la main dans son eau. « Oui. » Au-dessus de toi, la pierre ferme son œil. Elle ne le rouvre pas. Elle tient la porte, encore, un peu moins qu'avant, et elle ne te regardera plus jamais.",
-      { with: "coliane", text: "Coliane ne dit rien. Elle range ses couteaux, et elle tourne le dos, et elle remonte la pente sans t'attendre. Tu ne la rattrapes pas." },
+      { with: "coliane", text: "Coliane se tait. Elle range ses couteaux, et elle tourne le dos, et elle remonte la pente sans t'attendre. Tu ne la rattrapes pas." },
       { with: "pip", text: "Pip quitte ton épaule. Il vole jusqu'à la main de pierre, il s'y pose une seconde, comme on pose la main sur l'épaule de quelqu'un qu'on laisse. Puis il revient. Il ne brille presque plus." },
       { with: "aubin", text: "Frère Aubin fait le signe de la Main sur l'eau, là où tu as mis la main. Puis il remonte, lui aussi." },
     ],
@@ -1005,7 +1005,7 @@ function epilogue(fin) {
     : "Thibaut, le cousin du charbonnier, travaille avec Blaise aux meules. Il pose la main sur la terre, parfois, et il l'écoute, et il ne dit plus rien du tout. Blaise dit qu'il avait l'air moins triste quand il disait « elle tient ».");
   add(N(H("charbonnier:paix")), "Thibaut, le cousin du charbonnier, est toujours assis sur sa souche, à tailler son bout de bois. Quand on passe, il montre le sol, et il dit ce qu'il dit depuis le château. Personne ne lui a jamais demandé ce que ça voulait dire.");
   add(H("rouaix=payee"), "La veuve Rouaix garde sa maison. Elle file la laine tout l'hiver, la vend à la foire d'avril, et elle n'emprunte plus un denier à personne. Elle te garde un écheveau, au cas où tu repasserais.");
-  add(H("rouaix=rusee"), "Maître Pons n'a pu prendre la maison de la veuve Rouaix qu'à la Saint-Jean de l'an quatre cent treize, et à la Saint-Jean, elle a payé, avec la laine de deux hivers. Pons dit partout que c'est un vol. Personne ne le croit.");
+  add(H("rouaix=rusee"), "Maître Pons n'a pu prendre la maison de la veuve Rouaix qu'à la Saint-Jean de l'an quatre cent treize, et à la Saint-Jean, la veuve a payé, avec la laine de deux hivers. Pons dit partout que c'est un vol. Personne ne le croit.");
   add(H("rouaix=menace"), "La veuve Rouaix garde sa maison. Maître Pons ne remonte plus aux Trois-Bornes, et son valet a le nez de travers. Au hameau, on dit que tu as payé la dette à ta façon. On ne sait pas très bien si c'est un compliment.");
   add(H("rouaix=perdue"), "La maison de la veuve Rouaix a toujours ses volets cloués et son cadenas neuf. Mariette vit chez sa sœur, à Sorbe. Elle ne remonte jamais au hameau.");
   add(H("aglae=libre"), "Aglaé est à Sorbe-le-Bas, chez sa sœur, avec qui elle ne se parlait plus depuis vingt ans. Elles se disputent tous les jours. Elles ne se quittent plus.");
@@ -1031,7 +1031,7 @@ function epilogue(fin) {
   add(H("charron=achete"), "On se souvient longtemps, à Brumefeuille, du jour où quelqu'un a acheté toute l'eau de Charron pour la donner à la file. Charron aussi s'en souvient. Il ne l'a jamais revendue plus cher que ce jour-là.");
   toi(H("charron=complice"), "Gilles Charron est toujours maire. Il a fait bâtir une aile à sa maison, l'été suivant, et il a fait graver sur le linteau une main ouverte. Il t'envoie une lettre, chaque nouvel an, très aimable. Tu ne l'ouvres plus.",
     "Gilles Charron est toujours maire. Il a fait bâtir une aile à sa maison, l'été suivant, et graver sur le linteau une main ouverte. Il envoie chaque nouvel an une lettre très aimable à une adresse où personne ne l'ouvre.");
-  add(H("charron=laisse"), "Gilles Charron est toujours maire, et toujours marchand de grain, et il a toujours raison. On ne lui a jamais rien reproché. Hortense, au Chaudron, sert sa soupe sans un mot de plus qu'il ne faut à tous ceux qui en parlent.");
+  add(H("charron=laisse"), "Gilles Charron est toujours maire, et toujours marchand de grain, et il a toujours raison. On ne lui a jamais rien reproché. Hortense, au Chaudron, sert sa soupe, avare de mots, à tous ceux qui en parlent.");
   add(H("bucheron=soigne"), "Tiennot, le fils du bûcheron, coupe du bois avec son père dans le Rouvre. Il a gardé au poignet une veine grise qui ne s'en va pas. Il dit que c'est pour se souvenir de ne pas aller seul dans les combes. Il y va quand même.");
   add(H("bucheron=ramene"), "Tiennot, le fils du bûcheron, est vivant. Il a mis tout l'hiver à se remettre, et il parle encore, la nuit, à quelqu'un qui n'est pas là. Son père dort dans la même pièce que lui. Il ne dit pas à qui son fils parle.");
   add(H("bucheron=tard"), "Le bûcheron du Rouvre a taillé une petite croix de chêne pour son fils, et il l'a plantée au fond de la combe, dans le creux du chêne mort. Il y va le dimanche. Il y porte la petite cognée, et il la rapporte.");
@@ -1057,12 +1057,12 @@ function epilogue(fin) {
   add(ALL(N(ANY(H("barthelemy_v=ami"), H("barthelemy_v=reconcilie"), H("barthelemy_v=epargne"), H("barthelemy_v=marche"), H("barthelemy_v=vaincu"), H("barthelemy_v=laisse"))), N(H("barthelemy:sort")), H("meunier=livre")),
     "Barthélemy, le meunier, a été jugé à Sorbe et envoyé casser des pierres. On ne sait pas ce qu'il est devenu. Le moulin de Brumefeuille tourne avec un autre meunier, qui ne parle pas au bief.");
   add(ALL(N(ANY(H("barthelemy_v=ami"), H("barthelemy_v=reconcilie"), H("barthelemy_v=epargne"), H("barthelemy_v=marche"), H("barthelemy_v=vaincu"), H("barthelemy_v=laisse"))), N(H("barthelemy:sort")), N(H("meunier=livre"))),
-    "Barthélemy, le meunier, est parti de Brumefeuille sans rien dire, un matin, avec un sac. Le moulin ne tourne plus. Le bief est clair, ou presque.");
+    "Barthélemy, le meunier, est parti de Brumefeuille en silence, un matin, avec un sac. Le moulin ne tourne plus. Le bief est clair, ou presque.");
 
   // ------------------------------------------------ the guardians (act II)
   T("Ferrance, Morteau et Thavar");
   add(H("livre=rendu"), "La chronique de l'an trois est revenue à l'Athénée, et Maître Corbin l'a fait enchaîner de nouveau, mais à une table où l'on peut s'asseoir. On y lit *Malvoran le Guérisseur*. Les étudiants en recopient la page, en cachette, puis plus en cachette du tout.");
-  toi(H("livre=garde"), "La chronique de l'an trois est dans ta besace, ou dans ta maison, enveloppée dans une couverture. Personne ne l'a grattée, ni brûlée, ni recopiée par-dessus. Un jour, tu la donneras. Tu ne sais pas encore à qui.",
+  toi(H("livre=garde"), "La chronique de l'an trois est dans ta besace, ou dans ta maison, enveloppée dans une couverture. Elle est restée intacte. Un jour, tu la donneras. Tu ne sais pas encore à qui.",
     "La chronique de l'an trois est restée là-haut, enveloppée dans une couverture, au fond d'une besace que quelqu'un a fini par ouvrir. Personne ne l'a grattée, ni brûlée. Elle attend qu'on la lise.");
   add(H("livre=vendu"), "La chronique de l'an trois est dans une bibliothèque d'Hautmont, ou au fond d'un poêle. L'homme aux gants blancs n'a jamais dit lequel. Bertille, la copiste, a quitté le Cercle avec sa part, et elle a ouvert une échoppe d'écrivain public à Ferrance. Elle refuse d'écrire les lettres d'amour.");
   add(H("livre=perdu"), "La chronique de l'an trois a disparu, une nuit, sur le pont des scories. Bertille la cherche encore dans les échoppes des fripiers. Elle dit qu'elle la reconnaîtrait à l'odeur.");
@@ -1119,7 +1119,7 @@ function epilogue(fin) {
   add(H("couronne=aldaran"), "Aldaran a gagné la guerre de l'Isarde. Le roi Aldric est mort à la Saint-André. Nerys règne. Elle a fait savoir à Vel-Orin qu'elle ne réclamerait pas les mines de sel. Elle n'a pas dit pourquoi. On dit qu'elle a lu des choses, dans les papiers de son père.");
   add(H("couronne=velorin"), "Vel-Orin a gagné la guerre de l'Isarde. La duchesse Orsini a ses mines de sel, et une rive de plus. Elle a fait frapper une monnaie neuve pour l'occasion. Morn, son maître-espion, dort toujours aussi peu.");
   add(H("merle:sauve"), "Merle-sur-Isarde a reconstruit ses deux granges et le toit de l'auberge. Les enfants y ramassent toujours les flèches dans le pré, mais ce sont de vieilles flèches, maintenant, rouillées, et ils en font des clôtures.");
-  toi(H("nerys=portee"), "La lettre de Nerys est arrivée là où elle devait arriver. Elle n'en a jamais parlé. Elle t'a fait envoyer, l'été suivant, un livre de sa bibliothèque, sans un mot, avec une page cornée.",
+  toi(H("nerys=portee"), "La lettre de Nerys est arrivée là où elle devait arriver. Elle n'en a jamais parlé. Elle t'a fait envoyer, l'été suivant, un livre de sa bibliothèque, en silence, avec une page cornée.",
     "La lettre de Nerys est arrivée là où elle devait arriver. Elle n'en a jamais parlé. Elle a fait chercher, l'été suivant, qui l'avait portée, pour lui envoyer un livre. On ne t'a pas trouvé{e}.");
   add(H("nerys=saisie"), "La lettre de Nerys a été prise dans la boue du camp par une main gantée de gris. Elle ne t'en a jamais voulu. Elle a écrit la suivante elle-même, à l'encre invisible.");
   add(H("nerys=trahie"), "La lettre de Nerys est restée sous le presse-papiers de cristal de Vendrel. Nerys l'a retrouvée, après. Elle ne t'a jamais reçu{e} à la cour. Elle a bien raison.");
@@ -1165,14 +1165,14 @@ function epilogue(fin) {
   add(ALL(N(H("VF:veyra_noyee")), H("VF:veyra_face")), "Veyra de Hautcastel est remontée de la Descente. Elle a repris son épée grise, celle qu'elle avait posée sur un genou de pierre. Elle ne sert plus ni l'Ordre ni le Cercle. Elle fait les routes, et quand on lui demande ce qu'elle garde, elle dit : une porte. On ne comprend pas.");
   add(ALL(N(H("VF:veyra_noyee")), N(H("VF:veyra_face")), ANY(H("veyra:ralliee"), H("VF:veyra_contre"))), "Veyra de Hautcastel est remontée de la Descente avec ses gants noirs, qu'elle a brûlés au bord du glacier. Elle a dit au Cercle ce qu'elle avait vu. Le Cercle l'a écoutée. Pour une fois.");
   add(ALL(N(H("VF:veyra_noyee")), N(H("VF:veyra_face")), N(ANY(H("veyra:ralliee"), H("VF:veyra_contre"))), H("veyra=morte")), "Veyra de Hautcastel est morte au fort de la Descente, de ta main. Ses gants noirs l'ont remontée. Ils l'ont enterrée à Hautcastel, avec son épée grise et ses gants noirs.");
-  add(ALL(N(H("VF:veyra_noyee")), N(H("VF:veyra_face")), N(ANY(H("veyra:ralliee"), H("VF:veyra_contre"), H("veyra=morte")))), "Veyra de Hautcastel est remontée de la Descente sans rien dire à personne. Elle rêve encore, la nuit, d'une femme dans l'eau. Elle ne lui répond plus.");
+  add(ALL(N(H("VF:veyra_noyee")), N(H("VF:veyra_face")), N(ANY(H("veyra:ralliee"), H("VF:veyra_contre"), H("veyra=morte")))), "Veyra de Hautcastel est remontée de la Descente en silence à personne. Elle rêve encore, la nuit, d'une femme dans l'eau. Elle ne lui répond plus.");
   // the master
   toi(ANY(H("V:maitre_ramenee"), H("maitre=sauve")), "Ta maîtresse est vivante. Elle ne sait plus écrire, elle cherche ses mots, elle a peur de l'eau qui dort. Tu lui lis sa propre lettre, un soir, à voix haute. Elle écoute jusqu'au bout. Puis elle dit : « C'est bien écrit, pour quelqu'un qui ne savait pas. » Et elle rit.",
     "Ta maîtresse est vivante. Elle ne sait plus écrire, elle cherche ses mots, elle a peur de l'eau qui dort. Elle demande de tes nouvelles à chaque voyageur. Personne ne sait lui en donner. Elle relit sa lettre, la sienne, celle que tu as laissée sur la grève, et qu'on lui a rapportée.");
   toi(ALL(H("maitre=mort"), N(H("V:maitre_ramenee"))), "Ta maîtresse est sous une pierre sans nom, au-dessus de Merle. Tu y retournes, au printemps, avec un ciseau, et tu graves son nom. Tu graves aussi, dessous, une main ouverte. Tu ne sais pas si elle aurait aimé. Tu le fais quand même.",
     "Ta maîtresse est sous une pierre sans nom, au-dessus de Merle. Personne n'y grave son nom. Les ronces poussent dessus, et une main ouverte, que quelqu'un y a peinte à la chaux, s'efface à chaque pluie.");
-  toi(ALL(H("maitre=perdu"), N(H("V:maitre_ramenee"))), "Ta maîtresse est dans l'eau. Il arrive qu'en te penchant sur une source, tu entendes *tiens ta garde haute*. Tu ne réponds pas. Tu tiens ta garde haute.",
-    "Ta maîtresse est dans l'eau. Il arrive que l'eau qui vient jusqu'à toi dise *tiens ta garde haute*. Tu ne réponds pas. Tu tiens ta garde haute.");
+  toi(ALL(H("maitre=perdu"), N(H("V:maitre_ramenee"))), "Ta maîtresse est dans l'eau. Il arrive qu'en te penchant sur une source, tu entendes *tiens ta garde haute*. Tu te tais. Tu tiens ta garde haute.",
+    "Ta maîtresse est dans l'eau. Il arrive que l'eau qui vient jusqu'à toi dise *tiens ta garde haute*. Tu te tais. Tu tiens ta garde haute.");
 
   // ------------------------------------------------ the tainted land (act IV)
   T("La Sorbe souillée");
@@ -1241,7 +1241,7 @@ function epilogue(fin) {
   else add({ present: "pip" }, "Pip s'est éteint le dernier. Il a brillé jusqu'au bout, au-dessus de l'eau, pour que tu le voies.");
   if (fin === "marche") add({ met: "coliane" }, "Coliane ne t'a jamais reparlé. On la dit dans la haute Sorbe, chasseuse de souillure, à Hautgrès qu'elle relève avec sept survivants et un vieillard. On dit qu'elle crache par terre quand on prononce ton nom. On dit qu'elle le prononce, parfois, seule.");
   else {
-    add(ALL({ met: "coliane" }, H("coliane_arc=justice")), "Coliane est rentrée à Hautgrès avec les sept qui restaient. Ils relèvent le village, pierre par pierre, au-dessus de l'écluse murée. Elle chasse encore la souillure, quand il en reste. Elle garde, à chaque printemps, une pomme pour toi, et elle finit par la manger, sans un mot.");
+    add(ALL({ met: "coliane" }, H("coliane_arc=justice")), "Coliane est rentrée à Hautgrès avec les sept qui restaient. Ils relèvent le village, pierre par pierre, au-dessus de l'écluse murée. Elle chasse encore la souillure, quand il en reste. Elle garde, à chaque printemps, une pomme pour toi, et elle finit par la manger, en silence.");
     add(ALL({ met: "coliane" }, H("coliane_arc=pitie")), "Coliane chasse la souillure dans la haute Sorbe, seule, comme avant. Elle ne sait toujours pas si elle a eu raison de laisser partir Josse. Elle a décidé de ne jamais le savoir.");
     add(ALL({ met: "coliane" }, H("coliane_arc=vengeance")), "Coliane chasse la souillure dans la haute Sorbe, seule. Elle n'a plus rien de propre, dit-elle. Elle garde un couteau de moins dans sa ceinture, celui de Hautgrès. Elle l'a laissé dans le camp de Vaux.");
     add(ALL({ met: "coliane" }, N(ANY(H("coliane_arc=justice"), H("coliane_arc=pitie"), H("coliane_arc=vengeance")))), "Coliane chasse la souillure, quelque part dans les Marches. Elle n'est jamais retournée à Hautgrès. Elle dit qu'elle ira quand il n'y aura plus d'écluse nulle part.");
@@ -1264,7 +1264,7 @@ function epilogue(fin) {
   add(ALL({ met: "thavary" }, H("thavary:trahit"), ANY(H("thavary_v=vaincue"), H("thavary_v=remonte"))), "Thavary de Thavar est remontée chez sa grand-mère. Elle a laissé son épée au fort de la Descente. Elle s'entraîne avec un bâton, dans le verger, tous les matins, comme une novice.");
   add(ALL({ met: "thavary" }, H("thavary:trahit"), N(ANY(H("thavary_v=rendu"), H("thavary_v=garde"), H("thavary_v=vaincue"), H("thavary_v=remonte")))), "Thavary de Thavar est partie à la chapelle de la Descente, et on ne l'a plus revue. On dit qu'elle sert Vel-Orin, ou personne. Sa grand-mère met encore son couvert.");
   add(ALL({ met: "thavary" }, N(H("thavary:trahit")), N(H("VF:tient_thavary")), H("thavary_arc=honneur")), "Thavary de Thavar est rentrée au manoir. Elle a payé les dettes de sa maison, toutes, une à une, avec ce qu'elle avait et ce qu'elle a gagné. Il ne lui reste rien. Elle n'a jamais eu l'air aussi riche.");
-  add(ALL({ met: "thavary" }, N(H("thavary:trahit")), N(H("VF:tient_thavary")), H("thavary_arc=liberee")), "Thavary de Thavar a laissé le manoir à sa grand-mère et elle est partie sur les routes, sans dette et sans nom à porter. Elle dort sur le dos, les bras ouverts. Elle ronfle.");
+  add(ALL({ met: "thavary" }, N(H("thavary:trahit")), N(H("VF:tient_thavary")), H("thavary_arc=liberee")), "Thavary de Thavar a laissé le manoir à sa grand-mère et elle est partie sur les routes, délivrée de sa dette et du poids de son nom. Elle dort sur le dos, les bras ouverts. Elle ronfle.");
   add(ALL({ met: "thavary" }, N(H("thavary:trahit")), N(H("VF:tient_thavary")), H("thavary_arc=vengeance")), "Thavary de Thavar a remis l'épée de Thavar au mur. Elle va de cour en cour, et elle raconte, partout, ce que les cinq ont fait. On la reçoit de moins en moins. Elle s'en moque.");
   add(ALL({ met: "thavary" }, N(H("thavary:trahit")), N(H("VF:tient_thavary")), N(ANY(H("thavary_arc=honneur"), H("thavary_arc=liberee"), H("thavary_arc=vengeance")))), "Thavary de Thavar est rentrée au manoir, auprès de sa grand-mère. Elle taille le verger. Elle ne dit pas ce qu'elle a vu sous la montagne.");
 
@@ -1324,7 +1324,7 @@ Object.assign(P, {
     fx: { flag: ["fin:libere", "fin:atteinte"], quest: "V_sceau", ep: ["histoire", 10000] },
     text: [
       L(H("VF:gueri"), "Il vous faut trois jours pour remonter. Il ne sait plus marcher. Il réapprend sur les marches de l'escalier des mains, une à une, appuyé sur ton épaule, puis sur un bâton, puis sur rien. À chaque étage, il s'arrête. Au puits, il regarde l'eau qui baisse. À la forge, il touche l'enclume d'Hildre. À la chapelle, il s'assied sur le banc d'un moine. Au fort, il demande où sont Aldar et Orine, et on lui montre deux prie-Dieu tournés dos à dos, et il rit."),
-      "La porte de bronze s'ouvre devant vous sans qu'il faille la pousser. Dehors, il neige. Malvoran s'arrête sur le seuil, les yeux fermés, le visage levé, et il laisse la neige lui tomber sur la figure, longtemps, sans rien dire. Puis il ouvre la bouche et il en attrape un flocon, comme un enfant.",
+      "La porte de bronze s'ouvre devant vous sans qu'il faille la pousser. Dehors, il neige. Malvoran s'arrête sur le seuil, les yeux fermés, le visage levé, et il laisse la neige lui tomber sur la figure, longtemps, en silence. Puis il ouvre la bouche et il en attrape un flocon, comme un enfant.",
       "La Brèche est fermée. Pas scellée : fermée, comme se ferme une plaie, avec une cicatrice. On peut descendre l'escalier des mains, encore, jusqu'au fond. Il n'y a plus d'eau noire. Il y a une grotte, et une porte qui ne donne sur rien, et des milliers de mains gravées, toutes tournées vers le bas, comme pour retenir quelque chose qui n'est plus là. La souillure ne monte plus. Ce qui est sorti en quatre cents ans reste à laver, et ça se lave mieux, depuis : l'eau claire mord dessus comme elle n'a jamais mordu.",
       "Malvoran passe l'hiver à Hautecombe, dans une cellule des frères, à manger de la soupe et à dormir. Au printemps, il part. Il a demandé une trousse de cuir et un bol en bois. On lui en a donné un neuf. Il l'a fêlé exprès, pour pouvoir le réparer avec du fil de lin. Il va de village en village, dans la Sorbe, il soigne la fièvre grise, il recoud les bûcherons. Il ne dit pas son nom aux gens qu'il soigne. Ils le savent quand même, au bout d'un moment. Ça ne leur fait pas peur. Ça leur fait drôle.",
     ].concat(cles("libere"), epilogue("libere"), [
@@ -1357,13 +1357,13 @@ Object.assign(P, {
     fx: { flag: ["fin:marche", "fin:atteinte"], quest: "V_sceau", ep: ["histoire", 10000] },
     text: [
       L(H("VF:oui"), "Tu remontes. La Descente est silencieuse derrière toi. Personne ne te barre le chemin. Les noyés du puits te regardent passer sans rien demander. À la porte de bronze, il neige, et la neige est blanche, et tout a l'air en ordre."),
-      L(H("VF:offre_entendue"), "Elle tient parole. Elle a toujours tenu parole. Elle ne monte pas plus haut que les puits qu'elle choisit, et elle n'en choisit pas beaucoup. Un par vallée. Un par an. Les gens s'y noient un peu, comme ils se sont toujours noyés. Pas plus."),
+      L(H("VF:offre_entendue"), "Elle tient parole. Elle a toujours tenu parole. Elle ne monte haut comme les puits qu'elle choisit, et elle n'en choisit pas beaucoup. Un par vallée. Un par an. Les gens s'y noient un peu, comme ils se sont toujours noyés. Pas plus."),
       "La paix vient. Aldaran et Vel-Orin signent au gué de l'Isarde un traité que personne n'a vraiment négocié, et qui tient. Les récoltes sont bonnes. La fièvre grise recule. Les gens disent que le pays va mieux, et c'est vrai. Ils ne savent pas pourquoi. Ils n'ont pas besoin de savoir. Elle, dans l'ombre, dans les puits, dans les citernes, écoute, et choisit, et règne, et personne ne le voit.",
       "Sous la Fenne, quelqu'un tient encore la porte. Un peu moins chaque année. Assez.",
       "Tu vis longtemps. Très longtemps. Ceux que tu aimes aussi, comme elle l'avait promis. Tu ne bois plus d'eau que tu n'as pas regardée. Tu la regardes, et elle te regarde, et elle te dit bonsoir, avec ta voix d'enfant.",
     ].concat(cles("marche"), epilogue("marche"), [
       "Sur la troisième borne des Trois-Bornes, la sixième main est toujours martelée. Personne ne s'en souvient plus. Les enfants comptent cinq mains, et ils ont raison.",
-      "Et chaque année, à la même saison, un puits de la Sorbe noircit, et quelqu'un s'y penche, et entend la voix de quelqu'un qu'il a perdu. Tu sais lequel avant tout le monde. Tu ne dis rien. Tu as dit oui.",
+      "Et chaque année, à la même saison, un puits de la Sorbe noircit, et quelqu'un s'y penche, et entend la voix de quelqu'un qu'il a perdu. Tu sais lequel avant tout le monde. Tu te tais. Tu as dit oui.",
     ]) },
   F_triomphe: { act: "V", title: "La Voix triomphe", end: true, place: "VF_l_fond",
     fx: { flag: ["fin:triomphe", "fin:atteinte"], quest: "V_sceau", ep: ["histoire", 6000] },

@@ -53,7 +53,7 @@ module.exports = {
 
   N_caves: P({ title: "Les caves",
     text: [
-      "Les escaliers sont vides : tout le monde est dans la salle. Tu descends, dix marches, cent marches. Les caves de la tour sont des salles basses, voûtées, sans portes, et dedans, assis par terre, en rang, les gens de Hautvent. Ils ne sont pas attachés. Ils n'en ont pas besoin. Ils regardent devant eux.",
+      "Les escaliers sont vides : tout le monde est dans la salle. Tu descends, dix marches, cent marches. Les caves de la tour sont des salles basses, voûtées, sans portes, et dedans, assis par terre, en rang, les gens de Hautvent. Aucune corde ne les retient : ce serait inutile. Ils regardent devant eux.",
       { if: { has: "ysolde:voie=deserte" }, text: "Rodric les appelle par leurs noms, un par un, à voix basse. Certains tournent la tête. Pas tous." },
       { if: { not: { has: "ysolde:voie=deserte" } }, text: "Tu reconnais Maëlle. Elle lève les yeux vers toi. Elle ne te reconnaît pas." },
     ],
@@ -179,7 +179,7 @@ module.exports = {
   N_chant_corbe: P({ title: "Le chant des morts",
     text: [
       "Tu bats le tambour. Tu chantes les trois vers. Ta voix porte, au-dessus des cloches. Les choses, en bas, s'arrêtent. Elles lèvent la tête vers toi. L'une d'elles, la plus petite, se met à se balancer.",
-      "Elles ne repartent pas. Elles ne montent plus.",
+      "Elles restent suspendues à mi-hauteur.",
     ],
     choices: [{ label: "Descendre vers la tour", to: "N_place" }] }),
 
@@ -215,13 +215,13 @@ module.exports = {
   N_aube: P({ title: "L'aube sur Pallanche",
     fx: { flag: "acte1:fin", ep: ["histoire", 5000], catchup: 5, catchupAll: true, catchupWhy: "la Nuit des Cloches" },
     text: [
-      "Vous sortez de Pallanche par une poterne des Teinturiers que le jeune homme maigre connaît, et vous marchez jusqu'à l'aube, jusqu'aux collines du nord. Personne ne vous suit. Personne ne se souvient qu'il faudrait vous suivre.",
+      "Vous sortez de Pallanche par une poterne des Teinturiers que le jeune homme maigre connaît, et vous marchez jusqu'à l'aube, jusqu'aux collines du nord. La route derrière vous reste vide. Ceux qui devaient vous suivre l'ont oublié.",
       "Au lever du jour, vous vous asseyez dans l'herbe, au sommet d'une colline, et vous regardez la ville en bas.",
       { if: { any: [{ has: "nuit:cordes=coupees" }, { has: "nuit:roue=bloquee" }] }, text: "Le centre est blanc. Le sud ne l'est qu'à moitié. Par endroits, des toits rouges, des rues grises, des gens qui marchent comme si de rien n'était." },
       { if: { not: { any: [{ has: "nuit:cordes=coupees" }, { has: "nuit:roue=bloquee" }] } }, text: "Pallanche est blanche, d'un mur à l'autre, sous le soleil de juillet. Les cent clochers dépassent de la neige comme des mâts." },
       { if: { has: "nuit:chant=voix" }, text: "Sur la place aux Clercs, une tache grise, ronde, où la neige a fondu." },
       "Vous vous dites vos noms. Ça prend du temps. Vous les répétez, deux fois, trois fois, pour être sûrs.",
-      { if: { all: [{ has: "nuit:enfant_hylas" }, { not: { has: "hylas:oublie_enfant" } }] }, text: "Le vieil aveugle ne dit pas grand-chose. Il est assis à côté de toi, et de temps en temps, il tourne la tête vers toi, comme pour vérifier que tu es toujours là." },
+      { if: { all: [{ has: "nuit:enfant_hylas" }, { not: { has: "hylas:oublie_enfant" } }] }, text: "Le vieil aveugle parle peu. Il est assis à côté de toi, et de temps en temps, il tourne la tête vers toi, comme pour vérifier que tu es toujours là." },
       { with: "rodric", text: "Rodric Trois-Cloches est assis un peu à l'écart, sa hache sur les genoux, et regarde la chevalière de Brenne comme on regarde un problème qu'on n'a pas encore résolu." },
       "Au nord, derrière les collines, les Hautes-Combes. Au-delà, ce que les clans appellent l'Outre-Blanc. Au sud, Vasselin, la cour, la Couronne. Quelqu'un, quelque part, a commencé à effacer le royaume. Il ne s'arrêtera pas à Pallanche.",
     ],

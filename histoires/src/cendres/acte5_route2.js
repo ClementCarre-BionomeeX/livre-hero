@@ -7,7 +7,7 @@ var BACK = [{ back: "V_r_chemin" }];
 module.exports = {
   V_r_moulin: P({ title: "Le moulin à vent",
     text: [
-      "Sur une butte, à gauche de la route, un moulin à vent. Il n'y a pas de vent. Il n'y en a pas eu de la nuit. Les ailes tournent quand même, lentement, en grinçant, et la neige tombe à travers, sans être dérangée.",
+      "Sur une butte, à gauche de la route, un moulin à vent. L'air est immobile depuis la veille. Les ailes tournent quand même, lentement, en grinçant, et la neige tombe à travers, sans être dérangée.",
       "La porte est ouverte. Dedans, la meule tourne, la farine coule dans un sac, et un vieux meunier, enfariné jusqu'aux sourcils, tient le sac et compte. À voix haute. *Trois cent douze. Trois cent treize.* Il ne s'arrête pas pour te regarder. « Si je m'arrête de compter, dit-il, entre deux sacs, je m'arrête tout court. Je l'ai senti, vers minuit. Alors je compte. »",
     ],
     choices: [
@@ -21,7 +21,7 @@ module.exports = {
     ],
     choices: BACK }),
   V_r_moulin_nom: P({ title: "Le meunier",
-    text: ["« Mon nom ? » Il continue de compter, en dessous, du bout des lèvres. Il cherche. Ses sourcils se rapprochent. *Trois cent vingt.* « Je ne sais plus, dit-il. Mais je sais combien de sacs. » Il te regarde, et il a l'air de trouver ça juste, comme un marché honnête. « On ne peut pas tout garder. J'ai gardé ça. » *Trois cent vingt et un.* Tu le laisses. Tu ne sais pas s'il a eu raison. Les ailes tournent."],
+    text: ["« Mon nom ? » Il continue de compter, en dessous, du bout des lèvres. Il cherche. Ses sourcils se rapprochent. *Trois cent vingt.* « Je ne sais plus, dit-il. Mais je sais combien de sacs. » Il te regarde, et il a l'air de trouver ça juste, comme un marché honnête. « On ne peut pas tout garder. J'ai gardé ça. » *Trois cent vingt et un.* Tu le laisses. A-t-il eu raison ? Les ailes tournent."],
     choices: BACK }),
   V_r_chien: P({ title: "Le chien",
     text: [

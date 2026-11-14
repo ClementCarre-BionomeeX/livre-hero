@@ -7,7 +7,7 @@ function P(o) { return Object.assign({}, N, o); }
 module.exports = {
   II_N3_depart: P({ title: "Les traces vers l'est", place: "lacnoir",
     text: [
-      "Au matin, les traces du géant traversent la neige de l'autre rive, droit vers l'est, chacune grande comme une barque. Il ne se cache pas. Il n'a jamais eu besoin de se cacher.",
+      "Au matin, les traces du géant traversent la neige de l'autre rive, droit vers l'est, chacune grande comme une barque. Il marche à découvert, comme il l'a toujours fait.",
       "Askel ne vient pas. Elle redescend dans le boyau, s'assied devant le mur de glace, et te fait signe de partir. « Quelqu'un doit chanter, dit-elle. Je ne sais rien faire d'autre, de toute façon. »",
       { if: { has: "nord:aieule_glace" }, text: "Sa voix est encore cassée de la veille. Elle chantera quand même." },
     ],
@@ -15,7 +15,7 @@ module.exports = {
 
   II_N3_combe: P({ title: "Les mules", place: null,
     text: [
-      "Dans la combe, une caravane. Six mules, bâtées, chargées de sacs et de couvertures, debout dans la neige, en file, attachées l'une à l'autre. Elles ne bougent pas. Elles sont couvertes de givre jusqu'aux yeux. Elles sont mortes debout.",
+      "Dans la combe, une caravane. Six mules, bâtées, chargées de sacs et de couvertures, debout dans la neige, en file, attachées l'une à l'autre. Elles restent immobiles. Elles sont couvertes de givre jusqu'aux yeux. Elles sont mortes debout.",
       "Au bout de la file, assise dans la neige, une vieille femme en laine blanche prie, les mains jointes sur la longe de la première mule. Elle lève la tête. Elle a les yeux les plus fatigués que tu aies jamais vus.",
       "« Elles ont eu peur, dit-elle. Ça les a tuées plus vite que le froid. » Elle se lève, avec peine. « Je suis Ombeline, de l'Hospice des Neiges. Le prieur des Veilleurs m'a envoyé un pigeon. Il disait : *venez vite, et apportez de quoi enterrer.* »",
       { with: "ysolde", after: "ilse:sauvee", text: "Ysolde la reconnaît avant toi. Elle s'avance. Ombeline la regarde, sourit à peine. « La capitaine et la petite fiévreuse. Elle va bien. Elle demande après vous. »" },
@@ -26,12 +26,12 @@ module.exports = {
     ] }),
 
   II_N3_combe_sacs: P({ title: "Les sacs", place: null,
-    text: ["Du pain dur, des onguents, des couvertures, des linceuls. Ombeline te regarde faire sans rien dire. Quand tu as fini, elle prend la longe de la première mule, la détache, la pose dans la neige. Puis elle te suit. Tu ne lui as pas demandé de venir. Elle vient quand même."],
+    text: ["Du pain dur, des onguents, des couvertures, des linceuls. Ombeline te regarde faire en silence. Quand tu as fini, elle prend la longe de la première mule, la détache, la pose dans la neige. Puis elle te suit. Tu ne lui as pas demandé de venir. Elle vient quand même."],
     choices: [{ fx: { join: "ombeline", flag: "nord:ombeline" }, back: "@route" }] }),
 
   II_N3_combe_ombeline: P({ title: "Mère Ombeline", place: null,
     text: [
-      "Elle marche lentement, mais elle ne s'arrête jamais. Elle ne se plaint de rien. Au bout d'une heure, tu remarques qu'elle murmure, tout le temps, très bas, comme Hylas compte ses pas.",
+      "Elle marche lentement, d'un pas égal, et elle porte sa fatigue en silence. Au bout d'une heure, tu remarques qu'elle murmure, tout le temps, très bas, comme Hylas compte ses pas.",
       "Tu lui demandes ce qu'elle dit. « Leurs noms, dit-elle. Ceux qui sont morts chez moi. Je les dis, pour qu'ils soient dits. » Elle sourit. « Il y en a beaucoup. Ça occupe la route. »",
     ],
     choices: [{ back: "@route" }] }),
@@ -39,7 +39,7 @@ module.exports = {
   II_N3_porte: P({ title: "Le moutier", place: null,
     text: [
       "Le moutier des Veilleurs est bâti dans le flanc de la combe, face au col, comme un poing fermé. Des murs gris, une tour carrée, une seule porte. Trois cents ans qu'on y veille, nuit et jour, sans que personne en Esquarre sache très bien sur quoi.",
-      "Il est blanc. Pas de neige : de glace. Une couche épaisse, lisse, bleutée, qui coule des toits jusqu'au sol comme la cire d'un cierge, et qui a scellé la porte, les fenêtres, les gouttières. Sur le toit, au milieu, la glace forme une sorte de creux, très grand, avec cinq longues traînées.",
+      "Il est blanc. De glace. Une couche épaisse, lisse, bleutée, qui coule des toits jusqu'au sol comme la cire d'un cierge, et qui a scellé la porte, les fenêtres, les gouttières. Sur le toit, au milieu, la glace forme une sorte de creux, très grand, avec cinq longues traînées.",
       "Une main. Posée à plat.",
     ],
     choices: [
@@ -53,7 +53,7 @@ module.exports = {
 
   II_N3_porte_ombeline: P({ title: "La porte des morts", place: null,
     text: [
-      "Il y a une porte basse, au pied du mur nord, à moitié enterrée, par où les moines sortent leurs morts vers le cimetière. Personne ne la regarde. La glace l'a épargnée, comme si elle n'existait pas.",
+      "Il y a une porte basse, au pied du mur nord, à moitié enterrée, par où les moines sortent leurs morts vers le cimetière. Personne ne la regarde. La glace l'a épargnée, comme une ombre.",
       { with: "ombeline", text: "Ombeline la connaît. Elle l'a déjà franchie, dans l'autre sens, derrière des cercueils." },
     ],
     choices: [{ label: "Entrer par la porte des morts", to: "@route" }] }),
@@ -61,7 +61,7 @@ module.exports = {
   II_N3_cloitre: P({ title: "Le cloître", place: "moutier", hub: true,
     text: [
       { first: true, text: "Le cloître est intact, carré, avec un puits au milieu. Et partout, les moines. Dans la glace. Un qui balayait, le balai levé. Deux qui parlaient, la bouche ouverte. Un qui courait vers la chapelle, un pied en l'air. Ils sont pris dans des blocs de glace claire, bien droits, comme des saints dans leurs niches." },
-      "Il fait très froid, et c'est un froid silencieux : pas un craquement, pas un souffle. Juste, de temps en temps, quelque part, le bruit d'une goutte qui tombe.",
+      "Il fait très froid, et c'est un froid d'un silence total. Juste, de temps en temps, quelque part, le bruit d'une goutte qui tombe.",
       "Vers le nord, par les arcades, on voit le col de l'Ourse, très proche. Il y a sur lui une lumière blanche, même en plein jour.",
     ],
     choices: [
@@ -149,7 +149,7 @@ module.exports = {
     text: [
       "Le bois de la reliure prend mal, puis d'un coup. Le parchemin se tord, noircit, et les cinq signatures, en bas de la première page, brillent une seconde en rouge avant de disparaître.",
       "Arnoul regarde le feu. « Trois cents ans », dit-il. Il ne dit pas si c'est bien.",
-      { with: "hylas", text: "Hylas, à la porte, a l'air d'un homme qu'on frappe. Il n'a rien dit pour t'arrêter. Il ne dira rien après." },
+      { with: "hylas", text: "Hylas, à la porte, a l'air d'un homme qu'on frappe. Il t'a laissé faire en silence, et ce silence durera." },
     ],
     choices: [{ back: "II_N3_cloitre" }] }),
 
@@ -168,7 +168,7 @@ module.exports = {
   II_N3_chapelle_ombeline: P({ title: "Ce qu'elle prend", place: "moutier",
     text: [
       "Elle va de l'un à l'autre, lentement, la main sur la glace, en face de chaque visage. Elle reste un moment, les yeux fermés. Puis elle passe au suivant. Douze moines. Ça prend une heure.",
-      "Quand elle a fini, elle s'assied sur la marche de l'autel. Elle a l'air plus vieille. Elle dit : « Un avait tué son frère, avant d'entrer ici. Un autre avait laissé une femme, à Vasselin, enceinte. Un autre n'avait jamais cru en rien, pas un seul jour, en cinquante ans de prières. » Elle sourit. « Maintenant, c'est à moi. Ils sont tranquilles. »",
+      "Quand elle a fini, elle s'assied sur la marche de l'autel. Elle a l'air plus vieille. Elle dit : « Un avait tué son frère, avant d'entrer ici. Un autre avait laissé une femme, à Vasselin, enceinte. Un autre avait douté de tout, chaque jour, pendant cinquante ans de prières. » Elle sourit. « Maintenant, c'est à moi. Ils sont tranquilles. »",
       "Dans la glace, le moine au bout de la rangée a cessé de bouger les lèvres.",
     ],
     choices: [{ back: "II_N3_cloitre" }] }),
@@ -227,7 +227,7 @@ module.exports = {
     choices: [{ fx: { conf: { ysolde: 5 } }, back: "II_N3_soir" }] }),
 
   II_N3_nuit_pie: P({ title: "Tiennot", place: "moutier",
-    text: ["Pie est assis à côté de Tiennot et lui apprend à faire disparaître une noix sous trois gobelets de bois. Le novice ne rit pas, mais il regarde, et ses mains ne tremblent plus. « Quand on a peur, dit Pie sans te regarder, il faut occuper les mains. La tête suit. »"],
+    text: ["Pie est assis à côté de Tiennot et lui apprend à faire disparaître une noix sous trois gobelets de bois. Le novice reste grave, mais il regarde, et ses mains se sont calmées. « Quand on a peur, dit Pie sans te regarder, il faut occuper les mains. La tête suit. »"],
     choices: [{ fx: { conf: { pie: 5 } }, back: "II_N3_soir" }] }),
 
   II_N3_nuit_hylas: P({ title: "Les cinq", place: "moutier",
@@ -302,7 +302,7 @@ module.exports = {
     text: [
       "À l'aube, les traces repartent vers le col de l'Ourse. Elles s'arrêtent au bord de la déchirure blanche. Puis elles longent le col, vers le nord, vers les cirques où personne ne va.",
       { if: { not: { has: "nord:arnoul_pris" } }, text: "Le prieur Arnoul est mort dans la nuit, dans son fauteuil, d'avoir vécu quatre-vingt-dix ans. La glace ne l'a pas pris. Il a gardé son nom." },
-      { with: "enfant", text: "L'enfant de Sauvelune regarde les traces. Il ne dit rien. Il a pris son sac, et il attend." },
+      { with: "enfant", text: "L'enfant de Sauvelune regarde les traces. Il se tait. Il a pris son sac, et il attend." },
       "Tiennot sort du four. Il demande s'il peut venir. Il n'a nulle part ailleurs.",
       "Tu sais ce qu'il faut faire. Tu le sais depuis que tu as vu la chose sur le lac. On ne ferme pas un col tant qu'un monstre pareil passe dessus quand il veut. Il faut le chasser.",
     ],

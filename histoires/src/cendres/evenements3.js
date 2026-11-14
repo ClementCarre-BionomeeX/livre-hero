@@ -29,7 +29,7 @@ module.exports = {
     text: ["Dans le coffre, derrière le balancier, collé au bois, un papier jauni. Une écriture d'enfant : *Ici on a caché le chat le jour où le notaire est venu. Il s'appelait Moustache. On l'a pas donné.* Tu refermes. Le balancier continue. Quelque part, il y a eu une famille, un notaire, un chat qu'on n'a pas donné. L'horloge s'en souvient. C'est tout ce qu'elle sait, mais elle le sait."],
     choices: BACK }),
   E3_horloge_cle: P({ title: "La clé",
-    text: ["La clé est accrochée à un clou, à l'intérieur du coffre, là où on l'accroche dans toutes les maisons. Tu la tournes. Le ressort se tend, cran par cran. Tu ne sais pas pourquoi tu le fais. Personne n'a besoin de cette heure-là. Mais quelqu'un, autrefois, la remontait chaque dimanche après la messe, et l'horloge l'attend. Tu remontes jusqu'au bout. Elle repart pour huit jours. Huit jours, ici, ça ne veut rien dire. Elle les comptera quand même."],
+    text: ["La clé est accrochée à un clou, à l'intérieur du coffre, là où on l'accroche dans toutes les maisons. Tu la tournes. Le ressort se tend, cran par cran. Tu le fais d'instinct. Personne n'a besoin de cette heure-là. Mais quelqu'un, autrefois, la remontait chaque dimanche après la messe, et l'horloge l'attend. Tu remontes jusqu'au bout. Elle repart pour huit jours. Huit jours, ici, ça ne veut rien dire. Elle les comptera quand même."],
     choices: BACK }),
   E3_danseurs: P({ title: "Le bal",
     text: [
@@ -41,7 +41,7 @@ module.exports = {
       { label: "Passer au large", to: "@route" },
     ] }),
   E3_danseurs_vieux: P({ title: "Une bourrée",
-    text: ["Tu t'inclines devant lui. Il se redresse. Il te prend les mains. Il danse comme on danse dans les villages, en frappant du pied, en tournant trop vite, et il rit. Il ne sait pas qui tu es. Toi non plus, tu ne sais pas qui il est. À la fin de la bourrée, il te lâche les mains, et il s'incline de nouveau. Devant personne. Tu as pris la place un moment. Elle est de nouveau vide. Il avait l'air content quand même."],
+    text: ["Tu t'inclines devant lui. Il se redresse. Il te prend les mains. Il danse comme on danse dans les villages, en frappant du pied, en tournant trop vite, et il rit. Vous êtes deux inconnus l'un pour l'autre. À la fin de la bourrée, il te lâche les mains, et il s'incline de nouveau. Devant personne. Tu as pris la place un moment. Elle est de nouveau vide. Il avait l'air content quand même."],
     choices: BACK }),
   E3_berger: P({ title: "Le berger sans moutons",
     text: [

@@ -30,7 +30,7 @@ module.exports = {
 
   IV_N_galeries: P({ title: "Le Nid", place: "moutier", hub: true,
     text: [
-      { first: true, text: "Le fond de la crevasse ouvre sur des galeries. Pas des grottes : des couloirs, réguliers, ronds, creusés dans la glace par quelque chose qui a pris son temps. Les parois sont lisses comme du verre. Il y a de la lumière, une lumière pâle, qui vient de la glace elle-même, de choses prises dedans." },
+      { first: true, text: "Le fond de la crevasse ouvre sur des galeries. Des couloirs, réguliers, ronds, creusés dans la glace par quelque chose qui a pris son temps. Les parois sont lisses comme du verre. Il y a de la lumière, une lumière pâle, qui vient de la glace elle-même, de choses prises dedans." },
       "Cinq galeries partent de la salle où tu te tiens. De l'une monte un bruit de grattement, comme des petites griffes. Une autre sent la cire et l'écorce. Une troisième s'ouvre sur du vide, et un pont. La quatrième descend, et souffle le froid. De la cinquième, très basse, viennent des voix.",
     ],
     choices: [
@@ -47,7 +47,7 @@ module.exports = {
       "Une salle basse, ronde, et par terre, des choses. Une cuillère. Un gant d'enfant. Une toupie. Un dé. Un sabot. Des choses perdues, des centaines, couvertes d'une fine couche de givre, et sous le givre, elles bougent.",
       "Tu t'approches. Le gant d'enfant a des pattes. Pas encore tout à fait : quatre bosses, sous la laine, qui poussent. Le dé a un museau. La toupie s'est allongée et tourne lentement sur elle-même, et elle a deux yeux de neige.",
       "C'est ainsi qu'ils naissent. D'une chose oubliée, qui a attendu assez longtemps qu'on vienne la chercher, et que personne n'est venu chercher.",
-      { with: "gaspard", text: "Gaspard regarde longtemps une pelle à four, dans un coin, à moitié changée. Il ne dit rien. Il la ramasse, et il la serre contre lui, et la pelle cesse de bouger." },
+      { with: "gaspard", text: "Gaspard regarde longtemps une pelle à four, dans un coin, à moitié changée. Il se tait. Il la ramasse, et il la serre contre lui, et la pelle cesse de bouger." },
     ],
     choices: [
       { label: "Les écraser avant qu'ils éclosent", to: "IV_N_berceaux_combat" },
@@ -60,7 +60,7 @@ module.exports = {
     text: ["Au premier sabot que tu écrases, les autres éclosent d'un coup, tous ensemble, comme une couvée qu'on dérange. Ils sont petits, maladroits, affamés. Ils ont faim de toi."],
     choices: [] }),
   IV_N_berceaux_fin: P({ title: "Le givre", place: "moutier",
-    text: ["Quand c'est fini, il ne reste par terre que des choses ordinaires, cassées, mouillées. Une cuillère tordue. Un gant déchiré. Elles ne bougent plus. Tu ne sais pas si tu as tué quelque chose, ou seulement empêché quelque chose de naître. Tu ne sais pas s'il y a une différence."],
+    text: ["Quand c'est fini, il ne reste par terre que des choses ordinaires, cassées, mouillées. Une cuillère tordue. Un gant déchiré. Elles ne bougent plus. As-tu tué quelque chose, ou seulement empêché quelque chose de naître ? Y a-t-il une différence ?"],
     choices: [{ back: "IV_N_galeries" }] }),
   IV_N_berceaux_sac: P({ title: "Le sac", place: "moutier",
     text: [
@@ -84,7 +84,7 @@ module.exports = {
   IV_N_reserve_libre: P({ title: "Les noms", place: "moutier",
     text: [
       "La glace craque d'un bout à l'autre de la salle, en une longue plainte, et cède. Les bandes d'écorce tombent par terre, par milliers, en tas, avec un bruit de feuilles mortes.",
-      "Et les noms qui étaient dessus montent. Pas en lumière, pas en neige : en voix. Toute la salle se remplit de voix qui disent chacune un nom, une fois, à voix basse, et s'éteignent. Ça dure longtemps. Ça dure jusqu'à ce que le dernier ait été dit.",
+      "Et les noms qui étaient dessus montent. En voix. Toute la salle se remplit de voix qui disent chacune un nom, une fois, à voix basse, et s'éteignent. Ça dure longtemps. Ça dure jusqu'à ce que le dernier ait été dit.",
       { with: "corbe", text: "Là-haut, sur la montagne, quelque part, quelqu'un vient peut-être de retrouver le nom de son chien." },
       { without: "corbe", text: "Là-haut, sur la montagne, quelque part, quelqu'un vient peut-être de retrouver un nom qu'il croyait donné pour toujours." },
     ],
@@ -134,8 +134,8 @@ module.exports = {
     choices: [] }),
   IV_N_gaspard: P({ title: "Gaspard et la Glaneuse", place: "moutier",
     text: [
-      "Gaspard s'avance seul au milieu de la salle. Il s'assied par terre, devant elle, en tailleur, comme on s'assied devant un four pour surveiller la cuisson. Il ne dit rien pendant longtemps. Elle le renifle.",
-      "Puis il parle. Pas en mots. Ou en mots que tu ne connais pas, des mots de pâte et de levain, des mots de quelqu'un qui a été une chose blanche et affamée et qui est redevenu un homme parce qu'un enfant lui a donné du pain. Ça dure une heure. Tu ne bouges pas.",
+      "Gaspard s'avance seul au milieu de la salle. Il s'assied par terre, devant elle, en tailleur, comme on s'assied devant un four pour surveiller la cuisson. Il se tait longtemps. Elle le renifle.",
+      "Puis il parle. Pas en mots. Ou en mots que tu ne connais pas, des mots de pâte et de levain, des mots de quelqu'un qui a été une chose blanche et affamée et qui est redevenu un homme parce qu'un enfant lui a donné du pain. Ça dure une heure. Tu restes immobile.",
       "Quand il se relève, la Glaneuse a posé la tête sur ses pattes. « Elle ne savait pas qu'on pouvait revenir, dit Gaspard. Personne ne le lui avait dit. Elle va remonter le col, au printemps, quand il se rouvrira. Avec les petits. Ils ne mangeront plus d'enfants. Je lui ai promis qu'on leur laisserait des miettes, au cairn du col. Des petites choses. Des choses qu'on peut perdre. »",
       "Il ouvre la main. Trois petites lueurs, qu'elle gardait sous son ventre et qu'elle lui a rendues. Trois noms. Ceux des enfants du moutier. Il les verse dans ta paume, et tu refermes les doigts dessus.",
     ],
@@ -153,7 +153,7 @@ module.exports = {
     ],
     choices: [{ label: "Remonter", to: "IV_N_sortie" }] }),
   IV_N_fuite: P({ title: "La spirale", place: "moutier",
-    text: ["Tu remontes la spirale en courant, sans te retourner, avec derrière toi le bruit d'un très grand corps qui ne se presse pas. Elle ne te suit pas jusqu'en haut. Elle n'en a pas besoin. Elle sait que tu ne redescendras pas."],
+    text: ["Tu remontes la spirale en courant, sans te retourner, avec derrière toi le bruit d'un très grand corps qui ne se presse pas. Elle s'arrête à mi-pente. Elle sait que tu resteras en haut."],
     choices: [{ label: "Remonter à la corde", to: "IV_N_remonter" }] }),
 
   IV_N_sortie: P({ title: "Trois noms", place: "moutier",

@@ -43,11 +43,11 @@ module.exports = {
     text: ["Tu chantes la chanson du batelier et de la meunière, celle qu'on chante sur les quais à la fermeture des tavernes. Au deuxième couplet, les dames rougissent. Au troisième, elles rient derrière leurs éventails. Au quatrième, la plus jeune chante le refrain avec toi. Elle le connaissait. Elle ne dira jamais où elle l'a appris. Quand le charron arrive, elles ont oublié qu'elles s'ennuyaient."],
     choices: BACK }),
   E_c_essieu_ballade: P({ title: "La ballade",
-    text: ["Tu chantes la ballade. Elles écoutent poliment. À la fin, la plus jeune dit : « C'est beau. C'est triste. C'est vrai, tout ça ? » Tu ne sais pas quoi répondre. Elle hoche la tête, comme si ton silence était une réponse, et elle regarde le pont derrière vous, longtemps, sans rien dire. Le charron arrive. On repart."],
+    text: ["Tu chantes la ballade. Elles écoutent poliment. À la fin, la plus jeune dit : « C'est beau. C'est triste. C'est vrai, tout ça ? » Les mots te manquent. Elle hoche la tête, comme si ton silence était une réponse, et elle regarde le pont derrière vous, longtemps, sans rien dire. Le charron arrive. On repart."],
     choices: BACK }),
   E_c_escorte: P({ title: "Le cavalier de l'escorte",
     text: [
-      "Un cavalier de l'escorte se laisse glisser à hauteur de la voiture des musiciens. Un garçon de vingt ans, la cuirasse trop grande, un duvet blond sur la lèvre. Il chevauche longtemps à côté de ta portière sans rien dire, en rougissant.",
+      "Un cavalier de l'escorte se laisse glisser à hauteur de la voiture des musiciens. Un garçon de vingt ans, la cuirasse trop grande, un duvet blond sur la lèvre. Il chevauche longtemps à côté de ta portière en silence, en rougissant.",
       "Puis il dit, très vite, en regardant devant lui : « Ma mère vous a entendue chanter, à Vasselin, l'an dernier. Elle est morte cet hiver. Elle en parlait tout le temps. » Il serre les rênes. « Je voulais vous le dire. C'est tout. »",
     ],
     choices: [

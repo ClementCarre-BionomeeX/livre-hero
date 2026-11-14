@@ -6,7 +6,7 @@ function P(o) { return Object.assign({}, A, o); }
 module.exports = {
   III_el_fendeur: P({ title: "Le fendeur", place: "enfance",
     text: [
-      "L'homme qui fend du bois ne lève pas les yeux. Il pose une bûche noire sur le billot, il lève la hache, il frappe. La bûche ne se fend pas. Elle ne se fendra jamais : c'est du bois brûlé, dur comme du fer. Il la repose. Il recommence.",
+      "L'homme qui fend du bois ne lève pas les yeux. Il pose une bûche noire sur le billot, il lève la hache, il frappe. La bûche résiste, et résistera toujours : c'est du bois brûlé, dur comme du fer. Il la repose. Il recommence.",
       "« Tu ne devrais pas être ici, dit-il, dans la langue que tu comprends. Je l'ai dit aux autres. Tu étais le seul vivant. » Il frappe. « Mais puisque tu es là, prends la hache. Ton grand-père fendait mieux que moi. On verra si ça se transmet. »",
     ],
     choices: [
@@ -18,7 +18,7 @@ module.exports = {
     text: [
       "Tu ne fends pas comme lui. Tu fends comme on t'a appris au moulin : en lisant le bois avant de frapper, en cherchant la fente qui y est déjà. Il y en a une, minuscule, dans le charbon. Tu frappes dedans.",
       "La bûche s'ouvre en deux, net, avec un bruit qu'on n'a pas entendu à Ellerune depuis trois siècles. À l'intérieur, au cœur, le bois n'a pas brûlé. Il est blond, et il sent la sève.",
-      "L'homme regarde les deux moitiés longtemps. Puis il te reprend la hache, sans un mot, et il va poser la moitié blonde sur le seuil de la maison de Maëra.",
+      "L'homme regarde les deux moitiés longtemps. Puis il te reprend la hache, en silence, et il va poser la moitié blonde sur le seuil de la maison de Maëra.",
     ],
     choices: [{ back: "III_e_hameau" }] }),
   III_el_fendeur_rate: P({ title: "Le billot", place: "enfance",

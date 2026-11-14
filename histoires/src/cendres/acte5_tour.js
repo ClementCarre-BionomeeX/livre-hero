@@ -9,9 +9,9 @@ module.exports = {
   V_route: P({ title: "La neige", place: null,
     fx: { flag: "acte5:debut", catchup: 17, catchupAll: true, catchupWhy: "la Lisse" },
     text: [
-      "Vous marchez vers l'ouest toute la nuit, dans la neige blanche. Elle tombe à gros flocons, lents, sans vent. Elle ne fond pas. Elle ne mouille pas. Elle se pose.",
+      "Vous marchez vers l'ouest toute la nuit, dans la neige blanche. Elle tombe à gros flocons, lents, sans vent. Elle reste sèche et entière. Elle se pose.",
       "Sur la route, des gens arrêtés. Un charretier sur son siège, les rênes à la main, qui regarde devant lui. Une femme assise sur une borne, avec un panier. Un enfant qui tient un cerceau. Ils ne dorment pas. Ils sourient. Ils ont l'air de gens à qui on a enlevé un poids, et qui ne savent plus quoi faire de leurs mains.",
-      "Tu t'arrêtes devant la femme au panier. Tu lui demandes son nom. Elle cherche, poliment. Elle ne trouve pas. Ça n'a pas l'air de lui faire de peine.",
+      "Tu t'arrêtes devant la femme au panier. Tu lui demandes son nom. Elle cherche, poliment. Elle cherche en vain, et elle s'en accommode.",
       { with: "ombeline", text: "Ombeline s'agenouille devant elle et lui prend les mains. « Elle n'a plus mal nulle part, dit-elle. Plus rien. C'est ce qu'il donne. C'est exactement ce que je donne aux mourants, moi. » Elle se relève. « Mais elle n'est pas en train de mourir. »" },
       { with: "givre", text: "Givre court d'un passant à l'autre, et renifle, et ne mange rien. Il n'y a rien à manger. Ils ont déjà tout donné." },
     ],
@@ -42,7 +42,7 @@ module.exports = {
       { label: "Parler à Linette", hide: { not: { present: "linette" } }, to: "V_a_linette" },
       { label: "Parler à Ombeline", hide: { not: { present: "ombeline" } }, to: "V_a_ombeline" },
       { label: "Appeler Givre", hide: { not: { present: "givre" } }, to: "V_a_givre" },
-      { label: "Entrer dans Pallanche sans rien dire", to: "V_ville", big: true },
+      { label: "Entrer dans Pallanche en silence", to: "V_ville", big: true },
     ] }),
 
   V_ville: P({ title: "Pallanche sous la neige", place: "pallanche",
@@ -123,7 +123,7 @@ module.exports = {
   V_t_ysolde_bocal: P({ title: "Le pont, la nuit", place: "pallanche",
     text: [
       "Ysolde brise la cire avec son pouce. La lueur rouge monte, hésite, et entre en elle par les yeux.",
-      "Elle ne tombe pas. Elle ne crie pas. Elle reste debout, dans le Bureau des Cessions, et pendant une minute elle est ailleurs : sur une rive, la nuit, avec une torche, et elle regarde.",
+      "Elle tient debout, les dents serrées. Elle reste debout, dans le Bureau des Cessions, et pendant une minute elle est ailleurs : sur une rive, la nuit, avec une torche, et elle regarde.",
       "Quand elle revient, elle dit seulement : « Il y avait une petite fille avec une chèvre. Elle me regardait. » Puis : « Bien. Je l'ai. Je ne la rends plus. »",
     ],
     choices: [{ back: "V_t_cessions" }] }),
@@ -184,15 +184,15 @@ module.exports = {
       "Le dernier escalier. Une porte ouverte. Le cabinet du Greffier-Majeur, sous la plume et la clé de fer. Il y fait chaud : un feu énorme brûle dans la cheminée.",
       "Le toit n'est plus là. Il a été soufflé vers le haut, et par l'ouverture monte la colonne blanche, droite, jusqu'au ciel, et au-delà. Au pied de la colonne, sur un lutrin, le Grand Livre, ouvert. Les feuilles des pages, montées par les greffiers, s'y collent d'elles-mêmes, une à une, et s'envolent en neige.",
       "Mordace écrit. Il ne se retourne pas.",
-      { if: { has: "v:horloge" }, text: "Entre deux lignes, il lève la tête vers le clocher, comme quelqu'un qui attend un coup qui ne vient pas. Il compte sur ses doigts. Il recommence. Il fronce les sourcils, et il écrit plus vite." },
-      { if: { item: "plateau_mordace" }, text: "Tu poses le plateau sur un coin du lutrin, à côté de sa main. La soupe fume. Il la regarde. Sa plume s'arrête, une seconde. Il reconnaît l'écriture du billet. Il ne dit rien. Il reprend sa plume. Mais il ne l'a pas repoussé." },
+      { if: { has: "v:horloge" }, text: "Entre deux lignes, il lève la tête vers le clocher, dans l'attente d'un coup de cloche. Il compte sur ses doigts. Il recommence. Il fronce les sourcils, et il écrit plus vite." },
+      { if: { item: "plateau_mordace" }, text: "Tu poses le plateau sur un coin du lutrin, à côté de sa main. La soupe fume. Il la regarde. Sa plume s'arrête, une seconde. Il reconnaît l'écriture du billet. Il se tait. Il reprend sa plume. Mais il ne l'a pas repoussé." },
       "« Je savais que tu viendrais, dit-il. Assieds-toi près du feu. Tu dois avoir froid. Moi, j'ai toujours froid. »",
     ],
     choices: [{ label: "« Arrête. »", to: "V_t_mordace" }] }),
 
   V_t_mordace: P({ title: "Mordace", place: "pallanche",
     text: [
-      { first: true, text: "« Je ne peux pas, dit-il, en écrivant. Ce n'est plus moi qui écris. C'est la digue. Ton père l'a lâchée, il y a un an. Moi, je la remplis. Tout ce qui fait mal, à tout le monde, en une nuit. Au matin, il n'y aura plus de guerre, ni de deuil, ni de honte. Plus de pont de Lisse. Plus de maison qui brûle. »" },
+      { first: true, text: "« Je ne peux pas, dit-il, en écrivant. Ce n'est plus moi qui écris. C'est la digue. Ton père l'a lâchée, il y a un an. Moi, je la remplis. Tout ce qui fait mal, à tout le monde, en une nuit. Au matin, la guerre, le deuil et la honte auront disparu. Plus de pont de Lisse. Plus de maison qui brûle. »" },
       { first: true, text: "Il s'arrête, la plume en l'air. « Il n'y aura plus rien à oublier. »" },
       { again: true, text: "Mordace a repris sa plume. Il écrit. Il ne se retourne toujours pas." },
       { first: true, if: { has: "lisse:cession" }, text: "« Tu m'as montré que ça marchait, à la Lisse. Corvanne dort bien, cette nuit. » Il reprend sa plume." },
@@ -249,7 +249,7 @@ module.exports = {
 
   V_t_pie: P({ title: "Le faussaire", place: "pallanche",
     text: [
-      "Pendant que Mordace parle, Pie s'est glissé jusqu'au lutrin, comme on se glisse jusqu'à une poche. Mordace ne le voit pas. Personne ne voit jamais Pie quand il ne veut pas.",
+      "Pendant que Mordace parle, Pie s'est glissé jusqu'au lutrin, comme on se glisse jusqu'à une poche. Mordace ne le voit pas. Pie choisit toujours qui le voit.",
       "Il prend une plume sur la table. Il la trempe. Et sur une feuille vierge, de l'écriture exacte de Mordace, penchée, débordant des lignes, avec le paraphe et le sceau, il écrit une ligne.",
       "Il la glisse dans le Grand Livre, à la page en cours, juste sous la main de Mordace.",
     ],
@@ -280,7 +280,7 @@ module.exports = {
   V_t_rechauffe: P({ title: "Le chaud", place: "pallanche",
     text: [
       "Il a les joues rouges. Il pleure, à cause de la chaleur, comme un enfant qui rentre de la neige. Il ne peut plus écrire : ses mains tremblent trop.",
-      "« Il y avait un figuier, dit-il. Dans la cour. » Il ne dit rien d'autre. Il se recroqueville près du feu, et il ne fait plus attention à toi.",
+      "« Il y avait un figuier, dit-il. Dans la cour. » Il s'en tient là. Il se recroqueville près du feu, tout à sa chaleur.",
       "Sur le lutrin, la plume continue d'écrire toute seule.",
     ],
     choices: [{ label: "Te tourner vers la colonne", to: "V_p_colonne" }] }),
@@ -290,7 +290,7 @@ module.exports = {
       "Tu poses le bocal sur le lutrin, sur le Grand Livre, sous sa main. *Mordace, onze ans : la maison.* La lueur orange bat contre le verre comme un cœur.",
       "Il le regarde. Il ne le touche pas. « Je l'ai fermé moi-même, dit-il. Trois cachets. Je l'ai cédé à mon propre bureau, le jour où j'en ai eu un. »",
       "Tu brises la cire. La lueur sort, et entre en lui, et il ne recule pas.",
-      "Pendant longtemps, il ne dit rien. La plume, dans sa main, ne bouge plus.",
+      "Il se tait longtemps. La plume, dans sa main, s'est arrêtée.",
     ],
     choices: [{ label: "Attendre", fx: { flag: "mordace:fin=pardonne" }, to: "V_t_pardonne" }] }),
 };

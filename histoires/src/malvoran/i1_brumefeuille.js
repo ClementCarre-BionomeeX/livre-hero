@@ -23,8 +23,8 @@ var passages = {
     text: [
       "Tu as repassé la crête par le château, une dernière fois, et tu as redescendu de l'autre côté par la vieille poterne et la vire de bruyère. Il est tôt. L'air a le goût du givre, et les premières gelées ont blanchi la bruyère. Derrière toi, la crête ferme le ciel comme un mur ; devant toi, le versant est descend par des pâtures et des bois de bouleaux jusqu'à une vallée large, pleine de brume, où l'on devine un ruban d'eau plus sombre que le reste : la Sorbe.",
       "Tu t'assieds sur une pierre pour resserrer tes bottes. Des semaines ont passé depuis la nuit sous le château, et tes mains ont cessé de trembler. Mais quand tu fermes les yeux, tu revois encore la main de pierre grande comme une charrette, et sa fente, et ce qui chantait dans le noir.",
-      { with: "pip", text: "Pip sort de ton col où il s'était caché pendant tout le passage du château. Il n'aime pas y retourner, même de jour, même vite. Il flotte devant ton visage, une lueur pas plus grosse qu'une noix, et il regarde la vallée en tournant lentement sur lui-même, comme quelqu'un qui reconnaît une pièce où il n'est jamais entré. Puis il revient se poser sur ton épaule et s'y tient tout serré." },
-      { if: { has: "marque:eclat" }, text: "Dans ta poche, l'éclat est tiède. Tu as posé la main dessus sans y penser. Au creux de ta paume, la tache noire n'a pas bougé, et elle ne part pas quand tu frottes." },
+      { with: "pip", text: "Pip sort de ton col où il s'était caché pendant tout le passage du château. Il n'aime pas y retourner, même de jour, même vite. Il flotte devant ton visage, une lueur grosse comme une noix, et il regarde la vallée en tournant lentement sur lui-même, comme on reconnaît une pièce vue en rêve. Puis il revient se poser sur ton épaule et s'y tient tout serré." },
+      { if: { has: "marque:eclat" }, text: "Dans ta poche, l'éclat est tiède. Tu as posé la main dessus sans y penser. Au creux de ta paume, la tache noire est toujours là, et résiste quand tu frottes." },
       { if: { has: "eclat:refuse" }, text: "Tu as laissé l'éclat là-dessous, dans la flaque. Tu te demandes si c'était sage, ou seulement de la peur. Tes mains sont propres. C'est déjà quelque chose." },
       "En bas, à une journée de marche peut-être, la brume s'ouvre un instant sur des toits, un clocher bas et la roue d'un moulin. Le muletier des Trois-Bornes te l'a dit : Brumefeuille, le premier village de la Sorbe. C'est par là que coule l'eau de la crête. C'est par là qu'il faut aller voir.",
     ],
@@ -47,7 +47,7 @@ var passages = {
     text: [
       "« Je me souviens du noir, dit Pip. Et du chaud. » Sa voix est minuscule, une voix d'enfant qu'on entendrait à travers une porte. « C'était fermé autour de moi. Quelqu'un me tenait. Je ne sais pas qui. Je ne sais pas pourquoi. Je ne sais pas combien de temps. »",
       "Il se tait un moment, et sa lumière baisse, comme une chandelle quand on ouvre la fenêtre. « Je crois qu'il ne voulait pas me lâcher. Et puis il a dû, parce que la pierre s'est fendue. Tu crois qu'il m'en veut d'être parti ? »",
-      "Tu ne sais pas quoi lui répondre. Tu lui dis la vérité : que tu n'en sais rien, et que tu chercheras avec lui. La lueur remonte un peu. « D'accord, dit Pip. Mais tu me dis tout ce que tu trouves. Même si c'est triste. »",
+      "Les mots te manquent. Tu lui dis la vérité : que tu n'en sais rien, et que tu chercheras avec lui. La lueur remonte un peu. « D'accord, dit Pip. Mais tu me dis tout ce que tu trouves. Même si c'est triste. »",
     ],
     choices: [{ back: "I_route" }] },
 
@@ -66,7 +66,7 @@ var passages = {
   IR_ruisseau_amont: { act: "I", title: "Le ruisseau noir", place: null,
     fx: { clue: "r1_ruisseau", ep: ["perso", 400] },
     text: [
-      "Tu suis le ruisseau vers l'amont pendant une heure, en sautant de pierre en pierre. Ce n'est pas un ruisseau de la crête, tu le comprends vite : c'est un bras de la Sorbe elle-même, un vieux chenal qui se détache de la rivière plus haut et la rejoint ici. L'eau noire vient de là-haut, de la rivière, du côté où monte la brume du village.",
+      "Tu suis le ruisseau vers l'amont pendant une heure, en sautant de pierre en pierre. Tu le comprends vite : c'est un bras de la Sorbe elle-même, un vieux chenal qui se détache de la rivière plus haut et la rejoint ici. L'eau noire vient de là-haut, de la rivière, du côté où monte la brume du village.",
       "Une demi-lieue plus loin, le chenal quitte la rivière, et tu vois que la Sorbe elle-même est partagée dans sa longueur. Vers l'autre rive, des galets nets et des truites qui filent ; le long de celle-ci, une veine de noir tiède qui sent la cave, et que le chenal avale tout entière. Les deux eaux coulent côte à côte sans se mêler. Tu poses la main à plat sur l'eau claire : elle est froide. Tu la poses sur l'eau noire : elle est tiède.",
       "Tu repars vers la route en comptant tes pas. La souillure ne descend pas de la crête. Elle vient d'en amont, vers Brumefeuille.",
     ],
@@ -98,7 +98,7 @@ var passages = {
     ] },
   IR_brebis_examen: { act: "I", title: "La brebis morte", place: null,
     text: [
-      { outcome: "win", text: "Tu t'accroupis à distance, et tu écartes la laine avec un bâton. Pas de morsure, pas de plaie. La peau est grise dessous aussi, et sous la peau, là où le bâton a appuyé, il perle un jus noir. Les gencives sont noires. Elle a bu, et elle en est morte en moins d'un jour : elle n'a même pas maigri." },
+      { outcome: "win", text: "Tu t'accroupis à distance, et tu écartes la laine avec un bâton. La peau est intacte. La peau est grise dessous aussi, et sous la peau, là où le bâton a appuyé, il perle un jus noir. Les gencives sont noires. Elle a bu, et elle en est morte en moins d'un jour : elle n'a même pas maigri." },
       { outcome: "lose", text: "Tu te penches trop près. Le ventre de la bête, gonflé, cède sous ton bâton avec un bruit mou, et une bouffée d'air tiède te prend à la gorge. Tu recules en toussant, les yeux pleins de larmes, et il te faut un long moment pour retrouver ton souffle. Tu as compris au moins une chose : elle a bu, et ce qu'elle a bu l'a tuée." },
       "Le garçon, sur le talus, te regarde faire. « C'est la troisième, dit-il. Le patron va dire que c'est ma faute. »",
     ],
@@ -163,7 +163,7 @@ var passages = {
   IR_veilleuse: { act: "I", title: "La veilleuse", place: null,
     text: [
       "Le jour baisse quand la route passe entre deux haies de noisetiers, à une demi-lieue du village. Au bord du fossé, une femme se tient debout, immobile, avec à la main une veilleuse de terre cuite, de celles qu'on pose près des berceaux. La petite flamme ne tremble pas, alors que le vent tremble, lui, dans les noisetiers.",
-      "Elle regarde la route. Elle te regarde arriver comme on regarde passer quelqu'un qu'on n'attendait pas, sans surprise et sans intérêt. Elle a un fichu de laine sur la tête, un tablier, des bottes d'homme trop grandes pour elle.",
+      "Elle regarde la route. Elle te regarde arriver d'un œil égal, comme on regarde passer un inconnu. Elle a un fichu de laine sur la tête, un tablier, des bottes d'homme trop grandes pour elle.",
       { with: "pip", text: "Pip s'est éteint d'un coup, si bien que tu le crois parti. Puis tu le sens, contre ta nuque, tout froid, qui ne bouge plus." },
     ],
     choices: [
@@ -174,7 +174,7 @@ var passages = {
   IR_veilleuse_parle: { act: "I", title: "La veilleuse", place: null,
     fx: { clue: "r1_veilleuse", ep: ["perso", 400] },
     text: [
-      "Tu t'approches. Elle ne recule pas. De près, elle a un visage ordinaire, ni jeune ni vieux, des joues un peu creuses, et des yeux qui ne clignent pas assez. Ses bottes sont blanches de farine jusqu'à la cheville. Et quand elle lève la veilleuse pour mieux te voir, une odeur te vient de ses mains : la vase, l'odeur du ruisseau noir.",
+      "Tu t'approches. Elle ne recule pas. De près, elle a un visage ordinaire, sans âge, des joues un peu creuses, et des yeux trop fixes. Ses bottes sont blanches de farine jusqu'à la cheville. Et quand elle lève la veilleuse pour mieux te voir, une odeur te vient de ses mains : la vase, l'odeur du ruisseau noir.",
       "« Je veille, dit-elle. Il faut bien que quelqu'un veille sur la route, maintenant que personne ne veille plus sur l'eau. » Sa voix est très douce. « Tu vas à Brumefeuille. Tout le monde y va, cette saison. Tout le monde a soif. »",
       "Elle te sourit, et elle tourne le dos, et elle s'en va à travers le pré vers la rivière, sans se presser, sa petite flamme au poing. Tu la suis des yeux jusqu'aux saules. Puis il n'y a plus de flamme.",
     ],
@@ -186,13 +186,13 @@ var passages = {
     text: [
       { outcome: "win", text: "Tu passes à trois pas d'elle en regardant droit devant toi, et c'est du coin de l'œil que tu vois : la farine sur ses bottes, blanche jusqu'à la cheville, comme si elle avait marché dans un moulin. Et quand le vent tourne, une odeur de vase, qui vient de ses mains." },
       { outcome: "lose", text: "Tu passes à trois pas d'elle en regardant droit devant toi. Tu ne vois rien d'autre qu'une femme dans un fichu, qui tient une lampe. Quand tu te retournes, au tournant, il n'y a plus personne au bord du fossé." },
-      "Tu marches plus vite jusqu'aux premières maisons. Tu ne sais pas pourquoi tu as froid dans le dos.",
+      "Tu marches plus vite jusqu'aux premières maisons. Un froid te passe dans le dos.",
     ],
     choices: [{ back: ROUTE }] },
   IR_veilleuse_suivre: { act: "I", title: "Les saules", place: null,
     text: [
       "Le pré est mouillé, l'herbe haute. Tu suis ses traces, faciles à voir : deux sillons couchés dans l'herbe, et de loin en loin, une empreinte blanche de farine sur une touffe. Elles vont droit à la rivière, sous les saules, sans un détour.",
-      "Au bord de l'eau, elles s'arrêtent. Il n'y a pas de barque, pas de gué, pas de pont. La Sorbe coule ici, large et lente, d'un gris de plomb dans le crépuscule. La dernière empreinte est au ras de l'eau, à moitié dedans. Sur la berge, posée bien droite, la veilleuse de terre cuite, éteinte, encore chaude.",
+      "Au bord de l'eau, elles s'arrêtent. L'eau est nue : ni barque, ni gué, ni pont. La Sorbe coule ici, large et lente, d'un gris de plomb dans le crépuscule. La dernière empreinte est au ras de l'eau, à moitié dedans. Sur la berge, posée bien droite, la veilleuse de terre cuite, éteinte, encore chaude.",
       { with: "pip", text: "Pip ne veut pas approcher. « Laisse-la, dit-il. Laisse-la, s'il te plaît. »" },
       "Tu la laisses. Tu remontes vers la route à reculons pendant les vingt premiers pas, sans quitter l'eau des yeux.",
     ],
@@ -244,7 +244,7 @@ var passages = {
     text: [
       "Deux loups sont couchés sur la route. Le troisième s'est enfui en boitant. De près, ils sont encore plus maigres : on leur compte les côtes, et sous le poil, la peau est grise par plaques.",
       "Tu les tires dans le fossé. Tu as les mains qui tremblent maintenant que c'est fini, et tu les essuies longtemps sur l'herbe avant de repartir.",
-      { with: "gloup", text: "Gloup roule jusqu'à l'un des corps, le renifle, et se met à trembler de toute sa gelée. Tu le ramasses et tu le portes un bout de chemin. Il ne dit rien. Il ne dit jamais rien, mais il colle." },
+      { with: "gloup", text: "Gloup roule jusqu'à l'un des corps, le renifle, et se met à trembler de toute sa gelée. Tu le ramasses et tu le portes un bout de chemin. Il se tait. Il ne dit jamais rien, mais il colle." },
     ],
     choices: [{ back: ROUTE }] },
   EI_loups_morsure: { act: "I", title: "La morsure", place: null,
@@ -270,7 +270,7 @@ var passages = {
     text: [
       "Tu prends un flacon et tu le lèves vers le jour. L'eau est claire, oui. Trop claire, presque, et au fond il y a un petit dépôt gris qui tourne quand tu secoues. Tu débouches : ça sent le fossé.",
       "Anselme ne se démonte pas. « Bon, dit-il. Elle vient d'une source. Il y a des sources partout, et toutes ont vu passer les Six, si on remonte assez loin. » Il te reprend le flacon des mains, doucement. « Les gens de Brumefeuille ont soif, et ils ont peur. Moi je leur vends un peu moins de peur. Ce n'est pas plus malhonnête que ce que fait leur maire. »",
-      "Il rit, et tu ne sais pas s'il plaisante. « Allez. Si vous voulez de la vraie eau, la seule qui soit sûre, c'est celle du sanctuaire, en haut du village. Mais le Père Odon ne la vend pas, lui. C'est bien son problème. »",
+      "Il rit. Plaisante-t-il ? « Allez. Si vous voulez de la vraie eau, la seule qui soit sûre, c'est celle du sanctuaire, en haut du village. Mais le Père Odon ne la vend pas, lui. C'est bien son problème. »",
     ],
     choices: [
       { label: "Lui dire de ne pas vendre ça à des gens qui ont des enfants", test: { dom: "social", diff: 0, label: "Faire honte au colporteur" },
@@ -310,7 +310,7 @@ var passages = {
 
   EI_charrette: { act: "I", title: "Ceux qui partent", place: null,
     text: [
-      "Une charrette à bœufs est embourbée jusqu'aux moyeux dans un creux de la route où la Sorbe a débordé. Dessus, tout ce qu'une famille peut emporter : des matelas roulés, un coffre, une huche, des poules dans une cage, une grand-mère assise sur le coffre qui ne dit rien. Un homme pousse à la roue. Une femme tire les bœufs. Deux enfants regardent.",
+      "Une charrette à bœufs est embourbée jusqu'aux moyeux dans un creux de la route où la Sorbe a débordé. Dessus, tout ce qu'une famille peut emporter : des matelas roulés, un coffre, une huche, des poules dans une cage, une grand-mère muette assise sur le coffre. Un homme pousse à la roue. Une femme tire les bœufs. Deux enfants regardent.",
       "« On quitte Brumefeuille, dit l'homme quand tu t'approches, avant même que tu demandes. On va chez mon beau-frère, à Morteau. Là-bas au moins il y a de l'eau. Trop, même, à ce qu'il paraît. » Il crache dans ses mains. « Le maire m'a racheté la maison. Le dixième de ce qu'elle vaut. Mais je n'allais pas rester à regarder mes enfants boire de la boue. »",
     ],
     choices: [
@@ -393,7 +393,7 @@ var passages = {
     choices: [{ back: ROUTE }] },
   EI_brigands_detrousse: { act: "I", title: "Le gué", place: null,
     text: [
-      "Un gourdin te prend derrière l'oreille et le monde bascule. Quand tu rouvres les yeux, tu es couché{e} sur les galets, le visage à moitié dans l'eau froide, et ta bourse est plus légère. Ils ne t'ont pas tout pris. Ils n'en avaient pas le temps, ou pas le cœur.",
+      "Un gourdin te prend derrière l'oreille et le monde bascule. Quand tu rouvres les yeux, tu es couché{e} sur les galets, le visage à moitié dans l'eau froide, et ta bourse est plus légère. Ils t'ont laissé une part, faute de temps ou par pitié.",
       "Tu te relèves en titubant. La tête te tourne encore quand tu reprends la route, mais tu marches.",
     ],
     choices: [{ back: ROUTE }] },
@@ -401,7 +401,7 @@ var passages = {
   EI_flaque: { act: "I", title: "La flaque", place: null,
     text: [
       "Après une averse, la route est pleine de flaques. Tu les enjambes sans y penser, jusqu'à celle-là, au milieu, large comme une table, où quelque chose te fait baisser les yeux. Ton reflet. Il est là, dans l'eau brune, avec le ciel gris derrière lui. Mais quand tu tournes la tête, il ne la tourne pas tout de suite.",
-      "Puis, très bas, si bas que tu crois l'avoir imaginé, une voix dit ton nom. « {hero}. » Une voix de femme, sans colère, presque tendre. Le vent ne souffle pas. Il n'y a personne sur la route.",
+      "Puis, très bas, si bas que tu crois l'avoir imaginé, une voix dit ton nom. « {hero}. » Une voix de femme, sans colère, presque tendre. L'air est immobile, la route vide.",
       { with: "pip", text: "Pip s'est collé contre ta joue. « Ne regarde pas, dit-il. Elle fait ça. Elle fait ça en bas aussi. »" },
     ],
     choices: [
@@ -420,7 +420,7 @@ var passages = {
       "Tu t'accroupis au bord de l'eau. Ta paume tachée te démange, puis te chauffe. Le reflet te regarde, et il te sourit avant toi.",
       "« Tu as bien fait de prendre l'éclat, dit la voix. Les autres ont toujours peur de ce qu'on leur donne. Pas toi. » Un temps. « Il y a un village en bas, qui a soif. Quelqu'un là-bas m'a ouvert une porte. Je ne te dirai pas qui : tu trouveras, tu sais chercher. » La voix ne se trompe pas sur ton nom ; elle hésite sur le reste, comme si elle cherchait. « Quand tu auras trouvé, viens me voir. Je te ferai une offre. Je ne fais d'offre qu'une fois. »",
       "L'eau se brouille. Ta paume est chaude. La tache, quand tu la regardes, a gagné un peu sur la ligne de vie.",
-      { with: "pip", text: "Pip ne dit rien du reste du jour. Il voyage à l'autre bout de ton épaule." },
+      { with: "pip", text: "Pip se tait pour le reste du jour. Il voyage à l'autre bout de ton épaule." },
     ],
     choices: [{ back: ROUTE }] },
 
@@ -437,7 +437,7 @@ var passages = {
   EI_oratoire_pause: { act: "I", title: "L'oratoire de la Main", place: null,
     text: [
       "Tu t'assieds sur la marche, le dos contre la pierre fraîche. Le tilleul a presque perdu ses feuilles ; elles tombent une à une, jaunes, sans bruit. C'est le premier moment calme depuis les Trois-Bornes. Tu le prends.",
-      { with: "pip", text: "Pip flotte devant la niche, et il regarde longtemps l'endroit gratté entre les mains. « Il en manque une, dit-il. Pourquoi on gratte une main ? » Tu n'as pas de réponse. Il n'insiste pas, mais il ne quitte pas la niche des yeux avant que vous repartiez." },
+      { with: "pip", text: "Pip flotte devant la niche, et il regarde longtemps l'endroit gratté entre les mains. « Il en manque une, dit-il. Pourquoi on gratte une main ? » Tu n'as pas de réponse. Il s'en tient là, mais il garde les yeux sur la niche jusqu'au départ." },
       { without: "pip", text: "Avant de repartir, tu passes le pouce sur la place grattée. La pierre y est plus lisse qu'ailleurs, comme si beaucoup de pouces l'avaient touchée avant le tien." },
     ],
     choices: [{ back: ROUTE }] },
@@ -510,21 +510,21 @@ var passages = {
     text: [
       "Tu poses les mains sur la margelle, entre deux tours de chaîne, et tu te penches. Le puits est profond ; l'eau est loin en bas, un rond de ciel gris au fond d'un tube noir. Ton visage y apparaît, tout petit, avec le toit de bardeaux derrière toi.",
       "Tu bouges la tête. Le reflet bouge aussi, mais un peu après toi, comme quelqu'un qui imite. Tu clignes des yeux plusieurs fois. Aucun doute.",
-      { with: "pip", text: "« Ne fais pas ça, dit Pip depuis son poteau. Ne fais pas ça. » Il ne dit pas pourquoi." },
+      { with: "pip", text: "« Ne fais pas ça, dit Pip depuis son poteau. Ne fais pas ça. » Il garde ses raisons." },
       "Tu te redresses. Une vieille femme qui traversait la place s'est arrêtée pour te regarder, et elle se signe de la main ouverte avant de repartir, plus vite.",
     ],
     choices: [{ back: "I_puits" }] },
   I_puits_margelle: { act: "I", title: "La margelle", place: "brumefeuille",
     text: [
       { outcome: "win", text: "Tu fais le tour de la margelle à genoux, pierre après pierre. Elle est grise partout, lisse, mouillée de brume. Partout sauf d'un côté : celui qui regarde la ruelle du moulin. Là, la pierre est blanche de farine, une poussière fine incrustée dans les creux, sur une largeur de deux mains. Tu y passes le doigt. Il en ressort blanc. Nulle part ailleurs sur la margelle il n'y en a." },
-      { outcome: "lose", text: "Tu fais le tour de la margelle à genoux. De la pierre grise, de la mousse, de la boue de pas, des traces de chaîne. Une heure passe. Tu ne vois rien qui ne soit pas un vieux puits sur une place de village. Tu te relèves les genoux trempés." },
+      { outcome: "lose", text: "Tu fais le tour de la margelle à genoux. De la pierre grise, de la mousse, de la boue de pas, des traces de chaîne. Une heure passe. Tu vois un vieux puits sur une place de village, et rien d'autre. Tu te relèves les genoux trempés." },
       "Un homme qui passait avec une hotte s'arrête. « Vous cherchez quoi ? La clé ? C'est Charron qui l'a. Il l'a toujours sur lui, au cou, comme un curé sa croix. »",
     ],
     choices: [{ back: "I_puits" }] },
   I_puits_seau: { act: "I", title: "L'eau du puits", place: "brumefeuille",
     fx: { ep: ["perso", 300] },
     text: [
-      "Tu noues ta corde au goulot de ta gourde, et tu la fais descendre entre la chaîne et le treuil, lentement, en comptant les brasses. Neuf brasses. Dix. La gourde touche l'eau avec un bruit mou, pas un bruit d'eau, et tu sens dans la corde qu'elle s'enfonce sans résistance.",
+      "Tu noues ta corde au goulot de ta gourde, et tu la fais descendre entre la chaîne et le treuil, lentement, en comptant les brasses. Neuf brasses. Dix. La gourde touche l'eau avec un bruit mou, étranger à l'eau, et tu sens dans la corde qu'elle s'enfonce sans résistance.",
       "Quand tu la remontes, elle est lourde. Tu verses un peu dans ta paume. L'eau est noire, tiède, et elle file entre tes doigts plus lentement qu'une eau ne devrait. Il y a dedans de petits filaments gris, comme des cheveux.",
       "Tu vides la gourde dans le caniveau, et tu la rinces trois fois à l'eau de ta propre réserve avant de la reboucher. Tu ne boiras plus dedans avant de l'avoir fait bouillir.",
     ],
@@ -532,10 +532,10 @@ var passages = {
   I_puits_ecoute: { act: "I", title: "Ce que dit l'eau", place: "brumefeuille",
     fx: { clue: "v_puits", ep: ["perso", 600] },
     text: [
-      "Tu poses ta paume tachée à plat sur la pierre de la margelle, et la tache se réchauffe aussitôt, comme une braise qu'on souffle. Tu fermes les yeux. Tu entends l'eau, en bas. Elle ne bouge pas, et pourtant tu l'entends, comme on entend quelqu'un respirer dans la pièce d'à côté.",
+      "Tu poses ta paume tachée à plat sur la pierre de la margelle, et la tache se réchauffe aussitôt, comme une braise qu'on souffle. Tu fermes les yeux. Tu entends l'eau, en bas. Elle est immobile, et pourtant tu l'entends, comme on entend quelqu'un respirer dans la pièce d'à côté.",
       "Quelqu'un fredonne, au fond du puits. Une petite voix, une voix d'enfant, qui chante sans les mots un air de ronde. L'air s'arrête net, comme si l'enfant s'était aperçue qu'on l'écoutait. Puis une autre voix, plus grave, plus douce, très proche de ton oreille : « Pas encore. » Et le silence.",
       "Quand tu rouvres les yeux, tu te penches malgré toi, et ton reflet est déjà là au fond, qui te regardait avant que tu arrives.",
-      { with: "pip", text: "Pip a quitté son poteau. Il est venu se poser sur le dos de ta main tachée, de toute sa petite lumière, comme pour la couvrir. Il est froid. Il ne dit rien." },
+      { with: "pip", text: "Pip a quitté son poteau. Il est venu se poser sur le dos de ta main tachée, de toute sa petite lumière, comme pour la couvrir. Il est froid. Il se tait." },
     ],
     choices: [{ back: "I_puits" }] },
 
@@ -548,7 +548,7 @@ var passages = {
       { first: true, text: "« Hortense, dit-elle quand tu t'accoudes. C'est mon auberge, c'est ma soupe, et c'est ma bière, faite avec l'eau de la source du sanctuaire, que je vais chercher moi-même en haut de la rue, deux seaux à la palanche. Alors c'est un sou la chope, pas un denier de moins. Vous mangez ? »" },
       { again: true, text: "Le Chaudron, sa fumée, son chaudron, ses bateliers. Hortense te fait un signe du menton sans cesser d'essuyer ses chopes." },
       { with: "coliane", text: "Coliane s'est assise dos au mur, comme d'habitude, et elle a commandé du cidre et rien d'autre. Elle regarde les bateliers jouer, et tu vois qu'elle compte leurs mises." },
-      { with: "gloup", text: "Hortense a regardé Gloup un long moment, puis elle a posé par terre, sans un mot, une écuelle de soupe au pain. Gloup est dedans jusqu'aux yeux." },
+      { with: "gloup", text: "Hortense a regardé Gloup un long moment, puis elle a posé par terre, en silence, une écuelle de soupe au pain. Gloup est dedans jusqu'aux yeux." },
     ],
     choices: [
       { label: "Écouter les conversations", to: "I_chaudron_rumeurs" },
@@ -570,7 +570,7 @@ var passages = {
   I_chaudron_hortense: { act: "I", title: "Hortense", place: "brumefeuille",
     text: [
       "Hortense pose sa chope et s'accoude en face de toi. « Ce que je pense ? Je pense que ce village a peur et qu'un village qui a peur cherche quelqu'un à pendre. Ce sera la Berthe, parce qu'elle est vieille, seule, et qu'elle a mauvaise langue. » Elle hausse ses grosses épaules. « Je pense aussi que le Charron s'enrichit, et que les gens qui s'enrichissent pendant les malheurs n'ont jamais trop envie que les malheurs finissent. »",
-      "« Le meunier ? » Elle soupire. « Barthélemy, c'est un brave homme. Sa petite Margot s'est noyée au printemps, dans le bief, sous la roue. Neuf ans. Depuis, il ne vient plus ici, il ne va plus à la messe, il ne parle à personne. Il vient acheter du sel, une fois la semaine, et il repart. Je lui garde une part de tarte aux pommes, le jeudi. Il ne la prend jamais. »",
+      "« Le meunier ? » Elle soupire. « Barthélemy, c'est un brave homme. Sa petite Margot s'est noyée au printemps, dans le bief, sous la roue. Neuf ans. Depuis, il a déserté la salle, la messe et les conversations. Il vient acheter du sel, une fois la semaine, et il repart. Je lui garde une part de tarte aux pommes, le jeudi. Il ne la prend jamais. »",
       { if: { seen: "I_odon_maitre" }, text: "Quand tu lui décris ta maîtresse, elle hoche la tête. « Oui. Passée ici un soir, il y a un mois. Pas restée. Montée au sanctuaire le soir même, par la pluie, sans même vouloir de soupe. »", else: "« Il passe du monde, en ce moment, ajoute-t-elle. Des gens qui viennent voir. Il y a un mois, une vieille voyageuse a demandé le chemin du sanctuaire, en pleine nuit, sous la pluie. Elle n'a même pas voulu de soupe. »" },
     ],
     choices: [{ back: "I_chaudron" }] },
@@ -578,8 +578,8 @@ var passages = {
     fx: { ep: ["perso", 300] },
     text: [
       "Les bateliers te font une place sur le banc en se poussant, et te tendent les dés. Ce sont des hommes de rivière, larges d'épaules, qui descendent le grain de la Sorbe jusqu'à Merle et remontent le sel. Ils ne descendent plus grand-chose, cette saison : on ne veut plus du grain de Brumefeuille sur les marchés d'en bas.",
-      "« Dans le Rouvre, dit l'un, les bêtes deviennent grises. Les sangliers, les renards, même les cerfs. Ils ne fuient plus les chiens, ils les attendent. Il y a une fille qui les chasse, une étrangère avec une balafre, qui vend les peaux au tanneur. Elle ne dit pas d'où elle vient. » Un autre ajoute : « Et à Morteau, plus au nord, le lac est monté en une nuit l'an dernier, et la chapelle des moines est sous l'eau jusqu'aux vitraux. L'eau fait des choses, ces temps-ci. »",
-      "Le plus vieux ne dit rien. Il fixe le feu. Quand les autres ont fini, il dit seulement : « De mon temps, on ne buvait jamais à une eau dont on n'avait pas vu la source. » Et il vide sa chope.",
+      "« Dans le Rouvre, dit l'un, les bêtes deviennent grises. Les sangliers, les renards, même les cerfs. Ils ne fuient plus les chiens, ils les attendent. Il y a une fille qui les chasse, une étrangère avec une balafre, qui vend les peaux au tanneur. Elle tait d'où elle vient. » Un autre ajoute : « Et à Morteau, plus au nord, le lac est monté en une nuit l'an dernier, et la chapelle des moines est sous l'eau jusqu'aux vitraux. L'eau fait des choses, ces temps-ci. »",
+      "Le plus vieux se tait. Il fixe le feu. Quand les autres ont fini, il dit seulement : « De mon temps, on ne buvait jamais à une eau dont on n'avait pas vu la source. » Et il vide sa chope.",
     ],
     choices: [{ back: "I_chaudron" }] },
   I_chaudron_comptoir: { act: "I", title: "Le comptoir d'Hortense", place: "brumefeuille", shop: "i_chaudron",
@@ -612,7 +612,7 @@ var passages = {
   I_voix_puits: { act: "I", title: "Le puits déborde", place: "brumefeuille",
     fx: { clue: "r1_puits" },
     text: [
-      "Tu t'approches en marchant sur les pierres sèches, entre les filets d'eau noire. La margelle est noyée, la chaîne pend dans l'eau, et le cadenas brille au fond comme une pièce dans une fontaine. L'eau ne bouge pas à la surface. Elle se contente de monter, de se poser, de déborder.",
+      "Tu t'approches en marchant sur les pierres sèches, entre les filets d'eau noire. La margelle est noyée, la chaîne pend dans l'eau, et le cadenas brille au fond comme une pièce dans une fontaine. La surface de l'eau est lisse. Elle se contente de monter, de se poser, de déborder.",
       { if: { not: { clue: "r1_puits" } }, text: "Du côté de la ruelle du moulin, la seule partie de la margelle qui dépasse encore, la pierre est blanche de farine. Une poussière fine, incrustée dans les creux, sur une largeur de deux mains. Nulle part ailleurs.", else: "Du côté de la ruelle du moulin, sur la seule pierre de la margelle qui dépasse encore, la farine blanche est toujours là." },
       "Derrière toi, dans une maison du bas, la femme ne crie plus. Elle pleure, et c'est pire.",
     ],
@@ -632,7 +632,7 @@ var passages = {
   I_voix_lune: { act: "I", title: "Lune au chevet", place: "brumefeuille",
     fx: { questSeen: "I_remede", meet: ["i_lune"] },
     text: [
-      "Lune arrive en courant, sa sacoche contre la poitrine, les cheveux encore défaits. Elle écarte tout le monde, s'agenouille, soulève les paupières du garçon, sent son haleine, lui tâte le cou et le ventre. Ses gestes sont rapides et sûrs. Son visage ne dit rien.",
+      "Lune arrive en courant, sa sacoche contre la poitrine, les cheveux encore défaits. Elle écarte tout le monde, s'agenouille, soulève les paupières du garçon, sent son haleine, lui tâte le cou et le ventre. Ses gestes sont rapides et sûrs. Son visage est fermé.",
       "« Fièvre grise, dit-elle enfin. Il en a bu, ou il en a respiré, ou il a seulement trop écouté. » Elle sort de sa sacoche un sachet d'écorce de saule et le donne à Perrine. « Infusion, toutes les deux heures. Ça tiendra la fièvre basse. Ça ne la chassera pas. »",
       "Elle se relève et te prend par le bras, et elle t'emmène sur le seuil, à voix basse. « Il me faut de la mousse-de-lune pour faire le vrai remède. Elle pousse sur les saules morts, dans les marais, au sud. Je ne peux pas laisser mes malades trois jours, et personne d'ici n'ose y aller. » Elle te regarde droit dans les yeux. « Il a sept ans. Il tiendra peut-être une semaine. »",
       { if: { has: "lune:demande" }, text: "« Je vous l'ai déjà demandé, ajoute-t-elle. Je vous le redemande. »" },
@@ -660,7 +660,7 @@ var passages = {
     text: [
       { if: { not: { has: "jeannot:gueri" } }, text: "Tu t'assieds au bord du lit, et tu parles au petit à voix basse, de tout et de rien : de la crête, des trolls, du château. Il t'écoute les yeux mi-clos, et peu à peu ses mains se desserrent sur la couverture. À la fin, il demande, d'une voix enrouée : « C'est vrai que les trolls mangent les enfants ? Mon cousin Mathurin, aux Trois-Bornes, il dit que oui. »", else: "Tu t'assieds au bord du lit, et Jeannot te demande de raconter les trolls. Tu racontes. Il veut tout savoir : leur taille, leur odeur, s'ils mangent les enfants. Tu lui dis que non. Il a l'air déçu." },
       "Puis, sans prévenir, il te dit, plus bas, en regardant vers la porte pour voir si sa mère écoute : « J'ai jeté des pierres sur la maison de la Berthe. Avec les autres. Parce que maman dit que c'est elle qui a fait le puits. » Il se tait. « Mais la dame du puits, elle, elle a dit que la Berthe n'y était pour rien. Elle a dit que la Berthe était trop vieille pour qu'on s'intéresse à elle. »",
-      "Perrine, près du feu, a tout entendu. Elle ne dit rien. Elle remet une bûche, et elle reste un long moment accroupie devant les flammes, le tisonnier à la main.",
+      "Perrine, près du feu, a tout entendu. Elle se tait. Elle remet une bûche, et elle reste un long moment accroupie devant les flammes, le tisonnier à la main.",
     ],
     choices: [{ back: "I_guerin" }] },
   I_guerin_gueri: { act: "I", title: "Le remède", place: "brumefeuille",
@@ -704,7 +704,7 @@ var passages = {
   I_lune_fievre: { act: "I", title: "La fièvre grise", place: "brumefeuille",
     text: [
       "Lune pose son pilon. « La fièvre grise, dit-elle, c'est ce qui arrive quand on boit l'eau du puits, ou celle de la rivière en aval du village. D'abord des frissons. Puis la peau qui se ternit, qui devient grise, en commençant par les tempes et les lèvres. Puis on ne parle plus. On regarde l'eau. On a soif, et on veut boire encore de ce qui vous a rendu malade. Les vieux en meurent. Les enfants, je ne sais pas encore. Je n'ai pas eu d'enfant. »",
-      "Elle désigne d'un geste les paillasses. « L'écorce de saule tient la fièvre basse. Ça les garde en vie, pas plus. Pour la chasser, il faut un remède de ma grand-mère, qui en a soigné une, de fièvre grise, il y a soixante ans, quand l'eau a tourné une première fois dans les marais. Il me faut de la mousse-de-lune. Une mousse argentée qui ne pousse que sur les saules morts, au fond des marais de la Sorbe, au sud. Une poignée suffit. »",
+      "Elle désigne d'un geste les paillasses. « L'écorce de saule tient la fièvre basse. Ça les garde en vie, tout juste. Pour la chasser, il faut un remède de ma grand-mère, qui en a soigné une, de fièvre grise, il y a soixante ans, quand l'eau a tourné une première fois dans les marais. Il me faut de la mousse-de-lune. Une mousse argentée qui ne pousse que sur les saules morts, au fond des marais de la Sorbe, au sud. Une poignée suffit. »",
       "Elle reprend son pilon. « Je ne peux pas quitter mes malades, et personne au village n'ose y aller. On dit qu'il y a des noyés qui marchent, et une vieille sorcière. C'est peut-être vrai. » Elle te regarde enfin. « Je ne vous demande rien. Mais si vous y passez. »",
       { if: { has: "passe:aide" }, text: "Tu revois le temple de Saint-Gilles, plein à craquer, et le prêtre qui te disait qu'il n'y avait plus rien à faire qu'à attendre. Ici, il y a quelque chose à faire. C'est presque un soulagement." },
     ],
@@ -723,7 +723,7 @@ var passages = {
     choices: [{ back: "I_lune" }] },
   I_lune_refus: { act: "I", title: "La maison de Lune", place: "brumefeuille",
     text: [
-      "Lune hoche la tête, sans reproche, sans surprise. « Personne ne peut tout », dit-elle, et elle se remet à piler. Le bruit du pilon remplit la pièce, régulier, obstiné.",
+      "Lune hoche la tête, calmement. « Personne ne peut tout », dit-elle, et elle se remet à piler. Le bruit du pilon remplit la pièce, régulier, obstiné.",
       "Sur la paillasse du fond, le batelier énorme s'est mis à pleurer sans bruit, les yeux grands ouverts, et Lune va lui essuyer le visage avec un linge humide, comme on le fait à un nourrisson.",
     ],
     choices: [{ back: "I_hub" }] },
@@ -731,7 +731,7 @@ var passages = {
     fx: { ep: ["seance", 800], fac: { brumefeuille: 5 }, regard: { i_lune: "cordial" } },
     text: [
       "Lune ne te remercie pas : elle te met un seau dans les mains. Tu montes de l'eau de la source, celle qu'Hortense rapporte du sanctuaire, et tu la fais bouillir. Tu laves des linges, tu changes des paillasses, tu fais boire l'écorce de saule à des gens qui n'ont plus la force de tenir le bol. Tu tiens la tête du vieil homme pendant qu'il vomit du gris.",
-      "Vers le soir, sur le seuil, vous partagez une tranche de pain. Lune parle un peu. Elle n'a ni mari ni enfants. Elle a appris les plantes de sa grand-mère, dans cette même maison. « Le village m'appelle quand il a mal, dit-elle, et il m'oublie le reste du temps. Ça me va. On m'a laissé ma maison. »",
+      "Vers le soir, sur le seuil, vous partagez une tranche de pain. Lune parle un peu. Elle vit seule. Elle a appris les plantes de sa grand-mère, dans cette même maison. « Le village m'appelle quand il a mal, dit-elle, et il m'oublie le reste du temps. Ça me va. On m'a laissé ma maison. »",
       "Puis elle dit, sans te regarder : « Le premier malade, à la Saint-Michel, c'était le vieux Pierrot, qui habitait sur le chemin du moulin. Le deuxième, sa voisine. Le troisième, la femme du charpentier, qui puisait toujours très tôt, avant tout le monde. » Elle hausse les épaules. « Je ne sais pas ce que ça veut dire. Je note, c'est tout. Ma grand-mère notait tout. »",
       { if: { has: "passe:aide" }, text: "Tes mains savent faire tout cela sans que tu y penses : la façon de soulever un malade, de tenir un bol. Lune le voit. « Vous l'avez déjà fait », dit-elle. Ce n'est pas une question." },
     ],
@@ -751,7 +751,7 @@ var passages = {
   I_lune_mousse: { act: "I", title: "La mousse-de-lune", place: "brumefeuille", takes: "morning",
     fx: { drop: "mousse_lune" },
     text: [
-      "Tu poses sur la table le linge plié. Lune l'ouvre avec précaution, du bout des doigts, et la mousse apparaît, argentée, légère, qui garde encore une faible lueur dans la pénombre de la pièce. Lune la regarde un long moment sans rien dire. Puis elle te serre la main, fort, une seule fois, et elle se met au travail.",
+      "Tu poses sur la table le linge plié. Lune l'ouvre avec précaution, du bout des doigts, et la mousse apparaît, argentée, légère, qui garde encore une faible lueur dans la pénombre de la pièce. Lune la regarde un long moment en silence. Puis elle te serre la main, fort, une seule fois, et elle se met au travail.",
       "Elle travaille toute la nuit. Tu l'aides à entretenir le feu sous trois marmites. Elle fait bouillir la mousse dans l'eau de la source, avec du miel, de l'écorce de saule, du thym et une poudre grise qu'elle ne nomme pas. Ça sent la terre mouillée et la menthe. Elle passe le tout trois fois dans un linge, elle goûte, elle recommence. Elle parle tout bas, des mots de sa grand-mère, une recette apprise par cœur.",
       { with: "pip", text: "Pip éclaire la table toute la nuit pour qu'elle puisse travailler sans chandelle. Lune lui parle comme à un apprenti, sans s'étonner, et Pip a l'air ravi d'être un apprenti." },
     ],
@@ -774,7 +774,7 @@ var passages = {
     fx: { clock: { voix: 1 }, ep: ["perso", 300] },
     text: [
       { first: true, text: "Sous la halle, une charpente de chêne noircie posée sur des piliers de pierre, il y a un marché, mais un marché maigre : quelques paniers de pommes, des choux, un étal de fromages de chèvre, un rémouleur, un vendeur de sabots. Les gens passent devant les étals sans s'arrêter. Tout le monde est dans la file." },
-      { first: true, text: "La file mène à la charrette de Gilles Charron, au bout de la halle. Six tonneaux de chêne cerclés de fer, un robinet de cuivre, une écuelle pour les pièces. Charron tient le robinet lui-même. Un grand valet aux bras nus monte la garde à côté, un gourdin passé dans la ceinture. Trois sous le seau. Le seau d'eau. Une femme devant toi compte ses deniers dans sa main, recompte, et sort de la file sans rien dire." },
+      { first: true, text: "La file mène à la charrette de Gilles Charron, au bout de la halle. Six tonneaux de chêne cerclés de fer, un robinet de cuivre, une écuelle pour les pièces. Charron tient le robinet lui-même. Un grand valet aux bras nus monte la garde à côté, un gourdin passé dans la ceinture. Trois sous le seau. Le seau d'eau. Une femme devant toi compte ses deniers dans sa main, recompte, et sort de la file en silence." },
       { again: true, text: "La halle, ses étals clairsemés, et au bout la charrette de Charron, ses tonneaux, sa file." },
       { if: { is: { charron: "ouvert" } }, text: "Il n'y a plus de file : les tonneaux sont ouverts et chacun remplit son seau. Charron n'est pas là. Le marché a retrouvé un peu de bruit." },
       { if: { is: { charron: "achete" } }, text: "Les gens te saluent quand tu passes sous la halle. On se souvient du jour où l'eau a été gratuite." },
@@ -795,7 +795,7 @@ var passages = {
     fx: { meet: ["barthelemy"], ep: ["perso", 300] },
     text: [
       "Au bout de la halle, devant l'étal du marchand de sel, un homme attend son tour sans regarder personne. Il est grand, voûté, avec une barbe grise mal taillée et des vêtements de bonne laine qui ont été beaux. Il a les mains très propres, ce qui est rare ici, et il les garde l'une dans l'autre, serrées.",
-      "Les gens s'écartent de lui, pas avec méfiance : avec gêne, comme on s'écarte d'un deuil. Le marchand de sel le sert avant son tour. « Barthélemy », te souffle la marchande de pommes, en baissant les yeux. « Le meunier. Le pauvre homme. »",
+      "Les gens s'écartent de lui avec gêne, comme on s'écarte d'un deuil. Le marchand de sel le sert avant son tour. « Barthélemy », te souffle la marchande de pommes, en baissant les yeux. « Le meunier. Le pauvre homme. »",
       "Tu lui dis bonjour. Il te regarde, et il met un moment à te voir. « Bonjour », dit-il, d'une voix polie, éteinte. Il regarde ta main, puis ton visage. « Vous n'êtes pas d'ici. Vous partirez bientôt. C'est bien. » Il prend son sel, paie, et s'en va vers le pont du moulin d'un pas égal, sans se retourner.",
       { with: "pip", text: "Pip, dans ton col, a suivi le meunier des yeux jusqu'au pont. « Il est triste, dit-il. Il est triste comme quelqu'un qui attend. »" },
     ],
@@ -830,7 +830,7 @@ var passages = {
   I_charron_nuit: { act: "I", title: "La ferme de la Croix", place: "brumefeuille", takes: "night",
     text: [
       "La ferme de la Croix est une grosse bâtisse carrée, entourée d'un mur de pierres sèches à hauteur d'homme, avec un portail de bois cloué. Il fait nuit noire. Une lanterne brûle au-dessus du portail. Derrière le mur, des chiens grognent en dormant.",
-      "Ce n'est pas une ferme : c'est une forteresse de marchand. Les granges sont neuves, le mur aussi. Au fond de la cour, sous un appentis, on devine la margelle d'un puits, et autour, des tonneaux alignés.",
+      "C'est une forteresse de marchand. Les granges sont neuves, le mur aussi. Au fond de la cour, sous un appentis, on devine la margelle d'un puits, et autour, des tonneaux alignés.",
       { with: "pip", text: "Pip s'est fait tout petit, une lueur de ver luisant. « Je peux passer par-dessus, souffle-t-il. Les chiens ne regardent jamais en l'air. »" },
     ],
     choices: [
@@ -872,7 +872,7 @@ var passages = {
   I_charron_place: { act: "I", title: "Devant tout le marché", place: "brumefeuille",
     text: [
       "Tu montes sur le marchepied d'une charrette, au milieu de la halle, et tu demandes qu'on t'écoute. La file se retourne. Charron, au robinet, sourit encore, mais il a cessé de compter les pièces.",
-      { if: { has: "charron:puits" }, text: "Tu dis le puits de la ferme de la Croix. Pas une source : un puits, une eau de nappe que n'importe qui pourrait tirer d'un autre puits creusé assez profond. Tu dis l'ardoise et ses colonnes de chiffres." },
+      { if: { has: "charron:puits" }, text: "Tu dis le puits de la ferme de la Croix. Un simple puits, une eau de nappe que n'importe qui pourrait tirer d'un autre puits creusé assez profond. Tu dis l'ardoise et ses colonnes de chiffres." },
       { if: { has: "charron:registre" }, text: "Tu dis le registre. Onze maisons, au dixième de leur prix. Et le pré de la Berthe, réservé au maire « en cas de condamnation de celle-ci ». Tu demandes qu'on fasse venir Anatole avec le registre." },
       "Charron rit, très fort. Il dit que tu sors de nulle part, qu'on ne sait pas qui t'envoie. Il dit qu'il a nourri ce village pendant que d'autres priaient. Les gens regardent tour à tour lui et toi.",
     ],
@@ -883,9 +883,9 @@ var passages = {
     ] },
   I_charron_ouvert: { act: "I", title: "L'eau ouverte", place: "brumefeuille",
     text: [
-      "C'est Anatole qui fait basculer la halle. Il arrive en courant, le registre sous le bras, rouge jusqu'aux oreilles, et il le pose ouvert sur le tonneau de Charron, à la page des onze maisons. Une femme lit à voix haute pour ceux qui ne savent pas. Un homme reconnaît la sienne. Il ne dit rien. Il pose seulement son seau par terre.",
+      "C'est Anatole qui fait basculer la halle. Il arrive en courant, le registre sous le bras, rouge jusqu'aux oreilles, et il le pose ouvert sur le tonneau de Charron, à la page des onze maisons. Une femme lit à voix haute pour ceux qui ne savent pas. Un homme reconnaît la sienne. Il se tait. Il pose seulement son seau par terre.",
       "Charron cesse de rire. Il regarde les visages autour de lui, il cherche un allié, il n'en trouve pas. Alors il fait ce que font les marchands quand le marché tourne : il ouvre les bras. « Bon, dit-il. Bon ! Je voulais seulement que ce soit juste. L'eau sera gratuite. Mes hommes la porteront tous les jours. Je la donne. Je la donne au village ! »",
-      "Personne n'applaudit. Mais la file avance, ce jour-là, sans écuelle et sans pièces, et le soir, devant la halle, il y a des seaux pleins devant toutes les portes. Charron, lui, rentre à la ferme de la Croix sans saluer personne. En passant près de toi, il dit tout bas, sans cesser de sourire : « Ça se paiera. »",
+      "Personne n'applaudit. Mais la file avance, ce jour-là, les mains libres, et le soir, devant la halle, il y a des seaux pleins devant toutes les portes. Charron, lui, rentre à la ferme de la Croix sans saluer personne. En passant près de toi, il dit tout bas, sans cesser de sourire : « Ça se paiera. »",
       { with: "coliane", text: "Coliane te donne une bourrade dans l'épaule. « Pas mal, pour quelqu'un qui n'a pas sorti un couteau. »" },
     ],
     choices: [{ back: "I_hub" }] },
@@ -912,9 +912,9 @@ var passages = {
     ] },
   I_charron_force: { act: "I", title: "Derrière la halle", place: "brumefeuille",
     text: [
-      { if: { present: "coliane" }, text: "Coliane s'approche de Charron jusqu'à le toucher, et elle lui parle tout bas, longtemps, avec un de ses couteaux qui tourne entre ses doigts, sans jamais le pointer vers lui. Tu n'entends pas tout. Tu entends le mot « Hautgrès », et le mot « les maires », et le mot « l'eau ». Charron devient blanc, puis gris.", else: "Tu le plaques contre le mur, l'avant-bras en travers de sa poitrine, et tu lui dis à l'oreille ce que tu sais, ce que tu as vu, et ce que tu feras si les tonneaux restent payants une semaine de plus. Le valet au coin ne bouge pas. Il n'est pas payé assez pour ça." },
-      "Charron ne sourit plus. Il a les yeux ronds d'un homme qui n'a pas été menacé depuis très longtemps, et qui découvre qu'il n'aime pas ça. « D'accord, dit-il. D'accord. Un sou le seau. Pour ceux qui ont de quoi. Les autres, rien. C'est d'accord. »",
-      "Il tient parole, à sa façon : dès le lendemain, le prix baisse, et ses hommes ferment les yeux sur ceux qui n'ont rien. Mais il ne te regarde plus en face, et tu sais qu'un homme qui a eu peur ne pardonne jamais tout à fait.",
+      { if: { present: "coliane" }, text: "Coliane s'approche de Charron jusqu'à le toucher, et elle lui parle tout bas, longtemps, avec un de ses couteaux qui tourne entre ses doigts, sans jamais le pointer vers lui. Tu n'entends pas tout. Tu entends le mot « Hautgrès », et le mot « les maires », et le mot « l'eau ». Charron devient blanc, puis gris.", else: "Tu le plaques contre le mur, l'avant-bras en travers de sa poitrine, et tu lui dis à l'oreille ce que tu sais, ce que tu as vu, et ce que tu feras si les tonneaux restent payants une semaine de plus. Le valet au coin reste immobile. Il n'est pas payé assez pour ça." },
+      "Charron ne sourit plus. Il a les yeux ronds d'un homme qui avait oublié le goût de la menace, et qui le trouve amer. « D'accord, dit-il. D'accord. Un sou le seau. Pour ceux qui ont de quoi. Les autres, rien. C'est d'accord. »",
+      "Il tient parole, à sa façon : dès le lendemain, le prix baisse, et ses hommes ferment les yeux sur ceux qui n'ont rien. Mais il évite ton regard, et tu sais qu'un homme qui a eu peur garde toujours une rancune.",
     ],
     choices: [{ back: "I_hub" }] },
   I_charron_valet: { act: "I", title: "Le valet au gourdin", place: "brumefeuille",
@@ -937,7 +937,7 @@ var passages = {
     text: [
       "Les pièces sont chaudes d'avoir été dans sa poche. Tu les ranges. Charron te serre la main, longuement, comme on scelle une vente. « Vous irez loin, dit-il. Les gens raisonnables vont toujours loin. »",
       "En sortant de la halle, tu passes devant la file. La femme qui comptait ses deniers tout à l'heure est revenue. Elle a un seau vide et une bague en moins.",
-      { with: "pip", text: "Pip ne dit rien. Il ne dit plus rien jusqu'au soir, et quand tu lui parles, il fait semblant de dormir." },
+      { with: "pip", text: "Pip se tait. Il ne dit plus rien jusqu'au soir, et quand tu lui parles, il fait semblant de dormir." },
     ],
     choices: [{ back: "I_hub" }] },
   I_charron_achat: { act: "I", title: "L'eau du jour", place: "brumefeuille",
@@ -951,7 +951,7 @@ var passages = {
   I_charron_laisse: { act: "I", title: "Le commerce de Charron", place: "brumefeuille",
     text: [
       "Tu tournes le dos aux tonneaux. Ce n'est pas ce que tu es venu{e} chercher ici, et un maire qui vend cher l'eau propre ne fait pas noircir les puits. La file s'allonge derrière toi. Charron te fait un petit signe de la main, aimable, quand tu sors de la halle.",
-      "Ce soir-là, au Chaudron, Hortense te sert ta soupe sans un mot de plus qu'il ne faut.",
+      "Ce soir-là, au Chaudron, Hortense te sert ta soupe du bout des lèvres.",
     ],
     choices: [{ back: "I_hub" }] },
 
@@ -960,7 +960,7 @@ var passages = {
     fx: { flag: "I:berthe_vue", clock: { voix: 1 }, meet: ["berthe"], ep: ["perso", 400] },
     text: [
       { first: true, text: "Au bout du village, là où la ruelle n'est plus qu'un chemin de terre entre deux haies, une maison basse s'enfonce à moitié dans le talus, au bord de la Sorbe. Un toit de chaume qui descend presque jusqu'au sol, une porte peinte en bleu qui a dû être bleue, un jardin d'herbes, et des chèvres partout : sur le muret, sur le tas de bois, une sur le toit." },
-      { first: true, text: "Tu entends les pierres avant de voir les enfants. Un bruit sec contre la porte bleue, puis un autre contre le volet, et des rires. Ils sont cinq ou six, cachés derrière la haie, avec les poches pleines de cailloux de rivière. « La sorcière ! La sorcière du puits ! » Une pierre passe au-dessus du muret et va rouler aux pieds d'une chèvre, qui ne bouge pas." },
+      { first: true, text: "Tu entends les pierres avant de voir les enfants. Un bruit sec contre la porte bleue, puis un autre contre le volet, et des rires. Ils sont cinq ou six, cachés derrière la haie, avec les poches pleines de cailloux de rivière. « La sorcière ! La sorcière du puits ! » Une pierre passe au-dessus du muret et va rouler aux pieds d'une chèvre, qui reste immobile." },
       { first: true, before: "I:voix", text: "Le plus hardi, qui lance le plus fort, est un petit blond de sept ans, couvert de taches de rousseur. Les autres l'appellent Jeannot." },
       { again: true, text: "La maison basse au bord de l'eau, les chèvres, la porte bleue cabossée de coups de pierre. Berthe est sur son banc, au soleil s'il y en a, et elle te regarde venir sans bouger." },
       { after: "berthe:enfants", again: true, text: "Il n'y a plus d'enfants derrière la haie. Il y a seulement, sur le chemin, quelques cailloux qu'on a laissé tomber en partant." },
@@ -1005,7 +1005,7 @@ var passages = {
   I_berthe_verite: { act: "I", title: "Les pierres", place: "brumefeuille",
     text: [
       "« Qui vous a dit ça ? » Les gamins se regardent. Ça vient de partout et de personne : les mères au lavoir, les hommes au Chaudron. « Le maire, dit enfin une petite fille. Le maire l'a dit sur la place. Il a dit qu'elle avait des herbes et qu'elle en voulait au village. »",
-      "Tu leur demandes s'ils l'ont déjà vue faire du mal à quelqu'un. Silence. Un garçon dit qu'elle lui a soigné un furoncle, une fois, l'an dernier. Un autre qu'elle lui a donné une pomme. Ils ont l'air mal à l'aise, maintenant, et c'est déjà quelque chose. Ils s'en vont sans jeter leurs pierres, mais sans les lâcher non plus.",
+      "Tu leur demandes s'ils l'ont déjà vue faire du mal à quelqu'un. Silence. Un garçon dit qu'elle lui a soigné un furoncle, une fois, l'an dernier. Un autre qu'elle lui a donné une pomme. Ils ont l'air mal à l'aise, maintenant, et c'est déjà quelque chose. Ils s'en vont, leurs pierres toujours en main.",
     ],
     choices: [{ back: "I_berthe" }] },
   I_berthe_parle: { act: "I", title: "Berthe", place: "brumefeuille",
@@ -1022,7 +1022,7 @@ var passages = {
     text: [
       "Une chèvre blanche a sauté le muret et s'en va par le pré, vers la rivière. Berthe la siffle sans résultat. Tu cours après. C'est plus long qu'on ne croit, une chèvre qui ne veut pas rentrer : elle te laisse approcher à trois pas, puis repart en bêlant, ravie.",
       "Tu la coinces enfin au bout du pré, contre la haie, et c'est là que tu vois les piquets. Quatre piquets neufs, plantés aux coins du pré, et une ficelle tendue de l'un à l'autre. Deux hommes de Charron mesurent la berge avec une chaîne d'arpenteur. Ils te saluent, sans gêne. « On mesure, dit l'un. Pour plus tard. Ordre du maire. »",
-      "Quand tu ramènes la chèvre, Berthe est sur son seuil. Elle a tout vu. Elle prend la bête par le collier sans un mot, puis, au moment de refermer, elle te tend un petit fromage enveloppé dans une feuille de châtaignier. « Pour la chèvre, dit-elle. Pas pour toi. »",
+      "Quand tu ramènes la chèvre, Berthe est sur son seuil. Elle a tout vu. Elle prend la bête par le collier en silence, puis, au moment de refermer, elle te tend un petit fromage enveloppé dans une feuille de châtaignier. « Pour la chèvre, dit-elle. Pas pour toi. »",
     ],
     choices: [{ label: "Accepter le fromage", fx: { food: 1 }, back: "I_berthe" }] },
 
@@ -1040,7 +1040,7 @@ var passages = {
   I_lavoir_aide: { act: "I", title: "Le lavoir", place: "brumefeuille", takes: 2,
     fx: { fac: { brumefeuille: 4 }, ep: ["perso", 400] },
     text: [
-      "Tu t'agenouilles au bout de la rangée, une femme te passe un battoir et une pile de draps sans rien dire, et tu te mets à taper. Au bout d'une heure, tu as mal aux épaules, les mains gelées, et les lavandières ont recommencé à parler comme si tu n'étais pas là, ce qui est une façon de t'accepter.",
+      "Tu t'agenouilles au bout de la rangée, une femme te passe un battoir et une pile de draps en silence, et tu te mets à taper. Au bout d'une heure, tu as mal aux épaules, les mains gelées, et les lavandières ont recommencé à parler par-dessus ta tête, ce qui est une façon de t'accepter.",
       "On parle de la petite Margot, la fille du meunier, noyée au printemps. « On l'a trouvée sous la roue, dit une grosse femme en tordant un drap. Dans le bief. Le père a plongé dix fois. Il est remonté avec les ongles en sang. » Une autre : « Il ne parle plus depuis. Il descend au bief le soir, à ce qu'on dit, et il reste là. » Une troisième : « Laisse-le tranquille, cet homme. Il a assez de malheur. »",
       "On parle aussi de Berthe. Les avis sont partagés. La grosse femme dit qu'elle a toujours eu un regard mauvais. Une jeune dit que Berthe lui a sauvé son premier enfant, qui se présentait mal, une nuit où la sage-femme était saoule. On parle de Charron, enfin, mais plus bas, en regardant derrière soi.",
       { with: "coliane", text: "Coliane s'est mise à laver elle aussi, ses manches roulées sur des avant-bras couverts de petites cicatrices. Elle bat le linge plus fort que tout le monde, et les femmes la regardent avec respect." },
@@ -1078,7 +1078,7 @@ var passages = {
     text: [
       "Tu tires la corde tout l'après-midi. Seau après seau, la glaise monte, jaune, puis grise, puis bleue et collante. À quatre toises, l'homme du fond crie qu'il sent l'eau. À cinq, elle suinte entre les planches, et il remonte en vitesse sur la corde, les jambes mouillées jusqu'aux genoux.",
       "Vous vous penchez tous les quatre au-dessus du trou. Au fond, dans la glaise bleue, une flaque se forme, lentement. Elle est noire. Elle sent la cave. L'homme qui était en bas se frotte les jambes avec de l'herbe, de plus en plus fort.",
-      "Personne ne dit rien pendant longtemps. Puis le charpentier ramasse sa pioche et la jette dans le trou. « C'est sous tout le village, dit-il. C'est dans la terre. » Il te tend tout de même la soupe promise, et un quignon, et il s'assied par terre à côté de toi pour manger, sans plus parler.",
+      "Personne se tait longtemps. Puis le charpentier ramasse sa pioche et la jette dans le trou. « C'est sous tout le village, dit-il. C'est dans la terre. » Il te tend tout de même la soupe promise, et un quignon, et il s'assied par terre à côté de toi pour manger, sans plus parler.",
     ],
     choices: [{ back: "I_hub" }] },
   I_moulin_loin: { act: "I", title: "Le moulin, depuis le pont", place: "brumefeuille",
@@ -1099,7 +1099,7 @@ var passages = {
       { first: true, text: "En haut de la rue principale, là où le village s'arrête contre le coteau et ses vignes abandonnées, un mur bas entoure un replat où se tient le sanctuaire : une chapelle de pierre blonde avec un clocher-mur à une cloche, un long dortoir de pèlerins au toit de lauzes, un potager, un verger. Et, sous la chapelle, dans une grotte fermée d'une grille, une source qui tombe dans un bassin de pierre avec un bruit clair, le premier bruit d'eau propre que tu entends depuis la crête." },
       { first: true, text: "Un vieil homme en robe grise bêche le potager. Il plante sa bêche en te voyant, s'essuie les mains et vient à ta rencontre, en boitant un peu. « Bienvenue, dit-il. Je suis Odon. On m'appelle Père, mais je n'ai jamais été père de personne. Vous avez soif ? Il y a de l'eau. Elle est à tout le monde. »" },
       { again: true, text: "Le sanctuaire sur son replat, la chapelle blonde, la source qui chante sous la grille. Le Père Odon lève la main de loin, sans lâcher sa bêche." },
-      { with: "pip", first: true, text: "Pip sort de ta capuche de lui-même, pour la première fois depuis que tu es au village, et il va voleter devant la grotte de la source, en faisant de petits cercles. Le Père Odon le regarde faire et ne dit rien, mais ses yeux se plissent." },
+      { with: "pip", first: true, text: "Pip sort de ta capuche de lui-même, pour la première fois depuis que tu es au village, et il va voleter devant la grotte de la source, en faisant de petits cercles. Le Père Odon le regarde faire en silence, les yeux plissés." },
     ],
     choices: [
       { label: "Parler avec le Père Odon", to: "I_odon" },
@@ -1185,7 +1185,7 @@ var passages = {
     text: [
       "Frère Ancel et ses pèlerins sont là, assis sur leurs paillasses dans le long dortoir, à raccommoder leurs sandales. Ils te reconnaissent. Ils te font place.",
       { if: { seen: "IR_pelerins_pain" }, text: "« Ah ! Le pain du carrefour, dit Ancel en souriant. Venez. Ce soir, c'est nous qui partageons. »", else: "« Vous voilà, dit Ancel. Vous êtes passé{e} par le village, alors. Vous avez vu. »" },
-      "Vous mangez ensemble la soupe d'Odon. Ancel te raconte la route de la Fenne, qu'ils feront demain : les cols, le refuge, le glacier où l'on n'a pas le droit d'aller, et le tombeau des fondateurs qu'on n'a pas le droit de voir. « On y va quand même, dit-il. On va jusqu'à la dernière borne, on pose la main dessus, et on revient. C'est ça, un pèlerinage. Aller jusqu'à l'endroit où on vous dit de vous arrêter. »",
+      "Vous mangez ensemble la soupe d'Odon. Ancel te raconte la route de la Fenne, qu'ils feront demain : les cols, le refuge, le glacier interdit, et le tombeau des fondateurs, fermé aux regards. « On y va quand même, dit-il. On va jusqu'à la dernière borne, on pose la main dessus, et on revient. C'est ça, un pèlerinage. Aller jusqu'à l'endroit où on vous dit de vous arrêter. »",
       "Avant de dormir, ils prient. Ils te bénissent aussi, sans te demander ton avis, d'une main sur la tête chacun, et tu dors mieux que tu n'as dormi depuis longtemps.",
     ],
     choices: [{ back: "I_sanctuaire" }] },
@@ -1194,7 +1194,7 @@ var passages = {
     text: [
       "Le Père Odon te donne une paillasse au bout du dortoir, une couverture de laine qui sent la fumée, et un bol de soupe aux châtaignes. Il ne demande rien en échange. « Si vous voulez, vous bêcherez demain », dit-il, et il s'en va fermer les volets.",
       "Tu dors d'un sommeil épais, sans rêves, bercé{e} par le bruit de la source sous le plancher.",
-      { if: { has: "marque:eclat" }, text: "Une seule fois, avant l'aube, tu t'éveilles avec la main droite brûlante. Tu sors dans la nuit froide et tu la plonges dans le bassin de la source. Ça fume, ça mord, puis ça se calme. Quand tu reviens te coucher, le Père Odon est assis sur son lit, dans le noir, et il te regarde passer. Il ne dit rien." },
+      { if: { has: "marque:eclat" }, text: "Une seule fois, avant l'aube, tu t'éveilles avec la main droite brûlante. Tu sors dans la nuit froide et tu la plonges dans le bassin de la source. Ça fume, ça mord, puis ça se calme. Quand tu reviens te coucher, le Père Odon est assis sur son lit, dans le noir, et il te regarde passer. Il se tait." },
       "Au matin, tu bêches une heure dans le potager, pour la soupe. Odon ne te remercie pas. Il te donne un morceau de pain pour la route.",
     ],
     choices: [{ back: "I_sanctuaire" }] },
@@ -1207,10 +1207,10 @@ var passages = {
       { first: true, text: "La moitié des maisons n'ont plus de toit. Les orties montent jusqu'aux fenêtres, et des sureaux ont poussé dans les cuisines. Mais l'autre moitié vit : il y a du linge aux fenêtres, des poules sur la place, une fumée sur trois. Au bord du chemin, de grandes plaques grises dans les prés où rien n'a repoussé, comme des brûlures sur une peau. Et au milieu de la place, là où était le puits, un tas de pierres avec une croix de bois plantée dessus." },
       { first: true, if: { has: "passe:aide" }, text: "Une vieille femme, sur un banc, plisse les yeux en te voyant passer, puis se lève à moitié. « Toi, dit-elle. C'est toi qui portais les malades. Tu as porté mon homme. » Elle se rassied. « Il est mort quand même. Mais tu l'as porté. »" },
       { first: true, if: { has: "passe:fui" }, text: "Personne ne te reconnaît. Tu as changé, ou ils ont changé, ou ceux qui t'auraient reconnu{e} sont sous les croix du cimetière. Tu marches au milieu de la place comme quelqu'un de passage, et tu as honte d'en être soulagé{e}." },
-      { first: true, if: { has: "passe:profite" }, text: "Un homme qui fend du bois s'arrête, te regarde, et crache par terre. Il ne dit rien. Il n'a pas besoin. Il reprend sa hache, et il frappe un peu plus fort." },
+      { first: true, if: { has: "passe:profite" }, text: "Un homme qui fend du bois s'arrête, te regarde, et crache par terre. Il se tait. Il n'a pas besoin. Il reprend sa hache, et il frappe un peu plus fort." },
       { again: true, text: "Saint-Gilles-des-Prés, son clocher penché, sa place, la croix sur l'ancien puits. Les poules ne te craignent plus." },
       { after: "sg:terres_rendues", text: "Les Rabier te saluent de loin, de leur champ, et la petite lève la main aussi, comme son père." },
-      { with: "pip", text: "Pip regarde tout, sans un mot, depuis ton épaule. Il sait que c'est ici que tu es né{e}. Il ne te pose pas de question, ce qui chez lui est une forme rare de délicatesse." },
+      { with: "pip", text: "Pip regarde tout, en silence, depuis ton épaule. Il sait que c'est ici que tu es né{e}. Il ne te pose pas de question, ce qui chez lui est une forme rare de délicatesse." },
     ],
     choices: [
       { label: "Le nouveau puits, en amont du village", hide: { seen: "I_sg_puits" }, to: "I_sg_puits" },
@@ -1258,7 +1258,7 @@ var passages = {
     ] },
   I_sg_rendues: { act: "I", title: "Ce qu'on rend", place: "i_saintgilles",
     text: [
-      "Au temple, devant le Père Thomasset qui écrit l'acte de sa main lente, tu cèdes les quatre champs, le pré et le verger à Jean Rabier et à sa femme, pour un denier, parce qu'il faut un prix pour que l'acte vaille. Rabier pose le denier sur la table comme s'il pesait cent livres. Sa femme ne dit rien. Elle pleure sans bruit en tenant la plus petite.",
+      "Au temple, devant le Père Thomasset qui écrit l'acte de sa main lente, tu cèdes les quatre champs, le pré et le verger à Jean Rabier et à sa femme, pour un denier, parce qu'il faut un prix pour que l'acte vaille. Rabier pose le denier sur la table comme s'il pesait cent livres. Sa femme se tait. Elle pleure sans bruit en tenant la plus petite.",
       "Ça ne rend pas les morts. Ça ne rend pas les sept ans. Mais en sortant du temple, tu as les mains plus légères, et tu t'aperçois que tu respires mieux, comme si tu avais porté pendant sept ans quelque chose de lourd sans savoir que c'était lourd.",
       { with: "pip", text: "Pip brille si fort, sur le chemin du retour, que des enfants le suivent jusqu'au pont." },
     ],

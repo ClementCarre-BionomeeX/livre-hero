@@ -11,7 +11,7 @@ module.exports = {
     fx: { questSeen: "HY_mordace" },
     text: [
       "Tu te réveilles avant les cloches, comme toujours. Il y a vingt ans que tu ne vois plus, et ton corps a gardé l'habitude de l'aube, comme un chien garde l'habitude d'un maître mort.",
-      "Ta cellule est au septième étage de la tour, côté nord. Quatre pas sur trois. Un lit, une table, une cuvette, une étagère de livres que tu ne peux plus lire et que tu n'as pas eu le cœur de rendre. Tu passes le doigt sur leurs dos, un par un, en t'habillant. C'est ta prière.",
+      "Ta cellule est au septième étage de la tour, côté nord. Quatre pas sur trois. Un lit, une table, une cuvette, une étagère de livres désormais fermés pour toi, que tu gardes par tendresse. Tu passes le doigt sur leurs dos, un par un, en t'habillant. C'est ta prière.",
       "Tu as soixante-dix-huit ans. Tu es greffier de la Chancellerie des Noms depuis l'âge de quatorze ans. Tu lis encore, à ta façon : du bout des doigts, dans le creux que la plume laisse au vélin. Tu es le seul à savoir le faire. On te garde pour ça, et parce qu'on n'ose pas te chasser.",
       "On frappe. Une voix de jeune homme, essoufflée. « Maître Hylas ? Le Greffier-Majeur vous fait dire qu'il vous recevra ce soir, après complies. Et que vous aurez désormais une page pour vous faire la lecture. Elle vous attend au scriptorium. »",
     ],
@@ -41,7 +41,7 @@ module.exports = {
     fx: { flag: "hylas:page", meet: "linette_p", questSeen: "HY_page" },
     text: [
       "Le maître des pages te conduit au deuxième rang et met dans ta main une petite main froide, tachée d'encre. « Page Onze. Elle a la meilleure écriture et la meilleure voix. Elle vous lira ce que vous voudrez. »",
-      "Elle lit, en effet. Tu lui tends le premier registre venu et elle le lit d'une voix claire, sans hésiter, sans comprendre, comme on lit une langue étrangère dont on connaît les lettres. Des noms. Des dates. Des sous.",
+      "Elle lit, en effet. Tu lui tends le premier registre venu et elle le lit d'une voix claire, d'un trait, le sens lui restant fermé, comme on lit une langue étrangère dont on connaît les lettres. Des noms. Des dates. Des sous.",
       "À la pause, elle te demande, très bas : « Maître, est-ce que vous savez comment je m'appelais ? Avant. Les autres pages disent que c'est défendu de demander. »",
       "Tu le sais. Tu as tenu le registre gris pendant dix ans. Tu te souviens de toutes les lignes que tu as touchées. *Page Onze. Linette, neuf ans, des Teinturiers.*",
     ],
@@ -102,7 +102,7 @@ module.exports = {
     fx: { questSeen: "HY_noir" },
     text: [
       "On descend par l'escalier des caves, puis par un autre, plus étroit, taillé dans le roc, dont les marches sont usées en creux. Il fait froid. Il fait de plus en plus froid. En bas, une porte de fer. Tu poses la main sur la serrure. Ce n'est plus la serrure d'il y a vingt ans. Quelqu'un l'a changée.",
-      "Derrière la porte, tu le sais, il y a une salle ronde, et au milieu de la salle, sur un pupitre de pierre, le premier registre de la Chancellerie, celui des Fondateurs. Le registre noir. Tu l'as touché une fois. Tu en es ressorti aveugle, et tu n'as jamais dit à personne que les deux choses étaient liées, parce que tu n'en es pas sûr.",
+      "Derrière la porte, tu le sais, il y a une salle ronde, et au milieu de la salle, sur un pupitre de pierre, le premier registre de la Chancellerie, celui des Fondateurs. Le registre noir. Tu l'as touché une fois. Tu en es ressorti aveugle, et tu gardes pour toi le lien entre les deux choses, faute de certitude.",
     ],
     choices: [
       { label: "Ouvrir la serrure par un sortilège", test: { dom: "magie", label: "Sortilège" },
@@ -122,14 +122,14 @@ module.exports = {
       win: { fx: { ep: ["seance", 1200], flag: "hylas:gardien_brise" }, to: "HY_salle_noire" },
       lose: { fx: { flag: "hylas:fui_caveau", pv: -1 }, to: "HY_tour" } },
     text: [
-      "Le froid monte d'un coup, comme une eau. Quelque chose se lève dans le coin de l'escalier, quelque chose qui ne respire pas et qui craque comme de la neige tassée sous un pas. Tu ne le vois pas. Tu n'en as pas besoin.",
+      "Le froid monte d'un coup, comme une eau. Quelque chose se lève dans le coin de l'escalier, quelque chose qui ne respire pas et qui craque comme de la neige tassée sous un pas. Tes oreilles te suffisent.",
     ],
     choices: [] }),
 
   HY_salle_noire: P({ title: "Le registre noir",
     fx: { clue: "n_noir", quest: "HY_noir" },
     text: [
-      "La salle ronde n'a pas changé. Le froid, le silence, et cette odeur que tu n'as sentie nulle part ailleurs, de pierre et de neige. Tu traverses jusqu'au pupitre. Tu poses les mains sur le registre.",
+      "La salle ronde est la même. Le froid, le silence, et cette odeur de pierre et de neige qui n'existe qu'ici. Tu traverses jusqu'au pupitre. Tu poses les mains sur le registre.",
       "Le vélin est lisse comme une joue. Tu cherches le creux des plumes. Il y a, sur la première page, une liste de noms qui ne sont dans aucune langue d'Esquarre, gravés si profond que la plume a percé le vélin par endroits. Puis, en travers de chaque nom, un trait.",
       "Tu tournes les pages. Des centaines de pages, des milliers de noms barrés. Et à la fin, sur les dernières pages, des noms d'ici, d'une écriture récente, à peine sèche. *Roncière. Chaumont. Les Aulnes.* Et sur la toute dernière ligne, une ligne qui n'a pas trois jours :",
       "*Sauvelune.*",
@@ -160,7 +160,7 @@ module.exports = {
 
   HY_mordace_registre: P({ title: "La dernière ligne",
     text: [
-      "Mordace ne répond pas tout de suite. Tu entends le feu, et sa respiration, très calme.",
+      "Mordace prend son temps. Tu entends le feu, et sa respiration, très calme.",
       "« Vous avez toujours posé les meilleures questions, vous aussi, maître. » Il se lève. « Une Chancellerie ne garde pas les noms. Elle garde l'ordre des noms. Ce qui doit être retenu. Ce qui doit être laissé. Les Fondateurs l'ont su. Nous l'avons oublié. Je le rappelle. »",
       "« Quatre cents personnes. »",
       "« Quatre cents personnes que personne n'oubliera, maître, puisque personne ne s'en souvient. » Il revient près de toi. « Maintenant, à votre tour. L'enfant. »",
@@ -175,21 +175,21 @@ module.exports = {
 
   HY_mordace_mensonge: P({ title: "Seul",
     text: [
-      "Tu lui racontes le froid, la faim, la plaine blanche, la cécité qui vient comme un brouillard. Tout est vrai, sauf un enfant. Tu mens bien. Tu as appris de lui, ou il a appris de toi, tu ne sais plus.",
+      "Tu lui racontes le froid, la faim, la plaine blanche, la cécité qui vient comme un brouillard. Tout est vrai, sauf un enfant. Tu mens bien. Tu as appris de lui, ou il a appris de toi, lequel des deux, tu l'as oublié.",
       "Il t'écoute. Il te remercie. Il te raccompagne à la porte, une main sous ton coude. « Reposez-vous, maître. Demain, j'aurai besoin de vous pour certifier une livraison. »",
     ],
     choices: [{ label: "Redescendre", to: "HY_nuit" }] }),
 
   HY_mordace_mensonge_rate: P({ title: "Le silence de Mordace",
     text: [
-      "Il ne dit rien pendant si longtemps que tu crois qu'il est sorti. Puis : « Vous mentez mal, maître. Vous avez toujours mal menti. C'est pour ça que je vous aimais. »",
+      "Il se tait si longtemps que tu le crois sorti. Puis : « Vous mentez mal, maître. Vous avez toujours mal menti. C'est pour ça que je vous aimais. »",
       "Il te raccompagne à la porte, une main sous ton coude. « Demain, j'aurai besoin de vous pour certifier une livraison. Et après, nous reparlerons. »",
     ],
     choices: [{ label: "Redescendre", to: "HY_nuit" }] }),
 
   HY_mordace_silence: P({ title: "Ce que tu donnes",
     text: [
-      "Tu ne dis rien. Il attend. Tu ne dis rien. Il finit par sourire, tu l'entends à sa voix. « Bien. Nous avons le temps. »",
+      "Tu te tais. Il attend. Tu te tais. Il finit par sourire, tu l'entends à sa voix. « Bien. Nous avons le temps. »",
       "Cette nuit-là, dans ta cellule, tu ouvres la fenêtre étroite qui donne sur la cour. Il y a, sur le rebord, une poussière blanche, froide, que le vent apporte du sommet de la tour. Tu en prends une pincée. Tu penses à trois jours de marche dans la neige, à un poids chaud contre ta poitrine, à un moulin. Tu souffles.",
       "Quand tu refermes la fenêtre, tu sais que tu as donné quelque chose. Tu ne sais plus quoi. Tu sais que c'était à toi, et que c'était important, et que maintenant, personne ne pourra jamais te le prendre.",
     ],
@@ -197,7 +197,7 @@ module.exports = {
 
   HY_nuit: P({ title: "La cellule, la nuit",
     text: [
-      "Tu es allongé dans le noir, qui est le même que le jour. La tour respire autour de toi. Quelque part au-dessus, sous la plume et la clé, Mordace ne dort pas non plus.",
+      "Tu es allongé dans le noir, qui est le même que le jour. La tour respire autour de toi. Quelque part au-dessus, sous la plume et la clé, Mordace veille aussi.",
     ],
     choices: [{ label: "Attendre le matin", fx: { flag: "ch:hylas:1", resume: "HY_jour" }, to: "C_carrefour" }] }),
 
@@ -207,7 +207,7 @@ module.exports = {
     text: [
       "Trois jours ont passé. La tour est devenue une ruche. On entend des pas dans tous les escaliers, des portes, des voix. Les pages copient jour et nuit. Mordace ne t'a pas rappelé. Ce matin, un garde t'a conduit à la porte de l'Est.",
       { if: { has: "ysolde:voie=obeit" }, text: "Une colonne entre dans la cour. Tu l'entends : des pieds nus, des chaînes, des enfants, et des chevaux ferrés. Une voix de femme, sèche, donne le compte à un greffier. Cent dix-huit." },
-      { if: { has: "ysolde:voie=ruse" }, text: "Une colonne entre dans la cour. Une voix de femme donne le compte à un greffier : cent treize. Le greffier, une voix fluette que tu reconnais, celle de Frère Sévrin, recompte, et ne dit rien." },
+      { if: { has: "ysolde:voie=ruse" }, text: "Une colonne entre dans la cour. Une voix de femme donne le compte à un greffier : cent treize. Le greffier, une voix fluette que tu reconnais, celle de Frère Sévrin, recompte, et se tait." },
       { if: { has: "ysolde:voie=deserte" }, text: "La colonne attendue n'arrive pas. On parle de cordes coupées dans les faubourgs, de soldats de la reine qui ont tourné bride. Des gardes noirs passent en courant. Un greffier te met quand même une liste sous la main." },
       { if: { not: { has: "ch:ysolde:2" } }, text: "Une colonne arrive par la route de Varre. On t'a fait venir pour la recevoir. En attendant, on te fait asseoir sur un banc, au soleil, comme un vieux chien." },
       "« Le Greffier-Majeur demande que vous certifiiez la livraison, maître. Votre sceau, ici. »",
@@ -234,7 +234,7 @@ module.exports = {
     ],
     choices: [
       { label: "Lui dire ce que tu sais, et ce que tu crois", fx: { flag: "baudoin:sait", quest: "HY_baudoin", ep: ["perso", 1000] }, to: "HY_baudoin_sait" },
-      { label: "Lui dire d'arrêter. De partir de Pallanche ce soir, sans rien dire", fx: { flag: "baudoin:parti", quest: "HY_baudoin", ep: ["perso", 800] }, to: "HY_baudoin_part" },
+      { label: "Lui dire d'arrêter. De partir de Pallanche ce soir, en silence", fx: { flag: "baudoin:parti", quest: "HY_baudoin", ep: ["perso", 800] }, to: "HY_baudoin_part" },
       { label: "Lui dire de continuer, et de t'apporter, chaque soir, un reçu du jour", fx: { flag: "baudoin:espion", quest: "HY_baudoin", ep: ["perso", 800] }, to: "HY_baudoin_espion" },
     ] }),
 
@@ -242,7 +242,7 @@ module.exports = {
     text: [
       { if: { seen: "HY_salle_noire" }, text: "Tu lui parles du registre noir. Des noms barrés. De la dernière ligne." },
       { if: { not: { seen: "HY_salle_noire" } }, text: "Tu lui parles de la porte sous les caves. Du registre noir, que tu as touché une fois. Du froid qu'il fait là-dessous, et qui n'est pas celui d'une cave." },
-      "Tu ne lui dis pas tout. Tu ne sais pas tout. Il t'écoute sans un mot. À la fin, il dit : « Je le savais. Je crois que je le savais. » Il part. Tu ne sais pas ce qu'il va faire. Lui non plus.",
+      "Tu lui dis ce que tu sais, et c'est peu. Il t'écoute en silence. À la fin, il dit : « Je le savais. Je crois que je le savais. » Il part. Que va-t-il faire ? Lui non plus.",
     ],
     choices: [{ label: "Sortir. C'est l'heure de vêpres", to: "HY_archives" }] }),
 
@@ -251,7 +251,7 @@ module.exports = {
     choices: [{ label: "Sortir. C'est l'heure de vêpres", to: "HY_archives" }] }),
 
   HY_baudoin_espion: P({ title: "Un reçu par jour",
-    text: ["Il te regarde longtemps, tu le sens. « Et moi, maître ? Qui va se souvenir de moi ? » Tu ne réponds pas. Il part. Le lendemain matin, sous ta porte, il y aura un reçu. Et le surlendemain. Et un jour, il n'y en aura plus."],
+    text: ["Il te regarde longtemps, tu le sens. « Et moi, maître ? Qui va se souvenir de moi ? » Tu te tais. Il part. Le lendemain matin, sous ta porte, il y aura un reçu. Et le surlendemain. Et un jour, il n'y en aura plus."],
     choices: [{ label: "Sortir. C'est l'heure de vêpres", to: "HY_archives" }] }),
 
   HY_archives: P({ title: "Les archives, en passant",
@@ -262,16 +262,16 @@ module.exports = {
       { if: { has: "pie:choix=boite" }, text: "Au troisième rang, la place d'une boîte est vide. Tu passes le doigt sur la poussière autour." },
       { if: { has: "pie:choix=liste" }, text: "Sur le grand pupitre, le registre rouge a une page en moins. On ne s'en est pas encore aperçu. On s'en apercevra." },
       { if: { has: "pie:choix=linette" }, text: "Au scriptorium, au deuxième rang, il y a une place vide. La page qu'on t'envoie désormais pour la lecture s'appelle Page Vingt-Deux. Tu ne lui demandes pas son nom." },
-      { if: { not: { seen: "PI_hylas" } }, text: "Rien n'a bougé. Les boîtes de plomb, sur leurs étagères. Au-dessus, sur les toits, il y a parfois un pas léger, qui va et vient, comme celui de quelqu'un qui cherche par où entrer." },
+      { if: { not: { seen: "PI_hylas" } }, text: "Tout est à sa place. Les boîtes de plomb, sur leurs étagères. Au-dessus, sur les toits, il y a parfois un pas léger, qui va et vient, comme celui de quelqu'un qui cherche par où entrer." },
     ],
     choices: [{ label: "Sortir par la porte des Teinturiers", to: "HY_tissot" }] }),
 
   HY_tissot: P({ title: "Chez la mère Tissot",
     text: [
-      "La mère Tissot tient une taverne de quatre tables dans une ruelle des Teinturiers, et elle sert le seul vin de Corvanne de tout Pallanche, sous le comptoir, depuis la guerre. Tu viens ici tous les soirs depuis trente ans. Elle pose ton verre devant toi sans rien dire, et elle te parle de ses rhumatismes.",
+      "La mère Tissot tient une taverne de quatre tables dans une ruelle des Teinturiers, et elle sert le seul vin de Corvanne de tout Pallanche, sous le comptoir, depuis la guerre. Tu viens ici tous les soirs depuis trente ans. Elle pose ton verre devant toi, et elle te parle de ses rhumatismes.",
       { if: { has: "croise:pie_enfant" }, text: "Ce soir, quelqu'un est assis à la table du fond. Tu entends un souffle jeune, une respiration de quelqu'un qui a marché longtemps, et le froissement d'un papier qu'on plie et qu'on déplie. Personne ne vient vers toi." },
       { if: { not: { has: "croise:pie_enfant" } }, text: "Ce soir, il n'y a personne d'autre que toi. La mère Tissot a mis des lampions pour la Fête. Tu entends leur papier frémir au vent." },
-      { if: { has: "hylas:oublie_enfant" }, text: "Tu ne sais plus pourquoi tu viens ici tous les soirs depuis trois jours, à vêpres, au lieu de complies, comme avant. Tu sais seulement que tu dois y être." },
+      { if: { has: "hylas:oublie_enfant" }, text: "Tu as oublié pourquoi tu viens ici tous les soirs depuis trois jours, à vêpres, au lieu de complies, comme avant. Tu sais seulement que tu dois y être." },
       "Demain soir, les cent cloches.",
     ],
     choices: [

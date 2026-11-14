@@ -46,7 +46,7 @@ module.exports = {
     choices: [{ label: "Rapporter la fiole", to: "PI_Q_fiole_fin" }] }),
   PI_Q_fiole_pris: P({ title: "La main sur le poignet",
     text: [
-      "Sa main de femme se referme sur ton poignet, plus vite que tu ne l'aurais cru, et serre. « Un voleur, dit-il, doucement. Dans ma boutique. » Il ne crie pas. Il ne crie jamais. « Va-t'en, petit. Et dis à celle qui t'envoie que son grand-père a fait une bonne affaire. Il n'aura plus jamais de chagrin. »",
+      "Sa main de femme se referme sur ton poignet, plus vite que tu ne l'aurais cru, et serre. « Un voleur, dit-il, doucement. Dans ma boutique. » Il parle bas, comme toujours. « Va-t'en, petit. Et dis à celle qui t'envoie que son grand-père a fait une bonne affaire. Il n'aura plus jamais de chagrin. »",
       "Il te lâche. Tu as les marques de ses doigts sur le poignet jusqu'au soir.",
     ],
     choices: [{ label: "Retrouver Ninon, les mains vides", fx: { quest: "PI_Q_fiole" }, to: "PI_ville" }] }),

@@ -9,7 +9,7 @@ module.exports = {
   // ------------------------------------------------------------------ combes (nord)
   E2_pont_neige: P({ title: "Le pont de neige", place: null,
     text: [
-      "Le sentier franchit une crevasse sur un pont de neige durcie, large comme une table. Tu l'as passé cent fois. Mais cette neige-là n'est pas la neige d'hiver : elle est blanche de l'autre blanc, celui qui ne fond pas, et le pont s'est épaissi depuis ton dernier passage. Il a poussé, comme une chose vivante.",
+      "Le sentier franchit une crevasse sur un pont de neige durcie, large comme une table. Tu l'as passé cent fois. Mais cette neige-là est blanche de l'autre blanc, celui qui résiste au soleil, et le pont s'est épaissi depuis ton dernier passage. Il a poussé, comme une chose vivante.",
       "Dessous, à vingt toises, on entend de l'eau.",
       { with: "hylas", text: "Hylas pose sa canne sur le bord. « Elle sonne creux, dit-il. Mais pas comme de la neige. Comme une page. »" },
     ],
@@ -117,7 +117,7 @@ module.exports = {
     ] }),
   E2_corbeau_message: P({ title: "Le fil rouge", place: null,
     text: [
-      "Le message n'est pas écrit : le clan n'écrit pas. Ce sont des nœuds sur le fil. Tu les lis du bout des doigts. Trois nœuds serrés : danger. Un nœud lâche : au nord. Deux nœuds doubles : ne revenez pas.",
+      "Le message est fait de nœuds et de plumes, à la façon du clan. Ce sont des nœuds sur le fil. Tu les lis du bout des doigts. Trois nœuds serrés : danger. Un nœud lâche : au nord. Deux nœuds doubles : ne revenez pas.",
       "Le corbeau a été envoyé vers le sud. Vers toi, peut-être. Il n'est jamais arrivé.",
     ],
     choices: [{ label: "Lui remettre l'aile, à la mode du clan", test: { dom: "nature", label: "L'aile", help: [{ if: { present: "ombeline" }, v: 20 }, { if: { item: "onguent" }, v: 15 }] },
@@ -143,7 +143,7 @@ module.exports = {
     ] }),
   E2_vendange_chant: P({ title: "La dernière gerbe", place: null,
     text: [
-      "Tu commences une chanson de cour, une de tes fausses chansons. Au deuxième couplet, la vieille femme t'arrête de la main. « Non, dit-elle. Mais l'air. Garde l'air. » Et elle chante, elle, sur ton air, des paroles qui ne sont pas les tiennes, des paroles qu'elle ne savait pas savoir.",
+      "Tu commences une chanson de cour, une de tes fausses chansons. Au deuxième couplet, la vieille femme t'arrête de la main. « Non, dit-elle. Mais l'air. Garde l'air. » Et elle chante, elle, sur ton air, d'autres paroles, qu'elle portait en elle à son insu.",
       "Une femme reprend, puis un homme, puis tous. Ce n'est pas la vraie chanson. C'est celle qui la remplace. Ils la chantent jusqu'au soir, et quand vous repartez, ils vous ont chargés de pain et de fromage.",
       { with: "hylas", text: "« C'est comme ça que les chansons survivent, dit Hylas sur la route. Pas en se souvenant. En se trompant ensemble. »" },
     ],
@@ -156,7 +156,7 @@ module.exports = {
     text: [
       "Le pont de Merlanges a été emporté au printemps. Il reste un bac, une barque plate sur une corde, et un passeur, un homme maigre aux yeux très clairs qui mâchonne une pipe éteinte.",
       "« Un sou par tête, dit-il. Ou bien. » Il sort de sa poche une petite fiole de verre, vide. « Ou bien un souvenir. Un petit. Le goût d'un fruit, le nom d'un chien. Il y a des gens à Pallanche qui paient cher pour ça. » Il sourit. « Moi, je ne pose pas de questions. »",
-      { with: "linette", text: "Linette regarde la fiole sans rien dire. Elle connaît ce verre-là. On le souffle dans un atelier, au pied de la tour." },
+      { with: "linette", text: "Linette regarde la fiole en silence. Elle connaît ce verre-là. On le souffle dans un atelier, au pied de la tour." },
     ],
     choices: [
       { label: "Payer en monnaie", fx: { gold: -3 }, to: "E2_bac_passe" },
@@ -185,7 +185,7 @@ module.exports = {
   E2_heraut: P({ title: "Le héraut", place: null,
     text: [
       "Sur la place d'un bourg, un héraut aux couleurs de la Chancellerie lit une liste, debout sur une charrette. Ce ne sont pas des proclamations. Ce sont des noms. Des noms de villages.",
-      "« Rayés du rôle du royaume, pour cause de dépeuplement : Ormeaux. Les Granges-Hautes. Saint-Vincent-du-Gué. Mallefosse. Par ordre du Greffier-Majeur, ces lieux ne sont plus tenus de payer la taille, ni de fournir des hommes, ni de recevoir les cloches. »",
+      "« Rayés du rôle du royaume, pour cause de dépeuplement : Ormeaux. Les Granges-Hautes. Saint-Vincent-du-Gué. Mallefosse. Par ordre du Greffier-Majeur, ces lieux sont déchargés de la taille, de la levée des hommes et de l'accueil des cloches. »",
       "Les gens écoutent sans comprendre. Personne, ici, ne connaît ces villages. C'est bien le problème.",
     ],
     choices: [
@@ -233,7 +233,7 @@ module.exports = {
     ] }),
   E3_jouets_cherche: P3({ title: "La toupie", place: null,
     text: [
-      "Tu cherches longtemps. Tu ne sais pas ce que tu cherches. Tu n'as pas eu beaucoup de jouets, à Sauvelune : un couteau, une fronde, un bateau d'écorce que Joris t'avait taillé et qui a coulé dans la Sauve.",
+      "Tu cherches longtemps. Tu cherches au hasard. Tu as eu peu de jouets, à Sauvelune : un couteau, une fronde, un bateau d'écorce que Joris t'avait taillé et qui a coulé dans la Sauve.",
       "Tu ne trouves pas le bateau. Tu trouves, par terre, une toupie de buis, peinte de rouge et de bleu, avec un nom gravé dessous, d'une écriture d'adulte qui s'applique : AELAN.",
       "Tu ne te souviens pas de cette toupie. Quelqu'un te l'a offerte, avant. Avant Sauvelune.",
     ],
@@ -268,7 +268,7 @@ module.exports = {
 
   E3_lettres: P3({ title: "La neige de lettres", place: null,
     text: [
-      "Il se met à neiger. Pas de la neige : des lettres. Des feuilles pliées, cachetées ou non, qui tombent lentement du blanc d'en haut et se posent sur le blanc d'en bas. Des lettres qu'on n'a jamais envoyées. Des lettres qu'on n'a jamais lues. Des lettres qu'on a écrites pour soi.",
+      "Il se met à neiger. Des lettres. Des feuilles pliées, cachetées ou non, qui tombent lentement du blanc d'en haut et se posent sur le blanc d'en bas. Des lettres qu'on n'a jamais envoyées. Des lettres qu'on n'a jamais lues. Des lettres qu'on a écrites pour soi.",
       "Une se pose sur ton épaule.",
     ],
     choices: [

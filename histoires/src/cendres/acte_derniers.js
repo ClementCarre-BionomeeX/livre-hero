@@ -26,7 +26,7 @@ module.exports = {
     ],
     choices: YS_BACK }),
   YS_k_chambre_close: YS({ title: "Encore une année",
-    text: ["Tu poses deux doigts sur le cachet de cire, sur le loup, comme on pose deux doigts sur le front de quelqu'un qui dort. Puis tu les retires. Pas encore. Tu redescends l'escalier de la tour, marche après marche, en comptant comme quand tu étais petite. Quatre-vingt-deux. Tu ne sais pas ce qu'il y a dans la lettre. Tu sais que tu n'es pas prête à ce que ce soit la dernière chose qu'il t'ait dite."],
+    text: ["Tu poses deux doigts sur le cachet de cire, sur le loup, comme on pose deux doigts sur le front de quelqu'un qui dort. Puis tu les retires. Pas encore. Tu redescends l'escalier de la tour, marche après marche, en comptant comme quand tu étais petite. Quatre-vingt-deux. La lettre garde son secret. Tu sais que tu n'es pas prête à ce que ce soit la dernière chose qu'il t'ait dite."],
     choices: YS_BACK }),
   V_e_reclamations: V({ title: "Le guichet des réclamations",
     text: [

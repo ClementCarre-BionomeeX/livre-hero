@@ -28,7 +28,7 @@ module.exports = {
 
   E4_cairn: P({ title: "Le cairn",
     text: [
-      "Au passage d'un petit col, un cairn plus haut qu'un homme. Pas des pierres de berger : chacune porte un nom, gravé ou peint. Des centaines. Les gens de la montagne en ajoutent une en passant, pour quelqu'un qu'ils ont perdu dans l'année blanche, ou pour eux-mêmes, au cas où.",
+      "Au passage d'un petit col, un cairn plus haut qu'un homme. Chacune porte un nom, gravé ou peint. Des centaines. Les gens de la montagne en ajoutent une en passant, pour quelqu'un qu'ils ont perdu dans l'année blanche, ou pour eux-mêmes, au cas où.",
       "Au pied du cairn, des pierres plates, et un clou rouillé pour graver.",
     ],
     choices: [
@@ -81,7 +81,7 @@ module.exports = {
     ] }),
 
   E4_faux_jetons_ok: P({ title: "La file",
-    text: ["Tu montres le jeton à l'envers, le plomb qui plie sous l'ongle. La file comprend. Les deux hommes ramassent leur caisse et filent à travers champs. Une femme te demande alors, très sérieusement, si le vrai jeton protège vraiment de la neige. Tu ne sais pas quoi lui répondre. Tu lui dis la vérité : non."],
+    text: ["Tu montres le jeton à l'envers, le plomb qui plie sous l'ongle. La file comprend. Les deux hommes ramassent leur caisse et filent à travers champs. Une femme te demande alors, très sérieusement, si le vrai jeton protège vraiment de la neige. Les mots te manquent. Tu lui dis la vérité : non."],
     choices: [{ back: "@route" }] }),
 
   E4_faux_jetons_laisse: P({ title: "Le plomb",

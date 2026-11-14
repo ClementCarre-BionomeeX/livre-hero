@@ -21,7 +21,7 @@ module.exports = {
     ],
     choices: [{ back: "IV_br" }] }),
   IV_br_infirmerie_rate: P({ title: "Les bandes", place: "brenne",
-    text: ["Tu roules des bandes, maladroitement, et tu en fais tomber la moitié dans la boue. Une sœur grise te les reprend des mains sans un mot. Le chirurgien te montre la sortie d'un mouvement de menton. Il n'a pas le temps. Derrière toi, un blessé se lève en riant, et retombe."],
+    text: ["Tu roules des bandes, maladroitement, et tu en fais tomber la moitié dans la boue. Une sœur grise te les reprend des mains en silence. Le chirurgien te montre la sortie d'un mouvement de menton. Il n'a pas le temps. Derrière toi, un blessé se lève en riant, et retombe."],
     choices: [{ back: "IV_br" }] }),
 
   IV_br_plaques: P({ title: "L'aumônier", place: "brenne",
@@ -34,11 +34,11 @@ module.exports = {
       { label: "Prendre le poinçon, et frapper avec lui jusqu'au soir", fx: { flag: "iv:plaques", ep: ["perso", 800] }, to: "IV_br_plaques_aide" },
     ] }),
   IV_br_plaques_toi: P({ title: "Une plaque", place: "brenne",
-    text: ["Il te demande ton nom. Tu le lui dis. Le nom de Sauvelune. Il frappe. Puis il te regarde, le poinçon levé, comme s'il attendait autre chose. Tu ne dis rien. Il hoche la tête, et il frappe, en dessous, en petit, un deuxième mot, sans te demander lequel : *Revenu.* « Ça se voit sur toi », dit-il. Tu passes la plaque à ton cou. Elle est froide, puis elle ne l'est plus."],
+    text: ["Il te demande ton nom. Tu le lui dis. Le nom de Sauvelune. Il frappe. Puis il te regarde, le poinçon levé, comme s'il attendait autre chose. Tu te tais. Il hoche la tête, et il frappe, en dessous, en petit, un deuxième mot, sans te demander lequel : *Revenu.* « Ça se voit sur toi », dit-il. Tu passes la plaque à ton cou. Elle est froide, puis elle ne l'est plus."],
     choices: [{ back: "IV_br" }] }),
   IV_br_plaques_aide: P({ takes: "evening", title: "Le poinçon", place: "brenne",
     text: [
-      "Tu frappes. Il épelle, tu frappes. Les noms passent sous tes mains, cent, deux cents. Des noms de vallées, de fermes, de rues de Vasselin. Un garçon ne sait pas écrire le sien, et ne sait plus très bien le dire. Vous le cherchez ensemble, à trois, avec son voisin de compagnie, qui finit par s'en souvenir pour lui.",
+      "Tu frappes. Il épelle, tu frappes. Les noms passent sous tes mains, cent, deux cents. Des noms de vallées, de fermes, de rues de Vasselin. Un garçon ignore comment écrire le sien, et hésite en le disant. Vous le cherchez ensemble, à trois, avec son voisin de compagnie, qui finit par s'en souvenir pour lui.",
       "Le soir, tu as les mains noires de plomb, et des ampoules, et dans la tête deux cents noms que tu ne retiendras pas. Mais ils sont dans le plomb, et ils y resteront.",
     ],
     choices: [{ back: "IV_br" }] }),

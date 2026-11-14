@@ -47,7 +47,7 @@ module.exports = {
     combat: { title: "La louve blanche", enemies: ["loup_blanc"], terrain: "nature", range: "contact",
       flee: { dom: "nature", label: "Redescendre en courant", to: "CO_L_perdus" },
       win: { fx: { flag: "corbe:loup=tue", ep: ["seance", 1200] }, to: "CO_L_tuee" }, lose: { fx: { pv: -4 }, to: "CO_L_perdus" } },
-    text: ["Elle ne gronde pas. Elle attaque sans un bruit, comme la neige qui tombe d'un toit."],
+    text: ["Elle ne gronde pas. Elle attaque en silence, comme la neige qui tombe d'un toit."],
     choices: [] }),
   CO_L_tuee: P({ title: "Les louveteaux",
     text: [
@@ -60,7 +60,7 @@ module.exports = {
     text: [
       "Tu poses ta lance. Tu prends le tambour. Tu bats, doucement, le rythme des veillées, et tu parles à la louve comme on parle au rite, dans la vieille langue. Tu ne lui dis pas un nom. Les loups n'ont pas de nom. Tu lui dis ce qu'il y a derrière elle. Trois petits. Gris. À toi. Ils ont faim.",
       "Elle tourne la tête. Lentement. Ses yeux blancs se posent sur la fente, sur les louveteaux, qui crient. Et, du fond du blanc, quelque chose remonte, une couleur, un jaune de loup, d'abord au bord des pupilles, puis partout.",
-      "Elle entre dans la tanière. Elle se couche. Les louveteaux se jettent sur elle. Elle ne vous regarde plus. Elle ne regarde plus que ses petits. Bjarki baisse sa lance, lentement, et il te regarde, toi, comme on regarde une Bouche pour la première fois.",
+      "Elle entre dans la tanière. Elle se couche. Les louveteaux se jettent sur elle. Elle n'a plus d'yeux que pour ses petits. Bjarki baisse sa lance, lentement, et il te regarde, toi, comme on regarde une Bouche pour la première fois.",
     ],
     choices: [{ fx: { quest: "CO_Q_loup", conf: { corbe: 10 } }, back: "CO_camp" }] }),
   CO_L_chassee: P({ title: "Vers le nord",

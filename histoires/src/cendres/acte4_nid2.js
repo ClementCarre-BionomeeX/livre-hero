@@ -21,13 +21,13 @@ module.exports = {
   IV_N_echos_libre: P({ title: "Un nom, dans la main",
     text: [
       "Tu poses les paumes à plat sur la glace, et tu attends. Tes mains brûlent, puis ne sentent plus rien. La glace fond, très lentement, en larmes qui coulent jusqu'au sol. Un nom remonte vers toi, lettre après lettre, comme un poisson vers la surface. Il sort. Il reste un moment dans le creux de ta main, noir, humide, léger comme une feuille morte.",
-      "*Odile.* Rien d'autre. Pas de famille, pas de village. Odile. Tu ne sais pas qui c'était. Tu le dis à voix haute, une fois, pour qu'il ait été dit. Le nom s'envole, comme une cendre, vers le haut de la galerie, et disparaît. Derrière toi, dans les parois, les bribes de phrases se sont tues. Toute la galerie écoute.",
+      "*Odile.* Rien d'autre. Seule au monde. Odile. Tu ne sais pas qui c'était. Tu le dis à voix haute, une fois, pour qu'il ait été dit. Le nom s'envole, comme une cendre, vers le haut de la galerie, et disparaît. Derrière toi, dans les parois, les bribes de phrases se sont tues. Toute la galerie écoute.",
     ],
     choices: BACK }),
   IV_N_echos_froid: P({ title: "Le froid dans les mains",
     text: ["Tu poses les paumes sur la glace. Elle ne fond pas. C'est toi qui gèles. Le froid te monte aux poignets, aux coudes, il te prend les doigts un par un, et tu arraches tes mains de la paroi avec un bruit de peau qui reste collée. Tu les mets sous tes bras. Elles te font mal pendant une heure. Dans la glace, le nom que tu visais n'a pas bougé d'un cheveu. Il attendra quelqu'un d'autre."],
     choices: BACK }),
   IV_N_echos_lire: P({ title: "Les noms dans l'ambre",
-    text: ["Tu lis. Lentement, en te penchant, en plissant les yeux, ceux qui sont près de la surface. *Odile. Bastien Croq. La petite Jacquette des Noues. Frère Albin. Marcelline.* Tu ne connais personne. Tu continues. Au bout d'un moment, tu comprends que ce sont des noms que personne, nulle part, n'a jamais réclamés. Ni dans un registre, ni dans une prière, ni dans une chanson. Les Glaneurs n'ont pas pu les avaler parce qu'ils n'avaient pas de goût : personne ne les avait jamais dits avec amour. Tu les dis. Avec ce que tu as."],
+    text: ["Tu lis. Lentement, en te penchant, en plissant les yeux, ceux qui sont près de la surface. *Odile. Bastien Croq. La petite Jacquette des Noues. Frère Albin. Marcelline.* Tu ne connais personne. Tu continues. Au bout d'un moment, tu comprends que ce sont des noms que personne, nulle part, n'a jamais réclamés. Ni dans un registre, ni dans une prière, ni dans une chanson. Les Glaneurs n'ont pas pu les avaler parce qu'ils étaient fades : aucune voix aimante ne les avait prononcés. Tu les dis. Avec ce que tu as."],
     choices: BACK }),
 };

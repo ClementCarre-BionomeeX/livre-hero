@@ -72,6 +72,6 @@ module.exports = {
       { back: "V_r_chemin" },
     ] }),
   V_r_oratoire_priere: P({ title: "Une prière", place: null,
-    text: ["Tu prends un papier. Tu n'as pas d'encre. Tu écris avec le doigt, dans le givre du papier, en appuyant. Tu ne demandes rien pour toi. Tu écris les noms des gens du moulin, puis de ceux qui marchent avec toi, et, tout au bout, après une hésitation, le tien. Tu glisses le papier sous le socle. Le saint sans visage ne dit rien. C'est ce qu'on attend d'un saint."],
+    text: ["Tu prends un papier. Tu n'as pas d'encre. Tu écris avec le doigt, dans le givre du papier, en appuyant. Tu ne demandes rien pour toi. Tu écris les noms des gens du moulin, puis de ceux qui marchent avec toi, et, tout au bout, après une hésitation, le tien. Tu glisses le papier sous le socle. Le saint sans visage se tait. C'est ce qu'on attend d'un saint."],
     choices: BACK }),
 };

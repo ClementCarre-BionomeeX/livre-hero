@@ -115,6 +115,6 @@ module.exports = {
         win: { fx: { flag: "mordace:fin=pardonne", ep: ["perso", 2000] }, to: "V_t_pardonne" }, lose: { to: "V_t_fiche_rate" } },
     ] }),
   V_t_fiche_rate: P({ title: "Bon élève", place: "pallanche",
-    text: ["Il pose la fiche à côté du Grand Livre, bien droite, alignée sur le bord du lutrin. « Bon élève, dit-il. C'est vrai. Je l'ai été. » Sa voix ne tremble pas. Sa main tremble un peu, en reprenant la plume. Il écrit. Il ne regarde plus la fiche. Il ne la jette pas non plus."],
+    text: ["Il pose la fiche à côté du Grand Livre, bien droite, alignée sur le bord du lutrin. « Bon élève, dit-il. C'est vrai. Je l'ai été. » Sa voix ne tremble pas. Sa main tremble un peu, en reprenant la plume. Il écrit. Il a détourné les yeux de la fiche, mais il la garde en main."],
     choices: [{ label: "Reculer", to: "V_t_mordace" }] }),
 };

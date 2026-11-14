@@ -34,7 +34,7 @@ module.exports = {
     text: ["Elle ouvre la bouche. Elle la referme. Elle cherche. « Il y avait un clocher, dit-elle. Avec un coq de travers. Et un lavoir, où ma mère m'emmenait. » Elle sourit. « Je ne sais plus comment il s'appelait. Mais le coq, je le vois. Il est toujours de travers. Ils n'ont jamais voulu le redresser. » Elle te serre la main, très fort. « Si tu le vois, ce coq, dis-moi où c'est. »"],
     choices: BACK }),
   IV_cv_villages_main: P({ title: "La main", place: "brenne",
-    text: ["Tu restes. Elle te tient la main sans rien dire, longtemps. Au bout d'un moment, elle se met à fredonner, et ce n'est pas un air esquarrois. Ce n'est pas un air corvannais non plus. C'est plus vieux. Un air de la Lisse d'avant, quand il n'y avait qu'une seule rive. Les enfants, autour, s'arrêtent de jouer pour écouter. Ils ne le connaissent pas. Ils le connaissent."],
+    text: ["Tu restes. Elle te tient la main en silence, longtemps. Au bout d'un moment, elle se met à fredonner, un air étranger à l'Esquarre comme à Corvanne. C'est plus vieux. Un air de la Lisse d'avant, quand il n'y avait qu'une seule rive. Les enfants, autour, s'arrêtent de jouer pour écouter. Ils ne le connaissent pas. Ils le connaissent."],
     choices: BACK }),
   IV_cv_cantiniere: P({ title: "La cantinière", place: "brenne",
     text: [
@@ -52,7 +52,7 @@ module.exports = {
     text: [
       "Un petit homme rond, tout en tablier, qui tourne avec une rame une marmite où l'on pourrait mettre trois enfants. Ça sent le chou, le lard, et quelque chose d'autre, de très bon, que tu ne connais pas. Il t'en sert une écuelle sans te demander qui tu es.",
       "« Une soupe de la Lisse, dit-il. Ma grand-mère la faisait. Côté Corvanne, on met du cumin. Côté Esquarre, du laurier. » Il goûte. « Moi, je mets les deux. Ma grand-mère était d'un côté, mon grand-père de l'autre. Il paraît que ça ne se faisait pas. Ils l'ont fait quand même. »",
-      { with: "gaspard", text: "Gaspard goûte la soupe, les yeux fermés. Puis il demande la rame, et le cuisinier la lui donne, et ils tournent ensemble, à deux, sans un mot, comme deux hommes qui se connaissent depuis toujours." },
+      { with: "gaspard", text: "Gaspard goûte la soupe, les yeux fermés. Puis il demande la rame, et le cuisinier la lui donne, et ils tournent ensemble, à deux, en silence, comme deux hommes qui se connaissent depuis toujours." },
     ],
     choices: [{ label: "Finir l'écuelle", fx: { pv: 5, food: 1 }, to: "IV_cv_camp" }] }),
   IV_cv_rodric: P({ title: "Les gens du pont", place: "brenne",

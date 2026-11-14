@@ -63,10 +63,10 @@ add(person("V_q_mere", "v:queue_mere", "La jeune mère", [
   "Une jeune femme, vingt ans, qui serre contre elle un châle de laine plié en quatre, comme on porte un nourrisson. Il n'y a rien dans le châle. Elle le berce quand même, doucement, sans s'en rendre compte. « Trois semaines, dit-elle. Il a vécu trois semaines. Je voudrais ne l'avoir jamais eu. Ce serait moins lourd. »",
 ], "« Trois semaines, c'est quelqu'un. Il n'aura eu que toi pour s'en souvenir. »", [{ if: { present: "corbe" }, v: 15 }, { if: { present: "ombeline" }, v: 20 }, { if: { has: "nord:nouveau_ne=garde" }, v: 10 }, { if: { has: "nord:nouveau_ne=peint" }, v: 10 }],
 ["Elle te regarde. Elle regarde le châle. Elle le déplie, à moitié, et elle regarde dedans, comme s'il y avait quelqu'un. « Il avait des cheveux noirs, dit-elle. Beaucoup. Comme un petit vieux. » Elle rit, et elle pleure, et elle sort de la file, le châle serré contre elle, et elle s'assied sur une marche, pour pleurer à son aise. C'est mieux. C'est beaucoup mieux."],
-["« Personne ne s'en souviendra, alors, dit-elle. Ni lui, ni moi. Ce sera juste. » Elle reprend son bercement. Tu ne trouves rien à répondre qui ne soit pas cruel. Tu la laisses à son châle, et au sourire qui lui revient, très vite, trop vite."]));
+["« Personne ne s'en souviendra, alors, dit-elle. Ni lui, ni moi. Ce sera juste. » Elle reprend son bercement. Toutes les réponses qui te viennent sont cruelles. Tu la laisses à son châle, et au sourire qui lui revient, très vite, trop vite."]));
 add(person("V_q_amants", "v:queue_amants", "Les amants", [
   "Un garçon et une fille, dix-huit ans, côte à côte dans la file, qui ne se regardent pas. Leurs mains se touchent presque. « Nos pères, dit la fille, à voix basse. Les deux maisons. On ne pourra jamais. Alors on a décidé de se céder l'un l'autre. Comme ça, demain, on se croisera dans la rue, et ça ne fera rien. »",
-  "Le garçon ne dit rien. Il serre son jeton si fort que le plomb a pris la forme de ses doigts.",
+  "Le garçon se tait. Il serre son jeton si fort que le plomb a pris la forme de ses doigts.",
 ], "« Demain, vous vous croiserez, et vous vous retournerez, sans savoir pourquoi. Toute votre vie. »", [{ if: { present: "lisandre" }, v: 20 }, { if: { present: "pie" }, v: 10 }, { if: { has: "iii:noces" }, v: 15 }],
 ["La fille se tourne vers le garçon. Pour la première fois de la nuit, elle le regarde. Il lâche son jeton, qui tombe dans la neige, sans bruit. Ils sortent de la file, ensemble, la main dans la main, et ils partent en courant, vers le Pont-Neuf, vers n'importe où, en riant comme des voleurs. Leurs pères, demain, se débrouilleront."],
 ["« On se retournera, dit la fille. Et puis on ne se retournera plus. On s'habitue à tout. » Elle a raison, peut-être. Le garçon ne dit toujours rien. Quand tu t'éloignes, tu le vois, du coin de l'œil, lui frôler la main. Une seule fois. Pour la dernière fois."]));
@@ -78,7 +78,7 @@ add(person("V_q_dette", "v:queue_dette", "Le débiteur", [
 
 C.V_q_tete = P({ title: "La tête de la queue", place: "pallanche",
   text: [
-    "Devant la porte de la tour, le premier de la file. Un vieux greffier, en robe noire râpée, un jeton à la main, qui ne bouge pas. Il est là depuis hier soir. Il aurait pu entrer cent fois. La porte est ouverte. Il n'entre pas.",
+    "Devant la porte de la tour, le premier de la file. Un vieux greffier, en robe noire râpée, un jeton à la main, immobile. Il est là depuis hier soir. Il aurait pu entrer cent fois. La porte est ouverte. Il n'entre pas.",
     "« Je les ai tous inscrits, dit-il sans que tu demandes. Quarante ans au guichet. Chaque cession. Chaque nom. Je voulais leur donner tout ça, ce soir. Les quarante ans. » Il regarde la porte ouverte. « Et je n'y arrive pas. Je reste là. Je ne sais pas pourquoi. »",
     { if: atLeast(3), text: "Il regarde par-dessus ton épaule, vers la file, vers les trous dans la file. « Tu en as fait partir, dit-il. J'ai vu. » Il hoche la tête, lentement. « C'est peut-être pour ça que j'attendais. Pour voir si quelqu'un viendrait les chercher. »" },
   ],

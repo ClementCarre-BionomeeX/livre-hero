@@ -21,11 +21,11 @@ Object.assign(P, {
       { first: true, if: { is: { maitre: "perdu" } }, text: "Les ornières du chemin sont pleines d'une eau grise, gelée sur les bords. Tu ne la regardes pas. Depuis l'Isarde, tu ne regardes plus l'eau, de peur d'y voir un visage que tu connais, et qui te dirait ton nom avec deux voix." },
       { first: true, text: "Ardhal. Le vieux dragon blanc. Les chasseurs de la Fenne disent qu'il dort depuis cent ans au fond de son antre et qu'il ne descend plus. Ils disent aussi, depuis la Saint-Martin, qu'on l'a vu voler la nuit au-dessus du glacier, et que ses ailes n'étaient plus blanches." },
       { again: true, text: "Le chemin de mulets monte toujours entre ses deux murets, et le glacier, tout en haut, n'a pas bougé. Derrière toi, le camp fume sous la pluie : des feux de bois vert, des marmites, des enfants qui crient pour se réchauffer." },
-      { with: "pip", text: "Pip regarde la glace sans rien dire. Il ne brille presque pas. Quand tu lui demandes ce qu'il a, il répond qu'il a froid, ce qui ne lui arrive jamais, et qu'il ne sait pas pourquoi la montagne lui fait penser à une main fermée." },
+      { with: "pip", text: "Pip regarde la glace en silence. Il ne brille presque pas. Quand tu lui demandes ce qu'il a, il répond qu'il a froid, ce qui ne lui arrive jamais, et qu'il ne sait pas pourquoi la montagne lui fait penser à une main fermée." },
       { with: "coliane", text: "Coliane resserre les lanières de ses bottes, l'une après l'autre, avec un soin exagéré. Elle n'aime pas la montagne. « On ne voit rien venir, là-haut, dit-elle. Ou alors on voit tout venir, de très loin, et on n'a nulle part où aller. »" },
       { with: "thavary", text: "Thavary a ciré son épée la veille au soir, longtemps, à la lueur du feu, comme on le fait avant les grandes choses. Elle regarde le glacier avec l'attention d'un capitaine qui compte les tours d'une place forte." },
       { with: "charline", text: "Charline a les mains dans ses manches et le nez rouge. « De la glace, dit-elle. Quatre lieues de glace, et un dragon de givre au bout. Moi qui fais du feu. » Elle a l'air presque contente." },
-      { with: "aubin", text: "Frère Aubin a fait le signe de la Main en voyant la montagne, puis il s'est arrêté au milieu, comme quelqu'un qui ne sait plus très bien à qui il s'adresse." },
+      { with: "aubin", text: "Frère Aubin a fait le signe de la Main en voyant la montagne, puis il s'est arrêté au milieu, comme quelqu'un qui cherche à qui il s'adresse." },
       { with: "gloup", text: "Gloup s'est roulé dans une flaque gelée, a poussé un petit cri, et s'est réfugié dans ta botte. Il n'avait jamais vu de glace." },
       { if: { mark: { min: 3 } }, text: "Ta main gauche te brûle depuis que tu regardes la montagne. La tache noire a dépassé le poignet. Quand tu fermes les yeux, tu entends de l'eau couler sous de la glace, très loin, et une voix qui fredonne." },
     ],
@@ -105,7 +105,7 @@ Object.assign(P, {
   IVD_soeur_promesse: { act: "IV", title: "La médaille", place: "vaux",
     text: [
       "Elle hoche la tête, comme si c'était ce qu'elle attendait et rien de plus. Elle ne te donne pas la médaille. Elle la garde serrée dans son poing, contre sa poitrine. « Il a une tache de vin sur la main droite, dit-elle. Là, entre le pouce et l'index. Il la cachait, petit. Il disait que c'était le diable qui l'avait mordu. » Elle a un rire bref. « Il n'a jamais cru au diable. Il croyait à la Main. Il croyait qu'en montant assez haut, on trouverait quelqu'un pour nous écouter. »",
-      { with: "aubin", text: "Frère Aubin s'est approché. Il pose la main sur l'épaule de Bastienne, sans un mot, et elle ne la repousse pas. Quand il retire sa main, il a les lèvres serrées. Plus tard, sur le chemin, il te dira : « Des prêcheurs de Ferrance, j'en ai connu. Ils montent toujours en chantant. Ce n'est jamais eux qui portent les morts en redescendant. »" },
+      { with: "aubin", text: "Frère Aubin s'est approché. Il pose la main sur l'épaule de Bastienne, en silence, et elle ne la repousse pas. Quand il retire sa main, il a les lèvres serrées. Plus tard, sur le chemin, il te dira : « Des prêcheurs de Ferrance, j'en ai connu. Ils montent toujours en chantant. Ce n'est jamais eux qui portent les morts en redescendant. »" },
       "Quand tu t'éloignes, elle a repris sa place sur la borne, et regarde à nouveau la montagne.",
     ],
     choices: [{ back: "IVD_depart" }] },
@@ -115,7 +115,7 @@ Object.assign(P, {
       "Bastienne est toujours là, sur sa borne. Elle te voit venir de loin, sur le chemin, et elle se lève. Elle ne court pas vers toi. Elle t'attend, debout, la couverture tombée à ses pieds dans la boue.",
       { if: { is: { pelerins: "sauve" } }, text: "Gaspard est déjà là, assis contre une tente, une écuelle de soupe entre les mains : les chasseurs du refuge l'ont descendu avant toi. Bastienne le regarde, puis te regarde. Elle ne dit pas merci. Elle prend ta main dans les deux siennes et la garde un moment, et c'est tout, et c'est beaucoup." },
       { if: { is: { pelerins: "paix" } }, text: "Tu lui tends la médaille de son frère, avec son lacet. Elle la prend, la regarde, la met à côté de la sienne dans le creux de sa main. Les deux médailles sont pareilles, usées pareil. « Il a eu froid ? » demande-t-elle. Tu lui dis la vérité : à la fin, non. Il ne parlait plus du froid. Il parlait d'elle. Elle hoche la tête, et elle s'assied sur la borne, et elle pleure enfin, comme on pose un sac trop lourd." },
-      { if: { is: { pelerins: "laisse" } }, text: "Tu lui dis ce que tu as vu là-haut. Les trente-deux, la glace, et celui qui avait une tache de vin sur la main et qui n'a pas voulu redescendre. Elle t'écoute jusqu'au bout. Puis elle ramasse sa couverture, la secoue, et retourne vers les tentes sans un mot. Le lendemain, la borne est vide." },
+      { if: { is: { pelerins: "laisse" } }, text: "Tu lui dis ce que tu as vu là-haut. Les trente-deux, la glace, et celui qui avait une tache de vin sur la main et qui n'a pas voulu redescendre. Elle t'écoute jusqu'au bout. Puis elle ramasse sa couverture, la secoue, et retourne vers les tentes en silence. Le lendemain, la borne est vide." },
     ],
     choices: [{ back: "IVD_depart" }] },
 
@@ -181,9 +181,9 @@ Object.assign(P, {
       { with: "coliane", if: { is: { coliane_arc: "justice" } }, text: "Coliane fait tourner entre ses doigts un des couteaux de Josse, qu'elle a gardé. « Je l'ai livré, dit-elle. À ceux qui jugent. J'ai cru que ça me ferait du bien. Ça ne m'a rien fait. Ça m'a juste laissé les mains libres. » Elle range le couteau. « C'est déjà ça. »" },
       { with: "coliane", if: { is: { coliane_arc: "vengeance" } }, text: "Coliane ne parle pas de Josse. Elle a lavé ses couteaux trois fois depuis, dans trois eaux différentes. Elle les lave encore ce soir, à la neige." },
       { with: "coliane", if: { is: { coliane_arc: "pitie" } }, text: "Coliane regarde le feu. « Il pleurait, dit-elle tout à coup. Josse. Quand je l'ai laissé partir. Il pleurait comme quand on était petits et que mon frère le battait à la lutte. » Elle hausse les épaules. « Je ne sais pas si j'ai bien fait. Je ne le saurai jamais. C'est ça, la pitié, je crois. »" },
-      { with: "coliane", if: { all: [{ not: { is: { coliane_arc: ["justice", "vengeance", "pitie"] } } }, { has: "josse=reconnu" }] }, text: "Coliane regarde vers le bout du camp, là où campe ce qui reste des gens du Cercle. Elle ne dit pas le nom de Josse. Elle n'a pas besoin de le dire : ses mains le disent pour elle, à force de se serrer." },
+      { with: "coliane", if: { all: [{ not: { is: { coliane_arc: ["justice", "vengeance", "pitie"] } } }, { has: "josse=reconnu" }] }, text: "Coliane regarde vers le bout du camp, là où campe ce qui reste des gens du Cercle. Elle tait le nom de Josse. Elle n'a pas besoin de le dire : ses mains le disent pour elle, à force de se serrer." },
       { with: "charline", if: { is: { charline_arc: "forge" } }, text: "Charline a les mains tendues vers le feu, mais c'est elle qui le nourrit : de petites flammes bleues lui sortent du bout des doigts et vont lécher les bûches. « Mon père m'a montré, dit-elle. À la tour. Comment on tient le feu sans le serrer. Il ne m'avait jamais rien montré. »" },
-      { with: "charline", if: { is: { charline_arc: "brule" } }, text: "Charline ne fait pas de feu ce soir. Elle laisse les autres s'en occuper. Elle a les mains dans les manches et les yeux fixés sur la braise, et quand une bûche s'effondre en gerbe d'étincelles, elle ne bouge pas." },
+      { with: "charline", if: { is: { charline_arc: "brule" } }, text: "Charline ne fait pas de feu ce soir. Elle laisse les autres s'en occuper. Elle a les mains dans les manches et les yeux fixés sur la braise, et quand une bûche s'effondre en gerbe d'étincelles, elle reste de marbre." },
       { with: "charline", if: { is: { charline_arc: "pardon" } }, text: "Charline écrit une lettre à son père, à la lueur du feu, en appuyant sur son genou. Elle en est à la troisième page. « Il ne pourra pas la lire tout seul, dit-elle. Ses mains. Il faudra que quelqu'un la lui tienne. » Elle continue d'écrire." },
       { with: "aubin", if: { is: { aubin_arc: "pretre" } }, text: "Frère Aubin dit les complies, à voix basse, pour personne et pour tout le monde. Tu ne l'avais pas entendu prier depuis la chapelle noyée. Sa voix est rouillée. Elle tient." },
       { with: "aubin", if: { is: { aubin_arc: "quitte" } }, text: "Aubin n'a plus l'habit. Il porte une veste de berger qu'il a échangée contre sa bure, et il a l'air d'un homme ordinaire, ce qui le surprend lui-même. « Je croyais que j'aurais froid, dit-il. Sans l'habit. Je n'ai pas plus froid. »" },
@@ -205,11 +205,11 @@ Object.assign(P, {
   // step 1: the pilgrims' oratory
   IVD_L_oratoire: { act: "IV", title: "L'oratoire des pèlerins", place: null,
     text: [
-      "Le chemin de mulets s'arrête au dernier mélèze, à un oratoire de pierres sèches pas plus haut qu'un homme, couvert de lauzes. À l'intérieur, sur une tablette, une main de bois peinte, paume ouverte, et autour d'elle des ex-voto de toutes les époques : des béquilles, des tresses de cheveux, des fers à cheval, des petits cœurs de cire fondus et refondus par cent étés. Les plus récents sont en dessous, à même le sol : des chapelets de pèlerins, encore brillants.",
+      "Le chemin de mulets s'arrête au dernier mélèze, à un oratoire de pierres sèches haut comme un homme, couvert de lauzes. À l'intérieur, sur une tablette, une main de bois peinte, paume ouverte, et autour d'elle des ex-voto de toutes les époques : des béquilles, des tresses de cheveux, des fers à cheval, des petits cœurs de cire fondus et refondus par cent étés. Les plus récents sont en dessous, à même le sol : des chapelets de pèlerins, encore brillants.",
       "Sur le mur de droite, quelqu'un a gravé des noms au couteau, frais, la pierre encore blanche dans les entailles. Trente-deux noms, sur quatre colonnes, et en haut, plus gros que les autres : *NICAISE DE FERRANCE, PRÊCHEUR, ET CEUX QUI L'ONT SUIVI. QUE LA MONTAGNE NOUS ENTENDE.*",
       "Au-dessus de la main de bois, dans le linteau, il y a cinq mains sculptées dans la pierre, très usées. Et une sixième. Personne ne l'a martelée, celle-ci. Elle est simplement plus petite que les autres, un peu à l'écart, comme un enfant qui suit des grands.",
       { if: { has: "passe:libre" }, text: "Tu as passé des cols comme celui-ci, avant, pour des contrats d'un jour, des marchands à escorter, des lettres à porter. Tu as toujours laissé quelque chose aux oratoires, un sou, un bout de pain. Pas par piété. Par politesse envers la montagne." },
-      { with: "pip", text: "Pip s'est arrêté devant la sixième main. Il la regarde longtemps, de tout près, sans rien dire, et quand tu l'appelles il sursaute comme quelqu'un qu'on réveille." },
+      { with: "pip", text: "Pip s'est arrêté devant la sixième main. Il la regarde longtemps, de tout près, en silence, et quand tu l'appelles il sursaute comme quelqu'un qu'on réveille." },
     ],
     choices: [
       { label: "Chercher le nom de Gaspard parmi les trente-deux", hide: { not: { seen: "IVD_soeur" } }, to: "IVD_L_oratoire_noms" },
@@ -263,7 +263,7 @@ Object.assign(P, {
   IVD_L_aval_enseveli: { act: "IV", title: "Sous la neige", place: null,
     fx: { pv: -6 },
     text: [
-      "La coulée te prend par les jambes, te soulève, te roule. Tu ne sais plus où est le haut. Tu as de la neige dans la bouche, dans les yeux, dans les oreilles. Puis tout s'arrête, d'un coup, et la neige durcit autour de toi comme du plâtre. Tu ne peux plus bouger que les doigts d'une main. Tu respires dans une petite poche d'air que ton visage a creusée. Il fait bleu, et très calme.",
+      "La coulée te prend par les jambes, te soulève, te roule. Le haut et le bas ont disparu. Tu as de la neige dans la bouche, dans les yeux, dans les oreilles. Puis tout s'arrête, d'un coup, et la neige durcit autour de toi comme du plâtre. Tu ne peux plus bouger que les doigts d'une main. Tu respires dans une petite poche d'air que ton visage a creusée. Il fait bleu, et très calme.",
       { with: "any", text: "Tu entends, très loin, au-dessus, des voix qui crient ton nom, et des coups sourds. On creuse. On creuse mal, au mauvais endroit, puis au bon. Une main gantée crève la neige au-dessus de ton visage, et la lumière entre, et l'air." },
       { with: "coliane", text: "C'est Coliane. Elle a les ongles en sang et ne s'en est pas aperçue. Elle te tire par le col, sans douceur, et quand tu es dehors, elle te frappe à l'épaule, deux fois, fort. « Ne refais jamais ça », dit-elle. Tu ne sais pas ce que tu as fait." },
       { with: "gloup", text: "C'est Gloup qui t'a trouvé{e}. Il s'est glissé dans la neige comme dans de l'eau, en suivant ta chaleur, et il est venu se coller contre ta joue en couinant, jusqu'à ce que les autres comprennent où creuser." },
@@ -313,15 +313,15 @@ Object.assign(P, {
     text: [
       { if: { has: "IVD:refuge_eau" }, text: "Tu défais les bandages. Dessous, la plaie est ouverte et noire, et elle sent la vase de bief. Tu verses l'eau claire dedans, goutte à goutte, comme on te l'a appris ou comme tu crois qu'on le fait. L'eau siffle en touchant la plaie. Le garçon crie, une fois, puis se tait, les yeux grands ouverts. Sous la peau de son cou, les veines noires pâlissent, deviennent grises, deviennent bleues, deviennent des veines." },
       { if: { has: "IVD:refuge_aubin" }, text: "Aubin prie jusqu'à minuit, les mains sur la jambe du garçon, sans s'arrêter, d'une voix de plus en plus basse. Vers minuit, il se tait, mais ses mains restent. Et sous ses mains, quelque chose cède : une odeur de vase monte de la plaie, puis s'en va par le trou du toit avec la fumée. Joachim soupire comme un dormeur, et se met à dormir pour de bon." },
-      "Firmin Fermaud ne dit rien pendant longtemps. Il regarde son fils dormir. Puis il se lève, va jusqu'au fond du refuge, fouille dans un coffre, et revient avec une paire de crampons à douze pointes, forgés à la main, la courroie usée par des années de pieds. « Les miens, dit-il. Je n'en aurai plus besoin cet hiver. Je descends le petit chez sa mère. »",
+      "Firmin Fermaud se tait longtemps. Il regarde son fils dormir. Puis il se lève, va jusqu'au fond du refuge, fouille dans un coffre, et revient avec une paire de crampons à douze pointes, forgés à la main, la courroie usée par des années de pieds. « Les miens, dit-il. Je n'en aurai plus besoin cet hiver. Je descends le petit chez sa mère. »",
       "Il s'assied près de toi, au feu. « Et je vais vous dire une chose que je n'ai jamais dite à personne d'en bas. Il y a un passage pour monter à l'antre du Vieux, par la face nord, une vire dans la roche, qu'on ne voit que du glacier. Mon père me l'a montrée. Il disait : le Vieux sait qu'on la connaît. Il nous la laisse. C'est sa porte de derrière, pour les amis. »",
     ],
     choices: [{ label: "Prendre les crampons, et la confidence", fx: { item: "IVD_crampons", flag: "IVD:vire" }, to: "IVD_refuge_nuit" }] },
   IVD_refuge_marque: { act: "IV", title: "Ce que tu prends", place: null,
     text: [
-      "Tu poses ta main gauche, celle qui porte la tache, à plat sur la plaie. Tu ne sais pas comment tu sais le faire. Ta main le sait. La tache se met à chauffer, puis à boire : tu sens la souillure du garçon remonter dans ta paume, épaisse, tiède, comme de la boue qu'on aspire. Elle remonte ton bras. Elle s'installe. Elle est contente.",
+      "Tu poses ta main gauche, celle qui porte la tache, à plat sur la plaie. Tes mains savent le faire sans toi. Ta main le sait. La tache se met à chauffer, puis à boire : tu sens la souillure du garçon remonter dans ta paume, épaisse, tiède, comme de la boue qu'on aspire. Elle remonte ton bras. Elle s'installe. Elle est contente.",
       "Joachim ouvre les yeux. Le blanc de ses yeux est blanc. Il regarde ta main, qui est plus noire qu'avant, jusqu'au milieu de l'avant-bras maintenant, et il ne dit pas merci. Il a peur de toi.",
-      "Firmin Fermaud se lève. Il ne s'approche pas. Il te regarde de l'autre côté du feu, et il fait, du bout des doigts, un signe que tu ne connais pas, un signe de chasseur, de vieux montagnard, contre ce qu'on rencontre dans la montagne et qu'on ne nomme pas. Puis il va chercher ses crampons au fond du refuge et te les pose devant toi, sur la pierre, sans te les tendre. « Prenez. On est quittes. »",
+      "Firmin Fermaud se lève. Il ne s'approche pas. Il te regarde de l'autre côté du feu, et il fait, du bout des doigts, un signe inconnu de toi, un signe de chasseur, de vieux montagnard, contre ce qu'on rencontre dans la montagne et qu'on tait. Puis il va chercher ses crampons au fond du refuge et te les pose devant toi, sur la pierre, sans te les tendre. « Prenez. On est quittes. »",
       { with: "coliane", text: "Coliane est sortie. Tu l'entends, dehors, frapper la neige à coups de pied, longtemps." },
       { with: "pip", text: "Pip ne revient pas sur ton épaule. Il reste près du garçon, toute la soirée, et le garçon le regarde briller." },
     ],
@@ -330,7 +330,7 @@ Object.assign(P, {
     text: [
       "Tu t'assieds au bord du bat-flanc. Le garçon te regarde. Il a les yeux de quelqu'un qui a beaucoup réfléchi, ces quatre jours, couché là, et qui n'a pas pu en parler à son père.",
       "« Je sais ce que c'est, dit-il, tout bas. On en a vu, des bêtes grises, cet été. Quand ça arrive aux yeux, après, on n'est plus soi. On mord. » Il tourne la tête vers le vieux, qui fait semblant de ne pas écouter. « Mon père, il ne pourra pas. Il le sait. Il attend que je le lui demande, et je ne veux pas le lui demander, parce qu'après il faudra qu'il vive avec. » Il te regarde. « Vous, vous allez repartir. »",
-      { with: "aubin", text: "Frère Aubin a fermé les yeux. Il ne dit rien. Il n'a rien à dire qui ne soit pas un mensonge." },
+      { with: "aubin", text: "Frère Aubin a fermé les yeux. Il se tait. Il n'a rien à dire qui ne soit pas un mensonge." },
     ],
     choices: [
       { label: "Faire ce qu'il demande, cette nuit, pendant que son père dort", fx: { set: { refuge: "abrege" }, flag: "refuge:sort", quest: "IVD_refuge", ep: ["seance", 2000], conf: { pip: -10, coliane: 5 }, regard: { IVD_firmin: "distant" } }, to: "IVD_refuge_abrege" },
@@ -339,7 +339,7 @@ Object.assign(P, {
     ] },
   IVD_refuge_abrege: { act: "IV", title: "Avant l'aube", place: null,
     text: [
-      "Tu attends que les chasseurs dorment. Firmin ne dort pas : il est couché sur le dos, les yeux ouverts dans le noir, et il ne bouge pas quand tu te lèves. Il ne bouge pas quand tu t'agenouilles près de son fils. Il ne bouge pas non plus après.",
+      "Tu attends que les chasseurs dorment. Firmin veille, couché sur le dos, les yeux ouverts dans le noir, immobile quand tu te lèves. Il reste immobile quand tu t'agenouilles près de son fils. Il ne bouge pas non plus après.",
       "Le garçon t'a pris la main, au dernier moment, et l'a serrée, et il a dit merci, et c'était la chose la plus difficile à entendre de toute ta vie.",
       "Au matin, Firmin Fermaud creuse dans la neige, devant le refuge, avec un pic à glace, pendant deux heures. Personne ne l'aide. Il ne veut pas. Quand il a fini, il revient vers toi et te tend ses crampons. « Pour la montagne, dit-il. Pas pour vous. » Il ne te regarde pas.",
     ],
@@ -348,7 +348,7 @@ Object.assign(P, {
     text: [
       "Joachim te regarde longtemps. Puis il hoche la tête, une fois. « D'accord, dit-il. Je tiendrai. Je suis têtu. Mon père dit que je tiens ça de ma mère. » Il a un sourire de travers. Il n'y croit pas tout à fait. Il a décidé d'y croire.",
       { if: { has: "lune:remede" }, text: "Tu dis au vieux le nom de Lune, l'herboriste de Brumefeuille, qui soigne la fièvre grise sous une tente de Vaux et qui en a déjà guéri. Tu le lui dis deux fois, pour qu'il le retienne. Il le répète à voix basse, comme un nom de saint." },
-      "Firmin Fermaud fabrique un traîneau, toute la soirée, avec deux skis de frêne et des peaux, en silence. Il part à l'aube, le garçon attaché dessus sous trois couvertures, et deux chiens gris devant. Il te laisse ses crampons, posés sur le seuil, sans un mot.",
+      "Firmin Fermaud fabrique un traîneau, toute la soirée, avec deux skis de frêne et des peaux, en silence. Il part à l'aube, le garçon attaché dessus sous trois couvertures, et deux chiens gris devant. Il te laisse ses crampons, posés sur le seuil, en silence.",
     ],
     choices: [{ label: "Prendre les crampons", fx: { item: "IVD_crampons" }, to: "IVD_refuge_nuit" }] },
   IVD_refuge_nuit: { act: "IV", title: "La nuit au refuge", place: null, takes: "night",
@@ -365,7 +365,7 @@ Object.assign(P, {
     text: [
       "L'aube est d'un bleu dur, sans un nuage. Le glacier, au-dessus du refuge, a pris une couleur de lait. Les chasseurs se dispersent dans la montagne sans se dire au revoir, chacun de son côté, comme des chamois.",
       { if: { is: { refuge: "gueri" } }, text: "Firmin et Joachim partent vers le bas, le garçon boitant mais debout, appuyé sur le bâton de son père. Le garçon se retourne trois fois pour te faire signe. À la troisième, son père se retourne aussi." },
-      { if: { is: { refuge: "marque" } }, text: "Firmin et son fils sont partis avant que tu te réveilles. Le garçon marchait. Ils n'ont rien laissé derrière eux, pas même la trace de leur feu, comme s'ils voulaient qu'on oublie qu'ils étaient passés." },
+      { if: { is: { refuge: "marque" } }, text: "Firmin et son fils sont partis avant que tu te réveilles. Le garçon marchait. Ils ont tout emporté, effacé jusqu'à la trace de leur feu, comme s'ils voulaient qu'on oublie qu'ils étaient passés." },
       { if: { is: { refuge: "abrege" } }, text: "Devant le refuge, il y a un tas de pierres dans la neige, et en haut du tas, plantée, une corne de chamois. Firmin est parti vers le haut, seul, sans chien. On ne te dit pas où." },
       { if: { is: { refuge: "descendu" } }, text: "Les traces du traîneau descendent la pente en deux lignes parallèles, nettes, jusqu'aux mélèzes. Tu les suis des yeux jusqu'à ce qu'elles tournent." },
     ],
@@ -392,7 +392,7 @@ Object.assign(P, {
   IVD_crev_pip: { act: "IV", title: "La lumière sous la neige", place: null,
     text: [
       "Pip descend jusqu'à frôler la neige, et sa lumière s'y enfonce. C'est une chose étrange à voir : la neige s'allume par en dessous, d'un bleu laiteux, et là où il y a du vide, la lumière tombe dans le noir et disparaît. Le glacier, sous vos pieds, devient une carte : de grandes taches noires, les crevasses, et entre elles des chemins de bleu, les ponts qui tiennent.",
-      "Vous suivez Pip pas à pas. Personne ne parle. À mi-chemin, il s'arrête au-dessus d'une tache noire plus grande que les autres, et ne repart pas. « Il y a quelqu'un, en bas, dit-il. Quelqu'un qui ne bouge plus depuis très longtemps. »",
+      "Vous suivez Pip pas à pas. Tous se taisent. À mi-chemin, il s'arrête au-dessus d'une tache noire plus grande que les autres, et ne repart pas. « Il y a quelqu'un, en bas, dit-il. Quelqu'un qui ne bouge plus depuis très longtemps. »",
     ],
     choices: [
       { label: "Descendre voir, à la corde", if: { item: "corde" }, why: "Il te faudrait une corde.", to: "IVD_crev_fond" },
@@ -400,7 +400,7 @@ Object.assign(P, {
     ] },
   IVD_crev_passe: { act: "IV", title: "De l'autre côté", place: null,
     text: [
-      "Vous passez. Pas à pas, en sondant, en vous arrêtant chaque fois que la neige fait un bruit qui ne vous plaît pas. Deux fois, un pont s'effondre juste derrière le dernier d'entre vous, et la neige tombe dans le vide sans un bruit. Mais vous passez.",
+      "Vous passez. Pas à pas, en sondant, en vous arrêtant chaque fois que la neige fait un bruit qui ne vous plaît pas. Deux fois, un pont s'effondre juste derrière le dernier d'entre vous, et la neige tombe dans le vide en silence. Mais vous passez.",
       "Au bord de la dernière crevasse, la plus large, tu t'arrêtes pour reprendre ton souffle, et tu regardes en bas. La glace est bleue, de plus en plus bleue à mesure qu'elle descend, puis noire. Et dans le bleu, à vingt pas sous toi, prise dans la paroi comme une mouche dans l'ambre, il y a une forme. Un homme. Un bras levé, la main ouverte.",
     ],
     choices: [
@@ -416,7 +416,7 @@ Object.assign(P, {
   IVD_crev_chute: { act: "IV", title: "La chute", place: null,
     fx: { pv: -8 },
     text: [
-      "Le pont cède sous toi sans prévenir. Un instant tu marches, l'instant d'après il n'y a plus rien sous tes bottes, et tu tombes dans le bleu, en raclant la paroi, en essayant de t'accrocher à de la glace qui n'offre aucune prise.",
+      "Le pont cède sous toi sans prévenir. Un instant tu marches, l'instant d'après le vide s'ouvre sous tes bottes, et tu tombes dans le bleu, en raclant la paroi, les doigts glissant sur une glace lisse.",
       "Tu t'arrêtes sur une corniche, une marche de glace dans la paroi, à vingt pas sous la surface. Le choc te coupe le souffle. Tu restes allongé{e}, à regarder le petit ruban de ciel, tout en haut, entre les deux lèvres de la crevasse. Il fait très froid et très calme. De l'eau goutte quelque part.",
       "Puis tu tournes la tête, et tu vois qu'il y a quelqu'un d'autre sur la corniche avec toi.",
     ],
@@ -444,7 +444,7 @@ Object.assign(P, {
   IVD_crev_remontee: { act: "IV", title: "Remonter", place: null,
     text: [
       { with: "any", text: "Une corde descend vers toi, puis une voix. On t'a vu{e}. On t'appelle. Tu attaches la corde sous tes bras, et on te hisse, en raclant la paroi, jusqu'au ruban de ciel qui s'élargit." },
-      { with: "thavary", text: "C'est Thavary qui tient la corde, les talons plantés dans la neige, le dos rond, sans un mot. Quand tu sors, elle regarde l'épée pâle à ta ceinture, puis toi, et dit seulement : « Valbrune. C'était une maison de l'Ordre, quand Thavar en était une. Ils ont fini comme nous. »" },
+      { with: "thavary", text: "C'est Thavary qui tient la corde, les talons plantés dans la neige, le dos rond, en silence. Quand tu sors, elle regarde l'épée pâle à ta ceinture, puis toi, et dit seulement : « Valbrune. C'était une maison de l'Ordre, quand Thavar en était une. Ils ont fini comme nous. »" },
       { without: "any", text: "Personne ne t'attend en haut. Tu remontes seul{e}, en taillant des marches dans la glace avec la lame pâle du chevalier, une marche après l'autre, en soufflant sur tes doigts entre chaque coup. Ça prend une heure. Quand tu sors de la crevasse, tu restes un long moment couché{e} sur la neige, au soleil, les bras en croix." },
       "Le chevalier reste en bas, la main levée. Tu n'as pas pu le sortir de la glace. Tu as pris sa lettre et son épée. Tu ne sais pas encore si c'est un vol ou une promesse.",
     ],
@@ -463,7 +463,7 @@ Object.assign(P, {
     choices: [
       { label: "« Laisse-moi leur parler », dit Frère Aubin, et il s'avance seul", who: "aubin", test: { dom: "magie", diff: -10, label: "L'office des morts sur la glace", help: [H_PIP] },
         win: { fx: { conf: { aubin: 10 }, ep: ["seance", 3000] }, to: "IVD_pel_priere" }, lose: { to: "IVD_pel_combat" } },
-      { label: "Passer entre eux, sans bruit, sans les regarder", test: { dom: "discretion", diff: -10, label: "Traverser les rangs", help: [H_PIP, H_COL, H_GLO] },
+      { label: "Passer entre eux en silence, les yeux baissés", test: { dom: "discretion", diff: -10, label: "Traverser les rangs", help: [H_PIP, H_COL, H_GLO] },
         win: { fx: { ep: ["seance", 2500] }, to: "IVD_pel_apres" }, lose: { to: "IVD_pel_combat" } },
       { label: "Leur parler, à eux : leurs noms sont gravés à l'oratoire", if: { seen: "IVD_L_oratoire_noms" }, why: "Il faudrait savoir qui ils étaient.", test: { dom: "social", diff: -10, label: "Appeler les pèlerins par leurs noms", help: [H_AUB] },
         win: { fx: { ep: ["seance", 3000], conf: { pip: 5 } }, to: "IVD_pel_priere" }, lose: { to: "IVD_pel_combat" } },
@@ -524,16 +524,16 @@ Object.assign(P, {
     fx: { item: "IVD_medaille" },
     text: [
       "Tu t'assieds à côté de lui, dans le creux du rocher, et tu le prends contre toi, comme on prend un enfant qui a froid. Il te laisse faire. Il parle. Il parle de Sorbe-le-Haut, du moulin de son père, de la foire où ils ont acheté les médailles, de Bastienne qui gagnait toujours à la course jusqu'à douze ans et qui l'a laissé gagner après, pour qu'il ne pleure plus.",
-      "La dame de l'eau l'appelle. Tu l'entends aussi, tout bas, dans la glace, sous vous. Il ne lui répond pas. Il te répond à toi. Il parle de plus en plus bas, puis il ne parle plus, et il ne tremble plus, et il a, à la fin, l'air de quelqu'un qui s'est endormi au chaud.",
+      "La dame de l'eau l'appelle. Tu l'entends aussi, tout bas, dans la glace, sous vous. Il ne lui répond pas. Il te répond à toi. Il parle de plus en plus bas, puis il se tait, et son tremblement cesse, et il a, à la fin, l'air de quelqu'un qui s'est endormi au chaud.",
       "Tu prends sa médaille de la Main, à son cou, sur son lacet. Pour Bastienne. Tu le couches dans le creux du rocher, et tu le couvres de pierres, une à une, assez pour que les corbeaux ne le trouvent pas.",
       { with: "aubin", text: "Aubin dit les mots. Les vrais, ceux qu'on dit pour un homme qui avait un nom et une sœur. Il les dit lentement." },
     ],
     choices: [{ label: "Reprendre la route, vers l'antre", back: ROUTE }] },
   IVD_pel_laisse: { act: "IV", title: "Celui qui monte", place: null,
     text: [
-      "Tu t'écartes. Gaspard te regarde, surpris, comme s'il s'attendait à ce qu'on le retienne et qu'il ne sache pas quoi faire maintenant qu'on ne le retient pas. Puis il se lève, et il monte. Lentement. En suivant les traces du prêcheur. Ses lèvres bougent : il chante le verset, le même que les autres, et il chante faux.",
+      "Tu t'écartes. Gaspard te regarde, surpris, comme s'il s'attendait à ce qu'on le retienne, et que la voie libre le prenne au dépourvu. Puis il se lève, et il monte. Lentement. En suivant les traces du prêcheur. Ses lèvres bougent : il chante le verset, le même que les autres, et il chante faux.",
       "Tu le regardes jusqu'à ce qu'il ne soit plus qu'un point noir sur la pente blanche, puis plus rien.",
-      { with: "pip", text: "Pip ne dit rien. Il est resté au-dessus du creux du rocher, là où Gaspard s'était caché, et il éclaire la place vide, longtemps, avant de te rejoindre." },
+      { with: "pip", text: "Pip se tait. Il est resté au-dessus du creux du rocher, là où Gaspard s'était caché, et il éclaire la place vide, longtemps, avant de te rejoindre." },
       { with: "coliane", text: "« On ne peut pas sauver ceux qui veulent y aller, dit Coliane. Je l'ai appris à Hautgrès. » Elle n'a pas l'air de croire ce qu'elle dit. Elle a l'air de l'avoir répété souvent." },
     ],
     choices: [{ label: "Reprendre la route, vers l'antre", back: ROUTE }] },
@@ -581,7 +581,7 @@ Object.assign(P, {
     text: [
       "Il y a une mule sur le chemin. Une mule chargée de ballots, qui mâche une touffe d'herbe sèche entre deux rochers, et à côté d'elle, assis sur une pierre, une pipe de terre au bec, un homme à moustache qui te salue de la main comme si vous vous étiez quittés la veille.",
       "« Anselme, dit-il. Mais vous le savez. Tout le monde le sait. » Il a l'air de trouver parfaitement naturel d'être à quatre lieues au-dessus du dernier village, sur un chemin où personne ne passe, avec une mule et des rubans. « Les pèlerins, dit-il. Les pèlerins achètent. Enfin, achetaient. » Il ne s'étend pas sur le sujet.",
-      "Il défait un ballot. Des écailles. Une dizaine, grandes comme la main, blanches et nacrées, percées d'un trou pour les pendre au cou. *Écailles du Vieux, porte-bonheur contre le froid et les crevasses.* « Trois sous pièce. Pour vous, deux. » Et à côté, sans y toucher, une fiole de verre épais bouchée de cire, pleine d'une eau qui ne bouge pas quand il secoue le ballot.",
+      "Il défait un ballot. Des écailles. Une dizaine, grandes comme la main, blanches et nacrées, percées d'un trou pour les pendre au cou. *Écailles du Vieux, porte-bonheur contre le froid et les crevasses.* « Trois sous pièce. Pour vous, deux. » Et à côté, sans y toucher, une fiole de verre épais bouchée de cire, pleine d'une eau qui reste immobile quand il secoue le ballot.",
     ],
     choices: [
       { label: "Lui acheter la fiole (30 sous)", if: { gold: { min: 30 } }, why: "Tu n'as pas trente sous.", fx: { gold: -30, item: "eau_claire" }, to: "EIVD_anselme_fin" },
@@ -600,13 +600,13 @@ Object.assign(P, {
     ] },
   EIVD_anselme_fin: { act: "IV", title: "La fiole", place: null,
     text: [
-      "Il compte tes sous sans les regarder, au toucher, et te tend la fiole. L'eau est froide à travers le verre. Elle ne bouge pas, ne frissonne pas, ne fait pas de bulle. « De la grotte bleue, dit-il. Sous le glacier. Je n'y suis pas allé moi-même, je ne suis pas fou. Un chasseur. » Il hausse les épaules. « Pour une fois, ce que je vends est vrai. Ne le dites à personne, ça ruinerait ma réputation. »",
+      "Il compte tes sous sans les regarder, au toucher, et te tend la fiole. L'eau est froide à travers le verre. Elle reste plate, lisse, figée. « De la grotte bleue, dit-il. Sous le glacier. Je n'y suis pas allé moi-même, je ne suis pas fou. Un chasseur. » Il hausse les épaules. « Pour une fois, ce que je vends est vrai. Ne le dites à personne, ça ruinerait ma réputation. »",
     ],
     choices: [{ label: "Reprendre la route", back: ROUTE }] },
 
   EIVD_jour_blanc: { act: "IV", title: "Le jour blanc", place: null,
     text: [
-      "Le brouillard monte de la vallée en une heure, puis la neige tombe dedans, fine, serrée, et le monde disparaît. Plus de haut, plus de bas. Le ciel et la neige ont la même couleur, la même absence de couleur, et tes yeux ne trouvent rien où s'accrocher. Tu fais un pas et tu ne sais pas si le sol monte ou descend. Tu tends le bras et ta main se perd.",
+      "Le brouillard monte de la vallée en une heure, puis la neige tombe dedans, fine, serrée, et le monde disparaît. Plus de haut, plus de bas. Le ciel et la neige ont la même couleur, la même absence de couleur, et tes yeux ne trouvent rien où s'accrocher. Tu fais un pas et le sol peut aussi bien monter que descendre. Tu tends le bras et ta main se perd.",
       "C'est ce que les chasseurs appellent le jour blanc. Ils disent qu'on y tourne en rond jusqu'à s'asseoir, et qu'on s'assied pour ne plus se relever.",
     ],
     choices: [
@@ -662,7 +662,7 @@ Object.assign(P, {
     choices: [{ label: "Reprendre la route", back: ROUTE }] },
   EIVD_flaque_fin: { act: "IV", title: "L'eau brisée", place: null,
     text: [
-      "Ta botte fend l'eau en éclats. Le reflet se brise, se recompose, et c'est le tien, cette fois, seul, un peu pâle, les cils pleins de givre. La voix ne revient pas. L'eau, dans la cuvette, recommence à couler vers l'aval, comme si de rien n'était.",
+      "Ta botte fend l'eau en éclats. Le reflet se brise, se recompose, et c'est le tien, cette fois, seul, un peu pâle, les cils pleins de givre. La voix ne revient pas. L'eau, dans la cuvette, recommence à couler vers l'aval, innocente.",
     ],
     choices: [{ label: "Reprendre la route", back: ROUTE }] },
 
@@ -724,7 +724,7 @@ Object.assign(P, {
   IVD_grotte: { act: "IV", title: "La grotte bleue", place: "glacier",
     text: [
       "Sous la langue du glacier, là où la glace vient mourir contre les rochers, il y a une bouche. Une fente basse dans la glace, d'où sort un ruisseau, et au-dessus du ruisseau, un rideau de stalactites de glace, serrées comme les barreaux d'une grille, de la taille d'un homme. Derrière, une lumière bleue, si bleue qu'elle a l'air d'être une couleur qu'on ne connaît pas.",
-      "Le ruisseau qui sort de là est clair. Pas seulement clair : il n'a pas de couleur du tout, et il ne fait pas de bruit en coulant sur les pierres. C'est la seule eau de toute la montagne qui ne soit ni grise ni tiède.",
+      "Le ruisseau qui sort de là est clair. Il est plus que clair : transparent comme l'air, et il coule en silence sur les pierres. C'est la seule eau de toute la montagne qui ne soit ni grise ni tiède.",
       { if: { item: "IVD_carte" }, text: "*Celle de la grotte bleue, oui.* La phrase de ta maîtresse, soulignée deux fois." },
     ],
     choices: [
@@ -752,12 +752,12 @@ Object.assign(P, {
     text: [
       "Tu plonges la main. Le froid te mord jusqu'à l'épaule, un froid si complet que pendant un instant tu ne sens plus rien, plus ton bras, plus ton corps, plus le monde. Puis la douleur arrive, propre, simple, une douleur de main gelée et rien d'autre.",
       "Quand tu retires ta main, la tache a reculé. Pas disparu : reculé, d'un pouce, d'un doigt, et ses bords sont gris au lieu d'être noirs. Dans la vasque, l'eau est devenue trouble. Elle ne redeviendra pas claire avant longtemps. Tu as pris pour toi ce qui aurait pu servir à un autre.",
-      { with: "coliane", text: "Coliane a vu. Elle ne dit rien, mais elle pose la main sur ton épaule en passant, une seconde, et la retire." },
+      { with: "coliane", text: "Coliane a vu. Elle se tait, mais elle pose la main sur ton épaule en passant, une seconde, et la retire." },
     ],
     choices: [{ label: "Ressortir de la grotte", back: "IVD_glacier" }] },
   IVD_grotte_fin: { act: "IV", title: "La fiole", place: "glacier",
     text: [
-      "Tu remplis la fiole, en la tenant sous le filet, très longtemps, jusqu'à ce que l'eau atteigne le col. Tu la bouches avec de la cire. L'eau, dedans, ne bouge pas. Elle a le poids d'une chose qui compte.",
+      "Tu remplis la fiole, en la tenant sous le filet, très longtemps, jusqu'à ce que l'eau atteigne le col. Tu la bouches avec de la cire. L'eau, dedans, est immobile. Elle a le poids d'une chose qui compte.",
       "Quand tu ressors, la vasque est vide, et le filet tombe dans le fond sec avec un petit bruit, le seul de la grotte.",
       { with: "pip", text: "Pip regarde la fiole de tout près, son reflet doré dans le verre. « Elle est comme moi, dit-il. Elle ne sait pas d'où elle vient. Elle sait juste qu'elle est propre. »" },
     ],
@@ -867,7 +867,7 @@ Object.assign(P, {
     text: [
       "Coliane affûte un couteau. Elle le fait toujours quand elle ne veut pas parler, et elle parle quand même, au bout d'un moment, sans lever les yeux. « Tu as entendu le cri ? C'est le cri d'une bête qui a mal. J'en ai achevé, des bêtes qui criaient comme ça. On les achève parce qu'on les aime, pas parce qu'on les hait. »",
       "Elle teste le fil sur son pouce. « Mais lui, il parle. On dit. Alors on lui demande. C'est tout. On lui demande ce qu'il veut. Et s'il veut mourir, on le fait bien. Et s'il veut vivre, on trouve. » Elle te regarde enfin. « Et si quelqu'un te propose de le tenir en laisse, tu lui craches dessus. D'accord ? »",
-      { if: { mark: { min: 3 } }, text: "Elle regarde ta main. Longtemps. Elle ne dit rien de plus. Elle n'a pas besoin." },
+      { if: { mark: { min: 3 } }, text: "Elle regarde ta main. Longtemps. Elle s'en tient là. Elle n'a pas besoin." },
     ],
     choices: [{ back: "IVD_bivouac" }] },
   IVD_feu_charline: { act: "IV", title: "Charline, au bord du feu", place: "glacier", with: "charline",
@@ -929,10 +929,10 @@ Object.assign(P, {
   IVD_antre_discret: { act: "IV", title: "Le dragon qui dort", place: "glacier",
     fx: { flag: "IVD:vu_dormir" },
     text: [
-      "Tu longes la paroi, pas après pas, sur la glace qui ne craque pas. Le repli de roche, au fond, devient une forme. La forme devient une bête. La bête dort.",
+      "Tu longes la paroi, pas après pas, sur la glace muette. Le repli de roche, au fond, devient une forme. La forme devient une bête. La bête dort.",
       "Il est immense, et il est vieux. Ses écailles sont blanches, mais d'un blanc d'os, d'ivoire jauni, et entre elles, dans les jointures, une matière noire a poussé, luisante, comme un lichen ou comme une moisissure. Elle forme des veines, le long de son cou, de ses flancs, de ses ailes repliées, et les veines battent, lentement, au rythme de son souffle. Une de ses pattes de devant est entièrement noire, jusqu'à l'épaule. Elle tremble dans son sommeil.",
       "Tu vois aussi ce que tu n'aurais pas vu de face : sous son aile gauche, contre son flanc, il garde quelque chose. Un corps d'homme, en robe de prêcheur, couché en rond comme un chien contre sa mère. Le dragon l'a pris contre lui. Pour le réchauffer, ou pour le garder. L'homme ne bouge plus depuis longtemps.",
-      "« Je t'entends respirer, dit le dragon sans ouvrir les yeux. Depuis l'arche. Tu respires comme quelqu'un qui a peur et qui ne veut pas reculer. Approche. Je ne suis pas encore à elle. »",
+      "« Je t'entends respirer, dit le dragon sans ouvrir les yeux. Depuis l'arche. Tu respires comme quelqu'un qui a peur et qui avance quand même. Approche. Je ne suis pas encore à elle. »",
     ],
     choices: [{ label: "Faire face à Ardhal", big: true, to: "IVD_ardhal" }] },
   IVD_antre_eveil: { act: "IV", title: "Le réveil", place: "glacier",
@@ -973,7 +973,7 @@ Object.assign(P, {
     text: [
       "Pip entre seul dans la grande salle. Tu le regardes s'éloigner, une petite lumière jaune dans tout ce bleu, de plus en plus petite. Il ne va pas vite. Il va droit vers le fond, vers la forme immense, et s'arrête juste devant sa tête.",
       "Le dragon ouvre un œil. L'œil pâle. Il regarde Pip très longtemps, et Pip le regarde aussi, et rien ne bouge. Puis le dragon expire, un long souffle tiède qui fait vaciller la lumière, et il dit, si bas que tu l'entends à peine depuis l'arche : « Oh. C'est toi. »",
-      "Pip ne répond pas. Il ne sait pas quoi répondre. Il se retourne vers toi, et sa lumière tremble. « Il me connaît, dit-il. Je ne le connais pas. Viens. »",
+      "Pip se tait. Il ne sait pas quoi répondre. Il se retourne vers toi, et sa lumière tremble. « Il me connaît, dit-il. Je ne le connais pas. Viens. »",
     ],
     choices: [{ label: "Rejoindre Pip devant Ardhal", big: true, to: "IVD_ardhal" }] },
   IVD_antre_thavary: { act: "IV", title: "La manière ancienne", place: "glacier", with: "thavary",
@@ -1051,11 +1051,11 @@ Object.assign(P, {
   IVD_ardhal_pip: { act: "IV", title: "La petite lumière", place: "glacier", with: "pip",
     fx: { conf: { pip: 5 }, ep: ["seance", 2500] },
     text: [
-      "Pip vole jusqu'à l'œil pâle, et se pose sur le bord de l'orbite, sur les écailles, comme sur une branche. Le dragon ne bouge pas. Il le regarde de si près qu'il doit loucher.",
+      "Pip vole jusqu'à l'œil pâle, et se pose sur le bord de l'orbite, sur les écailles, comme sur une branche. Le dragon reste immobile. Il le regarde de si près qu'il doit loucher.",
       "« Je t'ai vu, dit Ardhal. Il y a longtemps. Tu étais plus chaud, alors. Plus grand. Tu riais. » Il souffle doucement, et Pip vacille. « Tu ne te souviens pas. Ce n'est pas grave. Ce n'est pas à moi de te le dire. »",
       "« Pourquoi pas ? » demande Pip, et sa voix tremble. C'est la première fois que tu l'entends en colère. « Tout le monde sait des choses sur moi, et personne ne me les dit. Pourquoi pas toi ? »",
       "« Parce que ce n'est pas à moi, répète le dragon, avec une patience immense. C'est à celui qui t'a tenu. Il est en bas. S'il peut encore parler, il te le dira. S'il ne peut plus, tu le sauras quand même, en le voyant. » Il ferme l'œil pâle. « Va. Retourne sur cette épaule. Tu es bien, là. »",
-      "Pip revient sur ton épaule. Il ne dit plus rien pendant très longtemps, et il brille, tout ce temps, plus fort que tu ne l'as jamais vu briller.",
+      "Pip revient sur ton épaule. Il se tait très longtemps, et il brille, tout ce temps, plus fort que jamais.",
     ],
     choices: [{ back: "IVD_ardhal" }] },
   IVD_ardhal_reliques: { act: "IV", title: "Les clés", place: "glacier",
@@ -1084,7 +1084,7 @@ Object.assign(P, {
   IVD_ardhal_lettre: { act: "IV", title: "La lettre de ta maîtresse", place: "glacier",
     fx: { ep: ["seance", 2000] },
     text: [
-      "Tu lui lis des passages de la lettre, ceux que tu sais par cœur maintenant, à force de les avoir relus. Il écoute. Quand tu t'arrêtes, il ne dit rien pendant un long moment.",
+      "Tu lui lis des passages de la lettre, ceux que tu sais par cœur maintenant, à force de les avoir relus. Il écoute. Quand tu t'arrêtes, il se tait un long moment.",
       "« Elle avait compris, dit-il enfin. Toute seule, d'en bas, avec des livres. Elle n'est jamais montée jusqu'ici. Elle aurait dû. Je lui aurais dit le reste. »",
       { if: { is: { maitre: "sauve" } }, text: "Tu lui dis qu'elle est vivante. Qu'elle est à Vaux, sous une tente, et qu'elle guérit lentement. Il incline la tête. « Alors dis-lui de monter, au printemps. S'il y a un printemps. Je lui raconterai. »" },
       { if: { is: { maitre: "mort" } }, text: "Tu lui dis qu'elle est morte. Tu ne lui dis pas comment. Il te regarde, et tu as l'impression qu'il le sait quand même. « Elle a écrit ça avant, dit-il. Avant l'eau. C'est ça qu'il faut garder d'elle. Le reste, c'est l'eau. »" },
@@ -1095,8 +1095,8 @@ Object.assign(P, {
     text: [
       "Il soulève son aile gauche, lentement. Contre son flanc, dans la chaleur de son corps, il y a un homme en robe de prêcheur, couché en rond, les mains jointes sous le menton. Il est mort. Il a l'air de dormir.",
       "« Il est monté il y a trois jours, en chantant, dit le dragon. Il m'a demandé de rendre l'eau claire. Il disait qu'une dame le lui avait promis, dans la glace, s'il venait jusqu'à moi. Je lui ai dit que je ne pouvais pas. Il ne m'a pas cru. Il a prié, toute la nuit, à genoux sur la glace, et il a commencé à geler. Alors je l'ai pris contre moi. Pour qu'il ait chaud. » Il replie l'aile. « Il est mort quand même. Avant-hier. Je l'ai gardé. C'est idiot. Je ne sais pas pourquoi je l'ai gardé. »",
-      { if: { has: "pelerins:sort" }, text: "Tu penses aux trente-deux, en bas, à genoux dans la neige, et à celui qui avait une tache de vin sur la main. Tu ne dis rien." },
-      { with: "aubin", text: "Aubin s'approche, sans demander, et s'agenouille près de l'aile. Le dragon le laisse faire. Aubin ferme les yeux du prêcheur, et dit les mots, et le dragon écoute les mots avec une attention étrange, comme quelqu'un qui reconnaît une chanson qu'il n'a pas entendue depuis très longtemps." },
+      { if: { has: "pelerins:sort" }, text: "Tu penses aux trente-deux, en bas, à genoux dans la neige, et à celui qui avait une tache de vin sur la main. Tu te tais." },
+      { with: "aubin", text: "Aubin s'approche, sans demander, et s'agenouille près de l'aile. Le dragon le laisse faire. Aubin ferme les yeux du prêcheur, et dit les mots, et le dragon écoute les mots avec une attention étrange, comme quelqu'un qui reconnaît une chanson très ancienne." },
     ],
     choices: [{ back: "IVD_ardhal" }] },
   IVD_ardhal_carnet: { act: "IV", title: "Mot pour mot", place: "glacier",
@@ -1118,7 +1118,7 @@ Object.assign(P, {
       "« Si tu as de quoi me laver, lave-moi. Je ne sais pas si c'est possible. On m'a dit que c'était possible, il y a longtemps, et celui qui me l'a dit savait laver. Sinon, tue-moi. Proprement, de face, comme on tue une bête qu'on respecte. Je me défendrai : elle se défendra, et je ne pourrai pas l'en empêcher. »",
       "Il ouvre l'œil pâle, et le fixe sur toi. « Mais ne me mets pas de chaîne. Ne me lie pas. J'en ai vu mettre une, une fois, à quelqu'un qui ne la méritait pas, et j'ai laissé faire. Ne me fais pas ça. »",
       { if: { mark: { min: 1 } }, text: "Ta main gauche brûle. Sous la glace, sous lui, tu entends l'eau qui fredonne. Elle attend aussi. Elle sait ce que ta main peut faire." },
-      { with: "coliane", text: "Coliane a croisé les bras. Elle ne dit rien. Elle te regarde, toi, pas le dragon." },
+      { with: "coliane", text: "Coliane a croisé les bras. Elle se tait. Elle te regarde, toi, pas le dragon." },
       { with: "pip", text: "Pip est sur ton épaule. Tu sens sa lumière contre ta joue, tiède, et qui tremble." },
     ],
     choices: [
@@ -1176,7 +1176,7 @@ Object.assign(P, {
       { if: { is: { aubin_arc: "pretre" } }, text: "Frère Aubin a remis son étole, la vieille étole violette de Saint-Ivo, raccommodée. Il s'approche de la tête du dragon comme on s'approche d'un autel, et il s'agenouille devant l'œil noir." },
       { if: { is: { aubin_arc: "quitte" } }, text: "Aubin n'a plus d'habit, plus d'étole, rien qu'une veste de berger. Il s'approche quand même. « Je ne sais pas si ça marche sans, dit-il. On va voir. » Il s'agenouille devant l'œil noir." },
       { if: { is: { aubin_arc: "offrande" } }, text: "Aubin s'approche de l'œil noir sans hésiter, trop vite, et tu comprends ce qu'il compte faire : prendre la souillure en lui, toute, comme il voudrait prendre la place de celui d'en bas. Tu le retiens par l'épaule. Il te regarde. Il hoche la tête. « D'accord, dit-il. Pas toute. Juste ce qu'il faut. » Il s'agenouille." },
-      { if: { not: { is: { aubin_arc: ["pretre", "quitte", "offrande"] } } }, text: "Frère Aubin s'approche de la tête du dragon, lentement, et s'agenouille devant l'œil noir. Il ne prend ni livre ni chapelet. Il ôte ses moufles." },
+      { if: { not: { is: { aubin_arc: ["pretre", "quitte", "offrande"] } } }, text: "Frère Aubin s'approche de la tête du dragon, lentement, et s'agenouille devant l'œil noir. Il laisse son livre et son chapelet. Il ôte ses moufles." },
       "Il pose les deux mains à plat sur les écailles, de chaque côté de l'œil. Elles fument, sous ses paumes. Il ne les retire pas. Il commence à prier, à voix basse, puis plus fort, et ce n'est pas une prière de l'Ordre : c'est une prière de Saint-Ivo, la plus vieille, celle qu'on dit sur les noyés pour que l'eau les rende.",
       "La souillure, dans le corps du dragon, se met à bouger. Elle reflue vers les mains d'Aubin, vers l'œil, par vagues, et chaque vague fait trembler le prêtre jusqu'aux épaules. Ses mains deviennent grises. Il continue. Le dragon hurle, la gueule fermée.",
     ],
@@ -1208,12 +1208,12 @@ Object.assign(P, {
     text: [
       "Il est couché sur le flanc, au milieu de la salle, et il respire. Il est blanc. Pas d'un blanc d'os : d'un blanc de neige fraîche, de neige d'avant l'aube, qui fait mal aux yeux. Les veines noires ont disparu. Sa patte avant gauche est blanche. Là où était l'œil noir, il y a un œil fermé, et quand il l'ouvre, lentement, il est bleu pâle, comme l'autre.",
       { if: { has: "IVD:purif_pip" }, text: "Pip sort de l'œil en dernier, quand tout est fini. Il en sort comme on sort de l'eau, en se secouant, et il vient se poser sur ton épaule, et il est si faible qu'il en est presque gris. « J'ai vu une main, dit-il, tout bas, pour toi seul{e}. Là-dedans. Une grande main, qui me tenait. Elle était chaude. » Il ne dit plus rien jusqu'au soir." },
-      { if: { has: "IVD:purif_aubin" }, text: "Aubin est assis sur la glace, les mains sur les genoux. Elles sont grises jusqu'aux poignets, et elles le resteront, tu le sais. Il les regarde, puis il regarde le dragon, et il rit, doucement, comme quelqu'un qui n'y croyait pas. « Saint-Ivo, dit-il. Saint-Ivo, tu as vu ? »" },
+      { if: { has: "IVD:purif_aubin" }, text: "Aubin est assis sur la glace, les mains sur les genoux. Elles sont grises jusqu'aux poignets, et elles le resteront, tu le sais. Il les regarde, puis il regarde le dragon, et il rit, doucement, comme quelqu'un qui en doutait encore. « Saint-Ivo, dit-il. Saint-Ivo, tu as vu ? »" },
       { if: { has: "IVD:purif_reliques" }, text: "Les trois clés se sont tues. Le Clou est chaud, la Cloche froide, l'Anneau a glissé de la griffe et roulé jusqu'à tes pieds. Tu les ramasses. Elles pèsent plus lourd qu'avant, ou c'est toi qui es plus fatigué{e}." },
       "Ardhal soulève la tête. Il regarde ses pattes, ses flancs, ses ailes qu'il déplie à demi et qui sont blanches jusqu'au bout. Il les regarde comme on regarde ses mains après une longue maladie. Puis il te regarde, toi.",
       "« Elle est partie, dit-il. Pas loin. Elle est en bas, dans l'eau, avec lui. Mais elle n'est plus en moi. » Il pose la tête sur la glace, devant toi, très doucement. « Celui qui m'a recousu l'aile disait qu'on ne remercie pas un guérisseur. On fait quelque chose de ce qu'il vous a rendu. Alors écoute. Quand tu descendras, je serai à la porte. Je garderai la porte pour toi, et non plus contre lui. »",
       "Il arrache, d'un coup de dents, une écaille de son poitrail, et la laisse tomber devant toi. Elle est grande comme un bouclier d'enfant, blanche, tiède. « Garde ça. On ne sait jamais. »",
-      { with: "coliane", text: "Coliane s'est assise contre la paroi, et elle pleure, sans bruit, en s'essuyant les yeux du revers de la manche, très vite, comme si elle espérait que personne ne verrait. Tout le monde voit. Personne ne dit rien." },
+      { with: "coliane", text: "Coliane s'est assise contre la paroi, et elle pleure, tout bas, en s'essuyant les yeux du revers de la manche, très vite, comme si elle espérait que personne ne verrait. Tout le monde voit. Personne se tait." },
       { with: "gloup", text: "Gloup roule jusqu'au dragon, et se colle contre sa patte blanche. Le dragon baisse la tête vers lui. « Toi aussi, dit-il. Je vois. Toi aussi, on t'a demandé. »" },
     ],
     choices: [{ label: "Monter sur son dos, puisqu'il te le propose", big: true, to: "IVD_purifie_vol" }] },
@@ -1328,10 +1328,10 @@ Object.assign(P, {
       "La souillure sort de lui. Elle sort par l'œil noir, par la gueule, par les plaies, une vase noire et fumante qui coule sur la glace et qui cherche, qui cherche un autre corps, qui te cherche toi. Elle ne te trouve pas. Elle s'enfonce dans les fentes de la glace en sifflant, et s'en va vers le bas, vers la porte, vers lui. Tu l'entends descendre longtemps.",
       "L'œil pâle est encore ouvert. Il te regarde. « Dis-lui, souffle le dragon. Dis-lui que je n'ai pas lâché. Que j'ai gardé jusqu'au bout. Même mal. Même pour les mauvaises raisons. Dis-lui que j'ai gardé. »",
       "Puis l'œil se voile, comme une vitre sur laquelle on souffle, et ne se dévoile plus.",
-      { with: "pip", text: "Pip est sorti de ton col. Il est allé se poser sur le museau du dragon, entre les deux naseaux, et il reste là, sans rien dire, à peine allumé. Tu l'appelles. Il ne vient pas. Il vient beaucoup plus tard, quand la neige commence à tomber, et il ne se pose pas sur ton épaule. Il flotte à côté." },
+      { with: "pip", text: "Pip est sorti de ton col. Il est allé se poser sur le museau du dragon, entre les deux naseaux, et il reste là, en silence, à peine allumé. Tu l'appelles. Il ne vient pas. Il vient beaucoup plus tard, quand la neige commence à tomber, et il ne se pose pas sur ton épaule. Il flotte à côté." },
       { with: "thavary", text: "Thavary s'agenouille près de la tête, et pose la main sur l'écaille du front. « Thavar le Fidèle t'envoie son salut, dit-elle. Et ses excuses. Il aurait dû te les faire lui-même. »" },
       { if: { has: "IVD:promis_ordre" }, text: "Tu as tenu ta promesse à Brann. Frère Clotaire l'apprendra, et le Val d'Anse, et l'Ordre. On te remerciera. Tu ne sais pas encore ce que tu répondras." },
-      "Tu arraches un croc à la mâchoire, long comme ton avant-bras, blanc, courbe. Tu ne sais pas pourquoi. Pour avoir quelque chose de lui. Pour que quelqu'un se souvienne.",
+      "Tu arraches un croc à la mâchoire, long comme ton avant-bras, blanc, courbe. La raison t'échappe. Pour avoir quelque chose de lui. Pour que quelqu'un se souvienne.",
     ],
     choices: [{ label: "Monter sur l'éperon, pour respirer", big: true, to: "IVD_tue_vue" }] },
   IVD_tue_vue: { act: "IV", title: "Du haut de l'éperon", place: "glacier",
@@ -1366,7 +1366,7 @@ Object.assign(P, {
     text: [
       "Tu poses la main sur son front, entre les deux yeux. Les écailles sont froides. Puis la Voix pose sa main sur la tienne, et elles ne sont plus froides.",
       "La tache de ta paume s'ouvre. Tu le sens : elle s'ouvre comme une bouche, et elle mord. Le noir sort de ta main et entre dans le dragon, et le noir qui était en lui vient à la rencontre, et ils se rejoignent, et ils se reconnaissent. Ça ne fait pas mal. C'est ce qui est horrible : ça ne fait pas mal du tout. Ça fait du bien. Comme une clé qui tourne enfin dans une serrure trop longtemps rouillée.",
-      "L'œil pâle du dragon te regarde, jusqu'au bout. Il ne dit rien. Il ne supplie plus. Il te regarde, et le noir monte dans son œil comme l'eau monte dans un puits, par le fond, et quand il arrive au bord, l'œil pâle n'est plus pâle.",
+      "L'œil pâle du dragon te regarde, jusqu'au bout. Il se tait. Il ne supplie plus. Il te regarde, et le noir monte dans son œil comme l'eau monte dans un puits, par le fond, et quand il arrive au bord, l'œil pâle n'est plus pâle.",
       "Il baisse la tête jusqu'à la glace. Jusqu'à tes bottes.",
     ],
     choices: [{ label: "Retirer ta main", big: true, to: "IVD_lie" }] },
@@ -1375,7 +1375,7 @@ Object.assign(P, {
       "Ta main est noire jusqu'au coude, maintenant. Quand tu la regardes, tu vois sous la peau, comme sous de la glace, quelque chose qui bouge lentement. Et tu sens, au bout de cette main, comme au bout d'une corde, le poids du dragon. Sa respiration. Sa faim. Son attente. Il attend que tu lui dises quoi faire. Il attendra toujours.",
       "« Merci, {hero} », dit la Voix. Elle redescend dans la glace, lentement, satisfaite, sans hâte. « Il est à toi. Un peu à moi. Nous partagerons. Nous partagerons beaucoup de choses, maintenant. »",
       "Ardhal parle. Ce n'est plus tout à fait sa voix : il y en a deux, l'une sous l'autre, et elles disent les mêmes mots. « Que veux-tu que je garde ? »",
-      { with: "coliane", text: "Coliane est sortie de l'antre sans un mot. Tu la retrouves plus tard, assise sur la glace, loin, le dos tourné. Elle ne se retourne pas quand tu l'appelles." },
+      { with: "coliane", text: "Coliane est sortie de l'antre en silence. Tu la retrouves plus tard, assise sur la glace, loin, le dos tourné. Elle ne se retourne pas quand tu l'appelles." },
       { with: "pip", text: "Pip ne revient pas sur ton épaule. Il reste à distance, une lueur pâle au bout de la salle, et quand tu fais un pas vers lui, il recule d'un pas." },
       { with: "aubin", text: "Aubin a cessé de prier. Il te regarde avec une immense tristesse, et pas de colère du tout, ce qui est pire." },
       { with: "charline", text: "Charline regarde ta main. Elle a l'air fascinée et malade en même temps. « Tu le sens ? demande-t-elle. Vraiment ? Tout ? » Tu dis oui. Elle détourne les yeux." },
@@ -1387,7 +1387,7 @@ Object.assign(P, {
       "Tu n'as pas besoin de parler. Tu y penses, et il se lève, et il baisse l'épaule pour que tu montes. Il saute de l'arche, ouvre les ailes, et le glacier tombe sous vous. Il vole bien. Il vole mieux qu'avant, dit une voix dans ta tête, qui n'est pas la tienne. Il n'a plus mal.",
       "Il monte au-dessus de la Fenne, et tout le pays s'étale sous vous, comme une carte qu'on déplie sur une table.",
     ].concat(PANO, [
-      "« Tout cela, dit doucement la Voix, dans ta tête, au rythme des ailes. Tu pourrais le protéger. Tu pourrais le garder. Personne n'a jamais eu autant de quoi garder. » Tu ne réponds pas. Tu regardes en bas. Tu regardes longtemps, et tu ne sais plus très bien si c'est toi qui regardes, ou elle, par tes yeux.",
+      "« Tout cela, dit doucement la Voix, dans ta tête, au rythme des ailes. Tu pourrais le protéger. Tu pourrais le garder. Personne n'a jamais eu autant de quoi garder. » Tu te tais. Tu regardes en bas. Tu regardes longtemps, et le regard devient peut-être le sien, par tes yeux.",
     ]),
     choices: [{ label: "Le faire redescendre au glacier", big: true, exit: true, to: "IVD_porte" }, { back: "IVD_glacier" }] },
 });
@@ -1410,7 +1410,7 @@ Object.assign(P, {
     fx: { rest: true, ep: ["seance", 2500] },
     text: [
       "Vous faites un feu dans l'antre, à l'abri du vent, avec ce qui reste de bois, et avec les lances brisées des chevaliers de l'ossuaire, que quelqu'un est allé chercher. Le feu monte haut, et la lumière danse sur la voûte de glace bleue, et pendant un moment, l'antre est presque un endroit où l'on pourrait vivre.",
-      { if: { is: { dragon: "purifie" } }, text: "Ardhal est couché autour de vous, en cercle, la queue ramenée contre la tête, et sa chaleur vaut celle de dix feux. Il vous écoute parler sans rien dire. À un moment, il se met à fredonner, très bas, une mélodie à plusieurs voix dont il ne chante que la plus grave. Personne ne lui demande ce que c'est." },
+      { if: { is: { dragon: "purifie" } }, text: "Ardhal est couché autour de vous, en cercle, la queue ramenée contre la tête, et sa chaleur vaut celle de dix feux. Il vous écoute parler en silence. À un moment, il se met à fredonner, très bas, une mélodie à plusieurs voix dont il ne chante que la plus grave. Personne ne lui demande ce que c'est." },
       { if: { is: { dragon: "tue" } }, text: "Son corps est là, de l'autre côté du feu, immense, que la neige soufflée par l'arche recouvre peu à peu. Personne ne le regarde. Tout le monde le sait là." },
       { if: { is: { dragon: "lie" } }, text: "Ardhal est couché à l'entrée de l'antre, la tête tournée vers le dehors, et il garde. Il garde ce que tu lui as dit de garder. De temps en temps, ses yeux noirs se tournent vers toi, pour savoir si tu as changé d'avis, et ta main gauche répond à sa place." },
       { with: "coliane", if: { is: { dragon: "lie" } }, text: "Coliane est revenue au feu, tard. Elle s'est assise de l'autre côté, le plus loin possible. Elle ne te parle pas. Elle ne t'a pas quitté{e} non plus.", else: "Coliane s'est endormie la première, assise, la tête sur l'épaule de qui se trouvait là, ses couteaux sur les genoux." },
@@ -1426,12 +1426,12 @@ Object.assign(P, {
     fx: { quest: "IV_souillure", catchup: 25, catchupWhy: "Les jours passés au bord du puits, sous l'antre d'Ardhal, à attendre que la neige tombe et que les blessures se ferment, à remonter du bois et de la viande du refuge des chasseurs, à préparer la descente et à regarder le noir, t'ont rendu{e} plus fort{e} que tu ne l'as jamais été." },
     text: [
       "Il neige pendant neuf jours. Les premières grandes neiges de l'hiver, qui recouvrent la Fenne, le glacier, le chemin des pèlerins, le refuge, et en bas, très loin, la vallée. Vous ne descendez pas. Vous attendez dans l'antre. Vous soignez vos blessures. Vous remontez du bois et de la viande du refuge des chasseurs, deux fois, dans la neige jusqu'à la taille. Vous parlez peu.",
-      { if: { is: { dragon: "purifie" } }, text: "Ardhal part chasser chaque matin et revient chaque soir avec un chamois propre entre les dents, qu'il pose devant le feu sans un mot. Il regarde souvent vers l'ouest, vers les vallées. Il dit qu'il ne descendra pas tant que tu ne seras pas remonté{e}. Qu'il gardera la porte." },
-      { if: { is: { dragon: "tue" } }, text: "La neige a recouvert le corps du dragon. Ce n'est plus qu'une colline blanche au milieu du glacier, et les corbeaux, qui ont fini par oser, tournent au-dessus sans se poser. Le croc pend à ta ceinture. Il ne s'use pas." },
+      { if: { is: { dragon: "purifie" } }, text: "Ardhal part chasser chaque matin et revient chaque soir avec un chamois propre entre les dents, qu'il pose devant le feu en silence. Il regarde souvent vers l'ouest, vers les vallées. Il dit qu'il ne descendra pas tant que tu ne seras pas remonté{e}. Qu'il gardera la porte." },
+      { if: { is: { dragon: "tue" } }, text: "La neige a recouvert le corps du dragon. Il reste une colline blanche au milieu du glacier, et les corbeaux, qui ont fini par oser, tournent au-dessus sans se poser. Le croc pend à ta ceinture. Il ne s'use pas." },
       { if: { is: { dragon: "lie" } }, text: "Ardhal ne chasse pas, ne mange pas, ne dort pas. Il garde. Toi, tu dors mal. Tu rêves d'ailes, et de l'eau qui fredonne, et chaque matin ta main gauche est un peu plus froide." },
       "Le neuvième jour, la neige s'arrête. Le ciel est d'un bleu dur, sans un nuage. Le froid est tel que l'air craque. Dans le puits, sous l'antre, le craquement lent, régulier, continue, comme il a continué toutes ces nuits. Mais tu as l'impression qu'il a ralenti. Comme une respiration qui fatigue.",
       "Ce qu'il restait à sauver, à l'automne, tu ne le savais pas. Tu le sais un peu mieux. Ce n'est pas seulement les vallées, ni les gens de Vaux, ni le dragon. C'est aussi celui qui est en bas. Celui qu'on a enchaîné pour qu'il tienne, et qui tient encore.",
-      { with: "any", text: "Le matin du dixième jour, tes compagnons sont prêts avant toi. Ils ont allumé des torches. Personne ne dit rien." },
+      { with: "any", text: "Le matin du dixième jour, tes compagnons sont prêts avant toi. Ils ont allumé des torches. Personne se tait." },
       { without: "any", text: "Le matin du dixième jour, tu allumes une torche, seul{e}, et tu vas jusqu'au bord du puits." },
     ],
     choices: [{ label: "Descendre vers le Sceau", big: true, to: "V_route" }] },
@@ -1518,7 +1518,7 @@ module.exports = {
           "Le chemin monte en lacets serrés dans un éboulis de pierres grises, et chaque lacet découvre un peu plus de vallée derrière toi. Tu ne te retournes pas souvent. Quand tu le fais, le camp de Vaux n'est plus qu'une tache de fumée au fond d'un entonnoir de brume.",
           "Pas un arbre, pas un oiseau. Des lichens orange sur les rochers, des touffes d'herbe jaune couchées par le vent, et le bruit de tes pas sur la neige croûtée. Le souffle devient court. On parle moins. On compte ses pas sans s'en rendre compte.",
           "Le vent se lève à midi, chaque jour, comme une horloge, et soulève la neige poudreuse des crêtes en longues écharpes blanches qui fument contre le ciel bleu. Il entre dans les manches, dans les cols, dans les oreilles. Il ne cesse qu'au soir.",
-          "Une harde de chamois traverse la pente au-dessus de vous, à toute allure, sans un bruit, et disparaît derrière une arête. Ils sont bruns. Propres. Tu les suis des yeux aussi longtemps que tu peux, comme on regarde une chose qu'on ne reverra peut-être plus.",
+          "Une harde de chamois traverse la pente au-dessus de vous, à toute allure, en silence, et disparaît derrière une arête. Ils sont bruns. Propres. Tu les suis des yeux aussi longtemps que tu peux, comme on regarde une chose qu'on ne reverra peut-être plus.",
         ],
         camp: [
           "Tu campes sous un bloc de granit gros comme une maison, sur un lit de pierres plates que tu as raclées de la neige. Le feu de branches de genévrier sent la résine et donne peu de chaleur. La nuit, le glacier craque, très loin au-dessus, avec des bruits de portes qu'on claque.",

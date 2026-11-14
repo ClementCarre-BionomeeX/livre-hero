@@ -43,7 +43,7 @@ module.exports = {
 
   E_fosse: P({ title: "La fosse",
     text: [
-      "Au bord d'un champ, des hommes creusent une fosse. Longue. Un fossoyeur, deux valets, un prêtre qui attend. Il n'y a pas de cercueil. Il n'y a pas de famille.",
+      "Au bord d'un champ, des hommes creusent une fosse. Longue. Un fossoyeur, deux valets, un prêtre qui attend. Ni cercueil ni famille.",
       "« Pour qui ? » demandes-tu. Le prêtre hausse les épaules. « Pour ceux du hameau d'à côté. Trois familles. Partis dans la neige, la nuit de mardi, tous ensemble, en chemise. On en a retrouvé deux. Les autres, on les enterre quand même. Ça ne coûte rien, une fosse, et ça fait un endroit. »",
     ],
     choices: [
@@ -63,7 +63,7 @@ module.exports = {
     choices: [{ label: "Chercher un abri", test: { dom: "nature", label: "L'orage", help: [{ if: { has: "passe:alpage" }, v: 20 }] },
       win: { fx: { ep: ["seance", 400] }, to: "E_orage_abri" }, lose: { fx: { pv: -3 }, to: "E_orage_trempe" } }] }),
   E_orage_abri: P({ title: "Le surplomb",
-    text: ["Tu te glisses sous un surplomb de roche, sec, assez grand pour un mouton, et tu attends, roulé en boule, pendant que la montagne tonne. Quand l'orage passe, la neige blanche, en face, sur les Hautes-Combes, n'a pas bougé. La pluie ne l'a pas touchée. Elle est sèche, sous un ciel qui ruisselle."],
+    text: ["Tu te glisses sous un surplomb de roche, sec, assez grand pour un mouton, et tu attends, roulé en boule, pendant que la montagne tonne. Quand l'orage passe, la neige blanche, en face, sur les Hautes-Combes, est restée intacte sous la pluie. Elle est sèche, sous un ciel qui ruisselle."],
     choices: [{ back: "@route" }] }),
   E_orage_trempe: P({ title: "Trempé",
     text: ["Tu dévales la pente sous la grêle, tu glisses, tu te relèves, tu te cognes un genou sur une pierre. Tu passes l'orage dans un creux, trempé jusqu'aux os, à compter les secondes entre l'éclair et le tonnerre, comme Joris te l'a appris. Le soir, tu claques des dents jusqu'à ce que le feu prenne."],
@@ -114,7 +114,7 @@ module.exports = {
     choices: [{ back: "@route" }] }),
   E_pont_coupe: P({ title: "Le pont coupé",
     text: [
-      "Le pont de bois sur le ruisseau des Aulnes a été coupé à la hache, cette nuit. Les entailles sont fraîches. Quelqu'un ne voulait pas qu'on passe, ou ne voulait pas qu'on revienne.",
+      "Le pont de bois sur le ruisseau des Aulnes a été coupé à la hache, cette nuit. Les entailles sont fraîches. Quelqu'un voulait empêcher le passage, ou le retour.",
     ],
     choices: [{ label: "Faire passer tout le monde à gué", test: { dom: "nature", label: "Le gué des Aulnes", help: [{ if: { item: "corde" }, v: 15 }] },
       win: { fx: { ep: ["seance", 500] }, to: "E_pont_coupe_ok" }, lose: { fx: { pv: -2, food: -1 }, to: "E_pont_coupe_rate" } }] }),

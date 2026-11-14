@@ -41,7 +41,7 @@ module.exports = {
     combat: { title: "Le Glaneur de l'aire", enemies: ["glaneur_petit", "glaneur_petit"], terrain: "nature", range: "contact",
       flee: { dom: "nature", label: "Redescendre, et laisser le vieux corbeau à son sort", to: "II_Q_aire_fuite" },
       win: { fx: { flag: "nord:lignee=combat", ep: ["seance", 900] }, to: "II_Q_aire_nom" }, lose: { fx: { pv: -3 }, to: "II_Q_aire_fuite" } },
-    text: ["Tu te lèves. Le Glaneur se lève aussi, et un deuxième sort de sous les branches, où il était couché. Grand-Bec ne bouge pas. Il a vu pire."],
+    text: ["Tu te lèves. Le Glaneur se lève aussi, et un deuxième sort de sous les branches, où il était couché. Grand-Bec reste immobile. Il a vu pire."],
     choices: [] }),
   II_Q_aire_chant: P({ title: "Les générations", place: "corbeau",
     text: [
@@ -54,7 +54,7 @@ module.exports = {
   II_Q_aire_nom: P({ title: "Sigrun", place: "corbeau",
     text: [
       "Le dernier Glaneur tombe de l'aire en neige poudreuse. Grand-Bec te regarde un long moment. Puis il ouvre le bec, et il dit, d'une voix de vieille femme enrouée, une voix qu'il a entendue au rite il y a peut-être cent ans : « Sigrun. »",
-      "Rien d'autre. Il se remet à lisser ses plumes, comme si tu n'existais plus.",
+      "Rien d'autre. Il se remet à lisser ses plumes, comme si tu avais disparu.",
     ],
     choices: [{ label: "Redescendre au camp", to: "II_Q_torgal_fin" }] }),
   II_Q_aire_fuite: P({ title: "En bas", place: "corbeau",
@@ -62,7 +62,7 @@ module.exports = {
     choices: [{ fx: { quest: "II_Q_lignees" }, back: "II_N_camp" }] }),
   II_Q_torgal_fin: P({ title: "Après Haldis", place: "corbeau",
     text: [
-      "Torgal t'écoute dire le nom. Il ne te remercie pas : ça ne se fait pas, au clan, entre gens de la même lignée. Il frappe le tambour, et il chante, d'une traite. Haldis. Sigrun. Et les trente générations qui suivent, qui tiennent de nouveau à quelque chose.",
+      "Torgal t'écoute dire le nom. Il garde son merci : au clan, entre gens de la même lignée, on s'en passe. Il frappe le tambour, et il chante, d'une traite. Haldis. Sigrun. Et les trente générations qui suivent, qui tiennent de nouveau à quelque chose.",
       "Des gens sortent des tentes pour écouter. Il n'est pas l'heure du rite. Ils écoutent quand même. Quand il arrive à ton nom, tout au bout, il ne s'arrête pas, et personne ne crache.",
     ],
     choices: [{ fx: { quest: "II_Q_lignees", flag: "nord:lignee", conf: { corbe: 10 } }, back: "II_N_camp" }] }),
@@ -81,7 +81,7 @@ module.exports = {
     ] }),
   II_Q_jardin_eboulis: P({ title: "Les éboulis", place: "moutier",
     text: [
-      "Côté levant, au-dessus des éboulis, une pente de neige blanche qui ne fond pas. Tu fouilles avec les mains, pendant une heure, jusqu'à ne plus sentir tes doigts. Il n'y a rien. Puis, sous un surplomb, une touffe de petites fleurs grises, presque transparentes, qui poussent à l'envers, la corolle vers le bas, vers la terre.",
+      "Côté levant, au-dessus des éboulis, une pente de neige blanche qui ne fond pas. Tu fouilles avec les mains, pendant une heure, jusqu'à en avoir les doigts gourds. La neige est vide. Puis, sous un surplomb, une touffe de petites fleurs grises, presque transparentes, qui poussent à l'envers, la corolle vers le bas, vers la terre.",
       "Elles ont un parfum de pain chaud. Ici, ça n'a aucun sens.",
     ],
     choices: [{ label: "Les cueillir comme le frère l'aurait fait", test: { dom: "nature", label: "La veille-neige", help: [{ if: { present: "ombeline" }, v: 20 }, { if: { present: "hylas" }, v: 10 }, { if: { has: "passe:alpage" }, v: 10 }] },
@@ -179,8 +179,8 @@ module.exports = {
       win: { fx: { flag: "sud:phare=sauve", ep: ["seance", 1200] }, to: "II_Q_phare_aube" }, lose: { fx: { pv: -3 }, to: "II_Q_phare_barricade" } },
     text: [
       "Ils montent vers le phare, à six, quand ils voient que la lanterne brûle toujours. Au large, une voile. Un navire qui cherche le port.",
-      { with: "rodric", text: "Rodric se met dans l'encadrement de la porte du phare, sa hache à deux mains, et ne dit rien. Il ne passera pas grand monde." },
-      { with: "ysolde", text: "Ysolde dégaine. « Six, dit-elle. Ce n'est pas assez. »" },
+      { with: "rodric", text: "Rodric se met dans l'encadrement de la porte du phare, sa hache à deux mains, et se tait. Bien peu passeront." },
+      { with: "ysolde", text: "Ysolde dégaine. « Six, dit-elle. C'est trop peu. »" },
     ],
     choices: [] }),
   II_Q_phare_barricade: P({ takes: "morning", title: "Jusqu'à l'aube", place: "vasselin",
@@ -192,7 +192,7 @@ module.exports = {
   II_Q_phare_aube: P({ title: "La goutte", place: "vasselin",
     text: [
       "Sur le chef des naufrageurs, dans la poche de son bon manteau, une fiole vide, en verre fin, avec un bouchon de cire grise. Tu la portes à ton nez : elle ne sent rien. Absolument rien.",
-      "Tu la donnes au capitaine du port, avec les six hommes ficelés. Il te remercie. Le soir même, le phare brûle jusqu'à l'aube, et Yvon, qui ne boit plus que de l'eau, n'oublie plus de monter.",
+      "Tu la donnes au capitaine du port, avec les six hommes ficelés. Il te remercie. Le soir même, le phare brûle jusqu'à l'aube, et Yvon, passé à l'eau claire, monte chaque soir.",
     ],
     choices: [{ fx: { quest: "II_Q_phare", flag: "sud:fioles_piste", conf: { lisandre: 5 } }, back: "II_S_vasselin" }] }),
 
@@ -211,7 +211,7 @@ module.exports = {
   II_Q_fioles_aveu: P({ title: "La cave", place: "vasselin",
     text: [
       "Le verrier pose sa canne. Il a l'air soulagé, comme les gens qui attendent depuis longtemps qu'on leur pose la question.",
-      "« Il y a une femme, à la cave. Elle les remplit. Ce n'est pas une sorcière, c'est une greffière, une vraie, qui a la plume. Elle a été renvoyée de la tour, l'an dernier, pour avoir écrit une page de trop. Elle vend aux pauvres ce que la tour vend aux riches. Moins cher. Je lui souffle les fioles. Je ne descends jamais. »",
+      "« Il y a une femme, à la cave. Elle les remplit. C'est une greffière, une vraie, qui a la plume. Elle a été renvoyée de la tour, l'an dernier, pour avoir écrit une page de trop. Elle vend aux pauvres ce que la tour vend aux riches. Moins cher. Je lui souffle les fioles. Je ne descends jamais. »",
       "Il te montre une trappe, derrière le four.",
     ],
     choices: [{ label: "Descendre", to: "II_Q_fioles_cave" }] }),
@@ -227,7 +227,7 @@ module.exports = {
     combat: { title: "Les gardes de la cave", enemies: ["garde_noir", "brigand"], terrain: "ville", range: "contact",
       flee: { dom: "discretion", label: "Disparaître dans les ruelles du port", to: "II_Q_fioles_fuite" },
       win: { fx: { ep: ["seance", 900] }, to: "II_Q_fioles_cave" }, lose: { fx: { pv: -3 }, to: "II_Q_fioles_fuite" } },
-    text: ["Les dés roulent par terre. Ils ne crient pas pour donner l'alarme. Ils ne veulent pas plus que toi qu'on vienne voir."],
+    text: ["Les dés roulent par terre. Ils se battent en silence : comme toi, ils craignent les témoins."],
     choices: [] }),
   II_Q_fioles_fuite: P({ takes: "morning", title: "Les ruelles", place: "vasselin",
     text: ["Tu t'enfuis par les ruelles du port, et quand tu reviens, le lendemain, la boutique est fermée, les volets cloués. Sur la porte, un écriteau : À LOUER. Le verrier est parti. La cave aussi, avec ce qu'il y avait dedans."],
@@ -305,8 +305,8 @@ module.exports = {
     ] }),
   II_Q_bouches_grave: P({ title: "Aude", place: "col",
     text: [
-      "Tu graves avec la pointe de ton couteau. Pas des lettres : tu n'en connais aucune. Le signe d'Aude, que ta mère a tracé une fois devant toi, avec un bâton dans la cendre, avant de l'effacer du pied. Tu n'as jamais su pourquoi elle tenait tant à ce que tu le voies. Maintenant tu sais.",
-      "Quand tu te relèves, un vieux du clan te regarde, de loin. Il ne dit rien. Il ne crache pas. Il s'en va. Le soir, en passant devant les cairns, tu vois qu'au pied du vingt-troisième, quelqu'un a posé une plume de corbeau.",
+      "Tu graves avec la pointe de ton couteau. Des signes à toi, faute de lettres. Le signe d'Aude, que ta mère a tracé une fois devant toi, avec un bâton dans la cendre, avant de l'effacer du pied. Tu n'as jamais su pourquoi elle tenait tant à ce que tu le voies. Maintenant tu sais.",
+      "Quand tu te relèves, un vieux du clan te regarde, de loin. Il se tait, et il garde sa salive. Il s'en va. Le soir, en passant devant les cairns, tu vois qu'au pied du vingt-troisième, quelqu'un a posé une plume de corbeau.",
     ],
     choices: [{ fx: { quest: "II_Q_bouches" }, back: "II_N5_col" }] }),
   II_Q_bouches_laisse: P({ title: "Vingt-trois", place: "col",

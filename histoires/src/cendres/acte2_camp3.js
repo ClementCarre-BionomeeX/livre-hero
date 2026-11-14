@@ -16,7 +16,7 @@ module.exports = {
         win: { fx: { ep: ["perso", 500], flag: "nord:lutte" }, to: "II_N_lutte_corbe" }, lose: { fx: { pv: -2 }, to: "II_N_lutte_terre" } },
     ] }),
   II_N_lutte_rodric: P({ title: "Rodric dans le cercle",
-    text: ["Rodric enlève son manteau, lentement, le plie, te le confie. Il entre dans le cercle. Bjarki se jette sur lui. Rodric ne bouge pas. Bjarki rebondit. Il recommence. Rodric le prend sous les bras, le soulève comme on soulève un sac de grain, le regarde un moment, à hauteur des yeux, et le repose, debout, hors du cercle. Il y a un silence. Puis tout le clan hurle de rire, Bjarki le premier. Le soir, Bjarki lui apporte une corne de bière. Ils ne se comprennent pas. Ils boivent ensemble jusqu'à minuit."],
+    text: ["Rodric enlève son manteau, lentement, le plie, te le confie. Il entre dans le cercle. Bjarki se jette sur lui. Rodric reste planté là. Bjarki rebondit. Il recommence. Rodric le prend sous les bras, le soulève comme on soulève un sac de grain, le regarde un moment, à hauteur des yeux, et le repose, debout, hors du cercle. Il y a un silence. Puis tout le clan hurle de rire, Bjarki le premier. Le soir, Bjarki lui apporte une corne de bière. Ils ne se comprennent pas. Ils boivent ensemble jusqu'à minuit."],
     choices: [{ fx: { conf: { rodric: 5 }, flag: "nord:lutte" }, back: "II_N_camp" }] }),
   II_N_lutte_corbe: P({ title: "Dans le cercle",
     text: ["Tu entres. Bjarki rit. Il ne rit pas longtemps. Tu es petite, tu es vive, tu sais où sont les genoux d'un homme et ce qu'ils deviennent quand on passe derrière. Il tombe dans la neige, de tout son long, et tu es assise sur son dos avant qu'il ait compris. Le clan hurle. Bjarki, le nez dans la neige, rit aussi. « La fille d'Askel, dit-il. J'aurais dû me méfier. »"],
@@ -27,7 +27,7 @@ module.exports = {
   II_N_signes: P({ title: "Les signes peints",
     text: [
       "Au feu des enfants, Linette est assise, entourée. Les petits du clan ont appris qu'elle savait lire, et ils lui montrent, un par un, les signes peints sur les peaux des tentes : des spirales, des traits, des corbeaux stylisés, des mains. « Lis ! Lis ça ! »",
-      "Linette regarde les signes. Elle fronce les sourcils. Elle sait lire les lettres, toutes, même les plus mal formées. Ces signes-là, elle ne les connaît pas. Elle ne dit rien. Les enfants attendent. Elle a l'air de quelqu'un qui découvre qu'il ne sait pas tout, et qui ne sait pas quoi faire de ses mains.",
+      "Linette regarde les signes. Elle fronce les sourcils. Elle sait lire les lettres, toutes, même les plus mal formées. Ces signes-là, elle ne les connaît pas. Elle se tait. Les enfants attendent. Elle a l'air de quelqu'un qui découvre qu'il ne sait pas tout, et qui ne sait pas quoi faire de ses mains.",
     ],
     choices: [
       { label: "Lui expliquer les signes, un par un", fx: { conf: { linette: 10 }, ep: ["perso", 400] }, to: "II_N_signes_corbe" },
@@ -37,11 +37,11 @@ module.exports = {
     text: ["Tu t'assieds à côté d'elle. La spirale, c'est le vent. La main ouverte, c'est quelqu'un qui est mort et qu'on salue. Le corbeau avec un trait, c'est le clan. Le corbeau sans trait, c'est quelqu'un qui est parti. Elle écoute, sans rien noter, et elle répète, en montrant du doigt, sans se tromper. Puis elle te demande comment on dit, avec ces signes-là, « Linette ». Tu ne sais pas. On ne dit pas les noms, avec les signes. Elle trouve ça très intéressant, et un peu inquiétant."],
     choices: BACK }),
   II_N_signes_enfants: P({ title: "Les maîtres",
-    text: ["Tu ne dis rien. Ce sont les enfants qui lui apprennent, tous à la fois, en criant, en se contredisant, en se disputant sur le sens d'une spirale. Linette les écoute avec un sérieux terrible. À la fin, un petit de cinq ans lui fait réciter, comme un maître d'école. Elle récite. Elle se trompe sur une main. Il la corrige, gravement. Elle dit merci. Il n'a jamais été aussi fier de sa vie."],
+    text: ["Tu te tais. Ce sont les enfants qui lui apprennent, tous à la fois, en criant, en se contredisant, en se disputant sur le sens d'une spirale. Linette les écoute avec un sérieux terrible. À la fin, un petit de cinq ans lui fait réciter, comme un maître d'école. Elle récite. Elle se trompe sur une main. Il la corrige, gravement. Elle dit merci. Il n'a jamais été aussi fier de sa vie."],
     choices: BACK }),
   II_N_chasseurs: P({ title: "Les chasseurs bredouilles",
     text: [
-      "Trois chasseurs reviennent des hauts pâturages, les mains vides. Pas de renne, pas de lièvre, rien. Ils n'ont pas l'air de chasseurs bredouilles. Ils ont l'air de gens qui ont vu quelque chose.",
+      "Trois chasseurs reviennent des hauts pâturages, les mains vides. Les mains vides. Ils n'ont pas l'air de chasseurs bredouilles. Ils ont l'air de gens qui ont vu quelque chose.",
       "« Le troupeau sauvage, dit le plus vieux, en s'asseyant près du feu. On l'a trouvé. Trois cents bêtes, dans le cirque du Haut-Tarn. Elles étaient debout dans la neige blanche, immobiles, toutes tournées vers le nord. On s'est approchés à dix pas. Elles ne nous ont pas vus. » Il tend les mains vers le feu. « On n'a pas pu tirer. On ne tire pas sur des bêtes qui ont oublié qu'elles avaient peur. »",
     ],
     choices: [
@@ -49,6 +49,6 @@ module.exports = {
       { label: "« Le clan aura faim, cet hiver. »", to: "II_N_chasseurs_faim" },
     ] }),
   II_N_chasseurs_faim: P({ title: "La faim",
-    text: ["Le vieux te regarde. « Oui, dit-il. Le clan aura faim. » Il ne se justifie pas. Il ne s'excuse pas. « On mangera les chiens, s'il faut. Les chiens, eux, ils se souviennent qu'ils ont peur. » Il se tait. Personne, autour du feu, ne le contredit. Les chiens, couchés dans la neige, lèvent la tête, tous en même temps, comme s'ils avaient compris."],
+    text: ["Le vieux te regarde. « Oui, dit-il. Le clan aura faim. » Il le dit tel quel, la tête haute. « On mangera les chiens, s'il faut. Les chiens, eux, ils se souviennent qu'ils ont peur. » Il se tait. Personne, autour du feu, ne le contredit. Les chiens, couchés dans la neige, lèvent la tête, tous en même temps, comme s'ils avaient compris."],
     choices: BACK }),
 };

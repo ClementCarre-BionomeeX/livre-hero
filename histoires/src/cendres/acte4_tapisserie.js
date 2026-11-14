@@ -32,7 +32,7 @@ module.exports = {
   IV_Q_tap_cv: P({ title: "Les noms de Corvanne", place: "brenne",
     text: [
       "Rodric te fait repasser la Lisse, de nuit, dans la barque de son beau-frère. Sur l'autre rive, le camp bleu. Les feux. Les mêmes gens que de ce côté-ci, avec un autre accent.",
-      "Tu as une tablette. Tu ne sais pas comment demander à des soldats ennemis de te dire leur nom la veille d'une bataille.",
+      "Tu as une tablette. Comment demander leur nom à des soldats ennemis la veille d'une bataille.",
     ],
     choices: [
       { label: "Leur dire pourquoi", test: { dom: "social", label: "Les feux bleus", help: [{ if: { present: "lisandre" }, v: 20 }, { if: { has: "ilan:iv" }, v: 15 }, { if: { has: "sud:galere=liberee" }, v: 20 }, { if: { present: "rodric" }, v: 10 }] },
@@ -50,7 +50,7 @@ module.exports = {
   IV_Q_tap_fin: P({ takes: "morning", title: "La nuit des métiers", place: "brenne",
     text: [
       "Tu rapportes les noms à Hautvent. Toutes les femmes du village sont là, tous les métiers montés, les lampes allumées. On lit les noms à voix haute, et elles les tissent, en laine brune, en laine bleue, un nom après l'autre, tout au long de la chaîne, toute la nuit.",
-      { if: { all: [{ has: "iv:tap_esq" }, { has: "iv:tap_cv" }] }, text: "À l'aube, la toile fait cent pas. Les noms d'Esquarre en brun, ceux de Corvanne en bleu, et ils se mélangent, au milieu, si serrés qu'on ne sait plus lequel est de quelle rive. Maëlle coupe le dernier fil avec les dents. Elle ne dit rien. Elle roule la toile, et elle la charge sur une brouette." },
+      { if: { all: [{ has: "iv:tap_esq" }, { has: "iv:tap_cv" }] }, text: "À l'aube, la toile fait cent pas. Les noms d'Esquarre en brun, ceux de Corvanne en bleu, et ils se mélangent, au milieu, si serrés qu'on ne sait plus lequel est de quelle rive. Maëlle coupe le dernier fil avec les dents. Elle se tait. Elle roule la toile, et elle la charge sur une brouette." },
       { if: { not: { all: [{ has: "iv:tap_esq" }, { has: "iv:tap_cv" }] } }, text: "À l'aube, la toile n'est remplie qu'à moitié. Une rive seulement, ou presque. L'autre moitié est blanche, une laine écrue sans un nom. Maëlle la regarde longtemps. « On la tendra quand même, dit-elle. Le blanc aussi, ça dit quelque chose. »" },
     ],
     choices: [

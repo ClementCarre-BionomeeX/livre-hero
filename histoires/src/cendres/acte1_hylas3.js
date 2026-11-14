@@ -64,13 +64,13 @@ module.exports = {
     ] }),
   HY_V_berengere_dit: P({ title: "Ce que tu dis",
     text: [
-      "Tu le lui dis. Le prénom. Le bal des Teinturiers, il y a plus de cinquante ans. La barque sous le Pont-Neuf. Le Bureau, ensuite. Elle t'écoute sans t'interrompre. Quand tu as fini, elle ne dit rien pendant longtemps.",
+      "Tu le lui dis. Le prénom. Le bal des Teinturiers, il y a plus de cinquante ans. La barque sous le Pont-Neuf. Le Bureau, ensuite. Elle t'écoute sans t'interrompre. Quand tu as fini, elle se tait longtemps.",
       "« Je ne m'en souviens pas, dit-elle enfin. Je suis désolée. » Elle le dit doucement. Elle n'est pas désolée pour elle. « Mais je me suis toujours demandé pourquoi je n'aimais pas passer sous le Pont-Neuf. Je fais le tour par le pont des Moulins. Toute ma vie. » Elle te met le ruban dans la main. Elle ne veut pas que tu paies.",
     ],
     choices: BACK }),
   HY_V_berengere_tu: P({ title: "Ce que tu tais",
     text: [
-      "Tu paies. Elle te rend trop de monnaie, parce qu'elle s'est trompée, ou parce qu'elle a vu ta robe usée. Tu ne dis rien. Tu prends le ruban. Tu sors. La clochette sonne, derrière toi.",
+      "Tu paies. Elle te rend trop de monnaie, parce qu'elle s'est trompée, ou parce qu'elle a vu ta robe usée. Tu te tais. Tu prends le ruban. Tu sors. La clochette sonne, derrière toi.",
       "Dans la rue, tu entends sa voix qui reprend, avec la cliente suivante, et qui roule les r. Elle a eu une bonne vie. Tu y as veillé toi-même. Tu restes un moment devant la boutique, à l'écouter, avec le ruban dans ton poing, puis tu t'en vas.",
     ],
     choices: BACK }),

@@ -62,7 +62,7 @@ module.exports = {
       flee: { dom: "discretion", label: "Se jeter dans l'escalier", to: "II_S5_paliers" },
       win: { fx: { ep: ["seance", 1200] }, to: "II_S5_paliers" },
       lose: { fx: { flag: "sud5:alerte", pv: -3 }, to: "II_S5_paliers" } },
-    text: ["Il recule d'un pas, ouvre la bouche. Derrière lui, dans l'escalier, un autre garde descend déjà, la main sur l'épée. Ils ne crient pas. Ils n'ont jamais crié."],
+    text: ["Il recule d'un pas, ouvre la bouche. Derrière lui, dans l'escalier, un autre garde descend déjà, la main sur l'épée. Ils se battent muets, comme toujours."],
     choices: [] }),
 
   II_S5_linette: P({ title: "L'apprentie", place: "vasselin",
@@ -111,7 +111,7 @@ module.exports = {
       flee: { dom: "discretion", label: "Courir vers l'escalier du haut", to: "II_S5_salle" },
       win: { fx: { ep: ["seance", 1000] }, to: "II_S5_salle" },
       lose: { fx: { pv: -3, flag: "sud5:alerte" }, to: "II_S5_salle" } },
-    text: ["Il se lève sans un bruit. De ses flancs se détache un Glaneur, maigre et blanc, qui dormait contre lui comme un chiot contre sa mère."],
+    text: ["Il se lève en silence. De ses flancs se détache un Glaneur, maigre et blanc, qui dormait contre lui comme un chiot contre sa mère."],
     choices: [] }),
 
   II_S5_salle: P({ title: "La grande salle", place: "vasselin",
@@ -152,7 +152,7 @@ module.exports = {
 
   II_S5_escalier: P({ title: "Quelqu'un monte", place: "vasselin",
     text: [
-      "Vous avez fait dix pas vers l'escalier quand vous l'entendez. Un pas. Lent, régulier, qui monte. Pas un garde : les gardes ne font pas de bruit.",
+      "Vous avez fait dix pas vers l'escalier quand vous l'entendez. Un pas. Lent, régulier, qui monte. Un bruit de pas : ce n'est donc pas un garde.",
       "Mordace apparaît en haut des marches, une chandelle à la main, l'écharpe autour du cou. Il est seul. Il est essoufflé. Il a monté deux cents marches à son âge, au milieu de la nuit.",
       "Il regarde le registre entre vos bras. Puis toi.",
       "« Dame Lisandre, dit-il. Vous savez ce que vous portez ? »",
@@ -167,14 +167,14 @@ module.exports = {
     text: [
       "« Vous portez trois cents ans d'oubli, dit-il. Un royaume entier qui dort dessus. Ouvrez-le n'importe où, lisez une page à voix haute dans la rue, et demain matin il y aura des gens qui se tueront pour ce qu'ils auront appris. »",
       "Il pose la chandelle sur une marche. « Je ne vous arrêterai pas. Je suis un vieil homme, et vous êtes jeunes. Mais écoutez : ce registre est la digue. Tant qu'il est écrit, et gardé, et fermé, le reste du monde peut oublier. Si vous l'emportez loin de son coffre, tout ce qui est écrit dedans voudra revenir. »",
-      { with: "hylas", text: "Hylas sort de l'ombre derrière toi. Mordace le voit. Il a un mouvement de recul, un seul. « Maître », dit-il. Il a la voix d'un garçon de quinze ans. Hylas ne répond pas. Il tend la main, et Mordace, après un long moment, s'écarte." },
+      { with: "hylas", text: "Hylas sort de l'ombre derrière toi. Mordace le voit. Il a un mouvement de recul, un seul. « Maître », dit-il. Il a la voix d'un garçon de quinze ans. Hylas se tait. Il tend la main, et Mordace, après un long moment, s'écarte." },
       { without: "hylas", text: "Puis il s'écarte, et vous laisse passer, et reste là, sur sa marche, à côté de sa chandelle, à regarder le coffre ouvert." },
     ],
     choices: [{ label: "Descendre, vite", to: "II_S5_fuite" }] }),
 
   II_S5_fuite: P({ title: "La ville", place: "vasselin",
     text: [
-      "En bas, les gardes ne vous arrêtent pas. Ils regardent l'escalier, en haut, comme s'ils attendaient un ordre qui ne vient pas.",
+      "En bas, les gardes vous laissent passer. Ils regardent l'escalier, en haut, dans l'attente d'un ordre.",
       "Dans les rues, il neige. En juillet, sur Vasselin, une neige fine, blanche, qui ne fond pas sur les pavés. Sur le quai, des gens sortent de chez eux et regardent le ciel. Certains se mettent à pleurer sans savoir pourquoi. D'autres se souviennent soudain d'un nom.",
       "Le registre pèse dans vos bras. Il est froid. Il est vivant.",
     ],
@@ -191,7 +191,7 @@ module.exports = {
       "La reine, qui a donné son fils et des villes, et qui est la seule à pouvoir ordonner qu'on rende.",
       "Les Greffiers : pas Mordace, les autres. Le Frère Orlan, qui a toujours froid, qui t'a donné les faits de Hautvent, et qui connaît ceux de la Chancellerie qui ne sont pas à Mordace.",
       "Les clans, au col de l'Ourse, là où la digue cède. Corbe. Ceux qui n'ont jamais su lire.",
-      { with: "hylas", text: "Hylas ne dit rien. Il a les mains posées à plat sur la couverture du registre, comme on pose les mains sur la poitrine d'un malade." },
+      { with: "hylas", text: "Hylas se tait. Il a les mains posées à plat sur la couverture du registre, comme on pose les mains sur la poitrine d'un malade." },
     ],
     choices: [
       { label: "Le porter à la reine", fx: { flag: "registre:reine", quest: "II_S_registre", conf: { lisandre: 5 }, ep: ["perso", 2000] }, to: "II_S5_reine" },

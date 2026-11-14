@@ -24,7 +24,7 @@ module.exports = {
     text: [
       "Anthelme tourne les pages, en mouillant son pouce. Des milliers de noms, de toutes les écritures, de toutes les époques. Des croix, pour ceux qui ne savaient pas écrire, et à côté, de la main d'Anthelme, ce qu'ils lui ont dit.",
       { if: { not: RENDU }, text: "Il s'arrête. « Sauvelune. Ils sont passés il y a quelques jours, tout un village. Ils ont pris la soupe. » Une page entière, de sa main à lui : ils ne savaient plus signer leur nom. *Un vieux avec des abeilles dans la barbe, il dit qu'il en a douze ruches. Une femme forte, les mains rouges, elle a demandé si quelqu'un avait vu son fils. Un homme qui ne parle pas, qui a réparé le banc. Un petit garçon qui siffle.* Tu lis la page deux fois. Tu poses le doigt sur *son fils*. Anthelme te regarde. Il ne demande rien." },
-      { if: RENDU, text: "Il cherche. Il fronce les sourcils. « Sauvelune. Il y avait une page. » Il la trouve : elle est blanche. Pas effacée : blanche, comme si on n'y avait jamais rien écrit. « Ils sont repartis, dit-il. Dans l'autre sens. Quelqu'un les a rappelés. Ça arrive. Pas souvent. » Il passe la main sur la page blanche, content, comme on passe la main sur une table qu'on vient de nettoyer." },
+      { if: RENDU, text: "Il cherche. Il fronce les sourcils. « Sauvelune. Il y avait une page. » Il la trouve : elle est blanche. Blanche, comme une page vierge. « Ils sont repartis, dit-il. Dans l'autre sens. Quelqu'un les a rappelés. Ça arrive. Pas souvent. » Il passe la main sur la page blanche, content, comme on passe la main sur une table qu'on vient de nettoyer." },
     ],
     choices: [{ fx: { ep: ["perso", 500] }, back: "III_r_salle" }] }),
   III_r_signer: P({ title: "La règle de la maison",
@@ -39,11 +39,11 @@ module.exports = {
     text: ["Tu écris ton nom. Puis, dessous, plus lentement, une croix, pour l'autre, celui que tu ne connais pas. Anthelme lit, à l'envers, par-dessus le comptoir. Il hoche la tête. « Deux lignes, dit-il. C'est permis. J'ai eu un roi, une fois, qui en a pris six. » Il souffle sur l'encre pour la sécher. Elle sèche. Elle ne pâlit pas. Ici, rien ne pâlit. C'est le seul endroit du monde où ce que tu écris est sûr de rester, et c'est un endroit où personne ne vient le lire."],
     choices: BACK }),
   III_r_signer_un: P({ title: "Une ligne",
-    text: ["Tu écris le nom de Sauvelune. Celui d'Agathe et de Joris, celui du temple. Anthelme lit. « C'est un nom de chez nous, dit-il. D'Esquarre. » Il a l'air content. Puis il regarde la ligne d'en dessous, vide, et il ne dit rien, mais il ne tourne pas la page. Il la laisse ouverte, au cas où, comme on laisse une chaise à table pour quelqu'un qui est en retard."],
+    text: ["Tu écris le nom de Sauvelune. Celui d'Agathe et de Joris, celui du temple. Anthelme lit. « C'est un nom de chez nous, dit-il. D'Esquarre. » Il a l'air content. Puis il regarde la ligne d'en dessous, vide, et il se tait, la main à plat sur la page. Il la laisse ouverte, au cas où, comme on laisse une chaise à table pour quelqu'un qui est en retard."],
     choices: BACK }),
   III_r_dieu: P({ title: "Le petit dieu de bois",
     text: [
-      "Au coin du feu, sur un tabouret, le petit dieu de bois que tu as vu marcher dans la file. Haut comme un chien. Sculpté grossièrement, dans du chêne, avec une barbe de copeaux et des yeux en clous de cuivre. Il tend ses mains de bois vers les flammes. Personne ne lui parle. Personne ne le prie plus depuis si longtemps qu'il ne sait plus de quoi il était le dieu.",
+      "Au coin du feu, sur un tabouret, le petit dieu de bois que tu as vu marcher dans la file. Haut comme un chien. Sculpté grossièrement, dans du chêne, avec une barbe de copeaux et des yeux en clous de cuivre. Il tend ses mains de bois vers les flammes. Personne ne lui parle. Les prières ont cessé depuis si longtemps qu'il a oublié de quoi il était le dieu.",
       "Anthelme, en passant, lui pose un bol de soupe à côté, par politesse. « Il était aux carrefours, dit-il. Je crois. On lui mettait des pommes. Ou alors c'était le dieu des chaudrons. Il ne se souvient pas. Moi non plus. »",
     ],
     choices: [
@@ -52,8 +52,8 @@ module.exports = {
     ] }),
   III_r_dieu_priere: P({ title: "Une prière",
     text: [
-      "Tu ne sais pas prier. Le Père Anselme t'a appris les répons, pas la prière. Tu dis ce qui te vient. Que la route soit sèche. Que Pim n'ait pas froid, là où il est. Que quelqu'un mette une pomme, demain, à un carrefour, pour rien, sans savoir pourquoi.",
-      "Le petit dieu tourne la tête vers toi, avec un craquement de bois sec. Ses yeux de cuivre brillent. Il ne dit rien : il n'a jamais su parler. Mais il se lève de son tabouret, il prend son bol de soupe à deux mains, et il te le donne. C'est la première fois depuis des siècles qu'il exauce quelque chose. Il ne sait pas faire grand-chose d'autre. La soupe est bonne.",
+      "Tu ne sais pas prier. Le Père Anselme t'a appris les répons, et s'est arrêté là. Tu dis ce qui te vient. Que la route soit sèche. Que Pim n'ait pas froid, là où il est. Que quelqu'un mette une pomme, demain, à un carrefour, pour rien, sans savoir pourquoi.",
+      "Le petit dieu tourne la tête vers toi, avec un craquement de bois sec. Ses yeux de cuivre brillent. Il se tait : la parole lui a toujours manqué. Mais il se lève de son tabouret, il prend son bol de soupe à deux mains, et il te le donne. C'est la première fois depuis des siècles qu'il exauce quelque chose. Il ne sait pas faire grand-chose d'autre. La soupe est bonne.",
     ],
     choices: BACK }),
   III_r_dieu_feu: P({ title: "Au coin du feu",

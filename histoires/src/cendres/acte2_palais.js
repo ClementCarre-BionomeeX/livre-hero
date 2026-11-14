@@ -8,7 +8,7 @@ var BACK = [{ label: "Reprendre le couloir", to: "II_S2_palais" }];
 module.exports = {
   II_S2_cuisines: P({ title: "Les cuisines de nuit",
     text: [
-      "Les cuisines du palais ne dorment pas. Elles n'ont jamais tout à fait dormi, mais d'habitude, la nuit, il n'y a que les marmitons qui ronflent sur les sacs et un feu couvert. Cette nuit, les broches tournent. On plume, on découpe, on pétrit. Un banquet pour trois cents, que personne n'a commandé, et que personne ne mangera.",
+      "Les cuisines du palais veillent. Elles ont toujours eu le sommeil léger, mais d'habitude, la nuit, on y trouve seulement les marmitons qui ronflent sur les sacs et un feu couvert. Cette nuit, les broches tournent. On plume, on découpe, on pétrit. Un banquet pour trois cents, que personne n'a commandé, et que personne ne mangera.",
       "Au fond, près de la cheminée, un vieux cuisinier ne fait pas le banquet. Il surveille une petite marmite, toute seule sur un trépied. Maître Guérin. Il te laissait voler des beignets, quand tu avais douze ans et que tu attendais, à la porte des cuisines, qu'on t'appelle pour chanter. Il lève les yeux. Il ne te reconnaît pas. Il sourit quand même, à tout hasard.",
     ],
     choices: [

@@ -10,7 +10,7 @@ Object.assign(P, {
     text: [
       "La route des vergers quitte le Val d'Anse par un pont de pierre à trois arches, si vieux que l'herbe pousse entre les dalles du tablier. Au milieu, sur la pile centrale, un écu de pierre a été sculpté du côté de l'amont : une main ouverte, et dessous un anneau. Les pluies l'ont rongé, mais personne ne l'a martelé.",
       "À l'entrée du pont, une vieille assise sur un pliant garde une chaîne tendue en travers du chemin et une écuelle de bois. « Un denier le piéton, deux la bête, dit-elle sans lever les yeux de son tricot. C'était pour les Thavar, avant. Maintenant c'est pour maître Groux, qui a racheté le droit l'an passé. Moi, je reste. Il faut bien que quelqu'un tienne la chaîne. »",
-      { with: "pip", text: "Pip se pose sur l'écu de pierre, dans le creux de la main sculptée, et y reste un moment sans rien dire. Puis il revient vers toi en clignotant, comme quelqu'un qui a cru reconnaître un visage dans la foule et s'est trompé." },
+      { with: "pip", text: "Pip se pose sur l'écu de pierre, dans le creux de la main sculptée, et y reste un moment en silence. Puis il revient vers toi en clignotant, comme quelqu'un qui a cru reconnaître un visage dans la foule et s'est trompé." },
     ],
     choices: [
       { label: "Payer ton passage, et demander qui est ce maître Groux", fx: { gold: -1 }, to: "IIT_r_pont_groux" },
@@ -42,13 +42,13 @@ Object.assign(P, {
     ] },
   IIT_r_cavaliers_haie: { title: "Les cavaliers bleus",
     text: [
-      "Les prunelliers te griffent les mains et le cou. Les cavaliers passent dans une gerbe de boue sans un regard, sauf l'homme au manteau vert, qui tourne la tête vers toi au passage et t'adresse un petit salut de la main, poli, comme on remercie un domestique d'avoir tenu la porte.",
+      "Les prunelliers te griffent les mains et le cou. Les cavaliers passent dans une gerbe de boue, les yeux droit devant, sauf l'homme au manteau vert, qui tourne la tête vers toi au passage et t'adresse un petit salut de la main, poli, comme on remercie un domestique d'avoir tenu la porte.",
       "Ils prennent la route des vergers, la même que toi. Tu les regardes s'éloigner jusqu'à ce que la poussière retombe. Il n'y a qu'une maison au bout de cette route qui mérite six épées d'escorte.",
     ],
     choices: [{ back: ROUTE }] },
   IIT_r_cavaliers_tenu: { title: "Les cavaliers bleus",
     text: [
-      "Tu restes planté{e} au milieu du chemin, les mains bien visibles, sans rien dire. Le premier cavalier tire sur ses rênes au dernier moment, son cheval fait un écart et souffle dans ta figure. Il jure. Derrière lui, l'homme au manteau vert lève la main, et la colonne s'arrête.",
+      "Tu restes planté{e} au milieu du chemin, les mains bien visibles, en silence. Le premier cavalier tire sur ses rênes au dernier moment, son cheval fait un écart et souffle dans ta figure. Il jure. Derrière lui, l'homme au manteau vert lève la main, et la colonne s'arrête.",
       "« Laissez, sergent, dit-il d'une voix agréable. Les routes sont à tout le monde, en Vel-Orin comme ici. » Il te regarde avec un intérêt d'acheteur. « Vous allez à Thavar, vous aussi ? Alors nous nous reverrons. » Ils te contournent au pas, un par un, et reprennent le trot plus loin.",
     ],
     choices: [{ back: ROUTE }] },
@@ -56,12 +56,12 @@ Object.assign(P, {
     text: [
       "Le cheval ne s'arrête pas. Son poitrail te prend à l'épaule et tu pars en arrière dans le fossé, dans une eau brune qui sent la feuille pourrie. Quand tu te relèves, trempé{e}, la colonne est déjà loin. Un rire, devant. Un seul.",
       { with: "thavary", text: "Thavary ne rit pas. Elle a la main sur la garde de son épée et elle regarde la poussière des cavaliers comme on retient un visage." },
-      { without: "thavary", with: "any", text: "On t'aide à sortir de la boue. Personne ne dit rien. Il n'y a pas grand-chose à dire à six cavaliers qui ne se sont pas retournés." },
+      { without: "thavary", with: "any", text: "On t'aide à sortir de la boue. Personne se tait. Il n'y a pas grand-chose à dire à six cavaliers qui ne se sont pas retournés." },
     ],
     choices: [{ back: ROUTE }] },
   IIT_r_verger: { title: "Les vergers de Thavar",
     text: [
-      "La dernière lieue traverse les vergers de Thavar, ou ce qu'il en reste. Des pommiers d'un autre âge, pas taillés depuis dix ans, qui ont poussé en tous sens et se touchent par-dessus le chemin. Les fruits tombés pourrissent dans l'herbe haute, et l'air sent le cidre et la guêpe. Personne n'a ramassé. Il n'y a plus personne pour ramasser.",
+      "La dernière lieue traverse les vergers de Thavar, ou ce qu'il en reste. Des pommiers d'un autre âge, laissés à eux-mêmes depuis dix ans, qui ont poussé en tous sens et se touchent par-dessus le chemin. Les fruits tombés pourrissent dans l'herbe haute, et l'air sent le cidre et la guêpe. Personne n'a ramassé. Il n'y a plus personne pour ramasser.",
       "Au bout, sur une butte, le manoir : un logis de pierre blonde, deux tours rondes coiffées d'ardoise, dont l'une a perdu la moitié de son toit. Une fumée, une seule, monte d'une cheminée. Sur la girouette rouillée, une main tient un anneau. Elle ne tourne plus.",
       { if: { has: "passe:profite" }, text: "Tu as déjà vu des terres comme celles-là, que leurs maîtres n'ont plus les moyens de tenir. Tu sais exactement ce qu'elles coûtent, à qui sait attendre. Tu le sais trop bien." },
     ],
@@ -132,7 +132,7 @@ Object.assign(P, {
     choices: [{ back: ROUTE }] },
   EIIT_mare: { title: "La mare",
     text: [
-      "Au bord du chemin, dans une ornière que la pluie a remplie, l'eau ne bouge pas. Il y a du vent, les feuilles des pommiers frissonnent, une ride passe sur toutes les flaques de la route ; pas sur celle-là. Elle est lisse comme une vitre, et noire, et ton reflet y est plus net qu'il ne devrait.",
+      "Au bord du chemin, dans une ornière que la pluie a remplie, l'eau est immobile. Il y a du vent, les feuilles des pommiers frissonnent, une ride passe sur toutes les flaques de la route ; pas sur celle-là. Elle est lisse comme une vitre, et noire, et ton reflet y est plus net qu'il ne devrait.",
       "« {hero} », dit l'eau, très doucement. Une voix de femme, sans âge, presque tendre. « Tu vas chercher une bague pour la rendre à des morts. Tu ne trouves pas ça triste, toi aussi ? Tout ce métal, toutes ces clés, pour tenir une porte fermée sur quelqu'un qui a froid. »",
       { if: { has: "marque:eclat" }, text: "Ta paume te brûle, là où la tache noire s'étale. Elle bat au rythme de la voix, comme si elle reconnaissait quelqu'un de la famille." },
       { with: "pip", text: "Pip se colle à ta joue, si fort que tu sens sa chaleur jusqu'à l'os. « Ne lui réponds pas, souffle-t-il. Elle connaît les noms. Elle connaît tous les noms. »" },
@@ -150,7 +150,7 @@ Object.assign(P, {
     choices: [{ back: ROUTE }] },
   EIIT_mare_pied: { title: "La mare",
     text: [
-      "Tu poses la botte au milieu de la flaque et tu appuies. L'eau noire gicle sur tes chausses, froide, puis tiède. Quand tu retires le pied, ce n'est plus qu'une ornière boueuse où la pluie s'est mélangée à la terre. Il n'y a personne dedans.",
+      "Tu poses la botte au milieu de la flaque et tu appuies. L'eau noire gicle sur tes chausses, froide, puis tiède. Quand tu retires le pied, il reste une ornière boueuse où la pluie s'est mélangée à la terre. Il n'y a personne dedans.",
       "Le reste de la journée, ta botte gauche sent la vase. Tu as beau la frotter d'herbe au bivouac, l'odeur reste, douce et pourrissante, comme une fleur oubliée dans un vase.",
     ],
     choices: [{ back: ROUTE }] },
@@ -271,7 +271,7 @@ Object.assign(P, {
   IIT_emissaire_depart: { act: "II", title: "Les arrhes", place: "thavar",
     text: [
       "Messire Ostrand se lève, remet ses gants, et pose à côté de la lettre royale une bourse de cuir rouge qui tombe sur la table avec le bruit lourd de l'or. « Vingt couronnes, dit-il. Des arrhes, en gage de la bonne foi de mon maître. Elles vous restent, quoi que vous décidiez. Je reviendrai dans trois jours pour votre réponse. » Il s'incline devant la vieille dame, devant la jeune femme, devant toi, exactement de la même façon. Puis il sort, et ses talons sonnent longtemps sur les dalles.",
-      "« Thavary, dit la vieille dame sans tourner la tête. Rends-lui sa bourse. » La jeune femme ne bouge pas. Elle regarde la bourse rouge. Au bout d'un long moment, elle la prend, la soupèse, et la glisse dans son pourpoint. « Vingt couronnes, grand-mère, dit-elle. Onfroi n'a pas été payé depuis deux ans. Le toit de la tour. Le grain de l'hiver. » Elle sort par la porte du verger sans un regard pour toi.",
+      "« Thavary, dit la vieille dame sans tourner la tête. Rends-lui sa bourse. » La jeune femme reste immobile. Elle regarde la bourse rouge. Au bout d'un long moment, elle la prend, la soupèse, et la glisse dans son pourpoint. « Vingt couronnes, grand-mère, dit-elle. Onfroi n'a pas été payé depuis deux ans. Le toit de la tour. Le grain de l'hiver. » Elle sort par la porte du verger en regardant droit devant elle.",
       "Dame Ermesinde ferme les yeux. Quand elle les rouvre, c'est sur toi. « Eh bien, dit-elle. Vous avez vu notre maison telle qu'elle est. Asseyez-vous, et dites-moi ce que vous voulez, vous. »",
     ],
     choices: [
@@ -292,13 +292,13 @@ Object.assign(P, {
 Object.assign(P, {
   IIT_salle: { act: "II", title: "La grande salle", place: "thavar", backName: "la grande salle",
     text: [
-      { first: true, text: "Dame Ermesinde t'écoute sans t'interrompre, les deux mains posées sur le pommeau d'une canne d'ébène. Elle a quatre-vingts ans passés, la peau fine comme du papier de soie, et une façon de te regarder qui t'oblige à choisir tes mots. Quand tu as fini, elle reste un long moment sans rien dire. Le feu craque. Onfroi, dans l'ombre de la porte, attend qu'on ait besoin de lui." },
+      { first: true, text: "Dame Ermesinde t'écoute sans t'interrompre, les deux mains posées sur le pommeau d'une canne d'ébène. Elle a quatre-vingts ans passés, la peau fine comme du papier de soie, et une façon de te regarder qui t'oblige à choisir tes mots. Quand tu as fini, elle reste un long moment en silence. Le feu craque. Onfroi, dans l'ombre de la porte, attend qu'on ait besoin de lui." },
       { first: true, text: "« L'Ordre vous envoie, ou vous vous envoyez vous-même, dit-elle enfin. Cela revient au même pour une vieille femme. Tout le monde veut l'Anneau, cet automne. Il y a quatre cents ans qu'on ne s'en souciait plus, et voilà qu'il faut le mettre au trésor d'un roi, ou dans les mains de l'Ordre, ou dans les vôtres. » Elle a un petit sourire sec. « Il n'a jamais été dans les miennes. Je vous l'ai dit : il est à la crypte. »" },
       { first: true, if: { is: { meunier: "livre" } }, text: "« On dit aussi, ajoute-t-elle, qu'à Brumefeuille, quelqu'un de passage a livré le meunier aux gens du village. Les nouvelles vont vite chez les pauvres : nous n'avons que ça à faire. On dit qu'il empoisonnait le puits pour parler à sa fille morte. » Elle te regarde. « Je ne vous demande pas si c'était juste. Je vous demande si vous dormez. »" },
       { first: true, if: { is: { meunier: "protege" } }, text: "« On dit aussi, ajoute-t-elle, qu'à Brumefeuille, quelqu'un de passage a protégé le meunier qui empoisonnait le puits. Les uns disent que c'est de la bonté, les autres de la folie. » Elle a un petit hochement de tête. « Il faut parfois les deux pour garder ce qu'on garde. »" },
-      { first: true, if: { mark: { min: 2 } }, text: "Ses yeux tombent une seconde sur ta main, là où la peau noircit, et remontent sans s'arrêter. Elle ne dit rien. Elle a vu." },
+      { first: true, if: { mark: { min: 2 } }, text: "Ses yeux tombent une seconde sur ta main, là où la peau noircit, et remontent sans s'arrêter. Elle se tait. Elle a vu." },
       { again: true, text: "Dame Ermesinde est dans son fauteuil, près de la cheminée, une couverture sur les genoux. Elle lit des comptes, ou fait semblant. Elle lève les yeux quand tu entres, et les garde sur toi jusqu'à ce que tu parles." },
-      { again: true, if: { relic: "anneau" }, text: "Elle regarde ta main, celle où brille l'Anneau, puis elle regarde ailleurs. Elle ne le réclame pas. Elle ne le réclamera jamais." },
+      { again: true, if: { relic: "anneau" }, text: "Elle regarde ta main, celle où brille l'Anneau, puis elle regarde ailleurs. Elle s'interdit de le réclamer, aujourd'hui comme demain." },
       { again: true, if: { given: "anneau" }, text: "L'Anneau est sur sa table, dans une petite boîte de bois d'if qu'Onfroi a cirée. Elle n'y touche pas. Elle la regarde parfois, comme on regarde dormir un enfant." },
       { again: true, with: "thavary", text: "Thavary s'appuie au manteau de la cheminée, les bras croisés. Sa grand-mère et elle se parlent peu, et toujours poliment, comme deux capitaines de compagnies rivales qui partagent la même ville." },
     ],
@@ -313,7 +313,7 @@ Object.assign(P, {
       "« Thavar le Fidèle est enterré sous notre chapelle, dit Dame Ermesinde. Dans une crypte qu'il a fait creuser lui-même, avant de mourir, très vieux, très seul. Il est couché sur son tombeau, en pierre, comme on les faisait. Sa main droite est fermée. Dans son poing, il y a l'Anneau. On le voit briller entre les doigts quand on approche une lampe. Sa main gauche est ouverte, et vide. »",
       "« Le poing ne s'est jamais ouvert. Pas pour mon mari, qui a essayé avec un levier, et qui en a eu le poignet cassé. Pas pour mon fils, qui a prié une nuit entière. Pas pour Thavary, deux fois. On dit dans la famille qu'il s'ouvrira pour qui tient sa part. Personne n'a jamais su ce que ça voulait dire. »",
       "« Il y a un coffre au pied du tombeau. Le testament de Thavar. L'usage veut qu'on ne l'ouvre pas, et l'usage a toujours été très commode : on n'a pas eu à savoir ce qu'il y avait dedans. » Elle te regarde longtemps. « Descendez, si vous voulez. Ma petite-fille a la clé, et elle descendra avec vous : personne n'entre seul chez nos morts. Si la main s'ouvre, c'est qu'elle a ses raisons. Je ne vous demande qu'une chose. Ce qu'elle vous donnera, vous viendrez me dire ce que vous en ferez, avant de passer ma porte. »",
-      { with: "pip", text: "Pip s'est posé sur l'accoudoir du fauteuil, tout près de la vieille main sur la canne. Elle le regarde sans étonnement. « Toi, dit-elle, tu as l'air de quelqu'un qu'on a tenu longtemps. » Pip ne répond pas. Il brille un peu plus fort." },
+      { with: "pip", text: "Pip s'est posé sur l'accoudoir du fauteuil, tout près de la vieille main sur la canne. Elle le regarde sans étonnement. « Toi, dit-elle, tu as l'air de quelqu'un qu'on a tenu longtemps. » Pip se tait. Il brille un peu plus fort." },
     ],
     choices: [{ back: "IIT_salle" }] },
   IIT_ermesinde_maison: { act: "II", title: "Ce qui reste d'une maison", place: "thavar",
@@ -321,7 +321,7 @@ Object.assign(P, {
       "« Il y a quatre cents ans, dit Dame Ermesinde, cinq héros ont fermé la Brèche. Aldar en a tiré une couronne, Orine un duché. Hildre a gardé sa forge, et Ivo son moutier. Thavar a gardé une bague et un manoir, et il a dit que cela suffisait. » Elle a un geste vague vers les tapisseries mangées. « Ses descendants n'ont pas tous été de son avis. Ils ont fait des guerres pour avoir plus. Ils les ont perdues. C'est une spécialité de la maison. »",
       "« Il y a quatre-vingts ans, le roi Aldric le Premier a voulu l'Anneau, déjà. Pour son trésor, déjà. Mon beau-père a refusé. On lui a pris les prés de l'Anse et la forêt de Brécy, pour une affaire d'impôts que personne n'a jamais comprise. Mon fils est mort à la guerre du sel, endetté jusqu'au col, et sa femme est retournée chez les siens. Il me reste ma petite-fille, Onfroi, Guillemette, le petit Josselin, un cheval, et un toit sur deux. » Elle sourit. « Et l'Anneau, qui ne nous a jamais rien donné, sauf d'avoir à le garder. »",
       "« Ce Messire Ostrand nous offre de racheter nos terres avec la chose même pour laquelle on nous les a prises. C'est assez élégant, il faut le reconnaître. Ma petite-fille trouve que c'est juste. Moi, je trouve que c'est trop beau, et j'ai assez vécu pour me méfier des choses trop belles. »",
-      { if: { has: "passe:profite" }, text: "Tu penses aux terres de Saint-Gilles que tu as rachetées pour rien, l'année de la tache, à des gens qui avaient les yeux de cette vieille dame. Tu ne dis rien. Ça ne se dit pas. Ça se garde, comme le reste." },
+      { if: { has: "passe:profite" }, text: "Tu penses aux terres de Saint-Gilles que tu as rachetées pour rien, l'année de la tache, à des gens qui avaient les yeux de cette vieille dame. Tu te tais. Ça ne se dit pas. Ça se garde, comme le reste." },
     ],
     choices: [{ back: "IIT_salle" }] },
 
@@ -340,7 +340,7 @@ Object.assign(P, {
   IIT_thavary_duel: { act: "II", title: "La passe d'armes", place: "thavar",
     fx: { met: "thavary" },
     text: [
-      "Elle te jette un bâton de pommier sans un mot et se met en garde, l'épée à plat. Elle est rapide, et elle ne fait rien de joli : tout ce qu'elle fait sert. Vous tournez dans l'herbe mouillée entre les arbres, sous le regard du petit Josselin qui s'est perché sur le mur du potager pour ne rien manquer.",
+      "Elle te jette un bâton de pommier en silence et se met en garde, l'épée à plat. Elle est rapide, et elle ne fait rien de joli : tout ce qu'elle fait sert. Vous tournez dans l'herbe mouillée entre les arbres, sous le regard du petit Josselin qui s'est perché sur le mur du potager pour ne rien manquer.",
       { outcome: "win", text: "Au cinquième échange, tu trouves l'ouverture : elle frappe toujours de la même façon après avoir paré, un peu trop haut, par habitude. Ton bâton s'arrête à un pouce de sa gorge. Elle te regarde par-dessus. Puis elle rit, pour la première fois, un rire bref de soldat. « Bien. Très bien. Qui t'a appris ça ? On ne l'apprend pas dans les livres. »" },
       { outcome: "lose", text: "Tu tiens quatre échanges. Au cinquième, elle passe sous ta garde, et le plat de l'épée te claque sur les côtes à te couper le souffle. Tu es assis{e} dans l'herbe avant d'avoir compris. Elle te tend la main pour te relever. « Pas mal. Tu ne recules pas. C'est plus rare qu'on croit. »" },
       "Elle essuie sa lame sur sa manche et s'assied sur une racine, en t'invitant d'un signe du menton à faire de même. Elle a l'air moins pressée de te voir partir.",
@@ -394,7 +394,7 @@ Object.assign(P, {
       { first: true, text: "L'écurie a été bâtie pour quarante chevaux. Il en reste un : une vieille jument grise à la lèvre pendante, qui mâche son foin avec la lenteur des bêtes qui ont tout leur temps. Les autres stalles servent de grenier, de bûcher, de poulailler. Les poules entrent et sortent par une fenêtre sans vitre." },
       { first: true, text: "Un garçon de quinze ans brosse la jument avec un soin exagéré. Il est maigre, roux, avec des mains trop grandes pour lui. « Josselin, dit-il. Je fais les chevaux. Enfin, le cheval. Et le jardin. Et le bois. Et les gouttières, quand je peux monter. » Il a l'air soucieux, et il lève sans cesse les yeux vers le bas du verger, comme s'il attendait quelqu'un." },
       { again: true, text: "La jument grise te regarde entrer, mâche, et retourne à son foin. Josselin répare un harnais avec du fil poissé." },
-      { again: true, with: "thavary", text: "Thavary flatte l'encolure de la jument, sans un mot. « C'était le cheval de mon père, dit-elle. Elle a vingt-six ans. Elle tiendra plus longtemps que la maison. »" },
+      { again: true, with: "thavary", text: "Thavary flatte l'encolure de la jument, en silence. « C'était le cheval de mon père, dit-elle. Elle a vingt-six ans. Elle tiendra plus longtemps que la maison. »" },
     ],
     choices: [
       { label: "« Qu'est-ce qui te tracasse ? »", hide: { seen: "IIT_bornes" }, to: "IIT_bornes" },
@@ -405,7 +405,7 @@ Object.assign(P, {
     text: [
       "Une longue galerie, au premier étage, où la pluie entre par trois fenêtres crevées. Aux murs, les Thavar, quatre siècles de Thavar, peints sur bois puis sur toile, en armure, en velours, en deuil. Ils ont tous le même menton et le même air de devoir quelque chose à quelqu'un. Les plus récents sont les plus abîmés ; on a vendu les cadres dorés et laissé les visages.",
       "Au bout, le plus ancien, sur un panneau de chêne noirci : Thavar le Fidèle, jeune, en cotte de mailles, la main droite levée, ouverte, l'Anneau au doigt. Il a les yeux baissés. À côté de lui, le peintre avait peint l'épaule de quelqu'un d'autre, et la main de Thavar posée dessus ; on a gratté la peinture jusqu'au bois, et il ne reste de cette personne qu'une épaule sans tête, et une main amie posée sur rien.",
-      { with: "thavary", text: "Thavary s'arrête devant le portrait de son père, un homme au visage large, en armure de parade qui n'a jamais servi. Elle redresse le tableau, qui penchait. Puis elle passe sans rien dire." },
+      { with: "thavary", text: "Thavary s'arrête devant le portrait de son père, un homme au visage large, en armure de parade qui n'a jamais servi. Elle redresse le tableau, qui penchait. Puis elle passe en silence." },
       { with: "charline", text: "Charline Hildrand s'approche du panneau gratté et passe le doigt sur le bois nu, là où était l'épaule. « On n'a pas gratté ça par accident, dit-elle. On a pris un fer. Et on l'a fait il y a très longtemps : regarde, la poussière est entrée dans le bois. »" },
     ],
     choices: [{ back: "IIT_manoir" }] },
@@ -454,7 +454,7 @@ Object.assign(P, {
   IIT_gages_payer: { act: "II", title: "Les gages", place: "thavar",
     fx: { set: { gages: "payes" }, quest: "II_gages", flag: "iit:dette_thavary", ep: ["seance", 1200], fac: { ordre: 3 }, conf: { pip: 5, aubin: 5 } },
     text: [
-      "Tu comptes les sous sur la table, en trois piles. Onfroi te regarde faire sans rien dire, puis il sort de son tiroir un petit livre à part, ouvre une page blanche, et écrit, en date du jour, ton nom, la somme, et le mot *avance*. « Ce n'est pas un don, dit-il. Je refuse les dons, au nom de la maison. C'est une avance. La maison vous la doit. » Il souffle sur l'encre. « Elle vous la rendra. Je ne sais pas quand, mais elle vous la rendra. »",
+      "Tu comptes les sous sur la table, en trois piles. Onfroi te regarde faire en silence, puis il sort de son tiroir un petit livre à part, ouvre une page blanche, et écrit, en date du jour, ton nom, la somme, et le mot *avance*. « Ce n'est pas un don, dit-il. Je refuse les dons, au nom de la maison. C'est une avance. La maison vous la doit. » Il souffle sur l'encre. « Elle vous la rendra. Je ne sais pas quand, mais elle vous la rendra. »",
       "Le soir, Guillemette te sert une tranche de lard dans ta soupe, la première viande que tu vois ici. Josselin te suit partout pendant une heure sans oser rien dire, puis il disparaît, et tu le retrouves en haut d'une échelle, à reclouer une gouttière à la lueur d'une lanterne, en sifflant.",
       { if: { met: "thavary" }, text: "Thavary l'apprend le soir même. Elle vient te trouver, raide, la mâchoire serrée. « Tu as payé les gens de ma maison. » Tu crois qu'elle va te gifler. Elle dit seulement : « Je te dois vingt sous. Je te les rendrai. Une Thavar paie ses dettes. » Et elle s'en va, très vite, avant que tu voies sa figure." },
     ],
@@ -474,7 +474,7 @@ Object.assign(P, {
   IIT_gages_thavary_oui: { act: "II", title: "Vingt couronnes", place: "thavar",
     fx: { met: "thavary", set: { gages: "thavary" }, quest: "II_gages", conf: { thavary: 10 }, regard: { thavary: "cordial" } },
     text: [
-      "Elle te regarde longtemps. Puis elle prend la bourse rouge, se lève, et descend l'escalier sans un mot. Tu la suis. Dans les cuisines, elle vide la bourse sur la table, devant Onfroi, Guillemette et Josselin, qui se sont levés comme pour un enterrement. Elle fait trois piles d'or, avec des gestes de capitaine qui paie sa compagnie un soir de solde.",
+      "Elle te regarde longtemps. Puis elle prend la bourse rouge, se lève, et descend l'escalier en silence. Tu la suis. Dans les cuisines, elle vide la bourse sur la table, devant Onfroi, Guillemette et Josselin, qui se sont levés comme pour un enterrement. Elle fait trois piles d'or, avec des gestes de capitaine qui paie sa compagnie un soir de solde.",
       "« Deux ans, dit-elle. Et l'avance de la Saint-Martin pour le petit. Ne me remerciez pas. C'était dû. » Guillemette pleure dans son tablier. Onfroi range son or sans le compter, ce que tu ne l'aurais jamais cru capable de faire.",
       "Dans la cour, ensuite, Thavary s'appuie au pommier tordu et ferme les yeux. « Voilà, dit-elle. Maintenant je dois vingt couronnes à un homme que je n'aime pas. C'est mieux que de les devoir à des gens que j'aime. » Elle a un petit rire. « Tu me rends un drôle de service. »",
     ],
@@ -492,7 +492,7 @@ Object.assign(P, {
       "Tu poses sur la table d'Onfroi la coupe d'argent que tu as remontée de la crypte, avec ses fleurs de pommier ciselées et son pied en forme de main. Il la reconnaît aussitôt. Il ne la touche pas. « La coupe de la dame Aude, dit-il. On l'a enterrée avec elle il y a deux cents ans. Je l'ai vue dans l'inventaire. »",
       "« Elle est à la maison, dis-tu. Que la maison paie ses gens avec. » Il réfléchit très longtemps, la plume à la main, comme s'il cherchait dans quelle colonne inscrire une telle chose. Puis il écrit : *Coupe d'argent de la dame Aude, rendue par la crypte. Vendue à Ferrance pour les gages.* « La dame Aude avait la réputation d'être généreuse, dit-il. Je crois qu'elle ne s'en plaindra pas. »",
       { with: "pip", text: "Pip, qui avait boudé toute la journée depuis la crypte, revient se poser sur ton épaule. « Ce n'était pas à nous, dit-il. Mais maintenant c'est retourné à eux. C'est différent, non ? » Il réfléchit. « C'est différent. »" },
-      { with: "thavary", text: "Thavary, à la porte, a tout entendu. Elle ne dit rien. Elle hoche la tête une fois, sèchement, comme on approuve un ordre bien donné." },
+      { with: "thavary", text: "Thavary, à la porte, a tout entendu. Elle se tait. Elle hoche la tête une fois, sèchement, comme on approuve un ordre bien donné." },
     ],
     choices: [{ back: "IIT_manoir" }] },
   IIT_gages_non: { act: "II", title: "Pas ton affaire", place: "thavar",
@@ -548,7 +548,7 @@ Object.assign(P, {
     text: [
       "La ferme d'Anceau Groux est tout ce que le manoir n'est plus : une cour pavée de neuf, un fumier bien carré, une grange pleine jusqu'aux chevrons, deux grands fils taillés comme des bœufs qui chargent une charrette, et des chiens au bout de leurs chaînes. Groux lui-même sort sur le pas de sa porte en s'essuyant la bouche : un homme de cinquante ans, gras et rose, un gilet de velours sur une chemise de toile, et des yeux tout petits qui comptent.",
       "« Les bornes ? dit-il avec une surprise parfaite. Elles ont toujours été là, les bornes. Demandez à n'importe qui. » Il sourit. « Et puis, entre nous, qu'est-ce que ça peut faire, trente pas de pommiers que personne ne ramasse ? Ils pourrissent. Moi, je les ramasserai. C'est un service que je rends. »",
-      { with: "thavary", text: "Thavary s'est avancée d'un pas. Groux la salue avec beaucoup de respect, un peu trop. « Demoiselle. Mes hommages à votre grand-mère. » Thavary ne répond pas. Elle a la main sur son épée, et les deux fils de Groux ont lâché la charrette." },
+      { with: "thavary", text: "Thavary s'est avancée d'un pas. Groux la salue avec beaucoup de respect, un peu trop. « Demoiselle. Mes hommages à votre grand-mère. » Thavary se tait. Elle a la main sur son épée, et les deux fils de Groux ont lâché la charrette." },
     ],
     choices: [
       { label: "Lui montrer le terrier de Thavar", if: { item: "iit_terrier" }, why: "Il te faudrait une preuve écrite de la limite : le vieux terrier de la maison, s'il existe encore.", to: "IIT_bornes_terrier" },
@@ -615,7 +615,7 @@ Object.assign(P, {
     fx: { set: { thavar_bornes: "remises" }, quest: "IIT_bornes", conf: { thavary: 5 } },
     text: [
       "Il vous faut toute la nuit. Chaque borne se déterre en grognant, se roule sur des rondins jusqu'au ruisseau, se replante dans un trou qu'il faut creuser dans une terre pleine de racines. La troisième, la vieille, la plus lourde, tu la remets toi-même à l'endroit, la main sculptée tournée vers le manoir, l'anneau vers le ciel. Quand c'est fait, l'aube pâlit derrière les pommiers, et tu as de la terre jusqu'aux coudes.",
-      "Au matin, Groux descend de chez lui avec ses fils et ses chiens, et s'arrête à dix pas des bornes. Il les regarde longtemps. Il regarde la terre fraîche, tes mains, les ampoules. Il ne dit rien. Il remonte chez lui. Le soir, quelqu'un a déposé devant le portail du manoir un panier de pommes, du grand pommier à cidre. Sans un mot. Josselin en mange trois de suite, en riant comme un enfant.",
+      "Au matin, Groux descend de chez lui avec ses fils et ses chiens, et s'arrête à dix pas des bornes. Il les regarde longtemps. Il regarde la terre fraîche, tes mains, les ampoules. Il se tait. Il remonte chez lui. Le soir, quelqu'un a déposé devant le portail du manoir un panier de pommes, du grand pommier à cidre. Sans un mot. Josselin en mange trois de suite, en riant comme un enfant.",
     ],
     choices: [{ back: "IIT_manoir" }] },
   IIT_bornes_chiens: { act: "II", title: "Les chiens", place: "thavar",
@@ -685,7 +685,7 @@ Object.assign(P, {
       "Le coffre grince. Dedans, sur un lit de cendre de bois, pour garder le sec, un rouleau de parchemin noué d'un cordon de soie qui tombe en poussière quand tu le touches. L'encre a bruni, mais l'écriture est grande et ferme, une écriture de soldat qui a appris tard.",
       "*À mes héritiers je laisse cet anneau, et la honte qui va avec. Qu'ils la portent, puisque je n'ai pas eu le courage de la dire.*",
       "C'est tout. Une seule phrase, au milieu d'une grande feuille vide. En bas, une signature, et à côté, à peine visible, une petite main dessinée à la plume. La main est fermée.",
-      { with: "thavary", text: "Thavary lit par-dessus ton épaule. Elle relit. Elle ne dit rien pendant longtemps, et quand elle parle, c'est d'une voix que tu ne lui connaissais pas. « Quelle honte ? Il a fermé la Brèche. Il a sauvé tout le monde. Quelle honte ? » Personne ne lui répond. Les gisants dorment." },
+      { with: "thavary", text: "Thavary lit par-dessus ton épaule. Elle relit. Elle se tait longtemps, et quand elle parle, c'est d'une voix nouvelle. « Quelle honte ? Il a fermé la Brèche. Il a sauvé tout le monde. Quelle honte ? » Personne ne lui répond. Les gisants dorment." },
     ],
     choices: [{ back: "IIT_crypte_gisants" }] },
   IIT_crypte_coupe: { act: "II", title: "La coupe d'argent", place: "thavar", ambiance: "souterrain",
@@ -748,7 +748,7 @@ Object.assign(P, {
     choices: [{ back: "IIT_gisant_don" }] },
   IIT_gisant_ouvert: { act: "II", title: "La main ouverte", place: "thavar", ambiance: "souterrain",
     text: [
-      { if: { is: { iit_don: "eclat" } }, text: "Tu poses l'éclat dans la main de pierre. Il bat encore un instant, comme un cœur de moineau, et tu sens la Voix, quelque part, très loin, retenir son souffle. Puis il s'éteint. Ce n'est plus qu'un caillou noir dans une paume grise. Ta propre paume te fait mal, un mal propre, comme une plaie qu'on lave, et quand tu la regardes, la tache a pâli d'un ton." },
+      { if: { is: { iit_don: "eclat" } }, text: "Tu poses l'éclat dans la main de pierre. Il bat encore un instant, comme un cœur de moineau, et tu sens la Voix, quelque part, très loin, retenir son souffle. Puis il s'éteint. Il reste un caillou noir dans une paume grise. Ta propre paume te fait mal, un mal propre, comme une plaie qu'on lave, et quand tu la regardes, la tache a pâli d'un ton." },
       { if: { is: { iit_don: "dague" } }, text: "Tu poses ta dague dans la main de pierre, la poignée vers le vieux Thavar, comme on rend une arme à un capitaine. Elle t'a suivi{e} partout, celle-là. Elle a coupé ton pain et tes cordes, elle t'a gardé{e} la nuit sous ton oreiller. Tu la laisses." },
       { if: { is: { iit_don: "lettre" } }, text: "Tu déplies une dernière fois la lettre de ta maîtresse, tu la relis à la lueur de la lanterne, et tu la poses dans la main de pierre. *Ne prends rien que tu ne saurais rendre.* Tu ne sais pas si c'est ce qu'on voulait dire. C'est ce que tu fais." },
       "Pendant un long moment, rien. Puis un craquement très doux, comme de la glace qui fond au printemps, et le poing droit de Thavar se desserre, doigt après doigt, lentement, avec une sorte de lassitude. La paume s'ouvre. L'anneau est là, posé au creux, comme une graine.",
@@ -763,14 +763,14 @@ Object.assign(P, {
       { if: { has: "passe:fui" }, text: "Tu dis Saint-Gilles. Que tu es parti{e} avant que l'eau ne tourne, la nuit, sans prévenir personne, avec ton sac et la moitié du pain de ta mère. Que tu as appris plus tard qui était resté, et qui était mort, et que tu n'es jamais retourné{e} sur les tombes." },
       { if: { has: "passe:aide" }, text: "Tu dis Saint-Gilles. Que tu as porté les malades au temple, oui, l'un après l'autre. Et que quand le temple a été plein, tu as fermé la porte, et que tu as entendu frapper toute la nuit, et que tu n'as pas ouvert." },
       { if: { is: { meunier: "marche" } }, text: "Tu dis aussi le moulin de Brumefeuille, et la main que tu as tendue à l'eau, et ce que tu as accepté en échange." },
-      "Ta voix tremble à la fin. Il n'y a pas d'écho, sous cette voûte : les mots tombent dans l'eau noire et n'en ressortent pas. Puis, sous ta main, la pierre devient tiède. Les doigts de Thavar se desserrent un à un, comme ceux d'un homme qui s'endort enfin. L'anneau est posé au creux de sa paume.",
+      "Ta voix tremble à la fin. Sous cette voûte, l'écho est mort : les mots tombent dans l'eau noire et y restent. Puis, sous ta main, la pierre devient tiède. Les doigts de Thavar se desserrent un à un, comme ceux d'un homme qui s'endort enfin. L'anneau est posé au creux de sa paume.",
       { with: "thavary", text: "Thavary n'a pas bougé. Quand tu te retournes, elle a les yeux brillants et la mâchoire serrée. « C'était ça, dit-elle. Pas une clé. Pas un mot de passe. Il fallait le dire. » Elle détourne la tête. « Personne dans ma famille n'a jamais rien dit. »" },
     ],
     choices: [{ label: "Prendre l'Anneau", big: true, to: "IIT_anneau" }] },
   IIT_gisant_thavary: { act: "II", title: "La troisième fois", place: "thavar", ambiance: "souterrain",
     fx: { conf: { thavary: 12 }, regard: { thavary: "redevable" }, ep: ["seance", 2500] },
     text: [
-      { with: "thavary", text: "Thavary monte les trois marches. Elle pose la main sur le poing de son ancêtre, comme on la pose sur l'épaule d'un vieil homme. Elle reste longtemps sans rien dire. Puis elle parle, très bas, et tu fais semblant de ne pas écouter." },
+      { with: "thavary", text: "Thavary monte les trois marches. Elle pose la main sur le poing de son ancêtre, comme on la pose sur l'épaule d'un vieil homme. Elle reste longtemps en silence. Puis elle parle, très bas, et tu fais semblant de ne pas écouter." },
       { with: "thavary", text: "« Je voulais te vendre, grand-père. Je voulais te vendre à un homme que je n'aime pas, pour des prés et une forêt. J'ai pris ses arrhes. Je les ai dans mon pourpoint. J'ai honte de ma maison qui tombe, j'ai honte d'avoir faim, j'ai honte d'avoir honte. Voilà. C'est dit. »" },
       "Sous sa main, la pierre craque doucement. Les doigts s'ouvrent. L'anneau roule dans la paume grise et s'y arrête.",
       { with: "thavary", text: "Elle le prend. Elle le regarde un long moment, et puis elle te le tend, du bout des doigts, comme une chose brûlante. « Garde-le, dit-elle. Au moins jusqu'en haut. Je ne me fais pas confiance avec. » Elle redescend les marches très vite, sans se retourner." },
@@ -778,7 +778,7 @@ Object.assign(P, {
     choices: [{ label: "Prendre l'Anneau", big: true, to: "IIT_anneau" }] },
   IIT_gisant_thavary_rate: { act: "II", title: "Le poing serré", place: "thavar", ambiance: "souterrain",
     text: [
-      { with: "thavary", text: "Thavary monte les marches, pose la main sur le poing, et serre, et tire, les dents serrées. Les tendons de son cou saillent. Le poing ne bouge pas. Au bout d'un moment, elle lâche, et elle reste là, la main ouverte au-dessus de la pierre, comme si elle s'était brûlée." },
+      { with: "thavary", text: "Thavary monte les marches, pose la main sur le poing, et serre, et tire, les dents serrées. Les tendons de son cou saillent. Le poing reste immobile. Au bout d'un moment, elle lâche, et elle reste là, la main ouverte au-dessus de la pierre, comme si elle s'était brûlée." },
       { with: "thavary", text: "« Troisième fois, dit-elle d'une voix plate. Il me déteste, le vieux. Il a toujours détesté sa famille. » Elle redescend. « À toi. Fais ce que tu veux. Moi j'ai fini. »" },
     ],
     choices: [{ back: "IIT_gisant" }] },
@@ -794,7 +794,7 @@ Object.assign(P, {
   IIT_anneau: { act: "II", title: "L'Anneau de Thavar", place: "thavar", ambiance: "souterrain",
     fx: { relic: "anneau", ep: ["histoire", 5000] },
     text: [
-      "Il est plus lourd qu'il n'en a l'air : un jonc d'or pâle, très pur, si usé qu'il en est presque doux, sans pierre et sans ciselure. Il paraissait trop étroit entre les doigts de pierre, et pourtant il s'ajuste à ta main comme s'il avait attendu. Il n'est pas froid, comme devrait l'être un anneau resté quatre siècles dans une crypte. Il a la tiédeur d'une main qu'on vient de lâcher.",
+      "Il est plus lourd qu'il n'en a l'air : un jonc d'or pâle, très pur, si usé qu'il en est presque doux, lisse et nu. Il paraissait trop étroit entre les doigts de pierre, et pourtant il s'ajuste à ta main comme s'il avait attendu. Il n'est pas froid, comme devrait l'être un anneau resté quatre siècles dans une crypte. Il a la tiédeur d'une main qu'on vient de lâcher.",
       "Alors la crypte bouge. L'eau du sol frissonne, puis monte, d'un coup, d'un pouce, de deux, et elle sort des murs en nappes, en filets, en sources, avec un bruit de soupir. Entre les gisants, la nappe noire se gonfle et se lève : deux formes, puis une troisième, faites de vase et d'eau, avec des bras, avec des têtes, qui se tournent vers toi.",
       { with: "thavary", text: "Thavary a tiré son épée. « Les morts de ma maison ne sont pas faits de boue, dit-elle entre ses dents. Ça, c'est autre chose. » Elle se place entre les formes et toi, sans réfléchir, comme on le fait pour un camarade." },
     ],
@@ -818,8 +818,8 @@ Object.assign(P, {
     text: [
       { if: { all: [{ has: "iit:lumiere_pip" }, { present: "pip" }] }, text: "Pip grandit d'un coup, devient une boule de lumière blanche, aveuglante, qui remplit la crypte jusqu'aux voûtes. Les formes de vase reculent en sifflant comme de l'eau sur une braise. Tu cours, vous courez, entre les gisants illuminés, et les ombres des piliers tournent autour de vous comme des aiguilles d'horloge." },
       { if: { all: [{ has: "iit:eau_benie" }, { present: "aubin" }] }, text: "Frère Aubin s'avance dans l'eau jusqu'aux genoux, trace la Main sur la surface noire et dit le verset des noyés, d'une voix qui ne tremble pas. Les formes de vase s'affaissent, se défont, redeviennent une eau sale qui clapote contre les tombeaux. « Maintenant, dit-il. Avant qu'elle se reprenne. »" },
-      "Tu grimpes les quarante marches dans l'eau qui descend à ta rencontre, en glissant, en te rattrapant aux murs. Derrière, le clapotis vous suit, puis ralentit, puis s'arrête au pied de l'escalier, comme un chien au bout de sa chaîne. L'eau ne monte pas plus haut que la dernière marche.",
-      { with: "thavary", text: "En haut, Thavary rabat la dalle d'un coup de pied, et s'assied dessus, essoufflée. « Bon, dit-elle. On n'y redescendra pas de sitôt. » Elle te regarde. Elle regarde l'Anneau à ton doigt. Elle ne dit rien d'autre." },
+      "Tu grimpes les quarante marches dans l'eau qui descend à ta rencontre, en glissant, en te rattrapant aux murs. Derrière, le clapotis vous suit, puis ralentit, puis s'arrête au pied de l'escalier, comme un chien au bout de sa chaîne. L'eau ne monte haut comme la dernière marche.",
+      { with: "thavary", text: "En haut, Thavary rabat la dalle d'un coup de pied, et s'assied dessus, essoufflée. « Bon, dit-elle. On n'y redescendra pas de sitôt. » Elle te regarde. Elle regarde l'Anneau à ton doigt. Elle s'en tient là." },
     ],
     choices: [{ label: "Sortir de la chapelle", to: "IIT_crypte_sortie" }] },
   IIT_crypte_tombe: { act: "II", title: "Le réveil", place: "thavar",
@@ -832,7 +832,7 @@ Object.assign(P, {
   IIT_crypte_sortie: { act: "II", title: "La chapelle, à l'aube", place: "thavar",
     text: [
       "C'est l'aube. Le jour entre en biais par la voûte crevée et pose des taches pâles sur les bancs moussus. Dans l'allée, appuyée sur sa canne, Dame Ermesinde attend. Elle a dû descendre seule de sa chambre, au milieu de la nuit, et rester là. Onfroi se tient derrière elle avec une couverture qu'elle a refusée.",
-      "Elle regarde l'Anneau à ta main, très longtemps. Son visage ne bouge pas. « Quatre cents ans, dit-elle. Et il fallait quelqu'un qui passe. » Elle hoche la tête, une fois. « Venez vous sécher. Mangez. Dormez, si vous pouvez. Ce soir, nous tiendrons conseil, vous, ma petite-fille et moi. Vous m'avez promis de me dire ce que vous en ferez. »",
+      "Elle regarde l'Anneau à ta main, très longtemps. Son visage reste de pierre. « Quatre cents ans, dit-elle. Et il fallait quelqu'un qui passe. » Elle hoche la tête, une fois. « Venez vous sécher. Mangez. Dormez, si vous pouvez. Ce soir, nous tiendrons conseil, vous, ma petite-fille et moi. Vous m'avez promis de me dire ce que vous en ferez. »",
       { if: { has: "iit:poing_brise" }, text: "Elle ajoute, plus bas : « Onfroi m'a dit pour le doigt. J'irai le recoller moi-même. La maison de Thavar a toujours su réparer ce qu'on lui casse. Elle n'a jamais su faire autre chose. »" },
       { if: { has: "iit:poing_voix" }, text: "Son regard descend sur ta main, sur l'eau qui sèche encore entre tes doigts, et elle a un léger mouvement de recul qu'elle ne parvient pas à cacher." },
     ],
@@ -868,7 +868,7 @@ Object.assign(P, {
   IIT_garder: { act: "II", title: "Garder", place: "thavar",
     fx: { ep: ["seance", 2000], regard: { ermesinde: "neutre" } },
     text: [
-      "Tu reprends l'Anneau sur le mouchoir et tu le remets à ton doigt. Dame Ermesinde te regarde faire sans rien dire. Puis elle hoche la tête. « Bien, dit-elle. Il est sorti pour une raison, je suppose qu'il doit voyager. Portez-le comme on porte une dette, pas comme on porte un bijou. Et souvenez-vous qu'il a une maison. » Elle a un petit sourire sec. « Même si elle prend l'eau. »",
+      "Tu reprends l'Anneau sur le mouchoir et tu le remets à ton doigt. Dame Ermesinde te regarde faire en silence. Puis elle hoche la tête. « Bien, dit-elle. Il est sorti pour une raison, je suppose qu'il doit voyager. Portez-le comme on porte une dette, pas comme on porte un bijou. Et souvenez-vous qu'il a une maison. » Elle a un petit sourire sec. « Même si elle prend l'eau. »",
       { with: "thavary", if: { conf: "thavary", max: 49 }, text: "Thavary regarde l'Anneau disparaître sous ta manche avec une expression que tu n'arrives pas à lire. De la colère, peut-être. Du soulagement, peut-être aussi. « Bon, dit-elle. Alors il faudra que je te garde, toi. »" },
       { with: "thavary", if: { conf: "thavary", min: 50 }, text: "Thavary hoche la tête. « C'est mieux comme ça, dit-elle. Il était trop lourd pour une seule maison. »" },
     ],
@@ -887,7 +887,7 @@ Object.assign(P, {
       "Messire Ostrand de Clairvent revient au jour dit, à l'heure dite, avec ses six cavaliers bleus. Il entre dans la grande salle en retirant ses gants doigt par doigt, et il sait déjà. Tu le vois à la façon dont il cherche l'Anneau des yeux avant de saluer qui que ce soit. Les nouvelles vont vite, dans une maison où l'on ne paie plus les gens, et Groux a des oreilles partout.",
       { if: { relic: "anneau" }, text: "« Ainsi la crypte a parlé, dit-il en se tournant vers toi avec un sourire de joueur. Et pas pour la famille. C'est encore mieux. Vous n'êtes tenu{e} par aucun nom, par aucune honte de maison. Quatre cents couronnes. Et le roi Aldric saura votre nom, ce qui vaut plus que l'or, à Hautmont. »" },
       { if: { given: "anneau" }, text: "« Ainsi la crypte a parlé, dit-il, et l'Anneau est revenu à Madame. » Il s'incline devant Dame Ermesinde. « Alors je reprends mon offre là où je l'avais laissée. Et je l'augmente. Quatre cents couronnes, et les terres. Madame, vous êtes trop sage pour refuser deux fois la fortune. »" },
-      { if: { is: { gages: "thavary" } }, text: "Il tend la main, paume en l'air, vers Thavary. « Et si l'on ne s'entend pas, demoiselle, je reprendrai mes arrhes, naturellement. » Thavary ne bouge pas. Elle n'a plus les arrhes. Elle les a données à Onfroi, à Guillemette, à Josselin, et ils sont tous les trois derrière la porte." },
+      { if: { is: { gages: "thavary" } }, text: "Il tend la main, paume en l'air, vers Thavary. « Et si l'on ne s'entend pas, demoiselle, je reprendrai mes arrhes, naturellement. » Thavary reste immobile. Elle n'a plus les arrhes. Elle les a données à Onfroi, à Guillemette, à Josselin, et ils sont tous les trois derrière la porte." },
       "Derrière lui, dans la cour, ses hommes ne sont pas descendus de cheval. Ils ont la main sur la garde. On n'escorte pas trois cents couronnes avec six épées si l'on compte seulement sur la parole.",
     ],
     choices: [
@@ -925,7 +925,7 @@ Object.assign(P, {
     fx: { conf: { thavary: 5 }, fear: { pip: 3 } },
     text: [
       "Le dernier homme d'armes recule jusqu'à la porte en tenant son bras, et tourne les talons. Messire Ostrand est déjà en selle. Il te regarde depuis la cour, par la porte ouverte, avec une sorte d'intérêt professionnel, comme on regarde un cheval qui vient de jeter son cavalier. « Vous venez de vous faire un ennemi qui ne se bat jamais lui-même, dit-il. Ce sont les pires. » Il tourne bride.",
-      "Dans la salle, il y a du sang sur les dalles, une tapisserie déchirée, un banc renversé. Guillemette arrive avec un seau et une serpillière, sans un mot, et se met à frotter.",
+      "Dans la salle, il y a du sang sur les dalles, une tapisserie déchirée, un banc renversé. Guillemette arrive avec un seau et une serpillière, en silence, et se met à frotter.",
       { with: "thavary", text: "Thavary essuie son épée sur un pan de tapisserie, ce que sa grand-mère fait semblant de ne pas voir. « Ça faisait longtemps, dit-elle, qu'on n'avait pas défendu cette salle. » Elle a l'air presque heureuse." },
     ],
     choices: [{ back: "IIT_manoir" }] },
@@ -968,7 +968,7 @@ Object.assign(P, {
     fx: { rest: true },
     text: [
       "Tu dors mal. Deux fois, dans la nuit, tu entends des pas dans la cour, et la porte charretière qui grince sur ses gonds. Deux fois, les pas reviennent.",
-      "Au matin, Thavary est assise sur la dernière marche de l'escalier, devant ta porte. Elle a les yeux rouges et l'air de quelqu'un qui n'a pas fermé l'œil. Elle te tend l'Anneau sans un mot. Puis, pendant que tu le remets à ton doigt : « Je suis allée jusqu'au portail deux fois. La route de Hautmont était là. Trois jours de cheval. » Elle se lève. « Je suis revenue deux fois. Souviens-toi de ça, quoi qu'il arrive plus tard. Je suis revenue. »",
+      "Au matin, Thavary est assise sur la dernière marche de l'escalier, devant ta porte. Elle a les yeux rouges et l'air de quelqu'un qui n'a pas fermé l'œil. Elle te tend l'Anneau en silence. Puis, pendant que tu le remets à ton doigt : « Je suis allée jusqu'au portail deux fois. La route de Hautmont était là. Trois jours de cheval. » Elle se lève. « Je suis revenue deux fois. Souviens-toi de ça, quoi qu'il arrive plus tard. Je suis revenue. »",
     ],
     choices: [{ back: "IIT_manoir" }] },
   IIT_nuit_refus: { act: "II", title: "La porte", place: "thavar", with: "thavary", takes: "morning",
@@ -982,12 +982,12 @@ Object.assign(P, {
   IIT_adieux: { act: "II", title: "Les adieux", place: "thavar",
     fx: { food: 2, ep: ["seance", 1000] },
     text: [
-      "Au matin du départ, toute la maison est dans la cour. Ce n'est pas beaucoup de monde. Dame Ermesinde sur le perron, appuyée à sa canne ; Onfroi un pas derrière elle ; Guillemette avec un panier de pain, de fromage et de pommes qu'elle te met d'autorité dans les bras ; Josselin qui tient la jument grise par la bride, sellée, pour Thavary.",
+      "Au matin du départ, toute la maison est dans la cour. C'est peu de monde. Dame Ermesinde sur le perron, appuyée à sa canne ; Onfroi un pas derrière elle ; Guillemette avec un panier de pain, de fromage et de pommes qu'elle te met d'autorité dans les bras ; Josselin qui tient la jument grise par la bride, sellée, pour Thavary.",
       { if: { is: { gages: ["payes", "thavary", "argent"] } }, text: "Onfroi a un habit neuf, ou presque : il a fait recoudre les coudes. Guillemette a un bonnet de dentelle. Josselin a des souliers. Personne n'en parle." },
       { if: { is: { thavar_bornes: ["remises", "jugees", "forcees"] } }, text: "Au bas du verger, les trois bornes sont au bord du ruisseau, là où le terrier les met. Josselin te le montre du doigt, deux fois, au cas où tu l'aurais oublié." },
       { if: { relic: "anneau" }, text: "Dame Ermesinde te regarde la main, une dernière fois. « Ne le perdez pas, dit-elle. Et s'il vous pèse trop un jour, vous savez où le rapporter. »" },
       { if: { given: "anneau" }, text: "Dame Ermesinde a l'Anneau à son propre doigt, maintenant, un peu trop grand pour elle ; elle l'a calé avec un fil de laine rouge. « Il vous attend, dit-elle simplement. Quand il faudra. »" },
-      "Elle descend les six marches du perron, une à une, ce qu'elle ne fait jamais, et elle prend le visage de sa petite-fille entre ses deux mains. Elle lui dit quelque chose à l'oreille. Thavary hoche la tête sans répondre. Puis la vieille dame se tourne vers toi. « Ramenez-la, dit-elle. Ou ramenez-moi au moins son épée. C'est tout ce que je demande. »",
+      "Elle descend les six marches du perron, une à une, ce qu'elle ne fait jamais, et elle prend le visage de sa petite-fille entre ses deux mains. Elle lui dit quelque chose à l'oreille. Thavary hoche la tête, muette. Puis la vieille dame se tourne vers toi. « Ramenez-la, dit-elle. Ou ramenez-moi au moins son épée. C'est tout ce que je demande. »",
     ],
     choices: [{ back: "IIT_manoir" }] },
 
@@ -1014,7 +1014,7 @@ Object.assign(P, {
   IIT_b_aubin: { act: "II", title: "Au coin du feu", banter: true, with: ["thavary", "aubin"],
     text: [
       "Frère Aubin et Thavary sont restés les derniers près du feu. Elle graisse son épée ; il regarde les braises. Au bout d'un long moment, c'est elle qui parle. « Le testament de mon ancêtre. Il parlait d'une honte qu'il n'a jamais eu le courage de dire. Vous êtes prêtre. Vous savez ce que c'est, une honte qu'on ne dit pas ? »",
-      "Aubin ne répond pas tout de suite. « Je sais, dit-il enfin, d'une voix enrouée. Je sais très bien. On la garde, et elle pousse. Elle pousse dans le noir, comme une racine. Au bout d'un moment, on ne sait plus si c'est nous qui la gardons ou elle qui nous garde. » Il jette une brindille dans le feu. « Votre ancêtre a bien fait de l'écrire, au moins. C'est déjà la moitié de la dire. »",
+      "Aubin prend son temps. « Je sais, dit-il enfin, d'une voix enrouée. Je sais très bien. On la garde, et elle pousse. Elle pousse dans le noir, comme une racine. Au bout d'un moment, on ne sait plus si c'est nous qui la gardons ou elle qui nous garde. » Il jette une brindille dans le feu. « Votre ancêtre a bien fait de l'écrire, au moins. C'est déjà la moitié de la dire. »",
     ],
     choices: [
       { label: "« Et l'autre moitié, Frère ? »", fx: { conf: { aubin: 4, thavary: 2 } }, to: "@ret" },
@@ -1042,12 +1042,12 @@ Object.assign(P, {
       "Il pose sur la carte un jeton de fer gris frappé d'une main ouverte. « L'Ordre veut quelqu'un entre les deux armées. Quelqu'un qui parle aux deux camps avec un gant gris, comme médiateur, et qui ouvre les yeux. Ce jeton t'ouvre toutes nos portes. Il t'en fermera d'autres : ceux qui n'aiment pas l'Ordre ne sont pas rares, cet automne. »",
       { if: { item: "jeton_cercle" }, text: "Tu sens dans ta poche le jeton d'os du Cercle, avec son cercle brisé. Brann le sait, ou le devine : il regarde ta poche. « Le Cercle aussi voudra ses yeux là-bas, dit-il. Il les a déjà, peut-être. À toi de savoir pour qui tu regardes. »" },
       { if: { has: "passe:ordre" }, text: "Tu as porté le gant gris trois ans. Tu sais ce qu'il pèse. Tu sais aussi qu'on ne le reprend pas comme on remet une vieille veste." },
-      { with: "thavary", text: "Thavary s'est arrêtée devant le mur, sous la main de Thavar, sous l'écu de sa maison. Elle ne dit rien. Elle regarde l'écu comme on regarde le portrait d'un parent qu'on n'a pas connu." },
+      { with: "thavary", text: "Thavary s'est arrêtée devant le mur, sous la main de Thavar, sous l'écu de sa maison. Elle se tait. Elle regarde l'écu comme on regarde le portrait d'un parent qu'on n'a pas connu." },
     ],
     choices: [
       { label: "Prendre le jeton de l'Ordre, et aller à la guerre avec le gant gris", big: true, fx: { set: { jeton: "ordre" }, item: "jeton_ordre", fac: { ordre: 10, cercle: -5 }, conf: { aubin: 3, thavary: 3 } }, to: "IIT_jetons_ordre" },
       { label: "Montrer le jeton du Cercle, et garder tes yeux pour le Cercle", if: { item: "jeton_cercle" }, why: "Il te faudrait le jeton du Cercle, qu'on obtient à l'Athénée de Ferrance.", fx: { set: { jeton: "cercle" }, fac: { cercle: 10, ordre: -10 }, conf: { charline: -3 } }, to: "IIT_jetons_cercle" },
-      { label: "Prendre le jeton de l'Ordre et garder celui du Cercle, sans rien dire", if: { item: "jeton_cercle" }, why: "Il te faudrait le jeton du Cercle, qu'on obtient à l'Athénée de Ferrance.", tag: "Double jeu", fx: { set: { jeton: "deux" }, item: "jeton_ordre", conf: { thavary: -5, coliane: -5 } }, to: "IIT_jetons_deux" },
+      { label: "Prendre le jeton de l'Ordre et garder celui du Cercle, en silence", if: { item: "jeton_cercle" }, why: "Il te faudrait le jeton du Cercle, qu'on obtient à l'Athénée de Ferrance.", tag: "Double jeu", fx: { set: { jeton: "deux" }, item: "jeton_ordre", conf: { thavary: -5, coliane: -5 } }, to: "IIT_jetons_deux" },
       { label: "Refuser les jetons : tu iras à la guerre sans maître", fx: { set: { jeton: "aucun" }, fac: { ordre: -5 }, conf: { coliane: 5, charline: 3 } }, to: "IIT_jetons_aucun" },
     ] },
   IIT_jetons_ordre: { act: "II", title: "Le gant gris", place: "commanderie",
@@ -1060,7 +1060,7 @@ Object.assign(P, {
     choices: [{ label: "Le lendemain matin", big: true, to: "IIE_depart" }] },
   IIT_jetons_cercle: { act: "II", title: "Le jeton d'os", place: "commanderie",
     text: [
-      "Tu poses le jeton d'os du Cercle sur la carte, à côté du jeton de fer, et tu repousses le jeton de fer vers Brann. Il le reprend sans un mot. Il regarde le cercle brisé longtemps, comme on regarde une lettre d'une écriture qu'on connaît.",
+      "Tu poses le jeton d'os du Cercle sur la carte, à côté du jeton de fer, et tu repousses le jeton de fer vers Brann. Il le reprend en silence. Il regarde le cercle brisé longtemps, comme on regarde une lettre d'une écriture qu'on connaît.",
       "« Le Cercle, dit-il. Bien. Ils savent lire, au moins. Ils savent même trop lire. » Il range son jeton dans sa ceinture. « Tu restes l'hôte de cette maison tant que tu ne portes pas l'épée contre elle. Mais ne t'attends pas à ce que nos portes s'ouvrent toutes seules, là-bas, sur l'Isarde. Et méfie-toi de tes amis. Le Cercle a des épées, aussi, depuis quelque temps. Des épées avec des gants noirs. »",
       { if: { has: "passe:cercle" }, text: "Tu as été copiste chez eux. Tu sais que le Cercle ne pardonne pas qu'on le quitte, et qu'il récompense mal ceux qui restent. Tu sais aussi que ses bibliothèques contiennent des choses que l'Ordre a voulu brûler." },
       { with: "charline", text: "Charline Hildrand a pâli. « Ils m'ont mise dehors, dit-elle tout bas. Ils t'ont donné un jeton. Je suppose que c'est une sorte de justice. » Elle ne dit plus rien de la soirée." },
@@ -1070,7 +1070,7 @@ Object.assign(P, {
     text: [
       "Tu prends le jeton de fer, tu remercies Brann, et tu ne lui parles pas du jeton d'os qui est dans ta poche. Le soir, dans ta cellule, tu les poses côte à côte sur ta paillasse : le fer gris à la main ouverte, l'os blanc au cercle brisé. Deux maîtres. Deux portes. Deux façons de mentir à chacun d'entre eux.",
       "Personne ne saura, peut-être. Ou chacun saura, et chacun se servira de toi en sachant que tu sers l'autre. C'est ainsi que vivent les gens qui ont des secrets : à la merci de tous ceux qui les connaissent.",
-      { with: "thavary", text: "Thavary t'a vu{e} ranger les deux jetons. Elle ne dit rien sur le moment. Plus tard, dans le cloître, elle passe à côté de toi et dit, sans s'arrêter : « Chez moi, on appelait ça porter deux couleurs. On pendait les gens pour moins. »" },
+      { with: "thavary", text: "Thavary t'a vu{e} ranger les deux jetons. Sur le moment, elle se tait. Plus tard, dans le cloître, elle passe à côté de toi et dit, sans s'arrêter : « Chez moi, on appelait ça porter deux couleurs. On pendait les gens pour moins. »" },
       { with: "coliane", text: "Coliane, elle, a compris dès que tu es sorti{e} de chez Brann, à ta façon de tenir ta poche. Elle te regarde longtemps. « Les marchés dans l'ombre, dit-elle. Je t'avais dit que je détestais ça. »" },
     ],
     choices: [{ label: "Le lendemain matin", big: true, to: "IIE_depart" }] },
@@ -1121,8 +1121,8 @@ Object.assign(P, {
   IIE_route: { act: "II", title: "La montée", place: null, ambiance: "montagne", takes: 8,
     text: [
       "La route quitte le Val par le nord et remonte le cours de la Blanche, un torrent laiteux qui descend du massif en grondant entre des blocs de granit gros comme des maisons. Le chemin est une corniche taillée dans la paroi, large comme une charrette, avec le vide d'un côté et la roche suintante de l'autre. Il fait froid. L'air sent la neige qui viendra.",
-      "On ne croise personne. Un berger, une fois, assis sur un rocher avec ses chèvres, qui te regarde passer sans répondre à ton salut. Plus haut, les arbres s'arrêtent. Il n'y a plus que la roche, le ciel gris, et le bruit du torrent, qui couvre tout, même les pas, même la voix.",
-      { with: "pip", text: "Pip ne quitte pas ton col. Il ne parle pas. Une fois, quand le chemin longe le torrent de tout près, tu le sens frissonner contre ta peau, et il murmure : « Elle est dans l'eau. Elle nous suit. Elle remonte avec nous. »" },
+      "On ne croise personne. Un berger, une fois, assis sur un rocher avec ses chèvres, qui te regarde passer et garde son salut. Plus haut, les arbres s'arrêtent. Il n'y a plus que la roche, le ciel gris, et le bruit du torrent, qui couvre tout, même les pas, même la voix.",
+      { with: "pip", text: "Pip reste dans ton col, muet. Une fois, quand le chemin longe le torrent de tout près, tu le sens frissonner contre ta peau, et il murmure : « Elle est dans l'eau. Elle nous suit. Elle remonte avec nous. »" },
       { with: "gloup", text: "Gloup refuse d'approcher du bord. Il roule contre la paroi, le plus loin possible de l'eau, et quand le chemin s'en rapproche, il se met à trembler et à faire de toutes petites bulles." },
     ],
     choices: [{ label: "Continuer jusqu'au pont du passeur", to: "IIE_pont" }] },
@@ -1233,8 +1233,8 @@ Object.assign(P, {
       { if: { has: "iie:duel" }, text: "Thavary a jeté son défi à la mode ancienne, l'épée plantée devant elle, la main ouverte. Veyra a hésité, puis elle a accepté, parce qu'elle a été chevalière et qu'on ne refuse pas ça. Le duel dure longtemps, sur le pont qui tangue. Au neuvième échange, Thavary désarme Veyra d'un revers de capitaine, sec, sans beauté. L'épée bâtarde tombe dans le gouffre. Veyra regarde sa main vide. « Bien, dit-elle. Passez. J'ai donné ma parole. »" },
       { if: { has: "iie:feu" }, text: "Charline Hildrand lève la main, et le feu court le long des cordes du pont comme le long d'une mèche. Les épées qui s'y étaient engagées reculent en jurant. En un instant, le pont flambe, se tord, et tombe dans le torrent en deux morceaux fumants. Veyra est de l'autre côté du gouffre. Toi de celui-ci. Elle te regarde à travers la fumée, et elle a presque l'air de sourire." },
       { if: { has: "iie:chevaux" }, text: "Coliane revient en courant, un couteau à la main et un air ravi. Derrière les rochers, les chevaux du Cercle s'éparpillent dans le défilé en hennissant, sangles tranchées, selles par terre. Les épées de Veyra hésitent, se retournent. Le temps qu'elles se décident, vous êtes passés." },
-      { if: { has: "iie:gloup" }, text: "Gloup roule jusqu'au bord et se laisse tomber dans la Blanche, plouf, sans un bruit de plus. Un instant plus tard, le torrent se met à bouillonner sous le pont, à cracher, à jaillir en gerbes noires et collantes sur les épées du Cercle, qui reculent en essuyant leurs yeux. Quand Gloup ressort de l'eau, plus loin, en aval, tout gonflé et très fier de lui, vous êtes déjà loin." },
-      "Veyra ne vous poursuit pas. Tu la vois une dernière fois, en haut du défilé, immobile, la cape grise battant au vent. Elle lève la main, paume ouverte, à la manière de l'Ordre. Tu ne sais pas si c'est un salut ou une promesse.",
+      { if: { has: "iie:gloup" }, text: "Gloup roule jusqu'au bord et se laisse tomber dans la Blanche, plouf, en silence de plus. Un instant plus tard, le torrent se met à bouillonner sous le pont, à cracher, à jaillir en gerbes noires et collantes sur les épées du Cercle, qui reculent en essuyant leurs yeux. Quand Gloup ressort de l'eau, plus loin, en aval, tout gonflé et très fier de lui, vous êtes déjà loin." },
+      "Veyra ne vous poursuit pas. Tu la vois une dernière fois, en haut du défilé, immobile, la cape grise battant au vent. Elle lève la main, paume ouverte, à la manière de l'Ordre. Salut ou promesse, les deux se valent.",
     ],
     choices: [{ label: "Redescendre le long du torrent", big: true, to: "IIE_maitre" }] },
   IIE_ruse_rate: { act: "II", title: "Repéré{e}", place: null, ambiance: "montagne",
@@ -1249,7 +1249,7 @@ Object.assign(P, {
   IIE_fuite: { act: "II", title: "La Blanche", place: null, ambiance: "eau",
     fx: { set: { embuscade: "gagnee" }, ep: ["seance", 2500] },
     text: [
-      "L'eau te prend d'un coup, glacée, blanche, furieuse, et t'emporte comme un fétu. Tu roules, tu cognes, tu ne sais plus où est le haut. Une pierre te frappe l'épaule, une autre la hanche. Puis le torrent s'élargit, ralentit, et te recrache sur une plage de galets, cent toises plus bas, sous le défilé, à demi noyé{e} mais vivant{e}.",
+      "L'eau te prend d'un coup, glacée, blanche, furieuse, et t'emporte comme un fétu. Tu roules, tu cognes, le haut et le bas se mélangent. Une pierre te frappe l'épaule, une autre la hanche. Puis le torrent s'élargit, ralentit, et te recrache sur une plage de galets, cent toises plus bas, sous le défilé, à demi noyé{e} mais vivant{e}.",
       "Tu as tout ce que tu avais. Les épées du Cercle sont restées là-haut, sur leur pont. Tu les entends crier, loin. Personne ne descend. On ne descend pas la Blanche pour quelqu'un qui l'a déjà descendue.",
     ],
     choices: [{ label: "Te pencher sur l'eau, pour reprendre ton souffle", big: true, to: "IIE_maitre" }] },
@@ -1260,7 +1260,7 @@ Object.assign(P, {
       "Alors le torrent se lève. La Blanche monte d'un coup dans le défilé, de dix toises, de vingt, une muraille d'eau noire qui ne vient de nulle part, et elle passe sous le pont, et par-dessus, et derrière les rochers de l'autre côté, d'où sortent des cris. Des silhouettes en capes grises sont arrachées aux pierres et emportées. Puis l'eau retombe, aussi vite qu'elle est montée, et la Blanche redevient blanche, et coule comme avant.",
       "Sur le pont qui pend, déchiré, une seule silhouette reste debout, accrochée aux cordes : une femme aux cheveux gris, des gants noirs, une cicatrice sur l'œil. Elle te regarde à travers le gouffre. Elle a compris tout de suite. « Elle te tient déjà, crie-t-elle, et sa voix se casse. Elle te tient, et tu ne le sais même pas. » Elle remonte vers les rochers, seule. Elle ne se retourne pas.",
       { with: "pip", text: "Pip s'est enfui dans le noir de la cabane. Tu l'entends pleurer, si une lumière peut pleurer." },
-      { with: "coliane", text: "Coliane te regarde comme on regarde un chien qui vient de mordre. Elle ne dit rien. Elle recule d'un pas, pour avoir tes mains en vue." },
+      { with: "coliane", text: "Coliane te regarde comme on regarde un chien qui vient de mordre. Elle se tait. Elle recule d'un pas, pour avoir tes mains en vue." },
     ],
     choices: [{ label: "Regarder l'eau qui retombe", big: true, to: "IIE_maitre" }] },
   IIE_maitre: { act: "II", title: "Dans l'eau", place: null, ambiance: "eau",
@@ -1270,7 +1270,7 @@ Object.assign(P, {
       { if: { has: "maitre:ortie" }, text: "Un visage de vieille femme dans un foulard noué sous le menton, ridé comme une pomme d'hiver, celui que tu as vu tous les jours pendant des années, penché sur des pots de plantes, dans une cabane au bord des marais." },
       { if: { has: "maitre:maelle" }, text: "Un visage de femme aux lunettes cerclées de fer, les cheveux gris tirés en arrière, celui que tu as vu tous les jours pendant des années, penché sur des cartes à la lueur d'une chandelle." },
       "Les yeux sont ouverts. Ils te regardent. Sur le cou, sous l'oreille, une tache noire monte, luisante, comme de la vase sèche, jusqu'à la joue. La bouche s'ouvre, comme pour dire ton nom. Puis le remous tourne, l'eau se trouble, et il n'y a plus que des galets, et ton propre reflet, la bouche ouverte, qui te regarde.",
-      { with: "pip", text: "Pip s'est posé sur ta main. « Tu l'as vu, toi aussi ? » chuchote-t-il. Tu ne réponds pas." },
+      { with: "pip", text: "Pip s'est posé sur ta main. « Tu l'as vu, toi aussi ? » chuchote-t-il. Tu te tais." },
       { with: "thavary", text: "Thavary s'est approchée. « Quoi ? Qu'est-ce que tu as vu ? » Tu secoues la tête. Tu ne pourrais pas le dire. Pas encore." },
     ],
     choices: [{ label: "Redescendre vers la commanderie", big: true, to: "IIE_apres" }] },
@@ -1288,7 +1288,7 @@ Object.assign(P, {
     text: [
       "Brann t'attend dans la cour, comme s'il savait l'heure. Il a les traits tirés d'un homme qui n'a pas dormi, et une lettre à la main, déjà ouverte. Il t'écoute raconter debout, au milieu des palefreniers qui font semblant de ne pas entendre.",
       { if: { has: "veyra:vue" }, text: "Au nom de Veyra, il ferme les yeux une seconde. « Veyra de Hautcastel, dit-il. Elle était commandeure de Fort-Gaudre quand j'étais encore novice. Elle m'a appris à tenir une lance. » Il rouvre les yeux. « Elle a quitté l'Ordre il y a sept ans, en pleine nuit, en emportant trois archives. On n'a jamais su lesquelles. Je crois que je le sais, maintenant. »" },
-      { if: { is: { embuscade: "perdue" } }, text: "Quand tu lui dis ce qu'on t'a pris, son visage ne bouge pas. « Une clé dans les mains du Cercle, dit-il seulement. Et la guerre qui commence. Les choses vont vite, cet automne. »" },
+      { if: { is: { embuscade: "perdue" } }, text: "Quand tu lui dis ce qu'on t'a pris, son visage reste de pierre. « Une clé dans les mains du Cercle, dit-il seulement. Et la guerre qui commence. Les choses vont vite, cet automne. »" },
       "Il te tend la lettre. Un cachet à la tour d'argent, brisé. « Arrivée cette nuit de Hautmont. Le roi Aldric a déclaré la guerre à Vel-Orin, il y a quatre jours, sur le conseil de son premier conseiller. Les piquiers descendent vers l'Isarde. Les arbalétriers du sud remontent. Entre les deux, il y a Merle, et des gens qui n'ont rien demandé. » Il replie la lettre. « Repose-toi. Ce soir, il y a de la soupe et du vin. Demain, ou dans une semaine, tu partiras pour l'Isarde. »",
     ],
     choices: [{ label: "La veillée, ce soir-là", big: true, to: "IIE_veillee" }] },
@@ -1297,7 +1297,7 @@ Object.assign(P, {
       "Le soir, dans le réfectoire de la commanderie, on a allumé le grand feu. Les frères de l'Ordre parlent bas, de la guerre, des routes, de leurs familles dans les hautes terres ou dans le sud. On boit le vin du Val, aigre et rouge. Tu es assis{e} un peu à l'écart, avec les tiens, si tu en as, et la nuit de la Gorge-Blanche pèse encore sur tes épaules.",
       { with: "thavary", if: { has: "iit:dette_thavary" }, text: "Thavary vient s'asseoir à côté de toi. Elle pose sur la table, devant toi, une petite pile de sous, comptés, alignés. « Vingt, dit-elle. Pour les gages de ma maison. J'ai vendu ma vieille cotte à un frère de l'Ordre. Ne dis rien. Prends-les. »" },
       { with: "pip", text: "Pip tourne autour des chandelles, puis vient se poser sur la table, au milieu des gobelets. « Où on va, maintenant ? » demande-t-il. « À la guerre », dis-tu. Il réfléchit. « C'est loin, la guerre ? » « Non, dis-tu. Plus maintenant. »" },
-      { without: "any", text: "Tu es seul{e} au bout du banc. Un vieux frère de l'Ordre, en passant, pose devant toi un gobelet de vin sans rien dire, et va s'asseoir plus loin. C'est déjà quelque chose." },
+      { without: "any", text: "Tu es seul{e} au bout du banc. Un vieux frère de l'Ordre, en passant, pose devant toi un gobelet de vin en silence, et va s'asseoir plus loin. C'est déjà quelque chose." },
     ],
     choices: [
       { label: "Prendre les vingt sous de Thavary", who: "thavary", hide: { not: { has: "iit:dette_thavary" } }, fx: { gold: 20, conf: { thavary: 8 }, unflag: "iit:dette_thavary" }, to: "IIE_entracte" },

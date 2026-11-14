@@ -26,7 +26,7 @@ module.exports = {
       { if: { has: "registre:clans" }, text: "Sur le dos d'un cheval, sanglé, un paquet de toile cirée couvert de givre. Le clan s'écarte quand il passe. Les chiens se couchent." },
       { if: { has: "registre:reine" }, text: "Lisandre te dit, avant même de t'embrasser, que le registre est à Vasselin, sur le lit d'une reine qui lit." },
       { if: { has: "registre:greffiers" }, text: "Lisandre te dit, avant même de t'embrasser, que le registre est à Vasselin, dans une mansarde, entre les mains de onze greffiers qui le recopient." },
-      { if: { all: [{ has: "nord:rendu=sauvelune" }, { has: "sud:enfant" }] }, text: "Tu prends l'enfant de Sauvelune à part. Tu lui dis ce que tu as fait, dans le cirque. Il ne dit rien. Il se tourne vers l'ouest, vers les vallées, longtemps." },
+      { if: { all: [{ has: "nord:rendu=sauvelune" }, { has: "sud:enfant" }] }, text: "Tu prends l'enfant de Sauvelune à part. Tu lui dis ce que tu as fait, dans le cirque. Il se tait. Il se tourne vers l'ouest, vers les vallées, longtemps." },
       { if: { all: [{ has: "nord:pie" }, { has: "sud:linette" }] }, text: "Pie court vers sa sœur. Il s'arrête à deux pas. Linette le regarde. Puis elle tend la main, et touche sa joue du bout des doigts, comme on vérifie qu'une page est sèche." },
       { if: { all: [{ has: "nord:ysolde" }, { has: "sud:rodric" }] }, text: "Rodric et Ysolde se regardent par-dessus le feu, comme deux rives." },
       { if: { has: "ysolde:lisse_sait" }, text: "Ysolde sait, maintenant, pour Lisse. Ça se voit. Elle se tient plus droite, et plus loin de tout le monde." },
@@ -52,7 +52,7 @@ module.exports = {
     text: [
       "Tu montes sur la pierre. Elle est tiède sous tes pieds nus. Tu chantes les trois vers, avec ta voix trop haute, trop mince, et le clan chante avec toi, et cette fois tu les comprends.",
       "Puis tu donnes ton nom. Pas en le disant : en le lâchant. Corbe. La fille d'Askel. Celle qui a volé une bague à un corbeau, celle qui ne savait pas lire, celle qui a écrit son nom dans la cendre. Tout. Tu le sens partir comme une rivière qui quitte son lit.",
-      "Tu descends de la pierre. Tu marches vers la déchirure. Tu ne sais plus très bien qui marche. Derrière toi, quelqu'un crie un mot que tu ne reconnais pas.",
+      "Tu descends de la pierre. Tu marches vers la déchirure. Qui marche ? Tu en doutes. Derrière toi, quelqu'un crie un mot étranger.",
       { if: { has: "corbe:lettres" }, text: "C'est Pie. Il crie ton nom, en l'épelant, lettre par lettre, comme une leçon." },
       "Tu entres dans le blanc. La déchirure se referme sur toi, d'un coup, comme un œil.",
       "Pendant trois battements de cœur, le col est silencieux, et vert, et entier.",
@@ -61,7 +61,7 @@ module.exports = {
 
   II_R_askel: P({ title: "Askel", place: "col",
     text: [
-      "Tu ne bouges pas. Askel se lève. Elle passe à côté de toi, et en passant elle te regarde, longtemps, comme elle a dit qu'elle le ferait.",
+      "Tu restes immobile. Askel se lève. Elle passe à côté de toi, et en passant elle te regarde, longtemps, comme elle a dit qu'elle le ferait.",
       "Elle monte sur la pierre. Elle chante les trois vers, d'une voix grave, cassée, que le clan reprend. Elle donne son nom. Elle descend de la pierre, et elle marche vers la déchirure, droite, dans sa robe blanche, sans se retourner.",
       "Elle entre. La déchirure se referme, à moitié, comme une porte qu'on pousse sans la claquer.",
       "Tu ne te souviens plus du nom de ta mère. Tu te souviens qu'elle t'a regardée.",
@@ -81,7 +81,7 @@ module.exports = {
   II_R_refus: P({ title: "Personne", place: "col",
     text: [
       "Tu ne montes pas sur la pierre. Tu le dis à voix haute, devant le clan : personne n'entrera. Ni toi, ni ta mère, ni personne. On ne bouche pas un trou avec des gens.",
-      "Hrodna ferme les yeux. Askel, dans sa robe blanche, se rassoit. Un murmure court dans le cercle, colère ou soulagement, tu ne sais pas.",
+      "Hrodna ferme les yeux. Askel, dans sa robe blanche, se rassoit. Un murmure court dans le cercle, colère ou soulagement, tu hésites.",
       "La déchirure continue de grandir. Les gens de l'autre côté sont au seuil, maintenant. Ils te regardent.",
     ],
     choices: [{ label: "Puis le monde craque", to: "II_R_rupture" }] }),
@@ -101,7 +101,7 @@ module.exports = {
   II_R_chute: P({ title: "La chute", place: "col",
     text: [
       "Tu tombes. Tu es l'enfant de Sauvelune, et tu tombes, et le blanc monte vers toi comme une eau.",
-      "Autour de toi, dans la neige qui glisse, des mains. Des visages. Ceux avec qui tu as marché. Ils tombent aussi, pas tous du même côté. Certains vers le blanc, avec toi. D'autres vers le haut, vers le monde, qui se referme au-dessus comme une trappe.",
+      "Autour de toi, dans la neige qui glisse, des mains. Des visages. Ceux avec qui tu as marché. Ils tombent aussi, de part et d'autre. Certains vers le blanc, avec toi. D'autres vers le haut, vers le monde, qui se referme au-dessus comme une trappe.",
       "Tu peux attraper une main. Peut-être deux. Une main qu'on attrape, il faut qu'elle veuille bien qu'on l'attrape.",
     ],
     choices: hands(1) }),

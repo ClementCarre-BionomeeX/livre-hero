@@ -10,7 +10,7 @@ module.exports = {
   V_v_fours: P({ title: "La rue des Fours", place: "pallanche",
     text: [
       "Rue des Fours, sous la neige, les fours brûlent. Personne ne les alimente, et ils brûlent. Les boulangers sont devant, immobiles, la pelle à la main, souriants. Dans les fours, le pain cuit, et recuit, et noircit, et l'odeur de pain brûlé emplit la rue.",
-      { with: "gaspard", text: "Gaspard entre dans le premier fournil. Il prend la pelle des mains du boulanger, doucement, comme on prend un enfant des bras d'une mère endormie. Il sort le pain noir. Il remet du bois. Il passe au fournil suivant. Il fait toute la rue, sans un mot. Derrière lui, l'odeur change. Ça sent le pain." },
+      { with: "gaspard", text: "Gaspard entre dans le premier fournil. Il prend la pelle des mains du boulanger, doucement, comme on prend un enfant des bras d'une mère endormie. Il sort le pain noir. Il remet du bois. Il passe au fournil suivant. Il fait toute la rue, en silence. Derrière lui, l'odeur change. Ça sent le pain." },
       { without: "gaspard", text: "Tu entres dans le premier fournil. Tu sors le pain noir, à la pelle, et tu le jettes dans la neige. Tu en fais trois. Il y en a cinquante. Il faut monter. Tu laisses les autres brûler." },
     ],
     choices: [{ fx: { ep: ["perso", 500], flag: "v:fours" }, back: "V_ville" }] }),
@@ -30,7 +30,7 @@ module.exports = {
     ],
     choices: [{ back: "V_ville" }] }),
   V_v_pont_flocon: P({ title: "Un flocon", place: "pallanche",
-    text: ["Tu tends la main. Un flocon s'y pose, et ne fond pas. Dedans, une seconde, tu vois une femme qui lave du linge, à genoux sur la berge, il y a deux cents ans, et qui chante, et qui lève la tête vers toi comme si elle t'avait vu. Puis le flocon repart, vers le haut. Tu ne le retiens pas. Tu n'as pas le droit de le retenir. Mais tu l'as vue."],
+    text: ["Tu tends la main. Un flocon s'y pose, et ne fond pas. Dedans, une seconde, tu vois une femme qui lave du linge, à genoux sur la berge, il y a deux cents ans, et qui chante, et qui lève la tête vers toi comme si elle t'avait vu. Puis le flocon repart, vers le haut. Tu le laisses aller : il est libre. Mais tu l'as vue."],
     choices: [{ back: "V_ville" }] }),
 
   III_v_fontaine: P3({ title: "La fontaine de la grand-place", place: "valcendre",
@@ -45,7 +45,7 @@ module.exports = {
   III_v_fontaine_bateau: P3({ title: "Un bateau de papier", place: "valcendre",
     text: [
       "La fillette te donne une feuille. Tu plies le bateau comme Pim te l'a appris, au bief, un dimanche. Tu écris dessus un nom. Pas le tien. Celui de Pim. Tu le poses sur l'eau.",
-      "Il fait un tour. Deux. Au troisième, il penche, et il coule, d'un coup, sans un bruit. Les enfants applaudissent. Quelqu'un, là-haut, a donc pensé à Pim. Tu espères que cela marche aussi dans l'autre sens : que, quelque part, quelqu'un est assis au bord d'un bief, et pense à toi.",
+      "Il fait un tour. Deux. Au troisième, il penche, et il coule, d'un coup, en silence. Les enfants applaudissent. Quelqu'un, là-haut, a donc pensé à Pim. Tu espères que cela marche aussi dans l'autre sens : que, quelque part, quelqu'un est assis au bord d'un bief, et pense à toi.",
     ],
     choices: [{ back: "III_v_porte" }] }),
 

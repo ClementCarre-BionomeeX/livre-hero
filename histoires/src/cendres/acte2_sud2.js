@@ -128,7 +128,7 @@ module.exports = {
 
   II_S2_offre_non: P({ title: "Non", place: "vasselin",
     text: [
-      "Il ne paraît ni surpris ni fâché. « Bien », dit-il. Il range la feuille dans sa manche. « C'est votre droit. Vous ne chanterez donc pas au tournoi. Quelqu'un d'autre le fera. Messire Aubrac, je pense. Il chante très bien ce qu'on lui donne. »",
+      "Il le prend avec calme. « Bien », dit-il. Il range la feuille dans sa manche. « C'est votre droit. Vous ne chanterez donc pas au tournoi. Quelqu'un d'autre le fera. Messire Aubrac, je pense. Il chante très bien ce qu'on lui donne. »",
       "Puis, en se levant : « Ce que vous refusez, je le garde. Je garde tout, vous savez. »",
     ],
     choices: [{ label: "Le laisser à la reine", to: "II_S2_compagnon" }] }),
@@ -170,7 +170,7 @@ module.exports = {
     choices: [{ label: "Quitter le palais", to: "II_S2_aube" }] }),
 
   II_S2_pie_rate: P({ title: "Le regard", place: "vasselin",
-    text: ["Les doigts de Pie touchent l'anneau, et Mordace pose la main dessus, sans hâte, sans se retourner. Il continue son chemin. Au bout du couloir, il dit quelque chose au garde. Le garde regarde Pie. Longtemps. Pour retenir son visage."],
+    text: ["Les doigts de Pie touchent l'anneau, et Mordace pose la main dessus, lentement, le dos tourné. Il continue son chemin. Au bout du couloir, il dit quelque chose au garde. Le garde regarde Pie. Longtemps. Pour retenir son visage."],
     choices: [{ label: "Quitter le palais, vite", to: "II_S2_aube" }] }),
 
   II_S2_ysolde: P({ title: "Le garde", place: "vasselin",
@@ -195,7 +195,7 @@ module.exports = {
   II_S2_enfant_nom: P({ title: "Ce qu'il écrit", place: "vasselin",
     text: [
       "L'enfant dit son nom. Mordace le répète, une fois, comme pour le goûter. Puis il sort de sa manche un carnet de poche et l'écrit, debout, avec un crayon d'argent.",
-      "Il regarde la page. Il fronce les sourcils. Il l'écrit une deuxième fois, en dessous. Puis il referme le carnet, très lentement, et s'en va sans rien dire.",
+      "Il regarde la page. Il fronce les sourcils. Il l'écrit une deuxième fois, en dessous. Puis il referme le carnet, très lentement, et s'en va en silence.",
     ],
     choices: [{ label: "Quitter le palais", to: "II_S2_aube" }] }),
 
