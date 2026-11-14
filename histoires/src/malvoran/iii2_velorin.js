@@ -19,7 +19,7 @@ module.exports = {
       choices: [
         { label: "Payer ton passage, deux sous, comme tout le monde", fx: { gold: -2 }, to: "IIIV_leg_veuve" },
         { label: "Payer pour tous ceux qui attendent (soixante sous)", fx: { gold: -60, fac: { velorin: 5 }, conf: { aubin: 10, coliane: 5 }, ep: ["perso", 900], flag: "iiiv:bac_paye" }, to: "IIIV_leg_veuve" },
-        { label: "Montrer le jeton de l'Ordre : un médiateur ne paie pas", if: { item: "jeton_ordre" }, why: "Il te faudrait un signe que le sergent respecte.", fx: { ep: ["perso", 600] }, to: "IIIV_leg_veuve" },
+        { label: "Montrer le jeton de l'Ordre : l'Ordre ne paie pas", if: { item: "jeton_ordre" }, why: "Il te faudrait un signe que le sergent respecte.", fx: { ep: ["perso", 600] }, to: "IIIV_leg_veuve" },
         { label: "Discuter le prix pour ceux qui n'ont rien", test: { dom: "social", diff: -10, label: "Faire baisser le passage", help: HELP_TALK },
           win: { fx: { ep: ["perso", 1000], conf: { aubin: 5 }, flag: "iiiv:bac_paye" }, to: "IIIV_leg_veuve" },
           lose: { fx: { gold: -2 }, to: "IIIV_leg_veuve" } },
@@ -28,8 +28,8 @@ module.exports = {
       fx: { meet: "iiiv_aude", questSeen: "III_otages" },
       text: [
         { if: { has: "iiiv:bac_paye" }, text: "La barge fait trois voyages de plus que prévu. Le sergent crache dans l'eau à chaque fois, mais il fait tirer la corde. Sur l'autre rive, les gens te regardent sans savoir s'ils doivent te remercier ou se méfier, et la plupart choisissent de ne rien dire.", else: "La barge glisse sur l'eau grise. Derrière toi, sur la berge, ceux qui n'ont pas payé se rassoient autour de leurs feux éteints." },
-        "Une femme t'a suivi sur la barge sans un mot, et elle descend derrière toi. La quarantaine, un manteau de drap de bonne qualité qu'on n'a pas brossé depuis longtemps, un trousseau de clés à la ceinture dont elle n'a plus l'usage. Elle te barre le chemin, doucement, comme on arrête quelqu'un dans une église.",
-        "« Vous allez au camp, dit-elle. On voit bien que vous n'êtes pas d'ici, et qu'on vous laissera entrer. Je suis Aude Pelletier. Mon mari est l'échevin de Merle. Il y a douze jours, les gens de la duchesse sont venus prendre six personnes du village pour s'assurer que nos bateliers ne passeraient plus les éclaireurs d'Aldaran. Ils les gardent dans une grange, près de l'abbaye. Mon mari en est. La petite Rosine Vasseur aussi, la fille du passeur, qui a quinze ans. »",
+        "Une femme t'a suivi{e} sur la barge sans un mot, et elle descend derrière toi. La quarantaine, un manteau de drap de bonne qualité qu'on n'a pas brossé depuis longtemps, un trousseau de clés à la ceinture dont elle n'a plus l'usage. Elle te barre le chemin, doucement, comme on arrête quelqu'un dans une église.",
+        "« Vous allez au camp, dit-elle. On voit bien que vous n'êtes pas d'ici, et qu'on vous laissera entrer. Je suis Aude Pelletier. Mon mari est l'échevin de Merle. Il y a douze jours, les gens de la duchesse sont venus prendre six personnes du village pour s'assurer que nos bateliers ne passeraient plus les éclaireurs d'Aldaran. Ils les gardent dans une grange, près de l'abbaye. Mon mari en est. La petite Rosine Vasseur aussi, la fille d'un batelier, qui a quinze ans. »",
         "Elle sort de sa manche un mouchoir de batiste, brodé d'un G et d'un P, noué aux quatre coins. « Je ne vous demande pas de les sortir de là. Je n'ose pas. Donnez-lui ça. Qu'il sache qu'on ne l'a pas oublié. »",
       ],
       choices: [
@@ -39,7 +39,7 @@ module.exports = {
       ] },
     IIIV_leg_pendus: { act: "III", title: "L'orme aux pendus", place: null,
       text: [
-        "À une demi-lieue du camp, au carrefour de la route des vignes, il y a un orme qui a dû voir passer trois siècles de charrettes. Trois hommes pendent à sa maîtresse branche. Pas tout à fait des hommes : le plus petit n'a pas seize ans. Une planche clouée au tronc dit, en grosses lettres de goudron, *ESPIONS D'ALDARAN*. Les corbeaux ont commencé. Il n'y a personne pour les chasser.",
+        "À une demi-lieue du camp, au carrefour de la route des vignes, il y a un orme qui a dû voir passer trois siècles de charrettes. Trois hommes pendent à sa maîtresse branche. Pas tout à fait des hommes : le plus petit n'a pas quatorze ans. Une planche clouée au tronc dit, en grosses lettres de goudron, *ESPIONS D'ALDARAN*. Les corbeaux ont commencé. Il n'y a personne pour les chasser.",
         "Les deux premiers portent des vestes de batelier, avec la plaque de cuivre de la corporation de Merle cousue à l'épaule. Le troisième, le garçon, a encore ses sabots. Ses mains sont liées dans le dos avec une ficelle de boulanger, celle qu'on utilise pour les fagots de pain.",
         { with: "thavary", text: "Thavary s'arrête à dix pas et ne s'approche plus. « On pend les espions, dit-elle. C'est la loi de la guerre, dans les deux camps. » Elle le dit comme on récite une leçon, et elle ne regarde pas le garçon." },
         { with: "pip", text: "Pip s'est caché dans ton col. Tu sens sa lumière trembler contre ta nuque, petite et froide." },
@@ -132,7 +132,7 @@ module.exports = {
     IIIV_E_patrouille_fin: { title: "Après la patrouille",
       text: [
         { outcome: "win", text: "Le chemin creux est jonché de carreaux perdus. Le lieutenant a tourné bride au premier sang, et ses hommes ont suivi son cheval. Ils raconteront au camp qu'une bande d'Aldaran tient la route des vignes. Personne n'ira vérifier." },
-        { outcome: "lose", text: "Tu te réveilles au fond du fossé, la bouche pleine de terre, la bourse plus légère. Ils t'ont laissé là comme on laisse un ivrogne. On ne pend pas ce qu'on n'a pas eu le temps d'interroger, et la patrouille avait autre chose à faire." },
+        { outcome: "lose", text: "Tu te réveilles au fond du fossé, la bouche pleine de terre, la bourse plus légère. Ils t'ont laissé{e} là comme on laisse un ivrogne. On ne pend pas ce qu'on n'a pas eu le temps d'interroger, et la patrouille avait autre chose à faire." },
         { outcome: "flee", text: "Les carreaux sifflent dans les branches au-dessus de toi. Tu cours courbé{e} jusqu'à ce que le fossé débouche sur un ruisseau, et tu le suis dans l'eau froide jusqu'aux genoux. Plus personne ne te suit." },
         { if: { item: "iiiv_laissez_passer" }, text: "Le lieutenant lit le papier de Morn deux fois, puis le plie et te le rend du bout des doigts, comme s'il était chaud. « Le maître-espion a des amis curieux », dit-il, et il fait signe à ses hommes de s'écarter." },
         "La route reprend entre les haies grises. Au loin, on entend un tambour qui bat sans conviction, quelque part entre les deux armées.",
@@ -154,7 +154,7 @@ module.exports = {
         { label: "Interpeller le borgne : les deux armées sont à une heure d'ici", test: { dom: "social", diff: -20, label: "Faire peur à des écorcheurs", help: [{ with: "thavary", v: 10 }, { if: { has: "iiiv:patrouille_battue" }, v: 10 }] },
           win: { fx: { ep: ["seance", 2000], flag: "iiiv:hayettes_parole" }, to: "IIIV_E_ecorcheurs_ferme" },
           lose: { to: "IIIV_E_ecorcheurs_combat" } },
-        { label: "Faire le tour par la grange, d'où crie la femme", test: { dom: "discretion", diff: -10, label: "Atteindre la grange sans être vu", help: HELP_SNEAK },
+        { label: "Faire le tour par la grange, d'où crie la femme", test: { dom: "discretion", diff: -10, label: "Atteindre la grange en silence", help: HELP_SNEAK },
           win: { fx: { ep: ["seance", 1800], conf: { aubin: 5 }, flag: "iiiv:hayettes_grange" }, to: "IIIV_E_ecorcheurs_ferme" },
           lose: { to: "IIIV_E_ecorcheurs_combat" } },
         { label: "Ce n'est pas ta guerre : faire un détour", fx: { conf: { thavary: -5, aubin: -5 } }, back: ROUTE },
@@ -170,7 +170,7 @@ module.exports = {
     IIIV_E_ecorcheurs_ferme: { title: "Les Hayettes",
       text: [
         { outcome: "win", text: "Le borgne tombe le dernier, adossé à sa charrette, en jurant dans une langue que tu ne connais pas. Les autres ont fui à travers les vignes avec ce qu'ils pouvaient porter, c'est-à-dire pas grand-chose. Dans la brigandine du chef, une bourse lourde de pièces de toutes les frappes." },
-        { outcome: "lose", text: "Ils te laissent pour mort dans la cour, ce qui t'épargne. Quand tu reprends tes esprits, ils sont partis avec le grain, les poules et ta bourse, et le vieux paysan te passe un linge mouillé sur le front en grommelant que tu aurais pu choisir un meilleur jour." },
+        { outcome: "lose", text: "Ils te laissent pour mort{e} dans la cour, ce qui t'épargne. Quand tu reprends tes esprits, ils sont partis avec le grain, les poules et ta bourse, et le vieux paysan te passe un linge mouillé sur le front en grommelant que tu aurais pu choisir un meilleur jour." },
         { outcome: "flee", text: "Tu te replies sous les noyers. Les écorcheurs ne te poursuivent pas : ils ont plus à gagner à finir de vider la ferme. Tu attends qu'ils partent, et tu reviens." },
         { if: { has: "iiiv:hayettes_parole" }, text: "Le borgne t'écoute, l'œil plissé, puis il crache. « Une heure, dit-il. On n'en a besoin que d'une demie. » Mais il siffle quand même ses hommes, qui chargent ce qu'ils ont déjà sur la charrette et filent par le chemin des vignes. Ils laissent la ferme debout, et les gens dedans." },
         { if: { has: "iiiv:hayettes_grange" }, text: "Dans la grange, une jeune femme se débat contre deux hommes. Tu frappes le premier par derrière avec le plat de ton arme ; le second s'enfuit en remontant ses chausses. Dehors, en entendant le bruit, le borgne décide que la ferme a assez donné. Ils partent." },
@@ -238,7 +238,7 @@ module.exports = {
       ] },
     IIIV_E_deserteur_or: { title: "L'or qu'on attend",
       text: [
-        "Il hausse les épaules. « Ça, il faut demander au trésorier. Fava. Un gros qui a des bagues comme la duchesse et une table pliante où il fait ses comptes toute la journée, avec deux gardes qui ne le quittent pas. Le sergent dit que l'or est venu par le nord, au début de la guerre. Par le nord ! Il n'y a que des montagnes et Aldaran, au nord. Mais le sergent dit beaucoup de choses. »",
+        "Il hausse les épaules. « Ça, il faut demander au trésorier. Fava. Un gros qui a des bagues comme la duchesse et une table pliante où il fait ses comptes toute la journée, avec deux gardes qui ne le quittent pas. Le sergent dit que l'or est venu par le nord, avant même la guerre. Par le nord ! Il n'y a que des montagnes et Aldaran, au nord. Mais le sergent dit beaucoup de choses. »",
         "Il finit de découdre son croissant d'or, le regarde, et le jette dans le fossé.",
       ],
       choices: [
@@ -284,7 +284,7 @@ module.exports = {
       text: [
         { first: true, text: "L'abbaye de Sainte-Orme est une grosse bâtisse de pierre blonde posée sur une butte, au milieu des vignes, avec un clocher carré et un cloître qu'on devine derrière les murs. Autour d'elle, sur une demi-lieue, la duchesse de Vel-Orin a planté une ville de toile : des pavillons pourpres rayés d'or pour les capitaines, des tentes grises en rangs pour les soldats, des parcs à chevaux, des fours de campagne qui fument, un gibet de trois places à l'entrée, occupé." },
         { first: true, text: "On entre au camp comme dans une foire. Il n'y a de palissade que du côté de l'Isarde ; partout ailleurs, ce sont des barrières de charrettes et des sentinelles qui s'ennuient. Les vivandières, les maquignons, les fripiers, les filles, les prêtres et les espions entrent et sortent avec les chariots de fourrage. On te regarde, on te jauge, et on te laisse passer. Ici, tout le monde vend quelque chose, et on suppose que tu es venu{e} acheter." },
-        { first: true, if: { item: "jeton_ordre" }, text: "Le jeton de l'Ordre pend à ton cou. Une sentinelle le voit, donne un coup de coude à sa voisine, et les deux te suivent des yeux jusqu'au premier rang de tentes. Un médiateur de l'Ordre de la Main, dans un camp en guerre, c'est une nouvelle. Avant ce soir, quelqu'un d'important le saura." },
+        { first: true, if: { item: "jeton_ordre" }, text: "Le jeton de l'Ordre pend à ton cou. Une sentinelle le voit, donne un coup de coude à sa voisine, et les deux te suivent des yeux jusqu'au premier rang de tentes. Quelqu'un de l'Ordre de la Main, dans un camp en guerre, c'est une nouvelle. Avant ce soir, quelqu'un d'important le saura." },
         { first: true, if: { all: [{ item: "jeton_cercle" }, { not: { item: "jeton_ordre" } }] }, text: "Le jeton d'os du Cercle ne fait lever aucun sourcil aux sentinelles. Les lettrés vont et viennent dans les deux camps avec leurs encriers ; on les croit inoffensifs, ce qui est la meilleure façon de les laisser tout voir." },
         { first: true, with: "gloup", text: "À la barrière, un garde voit Gloup et pousse un cri. En trois battements de cœur, tu as quatre arbalètes braquées sur ta botte. Il faut expliquer, longuement, que la bête est apprivoisée, qu'elle ne mord pas, qu'elle aime le pain. Un sergent finit par jeter un quignon à Gloup pour voir. Gloup l'avale avec un bruit de baiser mouillé, et les gardes, malgré eux, éclatent de rire. On te laisse passer, mais on ne t'oubliera pas." },
         { first: true, with: "thavary", text: "Thavary marche raide entre les tentes pourpres, la main loin de son épée pour qu'on voie qu'elle n'y touche pas. « Mon grand-père a combattu Vel-Orin, dit-elle à voix basse. Et son grand-père avant lui. Ce n'est pas un endroit où l'on m'attend. »" },
@@ -342,7 +342,7 @@ module.exports = {
     IIIV_marche_sorbe: { act: "III", title: "Le charretier de la Sorbe", place: "sainteorme",
       text: [
         "Un charretier vend de la farine en sacs de cinquante livres, au poids d'or, à l'arrière d'un chariot bâché. Il a l'accent de chez toi, ou presque : celui de la Sorbe, qui mange la fin des mots. Quand tu le lui fais remarquer, il te regarde mieux, et il finit par se souvenir. Il était à Brumefeuille au début de l'automne. Il y était quand tu y étais.",
-        { if: { is: { meunier: "livre" } }, text: "« Le meunier, dit-il, on l'a jugé à Sorbe, à la Saint-Luc. Il n'a rien nié. Il a demandé qu'on l'enterre près de sa fille. Le juge a dit non. » Il recompte ses sacs. « Le moulin est fermé. C'est pour ça que je vends la farine d'ailleurs. »" },
+        { if: { is: { meunier: "livre" } }, text: "« Le meunier, dit-il, on l'a jugé à Sorbe, à la Toussaint. Il n'a rien nié. Il a demandé qu'on l'enterre près de sa fille. Le juge a dit non. » Il recompte ses sacs. « Le moulin est fermé. C'est pour ça que je vends la farine d'ailleurs. »" },
         { if: { is: { meunier: "protege" } }, text: "« Barthélemy moud toujours, dit-il. Il ne parle plus à personne et personne ne lui parle. Mais il moud juste, et il ne fait plus payer les veuves. Les gens disent qu'il paie quelque chose. Personne ne dit quoi. »" },
         { if: { is: { meunier: "marche" } }, text: "Il baisse la voix. « Le moulin de Brumefeuille tourne la nuit, maintenant. Sans grain. On entend la roue jusqu'au village, et une petite fille qui rit. On n'y va plus. On achète la farine à Sorbe. » Il te regarde un peu trop longtemps, comme s'il cherchait sur ton visage quelque chose qu'on lui aurait raconté." },
         { if: { is: { berthe: "pendue" } }, text: "« Et la vieille Berthe, vous savez, celle qu'on a pendue. Ses chèvres sont restées trois jours dans la cour à bêler. Personne n'osait les prendre. » Il se mouche dans ses doigts. « Moi non plus. »" },
@@ -373,7 +373,7 @@ module.exports = {
       fx: { meet: "iiiv_sabin" },
       text: [
         "Sabin Rocca est facile à trouver : c'est le seul homme de la tente qui boit seul, avec de l'encre jusqu'aux poignets. Vingt-cinq ans, des lunettes rondes cerclées de corne, une barbe de trois jours qui ne lui va pas. Devant lui, sur la table, il a aligné des noyaux de prune en rangs de cinq, et il les déplace d'un doigt, sans cesse, comme un homme qui joue aux échecs contre lui-même.",
-        "Quand tu t'assieds, il ne lève pas la tête. « C'est un chiffre à clé, dit-il, comme si vous lui aviez demandé. Une grille. On décale chaque lettre d'un nombre de rangs qui dépend d'un mot. Si vous avez le mot, ça se lit comme un psautier. Si vous ne l'avez pas, c'est de la bouillie. J'ai essayé les noms de tous les saints du calendrier. J'ai essayé le nom du roi, de la reine morte, de leurs chevaux. » Il rit, un petit rire sans joie. « Morn dit que j'ai jusqu'à la Saint-Martin. Il le dit en souriant. Morn sourit tout le temps. »",
+        "Quand tu t'assieds, il ne lève pas la tête. « C'est un chiffre à clé, dit-il, comme si tu le lui avais demandé. Une grille. On décale chaque lettre d'un nombre de rangs qui dépend d'un mot. Si vous avez le mot, ça se lit comme un psautier. Si vous ne l'avez pas, c'est de la bouillie. J'ai essayé les noms de tous les saints du calendrier. J'ai essayé le nom du roi, de la reine morte, de leurs chevaux. » Il rit, un petit rire sans joie. « Morn dit que j'ai jusqu'à la Saint-Martin. Il le dit en souriant. Morn sourit tout le temps. »",
         { if: { has: "passe:cercle" }, text: "Il remarque tes doigts, la corne de copiste à l'index. « Vous avez tenu la plume, vous. Au Cercle ? » Il a l'air, pour la première fois, d'avoir de l'espoir." },
       ],
       choices: [
@@ -398,7 +398,7 @@ module.exports = {
       fx: { meet: "iiiv_bruna" },
       text: [
         { first: true, text: "Les arbalétriers de Vel-Orin campent au bord de l'Isarde, derrière une palissade de pieux et de pavois plantés en terre, ces grands boucliers peints au croissant derrière lesquels on recharge. Ils sont huit cents, dit-on, la meilleure troupe de la duchesse : des fils d'artisans d'Orme-la-Dorée, engagés à la semaine, qui tirent juste et le savent. Au bout du pré, une butte de terre sert de cible ; on y a cloué un mannequin de paille en tabard bleu." },
-        { first: true, text: "Leur capitaine s'appelle Bruna Calvi. Une femme de quarante ans, carrée, les cheveux ras sous un bonnet de feutre, une cicatrice qui lui tire la lèvre. Elle remonte une arbalète à cric en parlant, sans regarder ses mains. « Médiateur ? Observateur ? Espion ? dit-elle. Ici, ça revient au même. Vous mangez avec nous, vous payez votre écuelle. Vous voulez savoir quelque chose, vous le demandez en face. Mes gars n'aiment pas qu'on leur tourne autour. »" },
+        { first: true, text: "Leur capitaine s'appelle Bruna Calvi. Une femme de quarante ans, carrée, les cheveux ras sous un bonnet de feutre, une cicatrice qui lui tire la lèvre. Elle remonte une arbalète à cric en parlant, sans regarder ses mains. « Médiation ? Observation ? Espionnage ? dit-elle. Ici, ça revient au même. Vous mangez avec nous, vous payez votre écuelle. Vous voulez savoir quelque chose, vous le demandez en face. Mes gars n'aiment pas qu'on leur tourne autour. »" },
         { again: true, text: "Les pavois, les feux, l'odeur de corne chaude et de graisse d'arbalète. Bruna Calvi, toujours en train de remonter quelque chose." },
         { again: true, if: { has: "iiiv:bruna" }, text: "Les arbalétriers te font une place près du feu sans que tu demandes. On ne bat pas leur capitaine à la cible tous les jours." },
         "Les hommes ont l'air fatigués et maigres. Ils mangent un lard gris, très salé, dans des écuelles de bois, et plusieurs se lèvent souvent pour aller aux latrines, au bord du fleuve, en se tenant le ventre.",
@@ -492,7 +492,7 @@ module.exports = {
         { label: "Plaider ta cause auprès du sergent", test: { dom: "social", diff: -20, label: "Obtenir une audience", help: [{ with: "aubin", v: 10 }, { if: { fac: "velorin", min: 15 }, v: 15 }, { if: { has: "iiiv:hopital_aide" }, v: 10 }] },
           win: { fx: { ep: ["perso", 1200] }, to: "IIIV_orsini" },
           lose: { to: "IIIV_abbaye_refus" } },
-        { label: "Passer par le mur du jardin des moniales, à la nuit", test: { dom: "discretion", diff: -20, label: "Entrer dans l'abbaye sans être vu", help: HELP_SNEAK.concat([{ if: { item: "iiiv_plan_abbaye" }, v: 15 }]) },
+        { label: "Passer par le mur du jardin des moniales, à la nuit", test: { dom: "discretion", diff: -20, label: "Entrer dans l'abbaye en silence", help: HELP_SNEAK.concat([{ if: { item: "iiiv_plan_abbaye" }, v: 15 }]) },
           win: { fx: { ep: ["seance", 1500] }, to: "IIIV_abbaye_jardin" },
           lose: { to: "IIIV_abbaye_pris" } },
         { label: "La porte, plus tard", back: "IIIV_camp" },
@@ -532,7 +532,7 @@ module.exports = {
         { first: true, text: "La duchesse prend une olive, la mange, en pose le noyau dans une coupelle d'argent où il y en a déjà une douzaine. Elle attend tes questions comme on attend que l'autre partie avance son prix." },
         { again: true, text: "La duchesse Orsini te reçoit entre deux capitaines et deux registres. Le plat d'olives, la balance, les bagues. Elle ne perd jamais de temps à te demander comment tu vas." },
         { again: true, after: "iiiv:jardin", text: "« Vous êtes passé{e} par la porte, cette fois, remarque la duchesse sans lever les yeux. Les moniales m'ont présenté la note des choux. Je l'ai fait mettre à votre compte. »" },
-        { again: true, if: { has: "iiiv:ruban" }, text: "« Notre médiateur, dit-elle en te voyant entrer, avec ce qui ressemble presque à de l'affection. Qu'avez-vous à me vendre aujourd'hui ? »" },
+        { again: true, if: { has: "iiiv:ruban" }, text: "« Voilà mes couleurs, dit-elle en te voyant entrer, avec ce qui ressemble presque à de l'affection. Qu'avez-vous à me vendre aujourd'hui ? »" },
       ],
       choices: [
         { label: "« Pourquoi cette guerre, Altesse ? »", hide: { seen: "IIIV_orsini_guerre" }, to: "IIIV_orsini_guerre" },
@@ -590,7 +590,7 @@ module.exports = {
         { if: { has: "passe:cercle" }, text: "« Copiste à l'Athénée, dit-il en versant le thé. On vous a appris à recopier sans lire. Vous avez lu quand même, n'est-ce pas ? Les meilleurs copistes lisent toujours. »" },
         { if: { has: "passe:libre" }, text: "« La route, les foires, les contrats d'un jour, dit-il en versant le thé. Personne ne vous a jamais acheté{e} pour plus d'une semaine. C'est rare. J'aime les gens rares. »" },
         { if: { has: "passe:profite" }, text: "Il ajoute, sans changer de ton : « Saint-Gilles-des-Prés. Les terres que vous avez rachetées valent huit fois leur prix, aujourd'hui. Mes compliments. Je ne juge pas. Je compte. »" },
-        { if: { has: "maitre:disparu" }, text: "« Et votre maître a disparu à la chapelle de Saint-Ivo, dit-il plus bas. Je suis désolé. Si j'apprends quelque chose, vous le saurez. Je ne vous demanderai rien en échange de ça. »" },
+        { if: { has: "maitre:disparu" }, text: "« Et votre maîtresse a disparu à la chapelle de Saint-Ivo, dit-il plus bas. Je suis désolé. Si j'apprends quelque chose, vous le saurez. Je ne vous demanderai rien en échange de ça. »" },
       ],
       choices: [{ label: "Boire le thé et écouter ce qu'il veut", fx: { ep: ["seance", 1500] }, to: "IIIV_morn_offre" }] },
     IIIV_morn_offre: { act: "III", title: "Ce que veut Morn", place: "sainteorme",
@@ -694,7 +694,7 @@ module.exports = {
           win: { fx: { ep: ["seance", 1500], fac: { velorin: -10 }, flag: "iiiv:vol_decouvert" }, to: "IIIV_lettre_volee" },
           lose: { to: "IIIV_lettre_cachot" },
           flee: { label: "Passer sous la toile", dom: "discretion", diff: -10, to: "IIIV_camp" } } },
-        { label: "« Je suis l'aide de Sabin ! Il m'a envoyé chercher ses brouillons ! »", test: { dom: "social", diff: -20, label: "Bluffer le garde", help: [{ if: { item: "iiiv_laissez_passer" }, v: 20 }, { if: { has: "iiiv:ruban" }, v: 20 }] },
+        { label: "« Je suis l'aide de Sabin ! Il m'a envoyé{e} chercher ses brouillons ! »", test: { dom: "social", diff: -20, label: "Bluffer le garde", help: [{ if: { item: "iiiv_laissez_passer" }, v: 20 }, { if: { has: "iiiv:ruban" }, v: 20 }] },
           win: { fx: { ep: ["perso", 1000] }, to: "IIIV_lettre_volee" },
           lose: { to: "IIIV_lettre_cachot" } },
         { label: "Te rendre sans combattre", timeout: true, to: "IIIV_lettre_cachot" },
@@ -744,9 +744,9 @@ module.exports = {
       choices: [{ label: "Promettre et partir avec ta copie", back: "IIIV_camp" }] },
     IIIV_chiffre: { act: "III", title: "La grille", place: "sainteorme", backName: "la grille",
       text: [
-        { first: true, text: "Tu t'installes à l'écart, sur un tonneau renversé derrière la cantine, ta copie sur les genoux, une feuille blanche, une grille de vingt-six alphabets dressée de ta main. Le principe est simple, Sabin l'avait bien vu : chaque lettre de la lettre est décalée d'un nombre de rangs que donne une lettre du mot-clé, et le mot-clé se répète tout le long du texte. Avec le bon mot, il suffit de défaire les décalages. Sans le bon mot, on peut y passer l'hiver." },
+        { first: true, text: "Tu t'installes à l'écart, sur un tonneau renversé derrière la cantine, ta copie sur les genoux, une feuille blanche, une grille de vingt-six alphabets dressée de ta main. Le principe est simple, Sabin l'avait bien vu : chaque lettre du message est décalée d'un nombre de rangs que donne une lettre du mot-clé, et le mot-clé se répète tout le long du texte. Avec le bon mot, il suffit de défaire les décalages. Sans le bon mot, on peut y passer l'hiver." },
         { again: true, text: "Ta copie, ta grille, et le tonneau derrière la cantine. Le mot-clé se refuse toujours." },
-        "Le courrier avait un psautier, avec un ruban à une seule page : *Cinq mains tiennent la porte*. Sabin a essayé CINQ, MAIN et MAINS. Un homme qui meurt en répétant un vers ne répète pas forcément le mot qui compte en premier.",
+        "Le courrier avait un psautier, avec un ruban à une seule page : *Cinq mains tiennent la porte*. Sabin a essayé CINQ, MAIN et MAINS.",
         { with: "charline", text: "Charline s'assied par terre à côté de toi, prend ta grille et la retourne vers elle. « Laisse-moi faire, dit-elle. Ou au moins laisse-moi regarder. Je me suis ennuyée deux ans au Cercle avec ces choses-là. »" },
       ],
       choices: [
@@ -773,7 +773,7 @@ module.exports = {
       text: [
         "Au cinquième groupe, une syllabe. Au dixième, un mot. À la fin de la première ligne, une phrase entière se lève de la bouillie comme une main qui sort de l'eau. Tu continues, plus vite, et le texte vient.",
         "*À l'ami de Sainte-Orme. Le troisième coffre passera par la route du nord à la nouvelle lune, comme les deux autres. Payez les étrangers, et laissez attendre les gens de Vel-Orin : un soldat qui a faim se bat mal, et je ne veux pas que l'un de vous gagne trop vite. Le sel des marais continuera tant qu'il le faudra. Le jour où les deux armées seront au gué, faites retirer les arbalétriers de l'aile gauche, et que la colline des Six reste à qui la prendra. Brûlez ceci.*",
-        "Au bas, une initiale, un V, d'une écriture serrée, élégante, penchée vers la droite. Et le cachet, sous ton pouce : une tour à trois créneaux, que tu as vue, ou que tu verras, au bas d'autres ordres, de l'autre côté de l'Isarde.",
+        "Au bas, une initiale, un V, d'une écriture serrée, élégante, penchée vers la droite. Et le cachet, sous ton pouce : une tour à trois créneaux.",
         { with: "charline", text: "Charline lit en même temps que toi, les lèvres qui bougent. Quand elle arrive au V, elle repose le crayon très doucement, comme s'il était devenu brûlant. « Il paie les deux, dit-elle. Il veut qu'ils se saignent. Pas qu'il y ait un vainqueur. Qu'il y ait des morts. »" },
         { with: "thavary", text: "Thavary a pâli sous son hâle. Elle ne dit rien. Elle regarde le cachet à la tour, longtemps." },
         { if: { has: "iiiv:sabin_ami" }, text: "Tu penses à Sabin, qui attend son gibet pour rire. Le mot était au bout du vers. Il suffisait de ne pas s'arrêter au premier." },
@@ -830,7 +830,7 @@ module.exports = {
       fx: { clue: "r3_or_velorin" },
       text: [
         { if: { has: "iiiv:fava_menace" }, text: "Fava devient gris. Il regarde la porte du pavillon, puis toi, puis la porte. « Je n'ai rien écrit, souffle-t-il. Je n'ai jamais rien écrit, moi, je ne fais que compter. »", else: "À la troisième coupe, Fava commence à te tutoyer. À la cinquième, il pleure un peu, sur sa goutte et sur sa femme qui est restée à Orme. À la sixième, il te prend le poignet." },
-        "« Trois coffres, dit-il. Au début de la guerre, à trois semaines d'intervalle. Venus de la route du nord, par des muletiers qui ne parlaient pas, avec une lettre : *de la part d'un ami de Son Altesse*. Pleins de couronnes neuves, frappées chez nous, à Orme-la-Dorée. Ça, je ne l'ai jamais compris. Pourquoi nous renvoyer notre propre or ? »",
+        "« Trois coffres, dit-il. Le premier à la fin de l'été, les autres à trois semaines d'intervalle. Venus de la route du nord, par des muletiers qui ne parlaient pas, avec une lettre : *de la part d'un ami de Son Altesse*. Pleins de couronnes neuves, frappées chez nous, à Orme-la-Dorée. Ça, je ne l'ai jamais compris. Pourquoi nous renvoyer notre propre or ? »",
         "« Ce n'est pas moi qui décide à qui on le donne, ajoute-t-il très vite. Il y a des instructions. Elles arrivent avec les coffres. C'est Ser Danese qui me les remet, l'intendant. Je paie les étrangers d'abord, comme il est dit, et je fais attendre les nôtres. C'est de l'économie, il dit. Moi, j'obéis. J'ai toujours obéi. »",
       ],
       choices: [
@@ -853,7 +853,7 @@ module.exports = {
     IIIV_registre_lu: { act: "III", title: "Les colonnes", place: "sainteorme",
       fx: { clue: "r3_or_velorin" },
       text: [
-        "Le registre rouge est tenu avec une précision maniaque : chaque denier, chaque jour, chaque nom. Tu remontes au début de la guerre, au mois des Moissons. Trois entrées, à trois semaines d'écart, d'une écriture plus appliquée que les autres, avec des montants qui font tourner la tête.",
+        "Le registre rouge est tenu avec une précision maniaque : chaque denier, chaque jour, chaque nom. Tu remontes à la fin de l'été, au mois des Moissons. Trois entrées, à trois semaines d'écart, d'une écriture plus appliquée que les autres, avec des montants qui font tourner la tête.",
         "*Reçu d'un ami de Son Altesse, par la route du nord, un coffre de couronnes neuves d'Orme, scellé.* Trois fois. Et en marge, d'une autre main, fine et cirée : *Selon les instructions. D.*",
         "Le ronflement, derrière le rideau, s'interrompt, puis reprend. Tu remets le lion de bronze exactement où il était.",
       ],
@@ -933,7 +933,7 @@ module.exports = {
       text: [
         { outcome: "lose", text: "Tu manques la marche, tu dégringoles trois degrés sur le dos, et le commis se réveille assez pour lever sa lanterne, regarder dans le noir, et se rendormir en grommelant. Tu restes un moment sans respirer, une brûlure le long des côtes." },
         "La cave des dîmes est pleine jusqu'à la voûte. Des tonnelets blancs, cerclés de neuf, marqués au croissant : le sel gemme de la duchesse, celui qui devrait être dans les écuelles des arbalétriers. Il y en a au moins deux cents. Sur chacun, à la craie, une lettre et un chiffre : *H. 12*, *H. 14*, *N. 6*.",
-        "Sur une barrique servant de table, un carnet de toile cirée, tenu d'une écriture fine. Des dates, des quantités, des prix. *Par la Noue, aux vivandiers de Hautmont, douze tonnelets, quatre-vingt-dix couronnes. Par la Noue, au fourrier d'Aldaran, six tonnelets.* Le sel de la duchesse part chez l'ennemi, la nuit, par la rivière. Et pour le remplacer, des chariots de boue salée de la Sorbe. Au bas de chaque page, la même initiale : D.",
+        "Sur une barrique servant de table, un carnet de toile cirée, tenu d'une écriture fine. Des dates, des quantités, des prix. *Par la Noue, aux vivandiers de Hautmont, douze tonnelets, quatre-vingt-dix couronnes. Par la Noue, au fourrier d'Aldaran, six tonnelets.* Au bas de chaque page, la même initiale : D.",
         { with: "coliane", text: "Coliane feuillette le carnet par-dessus ton épaule. « Il vend le sel blanc à Aldaran, dit-elle lentement, il fait manger de la boue à ses propres soldats, et il se fait payer deux fois. Je connais des écorcheurs qui ont plus d'honneur que lui. »" },
         { with: "aubin", text: "Frère Aubin est resté devant les tonnelets blancs. Il pense au cellier, en haut, aux soixante paillasses. Il ne dit rien. Ses mains tremblent." },
       ],
@@ -1008,8 +1008,8 @@ module.exports = {
       fx: { meet: ["iiiv_guiraud", "iiiv_rosine"] },
       text: [
         { outcome: "lose", text: "Les gardes acceptent de te laisser entrer pour le prix d'une demi-couronne, ce qui, d'après le sergent, n'est pas un pot-de-vin mais une contribution à l'effort de guerre." },
-        "Ils sont six dans la paille. Guiraud Pelletier, l'échevin, un homme d'une cinquantaine d'années à la barbe grise, qui a gardé sa chaîne d'office autour du cou comme si elle pouvait encore lui servir. La meunière, Perrine Goujon, et le vieux Anthelme, un tonnelier presque aveugle. Blaise le forgeron et son fils Thomas, douze ans, qui ne lâche pas la main de son père. Et Rosine Vasseur, la fille du passeur, quinze ans, des yeux noirs, des poings serrés sur les genoux.",
-        "« Les bateliers de Merle ont toujours passé tout le monde, explique Guiraud. Les marchands, les pèlerins, les soldats des deux rives. C'est notre métier, depuis que l'Isarde coule. Il y a trois semaines, des éclaireurs d'Aldaran ont traversé la Noue dans une de nos barques et ont égorgé un poste de Vel-Orin. Le lendemain, la duchesse a fait prendre six d'entre nous. Si un seul batelier de Merle passe encore un homme d'Aldaran, elle en pend un. Puis un autre. »",
+        "Ils sont six dans la paille. Guiraud Pelletier, l'échevin, un homme d'une cinquantaine d'années à la barbe grise, qui a gardé sa chaîne d'office autour du cou comme si elle pouvait encore lui servir. La meunière, Perrine Goujon, et le vieux Ansbert, un tonnelier presque aveugle. Blaise le forgeron et son fils Thomas, douze ans, qui ne lâche pas la main de son père. Et Rosine Vasseur, la fille d'un batelier, quinze ans, des yeux noirs, des poings serrés sur les genoux.",
+        "« Les bateliers de Merle ont toujours passé tout le monde, explique Guiraud. Les marchands, les pèlerins, les soldats des deux rives. C'est notre métier, depuis que l'Isarde coule. Il y a deux semaines, des éclaireurs d'Aldaran ont traversé la Noue dans une de nos barques et ont égorgé un poste de Vel-Orin. Le lendemain, la duchesse a fait prendre six d'entre nous. Si un seul batelier de Merle passe encore un homme d'Aldaran, elle en pend un. Puis un autre. »",
         "Rosine parle pour la première fois. « Mon frère Colin a pris la barque, l'autre nuit. Il voulait voir notre mère. Il est revenu ? Vous l'avez vu, à Merle ? »",
         { if: { item: "iiiv_mouchoir" }, text: "Tu tends à Guiraud le mouchoir de batiste, brodé d'un G et d'un P, noué aux quatre coins. Il le reconnaît avant de le toucher. Il le défait, coin par coin, et dedans il y a une mèche de cheveux gris et une dragée. Il mange la dragée. Il ne dit rien pendant longtemps, et les autres regardent ailleurs pour le laisser pleurer." },
       ],
@@ -1029,7 +1029,7 @@ module.exports = {
       text: [
         "« Les otages ? » Orsini ne lève pas les yeux de son registre. « Un otage, c'est un contrat. Merle s'est engagée à ne plus passer les gens d'Aldaran, et j'ai pris six gages pour m'assurer qu'elle tient sa parole. Quand on rompt un contrat, on perd le gage. C'est la même chose à la foire d'Orme. »",
         "Elle tourne une page. « Je peux les vendre, bien sûr. Tout se vend. Sept couronnes et demie pour les six, c'est-à-dire cent cinquante sous, payés à mon trésorier, et ils rentrent chez eux demain. Ou bien vous me donnez une raison d'être généreuse. Je n'en vois pas beaucoup. »",
-        { if: { has: "iiiv:colin" }, text: "Tu lui parles de Colin Vasseur, quinze ans, pendu à l'orme du carrefour avec des aveux obtenus. Elle t'écoute sans ciller. « Ce n'est pas moi qui l'ai pendu, dit-elle. C'est mon prévôt, qui fait son travail, et qui le fait mal. Je le lui dirai. Ça ne rendra pas son fils à la mère, et ça ne change rien à mon contrat. »" },
+        { if: { has: "iiiv:colin" }, text: "Tu lui parles de Colin Vasseur, treize ans, pendu à l'orme du carrefour avec des aveux obtenus. Elle t'écoute sans ciller. « Ce n'est pas moi qui l'ai pendu, dit-elle. C'est mon prévôt, qui fait son travail, et qui le fait mal. Je le lui dirai. Ça ne rendra pas son fils à la mère, et ça ne change rien à mon contrat. »" },
       ],
       choices: [
         { label: "Payer les cent cinquante sous", fx: { gold: -150 }, to: "IIIV_otages_rachat" },
@@ -1050,7 +1050,7 @@ module.exports = {
       fx: { set: { otages: "rachetes" }, quest: "III_otages", regard: { iiiv_guiraud: "redevable", iiiv_aude: "redevable" }, conf: { aubin: 10, coliane: -5 }, ep: ["seance", 2500] },
       text: [
         "Fava compte tes pièces deux fois, les pèse, les fait sonner, et t'en refuse une qu'il trouve rognée. On t'en demande une autre. Il signe un reçu, le fait contresigner par un secrétaire, le fait sceller. On ne relâche pas six personnes sans papier.",
-        "Le lendemain matin, la poutre de la grange aux dîmes est levée. Les six sortent en clignant des yeux dans la lumière grise. Le vieux Anthelme marche au bras de Thomas, le fils du forgeron. Personne ne les escorte : on les pousse simplement vers la route du bac, comme on lâche des bêtes qu'on vient de vendre.",
+        "Le lendemain matin, la poutre de la grange aux dîmes est levée. Les six sortent en clignant des yeux dans la lumière grise. Le vieux Ansbert marche au bras de Thomas, le fils du forgeron. Personne ne les escorte : on les pousse simplement vers la route du bac, comme on lâche des bêtes qu'on vient de vendre.",
         { if: { has: "iiiv:rosine_sait" }, text: "Rosine passe devant toi sans s'arrêter. Puis elle revient sur ses pas, te serre la main très fort, et repart en courant vers la Noue, vers sa mère, vers ce qu'elle a à lui dire." },
         "Guiraud Pelletier s'arrête à ta hauteur. « Je vous rembourserai, dit-il. Merle vous remboursera. Ça prendra du temps. Il faudra d'abord qu'il y ait de nouveau une Merle. »",
         { with: "coliane", text: "Coliane te regarde payer avec une moue. « Elle va reprendre six otages la semaine prochaine, dit-elle, puisqu'elle sait maintenant ce qu'ils valent. » Elle n'a peut-être pas tort. Ce matin, ça n'a pas d'importance." },
@@ -1061,7 +1061,7 @@ module.exports = {
       text: [
         "La duchesse t'écoute jusqu'au bout. Elle fait tourner une bague, puis une autre. Puis elle prend une plume, écrit trois lignes, signe, sèche l'encre avec du sable et te tend le papier sans un mot. *Que les gages de Merle soient rendus à leur village, en signe de la bonne volonté de Vel-Orin envers la médiation de l'Ordre de la Main. O.*",
         "« Ce n'est pas de la bonté, dit-elle en reprenant son registre. C'est de la publicité. Dans un mois, toute la vallée saura que la duchesse de Vel-Orin a rendu ses otages, et que le roi d'Aldaran a pendu son déserteur. Ou ne l'a pas pendu. Peu importe. On saura que j'ai été la première. »",
-        "Le soir même, la poutre de la grange est levée. Les six de Merle sortent dans le crépuscule. Guiraud s'incline devant toi jusqu'à terre, chaîne d'office et tout. Le vieux Anthelme demande si c'est déjà la Toussaint, à cause des chandelles qu'on allume au camp.",
+        "Le soir même, la poutre de la grange est levée. Les six de Merle sortent dans le crépuscule. Guiraud s'incline devant toi jusqu'à terre, chaîne d'office et tout. Le vieux Ansbert demande si c'est déjà la Toussaint, à cause des chandelles qu'on allume au camp.",
         { with: "aubin", text: "Frère Aubin les bénit un à un, à la porte de la grange, du pouce sur le front. Quand Rosine passe, elle lui prend la main et l'embrasse, et il ne sait plus où se mettre." },
       ],
       choices: [{ label: "Les accompagner jusqu'au bout du camp", back: "IIIV_camp" }] },
@@ -1069,7 +1069,7 @@ module.exports = {
       fx: { set: { otages: "echanges" }, quest: "III_otages", regard: { iiiv_guiraud: "redevable" }, ep: ["seance", 2500] },
       text: [
         { if: { has: "iiiv:echange_carnet" }, text: "Tu poses le carnet de toile cirée sur le registre de la duchesse et tu le lui ouvres à la bonne page. *Par la Noue, aux vivandiers de Hautmont, douze tonnelets.* Elle lit. Elle tourne les pages. Elle lit encore. « Vous me vendez mon propre intendant, dit-elle enfin. Six de Merle pour un d'Orme. C'est un bon prix. Pour moi. » Elle signe l'ordre de libération en même temps qu'elle signe l'ordre d'arrestation, avec la même plume." },
-        { if: { has: "iiiv:echange_ruban" }, text: "Tu tends le bras. La duchesse sourit, pour la première fois vraiment, et elle noue elle-même le ruban pourpre au-dessus de ton coude, avec une adresse de couturière. « Six paysans pour un médiateur, dit-elle. Je n'ai jamais fait de meilleure affaire de ma vie. Aldaran vous appellera traître. Merle vous appellera autrement. » Elle signe l'ordre de libération sans même le relire." },
+        { if: { has: "iiiv:echange_ruban" }, text: "Tu tends le bras. La duchesse sourit, pour la première fois vraiment, et elle noue elle-même le ruban pourpre au-dessus de ton coude, avec une adresse de couturière. « Six paysans pour un ruban, dit-elle. Je n'ai jamais fait de meilleure affaire de ma vie. Aldaran vous appellera traître. Merle vous appellera autrement. » Elle signe l'ordre de libération sans même le relire." },
         "Le soir, les six de Merle sortent de la grange aux dîmes. On leur rend leurs affaires, leurs ceintures, la chaîne d'office de Guiraud qu'on lui avait laissée par dérision. Ils partent vers la Noue en se tenant les uns les autres, et ils se retournent souvent, comme s'ils n'y croyaient pas.",
         { with: "thavary", text: "Thavary te regarde partir les rejoindre, et elle ne dit rien. Elle a vu le prix. Elle sait mieux que personne qu'on peut vendre ce qu'on est pour sauver ce qu'on aime, et ce que ça laisse." },
       ],
@@ -1099,9 +1099,9 @@ module.exports = {
       text: [
         { if: { has: "iiiv:sommeil_eau" }, text: "L'eau du seau frémit sous ton souffle. Tu ne dis rien à voix haute ; tu n'en as pas besoin. Une minute plus tard, le premier garde bâille, puis le second, et ils s'endorment tous les quatre autour du brasero, la tête sur l'épaule les uns des autres, avec des visages d'enfants. Ils ne se réveilleront qu'au jour, et ils ne se souviendront de rien qu'un rêve où quelqu'un leur chantait une berceuse." },
         { if: { has: "iiiv:evasion_sang" }, text: "Il y a du sang sur la paille de la porte, et un garde qui ne se relèvera pas. Il n'y a plus le temps d'y penser." },
-        "Ils sortent un par un : Rosine la première, sans un bruit, puis Thomas et son père, puis Perrine, puis Guiraud qui pousse devant lui le vieux Anthelme. Le vieux trébuche à chaque pas. Vous traversez le cimetière des moniales entre les croix, puis le mur bas, puis les vignes en terrasses, à quatre pattes, les mains dans la terre froide, pendant que derrière vous les feux du camp brûlent sans que personne ne crie.",
-        "À mi-chemin, le vieux Anthelme s'assied dans un rang de vigne et refuse de se relever. « Laissez-moi, dit-il. Je suis aveugle, je suis vieux, je n'ai plus de femme. Ils ne pendront pas un aveugle. »",
-        { with: "thavary", text: "Thavary se penche, prend le vieux sur son dos comme un sac de grain, et repart sans un mot. Anthelme proteste. Elle ne l'écoute pas." },
+        "Ils sortent un par un : Rosine la première, sans un bruit, puis Thomas et son père, puis Perrine, puis Guiraud qui pousse devant lui le vieux Ansbert. Le vieux trébuche à chaque pas. Vous traversez le cimetière des moniales entre les croix, puis le mur bas, puis les vignes en terrasses, à quatre pattes, les mains dans la terre froide, pendant que derrière vous les feux du camp brûlent sans que personne ne crie.",
+        "À mi-chemin, le vieux Ansbert s'assied dans un rang de vigne et refuse de se relever. « Laissez-moi, dit-il. Je suis aveugle, je suis vieux, je n'ai plus de femme. Ils ne pendront pas un aveugle. »",
+        { with: "thavary", text: "Thavary se penche, prend le vieux sur son dos comme un sac de grain, et repart sans un mot. Ansbert proteste. Elle ne l'écoute pas." },
         { without: "thavary", text: "Tu le prends sur ton dos. Il ne pèse presque rien, et il proteste tout le long, à voix basse, que c'est une honte de porter un homme comme ça." },
       ],
       choices: [{ label: "Gagner le bac de la Noue avant l'aube", to: "IIIV_otages_merle" }] },
@@ -1119,7 +1119,7 @@ module.exports = {
       urgent: 25,
       text: [
         "Un osselet tombe. Un garde se penche pour le ramasser, et dans le mouvement, il voit la porte du grenier ouverte, et une jambe qui en dépasse. Il crie. Les trois autres se lèvent d'un bloc, renversent le brasero, et des braises roulent dans la paille de la porte.",
-        "Derrière toi, dans la grange, les otages sont à moitié sortis : Rosine sur le toit, Guiraud au pied du mur, le vieux Anthelme encore dans la paille. Le cri se propage de tente en tente. Dans un instant, il y aura cent hommes ici.",
+        "Derrière toi, dans la grange, les otages sont à moitié sortis : Rosine sur le toit, Guiraud au pied du mur, le vieux Ansbert encore dans la paille. Le cri se propage de tente en tente. Dans un instant, il y aura cent hommes ici.",
       ],
       choices: [
         { label: "Te battre pour leur ouvrir le chemin", fight: { title: "La garde de la grange", enemies: [{ id: "iiiv_garde", n: 3 }], terrain: "bati",
@@ -1133,9 +1133,9 @@ module.exports = {
     IIIV_otages_tenu: { act: "III", title: "La porte", place: "sainteorme", takes: "morning",
       fx: { set: { otages: "evades" }, quest: "III_otages", flag: "iiiv:evasion", fac: { velorin: -25 }, regard: { morn: "admiratif", iiiv_rosine: "admiratif", iiiv_guiraud: "redevable" }, conf: { thavary: 10, aubin: 10, pip: 10 }, ep: ["histoire", 3000] },
       text: [
-        "Tu refermes le battant de l'intérieur et tu t'y adosses, les pieds calés contre la poutre tombée. Dehors, on frappe, on pousse, on jure. Le bois tremble contre tes épaules à chaque coup. Derrière toi, dans le noir de la grange, tu entends les otages grimper l'échelle du grenier, un à un, et le vieux Anthelme qu'on hisse en ahanant. Tu tiens. Tu ne penses à rien d'autre. Tu tiens.",
+        "Tu refermes le battant de l'intérieur et tu t'y adosses, les pieds calés contre la poutre tombée. Dehors, on frappe, on pousse, on jure. Le bois tremble contre tes épaules à chaque coup. Derrière toi, dans le noir de la grange, tu entends les otages grimper l'échelle du grenier, un à un, et le vieux Ansbert qu'on hisse en ahanant. Tu tiens. Tu ne penses à rien d'autre. Tu tiens.",
         { outcome: "lose", text: "Une hache passe à travers le battant, à une main de ta tête. Puis une autre, plus bas, qui t'entaille la cuisse. Tu tiens quand même, parce qu'il n'y a rien d'autre à faire." },
-        "Quand la porte cède enfin, la grange est vide. Les gardes te jettent à terre, te rouent de coups, te traînent à la cave à huile. Au matin, Morn vient te voir, avec son thé. Il te regarde longtemps, ton visage tuméfié, tes mains écorchées. « Vous avez tenu une porte toute seule contre une compagnie, dit-il. Pour six paysans. » Il secoue la tête, et il a l'air presque ému. « La duchesse voulait vous pendre. Je lui ai dit qu'un médiateur pendu nous coûterait plus cher que six otages. Elle a fait le calcul. Vous êtes libre. Ne revenez pas trop vite. »",
+        "Quand la porte cède enfin, la grange est vide. Les gardes te jettent à terre, te rouent de coups, te traînent à la cave à huile. Au matin, Morn vient te voir, avec son thé. Il te regarde longtemps, ton visage tuméfié, tes mains écorchées. « Vous avez tenu une porte contre une compagnie, sans personne, dit-il. Pour six paysans. » Il secoue la tête, et il a l'air presque ému. « La duchesse voulait vous pendre. Je lui ai dit que vous pendre nous coûterait plus cher que six otages. Elle a fait le calcul. Vous êtes libre. Ne revenez pas trop vite. »",
         "Plus tard, tu apprends par un batelier que les six de Merle ont passé la Noue avant l'aube. Tous les six.",
       ],
       choices: [{ label: "Sortir de la cave en boitant", back: "IIIV_camp" }] },
@@ -1179,7 +1179,7 @@ module.exports = {
         { if: { clue: "r3_or_velorin" }, text: "Trois coffres d'or venus du nord, de couronnes d'Orme toutes neuves, qu'on renvoyait à Vel-Orin pour qu'elle paie ceux qui pourraient la trahir." },
         { if: { quest: "III_sel" }, text: "Du sel blanc vendu à l'ennemi par la rivière, et de la boue des marais dans l'écuelle de ceux qu'on envoie mourir." },
         { if: { quest: "III_otages" }, text: "Six personnes de Merle, et ce que tu as fait pour elles, qui ne te quittera pas." },
-        "Et partout, sous les tentes, dans les abreuvoirs, au fond des puits murés, de l'eau qui parle aux gens de leurs morts. Personne, ici, ne gagne cette guerre. Quelqu'un, pourtant, en profite.",
+        "Et partout, sous les tentes, dans les abreuvoirs, au fond des puits murés, de l'eau qui parle aux gens de leurs morts.",
         { if: { not: { seen: "IIIT_salle" } }, text: "Au sud, entre les lignes, la colline des Six fait une bosse noire sous les étoiles. On dit qu'on y entend de l'eau couler là où il n'y a pas d'eau." },
         { with: "pip", text: "Pip se pose sur ton genou, très près, plus près que d'habitude. « Je n'aime pas cet endroit, dit-il tout bas. Il y a trop de gens qui écoutent l'eau. » Puis il ne dit plus rien, et il reste là." },
       ],
@@ -1212,7 +1212,7 @@ module.exports = {
       fx: { clock: { voix: 1 }, reveal: "sainteorme", ep: ["perso", 1000] },
       text: [
         { first: true, text: "La colline des Six est ronde comme un pain, posée seule au milieu de la plaine entre l'Isarde et les vignes, à égale distance des deux camps. Personne ne la tient. Les deux armées l'ont prise chacune une fois, au début de l'automne, et l'ont perdue aussitôt, parce que tout ce qui est en haut se voit de partout. Depuis, on la laisse. Sur ses flancs, l'herbe a repoussé entre les morts qu'on n'a pas ramassés." },
-        { first: true, text: "Au sommet, dans un cercle d'ormes morts, il y a un tertre de terre et de pierres, haut comme deux maisons, avec un portail de pierre grise tourné vers l'est. Le tombeau des fondateurs. Les gens de Merle disent que les Cinq Mains y ont été mis à reposer, et que c'est pour ça que les flèches n'y entrent jamais. Les soldats des deux camps disent qu'on y entend de l'eau couler là où il n'y a pas d'eau." },
+        { first: true, text: "Au sommet, dans un cercle d'ormes morts, il y a un tertre de terre et de pierres, haut comme deux maisons, avec un portail de pierre grise tourné vers l'est. Le tombeau des fondateurs. Les gens de Merle disent que les Cinq y reposent, et que c'est pour ça que les flèches n'y entrent jamais. Les soldats des deux camps disent qu'on y entend de l'eau couler là où il n'y a pas d'eau." },
         { first: true, text: "Devant le portail, un cheval gris est attaché à un orme. Trois hommes sont assis sur les marches, en manteau sombre, l'épée en travers des genoux. Ils portent des gants noirs." },
         { first: true, if: { has: "veyra:vue" }, text: "Tu connais ces gants. La Gorge-Blanche, le torrent, les épées sans emblème. Le cheval gris est celui de Veyra." },
         { again: true, when: "day", text: "La colline des Six, ses ormes morts, son tertre. Le vent du sud y apporte la fumée des deux camps à la fois. Au pied de la pente, le chiffon blanc de la trêve pend à sa perche." },
@@ -1265,7 +1265,7 @@ module.exports = {
     IIIT_enfants: { act: "III", title: "La vieille citerne", place: "colline",
       urgent: 30,
       text: [
-        "Sur le flanc ouest, il y a une vieille citerne de pierre, du temps où l'on faisait des processions sur la colline et où il fallait de l'eau pour les pèlerins. Trois enfants de Merle sont penchés sur la margelle et crient. Un panier de carreaux est renversé dans l'herbe. Le rouquin, Mathieu, que tu as peut-être déjà croisé sur les routes, essaie de descendre en se tenant aux pierres et n'y arrive pas.",
+        "Sur le flanc ouest, il y a une vieille citerne de pierre, du temps où l'on faisait des processions sur la colline et où il fallait de l'eau pour les pèlerins. Trois enfants de Merle sont penchés sur la margelle et crient. Un panier de carreaux est renversé dans l'herbe. Le plus grand, un rouquin que les autres appellent Mathieu, essaie de descendre en se tenant aux pierres et n'y arrive pas.",
         "« Ma sœur ! crie-t-il. Elle a glissé ! Elle voulait ramasser un carreau sur le bord ! » Au fond, à quatre toises, dans une eau noire qui ne devrait pas être là, puisque la citerne est sèche depuis vingt ans, une petite fille de six ans se débat, et l'eau monte. Elle monte doucement, sans bruit, comme une main qui se referme.",
         { with: "gloup", text: "Gloup s'est déjà jeté sur la margelle, et il s'étire vers le bas, de pierre en pierre, en une longue corde de bave qui tremble." },
       ],
@@ -1283,7 +1283,7 @@ module.exports = {
       text: [
         { if: { has: "iiit:gloup_heros" }, text: "Gloup s'enroule autour de la fillette comme un châle et remonte, lentement, en se collant aux pierres. Quand il la dépose dans l'herbe, elle a de la bave partout, elle tousse, elle pleure, et elle le serre dans ses bras sans aucune peur. Gloup ne sait pas quoi faire. Il ne bouge plus. Il a l'air de quelqu'un qui reçoit une médaille." },
         { if: { has: "iiit:eau_noire" }, text: "L'eau est tiède. C'est la première chose, et la pire. Elle est tiède comme un bain qu'on aurait fait couler pour toi, et elle se referme sur tes épaules sans faire de vagues. Pendant que tu attrapes la petite par sa robe, tu entends, tout près de ton oreille, sous la surface, une voix de femme qui dit ton nom, {hero}, sans hâte, comme pour te rappeler qu'elle le connaît." },
-        "La fillette s'appelle Margaux. Elle a perdu un sabot, et elle tient encore dans son poing serré le carreau qu'elle voulait ramasser. Mathieu la secoue, l'embrasse, la secoue encore, et l'engueule si fort qu'elle se met à rire.",
+        "La fillette s'appelle Margaux. Elle a perdu un sabot, et elle tient encore dans son poing serré le carreau qu'elle voulait ramasser. Mathieu la secoue, l'embrasse, la secoue encore, et la gronde si fort qu'elle se met à rire.",
         "Quand tu te penches de nouveau sur la margelle, la citerne est sèche. Il n'y a rien au fond qu'un sabot d'enfant posé sur des pierres blanches et un peu de boue. Mathieu regarde aussi, et il ne dit rien, et il emmène les autres en courant sans ramasser son panier.",
       ],
       choices: [{ label: "Ramasser le panier de carreaux pour eux", fx: { ep: ["perso", 600], conf: { pip: 5 } }, back: "IIIT_colline" }] },
@@ -1311,7 +1311,7 @@ module.exports = {
       text: [
         "Le vieux chevalier t'écoute. Il s'appelle Odric, dit-il, et il a porté le gant gris de l'Ordre pendant trente ans avant de le teindre en noir. Il n'a pas l'air d'un fanatique : il a l'air d'un homme fatigué qui a choisi un camp une fois pour toutes, et qui ne se pose plus la question parce que c'est trop lourd.",
         { if: { item: "jeton_cercle" }, text: "Le jeton d'os du Cercle, quand tu le lui montres, le fait soupirer. « On est du même bord, alors, dit-il. Je ne sais pas si ça me rassure. »" },
-        "« Dame Veyra a dit que si quelqu'un venait qui savait poser des questions, il fallait le laisser descendre, finit-il par dire. Elle a dit aussi que vous ne remonteriez pas forcément le même. Descendez. Ne touchez pas à l'eau. Et quand vous arriverez à la porte, vous verrez bien ce qu'elle demande. »",
+        "« Dame Veyra a dit que si quelqu'un venait qui savait poser des questions, il fallait le laisser descendre, finit-il par dire. Elle a dit aussi qu'on ne remonte pas forcément comme on est descendu. Descendez. Ne touchez pas à l'eau. Et quand vous arriverez à la porte, vous verrez bien ce qu'elle demande. »",
       ],
       choices: [{ label: "Descendre dans le tertre", fx: { flag: "iiit:odric_parle" }, to: "IIIT_vestibule" }] },
     IIIT_gardes_combat: { act: "III", title: "Les gants noirs", place: "colline",
@@ -1358,7 +1358,7 @@ module.exports = {
         { with: "charline", text: "Charline regarde les rainures. « La pierre se dilate quand on la chauffe, dit-elle. Si je chauffe les montants, la dalle se coince. Pour un moment. Si je ne la fends pas. »" },
       ],
       choices: [
-        { label: "Tenir la dalle toi-même, et passer le dernier", test: { dom: "combat", diff: -20, label: "Tenir la porte", help: [{ with: "thavary", v: 10 }, { if: { arch: "guerrier" }, v: 10 }] },
+        { label: "Tenir la dalle toi-même, et passer en dernier", test: { dom: "combat", diff: -20, label: "Tenir la porte", help: [{ with: "thavary", v: 10 }, { if: { arch: "guerrier" }, v: 10 }] },
           win: { fx: { flag: "iiit:tenu_seul", ep: ["seance", 3000] }, to: "IIIT_epreuve_tenue" },
           lose: { to: "IIIT_epreuve_main" } },
         { label: "Chercher le contrepoids que les bâtisseurs ont dû prévoir", test: { dom: "savoir", diff: -10, label: "Comprendre le mécanisme", help: HELP_LEARN },
@@ -1390,7 +1390,7 @@ module.exports = {
       text: [
         "La dalle t'échappe. Elle ne tombe pas d'un coup : elle s'affaisse, d'un seul mouvement lourd, et tu as juste le temps de pousser les autres dessous et de te jeter derrière eux. Le bord de pierre te prend la main gauche au passage, contre le sol. Tu entends le craquement avant de le sentir.",
         "Quand tu dégages ta main, deux doigts ne veulent plus se plier. Tu es de l'autre côté. La dalle est retombée dans un nuage de poussière, et le couloir, derrière, est fermé. Il faudra trouver une autre sortie. Il y en a toujours une, dans ce genre de tombeau : ceux qui l'ont bâti savaient qu'on voudrait en sortir.",
-        { with: "aubin", text: "Frère Aubin te prend la main, la regarde, remet les deux doigts en place d'un geste sec, sans prévenir, et serre un bandage dessus. « Ça se ressoudera, dit-il. De travers, peut-être. Tu te souviendras de cette porte. »" },
+        { with: "aubin", text: "Frère Aubin te prend la main, la regarde, remet les deux doigts en place d'un geste sec, sans prévenir, et serre un bandage dessus. « Ça se ressoudera, dit-il. De travers, peut-être. Vous vous souviendrez de cette porte. »" },
       ],
       choices: [{ label: "Te relever dans la salle", to: "IIIT_salle" }] },
 
@@ -1445,17 +1445,17 @@ module.exports = {
     IIIT_veyra: { act: "III", title: "Veyra", place: "colline", backName: "Veyra, devant le mur",
       fx: { meet: "veyra" },
       text: [
-        { first: true, text: "Veyra se relève et se tourne vers toi. Elle a un visage dur et fatigué, une cicatrice qui lui fend le sourcil gauche, et des yeux très clairs qui ne cillent presque jamais. Elle ne porte pas la main à son épée. Elle te regarde comme on regarde quelqu'un dont on a beaucoup entendu parler et qui ne ressemble pas tout à fait à ce qu'on vous a dit." },
+        { first: true, text: "Veyra se relève et se tourne vers toi. Elle a un visage dur et fatigué, une cicatrice qui lui ferme à demi l'œil gauche, et des yeux très clairs qui ne cillent presque jamais. Elle ne porte pas la main à son épée. Elle te regarde comme on regarde quelqu'un dont on a beaucoup entendu parler et qui ne ressemble pas tout à fait à ce qu'on vous a dit." },
         { first: true, if: { is: { embuscade: "gagnee" } }, text: "« La Gorge-Blanche, dit-elle. Vous m'avez battue, ce jour-là. Je ne vous en veux pas. Je me suis battue pour une chose juste avec de mauvais moyens. Ça arrive. »" },
         { first: true, if: { is: { embuscade: "perdue" } }, text: "« La Gorge-Blanche, dit-elle. Je vous ai battu{e}, ce jour-là, et je ne m'en suis pas réjouie. Vous n'étiez pas mon ennemi{e}. Vous étiez seulement sur le chemin. »" },
         { first: true, if: { is: { embuscade: "parlee" } }, text: "« La Gorge-Blanche, dit-elle. Vous avez parlé, au lieu de vous battre. Je n'ai pas cessé d'y penser. Vous avez posé une question à laquelle je n'avais pas de réponse. »" },
-        { first: true, if: { not: { has: "veyra:vue" } }, text: "« Veyra de Hautcastel, dit-elle. J'ai porté le gant gris de l'Ordre vingt ans. Je porte celui-ci depuis six. » Elle lève une main gantée de noir. « On dit de moi beaucoup de choses. La plupart sont vraies. »" },
+        { first: true, if: { not: { has: "veyra:vue" } }, text: "« Veyra de Hautcastel, dit-elle. J'ai porté le gant gris de l'Ordre vingt ans. Je porte celui-ci depuis sept. » Elle lève une main gantée de noir. « On dit de moi beaucoup de choses. La plupart sont vraies. »" },
         { again: true, text: "Veyra est toujours devant le mur jauni, debout, les mains gantées croisées dans le dos. Elle t'attend." },
       ],
       choices: [
         { label: "« Qui vous paie ? Et qui payez-vous ? »", hide: { seen: "IIIT_veyra_or" }, to: "IIIT_veyra_or" },
         { label: "« Que faites-vous ici, devant ce mur ? »", hide: { seen: "IIIT_veyra_lui" }, to: "IIIT_veyra_lui" },
-        { label: "Lui demander si elle a vu ton maître", hide: { any: [{ seen: "IIIT_veyra_maitre" }, { not: { has: "maitre:disparu" } }] }, to: "IIIT_veyra_maitre" },
+        { label: "Lui demander si elle a vu ta maîtresse", hide: { any: [{ seen: "IIIT_veyra_maitre" }, { not: { has: "maitre:disparu" } }] }, to: "IIIT_veyra_maitre" },
         { label: "« Ce qui vous parle dans l'eau n'est pas lui. »", hide: { seen: "IIIT_veyra_eau" }, if: { clues: "V", min: 2 }, why: "Il te faudrait savoir ce qui parle dans l'eau pour le lui dire (deux indices sur la Voix).", to: "IIIT_veyra_eau" },
         { label: "L'aider à ouvrir le mur", hide: { not: { seen: "IIIT_veyra_lui" } }, to: "IIIT_mur_ouvrir" },
         { label: "Lui interdire de toucher à ce mur", hide: { not: { seen: "IIIT_veyra_lui" } }, to: "IIIT_mur_garde" },
@@ -1466,7 +1466,7 @@ module.exports = {
       ] },
     IIIT_veyra_or: { act: "III", title: "L'or des deux", place: "colline",
       text: [
-        { if: { clue: "r3_veyra" }, text: "Veyra hausse les sourcils. « Vous étiez derrière les buis, l'autre nuit, dit-elle. Je vous ai entendu respirer. Je n'ai rien à ajouter à ce que j'ai dit à Morn. Je vends ce que je sais. Je vends la même chose aux deux. »" },
+        { if: { clue: "r3_veyra" }, text: "Veyra hausse les sourcils. « Vous étiez derrière les buis, l'autre nuit, dit-elle. Je vous ai entendu{e} respirer. Je n'ai rien à ajouter à ce que j'ai dit à Morn. Je vends ce que je sais. Je vends la même chose aux deux. »" },
         { if: { not: { clue: "r3_veyra" } }, text: "Veyra ne fait pas semblant. « Morn me paie. Le connétable d'Aldaran aussi. Je leur vends la même chose, à quelques détails près : la position de l'autre. Je veux que cette guerre dure, et qu'elle coûte, parce que l'Ordre envoie ses frères y mourir et que chaque frère qui meurt dans la plaine n'est plus à garder la porte. » Elle sourit, sans joie. « Mais je vais vous dire une chose que ni l'un ni l'autre ne sait. »" },
         { if: { not: { clue: "r3_veyra" } }, text: "« Je vends à l'un ce que me paie l'autre. Mais l'or des deux, au bout du compte, vient de la même main. Une main gantée de blanc, à Hautmont. »" },
         "Elle se retourne vers le mur. « Je m'en moque, d'où vient l'or. Il sert à ce qu'il sert. Ce qui m'importe est derrière ce mur, et plus bas, beaucoup plus bas, sous le glacier. Le reste, ce sont des rois qui se disputent du sel. »",
@@ -1481,10 +1481,10 @@ module.exports = {
         { with: "pip", text: "Pip s'est caché dans ton col dès que Veyra a parlé du mur. Tu le sens trembler. Il ne dit rien." },
       ],
       choices: [{ label: "Réfléchir à ce qu'elle demande", fx: { ep: ["seance", 1500] }, back: "IIIT_veyra" }] },
-    IIIT_veyra_maitre: { act: "III", title: "Ton maître", place: "colline",
+    IIIT_veyra_maitre: { act: "III", title: "Ta maîtresse", place: "colline",
       text: [
-        "Veyra réfléchit. « Votre maître est venu ici, dit-elle enfin. Il y a un an, peut-être un peu plus. Seul. Il a mesuré, il a lu le mortier, il est reparti sans toucher à rien. Odric l'a vu passer. Il a dit que c'était quelqu'un qui savait ce qu'il cherchait et qui avait peur de le trouver. »",
-        "Elle hésite, ce qui ne lui ressemble pas. « Et il y a autre chose. De l'autre côté du fleuve, au camp d'Aldaran, le conseiller Vendrel a un champion. Masqué. Il ne parle pas, il ne mange pas avec les autres, il se bat comme quelqu'un qu'on a très bien formé il y a longtemps. Je ne dis pas que c'est votre maître. Je dis que si j'avais un maître disparu dans l'eau de Saint-Ivo, j'irais regarder sous ce masque. »",
+        "Veyra réfléchit. « Elle est venue ici, dit-elle enfin. Il y a un an, peut-être un peu plus. Seule. Elle a tout regardé, elle a lu le mortier, elle est repartie sans toucher à rien. Odric l'a vue passer. Il a dit que c'était quelqu'un qui savait ce qu'elle cherchait et qui avait peur de le trouver. »",
+        "Elle hésite, ce qui ne lui ressemble pas. « Et il y a autre chose. De l'autre côté du fleuve, au camp d'Aldaran, le conseiller Vendrel a un champion. Masqué. Il ne parle pas, il ne mange pas avec les autres, il se bat comme quelqu'un qu'on a très bien formé il y a longtemps. Vendrel ne l'avait pas avant cet automne. »",
       ],
       choices: [{ label: "Ne rien répondre", fx: { ep: ["perso", 1000] }, back: "IIIT_veyra" }] },
     IIIT_veyra_eau: { act: "III", title: "La voix d'enfant", place: "colline",
@@ -1501,7 +1501,7 @@ module.exports = {
         { if: { not: { clue: "m_tombeau" } }, text: "Avant de frapper, Veyra pose la main à plat sur les lettres tracées au doigt, au milieu du mur. *IL A TENU LA PORTE.* Elle les lit à voix haute, une dernière fois, pour que quelqu'un les ait entendues avant qu'elles tombent." },
         "Veyra frappe le mortier avec le pommeau de son épée. Tu l'aides avec ce que tu as. Les moellons sont mal jointoyés ; ils cèdent vite, l'un après l'autre, et roulent sur le dallage. L'inscription se fend en deux, puis en morceaux. L'eau se met à couler plus fort par le trou, noire, tiède, avec une odeur de vase.",
         "Derrière, la niche est vide. Pas d'urne, pas d'os. Un anneau de fer scellé dans la paroi du fond, avec trois maillons de chaîne cassés qui pendent. Un bol de terre cuite, vide, posé par terre, comme on en laisse aux malades. Et sur la paroi, à hauteur d'épaule, l'empreinte d'une main, en suie, petite, pas plus grande qu'une main de garçon de quinze ans.",
-        { with: "pip", text: "Pip sort de ton col d'un coup et file vers l'empreinte, et s'y pose, et s'éteint presque. Puis il revient, aussi vite, et se cache de nouveau contre ton cou, et tu le sens qui sanglote, si une lumière peut sangloter." },
+        { with: "pip", text: "Pip sort de ton col d'un coup et file vers l'empreinte, et s'y pose, et s'éteint presque. Puis il revient, aussi vite, et se cache de nouveau contre ton cou, et tu le sens trembler par à-coups, comme on sanglote." },
         "Alors l'eau, sur le dallage, se met à monter. Elle ne déborde pas de la rigole : elle se lève. La trace noire de la femme debout se décolle de la dalle, prend de l'épaisseur, se redresse. Elle a des cheveux d'algue et pas de visage, et elle se tourne vers vous.",
       ],
       choices: [
@@ -1608,8 +1608,8 @@ module.exports = {
       ] },
     IIIV_E_pigeon_lu: { title: "Le message",
       text: [
-        "Un papier pelure, roulé serré, couvert d'une écriture minuscule. Pas de chiffre : Morn ne chiffre que ce qui compte. *Le médiateur est arrivé. Laisser faire. Le laisser trouver ce qu'il cherche, il cherche au bon endroit. Surveiller la colline. La femme aux gants noirs y retourne chaque jour.*",
-        "Tu relis. *Le médiateur.* C'est toi. Morn écrit sur toi à quelqu'un qui n'est pas dans le camp, et qui n'a pas reçu le message.",
+        "Un papier pelure, roulé serré, couvert d'une écriture minuscule. Pas de chiffre : Morn ne chiffre que ce qui compte. *Notre visite est arrivée. Laisser faire. La laisser trouver ce qu'elle cherche, elle cherche au bon endroit. Surveiller la colline. La femme aux gants noirs y retourne chaque jour.*",
+        "Tu relis. *Notre visite.* C'est toi. Morn écrit sur toi à quelqu'un qui n'est pas dans le camp, et qui n'a pas reçu le message.",
       ],
       choices: [
         { label: "Rouler le papier et le remettre dans le tube", fx: { flag: "iiiv:pigeon_lu" }, back: ROUTE },
@@ -1647,7 +1647,7 @@ module.exports = {
     people: {
       iiiv_aude: { name: "Aude Pelletier", f: true, face: { age: "adulte", coif: "foulard" }, desc: "La femme de l'échevin de Merle. Elle porte encore à la ceinture les clés d'une maison où elle n'ose plus dormir seule." },
       iiiv_guiraud: { name: "Guiraud Pelletier", f: false, face: { age: "mur", beard: "barbe" }, desc: "L'échevin de Merle-sur-Isarde, otage de Vel-Orin. Il garde sa chaîne d'office autour du cou, comme si elle pouvait encore servir." },
-      iiiv_rosine: { name: "Rosine Vasseur", f: true, face: { age: "jeune", coif: "tresses", iris: "noir" }, desc: "La fille du passeur de Merle, quinze ans, otage à Sainte-Orme. Des yeux noirs et des poings serrés." },
+      iiiv_rosine: { name: "Rosine Vasseur", f: true, face: { age: "jeune", coif: "tresses", iris: "noir" }, desc: "La fille d'un batelier de Merle, quinze ans, otage à Sainte-Orme. Des yeux noirs et des poings serrés." },
       iiiv_sabin: { name: "Sabin Rocca", f: false, face: { age: "jeune", marks: ["lunettes"] }, desc: "Clerc de la chancellerie du camp de Vel-Orin, chargé de déchiffrer une lettre qui ne se laisse pas lire. Il boit pour ne pas y penser." },
       iiiv_fava: { name: "Messer Lodovico Fava", f: false, face: { age: "mur", coif: "degarni", shape: "rond" }, desc: "Le trésorier de l'armée de Vel-Orin. Gros, rose, couvert de bagues, et terrifié par ce qu'il compte." },
       iiiv_bruna: { name: "Bruna Calvi", f: true, face: { age: "adulte", coif: "court", marks: ["cicatrice"] }, desc: "Capitaine des arbalétriers de Vel-Orin. Carrée, directe, et la meilleure tireuse du camp." },

@@ -18,7 +18,7 @@ Object.assign(P, {
       { if: { is: { couronne: "velorin" } }, text: "Un commis de Vel-Orin, dans une cabane de planches au bout du gué, vend des laissez-passer pour l'est à deux sous la tête. Il a l'air sincèrement surpris qu'on trouve ça cher. La duchesse a gagné ; ses commis encaissent." },
       { if: { is: { couronne: "paix" } }, text: "Sur la grève, un piquier d'Aldaran et un arbalétrier de Vel-Orin distribuent ensemble le pain des deux couronnes, sans se parler, chacun de son côté du même tréteau. C'est la paix que tu as faite. Elle a l'air fatiguée, et elle tient." },
       { if: { has: "merle:sauve" }, text: "Le vieux Mauger a remis ta barque à l'eau pour toi, une dernière fois, et il te propose de te passer sur l'autre rive « pour rien, et même pour moins que ça »." },
-      { if: { mark: { min: 3 } }, text: "La tache de ta paume a passé le poignet pendant l'hiver. Elle ne fait pas mal. Elle est tiède, simplement, comme une main qu'on tiendrait dans la sienne, et quand tu te penches sur l'eau grise du gué, il te semble qu'elle se tend vers elle." },
+      { if: { mark: { min: 3 } }, text: "La tache de ta paume a passé le poignet depuis le gué. Elle ne fait pas mal. Elle est tiède, simplement, comme une main qu'on tiendrait dans la sienne, et quand tu te penches sur l'eau grise du gué, il te semble qu'elle se tend vers elle." },
       { with: "pip", text: "Pip ne quitte plus ton épaule. Il regarde la route de l'est avec une attention que tu ne lui connais pas. « Ils vont tous vers la montagne, dit-il. Comme l'eau, mais à l'envers. »" },
     ],
     choices: [
@@ -55,7 +55,7 @@ Object.assign(P, {
     text: [
       "Le givre a pris la colline. L'herbe craque sous tes pas, et la pierre que tu as posée, sans nom, porte une petite croûte blanche du côté du nord. D'ici on voit le gué, Fort-Gaudre, la route de l'est qui monte vers la brume, et la file des réfugiés dessus, des points noirs qui avancent sans se presser.",
       { if: { has: "maitre:hauberte" }, text: "Tu as planté son épée au pied de la pierre, la lame dans la terre. Quelqu'un, un soldat de passage sans doute, y a accroché un brin de houx. Hauberte aurait haussé les épaules. Elle aurait gardé le houx." },
-      { if: { has: "maitre:ortie" }, text: "Tu as semé de la sauge et de l'ortie autour de la pierre, à l'automne. Rien n'a levé encore. Ça lèvera au printemps, ou pas. Ortie disait que les plantes ne doivent rien à personne." },
+      { if: { has: "maitre:ortie" }, text: "Tu as semé de la sauge et de l'ortie autour de la pierre, le jour où tu l'as posée. Rien n'a levé encore. Ça lèvera au printemps, ou pas. Ortie disait que les plantes ne doivent rien à personne." },
       { if: { has: "maitre:maelle" }, text: "Tu as gravé au couteau, au dos de la pierre, une petite rose des vents. C'est tout. Maëlle aurait corrigé l'orientation : le nord est un peu de travers. Tu ne l'as pas refaite." },
       "Tu restes là un moment. Tu ne parles pas. Tu n'as jamais su parler aux tombes ; tu n'as jamais su non plus partir sans y être monté{e}. Le vent tourne à l'est, et il apporte, de très loin, une odeur que tu ne connais pas encore : de la neige, et sous la neige, quelque chose qui pourrit.",
       { with: "thavary", text: "Thavary est montée derrière toi, à distance. Elle salue la pierre de l'épée, à la manière ancienne, comme on salue un capitaine. Elle ne te dit rien. Elle redescend la première." },
@@ -118,15 +118,15 @@ Object.assign(P, {
     ],
     choices: [
       { label: "Soulever l'essieu à l'épaule pendant qu'ils changent la roue", test: { dom: "combat", diff: -10, label: "Porter la charrette", help: [{ with: "thavary", v: 15 }, { with: "gloup", v: 5 }] }, win: { fx: { ep: ["perso", 1200], flag: "IV:sg_route" }, to: "IV_r_colonne_roue" }, lose: { fx: { pv: -3, flag: "IV:sg_route" }, to: "IV_r_colonne_roue" } },
-      { label: "Laisse-moi faire, dit Thavary", who: "thavary", fx: { conf: { thavary: 5 }, flag: "IV:sg_route", ep: ["perso", 1200] }, to: "IV_r_colonne_roue" },
+      { label: "« Laisse-moi faire », dit Thavary", who: "thavary", fx: { conf: { thavary: 5 }, flag: "IV:sg_route", ep: ["perso", 1200] }, to: "IV_r_colonne_roue" },
       { label: "Montrer comment caler la roue avec des pierres et une perche", test: { dom: "savoir", diff: -10, label: "Caler la roue" }, win: { fx: { ep: ["perso", 1000], flag: "IV:sg_route" }, to: "IV_r_colonne_roue" }, lose: { fx: { flag: "IV:sg_route" }, to: "IV_r_colonne_roue" } },
       { label: "Contourner la charrette par le champ et continuer", back: R },
     ] },
   IV_r_colonne_roue: { title: "Ceux de Saint-Gilles",
     text: [
       { outcome: "win", text: "La charrette se soulève, la vieille roue sort des pierres avec un bruit de bois mort, et la neuve, une roue de brouette trop petite mais solide, prend sa place. On repart. La file, derrière, recommence à couler.", else: "Ce n'est pas joli, ça prend du temps, et à un moment la charrette retombe et tout le monde crie. Mais à la fin la roue de rechange tient, de travers, et la charrette sort du gué en grinçant. Tu as les mains écorchées et de l'eau grise jusqu'aux genoux." },
-      { if: { has: "passe:aide" }, text: "La vieille, sur la charrette, te regarde avec des yeux qui cherchent. Puis elle dit, pour elle-même : « Le petit qui portait les malades. » Elle s'appelle Benoîte. Elle a enterré tout le monde à Saint-Gilles, et elle n'a pas voulu laisser la croix du puits derrière elle : elle est là, sous les matelas, avec les deux lattes ficelées." },
-      { if: { has: "passe:fui" }, text: "La vieille femme sur la charrette, Benoîte, te remercie d'un signe de tête, et ne te reconnaît pas. Elle dit aux autres que tu as l'air d'un brave. Tu ne dis pas ton nom." },
+      { if: { has: "passe:aide" }, text: "La vieille, sur la charrette, te regarde avec des yeux qui cherchent. Puis elle dit, pour elle-même : « L'enfant qui portait les malades. » Elle s'appelle Benoîte. Elle a enterré tout le monde à Saint-Gilles, et elle n'a pas voulu laisser la croix du puits derrière elle : elle est là, sous les matelas, avec les deux lattes ficelées." },
+      { if: { has: "passe:fui" }, text: "La vieille femme sur la charrette, Benoîte, te remercie d'un signe de tête, et ne te reconnaît pas. Elle dit aux autres que tu as l'air de quelqu'un de bien. Tu ne dis pas ton nom." },
       { if: { has: "passe:profite" }, text: "Un homme, à la roue, s'est arrêté de travailler en te voyant. Il te regarde, puis il regarde les autres, puis il reprend la roue sans rien dire. Plus tard, quand tout est fini, il s'essuie les mains et te dit : « Jean Rabier. Je crois que vous me connaissez. Je paie à la Saint-Martin, au notaire de Merle. » Il ajoute : « Je ne paierai plus. Il n'y a plus de terre. »" },
       { if: { all: [{ has: "sg:terres_rendues" }, { has: "passe:profite" }] }, text: "Il ajoute, après un silence : « Non, pardon. Je dis des bêtises. Vous nous l'avez rendue. C'est le notaire qui m'a fait peur toute ma vie, pas vous. » Il te serre la main, des deux siennes." },
       "Ils vont à Vaux-Saint-Pierre. Le Père Thomasset est resté à Saint-Gilles avec ses morts et ses quarante-trois noms ; il a dit qu'il viendrait au printemps, s'il y a un printemps. On repart ensemble jusqu'au soir, puis la charrette de Saint-Gilles prend du retard, et tu la perds de vue.",
@@ -143,7 +143,7 @@ Object.assign(P, {
       { if: { has: "puits:clair" }, text: "Le puits, au milieu de la place, n'est pas fermé. Une femme y tire un seau, et l'eau qui en sort est claire. Elle la verse dans un tonneau, sur la charrette. On emporte l'eau de Brumefeuille, maintenant, comme on emporte ce qu'on a de plus précieux." },
       { if: { not: { has: "puits:clair" } }, text: "Le puits, au milieu de la place, est toujours fermé de planches. On a cloué par-dessus une seconde rangée, plus récente, et quelqu'un a gravé au couteau dans le bois : *pas même pour les bêtes*." },
       { if: { has: "voix:marche1" }, text: "Tu passes la main sur la margelle en traversant la place. Elle est tiède. Sous ta paume tachée, il te semble qu'elle te reconnaît." },
-      { with: "coliane", text: "Coliane s'est arrêtée à l'entrée de la place, là où elle s'arrêtait la première fois. « On était venues pour une fosse, dit-elle. Maintenant c'est toute la vallée. » Elle dit « venues », comme si elle parlait d'elle et de quelqu'un d'autre. Elle ne corrige pas." },
+      { with: "coliane", text: "Coliane s'est arrêtée à l'entrée de la place, là où elle s'arrêtait la première fois. « On était venues pour une fosse, dit-elle. Maintenant c'est toute la vallée. » Elle dit « venues ». Elle ne corrige pas." },
     ],
     choices: [
       { label: "Le puits et l'auberge du Chaudron", hide: { seen: "IV_r_bru_puits" }, to: "IV_r_bru_puits" },
@@ -161,7 +161,7 @@ Object.assign(P, {
       { if: { has: "puits:clair" }, text: "« Le puits a tenu, dit-elle. C'est le seul de la vallée. Les gens d'en bas viennent avec des tonneaux, et Charron voudrait qu'on les fasse payer. On ne les fait pas payer. » Elle hausse les épaules. « Mais un puits, ça ne nourrit pas. Les champs sont gris jusqu'à la lisière du Rouvre. Ceux qui ont des parents ailleurs partent. Ceux qui n'en ont pas partent quand même. »", else: "« Le puits n'est jamais revenu, dit-elle. On a bu l'eau du sanctuaire, à la louche, pendant tout l'automne. Maintenant la source du sanctuaire aussi se trouble, certains matins. Le Père Odon dit que c'est le froid. » Elle hausse les épaules. « Ceux qui ont des parents ailleurs partent. Ceux qui n'en ont pas partent quand même. »" },
       { if: { is: { charron: ["ouvert", "force", "achete"] } }, text: "Gilles Charron, dit-elle encore, a vendu sa halle à un marchand de Ferrance pour le prix d'un âne, et il est parti le premier, avec ses tonneaux. Elle ne le dit pas avec méchanceté. Elle le dit comme on annonce le temps qu'il fera." },
       { if: { is: { charron: ["complice", "laisse"] } }, text: "Gilles Charron, dit-elle encore, vend toujours son eau, sur la route de l'est maintenant, à ceux qui passent. Il a engagé deux hommes avec des gourdins pour garder ses tonneaux. Il fait de bonnes affaires. Il a toujours fait de bonnes affaires." },
-      { if: { has: "jeannot:gueri" }, text: "Jeannot Guérin passe en courant devant la fenêtre, une miche sous le bras, poursuivi par deux autres garçons. Il a grandi d'une tête depuis l'automne. Hortense le suit des yeux. « Celui-là, dit-elle, il se souviendra de toi toute sa vie. Il raconte à tout le monde que tu as tué un monstre sous le moulin. Je lui dis que ce n'est pas tout à fait ça. Il ne veut pas savoir. »" },
+      { if: { has: "jeannot:gueri" }, text: "Jeannot Guérin passe en courant devant la fenêtre, une miche sous le bras, poursuivi par deux autres garçons. Il a grandi, depuis les Brumes. Hortense le suit des yeux. « Celui-là, dit-elle, il se souviendra de toi toute sa vie. Il raconte à tout le monde que tu as tué un monstre sous le moulin. Je lui dis que ce n'est pas tout à fait ça. Il ne veut pas savoir. »" },
       { if: { all: [{ has: "I:voix" }, { not: { has: "jeannot:gueri" } }] }, text: "Tu demandes des nouvelles de Jeannot Guérin. Hortense baisse les yeux. « Perrine l'a emmené à Vaux, il y a dix jours, dit-elle. Il ne marchait plus. Elle l'a mis dans une brouette. Il paraît qu'il y a des prêtres, là-bas. »" },
     ],
     choices: [{ label: "Laisser deux sous sur le comptoir et ressortir", fx: { gold: -2, regard: { i_hortense: "cordial" } }, back: "IV_r_bru" }, { label: "Ressortir sur la place", back: "IV_r_bru" }] },
@@ -183,7 +183,7 @@ Object.assign(P, {
     text: [
       { if: { is: { berthe: "sauvee" } }, text: "La maison de Berthe est ouverte, et Berthe est sur le seuil, appuyée sur son bâton, en train de regarder deux garçons du village charger ses chèvres dans une charrette, une à une, en les soulevant par le ventre. Elle les houspille pour la forme. Ils rient. « Ils m'emmènent, dit-elle quand tu arrives. Moi, mes chèvres, et mes fromages. À Vaux. Ils disent qu'on ne laisse pas sa grand-mère derrière. Je ne suis la grand-mère de personne. » Elle a l'air de trouver ça très bien quand même." },
       { if: { is: { berthe: "sauvee" } }, text: "Avant que tu partes, elle te met dans la main un petit fromage cendré enveloppé dans une feuille de chou. « Pour la route. Et pour l'autre fois. » Elle ne dit pas quelle autre fois. Tu sais." },
-      { if: { is: { berthe: "cachee" } }, text: "La maison de Berthe est fermée. Hubert Lagache, le voisin, coupe du bois devant chez lui ; il pose sa hache quand il te voit. « Partie avant-hier, dit-il. À Vaux, avec ses bêtes. Je l'ai menée jusqu'au pont. » Il hésite. « Elle a dit de te dire qu'elle ne se cachera plus. Elle a dit que la prochaine fois qu'on viendrait la chercher, elle attendrait sur le pas de sa porte. Je ne sais pas si c'est une bonne nouvelle. »" },
+      { if: { is: { berthe: "cachee" } }, text: "La maison de Berthe est fermée. Hubert Lagache, le forgeron, coupe du bois devant chez lui ; il pose sa hache quand il te voit. « Partie avant-hier, dit-il. À Vaux, avec ses bêtes. Je l'ai menée jusqu'au pont. » Il hésite. « Elle a dit de te dire qu'elle ne se cachera plus. Elle a dit que la prochaine fois qu'on viendrait la chercher, elle attendrait sur le pas de sa porte. Je ne sais pas si c'est une bonne nouvelle. »" },
       { if: { is: { berthe: "pendue" } }, text: "Le pré de Berthe est hérissé de jalons rouges, et au milieu, on a commencé un quai de pierre, qu'on a laissé là, trois assises, quand l'eau a tourné. Personne n'en voudra plus. Personne n'en veut plus. La maison est vide, la porte arrachée. Sur le seuil, quelqu'un a posé un bouquet de bruyère sèche, il n'y a pas longtemps. On ne sait pas qui. On ne le saura pas." },
       { if: { not: { has: "berthe=sauvee" } }, text: "Le long de la berge, l'eau est grise et basse. Une chèvre blanche, échappée d'on ne sait où, broute les dernières herbes du talus, et te regarde passer avec ses yeux jaunes.", else: "Le long de la berge, l'eau est grise et basse. Les chèvres bêlent dans la charrette, toutes ensemble, comme si elles savaient." },
     ],
@@ -193,7 +193,7 @@ Object.assign(P, {
     fx: { ep: ["perso", 800] },
     text: [
       "La maison de Lune sent toujours la menthe, la terre mouillée et le fer, mais les bouquets qui pendaient aux poutres ont disparu, et les pots de l'étagère sont vides. Lune est à genoux devant sa cheminée, en train de faire des paquets de racines dans des linges, qu'elle ficelle avec des gestes rapides.",
-      { if: { has: "lune:remede" }, text: "Elle se relève en te voyant, s'essuie les mains, et te prend les deux tiennes, ce qu'elle n'avait jamais fait. « Le remède a marché, dit-elle. Pour tous ceux qui l'ont bu à temps. J'en ai fait tout l'hiver, avec ta mousse et celle qu'on a trouvée après. Mais ce qui vient maintenant n'est pas la fièvre grise. C'est autre chose. Ça ne prend pas le corps. Ça prend l'envie. Les gens ne veulent plus se lever. » Elle te lâche. « Je pars pour Vaux. Il y a des malades là-bas, et un frère de l'Ordre qui saigne tout le monde. Il faut que quelqu'un l'en empêche. »" },
+      { if: { has: "lune:remede" }, text: "Elle se relève en te voyant, s'essuie les mains, et te prend les deux tiennes, ce qu'elle n'avait jamais fait. « Le remède a marché, dit-elle. Pour tous ceux qui l'ont bu à temps. J'en ai fait tout l'automne, avec ta mousse et celle qu'on a trouvée après. Mais ce qui vient maintenant n'est pas la fièvre grise. C'est autre chose. Ça ne prend pas le corps. Ça prend l'envie. Les gens ne veulent plus se lever. » Elle te lâche. « Je pars pour Vaux. Il y a des malades là-bas, et un frère de l'Ordre qui saigne tout le monde. Il faut que quelqu'un l'en empêche. »" },
       { if: { not: { has: "lune:remede" } }, text: "Elle se relève en te voyant, sans sourire. « La fièvre grise a pris onze enfants cet automne, dit-elle. Je n'avais pas de quoi faire le remède. J'en ai sauvé quatre avec des cataplasmes et des prières. » Elle reprend ses paquets. « Je pars pour Vaux. Il y a des malades là-bas, et je sais maintenant ce qu'il faut chercher dans les marais quand on a le temps. On n'a plus le temps. »" },
       "Elle te tend un paquet de linge. « Des feuilles de gariig, et de l'onguent. Prends. Je ne vais pas tout porter. »",
       { with: "aubin", text: "Frère Aubin regarde les mains de Lune, rouges et gercées, et il lui demande si elle a besoin d'un prêtre à Vaux, ou d'un infirmier. « D'un infirmier, dit-elle tout de suite. Des prêtres, il y en aura toujours trop. » Aubin sourit. « Alors je viendrai en infirmier. »" },
@@ -205,7 +205,7 @@ Object.assign(P, {
     text: [
       "Le Père Odon est seul au sanctuaire. Il a fermé la grille de la source, ce qu'il n'avait jamais fait, et il a mis la clé à son cou. L'eau de la vasque est claire, ce matin. Il dit qu'elle se trouble certains jours, à l'aube, et qu'il ne sait pas pourquoi, et qu'il n'en dort plus.",
       { if: { is: { meunier: "livre" } }, text: "Il te montre la cellule blanche où il a gardé Barthélemy jusqu'au jugement. La cruche est encore là, sur le rebord. « Il disait qu'elle lui parlait dans la cruche, dit le vieux prêtre. Je l'ai vidée tous les soirs. Il l'entendait quand même. » Il referme la porte de la cellule. « Le bailli l'a banni. On l'a vu partir vers le sud. On dit qu'il a fait demi-tour, plus bas, et qu'il a pris la route de l'est, comme tout le monde. »" },
-      "« Ils partent tous, dit-il, sans reproche. Moi, je reste. Il faut que quelqu'un garde la source, même si elle ne sert plus à personne. Même si elle se trouble. Surtout si elle se trouble. » Il te regarde. « Ta maîtresse a bu ici, dans ses deux mains, le jour où elle est passée. Je me suis souvent demandé si ça l'avait protégée, ou si ça l'avait seulement retardée. »",
+      "« Ils partent tous, dit-il, sans reproche. Moi, je reste. Il faut que quelqu'un garde la source, même si elle ne sert plus à personne. Même si elle se trouble. Surtout si elle se trouble. » Il te regarde. « Votre maîtresse a bu ici, dans ses deux mains, le jour où elle est passée. Je me suis souvent demandé si ça l'avait protégée, ou si ça l'avait seulement retardée. »",
       { if: { mark: { min: 2 } }, text: "Il voit ta main. Il ne dit rien. Il te tend la louche quand même. Tu bois. L'eau est froide et elle a, très loin, un goût de fer." },
     ],
     choices: [
@@ -225,7 +225,7 @@ Object.assign(P, {
     ],
     choices: [
       { label: "Convaincre Maheu de passer les gens, sans que personne ne touche l'eau", test: { dom: "social", diff: -20, label: "Convaincre le passeur", help: [{ with: "aubin", v: 10 }, { if: { has: "merle:sauve" }, v: 5 }] }, win: { fx: { ep: ["seance", 1500], fac: { brumefeuille: 5 } }, to: "IV_r_bac_passe" }, lose: { to: "IV_r_bac_gue" } },
-      { label: "Laisse-moi faire, dit Charline : je peux geler la surface au passage du bac", who: "charline", test: { dom: "magie", diff: -10, label: "Charline gèle la rivière" }, win: { fx: { conf: { charline: 8 }, ep: ["seance", 1500], flag: "IV:bac_charline" }, to: "IV_r_bac_passe" }, lose: { fx: { conf: { charline: -2 } }, to: "IV_r_bac_gue" } },
+      { label: "« Laisse-moi faire », dit Charline : elle peut geler la surface au passage du bac", who: "charline", test: { dom: "magie", diff: -10, label: "Charline gèle la rivière" }, win: { fx: { conf: { charline: 8 }, ep: ["seance", 1500], flag: "IV:bac_charline" }, to: "IV_r_bac_passe" }, lose: { fx: { conf: { charline: -2 } }, to: "IV_r_bac_gue" } },
       { label: "Payer Maheu le prix de son courage (10 sous)", if: { gold: { min: 10 } }, why: "Tu n'as pas dix sous.", fx: { gold: -10, ep: ["perso", 1000] }, to: "IV_r_bac_passe" },
       { label: "Mettre la main dans l'eau, pour qu'ils voient qu'elle ne te mord pas", tag: "Marque +1", stain: true, if: { mark: { min: 1 } }, why: "Rien en toi ne répond à cette eau.", fx: { mark: 1, fear: { pip: 10, coliane: 10 }, ep: ["seance", 1500] }, to: "IV_r_bac_main" },
       { label: "Remonter jusqu'au gué de la Mule avec ceux qui veulent bien suivre", to: "IV_r_bac_gue" },
@@ -304,7 +304,7 @@ Object.assign(P, {
       { label: "Te battre", fight: { title: "Les bêtes grises", enemies: [{ id: "bete_souillee", n: 2 }], terrain: "nature",
         win: { fx: { ep: ["seance", 2000] }, to: "EIV_betes_apres" }, lose: { fx: { pv: -6 }, to: "EIV_betes_battu" },
         flee: { label: "Reculer dans les rochers, où elles ne passeront pas", dom: "nature", diff: -10, to: "EIV_betes_fuite" } } },
-      { label: "Laisse-moi leur parler, dit Gloup", who: "gloup", test: { dom: "nature", diff: -10, label: "Gloup parle aux bêtes" }, win: { fx: { conf: { gloup: 10 }, ep: ["seance", 1500] }, to: "EIV_betes_gloup" }, lose: { to: "EIV_betes_battu" } },
+      { label: "Gloup : il roule vers les bêtes", who: "gloup", test: { dom: "nature", diff: -10, label: "Gloup parle aux bêtes" }, win: { fx: { conf: { gloup: 10 }, ep: ["seance", 1500] }, to: "EIV_betes_gloup" }, lose: { to: "EIV_betes_battu" } },
       { label: "Faire un détour par le ravin, sans les quitter des yeux", test: { dom: "discretion", diff: -10, label: "Te glisser hors de leur vue" }, win: { fx: { ep: ["perso", 1000] }, to: "EIV_betes_fuite" }, lose: { to: "EIV_betes_battu" } },
     ] },
   EIV_betes_apres: { title: "Les bêtes grises",
@@ -330,7 +330,7 @@ Object.assign(P, {
   EIV_betes_gloup: { title: "Les bêtes grises",
     text: [
       "Gloup roule jusqu'au milieu du chemin, entre les deux bêtes, et il leur parle. Ce n'est pas une langue. Ce sont des bulles, des clapotis, des sifflements tout bas. Les bêtes baissent la tête vers lui. Elles le reniflent, longuement. L'une d'elles le touche du museau, et une goutte noire tombe sur Gloup, et s'y fond.",
-      "Puis elles s'en vont, l'une derrière l'autre, vers les bouleaux. Gloup revient vers toi. Il est plus sombre qu'avant, un tout petit peu. Il se colle contre ta botte et il ne dit plus rien de la journée.",
+      "Puis elles s'en vont, l'une derrière l'autre, vers les bouleaux. Gloup revient vers toi. Il est plus sombre qu'avant, un tout petit peu. Il se colle contre ta botte et il ne fait plus un bruit de la journée.",
       "Le soir, au feu, il fait un bruit qui ressemble à une question. Tu crois comprendre qu'il demande si les bêtes avaient une mère.",
     ],
     choices: [{ label: "Reprendre la route", back: R }] },
@@ -338,7 +338,7 @@ Object.assign(P, {
   EIV_deserteurs: { title: "Les déserteurs",
     text: [
       "Une ferme, au bord du chemin, la porte enfoncée. Dans la cour, quatre hommes en morceaux d'uniformes, des tabards bleus et pourpres mêlés, déchirés, retournés, sont en train de charger sur une mule le peu qu'une famille possède : un jambon, une couverture, une marmite de cuivre. La famille est contre le mur de la grange, un homme, une femme, deux enfants, et un des soldats les tient en respect avec une pique.",
-      "« Ne t'en mêle pas, l'ami, dit le plus vieux, sans hostilité. La guerre est finie. Personne ne nous a payés. On se paie. » Il a une voix fatiguée, et des yeux qui ne tiennent pas en place.",
+      "« Ne t'en mêle pas, toi, dit le plus vieux, sans hostilité. La guerre est finie. Personne ne nous a payés. On se paie. » Il a une voix fatiguée, et des yeux qui ne tiennent pas en place.",
       { if: { is: { deserteur: "pendu" } }, text: "Un des hommes, le plus jeune, te dévisage. « Je te connais, dit-il. Tu étais au camp d'Aldaran quand ils ont pendu Arnaud. » Il crache. « Tu n'as rien fait, ce jour-là. Ne fais rien aujourd'hui. »" },
     ],
     choices: [
@@ -399,7 +399,7 @@ Object.assign(P, {
   EIV_flaque: { title: "La flaque gelée",
     text: [
       "Au bord du chemin, une ornière pleine d'eau a gelé en surface, et sous la glace, l'eau est noire. En passant, tu vois ton reflet dedans. Puis tu le vois tourner la tête, alors que tu ne l'as pas tournée.",
-      "« {hero} », dit la flaque. La voix est douce, un peu rauque, une voix de femme qui a longtemps pleuré et qui ne pleure plus. « Tu montes vers la tour. Tous ceux qui ont menti y sont montés avant toi, pour se regarder dans les yeux. Ils n'y sont pas arrivés. » Un temps. « Tu y arriveras, toi. Tu es plus courageux qu'eux. Regarde bien leurs chaises. »",
+      "« {hero} », dit la flaque. La voix est douce, un peu rauque, une voix de femme qui a longtemps pleuré et qui ne pleure plus. « Tu montes vers la tour. Tous ceux qui ont menti y sont montés avant toi, pour se regarder dans les yeux. Ils n'y sont pas arrivés. » Un temps. « Tu y arriveras, toi. Tu as plus de courage qu'eux. Regarde bien leurs chaises. »",
       { with: "pip", text: "Pip descend sur la glace, et sa lumière la traverse. Sous la surface, il n'y a rien. Une ornière, de la boue, un caillou. Pip reste là, longtemps, à éclairer le fond, comme pour s'en assurer." },
     ],
     choices: [
@@ -553,7 +553,7 @@ Object.assign(P, {
     choices: [
       { label: "Prendre le parti de Lune et de ses tisanes contre les saignées", hide: { any: [{ has: "IV:infirmerie" }, { not: { seen: "IV_r_bru_lune" } }] }, test: { dom: "savoir", diff: -10, label: "Montrer que la saignée tue", help: [{ if: { has: "maitre:ortie" }, v: 10 }, { if: { has: "lune:remede" }, v: 10 }] }, win: { fx: { flag: "IV:infirmerie", ep: ["seance", 2000], regard: { i_lune: "allie" } }, to: "IV_infirmerie_fin" }, lose: { to: "IV_infirmerie_refus" } },
       { label: "Parler à Frère Anicet au nom de l'Ordre", hide: { has: "IV:infirmerie" }, test: { dom: "social", diff: -20, label: "Faire arrêter les saignées", help: [{ if: { item: "jeton_ordre" }, v: 15 }, { if: { has: "passe:ordre" }, v: 10 }] }, win: { fx: { flag: "IV:infirmerie", ep: ["seance", 2000], fac: { ordre: 3 } }, to: "IV_infirmerie_fin" }, lose: { to: "IV_infirmerie_refus" } },
-      { label: "Laisse-moi faire, dit Frère Aubin", who: "aubin", hide: { has: "IV:infirmerie" }, fx: { flag: "IV:infirmerie", conf: { aubin: 10 }, ep: ["seance", 2000] }, to: "IV_infirmerie_aubin" },
+      { label: "« Laisse-moi faire », dit Frère Aubin", who: "aubin", hide: { has: "IV:infirmerie" }, fx: { flag: "IV:infirmerie", conf: { aubin: 10 }, ep: ["seance", 2000] }, to: "IV_infirmerie_aubin" },
       { label: "Prendre un seau et aider, simplement", fx: { ep: ["perso", 800] }, to: "IV_infirmerie_aide" },
       { back: "IV_hub" },
     ] },
@@ -568,7 +568,7 @@ Object.assign(P, {
     text: [
       "Frère Aubin traverse la grange sans se presser, entre les paillasses, et il pose la main sur l'épaule de Frère Anicet. Il ne dit rien d'abord. Il regarde la bassine. Puis il dit, très doucement : « Mon frère. Quand avez-vous dormi la dernière fois ? »",
       "Anicet le regarde. Il a les yeux rouges, les mains qui tremblent. Il ne répond pas. Aubin lui prend la lancette des doigts, comme on prend un couteau à un enfant, et il la pose sur la paillasse. « Allez dormir. Je prends la garde. Demain, on parlera du traité de Hautecombe. Il y a des choses dedans que je n'ai jamais crues. »",
-      "Anicet s'en va dormir. Aubin reste. Il fait bouillir de l'eau, et il passe la nuit à laver des visages, un par un, en disant pour chacun une phrase, une seule, en le regardant. Au matin, deux malades se sont levés pour l'aider.",
+      "Anicet s'en va dormir. Aubin reste. Il fait bouillir de l'eau, et il passe la nuit à laver des visages, un par un, en disant à chacun son nom, quand il le sait. Au matin, deux malades se sont levés pour l'aider.",
     ],
     choices: [{ back: "IV_infirmerie" }] },
   IV_infirmerie_refus: { act: "IV", title: "Le traité de Hautecombe", place: "vaux",
@@ -647,12 +647,12 @@ Object.assign(P, {
   IV_ida: { act: "IV", title: "La Perche", place: "vaux",
     fx: { ep: ["perso", 1200], flag: "IV:ida_vue" },
     text: [
-      "Une tente de toile goudronnée, avec une enseigne de bois clouée sur le mât : une perche peinte, la même qu'à Morteau. Dessous, Gérold tourne une soupe de poisson dans un chaudron, et Ida sert, un enfant d'un an et demi dans les jambes, qui s'accroche à sa jupe et qui tombe et qui se relève. Le lac a encore monté, à la Saint-Martin, dit Gérold. Il a pris la place, la taverne, le ponton. On a sauvé le chaudron et l'enseigne.",
-      { if: { has: "ida=elle" }, text: "Ida te reconnaît et sourit, vraiment, pour la première fois. « Il vient le voir, dit-elle. Quand il est là. Ivo l'appelle *le frère*. Il croit que c'est son nom. » Elle prend l'enfant dans ses bras. « C'est peut-être son nom, après tout. »" },
+      "Une tente de toile goudronnée, avec une enseigne de bois clouée sur le mât : une perche peinte, la même qu'à Morteau. Dessous, Gérold tourne une soupe de poisson dans un chaudron, et Ida sert, un enfant de six mois noué dans son dos, qui regarde tout par-dessus son épaule. Le lac a encore monté, à la Saint-Martin, dit Gérold. Il a pris la place, la taverne, le ponton. On a sauvé le chaudron et l'enseigne.",
+      { if: { has: "ida=elle" }, text: "Ida te reconnaît et sourit, vraiment, pour la première fois. « Il vient le voir, dit-elle. Quand il est là. Je dis à Ivo : voilà *le frère*. Il rit chaque fois. » Elle fait passer l'enfant sur sa hanche. « Il croira que c'est son nom. C'est peut-être son nom, après tout. »" },
       { if: { has: "ida=dit" }, text: "Ida te reconnaît. Elle ne sourit pas. « Vous lui avez dit, dit-elle. Je vous avais demandé de vous taire. » Elle sert une écuelle, la pose devant toi. « Il vient le voir, maintenant. Il tient l'enfant comme si c'était du verre. Je ne sais pas si je vous en veux encore. Je crois que oui. Mangez. »" },
-      { if: { has: "ida=tu" }, text: "Ida te reconnaît, et elle te sert sans rien dire, et elle ne te fait pas payer. Ivo la tire par la jupe. Elle le prend dans ses bras. Elle te regarde par-dessus la tête de l'enfant. Le secret est toujours là, entre vous deux, comme une chose qu'on porte à deux et qui ne pèse sur personne en particulier." },
+      { if: { has: "ida=tu" }, text: "Ida te reconnaît, et elle te sert sans rien dire, et elle ne te fait pas payer. Ivo s'agite dans son dos. Elle le prend dans ses bras. Elle te regarde par-dessus la tête de l'enfant. Le secret est toujours là, entre vous deux, comme une chose qu'on porte à deux et qui ne pèse sur personne en particulier." },
       { with: "aubin", if: { has: "ida=tu" }, text: "Frère Aubin est entré derrière toi. Il voit l'enfant. Il voit Ida. Il ne sait rien, et pourtant il reste là, sur le seuil de la tente, et il regarde l'enfant longtemps, avec une drôle d'expression, comme quelqu'un qui entend un air qu'il croit reconnaître. Ida détourne les yeux." },
-      { with: "aubin", if: { any: [{ has: "ida=elle" }, { has: "ida=dit" }] }, text: "Frère Aubin entre derrière toi, et l'enfant lâche la jupe de sa mère pour courir vers lui, en tombant deux fois. Aubin le soulève. Il ne dit rien. Il a le visage de quelqu'un qui se tient au bord de quelque chose de très profond, et qui ne sait pas encore s'il va sauter." },
+      { with: "aubin", if: { any: [{ has: "ida=elle" }, { has: "ida=dit" }] }, text: "Frère Aubin entre derrière toi, et l'enfant tend les deux bras vers lui par-dessus l'épaule de sa mère. Aubin le prend. Il ne dit rien. Il a le visage de quelqu'un qui se tient au bord de quelque chose de très profond, et qui ne sait pas encore s'il va sauter." },
     ],
     choices: [{ back: "IV_hub" }] },
 
@@ -673,7 +673,7 @@ Object.assign(P, {
     fx: { meet: "anselme", questSeen: "IV_anselme" },
     text: [
       { first: true, text: "La charrette d'Anselme est rangée contre le mur du cimetière, la mule dételée à côté, qui mâche du foin acheté on ne sait où. Sur le plateau, sous une bâche relevée, des caisses de paille, et dans la paille, des fioles. Des dizaines de fioles de verre vert, bouchées à la cire, rangées en rangs serrés comme des soldats. L'eau, dedans, est d'une clarté parfaite." },
-      { first: true, text: "Anselme n'a pas changé. Même moustache, même sourire qu'il ne faut pas croire, même façon de te reconnaître avant que tu l'aies reconnu. « Mais c'est mon client préféré ! dit-il. Toujours vivant ! Je le dis partout : celui-là, rien ne le tue, c'est bon pour le commerce. » Il soulève une fiole dans la lumière. « Eau de source, eau de montagne, eau qui n'a jamais vu la vallée. Une couronne. C'est donné. Les gens pleurent en la buvant. »" },
+      { first: true, text: "Anselme n'a pas changé. Même moustache, même sourire qu'il ne faut pas croire, même façon de te reconnaître avant que tu l'aies reconnu. « Mais c'est ma meilleure pratique ! dit-il. Toujours en vie ! Je le dis partout : il y a des gens que rien ne tue, et c'est bon pour le commerce. » Il soulève une fiole dans la lumière. « Eau de source, eau de montagne, eau qui n'a jamais vu la vallée. Une couronne. C'est donné. Les gens pleurent en la buvant. »" },
       { again: true, text: "Anselme est à sa charrette, une fiole dans chaque main, et la file de ses clients est presque aussi longue que celle de la fontaine. Il te fait un clin d'œil par-dessus leurs têtes." },
       { if: { has: "anselme:sort" }, text: "La charrette est vide, la bâche rabattue. Anselme graisse les essieux, en sifflant faux. Il ne te regarde pas, ou il te regarde trop." },
       "Devant la charrette, une femme tend une broche d'argent. Anselme la soupèse, la mord, et lui donne une fiole. Elle la serre contre sa poitrine et s'en va presque en courant.",
@@ -681,13 +681,13 @@ Object.assign(P, {
     choices: [
       { label: "Examiner une fiole de près", hide: { any: [{ has: "anselme:sort" }, { seen: "IV_anselme_examen" }] }, test: { dom: "savoir", diff: -10, label: "Juger l'eau", help: [{ if: { has: "maitre:ortie" }, v: 10 }, { with: "charline", v: 10 }, { with: "pip", v: 10 }] }, win: { fx: { ep: ["perso", 1000], flag: "IV:anselme_moitie" }, to: "IV_anselme_examen" }, lose: { to: "IV_anselme_examen" } },
       { label: "Le suivre, cette nuit, quand il quittera le camp", hide: { any: [{ has: "anselme:sort" }, { seen: "IV_anselme_nuit" }] }, test: { dom: "discretion", diff: -20, label: "Suivre Anselme dans la montagne", help: [{ with: "pip", v: 5 }] }, win: { fx: { flag: "IV:anselme_source", ep: ["seance", 1800] }, to: "IV_anselme_nuit" }, lose: { to: "IV_anselme_perdu" } },
-      { label: "Laisse-moi le suivre, dit Coliane", who: "coliane", hide: { any: [{ has: "anselme:sort" }, { seen: "IV_anselme_nuit" }] }, fx: { flag: ["IV:anselme_source", "IV:anselme_coliane"], conf: { coliane: 5 }, ep: ["seance", 1800] }, to: "IV_anselme_nuit" },
+      { label: "« Laisse-moi le suivre », dit Coliane", who: "coliane", hide: { any: [{ has: "anselme:sort" }, { seen: "IV_anselme_nuit" }] }, fx: { flag: ["IV:anselme_source", "IV:anselme_coliane"], conf: { coliane: 5 }, ep: ["seance", 1800] }, to: "IV_anselme_nuit" },
       { label: "Lui demander tout net d'où vient son eau", hide: { has: "anselme:sort" }, to: "IV_anselme_face" },
       { back: "IV_hub" },
     ] },
   IV_anselme_examen: { act: "IV", title: "Les fioles vertes", place: "vaux",
     text: [
-      { outcome: "win", text: "Tu prends une fiole, puis une autre, puis une autre, et tu les tiens contre la lumière, et tu les ouvres et tu les sens. Les premières sentent la pierre froide, l'eau vive, rien d'autre. La quatrième sent la neige. Elle est claire, elle aussi, mais d'une clarté plate, sans profondeur, et dans le fond, quand tu la penches, il y a un dépôt gris, très fin, à peine visible, comme de la cendre. Tu en essaies dix. Il y en a cinq de chaque.", else: "Tu prends une fiole, tu la tiens contre la lumière, tu l'ouvres, tu la sens. Elle sent l'eau. Elle est claire. Tu ne vois rien d'autre. Anselme, qui t'a regardé{e} faire, sourit de toutes ses dents. « Alors ? Une couronne ? Pour toi, dix-neuf sous. »" },
+      { outcome: "win", text: "Tu prends une fiole, puis une autre, puis une autre, et tu les tiens contre la lumière, et tu les ouvres et tu les sens. Les premières sentent la pierre froide, l'eau vive, rien d'autre. La quatrième sent la neige. Elle est claire, elle aussi, mais d'une clarté plate, sans profondeur, et dans le fond, quand tu la penches, il y a un dépôt gris, très fin, à peine visible, comme de la cendre. Tu en essaies dix. Il y en a cinq de chaque.", else: "Tu prends une fiole, tu la tiens contre la lumière, tu l'ouvres, tu la sens. Elle sent l'eau. Elle est claire. Tu ne vois rien d'autre. Anselme, qui t'a regardé{e} faire, sourit de toutes ses dents. « Alors ? Une couronne ? Pour vous, dix-neuf sous. »" },
       { with: "pip", text: "Pip s'est posé sur le rebord d'une caisse, et il passe d'une fiole à l'autre, sa lumière à travers le verre. Sur certaines, elle ressort blanche. Sur d'autres, elle ressort un peu grise. Il te regarde, sans rien dire. Il n'a pas besoin." },
     ],
     choices: [
@@ -711,8 +711,8 @@ Object.assign(P, {
     ] },
   IV_anselme_face: { act: "IV", title: "Ce que dit Anselme", place: "vaux",
     text: [
-      "Anselme ne nie pas. C'est ce qui le rend si difficile à haïr. Il s'assied sur une caisse, il sort sa pipe, il la bourre, et il te regarde avec une sorte d'affection. « La moitié, dit-il. La moitié de mes fioles viennent d'une source que personne d'autre ne connaît. L'autre moitié, de la neige. La neige est presque toujours propre, tu sais. Presque. »",
-      { if: { has: "IV:anselme_source" }, text: "« Tu as vu la vasque, reprend-il. Une écuelle. Vingt fioles par nuit, quand elle est généreuse. Il y a quatre mille personnes dans ce camp. Si je dis où elle est, ils y monteront tous demain. Ils la piétineront. Ils se battront dessus. Dans huit jours, elle sera sale, ou tarie, ou quelqu'un l'aura gardée pour lui avec une pique. »", else: "« Où est la source ? reprend-il. Ça, je ne le dis pas. Elle donne vingt fioles par nuit, quand elle est généreuse. Il y a quatre mille personnes dans ce camp. Si je dis où elle est, ils y monteront tous demain. Ils la piétineront. Dans huit jours, elle sera sale, ou tarie, ou quelqu'un l'aura gardée pour lui avec une pique. »" },
+      "Anselme ne nie pas. C'est ce qui le rend si difficile à haïr. Il s'assied sur une caisse, il sort sa pipe, il la bourre, et il te regarde avec une sorte d'affection. « La moitié, dit-il. La moitié de mes fioles viennent d'une source que personne d'autre ne connaît. L'autre moitié, de la neige. La neige est presque toujours propre, vous savez. Presque. »",
+      { if: { has: "IV:anselme_source" }, text: "« Vous avez vu la vasque, reprend-il. Une écuelle. Vingt fioles par nuit, quand elle est généreuse. Il y a quatre mille personnes dans ce camp. Si je dis où elle est, ils y monteront tous demain. Ils la piétineront. Ils se battront dessus. Dans huit jours, elle sera sale, ou tarie, ou quelqu'un l'aura gardée pour lui avec une pique. »", else: "« Où est la source ? reprend-il. Ça, je ne le dis pas. Elle donne vingt fioles par nuit, quand elle est généreuse. Il y a quatre mille personnes dans ce camp. Si je dis où elle est, ils y monteront tous demain. Ils la piétineront. Dans huit jours, elle sera sale, ou tarie, ou quelqu'un l'aura gardée pour lui avec une pique. »" },
       "« Alors je fais ce que je sais faire. Je vends. Ceux qui paient une couronne ont une chance sur deux d'avoir de la vraie eau. Ceux qui ne paient pas n'en ont aucune. » Il allume sa pipe. « Ce n'est pas juste. Rien n'est juste. Mais c'est plus juste que rien. Et moi, il faut bien que je vive. »",
       { with: "coliane", text: "Coliane a la main sur son couteau. « Tu vends de la neige à des mères qui ont vendu leurs bagues », dit-elle. Anselme hausse les épaules. « Je leur vends de l'espoir. Il n'y en a pas de propre non plus. »" },
     ],
@@ -726,20 +726,20 @@ Object.assign(P, {
     text: [
       "Garance écoute, prend une note dans son registre, et se lève. Une heure plus tard, la charrette d'Anselme est vide, les fioles alignées sur la table de sa tente, et deux hommes à piques raccompagnent le colporteur et sa mule jusqu'à la barrière. Il ne proteste pas. Il salue la foule d'un grand geste de son chapeau, comme un comédien qui sort de scène.",
       "Garance fait vider dans un baquet toutes les fioles qui ont un dépôt gris, et distribue les autres à l'infirmerie, une par malade, tant qu'il y en a. Il y en a vingt-sept. Elle te regarde. « Il savait où était la source, dit-elle. Il ne l'a pas dit. On ne la trouvera pas. » Elle referme son registre. « Mais au moins, on ne vendra plus de neige aux mères. C'est déjà ça. »",
-      "À la barrière, Anselme se retourne une dernière fois. « On se reverra, dit-il. On se revoit toujours. Et ce jour-là, tu auras besoin de quelque chose que je serai le seul à avoir. » Il sourit. Ce n'est pas une menace. C'est une prévision commerciale.",
+      "À la barrière, Anselme se retourne une dernière fois. « On se reverra, dit-il. On se revoit toujours. Et ce jour-là, vous aurez besoin de quelque chose que je serai le seul à avoir. » Il sourit. Ce n'est pas une menace. C'est une prévision commerciale.",
     ],
     choices: [{ back: "IV_hub" }] },
   IV_anselme_source: { act: "IV", title: "La seconde source", place: "vaux",
     text: [
       "Le lendemain, Anselme conduit Garance et six hommes à la grotte. Il marche devant, en ronchonnant, et il ne leur montre le chemin qu'au dernier moment, à chaque tournant, comme on livre un secret qu'on regrette. Garance fait poser une porte de planches à l'entrée de la fente, avec un cadenas, et met deux gardes devant, comme à la fontaine.",
       "Vingt fioles par nuit. Ça ne sauve pas le camp. Ça sauve vingt personnes par nuit, celles de l'infirmerie, les enfants d'abord. Garance les inscrit dans son registre, une par une, avec le nom de ceux qui les boivent.",
-      "Anselme vient te voir, le soir, à ton feu. Il te tend une fiole verte, de celles qu'il a remplies lui-même à la vasque. « La dernière, dit-il. La vraie. Je te la donne, puisque tu m'as tout pris. » Il ne sourit pas, pour une fois. Puis il sourit quand même. « Tu ferais un très mauvais marchand. C'est un compliment. Je crois. »",
+      "Anselme vient te voir, le soir, à ton feu. Il te tend une fiole verte, de celles qu'il a remplies lui-même à la vasque. « La dernière, dit-il. La vraie. Je vous la donne, puisque vous m'avez tout pris. » Il ne sourit pas, pour une fois. Puis il sourit quand même. « Vous feriez un très mauvais marchand. C'est un compliment. Je crois. »",
       { with: "pip", text: "Pip va se poser sur le chapeau d'Anselme, une seconde, et revient. Anselme fait semblant de ne pas avoir remarqué." },
     ],
     choices: [{ back: "IV_hub" }] },
   IV_anselme_associe: { act: "IV", title: "Le marché", place: "vaux",
     text: [
-      "Anselme rit, enchanté. Il compte quarante sous dans ta main, en petite monnaie, avec une lenteur de prêtre qui dit la messe. « Un tiers, dit-il. C'est honnête. On ne m'avait jamais proposé un marché aussi honnête. » Il te serre la main. Sa main est sèche et chaude. « Je savais que tu finirais par comprendre le commerce. »",
+      "Anselme rit, enchanté. Il compte quarante sous dans ta main, en petite monnaie, avec une lenteur de prêtre qui dit la messe. « Un tiers, dit-il. C'est honnête. On ne m'avait jamais proposé un marché aussi honnête. » Il te serre la main. Sa main est sèche et chaude. « Je savais que vous finiriez par comprendre le commerce. »",
       "Le lendemain, la file devant sa charrette est plus longue que jamais. Tu passes devant sans t'arrêter. Une femme, dans la file, tient une bague à la main, et elle la regarde, comme si elle lui disait adieu.",
       { with: "aubin", text: "Frère Aubin ne te parle pas de la journée. Le soir, il te dit seulement : « Je ne te demande pas pourquoi. Je te demande si ça valait quarante sous. » Tu ne réponds pas." },
       { with: "coliane", text: "Coliane, ce soir-là, s'assied de l'autre côté du feu. Elle ne dit rien. Elle a déjà vu des marchés passés dans l'ombre. Elle sait comment ça finit." },
@@ -757,12 +757,12 @@ Object.assign(P, {
       { again: true, text: "Le hangar de la scierie, la sciure, le torrent. Les deux groupes se regardent toujours, de part et d'autre de la porte, et personne n'entre." },
       "« Mes bœufs vont chercher le grain à Saulce, deux fois par semaine, dit Fulcran. Sans mes bœufs, ce camp meurt de faim avant l'Épiphanie. Mes bœufs ont besoin d'un toit. Ça n'a rien de personnel. » Il crache. « Les vieux, ils peuvent dormir sous une bâche. Les bœufs, non. Un bœuf qui prend froid, c'est un bœuf mort. »",
       { if: { has: "passe:aide" }, text: "Benoîte, sur sa charrette, te fait signe d'approcher. « Toi, dit-elle, tu portais les malades. Porte-nous encore un peu. » Ce n'est pas une prière. C'est une instruction." },
-      { if: { all: [{ has: "passe:profite" }, { not: { has: "sg:terres_rendues" } }] }, text: "Jean Rabier te reconnaît. Il baisse la fourche. « Le propriétaire, dit-il aux autres, assez fort pour que tu l'entendes. Il est venu voir si on lui doit encore le fermage. » Quelques têtes se tournent vers toi. Elles ne sont pas aimables." },
+      { if: { all: [{ has: "passe:profite" }, { not: { has: "sg:terres_rendues" } }] }, text: "Jean Rabier te reconnaît. Il baisse la fourche. « Voilà à qui on paie le fermage, dit-il aux autres, assez fort pour que tu l'entendes. On vient voir si on doit encore quelque chose. » Quelques têtes se tournent vers toi. Elles ne sont pas aimables." },
       { if: { has: "passe:fui" }, text: "Personne ici ne te reconnaît. Tu reconnais trois visages. L'un d'eux est celui de la femme qui habitait à côté de chez toi, et qui t'avait crié, ce matin-là, de prendre au moins sa fille avec toi. Tu ne l'avais pas fait. La fille n'est pas là." },
     ],
     choices: [
       { label: "Plaider pour ceux de Saint-Gilles devant Fulcran", hide: { has: "saintgilles:sort" }, test: { dom: "social", diff: -20, label: "Faire céder Fulcran", help: [{ with: "aubin", v: 10 }, { if: { has: "passe:aide" }, v: 10 }, { if: { is: { greve: "accord" } }, v: 10 }] }, win: { fx: { set: { saintgilles: "partage" }, flag: "saintgilles:sort", quest: "IV_saintgilles", fac: { brumefeuille: 5 }, conf: { pip: 8, aubin: 5 }, regard: { IV_fulcran: "cordial" }, ep: ["seance", 2500] }, to: "IV_sg_partage" }, lose: { to: "IV_sg_tendu" } },
-      { label: "Laisse-moi leur parler, à ces charretiers, dit Thavary", who: "thavary", hide: { has: "saintgilles:sort" }, test: { dom: "social", diff: -10, label: "Thavary fait honte aux charretiers" }, win: { fx: { set: { saintgilles: "partage" }, flag: "saintgilles:sort", quest: "IV_saintgilles", conf: { thavary: 8 }, regard: { IV_fulcran: "craintif" }, ep: ["seance", 2500] }, to: "IV_sg_partage" }, lose: { fx: { conf: { thavary: -2 } }, to: "IV_sg_tendu" } },
+      { label: "« Laisse-moi leur parler, à ces charretiers », dit Thavary", who: "thavary", hide: { has: "saintgilles:sort" }, test: { dom: "social", diff: -10, label: "Thavary fait honte aux charretiers" }, win: { fx: { set: { saintgilles: "partage" }, flag: "saintgilles:sort", quest: "IV_saintgilles", conf: { thavary: 8 }, regard: { IV_fulcran: "craintif" }, ep: ["seance", 2500] }, to: "IV_sg_partage" }, lose: { fx: { conf: { thavary: -2 } }, to: "IV_sg_tendu" } },
       { label: "Payer Fulcran pour qu'il mette ses bœufs ailleurs (30 sous)", hide: { has: "saintgilles:sort" }, if: { gold: { min: 30 } }, why: "Tu n'as pas trente sous.", fx: { gold: -30, set: { saintgilles: "achete" }, flag: "saintgilles:sort", quest: "IV_saintgilles", conf: { pip: 5 }, regard: { IV_fulcran: "cordial" }, ep: ["seance", 1800] }, to: "IV_sg_achete" },
       { label: "Chercher un autre toit dans le camp, un endroit dont personne ne veut", hide: { any: [{ has: "saintgilles:sort" }, { seen: "IV_sg_cave" }] }, to: "IV_sg_cave" },
       { label: "Laisser Garance trancher", hide: { has: "saintgilles:sort" }, fx: { set: { saintgilles: "charretiers" }, flag: "saintgilles:sort", quest: "IV_saintgilles", conf: { pip: -5 }, ep: ["perso", 800] }, to: "IV_sg_charretiers" },
@@ -859,7 +859,7 @@ Object.assign(P, {
     ],
     choices: [
       { label: "Passer, une planche après l'autre, sans regarder en bas", test: { dom: "nature", diff: -10, label: "Traverser le pont de corde", help: [{ if: { item: "corde" }, v: 10 }] }, win: { fx: { ep: ["perso", 1000] }, back: R }, lose: { fx: { pv: -4 }, to: "IVT_r_pont_chute" } },
-      { label: "Laisse-moi passer devant et tendre une corde, dit Coliane", who: "coliane", fx: { conf: { coliane: 5 }, ep: ["perso", 1000] }, back: R },
+      { label: "« Laisse-moi passer devant et tendre une corde », dit Coliane", who: "coliane", fx: { conf: { coliane: 5 }, ep: ["perso", 1000] }, back: R },
       { label: "Descendre dans la gorge et la remonter de l'autre côté, par les rochers", fx: { time: 4, ep: ["perso", 600] }, back: R },
     ] },
   IVT_r_pont_chute: { title: "Le pont de corde",
@@ -949,7 +949,7 @@ Object.assign(P, {
       { if: { mark: { min: 3 } }, text: "Tu sens, au fond de la cendre, quelque chose qui répond à ta main gauche. Une chaleur sombre, qui attend. Tu pourrais l'allumer, toi aussi. Ce ne serait pas le même feu." },
     ],
     choices: [
-      { label: "Laisse-moi faire, dit Charline", who: "charline", test: { dom: "magie", diff: -20, label: "Réveiller le feu d'Hildre", help: [{ with: "pip", v: 10 }, { if: { relic: "clou" }, v: 10 }, { if: { conf: "charline", min: 50 }, v: 10 }] }, win: { fx: { ep: ["seance", 3000], conf: { charline: 10 } }, to: "IVT_feu_allume" }, lose: { fx: { conf: { charline: -3 } }, to: "IVT_feu_rate" } },
+      { label: "« Laisse-moi faire », dit Charline", who: "charline", test: { dom: "magie", diff: -20, label: "Réveiller le feu d'Hildre", help: [{ with: "pip", v: 10 }, { if: { relic: "clou" }, v: 10 }, { if: { conf: "charline", min: 50 }, v: 10 }] }, win: { fx: { ep: ["seance", 3000], conf: { charline: 10 } }, to: "IVT_feu_allume" }, lose: { fx: { conf: { charline: -3 } }, to: "IVT_feu_rate" } },
       { label: "Tenir le soufflet pendant qu'elle cherche le feu sous la cendre", fx: { conf: { charline: 8 }, ep: ["seance", 2500] }, to: "IVT_feu_allume" },
       { label: "Allumer toi-même le feu, avec ce qui répond dans ta main", tag: "Marque +1", stain: true, if: { mark: { min: 3 } }, why: "Rien en toi ne répond à cette cendre.", fx: { mark: 1 }, to: "IVT_feu_noir" },
     ] },
@@ -1021,7 +1021,7 @@ Object.assign(P, {
     ],
     choices: [
       { label: "Chercher le feu sous la cendre, par la magie", test: { dom: "magie", diff: -20, label: "Réveiller le feu d'Hildre", help: [{ with: "pip", v: 15 }, { if: { relic: "clou" }, v: 10 }] }, win: { fx: { ep: ["seance", 2500] }, to: "IVT_feu_seul_fin" }, lose: { to: "IVT_feu_seul_soufflet" } },
-      { label: "Laisse-moi faire, dit Pip : je descends dans la cendre", who: "pip", fx: { conf: { pip: 8 }, ep: ["seance", 2500] }, to: "IVT_feu_seul_fin" },
+      { label: "« Laisse-moi faire, dit Pip. Je descends dans la cendre. »", who: "pip", fx: { conf: { pip: 8 }, ep: ["seance", 2500] }, to: "IVT_feu_seul_fin" },
       { label: "Remettre le grand soufflet en état et souffler sur la cendre, à la manière des forgerons", test: { dom: "savoir", diff: -10, label: "Faire marcher le soufflet d'Hildre" }, win: { fx: { ep: ["seance", 2500] }, to: "IVT_feu_seul_fin" }, lose: { to: "IVT_feu_seul_soufflet" } },
     ] },
   IVT_feu_seul_soufflet: { act: "IV", title: "Le soufflet", place: "tour", without: "charline",
@@ -1061,10 +1061,10 @@ Object.assign(P, {
       "Aubin s'agenouille au bord du bassin. Le prieur Anthelme monte jusqu'à la surface, et sa tête la crève sans bruit, et l'eau coule de ses yeux aveugles. Il parle. Sa voix est celle de quelqu'un qui a de l'eau dans la gorge et qui n'en est pas gêné. « Frère Aubin. Tu n'étais pas là. »",
       "« Je n'étais pas là, dit Aubin. J'étais à la Perche. » Il ne baisse pas les yeux. « J'y suis allé tous les samedis pendant un an. Ce soir-là aussi. »",
       "« Nous savons, dit le prieur. Nous t'avons attendu toute la nuit, dans la nef, en chantant. Il fallait tenir. Tu sais ce qu'il faut tenir. » Les autres visages remontent, un à un, autour de lui. « Il fait froid, en bas, frère. Il fait froid depuis quatre cents ans. Quelqu'un doit y aller. Nous y sommes allés. Il manque un frère au chœur. »",
-      { if: { has: "IV:ida_vue" }, text: "Aubin a encore dans les yeux la tente de la Perche, au camp, et l'enfant qui tombait et se relevait dans les jambes d'Ida." },
-      { if: { has: "ida=elle" }, text: "Aubin pense à Ivo, l'enfant, qui l'appelle *le frère* parce qu'il croit que c'est son nom. Tu le vois y penser. Ça passe sur son visage comme une lumière sur l'eau." },
+      { if: { has: "IV:ida_vue" }, text: "Aubin a encore dans les yeux la tente de la Perche, au camp, et l'enfant qui regardait tout par-dessus l'épaule d'Ida." },
+      { if: { has: "ida=elle" }, text: "Aubin pense à Ivo, l'enfant, qui rit quand on lui dit : voilà *le frère*. Tu le vois y penser. Ça passe sur son visage comme une lumière sur l'eau." },
       { if: { has: "ida=dit" }, text: "Aubin pense à Ivo, l'enfant qu'il a tenu une fois, à Morteau, et à Ida qui ne veut pas le voir et qui le laisse venir quand même. Tu le vois y penser." },
-      { if: { has: "ida=tu" }, text: "Toi, tu penses à Ida, à la Perche, et à l'enfant de dix-huit mois qui s'accroche à sa jupe. Aubin ne sait pas. Tu as promis de te taire. Tu le regardes, au bord de l'eau, en train de décider de sa vie sans savoir ce qu'elle contient." },
+      { if: { has: "ida=tu" }, text: "Toi, tu penses à Ida, à la Perche, et à l'enfant de six mois noué dans son dos. Aubin ne sait pas. Tu as promis de te taire. Tu le regardes, au bord de l'eau, en train de décider de sa vie sans savoir ce qu'elle contient." },
     ],
     choices: [
       { label: "Lui dire, maintenant, ce que tu as promis de taire à Morteau", if: { has: "ida=tu" }, why: "Tu n'as rien promis à Ida.", fx: { flag: "IVT:ida_dit", conf: { aubin: 10 }, regard: { iic_ida: "trahi" } }, to: "IVT_eau_ivo" },
@@ -1072,7 +1072,7 @@ Object.assign(P, {
     ] },
   IVT_eau_ivo: { act: "IV", title: "Ivo", place: "tour", with: "aubin",
     text: [
-      "Tu le prends par le bras, et tu le lui dis, là, au bord du bassin, devant ses frères morts : Ida, la nuit de Morteau, l'enfant né au début de l'été. Il s'appelle Ivo. Il est au camp de Vaux, dans une tente qui porte l'enseigne de la Perche, et il apprend à marcher en tombant.",
+      "Tu le prends par le bras, et tu le lui dis, là, au bord du bassin, devant ses frères morts : Ida, la nuit de Morteau, l'enfant né au début de l'été. Il s'appelle Ivo. Il est au camp de Vaux, dans une tente qui porte l'enseigne de la Perche, et il rit quand on lui parle.",
       "Aubin ne dit rien. Il se rassied sur ses talons, au bord de l'eau, et il met les mains sur ses yeux. Les douze visages le regardent. Le prieur Anthelme, sous la surface, ferme ses yeux aveugles, comme par délicatesse.",
       "« Ivo, dit Aubin enfin, à travers ses mains. Elle l'a appelé Ivo. » Il rit, un rire cassé. « Le nom du saint. Le nom de la chapelle où je n'étais pas. » Il enlève ses mains. Il a les yeux secs, maintenant, et très clairs. « Merci. Tu n'avais pas le droit. Merci. »",
     ],
@@ -1080,7 +1080,7 @@ Object.assign(P, {
   IVT_eau_choix: { act: "IV", title: "Ce que répond Aubin", place: "tour", with: "aubin",
     text: [
       "Aubin regarde ses frères. Il regarde l'eau. Il te regarde. « Ils ont raison, dit-il. Il faut que quelqu'un tienne. Ivo, le vrai, le saint, a veillé quarante ans pour que celui d'en bas ne dorme pas, pour qu'il ne lâche pas. Mes frères ont tenu la nuit entière en chantant. Moi, je n'ai jamais rien tenu. » Il a un sourire. « Sauf un verre. »",
-      { if: { any: [{ has: "ida=elle" }, { has: "ida=dit" }, { has: "IVT:ida_dit" }] }, text: "« Et il y a un enfant, dit-il, plus bas. Qui m'appelle *le frère*, ou qui m'appellera. »" },
+      { if: { any: [{ has: "ida=elle" }, { has: "ida=dit" }, { has: "IVT:ida_dit" }] }, text: "« Et il y a un enfant, dit-il, plus bas. Qui m'appellera *le frère*, un jour, si je suis là pour l'entendre. »" },
       { if: { conf: "aubin", min: 50 }, text: "« Dis-moi ce que tu en penses, toi. Je t'ai suivi{e} jusqu'ici. Je peux bien t'écouter jusqu'au bout. »", else: "« Je ne te demande pas ton avis, dit-il. Je te demande d'être là pendant que je décide. C'est déjà beaucoup. »" },
     ],
     choices: [
@@ -1206,7 +1206,7 @@ Object.assign(P, {
   IVT_pierre_vengeance: { act: "IV", title: "Le visage de Thavar", place: "tour", with: "thavary",
     text: [
       "Thavary sort de la cellule, l'épée au clair. Devant la statue, elle s'arrête, et elle frappe. Pas la main : le visage. Une fois, deux fois, trois fois, à grands coups de taille qui font jaillir des éclats et qui résonnent dans la salle comme une cloche fêlée. Quand elle s'arrête, l'épée est ébréchée, et la statue de Thavar n'a plus de visage. Seulement la main, tendue, intacte.",
-      "« Aldaran a acheté ma maison pour fermer une chaîne, dit-elle, essoufflée. Et elle voulait la racheter pour la rouvrir. » Elle rengaine. « Quand ce sera fini, je descendrai à Hautmont. Il y a là-bas des gens qui savent ce que vaut le Val d'Aune. Ils vont apprendre ce qu'il coûte. »",
+      "« Aldaran a acheté ma maison pour fermer une chaîne, dit-elle, essoufflée. Et Aldaran voulait la racheter pour la rouvrir. » Elle rengaine. « Quand ce sera fini, je descendrai à Hautmont. Il y a là-bas des gens qui savent ce que vaut le Val d'Aune. Ils vont apprendre ce qu'il coûte. »",
       { if: { has: "vendrel:demasque" }, text: "Tu lui rappelles que Vendrel est mort, ou qu'on le dit. « Vendrel était un commis, dit-elle. Il y a des gens qui ont signé avant lui. Il y en aura après. »" },
       "Elle met la tablette de plomb dans ta besace, sans te demander. « Garde-la. Si je l'ai sur moi, je finirai par la jeter dans un puits. »",
     ],
@@ -1214,7 +1214,7 @@ Object.assign(P, {
   IVT_pierre_liberee: { act: "IV", title: "Thavary", place: "tour", with: "thavary",
     text: [
       "Thavary reste longtemps debout dans la cellule. Puis elle défait, sur sa poitrine, la petite broche d'argent aux armes de Thavar qui tient son manteau, et elle la pose sur la table de pierre, à côté de la tablette. Elle défait aussi le ruban de couleur noué à la garde de son épée. Elle le pose avec la broche.",
-      "« Thavar a fermé une chaîne pour avoir des terres, dit-elle. Mon père les a perdues aux dés. Ma grand-mère les pleure. Vendrel me les a offertes. Et moi, je les ai voulues toute ma vie, sans jamais les avoir vues. » Elle secoue la tête. « Je ne les veux plus. Je ne veux plus rien de lui. Ni ses terres, ni sa honte. Je garde l'épée, parce qu'elle est bonne. »",
+      "« Thavar a fermé une chaîne pour avoir des terres, dit-elle. Mon arrière-grand-père les a perdues aux dés. Ma grand-mère les pleure. Vendrel me les a offertes. Et moi, je les ai voulues toute ma vie, sans jamais les avoir vues. » Elle secoue la tête. « Je ne les veux plus. Je ne veux plus rien de lui. Ni ses terres, ni sa honte. Je garde l'épée, parce qu'elle est bonne. »",
       "Elle sort de la cellule sans se retourner. Devant la statue, elle ne s'arrête pas, et elle ne s'agenouille pas. Dans la cour, elle respire, longuement, l'air glacé, comme quelqu'un qui sort d'une pièce où l'on a trop chauffé. « Thavary, dit-elle, pour elle-même, comme on essaie un nom. Thavary. » Elle a l'air de le trouver bien.",
       { with: "coliane", text: "Coliane, qui l'attendait dans la cour, lui jette une pomme sans prévenir. Thavary l'attrape. Elles ne disent rien. Elles n'en ont pas besoin." },
     ],
@@ -1261,8 +1261,8 @@ Object.assign(P, {
     ],
     choices: [
       { label: "Desceller les briques, une à une", test: { dom: "combat", diff: -10, label: "Ouvrir le mur", help: [{ with: "thavary", v: 10 }, { if: { item: "pied_de_biche" }, v: 15 }] }, win: { fx: { ep: ["perso", 1000] }, to: "IVT_vase_salle" }, lose: { fx: { pv: -3, time: 3 }, to: "IVT_vase_salle" } },
-      { label: "Laisse-moi passer dessous, dit Gloup", who: "gloup", fx: { conf: { gloup: 5 }, ep: ["perso", 1000] }, to: "IVT_vase_salle" },
-      { label: "Laisse-moi faire, dit Charline : le mortier ne résistera pas au feu", who: "charline", fx: { conf: { charline: 3 }, ep: ["perso", 1000] }, to: "IVT_vase_salle" },
+      { label: "Gloup : il s'aplatit pour passer sous les briques", who: "gloup", fx: { conf: { gloup: 5 }, ep: ["perso", 1000] }, to: "IVT_vase_salle" },
+      { label: "« Laisse-moi faire », dit Charline : le mortier ne résistera pas au feu", who: "charline", fx: { conf: { charline: 3 }, ep: ["perso", 1000] }, to: "IVT_vase_salle" },
     ] },
   IVT_vase_salle: { act: "IV", title: "La salle d'Aldar", place: "tour",
     fx: { clue: "v_tour" },
@@ -1270,7 +1270,7 @@ Object.assign(P, {
       "Derrière le mur, une salle qui descend. Les dalles font place à des marches, et les marches à une rampe, et la rampe s'enfonce sous la tour, en pente douce, vers le noir. C'est une galerie de mine. Les parois portent encore les marques des pics, et le long du mur, rangés comme dans une sacristie, des outils de mineur couverts de rouille : pics, masses, coins, lampes de fer. Au-dessus de la galerie, gravé : *ALDAR. J'AI CREUSÉ.*",
       "La galerie est noyée. À vingt pas de l'entrée, la vase commence : une vase noire, épaisse, luisante, qui monte de plus en plus haut à mesure que la pente descend, et qui disparaît dans le noir. Sa surface n'est pas lisse. Elle est couverte de bulles. Des centaines de petites bulles qui gonflent, éclatent, se reforment.",
       "Sur le mur de droite, là où la vase commence, quelqu'un a gravé, plus tard, d'une autre main, plus fine, une inscription : *Ce qui pleure trop longtemps dans le noir finit par avoir des enfants.*",
-      "Puis tu vois que les bulles ne sont pas des bulles. Ce sont de petites choses rondes, de la taille d'un poing ou d'une tête, faites de vase, avec deux points plus clairs qui pourraient être des yeux. Elles se forment dans la vase, elles roulent un peu, elles se défont, elles se reforment. Elles ne font aucun bruit, sauf ce bruit de respiration.",
+      "Puis tu vois que les bulles ne sont pas des bulles. Ce sont de petites choses rondes, de la taille d'un poing ou d'une tête, faites de vase, avec deux points luisants qui pourraient être des yeux. Elles se forment dans la vase, elles roulent un peu, elles se défont, elles se reforment. Elles ne font aucun bruit, sauf ce bruit de respiration.",
     ],
     choices: [
       { label: "Regarder Gloup", with: "gloup", to: "IVT_vase_nids" },
@@ -1280,7 +1280,7 @@ Object.assign(P, {
   IVT_vase_nids: { act: "IV", title: "La naissance de Gloup", place: "tour", with: "gloup",
     fx: { ep: ["seance", 2500] },
     text: [
-      "Gloup s'est arrêté au bord de la vase. Il ne tremble plus. Il regarde les petites choses rondes qui naissent et qui se défont, et elles le regardent aussi, toutes ensemble, avec leurs yeux pâles. Une d'elles roule jusqu'à lui. Elle le touche. Gloup fait un bruit doux, et l'autre fait le même bruit, exactement le même.",
+      "Gloup s'est arrêté au bord de la vase. Il ne tremble plus. Il regarde les petites choses rondes qui naissent et qui se défont, et elles le regardent aussi, toutes ensemble, avec leurs yeux luisants. Une d'elles roule jusqu'à lui. Elle le touche. Gloup fait un bruit doux, et l'autre fait le même bruit, exactement le même.",
       "Tu comprends. Il est né comme ça. Ici, ou dans un endroit comme ici, une fosse, une mare, une galerie où la souillure a dormi assez longtemps. Il est une de ces bulles, une qui ne s'est pas défaite. Qui a roulé jusqu'au Rouvre, et que des bêtes ont protégée, et que tu as trouvée.",
       "Puis la vase, au fond, se soulève. Pas une bulle : une forme. Une femme, faite de la même matière, avec des cheveux d'algue qui flottent. Elle ne te regarde pas. Elle regarde Gloup. « Mon petit, dit-elle. Te voilà revenu. » Sa voix est infiniment tendre. « Regarde tes frères. Ils n'ont pas de nom, eux. Ils n'ont pas eu ta chance. Reviens. Je te ferai grand. Tu les garderas. Personne ne te frappera plus jamais, personne ne te brûlera, et tu n'auras plus jamais froid. »",
       { if: { has: "gloup:lave" }, text: "Gloup a, sur le dos, une tache plus claire, là où on l'a lavé dans l'eau de la source du Rouvre. La femme de vase la regarde. Quelque chose passe sur son visage, qui ressemble à du dégoût, ou à du chagrin." },
@@ -1326,7 +1326,7 @@ Object.assign(P, {
 
   IVT_vase_seul: { act: "IV", title: "Les enfants de la vase", place: "tour", without: "gloup",
     text: [
-      "Tu descends la rampe jusqu'au bord de la vase. Les petites choses rondes se tournent toutes vers toi. Puis elles se mettent à rouler, ensemble, vers tes pieds, et en roulant elles grossissent, elles s'agglutinent, elles se soudent, et ce qui arrive sur toi n'a plus rien de petit : une vague de vase avec des dizaines d'yeux pâles.",
+      "Tu descends la rampe jusqu'au bord de la vase. Les petites choses rondes se tournent toutes vers toi. Puis elles se mettent à rouler, ensemble, vers tes pieds, et en roulant elles grossissent, elles s'agglutinent, elles se soudent, et ce qui arrive sur toi n'a plus rien de petit : une vague de vase avec des dizaines d'yeux luisants.",
       { if: { has: "gloup=tue" }, text: "Tu penses au petit monstre de bave de la grotte du Rouvre, celui que tu as tué. Il avait les mêmes yeux." },
       { if: { met: "gloup" }, text: "Tu penses à Gloup, qui n'est pas là. Il avait les mêmes yeux." },
     ],
@@ -1339,13 +1339,13 @@ Object.assign(P, {
     ] },
   IVT_vase_seul_braise: { act: "IV", title: "Le feu d'Hildre", place: "tour", without: "gloup",
     text: [
-      "Tu ouvres le petit pot de fer, et la braise d'Hildre brille, jaune et pure, dans le noir de la galerie. La vague de vase s'arrête net, à deux pas de toi. Les yeux pâles clignent tous ensemble. Puis la vague se défait, recule, retombe en petites choses rondes qui roulent vers la vase en se bousculant, comme des enfants qu'on a grondés.",
+      "Tu ouvres le petit pot de fer, et la braise d'Hildre brille, jaune et pure, dans le noir de la galerie. La vague de vase s'arrête net, à deux pas de toi. Les yeux clignent tous ensemble. Puis la vague se défait, recule, retombe en petites choses rondes qui roulent vers la vase en se bousculant, comme des enfants qu'on a grondés.",
       "Tu ne les poursuis pas. Tu restes là, la braise levée, jusqu'à ce que la dernière ait disparu sous la surface. Puis tu refermes le pot, et la galerie redevient noire, et tu entends de nouveau, très doux, le bruit de respiration.",
     ],
     choices: [{ label: "Remonter la rampe", to: "IVT_vase_seul_fin" }] },
   IVT_vase_seul_calme: { act: "IV", title: "Les enfants de la vase", place: "tour", without: "gloup",
     text: [
-      "Tu ne bouges pas. Tu parles. Tu ne sais pas ce que tu dis : des mots de berger, des mots qu'on dit aux chevaux qui ont peur. La vague ralentit. Elle s'arrête à tes pieds. Les yeux pâles te regardent, de tout près. Puis la vague se défait, doucement, en petites choses rondes qui roulent autour de tes bottes, qui te reniflent, et qui s'en retournent vers la vase.",
+      "Tu ne bouges pas. Tu parles. Tu ne sais pas ce que tu dis : des mots de berger, des mots qu'on dit aux chevaux qui ont peur. La vague ralentit. Elle s'arrête à tes pieds. Les yeux te regardent, de tout près. Puis la vague se défait, doucement, en petites choses rondes qui roulent autour de tes bottes, qui te reniflent, et qui s'en retournent vers la vase.",
       "Une seule reste un moment, contre ta cheville. Elle fait un petit bruit mouillé. Puis elle s'en va aussi. Tu as l'impression qu'elle t'a demandé quelque chose, et que tu n'as pas su répondre.",
     ],
     choices: [{ label: "Remonter la rampe", to: "IVT_vase_seul_fin" }] },
@@ -1441,7 +1441,7 @@ Object.assign(P, {
   IV_feu_charline_gloup: { act: "IV", title: "Le feu qui ne brûle pas", place: "vaux", banter: true, with: ["charline", "gloup"],
     text: [
       "Gloup se tient toujours de l'autre côté du feu, le plus loin possible, depuis le premier jour. Ce soir, Charline le regarde faire, longtemps. Puis elle prend une flamme dans le feu, comme on prend une fleur, et la garde au creux de sa main. Elle la rend toute petite, bleue, presque froide. Elle la pose sur une pierre plate, à mi-chemin entre Gloup et elle.",
-      "« Elle ne mord pas, dit-elle. Je te le promets. Moi non plus. » Gloup regarde la petite flamme. Il avance d'un pouce. Puis d'un autre. Au bout d'un moment, il est tout près, et la flamme bleue se reflète dans ses yeux pâles, et il fait un petit bruit étonné.",
+      "« Elle ne mord pas, dit-elle. Je te le promets. Moi non plus. » Gloup regarde la petite flamme. Il avance d'un pouce. Puis d'un autre. Au bout d'un moment, il est tout près, et la flamme bleue se reflète dans ses yeux noirs, et il fait un petit bruit étonné.",
     ],
     choices: [
       { label: "Les laisser faire, sans un mot", fx: { conf: { charline: 5, gloup: 5 } }, to: "@ret" },
@@ -1516,7 +1516,7 @@ var extras = {
     IV_cure_vase: { name: "Le gardien des dîmes", look: "ombre", pv: 140, att: 92, def: 30, dmg: 10, desc: "Ce que la vase a fait du curé de Vaux, sous son église : une forme en soutane qui garde encore ce qu'on lui avait confié." },
     IVT_moine_noye: { name: "Moine noyé de Saint-Ivo", look: "humain", pv: 46, att: 82, def: 28, dmg: 8, desc: "Un frère de Saint-Ivo, la robe de bure pleine d'eau, qui chante encore l'office de la nuit où le lac est monté." },
     IVT_gardien_pierre: { name: "Le gardien de Thavar", look: "humain", pv: 160, att: 95, def: 38, dmg: 11, desc: "La statue de Thavar le Fidèle, debout. Elle garde ce que sa maison n'a jamais voulu dire." },
-    IVT_rejeton: { name: "Enfant de la vase", look: "ombre", pv: 30, att: 78, def: 24, dmg: 7, flank: true, desc: "Une petite chose ronde faite de souillure, avec deux yeux pâles. Seule, elle ne ferait de mal à personne. Elles ne sont jamais seules." },
+    IVT_rejeton: { name: "Enfant de la vase", look: "ombre", pv: 30, att: 78, def: 24, dmg: 7, flank: true, desc: "Une petite chose ronde faite de souillure, avec deux yeux luisants. Seule, elle ne ferait de mal à personne. Elles ne sont jamais seules." },
   },
   quests: [
     { id: "IV_anselme", act: "IV", kind: "annexe", title: "Les fioles d'Anselme", start: "IV_anselme", echo: ["anselme=denonce", "anselme=source", "anselme=associe"] },

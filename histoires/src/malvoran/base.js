@@ -76,7 +76,7 @@ module.exports = {
     p_chant: { rev: "P", text: "Grauk, le roi des trolls, ne descend plus à ses caves. Il a fait murer l'escalier avec des tonneaux pleins de pierres, du côté du haut." },
     p_main_pierre: { rev: "P", text: "Au fond des caves, une main de pierre grande comme une charrette sort du roc, paume ouverte vers le haut. Elle est fendue du poignet au majeur." },
     // Act I
-    r1_ruisseau: { rev: "R1", text: "Le ruisseau de la Sorbe coule noir et tiède sur une demi-lieue, puis redevient clair. La souillure vient d'en amont, vers Brumefeuille." },
+    r1_ruisseau: { rev: "R1", text: "Le ruisseau noir est un bras de la Sorbe. Dans la rivière, une veine d'eau noire et tiède longe la rive sans se mêler à l'eau claire. Elle vient d'en amont, vers Brumefeuille." },
     r1_veilleuse: { rev: "R1", text: "La femme qui te regardait passer au bord de la route avait de la farine sur ses bottes, et une odeur de vase sur les mains." },
     r1_pelerins: { rev: "R1", text: "Les pèlerins de la Main contournent Brumefeuille : « On dit que le meunier parle tout seul au bord du bief, et que quelqu'un lui répond. »" },
     r1_puits: { rev: "R1", text: "La margelle du puits de Brumefeuille est blanche de farine du côté du chemin du moulin, et nulle part ailleurs." },
@@ -112,7 +112,7 @@ module.exports = {
     m_tombeau: { rev: "M", text: "Au tombeau des fondateurs, il y a six niches. La sixième a été murée, et sur le mortier quelqu'un a écrit avec le doigt, il y a très longtemps : « IL A TENU LA PORTE »." },
     m_tour: { rev: "M", text: "Dans la tour d'Hildre, les quatre ailes sont dédiées chacune à un fondateur. Au centre, une cinquième salle, sans porte, et une sixième chaise à la table de pierre." },
     m_edrin: { rev: "M", text: "Edrin, le Grand Maître de l'Ordre : « Il était le plus jeune. Il soignait. Il s'est proposé. Et nous avons eu peur qu'il lâche. »" },
-    m_lettre: { rev: "M", text: "La lettre de ton maître : « Ils étaient six. Le sixième n'a jamais trahi personne. C'est nous qui l'avons trahi, et nous continuons tous les jours. »" },
+    m_lettre: { rev: "M", text: "La lettre de ta maîtresse : « Ils étaient six. Le sixième n'a jamais trahi personne. C'est nous qui l'avons trahi, et nous continuons tous les jours. »" },
     // Act III
     r3_emissaire: { rev: "R3", text: "Au manoir de Thavar, l'émissaire qui est venu proposer de racheter l'Anneau portait les couleurs d'Aldaran, et payait en sous de Vel-Orin." },
     r3_col: { rev: "R3", text: "Maître Vendrel ne desserre jamais son col. Quand il se penche sur la carte, on voit dessous, à la base du cou, une tache noire et luisante, comme de la vase sèche." },
@@ -124,7 +124,7 @@ module.exports = {
     r3_aymar: { rev: "R3", text: "Sire Aymar, commandeur de Fort-Gaudre, a vendu la route du gué. Le marché porte, au bas, le sceau du premier conseiller d'Aldaran." },
   },
   quests: [
-    { id: "P_roi", act: "P", kind: "principale", title: "Passer le roi des trolls", start: "PT_abords" },
+    { id: "P_roi", act: "P", kind: "principale", title: "Le roi des trolls", start: "PT_abords" },
     { id: "P_pierre", act: "P", kind: "principale", title: "Ce qui dort sous le château", start: "P_depart" },
     { id: "I_puits", act: "I", kind: "principale", title: "Le puits de Brumefeuille", start: "I_route" },
     { id: "II_gardiens", act: "II", kind: "principale", title: "Les gardiens du Sceau", start: "II_route" },
@@ -173,7 +173,7 @@ module.exports = {
     corde: { name: "Corde de chanvre", kind: "outil", price: 3, desc: "Quinze toises. Toujours utile, jamais assez longue." },
     lanterne: { name: "Lanterne sourde", kind: "outil", price: 6, desc: "On peut en masquer la flamme d'un volet." },
     pied_de_biche: { name: "Pied-de-biche", kind: "outil", price: 5, desc: "Pour les serrures qui ne veulent pas entendre raison." },
-    lettre: { name: "Lettre de ton maître", kind: "document", keep: true, desc: "Pliée en quatre, l'encre pâlie.",
+    lettre: { name: "Lettre de ta maîtresse", kind: "document", keep: true, desc: "Pliée en quatre, l'encre pâlie.",
       text: "« Je n'ai plus l'âge des routes. Va aux Trois-Bornes, au pied de la crête. Les trolls ont pris le vieux château ; ce n'est pas ce qui m'inquiète : des trolls, on en a toujours eu. Ce qui m'inquiète, c'est qu'ils n'en sortent plus. Regarde sous le château. Ne prends rien que tu ne saurais rendre. »" },
     eclat: { name: "L'éclat de la pierre fendue", kind: "quete", keep: true, bonus: { magie: 10 }, desc: "Un fragment tiède qui bat comme un pouls. Il rend la magie plus facile. Trop facile." },
     marteau_durn: { name: "Le marteau de Durn", kind: "quete", keep: true, desc: "Un marteau de forge à manche de frêne, gravé d'une borne. Durn le cherche." },
@@ -208,7 +208,7 @@ module.exports = {
       { label: "Tu es parti avant que l'eau ne tourne. Tu as entendu dire, plus tard, qui était resté.", fx: { flag: "passe:fui" } },
       { label: "Tu as racheté pour rien les terres de ceux qui partaient. Elles valent de l'or aujourd'hui. Tu ne les as jamais revues.", fx: { flag: "passe:profite", mark: 1, gold: 20 } },
     ] },
-    { q: "Qui était ton maître ?", answers: [
+    { q: "Qui était ta maîtresse ?", answers: [
       { label: "Hauberte de Sarn, chevalière sans cheval, qui t'a appris à tenir une lame et à ne pas t'en servir trop vite.", fx: { flag: "maitre:hauberte", item: "epee_courte", meet: "hauberte" } },
       { label: "Ortie, herboriste des marais, qui t'a appris les plantes, les sorts, et à regarder l'eau avant de la boire.", fx: { flag: "maitre:ortie", item: "gariig", meet: "ortie" } },
       { label: "Maëlle Vautrin, cartographe, qui t'a appris à lire le pays comme un livre.", fx: { flag: "maitre:maelle", item: "lanterne", meet: "maelle" } },
