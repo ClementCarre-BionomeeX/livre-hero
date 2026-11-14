@@ -5,7 +5,7 @@ module.exports = {
   H_reveil: { act: "I", title: "La main", place: "hospice",
     fx: { join: "odeline", meet: ["agnes"] },
     text: [
-      "Un plafond de planches, noirci par la fumée des chandelles. Une fenêtre étroite, où la neige passe à l'horizontale. Un lit de fer, des draps rêches qui sentent la lessive à la cendre. Et ta main droite, posée sur la couverture comme une chose qui n'est pas à toi, emmaillotée de linge jusqu'au poignet.",
+      "Un plafond de planches, noirci par la fumée des chandelles. Une fenêtre étroite, où la neige passe à l'horizontale. Un lit de fer, des draps rêches qui sentent la lessive à la cendre. Et ta main droite, posée sur la couverture comme la main d'un autre, emmaillotée de linge jusqu'au poignet.",
       "Une femme est assise sur un tabouret, à côté du lit. Une religieuse, robe grise, tablier blanc, une quarantaine d'années, des avant-bras de lavandière. Elle tricote. Elle a l'air de tricoter depuis longtemps.",
       "« Ah, dit-elle sans lâcher ses aiguilles. Vous voilà. Je suis Sœur Odeline. Vous êtes à l'hospice du col des Gélines. Notre chien vous a trouvé dans la neige, hier à l'aube, à cent pas de la croix. Vous aviez la main brûlée et la tête ouverte. Vous avez dormi un jour et une nuit. » Elle compte ses mailles. « Comment vous appelez-vous ? »",
       "Tu le lui dis. Ton nom vient tout seul, et ton métier avec : arpenteur du cadastre du duc. Ce qui ne vient pas, quand tu cherches, c'est la suite. Tu te souviens d'être monté de la plaine. D'une diligence, d'une auberge, d'un pont. Ensuite, il y a un trou, comme une marche qui manque dans un escalier qu'on descend dans le noir.",
@@ -35,7 +35,7 @@ module.exports = {
     text: [
       "« On sait ce que disait votre besace, dit Sœur Odeline. Des instruments, une chaîne, des jalons. Un arpenteur. Et on sait ce que dit la montagne. » Elle reprend son tricot. « Avant-hier, il y a eu le feu aux Combes, la ferme des Hollier, à un jour de marche d'ici, au-dessus de Vaugrenat. On a vu la fumée du clocher. Le frère du fermier est monté hier pour le dire, avant que la neige ne ferme le col. Ils sont tous morts. Le père, la mère, le petit, et la vieille. »",
       "Elle compte ses mailles. « Le prévôt montera dès que le vent tombera. Il voudra savoir ce qu'un arpenteur du duc faisait dans la neige, à un jour des Combes, avec une main brûlée. Je vous le dis pour que vous ayez le temps d'y penser. Pas pour que vous me répondiez. »",
-      { if: { has: "perte:fille" }, text: "*Le petit.* Tu n'entends que ce mot. Tu ne sais pas pourquoi il te serre la gorge à ce point. Ou plutôt si : tu le sais depuis six ans." },
+      { if: { has: "perte:fille" }, text: "*Le petit.* Tu n'entends que ce mot. Il te serre la gorge, et la raison t'échappe. Ou plutôt si : tu le sais depuis six ans." },
     ],
     fx: { meet: ["matthias", "gaspard"] },
     choices: [{ back: "H_reveil" }] },
@@ -62,7 +62,7 @@ module.exports = {
   H_habits: { act: "I", title: "La fumée", place: "hospice",
     text: [
       "Les sœurs ont lavé ta chemise, mais la laine de ta veste garde l'odeur : une fumée grasse, de bois et d'autre chose, de graisse peut-être, que tu ne veux pas nommer. Le bas de ton pantalon est roussi en deux endroits.",
-      "Puis tu regardes tes mains, la gauche surtout, celle qui n'est pas bandée. Sous tes ongles, il n'y a pas de suie. Il y a du foin, des brins jaunes et secs, et quelque chose de brun, de terreux, qui sent l'étable.",
+      "Puis tu regardes tes mains, la gauche surtout, la main nue. Tes ongles sont propres : aucune trace de suie. Il y a du foin, des brins jaunes et secs, et quelque chose de brun, de terreux, qui sent l'étable.",
     ],
     choices: [
       { label: "Retenir ce détail", fx: { clue: "h_cendre", ep: ["perso", 300] }, back: "H_rev_lever" },
@@ -104,7 +104,7 @@ module.exports = {
     text: [
       "Une longue table, des bancs, le grand poêle de faïence verte qui ronfle. On y mange, on y lit, on y attend. Deux voyageurs bloqués par la neige y passent leurs journées : un marchand de dentelles de Lorvanne, qui se plaint, et un homme en noir, la cinquantaine, des lunettes cerclées d'acier, qui lit un livre de médecine en prenant des notes dans la marge.",
       { if: { not: { seen: "H_corvin_rencontre" } }, text: "L'homme en noir lève les yeux quand tu entres. Il referme son livre en gardant le doigt dedans, et il te sourit, d'un sourire de médecin, qui sait déjà de quoi on va lui parler." },
-      { if: { has: "jour:2" }, text: "Au bout de la table, le frère du fermier des Combes mange sa soupe sans lever les yeux, sa hache posée sur le banc à côté de lui comme un chien. Personne ne s'assied près de lui." },
+      { if: { has: "jour:2" }, text: "Au bout de la table, le frère du fermier des Combes mange sa soupe sans lever les yeux, sa hache posée sur le banc à côté de lui comme un chien. Les places autour de lui restent vides." },
     ],
     choices: [
       { label: "Aller vers l'homme en noir", hide: { seen: "H_corvin_rencontre" }, to: "H_corvin_rencontre" },
@@ -122,9 +122,9 @@ module.exports = {
     fx: { meet: ["corvin"] },
     text: [
       "« Élias Corvin, dit l'homme en noir en se levant. Médecin à Vaugrenat. Asseyez-vous, je vous en prie. Vous ne devriez pas être debout. » Il te prend le poignet gauche, sans demander, et compte ton pouls en regardant sa montre. Ses doigts sont secs et très propres.",
-      "« Le choc, dit-il. La tête a cogné, et la tête se protège. Elle ferme des portes. Ce n'est pas grave : ce qui est fermé n'est pas perdu. » Il te lâche le poignet. « J'ai étudié à Lorvanne une méthode qui aide à rouvrir ces portes-là. Un peu de laudanum, pour que le corps se repose, et une conversation. On appelle cela le sommeil dirigé. Les souvenirs reviennent. Pas tous. Les plus importants. »",
+      "« Le choc, dit-il. La tête a cogné, et la tête se protège. Elle ferme des portes. Rassurez-vous : ce qui est fermé peut se rouvrir. » Il te lâche le poignet. « J'ai étudié à Lorvanne une méthode qui aide à rouvrir ces portes-là. Un peu de laudanum, pour que le corps se repose, et une conversation. On appelle cela le sommeil dirigé. Les souvenirs reviennent. Pas tous. Les plus importants. »",
       "Il sourit. « Le prévôt va monter, et il va vous poser des questions. Il vaudrait mieux que vous ayez des réponses. Je suis à votre disposition. »",
-      { with: "odeline", text: "Sœur Odeline, sur le pas de la porte, ne dit rien. Elle regarde la mallette de cuir du docteur, posée sur le banc, et elle a les lèvres très serrées." },
+      { with: "odeline", text: "Sœur Odeline, sur le pas de la porte, se tait. Elle regarde la mallette de cuir du docteur, posée sur le banc, et elle a les lèvres très serrées." },
     ],
     choices: [
       { label: "« Quand pouvons-nous commencer ? »", to: "H_corvin" },
@@ -136,7 +136,7 @@ module.exports = {
     text: [
       "Le docteur Corvin a pris une cellule au premier étage, près de celle du mourant. Il y a disposé ses affaires avec un ordre de pharmacien : la mallette ouverte, des flacons alignés, un cahier relié de noir, une chandelle, une chaise à dossier haut pour le patient.",
       { if: { not: { seen: "H_seance1" } }, text: "« Asseyez-vous, dit-il. Fermez les yeux. Buvez ceci. Ce n'est que du laudanum, quelques gouttes dans de l'eau. Vous allez avoir très chaud, puis très lourd. Laissez faire. Écoutez seulement ma voix. »" },
-      { if: { all: [{ seen: "H_seance1" }, { not: { has: "jour:2" } }] }, text: "« Pas aujourd'hui, dit le docteur. Une séance par jour, pas davantage. Le reste vient la nuit, tout seul. Revenez demain. »" },
+      { if: { all: [{ seen: "H_seance1" }, { not: { has: "jour:2" } }] }, text: "« Pas aujourd'hui, dit le docteur. Une séance par jour, une seule. Le reste vient la nuit, tout seul. Revenez demain. »" },
       { if: { all: [{ seen: "H_seance1" }, { has: "jour:2" }, { not: { seen: "H_seance2" } }] }, text: "« Vous voilà, dit le docteur. Je vous attendais. Le prévôt vous a fatigué, je suppose. Asseyez-vous. Nous allons aller un peu plus loin. »" },
       { if: { seen: "H_seance2" }, text: "« Le reste viendra en bas, dit le docteur en rangeant ses flacons. À mon cabinet, à Vaugrenat. J'y ai de quoi faire mieux. Venez me voir dès que le prévôt vous le permettra. »" },
     ],
@@ -188,7 +188,7 @@ module.exports = {
     text: [
       "Une pièce basse et chaude, au-dessus de la buanderie, pleine de draps pliés et de l'odeur du fer à repasser. Une fille y travaille, seule, en robe grise de novice. Elle a quatorze ou quinze ans, les cheveux très courts, d'un châtain clair, et elle plie les draps avec une précision furieuse, coin contre coin.",
       { first: true, text: "Elle lève les yeux quand tu entres. Elle te regarde, longtemps, sans bouger. Puis elle recule jusqu'au mur, lentement, sans te quitter des yeux, et elle reste là, le dos contre les étagères, un drap serré contre sa poitrine." },
-      { first: true, with: "odeline", text: "« Jeanne, dit Sœur Odeline. Ma nièce. Elle ne parle pas. Elle n'a jamais parlé. Laissez-la tranquille, elle a peur des hommes. »" },
+      { first: true, with: "odeline", text: "« Jeanne, dit Sœur Odeline. Ma nièce. Elle est muette depuis toujours. Laissez-la tranquille, elle a peur des hommes. »" },
       { again: true, if: { count: [{ seen: "H_jeanne_parler" }, { seen: "H_jeanne_instruments" }, { has: "jeanne:boussole" }, { has: "nuit:poupee" }], max: 1 }, text: "Jeanne te voit et recule d'un pas. Elle ne va plus jusqu'au mur." },
       { again: true, if: { count: [{ seen: "H_jeanne_parler" }, { seen: "H_jeanne_instruments" }, { has: "jeanne:boussole" }, { has: "nuit:poupee" }], min: 2 }, text: "Jeanne te voit et continue de plier ses draps. Elle a poussé un tabouret vers toi, du pied, sans te regarder." },
     ],
@@ -202,7 +202,7 @@ module.exports = {
     ] },
   H_jeanne_parler: { act: "I", title: "De loin", place: "hospice",
     text: [
-      "Tu t'assieds sur une malle, près de la porte, aussi loin d'elle que la pièce le permet. Tu parles. De rien : de la neige, de la plaine, du métier d'arpenteur, de la façon dont on mesure un champ avec une chaîne de vingt pas et un peu de patience. Elle ne répond pas. Elle plie ses draps.",
+      "Tu t'assieds sur une malle, près de la porte, aussi loin d'elle que la pièce le permet. Tu parles. De rien : de la neige, de la plaine, du métier d'arpenteur, de la façon dont on mesure un champ avec une chaîne de vingt pas et un peu de patience. Elle écoute. Elle plie ses draps.",
       "Au bout d'un moment, elle s'est rapprochée de la table. Pas de toi. De la table. Ses mains, en pliant, sont des mains de ferme : des cals aux paumes, la corne au pouce, celle qu'on se fait en tenant l'anse d'un seau de traite matin et soir.",
     ],
     choices: [
@@ -217,7 +217,7 @@ module.exports = {
     ],
     choices: [
       { label: "Lui laisser la boussole", fx: { clue: "j_carte", conf: { lise: 15 }, flag: "jeanne:boussole", ep: ["perso", 500] }, to: "H_jeanne_boussole" },
-      { label: "Ranger tes instruments sans rien dire", fx: { clue: "j_carte", conf: { lise: 5 } }, back: "H_lingerie" },
+      { label: "Ranger tes instruments en silence", fx: { clue: "j_carte", conf: { lise: 5 } }, back: "H_lingerie" },
     ] },
   H_jeanne_boussole: { act: "I", title: "Le nord", place: "hospice",
     text: [
@@ -236,7 +236,7 @@ module.exports = {
     choices: [{ back: "H_lingerie" }] },
   H_jeanne_main: { act: "I", title: "Le cri", place: "hospice",
     text: [
-      "Tu t'approches et tu tends la main. Jeanne ne crie pas : elle n'a pas de voix pour ça. Elle ouvre la bouche grande, sans un son, et elle se jette de côté, renverse une pile de draps, et se recroqueville sous la table, les bras sur la tête.",
+      "Tu t'approches et tu tends la main. Jeanne ouvre la bouche, et aucun cri n'en sort. Elle ouvre la bouche grande, sans un son, et elle se jette de côté, renverse une pile de draps, et se recroqueville sous la table, les bras sur la tête.",
       "Sœur Odeline arrive en courant. Elle se met à genoux, elle ne touche pas la petite, elle parle tout bas. Puis elle se retourne vers toi. « Sortez », dit-elle. Ce n'est pas une prière.",
     ],
     fx: { conf: { odeline: -10 } },
@@ -290,7 +290,7 @@ module.exports = {
     choices: [{ back: "H_abel" }] },
   H_abel_prevot: { act: "I", title: "Le prévôt", place: "hospice",
     text: [
-      "Abel ne répond pas tout de suite. Il pose sa réussite, carte après carte, jusqu'à ce qu'elle soit bloquée. Puis il ramasse tout.",
+      "Abel prend son temps. Il pose sa réussite, carte après carte, jusqu'à ce qu'elle soit bloquée. Puis il ramasse tout.",
       "« Un vieux soldat à jambe de bois qui dit qu'il a entendu un mot dans un couloir, dit-il. Contre un homme dont la famille vient de brûler. » Il te regarde. « Je le dirai si vous me le demandez. Je vous préviens seulement : on ne me croira pas, et on ne vous croira pas davantage parce que je l'ai dit. »",
     ],
     choices: [
@@ -343,7 +343,7 @@ module.exports = {
   H_chapelle: { act: "I", title: "La chapelle", place: "hospice",
     text: [
       "Une chapelle voûtée, toute blanche, avec un autel de pierre et une seule fenêtre en ogive où la neige fait une lumière d'aquarium. Sur le mur du fond, des ex-voto : des béquilles, des gants d'enfant, une paire de raquettes, une plaque de cuivre gravée. *À Notre-Dame des Gélines, Pierre Mareuil, sauvé de l'avalanche, l'hiver des trois lunes.* Il y en a des dizaines. Personne n'a mis de plaque pour ceux qu'on n'a pas sauvés.",
-      { if: { has: "jour:2" }, text: "Matthias Hollier est à genoux au premier rang, la tête dans les mains. Il ne prie pas. Il ne bouge pas. Il entend ton pas et ne se retourne pas." },
+      { if: { has: "jour:2" }, text: "Matthias Hollier est à genoux au premier rang, la tête dans les mains. Il se tient immobile, les mains ouvertes. Il entend ton pas et garde les yeux devant lui." },
     ],
     choices: [
       { label: "Prier, ou essayer", hide: { seen: "H_prier" }, to: "H_prier" },
@@ -352,9 +352,9 @@ module.exports = {
     ] },
   H_prier: { act: "I", title: "Prier", place: "hospice",
     text: [
-      "Tu t'agenouilles. Les mots ne viennent pas, ni ceux de l'enfance, ni d'autres. Ce qui vient, c'est une odeur de foin, très nette, très forte, au point que tu ouvres les yeux pour voir d'où elle vient. Il n'y a que la chapelle, la cire, la pierre.",
-      { if: { has: "perte:fille" }, text: "Tu as prié, il y a six ans, trois nuits de suite. Tu n'as plus prié depuis. Ce n'est pas de la colère. C'est de la politesse : on ne redemande pas ce qu'on vous a refusé." },
-      { if: { has: "perte:frere" }, text: "Tu penses à ton frère. Tu ne sais pas pourquoi maintenant. Tu te demandes s'il a appris qu'un arpenteur avait été trouvé dans la neige, et s'il a deviné que c'était toi, et ce qu'il a ressenti." },
+      "Tu t'agenouilles. Les mots te fuient, ceux de l'enfance comme les autres. Ce qui vient, c'est une odeur de foin, très nette, très forte, au point que tu ouvres les yeux pour voir d'où elle vient. Il n'y a que la chapelle, la cire, la pierre.",
+      { if: { has: "perte:fille" }, text: "Tu as prié, il y a six ans, trois nuits de suite. Tu n'as plus prié depuis. C'est de la politesse : ce qu'on vous a refusé, on le laisse." },
+      { if: { has: "perte:frere" }, text: "Tu penses à ton frère. Pourquoi maintenant ? Tu l'ignores. Tu te demandes s'il a appris qu'un arpenteur avait été trouvé dans la neige, et s'il a deviné que c'était toi, et ce qu'il a ressenti." },
     ],
     choices: [{ back: "H_chapelle" }] },
   H_exvoto: { act: "I", title: "Les ex-voto", place: "hospice",
@@ -384,7 +384,7 @@ module.exports = {
     choices: [{ back: "H_etable" }] },
   H_souvenir_etable: { act: "I", title: "Un souvenir", place: "hospice",
     text: [
-      "Tu fermes les yeux. L'odeur reste, et autour d'elle, quelque chose se construit, sans voix, sans docteur.",
+      "Tu fermes les yeux. L'odeur reste, et autour d'elle, quelque chose se construit tout seul, loin de la voix du docteur.",
       "Une autre étable. Plus petite, plus basse, une lanterne accrochée à une poutre. Une vache couchée sur le flanc, qui souffle, et un veau à moitié sorti, et des mains qui tirent sur les pattes avant, des mains d'enfant, petites et fortes. Tu ne vois pas le visage. Tu vois les mains, et un bout de natte qui pend, châtain clair, et tu entends un rire, un rire essoufflé de triomphe quand le veau glisse d'un coup dans la paille.",
       "Toi, tu tiens la lanterne. Tu le sais parce que la lumière bouge quand tu ris aussi.",
       "Puis plus rien. Brac te lèche la main bandée.",
@@ -461,7 +461,7 @@ module.exports = {
   H_nuit1_dort: { act: "I", title: "Le matin", place: "hospice",
     fx: { flag: ["jour:2", "gaudry:mort"] },
     text: [
-      { if: { has: "gaudry:lettre" }, text: "Au matin, la cloche de la chapelle sonne le glas. Le vieux Gaudry est mort dans la nuit. Les sœurs disent qu'il est parti sans un bruit, avec un sourire. Tu touches la lettre contre ta poitrine." },
+      { if: { has: "gaudry:lettre" }, text: "Au matin, la cloche de la chapelle sonne le glas. Le vieux Gaudry est mort dans la nuit. Les sœurs disent qu'il est parti doucement, avec un sourire. Tu touches la lettre contre ta poitrine." },
       { if: { not: { has: "gaudry:lettre" } }, text: "Au matin, la cloche de la chapelle sonne le glas. Le vieux Gaudry est mort dans la nuit. Les sœurs disent qu'il est parti en cherchant quelque chose sous son oreiller." },
       "Puis, vers dix heures, dans une accalmie, des voix dans la cour, des sabots de mule, des coups à la grande porte. Le prévôt est monté.",
     ],

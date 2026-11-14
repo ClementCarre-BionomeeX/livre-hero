@@ -6,8 +6,8 @@ module.exports = {
     fx: { meet: ["matthias", "bastien"] },
     text: [
       "Ils sont trois dans la cour, couverts de neige jusqu'à la taille, avec deux mules qui fument. Un homme de cinquante ans, carré, une moustache grise prise de givre, un manteau de prévôté à collet rouge : le prévôt Hennequin. Un jeune sergent, maigre, qui tient les mules et regarde partout. Et un troisième homme, grand, large, une barbe brune, une hache passée dans la ceinture, qui ne regarde que toi.",
-      "« Matthias Hollier, dit le prévôt en secouant son manteau. Le frère. Il a insisté pour monter. Je n'ai pas pu l'en empêcher, et pour tout dire, je n'ai pas essayé : c'est sa famille. » Il te dévisage. « C'est vous, l'arpenteur. Bien. Mère Agnès va nous prêter son bureau. Vous et moi, nous allons parler. »",
-      "Matthias Hollier ne dit rien. Il te regarde passer, et ses yeux sont rouges, et il a les mains ouvertes le long du corps, comme un homme qui se retient de les fermer.",
+      "« Matthias Hollier, dit le prévôt en secouant son manteau. Le frère. Il a insisté pour monter. Je l'ai laissé venir : c'est sa famille. » Il te dévisage. « C'est vous, l'arpenteur. Bien. Mère Agnès va nous prêter son bureau. Vous et moi, nous allons parler. »",
+      "Matthias Hollier se tait. Il te regarde passer, et ses yeux sont rouges, et il a les mains ouvertes le long du corps, comme un homme qui se retient de les fermer.",
     ],
     choices: [{ label: "Suivre le prévôt", to: "H_interro" }] },
 
@@ -40,7 +40,7 @@ module.exports = {
     text: [
       "« Une dispute », répète le prévôt. Il fait signe au sergent, qui écrit, la langue entre les dents. « À quel sujet ? »",
       "Tu ne sais pas. Tu revois la table de bois, les mains à plat, l'homme qui crie. Tu ne sais pas pourquoi il criait. Tu le dis. Le prévôt hoche la tête, lentement.",
-      "« Vous ne vous souvenez de rien, mais vous vous souvenez d'une dispute. » Il ne sourit pas. « C'est le docteur qui vous l'a rendue, celle-là ? Il est très fort, le docteur. Il a rendu beaucoup de choses à beaucoup de gens. » Tu ne sais pas si c'est un reproche, ou une mise en garde.",
+      "« Vous ne vous souvenez de rien, mais vous vous souvenez d'une dispute. » Il ne sourit pas. « C'est le docteur qui vous l'a rendue, celle-là ? Il est très fort, le docteur. Il a rendu beaucoup de choses à beaucoup de gens. » Reproche ou mise en garde, tu hésites.",
     ],
     choices: [{ label: "Attendre la suite", to: "H_interro_bourse" }] },
   H_interro_enfant: { act: "I", title: "Un enfant", place: "hospice",
@@ -63,7 +63,7 @@ module.exports = {
     ] },
   H_interro_fin: { act: "I", title: "Pas encore", place: "hospice",
     text: [
-      { if: { has: "bourse:mensonge" }, text: "Le prévôt sourit, pour la première fois. Ce n'est pas un bon sourire. « Une avance du cadastre, dit-il. En écus de la Compagnie. » Il fait signe au sergent d'écrire, et il n'ajoute rien." },
+      { if: { has: "bourse:mensonge" }, text: "Le prévôt sourit, pour la première fois. C'est un mauvais sourire. « Une avance du cadastre, dit-il. En écus de la Compagnie. » Il fait signe au sergent d'écrire, et il n'ajoute rien." },
       "Hennequin remet les écus dans la bourse, un à un, et garde la bourse. « Je vous la rendrai, dit-il. Ou je la donnerai au bailli. On verra. »",
       "Il se lève. « Vous n'êtes pas arrêté. Pas encore. Vous ne quittez pas l'hospice, et de toute façon, personne ne le quitte tant que le vent souffle. Quand il tombera, nous descendrons tous à Vaugrenat, vous, moi, le frère et le docteur. Là, on verra la maison. Et on verra si ça vous rend la mémoire. »",
       { if: { has: "enfant:dit" }, text: "Sur le seuil, il se retourne. « Et rappelez-vous ce que je vous ai demandé. » Il ne précise pas. Derrière la porte, dans le couloir, tu entends des pas lourds qui s'éloignent. Quelqu'un écoutait." },
@@ -74,17 +74,17 @@ module.exports = {
   // Matthias at the table
   H_matthias_table: { act: "I", title: "Matthias Hollier", place: "hospice",
     text: [
-      "Tu t'assieds en face de lui. Il lève les yeux de sa soupe. Il ne dit rien, longtemps. Puis il pose sa cuillère.",
+      "Tu t'assieds en face de lui. Il lève les yeux de sa soupe. Il se tait longtemps. Puis il pose sa cuillère.",
       "« Ils les ont mis dans l'église, dit-il. Les quatre. Le curé les a lavés. Il ne m'a pas laissé voir le petit. » Sa voix est très calme, très basse. « Ma nièce, Lise, on ne l'a pas trouvée. Le curé dit que le feu l'a prise toute entière, qu'elle dormait près du four. Quatorze ans. Elle voulait apprendre à lire les cartes. Elle me l'avait dit, à Noël. » Il te regarde. « Des cartes. Comme les vôtres. »",
       "Il reprend sa cuillère. « Je ne vous accuse de rien. Le prévôt fera son travail. Mais si c'est vous, je le saurai. Et ce jour-là, il n'y aura pas de prévôt. »",
     ],
     fx: { flag: "matthias:lise", ep: ["perso", 400] },
     choices: [
-      { label: "Le regarder, et chercher ce qu'il ne dit pas", test: { dom: "social", label: "Social", help: [{ if: { clue: "h_fille" }, v: 15 }] },
+      { label: "Le regarder, et chercher ce qu'il tait", test: { dom: "social", label: "Social", help: [{ if: { clue: "h_fille" }, v: 15 }] },
         win: { fx: { flag: "matthias:lu", ep: ["perso", 500] }, to: "H_matthias_lu" }, lose: { to: "H_matthias_rien" } },
       { label: "« Je suis désolé pour votre famille. »", to: "H_matthias_desole" },
     ] },
-  H_matthias_lu: { act: "I", title: "Ce qu'il ne dit pas", place: "hospice",
+  H_matthias_lu: { act: "I", title: "Ce qu'il tait", place: "hospice",
     text: [
       "Il parle de sa nièce au passé. Il en parle bien, avec tendresse, avec des détails : les cartes, Noël. Mais quand il dit *on ne l'a pas trouvée*, ses yeux font un petit mouvement de côté, vers le couloir, vers l'escalier qui monte à la lingerie, et reviennent sur toi.",
       "Et ses mains. Ses mains de mineur, larges, noueuses, posées de chaque côté de son bol. Sur le dos de la droite, une brûlure récente, mal soignée, en traînée, comme une main qui a frôlé une flamme en passant. Pas une main qui a tenu un loquet. Une main qui a tenu une torche.",
@@ -94,7 +94,7 @@ module.exports = {
     text: ["Tu ne vois rien d'autre qu'un homme en deuil, qui mange sa soupe parce qu'il faut manger, et qui te hait. Peut-être à raison. Tu ne sais pas."],
     choices: [{ back: "H_refectoire" }] },
   H_matthias_desole: { act: "I", title: "Désolé", place: "hospice",
-    text: ["Matthias te regarde comme si tu lui avais craché dessus. Puis il se lève, prend sa hache sur le banc, et sort sans un mot. Sa soupe fume encore dans le bol."],
+    text: ["Matthias te regarde comme si tu lui avais craché dessus. Puis il se lève, prend sa hache sur le banc, et sort. Sa soupe fume encore dans le bol."],
     choices: [{ back: "H_refectoire" }] },
 
   // the second session
@@ -103,7 +103,7 @@ module.exports = {
       "La chaleur, la lourdeur. Plus vite que la première fois : ton corps connaît déjà le chemin. La voix dit : *la nuit. Vous êtes dehors. Il fait froid. Vous tenez quelque chose.*",
       "Tu tiens une lanterne. La neige crisse sous tes pas. Devant toi, la masse noire d'une maison, un toit pointu, une cheminée. Tu marches vers elle. La lanterne se balance au bout de ton bras, et sa lumière court sur la neige devant toi, jaune, régulière.",
       "*Vous marchez vers la maison*, dit la voix. *Vous savez ce que vous allez faire.*",
-      "Tu ne sais pas. Tu sais seulement que la lanterne pèse, et que tu as froid, et que la cheminée de la maison ne fume pas. Elle devrait fumer. En hiver, la nuit, toutes les cheminées fument.",
+      "Tu ne sais pas. Tu sais seulement que la lanterne pèse, et que tu as froid, et que la cheminée de la maison est froide. Elle devrait fumer. En hiver, la nuit, toutes les cheminées fument.",
       "Puis la neige s'éteint, et tu es assis dans la cellule du docteur, en sueur, la bouche pleine d'un goût de cuivre.",
       "« Bien, dit le docteur Corvin en écrivant. Nous approchons. »",
     ],
@@ -114,7 +114,7 @@ module.exports = {
   H_seance2_fin: { act: "I", title: "La cheminée", place: "hospice",
     text: [
       "Tu redescends. Tu as la lanterne dans la main, encore : tu en sens le poids. Tu as beau ouvrir et fermer les doigts, elle est là.",
-      "Mais une chose te reste, qui n'est pas dans la voix du docteur, et que tu ne comprends pas : la cheminée ne fumait pas.",
+      "Mais une chose te reste, venue d'ailleurs que de la voix du docteur, et qui t'intrigue : la cheminée était froide.",
     ],
     fx: { flag: "cheminee:froide" },
     choices: [{ back: "H_hospice" }] },
@@ -132,7 +132,7 @@ module.exports = {
     ] },
   H_odeline_aveu: { act: "I", title: "Ce que sait Sœur Odeline", place: "hospice",
     text: [
-      "Sœur Odeline ferme la porte de l'infirmerie, et elle s'assied sur le tabouret, en face de toi, les mains sur les genoux. Elle ne tricote pas. Tu ne l'as jamais vue sans tricot.",
+      "Sœur Odeline ferme la porte de l'infirmerie, et elle s'assied sur le tabouret, en face de toi, les mains sur les genoux. Ses mains sont vides. C'est la première fois que tu la vois sans tricot.",
       "« Le premier matin, dit-elle, le chien est revenu seul et il a aboyé. Je suis sortie avec lui. À cent pas de la porte, dans la neige, il y avait une fille. Pieds nus, en chemise, les mains en sang, les cheveux brûlés d'un côté. Elle ne disait rien. Elle ne pouvait rien dire. Je l'ai portée jusqu'à la lingerie, parce que c'est la pièce la plus chaude. Le chien est reparti. Il est revenu avec vous. »",
       "« Le soir, le frère est monté. Il a demandé une fille. J'ai vu la tête de la petite quand elle a entendu sa voix dans le couloir. Je lui ai coupé les cheveux le soir même, avec mes ciseaux de couture. Mère Agnès a écrit dans son registre ce que je lui ai demandé d'écrire. » Elle te regarde. « Elle s'appelle Lise Hollier. Elle a quatorze ans. Et je ne sais pas encore si c'est de vous qu'elle a peur, ou de lui. »",
     ],
@@ -143,7 +143,7 @@ module.exports = {
     ] },
   H_odeline_aveu2: { act: "I", title: "Personne", place: "hospice",
     text: [
-      { with: "odeline", text: "Sœur Odeline hoche la tête. « Personne ne le sait. C'est pour ça que personne d'autre ne doit savoir qui elle est. Pas le prévôt, pas le docteur, pas le frère. Pas encore. » Elle se lève, et reprend son tricot dans la poche de son tablier. « Elle vous a laissé une poupée de paille, la première nuit. Elle en faisait pour son petit frère. Je ne sais pas ce que ça veut dire. Mais elle ne l'a fait pour personne d'autre. »" },
+      { with: "odeline", text: "Sœur Odeline hoche la tête. « Personne ne le sait. C'est pour ça que personne d'autre ne doit savoir qui elle est. Le prévôt, le docteur, le frère : tous l'ignorent. Pas encore. » Elle se lève, et reprend son tricot dans la poche de son tablier. « Elle vous a laissé une poupée de paille, la première nuit. Elle en faisait pour son petit frère. Je ne sais pas ce que ça veut dire. Mais elle ne l'a fait pour personne d'autre. »" },
     ],
     choices: [{ back: "H_hospice" }] },
   H_infirmerie: { act: "I", title: "L'infirmerie", place: "hospice",
@@ -171,7 +171,7 @@ module.exports = {
     choices: [{ back: "H_hospice" }] },
   H_corvin_vol_pris: { act: "I", title: "Surpris", place: "hospice",
     text: [
-      "« Je peux vous aider ? » Le docteur est sur le seuil, sa trousse à la main. Il te regarde, puis regarde la table. Il ne dit rien d'autre. Il entre, range le flacon dans la mallette, et ferme le cahier.",
+      "« Je peux vous aider ? » Le docteur est sur le seuil, sa trousse à la main. Il te regarde, puis regarde la table. Il s'en tient là. Il entre, range le flacon dans la mallette, et ferme le cahier.",
       "« La curiosité est un bon signe, dit-il enfin, avec douceur. Elle montre que l'esprit revient. Mais ne touchez pas à mes médicaments. Certains sont dangereux pour qui ne sait pas les doser. »",
     ],
     choices: [{ back: "H_hospice" }] },
@@ -239,9 +239,9 @@ module.exports = {
     choices: [{ label: "Attendre le matin", to: "H_jour3" }] },
   H_nuit2_prevot: { act: "I", title: "Le prévôt", place: "hospice",
     text: [
-      "Tu traverses le couloir, tu enjambes le sergent endormi, et tu frappes à la porte du prévôt. Il ouvre au deuxième coup, en chemise, l'épée déjà à la main : il ne dormait pas non plus. Tu lui dis : à l'étage, quelqu'un, la lingerie.",
+      "Tu traverses le couloir, tu enjambes le sergent endormi, et tu frappes à la porte du prévôt. Il ouvre au deuxième coup, en chemise, l'épée déjà à la main : il veillait, lui aussi. Tu lui dis : à l'étage, quelqu'un, la lingerie.",
       "Il ne pose pas de question. Il monte. Tu le suis. Quand vous arrivez, la porte de la lingerie est grande ouverte, la fenêtre aussi, et la neige entre. Jeanne est debout dans un coin, un fer à repasser à la main, froid, levé au-dessus de sa tête. Il n'y a personne d'autre.",
-      "Le prévôt regarde le lit défait, l'oreiller par terre, la fenêtre. Puis il regarde Jeanne. Longtemps. « Qui es-tu, toi ? » dit-il doucement. Elle ne répond pas.",
+      "Le prévôt regarde le lit défait, l'oreiller par terre, la fenêtre. Puis il regarde Jeanne. Longtemps. « Qui es-tu, toi ? » dit-il doucement. Elle se tait.",
     ],
     fx: { flag: ["nuit:prevot", "prevot:jeanne"], conf: { hennequin: 10, lise: 10 }, ep: ["histoire", 2000] },
     choices: [{ label: "Attendre le matin", to: "H_jour3" }] },
@@ -260,7 +260,7 @@ module.exports = {
       "Le vent tombe à l'aube, d'un coup, comme on ferme une porte. Le silence qui suit est si grand qu'on entend la neige glisser des toits.",
       "Au réfectoire, tout le monde est là. Le prévôt, qui n'a pas dormi. Le sergent, qui a honte d'avoir dormi. Le docteur, rasé de frais. Matthias Hollier, qui mange.",
       { if: { has: "nuit:marque" }, text: "Matthias a trois longues griffures sur la joue gauche, qui descendent dans la barbe. Il dit qu'il s'est battu avec la porte des latrines, dans le noir. Personne ne rit. Le prévôt le regarde longtemps, puis te regarde, toi, et tes ongles." },
-      { if: { all: [{ not: { has: "nuit:marque" } }, { has: "nuit:lutte" }] }, text: "Matthias a la lèvre fendue. Il dit qu'il a glissé dans l'escalier en allant aux latrines. Toi, tu as une bosse sur le front. Le prévôt vous regarde tous les deux, et il ne dit rien." },
+      { if: { all: [{ not: { has: "nuit:marque" } }, { has: "nuit:lutte" }] }, text: "Matthias a la lèvre fendue. Il dit qu'il a glissé dans l'escalier en allant aux latrines. Toi, tu as une bosse sur le front. Le prévôt vous regarde tous les deux, et il se tait." },
       { if: { not: { has: "nuit:lutte" } }, text: "Matthias n'a rien. Il dit qu'il a dormi d'une traite. Personne ne peut dire le contraire." },
       "« On descend, dit le prévôt. Tout le monde. Le chemin est dégagé jusqu'à la croix, les frères ont tracé. On sera à Vaugrenat avant la nuit. » Il te regarde. « Vous venez avec moi. »",
     ],
@@ -284,7 +284,7 @@ module.exports = {
   H_jour3_revele: { act: "I", title: "Le prévôt saura", place: "hospice",
     text: [
       "Sœur Odeline te regarde longtemps. Puis elle soupire. « Vous avez peut-être raison. Je ne sais plus. » Elle prend la main de Jeanne. « Je viendrai avec vous lui parler. Pas devant le frère. »",
-      "Le prévôt vous écoute, dans le bureau de Mère Agnès, porte fermée. Il ne dit rien pendant tout le récit. À la fin, il se lève, va à la fenêtre, et regarde la cour où Matthias charge les mules.",
+      "Le prévôt vous écoute, dans le bureau de Mère Agnès, porte fermée. Il écoute tout le récit en silence. À la fin, il se lève, va à la fenêtre, et regarde la cour où Matthias charge les mules.",
       "« Lise Hollier, dit-il. Vivante. » Il ne se retourne pas. « Personne d'autre ne le sait. Ni le frère, ni le docteur, ni le sergent. Elle descend avec la sœur, comme sa nièce, et elle loge au presbytère, chez le curé Vidal. Je le connais : il ne parle qu'à Dieu, et encore. » Il se retourne. « Et vous, vous restez à portée de ma main. Je ne sais toujours pas de quel côté de la porte vous étiez. »",
     ],
     fx: { flag: "prevot:lise" },
@@ -295,8 +295,8 @@ module.exports = {
     fx: { quest: "I_jours", ep: ["histoire", 3000] },
     text: [
       "On part à dix heures, en file : le sergent devant avec les mules, Matthias, le docteur, le prévôt, toi, et Sœur Odeline et Jeanne derrière, à distance, comme deux sœurs qui vont au marché. Brac vous accompagne jusqu'à la croix des Gélines, et s'assied là, et vous regarde descendre.",
-      "Tu passes devant la croix. Tu t'arrêtes. Le rocher, la croix de fer, la neige tassée à son pied, comme si quelqu'un s'y était assis longtemps. Personne ne dit rien. Le prévôt attend que tu repartes.",
-      { if: { has: "fente:connue" }, text: "Derrière la croix, sur la gauche, une pente d'éboulis enneigés monte vers une dalle de rocher fendue en deux. Tu la regardes. Tu ne dis rien." },
+      "Tu passes devant la croix. Tu t'arrêtes. Le rocher, la croix de fer, la neige tassée à son pied, comme si quelqu'un s'y était assis longtemps. Tous se taisent. Le prévôt attend que tu repartes.",
+      { if: { has: "fente:connue" }, text: "Derrière la croix, sur la gauche, une pente d'éboulis enneigés monte vers une dalle de rocher fendue en deux. Tu la regardes. Tu te tais." },
       "Le chemin descend dans la forêt. La neige devient lourde, puis mouillée, puis de la boue. À quatre heures, au détour d'un lacet, Vaugrenat apparaît au fond de la vallée : des toits d'ardoise, un clocher pointu, un filet de fumée par cheminée. Toutes les cheminées fument.",
     ],
     choices: [{ label: "Fin de l'acte I", big: true, to: "V_aube" }] },

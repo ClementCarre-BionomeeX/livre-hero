@@ -43,7 +43,7 @@ module.exports = {
     choices: [{ back: "V_ruines" }] },
   V_souvenir_porte: { act: "II", title: "Un souvenir", place: "combes",
     text: [
-      "La souillarde est si petite que tu dois baisser la tête. L'évier, la fenêtre éclatée. Et c'est là que ça revient, pas comme un rêve : comme une gifle.",
+      "La souillarde est si petite que tu dois baisser la tête. L'évier, la fenêtre éclatée. Et c'est là que ça revient, comme une gifle.",
       "La fumée. Tu ne vois rien, tu tousses, tu as la tête qui saigne et qui sonne. Quelqu'un tousse à côté de toi, plus petit, plus aigu. Tu te traînes jusqu'à la porte, tu trouves l'anneau dans le noir, tu tires, et l'anneau est brûlant, il te mord la main jusqu'à l'os, et tu tires quand même, et la porte ne bouge pas. Elle ne bouge pas. Elle ne bouge pas.",
       "Alors tu lâches, et tu cherches autre chose. Un tabouret. La fenêtre de la souillarde. Tu frappes jusqu'à ce que le bois éclate. Tu prends l'enfant qui tousse, tu la soulèves, elle est légère, tu la pousses dehors par la fenêtre, dans la neige. Tu passes derrière elle. Tes épaules restent coincées. Tu forces. Tu tombes.",
       "Dehors, la neige, le froid, et une lanterne qui se balance au coin de la maison, et une voix d'homme qui crie un prénom que tu ne comprends pas.",
@@ -63,7 +63,7 @@ module.exports = {
   V_conduit: { act: "II", title: "La cheminée", place: "combes",
     text: [
       "La cheminée est tombée avec le toit, mais la base du conduit tient encore, une gaine de pierre carrée qui monte du poêle sur deux toises. Elle est pleine de décombres : de la suie, des lauzes brisées, des débris de chevrons.",
-      { if: { has: "cheminee:froide" }, text: "*La cheminée ne fumait pas.* Tu regardes le conduit, et la phrase te revient, et tu ne sais pas d'où elle vient." },
+      { if: { has: "cheminee:froide" }, text: "*La cheminée ne fumait pas.* Tu regardes le conduit, et la phrase te revient, venue de très loin." },
     ],
     choices: [
       { label: "Fouiller dans la gaine, à mains nues", hide: { item: "toile" }, test: { dom: "nature", label: "Nature", help: [{ with: "lise", v: 15 }, { with: "odeline", v: 10 }] },
@@ -189,7 +189,7 @@ module.exports = {
   V_veille: { act: "II", title: "La veille", place: "village",
     fx: { leave: "lise", quest: "V_pas" },
     text: [
-      "Le bailli Dorval arrive en fin d'après-midi, dans une voiture fermée tirée par deux chevaux qui fument. Il descend à l'étude de Maître Pélissier, où il dîne et où il dort. Tout le village le regarde entrer. Personne ne dit rien. Tout le monde a compris.",
+      "Le bailli Dorval arrive en fin d'après-midi, dans une voiture fermée tirée par deux chevaux qui fument. Il descend à l'étude de Maître Pélissier, où il dîne et où il dort. Tout le village le regarde entrer. Tous se taisent. Tout le monde a compris.",
       { if: { conf: "hennequin", min: 50 }, text: "Le prévôt Hennequin vient te voir au Chamois, le soir. Il s'assied sur ton lit, son chapeau sur les genoux. « J'ai donné mon dossier au bailli, dit-il. Il l'a mis sous son assiette sans l'ouvrir. Demain, il commence par vous. » Il se relève. « Dormez. Si vous pouvez. »" },
       { if: { conf: "hennequin", max: 49 }, text: "Le prévôt Hennequin passe sous ta fenêtre sans lever les yeux. Bastien, sur sa chaise, devant ta porte, a l'air de quelqu'un qui garde un condamné." },
       "Lise et Sœur Odeline sont rentrées au presbytère. La place se vide. Les lumières s'éteignent une à une, sauf à l'étude du notaire, où l'on entend rire, et chez le docteur, où une lampe brûle tard.",
