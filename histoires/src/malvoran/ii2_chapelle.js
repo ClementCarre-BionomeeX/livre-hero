@@ -185,7 +185,7 @@ Object.assign(P, {
     choices: [{ label: "Reprendre la route", back: R }] },
   EIIC_anselme_refus: { act: "II", title: "Pas de marché", place: null,
     text: [
-      "« Trois sous ? » Anselme roule le plan et le remet sous la paille avec une dignité offensée. « Mon ami, je ne vends pas la science au poids. » Il remonte sur son timon et reprend sa pomme où il l'avait laissée.",
+      "« Trois sous ? » Anselme roule le plan et le remet sous la paille avec une dignité offensée. « Ah non, je ne vends pas la science au poids. » Il remonte sur son timon et reprend sa pomme où il l'avait laissée.",
       "Il ne te rappelle pas quand tu t'en vas. Tu l'entends siffler derrière toi.",
     ],
     choices: [
@@ -523,7 +523,7 @@ Object.assign(P, {
         win: { fx: { ep: ["perso", 1000] }, to: "IIC_ninon_rompre" }, lose: { to: "IIC_ninon_tard" } },
       { label: "Parler à la voix : « Tu n'es pas sa mère. »", test: { dom: "savoir", diff: -10, label: "Prendre la voix en défaut", help: [{ if: { clue: "v_margot" }, v: 15 }, { if: { clue: "v_sauge" }, v: 10 }, { with: "charline", v: 10 }] },
         win: { fx: { ep: ["perso", 1000] }, to: "IIC_ninon_rompre" }, lose: { to: "IIC_ninon_tard" } },
-      { label: "« Laisse-moi faire », dit Frère Aubin : il chante la chanson des barques, la vraie", who: "aubin", test: { dom: "magie", diff: 0, label: "Couvrir la voix" },
+      { label: "« Laissez-moi faire », dit Frère Aubin : il chante la chanson des barques, la vraie", who: "aubin", test: { dom: "magie", diff: 0, label: "Couvrir la voix" },
         win: { fx: { conf: { aubin: 5 }, ep: ["perso", 1000] }, to: "IIC_ninon_rompre" }, lose: { to: "IIC_ninon_tard" } },
       { label: "Ordonner à l'eau de se taire, avec ce qui brûle dans ta paume", if: { mark: { min: 1 } }, why: "Il te faudrait la Marque.", tag: "Marque +1", stain: true,
         fx: { mark: 1, flag: "IIC:ninon_marque", fear: { coliane: 5, aubin: 5 } }, to: "IIC_ninon_rompre" },
@@ -597,7 +597,7 @@ Object.assign(P, {
     choices: [
       { label: "Le soigner", test: { dom: "nature", diff: -10, label: "Nettoyer et refermer les plaies", help: [{ if: { item: "onguent" }, v: 15 }, { if: { item: "gariig" }, v: 10 }, { with: "pip", v: 10 }, { if: { has: "maitre:ortie" }, v: 10 }] },
         win: { fx: { flag: "josse=soigne", ep: ["perso", 800] }, to: "IIC_josse_soigne" }, lose: { fx: { flag: "josse=soigne" }, to: "IIC_josse_soin_rate" } },
-      { label: "« Laisse-moi faire », dit Frère Aubin, les mains déjà sur la plaie", who: "aubin", fx: { flag: "josse=soigne", conf: { aubin: 5 }, ep: ["perso", 800] }, to: "IIC_josse_soigne" },
+      { label: "« Laissez-moi faire », dit Frère Aubin, les mains déjà sur la plaie", who: "aubin", fx: { flag: "josse=soigne", conf: { aubin: 5 }, ep: ["perso", 800] }, to: "IIC_josse_soigne" },
       { label: "Lui mettre ta lame sous le menton : « Qu'est-ce qu'un homme du Cercle vient faire ici ? »", fx: { flag: "josse=menace", ep: ["perso", 600] }, to: "IIC_josse_menace" },
       { label: "Laisser Coliane descendre", with: "coliane", fx: { flag: "josse=reconnu", ep: ["perso", 800] }, to: "IIC_josse_reconnu" },
       { label: "Le laisser là pour l'instant", back: "IIC_chaussee" },
@@ -1138,7 +1138,7 @@ Object.assign(P, {
       { label: "Écouter, seulement écouter", to: "IIC_moines_ecouter" },
       { label: "Chanter avec eux, pour les apaiser", test: { dom: "magie", diff: -10, label: "Apaiser les morts", help: [{ with: "aubin", v: 15 }, { if: { arch: "pretre" }, v: 10 }, { if: { arch: "barde" }, v: 10 }, { with: "pip", v: 5 }] },
         win: { fx: { ep: ["seance", 1800] }, to: "IIC_moines_apaises" }, lose: { to: "IIC_moines_colere" } },
-      { label: "« Laisse-moi faire », dit Frère Aubin, et il descend sur la dernière marche, au bord de l'eau", who: "aubin", test: { dom: "magie", diff: 0, label: "Aubin chante l'office avec ses frères" },
+      { label: "« Laissez-moi faire », dit Frère Aubin, et il descend sur la dernière marche, au bord de l'eau", who: "aubin", test: { dom: "magie", diff: 0, label: "Aubin chante l'office avec ses frères" },
         win: { fx: { conf: { aubin: 15 }, ep: ["seance", 1800] }, to: "IIC_moines_apaises" }, lose: { fx: { conf: { aubin: 5 } }, to: "IIC_moines_colere" } },
       { label: "Les combattre, pour que ça finisse", fight: { title: "Les frères noyés", enemies: [{ id: "noye", n: 3 }], terrain: "nature", spare: true,
         win: { fx: { ep: ["seance", 1500] }, to: "IIC_moines_disperses" }, lose: { fx: { pv: -3 }, to: "IIC_moines_defaite" },
@@ -1169,7 +1169,7 @@ Object.assign(P, {
     choices: [
       { label: "Chanter le verset avec eux, et aller au-delà du mot où ils s'arrêtent", test: { dom: "magie", diff: 0, label: "Apaiser les morts", help: [{ with: "aubin", v: 15 }, { if: { arch: "pretre" }, v: 10 }, { if: { arch: "barde" }, v: 10 }, { with: "pip", v: 5 }] },
         win: { fx: { ep: ["seance", 1800] }, to: "IIC_moines_apaises" }, lose: { to: "IIC_moines_colere" } },
-      { label: "« Laisse-moi faire », dit Frère Aubin, et il descend au bord de l'eau", who: "aubin", fx: { conf: { aubin: 15 }, ep: ["seance", 1800] }, to: "IIC_moines_apaises" },
+      { label: "« Laissez-moi faire », dit Frère Aubin, et il descend au bord de l'eau", who: "aubin", fx: { conf: { aubin: 15 }, ep: ["seance", 1800] }, to: "IIC_moines_apaises" },
       { label: "Les laisser chanter, et partir avant l'aube", back: "IIC_parvis" },
     ] },
   IIC_moines_apaises: { act: "II", title: "Le dernier office", place: "morteau",
