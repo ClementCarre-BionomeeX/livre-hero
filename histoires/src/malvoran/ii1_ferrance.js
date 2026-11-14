@@ -10,11 +10,11 @@ add({
   II_route: { act: "II", title: "Le lendemain des Brumes", place: "brumefeuille", backName: "la place de Brumefeuille",
     fx: { flag: "acte:II", meet: "brann", ep: ["perso", 500] },
     text: [
-      { first: true, text: "Le lendemain de la fête des Brumes, Brumefeuille se réveille tard. Il reste sur la place des tables à tréteaux, des chandelles noyées dans leur cire, un tonneau en perce que personne n'a pensé à boucher. Une odeur de lard froid et de fumée flotte au ras des toits. Le brouillard monte de la Sorbe, épais comme de la laine, et les gens qui traversent la place y entrent et en ressortent sans bruit." },
+      { first: true, text: "Au dernier matin des Brumes, Brumefeuille se réveille tard. On a fermé le mois comme on ferme une porte, en buvant : il reste sur la place des tables à tréteaux, des chandelles noyées dans leur cire, un tonneau en perce que personne n'a pensé à boucher. Une odeur de lard froid et de fumée flotte au ras des toits. Le brouillard monte de la Sorbe, épais comme de la laine, et les gens qui traversent la place y entrent et en ressortent sans bruit." },
       { first: true, text: "Devant le sanctuaire de la Main, un cheval gris attend, la bride passée à l'anneau du mur. Il a les jambes crottées jusqu'au poitrail. Son cavalier est assis sur la marche, un gant gris à la main droite et rien à la gauche, et il mange une pomme en regardant le puits. Quand il te voit, il se lève, essuie sa bouche du revers de la manche, et tire de sa sacoche une lettre pliée en trois, fermée d'une cire grise." },
       { again: true, text: "La place de Brumefeuille, dans le brouillard du matin. Le cheval gris du messager de l'Ordre attend toujours à l'anneau du sanctuaire, et son cavalier fait semblant de ne pas te presser." },
       { if: { has: "puits:clair" }, text: "Au milieu de la place, le puits a retrouvé son eau. Une femme y tire un seau, le regarde longtemps, le renifle, puis y trempe les lèvres. Elle ne dit rien à personne, mais elle repart en chantonnant.", else: "Au milieu de la place, le puits est toujours bâché d'une toile goudronnée, et les femmes vont chercher l'eau à la Sorbe, en amont du moulin, avec des seaux qu'elles portent à deux." },
-      { if: { is: { meunier: "livre" } }, text: "La roue du moulin ne tourne plus. Barthélemy est toujours au sanctuaire de la Main, sous la garde de Père Odon, en attendant que le prévôt de Sorbe vienne le chercher. On dit qu'il ne mange plus, et qu'il demande chaque soir qu'on ouvre la fenêtre du côté de la rivière." },
+      { if: { is: { meunier: "livre" } }, text: "La roue du moulin ne tourne plus. Barthélemy est toujours au sanctuaire de la Main, sous la garde de Père Odon, en attendant que le bailli de Sorbe vienne le juger. On dit qu'il ne mange plus, et qu'il demande chaque soir qu'on ouvre la fenêtre du côté de la rivière." },
       { if: { is: { meunier: "protege" } }, text: "La roue du moulin tourne. Barthélemy est là-bas, derrière ses sacs, et le village ne sait rien. Toi, tu sais. Tu sais aussi à quoi il pense quand il s'arrête au bord de l'eau, le soir." },
       { if: { is: { meunier: "marche" } }, text: "La roue du moulin tourne, et personne ne s'en étonne. Ta paume te démange depuis l'aube, comme une piqûre d'ortie qui ne passe pas. Tu as passé un marché sous cette roue. Le village ne le saura jamais." },
     ],
@@ -27,12 +27,12 @@ add({
   II_lettre: { act: "II", title: "La lettre du sénéchal", place: "brumefeuille",
     fx: { item: "II_lettre_brann", ep: ["perso", 300] },
     text: [
-      "Le messager s'appelle Frère Bérenger. Il a vingt ans, des taches de son, et la manière un peu raide des jeunes gens à qui l'on a confié une chose importante. « De la part du sénéchal Brann, dit-il. Il m'a fait jurer de te la remettre en main propre, et de ne pas la remettre à quelqu'un d'autre, même si on me disait que c'était toi. » Il hésite. « Il a dit : *celui qui est descendu sous le moulin.* »",
+      "Le messager s'appelle Frère Bérenger. Il a vingt ans, des taches de son, et la manière un peu raide des jeunes gens à qui l'on a confié une chose importante. « De la part du sénéchal Brann, dit-il. Il m'a fait jurer de te la remettre en main propre, et de ne pas la remettre à quelqu'un d'autre, même si on me disait que c'était toi. » Il hésite. « Il a dit : *à qui est descendu sous le moulin, et à personne d'autre.* »",
       "La cire grise porte une main ouverte. Tu la romps. L'écriture est grande, appuyée, sans fioriture, celle de quelqu'un qui écrit rarement et qui n'aime pas ça.",
-      "*Le sénéchal de l'Ordre de la Main, à qui est descendu sous le moulin de Brumefeuille. On m'a dit ce que tu as trouvé sous le château des trolls de la crête, et ce que tu as tué sous la roue. Ce sont des choses dont l'Ordre a la garde depuis quatre cents ans, et que l'Ordre garde mal. Viens à la commanderie du Val d'Anse par la route du nord, avant les premières gelées. Je ne te convoque pas : je n'en ai pas le droit. Je te le demande. Ne parle à personne de ce que tu portes. L'eau entend. Brann.*",
+      "*Le sénéchal de l'Ordre de la Main, à qui est descendu sous le moulin de Brumefeuille. On m'a dit ce que tu as trouvé sous le château des trolls de la crête, et ce que tu as fait sous la roue. Ce sont des choses dont l'Ordre a la garde depuis quatre cents ans, et que l'Ordre garde mal. Viens à la commanderie du Val d'Anse par la route du nord, avant les premières gelées. Je ne te convoque pas : je n'en ai pas le droit. Je te le demande. Ne parle à personne de ce que tu portes. L'eau entend. Brann.*",
       { if: { has: "passe:ordre" }, text: "Bérenger regarde tes mains pendant que tu lis, et tu vois le moment où il comprend. « Tu as porté le gant, dit-il. Ça se voit à la façon dont tu tiens le pli. Le sénéchal le savait, je crois. Il sait toujours ce genre de choses. »" },
       { with: "coliane", text: "Coliane lit par-dessus ton épaule sans s'en cacher. « *L'eau entend*, répète-t-elle. Voilà un homme qui en sait plus qu'il n'en écrit. Je n'aime pas les gens de l'Ordre. Ils gardent les routes et ils laissent brûler les villages qui sont à côté. » Elle te rend la lettre quand même, pliée proprement." },
-      { with: "pip", text: "Pip se pose sur la cire rompue, et la main ouverte s'éclaire un instant par en dessous. Il compte les doigts, un par un, en se posant sur chacun. Il en compte cinq. Puis il se pose à côté du pouce, là où il n'y a rien, et il y reste." },
+      { with: "pip", text: "Pip se pose sur la cire rompue, et la main ouverte s'éclaire un instant par en dessous. Elle est rouge, comme une main devant une chandelle." },
     ],
     choices: [
       { label: "« Qu'est-ce qu'il me veut, ton sénéchal ? »", to: "II_berenger" },
@@ -65,7 +65,7 @@ add({
   II_adieu_berthe: { act: "II", title: "La maison de Berthe", place: "brumefeuille",
     text: [
       { if: { is: { berthe: "sauvee" } }, text: "Berthe est sur le seuil, assise sur un tabouret, une chèvre entre les genoux, en train de la traire. Elle ne se lève pas. « Je ne me lève plus pour personne, dit-elle. Pas même pour qui m'a gardé le cou entier. » Elle finit la chèvre, essuie ses mains à son tablier, et te tend un fromage roulé dans une feuille de châtaignier. « Il est jeune. Il sera bon dans quatre jours. Tu le mangeras sur la route, et tu penseras à moi qui pense à toi. »" },
-      { if: { is: { berthe: "cachee" } }, text: "La maison de Berthe est fermée, comme tu l'as laissée. Mais sous la pierre plate du seuil, il y a un fromage enveloppé dans une feuille de châtaignier, et un bout de ficelle noué trois fois. Le signe que vous étiez convenus. Elle est vivante, là où tu l'as cachée, et elle a trouvé le moyen de te le faire savoir." },
+      { if: { is: { berthe: "cachee" } }, text: "La maison de Berthe est fermée, comme tu l'as laissée. Mais sous la pierre plate du seuil, il y a un fromage enveloppé dans une feuille de châtaignier, et un bout de ficelle noué trois fois. Le signe dont vous étiez convenus. Elle est vivante, là où tu l'as cachée, et elle a trouvé le moyen de te le faire savoir." },
       { if: { is: { berthe: "pendue" } }, text: "La maison de Berthe est ouverte, et vide. On a pris les chaudrons, les draps, la huche. Les chèvres errent dans le jardin, mangent les choux montés en graine, et l'une d'elles vient frotter sa tête contre ta jambe. Sur le mur, quelqu'un a peint une main ouverte à la chaux, la paume vers l'eau. Tu ne sais pas si c'est une prière ou une excuse." },
       { if: { not: { is: { berthe: ["sauvee", "cachee", "pendue"] } } }, text: "La maison de Berthe est close, les volets tirés. Les chèvres broutent derrière la haie. Un voisin te dit qu'elle est partie chez une nièce, à Sorbe, en attendant que les choses se tassent. Il te le dit comme on répète une chose qu'on n'a pas vérifiée." },
       { with: "gloup", text: "Gloup reste longtemps devant les chèvres. Elles ne s'enfuient pas devant lui. C'est peut-être la première fois que des bêtes ne s'enfuient pas devant lui, et il ne sait pas quoi en faire." },
@@ -101,10 +101,10 @@ add({
 
   II_adieu_odon: { act: "II", title: "Le sanctuaire", place: "brumefeuille",
     text: [
-      "Père Odon balaie le sanctuaire avec un balai de genêt usé jusqu'au manche. Il a les yeux rouges d'un homme qui n'a pas dormi. « C'est moi qui ai écrit au sénéchal, dit-il sans préambule. Je ne te l'ai pas demandé. Je te demande pardon. Je l'ai fait parce que tu es descendu{e} sous ce moulin, et que personne ici n'aurait su quoi faire de ce que tu y as vu. Brann saura, lui. Ou il saura qui sait. »",
-      "Il appuie son balai contre le mur. Au-dessus de l'autel, la vieille pierre sculptée montre les cinq mains de la fondation, et le creux martelé de la sixième, que des générations de dévots ont poli à force de le toucher en passant, sans savoir pourquoi.",
-      { if: { mark: { min: 1 } }, text: "Il a vu ta main. Il la regarde encore. « Si tu veux, dit-il doucement, il y a le tronc des veuves du bief. Ce qu'on y donne ne revient jamais. C'est le principe. On dit que ce qui ne revient jamais emporte quelque chose avec lui. Je ne promets rien. Je dis ce qu'on dit. »" },
-      { if: { has: "passe:aide" }, text: "« Tu as porté des malades, un jour, dit-il. Ça se voit. Tu as cette façon de te tenir près des lits. Saint-Gilles-des-Prés, c'est ça ? J'y ai un cousin qui n'en est pas revenu. » Il ne dit pas lequel des deux tu aurais pu porter." },
+      "Père Odon balaie le sanctuaire avec un balai de genêt usé jusqu'au manche. Il a les yeux rouges d'un homme qui n'a pas dormi. « C'est moi qui ai écrit au sénéchal, dit-il sans préambule. Je ne vous l'ai pas demandé. Je vous demande pardon. Je l'ai fait parce que vous êtes descendu{e} sous ce moulin, et que personne ici n'aurait su quoi faire de ce que vous y avez vu. Brann saura, lui. Ou il saura qui sait. »",
+      "Il appuie son balai contre le mur. Au-dessus de l'autel, la vieille pierre sculptée montre les mains de la fondation, polies par des générations de dévots qui les touchent en passant.",
+      { if: { mark: { min: 1 } }, text: "Il a vu ta main. Il la regarde encore. « Si vous voulez, dit-il doucement, il y a le tronc des veuves du bief. Ce qu'on y donne ne revient jamais. C'est le principe. On dit que ce qui ne revient jamais emporte quelque chose avec lui. Je ne promets rien. Je dis ce qu'on dit. »" },
+      { if: { has: "passe:aide" }, text: "« Vous avez porté des malades, un jour, dit-il. Ça se voit. Vous avez cette façon de vous tenir près des lits. Saint-Gilles-des-Prés, c'est ça ? J'y ai un cousin qui n'en est pas revenu. » Il ne demande pas si tu l'as connu." },
     ],
     choices: [
       { label: "Donner vingt sous au tronc des veuves du bief", if: { all: [{ mark: { min: 1 } }, { gold: { min: 20 } }] }, why: "Il faudrait avoir vingt sous, et une raison de les donner.", tag: "Marque −1", fx: { gold: -20, mark: -1, flag: "II:tronc", fac: { brumefeuille: 5 }, ep: ["perso", 500] }, to: "II_tronc" },
@@ -116,7 +116,7 @@ add({
     text: [
       "Les pièces tombent l'une après l'autre dans la fente du tronc, et chacune fait un bruit plus sourd que la précédente, comme si la boîte se remplissait d'autre chose que d'argent. La dernière ne fait pas de bruit du tout.",
       "Ta paume se refroidit. Ce n'est pas grand-chose : une tiédeur qui s'en va, comme quand on retire la main d'un poêle. Tu la regardes. La tache est toujours là, mais ses bords se sont estompés, et elle a pâli comme une encre qu'on aurait lavée une fois.",
-      "Père Odon ne dit rien. Il reprend son balai. Mais quand tu passes la porte, il dit, sans se retourner : « Ce n'est pas le tronc. C'est que tu l'as fait. Souviens-t'en, la prochaine fois qu'on te proposera quelque chose. »",
+      "Père Odon ne dit rien. Il reprend son balai. Mais quand tu passes la porte, il dit, sans se retourner : « Ce n'est pas le tronc. C'est que vous l'avez fait. Souvenez-vous-en, la prochaine fois qu'on vous proposera quelque chose. »",
       { with: "coliane", text: "Coliane, sur le seuil, te regarde ressortir. Elle ne dit rien non plus, mais quand vous repartez, elle marche à ta droite, du côté de ta main, ce qu'elle ne faisait jamais.", },
     ],
     choices: [{ label: "Sortir dans le brouillard", fx: { conf: { coliane: 5, pip: 5 } }, back: "II_adieux" }] },
@@ -125,7 +125,7 @@ add({
     fx: { ep: ["perso", 300] },
     text: [
       "Tu remplis ta gourde à la Sorbe, en amont du moulin, là où l'eau est claire et froide. Tu resserres les sangles de ton sac. Le brouillard s'effiloche au-dessus des marais, et le soleil, quand il passe, a déjà la couleur pâle de la fin de l'automne. Au nord, la vallée remonte vers des collines rousses, puis vers des hauteurs bleues où l'Anse prend sa source, et l'Ordre ses quartiers.",
-      { with: "coliane", text: "Coliane a refait ses bottes avec du suif et de la ficelle. Elle a un sac neuf, ou volé, et deux couteaux de plus. « Je viens, dit-elle, comme si tu avais posé la question. Pas pour l'Ordre. Pour voir ce qu'il veut. Et parce que la dernière fois que je t'ai laissé seul, tu es descendu sous un moulin. »" },
+      { with: "coliane", text: "Coliane a refait ses bottes avec du suif et de la ficelle. Elle a un sac neuf, ou volé, et deux couteaux de plus. « Je viens, dit-elle, comme si tu avais posé la question. Pas pour l'Ordre. Pour voir ce qu'il veut. Et parce que la dernière fois que je t'ai quitté des yeux, tu as fini sous un moulin. »" },
       { with: "gloup", text: "Gloup a passé la nuit dans un seau d'eau de pluie, et il en ressort plus clair qu'il n'y est entré. Il roule derrière toi sur le chemin, et chaque fois que tu te retournes, il s'arrête, comme un chien qui ne veut pas qu'on le renvoie à la maison." },
       { with: "pip", text: "Pip vole devant, puis derrière, puis devant encore. Il n'a jamais vu le nord. Il n'a presque rien vu, en vérité, et il veut tout voir à la fois." },
       { without: "any", text: "Tu pars seul{e}. Le chemin est large, bien tracé, bordé de peupliers dont les feuilles jaunes tombent une à une sans que le vent les y oblige. Personne ne te regarde partir. C'est mieux comme ça." },
@@ -142,7 +142,7 @@ add({
     text: [
       "À la fin du premier jour, la route tombe sur la Sorbe, large ici et grise, et s'arrête net au bord de l'eau. Un câble tendu d'une rive à l'autre, un bac plat comme une porte de grange, et une cabane de planches où un homme fume une pipe de terre. Il s'appelle Hardouin. Il le dit comme s'il y avait une pancarte.",
       "« Deux sous par tête, dit-il. Les bêtes, un sou. Les choses qu'on ne sait pas ce que c'est, on voit. » Il regarde ce qui t'accompagne. Il ne bouge pas de sa cabane. « Et on ne passe plus à la nuit. Plus depuis l'été. Il y a quelque chose sous le câble, la nuit. Ça tire. »",
-      { with: "gloup", text: "Le passeur regarde Gloup longtemps. Gloup le regarde aussi, ce qui n'est pas facile à dire puisqu'il n'a pas vraiment d'yeux. « Ça, dit Hardouin, c'est une chose qu'on ne sait pas ce que c'est. Ça fait trois sous. »" },
+      { with: "gloup", text: "Le passeur regarde Gloup longtemps. Gloup le regarde aussi, de ses deux yeux ronds, sans ciller. « Ça, dit Hardouin, c'est une chose qu'on ne sait pas ce que c'est. Ça fait trois sous. »" },
       { with: "coliane", text: "Coliane s'est approchée du câble et le tâte du doigt. « Il est usé là, dit-elle, et là. Pas par le bac. Par en dessous. » Hardouin hausse les épaules. « Je l'ai dit. Ça tire. »" },
     ],
     choices: [
@@ -198,7 +198,7 @@ add({
     ] },
   II_leg_croix_gant: { act: "II", title: "Le gant", place: null,
     text: [
-      "Tu montes sur le socle, tu t'agrippes au fût, et tu enfonces le gant sur le clou le plus haut. La pierre est froide et rugueuse. De là-haut, tu vois mieux les mains sculptées : cinq sur chaque face, et sur chaque face la place d'une sixième, lissée au ciseau, que la pluie a remplie de lichen jaune.",
+      "Tu montes sur le socle, tu t'agrippes au fût, et tu enfonces le gant sur le clou le plus haut. La pierre est froide et rugueuse. De là-haut, tu vois mieux les mains sculptées, usées par quatre siècles de pluie, et toute la vallée de l'Anse derrière elles.",
       "Quand tu redescends, la vieille femme te prend la main et la serre. « Il s'appelait Isarn, dit-elle. Tu ne le connaissais pas. Maintenant tu connais son nom. » Elle se lève, ramasse son bâton, et repart vers le sud sans se retourner.",
     ],
     choices: [{ label: "Reprendre la route", back: ROUTE }] },
@@ -276,7 +276,7 @@ add({
     text: [
       { outcome: "win", text: "La roue sort de l'ornière avec un bruit de succion, et la charrette repart d'un coup, si brusquement que deux sacs manquent tomber. Le charretier rit, d'un rire de gorge qui lui fait tousser de la poussière noire. « Tu diras à la Forge que c'est Malo qui t'a vu, dit-il. Malo le charbonnier. Ils te feront entrer. »" },
       { outcome: "lose", text: "Vous tirez, vous poussez, vous vous couvrez de boue et de suie, et la charrette ne bouge que d'un pied. Le charretier finit par décharger la moitié des sacs, par les porter un à un sur la terre sèche, et par recharger plus loin. Il te remercie quand même, d'un signe de tête, et te donne une poignée de charbon dans un chiffon « pour le feu de ce soir »." },
-      "Tu repars noir jusqu'aux coudes. Il faudra deux lavages pour que l'eau sorte claire de tes mains.",
+      "Tu repars noir{e} jusqu'aux coudes. Il faudra deux lavages pour que l'eau sorte claire de tes mains.",
     ],
     choices: [{ label: "Reprendre la route", back: ROUTE }] },
 
@@ -399,7 +399,7 @@ add({
     text: [
       "Le pont-levis ne se lève plus depuis longtemps : ses chaînes sont rouillées dans leurs poulies, et une glycine a poussé dans le mécanisme. Sous la voûte, Frère Bérenger t'attend, ganté de gris, l'air soulagé. « Le sénéchal est dans la cour, dit-il. Il fend du bois. Il fend du bois quand il attend quelque chose. Ça fait trois jours qu'il fend du bois. »",
       "Dans la cour, un homme de cinquante ans, en chemise malgré le froid, abat une hache sur une bûche de chêne, et la bûche s'ouvre en deux sans un bruit de trop. Il a des épaules de bûcheron, une barbe grise taillée court, une balafre qui lui ferme à demi l'œil gauche. Il pose la hache, s'essuie les mains à sa chemise, et vient vers toi. Il ne sourit pas. Il te regarde comme on regarde un cheval qu'on vous a vendu de loin.",
-      "« Brann, dit-il. Sénéchal de l'Ordre, pour ce que ça vaut. Tu es venu. Je ne savais pas si tu viendrais. » Il désigne ta main, puis le bas de la vallée, d'un même geste vague. « Odon m'a écrit. Ce qui était sous le château des trolls. Ce qui était sous le moulin. Je n'ai pas dormi depuis. »",
+      "« Brann, dit-il. Sénéchal de l'Ordre, pour ce que ça vaut. Tu es venu{e}. Je ne savais pas si tu viendrais. » Il désigne ta main, puis le bas de la vallée, d'un même geste vague. « Odon m'a écrit. Ce qui était sous le château des trolls. Ce qui était sous le moulin. Je n'ai pas dormi depuis. »",
       { if: { has: "passe:ordre" }, text: "Il te regarde encore, plus longtemps. « Trois ans de gant gris, dit-il. À la tour de Sorbe, ou au pont de Vire. Je me souviens de ta tête, pas de ton nom. Tu as rendu le gant proprement. C'est rare. » Il te serre l'avant-bras, à la manière de l'Ordre." },
       { if: { has: "passe:cercle" }, text: "« Et tu as été copiste au Cercle, dit-il. Odon me l'a écrit aussi. » Il le dit sans hostilité, mais il le dit. « Ici, ce n'est pas une tache. Ce n'est pas une recommandation non plus. »" },
       { with: "pip", text: "Pip est sorti de ton col. Brann le regarde, longtemps, sans un mot, et quelque chose passe sur son visage dur que tu ne sais pas lire : pas de la surprise. De la peine, peut-être. Il détourne les yeux le premier." },
@@ -457,7 +457,7 @@ add({
     ],
     choices: [
       { label: "« Pourquoi trois clés ? Qu'est-ce qu'elles ferment, au juste ? »", hide: { seen: "II_brann_cles" }, to: "II_brann_cles" },
-      { label: "« Mon maître est-il passé par ici ? »", hide: { seen: "II_brann_maitre" }, to: "II_brann_maitre" },
+      { label: "« Celle qui m'a formé{e} est-elle passée par ici ? »", hide: { seen: "II_brann_maitre" }, to: "II_brann_maitre" },
       { label: "« Et le Grand Maître ? »", hide: { seen: "II_brann_edrin" }, to: "II_brann_edrin" },
       { label: "« On dit que Ferrance est en grève. »", hide: { seen: "II_brann_greve" }, to: "II_brann_greve" },
       { label: "Accepter le jeton de l'Ordre", hide: { any: [{ item: "jeton_ordre" }, { not: { seen: "II_brann_cles" } }] }, to: "II_jeton" },
@@ -529,7 +529,7 @@ add({
       { first: true, text: "Sous trois des mains seulement, un écu de pierre est accroché, peint de couleurs passées : sous Thavar, d'argent à la tour noire ; sous Hildre, un marteau et une enclume ; sous Ivo, une cloche d'or sur champ d'azur. Sous la main d'Aldar et sous celle d'Orine, il n'y a rien, juste la pierre, et deux trous où l'on voit qu'il y avait des crampons." },
       { again: true, text: "Les cinq mains de bronze, les trois écus, la lumière grise des fenêtres. Il fait froid ici même en été, dit-on." },
       "Entre la main d'Hildre et celle d'Ivo, le mur est plus lisse qu'ailleurs, plus clair, et il y a dans la pierre quatre petits trous rebouchés au plâtre, disposés en carré, de la taille de ceux qui tiennent une plaque.",
-      { with: "pip", text: "Pip va de main en main, se pose dans chaque paume de bronze, et à chaque fois sa lumière baisse un peu, comme une chandelle sous une cloche. Il s'arrête devant le mur lisse, entre Hildre et Ivo. Il reste là, à la hauteur où serait une paume, et il ne se pose sur rien." },
+      { with: "pip", text: "Pip va de main en main, se pose dans chaque paume de bronze, et à chaque fois sa lumière baisse un peu, comme une chandelle sous une cloche. Quand il a fait les cinq, il revient se cacher dans ton col." },
       { with: "thavary", text: "Thavary s'arrête sous l'écu de sa maison, la tour noire. Elle lève la main, comme pour le toucher, et la laisse retomber. « Il était doré, quand j'étais petite, dit-elle. On l'a repeint deux fois depuis. Avec moins d'or, chaque fois. »" },
       { with: "charline", text: "Charline regarde l'écu d'Hildre, le marteau et l'enclume, longtemps. « Mon père a fait ce marteau, dit-elle. Pas celui-là, mais un pareil. Pour la salle de la Forge. Il disait que c'était le plus beau travail de sa vie. » Elle se détourne." },
     ],
@@ -645,7 +645,7 @@ add({
     fx: { meet: "II_hilaire" },
     text: [
       { first: true, text: "L'escalier de la tour monte en colimaçon au-delà de la salle du sénéchal, étroit, usé au milieu des marches. En haut, une porte de chêne noir, cloutée, fermée. Devant la porte, sur un tabouret, un frère très vieux dort assis, le menton sur la poitrine, un trousseau de clés sur les genoux. C'est Frère Hilaire, le portier du Grand Maître. Il se réveille quand tu montes la dernière marche, et il se lève, ce qui lui prend un certain temps." },
-      { first: true, text: "« Le Grand Maître ne reçoit pas, dit-il. Il ne reçoit personne. » Il dit cela gentiment, comme on dit à un enfant qu'il fait nuit. Derrière la porte, tu entends une respiration lente, un raclement de chaise, puis une voix très vieille, presque un souffle, qui dit quelque chose que tu ne comprends pas. Frère Hilaire tend l'oreille, et répète, mot pour mot : « *Demandez-lui s'il a vu la main.* »" },
+      { first: true, text: "« Le Grand Maître ne reçoit pas, dit-il. Il ne reçoit personne. » Il dit cela gentiment, comme on dit à un enfant qu'il fait nuit. Derrière la porte, tu entends une respiration lente, un raclement de chaise, puis une voix très vieille, presque un souffle, qui dit quelque chose que tu ne comprends pas. Frère Hilaire tend l'oreille, et répète, mot pour mot : « *Demandez ce qu'est devenue la main.* »" },
       { again: true, text: "La porte noire, le tabouret, Frère Hilaire qui dort assis. Il ne se réveille pas, cette fois, ou il fait semblant. Derrière la porte, une toux sèche, et le silence." },
     ],
     choices: [
@@ -691,8 +691,8 @@ add({
   II_abreuvoir: { act: "II", title: "L'abreuvoir", place: "commanderie",
     fx: { clue: "v_commanderie", ep: ["seance", 1000] },
     text: [
-      { first: true, text: "On l'a trouvé à l'aube, le frère de garde, en relevant la sentinelle. Frère Foulques, cinquante ans, vingt-huit ans de gant gris, le meilleur archer de la commanderie. Il était à genoux devant l'abreuvoir de la cour, le visage dans l'eau. L'abreuvoir n'a pas un pied de profondeur. Il ne s'était pas débattu." },
-      { first: true, text: "Brann est là quand tu arrives, debout près de l'abreuvoir vidé, raclé jusqu'à la pierre, avec un seau à la main dont il ne sait plus quoi faire. Les frères l'ont allongé sur une civière, sous le tilleul, et ils ont croisé ses mains sur sa poitrine, parce que c'est ainsi qu'on les avait trouvées : croisées, déjà, comme celles de quelqu'un qui écoute un sermon. Il souriait. Ils n'ont pas réussi à lui fermer la bouche." },
+      { first: true, text: "On l'a trouvé à l'aube, à la relève de la garde. Frère Foulques, cinquante ans, vingt-huit ans de gant gris, le meilleur archer de la commanderie. Il était à genoux devant l'abreuvoir de la cour, le visage dans l'eau. L'abreuvoir n'a pas un pied de profondeur. Il ne s'était pas débattu." },
+      { first: true, text: "Brann est là quand tu arrives, debout près de l'abreuvoir vidé, raclé jusqu'à la pierre, avec un seau à la main dont il ne sait plus quoi faire. Les frères ont allongé Foulques sur une civière, sous le tilleul, et ils ont croisé ses mains sur sa poitrine, parce que c'est ainsi qu'on les avait trouvées : croisées, déjà, comme celles de quelqu'un qui écoute un sermon. Il souriait. Ils n'ont pas réussi à lui fermer la bouche." },
       { again: true, text: "L'abreuvoir vide, raclé jusqu'à la pierre. Les frères passent à côté sans le regarder." },
       "« Il disait qu'il entendait sa femme, dit Brann sans se retourner. Morte il y a dix ans. Depuis une semaine, il disait qu'elle l'appelait, la nuit, dans l'eau de la cour. On a cru qu'il vieillissait. » Il pose le seau. « Elle est entrée chez nous. Dans la maison de l'Ordre. Par un abreuvoir. »",
       { with: "coliane", text: "Coliane s'approche de la civière, regarde le visage du mort longtemps, et lui ferme les yeux du pouce, ce que personne n'avait pensé à faire. « Il est content », dit-elle. C'est la chose la plus terrible que tu l'aies jamais entendue dire." },
@@ -818,14 +818,14 @@ add({
       { with: "pip", text: "Pip s'est approché d'elle sans que tu le lui demandes. Il tourne autour de sa natte, se pose sur son épaule, juste au-dessus de la cicatrice. Charline ne bouge pas. Elle dit, très doucement : « Bonjour, toi. » Pip brille." },
     ],
     choices: [
-      { label: "« Viens avec nous. Je vais à la Forge, et à la Brèche après. »", big: true, to: "IIF_charline_join" },
+      { label: "« Viens avec nous. Je vais à la Forge, et plus loin après. »", big: true, to: "IIF_charline_join" },
       { label: "« Parle-moi de la Forge et de ton père. »", hide: { seen: "IIF_charline_forge" }, to: "IIF_charline_forge" },
       { label: "« Je repasserai. »", back: "IIF_athenee" },
     ] },
   IIF_charline_forge: { act: "II", title: "Ce que dit Charline", place: "ferrance",
     fx: { ep: ["perso", 300] },
     text: [
-      "Charline s'assied sur la dernière marche du perron, malgré la suie. « J'avais neuf ans, dit-elle. Mon père me laissait jouer dans la Forge, le soir, quand les compagnons étaient partis. Un soir, j'ai fait une chose que je ne savais pas que je pouvais faire. J'ai regardé le feu du foyer, et il est venu vers moi. Comme un chien qu'on appelle. » Elle tend la main, paume en l'air, et pendant un instant, une flamme bleue, petite comme une flamme de chandelle, se tient dans sa paume. Elle referme le poing. La flamme s'éteint.",
+      "Charline s'assied sur la dernière marche du perron, malgré la suie. « J'avais treize ans, dit-elle. Mon père me laissait traîner dans la Forge, le soir, quand les compagnons étaient partis. Un soir, j'ai fait une chose que je ne savais pas que je pouvais faire. J'ai regardé le feu du foyer, et il est venu vers moi. Comme un chien qu'on appelle. » Elle tend la main, paume en l'air, et pendant un instant, une flamme bleue, petite comme une flamme de chandelle, se tient dans sa paume. Elle referme le poing. La flamme s'éteint.",
       "« Il est venu trop fort. La Forge a pris feu. Mon père est entré me chercher, et il m'a sortie, et il a éteint les poutres avec ses mains, parce qu'il n'avait rien d'autre. » Elle regarde ses propres mains. « Il ne m'a jamais rien reproché. Jamais. Pas un mot. Il m'a envoyée au Cercle pour qu'on m'apprenne à ne plus faire ça. Et il ne m'a plus jamais parlé de feu. Il ne m'a plus parlé de rien. »",
       "« La Forge garde le Clou, dit-elle encore. Pour l'avoir, il faut passer l'épreuve : le feu, le poids, le nom. Mon père la fait passer à qui la demande, et personne ne la réussit depuis cent ans. Les gens croient que c'est un rite pour les compagnons. Ce n'est pas un rite. C'est une porte. »",
     ],
@@ -888,7 +888,7 @@ add({
     fx: { meet: "ansgar", ep: ["perso", 400] },
     text: [
       { first: true, text: "Tu montes sur l'estrade. De près, Ansgar est plus vieux que de loin : soixante-dix ans au moins, un visage creusé, des yeux bleu pâle délavés par le feu. Une moitié de sa barbe a brûlé il y a longtemps et n'a jamais repoussé. Il te regarde de bas en haut, puis de haut en bas, comme il regarderait une barre de fer pour savoir si elle a une paille." },
-      { first: true, text: "« L'Ordre t'envoie, dit-il. Ou le Cercle. Ou tu viens tout seul, et c'est pire. Tout le monde veut le Clou, depuis l'été. Un homme de Hautmont est venu avec un coffre d'or. Un homme du Cercle est venu avec un sermon. Brann m'a écrit six lettres. » Il a une voix grave, éraillée, qui porte malgré le vacarme sans qu'il ait besoin de crier. « Je leur ai dit à tous la même chose. Le Clou est à la Forge. La Forge le donne à qui passe l'épreuve. Pas à qui le demande. »" },
+      { first: true, text: "« L'Ordre t'envoie, dit-il. Ou le Cercle. Ou tu viens pour ton compte, et c'est pire. Tout le monde veut le Clou, depuis l'été. Un homme de Hautmont est venu avec un coffre d'or. Un homme du Cercle est venu avec un sermon. Brann m'a écrit six lettres. » Il a une voix grave, éraillée, qui porte malgré le vacarme sans qu'il ait besoin de crier. « Je leur ai dit à tous la même chose. Le Clou est à la Forge. La Forge le donne à qui passe l'épreuve. Pas à qui le demande. »" },
       { again: true, text: "Ansgar tourne la tête vers toi. Il attend que tu parles. Il a tout son temps." },
       { if: { item: "II_faux_clou" }, text: "Tu sors de ton sac le clou d'Anselme et tu le poses sur l'accoudoir. Ansgar le regarde, et il rit, un rire énorme qui fait se retourner trois compagnons. « Le moustachu ? Il en vend partout. Il en a vendu un à l'évêque de Sorbe. » Il reprend son souffle. « Garde-le. Il a au moins appris à quelqu'un à quoi ressemble le vrai. »" },
       { with: "charline", text: "Charline est restée au pied de l'estrade. Ansgar ne la regarde pas. Quand il parle, il parle plus fort, comme pour qu'elle entende sans avoir à lui parler à elle." },
@@ -940,7 +940,7 @@ add({
   IIF_feu_marque: { act: "II", title: "Le feu", place: "ferrance",
     text: [
       "Tu poses ta paume tachée sur la pierre rouge. Il n'arrive rien. La tache noire boit la chaleur comme un buvard boit l'encre, et une fumée grise, épaisse, sort d'entre tes doigts et monte vers le toit. Ça ne te fait pas mal. Ça te fait du bien. C'est ce qui te fait peur.",
-      "Ansgar compte ses sept coups sans te regarder la main. Il regarde ton visage. Au septième coup, il dit seulement : « Ça compte. » Puis, plus bas, pour toi seul : « Mais je l'ai vu. » Autour du foyer, deux compagnons se sont signés de la main ouverte.",
+      "Ansgar compte ses sept coups sans te regarder la main. Il regarde ton visage. Au septième coup, il dit seulement : « Ça compte. » Puis, plus bas, pour toi seul{e} : « Mais je l'ai vu. » Autour du foyer, deux compagnons se sont signés de la main ouverte.",
       { with: "pip", text: "Pip s'est réfugié tout en haut de la halle, contre les poutres de cuivre, aussi loin qu'il a pu. Sa lumière est grise." },
     ],
     choices: [{ label: "« Le poids, maintenant. »", big: true, to: "IIF_poids" }] },
@@ -979,7 +979,7 @@ add({
   IIF_poids_gloup: { act: "II", title: "Le poids", place: "ferrance",
     text: [
       "Gloup s'étale sous la Belle-Mère comme une flaque, et quand tu pousses, elle glisse sur lui, lentement, avec un bruit de baiser mouillé. Les compagnons reculent d'un pas, puis s'approchent de deux. Gloup avance avec la fonte sur le dos, en laissant derrière lui une traînée luisante sur les dalles, et tu pousses, et vous arrivez au bout des vingt pas ensemble, à bout de souffle tous les deux.",
-      "Ansgar regarde Gloup longtemps. « Avec tes mains, et ce qu'il y a dans la Forge, dit-il. Il était dans la Forge. » Il hausse ses énormes épaules. « Ça compte. » Gloup, sous la fonte, fait des bulles.",
+      "Ansgar considère Gloup un moment. « Avec tes mains, et ce qu'il y a dans la Forge, dit-il. Il était dans la Forge. » Il hausse ses énormes épaules. « Ça compte. » Gloup, sous la fonte, fait des bulles.",
     ],
     choices: [{ label: "« Le nom. »", big: true, to: "IIF_nom" }] },
   IIF_poids_rate: { act: "II", title: "Le poids", place: "ferrance",
@@ -1008,7 +1008,7 @@ add({
     choices: [{ label: "Attendre le jugement de la Forge", big: true, to: [{ if: { count: [{ has: "IIF:feu_ok" }, { has: "IIF:poids_ok" }, { has: "IIF:nom_ok" }], min: 2 }, to: "IIF_clou" }, { to: "IIF_echec" }] }] },
   IIF_nom_linteau: { act: "II", title: "Le nom", place: "ferrance",
     text: [
-      "Tu t'approches du linteau, tu frottes la suie du pouce. Les lettres sont anciennes, anguleuses, l'écriture des premiers temps du Sceau, que plus personne n'emploie. Tu épelles, lentement. *NOVS FORGEONS POVR LA PORTE ET POVR CELVI QVI LA TIENT.* Il manque un mot au milieu, gratté au ciseau, il y a très longtemps, et l'on a regravé par-dessus, d'une main moins sûre : *POVR LA PORTE.*",
+      "Tu t'approches du linteau, tu frottes la suie du pouce. Les lettres sont anciennes, anguleuses, l'écriture des premiers temps du Sceau, que plus personne n'emploie. Tu épelles, lentement. *NOVS FORGEONS POVR LA PORTE*, et la suite a été grattée au ciseau, il y a très longtemps. Mais le ciseau n'a pas mordu partout, et sous la suie les creux se lisent encore : *ET POVR CELVI QVI LA TIENT.*",
       "« Pour la porte, dis-tu. Et pour celui qui la tient. » Ansgar ferme les yeux. « Pour la porte, c'est la réponse des apprentis, dit-il. La suite, plus personne ne la dit. Mon grand-père la disait encore, tout bas, en frappant. » Il rouvre les yeux. « Ça compte. »",
     ],
     choices: [{ label: "Attendre le jugement de la Forge", big: true, to: [{ if: { count: [{ has: "IIF:feu_ok" }, { has: "IIF:poids_ok" }, { has: "IIF:nom_ok" }], min: 2 }, to: "IIF_clou" }, { to: "IIF_echec" }] }] },
@@ -1065,7 +1065,7 @@ add({
       { if: { any: [{ has: "IIF:feu_marque" }, { has: "IIF:nom_marque" }] }, text: "Dans ta paume tachée, le Clou est froid. Partout ailleurs il est chaud. Là où il touche la tache, il est froid comme une pierre de rivière. Ansgar l'a vu. Il ne dit rien." },
       { if: { any: [{ has: "IIF:feu_charline" }, { has: "IIF:nom_charline" }, { has: "IIF:charline_plaide" }] }, text: "Charline est au pied de l'enclume, à côté de toi. Elle regarde son père, et son père la regarde, et ni l'un ni l'autre ne détourne les yeux, cette fois. Ça ne dure pas. Mais ça a eu lieu, et toute la halle l'a vu." },
       { if: { has: "IIF:poids_gloup" }, text: "Gloup s'est hissé sur la Belle-Mère, au pied de l'enclume, et il regarde le Clou briller dans ta main. Un vieux compagnon, en passant, lui tapote le dessus avec la gentillesse distraite qu'on a pour les chiens de forge." },
-      { if: { has: "IIF:poids_ruse" }, text: "Le vieux compagnon qui souriait quand tu cherchais tes rondins s'approche et te serre la main, longtemps. « Pas idiote, Hildre, dit-il. Pas idiot non plus. »" },
+      { if: { has: "IIF:poids_ruse" }, text: "Le vieux compagnon qui souriait quand tu cherchais tes rondins s'approche et te serre la main, longtemps. « Pas idiote, Hildre, dit-il. Toi non plus. »" },
     ],
     choices: [
       { label: "Garder le Clou", big: true, to: "IIF_clou_garde" },
@@ -1105,7 +1105,7 @@ add({
     fx: { relic: "clou", flag: ["IIF:clou", "IIF:clou_vole"], ep: ["seance", 2000], regard: { ansgar: "trahi" }, conf: { pip: -10, charline: -15 }, fac: { ordre: -5 } },
     text: [
       "Les compagnons dorment. L'enclume est tiède sous tes doigts. Tu prends la tête du clou, et tu tires, et rien ne vient. Tu tires encore, des deux mains, le pied contre la pierre. Il vient enfin, avec un cri de métal qui te semble assourdissant, et qui ne réveille personne. Il est froid. Pas tiède, pas chaud : froid, d'un froid de cave, et il te glace la main jusqu'au coude.",
-      "Tu ressors par la porte du charbon. Dehors, la ville frappe toujours. Personne ne t'a vu. Demain matin, un compagnon trouvera le trou vide au milieu de l'enclume, et il ira le dire au maître, et le maître ne dira rien, et toute la ville saura avant midi. Ferrance ne sera plus jamais une ville où l'on entre comme avant.",
+      "Tu ressors par la porte du charbon. Dehors, la ville frappe toujours. Personne ne t'a vu{e}. Demain matin, un compagnon trouvera le trou vide au milieu de l'enclume, et il ira le dire au maître, et le maître ne dira rien, et toute la ville saura avant midi. Ferrance ne sera plus jamais une ville où l'on entre comme avant.",
       { with: "coliane", text: "Coliane te prend le Clou des mains, le soupèse, te le rend. « Bien fait, dit-elle. Mais il est froid. Les choses qu'on vole, elles sont toujours froides. » Elle ne plaisante pas." },
       { with: "charline", text: "Charline t'attend dans la rue, sous une lanterne. Elle a tout compris en te voyant. Elle ne dit rien. Elle se retourne et marche devant, et pendant longtemps elle ne te parle pas." },
     ],
@@ -1154,7 +1154,7 @@ add({
   IIF_ansgar_douleur: { act: "II", title: "Ce qu'Ansgar garde", place: "ferrance",
     fx: { ep: ["perso", 400] },
     text: [
-      "Ansgar ne remet pas ses gants quand tu entres. Il te laisse regarder. « Le baume ? dit-il. Je sais ce qu'en dit Cassagne. Il a raison. Il marcherait. » Il tourne ses mains vers la lumière. « Le jour où elle a mis le feu, je l'ai sortie, et j'ai éteint les poutres. Et le lendemain, j'avais tellement peur d'elle que je l'ai envoyée au Cercle, à neuf ans, pour qu'on lui apprenne à ne plus être ce qu'elle était. Je ne lui ai pas dit au revoir. Je n'ai pas pu. Je ne pouvais pas la toucher. »",
+      "Ansgar ne remet pas ses gants quand tu entres. Il te laisse regarder. « Le baume ? dit-il. Je sais ce qu'en dit Cassagne. Il a raison. Il marcherait. » Il tourne ses mains vers la lumière. « Le jour où elle a mis le feu, je l'ai sortie, et j'ai éteint les poutres. Et le lendemain, j'avais tellement peur d'elle que je l'ai envoyée au Cercle, à treize ans, pour qu'on lui apprenne à ne plus être ce qu'elle était. Je ne lui ai pas dit au revoir. Je n'ai pas pu. Je ne pouvais pas la toucher. »",
       "« Alors j'ai gardé ça. » Il regarde ses mains. « Tant que ça me fait mal, je me souviens que ce n'est pas elle qui me les a prises. C'est moi qui les ai mises dans le feu. Et c'est moi qui l'ai renvoyée. » Il remet ses gants, maladroitement, en s'aidant des dents. « Ce n'est pas une chose qu'on règle avec de la graisse de mouton. »",
     ],
     choices: [
@@ -1203,7 +1203,7 @@ add({
   IIF_souffleurs: { act: "II", title: "La rue des Fours", place: "ferrance", backName: "la rue des Fours",
     fx: { questSeen: "II_greve", meet: "II_ombeline" },
     text: [
-      { first: true, text: "La rue des Fours est la plus large de Ferrance, et la seule où l'on n'entend rien. Vingt verreries s'y alignent, portes ouvertes sur des fours éteints, et devant chaque porte, assis par terre sur le pavé, des hommes et des femmes en tabliers de cuir, les bras croisés, les cannes de fer posées en travers des genoux. Ils sont deux cents peut-être. Ils ne crient pas. Ils attendent. C'est pire." },
+      { first: true, text: "La rue des Fours est la plus large de Ferrance, et la seule où l'on n'entend rien. Vingt verreries s'y alignent, portes ouvertes sur des fours éteints, et devant chaque porte, assis par terre sur le pavé, des hommes et des femmes en tabliers de cuir, les bras croisés, les cannes de fer posées en travers des genoux. Ils sont deux cents peut-être. Ils ne crient pas. Ils attendent." },
       { first: true, text: "Au milieu de la rue, debout sur une caisse, une femme de quarante ans aux avant-bras couverts de cicatrices rondes parle à quelques jeunes, d'une voix basse et ferme. C'est Ombeline Vasseur, la meneuse. Au bout de la rue, devant la maison du doyen, une demi-douzaine d'hommes sans tablier, avec des gourdins, s'ennuient en jouant aux osselets." },
       { again: true, text: "La rue des Fours, les fours éteints, les grévistes assis sur le pavé. Les hommes au gourdin, au bout de la rue, n'ont pas bougé." },
       { if: { quest: "II_greve" }, text: "La grève est finie. Tu passes dans la rue, et les gens te regardent passer, et ce n'est pas la même façon de regarder selon les portes." },
@@ -1247,7 +1247,7 @@ add({
     ] },
   IIF_citerne_ok: { act: "II", title: "L'eau de la Forge", place: "ferrance",
     text: [
-      "Le lendemain matin, une charrette de la Forge-Mère descend la rue des Fours, chargée de six tonneaux, menée par Mathelin, raide d'importance. Les grévistes se lèvent, un à un, et regardent passer la charrette sans comprendre. Mathelin s'arrête devant la verrerie de Ombeline, saute à terre, et dit, très fort, la phrase qu'on lui a fait apprendre : « De la part du maître Ansgar. Pour les enfants. »",
+      "Le lendemain matin, une charrette de la Forge-Mère descend la rue des Fours, chargée de six tonneaux, menée par Mathelin, raide d'importance. Les grévistes se lèvent, un à un, et regardent passer la charrette sans comprendre. Mathelin s'arrête devant la verrerie d'Ombeline, saute à terre, et dit, très fort, la phrase qu'on lui a fait apprendre : « De la part du maître Ansgar. Pour les enfants. »",
       "Ombeline regarde les tonneaux, puis toi. Elle ne dit rien. Elle va chercher un seau.",
     ],
     choices: [{ back: "IIF_souffleurs" }] },
@@ -1309,10 +1309,10 @@ add({
 
   IIF_greve_table: { act: "II", title: "La table du doyen", place: "ferrance",
     text: [
-      "Tu as obtenu, à force de patience, qu'ils se retrouvent tous les deux au même endroit : dans la verrerie de Ombeline, entre le four éteint et le bac d'eau noire, devant une table de travail. Bastide est venu avec quatre de ses hommes. Ombeline est venue seule. Derrière elle, la rue entière s'est levée et se presse aux portes.",
+      "Tu as obtenu, à force de patience, qu'ils se retrouvent tous les deux au même endroit : dans la verrerie d'Ombeline, entre le four éteint et le bac d'eau noire, devant une table de travail. Bastide est venu avec quatre de ses hommes. Ombeline est venue seule. Derrière elle, la rue entière s'est levée et se presse aux portes.",
       "Bastide parle le premier, longuement, de la guerre, des temps durs, de la ruine de la guilde. Ombeline ne dit rien. Elle le laisse finir. Puis elle te regarde, toi, et tous les regards de la verrerie te suivent.",
       { if: { has: "IIF:citerne" }, text: "Dans un coin, six tonneaux d'eau de la Forge, à moitié vides déjà. Les enfants n'ont plus craché noir depuis deux jours. Ça se voit sur les visages : la rue est moins dure, moins pressée. Il reste le tiers." },
-      { if: { has: "IIF:bastide_paye" }, text: "Tu sens dans ta bourse le poids des pièces du doyen. Ombeline aussi le sent, d'une certaine façon. Elle t'a vu sortir de chez lui." },
+      { if: { has: "IIF:bastide_paye" }, text: "Tu sens dans ta bourse le poids des pièces du doyen. Ombeline aussi le sent, d'une certaine façon. Elle t'a vu{e} sortir de chez lui." },
     ],
     choices: [
       { label: "Poser sur la table le carnet de comptes du doyen", if: { item: "II_registre_bastide" }, why: "Il te faudrait une preuve.", fx: { drop: "II_registre_bastide" }, to: "IIF_greve_accord" },
@@ -1353,7 +1353,7 @@ add({
     fx: { meet: "corbin", ep: ["perso", 300] },
     text: [
       { first: true, text: "Le portier te fait attendre une heure sur un banc de marbre, puis te mène par un escalier blanc jusqu'au cabinet du recteur. Une pièce claire, toute en bibliothèques vitrées, avec une grande table couverte de livres ouverts les uns sur les autres et une fenêtre d'où l'on voit toute la ville sous sa fumée. Maître Corbin se lève pour t'accueillir. Il a cinquante ans, une robe bleue sans un pli, une barbe grise taillée en pointe, des mains de lettré, longues et propres, et un sourire qui arrive avant les mots et part après eux." },
-      { first: true, text: "« Asseyez-vous, dit-il. On m'a dit qu'un voyageur de la commanderie s'intéressait à la Forge. Tout le monde s'intéresse à la Forge, depuis l'été. Mais vous, on m'a dit que vous étiez descendu sous un château et sous un moulin. » Il croise les doigts. « Le Cercle s'intéresse beaucoup à ce qu'il y a sous les choses. C'est même la seule chose qui l'intéresse vraiment. »" },
+      { first: true, text: "« Asseyez-vous, dit-il. On m'a dit qu'un voyageur de la commanderie s'intéressait à la Forge. Tout le monde s'intéresse à la Forge, depuis l'été. Mais vous, on m'a dit que vous étiez descendu{e} sous un château et sous un moulin. » Il croise les doigts. « Le Cercle s'intéresse beaucoup à ce qu'il y a sous les choses. C'est même la seule chose qui l'intéresse vraiment. »" },
       { again: true, text: "Maître Corbin lève les yeux de ses livres, et son sourire arrive avant lui." },
       { if: { has: "passe:cercle" }, text: "Il te regarde mieux, et son sourire change. « Mais je vous connais. La salle des copistes, il y a quelques années. Vous recopiiez les *Annales de la Sorbe*, et vous vous arrêtiez toujours une ligne trop tard. » Il rit doucement. « Je l'avais remarqué. Je n'ai rien dit. Il faut bien que quelqu'un lise jusqu'au bout. »" },
       { if: { has: "maitre:maelle" }, text: "Quand tu lui dis le nom de ta maîtresse, il pose sa plume. « Maëlle Vautrin. Elle a quitté le Cercle il y a quinze ans, en claquant une porte que nous entendons encore. Elle est passée ici, il y a un mois. Elle cherchait le registre des fondations. » Il regarde la fenêtre. « Je le lui ai refusé. Je le regrette, depuis qu'on m'a dit qu'elle avait disparu vers Morteau. »" },
@@ -1567,7 +1567,7 @@ add({
   II_feu_route: { act: "II", title: "Le feu du Val", banter: true, with: "pip",
     text: [
       "Le feu claque. Pip, posé sur une pierre chaude, regarde les braises comme il regarde tout, avec une attention entière. Puis il vient se poser sur ton genou, et sa lumière forme quelque chose qu'il a appris à faire depuis peu, une sorte de question qui n'a pas besoin de mots.",
-      "Il veut savoir pourquoi les gens de la croix des Pèlerins accrochent des gants. Tu lui expliques : les morts de l'Ordre, les gants gris, la main ouverte. Il écoute. Puis il vole jusqu'à ta main, se pose au creux de ta paume, et s'y blottit, aussi petit qu'il peut, comme quelque chose qu'on tient. Il reste là. Tu ne sais pas pourquoi tu as envie de pleurer.",
+      "Il veut savoir pourquoi les gens de la croix des Pèlerins accrochent des gants. Tu lui expliques : les morts de l'Ordre, les gants gris, la main ouverte. Il écoute. Puis il vole jusqu'à ta main, se pose au creux de ta paume, et s'y blottit, aussi petit qu'il peut, comme quelque chose qu'on tient. Il reste là.",
     ],
     choices: [
       { label: "Refermer doucement la main sur lui", fx: { conf: { pip: 10 } }, to: "@ret" },
@@ -1585,7 +1585,7 @@ add({
     ] },
   IIF_veillee_coliane: { act: "II", title: "Les couteaux et les livres", banter: true, with: ["charline", "coliane"],
     text: [
-      "Coliane affûte ses couteaux, l'un après l'autre, sur une pierre qu'elle crache dessus. Charline lit, le nez dans son carnet, à la lueur du feu. Pendant longtemps, on n'entend que la pierre et les pages.",
+      "Coliane affûte ses couteaux, l'un après l'autre, sur une pierre qu'elle mouille d'un crachat. Charline lit, le nez dans son carnet, à la lueur du feu. Pendant un bon moment, on n'entend que la pierre et les pages.",
       "« Ça sert à quoi, tout ce que tu lis ? demande Coliane sans lever les yeux. — À savoir qui ment, dit Charline. — Moi, je le sais sans lire. — Non, dit Charline. Toi, tu sais qui t'a menti. Ce n'est pas pareil. » Coliane s'arrête d'affûter. Elle regarde Charline longtemps. Puis elle reprend, plus lentement. « À Hautgrès, dit-elle, l'homme qui a ouvert l'écluse, je l'aurais cru sur parole. Je l'ai cru. »",
     ],
     choices: [
@@ -1611,7 +1611,7 @@ var EXTRAS = {
   },
   items: {
     II_lettre_brann: { name: "La lettre du sénéchal Brann", kind: "document", keep: true, desc: "Une lettre pliée en trois, fermée d'une cire grise à la main ouverte.",
-      text: "« Le sénéchal de l'Ordre de la Main, à qui est descendu sous le moulin de Brumefeuille. On m'a dit ce que tu as trouvé sous le château des trolls de la crête, et ce que tu as tué sous la roue. Ce sont des choses dont l'Ordre a la garde depuis quatre cents ans, et que l'Ordre garde mal. Viens à la commanderie du Val d'Anse par la route du nord, avant les premières gelées. Je ne te convoque pas : je n'en ai pas le droit. Je te le demande. Ne parle à personne de ce que tu portes. L'eau entend. Brann. »" },
+      text: "« Le sénéchal de l'Ordre de la Main, à qui est descendu sous le moulin de Brumefeuille. On m'a dit ce que tu as trouvé sous le château des trolls de la crête, et ce que tu as fait sous la roue. Ce sont des choses dont l'Ordre a la garde depuis quatre cents ans, et que l'Ordre garde mal. Viens à la commanderie du Val d'Anse par la route du nord, avant les premières gelées. Je ne te convoque pas : je n'en ai pas le droit. Je te le demande. Ne parle à personne de ce que tu portes. L'eau entend. Brann. »" },
     II_faux_clou: { name: "Un « Clou de Hildre »", kind: "quete", desc: "Un gros clou de fer noir vendu par Anselme le colporteur. Il ressemble exactement à ce qu'on imagine. C'est ce qui le trahit." },
     II_carte_ferrance: { name: "Plan de Ferrance", kind: "outil", price: 6, desc: "Un plan à la plume des rues de Ferrance, avec les portes de service des grandes maisons notées en marge, d'une autre encre." },
     II_baume: { name: "Baume de Cassagne", kind: "soin", heal: 10, unique: false, price: 10, desc: "Suif de mouton et racine de consoude. Pour les vieilles brûlures qui ne guérissent plus, et les neuves." },
@@ -1628,7 +1628,7 @@ var EXTRAS = {
     II_gauvard: { name: "Messire Gauvard", look: "humain", pv: 40, att: 55, def: 25, dmg: 3, desc: "Le maître d'armes de la commanderie, une lame émoussée à la main. Trois doigts à la main gauche, et aucune pitié à l'entraînement." },
     II_compagnon: { name: "Compagnon de la Forge", look: "humain", pv: 24, att: 42, def: 15, dmg: 6, desc: "Un forgeron de la Forge-Mère, torse nu, un marteau à la main. Il frappe comme il forge." },
     II_gourdin: { name: "Homme du doyen", look: "humain", pv: 20, att: 40, def: 14, dmg: 5, desc: "Un gros bras venu de Hautmont, sans tablier, avec un gourdin et une solde." },
-    II_spadassin: { name: "Spadassin aux gants gris", look: "humain", pv: 26, att: 50, def: 20, dmg: 6, desc: "Une épée courte de bonne facture, des gestes d'habitué. Il ne parle pas, il attend qu'on le paie." },
+    II_spadassin: { name: "Spadassin de Hautmont", look: "humain", pv: 26, att: 50, def: 20, dmg: 6, desc: "Une épée courte de bonne facture, des gestes d'habitué. Il ne parle pas, il attend qu'on le paie." },
     II_gantsblancs: { name: "L'homme aux gants blancs", look: "humain", pv: 40, att: 55, def: 22, dmg: 6, desc: "Un homme de Hautmont, poli, à l'accent des hautes terres. Il achète les vieux livres, et ils finissent dans la cheminée." },
   },
   clues: {

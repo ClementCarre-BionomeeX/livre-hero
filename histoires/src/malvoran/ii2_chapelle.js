@@ -54,7 +54,7 @@ Object.assign(P, {
 
   IICR_verger: { act: "II", title: "Le verger noyé", place: null,
     text: [
-      "Vers le soir du chemin, la route descend dans une cuvette, et soudain il n'y a plus de route. Elle entre dans l'eau, tout simplement, et l'eau continue où elle allait. Le lac de Morteau commence ici : une nappe grise et lisse, sans vagues, d'où sortent des cimes de pommiers, des piquets de clôture, le toit d'une grange. Un chemin de planches, posé sur des tréteaux, longe le bord pour rejoindre le village.",
+      "Vers le soir, la route descend dans une cuvette, et soudain il n'y a plus de route. Elle entre dans l'eau, tout simplement, et l'eau continue où elle allait. Le lac de Morteau commence ici : une nappe grise et lisse, sans vagues, d'où sortent des cimes de pommiers, des piquets de clôture, le toit d'une grange. Un chemin de planches, posé sur des tréteaux, longe le bord pour rejoindre le village.",
       "Au milieu des pommiers noyés, une femme cueille des pommes depuis une barque. Elle tire les branches vers elle avec un crochet, détache les fruits un par un, les pose dans un panier. Les pommes du bas pourrissent dans l'eau depuis un an. Celles du haut sont rouges et luisantes.",
       "Loin, au bout du lac, un clocher carré sort de l'eau jusqu'aux abat-sons. Il n'y a pas de bruit. Pas d'oiseaux. L'eau est si immobile qu'on y voit le clocher deux fois.",
       { with: "pip", text: "Pip s'est posé sur ton épaule et ne bouge plus. Sa lumière a baissé d'un coup, comme une chandelle qu'on protège de la main." },
@@ -286,7 +286,7 @@ Object.assign(P, {
     fx: { flag: "IIC:rumeur_aubin", ep: ["perso", 500] },
     text: [
       "Tu prends un pot et tu t'assieds au bout d'un banc. Il faut un moment pour que les conversations reprennent. Elles reprennent quand même, parce qu'on ne peut pas se taire longtemps dans une taverne, même devant quelqu'un qui vient d'ailleurs.",
-      "On parle des anguilles grises. On parle du seigneur de la commanderie, qui envoie toujours son collecteur pour la dîme du poisson, alors que la moitié des barques sont au fond. On parle de l'eau, à mots couverts : « elle a encore pris un pied au cimetière », « la Berlinde a entendu chanter mardi ». Personne ne dit *les moines*. On dit *eux*, *là-bas*, *ceux de la chapelle*.",
+      "On parle des anguilles grises. On parle de la commanderie, qui envoie toujours son collecteur pour la dîme du poisson, alors que la moitié des barques sont au fond. On parle de l'eau, à mots couverts : « elle a encore pris un pied au cimetière », « la Berlinde a entendu chanter mardi ». Personne ne dit *les moines*. On dit *eux*, *là-bas*, *ceux de la chapelle*.",
       "Et puis un pêcheur, plus ivre que les autres, lève son pot vers la porte : « À frère Aubin, qui a eu la bonne idée de venir boire avec nous ce soir-là ! Le seul de la bande qui a su choisir sa paroisse ! » Il rit seul. Un autre lui pose la main sur le bras. La jeune femme au nourrisson a laissé tomber une cuillère, l'a ramassée, et elle est passée dans l'arrière-salle sans se retourner.",
       { if: { has: "meunier=livre" }, text: "À la table voisine, un marchand de sel raconte qu'à Brumefeuille, sur la Sorbe, on a livré le meunier à la justice de la Main. « Il versait du poison dans le puits, à ce qu'il paraît. Pour sa fille morte. » Les pêcheurs se taisent, et l'un d'eux regarde le lac par la fenêtre." },
       { if: { has: "meunier=protege" }, text: "Un marchand de sel qui descend de la Sorbe raconte qu'à Brumefeuille, le meunier qui avait souillé le puits est toujours à son moulin. « Il paraît qu'un voyageur a réglé ça entre quatre yeux. Personne n'a été pendu. C'est rare. Je ne sais pas si c'est bien. »" },
@@ -387,7 +387,7 @@ Object.assign(P, {
     text: [
       "Elle a vingt-cinq ans peut-être, des cheveux châtains noués serré, des mains rouges d'eau de vaisselle et un regard qui fait le tour de la salle toutes les trois respirations, pour voir qui a soif. Elle pose un pot devant toi sans que tu l'aies demandé. « C'est la maison qui offre aux étrangers, dit-elle. La première fois. Après, c'est un denier. »",
       "L'enfant dort sur son dos, un poing contre la joue. Trois mois, à peu près. Il a des cheveux très fins, presque rien, et le menton de quelqu'un.",
-      { without: "aubin", if: { seen: "IIC_sacristie" }, text: "« Vous venez de la chapelle, dit-elle en baissant la voix. On vous a vu sur la chaussée. Le frère, là-bas. Il mange ? Il a de quoi se chauffer ? » Elle a posé la question trop vite, et elle le sait." },
+      { without: "aubin", if: { seen: "IIC_sacristie" }, text: "« Vous venez de la chapelle, dit-elle en baissant la voix. On vous a vu{e} sur la chaussée. Le frère, là-bas. Il mange ? Il a de quoi se chauffer ? » Elle a posé la question trop vite, et elle le sait." },
       { with: "aubin", text: "Elle voit Frère Aubin sur le seuil. Elle s'arrête une demi-respiration, pas plus. Puis elle se retourne vers la table voisine et demande qui veut de la soupe." },
       { if: { not: { seen: "IIC_sacristie" } }, text: "« Vous allez à la chapelle ? demande-t-elle. Tout le monde y va, les étrangers. Pour voir. Vous ne verrez rien. Vous entendrez, si vous restez la nuit. » Elle repart avec ses pots vides avant que tu aies pu répondre." },
     ],
@@ -487,7 +487,7 @@ Object.assign(P, {
     ] },
   IIC_ninon_bastien: { act: "II", title: "Le père", place: "morteau",
     text: [
-      "Herbin n'a pas bougé de son seuil. La cruche est plus vide. Tu lui parles de l'encoche sur le pieu, de la chanson, de ce que la voix sous les planches a promis. Tu lui dis que l'eau ne se contente pas de monter, à Morteau : elle appelle.",
+      "Herbin n'a pas bougé de son seuil. La cruche est plus vide. Tu lui parles des encoches sur le pieu, de la chanson, de ce que la voix sous les planches a promis. Tu lui dis que l'eau ne se contente pas de monter, à Morteau : elle appelle.",
       "Il t'écoute jusqu'au bout. Puis il dit : « Et où voulez-vous que j'aille ? C'est ma maison. C'est là qu'elle est. »",
     ],
     choices: [
@@ -651,7 +651,7 @@ Object.assign(P, {
       "Josse parle par phrases courtes, en reprenant son souffle. Il est du Cercle depuis douze ans. Il recopiait, il portait des messages, il faisait ce qu'on lui demandait. On l'a envoyé ici voir si la Cloche d'Ivo était toujours dans sa crypte, sans y toucher, et rapporter ce qu'il aurait vu à quelqu'un qui l'attendrait à la Gorge-Blanche.",
       "« Le Cercle dit que les trois clés n'ouvrent rien, dit-il. Elles ferment. Elles tiennent quelque chose, comme des clous tiennent une planche. » Il rit sans joie. « Moi, je ne sais pas ce qu'elles tiennent. Je ne sais jamais rien. On ne me dit que ce qu'il faut pour que je fasse ce qu'on veut. »",
       { if: { has: "josse=reconnu" }, text: "Il ne regarde pas une seule fois dans la direction de Coliane pendant qu'il parle. Elle non plus." },
-      { if: { has: "passe:cercle" }, text: "Il te regarde mieux, à un moment, en plissant les yeux. « Je vous ai déjà vu. À l'Athénée, au scriptorium. Vous recopiiez les herbiers. » Tu ne te souviens pas de lui. Il n'a pas l'air surpris." },
+      { if: { has: "passe:cercle" }, text: "Il te regarde mieux, à un moment, en plissant les yeux. « Je vous ai déjà vu{e}. À l'Athénée, au scriptorium. Vous recopiiez les herbiers. » Tu ne te souviens pas de lui. Il n'a pas l'air surpris." },
       { if: { mark: { min: 1 } }, text: "Ses yeux tombent sur ta main. Sur la tache. Il devient très pâle. « Vous aussi, dit-il. Elle vous parle ? Elle vous a promis quoi, à vous ? » Il n'attend pas la réponse." },
     ],
     choices: [
@@ -660,7 +660,7 @@ Object.assign(P, {
     ] },
   IIC_josse_gorge: { act: "II", title: "La Gorge-Blanche", place: "morteau",
     text: [
-      "« Une femme, dit-il. Des gants noirs. Elle a été de l'Ordre, avant. Je ne sais pas son nom. Elle n'en a pas besoin, quand elle parle les gens se taisent. » Il tousse. « Elle croit qu'on délivre quelqu'un. Elle y croit vraiment. C'est ce qui fait peur. »",
+      "« Une femme, dit-il. Des gants noirs. Elle a été de l'Ordre, avant. Je ne sais pas son nom. Elle n'en a pas besoin : quand elle parle, les gens se taisent. » Il tousse. « Elle croit qu'on délivre quelqu'un. Elle y croit vraiment. C'est ce qui fait peur. »",
       "Il n'en dit pas plus, et tu ne sais pas s'il n'en sait pas plus ou s'il a seulement décidé de s'arrêter là.",
     ],
     choices: [{ label: "Le laisser se reposer", to: "IIC_josse_depart" }] },
@@ -700,7 +700,7 @@ Object.assign(P, {
       "Le portail est roman, bas, profond, avec trois voussures sculptées. Sur la plus haute, un homme en robe tient une cloche entre ses mains jointes, sans battant, comme on tient un bol d'eau qu'on ne veut pas renverser : saint Ivo le Veilleur. Autour de lui, cinq mains ouvertes, paumes vers le ciel, et une sixième, sur la gauche, dont il ne reste qu'un éclat de pierre neuve, plus pâle, là où le ciseau est passé.",
       "Sous la cloche, une inscription à demi effacée par l'humidité : *VIGILATE · QVIA · NESCITIS · HORAM*. Veillez, car vous ne savez pas l'heure.",
       { with: "aubin", text: "« On nous apprenait à le lire au premier jour, dit Frère Aubin. Veillez. C'était la règle d'Ivo : quelqu'un, toujours, est réveillé dans le moutier. Toujours. Jour et nuit, depuis quatre cents ans. » Il regarde l'eau qui entre dans la nef. « La nuit où ce n'était pas le cas, c'était à moi de veiller. »" },
-      { with: "charline", text: "Charline passe les doigts sur la sixième main martelée. « Le même ciseau qu'à Ferrance, dit-elle. Même largeur, même angle. On a fait le tour des Marches pour effacer la même chose partout. Ça demande de l'organisation. »" },
+      { with: "charline", text: "Charline passe les doigts sur la sixième main martelée. « Du travail soigné, dit-elle. Un ciseau large, tenu toujours sous le même angle. Celui qui a fait ça n'était pas pressé. »" },
     ],
     choices: [{ back: "IIC_parvis" }] },
   IIC_clocher: { act: "II", title: "Le clocher", place: "morteau", backName: "le haut du clocher",
@@ -868,7 +868,7 @@ Object.assign(P, {
       { if: { has: "maitre:maelle" }, text: "Tu le reconnais avant d'y toucher. C'est le bâton de Maëlle Vautrin, la canne graduée en pieds et en pouces dont elle se servait pour mesurer les choses qu'elle ne pouvait pas toucher. Son étui à cartes est posé à côté, ouvert, vide." },
       "Une sacoche de cuir est accrochée à la balustrade. Dedans, un carnet, une plume, un encrier sec, des notes de la main que tu connais. La dernière page est écrite plus serrée que les autres : *« Le lac a monté d'un coup, la nuit du 9 des Brumes. Pas de pluie. Pas de crue en amont. L'eau vient d'en dessous. Je descends ce soir. Si je ne remonte pas, »* La phrase s'arrête là. L'encre a coulé, comme si la page avait pris l'eau, et séché ensuite.",
       "Sous la tribune, juste à l'aplomb, l'eau est noire. Il n'y a aucune trace dans la poussière de la galerie qui reparte vers le portail.",
-      { with: "aubin", text: "Frère Aubin regarde la couverture roulée. « Je l'ai vu, dit-il lentement. Il y a trois lunes. Quelqu'un qui est passé à la sacristie demander du pain et le chemin de la tribune. Je lui ai donné le pain. Je ne lui ai pas demandé son nom. Je ne demande plus le nom de personne. » Il se signe, de la main ouverte. « Je l'ai entendu, la nuit. Il chantait avec eux. Je croyais que c'était un de mes frères. »" },
+      { with: "aubin", text: "Frère Aubin regarde la couverture roulée. « Je l'ai vue, dit-il lentement. Il y a quinze jours. Une femme qui est passée à la sacristie demander du pain et le chemin de la tribune. Je lui ai donné le pain. Je ne lui ai pas demandé son nom. Je ne demande plus le nom de personne. » Il se signe, de la main ouverte. « Je l'ai entendue, la nuit. Elle chantait avec eux. J'ai cru d'abord à une voix de plus dans le chœur. »" },
       { with: "coliane", text: "Coliane ne dit rien. Elle pose seulement sa main sur ton épaule, une seconde, et la retire." },
     ],
     choices: [
@@ -961,7 +961,7 @@ Object.assign(P, {
   IIC_crypte_voix: { act: "II", title: "Dans l'eau", place: "morteau",
     text: [
       "L'eau frémit autour de tes chevilles. Des rides partent de toi en cercles et vont mourir contre les colonnes. Et dans les rides, un visage se forme, et se défait, et se reforme : un visage de femme, de vase et d'algue, qui te regarde d'en bas comme on regarde quelqu'un par une fenêtre.",
-      "« {hero} », dit-elle, et sa voix est douce, raisonnable, pleine d'une tendresse fatiguée. « Tu as fait tant de chemin. Ton maître aussi en a fait. Il voulait comprendre. Il s'est assis là-haut, sur la tribune, et il a écouté mes enfants chanter, et il a compris. Il est avec moi maintenant. Il n'a plus froid. »",
+      "« {hero} », dit-elle, et sa voix est douce, raisonnable, pleine d'une tendresse fatiguée. « Tu as fait tant de chemin. Celle qui t'a formé{e} aussi en a fait. Elle voulait comprendre. Elle s'est assise là-haut, sur la tribune, elle a écouté mes enfants chanter, et elle a compris. Elle est avec moi maintenant. Elle n'a plus froid. »",
       { if: { has: "eclat:refuse" }, text: "« Sous le château des trolls, tu n'as rien voulu de moi, dit-elle sans reproche. Tu avais raison de te méfier. On ne prend pas ce qu'on ne connaît pas. Mais maintenant, tu me connais un peu mieux. »" },
       { if: { has: "voix:marche1" }, text: "« Nous avons déjà un marché, toi et moi, dit-elle. Je n'ai pas oublié. Je n'oublie jamais. Ceci n'est pas un marché. C'est un cadeau. »" },
       "« Cette Cloche, tu n'en as pas besoin. Elle ne sonne que pour fermer. Mais si tu la veux, je te la donne. Le vieux la lâchera si je le lui demande. Il m'écoute, lui aussi. Tu n'auras pas à lui faire de mal. »",
@@ -975,7 +975,7 @@ Object.assign(P, {
     ] },
   IIC_crypte_voix_maitre: { act: "II", title: "Dans l'eau", place: "morteau",
     text: [
-      "Le visage de vase sourit. « Partout où il y a de l'eau, dit-elle. Il marche. Il sert. Il est utile, enfin. Il aurait aimé que tu le saches. » Elle a l'air de chercher ses mots, de vouloir être juste. « Tu le reverras. Je te le promets. Je tiens toujours ce que je promets. C'est ce que les gens ne comprennent pas chez moi. »",
+      "Le visage de vase sourit. « Partout où il y a de l'eau, dit-elle. Elle marche. Elle sert. Elle est utile, enfin. Elle aurait aimé que tu le saches. » Elle a l'air de chercher ses mots, de vouloir être juste. « Tu la reverras. Je te le promets. Je tiens toujours ce que je promets. C'est ce que les gens ne comprennent pas chez moi. »",
       "Le visage se défait. Les rides meurent contre les colonnes. L'eau redevient lisse et grise, et il ne reste que le chant du prieur, très bas, qui n'a pas cessé.",
     ],
     choices: [{ back: "IIC_crypte" }] },
@@ -1023,7 +1023,7 @@ Object.assign(P, {
       "Les mains grises te prennent aux épaules et te tirent sous l'eau, sans colère, avec une patience terrible. Tu te débats. Tu bois. Le chant est partout, dans l'eau, dans tes oreilles, dans tes os.",
       "Et puis tu es sur le parvis, au soleil, sur le dos, en train de vomir de l'eau grise. Quelqu'un t'a tiré{e} de là.",
       { with: "aubin", text: "C'est Frère Aubin, trempé jusqu'aux os, qui a plongé par l'ossuaire et t'a sorti{e} par la sacristie. Il est assis à côté de toi, il tousse, il a les mains qui saignent. « Ils m'ont laissé passer, dit-il. Ils m'ont regardé. Pour la première fois. »" },
-      { without: "aubin", text: "C'est Tiburce, avec sa gaffe, depuis sa barque, qui t'a vu remonter à la surface sous la rose, inerte, et qui t'a hameçonné{e} par le col comme une grosse anguille. « Je t'avais dit de ne pas te pencher », grogne-t-il." },
+      { without: "aubin", text: "C'est Tiburce, avec sa gaffe, depuis sa barque, qui t'a vu{e} remonter à la surface sous la rose, inerte, et qui t'a hameçonné{e} par le col comme une grosse anguille. « Je t'avais dit de ne pas te pencher », grogne-t-il." },
     ],
     choices: [{ back: "IIC_parvis" }] },
   IIC_prieur_vaincu: { act: "II", title: "Le prieur", place: "morteau",
@@ -1253,7 +1253,7 @@ Object.assign(P, {
     text: [
       "Pip tourne autour du bréviaire de Frère Aubin, posé sur une pierre près du feu. Il se pose dessus, s'envole, se repose. Aubin finit par l'ouvrir pour lui, à une page au hasard. Pip descend tout près des lettres, si près que l'encre luit.",
       "« Tu ne sais pas lire, dit Aubin doucement. Moi non plus, à ton âge. » Pip clignote. Aubin sourit. « Tu veux savoir ce que ça dit ? Ça dit : *veillez, car vous ne savez pas l'heure.* » Pip ne bouge plus. Il reste posé sur la page jusqu'à ce que le feu baisse.",
-      "« Il pose plus de questions qu'un novice, te dit Aubin à voix basse. Sans un mot. Je n'ai jamais vu ça. »",
+      "« Il pose plus de questions qu'un novice, te dit Aubin à voix basse. Et il écoute les réponses. Je n'ai jamais vu ça. »",
     ],
     choices: [
       { label: "« Il ne se souvient pas d'où il vient. »", fx: { conf: { pip: 5, aubin: 3 } }, to: "@ret" },

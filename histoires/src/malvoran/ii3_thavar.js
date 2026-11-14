@@ -49,7 +49,7 @@ Object.assign(P, {
   IIT_r_cavaliers_tenu: { title: "Les cavaliers bleus",
     text: [
       "Tu restes planté{e} au milieu du chemin, les mains bien visibles, sans rien dire. Le premier cavalier tire sur ses rênes au dernier moment, son cheval fait un écart et souffle dans ta figure. Il jure. Derrière lui, l'homme au manteau vert lève la main, et la colonne s'arrête.",
-      "« Laissez, sergent, dit-il d'une voix agréable. Les routes sont à tout le monde, en Vel-Orin comme ici. » Il te regarde avec un intérêt d'acheteur. « Vous allez à Thavar, vous aussi ? Alors nous nous reverrons. » Ils te contournent au pas, un par un, et reprennent le trot plus loin. *En Vel-Orin comme ici.* Il l'a dit sans y penser, comme on parle de chez soi.",
+      "« Laissez, sergent, dit-il d'une voix agréable. Les routes sont à tout le monde, en Vel-Orin comme ici. » Il te regarde avec un intérêt d'acheteur. « Vous allez à Thavar, vous aussi ? Alors nous nous reverrons. » Ils te contournent au pas, un par un, et reprennent le trot plus loin.",
     ],
     choices: [{ back: ROUTE }] },
   IIT_r_cavaliers_fosse: { title: "Le fossé",
@@ -116,7 +116,7 @@ Object.assign(P, {
       "Une charrette arrêtée en travers de la route, une mule qui broute le talus, et sous un parapluie de toile cirée, assis sur un tonneau, Anselme le colporteur, qui mange une saucisse avec son couteau. Il t'accueille comme un cousin. « Ah ! Je savais bien que la route finirait par m'amener quelqu'un d'intéressant. »",
       "Il soulève la bâche de sa charrette. Des rubans, des almanachs, du fil, des clous, et au fond, dans de la paille, des choses qu'il ne montre pas tout de suite. « Pour vous, dit-il en baissant la voix, j'ai quelque chose de rare. Un anneau. L'Anneau de Thavar, rien que ça, le vrai, celui des fondateurs. Je l'ai eu d'un fossoyeur. Dix couronnes. » Il te le montre : un anneau de cuivre, tout vert, avec une main grossièrement gravée dessus.",
       { if: { has: "grauk:vivant" }, text: "« Et vous savez la meilleure ? ajoute-t-il. Les trolls de la crête descendent vendre leur bois au marché de Sorbe, maintenant. Le gros, le roi, il fait payer en pain. Je vous jure. On aura tout vu. »" },
-      { if: { has: "grauk:mort" }, text: "« Vous savez qu'on raconte qu'un voyageur a tué le roi des trolls, là-haut, sur la crête ? ajoute-t-il en te regardant mâcher. Depuis, les petits trolls se battent entre eux pour la place. Il en descend de temps en temps, affamés. Mauvais pour le commerce. »" },
+      { if: { has: "grauk:mort" }, text: "« Vous savez qu'on raconte que quelqu'un de passage a tué le roi des trolls, là-haut, sur la crête ? ajoute-t-il, la bouche pleine. Depuis, les petits trolls se battent entre eux pour la place. Il en descend de temps en temps, affamés. Mauvais pour le commerce. »" },
     ],
     choices: [
       { label: "« Dix couronnes ? Je t'en donne deux sous, pour la plaisanterie. »", if: { gold: { min: 2 } }, why: "Tu n'as pas deux sous.", fx: { gold: -2 }, to: "EIIT_anselme_bague" },
@@ -252,8 +252,8 @@ Object.assign(P, {
     text: [
       "La grande salle de Thavar a été faite pour des banquets de cent couverts. Il n'en reste qu'une table, au fond, près de la seule cheminée allumée, et le reste est un désert de dalles froides où résonnent les pas. Aux murs, des tapisseries mangées aux mites montrent des chasses, des sièges, des hommes en armure qui tiennent tous la main droite levée, paume ouverte. Il fait plus froid dedans que dans la cour.",
       "Trois personnes sont devant la cheminée. Dans un fauteuil à haut dossier, une très vieille dame en noir, un foulard de soie grise noué sous le menton, droite comme une borne : Dame Ermesinde de Thavar. Debout derrière le fauteuil, une femme de trente ans, en pourpoint de cuir usé, les cheveux noirs serrés en tresses, une cicatrice blanche qui lui fend le sourcil ; elle a une main posée sur l'épaule de la vieille dame et l'autre sur la garde d'une épée. Et en face, assis comme chez lui, l'homme au manteau vert.",
-      { if: { seen: "IIT_r_cavaliers_tenu" }, text: "Il te reconnaît aussitôt et te salue d'un sourire ravi. « Ah ! Le voyageur obstiné. Je vous l'avais bien dit, que nous nous reverrions. »" },
-      "« Messire Ostrand de Clairvent, dit-il en se levant à demi, pour toi, par courtoisie. Je parle pour le premier conseiller du roi d'Aldaran, Maître Vendrel, qui m'honore de sa confiance. » Il se tourne de nouveau vers la vieille dame, comme on reprend une partie d'échecs. « Je résume pour la nouvelle venue, si vous le permettez. Mon maître offre trois cents couronnes d'or pour l'Anneau de Thavar. Et ceci. » Il pose sur la table une lettre scellée de cire bleue, frappée d'une tour. « Une lettre du roi, qui rend à votre maison les prés de l'Anse et la forêt de Brécy, confisqués à votre arrière-grand-père. Toutes vos terres, Madame. Pour une bague. »",
+      { if: { seen: "IIT_r_cavaliers_tenu" }, text: "Il te reconnaît aussitôt et te salue d'un sourire ravi. « Ah ! L'obstination en personne. Je vous l'avais bien dit, que nous nous reverrions. »" },
+      "« Messire Ostrand de Clairvent, dit-il en se levant à demi, pour toi, par courtoisie. Je parle pour le premier conseiller du roi d'Aldaran, Maître Vendrel, qui m'honore de sa confiance. » Il se tourne de nouveau vers la vieille dame, comme on reprend une partie d'échecs. « Je résume pour qui vient d'arriver, si vous le permettez. Mon maître offre trois cents couronnes d'or pour l'Anneau de Thavar. Et ceci. » Il pose sur la table une lettre scellée de cire bleue, frappée d'une tour. « Une lettre du roi, qui rend à votre maison les prés de l'Anse et la forêt de Brécy, confisqués à votre arrière-grand-père. Toutes vos terres, Madame. Pour une bague. »",
       "« Ce n'est pas une bague, dit Dame Ermesinde, d'une voix sèche et très claire. Et elle n'est pas à moi. Elle est à la crypte. La crypte ne l'a donnée à personne depuis quatre cents ans. » La jeune femme, derrière elle, serre les doigts sur son épaule. « Elle pourrait la donner à moi, grand-mère, dit-elle à voix basse. Si on essayait encore. »",
     ],
     choices: [
@@ -294,12 +294,12 @@ Object.assign(P, {
     text: [
       { first: true, text: "Dame Ermesinde t'écoute sans t'interrompre, les deux mains posées sur le pommeau d'une canne d'ébène. Elle a quatre-vingts ans passés, la peau fine comme du papier de soie, et une façon de te regarder qui t'oblige à choisir tes mots. Quand tu as fini, elle reste un long moment sans rien dire. Le feu craque. Onfroi, dans l'ombre de la porte, attend qu'on ait besoin de lui." },
       { first: true, text: "« L'Ordre vous envoie, ou vous vous envoyez vous-même, dit-elle enfin. Cela revient au même pour une vieille femme. Tout le monde veut l'Anneau, cet automne. Il y a quatre cents ans qu'on ne s'en souciait plus, et voilà qu'il faut le mettre au trésor d'un roi, ou dans les mains de l'Ordre, ou dans les vôtres. » Elle a un petit sourire sec. « Il n'a jamais été dans les miennes. Je vous l'ai dit : il est à la crypte. »" },
-      { first: true, if: { is: { meunier: "livre" } }, text: "« On dit aussi, ajoute-t-elle, qu'à Brumefeuille, un voyageur a livré le meunier aux gens du village. Les nouvelles vont vite chez les pauvres : nous n'avons que ça à faire. On dit qu'il empoisonnait le puits pour parler à sa fille morte. » Elle te regarde. « Je ne vous demande pas si c'était juste. Je vous demande si vous dormez. »" },
-      { first: true, if: { is: { meunier: "protege" } }, text: "« On dit aussi, ajoute-t-elle, qu'à Brumefeuille, un voyageur a protégé le meunier qui empoisonnait le puits. Les uns disent que c'est de la bonté, les autres de la folie. » Elle a un petit hochement de tête. « Il faut parfois les deux pour garder ce qu'on garde. »" },
+      { first: true, if: { is: { meunier: "livre" } }, text: "« On dit aussi, ajoute-t-elle, qu'à Brumefeuille, quelqu'un de passage a livré le meunier aux gens du village. Les nouvelles vont vite chez les pauvres : nous n'avons que ça à faire. On dit qu'il empoisonnait le puits pour parler à sa fille morte. » Elle te regarde. « Je ne vous demande pas si c'était juste. Je vous demande si vous dormez. »" },
+      { first: true, if: { is: { meunier: "protege" } }, text: "« On dit aussi, ajoute-t-elle, qu'à Brumefeuille, quelqu'un de passage a protégé le meunier qui empoisonnait le puits. Les uns disent que c'est de la bonté, les autres de la folie. » Elle a un petit hochement de tête. « Il faut parfois les deux pour garder ce qu'on garde. »" },
       { first: true, if: { mark: { min: 2 } }, text: "Ses yeux tombent une seconde sur ta main, là où la peau noircit, et remontent sans s'arrêter. Elle ne dit rien. Elle a vu." },
       { again: true, text: "Dame Ermesinde est dans son fauteuil, près de la cheminée, une couverture sur les genoux. Elle lit des comptes, ou fait semblant. Elle lève les yeux quand tu entres, et les garde sur toi jusqu'à ce que tu parles." },
       { again: true, if: { relic: "anneau" }, text: "Elle regarde ta main, celle où brille l'Anneau, puis elle regarde ailleurs. Elle ne le réclame pas. Elle ne le réclamera jamais." },
-      { again: true, if: { given: "anneau" }, text: "L'Anneau est sur sa table, dans une petite boîte de bois d'if que Onfroi a cirée. Elle n'y touche pas. Elle la regarde parfois, comme on regarde dormir un enfant." },
+      { again: true, if: { given: "anneau" }, text: "L'Anneau est sur sa table, dans une petite boîte de bois d'if qu'Onfroi a cirée. Elle n'y touche pas. Elle la regarde parfois, comme on regarde dormir un enfant." },
       { again: true, with: "thavary", text: "Thavary s'appuie au manteau de la cheminée, les bras croisés. Sa grand-mère et elle se parlent peu, et toujours poliment, comme deux capitaines de compagnies rivales qui partagent la même ville." },
     ],
     choices: [
@@ -552,7 +552,7 @@ Object.assign(P, {
     ],
     choices: [
       { label: "Lui montrer le terrier de Thavar", if: { item: "iit_terrier" }, why: "Il te faudrait une preuve écrite de la limite : le vieux terrier de la maison, s'il existe encore.", to: "IIT_bornes_terrier" },
-      { label: "Le raisonner, d'homme à homme", test: { dom: "social", diff: -20, label: "Faire céder Groux", help: [{ if: { has: "passe:libre" }, v: 10 }, { with: "thavary", v: 5 }] },
+      { label: "Le raisonner, les yeux dans les yeux", test: { dom: "social", diff: -20, label: "Faire céder Groux", help: [{ if: { has: "passe:libre" }, v: 10 }, { with: "thavary", v: 5 }] },
         win: { fx: { ep: ["perso", 800] }, to: "IIT_bornes_aveu" }, lose: { to: "IIT_bornes_chasse" } },
       { label: "Lui dire ce qui arrive aux voleurs de bornes", to: "IIT_bornes_menace" },
       { back: "IIT_manoir" },
@@ -565,7 +565,7 @@ Object.assign(P, {
       "Il se tourne vers ses fils. « Remettez les bornes, dit-il d'un ton las. Cette nuit. Et le grand pommier avec. » Il te regarde. « Je ne serai pas le seul à avoir pris de l'avance, vous savez. Quand un grand seigneur dit qu'une maison va tomber, tout le monde se met à ramasser les tuiles. »",
     ],
     choices: [{ back: "IIT_manoir" }] },
-  IIT_bornes_aveu: { act: "II", title: "D'homme à homme", place: "thavar",
+  IIT_bornes_aveu: { act: "II", title: "Les yeux dans les yeux", place: "thavar",
     fx: { set: { thavar_bornes: "jugees" }, quest: "IIT_bornes", ep: ["seance", 1200] },
     text: [
       "Tu ne lui parles pas des Thavar. Tu lui parles de lui : de sa grange neuve, de ses fils, de la foire de Sorbe où tout le monde saura qu'Anceau Groux arrache les bornes la nuit comme un voleur de poules, et qu'on ne lui achètera plus un sac de grain sans compter deux fois. Il rit d'abord. Puis il rit moins. Puis il te fait entrer.",
@@ -794,7 +794,7 @@ Object.assign(P, {
   IIT_anneau: { act: "II", title: "L'Anneau de Thavar", place: "thavar", ambiance: "souterrain",
     fx: { relic: "anneau", ep: ["histoire", 5000] },
     text: [
-      "Il est plus lourd qu'il n'en a l'air : un jonc d'or pâle, très pur, si usé qu'il en est presque doux, sans pierre et sans ciselure. Il a été fait pour une main d'homme, il s'ajuste à la tienne comme s'il avait attendu. Il n'est pas froid, comme devrait l'être un anneau resté quatre siècles dans une crypte. Il a la tiédeur d'une main qu'on vient de lâcher.",
+      "Il est plus lourd qu'il n'en a l'air : un jonc d'or pâle, très pur, si usé qu'il en est presque doux, sans pierre et sans ciselure. Il paraissait trop étroit entre les doigts de pierre, et pourtant il s'ajuste à ta main comme s'il avait attendu. Il n'est pas froid, comme devrait l'être un anneau resté quatre siècles dans une crypte. Il a la tiédeur d'une main qu'on vient de lâcher.",
       "Alors la crypte bouge. L'eau du sol frissonne, puis monte, d'un coup, d'un pouce, de deux, et elle sort des murs en nappes, en filets, en sources, avec un bruit de soupir. Entre les gisants, la nappe noire se gonfle et se lève : deux formes, puis une troisième, faites de vase et d'eau, avec des bras, avec des têtes, qui se tournent vers toi.",
       { with: "thavary", text: "Thavary a tiré son épée. « Les morts de ma maison ne sont pas faits de boue, dit-elle entre ses dents. Ça, c'est autre chose. » Elle se place entre les formes et toi, sans réfléchir, comme on le fait pour un camarade." },
     ],
@@ -849,7 +849,7 @@ Object.assign(P, {
       { first: true, text: "Le soir, dans la grande salle, on a allumé trois chandelles au lieu d'une : c'est le luxe des grandes occasions. Dame Ermesinde est dans son fauteuil, toute droite, sa canne en travers des genoux. Onfroi a servi du cidre chaud dans des gobelets d'étain et s'est retiré dans l'ombre de la porte, d'où il entend tout. L'Anneau est posé sur la table, entre vous, sur un mouchoir de lin. Personne ne le touche." },
       { first: true, text: "« Ce qu'on dit dans cette famille, commence la vieille dame, c'est que l'Anneau est l'une des trois clés qui ferment ce que les Cinq ont fermé. Je ne sais pas ce que ça veut dire. Je ne suis pas sûre que quelqu'un le sache encore. Mais je sais qu'il n'est pas sorti de la crypte depuis quatre cents ans, et qu'il en est sorti cette nuit, et que ce n'est pas un hasard si tout le monde le veut cet automne. »" },
       { first: true, with: "thavary", if: { conf: "thavary", min: 50 }, text: "Thavary est debout près de la cheminée. « Je ne veux plus le vendre, dit-elle, avant qu'on le lui demande. J'ai lu le testament. Je ne sais pas de quoi le vieux avait honte, mais je ne vendrai pas sa honte à un homme comme Vendrel. » Elle se tourne vers toi. « Garde-le, ou rends-le à grand-mère. C'est toi que la main a choisi{e}. Moi, je suis l'Anneau, où qu'il aille. »" },
-      { first: true, with: "thavary", if: { conf: "thavary", max: 49 }, text: "Thavary est debout près de la cheminée, les bras croisés. « Trois cents couronnes, dit-elle. Je le dis encore une fois, et après je me tais. Trois cents couronnes et nos terres. On pourrait vivre. » Elle regarde l'Anneau. « Mais ce n'est pas moi que la main a choisi. Décide. Et quoi que tu décides, je viens avec toi. Je ne quitte pas l'Anneau des yeux. »" },
+      { first: true, with: "thavary", if: { conf: "thavary", max: 49 }, text: "Thavary est debout près de la cheminée, les bras croisés. « Trois cents couronnes, dit-elle. Je le dis encore une fois, et après je me tais. Trois cents couronnes et nos terres. On pourrait vivre. » Elle regarde l'Anneau. « Mais ce n'est pas moi que la main a choisie. Décide. Et quoi que tu décides, je viens avec toi. Je ne quitte pas l'Anneau des yeux. »" },
       { again: true, text: "La table, le mouchoir de lin, les trois chandelles qui ont baissé. Dame Ermesinde attend ta réponse sans impatience. Elle a attendu quatre-vingts ans pour bien d'autres choses." },
     ],
     choices: [
@@ -1078,7 +1078,7 @@ Object.assign(P, {
     text: [
       "Tu repousses le jeton de fer vers Brann. Tu lui dis que tu iras sur l'Isarde, oui, mais sous ton seul nom. Que tu as vu ce que font les gardiens quand on leur donne des clés et des couronnes, et que tu préfères ne rien devoir à personne quand on te demandera qui paie cette guerre.",
       "Brann reprend son jeton et le fait sauter dans sa main. Pour la première fois, tu crois voir l'ombre d'un sourire dans sa barbe. « Sans maître, dit-il. On dit tous ça, à un moment. Et puis on finit par servir quelqu'un, ou quelque chose. » Il range le jeton. « Va. Rapporte-moi ce que tu vois. Ça, tu le feras par amitié, au moins. »",
-      { if: { has: "maitre:hauberte" }, text: "« Hauberte de Sarn disait la même chose, ajoute-t-il, le jour où elle a rendu ses gants. Elle a été la meilleure d'entre nous. Elle n'a jamais voulu dire pourquoi elle partait. » Il te regarde. « Je crois que je le sais, maintenant. »" },
+      { if: { has: "maitre:hauberte" }, text: "« Hauberte de Sarn disait la même chose, ajoute-t-il, le jour où elle a rendu ses gants. Elle a été la meilleure d'entre nous. Elle n'a jamais voulu dire pourquoi elle partait. » Il te regarde. « Je commence à le deviner. »" },
       { with: "coliane", text: "Coliane te donne un coup de coude en sortant. « Bien, dit-elle. Je n'aurais pas aimé te voir avec des gants gris. »" },
       { with: "charline", text: "Charline Hildrand hoche la tête lentement. « Personne ne m'a jamais proposé de jeton, dit-elle. Je n'aurais pas su refuser. »" },
     ],
@@ -1094,7 +1094,7 @@ Object.assign(P, {
       { if: { has: "maitre:hauberte" }, text: "Tu reconnais l'écriture avant d'avoir brisé le cachet : les grandes lettres raides de Hauberte de Sarn, qui écrivait comme on donne des coups d'estoc, et qui barrait ses *t* d'un trait trop long." },
       { if: { has: "maitre:ortie" }, text: "Tu reconnais l'écriture avant d'avoir brisé le cachet : les lettres rondes et penchées d'Ortie, qui écrivait comme elle étiquetait ses pots, avec un petit rond à la place des points sur les *i*." },
       { if: { has: "maitre:maelle" }, text: "Tu reconnais l'écriture avant d'avoir brisé le cachet : la fine écriture de cartographe de Maëlle Vautrin, si serrée qu'elle en devient presque illisible, avec ses majuscules ornées qu'elle ne pouvait pas s'empêcher de dessiner." },
-      "*Je suis vivant{e}. Ne crois pas ce qu'on te dira de moi. Je suis à la Gorge-Blanche, à la cabane du passeur, au-dessus du torrent, à une journée au nord. Viens, et apporte ce que tu as trouvé : les clés ne sont plus en sûreté nulle part, et l'Ordre sait des choses qu'il ne t'a pas dites. Ne lui montre pas cette lettre. Viens vite. Viens.*",
+      "*Je suis vivante. Ne crois pas ce qu'on te dira de moi. Je suis à la Gorge-Blanche, à la cabane du passeur, au-dessus du torrent, à une journée au nord. Viens, et apporte ce que tu as trouvé : les clés ne sont plus en sûreté nulle part, et l'Ordre sait des choses qu'il ne t'a pas dites. Ne lui montre pas cette lettre. Viens vite. Viens.*",
       { if: { has: "maitre:disparu" }, text: "La dernière trace de ton maître s'arrêtait à la chapelle noyée de Saint-Ivo : un bâton, une sacoche, et l'eau du lac. Tu tiens la lettre à deux mains, et elles tremblent." },
     ],
     choices: [
@@ -1144,7 +1144,7 @@ Object.assign(P, {
       "Le torrent ralentit. Ce n'est pas possible, et c'est pourtant ce qu'il fait : sous le pont, dans un remous entre deux blocs, l'eau blanche devient lisse, puis sombre, puis noire, et elle s'arrête de couler, au milieu du fracas, comme un œil fermé au milieu d'un visage qui crie. Un visage s'y dessine. Des cheveux d'algue, une bouche de vase, des yeux d'eau.",
       "« {hero} », dit la Voix, et malgré le torrent, tu l'entends comme si elle te parlait à l'oreille. « Elle est là, de l'autre côté. Veyra. Elle croit me servir la vérité sur un plateau, la pauvre. Elle va te prendre tes clés. Elle va te faire mal pour les avoir. » La bouche de vase sourit. « Je peux l'en empêcher. Dis oui, et le torrent les emporte tous, elle et ses épées. Un petit oui. Tu en as déjà dit d'autres. »",
       { if: { mark: { min: 2 } }, text: "Ta main noire te fait mal, d'un mal joyeux, impatient, comme un chien qui tire sur sa laisse." },
-      { with: "aubin", text: "Frère Aubin s'est avancé jusqu'au bord. Il a le visage gris. « Ne lui réponds pas, dit-il. Elle a déjà eu mes frères, avec un oui qu'ils n'ont même pas dit. »" },
+      { with: "aubin", text: "Frère Aubin s'est avancé jusqu'au bord. Il a le visage gris. « Ne lui répondez pas, dit-il. Elle a déjà eu mes frères, avec un oui qu'ils n'ont même pas dit. »" },
     ],
     choices: [
       { label: "« Oui. »", tag: "Marque +1", stain: true, fx: { mark: 1, flag: "iie:voix_aide", conf: { pip: -10, aubin: -10, coliane: -8 }, fear: { pip: 10, coliane: 10 } }, to: "IIE_marque_victoire" },
@@ -1155,7 +1155,7 @@ Object.assign(P, {
     text: [
       "Quand tu relèves les yeux, elle est là. Elle est sortie de derrière les rochers, de l'autre côté du pont, seule d'abord, et elle avance sur les lattes sans tenir les cordes, au-dessus du vide, comme sur une route. Une femme d'une cinquantaine d'années, en cotte de mailles sous une cape grise, les cheveux gris serrés en chignon, une cicatrice qui lui ferme à moitié l'œil gauche. Des gants noirs. À son côté, une épée bâtarde à la poignée usée.",
       "Derrière elle, les rochers se lèvent : six épées, en capes grises et gants noirs, des hommes et des femmes qui se tiennent comme des chevaliers et qui n'en portent plus les couleurs. Ils ne dégainent pas. Ils n'en ont pas besoin. Veyra s'arrête au milieu du pont, au-dessus du gouffre, et elle te regarde.",
-      "« Veyra de Hautcastel, dit-elle. Ne cherche pas ton maître, il n'est pas ici. La lettre était de nous. Je le regrette, si ça peut te consoler. » Sa voix est grave, fatiguée, sans haine. « Donne-moi les clés. Je ne veux pas ta mort. Je ne veux la mort de personne. Je veux qu'on cesse de garder une porte fermée sur un homme qui n'a rien fait, et pour ça, il faut que les clés cessent d'être gardées. »",
+      "« Veyra de Hautcastel, dit-elle. Ne cherche pas celle qui t'a formé{e}, elle n'est pas ici. La lettre était de nous. Je le regrette, si ça peut te consoler. » Sa voix est grave, fatiguée, sans haine. « Donne-moi les clés. Je ne veux pas ta mort. Je ne veux la mort de personne. Je veux qu'on cesse de garder une porte fermée sur un homme qui n'a rien fait, et pour ça, il faut que les clés cessent d'être gardées. »",
       { if: { has: "passe:ordre" }, text: "Elle plisse les yeux. « Tu as porté le gant gris, toi. Ça se voit à ta façon de te tenir. Moi aussi, vingt ans. J'étais commandeure de Fort-Gaudre. Et puis j'ai lu ce que je n'aurais pas dû lire. »" },
       { if: { has: "maitre:hauberte" }, text: "Elle regarde ta garde, longtemps. « Hauberte de Sarn, dit-elle. C'est elle qui t'a appris à tenir ta lame comme ça, le pouce sur le plat. Nous étions novices ensemble. Elle est partie la première. Elle avait compris avant moi. »" },
       { if: { item: "iit_gant_noir" }, text: "Ses yeux tombent sur ta ceinture, où pend un gant noir. Elle a un petit sourire. « Tu as le gant de Garnier. Il m'a dit qu'il l'avait perdu dans un verger. Il ment mal. »" },
@@ -1307,7 +1307,7 @@ Object.assign(P, {
   IIE_entracte: { act: "II", title: "Les semaines de l'automne", place: "commanderie",
     fx: { quest: "II_gardiens", catchup: 13, catchupWhy: "les semaines passées à la commanderie à s'entraîner avec les frères, à lire les archives et à guetter la guerre qui descend vers l'Isarde" },
     text: [
-      "Il pleut trois semaines. Tu les passes à la commanderie du Val d'Anse, dans la cour d'exercice le matin, aux archives l'après-midi, à l'écurie le soir, à écouter les nouvelles que rapportent les courriers crottés. Les feuilles tombent. Le mois des Brumes finit, et le mois des Gelées commence, avec des matins blancs.",
+      "Il pleut trois semaines. Tu les passes à la commanderie du Val d'Anse, dans la cour d'exercice le matin, aux archives l'après-midi, à l'écurie le soir, à écouter les nouvelles que rapportent les courriers crottés. Les feuilles tombent. Le mois des Gelées s'installe, avec des matins blancs.",
       "Les nouvelles sont mauvaises, et elles arrivent dans l'ordre où l'on s'y attend. Aldaran a franchi la frontière. Vel-Orin a brûlé un pont. On se bat sur l'Isarde, autour d'un village de bateliers qui s'appelle Merle, et dont personne n'avait entendu parler le mois dernier. Le roi Aldric ne quitte plus son lit. Son conseiller, si.",
       { if: { is: { jeton: "ordre" } }, text: "Tu portes le gant gris. Le jeton de fer pèse dans ta ceinture. Les frères de la commanderie te saluent maintenant comme l'un des leurs, et tu ne sais pas encore si c'est une protection ou une cible." },
       { if: { is: { jeton: "cercle" } }, text: "Le jeton d'os du Cercle est dans ta poche. À la commanderie, on te parle poliment, et l'on se tait quand tu entres. Tu t'y fais." },
@@ -1337,7 +1337,7 @@ module.exports = {
       iit_terrier: { name: "Le terrier de Thavar", kind: "document", desc: "Le grand livre des terres de la maison de Thavar, refait en l'an 350, avec sa carte peinte.",
         text: "Une carte des terres de Thavar, champ par champ. Au bas du verger, la limite passe au ruisseau, et les trois bornes y sont dessinées d'une petite main rouge. En marge : « La borne de Thavar, à la main et à l'anneau, est la plus vieille du domaine. Qui la déplace déplace la maison. »" },
       iie_lettre: { name: "La lettre de la Gorge-Blanche", kind: "document", desc: "Une lettre dans l'écriture de ton maître, apportée par un gamin des fermes.",
-        text: "« Je suis vivant. Ne crois pas ce qu'on te dira de moi. Je suis à la Gorge-Blanche, à la cabane du passeur, au-dessus du torrent, à une journée au nord. Viens, et apporte ce que tu as trouvé : les clés ne sont plus en sûreté nulle part, et l'Ordre sait des choses qu'il ne t'a pas dites. Ne lui montre pas cette lettre. Viens vite. Viens. »" },
+        text: "« Je suis vivante. Ne crois pas ce qu'on te dira de moi. Je suis à la Gorge-Blanche, à la cabane du passeur, au-dessus du torrent, à une journée au nord. Viens, et apporte ce que tu as trouvé : les clés ne sont plus en sûreté nulle part, et l'Ordre sait des choses qu'il ne t'a pas dites. Ne lui montre pas cette lettre. Viens vite. Viens. »" },
     },
     enemies: {
       iie_veyra: { name: "Veyra de Hautcastel", look: "humain", pv: 85, att: 68, def: 32, dmg: 9, desc: "Ancienne commandeure de l'Ordre, l'épée du Cercle. Elle se bat sans colère, comme on fait un travail qu'on aurait préféré ne pas faire." },
