@@ -19,7 +19,7 @@ module.exports = {
     text: ["Sous la mousse, autour du cerf, il y a des lettres. Une devise, à moitié avalée par l'écorce. Tu lis ce qui reste : *... PREMIER ...*. Le reste est dans le bois. Il faudrait abattre l'arbre pour le lire. Tu remets la mousse en place, du plat de la main. Ton grand-père n'aurait pas voulu qu'on abatte l'arbre. Tu n'es pas sûre qu'il aurait voulu qu'on lise."],
     choices: BACK }),
   YS_k_tilleul_repos: P({ title: "L'ombre",
-    text: ["Tu restes. Les feuilles bougent au-dessus de toi. Les abeilles du tilleul font un bruit de forge lointaine. Pendant un moment, il n'y a pas d'ordre, pas de Hautvent, pas de Frère Sévrin à la fenêtre. Il y a une petite fille sous un arbre, et un vieil homme qui vient s'asseoir à côté d'elle, en se plaignant de son genou. Puis la cloche sonne. Tu te relèves. Il n'y a personne à côté de toi. Il n'y a plus personne, depuis longtemps."],
+    text: ["Tu restes. Les feuilles bougent au-dessus de toi. Les abeilles du tilleul font un bruit de forge lointaine. Pendant un moment, l'ordre, Hautvent et Frère Sévrin à sa fenêtre s'effacent. Il y a une petite fille sous un arbre, et un vieil homme qui vient s'asseoir à côté d'elle, en se plaignant de son genou. Puis la cloche sonne. Tu te relèves. La place à côté de toi est vide, depuis longtemps."],
     choices: BACK }),
   YS_k_puits: P({ title: "Le puits",
     text: [
@@ -31,9 +31,9 @@ module.exports = {
       { label: "Boire, rendre la louche, et ne rien dire", to: "YS_k_puits_silence" },
     ] }),
   YS_k_puits_nom: P({ title: "Perrine",
-    text: ["« Perrine, dit Hersende. Perrine Fournel. Elle a une tache de vin sur la joue, ici. Elle chante faux. Elle fait le meilleur pâté de lièvre de la vallée. » Elle s'arrête. Elle a les yeux humides. Elle ne pleure pas : on ne pleure pas au puits, devant la capitaine. « Voilà. Maintenant, vous savez qui c'est. Faites-en ce que vous voulez. » Elle reprend ses seaux. Les autres femmes la suivent, sans un mot."],
+    text: ["« Perrine, dit Hersende. Perrine Fournel. Elle a une tache de vin sur la joue, ici. Elle chante faux. Elle fait le meilleur pâté de lièvre de la vallée. » Elle s'arrête. Elle a les yeux humides. Elle retient ses larmes : au puits, devant la capitaine, on se tient. « Voilà. Maintenant, vous savez qui c'est. Faites-en ce que vous voulez. » Elle reprend ses seaux. Les autres femmes la suivent en silence."],
     choices: BACK }),
   YS_k_puits_silence: P({ title: "La louche",
-    text: ["Tu bois. L'eau du puits de Brenne a le goût de fer et de pierre, le goût de ton enfance. Tu rends la louche. Tu ne dis rien. Hersende hoche la tête, comme si ton silence lui suffisait, ou comme si elle n'attendait rien d'autre d'une capitaine. Elle reprend ses seaux. Elle ne te regarde plus. Les autres non plus."],
+    text: ["Tu bois. L'eau du puits de Brenne a le goût de fer et de pierre, le goût de ton enfance. Tu rends la louche. Tu te tais. Hersende hoche la tête : ton silence lui suffit, ou c'est tout ce qu'elle attendait d'une capitaine. Elle reprend ses seaux. Elle ne te regarde plus. Les autres non plus."],
     choices: BACK }),
 };

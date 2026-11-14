@@ -8,7 +8,7 @@ module.exports = {
   D_fosse: { act: "II", title: "La Fosse", place: "fosse",
     fx: { catchup: 3, catchupWhy: "Kardan, la route, la nuit de la Lune", food: 1 },
     text: [
-      { if: WAKING, else: "Tu es toujours au fond du puits, sous le rond de ciel. La paille, les os, et la galerie noire qui s'ouvre dans la paroi.", text: "Tu te réveilles sur le dos, la bouche pleine de poussière. Très haut au-dessus de toi, un rond de ciel pas plus gros qu'une pièce, où pâlissent les dernières étoiles. Autour, la pierre : un puits sans margelle, aux parois lisses comme l'intérieur d'un vase, et toi au fond, sur un lit de paille pourrie et de choses qui craquent quand tu bouges." },
+      { if: WAKING, else: "Tu es toujours au fond du puits, sous le rond de ciel. La paille, les os, et la galerie noire qui s'ouvre dans la paroi.", text: "Tu te réveilles sur le dos, la bouche pleine de poussière. Très haut au-dessus de toi, un rond de ciel gros comme une pièce, où pâlissent les dernières étoiles. Autour, la pierre : un puits sans margelle, aux parois lisses comme l'intérieur d'un vase, et toi au fond, sur un lit de paille pourrie et de choses qui craquent quand tu bouges." },
       { if: WAKING, text: "Des os. Des os anciens, gris, et d'autres moins anciens. Des lambeaux de vêtements. Une semelle. Une boucle de ceinture. Tu n'es pas le premier qu'on a laissé tomber ici." },
       { if: { all: [WAKING, { has: "capture:bu" }] }, text: "On t'a pris tes armes, ta bourse, tes vivres. On t'a laissé une miche de pain posée sur la poitrine, comme on pose une fleur sur un mort. On t'a laissé aussi tes vêtements." },
       { if: { all: [WAKING, { has: "capture:bu" }, { has: "couteau:aurele" }] }, text: "Et le couteau d'Aurèle, glissé dans ta ceinture. Hier soir, il n'y était pas. Quelqu'un l'y a mis." },
@@ -529,7 +529,7 @@ module.exports = {
     text: [
       "Une voix, très loin, portée par les galeries comme par des tuyaux d'orgue. Elle ne crie pas. Elle appelle, doucement, avec une tendresse qui serre le cœur.",
       { if: { has: "passe:souvenir" }, text: "*Moineau… Moineau…* Personne ne t'a appelé comme ça depuis sept ans. Personne d'autre que lui ne t'a jamais appelé comme ça.", else: "*Moineau…* C'est le nom qu'il te donnait, enfant, pour te faire enrager. Tu l'avais presque oublié. Le dédale, lui, s'en souvient." },
-      { if: { present: "odon" }, text: "Odon s'est arrêté net. « Vous avez entendu ? » Tu fais signe que non. Tu mens. Tu ne sais pas pourquoi." },
+      { if: { present: "odon" }, text: "Odon s'est arrêté net. « Vous avez entendu ? » Tu fais signe que non. Tu mens. La raison t'échappe." },
     ],
     choices: [
       { label: "Répondre", fx: { ep: ["perso", 300] }, to: "E_voix_reponse" },

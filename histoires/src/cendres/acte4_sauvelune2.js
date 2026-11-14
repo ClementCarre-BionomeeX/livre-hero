@@ -35,8 +35,8 @@ module.exports = {
     choices: [{ back: "IV_sv_place" }] }),
   IV_sv_temple_vide: P({ title: "La marge blanche", place: "sauvelune",
     text: [
-      "Tu reposes la plume. La marge reste blanche, à côté de *sans nom*, un petit vide de la largeur d'un nom. Tu ne sais pas lequel y mettre. Tu n'as pas encore décidé qui tu es. Le registre peut attendre. Il a attendu vingt ans.",
-      { if: RENDU, text: "Le Père Anselme referme le registre, doucement. « Tu reviendras quand tu sauras, dit-il. L'encre ne bouge pas. Moi non plus. »" },
+      "Tu reposes la plume. La marge reste blanche, à côté de *sans nom*, un petit vide de la largeur d'un nom. Lequel y mettre ? Tu cherches encore qui tu es. Le registre peut attendre. Il a attendu vingt ans.",
+      { if: RENDU, text: "Le Père Anselme referme le registre, doucement. « Tu reviendras quand tu sauras, dit-il. L'encre reste immobile. Moi non plus. »" },
     ],
     choices: [{ back: "IV_sv_place" }] }),
   IV_sv_temple_lire: P({ takes: "night", title: "Les naissances", place: "sauvelune",
@@ -80,9 +80,9 @@ module.exports = {
   IV_sv_pierre_soir: P({ takes: "evening", title: "Le soir sur la vallée", place: "sauvelune",
     text: [
       "Tu restes. Le soleil descend derrière les crêtes, la vallée devient bleue, puis grise.",
-      { if: RENDU, text: "Les cheminées fument, en bas. On t'appelle, au moulin. La voix d'Agathe, qui porte jusqu'ici, comme avant. Pour la soupe. Tu ne réponds pas tout de suite. Tu la laisses appeler deux fois, pour le plaisir de l'entendre appeler ton nom." },
+      { if: RENDU, text: "Les cheminées fument, en bas. On t'appelle, au moulin. La voix d'Agathe, qui porte jusqu'ici, comme avant. Pour la soupe. Tu prends ton temps. Tu la laisses appeler deux fois, pour le plaisir de l'entendre appeler ton nom." },
       { if: { has: "ame:moulin" }, text: "Une seule cheminée fume, en bas : celle du moulin. Tu regardes la vallée devenir noire. Tu redescends à l'heure de la soupe, par habitude, et tu t'aperçois en route que tu siffles." },
-      { if: { not: { any: [RENDU, { has: "ame:moulin" }] } }, text: "En bas, pas une cheminée, sinon le four. Tu regardes la vallée devenir noire. Personne ne t'appelle. Tu redescends quand même, à l'heure de la soupe, par habitude, et tu t'aperçois en route que tu siffles." },
+      { if: { not: { any: [RENDU, { has: "ame:moulin" }] } }, text: "En bas, seul le four fume. Tu regardes la vallée devenir noire. Personne ne t'appelle. Tu redescends quand même, à l'heure de la soupe, par habitude, et tu t'aperçois en route que tu siffles." },
     ],
     choices: [{ back: "IV_sv_place" }] }),
 
@@ -91,7 +91,7 @@ module.exports = {
     text: [
       "Derrière le temple, un muret, une grille rouillée, trente tombes sous les noyers. Des croix de bois pour les pauvres, des pierres pour les autres. Tu y venais, enfant, voler des noix, et Mathurin te courait après avec son bâton en disant que les morts n'aimaient pas les voleurs.",
       { if: RENDU, text: "Les tombes sont fleuries. Quelqu'un a désherbé, cette semaine. Sur la plus récente, une croix neuve : *Hubert Aubry. Mort de vieillesse, l'automne dernier, dans son lit.* Son nom s'était effacé du registre sous tes yeux, le soir de la neige. Il est mort en le sachant de nouveau. Tu restes là un moment, à te dire que c'est déjà beaucoup." },
-      { if: { not: RENDU }, text: "Les noms gravés sur les pierres s'effacent. Pas usés par la pluie : effacés, lisses, comme si personne ne les avait jamais taillés. Sur les plus vieilles, il ne reste rien. Sur les plus récentes, une lettre ou deux. La tombe des parents de Joris n'a plus qu'un *J*." },
+      { if: { not: RENDU }, text: "Les noms gravés sur les pierres s'effacent. Effacés, lisses comme des pierres neuves. Sur les plus vieilles, il ne reste rien. Sur les plus récentes, une lettre ou deux. La tombe des parents de Joris n'a plus qu'un *J*." },
     ],
     choices: [
       { label: "Regraver les noms au couteau, de mémoire", hide: RENDU, test: { dom: "savoir", label: "Les noms des morts", help: [{ if: { present: "gaspard" }, v: 15 }, { if: { has: "ame:moulin" }, v: 20 }, { if: { present: "hylas" }, v: 10 }] },
@@ -100,14 +100,14 @@ module.exports = {
     ] }),
   IV_sv_cimetiere_ok: P({ takes: "morning", title: "Au couteau", place: "sauvelune",
     text: [
-      "Tu commences par la tombe des parents de Joris. *Jehan et Perrine.* Tu les sais parce que Joris les disait au bénédicité, tous les dimanches, après les saints. Puis les autres. Tu ne les sais pas tous. Ceux que tu ne sais pas, tu les demandes.",
+      "Tu commences par la tombe des parents de Joris. *Jehan et Perrine.* Tu les sais parce que Joris les disait au bénédicité, tous les dimanches, après les saints. Puis les autres. Ceux qui te manquent, tu les demandes.",
       { if: { has: "ame:moulin" }, text: "Agathe vient avec toi, et Joris, et Pim, qui tient la lanterne. Agathe dit les noms. Elle les sait tous. Elle a enterré la moitié du village avec le Père Anselme, en chantant. Joris grave les plus durs, ceux de la pierre noire." },
       { if: { not: { has: "ame:moulin" } }, text: "Tu les demandes à ceux qui sont avec toi, qui ne les savent pas. Alors tu les inventes, un peu, à partir d'une lettre restée, d'une date, de la taille de la tombe. Tu demandes pardon aux morts, à chaque fois, à voix basse. Mathurin aurait trouvé ça très bien. Il disait que les morts ne sont pas regardants." },
       "Au matin, il y a trente noms sur trente tombes. Ils tiennent.",
     ],
     choices: [{ back: "IV_sv_place" }] }),
   IV_sv_cimetiere_rate: P({ title: "La pierre", place: "sauvelune",
-    text: ["Tu graves *J*, puis tu t'arrêtes. Tu ne sais pas la suite. Tu ne l'as jamais su. Joris disait les noms de ses parents au bénédicité, et tu ne l'écoutais pas, tu regardais la soupe. Tu restes devant la pierre avec ton couteau, et la honte, et le *J* tout seul."],
+    text: ["Tu graves *J*, puis tu t'arrêtes. La suite, tu l'as toujours ignorée. Joris disait les noms de ses parents au bénédicité, et tu ne l'écoutais pas, tu regardais la soupe. Tu restes devant la pierre avec ton couteau, et la honte, et le *J* tout seul."],
     choices: [{ back: "IV_sv_place" }] }),
   IV_sv_cimetiere_noix: P({ title: "Les noix", place: "sauvelune",
     text: ["Tu ramasses des noix sous les noyers. Elles sont bonnes, cette année. Tu en remplis tes poches. Personne ne te court après. Tu attends quand même un peu, au cas où. Personne."],

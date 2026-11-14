@@ -37,7 +37,7 @@ function chapterChoices() {
 module.exports = {
   C_six: { act: "I", title: "Six chemins",
     text: [
-      "Six personnes, en ce mois de juillet, ne savent pas encore qu'elles ont rendez-vous. Elles ne se connaissent pas. Elles n'ont rien en commun, sinon qu'il va neiger sur elles, et qu'elles vont s'en souvenir.",
+      "Six personnes, en ce mois de juillet, ne savent pas encore qu'elles ont rendez-vous. Elles s'ignorent. Leur seul point commun : il va neiger sur elles, et qu'elles vont s'en souvenir.",
       "Le livre les suit par chapitres. À la fin de chacun, c'est toi qui choisis qui suivre : chacun reprend là où tu l'as laissé. Ce que fait l'un, les autres le trouveront sur leur route : une gourde tendue, une porte laissée ouverte, un homme qu'on a laissé partir ou qu'on a pendu.",
       "Tous les chemins commencent le même jour de juillet, aux quatre coins d'Esquarre. Tous mènent à Pallanche, la ville aux cent cloches, pour la Fête des Noms.",
     ],

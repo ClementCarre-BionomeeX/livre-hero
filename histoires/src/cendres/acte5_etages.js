@@ -30,7 +30,7 @@ module.exports = {
       "Les derniers noms ont été gravés cette nuit. La pierre est vive. Il y en a des dizaines. Les dix greffiers du porche. Ceux du scriptorium. Des noms de la ville, aussi, des gens qui n'ont jamais tenu une plume, avec l'année de naissance, un trait, et celle-ci.",
       { if: { has: "hy:mur=dit" }, text: "Le mur a été gratté, en bas, il y a longtemps : des traces de ciseau, là où le frère Gauvain a effacé des noms gravés d'avance. Par-dessus, on en a regravé d'autres." },
       { if: { has: "iii:muette" }, text: "Au-dessus de l'autel, dans le petit clocheton, la cloche de la chapelle est revenue. Fendue de haut en bas. Personne ne l'a raccrochée : elle est là, c'est tout. Quand tu passes la porte, elle sonne une note, une seule, fausse, double, et se tait." },
-      { with: "hylas", text: "Hylas pose les mains sur la pierre. Il lit. Il s'arrête, tout en bas. « Le mien, dit-il, très calme. Encore. Il est têtu. » Il continue de lire. Il s'arrête une deuxième fois. Il ne dit pas quel nom il a trouvé." },
+      { with: "hylas", text: "Hylas pose les mains sur la pierre. Il lit. Il s'arrête, tout en bas. « Le mien, dit-il, très calme. Encore. Il est têtu. » Il continue de lire. Il s'arrête une deuxième fois. Le nom qu'il a trouvé, il le garde pour lui." },
     ],
     choices: [
       { label: "Chercher ton propre nom", fx: { flag: "v:chapelle" }, to: "V_e_chapelle_nom" },
@@ -55,6 +55,6 @@ module.exports = {
       { label: "Manger, et repartir", fx: { pv: 6, food: 2 }, to: "V_t_cessions" },
     ] }),
   V_e_cuisines_plateau: P({ title: "Le plateau", place: "pallanche",
-    text: ["Tu prends le plateau. Il est lourd, et la soupe est encore chaude. Tu ne sais pas pourquoi tu le prends. Tu sais seulement que quelqu'un, dans cette tour, pensait encore à lui ce soir, assez pour lui faire une soupe, et que ça doit bien compter pour quelque chose."],
+    text: ["Tu prends le plateau. Il est lourd, et la soupe est encore chaude. Tu le prends d'instinct. Tu sais seulement que quelqu'un, dans cette tour, pensait encore à lui ce soir, assez pour lui faire une soupe, et que ça doit bien compter pour quelque chose."],
     choices: [{ back: "V_t_cessions" }] }),
 };

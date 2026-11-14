@@ -89,7 +89,7 @@ module.exports = {
 
   CO_ylva_tard: P({ title: "Trop haut",
     text: [
-      "Quand tu montes enfin, les traces s'arrêtent au milieu de la pente. Elles ne repartent pas. Il n'y a rien autour, pas de corps, pas de robe, juste la neige, lisse comme une peau tendue. Tu restes là jusqu'au soir. Le vent efface les traces sous tes yeux.",
+      "Quand tu montes enfin, les traces s'arrêtent au milieu de la pente. Elles ne repartent pas. Autour, la neige seule, lisse comme une peau tendue. Tu restes là jusqu'au soir. Le vent efface les traces sous tes yeux.",
     ],
     choices: [{ fx: { flag: "ylva:perdue", quest: "CO_ylva" }, back: "CO_camp" }] }),
 
@@ -215,7 +215,7 @@ module.exports = {
 
   CO_fleche: R({ title: "La flèche dans la neige",
     text: [
-      { before: "corbe:tire", text: "Au premier soir, tu rattrapes la chose. Elle est debout au milieu de la crête, immobile, face au sud. Tu bandes ton arc. Tu ne sais pas si ça sert à quelque chose. Tu tires." },
+      { before: "corbe:tire", text: "Au premier soir, tu rattrapes la chose. Elle est debout au milieu de la crête, immobile, face au sud. Tu bandes ton arc. Peut-être pour rien. Tu tires." },
       { after: "corbe:tire", text: "Au premier soir, tu rattrapes la chose. Elle est debout au milieu de la crête, immobile, face au sud. Tu bandes ton arc. Tu sais, depuis la veillée, que ça ne sert à rien. Tu tires quand même." },
       "La flèche passe au travers et se plante dans la neige, un peu plus loin. La chose ne se retourne pas. Elle repart. Tu n'as pas le temps d'aller chercher ta flèche.",
       { if: { has: "croise:fleche_corbe" }, text: "Le lendemain, quand tu reviens la chercher, elle n'est plus là. À sa place, des traces de chaussures de montagne, usées, qui suivent la chose, comme toi." },
@@ -261,7 +261,7 @@ module.exports = {
   CO_portes: R({ title: "La porte du Nord",
     text: [
       "La crête descend enfin vers la plaine, et la ville est là. Tu n'en as jamais vu. Elle est plus grande que toutes les Combes, elle pue la fumée et la merde de cheval, et elle sonne. Toutes ses cloches à la fois. Tu en as mal aux dents.",
-      "Les traces de la chose s'arrêtent au pied des collines. Il n'y a plus de neige. Il n'y a plus rien à suivre.",
+      "Les traces de la chose s'arrêtent au pied des collines. La neige s'arrête là, et la piste avec elle.",
     ],
     choices: [{ label: "Descendre vers la porte", to: "@route" }] }),
 
@@ -277,7 +277,7 @@ module.exports = {
       { label: "Lui dire son nom. « Bran. »", to: "CO_bran_nom" },
       { label: "Lui donner ton souvenir de lui. Qu'il ait au moins ça", tag: "Souvenir donné", stain: true, if: { souv: "corbe:frere" }, why: "Tu ne l'as plus.",
         fx: { souv: "corbe:frere", flag: "corbe:frere_donne", ep: ["perso", 1500] }, to: "CO_bran_souvenir" },
-      { label: "Lui tendre ton arc, et passer sans un mot", fx: { flag: "corbe:bran_tu", drop: "arc_court" }, to: "CO_bran_tu" },
+      { label: "Lui tendre ton arc, et passer en silence", fx: { flag: "corbe:bran_tu", drop: "arc_court" }, to: "CO_bran_tu" },
     ] }),
 
   CO_bran_nom: P({ title: "Bran", place: "pallanche",
@@ -296,7 +296,7 @@ module.exports = {
       "Tu ne sais pas comment on fait. Tu fais comme la chose, sur l'alpage : tu poses la main sur son front, au milieu de la foule, et tu penses à lui. Le grand frère qui portait les agneaux sur ses épaules. Le garçon qui riait des chants de l'aïeule. Celui qui est parti un matin d'automne sans dire au revoir, et dont tu as brûlé le nom, toi aussi, avec les autres, en chantant.",
       "Tu le lui donnes. Tout.",
       "Il recule d'un pas. Il te regarde. Il dit : « Corbe. » Et il se met à pleurer, là, devant la porte du Nord, sa hallebarde à la main, devant les autres gardes qui ne savent pas où se mettre.",
-      "Toi, tu regardes ce grand garde roux qui pleure. Tu ne sais pas pourquoi il pleure. Tu sais que c'est à cause de toi.",
+      "Toi, tu regardes ce grand garde roux qui pleure. Il pleure, et la raison t'échappe. Tu sais que c'est à cause de toi.",
     ],
     choices: [{ label: "Le laisser te prendre dans ses bras", fx: { flag: "corbe:voie_bran=donne", quest: "CO_bran", ep: ["histoire", 3000] }, to: "CO_fin" }] }),
 

@@ -22,7 +22,7 @@ module.exports = {
     ],
     choices: BACK }),
   III_el_guetteur_laisser: P({ title: "Le sentier du sud",
-    text: ["Tu ne dis rien. Il ne te reconnaîtrait pas : tu n'as plus deux ans, et personne ne te porte. Tu le laisses sur son toit, la corne contre lui, les yeux sur le sentier. En partant, tu te retournes. Il n'a pas bougé. Il guettera jusqu'à ce que quelqu'un d'autre lui dise que c'est fini, ou jusqu'à ce que le monde se souvienne de lui assez fort pour qu'il ait le droit de grandir. Ce n'est pas à toi de le lui dire. Ou c'est à toi, et tu ne l'as pas fait."],
+    text: ["Tu te tais. Il ne te reconnaîtrait pas : tu n'as plus deux ans, et personne ne te porte. Tu le laisses sur son toit, la corne contre lui, les yeux sur le sentier. En partant, tu te retournes. Il n'a pas bougé. Il guettera jusqu'à ce que quelqu'un d'autre lui dise que c'est fini, ou jusqu'à ce que le monde se souvienne de lui assez fort pour qu'il ait le droit de grandir. Ce n'est pas à toi de le lui dire. Ou c'est à toi, et tu ne l'as pas fait."],
     choices: BACK }),
   III_el_jouets: P({ title: "Le rebord de la fenêtre",
     text: [

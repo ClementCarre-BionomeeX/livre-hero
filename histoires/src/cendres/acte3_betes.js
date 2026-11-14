@@ -10,7 +10,7 @@ module.exports = {
   III_B_bergere: P({ title: "La bergère", place: "plaine",
     fx: { questSeen: "III_Q_betes" },
     text: [
-      "Un bruit de clochettes, dans le blanc, qui ne vient pas des clochers. Un troupeau. Pas des moutons : des chiens, des chats, des chevaux, des chèvres, un âne, des oiseaux sur le dos des chevaux, un petit ours. Toutes les bêtes marchent ensemble, sans se battre, sans se presser, et une femme les mène, avec un bâton de noisetier.",
+      "Un bruit de clochettes, dans le blanc, qui ne vient pas des clochers. Un troupeau. Des chiens, des chats, des chevaux, des chèvres, un âne, des oiseaux sur le dos des chevaux, un petit ours. Toutes les bêtes marchent ensemble, en paix, au pas, et une femme les mène, avec un bâton de noisetier.",
       "Elle est jeune, les joues rouges, un fichu sur la tête, des sabots. Elle a l'air de ne pas avoir froid. « Ce sont les bêtes qu'on a oubliées, dit-elle, avant que tu demandes. Personne ne les cherche. Alors elles viennent ici. Il faut bien que quelqu'un les garde. »",
       "« Je cherche un pré, dit-elle. Un endroit où elles pourraient s'arrêter de marcher. Ça fait longtemps que je cherche. Le blanc n'a pas de pré. »",
     ],
@@ -20,7 +20,7 @@ module.exports = {
     ] }),
   III_B_troupeau: P({ title: "Le troupeau", place: "plaine", hub: true,
     text: [
-      "Les bêtes marchent autour de toi. Elles te frôlent, te reniflent, puis reprennent leur pas. Aucune ne te demande rien. C'est ce qui serre le cœur : elles ne demandent plus rien.",
+      "Les bêtes marchent autour de toi. Elles te frôlent, te reniflent, puis reprennent leur pas. Elles passent sans mendier une caresse. C'est ce qui serre le cœur : elles ont cessé d'attendre.",
       { with: "givre", text: "Givre trotte au milieu du troupeau comme s'il en avait toujours fait partie. Les chiens le laissent passer. Les chats, non." },
     ],
     choices: [
@@ -60,7 +60,7 @@ module.exports = {
     choices: BACK }),
   III_B_ours: P({ title: "Le petit ours", place: "plaine",
     text: [
-      "Un petit ours brun, pas plus haut qu'un chien de berger, pelé aux coudes. Il n'a plus de collier, mais on voit encore, dans sa fourrure, autour du cou, la trace d'un collier, plus claire. Au museau, une cicatrice ancienne, en forme de croix.",
+      "Un petit ours brun, haut comme un chien de berger, pelé aux coudes. Il n'a plus de collier, mais on voit encore, dans sa fourrure, autour du cou, la trace d'un collier, plus claire. Au museau, une cicatrice ancienne, en forme de croix.",
       "Il marche à quatre pattes, la tête basse. De temps en temps, sans raison, il se dresse sur ses pattes de derrière, au milieu du troupeau, et il fait une révérence, à personne. Puis il retombe, et il reprend sa marche.",
       { if: { has: "corbe:ours" }, text: "En marchant, il grogne, très bas, deux syllabes. Toujours les mêmes. On dirait qu'il les répète pour ne pas les perdre." },
     ],
@@ -89,13 +89,13 @@ module.exports = {
     ] }),
   III_B_pre_vert: P({ title: "L'herbe", place: "plaine",
     text: [
-      "Sous tes pieds, quelque chose change. Le blanc devient moins blanc. Puis vert pâle, comme une herbe qui a passé l'hiver sous la neige. Puis vert. Ce n'est pas grand : la taille du pré derrière le moulin, exactement, avec la pente vers un bief qui n'est pas là. Mais c'est de l'herbe.",
+      "Sous tes pieds, quelque chose change. Le blanc devient moins blanc. Puis vert pâle, comme une herbe qui a passé l'hiver sous la neige. Puis vert. C'est petit : la taille du pré derrière le moulin, exactement, avec la pente vers la place d'un bief absent. Mais c'est de l'herbe.",
       "Les bêtes s'arrêtent. Une à une. Le cheval pie baisse la tête et broute, la selle toujours sur le dos. L'âne se roule. Le petit ours s'assied, sur son derrière, et regarde ses pattes dans l'herbe. Le chien jaune se couche, et il ne regarde plus en arrière.",
       "La bergère plante son bâton dans le pré. Elle s'assied. « Elles vont pouvoir attendre, ici, dit-elle. Quelqu'un viendra peut-être. Sinon, ce n'est pas grave. Elles auront de l'herbe. »",
     ],
     choices: [{ back: "III_plaine" }] }),
   III_B_pre_rate: P({ title: "Le blanc", place: "plaine",
-    text: ["Tu penses au pré. Mais le pré s'échappe : tu vois l'herbe, tu ne la sens pas ; tu vois Pim, tu n'entends pas son rire. Le blanc reste blanc. La bergère te touche l'épaule. « Ce n'est rien, dit-elle. Ils oublient vite, en haut. Même toi, un peu, déjà. » Elle relève son bâton. « On va continuer de marcher. On sait faire. »"],
+    text: ["Tu penses au pré. Mais le pré s'échappe : tu vois l'herbe, et son odeur manque ; tu vois Pim, et son rire est muet. Le blanc reste blanc. La bergère te touche l'épaule. « Ce n'est rien, dit-elle. Ils oublient vite, en haut. Même toi, un peu, déjà. » Elle relève son bâton. « On va continuer de marcher. On sait faire. »"],
     choices: [
       { label: "Réessayer", to: "III_B_pre" },
       { label: "Les laisser continuer sans toi", to: "III_B_quitter" },

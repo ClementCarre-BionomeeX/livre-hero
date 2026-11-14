@@ -17,7 +17,7 @@ module.exports = {
   III_v_tisserand_fil: P({ title: "Couleur de farine",
     text: [
       "Tu tires un fil de l'ourlet de ta chemise. Un fil de lin écru, couleur de farine, que les mains d'Agathe ont tordu un soir d'hiver, à côté du four. Le tisserand le prend. Il le regarde contre la lumière, longtemps, comme on regarde une pierre précieuse dont on ne connaît pas le nom.",
-      "Puis il le noue à ton fil coupé, sans un mot, et il reprend la navette. Tu le regardes faire : ton fil repart, maintenant, blanc et gris et couleur de farine, tressé, sur une main de longueur. Il s'arrête. Il te montre. « Personne n'a jamais eu deux couleurs, ici, dit-il. Je ne sais pas ce que ça veut dire. Je trouve ça beau. » Il pose la navette. Il te laisse la suite.",
+      "Puis il le noue à ton fil coupé, en silence, et il reprend la navette. Tu le regardes faire : ton fil repart, maintenant, blanc et gris et couleur de farine, tressé, sur une main de longueur. Il s'arrête. Il te montre. « Personne n'a jamais eu deux couleurs, ici, dit-il. Je ne sais pas ce que ça veut dire. Je trouve ça beau. » Il pose la navette. Il te laisse la suite.",
     ],
     choices: [{ back: "III_v_porte" }] }),
   III_v_tisserand_coupe: P({ title: "Le fil coupé",
@@ -25,7 +25,7 @@ module.exports = {
     choices: [{ back: "III_v_porte" }] }),
   III_v_porte_nord: P({ title: "La porte du nord",
     text: [
-      "La porte du nord de Valcendre ne donne sur rien. Au-delà de l'arche, le blanc, sans route, sans horizon. Personne ne passe par là. Mais il y a une sentinelle. Un vieil homme en armure d'un autre âge, appuyé sur sa lance, la barbe jusqu'à la ceinture, qui regarde le blanc sans ciller.",
+      "La porte du nord de Valcendre ne donne sur rien. Au-delà de l'arche, le blanc, uni jusqu'au ciel. Personne ne passe par là. Mais il y a une sentinelle. Un vieil homme en armure d'un autre âge, appuyé sur sa lance, la barbe jusqu'à la ceinture, qui regarde le blanc sans ciller.",
       "Il te voit. Il se redresse, péniblement. « La relève ? » demande-t-il. Il y a dans sa voix un espoir si vieux, si usé, que tu as honte de ne pas l'être. « On m'a dit qu'on viendrait me relever à la cloche de vêpres. Je ne l'ai pas entendue. Elle n'a pas sonné, n'est-ce pas ? Je l'aurais entendue. »",
     ],
     choices: [

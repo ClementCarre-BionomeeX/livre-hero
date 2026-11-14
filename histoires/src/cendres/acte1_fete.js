@@ -62,7 +62,7 @@ module.exports = {
   EN_k_tartes_jugement: P({ title: "Le jugement",
     text: [
       "Anselme goûte. Il goûte encore. Il ferme les yeux. Il pose ses deux fourchettes. Il se lève, et il annonce, solennel, comme on annonce une naissance : « Égalité. »",
-      "Les deux femmes se regardent, pour la première fois de la journée. Puis la tante Ferrand coupe une part de sa tarte, et la tend à Agathe, et Agathe coupe une part de la sienne, et la tend à la tante Ferrand, et elles mangent, chacune la tarte de l'autre, sans un mot, pendant que tout le village applaudit.",
+      "Les deux femmes se regardent, pour la première fois de la journée. Puis la tante Ferrand coupe une part de sa tarte, et la tend à Agathe, et Agathe coupe une part de la sienne, et la tend à la tante Ferrand, et elles mangent, chacune la tarte de l'autre, en silence, pendant que tout le village applaudit.",
       "« L'an prochain, dit Agathe, la bouche pleine. — L'an prochain », dit la tante Ferrand.",
     ],
     choices: [{ back: "EN_place" }] }),

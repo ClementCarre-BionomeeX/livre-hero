@@ -9,8 +9,8 @@ module.exports = {
   IV_br_tilleul: P({ title: "Le tilleul du fort",
     text: [
       "Dans la cour du fort, au pied du tilleul, des sapeurs de la reine ont posé leurs haches et leurs cordes. Un ingénieur en manteau vert, un rouleau de plans sous le bras, montre l'arbre du doigt. La palissade du côté de la Lisse manque de pieux, et c'est le plus gros tronc à une lieue à la ronde.",
-      "Ysolde s'est arrêtée net, au milieu de la cour. Elle regarde l'arbre. Elle ne dit rien. Elle a cette façon de ne rien dire qui fait reculer les sergents.",
-      { if: { has: "ysolde:cerf" }, text: "« Il y a une pierre, dans les racines, dit-elle enfin, à toi seul, très bas. Avec un cerf dessus. Et une devise que je n'ai jamais pu lire en entier. Si on l'abat, je la lirai. » Elle ne dit pas si elle le veut." },
+      "Ysolde s'est arrêtée net, au milieu de la cour. Elle regarde l'arbre. Elle se tait. Elle a cette façon de ne rien dire qui fait reculer les sergents.",
+      { if: { has: "ysolde:cerf" }, text: "« Il y a une pierre, dans les racines, dit-elle enfin, à toi seul, très bas. Avec un cerf dessus. Et une devise que je n'ai jamais pu lire en entier. Si on l'abat, je la lirai. » Le veut-elle ? Elle le garde pour elle." },
     ],
     choices: [
       { label: "Parler à l'ingénieur, et lui trouver d'autres pieux", test: { dom: "social", label: "L'ingénieur", help: [{ if: { present: "rodric" }, v: 15 }, { if: { has: "iv:tap_promis" }, v: 10 }] },
@@ -26,7 +26,7 @@ module.exports = {
   IV_br_tilleul_abattu: P({ title: "La devise",
     text: [
       "Les haches mordent. Ysolde regarde, sans détourner les yeux, du premier coup au dernier. L'arbre tombe vers la Lisse, avec un bruit de vaisseau qui se brise, et toute la cour se tait. Les sapeurs ébranchent. On scie. Il ne reste qu'une souche, et dans les racines arrachées, une pierre grise, à nu, pour la première fois depuis cinquante ans.",
-      "Ysolde s'agenouille. Elle gratte la terre avec ses doigts. Le cerf, la tête levée, les bois en couronne. Et autour, la devise entière, enfin : *JE GARDE LE PREMIER PONT.* Elle la lit à voix haute, une fois. Elle se relève. Elle a de la terre jusqu'aux poignets. Elle regarde vers la Lisse, vers le pont qu'elle a demandé. Elle ne dit rien d'autre de la soirée.",
+      "Ysolde s'agenouille. Elle gratte la terre avec ses doigts. Le cerf, la tête levée, les bois en couronne. Et autour, la devise entière, enfin : *JE GARDE LE PREMIER PONT.* Elle la lit à voix haute, une fois. Elle se relève. Elle a de la terre jusqu'aux poignets. Elle regarde vers la Lisse, vers le pont qu'elle a demandé. Elle se tait pour le reste de la soirée.",
     ],
     choices: BACK }),
   IV_br_puits: P({ title: "Le puits du fort",

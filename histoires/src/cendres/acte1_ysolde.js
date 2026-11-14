@@ -7,7 +7,7 @@ module.exports = {
     fx: { meet: "gautier" },
     text: [
       "La brume monte de la Lisse comme tous les matins d'été, épaisse, blanche, et noie la vallée jusqu'aux créneaux. Du haut de la tour du Loup, tu ne vois que le haut des peupliers de l'autre rive, et le clocher de Saint-Ours, côté Corvanne, qui dépasse comme un mât de navire coulé. Les sentinelles mangent leur pain sur le chemin de ronde. L'air sent le levain chaud et le fer mouillé. C'est l'odeur de ta vie.",
-      "Tu as trente-deux ans. Tu commandes Brenne depuis six ans, quarante hommes, soixante chevaux, et une frontière de neuf lieues que trois années de guerre n'ont pas réussi à déplacer d'un pied. La paix est signée depuis deux ans. Personne n'y croit, ni d'un côté, ni de l'autre, mais tout le monde fait semblant, et c'est peut-être ça, la paix.",
+      "Tu as trente-deux ans. Tu commandes Brenne depuis six ans, quarante hommes, soixante chevaux, et une frontière de neuf lieues que trois années de guerre n'ont pas réussi à déplacer d'un pied. La paix est signée depuis deux ans. Des deux côtés, on en doute, mais tout le monde fait semblant, et c'est peut-être ça, la paix.",
       "Gautier monte l'escalier de la tour en soufflant. Il a soixante ans, une jambe raide et une moustache qui a connu ton père. Il te tend un gobelet de vin chaud sans rien demander, comme tous les matins.",
       "« Rien à signaler, capitaine. Sauf un cavalier sur la route de l'ouest. Il porte du gris. » Il crache par-dessus le parapet. « Et du gris, chez nous, c'est rarement une bonne nouvelle. »",
       "Tu regardes vers l'aval, là où la Lisse fait un coude. On a reconstruit le pont, là-bas, depuis la guerre. Un beau pont neuf de pierre blanche. Chaque fois que tes yeux s'y posent, ils glissent, comme sur une vitre mouillée, et tu as mal derrière le front, un mal sourd, précis, comme une dent qui manque.",
@@ -49,7 +49,7 @@ module.exports = {
       "« Inscrits, capitaine, signifie inscrits. » Il rajuste sa sacoche. « La Chancellerie tient le registre du royaume. Ceux qui ont trahi la Couronne, on les y inscrit, et on décide de ce qu'il convient de garder d'eux. »",
       "« De garder d'eux. »",
       "« De leur mémoire. On ne pend plus, capitaine, à Pallanche. On ne mutile plus. On est devenu civilisé. On efface ce qui pose problème, et on rend à la société des gens neufs, sans rancune. C'est beaucoup plus humain. » Il penche la tête. « Vous en savez quelque chose, d'ailleurs. Vous avez déjà rendu service à la Chancellerie. »",
-      "Tu ne réponds pas. Tu ne sais pas de quoi il parle.",
+      "Tu te tais. De quoi parle-t-il ?",
       "« Ah, dit-il doucement, en te regardant. Non. Bien sûr. Vous ne vous en souvenez pas. C'est normal. C'est même le signe que c'était bien fait. »",
     ],
     choices: [
@@ -124,7 +124,7 @@ module.exports = {
 
   YS_gautier_refus: { act: "I", title: "Le serment", place: "brenne",
     text: [
-      "« Non, capitaine. » Il dit ça sans colère, sans défi. « Un serment sur la tombe de votre père, on ne le délie pas dans une écurie. Si vous voulez savoir, cherchez. Vous avez toujours tout écrit. Vous écriviez même la couleur du ciel dans le registre, les jours de bataille. »",
+      "« Non, capitaine. » Il dit ça d'une voix égale. « Un serment sur la tombe de votre père, on ne le délie pas dans une écurie. Si vous voulez savoir, cherchez. Vous avez toujours tout écrit. Vous écriviez même la couleur du ciel dans le registre, les jours de bataille. »",
     ],
     choices: [{ label: "Le laisser", to: "YS_cour" }] },
 
@@ -134,7 +134,7 @@ module.exports = {
       "Sous la tour du Loup, une salle voûtée qui sent le salpêtre : les registres du fort depuis sa fondation, rangés sur des étagères de chêne noir. Les tiens sont sur la dernière, cinq gros volumes reliés de veau, remplis de ton écriture droite et serrée. Les rondes, les rations, les chevaux ferrés, les déserteurs, les morts. Et la couleur du ciel, les jours de bataille.",
       { after: "gautier:refuse", text: "Gautier a raison." },
       "Le registre de l'an de la paix. Brumaire. Tu tournes les pages. Le treize : *ciel bas, pluie fine, l'ennemi masse ses gens sur la rive est.* Le quinze : *ciel clair. Quarante-trois hommes valides. Trois blessés. Paix signée à Varre.*",
-      "Le quatorze n'existe pas. La page a été coupée, au rasoir, si près de la reliure que tu ne l'aurais jamais vu si tu ne l'avais pas cherché.",
+      "Le quatorze n'existe pas. La page a été coupée, au rasoir, si près de la reliure qu'il fallait la chercher pour la voir.",
     ],
     choices: [
       { label: "Fouiller la reliure, les pages voisines, le dos du registre", test: { dom: "savoir", label: "Fouille" },
@@ -153,7 +153,7 @@ module.exports = {
     text: [
       "C'est un reçu. Un reçu en bonne et due forme, comme ceux que tu signes pour l'avoine et les fers. En-tête de la Chancellerie des Noms, plume et clé croisées.",
       "*Cédé par Dame Ysolde de Brenne, capitaine : un souvenir. Objet : le pont de Lisse, la nuit du quatorze brumaire. Motif : service de la Couronne. Prix payé : rien.*",
-      "Et au bas, ta signature. Pas une imitation, pas une copie. La tienne, avec la barre du *Y* qui part trop haut parce que ton père t'a appris à écrire de la main gauche avant qu'on te force à la droite.",
+      "Et au bas, ta signature. L'original. La tienne, avec la barre du *Y* qui part trop haut parce que ton père t'a appris à écrire de la main gauche avant qu'on te force à la droite.",
       "Tu as vendu ce souvenir. Pour rien. Tu l'as vendu toi-même, de ta main, et ensuite tu as caché le reçu dans ton propre registre, là où tu le trouverais si un jour tu le cherchais.",
       "Quelqu'un, en toi, voulait que tu cherches.",
     ],
@@ -194,9 +194,9 @@ module.exports = {
   YS_chambre_surprise: { act: "I", title: "Surprise", place: "brenne",
     fx: { clue: "n_boite" },
     text: [
-      "Tu n'as pas entendu la porte. Il est là, sur le seuil, les mains dans les manches. Il ne crie pas. Il ne s'offusque pas. Il soupire.",
+      "Tu n'as pas entendu la porte. Il est là, sur le seuil, les mains dans les manches. Il reste calme, presque aimable. Il soupire.",
       "« Capitaine. » Il entre, prend la boîte de plomb sous le linge noir, sans hâte, et l'entrouvre d'un doigt, juste un doigt, face à toi. Il en sort un froid, un souffle blanc. « Oubliez cette dernière minute. »",
-      "Tu es dans la cour. Tu ne sais plus pourquoi. Tu as froid aux mains, en plein juillet. Tu as l'impression d'avoir monté un escalier, quelque part, et de l'avoir descendu. Au-dessus de la porte, à la fenêtre de la chambre des hôtes, Frère Sévrin te regarde et te salue de la tête, poliment.",
+      "Tu es dans la cour. Tu as oublié pourquoi. Tu as froid aux mains, en plein juillet. Tu as l'impression d'avoir monté un escalier, quelque part, et de l'avoir descendu. Au-dessus de la porte, à la fenêtre de la chambre des hôtes, Frère Sévrin te regarde et te salue de la tête, poliment.",
       "Tu sais une chose, sans savoir comment tu la sais : il porte la neige dans une boîte.",
     ],
     choices: [{ label: "Rester là, à regarder tes mains", to: "YS_cour" }] },
@@ -207,8 +207,8 @@ module.exports = {
       "La chapelle de Brenne est petite, basse, avec un loup sculpté sur chaque chapiteau. Ton père est sous la troisième dalle, avec sa propre épée de bois sur la poitrine, comme il l'avait demandé : il disait que la vraie, celle de fer, devait servir encore.",
       { if: { souv: "ysolde:pere" }, text: "Tu la portes à ton côté. *Elle est lourde, pour que tu n'oublies jamais ce qu'elle coûte.* Tu avais huit ans. Tu pouvais à peine la soulever." },
       { if: { not: { souv: "ysolde:pere" } }, text: "Tu portes son épée. Tu ne sais plus le jour où il te l'a mise en main. Tu sais seulement qu'elle est lourde." },
-      "Tu t'agenouilles. Tu ne pries pas, tu n'as jamais su. Tu parles. « Ils veulent que j'emmène un village entier à Pallanche, pour qu'on lui vide la tête. Les enfants aussi. Et la reine a signé. » Tu attends. « Tu aurais fait quoi, toi ? »",
-      "Ton père ne répond pas. Il n'a jamais répondu quand tu lui posais une vraie question. Il disait : *c'est toi qui commandes.*",
+      "Tu t'agenouilles. Prier, tu as toujours ignoré comment on fait. Tu parles. « Ils veulent que j'emmène un village entier à Pallanche, pour qu'on lui vide la tête. Les enfants aussi. Et la reine a signé. » Tu attends. « Tu aurais fait quoi, toi ? »",
+      "Ton père se tait, comme il s'est toujours tu devant tes vraies questions. Il disait : *c'est toi qui commandes.*",
     ],
     choices: [{ label: "Te relever", to: "YS_cour" }] },
 
@@ -243,7 +243,7 @@ module.exports = {
       win: { fx: { ep: ["seance", 800], flag: "hautvent:sang" }, to: "YS_rodric_rencontre" },
       lose: { fx: { flag: "hautvent:humiliee" }, to: "YS_rodric_rencontre" } },
     text: [
-      "Les portes s'ouvrent sous les bottes de tes hommes. Des cris, en corvannais et en esquarrois. Deux tisserands sortent d'une grange avec des fourches et se jettent sur toi, pas sur tes hommes : sur toi, la capitaine, comme si ça pouvait changer quelque chose.",
+      "Les portes s'ouvrent sous les bottes de tes hommes. Des cris, en corvannais et en esquarrois. Deux tisserands sortent d'une grange avec des fourches et se jettent sur toi, droit sur la capitaine, comme si ta chute pouvait tout arrêter.",
     ] },
 
   YS_rodric_rencontre: { act: "I", title: "Trois-Cloches", place: "hautvent",
@@ -277,7 +277,7 @@ module.exports = {
 
   YS_rodric_vaincu: { act: "I", title: "À genoux", place: "hautvent",
     text: [
-      "Ta lame passe sous sa garde et l'ouvre au flanc, pas profond, juste assez. Il tombe à genoux dans la poussière, les cloches sonnant toutes les trois ensemble. Il ne lâche pas sa hache. Tu la lui arraches.",
+      "Ta lame passe sous sa garde et l'ouvre au flanc, juste assez. Il tombe à genoux dans la poussière, les cloches sonnant toutes les trois ensemble. Il ne lâche pas sa hache. Tu la lui arraches.",
       "« Bien, dit-il en crachant du sang. Bien, chevalière. Tu n'as rien perdu. » Il rit. « Rien, sauf ce que tu as vendu. »",
     ],
     choices: [{ label: "Le faire attacher avec les autres", to: "YS_thibaut" }] },
@@ -294,7 +294,7 @@ module.exports = {
     fx: { flag: "YS:hautvent_pris" },
     text: [
       "On rassemble les gens sur le pré, devant l'église. Sévrin passe dans les rangs avec sa liste, et demande à chacun son nom, et le coche. Les enfants pleurent. Les vieux se taisent. Un homme vomit.",
-      "Et au bout du rang, il y a Thibaut. Dix-neuf ans, toujours le même visage d'enfant trop vite grandi, en chemise de tisserand, avec à côté de lui une fille blonde qui tient un nouveau-né contre sa poitrine. Il te regarde. Il ne baisse pas les yeux. Il ne demande rien.",
+      "Et au bout du rang, il y a Thibaut. Dix-neuf ans, toujours le même visage d'enfant trop vite grandi, en chemise de tisserand, avec à côté de lui une fille blonde qui tient un nouveau-né contre sa poitrine. Il te regarde. Il soutient ton regard, les mains vides.",
       "Tes hommes l'ont reconnu. Ils te regardent aussi. La règle est simple : un déserteur repris est pendu à la première branche. Tu as pendu deux hommes en six ans. Tu te souviens de leurs noms.",
       "Sévrin s'approche, sa liste à la main. « Celui-là ? Il n'est pas sur la liste. Mais s'il est d'ici… »",
     ],
@@ -308,7 +308,7 @@ module.exports = {
 
   YS_thibaut_repris: { act: "I", title: "Repris", place: "hautvent",
     text: [
-      "Thibaut ne dit rien. Il embrasse sa femme, longuement, et l'enfant, sur le front. Puis il traverse le pré et vient se mettre à côté de tes hommes, dans le rang, comme si le mois qui venait de passer n'avait été qu'une permission un peu longue. On lui rend son épée. Il la prend sans la regarder.",
+      "Thibaut se tait. Il embrasse sa femme, longuement, et l'enfant, sur le front. Puis il traverse le pré et vient se mettre à côté de tes hommes, dans le rang, comme au retour d'une permission un peu longue. On lui rend son épée. Il la prend sans la regarder.",
       "Pendant toute la marche, il chevauchera à hauteur de sa femme, sur le flanc de la colonne, sans jamais lui parler. Tes hommes ne le pendront pas. Mais aucun ne lui adressera plus la parole.",
     ],
     choices: [{ label: "Former la colonne", fx: { flag: "ch:ysolde:1", resume: "YS_colonne" }, to: "C_carrefour" }] },
@@ -322,9 +322,9 @@ module.exports = {
 
   YS_thibaut_libre: { act: "I", title: "L'autre rive", place: "hautvent",
     text: [
-      "Tu fais signe à Gautier. Il comprend sans un mot. Pendant que Sévrin compte et recompte sur le pré, le dos tourné, Gautier emmène Thibaut, sa femme et l'enfant derrière l'église, jusqu'à la berge, jusqu'à la barque des passeurs. Personne ne dit rien. Tes hommes regardent le ciel avec un intérêt soudain.",
-      "Quand Sévrin se retourne, la barque est au milieu de la Lisse. Il ne la voit pas, ou il ne veut pas la voir. Ils ne sont pas sur sa liste.",
-      "De l'autre côté, sur la rive de Corvanne, Thibaut lève la main. Tu ne lui réponds pas. Tu ne peux pas.",
+      "Tu fais signe à Gautier. Il comprend tout de suite. Pendant que Sévrin compte et recompte sur le pré, le dos tourné, Gautier emmène Thibaut, sa femme et l'enfant derrière l'église, jusqu'à la berge, jusqu'à la barque des passeurs. Tous se taisent. Tes hommes regardent le ciel avec un intérêt soudain.",
+      "Quand Sévrin se retourne, la barque est au milieu de la Lisse. Il regarde ailleurs, par hasard ou par choix. Ils ne sont pas sur sa liste.",
+      "De l'autre côté, sur la rive de Corvanne, Thibaut lève la main. La réponse te reste dans la gorge.",
     ],
     choices: [{ label: "Former la colonne", fx: { flag: "ch:ysolde:1", resume: "YS_colonne" }, to: "C_carrefour" }] },
 
@@ -344,7 +344,7 @@ module.exports = {
     text: [
       "La colonne remonte vers Brenne, puis prend la route de l'ouest, celle de Varre et de Pallanche. Cent dix-huit personnes à pied, attachées par une corde qui court de poignet en poignet, sauf les enfants, qu'on a laissés libres parce qu'ils ne s'enfuiront pas sans leurs parents. Quarante cavaliers autour. Frère Sévrin au milieu, sur sa mule grise, qui compte.",
       "Quatre jours jusqu'à Pallanche. Le col de Varre au milieu. Tu as fait cette route cent fois, en guerre et en paix. Tu ne l'as jamais faite à la tête de ça.",
-      { if: { met: "rodric" }, text: "Rodric marche en tête de la corde, juste derrière ta jument. Il ne dit rien. Les trois cloches tintent à chacun de ses pas, et tu les entends même quand tu n'écoutes pas." },
+      { if: { met: "rodric" }, text: "Rodric marche en tête de la corde, juste derrière ta jument. Il se tait. Les trois cloches tintent à chacun de ses pas, et elles te poursuivent jusque dans tes pensées." },
     ],
     choices: [{ label: "Prendre la route de Varre", travel: "r_colonne" }] },
 
@@ -373,7 +373,7 @@ module.exports = {
     fx: { meet: "ilse", questSeen: "YS_ilse" },
     text: [
       "Au deuxième jour, dans la montée du col de Varre, une petite fille s'effondre sur la route. Six ans, des cheveux roux en broussaille, une poupée de laine grise serrée contre elle. Ilse, la plus jeune de Maëlle. Elle brûle de fièvre. Ses lèvres sont blanches.",
-      "Maëlle s'agenouille, la prend dans ses bras, et lève les yeux vers toi. Elle ne demande rien. Elle ne demandera jamais rien.",
+      "Maëlle s'agenouille, la prend dans ses bras, et lève les yeux vers toi. Elle se tient là, sans rien demander, aujourd'hui comme demain.",
       "« On ne s'arrête pas, dit Sévrin depuis sa mule. Nous sommes attendus avant la Fête. La petite peut monter dans une charrette. »",
       "Il n'y a pas de charrette. À deux heures de là, en haut du col, l'Hospice des Neiges, où les prêtresses soignent les voyageurs depuis cinq cents ans. C'est un détour d'une demi-journée.",
     ],
@@ -409,7 +409,7 @@ module.exports = {
 
   YS_ilse_selle: { act: "I", title: "Bruyère", place: null,
     text: [
-      "Tu prends l'enfant devant toi, sur ta selle, enroulée dans ton manteau. Tu lui fais boire de l'eau de neige, à petites gorgées, et tu lui mouilles le front à chaque source. Elle ne dit rien pendant des heures. Puis, au soir, elle te demande comment s'appelle ta jument.",
+      "Tu prends l'enfant devant toi, sur ta selle, enroulée dans ton manteau. Tu lui fais boire de l'eau de neige, à petites gorgées, et tu lui mouilles le front à chaque source. Elle se tait pendant des heures. Puis, au soir, elle te demande comment s'appelle ta jument.",
       "« Grisaille. »",
       "Elle réfléchit. « Ma poupée, elle s'appelle Bruyère. » Tu manques de lâcher les rênes. *Bruyère.* « Tu veux la tenir ? » Elle te tend la poupée de laine grise, à qui il manque un œil, et s'endort contre toi. Au matin, la fièvre est tombée. Elle ne te reprend pas la poupée. Elle dit qu'elle te la prête.",
     ],
@@ -424,7 +424,7 @@ module.exports = {
 
   YS_ilse_portee: { act: "I", title: "Sur le dos de sa mère", place: null,
     text: [
-      "Maëlle prend sa fille sur son dos, attachée par un châle, et elle marche. La corde tire sur son poignet à chaque pas. Elle ne ralentit pas. Elle ne te regarde pas.",
+      "Maëlle prend sa fille sur son dos, attachée par un châle, et elle marche. La corde tire sur son poignet à chaque pas. Elle garde son allure, les yeux sur la route.",
       "Rodric, derrière elle, te regarde, lui. Les trois cloches tintent. Tu as l'impression qu'il compte.",
     ],
     choices: [{ label: "Continuer", to: "@route" }] },
@@ -435,11 +435,11 @@ module.exports = {
     text: [
       "Au milieu du troisième jour, la colonne rejoint la route des Cloches, qui monte de la plaine vers Pallanche. Il y a du monde : des charrettes de fête, des pèlerins, des colporteurs, qui s'écartent sur le bas-côté en voyant les boucliers au loup et la longue corde.",
       "Parmi eux, quelqu'un de jeune, seul, avec un sac de montagne et des chaussures usées jusqu'à la trame. Tu le remarques parce qu'il ne regarde pas les soldats. Il regarde les prisonniers, un par un, comme s'il cherchait un visage. Ou comme s'il voulait se souvenir de tous.",
-      { if: { has: "croise:eau_rodric" }, text: "Il sort une gourde et la tend à Rodric. Un de tes hommes lève sa lance. Tu tournes la tête, tu croises le regard de ce jeune voyageur, et tu fais un petit signe à ton homme : *laisse.* Tu ne sais pas pourquoi. Rodric boit toute la gourde d'un trait, et il dit son nom, et tu l'entends le dire comme on fait un serment." },
+      { if: { has: "croise:eau_rodric" }, text: "Il sort une gourde et la tend à Rodric. Un de tes hommes lève sa lance. Tu tournes la tête, tu croises le regard de ce jeune voyageur, et tu fais un petit signe à ton homme : *laisse.* D'instinct. Rodric boit toute la gourde d'un trait, et il dit son nom, et tu l'entends le dire comme on fait un serment." },
       { if: { has: "croise:parle_ysolde" }, text: "Puis il court à côté de ta jument, et il te parle. D'un village de montagne où il a neigé en juillet. D'une neige qui ne fond pas. De gens qui ne se reconnaissent plus. D'une chose qui vient la nuit et qui porte au front une plume et une clé croisées." },
       { if: { all: [{ has: "croise:parle_ysolde" }, { has: "ysolde:vu_reliquaire" }] }, text: "Ta main se serre sur les rênes si fort que la jument encense." },
       { if: { has: "croise:parle_ysolde" }, text: "« Rentre chez toi », dis-tu, et tu te rends compte, en le disant, que c'est précisément ce que ce voyageur ne peut plus faire. « Non. Pardon. Va à Pallanche, puisque tu y vas. Et ne parle de ça à personne qui porte du noir. » Derrière toi, à dix pas, Sévrin a sorti sa plume." },
-      { if: { not: { any: [{ has: "croise:eau_rodric" }, { has: "croise:parle_ysolde" }] } }, text: "Il s'écarte pour vous laisser passer, comme les autres. Tu sens son regard dans ton dos pendant une lieue. Tu ne te retournes pas. Tu as appris à ne pas te retourner." },
+      { if: { not: { any: [{ has: "croise:eau_rodric" }, { has: "croise:parle_ysolde" }] } }, text: "Il s'écarte pour vous laisser passer, comme les autres. Tu sens son regard dans ton dos pendant une lieue. Tu regardes devant toi, par vieille discipline." },
     ],
     choices: [
       { hide: { not: { has: "croise:parle_ysolde" } }, fx: { flag: ["ysolde:sait_neige", "sevrin:mefiant"] }, back: "@route" },
@@ -454,7 +454,7 @@ module.exports = {
       "« Pourquoi fuyais-tu, Anselin ? »",
       "« Mes petits-enfants. Ils sont à Corvanne, chez leur mère. Je voulais les revoir. Une fois. »",
       "« Bien. » Sévrin entrouvre la boîte, d'un doigt. Un souffle blanc en sort, glacé, qui fait se coucher les flammes du feu. « Oublie tes petits-enfants, Anselin. »",
-      "Le vieux regarde dans la boîte. Ses yeux deviennent vagues, puis paisibles. Il se lève, retourne à sa place dans le rang, se rassied, et sourit aux étoiles. Il ne cherche plus à fuir. Il n'a plus nulle part où aller.",
+      "Le vieux regarde dans la boîte. Ses yeux deviennent vagues, puis paisibles. Il se lève, retourne à sa place dans le rang, se rassied, et sourit aux étoiles. Il a cessé de fuir : tous les chemins lui sont fermés.",
       "Autour du feu, cent dix-sept personnes ont vu. Tes hommes ont vu. Toi, tu as vu.",
     ],
     choices: [
@@ -472,7 +472,7 @@ module.exports = {
       "Tu as la boîte dans la main avant qu'il ait fini de la refermer. Elle est si froide qu'elle te brûle. Sévrin se lève d'un bond, le visage blanc, pour la première fois sans sourire.",
       "« Rendez-la-moi, capitaine. Vous ne savez pas ce que vous tenez. »",
       "« Je sais exactement ce que je tiens. » Tu la refermes, d'un coup sec. Les voix, dedans, se taisent. « Et je la garderai jusqu'à Pallanche. »",
-      "Il ne la reprend pas. Il ne peut pas : tes quarante hommes se sont levés autour du feu. Mais il te regarde, longuement, et tu sais qu'il n'oubliera pas. Lui, il n'oublie jamais rien.",
+      "Il te la laisse, forcé : tes quarante hommes se sont levés autour du feu. Mais il te regarde, longuement, et tu sais qu'il s'en souviendra. Lui, il se souvient de tout.",
       "Le vieil Anselin ne se souvient toujours pas de ses petits-enfants. La boîte prend. Elle ne rend pas.",
     ],
     choices: [{ label: "Garder la boîte près de toi pour la nuit", fx: { item: "reliquaire" }, to: "@route" }] },
@@ -480,13 +480,13 @@ module.exports = {
   YS_boite_rate: { act: "I", title: "Le souffle blanc", place: null,
     text: [
       "Il est plus vif que tu ne le croyais. Il recule, la boîte contre lui, et l'entrouvre face à toi. Le souffle blanc te passe sur le visage. « Asseyez-vous, capitaine. »",
-      "Tu t'assieds. Tu ne sais plus pourquoi tu t'étais levée. Il y a un vieil homme, en face, qui sourit aux étoiles, et ça te paraît normal. Tout te paraît normal. Ce n'est qu'au matin, en te réveillant, que tu sens le froid sur tes joues, et que tu comprends que tu as perdu quelque chose. Une minute. Tu ne sais pas laquelle.",
+      "Tu t'assieds. Pourquoi t'étais-tu levée ? Tu l'as oublié. Il y a un vieil homme, en face, qui sourit aux étoiles, et ça te paraît normal. Tout te paraît normal. Ce n'est qu'au matin, en te réveillant, que tu sens le froid sur tes joues, et que tu comprends que tu as perdu quelque chose. Une minute. Tu ne sais pas laquelle.",
     ],
     choices: [{ label: "Continuer", to: "@route" }] },
 
   YS_boite_ordre: { act: "I", title: "Sous mes ordres", place: null,
     text: [
-      "Tu n'élèves pas la voix. Tu n'en as pas besoin. Tes quarante hommes se sont levés derrière toi, sans que tu le leur demandes, et ont posé la main sur leur épée.",
+      "Tu parles bas, et cela suffit. Tes quarante hommes se sont levés derrière toi, sans que tu le leur demandes, et ont posé la main sur leur épée.",
       "Sévrin referme la boîte. Il regarde tes hommes, puis toi. « Comme il vous plaira, capitaine. Jusqu'à Pallanche. » Il sourit, de ses petites dents. « Après Pallanche, vous ne commanderez plus rien. »",
     ],
     choices: [{ label: "Continuer", to: "@route" }] },
@@ -494,7 +494,7 @@ module.exports = {
   YS_boite_ordre_rate: { act: "I", title: "La Chancellerie", place: null,
     text: [
       "« Vous oubliez à qui vous parlez, capitaine. » Il ne referme pas la boîte. Il la tourne vers tes hommes, lentement, comme on promène une lanterne. Ils reculent. Tous. Même Gautier. « L'ordre porte le sceau de la reine. Et le mien. Si quelqu'un, ici, veut oublier qui il sert, je peux l'y aider. »",
-      "Personne ne bouge. Il referme la boîte. Il a gagné. Pour cette nuit.",
+      "Les hommes restent assis. Il referme la boîte. Il a gagné. Pour cette nuit.",
     ],
     choices: [{ label: "Continuer", to: "@route" }] },
 
@@ -503,9 +503,9 @@ module.exports = {
     text: [
       "La dernière nuit avant Pallanche, tu fais le tour du camp seule. Rodric ne dort pas. Il est assis dans l'herbe, au bout de sa corde, et il te regarde venir.",
       { if: { has: "croise:eau_rodric" }, text: "« Un paysan m'a donné à boire, cet après-midi, sur la route, dit-il. Un jeune, qui venait des montagnes. Ton soldat voulait l'en empêcher, et tu as fait signe de laisser faire. » Il sourit. « Tu fais souvent ça. Laisser faire. »" },
-      "Tu t'assieds à côté de lui. Tu ne sais pas pourquoi. Il ne s'étonne pas.",
+      "Tu t'assieds à côté de lui. La raison t'échappe. Lui trouve cela naturel.",
       "« Le pont de Lisse, dis-tu. »",
-      "Il ne répond pas tout de suite. Les trois cloches tintent quand il respire. « J'étais de l'autre côté, sur la rive de Corvanne, avec mes hommes. Et sur le pont, il y avait des gens qui fuyaient. Des familles de Lisse, des deux côtés de la frontière, avec leurs charrettes et leurs chèvres. Et toi, tu tenais la tête du pont, côté Esquarre, avec tes quarante hommes. Et il y avait un ordre. *Que personne ne passe.* »",
+      "Il prend son temps. Les trois cloches tintent quand il respire. « J'étais de l'autre côté, sur la rive de Corvanne, avec mes hommes. Et sur le pont, il y avait des gens qui fuyaient. Des familles de Lisse, des deux côtés de la frontière, avec leurs charrettes et leurs chèvres. Et toi, tu tenais la tête du pont, côté Esquarre, avec tes quarante hommes. Et il y avait un ordre. *Que personne ne passe.* »",
       "Il se tait.",
       "« Et alors ? »",
       "« Et alors le pont a brûlé. » Il te regarde. « Avec les gens dessus. Je l'ai vu brûler. J'ai vu qui tenait les torches. Mais il faisait nuit, chevalière. Et je suis vieux, et je hais les Esquarrois depuis trente ans. Alors je ne te dirai pas ce que j'ai vu. Parce que je ne suis pas sûr que ce soit ce que j'ai vu. » Il se recouche dans l'herbe. « Va dormir. Demain, tu vas devoir choisir quelque chose. Je le sens. Tu as la tête de quelqu'un qui va choisir. »",
@@ -521,7 +521,7 @@ module.exports = {
       { if: { has: "ysolde:recu" }, text: "Le reçu brûle dans ton pourpoint. *Service de la Couronne. Prix payé : rien.*" },
       { if: { item: "carnet_sevrin" }, text: "Le carnet gris est contre ta poitrine. *Roncière : livré. Chaumont : livré.* *Elle obéira.*" },
       { if: { item: "reliquaire" }, text: "La boîte de plomb est dans ta fonte de selle. Elle chuchote. Elle n'a pas cessé de chuchoter de toute la nuit." },
-      "Tes quarante hommes attendent. Gautier attend. Rodric attend, debout, au bout de sa corde, et Maëlle, et Ilse, et les cent quinze autres. Personne ne dit rien. Tout le monde te regarde.",
+      "Tes quarante hommes attendent. Gautier attend. Rodric attend, debout, au bout de sa corde, et Maëlle, et Ilse, et les cent quinze autres. Tous se taisent. Tout le monde te regarde.",
       "Tu as la tête de quelqu'un qui va choisir.",
     ],
     choices: [
@@ -578,7 +578,7 @@ module.exports = {
       "Tu appelles Sévrin à part, sous prétexte de lui faire signer le reçu de la livraison. Gautier, pendant ce temps, fait sortir du rang Rodric, Maëlle et les trois enfants, et les pousse dans une ruelle, où les attend une charrette de foin qu'il a payée de sa poche.",
       "Quand Sévrin revient, la colonne repart. Il compte, en marchant. *Cent dix-sept, cent seize…* Il fronce les sourcils. Il recompte. Il te regarde. Tu soutiens son regard.",
       "« La fièvre, dis-tu. Au col. La mère et ses trois petits. Et l'homme aux cloches s'est jeté dans le ravin pour ne pas être pris. C'est dans mon rapport. »",
-      "Il ne te croit pas. Il ne peut rien prouver. Il raye cinq noms, d'une écriture minuscule.",
+      "Il doute, et il manque de preuves. Il raye cinq noms, d'une écriture minuscule.",
       "Le reste de la colonne entre dans la tour noire. Cent treize personnes. Tu les regardes passer. Tu as sauvé une famille. Tu en as livré vingt.",
     ],
     choices: [{ label: "Attendre la Nuit des Cloches", fx: { met: "rodric", flag: "rodric:cache" }, to: "YS_fin" }] },

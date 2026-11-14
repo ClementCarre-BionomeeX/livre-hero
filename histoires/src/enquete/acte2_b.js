@@ -125,7 +125,7 @@ module.exports = {
   P_gervaise_nuit: { act: "II", title: "La nuit de Hugon",
     text: [
       "Gervaise regarde ses mains.",
-      "« Il est rentré à minuit. Je ne dormais pas : je l'attendais, à cause de la gifle, toute la rue en parlait. Il n'a rien dit. Il a pris le sac où il range ses habits du dimanche, sa chemise neuve, ses souliers, et il est reparti sans un mot. Je lui ai demandé où il allait. Il m'a embrassée sur le front. Il ne m'embrasse jamais. »",
+      "« Il est rentré à minuit. Je ne dormais pas : je l'attendais, à cause de la gifle, toute la rue en parlait. Il n'a rien dit. Il a pris le sac où il range ses habits du dimanche, sa chemise neuve, ses souliers, et il est reparti en silence. Je lui ai demandé où il allait. Il m'a embrassée sur le front. Il ne m'embrasse jamais. »",
       "« Il est revenu à trois heures. Trempé jusqu'aux genoux, sans le sac, sans les souliers. Il s'est couché tout habillé, la figure contre le mur. Le matin, il est sorti avant moi. À midi, le guet était à ma porte. »",
       "« Je l'ai pas dit au guet, pour le sac. J'ai eu peur que ça fasse mauvais. »",
     ],

@@ -9,7 +9,7 @@ module.exports = {
     fx: { questSeen: "II_Q_bassin" },
     text: [
       "Sur le quai du bassin aux galères, un attroupement. Deux pêcheurs viennent de tirer une femme de l'eau, entre deux coques. Elle n'est pas noyée. Elle est assise sur les pavés, trempée, une algue dans les cheveux, et elle regarde les gens autour d'elle avec une politesse parfaite.",
-      "« Elle était debout dans l'eau jusqu'au cou, dit un pêcheur. Elle ne nageait pas. Elle ne se noyait pas. Elle attendait. » Personne ne la connaît. On lui demande son nom. Elle sourit, comme à une bonne plaisanterie, et ne répond pas.",
+      "« Elle était debout dans l'eau jusqu'au cou, dit un pêcheur. Elle flottait, tranquille. Elle attendait. » Personne ne la connaît. On lui demande son nom. Elle sourit, comme à une bonne plaisanterie, et se tait.",
       "Elle porte une robe de laine brune, des sabots, et au cou une petite croix d'étain. Une femme de la campagne. Pas d'ici.",
     ],
     choices: [
@@ -89,7 +89,7 @@ module.exports = {
     choices: [{ fx: { quest: "II_Q_luthier" }, back: "II_S_vasselin" }] }),
   II_Q_luthier_finir: P({ title: "Un luth", place: "vasselin",
     text: [
-      "Tu restes l'après-midi. Tu ne sais pas faire un luth. Mais tu en as regardé un, le tien, tous les jours pendant dix ans, et tu sais dans quel ordre il est fait, parce qu'il te l'avait expliqué, le jour où tu l'as emporté, et que tu écoutais tout, à l'époque, tout ce qu'on disait, pour ne pas avoir l'air de la petite chanteuse du port.",
+      "Tu restes l'après-midi. Tu ignores le métier de luthier. Mais tu as regardé un luth, le tien, tous les jours pendant dix ans, et tu sais dans quel ordre il est fait, parce qu'il te l'avait expliqué, le jour où tu l'as emporté, et que tu écoutais tout, à l'époque, tout ce qu'on disait, pour faire oublier la petite chanteuse du port.",
       "Tu dis : les barres. Il les colle. Tu dis : la table. Il la pose. Tu dis : le manche. Il hésite, puis ses mains le savent. Au soir, il y a un luth sans vernis sur l'établi, et Fabien le regarde comme on regarde un enfant qu'on vient d'avoir.",
       "« Il faut six couches de vernis, dit-il. Six jours. » Il sourit. « Revenez dans six jours. » Tu ne seras plus là dans six jours. Tu dis que tu reviendras.",
     ],
@@ -128,7 +128,7 @@ module.exports = {
     text: [
       "Les deux hommes s'enfuient en laissant un gourdin. Tu ramasses la clochette, et le papier. Sept noms de la semaine, dont deux rayés au charbon. Tu les lis à la lanterne. Ils ne te disent rien. Gauthier non plus.",
       "De la poche de l'un d'eux, dans la bagarre, un jeton est tombé : du plomb, frappé d'une plume et d'une clé. Ce ne sont pas des brigands. Ce sont des gens qu'on paie.",
-      "Tu lis les deux noms rayés à haute voix, au carrefour, devant les fenêtres fermées. Une fenêtre s'ouvre. Puis une autre. Personne ne dit rien. Mais on a entendu.",
+      "Tu lis les deux noms rayés à haute voix, au carrefour, devant les fenêtres fermées. Une fenêtre s'ouvre. Puis une autre. Personne se tait. Mais on a entendu.",
     ],
     choices: [{ label: "Raccompagner Gauthier chez lui", fx: { quest: "II_Q_crieur", flag: "sud:crieur_noms" }, to: "II_S_vasselin" }] }),
   II_Q_crieur_fuite: P({ title: "La ruelle", place: "vasselin",
@@ -137,7 +137,7 @@ module.exports = {
   II_Q_crieur_cave: P({ title: "La cave aux noms", place: "vasselin",
     text: [
       "Les deux hommes descendent vers le port, entrent dans une cave sous une maison de change, et ressortent sans leurs gourdins. Tu attends. Tu descends.",
-      "La cave est petite. Une table, une lampe, et des papiers. Les papiers de tous les crieurs de Vasselin, de toutes les paroisses, depuis le printemps, recopiés, avec des noms rayés. Et une liste, à part, des noms rayés, avec en face de chacun une somme. Payée par qui, ce n'est pas écrit. À qui, si : *Pour la Tour.*",
+      "La cave est petite. Une table, une lampe, et des papiers. Les papiers de tous les crieurs de Vasselin, de toutes les paroisses, depuis le printemps, recopiés, avec des noms rayés. Et une liste, à part, des noms rayés, avec en face de chacun une somme. Payée par qui, le registre le tait. À qui, si : *Pour la Tour.*",
       "Les noms rayés sont des noms de gens morts dans leur lit, de vieillesse, de fièvre. Mais ce sont tous des gens qui savaient écrire. Des notaires, des maîtres d'école, des clercs, une sage-femme qui tenait un registre des naissances. Ceux qui se souviennent sur le papier.",
       "Tu prends la liste. Tu remontes. Personne ne t'a vue.",
     ],

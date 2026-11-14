@@ -19,7 +19,7 @@ module.exports = {
     text: ["Tu trouves la tente. Le bouclier est appuyé contre le piquet. Il est noir. Tout noir. Il y avait quelque chose dessus, on voit encore la trace, plus brillante, là où était la peinture. Elle est partie. Le chevalier qui dort sous la tente ne s'en est pas aperçu. Tu reviens le dire au héraut. Il réfléchit. « De sable plein », dit-il enfin, à voix haute, pour essayer. Ça sonne bien. Ça sonne comme un deuil. Il le garde."],
     choices: BACK }),
   II_S3_heraut_invente: P({ title: "Inventer",
-    text: ["Il te regarde, scandalisé. Puis il réfléchit. Personne, dans la foule, ne connaît les blasons. Personne ne vérifiera. « De sable au corbeau d'argent », dit-il, en essayant. Il hoche la tête. « C'est beau. » Il le répète trois fois pour le retenir. Demain, un vieux chevalier entrera dans la mêlée sous des armes qui ne sont pas les siennes, et personne ne le saura, pas même lui."],
+    text: ["Il te regarde, scandalisé. Puis il réfléchit. Personne, dans la foule, ne connaît les blasons. Personne ne vérifiera. « De sable au corbeau d'argent », dit-il, en essayant. Il hoche la tête. « C'est beau. » Il le répète trois fois pour le retenir. Demain, un vieux chevalier entrera dans la mêlée sous les armes d'un autre, à l'insu de tous et de lui-même."],
     choices: BACK }),
   II_S3_vaincu: P({ title: "Le vaincu",
     text: [
@@ -49,6 +49,6 @@ module.exports = {
     text: ["« Il est là », dis-tu, en montrant le petit au masque. Les enfants le regardent. Ils le voient. Ils rient. « Ah oui ! » Le petit enlève son masque, tout content d'avoir été trouvé, et ils reprennent le jeu. Cinq minutes plus tard, tu entends de nouveau, de loin : « Il manque quelqu'un, non ? » Le petit a remis son masque. Il aime ça, être cherché. Tu le comprends. Tu ne sais pas si tu devrais."],
     choices: BACK }),
   II_S3_enfants_masque: P({ title: "Le masque de papier",
-    text: ["Tu ne dis rien. Le petit au masque blanc s'assied à l'écart, sur une caisse, et regarde jouer les autres, qui ne le cherchent plus. Il ne pleure pas. Il a l'habitude, on dirait. Au bout d'un moment, il enlève son masque, le plie en quatre, le met dans sa poche, et va rejoindre les autres, à visage nu. Ils lui font une place sans discuter. Sans masque, on ne l'oublie pas. C'était ça, le jeu."],
+    text: ["Tu te tais. Le petit au masque blanc s'assied à l'écart, sur une caisse, et regarde jouer les autres, qui l'ont oublié. Il a les yeux secs. Il a l'habitude, on dirait. Au bout d'un moment, il enlève son masque, le plie en quatre, le met dans sa poche, et va rejoindre les autres, à visage nu. Ils lui font une place sans discuter. Sans masque, on ne l'oublie pas. C'était ça, le jeu."],
     choices: BACK }),
 };

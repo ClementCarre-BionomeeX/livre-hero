@@ -44,11 +44,11 @@ module.exports = {
   IV_ps_complainte_vraie: P({ title: "Le petit du moulin",
     text: [
       "Tu montes sur la caisse. Le marchand te regarde de travers, puis te laisse faire, par curiosité. Tu racontes. Juillet, la fête des foins, la ronde, la neige qui tombe dans la chaleur et qui ne fond pas. Les noms qui partent des linteaux. Les gens qui se demandent poliment qui ils sont. Personne n'est mort de froid. C'est pire. Tu le dis.",
-      "La halle s'est tue. Le marchand a cessé d'agiter ses feuilles. Quand tu descends, il te prend par la manche. « Le petit du moulin, dit-il. C'était toi ? » Tu ne réponds pas. Il regarde sa liasse. Il en déchire une, en deux, lentement. « Je la referai, dit-il. Il me faut un autre air. Celui-là est trop gai. »",
+      "La halle s'est tue. Le marchand a cessé d'agiter ses feuilles. Quand tu descends, il te prend par la manche. « Le petit du moulin, dit-il. C'était toi ? » Tu te tais. Il regarde sa liasse. Il en déchire une, en deux, lentement. « Je la referai, dit-il. Il me faut un autre air. Celui-là est trop gai. »",
     ],
     choices: BACK }),
   IV_ps_complainte_rire: P({ title: "La caisse",
-    text: ["Tu montes sur la caisse et tu commences. Mais la halle veut la complainte, pas la vérité : la vérité n'a pas de rime, et le meunier qui trompe sa femme, c'est meilleur. On rit. On te fait descendre. Le marchand reprend au troisième couplet, là où le petit berger se cache dans le four. On applaudit. Tu t'en vas. Derrière toi, la halle chante en chœur un malheur qui n'est pas arrivé, sur un air de rouet."],
+    text: ["Tu montes sur la caisse et tu commences. Mais la halle veut la complainte : la vérité rime mal, et le meunier qui trompe sa femme, c'est meilleur. On rit. On te fait descendre. Le marchand reprend au troisième couplet, là où le petit berger se cache dans le four. On applaudit. Tu t'en vas. Derrière toi, la halle chante en chœur un malheur qui n'est pas arrivé, sur un air de rouet."],
     choices: BACK }),
   IV_ps_complainte_feuille: P({ title: "Un sou",
     text: ["Tu donnes un sou. Il te tend une feuille, encore humide d'encre, l'image en haut. Tu la plies en quatre. Tu la gardes. Tout y est faux, sauf une chose : le nom du village, en grosses lettres, *SAUVELUNE*, et en dessous, *qui fut*. C'est imprimé. Ça a été tiré à trois cents exemplaires. Quelque part, dans trois cents maisons, il y a une feuille avec ce nom-là dessus. Ce n'est pas rien."],

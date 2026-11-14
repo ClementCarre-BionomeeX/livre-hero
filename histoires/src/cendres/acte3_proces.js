@@ -19,7 +19,7 @@ module.exports = {
       { first: true, text: "Toute la ville est venue. Ils sont debout autour de la grand-place, serrés, des milliers, en silence, les enfants sur les épaules des pères. Ardaël est assis sur les marches du palais, seul, et sa couronne de givre lui goutte sur le front. Il ne regarde pas les statues. Il te regarde, toi." },
       { first: true, text: "Le Sans-Nom te mène jusqu'au socle noir. « Pose la main sur la glace, dit-il. Tu tomberas dedans. Une heure, là-bas. Ici, ça ne dure qu'une respiration. Et quand tu reviendras, ils voudront savoir. »" },
       "Les cinq statues attendent, dos à dos. Dans la glace, leurs yeux bougent.",
-      { if: { any: [rendu("tour"), rendu("gerbe"), rendu("barque"), rendu("cerf"), rendu("plume")] }, text: "Là où tu as rendu quelqu'un au monde, il n'y a plus qu'une flaque sur la pierre noire, et la foule s'écarte pour ne pas marcher dedans." },
+      { if: { any: [rendu("tour"), rendu("gerbe"), rendu("barque"), rendu("cerf"), rendu("plume")] }, text: "Là où tu as rendu quelqu'un au monde, il reste une flaque sur la pierre noire, et la foule la contourne." },
     ],
     choices: [
       { label: "L'homme à la tour", hide: done("tour"), to: "III_p_tour" },
@@ -41,13 +41,13 @@ module.exports = {
       "Tu poses la main sur la glace. Le froid te prend le poignet, puis tout le bras, puis il n'y a plus de froid.",
       "Tu es dans une tente. Il fait chaud. Tu as cinquante ans, des épaules de bœuf, un genou qui te fait mal quand il va pleuvoir, et il va pleuvoir. Tu t'appelles Aldric de la Tour. Tu as faim, et tu remets le repas à plus tard, parce que les autres attendent.",
       "Sur la table, une carte. La vallée, la rivière, le village aux tours fines qu'ils appellent Valcendre. Tu l'as dessinée toi-même, en trois ans de commerce et de visites, à leur table, à leurs fêtes. Tu sais où sont leurs greniers. Tu sais combien ils ont de lances, et c'est presque rien.",
-      "Autour de la table, les quatre autres. La grosse Berthe, qui ne dit rien. Osric, le passeur, qui regarde ses mains. Le petit de Brenne, qui a dix-neuf ans et brûle d'envie. Et le frère à la plume, qui écrit tout ce qu'on dit.",
+      "Autour de la table, les quatre autres. La grosse Berthe, muette. Osric, le passeur, qui regarde ses mains. Le petit de Brenne, qui a dix-neuf ans et brûle d'envie. Et le frère à la plume, qui écrit tout ce qu'on dit.",
     ],
     choices: [{ label: "Parler, puisque c'est à toi de parler", to: "III_p_tour2" }] }),
 
   III_p_tour2: P({ title: "Le conseil", place: "valcendre",
     text: [
-      "Tu parles. Tu entends ta voix, une voix calme, une voix de bon père. Tu dis : nos gens ont faim. Tu dis : cette terre est la meilleure du nord et ils ne la labourent pas, ils la chantent. Tu dis : ils sont peu, et l'hiver vient. Tu ne dis pas une seule fois le mot tuer. Tu dis : il faut que ce soit fait vite, et une fois.",
+      "Tu parles. Tu entends ta voix, une voix calme, une voix de bon père. Tu dis : nos gens ont faim. Tu dis : cette terre est la meilleure du nord et ils ne la labourent pas, ils la chantent. Tu dis : ils sont peu, et l'hiver vient. Tu évites jusqu'au bout le mot tuer. Tu dis : il faut que ce soit fait vite, et une fois.",
       "Tu sens ce qu'il sent, et c'est le pire. Il n'a pas de haine. Il a mangé à leur table la semaine dernière, il a fait danser une de leurs filles, il a trouvé leur musique belle. Il a fait le compte, c'est tout. Le compte est juste. Il dort bien.",
       "Le frère à la plume lève la tête : « Et les enfants ? »",
       "Tu sens la réponse monter dans la gorge d'Aldric. Tu essaies de la retenir, de toutes tes forces. Elle sort quand même, de sa voix calme : « Ceux qui se souviendront, nous les aurons sur le dos dans vingt ans. »",
@@ -65,7 +65,7 @@ module.exports = {
     choices: verdict("tour", "III_p_tour_garde", "III_p_tour_rendu") }),
 
   III_p_tour_garde: P({ title: "La glace", place: "valcendre",
-    text: ["Tu te relèves et tu dis : « Qu'il reste. » Les yeux d'Aldric, dans la glace, se ferment. La foule ne dit rien. Tu ne sais pas si c'est une punition ou une grâce. Tu crois que lui non plus."],
+    text: ["Tu te relèves et tu dis : « Qu'il reste. » Les yeux d'Aldric, dans la glace, se ferment. La foule se tait. Punition ou grâce, tu hésites. Tu crois que lui non plus."],
     choices: [{ back: "III_p_place" }] }),
 
   III_p_tour_rendu: P({ title: "La flaque", place: "valcendre",
@@ -91,7 +91,7 @@ module.exports = {
 
   III_p_gerbe3: P({ title: "Ce que tu as vu", place: "valcendre",
     text: [
-      "Tu es sur la place. Tu as les joues mouillées et tu ne sais pas si ce sont les larmes de Berthe ou les tiennes.",
+      "Tu es sur la place. Tu as les joues mouillées des larmes de Berthe ou des tiennes.",
       "Sauvelune. Le moulin, le temple, le pré des foins, la Sauve où Pim a appris à nager. Tout ça a poussé dans la cendre de ceux qui se tiennent autour de toi, en ce moment, et qui te regardent.",
       { if: { souv: "enfant:chanson" }, text: "La chanson des foins te revient : « Fauche le pré, fauche la nuit… » Tu comprends, pour la première fois, ce qu'on fauchait la nuit." },
       "Si tu la rends au monde, tous les villages de la vallée sauront sur quoi ils ont semé. Ce ne sont pas des seigneurs. Ce sont des meuniers, des forgerons, des enfants. Ils n'ont rien fait. Ils mangent.",
@@ -99,7 +99,7 @@ module.exports = {
     choices: verdict("gerbe", "III_p_gerbe_garde", "III_p_gerbe_rendu") }),
 
   III_p_gerbe_garde: P({ title: "La glace", place: "valcendre",
-    text: ["« Qu'elle reste. » Tu le dis pour Sauvelune, et tu le sais. Berthe, dans la glace, baisse les yeux, et ce n'est pas de la honte, c'est du soulagement. Un vieil Orsan, au premier rang, crache par terre. Un autre lui pose la main sur l'épaule."],
+    text: ["« Qu'elle reste. » Tu le dis pour Sauvelune, et tu le sais. Berthe, dans la glace, baisse les yeux, de soulagement. Un vieil Orsan, au premier rang, crache par terre. Un autre lui pose la main sur l'épaule."],
     choices: [{ back: "III_p_place" }] }),
 
   III_p_gerbe_rendu: P({ title: "La flaque", place: "valcendre",
@@ -133,7 +133,7 @@ module.exports = {
     choices: verdict("barque", "III_p_barque_garde", "III_p_barque_rendu") }),
 
   III_p_barque_garde: P({ title: "La glace", place: "valcendre",
-    text: ["« Qu'il reste. » Osric, dans la glace, ne bouge pas. Il regarde toujours vers le quai. Une femme dans la foule, une femme en robe bleue, se détourne et s'en va par une ruelle, sans se presser, et tu ne la revois pas."],
+    text: ["« Qu'il reste. » Osric, dans la glace, reste immobile. Il regarde toujours vers le quai. Une femme dans la foule, une femme en robe bleue, se détourne et s'en va par une ruelle, sans se presser, et tu ne la revois pas."],
     choices: [{ back: "III_p_place" }] }),
 
   III_p_barque_rendu: P({ title: "La flaque", place: "valcendre",
@@ -157,7 +157,7 @@ module.exports = {
       "Ça ne change rien. Tu n'es qu'un passager. Raoul entre. La vieille femme est assise près du feu, et elle chante les noms, et elle ne s'arrête pas quand il entre. Elle le regarde et elle continue. Elle chante plus fort.",
       "Il crie quelque chose, pour qu'elle se taise. Elle continue. Il frappe.",
       "Ensuite c'est plus facile. C'est ça que tu découvres, dans son corps, et que tu voudrais ne jamais avoir su : le premier coup est le seul qui coûte. Le reste de la nuit, il ne compte plus. Il a la torche, il a l'épée, et chaque fois qu'une voix chante des noms, il va vers elle.",
-      "À l'aube, il est assis sur un muret, couvert de suie. Il a enlevé son casque. Il a le visage d'un garçon. Il pleure, et il ne sait pas pourquoi, et il se jure de ne jamais en parler, et il tient parole.",
+      "À l'aube, il est assis sur un muret, couvert de suie. Il a enlevé son casque. Il a le visage d'un garçon. Il pleure, étonné de ses larmes, et il se jure de garder cela pour lui, et il tient parole.",
     ],
     choices: [{ label: "Lâcher la glace", to: "III_p_cerf3" }] }),
 
@@ -165,7 +165,7 @@ module.exports = {
     text: [
       "Tu es sur la place. Tu as l'odeur de la suie dans le nez, et elle ne part pas.",
       "Les Brenne ont changé d'armes, deux générations plus tard. Le cerf est devenu un loup sur une tour. Personne n'a jamais su pourquoi. Personne n'a jamais demandé.",
-      { with: "ysolde", text: "Ysolde a tout vu. Tu ne sais pas comment, mais elle a vu : elle s'est approchée pendant que tu étais dedans, elle a posé la main sur ton épaule, et la glace l'a prise avec toi. Elle est blanche. Elle a la main sur son épée, et elle la serre, et elle ne la tire pas. « Il avait dix-neuf ans, dit-elle. Moi, à Lisse, j'en avais vingt-neuf. Je n'ai pas d'excuse. »" },
+      { with: "ysolde", text: "Ysolde a tout vu. Elle a vu, par un chemin qui t'échappe : elle s'est approchée pendant que tu étais dedans, elle a posé la main sur ton épaule, et la glace l'a prise avec toi. Elle est blanche. Elle a la main sur son épée, et elle la serre, et elle ne la tire pas. « Il avait dix-neuf ans, dit-elle. Moi, à Lisse, j'en avais vingt-neuf. Je n'ai pas d'excuse. »" },
       { without: "ysolde", text: "Tu penses à Ysolde, quelque part là-haut, avec l'épée de son père, un loup sur une tour, et qui ne sait pas." },
       "Si tu le rends au monde, la maison de Brenne saura. La dernière de la maison de Brenne, c'est Ysolde.",
     ],
@@ -227,7 +227,7 @@ module.exports = {
       "Tu te tournes vers la foule. Des milliers de visages. Ils attendent ce que tu vas dire, et tu comprends que c'est ça, le procès : pas les verdicts. Ce que le seul d'entre eux qui a vécu là-haut va dire, maintenant, après avoir été les cinq.",
       { if: { all: FOUNDERS.map(rendu) }, text: "Il n'y a plus de statues. Le socle noir est vide, mouillé, et l'eau coule en cinq ruisseaux entre les pavés jusqu'aux pieds de la foule. Là-haut, cinq maisons se souviennent ce soir." },
       { if: { not: { any: FOUNDERS.map(rendu) } }, text: "Les cinq statues sont toujours là, dos à dos. Tu les as toutes gardées. Là-haut, personne ne saura rien. Ici, on le sait déjà." },
-      { if: { all: [{ any: FOUNDERS.map(rendu) }, { not: { all: FOUNDERS.map(rendu) } }] }, text: "Il reste des statues, et il y a des flaques. Tu as choisi, un par un. Tu ne sais pas si tu as été juste. Tu sais que tu as choisi." },
+      { if: { all: [{ any: FOUNDERS.map(rendu) }, { not: { all: FOUNDERS.map(rendu) } }] }, text: "Il reste des statues, et il y a des flaques. Tu as choisi, un par un. As-tu été juste ? Tu sais que tu as choisi." },
     ],
     choices: [
       { label: "« Ils savaient. Tous les cinq. Et ils ont choisi l'oubli pour ne pas avoir à le porter. »", fx: { flag: "parole:accuse" }, to: "III_p_parole2" },
@@ -241,7 +241,7 @@ module.exports = {
     text: [
       "Tu ouvres la bouche, et c'est le premier nom qui sort. Puis le deuxième. Tu ne les cherches pas, ils sont là, dans l'ordre où Anselin les a écrits, dans la voix d'Anselin, puis dans la tienne.",
       "Au dixième, quelqu'un dans la foule dit le onzième avec toi. Au centième, ils sont mille. La place chante les noms, sans mesure, comme une marée. Les ponts entre les tours tremblent. Très loin, au bout du blanc, quelque chose de lourd craque, comme une porte sur ses gonds.",
-      "Tu t'arrêtes avant la fin. Tu ne sais pas pourquoi. Quelque chose en toi sait que si tu disais le dernier, la porte s'ouvrirait pour de bon, maintenant, ici, sans que personne ait choisi. La foule s'arrête avec toi.",
+      "Tu t'arrêtes avant la fin. La raison t'échappe. Quelque chose en toi sait que si tu disais le dernier, la porte s'ouvrirait pour de bon, maintenant, ici, sans que personne ait choisi. La foule s'arrête avec toi.",
       "Ardaël s'est levé. Il te regarde comme on regarde une épée qu'on ne savait pas tranchante.",
     ],
     choices: [{ label: "Reprendre ton souffle", to: "III_p_revelation" }] }),
@@ -255,7 +255,7 @@ module.exports = {
 
   III_p_parole2: P({ title: "La foule", place: "valcendre",
     text: [
-      { if: { has: "parole:accuse" }, text: "Un grondement monte de la foule, qui n'est ni un oui ni un non. Les gens se regardent. Une femme crie un nom, un seul, le sien, ou celui de quelqu'un. D'autres répondent. Ce n'est pas de la colère. C'est quelque chose qui ressemble à du soulagement : quelqu'un l'a dit." },
+      { if: { has: "parole:accuse" }, text: "Un grondement monte de la foule, à mi-chemin du oui et du non. Les gens se regardent. Une femme crie un nom, un seul, le sien, ou celui de quelqu'un. D'autres répondent. Ce n'est pas de la colère. C'est quelque chose qui ressemble à du soulagement : quelqu'un l'a dit." },
       { if: { has: "parole:separe" }, text: "La foule se tait. Puis un vieil homme dit, très fort : « Et nous ? On attend qu'ils soient d'autres gens ? » Personne ne lui répond. Mais personne ne te hue non plus. Une femme hoche la tête, lentement, et une autre, et tu ne sauras jamais combien." },
     ],
     choices: [{ label: "Te tourner vers Ardaël", to: "III_p_revelation" }] }),

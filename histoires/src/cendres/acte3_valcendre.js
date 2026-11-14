@@ -18,7 +18,7 @@ module.exports = {
 
   III_v_porte: P({ title: "Valcendre", place: "valcendre", hub: true,
     text: [
-      { first: true, text: "Les portes de Valcendre sont ouvertes. Elles n'ont jamais été fermées. Derrière, une ville. Pas des ruines : une ville. Des rues pavées, des fontaines, des marchés, des enfants qui courent, des chiens. Des tours fines comme des aiguilles, reliées par des ponts. Tout est blanc, et tout est vivant." },
+      { first: true, text: "Les portes de Valcendre sont ouvertes. Elles n'ont jamais été fermées. Derrière, une ville. Une ville entière, debout. Des rues pavées, des fontaines, des marchés, des enfants qui courent, des chiens. Des tours fines comme des aiguilles, reliées par des ponts. Tout est blanc, et tout est vivant." },
       "Les gens portent des vêtements d'un autre temps, des manteaux à capuchon brodés d'ours et d'étoiles. Ils parlent la langue que tu parles en dormant. Ils te regardent passer. Le bruit court devant toi, de rue en rue, plus vite que tes pas.",
       "Au centre, la grand-place. Au fond, le palais, une tour plus haute que les autres, et sur la plus haute pointe, une couronne de givre qui brille sans soleil.",
     ],
@@ -41,7 +41,7 @@ module.exports = {
 
   III_v_marche: P({ title: "Le marché", place: "valcendre",
     text: [
-      "On vend des choses qui n'existent plus : des fruits d'une espèce qu'on ne cultive plus nulle part, des étoffes teintes d'une couleur qui n'a pas de nom en esquarrois, des jouets. On paie avec des chansons. Tu vois une femme acheter un panier de pommes rouges contre un couplet.",
+      "On vend des choses disparues : des fruits d'une espèce éteinte, des étoffes d'une couleur que l'esquarrois ignore, des jouets. On paie avec des chansons. Tu vois une femme acheter un panier de pommes rouges contre un couplet.",
       "Une marchande te tend une pomme. Elle ne veut rien. « Pour le fils de Maëra », dit-elle, et les gens autour hochent la tête.",
       "La pomme a le goût d'une pomme. Exactement. Tu avais oublié que les pommes avaient un goût aussi précis.",
     ],
@@ -61,7 +61,7 @@ module.exports = {
 
   III_v_noms: P({ title: "La maison des noms dits", place: "valcendre",
     text: [
-      "Une grande salle ronde, sans livres, sans étagères. Des bancs. Sur les bancs, des gens assis, qui parlent à voix basse, chacun pour soi. Ils disent des noms. Chacun a les siens : il les dit, du premier au dernier, puis il recommence.",
+      "Une grande salle ronde, aux murs nus. Des bancs. Sur les bancs, des gens assis, qui parlent à voix basse, chacun pour soi. Ils disent des noms. Chacun a les siens : il les dit, du premier au dernier, puis il recommence.",
       "« Les Orsans n'écrivaient pas, dit le Sans-Nom. Ils se disaient. Chacun portait cent noms, et les disait chaque jour, et les apprenait à ses enfants. Tant qu'on les dit, ils sont. » Il regarde la salle. « Quand les fondateurs sont venus, ils ont tué ceux qui disaient. Il n'est resté personne pour dire les noms des morts. Alors ils sont tous venus ici. »",
       { if: { has: "nord:chant_lu" }, text: "Tu penses à la grande paroi de la grotte des Corbeaux. Quelqu'un a gravé les noms dans la pierre, malgré tout. Pour qu'ils tiennent sans personne." },
     ],
@@ -71,7 +71,7 @@ module.exports = {
     text: [
       "Ysolde fait le tour des remparts. C'est plus fort qu'elle. Les soldats orsans, sur le chemin de ronde, la regardent passer avec curiosité : une guerrière d'Esquarre, avec une épée d'Esquarre. Un vieux sergent la salue, à leur manière, la main ouverte sur le cœur.",
       "« Les murs ne servaient à rien, dit-il dans sa langue, et tu traduis. Ils sont venus par la rivière, de nuit, avec le feu. Le chevalier au cerf est entré le premier. » Il regarde Ysolde. « Il te ressemble. »",
-      "Ysolde lui rend son salut, la main ouverte sur le cœur. Elle ne dit rien.",
+      "Ysolde lui rend son salut, la main ouverte sur le cœur. Elle se tait.",
     ],
     choices: [{ fx: { flag: "iii:ysolde_remparts", conf: { ysolde: 5 } }, back: "III_v_porte" }] }),
 
@@ -105,7 +105,7 @@ module.exports = {
       "Le palais n'a pas de gardes. Les portes s'ouvrent devant le Sans-Nom. Des escaliers, des galeries, des salles vides, toutes blanches, toutes froides, et au sommet, une salle ronde, ouverte sur le blanc, sans murs, sous un toit porté par des colonnes de glace.",
       "Au milieu, un homme assis sur un siège de pierre. Il est très grand. Il est très vieux, et il a l'air d'avoir quarante ans. Il porte sur la tête une couronne de givre qui fond et se refait sans cesse, goutte à goutte. Il a les yeux gris presque blancs.",
       "Le Roi-Hiver. Ardaël.",
-      "Il se lève quand tu entres. Il ne dit rien. Il descend les trois marches. Il s'arrête devant toi.",
+      "Il se lève quand tu entres. Il se tait. Il descend les trois marches. Il s'arrête devant toi.",
     ],
     choices: [{ label: "Attendre", to: "III_v_ardael" }] }),
 

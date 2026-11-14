@@ -19,7 +19,7 @@ module.exports = {
     ] }),
   III_Q_gue_milieu: P({ title: "Au milieu", place: "plaine",
     text: [
-      "Tu descends dans le lit vide. La charge suivante passe à travers toi. Ce n'est pas douloureux : c'est froid, et ça sent le cheval et la sueur. Ils ne te voient pas. Ils ne voient que l'autre bord.",
+      "Tu descends dans le lit vide. La charge suivante passe à travers toi. C'est froid, indolore, et ça sent le cheval et la sueur. Ils ne te voient pas. Ils ne voient que l'autre bord.",
       "Un vieux sergent esquarrois, la jambe raide, reste en arrière à chaque charge. Il est le seul à regarder autour de lui. Il te voit. « Toi, dit-il. Tu n'es pas d'ici. Qui a gagné ? »",
     ],
     choices: [
@@ -44,8 +44,8 @@ module.exports = {
       lose: { fx: { ep: ["perso", 500] }, to: "III_Q_gue_charge" } }] }),
   III_Q_gue_paix: P({ title: "Les armes posées", place: "plaine",
     text: [
-      "Tu parles. Tu ne sais pas ce que tu dis exactement. Tu parles de Sauvelune, qui a été oubliée en une nuit, et de ceux qui marchent sur la plaine, et de la Lisse, là-bas, où on se prépare à recommencer. Tu dis qu'ils peuvent continuer jusqu'à la fin du monde, et que personne, de l'autre côté, ne saura jamais pourquoi.",
-      "Un piquier bleu baisse sa pique le premier. Il est très jeune. Il traverse le lit vide, lentement, et va s'asseoir à côté du vieux sergent. Ils ne se disent rien. Ils n'ont pas de langue commune.",
+      "Tu parles. Les mots sortent tout seuls. Tu parles de Sauvelune, qui a été oubliée en une nuit, et de ceux qui marchent sur la plaine, et de la Lisse, là-bas, où on se prépare à recommencer. Tu dis qu'ils peuvent continuer jusqu'à la fin du monde, et que personne, de l'autre côté, ne saura jamais pourquoi.",
+      "Un piquier bleu baisse sa pique le premier. Il est très jeune. Il traverse le lit vide, lentement, et va s'asseoir à côté du vieux sergent. Ils se taisent, faute de langue commune.",
       "Les autres suivent, un par un. Quand le dernier a posé ses armes, le trait gris de la rivière s'efface, et ils se lèvent, tous ensemble, et vont rejoindre les files qui marchent vers la porte.",
       { with: "ysolde", text: "Ysolde reste longtemps au bord du gué vide. « Quinze ans, dit-elle. Je tenais un cheval. » C'est tout ce qu'elle dit." },
     ],
@@ -61,7 +61,7 @@ module.exports = {
   III_Q_lac: P({ title: "Le lac", place: "plaine",
     fx: { questSeen: "III_Q_lac" },
     text: [
-      "Une étendue lisse, au milieu du blanc. Pas de l'eau, pas de la glace : un miroir à plat, sans bord, où le blanc d'en haut se reflète dans le blanc d'en bas. Mais quand tu te penches, ce n'est pas toi que tu vois.",
+      "Une étendue lisse, au milieu du blanc. Un miroir à plat, immense, où le blanc d'en haut se reflète dans le blanc d'en bas. Mais quand tu te penches, un autre visage te regarde.",
       "C'est quelqu'un que tu as oublié.",
     ],
     choices: [{ label: "Regarder", to: "III_Q_lac_reflet" }] }),
@@ -69,7 +69,7 @@ module.exports = {
     text: [
       "Dans le lac, un homme jeune, brun, aux mains abîmées, qui rit. Tu ne sais pas qui c'est. Tu sais que tu l'as aimé, quand tu avais trois ans. Tu sais qu'il te portait sur ses épaules. Rien d'autre.",
       { with: "pie", text: "Pie se penche à côté de toi, et recule aussitôt. « Pas question, dit-il. Je sais ce que je vais voir. » Il ne se penche plus." },
-      { with: "hylas", text: "Hylas s'agenouille au bord. Lui qui voit, ici, ne regarde pas. Il ferme les yeux, pose la main à plat sur le miroir, et il sourit, d'un sourire que tu ne lui connais pas, et il ne dit pas ce qu'il sent." },
+      { with: "hylas", text: "Hylas s'agenouille au bord. Lui qui voit, ici, ne regarde pas. Il ferme les yeux, pose la main à plat sur le miroir, et il sourit, d'un sourire nouveau, et il garde pour lui ce qu'il sent." },
       { with: "corbe", text: "Corbe regarde longtemps. « Mon père, dit-elle. Je ne me souvenais même pas d'en avoir eu un. Il a ma bouche. Ou j'ai la sienne. »" },
       { with: "lisandre", text: "Lisandre se penche, et éclate de rire. « C'est moi, dit-elle. Moi à seize ans. Avant la cour. Regarde ces joues. J'avais complètement oublié cette fille-là. » Elle ne rit plus, après." },
       { with: "ysolde", text: "Ysolde ne se penche pas. Elle reste debout, droite, à trois pas du bord, et elle regarde de loin. Ce qu'elle voit de là doit lui suffire." },

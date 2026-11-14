@@ -76,7 +76,7 @@ Object.assign(P, {
 Object.assign(P, {
   EIIC_pecheurs: { act: "II", title: "Les pêcheurs", place: null,
     text: [
-      "Trois hommes en sabots tirent un filet depuis la berge, à la corde, en s'arc-boutant dans la vase. Le filet vient lourd. Ils le tirent sur l'herbe et ils s'accroupissent autour, sans rien dire, pour trier : des gardons morts, le ventre gris ; une anguille qui se tord ; un sabot d'enfant ; et, emmêlé dans les mailles, un chapelet de buis à grains noircis, avec une petite main de plomb au bout.",
+      "Trois hommes en sabots tirent un filet depuis la berge, à la corde, en s'arc-boutant dans la vase. Le filet vient lourd. Ils le tirent sur l'herbe et ils s'accroupissent autour, en silence, pour trier : des gardons morts, le ventre gris ; une anguille qui se tord ; un sabot d'enfant ; et, emmêlé dans les mailles, un chapelet de buis à grains noircis, avec une petite main de plomb au bout.",
       "Le plus vieux le dégage avec soin et le tient dans sa paume. « Ça, c'est à eux, dit-il. Aux frères. » Il hésite à le rejeter à l'eau.",
     ],
     choices: [
@@ -316,7 +316,7 @@ Object.assign(P, {
   IIC_comptoir: { act: "II", title: "Le comptoir de la Perche", place: "morteau", shop: "IIC_perche",
     text: [
       "Gérold vend ce qu'il a : de l'onguent qu'une vieille du village fait à la cire d'abeille, des feuilles de gariig séchées, de la corde de pêche, des lanternes de batelier. Il te fait les prix sans marchander et sans sourire.",
-      { with: "aubin", text: "Il sert Frère Aubin comme les autres, sans un mot. Il lui rend la monnaie juste." },
+      { with: "aubin", text: "Il sert Frère Aubin comme les autres, en silence. Il lui rend la monnaie juste." },
     ],
     choices: [{ back: "IIC_taverne" }] },
   IIC_paillasse: { act: "II", title: "Une nuit à la Perche", place: "morteau", takes: "morning",
@@ -444,14 +444,14 @@ Object.assign(P, {
     fx: { flag: "ida=dit", quest: "II_ida", conf: { aubin: 10 }, fear: { aubin: 5 }, regard: { iic_ida: "trahi" }, ep: ["perso", 800] },
     text: [
       "Tu le prends à part, au bord du lavoir. Tu le lui dis sans détour : Ida, cette nuit-là, l'enfant né au début de l'été, le petit garçon sur son dos qui s'appelle Ivo. Tu ne dis pas qu'elle t'a demandé de te taire. Il le devine tout seul, à ta façon de le dire.",
-      "Frère Aubin ne dit rien pendant longtemps. Il s'assied sur la margelle du lavoir. Il regarde ses mains. « Ivo », dit-il enfin, et sa voix casse sur le nom.",
+      "Frère Aubin se tait longtemps. Il s'assied sur la margelle du lavoir. Il regarde ses mains. « Ivo », dit-il enfin, et sa voix casse sur le nom.",
       "Puis il se lève, et il traverse la place, et il entre à la Perche. Il y reste jusqu'au soir. Tu ne sais pas ce qui s'y dit. Quand il ressort, il a les yeux rouges et le visage lavé, comme quelqu'un qui a eu de la fièvre et qui ne l'a plus. « Elle ne veut pas me voir, dit-il. Elle a raison. Mais je l'ai tenu. Il m'a pris le doigt. » Il te regarde. « Tu as bien fait. Elle ne te le pardonnera pas, et tu as bien fait. »",
     ],
     choices: [{ back: "IIC_morteau" }] },
   IIC_ida_elle: { act: "II", title: "La chaussée", place: "morteau",
     fx: { flag: "ida=elle", quest: "II_ida", conf: { aubin: 15 }, regard: { iic_ida: "cordial" }, ep: ["perso", 1200] },
     text: [
-      "Ida ne répond pas tout de suite. Elle regarde l'enfant. Elle regarde la porte. Puis elle dénoue son tablier, le pose sur un tonneau, et elle dit : « Gardez la salle. Mon père va crier. Laissez-le crier. »",
+      "Ida prend son temps. Elle regarde l'enfant. Elle regarde la porte. Puis elle dénoue son tablier, le pose sur un tonneau, et elle dit : « Gardez la salle. Mon père va crier. Laissez-le crier. »",
       { with: "aubin", text: "Elle sort sur la place, droit vers Frère Aubin. Tu vois Aubin la voir venir et ne pas reculer, et c'est déjà beaucoup. Ils parlent près du lavoir, longtemps. À un moment, elle lui tend l'enfant. Il le prend comme on prend une chose sacrée et cassante, les bras raides, et puis les bras se relâchent, et il le serre." },
       { without: "aubin", text: "Tu la vois prendre la chaussée de la chapelle, l'enfant sur le dos, d'un pas qui ne ralentit pas. Elle revient au soir, seule avec le petit. Elle ne te raconte rien. Elle te dit seulement, en passant : « Il pleurait. Je ne l'avais jamais vu pleurer. Même cette nuit-là. »" },
       "Gérold crie, en effet. Puis il se tait, et il te sert un pot sans te le faire payer, et il le pose devant toi un peu trop fort.",
@@ -534,13 +534,13 @@ Object.assign(P, {
       { if: { not: { has: "IIC:ninon_marque" } }, text: "Tu ne sais pas exactement ce que tu dis. Tu dis que sa mère avait les mains chaudes, comme toutes les mères, et que celle-là les a froides. Tu dis qu'une mère ne demande pas à sa fille de descendre dans le noir. Tu dis que l'eau ne sait que ce qu'on lui raconte. À la fin, c'est Ninon qui parle. Elle demande à la voix comment s'appelait leur barque. La voix se tait." },
       { if: { has: "IIC:ninon_marque" }, text: "Tu ouvres ta main au-dessus de l'eau. La tache noire de ta paume se tend comme une peau de tambour, et tu sens quelque chose, en dessous, qui te reconnaît. *Tais-toi*, dis-tu, sans parler. La voix se tait. Elle obéit. Elle obéit trop vite, et ça te glace plus que tout le reste." },
       "La main de vase glisse des planches et retombe dans le lac avec un bruit mou. L'eau redescend sous le ponton, un pouce, deux pouces, jusqu'à sa place ordinaire. Ninon reste debout. Elle tremble. Puis elle s'assied d'un coup et elle pleure, enfin, comme on pleure à huit ans, avec tout le corps.",
-      "Une lanterne descend la rue en courant. C'est Herbin, en chemise, pieds nus, qui a entendu crier sa fille et qui, pour la première fois depuis un an, est sorti la nuit. Il la prend dans ses bras sans un mot.",
+      "Une lanterne descend la rue en courant. C'est Herbin, en chemise, pieds nus, qui a entendu crier sa fille et qui, pour la première fois depuis un an, est sorti la nuit. Il la prend dans ses bras en silence.",
     ],
     choices: [{ label: "Les laisser tous les deux", to: "IIC_ninon_sauvee" }] },
   IIC_ninon_tard: { act: "II", title: "L'eau", place: "morteau",
     text: [
       { if: { has: "IIC:ninon_force" }, text: "Tu attrapes Ninon par la taille. Elle hurle, elle se débat, elle te mord la main comme un chat, et elle glisse. La planche est mouillée. Vous tombez ensemble, et c'est toi qui te rattrapes au pieu, et c'est elle qui passe par-dessus le bord." },
-      { if: { not: { has: "IIC:ninon_force" } }, text: "La voix rit doucement, d'un rire de mère qui a vu son enfant faire une bêtise. « Viens », dit-elle, et Ninon fait un pas, et le pas suivant est dans le vide. Elle entre dans le lac sans un bruit, sans une éclaboussure, comme on entre dans un lit." },
+      { if: { not: { has: "IIC:ninon_force" } }, text: "La voix rit doucement, d'un rire de mère qui a vu son enfant faire une bêtise. « Viens », dit-elle, et Ninon fait un pas, et le pas suivant est dans le vide. Elle entre dans le lac en silence, sans une éclaboussure, comme on entre dans un lit." },
       "Tu n'as pas le temps de penser. Le lac est noir et froid et il ne veut pas te laisser descendre. Tu tâtonnes. Une natte passe entre tes doigts.",
     ],
     choices: [
@@ -621,8 +621,8 @@ Object.assign(P, {
     fx: { regard: { josse: "craintif" } },
     text: [
       "Il ne bouge pas quand la lame touche sa gorge. Il soupire, presque soulagé. « Le Cercle m'a envoyé voir si la Cloche était encore dans la crypte, dit-il. Juste voir. Je suis entré dans la nef la nuit, avec une barque. Ils m'ont attrapé par la jambe. Les moines. J'ai cru qu'ils allaient me tirer au fond. » Il te regarde, les yeux mi-clos. « Vous pouvez appuyer, vous savez. Ça ne me ferait pas de peine. »",
-      { with: "aubin", text: "« Range ça », dit Frère Aubin, d'une voix que tu ne lui connaissais pas. Il ne bouge pas. Il attend que tu obéisses. Tu ne sais pas s'il te le pardonnera, de l'avoir obligé à le dire." },
-      { with: "thavary", text: "Thavary te regarde faire sans rien dire. Puis, tout bas : « On ne menace pas un homme à terre. On le relève, et après on le menace. » Tu ne sais pas si c'est de l'ironie." },
+      { with: "aubin", text: "« Range ça », dit Frère Aubin, d'une voix que tu ne lui connaissais pas. Il reste immobile. Il attend que tu obéisses. Tu ne sais pas s'il te le pardonnera, de l'avoir obligé à le dire." },
+      { with: "thavary", text: "Thavary te regarde faire en silence. Puis, tout bas : « On ne menace pas un homme à terre. On le relève, et après on le menace. » Tu ne sais pas si c'est de l'ironie." },
     ],
     choices: [{ label: "Garder la lame où elle est et le faire parler", fx: { conf: { aubin: -5 } }, to: "IIC_josse_parle" }] },
   IIC_josse_reconnu: { act: "II", title: "Coliane", place: "morteau", with: "coliane",
@@ -670,7 +670,7 @@ Object.assign(P, {
       "Au matin, Josse Ferlan est parti. Il a laissé dans la paille son jeton d'os au cercle brisé, cassé en deux, et un denier pour la grange.",
       { if: { has: "josse=soigne" }, text: "Sur une planche de la grange, gravé à la pointe d'un couteau, maladroitement : *MERCI*. Et dessous, plus petit, comme ajouté après réflexion : *NE LEUR DONNEZ PAS LA CLOCHE*." },
       { if: { has: "josse=menace" }, text: "Il n'a rien laissé d'autre. Gérold dit qu'il est parti avant l'aube, en boitant, vers le nord, et qu'il s'est retourné deux fois pour voir si on le suivait." },
-      { if: { has: "josse=reconnu" }, text: "Coliane regarde longtemps le jeton cassé dans la paille. Puis elle le ramasse, les deux morceaux, et les met dans sa poche sans un mot." },
+      { if: { has: "josse=reconnu" }, text: "Coliane regarde longtemps le jeton cassé dans la paille. Puis elle le ramasse, les deux morceaux, et les met dans sa poche en silence." },
     ],
     choices: [{ back: "IIC_chaussee" }] },
 });
@@ -732,7 +732,7 @@ Object.assign(P, {
       { first: true, text: "La porte de la sacristie n'est pas fermée. Dedans, une pièce voûtée, sèche, chaude. Un poêle de fonte où grésille du bois flotté. Des armoires à chasubles, ouvertes, vides ; les chasubles servent de couvertures, empilées sur une paillasse. Une table, un bol, une miche entamée. Et un homme assis sur un tabouret, de dos, qui ravaude une chaussette à la lumière de la fenêtre." },
       { first: true, text: "Il a la cinquantaine, le crâne dégarni, une barbe grise mal taillée, une coule de bure rapiécée aux coudes. Il ne se retourne pas. « Si vous venez pour la Cloche, dit-il, elle est en bas. Si vous venez pour les frères, ils sont en bas aussi. Si vous venez pour moi, je n'ai rien à vous donner, sauf de la soupe, et elle n'est pas bonne. » Il coupe son fil avec les dents. « Frère Aubin. Le dernier. Asseyez-vous si vous voulez. »" },
       { first: true, text: "Il n'y a pas de crucifix au mur. Il y en a eu un : on voit la marque plus claire sur le plâtre, et le clou. Sur la table, un bréviaire, fermé, avec un ruban qui n'a pas bougé depuis longtemps ; la poussière fait un trait sur la tranche." },
-      { again: true, without: "aubin", text: "La sacristie, le poêle, la paillasse de chasubles. Frère Aubin lève les yeux de son ravaudage, te reconnaît, et pousse le bol de soupe vers toi sans rien dire." },
+      { again: true, without: "aubin", text: "La sacristie, le poêle, la paillasse de chasubles. Frère Aubin lève les yeux de son ravaudage, te reconnaît, et pousse le bol de soupe vers toi en silence." },
       { again: true, with: "aubin", text: "La sacristie, froide maintenant que Frère Aubin n'y vit plus. Il rallume le poêle par habitude, en entrant, et il regarde la pièce comme on regarde une maison qu'on a quittée." },
       { if: { mark: { min: 1 } }, without: "aubin", text: "Quand tu tends la main pour prendre le bol, il voit ta paume. Il s'arrête. Il ne dit rien, mais il ne quitte plus ta main des yeux." },
     ],
@@ -789,7 +789,7 @@ Object.assign(P, {
   IIC_aubin_chapelet: { act: "II", title: "Le chapelet de Benoît", place: "morteau",
     fx: { conf: { aubin: 10 }, ep: ["perso", 500] },
     text: [
-      "Il prend le chapelet dans ses deux mains et il le regarde sans rien dire. Il passe le pouce sur la petite main de plomb, sur le nom gratté au couteau. « Benoît, dit-il. Il le grattait tous les ans, parce que le plomb s'use. Il avait peur qu'on le confonde avec celui de Gerbaud. »",
+      "Il prend le chapelet dans ses deux mains et il le regarde en silence. Il passe le pouce sur la petite main de plomb, sur le nom gratté au couteau. « Benoît, dit-il. Il le grattait tous les ans, parce que le plomb s'use. Il avait peur qu'on le confonde avec celui de Gerbaud. »",
       "Il le pend au clou du crucifix, là où il y avait le crucifix. Il ne dit pas merci. Il regarde le chapelet se balancer, puis s'arrêter.",
     ],
     choices: [{ back: "IIC_sacristie" }] },
@@ -803,7 +803,7 @@ Object.assign(P, {
     text: [
       "Le registre du moutier est un gros livre relié de peau, gondolé par l'humidité. On y inscrivait les entrées, les morts, les visites. Tu le feuillettes à rebours. Les visites de l'Ordre, chaque année à la Saint-Ivo : un nom de chevalier, une signature, la mention *Campana in loco*, la Cloche est en place. Quatre cents fois la même phrase, d'écritures différentes.",
       "La dernière page écrite date d'il y a un an. *Le 9 des Brumes. Matines. Frère Aubin à Morteau pour les malades.* L'écriture est celle du prieur, tremblée. La ligne suivante est vide.",
-      { with: "aubin", text: "Frère Aubin regarde la page par-dessus ton épaule. Il ne dit rien. Il tend la main, ferme le livre doucement, et le remet sur l'étagère, le dos bien aligné avec les autres." },
+      { with: "aubin", text: "Frère Aubin regarde la page par-dessus ton épaule. Il se tait. Il tend la main, ferme le livre doucement, et le remet sur l'étagère, le dos bien aligné avec les autres." },
     ],
     choices: [{ back: "IIC_sacristie" }] },
   IIC_aubin_demande: { act: "II", title: "Venir", place: "morteau",
@@ -830,7 +830,7 @@ Object.assign(P, {
   IIC_aubin_rejoint: { act: "II", title: "Frère Aubin", place: "morteau",
     fx: { join: "aubin", flag: "aubin:rejoint", conf: { aubin: 10 }, ep: ["seance", 1500] },
     text: [
-      "Frère Aubin ne dit rien pendant longtemps. Puis il se lève, il ouvre l'armoire du fond, il en sort un bâton de pèlerin ferré, un sac de toile, une besace de cuir où il range des bandes, des fioles, un petit pot d'onguent, un bréviaire qu'il hésite à prendre et qu'il prend. Il éteint le poêle avec de la cendre.",
+      "Frère Aubin se tait longtemps. Puis il se lève, il ouvre l'armoire du fond, il en sort un bâton de pèlerin ferré, un sac de toile, une besace de cuir où il range des bandes, des fioles, un petit pot d'onguent, un bréviaire qu'il hésite à prendre et qu'il prend. Il éteint le poêle avec de la cendre.",
       { if: { has: "IIC:moines_apaises" }, text: "« Ils se sont tus, dit-il. Je les ai entendus se taire. C'est la première nuit depuis un an où je n'ai rien eu à veiller. Je ne sais pas quoi faire d'une nuit pareille. Je vais essayer de la passer à marcher. »" },
       { if: { has: "IIC:cloche_prise" }, text: "« Vous avez la Cloche, dit-il. Alors c'est elle que je veille, maintenant. Où elle ira, j'irai. C'est la règle. Elle ne disait pas qu'il fallait rester dans la sacristie. »" },
       "Sur le seuil, il se retourne une dernière fois vers la pièce vide, le bréviaire, la paillasse de chasubles. Il fait le signe de la main ouverte, du bout des doigts, comme on chasse une mouche. « Je ne sais pas si je prie encore, dit-il. Mais je sais encore soigner. Ça vous suffira ? »",
@@ -869,7 +869,7 @@ Object.assign(P, {
       "Une sacoche de cuir est accrochée à la balustrade. Dedans, un carnet, une plume, un encrier sec, des notes de la main que tu connais. La dernière page est écrite plus serrée que les autres : *« Le lac a monté d'un coup, la nuit du 9 des Brumes. Pas de pluie. Pas de crue en amont. L'eau vient d'en dessous. Je descends ce soir. Si je ne remonte pas, »* La phrase s'arrête là. L'encre a coulé, comme si la page avait pris l'eau, et séché ensuite.",
       "Sous la tribune, juste à l'aplomb, l'eau est noire. Il n'y a aucune trace dans la poussière de la galerie qui reparte vers le portail.",
       { with: "aubin", text: "Frère Aubin regarde la couverture roulée. « Je l'ai vue, dit-il lentement. Il y a quinze jours. Une femme qui est passée à la sacristie demander du pain et le chemin de la tribune. Je lui ai donné le pain. Je ne lui ai pas demandé son nom. Je ne demande plus le nom de personne. » Il se signe, de la main ouverte. « Je l'ai entendue, la nuit. Elle chantait avec eux. J'ai cru d'abord à une voix de plus dans le chœur. »" },
-      { with: "coliane", text: "Coliane ne dit rien. Elle pose seulement sa main sur ton épaule, une seconde, et la retire." },
+      { with: "coliane", text: "Coliane se tait. Elle pose seulement sa main sur ton épaule, une seconde, et la retire." },
     ],
     choices: [
       { label: "Rester un moment, le bâton dans les mains", fx: { conf: { aubin: 3, coliane: 3, pip: 3 } }, to: "IIC_nef_maitre_seul" },
@@ -928,7 +928,7 @@ Object.assign(P, {
     text: [
       "Tu fermes la main sur la tache, et tu plonges. L'eau ne te fait pas froid. Elle t'ouvre le chemin comme un rideau qu'on tire. Tu vois dans le noir, pas avec les yeux, avec la paume : l'escalier, les marches, le palier, la porte. Quelque part, très loin sous toi, quelque chose se réjouit de te sentir venir.",
       "Tu remontes à l'air dans la crypte sans avoir eu besoin de respirer une seule fois. Ça devrait te rassurer. Tu restes un moment sur la dernière marche, à trembler pour d'autres raisons que le froid.",
-      { with: "aubin", text: "Quand tu ressortiras, Frère Aubin te regardera longtemps sans rien dire. Il aura vu, depuis la tribune, la lumière verte autour de toi sous l'eau." },
+      { with: "aubin", text: "Quand tu ressortiras, Frère Aubin te regardera longtemps en silence. Il aura vu, depuis la tribune, la lumière verte autour de toi sous l'eau." },
     ],
     choices: [{ label: "Avancer dans la crypte", to: "IIC_crypte" }] },
 });
@@ -1028,7 +1028,7 @@ Object.assign(P, {
     choices: [{ back: "IIC_parvis" }] },
   IIC_prieur_vaincu: { act: "II", title: "Le prieur", place: "morteau",
     text: [
-      "Le prieur tombe à genoux dans l'eau. Les deux frères se défont derrière lui, retournent à l'eau sans un bruit, comme du sable qu'on lâche. Lui reste. Il te tend la Cloche, à deux mains, sans résistance, et ses yeux blancs se ferment.",
+      "Le prieur tombe à genoux dans l'eau. Les deux frères se défont derrière lui, retournent à l'eau en silence, comme du sable qu'on lâche. Lui reste. Il te tend la Cloche, à deux mains, sans résistance, et ses yeux blancs se ferment.",
       "« Quelqu'un veille, dit-il. Bien. Bien. » Et il s'allonge sur le tombeau, sur le côté, comme un vieil homme qui a très sommeil, et il ne bouge plus. Le chant s'est arrêté dans la crypte.",
       { with: "aubin", text: "Frère Aubin monte les marches, s'agenouille près du prieur et lui ferme la bouche, doucement, d'une main. Il ne te regarde pas. Tu ne sais pas s'il t'en veut." },
     ],
@@ -1043,7 +1043,7 @@ Object.assign(P, {
     choices: [{ label: "Prendre la Cloche", to: "IIC_cloche" }] },
   IIC_prieur_vol: { act: "II", title: "Le vol", place: "morteau",
     text: [
-      { with: "coliane", text: "Coliane passe derrière le tombeau sans un bruit, sans une ride sur l'eau. Tu ne la vois pas tendre la main. Tu vois seulement les mains du prieur, une seconde plus tard, jointes sur du vide, et Coliane de l'autre côté de la colonne, la Cloche contre sa poitrine, qui te fait signe de reculer." },
+      { with: "coliane", text: "Coliane passe derrière le tombeau en silence, sans une ride sur l'eau. Tu ne la vois pas tendre la main. Tu vois seulement les mains du prieur, une seconde plus tard, jointes sur du vide, et Coliane de l'autre côté de la colonne, la Cloche contre sa poitrine, qui te fait signe de reculer." },
       { without: "coliane", text: "Tu attends. Le prieur referme les yeux, reprend le psaume au début. À la troisième ligne, ses doigts se desserrent un peu, comme ceux d'un dormeur. Tu glisses tes mains sous les siennes, très lentement, et tu soulèves la Cloche. Elle est lourde, beaucoup plus lourde qu'elle ne devrait." },
       "Le prieur ne se réveille pas. Il continue à chanter, les mains jointes sur rien, et il chantera sans doute comme ça jusqu'à la fin du monde. Tu te demandes si c'est mieux ou pire.",
       { with: "aubin", text: "Frère Aubin a détourné les yeux. « On a volé une cloche à un mort, dit-il. Dans sa propre crypte. » Il ne dit pas que c'est mal. Il dit seulement ce que c'est." },
@@ -1163,7 +1163,7 @@ Object.assign(P, {
     text: [
       { if: { has: "IIC:moines_oui" }, text: "Un murmure passe d'un frère à l'autre, une plainte, comme le vent dans des roseaux. Ils baissent la tête ensemble. Tu as dit ce qu'ils avaient peur d'entendre, et tu ne sais même pas de qui tu parlais." },
       { if: { has: "IIC:moines_qui" }, text: "Ils se regardent entre eux, longtemps, comme des gens qui ont oublié la réponse à une question qu'on leur a apprise par cœur. Le frère le plus proche ouvre la bouche, la referme. « Celui qui tient », dit-il enfin. Et c'est tout ce qu'il sait." },
-      { if: { not: { any: [{ has: "IIC:moines_oui" }, { has: "IIC:moines_qui" }] } }, text: "Tu ne dis rien. Ils attendent. Puis, l'un après l'autre, ils ferment les yeux, et ils reprennent le psaume au début, comme si tu n'étais pas là." },
+      { if: { not: { any: [{ has: "IIC:moines_oui" }, { has: "IIC:moines_qui" }] } }, text: "Tu te tais. Ils attendent. Puis, l'un après l'autre, ils ferment les yeux, et ils reprennent le psaume au début, comme si tu n'étais pas là." },
       "Le chant reprend, s'arrête au même mot, reprend. Ils sont toujours là, dans l'eau verte, jusqu'à la taille. Ils le seront demain.",
     ],
     choices: [
@@ -1175,7 +1175,7 @@ Object.assign(P, {
   IIC_moines_apaises: { act: "II", title: "Le dernier office", place: "morteau",
     fx: { flag: "IIC:moines_apaises", clue: ["v_lac", "m_moines"], fac: { ordre: 5 }, conf: { aubin: 10, pip: 5 }, ep: ["seance", 1500] },
     text: [
-      { if: { not: { seen: "IIC_moines_ecouter" } }, text: "Tu chantes avec eux, mal d'abord, puis mieux. Tu suis le premier verset, le deuxième, le troisième. Et au même mot, *tenir*, ils s'arrêtent tous ensemble, comme toujours, et cette fois ils ouvrent les yeux et te regardent, chacun leur tour, et chacun leur tour ils te demandent : « A-t-il encore froid ? » Tu ne réponds pas. Tu continues le verset, seul{e}, au-delà du mot." },
+      { if: { not: { seen: "IIC_moines_ecouter" } }, text: "Tu chantes avec eux, mal d'abord, puis mieux. Tu suis le premier verset, le deuxième, le troisième. Et au même mot, *tenir*, ils s'arrêtent tous ensemble, comme toujours, et cette fois ils ouvrent les yeux et te regardent, chacun leur tour, et chacun leur tour ils te demandent : « A-t-il encore froid ? » Tu te tais. Tu continues le verset, seul{e}, au-delà du mot." },
       { if: { seen: "IIC_moines_ecouter" }, text: "Cette fois, quand ils s'arrêtent au même mot, tu ne t'arrêtes pas. Tu chantes la suite du verset, seul{e} dans le silence, la fin qu'ils n'arrivent plus à dire : *tenir jusqu'au matin, et rendre la garde à celui qui vient*." },
       { with: "aubin", text: "Frère Aubin est descendu au bord de l'eau, jusqu'aux genoux, et il chante avec toi. Sa voix est rouillée, fausse au début, puis elle trouve sa place, une voix de basse qui tient la note. Les frères le regardent. Le prieur n'est pas parmi eux, mais le plus vieux tend la main, et la pose sur l'épaule d'Aubin." },
       "Les frères écoutent. L'un après l'autre, ils reprennent avec toi la fin du verset, très bas, comme on retrouve un chemin. Et quand le verset est fini, ils se taisent. Ce n'est plus le silence d'avant. C'est le silence d'après, celui des églises après l'office, quand les cierges fument.",
@@ -1199,7 +1199,7 @@ Object.assign(P, {
     text: [
       "Le dernier frère retombe dans l'eau et s'y défait, la coule vide flottant un moment à la surface avant de couler. La lueur verte s'éteint d'un coup. Le cloître est noir et silencieux, et tu restes là, l'arme à la main, haletant{e}, avec le sentiment très net de n'avoir rien gagné du tout.",
       "Ils reviendront demain. Tu le sais. Ils ne sont pas morts une deuxième fois. Ils sont seulement retournés au fond, pour une nuit.",
-      { with: "aubin", text: "Frère Aubin ne dit rien. Il ramasse dans l'eau une coule vide qui flotte contre les marches, l'essore, la plie, et la pose sur la margelle du puits. Il ne te regarde pas de la nuit." },
+      { with: "aubin", text: "Frère Aubin se tait. Il ramasse dans l'eau une coule vide qui flotte contre les marches, l'essore, la plie, et la pose sur la margelle du puits. Il ne te regarde pas de la nuit." },
     ],
     choices: [{ back: "IIC_parvis" }] },
   IIC_moines_defaite: { act: "II", title: "L'aube", place: "morteau", takes: "morning",
@@ -1275,7 +1275,7 @@ Object.assign(P, {
     ],
     choices: [
       { label: "« Elle le rallume pour nous. »", fx: { conf: { charline: 5 } }, to: "@ret" },
-      { label: "Écouter sans rien dire", to: "@ret" },
+      { label: "Écouter en silence", to: "@ret" },
     ] },
   IIC_b_aubin_veille: { act: "II", title: "Aubin veille", banter: true, with: "aubin",
     text: [

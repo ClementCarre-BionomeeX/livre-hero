@@ -27,7 +27,7 @@ module.exports = {
   II_S4_melee_ok: P({ title: "Le dernier debout", place: "vasselin",
     text: [
       "À la fin, ils sont deux debout dans le pré piétiné. Ton champion, et le masque.",
-      "Ils se regardent. Le masque baisse son épée. Il salue, très bas, à l'ancienne, comme on ne salue plus depuis trois cents ans. Puis il pose un genou à terre, et le héraut, qui ne sait plus qui est l'autre, proclame ton champion vainqueur de la mêlée.",
+      "Ils se regardent. Le masque baisse son épée. Il salue, très bas, à l'ancienne, comme on saluait il y a trois cents ans. Puis il pose un genou à terre, et le héraut, qui a perdu le nom de l'autre, proclame ton champion vainqueur de la mêlée.",
     ],
     choices: [{ label: "L'épreuve libre", to: "II_S4_libre" }] }),
 
@@ -38,7 +38,7 @@ module.exports = {
     choices: [{ label: "L'épreuve libre", to: "II_S4_libre" }] }),
 
   II_S4_melee_vue: P({ title: "Le masque", place: "vasselin",
-    text: ["Tu le regardes faire. Il ne frappe jamais deux fois. Il ne frappe jamais fort. Les chevaliers tombent autour de lui comme des épis, et se relèvent, étonnés, sans savoir ce qui les a touchés. À la fin, il est seul debout. La foule applaudit. Tu regardes ta paume. Le charbon s'est effacé. Tu le sais quand même."],
+    text: ["Tu le regardes faire. Il frappe une seule fois, et doucement. Les chevaliers tombent autour de lui comme des épis, et se relèvent, étonnés, sans savoir ce qui les a touchés. À la fin, il est seul debout. La foule applaudit. Tu regardes ta paume. Le charbon s'est effacé. Tu le sais quand même."],
     choices: [{ label: "L'épreuve libre", to: "II_S4_libre" }] }),
 
   II_S4_libre: P({ title: "L'épreuve libre", place: "vasselin",
@@ -59,7 +59,7 @@ module.exports = {
 
   II_S4_libre_ok: P({ title: "La halle", place: "vasselin",
     text: [
-      "Tu chantes le cri de la halle aux poissons, puis une chanson de port, rauque, trop grave, pas juste du tout. Les juges se regardent, choqués. Puis, du fond du pré, là où se tiennent les gens du port, quelqu'un reprend le refrain. Puis cent. Puis mille.",
+      "Tu chantes le cri de la halle aux poissons, puis une chanson de port, rauque, trop grave, fausse. Les juges se regardent, choqués. Puis, du fond du pré, là où se tiennent les gens du port, quelqu'un reprend le refrain. Puis cent. Puis mille.",
       "Dans la loge, la reine ouvre les yeux. Elle se penche. Elle écoute, la bouche un peu ouverte, comme une petite fille.",
       "Le chevalier, au pied de l'estrade, a retiré son masque une seconde, pour mieux entendre.",
     ],
@@ -153,7 +153,7 @@ module.exports = {
 
   II_S4_coffre: P({ title: "Le coffre", place: "vasselin",
     text: [
-      "La reine se tourne vers Mordace. Mordace ne bouge pas. « Majesté, dit-il doucement, ce coffre contient les cessions que vous m'avez confiées. Les ouvrir, c'est vous les rendre. Toutes. Ce soir. »",
+      "La reine se tourne vers Mordace. Mordace reste immobile. « Majesté, dit-il doucement, ce coffre contient les cessions que vous m'avez confiées. Les ouvrir, c'est vous les rendre. Toutes. Ce soir. »",
       "La reine hésite. Elle a l'air d'avoir peur. Puis elle dit, d'une voix de petite fille : « J'ai donné ma parole. »",
       "Mordace sort ses trois clés, et ouvre les trois serrures, une à une. Le couvercle se soulève. Un souffle froid remplit la salle, et le givre sur le coffre fond d'un coup.",
       "Dedans, un seul livre. Immense, relié de noir, épais comme une poutre. Le Grand Registre. Mordace l'ouvre au hasard, pour montrer qu'il obéit.",
@@ -209,7 +209,7 @@ module.exports = {
       { if: { has: "sansnom:page" }, text: "Par la coupole brisée tombent des éclats de verre et de la neige, et avec la neige, des Glaneurs, cinq, six, qui se laissent tomber dans la salle comme des draps. Le chevalier au masque n'est plus là. Personne ne se souvient qu'il y était. Les Glaneurs cherchent quelque chose. Ils ne trouvent pas." },
       { if: { all: [{ not: { has: "sansnom:page" } }, { not: { has: "sud4:demande=hautvent" } }] }, text: "Mordace a refermé le coffre. Mais la salle n'est plus calme. La neige, autour du coffre, s'est mise à monter, lentement, comme une marée. Les gardes noirs se sont rapprochés. Mordace fait un geste, et ils se tournent vers vous." },
       { if: { has: "sud4:demande=hautvent" }, text: "Mordace n'a pas touché au coffre. Mais la salle n'est plus calme. La neige, autour du coffre, s'est mise à monter, lentement, comme une marée. Les gardes noirs se sont rapprochés. Mordace fait un geste, et ils se tournent vers vous." },
-      "« Sortez-les », dit Mordace. Il ne crie pas. Il n'a pas besoin.",
+      "« Sortez-les », dit Mordace. Il parle bas, et on l'entend.",
       { if: { has: "isaure:brisee" }, text: "La reine pleure sur son trône, la feuille contre elle. Personne ne la regarde. Mordace, un instant, pose la main sur son épaule." },
       "On vous pousse dans l'escalier. Deux cents marches. Dehors, il fait nuit. La porte de la Tour se referme derrière vous.",
       { before: "sud4:demande=hautvent", text: "Il n'y a plus de tournoi. Il n'y a plus de grâce. Il reste un coffre, en haut d'une tour, et tu sais maintenant ce qu'il y a dedans." },

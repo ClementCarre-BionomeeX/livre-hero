@@ -60,7 +60,7 @@ module.exports = {
         "À mi-chemin, la route de la rive bute sur la Noue, un affluent que les pluies d'automne ont gonflé jusqu'aux saules. Le pont de planches a été brûlé, on ne sait par quelle armée. Il reste un bac, une barge plate tirée sur un câble, et un passeur au visage gris de barbe, Ferréol, qui fume une pipe de terre et ne se lève pas quand tu arrives.",
         "Devant le bac attend une famille : un homme avec un enfant sur les épaules, une femme qui en tient un autre par la main, une vache maigre au bout d'une corde. Ils viennent des fermes d'en face, que les fourrageurs de Vel-Orin ont vidées. Ils n'ont pas de quoi payer. Ferréol le sait, et il fume.",
         "« Deux sous la tête, deux sous la vache, dit le passeur sans ôter sa pipe. C'est le prix depuis que mon père tirait le câble. Je ne fais pas la guerre, moi. Je fais le bac. »",
-        { with: "aubin", text: "Frère Aubin regarde la vache, puis les enfants, puis le passeur. Il ne dit rien. Il fouille dans sa manche, et n'y trouve que son chapelet." },
+        { with: "aubin", text: "Frère Aubin regarde la vache, puis les enfants, puis le passeur. Il se tait. Il fouille dans sa manche, et n'y trouve que son chapelet." },
       ],
       choices: [
         { label: "Payer le passage de la famille et le tien (12 sous)", if: { gold: { min: 12 } }, why: "Tu n'as pas douze sous.", fx: { gold: -12, conf: { aubin: 5, pip: 5 }, fac: { velorin: 2 } }, to: "IIIF_leg_bac_paye" },
@@ -78,7 +78,7 @@ module.exports = {
     IIIF_leg_bac_parole: { title: "Le bac de la Noue",
       text: [
         "Tu ne parles pas au passeur de pitié : tu lui parles de son père, du câble, de la guerre qui passera et du bac qui restera, et de ce qu'on dira de lui dans dix ans aux fermes d'en face, quand on aura besoin de traverser. Ferréol écoute en fumant. Puis il crache dans la Noue.",
-        "« La vache paie, dit-il. Le reste monte. » C'est ce qu'il peut faire, et c'est déjà beaucoup. L'homme donne la vache sans un mot, et Ferréol l'attache à un saule de son côté. La famille passe avec toi. Sur l'autre rive, la femme pleure, et tu ne sais pas si c'est pour la vache ou pour le reste.",
+        "« La vache paie, dit-il. Le reste monte. » C'est ce qu'il peut faire, et c'est déjà beaucoup. L'homme donne la vache en silence, et Ferréol l'attache à un saule de son côté. La famille passe avec toi. Sur l'autre rive, la femme pleure, et tu ne sais pas si c'est pour la vache ou pour le reste.",
       ],
       choices: [{ label: "Reprendre la route", back: ROUTE }] },
     IIIF_leg_bac_refus: { title: "Le bac de la Noue",
@@ -89,7 +89,7 @@ module.exports = {
       choices: [{ label: "Reprendre la route", fx: { gold: -2 }, back: ROUTE }, { label: "Les accompagner jusqu'au gué d'amont avant de reprendre ta route", fx: { time: 2, conf: { aubin: 3, pip: 3 } }, back: ROUTE }] },
     IIIF_leg_bac_seul: { title: "Le bac de la Noue",
       text: [
-        "Deux sous sur le tonneau. Ferréol te passe sans un mot, et la famille reste sur la rive à te regarder partir. Au milieu de l'eau, tu entends l'enfant demander pourquoi on ne monte pas, et la mère lui répondre quelque chose que le courant emporte.",
+        "Deux sous sur le tonneau. Ferréol te passe en silence, et la famille reste sur la rive à te regarder partir. Au milieu de l'eau, tu entends l'enfant demander pourquoi on ne monte pas, et la mère lui répondre quelque chose que le courant emporte.",
         { with: "aubin", text: "Frère Aubin a pris le câble avec le passeur pour aller plus vite. Il ne te regarde pas. Sur l'autre rive, il dit seulement : « Ce n'est pas un reproche. C'est une prière. Je la fais pour nous deux. »" },
       ],
       choices: [{ label: "Reprendre la route", fx: { conf: { aubin: -3 } }, back: ROUTE }] },
@@ -147,7 +147,7 @@ module.exports = {
     // ------------------------------------------------------------------ region events (the banks of the Isarde)
     IIIF_E_patrouille: { title: "Les cavaliers sans bannière",
       text: [
-        "Un bruit de sabots, derrière toi, sur la route mouillée. Six cavaliers, en manteaux sombres, sans écu ni bannière ; mais les chevaux sont des grands bais des haras d'Aldaran, et les selles ont la tour d'argent repoussée dans le cuir. Ils ralentissent en te voyant, et se déploient en éventail, sans un mot, comme des gens qui ont l'habitude.",
+        "Un bruit de sabots, derrière toi, sur la route mouillée. Six cavaliers, en manteaux sombres, sans écu ni bannière ; mais les chevaux sont des grands bais des haras d'Aldaran, et les selles ont la tour d'argent repoussée dans le cuir. Ils ralentissent en te voyant, et se déploient en éventail, en silence, comme des gens qui ont l'habitude.",
         "Le premier porte un masque de cuir sur le bas du visage. « Où vas-tu, sur cette route qui n'est à personne ? »",
         { with: "thavary", text: "Thavary s'est placée à ta gauche, d'un pas, du côté de l'épée. Elle n'a pas dégainé. Elle compte les chevaux." },
       ],
@@ -293,7 +293,7 @@ module.exports = {
         { first: true, text: "Au pied du rocher, le gué. L'eau y court, basse et vive, entre des bancs de galets. Et sous la surface, si l'on regarde bien, des rangées de pieux noirs, plantés de biais, que le courant peigne." },
         { again: true, before: "III:fort", text: "Fort-Gaudre, portes closes, sur son rocher. La flamme bleue claque sous la bannière grise. Le gué murmure en bas, entre ses pieux." },
         { again: true, after: "III:fort", text: "Fort-Gaudre, portes ouvertes. La flamme bleue a été arrachée de la hampe ; il ne reste que la bannière grise, et des frères en gant gris sur le chemin de ronde, peu nombreux, qui te saluent quand tu passes la porte." },
-        { with: "coliane", first: true, text: "Coliane a déjà repéré la citerne, en bas, et la grille rouillée qui donne sur l'eau. Elle te la montre du menton sans rien dire." },
+        { with: "coliane", first: true, text: "Coliane a déjà repéré la citerne, en bas, et la grille rouillée qui donne sur l'eau. Elle te la montre du menton en silence." },
         { with: "charline", first: true, text: "Charline regarde les pieux du gué en plissant les yeux. « Du chêne vert, dit-elle. Ferré à la pointe. On ne plante pas ça pour arrêter des barques. On plante ça pour qu'une armée qui traverse s'y empale en croyant le gué sûr. »" },
       ],
       choices: [
@@ -475,7 +475,7 @@ module.exports = {
         "Tu te glisses entre deux bais qui ne se soucient pas de toi, jusqu'à la cloison de planches de la sellerie. Par les fentes, tu vois l'homme aux cheveux gris : un chevalier, la cinquantaine, une cicatrice qui lui ferme à moitié l'œil gauche. Les autres l'appellent Sire Ombert. Il ne porte pas de couleurs. Il parle comme un homme qui a commandé longtemps, et qui a été payé pour oublier qui.",
         "« Le conseiller ne veut pas d'une victoire, dit-il. Il veut une bataille. Une grande, sale, longue. Que les deux couronnes saignent au gué, et que le roi et la duchesse se retrouvent assez faibles pour signer ce qu'on leur tendra. Quand Vel-Orin traversera en croyant le gué sûr, les pieux feront le reste, et la deuxième compagnie prendra Merle à revers. »",
         "« Et le commandeur ? » demande un autre. Ombert hausse les épaules. « Le commandeur a eu son grain. Après la bataille, on n'aura plus besoin de lui. Le conseiller dit qu'un homme qui a vendu une fois la route la vendra encore. » Il rit. « Et il a raison. Le conseiller a toujours raison. C'est ce qui est fatigant, chez lui. »",
-        { with: "thavary", text: "Thavary s'est figée à côté de toi. Elle a entendu le mot conseiller, et quelque chose dans son visage s'est fermé comme une porte. Elle ne dit rien. Elle ne te regarde pas." },
+        { with: "thavary", text: "Thavary s'est figée à côté de toi. Elle a entendu le mot conseiller, et quelque chose dans son visage s'est fermé comme une porte. Elle se tait. Elle ne te regarde pas." },
       ],
       choices: [{ back: "IIIF_ecuries" }] },
     IIIF_ecuries_corde: { act: "III", title: "La corde", place: "gaudre",
@@ -491,7 +491,7 @@ module.exports = {
       choices: [{ back: "IIIF_cour" }] },
     IIIF_rempart: { act: "III", title: "Le chemin de ronde", place: "gaudre", backName: "le chemin de ronde",
       text: [
-        { first: true, text: "Du chemin de ronde, on voit tout le gué de l'Isarde, d'une rive à l'autre. La rivière s'élargit sur trois cents pas, coupée de bancs de galets, et à cet endroit elle ne monte pas plus haut qu'une cuisse d'homme. À l'est, la grève de Merle et ses barques. Au nord, sur la colline, les tentes bleues d'Aldaran. Au sud, sur l'autre rive, les pavillons pourpres de Vel-Orin, et la fumée de leurs cuisines." },
+        { first: true, text: "Du chemin de ronde, on voit tout le gué de l'Isarde, d'une rive à l'autre. La rivière s'élargit sur trois cents pas, coupée de bancs de galets, et à cet endroit elle ne monte haut comme une cuisse d'homme. À l'est, la grève de Merle et ses barques. Au nord, sur la colline, les tentes bleues d'Aldaran. Au sud, sur l'autre rive, les pavillons pourpres de Vel-Orin, et la fumée de leurs cuisines." },
         { first: true, text: "Et sous la surface, que tu vois d'ici comme on voit le fond d'un plat, les pieux. Ils ne barrent pas le gué : ils en barrent la moitié sud, en diagonale, de façon qu'une troupe qui traverse depuis Vel-Orin en suivant les galets clairs soit menée droit dessus, dans l'eau la plus profonde. La moitié nord, elle, est restée nette. Celui qui a fait ça connaît la rivière comme sa main." },
         { again: true, text: "Le gué, en bas, ses bancs de galets, et la ligne noire des pieux sous l'eau. Les feux des deux camps, de part et d'autre." },
         { with: "charline", first: true, text: "Charline se penche par une embrasure. « Si on les enflammait, dit-elle, ils brûleraient sous l'eau ? » Elle répond elle-même : « Non. Mais on peut les marquer. Une huile qui flotte. Quand l'eau monte, la trace reste. » Elle le note dans son carnet." },
@@ -878,7 +878,7 @@ module.exports = {
       text: [
         "La bourse est lourde dans ta main, plus lourde que deux cents couronnes ne devraient l'être. Vendrel te regarde la ranger. Il a l'air content, mais pas surpris, et c'est ce qui te fait le plus froid dans le dos.",
         "Quand tu sors de la tente, ta paume te brûle. Tu ne la regardes pas. Tu sais ce que tu y verrais.",
-        { with: "coliane", text: "Coliane t'attend dehors. Elle a vu la bourse. Elle n'a pas besoin de demander. Elle s'en va sans un mot, et elle ne revient près du feu que bien après minuit." },
+        { with: "coliane", text: "Coliane t'attend dehors. Elle a vu la bourse. Elle n'a pas besoin de demander. Elle s'en va en silence, et elle ne revient près du feu que bien après minuit." },
       ],
       choices: [{ back: "IIIG_aldaran" }] },
     IIIG_aldaran_serment: { act: "III", title: "Le serment bleu", place: "hautmont",
@@ -895,7 +895,7 @@ module.exports = {
         "Le pavillon d'Orsini est en soie pourpre, tendu sur des mâts dorés, et à l'intérieur il fait aussi chaud qu'en été. La duchesse est assise à une table couverte de cartes et de livres de comptes. Elle a des bagues à tous les doigts, des lunettes au bout du nez, et elle ne lève pas les yeux tout de suite. Derrière elle, Morn, son maître-espion, épluche une orange avec un petit couteau d'argent et te sourit comme à un vieil ami.",
         "« Vous êtes à l'Ordre, dit Orsini en posant sa plume. C'est vous qui avez repris Fort-Gaudre. Morn me dit que le commandeur avait vendu le gué au roi. » Elle te regarde enfin, par-dessus ses lunettes. « Un gué qu'on vend, on peut aussi le racheter. Combien ? »",
         { if: { has: "III:velorin" }, text: "Morn t'offre un quartier d'orange. « Nous nous connaissons, dit-il. Vous avez été très utile, l'autre jour. La duchesse s'en souvient. Elle se souvient de tout ce qui est utile. »" },
-        { if: { has: "IIIF:gue_vu" }, text: "Tu leur parles des pieux. Orsini écoute sans rien dire, puis elle fait un signe, et un capitaine sort en courant. « Nous devions traverser à l'aube, dit-elle. Par la moitié sud. Celle qui a l'air la plus sûre. » Elle enlève ses lunettes. « Vous venez de sauver trois mille hommes, si vous dites vrai. Je ne l'oublierai pas. Si vous mentez, je ne l'oublierai pas non plus. »" },
+        { if: { has: "IIIF:gue_vu" }, text: "Tu leur parles des pieux. Orsini écoute en silence, puis elle fait un signe, et un capitaine sort en courant. « Nous devions traverser à l'aube, dit-elle. Par la moitié sud. Celle qui a l'air la plus sûre. » Elle enlève ses lunettes. « Vous venez de sauver trois mille hommes, si vous dites vrai. Je ne l'oublierai pas. Si vous mentez, je ne l'oublierai pas non plus. »" },
       ],
       choices: [
         { label: "Engager ton épée pour Vel-Orin dans la bataille", big: true, to: "IIIG_velorin_serment" },
@@ -920,7 +920,7 @@ module.exports = {
     IIIG_paix_preuves: { act: "III", title: "Les preuves", place: "merle",
       text: [
         "Tu poses sur la pierre de l'autel ce que tu as. Tu le dis sans hausser la voix.",
-        { if: { clue: "r3_aymar" }, text: "Le marché de Fort-Gaudre, au sceau rouge à la tour, avec l'initiale en forme de V. Nerys le prend, le lit, le passe à Orsini sans un mot." },
+        { if: { clue: "r3_aymar" }, text: "Le marché de Fort-Gaudre, au sceau rouge à la tour, avec l'initiale en forme de V. Nerys le prend, le lit, le passe à Orsini en silence." },
         { if: { clue: "r3_col" }, text: "Ce que tu as vu sous le col du conseiller, au camp, quand il se penchait sur la carte. Tous les regards vont à son col. Il ne le desserre pas." },
         { if: { clue: "r3_or_aldaran" }, text: "Les couronnes neuves d'Orme-la-Dorée dans les bourses des mercenaires d'Aldaran. Orsini fronce les sourcils, et regarde Morn, qui hoche la tête." },
         { if: { clue: "r3_or_velorin" }, text: "Les trois coffres d'or reçus par le trésorier de Vel-Orin d'un ami de la duchesse, venus par la route du nord. Orsini devient très pâle sous son fard." },
@@ -1005,7 +1005,7 @@ module.exports = {
       text: [
         "La brume monte de l'Isarde avant le jour, épaisse, blanche, si dense qu'on ne voit plus l'autre rive ni la colline. On entend seulement : des chevaux qui s'ébrouent, des ordres criés à mi-voix, le cliquetis des piques qu'on lève, et partout, sous tout le reste, l'eau. Une odeur de vase et de feu froid.",
         { if: { is: { couronne: "aldaran" } }, text: "Tu es dans les rangs de l'avant-garde d'Aldaran, au bord du gué, avec des piquiers des hautes terres qui ont froid et qui prient. Un sergent te tend une gourde d'eau-de-vie. « Pour le courage », dit-il, et il boit avant toi. Derrière, sur la colline, la bannière à la tour d'argent pend, mouillée, sans vent." },
-        { if: { is: { couronne: "velorin" } }, text: "Tu es sur la rive basse, avec les arbalétriers de Vel-Orin, à genoux derrière des pavois plantés dans les galets. Ils tendent leurs arcs de fer avec des manivelles, sans un mot, et posent les carreaux sur le pavois devant eux, un par un, comme des pièces sur un comptoir." },
+        { if: { is: { couronne: "velorin" } }, text: "Tu es sur la rive basse, avec les arbalétriers de Vel-Orin, à genoux derrière des pavois plantés dans les galets. Ils tendent leurs arcs de fer avec des manivelles, en silence, et posent les carreaux sur le pavois devant eux, un par un, comme des pièces sur un comptoir." },
         { if: { is: { couronne: "paix" } }, text: "Tu es sur l'île du gué, dans la chapelle sans toit, avec les bateliers de Merle. Personne ne doit traverser. Les deux armées sont rangées sur les deux rives, à quatre cents pas l'une de l'autre, et attendent midi. Et dans la brume, en amont, tu entends des chevaux qui entrent dans l'eau." },
         { if: { is: { freres_gaudre: "libres" } }, text: "En amont, sous les murs de Gaudre, Frère Baudouin et ses hommes tiennent la rive nord, en gant gris, autour de la bannière de l'Ordre. Ils ne sont pas vingt. Ils ne bougeront pas." },
         { with: "any", text: "Tes compagnons sont autour de toi, dans la brume. Tu ne vois que leurs silhouettes. Tu sais qui est qui à la façon dont ils respirent." },
@@ -1141,7 +1141,7 @@ module.exports = {
       fx: { flag: "merle:sauve", fac: { aldaran: 5, velorin: 5 }, ep: ["seance", 2500] },
       text: [
         "Merle fume, mais Merle tient. Deux granges ont brûlé, et le toit de l'auberge. Personne n'est mort au village. Les gens sortent des maisons, des barques, des saules, et regardent les fumées avec une sorte d'étonnement, comme si on leur avait rendu quelque chose qu'ils avaient déjà donné.",
-        "Une petite fille, pieds nus dans la boue, te tire par la manche. Elle ne dit rien. Elle te regarde, et elle s'en va en courant retrouver sa mère.",
+        "Une petite fille, pieds nus dans la boue, te tire par la manche. Elle se tait. Elle te regarde, et elle s'en va en courant retrouver sa mère.",
       ],
       choices: [{ label: "Repartir vers le gué", big: true, to: "IIIG_champion" }] },
     IIIG_merle_brule: { act: "III", title: "Merle brûle", place: "merle",
@@ -1250,7 +1250,7 @@ module.exports = {
       fx: { set: { maitre: "perdu" }, ep: ["histoire", 4000] },
       text: [
         { if: { has: "IIIG:duel_perdu" }, text: "Tu es à genoux dans l'Isarde, l'eau jusqu'à la poitrine, sans arme. Elle est debout au-dessus de toi. Elle pourrait. Elle lève son bras, et le bras s'arrête en l'air, et tremble, et redescend. « Pas toi, dit-elle de sa voix à elle, très vite, comme on dit quelque chose avant qu'on vous coupe la parole. Pas toi. Va-t'en. Va-t'en loin de l'eau. »" },
-        { if: { not: { has: "IIIG:duel_perdu" } }, text: "Tu la lâches. Tu ne sais pas pourquoi. Parce que tu ne peux pas la tuer, et que tu ne sais pas la sauver. Elle te regarde comprendre ça, et quelque chose dans son visage te pardonne, et quelque chose d'autre rit." },
+        { if: { not: { has: "IIIG:duel_perdu" } }, text: "Tu la lâches. La raison t'échappe. Parce que tu ne peux pas la tuer, et que tu ne sais pas la sauver. Elle te regarde comprendre ça, et quelque chose dans son visage te pardonne, et quelque chose d'autre rit." },
         "Puis l'eau noire monte autour d'elle comme une robe qu'on enfile, et elle recule, un pas, deux pas, dans le courant, sans te quitter des yeux. L'Isarde lui arrive à la taille, à la poitrine, aux épaules. Elle ne nage pas. Elle descend, comme on descend un escalier. La dernière chose que tu vois, ce sont ses yeux, l'un noir, l'autre à elle.",
         "Après, il n'y a plus que la rivière, qui coule vers Merle comme si rien ne s'était passé. On sondera le gué à la gaffe jusqu'au soir. On ne trouvera rien.",
       ],
@@ -1262,7 +1262,7 @@ module.exports = {
       text: [
         "À midi, sur l'île du gué, au milieu des morts qu'on n'a pas fini de ramasser, les deux couronnes sont revenues. Nerys d'Aldaran, le visage gris de n'avoir pas dormi, la manche tachée de sang qui n'est pas le sien. Orsini de Vel-Orin, sans fard, sans bagues : elle les a ôtées pour panser des blessés et ne les a pas remises. Morn derrière elle. Et Vendrel, un pas derrière Nerys, en noir, impeccable, les gants blancs.",
         "Tu n'as presque rien à dire. Les preuves sont venues toutes seules, dans la matinée.",
-        { if: { has: "IIIG:ordre_ombert" }, text: "L'ordre trouvé sur Sire Ombert, à Merle : *Brûler, et crier Vel-Orin.* Morn le compare à la lettre codée de son propre camp, lentement, lettre à lettre, et le pose sur l'autel sans un mot." },
+        { if: { has: "IIIG:ordre_ombert" }, text: "L'ordre trouvé sur Sire Ombert, à Merle : *Brûler, et crier Vel-Orin.* Morn le compare à la lettre codée de son propre camp, lentement, lettre à lettre, et le pose sur l'autel en silence." },
         { if: { is: { maitre: "sauve" } }, text: "Ta maîtresse, sur sa civière, qu'on a portée jusqu'à l'île parce qu'elle l'a exigé. Elle dit, devant les deux couronnes, de qui elle était le champion, et qui l'a menée au bord du lac de Morteau pour qu'elle y écoute l'eau. Elle le dit d'une voix faible et parfaitement claire." },
         { if: { has: "thavary:aveu" }, text: "La lettre à Thavary de Thavar, et Thavary elle-même, debout, qui la confirme une seconde fois, au grand jour, et ne baisse toujours pas les yeux." },
         { if: { has: "IIIF:aveu_aymar" }, text: "Le marché de Gaudre, et ce que le vieux commandeur t'a dit dans sa salle du chapitre, que tu répètes mot pour mot : *On regarde par la fenêtre.*" },

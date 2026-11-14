@@ -39,7 +39,7 @@ module.exports = {
   V_v_cloche_sonne: P({ title: "Le tocsin", place: "pallanche",
     text: [
       "La Bénigne bouge, un peu, puis beaucoup, puis le battant frappe, et le son tombe sur Pallanche comme une pierre dans l'eau.",
-      "Sur la place aux Clercs, dans la queue, des têtes se lèvent. Pas toutes. Quelques-unes. Une femme lâche son jeton. Un homme regarde autour de lui, comme quelqu'un qui se réveille dans une maison qu'il ne reconnaît pas. Un enfant se met à pleurer, à grands cris, et c'est le plus beau bruit que tu aies entendu depuis des jours.",
+      "Sur la place aux Clercs, dans la queue, des têtes se lèvent. Pas toutes. Quelques-unes. Une femme lâche son jeton. Un homme regarde autour de lui, comme au réveil dans une maison inconnue. Un enfant se met à pleurer, à grands cris, et c'est le plus beau bruit que tu aies entendu depuis des jours.",
       "Tout en haut de la tour des Greffiers, derrière une fenêtre, une silhouette s'est arrêtée d'écrire.",
     ],
     choices: [{ back: "V_ville" }] }),
@@ -68,7 +68,7 @@ module.exports = {
   V_v_glaneurs_apres: P({ title: "Ce qu'ils avaient pris", place: "pallanche",
     text: [
       "Quand le dernier se défait, ce qu'il avait mangé ne retourne pas d'où ça venait. Ça flotte, au ras de la neige, une brume dorée et bleue, et ça se pose sur la queue au hasard, comme une neige à l'envers.",
-      "Un homme, au passage, reçoit un morceau de quelqu'un d'autre. Il se met à fredonner une chanson qu'il ne connaît pas. Il a l'air content. Tu ne sais pas si c'est bien ou mal. Tu sais que c'est mieux que dans le ventre d'un Glaneur.",
+      "Un homme, au passage, reçoit un morceau de quelqu'un d'autre. Il se met à fredonner une chanson qu'il ne connaît pas. Il a l'air content. Bien ou mal, tu hésites. Tu sais que c'est mieux que dans le ventre d'un Glaneur.",
     ],
     choices: [{ back: "V_ville" }] }),
 
@@ -85,7 +85,7 @@ module.exports = {
   V_v_liseurs_lire: P({ title: "Les noms", place: "pallanche",
     text: [
       "Tu montes sur un tonneau. On te tend un bout de liste. Tu lis. Guillemette Dubreuil. Ancel Fournier. Pernelle, sans nom de famille. Jacquot Cordier, dit le Petit. Chaque nom fait un petit nuage dans l'air froid.",
-      "Au bout d'une heure, tu n'as plus de voix, et la file n'a pas raccourci. Mais au bout de la rue, une femme dont tu as lu le nom s'est retournée, une seconde, comme quelqu'un qu'on appelle de loin.",
+      "Au bout d'une heure, ta voix est usée, et la file est aussi longue. Mais au bout de la rue, une femme dont tu as lu le nom s'est retournée, une seconde, comme quelqu'un qu'on appelle de loin.",
     ],
     choices: [{ back: "V_ville" }] }),
 

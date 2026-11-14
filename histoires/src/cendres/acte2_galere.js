@@ -65,8 +65,8 @@ module.exports = {
   II_G_rameurs: P({ title: "Les rameurs", place: "vasselin",
     text: [
       "Tu t'accroupis près du premier banc. Le rameur se réveille. Un homme de trente ans, maigre, le dos zébré, la barbe blonde. Il te sourit. « Madame, dit-il en corvannais. Vous venez nous payer ? »",
-      "Il croit qu'il est payé. Qu'il est rameur de son plein gré, engagé pour une saison, et que la saison finira bientôt. Il ne sait pas depuis quand il est là. Il ne sait pas d'où viennent les marques sur son dos. « Je suis maladroit, dit-il. Je tombe souvent. »",
-      { with: "rodric", text: "Rodric s'est penché sur le banc d'à côté. Il reste longtemps sans rien dire. Puis il prononce un nom, à voix basse, un nom de village de la Lisse. Le rameur lève la tête. « C'est chez moi, dit-il. Comment vous savez ? » Rodric ne répond pas. Il a les poings serrés à s'en faire blanchir les jointures." },
+      "Il croit qu'il est payé. Qu'il est rameur de son plein gré, engagé pour une saison, et que la saison finira bientôt. Depuis quand est-il là ? D'où viennent les marques sur son dos ? Il l'ignore. « Je suis maladroit, dit-il. Je tombe souvent. »",
+      { with: "rodric", text: "Rodric s'est penché sur le banc d'à côté. Il se tait longtemps. Puis il prononce un nom, à voix basse, un nom de village de la Lisse. Le rameur lève la tête. « C'est chez moi, dit-il. Comment vous savez ? » Rodric se tait. Il a les poings serrés à s'en faire blanchir les jointures." },
       "Sous le banc, gravées dans le bois avec un clou, des marques. Des traits, par groupes de sept. Des centaines. Quelqu'un comptait les semaines, avant d'oublier qu'il comptait.",
     ],
     choices: [{ fx: { ep: ["perso", 400] }, back: "II_G_pont" }] }),
@@ -82,13 +82,13 @@ module.exports = {
       { label: "Prendre le rôle", fx: { flag: "galere:role" }, to: "II_G_pont" },
     ] }),
   II_G_cabine_cles: P({ title: "Le trousseau", place: "vasselin",
-    text: ["Le trousseau glisse de la ceinture sans un bruit. Tu prends aussi le rôle, au passage. Le capitaine grogne dans son sommeil, et dit un nom de femme, et se rendort. En sortant, tu souffles la chandelle."],
+    text: ["Le trousseau glisse de la ceinture en silence. Tu prends aussi le rôle, au passage. Le capitaine grogne dans son sommeil, et dit un nom de femme, et se rendort. En sortant, tu souffles la chandelle."],
     choices: [{ fx: { flag: "galere:role" }, back: "II_G_pont" }] }),
   II_G_cabine_reveil: P({ title: "Le capitaine",
     combat: { title: "La cabine", enemies: ["garde_noir", "brigand"], terrain: "ville", range: "contact",
       flee: { dom: "discretion", label: "Sauter par la fenêtre de poupe", to: "II_G_fuite" },
       win: { fx: { item: "cles_galere", flag: "galere:alerte", ep: ["seance", 1000] }, to: "II_G_pont" }, lose: { fx: { pv: -3 }, to: "II_G_fuite" } },
-    text: ["Le capitaine ouvre un œil quand tes doigts touchent les clés. Il n'est pas si ivre. Il crie. Un des clercs se lève, et ce n'est pas un clerc : il a une dague dans la manche."],
+    text: ["Le capitaine ouvre un œil quand tes doigts touchent les clés. Il n'est pas si ivre. Il crie. Un des clercs se lève, une dague dans la manche : un faux clerc."],
     choices: [] }),
   II_G_cale: P({ title: "La cale", place: "vasselin",
     text: [
@@ -119,7 +119,7 @@ module.exports = {
 
   II_G_liberer: P({ title: "Les chaînes", place: "vasselin",
     text: [
-      "Tu ouvres le premier fer. Le rameur, un homme maigre à la barbe blonde, regarde sa cheville nue, marquée d'un anneau de peau blanche. Il ne comprend pas. Il ne se lève pas. Pourquoi se lever ? Il est payé.",
+      "Tu ouvres le premier fer. Le rameur, un homme maigre à la barbe blonde, regarde sa cheville nue, marquée d'un anneau de peau blanche. Il reste assis, l'air perdu. Pourquoi se lever ? Il est payé.",
       { if: { has: "galere:fioles" }, text: "Alors tu ouvres une fiole, la sienne, *Joachim, de Lisse*, et tu la lui mets sous le nez. Il respire. Et il se souvient d'être prisonnier. Il se souvient de tout, d'un coup, de la Lisse, du pont, de la cale, du fouet, des semaines comptées au clou. Il se lève. Il ne crie pas. Il prend les clés de ta main, et il ouvre le fer de son voisin." },
       { if: { not: { has: "galere:fioles" } }, after: "galere:role", text: "Tu lui dis qu'il est prisonnier. Il rit, poliment. Tu insistes. Tu lui montres le rôle. Il ne sait pas lire. Tu lui lis son nom, et ce qu'il y a en face. *Cédé : la captivité.* Il fronce les sourcils, longtemps." },
       { if: { not: { has: "galere:fioles" } }, before: "galere:role", text: "Tu lui dis qu'il est prisonnier. Il rit, poliment. Tu insistes. Tu lui montres le fer ouvert, son dos, les autres bancs. Il regarde tout cela, l'un après l'autre. Il fronce les sourcils, longtemps." },
@@ -132,13 +132,13 @@ module.exports = {
   II_G_fin_libres: P({ title: "Le port", place: "vasselin",
     text: [
       "Ils descendent la passerelle, un par un, en silence, cent quatre-vingts, chacun avec sa fiole débouchée à la main. Sur le quai, les pêcheurs les attendent. Quelqu'un a prévenu. La vieille Jacotte, peut-être, ou la patronne de l'Ancre, ou tout le port à la fois.",
-      "On les cache. Dans les caves, dans les greniers à filets, dans les cales des barques de pêche. Au matin, la galère grise est vide, et dans tout Vasselin, on n'a rien vu, rien entendu, et on ne sait pas de quoi parle ce capitaine qui court sur le quai en hurlant.",
+      "On les cache. Dans les caves, dans les greniers à filets, dans les cales des barques de pêche. Au matin, la galère grise est vide, et dans tout Vasselin, on est sourd et aveugle, et on se demande de quoi parle ce capitaine qui court sur le quai en hurlant.",
       { with: "rodric", text: "Rodric est resté le dernier sur la passerelle, à les compter. Cent quatre-vingts. Quand le dernier est passé, il s'assied sur les planches, et il pleure, sans se cacher, comme pleurent les très grands hommes." },
     ],
     choices: [{ fx: { quest: "II_Q_galere", conf: { rodric: 15, lisandre: 10 } }, back: "II_S_vasselin" }] }),
   II_G_fin_ouverte: P({ title: "Les fers ouverts", place: "vasselin",
     text: [
-      "Tu ouvres les fers, tous. Ça prend une heure. Les rameurs regardent leurs chevilles. Certains se lèvent, descendent la passerelle, se perdent dans la ville. D'autres restent assis, la rame à la main, et attendent le jour, parce que c'est leur place, et qu'on ne sait pas où aller quand on ne se souvient pas d'où l'on vient.",
+      "Tu ouvres les fers, tous. Ça prend une heure. Les rameurs regardent leurs chevilles. Certains se lèvent, descendent la passerelle, se perdent dans la ville. D'autres restent assis, la rame à la main, et attendent le jour, parce que c'est leur place, et qu'il faut se souvenir d'où l'on vient pour savoir où aller.",
       "Au matin, la moitié des bancs sont vides. L'autre moitié rame quand le comite siffle. Ils n'ont plus de fers. Ils rament quand même.",
     ],
     choices: [{ fx: { quest: "II_Q_galere", conf: { rodric: 5 } }, back: "II_S_vasselin" }] }),

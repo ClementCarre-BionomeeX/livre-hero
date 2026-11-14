@@ -443,7 +443,7 @@ module.exports = {
       moutier: { ambiance: "temple", name: "Le moutier des Veilleurs", map: "esquarre", x: 52, y: 3, arrive: "II_N3_cloitre", arriveIf: [{ if: { has: "acte4:debut" }, passage: "IV_moutier" }], desc: "Un monastère gris face au col de l'Ourse, où l'on veille depuis trois cents ans." },
       cirque: { ambiance: "neige", name: "Le cirque des Moissons", map: "esquarre", x: 46, y: 0, arrive: "II_N4_cirque", desc: "Un bol de neige entre des falaises noires, où les Glaneurs portent ce qu'ils ont glané." },
       col: { ambiance: "montagne", name: "Le col de l'Ourse", map: "esquarre", x: 50, y: 1, arrive: "II_N5_col", desc: "L'herbe rase, la grande pierre plate, et la déchirure." },
-      plaine: { ambiance: "neige", name: "La plaine blanche", map: "outreblanc", x: 50, y: 70, arrive: "III_plaine", desc: "Le pays où va tout ce qu'on oublie. Pas de ciel, pas d'horizon." },
+      plaine: { ambiance: "neige", name: "La plaine blanche", map: "outreblanc", x: 50, y: 70, arrive: "III_plaine", desc: "Le pays où va tout ce qu'on oublie. Le ciel et l'horizon ont disparu." },
       cloches: { ambiance: "ville", name: "Bourdonne", map: "outreblanc", x: 20, y: 50, arrive: "III_c_ville", desc: "La ville des cloches oubliées." },
       enfance: { ambiance: "foret", name: "Ellerune", map: "outreblanc", x: 70, y: 40, arrive: "III_e_hameau", desc: "Un hameau de maisons rondes dans une forêt d'arbres brûlés debout." },
       valcendre: { ambiance: "ville", name: "Valcendre", map: "outreblanc", x: 50, y: 10, arrive: "III_v_porte", desc: "La capitale des Orsans, intacte depuis trois cent douze ans." },
@@ -519,7 +519,7 @@ module.exports = {
       marches: { name: "Les Marches de l'Est", chance: 0.35, events: ["E_corbeaux_marches", "E_patrouille", "E_veuve_soldat", "E_pont_coupe", "E_tour_signaux", "E_gue_marches"],
         quiet: [
           "La route suit la Lisse, qui coule vers l'ouest, grise et rapide entre des berges de cailloux. De l'autre côté, Corvanne : les mêmes prés, les mêmes vaches, les mêmes clochers. On s'est battu trois ans pour savoir à qui étaient ces vaches.",
-          "La colonne avance au pas des plus lents. Derrière toi, cent dix-huit personnes qui marchent sans parler, et tes hommes à cheval qui ne parlent pas non plus. On n'entend que les sabots, la corde, et parfois un enfant.",
+          "La colonne avance au pas des plus lents. Derrière toi, cent dix-huit personnes qui marchent en silence, et tes hommes à cheval, muets eux aussi. On n'entend que les sabots, la corde, et parfois un enfant.",
         ],
         camp: [
           "Le camp se monte en carré, les prisonniers au milieu, les feux aux quatre coins. Tu fais le tour des sentinelles toi-même, deux fois. Personne ne dort vraiment.",
@@ -534,7 +534,7 @@ module.exports = {
         quiet: [
           "La route des Cloches court entre des blés mûrs. Toutes les lieues, un clocher de village, et toutes les heures, quelque part, une cloche qui sonne. On dit qu'en Esquarre, on n'est jamais hors de portée d'une cloche. Tu commences à le croire.",
           "Des charrettes de foin, des troupeaux d'oies, un sergent à cheval qui ne te regarde pas. Le pays est riche, gras, tranquille. Il ne sait pas encore.",
-          "Le soleil cogne sur la route blanche de poussière. Un chien te suit pendant une lieue, puis s'assied et te regarde partir comme s'il savait quelque chose que tu ne sais pas.",
+          "Le soleil cogne sur la route blanche de poussière. Un chien te suit pendant une lieue, puis s'assied et te regarde partir comme s'il en savait plus long que toi.",
         ],
         camp: [
           "Tu dors dans une grange, avec la permission d'un fermier qui te demande trois fois d'où tu viens. *Sauvelune.* Il fronce les sourcils. Il ne connaît pas.",

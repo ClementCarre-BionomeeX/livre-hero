@@ -32,11 +32,11 @@ module.exports = {
     ] }),
 
   IV_Q_bonne_ok: P({ title: "Les mains bleues", place: "moutier",
-    text: ["Tu prends la main d'Agnès, et tu la poses dans celle de Vincent, sans rien dire. Il regarde la main. Elle est bleue jusqu'au poignet, d'un bleu qui ne part jamais. Il dit : « Bonne. » C'est comme ça qu'il l'appelait, pas comme ça qu'elle s'appelle. Elle rit, d'un rire de jeune fille, et elle dit : « Ta jambe. » Odon note tout. Il a les lunettes embuées."],
+    text: ["Tu prends la main d'Agnès, et tu la poses dans celle de Vincent, en silence. Il regarde la main. Elle est bleue jusqu'au poignet, d'un bleu qui ne part jamais. Il dit : « Bonne. » C'est comme ça qu'il l'appelait, pas comme ça qu'elle s'appelle. Elle rit, d'un rire de jeune fille, et elle dit : « Ta jambe. » Odon note tout. Il a les lunettes embuées."],
     choices: [{ fx: { conf: { ombeline: 5 } }, back: "IV_Q_odon_fin" }] }),
 
   IV_Q_bonne_lent: P({ title: "Les mains bleues", place: "moutier",
-    text: ["Tu les amènes l'un devant l'autre. Ils se regardent poliment, comme deux étrangers. Il faut une heure, et que tu leur relises les deux entrées d'Odon, à voix haute, trois fois, pour qu'Agnès regarde enfin la jambe de Vincent, et lui ses mains. Ensuite, ils ne se quittent plus. Ils ne savent pas pourquoi. Ça n'a pas l'air de les gêner."],
+    text: ["Tu les amènes l'un devant l'autre. Ils se regardent poliment, comme deux étrangers. Il faut une heure, et que tu leur relises les deux entrées d'Odon, à voix haute, trois fois, pour qu'Agnès regarde enfin la jambe de Vincent, et lui ses mains. Ensuite, ils restent ensemble. La raison leur échappe, et ils s'en accommodent très bien."],
     choices: [{ back: "IV_Q_odon_fin" }] }),
 
   IV_Q_fevrier: P({ title: "Février", place: "moutier",
@@ -69,7 +69,7 @@ module.exports = {
   IV_Q_odon_fin: P({ backName: "la table d'Odon", title: "Odon", place: "moutier",
     text: [
       { if: { all: [{ seen: "IV_Q_bonne" }, { seen: "IV_Q_fevrier" }] }, text: "Odon relit ses deux entrées, corrigées. Il retire ses lunettes. « Trois cent quarante-deux noms dans ce livre, dit-il. Il en reste trois cent quarante qui cherchent quelqu'un. » Il remet ses lunettes. « Demain, peut-être. »" },
-      { if: { not: { all: [{ seen: "IV_Q_bonne" }, { seen: "IV_Q_fevrier" }] } }, text: "Odon note. Il ne dit rien. Il tourne la page." },
+      { if: { not: { all: [{ seen: "IV_Q_bonne" }, { seen: "IV_Q_fevrier" }] } }, text: "Odon note. Il se tait. Il tourne la page." },
     ],
     choices: [
       { label: "L'autre cas", hide: { all: [{ seen: "IV_Q_bonne" }, { seen: "IV_Q_fevrier" }] }, to: "IV_Q_odon" },
@@ -111,7 +111,7 @@ module.exports = {
     text: [
       "« Thora, dit-elle. Thora, fille d'Unn. »",
       "Tu chantes. Le chant des morts, sur l'air que le clan connaît, et au bout, un seul nom : Thora, fille d'Unn. Qui chante un seul nom l'appelle.",
-      "Il ne se passe rien. Puis, très loin, au col, sur la grande pierre, une lueur. Une seule, petite, qui brille une minute, puis s'éteint. Ylva l'a vue. Elle ne dit rien. Elle se lève, elle replie sa couverture, et elle rentre au camp en chantonnant, comme quelqu'un qui a reçu une réponse.",
+      "Il ne se passe rien. Puis, très loin, au col, sur la grande pierre, une lueur. Une seule, petite, qui brille une minute, puis s'éteint. Ylva l'a vue. Elle se tait. Elle se lève, elle replie sa couverture, et elle rentre au camp en chantonnant, comme quelqu'un qui a reçu une réponse.",
     ],
     choices: [{ fx: { quest: "IV_Q_ylva" }, back: "IV_clan_fin" }] }),
 
@@ -134,15 +134,15 @@ module.exports = {
       "Tu en prends un peu sur le doigt. Ça a le goût de rien, puis d'un coup, de tout : le pré des foins, la fête, la musique, un matin de juillet où il neigeait. Un souvenir de quelqu'un d'autre. Une femme de Sauvelune qui étend son linge, il y a un an, et qui voit tomber le premier flocon.",
       "Les abeilles ont butiné la neige. Elles ont récolté ce qu'elle prenait.",
       { if: { has: "nord:rendu=sauvelune" }, text: "Mathurin hoche la tête. « Je te l'avais dit. Folles. Mais pas bêtes. » Il te remplit trois pots. « Donne-le à ceux qui ont perdu quelque chose. Une cuillère. Pas plus. On ne sait jamais ce qu'on retrouve. »" },
-      { if: { not: { has: "nord:rendu=sauvelune" } }, text: "Tu remplis trois pots. Tu ne sais pas encore à qui tu les donneras. Tu sais que tu les donneras." },
+      { if: { not: { has: "nord:rendu=sauvelune" } }, text: "Tu remplis trois pots. Tu trouveras bien à qui les donner. Tu sais que tu les donneras." },
     ],
     choices: [{ fx: { item: ["miel_blanc", "miel_blanc", "miel_blanc"], quest: "IV_Q_ruches", flag: "mathurin:iv", ep: ["perso", 1200] }, back: "IV_sv_place" }] }),
 
   IV_Q_ruches_feu: P({ title: "Le feu", place: "sauvelune",
     text: [
       "Tu enfumes les ruches. Tu prends les rayons blancs, un par un, et tu les jettes dans un feu de bruyère. Ils brûlent avec une flamme bleue, et une odeur de pré coupé, et en brûlant ils chantent un peu, comme des voix très lointaines.",
-      "Tu ne sais pas ce que tu as brûlé. Des souvenirs de gens qui ne viendront jamais les chercher. Ou qui seraient venus.",
-      { if: { has: "nord:rendu=sauvelune" }, text: "Mathurin te regarde faire sans rien dire. À la fin, il dit : « Ça se défend. » Il ne dit pas si c'est un compliment." },
+      "Qu'as-tu brûlé ? Des souvenirs restés sans maître. Ou qui seraient venus.",
+      { if: { has: "nord:rendu=sauvelune" }, text: "Mathurin te regarde faire en silence. À la fin, il dit : « Ça se défend. » Compliment ou reproche, il te laisse choisir." },
     ],
     choices: [{ fx: { quest: "IV_Q_ruches", flag: "mathurin:iv" }, back: "IV_sv_place" }] }),
 
@@ -180,7 +180,7 @@ module.exports = {
     fx: { questSeen: "IV_Q_potence" },
     text: [
       "Sur la place aux Clercs, à midi, on pend des Liseurs. Il y en a trois, ce jour-là, en robe grise, les mains liées. Une fille de vingt ans, un vieil homme, un garçon qui a l'air d'avoir quinze ans. Un greffier lit la sentence : *lecture publique de documents de la Chancellerie, sans autorisation.*",
-      "La foule regarde. Personne ne dit rien. La queue, autour de la place, avance d'un pas.",
+      "La foule regarde. Personne se tait. La queue, autour de la place, avance d'un pas.",
       { if: { has: "pal:orlan" }, text: "Dans la foule, à dix pas de toi, tu reconnais deux greffiers de la cave d'Orlan. Ils ont des couteaux dans leurs manches. Ils sont deux. Ils vont mourir aussi." },
     ],
     choices: [
@@ -274,12 +274,12 @@ module.exports = {
   IV_Q_lisse_noms: P({ takes: "morning", title: "Trois cents", place: "brenne",
     text: [
       "Tu les sais. Tu les as demandés, un par un, sous la cloche de Bourdonne, pour les porter. Tu les graves toute la nuit, avec ton couteau, puis avec celui de Rodric quand le tien casse.",
-      { with: "ysolde", text: "Ysolde tient la lanterne. Elle ne dit rien. Elle lit chaque nom à mesure que tu le graves, à voix basse, pour s'en souvenir." },
+      { with: "ysolde", text: "Ysolde tient la lanterne. Elle se tait. Elle lit chaque nom à mesure que tu le graves, à voix basse, pour s'en souvenir." },
       "À l'aube, des femmes de Corvanne sont venues. Elles regardent le mur. L'une d'elles pose le doigt sur un nom, et ne l'enlève pas.",
     ],
     choices: [{ label: "Repasser la Lisse, vers le camp", fx: { quest: "IV_Q_lisse", conf: { ysolde: 10 } }, to: "IV_br" }] }),
 
   IV_Q_lisse_date: P({ title: "La date", place: "brenne",
-    text: ["Tu graves sous les douze noms : *Quatorze brumaire. Trois cents.* C'est tout ce que tu sais. Ce n'est pas assez. C'est mieux que rien. Tu te promets de revenir avec les autres, si un jour quelqu'un te les dit."],
+    text: ["Tu graves sous les douze noms : *Quatorze brumaire. Trois cents.* C'est tout ce que tu sais. C'est trop peu. C'est mieux que rien. Tu te promets de revenir avec les autres, si un jour quelqu'un te les dit."],
     choices: [{ label: "Repasser la Lisse, vers le camp", fx: { quest: "IV_Q_lisse" }, to: "IV_br" }] }),
 };

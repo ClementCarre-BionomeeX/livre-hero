@@ -18,21 +18,21 @@ module.exports = {
     ] }),
   IV_pal_ecrivain_moulin: P({ title: "Au moulin",
     text: [
-      "Tu dictes. Tu ne sais pas comment commencer. Il te propose *Chers parents*. Tu dis non. Tu dis *Agathe, Joris, Pim*. Il écrit. Puis tu dis la ville, la tour, la queue devant la porte, la soupe de la Veuve. Tu ne dis pas la plaine blanche. Tu ne dis pas Valcendre. Tu ne dis pas l'autre nom, celui que t'a donné un homme à la couronne de givre. Tu dis que tu manges bien.",
+      "Tu dictes. Par où commencer ? Il te propose *Chers parents*. Tu dis non. Tu dis *Agathe, Joris, Pim*. Il écrit. Puis tu dis la ville, la tour, la queue devant la porte, la soupe de la Veuve. Tu passes sur la plaine blanche, et sur Valcendre. Tu gardes pour toi l'autre nom, celui que t'a donné un homme à la couronne de givre. Tu dis que tu manges bien.",
       "« Et pour finir ? » Tu réfléchis. Tu dis : *Gardez-moi ma place à table.* Il écrit. Il plie. Il cachette. « Le courrier de Pont-de-Saule part demain, dit-il. Elle arrivera dans quatre jours. Si tout va bien. » Rien ne va bien. Elle arrivera peut-être quand même.",
     ],
     choices: [{ fx: { flag: "iv:lettre_moulin", ep: ["perso", 500] }, back: "IV_pal" }] }),
   IV_pal_ecrivain_garde: P({ title: "Pour personne",
     text: [
-      "Il te regarde, intrigué. Puis il trempe sa plume. Tu dictes. Tu ne sais pas ce que tu dictes, au début. Puis ça vient : ce que tu as vu, depuis un an. Le blanc. Les marcheurs. La femme qui chante. Le procès. Tout ce que personne ne croira jamais, et que tu as peur d'oublier, toi aussi, un matin.",
-      "Il écrit tout, sans un mot, sans une question, de plus en plus lentement. À la fin, il pose sa plume. Il te regarde. « Je la garde, dit-il. Dans mon coffre. Si tu reviens la chercher, elle sera là. Si quelqu'un d'autre vient, de ta part, je la lui lirai. » Il ne garde qu'un sou, pour le papier. Le reste, dit-il, ce n'est pas du travail.",
+      "Il te regarde, intrigué. Puis il trempe sa plume. Tu dictes. Au début, tu dictes au hasard. Puis ça vient : ce que tu as vu, depuis un an. Le blanc. Les marcheurs. La femme qui chante. Le procès. Tout ce que personne ne croira jamais, et que tu as peur d'oublier, toi aussi, un matin.",
+      "Il écrit tout, en silence, sans une question, de plus en plus lentement. À la fin, il pose sa plume. Il te regarde. « Je la garde, dit-il. Dans mon coffre. Si tu reviens la chercher, elle sera là. Si quelqu'un d'autre vient, de ta part, je la lui lirai. » Il ne garde qu'un sou, pour le papier. Le reste, dit-il, ce n'est pas du travail.",
     ],
     choices: [{ fx: { flag: "iv:lettre_gardee" }, back: "IV_pal" }] }),
   IV_pal_berengere: P({ title: "La teinturière",
     text: [
       "Hylas t'arrête au coin de la rue des Teinturiers. « Ici, dit-il. Attends-moi. » Il entre dans une boutique, sous les écheveaux pendus. Tu restes dehors, devant l'étal. Tu entends une clochette, puis une voix de vieille femme, rauque, gaie, qui roule les r.",
       { if: { has: "hylas:berengere=dit" }, text: "Il ne reste pas longtemps. Quand il ressort, il a un écheveau de laine bleue sous le bras. « Elle ne se souvient toujours pas, dit-il. Mais elle m'a reconnu. Le vieil aveugle de l'an dernier, celui du ruban. Elle m'a demandé si j'étais celui qui l'avait fait passer sous le Pont-Neuf, dans une autre vie. Elle riait. » Il serre l'écheveau. « J'ai dit oui. »" },
-      { if: { not: { has: "hylas:berengere=dit" } }, text: "Il ne reste pas longtemps. Quand il ressort, il a un écheveau de laine bleue sous le bras, et il ne dit rien. Tu ne demandes pas. Au bout de la rue, il s'arrête, et il dit, à personne : « Elle a encore sa voix. » Puis il repart, en tapant sa canne un peu plus fort que d'habitude." },
+      { if: { not: { has: "hylas:berengere=dit" } }, text: "Il ne reste pas longtemps. Quand il ressort, il a un écheveau de laine bleue sous le bras, et il se tait. Tu ne demandes pas. Au bout de la rue, il s'arrête, et il dit, à personne : « Elle a encore sa voix. » Puis il repart, en tapant sa canne un peu plus fort que d'habitude." },
     ],
     choices: [{ fx: { conf: { hylas: 5 }, ep: ["perso", 400] }, back: "IV_pal" }] }),
 };

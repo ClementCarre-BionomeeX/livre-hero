@@ -62,7 +62,7 @@ module.exports = {
 
   LI_orlan_trouble: P({ title: "Un mouchoir",
     text: [
-      "Il ne répond pas tout de suite. Il replie son mouchoir, très soigneusement, en quatre, puis en huit. « Un fait, Dame Lisandre, c'est ce qui est écrit. Après la Fête, ce qui sera écrit, c'est ce que vous aurez chanté. » Il lève les yeux. Ils sont pâles, presque blancs. « Moi, je ne fais que recopier. »",
+      "Il prend son temps. Il replie son mouchoir, très soigneusement, en quatre, puis en huit. « Un fait, Dame Lisandre, c'est ce qui est écrit. Après la Fête, ce qui sera écrit, c'est ce que vous aurez chanté. » Il lève les yeux. Ils sont pâles, presque blancs. « Moi, je ne fais que recopier. »",
     ],
     choices: [{ back: "LI_cour" }] }),
 
@@ -109,7 +109,7 @@ module.exports = {
 
   LI_ecuries_livre: P({ title: "Ce que la reine sait",
     text: [
-      "Tu le dis à Ermengarde, qui le dit à la reine, qui ne dit rien. Le lendemain matin, le secrétaire du chef de l'ambassade de Corvanne est rappelé chez lui pour une affaire de famille. On l'a vu monter dans une voiture fermée, entre deux gardes, avant l'aube.",
+      "Tu le dis à Ermengarde, qui le dit à la reine, qui se tait. Le lendemain matin, le secrétaire du chef de l'ambassade de Corvanne est rappelé chez lui pour une affaire de famille. On l'a vu monter dans une voiture fermée, entre deux gardes, avant l'aube.",
       "La reine te fait porter une bague. Un saphir. Tu la mets. Elle te va.",
     ],
     choices: [{ fx: { gold: 40 }, back: "LI_cour" }] }),
@@ -142,7 +142,7 @@ module.exports = {
 
   LI_aubrac_voix: P({ title: "Ta vraie voix",
     text: [
-      "Tu poses ton luth. Tu chantes sans lui, comme sur le port, comme ta mère qui vendait du poisson, avec ta voix d'avant, celle qu'on t'a appris à cacher : rauque, trop grave, pas juste du tout. La salle se tait d'un coup. Personne ne t'a jamais entendue comme ça. Toi non plus, depuis quatorze ans.",
+      "Tu poses ton luth. Tu chantes sans lui, comme sur le port, comme ta mère qui vendait du poisson, avec ta voix d'avant, celle qu'on t'a appris à cacher : rauque, trop grave, fausse. La salle se tait d'un coup. Personne ne t'a jamais entendue comme ça. Toi non plus, depuis quatorze ans.",
       "Quand tu as fini, personne n'applaudit. Puis tout le monde. Aubrac ne lève plus son verre.",
     ],
     choices: [{ label: "Saluer", to: "LI_cour" }] }),
@@ -170,13 +170,13 @@ module.exports = {
       "*Hautvent sera livré avant la Fête. La capitaine de Brenne obéira : elle ne se souvient pas de Lisse, et Votre Majesté ne s'en souviendra pas davantage après la Nuit. C'est le prix convenu, et il est juste : la paix d'un royaume vaut bien l'oubli d'un pont.*",
       "*Votre Majesté a eu la bonté de céder, au printemps, ce qui Lui pesait. Je le garde en sûreté. Je garde tout.*",
       "*M.*",
-      "Tu la plies et la glisses dans ton corsage. Tu ne sais pas pourquoi. Si on la cherche, on saura que c'est toi.",
+      "Tu la plies et la glisses dans ton corsage. La raison t'échappe. Si on la cherche, on saura que c'est toi.",
     ],
     choices: [{ back: "LI_cour" }] }),
 
   LI_cabinet_surprise: P({ title: "Ermengarde",
     text: [
-      "Une main se pose sur ton épaule. Ermengarde, en chemise de nuit, une bougie à la main. Elle regarde l'écritoire, puis toi. Elle ne dit rien pendant longtemps. Puis : « Va te coucher. Je n'ai rien vu. » Et, au moment où tu passes la porte : « Moi aussi, je les ai lues. »",
+      "Une main se pose sur ton épaule. Ermengarde, en chemise de nuit, une bougie à la main. Elle regarde l'écritoire, puis toi. Elle se tait longtemps. Puis : « Va te coucher. Je n'ai rien vu. » Et, au moment où tu passes la porte : « Moi aussi, je les ai lues. »",
     ],
     choices: [{ fx: { flag: "ermengarde:sait" }, back: "LI_cour" }] }),
 

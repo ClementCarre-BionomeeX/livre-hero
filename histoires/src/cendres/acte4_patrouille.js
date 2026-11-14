@@ -81,7 +81,7 @@ module.exports = {
       "Ils viennent sans discuter. Ils prennent leurs armes au tas, au hasard : l'Esquarrois repart avec la pique bleue, le Corvannais avec l'arbalète d'Esquarre. Personne ne corrige.",
       { after: "iv:patrouille_parle", text: "Au retour, sur le gué, la patrouille de Corvanne vous regarde passer, la lanterne levée, sans bouger." },
       { before: "iv:patrouille_parle", text: "Au retour, personne ne garde le gué." },
-      "Sur la rive d'Esquarre, Herbelot attend dans l'eau jusqu'aux genoux. Il voit Colin. Il voit l'autre. Il ne dit rien pendant longtemps.",
+      "Sur la rive d'Esquarre, Herbelot attend dans l'eau jusqu'aux genoux. Il voit Colin. Il voit l'autre. Il se tait longtemps.",
       "« Le capitaine va le faire pendre, dit-il enfin. Le Corvannais. » Il regarde les deux hommes, qui se tiennent côte à côte, trempés, étonnés. « Ou alors, je le porte sur la liste de ma compagnie, sous un nom d'ici. Les listes, c'est moi qui les tiens. »",
     ],
     choices: [
@@ -94,11 +94,11 @@ module.exports = {
     ],
     choices: [{ fx: { quest: "IV_Q_patrouille", ep: ["perso", 1000] }, back: "IV_br" }] }),
   IV_P_laisser: P({ title: "L'île", place: "brenne",
-    text: ["Tu t'assieds avec eux. Tu manges un morceau d'anguille. Ils sont heureux, sur leur île, sans nom, sans ennemi. Tu repars avant l'aube sans les déranger. À Brenne, tu dis à Herbelot que Colin n'a pas déserté. Que c'est plus compliqué. Il te regarde comme si tu lui avais menti, et il a peut-être raison."],
+    text: ["Tu t'assieds avec eux. Tu manges un morceau d'anguille. Ils sont heureux, sur leur île, délivrés de leur nom et de leurs ennemis. Tu repars avant l'aube sans les déranger. À Brenne, tu dis à Herbelot que Colin n'a pas déserté. Que c'est plus compliqué. Il te regarde comme si tu lui avais menti, et il a peut-être raison."],
     choices: [{ fx: { quest: "IV_Q_patrouille", ep: ["perso", 800] }, back: "IV_br" }] }),
   IV_P_fin: P({ title: "Colin et Colas", place: "brenne",
     text: [
-      "Le lendemain, sur la liste de la compagnie Herbelot, il y a deux noms de plus : Colin Mesnil, et en dessous, d'une écriture appliquée, Colas Mesnil, son frère. Les deux frères dorment sous la même tente. Ils ne parlent pas la même langue. Ils pêchent ensemble, le soir, au bord de la Lisse, et toute la compagnie a pris l'habitude de venir les regarder, sans rien dire.",
+      "Le lendemain, sur la liste de la compagnie Herbelot, il y a deux noms de plus : Colin Mesnil, et en dessous, d'une écriture appliquée, Colas Mesnil, son frère. Les deux frères dorment sous la même tente. Ils ne parlent pas la même langue. Ils pêchent ensemble, le soir, au bord de la Lisse, et toute la compagnie a pris l'habitude de venir les regarder, en silence.",
     ],
     choices: [{ fx: { quest: "IV_Q_patrouille" }, back: "IV_br" }] }),
 };

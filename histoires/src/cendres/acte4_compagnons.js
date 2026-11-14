@@ -43,7 +43,7 @@ module.exports = {
     choices: [{ back: "IV_br" }] }),
 
   IV_C_ysolde_deux: P({ title: "Le loup et le cerf", place: "brenne",
-    text: ["Elle ne touche pas au tombeau. Elle prend son écu à elle, celui de la compagnie, et sous le loup sur la tour, elle grave un petit cerf, dans le coin, de travers. « Le loup, c'est ce qu'on a voulu être, dit-elle. Le cerf, c'est ce qu'on a été. Je porte les deux. » Le lendemain, Gautier le voit, et ne dit rien, et le surlendemain, il y a un petit cerf gravé sur quarante écus."],
+    text: ["Elle ne touche pas au tombeau. Elle prend son écu à elle, celui de la compagnie, et sous le loup sur la tour, elle grave un petit cerf, dans le coin, de travers. « Le loup, c'est ce qu'on a voulu être, dit-elle. Le cerf, c'est ce qu'on a été. Je porte les deux. » Le lendemain, Gautier le voit, et se tait, et le surlendemain, il y a un petit cerf gravé sur quarante écus."],
     choices: [{ back: "IV_br" }] }),
 
   IV_C_ysolde_lisse: P({ title: "Lisse", place: "brenne",
@@ -56,7 +56,7 @@ module.exports = {
     text: [
       "Pie t'emmène, un soir, dans une ruelle derrière les Teinturiers, devant une porte basse au heurtoir en forme de main. Il ne frappe pas tout de suite.",
       { if: { has: "corneille:noye" }, text: "« Il habitait ici, dit-il. Maître Corneille. » Il pousse la porte. L'atelier est vide, poussiéreux, les outils rangés sur l'établi comme si quelqu'un allait revenir. Personne ne reviendra. Pie le sait mieux que quiconque. Il a encore, certaines nuits, la vase de la Pallante sous les ongles." },
-      { if: { not: { has: "corneille:noye" } }, text: "« Il habite ici, dit-il. Maître Corneille. Celui qui m'a appris. Celui qui a vendu Linette. » Il frappe. Une voix de vieillard, à l'intérieur, dit d'entrer, que c'est ouvert, que ce n'est jamais fermé, qu'il n'y a plus rien à voler." },
+      { if: { not: { has: "corneille:noye" } }, text: "« Il habite ici, dit-il. Maître Corneille. Celui qui m'a appris. Celui qui a vendu Linette. » Il frappe. Une voix de vieillard, à l'intérieur, dit d'entrer, que c'est ouvert, toujours ouvert, que tout a déjà été volé." },
     ],
     choices: [
       { label: "Entrer", hide: { has: "corneille:noye" }, to: "IV_C_pie_corneille" },
@@ -67,7 +67,7 @@ module.exports = {
     text: [
       "Il est assis devant l'établi, sous une lampe, et il grave des jetons de plomb. Des faux. Les plus beaux faux jetons de Pallanche, la plume et la clé dans le bon sens, le plomb dur. Il a quatre-vingts ans, des mains qui ne tremblent pas.",
       "« Le petit, dit-il sans lever les yeux. Tu travailles pour lui, maintenant, à ce qu'on dit. Comme moi, avant. »",
-      { if: { has: "linette:iv=libre" }, text: "Pie dit : « Elle est dehors. Linette. Elle sait lire. Elle sait qui elle est. » Corneille arrête de graver. Il pose le burin. Il ne dit rien pendant longtemps. Puis il dit : « Bien. » Et sa voix se casse sur ce seul mot." },
+      { if: { has: "linette:iv=libre" }, text: "Pie dit : « Elle est dehors. Linette. Elle sait lire. Elle sait qui elle est. » Corneille arrête de graver. Il pose le burin. Il se tait longtemps. Puis il dit : « Bien. » Et sa voix se casse sur ce seul mot." },
       { if: { not: { has: "linette:iv=libre" } }, text: "Pie dit : « Elle est encore là-haut. Linette. » Corneille ne lève pas les yeux. « Je sais. Je la vois passer, le dimanche, en rang. Je sais ce que j'ai fait. Je grave des jetons pour ne pas y penser. »" },
     ],
     choices: [{ label: "Laisser Pie parler", to: "IV_C_pie_matrice" }] }),
@@ -103,7 +103,7 @@ module.exports = {
       "Elle lave du linge au bassin, les manches retroussées, les bras rouges. Elle a trente ans. Elle voit Hylas, sa canne, ses yeux blancs, et elle s'arrête de frotter.",
       { if: { has: "hylas:annule" }, text: "« Vous, dit-elle. Le vieux greffier. Celui qui a déchiré mon reçu. » Elle s'essuie les mains. « Je vous en ai voulu, vous savez. J'ai gardé la nuit. Je l'ai gardée tout l'hiver. Et au printemps, je suis partie. Avec les enfants. Je n'aurais pas pu partir si je ne m'étais pas souvenue pourquoi. » Elle a un rire bref. « Je ne vous remercie pas. Mais je suis partie. »" },
       { if: { has: "marion:garde" }, text: "« Vous, dit-elle. Le vieux greffier. Celui qui m'a demandé si j'étais sûre. » Elle s'essuie les mains. « Je n'étais pas sûre. Je suis repartie avec mes deux sous et ma nuit. Je l'ai encore. Je suis partie de chez lui au printemps. » Elle reprend son linge. « Vous m'avez juste posé une question. C'est beaucoup, une question. »" },
-      { if: { not: { any: [{ has: "hylas:annule" }, { has: "marion:garde" }] } }, text: "Elle ne le reconnaît pas. Elle n'a aucune raison de le reconnaître. Elle a cédé sa nuit, il y a un an, pour deux sous. Elle a un bleu sur la pommette. Elle vit toujours avec lui. Elle ne sait pas pourquoi elle reste. Elle ne se souvient pas d'avoir eu une raison de partir." },
+      { if: { not: { any: [{ has: "hylas:annule" }, { has: "marion:garde" }] } }, text: "Pour elle, il est un inconnu, et c'est bien naturel. Elle a cédé sa nuit, il y a un an, pour deux sous. Elle a un bleu sur la pommette. Elle vit toujours avec lui. Elle reste, par habitude. Sa raison de partir, elle l'a oubliée." },
     ],
     choices: [
       { label: "Laisser Hylas lui parler", hide: { any: [{ has: "hylas:annule" }, { has: "marion:garde" }] }, to: "IV_C_hylas_bocal" },

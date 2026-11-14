@@ -44,7 +44,7 @@ module.exports = {
   V_souvenir_porte: { act: "II", title: "Un souvenir", place: "combes",
     text: [
       "La souillarde est si petite que tu dois baisser la tête. L'évier, la fenêtre éclatée. Et c'est là que ça revient, comme une gifle.",
-      "La fumée. Tu ne vois rien, tu tousses, tu as la tête qui saigne et qui sonne. Quelqu'un tousse à côté de toi, plus petit, plus aigu. Tu te traînes jusqu'à la porte, tu trouves l'anneau dans le noir, tu tires, et l'anneau est brûlant, il te mord la main jusqu'à l'os, et tu tires quand même, et la porte ne bouge pas. Elle ne bouge pas. Elle ne bouge pas.",
+      "La fumée. Tu ne vois rien, tu tousses, tu as la tête qui saigne et qui sonne. Quelqu'un tousse à côté de toi, plus petit, plus aigu. Tu te traînes jusqu'à la porte, tu trouves l'anneau dans le noir, tu tires, et l'anneau est brûlant, il te mord la main jusqu'à l'os, et tu tires quand même, et la porte ne bouge pas. Elle reste immobile. Elle reste immobile.",
       "Alors tu lâches, et tu cherches autre chose. Un tabouret. La fenêtre de la souillarde. Tu frappes jusqu'à ce que le bois éclate. Tu prends l'enfant qui tousse, tu la soulèves, elle est légère, tu la pousses dehors par la fenêtre, dans la neige. Tu passes derrière elle. Tes épaules restent coincées. Tu forces. Tu tombes.",
       "Dehors, la neige, le froid, et une lanterne qui se balance au coin de la maison, et une voix d'homme qui crie un prénom que tu ne comprends pas.",
     ],

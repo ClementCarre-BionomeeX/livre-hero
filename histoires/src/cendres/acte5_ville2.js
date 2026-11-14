@@ -39,7 +39,7 @@ module.exports = {
     ] }),
   V_v_fillette_mere: P({ title: "Le troisième couplet", place: "pallanche",
     text: [
-      "Tu poses les mains sur les épaules de la femme. Elle sourit à la neige. Tu ne sais pas quoi dire. Alors tu chantes, très bas, à son oreille, la seule chose qui te vient : une berceuse. Celle de ta mère, ou une autre, peu importe, toutes les berceuses se ressemblent au troisième couplet.",
+      "Tu poses les mains sur les épaules de la femme. Elle sourit à la neige. Les mots te manquent. Alors tu chantes, très bas, à son oreille, la seule chose qui te vient : une berceuse. Celle de ta mère, ou une autre, peu importe, toutes les berceuses se ressemblent au troisième couplet.",
       "La femme cligne des yeux. Elle se retourne. Elle voit sa fille. Elle ne sait pas comment elle s'appelle. Mais elle la prend dans ses bras, et elle sort de la queue, et elle s'en va vers une porte, en la serrant si fort que la petite proteste.",
     ],
     choices: [{ back: "V_ville" }] }),

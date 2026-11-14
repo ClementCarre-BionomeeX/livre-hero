@@ -17,11 +17,11 @@ module.exports = {
 
   IV_berger: P({ title: "L'année blanche", place: "col",
     text: [
-      "« L'année blanche, dit Josse. C'est comme ça qu'on l'appelle. Vous n'étiez pas là ? » Il ne pose pas d'autre question. Dans la montagne, cette année, on a appris à ne pas en poser.",
-      "« La nuit où la montagne a craqué, fin d'été, on l'a entendue jusqu'à Pont-de-Saule. Ensuite il a neigé. Pas de la neige d'hiver : la blanche. Tout l'automne, tout l'hiver. Des vallées entières. On montait au village d'à côté, et on trouvait des maisons, des gens dedans, et personne ne savait le nom de personne. Au printemps, elle s'est arrêtée. D'un coup. Comme si quelqu'un avait serré le poing. »",
+      "« L'année blanche, dit Josse. C'est comme ça qu'on l'appelle. Vous n'étiez pas là ? » Il s'en tient là. Dans la montagne, cette année, on a appris à se passer de réponses.",
+      "« La nuit où la montagne a craqué, fin d'été, on l'a entendue jusqu'à Pont-de-Saule. Ensuite il a neigé. La blanche, pas celle de l'hiver. Tout l'automne, tout l'hiver. Des vallées entières. On montait au village d'à côté, et on trouvait des maisons, des gens dedans, et personne ne savait le nom de personne. Au printemps, elle s'est arrêtée. D'un coup. Comme si quelqu'un avait serré le poing. »",
       { if: REG_REINE, text: "« À Vasselin, la reine a fermé la Chancellerie. On dit qu'elle a lu un livre qu'elle n'aurait pas dû lire. Le Greffier-Majeur s'est enfermé dans sa tour, à Pallanche, avec ses greffiers, et la ville est à lui. La reine n'ose pas l'assiéger. On dit qu'il a de quoi faire oublier une armée. »" },
       { if: REG_GREF, text: "« À Pallanche, des greffiers en fuite lisent des listes sur les places. Des noms, des villages, ce que les gens ont vendu au Bureau. On les appelle les Liseurs. La moitié des gens les écoutent en pleurant, l'autre moitié leur jette des pierres. Le Greffier-Majeur les fait pendre quand il les attrape. La reine le laisse faire. »" },
-      { if: REG_CLAN, text: "« Le Greffier-Majeur a perdu quelque chose, l'an passé, à ce qu'on dit, et depuis il fait chercher partout, jusque dans la montagne. Ses gens en gris sont passés ici trois fois. Ils demandaient après un jeune homme aux yeux gris presque blancs. » Il te regarde. Il ne dit rien de plus." },
+      { if: REG_CLAN, text: "« Le Greffier-Majeur a perdu quelque chose, l'an passé, à ce qu'on dit, et depuis il fait chercher partout, jusque dans la montagne. Ses gens en gris sont passés ici trois fois. Ils demandaient après un jeune homme aux yeux gris presque blancs. » Il te regarde. Il s'en tient là." },
       "« Et puis il y a la guerre. Corvanne dit que c'est Esquarre qui a envoyé la neige, parce que chez eux aussi des villages ont disparu. Les armées sont sur la Lisse depuis le printemps. On dit qu'il y aura bataille au pont avant les foins. » Il crache dans l'herbe. « Au même pont. Comme si un pont, ça ne suffisait pas une fois. »",
     ],
     choices: [{ label: "Descendre au moutier des Veilleurs", fx: { clue: "n_annee_blanche" }, to: "IV_moutier_arrivee" }] }),
@@ -73,7 +73,7 @@ module.exports = {
   IV_ombeline_partagee: P({ title: "Le serment", place: "moutier",
     text: [
       "Pour que la faim ne prenne pas tout, il faut lui donner quelque chose à ronger. Tu le sais sans qu'on te le dise. Tu lui donnes le serment fait à Joris, à dix ans : « si un jour je ne suis plus là, tu veilleras sur eux ». Elle le mange. Elle se calme.",
-      "Tu essaies de te rappeler ce que tu as promis à ton père, un jour, il y a longtemps. Tu sais qu'il y a eu une promesse. Tu ne sais plus laquelle. Tu as un peu moins envie de rentrer.",
+      "Tu essaies de te rappeler ce que tu as promis à ton père, un jour, il y a longtemps. Tu sais qu'il y a eu une promesse. Laquelle, tu l'as oublié. Tu as un peu moins envie de rentrer.",
       "Ombeline a les yeux pleins de larmes. « Ça ne se fait pas, dit-elle. On ne prend pas la moitié du fardeau des autres. » Elle va chercher son manteau quand même.",
     ],
     choices: [{ back: "IV_moutier" }] }),

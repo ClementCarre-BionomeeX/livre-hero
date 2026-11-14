@@ -20,24 +20,24 @@ module.exports = {
     ] }),
   YS_Q_forge_oui: YS({ title: "Cent vingt paires",
     text: [
-      "Hugues hoche la tête. Il reprend son marteau. Il ne dit rien. Il ne te regarde plus. Le bruit du marteau te suit dans la cour, régulier, jusqu'au soir, et le soir encore, quand tu essaies de dormir.",
+      "Hugues hoche la tête. Il reprend son marteau. Il se tait, les yeux sur son enclume. Le bruit du marteau te suit dans la cour, régulier, jusqu'au soir, et le soir encore, quand tu essaies de dormir.",
       "Tu as donné des ordres plus durs. Tu en as donné, sur la Lisse, que tu ne te rappelles plus. Celui-là, tu te le rappelleras. Tu le sais en sortant de la forge.",
     ],
     choices: [{ fx: { quest: "YS_Q_forge" }, back: "YS_cour" }] }),
   YS_Q_forge_corde: YS({ title: "La corde",
     text: [
       "Hugues pose son marteau. Il regarde la pile de fers. Puis il prend la pile à bras-le-corps, et il la verse dans le bac à charbon, d'un coup, avec un bruit de cloche qui tombe.",
-      "« Une corde, dit-il. C'est plus long à défaire, une corde. Mais ça ne marque pas les poignets. » Il s'essuie les mains. « Votre père aurait dit pareil. » Tu ne sais pas si c'est vrai. Tu ne lui demandes pas.",
+      "« Une corde, dit-il. C'est plus long à défaire, une corde. Mais ça ne marque pas les poignets. » Il s'essuie les mains. « Votre père aurait dit pareil. » Vrai ou faux, tu lui laisses son histoire.",
     ],
     choices: [{ fx: { quest: "YS_Q_forge" }, back: "YS_cour" }] }),
   YS_Q_forge_mauvais: YS({ title: "Le fer aigre",
     text: [
       "Hugues te regarde, longtemps. Puis il sourit, pour la première fois depuis que tu es entrée, un sourire de travers dans la barbe noire. « Du fer aigre, dit-il. Trempé trop vite. Ça a l'air de tenir. Ça casse au premier coup de pierre. » Il reprend son marteau. « Je ne sais pas faire de mauvais fers, capitaine. Mais pour vous, je vais apprendre. »",
-      "Le soir, il en dépose une paire sur ta table, sans un mot. Tu la prends. Tu la frappes sur le bord de la table. Elle se brise net, en deux, comme du sucre.",
+      "Le soir, il en dépose une paire sur ta table, en silence. Tu la prends. Tu la frappes sur le bord de la table. Elle se brise net, en deux, comme du sucre.",
     ],
     choices: [{ fx: { quest: "YS_Q_forge" }, back: "YS_cour" }] }),
   YS_Q_forge_refus: YS({ title: "Le métier",
-    text: ["« Non, dit Hugues. Un mauvais fer, c'est un fer qui casse au mauvais moment. Sur un cheval, sur une herse. Je ne fais pas ça. Pas même pour vous. » Il te regarde. « Si vous ne voulez pas de fers, dites-le. Mais dites-le, capitaine. Ne me demandez pas de mentir à votre place. » Il attend. Tu ne dis rien. Il reprend son marteau."],
+    text: ["« Non, dit Hugues. Un mauvais fer, c'est un fer qui casse au mauvais moment. Sur un cheval, sur une herse. Je ne fais pas ça. Pas même pour vous. » Il te regarde. « Si vous ne voulez pas de fers, dites-le. Mais dites-le, capitaine. Ne me demandez pas de mentir à votre place. » Il attend. Tu te tais. Il reprend son marteau."],
     choices: [{ fx: { quest: "YS_Q_forge", flag: "ysolde:fers=faits" }, back: "YS_cour" }] }),
 
   // ---------------------------------------------------------------- Vasselin : la couturière
@@ -61,7 +61,7 @@ module.exports = {
     choices: [{ fx: { quest: "LI_Q_ourlet" }, back: "LI_cour" }] }),
   LI_Q_ourlet_ilan: LI({ title: "Ilan",
     text: [
-      "Elle ne demande pas qui c'est. Elle coud. Quatre lettres. Elle fait un nœud, coupe le fil avec les dents, et dit, sans te regarder : « C'est un nom de Corvanne. » Tu ne réponds pas. Elle lisse l'ourlet. « Je ne l'ai pas cousu. Je n'ai rien vu. Mais il est là. »",
+      "Elle ne demande pas qui c'est. Elle coud. Quatre lettres. Elle fait un nœud, coupe le fil avec les dents, et dit, sans te regarder : « C'est un nom de Corvanne. » Tu te tais. Elle lisse l'ourlet. « Je ne l'ai pas cousu. Je n'ai rien vu. Mais il est là. »",
     ],
     choices: [{ fx: { quest: "LI_Q_ourlet" }, back: "LI_cour" }] }),
   LI_Q_ourlet_heloise: LI({ title: "Héloïse",

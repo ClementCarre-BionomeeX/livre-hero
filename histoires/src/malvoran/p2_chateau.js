@@ -151,7 +151,7 @@ add({
     text: [
       "Le conduit est étroit, tiède, et tu y montes les coudes écartés, les genoux contre la pierre, en crachant la suie. En haut du coude, il y a un rebord où des générations de choucas ont fait leur nid ; tu t'y reposes un instant, couché{e} sur les brindilles, et tu regardes en bas.",
       "En bas, c'est la cuisine. Un foyer large comme une chambre, une marmite pendue à une crémaillère, et à côté, une femme, petite, en tablier, les manches roulées, qui remue avec une louche de bois plus longue que son bras. Un jeune troll tourne une broche où grille un mouton entier.",
-      "Tu te laisses glisser le long du conduit, doucement, les pieds en avant, et tu te poses dans la cendre froide, sur le côté du foyer, sans un bruit. La femme se retourne quand même. Elle a dû sentir l'air changer.",
+      "Tu te laisses glisser le long du conduit, doucement, les pieds en avant, et tu te poses dans la cendre froide, sur le côté du foyer, en silence. La femme se retourne quand même. Elle a dû sentir l'air changer.",
     ],
     choices: [{ label: "Sortir du foyer", to: "PT_cuisines" }] },
 
@@ -381,7 +381,7 @@ add({
   PT_bourle: { act: "P", title: "Bourle", place: "chateau",
     fx: { flag: "PT:bourle_ami", regard: { pt_bourle: "curieux" }, ep: ["perso", 200] },
     text: [
-      "Bourle est jeune, pour un troll : pas beaucoup plus grand qu'un homme, la peau encore lisse par endroits, d'un gris de pierre mouillée, et des oreilles trop grandes qui bougent toutes seules. Il sort de derrière son sac de farine quand tu t'accroupis devant lui, et il te tend, sans un mot, un oignon épluché. C'est ce qu'il a de plus précieux en main.",
+      "Bourle est jeune, pour un troll : pas beaucoup plus grand qu'un homme, la peau encore lisse par endroits, d'un gris de pierre mouillée, et des oreilles trop grandes qui bougent toutes seules. Il sort de derrière son sac de farine quand tu t'accroupis devant lui, et il te tend, en silence, un oignon épluché. C'est ce qu'il a de plus précieux en main.",
       "Tu le prends. Il sourit, d'un sourire immense et plein de trous. « Bourle faire pain, dit-il. Aglaé apprendre. Bourle faire bon pain. » Tu lui dis que ça sent très bon, et c'est vrai. Il en devient vert sombre, ce qui doit être sa façon de rougir.",
       "Puis, en regardant ses pieds : « Grauk pas dormir. Bourle pas dormir non plus. Sous la cuisine, ça chante. Bourle mettre doigts dans oreilles. Pas marcher. » Il met ses doigts dans ses oreilles, pour te montrer. Il a l'air d'un enfant qui attend qu'on lui dise que ça va aller.",
     ],
@@ -398,7 +398,7 @@ add({
   PT_aglae_repas: { act: "P", title: "La soupe d'Aglaé", place: "chateau",
     fx: { pv: "max", food: 1 },
     text: [
-      "Aglaé te sert une écuelle de soupe de lard et de fèves, épaisse à y planter la cuillère, avec une tranche de pain encore tiède. Elle te regarde manger comme regardent les cuisinières, sans rien dire, en guettant la deuxième bouchée, qui est toujours celle qui compte.",
+      "Aglaé te sert une écuelle de soupe de lard et de fèves, épaisse à y planter la cuillère, avec une tranche de pain encore tiède. Elle te regarde manger comme regardent les cuisinières, en silence, en guettant la deuxième bouchée, qui est toujours celle qui compte.",
       "« Ça fait deux hivers que je cuisine pour des gens qui ne savent pas ce qu'ils mangent », dit-elle quand tu racles le fond. Elle a les yeux brillants, et elle se retourne vers sa marmite pour que tu ne le voies pas. Elle te glisse dans le sac un pain entier et un morceau de fromage, enveloppés dans un torchon.",
     ],
     choices: [{ back: "PT_cuisines" }] },
@@ -430,7 +430,7 @@ add({
   PT_aglae_descente: { act: "P", title: "Le baluchon", place: "chateau",
     fx: { set: { aglae: "ramenee" }, quest: "P_aglae", fac: { bornes: 10 }, regard: { aglae: "redevable" }, ep: ["seance", 600] },
     text: [
-      "Elle met une heure à faire son baluchon. Elle n'a presque rien : un tablier de rechange, un couteau à désosser, une cuillère de buis qu'elle a sculptée elle-même pendant le premier hiver. Bourle la regarde faire sans rien dire, assis sur le sac de farine, et quand elle a fini il lui tend l'oignon qu'il gardait dans sa poche. Elle le prend. Elle l'embrasse sur le front, et il faut qu'elle se mette sur la pointe des pieds.",
+      "Elle met une heure à faire son baluchon. Elle n'a presque rien : un tablier de rechange, un couteau à désosser, une cuillère de buis qu'elle a sculptée elle-même pendant le premier hiver. Bourle la regarde faire en silence, assis sur le sac de farine, et quand elle a fini il lui tend l'oignon qu'il gardait dans sa poche. Elle le prend. Elle l'embrasse sur le front, et il faut qu'elle se mette sur la pointe des pieds.",
       "Tu la conduis par la grande porte. Les trolls se rangent contre les murs pour la laisser passer, et quelques-uns ôtent leur bonnet, gauchement, sans savoir pourquoi. Ragne lui ouvre le battant. « Femme partir, dit-il. Pain partir. » Il a l'air de comprendre la catastrophe mieux que les autres.",
       "Au bord du replat, là où le sentier plonge vers la vallée, elle s'arrête. En bas, très loin, on voit fumer les six cheminées des Trois-Bornes. Elle les regarde longtemps. « Elles sont plus petites que dans mon souvenir », dit-elle. Puis elle s'assoit sur son baluchon, près de ta halte, sous le rempart. « Je descendrai avec toi. Quand tu descendras. Je ne veux pas arriver toute seule, après deux hivers. Je veux qu'on voie que quelqu'un est venu me chercher. »",
     ],
@@ -483,7 +483,7 @@ add({
       { label: "« Je ne vole rien. Je cherche quelque chose qui n'est pas aux trolls. »", test: { dom: "social", diff: 0, label: "Convaincre Moufle", help: [{ if: { has: "PT:hote" }, v: 10 }] },
         win: { fx: { flag: "PT:tresor_ouvert", regard: { pt_moufle: "curieux" }, ep: ["perso", 300] }, to: "PT_tresor" }, lose: { to: "PT_tresor_combat" } },
       { label: "Le frapper avant qu'il donne l'alerte", to: "PT_tresor_combat" },
-      { label: "T'éloigner sans rien dire", back: "PT_cour" },
+      { label: "T'éloigner en silence", back: "PT_cour" },
     ] },
 
   PT_tresor_combat: { act: "P", title: "Moufle", place: "chateau",
@@ -536,7 +536,7 @@ add({
       { if: { has: "maitre:hauberte" }, text: "Hauberte t'a écrit : ne prends rien que tu ne saurais rendre. Elle le disait déjà quand tu étais petit{e}, en te tapant sur les doigts avec le plat de son épée." },
       { if: { has: "maitre:ortie" }, text: "Ortie t'a écrit : ne prends rien que tu ne saurais rendre. Elle le disait des plantes, autrefois : on ne cueille pas la dernière." },
       { if: { has: "maitre:maelle" }, text: "Maëlle t'a écrit : ne prends rien que tu ne saurais rendre. Elle le disait des livres, autrefois, en te les prêtant un par un." },
-      { with: "pip", text: "Pip ne dit rien. Il s'est posé sur le bord du coffre, et il te regarde faire." },
+      { with: "pip", text: "Pip se tait. Il s'est posé sur le bord du coffre, et il te regarde faire." },
     ],
     choices: [
       { label: "Tout prendre : ça ne sert à personne ici", fx: { gold: 25, flag: "PT:or_pris", conf: { pip: -5 } }, back: "PT_tresor" },
@@ -597,7 +597,7 @@ add({
     text: [
       "Il s'appelle Moufle. Il te le dit tout de suite, fièrement, et puis il a l'air inquiet de l'avoir dit, et il regarde le sol. « Pas dire nom, dit-il. Grauk dit. Mais toi, homme. Homme pas chanter. »",
       "Tu t'assois sur le bord de sa mangeoire. Il se pousse pour te faire de la place, poliment. Et il parle, tout bas, en roulant le bord de sa couverture entre ses doigts énormes. « Avant, Hurle. Frère de Grauk. Hurle fort, Hurle pas peur. Hurle descendre caves, avec torche, pour faire taire chanson. Hurle pas remonter. » Il se tait. « Grauk attendre. Trois jours. Après, Grauk plus dormir. Grauk mettre trône. Été, homme du charbon regarder en bas, homme courir, cheveux blancs. Après, Grauk mettre tonneaux. »",
-      "Il te regarde. « Toi descendre ? » Tu ne réponds pas. Il hoche la tête comme si tu avais dit oui. « Si toi voir Hurle, toi dire : Moufle pas oublier. »",
+      "Il te regarde. « Toi descendre ? » Tu te tais. Il hoche la tête comme si tu avais dit oui. « Si toi voir Hurle, toi dire : Moufle pas oublier. »",
     ],
     choices: [{ back: "PT_dortoirs" }] },
 
@@ -757,8 +757,8 @@ add({
     fx: { set: { roi: "combat" }, flag: "grauk:mort", quest: "P_roi", fac: { bornes: 5 }, ep: ["seance", 600] },
     text: [
       "Tu le fais vite. C'est tout ce qu'on peut faire de bien, dans ces cas-là. Grauk bascule sur le côté, lentement, et il reste couché devant son trône de charrette, et la couronne de fer roule jusqu'au bord de la fosse et tourne un moment sur elle-même avant de se coucher.",
-      "Personne ne dit rien. Les trois trolls regardent le corps de leur roi. Puis l'un d'eux, le plus jeune, se met à pleurer, bruyamment, comme un enfant, la bouche ouverte. Les deux autres ne le font pas taire.",
-      "Quand tu leur dis de dégager la porte des caves, ils obéissent sans un mot, comme on obéit au roi. Ils roulent les tonneaux contre le mur, un par un. Tu n'es pas leur roi. Tu ne le seras pas. Mais pour l'heure, il n'y a personne d'autre.",
+      "Personne se tait. Les trois trolls regardent le corps de leur roi. Puis l'un d'eux, le plus jeune, se met à pleurer, bruyamment, comme un enfant, la bouche ouverte. Les deux autres ne le font pas taire.",
+      "Quand tu leur dis de dégager la porte des caves, ils obéissent en silence, comme on obéit au roi. Ils roulent les tonneaux contre le mur, un par un. Tu n'es pas leur roi. Tu ne le seras pas. Mais pour l'heure, il n'y a personne d'autre.",
     ],
     choices: [{ label: "Descendre par la porte des caves", big: true, to: "PT_caves_escalier" }] },
 
@@ -904,7 +904,7 @@ add({
       { first: true, if: { all: [{ has: "roi=combat" }, { has: "grauk:vivant" }] }, text: "Grauk s'est assis sur la première marche, une main sur ses côtes, et il te regarde passer à côté de lui. « Toi remonter », dit-il. Ce n'est pas un ordre. C'est presque une prière." },
       { first: true, text: "L'escalier tourne sur lui-même, taillé dans le roc de la crête, et les marches sont usées en creux par des siècles de pieds, glissantes, humides. L'air qui monte est tiède. Il ne devrait pas l'être : sous une montagne, en automne, l'air des caves est froid. Celui-là sent la pierre mouillée et, par-dessous, une douceur de vase au soleil." },
       { again: true, before: "P:pierre", text: "L'escalier tourne dans le noir. L'air tiède, la douceur de vase." },
-      { after: "P:pierre", text: "L'escalier ne descend plus très loin. À la dixième marche, il plonge dans une eau noire, immobile, lisse comme une ardoise, qui a noyé les caves jusqu'à la voûte. Rien ne chante plus là-dessous. Rien ne bouge. Tu jettes un caillou : il entre dans l'eau sans un bruit, sans une ride." },
+      { after: "P:pierre", text: "L'escalier ne descend plus très loin. À la dixième marche, il plonge dans une eau noire, immobile, lisse comme une ardoise, qui a noyé les caves jusqu'à la voûte. Rien ne chante plus là-dessous. Rien ne bouge. Tu jettes un caillou : il entre dans l'eau en silence, sans une ride." },
     ],
     choices: [
       { label: "Descendre jusqu'aux caves", big: true, hide: { has: "P:pierre" }, to: "PT_caves_haut" },
@@ -983,7 +983,7 @@ add({
 
   PT_caves_eau: { act: "P", title: "L'escalier de l'eau", place: "chateau", ambiance: "souterrain",
     text: [
-      "L'escalier de droite descend vingt marches, et la vingt et unième est sous l'eau. Une eau noire, parfaitement immobile, qui remplit une salle basse dont tu ne vois pas le fond. Pas un clapotis. Pas une ride, même quand une goutte tombe de la voûte : la goutte entre dans l'eau sans un bruit, et l'eau se referme dessus.",
+      "L'escalier de droite descend vingt marches, et la vingt et unième est sous l'eau. Une eau noire, parfaitement immobile, qui remplit une salle basse dont tu ne vois pas le fond. Pas un clapotis. Pas une ride, même quand une goutte tombe de la voûte : la goutte entre dans l'eau en silence, et l'eau se referme dessus.",
       "Tu t'accroupis et tu effleures la surface du bout des doigts. Elle est tiède. Plus tiède que l'air. Et quand tu retires la main, l'eau a laissé sur ta peau un film gras, sombre, que tu dois essuyer longtemps contre la pierre.",
       "De l'autre côté, à trente pas peut-être, une corniche sort de l'eau et file vers la gauche, vers le chant. On pourrait traverser. Ça n'a pas l'air profond. Ça n'a l'air de rien.",
     ],
@@ -1128,7 +1128,7 @@ add({
       "Tu te baisses, et tu le ramasses. Il est tiède, presque chaud, plus lourd qu'il ne devrait l'être, et il bat contre ta paume, régulièrement, au rythme de ton propre cœur, puis un peu plus vite, comme pour te montrer le chemin. Une force douce te remonte dans le bras, dans l'épaule, dans la tête. Tout devient plus net. Les ombres de la grotte, les lignes de la pierre, les mots que tu pourrais dire : tout est là, à portée.",
       "Quand tu ouvres la main pour le regarder, il y a sur ta paume, là où il était posé, une tache. Petite, ronde, noire, de la taille d'une lentille. Elle ne part pas quand tu frottes. Elle ne fait pas mal.",
       "« Merci », dit la voix. Seulement ça. Elle a l'air sincèrement heureuse, et c'est peut-être ce qui te fait le plus froid dans le dos.",
-      { with: "pip", text: "Pip est sorti de ton col. Il s'est posé sur ton autre épaule, celle de la main propre, et il regarde la tache sur ta paume sans rien dire. Il ne revient pas contre ton cou." },
+      { with: "pip", text: "Pip est sorti de ton col. Il s'est posé sur ton autre épaule, celle de la main propre, et il regarde la tache sur ta paume en silence. Il ne revient pas contre ton cou." },
     ],
     choices: [{ label: "La pierre tremble", big: true, to: "PT_chant_monte" }] },
 
@@ -1136,7 +1136,7 @@ add({
     fx: { flag: "eclat:refuse", conf: { pip: 10 }, ep: ["seance", 600] },
     text: [
       "Tu ne te baisses pas. Tu regardes l'éclat qui bat à tes pieds, au bord de l'eau noire, et tu dis non. Pas fort. Il n'y a pas besoin de le dire fort.",
-      "Le visage de vase ne change pas d'expression. « Comme tu voudras, dit-il. Je suis patiente. J'ai l'habitude d'attendre, tu sais. J'ai attendu bien plus longtemps que toi. » L'éclat glisse en arrière, lentement, et s'enfonce dans la flaque sans un bruit. « Il y en aura d'autres. Il y a toujours d'autres cadeaux. »",
+      "Le visage de vase ne change pas d'expression. « Comme tu voudras, dit-il. Je suis patiente. J'ai l'habitude d'attendre, tu sais. J'ai attendu bien plus longtemps que toi. » L'éclat glisse en arrière, lentement, et s'enfonce dans la flaque en silence. « Il y en aura d'autres. Il y a toujours d'autres cadeaux. »",
       { with: "pip", text: "Contre ton cou, Pip se remet à briller, tout doucement, comme une braise sur laquelle on souffle." },
     ],
     choices: [{ label: "La pierre tremble", big: true, to: "PT_chant_monte" }] },
@@ -1147,7 +1147,7 @@ add({
       "Tu prends l'éclat du bout des doigts, sans le serrer, comme on prend une braise. Il est brûlant et il bat. Tu remontes jusqu'à la fissure, et tu le remets à sa place, dans la lèvre de pierre d'où il est tombé, et tu appuies, de la paume, de tout ton poids, comme les mains de la cave appuyaient sur les murs.",
       "Il tient. Un instant, il tient. Toute la main de pierre frémit sous ta paume, et la note grave monte d'un ton, comme un soupir, comme quelqu'un qu'on aide à porter et qui sent, pour la première fois depuis des siècles, une autre épaule sous la charge. Puis l'éclat glisse à nouveau et retombe dans la flaque. Ça ne suffit pas. Ça ne pouvait pas suffire. Mais ta paume, quand tu la retires, est propre.",
       "Dans la flaque, le visage de vase a perdu son sourire. Pour la première fois, sa voix a un tranchant. « Ce n'est pas à toi de rendre ce que je donne. »",
-      { with: "pip", text: "Pip sort de ton col et vient se poser sur la pierre, à l'endroit exact où ta main était posée. Il y reste un moment, sans rien dire, tout lumineux." },
+      { with: "pip", text: "Pip sort de ton col et vient se poser sur la pierre, à l'endroit exact où ta main était posée. Il y reste un moment, en silence, tout lumineux." },
     ],
     choices: [{ label: "La pierre tremble", big: true, to: "PT_chant_monte" }] },
 });
@@ -1271,7 +1271,7 @@ add({
     text: [
       { first: true, text: "Tu es à mi-pente d'une falaise, sur une étroite vire de bruyère, et devant toi, il y a l'autre côté du monde. La crête, derrière toi, coupe le ciel en deux. De ce côté-ci, la montagne tombe en gradins de rocs et de pins vers une vallée large, douce, encore pleine de brume, où l'on devine une rivière, des moulins, des toits. La Sorbe. Et loin, très loin à l'est, au-dessus de la brume, une ligne blanche et dure accroche les premiers rayons : le glacier de la Fenne." },
       { first: true, text: "Le soleil se lève. Il sort de derrière la Fenne, rouge, puis doré, et la lumière arrive sur la vallée, sur les pins, sur la falaise, sur toi." },
-      { first: true, with: "pip", text: "Pip ne dit rien. Il est sorti de ton col, il s'est posé sur ton épaule, et il regarde le soleil se lever. Il le regarde en face, sans ciller, lui qui craignait ta petite flamme. Sa propre lumière, à côté, est presque invisible. Puis il dit, très bas, d'une voix que tu ne lui connaissais pas : « Oh. » Rien d'autre. Il ne dira rien d'autre pendant longtemps." },
+      { first: true, with: "pip", text: "Pip se tait. Il est sorti de ton col, il s'est posé sur ton épaule, et il regarde le soleil se lever. Il le regarde en face, sans ciller, lui qui craignait ta petite flamme. Sa propre lumière, à côté, est presque invisible. Puis il dit, très bas, d'une voix que tu ne lui connaissais pas : « Oh. » Rien d'autre. Il ne dira rien d'autre pendant longtemps." },
       { first: true, if: { item: "eclat" }, text: "Dans ta poche, l'éclat bat contre ta cuisse. Dans la lumière du matin, la tache sur ta paume a l'air plus noire encore." },
       { again: true, text: "La vire de bruyère, la vallée de la Sorbe sous la brume, la Fenne au loin. La poterne, derrière toi, est un trou noir dans les ronces." },
       "Pour retourner au château, il n'y a qu'à suivre la vire jusqu'au col, et reprendre la crête vers l'ouest. Une demi-journée de marche.",
@@ -1319,7 +1319,7 @@ add({
     text: [
       "Tu sors de ton sac le torque de bronze, et tu le poses sur le parapet, à côté de lui. Grauk le regarde. Il ne le prend pas tout de suite. Il le touche du bout d'un doigt, comme on touche quelque chose de chaud.",
       "Tu lui dis où tu l'as trouvé. Dans le dernier cachot, le dos à la porte, les mains contre la pierre. Qu'il n'avait pas une blessure. Qu'il n'avait pas fui. Qu'il avait tenu.",
-      "Grauk ferme les yeux. Il reste longtemps comme ça, le torque dans le creux de sa main, sans rien dire, pendant que le vent passe sur la crête. Quand il les rouvre, ses yeux sont mouillés, et il ne s'en cache pas. « Hurle fort, dit-il. Hurle pas peur. » Il passe le torque à son propre cou. « Maintenant Grauk porter. »",
+      "Grauk ferme les yeux. Il reste longtemps comme ça, le torque dans le creux de sa main, en silence, pendant que le vent passe sur la crête. Quand il les rouvre, ses yeux sont mouillés, et il ne s'en cache pas. « Hurle fort, dit-il. Hurle pas peur. » Il passe le torque à son propre cou. « Maintenant Grauk porter. »",
     ],
     choices: [{ back: "PT_abords" }] },
 
@@ -1327,7 +1327,7 @@ add({
     text: [
       "Les trolls sortent du château par la grande porte, un par un, en file, avec leurs baluchons de rapines sur le dos. Ils ne savent pas où ils vont. Sans Grauk, il n'y a plus personne pour décider de rester, alors ils partent, vers le nord, vers les forêts plus hautes, là où il n'y a pas d'hommes.",
       { if: { has: "aglae=reste" }, text: "Pas tous. Une demi-douzaine restent sur le seuil avec Aglaé, qui leur crie dessus en agitant sa louche, et Bourle à côté d'elle, droit comme un piquet. Ceux-là ont choisi la soupe plutôt que la forêt." },
-      "Ragne passe le dernier. Il s'arrête devant toi, il te regarde de ses petits yeux jaunes. « Toi tuer Grauk, dit-il. Coutume dit : toi roi. » Il attend. Tu ne dis rien. Il hoche la tête comme s'il s'y attendait. « Pas de roi, alors. » Et il s'en va, sa massue sur l'épaule, sans se retourner.",
+      "Ragne passe le dernier. Il s'arrête devant toi, il te regarde de ses petits yeux jaunes. « Toi tuer Grauk, dit-il. Coutume dit : toi roi. » Il attend. Tu te tais. Il hoche la tête comme s'il s'y attendait. « Pas de roi, alors. » Et il s'en va, sa massue sur l'épaule, sans se retourner.",
     ],
     choices: [
       { label: "Rattraper Ragne, et lui confier le torque de Hurle pour les siens", if: { item: "pt_torque" }, hide: { not: { item: "pt_torque" } }, fx: { drop: "pt_torque", flag: "PT:torque_rendu", regard: { pt_ragne: "redevable" }, ep: ["perso", 300] }, back: "PT_abords" },
@@ -1342,7 +1342,7 @@ add({
       { if: { has: "grauk:allie" }, text: "Une nuit, sur la crête, on entend chanter les trolls. Pas le chant d'en dessous : une vraie chanson de trolls, fausse et joyeuse, qui dure jusqu'au matin. Personne au hameau n'a jamais entendu ça. Mère Ternes dit que ça veut dire qu'ils dorment, à présent, et qu'ils se réveillent contents." },
       { after: "PT:torque_rendu", text: "Le torque de bronze de Hurle est retourné aux trolls. Tu y repenses parfois, à ce grand corps gris assis le dos à la porte, les mains contre la pierre, et tu te demandes combien d'autres, avant lui, ont tenu comme ça sans que personne le sache." },
       { if: { has: "grauk:mort" }, text: "On dit au hameau que les trolls sont partis vers le nord, sauf quelques-uns. On dit aussi que tu as tué leur roi. On te regarde un peu autrement, après ça : avec plus de respect, et un peu moins de chaleur." },
-      { if: { has: "aglae=ramenee" }, text: "Aglaé a repris sa cuisine à la Lanterne, comme si elle ne l'avait jamais quittée. Elle te fait porter une tourte chaque dimanche, sans un mot." },
+      { if: { has: "aglae=ramenee" }, text: "Aglaé a repris sa cuisine à la Lanterne, comme si elle ne l'avait jamais quittée. Elle te fait porter une tourte chaque dimanche, en silence." },
       { if: { has: "aglae=libre" }, text: "On reçoit, un jour, par un colporteur, une lettre de Sorbe-le-Bas, dictée à un écrivain public : Aglaé est chez sa sœur. Elles se disputent toujours pour l'armoire. Elle est heureuse." },
       { if: { has: "aglae=reste" }, text: "Une fois, tu remontes au château. Aglaé te sert une écuelle sans te demander si tu as faim, et Bourle te montre le pain qu'il fait tout seul, à présent. Il est presque bon." },
       { if: { has: "marque:eclat" }, text: "La tache sur ta paume ne grandit pas. Elle ne pâlit pas non plus. La nuit, tu rêves d'eau, d'une eau tiède où tu marches jusqu'à la taille, et d'une voix qui t'appelle par ton nom. Tu te réveilles reposé{e}, et c'est ça qui t'inquiète." },

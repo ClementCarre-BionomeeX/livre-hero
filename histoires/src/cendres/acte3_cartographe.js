@@ -95,11 +95,11 @@ add(region("III_K_riviere", "iii:carte_riviere", "La rivière qui fait un coude"
 ], { label: "Dire la guerre", text: [
   "Il dessine deux hommes, face à face, chacun sur une rive, la lance tendue. Puis il recommence, à côté : deux hommes, face à face. Puis encore. Il en fait une rangée, tout le long de la rivière. « C'est leur pays, dit-il, à voix basse. Je ne le leur montrerai plus. » Il laisse sécher. Il ne range pas le pinceau tout de suite.",
 ] }, { label: "Dire que les collines sont vertes", text: [
-  "Il hoche la tête, et il ne dessine rien : c'est déjà dessiné. Il se contente de repasser le vert, doucement, là où le vélin pâlissait. « Je le dirai au capitaine, dit-il. Il sera content. » Tu penses aux tranchées. Tu ne dis rien. Le capitaine monte la garde depuis trois cents ans. Il peut bien avoir ses collines.",
+  "Il hoche la tête, et il ne dessine rien : c'est déjà dessiné. Il se contente de repasser le vert, doucement, là où le vélin pâlissait. « Je le dirai au capitaine, dit-il. Il sera content. » Tu penses aux tranchées. Tu te tais. Le capitaine monte la garde depuis trois cents ans. Il peut bien avoir ses collines.",
 ] }));
 add(region("III_K_nord", "iii:carte_nord", "Les montagnes de l'est", [
   "À l'est, les montagnes, et sur les pentes, un homme qui chasse le renne, une femme qui coud des peaux. « Les gens des hauts, dit Oriel. Ils commerçaient avec nous. Ils avaient des corbeaux. Ils disaient les noms, comme nous. Mieux que nous. »",
-  { with: "corbe", text: "Corbe s'est approchée de la table, sans un bruit. Elle regarde la femme qui coud des peaux. Elle tend la main, et ne touche pas." },
+  { with: "corbe", text: "Corbe s'est approchée de la table, en silence. Elle regarde la femme qui coud des peaux. Elle tend la main, et ne touche pas." },
 ], { label: "Dire ce que le clan est devenu", text: [
   "Tu dis le clan. Les rites. La Mère. Les noms qu'on donne au lieu de les garder. Oriel dessine une femme debout devant une fente dans la montagne, les bras ouverts. Il hésite, puis, à côté d'elle, il dessine un corbeau, plus grand que les autres. Il le laisse en blanc, sans encre. « Celui-là, dit-il, je ne sais pas ce qu'il fait. Mais il était sur la vieille carte. »",
 ] }, { label: "Dire qu'ils chassent toujours le renne", text: [

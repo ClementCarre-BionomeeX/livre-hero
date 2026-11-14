@@ -91,14 +91,14 @@ module.exports = {
       { when: "day", text: "Elle est chaude au soleil, malgré la neige." },
       { when: "night", text: "Elle a gardé un peu de la chaleur du jour, malgré la neige." },
       { if: { souv: "corbe:col" }, text: "Tu t'y es assise, à douze ans, un jour d'été, et tu as regardé le monde. C'est l'endroit le plus beau qui soit. C'est encore vrai, même avec ce trou blanc derrière." },
-      { if: { not: { souv: "corbe:col" } }, text: "Les gens du clan la touchent en passant, comme une relique. Tu ne sais pas pourquoi. C'est une pierre." },
+      { if: { not: { souv: "corbe:col" } }, text: "Les gens du clan la touchent en passant, comme une relique. La raison t'échappe. C'est une pierre." },
       "Sur la face qui regarde la déchirure, quelqu'un a gravé, très anciennement, cinq petites figures. Une tour, une gerbe, une barque, un cerf, une plume croisée d'une clé. Et au-dessus, effacée, à peine visible, une sixième, qu'on a voulu gratter : un ours couronné.",
     ],
     choices: [{ fx: { flag: "nord:ours_vu" }, back: "II_N5_col" }] }),
 
   II_N5_feu: P({ backName: "le feu, à l'écart du clan", takes: "evening", title: "La veille du rite", place: "col",
     text: [
-      "Le soir, vous faites votre feu à l'écart du clan, entre deux rochers. La déchirure éclaire tout le col d'une lumière froide, sans ombres. Personne n'arrive à dormir.",
+      "Le soir, vous faites votre feu à l'écart du clan, entre deux rochers. La déchirure éclaire tout le col d'une lumière froide, sans ombres. Tout le monde veille.",
       "Au sud, rien encore. Pas un feu sur les crêtes.",
     ],
     choices: [
@@ -112,11 +112,11 @@ module.exports = {
     ] }),
 
   II_N5_feu_enfant: P({ title: "Il m'attend", place: "col",
-    text: ["L'enfant te demande ce que tu vas faire, demain. Tu ne réponds pas. Il hoche la tête. « Moi, dit-il, je crois que je vais y aller. Là-dedans. Pas pour le rite. Parce qu'on m'attend. » Il essaie de sourire. « Tu viendrais, toi, si quelqu'un t'attendait derrière une porte comme ça ? »"],
+    text: ["L'enfant te demande ce que tu vas faire, demain. Tu te tais. Il hoche la tête. « Moi, dit-il, je crois que je vais y aller. Là-dedans. Pas pour le rite. Parce qu'on m'attend. » Il essaie de sourire. « Tu viendrais, toi, si quelqu'un t'attendait derrière une porte comme ça ? »"],
     choices: [{ fx: { conf: { enfant: 5 } }, back: "II_N5_feu" }] }),
 
   II_N5_feu_ysolde: P({ title: "Les gens qui marchent", place: "col",
-    text: ["Ysolde a regardé dans la déchirure, elle aussi. « Ils ont des enfants dans les bras, dit-elle. Comme sur le pont. » Elle ne dit pas quel pont. Elle n'en a plus besoin. « S'ils arrivent jusqu'ici, Corbe, je ne les arrêterai pas. Je veux que tu le saches avant. »"],
+    text: ["Ysolde a regardé dans la déchirure, elle aussi. « Ils ont des enfants dans les bras, dit-elle. Comme sur le pont. » Quel pont, tu le sais désormais. « S'ils arrivent jusqu'ici, Corbe, je ne les arrêterai pas. Je veux que tu le saches avant. »"],
     choices: [{ fx: { conf: { ysolde: 5 }, flag: "ysolde:ne_tiendra_pas" }, back: "II_N5_feu" }] }),
 
   II_N5_feu_pie: P({ title: "Les lettres", place: "col",
@@ -129,7 +129,7 @@ module.exports = {
   II_N5_feu_hylas: P({ title: "L'ours couronné", place: "col",
     text: [
       { if: { has: "nord:ours_vu" }, text: "Tu décris la pierre à Hylas, les cinq figures, et la sixième, grattée. L'ours couronné. Il reste longtemps immobile. « Dans le registre noir, dit-il enfin, la première page porte ce sceau. Je n'avais jamais su de quelle maison c'était. Il n'y en a pas, en Esquarre. » Il tourne la tête vers la déchirure. « Il y en avait une. »" },
-      { if: { not: { has: "nord:ours_vu" } }, text: "Hylas est assis tourné vers la déchirure, comme s'il la voyait. « Je suis déjà venu ici, dit-il. Il y a vingt ans. Je suis entré. Je suis ressorti. » Il ne dit pas avec quoi. Il ne dit pas avec qui." },
+      { if: { not: { has: "nord:ours_vu" } }, text: "Hylas est assis tourné vers la déchirure, comme s'il la voyait. « Je suis déjà venu ici, dit-il. Il y a vingt ans. Je suis entré. Je suis ressorti. » Avec quoi, avec qui, il le garde pour lui." },
     ],
     choices: [{ fx: { conf: { hylas: 5 } }, back: "II_N5_feu" }] }),
 

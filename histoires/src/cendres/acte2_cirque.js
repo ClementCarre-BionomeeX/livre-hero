@@ -21,7 +21,7 @@ module.exports = {
     combat: { title: "Les porteurs", enemies: ["glaneur_petit", "glaneur_petit"], terrain: "nature", range: "contact",
       flee: { dom: "nature", label: "Remonter la pente", to: "II_N4_cirque" },
       win: { fx: { flag: "nord:enseigne", ep: ["seance", 900] }, to: "II_c_file_ok" }, lose: { fx: { pv: -3 }, to: "II_N4_cirque" } },
-    text: ["Le Glaneur lâche l'enseigne et se retourne. Toute la file se retourne avec lui, sans hâte, sans colère. Ils ne connaissent pas la colère. Ils connaissent la faim."],
+    text: ["Le Glaneur lâche l'enseigne et se retourne. Toute la file se retourne avec lui, lentement, calmement. Ils ne connaissent pas la colère. Ils connaissent la faim."],
     choices: [] }),
   II_c_file_ok: P({ title: "Au Mouton Bleu", place: "cirque",
     text: [

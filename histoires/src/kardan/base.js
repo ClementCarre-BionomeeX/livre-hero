@@ -209,7 +209,7 @@ module.exports = {
         ],
         camp: [
           "Tu t'arrêtes quand tes jambes ne te portent plus. Dans le dédale, la fatigue tient lieu de jour et de nuit. Tu dors adossé au mur, et tu rêves de soleil.",
-          "Vous vous serrez autour de la petite flamme. Personne ne parle. Dans la pierre, très loin, un battement lent, régulier, comme un cœur qui dormirait.",
+          "Vous vous serrez autour de la petite flamme. Tous se taisent. Dans la pierre, très loin, un battement lent, régulier, comme un cœur qui dormirait.",
         ] },
       profondeurs: { ambiance: "souterrain", name: "Les profondeurs", chance: 0.4, events: ["E_voix", "E_pas"],
         quiet: [

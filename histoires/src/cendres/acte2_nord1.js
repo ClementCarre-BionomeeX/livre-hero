@@ -85,7 +85,7 @@ module.exports = {
   II_N_askel: P({ title: "Askel", place: "corbeau",
     fx: { meet: "askel", questSeen: "II_N_chants" },
     text: [
-      "Ta mère coud. Une autre robe blanche. Elle ne lève pas les yeux. « Tu es revenue », dit-elle, et ce n'est pas une question, ni un reproche.",
+      "Ta mère coud. Une autre robe blanche. Elle ne lève pas les yeux. « Tu es revenue », dit-elle, et c'est un simple constat.",
       "Tu t'assieds en face d'elle. Longtemps. Puis elle pose son aiguille. « L'aïeule ne chantait pas tout, dit-elle. Les trois vers qu'elle t'a appris, ce sont les derniers d'un chant plus long. Le reste, elle l'avait gravé dans la grotte des Corbeaux, au-dessus du lac noir, pour que personne ne le chante par hasard. J'y suis montée une fois. Je n'ai pas su lire. »",
       "Elle reprend son aiguille. « Personne ne sait lire, ici. C'est ce dont on nous a appris à être fiers. »",
     ],
@@ -194,7 +194,7 @@ module.exports = {
     text: [
       { after: "nord:pie_enfants", text: "Pie a l'air content de lui. « Elle s'appelle Brune, la petite. Celle de la pièce. » Il fait tourner une pièce entre ses doigts. « Elle a huit ans. Elle sait déjà tout faire. Elle n'a peur de rien. » La pièce disparaît. « Ma sœur était comme ça. »" },
       { before: "nord:pie_enfants", text: "Pie fait tourner une pièce entre ses doigts. « Il y a une petite, au feu des enfants, qui n'a pas quitté mes mains des yeux depuis qu'on est là. Huit ans, peut-être. Elle ne rit pas. Elle n'a peur de rien. » La pièce disparaît. « Ma sœur était comme ça. »" },
-      { if: { has: "pie:choix=linette" }, text: "Il regarde Linette, qui dort, assise, le dos droit, comme on dort au scriptorium. Il ne dit rien d'autre." },
+      { if: { has: "pie:choix=linette" }, text: "Il regarde Linette, qui dort, assise, le dos droit, comme on dort au scriptorium. Il s'en tient là." },
     ],
     choices: [{ fx: { conf: { pie: 5 } }, back: "II_N_feu" }] }),
 

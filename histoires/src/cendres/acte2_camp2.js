@@ -35,7 +35,7 @@ module.exports = {
     ],
     choices: [{ fx: { quest: "II_Q_nouveau_ne", conf: { corbe: 10 } }, back: "II_N_camp" }] }),
   II_Q_nouveau_ne_rate: P({ title: "La peinture", place: "corbeau",
-    text: ["Tu peins. Le signe ne vient pas. Ta main tremble, l'ocre bave, le nom ressemble à un autre nom, à rien. Tu recommences, deux fois. Runa te prend le pinceau, doucement. « Laisse, dit-elle. Je le lui dirai tous les soirs, moi. Ça suffira peut-être. » Tu ne sais pas si ça suffira. Elle non plus."],
+    text: ["Tu peins. Le signe ne vient pas. Ta main tremble, l'ocre bave, le nom ressemble à un autre nom, à rien. Tu recommences, deux fois. Runa te prend le pinceau, doucement. « Laisse, dit-elle. Je le lui dirai tous les soirs, moi. Ça suffira peut-être. » Cela suffira-t-il ? Elle non plus."],
     choices: [{ fx: { quest: "II_Q_nouveau_ne" }, back: "II_N_camp" }] }),
 
   // ---------------------------------------------------------------- La course sur le lac
@@ -52,7 +52,7 @@ module.exports = {
   II_k_course_gagne: P({ title: "Le grand tambour", place: "corbeau",
     text: [
       "Le renne têtu part de travers, s'arrête, repart, et puis, au deuxième tour, il comprend quelque chose, et il file. Tu passes Leif dans le dernier virage, sur un patin, en hurlant comme quand tu avais quinze ans.",
-      "Les jeunes t'entourent. Leif te tape dans le dos, dépité et content. « Tu portes le tambour, alors. » Puis il hésite. « Si tu viens au col. Tu viens au col ? » Tu ne réponds pas. Mais tu prends le tambour.",
+      "Les jeunes t'entourent. Leif te tape dans le dos, dépité et content. « Tu portes le tambour, alors. » Puis il hésite. « Si tu viens au col. Tu viens au col ? » Tu te tais. Mais tu prends le tambour.",
     ],
     choices: [{ fx: { conf: { corbe: 5 } }, back: "II_N_camp" }] }),
   II_k_course_perdu: P({ title: "Dans la neige", place: "corbeau",
@@ -72,7 +72,7 @@ module.exports = {
   // ---------------------------------------------------------------- Acte III : Ellerune
   III_el_four: P3({ title: "Le four commun", place: "enfance",
     text: [
-      "Au milieu du hameau, un four de pierre, sous un toit à quatre poteaux. Une femme y cuit du pain noir, avec une farine qui n'est pas de la farine : de la cendre, fine, tamisée, mêlée d'eau du puits sans eau. Le pain sort du four, gris, léger, et ne sent rien.",
+      "Au milieu du hameau, un four de pierre, sous un toit à quatre poteaux. Une femme y cuit du pain noir, avec, pour farine, de la cendre, fine, tamisée, mêlée d'eau du puits sans eau. Le pain sort du four, gris, léger, inodore.",
       "« Le pain des cendres, dit-elle dans la langue que tu comprends. La première nuit, quand ils ont brûlé la vallée, on n'avait plus que ça. Alors on a fait du pain avec. Depuis, on continue. » Elle t'en tend un morceau. « Mange. C'est le pain de chez toi. »",
     ],
     choices: [

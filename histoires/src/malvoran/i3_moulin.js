@@ -57,7 +57,7 @@ var passages = {
       "« Tu n'es pas d'ici, dit-elle. Alors tu es venu{e} voir pendre une vieille, ou tu es venu{e} pour autre chose. » Elle tend ses poignets liés, sans te demander de les détacher, pour que tu voies la corde mordre. « Ils disent que j'ai empoisonné leur puits. Je bois à la Sorbe, moi, depuis cinquante ans. Mes chèvres aussi. Leur puits, je n'en ai jamais voulu. »",
       "Elle baisse la voix, et regarde du côté de la rivière, là où la roue du moulin tourne au-dessus des saules. « Je ne dors plus, à mon âge. Je l'ai vu, le meunier, au puits, trois nuits de suite. Il versait un seau dedans au lieu d'en tirer un. Je l'ai dit à Charron. Il m'a regardée comme on regarde une mouche. Le lendemain, on trouvait des herbes chez moi, et les enfants commençaient à jeter des pierres. »",
       { with: "coliane", text: "Coliane, au pied de la charrette, a tout entendu. Elle lève les yeux vers toi et ne dit rien, mais sa main est allée d'elle-même à l'un de ses couteaux." },
-      { if: { mark: { min: 1 } }, text: "Berthe regarde ta main, celle que tu gardes fermée. Elle ne dit rien. Elle se recule un peu, autant qu'on peut se reculer sur un sac de son." },
+      { if: { mark: { min: 1 } }, text: "Berthe regarde ta main, celle que tu gardes fermée. Elle se tait. Elle se recule un peu, autant qu'on peut se reculer sur un sac de son." },
     ],
     choices: [
       { label: "« Pourquoi Charron ne veut-il pas l'entendre ? »", to: "IB_charrette_terre" },
@@ -85,7 +85,7 @@ var passages = {
     ] },
   IB_forgeron_lache: { act: "I", title: "La corde", place: "brumefeuille",
     text: [
-      "Hubert regarde la corde dans sa main comme s'il la voyait pour la première fois. Puis il la laisse tomber dans la poussière, l'enjambe, et va s'adosser au tronc du tilleul, les bras croisés. Il ne dit rien. Il n'a pas besoin de dire quoi que ce soit : tout le village l'a vu faire.",
+      "Hubert regarde la corde dans sa main comme s'il la voyait pour la première fois. Puis il la laisse tomber dans la poussière, l'enjambe, et va s'adosser au tronc du tilleul, les bras croisés. Il se tait. Il n'a pas besoin de dire quoi que ce soit : tout le village l'a vu faire.",
       "Un murmure court dans la foule. Charron, sur ses marches, a cessé de parler une seconde. « Je ne ferai pas le nœud, dit enfin Hubert, assez fort. Si quelqu'un veut le faire, qu'il vienne. Il le fera devant moi. » Personne ne vient tout de suite. C'est peu de chose. C'est beaucoup, sur une place de village.",
     ],
     choices: [{ back: "IB_place" }] },
@@ -131,7 +131,7 @@ var passages = {
     choices: [{ back: "IB_place" }] },
   IB_ysabeau_pareil: { act: "I", title: "Ysabeau", place: "brumefeuille",
     text: [
-      "La petite ne bouge pas. Elle respire toujours trop vite, et sa peau reste brûlante sous ta paume. Ysabeau reprend son enfant contre elle, doucement mais sans réplique, comme on reprend un objet qu'on a prêté.",
+      "La petite reste immobile. Elle respire toujours trop vite, et sa peau reste brûlante sous ta paume. Ysabeau reprend son enfant contre elle, doucement mais sans réplique, comme on reprend un objet qu'on a prêté.",
       "« Merci quand même, dit-elle. Tout le monde essaie. » Elle ne te regarde plus. Elle regarde la corde.",
     ],
     choices: [{ back: "IB_place" }] },
@@ -363,7 +363,7 @@ Object.assign(passages, {
   IB_cacher_forge: { act: "I", title: "La cave de la forge", place: "brumefeuille",
     fx: { set: { berthe: "cachee" }, quest: "I_berthe", clock: { voix: 1 }, regard: { berthe: "redevable", ib_hubert: "allie" }, ep: ["seance", 1000] },
     text: [
-      "La forge de Hubert sent le charbon, la corne brûlée et la sueur. Sous l'établi, une trappe ouvre sur une cave basse où l'on garde le charbon de bois et les barres de fer. Hubert y descend une paillasse, une couverture, une cruche de lait. Il ne pose pas de question. Sa femme, une petite brune aux yeux rougis, apporte du pain et un oignon, et embrasse Berthe sur les deux joues sans un mot.",
+      "La forge de Hubert sent le charbon, la corne brûlée et la sueur. Sous l'établi, une trappe ouvre sur une cave basse où l'on garde le charbon de bois et les barres de fer. Hubert y descend une paillasse, une couverture, une cruche de lait. Il ne pose pas de question. Sa femme, une petite brune aux yeux rougis, apporte du pain et un oignon, et embrasse Berthe sur les deux joues en silence.",
       "« Elle restera là le temps qu'il faudra, dit Hubert en rabattant la trappe. Ce n'est pas chez moi qu'ils iront fouiller. Je suis celui qui tenait la corde. » Il a un petit rire amer. « Ça sert à quelque chose, finalement. »",
       { if: { not: { seen: "IB_charrette" } }, text: "Avant que la trappe ne se ferme, Berthe t'attrape la manche. « Je ne dors plus, à mon âge. Je l'ai vu, le meunier, au puits, trois nuits de suite. Il versait un seau dedans au lieu d'en tirer un. Dis-le à qui voudra l'entendre. Moi, on ne m'écoute plus. »" },
       "Berthe ne sortira pas avant que le vrai coupable soit connu. Et peut-être pas même après : un village qui a voulu pendre quelqu'un n'oublie pas qu'il l'a voulu.",
@@ -442,7 +442,7 @@ Object.assign(passages, {
     text: [
       "On l'a mise au bout du cimetière, contre le mur, là où l'on enterre ceux dont on ne sait pas trop quoi faire. Une croix de deux lattes clouées, sans nom. Quelqu'un a déjà posé dessus un bouquet de tilleul, et quelqu'un d'autre l'a jeté par terre.",
       { if: { has: "IB:hubert_chevres" }, text: "Hubert est là, ses quatre chèvres en longe, comme un berger égaré. Il a ramassé le bouquet et l'a remis en place." },
-      { if: { not: { has: "IB:hubert_chevres" } }, text: "Hubert le forgeron arrive pendant que tu es là, sa casquette à la main. Il ramasse le bouquet et le remet en place, sans un mot." },
+      { if: { not: { has: "IB:hubert_chevres" } }, text: "Hubert le forgeron arrive pendant que tu es là, sa casquette à la main. Il ramasse le bouquet et le remet en place, en silence." },
       "« Elle serrait ça dans la poche de son tablier, dit-il en te tendant une clé de fer longue comme l'avant-bras. Je ne sais pas ce que ça ouvre. Son homme gardait les vannes du moulin, du temps du vieux. Ça doit être la grande vanne, en amont. » Il te la met dans la main. « Prends-la. Moi, je n'en veux pas. Je ne veux plus rien d'elle. J'ai assez de ce que je lui dois. »",
     ],
     choices: [{ back: "I_hub" }] },
@@ -627,7 +627,7 @@ Object.assign(passages, {
   IL_menace: { act: "I", title: "Au collet", place: "brumefeuille",
     text: [
       "Tu l'attrapes par le devant de sa chemise et tu le plaques contre le coffre des meules. Il ne résiste pas. Il est plus lourd que toi, plus fort sans doute, et il se laisse faire comme un sac. De la farine tombe de ses cheveux sur tes mains.",
-      { with: "pip", text: "Pip sort de ton col en tremblant et se met entre vos deux visages, si près que sa lumière vous éblouit l'un et l'autre. Il ne dit rien. Il n'en a pas besoin." },
+      { with: "pip", text: "Pip sort de ton col en tremblant et se met entre vos deux visages, si près que sa lumière vous éblouit l'un et l'autre. Il se tait. Il n'en a pas besoin." },
       { with: "coliane", text: "Coliane, derrière toi, a croisé les bras. Elle ne t'arrête pas. Elle ne t'aide pas non plus." },
     ],
     choices: [
@@ -698,7 +698,7 @@ Object.assign(passages, {
       "Charron, sur ses marches, parle déjà de corde. Il a retrouvé sa voix de place publique, et elle porte. Tu montes à côté de lui. Tu dis que le meunier sera jugé, par le bailli de Sorbe ou par l'Ordre, et que si on le pend ce soir, on pendra aussi ce qu'il sait de la chose qui parle dans l'eau. La chose sera toujours là demain.",
       "Père Odon, descendu du sanctuaire, prend le bras de Barthélemy. Le vieux prêtre est petit, voûté, mais personne n'ose le bousculer. Il emmène le meunier vers la chapelle de la Main, où il y a une cellule avec une porte qui ferme. La foule les laisse passer en grondant.",
       "Barthélemy se retourne une fois, au coin de la rue. « L'escalier est derrière la fosse, sous la roue, dit-il. La trappe est dans le coffre de l'arbre. Elle t'attend. » Puis la porte du sanctuaire se referme sur lui.",
-      { with: "coliane", text: "Coliane hoche la tête, une seule fois, sans rien dire. C'est ce qu'elle aurait fait. Tu le sais." },
+      { with: "coliane", text: "Coliane hoche la tête, une seule fois, en silence. C'est ce qu'elle aurait fait. Tu le sais." },
     ],
     choices: [
       { label: "Descendre sous la roue maintenant", big: true, to: "IL_roue" },
@@ -730,7 +730,7 @@ Object.assign(passages, {
       "Quand tu retires ta main, elle est sèche. Mais au creux de ta paume, il y a une tache grise qui n'y était pas, grande comme un ongle, et qui ne part pas quand tu frottes.",
       { if: { has: "marque:eclat" }, text: "La tache rejoint l'autre, celle de l'éclat, comme une goutte d'encre en rejoint une autre sur un buvard. Elles n'en font plus qu'une, plus large." },
       "« Tu vois, dit Barthélemy, rayonnant. Tu vois qu'elle est gentille. » Il prend sa lanterne. « Viens. Elle t'attend en bas. »",
-      { with: "coliane", text: "Coliane ne dit rien. Elle a reculé de trois pas, et elle ne s'en est pas rendu compte." },
+      { with: "coliane", text: "Coliane se tait. Elle a reculé de trois pas, et elle ne s'en est pas rendu compte." },
     ],
     choices: [
       { label: "Descendre sous la roue avec lui", big: true, to: "IL_roue" },
@@ -804,7 +804,7 @@ Object.assign(passages, {
     text: [
       "Au dernier tournant, la paroi s'élargit en un petit palier, et sur la roche en face, à hauteur d'homme, il y a des mains. Six mains gravées, paume ouverte, doigts écartés, côte à côte comme des gens qui se tiendraient au bord de quelque chose. Les cinq premières ont été frappées au marteau, à grands coups maladroits, jusqu'à n'être plus que des creux éclatés, mais on devine encore leur forme. La sixième, la plus à droite, est intacte. Personne n'y a touché.",
       "Sous chaque main, il y avait un nom. Sous les cinq premières, les noms ont sauté avec la pierre. Sous la sixième, quelqu'un a pris le temps de gratter, à la gouge, lettre par lettre, avec soin, comme on efface un compte. Il en reste trois, au début, que la gouge n'a pas assez creusées : MAL.",
-      { with: "pip", text: "Pip quitte ton épaule et vole jusqu'à la sixième main. Il reste là, devant la paume ouverte, sans un mot, à la hauteur exacte où l'on tiendrait une lampe. Sa lumière devient très douce, très régulière, comme une respiration d'enfant endormi. Quand tu l'appelles, il met longtemps à revenir. « Celle-là, dit-il seulement, on ne l'a pas cassée. »" },
+      { with: "pip", text: "Pip quitte ton épaule et vole jusqu'à la sixième main. Il reste là, devant la paume ouverte, en silence, à la hauteur exacte où l'on tiendrait une lampe. Sa lumière devient très douce, très régulière, comme une respiration d'enfant endormi. Quand tu l'appelles, il met longtemps à revenir. « Celle-là, dit-il seulement, on ne l'a pas cassée. »" },
       { if: { has: "marque:eclat" }, text: "Dans ta besace, l'éclat s'est mis à battre plus vite, comme un cœur qui a peur." },
     ],
     choices: [
@@ -888,7 +888,7 @@ Object.assign(passages, {
     choices: [{ label: "Monter au jour", big: true, to: "IL_puits" }] },
   IL_offre_refuse: { act: "I", title: "Non", place: "brumefeuille", ambiance: "souterrain",
     text: [
-      "Tu dis non. La Voix ne répond pas tout de suite. Puis elle soupire, un long soupir d'eau qui passe entre des pierres. « Comme tu voudras. Je te l'ai dit : je ne me fâche pas. » Le dôme de la flaque retombe. « Mais je t'ai prévenu{e}, pour l'autre. »",
+      "Tu dis non. La Voix prend son temps. Puis elle soupire, un long soupir d'eau qui passe entre des pierres. « Comme tu voudras. Je te l'ai dit : je ne me fâche pas. » Le dôme de la flaque retombe. « Mais je t'ai prévenu{e}, pour l'autre. »",
       "La flaque se met à bouillonner sans chaleur. Quelque chose monte du fond, qui n'avait pas la place d'y tenir : une masse de vase noire et luisante qui se dresse, se tasse, se dresse encore, et prend peu à peu la forme vague de quelqu'un. Des épaules. Une tête sans visage. Des bras trop longs qui traînent jusqu'au sol. Deux formes plus petites sortent après elle, et rampent sur la pierre. L'odeur de feuilles pourries te prend à la gorge.",
       { with: "coliane", text: "« Enfin quelque chose qu'on peut frapper », dit Coliane, et elle a presque l'air soulagée." },
       { if: { is: { meunier: ["protege", "marche"] } }, text: "Barthélemy a reculé jusqu'à l'escalier, sa lanterne brandie comme un bâton. « Ce n'est pas elle, dit-il. Ce n'est pas elle, ce n'est pas elle. » Il le répète comme une prière." },
@@ -896,7 +896,7 @@ Object.assign(passages, {
     choices: GARDIEN_CHOICES },
   IL_gardien_leve: { act: "I", title: "Le gardien de vase", place: "brumefeuille", ambiance: "souterrain",
     text: [
-      "La flaque est toujours là, ronde et lisse, et au bruit de tes pas elle se met à bouillonner. La forme de vase se redresse, plus lentement que la première fois, en se tassant sur elle-même, comme si elle avait dû se refaire. Les deux petites formes rampent à ses pieds. La Voix ne dit rien. Elle regarde.",
+      "La flaque est toujours là, ronde et lisse, et au bruit de tes pas elle se met à bouillonner. La forme de vase se redresse, plus lentement que la première fois, en se tassant sur elle-même, comme si elle avait dû se refaire. Les deux petites formes rampent à ses pieds. La Voix se tait. Elle regarde.",
       { if: { pv: { max: 6 } }, text: "Tu n'es pas guéri{e}. Tu le sens dans chaque muscle, et la chose de vase a l'air de le sentir aussi." },
     ],
     choices: GARDIEN_CHOICES },
@@ -941,7 +941,7 @@ Object.assign(passages, {
     fx: { flag: "IL:pip", ep: ["histoire", 3500] },
     text: [
       "Pip sort de ton col et vole droit sur le gardien, tout petit, tout seul, et s'arrête à un bras de sa tête sans visage. Puis il se met à briller. D'abord comme une chandelle, puis comme une lanterne, puis comme une fenêtre en plein midi, et la lumière grandit encore, blanche, chaude, et la grotte entière devient si claire que tu vois chaque racine, chaque goutte, chaque grain de la pierre.",
-      "Le gardien recule. Il lève ses longs bras devant ce qui lui sert de visage, comme un homme ébloui. La vase sèche sur lui, devient grise, craquelle, s'effrite par plaques qui tombent en poussière. Les deux petites formes fondent sur la pierre. Le gardien s'effondre sur lui-même, sans un bruit, et il ne reste qu'un tas de terre sèche, qui sent l'été.",
+      "Le gardien recule. Il lève ses longs bras devant ce qui lui sert de visage, comme un homme ébloui. La vase sèche sur lui, devient grise, craquelle, s'effrite par plaques qui tombent en poussière. Les deux petites formes fondent sur la pierre. Le gardien s'effondre sur lui-même, en silence, et il ne reste qu'un tas de terre sèche, qui sent l'été.",
       "Puis la lumière s'éteint d'un coup. Pip tombe, et tu le rattrapes au creux de tes mains : une petite braise tiède, qui clignote à peine. « Elle n'aime pas la lumière, chuchote-t-il. Je le savais. Je ne sais pas comment je le savais. » Il s'endort dans ta paume.",
     ],
     choices: [{ label: "Approcher de la flaque, Pip dans tes mains", big: true, to: "IL_flaque_claire" }] },
@@ -985,7 +985,7 @@ Object.assign(passages, {
       { first: true, text: "La flaque n'est plus noire. Elle est claire, si claire qu'on voit le fond de pierre lisse, et dans le fond, des veines plus pâles qui dessinent comme des lignes de main. Elle coule, maintenant : un petit filet d'eau limpide s'échappe par la fissure et file vers la fosse, vers le bief, vers le puits. Elle est froide. Une vraie eau de source, froide à faire mal aux dents." },
       { first: true, text: "Tu remplis une fiole, par réflexe, par prudence. Cette eau-là, la souillure ne l'a jamais touchée, ou elle ne la touche plus. Elle vaudra cher, plus tard." },
       { again: true, text: "La flaque claire, le petit filet d'eau froide qui chante en passant par la fissure. On dirait une autre grotte." },
-      { first: true, with: "coliane", text: "Coliane s'accroupit, plonge les deux mains dans l'eau et se lave le visage, longuement, sans rien dire. Quand elle se relève, elle a les yeux rouges, et elle dit que c'est le froid." },
+      { first: true, with: "coliane", text: "Coliane s'accroupit, plonge les deux mains dans l'eau et se lave le visage, longuement, en silence. Quand elle se relève, elle a les yeux rouges, et elle dit que c'est le froid." },
       { first: true, if: { is: { meunier: ["protege", "marche"] } }, text: "Barthélemy s'approche de la flaque, très lentement, et se penche dessus. Il n'y a rien dedans que son propre reflet, un vieil homme fatigué couvert de farine et de boue. Il le regarde longtemps. « Margot », dit-il une dernière fois, tout bas, et personne ne lui répond." },
     ],
     choices: [
@@ -1046,7 +1046,7 @@ Object.assign(passages, {
   IL_puits_trouble: { act: "I", title: "Le puits gris", place: "brumefeuille", takes: "morning", backName: "le puits de Brumefeuille",
     fx: { flag: "IL:mure", ep: ["seance", 1000] },
     text: [
-      { first: true, text: "Hubert le forgeron et trois meuniers descendent dans la chambre de l'arbre avec des pierres, une auge de mortier et une lanterne. Tu leur montres où. Ils murent la trappe sous le coffre, rang après rang, sans un mot, en jetant des regards vers le trou noir à chaque pierre qu'ils posent. Quand c'est fini, Hubert passe la truelle trois fois sur le joint, comme on signe." },
+      { first: true, text: "Hubert le forgeron et trois meuniers descendent dans la chambre de l'arbre avec des pierres, une auge de mortier et une lanterne. Tu leur montres où. Ils murent la trappe sous le coffre, rang après rang, en silence, en jetant des regards vers le trou noir à chaque pierre qu'ils posent. Quand c'est fini, Hubert passe la truelle trois fois sur le joint, comme on signe." },
       { first: true, text: "Au puits, l'eau reste grise. Moins noire qu'avant, peut-être : ce qui la souillait ne passe plus que par les fentes de la roche, goutte à goutte, au lieu de couler à plein seau. Père Odon dit qu'elle s'éclaircira au printemps, avec les crues. Personne ne le croit tout à fait. On continue de monter chercher l'eau à la source du sanctuaire, sur le coteau, en procession, avec des seaux et des cruches." },
       { again: true, text: "Le puits de Brumefeuille, toujours gris, avec son couvercle de planches que quelqu'un a cloué dessus et un écriteau à la craie : *Pas boire*." },
       { first: true, with: "coliane", text: "Coliane regarde le mur de pierres neuves sous le moulin. « On n'a rien tué, dit-elle. On a fermé la porte. Ça ne règle rien, mais ça laisse le temps. » Elle hausse les épaules. « Ce n'est déjà pas mal, le temps. »" },
@@ -1112,10 +1112,10 @@ Object.assign(passages, {
   IL_ruban_pere: { act: "I", title: "Le ruban rendu", place: "brumefeuille",
     fx: { drop: "il_ruban", set: { ruban: "pere" }, quest: "IL_ruban", regard: { barthelemy: "redevable" }, ep: ["seance", 700] },
     text: [
-      { if: { is: { meunier: "livre" } }, text: "Tu passes le ruban à travers la grille de la cellule. Barthélemy le prend du bout des doigts, comme on prend un oiseau tombé du nid. Il le regarde sans rien dire, le tourne, le retourne, le porte à son visage. Il ne sent plus rien que la pierre et l'eau. Il le garde quand même contre sa joue." },
-      { if: { not: { is: { meunier: "livre" } } }, text: "Tu tends le ruban à Barthélemy sans rien dire. Il essuie ses mains sur son tablier, longtemps, avant de le prendre, comme pour ne pas le salir de farine. Il le regarde, le tourne, le retourne, le porte à son visage. Il ne sent plus rien que la pierre et l'eau. Il le garde quand même contre sa joue." },
+      { if: { is: { meunier: "livre" } }, text: "Tu passes le ruban à travers la grille de la cellule. Barthélemy le prend du bout des doigts, comme on prend un oiseau tombé du nid. Il le regarde en silence, le tourne, le retourne, le porte à son visage. Il ne sent plus rien que la pierre et l'eau. Il le garde quand même contre sa joue." },
+      { if: { not: { is: { meunier: "livre" } } }, text: "Tu tends le ruban à Barthélemy en silence. Il essuie ses mains sur son tablier, longtemps, avant de le prendre, comme pour ne pas le salir de farine. Il le regarde, le tourne, le retourne, le porte à son visage. Il ne sent plus rien que la pierre et l'eau. Il le garde quand même contre sa joue." },
       "« Je l'ai cherché tout l'été, dit-il. Dans l'eau. Je me disais que si je le retrouvais, ça voudrait dire quelque chose. » Il se tait. « Ça ne veut rien dire. C'est un ruban. Elle l'aimait, c'est tout. » Il le noue autour de son poignet, maladroitement, avec ses gros doigts, et il ne l'enlèvera plus.",
-      { if: { is: { meunier: "marche" } }, text: "Puis il sourit, de ce sourire qu'il a depuis cette nuit. « Je le lui rendrai, dit-il. Quand elle reviendra. » Tu ne réponds pas." },
+      { if: { is: { meunier: "marche" } }, text: "Puis il sourit, de ce sourire qu'il a depuis cette nuit. « Je le lui rendrai, dit-il. Quand elle reviendra. » Tu te tais." },
     ],
     choices: [{ back: "I_hub" }] },
   IL_ruban_tombe: { act: "I", title: "La tombe de Margot", place: "brumefeuille",
@@ -1194,7 +1194,7 @@ Object.assign(passages, {
     fx: { item: "ib_fromage", ep: ["perso", 300] },
     text: [
       { if: { is: { berthe: "sauvee" } }, text: "Berthe a installé une planche sur deux paniers, au bout des tréteaux, et elle y vend ses fromages de chèvre, petits, ronds, cendrés, sur des feuilles de châtaignier. Les gens qui voulaient la pendre il y a quelques jours lui en achètent, en comptant leurs deniers sans la regarder. Elle leur rend la monnaie juste, sans un mot de trop. Elle a l'air de beaucoup s'amuser." },
-      { if: { is: { berthe: "cachee" } }, text: "Berthe est sortie de sa cachette ce soir, au bras de Hubert ou de personne, et elle s'est assise au bout des tréteaux, sur un tabouret, comme si de rien n'était. Les gens la voient. Personne ne dit rien. Quelques-uns viennent lui parler à voix basse ; d'autres font un détour. Charron, quand il passe devant elle, regarde ailleurs. Elle rentrera chez elle demain, dit-elle. Ou après-demain. Quand elle aura décidé." },
+      { if: { is: { berthe: "cachee" } }, text: "Berthe est sortie de sa cachette ce soir, au bras de Hubert ou de personne, et elle s'est assise au bout des tréteaux, sur un tabouret, comme si de rien n'était. Les gens la voient. Personne se tait. Quelques-uns viennent lui parler à voix basse ; d'autres font un détour. Charron, quand il passe devant elle, regarde ailleurs. Elle rentrera chez elle demain, dit-elle. Ou après-demain. Quand elle aura décidé." },
       "Elle te met un fromage dans la main, le plus sec, enveloppé dans une feuille. « Pour la route, dit-elle. Il tient trois semaines. Il pue, mais il tient. » Puis elle te regarde de ses yeux délavés. « Tu as rincé la fosse ? Thibaud disait toujours qu'il fallait la rincer. Personne ne l'écoutait. »",
       { if: { has: "IL:vanne" }, text: "Tu lui dis que oui, avec sa clé. Elle hoche la tête, lentement, comme si on venait de lui rendre une dette vieille de vingt ans." },
     ],
@@ -1237,7 +1237,7 @@ Object.assign(passages, {
     ] },
   IL_fete_coliane: { act: "I", title: "Coliane à l'écart", place: "brumefeuille", with: "coliane",
     text: [
-      "Coliane est assise sur le parapet du pont, les jambes dans le vide, un gobelet de cidre qu'elle ne boit pas. Elle te fait de la place sans rien dire. Les lumières passent sous vous et ressortent de l'autre côté, dans l'ombre des arches.",
+      "Coliane est assise sur le parapet du pont, les jambes dans le vide, un gobelet de cidre qu'elle ne boit pas. Elle te fait de la place en silence. Les lumières passent sous vous et ressortent de l'autre côté, dans l'ombre des arches.",
       "« À Hautgrès aussi, on faisait ça, dit-elle au bout d'un moment. Pas avec des noix. Avec des écorces de bouleau. Mon frère faisait les plus belles. » Elle fait tourner le gobelet. « Après l'écluse, il n'y avait plus personne pour en faire. Ni personne pour qui en faire. Il aurait fallu en faire deux cents. »",
       { if: { is: { meunier: "livre" } }, text: "« Tu l'as livré, le meunier. » Elle hoche la tête. « C'était bien. Ce n'était pas facile, et c'était bien. Moi, je n'ai jamais livré celui de Hautgrès. Josse. Je l'ai laissé partir, la nuit où j'ai compris. Je n'ai jamais su si j'avais eu raison. »" },
       { if: { is: { meunier: "protege" } }, text: "« Tu l'as protégé, le meunier. » Elle ne te regarde pas. « Je ne sais pas si j'aurais pu. Il y a un homme, Josse, que j'ai laissé partir, la nuit où j'ai compris ce qu'il avait fait. Je me demande tous les jours si j'aurais dû le livrer. Toi, tu as choisi en sachant. C'est peut-être mieux. Ou pire. »" },
@@ -1246,7 +1246,7 @@ Object.assign(passages, {
     ],
     choices: [
       { label: "« Parle-moi de ton frère. »", fx: { conf: { coliane: 10 }, ep: ["perso", 300] }, back: "IL_fete" },
-      { label: "Rester là sans rien dire, à côté d'elle", fx: { conf: { coliane: 5 } }, back: "IL_fete" },
+      { label: "Rester là en silence, à côté d'elle", fx: { conf: { coliane: 5 } }, back: "IL_fete" },
     ] },
   IL_fete_gloup: { act: "I", title: "Gloup et le pain", place: "brumefeuille", with: "gloup",
     text: [
@@ -1288,7 +1288,7 @@ Object.assign(passages, {
     text: [
       "Tu restes à Brumefeuille plus longtemps que prévu. Il y a toujours quelque chose : une bête grise sortie du Rouvre qui rôde autour d'une bergerie, une mare qui noircit dans un pré, un enfant qui dit avoir entendu chanter dans le seau. Tu vas voir. La plupart du temps, ce n'est rien. Quelquefois, ce n'est pas rien. Tu apprends à reconnaître la différence, à l'odeur, à la couleur de l'eau, au silence des grenouilles.",
       { if: { all: [{ has: "puits:clair" }, { not: { has: "voix:marche1" } }] }, text: "Le puits reste clair. Les enfants guérissent un par un. La roue du moulin tourne de nouveau sur une eau verte, et à la fin des Brumes, on recommence à boire sans regarder dans le seau." },
-      { if: { has: "voix:marche1" }, text: "Le puits reste clair, d'une clarté de verre. Les enfants guérissent tous, d'un coup, la même nuit. On parle de miracle au sanctuaire. Tu ne dis rien. La nuit, quelquefois, ta paume te démange, et tu rêves d'eau." },
+      { if: { has: "voix:marche1" }, text: "Le puits reste clair, d'une clarté de verre. Les enfants guérissent tous, d'un coup, la même nuit. On parle de miracle au sanctuaire. Tu te tais. La nuit, quelquefois, ta paume te démange, et tu rêves d'eau." },
       { if: { has: "IL:mure" }, text: "Le puits reste gris jusqu'aux premières gelées, puis il pâlit, un peu, sans jamais redevenir tout à fait clair. Sous le moulin, le mur de Hubert tient. Personne ne s'en approche." },
       { if: { is: { meunier: "livre" } }, text: "Le bailli de Sorbe tarde à venir juger Barthélemy. On dit qu'il sera banni, qu'il devra quitter la vallée avant la neige. En attendant, il reste au sanctuaire, sous la garde de Père Odon, et il regarde la rivière par la fenêtre." },
       { if: { is: { meunier: "protege" } }, text: "Barthélemy moud son grain. Personne ne sait. Quelquefois, la nuit, il vient frapper à ta porte pour te dire qu'il a entendu l'eau parler, plus loin, plus bas, vers les marais ou vers le Rouvre. Il ne se trompe jamais." },
@@ -1374,7 +1374,7 @@ Object.assign(passages, {
       "Il lève son gobelet vers toi, à la fin, et tout le monde se tourne. « Et à notre hôte, qui a fait sa part ! » Sa part. Le mot est choisi.",
     ],
     choices: [
-      { label: "Lever ton gobelet sans rien dire", back: "IL_fete" },
+      { label: "Lever ton gobelet en silence", back: "IL_fete" },
       { label: "« Ma part, et celle de Berthe, qui avait tout vu avant tout le monde. »", hide: { not: { is: { berthe: ["sauvee", "cachee"] } } }, fx: { fac: { brumefeuille: 5 }, regard: { berthe: "allie" } }, back: "IL_fete" },
       { label: "« Et une pensée pour celle qu'on a pendue sous le tilleul. »", hide: { not: { is: { berthe: "pendue" } } }, fx: { fac: { brumefeuille: -3 } }, back: "IL_fete" },
     ] },
@@ -1382,7 +1382,7 @@ Object.assign(passages, {
     text: [
       "Père Odon est descendu de son coteau, en sandales malgré le froid, avec un bol d'eau du sanctuaire et une branche de buis. Il bénit les lumières une à une, avant qu'on les pose sur l'eau, d'un geste de la main ouverte. Il connaît le nom de chaque mort. Il le dit à voix basse, en même temps que la famille.",
       "Quand il arrive à toi, il pose son bol. « On m'a dit ce que vous avez trouvé sous le moulin, dit-il. Les mains. » Il regarde la rivière un long moment. « Il y a des choses qu'on grave dans la pierre pour qu'on s'en souvienne, et d'autres qu'on gratte pour qu'on les oublie. Je suis prêtre de la Main depuis quarante ans. Je n'ai jamais su lesquelles étaient les bonnes. » Il reprend son bol. « Je prierai pour vous. Ce n'est pas grand-chose. C'est ce que j'ai. »",
-      { if: { mark: { min: 1 } }, text: "Il a vu ta main. Il ne dit rien. Il te bénit deux fois." },
+      { if: { mark: { min: 1 } }, text: "Il a vu ta main. Il se tait. Il te bénit deux fois." },
     ],
     fx: { fac: { ordre: 2 }, ep: ["perso", 200] },
     choices: [{ back: "IL_fete" }] },

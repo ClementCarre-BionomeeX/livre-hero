@@ -26,7 +26,7 @@ module.exports = {
         win: { fx: { flag: "nord:glaneur_libre", ep: ["perso", 700] }, to: "II_N2_eboulis_libre" },
         lose: { to: "II_N2_eboulis_combat" } },
       { label: "L'achever avant qu'il ne se libère", fx: { flag: "nord:glaneur_tue" }, to: "II_N2_eboulis_combat" },
-      { label: "Passer au large, sans un bruit", to: "@route" },
+      { label: "Passer au large, en silence", to: "@route" },
     ] }),
 
   II_N2_eboulis_libre: P({ title: "Odile, Marceau, Petit Jean", place: null,
@@ -53,7 +53,7 @@ module.exports = {
 
   II_N2_lac: P({ title: "Le lac noir", place: null,
     text: [
-      "Le lac est au fond d'un cirque de falaises, rond comme un œil. Tout autour, la neige. Lui ne gèle jamais. Il est noir, d'un noir sans reflet, et il n'y a pas de vent dessus.",
+      "Le lac est au fond d'un cirque de falaises, rond comme un œil. Tout autour, la neige. Lui ne gèle jamais. Il est noir, d'un noir mat, et l'air au-dessus de lui est immobile.",
       "Au-dessus, dans la falaise, à mi-hauteur, une fente sombre où tournent des corbeaux. La grotte.",
       "Quand tu te penches, l'eau te renvoie une image. Ce n'est pas ton visage.",
       { if: { souv: "corbe:frere" }, text: "C'est Bran. Bran à quinze ans, qui rit, avec une dent en moins, et qui te tend un oisillon tombé du nid." },
@@ -79,7 +79,7 @@ module.exports = {
   II_N2_grotte: P({ title: "La grotte des Corbeaux", place: "lacnoir", hub: true,
     text: [
       { first: true, text: "L'entrée est basse. Il faut se courber. Puis la grotte s'ouvre, haute comme un temple, et la lumière tombe d'une fente dans la voûte. Les corbeaux nichent dans les corniches, par centaines. Ils ne crient pas. Ils regardent." },
-      "Les parois sont couvertes de signes. Pas des dessins : des lignes de traits, serrés, réguliers, gravés au silex, du sol jusqu'aussi haut qu'un bras peut monter. Des milliers.",
+      "Les parois sont couvertes de signes. Des lignes de traits, serrés, réguliers, gravés au silex, du sol jusqu'aussi haut qu'un bras peut monter. Des milliers.",
       { first: true, text: "Tu ne sais pas lire. Personne, au clan, ne sait lire. Tu as toujours trouvé que c'était une force." },
     ],
     choices: [
@@ -112,7 +112,7 @@ module.exports = {
       "Des noms. Des milliers de noms, de personnes, de familles, de villages. Après chaque nom de village, un signe qui revient toujours, le même. Après les noms des gens, rien.",
       "Les trois vers de l'aïeule sont tout en bas. Ils ne sont pas la fin de la liste. Ce sont des instructions. *Qui chante tous les noms ouvre la porte. Qui en chante un seul l'appelle. Qui n'en chante aucun la garde fermée.*",
       "Au-dessus des trois vers, la dernière ligne de la liste, plus grande que les autres, gravée plus profond. Un seul nom. Ardaël.",
-      { with: "hylas", text: "Hylas retire sa main de la pierre comme s'il s'était brûlé. Il ne dit rien pendant longtemps." },
+      { with: "hylas", text: "Hylas retire sa main de la pierre comme s'il s'était brûlé. Il se tait longtemps." },
     ],
     choices: [{ back: "II_N2_grotte" }] }),
 
@@ -174,7 +174,7 @@ module.exports = {
     text: [
       "Tu poses le front contre la glace. Tu penses au col de l'Ourse, un jour d'été, quand tu avais douze ans : l'herbe rase, les edelweiss, le ciel si bleu qu'il en devenait noir, et la grande pierre plate où la Mère Blanche, dit-on, s'est assise un jour pour regarder le monde.",
       "Tu le donnes.",
-      "La glace cesse de craquer. Tu te redresses. Askel te regarde. Tu lui demandes ce qu'il y a, au col de l'Ourse. Elle ne répond pas. Tu ne comprends pas pourquoi elle pleure.",
+      "La glace cesse de craquer. Tu te redresses. Askel te regarde. Tu lui demandes ce qu'il y a, au col de l'Ourse. Elle se tait. Elle pleure, et la raison t'échappe.",
     ],
     choices: [{ back: "II_N2_grotte" }] }),
 

@@ -22,13 +22,13 @@ module.exports = {
   II_g_offrandes_prise: P({ title: "La baguette", place: "lacnoir",
     text: [
       "Elle est légère, sèche, l'écorce partie depuis longtemps. Tu la soupèses. Elle a été taillée pour une main plus petite que la tienne. Ta grand-mère ? La sienne ? Personne ne pourra te le dire.",
-      "Tu la glisses dans ta ceinture, à côté de la tienne. Quand tu te redresses, tu as l'impression que les corbeaux, là-haut, te regardent. Ils ne disent rien. Ils ne disent jamais rien.",
+      "Tu la glisses dans ta ceinture, à côté de la tienne. Quand tu te redresses, tu as l'impression que les corbeaux, là-haut, te regardent. Ils se taisent, comme toujours.",
     ],
     choices: [{ back: "II_N2_grotte" }] }),
   II_g_offrandes_laissee: P({ title: "Ce qu'on laisse", place: "lacnoir",
     text: [
       "Tu cherches dans tes poches. Un caillou, un bout de ficelle, une boucle de ceinture. Rien qui vaille. Puis tu défais une de tes tresses, la plus longue, et tu coupes la mèche au couteau, et tu la poses sur la baguette, tout au fond, là où personne ne la verra.",
-      "Tu ne sais pas pourquoi. Pour que quelque chose de toi reste ici, si le reste ne revient pas. Ça ne pèse rien. Ça pèse quand même.",
+      "Peut-être pour que quelque chose de toi reste ici, si le reste se perd en route. C'est léger comme une plume. Ça pèse quand même.",
     ],
     choices: [{ back: "II_N2_grotte" }] }),
 
@@ -36,7 +36,7 @@ module.exports = {
   II_Q_echo: P({ title: "La salle de l'écho", place: "lacnoir",
     fx: { questSeen: "II_Q_echo" },
     text: [
-      "Derrière la grande paroi, une fente à peine large comme un homme de profil. Tu passes. De l'autre côté, une petite salle ronde, sans signes, sans corbeaux, parfaitement noire. Ta torche n'en éclaire que le sol.",
+      "Derrière la grande paroi, une fente à peine large comme un homme de profil. Tu passes. De l'autre côté, une petite salle ronde, nue, parfaitement noire. Ta torche n'en éclaire que le sol.",
       "Tu toussotes. La salle te renvoie la toux. Puis une autre toux, plus grave, qui n'est pas la tienne. Puis un rire d'enfant.",
       "Tu dis : « Il y a quelqu'un ? » La salle répond, avec ta voix, puis avec une voix de vieille femme, puis avec une voix d'homme qui a l'accent du clan : *Il y a quelqu'un. Il y a quelqu'un.*",
     ],
@@ -49,7 +49,7 @@ module.exports = {
   II_Q_echo_nom: P({ title: "Corbe", place: "lacnoir",
     text: [
       "Tu dis : « Corbe. » La salle répond : *Corbe.* Avec ta voix. Puis, plus loin, avec une autre : *Corbe, fille d'Askel.* Puis une autre : *Askel, fille de Brynja.* Et ça continue, de voix en voix, de plus en plus loin, de plus en plus vieux, une lignée entière qui remonte dans le noir et que tu n'as jamais entendue en entier, parce que Torgal s'arrête toujours avant.",
-      "À la fin, très loin, une voix qui n'a plus d'âge dit un nom que tu ne comprends pas. Pas un nom du clan. Un nom d'en bas, de la vallée, avec trop de syllabes. Puis le silence.",
+      "À la fin, très loin, une voix très ancienne dit un nom qui t'échappe. Pas un nom du clan. Un nom d'en bas, de la vallée, avec trop de syllabes. Puis le silence.",
     ],
     choices: [
       { label: "Battre le tambour, maintenant", test: { dom: "magie", label: "Les voix", help: [{ if: { item: "tambour" }, v: 20 }, { if: { has: "nord:offrande=prise" }, v: 10 }] },
@@ -77,7 +77,7 @@ module.exports = {
     fx: { questSeen: "II_Q_refuge" },
     text: [
       "Un peu en contrebas du col, à l'abri d'un ressaut, une cabane de pierres sèches au toit de lauzes, avec une cheminée qui ne fume pas. Le refuge des passeurs, qui mènent les marchands d'un versant à l'autre, l'été, pour un écu par tête.",
-      "Devant la porte, couché en travers du seuil, un chien. Un énorme chien de montagne, blanc et roux, au collier clouté. Il lève la tête quand tu approches. Il ne grogne pas. Il ne bouge pas non plus.",
+      "Devant la porte, couché en travers du seuil, un chien. Un énorme chien de montagne, blanc et roux, au collier clouté. Il lève la tête quand tu approches. Il reste là, muet, immobile.",
     ],
     choices: [
       { label: "Lui parler, et attendre qu'il te laisse passer", test: { dom: "nature", label: "Le chien", help: [{ if: { present: "givre" }, v: -10 }, { if: { present: "ysolde" }, v: 5 }, { if: { present: "enfant" }, v: 10 }] },
@@ -87,7 +87,7 @@ module.exports = {
     ] }),
   II_Q_refuge_dehors: P({ title: "Le seuil", place: "col",
     text: [
-      "Tu avances la main. Le chien se lève, lentement, et il est plus haut que ta taille. Il ne mord pas. Il se met seulement entre toi et la porte, et il te regarde, et il est clair qu'il restera là jusqu'à ce que tu partes, ou jusqu'à ce que tu meures, et qu'il n'a pas de préférence.",
+      "Tu avances la main. Le chien se lève, lentement, et il est plus haut que ta taille. Il se met entre toi et la porte, la gueule fermée, et il te regarde, et il est clair qu'il restera là jusqu'à ce que tu partes, ou jusqu'à ce que tu meures, et que les deux lui conviennent.",
       "Tu recules. Il se recouche en travers du seuil, le museau sur les pattes, les yeux tournés vers la déchirure.",
     ],
     choices: [{ label: "Laisser le refuge", fx: { quest: "II_Q_refuge" }, to: "II_N5_col" }] }),
@@ -113,7 +113,7 @@ module.exports = {
     text: [
       "Tu l'appelles. Il te regarde. Tu fais trois pas vers le col, tu tapes sur ta cuisse. Il se lève, il te suit jusqu'au seuil. Puis il s'arrête, et il se recouche, en travers, le museau vers la déchirure.",
       "Il garde la maison. On le lui a dit. Tu n'as pas d'ordre plus fort que celui-là à lui donner.",
-      "Tu reviens t'asseoir à côté de lui, un moment. Il pose sa tête sur ton pied. Il est très chaud. Puis tu repars, et il ne te suit pas, et tu ne te retournes pas, parce que tu sais déjà qu'il ne t'a pas regardée partir.",
+      "Tu reviens t'asseoir à côté de lui, un moment. Il pose sa tête sur ton pied. Il est très chaud. Puis tu repars seule, les yeux sur le chemin : tu sais déjà qu'il regarde ailleurs.",
     ],
     choices: [{ fx: { quest: "II_Q_refuge", conf: { corbe: 5 } }, back: "II_N5_col" }] }),
 
@@ -128,7 +128,7 @@ module.exports = {
       { label: "L'aider à enfourner", fx: { ep: ["perso", 500], flag: "iii:fournil" }, to: "III_a_boulanger_aide" },
     ] }),
   III_a_boulanger_pain: P3({ title: "Un pain de Valcendre", place: "valcendre",
-    text: ["Il te regarde, étonné, comme si personne ne lui avait demandé ça depuis très longtemps. Puis il te donne le plus beau, celui du dessus. « Pour la route, dit-il. Là-haut, ils ont faim, je crois. » Le pain est chaud. Il le restera, tu le sais déjà, jusqu'au bout du blanc."],
+    text: ["Il te regarde, étonné, comme devant une question oubliée depuis très longtemps. Puis il te donne le plus beau, celui du dessus. « Pour la route, dit-il. Là-haut, ils ont faim, je crois. » Le pain est chaud. Il le restera, tu le sais déjà, jusqu'au bout du blanc."],
     choices: [{ back: "III_a_nuit" }] }),
   III_a_boulanger_aide: P3({ title: "La pelle", place: "valcendre",
     text: [
@@ -150,9 +150,9 @@ module.exports = {
     ] }),
   III_a_bibliotheque_lue: P3({ title: "La berceuse", place: "valcendre",
     text: [
-      "Tu épelles. Lentement. La vieille femme corrige ta prononciation, sans rien dire, d'un doigt levé, comme une maîtresse d'école. Et à la troisième ligne, tu ne lis plus. Tu chantes. La chanson de ta mère. Entière, pour la première fois. Il y avait un troisième couplet. Personne ne te l'avait jamais chanté.",
+      "Tu épelles. Lentement. La vieille femme corrige ta prononciation d'un doigt levé, comme une maîtresse d'école. Et à la troisième ligne, tu ne lis plus. Tu chantes. La chanson de ta mère. Entière, pour la première fois. Il y avait un troisième couplet. Personne ne te l'avait jamais chanté.",
       "Le troisième couplet dit, à peu près : *Si tu oublies ton nom, mon petit, ne pleure pas. Il est écrit dans ma bouche. Je le garde pour toi.*",
-      { with: "sansnom", text: "Ton frère est là, à l'entrée des rayonnages. Il a tout entendu. Il ne dit rien. Il a les lèvres qui bougent, en silence, sur le troisième couplet, qu'il connaissait." },
+      { with: "sansnom", text: "Ton frère est là, à l'entrée des rayonnages. Il a tout entendu. Il se tait. Il a les lèvres qui bougent, en silence, sur le troisième couplet, qu'il connaissait." },
     ],
     choices: [{ fx: { conf: { sansnom: 5 } }, back: "III_a_nuit" }] }),
   III_a_bibliotheque_rate: P3({ title: "Les boucles", place: "valcendre",

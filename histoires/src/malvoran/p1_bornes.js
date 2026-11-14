@@ -189,7 +189,7 @@ Object.assign(P, {
     fxEvery: { pv: "max", rest: true },
     text: [
       "Mère Ternes te regarde, regarde ta bourse, et soupire. « L'écurie, alors. Mais vous me fendez le bois, demain matin, toute la pile. » Tu dors dans la paille à côté de la mule du muletier, qui sent fort et qui tient chaud. Il y a pire, et tu as connu pire.",
-      "À l'aube, tu fends le bois. Toute la pile. Mère Ternes te regarde faire depuis la porte de la cuisine, les bras croisés, et quand tu as fini elle te tend une écuelle de soupe chaude sans un mot.",
+      "À l'aube, tu fends le bois. Toute la pile. Mère Ternes te regarde faire depuis la porte de la cuisine, les bras croisés, et quand tu as fini elle te tend une écuelle de soupe chaude en silence.",
     ],
     choices: [{ label: "Rentrer dans la salle", back: "PB_lanterne" }] },
   PB_pip_feu: { act: "P", title: "Pip, devant le feu",
@@ -216,7 +216,7 @@ Object.assign(P, {
       { again: true, when: "day", text: "Durn frappe des clous sur l'enclume, à petits coups réguliers, avec un marteau trop léger pour sa main. Il te fait un signe du menton sans s'arrêter." },
       { again: true, when: "night", text: "La forge, la nuit. Le feu sous la cendre, Durn sur son billot, et la cruche." },
       { after: "durn:marteau", text: "Le marteau de son père est revenu à sa place au mur, entre la grosse masse et le marteau à frapper devant. Durn le décroche plusieurs fois par jour, pour rien, pour le soupeser, et le raccroche." },
-      { if: { has: "marque:eclat" }, text: "Quand tu approches de l'enclume, le feu sous la cendre se ravive tout seul, d'un coup, comme si on avait soufflé dessus. Durn regarde le feu, puis ta main droite, que tu gardes fermée. Il ne dit rien." },
+      { if: { has: "marque:eclat" }, text: "Quand tu approches de l'enclume, le feu sous la cendre se ravive tout seul, d'un coup, comme si on avait soufflé dessus. Durn regarde le feu, puis ta main droite, que tu gardes fermée. Il se tait." },
     ],
     choices: [
       { label: "« Qu'est-ce qui manque, au mur ? »", hide: { seen: "PB_durn_marteau" }, to: "PB_durn_marteau" },
@@ -270,7 +270,7 @@ Object.assign(P, {
   PB_durn_rien: { act: "P", title: "Des socs", place: "bornes",
     text: [
       "Durn te regarde comme si tu lui avais parlé une langue étrangère. Puis il rit, un vrai rire, le premier que tu lui entends, qui le plie en deux sur son enclume. « Des socs, dit-il. Des socs. » Il s'essuie les yeux avec le dos de la main. « D'accord. Des socs. Et des faux pour Gervais, et une marmite pour Mère Ternes, qui m'en parle depuis deux ans. »",
-      "Le soir même, le marteau sonne. Le lendemain, tout le hameau sait que c'est toi qui l'as rapporté, et que tu n'as rien voulu en échange. On te regarde autrement. Durn, lui, te met dans la main, sans rien dire, une poignée de clous de fer, au cas où. Ça ne sert à rien, une poignée de clous. Tu les gardes quand même.",
+      "Le soir même, le marteau sonne. Le lendemain, tout le hameau sait que c'est toi qui l'as rapporté, et que tu n'as rien voulu en échange. On te regarde autrement. Durn, lui, te met dans la main, en silence, une poignée de clous de fer, au cas où. Ça ne sert à rien, une poignée de clous. Tu les gardes quand même.",
     ],
     choices: [{ back: "PB_forge" }] },
   PB_durn_perdu: { act: "P", title: "Le marteau perdu", place: "bornes",
@@ -343,7 +343,7 @@ Object.assign(P, {
     text: [
       "Tu poses ta paume dans le creux martelé. Il est à la taille d'une main d'homme, un peu plus petite que la tienne. La pierre est froide, plus froide que le reste de la borne, plus froide que l'air du soir, d'un froid qui ne vient pas du dehors.",
       { if: { mark: { min: 1 } }, text: "Ta paume te pique, comme quand on approche la main d'une flamme. Tu la retires. Sur la peau, rien. Mais pendant un long moment, tu sens encore la forme du creux contre tes doigts, comme si c'était lui qui t'avait touché{e}." },
-      { with: "pip", text: "Pip vient se poser dans le creux, à côté de ta main, et il y tient tout entier, comme dans une coquille. Il ne dit rien. Il reste là, sa lumière très basse, jusqu'à ce que tu retires ta main. Alors il remonte sur ton épaule. « C'est triste, dit-il. Je ne sais pas pourquoi c'est triste. »" },
+      { with: "pip", text: "Pip vient se poser dans le creux, à côté de ta main, et il y tient tout entier, comme dans une coquille. Il se tait. Il reste là, sa lumière très basse, jusqu'à ce que tu retires ta main. Alors il remonte sur ton épaule. « C'est triste, dit-il. Je ne sais pas pourquoi c'est triste. »" },
       { without: "pip", text: "Le vent passe sur le pré, couche l'herbe, fait tinter quelque part un grelot de mouton. Tu restes là un moment, la main dans la pierre, sans savoir ce que tu attends." },
     ],
     choices: [{ back: "PB_bornes" }] },
@@ -580,7 +580,7 @@ Object.assign(P, {
     text: [
       "Tu comptes les trente sous un à un sur la table, en piles de cinq. Pons les recompte, sans hâte, en mouillant le bout de son doigt. Il en mord un, par principe. Puis il range le tout dans une bourse de cuir, sort la reconnaissance de dette de son carnet, la déchire en deux, en quatre, en huit, et pose les morceaux devant toi.",
       "« Voilà, dit-il. Je suis payé, elle est libre, et vous êtes plus pauvre. Tout le monde a eu ce qu'il voulait, sauf vous. » Il te regarde avec une curiosité sincère. « Vous ne la connaissez pas. Pourquoi ? »",
-      "Tu ne réponds pas. Il hoche la tête, comme si c'était une réponse acceptable. Le lendemain matin, il repart vers Sorbe avec son valet, sans saluer personne.",
+      "Tu te tais. Il hoche la tête, comme si c'était une réponse acceptable. Le lendemain matin, il repart vers Sorbe avec son valet, sans saluer personne.",
     ],
     choices: [{ label: "Porter les morceaux de papier à Mariette", to: "PB_rouaix_fin" }] },
   PB_pons_accord: { act: "P", title: "Un accord", place: "bornes",
@@ -702,7 +702,7 @@ Object.assign(P, {
   PB_isaure_lumiere: { act: "P", title: "Ce que voit la bergère", place: "bornes",
     fx: { clue: "p_bergere", ep: ["perso", 300] },
     text: [
-      "Isaure ne répond pas tout de suite. Elle te regarde, comme pour voir si tu vas rire. Tu ne ris pas.",
+      "Isaure prend son temps. Elle te regarde, comme pour voir si tu vas rire. Tu ne ris pas.",
       "« Une lumière, dit-elle enfin. J'ai vu une lumière sortir du château, la nuit, toute petite. Grosse comme un poing. Elle est sortie par un soupirail, en bas, du côté de la falaise. Elle est restée là, dehors, un moment, comme une bête qui renifle l'air. Et puis elle est rentrée, d'un coup, aussitôt, comme si elle avait peur du dehors. »",
       "« Trois fois, je l'ai vue. Toujours la même. Toujours au même soupirail. Toujours elle rentre. » Elle se tait. « Je n'en ai parlé à personne. Ils disent déjà que je parle à mes bêtes. »",
     ],
@@ -711,7 +711,7 @@ Object.assign(P, {
     fx: { quest: "P_chien", regard: { p_isaure: "cordial" } },
     text: [
       "Tu lui dis que tu as cherché, et que tu n'as pas trouvé. Isaure écoute en regardant la crête, sa houlette serrée dans les deux mains. Elle ne pleure pas. Elle hoche la tête.",
-      "« Les nuits de vent du nord, dit-elle, je continuerai d'écouter. Si je ne l'entends plus, je saurai. » Elle retourne l'écuelle à l'endroit, et elle la remplit d'eau fraîche, et elle la pose sur le seuil. « Comme ça, s'il rentre tout seul. » Tu ne dis rien. Il n'y a rien à dire à quelqu'un qui remplit une écuelle.",
+      "« Les nuits de vent du nord, dit-elle, je continuerai d'écouter. Si je ne l'entends plus, je saurai. » Elle retourne l'écuelle à l'endroit, et elle la remplit d'eau fraîche, et elle la pose sur le seuil. « Comme ça, s'il rentre tout seul. » Tu te tais. Il n'y a rien à dire à quelqu'un qui remplit une écuelle.",
     ],
     choices: [{ back: "PB_bergerie" }] },
 });
@@ -723,7 +723,7 @@ Object.assign(P, {
     text: [
       "À mi-pente, le sentier traverse une prairie suspendue où trois cents brebis paissent, éparpillées sur la pente comme des cailloux blancs. Au milieu, debout sur un rocher, une jeune femme en cape de laine brune, une houlette à la main, siffle. Elle siffle encore. Rien ne vient. Les brebis s'égaillent vers le bord du ravin, et elle saute de son rocher pour courir les rabattre elle-même, en jurant.",
       { before: "PB_bergerie", text: "Elle t'aperçoit et revient vers toi, essoufflée, les tresses défaites. « Isaure, dit-elle. Je garde. Enfin, j'essaie. Vous montez au château ? » Elle te dévisage. « Alors si vous voyez un chien noir et feu, avec une oreille debout, c'est le mien. Poivre. Il est entré là-haut il y a un mois, derrière une brebis, et il n'est pas ressorti. Les nuits de vent du nord, je l'entends aboyer. »", else: "Isaure te reconnaît de loin et lève sa houlette. « Vous montez, alors. » Elle regarde le troupeau qui file vers le ravin, puis toi. « Sans Poivre, je cours plus que mes bêtes. S'il est là-haut, ramenez-le-moi. »" },
-      { with: "pip", text: "Isaure regarde Pip, sur ton épaule, et elle recule d'un pas. Puis elle s'approche, très lentement, la main tendue comme vers une bête farouche. « Toi, dit-elle tout bas, je t'ai déjà vu. » Pip ne répond pas." },
+      { with: "pip", text: "Isaure regarde Pip, sur ton épaule, et elle recule d'un pas. Puis elle s'approche, très lentement, la main tendue comme vers une bête farouche. « Toi, dit-elle tout bas, je t'ai déjà vu. » Pip se tait." },
     ],
     choices: [
       { label: "L'aider à rabattre les brebis vers le haut du pré", test: { dom: "nature", diff: 0, label: "Rabattre un troupeau sans chien", help: [{ if: { arch: "rodeur" }, v: 15 }, { with: "pip", v: 5 }] },
@@ -743,7 +743,7 @@ Object.assign(P, {
     ] },
   PC_bergere_nuit: { act: "P", title: "La lumière",
     text: [
-      "Isaure ne répond pas tout de suite. Elle te regarde, comme pour voir si tu vas rire. Tu ne ris pas.",
+      "Isaure prend son temps. Elle te regarde, comme pour voir si tu vas rire. Tu ne ris pas.",
       "« Une lumière, dit-elle enfin. Toute petite, grosse comme un poing. Elle sort du château la nuit, par un soupirail en bas, du côté de la falaise. Elle reste dehors un moment, comme une bête qui renifle l'air, et puis elle rentre aussitôt, d'un coup, comme si elle avait peur du dehors. Trois fois je l'ai vue. Toujours au même soupirail. » Elle regarde les remparts. « En bas, ils diraient que je parle à mes bêtes. Ils le disent déjà. »",
       { with: "pip", text: "Pip, sur ton épaule, s'est fait tout petit et tout pâle. Isaure ne le remarque pas. Toi, si." },
     ],
@@ -833,7 +833,7 @@ Object.assign(P, {
     text: [
       "Au dernier tournant avant les hêtres, le sentier sort de la brume, et la vallée de la Sorbe s'ouvre sous toi d'un seul coup, toute entière : les collines rousses, les bois, les champs déjà labourés, la rivière qui brille par endroits comme un fil qu'on aurait laissé tomber, et très loin, au sud, des fumées de villages dont tu ne sais pas les noms.",
       "Tu es monté{e} voir ce qu'il y avait sous le château. Tu l'as vu. Tu redescends avec. Ce qui était une lettre pliée dans ta poche est devenu une chose que tu portes.",
-      { with: "pip", text: "Pip, sur ton épaule, regarde la vallée sans rien dire, très longtemps. Puis : « C'est grand, dehors. » Un temps. « C'est à qui, tout ça ? » Tu lui dis que c'est à personne et à tout le monde. Il réfléchit. « Alors il faut faire attention », dit-il." },
+      { with: "pip", text: "Pip, sur ton épaule, regarde la vallée en silence, très longtemps. Puis : « C'est grand, dehors. » Un temps. « C'est à qui, tout ça ? » Tu lui dis que c'est à personne et à tout le monde. Il réfléchit. « Alors il faut faire attention », dit-il." },
       { if: { has: "marque:eclat" }, text: "Dans ta paume droite, l'éclat bat contre ta peau comme un deuxième cœur, plus lent que le tien. Tu as l'impression que, d'ici, il voit la vallée aussi. Et qu'elle lui plaît." },
       { if: { has: "eclat:refuse" }, text: "Ta main droite est vide, et légère. Tu la regardes. Tu ne sais pas encore si tu as eu raison. Tu sais que tu n'as rien pris que tu ne saurais rendre." },
     ],
@@ -925,7 +925,7 @@ Object.assign(P, {
   EP_troll_vaincu: { act: "P", title: "Le troll égaré",
     text: [
       { text: "Le troll tombe sur le flanc, dans la bruyère, et ne se relève pas. Il était plus fort que toi, et il ne savait pas se battre : il frappait comme on frappe une porte, de toutes ses forces et sans regarder. Maintenant il est couché à côté de la brebis qu'il n'a pas fini de manger, et il a l'air encore plus jeune que vivant." },
-      { with: "pip", text: "Pip ne dit rien. Il reste au-dessus du corps un long moment, sa lumière très basse, puis il revient vers toi sans te regarder. Il ne te regarde pas pendant une heure." },
+      { with: "pip", text: "Pip se tait. Il reste au-dessus du corps un long moment, sa lumière très basse, puis il revient vers toi sans te regarder. Il ne te regarde pas pendant une heure." },
       { without: "pip", text: "Tu regardes ses mains, énormes, couvertes de croûtes et de corne. Sur la paume gauche, il y a une brûlure ancienne, ronde, de la taille d'un sou." },
     ],
     choices: [{ back: R }] },
@@ -952,7 +952,7 @@ Object.assign(P, {
 
   EP_loups: { act: "P", title: "Les loups",
     text: [
-      "Le soir tombe plus vite qu'on ne croit, sur la crête. Le sentier est encore clair, le ciel encore pâle, mais sous les sapins, à gauche, il fait déjà nuit. Et dans cette nuit, deux points. Puis quatre. Ils ne bougent pas. Ils te regardent.",
+      "Le soir tombe plus vite qu'on ne croit, sur la crête. Le sentier est encore clair, le ciel encore pâle, mais sous les sapins, à gauche, il fait déjà nuit. Et dans cette nuit, deux points. Puis quatre. Ils restent immobiles. Ils te regardent.",
       "Un loup sort du bois, sans hâte. Gris, maigre, la tête basse, la queue basse. Un deuxième derrière lui. Ils marchent parallèlement au sentier, à trente pas, à ton allure, comme des gens qui font semblant de ne pas te suivre.",
     ],
     choices: [
@@ -1054,7 +1054,7 @@ Object.assign(P, {
     fx: { gold: 4, ep: ["perso", 200] },
     text: [
       "Blaise te montre. Il faut tourner autour de la meule, sans arrêt, et regarder la fumée : blanche et épaisse, c'est le bois qui sèche, tout va bien ; bleue et fine, c'est le bois qui cuit, c'est bien ; claire et presque invisible, c'est le bois qui brûle au lieu de cuire, et il faut boucher l'évent avec une motte, vite, avant que le feu ne prenne et ne dévore tout. Une meule qui flambe, c'est trois semaines de travail en cendres.",
-      "Tu tournes pendant des heures, une pelle de terre à la main, les yeux qui piquent. Deux fois, tu vois la fumée s'éclaircir, et tu bouches. Une fois, tu bouches trop, et Blaise rouvre derrière toi sans rien dire. À la fin, tu as les mains noires jusqu'aux coudes, le visage aussi sans doute, et Blaise te met quatre sous dans la main, de force, en disant que c'est le prix d'un aide et qu'il ne fait pas la charité.",
+      "Tu tournes pendant des heures, une pelle de terre à la main, les yeux qui piquent. Deux fois, tu vois la fumée s'éclaircir, et tu bouches. Une fois, tu bouches trop, et Blaise rouvre derrière toi en silence. À la fin, tu as les mains noires jusqu'aux coudes, le visage aussi sans doute, et Blaise te met quatre sous dans la main, de force, en disant que c'est le prix d'un aide et qu'il ne fait pas la charité.",
       { with: "pip", text: "Pip, lui, a passé tout ce temps perché au-dessus de la meule, fasciné par la fumée bleue. « Le bois devient noir, dit-il, et il garde le feu dedans pour plus tard. C'est malin. » Blaise le regarde de travers. Puis il rit." },
     ],
     choices: [{ back: "PB_charbonniere" }] },
@@ -1108,8 +1108,8 @@ Object.assign(P, {
   PB_thibaut_pip: { act: "P", title: "La petite lumière", place: "charbonniere",
     with: "pip",
     text: [
-      "Pip descend de ton épaule et va se poser sur le genou de Thibaut, très doucement, comme un papillon qui ne veut pas déranger. Il ne dit rien. Il brille, d'une lumière chaude et jaune, la lumière d'une lampe qu'on laisse à la fenêtre pour quelqu'un qui rentre tard.",
-      "Thibaut regarde Pip. Il le regarde longtemps, et quelque chose sur son visage se défait, une crispation qui tenait là depuis des semaines. « C'est toi, dit-il dans un souffle. C'était toi, en bas. La lumière, dans la main. » Pip ne répond pas. Il ne sait pas. Il reste là, et il brille.",
+      "Pip descend de ton épaule et va se poser sur le genou de Thibaut, très doucement, comme un papillon qui ne veut pas déranger. Il se tait. Il brille, d'une lumière chaude et jaune, la lumière d'une lampe qu'on laisse à la fenêtre pour quelqu'un qui rentre tard.",
+      "Thibaut regarde Pip. Il le regarde longtemps, et quelque chose sur son visage se défait, une crispation qui tenait là depuis des semaines. « C'est toi, dit-il dans un souffle. C'était toi, en bas. La lumière, dans la main. » Pip se tait. Il ne sait pas. Il reste là, et il brille.",
       "« Tu es sorti, dit Thibaut. Alors elle a lâché ? » Et puis, tout seul, sans attendre la réponse, il se met à parler.",
     ],
     choices: [{ label: "L'écouter", to: "PB_thibaut_recit" }] },
@@ -1127,7 +1127,7 @@ Object.assign(P, {
       "« Je suis monté avec six sacs, dit Thibaut. La porte était fermée. J'ai frappé. Longtemps. C'est Grauk qui a ouvert, le roi. Gros comme une meule. Il a regardé les sacs, il a dit : *bon, bon, toi entrer, toi porter.* Ils dormaient tous dans la cour, les trolls. Dehors. Serrés les uns contre les autres, comme des moutons sous l'orage. Il y avait des maisons vides tout autour, des grandes salles, et ils dormaient dans la cour. »",
       "« Il m'a fait porter les sacs en bas, jusqu'à la porte des caves. Il voulait qu'on brûle du charbon en haut de l'escalier. Toute la nuit. Pour la lumière. Il disait : *en bas noir, en bas mauvais, en haut lumière.* Je suis resté trois nuits à entretenir le feu. Il me donnait du jambon. Il était gentil. Il avait peur. »",
       "« La troisième nuit, j'ai regardé. » Thibaut serre ses mains l'une contre l'autre. « Par une fente du mur, en bas. Il y avait de la lumière, au fond, très loin, dans le noir, petite. Et quelque chose de grand qui la tenait. Qui tenait. Comme on tient une porte avec le dos, quand il y a du vent derrière. Ça tremblait. Ça tenait quand même. » Il se tait. « J'ai regardé trop longtemps. Il ne faut pas regarder longtemps. Au matin, mes cheveux étaient blancs, et j'étais en bas de la crête, et je ne sais pas comment. »",
-      { with: "pip", text: "Pip, pendant tout le récit, n'a pas bougé. Quand Thibaut se tait, il remonte lentement vers ton épaule, et il s'y pose, et il est froid. Il ne dit rien." },
+      { with: "pip", text: "Pip, pendant tout le récit, n'a pas bougé. Quand Thibaut se tait, il remonte lentement vers ton épaule, et il s'y pose, et il est froid. Il se tait." },
       "Thibaut ramasse son couteau, regarde son bout de bois, et le jette dans le feu de la marmite. « Voilà, dit-il. C'est dit. » Il se lève de sa souche, pour la première fois depuis des semaines, et va aider Blaise sur la meule du fond, en boitant un peu. Blaise te regarde par-dessus la fumée, et il ne dit rien, parce qu'il ne peut pas.",
     ],
     choices: [{ back: "PB_charbonniere" }] },
@@ -1145,7 +1145,7 @@ Object.assign(P, {
   PB_retour: { act: "P", title: "Le retour", place: "bornes",
     fx: { ep: ["perso", 500], fac: { bornes: 5 } },
     text: [
-      "On t'a vu{e} descendre. Le temps que tu arrives au pré, tout le hameau est dehors : Mère Ternes sur le pas de l'auberge, son torchon à la main ; Durn devant sa forge ; les laveuses, les vachers, les frères du lavoir, les petits Guérin perchés sur leur muret. Personne ne parle. Ils te regardent arriver comme on regarde revenir quelqu'un qu'on avait déjà commencé à pleurer.",
+      "On t'a vu{e} descendre. Le temps que tu arrives au pré, tout le hameau est dehors : Mère Ternes sur le pas de l'auberge, son torchon à la main ; Durn devant sa forge ; les laveuses, les vachers, les frères du lavoir, les petits Guérin perchés sur leur muret. Tous se taisent. Ils te regardent arriver comme on regarde revenir quelqu'un qu'on avait déjà commencé à pleurer.",
       { after: "aglae=ramenee", text: "Et puis Mère Ternes voit qui marche à côté de toi, et le torchon tombe. Aglaé, maigre, vieillie, les cheveux en paquet sous un fichu de troll fait d'un sac de farine, s'arrête au milieu du pré, met les poings sur les hanches et dit, d'une voix qu'on entend jusqu'au lavoir : « Eh bien ? On ne dit pas bonjour ? » Mère Ternes traverse le pré en courant. Tu ne l'aurais pas crue capable de courir." },
       { after: "aglae=reste", text: "Tu cherches Mère Ternes du regard, et tu vas droit vers elle, et tu lui dis pour Aglaé : vivante, en cuisine, là-haut, et qui a choisi d'y rester. Mère Ternes t'écoute sans bouger. Puis elle rit, d'un rire qui se casse au milieu. « La garce, dit-elle. Elle a toujours aimé qu'on la regrette. »" },
       { after: "aglae=libre", text: "Tu cherches Mère Ternes du regard, et tu vas droit vers elle, et tu lui dis pour Aglaé : vivante, libre, partie de son côté. Mère Ternes ferme les yeux. « Vivante, répète-t-elle. Ça suffit. Ça suffit bien. »" },

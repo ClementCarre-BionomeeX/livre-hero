@@ -7,7 +7,7 @@ var BUREAU = [{ back: "V_t_cessions" }];
 module.exports = {
   V_e_dortoir: P({ title: "Le dortoir des pages",
     text: [
-      "Tout en haut, sous les combles, un dortoir. Cent lits de fer, en quatre rangées, cent couvertures grises pliées au carré. Les pages ne sont pas là : elles écrivent, en dessous. Les lits n'ont pas servi cette nuit.",
+      "Tout en haut, sous les combles, un dortoir. Cent lits de fer, en quatre rangées, cent couvertures grises pliées au carré. Les pages écrivent, en dessous. Les lits sont restés faits cette nuit.",
       "Sous chaque lit, gravé dans le plancher avec un clou ou une épingle, quelque chose. Pas des noms : on n'a pas le droit. Des dessins. Un chat. Une maison. Un bateau. Une femme avec un chignon. Ce que chaque enfant avait gardé, en dessous, en cachette, là où les greffiers ne regardent pas.",
       { with: "linette", text: "Linette va droit au onzième lit du deuxième rang. Elle s'accroupit. Elle ne te montre pas ce qu'il y a dessous. Elle le touche du bout des doigts, et elle se relève, et elle dit : « Il y est encore. » C'est tout." },
     ],
@@ -16,7 +16,7 @@ module.exports = {
       { back: "V_t_cessions" },
     ] }),
   V_e_dortoir_grave: P({ title: "Sous le lit",
-    text: ["Tu trouves un lit dont le plancher, dessous, est vierge. Un enfant qui n'a rien gardé, ou qui n'a pas osé. Tu prends ton couteau. Tu graves une roue de moulin, avec ses aubes, de travers. Puis, à côté, petit, un sifflet, un chien, une étoile. Ce que tu veux. Ce n'est pas pour toi. C'est pour le prochain enfant qui dormira là, s'il y en a un, et qui regardera dessous, une nuit, et qui saura que quelqu'un est passé avant lui et n'a pas oublié."],
+    text: ["Tu trouves un lit dont le plancher, dessous, est vierge. Un enfant aux mains vides, ou trop craintif. Tu prends ton couteau. Tu graves une roue de moulin, avec ses aubes, de travers. Puis, à côté, petit, un sifflet, un chien, une étoile. Ce que tu veux. Ce n'est pas pour toi. C'est pour le prochain enfant qui dormira là, s'il y en a un, et qui regardera dessous, une nuit, et qui saura que quelqu'un est passé avant lui et n'a pas oublié."],
     choices: BUREAU }),
   V_e_sceaux: P({ title: "La salle des sceaux",
     text: [

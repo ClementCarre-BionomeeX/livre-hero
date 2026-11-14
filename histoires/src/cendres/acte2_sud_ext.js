@@ -11,7 +11,7 @@ module.exports = {
     ],
     choices: [
       { label: "« Tu ne la hais pas ? »", fx: { conf: { rodric: 5 } }, to: "II_S2_nuit_rodric2" },
-      { label: "L'aider à fendre, sans rien dire", fx: { conf: { rodric: 10 } }, to: "II_S2_nuit" },
+      { label: "L'aider à fendre, en silence", fx: { conf: { rodric: 10 } }, to: "II_S2_nuit" },
     ] }),
   II_S2_nuit_rodric2: P({ title: "Haïr", place: "vasselin",
     text: ["Il pose sa hache. Il réfléchit, longtemps, avec ce sérieux qu'il met à tout. « Je hais la femme qui a signé, dit-il enfin. Celle-là, elle n'existe plus. Celle qui dort au palais, je ne la connais pas. » Il reprend sa hache. « C'est très commode. Je n'aime pas que ce soit commode. »"],
@@ -44,8 +44,8 @@ module.exports = {
     ] }),
   II_S3_cartes_tirage: P({ title: "Une carte", place: "vasselin",
     text: [
-      "Tu tires. Elle retourne la carte. Une figure blanche, sans visage, sur un fond blanc. On ne la distingue presque pas. La femme la regarde, et ne dit rien pendant un moment.",
-      "« La Sixième, dit-elle. Il n'y a que cinq figures, d'habitude. Celle-là, elle est dans tous les jeux, mais on ne la voit pas. On la tire une fois dans sa vie, et encore. » Elle remet la carte dans le paquet, très vite. « Ça veut dire que quelqu'un qu'on a oublié va revenir. Pour le meilleur ou pour le pire. Les cartes ne disent pas lequel. Elles ne le disent jamais. »",
+      "Tu tires. Elle retourne la carte. Une figure blanche, sans visage, sur un fond blanc. On ne la distingue presque pas. La femme la regarde, et se tait un moment.",
+      "« La Sixième, dit-elle. Il n'y a que cinq figures, d'habitude. Celle-là, elle est dans tous les jeux, mais on ne la voit pas. On la tire une fois dans sa vie, et encore. » Elle remet la carte dans le paquet, très vite. « Ça veut dire que quelqu'un qu'on a oublié va revenir. Pour le meilleur ou pour le pire. Lequel, les cartes le gardent pour elles, comme toujours. »",
     ],
     choices: [{ label: "Lui laisser deux sous, et repartir", to: "II_S3_soir" }] }),
   II_S3_cartes_jeu: P({ title: "Le jeu", place: "vasselin",

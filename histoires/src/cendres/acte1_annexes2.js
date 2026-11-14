@@ -41,7 +41,7 @@ module.exports = {
     text: ["Tu passes une heure devant le perchoir, avec des noisettes, à lui seriner le refrain le plus bête de ton répertoire. À midi, Monseigneur chante, de ta voix exacte, *Ô la belle meunière*, et il ne sait plus rien d'autre. Une duchesse que tu ne nommeras pas t'envoie, le soir même, une paire de gants brodés, sans billet."],
     choices: [{ fx: { quest: "LI_Q_perroquet", gold: 6 }, back: "LI_cour" }] }),
   LI_Q_perroquet_rate: P("vasselin", { title: "Monseigneur",
-    text: ["Monseigneur te regarde de son œil rond, mange tes noisettes, et répète, plus fort : « Dis-moi seulement si c'est le mien. » Un valet passe et éclate de rire. Avant le soir, toute la cour le saura. Tu n'y peux rien. À la cour, on n'y peut jamais rien."],
+    text: ["Monseigneur te regarde de son œil rond, mange tes noisettes, et répète, plus fort : « Dis-moi seulement si c'est le mien. » Un valet passe et éclate de rire. Avant le soir, toute la cour le saura. C'est hors de ta portée, comme presque tout à la cour."],
     choices: [{ fx: { quest: "LI_Q_perroquet" }, back: "LI_cour" }] }),
   LI_Q_perroquet_retenu: P("vasselin", { title: "Une voix du nord",
     text: ["Tu ne fais rien. Tu écoutes la voix d'homme, encore, et tu la ranges dans un coin de ta tête, là où tu ranges les choses qui pourront servir. Un accent du nord. Grave. Qui demande si quelque chose est à lui. À la cour, toutes les voix servent un jour."],
@@ -51,7 +51,7 @@ module.exports = {
   HY_Q_page: P("pallanche", { takes: "evening", title: "Page Onze",
     fx: { questSeen: "HY_Q_page" },
     text: [
-      "Le soir, dans ta cellule, Page Onze te lit les registres du jour, comme on le lui a appris : d'une voix plate, sans souffle, sans rien. Elle s'arrête au milieu d'une ligne. Elle ne s'arrête jamais.",
+      "Le soir, dans ta cellule, Page Onze te lit les registres du jour, comme on le lui a appris : d'une voix plate et égale. Elle s'arrête au milieu d'une ligne. Elle ne s'arrête jamais.",
       "« Maître, dit-elle. Dans les registres, tout le monde a un nom. Même les morts. Même les vaches, dans les registres de la taille. » Elle se tait. « Moi, j'ai un numéro. Est-ce que j'avais un nom, avant ? »",
       "Tu as tenu le registre gris pendant dix ans. Tu te souviens de toutes les lignes que tu as touchées.",
     ],
@@ -61,9 +61,9 @@ module.exports = {
     ] }),
   HY_Q_page_nom: P("pallanche", { title: "Linette",
     text: [
-      "Tu le lui dis. Linette. Elle le répète, deux fois, à voix basse, comme on goûte un plat inconnu. Elle ne sourit pas. Elle n'a pas appris.",
+      "Tu le lui dis. Linette. Elle le répète, deux fois, à voix basse, comme on goûte un plat inconnu. Sourire, on a oublié de le lui apprendre.",
       "« Linette », dit-elle une troisième fois. Puis elle reprend sa lecture, à la ligne exacte où elle s'était arrêtée.",
-      "Le lendemain matin, quand elle entre dans ta cellule, tu lui demandes comment elle s'appelle. « Page Onze, maître », dit-elle. La cession était complète. Le nom n'a pas tenu la nuit. Mais elle a, au coin de la bouche, un pli que tu ne lui connaissais pas, comme quelqu'un qui a fait un rêve et ne s'en souvient pas.",
+      "Le lendemain matin, quand elle entre dans ta cellule, tu lui demandes comment elle s'appelle. « Page Onze, maître », dit-elle. La cession était complète. Le nom n'a pas tenu la nuit. Mais elle a, au coin de la bouche, un pli nouveau, comme au réveil d'un rêve déjà enfui.",
     ],
     choices: [{ fx: { quest: "HY_Q_page" }, back: "HY_tour" }] }),
   HY_Q_page_tu: P("pallanche", { title: "Je ne sais pas",
@@ -103,7 +103,7 @@ module.exports = {
   CO_Q_tambour_arnald: P("corbeau", { takes: "morning", title: "La peau",
     text: [
       "Arnald te donne une peau sans rien demander. Une peau de renne blanc, fine, tannée depuis des années, qu'il gardait pour son propre linceul. « Je n'en aurai pas besoin, dit-il. Si tu ne fermes pas le col, il n'y aura personne pour m'y enrouler. »",
-      "Tu la tends toute la nuit sur le cercle de bois. Ta mère vient au matin. Elle peint les noms, sans un mot, d'une main qui ne tremble pas.",
+      "Tu la tends toute la nuit sur le cercle de bois. Ta mère vient au matin. Elle peint les noms en silence, d'une main sûre.",
     ],
     choices: [{ fx: { quest: "CO_Q_tambour", flag: "co:tambour=neuf" }, back: "CO_camp" }] }),
   CO_Q_tambour_recousu: P("corbeau", { title: "La cicatrice",
@@ -115,7 +115,7 @@ module.exports = {
     fx: { questSeen: "EN_Q_fontaine" },
     text: [
       "Au milieu de la place, la fontaine de Sauvelune. Le fond est couvert de liards verts, jetés depuis des générations par des gens qui faisaient un vœu. Les enfants du village y repêchent les plus brillants, la nuit, et le Père Anselme fait semblant de ne pas savoir.",
-      "Un vœu coûte un liard. Pas plus, pas moins.",
+      "Un vœu coûte un liard. Exactement.",
     ],
     choices: [
       { label: "Le jeter, et faire un vœu", fx: { gold: -1, flag: "en:voeu", ep: ["perso", 300] }, to: "EN_Q_fontaine_voeu" },
@@ -123,7 +123,7 @@ module.exports = {
     ] }),
   EN_Q_fontaine_voeu: P("sauvelune", { title: "Le vœu",
     text: [
-      "Tu fermes les yeux. Tu ne sais pas quoi souhaiter. Tu as tout ce qu'il te faut : le moulin, Joris, Agathe, la fête ce soir. Alors tu souhaites que rien ne change. Que tout reste exactement comme ça.",
+      "Tu fermes les yeux. Tu cherches quoi souhaiter. Tu as tout ce qu'il te faut : le moulin, Joris, Agathe, la fête ce soir. Alors tu souhaites que rien ne change. Que tout reste exactement comme ça.",
       "Le liard tombe dans l'eau avec un petit bruit, et rejoint les autres au fond. Quand tu rouvres les yeux, le soleil a bougé, un peu. Rien n'a changé. Pas encore.",
     ],
     choices: [{ fx: { quest: "EN_Q_fontaine" }, back: "EN_place" }] }),

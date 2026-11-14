@@ -81,7 +81,7 @@ module.exports = {
   II_S3_joute2: P({ title: "Deuxième joute", place: "vasselin",
     text: [
       "Au deuxième tour, le tirage met ton champion face au chevalier au masque.",
-      "Tu le sais parce que le héraut le crie. Puis tu regardes la lice, et tu ne sais plus contre qui ton champion court. Puis tu le vois, en argent mat, à l'autre bout de la lice, et tu te souviens. Tu te souviens que tu avais oublié.",
+      "Tu le sais parce que le héraut le crie. Puis tu regardes la lice, et l'adversaire de ton champion t'échappe. Puis tu le vois, en argent mat, à l'autre bout de la lice, et tu te souviens. Tu te souviens que tu avais oublié.",
       "Tu sors de ta manche un bout de charbon et tu écris sur ta paume : *le masque.*",
     ],
     choices: [
@@ -117,7 +117,7 @@ module.exports = {
   II_S3_masque: P({ title: "Derrière les tentes", place: "vasselin",
     text: [
       "Il t'attend derrière les tentes des champions, assis sur un tonneau, le masque sur les genoux. Il a l'air très jeune. Il a l'air très fatigué.",
-      "« Tu as écrit, dit-il. C'est malin. Ça tiendra jusqu'à ce que tu te laves les mains. » Il a un accent que tu ne connais pas, ni d'Esquarre ni de Corvanne. Les voyelles trop longues, comme on parle en montagne.",
+      "« Tu as écrit, dit-il. C'est malin. Ça tiendra jusqu'à ce que tu te laves les mains. » Il a un accent inconnu, étranger à l'Esquarre comme à Corvanne. Les voyelles trop longues, comme on parle en montagne.",
       "« Je n'ai pas de nom. Pas ici. Là d'où je viens, j'en avais un. Ici, le monde ne le garde pas. Je suis venu voir celui qui écrit, là-haut, dans la Tour. Le tournoi, c'est la seule porte qu'il ouvre. »",
       "Il te regarde. « Toi, tu es celle qui a chanté à Pallanche. Tu as une voix qui reste. J'aimerais bien rester, moi aussi, un peu. »",
     ],
@@ -133,7 +133,7 @@ module.exports = {
   II_S3_masque_ancre: P({ title: "Ancré", place: "vasselin",
     text: [
       "Tu lui tends la main. Il la prend. Il ferme les yeux. Tu sens quelque chose partir, comme un mot qu'on a sur le bout de la langue et qui s'en va.",
-      "Quand il rouvre les yeux, il a l'air plus réel. Plus lourd. Il fait de l'ombre, maintenant ; tu n'avais pas remarqué qu'il n'en faisait pas.",
+      "Quand il rouvre les yeux, il a l'air plus réel. Plus lourd. Il fait de l'ombre, maintenant, et tu comprends ce qui te gênait chez lui.",
       "« Merci », dit-il. Il regarde ta paume, où le charbon a coulé. « Tu n'en as plus besoin. Tu te souviendras de moi. Moi, je ne sais pas encore de quoi je vais me souvenir. C'est à toi, ce que tu m'as donné. Je le garderai bien. »",
     ],
     choices: [{ label: "Lui demander ce qu'il veut à Mordace", to: "II_S3_masque_veut" }] }),
@@ -147,7 +147,7 @@ module.exports = {
     choices: [{ label: "Revenir au pré", to: "II_S3_soir" }] }),
 
   II_S3_masque_part: P({ title: "Le tonneau vide", place: "vasselin",
-    text: ["Tu te détournes. Quand tu te retournes, il n'y a personne sur le tonneau. Tu regardes ta paume. Il y a écrit *le masque*, au charbon. Tu ne sais pas pourquoi. Tu t'essuies la main sur ta robe."],
+    text: ["Tu te détournes. Quand tu te retournes, il n'y a personne sur le tonneau. Tu regardes ta paume. Il y a écrit *le masque*, au charbon. La raison t'échappe. Tu t'essuies la main sur ta robe."],
     choices: [{ label: "Revenir au pré", to: "II_S3_soir" }] }),
 
   II_S3_soir: P({ title: "Le camp des champions", place: "vasselin",

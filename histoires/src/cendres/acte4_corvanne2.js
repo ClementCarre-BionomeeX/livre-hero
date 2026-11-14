@@ -22,13 +22,13 @@ module.exports = {
     ],
     choices: BACK }),
   IV_cv_tambour_promesse: P({ title: "Apprenti tonnelier",
-    text: ["« Promis », dis-tu. Il hoche la tête, très sérieux, comme un homme qui vient de conclure une affaire. Il reprend son tambour. Il répète la charge, avec deux doigts, tout bas, en regardant le feu. Ses mains tremblent un peu. Il ne le cache pas. Au bout d'un moment, il dit, sans lever les yeux : « Tonnelier, c'était bien aussi. » Tu ne sais pas quoi répondre. Tu restes à côté de lui jusqu'à ce qu'il s'endorme sur son tambour."],
+    text: ["« Promis », dis-tu. Il hoche la tête, très sérieux, comme un homme qui vient de conclure une affaire. Il reprend son tambour. Il répète la charge, avec deux doigts, tout bas, en regardant le feu. Ses mains tremblent un peu. Il ne le cache pas. Au bout d'un moment, il dit, sans lever les yeux : « Tonnelier, c'était bien aussi. » Les mots te manquent. Tu restes à côté de lui jusqu'à ce qu'il s'endorme sur son tambour."],
     choices: BACK }),
   IV_cv_prisonniers: P({ title: "La tente des prisonniers",
     text: [
       "Une tente plus petite que les autres, deux sentinelles qui jouent aux dés devant. Dedans, six Esquarrois, les mains liées devant eux, assis sur la paille. Des éclaireurs pris cet hiver, pour la plupart. Et un septième, plus vieux, plus maigre, la barbe longue, qui porte encore sur la manche, délavé, le loup de Brenne.",
       "« Gilles, dit-il, quand tu lui demandes son nom. Gilles le Roux. De la compagnie de Brenne. » Il est là depuis la nuit du pont, plus de trois ans. On l'a repêché dans la Lisse, à moitié noyé, du mauvais côté. Personne à Brenne ne sait qu'il vit. Ils l'ont pleuré. Ils ont gravé son nom quelque part, sans doute.",
-      { with: "ysolde", text: "Ysolde est entrée derrière toi. Elle s'arrête net. Gilles la voit. Il essaie de se lever, avec ses mains liées, pour le salut. Elle lui fait signe de rester assis. Elle ne dit rien. Elle a la mâchoire serrée comme un poing." },
+      { with: "ysolde", text: "Ysolde est entrée derrière toi. Elle s'arrête net. Gilles la voit. Il essaie de se lever, avec ses mains liées, pour le salut. Elle lui fait signe de rester assis. Elle se tait. Elle a la mâchoire serrée comme un poing." },
     ],
     choices: [
       { label: "Demander à l'officier de garde qu'on le rende, cette nuit, sur parole", test: { dom: "social", label: "L'officier de garde", help: [{ if: { present: "ysolde" }, v: 15 }, { if: { has: "ilan:iv" }, v: 10 }, { if: { present: "rodric" }, v: 10 }] },

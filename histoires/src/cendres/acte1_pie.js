@@ -10,12 +10,12 @@ module.exports = {
   PI_toits: P({ title: "Les toits de Pallanche",
     fx: { questSeen: "PI_linette" },
     text: [
-      "D'en haut, Pallanche est une autre ville. On ne voit plus les rues, ni la boue, ni les milices, ni les mendiants qui dorment debout contre les murs. On voit des toits. Des milliers de toits d'ardoise et de tuile, qui se chevauchent comme les écailles d'un poisson mort, et des cheminées, et entre les cheminées, les clochers. Cent, dit-on. Tu les as comptés, une fois, à quatorze ans. Il y en a quatre-vingt-dix-sept. Tu n'as jamais dit à personne que la ville mentait.",
+      "D'en haut, Pallanche est une autre ville. Les rues, la boue, les milices, les mendiants qui dorment debout contre les murs : tout disparaît. On voit des toits. Des milliers de toits d'ardoise et de tuile, qui se chevauchent comme les écailles d'un poisson mort, et des cheminées, et entre les cheminées, les clochers. Cent, dit-on. Tu les as comptés, une fois, à quatorze ans. Il y en a quatre-vingt-dix-sept. Tu n'as jamais dit à personne que la ville mentait.",
       "C'est le soir du onze juillet. Il fait lourd. Assis à califourchon sur le faîte de la maison des Tanneurs, les jambes dans le vide, tu manges une poire volée en regardant la seule chose de Pallanche qui ne soit pas un toit : la tour noire de la Chancellerie des Noms, au milieu de la ville, sans une fenêtre, avec à son sommet la plume et la clé croisées, en fer, qui se découpent sur le couchant.",
       "Linette est là-dedans. Ça fait un an. Un an et onze jours.",
       "Tu étais au cachot de la porte Saint-Gilles pour un faux laissez-passer, trois mois, quand Maître Corneille l'a vendue. Corneille, le vieux faussaire qui t'avait appris à tenir une plume, qui vous avait recueillis tous les deux sous le pont des Teinturiers à la mort de votre mère. Il l'a vendue aux Greffiers pour payer ses dettes. Ils achètent les orphelins, paraît-il. Ils en font des scribes. Des *pages blanches*, comme on dit dans les bas-quartiers, en baissant la voix.",
       "Quand tu es sorti, Corneille avait disparu, et la tour n'avait toujours pas de porte pour les gens comme toi.",
-      "Ce soir, tu as du travail. La Veuve t'a donné une adresse : la maison d'un greffier de la rue des Scelleurs, qui garde chez lui, paraît-il, un coffret qu'elle veut. Tu lui dois de l'argent. Tu lui dois beaucoup d'argent. Tu ne sais pas dire non à la Veuve.",
+      "Ce soir, tu as du travail. La Veuve t'a donné une adresse : la maison d'un greffier de la rue des Scelleurs, qui garde chez lui, paraît-il, un coffret qu'elle veut. Tu lui dois de l'argent. Tu lui dois beaucoup d'argent. À la Veuve, tu dis toujours oui.",
     ],
     choices: [
       { label: "Courir sur les toits jusqu'à la rue des Scelleurs", to: "PI_scelleurs" },
@@ -36,7 +36,7 @@ module.exports = {
 
   PI_ardoise: P({ title: "Une ardoise",
     text: [
-      "Une ardoise se détache sous ton talon, glisse, rebondit sur la gouttière et s'écrase dans la rue avec un bruit de vaisselle. Le garde lève la tête. Il ne crie pas. Il ouvre la porte avec une clé, et tu l'entends monter l'escalier, marche après marche, lentement, comme quelqu'un qui sait qu'il n'y a qu'une sortie.",
+      "Une ardoise se détache sous ton talon, glisse, rebondit sur la gouttière et s'écrase dans la rue avec un bruit de vaisselle. Le garde lève la tête. Il ne crie pas. Il ouvre la porte avec une clé, et tu l'entends monter l'escalier, marche après marche, lentement, en homme qui connaît l'unique sortie.",
     ],
     choices: [
       { label: "L'attendre en haut de l'escalier, dans le noir", to: "PI_garde_maison" },
@@ -56,7 +56,7 @@ module.exports = {
 
   PI_bureau_maison: P({ title: "Le cabinet du greffier",
     text: [
-      "Le cabinet est au troisième, sous les combles. Un pupitre, une chaise, des étagères de registres reliés de noir, une odeur de cire et d'encre. Et sous le pupitre, vissé au plancher, le coffret : de chêne cerclé de fer, pas plus grand qu'une miche de pain, avec une serrure de Varre à trois gorges. Une belle serrure. Tu la caresses comme on caresse un chat.",
+      "Le cabinet est au troisième, sous les combles. Un pupitre, une chaise, des étagères de registres reliés de noir, une odeur de cire et d'encre. Et sous le pupitre, vissé au plancher, le coffret : de chêne cerclé de fer, grand comme une miche de pain, avec une serrure de Varre à trois gorges. Une belle serrure. Tu la caresses comme on caresse un chat.",
       "Saint Anselme, ton crochet le plus fin, et saint Brice, le coudé. Une minute. La serrure soupire et s'ouvre.",
       "Dans le coffret, il n'y a pas d'or. Il y a des petits carrés de vélin, des centaines, pliés en deux, rangés debout comme des cartes. Tu en déplies un. *Bureau des Cessions. Cédé par Jehan Peyrol, portefaix : un souvenir. Objet : le visage de sa fille Aliette, morte en couches. Prix payé : quatre sous.*",
       "Un autre. *Cédé par Marion Lebas, blanchisseuse : un souvenir. Objet : la nuit où son mari l'a battue. Prix payé : deux sous.*",
@@ -133,7 +133,7 @@ module.exports = {
     fx: { meet: "corneille", questSeen: "PI_corneille" },
     text: [
       "Il te faut deux heures et trois pots de vin pour retrouver sa trace. Corneille n'a pas quitté Pallanche. Il est descendu, simplement, d'un étage à l'autre de la ville, comme une pierre au fond d'un puits : des Teinturiers aux Tanneurs, des Tanneurs aux Abattoirs, et des Abattoirs à la Fosse, sous les arches du vieux pont, là où on ne descend que pour mourir ou pour boire.",
-      "Il est assis contre un pilier, une cruche de vin aigre entre les genoux. Il a maigri. Ses mains tremblent si fort qu'il ne pourrait plus tenir une plume. Il te regarde arriver sans te reconnaître, puis il te reconnaît, et il ne bouge pas.",
+      "Il est assis contre un pilier, une cruche de vin aigre entre les genoux. Il a maigri. Ses mains tremblent si fort qu'il ne pourrait plus tenir une plume. Il te regarde arriver en étranger, puis il te reconnaît, et il reste assis.",
       "« Pie, dit-il. Je me demandais combien de temps ça te prendrait. »",
     ],
     choices: [
@@ -155,8 +155,8 @@ module.exports = {
 
   PI_corneille_raconte: P({ title: "Le jour du pont",
     text: [
-      "Tu t'assieds à côté de lui, contre le pilier. Tu lui racontes. La pluie, ce soir-là. Votre mère qu'on venait de jeter dans la fosse commune des quais. Linette, quatre ans, qui ne pleurait pas, qui ne disait rien, qui tenait ta main si fort que tu avais les doigts blancs. Et cet homme maigre, avec des taches d'encre jusqu'aux coudes, qui s'est penché sous l'arche et qui a dit : *Vous avez faim ? Moi aussi. Venez.*",
-      "Corneille t'écoute. À la fin, il pleure, sans bruit, sans essuyer ses larmes. « C'était moi, ça ? »",
+      "Tu t'assieds à côté de lui, contre le pilier. Tu lui racontes. La pluie, ce soir-là. Votre mère qu'on venait de jeter dans la fosse commune des quais. Linette, quatre ans, les yeux secs, muette, qui tenait ta main si fort que tu avais les doigts blancs. Et cet homme maigre, avec des taches d'encre jusqu'aux coudes, qui s'est penché sous l'arche et qui a dit : *Vous avez faim ? Moi aussi. Venez.*",
+      "Corneille t'écoute. À la fin, il pleure en silence, les joues mouillées. « C'était moi, ça ? »",
       "« C'était toi. »",
       "Il hoche la tête longtemps. Puis il dit : « Les charrettes des lavandières. Le quai Saint-Jean, à l'aube. Et la troisième marche de l'escalier du linge craque. Saute-la. » Il ferme les yeux. « Va la chercher, Pie. Moi, je ne la connais plus. »",
     ],
@@ -164,7 +164,7 @@ module.exports = {
 
   PI_corneille_pardon: P({ title: "Six sous",
     text: [
-      "Il regarde les six pièces dans sa main. Il ne comprend pas. Tu ne lui expliques pas. Tu ne sais pas toi-même. Peut-être que tu as voulu racheter ce qu'il a vendu, au même prix. Peut-être que tu as voulu qu'il se souvienne d'une chose, au moins, et que cette chose-là soit toi.",
+      "Il regarde les six pièces dans sa main. Il te regarde, perdu. Tu serais bien en peine de lui expliquer. Peut-être que tu as voulu racheter ce qu'il a vendu, au même prix. Peut-être que tu as voulu qu'il se souvienne d'une chose, au moins, et que cette chose-là soit toi.",
       "Quand tu remontes l'escalier de la Fosse, tu l'entends qui rit, ou qui pleure.",
     ],
     choices: [{ back: "PI_ville" }] }),
@@ -184,7 +184,7 @@ module.exports = {
 
   PI_corneille_noye: P({ title: "La Pallante",
     text: [
-      "Ça dure moins longtemps que tu ne croyais. Après, l'eau redevient lisse, et le courant l'emporte sous les arches, vers les Abattoirs, vers la mer, vers nulle part. Personne n'a rien vu. Personne ne regarde jamais, à la Fosse.",
+      "Ça dure moins longtemps que tu ne croyais. Après, l'eau redevient lisse, et le courant l'emporte sous les arches, vers les Abattoirs, vers la mer, vers nulle part. Aucun témoin. À la Fosse, on regarde ailleurs.",
       "Tu restes accroupi au bord de l'eau jusqu'à ce que tes mains arrêtent de trembler. Elles ne s'arrêtent pas.",
     ],
     choices: [{ back: "PI_ville" }] }),
@@ -225,7 +225,7 @@ module.exports = {
       "Frère Baudoin écrit, d'une écriture ronde d'écolier. Il ouvre le coffret de plomb. La poudre blanche est froide, même à un pied de ton visage. Il souffle.",
       "Ça ne fait pas mal. C'est comme se réveiller d'une sieste en plein après-midi, sans savoir l'heure, avec l'impression d'avoir rêvé de quelque chose d'important. Tu cherches. Il n'y a rien à chercher. Il y a juste un endroit, quelque part derrière tes yeux, où le sol est plus lisse qu'ailleurs.",
       "« Et voilà », dit Baudoin. Il te tend des pièces, un reçu, et un jeton de bois peint d'une plume. « Revenez quand vous voulez. Le soir de la Fête, nous recevons là-haut. Les gros cédants sont toujours les bienvenus. »",
-      { if: { has: "pie:oublie_dette" }, text: "En sortant, tu penses à la Veuve, à son tricot, à ses yeux gentils. Tu ne sais plus pourquoi elle te fait peur. Tu sais que tu devrais." },
+      { if: { has: "pie:oublie_dette" }, text: "En sortant, tu penses à la Veuve, à son tricot, à ses yeux gentils. Elle te fait peur, et tu as oublié pourquoi. Tu sais que tu devrais." },
     ],
     choices: [{ back: "PI_ville" }] }),
 
@@ -302,7 +302,7 @@ module.exports = {
     choices: [{ fx: { flag: "pie:mere_inscrite" }, back: "PI_ville" }] }),
 
   PI_empreinte_rate: P({ title: "Le regard",
-    text: ["Le greffier lève les yeux au moment où ton pouce touche le sceau. Il ne dit rien. Il pose la main dessus, et il te regarde jusqu'à ce que tu partes. Ton modèle, ce n'est pas ici que tu le prendras."],
+    text: ["Le greffier lève les yeux au moment où ton pouce touche le sceau. Il se tait. Il pose la main dessus, et il te regarde jusqu'à ce que tu partes. Ton modèle, ce n'est pas ici que tu le prendras."],
     choices: [{ back: "PI_ville" }] }),
 
   PI_inscrire: P({ title: "Linette, des Teinturiers",
@@ -321,7 +321,7 @@ module.exports = {
   // end of chapter 1
   PI_veille: P({ title: "Le grenier",
     text: [
-      "Tu dors dans ton grenier de la rue des Cordiers, sous les tuiles, là où il fait trop chaud en été et trop froid en hiver, et où personne ne vient jamais. Tu as étalé sur le plancher tout ce que tu sais de la tour. Ce n'est pas beaucoup.",
+      "Tu dors dans ton grenier de la rue des Cordiers, sous les tuiles, là où il fait trop chaud en été et trop froid en hiver, et où personne ne vient jamais. Tu as étalé sur le plancher tout ce que tu sais de la tour. C'est peu.",
       { if: { item: "page_pages" }, text: "La page arrachée au registre gris est sous ton oreiller. *Page Onze. Cession complète.* Tu la relis sans la lire." },
       "Il reste trois jours avant la Fête. Tu as trois jours pour te préparer, et ensuite une seule nuit.",
     ],
@@ -367,20 +367,20 @@ module.exports = {
 
   PI_linge: P({ title: "Les draps sales",
     text: [
-      "Les lavandières du quai Saint-Jean sont six, fortes comme des portefaix, et la plus vieille te regarde grimper dans la charrette sans rien dire. Elle tire un drap sur toi. Il sent la sueur, le sang, l'urine, l'encre. Le linge des greffiers. La charrette s'ébranle.",
+      "Les lavandières du quai Saint-Jean sont six, fortes comme des portefaix, et la plus vieille te regarde grimper dans la charrette en silence. Elle tire un drap sur toi. Il sent la sueur, le sang, l'urine, l'encre. Le linge des greffiers. La charrette s'ébranle.",
       "Au bout d'un temps qui n'en finit pas, des voix, une grille, des pavés plus lisses. Une main soulève le drap, à un pouce de ton visage, et le laisse retomber. Puis on décharge. Tu attends d'être seul. Tu sors.",
       "L'escalier du linge monte en colimaçon dans l'épaisseur du mur.",
     ],
     choices: [
       { label: "Monter, en sautant la troisième marche", hide: { not: { has: "pie:marche" } }, fx: { ep: ["perso", 400] }, to: "PI_scriptorium" },
-      { label: "Monter, sans un bruit", hide: { has: "pie:marche" }, test: { dom: "discretion", label: "Discrétion" },
+      { label: "Monter en silence", hide: { has: "pie:marche" }, test: { dom: "discretion", label: "Discrétion" },
         win: { to: "PI_scriptorium" }, lose: { fx: { flag: "pie:alerte" }, to: "PI_garde_escalier" } },
     ] }),
 
   PI_cession: P({ title: "L'étage des Cessions",
     text: [
       "Au Bureau, Frère Baudoin regarde ton jeton, te regarde, et sourit. « Un gros cédant. Bienvenue. On vous attend là-haut. » Un garde t'ouvre la porte derrière le comptoir. Un escalier, un couloir aux murs nus, une salle d'attente où des gens sont assis sur des bancs, les mains sur les genoux, et regardent le mur.",
-      "Personne ne les surveille. Il n'y a pas besoin. Ils ne savent plus pourquoi ils pourraient partir.",
+      "Personne ne les surveille. Ce serait inutile. Ils ont oublié qu'on peut partir.",
       { if: { has: "pie:a_vendu" }, text: "Tu reconnais, sur le banc du fond, un vieux soldat à la jambe de bois qui attendait dans la file, le jour où tu as vendu. Il te sourit comme à un inconnu. Tu te demandes combien de fois il est monté ici." },
       "Au bout du couloir, une porte entrouverte, et le grattement de quarante plumes.",
     ],
@@ -432,7 +432,7 @@ module.exports = {
   PI_scriptorium: P({ title: "Les pages blanches",
     fx: { clue: "n_pages", meet: "linette_p" },
     text: [
-      "C'est une longue salle voûtée, éclairée par des lampes à huile pendues au plafond. Quarante pupitres, en quatre rangs. À chaque pupitre, un enfant, en robe grise, la tête rasée, qui écrit. Ils ne lèvent pas les yeux. Ils ne parlent pas. On n'entend que le grattement des plumes, quarante plumes, comme une pluie fine sur un toit.",
+      "C'est une longue salle voûtée, éclairée par des lampes à huile pendues au plafond. Quarante pupitres, en quatre rangs. À chaque pupitre, un enfant, en robe grise, la tête rasée, qui écrit. Ils gardent les yeux baissés et la bouche close. On n'entend que le grattement des plumes, quarante plumes, comme une pluie fine sur un toit.",
       "Ils recopient des noms. Des listes de noms, sans fin, d'un registre ouvert sur un lutrin vers un grand livre relié de rouge.",
       "Elle est au deuxième rang, la sixième. Tu la reconnais à l'épi derrière la tête, qui repousse même rasé. Elle a dix ans maintenant. Elle a grandi.",
       { before: "pie:oublie_corneille", text: "Elle a des taches d'encre jusqu'aux coudes, comme Corneille." },
@@ -452,7 +452,7 @@ module.exports = {
   PI_linette_parle: P({ title: "Page Onze",
     text: [
       "Elle t'écoute avec attention, comme on écoute une leçon. Quand tu as fini, elle hoche la tête. « C'est une belle histoire. Je peux l'écrire ? On n'a pas le droit d'écrire ce qui n'est pas dans le registre, mais je la garderais pour moi. »",
-      "Tu ne réponds pas. Elle se remet à écrire. Sa main ne tremble pas. *Mathieu Brun, des Aulnes. Jacquette Brun, des Aulnes. Hugues Brun…*",
+      "Tu te tais. Elle se remet à écrire. Sa main ne tremble pas. *Mathieu Brun, des Aulnes. Jacquette Brun, des Aulnes. Hugues Brun…*",
     ],
     choices: [{ label: "Chercher où ils gardent ce qu'ils lui ont pris", to: "PI_archives" }] }),
 
@@ -460,7 +460,7 @@ module.exports = {
     text: [
       "Tu ne sais pas comment on fait. Tu fais comme Baudoin : tu prends son visage dans tes mains, et tu souffles. Doucement. Les nuits sous le pont. Le manteau. Son poids contre toi, sa respiration de petit animal, ses pieds froids sur ton ventre. Tu le lui donnes, tout, sans rien garder.",
       "Quand tu la lâches, quelque chose a changé dans ses yeux. Elle te regarde comme on regarde un endroit où on a vécu. « J'avais froid aux pieds, dit-elle. Tu râlais. »",
-      "Tu ne sais pas de quoi elle parle. Tu sais que c'est vrai. Tu as un trou dans la poitrine de la forme d'une petite fille, et elle te prend la main.",
+      "De quoi parle-t-elle ? Tu sais que c'est vrai. Tu as un trou dans la poitrine de la forme d'une petite fille, et elle te prend la main.",
     ],
     choices: [{ label: "Chercher la sortie, sa main dans la tienne", fx: { flag: "pie:linette_suit" }, to: "PI_archives" }] }),
 
@@ -472,7 +472,7 @@ module.exports = {
       "Tu trouves la boîte de Linette au troisième rang. *Page Onze. Cession complète.* Elle est lourde, et froide, et quand tu la prends, tu entends à travers le plomb un rire de petite fille.",
       "Sur le grand pupitre du fond, ouvert, un registre relié de rouge sombre, plus grand que les autres, et sur la page, une liste, d'une écriture fine et serrée : *Nuit des Cloches. Les cent, ensemble, à minuit. Grand Livre : versement complet.*",
       "« Ne bouge pas », dit une voix derrière toi.",
-      "Un vieil homme en robe noire est assis dans l'ombre, entre deux étagères, une canne d'ébène sur les genoux. Ses yeux sont blancs. Il est aveugle. Il ne bouge pas non plus.",
+      "Un vieil homme en robe noire est assis dans l'ombre, entre deux étagères, une canne d'ébène sur les genoux. Ses yeux sont blancs. Il est aveugle. Il reste immobile, lui aussi.",
       { if: { seen: "PI_linge" }, text: "« Tu sens la suie, le plomb des gouttières et la sueur des lavandières, dit-il. Tu n'es pas un greffier. Tu es venu voler. Vole. Mais écoute d'abord. »" },
       { if: { not: { seen: "PI_linge" } }, text: "« Tu sens la suie et le plomb des gouttières, dit-il. Tu n'es pas un greffier. Tu es venu voler. Vole. Mais écoute d'abord. »" },
     ],
@@ -495,7 +495,7 @@ module.exports = {
   PI_fuite: P({ title: "L'alarme",
     text: [
       "La cloche d'alarme de la tour sonne, une seule, sèche, au-dessus de ta tête. Dans le scriptorium, quarante plumes s'arrêtent en même temps. Des portes claquent. Tu cours.",
-      { before: "pie:souvenir_donne", if: { has: "pie:choix=linette" }, text: "Linette court à côté de toi, sans lâcher ta main, sans poser de questions, comme quelqu'un à qui on a appris à obéir à tout le monde." },
+      { before: "pie:souvenir_donne", if: { has: "pie:choix=linette" }, text: "Linette court à côté de toi, la main dans la tienne, docile, comme une enfant dressée à obéir à tout le monde." },
       { after: "pie:souvenir_donne", if: { has: "pie:choix=linette" }, text: "Linette court à côté de toi, sans lâcher ta main, sans poser de questions." },
       { before: "pie:souvenir_donne", if: { has: "pie:choix=boite" }, text: "La boîte de plomb te glace la poitrine à travers ta chemise. Derrière toi, au deuxième rang du scriptorium, une petite fille en gris s'est remise à écrire." },
       { after: "pie:souvenir_donne", if: { has: "pie:choix=boite" }, text: "La boîte de plomb te glace la poitrine à travers ta chemise. Derrière toi, au deuxième rang du scriptorium, une petite fille en gris n'a pas repris sa plume. Elle regarde la porte." },
@@ -512,7 +512,7 @@ module.exports = {
 
   PI_fenetre_blesse: P({ title: "Une lame dans le dos",
     fx: { pv: -3 },
-    text: ["Une lame t'ouvre le dos de l'épaule à la hanche, pas profond, juste assez pour que tu sentes ta chemise coller. Tu ne t'arrêtes pas. Tu trouves une fenêtre. Tu ne regardes pas en bas."],
+    text: ["Une lame t'ouvre le dos de l'épaule à la hanche, une estafilade, juste assez pour que tu sentes ta chemise coller. Tu ne t'arrêtes pas. Tu trouves une fenêtre. Tu ne regardes pas en bas."],
     choices: [{ label: "Sauter", to: "PI_fenetre" }] }),
 
   PI_fenetre: P({ title: "Les toits",
@@ -526,7 +526,7 @@ module.exports = {
     fx: { flag: "prologue:pie", catchup: 4, catchupWhy: "les toits de Pallanche", ep: ["histoire", 4000] },
     text: [
       "L'aube se lève sur Pallanche, le jour de la Fête des Noms. De ton grenier, tu vois la tour noire, et sur la place aux Clercs, déjà, les files d'attente devant les pupitres.",
-      { if: { has: "pie:choix=boite" }, text: "La boîte de plomb est sur le plancher, entre tes genoux. Elle rit, parfois, très bas. Tu ne sais pas l'ouvrir. Tu ne sais pas si tu as le droit. Linette est restée là-bas. Tu y retourneras. Tu l'as promis à une boîte." },
+      { if: { has: "pie:choix=boite" }, text: "La boîte de plomb est sur le plancher, entre tes genoux. Elle rit, parfois, très bas. Tu ignores comment l'ouvrir, et si tu en as le droit. Linette est restée là-bas. Tu y retourneras. Tu l'as promis à une boîte." },
       { if: { has: "pie:choix=liste" }, text: "La page du registre est dépliée devant toi. *Les cent, ensemble, à minuit.* Il te reste une journée pour trouver quelqu'un qui te croira. Un voleur. Un faussaire. Tu ris, tout seul, dans ton grenier." },
       { before: "pie:souvenir_donne", if: { has: "pie:choix=linette" }, text: "Linette dort sur ta paillasse, roulée en boule, les pieds froids. Elle ne sait pas qui tu es. Elle t'a demandé, avant de s'endormir, si tu étais son nouveau maître. Tu as dit non. Elle n'a pas compris." },
       { after: "pie:souvenir_donne", if: { has: "pie:choix=linette" }, text: "Linette dort sur ta paillasse, roulée en boule, les pieds froids. De toi, elle n'a que les nuits sous le pont. Elle t'a demandé ton nom, avant de s'endormir. Elle l'a répété deux fois." },

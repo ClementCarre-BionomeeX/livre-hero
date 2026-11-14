@@ -21,12 +21,12 @@ module.exports = {
     text: [
       "Vous vous déshabillez dans le froid, en criant, et vous entrez dans l'eau en criant plus fort. Puis plus personne ne crie. L'eau est chaude comme un bain de reine. Les muscles se dénouent, les engelures piquent, puis cessent de piquer.",
       { with: "ysolde", text: "Ysolde garde sa chemise. Elle a des cicatrices. Personne ne les regarde. Au bout d'un moment, elle enlève la chemise aussi, et personne ne les regarde davantage." },
-      { with: "hylas", text: "Hylas flotte sur le dos, les yeux blancs vers le ciel, les bras écartés. « Je n'avais pas eu chaud depuis Pallanche », dit-il. Il ne bouge plus pendant une heure." },
+      { with: "hylas", text: "Hylas flotte sur le dos, les yeux blancs vers le ciel, les bras écartés. « Je n'avais pas eu chaud depuis Pallanche », dit-il. Il reste là une heure, immobile." },
     ],
     choices: BACK }),
   E2_ermite: P2({ title: "L'ermite",
     text: [
-      "Une cabane, à l'écart du chemin, avec une croix de bois sur le toit, une croix d'en bas, de vallée. Un ermite en sort, un vieux en robe de bure, la barbe jusqu'à la ceinture. Il vous regarde passer. Il ne dit rien. Il a fait vœu de silence.",
+      "Une cabane, à l'écart du chemin, avec une croix de bois sur le toit, une croix d'en bas, de vallée. Un ermite en sort, un vieux en robe de bure, la barbe jusqu'à la ceinture. Il vous regarde passer. Il se tait. Il a fait vœu de silence.",
       "Sur le seuil, il a posé une écuelle de bouillie, et à côté, une ardoise, avec une craie. Sur l'ardoise, de son écriture : *Vos noms. Je prierai pour eux.*",
     ],
     choices: [
@@ -36,7 +36,7 @@ module.exports = {
   E2_ermite_noms: P2({ title: "L'ardoise",
     text: [
       "Tu ne sais pas écrire. Quelqu'un écrit pour toi. Tous les noms, l'un sous l'autre, sur l'ardoise. L'ermite les lit, en remuant les lèvres sans bruit. Puis il prend l'ardoise et rentre dans sa cabane.",
-      "En repartant, tu te retournes. Par la fenêtre, tu le vois, agenouillé, l'ardoise devant lui, appuyée contre le mur. Il ne dit rien. Il ne dira jamais rien. Mais il lit, et il relit, et ses lèvres bougent.",
+      "En repartant, tu te retournes. Par la fenêtre, tu le vois, agenouillé, l'ardoise devant lui, appuyée contre le mur. Il se tait. Il ne dira jamais rien. Mais il lit, et il relit, et ses lèvres bougent.",
     ],
     choices: BACK }),
 
@@ -58,7 +58,7 @@ module.exports = {
     ],
     choices: BACK }),
   E2_menestrels_rate: P2({ title: "Le fossé",
-    text: ["Tu chantes. Ils écoutent, poliment. Puis ils essaient, et ça ne prend pas : ce n'est pas un air qu'il leur manque, c'est l'envie. Ils te remercient. Ils restent assis dans le fossé, avec leurs instruments sur les genoux, quand tu repars."],
+    text: ["Tu chantes. Ils écoutent, poliment. Puis ils essaient, et l'air retombe : c'est l'envie qui leur manque. Ils te remercient. Ils restent assis dans le fossé, avec leurs instruments sur les genoux, quand tu repars."],
     choices: BACK }),
   E2_peage: P2({ title: "Le péage",
     text: [
@@ -77,7 +77,7 @@ module.exports = {
   // ---------------------------------------------------------------- outreblanc
   E3_cheval: P3({ title: "Le cheval blanc",
     text: [
-      "Un cheval blanc, sellé, sans cavalier, qui marche au pas à côté de la file des marcheurs. Il ne mange pas. Il ne s'arrête pas. Les étriers battent contre ses flancs. Sur la selle, une couverture brodée d'un cerf.",
+      "Un cheval blanc, sellé, sans cavalier, qui marche au pas à côté de la file des marcheurs. Il avance, la tête basse, loin de l'herbe. Les étriers battent contre ses flancs. Sur la selle, une couverture brodée d'un cerf.",
       "Il te regarde. Il s'arrête. Il attend, comme un cheval qui attend qu'on monte.",
     ],
     choices: [
@@ -117,7 +117,7 @@ module.exports = {
       { label: "Le laisser à son bois", to: "@route" },
     ] }),
   E4_bucheron_grave: P4({ title: "Un nom sur l'écorce",
-    text: ["Il te prête la hachette sans un mot. Tu graves. Le nom qui te vient n'est pas le tien. C'est celui de quelqu'un que tu as perdu dans l'année, un nom que tu n'avais pas encore dit à voix haute. Le bûcheron regarde, hoche la tête, et passe à l'arbre suivant."],
+    text: ["Il te prête la hachette en silence. Tu graves. Le nom qui te vient n'est pas le tien. C'est celui de quelqu'un que tu as perdu dans l'année, un nom que tu n'avais pas encore dit à voix haute. Le bûcheron regarde, hoche la tête, et passe à l'arbre suivant."],
     choices: BACK }),
   E4_avalanche: P4({ title: "La coulée",
     text: [
@@ -131,7 +131,7 @@ module.exports = {
     text: ["Vous atteignez les rochers juste à temps. La coulée passe à trois pas, en soufflant une poudre fine qui vous blanchit tous. Quand le bruit s'arrête, le chemin a disparu sous six pieds de neige. Vous en tracez un autre, plus haut. Personne ne parle pendant une heure."],
     choices: BACK }),
   E4_avalanche_prise: P4({ title: "Sous la neige",
-    text: ["La neige te prend aux jambes, te renverse, te roule. Puis tout s'arrête, et il fait noir, et tu ne sais plus où est le haut. Tu craches pour voir où tombe la salive, comme on te l'a appris au moulin. Tu creuses dans l'autre sens. Une main attrape la tienne. On te tire dehors, à moitié gelé, sans ton sac de vivres."],
+    text: ["La neige te prend aux jambes, te renverse, te roule. Puis tout s'arrête, et il fait noir, et tu as perdu le haut. Tu craches pour voir où tombe la salive, comme on te l'a appris au moulin. Tu creuses dans l'autre sens. Une main attrape la tienne. On te tire dehors, à moitié gelé, sans ton sac de vivres."],
     choices: BACK }),
 
   // ---------------------------------------------------------------- iv_sud

@@ -38,10 +38,10 @@ module.exports = {
       { if: { has: "askel:rite" }, text: "Elle s'arrête devant la place vide où était la tente de sa mère, avec la pierre au milieu." },
       { if: { not: { has: "askel:rite" } }, text: "Elle s'arrête devant la tente de sa mère." },
       { if: { has: "ame:askel" }, text: "Derrière elle, Askel. Dans sa robe blanche, sale de l'herbe du col. Il y a un cri, quelque part dans le camp, un seul, et puis tout le clan est debout, et des femmes pleurent, et des enfants ne comprennent pas pourquoi. Askel va droit à sa place, enlève la pierre, et s'assied par terre, exactement là où était son métier à tisser. « Il me faut de la laine », dit-elle." },
-      { if: { all: [{ has: "askel:rite" }, { not: { has: "ame:askel" } }] }, text: "Elle ne dit rien. Elle pose la main sur la pierre. « Elle chante, dit-elle à Hrodna. À la porte. Elle tient. Elle n'a pas froid. » Hrodna hoche la tête. Le clan se met à chanter, tout bas, le nom d'Askel, celui qu'on n'avait plus le droit de dire." },
-      { if: { not: { has: "askel:rite" } }, text: "Askel en sort. Elle a cousu toute l'année, assise devant la porte, face au col. Elle prend Corbe dans ses bras sans un mot, et la serre, longtemps, d'une force de femme qui a porté de l'eau toute sa vie." },
-      { if: { has: "corbe:tresse" }, text: "Une jeune femme fend la foule, une petite bourse de cuir à la main. Embla. Elle s'arrête devant Corbe. Elle regarde son visage, longtemps, pour savoir. Puis elle ouvre la bourse et elle en sort une tresse noire nouée d'un fil rouge, et elle la lui met dans la main, et elle referme ses doigts dessus. Corbe ne dit rien. Elle sait. Embla aussi." },
-      "Ce soir-là, le clan fait un feu pour elle. On lui demande de raconter. Elle raconte la plaine blanche, les marcheurs, la ville aux tours, les morts qui ne veulent pas être vengés. Les anciens écoutent sans rien dire. Les jeunes ne la croient qu'à moitié.",
+      { if: { all: [{ has: "askel:rite" }, { not: { has: "ame:askel" } }] }, text: "Elle se tait. Elle pose la main sur la pierre. « Elle chante, dit-elle à Hrodna. À la porte. Elle tient. Elle n'a pas froid. » Hrodna hoche la tête. Le clan se met à chanter, tout bas, le nom d'Askel, celui qu'on n'avait plus le droit de dire." },
+      { if: { not: { has: "askel:rite" } }, text: "Askel en sort. Elle a cousu toute l'année, assise devant la porte, face au col. Elle prend Corbe dans ses bras en silence, et la serre, longtemps, d'une force de femme qui a porté de l'eau toute sa vie." },
+      { if: { has: "corbe:tresse" }, text: "Une jeune femme fend la foule, une petite bourse de cuir à la main. Embla. Elle s'arrête devant Corbe. Elle regarde son visage, longtemps, pour savoir. Puis elle ouvre la bourse et elle en sort une tresse noire nouée d'un fil rouge, et elle la lui met dans la main, et elle referme ses doigts dessus. Corbe se tait. Elle sait. Embla aussi." },
+      "Ce soir-là, le clan fait un feu pour elle. On lui demande de raconter. Elle raconte la plaine blanche, les marcheurs, la ville aux tours, les morts qui ne veulent pas être vengés. Les anciens écoutent en silence. Les jeunes ne la croient qu'à moitié.",
     ],
     choices: [{ label: "Attendre la fin du feu", to: "IV_clan_choix" }] }),
 
@@ -60,7 +60,7 @@ module.exports = {
   IV_clan_bouche: P({ title: "La Bouche", place: "corbeau",
     text: [
       "Elle est assise sur une pierre, face au col, les mains sur les genoux. On lui a mis une couverture sur les épaules. Elle a les cheveux longs, maintenant, et blancs aux tempes, et elle a vingt-deux ans.",
-      "« On l'a trouvée au printemps, dit Hrodna. Au col, sur la grande pierre. La porte l'a rendue quand la neige s'est arrêtée. Elle n'a pas de nom. Elle ne parle pas. Elle chante, la nuit, le chant des morts, tout entier, sans se tromper. Les petits viennent l'écouter. »",
+      "« On l'a trouvée au printemps, dit Hrodna. Au col, sur la grande pierre. La porte l'a rendue quand la neige s'est arrêtée. Elle est sans nom et sans voix. Elle chante, la nuit, le chant des morts, tout entier, sans se tromper. Les petits viennent l'écouter. »",
       "Elle lève la tête quand tu approches. Elle te regarde. Elle ne te reconnaît pas. Mais elle te regarde comme on regarde quelqu'un qui vient du même endroit que soi.",
     ],
     choices: [
@@ -93,7 +93,7 @@ module.exports = {
       { if: { has: "corbe:voie_ii=askel" }, text: "« Tu es revenu, dit-elle. Ma mère, non. » Elle pose le couteau. « Je grave les noms de ceux qui sont tombés au col. Le clan ne sait pas lequel de nous doit les chanter, maintenant que la Bouche est partie à ma place. Alors je les écris. Comme ça, n'importe qui pourra. »" },
       { if: { has: "corbe:voie_ii=ouvre" }, text: "« Tu es revenu, dit-elle. Eux aussi. » Elle montre, par la porte de la tente, une vieille femme assise au soleil avec un enfant sur les genoux. La première qui a passé le seuil, au col. « Ils sont onze. Ils ne parlent pas notre langue. Ils m'apprennent la leur. Les anciens disent que j'ai ouvert la porte et que c'est pour ça que la montagne a craqué. Ils ont peut-être raison. »" },
       { if: { has: "corbe:voie_ii=refus" }, text: "« Tu es revenu, dit-elle. Ça fait une personne qui ne me crache pas dessus. » Elle pose le couteau. « J'ai dit non. Personne n'est entré. Et la montagne a craqué quand même, et la moitié du clan est tombée. Ils disent que si j'avais fait le rite, ils seraient là. Personne ne peut savoir. Moi non plus. »" },
-      { if: { has: "ame:askel" }, text: "Puis elle voit Askel, derrière toi. Le couteau tombe. Elle ne dit rien. Elle se lève, et elle va à sa mère, et elle pose son front contre le sien, à la manière du clan, et elles restent comme ça très longtemps." },
+      { if: { has: "ame:askel" }, text: "Puis elle voit Askel, derrière toi. Le couteau tombe. Elle se tait. Elle se lève, et elle va à sa mère, et elle pose son front contre le sien, à la manière du clan, et elles restent comme ça très longtemps." },
     ],
     choices: [
       { label: "« Viens avec nous. On descend vers la guerre. »", to: "IV_clan_restee_viens" },

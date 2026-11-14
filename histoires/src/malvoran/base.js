@@ -45,7 +45,7 @@ module.exports = {
       rep: { up: "Frère Aubin te bénit du pouce, sur le front, comme on le fait aux enfants. Il ne s'en excuse pas.", down: "Frère Aubin prie à voix basse quand tu passes, et tu sais pour qui.", fearUp: "Frère Aubin baisse les yeux quand tu lui parles." } },
     thavary: { name: "Thavary de Thavar", f: true, face: { age: "adulte", coif: "tresses", hair: "noir", marks: ["cicatrice"] }, role: "Chevalière, dernière de sa maison", wound: "Dernière d'une maison ruinée, on lui a promis de rendre ses terres à sa famille contre ce qu'elle garde.", likes: "l'honneur, les dettes payées", hates: "la pitié, qu'on parle de sa pauvreté",
       bonus: { combat: 35, magie: 0, discretion: 5, nature: 10, savoir: 10, social: 15 }, pv: 16, def: 25, weapon: { name: "l'épée de Thavar", dmg: 7, att: 5 },
-      rep: { up: "Thavary te salue de l'épée, à la manière ancienne, sans rien dire.", down: "Thavary passe devant toi sans te voir.", fearUp: "Thavary ne tourne plus le dos quand tu es derrière elle." } },
+      rep: { up: "Thavary te salue de l'épée, à la manière ancienne, en silence.", down: "Thavary passe devant toi sans te voir.", fearUp: "Thavary ne tourne plus le dos quand tu es derrière elle." } },
   },
   factions: { ordre: "L'Ordre de la Main", cercle: "Le Cercle", brumefeuille: "Brumefeuille", bornes: "Les Trois-Bornes", aldaran: "La couronne d'Aldaran", velorin: "La couronne de Vel-Orin" },
   blasons: {
