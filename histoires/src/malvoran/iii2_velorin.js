@@ -333,7 +333,7 @@ module.exports = {
       text: [
         "Tu achètes un gobelet de vin chaud à une vivandière et tu le bois lentement, adossé{e} à une charrette. On parle autour de toi comme on parle dans tous les camps : de la paie, de la nourriture, des filles, des chefs. Mais on parle aussi, plus bas, de choses qu'on ne devrait pas savoir.",
         "Que la duchesse a fait prendre six otages à Merle, et qu'elle les fera pendre si un seul batelier passe encore un éclaireur d'Aldaran. Que l'intendant, Ser Danese, mange de la viande fraîche tous les soirs pendant que les soldats chient du sang à cause du sel gris. Que le trésor a reçu de l'or « par le nord », et que personne n'en a vu la couleur.",
-        "Et qu'à la chancellerie, il y a un clerc, Sabin, qui ne dort plus depuis dix jours parce que Morn lui a donné à déchiffrer une lettre prise sur un courrier, et qu'il n'y arrive pas. « Il boit à la cantine tous les soirs, dit la vivandière en riant. Il dit que les lettres changent de place quand il les regarde. Morn lui a promis le gibet s'il ne trouve pas. Pour rire, à ce qu'il paraît. »",
+        "Et qu'à la chancellerie, il y a un clerc, Sabin, qui ne dort plus depuis dix jours parce que Morn lui a donné à déchiffrer une lettre prise sur un courrier, et que Sabin n'y arrive pas. « Il boit à la cantine tous les soirs, dit la vivandière en riant. Il dit que les lettres changent de place quand il les regarde. Morn lui a promis le gibet s'il ne trouve pas. Pour rire, à ce qu'il paraît. »",
         { with: "pip", text: "Pip a écouté tout ça perché sur la bâche de la charrette. Quand la vivandière parle du gibet, il s'éteint presque, puis revient se poser près de toi." },
       ],
       choices: [

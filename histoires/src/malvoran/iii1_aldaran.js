@@ -1594,7 +1594,7 @@ Object.assign(P, {
 
   III_b_coliane_thavary: { act: "III", title: "Ce que dit le conseiller", banter: true, with: ["coliane", "thavary"],
     text: [
-      "Coliane s'assied à côté de Thavary devant le feu, plus près que d'habitude, et elle affûte un couteau sans la regarder. « Le conseiller te connaît, dit-elle. Il t'appelle par ton nom. Il te parle de promesses. »",
+      "Coliane s'assied à côté de Thavary devant le feu, plus près que d'habitude, et affûte un couteau sans regarder Thavary. « Le conseiller te connaît, dit-elle. Il t'appelle par ton nom. Il te parle de promesses. »",
       "Thavary reste immobile. « Beaucoup de gens connaissent mon nom. Il est vieux. Il a été grand. — Et les promesses ? » Thavary se tait si longtemps que tu crois qu'elle ne répondra pas. « Ma maison doit de l'argent à la moitié des usuriers de la Sorbe, dit-elle enfin. Les gens qui ont de l'argent font des promesses aux gens qui en doivent. C'est tout. Ça n'engage que lui. »",
       "Coliane range son couteau. « Un homme qui m'a fait une promesse, un jour, a ouvert une écluse sur mon village, dit-elle. Ça n'engageait que lui, aussi. » Elle se lève et s'en va dormir. Thavary reste devant le feu, et elle ne te regarde pas.",
     ],
