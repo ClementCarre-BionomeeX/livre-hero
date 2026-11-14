@@ -1509,6 +1509,7 @@
   // Intent: once per new version, a short note of what changed (NEWS, newest first), only the versions the reader has
   // not seen on this device. Why: Clément, 13/11 (piste 33).
   var NEWS = [
+    { v: "7.9", items: ["Nouvelle histoire : « L'Écluse des Tanneurs », une enquête de trois jours dans une ville qui vit : chacun a ses heures et ses lieux, et le temps presse jusqu'à la cloche du soir.", "On peut montrer un indice ou un document à un témoin, et relier deux déclarations qui se contredisent, dans le carnet ou sur le tableau.", "L'accusation se fait en trois temps : qui, pourquoi, et la preuve.", "Nouveaux onglets du carnet, quand l'histoire en a : Documents (les lettres et registres trouvés, à relire) et Reconstitution (qui était où, heure par heure)."] },
     { v: "7.8", items: ["Nouvelle histoire : « La Veillée des Aubiers », une soirée d'une demi-heure, à finir avant le coucher, et à relire.", "Une page peut s'ouvrir autrement selon le chemin par lequel on y arrive.", "Seconde lecture : une fois une fin trouvée, une histoire peut montrer en la relisant des passages nouveaux, marqués d'un ✧ dans la marge.", "Les boutons s'accordent au masculin ou au féminin, comme le texte."] },
     { v: "7.7", items: ["Habillage Enluminure : hors de la page du livre (bibliothèque, création du héros…), le texte était brun sur le bois brun ; il a désormais sa feuille de papier."] },
     { v: "7.6", items: ["Sur le site, la bibliothèque s'ouvre bien plus vite : chaque livre se charge après, en arrière-plan. Pour jouer depuis un fichier sans réseau, il y a livre-jeu-complet.html.", "Le temps de lecture est calculé une fois, puis gardé sur l'appareil.", "Sur téléphone, la barre du haut et les onglets de l'éditeur ne débordent plus.", "Coulisses : à chaque proposition de changement, les écrans principaux sont photographiés avant et après, et comparés."] },
@@ -1921,7 +1922,9 @@
     else { var glUsed = {}; v.text.forEach(function (t, ti) { var ht = Glossary.mark(st, md(t), glUsed); prose.appendChild(h("p", { class: (v.second || []).indexOf(ti) >= 0 ? "second" : null, html: pref("syllables") ? Syllables.mark(ht) : ht })); }); }
     // What led to this page (the rolls, their outcome, the blows) comes before the text; what follows from it (clues,
     // items, quests, feats) after (Clément, 11/11 then 13/11).
-    var evs = s.events || [], evEl = function (list, cls) { return list.length ? h("div", { class: "events " + cls, role: "status" }, list.map(function (e) { var el = h("div", { class: "ev " + (e.cls || "") }, rollBadge(e)); el.insertAdjacentHTML("beforeend", md(e.text)); return el; })) : null; };
+    var evs = s.events || [], evEl = function (list, cls) { return list.length ? h("div", { class: "events " + cls, role: "status" }, list.map(function (e) { var el = h("div", { class: "ev " + (e.cls || "") }, rollBadge(e)); el.insertAdjacentHTML("beforeend", md(e.text));
+      if (e.doc && st.items && st.items[e.doc]) el.appendChild(h("button", { class: "btn ghost sm ev-read", onclick: function () { A.modal = { kind: "doc", id: e.doc }; render(); } }, "Lire"));
+      return el; })) : null; };
     if (pref("quietFx")) evs = evs.filter(function (e) { return !e.conseq; });
     var leadIn = evs.filter(evLeadsIn), after = evs.filter(function (e) { return !evLeadsIn(e); });
     var pre = evEl(leadIn, "before"); if (pre) page.insertBefore(pre, prose);
@@ -3359,7 +3362,13 @@
   })();
 
   // ------------------------------------------------------------------ the notebook
-  var TABS = [["heros", "Héros"], ["sac", "Sac"], ["quetes", "Quêtes"], ["indices", "Indices"], ["notes", "Notes"], ["soupcons", "Soupçons"], ["tableau", "Tableau d'enquête"], ["compagnons", "Compagnons"], ["carte", "Carte"], ["gens", "Gens"], ["frise", "Frise"], ["marques", "Marque-pages"], ["exploits", "Hauts faits"], ["codex", "Bestiaire et atlas"], ["mots", "Mots"], ["journal", "Journal"], ["coulisses", "Coulisses"]];
+  var TABS = [["heros", "Héros"], ["sac", "Sac"], ["quetes", "Quêtes"], ["indices", "Indices"], ["notes", "Notes"], ["soupcons", "Soupçons"], ["tableau", "Tableau d'enquête"], ["documents", "Documents"], ["reconst", "Reconstitution"], ["compagnons", "Compagnons"], ["carte", "Carte"], ["gens", "Gens"], ["frise", "Frise"], ["marques", "Marque-pages"], ["exploits", "Hauts faits"], ["codex", "Bestiaire et atlas"], ["mots", "Mots"], ["journal", "Journal"], ["coulisses", "Coulisses"]];
+  // Documents and Reconstitution only show in a story that has them (7.9).
+  function tabsOf(st) {
+    var docs = Object.keys(st.items || {}).some(function (k) { return st.items[k].kind === "document" && st.items[k].text; });
+    var plan = Object.keys(st.mysteries || {}).some(function (k) { return st.mysteries[k].plan; });
+    return TABS.filter(function (t) { return (t[0] !== "documents" || docs) && (t[0] !== "reconst" || plan); });
+  }
   function renderCarnet() {
     var G = A.game; if (!G) { A.carnet = null; return; }
     var close = function () { A.carnet = null; render(); };
@@ -3372,7 +3381,8 @@
     // The tab bar and the page keep their place across a render (Clément, 13/11: a tap on a tab sent the bar back to
     // its start); a new tab opens at its top.
     var tabsX = A.tabsX || 0, bodyY = A.carnetY && A.carnetY.tab === A.carnetTab ? A.carnetY.y : 0;
-    var nav = h("nav", { class: "tabs" }, TABS.map(function (t) { return h("button", { class: "tab" + (A.carnetTab === t[0] ? " on" : ""), "aria-current": A.carnetTab === t[0] ? "page" : null, onclick: function () { A.carnetTab = t[0]; A.carnetQ = ""; render(); } }, t[1]); }));
+    if (!tabsOf(G.story).some(function (t) { return t[0] === A.carnetTab; })) A.carnetTab = "heros";
+    var nav = h("nav", { class: "tabs" }, tabsOf(G.story).map(function (t) { return h("button", { class: "tab" + (A.carnetTab === t[0] ? " on" : ""), "aria-current": A.carnetTab === t[0] ? "page" : null, onclick: function () { A.carnetTab = t[0]; A.carnetQ = ""; render(); } }, t[1]); }));
     nav.addEventListener("scroll", function () { A.tabsX = nav.scrollLeft; });
     d.appendChild(nav);
     var body = h("div", { class: "drawer-body" }), tabNow = A.carnetTab;
@@ -3380,7 +3390,7 @@
     var fill = function () {
       body.textContent = "";
       if ((A.carnetQ || "").trim().length >= SEARCH_MIN) { searchCarnet(body, G.story, G.s, A.carnetQ.trim()); return; }
-      ({ heros: tabHero, sac: tabBag, quetes: tabQuests, indices: tabClues, notes: tabNotes, soupcons: tabSuspects, tableau: tabBoard, compagnons: tabCompanions, carte: tabMap, gens: tabPeople, frise: tabFrise, marques: tabMarks, exploits: tabFeats, codex: tabCodex, mots: tabWords, journal: tabLog, coulisses: tabBackstage })[A.carnetTab](body, G.story, G.s);
+      ({ heros: tabHero, sac: tabBag, quetes: tabQuests, indices: tabClues, notes: tabNotes, soupcons: tabSuspects, tableau: tabBoard, documents: tabDocs, reconst: tabRecon, compagnons: tabCompanions, carte: tabMap, gens: tabPeople, frise: tabFrise, marques: tabMarks, exploits: tabFeats, codex: tabCodex, mots: tabWords, journal: tabLog, coulisses: tabBackstage })[A.carnetTab](body, G.story, G.s);
     };
     fill();
     q.addEventListener("input", function () { A.carnetQ = q.value; fill(); });
@@ -3469,8 +3479,20 @@
       var cs = Object.keys(s.clues).filter(function (k) { return st.clues[k] && st.clues[k].rev === m; });
       if (!cs.length) return; any = true;
       b.appendChild(h("div", { class: "label" }, st.mysteries[m].title + " · " + cs.length + " indice" + (cs.length > 1 ? "s" : "")));
-      cs.forEach(function (k) { b.appendChild(clueRow(st, k)); });
+      var solvedM = M.mysterySolved(st, s, m), contra = (st.contradictions || []).length && !A.game.multi && !A.game.ephemeral;
+      cs.forEach(function (k) {
+        var row = clueRow(st, k);
+        // A decoy shows as such once the book has given the answer (7.9).
+        if (solvedM && st.clues[k].leurre) row.appendChild(h("span", { class: "small muted decoy" }, "fausse piste"));
+        if (contra) row.appendChild(h("button", { class: "btn ghost sm", title: "Ça ne colle pas avec un autre indice", "aria-label": "Ça ne colle pas avec un autre indice", "aria-pressed": A.contraOpen === k ? "true" : "false", onclick: function () { A.contraOpen = A.contraOpen === k ? null : k; A.contraMsg = null; render(); } }, "⚡"));
+        b.appendChild(row);
+        if (A.contraOpen === k) b.appendChild(contraPicker(st, s, k));
+      });
     });
+    if (A.contraMsg) { b.insertBefore(h("div", { class: "notice soft" }, A.contraMsg), b.firstChild); }
+    if ((st.contradictions || []).length && any) b.insertBefore(h("p", { class: "small muted" }, "⚡ : deux choses qu'on t'a dites ne tiennent pas ensemble ? Dis lesquelles."), b.firstChild);
+    var rum = Object.keys(s.rumors || {}).map(function (k) { return M.rumorById(st, k); }).filter(Boolean);
+    if (rum.length) { any = true; b.appendChild(h("div", { class: "label" }, "Rumeurs entendues")); rum.forEach(function (r) { b.appendChild(h("div", { class: "clue rumor", html: md(r.text) })); }); }
     if (!any) b.appendChild(h("div", { class: "notice" }, "Rien encore. Regarde, écoute, fouille."));
   }
   // ------------------------------------------------------------------ the reader's notes
@@ -3629,7 +3651,11 @@
     if (sel && sel.link != null && bd.links[sel.link]) {
       var L = bd.links[sel.link], lab = h("input", { type: "text", maxlength: BOARD_LINK_MAX, value: L.t || "", placeholder: "Un mot sur ce fil (ment, paie, a vu…)", "aria-label": "Mot sur le fil" });
       lab.addEventListener("change", function () { L.t = lab.value.trim(); persist(); render(); });
-      b.appendChild(h("div", { class: "row board-sel" }, lab, h("button", { class: "btn sm", onclick: function () { bd.links.splice(sel.link, 1); A.boardSel = null; persist(); render(); } }, "Couper le fil")));
+      var ca = bd.cards.filter(function (c) { return c.id === L.a; })[0], cb = bd.cards.filter(function (c) { return c.id === L.b; })[0];
+      var canContra = (st.contradictions || []).length && ca && cb && ca.k === "clue" && cb.k === "clue";
+      b.appendChild(h("div", { class: "row board-sel" }, lab, canContra ? h("button", { class: "btn sm", onclick: function () { var r = contraTry(st, s, ca.ref, cb.ref); if (r.found) L.t = "se contredisent"; persist(); render(); } }, "⚡ Se contredisent") : null,
+        h("button", { class: "btn sm", onclick: function () { bd.links.splice(sel.link, 1); A.boardSel = null; persist(); render(); } }, "Couper le fil")));
+      if (A.contraMsg) b.appendChild(h("div", { class: "notice soft" }, A.contraMsg));
     }
     b.appendChild(h("p", { class: "small muted" }, bd.cards.length ? "Fais glisser les cartes. Pour relier deux cartes : 🧵, puis touche l'une, puis l'autre. Touche un fil pour y écrire un mot." : "Ton tableau est vide. Épingle un indice, une personne ou une idée, puis tire des fils entre eux."));
     var NS = "http://www.w3.org/2000/svg", svg = document.createElementNS(NS, "svg");
@@ -3680,6 +3706,96 @@
     wrap.scrollLeft = (A.boardScroll || {}).x || 0; wrap.scrollTop = (A.boardScroll || {}).y || 0;
     wrap.addEventListener("scroll", function () { A.boardScroll = { x: wrap.scrollLeft, y: wrap.scrollTop }; });
     setTimeout(function () { threads(); wrap.scrollLeft = (A.boardScroll || {}).x || 0; wrap.scrollTop = (A.boardScroll || {}).y || 0; }, 0);
+  }
+
+  // ------------------------------------------------------------------ documents (7.9, « Lettres et documents »)
+  // Intent: tabDocs = the letters, registers and deeds the hero holds, each opened as a written page (modalDoc).
+  // A document is an item of kind "document" with a text; `form` (lettre, registre, acte, billet) and `hand`
+  // (soignee, hative, tremblee, imprimee) dress the page. Nothing else to declare.
+  function docsHeld(st, s) { var seen = {}; return s.items.filter(function (k) { var it = M.item(st, k); if (seen[k] || it.kind !== "document" || !it.text) return false; seen[k] = 1; return true; }); }
+  function tabDocs(b, st, s) {
+    var ds = docsHeld(st, s);
+    if (!ds.length) { b.appendChild(h("div", { class: "notice" }, "Aucun papier encore. Les lettres, les registres et les actes que tu trouveras viendront ici.")); return; }
+    ds.forEach(function (k) {
+      var it = M.item(st, k);
+      b.appendChild(h("div", { class: "itemrow doc-row" }, h("b", null, "✉ " + it.name),
+        h("button", { class: "btn sm", onclick: function () { A.modal = { kind: "doc", id: k }; render(); } }, "Lire"),
+        it.desc ? h("div", { class: "desc" }, it.desc) : null));
+    });
+  }
+  function modalDoc(box, close, m) {
+    var st = A.game.story, it = M.item(st, m.id);
+    modalHead(box, it.name, close);
+    var body = h("div", { class: "drawer-body" });
+    if (it.desc) body.appendChild(h("p", { class: "small muted" }, it.desc));
+    body.appendChild(h("div", { class: "manuscrit " + (it.form || "lettre") + " " + (it.hand || "soignee"), html: md(it.text) }));
+    box.appendChild(body);
+  }
+  // ------------------------------------------------------------------ contradictions (7.9)
+  // Intent: the reader says « these two do not hold together »; the engine knows which pairs truly contradict.
+  function contraTry(st, s, a, b) {
+    var G = A.game; G.undo.push(JSON.stringify(s));
+    var r = M.contradict(st, s, a, b);
+    A.contraMsg = r.found ? (r.again ? "Tu l'avais déjà vu." : "Ça ne colle pas, en effet. (Voir le nouvel indice.)") : "Ces deux-là ne se contredisent pas vraiment.";
+    if (!r.found || r.again) G.undo.pop();
+    persist(); return r;
+  }
+  function contraPicker(st, s, k) {
+    var others = Object.keys(s.clues || {}).filter(function (x) { return x !== k && st.clues[x]; }).map(function (x) { return [x, (st.clues[x].short || String(st.clues[x].text).replace(/\*/g, "")).slice(0, 80)]; })
+      .concat(docsHeld(st, s).map(function (x) { return [x, "✉ " + M.item(st, x).name]; }));
+    return h("div", { class: "row contra" }, h("span", { class: "small" }, "Ne colle pas avec :"),
+      h("select", { "aria-label": "Ne colle pas avec", onchange: function (e) { if (!e.target.value) return; contraTry(st, s, k, e.target.value); A.contraOpen = null; render(); } },
+        h("option", { value: "" }, "— choisis —"), others.map(function (o) { return h("option", { value: o[0] }, o[1]); })));
+  }
+  // ------------------------------------------------------------------ reconstitution (7.9)
+  // Intent: tabRecon = « qui était où » (people × hours, a place in each cell) and « la frise » (the reader places the
+  // clues on the hours). The book judges nothing until it has given the answer (the mystery's `solved`); then each
+  // cell and each clue placed is marked, against `plan.truth` and the clues' own `at`.
+  // Kept in the save: doc.recon[m] = { grid: { person: [placeIndex|null] }, frise: { hourIndex: [clue] } }.
+  function tabRecon(b, st, s) {
+    var G = A.game;
+    if (G.multi || G.ephemeral) { b.appendChild(h("div", { class: "notice" }, "La reconstitution se garde dans une partie à soi.")); return; }
+    var R = G.doc.recon = G.doc.recon || {};
+    Object.keys(st.mysteries || {}).forEach(function (m) {
+      var my = st.mysteries[m], pl = my.plan; if (!pl) return;
+      var solved = M.mysterySolved(st, s, m), r = R[m] = R[m] || {}; r.grid = r.grid || {}; r.frise = r.frise || {};
+      var sec = h("section", { class: "recon" }, h("h3", null, my.title));
+      sec.appendChild(h("p", { class: "small muted" }, solved ? "Le livre a répondu : chaque case est marquée, juste ou fausse." : "Place chacun, heure par heure. Le livre ne juge rien tant qu'il n'a pas donné la réponse."));
+      var who = (pl.people || []).filter(function (k) { return s.people[k]; });
+      if (!who.length) sec.appendChild(h("div", { class: "small muted" }, "Personne de cette nuit-là n'est encore dans ton carnet."));
+      else {
+        var table = h("table", { class: "recon-grid" }, h("tr", null, h("th", null, ""), pl.hours.map(function (hh) { return h("th", null, hh); })));
+        who.forEach(function (k) {
+          var row = r.grid[k] = r.grid[k] || [];
+          table.appendChild(h("tr", null, h("th", { class: "who" }, whoName(st, k)), pl.hours.map(function (hh, i) {
+            var truth = ((pl.truth || {})[k] || [])[i], mine = row[i] == null ? "" : String(row[i]);
+            var mark = solved && truth != null && mine !== "" ? (pl.places[+mine] === truth ? " right" : " wrong") : "";
+            return h("td", { class: mark }, h("select", { "aria-label": whoName(st, k) + ", " + hh, disabled: solved, onchange: function (e) { row[i] = e.target.value === "" ? null : +e.target.value; persist(); } },
+              h("option", { value: "" }, "?"), pl.places.map(function (p, pi) { var o = h("option", { value: String(pi) }, p); if (mine === String(pi)) o.selected = true; return o; })),
+              solved && truth != null && mark !== " right" ? h("div", { class: "truth small" }, truth) : null);
+          })));
+        });
+        sec.appendChild(h("div", { class: "recon-wrap" }, table));
+      }
+      sec.appendChild(h("div", { class: "label" }, "La frise"));
+      var held = Object.keys(s.clues || {}).filter(function (k) { return st.clues[k] && st.clues[k].rev === m; });
+      pl.hours.forEach(function (hh, i) {
+        var list = r.frise[i] = (r.frise[i] || []).filter(function (k) { return s.clues[k]; });
+        var line = h("div", { class: "frise-slot" }, h("b", { class: "frise-h" }, hh));
+        list.forEach(function (k) {
+          var at = st.clues[k].at, mark = solved && at ? (at === hh ? " right" : " wrong") : "";
+          line.appendChild(h("span", { class: "chip" + mark }, (st.clues[k].short || String(st.clues[k].text).replace(/\*/g, "")).slice(0, 60),
+            solved ? null : h("button", { class: "btn ghost sm", "aria-label": "Retirer", onclick: function () { r.frise[i] = list.filter(function (x) { return x !== k; }); persist(); render(); } }, "×")));
+        });
+        if (!solved) {
+          var free = held.filter(function (k) { return list.indexOf(k) < 0; });
+          if (free.length) line.appendChild(h("select", { "aria-label": "Placer un indice à " + hh, onchange: function (e) { if (e.target.value) { list.push(e.target.value); r.frise[i] = list; persist(); render(); } } },
+            h("option", { value: "" }, "＋"), free.map(function (k) { return h("option", { value: k }, (st.clues[k].short || String(st.clues[k].text).replace(/\*/g, "")).slice(0, 70)); })));
+        }
+        sec.appendChild(line);
+      });
+      b.appendChild(sec);
+    });
   }
   function tabCompanions(b, st, s) {
     var ks = Object.keys(st.companions || {}).filter(function (k) { return s.met[k]; });
@@ -3849,7 +3965,7 @@
     var m = A.modal, close = function () { if (m.kind === "send" || m.kind === "receive") Transfer.stop(); A.modal = null; render(); };
     var box = h("div", { class: "modal", role: "dialog", "aria-modal": "true" });
     var bg = h("div", { class: "drawer-bg", onclick: close });
-    ({ prefs: modalPrefs, report: modalReport, dice: modalDice, mark: modalMark, bedtime: modalBedtime, send: modalSend, receive: modalReceive, words: modalWords, sync: modalSync, chapter: modalChapter, shake: modalShake, adult: modalAdult, keys: modalKeys, news: modalNews, group: modalGroup, vote: modalVote })[m.kind](box, close, m);
+    ({ prefs: modalPrefs, report: modalReport, dice: modalDice, mark: modalMark, bedtime: modalBedtime, send: modalSend, receive: modalReceive, words: modalWords, sync: modalSync, chapter: modalChapter, shake: modalShake, adult: modalAdult, keys: modalKeys, news: modalNews, group: modalGroup, vote: modalVote, doc: modalDoc })[m.kind](box, close, m);
     app.appendChild(bg); app.appendChild(box);
     var f = box.querySelector("[autofocus]"); if (f) setTimeout(function () { f.focus(); }, 0);
   }
@@ -3874,7 +3990,7 @@
     if (A.carnet) {
       if (k === "c" || k === "C") { e.preventDefault(); A.carnet = null; render(); return; }
       if (k === "ArrowRight" || k === "ArrowLeft") {
-        var ids = TABS.map(function (t) { return t[0]; }), i = ids.indexOf(A.carnetTab);
+        var ids = tabsOf(A.game.story).map(function (t) { return t[0]; }), i = ids.indexOf(A.carnetTab);
         A.carnetTab = ids[(i + (k === "ArrowRight" ? 1 : ids.length - 1)) % ids.length]; A.carnetQ = ""; e.preventDefault(); render();
       }
       return;

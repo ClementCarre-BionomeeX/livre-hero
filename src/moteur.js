@@ -127,6 +127,8 @@
       pv: null, fatigue: 0, time: (w.start && w.start.hour != null) ? +w.start.hour : START_HOUR, place: (w.start && w.start.place) || null, known: {}, people: {}, travel: null, combat: null,
       clock: {}, seen: {}, ret: null, events: [], toutJouer: opts.toutJouer !== false, turn: 0, routesDone: {},
       difficulty: DIFFICULTY[opts.difficulty] ? opts.difficulty : "aventurier", stats: {}, feats: {}, beasts: {}, ironman: !!opts.ironman, regard: {},
+      // An investigation tells the hour (world.start.clock: true): who is where depends on it (7.9).
+      clockShown: !!(w.start && w.start.clock),
     };
   }
   function levelOfEp(ep) { return Math.min(MAX_LEVEL, Math.max(1, Math.floor(ep / EP_PER_LEVEL))); }
@@ -139,9 +141,10 @@
   function hour(s) { return s.time % 24; }
   function timeLabel(s) {
     var h = hour(s), part = h < 6 ? "nuit" : h < 12 ? "matin" : h < 14 ? "midi" : h < 18 ? "après-midi" : h < 21 ? "soir" : "nuit";
-    return "Jour " + day(s) + ", " + part;
+    return "Jour " + day(s) + ", " + (s.clockShown ? (h === 0 ? "minuit" : h === 12 ? "midi" : h + " h") + (h === 0 || h === 12 ? "" : " (" + part + ")") : part);
   }
-  function clueCount(story, s, rev) { return Object.keys(s.clues).filter(function (k) { return story.clues[k] && story.clues[k].rev === rev; }).length; }
+  // A decoy (clue `leurre: true`, 7.9) is never counted: not here, not as a proof, not for a feat.
+  function clueCount(story, s, rev) { return Object.keys(s.clues).filter(function (k) { return story.clues[k] && story.clues[k].rev === rev && !story.clues[k].leurre; }).length; }
   function actOf(story, id) { return (story.acts || []).filter(function (a) { return a.id === id; })[0] || null; }
   function item(story, id) { return (story.items || {})[id] || { name: id, kind: "divers" }; }
   function countItem(s, id) { return s.items.filter(function (x) { return x === id; }).length; }
@@ -243,6 +246,8 @@
     if ("is" in c) return Object.keys(c.is).every(function (k) { var v = stateOf(s, k); return c.is[k] === null ? v == null : [].concat(c.is[k]).indexOf(v) >= 0; });
     if ("second" in c) return secondOk(s, c.second);
     if ("via" in c) return [].concat(c.via).some(function (k) { return k === s.via || k === s.from; });
+    if ("regard" in c) return regardOk(s, c.regard);
+    if ("fresh" in c) return [].concat(c.fresh).every(function (k) { return !faded(story, s, k); });
     if ("place" in c) return s.place === c.place;
     if ("known" in c) return !!s.known[c.known];
     if ("person" in c) return !!s.people[c.person];
@@ -359,6 +364,17 @@
     // second: the second reading. The reader has already reached an ending of this story in an earlier game
     // (true), or this ending (its id, with or without "fin:"). The app gives it at the start of a game (s.second).
     if (t.second != null && !secondOk(s, t.second)) return false;
+    // regard: { person: "cordial" | [words] } — the line a person says depends on how they see the hero (7.9).
+    if (t.regard != null && !regardOk(s, t.regard)) return false;
+    // fresh: "clue" — shown while that clue can still be found (its `fades` moment has not passed, 7.9).
+    // On a choice that takes time, the clue must still be there when the reader arrives, after the hours it takes.
+    if (t.fresh != null) {
+      var tk = t.takes != null && t.label != null ? takesOf(s, t.takes) : null, keepT = s.time;
+      if (tk) s.time += tk.hours;
+      var gone = [].concat(t.fresh).some(function (k) { return faded(story, s, k); });
+      s.time = keepT;
+      if (gone) return false;
+    }
     if (t.first && s.seen[node] > 1) return false;
     if (t.again && !(s.seen[node] > 1)) return false;
     return true;
@@ -369,7 +385,7 @@
     if (k === false) return !Object.keys(known).length;
     return [].concat(k).some(function (e) { return !!(known[e] || known["fin:" + e]); });
   }
-  var SCENE_TAGS = ["with", "without", "when", "after", "before", "second"];
+  var SCENE_TAGS = ["with", "without", "when", "after", "before", "second", "regard", "fresh"];
   function sceneOk(story, s, p) { return !SCENE_TAGS.some(function (k) { return p[k] != null; }) || tagsOk(story, s, p, null); }
   // marks (optional): receives the place in the returned list of each paragraph shown for a second reading.
   function textList(story, s, list, node, marks) {
@@ -472,6 +488,8 @@
     [].concat(fx.clue || []).forEach(function (id) {
       var cl = story.clues[id];
       if (!cl) throw new Error("indice inconnu " + id);
+      // A clue that has faded (its moment is past) can no longer be found: the scene should have said so (fresh).
+      if (faded(story, s, id)) { guard(s, "l'indice « " + id + " » s'est effacé et le texte le donne encore (tag fresh)"); return; }
       if (!s.clues[id]) { s.clues[id] = true; ev(s, "Indice (" + ((story.mysteries[cl.rev] || {}).title || cl.rev) + ") : " + cl.text, "clue"); }
     });
     if (fx.mark) { s.mark = Math.max(0, s.mark + fx.mark); ev(s, fx.mark > 0 ? "La Marque grandit : " + s.mark : "La Marque pâlit : " + s.mark, "stain"); }
@@ -540,7 +558,9 @@
       if (!(story.items || {})[it]) throw new Error("objet inconnu " + it);
       var I = story.items[it];
       if (I.unique !== false && s.items.indexOf(it) >= 0) return;
-      s.items.push(it); ev(s, "Objet : " + I.name, "item");
+      s.items.push(it);
+      // A letter, a register, a deed: the page offers to read it at once (7.9, « Lettres et documents »).
+      if (I.kind === "document" && I.text) ev(s, "Document : " + I.name, "item doc", { doc: it }); else ev(s, "Objet : " + I.name, "item");
     });
     // A thing handed over leaves the bag, or the pack of the hero at your side who carries it.
     [].concat(fx.drop || []).forEach(function (it) {
@@ -1342,6 +1362,143 @@
     return out;
   }
 
+
+  // ------------------------------------------------------------------ an investigation in a city (« Enquête en ville », 7.9)
+  // Clément, 13/11: a criminal case in a great city, where people lie, keep silent or are wrong. The story declares; the
+  // engine does the rest: who is where at what hour, what a witness says when shown a clue, which two statements truly
+  // contradict each other, which clues fade if one dawdles, which are decoys, the rumours of the inns, the accusation in
+  // three parts, and the hour when the case is judged whatever the reader is doing.
+  // The parts of the day a person's whereabouts are written in (`at: [{ when: "matin" | [...] }]`).
+  var PERIODS = { matin: [6, 12], midi: [12, 14], apresmidi: [14, 18], soir: [18, 21], nuit: [21, 6] };
+  function periodOf(s) { var h = hour(s); return Object.keys(PERIODS).filter(function (k) { var r = PERIODS[k]; return r[0] < r[1] ? h >= r[0] && h < r[1] : h >= r[0] || h < r[1]; })[0]; }
+  // A moment of the story: { day, hour } (hour 0 by default). Reached when the clock is at or past it.
+  function momentOf(m) { return m ? ((m.day || 1) - 1) * 24 + (m.hour || 0) : null; }
+  function reached(s, m) { return m != null && s.time >= momentOf(m); }
+  // Intent: regardOk(State, {person: word | [words]}) -> Bool = each person sees the hero in one of these ways
+  // A person nobody has given a regard yet is "neutre".
+  function regardOk(s, r) { return Object.keys(r || {}).every(function (k) { return [].concat(r[k]).indexOf((s.regard || {})[k] || "neutre") >= 0; }); }
+  // Intent: faded(Story, State, Clue) -> Bool = the clue can no longer be found: its `fades` moment has passed and the
+  // reader does not hold it (a trace washed by the rain, a body buried, a witness gone).
+  function faded(story, s, k) { var cl = (story.clues || {})[k]; return !!(cl && cl.fades && !s.clues[k] && reached(s, cl.fades)); }
+
+  // --- who is where (people.<id>.at): the city lives
+  // Intent: hereNow(Story, State, Place) -> [{ id, at }] = the people whose schedule puts them in this place now
+  // An entry: { when: period | [periods], place, talk: "PASSAGE", see: "what one sees of them", label, if, from, until }.
+  function hereNow(story, s, place) {
+    var out = [], per = periodOf(s);
+    Object.keys(story.people || {}).forEach(function (id) {
+      ((story.people[id] || {}).at || []).some(function (a) {
+        if (a.place !== place) return false;
+        if (a.when != null && [].concat(a.when).indexOf(per) < 0) return false;
+        if (a.from && !reached(s, a.from)) return false;
+        if (a.until && reached(s, a.until)) return false;
+        if (!evalCond(story, s, a.if)) return false;
+        out.push({ id: id, at: a }); return true;
+      });
+    });
+    return out;
+  }
+  // On a crossroads of a place, the people there now: a line each, and a way to go and speak to them.
+  function peopleChoices(story, s, p) {
+    if (!p.hub || !p.place || s.combat || s.travel) return [];
+    return hereNow(story, s, p.place).filter(function (x) { return x.at.talk && story.passages[x.at.talk]; }).map(function (x) {
+      // Speaking with someone takes an hour, unless the schedule says otherwise (takes: 0); the reader has met them.
+      return { to: x.at.talk, label: interp(s, x.at.label || ("Aborder " + story.people[x.id].name)), group: "gens", auto: "people", takes: x.at.takes === 0 ? null : (x.at.takes || 1), fx: { meet: x.id } };
+    });
+  }
+  function peopleLines(story, s, p) {
+    if (!p.hub || !p.place) return [];
+    return hereNow(story, s, p.place).filter(function (x) { return x.at.see; }).map(function (x) { return interp(s, x.at.see); });
+  }
+
+  // --- rumours of the inns (story.rumors: { pool: [{ id, text, fx }] }, passage tag `rumeur: "pool"`)
+  // One rumour not yet heard, picked when the reader comes in, told at the end of the page. True or false: the story
+  // knows, the page does not say. The notebook keeps the ones heard.
+  function rumorPick(story, s, p, id) {
+    var pool = ((story.rumors || {})[p.rumeur] || []).filter(function (r) { return !(s.rumors || {})[r.id] && evalCond(story, s, r.if); });
+    if (!pool.length) { s.rumorNow = null; return; }
+    var r = pick(pool);
+    s.rumors = s.rumors || {}; s.rumors[r.id] = { pool: p.rumeur, t: timeLabel(s) };
+    s.rumorNow = { node: id, turn: s.turn, id: r.id };
+    apply(story, s, r.fx);
+  }
+  function rumorById(story, id) { var out = null; Object.keys(story.rumors || {}).forEach(function (k) { (story.rumors[k] || []).forEach(function (r) { if (r.id === id) out = r; }); }); return out; }
+
+  // --- the deadline (story.deadline: { day, hour, to, acts }): the case is judged at that hour, whatever one is doing
+  function deadlineDue(story, s, id) {
+    var d = story.deadline, p = story.passages[id];
+    if (!d || !p || p.end || s.flags["echeance"] || !reached(s, d)) return false;
+    return !d.acts || d.acts.indexOf(p.act) >= 0;
+  }
+
+  // --- showing a witness a clue or a document (people.<id>.confront: { <clue or item>: "PASSAGE" }, shrug: [lines])
+  // A passage tagged `montrer: "<person>"` offers « Montrer quelque chose à … ». What makes the person react leads to the
+  // author's passage; anything else leaves them cold (one of their `shrug` lines). Each thing is shown once to each.
+  function showable(story, s, who) {
+    var shown = s.shown || {}, out = [];
+    Object.keys(s.clues || {}).forEach(function (k) { var c = (story.clues || {})[k]; if (c && !shown[who + "|" + k]) out.push({ id: k, label: c.short || shortText(c.text) }); });
+    // A document that carries its clue (item.clue) is shown through that clue: the reader sees one line, not two.
+    s.items.forEach(function (k) { var it = item(story, k); if (it.kind === "document" && !(it.clue && s.clues[it.clue]) && !shown[who + "|" + k] && !out.some(function (x) { return x.id === k; })) out.push({ id: k, label: it.name }); });
+    return out;
+  }
+  // Intent: withPrep("à" | "de", Name) -> String = a person's name after a preposition, its article agreed
+  // ("à La sergente Hallard" → "à la sergente Hallard", "de Le commis Ivon" → "du commis Ivon").
+  function withPrep(prep, name) {
+    var m = /^(Les|Le|La|L['’])\s?(.*)$/.exec(String(name || "")), art, rest;
+    if (!m || (m[1].length > 1 && m[1].charAt(1) !== "'" && m[1].charAt(1) !== "’" && !/\s/.test(String(name).charAt(m[1].length)))) return prep + " " + name;
+    art = m[1].toLowerCase(); rest = m[2];
+    if (art === "le") return (prep === "à" ? "au " : "du ") + rest;
+    if (art === "les") return (prep === "à" ? "aux " : "des ") + rest;
+    if (art === "la") return prep + " la " + rest;
+    return prep + " l'" + rest;
+  }
+  function shortText(t) { t = String(t || "").replace(/\*/g, ""); var cut = t.indexOf(". "); t = cut > 0 && cut < 90 ? t.slice(0, cut) : t; return t.length > 90 ? t.slice(0, 88).replace(/\s+\S*$/, "") + "…" : t; }
+  function montrerChoices(story, s, p) {
+    var who = p && p.montrer; if (!who || !(story.people || {})[who] || s.combat) return [];
+    var any = showable(story, s, who).length > 0;
+    return [{ sys: "montrer", who: who, group: "montrer", label: "Montrer quelque chose " + withPrep("à", story.people[who].name), if: any ? null : { not: true }, why: "Tu n'as plus rien à lui montrer." }];
+  }
+  // --- the accusation (passage tag `accuse: { mystery, to }`): who, why, and the proof, each counted on its own.
+  // The mystery declares `suspects` (people), `motives` ({ id: text }) and `answer: { person, motive, proofs }`.
+  // The engine sets `accuse-<m>-qui=<person>`, `accuse-<m>-mobile=<id>`, `accuse-<m>-preuve=<clue>`, and the flags
+  // `accuse:<m>:qui`, `accuse:<m>:mobile`, `accuse:<m>:preuve` for each part that is right. Then it goes to `to`.
+  function accuseChoices(story, s, p) {
+    var a = p && p.accuse; if (!a || s.combat) return [];
+    var my = (story.mysteries || {})[a.mystery] || {};
+    return [{ sys: "accuse", group: "accuse", label: a.label || ("Accuser : " + (my.accuseTitle || "désigner le coupable, le mobile et la preuve")) }];
+  }
+  function accuseProofs(story, s) {
+    var out = [];
+    Object.keys(s.clues || {}).forEach(function (k) { var c = (story.clues || {})[k]; if (c) out.push({ id: k, label: c.short || shortText(c.text) }); });
+    s.items.forEach(function (k) { var it = item(story, k); if (it.kind === "document" && !(it.clue && s.clues[it.clue]) && !out.some(function (x) { return x.id === k; })) out.push({ id: k, label: it.name }); });
+    return out;
+  }
+  // Intent: accuseDone(Story, State, Proof) ! the accusation is made: each part is judged on its own, then the story goes on
+  function accuseDone(story, s, proof) {
+    var a = s.acc, m = a.m, my = (story.mysteries || {})[m] || {}, an = my.answer || {}, P = story.passages[a.from], to = P.accuse.to;
+    var set = {}; set["accuse-" + m + "-qui"] = a.qui; set["accuse-" + m + "-mobile"] = a.mobile; set["accuse-" + m + "-preuve"] = proof || "aucune";
+    apply(story, s, { set: set });
+    var ok = { qui: a.qui === an.person, mobile: [].concat(an.motive || []).indexOf(a.mobile) >= 0,
+      // A document proves what its clue proves (item.clue).
+      preuve: !!proof && [proof, item(story, proof).clue].some(function (k) { return k && [].concat(an.proofs || []).indexOf(k) >= 0 && !((story.clues || {})[k] || {}).leurre; }) };
+    Object.keys(ok).forEach(function (k) { if (ok[k]) s.flags["accuse:" + m + ":" + k] = true; });
+    s.acc = null; s.via = "accuse";
+    go(story, s, to);
+  }
+  // Intent: contradict(Story, State, ClueA, ClueB) -> { found, again, clue } ! the reader says two things contradict
+  // Why: the reader links two statements on the board or in the notebook; when the story declares that they truly
+  // contradict each other (story.contradictions: [{ a, b, clue, fx }]), the engine gives the clue the link makes,
+  // which may open a new way. A wrong link costs nothing.
+  function contradictionOf(story, a, b) { return (story.contradictions || []).filter(function (x) { return (x.a === a && x.b === b) || (x.a === b && x.b === a); })[0] || null; }
+  function holds(s, k) { return !!(s.clues || {})[k] || (s.items || []).indexOf(k) >= 0; }
+  function contradict(story, s, a, b) {
+    var x = contradictionOf(story, a, b);
+    if (!x || !holds(s, a) || !holds(s, b)) return { found: false };
+    if (x.clue && s.clues[x.clue]) return { found: true, again: true, clue: x.clue };
+    apply(story, s, Object.assign({}, x.fx || {}, { clue: x.clue }));
+    return { found: true, clue: x.clue };
+  }
+
   // ------------------------------------------------------------------ the tavern game (Clément, 13/11, 6th series)
   // Intent: tavernChoices(Story, State, Passage) -> [Choice] = « s'asseoir à la Chandelle » where the passage says
   // `taverne: { mise, adversaire }`. The stake leaves the purse when one sits; a win brings it back twice, a tie once.
@@ -1401,6 +1558,42 @@
         cs.push({ sys: "jeuLeave", label: "Quitter la table" });
       }
       return { title: "La Chandelle", kind: "jeu", text: text, choices: cs };
+    },
+    // Showing a witness something (7.9): the list of what one holds and has not shown this person yet.
+    "@montrer": function (story, s) {
+      var w = s.show, P = story.people[w.who] || {}, back = story.passages[w.from] || {};
+      var cs = showable(story, s, w.who).map(function (x) { var r = (P.confront || {})[x.id]; return { sys: "show", id: x.id, label: x.label, group: "montrer", target: r || null }; });
+      cs.push({ sys: "showNone", label: "Revenir : " + cap(interp(s, String(back.backName || back.title || "").replace(/\*/g, ""))) });
+      return { title: "Montrer " + withPrep("à", P.name), kind: "montrer", text: [interp(s, P.showText || "Que mets-tu sous les yeux " + withPrep("de", P.name) + " ?")], choices: cs };
+    },
+    "@haussement": function (story, s) {
+      var w = s.show, P = story.people[w.who] || {}, back = story.passages[w.from] || {};
+      var cs = [];
+      if (showable(story, s, w.who).length) cs.push({ sys: "montrer", who: w.who, from: w.from, label: "Lui montrer autre chose" });
+      cs.push({ sys: "showNone", label: "Revenir : " + cap(interp(s, String(back.backName || back.title || "").replace(/\*/g, ""))) });
+      return { title: P.name, kind: "montrer", text: [interp(s, w.line || (P.name + " regarde, et te rend la chose sans un mot. Cela ne lui dit rien, ou rien qu'on veuille te dire."))], choices: cs };
+    },
+    // The accusation, in three steps (7.9).
+    "@accuse": function (story, s) {
+      var a = s.acc, my = (story.mysteries || {})[a.m] || {}, T = my.accuseText || {}, back = story.passages[a.from] || {}, cs = [], text;
+      if (a.step === "qui") {
+        text = T.qui || "Qui accuses-tu ?";
+        (my.suspects || []).filter(function (k) { return s.people[k]; }).forEach(function (k) { cs.push({ sys: "accuseWho", who: k, group: "accuse", label: story.people[k].name }); });
+        cs.push({ sys: "accuseBack", label: "Revenir : " + cap(interp(s, String(back.backName || back.title || "").replace(/\*/g, ""))) });
+      } else if (a.step === "mobile") {
+        text = (T.mobile || "Pourquoi ?") ;
+        Object.keys(my.motives || {}).forEach(function (k) { cs.push({ sys: "accuseWhy", motive: k, group: "accuse", label: interp(s, my.motives[k]) }); });
+        cs.push({ sys: "accuseRedo", label: "Changer d'avis sur le coupable" });
+      } else {
+        text = T.preuve || "Quelle preuve donnes-tu ?";
+        accuseProofs(story, s).forEach(function (x) { cs.push({ sys: "accuseProof", proof: x.id, group: "accuse", label: x.label }); });
+        cs.push({ sys: "accuseProof", proof: null, group: "accuse", label: T.none || "Aucune : ta parole seule" });
+        cs.push({ sys: "accuseRedo", label: "Changer d'avis sur le coupable" });
+      }
+      var said = [];
+      if (a.qui) said.push("Tu as nommé " + story.people[a.qui].name + ".");
+      if (a.mobile) said.push("Mobile : " + interp(s, (my.motives || {})[a.mobile]) + ".");
+      return { title: my.accuseTitle || "L'accusation", kind: "accuse", text: (said.length ? [said.join(" ")] : []).concat([interp(s, text)]), choices: cs };
     },
     "@road": function (story, s) {
       var t = s.travel, region = (W(story).regions || {})[t.region] || {}, r = routeById(story, t.route);
@@ -1472,16 +1665,19 @@
     if (BUILTIN[s.node]) v = BUILTIN[s.node](story, s);
     else {
       p = story.passages[s.node];
-      var cs = ownChoices(story, s, p);
+      var cs = peopleChoices(story, s, p).concat(ownChoices(story, s, p));
       // back: true, the scene ends on the way back to the crossroads the reader came from, its label written by the engine.
       if (p.back && s.hubLast && s.hubLast !== s.node && story.passages[s.hubLast]) {
         var hp = story.passages[s.hubLast];
         cs = cs.concat([{ to: s.hubLast, label: "Revenir : " + interp(s, hp.title || (W(story).places[hp.place] || {}).name || "…"), auto: "back" }]);
       }
       if (!cs.length) { var back = backChoice(story, s, p); if (back) cs = [back]; }
-      cs = cs.concat(shopChoices(story, s, p), tavernChoices(story, s, p), travelChoices(story, s, p), leadChoices(story, s, p));
+      cs = cs.concat(montrerChoices(story, s, p), accuseChoices(story, s, p), shopChoices(story, s, p), tavernChoices(story, s, p), travelChoices(story, s, p), leadChoices(story, s, p));
       var sec = [];
       v = { title: interp(s, p.title || ""), kind: p.end ? "end" : "passage", text: textList(story, s, p.text, null, sec), choices: cs, passage: p };
+      // The people here at this hour, then the rumour heard on coming in (7.9).
+      v.text = v.text.concat(peopleLines(story, s, p));
+      if (s.rumorNow && s.rumorNow.node === s.node && s.rumorNow.turn === s.turn) { var rr = rumorById(story, s.rumorNow.id); if (rr) v.text.push(interp(s, rr.text)); }
       // A scene that spends the night tells it at its end; one that waits for the evening, at its start.
       if (s.took && s.took.node === s.node && s.took.turn === s.turn) { v.text[s.took.end ? "push" : "unshift"]("*(" + s.took.say + ")*"); if (!s.took.end) sec = sec.map(function (i) { return i + 1; }); }
       // The paragraphs of a second reading: the page may mark them, lightly.
@@ -1543,7 +1739,7 @@
   // The button says ahead when a scene will spend time: "jusqu'au soir".
   function aheadOf(story, s, c) {
     var to = typeof c.to === "string" ? c.to : null, tp = to && story.passages[to];
-    var tk = tp && takesOf(s, tp.takes);
+    var tk = (c.takes != null && takesOf(s, c.takes)) || (tp && takesOf(s, tp.takes));
     return tk ? "le temps passe : " + tk.ahead : "";
   }
   function backGoes(story, s, c) {
@@ -1610,6 +1806,9 @@
     if (id === "@camp") { s.node = "@camp"; return; }
     if (id === "@route") { if (!s.travel) throw new Error("@route hors d'un voyage (depuis " + s.node + ")"); advanceTravel(story, s); return; }
     if (!story.passages[id]) throw new Error("passage inconnu " + id + " (depuis " + s.node + ")");
+    // The case is judged at its hour (story.deadline), wherever the reader is: the story goes there, once.
+    // The hour of the deadline is the hour of the scene it opens: a long rest that would end past it ends on it.
+    if (deadlineDue(story, s, id)) { s.flags["echeance"] = true; s.time = momentOf(story.deadline); id = story.deadline.to; }
     if (story.passages[id].hub) { var b = dueBanter(story, s, story.passages[id].act); if (b) { s.ret = id; id = b; } }
     // The passage left (a fight or a road in between does not count): read by the tag `via`.
     if (s.node && s.node.charAt(0) !== "@" && s.node !== id) s.from = s.node;
@@ -1629,6 +1828,7 @@
     if (tk) { s.time += tk.hours; s.took = { node: id, turn: s.turn, say: tk.say, end: tk.end }; }
     if (first) apply(story, s, p.fx);
     apply(story, s, p.fxEvery);
+    if (p.rumeur) rumorPick(story, s, p, id); else s.rumorNow = null;
     greetBack(story, s);
     if (p.combat) { startCombat(story, s, p.combat); s.combat.intro = textList(story, s, p.text).join("\n\n"); }
   }
@@ -1643,7 +1843,7 @@
     { id: "acte-complet", title: "Rien laissé derrière", desc: "Finir toutes les quêtes d'un acte.", test: function (st, s) { return (st.acts || []).some(function (a) { var qs = questsOf(st, a.id); return qs.length > 1 && qs.every(function (q) { return questDone(s, q); }); }); } },
     { id: "loyal", title: "À la vie, à la mort", desc: "Gagner la loyauté d'un compagnon.", test: function (st, s) { return Object.keys(st.companions || {}).some(function (k) { return !(st.heroes || {})[k] && s.met[k] && s.met[k] !== "gone" && (s.conf[k] || 0) >= LOYAL_AT; }); } },
     { id: "voyageur", title: "Grand voyageur", desc: "Parcourir cinq routes.", test: function (st, s) { return Object.keys(s.routesDone || {}).length >= 5; } },
-    { id: "limier", title: "Fin limier", desc: "Réunir dix indices.", test: function (st, s) { return Object.keys(s.clues || {}).length >= 10; } },
+    { id: "limier", title: "Fin limier", desc: "Réunir dix indices.", test: function (st, s) { return Object.keys(s.clues || {}).filter(function (k) { return !((st.clues || {})[k] || {}).leurre; }).length >= 10; } },
   ];
   function featsOf(story) {
     var out = FEATS.map(function (f) { return { id: f.id, title: f.title, desc: f.desc }; });
@@ -1705,6 +1905,14 @@
     if (c.once && s.node) { s.once = s.once || {}; s.once["c|" + s.node + "|" + c.label] = 1; }
     if (c.refuse) { var rq = questOfRefusal(story, s, c); if (rq) { s.flags["quete-refus:" + rq.id] = true; ev(s, "Quête refusée : " + rq.title + ". Tu n'y reviendras pas.", "quest"); } else guard(s, "refuse : aucune quête ouverte ici"); }
     s.last = null; s.via = c.via || null;
+    // takes on a choice (7.9): the way there spends time (a walk, a talk); the clock moves before the page opens, so
+    // the page is read at its new hour, and says so at its top.
+    var ctk = c.takes != null ? takesOf(s, c.takes) : null;
+    if (ctk) s.time += ctk.hours;
+    chooseOn(story, s, c);
+    if (ctk && !(s.took && s.took.turn === s.turn && s.took.node === s.node)) s.took = { node: s.node, turn: s.turn, say: ctk.say, end: false };
+  }
+  function chooseOn(story, s, c) {
     if (c.test) {
       var roll = rollTest(story, s, c.test, c.who);
       ev(s, (c.who ? nameOf(story, c.who) + " : " : "") + "jet de " + interp(s, c.test.label || DOMAINS[c.test.dom]) + " · " + roll.line + " → " + (roll.ok ? "réussite" : "raté"), (roll.ok ? "good" : "bad") + " roll", { roll: roll });
@@ -1732,6 +1940,21 @@
       case "order": giveOrder(story, s, c); break;
       case "lead": setLead(story, s, c.hero); break;
       case "jeu": tavernSit(story, s, c); break;
+      case "montrer": s.show = { who: c.who, from: c.from || (s.show && s.node.charAt(0) === "@" ? s.show.from : s.node) }; s.node = "@montrer"; break;
+      case "show": {
+        var w = s.show, P = story.people[w.who] || {}, cf = P.confront || {}, r = cf[c.id] || cf[item(story, c.id).clue];
+        s.shown = s.shown || {}; s.shown[w.who + "|" + c.id] = 1;
+        if (r) { s.via = "montrer"; go(story, s, r); }
+        else { var sh = P.shrug || []; w.line = sh.length ? sh[(Object.keys(s.shown).length) % sh.length] : null; s.node = "@haussement"; }
+        break;
+      }
+      case "showNone": { var fr = s.show.from; s.show = null; go(story, s, fr); break; }
+      case "accuse": s.acc = { m: story.passages[s.node].accuse.mystery, from: s.node, step: "qui" }; s.node = "@accuse"; break;
+      case "accuseWho": s.acc.qui = c.who; s.acc.step = "mobile"; break;
+      case "accuseWhy": s.acc.mobile = c.motive; s.acc.step = "preuve"; break;
+      case "accuseRedo": s.acc.qui = null; s.acc.mobile = null; s.acc.step = "qui"; break;
+      case "accuseBack": { var fb = s.acc.from; s.acc = null; go(story, s, fb); break; }
+      case "accuseProof": accuseDone(story, s, c.proof); break;
       case "jeuRoll": case "jeuStop": case "jeuAgain": case "jeuLeave": tavernSys(story, s, c); break;
       case "buy": s.gold -= c.price; s.items.push(c.item); ev(s, "Acheté : " + item(story, c.item).name + " (−" + money(story, c.price) + ", reste " + money(story, s.gold) + ")", "item"); break;
       case "buyFood": s.gold -= c.price; s.food++; ev(s, "Un jour de vivres de plus (" + s.food + ")", "item"); break;
@@ -1755,6 +1978,7 @@
     setRng: setRng, setDice: setDice, nudgeOf: nudgeOf, ambianceOf: ambianceOf, AMBIANCES: AMBIANCES, isNightNow: function (s) { var h = s.time % 24; return h >= NIGHT_FROM || h < NIGHT_TO; }, DIFFICULTY: DIFFICULTY, featsOf: featsOf, endingsOf: endingsOf, endingOf: endingOf, freshState: freshState, level: level, pvMax: pvMax, bonus: bonus, chance: chance, rollTest: rollTest,
     evalCond: evalCond, describeCond: describeCond, textList: textList, view: view, allowed: allowed, target: target,
     apply: apply, enter: enter, choose: choose, start: start, present: present, loyal: loyal, clueCount: clueCount,
+    PERIODS: PERIODS, periodOf: periodOf, hereNow: hereNow, contradict: contradict, contradictionOf: contradictionOf, faded: faded, regardOk: regardOk, rumorById: rumorById, momentOf: momentOf,
     money: money, prepare: prepare, questsOf: questsOf, questState: questState, questDone: questDone, questRefused: questRefused, questStarted: questStarted, questMissed: questMissed, questScenes: questScenes, remaining: remaining, actOf: actOf, interp: interp, nameOf: nameOf,
     isHero: isHero, heroIds: heroIds, heroSheet: heroSheet, heroLevel: heroLevel, setLead: setLead, souvOf: souvOf, souvKept: souvKept, souvCount: souvCount, levelOfEp: levelOfEp,
     item: item, weapon: weapon, armor: armor, useItem: useItem, day: day, timeLabel: timeLabel, routesFrom: routesFrom, isNight: isNight,
