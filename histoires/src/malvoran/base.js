@@ -124,7 +124,7 @@ module.exports = {
     r3_aymar: { rev: "R3", text: "Sire Aymar, commandeur de Fort-Gaudre, a vendu la route du gué. Le marché porte, au bas, le sceau du premier conseiller d'Aldaran." },
   },
   quests: [
-    { id: "P_roi", act: "P", kind: "principale", title: "Passer le roi des trolls", start: "PT_abords" },
+    { id: "P_roi", act: "P", kind: "principale", title: "Le roi des trolls", start: "PT_abords" },
     { id: "P_pierre", act: "P", kind: "principale", title: "Ce qui dort sous le château", start: "P_depart" },
     { id: "I_puits", act: "I", kind: "principale", title: "Le puits de Brumefeuille", start: "I_route" },
     { id: "II_gardiens", act: "II", kind: "principale", title: "Les gardiens du Sceau", start: "II_route" },

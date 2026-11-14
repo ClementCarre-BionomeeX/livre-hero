@@ -10,7 +10,7 @@ var P = {};
 Object.assign(P, {
   P_depart: { act: "P", title: "Les Trois-Bornes", place: "bornes", takes: "evening",
     text: [
-      "Le chemin sort des hêtres à l'heure où les vaches rentrent, et tu vois le hameau d'un seul coup, en contrebas : six toits de lauze serrés autour d'un pré ras, une fumée par toit, et au milieu du pré trois pierres levées, plus hautes qu'un homme, qui prennent la dernière lumière comme des dents. Derrière, la crête monte d'un trait jusqu'au ciel. Tout en haut, sur l'arête, une masse noire et carrée, crénelée de travers : le vieux château.",
+      "Le chemin sort des hêtres à l'heure où les vaches rentrent, et tu vois le hameau d'un seul coup, en contrebas : six toits de lauze serrés autour d'un pré ras, une fumée par toit, et au milieu du pré trois pierres levées, plus hautes qu'un homme, encore claires dans la dernière lumière. Derrière, la crête monte d'un trait jusqu'au ciel. Tout en haut, sur l'arête, une masse noire et carrée, crénelée de travers : le vieux château.",
       "Tu as la lettre dans la poche de ta veste. Tu l'as relue à chaque halte depuis dix jours, au point que le pli s'est usé et que le papier se fend en croix. Tu n'as pas besoin de la sortir pour savoir ce qu'elle dit. *Regarde sous le château. Ne prends rien que tu ne saurais rendre.*",
       { if: { has: "maitre:hauberte" }, text: "Hauberte n'écrit jamais. En six ans d'apprentissage, tu ne l'as vue tenir une plume que pour signer un reçu de fourrage, en appuyant si fort que la pointe avait crevé le papier. Cette lettre-là fait une page entière, d'une écriture appliquée de soldat. C'est ce qui t'a fait partir le lendemain." },
       { if: { has: "maitre:ortie" }, text: "Ortie n'envoie pas de lettres : elle envoie des gens. Celle-ci lui a coûté, on le voit à l'encre, épaisse, faite de noix de galle et de suie comme elle les fait elle-même, et aux taches de doigts verts dans la marge. Elle a écrit à la lumière d'un feu de tourbe, quelque part dans ses marais, et elle a eu peur en l'écrivant. Tu la connais assez pour le lire dans les jambages." },
@@ -66,11 +66,11 @@ Object.assign(P, {
     text: [
       { first: true, text: "La salle est basse, enfumée, plus grande qu'on ne le croirait du dehors : une seule pièce sous des poutres noires, une cheminée où tiendrait un veau, deux longues tables et un comptoir fait d'une porte de grange posée sur des tonneaux. Ça sent la soupe aux choux, la laine mouillée et le cidre aigre. Quatre hommes boivent au bout de la table du fond. Ils se taisent quand tu entres, puis reprennent plus bas." },
       { first: true, text: "Derrière le comptoir, une femme très vieille et très droite essuie un gobelet d'étain avec un torchon qui a dû être blanc. Un chignon gris tiré à faire mal, des avant-bras de lavandière, de petits yeux qui te pèsent de la tête aux bottes et s'arrêtent sur ta bourse. « Mère Ternes, dit-elle. C'est moi qui tiens ici. Soupe, deux deniers. Paillasse, deux sous. Les questions, ça dépend lesquelles. »" },
-      { first: true, text: "Au-dessus de la cheminée est accrochée une lanterne de fer, la jumelle de l'enseigne, noire de suie et vide. Tu ne demandes pas encore pourquoi on ne l'allume pas." },
+      { first: true, text: "Au-dessus de la cheminée est accrochée une lanterne de fer, la jumelle de l'enseigne, noire de suie et vide." },
       { again: true, when: "day", text: "La salle de la Lanterne, presque vide en journée. Mère Ternes écosse des fèves au bout du comptoir, et lève à peine les yeux quand tu entres." },
       { again: true, when: "night", text: "La Lanterne, le soir : la cheminée qui ronfle, les buveurs du bout de la table, le bruit des cuillers dans les écuelles. Mère Ternes passe entre les bancs avec son pot de cidre, et remplit les gobelets sans qu'on lui demande." },
       { after: "aglae=ramenee", text: "Aglaé est en cuisine. On l'entend d'ici, qui houspille un chaudron, et Mère Ternes, chaque fois, tourne la tête vers la porte de la cuisine comme si elle avait peur qu'elle se ferme." },
-      { after: "P:pierre", with: "pip", text: "Pip se pose sur la poutre au-dessus du comptoir. Les buveurs le regardent longtemps, puis l'un d'eux lui tend un morceau de pain, au cas où. Pip regarde le pain avec un intérêt poli." },
+      { after: "P:pierre", with: "pip", text: "Pip se pose sur la poutre au-dessus du comptoir. Les buveurs le regardent, puis l'un d'eux lui tend un morceau de pain, au cas où. Pip regarde le pain avec un intérêt poli." },
     ],
     choices: [
       { label: "T'accouder au comptoir et parler à Mère Ternes", to: "PB_ternes" },
@@ -86,7 +86,7 @@ Object.assign(P, {
     text: [
       "Mère Ternes pose devant toi un gobelet de cidre que tu n'as pas demandé, et qu'elle ne te fera pas payer, ou peut-être que si. Elle s'accoude en face, sur ses deux avant-bras. « Alors, dit-elle. On ne monte pas aux Trois-Bornes pour la vue. Ni pour mon cidre. »",
       { if: { has: "passe:ordre" }, text: "Elle regarde tes mains, longuement. « Vous avez porté le gant, vous. Ça se voit à la façon de poser les doigts sur la table, à plat, comme s'il y avait encore du cuir dessus. L'Ordre ne monte plus ici depuis vingt ans. Ce n'est pas un reproche. C'est un fait. »" },
-      { if: { has: "passe:cercle" }, text: "Elle regarde l'encre que tu as sous l'ongle du majeur, celle qui ne part plus. « Un lettré. On en a eu un, il y a deux étés, qui mesurait les bornes avec une ficelle. Il a payé en monnaie de Ferrance et il a laissé la chandelle allumer toute la nuit. Vous lui ressemblez. »" },
+      { if: { has: "passe:cercle" }, text: "Elle regarde l'encre que tu as sous l'ongle du majeur, celle qui ne part plus. « Un lettré. On en a eu un, il y a deux étés, qui mesurait les bornes avec une ficelle. Il a payé en monnaie de Ferrance et il a laissé la chandelle allumée toute la nuit. Vous lui ressemblez. »" },
       { if: { has: "passe:libre" }, text: "Elle regarde tes bottes, ton sac, ta ceinture, et elle fait le compte. « Route, dit-elle. Contrats. Pas de maître, ou alors un maître qui ne paie pas. Je connais. J'ai eu un mari comme vous. Il est reparti. »" },
       "Elle attend. Elle a le temps. Dehors, le vent pousse contre les volets.",
     ],
@@ -195,7 +195,7 @@ Object.assign(P, {
   PB_pip_feu: { act: "P", title: "Pip, devant le feu",
     text: [
       "Le soir, devant la cheminée de la Lanterne, Pip se pose sur le chenet et regarde les flammes, de tout près, jusqu'à ce que tu craignes qu'il ne s'y brûle. Il ne se brûle pas. Il a l'air de comparer.",
-      "« Le feu, dit-il de sa petite voix qui sonne comme un ongle sur du verre, ça mange ce qui le tient. Moi, non. Je crois. » Il réfléchit. « Est-ce que je mange quelque chose, moi ? Est-ce que je mangeais quelque chose, avant ? Tu sais ce que j'étais, avant ? »",
+      "« Le feu, dit-il de sa petite voix claire, ça mange ce qui le tient. Moi, non. Je crois. » Il réfléchit. « Est-ce que je mange quelque chose, moi ? Est-ce que je mangeais quelque chose, avant ? Tu sais ce que j'étais, avant ? »",
       "Tu ne le sais pas. Pip non plus. Il se tourne vers toi, et sa lumière baisse un peu, comme une question qui attend.",
     ],
     with: "pip",
@@ -298,7 +298,7 @@ Object.assign(P, {
 Object.assign(P, {
   PB_bornes: { act: "P", title: "Les trois bornes", place: "bornes", backName: "les trois bornes",
     text: [
-      { first: true, text: "Trois pierres levées au milieu du pré, plantées en ligne du sud au nord, de la plus basse à la plus haute. La première t'arrive à l'épaule, la troisième te dépasse de deux têtes. Elles sont grises, piquetées de lichen jaune, polies à hauteur de hanche par des générations de moutons qui s'y frottent. Toutes trois sont sculptées, sur la face qui regarde la crête." },
+      { first: true, text: "Trois pierres levées au milieu du pré, plantées en ligne du sud au nord, de la plus basse à la plus haute. La première t'arrive à l'épaule, la troisième te dépasse de deux têtes. Elles sont grises, piquetées de lichen jaune, polies à hauteur de hanche par des générations de moutons qui s'y frottent. Toutes trois sont gravées." },
       { again: true, when: "day", text: "Les trois bornes, dans le pré. Un mouton se frotte contre la première avec un air de profonde satisfaction." },
       { again: true, when: "night", text: "Les trois bornes, la nuit, trois ombres debout. La plus haute cache un coin d'étoiles." },
       { with: "pip", text: "Pip va de l'une à l'autre, lentement, sans se poser. Arrivé à la troisième, il s'arrête, et sa lumière baisse d'un ton." },
@@ -329,8 +329,8 @@ Object.assign(P, {
     fx: { clue: "p_borne", ep: ["perso", 300] },
     text: [
       { first: true, text: "La troisième borne est la plus haute et la mieux taillée. Sur sa face nord, à hauteur de regard, une rangée de mains sculptées en bas-relief, côte à côte, doigts joints, paumes ouvertes vers toi, comme des gens qui montrent qu'ils n'ont rien dedans. Elles sont de tailles différentes : une large et courte, une longue et fine, une qui porte une bague. Le sculpteur a pris le temps." },
-      { first: true, text: "La troisième borne porte cinq mains sculptées, paumes ouvertes. Une sixième a été martelée jusqu'à n'être plus qu'un creux dans la pierre." },
-      { first: true, text: "Le creux est au bout de la rangée, à droite. On voit encore le contour, le pouce, la naissance des doigts, sous les coups. Ce n'est pas l'usure : ce sont des marques de masse, rondes et serrées, des centaines, données par quelqu'un qui voulait que rien ne reste." },
+      { first: true, text: "Tu les comptes : cinq. Au bout de la rangée, une sixième a été martelée jusqu'à n'être plus qu'un creux dans la pierre." },
+      { first: true, text: "On voit encore le contour, le pouce, la naissance des doigts, sous les coups. Ce n'est pas l'usure : ce sont des marques de masse, rondes et serrées, des centaines, données par quelqu'un qui voulait que rien ne reste." },
       { first: true, if: { has: "passe:ordre" }, text: "À l'Ordre, on t'a fait apprendre par cœur les noms des Cinq Mains, et le geste du salut, et la prière du soir. On ne t'a jamais parlé d'un creux au bout de la rangée. Tu as salué ces bornes cent fois, dans d'autres hameaux. Tu n'avais jamais compté." },
       { first: true, if: { has: "passe:cercle" }, text: "L'inventaire du Cercle disait : *motif des Mains*. Pas : *cinq mains*. Celui qui l'a rédigé a peut-être compté, lui. Ou peut-être pas. Ce genre de détail ne se recopie pas." },
       { again: true, text: "La troisième borne, ses cinq mains ouvertes, et le creux au bout de la rangée." },
@@ -366,7 +366,7 @@ Object.assign(P, {
   PB_lavoir_femmes: { act: "P", title: "Les laveuses", place: "bornes",
     text: [
       "Fanchon Guérin, la mère des deux rouquins, tord un drap avec une autre femme, chacune à un bout, et l'eau tombe en pluie sur la pierre. « Vous êtes là pour le château, vous aussi ? demande-t-elle sans préambule. Comme la dame de la fin de l'été, celle qui regardait la crête depuis la porte de l'auberge ? »",
-      "Elles parlent toutes à la fois, après ça. Du château, qu'on ne regarde pas en face ; de l'hiver, qui sera dur, les oignons ont trois peaux ; du forgeron, qui boit ; de la bergère, qui ne descend plus ; et du valet de l'usurier, qui a pincé la Jeanne au passage ce matin et qui a reçu un battoir sur le nez. Elles en rient longtemps.",
+      "Elles parlent toutes à la fois, après ça. Du château, qu'on ne regarde pas en face ; de l'hiver, qui sera dur, les oignons ont trois peaux ; du forgeron, qui boit ; de la bergère, qui ne descend plus ; et du valet de l'usurier, qui a pincé la Jeanne au passage ce matin et qui a reçu un battoir sur le nez. Elles en rient aux larmes.",
       "Puis Fanchon baisse la voix et fait un signe de tête vers le bout du bassin, vers la femme qui frotte seule. « La Mariette lave encore les chemises de son homme, dit-elle. Un an qu'il est mort. Elle les lave, elle les sèche, elle les range. Et lundi, Pons lui prend la maison avec les chemises dedans. » Elle tord son drap plus fort. « Si les hommes de ce hameau avaient du cœur… Mais ils ont surtout des dettes. »",
     ],
     choices: [{ back: "PB_lavoir" }] },
@@ -382,7 +382,7 @@ Object.assign(P, {
     text: [
       "Tu te penches sur le bassin. L'eau est si claire qu'on la croirait absente, et ton reflet tremble dessus à chaque goutte qui tombe de la goulotte. Elle descend tout droit de la crête, des sources sous l'éboulis, et elle a le goût de la pierre.",
       { if: { has: "maitre:ortie" }, text: "Tu fais comme Ortie t'a appris : tu regardes l'eau avant de la boire. Tu regardes le fond, les bords, la mousse sur la goulotte, les petites bêtes qui nagent. Il y a des larves de phrygane dans leurs étuis de gravier, des gammares, une sangsue. Une eau vivante. Une eau saine. Tu bois dans le creux de ta main." },
-      { if: { has: "marque:eclat" }, text: "Ton reflet te regarde. Ta main droite, dans le reflet, est fermée. Tu ouvres la vraie : la tache noire au milieu de la paume a la taille d'un ongle. Dans l'eau, elle a l'air plus grande. Tu retires ta main et tu ne regardes plus." },
+      { if: { has: "marque:eclat" }, text: "Ton reflet te regarde. Ta main droite, dans le reflet, est fermée. Tu ouvres la vraie : la tache noire est toujours là, au milieu de la paume. Dans l'eau, elle a l'air plus grande. Tu retires ta main et tu ne regardes plus." },
       "Une feuille de hêtre tombe dans le bassin, tourne une fois sur elle-même, et file vers la goulotte de sortie, vers les prés du bas, vers la Sorbe.",
     ],
     choices: [{ back: "PB_lavoir" }] },
@@ -407,7 +407,7 @@ Object.assign(P, {
     text: [
       "Le panneau raconte l'histoire que tout le monde connaît, en quatre scènes, de gauche à droite, comme on raconte aux enfants. D'abord la Brèche : une fente noire dans une montagne blanche, d'où sortent des bêtes grises et une eau qui coule vers des maisons. Puis le sorcier : un homme noir aux yeux rouges, debout sur la fente, les bras levés, avec des cornes que le peintre a ajoutées un peu de travers.",
       "Puis les Cinq : cinq figures en manteaux de couleur, chacune avec son attribut. Un roi couronné, une dame avec un livre, un chevalier avec un anneau, une femme avec un marteau, un moine avec une cloche. Ils tiennent des chaînes. Puis la dernière scène : le sorcier enchaîné sous la glace, et au-dessus, sur la glace, les Cinq qui se donnent la main.",
-      "Les couleurs sont ternes, sauf à un endroit. Le visage du sorcier a été repeint. Récemment, d'un noir plus neuf, plus épais, par-dessus l'ancien noir. Quelqu'un, dans ce hameau, vient de temps en temps lui refaire la figure.",
+      "Les couleurs sont ternes, sauf à un endroit. Le visage du sorcier a été repeint. Récemment, d'un noir plus neuf, plus épais, par-dessus l'ancien noir. Quelqu'un, dans ce hameau, vient de temps en temps lui repeindre le visage.",
       { if: { has: "passe:ordre" }, text: "Tu connais ces images. Tu les as eues sous les yeux tous les matins de tes trois ans de gant gris, en plus grand et en plus beau, dans la salle du chapitre. Tu n'avais jamais remarqué que, sur toutes, le sorcier est plus jeune que les autres." },
     ],
     choices: [{ back: "PB_chapelle" }] },
@@ -494,7 +494,7 @@ Object.assign(P, {
   PB_guerin_recit: { act: "P", title: "Ce que tu leur racontes", place: "bornes",
     fx: { ep: ["perso", 100] },
     text: [
-      "Tu leur racontes le château. Pas tout. Les remparts rafistolés avec des troncs, la cour pleine de crottes et d'os, l'odeur. Tu choisis ce que tu dis comme on choisit des pierres pour traverser un ruisseau. Ils écoutent la bouche ouverte, sans t'interrompre une seule fois, ce qui doit être une première.",
+      "Tu leur racontes le château. Pas tout. Les remparts rafistolés avec des troncs, la cour pleine de crottes et d'os, l'odeur. Tu choisis ce que tu dis, et ce que tu gardes. Ils écoutent la bouche ouverte, sans t'interrompre une seule fois, ce qui doit être une première.",
       { after: "grauk:mort", text: "Quand tu en arrives au roi des trolls, et à la façon dont il est mort, Jacquette pâlit, et Mathurin dit : « Bien fait. » Mais il ne le dit pas très fort." },
       { after: "grauk:vivant", text: "Quand tu en arrives au roi des trolls, et à la façon dont tu as passé devant lui sans qu'il meure, Mathurin est déçu, et Jacquette ravie. « Il est vieux ? demande-t-elle. Il a des enfants ? » Tu ne sais pas. Tu aurais dû demander." },
       { with: "pip", text: "« Et lui ? demande Jacquette en montrant Pip. Il était où, lui ? » Tu regardes Pip. Pip te regarde. « Dans le noir, dit Pip. Dans une main. » La petite hoche la tête, très sérieuse, comme si c'était une réponse." },
@@ -508,7 +508,7 @@ Object.assign(P, {
   PB_rouaix: { act: "P", title: "La maison des Rouaix", place: "bornes", backName: "la maison des Rouaix",
     fx: { meet: ["p_rouaix", "p_pons"], questSeen: "P_rouaix" },
     text: [
-      { first: true, text: "Mariette Rouaix t'ouvre après le troisième coup, et elle ne s'écarte pas tout de suite. Puis elle s'efface. La maison n'a qu'une pièce, propre comme une main lavée, avec un lit clos, une huche, un coffre, une table, deux tabourets et un troisième plus petit retourné contre le mur. Dans un coin, des ballots de linge noués et un panier d'écuelles empilées : quelqu'un a commencé à faire ses paquets." },
+      { first: true, text: "Mariette Rouaix t'ouvre après le troisième coup, et elle ne s'écarte pas tout de suite. Puis elle s'efface. La maison n'a qu'une pièce, d'une propreté sévère, avec un lit clos, une huche, un coffre, une table, deux tabourets et un troisième plus petit retourné contre le mur. Dans un coin, des ballots de linge noués et un panier d'écuelles empilées : quelqu'un a commencé à faire ses paquets." },
       { first: true, text: "« Pons, dit-elle, puisque c'est pour ça que vous êtes là. Mon mari lui a emprunté vingt sous, il y a deux printemps, pour acheter un bélier et douze brebis à la foire de Sorbe. Les brebis ont eu le piétin, le bélier est mort, Étienne est mort. La dette, elle, se porte bien. Avec les intérêts, Pons en veut trente. Il les veut lundi, ou la maison. J'ai six sous. » Elle le dit sans s'apitoyer, comme on récite un compte." },
       { first: true, text: "« Mes deux grands sont chez ma sœur, à Sorbe, depuis l'hiver. Si je perds la maison, j'irai les rejoindre, et je laverai le linge des autres. Il y a pire. » Elle regarde le petit tabouret retourné contre le mur. « Il y a pire, mais je n'aime pas qu'on me prenne les choses. »" },
       { again: true, before: "PB_rouaix_fin", text: "Mariette Rouaix, ses ballots, son compte. Six sous sur trente." },
@@ -525,7 +525,7 @@ Object.assign(P, {
     ] },
   PB_rouaix_papier: { act: "P", title: "La reconnaissance de dette", place: "bornes",
     text: [
-      "Mariette ouvre le coffre, soulève les chemises pliées de son mari et sort de dessous une feuille de papier épais, pliée en trois, qui sent la lavande. Elle te la tend comme on tend une bête morte. Elle ne sait pas lire.",
+      "Mariette ouvre le coffre, soulève les chemises pliées de son mari et sort de dessous une feuille de papier épais, pliée en trois, qui sent la lavande. Elle te la tend du bout des doigts. Elle ne sait pas lire.",
       "C'est une belle écriture de clerc, régulière, sans une rature. *Je soussigné, Étienne Rouaix, berger aux Trois-Bornes, reconnais devoir à Maître Aubert Pons, prêteur au bourg de Sorbe, la somme de vingt sous d'argent…* Suivent les intérêts, les termes, la maison donnée en gage, *avec ses meubles et ses dépendances*. En bas, une croix tremblée, et à côté, de la même belle écriture : *témoin : Durn, forgeron.*",
       "La feuille est longue. Les clauses s'enchaînent sans alinéa, comme on les écrit quand on ne tient pas à ce qu'elles soient lues.",
     ],
@@ -538,7 +538,7 @@ Object.assign(P, {
     text: [
       "Tu relis la phrase trois fois avant d'être sûr{e} de l'avoir bien lue. Au milieu de la feuille, noyée entre les intérêts et le gage : *…laquelle somme, avec ses intérêts, sera rendue en entier au plus tard à la Saint-Jean de l'an quatre cent treize du Sceau.*",
       "L'an 413. On est en 412, au mois des Brumes. La dette n'est pas due avant l'été prochain. Pons vient la réclamer avec huit mois d'avance, à une femme qui ne sait pas lire, en comptant qu'elle ne demandera à personne de le faire pour elle.",
-      "Tu le dis à Mariette. Elle ne dit rien pendant un long moment. Puis elle reprend le papier, le replie en trois, exactement dans ses plis, et le pose sur la table, à plat, la main dessus. « Huit mois, dit-elle. Avec huit mois, je tonds, je file, je vends la laine à la foire d'avril. » Elle regarde la porte. « Et lui, il le savait. »",
+      "Tu le dis à Mariette. Elle se tait d'abord. Puis elle reprend le papier, le replie en trois, exactement dans ses plis, et le pose sur la table, à plat, la main dessus. « Huit mois, dit-elle. Avec huit mois, je tonds, je file, je vends la laine à la foire d'avril. » Elle regarde la porte. « Et lui, il le savait. »",
     ],
     choices: [{ back: "PB_rouaix" }] },
   PB_rouaix_brouille: { act: "P", title: "Des clauses", place: "bornes",
@@ -588,7 +588,7 @@ Object.assign(P, {
     text: [
       "Tu poses dix sous sur la table et tu parles. Du hameau qui regarde, de la mauvaise réputation qui monte et descend la vallée plus vite qu'un colporteur, de la laine qu'une veuve peut filer en un hiver, de la foire d'avril. Tu parles de ce qu'il gagne à attendre, et de ce qu'il perd à prendre une maison qui ne vaut rien.",
       { if: { has: "P:tournee" }, text: "Au bout de la table, Gervais et les frères du lavoir ont cessé de boire. Ils écoutent. Pons le voit." },
-      "Pons tapote son carnet. Longtemps. Puis il prend les dix sous. « Vingt à la Saint-Jean, dit-il. Avec le forgeron et l'aubergiste comme garants, devant témoins, des vrais cette fois. » Il a un petit sourire, en disant *des vrais*, que tu ne comprends qu'à moitié. « Je n'aime pas être détesté pour rien. Je préfère l'être pour quelque chose. »",
+      "Pons tapote son carnet, le temps de refaire ses comptes. Puis il prend les dix sous. « Vingt à la Saint-Jean, dit-il. Avec le forgeron et l'aubergiste comme garants, devant témoins, des vrais cette fois. » Il a un petit sourire, en disant *des vrais*, que tu ne comprends qu'à moitié. « Je n'aime pas être détesté pour rien. Je préfère l'être pour quelque chose. »",
       "Il écrit le nouvel accord sur une page de son carnet, l'arrache, le date. Mère Ternes signe d'une croix, Durn d'un D énorme qui troue le papier.",
     ],
     choices: [{ label: "Porter l'accord à Mariette", to: "PB_rouaix_fin" }] },
@@ -638,7 +638,7 @@ Object.assign(P, {
     text: [
       { outcome: "win", text: "Le valet est assis dans le fumier, la main sur le nez, et le sang lui coule entre les doigts. Il ne cherche pas à se relever. Pons le regarde, puis te regarde, et pour la première fois quelque chose bouge sur son visage poli." },
       "Tu parles à Pons tout bas, sans le toucher. Tu ne dis rien de précis. Tu n'as pas besoin. Il écoute, et il blanchit par plaques, d'abord le front, puis autour de la bouche. Quand tu as fini, il remonte ses lunettes d'un doigt qui tremble à peine.",
-      "« Je comprends, dit-il. Je comprends très bien. » Il sort la reconnaissance de dette de son carnet, la regarde, et la remet dans son carnet. « Je ne la déchire pas, dit-il. Je la garde. On ne sait jamais qui sera là, la prochaine fois, et qui ne le sera plus. » Le lendemain, à l'aube, il est parti. Il a payé sa chambre. Mère Ternes dit que c'est la première fois qu'elle le regrette.",
+      "« Je comprends, dit-il. Je comprends très bien. » Il sort la reconnaissance de dette de son carnet, la regarde, et la remet dans son carnet. « Je ne la déchire pas, dit-il. Je la garde. On ne sait jamais qui sera là, la prochaine fois, et qui ne le sera plus. » Le lendemain, à l'aube, il est parti. Il a payé sa chambre. Mère Ternes dit qu'elle aurait préféré qu'il oublie : elle aurait eu une raison de plus.",
       "Tu n'as rien réglé. Tu as repoussé. Tu le sais, et Pons le sait, et le hameau, qui a tout vu par la fenêtre de la salle, le sait aussi. Pour l'instant, ça suffit.",
     ],
     choices: [{ label: "Aller le dire à Mariette", to: "PB_rouaix_fin" }] },
@@ -733,7 +733,7 @@ Object.assign(P, {
     ] },
   PC_bergere_troupeau: { act: "P", title: "Le troupeau",
     text: [
-      { outcome: "win", text: "Tu prends le bas du pré, en grands cercles, les bras écartés, sans courir, et tu pousses les brebis devant toi comme on pousse une vague. Isaure prend le haut. Au bout d'une heure, le troupeau est rassemblé sous le rocher, serré, tranquille, et elle te regarde avec un respect neuf. « Tu as gardé, toi. » Elle te donne un morceau de tomme et une galette pour la route." },
+      { outcome: "win", text: "Tu prends le bas du pré, en grands cercles, les bras écartés, sans courir, et tu pousses les brebis devant toi comme on pousse une vague. Isaure prend le haut. Au bout d'une heure, le troupeau est rassemblé sous le rocher, serré, tranquille, et elle te regarde avec un respect neuf. « Vous avez gardé, vous. » Elle te donne un morceau de tomme et une galette pour la route." },
       { outcome: "lose", text: "Tu cours. C'est une erreur. Les brebis s'éparpillent devant toi comme une volée de moineaux, et tu passes une heure à courir après une seule, une vieille têtue qui a décidé de visiter le ravin. Isaure finit par la rattraper elle-même, d'un coup de houlette au paturon. Elle ne se moque pas de toi. Elle est trop fatiguée pour ça." },
       "Elle s'assied sur le rocher, essoufflée, et regarde la crête. « Poivre faisait ça tout seul, en sifflant. Moi, je n'avais qu'à le regarder faire. Je ne savais pas que c'était si dur. »",
     ],
@@ -754,7 +754,7 @@ Object.assign(P, {
       "Le sentier débouche sur un replat d'herbe rase, à une heure du château, et le cairn est là : un tas de pierres grosses comme le poing, plus haut qu'une maison, arrondi par des siècles de mains, et autour de lui, en cercle, six pierres debout, à hauteur d'homme, toutes penchées vers le centre comme des gens qui se parlent à voix basse. On l'appelle le cairn des Six, au hameau. Personne ne sait plus pourquoi six.",
       "Contre la pierre qui regarde l'est, quelqu'un a fait du feu. Une mule chargée de deux grands paniers broute l'herbe rase, entravée. Et un homme est assis en tailleur près des braises, à faire griller une saucisse au bout d'une baguette de noisetier : la cinquantaine, une moustache en guidon, un chapeau de feutre à large bord orné d'une plume de geai, un manteau rapiécé de vingt couleurs. Il te fait signe avec la saucisse.",
       "« Anselme, dit-il. Colporteur. Vendeur de tout, acheteur du reste. Asseyez-vous donc. On ne croise pas grand monde, sur la crête, cette année. Les gens ont peur. Moi, la peur, je la vends en petites fioles, ça me dispense d'en avoir. »",
-      { with: "pip", text: "Anselme regarde Pip longtemps, la saucisse en l'air. « Tiens, dit-il. Ça, je n'en ai jamais eu en stock. » Il a l'air presque déçu." },
+      { with: "pip", text: "Anselme considère Pip, la saucisse en l'air. « Tiens, dit-il. Ça, je n'en ai jamais eu en stock. » Il a l'air presque déçu." },
     ],
     choices: [
       { label: "Voir ce qu'Anselme a dans ses paniers", to: "PC_anselme" },
@@ -774,13 +774,13 @@ Object.assign(P, {
     fx: { ep: ["perso", 100] },
     text: [
       "Tu ramasses une pierre plate au bord du sentier et tu la poses en haut du cairn, en te hissant sur la pointe des pieds. Elle tient. Anselme applaudit, la saucisse entre les dents. « Ça porte bonheur, dit-il. C'est en tout cas ce que je dis aux clients, quand je leur vends des cailloux. »",
-      "Pendant un instant, le vent tombe. Puis il reprend. Ce n'est rien, sans doute.",
+      "Pendant un instant, le vent tombe. Puis il reprend.",
     ],
     choices: [{ back: "PC_cairn" }] },
   PC_anselme: { act: "P", title: "Les paniers d'Anselme",
     text: [
       "Anselme déballe ses paniers sur une couverture, avec des gestes de prestidigitateur. Du fil et des aiguilles, des almanachs de l'an dernier, des images pieuses des Cinq Mains, une dent de dragon qui est une dent de vache, un flacon d'*eau de la Brèche* qui est de l'eau, un peigne en écaille, du tabac de Vel-Orin. Et deux rouleaux de papier qu'il garde pour la fin, comme on garde le meilleur.",
-      "« Des cartes du château, dit-il en baissant la voix, bien que personne d'autre que vous ne puisse l'entendre à une lieue à la ronde. Pour qui monte. Celle-ci… » Il déroule un parchemin magnifique, en trois couleurs, avec une rose des vents et des petits trolls dessinés aux fenêtres. « …huit sous. Et celle-là… » Il déplie un papier gras, taché, couvert de traits au crayon. « …trois sous, et je vous fais une faveur. »",
+      "« Des cartes du château, dit-il en baissant la voix, bien que personne d'autre que toi ne puisse l'entendre à une lieue à la ronde. Pour qui monte. Celle-ci… » Il déroule un parchemin magnifique, en trois couleurs, avec une rose des vents et des petits trolls dessinés aux fenêtres. « …huit sous. Et celle-là… » Il déplie un papier gras, taché, couvert de traits au crayon. « …trois sous, et je vous fais une faveur. »",
       "« L'une est plus belle que l'autre, dit-il avec un sourire immense. L'autre est plus vraie que l'une. Ou l'inverse. Je ne suis jamais monté, moi. Je vends. »",
     ],
     choices: [
@@ -832,7 +832,7 @@ Object.assign(P, {
   PC_vallee: { act: "P", title: "La vallée",
     text: [
       "Au dernier tournant avant les hêtres, le sentier sort de la brume, et la vallée de la Sorbe s'ouvre sous toi d'un seul coup, toute entière : les collines rousses, les bois, les champs déjà labourés, la rivière qui brille par endroits comme un fil qu'on aurait laissé tomber, et très loin, au sud, des fumées de villages dont tu ne sais pas les noms.",
-      "Tu es monté{e} voir ce qu'il y avait sous le château. Tu l'as vu. Tu redescends avec. Ce qui était une lettre pliée dans ta poche est devenu une chose que tu portes, et tu ne sais pas encore combien elle pèse.",
+      "Tu es monté{e} voir ce qu'il y avait sous le château. Tu l'as vu. Tu redescends avec. Ce qui était une lettre pliée dans ta poche est devenu une chose que tu portes.",
       { with: "pip", text: "Pip, sur ton épaule, regarde la vallée sans rien dire, très longtemps. Puis : « C'est grand, dehors. » Un temps. « C'est à qui, tout ça ? » Tu lui dis que c'est à personne et à tout le monde. Il réfléchit. « Alors il faut faire attention », dit-il." },
       { if: { has: "marque:eclat" }, text: "Dans ta paume droite, l'éclat bat contre ta peau comme un deuxième cœur, plus lent que le tien. Tu as l'impression que, d'ici, il voit la vallée aussi. Et qu'elle lui plaît." },
       { if: { has: "eclat:refuse" }, text: "Ta main droite est vide, et légère. Tu la regardes. Tu ne sais pas encore si tu as eu raison. Tu sais que tu n'as rien pris que tu ne saurais rendre." },
@@ -926,7 +926,7 @@ Object.assign(P, {
     text: [
       { text: "Le troll tombe sur le flanc, dans la bruyère, et ne se relève pas. Il était plus fort que toi, et il ne savait pas se battre : il frappait comme on frappe une porte, de toutes ses forces et sans regarder. Maintenant il est couché à côté de la brebis qu'il n'a pas fini de manger, et il a l'air encore plus jeune que vivant." },
       { with: "pip", text: "Pip ne dit rien. Il reste au-dessus du corps un long moment, sa lumière très basse, puis il revient vers toi sans te regarder. Il ne te regarde pas pendant une heure." },
-      { without: "pip", text: "Tu regardes ses mains, énormes, couvertes de croûtes et de corne. Sur la paume gauche, il y a une brûlure ancienne, ronde, de la taille d'un sou. Tu ne sais pas pourquoi tu la remarques." },
+      { without: "pip", text: "Tu regardes ses mains, énormes, couvertes de croûtes et de corne. Sur la paume gauche, il y a une brûlure ancienne, ronde, de la taille d'un sou." },
     ],
     choices: [{ back: R }] },
   EP_troll_pain: { act: "P", title: "Le troll égaré",
@@ -1094,7 +1094,7 @@ Object.assign(P, {
   PB_thibaut_parle: { act: "P", title: "Des riens", place: "charbonniere",
     text: [
       "Tu t'assieds par terre, à côté de sa souche, dans la suie, et tu parles. Pas à lui : à côté de lui. De la route qui t'a mené{e} ici, des auberges, d'une foire où un ours dansait, de la soupe de Mère Ternes, d'une fille de Ferrance qui t'a volé ton chapeau. Tu parles longtemps. Il taille. Puis il taille moins vite.",
-      { if: { has: "passe:aide" }, text: "Tu as fait ça des nuits entières, au temple de Saint-Gilles, l'année de la tache, assis{e} par terre entre deux paillasses, à parler de tout à des gens qui ne répondaient plus. Certains ont répondu, à la fin. Tu sais qu'il faut parler de rien pour qu'ils reviennent jusqu'à vous." },
+      { if: { has: "passe:aide" }, text: "Tu as fait ça des nuits entières, au temple de Saint-Gilles, l'année de la tache, assis{e} par terre entre deux paillasses, à parler de tout à des gens qui ne répondaient plus. Certains ont répondu, à la fin. Tu sais qu'il faut parler de rien pour qu'ils reviennent." },
       "Au bout d'une heure, il pose son couteau. Il te regarde. Il ouvre la bouche, la referme. Puis : « Tu sens le cidre de chez Ternes. » Et quelque chose, derrière ses yeux, se débloque, comme une porte qui gonflait d'humidité et qui cède enfin.",
     ],
     choices: [{ label: "L'écouter", to: "PB_thibaut_recit" }] },
@@ -1127,7 +1127,7 @@ Object.assign(P, {
       "« Je suis monté avec six sacs, dit Thibaut. La porte était fermée. J'ai frappé. Longtemps. C'est Grauk qui a ouvert, le roi. Gros comme une meule. Il a regardé les sacs, il a dit : *bon, bon, toi entrer, toi porter.* Ils dormaient tous dans la cour, les trolls. Dehors. Serrés les uns contre les autres, comme des moutons sous l'orage. Il y avait des maisons vides tout autour, des grandes salles, et ils dormaient dans la cour. »",
       "« Il m'a fait porter les sacs en bas, jusqu'à la porte des caves. Il voulait qu'on brûle du charbon en haut de l'escalier. Toute la nuit. Pour la lumière. Il disait : *en bas noir, en bas mauvais, en haut lumière.* Je suis resté trois nuits à entretenir le feu. Il me donnait du jambon. Il était gentil. Il avait peur. »",
       "« La troisième nuit, j'ai regardé. » Thibaut serre ses mains l'une contre l'autre. « Par une fente du mur, en bas. Il y avait de la lumière, au fond, très loin, dans le noir, petite. Et quelque chose de grand qui la tenait. Qui tenait. Comme on tient une porte avec le dos, quand il y a du vent derrière. Ça tremblait. Ça tenait quand même. » Il se tait. « J'ai regardé trop longtemps. Il ne faut pas regarder longtemps. Au matin, mes cheveux étaient blancs, et j'étais en bas de la crête, et je ne sais pas comment. »",
-      { with: "pip", text: "Pip, pendant tout le récit, n'a pas bougé. Quand Thibaut se tait, il remonte lentement vers ton épaule, et il s'y pose, et il est froid, pour la première fois. Il ne dit rien." },
+      { with: "pip", text: "Pip, pendant tout le récit, n'a pas bougé. Quand Thibaut se tait, il remonte lentement vers ton épaule, et il s'y pose, et il est froid. Il ne dit rien." },
       "Thibaut ramasse son couteau, regarde son bout de bois, et le jette dans le feu de la marmite. « Voilà, dit-il. C'est dit. » Il se lève de sa souche, pour la première fois depuis des semaines, et va aider Blaise sur la meule du fond, en boitant un peu. Blaise te regarde par-dessus la fumée, et il ne dit rien, parce qu'il ne peut pas.",
     ],
     choices: [{ back: "PB_charbonniere" }] },
