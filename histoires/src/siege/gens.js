@@ -80,7 +80,7 @@ module.exports = {
     title: "La lettre du Roi",
     text: [
       { if: { not: { item: "lettre_roi" } }, text: "Tu lui parles d'un pli au sceau rouge, arrivé au neuvième jour du siège. Aussonne te regarde longtemps, sans ciller. « Le courrier du Roi ne regarde que moi. » C'est tout ce que tu obtiens. Il se garde de nier, et s'en tient là." },
-      { if: { item: "lettre_roi" }, text: "Tu poses la lettre sur la table, le sceau rompu tourné vers lui. Aussonne ne la touche pas. Il devient très pâle, puis très calme." },
+      { if: { item: "lettre_roi" }, text: "Tu poses la lettre sur la table, le sceau rompu tourné vers lui. Aussonne la laisse où elle est. Il devient très pâle, puis très calme." },
       { if: { item: "lettre_roi" }, text: "« À Pont-Aubert, le Margrave a pendu le capitaine au créneau de sa propre porte, avec ses trois sergents. Il avait rendu la place à bonnes conditions. » Il parle bas. « Si je lis cette lettre au Conseil, la ville ouvre ses portes le lendemain, et c'est mon tour. Alors je tiens. Je tiens jusqu'à ce que le Margrave se lasse, ou que l'hiver le chasse, ou que le Roi change d'avis. »" },
       { if: { item: "lettre_roi" }, text: "« Faites ce que vous voulez de ce papier. Lisez-le au Conseil, si vous croyez que c'est juste. Vous m'aurez pendu avant le Margrave, voilà tout. »" },
     ],
@@ -109,7 +109,7 @@ module.exports = {
     title: "L'arrestation",
     text: [
       "Aussonne fait fermer les portes du château et appeler Oudart de Lys dans la salle du Conseil. Tu attends dans l'embrasure d'une fenêtre.",
-      "Oudart entre en souriant, voit les quatre sergents, voit ta présence, et cesse de sourire. Il ne tire pas l'épée. Il défait lui-même son ceinturon et le pose sur la table.",
+      "Oudart entre en souriant, voit les quatre sergents, voit ta présence, et cesse de sourire. Il laisse son épée au fourreau, défait lui-même son ceinturon et le pose sur la table.",
       "« Vous me remercierez un jour, capitaine, dit-il. Le jour où le Margrave entrera par la brèche et que vous compterez les morts. »",
       "On l'emmène dans la tour basse. Aussonne reste debout, seul au milieu de la salle, et tu sors sans qu'il te le demande.",
     ],
@@ -234,7 +234,7 @@ module.exports = {
     title: "Le grain manquant",
     text: [
       { if: { not: { any: [{ clue: "g_caves" }, { clue: "g_carbonnel" }] } }, text: "« Trois cents setiers ? » Dame Vassal sourit avec une patience de maîtresse d'école. « Bréhal comptait mal, à la fin. Comptez mieux que lui, intendant{e}, et revenez me voir quand vous saurez de quoi vous parlez. »" },
-      { if: { any: [{ clue: "g_caves" }, { clue: "g_carbonnel" }] }, text: "Tu lui dis ce que tu sais : le bon de grain gâté, la signature de Carbonnel, les sacs au S couronné dans ses caves. Elle t'écoute sans un geste." },
+      { if: { any: [{ clue: "g_caves" }, { clue: "g_carbonnel" }] }, text: "Tu lui dis ce que tu sais : le bon de grain gâté, la signature de Carbonnel, les sacs au S couronné dans ses caves. Elle t'écoute, immobile." },
       { if: { any: [{ clue: "g_caves" }, { clue: "g_carbonnel" }] }, text: "« Bien », dit-elle enfin, et elle s'assied pour la première fois. « Parlons franchement, puisque vous êtes moins sot qu'on me l'avait dit. Ce grain, je l'ai payé. Pas à la ville : à Carbonnel, qui me devait plus qu'il ne vaut. Il est à moi par contrat, sinon par la loi. Qu'est-ce que vous voulez ? »" },
     ],
     choices: [
@@ -366,7 +366,7 @@ module.exports = {
   TC_bon: {
     title: "Le bon",
     text: [
-      "Carbonnel regarde le bon comme on regarde un serpent sur son oreiller. Ses lunettes tombent sur le registre. Il ne les ramasse pas.",
+      "Carbonnel regarde le bon comme on regarde un serpent sur son oreiller. Ses lunettes tombent sur le registre. Il les laisse là.",
       "« Elle m'a tenu, dit-il enfin. Vassal. Mes dettes. Trois mille écus, depuis la mauvaise année des draps. Elle a dit qu'elle effacerait tout. Elle a dit que le grain serait mieux gardé dans ses caves que dans les greniers de la ville, que c'était une précaution, qu'on le rendrait. » Il se tord les mains. « Ce n'était pas du grain gâté. C'était du bon blé. Je le savais. »",
       "« Ne me faites pas pendre. J'ai des petits-enfants. »",
     ],
@@ -438,7 +438,7 @@ module.exports = {
   D_choix: {
     title: "Le partage", back: true,
     text: [
-      { via: "soldats", text: "Les sergents reçoivent leurs miches entières, sous les regards de la file. À l'Hôtel-Dieu, Mère Ysaure coupe le pain blanc en tranches de plus en plus fines. Elle ne vient pas te le reprocher. Elle t'envoie seulement, chaque soir, le nombre des morts." },
+      { via: "soldats", text: "Les sergents reçoivent leurs miches entières, sous les regards de la file. À l'Hôtel-Dieu, Mère Ysaure coupe le pain blanc en tranches de plus en plus fines. Pour tout reproche, elle t'envoie, chaque soir, le nombre des morts." },
       { via: "hospice", text: "On porte à l'Hôtel-Dieu des sacs de farine et du bois. Dans la cour du château, les sergents mangent la demi-ration comme tout le monde, et le capitaine te salue désormais d'un mouvement de tête plus court." },
       { via: "partage", text: "Tu coupes la part en deux. Les soldats ont un peu plus, les malades ont un peu plus, et personne n'en a assez. Le capitaine et l'abbesse te remercient du bout des lèvres, chacun persuadé que l'autre a eu la meilleure part." },
     ],
@@ -546,7 +546,7 @@ module.exports = {
   T_mahaut: {
     title: "Mahaut Bréhal", back: true,
     text: [
-      { first: true, text: "Mahaut Bréhal a le visage de quelqu'un qui n'a pas dormi depuis deux jours. Elle tord un linge au-dessus d'un baquet, et continue de le tordre longtemps après qu'il ne coule plus." },
+      { first: true, text: "Mahaut Bréhal a le visage de quelqu'un qui veille depuis deux jours. Elle tord un linge au-dessus d'un baquet, et continue de le tordre longtemps après la dernière goutte." },
       { first: true, text: "Tu lui dis qui tu es. Elle te regarde enfin. « C'est vous qui avez ses clés. » Elle le dit sans reproche, comme on arrête un compte." },
       { first: true, text: "« On dit qu'il était ivre. Mon père ne buvait plus depuis six ans, depuis que ma mère est morte. Pas une goutte, même à Noël. Il ne l'aurait pas fait pour une tour, ni pour le Margrave, ni pour personne. »" },
       { first: true, text: "Elle se tait, puis ajoute plus bas : « Il disait toujours qu'il cachait ce qui comptait là où l'on mesure juste. Il riait en le disant. Je n'ai jamais su ce que ça voulait dire. »" },
@@ -659,7 +659,7 @@ module.exports = {
     title: "L'eau sous la Tour du Sel",
     text: [
       "Jacquemin écoute, puis il siffle entre ses dents. « Une mine. Ils creusent sous le mur. » Il réfléchit. « Mon grand-père disait qu'il y a un vieux conduit, du temps des moines, qui va du bief des Moulins jusqu'au fossé de la Tour du Sel. On l'a muré il y a cent ans. Si on le rouvre et qu'on lève la vanne du bief, l'eau descend toute seule. »",
-      "« La mine est plus basse que le bief, sûrement. Elle se remplit comme un seau. Ceux qui sont dedans… » Il ne finit pas.",
+      "« La mine est plus basse que le bief, sûrement. Elle se remplit comme un seau. Ceux qui sont dedans… » Il laisse la phrase en l'air.",
     ],
     choices: [
       { label: "Rouvrir le conduit et lever la vanne cette nuit", takes: "night", to: "M_noyer" },

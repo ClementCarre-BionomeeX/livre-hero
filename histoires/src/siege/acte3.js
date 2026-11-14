@@ -121,7 +121,7 @@ module.exports = { passages: {
   S_aube: {
     act: "III", title: "L'aube", place: "remparts",
     text: [
-      "Le soleil se lève sur la Basse-Ville. Les cors du Margrave sonnent la retraite. Dans le fossé, les échelles, les morts, les blessés qui appellent. Sur le chemin de ronde, les vivants ne parlent pas.",
+      "Le soleil se lève sur la Basse-Ville. Les cors du Margrave sonnent la retraite. Dans le fossé, les échelles, les morts, les blessés qui appellent. Sur le chemin de ronde, les vivants se taisent.",
       { if: { all: [FREE, { has: "poterne:gardee" }] }, text: "On amène Oudart de Lys, les mains liées, devant Aussonne. Il a été pris à la Poterne, la clé à la main. Aussonne le regarde longtemps, puis se détourne en silence." },
       "Tu descends à la Halle. Les greniers ont tenu, eux aussi. Il reste à savoir combien de temps ils nourriront ceux qui ont tenu les murs.",
     ],
@@ -133,7 +133,7 @@ module.exports = { passages: {
       "Tu comptes les sacs avec les commis, un trait de craie par rangée, comme le premier jour.",
       { if: { days: "ble", min: 4 }, text: "Il reste assez de blé pour quatre jours, à la ration actuelle. Peut-être davantage." },
       { if: { days: "ble", max: 3 }, text: "À la ration actuelle, il reste à peine trois jours de blé. Le Margrave n'a pas levé le camp." },
-      { if: { is: { rations: "quart" } }, text: "Au quart de ration, les gens font la queue sans parler. Ils ont les yeux trop grands." },
+      { if: { is: { rations: "quart" } }, text: "Au quart de ration, les gens font la queue en silence. Ils ont les yeux trop grands." },
       "Du rempart, on voit le camp du Margrave sous la pluie. On creuse des fosses, derrière les tentes. Les charrettes du nord ne viennent plus.",
     ],
     choices: [
@@ -206,9 +206,9 @@ module.exports = { passages: {
   F_fuite_depart: {
     title: "La passe des Saules", place: "port",
     text: [
-      "Jacquemin te regarde un long moment. « Pour de bon ? Cette nuit ? » Il ne te juge pas. Il passe des gens depuis le début du siège : des marchands, un chanoine, une femme avec un nouveau-né. Il sait qui revient et qui ne revient pas.",
+      "Jacquemin te regarde un long moment. « Pour de bon ? Cette nuit ? » Il te regarde sans dureté. Il passe des gens depuis le début du siège : des marchands, un chanoine, une femme avec un nouveau-né. Il sait qui revient et qui ne revient pas.",
       "« À minuit, sous les saules. Pas de bagage. Pas de lumière. Si le poste du Margrave tire, tu te couches au fond de la barque et tu ne bouges plus. »",
-      { if: { promise: "jacquemin", is: "en cours" }, text: "Tu lui dois encore ses traversées. Il ne t'en parle pas." },
+      { if: { promise: "jacquemin", is: "en cours" }, text: "Tu lui dois encore ses traversées. Il les passe sous silence." },
     ],
     choices: [
       { label: "Partir cette nuit", takes: "night", to: "F_fuite" },
@@ -227,7 +227,7 @@ module.exports = { passages: {
   F_commune: {
     act: "III", title: "La commune de Sarance", place: "remparts", end: true, epilogue: true, fx: endFx("commune"),
     text: [
-      "Le Margrave vous reçoit sous sa tente, assis, sans vous faire asseoir. Gilles parle le premier, trop fort. Puis tu parles, toi, de ce que tu sais : des greniers, des jours, du flux qui court dans son camp autant que dans la ville, de ce que coûte un assaut et de ce que rapporte une ville qui paie l'impôt de bon cœur.",
+      "Le Margrave vous reçoit sous sa tente, assis, et vous laisse debout. Gilles parle le premier, trop fort. Puis tu parles, toi, de ce que tu sais : des greniers, des jours, du flux qui court dans son camp autant que dans la ville, de ce que coûte un assaut et de ce que rapporte une ville qui paie l'impôt de bon cœur.",
       "Il vous écoute jusqu'au bout. Puis il fait appeler son clerc.",
       "La charte est signée le soir même. La commune de Sarance reconnaît le Margrave de Hautpré pour seigneur. Le Margrave reconnaît la commune de Sarance, son maire, ses jurés élus par les métiers, sa cloche et son sceau. Il entrera dans la ville avec cent hommes, pas un de plus.",
       "Aussonne sort du château le lendemain, sous la garde des bateliers. Le Margrave le garde prisonnier jusqu'à la rançon, que le Roi paiera, ou pas.",

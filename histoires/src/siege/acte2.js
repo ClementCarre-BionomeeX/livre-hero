@@ -66,7 +66,7 @@ module.exports = {
     title: "La retraite", place: "remparts",
     text: [
       "Le chien aboie. Puis dix chiens. Des torches s'allument partout autour de la butte, et les sergents lâchent leurs pots dans l'herbe pour courir plus vite. Vous repassez le fossé sous les carreaux.",
-      "Trois sergents ne remontent pas l'échelle. Sur le rempart, Oudart de Lys compte les siens, la mâchoire serrée, et ne te dit rien. La Truie est toujours là, intacte, sur sa butte.",
+      "Trois sergents ne remontent pas l'échelle. Sur le rempart, Oudart de Lys compte les siens, la mâchoire serrée, en silence. La Truie est toujours là, intacte, sur sa butte.",
     ],
     fx: { stock: { moral: -4 } },
     choices: [{ label: "Aller dormir quelques heures", takes: "morning", to: "N_matin" }],
@@ -96,7 +96,7 @@ module.exports = {
     title: "Le feu sur l'eau", place: "port",
     text: [
       "Tu pousses trop tard. La barque passe la butte, frotte une souche, se met en travers. Le feu prend trop tôt, dans la paille, et une sentinelle donne l'alerte sur la berge. Tu sautes à l'eau avec les bateliers. Les barques brûlent au milieu de la Dorve, pour rien, en éclairant tout.",
-      "Gilles te repêche à la passe des Saules. Il ne te reproche rien. « La rivière, c'est comme ça. Elle te donne, et elle te reprend. » Mais il regarde longtemps, en silence, ses trois barques qui brûlent au loin.",
+      "Gilles te repêche à la passe des Saules. Il garde ses reproches. « La rivière, c'est comme ça. Elle te donne, et elle te reprend. » Mais il regarde longtemps, en silence, ses trois barques qui brûlent au loin.",
     ],
     fx: { stock: { moral: -3 } },
     choices: [{ label: "Aller dormir quelques heures", takes: "morning", to: "N_matin" }],
@@ -198,9 +198,9 @@ module.exports = {
     title: "Le passage", place: "remparts",
     text: [
       "On te fait sortir par le guichet, avec un drapeau blanc. Messire de Rouvre vient à cheval jusqu'au bord du fossé, et t'écoute poliment.",
-      "Tu ne lui parles pas de pitié. Tu lui parles de ce que dira le pays, des villages qui ne lui ouvriront plus leurs portes, des chroniqueurs qui écriront « Sarance » à côté de « Pont-Aubert ». Tu lui parles du flux, aussi, que sept cents malades porteront dans son camp s'il les garde au bord de ses lignes.",
+      "Tu laisses la pitié de côté. Tu lui parles de ce que dira le pays, des villages qui ne lui ouvriront plus leurs portes, des chroniqueurs qui écriront « Sarance » à côté de « Pont-Aubert ». Tu lui parles du flux, aussi, que sept cents malades porteront dans son camp s'il les garde au bord de ses lignes.",
       "Le héraut sourit à moitié. « Vous avez l'âme d'un marchand, intendant{e}. Monseigneur aime les marchands. » Il repart au galop. Une heure plus tard, la ligne d'arbalétriers s'ouvre, et les gens du Plessis passent, lentement, vers le sud, avec un sauf-conduit.",
-      "Adélaïde est la dernière à passer. Elle ne se retourne pas.",
+      "Adélaïde est la dernière à passer. Elle regarde droit devant elle.",
     ],
     fx: { flag: "passage:accorde", regard: { adelaide: "redevable" }, ep: ["seance", 1000] },
     choices: [{ label: "Gravir l'escalier du rempart", to: "H_remparts" }],
@@ -255,7 +255,7 @@ module.exports = {
       "Jacquemin pose la main sur la roue de la vanne. Il te regarde. Tu fais signe que oui.",
       "La vanne monte. L'eau du bief s'engouffre dans le conduit avec un bruit de bête, et tout le bief baisse d'un pied en quelques minutes. Au loin, sous la terre, tu crois entendre quelque chose. Des cris, peut-être. Peut-être l'eau seule.",
       "Le matin, dans la salle basse de la Tour du Sel, le seau d'eau est immobile sur les dalles. Il le reste toute la journée, et les jours suivants.",
-      "Jacquemin ne parle pas, en rentrant. Devant le Moulin, il te dit seulement : « Ils étaient combien, en dessous ? » Tu l'ignores.",
+      "Jacquemin se tait, en rentrant. Devant le Moulin, il te dit seulement : « Ils étaient combien, en dessous ? » Tu l'ignores.",
     ],
     fx: { flag: "mine:noyee", quest: "II_mine", regard: { jacquemin: "cordial" }, ep: ["seance", 1200] },
     choices: [{ label: "Aller dormir", takes: "morning", to: "N_matin" }],
@@ -287,7 +287,7 @@ module.exports = {
     title: "Le capitaine", place: "chateau",
     text: [
       "Tu as la main dans le coffre quand la porte s'ouvre. Aussonne est sur le seuil, la cape mouillée. Il revient chercher ses gants.",
-      "Il te regarde un long moment. Il ne crie pas. « Sortez. » Tu sors. Dans l'escalier, tu l'entends refermer le coffre avec une clé, et donner un tour de plus.",
+      "Il te regarde un long moment. « Sortez », dit-il sans élever la voix. Tu sors. Dans l'escalier, tu l'entends refermer le coffre avec une clé, et donner un tour de plus.",
     ],
     fx: { regard: { aussonne: "hostile" } },
     choices: [{ label: "Descendre dans la cour", to: "H_chateau" }],
