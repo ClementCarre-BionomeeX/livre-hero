@@ -186,3 +186,28 @@ Rien à déclarer pour : « Sans retour » (choisi à la création), le tableau 
 Le moteur accorde désormais les boutons comme le texte : `{e}` dans un libellé de choix ou de jet devient « e » au féminin.
 L'appli sait quelles fins chaque lecteur a trouvées ; elle le dit au moteur au début d'une partie (`s.second`). Le validateur
 joue deux parties sur cinq en seconde lecture.
+
+## Enquête en ville (14/11, 7.9) : témoins, contradictions, accusation
+
+| Où | Clé | Sens |
+|---|---|---|
+| `people.<id>` | `at: [{ when, place, talk, see, label, if, from, until, takes }]` | Les heures et les lieux d'un personnage. `when` : `matin` (6-12 h), `midi` (12-14 h), `apresmidi` (14-18 h), `soir` (18-21 h), `nuit` (21-6 h), ou une liste ; sans `when`, à toute heure. Sur un carrefour (`hub`) de ce lieu, le moteur ajoute la phrase `see` et un choix vers `talk` (libellé `label`), qui prend une heure (`takes: 0` pour aucune) et vaut rencontre. `from` / `until` : `{ day, hour }`. |
+| `people.<id>` | `confront: { <indice ou document>: "PASSAGE" }`, `shrug: ["…"]` | Ce que fait le témoin quand on lui montre cet indice : la page de sa réaction. Sinon il hausse les épaules (une des phrases `shrug`). |
+| passage | `montrer: "<id>"` | Ajoute « Montrer quelque chose à … » : le lecteur choisit un indice ou un document pas encore montré à cette personne. |
+| passage | `back: true` | La scène se termine par le retour au dernier carrefour, écrit par le moteur ; elle peut n'avoir aucun autre choix. |
+| `story.contradictions` | `[{ a, b, clue, fx }]` | Deux indices (ou documents) qui se contredisent vraiment. Quand le lecteur les relie (carnet, tableau), le moteur donne l'indice `clue`. Une mauvaise paire ne coûte rien. |
+| indice | `fades: { day, hour }` | L'indice s'efface à ce moment (pluie, enterrement, départ) s'il n'a pas été trouvé avant. |
+| paragraphe, choix | `fresh: "<indice>"` | Montré tant que l'indice peut encore être trouvé. Sur un choix qui prend du temps, le moteur regarde à l'heure où le choix finit. |
+| indice | `leurre: true` | Fausse piste : ne compte jamais comme preuve ni pour « Fin limier » ; l'appli la marque une fois le mystère résolu. |
+| objet | `kind: "document", text, form, hand, clue` | Un document qu'on relit dans l'onglet Documents (`form` : `lettre`, `registre`, `acte`, `billet` ; `hand` : `soignee`, `hative`, `tremblee`, `imprimee`). `clue` : l'indice qu'il porte ; on le montre et on le donne en preuve par cet indice, sur une seule ligne. |
+| `story.rumors` | `{ <salle>: [{ id, text, true, fx, if }] }` | Les rumeurs d'une salle ; `true` dit si elle est vraie (l'appli le montre après coup). |
+| passage | `rumeur: "<salle>"` | Une rumeur pas encore entendue est ajoutée au texte à chaque visite. |
+| `story.deadline` | `{ day, hour, to, acts }` | À cette heure, la page suivante est `to`, quoi qu'on fasse (drapeau `echeance`) ; l'horloge s'arrête sur l'heure dite. |
+| mystère | `suspects, motives, answer: { person, motive, proofs }, accuseText, plan` | L'accusation : les suspects (seuls ceux rencontrés sont proposés), les mobiles, la bonne réponse. `plan: { hours, places, people, truth }` remplit l'onglet Reconstitution. |
+| passage | `accuse: { mystery, to, label }` | Ajoute l'accusation en trois temps. Le moteur pose `accuse-<m>-qui=…`, `-mobile=…`, `-preuve=…` et, pour chaque partie juste, `accuse:<m>:qui`, `:mobile`, `:preuve`, puis va à `to` (une liste `{ if, to }`). |
+| paragraphe, choix | `regard: { <id>: "cordial" }` | Selon la façon dont la personne voit le héros (`neutre` tant que rien ne l'a changée). |
+| `world.start` | `clock: true` | L'heure s'affiche à l'heure près (« Jour 2, 15 h (après-midi) »). |
+
+Le validateur vérifie les horaires, les réactions, les rumeurs, les contradictions, l'échéance et l'accusation (la
+réponse doit être parmi les suspects et les mobiles, les preuves doivent exister et ne pas être des leurres), et sa
+recherche des passages jamais atteints sait montrer, relier et accuser.

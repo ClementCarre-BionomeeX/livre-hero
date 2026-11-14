@@ -637,3 +637,34 @@ ul.vote-res { list-style: none; padding: 0; margin: 0 0 12px; display: grid; gap
    screen's content gets its own sheet of paper, or the ink would sit on the dark wood (Clément, 13/11: unreadable). */
 :root[data-skin="enluminure"]:not([data-theme="dark"]) main.wrap:not(:has(.page)) { background: var(--page-bg, none), var(--paper); color: var(--ink); border: 1px solid var(--line); border-radius: 14px; padding: 8px max(16px, 3vw) 24px; margin-top: 12px; margin-bottom: 24px; box-shadow: var(--shadow); }
 :root[data-skin="enluminure"]:not([data-theme="dark"]):not([data-theme="soir"]) .top .pill.gold { color: #6e4a0a; }
+/* 7.9 · Enquête en ville : documents, reconstitution, contradictions, rumeurs */
+.manuscrit { --ms-paper: color-mix(in srgb, var(--gold) 10%, var(--paper)); --ms-ink: color-mix(in srgb, var(--ink) 85%, #3a2410);
+  margin: 6px 0 4px; padding: 22px 22px 18px; background: var(--ms-paper); color: var(--ms-ink); border: 1px solid var(--line); border-radius: 3px;
+  box-shadow: 0 1px 0 var(--line), 0 10px 24px rgb(40 30 10 / .12); font: italic 17px/1.65 "IM Fell English", var(--serif); white-space: pre-wrap; }
+.manuscrit p { margin: 0 0 .8em; }
+.manuscrit.registre { font-style: normal; font-family: var(--serif); font-size: 15px; background-image: repeating-linear-gradient(to bottom, transparent 0, transparent calc(1.65em - 1px), color-mix(in srgb, var(--accent) 22%, transparent) calc(1.65em - 1px), color-mix(in srgb, var(--accent) 22%, transparent) 1.65em); background-position: 0 22px; }
+.manuscrit.acte { border-width: 3px; border-style: double; }
+.manuscrit.billet { max-width: 360px; margin-left: auto; margin-right: auto; transform: rotate(-.6deg); }
+.manuscrit.hative { transform: rotate(-.4deg); letter-spacing: -.01em; }
+.manuscrit.tremblee { letter-spacing: .02em; word-spacing: .08em; }
+.manuscrit.imprimee { font-style: normal; font-family: var(--serif); }
+.ev .ev-read { margin-left: 8px; vertical-align: baseline; }
+.doc-row b { font-family: var(--title); font-weight: normal; }
+.clue .decoy { margin-left: 6px; font-style: italic; }
+.clue.rumor { font-style: italic; color: var(--muted); }
+.row.contra { margin: -2px 0 10px 18px; gap: 6px; }
+.row.contra select { max-width: 100%; }
+.recon { margin-bottom: 18px; min-width: 0; max-width: 100%; }
+.recon-wrap { overflow-x: auto; max-width: 100%; }
+.recon-grid { border-collapse: collapse; font-size: 13px; }
+.recon-grid th, .recon-grid td { border: 1px solid var(--line); padding: 3px 4px; vertical-align: top; }
+.recon-grid th { background: var(--paper-2); font-weight: 600; white-space: nowrap; }
+.recon-grid th.who { text-align: left; }
+.recon-grid select { font-size: 12px; max-width: 9.5em; }
+.recon-grid td.right, .frise-slot .chip.right { background: color-mix(in srgb, var(--good) 18%, transparent); }
+.recon-grid td.wrong, .frise-slot .chip.wrong { background: color-mix(in srgb, var(--bad) 16%, transparent); }
+.recon-grid .truth { color: var(--good); font-style: italic; }
+.frise-slot { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; padding: 6px 0; border-bottom: 1px dashed var(--line); }
+.frise-h { min-width: 4.5em; font-family: var(--title); font-weight: normal; }
+.frise-slot .chip { display: inline-flex; align-items: center; gap: 4px; padding: 2px 8px; border-radius: 12px; border: 1px solid var(--line); background: var(--paper-2); font-size: 13px; }
+.frise-slot select { max-width: 12em; font-size: 13px; }

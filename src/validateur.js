@@ -8,7 +8,7 @@
 
   var COND_KEYS = ["is", "count", "has", "not", "all", "any", "clues", "clue", "mark", "present", "loyal", "met", "gone", "conf", "fear", "relics", "relic",
     "given", "item", "gold", "food", "pv", "clock", "fac", "level", "day", "since", "night", "seen", "arch", "quest", "place", "known", "person", "party",
-    "lead", "away", "team", "souv", "souvenirs", "heroLevel", "second", "via"];
+    "lead", "away", "team", "souv", "souvenirs", "heroLevel", "second", "via", "regard", "fresh"];
   var FX_KEYS = ["regard", "resume", "set", "flag", "flags", "unflag", "clue", "mark", "ep", "catchup", "catchupWhy", "join", "met", "leave", "conf", "fear", "fac", "relic",
     "give", "relicLose", "item", "drop", "gold", "food", "pv", "rest", "time", "until", "stamp", "reveal", "meet", "clock", "quest", "questSeen", "note", "noteCls",
     "assign", "team", "regroup", "away", "lead", "leadQuiet", "souv", "souvBack", "catchupAll", "awayUnless"];
@@ -186,6 +186,73 @@
       [].concat(fx.souv || [], fx.souvBack || []).forEach(function (x) { checkSouv(x, where); });
       if (fx.ep != null && !(typeof fx.ep === "number" || (Array.isArray(fx.ep) && M.EP[fx.ep[0]]))) E(where + " : EP mal formés " + JSON.stringify(fx.ep));
     }
+    // « Enquête en ville » (7.9): schedules, witnesses, rumours, contradictions, fading clues, accusation, deadline.
+    var PERIODS = Object.keys(M.PERIODS);
+    function moment(m, where) { if (m == null) return; if (typeof m !== "object" || !(m.day >= 1) || (m.hour != null && !(m.hour >= 0 && m.hour < 24))) E(where + " : un moment s'écrit { day: 2, hour: 15 }."); }
+    function clueOrDoc(k) { return !!story.clues[k] || !!(items[k] && items[k].kind === "document"); }
+    Object.keys(items).forEach(function (k) { var it = items[k]; if (it.clue != null && !(story.clues || {})[it.clue]) E("Objet « " + k + " » : clue « " + it.clue + " », indice inconnu."); if (it.clue != null && it.kind !== "document") E("Objet « " + k + " » : seul un document porte un indice (clue)."); });
+    Object.keys(people).forEach(function (k) {
+      var pe = people[k], where = "Personnage « " + k + " »";
+      (pe.at || []).forEach(function (a, i) {
+        var w = where + ", horaire " + (i + 1);
+        if (!places[a.place]) E(w + " : lieu « " + a.place + " » inconnu.");
+        if (a.talk != null && !P[a.talk]) E(w + " : passage « " + a.talk + " » inconnu.");
+        [].concat(a.when || []).forEach(function (x) { if (PERIODS.indexOf(x) < 0) E(w + " : moment de la journée « " + x + " » inconnu (" + PERIODS.join(", ") + ")."); });
+        moment(a.from, w); moment(a.until, w); checkCond(a.if, w);
+        if (!a.talk && !a.see) E(w + " : ni « talk » (le passage pour lui parler) ni « see » (ce qu'on voit de lui) : l'horaire ne sert à rien.");
+      });
+      Object.keys(pe.confront || {}).forEach(function (x) {
+        if (!clueOrDoc(x)) E(where + " : confront, « " + x + " » n'est ni un indice ni un document.");
+        if (!P[pe.confront[x]]) E(where + " : confront, passage « " + pe.confront[x] + " » inconnu.");
+      });
+    });
+    Object.keys(story.rumors || {}).forEach(function (k) {
+      var ids = {};
+      (story.rumors[k] || []).forEach(function (r, i) {
+        var w = "Rumeur « " + k + " » " + (i + 1);
+        if (!r.id || ids[r.id]) E(w + " : identifiant manquant ou en double."); ids[r.id] = 1;
+        if (!r.text) E(w + " : sans texte.");
+        if (r.true == null) E(w + " : dire si elle est vraie (true: true ou false), pour le lecteur qui relira.");
+        checkFx(r.fx, w); checkCond(r.if, w);
+      });
+    });
+    (story.contradictions || []).forEach(function (x, i) {
+      var w = "Contradiction " + (i + 1);
+      if (!clueOrDoc(x.a) || !clueOrDoc(x.b)) E(w + " : « a » et « b » sont deux indices (ou documents) de l'histoire.");
+      if (!story.clues[x.clue]) E(w + " : « clue », l'indice que donne le lien, est inconnu.");
+      checkFx(x.fx, w);
+    });
+    Object.keys(story.clues).forEach(function (k) { var c = story.clues[k]; if (c.fades) moment(c.fades, "Indice " + k + ", fades"); });
+    if (story.deadline) {
+      var dl = story.deadline; moment(dl, "Échéance");
+      if (!P[dl.to]) E("Échéance : passage « " + dl.to + " » inconnu.");
+      (dl.acts || []).forEach(function (a) { if (!acts[a]) E("Échéance : acte « " + a + " » inconnu."); });
+    }
+    Object.keys(P).forEach(function (id) {
+      var p = P[id], where = "§ " + id;
+      if (p.montrer != null && !people[p.montrer]) E(where + " : tag montrer, personnage « " + p.montrer + " » inconnu.");
+      if (p.rumeur != null && !(story.rumors || {})[p.rumeur]) E(where + " : tag rumeur, réserve « " + p.rumeur + " » inconnue.");
+      if (p.accuse != null) {
+        var ac = p.accuse, my = story.mysteries[ac.mystery];
+        if (!my) { E(where + " : accuse, mystère « " + ac.mystery + " » inconnu."); return; }
+        if (!ac.to) E(where + " : accuse sans « to » (où va l'histoire une fois l'accusation faite).");
+        (Array.isArray(ac.to) ? ac.to : [{ to: ac.to }]).forEach(function (x) { checkCond(x.if, where); if (!P[x.to]) E(where + " : accuse mène à « " + x.to + " », qui n'existe pas."); });
+        if (!(my.suspects || []).length) E("Mystère " + ac.mystery + " : « suspects », la liste des gens qu'on peut accuser, est vide.");
+        (my.suspects || []).forEach(function (k) { if (!people[k]) E("Mystère " + ac.mystery + " : suspect « " + k + " » inconnu (people)."); });
+        if (!Object.keys(my.motives || {}).length) E("Mystère " + ac.mystery + " : « motives » ({ id: texte }) est vide.");
+        var an = my.answer || {};
+        if ((my.suspects || []).indexOf(an.person) < 0) E("Mystère " + ac.mystery + " : la réponse (answer.person) n'est pas parmi les suspects.");
+        [].concat(an.motive || []).forEach(function (m) { if (!(my.motives || {})[m]) E("Mystère " + ac.mystery + " : answer.motive « " + m + " » n'est pas dans motives."); });
+        [].concat(an.proofs || []).forEach(function (k) { if (!clueOrDoc(k)) E("Mystère " + ac.mystery + " : preuve « " + k + " » inconnue (indice ou document)."); else if ((story.clues[k] || {}).leurre) E("Mystère " + ac.mystery + " : la preuve « " + k + " » est un leurre."); });
+      }
+      [p].concat((p.text || []).filter(function (x) { return x && typeof x === "object"; }), p.choices || []).forEach(function (x) {
+        Object.keys(x.regard && typeof x.regard === "object" ? x.regard : {}).forEach(function (k) {
+          if (!people[k] && !story.companions[k]) E(where + " : tag regard, personnage « " + k + " » inconnu.");
+          [].concat(x.regard[k]).forEach(function (r) { if (!M.REGARDS[r]) E(where + " : tag regard, « " + r + " » inconnu."); });
+        });
+        [].concat(x.fresh || []).forEach(function (k) { if (!story.clues[k]) E(where + " : tag fresh, indice « " + k + " » inconnu."); else if (!story.clues[k].fades) E(where + " : tag fresh, l'indice « " + k + " » ne s'efface jamais (pas de fades)."); });
+      });
+    });
     var ends = 0;
     // leadsBack(from, to): from "from", the passage "to" is reached again within five choices without crossing a crossroads
     // (a way back, not a way on).
@@ -213,7 +280,8 @@
       if (!Array.isArray(p.text) || !p.text.length) E(where + " : pas de texte.");
       if (p.end) { ends++; return; }
       if (p.combat) { checkFight(p.combat, where); eachFx(p, function (fx) { checkFx(fx, where); }); return; }
-      if ((!Array.isArray(p.choices) || !p.choices.length) && !p.routes && !p.shop) { E(where + " : aucun choix (seules les fins n'en ont pas)."); return; }
+      // back: true on the passage: the engine adds the way back to the crossroads the reader came from (7.9).
+      if ((!Array.isArray(p.choices) || !p.choices.length) && !p.routes && !p.shop && !p.back) { E(where + " : aucun choix (seules les fins n'en ont pas)."); return; }
       if (p.place && !places[p.place]) E(where + " : lieu « " + p.place + " » inconnu.");
       if (p.shop && !(story.shops || {})[p.shop]) E(where + " : boutique « " + p.shop + " » inconnue.");
       if (p.urgent != null && !(typeof p.urgent === "number" && p.urgent >= 5 && p.urgent <= 120)) E(where + " : tag urgent, un nombre de secondes entre 5 et 120.");
@@ -369,6 +437,28 @@
       if (list.length < SNAPS) list.push(JSON.stringify(s));
       else if (rnd() < SNAPS / m) list[Math.floor(rnd() * SNAPS)] = JSON.stringify(s);
     }
+    // 7.9: a reader may link two statements that contradict each other (board, notebook). The games do it too, often.
+    function tryContra(s, chance, rnd) {
+      (story.contradictions || []).forEach(function (x) {
+        if (rnd() < chance && !(x.clue && s.clues[x.clue])) { try { M.contradict(story, s, x.a, x.b); } catch (e) { errs["contradiction " + x.a + " / " + x.b + " : " + e.message] = 1; } }
+      });
+    }
+    // At the accusation, the walk tries every who / why / proof and keeps the one that brings the target nearest.
+    function accuseSearch(s, d) {
+      var best = null, bestD = Infinity, v0 = M.view(story, s);
+      v0.choices.filter(function (c) { return c.sys === "accuseWho"; }).forEach(function (cw) {
+        var s1 = JSON.parse(JSON.stringify(s)); M.choose(story, s1, cw);
+        M.view(story, s1).choices.filter(function (c) { return c.sys === "accuseWhy"; }).forEach(function (cm) {
+          var s2 = JSON.parse(JSON.stringify(s1)); M.choose(story, s2, cm);
+          M.view(story, s2).choices.filter(function (c) { return c.sys === "accuseProof"; }).forEach(function (cp) {
+            var s3 = JSON.parse(JSON.stringify(s2)); M.choose(story, s3, cp);
+            var dd = d[s3.node] == null ? Infinity : d[s3.node];
+            if (dd < bestD) { bestD = dd; best = s3; }
+          });
+        });
+      });
+      return best;
+    }
     // Static graph: every passage a choice, a test branch, a fight or a journey can lead to.
     function edgesOf(id) {
       var p = P[id], out = [];
@@ -376,7 +466,12 @@
       function fight(f) { if (f) ["win", "lose", "flee", "calm"].forEach(function (o) { if (f[o]) add(f[o].to); }); if (f && f.talk && f.talk.win) add(f.talk.win.to); }
       (p.choices || []).forEach(function (c) { add(c.to); if (c.win) add(c.win.to); if (c.lose) add(c.lose.to); fight(c.fight); });
       fight(p.combat);
-      if (p.place) arrivals.forEach(function (a) { out.push(a); });
+      if (p.place || p.back) arrivals.forEach(function (a) { out.push(a); });
+      // 7.9: the people met on a crossroads at their hour, the witness's reactions, the accusation, the deadline.
+      if (p.hub && p.place) Object.keys(story.people || {}).forEach(function (k) { (story.people[k].at || []).forEach(function (a) { if (a.place === p.place && a.talk) add(a.talk); }); });
+      if (p.montrer) { var cf = (story.people[p.montrer] || {}).confront || {}; Object.keys(cf).forEach(function (k) { add(cf[k]); }); }
+      if (p.accuse) add(p.accuse.to);
+      if (story.deadline && (!story.deadline.acts || story.deadline.acts.indexOf(p.act) >= 0)) add(story.deadline.to);
       return out;
     }
     var arrivals = [];
@@ -395,13 +490,16 @@
         while (q.length) { var x = q.shift(); (rev[x] || []).forEach(function (y) { if (d[y] == null) { d[y] = d[x] + 1; q.push(y); } }); }
         return d;
       }
+      function live(to) { if (!Array.isArray(to)) return to; for (var i = 0; i < to.length; i++) if (M.evalCond(story, s, to[i].if)) return live(to[i].to); return to.length ? live(to[to.length - 1].to) : null; }
       function score(c, d, cur) {
         var best = Infinity, out = null;
         function cand(to, f) { [].concat(Array.isArray(to) ? to.map(function (x) { return x.to; }) : to).forEach(function (t) { var v = t === "@ret" ? (d[cur] != null ? d[cur] + 1 : Infinity) : d[t]; if (v != null && v < best) { best = v; out = f; } }); }
         if (c.sys === "travel") { var pl = (story.world.places || {})[c.dest] || {}; cand([pl.arrive].concat((pl.arriveIf || []).map(function (a) { return a.passage; })), null); return { d: best, fixed: null }; }
+        if (c.sys === "show" && c.target) { cand(c.target, null); return { d: best, fixed: null }; }
+        if (c.sys === "montrer") { var cf = (story.people[c.who] || {}).confront || {}; cand(Object.keys(cf).map(function (k) { return cf[k]; }), null); return { d: best, fixed: null }; }
+        if (c.sys === "accuse" && P[cur] && P[cur].accuse) { cand(P[cur].accuse.to, null); return { d: best, fixed: null }; }
         if (c.sys) return { d: Infinity, fixed: null };
         var raw = c;
-        function live(to) { if (!Array.isArray(to)) return to; for (var i = 0; i < to.length; i++) if (M.evalCond(story, s, to[i].if)) return live(to[i].to); return to.length ? live(to[to.length - 1].to) : null; }
         cand(live(raw.to), null); if (raw.win) cand(live(raw.win.to), 0.94); if (raw.lose) cand(live(raw.lose.to), 0.02);
         if (raw.fight) ["win", "lose", "flee", "calm"].forEach(function (o) { if (raw.fight[o]) cand(raw.fight[o].to, null); });
         return { d: best, fixed: out };
@@ -437,6 +535,8 @@
               if (P[s.node]) { mark(s.node); keepSnap(s); }
               Object.keys(s.seen).forEach(mark);
               if (seen[target] || v.kind === "end") { if (v.kind === "end" && P[s.node]) endings[s.node] = (endings[s.node] || 0) + 1; break; }
+              if (s.node === "@accuse" && s.acc && s.acc.step === "qui" && rnd() > wander) { var sa = accuseSearch(s, d); if (sa) { s = sa; continue; } }
+              tryContra(s, 1, rnd);
               var cs = v.choices.filter(function (c) { if (c.ok && !c.sys) allowedCount[s.node + " | " + c.label] = 1; return c.ok && !c.restart; });
               if (!cs.length) break;
               var scored = cs.map(function (c) { return { c: c, sc: score(c, d, s.node) }; });
@@ -504,6 +604,7 @@
         } else c = cs[Math.floor(rnd() * cs.length)];
         if (!c.sys) taken[s.node + " | " + c.label] = 1;
         try { M.choose(story, s, c); } catch (e) { errs["§ " + s.node + " / « " + String(c.label).slice(0, 40) + " » : " + e.message] = 1; return; }
+        tryContra(s, mode === "lose" ? 0.1 : 0.4, rnd);
         s.events.forEach(function (e) { if (/undefined|NaN/.test(e.text)) errs["§ " + s.node + " effet : " + e.text.slice(0, 80)] = 1; });
       }
       loops[s.node] = (loops[s.node] || 0) + 1;
