@@ -21,7 +21,7 @@ module.exports = { rumors: {
   T_coet: {
     title: "Le capitaine Coët", back: true,
     text: [
-      { first: true, text: "Le capitaine ne quitte pas la voilure des yeux pendant que tu lui parles. Quand tu as fini, il dit : « Vous avez une question, ou vous faites la conversation ? Je ne fais pas la conversation. »" },
+      { first: true, text: "Le capitaine garde les yeux sur la voilure pendant que tu lui parles. Quand tu as fini, il dit : « Vous avez une question, ou vous faites la conversation ? Je ne fais pas la conversation. »" },
       { first: true, text: "Tu insistes. Il soupire. « Quarante ans de mer. Sept navires. Aucun perdu. Corbière m'a donné la Sterne parce que je suis le dernier capitaine de Port-Aubier qui ne lui demande pas de part sur la cargaison. Voilà. Maintenant, laissez-moi travailler. »" },
       { again: true, text: "Le capitaine Coët t'écoute en regardant ailleurs, te répond en trois mots, et retourne à sa voilure." },
       { with: "gabin", once: true, text: "Avant que tu partes, il ajoute sans tourner la tête : « Le petit. Qu'il ne monte pas dans la mâture. Son père n'avait pas le pied marin non plus. »" },
@@ -43,7 +43,7 @@ module.exports = { rumors: {
     title: "La chambre du capitaine", place: "arriere", back: true,
     text: [
       "Tu dis au capitaine ce que t'a raconté l'apothicaire de Port-Aubier : une once de digitale, achetée par le second, pour son cœur.",
-      "Le vieil homme ouvre les yeux. « Je n'ai jamais pris de digitale de ma vie. Mon cœur allait très bien à Port-Aubier. » Il regarde la lampe, ses cercles jaunes. Il ne dit plus rien pendant longtemps, et quand il parle, c'est à voix très basse. « Allez voir Daoulas. Et ne dites rien à personne. À personne, vous m'entendez. »",
+      "Le vieil homme ouvre les yeux. « Je n'ai jamais pris de digitale de ma vie. Mon cœur allait très bien à Port-Aubier. » Il regarde la lampe, ses cercles jaunes. Il se tait longtemps, et quand il parle, c'est à voix très basse. « Allez voir Daoulas. Et ne dites rien à personne. À personne, vous m'entendez. »",
     ],
     fx: { regard: { coet: "allie" } },
   },
@@ -107,7 +107,7 @@ module.exports = { rumors: {
     title: "Morvan Le Hir", back: true,
     text: [
       "Tu parles de la plaque de la chapelle de Gavre. Le visage du second se ferme, et ses yeux se mouillent. « La Bergeronnette. On a touché la Mâchoire à minuit, par grosse mer. Elle s'est ouverte en deux. J'ai mis la chaloupe à l'eau avec quatre hommes, j'ai cherché les autres jusqu'au jour. » Il serre les poings. « Hervé Corbière était à l'arrière. Je l'ai vu sauter. Je n'ai pas pu l'atteindre. »",
-      { with: "gabin", text: "Gabin baisse la tête. Morvan lui met la main sur l'épaule, et le garçon ne la repousse pas." },
+      { with: "gabin", text: "Gabin baisse la tête. Morvan lui met la main sur l'épaule, et le garçon la laisse là." },
     ],
   },
   T_morvan_sable: {
@@ -121,7 +121,7 @@ module.exports = { rumors: {
   T_morvan_lettre: {
     title: "Morvan Le Hir", back: true,
     text: [
-      "Tu lui montres la lettre au cachet vert. Il la reconnaît avant même que tu la déplies. Il ne cherche pas à te la prendre.",
+      "Tu lui montres la lettre au cachet vert. Il la reconnaît avant même que tu la déplies. Il te la laisse.",
       "« Tu as fouillé ma chambre. » Il rit, tout bas. « Tu vois, c'est pour ça que Corbière t'a choisi{e}. Un étranger, qui ne connaît personne, qui ne sait rien. Il s'est trompé sur le dernier point. »",
       "Il se penche vers toi. « Écoute bien, parce que je ne le dirai qu'une fois. Ce navire va finir sur les Dents, avec ou sans toi. Mille écus, c'est beaucoup d'argent. Il y a de la place dans la chaloupe. Réfléchis jusqu'aux Dents. »",
     ],
@@ -156,7 +156,7 @@ module.exports = { rumors: {
   T_kerlo: {
     title: "Yves Kerlo", place: "pont", back: true, montrer: "kerlo",
     text: [
-      { first: true, text: "Le timonier ne tourne pas la tête. Il a les deux mains sur les poignées de la roue, et ses yeux vont du compas à la voile, de la voile au compas. « On peut causer, dit-il. Mais pas me faire rire. Je ris, je lâche la barre. »" },
+      { first: true, text: "Le timonier garde la tête droite. Il a les deux mains sur les poignées de la roue, et ses yeux vont du compas à la voile, de la voile au compas. « On peut causer, dit-il. Mais pas me faire rire. Je ris, je lâche la barre. »" },
       { again: true, text: "Kerlo te fait un signe de tête, et garde les yeux sur son compas." },
       { temps: "brume", text: "« Par brume, dit-il, je gouverne au compas et à l'oreille. La mer fait pas le même bruit sur un haut-fond. »" },
       { temps: ["grain", "tempete"], text: "Il est trempé jusqu'aux os, et il chante quelque chose entre ses dents pour garder le rythme des coups de barre." },
@@ -173,7 +173,7 @@ module.exports = { rumors: {
   T_rozenn: {
     title: "La cambuse", place: "gaillard", back: true, shop: "rozenn", montrer: "rozenn",
     text: [
-      { first: true, text: "Rozenn ne te laisse pas entrer dans sa cambuse. Elle se tient sur le seuil, une louche à la main, et t'écoute en surveillant son chaudron par-dessus son épaule." },
+      { first: true, text: "Rozenn te barre l'entrée de sa cambuse. Elle se tient sur le seuil, une louche à la main, et t'écoute en surveillant son chaudron par-dessus son épaule." },
       { first: true, text: "« Le subrécargue. Tu viens compter mes pois cassés ? Compte-les, ils sont là. Moi, je nourris trente hommes deux fois par jour depuis quinze ans pour le capitaine Coët, et jamais un homme n'a eu faim sous mon fourneau. »" },
       { again: true, text: "Rozenn te tend une écuelle de soupe sans te demander ton avis, et attend que tu l'aies finie pour t'écouter." },
       { after: "marche:malade", before: ["cap:soigne", "cap:mort"], text: "« Le capitaine ne mange plus rien de ce que je lui fais. Il n'y a que son grog qu'il boit. Je le lui prépare comme il l'aime, rhum, citron, cassonade, et le second le lui monte. »" },

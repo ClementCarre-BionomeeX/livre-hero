@@ -163,7 +163,7 @@ module.exports = {
       "Depuis l'aube, le ciel a pris une couleur de plomb fondu, et la houle arrive du sud-ouest en collines lentes. À dix heures, le vent tombe d'un coup, et Guénolé dit à voix basse : « Ça y est. » Puis il hurle de toutes ses forces : « Tout le monde sur le pont ! »",
       "Le vent revient en un mur. La Sterne se couche, ses vergues touchent presque la mer, puis elle se relève en grondant. La pluie arrive à l'horizontale, chargée de sel. Les lames grandissent à vue d'œil. En une heure, elles sont plus hautes que le grand hunier.",
       { if: { has: "cap:soigne" }, text: "Le capitaine Coët est monté sur le pont, soutenu par Daoulas. Il s'est fait attacher à la rambarde de la dunette, et il donne ses ordres d'une voix éraillée que le vent emporte à moitié." },
-      { if: { not: { has: "cap:soigne" } }, text: "Le capitaine ne monte pas. C'est le second qui commande, accroché à la barre avec Kerlo, et qui commande bien : ses ordres tombent juste, au bon moment, d'une voix claire." },
+      { if: { not: { has: "cap:soigne" } }, text: "Le capitaine est resté en bas. C'est le second qui commande, accroché à la barre avec Kerlo, et qui commande bien : ses ordres tombent juste, au bon moment, d'une voix claire." },
       "On tend des lignes de vie de l'avant à l'arrière. Chacun a sa tâche. On te crie la tienne.",
     ],
     fx: { meteo: { is: "tempete", hours: 10 }, ep: ["seance", 500] },
@@ -234,7 +234,7 @@ module.exports = {
     text: [
       "Tu décroches la couronne de liège et tu la lances de toutes tes forces, en gardant la ligne dans l'autre main. Elle tombe à deux brasses de la tête qui se débat. Une lame l'emporte, la rapproche. Une main l'attrape.",
       "Quatre hommes tirent sur la ligne avec toi. Quand on hisse le naufragé sur le pont, il crache de l'eau de mer, tousse, pleure, et rit.",
-      { with: "pierrick", text: "Pierrick ne lâche plus la bouée pendant une heure. Puis il vient s'asseoir à côté de toi, trempé, et pose la tête contre ton épaule." },
+      { with: "pierrick", text: "Pierrick garde la bouée serrée contre lui pendant une heure. Puis il vient s'asseoir à côté de toi, trempé, et pose la tête contre ton épaule." },
     ],
     fx: { stock: { equipage: 12 }, conf: { pierrick: 20 }, ep: ["histoire", 2000], flag: "homme:sauve" },
     choices: [{ label: "Attendre la fin de la tempête", to: "T_apres" }],
@@ -380,7 +380,7 @@ module.exports = {
   Q_quart: {
     title: "Le quart de nuit", place: "pont", back: true,
     text: [
-      "Tu prends le quart avec la bordée de Kerlo, de minuit à quatre heures. Le timonier ne parle presque pas. Il regarde le compas, la voile, le compas. Tu tiens la lanterne de l'habitacle, et tu apprends à lire la rose des vents qui tremble dans son bol de cuivre.",
+      "Tu prends le quart avec la bordée de Kerlo, de minuit à quatre heures. Le timonier parle à peine. Il regarde le compas, la voile, le compas. Tu tiens la lanterne de l'habitacle, et tu apprends à lire la rose des vents qui tremble dans son bol de cuivre.",
       { temps: "brume", text: "La brume colle à tout. On sonne la cloche toutes les deux minutes, et on écoute. Une fois, très loin, une autre cloche répond, et Kerlo met un rayon de barre." },
       { temps: ["calme", "brise"], text: "Le ciel est clair. Kerlo te montre l'Étoile du Nord, au bout de la queue de la Petite Ourse, et la façon de la garder sur l'épaule gauche quand on fait route au sud-ouest." },
       { temps: ["frais", "grain", "tempete"], text: "Le vent fouette la pluie sur la dunette. Kerlo tient la barre à deux mains, les jambes écartées. Chaque lame arrive par le travers avec un bruit de mur qui s'effondre." },

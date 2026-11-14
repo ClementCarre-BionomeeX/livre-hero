@@ -3824,7 +3824,7 @@
    "text": [
     {
      "first": true,
-     "text": "Le capitaine ne quitte pas la voilure des yeux pendant que tu lui parles. Quand tu as fini, il dit : « Vous avez une question, ou vous faites la conversation ? Je ne fais pas la conversation. »"
+     "text": "Le capitaine garde les yeux sur la voilure pendant que tu lui parles. Quand tu as fini, il dit : « Vous avez une question, ou vous faites la conversation ? Je ne fais pas la conversation. »"
     },
     {
      "first": true,
@@ -3887,7 +3887,7 @@
    "back": true,
    "text": [
     "Tu dis au capitaine ce que t'a raconté l'apothicaire de Port-Aubier : une once de digitale, achetée par le second, pour son cœur.",
-    "Le vieil homme ouvre les yeux. « Je n'ai jamais pris de digitale de ma vie. Mon cœur allait très bien à Port-Aubier. » Il regarde la lampe, ses cercles jaunes. Il ne dit plus rien pendant longtemps, et quand il parle, c'est à voix très basse. « Allez voir Daoulas. Et ne dites rien à personne. À personne, vous m'entendez. »"
+    "Le vieil homme ouvre les yeux. « Je n'ai jamais pris de digitale de ma vie. Mon cœur allait très bien à Port-Aubier. » Il regarde la lampe, ses cercles jaunes. Il se tait longtemps, et quand il parle, c'est à voix très basse. « Allez voir Daoulas. Et ne dites rien à personne. À personne, vous m'entendez. »"
    ],
    "fx": {
     "regard": {
@@ -4083,7 +4083,7 @@
     "Tu parles de la plaque de la chapelle de Gavre. Le visage du second se ferme, et ses yeux se mouillent. « La Bergeronnette. On a touché la Mâchoire à minuit, par grosse mer. Elle s'est ouverte en deux. J'ai mis la chaloupe à l'eau avec quatre hommes, j'ai cherché les autres jusqu'au jour. » Il serre les poings. « Hervé Corbière était à l'arrière. Je l'ai vu sauter. Je n'ai pas pu l'atteindre. »",
     {
      "with": "gabin",
-     "text": "Gabin baisse la tête. Morvan lui met la main sur l'épaule, et le garçon ne la repousse pas."
+     "text": "Gabin baisse la tête. Morvan lui met la main sur l'épaule, et le garçon la laisse là."
     }
    ]
   },
@@ -4105,7 +4105,7 @@
    "title": "Morvan Le Hir",
    "back": true,
    "text": [
-    "Tu lui montres la lettre au cachet vert. Il la reconnaît avant même que tu la déplies. Il ne cherche pas à te la prendre.",
+    "Tu lui montres la lettre au cachet vert. Il la reconnaît avant même que tu la déplies. Il te la laisse.",
     "« Tu as fouillé ma chambre. » Il rit, tout bas. « Tu vois, c'est pour ça que Corbière t'a choisi{e}. Un étranger, qui ne connaît personne, qui ne sait rien. Il s'est trompé sur le dernier point. »",
     "Il se penche vers toi. « Écoute bien, parce que je ne le dirai qu'une fois. Ce navire va finir sur les Dents, avec ou sans toi. Mille écus, c'est beaucoup d'argent. Il y a de la place dans la chaloupe. Réfléchis jusqu'aux Dents. »"
    ],
@@ -4186,7 +4186,7 @@
    "text": [
     {
      "first": true,
-     "text": "Le timonier ne tourne pas la tête. Il a les deux mains sur les poignées de la roue, et ses yeux vont du compas à la voile, de la voile au compas. « On peut causer, dit-il. Mais pas me faire rire. Je ris, je lâche la barre. »"
+     "text": "Le timonier garde la tête droite. Il a les deux mains sur les poignées de la roue, et ses yeux vont du compas à la voile, de la voile au compas. « On peut causer, dit-il. Mais pas me faire rire. Je ris, je lâche la barre. »"
     },
     {
      "again": true,
@@ -4238,7 +4238,7 @@
    "text": [
     {
      "first": true,
-     "text": "Rozenn ne te laisse pas entrer dans sa cambuse. Elle se tient sur le seuil, une louche à la main, et t'écoute en surveillant son chaudron par-dessus son épaule."
+     "text": "Rozenn te barre l'entrée de sa cambuse. Elle se tient sur le seuil, une louche à la main, et t'écoute en surveillant son chaudron par-dessus son épaule."
     },
     {
      "first": true,
@@ -4823,7 +4823,7 @@
    "title": "Le manifeste",
    "place": "aubier_quai",
    "text": [
-    "Le second referme l'écritoire. Il ne sourit plus, mais il garde une voix aimable. « Maître Corbière ne va pas aimer ça. Un navire qui part sans manifeste signé, la Chambre des Assurances ne le couvre qu'à moitié. »",
+    "Le second referme l'écritoire. Son sourire a disparu, mais sa voix reste aimable. « Maître Corbière ne va pas aimer ça. Un navire qui part sans manifeste signé, la Chambre des Assurances ne le couvre qu'à moitié. »",
     "« Alors elle le couvrira à moitié », dit le capitaine Coët, qui passe à côté de vous sans s'arrêter. C'est la première fois que tu l'entends presque rire."
    ],
    "fx": {
@@ -4962,7 +4962,7 @@
     },
     {
      "first": true,
-     "text": "Quand tu lui dis qui tu es, il ne te fait pas entrer. Il reste dans l'embrasure, la main sur la porte. « Le nouveau subrécargue de la Sterne. Eh bien. Bon voyage. »"
+     "text": "Quand tu lui dis qui tu es, il te laisse sur le seuil. Il reste dans l'embrasure, la main sur la porte. « Le nouveau subrécargue de la Sterne. Eh bien. Bon voyage. »"
     },
     {
      "again": true,
@@ -5341,7 +5341,7 @@
    "title": "Le pilote",
    "place": "gavre",
    "text": [
-    "Tu lui jettes de l'eau au visage. Il ouvre un œil, te regarde, et se met à pleurer sans bruit. Puis il se rendort. Mère Ozanne hausse les épaules. « Il en a pour jusqu'à demain. »",
+    "Tu lui jettes de l'eau au visage. Il ouvre un œil, te regarde, et se met à pleurer tout bas. Puis il se rendort. Mère Ozanne hausse les épaules. « Il en a pour jusqu'à demain. »",
     "Au moment où tu repars, Tréguer t'attrape la manche. Sa voix est pâteuse. « Mon routier… chez la Guivarc'h… en gage. Les passes, toutes les passes. Le prends pas, il est à Yann. » Il retombe sur son banc."
    ],
    "choices": [
@@ -5931,7 +5931,7 @@
        "has": "cap:soigne"
       }
      },
-     "text": "Le capitaine ne monte pas. C'est le second qui commande, accroché à la barre avec Kerlo, et qui commande bien : ses ordres tombent juste, au bon moment, d'une voix claire."
+     "text": "Le capitaine est resté en bas. C'est le second qui commande, accroché à la barre avec Kerlo, et qui commande bien : ses ordres tombent juste, au bon moment, d'une voix claire."
     },
     "On tend des lignes de vie de l'avant à l'arrière. Chacun a sa tâche. On te crie la tienne."
    ],
@@ -6173,7 +6173,7 @@
     "Quatre hommes tirent sur la ligne avec toi. Quand on hisse le naufragé sur le pont, il crache de l'eau de mer, tousse, pleure, et rit.",
     {
      "with": "pierrick",
-     "text": "Pierrick ne lâche plus la bouée pendant une heure. Puis il vient s'asseoir à côté de toi, trempé, et pose la tête contre ton épaule."
+     "text": "Pierrick garde la bouée serrée contre lui pendant une heure. Puis il vient s'asseoir à côté de toi, trempé, et pose la tête contre ton épaule."
     }
    ],
    "fx": {
@@ -6580,7 +6580,7 @@
    "place": "pont",
    "back": true,
    "text": [
-    "Tu prends le quart avec la bordée de Kerlo, de minuit à quatre heures. Le timonier ne parle presque pas. Il regarde le compas, la voile, le compas. Tu tiens la lanterne de l'habitacle, et tu apprends à lire la rose des vents qui tremble dans son bol de cuivre.",
+    "Tu prends le quart avec la bordée de Kerlo, de minuit à quatre heures. Le timonier parle à peine. Il regarde le compas, la voile, le compas. Tu tiens la lanterne de l'habitacle, et tu apprends à lire la rose des vents qui tremble dans son bol de cuivre.",
     {
      "temps": "brume",
      "text": "La brume colle à tout. On sonne la cloche toutes les deux minutes, et on écoute. Une fois, très loin, une autre cloche répond, et Kerlo met un rayon de barre."
@@ -8601,7 +8601,7 @@
      "if": {
       "has": "chaloupe:videe"
      },
-     "text": "Les barils de la chaloupe sont vides. Le compas a disparu. Vous ramez trois jours sur la mer des Brumes, en buvant la pluie dans la voile tendue. Le troisième soir, une barque de pêche de Marbecq vous ramasse. Le second ne parle plus depuis la veille."
+     "text": "Les barils de la chaloupe sont vides. Le compas a disparu. Vous ramez trois jours sur la mer des Brumes, en buvant la pluie dans la voile tendue. Le troisième soir, une barque de pêche de Marbecq vous ramasse. Le second se tait depuis la veille."
     },
     {
      "if": {

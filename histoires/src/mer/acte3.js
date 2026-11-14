@@ -237,7 +237,7 @@ module.exports = { passages: {
     text: [
       "Tu te glisses à l'arrière pendant que les hommes regardent les brisants. Le second t'attend près de la chaloupe. Il te tend la main pour t'aider à enjamber le plat-bord. « Je savais que tu étais raisonnable », dit-il.",
       "La chaloupe touche l'eau. Quatre hommes prennent les avirons. Derrière vous, la Sterne file sur la ligne blanche, toutes voiles dehors, sa barre amarrée. On entend des cris à bord, au moment où la chaloupe s'éloigne.",
-      { if: { has: "chaloupe:videe" }, text: "Les barils de la chaloupe sont vides. Le compas a disparu. Vous ramez trois jours sur la mer des Brumes, en buvant la pluie dans la voile tendue. Le troisième soir, une barque de pêche de Marbecq vous ramasse. Le second ne parle plus depuis la veille." },
+      { if: { has: "chaloupe:videe" }, text: "Les barils de la chaloupe sont vides. Le compas a disparu. Vous ramez trois jours sur la mer des Brumes, en buvant la pluie dans la voile tendue. Le troisième soir, une barque de pêche de Marbecq vous ramasse. Le second se tait depuis la veille." },
       { if: { not: { has: "chaloupe:videe" } }, text: "Le second gouverne au compas, tranquillement, en sifflotant. Au matin, il fait route vers le sud des Îles Blanches, loin de Marbecq. « On dira qu'on a été jetés à la côte, dit-il. Cinq rescapés. Comme la dernière fois. »" },
       "Tu touches tes mille écus de Corbière six mois plus tard, par un homme de loi que tu ne revois jamais. La Chambre des Assurances a payé.",
     ],

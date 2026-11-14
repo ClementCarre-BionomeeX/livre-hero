@@ -151,7 +151,7 @@ module.exports = {
   A_refus: {
     title: "Le manifeste", place: "aubier_quai",
     text: [
-      "Le second referme l'écritoire. Il ne sourit plus, mais il garde une voix aimable. « Maître Corbière ne va pas aimer ça. Un navire qui part sans manifeste signé, la Chambre des Assurances ne le couvre qu'à moitié. »",
+      "Le second referme l'écritoire. Son sourire a disparu, mais sa voix reste aimable. « Maître Corbière ne va pas aimer ça. Un navire qui part sans manifeste signé, la Chambre des Assurances ne le couvre qu'à moitié. »",
       "« Alors elle le couvrira à moitié », dit le capitaine Coët, qui passe à côté de vous sans s'arrêter. C'est la première fois que tu l'entends presque rire.",
     ],
     fx: { ep: ["seance", 500] },
@@ -203,7 +203,7 @@ module.exports = {
     act: "I", title: "Chez Thibaut Lerac", place: "aubier_ville",
     text: [
       { first: true, text: "Thibaut Lerac habite deux pièces au-dessus d'une boutique de chandelles. Il t'ouvre lui-même, en sautillant sur une béquille, la jambe droite prise dans une attelle de planchettes. C'est un vieil homme maigre au crâne chauve, aux lunettes rondes, qui sent le tabac froid." },
-      { first: true, text: "Quand tu lui dis qui tu es, il ne te fait pas entrer. Il reste dans l'embrasure, la main sur la porte. « Le nouveau subrécargue de la Sterne. Eh bien. Bon voyage. »" },
+      { first: true, text: "Quand tu lui dis qui tu es, il te laisse sur le seuil. Il reste dans l'embrasure, la main sur la porte. « Le nouveau subrécargue de la Sterne. Eh bien. Bon voyage. »" },
       { again: true, text: "Lerac t'ouvre de nouveau, toujours sur sa béquille. Il soupire en te voyant, mais il ne referme pas la porte." },
     ],
     fx: { meet: "lerac" },
@@ -307,7 +307,7 @@ module.exports = {
   G_treguer_non: {
     title: "Le pilote", place: "gavre",
     text: [
-      "Tu lui jettes de l'eau au visage. Il ouvre un œil, te regarde, et se met à pleurer sans bruit. Puis il se rendort. Mère Ozanne hausse les épaules. « Il en a pour jusqu'à demain. »",
+      "Tu lui jettes de l'eau au visage. Il ouvre un œil, te regarde, et se met à pleurer tout bas. Puis il se rendort. Mère Ozanne hausse les épaules. « Il en a pour jusqu'à demain. »",
       "Au moment où tu repars, Tréguer t'attrape la manche. Sa voix est pâteuse. « Mon routier… chez la Guivarc'h… en gage. Les passes, toutes les passes. Le prends pas, il est à Yann. » Il retombe sur son banc.",
     ],
     choices: [{ back: "G_auberge" }],
