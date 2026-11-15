@@ -48,4 +48,6 @@ module.exports = {
     desc: "Dix-huit grottes creusées dans la falaise rouge, de l'autre côté du lac, à vingt-cinq mètres du sol, desservies par des escaliers de pierre étroits et raides. Les murs sont couverts de dessins d'animaux au charbon." },
   geyser: { ambiance: "foret", name: "L'atelier de Challenger", map: "plateau", x: 64, y: 34, region: "Terre de Maple White", arrive: "XV_6",
     desc: "Une petite clairière dans un bosquet de palmiers, autour d'un geyser de boue d'où monte un gaz plus léger que l'air." },
+  queens_hall: { ambiance: "ville", name: "Le Queen's Hall", map: "londres", x: 40, y: 20, region: "Londres", arrive: "XVI_2",
+    desc: "La grande salle de concert de Regent Street, louée pour la réunion de l'Institut zoologique : cinq mille personnes, une estrade, une fosse d'orchestre, des galeries." },
 };
