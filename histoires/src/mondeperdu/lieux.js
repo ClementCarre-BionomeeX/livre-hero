@@ -10,4 +10,6 @@ module.exports = {
     desc: "La rédaction de la revue scientifique où travaille Tarp Henry." },
   enmore: { ambiance: "ville", name: "Enmore Park", map: "londres", x: 22, y: 38, region: "Londres", arrive: "III_2",
     desc: "La maison du professeur Challenger à Kensington, à l'ouest de Londres : un portique, de lourds rideaux, un perron." },
+  institut: { ambiance: "ville", name: "L'Institut zoologique", map: "londres", x: 45, y: 26, region: "Londres", arrive: "V_3",
+    desc: "La grande salle de conférences de l'Institut zoologique, son estrade, ses galeries d'étudiants." },
 };
