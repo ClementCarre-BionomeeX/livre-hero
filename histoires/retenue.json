@@ -7010,6 +7010,13 @@
     {
      "label": "Demander à Tassin, devant tout le monde, si la digue tiendra l'hiver",
      "to": "C_tassin_table"
+    },
+    {
+     "label": "Fumer un cigare sur le balcon du vestibule",
+     "hide": {
+      "has": "corlay:barometre"
+     },
+     "to": "C_balcon"
     }
    ]
   },
@@ -7029,6 +7036,13 @@
     {
      "label": "La suivre au cabinet",
      "to": "C_cabinet"
+    },
+    {
+     "label": "Aller d'abord voir Dame Hesdin, cette nuit même",
+     "if": {
+      "second": true
+     },
+     "to": "C_hesdin"
     }
    ]
   },
@@ -7061,6 +7075,10 @@
     "time": 0.25
    },
    "text": [
+    {
+     "via": "hesdin",
+     "text": "Tu rentres de chez Dame Hesdin avec sa question dans la tête. *Une fois, dans votre vie ?*"
+    },
     "Le valet vert est revenu du corps de garde. Sur ton bureau, dans une toile cirée ouverte, il y a une clé de fer longue comme un avant-bras. *F. V.* Ferréol Vellard. Et une lettre au cachet vert brisé.",
     "Tu la lis. *Trois heures, la vanne de fond. Il faut quatre bras. Qu'Ilde fasse lever les Foulons à deux heures.*",
     "Le vieux Vellard veut ouvrir la vanne cette nuit, en douce, la veille du vote. Lâcher la Retenue sur les Foulons, sur tes entrepôts, sur trois mois de laine. Pour faire peur au Conseil ? Pour qu'on parle de la digue demain, à sa façon, avant qu'il meure ?",
@@ -7081,6 +7099,13 @@
       "lore": "veine"
      },
      "to": "C_bastien"
+    },
+    {
+     "label": "Demander son avis à Pernelle",
+     "hide": {
+      "has": "corlay:pernelle"
+     },
+     "to": "C_pernelle"
     }
    ]
   },
@@ -7111,7 +7136,7 @@
    "title": "Minuit",
    "place": "hauteville",
    "fx": {
-    "time": 4
+    "time": 1
    },
    "text": [
     "Le souper finit à minuit. Aubrac et Malzieu partent ensemble, en riant fort dans la rue Haute. Tassin part seul, sous un parapluie qu'il ouvre alors qu'il ne pleut pas.",
@@ -7124,7 +7149,17 @@
    "choices": [
     {
      "label": "Dormir",
-     "to": "C_vote"
+     "to": "C_vote",
+     "fx": {
+      "time": 3
+     }
+    },
+    {
+     "label": "Répondre à Aude, pour une fois",
+     "if": {
+      "second": "C_vote"
+     },
+     "to": "C_aude"
     }
    ]
   },
@@ -7232,16 +7267,12 @@
     "Tu fais atteler la petite voiture. Tu prends la clé, ton manteau, une lanterne, et Pernelle Daguet, qui monte sans qu'on le lui demande avec son écritoire sur les genoux.",
     "« Rambert, dis-tu au capitaine dans la cour. Le guet aux Foulons, à deux heures. Toutes les portes. Qu'on monte tout le monde à Saint-Rieul. Si on vous demande pourquoi, c'est un ordre du Conseil. »",
     "Rambert ouvre la bouche. Tu le regardes. Il la referme.",
-    "La voiture descend à la porte Saint-Rieul, qu'on t'ouvre, traverse le pont des Moulins, prend la route de la Digue. Les bornes passent dans la lanterne. Pernelle ne dit rien.",
-    "Au bout de la route, au pied du mur, il y a une cabane de planches goudronnées, de la lumière dedans, et une femme rousse sur le ponton, un couteau à la main."
+    "La voiture descend à la porte Saint-Rieul, qu'on t'ouvre, puis le raidillon jusqu'au pont des Moulins."
    ],
    "choices": [
     {
-     "label": "Lui demander de te montrer le mur",
-     "to": "C_pied",
-     "fx": {
-      "flag": "foulons:leves"
-     }
+     "label": "Passer le pont",
+     "to": "C_pont_odon"
     }
    ]
   },
@@ -7253,6 +7284,15 @@
     "time": 0.5
    },
    "text": [
+    {
+     "via": "ordre",
+     "text": "Le sergent arrache sa hallebarde des pavés et s'écarte. Il te salue. Il ne te regarde pas."
+    },
+    {
+     "via": "verite",
+     "text": "Le sergent t'écoute jusqu'au bout, la lanterne baissée. Puis il dit : « Ma fille dort rue du Lavoir. » Il crie à ses deux hommes de le suivre, et ils partent en courant vers les Foulons, sans attendre le capitaine."
+    },
+    "La route de la Digue. Les bornes passent dans la lanterne. Pernelle ne dit rien. Au bout de la route, au pied du mur, il y a une cabane de planches goudronnées, de la lumière dedans, et une femme rousse sur le ponton, un couteau à la main.",
     "La femme te regarde, toi, ton manteau, ta voiture. Elle te reconnaît. Tout le monde te reconnaît dans cette vallée.",
     "Elle te fait monter dans sa barque sans un mot. Elle longe le parement à la rame, jusqu'à un endroit qu'elle connaît. Elle lève la lanterne.",
     "Entre deux pierres, un mètre au-dessus de l'eau, un bouillon sort du mur. Il est gros comme un bras. Il est brun, chargé de sable. Il gargouille. La pierre autour est mouillée sur toute sa hauteur.",
@@ -7337,6 +7377,12 @@
     "Tu dis : la digue fuyait. Tu dis : je suis allé voir, cette nuit. Tu dis : j'ai fait ouvrir la vanne de fond, et j'ai fait monter les Foulons à Saint-Rieul par le guet. Tu dis : personne n'est mort.",
     "Tout est vrai. Tu ne dis pas la séance d'il y a trois ans. Tu ne dis pas le rapport de Tassin. Tu ne dis pas la clé saisie sur le pont.",
     "On vote. Six voix pour toi. Dame Hesdin s'abstient. Elle te regarde pendant tout le vote.",
+    {
+     "if": {
+      "has": "corlay:hesdin"
+     },
+     "text": "Elle t'avait demandé de lui montrer quelque chose. Tu lui as montré tes mains bandées. Elle sait compter : il manque trois ans à ton récit."
+    },
     "Le soir, toute la ville sait que le premier drapier a sauvé Corvèze. On t'acclame sur la place. Tes entrepôts sont perdus, la laine de la saison est perdue, et tu as la Charge des Vannes pour vingt ans.",
     "Pernelle Daguet range son écritoire dans un tiroir de ton cabinet. Elle ne te la montre pas. Tu ne lui demandes pas ce qu'elle a écrit cette nuit."
    ]
@@ -7372,6 +7418,12 @@
     "Aubrac et Malzieu ne te regardent plus. Rouvray pleure, un vieux qui pleure comme un enfant, sans cacher son visage.",
     "Dame Hesdin se lève. « J'ai voté contre, il y a trois ans. Je me suis tue avec vous. Monsieur Corlay vient de faire ce qu'aucun de nous n'a fait. Je propose qu'on vide le lac au printemps, et qu'on rende au garde-vannes l'honneur qu'on lui a pris. »",
     "Tu quittes la présidence du Conseil le jour même. Tu vends la fabrique en deux ans, à perte, pour rembourser la laine des petits drapiers noyée dans tes entrepôts.",
+    {
+     "if": {
+      "has": "corlay:odon"
+     },
+     "text": "Sur les marches, le sergent Brasseur te regarde passer. Il porte la main à son chapeau, lentement."
+    },
     "Aude t'attend à la porte de l'Hôtel, sous un parapluie. Elle te prend le bras. Elle dit : « Enfin. » C'est tout ce qu'elle dit, et c'est assez."
    ]
   },
@@ -7410,6 +7462,136 @@
     "À huit heures, le Conseil se réunit dans une ville qui compte ses morts. Tu présides. Tu dis que le garde-vannes a caché l'état de la digue. On te croit, pendant une semaine.",
     "Puis Pernelle Daguet quitte ton service. Elle emporte une copie de tout ce qu'elle a écrit depuis trois ans. Puis Dame Hesdin demande l'ouverture de ton coffre devant le Conseil.",
     "On te juge au printemps, quand le lac est vide et qu'on peut voir, dans la boue, ce qui reste de la Grande Digue. On ne te pend pas. On te prend tout. Tu finis l'hiver dans une chambre de la Haute-Ville, d'où l'on voit l'endroit où était la Retenue."
+   ]
+  },
+  "C_balcon": {
+   "act": "I",
+   "title": "Le baromètre du vestibule",
+   "place": "hauteville",
+   "fx": {
+    "flag": "corlay:barometre",
+    "time": 0.25
+   },
+   "text": [
+    "Tu t'excuses et tu sors fumer sur le balcon du vestibule. Le vent te prend le cigare des doigts à la première bouffée. Tu le regardes tomber dans le noir de la rue Haute, petit point rouge.",
+    "Au mur du vestibule, il y a le baromètre que ton père a rapporté de Lyon, en noyer et en cuivre. Tu tapotes le verre, par habitude. L'aiguille tombe d'un cran. Elle est sur *Tempête*. Tu ne l'as jamais vue là.",
+    "Au bout de la vallée, sur la digue, la petite lumière de la Maison des Vannes. Le vieux Vellard a un baromètre, lui aussi. Il le regarde, ce soir, et il voit la même aiguille que toi."
+   ],
+   "choices": [
+    {
+     "label": "Rentrer à table",
+     "back": "C_souper"
+    }
+   ]
+  },
+  "C_hesdin": {
+   "act": "I",
+   "title": "La dame des forges",
+   "place": "hauteville",
+   "fx": {
+    "flag": "corlay:hesdin",
+    "time": 0.75
+   },
+   "text": [
+    "Tu laisses tes invités au dessert et tu fais atteler. La maison Hesdin est au bout de la rue Haute, contre le rempart : une maison de maître de forges, grande, sans ornements, avec une enclume de fer sur le linteau.",
+    "Dame Bérangère Hesdin te reçoit dans son bureau, en robe noire, devant un feu de bois de chêne. Elle a soixante-dix ans et un regard de fondeur. Elle ne t'offre pas de t'asseoir.",
+    "« Votre pâté était excellent, Corlay. Mes chiens l'ont dit. »",
+    "Tu parles. Tu parles bien : la stabilité, les tisserands, la Charge en de bonnes mains, la digue reprise dans les règles. Elle t'écoute jusqu'au bout.",
+    "« Une seule question, dit-elle. Vous êtes descendu dans la galerie, vous ? Une fois, dans votre vie ? »",
+    "Tu ouvres la bouche. Elle lève la main. « Ne répondez pas. Je vote ce que je vois, Corlay. Montrez-moi quelque chose. »"
+   ],
+   "choices": [
+    {
+     "label": "Rentrer chez toi",
+     "to": "C_cabinet",
+     "via": "hesdin"
+    }
+   ]
+  },
+  "C_pernelle": {
+   "act": "I",
+   "title": "Les comptes de Pernelle",
+   "place": "hauteville",
+   "fx": {
+    "flag": "corlay:pernelle"
+   },
+   "text": [
+    "« Pernelle. Qu'en pensez-vous ? »",
+    "Elle lève les yeux de son pupitre. En douze ans, tu ne lui as jamais posé cette question. Elle prend le temps de nettoyer sa plume.",
+    "« Ce soir, Monsieur, vous avez payé le capitaine Rambert, maître Tassin, le teinturier Cosson et le fils Vellard. J'ai tout noté. » Elle referme son registre. « Vous payez beaucoup de gens pour qu'ils vous disent ce que vous voulez entendre. Moi, vous me payez pour tenir les comptes. Les comptes disent que le garde-vannes est le seul, cette semaine, à ne vous avoir rien coûté. »"
+   ],
+   "choices": [
+    {
+     "label": "Revenir à la clé",
+     "back": "C_cabinet"
+    }
+   ]
+  },
+  "C_pont_odon": {
+   "act": "I",
+   "title": "Ordre du capitaine",
+   "place": "pont",
+   "fx": {
+    "time": 0.25
+   },
+   "text": [
+    "Au milieu du pont des Moulins, une hallebarde plantée entre deux pavés, une lanterne, et un sergent large d'épaules qui lève la main devant tes chevaux.",
+    "« Halte. Ordre du capitaine Rambert : rien ne monte vers la digue cette nuit. »",
+    "Pernelle Daguet, à côté de toi, étouffe quelque chose qui pourrait être un rire. Le sergent lève sa lanterne vers la voiture, voit ton visage, ta pelisse, la couronne brodée sur la portière. Il blêmit.",
+    "C'est toi qui as donné cet ordre, il y a quatre heures, par la bouche de Rambert."
+   ],
+   "choices": [
+    {
+     "label": "« Je suis Corlay. Écartez-vous. »",
+     "to": "C_pied",
+     "via": "ordre",
+     "fx": {
+      "flag": "foulons:leves"
+     }
+    },
+    {
+     "label": "Lui dire la vérité : pourquoi tu montes, et pourquoi il gardait ce pont",
+     "to": "C_pied",
+     "via": "verite",
+     "fx": {
+      "flag": [
+       "foulons:leves",
+       "corlay:odon"
+      ]
+     }
+    }
+   ]
+  },
+  "C_aude": {
+   "act": "I",
+   "title": "Aude",
+   "place": "hauteville",
+   "fx": {
+    "time": 0.5
+   },
+   "text": [
+    "Tu te retournes vers elle dans le noir.",
+    "« Il y a trois ans, le vieux Vellard est venu au Conseil avec ses mesures. Une fissure dans la galerie. Il fallait vider le lac. On a voté de se taire. J'ai présidé. On a payé les dettes de son fils pour qu'il se taise aussi. » Tu respires. « Ce soir, il a voulu ouvrir la vanne. J'ai fait saisir la clé. Elle est dans le coffre. »",
+    "Aude ne dit rien pendant un long moment. Puis elle se lève, allume la bougie, et commence à s'habiller.",
+    "« Fais atteler, dit-elle. Tu vas aller voir. Moi, je vais réveiller Pernelle. »",
+    "« Il est une heure du matin. »",
+    "« Il était une heure du matin il y a trois ans aussi, Enguerrand. Ça fait trois ans qu'il est une heure du matin. »"
+   ],
+   "choices": [
+    {
+     "label": "Prendre la clé au coffre, et faire atteler",
+     "to": "C_route",
+     "fx": {
+      "time": 0.25
+     }
+    },
+    {
+     "label": "Lui dire de se recoucher, et te recoucher aussi",
+     "to": "C_vote",
+     "fx": {
+      "time": 2.5
+     }
+    }
    ]
   },
   "A_galerie": {

@@ -12,6 +12,7 @@ module.exports = {
     choices: [
       { label: "Parler des voix avec Aubrac et Malzieu", to: "C_voix" },
       { label: "Demander à Tassin, devant tout le monde, si la digue tiendra l'hiver", to: "C_tassin_table" },
+      { label: "Fumer un cigare sur le balcon du vestibule", hide: { has: "corlay:barometre" }, to: "C_balcon" },
     ] },
   C_voix: { act: A, title: "Les voix", place: "hauteville", fx: { time: 0.75 },
     text: [
@@ -19,7 +20,10 @@ module.exports = {
       "Aude ne rit pas. Elle te regarde par-dessus son verre, comme elle te regarde depuis trente ans quand tu racontes une affaire en oubliant un chiffre.",
       "À dix heures, Pernelle Daguet apparaît à la porte de la salle et te fait un signe. Tu t'excuses.",
     ],
-    choices: [{ label: "La suivre au cabinet", to: "C_cabinet" }] },
+    choices: [
+      { label: "La suivre au cabinet", to: "C_cabinet" },
+      { label: "Aller d'abord voir Dame Hesdin, cette nuit même", if: { second: true }, to: "C_hesdin" },
+    ] },
   C_tassin_table: { act: A, title: "L'ingénieur", place: "hauteville", fx: { time: 0.75 },
     text: [
       "Tassin pose sa cuiller. « Elle tiendra, Monsieur. J'ai examiné l'ouvrage il y a quinze jours. Les suintements sont ordinaires pour un ouvrage de cet âge. Une reprise à la saison sèche suffira. »",
@@ -31,6 +35,7 @@ module.exports = {
     choices: [{ label: "La suivre au cabinet", to: "C_cabinet" }] },
   C_cabinet: { act: A, title: "La clé sur le bureau", place: "hauteville", fx: { time: 0.25 },
     text: [
+      { via: "hesdin", text: "Tu rentres de chez Dame Hesdin avec sa question dans la tête. *Une fois, dans votre vie ?*" },
       "Le valet vert est revenu du corps de garde. Sur ton bureau, dans une toile cirée ouverte, il y a une clé de fer longue comme un avant-bras. *F. V.* Ferréol Vellard. Et une lettre au cachet vert brisé.",
       "Tu la lis. *Trois heures, la vanne de fond. Il faut quatre bras. Qu'Ilde fasse lever les Foulons à deux heures.*",
       "Le vieux Vellard veut ouvrir la vanne cette nuit, en douce, la veille du vote. Lâcher la Retenue sur les Foulons, sur tes entrepôts, sur trois mois de laine. Pour faire peur au Conseil ? Pour qu'on parle de la digue demain, à sa façon, avant qu'il meure ?",
@@ -40,6 +45,7 @@ module.exports = {
       { label: "Ranger la clé au coffre jusqu'au vote", to: "C_coffre" },
       { label: "Faire monter Tassin, seul, et lui reposer la question", to: "C_tassin_seul" },
       { label: "Faire monter le fils", if: { lore: "veine" }, to: "C_bastien" },
+      { label: "Demander son avis à Pernelle", hide: { has: "corlay:pernelle" }, to: "C_pernelle" },
     ] },
   C_coffre: { act: A, title: "Le coffre", place: "hauteville", fx: { learn: "proces_verbal", time: 1 },
     text: [
@@ -50,7 +56,7 @@ module.exports = {
       "« Renvoyez le fils avec les vingt écus, dit-tu à Pernelle. Et dites à nos invités que je les rejoins. »",
     ],
     choices: [{ label: "Retourner au souper", to: "C_vote_nuit" }] },
-  C_vote_nuit: { act: A, title: "Minuit", place: "hauteville", fx: { time: 4 },
+  C_vote_nuit: { act: A, title: "Minuit", place: "hauteville", fx: { time: 1 },
     text: [
       "Le souper finit à minuit. Aubrac et Malzieu partent ensemble, en riant fort dans la rue Haute. Tassin part seul, sous un parapluie qu'il ouvre alors qu'il ne pleut pas.",
       "Tu te couches. Aude est déjà au lit, les yeux ouverts dans le noir.",
@@ -59,7 +65,10 @@ module.exports = {
       "« Je ne t'ai pas demandé ce que croit Tassin. »",
       "Tu ne réponds pas. Tu fais semblant de dormir, et puis tu dors.",
     ],
-    choices: [{ label: "Dormir", to: "C_vote" }] },
+    choices: [
+      { label: "Dormir", to: "C_vote", fx: { time: 3 } },
+      { label: "Répondre à Aude, pour une fois", if: { second: "C_vote" }, to: "C_aude" },
+    ] },
   C_vote: { act: A, title: "La veille du vote", place: "hauteville", end: true, fx: { time: 1.25 },
     text: [
       "À quatre heures, la pluie te réveille. Elle bat les volets, lourde, régulière. Tu te lèves pour fermer une fenêtre qu'on a laissée entrouverte au salon.",
@@ -110,12 +119,14 @@ module.exports = {
       "Tu fais atteler la petite voiture. Tu prends la clé, ton manteau, une lanterne, et Pernelle Daguet, qui monte sans qu'on le lui demande avec son écritoire sur les genoux.",
       "« Rambert, dis-tu au capitaine dans la cour. Le guet aux Foulons, à deux heures. Toutes les portes. Qu'on monte tout le monde à Saint-Rieul. Si on vous demande pourquoi, c'est un ordre du Conseil. »",
       "Rambert ouvre la bouche. Tu le regardes. Il la referme.",
-      "La voiture descend à la porte Saint-Rieul, qu'on t'ouvre, traverse le pont des Moulins, prend la route de la Digue. Les bornes passent dans la lanterne. Pernelle ne dit rien.",
-      "Au bout de la route, au pied du mur, il y a une cabane de planches goudronnées, de la lumière dedans, et une femme rousse sur le ponton, un couteau à la main.",
+      "La voiture descend à la porte Saint-Rieul, qu'on t'ouvre, puis le raidillon jusqu'au pont des Moulins.",
     ],
-    choices: [{ label: "Lui demander de te montrer le mur", to: "C_pied", fx: { flag: "foulons:leves" } }] },
+    choices: [{ label: "Passer le pont", to: "C_pont_odon" }] },
   C_pied: { act: A, title: "Le pied du mur", place: "digue", fx: { time: 0.5 },
     text: [
+      { via: "ordre", text: "Le sergent arrache sa hallebarde des pavés et s'écarte. Il te salue. Il ne te regarde pas." },
+      { via: "verite", text: "Le sergent t'écoute jusqu'au bout, la lanterne baissée. Puis il dit : « Ma fille dort rue du Lavoir. » Il crie à ses deux hommes de le suivre, et ils partent en courant vers les Foulons, sans attendre le capitaine." },
+      "La route de la Digue. Les bornes passent dans la lanterne. Pernelle ne dit rien. Au bout de la route, au pied du mur, il y a une cabane de planches goudronnées, de la lumière dedans, et une femme rousse sur le ponton, un couteau à la main.",
       "La femme te regarde, toi, ton manteau, ta voiture. Elle te reconnaît. Tout le monde te reconnaît dans cette vallée.",
       "Elle te fait monter dans sa barque sans un mot. Elle longe le parement à la rame, jusqu'à un endroit qu'elle connaît. Elle lève la lanterne.",
       "Entre deux pierres, un mètre au-dessus de l'eau, un bouillon sort du mur. Il est gros comme un bras. Il est brun, chargé de sable. Il gargouille. La pierre autour est mouillée sur toute sa hauteur.",
@@ -153,6 +164,7 @@ module.exports = {
       "Tu dis : la digue fuyait. Tu dis : je suis allé voir, cette nuit. Tu dis : j'ai fait ouvrir la vanne de fond, et j'ai fait monter les Foulons à Saint-Rieul par le guet. Tu dis : personne n'est mort.",
       "Tout est vrai. Tu ne dis pas la séance d'il y a trois ans. Tu ne dis pas le rapport de Tassin. Tu ne dis pas la clé saisie sur le pont.",
       "On vote. Six voix pour toi. Dame Hesdin s'abstient. Elle te regarde pendant tout le vote.",
+      { if: { has: "corlay:hesdin" }, text: "Elle t'avait demandé de lui montrer quelque chose. Tu lui as montré tes mains bandées. Elle sait compter : il manque trois ans à ton récit." },
       "Le soir, toute la ville sait que le premier drapier a sauvé Corvèze. On t'acclame sur la place. Tes entrepôts sont perdus, la laine de la saison est perdue, et tu as la Charge des Vannes pour vingt ans.",
       "Pernelle Daguet range son écritoire dans un tiroir de ton cabinet. Elle ne te la montre pas. Tu ne lui demandes pas ce qu'elle a écrit cette nuit.",
     ] },
@@ -172,6 +184,7 @@ module.exports = {
       "Aubrac et Malzieu ne te regardent plus. Rouvray pleure, un vieux qui pleure comme un enfant, sans cacher son visage.",
       "Dame Hesdin se lève. « J'ai voté contre, il y a trois ans. Je me suis tue avec vous. Monsieur Corlay vient de faire ce qu'aucun de nous n'a fait. Je propose qu'on vide le lac au printemps, et qu'on rende au garde-vannes l'honneur qu'on lui a pris. »",
       "Tu quittes la présidence du Conseil le jour même. Tu vends la fabrique en deux ans, à perte, pour rembourser la laine des petits drapiers noyée dans tes entrepôts.",
+      { if: { has: "corlay:odon" }, text: "Sur les marches, le sergent Brasseur te regarde passer. Il porte la main à son chapeau, lentement." },
       "Aude t'attend à la porte de l'Hôtel, sous un parapluie. Elle te prend le bras. Elle dit : « Enfin. » C'est tout ce qu'elle dit, et c'est assez.",
     ] },
   C_rupture_nuit: { act: A, title: "Le fils renvoyé", place: "hauteville", fx: { time: 6 },
