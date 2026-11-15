@@ -54,7 +54,7 @@ module.exports = {
       "Tu bouges. La barque gîte. La lanterne descend au bout d'une corde jusqu'à l'eau, et tu te retrouves dans la lumière, couchée sur le paquet, avec la tête du sergent Brasseur penchée au-dessus du parapet.",
       "Il te regarde. Il regarde Guillot. Il regarde le paquet. Il reste longtemps penché.",
       "« Tu as une femme enceinte à la maison, Guillot. Et tu promènes des courrières sur la Sorge à dix heures du soir. » La lanterne remonte. « Je n'ai rien vu. Rentre avant minuit, ou c'est moi qui viendrai le dire à Nine. »",
-      "Guillot rame plus fort. Il se tait jusqu'aux tanneries. Puis il rit tout bas, les dents serrées, et il rame encore plus fort.",
+      "Guillot rame plus fort. Il se tait jusqu'aux tanneries. Puis il rit tout bas, les dents serrées, et il rame plus fort encore.",
       "Au pied de la digue, il te pose sur le ponton de la cabane des Loutres.",
     ],
     choices: [{ label: "Regarder la cabane", to: "M_cabane_tot", via: "barque" }] },
@@ -62,7 +62,7 @@ module.exports = {
   // ------------------------------------------------------------------ Maëlle in the cell
   M_colin: { act: A, title: "Le garde du poêle", place: "hauteville", fx: { time: 0.5 },
     text: [
-      "Le jeune garde a dix-neuf ans, un duvet de moustache, et le dos tourné. Tu l'appelles. Il ne se retourne pas.",
+      "Le jeune garde a dix-neuf ans, un duvet de moustache, et le dos tourné. Tu l'appelles. Il garde le dos tourné.",
       "« Ta mère vend des beignets, place du Lavoir. Je lui en achète le dimanche, pour mon frère. »",
       "Il se retourne. Il s'appelle Colin. Il dit que sa mère dit que le lavoir déborde, ce soir. Il dit que la dernière fois qu'il a débordé en novembre, c'était l'année de la grande crue.",
       "Tu lui dis ce que tu sais : le paquet, la digue, l'apothicaire qui devait faire lever les Foulons à deux heures. Le paquet est parti chez un drapier avec un valet vert.",
@@ -75,7 +75,7 @@ module.exports = {
     text: [
       "Colin regarde la porte du poste, puis la grille, puis toi. Il prend la clé sur le clou. Ses mains tremblent.",
       "« Je viens avec toi, dit-il. Ma mère, je la réveille moi-même. »",
-      "Vous sortez par la cour. La porte Saint-Rieul est fermée ; Colin a l'uniforme, le garde de la poterne vous laisse passer. Vous courez sur le raidillon. Au pont, Thomin vous voit passer, ouvre la bouche, et la referme.",
+      "Vous sortez par la cour. La porte Saint-Rieul est fermée ; Colin porte l'uniforme, et le garde de la poterne vous laisse passer. Vous courez sur le raidillon. Au pont, Thomin vous voit passer, ouvre la bouche, et la referme.",
       "À une heure et demie, tu sonnes la cloche du lavoir. Colin tape aux portes avec sa hallebarde en criant « Le guet ! ». Les volets s'ouvrent. On voit un uniforme. On s'habille.",
     ],
     choices: [{ label: "Monter avec eux à Saint-Rieul", to: "M_cellule_fin" }] },
@@ -86,15 +86,15 @@ module.exports = {
       "À cinq heures et demie, la digue cède. Le parvis entier entend la vague, puis la voit. Elle passe sur les Foulons. Quand elle est passée, il reste des toits, et mille personnes vivantes sur les marches de Saint-Rieul.",
       "À huit heures, le capitaine Rambert vient chercher Colin sur le parvis, pour avoir ouvert une grille sans ordre. Colin le suit sans résister. La foule regarde partir le garçon qui a frappé à toutes les portes. D'abord, elle se tait. Puis une femme crie son nom. Puis cent.",
       "Rambert lâche le bras de Colin au bas de la Côte.",
-      "Le paquet est chez un drapier, et le vieux de la digue est mort cette nuit, seul. Tu n'as pas porté ce qu'on t'a donné à porter. Tu as porté autre chose, que personne ne t'a donné. On t'appellera la courrière évadée, aux Foulons, pendant vingt ans, et tu te demanderas toujours si c'est un compliment.",
+      "Le paquet est chez un drapier, et le vieux de la digue est mort cette nuit, seul. Ce qu'on t'avait donné à porter est resté en route. Tu as porté autre chose, que personne ne t'avait donné. On t'appellera la courrière évadée, aux Foulons, pendant vingt ans, et tu te demanderas toujours si c'est un compliment.",
     ] },
 
   // ------------------------------------------------------------------ Corlay woken by the Council
   C_quatre_maisons: { act: A, title: "Deux heures et demie", place: "hauteville", fx: { time: 0.25 },
     text: [
       "On frappe à ta porte à coups de pommeau d'épée. Tu descends en robe de chambre. Aude est derrière toi sur le palier.",
-      "Dans ton vestibule, sous ton baromètre, le capitaine Rambert, qui ne te regarde pas, et Dame Hesdin, en manteau noir, appuyée sur sa canne. Derrière elle, un colosse en tablier de cuir.",
-      "Rambert lit un papier à voix haute. *Le Conseil des Sept Maisons, réuni en péril.* Quatre signatures. La règle de Ferréol, que personne n'a utilisée depuis quarante ans. Tu la connais. Tu l'avais oubliée.",
+      "Dans ton vestibule, sous ton baromètre, le capitaine Rambert, les yeux ailleurs, et Dame Hesdin, en manteau noir, appuyée sur sa canne. Derrière elle, un colosse en tablier de cuir.",
+      "Rambert lit un papier à voix haute. *Le Conseil des Sept Maisons, réuni en péril.* Quatre signatures. La règle de Ferréol, qui dort depuis quarante ans. Tu la connais. Tu l'avais oubliée.",
       "« La clé, Corlay », dit Dame Hesdin.",
     ],
     choices: [
@@ -108,15 +108,15 @@ module.exports = {
       "« Vous la lirez au Conseil à huit heures, dis-tu. Ou je la lirai. Comme vous voudrez. »",
       "Elle te regarde longtemps, sous ton baromètre. Puis elle dit : « Lisez-la vous-même. Ça vous fera du bien. »",
       "À trois heures et demie, de la fenêtre du salon, Aude et toi, vous voyez trois lanternes au bout de la vallée. Aude te prend la main. À quatre heures, la pluie. Au jour, les Foulons dans l'eau, et vivants sur le parvis. La digue tient.",
-      "À huit heures, tu lis la liasse toi-même devant les Sept. Ta voix tremble au début, puis plus du tout. Tu retires ta candidature à la Charge. Tu gardes la présidence jusqu'au printemps, le temps de vider le lac. On te regarde autrement. Tu ne sais pas encore si c'est mieux.",
+      "À huit heures, tu lis la liasse toi-même devant les Sept. Ta voix tremble au début, puis elle se pose. Tu retires ta candidature à la Charge. Tu gardes la présidence jusqu'au printemps, le temps de vider le lac. On te regarde autrement. Mieux, peut-être ; tu l'ignores encore.",
     ] },
   C_refus_conseil: { act: A, title: "Une farce de nuit", place: "hauteville", end: true, fx: { time: 5.5 },
     text: [
-      "Rambert ne bouge pas. Il regarde l'ordre dans sa main, puis toi. Il fait ses comptes. Le Conseil le paie. Toi aussi. Ce soir, le Conseil a quatre voix, et toi une.",
+      "Rambert reste immobile. Il regarde l'ordre dans sa main, puis toi. Il fait ses comptes. Le Conseil le paie. Toi aussi. Ce soir, le Conseil a quatre voix, et toi une.",
       "« Monsieur, dit-il doucement. C'est un ordre du Conseil. »",
-      "C'est Aude qui monte au cabinet. Tu l'entends faire glisser la carte, tourner les clés. Elle redescend avec la toile cirée. Elle la met dans les mains du colosse en tablier. Elle ne te regarde pas.",
+      "C'est Aude qui monte au cabinet. Tu l'entends faire glisser la carte, tourner les clés. Elle redescend avec la toile cirée. Elle la met dans les mains du colosse en tablier. Ses yeux évitent les tiens.",
       "Ils partent. Tu restes dans ton vestibule, en robe de chambre, sous ton baromètre. L'aiguille est sur *Tempête*.",
-      "À huit heures, au Conseil, tu siégeras dans ton fauteuil de président. Dame Hesdin posera l'ordre de la nuit sur la table, avec ses quatre signatures, et le récit de ton refus, écrit par Rambert. Tu as tenu ta clé jusqu'au bout. Ta femme l'a rendue à ta place. On le saura dans toute la ville avant midi, et c'est ce dont on se souviendra de toi.",
+      "À huit heures, au Conseil, tu siégeras dans ton fauteuil de président. Dame Hesdin posera l'ordre de la nuit sur la table, avec ses quatre signatures, et le récit de ton refus, écrit par Rambert. Tu as tenu ta clé jusqu'au bout. Ta femme l'a rendue à ta place. Toute la ville le saura avant midi, et c'est ce dont on se souviendra de toi.",
     ] },
 
   // ------------------------------------------------------------------ Odon and the carriage with the anvil
@@ -138,16 +138,16 @@ module.exports = {
       "« Le capitaine a un capitaine, Colin. Ce soir, elle est passée sur ton pont. »",
       "À deux heures et demie, la même voiture redescend à toute allure, vide, et prend le chemin des Foulons. Tu entends le cocher crier aux portes : « Au nom des forges Hesdin ! Debout ! »",
       "À quatre heures, la pluie. Au jour, la Sorge est dans les Foulons jusqu'aux fenêtres basses, le quartier sur le parvis, la digue debout. Nine a monté la Côte avec son homme, le berceau sur la tête.",
-      "Rambert ne te demande rien. Il sait qui est passé sur le pont. Il sait qu'il n'a rien à dire à quelqu'un qui a salué une maison du Conseil. Tu as obéi, cette nuit, à la bonne personne. Tu ne savais pas, en prenant ta lanterne, qu'il y en avait une.",
+      "Rambert garde ses questions. Il sait qui est passé sur le pont. Il sait qu'on ne reproche rien à un sergent qui a salué une maison du Conseil. Tu as obéi, cette nuit, à la bonne personne. En prenant ta lanterne, tu ignorais qu'il en existait une.",
     ] },
   O_monte_hesdin: { act: A, title: "Le sergent sur le marchepied", place: "digue", end: true, fx: { flag: "foulons:leves", time: 6.5 },
     text: [
       "Dame Hesdin te regarde. Elle voit ton insigne, ta manche, ta lanterne. « Montez, sergent. »",
-      "Tu laisses le pont à Colin. Tu montes sur le marchepied, une main sur la galerie de la voiture. Au pied de la digue, tu portes la vieille dame dans les deux cents marches, à moitié, quand ses jambes ne veulent plus. Elle ne te remercie pas. Elle te serre le bras.",
+      "Tu laisses le pont à Colin. Tu montes sur le marchepied, une main sur la galerie de la voiture. Au pied de la digue, tu portes la vieille dame dans les deux cents marches, à moitié, quand ses jambes la lâchent. Elle garde ses remerciements. Elle te serre le bras.",
       "Dans la galerie basse, l'eau à la taille, le vieux Vellard explique le pointeau au colosse. Tu tiens la corde avec la dame. Au vingtième tour, la vanne s'ouvre avec un bruit de canon, et la corde manque de vous arracher les bras.",
       "Tu redescends avec la voiture pour faire lever les Foulons. Tu cognes aux portes avec ta hallebarde, rue après rue. Tu commences par la rue du Lavoir, la troisième maison après la fontaine.",
       "À huit heures, tu montes au Conseil derrière Dame Hesdin, trempé, couvert de boue, ton insigne à la manche. Elle te fait entrer dans la grande salle. Elle dit aux Sept : « Le sergent Brasseur a quitté son pont cette nuit, contre l'ordre de son capitaine. Je demande qu'on le nomme capitaine. »",
-      "On rit. Puis on regarde Rambert. On ne rit plus. Tu ne seras pas capitaine. Tu seras sergent de la digue, au printemps, quand on videra le lac. C'est mieux. Tu verras ta petite-fille grandir de là-haut.",
+      "On rit. Puis on regarde Rambert, et les rires s'arrêtent. Capitaine, tu ne le seras pas. Tu seras sergent de la digue, au printemps, quand on videra le lac. C'est mieux. Tu verras ta petite-fille grandir de là-haut.",
     ] },
 
   // ------------------------------------------------------------------ Bastien when the lady comes into the Chat Ferré
@@ -155,7 +155,7 @@ module.exports = {
     text: [
       "À une heure, la porte du haut s'ouvre, et la salle se tait. Une vieille dame en noir descend l'escalier du Chat Ferré, une marche après l'autre, avec une canne. Derrière elle, le vieux Rouvray, en bonnet de nuit sous son chapeau.",
       "Dame Hesdin. Dans une cave de dés, à une heure du matin.",
-      "Elle traverse la salle. Elle s'arrête devant Malzieu, qui joue à la table d'à côté, le gilet ouvert. Elle lui parle à voix basse. Tu entends : *Conseil*, *quatre*, *règle de Ferréol*. Malzieu rit. Il est saoul. Il ne comprend pas.",
+      "Elle traverse la salle. Elle s'arrête devant Malzieu, qui joue à la table d'à côté, le gilet ouvert. Elle lui parle à voix basse. Tu entends : *Conseil*, *quatre*, *règle de Ferréol*. Malzieu rit. Il est saoul. Les mots lui glissent dessus.",
       "Dame Hesdin se redresse. Elle te voit. Elle sait qui tu es.",
     ],
     choices: [
@@ -168,14 +168,14 @@ module.exports = {
       "Il signe. Dans la petite salle de l'Hôtel, à deux heures, avec Dame Hesdin, Rouvray et Pons. Tu tiens la chandelle. Personne ne te demande de sortir.",
       "Dame Hesdin te regarde par-dessus la table. « Vous êtes le fils. Vous écoutiez, ce soir, derrière une porte. » Elle l'affirme. Tu gardes le silence. Elle hoche la tête. « Vous écoutez bien. Ça peut servir. »",
       "À trois heures et demie, de la fenêtre de la petite salle, trois lanternes au bout de la vallée. C'est ton père, avec la clé que Corlay a rendue. Tu restes à la fenêtre jusqu'au jour.",
-      "Ton père meurt à midi. Tu n'arrives pas à temps pour lui dire ce que tu as fait à huit heures, ni ce que tu as fait à une heure. Il meurt en ignorant les deux. Tu porteras les deux. L'un des deux pèse un peu moins que l'autre, et tu sais lequel.",
+      "Ton père meurt à midi. Tu arrives trop tard pour lui dire ce que tu as fait à huit heures, et ce que tu as fait à une heure. Il meurt en ignorant les deux. Tu porteras les deux. L'un pèse un peu moins que l'autre, et tu sais lequel.",
     ] },
   B_malzieu_rit: { act: A, title: "Malzieu rit", place: "hauteville", end: true, fx: { time: 6.5 },
     text: [
       "Malzieu rit encore. Il propose à Dame Hesdin de jouer sa voix aux dés. Elle le regarde comme on regarde un cheval boiteux. Elle remonte l'escalier, une marche après l'autre, avec Rouvray derrière elle.",
-      "La salle reprend ses dés. Tu restes à ta table. Tu as baissé les yeux pendant qu'une vieille femme cherchait quatre voix pour sauver ton père. Tu as fait ça avec le même visage qu'à huit heures, à la porte du jardin.",
+      "La salle reprend ses dés. Tu restes à ta table. Tu as baissé les yeux pendant qu'une vieille femme cherchait quatre voix pour sauver ton père. Tu l'as fait avec le même visage qu'à huit heures, à la porte du jardin.",
       "À cinq heures et demie, le Chat Ferré tremble. Les bouteilles tombent. Maître Lucas court à la porte, puis il revient très lentement s'asseoir derrière son comptoir.",
-      "Tu remontes dans la rue des Orfèvres. Au bout, entre deux maisons, on voit la vallée. Au bout de la vallée, il n'y a plus de digue, et plus de lumière à la fenêtre de la Maison des Vannes.",
+      "Tu remontes dans la rue des Orfèvres. Au bout, entre deux maisons, on voit la vallée. Au bout de la vallée, la digue a disparu, et la fenêtre de la Maison des Vannes avec elle.",
       "Ce que Dame Hesdin a fait du reste de sa nuit, et ce qu'elle dira au Conseil à huit heures, tu l'apprendras avec toute la ville. Tu seras dans la salle. Elle te verra. Elle se souviendra de ton visage, au Chat Ferré, baissé sur un verre.",
     ] },
 
@@ -183,9 +183,9 @@ module.exports = {
   I_hesdin: { act: A, title: "La goutte de Dame Hesdin", place: "hauteville", fx: { time: 0.75 },
     text: [
       "Tu caches le paquet derrière les bocaux. Tu prends ta trousse, ton baume de colchique. Au pont, le sergent Brasseur te laisse monter : une apothicaire chez une patiente, à dix heures du soir, c'est l'ordinaire.",
-      "Dame Hesdin te reçoit dans son bureau, devant le feu, son pied malade sur un tabouret. Elle a soixante-dix ans et un regard de fondeur. Tu lui défais sa bande. Tu lui étales le baume. Et tu parles, sans lever les yeux de son pied.",
+      "Dame Hesdin te reçoit dans son bureau, devant le feu, son pied malade sur un tabouret. Elle a soixante-dix ans et un regard de fondeur. Tu lui défais sa bande. Tu lui étales le baume. Et tu parles, les yeux sur son pied.",
       "La veine. Deux doigts. L'orage de quatre heures. La clé dans ta boutique, derrière les sangsues. Le pont gardé. Le fils derrière la porte.",
-      "Dame Hesdin écoute jusqu'au bout sans bouger son pied. Puis elle dit : « Il y a trois ans, j'ai voté contre. Ensuite je me suis tue. Ilde, vous êtes la première personne qui me le fait payer. »",
+      "Dame Hesdin écoute jusqu'au bout, le pied immobile. Puis elle dit : « Il y a trois ans, j'ai voté contre. Ensuite je me suis tue. Ilde, vous êtes la première personne qui me le fait payer. »",
       "Elle appelle Barthélemy, son maître fondeur.",
     ],
     choices: [{ label: "Lui dire où est la clé, et la laisser faire", to: "I_hesdin_fin" }] },
@@ -194,7 +194,7 @@ module.exports = {
       "Barthélemy descend avec toi aux Foulons, dans la voiture des forges. Le sergent du pont voit l'enclume peinte et s'écarte. Barthélemy prend le paquet derrière les sangsues. Il repart vers la digue, au trot, sous le nez du guet, dans une voiture qu'aucun garde de Corvèze n'oserait arrêter.",
       "À deux heures, tu frappes chez les Mallet. Le quartier se lève. À trois heures et quart, du parvis, trois lanternes au bout de la vallée.",
       "Au jour, les Foulons dans l'eau, et vivants sur le parvis. La digue tient.",
-      "À huit heures, Dame Hesdin entre au Conseil en boitant, son pied bandé de ta main. Elle dit tout. Elle dit d'où elle le tient : de son apothicaire, qui le tient du garde-vannes, qui l'a mesuré pendant trois ans. Le vote est remis au printemps.",
-      "Tu remontes chez Anselme à midi. Il est mort, dans son fauteuil, près du baromètre. Les trois lanternes brûlent encore à sa fenêtre. Tu les éteins une à une. Tu as fait passer sa clé par la seule porte que personne ne gardait : le pied malade d'une vieille femme qui avait honte depuis trois ans.",
+      "À huit heures, Dame Hesdin entre au Conseil en boitant, le pied bandé de ta main. Elle dit tout. Elle dit d'où elle le tient : de son apothicaire, qui le tient du garde-vannes, qui l'a mesuré pendant trois ans. Le vote est remis au printemps.",
+      "Tu remontes chez Anselme à midi. Il est mort, dans son fauteuil, près du baromètre. Les trois lanternes brûlent encore à sa fenêtre. Tu les éteins une à une. Tu as fait passer sa clé par la seule porte sans garde : le pied malade d'une vieille femme qui avait honte depuis trois ans.",
     ] },
 };
