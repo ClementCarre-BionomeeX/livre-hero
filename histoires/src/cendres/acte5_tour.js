@@ -9,25 +9,25 @@ module.exports = {
   V_route: P({ title: "La neige", place: null,
     fx: { catchup: 17, catchupAll: true, catchupWhy: "la Lisse" },
     text: [
-      "Vous marchez vers l'ouest toute la nuit, dans la neige blanche. Elle tombe à gros flocons, lents, sans vent. Elle reste sèche et entière. Elle se pose.",
-      "Sur la route, des gens arrêtés. Un charretier sur son siège, les rênes à la main, qui regarde devant lui. Une femme assise sur une borne, avec un panier. Un enfant qui tient un cerceau. Ils ne dorment pas. Ils sourient. Ils ont l'air de gens à qui on a enlevé un poids, et qui ne savent plus quoi faire de leurs mains.",
+      "Vous marchez vers l'ouest toute la nuit, dans la neige blanche. Elle tombe à gros flocons, lents, larges comme l'ongle du pouce, sans un souffle de vent. Elle reste sèche et entière. Elle se pose.",
+      "Sur la route, des gens arrêtés. Un charretier sur son siège, les rênes à la main, qui regarde devant lui. Une femme assise sur une borne, avec un panier. Un enfant qui tient un cerceau, la baguette levée pour la relance. Leurs yeux sont ouverts. Ils sourient. Ils ont l'air de gens à qui on a enlevé un poids, et qui cherchent quoi faire de leurs mains.",
       "Tu t'arrêtes devant la femme au panier. Tu lui demandes son nom. Elle cherche, poliment. Elle cherche en vain, et elle s'en accommode.",
       { with: "ombeline", text: "Ombeline s'agenouille devant elle et lui prend les mains. « Elle n'a plus mal nulle part, dit-elle. Plus rien. C'est ce qu'il donne. C'est exactement ce que je donne aux mourants, moi. » Elle se relève. « Mais elle n'est pas en train de mourir. »" },
-      { with: "givre", text: "Givre court d'un passant à l'autre, et renifle, et ne mange rien. Il n'y a rien à manger. Ils ont déjà tout donné." },
+      { with: "givre", text: "Givre court d'un passant à l'autre, et renifle, et revient le ventre vide. Le garde-manger est vide : ils ont déjà tout donné." },
     ],
     choices: [{ label: "Continuer vers Pallanche", to: "V_r_chemin" }] }),
 
   V_compagnons: P({ title: "Ceux qui marchent avec toi", place: null,
     text: [
-      "À l'aube, vous vous arrêtez sous un pont. La neige tombe en rideau devant l'arche. Tu regardes ceux qui sont là.",
+      "À l'aube, vous vous arrêtez sous un pont de pierre à une arche. La neige tombe en rideau devant l'ouverture, si dense qu'on ne voit plus l'autre rive. Tu regardes ceux qui sont là.",
       { with: "ysolde", text: "Ysolde a écrit son propre nom sur le dos de sa main, à l'encre, et ceux de ses quarante hommes sur son avant-bras. « Au cas où », dit-elle." },
       { with: "pie", text: "Pie fait tourner un jeton de plomb entre ses doigts, un de ceux qu'il a fabriqués par milliers. « Je sais imiter son écriture, dit-il, mieux que lui. Je l'ai fait un an. » Il range le jeton. « Je dis ça comme ça. »" },
       { with: "linette", text: "Linette récite à voix basse tout ce qu'elle a lu depuis qu'elle sait qui elle est. Les enseignes de Pallanche, les noms sur les tentes de Brenne, les marques sur les tonneaux. Elle a peur d'en perdre un." },
       { with: "hylas", text: "Hylas a les mains croisées sur sa canne. « Il avait onze ans quand il est venu me voir, dit-il, sans qu'on lui demande rien. Il avait vu brûler sa maison, à la guerre d'avant. Il voulait que je la lui enlève, la maison. Je lui ai dit qu'on ne vend pas l'oubli. Je l'ai pris comme apprenti à la place. Je croyais lui rendre service. »" },
-      { with: "corbe", text: "Corbe frappe son tambour, très doucement, du bout des doigts, pour que le silence ne gagne pas." },
+      { with: "corbe", text: "Corbe frappe son tambour, très doucement, du bout des doigts, pour tenir le silence en respect." },
       { with: "lisandre", text: "Lisandre chante. Rien de précis. Des bouts de tout. Pour vérifier qu'elle sait encore." },
       { with: "sansnom", text: "Ton frère regarde la neige. « Elle vient de chez nous, dit-il. Je la reconnais. Mais elle tombe à l'envers. »" },
-      { with: "gaspard", text: "Gaspard partage les dernières miches. Il les coupe en parts exactement égales, avec un soin de boulanger." },
+      { with: "gaspard", text: "Gaspard partage les dernières miches. Il les coupe en parts exactement égales, avec un soin de boulanger, et pèse chaque part dans sa paume avant de la donner." },
       { with: "rodric", text: "Rodric fait tinter ses trois cloches, l'une après l'autre. « Maëlle, Ilse, Hautvent, dit-il. Elles s'appellent comme ça. Je les ai renommées. »" },
     ],
     choices: [
@@ -47,10 +47,10 @@ module.exports = {
 
   V_ville: P({ title: "Pallanche sous la neige", place: "pallanche",
     text: [
-      "Pallanche est blanche, et silencieuse, et pleine. Les gens sont dehors, partout, debout, assis, arrêtés au milieu d'un geste. Les cent cloches se taisent.",
-      "Sur la place aux Clercs, la queue est toujours là. Elle fait trois fois le tour de la place. Les gens n'ont pas bougé depuis hier soir. Ils tiennent leurs jetons de plomb dans la main, et la neige s'accumule sur leurs épaules, et ils sourient.",
-      "Au centre, la tour des Greffiers. De son sommet monte une colonne blanche, droite, épaisse comme la tour elle-même, qui s'élève dans le ciel jusqu'à se perdre. Ce n'est pas de la neige qui tombe. C'est de la neige qui monte. Tout ce qu'on cède, cette nuit, monte par là.",
-      { if: { has: "lisse:cession" }, text: "Au milieu de la queue, des soldats en bleu, qui ne savent pas qu'ils ont été bleus. Ils ont été écrits les premiers." },
+      "Pallanche est blanche, et silencieuse, et pleine. Les gens sont dehors, partout, debout, assis, arrêtés au milieu d'un geste. Les cent cloches sont muettes, toutes à la fois, pour la première fois depuis qu'on les a fondues.",
+      "Sur la place aux Clercs, la queue est toujours là. Elle fait trois fois le tour de la place. Les gens sont à la même place depuis hier soir ; la neige leur fait des épaulettes d'un doigt. Ils tiennent leurs jetons de plomb dans la main, et la neige s'accumule sur leurs épaules, et ils sourient.",
+      "Au centre, la tour des Greffiers. De son sommet monte une colonne blanche, droite, épaisse comme la tour elle-même, qui s'élève dans le ciel jusqu'à se perdre. La neige, ici, ne tombe plus : elle monte. Tout ce qu'on cède, cette nuit, monte par là.",
+      { if: { has: "lisse:cession" }, text: "Au milieu de la file, des soldats en bleu, qui ignorent avoir été bleus. Ils ont été écrits les premiers." },
     ],
     choices: [
       { label: "La Veuve, au milieu de la queue, en chapeau", hide: { any: [{ seen: "V_v_veuve" }, { not: { seen: "IV_pal_veuve" } }] }, to: "V_v_veuve" },
@@ -79,14 +79,14 @@ module.exports = {
 
   V_t_porche: P({ title: "Le porche", place: "pallanche",
     text: [
-      "Le porche est ouvert. Il n'y a pas de gardes. Les dix greffiers des dix pupitres sont assis à leur place, la plume levée, immobiles, souriants. Ils ont cédé aussi.",
-      "Un escalier monte, large, dans le noir. On entend, très haut, un grattement régulier, comme une souris dans un mur. Une plume.",
+      "Le porche est ouvert, désert de gardes. Les dix greffiers des dix pupitres sont assis à leur place, la plume levée, immobiles, souriants. Ils ont cédé aussi.",
+      "Un escalier monte, large, dans le noir. On entend, très haut, un grattement régulier, comme une souris dans un mur. Une plume, sans un temps de repos.",
     ],
     choices: [{ label: "Monter", to: "V_t_cessions" }] }),
 
   V_t_cessions: P({ title: "Le Bureau des Cessions", place: "pallanche",
     text: [
-      "Au premier étage, le Bureau des Cessions. Une salle immense, voûtée, et sur des rayonnages qui montent jusqu'au plafond, des bocaux. Des milliers de bocaux de verre, fermés à la cire noire, et dans chacun, une lueur. Pâle, vive, bleue, dorée. Chacune est un souvenir cédé. Ils bourdonnent comme des ruches.",
+      "Au premier étage, le Bureau des Cessions. Une salle immense, voûtée, et sur des rayonnages qui montent jusqu'au plafond, des bocaux. Des milliers de bocaux de verre, fermés à la cire noire, et dans chacun, une lueur. Pâle, vive, bleue, dorée. Chacune est un souvenir cédé. Ils bourdonnent comme des ruches. Tu renonces à les compter au troisième rayonnage.",
       "Les étiquettes sont écrites à la main. *Jehan Peyrol, portefaix : le visage de sa fille.* *Marion Lebas : le jour de ses noces.* Tu marches entre les rayonnages, et les lueurs se tournent vers toi au passage, comme des fleurs.",
       { once: true, text: "Il y a des étiquettes que tu connais." },
     ],
@@ -107,10 +107,10 @@ module.exports = {
 
   V_t_bocaux: P({ title: "Les bocaux", place: "pallanche",
     text: [
-      { with: "ysolde", text: "*Ysolde de Brenne, capitaine : le pont de Lisse, la nuit du quatorze brumaire.* La lueur est rouge sombre. Ysolde prend le bocal dans ses mains. Elle le tient longtemps." },
+      { with: "ysolde", text: "*Ysolde de Brenne, capitaine : le pont de Lisse, la nuit du quatorze brumaire.* La lueur est rouge sombre. Ysolde prend le bocal dans ses mains. Elle le tient longtemps, à hauteur de poitrine, comme une lanterne." },
       { if: { has: "isaure:brisee" }, text: "*Isaure d'Esquarre : Aymeric, de sa naissance à sa mort.* Le bocal est vide. Quelqu'un l'a déjà rendu." },
       { if: { not: { has: "isaure:brisee" } }, text: "*Isaure d'Esquarre : Aymeric, de sa naissance à sa mort.* La lueur est petite, blanche, et elle tourne sur elle-même comme un enfant qui joue." },
-      { with: "pie", if: { has: "pie:a_vendu" }, text: "*Pie, sans nom de famille : un souvenir.* Pie regarde l'étiquette. Il rit, très bas. « Je ne sais même plus lequel. »" },
+      { with: "pie", if: { has: "pie:a_vendu" }, text: "*Pie, sans nom de famille : un souvenir.* Pie regarde l'étiquette. Il rit, très bas. « Lequel, je l'ignore. »" },
       { without: "pie", if: { has: "pie:a_vendu" }, text: "*Pie, sans nom de famille : un souvenir.* L'étiquette ne dit pas lequel." },
       "Et, tout en bas d'un rayonnage, à hauteur d'enfant : *Mordace, onze ans : la maison.* Le bocal est fermé par trois cachets de cire. La lueur, dedans, est orange. Elle bouge comme un feu.",
     ],
@@ -123,24 +123,24 @@ module.exports = {
   V_t_ysolde_bocal: P({ title: "Le pont, la nuit", place: "pallanche",
     text: [
       "Ysolde brise la cire avec son pouce. La lueur rouge monte, hésite, et entre en elle par les yeux.",
-      "Elle tient debout, les dents serrées. Elle reste debout, dans le Bureau des Cessions, et pendant une minute elle est ailleurs : sur une rive, la nuit, avec une torche, et elle regarde.",
-      "Quand elle revient, elle dit seulement : « Il y avait une petite fille avec une chèvre. Elle me regardait. » Puis : « Bien. Je l'ai. Je ne la rends plus. »",
+      "Elle tient debout, les dents serrées. Elle reste debout, dans le Bureau des Cessions, et le temps d'un Ave elle est ailleurs : sur une rive, la nuit, avec une torche, et elle regarde.",
+      "Quand elle revient, elle dit seulement : « Il y avait une petite fille avec une chèvre. Elle me regardait. » Puis : « Bien. Je l'ai. Je la garde. »",
     ],
     choices: [{ back: "V_t_cessions" }] }),
 
   V_t_bocaux_ouverts: P({ title: "Les ruches", place: "pallanche",
     text: [
-      "Tu prends le premier bocal et tu le brises par terre. La lueur monte, tourne, et file vers la porte, vers l'escalier, vers la place. Tu en brises un autre. Puis tes compagnons s'y mettent, à coups de canne, de pommeau, de talon.",
-      "Ça dure une heure. À la fin, la salle est pleine de verre brisé et vide de lumière. Des milliers de lueurs sont sorties par les fenêtres, et sur la place aux Clercs, dans la queue, des gens commencent à pleurer, un par un, sans savoir pourquoi, puis à se souvenir pourquoi.",
-      "La colonne blanche, au-dessus de la tour, a pâli. Un peu.",
+      "Tu prends le premier bocal et tu le brises par terre. La lueur monte, tourne, et file vers la porte, vers l'escalier, vers la place. Tu en brises un autre. Puis tes compagnons s'y mettent, à coups de canne, de pommeau, de talon. Le verre crisse sous les semelles comme du gros sel.",
+      "Ça dure une heure. À la fin, la salle est pleine de verre brisé et vide de lumière. Des milliers de lueurs sont sorties par les fenêtres, et sur la place aux Clercs, dans la queue, des gens commencent à pleurer, un par un, d'abord sans raison, puis en se souvenant de la raison.",
+      "La colonne blanche, au-dessus de la tour, a pâli. D'un ton, à peine.",
     ],
     choices: [{ label: "Monter au scriptorium", to: "V_t_scriptorium" }] }),
 
   V_t_scriptorium: P({ title: "Le scriptorium", place: "pallanche",
     text: [
-      "Au quatrième, les cent pupitres, les cent pages en gris. Elles écrivent. Toutes. Vite, sans s'arrêter, la même phrase, encore et encore, sur des feuilles qu'un greffier ramasse et monte par l'escalier, à mesure.",
+      "Au quatrième, les cent pupitres, les cent pages en gris. Elles écrivent. Toutes. Vite, d'un seul trait, la même phrase, encore et encore, sur des feuilles qu'un greffier ramasse et monte par l'escalier, à mesure.",
       "Tu lis par-dessus une épaule. *Cédé à la Couronne, pour la paix de tous : ce qui fait mal.* Puis un nom. Puis la même phrase. Puis un autre nom. Elles recopient le Grand Livre des vivants, nom par nom, avec la formule devant.",
-      { with: "linette", text: "Linette s'est arrêtée sur le seuil. « Je sais faire ça, dit-elle. Je l'ai fait toute la nuit, il y a quinze jours. » Elle regarde les pages. « Elles ne savent pas ce qu'elles écrivent. Moi je sais, maintenant. »" },
+      { with: "linette", text: "Linette s'est arrêtée sur le seuil. « Je sais faire ça, dit-elle. Je l'ai fait toute la nuit, il y a quinze jours. » Elle regarde les pages. « Elles ignorent ce qu'elles écrivent. Moi je sais, maintenant. »" },
     ],
     choices: [
       { label: "Laisser Linette parler aux pages", hide: { not: { present: "linette" } }, to: "V_t_linette" },
@@ -153,18 +153,18 @@ module.exports = {
     text: [
       "Linette monte sur un pupitre, au milieu de la salle. Elle tape dans ses mains, deux coups secs, comme le maître des pages. Cent têtes rasées se lèvent.",
       "« Je m'appelle Linette, dit-elle. Avant, j'étais Page Onze. Vous aussi, vous avez un nom. Il est dans le registre gris, en bas, au deuxième. Je l'ai lu. Je les ai tous lus. » Elle saute du pupitre. Elle va de page en page, et à chacune, elle dit un nom, à l'oreille.",
-      "Il y en a cent. Elle les sait tous. Les plumes s'arrêtent, une à une.",
+      "Il y en a cent. Elle les sait tous, sans une hésitation. Les plumes s'arrêtent, une à une.",
     ],
     choices: [{ label: "Monter aux archives", fx: { conf: { linette: 15, pie: 10 }, ep: ["perso", 2500] }, to: "V_t_archives" }] }),
 
   V_t_encre: P({ title: "L'encre", place: "pallanche",
-    text: [{ if: { has: "v:pages_rate" }, text: "Tu lis. Tu butes. Les noms sortent de ta bouche déformés, cassés ; ce ne sont plus les leurs, ce sont des bruits. Au vingtième, tu t'arrêtes. Tu refermes le registre et tu le gardes. Quelqu'un, plus tard, saura les lire mieux que toi. En attendant, il reste l'encre." }, "Vous renversez les encriers, un par un. Les pages s'arrêtent, regardent leurs feuilles noyées, et attendent. Un greffier, au fond, se lève et va chercher de l'encre neuve, sans hâte. Il en reviendra avec un seau. Ça ne fera gagner qu'une heure. Une heure, c'est quelque chose."],
+    text: [{ if: { has: "v:pages_rate" }, text: "Tu lis. Tu butes. Les noms sortent de ta bouche déformés, cassés ; des bruits, à la place des leurs. Au vingtième, tu t'arrêtes. Tu refermes le registre et tu le gardes. Quelqu'un, plus tard, saura les lire mieux que toi. En attendant, il reste l'encre." }, "Vous renversez les encriers, un par un. Les pages s'arrêtent, regardent leurs feuilles noyées, la plume en l'air, et attendent. Un greffier, au fond, se lève et va chercher de l'encre neuve, sans hâte. Il en reviendra avec un seau. Le gain se compte en une heure. Une heure, c'est quelque chose."],
     choices: [{ label: "Monter aux archives", to: "V_t_archives" }] }),
 
   V_t_archives: P({ title: "Les archives", place: "pallanche",
     text: [
-      "Les archives, où Hylas a passé trente ans. Les rayonnages tournent en spirale autour de l'escalier, sur six étages. Et sur chaque palier, quelque chose bouge.",
-      "Des Glaneurs. Pas des petits. Des Glaneurs au sceau noir, grands comme des hommes, qui descendent les rayonnages à l'envers, comme des araignées, et qui se placent entre toi et l'escalier.",
+      "Les archives, où Hylas a passé trente ans. Les rayonnages tournent en spirale autour de l'escalier, sur six étages, chacun haut de trois toises. Et sur chaque palier, quelque chose bouge.",
+      "Des Glaneurs, des grands, au sceau noir, de la taille d'un homme, qui descendent les rayonnages à l'envers, comme des araignées, et qui se placent entre toi et l'escalier.",
     ],
     choices: [
       { label: "Passer quand même", to: "V_t_glaneurs" },
@@ -176,16 +176,16 @@ module.exports = {
     combat: { title: "Les Glaneurs des archives", enemies: [{ id: "glaneur", n: 2 }, "glaneur_archives"], terrain: "ville", range: "contact",
       win: { fx: { ep: ["seance", 5000] }, to: "V_t_sommet" },
       lose: { fx: { pv: -6 }, to: "V_t_sommet" } },
-    text: ["Ils attaquent ensemble, sans bruit, et dans leurs mains il y a des lueurs volées qui éclairent leur visage absent."],
+    text: ["Ils attaquent ensemble, dans un silence de neige, et dans leurs mains il y a des lueurs volées qui éclairent leur visage absent."],
     choices: [] }),
 
   V_t_sommet: P({ title: "Le cabinet", place: "pallanche",
     text: [
-      "Le dernier escalier. Une porte ouverte. Le cabinet du Greffier-Majeur, sous la plume et la clé de fer. Il y fait chaud : un feu énorme brûle dans la cheminée.",
+      "Le dernier escalier. Une porte ouverte. Le cabinet du Greffier-Majeur, sous la plume et la clé de fer. Il y fait chaud : un feu énorme brûle dans la cheminée, un tronc entier, et un seau de charbon attend à côté.",
       "Le toit n'est plus là. Il a été soufflé vers le haut, et par l'ouverture monte la colonne blanche, droite, jusqu'au ciel, et au-delà. Au pied de la colonne, sur un lutrin, le Grand Livre, ouvert. Les feuilles des pages, montées par les greffiers, s'y collent d'elles-mêmes, une à une, et s'envolent en neige.",
-      "Mordace écrit. Il ne se retourne pas.",
+      "Mordace écrit. Il garde le dos tourné.",
       { if: { has: "v:horloge" }, text: "Entre deux lignes, il lève la tête vers le clocher, dans l'attente d'un coup de cloche. Il compte sur ses doigts. Il recommence. Il fronce les sourcils, et il écrit plus vite." },
-      { if: { item: "plateau_mordace" }, text: "Tu poses le plateau sur un coin du lutrin, à côté de sa main. La soupe fume. Il la regarde. Sa plume s'arrête, une seconde. Il reconnaît l'écriture du billet. Il se tait. Il reprend sa plume. Mais il ne l'a pas repoussé." },
+      { if: { item: "plateau_mordace" }, text: "Tu poses le plateau sur un coin du lutrin, à côté de sa main. La soupe fume. Il la regarde. Sa plume s'arrête, un instant. Il reconnaît l'écriture du billet. Il garde le silence. Il reprend sa plume. Le plateau, lui, reste où tu l'as posé." },
       "« Je savais que tu viendrais, dit-il. Assieds-toi près du feu. Tu dois avoir froid. Moi, j'ai toujours froid. »",
     ],
     choices: [{ label: "« Arrête. »", to: "V_t_mordace" }] }),
@@ -194,7 +194,7 @@ module.exports = {
     text: [
       { first: true, text: "« Je ne peux pas, dit-il, en écrivant. Ce n'est plus moi qui écris. C'est la digue. Ton père l'a lâchée, il y a un an. Moi, je la remplis. Tout ce qui fait mal, à tout le monde, en une nuit. Au matin, la guerre, le deuil et la honte auront disparu. Plus de pont de Lisse. Plus de maison qui brûle. »" },
       { first: true, text: "Il s'arrête, la plume en l'air. « Il n'y aura plus rien à oublier. »" },
-      { again: true, text: "Mordace a repris sa plume. Il écrit. Il ne se retourne toujours pas." },
+      { again: true, text: "Mordace a repris sa plume. Il écrit, le dos toujours tourné." },
       { first: true, if: { has: "lisse:cession" }, text: "« Tu m'as montré que ça marchait, à la Lisse. Corvanne dort bien, cette nuit. » Il reprend sa plume." },
       { first: true, if: { has: "lisse:paix" }, text: "« Tu as fait la paix sur la Lisse en faisant se souvenir deux armées. C'était beau. Ça tiendra trois ans. Peut-être cinq. Moi, je fais la paix pour toujours. »" },
     ],
@@ -212,21 +212,21 @@ module.exports = {
     combat: { title: "Mordace", enemies: ["mordace", { id: "glaneur_petit", n: 2 }], terrain: "ville", range: "contact",
       win: { fx: { flag: "mordace:fin=tue", ep: ["seance", 8000] }, to: "V_t_mort" },
       lose: { fx: { pv: -8, flag: "mordace:fin=tue" }, to: "V_t_mort" } },
-    text: ["Il pose la plume. Il se retourne. Il n'a pas d'arme. Il n'en a pas besoin : il lève la main, et ce que tu sais de toi commence à couler hors de toi, comme le sable d'un sac percé. Les Glaneurs descendent de la colonne."],
+    text: ["Il pose la plume. Il se retourne. Ses mains sont vides, et lui suffisent : il lève la main, et ce que tu sais de toi commence à couler hors de toi, comme le sable d'un sac percé. Les Glaneurs descendent de la colonne."],
     choices: [] }),
 
   V_t_mort: P({ title: "Le froid", place: "pallanche",
     text: [
-      "Il tombe à côté du lutrin. Il ne saigne presque pas. Il a froid, c'est tout. Il remonte son col de fourrure jusqu'au menton.",
+      "Il tombe à côté du lutrin. Le sang, à peine une tache sur la laine grise. Il a froid, c'est tout. Il remonte son col de fourrure jusqu'au menton.",
       "« Tu n'as rien arrêté, dit-il. La plume continue sans moi. » Il a raison : sur le lutrin, la plume écrit toute seule, et les pages continuent de monter. « Il faut quelqu'un des deux côtés, pour fermer. Tu le sais. »",
       "Il ferme les yeux. Il meurt dans la seule pièce chaude de la ville, en grelottant.",
-      { with: "hylas", text: "Hylas s'agenouille près de lui et lui ferme les yeux, à tâtons. Il dit son nom, son vrai nom, celui d'avant la Chancellerie, que personne n'a dit depuis trente ans. Un nom de la Lisse." },
+      { with: "hylas", text: "Hylas s'agenouille près de lui et lui ferme les yeux, à tâtons. Il dit son nom, son vrai nom, celui d'avant la Chancellerie, oublié de toutes les bouches depuis trente ans. Un nom de la Lisse." },
     ],
     choices: [{ label: "Te tourner vers la colonne", to: "V_p_colonne" }] }),
 
   V_t_hylas: P({ title: "Le maître et l'apprenti", place: "pallanche",
     text: [
-      "Hylas s'avance, en tâtant le parquet de sa canne. Il s'arrête à deux pas de Mordace.",
+      "Hylas s'avance, en tâtant le parquet de sa canne, trois coups par pas. Il s'arrête à deux pas de Mordace.",
       "« Tu avais onze ans, dit-il. Tu m'as demandé de t'enlever ta maison qui brûlait. Je t'ai dit non. Je t'ai dit qu'il fallait la porter. Je ne t'ai jamais aidé à la porter. Je t'ai donné un pupitre, et du travail, et j'ai cru que c'était pareil. »",
       "Mordace a cessé d'écrire.",
       "« Je ne te demande pas d'arrêter, dit Hylas. Je te demande de me la montrer. Ta maison. Je ne l'ai jamais vue. Je suis aveugle, et toi tu ne l'as jamais regardée. On pourrait la regarder ensemble. »",
@@ -242,14 +242,14 @@ module.exports = {
       "Mordace pose la plume. Il regarde ses mains. Il dit, très bas, avec une voix d'enfant : « Elle avait des volets bleus. »",
       { with: "hylas", text: "Hylas hoche la tête. « Raconte. »" },
       { without: "hylas", text: "Tu dis : « Raconte. »" },
-      "Il raconte. Les volets bleus, le figuier dans la cour, sa mère qui chantait faux en lavant, la nuit où les soldats sont venus, de quel côté de la Lisse il ne sait plus. Ça dure longtemps. Il pleure à la fin, sans bruit, et il dit : « J'ai chaud. » Il a l'air étonné.",
+      "Il raconte. Les volets bleus, le figuier dans la cour, sa mère qui chantait faux en lavant, la nuit où les soldats sont venus, de quel côté de la Lisse il ne sait plus. Ça dure longtemps, le temps que le tronc, dans la cheminée, s'effondre en braises. Il pleure à la fin, sans bruit, et il dit : « J'ai chaud. » Il a l'air étonné.",
       "Sur le lutrin, la plume continue d'écrire toute seule. Ça, il ne peut plus l'arrêter. Mais il se lève, et il vient se mettre à côté de toi, devant la colonne. « Je vais t'aider, dit-il. Je connais le livre mieux que personne. Je l'ai écrit. »",
     ],
     choices: [{ label: "Te tourner vers la colonne", fx: { flag: "mordace:aide" }, to: "V_p_colonne" }] }),
 
   V_t_pie: P({ title: "Le faussaire", place: "pallanche",
     text: [
-      "Pendant que Mordace parle, Pie s'est glissé jusqu'au lutrin, comme on se glisse jusqu'à une poche. Mordace ne le voit pas. Pie choisit toujours qui le voit.",
+      "Pendant que Mordace parle, Pie s'est glissé jusqu'au lutrin, comme on se glisse jusqu'à une poche. Mordace a les yeux ailleurs. Pie choisit toujours qui le voit.",
       "Il prend une plume sur la table. Il la trempe. Et sur une feuille vierge, de l'écriture exacte de Mordace, penchée, débordant des lignes, avec le paraphe et le sceau, il écrit une ligne.",
       "Il la glisse dans le Grand Livre, à la page en cours, juste sous la main de Mordace.",
     ],
@@ -270,8 +270,8 @@ module.exports = {
 
   V_t_givre: P({ title: "Givre", place: "pallanche",
     text: [
-      "Tu poses la main sur le dos de Givre. Il a la taille d'un loup, maintenant, et ses yeux de glace brillent. Il a mangé tes miettes pendant un an.",
-      "Tu lui dis : « Va. » Il traverse la pièce en deux bonds, il se dresse contre Mordace, et il mord. Pas la chair. Le froid. Il le mord au col, là où Mordace tient sa fourrure fermée, et il tire, et il sort de lui quelque chose de blanc, de long, de très vieux, comme une écharpe de givre, et il l'avale.",
+      "Tu poses la main sur le dos de Givre. Il a la taille d'un loup, maintenant, le garrot à hauteur de ta hanche, et ses yeux de glace brillent. Il a mangé tes miettes pendant un an.",
+      "Tu lui dis : « Va. » Il traverse la pièce en deux bonds, il se dresse contre Mordace, et il mord. Il épargne la chair : c'est le froid qu'il mord. Il le mord au col, là où Mordace tient sa fourrure fermée, et il tire, et il sort de lui quelque chose de blanc, de long, de très vieux, comme une écharpe de givre, et il l'avale.",
       "Mordace tombe à genoux. Il ouvre son col. Il respire. « J'ai chaud », dit-il, et il a l'air terrifié.",
       "Givre revient s'asseoir à tes pieds. Il a doublé de taille. Sa queue est toute grise.",
     ],
@@ -279,7 +279,7 @@ module.exports = {
 
   V_t_rechauffe: P({ title: "Le chaud", place: "pallanche",
     text: [
-      "Il a les joues rouges. Il pleure, à cause de la chaleur, comme un enfant qui rentre de la neige. Il ne peut plus écrire : ses mains tremblent trop.",
+      "Il a les joues rouges. Il pleure, à cause de la chaleur, comme un enfant qui rentre de la neige. L'écriture lui est devenue impossible : ses mains tremblent trop.",
       "« Il y avait un figuier, dit-il. Dans la cour. » Il s'en tient là. Il se recroqueville près du feu, tout à sa chaleur.",
       "Sur le lutrin, la plume continue d'écrire toute seule.",
     ],
@@ -288,9 +288,9 @@ module.exports = {
   V_t_bocal: P({ title: "Onze ans", place: "pallanche",
     text: [
       "Tu poses le bocal sur le lutrin, sur le Grand Livre, sous sa main. *Mordace, onze ans : la maison.* La lueur orange bat contre le verre comme un cœur.",
-      "Il le regarde. Il ne le touche pas. « Je l'ai fermé moi-même, dit-il. Trois cachets. Je l'ai cédé à mon propre bureau, le jour où j'en ai eu un. »",
-      "Tu brises la cire. La lueur sort, et entre en lui, et il ne recule pas.",
-      "Il se tait longtemps. La plume, dans sa main, s'est arrêtée.",
+      "Il le regarde, les mains à plat sur le lutrin, loin du verre. « Je l'ai fermé moi-même, dit-il. Trois cachets. Je l'ai cédé à mon propre bureau, le jour où j'en ai eu un. »",
+      "Tu brises la cire. La lueur sort, et entre en lui, et il la reçoit sans un mouvement de recul.",
+      "Il garde le silence longtemps. La plume, dans sa main, s'est arrêtée.",
     ],
     choices: [{ label: "Attendre", fx: { flag: "mordace:fin=pardonne" }, to: "V_t_pardonne" }] }),
 };

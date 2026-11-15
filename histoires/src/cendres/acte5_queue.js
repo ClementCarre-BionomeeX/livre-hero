@@ -31,8 +31,8 @@ var C = {
   V_q_bout: P({ title: "Le bout de la queue", place: "pallanche",
     fx: { questSeen: "V_Q_queue" },
     text: [
-      "Tu prends la queue par le bout, rue des Bassins, là où elle commence. Ou là où elle finit : ça dépend d'où on la regarde. Elle fait trois fois le tour de la place aux Clercs avant d'atteindre la porte. Des centaines de gens, la neige sur les épaules, le jeton de plomb dans la main.",
-      "Tu ne peux pas les sortir tous de la file. Tu le sais. Mais tu peux la remonter, d'un bout à l'autre, et leur parler, un par un, à ceux qui lèvent les yeux quand tu passes.",
+      "Tu prends la file par le bout, rue des Bassins, là où elle commence. Ou là où elle finit : question de point de vue. Elle fait trois fois le tour de la place aux Clercs avant d'atteindre la porte. Des centaines de gens, la neige sur les épaules, le jeton de plomb dans la main.",
+      "Les sortir tous de la file dépasse tes forces. Tu le sais. Mais tu peux la remonter, d'un bout à l'autre, et leur parler, un par un, à ceux qui lèvent les yeux quand tu passes.",
     ],
     choices: [
       { label: "Remonter la queue", back: "V_q_file" },
@@ -40,8 +40,8 @@ var C = {
     ] }),
   V_q_file: P({ title: "La queue", place: "pallanche", hub: true,
     text: [
-      "Tu marches le long de la file. Les gens sourient, tous, du même sourire tranquille, celui des gens qui ont pris leur décision et n'ont plus à y penser. Certains te suivent des yeux. La plupart regardent la porte.",
-      { if: atLeast(3), text: "Derrière toi, dans la file, il y a des trous, maintenant. Des places vides, dans la neige, que personne ne vient combler. Les gens, autour des trous, regardent par terre, et ne sourient plus tout à fait." },
+      "Tu marches le long de la file. Les gens sourient, tous, du même sourire tranquille, celui des gens qui ont pris leur décision et n'ont plus à y penser. Un sur dix te suit des yeux. Les autres regardent la porte.",
+      { if: atLeast(3), text: "Derrière toi, dans la file, il y a des trous, maintenant. Des places vides, dans la neige, deux pieds de pavé blanc, que la file laisse vides. Les gens, autour des trous, regardent par terre, et ne sourient plus tout à fait." },
     ],
     choices: [
       { label: "Un soldat, la main sur une jambe de bois", hide: { seen: "V_q_soldat" }, to: "V_q_soldat" },
@@ -55,31 +55,31 @@ var C = {
 function add(o) { for (var k in o) C[k] = o[k]; }
 
 add(person("V_q_soldat", "v:queue_soldat", "Le soldat", [
-  "Un soldat de la Lisse, en capote grise, une jambe de bois, un jeton dans le poing. Trente ans, peut-être. Il a l'air d'en avoir cinquante. « La jambe, dit-il quand tu t'arrêtes. Non. Pas la jambe. Le jour de la jambe. Je le revois toutes les nuits. Je veux dormir. Une seule nuit, sans ce jour-là. »",
+  "Un soldat de la Lisse, en capote grise, une jambe de bois, un jeton dans le poing. Trente ans, peut-être. Il en paraît cinquante. Le pilon est neuf ; le cuir de la sangle, lui, a fait plusieurs hivers. « La jambe, dit-il quand tu t'arrêtes. Non. Pas la jambe. Le jour de la jambe. Je le revois toutes les nuits. Je veux dormir. Une seule nuit, sans ce jour-là. »",
 ], "« Sans ce jour-là, tu ne sauras plus pourquoi tu boites. »", [{ if: { present: "ysolde" }, v: 20 }, { if: { present: "rodric" }, v: 15 }, { if: { has: "v:archives=rendues" }, v: 10 }],
-["Il réfléchit. Longtemps. « C'est vrai, dit-il. Je me demanderai. Toute ma vie, je me demanderai. Je regarderai ma jambe, et je me demanderai. » Il regarde son jeton. « C'est peut-être pire. » Il sort de la file, en boitant, et il s'en va, sans se retourner, vers une taverne qui n'est pas ouverte."],
-["« Je saurai que c'était la guerre, dit-il. Ça me suffira. Tout le monde boite, à la guerre. » Il se retourne vers la porte. Tu as dit ce qu'il fallait. Il n'avait pas besoin de l'entendre. Il avait besoin de dormir."]));
+["Il réfléchit, le temps que la file avance de trois pas. « C'est vrai, dit-il. Je me demanderai. Toute ma vie, je me demanderai. Je regarderai ma jambe, et je me demanderai. » Il regarde son jeton. « C'est peut-être pire. » Il sort de la file, en boitant, et il s'en va, le dos droit, vers une taverne aux volets clos."],
+["« Je saurai que c'était la guerre, dit-il. Ça me suffira. Tout le monde boite, à la guerre. » Il se retourne vers la porte. Tu as dit ce qu'il fallait. Ce qu'il lui fallait, à lui, c'était dormir."]));
 add(person("V_q_mere", "v:queue_mere", "La jeune mère", [
-  "Une jeune femme, vingt ans, qui serre contre elle un châle de laine plié en quatre, comme on porte un nourrisson. Il n'y a rien dans le châle. Elle le berce quand même, doucement, sans s'en rendre compte. « Trois semaines, dit-elle. Il a vécu trois semaines. Je voudrais ne l'avoir jamais eu. Ce serait moins lourd. »",
+  "Une jeune femme, vingt ans, qui serre contre elle un châle de laine plié en quatre, comme on porte un nourrisson. Le châle est vide. Elle le berce quand même, doucement, sans s'en rendre compte, d'un mouvement de hanche que le corps garde après les mains. « Trois semaines, dit-elle. Il a vécu trois semaines. Je voudrais ne l'avoir jamais eu. Ce serait moins lourd. »",
 ], "« Trois semaines, c'est quelqu'un. Il n'aura eu que toi pour s'en souvenir. »", [{ if: { present: "corbe" }, v: 15 }, { if: { present: "ombeline" }, v: 20 }, { if: { has: "nord:nouveau_ne=garde" }, v: 10 }, { if: { has: "nord:nouveau_ne=peint" }, v: 10 }],
 ["Elle te regarde. Elle regarde le châle. Elle le déplie, à moitié, et elle regarde dedans, comme s'il y avait quelqu'un. « Il avait des cheveux noirs, dit-elle. Beaucoup. Comme un petit vieux. » Elle rit, et elle pleure, et elle sort de la file, le châle serré contre elle, et elle s'assied sur une marche, pour pleurer à son aise. C'est mieux. C'est beaucoup mieux."],
-["« Personne ne s'en souviendra, alors, dit-elle. Ni lui, ni moi. Ce sera juste. » Elle reprend son bercement. Toutes les réponses qui te viennent sont cruelles. Tu la laisses à son châle, et au sourire qui lui revient, très vite, trop vite."]));
+["« Alors il sera oublié de tous, dit-elle. De lui, de moi. Ce sera juste. » Elle reprend son bercement. Toutes les réponses qui te viennent sont cruelles. Tu la laisses à son châle, et au sourire qui lui revient, très vite, trop vite."]));
 add(person("V_q_amants", "v:queue_amants", "Les amants", [
-  "Un garçon et une fille, dix-huit ans, côte à côte dans la file, qui ne se regardent pas. Leurs mains se touchent presque. « Nos pères, dit la fille, à voix basse. Les deux maisons. On ne pourra jamais. Alors on a décidé de se céder l'un l'autre. Comme ça, demain, on se croisera dans la rue, et ça ne fera rien. »",
-  "Le garçon se tait. Il serre son jeton si fort que le plomb a pris la forme de ses doigts.",
+  "Un garçon et une fille, dix-huit ans, côte à côte dans la file, les yeux droit devant eux. Leurs mains se touchent presque. « Nos pères, dit la fille, à voix basse. Les deux maisons. On ne pourra jamais. Alors on a décidé de se céder l'un l'autre. Comme ça, demain, on se croisera dans la rue, et ça ne fera rien. »",
+  "Le garçon garde le silence. Il serre son jeton si fort que le plomb a pris la forme de ses doigts.",
 ], "« Demain, vous vous croiserez, et vous vous retournerez, sans savoir pourquoi. Toute votre vie. »", [{ if: { present: "lisandre" }, v: 20 }, { if: { present: "pie" }, v: 10 }, { if: { has: "iii:noces" }, v: 15 }],
 ["La fille se tourne vers le garçon. Pour la première fois de la nuit, elle le regarde. Il lâche son jeton, qui tombe dans la neige, sans bruit. Ils sortent de la file, ensemble, la main dans la main, et ils partent en courant, vers le Pont-Neuf, vers n'importe où, en riant comme des voleurs. Leurs pères, demain, se débrouilleront."],
-["« On se retournera, dit la fille. Et puis on ne se retournera plus. On s'habitue à tout. » Elle a raison, peut-être. Le garçon ne dit toujours rien. Quand tu t'éloignes, tu le vois, du coin de l'œil, lui frôler la main. Une seule fois. Pour la dernière fois."]));
+["« On se retournera, dit la fille. Et puis on ne se retournera plus. On s'habitue à tout. » Elle a raison, peut-être. Le garçon reste muet. Quand tu t'éloignes, tu le vois, du coin de l'œil, lui frôler la main. Une seule fois. Pour la dernière fois."]));
 add(person("V_q_dette", "v:queue_dette", "Le débiteur", [
-  "Un homme en habit râpé, qui compte des pièces dans sa paume, les recompte, les remet dans sa bourse, les ressort. « Ce n'est pas pour moi, dit-il. Ils paient, au Bureau. Deux sous pour un souvenir, cinq pour un bon. Je vais leur vendre mon enfance. Elle était bonne. Ça fera dix sous. Avec ça, je paie le boulanger. »",
+  "Un homme en habit râpé, les coudes reprisés de deux laines différentes, qui compte des pièces dans sa paume, les recompte, les remet dans sa bourse, les ressort. « Ce n'est pas pour moi, dit-il. Ils paient, au Bureau. Deux sous pour un souvenir, cinq pour un bon. Je vais leur vendre mon enfance. Elle était bonne. Ça fera dix sous. Avec ça, je paie le boulanger. »",
 ], "« Ton enfance, c'est la seule chose que le boulanger ne pourra jamais te prendre. »", [{ if: { present: "gaspard" }, v: 20 }, { if: { present: "pie" }, v: 15 }, { if: { has: "v:fours" }, v: 10 }],
-["Il rit, un rire sec. Puis il s'arrête de rire. « Mon père m'emmenait pêcher, dit-il. Le dimanche. On ne prenait jamais rien. » Il range sa bourse. « Il faudra que je trouve dix sous ailleurs. » Il sort de la file. Il a l'air plus pauvre. Il a l'air moins seul."],
-["« Le boulanger, il me prend déjà tout le reste, dit-il. Alors un peu plus, un peu moins. » Il recompte ses pièces. Il en manque toujours, quoi qu'il fasse. C'est ce qui le pousse vers la porte, et ce n'est pas toi qui pourras remplir sa bourse."]));
+["Il rit, un rire sec. Puis le rire s'arrête. « Mon père m'emmenait pêcher, dit-il. Le dimanche. On rentrait toujours bredouilles. » Il range sa bourse. « Il faudra que je trouve dix sous ailleurs. » Il sort de la file. Il a l'air plus pauvre. Il a l'air moins seul."],
+["« Le boulanger, il me prend déjà tout le reste, dit-il. Alors un peu plus, un peu moins. » Il recompte ses pièces. Il en manque toujours, quoi qu'il fasse. C'est ce qui le pousse vers la porte, et sa bourse, tu es bien en peine de la remplir."]));
 
 C.V_q_tete = P({ title: "La tête de la queue", place: "pallanche",
   text: [
-    "Devant la porte de la tour, le premier de la file. Un vieux greffier, en robe noire râpée, un jeton à la main, immobile. Il est là depuis hier soir. Il aurait pu entrer cent fois. La porte est ouverte. Il n'entre pas.",
-    "« Je les ai tous inscrits, dit-il sans que tu demandes. Quarante ans au guichet. Chaque cession. Chaque nom. Je voulais leur donner tout ça, ce soir. Les quarante ans. » Il regarde la porte ouverte. « Et je n'y arrive pas. Je reste là. Je ne sais pas pourquoi. »",
+    "Devant la porte de la tour, le premier de la file. Un vieux greffier, en robe noire râpée jusqu'à la trame aux coudes, un jeton à la main, immobile. Il est là depuis hier soir. Il aurait pu entrer cent fois. La porte est ouverte. Il reste sur le seuil.",
+    "« Je les ai tous inscrits, dit-il sans attendre de question. Quarante ans au guichet. Chaque cession. Chaque nom. Je voulais leur donner tout ça, ce soir. Les quarante ans. » Il regarde la porte ouverte. « Et le pas me manque. Je reste là. Pourquoi, je l'ignore. »",
     { if: atLeast(3), text: "Il regarde par-dessus ton épaule, vers la file, vers les trous dans la file. « Tu en as fait partir, dit-il. J'ai vu. » Il hoche la tête, lentement. « C'est peut-être pour ça que j'attendais. Pour voir si quelqu'un viendrait les chercher. »" },
   ],
   choices: [
@@ -88,8 +88,8 @@ C.V_q_tete = P({ title: "La tête de la queue", place: "pallanche",
   ] });
 C.V_q_fin = P({ title: "Le premier", place: "pallanche",
   text: [
-    { if: atLeast(3), text: "Il pose son jeton sur le seuil de la tour. Puis il sort de la file. Le premier. Derrière lui, quelqu'un hésite, puis un autre. Pas beaucoup. Une dizaine. Ils posent leur jeton sur le seuil, à côté du sien, et ils s'en vont. La file avance d'autant. Elle reste immense. Mais il y a, sur le seuil, un petit tas de plomb qui brille sous la neige." },
-    { if: { not: atLeast(3) }, text: "Il te regarde longtemps. Puis il serre son jeton, et il reste. « Je resterai là, dit-il. Devant. Je ne rentrerai pas. Mais je ne partirai pas non plus. Comme ça, ceux qui viendront après moi devront me passer devant. Ça les fera peut-être réfléchir. »" },
+    { if: atLeast(3), text: "Il pose son jeton sur le seuil de la tour. Puis il sort de la file. Le premier. Derrière lui, quelqu'un hésite, puis un autre. Peu. Une dizaine. Ils posent leur jeton sur le seuil, à côté du sien, et ils s'en vont. La file avance d'autant. Elle reste immense. Mais il y a, sur le seuil, un petit tas de plomb qui brille sous la neige." },
+    { if: { not: atLeast(3) }, text: "Il te regarde longtemps. Puis il serre son jeton, et il reste. « Je resterai là, dit-il. Devant. Ni dedans, ni parti. Comme ça, ceux qui viendront après moi devront me passer devant. Ça les fera peut-être réfléchir. »" },
   ],
   choices: [{ back: "V_ville" }] });
 module.exports = C;
