@@ -9,7 +9,7 @@ module.exports = {
     fx: { questSeen: "YS_Q_forge" },
     text: [
       "La forge est adossée au mur nord, sous la tour du Loup. Hugues y travaille depuis le temps de ton père : un homme large comme une porte, avec un tablier de cuir brûlé et des avant-bras sans un poil. Aujourd'hui, il ne ferre pas de chevaux.",
-      "Sur l'enclume, et par terre autour, des fers. Des anneaux, des chaînes courtes, des menottes, une pile qui monte jusqu'au genou. Il en forge une paire pendant que tu regardes, sans lever la tête, et la jette sur la pile.",
+      "Sur l'enclume, et par terre autour, des fers. Des anneaux, des chaînes courtes, des menottes, une pile qui monte jusqu'au genou. Tu l'estimes d'un œil d'intendante : soixante paires, la moitié de l'ouvrage. Il en forge une paire pendant que tu regardes, sans lever la tête, et la jette sur la pile.",
       "« Ordre du frère Sévrin, dit-il. Cent vingt paires. Pour Hautvent. Il a dit que c'était votre ordre, capitaine. » Il trempe une menotte. La vapeur monte. « J'ai dit que je voulais l'entendre de vous. »",
     ],
     choices: [
@@ -44,7 +44,7 @@ module.exports = {
   LI_Q_ourlet: LI({ title: "La couturière de la reine",
     fx: { questSeen: "LI_Q_ourlet" },
     text: [
-      "Dans la lingerie du palais, sous les toits, Dame Héloïse coud ta robe pour la Fête. Une robe de soie grise et argent, choisie par la reine elle-même, avec des manches qui traînent. Elle te la fait essayer, piquée d'épingles, et tourne autour de toi en marmonnant.",
+      "Dans la lingerie du palais, sous les toits, Dame Héloïse coud ta robe pour la Fête. Une robe de soie grise et argent, choisie par la reine elle-même, avec des manches qui traînent d'un bon pied, pour qu'on voie de loin qui peut se permettre de gaspiller de l'étoffe. Elle te la fait essayer, piquée d'épingles, et tourne autour de toi en marmonnant.",
       "Puis elle s'agenouille, retourne l'ourlet, et sort une aiguille plus fine, avec un fil rouge. « Le nom, dit-elle. Quel nom je couds ? »",
       "Tu ne comprends pas. Elle soupire, comme devant une enfant. « Au palais, on coud un nom dans l'ourlet de chaque robe de fête. Celui de quelqu'un qu'on aime. Pour qu'il danse avec vous, même s'il n'est pas là. Ça se fait depuis la vieille reine. Vous ne saviez pas ? »",
     ],

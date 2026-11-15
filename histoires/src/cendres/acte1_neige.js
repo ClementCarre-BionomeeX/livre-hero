@@ -21,7 +21,7 @@ module.exports = {
     choices: BACK }),
   EN_k_gervais: P({ title: "Les linteaux blancs",
     text: [
-      "Le vieux Gervais est debout au milieu de la place, son pot d'ocre à la main, et il regarde les façades. Les linteaux sont blancs. Pas une lettre. Il a le pinceau prêt, trempé, qui goutte sur la neige en taches rouges. Il ne sait plus quoi écrire. Il sait qu'il faut écrire quelque chose : ça, ses mains le savent. Le reste est parti.",
+      "Le vieux Gervais est debout au milieu de la place, son pot d'ocre à la main, et il regarde les façades. Les linteaux sont blancs. Pas une lettre. Il a le pinceau prêt, trempé, qui goutte sur la neige en taches rouges ; tu en comptes une vingtaine à ses pieds, il attend depuis un moment. Il ne sait plus quoi écrire. Il sait qu'il faut écrire quelque chose : ça, ses mains le savent. Le reste est parti.",
       { if: { has: "en:linteaux" }, text: "Il te voit. Il reconnaît le geste, à défaut de toi : tu tenais le pot, hier. Il te le tend. « Toi, dit-il. Tu sais ce qu'il y avait ? »" },
       { if: { not: { has: "en:linteaux" } }, text: "Il te regarde, puis il regarde le pot, puis les linteaux. « Il y avait des noms, dit-il. Je les ai peints. Tous les printemps. Je ne sais plus lesquels. » Il pose le pot dans la neige, très doucement, comme on pose quelque chose qu'on ne reprendra pas." },
     ],

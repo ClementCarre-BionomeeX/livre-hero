@@ -42,7 +42,7 @@ module.exports = {
   // ---------------------------------------------------------------- Les cuisines
   HY_k_cuisines: P({ title: "Les cuisines de la tour",
     text: [
-      "Les cuisines, au rez-de-chaussée, derrière le Bureau. La seule pièce chaude de la tour. Mahaut est là, au milieu de ses marmites, qui crie après un marmiton parce que l'oignon brûle. Elle a toujours crié. Elle t'a toujours donné du pain.",
+      "Les cuisines, au rez-de-chaussée, derrière le Bureau. La seule pièce chaude de la tour, si l'on excepte le cabinet du sommet, où l'on brûle du hêtre en juillet. Mahaut est là, au milieu de ses marmites, qui crie après un marmiton parce que l'oignon brûle. Elle a toujours crié. Elle t'a toujours donné du pain.",
       "« Maître Hylas ! Asseyez-vous. Vous n'avez pas mangé, ça se voit. Personne ne mange, dans cette tour. Ils écrivent, ils écrivent, et ils oublient de manger. » Elle te met un bol dans les mains, de la soupe aux poireaux, et un quignon. Elle s'assied en face de toi. Tu l'entends s'essuyer les mains sur son tablier.",
     ],
     choices: [
@@ -60,7 +60,7 @@ module.exports = {
   // ---------------------------------------------------------------- Acte IV, Pont-de-Saule
   IV_ps_pont: P4({ title: "Les pêcheurs du pont", place: "pontsaule",
     text: [
-      "Sur le pont aux sept arches, une rangée d'enfants, les jambes dans le vide, une ligne à la main. Ils repartent les mains vides, en bon ordre. Ils regardent l'eau.",
+      "Sur le pont aux sept arches, une rangée d'enfants, les jambes dans le vide, une ligne à la main ; tu en comptes neuf, un par pile et deux sur la plus large. Ils repartent les mains vides, en bon ordre. Ils regardent l'eau.",
       "Un petit, au bout, plus petit que les autres, a une ligne sans hameçon. Tu lui demandes ce qu'il pêche. « Le nom de ma sœur, dit-il, sérieux. Elle l'a donné à la baraque grise, pour la taille. Le clerc a dit qu'il descendait la rivière jusqu'à Pallanche. Alors je le pêche quand il passe. »",
     ],
     choices: [

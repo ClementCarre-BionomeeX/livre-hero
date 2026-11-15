@@ -11,7 +11,7 @@ module.exports = {
   LI_matin: P({ title: "Le palais de Vasselin",
     fx: { questSeen: "LI_ballade" },
     text: [
-      "Tu te réveilles à dix heures, comme une dame, dans une chambre qui donne sur le port. Les mâts des navires de Corvanne, venus pour les pourparlers de paix, se balancent au-dessus des toits comme une forêt sans feuilles. Il fait déjà chaud. Une servante a posé sur ta table du lait d'amande, des figues et un billet plié, cacheté de rouge.",
+      "Tu te réveilles à dix heures, comme une dame, dans une chambre qui donne sur le port. Les mâts des navires de Corvanne, venus pour les pourparlers de paix, se balancent au-dessus des toits comme une forêt sans feuilles. Il fait déjà chaud. Une servante a posé sur ta table du lait d'amande, six figues, dont une entamée par une guêpe, et un billet plié, cacheté de rouge.",
       "*La Reine attend Dame Lisandre à midi, dans le jardin des citronniers.*",
       "Tu as vingt-six ans. Tu chantes pour la cour d'Esquarre depuis l'âge de douze ans, et pour la reine en particulier, et parfois, quand la reine le demande, tu écoutes aux portes. Tu le fais très bien. Mieux que tu ne chantes, pensent certains. Ceux-là ne t'ont jamais entendue chanter.",
     ],
@@ -20,7 +20,7 @@ module.exports = {
   LI_reine: P({ title: "Le jardin des citronniers",
     fx: { meet: "isaure" },
     text: [
-      "Isaure d'Esquarre a cinquante ans et l'air d'en avoir quarante, sauf aux mains. Elle est assise à l'ombre, avec ses dames, un livre fermé sur les genoux. Elle te tend la main à baiser sans te regarder, puis te regarde, et te sourit, et pendant une seconde, tu vois qu'elle cherche ton nom.",
+      "Isaure d'Esquarre a cinquante ans et l'air d'en avoir quarante, sauf aux mains, qui tiennent le compte exact. Elle est assise à l'ombre, avec ses dames, un livre fermé sur les genoux, un doigt glissé entre deux pages pour marquer un endroit qu'elle ne rouvrira pas. Elle te tend la main à baiser sans te regarder, puis te regarde, et te sourit, et pendant une seconde, tu vois qu'elle cherche ton nom.",
       "« Lisandre. » Elle l'a trouvé. « Je veux une ballade pour la Fête des Noms. Tu la chanteras à Pallanche, la Nuit des Cloches, dans la grande salle de la Chancellerie, devant le Grand Livre. Une ballade sur Hautvent. »",
       "Tu ne sais pas ce qu'est Hautvent. Elle le voit. « Un village de la frontière. Des tisserands qui ont vendu le royaume à Corvanne pour du sel et de la laine. Ils seront jugés à la Fête. Le royaume doit savoir pourquoi. Le Frère Orlan te donnera les faits. »",
       "Elle rouvre son livre. L'audience est finie. Une de ses dames, Ermengarde, te raccompagne jusqu'à l'allée. Elle te dit très bas : « Elle a oublié le nom de son fils, hier, au souper. Le prince Aymeric. Il est mort depuis dix ans. Elle a demandé qui c'était, sur le portrait. »",
@@ -29,7 +29,7 @@ module.exports = {
 
   LI_cour: P({ title: "La cour", hub: true,
     text: [
-      "Le palais de Vasselin, quatre jours avant la Fête. La cour fait ses malles pour Pallanche. On plie les tapisseries, on emballe l'argenterie, on se dispute les places dans les voitures. Dans les galeries, des envoyés de Corvanne en manteaux bleus marchent deux par deux, très droits, comme des hommes qui s'attendent à recevoir un coup.",
+      "Le palais de Vasselin, quatre jours avant la Fête. La cour fait ses malles pour Pallanche. On plie les tapisseries, on emballe l'argenterie, on se dispute les places dans les voitures avec plus d'acharnement qu'aux pourparlers de paix. Dans les galeries, des envoyés de Corvanne en manteaux bleus marchent deux par deux, très droits, comme des hommes qui s'attendent à recevoir un coup.",
       { if: { has: "lisandre:faits" }, text: "Les faits du Frère Orlan sont sur ta table, à côté de ton luth. Tu n'as pas encore écrit un vers." },
     ],
     choices: [
@@ -49,7 +49,7 @@ module.exports = {
   LI_orlan: P({ title: "Le Frère Orlan",
     fx: { meet: "orlan", flag: "lisandre:faits" },
     text: [
-      "Le Frère Orlan est un greffier en robe grise, maigre, avec des mains d'enfant et un rhume qu'il soigne en été à coups de mouchoirs brodés. Il t'attend à la bibliothèque, debout près d'une fenêtre fermée. Il a froid.",
+      "Le Frère Orlan est un greffier en robe grise, maigre, avec des mains d'enfant et un rhume qu'il soigne en été à coups de mouchoirs brodés ; tu en comptes trois dans sa manche. Il t'attend à la bibliothèque, debout près d'une fenêtre fermée. Il a froid, au mois de juillet, dans la seule pièce du palais où l'on étouffe.",
       "Il te tend un cahier. Une liste de noms, de dates, de délits. *Contrebande de sel. Intelligence avec l'ennemi. Recel de déserteurs.* En marge, d'une autre main, des suggestions de rimes. *Hautvent — vent — trahison — saison.*",
       "« La reine aime les refrains, dit-il. Et le peuple aussi. Un refrain, c'est ce qu'on retient. » Il se mouche. « C'est le but. »",
       "Tu remarques, quand il se penche pour reprendre son mouchoir, une petite boîte de plomb à sa ceinture, sous la robe.",
@@ -74,7 +74,7 @@ module.exports = {
   LI_ilan: P({ title: "La galerie des cartes",
     fx: { meet: "ilan", questSeen: "LI_ilan" },
     text: [
-      "La galerie des cartes est pleine d'envoyés de Corvanne qui regardent, sur les murs, des cartes où leur pays est peint en gris et appelé *Marches de l'Est*. Ils sont polis. Ils sont furieux.",
+      "La galerie des cartes est pleine d'envoyés de Corvanne qui regardent, sur les murs, des cartes où leur pays est peint en gris et appelé *Marches de l'Est*. Ils sont polis, et leurs mâchoires sont furieuses.",
       "Le secrétaire du chef de l'ambassade prend des notes, à l'écart. Il est grand, brun, avec une cicatrice au menton. Il lève les yeux de son carnet. Il te voit.",
       { if: { souv: "lisandre:marin" }, text: "Ilan. Trois jours de trêve, sur le port de Brésille, il y a deux ans. Une chambre au-dessus d'une taverne, une fenêtre sur la mer, et un prénom. Tu ne savais rien d'autre. Il n'avait pas cette cicatrice au menton. Tu sais maintenant qu'il sait écrire." },
       { if: { not: { souv: "lisandre:marin" } }, text: "Il te regarde comme on regarde quelqu'un qu'on connaît. Tu ne le connais pas. Il vient vers toi." },
@@ -155,7 +155,7 @@ module.exports = {
   LI_cabinet: P({ title: "Le cabinet de la reine",
     text: [
       "Tu connais le chemin. La porte dérobée derrière la tapisserie des chasses, le couloir des servantes, la clé qu'Ermengarde cache sous le pot de myrte. Il est deux heures du matin. La reine dort.",
-      "Le cabinet sent l'encre et la fleur d'oranger. Sur l'écritoire, des lettres. Tu les lis à la lueur d'une veilleuse.",
+      "Le cabinet sent l'encre et la fleur d'oranger. Sur l'écritoire, des lettres en trois piles : les lues, les à lire, et une troisième, plus mince, sous un presse-papier de cristal. Tu les lis à la lueur d'une veilleuse.",
     ],
     choices: [
       { label: "Lire vite, tout, avant que la veilleuse s'éteigne", test: { dom: "discretion", label: "Discrétion" },
@@ -207,7 +207,7 @@ module.exports = {
 
   LI_depart: P({ title: "Le départ de la cour",
     text: [
-      "Quarante voitures, deux cents cavaliers, des chariots de bagages sur une demi-lieue. La cour d'Esquarre quitte Vasselin pour la Fête des Noms dans un bruit de fers et de grelots. On te donne une place dans la voiture des musiciens, entre une harpe et un tambour.",
+      "Quarante voitures, deux cents cavaliers, des chariots de bagages sur une demi-lieue, et au bout, perdue derrière les fourgons de cuisine, la poussière soulevée par tout ce monde. La cour d'Esquarre quitte Vasselin pour la Fête des Noms dans un bruit de fers et de grelots. On te donne une place dans la voiture des musiciens, entre une harpe et un tambour.",
     ],
     choices: [{ label: "Regarder Vasselin s'éloigner", fx: { flag: "ch:lisandre:1", resume: "LI_route" }, to: "C_carrefour" }] }),
 
@@ -215,7 +215,7 @@ module.exports = {
   LI_route: P({ title: "La route de la cour",
     text: [
       "La route de la cour remonte la vallée de la Pallante, entre des vignes et des villages qui sortent sur le pas des portes pour voir passer la reine. Trois jours de voyage, à l'allure des voitures.",
-      { if: { has: "lisandre:disgrace" }, text: "Personne ne te parle, dans la voiture des musiciens. Le joueur de harpe s'est assis le plus loin possible de toi." },
+      { if: { has: "lisandre:disgrace" }, text: "La voiture des musiciens reste muette autour de toi. Le joueur de harpe s'est assis le plus loin possible, ce qui, dans une voiture de six pieds, demande de la conviction." },
     ],
     choices: [{ label: "En route", travel: "r_cour" }] }),
 
@@ -264,7 +264,7 @@ module.exports = {
   LI_pallanche: P({ title: "La grande salle", place: "pallanche",
     fx: { meet: "mordace" },
     text: [
-      "On te conduit, le soir même, dans la tour noire, pour la répétition. La grande salle de la Chancellerie est ronde, haute, sans fenêtres, éclairée par cent lampes. Au milieu, sur un lutrin de pierre, un livre ouvert, immense, relié de rouge. Le Grand Livre de la Fête. Autour, des gradins, pour la cour.",
+      "On te conduit, le soir même, dans la tour noire, pour la répétition. La grande salle de la Chancellerie est ronde, haute, aveugle, éclairée par cent lampes. Tu les comptes par habitude de musicienne, qui aime savoir combien de souffles brûlent l'air d'une salle : cent, tout juste. Au milieu, sur un lutrin de pierre, un livre ouvert, immense, relié de rouge. Le Grand Livre de la Fête. Autour, des gradins, pour la cour.",
       "Un homme en noir t'attend au pied du lutrin. Grand, mince, la cinquantaine, le visage doux. Il a les mains froides quand il te salue. « Je suis Mordace. Vous chanterez ici, demain, à minuit moins le quart. La ballade dure un quart d'heure. Il faut qu'elle finisse exactement quand les cloches commencent. Pas avant. Pas après. »",
       { if: { has: "hylas:voie=mordace" }, text: "Pendant la répétition, un vieil aveugle monte l'escalier de la galerie, lentement, en comptant les marches à voix basse. Mordace le regarde passer sans s'interrompre." },
       { if: { has: "pie:choix=liste" }, text: "Un greffier vient parler à l'oreille de Mordace. Tu entends : *la page du registre rouge*. Mordace ne se retourne pas. Il dit seulement : « Elle reviendra. Tout revient. »" },

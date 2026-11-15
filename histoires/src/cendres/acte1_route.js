@@ -5,7 +5,7 @@ module.exports = {
   // ------------------------------------------------------------ plaine
   E_foire: P({ title: "La foire aux noms",
     text: [
-      "Un bourg en fête, sur la route des Cloches. Des étals, des bannières, un montreur d'ours. Et, sous une tente rayée, un homme en habit vert qui vend des noms.",
+      "Un bourg en fête, sur la route des Cloches. Des étals, des bannières, un montreur d'ours, et un marchand de beignets qui fait plus d'argent que tous les autres réunis. Et, sous une tente rayée, un homme en habit vert qui vend des noms.",
       "« Des noms neufs, des noms anciens, des noms de saints, des noms de rois ! Pour vos enfants, pour vos chiens, pour vous-mêmes si le vôtre vous pèse ! Deux liards le nom commun, un sou le nom de baptême, trois sous le nom à particule ! » On fait la queue. Une femme achète un nom pour son nouveau-né. Un vieux en achète un pour lui, et s'en va en le répétant à voix basse, ravi.",
     ],
     choices: [
@@ -25,7 +25,7 @@ module.exports = {
 
   E_mendiant: P({ title: "Le frère mendiant",
     text: [
-      "Un frère mendiant, assis au bord d'un fossé, pieds nus, la robe grise trouée aux coudes. Il a une écuelle vide et un sourire plein de dents. « Un morceau de pain, mon fils, et je te dis ton avenir. »",
+      "Un frère mendiant, assis au bord d'un fossé, pieds nus, la robe grise trouée aux coudes, la plante des pieds aussi dure que de la corne de sabot. Il a une écuelle vide et un sourire plein de dents. « Un morceau de pain, mon fils, et je te dis ton avenir. »",
     ],
     choices: [
       { label: "Lui donner du pain", fx: { food: -1 }, to: "E_mendiant_avenir" },
@@ -43,7 +43,7 @@ module.exports = {
 
   E_fosse: P({ title: "La fosse",
     text: [
-      "Au bord d'un champ, des hommes creusent une fosse. Longue. Un fossoyeur, deux valets, un prêtre qui attend. Ni cercueil ni famille.",
+      "Au bord d'un champ, des hommes creusent une fosse. Tu la mesures d'un coup d'œil : douze pieds de long, de quoi coucher six corps côte à côte. Un fossoyeur, deux valets, un prêtre qui attend, et c'est tout le cortège.",
       "« Pour qui ? » demandes-tu. Le prêtre hausse les épaules. « Pour ceux du hameau d'à côté. Trois familles. Partis dans la neige, la nuit de mardi, tous ensemble, en chemise. On en a retrouvé deux. Les autres, on les enterre quand même. Ça ne coûte rien, une fosse, et ça fait un endroit. »",
     ],
     choices: [
@@ -57,7 +57,7 @@ module.exports = {
   // ------------------------------------------------------------ crêtes
   E_orage: P({ title: "L'orage",
     text: [
-      "Le ciel noircit en une heure, comme toujours en montagne. Les premiers coups de tonnerre roulent sur les crêtes. La foudre tombe à cent pas, sur un pin isolé, qui se fend en deux avec un bruit de porte qu'on claque.",
+      "Le ciel noircit en une heure, comme toujours en montagne. Les premiers coups de tonnerre roulent sur les crêtes. La foudre tombe à cent pas, sur un pin isolé, qui se fend en deux avec un bruit de porte qu'on claque. Tu comptes entre l'éclair et le tonnerre, comme Joris te l'a appris : zéro.",
       "Il faut descendre du fil de la crête. Tout de suite.",
     ],
     choices: [{ label: "Chercher un abri", test: { dom: "nature", label: "L'orage", help: [{ if: { has: "passe:alpage" }, v: 20 }] },
@@ -71,7 +71,7 @@ module.exports = {
 
   E_chamois: P({ title: "Le chamois",
     text: [
-      "Sur une vire, au-dessus du sentier, un chamois. Il ne fuit pas. Il te regarde, immobile, la tête haute. Puis il fait un pas vers la neige blanche, au nord, s'arrête, revient, refait un pas. Il ne sait plus de quel côté il habite.",
+      "Sur une vire, au-dessus du sentier, un chamois. Il ne fuit pas. Il te regarde, immobile, la tête haute. Puis il fait un pas vers la neige blanche, au nord, s'arrête, revient, refait un pas. Il a oublié de quel côté il habite.",
     ],
     choices: [
       { label: "Le chasser vers le sud, vers le vert", test: { dom: "nature", label: "Le chamois", help: [{ if: { has: "passe:alpage" }, v: 15 }] },
@@ -102,7 +102,7 @@ module.exports = {
   // ------------------------------------------------------------ marches (Ysolde)
   E_veuve_soldat: P({ title: "La veuve de soldat",
     text: [
-      "Une femme attend au bord de la route, avec une charrette à bras et deux enfants. Elle t'arrête de la main. « Capitaine. Mon mari était de Brenne. Pierre Aubin, de la compagnie du Loup. Il est mort à la guerre des Trois Ans. La pension ne vient plus. Au fort, on me dit qu'il n'y a pas de Pierre Aubin sur les rôles. Qu'il n'y en a jamais eu. »",
+      "Une femme attend au bord de la route, avec une charrette à bras, deux enfants, et un châle noir reprisé tant de fois qu'il est devenu gris par endroits. Elle t'arrête de la main. « Capitaine. Mon mari était de Brenne. Pierre Aubin, de la compagnie du Loup. Il est mort à la guerre des Trois Ans. La pension ne vient plus. Au fort, on me dit qu'il n'y a pas de Pierre Aubin sur les rôles. Qu'il n'y en a jamais eu. »",
       "Elle te tend un papier. Un brevet de soldat, plié en huit, avec le sceau du loup. Pierre Aubin. La signature, en bas, est celle de ton père.",
     ],
     choices: [
@@ -114,7 +114,7 @@ module.exports = {
     choices: [{ back: "@route" }] }),
   E_pont_coupe: P({ title: "Le pont coupé",
     text: [
-      "Le pont de bois sur le ruisseau des Aulnes a été coupé à la hache, cette nuit. Les entailles sont fraîches. Quelqu'un voulait empêcher le passage, ou le retour.",
+      "Le pont de bois sur le ruisseau des Aulnes a été coupé à la hache, cette nuit. Les entailles sont fraîches, le bois encore clair et humide de sève, et les copeaux n'ont pas noirci. Une hache de bûcheron, à en juger par la largeur du fer, maniée par un gaucher. Quelqu'un voulait empêcher le passage, ou le retour.",
     ],
     choices: [{ label: "Faire passer tout le monde à gué", test: { dom: "nature", label: "Le gué des Aulnes", help: [{ if: { item: "corde" }, v: 15 }] },
       win: { fx: { ep: ["seance", 500] }, to: "E_pont_coupe_ok" }, lose: { fx: { pv: -2, food: -1 }, to: "E_pont_coupe_rate" } }] }),

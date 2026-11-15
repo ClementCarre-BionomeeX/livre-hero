@@ -8,7 +8,7 @@ var PI_BACK = [{ back: "PI_ville" }], CO_BACK = [{ back: "CO_camp" }];
 module.exports = {
   PI_k_lavoir: PI({ title: "Le lavoir des Teinturiers",
     text: [
-      "Au bout de la rue des Teinturiers, là où le ruisseau sort bleu, rouge ou jaune selon le jour, il y a le lavoir. Un toit de tuiles sur quatre poteaux, une pierre inclinée, et dix femmes à genoux qui battent le linge en parlant fort. Tu n'y es pas revenu depuis la pluie, et la fosse commune des quais. Linette avait quatre ans.",
+      "Au bout de la rue des Teinturiers, là où le ruisseau sort bleu, rouge ou jaune selon le jour, il y a le lavoir. Un toit de tuiles sur quatre poteaux, une pierre inclinée, et dix femmes à genoux qui battent le linge en parlant fort, un coup de battoir par syllabe. Tu n'y es pas revenu depuis la pluie, et la fosse commune des quais. Linette avait quatre ans.",
       "Les femmes se taisent quand tu passes sous le toit. Puis la plus vieille, Guillemette, qui a des bras comme des cuisses et pas une dent de devant, se relève en s'appuyant sur son battoir. « Le petit de Jeanne, dit-elle. Regardez-moi ça. Il est devenu voleur, à ce qu'on dit. Ta mère aurait eu honte. » Elle te prend la figure entre ses mains mouillées. « Elle aurait eu honte et elle t'aurait donné à manger. Viens là. »",
     ],
     choices: [

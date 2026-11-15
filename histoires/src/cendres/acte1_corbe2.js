@@ -8,7 +8,7 @@ var BACK = [{ back: "CO_V_ville" }];
 module.exports = {
   CO_V_ville: P({ title: "La ville d'en bas", hub: true,
     text: [
-      { first: true, text: "Le jour, Pallanche est pire que la nuit. Il y a des gens partout, qui ne se regardent pas, qui se bousculent sans s'excuser, qui crient des choses à personne. Les maisons sont collées les unes aux autres, si hautes qu'on ne voit le ciel qu'en bande, tout en haut. Ça sent la fumée, le crottin, le pain, la pisse, le poisson. Tout à la fois." },
+      { first: true, text: "Le jour, Pallanche est pire que la nuit. Il y a des gens partout, plus qu'au clan en dix étés de rassemblement, qui se bousculent sans s'excuser et crient des choses à personne. Les maisons sont collées les unes aux autres, si hautes qu'on ne voit le ciel qu'en bande, tout en haut. Ça sent la fumée, le crottin, le pain, la pisse, le poisson. Tout à la fois." },
       "Partout, des signes. Sur les portes, sur les murs, sur des planches pendues au-dessus des boutiques. Des traits noirs, serrés, qui veulent dire quelque chose à tout le monde, sauf à toi.",
     ],
     choices: [
@@ -34,7 +34,7 @@ module.exports = {
   CO_V_marche: P({ title: "Le marché aux bêtes",
     text: [
       "Le marché aux bêtes, enfin une odeur que tu connais. Des vaches, des cochons, des moutons aux oreilles fendues, des chevaux qu'on fait trotter au licol. Des hommes qui crient des chiffres et se tapent dans la main.",
-      "Dans un enclos, à l'écart, un renne. Un seul. Vieux, la ramure cassée, la robe mitée. Un marchand l'a acheté à un clan, quelque part au nord, il y a longtemps, pour le montrer dans les foires. Il est attaché court. Il regarde le nord. Il te sent. Il tourne la tête vers toi, et il brame, une fois, doucement.",
+      "Dans un enclos, à l'écart, un renne. Un seul. Vieux, la ramure cassée à mi-hauteur, la robe mitée, les sabots trop longs d'avoir piétiné de la paille au lieu du lichen. Un marchand l'a acheté à un clan, quelque part au nord, il y a longtemps, pour le montrer dans les foires. Il est attaché court. Il regarde le nord. Il te sent. Il tourne la tête vers toi, et il brame, une fois, doucement.",
     ],
     choices: [
       { label: "Lui chanter le chant des troupeaux, tout bas", fx: { ep: ["perso", 400], flag: "corbe:renne_ville" }, to: "CO_V_renne" },
@@ -45,13 +45,13 @@ module.exports = {
     choices: BACK }),
   CO_V_riviere: P({ title: "La rivière",
     text: [
-      "Au bout de la rue, la Pallante. Tu n'as jamais vu autant d'eau. Les torrents des Combes sont étroits, blancs, ils crient. Celle-ci est large, brune, et muette. Elle avance. Elle porte des bateaux, des planches, des choses mortes, et elle s'en moque.",
+      "Au bout de la rue, la Pallante. Tu y mettrais tous les torrents des Combes, mis bout à bout, et il resterait de la place. Les torrents des Combes sont étroits, blancs, ils crient. Celle-ci est large, brune, et muette. Elle avance. Elle porte des bateaux, des planches, des choses mortes, et elle s'en moque.",
       "Des femmes lavent du linge, à genoux sur les pierres. Elles chantent. Une d'elles te fait signe : il y a de la place. Tu t'agenouilles. Tu plonges les mains. L'eau est tiède et sale. Tu te laves le visage quand même. Tes peintures coulent, un peu, et s'en vont avec le reste.",
     ],
     choices: [{ fx: { ep: ["perso", 200] }, back: "CO_V_ville" }] }),
   CO_V_ecrivain: P({ title: "L'écrivain public",
     text: [
-      "Au coin d'une place, un homme assis à une petite table, une plume, de l'encre, des feuilles. Devant lui, une file de gens : une servante, un vieux soldat, une femme avec un bébé. Chacun lui parle à voix basse, et il écrit. Ce qu'ils disent, il le met en traits. Puis il plie la feuille, et ils paient.",
+      "Au coin d'une place, un homme assis à une petite table, une plume, de l'encre, des feuilles, et un pot de sable pour sécher. Ses doigts sont noirs jusqu'à la deuxième phalange. Devant lui, une file de gens : une servante, un vieux soldat, une femme avec un bébé. Chacun lui parle à voix basse, et il écrit. Ce qu'ils disent, il le met en traits. Puis il plie la feuille, et ils paient.",
       "C'est son métier. Écrire à la place de ceux qui ne savent pas. Tu fais la queue. La raison t'échappe. Quand ton tour arrive, il lève les yeux. « Une lettre ? Pour qui ? »",
     ],
     choices: [

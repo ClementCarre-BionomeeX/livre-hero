@@ -25,7 +25,7 @@ module.exports = {
 
   EN_k_bal: P({ title: "Les violons",
     text: [
-      "Les violons de Pont-de-Saule jouent sur le perron de l'auberge. Trois violons, une vielle, un tambourin. Ils jouent une bourrée, puis une autre. On danse sur la place, les vieux avec les vieilles, les filles entre elles, les garçons qui n'osent pas.",
+      "Les violons de Pont-de-Saule jouent sur le perron de l'auberge. Trois violons, une vielle, un tambourin, et un quatrième violon qui suit les autres à une demi-mesure, par principe. Ils jouent une bourrée, puis une autre. On danse sur la place, les vieux avec les vieilles, les filles entre elles, les garçons qui n'osent pas.",
       "Tess est là, au bord de la danse, les bras croisés, son tablier de forge encore noué. Elle fait semblant de ne pas regarder. Elle regarde.",
     ],
     choices: [
@@ -45,7 +45,7 @@ module.exports = {
 
   EN_k_tartes: P({ title: "Le concours de tartes",
     text: [
-      "Sur une table à tréteaux, sous le tilleul, les tartes du concours. Douze. Le Père Anselme est juge, comme tous les ans, assis devant, une fourchette dans chaque main, l'air grave d'un évêque.",
+      "Sur une table à tréteaux, sous le tilleul, les tartes du concours. Douze, dont dix pour la figuration. Le Père Anselme est juge, comme tous les ans, assis devant, une fourchette dans chaque main, l'air grave d'un évêque.",
       "Depuis vingt ans, c'est entre Agathe et la grand-tante Ferrand, la tante du maréchal, qui tient sa maison depuis que la mère de Tess est morte. Tarte aux myrtilles contre tarte aux pommes. Vingt ans, dix victoires chacune. Les deux femmes se tiennent de part et d'autre de la table, chacune derrière sa tarte, sans se regarder.",
     ],
     choices: [

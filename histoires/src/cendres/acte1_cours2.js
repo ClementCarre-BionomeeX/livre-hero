@@ -7,7 +7,7 @@ var LI = P({ act: "I", place: "vasselin" }), YS = P({ act: "I", place: "brenne" 
 module.exports = {
   LI_k_repetition: LI({ title: "La répétition",
     text: [
-      "Dans la galerie haute, au-dessus de la grande salle, les musiciens de la reine répètent pour la Fête. Douze, en livrée bleue. Ils jouent bien. Ils jouent très bien. Et, à chaque morceau, ils s'arrêtent, tous ensemble, deux mesures avant la fin, et ils se regardent.",
+      "Dans la galerie haute, au-dessus de la grande salle, les musiciens de la reine répètent pour la Fête. Douze, en livrée bleue : quatre violes, deux luths, une harpe, trois flûtes, un serpent et un tambourin. Ils jouent bien, très bien même. Et, à chaque morceau, ils s'arrêtent, tous ensemble, deux mesures avant la fin, et ils se regardent.",
       "Le vieux Maître Grégoire, à la harpe, qui dirige depuis trente ans, a les mains suspendues au-dessus des cordes. « La fin, dit-il. Je ne sais plus la fin. D'aucun morceau. Je sais le début, le milieu. Et puis plus rien. » Les autres attendent. Ils ne la savent plus non plus. Ils l'ont toujours suivi, lui.",
     ],
     choices: [
@@ -27,7 +27,7 @@ module.exports = {
 
   YS_k_maitre: YS({ title: "Le maître d'armes",
     text: [
-      "Dans la tour des archers, le vieux Gerbold, maître d'armes de Brenne depuis le temps de ton grand-père, graisse des arbalètes. Il a soixante-dix ans, un œil crevé, et il t'a appris à tenir une épée quand tu avais six ans, en te tapant sur les doigts avec une baguette de saule.",
+      "Dans la tour des archers, le vieux Gerbold, maître d'armes de Brenne depuis le temps de ton grand-père, graisse des arbalètes. Il a soixante-dix ans, un œil crevé, et il t'a appris à tenir une épée quand tu avais six ans, en te tapant sur les doigts avec une baguette de saule, trois coups par faute, jamais quatre.",
       "Sur une étagère, au-dessus de l'établi, un gros livre relié de cuir. Le livre des hommes. Chaque garçon qu'il a formé, depuis cinquante ans, avec son nom, son village, son défaut, et, plus tard, d'une autre encre, ce qu'il est devenu.",
       "« Tu veux voir ta page ? » dit-il sans lever la tête.",
     ],
@@ -48,7 +48,7 @@ module.exports = {
 
   III_p_tour_guet: T3({ title: "La tour de guet",
     text: [
-      "Au milieu de la plaine blanche, une tour de guet en ruine. De pierre, de chez vous, avec les créneaux d'en bas et une meurtrière tournée vers le nord. Quelqu'un, il y a très longtemps, l'a oubliée tout entière, et elle est venue ici.",
+      "Au milieu de la plaine blanche, une tour de guet en ruine. De pierre, de chez vous : tu reconnais le grès rouge des carrières du sud, les créneaux d'en bas, une meurtrière tournée vers le nord. Quelqu'un, il y a très longtemps, l'a oubliée tout entière, et elle est venue ici.",
       "En haut, un guetteur. Vieux, en cotte rouillée, une trompe de corne à la ceinture. Il regarde le nord. Il regarde toujours le nord. « Je dois sonner quand ils arrivent, dit-il sans se retourner. Les Orsans. Je n'ai jamais sonné. Ils ne sont jamais venus. »",
     ],
     choices: [

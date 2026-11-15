@@ -6,7 +6,7 @@ function P(o) { return Object.assign({}, PI, o); }
 module.exports = {
   PI_k_brocante: P({ title: "La brocante des Cédants",
     text: [
-      "Au pied de la tour, contre le mur du Bureau, une vieille femme a étalé une couverture par terre. Dessus, des objets. Une bague de cuivre. Une mèche de cheveux nouée d'un fil rouge. Des lettres, liées par paquets. Une poupée sans bras. Un dé à coudre. Une pipe.",
+      "Au pied de la tour, contre le mur du Bureau, une vieille femme a étalé une couverture par terre. Dessus, des objets rangés avec le soin d'un inventaire de notaire. Une bague de cuivre. Une mèche de cheveux nouée d'un fil rouge. Des lettres, liées par paquets. Une poupée sans bras. Un dé à coudre. Une pipe.",
       "« Ce qu'ils laissent en sortant, dit-elle. Ils vendent le souvenir, au guichet, et en ressortant, l'objet ne leur dit plus rien. Alors ils le posent là, sur le rebord, et ils s'en vont. Moi, je ramasse. Je revends. Un sou pièce. Les objets, ça ne s'oublie pas, ça. Ça attend. »",
       "Au bord de la couverture, entre un sabot d'enfant et un chapelet, un sifflet de saule. Taillé au couteau, maladroitement, avec une encoche de travers. Tu l'as taillé toi-même, il y a trois ans, sous le pont des Teinturiers, pour une petite fille qui avait peur du noir.",
     ],

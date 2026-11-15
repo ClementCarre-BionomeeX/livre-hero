@@ -6,7 +6,7 @@ module.exports = {
   PI_Q_course: P("pallanche", { title: "Grélot",
     fx: { questSeen: "PI_Q_course" },
     text: [
-      "Grélot t'attend sur le toit de la halle aux Draps, assis sur une cheminée, les jambes croisées. Il a ton âge, une dent en moins, et la prétention d'être le meilleur monte-en-l'air de Pallanche. Ce n'est pas vrai. C'est toi.",
+      "Grélot t'attend sur le toit de la halle aux Draps, assis sur une cheminée, les jambes croisées. Il a ton âge, une dent en moins, et la prétention d'être le meilleur monte-en-l'air de Pallanche. Ce titre t'appartient, et Grélot le sait mieux que personne.",
       "« On dit que tu cherches à entrer dans la tour noire, dit-il. On dit que tu as besoin d'aide. » Il crache dans la rue. « Course. D'ici au clocher de Saint-Gilles, par les toits. Si tu gagnes, je te dis ce que je sais. Si je gagne, tu me donnes ta pince. »",
     ],
     choices: [
@@ -28,7 +28,7 @@ module.exports = {
   LI_Q_perroquet: P("vasselin", { title: "Le perroquet",
     fx: { questSeen: "LI_Q_perroquet" },
     text: [
-      "Dans l'antichambre de la reine, sur un perchoir d'argent, le perroquet gris que l'ambassadeur des îles lui a offert l'an dernier. Il s'appelle Monseigneur. Il ne parle presque jamais. Il écoute.",
+      "Dans l'antichambre de la reine, sur un perchoir d'argent, le perroquet gris que l'ambassadeur des îles lui a offert l'an dernier, la queue rouge vif, l'œil jaune et un vocabulaire inconnu de tous. Il s'appelle Monseigneur. Il ne parle presque jamais. Il écoute.",
       "Ce matin, il parle. Il répète sans se lasser, d'une voix de vieille duchesse :« Pas avant la Fête, mon cœur. Pas avant la Fête. » Puis, d'une voix d'homme, grave, avec un accent du nord : « Dis-moi seulement si c'est le mien. »",
       "Deux dames d'atour passent, entendent, rougissent jusqu'aux oreilles, et pressent le pas.",
     ],
@@ -74,7 +74,7 @@ module.exports = {
   YS_Q_recrue: P("brenne", { title: "La recrue",
     fx: { questSeen: "YS_Q_recrue" },
     text: [
-      "Dans la cour, le sergent fait manœuvrer les recrues de printemps. Dix garçons de ferme, une pique chacun, qui se marchent sur les pieds. Le plus petit, au bout du rang, tient sa pique comme un balai. Il a de la paille dans les cheveux et une voix qui n'a pas mué.",
+      "Dans la cour, le sergent fait manœuvrer les recrues de printemps. Dix garçons de ferme, une pique chacun, qui se marchent sur les pieds à raison d'un orteil par demi-tour. Le plus petit, au bout du rang, tient sa pique comme un balai. Il a de la paille dans les cheveux et une voix qui n'a pas mué.",
       "Sur le rôle, à côté de son nom, on a écrit : *seize ans*. Il en a treize. Quatorze, au mieux. Tu le sais. Le sergent le sait. Le garçon sait que vous savez.",
     ],
     choices: [
@@ -92,7 +92,7 @@ module.exports = {
   CO_Q_tambour: P("corbeau", { title: "Le tambour fendu",
     fx: { questSeen: "CO_Q_tambour" },
     text: [
-      "Ce matin, ton tambour s'est fendu. La peau, d'un bord à l'autre, d'un seul coup, avec un bruit de branche. Le froid de la neige blanche. Il n'a jamais fait si froid en juillet.",
+      "Ce matin, ton tambour s'est fendu. La peau, d'un bord à l'autre, sur une paume de long, d'un seul coup, avec un bruit de branche. Le froid de la neige blanche. Il n'a jamais fait si froid en juillet.",
       "C'est le tambour que ta mère a peint pour toi, avec les noms des Bouches. Une Bouche sans tambour, au col, dans trois jours, c'est une Bouche qui ne peut pas appeler. Il faut une peau neuve. De renne. Tendue cette nuit, peinte demain.",
     ],
     choices: [
@@ -114,7 +114,7 @@ module.exports = {
   EN_Q_fontaine: P("sauvelune", { title: "La fontaine aux vœux",
     fx: { questSeen: "EN_Q_fontaine" },
     text: [
-      "Au milieu de la place, la fontaine de Sauvelune. Le fond est couvert de liards verts, jetés depuis des générations par des gens qui faisaient un vœu. Les enfants du village y repêchent les plus brillants, la nuit, et le Père Anselme fait semblant de ne pas savoir.",
+      "Au milieu de la place, la fontaine de Sauvelune. Le fond est couvert de liards verts, jetés depuis des générations par des gens qui faisaient un vœu. À vue de nez, il y a là de quoi acheter une vache, et autant de vœux restés sans réponse. Les enfants du village y repêchent les plus brillants, la nuit, et le Père Anselme fait semblant de ne pas savoir.",
       "Un vœu coûte un liard. Exactement.",
     ],
     choices: [

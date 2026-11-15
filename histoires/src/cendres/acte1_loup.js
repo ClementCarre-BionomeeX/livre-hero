@@ -6,7 +6,7 @@ module.exports = {
   CO_L_depart: P({ title: "Les chasseurs",
     fx: { questSeen: "CO_Q_loup" },
     text: [
-      "Au bord du camp, trois chasseurs graissent leurs lances et vérifient leurs raquettes. Bjarki, le plus vieux, avec ses moustaches gelées. Ses deux fils. « Une louve blanche, dit-il. Elle a pris quatre rennes en six nuits. Elle ne les mange pas. Elle les tue, et elle les laisse. »",
+      "Au bord du camp, trois chasseurs graissent leurs lances et vérifient leurs raquettes. Bjarki, le plus vieux, avec ses moustaches gelées en deux pointes blanches. Ses deux fils, qui ont son nez et pas encore ses moustaches. « Une louve blanche, dit-il. Elle a pris quatre rennes en six nuits. Elle ne les mange pas. Elle les tue, et elle les laisse. »",
       "Il crache. « Ce n'est pas une louve normale. Une louve tue pour manger, ou pour ses petits. Celle-là tue comme on oublie quelque chose. » Il te regarde. « Tu es la Bouche, maintenant. Tu sais peut-être ce que c'est. Viens. »",
     ],
     choices: [
@@ -15,7 +15,7 @@ module.exports = {
     ] }),
   CO_L_piste: P({ title: "La piste",
     text: [
-      "Vous montez vers les crêtes, en file, sur les raquettes. La piste est fraîche, large, des empreintes plus grandes que la main. Puis, sur un replat, elle s'arrête. Pas d'empreintes devant. Pas d'empreintes sur les côtés. Comme si la louve s'était envolée.",
+      "Vous montez vers les crêtes, en file, sur les raquettes. La piste est fraîche, large, des empreintes plus grandes que la main, à cinq pieds l'une de l'autre : une bête au trot, lourde. Puis, sur un replat, elle s'arrête net. Devant, la neige est vierge ; sur les côtés aussi. On croirait que la louve s'est envolée.",
       "« Ça fait ça chaque fois, dit un des fils. On perd la piste ici. » Bjarki tourne en rond, le nez au vent.",
     ],
     choices: [
@@ -34,7 +34,7 @@ module.exports = {
     text: [
       "Tu t'accroupis. La neige du replat n'est pas comme l'autre : plus lisse, plus fine. Tu souffles dessus. Dessous, les empreintes continuent, recouvertes d'une neige blanche, plus blanche que la neige. Quelque chose les efface derrière la louve, à mesure qu'elle passe.",
       "Vous suivez. Une heure. Un éboulis, une fente sous un rocher. L'odeur. Et un bruit, à l'intérieur : des petits cris aigus, affamés.",
-      "Elle sort. Une louve énorme, blanche jusqu'aux yeux. Les yeux aussi sont blancs. Elle vous regarde sans vous voir, et derrière elle, dans la fente, trois louveteaux gris crient de faim, et elle ne se retourne pas vers eux. Elle ne sait plus qu'ils sont à elle.",
+      "Elle sort. Une louve énorme, haute comme un veau d'un an, blanche jusqu'aux yeux. Les yeux aussi sont blancs. Elle vous regarde sans vous voir, et derrière elle, dans la fente, trois louveteaux gris crient de faim, et elle ne se retourne pas vers eux. Elle ne sait plus qu'ils sont à elle.",
     ],
     choices: [
       { label: "La tuer, pour les rennes", to: "CO_L_combat" },

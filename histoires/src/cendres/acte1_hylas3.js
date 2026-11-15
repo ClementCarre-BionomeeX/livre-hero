@@ -9,13 +9,13 @@ module.exports = {
   HY_V_sortie: P({ title: "La porte de l'Est",
     text: [
       "Tu sors par la porte de l'Est, celle des livreurs. Le garde te connaît ; il ne te demande rien. Un vieux greffier aveugle qui sort prendre l'air, ça ne s'évade pas. Il a raison.",
-      { if: { has: "hylas:page" }, text: "Page Onze te suit, un pas en arrière. Tu lui dis de marcher à côté. Elle ne sait pas faire. Elle essaie. Elle se cogne à toi deux fois avant le premier carrefour." },
+      { if: { has: "hylas:page" }, text: "Page Onze te suit, un pas en arrière. Tu lui dis de marcher à côté. On lui a appris l'autre manière pendant un an, et elle essaie de défaire l'apprentissage en une matinée. Elle se cogne à toi deux fois avant le premier carrefour." },
       "Dehors, Pallanche te tombe dessus d'un coup, comme une averse. Les cris, les roues, les sabots, les cloches, les odeurs. Tu n'es pas sorti en plein jour depuis l'hiver. Tu avais oublié que la ville faisait tant de bruit.",
     ],
     choices: [{ label: "Marcher au hasard, à l'oreille", to: "HY_V_ville" }] }),
   HY_V_ville: P({ title: "Pallanche, à l'oreille", hub: true,
     text: [
-      "Tu marches, la canne devant toi, la main gauche frôlant les murs. Tu connais Pallanche comme on connaît un vieux livre : par cœur, et pas tout à fait. Des rues ont changé de son. Des boutiques ont changé d'odeur.",
+      "Tu marches, la canne devant toi, la main gauche frôlant les murs. Tu connais Pallanche comme on connaît un vieux livre : par cœur, et pas tout à fait. Des rues ont changé de son : la rue des Merciers, qui résonnait, est devenue sourde, et tu en déduis qu'on y a tendu des toiles. Des boutiques ont changé d'odeur.",
     ],
     choices: [
       { label: "Le bruit de l'eau, vers le sud", hide: { seen: "HY_V_pont" }, to: "HY_V_pont" },

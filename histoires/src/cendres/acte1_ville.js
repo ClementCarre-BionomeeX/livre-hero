@@ -27,7 +27,7 @@ module.exports = {
     choices: HY_BACK }),
   CO_V_ours: CO({ title: "L'ours du montreur",
     text: [
-      "Sur une placette, devant une taverne, un cercle de badauds. Au milieu, un homme maigre, à l'accent du sud, et au bout de sa chaîne, un ours. Petit, brun, pelé aux coudes, un collier de cuir rouge, une cicatrice en croix sur le museau. « Bertrand ! L'ours le plus savant des trois royaumes ! » L'ours fait sa révérence. On rit. On jette des sous.",
+      "Sur une placette, devant une taverne, un cercle de badauds, trois rangs d'épaisseur. Au milieu, un homme maigre, à l'accent du sud, et au bout de sa chaîne, un ours. Petit, brun, pelé aux coudes, un collier de cuir rouge, une cicatrice en croix sur le museau. « Bertrand ! L'ours le plus savant des trois royaumes ! » L'ours fait sa révérence. On rit. On jette des sous.",
       "Tu t'approches. L'ours tourne la tête vers toi. Il renifle. Il sent la fumée de genévrier, le renne, la graisse du camp sur tes peaux. Il s'arrête au milieu de son numéro. Il grogne, très bas, deux syllabes, toujours les mêmes. Le montreur tire sur la chaîne. Toi, tu as compris. C'est un nom. Un nom du Corbeau, de ceux qu'on donne aux oursons qu'on élève une saison avant de les rendre à la montagne. *Hjalti.*",
     ],
     choices: [

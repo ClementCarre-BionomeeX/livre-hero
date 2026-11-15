@@ -7,7 +7,7 @@ module.exports = {
   CO_Q_renne: P("corbeau", { title: "Le renne blanc",
     fx: { questSeen: "CO_Q_renne" },
     text: [
-      "Au bord du troupeau, une femelle de renne s'est écartée des autres. Elle a de la neige blanche sur le dos, comme tous, mais chez elle, la neige ne glisse pas quand elle s'ébroue. Elle s'est posée dans le poil et elle y reste. La bête regarde le nord. Elle ne mange plus.",
+      "Au bord du troupeau, une femelle de renne s'est écartée des autres, à vingt pas exactement, la distance où les loups prennent les bêtes. Elle a de la neige blanche sur le dos, comme tous, mais chez elle, la neige ne glisse pas quand elle s'ébroue. Elle s'est posée dans le poil et elle y reste. La bête regarde le nord. Elle ne mange plus.",
       "Le vieux Arnald, qui garde le troupeau, crache par terre. « Elle est à la Mère, maintenant. Elle ne connaît plus son nom, plus ses petits, plus le troupeau. Cette nuit, elle partira vers le col, et si on la suit, on ne revient pas. »",
       "C'est ta renne. Celle que tu as nourrie au biberon de corne, il y a quatre ans, quand sa mère est morte dans l'avalanche. Tu l'appelais Brindille, parce qu'elle était maigre.",
     ],
@@ -39,7 +39,7 @@ module.exports = {
     fx: { questSeen: "HY_Q_mur" },
     text: [
       "La chapelle de la tour est petite, froide, et elle sent la cire. Tu la connais par cœur : quarante-deux pas de long, onze bancs, une marche usée devant l'autel. Tu y venais, quand tu avais encore des yeux, pour lire les noms.",
-      "Les noms sont sur le mur du fond. Ceux des greffiers morts, depuis la fondation de la Chancellerie, gravés dans la pierre, un par un, avec leurs années. Trois cents ans de plumes.",
+      "Les noms sont sur le mur du fond. Ceux des greffiers morts, depuis la fondation de la Chancellerie, gravés dans la pierre, un par un, avec leurs années : douze colonnes, quarante noms par colonne, trois cents ans de plumes.",
       "Le chapelain, frère Gauvain, te prend par le bras. « Maître Hylas. On a gravé de nouveaux noms ce printemps. Je ne les ai pas commandés. Je voudrais que vous les lisiez. Moi, je n'ose pas. »",
     ],
     choices: [
@@ -71,7 +71,7 @@ module.exports = {
   LI_Q_clemence: P("vasselin", { title: "Clémence",
     fx: { questSeen: "LI_Q_clemence" },
     text: [
-      "Dans l'embrasure d'une fenêtre de la galerie, Clémence de Varades, demoiselle d'honneur de la reine, dix-sept ans, l'air d'une personne qui se noie, t'attrape par la manche.",
+      "Dans l'embrasure d'une fenêtre de la galerie, Clémence de Varades, demoiselle d'honneur de la reine, dix-sept ans, un pli d'encre au majeur et l'air d'une personne qui se noie, t'attrape par la manche.",
       "« Dame Lisandre. Il faut que vous m'écriviez une lettre. En vers. Il est sergent, à Brenne, dans les Marches, je l'ai vu une fois quand la reine est allée voir le fort, il m'a aidée à descendre de voiture, il ne m'a pas dit un mot, il avait une cicatrice au menton, il ne sait sûrement pas lire, je ne sais même pas son nom. » Elle reprend son souffle. « Je vous paierai. »",
     ],
     choices: [
@@ -96,7 +96,7 @@ module.exports = {
   PI_Q_mouche: P("pallanche", { title: "Mouche",
     fx: { questSeen: "PI_Q_mouche" },
     text: [
-      "Mouche a huit ans, la rue pour famille, et la plus petite main de Pallanche. C'est toi qui lui as appris à couper une bourse. Elle t'attend sur les toits du marché aux Toiles, assise sur une gouttière, les pieds dans le vide.",
+      "Mouche a huit ans, la rue pour famille, et la plus petite main de Pallanche : elle passe entière dans une bourse d'homme sans en tendre le cordon. C'est toi qui lui as appris à couper une bourse. Elle t'attend sur les toits du marché aux Toiles, assise sur une gouttière, les pieds dans le vide.",
       "« Pie, dit-elle. J'ai fait une bêtise. » Elle a de quoi manger, ça se voit : un pain entier, frais, à côté d'elle. « Je suis allée au Bureau. Ils m'ont donné six sous pour un souvenir. J'en ai pris un que je n'aimais pas. » Elle fronce les sourcils. « Le problème, c'est que je ne sais plus lequel. Et depuis, j'ai peur des chiens. Je n'avais pas peur des chiens. »",
     ],
     choices: [
@@ -121,7 +121,7 @@ module.exports = {
   YS_Q_cheval: P("brenne", { title: "Sombrevent",
     fx: { questSeen: "YS_Q_cheval" },
     text: [
-      "Derrière l'écurie, l'intendant a fait attacher un vieux cheval noir au poteau du boucher. Il a vingt-deux ans, les genoux couronnés, une salière au-dessus de chaque œil. Sombrevent. Le cheval de ton père, qui l'a monté à chacune de ses campagnes. Le jour où ton père est mort, c'est Sombrevent qui l'a ramené au fort, en travers de la selle, sans que personne le conduise.",
+      "Derrière l'écurie, l'intendant a fait attacher un vieux cheval noir au poteau du boucher. Il a vingt-deux ans, les genoux couronnés, une salière au-dessus de chaque œil, et les dents longues et jaunes qui donnent son âge à qui sait compter. Sombrevent. Le cheval de ton père, qui l'a monté à chacune de ses campagnes. Le jour où ton père est mort, c'est Sombrevent qui l'a ramené au fort, en travers de la selle, sans que personne le conduise.",
       "« La garnison manque de viande, capitaine, dit l'intendant. Et il ne sert plus à rien. »",
       "Sombrevent tourne la tête vers toi. Il ne te reconnaît peut-être pas. Toi, tu le reconnais.",
     ],
@@ -143,7 +143,7 @@ module.exports = {
   EN_Q_mat: P("sauvelune", { title: "Le mât de cocagne",
     fx: { questSeen: "EN_Q_mat" },
     text: [
-      "Au bout de la place, le mât de cocagne : un tronc de sapin écorcé, haut comme trois hommes, enduit de suif. En haut, une couronne de foin avec, pendus, un jambon, une bouteille d'eau-de-vie, un couteau neuf et un ruban bleu.",
+      "Au bout de la place, le mât de cocagne : un tronc de sapin écorcé, haut comme trois hommes, enduit de suif sur toute sa longueur, à raison d'un pot par toise. En haut, une couronne de foin avec, pendus, un jambon, une bouteille d'eau-de-vie, un couteau neuf et un ruban bleu.",
       "Les garçons du village s'y cassent les dents depuis midi. Le meilleur est arrivé aux deux tiers et a glissé jusqu'en bas sur le ventre, sous les rires. Le suif est noir de terre, maintenant, et plus personne n'ose.",
       "Tess Ferrand, au premier rang, les bras croisés, te regarde. Elle se tait, et son silence suffit.",
     ],

@@ -9,7 +9,7 @@ module.exports = {
   N_soir: P({ title: "Le soir de la Fête",
     fx: to("enfant"),
     text: [
-      "Le soir de la Fête des Noms, Pallanche ne dort pas. Sur toutes les places, des lampions. Dans toutes les rues, des gens qui chantent le cantique des pèlerins, *que nul ne soit oublié*, en se tenant par le bras. Les files devant les pupitres des greffiers ne raccourcissent pas. On inscrit encore des noms à la lueur des torches.",
+      "Le soir de la Fête des Noms, Pallanche ne dort pas. Sur toutes les places, des lampions. Dans toutes les rues, des gens qui chantent le cantique des pèlerins, *que nul ne soit oublié*, en se tenant par le bras. Les files devant les pupitres des greffiers gardent leur longueur du matin, et l'on inscrit encore des noms à la lueur des torches.",
       "Tu es sorti de l'auberge de la rue des Cordiers parce que tu ne tenais plus en place. La grille de la Chancellerie est ouverte, ce soir, pour la cérémonie. Les gens y entrent par milliers.",
       { if: { has: "croise:pie_enfant" }, text: "Tu as passé deux soirs, à vêpres, à attendre devant la porte des Teinturiers, puis à la table du fond d'une taverne de quatre tables, sans oser t'approcher du vieil aveugle qui buvait seul au comptoir." },
     ],
@@ -30,7 +30,7 @@ module.exports = {
 
   N_foule: P({ title: "Dans la foule",
     text: [
-      "La foule t'emporte jusqu'à la cour de la Chancellerie, puis dans un escalier immense, puis dans une galerie qui fait le tour d'une salle ronde, sans fenêtres, éclairée par cent lampes. En bas, un livre ouvert sur un lutrin. Des gradins pleins de gens en soie. Une femme en bleu, couronnée.",
+      "La foule t'emporte jusqu'à la cour de la Chancellerie, puis dans un escalier immense, puis dans une galerie qui fait le tour d'une salle ronde, sans fenêtres, éclairée par cent lampes. En bas, un livre ouvert sur un lutrin, large comme une table. Des gradins pleins de gens en soie, assez de soie pour habiller une ville. Une femme en bleu, couronnée.",
       "Il fait froid, dans la salle. Personne n'a l'air de le remarquer.",
     ],
     choices: [{ label: "Attendre minuit", to: "N_garde" }] }),
@@ -53,7 +53,7 @@ module.exports = {
 
   N_caves: P({ title: "Les caves",
     text: [
-      "Les escaliers sont vides : tout le monde est dans la salle. Tu descends, dix marches, cent marches. Les caves de la tour sont des salles basses, voûtées, sans portes, et dedans, assis par terre, en rang, les gens de Hautvent. Aucune corde ne les retient : ce serait inutile. Ils regardent devant eux.",
+      "Les escaliers sont vides : tout le monde est dans la salle. Tu descends, dix marches, cent, cent quarante, et l'air fraîchit à chaque palier. Les caves de la tour sont des salles basses, voûtées, sans portes, et dedans, assis par terre, en rang, les gens de Hautvent. Aucune corde ne les retient : ce serait inutile. Ils regardent devant eux.",
       { if: { has: "ysolde:voie=deserte" }, text: "Rodric les appelle par leurs noms, un par un, à voix basse. Certains tournent la tête. Pas tous." },
       { if: { not: { has: "ysolde:voie=deserte" } }, text: "Tu reconnais Maëlle. Elle lève les yeux vers toi. Elle ne te reconnaît pas." },
     ],
@@ -116,7 +116,7 @@ module.exports = {
   N_cloches: P({ title: "Le grand beffroi",
     fx: { lead: "pie", away: ALL, leadQuiet: true },
     text: [
-      "Au sommet de la tour, sous la plume et la clé de fer, il y a une salle que personne ne voit jamais : le grand beffroi. Cent cordes descendent du plafond, tendues, et vont, par des poulies, par des gaines de cuir, jusqu'aux cent clochers de la ville. Au centre, une roue de chêne, grande comme une meule, avec un seul levier.",
+      "Au sommet de la tour, sous la plume et la clé de fer, il y a une salle que personne ne voit jamais : le grand beffroi. Cent cordes descendent du plafond, tendues, et vont, par des poulies, par des gaines de cuir, jusqu'aux cent clochers de la ville. Au centre, une roue de chêne, grande comme une meule, cerclée de fer et graissée de frais, avec un seul levier. Quelqu'un en a pris soin récemment.",
       { if: { has: "hylas:voie=cloches" }, text: "Le vieil aveugle est déjà là, assis sur la dernière marche, à bout de souffle. Il est venu par l'escalier. Il tient la porte ouverte pour toi. « Tu sens toujours la suie, dit-il. Bien. »" },
       { if: { has: "pie:choix=liste" }, text: "La page arrachée est dans ta chemise. *Les cent, ensemble, à minuit.* Personne ne t'a cru, en ville. Alors tu es venu." },
       { before: "pie:souvenir_donne", if: { has: "pie:choix=linette" }, text: "Linette est restée au grenier. Tu lui as dit de ne pas ouvrir. Elle a dit oui, maître." },
@@ -191,7 +191,7 @@ module.exports = {
   N_place: P({ title: "La place aux Clercs",
     fx: { regroup: true, lead: "enfant" },
     text: [
-      "La place aux Clercs, au pied de la tour, est blanche. Les pupitres des greffiers sont renversés. Des gens errent, au milieu de la neige, en se tenant les coudes, et se demandent les uns aux autres où ils sont.",
+      "La place aux Clercs, au pied de la tour, est blanche, d'un blanc égal de deux doigts. Les pupitres des greffiers sont renversés, les encriers répandus en taches noires que la neige recouvre une à une. Des gens errent, au milieu de la neige, en se tenant les coudes, et se demandent les uns aux autres où ils sont.",
       "Toi, tu sais où tu es. Tu sais qui tu es. La neige te tombe sur les cheveux, sur les mains, et tu ne perds rien. Tu le sens : elle glisse.",
       "Il y a d'autres gens, sur la place, qui savent encore où ils sont. Tu les vois parce qu'ils sont les seuls à regarder autour d'eux au lieu de regarder le ciel.",
       { if: { has: "nuit:ysolde=caves" }, text: "Une femme à la carrure de soldat, qui sort par la porte du linge à la tête d'une file de gens hagards." },
@@ -216,11 +216,11 @@ module.exports = {
     fx: { ep: ["histoire", 5000], catchup: 5, catchupAll: true, catchupWhy: "la Nuit des Cloches" },
     text: [
       "Vous sortez de Pallanche par une poterne des Teinturiers que le jeune homme maigre connaît, et vous marchez jusqu'à l'aube, jusqu'aux collines du nord. La route derrière vous reste vide. Ceux qui devaient vous suivre l'ont oublié.",
-      "Au lever du jour, vous vous asseyez dans l'herbe, au sommet d'une colline, et vous regardez la ville en bas.",
+      "Au lever du jour, vous vous asseyez dans l'herbe, au sommet d'une colline, à une lieue et demie des murs, et vous regardez la ville en bas.",
       { if: { any: [{ has: "nuit:cordes=coupees" }, { has: "nuit:roue=bloquee" }] }, text: "Le centre est blanc. Le sud ne l'est qu'à moitié. Par endroits, des toits rouges, des rues grises, des gens qui marchent comme si de rien n'était." },
       { if: { not: { any: [{ has: "nuit:cordes=coupees" }, { has: "nuit:roue=bloquee" }] } }, text: "Pallanche est blanche, d'un mur à l'autre, sous le soleil de juillet. Les cent clochers dépassent de la neige comme des mâts." },
       { if: { has: "nuit:chant=voix" }, text: "Sur la place aux Clercs, une tache grise, ronde, où la neige a fondu." },
-      "Vous vous dites vos noms. Ça prend du temps. Vous les répétez, deux fois, trois fois, pour être sûrs.",
+      "Vous vous dites vos noms. Ça prend du temps : six noms, six métiers, six villes ou villages, dont deux que personne d'autre ne connaît. Vous les répétez, deux fois, trois fois, pour être sûrs.",
       { if: { all: [{ has: "nuit:enfant_hylas" }, { not: { has: "hylas:oublie_enfant" } }] }, text: "Le vieil aveugle parle peu. Il est assis à côté de toi, et de temps en temps, il tourne la tête vers toi, comme pour vérifier que tu es toujours là." },
       { with: "rodric", text: "Rodric Trois-Cloches est assis un peu à l'écart, sa hache sur les genoux, et regarde la chevalière de Brenne comme on regarde un problème qu'on n'a pas encore résolu." },
       "Au nord, derrière les collines, les Hautes-Combes. Au-delà, ce que les clans appellent l'Outre-Blanc. Au sud, Vasselin, la cour, la Couronne. Quelqu'un, quelque part, a commencé à effacer le royaume. Il ne s'arrêtera pas à Pallanche.",

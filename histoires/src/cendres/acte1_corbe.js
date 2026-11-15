@@ -12,7 +12,7 @@ module.exports = {
     fx: { meet: "hrodna", questSeen: "CO_rite" },
     text: [
       "Tu te réveilles parce que les corbeaux se taisent. Ils crient toute la nuit, d'habitude, dans les pins au-dessus du camp, et ils se taisent seulement quand quelque chose de grand passe. Un ours. Un orage. Un mort.",
-      "Tu sors de la tente en peau de renne. Il fait froid. Il ne fait jamais froid, en juillet, sur les Combes. Et sur l'alpage, sur les tentes, sur les claies à viande, sur le dos des rennes qui ne bougent pas, il y a de la neige. Une neige fine, blanche, sèche, qui crisse sous le pied nu comme du sel.",
+      "Tu sors de la tente en peau de renne. Il fait froid, d'un froid de mars, alors que juillet sur les Combes fait suer les rennes sous leur poil d'été. Et sur l'alpage, sur les tentes, sur les claies à viande, sur le dos des rennes qui ne bougent pas, il y a de la neige. Une neige fine, blanche, sèche, qui crisse sous le pied nu comme du sel.",
       "Elle ne fond pas. Le soleil se lève sur elle et elle ne fond pas.",
       "Autour de toi, les tentes s'ouvrent, une à une. Personne ne crie. Les gens du Corbeau sortent, regardent, et tombent à genoux dans la neige. Hrodna, la cheffe, a déjà le visage peint. Elle te regarde, au-dessus de tout le clan agenouillé, et elle sourit pour la première fois depuis que tu la connais.",
       "« Elle vient, dit-elle. La Mère Blanche. Comme l'aïeule l'avait chanté. Et c'est toi qu'elle a choisie, Corbe. Dans trois jours, au col de l'Ourse. »",
@@ -21,7 +21,7 @@ module.exports = {
 
   CO_camp: P({ title: "Le camp du Corbeau", hub: true,
     text: [
-      "Le camp chante depuis l'aube. On a sorti les tambours, on a égorgé deux rennes, on brûle de la graisse et des genévriers. Les enfants se roulent dans la neige. Les vieux pleurent. On te touche quand tu passes, les épaules, les cheveux, comme on touche une pierre sacrée.",
+      "Le camp chante depuis l'aube. On a sorti les sept tambours, on a égorgé deux rennes, on brûle de la graisse et des genévriers, et la fumée monte droit : l'air est sans un souffle. Les enfants se roulent dans la neige. Les vieux pleurent. On te touche quand tu passes, les épaules, les cheveux, comme on touche une pierre sacrée.",
       { if: { has: "corbe:glaneur_vu" }, text: "Devant la tente de Hrodna, sur une peau de renne, des offrandes : des colliers, des couteaux, un tambour d'enfant. Et des bandes d'écorce où sont peints des signes. Des noms." },
       "Ta mère, Askel, ne sort pas de sa tente.",
     ],
@@ -40,7 +40,7 @@ module.exports = {
 
   CO_askel: P({ title: "Askel",
     text: [
-      "Ta mère est assise au fond de sa tente, dans le noir, et elle coud. Elle coud la robe du rite, blanche, en peau de renne écrue, avec des plumes de corbeau au col. Elle ne lève pas les yeux.",
+      "Ta mère est assise au fond de sa tente, dans le noir, et elle coud. Elle coud la robe du rite, blanche, en peau de renne écrue, avec des plumes de corbeau au col, à points serrés, huit au pouce. Elle garde les yeux sur l'ouvrage.",
       "« Ils ont attendu cent ans, dit-elle. Mon arrière-grand-mère l'attendait. La tienne l'attendait. L'aïeule chantait qu'elle viendrait en été, et qu'il faudrait une Bouche pour lui parler. Ils ont choisi la meilleure voix du clan. »",
       "Elle mord le fil. « Ils ont choisi la mienne, il y a trente ans. Puis la neige n'est pas venue. Alors ils ont attendu que j'aie une fille. »",
       "Tu demandes ce qui arrive à la Bouche. Elle coud. Longtemps. Puis : « Elle entre dans la neige avec son nom peint sur le visage. Elle en ressort sans. »",
@@ -61,7 +61,7 @@ module.exports = {
   CO_ylva: P({ title: "Ylva",
     fx: { meet: "ylva", questSeen: "CO_ylva" },
     text: [
-      "Une femme crie, au bord de l'alpage, là où commence la neige épaisse qui monte vers le col. Sa fille, Ylva, sept ans, est partie dans la neige ce matin. Pour voir la Mère. On voit ses traces : des petits pieds nus qui montent tout droit, et qui deviennent de moins en moins profonds, comme si elle devenait légère.",
+      "Une femme crie, au bord de l'alpage, là où commence la neige épaisse qui monte vers le col. Sa fille, Ylva, sept ans, est partie dans la neige ce matin. Pour voir la Mère. On voit ses traces : des petits pieds nus qui montent tout droit. Tu t'accroupis et compares les premières aux suivantes : un pouce de profondeur au départ, la moitié cent pas plus haut, presque rien au bout. L'enfant s'allège en marchant.",
       "Personne ne la suit. On dit que la Mère l'a prise. On dit que c'est un honneur.",
     ],
     choices: [
@@ -74,7 +74,7 @@ module.exports = {
 
   CO_ylva_trouvee: P({ title: "Dans le blanc",
     text: [
-      "Tu la trouves à une heure de marche, assise dans la neige, en robe de laine, les lèvres bleues. Elle ne pleure pas. Elle regarde le col. Quand tu la soulèves, elle te demande qui tu es, très poliment.",
+      "Tu la trouves à une heure de marche, assise dans la neige, en robe de laine, les lèvres bleues, les yeux secs. Elle regarde le col. Quand tu la soulèves, elle te demande qui tu es, très poliment.",
       "Sa mère pleure en la reprenant. Ylva lui demande qui elle est, très poliment. Sa mère s'arrête de pleurer.",
       "Le soir, Ylva sait de nouveau le nom de sa mère. Elle ne sait plus celui de son père, ni le sien. On l'appelle Ylva. Elle répond, comme on répond à un surnom.",
     ],
@@ -101,9 +101,9 @@ module.exports = {
   CO_colporteur: P({ title: "Mathias des vallées",
     fx: { meet: "mathias" },
     text: [
-      "Mathias monte aux Combes deux fois l'an avec du sel, des aiguilles et du fer, et redescend avec des peaux. Il arrive ce jour-là sur son mulet, les yeux ronds devant la neige. Il te prend à part, derrière les claies à viande, et te tend un carré de vélin plié, cacheté de cire jaune.",
+      "Mathias monte aux Combes deux fois l'an avec du sel, des aiguilles et du fer, et redescend avec des peaux, au taux immuable d'une peau pour une livre de sel, que le clan juge honnête et Mathias aussi, chacun pour ses raisons. Il arrive ce jour-là sur son mulet, les yeux ronds devant la neige. Il te prend à part, derrière les claies à viande, et te tend un carré de vélin plié, cacheté de cire jaune.",
       "« C'est un garde de Pallanche qui me l'a donné. Un grand, roux, avec ta mâchoire. Il a dit que tu saurais. » Il hésite. « Il a payé d'avance. Et cher. »",
-      "Tu ne sais pas lire. Personne ne sait lire, au clan. Les registres sont la façon dont les gens des villes enferment les choses.",
+      "Tu ne sais pas lire. Au clan, la lecture est une affaire de gens des villes. Les registres sont la façon dont les gens des villes enferment les choses.",
     ],
     choices: [
       { label: "Demander à Mathias de te la lire", fx: { flag: "corbe:lettre_lue", quest: "CO_lettre", ep: ["perso", 600] }, to: "CO_lettre" },
@@ -129,7 +129,7 @@ module.exports = {
     fx: { flag: "corbe:glaneur_vu" },
     text: [
       "À la nuit, tout le clan se tient en cercle au bord de la neige, avec des torches. Hrodna bat le grand tambour. Et quelque chose descend du col.",
-      "Ça a la forme d'un homme, en plus grand. Ça a l'air fait de neige tassée, avec des mains trop longues. Ça marche sans enfoncer. Ça s'arrête devant le cercle, à dix pas, et le clan se tait.",
+      "Ça a la forme d'un homme, en plus grand : une fois et demie la taille de Hrodna, tu en juges par le tambour qu'elle tient. Ça a l'air fait de neige tassée, avec des mains qui descendent jusqu'aux genoux. Ça marche sur la neige fraîche et ne laisse que l'empreinte d'un oiseau. Ça s'arrête devant le cercle, à dix pas, et le clan se tait.",
       "Le vieux Tarve s'avance. Il a quatre-vingts ans, il ne marche plus qu'avec deux bâtons. Il tend une bande d'écorce peinte. Il dit, d'une voix claire, son propre nom. La chose se penche, pose une main sur son front, et Tarve sourit comme un enfant.",
       "Puis il se retourne vers le clan, et il demande où il est.",
       "Hrodna pleure de joie. D'autres s'avancent derrière Tarve, en file, une bande d'écorce à la main.",
@@ -142,7 +142,7 @@ module.exports = {
 
   CO_veillee_fleche: P({ title: "La flèche",
     text: [
-      "La flèche traverse la chose comme on traverse de la fumée et va se planter dans la neige derrière. La chose ne se retourne pas. Le clan, si. Tous. Hrodna lâche son tambour.",
+      "La flèche traverse la chose comme on traverse de la fumée et va se planter dans la neige derrière, à trente pas, sans une goutte de rien sur l'empenne. La chose ne se retourne pas. Le clan, si. Tous. Hrodna lâche son tambour.",
       "La chose finit par repartir vers le col, sans hâte, puis vers le sud, sur la crête. Ses traces ne s'enfoncent pas.",
       "Cette nuit-là, personne ne te parle. Au matin, quelqu'un a peint un trait noir sur ta tente.",
     ],
@@ -178,7 +178,7 @@ module.exports = {
   CO_preparer: P({ title: "Le col de l'Ourse",
     text: [
       "Au troisième jour, à l'aube, Askel te peint le visage. Ton nom, en signes du clan, en ocre et en suie, du front au menton. Elle ne te regarde pas dans les yeux. Elle te met la robe blanche, attache les plumes au col. Hrodna attend dehors, avec tout le clan, et les tambours.",
-      "Le col de l'Ourse est à une demi-journée de marche. L'endroit le plus beau du monde. Sous la neige, aujourd'hui, il ressemble à tous les autres.",
+      "Le col de l'Ourse est à une demi-journée de marche. L'endroit le plus beau du monde, d'ordinaire, avec ses lacs et ses lichens rouges. Sous la neige, aujourd'hui, il ressemble à tous les autres.",
       { if: { item: "lettre_bran" }, text: "La lettre de Bran est sous ta robe, contre ta peau. Elle te gratte." },
       "Et de l'autre côté du col, vers le sud, il y a la crête. Celle qu'a prise la chose. Celle qui descend, en quatre jours de marche, jusqu'aux villes.",
     ],
@@ -200,14 +200,14 @@ module.exports = {
 
   CO_depart: P({ title: "La crête",
     text: [
-      "Il fait nuit sur les Hautes-Combes quand tu t'arrêtes. Tu as ton arc, ton tambour, quatre jours de viande séchée. Derrière toi, le camp. Devant toi, la crête, et sur la crête, des traces qui ne s'enfoncent pas.",
+      "Il fait nuit sur les Hautes-Combes quand tu t'arrêtes. Tu fais l'inventaire à tâtons : ton arc, douze flèches, ton tambour, quatre jours de viande séchée, une pierre à feu. Derrière toi, le camp. Devant toi, la crête, et sur la crête, des traces qui ne s'enfoncent pas.",
     ],
     choices: [{ label: "Dormir là, au bord du blanc", fx: { flag: "ch:corbe:1", resume: "CO_crete" }, to: "C_carrefour" }] }),
 
   // ================================================================ chapter 2 · la route des crêtes
   CO_crete: P({ title: "Au matin, sur la crête",
     text: [
-      "Tu te réveilles couverte de givre. La crête court vers le sud, sur le fil, entre deux vides : à droite, les vallées vertes, à gauche, les Combes blanches. Les traces de la chose la suivent.",
+      "Tu te réveilles couverte de givre, un doigt d'épaisseur sur la peau de renne. La crête court vers le sud, sur le fil, large par endroits de trois pas à peine, entre deux vides : à droite, les vallées vertes, à gauche, les Combes blanches. Les traces de la chose la suivent.",
       { if: { has: "corbe:voie=rite" }, text: "Derrière toi, sur le col, une fumée monte encore du camp. Ils doivent chanter pour la Bouche. Ils ne savent pas encore." },
       { if: { has: "corbe:voie=bran" }, text: "La lettre gratte contre ta peau à chaque pas." },
       { if: { has: "corbe:rite_vide" }, text: "Ton nom est toujours à toi. Le blanc l'a écouté toute une journée, et il l'a laissé." },
@@ -228,7 +228,7 @@ module.exports = {
   CO_four: R({ title: "Le four",
     fx: { questSeen: "CO_four" },
     text: [
-      "À mi-chemin, dans un creux à l'abri du vent, les ruines d'une bergerie. Un four à pain de pierre sèche, à moitié effondré.",
+      "À mi-chemin, dans un creux à l'abri du vent, les ruines d'une bergerie : quatre murs sans toit, une porte à hauteur de brebis. Dedans, un four à pain de pierre sèche, à moitié effondré.",
       { if: { has: "gaspard:tue" }, text: "Devant le four, il y a un tas de neige tassée, en forme d'homme, défait, qui ne fond pas. Une main trop longue dépasse encore. Quelqu'un est passé avant toi, et s'est battu." },
       { if: { has: "gaspard:pain" }, text: "Devant le four, il n'y a personne. Des miettes de pain sur la pierre, et des traces de pas trop grands qui repartent, lentement, vers l'est." },
       { if: { not: { any: [{ has: "gaspard:tue" }, { has: "gaspard:pain" }] } }, text: "Devant le four, accroupie, les mains tendues vers la gueule froide, il y a une chose de neige. Plus petite que l'autre, sans tache au front. Elle se balance. Elle murmure. *Le levain… qui a pris le levain…*" },
@@ -254,7 +254,7 @@ module.exports = {
 
   CO_bergers: R({ title: "Les bergers de la Sauve",
     text: [
-      "Une cabane de bergers, au-dessus d'une vallée verte. Les bergers sont là, trois hommes, une femme, et ils ne voient pas la neige qui couvre la moitié de leur pâture. Ils la traversent avec leurs bêtes sans la voir. Les bêtes, si. Elles refusent d'y aller.",
+      "Une cabane de bergers, au-dessus d'une vallée verte. Les bergers sont là, trois hommes, une femme, et ils ne voient pas la neige qui couvre la moitié de leur pâture. Ils la traversent avec leurs bêtes sans la voir. Les bêtes la voient : arrivées au bord du blanc, elles plantent les sabots, et le chien lui-même s'assied.",
       "Ils te donnent du lait, et du fromage, et te demandent d'où tu viens. Tu dis : des Combes. Ils te regardent sans comprendre. « Les Combes ? Il n'y a rien, là-haut. »",
     ],
     choices: [{ fx: { food: 1 }, back: "@route" }] }),
@@ -262,7 +262,7 @@ module.exports = {
   // the north gate
   CO_portes: R({ title: "La porte du Nord",
     text: [
-      "La crête descend enfin vers la plaine, et la ville est là. Tu n'en as jamais vu. Elle est plus grande que toutes les Combes, elle pue la fumée et la merde de cheval, et elle sonne. Toutes ses cloches à la fois. Tu en as mal aux dents.",
+      "La crête descend enfin vers la plaine, et la ville est là. Tu n'en as jamais vu. Elle est plus grande que toutes les Combes ; à vue d'œil, on y logerait le clan mille fois. Elle pue la fumée et la merde de cheval, et elle sonne. Toutes ses cloches à la fois. Tu en as mal aux dents.",
       "Les traces de la chose s'arrêtent au pied des collines. La neige s'arrête là, et la piste avec elle.",
     ],
     choices: [{ label: "Descendre vers la porte", to: "@route" }] }),
@@ -270,7 +270,7 @@ module.exports = {
   CO_pallanche: P({ title: "Le garde en noir", place: "pallanche",
     fx: { meet: "bran", questSeen: "CO_bran" },
     text: [
-      "À la porte du Nord, la foule de la Fête : des charrettes, des pèlerins, des mendiants. Et des gardes, en noir, avec des hallebardes, qui regardent chaque visage.",
+      "À la porte du Nord, la foule de la Fête : des charrettes, des pèlerins, des mendiants, tous serrés dans un passage large comme deux tentes. Et des gardes, en noir, avec des hallebardes, qui regardent chaque visage.",
       "L'un d'eux est plus grand que les autres. Roux. Il a ta mâchoire. Il a la cicatrice au sourcil que tu lui as faite à sept ans avec une pierre, en visant un corbeau.",
       "Il regarde ton visage. Il regarde tes peaux de renne, tes plumes, ton arc. Il dit, d'une voix lasse, la voix de quelqu'un qui le dit cent fois par jour : « Pas d'arme en ville pendant la Fête. Ton arc, la sauvage. Tu le reprendras en sortant. »",
       { if: { has: "corbe:lettre_lue" }, text: "Il ne te reconnaît pas. Il t'a écrit il y a huit jours. Il ne te reconnaît pas." },
@@ -311,7 +311,7 @@ module.exports = {
   CO_fin: P({ title: "Corbe, à Pallanche", place: "pallanche",
     fx: { quest: "CO_rite", catchup: 4, catchupWhy: "la route des crêtes" },
     text: [
-      "Tu dors cette nuit-là dans une écurie, près de la porte du Nord, parce que c'est l'endroit de la ville dont l'odeur rappelle le plus les Combes. Les cloches sonnent toutes les heures. À chaque fois, tu te réveilles, la main sur le couteau.",
+      "Tu dors cette nuit-là dans une écurie, près de la porte du Nord, parce que c'est l'endroit de la ville dont l'odeur rappelle le plus les Combes. Les cloches sonnent toutes les heures. Tu te réveilles à chaque fois, la main sur le couteau : onze fois avant l'aube, tu les as comptées.",
       { if: { has: "corbe:voie_bran=oui" }, text: "Bran est venu, à la relève, s'asseoir à côté de toi dans la paille. Il n'a rien dit. Il est resté. Il ne sait pas pourquoi." },
       { if: { has: "corbe:voie_bran=donne" }, text: "Bran dort à côté de toi, dans la paille, en uniforme noir, ta main dans la sienne. Tu ne sais pas qui il est. Tu sais qu'il ne faut pas la lâcher." },
       { if: { has: "corbe:voie_bran=non" }, text: "À la relève, le garde roux est passé devant l'écurie. Il a ralenti. Il a regardé la paille. Il est reparti." },

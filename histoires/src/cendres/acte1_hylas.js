@@ -11,7 +11,7 @@ module.exports = {
     fx: { questSeen: "HY_mordace" },
     text: [
       "Tu te réveilles avant les cloches, comme toujours. Il y a vingt ans que tu ne vois plus, et ton corps a gardé l'habitude de l'aube, comme un chien garde l'habitude d'un maître mort.",
-      "Ta cellule est au septième étage de la tour, côté nord. Quatre pas sur trois. Un lit, une table, une cuvette, une étagère de livres désormais fermés pour toi, que tu gardes par tendresse. Tu passes le doigt sur leurs dos, un par un, en t'habillant. C'est ta prière.",
+      "Ta cellule est au septième étage de la tour, côté nord : cent quarante-quatre marches depuis la cour, tu les as comptées la première année. Quatre pas sur trois. Un lit, une table, une cuvette, une étagère de livres désormais fermés pour toi, que tu gardes par tendresse. Tu passes le doigt sur leurs dos, un par un, en t'habillant. C'est ta prière.",
       "Tu as soixante-dix-huit ans. Tu es greffier de la Chancellerie des Noms depuis l'âge de quatorze ans. Tu lis encore, à ta façon : du bout des doigts, dans le creux que la plume laisse au vélin. Tu es le seul à savoir le faire. On te garde pour ça, et parce qu'on n'ose pas te chasser.",
       "On frappe. Une voix de jeune homme, essoufflée. « Maître Hylas ? Le Greffier-Majeur vous fait dire qu'il vous recevra ce soir, après complies. Et que vous aurez désormais une page pour vous faire la lecture. Elle vous attend au scriptorium. »",
     ],
@@ -19,8 +19,8 @@ module.exports = {
 
   HY_tour: P({ title: "La tour", hub: true,
     text: [
-      "La tour de la Chancellerie, tu la connais à l'oreille et au nez. L'escalier principal, qui sent la cire. Le scriptorium au quatrième, et son bruit de pluie. Le Bureau, en bas, qui sent la sueur des pauvres. Les archives au troisième, la poussière, le plomb. Et plus bas que le Bureau, plus bas que les caves, une porte que tu n'as passée qu'une fois.",
-      { if: { has: "hylas:page" }, text: "Page Onze marche à ta gauche, un pas en arrière, comme on le lui a appris. Elle ne parle que si tu lui parles." },
+      "La tour de la Chancellerie, tu la connais à l'oreille et au nez, mieux que la plupart des greffiers ne la connaissent avec leurs yeux. L'escalier principal, qui sent la cire. Le scriptorium au quatrième, et son bruit de pluie. Le Bureau, en bas, qui sent la sueur des pauvres. Les archives au troisième, la poussière, le plomb. Et plus bas que le Bureau, plus bas que les caves, une porte que tu n'as passée qu'une fois.",
+      { if: { has: "hylas:page" }, text: "Page Onze marche à ta gauche, un pas en arrière, comme on le lui a appris. Tu entends ses sabots : elle pose le pied droit plus lourdement, à cause d'une semelle fendue. Elle parle quand tu lui parles, et le reste du temps elle se tait." },
       "Ce soir, après complies, Mordace.",
     ],
     choices: [
@@ -65,7 +65,7 @@ module.exports = {
   HY_bureau: P({ title: "Le Bureau des Cessions",
     fx: { meet: "baudoin", questSeen: "HY_rachat" },
     text: [
-      "Le Bureau sent la sueur et le chou. Il y a la file, que tu entends respirer. Il y a Frère Baudoin, au comptoir, avec sa voix douce. Et il y a l'odeur froide du coffret de plomb, une odeur de cave en plein été.",
+      "Le Bureau sent la sueur et le chou. Il y a la file, que tu entends respirer : soixante personnes, à l'estime, à la densité du souffle. Il y a Frère Baudoin, au comptoir, avec sa voix douce. Et il y a l'odeur froide du coffret de plomb, une odeur de cave en plein été.",
       "Une femme crie. On essaie de la faire sortir. « Je veux le reprendre ! Je l'ai vendu hier, je veux le reprendre, je vous rends vos sous ! » Baudoin, patient : « Une cession est définitive, madame. C'est écrit sur votre reçu. » « Je ne sais même plus ce que c'était ! Je sais seulement qu'il me manque ! »",
       "Elle s'appelle Marion Lebas. Tu le sais parce que tu as entendu Baudoin lire son reçu. *La nuit où son mari l'a battue. Deux sous.*",
     ],
@@ -101,7 +101,7 @@ module.exports = {
   HY_caveau: P({ title: "La porte sous les caves",
     fx: { questSeen: "HY_noir" },
     text: [
-      "On descend par l'escalier des caves, puis par un autre, plus étroit, taillé dans le roc, dont les marches sont usées en creux. Il fait froid. Il fait de plus en plus froid. En bas, une porte de fer. Tu poses la main sur la serrure. Ce n'est plus la serrure d'il y a vingt ans. Quelqu'un l'a changée.",
+      "On descend par l'escalier des caves, puis par un autre, plus étroit, taillé dans le roc, dont les marches sont usées en creux. Il fait froid. Il fait de plus en plus froid. En bas, une porte de fer. Tu poses la main sur la serrure. Le métal est neuf, l'entrée de clé plus étroite, et les vis ont encore leurs arêtes vives. Quelqu'un l'a changée, et depuis peu.",
       "Derrière la porte, tu le sais, il y a une salle ronde, et au milieu de la salle, sur un pupitre de pierre, le premier registre de la Chancellerie, celui des Fondateurs. Le registre noir. Tu l'as touché une fois. Tu en es ressorti aveugle, et tu gardes pour toi le lien entre les deux choses, faute de certitude.",
     ],
     choices: [
@@ -141,7 +141,7 @@ module.exports = {
   HY_mordace: P({ title: "Le Greffier-Majeur",
     fx: { meet: "mordace" },
     text: [
-      "Le cabinet du Greffier-Majeur est au sommet de la tour, sous la plume et la clé de fer. Il y fait chaud. Il y a un feu, en juillet. Mordace a toujours eu froid.",
+      "Le cabinet du Greffier-Majeur est au sommet de la tour, sous la plume et la clé de fer. Il y fait chaud ; au crépitement, tu reconnais du hêtre sec, une bonne flambée, en juillet. Mordace a toujours eu froid.",
       "« Maître. » Il se lève, il vient à toi, il prend tes deux mains dans les siennes. Elles sont froides. Sa voix n'a pas changé depuis le temps où il t'apportait de la tisane et posait les meilleures questions de toute la Chancellerie. « Asseyez-vous. »",
       { if: { seen: "HY_caveau" }, text: "« Vous avez fait le tour de la maison, aujourd'hui. » Un temps. « Jusqu'à l'escalier des caves. »" },
       { if: { all: [{ not: { seen: "HY_caveau" } }, { any: [{ seen: "HY_bureau" }, { seen: "HY_scriptorium" }] }] }, text: "« Vous avez fait le tour de la maison, aujourd'hui. On me l'a dit. »" },
@@ -205,7 +205,7 @@ module.exports = {
   HY_jour: P({ title: "La veille de la Fête",
     fx: { time: 54 },
     text: [
-      "Trois jours ont passé. La tour est devenue une ruche. On entend des pas dans tous les escaliers, des portes, des voix. Les pages copient jour et nuit. Mordace ne t'a pas rappelé. Ce matin, un garde t'a conduit à la porte de l'Est.",
+      "Trois jours ont passé. La tour est devenue une ruche ; l'escalier principal, que tu entendais grincer vingt fois par heure, grince maintenant sans arrêt. On entend des pas dans tous les escaliers, des portes, des voix. Les pages copient jour et nuit. Mordace ne t'a pas rappelé. Ce matin, un garde t'a conduit à la porte de l'Est.",
       { if: { has: "ysolde:voie=obeit" }, text: "Une colonne entre dans la cour. Tu l'entends : des pieds nus, des chaînes, des enfants, et des chevaux ferrés. Une voix de femme, sèche, donne le compte à un greffier. Cent dix-huit." },
       { if: { has: "ysolde:voie=ruse" }, text: "Une colonne entre dans la cour. Une voix de femme donne le compte à un greffier : cent treize. Le greffier, une voix fluette que tu reconnais, celle de Frère Sévrin, recompte, et se tait." },
       { if: { has: "ysolde:voie=deserte" }, text: "La colonne attendue n'arrive pas. On parle de cordes coupées dans les faubourgs, de soldats de la reine qui ont tourné bride. Des gardes noirs passent en courant. Un greffier te met quand même une liste sous la main." },
@@ -229,7 +229,7 @@ module.exports = {
   HY_baudoin: P({ title: "Frère Baudoin",
     fx: { questSeen: "HY_baudoin" },
     text: [
-      "Le soir, Frère Baudoin frappe à ta porte. Il ne s'assied pas. Il reste debout près de la porte, et tu entends ses mains qui se tordent.",
+      "Le soir, Frère Baudoin frappe à ta porte, trois coups, le dernier plus faible. Il reste debout. Il reste debout près de la porte, et tu entends ses mains qui se tordent.",
       "« Maître, je souffle depuis deux ans. Six jours sur sept. Des centaines de fois par jour. Et depuis une semaine, quand je rentre chez moi, je ne sais plus par quelle rue on y va. Hier, j'ai dû demander mon chemin. » Sa voix se casse. « Qu'est-ce que c'est, la poudre ? D'où elle vient ? On ne me l'a jamais dit. »",
     ],
     choices: [

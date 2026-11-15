@@ -25,7 +25,7 @@ module.exports = {
     choices: BACK }),
   LI_k_ecuries: P({ title: "Les écuries royales",
     text: [
-      "Aux écuries, on attelle pour Pallanche. Soixante chevaux, les voitures de la cour, les fourgons. Au milieu, dans la grande stalle, un destrier gris, énorme, vieux, qui ne veut pas sortir. Trois palefreniers tirent sur la longe. Il reste immobile. Il a les sabots plantés dans la paille comme des piliers.",
+      "Aux écuries, on attelle pour Pallanche. Soixante chevaux, les voitures de la cour, les fourgons, et l'odeur de cuir gras et de crottin chaud que tout le parfum de la cour ne parvient pas à couvrir. Au milieu, dans la grande stalle, un destrier gris, énorme, vieux, qui ne veut pas sortir. Trois palefreniers tirent sur la longe. Il reste immobile. Il a les sabots plantés dans la paille comme des piliers.",
       "Le maître d'écurie s'éponge le front. « Le cheval du feu roi, dit-il. Trente ans. Il n'a pas quitté Vasselin depuis la dernière campagne. La reine veut qu'il marche en tête du cortège, à vide, comme le veut l'usage. Il ne veut pas. Il n'a jamais refusé un ordre de sa vie. »",
     ],
     choices: [
