@@ -7,9 +7,9 @@ module.exports = {
   O_chat: { act: A, title: "Le Chat Ferré", place: "hauteville", fx: { learn: "bastien_dette", time: 0.25 },
     text: [
       "Tu laisses Colin et Thomin au coin de la rue et tu suis Bastien Vellard jusqu'au Chat Ferré. L'enseigne grince au vent : un chat de fer découpé, la queue en point d'interrogation.",
-      "Par la porte vitrée, tu le vois entrer. On l'accueille comme un prince. Le patron lui tend un pichet avant qu'il ait demandé. À la table du fond, deux hommes en manteaux de voyage se lèvent pour lui serrer la main : les frères Aubrac, prêteurs à Lyre, qui viennent jouer ici chaque mois et repartent avec les bijoux des familles.",
-      "Bastien pose sur la table une liasse de papiers. Les frères la comptent, la recomptent, puis l'aîné déchire devant lui un papier timbré, lentement, en quatre. Bastien rit et lève son verre.",
-      "Une reconnaissance de dette. Le fils Vellard vient de payer ses dettes de jeu, ce soir, à neuf heures, avec l'argent de quelqu'un.",
+      "Par la porte vitrée, tu le vois entrer. On l'accueille comme un prince. Derrière son comptoir, maître Lucas, le patron, ouvre un grand livre noir à une page qu'il connaît par cœur. Bastien pose sur le comptoir une liasse de billets.",
+      "Lucas compte, recompte, puis il raye une ligne d'un seul trait de plume, lentement, de bout en bout. Bastien rit et lève le pichet qu'on lui tend.",
+      "Le fils Vellard vient de payer ses dettes de jeu, ce soir, à neuf heures, avec l'argent de quelqu'un.",
     ],
     choices: [{ label: "Rejoindre tes hommes, et descendre au pont", to: "O_pont", fx: { time: 0.25 } }] },
 

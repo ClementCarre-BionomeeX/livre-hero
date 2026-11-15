@@ -12,6 +12,8 @@ module.exports = {
     ],
     choices: [
       { label: "Jouer tes vingt écus", to: "B_jeu" },
+      { label: "Repenser au banc", hide: { has: "bastien:souvenir" }, to: "B_souvenir" },
+      { label: "Demander du papier, et écrire à ton père", if: { second: true }, hide: { has: "bastien:lettre" }, to: "B_lettre" },
       { label: "Boire", to: "B_boire" },
       { label: "Prendre l'argent, et quitter Corvèze cette nuit", if: { lore: "plan_corlay" }, to: "B_fuite_route" },
     ] },
@@ -68,7 +70,7 @@ module.exports = {
       { label: "« La digue cède cette nuit. Mon père l'a mesurée. »", if: { lore: "veine" }, to: "B_avertir" },
       { label: "Prendre la clé sur le bureau, et t'enfuir", test: { dom: "discretion", diff: -20, label: "Prendre la clé" }, win: { to: "B_vol" }, lose: { to: "B_vol_rate" } },
     ] },
-  B_dette_nuit: { act: A, title: "Trois cents écus l'an", place: "hauteville", fx: { time: 1, item: "bourse_corlay" },
+  B_dette_nuit: { act: A, title: "Trois cents écus l'an", place: "hauteville", fx: { time: 1, item: "bourse_corlay", learn: "tassin" },
     text: [
       "Tu dis oui. Tu dis merci. Corlay te serre la main. Elle est sèche et chaude.",
       "Pernelle Daguet te raccompagne à la porte du jardin. Elle te met une bourse dans la main : *une avance*. Au moment de fermer, elle dit, très bas, sans te regarder : « Maître Tassin n'est jamais descendu dans la galerie. Il a peur de l'eau. »",
@@ -108,7 +110,7 @@ module.exports = {
       "Le silence dure. Puis Corlay prend la clé sur le bureau, la soupèse, et te la tend.",
       "« Allez, dit-il d'une voix que tu ne lui connais pas. Allez-y. Je me charge des entrepôts. »",
     ],
-    choices: [{ label: "Prendre la clé et courir", to: "B_vol", via: "donnee" }] },
+    choices: [{ label: "Prendre la clé et courir", to: "B_vol", via: "donnee", fx: { flag: "cle:donnee" } }] },
   B_vol_rate: { act: A, title: "La main sur la clé", place: "hauteville", fx: { time: 2.5 },
     text: [
       "Ta main se referme sur la clé. Celle de Rambert se referme sur ton poignet. Il est plus fort que toi ; tous les hommes le sont, au fond.",
@@ -135,13 +137,23 @@ module.exports = {
       "Le sergent te regarde, regarde la clé, regarde la route derrière toi, où rien ne vient encore.",
       { if: { has: "tocsin:demande" }, text: "« Le père Anicet dort au Pichet avec la clé de la tour au cou, dit-il. Je sais. » Il décroche sa lanterne." },
       "« Va », dit-il.",
-      "Tu cours. Tu n'as jamais couru dix bornes. Tu en cours trois, tu marches les sept autres, plié en deux, avec un point dans le côté et la clé qui te cogne la poitrine.",
+      "Tu cours. Tu n'as jamais couru dix bornes. Tu en cours trois, tu marches les autres, plié en deux, avec un point dans le côté et la clé qui te cogne la poitrine.",
+    ],
+    choices: [
+      { label: "Continuer vers la digue", hide: { has: "cle:donnee" }, to: "B_poursuite" },
+      { label: "Continuer vers la digue", hide: { not: { has: "cle:donnee" } }, to: "B_route_fin" },
+    ] },
+  B_route_fin: { act: A, title: "Deux cents marches", place: "digue", fx: { time: 0.25 },
+    text: [
+      { via: "noir", text: "Tu montes l'escalier de la digue noir de charbon des cheveux aux genoux, la clé dans ta poche de poitrine." },
+      { via: "pres", text: "Tu montes l'escalier de la digue avec un seul soulier, trempé jusqu'aux cuisses, la clé dans ta poche de poitrine." },
       "Deux cents marches. La porte de la Maison des Vannes. Tu as gardé la clé de ton enfance, celle de la porte, sur ton trousseau, derrière celle du Chat Ferré.",
     ],
     choices: [{ label: "Entrer", to: "B_pere_maison" }] },
   B_pere_maison: { act: A, title: "Le fauteuil", place: "digue", fx: { learn: "proces_verbal", time: 0.5 },
     text: [
       "Ton père est dans son fauteuil, près de la fenêtre. Une lanterne. Il ne dort pas. Il te regarde entrer, et il voit la clé dans ta main.",
+      { if: { has: "bastien:lettre" }, text: "Sur la table, à côté du baromètre, une feuille de livre de comptes est dépliée, réglée en colonnes. Ta lettre. Le gamin du Chat Ferré a couru plus vite que toi." },
       "Tu la poses sur ses genoux. Tu dis : « C'est moi. Je t'ai entendu, à sept heures. Je l'ai dit à Corlay. Pour quatre cents écus. »",
       "Il ne dit rien. Il pose la main sur la clé.",
       "Sur la table, à côté de son baromètre, il y a son carnet de mesures, ouvert. Entre deux pages, trois feuilles de sa main : *Séance secrète du Conseil des Sept Maisons… le Conseil prendra à sa charge les dettes du sieur Bastien Vellard, soit onze cents écus, en reconnaissance des services de son père.*",
@@ -220,7 +232,7 @@ module.exports = {
       "Tu as vingt écus, ta montre, la chevalière de ta mère. À Lyre, tu prendras la diligence. Plus loin, tu ne sais pas. Loin.",
       "Au col de la Grève, à une heure du matin, tu t'arrêtes pour reprendre ton souffle. Toute la vallée est en dessous. Au bout, la digue, et à la fenêtre de la Maison des Vannes, une lanterne.",
     ],
-    choices: [{ label: "Reprendre la route", to: "B_fuite" }] },
+    choices: [{ label: "Regarder la vallée encore un moment", to: "B_col" }] },
   B_fuite: { act: A, title: "Loin", place: "berge", end: true, fx: { time: 4 },
     text: [
       "Tu marches toute la nuit. La pluie te rattrape vers quatre heures. Tu marches dedans.",
