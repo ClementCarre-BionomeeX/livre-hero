@@ -29,8 +29,8 @@ module.exports = {
         { to: "C_echec" },
       ] },
     text: [
-      "La grande salle de l'Échevinage est haute comme une église, avec des poutres peintes d'étoiles et des fenêtres où brûle encore le couchant. Au fond, sur une estrade, douze échevins en robe rouge, assis en demi-cercle. Au milieu, le premier échevin, très vieux, qui somnole déjà. À sa droite, Évrard Malestroit, maître de la Monnaie. À sa gauche, l'échevin Brisson, qui tient le registre et mène les débats, et qui sourit à la salle comme un hôte à ses invités.",
-      "On amène Hugon Maupas entre deux gardes, les mains liées devant lui. Il cherche quelqu'un des yeux dans la foule, et il le trouve, et il baisse la tête. Sa mère ne pleure pas.",
+      "La grande salle de l'Échevinage est haute comme une église, avec des poutres peintes d'étoiles et des fenêtres où brûle encore le couchant. Au fond, sur une estrade, douze échevins en robe rouge siègent en demi-cercle. Au milieu, le premier échevin, très vieux, somnole déjà. À sa droite siège Évrard Malestroit, maître de la Monnaie ; à sa gauche, l'échevin Brisson, qui tient le registre, mène les débats, et sourit à la salle comme un hôte à ses invités.",
+      "On amène Hugon Maupas entre deux gardes, les mains liées devant lui. Il cherche quelqu'un des yeux dans la foule, le trouve, et baisse la tête. Sa mère garde les yeux secs.",
       "La sergente Hallard témoigne de l'arrestation, debout, les mains dans le dos, d'une voix sans couleur : la bague sur le comptoir de la changeuse, la menace à la Lanterne Sourde, la nuit sans alibi.",
       { if: { has: "malestroit:menace" }, text: "Sur l'estrade, Malestroit t'a vu{e} entrer. Il fait un petit signe de la main, et au fond de la salle, deux hommes sans livrée se rapprochent de la porte." },
       { if: { has: "hallard:allie" }, text: "Puis elle ajoute, sans changer de ton : « Je dois dire au conseil que j'ai, depuis, des doutes. Je demande qu'on entende la personne que la mère de l'accusé a engagée. » Un murmure parcourt la salle. Brisson lève un sourcil, et note." },
@@ -46,27 +46,27 @@ module.exports = {
   // ------------------------------------------------------------------ the right name, the man in the cell
   C_verite_pris: { act: "III", title: "L'homme du rez-de-chaussée", place: "haute",
     text: [
-      "Tu dis le nom. Dans la salle, quelqu'un rit, nerveusement, et se tait aussitôt. Brisson ouvre la bouche, la referme.",
-      "Alors la sergente Hallard fait un signe, et deux de ses hommes amènent un homme grand, voûté, rasé, en habit de drap brun, les mains liées. Il marche droit. Il garde les yeux au sol. Au premier rang, quelqu'un pousse un cri : Dame Sibylle Ombreuil, qui s'est levée, et qui reste debout, une main sur la bouche.",
-      { if: { all: [{ has: "sibylle:mains" }, { not: { has: "sibylle:aveu" } }] }, text: "Elle ne regarde pas son visage. Elle regarde ses mains liées." },
-      { if: { has: "accuse:M:preuve" }, text: "Tu poses devant le conseil ce que tu as : les preuves, une à une, dans l'ordre où tu les as trouvées. Personne ne t'interrompt. Brisson a cessé d'écrire." },
-      { if: { not: { has: "accuse:M:preuve" } }, text: "Tu n'as pas grand-chose à poser devant le conseil. Mais tu peux t'en passer : la veuve, au premier rang, reconnaît d'elle-même le grain de beauté sous l'œil gauche, la façon de se tenir, les mains." },
+      "Tu dis le nom. Dans la salle, quelqu'un rit nerveusement, et se tait aussitôt. Brisson ouvre la bouche, puis la referme.",
+      "Alors la sergente Hallard fait un signe, et deux de ses hommes amènent un homme grand, voûté, rasé, en habit de drap brun, les mains liées. Il marche droit, les yeux au sol. Au premier rang, quelqu'un pousse un cri : Dame Sibylle Ombreuil s'est levée, et reste debout, une main sur la bouche.",
+      { if: { all: [{ has: "sibylle:mains" }, { not: { has: "sibylle:aveu" } }] }, text: "Elle évite son visage, et regarde ses mains liées." },
+      { if: { has: "accuse:M:preuve" }, text: "Tu poses devant le conseil ce que tu as : les preuves, une à une, dans l'ordre où tu les as trouvées. Personne ne t'interrompt, et Brisson a cessé d'écrire." },
+      { if: { not: { has: "accuse:M:preuve" } }, text: "Tu as peu de chose à poser devant le conseil, mais tu peux t'en passer : la veuve, au premier rang, reconnaît d'elle-même le grain de beauté sous l'œil gauche, la façon de se tenir, les mains." },
       { if: { has: "accuse:M:mobile" }, text: "Quand tu as fini, Gaspard Ombreuil lève les yeux vers toi, pour la première fois. « Oui, dit-il. Disparaître. Qu'on enterre l'essayeur, et qu'on oublie ce qu'il avait signé. C'était un bon calcul. Il n'y manquait qu'une chose. » Il ne dit pas laquelle." },
       { if: { not: { has: "accuse:M:mobile" } }, text: "Quand tu as fini, Gaspard Ombreuil secoue la tête, lentement. « Vous n'avez pas compris pourquoi, dit-il. Le petit allait parler, oui. Mais j'aurais pu l'acheter, ou le chasser. Je voulais *disparaître*. Qu'on enterre l'essayeur, et qu'on oublie ce qu'il avait signé. » Il se tait. Il a l'air presque déçu." },
     ],
     choices: [{ label: "Regarder les gardes l'emmener", big: true, to: "E_verite" }] },
   C_confusion: { act: "III", title: "L'homme du rez-de-chaussée", place: "haute",
     text: [
-      "Tu dis un nom. Ce n'est pas celui de l'homme que la sergente garde dans sa cellule, et elle te regarde, longtemps, avec une sorte de fatigue.",
+      "Tu dis un nom. Ce n'est pas celui de l'homme que la sergente garde dans sa cellule, et elle te regarde longtemps, avec une sorte de fatigue.",
       "Puis elle fait un signe à ses hommes, et l'on amène dans la salle un homme grand, voûté, rasé, en habit de drap brun. Au premier rang, Dame Sibylle Ombreuil se lève, et crie, et le nom qu'elle crie n'est pas celui que tu as dit.",
-      "Ce soir-là, la vérité sort quand même. Elle ne sort pas de ta bouche.",
+      "Ce soir-là, la vérité sort quand même, mais d'une autre bouche que la tienne.",
     ],
     choices: [{ label: "Laisser la salle s'emballer", to: "E_verite" }] },
 
   // ------------------------------------------------------------------ the right name, with proof: the dawn
   C_ordre: { act: "III", title: "L'ordre", place: "haute",
     text: [
-      "Tu dis le nom. La salle rit, puis cesse de rire, parce que tu continues de parler, et que ce que tu poses devant le conseil, une chose après l'autre, ne fait plus rire personne. Au premier rang, Dame Sibylle Ombreuil s'est mise à trembler.",
+      "Tu dis le nom. La salle rit, puis cesse de rire, parce que tu continues de parler, et que ce que tu poses devant le conseil, une chose après l'autre, ôte l'envie de rire à tout le monde. Au premier rang, Dame Sibylle Ombreuil s'est mise à trembler.",
       { if: { has: "accuse:M:mobile" }, text: "Quand tu dis pourquoi, Malestroit ferme les yeux." },
       "Le vieux premier échevin s'est réveillé. Il te regarde, il regarde la sergente, et il dit, d'une voix cassée qui porte jusqu'au fond : « Si ce que dit cette personne est vrai, cet homme est encore en ville. Où ? »",
       "Tu le dis : le Bassin Bleu, la Vouivre, trois tonneaux marqués d'un G., et l'aube du quatrième jour.",
@@ -79,7 +79,7 @@ module.exports = {
       "Tu dis le nom. La salle éclate de rire.",
       "« Gaspard Ombreuil ? dit Brisson, ravi. L'essayeur ? Que nous avons enterré hier, à trois heures, en présence de sa veuve et de tout le conseil ? Il a donc tué un autre, puis il s'est noyé lui-même, puis il est sorti de l'eau pour assister à son enterrement ? » Il prend la salle à témoin. Elle rit encore.",
       "Tu n'as rien, ou rien qui tienne, à poser devant le conseil. Ta parole contre un mort enterré.",
-      { if: { has: "hallard:allie" }, text: "La sergente Hallard, seule, ne rit pas. Elle demande la parole, et elle dit que le conseil ferait bien de repousser son jugement d'une semaine, le temps qu'elle vérifie. Le vieux premier échevin, à moitié endormi, dit oui, pour en finir. Hugon retourne en cellule." },
+      { if: { has: "hallard:allie" }, text: "La sergente Hallard reste seule à garder son sérieux. Elle demande la parole, et dit que le conseil ferait bien de repousser son jugement d'une semaine, le temps qu'elle vérifie. Le vieux premier échevin, à moitié endormi, dit oui, pour en finir. Hugon retourne en cellule." },
       { if: { not: { has: "hallard:allie" } }, text: "Le vieux premier échevin, à moitié endormi, dit que l'on jugera le batelier demain, à la même heure, quand le conseil aura retrouvé son sérieux. Hugon retourne en cellule." },
     ],
     choices: [
@@ -88,10 +88,10 @@ module.exports = {
     ] },
   C_aube: { act: "III", title: "L'aube", place: "teinturiers",
     text: [
-      { if: { has: "aube:guet" }, text: "La sergente Hallard et six hommes du guet, en manteau, attendent avec toi derrière les piles de bois du port. Le ciel pâlit à l'est. Tous se taisent. On entend l'eau." },
-      { if: { has: "aube:seul" }, text: "Tu attends seul{e}, derrière les piles de bois du port, emmitouflé{e} dans ton manteau. Le ciel pâlit à l'est. Personne ne viendra t'aider : le guet dort, et le conseil rit encore." },
-      "Sur la Vouivre, on largue les amarres d'arrière. Les passagers montent un par un, avec leurs malles : des marchands, une famille avec des enfants qui bâillent. Le patron compte, sur le roof.",
-      "Et le dernier, un homme grand, voûté, en habit de drap brun, un large chapeau rabattu sur les yeux, qui ne porte rien, et qui monte à bord en tenant la rambarde de sa main gauche, enveloppée d'un linge.",
+      { if: { has: "aube:guet" }, text: "La sergente Hallard et six hommes du guet, en manteau, attendent avec toi derrière les piles de bois du port. Le ciel pâlit à l'est. Tous se taisent, et l'on entend l'eau." },
+      { if: { has: "aube:seul" }, text: "Tu attends seul{e}, derrière les piles de bois du port, emmitouflé{e} dans ton manteau. Le ciel pâlit à l'est. Tu es sans renfort : le guet dort, et le conseil rit encore." },
+      "Sur la Vouivre, on largue les amarres d'arrière. Les passagers montent un par un, avec leurs malles : des marchands, et une famille avec des enfants qui bâillent. Le patron les compte, sur le roof.",
+      "Le dernier est un homme grand et voûté, en habit de drap brun, un large chapeau rabattu sur les yeux, les mains vides. Il monte à bord en tenant la rambarde de sa main gauche, enveloppée d'un linge.",
       "Sur les tonneaux, à l'avant, le colosse se lève.",
     ],
     choices: [
@@ -101,27 +101,27 @@ module.exports = {
     ] },
   C_quai_pris: { act: "III", title: "Le quai", place: "teinturiers",
     text: [
-      "Le colosse tombe entre les tonneaux, et il ne se relève pas.",
+      "Le colosse tombe entre les tonneaux, et reste à terre.",
       { if: { has: "aube:guet" }, text: "Les hommes du guet sont déjà sur le pont. L'homme au chapeau n'essaie pas de fuir : il n'y a nulle part où fuir, sur une barge. Il ôte son chapeau, de lui-même, et il le tient contre sa poitrine, comme à un enterrement. La sergente Hallard le regarde, et dit son nom." },
       { if: { has: "aube:seul" }, text: "L'homme au chapeau n'essaie pas de fuir : il n'y a nulle part où fuir, sur une barge, et les passagers le regardent. Il ôte son chapeau, de lui-même, et te le tend, comme on rend les armes. Le patron de la Vouivre, qui n'aime pas les histoires, fait chercher le guet." },
-      "Un portefaix soulève, avec une barre, le couvercle d'un des tonneaux marqués G. Il n'y a pas d'indigo. Il y a, serrés, les uns contre les autres, des lingots d'argent fin, gros comme des briques, qui luisent dans le petit jour.",
+      "Un portefaix soulève avec une barre le couvercle d'un des tonneaux marqués G. Il ne contient pas d'indigo, mais des lingots d'argent fin, gros comme des briques, serrés les uns contre les autres, qui luisent dans le petit jour.",
     ],
     choices: [{ label: "Regarder le soleil se lever sur l'Aune", big: true, fx: { flag: ["gaspard:aube", "d:argent"] }, to: "E_verite" }] },
   C_quai_perdu: { act: "III", title: "Le quai", place: "teinturiers",
     text: [
       "Le colosse te repousse sur le quai d'une seule main, comme on chasse un chien. Tu tombes sur les planches. Quand tu te relèves, la Vouivre a largué ses dernières amarres, et le courant la prend.",
-      { if: { has: "aube:guet" }, text: "Les hommes du guet courent le long du quai, en criant. Une barque se détache, trop tard. La Vouivre est déjà au milieu du fleuve, là où le courant de l'Aune file vers les rapides." },
-      "Sur le roof, l'homme au chapeau ne se retourne pas.",
+      { if: { has: "aube:guet" }, text: "Les hommes du guet courent le long du quai, en criant, et une barque se détache, trop tard. La Vouivre est déjà au milieu du fleuve, là où le courant de l'Aune file vers les rapides." },
+      "Sur le roof, l'homme au chapeau regarde droit devant lui.",
     ],
     choices: [{ label: "Regarder la barge s'éloigner", to: "E_enfui" }] },
 
   // ------------------------------------------------------------------ the wrong names
   C_malestroit: { act: "III", title: "Le maître de la Monnaie", place: "haute",
     text: [
-      "Tu dis le nom. Il y a un silence, puis un bruit de chaises : tous les échevins se sont tournés vers Malestroit. Lui reste immobile.",
+      "Tu dis le nom. Il y a un silence, puis un bruit de chaises : tous les échevins se sont tournés vers Malestroit, qui reste immobile.",
       { if: { any: [{ has: "r:aveu" }, { clue: "r_contra" }, { clue: "r_herault" }] }, text: "Tu dis ce que tu sais : le banquet quitté avant onze heures, le retour à minuit, les souliers mouillés ; la Monnaie, juste en face de la Maison de l'Essai, la nuit même où l'essayeur est mort. L'échevin Brisson confirme, d'une voix forte, chaque mot. Malestroit pâlit." },
       { if: { has: "brisson:paye" }, text: "Brisson te regarde une seconde, une seule, avec la satisfaction d'un homme qui a bien placé son argent." },
-      { if: { not: { any: [{ has: "r:aveu" }, { clue: "r_contra" }, { clue: "r_herault" }] } }, text: "Tu n'as presque rien. Mais Brisson se lève, et il a, lui, tout ce qu'il faut : il a vu, dit-il, Malestroit quitter le banquet. La salle gronde." },
+      { if: { not: { any: [{ has: "r:aveu" }, { clue: "r_contra" }, { clue: "r_herault" }] } }, text: "Tu as peu de chose. Brisson se lève pourtant, et il a, lui, tout ce qu'il faut : il a vu, dit-il, Malestroit quitter le banquet. La salle gronde." },
       "Malestroit se lève. « J'étais à la Monnaie, dit-il. Je ne l'ai pas tué. Je n'ai tué personne. » Il le dit d'une voix si fatiguée qu'on ne le croit pas.",
     ],
     choices: [{ label: "Le regarder se rasseoir", to: "E_malestroit" }] },
@@ -137,7 +137,7 @@ module.exports = {
       { if: { is: { "accuse-M-qui": "hugon" } }, text: "Tu dis le nom de Hugon Maupas. Au premier rang, Gervaise se lève à moitié, et retombe sur son banc, comme si on l'avait frappée. Hugon ne lève même pas la tête. Brisson sourit : « Voilà qui simplifie les choses. »" },
       { if: { is: { "accuse-M-qui": "sibylle" } }, text: "Tu dis le nom de Dame Sibylle Ombreuil. La veuve reste immobile. Elle te regarde, et dans ses yeux il y a quelque chose qui ressemble à de la pitié. Brisson demande, poliment, comment une femme de quarante-cinq ans aurait porté un homme de son poids jusqu'à l'écluse. Tu n'as pas de réponse qui tienne." },
       { if: { is: { "accuse-M-qui": "oriane" } }, text: "Tu dis le nom d'Oriane Ombreuil. Contre son pilier, la jeune fille en noir devient blanche. Hugon, entre ses gardes, se jette en avant, et il faut trois hommes pour le retenir ; il hurle que c'est faux, que c'est lui, que c'est lui qui a tout fait, qu'on la laisse. Brisson note, ravi : « L'accusé avoue. »" },
-      { if: { not: { is: { "accuse-M-qui": ["hugon", "sibylle", "oriane"] } } }, text: "Tu dis un nom, et ce que tu poses devant le conseil ne tient pas. Brisson démonte ton accusation en trois phrases, sans même hausser la voix, et la salle rit." },
+      { if: { not: { is: { "accuse-M-qui": ["hugon", "sibylle", "oriane"] } } }, text: "Tu dis un nom, et ce que tu poses devant le conseil s'effondre. Brisson démonte ton accusation en trois phrases, sans même hausser la voix, et la salle rit." },
     ],
     choices: [
       { label: "Dire au moins ce que Hugon t'a raconté de sa nuit", if: { all: [{ has: "hugon:aveu" }, { not: { is: { "accuse-M-qui": ["hugon", "oriane"] } } }] }, hide: { not: { all: [{ has: "hugon:aveu" }, { not: { is: { "accuse-M-qui": ["hugon", "oriane"] } } }] } }, to: "C_plaidoirie" },
@@ -155,7 +155,7 @@ module.exports = {
       "Quand tu dis *pour deux*, la salle se retourne d'un seul mouvement vers le pilier des arcades. Oriane Ombreuil s'avance. Elle traverse toute la salle, seule, dans sa robe de deuil trop grande, jusqu'au pied de l'estrade, et elle dit, d'une voix qui tremble à peine : « C'est vrai. Il devait partir avec moi. Je l'ai attendu au pont des Lavandières jusqu'à quatre heures. »",
       { if: { has: "oriane:soulagee" }, text: "Elle ne tremble plus du tout quand elle ajoute : « Et à dix heures, il n'était pas chez mon père. Il jouait à la Lanterne Sourde. Je le sais. »" },
       "Sa mère, au premier rang, ferme les yeux.",
-      "Les échevins délibèrent à voix basse, longtemps. Puis Brisson se lève. Un vol sur un mort, dit-il, n'est pas un meurtre. Mais c'est un vol, et un vol sacrilège.",
+      "Les échevins délibèrent longtemps à voix basse. Puis Brisson se lève. Un vol sur un mort, dit-il, n'est pas un meurtre ; c'est pourtant un vol, et un vol sacrilège.",
     ],
     choices: [{ label: "Écouter le verdict", to: "E_pilori" }] },
 
@@ -211,7 +211,7 @@ module.exports = {
     fx: endFx("condamne"),
     text: [
       "Le conseil délibère le temps qu'il faut pour vider un pichet. Hugon Maupas est condamné à être pendu, le lendemain, à l'aube, pour le meurtre de Gaspard Ombreuil, essayeur-juré de la Monnaie d'Orbeval.",
-      "Il se tait, comme il s'est toujours tu. On l'emmène.",
+      "Il se tait, comme il s'est toujours tu, et on l'emmène.",
       "Le lendemain, à l'aube, pendant qu'on dresse la potence sur la place, une barge chargée de trois tonneaux d'indigo quitte le port des Teinturiers et descend l'Aune vers la mer.",
       "Gervaise Maupas t'épargne les reproches. Elle a simplement cessé de te parler. Quand tu la croises, au coin du pont des Lavandières, elle regarde ailleurs, comme on regarde ailleurs quand passe quelqu'un qu'on a connu autrefois.",
     ] },

@@ -8,9 +8,9 @@ module.exports = {
   T_lanterne: { act: "II", title: "La Lanterne Sourde", place: "tanneurs", rumeur: "lanterne", back: true,
     taverne: { mise: 2, adversaire: "un tanneur aux mains brunes" },
     text: [
-      { first: true, text: "La Lanterne Sourde est une salle longue et basse, à moitié enterrée : on y descend par quatre marches, et les fenêtres sont au ras des pavés. Des bancs, des tables tachées, une cheminée où cuit une marmite de fèves. Le patron, un grand roux aux bras couverts de brûlures de chaux, sert lui-même. Au fond, sous une lanterne, une table ronde est réservée au jeu de Chandelle." },
-      { again: true, when: "day", text: "La Lanterne Sourde, à cette heure, est presque vide : deux tanneurs qui mangent leurs fèves, le patron qui rince ses pots." },
-      { again: true, when: "night", text: "La Lanterne Sourde est pleine. On chante, on joue, on se dispute ; la fumée de la cheminée descend jusqu'aux tables." },
+      { first: true, text: "La Lanterne Sourde est une salle longue et basse, à moitié enterrée : on y descend par quatre marches, et les fenêtres sont au ras des pavés. Elle contient des bancs, des tables tachées, et une cheminée où cuit une marmite de fèves. Le patron, un grand roux aux bras couverts de brûlures de chaux, sert lui-même. Au fond, sous une lanterne, une table ronde est réservée au jeu de Chandelle." },
+      { again: true, when: "day", text: "À cette heure, la Lanterne Sourde est presque vide : deux tanneurs mangent leurs fèves, et le patron rince ses pots." },
+      { again: true, when: "night", text: "La Lanterne Sourde est pleine. On chante, on joue, on se dispute, et la fumée de la cheminée descend jusqu'aux tables." },
     ],
     choices: [
       { label: "Demander au patron ce qui s'est passé ici, la veille de la fête", hide: { seen: "T_lanterne_gifle" }, fx: { clue: "m_querelle" }, to: "T_lanterne_gifle" },
@@ -28,7 +28,7 @@ module.exports = {
     fx: { meet: "isaline" },
     taverne: { mise: 3, adversaire: "Dame Veillon" },
     text: [
-      { first: true, text: "Dame Isaline Veillon tient la table de Chandelle de la Lanterne Sourde comme elle tient son comptoir : droite, précise, économe de ses mots. Elle a ôté ses lunettes ; ses yeux, sans elles, sont petits et très noirs. Devant elle, une pile de sous, un gobelet de cuir, un dé." },
+      { first: true, text: "Dame Isaline Veillon tient la table de Chandelle de la Lanterne Sourde comme elle tient son comptoir : droite, précise, économe de ses mots. Elle a ôté ses lunettes, et ses yeux, sans elles, sont petits et très noirs. Devant elle sont posés une pile de sous, un gobelet de cuir et un dé." },
       { again: true, text: "Dame Veillon, à sa table, fait rouler le dé dans son gobelet. « Assieds-toi ou passe, tu fais de l'ombre. »" },
       { regard: { isaline: ["cordial", "allie"] }, text: "Elle pousse un tabouret vers toi du bout du pied, sans lever les yeux du jeu." },
     ],
@@ -40,9 +40,9 @@ module.exports = {
   P_barthe: { act: "II", title: "L'écluse des Tanneurs", place: "tanneurs", montrer: "barthe", back: true,
     fx: { meet: "barthe", clue: "m_ecluse" },
     text: [
-      { first: true, text: "Barthe a soixante ans, les jambes arquées, une barbe blanche jaunie par la pipe, et des mains qui ont tiré des chaînes toute leur vie. Il garde l'écluse des Tanneurs depuis quarante ans ; il y est né, dans la petite maison de pierre accrochée à la porte d'amont." },
+      { first: true, text: "Barthe a soixante ans, les jambes arquées, une barbe blanche jaunie par la pipe, et des mains qui ont tiré des chaînes toute leur vie. Il garde l'écluse des Tanneurs depuis quarante ans ; il est né dans la petite maison de pierre accrochée à la porte d'amont." },
       { again: true, text: "Barthe s'appuie sur sa perche. « Encore vous. L'eau a pas changé depuis tout à l'heure. »" },
-      { regard: { barthe: ["cordial", "allie"] }, text: "Il te tend sa blague à tabac. C'est, chez lui, une grande marque d'amitié." },
+      { regard: { barthe: ["cordial", "allie"] }, text: "Il te tend sa blague à tabac, ce qui est, chez lui, une grande marque d'amitié." },
       { first: true, text: "Tu lui demandes comment il a trouvé le corps." },
       { first: true, text: "« La nuit de la fête, les barques à lanternes descendent le canal jusqu'à une heure. Moi, je laisse les deux portes ouvertes, pour qu'elles passent. À une heure, la dernière est passée. J'ai fermé la porte d'amont, comme chaque nuit. Il faisait noir comme dans un four. Je suis allé me coucher. »" },
       { first: true, text: "« À cinq heures et demie, je me lève, j'ouvre la vanne, et je le vois. Contre les portes d'aval, la tête en bas, dans son manteau gris. Il avait passé la nuit à battre contre le bois, à chaque remous. La figure… » Il crache dans le canal. « Il n'avait plus de figure. Les portes, ça ne pardonne pas. »" },
@@ -55,20 +55,20 @@ module.exports = {
   P_barthe_chaine: { act: "II", title: "La chaîne", place: "tanneurs", montrer: "barthe", back: true,
     fx: { clue: "m_chaine" },
     text: [
-      "Barthe tire sur sa pipe éteinte, et il regarde le canal vers l'amont, vers les Orfèvres, où les maisons blanches se perdent dans la brume.",
+      "Barthe tire sur sa pipe éteinte et regarde le canal vers l'amont, vers les Orfèvres, où les maisons blanches se perdent dans la brume.",
       "« Une chaîne, dit-il. Vers minuit moins le quart. Je fumais sur le pas de ma porte, en attendant les dernières barques. J'ai entendu une chaîne grincer, là-haut, du côté des Orfèvres. Une porte d'eau qu'on ouvre. C'est un bruit que je connais : j'en ai ouvert toute ma vie. Ça porte, sur l'eau, la nuit. On l'entend de loin comme si c'était à côté. »",
       "« Après, un peu après, un *plouf*. Un gros. Je me suis dit : un tonneau, des ordures, une bêtise de fête. Les gens jettent n'importe quoi à l'eau, la nuit des Lanternes. »",
-      "Il se tait. Il regarde ses portes. « Je l'ai dit à personne. On m'a rien demandé. »",
+      "Il se tait et regarde ses portes. « Je l'ai dit à personne. On m'a rien demandé. »",
     ] },
 
   // ------------------------------------------------------------------ the house where Théophane lodged
   P_garnaude: { act: "II", title: "La mère Garnaude", place: "tanneurs", montrer: "garnaude", back: true,
     fx: { meet: "garnaude", clue: "m_garnaude_pas" },
     text: [
-      { first: true, text: "La mère Garnaude loue trois chambres au-dessus d'une boutique de cordier fermée depuis longtemps. Elle est petite, ronde, très vieille, et elle parle sans s'arrêter, en battant son tapis, ou en pliant du linge, ou en épluchant des raves : ses mains ne se reposent jamais." },
-      { again: true, text: "La mère Garnaude, son tapis, ses raves. « Ah, c'est vous. Entrez, entrez, il fait froid sur le pas. »" },
-      { if: { day: { min: 1, max: 1 } }, text: "Sur la table, un balluchon bien ficelé. « Je pars demain matin chez ma sœur, à Vieux-Gué. Je ne reste pas dans une maison où l'on vient la nuit chercher les affaires d'un garçon qui s'est enfui. Ça porte malheur. »" },
-      { if: { day: { min: 2 } }, text: "Le balluchon est près de la porte. Une charrette attend dans la rue. « Je m'en vais, je m'en vais. Vous avez de la chance de m'attraper. »" },
+      { first: true, text: "La mère Garnaude loue trois chambres au-dessus d'une boutique de cordier fermée depuis longtemps. Elle est petite, ronde, très vieille, et elle parle sans arrêt en battant son tapis, en pliant du linge ou en épluchant des raves : ses mains travaillent toujours." },
+      { again: true, text: "La mère Garnaude lâche ses raves en te voyant. « Ah, c'est vous. Entrez, entrez, il fait froid sur le pas. »" },
+      { if: { day: { min: 1, max: 1 } }, text: "Sur la table attend un balluchon bien ficelé. « Je pars demain matin chez ma sœur, à Vieux-Gué. Je ne reste pas dans une maison où l'on vient la nuit chercher les affaires d'un garçon qui s'est enfui. Ça porte malheur. »" },
+      { if: { day: { min: 2 } }, text: "Le balluchon est près de la porte, et une charrette attend dans la rue. « Je m'en vais, je m'en vais. Vous avez de la chance de m'attraper. »" },
       { first: true, text: "Tu lui demandes ce qu'elle a entendu, la nuit de la fête." },
       { first: true, text: "« Le petit Lescot ? Il est rentré à une heure passée, et reparti avant le jour. Je ne l'ai pas vu, j'ai entendu. Je dors mal, à mon âge. Il a monté l'escalier lentement, lourdement, en s'arrêtant au palier, comme un vieux. Lui qui monte quatre à quatre, d'habitude, que je lui dis toujours qu'il va me faire tomber le plafond sur la tête. J'ai pensé qu'il avait bu, pour la fête. Il ne boit jamais. »" },
       { first: true, text: "« Le matin, sa chambre était vide, et la lettre sur la table. C'est moi qui l'ai portée au guet. Un voleur ! Le petit Lescot ! Il me rendait toujours la monnaie de son loyer au sou près. »" },
@@ -78,16 +78,16 @@ module.exports = {
     ] },
   P_chambre: { act: "II", title: "La chambre de Théophane", place: "tanneurs", back: true,
     text: [
-      "La chambre est sous le toit, si basse qu'on ne s'y tient debout qu'au milieu. Un lit étroit, une table, une chaise, une planche fixée au mur en guise d'étagère. Une lucarne sur le canal. Tout est propre et nu.",
-      "Le coffre au pied du lit est ouvert, vide. Le sac de voyage et les habits sont partis. Mais sur la planche, au-dessus du lit, il reste un rasoir, dans son étui de cuir, un peigne d'os, et un petit portrait de femme peint sur bois, grand comme la main, dans un cadre de cuivre. « Sa mère, dit la mère Garnaude derrière toi. Morte quand il avait dix ans. Il lui disait bonsoir, le soir. Je l'entendais à travers le plancher. »",
-      "La mère Garnaude s'est tue. Elle regarde le portrait aussi.",
+      "La chambre est sous le toit, si basse qu'on s'y tient debout au milieu seulement. Elle contient un lit étroit, une table, une chaise, et une planche fixée au mur en guise d'étagère ; une lucarne donne sur le canal. Tout est propre et nu.",
+      "Le coffre au pied du lit est ouvert, et vide : le sac de voyage et les habits sont partis. Sur la planche, au-dessus du lit, il reste pourtant un rasoir dans son étui de cuir, un peigne d'os, et un petit portrait de femme peint sur bois, grand comme la main, dans un cadre de cuivre. « Sa mère, dit la mère Garnaude derrière toi. Morte quand il avait dix ans. Il lui disait bonsoir, le soir. Je l'entendais à travers le plancher. »",
+      "La mère Garnaude s'est tue, et elle regarde le portrait, elle aussi.",
     ],
     choices: [
       { label: "Soulever le matelas", hide: { clue: "d_essais" }, fx: { clue: "d_essais" }, to: "P_chambre_matelas" },
     ] },
   P_chambre_matelas: { act: "II", title: "Sous le matelas", place: "tanneurs", back: true,
     text: [
-      "Le matelas est une paillasse mince. Dessous, sur les sangles, à plat, une feuille pliée en deux.",
+      "Le matelas est une paillasse mince. Dessous, à plat sur les sangles, tu trouves une feuille pliée en deux.",
       "Ce sont des chiffres. Une écriture ronde, droite, appuyée, d'écolier appliqué. Les fontes de l'année, une par ligne, avec leur date. Pour chacune, deux titres : celui du registre, toujours le même, *onze deniers*, et un autre, plus bas, qui change un peu d'une fonte à l'autre, mais toujours plus bas. *Dix et demi. Dix et demi. Dix, sept grains.*",
       "En marge, d'une encre plus fraîche, souligné deux fois : *Tous les jeudis. Toujours lui.*",
       "La mère Garnaude regarde par-dessus ton épaule. « Je ne sais pas lire, dit-elle. Mais ça, c'est son écriture. Il me faisait mes comptes, le petit. Des lettres comme des pommes. »",
@@ -101,9 +101,9 @@ module.exports = {
   P_garnaude_doigt: { act: "II", title: "Le petit doigt", montrer: "garnaude", back: true,
     fx: { clue: "m_doigt_theo" },
     text: [
-      "La mère Garnaude cesse d'éplucher. Le couteau reste en l'air.",
+      "La mère Garnaude cesse d'éplucher, et le couteau reste en l'air.",
       "« Le petit doigt de la main droite ? Tordu ? » Elle pose la rave. « Le petit avait ça. Il était tombé d'une charrette, quand il était chez l'orfèvre. Il me le montrait, pour me faire rire : il le faisait craquer. Et il se rongeait les ongles, je lui disais, tu vas finir par te manger les doigts. »",
-      "Elle te regarde. Elle a compris quelque chose, ou elle a peur de l'avoir compris, et elle fait ce que font les vieilles femmes : elle reprend son couteau, et sa rave, et elle épluche, très vite.",
+      "Elle te regarde. Elle a compris quelque chose, ou elle a peur de l'avoir compris, et elle fait ce que font les vieilles femmes : elle reprend son couteau et sa rave, et elle épluche, très vite.",
       "« Allez-vous-en, dit-elle. Je pars chez ma sœur. Je ne veux rien savoir. »",
     ] },
 
@@ -111,9 +111,9 @@ module.exports = {
   P_gervaise: { act: "II", title: "Gervaise Maupas", back: true,
     fx: { clue: "m_querelle" },
     text: [
-      { if: { place: "haute" }, text: "Gervaise Maupas attend au pied de la tour du Guet, son panier sur le bras. On ne la laisse monter qu'à neuf heures ; elle est là depuis six. Elle ne se plaint pas. Elle regarde la porte." },
-      { if: { place: "tanneurs" }, text: "Gervaise Maupas lave le linge des autres dans une cuve, dans sa cour, les bras rouges jusqu'aux coudes. Elle s'essuie les mains à son tablier quand elle te voit, et elle te fait asseoir sur la seule chaise." },
-      { first: true, text: "« Alors ? » C'est tout ce qu'elle dit. Elle ne te demande pas si tu as trouvé : elle demande si tu cherches encore." },
+      { if: { place: "haute" }, text: "Gervaise Maupas attend au pied de la tour du Guet, son panier sur le bras. On la laisse monter à neuf heures, et elle est là depuis six. Elle garde ses plaintes pour elle, et regarde la porte." },
+      { if: { place: "tanneurs" }, text: "Gervaise Maupas lave le linge des autres dans une cuve, au milieu de sa cour, les bras rouges jusqu'aux coudes. Elle s'essuie les mains à son tablier en te voyant, et elle te fait asseoir sur la seule chaise." },
+      { first: true, text: "« Alors ? » C'est tout ce qu'elle dit. Elle laisse de côté la question de ce que tu as trouvé, et demande seulement si tu cherches encore." },
       { again: true, text: "« Alors ? » Elle te regarde, et elle attend, comme elle attend devant la tour." },
       { if: { day: { min: 3 } }, text: "Elle a mis sa robe du dimanche, la noire. « Pour ce soir, dit-elle. Pour l'Échevinage. Il faut qu'il me voie bien habillée. »" },
       { if: { has: "hugon:aveu" }, text: "Tu lui dis que Hugon t'a parlé. Elle ferme les yeux. « Il parle, maintenant, dit-elle. Il a fallu ça pour qu'il parle. »" },
@@ -141,9 +141,9 @@ module.exports = {
   P_oriane_pont: { act: "II", title: "Le pont des Lavandières", place: "tanneurs", montrer: "oriane", back: true,
     fx: { meet: "oriane", questSeen: "II_amants" },
     text: [
-      { first: true, text: "Le pont des Lavandières n'est qu'une passerelle de planches posée sur le canal, avec une rambarde de corde. En dessous, sur les marches, les lavandières battent le linge et se taisent quand quelqu'un passe. Au milieu de la passerelle, une jeune fille en noir, un panier vide au bras, regarde l'eau couler vers l'écluse." },
-      { first: true, text: "Elle a dix-huit ans, des tresses noires, une robe de deuil trop grande. Quand tu t'approches, elle ne s'en va pas. « Vous êtes la personne que la mère de Hugon a engagée, dit-elle. Les lavandières me l'ont dit. Elles disent tout. »" },
-      { again: true, text: "Oriane est sur le pont, à sa place, le panier vide au bras. Elle te fait un petit signe de tête." },
+      { first: true, text: "Le pont des Lavandières est une simple passerelle de planches posée sur le canal, avec une rambarde de corde. En dessous, sur les marches, les lavandières battent le linge et se taisent quand quelqu'un passe. Au milieu de la passerelle, une jeune fille en noir, un panier vide au bras, regarde l'eau couler vers l'écluse." },
+      { first: true, text: "Elle a dix-huit ans, des tresses noires et une robe de deuil trop grande. Quand tu t'approches, elle reste où elle est. « Vous êtes la personne que la mère de Hugon a engagée, dit-elle. Les lavandières me l'ont dit. Elles disent tout. »" },
+      { again: true, text: "Oriane est sur le pont, à sa place, le panier vide au bras, et te fait un petit signe de tête." },
       "« Je viens ici avec le linge, dit-elle, comme on se justifie. On ne peut pas m'empêcher de porter le linge. »",
       { regard: { oriane: ["cordial", "allie"] }, text: "Elle te regarde en face. « Vous allez le voir, à la tour. Ils me laissent pas monter, moi. Ma mère a dit au guet que si je montais, elle porterait plainte. »" },
     ],
@@ -153,9 +153,9 @@ module.exports = {
     ] },
   P_oriane_mot: { act: "II", title: "Un mot pour Hugon", place: "tanneurs", montrer: "oriane",
     text: [
-      "Oriane rougit, d'un coup, jusqu'aux oreilles. Elle regarde l'eau, les lavandières, toi.",
+      "Oriane rougit d'un coup, jusqu'aux oreilles. Elle regarde l'eau, les lavandières, puis toi.",
       "« Vous feriez ça ? » Elle fouille dans son panier, n'y trouve rien, cherche dans sa manche. « Je n'ai pas de quoi écrire. Et puis, si on vous fouille… Dites-lui… »",
-      "Elle s'arrête. Elle cherche longtemps, les lèvres serrées.",
+      "Elle s'arrête, et cherche longtemps, les lèvres serrées.",
       "« Dites-lui que j'ai attendu. Jusqu'à quatre heures. Que je n'ai pas cessé d'attendre. Et que je ne lui en veux pas. Il comprendra. »",
     ],
     choices: [
@@ -166,7 +166,7 @@ module.exports = {
     text: [
       "Elle pose les coudes sur la corde de la rambarde.",
       "« C'est ici qu'on se voyait. Le soir, après le linge. Il disait qu'il connaissait tous les bateaux qui passent sous ce pont, et leurs patrons, et où ils vont. Il me les nommait, un par un. Basse-Aune, Vieux-Gué, la mer. Il disait qu'un jour on prendrait l'un d'eux. »",
-      "Elle se tait. Une barge passe sous le pont, chargée de peaux, et le batelier lève la main vers elle, pour la saluer, comme on salue quelqu'un qu'on connaît. Elle lui rend son salut.",
+      "Elle se tait. Une barge chargée de peaux passe sous le pont, et le batelier lève la main vers elle, comme on salue quelqu'un qu'on connaît. Elle lui rend son salut.",
       "« Tout le monde savait, dit-elle. Sauf mon père. Et quand il a su, il est allé à la Lanterne Sourde. » Elle n'en dit pas plus.",
     ],
     choices: [{ back: "P_oriane_pont" }] },
@@ -175,10 +175,10 @@ module.exports = {
   P_hallard: { act: "II", title: "La sergente Hallard", montrer: "hallard", back: true,
     fx: { meet: "hallard" },
     text: [
-      { if: { place: "haute" }, text: "Le bureau de la sergente Hallard, au premier étage de la tour, est une pièce voûtée où il fait froid même l'été. Un registre ouvert, une chandelle, une épée pendue au mur, et une fenêtre étroite qui donne sur la place." },
-      { if: { place: "tanneurs" }, text: "Tu marches à côté de la sergente le long du canal, pendant que ses deux hommes vont devant avec la lanterne. Elle a les mains dans le dos et elle regarde les portes, les fenêtres, les ombres : tout, sauf toi." },
+      { if: { place: "haute" }, text: "Le bureau de la sergente Hallard, au premier étage de la tour, est une pièce voûtée où il fait froid même l'été. Tu y vois un registre ouvert, une chandelle, une épée pendue au mur, et une fenêtre étroite qui donne sur la place." },
+      { if: { place: "tanneurs" }, text: "Tu marches à côté de la sergente le long du canal, pendant que ses deux hommes vont devant avec la lanterne. Elle a les mains dans le dos, et elle regarde les portes, les fenêtres et les ombres, tout sauf toi." },
       { first: true, if: { has: "passe:guet" }, text: "Elle te jauge d'un coup d'œil, de la tête aux bottes. « Vous avez été du guet, vous. Ailleurs. Ça se voit à la façon dont vous regardez les portes. » C'est un constat, dit sans chaleur." },
-      { first: true, text: "La sergente Hallard a cinquante ans, une cicatrice qui lui tire la bouche vers le bas, et la réputation d'être la seule personne incorruptible du guet. On dit aussi que ses décisions sont définitives." },
+      { first: true, text: "La sergente Hallard a cinquante ans, une cicatrice qui lui tire la bouche vers le bas, et la réputation d'être la seule personne incorruptible du guet. On dit aussi qu'elle revient rarement sur une décision." },
       { regard: { hallard: ["neutre", "distant", "mefiant"] }, text: "« L'affaire est jugée, dit-elle. Il ne manque que la cloche. J'ai un batelier qui avait la bague du mort dans la poche le lendemain matin, un mobile, une menace devant vingt témoins, et pas d'alibi. Vous m'apportez mieux, je vous écoute. Vous ne m'apportez rien, vous me faites perdre mon temps. »" },
       { regard: { hallard: "cordial" }, text: "« Vous, dit-elle. Asseyez-vous. Vous avez la tête de quelqu'un qui ne dort pas assez. Moi aussi. Qu'est-ce que vous avez trouvé ? »" },
       { regard: { hallard: "allie" }, text: "« Alors ? » Elle referme son registre. Depuis que tu lui as montré ce que tu sais, elle t'attend ouvertement." },
@@ -197,7 +197,7 @@ module.exports = {
   P_hallard_doute: { act: "II", title: "Le doute", montrer: "hallard", back: true,
     fx: { regard: { hallard: "allie" }, flag: "hallard:allie" },
     text: [
-      { first: true, text: "La sergente Hallard écoute jusqu'au bout sans t'interrompre, ce qui ne lui ressemble pas. Puis elle se lève, va à la fenêtre, et regarde dehors longtemps." },
+      { first: true, text: "La sergente Hallard écoute jusqu'au bout sans t'interrompre, ce qui lui ressemble peu. Puis elle se lève, va à la fenêtre et regarde longtemps dehors." },
       { first: true, text: "« Vingt-six ans que je fais ce métier, dit-elle sans se retourner. Je me suis trompée deux fois. Les deux fois, j'avais quelqu'un sous la main, et tout allait bien ensemble, et c'était plus simple que de chercher. » Elle se retourne. « Ça ne prouve rien. Ça ne suffit pas pour les échevins. Mais si vous arrivez devant eux avec ça, et avec le reste, je ne dirai pas le contraire. Je dirai que j'ai pu me tromper. »" },
       { again: true, text: "La sergente lit, ou écoute, et elle hoche la tête, une fois. « Encore une chose qui ne colle pas. Vous les collectionnez. » Elle le note dans son registre, de sa grosse écriture." },
     ] },
@@ -209,7 +209,7 @@ module.exports = {
     ] },
   P_hallard_mahu: { act: "II", title: "Mahu", montrer: "hallard", back: true,
     text: [
-      "La sergente rit, un rire bref, qui lui tord encore plus la bouche.",
+      "La sergente rit, d'un rire bref qui lui tord encore plus la bouche.",
       "« Mahu ? Mahu a vu le second de l'essayeur monter sur une barge à l'aube du jour de la fête ? » Elle ouvre son registre, tourne trois pages, pose le doigt sur une ligne. « À l'aube du jour de la fête, Mahu cuvait dans ma cellule du rez-de-chaussée, où mes hommes l'avaient mis la veille au soir pour avoir uriné sur la porte de l'Échevinage. Il est sorti à midi. »",
       "« Il raconte ce qu'on veut entendre, à qui lui paie à boire. Il a vu le diable, la Dame Blanche et le roi de Basse-Aune. »",
     ] },
@@ -224,10 +224,10 @@ module.exports = {
   P_hugon: { act: "II", title: "La cellule", place: "haute", montrer: "hugon", back: true,
     fx: { meet: "hugon" },
     text: [
-      { first: true, text: "Un garde te fait monter trois étages par un escalier en colimaçon, ouvre un judas, puis une porte. La cellule est une pièce de pierre de quatre pas sur trois, avec une fente pour fenêtre, une paillasse, un seau. Hugon Maupas est assis par terre, le dos au mur, les bras autour des genoux." },
-      { first: true, text: "Il a dix-neuf ans, de larges épaules de batelier, des cheveux noirs coupés court par sa mère, et il a l'air d'un enfant. Il ne lève pas la tête." },
+      { first: true, text: "Un garde te fait monter trois étages par un escalier en colimaçon, ouvre un judas, puis une porte. La cellule est une pièce de pierre de quatre pas sur trois, avec une fente pour fenêtre, une paillasse et un seau. Hugon Maupas est assis par terre, le dos au mur, les bras autour des genoux." },
+      { first: true, text: "Il a dix-neuf ans, de larges épaules de batelier, des cheveux noirs coupés court par sa mère, et l'air d'un enfant. Il garde la tête baissée." },
       { again: true, text: "Hugon est assis à sa place, contre le mur. Il lève les yeux quand la porte s'ouvre, et les baisse quand il voit que ce n'est que toi." },
-      { regard: { hugon: ["neutre", "distant", "mefiant"] }, text: "Tu lui parles. Il se tait. Il regarde la fente de lumière sur le mur d'en face comme s'il pouvait passer par là." },
+      { regard: { hugon: ["neutre", "distant", "mefiant"] }, text: "Tu lui parles, et il se tait. Il regarde la fente de lumière sur le mur d'en face comme s'il pouvait s'en aller par là." },
       { regard: { hugon: ["cordial", "allie"] }, text: "« Vous êtes revenu{e} », dit-il. C'est la première fois qu'il dit quelque chose sans qu'on le lui demande." },
       { if: { day: { min: 3 } }, text: "« C'est ce soir, hein ? » Il ne pose pas vraiment la question." },
     ],
@@ -238,14 +238,14 @@ module.exports = {
     ] },
   P_hugon_mere: { act: "II", title: "La cellule", place: "haute", montrer: "hugon",
     text: [
-      "Il reste immobile, mais quelque chose change dans sa façon de respirer.",
+      "Il reste immobile, mais sa respiration change.",
       "« Tous les matins ? » Il ne te regarde toujours pas. « Ils la laissent pas monter avant neuf heures. Elle doit être là depuis six. Elle a toujours été là trop tôt, partout. »",
       "Il frotte ses yeux avec la paume, très fort. « Dites-lui de rentrer. Dites-lui que je mange. C'est pas vrai, mais dites-lui. »",
     ],
     choices: [{ back: "P_hugon" }] },
   P_hugon_nuit: { act: "II", title: "Une heure", place: "haute", montrer: "hugon",
     text: [
-      "Il se tait longtemps. Puis il parle, à voix basse, en regardant le mur, et tu sens qu'il choisit chaque mot pour ne pas dire les autres.",
+      "Il se tait longtemps. Puis il parle à voix basse, en regardant le mur, et tu sens qu'il choisit chaque mot pour taire les autres.",
       "« J'ai joué à la Lanterne. Après, je suis rentré chez ma mère. Après, je suis ressorti. Vers une heure, je suis passé à l'écluse, pour couper par le quai. Il était déjà dans l'eau, contre les portes d'aval. J'ai cru que c'était un sac. »",
       "« C'est tout. Je l'ai pas tué. Je l'ai pas poussé. Il était dans l'eau quand je suis arrivé. » Il serre les mâchoires. « Pour le reste, je dis rien. Ça regarde personne. »",
     ],
@@ -253,8 +253,8 @@ module.exports = {
   P_hugon_mot: { act: "II", title: "Les mots d'Oriane", place: "haute", montrer: "hugon",
     text: [
       "Tu lui répètes ce qu'a dit Oriane, sur le pont, mot pour mot : qu'elle a attendu jusqu'à quatre heures, qu'elle n'a pas cessé d'attendre, et qu'elle ne lui en veut pas.",
-      "Hugon reste immobile, muet. Puis il pose le front sur ses genoux, et ses épaules se mettent à trembler, et il pleure comme pleurent les garçons qui se retiennent depuis l'enfance, en silence, avec tout le corps.",
-      "Tu attends. Ça dure longtemps.",
+      "Hugon reste immobile et muet. Puis il pose le front sur ses genoux, ses épaules se mettent à trembler, et il pleure comme pleurent les garçons qui se retiennent depuis l'enfance : en silence, avec tout le corps.",
+      "Tu attends, longtemps.",
       "« Dites-lui… » Il relève la tête, s'essuie le nez sur sa manche. « Dites-lui que la barge de sel est partie sans nous, et que c'est ma faute, et que je lui expliquerai. Si je sors. Dites-lui que si je sors, on prendra la prochaine. »",
     ],
     choices: [{ back: "P_hugon" }] },
@@ -275,7 +275,7 @@ module.exports = {
     text: [
       "Hugon te regarde sans comprendre.",
       "« Elle a vu son père ? À une heure et demie ? Sur le quai des Tanneurs ? » Il secoue la tête. « C'est pas possible. À une heure, il était… J'ai pris sa… »",
-      "Il s'arrête net. Il regarde ses mains. Ses lèvres bougent, sans bruit, comme quand on compte.",
+      "Il s'arrête net et regarde ses mains. Ses lèvres bougent sans bruit, comme quand on compte.",
       "« Je n'ai pas regardé sa figure, dit-il enfin, très bas. Je vous jure que je n'ai pas regardé sa figure. »",
     ] },
   P_hugon_voix: { act: "II", title: "Dix heures", place: "haute", montrer: "hugon", back: true,
@@ -288,19 +288,19 @@ module.exports = {
   H_corps: { act: "II", title: "La salle des morts", place: "haute", back: true,
     fx: { clue: "m_corps_main", meet: "ermeline" },
     text: [
-      "La salle des morts de l'Hôtel-Dieu est une cave voûtée, fraîche, qui sent le vinaigre et la chaux vive. Sœur Ermeline, une petite femme sèche aux manches retroussées, lit le jeton de la sergente, hoche la tête, et soulève le drap.",
+      "La salle des morts de l'Hôtel-Dieu est une cave voûtée et fraîche, qui sent le vinaigre et la chaux vive. Sœur Ermeline, une petite femme sèche aux manches retroussées, lit le jeton de la sergente, hoche la tête et soulève le drap.",
       "Tu as déjà vu des morts. Celui-là, tu le regardes vite, puis plus lentement. Le visage n'existe plus : les portes de l'écluse l'ont battu toute la nuit. Les cheveux sont châtains, mouillés encore, collés. Le corps est grand, maigre, plus maigre que tu ne l'aurais cru sous une robe d'essayeur.",
       "Ce sont les mains que tu regardes le plus longtemps. Les ongles sont rongés jusqu'à la chair, à chaque doigt. Et le petit doigt de la main droite est tordu, en dehors, avec une bosse à la deuxième phalange : un os cassé autrefois, et mal ressoudé.",
-      { second: true, text: "À l'annulaire gauche, là où la bague était, la peau est à peine plus pâle. La peau est à peine marquée : la trace légère d'un anneau porté peu de temps." },
+      { second: true, text: "À l'annulaire gauche, là où était la bague, la peau est à peine plus pâle : la trace légère d'un anneau porté peu de temps." },
       "« On l'enterre demain à trois heures, dit Sœur Ermeline en remettant le drap. Après, ce sera trop tard pour regarder. »",
     ] },
   P_ermeline: { act: "II", title: "Sœur Ermeline", place: "haute", montrer: "ermeline", back: true,
     fx: { meet: "ermeline", clue: "m_corps_eau" },
     text: [
-      { first: true, text: "Sœur Ermeline soigne les pauvres de l'Hôtel-Dieu depuis trente ans, lave les morts et les veille. Elle a de petits yeux gris, une voix douce et des mains rouges, et elle n'a peur de rien, sauf des échevins." },
+      { first: true, text: "Sœur Ermeline soigne les pauvres de l'Hôtel-Dieu depuis trente ans, et elle lave et veille les morts. Elle a de petits yeux gris, une voix douce et des mains rouges, et elle a peur des seuls échevins." },
       { again: true, text: "Sœur Ermeline pose sa bassine. « Oui ? »" },
       { first: true, text: "Tu lui demandes ce qu'elle a vu, en lavant le noyé de l'écluse." },
-      { first: true, text: "Elle hésite. Elle regarde autour d'elle, la cour, les fenêtres. « On ne m'a rien demandé, dit-elle. Le médecin de l'Échevinage est venu, il a regardé de loin, il a dit *noyé*, il est reparti. »" },
+      { first: true, text: "Elle hésite, et regarde autour d'elle, la cour, les fenêtres. « On ne m'a rien demandé, dit-elle. Le médecin de l'Échevinage est venu, il a regardé de loin, il a dit *noyé*, il est reparti. »" },
       { first: true, text: "« Il n'avait ni eau ni écume dans la bouche. J'en ai lavé, des noyés, avec tous ces canaux. Un homme qui se noie se bat pour respirer : il avale l'eau, il a de l'écume aux lèvres, de la vase sous les ongles. Celui-là n'avait rien. Il ne respirait plus quand on l'a mis à l'eau. »" },
     ],
     choices: [
@@ -316,7 +316,7 @@ module.exports = {
     text: [
       { if: { clue: "m_poids" }, text: "Tu lui décris le logement vide du coffret de l'Essai : un cube de laiton, de la taille d'un poing, le plus gros des poids." },
       { if: { not: { clue: "m_poids" } }, text: "Tu lui reparles de la plaie à la tempe." },
-      { if: { clue: "m_poids" }, text: "Sœur Ermeline réfléchit, les yeux fermés, comme si elle revoyait la plaie. Elle forme un poing, regarde l'angle de ses phalanges. « Un cube de laiton. Lourd. » Elle rouvre les yeux. « Oui. Ça ferait ça. Exactement ça. Un seul coup, de quelqu'un qui est debout, en face, et qui tient la chose dans sa main droite. »" },
+      { if: { clue: "m_poids" }, text: "Sœur Ermeline réfléchit, les yeux fermés, comme si elle revoyait la plaie. Elle forme un poing et regarde l'angle de ses phalanges. « Un cube de laiton. Lourd. » Elle rouvre les yeux. « Oui. Ça ferait ça. Exactement ça. Un seul coup, de quelqu'un qui est debout, en face, et qui tient la chose dans sa main droite. »" },
       { if: { not: { clue: "m_poids" } }, text: "« Je l'ai dit au médecin, dit-elle. Il m'a répondu que les sœurs devraient laisser les morts aux médecins. Ce que je sais, c'est qu'il a été frappé une fois, fort, par quelqu'un qui était debout en face de lui. Pas par une porte. »" },
     ] },
 
@@ -324,8 +324,8 @@ module.exports = {
   P_brisson: { act: "II", title: "L'échevin Brisson", place: "haute", montrer: "brisson", back: true,
     fx: { meet: "brisson" },
     text: [
-      { first: true, text: "L'échevin Brisson est gros, rose, bien nourri, et il te prend le bras comme à un vieil ami avant même de savoir ton nom. Il connaît tout le monde, il serre toutes les mains, il rit fort ; et ses yeux, pendant qu'il rit, comptent qui le regarde." },
-      { again: true, text: "Brisson te reconnaît de loin et lève la main. « Mon enquêteur ! Mon enquêteur préféré ! »" },
+      { first: true, text: "L'échevin Brisson est gros, rose et bien nourri, et il te prend le bras comme à un vieil ami avant même de savoir ton nom. Il connaît tout le monde, serre toutes les mains et rit fort ; pendant qu'il rit, ses yeux comptent qui le regarde." },
+      { again: true, text: "Brisson te reconnaît de loin et lève la main. « Ah ! Voici qui fouille pour la mère Maupas ! Justement, je vous cherchais ! »" },
       { first: true, text: "« L'affaire Maupas ? Triste, triste. Un bon garçon, dit-on, mal parti. » Il baisse la voix. « Mais entre nous, l'affaire n'est pas le petit Maupas. L'affaire, c'est la Monnaie. Il se passe des choses à la Monnaie. Je ne dis rien. Je n'ai rien dit. »" },
     ],
     choices: [
@@ -350,17 +350,17 @@ module.exports = {
     ] },
   P_brisson_pris: { act: "II", title: "Dix écus", place: "haute", back: true,
     text: [
-      "La bourse est lourde, et chaude de sa manche. Brisson te serre la main, longuement, des deux siennes.",
+      "La bourse est lourde, et chaude de sa manche. Brisson te serre longuement la main entre les deux siennes.",
       "« À la cloche, dit-il. Je compte sur vous. » Il s'éloigne en saluant à droite et à gauche, et tu restes sous les arcades avec dix écus et l'impression d'avoir avalé quelque chose de froid.",
     ] },
   P_brisson_refus: { act: "II", title: "Les arcades", place: "haute", back: true,
     text: [
-      "Brisson remet la bourse dans sa manche sans cesser de sourire. Seuls ses yeux ont changé.",
+      "Brisson remet la bourse dans sa manche sans cesser de sourire ; seuls ses yeux ont changé.",
       "« Comme vous voudrez. Vous êtes jeune. » Il te tapote l'épaule, plus fort qu'il ne faudrait. « On se reverra à la cloche. Je suis curieux de voir ce que vous direz, sans amis. »",
     ] },
   P_brisson_manche: { act: "II", title: "La manche", place: "haute", montrer: "brisson", back: true,
     text: [
       "Brisson éclate de rire, si fort qu'un clerc se retourne sous les arcades.",
-      "« Du sang ! On dit ça ? Charmant. Charmant. » Il s'essuie les yeux. « C'est du vin, mon ami. Du vin de Bourgonne. C'est moi qui le lui ai renversé dessus, au début du banquet, en lui portant un toast. Exprès ? Peut-être. Il était si fier de son pourpoint. » Il redevient grave, d'un coup, comme on ferme un volet. « Mais si on le dit, à la Lanterne… Les gens disent tant de choses. Je ne vais pas les en empêcher. »",
+      "« Du sang ! On dit ça ? Charmant. Charmant. » Il s'essuie les yeux. « C'est du vin, voyons. Du vin de Bourgonne. C'est moi qui le lui ai renversé dessus, au début du banquet, en lui portant un toast. Exprès ? Peut-être. Il était si fier de son pourpoint. » Il redevient grave, d'un coup, comme on ferme un volet. « Mais si on le dit, à la Lanterne… Les gens disent tant de choses. Je ne vais pas les en empêcher. »",
     ] },
 };
