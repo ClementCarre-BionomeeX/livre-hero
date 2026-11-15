@@ -31,7 +31,7 @@ module.exports = {
 
   II_S2_palais: P({ title: "Le palais la nuit", place: "vasselin",
     text: [
-      { first: true, text: "Les cuisines, l'escalier des servantes, le couloir des tapisseries. Tu as fait ce chemin mille fois. Cette nuit, il y a des chandelles partout, des centaines, et personne pour les moucher." },
+      { first: true, text: "Les cuisines, l'escalier des servantes, le couloir des tapisseries. Tu as fait ce chemin mille fois. Cette nuit, il y a des chandelles partout, des centaines, et personne pour les moucher ; la cire a coulé jusqu'au parquet en stalactites d'un pouce." },
       { again: true, text: "Le couloir des tapisseries, de nouveau. Les chandelles brûlent toujours. Dans les galeries, personne n'a bougé." },
       { first: true, text: "Des courtisans attendent dans les galeries, en habits de jour, à deux heures du matin. Ils sont debout, adossés aux murs. Certains dorment debout. D'autres te regardent passer sans te voir. Un vieux duc que tu connais depuis toujours te demande poliment s'il est déjà venu ici." },
       { first: true, if: avec("pie"), text: "Pie porte ton luth et regarde partout à la fois. Il a l'air d'un page qui a peur. C'est très bien imité." },
@@ -98,7 +98,7 @@ module.exports = {
   II_S2_mordace: P({ title: "Le Greffier-Majeur", place: "vasselin",
     fx: { meet: "mordace" },
     text: [
-      "La porte s'ouvre sans qu'on ait frappé. Un homme entre, en robe grise, maigre, une écharpe de laine autour du cou en plein été. Il a cinquante ans et des yeux très doux. Il salue la reine, puis toi.",
+      "La porte s'ouvre sans qu'on ait frappé. Un homme entre, en robe grise, maigre, une écharpe de laine autour du cou en plein été, l'index droit creusé par la plume. Il a cinquante ans et des yeux très doux. Il salue la reine, puis toi.",
       "« Dame Lisandre, dit-il. Je suis heureux que vous soyez revenue. » Il vient tendre les mains au feu de la cheminée. Il a toujours froid. « Votre ballade, à Pallanche, m'a beaucoup appris. »",
       { if: { has: "nuit:chant=voix" }, text: "« Surtout ce que vous avez chanté à la fin. Avec votre vraie voix. Il a fallu trois Glaneurs pour nettoyer la place. »" },
       { if: { has: "nuit:chant=silence" }, text: "« Surtout votre silence. On l'a beaucoup entendu. »" },
@@ -160,7 +160,7 @@ module.exports = {
     ] }),
 
   II_S2_pie: P({ title: "La main de Pie", place: "vasselin",
-    text: ["Pie se trouve sur le chemin de Mordace au moment exact où il ne faut pas, trébuche, s'excuse, ramasse ton luth. Mordace ne s'arrête pas. À sa ceinture, sous la robe, un anneau de clés. Trois clés de fer noir."],
+    text: ["Pie se trouve sur le chemin de Mordace au moment exact où il ne faut pas, trébuche, s'excuse, ramasse ton luth. Mordace poursuit son chemin. À sa ceinture, sous la robe, un anneau de clés : trois clés de fer noir, longues comme un doigt, aux pannetons à trois dents, des clés de Varre."],
     choices: [{ label: "Le regarder faire", test: { dom: "discretion", label: "Doigts", help: [{ if: { has: "pie:a_vendu" }, v: -5 }] },
       win: { fx: { item: "cire_cles", ep: ["perso", 1500] }, to: "II_S2_pie_ok" },
       lose: { to: "II_S2_pie_rate" } }] }),
@@ -216,7 +216,7 @@ module.exports = {
 
   II_S2_aube: P({ title: "Les feuilles signées", place: "vasselin",
     text: [
-      "Tu repasses devant la chambre bleue pour sortir. La porte est entrouverte. La reine dort. Mordace est assis à l'écritoire et écrit, vite, sans lever la tête.",
+      "Tu repasses devant la chambre bleue pour sortir. La porte est entrouverte. La reine dort. Mordace est assis à l'écritoire et écrit, vite, sans lever la tête ; la chandelle à son coude a brûlé de trois doigts depuis ton départ.",
       "Sur la pile, la feuille du dessus. Tu ne la lis qu'à moitié, à l'envers, en passant. *… la mémoire de son fils Aymeric, de sa naissance à sa mort, pour l'apaisement de Sa Majesté…*",
       { if: { has: "isaure:aymeric" }, text: "Tu lui as rendu ce nom, cette nuit. Demain, il ne sera plus à elle." },
       "Dehors, l'aube est grise. Les courtisans, dans les galeries, dorment toujours debout.",
@@ -272,7 +272,7 @@ module.exports = {
 
   II_S2_nouvelle: P({ title: "Le crieur", place: "vasselin",
     text: [
-      "Sur le quai, un crieur public, avec sa cloche, lit une ordonnance à voix forte. Le tournoi est maintenu. Les inscriptions restent ouvertes.",
+      "Sur le quai, un crieur public, avec sa cloche et sa voix de fond de cale, lit une ordonnance. Le tournoi est maintenu. Les inscriptions restent ouvertes.",
       "Puis il lit, du même ton, une liste de noms. Des champions inscrits, qu'on prie de se présenter au clerc du pré du Roi, parce qu'ils ne sont pas venus confirmer. Ils ne viendront pas. Tu le sais en l'écoutant. Il y en a onze.",
       { if: { has: "sud:inscrit" }, text: "Le blason que tu as fait inscrire, d'azur à la mouette d'argent, n'est pas sur la liste. Pas encore." },
     ],

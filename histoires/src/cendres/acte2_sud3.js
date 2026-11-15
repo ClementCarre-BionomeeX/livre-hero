@@ -17,7 +17,7 @@ module.exports = {
   II_S3_matin: P({ title: "Le pré du Roi", place: "vasselin",
     text: [
       "Neuf jours ont passé. Neuf jours d'attente à l'Ancre, à regarder la Tour, à écouter les crieurs lire, chaque matin, une liste un peu plus longue de champions qui ne se sont pas présentés.",
-      "Ce matin, le pré du Roi est noir de monde. Les tribunes sont pleines, les bannières claquent, on vend des beignets, des rubans, des paris. Il fait beau. On dirait une fête.",
+      "Ce matin, le pré du Roi est noir de monde. Les tribunes sont pleines, trois mille places et autant de gens debout, les bannières claquent, on vend des beignets, des rubans, des paris à deux contre un sur le gros Clairval. Il fait beau. On dirait une fête.",
       { if: { all: [ANY_CHAMP, { not: champ("lisandre") }] }, text: "Ton champion est inscrit sous un nom qui n'existe pas. Tous les soirs, le clerc a envoyé la liste à la Tour. Tous les matins, ton champion s'est réveillé en se souvenant de lui-même." },
       { if: champ("lisandre"), text: "Tu es inscrite sous un nom qui n'existe pas. Tous les soirs, le clerc a envoyé la liste à la Tour. Tous les matins, tu t'es réveillée en te souvenant de toi-même." },
       { if: { not: ANY_CHAMP }, text: "Personne, dans ta compagnie, n'est inscrit. C'est le dernier jour pour le faire, avant la première sonnerie." },
@@ -29,7 +29,7 @@ module.exports = {
 
   II_S3_inscrire: P({ title: "La dernière inscription", place: "vasselin",
     text: [
-      "Le clerc a l'air épuisé. Il a des cernes jusqu'aux joues, et il ne te reconnaît pas. Il trempe sa plume.",
+      "Le clerc a l'air épuisé. Il a des cernes jusqu'aux joues, de l'encre jusqu'au poignet, et il ne te reconnaît pas. Il trempe sa plume.",
       "« Un nom, un blason, un parrain. » Il ajoute, sans lever les yeux, comme une chose qu'on dit à tout le monde : « Le vrai nom, s'il vous plaît. Les faux noms portent malheur, cette année. »",
     ],
     choices: [
@@ -41,7 +41,7 @@ module.exports = {
 
   II_S3_defile: P({ title: "Le défilé", place: "vasselin",
     text: [
-      "Les champions défilent devant la loge royale, au pas, lance haute. Cinquante-trois. On en attendait soixante-quatre.",
+      "Les champions défilent devant la loge royale, au pas, lance haute. Tu les comptes à mesure : cinquante-trois. Le clerc en avait inscrit soixante-quatre.",
     ].concat(CHAMP_NAME).concat([
       "Dans la loge, la reine, en bleu, très droite, les yeux mi-clos. Elle sourit à chaque champion de la même façon. À sa droite, en gris, l'écharpe autour du cou, Mordace, qui prend des notes.",
       { if: { any: [{ has: "lisandre:ilan_dit" }, { has: "lisandre:ilan_ment" }] }, text: "En face, dans la tribune de Corvanne, les manteaux bleus. Ilan est au premier rang. Il te cherche des yeux dans la foule. Il te trouve." },
@@ -53,7 +53,7 @@ module.exports = {
 
   II_S3_joute1: P({ title: "Première joute", place: "vasselin",
     text: [
-      { if: { not: champ("lisandre") }, text: "La lice, la barrière de bois au milieu, la foule. En face de ton champion, Messire Baudran de Clairval, un gros chevalier jovial qui salue la foule avec sa lance avant chaque course et qui a déjà gagné trois tournois. Trois courses. L'emporte le premier qui désarçonne l'autre, ou qui brise deux lances sur son écu." },
+      { if: { not: champ("lisandre") }, text: "La lice, cent vingt pas de sable, la barrière de bois au milieu, la foule. En face de ton champion, Messire Baudran de Clairval, un gros chevalier jovial qui salue la foule avec sa lance avant chaque course et qui a déjà gagné trois tournois. Trois courses. L'emporte le premier qui désarçonne l'autre, ou qui brise deux lances sur son écu." },
       { if: champ("lisandre"), text: "Tu n'es pas inscrite aux joutes. Tu regardes depuis la barrière. La première course oppose Messire Baudran de Clairval, gros et jovial, à un jeune seigneur de la côte qui tremble sur sa selle." },
     ],
     choices: [
@@ -116,7 +116,7 @@ module.exports = {
 
   II_S3_masque: P({ title: "Derrière les tentes", place: "vasselin",
     text: [
-      "Il t'attend derrière les tentes des champions, assis sur un tonneau, le masque sur les genoux. Il a l'air très jeune. Il a l'air très fatigué.",
+      "Il t'attend derrière les tentes des champions, assis sur un tonneau, le masque sur les genoux. Il a l'air très jeune et très fatigué. Ses solerets d'argent sont propres : le sable de la lice n'y a pas laissé une trace.",
       "« Tu as écrit, dit-il. C'est malin. Ça tiendra jusqu'à ce que tu te laves les mains. » Il a un accent inconnu, étranger à l'Esquarre comme à Corvanne. Les voyelles trop longues, comme on parle en montagne.",
       "« Je n'ai pas de nom. Pas ici. Là d'où je viens, j'en avais un. Ici, le monde ne le garde pas. Je suis venu voir celui qui écrit, là-haut, dans la Tour. Le tournoi, c'est la seule porte qu'il ouvre. »",
       "Il te regarde. « Toi, tu es celle qui a chanté à Pallanche. Tu as une voix qui reste. J'aimerais bien rester, moi aussi, un peu. »",
@@ -151,7 +151,7 @@ module.exports = {
 
   II_S3_soir: P({ title: "Le camp des champions", place: "vasselin",
     text: [
-      "Le soir, le pré du Roi devient un camp : les tentes des champions, les feux, les écuyers qui graissent les cuirs. Demain, la mêlée. Après-demain, l'épreuve libre, et la grâce de la reine.",
+      "Le soir, le pré du Roi devient un camp : cinquante tentes, autant de feux, les écuyers qui graissent les cuirs et une odeur de suif qui couvre celle de la mer. Demain, la mêlée. Après-demain, l'épreuve libre, et la grâce de la reine.",
       { first: true, if: { has: "sud3:j2" }, text: "Ton champion a gagné ses deux joutes. On le salue en passant devant sa tente. Un marchand de vin lui a fait porter un tonneau." },
       { first: true, if: { all: [{ has: "sud3:j1" }, { not: { has: "sud3:j2" } }] }, text: "Ton champion a gagné une joute et perdu l'autre. Ce n'est pas assez pour la grâce. Il reste la mêlée." },
       { first: true, if: { has: "sud3:j1_perdu" }, text: "Ton champion a perdu au premier tour. Il reste la mêlée. Dans la mêlée, on se rattrape." },
@@ -171,7 +171,7 @@ module.exports = {
 
   II_S3_veille: P({ title: "Minuit", place: "vasselin",
     text: [
-      "Vers minuit, les chiens du camp se taisent, tous ensemble. Puis, entre les tentes, une silhouette blanche, haute et maigre, qui marche sans bruit et se penche sur chaque tente, comme on se penche sur un berceau.",
+      "Vers minuit, les chiens du camp se taisent, tous ensemble. Puis, entre les tentes, une silhouette blanche, haute et maigre, deux têtes de plus qu'un homme, qui marche sans bruit et se penche sur chaque tente, comme on se penche sur un berceau.",
       "Un Glaneur. Il s'arrête devant une tente, deux tentes avant la tienne. Il passe la main par la fente de la toile. Dedans, quelqu'un soupire dans son sommeil. Le Glaneur se redresse, et repart.",
       { if: { has: "sud:vrai_nom" }, text: "Il va vers la tente de Rodric. Il sait où elle est." },
     ],
@@ -192,7 +192,7 @@ module.exports = {
 
   II_S3_clerc: P({ title: "La liste", place: "vasselin",
     text: [
-      "La tente du clerc est éclairée. Il recopie la liste des champions du jour, lentement, en tirant la langue. Vers onze heures, un garde en noir entre, prend la feuille, la roule, la glisse dans un étui de cuir, et repart vers la ville.",
+      "La tente du clerc est éclairée. Il recopie la liste des champions du jour, lentement, en tirant la langue, une ligne toutes les trente respirations. Vers onze heures, un garde en noir entre, prend la feuille, la roule, la glisse dans un étui de cuir, et repart vers la ville.",
     ],
     choices: [
       { label: "Suivre le garde noir", test: { dom: "discretion", label: "Filature", help: [{ if: { present: "pie" }, v: 15 }] },

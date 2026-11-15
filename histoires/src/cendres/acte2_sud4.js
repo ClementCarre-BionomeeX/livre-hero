@@ -11,7 +11,7 @@ var WIN = { any: [{ all: [{ has: "sud4:melee" }, { any: [{ has: "sud3:j1" }, { h
 module.exports = {
   II_S4_melee: P({ title: "La mêlée", place: "vasselin",
     text: [
-      "Midi. Trente chevaliers dans le pré, à pied, en deux camps, épées émoussées, masses de bois. On frappe jusqu'à ce qu'il n'en reste qu'un debout. Le règlement interdit de tuer. Le règlement ne dit rien des os.",
+      "Midi. Trente chevaliers dans le pré, à pied, en deux camps, épées émoussées, masses de bois cerclées de cuir. On frappe jusqu'à ce qu'il n'en reste qu'un debout. Le règlement interdit de tuer. Le règlement ne dit rien des os.",
       { if: champ("lisandre"), text: "Tu n'y es pas. Tu regardes depuis la barrière, avec les autres, et tu cherches le masque." },
       { if: { has: "rodric:oublie_champion" }, text: "Rodric s'avance dans le pré avec sa hache de bois, parce qu'on lui a dit de le faire. Il ne sait plus pourquoi il se bat. Il se bat quand même. C'est la seule chose qu'il n'a pas oubliée." },
       { if: FIGHTER, text: "Le masque est dans l'autre camp. Personne ne le voit. Les chevaliers qui tombent autour de lui ne savent pas qui les a frappés." },
@@ -43,7 +43,7 @@ module.exports = {
 
   II_S4_libre: P({ title: "L'épreuve libre", place: "vasselin",
     text: [
-      "L'après-midi, l'épreuve libre. Sur une estrade devant la loge, chacun montre ce qu'il sait faire : un jongleur, un archer qui coupe une pomme sur la tête de son fils, un poète, deux chanteurs. Messire Aubrac, en velours, avec sa voix superbe.",
+      "L'après-midi, l'épreuve libre. Sur une estrade devant la loge, chacun montre ce qu'il sait faire : un jongleur à sept balles, un archer qui coupe une pomme sur la tête de son fils, sous le regard très attentif de la mère, un poète, deux chanteurs. Messire Aubrac, en velours, avec sa voix superbe.",
       { if: { has: "aubrac:battu" }, text: "Il te voit dans la foule. Il se souvient de la grande salle du palais, et de ta réponse. Il chante moins fort que d'habitude." },
       { if: champ("lisandre"), text: "Puis c'est à toi. D'azur à la mouette d'argent. Le héraut lit le nom inventé. Tu montes." },
       { if: { not: champ("lisandre") }, text: "Le masque monte sur l'estrade le dernier. Il ne fait rien. Il reste debout, immobile, une minute entière. Puis il redescend. Personne ne se souvient de l'avoir vu. Les juges lui donnent la meilleure note, sans savoir pourquoi." },
@@ -127,7 +127,7 @@ module.exports = {
 
   II_S4_tour: P({ title: "La Tour des Archives", place: "vasselin",
     text: [
-      "On monte à pied. Deux cents marches, dans une tour carrée, entre des étagères qui montent jusqu'aux voûtes, chargées de registres. Il fait de plus en plus froid. Aux paliers, les deux archivistes que Mordace a gardés, assis à leurs pupitres, écrivent sans lever la tête.",
+      "On monte à pied. Deux cents marches, dans une tour carrée, entre des étagères qui montent jusqu'aux voûtes, chargées de registres, la plupart reliés de veau fauve et datés au dos, siècle après siècle. Il fait de plus en plus froid. Aux paliers, les deux archivistes que Mordace a gardés, assis à leurs pupitres, écrivent sans lever la tête.",
       { if: { item: "plan_tour" }, text: "Tu reconnais tout : le palier de la serrure à trois pênes, le palier du chien, le palier où les Mouettes ont écrit *ne pas*. Le chien n'est pas là. Sa niche est pleine de neige." },
       "La grande salle est au sommet. Ronde, sous une coupole de verre. Au centre, sur une estrade, le coffre de fer noir, cerclé, couvert de givre. Autour, sur le dallage, un cercle de neige qui ne fond pas.",
       "La reine s'assied sur un trône qu'on a monté pour elle. Mordace se tient à côté du coffre, la main posée dessus.",
@@ -156,7 +156,7 @@ module.exports = {
       "La reine se tourne vers Mordace. Mordace reste immobile. « Majesté, dit-il doucement, ce coffre contient les cessions que vous m'avez confiées. Les ouvrir, c'est vous les rendre. Toutes. Ce soir. »",
       "La reine hésite. Elle a l'air d'avoir peur. Puis elle dit, d'une voix de petite fille : « J'ai donné ma parole. »",
       "Mordace sort ses trois clés, et ouvre les trois serrures, une à une. Le couvercle se soulève. Un souffle froid remplit la salle, et le givre sur le coffre fond d'un coup.",
-      "Dedans, un seul livre. Immense, relié de noir, épais comme une poutre. Le Grand Registre. Mordace l'ouvre au hasard, pour montrer qu'il obéit.",
+      "Dedans, un seul livre. Immense, relié de noir, épais comme une poutre, et si lourd que la tablette de fer qui le porte a ployé en son milieu. Le Grand Registre. Mordace l'ouvre au hasard, pour montrer qu'il obéit.",
       "Tu vois la page. Une colonne de noms. Sauvelune, et dessous, quatre cents noms. Une autre : Sarlat. Une autre : Aymeric d'Esquarre, sa naissance, ses dents de lait, ses premiers mots, sa mort. Une autre, que tu lis à l'envers, très vite : *Ysolde de Brenne, capitaine. Le pont de Lisse.* Et en dessous, d'une écriture très ancienne, à demi effacée, d'autres noms, dans une langue que tu ne connais pas.",
       "Mordace referme le livre. « Sa Majesté a dit : ouvrir. Elle n'a pas dit : donner. »",
     ],
