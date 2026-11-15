@@ -1976,7 +1976,7 @@
        }
       ]
      },
-     "text": "Un garde tient un flacon bleu trouvé sous la paillasse de Nella. « Du blanc d'Orcanne, dit Léonce. On en vend pour les rats. » La capitaine prend le flacon, le tourne longtemps vers la fenêtre, le pouce sur la cire. Puis elle dit : « Nella Ferrant, tu viens avec nous. » Nella ne dit rien. Elle te regarde en passant, une seule fois."
+     "text": "Un garde tient un flacon bleu trouvé sous la paillasse de Nella. « Du blanc d'Orcanne, dit Léonce. On en vend pour les rats. » La capitaine prend le flacon, le tourne longtemps vers la fenêtre, le pouce sur la cire. Puis elle dit : « Nella Ferrant, tu viens avec nous. » Nella se tait. Elle te regarde en passant, une seule fois."
     },
     {
      "if": {
@@ -2161,7 +2161,7 @@
     "Tu prends la barque du Temple. Le père Anselme t'attend dans la sacristie, comme s'il savait. Peut-être savait-il.",
     "Tu t'agenouilles. Tu dis tout : les ongles, le sel, les mois. La nuit, le pavot. « J'ai tué la Doyenne, mon père, ou je l'ai laissée se tuer. Je ne sais pas lequel des deux est le pire. »",
     "Anselme écoute sans bouger. Quand tu as fini, il pose la main sur ta tête. « Ce que tu as dit ici reste ici. Le Temple écrira le rapport. Le Temple dira ce qu'il faut dire. Toi, tu ne diras plus rien à personne, sans moi. » Sa main pèse un peu plus. « Tu me dois cela, Sévan. Tu me dois beaucoup, maintenant. »",
-    "Il ne parle pas de la clef de fer. Il n'a pas besoin. Elle est dans ta poche, et vous y pensez tous les deux."
+    "Il tait la clef de fer. Elle est dans ta poche, et vous y pensez tous les deux."
    ],
    "choices": [
     {
@@ -2592,7 +2592,7 @@
    "text": [
     "Le canal des Sels passe sous un pont de pierre à une seule arche, assez bas pour qu'on baisse la tête en barque quand la marée est haute. Et cet après-midi, la marée est très haute.",
     "Tu as une heure. Corentin connaît le patron d'un chaland de sel amarré dix brasses avant le pont. Mo connaît tous les gamins de Bas-Port. Toi, tu connais l'eau.",
-    "Une barque de la prison, c'est quatre rameurs du Guet et deux gardes avec des hallebardes. Ils ne s'attendent à rien. Personne n'a jamais attaqué la barque de la prison."
+    "Une barque de la prison, c'est quatre rameurs du Guet et deux gardes avec des hallebardes. Ils rament tranquilles. Personne n'a jamais attaqué la barque de la prison."
    ],
    "choices": [
     {
@@ -3561,7 +3561,7 @@
        "rapport": "temple"
       }
      },
-     "text": "Il ne précise pas qu'elle est dans la poche d'un médecin en retraite. Il ne précise rien. Il sourit."
+     "text": "Il garde pour lui qu'elle est dans la poche d'un médecin en retraite. Il garde tout pour lui. Il sourit."
     },
     {
      "if": {
@@ -3846,7 +3846,7 @@
      "if": {
       "has": "renaud=aveu"
      },
-     "text": "Renaud t'attend dans la chambre, assis sur le lit, en chemise. Il ne dit rien. Tu ne dis rien. Tu t'allonges à côté de lui, et il prend ta main dans le noir, et vous restez comme ça, avec trois mille ducats entre vous."
+     "text": "Renaud t'attend dans la chambre, assis sur le lit, en chemise. Il se tait. Toi aussi. Tu t'allonges à côté de lui, et il prend ta main dans le noir, et vous restez comme ça, avec trois mille ducats entre vous."
     },
     {
      "if": {
@@ -3854,7 +3854,7 @@
        "has": "renaud=aveu"
       }
      },
-     "text": "Renaud dort déjà, ou fait semblant. Il a laissé sa veste sur une chaise. En la rangeant, tu sens dans la poche un papier plié. Tu ne le déplies pas. Tu le remets."
+     "text": "Renaud dort déjà, ou fait semblant. Il a laissé sa veste sur une chaise. En la rangeant, tu sens dans la poche un papier plié. Tu le remets tel quel."
     },
     {
      "if": {
@@ -4573,7 +4573,7 @@
     "Il écrit pendant une demi-heure, debout derrière son comptoir, d'une écriture d'apothicaire, petite et droite. Les dates. Les doses. Les pots de sel du lundi. La nuit de jeudi, la porte de l'eau, le pot de trop. Le flacon bleu glissé sous la paillasse d'une servante, sur l'ordre du Grand Argentier. Les caisses de citrons de l'amiral Drenn.",
     "Il signe. Il sable. Il te tend la feuille.",
     "« Maintenant, il va me tuer, dit-il simplement. Ou vous allez me pendre. Je voudrais savoir lequel. »",
-    "Tu ne sais pas quoi lui répondre. Tu lui dis de fermer sa boutique et d'aller dormir au Temple, à l'hospice, dans une chambre de malade. Il dit oui. Tu ne sais pas s'il ira."
+    "Tu ne sais pas quoi lui répondre. Tu lui dis de fermer sa boutique et d'aller dormir au Temple, à l'hospice, dans une chambre de malade. Il dit oui. Tu ignores s'il ira."
    ],
    "choices": [
     {
@@ -4765,7 +4765,7 @@
    "title": "Le vin d'orange",
    "place": "temple",
    "text": [
-    "Anselme repose sa main sur la table. Il ne se fâche pas. Il n'a jamais eu besoin de se fâcher.",
+    "Anselme repose sa main sur la table. Il reste calme. Il n'a jamais eu besoin de se fâcher.",
     "« Elle te l'a confiée. Elle t'a confié beaucoup de choses, je crois. » Il te regarde. « Les médecins qui veillent les mourantes la nuit, Sévan, on finit par se demander ce qu'ils leur donnent. Le Temple peut le demander, ou ne pas le demander. »",
     "Il se lève. L'entretien est fini."
    ],
@@ -5208,7 +5208,7 @@
    "text": [
     "Tu défais l'ourlet de ta robe, là où tu l'avais cousue. Anselme prend la clef comme on prend une hostie.",
     "« Tu as bien fait, mon fils. » Il se lève. « Repose-toi. Demain soir, tu viendras avec moi au Conseil, et tu diras ce que je te dirai de dire. »",
-    "Il sort. Gildas referme la porte. Elle n'est toujours pas fermée à clef. Ce n'est plus nécessaire.",
+    "Il sort. Gildas referme la porte. Elle reste sans verrou. L'obéissance suffit, désormais.",
     "Tu passes la journée à regarder la coupole verte par la grille. Les masques défilent sur le canal en contrebas, et tu penses à une servante en cellule, et à une vieille femme qui t'a dit : *protège-la*."
    ],
    "choices": [
@@ -5863,7 +5863,7 @@
    "title": "Le coup",
    "place": "basport",
    "text": [
-    "Ton poing lui ouvre la lèvre. Il tombe de sa caisse. Il ne se relève pas tout de suite. Il reste assis par terre, la main sur la bouche, à te regarder.",
+    "Ton poing lui ouvre la lèvre. Il tombe de sa caisse. Il reste assis par terre, la main sur la bouche, à te regarder.",
     "Tu montes chercher Nella. Tu l'emmènes chez la Mère Gouge par le chemin le plus long. Corentin ne vous suit pas.",
     "En partant, tu l'entends dire, derrière toi, pas fort : « Tu as raison. »"
    ],
@@ -6438,7 +6438,7 @@
      "if": {
       "has": "oriane=pacte"
      },
-     "text": "« Le frère de la servante. » Elle n'a pas l'air surprise. Elle a l'air fatiguée. « Asseyez-vous. Je n'ai que dix minutes. Le Grand Argentier m'attend à midi. »"
+     "text": "« Le frère de la servante. » Elle a seulement l'air fatiguée. « Asseyez-vous. Je n'ai que dix minutes. Le Grand Argentier m'attend à midi. »"
     },
     {
      "if": {
@@ -6746,7 +6746,7 @@
    },
    "text": [
     "On ne te fait pas attendre. C'est ce qui te fait peur. Un commis en masque de héron te mène jusqu'au cabinet du Grand Argentier, au dernier étage de l'entrepôt de marbre, au-dessus des montagnes de sel gris.",
-    "Hugues Morvan ne porte pas de masque chez lui. Il te fait asseoir. Il te sert lui-même un verre de vin, et ne boit pas le sien.",
+    "Chez lui, Hugues Morvan va le visage nu. Il te fait asseoir. Il te sert lui-même un verre de vin, et ne boit pas le sien.",
     "« Le passeur Ferrant. Tu as quelque chose à me vendre, je crois. » Il sourit. « Je suis marchand. J'écoute. »"
    ],
    "choices": [
@@ -6802,7 +6802,7 @@
    "title": "Une parole de marchand",
    "place": "sels",
    "text": [
-    "Morvan prend le ruban. Il le déroule, regarde la clef, lit le billet. Il ne dit rien. Il le glisse dans un tiroir qu'il ferme à clef.",
+    "Morvan prend le ruban. Il le déroule, regarde la clef, lit le billet. Il se tait. Il le glisse dans un tiroir qu'il ferme à clef.",
     "« Bonne journée, passeur. »",
     "Tu redescends l'escalier, l'acte de grâce contre la poitrine, à la place de la clef. Il est bien écrit. Il a un sceau. Tu ne sais pas lire assez vite pour savoir s'il dit vraiment ce que Morvan a dit."
    ],
@@ -6818,7 +6818,7 @@
    "title": "Non",
    "place": "sels",
    "text": [
-    "Ta main se referme sur le ruban avant la sienne. Morvan ne bouge pas. Il ne retire pas non plus sa main tendue.",
+    "Ta main se referme sur le ruban avant la sienne. Morvan reste immobile, la main toujours tendue.",
     "« Tu fais une erreur, passeur. Tu la paieras, ou ta sœur la paiera. » Il le dit sans colère. « Le commis va te raccompagner. »",
     "Le commis te raccompagne jusqu'au quai. En bas de l'escalier, deux hommes en manteau de la Maison des Sels se lèvent quand tu passes, et te suivent des yeux."
    ],
@@ -6989,7 +6989,7 @@
    "title": "Le ruban",
    "place": "sels",
    "text": [
-    "Tu entres, tu prends le ruban, tu ressors. Le commis crie. Corentin ne crie pas. Il te regarde passer, il te reconnaît sous la chouette, et il ne bouge pas.",
+    "Tu entres, tu prends le ruban, tu ressors. Le commis crie. Corentin se tait. Il te regarde passer, il te reconnaît sous la chouette, et il ne bouge pas.",
     "Tu dévales l'escalier, tu traverses la salle de bal entre les danseurs, tu sors par la porte des quais. Personne ne court après une chouette dans un bal masqué. Il y en a trente.",
     "Dehors, tu t'arrêtes pour respirer. Tu as la clef. Tu as aussi, dans la tête, le visage de Corentin qui ne bougeait pas."
    ],
@@ -7389,7 +7389,7 @@
    "title": "Les Passes",
    "place": "chaine",
    "text": [
-    "La barque de la Doyenne passe les Passes à trois heures, avec son pavillon noir de deuil. Le gardien Bastide fait ouvrir le petit passage, celui des barques, à côté de la chaîne. Léonce est assis à l'arrière, sous le dais, et il ne dit rien pendant tout le trajet.",
+    "La barque de la Doyenne passe les Passes à trois heures, avec son pavillon noir de deuil. Le gardien Bastide fait ouvrir le petit passage, celui des barques, à côté de la chaîne. Léonce est assis à l'arrière, sous le dais, et il se tait pendant tout le trajet.",
     "Au large, un canot d'Orcanne vient le prendre, lui et ses malles. En montant, il se retourne vers toi. « Madame. Ne mangez pas son sel. » Le canot s'éloigne.",
     "Tu ne sais pas ce qu'il a voulu dire. Tu le sais très bien."
    ],
@@ -7423,7 +7423,7 @@
    "title": "Un refus",
    "place": "palais",
    "text": [
-    "Morvan ne se fâche pas. Il ne se fâche jamais. « Bien sûr. » Il fait un signe à ses rameurs. La barque de Léonce s'éloigne vers la Maison des Sels.",
+    "Morvan reste aimable. Il ne se fâche jamais. « Bien sûr. » Il fait un signe à ses rameurs. La barque de Léonce s'éloigne vers la Maison des Sels.",
     "« À ce soir, madame. Au bal. Vous serez la plus belle, et nous aurons un papier à signer. »"
    ],
    "choices": [
@@ -8080,7 +8080,7 @@
    },
    "text": [
     "Tu descends à Bas-Port en barque, avec de l'eau jusqu'au bord. Tu n'y étais pas venue depuis tes douze ans. La taverne de l'Ancre Basse est pleine de gens qui se taisent quand tu entres, malgré ton loup.",
-    "La Mère Gouge te regarde depuis sa table posée sur des tonneaux. « La nièce. » Elle ne t'invite pas à t'asseoir. « Bas-Port n'a pas de siège au Conseil, madame. Il n'en a jamais eu. Qu'est-ce que vous venez chercher ici ? »",
+    "La Mère Gouge te regarde depuis sa table posée sur des tonneaux. « La nièce. » Elle te laisse debout. « Bas-Port n'a pas de siège au Conseil, madame. Il n'en a jamais eu. Qu'est-ce que vous venez chercher ici ? »",
     {
      "if": {
       "has": "sevan_cache=gouge"
@@ -8118,7 +8118,7 @@
    "title": "Dix sièges",
    "place": "basport",
    "text": [
-    "Toute la taverne a entendu. Personne ne dit rien. Puis la Mère Gouge frappe un seul coup sur son tonneau, pas fort.",
+    "Toute la taverne a entendu. Tous se taisent. Puis la Mère Gouge frappe un seul coup sur son tonneau, pas fort.",
     "« Dix sièges. » Elle te regarde longtemps. « Votre tante disait ça aussi, à la fin. Dans ses lettres. » Elle se lève. « Demain soir, madame, si vous êtes élue, Bas-Port sera sous vos fenêtres pour vous applaudir. Si vous ne l'êtes pas, il sera sous vos fenêtres quand même. »",
     "Une vieille maison du Conseil, tu le sais, te retirera sa voix en apprenant ça. Tu l'as fait quand même."
    ],
@@ -8532,7 +8532,7 @@
    "text": [
     "Six gardes du Guet sous les arcades de la Maison des Sels, ça se remarque, même un jour de masques. Léonce Brisard est derrière son comptoir. Il voit entrer la capitaine. Il voit entrer la secrétaire de la Doyenne. Il pose sa balance.",
     "« Je m'y attendais », dit-il simplement.",
-    "Ysabeau Dorne fait fouiller la boutique. Sous l'établi, un pot de grès à moitié plein de poudre blanche, à l'étiquette de la Maison des Sels. Dans un tiroir, un registre où chaque lundi porte une petite croix. Léonce ne dit rien. Il regarde ses mains, tachées d'encre.",
+    "Ysabeau Dorne fait fouiller la boutique. Sous l'établi, un pot de grès à moitié plein de poudre blanche, à l'étiquette de la Maison des Sels. Dans un tiroir, un registre où chaque lundi porte une petite croix. Léonce se tait. Il regarde ses mains, tachées d'encre.",
     "On l'emmène. En passant devant toi, il dit, très bas : « Madame. Ce n'est pas moi qui ai décidé. »"
    ],
    "choices": [
@@ -8703,7 +8703,7 @@
     "Tu rouvres le tiroir des lettres personnelles, et tu sors la liasse au ruban bleu passé. Vingt lettres d'il y a vingt ans, d'une écriture qui appuie trop. *Je t'apprendrai à nager pour de vrai.* La dernière est datée de décembre, il y a dix-neuf ans et demi : *Tu dis que tu as peur. Moi, je n'ai peur de rien, sauf pour lui ou pour elle. On l'appellera comme tu veux.*",
     "Tu emmènes Ysabeau Dorne à Sainte-Agathe, l'église des bateliers. Le curé ouvre ses registres. Décembre, il y a dix-neuf ans : *Tomas Gouge, batelier, noyé dans la passe.* Avril : *Baptême d'une fille, Nella, présentée par Martin et Jeanne Ferrant, passeurs, qui la déclarent trouvée.* En marge, d'une autre encre : *Pour la barque des Ferrant, dix ducats, payés par une dame.*",
     "Tu restes devant le registre. Tu fais le compte, comme on fait le compte d'une lettre. Ta tante, amoureuse d'un batelier. Un enfant. Une servante aux yeux gris, au palais depuis ses quinze ans. Une clef cousue dans un ruban.",
-    "Ysabeau Dorne n'a rien dit. Elle a tout lu par-dessus ton épaule."
+    "Ysabeau Dorne s'est tue. Elle a tout lu par-dessus ton épaule."
    ],
    "choices": [
     {
@@ -8825,7 +8825,7 @@
      "if": {
       "has": "oriane_sait=nella"
      },
-     "text": "Tu la regardes, et tu ne peux plus la regarder comme hier. Ces yeux gris, ce menton. Ta cousine. Elle ne le sait peut-être pas. Toi, tu ne sais pas si tu dois le lui dire, ni comment."
+     "text": "Tu la regardes, et tu ne peux plus la regarder comme hier. Ces yeux gris, ce menton. Ta cousine. Elle l'ignore peut-être. Toi, tu te demandes s'il faut le lui dire, et comment."
     },
     "Elle répond à tout : le plateau, le sel, l'apothicaire à onze heures. Puis tu lui demandes où est la clef de bronze.",
     "Elle te regarde longtemps. « Chez mon frère. Jasse Ferrant, passeur. Ou chez quelqu'un à qui il l'a donnée. Je ne sais pas. »"
@@ -10731,7 +10731,7 @@
     "meet": "nella"
    },
    "text": [
-    "Nella est dans la chapelle des Noyés, sous la coupole verte, gardée par deux frères. L'asile du Temple. Personne ne peut l'arrêter ici. Personne ne peut l'en faire sortir non plus, sans l'accord du Grand Prêtre.",
+    "Nella est dans la chapelle des Noyés, sous la coupole verte, gardée par deux frères. L'asile du Temple. Ici, nul ne peut l'arrêter. Pour l'en faire sortir, il faut l'accord du Grand Prêtre.",
     "Elle se lève quand elle te voit. « Le père Anselme dit qu'il m'emmènera au palais à minuit, que c'est lui qui me présentera au Conseil. » Elle serre ses mains l'une contre l'autre. « Il dit que je suis son témoin. Témoin de quoi ? »",
     {
      "if": {
@@ -11414,7 +11414,7 @@
    "place": "basport",
    "ambiance": "eau",
    "text": [
-    "Tu descends vers la Fente des roseaux. Personne ne te retient. Personne ne te regarde. Tout le monde regarde le palais.",
+    "Tu descends vers la Fente des roseaux. Tu passes librement, inaperçu. Tout le monde regarde le palais.",
     "Il y a une barque, un batelier, un prix. Tu paies. La barque s'enfonce dans les roseaux, et derrière toi les lanternes d'Escalombre deviennent une seule lueur, puis une ligne, puis rien.",
     "Tu as cinquante et un ans, une sacoche, et un flacon vide."
    ],
@@ -11533,7 +11533,7 @@
    "ambiance": "temple",
    "text": [
     "À huit heures, tu amarres ta barque au pied du Temple. Les frères ont allumé une lanterne à chaque fenêtre de la coupole. Elle ressemble à une méduse posée sur l'eau.",
-    "Nella est là-dedans, sous l'asile. Personne ne peut la prendre. Personne ne peut la faire sortir sans le Grand Prêtre. Anselme a dit qu'il l'emmènerait lui-même au palais, à minuit.",
+    "Nella est là-dedans, sous l'asile. Ici, nul ne peut la prendre. Pour la faire sortir, il faut le Grand Prêtre. Anselme a dit qu'il l'emmènerait lui-même au palais, à minuit.",
     {
      "if": {
       "has": "nella:choisit_seule"
@@ -11963,7 +11963,7 @@
      "if": {
       "has": "corentin=repenti"
      },
-     "text": "Corentin regarde l'homme, regarde la bourse. Il ne descend pas les marches. Il les remonte, au contraire, et tu comprends qu'il est venu pour la reprendre, pas pour la vendre."
+     "text": "Corentin regarde l'homme, regarde la bourse. Au lieu de descendre les marches, il les remonte, et tu comprends qu'il est venu pour la reprendre, pas pour la vendre."
     }
    ],
    "choices": [
@@ -12021,7 +12021,7 @@
    "title": "Le ruban",
    "place": "sels",
    "text": [
-    "Corentin te voit. Il ne s'enfuit pas. Il reste sur la marche, la main dans la poche, longtemps.",
+    "Corentin te voit. Il reste sur la marche, la main dans la poche, longtemps.",
     "Puis il sort le ruban et te le lance. Tu l'attrapes au vol, comme vous faisiez enfants avec les pièces qu'on jetait aux noyés.",
     "« Cinq cents ducats, Jasse. Tu sais ce que c'est, cinq cents ducats ? » Il redescend vers toi. « Non. Toi tu ne sais pas. C'est pour ça que tu es mon ami. » Il monte dans ta barque. « Où on va ? »"
    ],
@@ -12392,7 +12392,7 @@
    "title": "Le mot",
    "place": "basport",
    "text": [
-    "La Mère Gouge se lève sur sa table, dans l'eau jusqu'aux chevilles. Elle ne crie pas. Elle dit seulement : « Au palais. »",
+    "La Mère Gouge se lève sur sa table, dans l'eau jusqu'aux chevilles. Sans élever la voix, elle dit : « Au palais. »",
     "Les hommes sortent. En dix minutes, les canaux de Bas-Port se vident vers le Grand Canal, une lanterne par barque, et la lagune devant le palais se couvre d'une deuxième ville, flottante, silencieuse.",
     {
      "if": {
@@ -12972,7 +12972,7 @@
      "if": {
       "has": "corentin:avec_jasse"
      },
-     "text": "Corentin rame à côté de toi, comme autrefois. Il ne dit rien. Il rame bien."
+     "text": "Corentin rame à côté de toi, comme autrefois. Il se tait. Il rame bien."
     },
     {
      "if": {
@@ -13004,7 +13004,7 @@
      "if": {
       "has": "jasse:suivi"
      },
-     "text": "À l'entrée de la Fente, la barque grise de l'homme de Morvan attend, immobile. Il vous regarde passer. Il ne vous suit pas. Ce qu'il dira à son maître, tu ne le sauras jamais."
+     "text": "À l'entrée de la Fente, la barque grise de l'homme de Morvan attend, immobile. Il vous regarde passer et reste où il est. Ce qu'il dira à son maître, tu ne le sauras jamais."
     },
     "Nella regarde en arrière jusqu'à ce qu'il n'y ait plus rien à regarder."
    ],
@@ -13084,7 +13084,7 @@
      "if": {
       "has": "chaine_ordre=faux"
      },
-     "text": "Tu as signé un ordre du nom de ton mari, avec un sceau posé à l'envers. Il est dans la poche de Morvan. Il ne vaut rien. Morvan ne le sait pas encore."
+     "text": "Tu as signé un ordre du nom de ton mari, avec un sceau posé à l'envers. Il est dans la poche de Morvan. Il ne vaut rien. Morvan l'ignore encore."
     },
     "Tu mets le collier. Puis tu l'enlèves. Puis tu le remets."
    ],
@@ -13126,7 +13126,7 @@
      "if": {
       "has": "oriane=enquete"
      },
-     "text": "Tu as passé ta journée d'hier à chercher un empoisonneur au lieu de chercher des voix. Tu ne le regrettes pas. Tu ne sais pas encore si c'était sage."
+     "text": "Tu as passé ta journée d'hier à chercher un empoisonneur au lieu de chercher des voix. Tu ne le regrettes pas. Reste à savoir si c'était sage."
     },
     {
      "if": {
@@ -13178,7 +13178,7 @@
      "if": {
       "has": "renaud=fidele"
      },
-     "text": "Renaud t'offre son bras sur les marches. Il ne dit rien de la nuit dernière. Ses yeux disent qu'il s'en souvient."
+     "text": "Renaud t'offre son bras sur les marches. Il tait la nuit dernière. Ses yeux disent qu'il s'en souvient."
     }
    ],
    "choices": [
@@ -14338,7 +14338,7 @@
        }
       ]
      },
-     "text": "Tu penses au ruban que Nella portait au poignet, la veille de la mort. Tu sais maintenant ce qu'il cachait. Tu ne sais pas où il est ce soir."
+     "text": "Tu penses au ruban que Nella portait au poignet, la veille de la mort. Tu sais maintenant ce qu'il cachait. Tu ignores où il est ce soir."
     },
     {
      "if": {
@@ -14571,7 +14571,7 @@
      "if": {
       "has": "bp3=palais"
      },
-     "text": "Par les grandes fenêtres ouvertes, on voit la lagune couverte de barques jusqu'à l'horizon, une lanterne chacune. Bas-Port est venu. Il ne dit rien. Il regarde."
+     "text": "Par les grandes fenêtres ouvertes, on voit la lagune couverte de barques jusqu'à l'horizon, une lanterne chacune. Bas-Port est venu. Il se tait. Il regarde."
     },
     {
      "if": {
@@ -15662,7 +15662,7 @@
    "text": [
     "Ysabeau Dorne traverse la salle, les pieds dans l'eau. Hélis Arnaud lève son marteau pour rappeler que le Guet n'a rien à faire dans l'enceinte. Elle ne l'abat pas.",
     "« Hugues Morvan, Grand Argentier. Je vous arrête pour attentat contre la vie de la Doyenne. »",
-    "Morvan se lève. Il ajuste son col. Il ne résiste pas ; il sourit même, un peu, comme on sourit d'un mauvais coup aux cartes. « Capitaine. Vous avez lu le règlement ? — Le plus vieux, monsieur. »",
+    "Morvan se lève. Il ajuste son col. Il se laisse faire ; il sourit même, un peu, comme on sourit d'un mauvais coup aux cartes. « Capitaine. Vous avez lu le règlement ? — Le plus vieux, monsieur. »",
     "On l'emmène. Quatorze sièges regardent leurs pieds dans l'eau.",
     {
      "if": {
@@ -15768,7 +15768,7 @@
        }
       }
      },
-     "text": "Morvan ne se lève pas. Il n'a pas besoin de se lever. Ses quatorze sièges le regardent, et le reste de la salle regarde ses quatorze sièges."
+     "text": "Morvan reste assis. Il n'a pas besoin de se lever. Ses quatorze sièges le regardent, et le reste de la salle regarde ses quatorze sièges."
     },
     {
      "if": {
@@ -16092,7 +16092,7 @@
      },
      "text": "Oriane lui tend la main pour l'aider à monter les marches de l'estrade. Nella la prend, comme elle l'a prise hier, dans la cellule."
     },
-    "Nella s'avance au milieu de la salle, les pieds dans l'eau. Elle ne dit rien. Elle a les yeux de sa mère, et ceux qui ont connu la Doyenne jeune baissent la tête.",
+    "Nella s'avance au milieu de la salle, les pieds dans l'eau. Elle se tait. Elle a les yeux de sa mère, et ceux qui ont connu la Doyenne jeune baissent la tête.",
     "On vote. Les mains se lèvent lentement, d'abord celles d'Oriane, puis des vieilles maisons qui ont aimé Ermesinde, puis des métiers qui ont peur de Bas-Port, puis d'autres. Hélis Arnaud compte. Elle compte deux fois.",
     "Vingt et un."
    ],
@@ -16274,7 +16274,7 @@
    "ambiance": "chateau",
    "noLead": true,
    "text": [
-    "Oriane pose l'ordre du jour sur la table de la secrétaire et croise les mains. Elle ne dit rien.",
+    "Oriane pose l'ordre du jour sur la table de la secrétaire et croise les mains. Elle se tait.",
     {
      "if": {
       "has": "elu=morvan"
@@ -16591,7 +16591,7 @@
    },
    "text": [
     "À une heure, la marée tourne. Personne n'a vingt et une voix. Le sable du sablier est passé.",
-    "Ysabeau Dorne monte à l'estrade. Elle ne s'assied pas dans le siège. Elle reste debout à côté, la main sur la garde de son épée.",
+    "Ysabeau Dorne monte à l'estrade. Elle reste debout à côté du siège, la main sur la garde de son épée.",
     "« Le Doyen est mort assassiné. Le Grand Argentier est sous les verrous. Le Conseil n'a pas su choisir. Jusqu'aux prochaines Hautes-Eaux, le Guet tiendra le palais, au nom de la loi et de rien d'autre. »",
     "Hélis Arnaud la regarde longtemps par-dessus ses lunettes. Puis elle referme son règlement. « Il n'y a pas d'article pour ça, capitaine. — Alors on en écrira un. »",
     "Pendant un an, Escalombre est gouvernée par une femme qui n'a jamais voulu gouverner. Les canaux sont propres, les péages justes, les procès rapides. Les conseillers s'ennuient. Les marchands se plaignent. La ville, pour la première fois depuis longtemps, dort."

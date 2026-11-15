@@ -702,6 +702,81 @@
    "desc": "Le chien de l'hospice, un grand chien de montagne au poil roux. C'est lui qui t'a trouvé."
   }
  },
+ "topics": {
+  "nuit": {
+   "title": "La nuit des Combes",
+   "solved": "nuit:jugee"
+  },
+  "chamois": {
+   "title": "Le soir au Chamois",
+   "solved": "roussel:sait"
+  }
+ },
+ "accounts": {
+  "v_hero_dispute": {
+   "by": "hero",
+   "topic": "nuit",
+   "true": false,
+   "short": "Gaspard m'a jeté dehors, et j'étais en colère",
+   "text": "Gaspard Hollier criait, les mains à plat sur la table de la cuisine. Il m'a insulté. Il m'a jeté dehors. J'étais en colère."
+  },
+  "v_hero_lanterne": {
+   "by": "hero",
+   "topic": "nuit",
+   "true": false,
+   "short": "J'ai marché vers la maison, une lanterne à la main",
+   "text": "La nuit, dans la neige, je marchais vers la maison avec une lanterne. Je savais ce que j'allais faire. La cheminée était froide."
+  },
+  "v_hero_toit": {
+   "by": "hero",
+   "topic": "nuit",
+   "true": true,
+   "short": "Un homme sur le toit, au conduit",
+   "text": "Je dormais dans le fenil. Un raclement sur les lauzes m'a réveillé. Sous la lune, un homme travaillait au conduit de la maison. Je me suis rendormi."
+  },
+  "v_matthias_lise": {
+   "by": "matthias",
+   "topic": "nuit",
+   "true": false,
+   "short": "Le feu a pris Lise tout entière",
+   "text": "Ma nièce, Lise, on ne l'a pas trouvée. Le curé dit que le feu l'a prise tout entière."
+  },
+  "v_vidal_morts": {
+   "by": "vidal",
+   "topic": "nuit",
+   "true": true,
+   "short": "Ils étaient morts avant le feu",
+   "text": "Ils étaient roses, les lèvres, les ongles. Les morts du feu sont noirs. Ceux-là sont morts avant, dans leur lit. Le mauvais air."
+  },
+  "v_abel_fille": {
+   "by": "abel",
+   "topic": "nuit",
+   "true": true,
+   "short": "Matthias cherchait une fille",
+   "text": "Le frère est monté le premier soir. Il a demandé si on avait trouvé quelqu'un dans la neige. Il a dit : une fille."
+  },
+  "v_pelissier_ecus": {
+   "by": "pelissier",
+   "topic": "chamois",
+   "true": false,
+   "short": "Je ne vous connais pas",
+   "text": "Vingt écus ? Je ne vois pas de quoi vous parlez. Je ne vous connais pas. Nous nous sommes salués sur la place, le premier soir."
+  },
+  "v_roussel_rien": {
+   "by": "roussel",
+   "topic": "chamois",
+   "true": false,
+   "short": "J'ai rien entendu",
+   "text": "J'ai rien entendu. J'entends jamais rien. C'est mon métier, de rien entendre."
+  },
+  "v_roussel_dit": {
+   "by": "roussel",
+   "topic": "chamois",
+   "true": true,
+   "short": "Vous avez parlé d'une fortune, trois fois",
+   "text": "Vous avez dit que son frère était assis sur une fortune. Vous l'avez dit trois fois. La troisième, toute la salle l'a entendu."
+  }
+ },
  "items": {
   "couteau": {
    "name": "Couteau de poche",
@@ -1863,6 +1938,9 @@
     "Puis la cuisine s'éteint comme une chandelle soufflée, et tu ouvres les yeux sur la cellule du docteur, la bouche sèche, en sueur. Il écrit.",
     "« Bien, dit-il. Très bien. C'est un début. »"
    ],
+   "fx": {
+    "recit": "v_hero_dispute"
+   },
    "choices": [
     {
      "label": "Garder ce souvenir",
@@ -2358,6 +2436,7 @@
    "place": "hospice",
    "fx": {
     "clue": "h_fille",
+    "recit": "v_abel_fille",
     "ep": [
      "perso",
      600
@@ -3239,6 +3318,7 @@
    ],
    "fx": {
     "flag": "matthias:lise",
+    "recit": "v_matthias_lise",
     "ep": [
      "perso",
      400
@@ -3331,6 +3411,9 @@
     "Puis la neige s'éteint, et tu es assis dans la cellule du docteur, en sueur, la bouche pleine d'un goût de cuivre.",
     "« Bien, dit le docteur Corvin en écrivant. Nous approchons. »"
    ],
+   "fx": {
+    "recit": "v_hero_lanterne"
+   },
    "choices": [
     {
      "label": "Garder ce souvenir",
@@ -4260,6 +4343,9 @@
     "Mère Roussel continue d'essuyer le même verre. « J'ai rien entendu, dit-elle. J'entends jamais rien. C'est mon métier, de rien entendre. » Elle pose le verre. « Et puis l'auberge est à Maître Pélissier. Les murs, le comptoir, le tonneau, tout. Je lui paie un loyer. Il me le rappelle tous les mois. »",
     "Elle reprend un autre verre. Elle évite ton regard. Mais elle reste."
    ],
+   "fx": {
+    "recit": "v_roussel_rien"
+   },
    "choices": [
     {
      "label": "« Je ne vous demande pas de témoigner. Je vous demande ce que j'ai dit. Pour moi. »",
@@ -4331,7 +4417,8 @@
     "Elle reprend son verre. « Voilà. Maintenant vous savez. Ça vous fait une belle jambe. »"
    ],
    "fx": {
-    "flag": "roussel:sait"
+    "flag": "roussel:sait",
+    "recit": "v_roussel_dit"
    },
    "choices": [
     {
@@ -4515,6 +4602,9 @@
     "Pélissier ôte ses lunettes et les essuie, longtemps. « Vingt écus ? Je ne vois pas de quoi vous parlez. Je ne vous connais pas. Nous nous sommes salués sur la place, le premier soir, comme on salue un fonctionnaire du duc. » Il remet ses lunettes. « Si vous aviez vingt écus sur vous, c'est que quelqu'un vous les a donnés. Je vous suggère de chercher qui. Et pourquoi. »",
     "Il sourit. Il a de très petites dents."
    ],
+   "fx": {
+    "recit": "v_pelissier_ecus"
+   },
    "choices": [
     {
      "back": "V_etude"
@@ -5365,6 +5455,7 @@
    "place": "village",
    "fx": {
     "clue": "h_morts",
+    "recit": "v_vidal_morts",
     "ep": [
      "perso",
      600
@@ -6406,6 +6497,9 @@
     "Tu penses : *Gaspard. Il répare son conduit. Un fermier, la nuit, sur son toit, ça arrive.* Tu penses : *il fait froid.* Tu te retournes dans le foin. Tu te rendors.",
     "Tu te rendors."
    ],
+   "fx": {
+    "recit": "v_hero_toit"
+   },
    "choices": [
     {
      "label": "Garder ce souvenir",
@@ -8090,6 +8184,9 @@
        }
       ]
      },
+     "fx": {
+      "flag": "nuit:jugee"
+     },
      "to": "J_part"
     },
     {
@@ -8156,6 +8253,9 @@
         }
        }
       ]
+     },
+     "fx": {
+      "flag": "nuit:jugee"
      },
      "to": "F_part"
     },

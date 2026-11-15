@@ -56,7 +56,7 @@ module.exports = {
     choices: [{ label: "Penser à la journée", to: "J2_jour" }] },
   J2L_cor_coup: { act: "II", title: "Le coup", place: "basport",
     text: [
-      "Ton poing lui ouvre la lèvre. Il tombe de sa caisse. Il ne se relève pas tout de suite. Il reste assis par terre, la main sur la bouche, à te regarder.",
+      "Ton poing lui ouvre la lèvre. Il tombe de sa caisse. Il reste assis par terre, la main sur la bouche, à te regarder.",
       "Tu montes chercher Nella. Tu l'emmènes chez la Mère Gouge par le chemin le plus long. Corentin ne vous suit pas.",
       "En partant, tu l'entends dire, derrière toi, pas fort : « Tu as raison. »",
     ],
@@ -203,7 +203,7 @@ module.exports = {
     text: [
       "La maison au saule est au bout du quai, derrière un mur couvert de lierre. Une servante en masque de colombe t'ouvre la porte du jardin, te regarde des pieds à la tête, et va chercher sa maîtresse.",
       "Oriane Valcor descend l'escalier sans masque. Trente-quatre ans, une robe noire, des cheveux châtains tirés en chignon, des yeux gris qui te détaillent comme une lettre à classer. Le même gris que celui de Nella. Tu le remarques, et tu ne sais pas pourquoi tu le remarques.",
-      { if: { has: "oriane=pacte" }, text: "« Le frère de la servante. » Elle n'a pas l'air surprise. Elle a l'air fatiguée. « Asseyez-vous. Je n'ai que dix minutes. Le Grand Argentier m'attend à midi. »" },
+      { if: { has: "oriane=pacte" }, text: "« Le frère de la servante. » Elle a seulement l'air fatiguée. « Asseyez-vous. Je n'ai que dix minutes. Le Grand Argentier m'attend à midi. »" },
       { if: { has: "oriane=seule" }, text: "« Le frère de la servante. » Elle te fait asseoir dans le jardin, sous le saule. « Je me présente au siège de ma tante, et je n'ai que huit voix. Tout ce qui touche à sa mort me touche. Parlez. »" },
       { if: { has: "oriane=enquete" }, text: "« Le frère de Nella Ferrant. » Elle te fait asseoir dans le jardin, sous le saule. « Le Conseil m'a confié une enquête sur la mort de ma tante, avec le Guet. Votre sœur dit qu'elle n'a rien fait. Je commence à la croire. Aidez-moi à le prouver. »" },
     ],
@@ -286,7 +286,7 @@ module.exports = {
     fx: { meet: "morvan" },
     text: [
       "On ne te fait pas attendre. C'est ce qui te fait peur. Un commis en masque de héron te mène jusqu'au cabinet du Grand Argentier, au dernier étage de l'entrepôt de marbre, au-dessus des montagnes de sel gris.",
-      "Hugues Morvan ne porte pas de masque chez lui. Il te fait asseoir. Il te sert lui-même un verre de vin, et ne boit pas le sien.",
+      "Chez lui, Hugues Morvan va le visage nu. Il te fait asseoir. Il te sert lui-même un verre de vin, et ne boit pas le sien.",
       "« Le passeur Ferrant. Tu as quelque chose à me vendre, je crois. » Il sourit. « Je suis marchand. J'écoute. »",
     ],
     choices: [
@@ -304,14 +304,14 @@ module.exports = {
     ] },
   J2_morvan_fait: { act: "II", title: "Une parole de marchand", place: "sels",
     text: [
-      "Morvan prend le ruban. Il le déroule, regarde la clef, lit le billet. Il ne dit rien. Il le glisse dans un tiroir qu'il ferme à clef.",
+      "Morvan prend le ruban. Il le déroule, regarde la clef, lit le billet. Il se tait. Il le glisse dans un tiroir qu'il ferme à clef.",
       "« Bonne journée, passeur. »",
       "Tu redescends l'escalier, l'acte de grâce contre la poitrine, à la place de la clef. Il est bien écrit. Il a un sceau. Tu ne sais pas lire assez vite pour savoir s'il dit vraiment ce que Morvan a dit.",
     ],
     choices: [{ label: "Sortir de la Maison des Sels", to: "J2_suite" }] },
   J2_morvan_refus: { act: "II", title: "Non", place: "sels",
     text: [
-      "Ta main se referme sur le ruban avant la sienne. Morvan ne bouge pas. Il ne retire pas non plus sa main tendue.",
+      "Ta main se referme sur le ruban avant la sienne. Morvan reste immobile, la main toujours tendue.",
       "« Tu fais une erreur, passeur. Tu la paieras, ou ta sœur la paiera. » Il le dit sans colère. « Le commis va te raccompagner. »",
       "Le commis te raccompagne jusqu'au quai. En bas de l'escalier, deux hommes en manteau de la Maison des Sels se lèvent quand tu passes, et te suivent des yeux.",
     ],
@@ -367,7 +367,7 @@ module.exports = {
     ] },
   J2_bal_pris: { act: "II", title: "Le ruban", place: "sels",
     text: [
-      "Tu entres, tu prends le ruban, tu ressors. Le commis crie. Corentin ne crie pas. Il te regarde passer, il te reconnaît sous la chouette, et il ne bouge pas.",
+      "Tu entres, tu prends le ruban, tu ressors. Le commis crie. Corentin se tait. Il te regarde passer, il te reconnaît sous la chouette, et il ne bouge pas.",
       "Tu dévales l'escalier, tu traverses la salle de bal entre les danseurs, tu sors par la porte des quais. Personne ne court après une chouette dans un bal masqué. Il y en a trente.",
       "Dehors, tu t'arrêtes pour respirer. Tu as la clef. Tu as aussi, dans la tête, le visage de Corentin qui ne bougeait pas.",
     ],

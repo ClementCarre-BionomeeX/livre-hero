@@ -332,7 +332,7 @@ module.exports = {
   S3N_temple: { act: "III", title: "Sous la coupole", place: "temple", ambiance: "temple",
     fx: { meet: "nella" },
     text: [
-      "Nella est dans la chapelle des Noyés, sous la coupole verte, gardée par deux frères. L'asile du Temple. Personne ne peut l'arrêter ici. Personne ne peut l'en faire sortir non plus, sans l'accord du Grand Prêtre.",
+      "Nella est dans la chapelle des Noyés, sous la coupole verte, gardée par deux frères. L'asile du Temple. Ici, nul ne peut l'arrêter. Pour l'en faire sortir, il faut l'accord du Grand Prêtre.",
       "Elle se lève quand elle te voit. « Le père Anselme dit qu'il m'emmènera au palais à minuit, que c'est lui qui me présentera au Conseil. » Elle serre ses mains l'une contre l'autre. « Il dit que je suis son témoin. Témoin de quoi ? »",
       { if: { is: { nella_sait: null } }, text: "Tu comprends qu'Anselme sait. Il veut présenter lui-même la fille de la Doyenne au Conseil, comme on présente une relique." },
     ],
@@ -498,7 +498,7 @@ module.exports = {
     choices: [FIN] },
   S3_lisse: { act: "III", title: "La barque de Lisse", place: "basport", ambiance: "eau",
     text: [
-      "Tu descends vers la Fente des roseaux. Personne ne te retient. Personne ne te regarde. Tout le monde regarde le palais.",
+      "Tu descends vers la Fente des roseaux. Tu passes librement, inaperçu. Tout le monde regarde le palais.",
       "Il y a une barque, un batelier, un prix. Tu paies. La barque s'enfonce dans les roseaux, et derrière toi les lanternes d'Escalombre deviennent une seule lueur, puis une ligne, puis rien.",
       "Tu as cinquante et un ans, une sacoche, et un flacon vide.",
     ],

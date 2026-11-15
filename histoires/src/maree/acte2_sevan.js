@@ -153,7 +153,7 @@ module.exports = {
       "Il écrit pendant une demi-heure, debout derrière son comptoir, d'une écriture d'apothicaire, petite et droite. Les dates. Les doses. Les pots de sel du lundi. La nuit de jeudi, la porte de l'eau, le pot de trop. Le flacon bleu glissé sous la paillasse d'une servante, sur l'ordre du Grand Argentier. Les caisses de citrons de l'amiral Drenn.",
       "Il signe. Il sable. Il te tend la feuille.",
       "« Maintenant, il va me tuer, dit-il simplement. Ou vous allez me pendre. Je voudrais savoir lequel. »",
-      "Tu ne sais pas quoi lui répondre. Tu lui dis de fermer sa boutique et d'aller dormir au Temple, à l'hospice, dans une chambre de malade. Il dit oui. Tu ne sais pas s'il ira.",
+      "Tu ne sais pas quoi lui répondre. Tu lui dis de fermer sa boutique et d'aller dormir au Temple, à l'hospice, dans une chambre de malade. Il dit oui. Tu ignores s'il ira.",
     ],
     choices: [{ label: "Partir avec la feuille contre ta poitrine", to: "S2_suite" }] },
   S2_leonce_part: { act: "II", title: "La porte", place: "sels",
@@ -217,7 +217,7 @@ module.exports = {
     choices: [{ label: "Repartir", to: "S2_suite" }] },
   S2_anselme_refus: { act: "II", title: "Le vin d'orange", place: "temple",
     text: [
-      "Anselme repose sa main sur la table. Il ne se fâche pas. Il n'a jamais eu besoin de se fâcher.",
+      "Anselme repose sa main sur la table. Il reste calme. Il n'a jamais eu besoin de se fâcher.",
       "« Elle te l'a confiée. Elle t'a confié beaucoup de choses, je crois. » Il te regarde. « Les médecins qui veillent les mourantes la nuit, Sévan, on finit par se demander ce qu'ils leur donnent. Le Temple peut le demander, ou ne pas le demander. »",
       "Il se lève. L'entretien est fini.",
     ],
@@ -338,7 +338,7 @@ module.exports = {
     text: [
       "Tu défais l'ourlet de ta robe, là où tu l'avais cousue. Anselme prend la clef comme on prend une hostie.",
       "« Tu as bien fait, mon fils. » Il se lève. « Repose-toi. Demain soir, tu viendras avec moi au Conseil, et tu diras ce que je te dirai de dire. »",
-      "Il sort. Gildas referme la porte. Elle n'est toujours pas fermée à clef. Ce n'est plus nécessaire.",
+      "Il sort. Gildas referme la porte. Elle reste sans verrou. L'obéissance suffit, désormais.",
       "Tu passes la journée à regarder la coupole verte par la grille. Les masques défilent sur le canal en contrebas, et tu penses à une servante en cellule, et à une vieille femme qui t'a dit : *protège-la*.",
     ],
     choices: [

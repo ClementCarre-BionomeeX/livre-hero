@@ -63,7 +63,7 @@ module.exports = {
     ] },
   O2P_leonce_sortie: { act: "II", title: "Les Passes", place: "chaine",
     text: [
-      "La barque de la Doyenne passe les Passes à trois heures, avec son pavillon noir de deuil. Le gardien Bastide fait ouvrir le petit passage, celui des barques, à côté de la chaîne. Léonce est assis à l'arrière, sous le dais, et il ne dit rien pendant tout le trajet.",
+      "La barque de la Doyenne passe les Passes à trois heures, avec son pavillon noir de deuil. Le gardien Bastide fait ouvrir le petit passage, celui des barques, à côté de la chaîne. Léonce est assis à l'arrière, sous le dais, et il se tait pendant tout le trajet.",
       "Au large, un canot d'Orcanne vient le prendre, lui et ses malles. En montant, il se retourne vers toi. « Madame. Ne mangez pas son sel. » Le canot s'éloigne.",
       "Tu ne sais pas ce qu'il a voulu dire. Tu le sais très bien.",
     ],
@@ -79,7 +79,7 @@ module.exports = {
     choices: [{ label: "Rentrer", to: "O2P_bal" }] },
   O2P_leonce_refus: { act: "II", title: "Un refus", place: "palais",
     text: [
-      "Morvan ne se fâche pas. Il ne se fâche jamais. « Bien sûr. » Il fait un signe à ses rameurs. La barque de Léonce s'éloigne vers la Maison des Sels.",
+      "Morvan reste aimable. Il ne se fâche jamais. « Bien sûr. » Il fait un signe à ses rameurs. La barque de Léonce s'éloigne vers la Maison des Sels.",
       "« À ce soir, madame. Au bal. Vous serez la plus belle, et nous aurons un papier à signer. »",
     ],
     choices: [{ label: "Rentrer", to: "O2P_bal" }] },
@@ -268,7 +268,7 @@ module.exports = {
     fx: { meet: "gouge" },
     text: [
       "Tu descends à Bas-Port en barque, avec de l'eau jusqu'au bord. Tu n'y étais pas venue depuis tes douze ans. La taverne de l'Ancre Basse est pleine de gens qui se taisent quand tu entres, malgré ton loup.",
-      "La Mère Gouge te regarde depuis sa table posée sur des tonneaux. « La nièce. » Elle ne t'invite pas à t'asseoir. « Bas-Port n'a pas de siège au Conseil, madame. Il n'en a jamais eu. Qu'est-ce que vous venez chercher ici ? »",
+      "La Mère Gouge te regarde depuis sa table posée sur des tonneaux. « La nièce. » Elle te laisse debout. « Bas-Port n'a pas de siège au Conseil, madame. Il n'en a jamais eu. Qu'est-ce que vous venez chercher ici ? »",
       { if: { has: "sevan_cache=gouge" }, text: "Au-dessus de vous, une latte du plafond grince. Quelqu'un écoute, dans le grenier." },
     ],
     choices: [
@@ -277,7 +277,7 @@ module.exports = {
     ] },
   O2S_gouge_oui: { act: "II", title: "Dix sièges", place: "basport",
     text: [
-      "Toute la taverne a entendu. Personne ne dit rien. Puis la Mère Gouge frappe un seul coup sur son tonneau, pas fort.",
+      "Toute la taverne a entendu. Tous se taisent. Puis la Mère Gouge frappe un seul coup sur son tonneau, pas fort.",
       "« Dix sièges. » Elle te regarde longtemps. « Votre tante disait ça aussi, à la fin. Dans ses lettres. » Elle se lève. « Demain soir, madame, si vous êtes élue, Bas-Port sera sous vos fenêtres pour vous applaudir. Si vous ne l'êtes pas, il sera sous vos fenêtres quand même. »",
       "Une vieille maison du Conseil, tu le sais, te retirera sa voix en apprenant ça. Tu l'as fait quand même.",
     ],
@@ -389,7 +389,7 @@ module.exports = {
     text: [
       "Six gardes du Guet sous les arcades de la Maison des Sels, ça se remarque, même un jour de masques. Léonce Brisard est derrière son comptoir. Il voit entrer la capitaine. Il voit entrer la secrétaire de la Doyenne. Il pose sa balance.",
       "« Je m'y attendais », dit-il simplement.",
-      "Ysabeau Dorne fait fouiller la boutique. Sous l'établi, un pot de grès à moitié plein de poudre blanche, à l'étiquette de la Maison des Sels. Dans un tiroir, un registre où chaque lundi porte une petite croix. Léonce ne dit rien. Il regarde ses mains, tachées d'encre.",
+      "Ysabeau Dorne fait fouiller la boutique. Sous l'établi, un pot de grès à moitié plein de poudre blanche, à l'étiquette de la Maison des Sels. Dans un tiroir, un registre où chaque lundi porte une petite croix. Léonce se tait. Il regarde ses mains, tachées d'encre.",
       "On l'emmène. En passant devant toi, il dit, très bas : « Madame. Ce n'est pas moi qui ai décidé. »",
     ],
     choices: [
@@ -437,7 +437,7 @@ module.exports = {
       "Tu rouvres le tiroir des lettres personnelles, et tu sors la liasse au ruban bleu passé. Vingt lettres d'il y a vingt ans, d'une écriture qui appuie trop. *Je t'apprendrai à nager pour de vrai.* La dernière est datée de décembre, il y a dix-neuf ans et demi : *Tu dis que tu as peur. Moi, je n'ai peur de rien, sauf pour lui ou pour elle. On l'appellera comme tu veux.*",
       "Tu emmènes Ysabeau Dorne à Sainte-Agathe, l'église des bateliers. Le curé ouvre ses registres. Décembre, il y a dix-neuf ans : *Tomas Gouge, batelier, noyé dans la passe.* Avril : *Baptême d'une fille, Nella, présentée par Martin et Jeanne Ferrant, passeurs, qui la déclarent trouvée.* En marge, d'une autre encre : *Pour la barque des Ferrant, dix ducats, payés par une dame.*",
       "Tu restes devant le registre. Tu fais le compte, comme on fait le compte d'une lettre. Ta tante, amoureuse d'un batelier. Un enfant. Une servante aux yeux gris, au palais depuis ses quinze ans. Une clef cousue dans un ruban.",
-      "Ysabeau Dorne n'a rien dit. Elle a tout lu par-dessus ton épaule.",
+      "Ysabeau Dorne s'est tue. Elle a tout lu par-dessus ton épaule.",
     ],
     choices: [{ label: "Refermer le registre", fx: { set: { oriane_sait: "nella" }, clue: "gouge_fils" }, to: "O2E_lettres_choix" }] },
   O2E_lettres_choix: { act: "II", title: "Ce qu'on fait d'une vérité", place: "palais",
@@ -474,7 +474,7 @@ module.exports = {
     fx: { meet: "nella" },
     text: [
       "On fait monter Nella dans le bureau de la capitaine. Elle s'assied droite sur sa chaise, les mains sur les genoux.",
-      { if: { has: "oriane_sait=nella" }, text: "Tu la regardes, et tu ne peux plus la regarder comme hier. Ces yeux gris, ce menton. Ta cousine. Elle ne le sait peut-être pas. Toi, tu ne sais pas si tu dois le lui dire, ni comment." },
+      { if: { has: "oriane_sait=nella" }, text: "Tu la regardes, et tu ne peux plus la regarder comme hier. Ces yeux gris, ce menton. Ta cousine. Elle l'ignore peut-être. Toi, tu te demandes s'il faut le lui dire, et comment." },
       "Elle répond à tout : le plateau, le sel, l'apothicaire à onze heures. Puis tu lui demandes où est la clef de bronze.",
       "Elle te regarde longtemps. « Chez mon frère. Jasse Ferrant, passeur. Ou chez quelqu'un à qui il l'a donnée. Je ne sais pas. »",
     ],

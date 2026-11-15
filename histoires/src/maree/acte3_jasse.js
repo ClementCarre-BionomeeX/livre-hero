@@ -35,7 +35,7 @@ module.exports = {
   J3T: { act: "III", title: "La coupole verte", place: "temple", ambiance: "temple",
     text: [
       "À huit heures, tu amarres ta barque au pied du Temple. Les frères ont allumé une lanterne à chaque fenêtre de la coupole. Elle ressemble à une méduse posée sur l'eau.",
-      "Nella est là-dedans, sous l'asile. Personne ne peut la prendre. Personne ne peut la faire sortir sans le Grand Prêtre. Anselme a dit qu'il l'emmènerait lui-même au palais, à minuit.",
+      "Nella est là-dedans, sous l'asile. Ici, nul ne peut la prendre. Pour la faire sortir, il faut le Grand Prêtre. Anselme a dit qu'il l'emmènerait lui-même au palais, à minuit.",
       { if: { has: "nella:choisit_seule" }, text: "Gildas, le frère convers, descend te voir sur le quai. « Elle veut vous parler. Elle dit qu'elle ira au palais seule, sans le Grand Prêtre. Elle dit que c'est vous qui l'y mènerez. »" },
     ],
     choices: [{ label: "Penser à la nuit", to: "J3_nuit" }] },
@@ -123,7 +123,7 @@ module.exports = {
     text: [
       "Mo t'a dit où et quand : sous le pont de la Maison des Sels, à neuf heures et demie. Tu y es à neuf heures, couché au fond de ta barque sous une bâche.",
       "Corentin arrive à l'heure. Il a les mains dans les poches. Un homme de la Maison des Sels l'attend en haut des marches, avec une bourse.",
-      { if: { has: "corentin=repenti" }, text: "Corentin regarde l'homme, regarde la bourse. Il ne descend pas les marches. Il les remonte, au contraire, et tu comprends qu'il est venu pour la reprendre, pas pour la vendre." },
+      { if: { has: "corentin=repenti" }, text: "Corentin regarde l'homme, regarde la bourse. Au lieu de descendre les marches, il les remonte, et tu comprends qu'il est venu pour la reprendre, pas pour la vendre." },
     ],
     choices: [
       { label: "Te montrer. « Cor. Ne fais pas ça. »", test: { dom: "social", diff: 0, label: "Social" },
@@ -135,7 +135,7 @@ module.exports = {
     ] },
   J3_corentin_rend: { act: "III", title: "Le ruban", place: "sels",
     text: [
-      "Corentin te voit. Il ne s'enfuit pas. Il reste sur la marche, la main dans la poche, longtemps.",
+      "Corentin te voit. Il reste sur la marche, la main dans la poche, longtemps.",
       "Puis il sort le ruban et te le lance. Tu l'attrapes au vol, comme vous faisiez enfants avec les pièces qu'on jetait aux noyés.",
       "« Cinq cents ducats, Jasse. Tu sais ce que c'est, cinq cents ducats ? » Il redescend vers toi. « Non. Toi tu ne sais pas. C'est pour ça que tu es mon ami. » Il monte dans ta barque. « Où on va ? »",
     ],
@@ -228,7 +228,7 @@ module.exports = {
     ] },
   J3_gouge_palais: { act: "III", title: "Le mot", place: "basport",
     text: [
-      "La Mère Gouge se lève sur sa table, dans l'eau jusqu'aux chevilles. Elle ne crie pas. Elle dit seulement : « Au palais. »",
+      "La Mère Gouge se lève sur sa table, dans l'eau jusqu'aux chevilles. Sans élever la voix, elle dit : « Au palais. »",
       "Les hommes sortent. En dix minutes, les canaux de Bas-Port se vident vers le Grand Canal, une lanterne par barque, et la lagune devant le palais se couvre d'une deuxième ville, flottante, silencieuse.",
       { if: { has: "basport=souleve" }, text: "Tu vois des gaffes, des haches de calfat, un harpon. Tu vois aussi des enfants. C'est cela qui t'inquiète le plus." },
     ],
@@ -385,7 +385,7 @@ module.exports = {
     text: [
       "Tu remontes le Grand Canal dans le flot des barques. Les lanternes se touchent, les coques cognent, des inconnus te passent des gâteaux de fête par-dessus les bordages.",
       { if: { has: "nella3=conseil" }, text: "Nella est assise à l'avant, le dos droit. Elle tient le ruban serré dans son poing. Les gens de Bas-Port la reconnaissent. Ils se taisent quand elle passe, et ôtent leur bonnet." },
-      { if: { has: "corentin:avec_jasse" }, text: "Corentin rame à côté de toi, comme autrefois. Il ne dit rien. Il rame bien." },
+      { if: { has: "corentin:avec_jasse" }, text: "Corentin rame à côté de toi, comme autrefois. Il se tait. Il rame bien." },
       { if: { has: "leonce=temoin" }, text: "L'apothicaire est recroquevillé au fond de la barque, sous une bâche. Il tremble à chaque lanterne." },
       "Au bout du canal, le palais, illuminé de la cave au toit, les pieds dans l'eau.",
     ],
@@ -394,7 +394,7 @@ module.exports = {
     text: [
       "La barque est là où tu l'as cachée, sous les roseaux, avec l'eau, le pain, la voile roulée. Nella monte la première. Tu pousses.",
       "La Fente est un couloir d'eau noire entre deux murs de roseaux plus hauts qu'un homme. Derrière vous, la lumière d'Escalombre s'éloigne, une ville en feu de lanternes. Devant vous, la mer ouverte et la nuit.",
-      { if: { has: "jasse:suivi" }, text: "À l'entrée de la Fente, la barque grise de l'homme de Morvan attend, immobile. Il vous regarde passer. Il ne vous suit pas. Ce qu'il dira à son maître, tu ne le sauras jamais." },
+      { if: { has: "jasse:suivi" }, text: "À l'entrée de la Fente, la barque grise de l'homme de Morvan attend, immobile. Il vous regarde passer et reste où il est. Ce qu'il dira à son maître, tu ne le sauras jamais." },
       "Nella regarde en arrière jusqu'à ce qu'il n'y ait plus rien à regarder.",
     ],
     choices: [FIN] },
