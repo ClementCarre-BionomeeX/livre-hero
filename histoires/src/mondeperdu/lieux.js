@@ -32,4 +32,10 @@ module.exports = {
     desc: "Une haute et mince aiguille de roche rouge, comme une flèche d'église, séparée du plateau par un gouffre d'une douzaine de mètres. Au sommet poussait un hêtre." },
   bord_plateau: { ambiance: "foret", name: "Le bord du plateau", map: "plateau", x: 50, y: 90, region: "Le plateau", arrive: "IX_9",
     desc: "Le premier camp sur le plateau, au bord même de la falaise, face au piton. Des broussailles serrées, puis l'inconnu." },
+  fort_challenger: { ambiance: "foret", name: "Le fort Challenger", map: "plateau", x: 46, y: 82, region: "Terre de Maple White", arrive: "X_2",
+    desc: "Une petite clairière près du bord du plateau, avec une source et des dalles plates, entourée d'une haie de buissons épineux. Un immense ginkgo la domine." },
+  clairiere_iguanodons: { ambiance: "foret", name: "La clairière des iguanodons", map: "plateau", x: 40, y: 66, region: "Terre de Maple White", arrive: "X_3",
+    desc: "Au-delà d'un marécage de prêles, une clairière où broutent cinq iguanodons." },
+  nid_pterodactyles: { ambiance: "montagne", name: "Le marais des ptérodactyles", map: "plateau", x: 58, y: 60, region: "Terre de Maple White", arrive: "X_4",
+    desc: "Une ancienne cheminée volcanique en forme de cuvette, aux mares d'eau croupie : une colonie de ptérodactyles. Autour de l'eau, une argile bleue." },
 };
