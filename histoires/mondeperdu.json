@@ -1129,8 +1129,8 @@
    },
    "qui": "Une créature des arbres du plateau, entre le singe et l'homme. Elle observe le camp depuis le début.",
    "aspect": {
-    "allure": "un corps velu, roussâtre, très agile dans les branches",
-    "visage": "long, blanchâtre, couvert de boutons, le nez aplati, la mâchoire en avant",
+    "allure": "corps velu et roussâtre, agile dans les branches",
+    "visage": "long, blanchâtre, nez aplati, mâchoire en avant",
     "signe": "des canines recourbées et pointues"
    }
   },
@@ -1148,8 +1148,8 @@
    },
    "qui": "Le chef des hommes-singes. Lord John le trouve si semblable à Challenger qu'on les dirait parents.",
    "aspect": {
-    "allure": "court, large, de lourdes épaules, pas de cou, les bras qui pendent en avant",
-    "visage": "une grande collerette de barbe rousse, des sourcils en touffes, un front fuyant",
+    "allure": "court et large, sans cou, bras pendants",
+    "visage": "collerette de barbe rousse, front fuyant",
     "signe": "le portrait roux de Challenger"
    }
   },
@@ -1165,7 +1165,7 @@
    },
    "qui": "Les hommes qui vivent dans les grottes, de l'autre côté du lac. Ils sont en guerre contre les hommes-singes. Quatre d'entre eux, sauvés de la falaise, se réfugient auprès des voyageurs.",
    "aspect": {
-    "allure": "petits, bien découplés, la peau rouge comme du bronze poli"
+    "allure": "petits, bien découplés, peau de bronze poli"
    }
   },
   "maretas": {
@@ -1180,9 +1180,9 @@
    },
    "qui": "Le jeune chef sauvé de la falaise, fils du vieux chef des Accalas. Il est fier et n'aime pas qu'on le touche.",
    "aspect": {
-    "allure": "le plus jeune et le plus fier du groupe",
-    "visage": "le devant de la tête rasé, les yeux sombres et vifs",
-    "tenue": "un pagne de cuir, les cheveux noués par une lanière"
+    "allure": "le plus jeune et le plus fier",
+    "visage": "front rasé, yeux sombres et vifs",
+    "habits": "pagne de cuir, cheveux noués d'une lanière"
    }
   },
   "vieux_chef": {
@@ -1197,7 +1197,7 @@
    },
    "qui": "Le chef du peuple des grottes, père de Maretas.",
    "aspect": {
-    "tenue": "un collier et un bracelet de grosses perles de verre brillantes, une peau tachetée couleur d'ambre sur les épaules"
+    "habits": "perles de verre, peau tachetée sur les épaules"
    }
   },
   "macdona": {

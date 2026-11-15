@@ -1503,8 +1503,8 @@ var extras = {
     EIV_nuit: { passage: "EIV_nuit", weight: 2 },
   },
   people: {
-    IV_garance: { name: "Garance", f: true, face: { age: "mur", coif: "foulard", skin: "hale" }, desc: "Une tonnelière de Saulce, veuve, qui tient le camp de Vaux-Saint-Pierre avec un cahier de comptes et beaucoup de registres. Elle dit qu'elle ne commande rien : elle compte." },
-    IV_fulcran: { name: "Fulcran", f: false, face: { age: "adulte", hair: "roux", beard: "barbe" }, desc: "Le maître des charretiers de Ferrance au camp de Vaux. Une voix de forge, une vingtaine de bœufs, et un sens des affaires qui n'exclut pas tout à fait le cœur." },
+    IV_garance: { name: "Garance", aspect: { allure: "tonnelière veuve", signe: "un cahier de comptes" }, f: true, face: { age: "mur", coif: "foulard", skin: "hale" }, desc: "Une tonnelière de Saulce, veuve, qui tient le camp de Vaux-Saint-Pierre avec un cahier de comptes et beaucoup de registres. Elle dit qu'elle ne commande rien : elle compte." },
+    IV_fulcran: { name: "Fulcran", aspect: { allure: "homme roux sur un timon", voix: "voix de forge" }, f: false, face: { age: "adulte", hair: "roux", beard: "barbe" }, desc: "Le maître des charretiers de Ferrance au camp de Vaux. Une voix de forge, une vingtaine de bœufs, et un sens des affaires qui n'exclut pas tout à fait le cœur." },
   },
   items: {
     IVT_braise: { name: "La braise d'Hildre", kind: "quete", keep: true, desc: "Une braise du premier feu d'Hildre, dans un petit pot de fer tapissé de cendre. Elle ne s'éteint pas, et elle ne brûle pas qui la porte." },

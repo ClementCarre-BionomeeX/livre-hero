@@ -282,6 +282,10 @@
  "companions": {
   "livia": {
    "name": "Livia Sarde",
+   "aspect": {
+    "allure": "ancienne novice",
+    "signe": "range sa plume en silence"
+   },
    "f": true,
    "role": "Secrétaire du Sceau, ancienne novice du Temple",
    "wound": "Elle a quitté le Temple le jour où elle a vu la Mère-des-Eaux étouffer une affaire.",
@@ -309,6 +313,11 @@
   },
   "joris": {
    "name": "Joris Malteste",
+   "aspect": {
+    "allure": "ancien quartier-maître",
+    "habits": "pourpoint boutonné de travers",
+    "signe": "une attention de chien de garde"
+   },
    "f": false,
    "role": "Capitaine de la garde du Sceau, ancien quartier-maître de la flotte",
    "wound": "Il a laissé se noyer un mousse pour sauver le vaisseau amiral, sur ordre. Il obéit encore, et il boit.",
@@ -337,6 +346,9 @@
   },
   "ansel": {
    "name": "Maître Ansel Corde",
+   "aspect": {
+    "allure": "vieux médecin du prince"
+   },
    "f": false,
    "role": "Médecin du prince défunt",
    "wound": "Il porte seul un secret.",
@@ -620,66 +632,130 @@
  "people": {
   "corradin": {
    "name": "Corradin IV Térac",
+   "aspect": {
+    "signe": "un rire bref, des cartes marines"
+   },
    "desc": "Le prince défunt. Quarante-six ans, un rire bref, un goût pour les cartes marines et les phrases laissées en suspens."
   },
   "iselda": {
    "name": "Iselda Térac",
+   "aspect": {
+    "allure": "fillette de neuf ans",
+    "signe": "des coquillages, des questions"
+   },
    "desc": "L'héritière. Neuf ans, une collection de coquillages, des questions qui font taire les adultes."
   },
   "liane": {
    "name": "La princesse Liane",
+   "aspect": {
+    "allure": "princesse qui vit enfermée"
+   },
    "desc": "Mère d'Iselda, née à la cour de Thérance. On dit qu'elle vit enfermée au palais depuis dix ans."
   },
   "ghislain": {
    "name": "L'amiral Ghislain Térac",
+   "aspect": {
+    "allure": "entre comme à l'abordage",
+    "habits": "bottes et manteau de mer"
+   },
    "desc": "Frère cadet du prince, chef de la flotte. Les marins le suivraient à la nage."
   },
   "orsanne": {
    "name": "Ser Matteo Orsanne",
+   "aspect": {
+    "allure": "énorme et soigné",
+    "visage": "barbe parfumée",
+    "signe": "des bagues à tous les doigts"
+   },
    "desc": "Maître de la Hanse du Sel. Il connaît le prix de tout, et le dit avec esprit."
   },
   "ysaure": {
    "name": "Mère Ysaure",
+   "aspect": {
+    "allure": "toute petite, les yeux baissés",
+    "habits": "robe vert d'algue",
+    "voix": "dit chaque chose une fois"
+   },
    "desc": "Mère-des-Eaux, première du Temple, marraine d'Iselda. Elle parle peu et dit chaque chose une seule fois."
   },
   "nello": {
    "name": "Nello Brisse",
+   "aspect": {
+    "allure": "ancien gondolier, toujours debout",
+    "voix": "se fait entendre d'un canal à l'autre"
+   },
    "desc": "Tribun du Banc des Rames. Ancien gondolier, il sait se faire entendre d'un bout à l'autre d'un canal."
   },
   "tessa": {
    "name": "Tessa Brisse",
+   "aspect": {
+    "allure": "débardeuse, bouche serrée",
+    "habits": "tablier de cuir, manches retroussées"
+   },
    "desc": "Sœur de Nello, débardeuse. Elle tient les distributions de pain et se méfie des discours."
   },
   "merande": {
    "name": "Le comte Lothaire Mérande",
+   "aspect": {
+    "allure": "homme mince",
+    "habits": "velours noir",
+    "visage": "cheveux gris coupés court",
+    "signe": "un carnet de notes"
+   },
    "desc": "Ambassadeur de Thérance. Courtois, cultivé, et le seul à dire tout haut ce qu'il veut."
   },
   "odile": {
    "name": "Odile Varn",
+   "aspect": {
+    "allure": "brune d'une trentaine d'années",
+    "signe": "une plume à la main",
+    "voix": "voix tranquille"
+   },
    "desc": "Secrétaire de l'ambassadeur. Discrète, efficace, toujours une plume à la main."
   },
   "bertin": {
    "name": "Bertin",
+   "aspect": {
+    "allure": "cuisinier gros et timide"
+   },
    "desc": "Cuisinier du prince depuis vingt ans. Gros, timide, et seul au monde."
   },
   "ortensia": {
    "name": "Dame Ortensia",
+   "aspect": {
+    "allure": "gouvernante",
+    "signe": "les mains croisées"
+   },
    "desc": "Gouvernante d'Iselda. Elle a élevé le prince avant elle."
   },
   "pippo": {
    "name": "Pippo",
+   "aspect": {
+    "allure": "gamin des canaux de neuf ans"
+   },
    "desc": "Gamin des Canaux, messager à deux deniers la course. Il connaît tous les raccourcis et quelques secrets."
   },
   "grizzo": {
    "name": "Grizzo",
+   "aspect": {
+    "allure": "jeune commis pâle",
+    "signe": "une plume derrière l'oreille"
+   },
    "desc": "Commis de la Hanse. Une plume derrière l'oreille, des dettes de jeu, une peur bleue de son maître."
   },
   "ancille": {
    "name": "Sœur Ancille",
+   "aspect": {
+    "allure": "vieille sœur archiviste",
+    "signe": "doigts tachés d'encre"
+   },
    "desc": "Archiviste du Temple. Elle a appris à lire à Livia."
   },
   "gris": {
    "name": "Le Gris",
+   "aka": [
+    "le Gris"
+   ],
    "desc": "Un spadassin, payé pour te tuer."
   }
  },

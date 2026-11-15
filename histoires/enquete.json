@@ -894,6 +894,11 @@
  "people": {
   "gervaise": {
    "name": "Gervaise Maupas",
+   "aspect": {
+    "allure": "lavandière",
+    "habits": "foulard, panier au bras",
+    "signe": "bras rouges jusqu'aux coudes"
+   },
    "f": true,
    "face": {
     "age": "mur",
@@ -925,6 +930,10 @@
   },
   "hugon": {
    "name": "Hugon Maupas",
+   "aspect": {
+    "allure": "batelier de dix-neuf ans",
+    "visage": "boucles châtains, taches de rousseur"
+   },
    "face": {
     "age": "jeune",
     "hair": "chatain",
@@ -964,6 +973,11 @@
   },
   "oriane": {
    "name": "Oriane Ombreuil",
+   "aspect": {
+    "allure": "dix-huit ans",
+    "habits": "en deuil",
+    "visage": "tresses noires"
+   },
    "f": true,
    "face": {
     "age": "jeune",
@@ -1009,6 +1023,10 @@
   },
   "sibylle": {
    "name": "Dame Sibylle Ombreuil",
+   "aspect": {
+    "allure": "droite, pâle, sans larmes",
+    "visage": "chignon blond très serré"
+   },
    "f": true,
    "face": {
     "age": "mur",
@@ -1058,6 +1076,10 @@
   },
   "malestroit": {
    "name": "Évrard Malestroit",
+   "aspect": {
+    "visage": "cheveux noirs, moustache impeccable",
+    "voix": "voix basse d'homme obéi"
+   },
    "face": {
     "age": "mur",
     "hair": "noir",
@@ -1110,6 +1132,10 @@
   },
   "hallard": {
    "name": "La sergente Hallard",
+   "aspect": {
+    "allure": "cinquante ans, incorruptible",
+    "visage": "cicatrice qui tire la bouche"
+   },
    "f": true,
    "face": {
     "age": "adulte",
@@ -1156,6 +1182,10 @@
   },
   "isaline": {
    "name": "Dame Isaline Veillon",
+   "aspect": {
+    "allure": "vieille changeuse du pont",
+    "signe": "lunettes, pèse les pièces"
+   },
    "f": true,
    "face": {
     "age": "ancien",
@@ -1199,6 +1229,10 @@
   },
   "faverge": {
    "name": "Maître Faverge",
+   "aspect": {
+    "allure": "vieil orfèvre",
+    "signe": "une loupe à l'œil"
+   },
    "face": {
     "age": "ancien",
     "hair": "gris",
@@ -1233,6 +1267,11 @@
   },
   "barthe": {
    "name": "Barthe, l'éclusier",
+   "aspect": {
+    "allure": "jambes arquées",
+    "visage": "barbe blanche jaunie par la pipe",
+    "signe": "sa pipe éteinte"
+   },
    "face": {
     "age": "ancien",
     "hair": "blanc",
@@ -1259,6 +1298,10 @@
   },
   "garnaude": {
    "name": "La mère Garnaude",
+   "aspect": {
+    "allure": "vieille logeuse",
+    "habits": "foulard"
+   },
    "f": true,
    "face": {
     "age": "ancien",
@@ -1295,6 +1338,10 @@
   },
   "ermeline": {
    "name": "Sœur Ermeline",
+   "aspect": {
+    "allure": "petite femme sèche",
+    "habits": "manches retroussées"
+   },
    "f": true,
    "face": {
     "age": "adulte",
@@ -1327,6 +1374,10 @@
   },
   "brisson": {
    "name": "L'échevin Brisson",
+   "aspect": {
+    "allure": "gros, rose, bien nourri",
+    "signe": "te prend le bras comme un ami"
+   },
    "face": {
     "age": "mur",
     "hair": "chatain",
@@ -1362,6 +1413,10 @@
   },
   "ouen": {
    "name": "Maître Ouen",
+   "aspect": {
+    "allure": "ancien batelier énorme et lent",
+    "signe": "bras tatoués d'ancres et de sirènes"
+   },
    "face": {
     "age": "mur",
     "coif": "degarni",
@@ -1387,6 +1442,10 @@
   },
   "ivon": {
    "name": "Le commis Ivon",
+   "aspect": {
+    "allure": "commis de vingt ans",
+    "signe": "lunettes rafistolées avec du fil"
+   },
    "face": {
     "age": "jeune",
     "hair": "blond",
@@ -1413,6 +1472,9 @@
   },
   "ganse": {
    "name": "Maître Ganse",
+   "aspect": {
+    "signe": "ne sort que la nuit"
+   },
    "face": {
     "age": "mur",
     "hair": "gris",
@@ -1458,6 +1520,10 @@
   },
   "gaspard": {
    "name": "Gaspard Ombreuil",
+   "aspect": {
+    "habits": "robe grise d'officier de la Monnaie",
+    "visage": "barbe grise"
+   },
    "face": {
     "age": "mur",
     "hair": "gris",
@@ -1474,6 +1540,15 @@
   },
   "theophane": {
    "name": "Théophane Lescot",
+   "aka": [
+    "Théophane Lescot",
+    "Théophane",
+    "Lescot",
+    "le petit Lescot"
+   ],
+   "aspect": {
+    "allure": "jeune second de l'essayeur"
+   },
    "face": {
     "age": "jeune",
     "hair": "noir",
@@ -1485,6 +1560,10 @@
   },
   "mahu": {
    "name": "Mahu, le batelier",
+   "aspect": {
+    "allure": "batelier sans barge",
+    "visage": "nez violet"
+   },
    "face": {
     "age": "mur",
     "beard": "barbe",

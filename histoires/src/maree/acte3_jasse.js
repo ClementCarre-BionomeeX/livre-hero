@@ -8,17 +8,17 @@ var LEONCE_LA = { not: { is: { leonce: ["enfui", "mort", "temoin", "parti", "gar
 var FIN = { label: "Fin de la nuit de Jasse", fx: { flag: "ch3:jasse" }, back: "C3" };
 module.exports = {
   J3: { branch: [
-    { if: { all: [PRISON, { has: "evasion=prevue" }] }, fx: { until: 20 }, to: "J3E" },
-    { if: PRISON, fx: { until: 20 }, to: "J3P" },
-    { if: TEMPLE, fx: { until: 20 }, to: "J3T" },
-    { fx: { until: 20 }, to: "J3L" },
+    { if: { all: [PRISON, { has: "evasion=prevue" }] }, fx: { until: 19 }, to: "J3E" },
+    { if: PRISON, fx: { until: 19 }, to: "J3P" },
+    { if: TEMPLE, fx: { until: 19 }, to: "J3T" },
+    { fx: { until: 19 }, to: "J3L" },
   ] },
 
   // ================================================================ openings
   J3E: { act: "III", title: "La nièce de la Mère Gouge", place: "basport", ambiance: "eau",
     fx: { meet: "gouge" },
     text: [
-      "À huit heures, la Mère Gouge te fait appeler. Dans l'arrière-salle de l'Ancre Basse, il y a une femme maigre aux mains rouges de lessive : la nièce, celle dont le mari garde la porte d'eau de la Tour.",
+      "À sept heures, la Mère Gouge te fait appeler. Dans l'arrière-salle de l'Ancre Basse, il y a une femme maigre aux mains rouges de lessive : la nièce, celle dont le mari garde la porte d'eau de la Tour.",
       "« À minuit, il ouvre la porte pour la barque des cuisines, comme chaque nuit. Il oubliera de la refermer. Il y a un garde au palier du deuxième étage. Lui, on n'a pas pu l'acheter. » La femme te regarde. « Mon mari fait ça pour la Mère. Si on le prend, on le pend. »",
       "La Mère Gouge pose sa main sur la tienne. « Tu as trois heures, passeur. Fais ce que tu as à faire. À onze heures, tu es à la porte d'eau, et tu n'en bouges plus. »",
       { if: { has: "sevan:pavot_garde" }, text: "La nièce ajoute, perplexe : « Le garde du palier, mon mari dit qu'un prêtre est passé lui parler. Il dit qu'il bâillait déjà en jouant aux dés. »" },
@@ -26,22 +26,22 @@ module.exports = {
     choices: [{ label: "Trois heures", to: "J3_nuit" }] },
   J3P: { act: "III", title: "La Tour, d'en bas", place: "tour", ambiance: "eau",
     text: [
-      "À huit heures, tu es dans ta barque, au pied de la Tour du Guet, côté lagune. Tu comptes les fenêtres. Deuxième étage, la quatrième. Il y a de la lumière.",
-      "Tu n'as ni barques ni bras ni gardien acheté. Tu as une gaffe, un couteau, Petit Mo qui t'attend sur le quai, et quatre heures avant que la ville entière regarde ailleurs.",
+      "À sept heures, tu es dans ta barque, au pied de la Tour du Guet, côté lagune. Tu comptes les fenêtres. Deuxième étage, la quatrième. Il y a de la lumière.",
+      "Tu n'as ni barques ni bras ni gardien acheté. Tu as une gaffe, un couteau, Petit Mo qui t'attend sur le quai, et cinq heures avant que la ville entière regarde ailleurs.",
       { if: { has: "j1:vu_nella" }, text: "Avant-hier, à cette même fenêtre, elle t'a fait un signe de la main, comme quand vous étiez petits et qu'elle partait au palais." },
       { if: { item: "acte_grace" }, text: "Tu as aussi, dans ta chemise, un acte de grâce signé de Morvan. Il dit que Nella sortira à l'aube, si Morvan est élu. Tu sais ce que vaut la parole de Morvan. Tu ne sais pas ce qu'elle vaut d'autre." },
     ],
     choices: [{ label: "Quatre heures", to: "J3_nuit" }] },
   J3T: { act: "III", title: "La coupole verte", place: "temple", ambiance: "temple",
     text: [
-      "À huit heures, tu amarres ta barque au pied du Temple. Les frères ont allumé une lanterne à chaque fenêtre de la coupole. Elle ressemble à une méduse posée sur l'eau.",
+      "À sept heures, tu amarres ta barque au pied du Temple. Les frères ont allumé une lanterne à chaque fenêtre de la coupole. Elle ressemble à une méduse posée sur l'eau.",
       "Nella est là-dedans, sous l'asile. Ici, nul ne peut la prendre. Pour la faire sortir, il faut le Grand Prêtre. Anselme a dit qu'il l'emmènerait lui-même au palais, à minuit.",
       { if: { has: "nella:choisit_seule" }, text: "Gildas, le frère convers, descend te voir sur le quai. « Elle veut vous parler. Elle dit qu'elle ira au palais seule, sans le Grand Prêtre. Elle dit que c'est vous qui l'y mènerez. »" },
     ],
     choices: [{ label: "Penser à la nuit", to: "J3_nuit" }] },
   J3L: { act: "III", title: "Bas-Port aux lanternes", place: "basport", ambiance: "eau",
     text: [
-      "À huit heures, Bas-Port allume ses lanternes, une par barque. Des centaines, sur l'eau haute, qui montent et descendent avec la houle. On dirait que le quartier respire.",
+      "À sept heures, Bas-Port allume ses lanternes, une par barque. Des centaines, sur l'eau haute, qui montent et descendent avec la houle. On dirait que le quartier respire.",
       { if: { has: "cache=gouge" }, text: "Nella descend de la soupente de la Mère Gouge en vêtements de batelière. Elle a noué ses cheveux dans un foulard. « Alors ? Qu'est-ce qu'on fait, ce soir ? »" },
       { if: { not: { has: "cache=gouge" } }, text: "Nella sort de sous la bâche de ta barque. Elle a les yeux de quelqu'un qui a compté les heures. « Alors ? Qu'est-ce qu'on fait, ce soir ? »" },
       { if: { has: "leurre:ok" }, text: "Mo porte encore à la ceinture le bonnet blanc de Nella, celui du leurre d'avant-hier. Il dit que c'est son porte-bonheur. Le Guet cherche toujours une servante du côté des marais salants." },
@@ -54,8 +54,9 @@ module.exports = {
   J3_nuit: { act: "III", title: "Quatre heures", hub: true, noLead: true, backName: "la nuit",
     text: [
       { first: true, text: "Tu pousses ta barque dans les canaux aux lanternes. Tout va vers le palais. Toi, tu vas où il faut." },
-      { if: { clock: "j3", min: 1, max: 1 }, text: "Les cloches sonnent neuf heures. Tu as encore le temps de deux choses." },
-      { if: { clock: "j3", min: 2, max: 2 }, text: "Les cloches sonnent dix heures. Il te reste le temps d'une chose." },
+      { if: { clock: "j3", min: 1, max: 1 }, text: "Les cloches sonnent huit heures. Tu as encore le temps de trois choses." },
+      { if: { clock: "j3", min: 2, max: 2 }, text: "Les cloches sonnent neuf heures. Tu as encore le temps de deux choses." },
+      { if: { clock: "j3", min: 3, max: 3 }, text: "Les cloches sonnent dix heures. Il te reste le temps d'une chose." },
       { if: { has: "jasse:suivi" }, text: "Une barque grise te suit depuis le matin, à distance, avec un homme qui ne rame pas. L'homme de Morvan. Tu le sèmes dans les petits canaux, et chaque fois il revient." },
       { if: { has: "ysabeau=allie" }, text: "Une barque du Guet file vers le palais, quatre hallebardiers à bord. Le Guet a choisi un camp, ce soir. Tu n'aurais pas cru dire ça un jour avec soulagement." },
       { if: { has: "leonce=temoin" }, text: "Sur le quai des Sels, tu vois passer Sévan Aldric, le médecin, avec un homme enveloppé dans un manteau de pêcheur, qui tremble. Ils vont au palais." },
@@ -69,11 +70,13 @@ module.exports = {
       { label: "Le Temple, où Nella attend", if: TEMPLE, hide: { any: [{ not: TEMPLE }, { has: "jasse:temple3" }] }, to: "J3_temple" },
       { label: "Petit Mo : lui faire porter un mot au palais, pour la secrétaire", hide: { has: "jasse:mo3" }, to: "J3_mo" },
       { label: "Remonter le Grand Canal au milieu des barques, et écouter la ville", hide: { has: "jasse:canal3" }, to: "J3_canal" },
+      { label: "Amarrer ta barque sous le pont des Sels, et attendre onze heures", hide: { clock: "j3", max: 2 }, fx: { until: 23 }, to: "J3_fin" },
     ] },
   J3_suite: { branch: [
-    { if: { clock: "j3", min: 3 }, fx: { until: 23 }, to: "J3_fin" },
-    { if: { clock: "j3", min: 2 }, fx: { until: 22 }, to: "J3_nuit" },
-    { fx: { until: 21 }, to: "J3_nuit" },
+    { if: { clock: "j3", min: 4 }, fx: { until: 23 }, to: "J3_fin" },
+    { if: { clock: "j3", min: 3 }, fx: { until: 22 }, to: "J3_nuit" },
+    { if: { clock: "j3", min: 2 }, fx: { until: 21 }, to: "J3_nuit" },
+    { fx: { until: 20 }, to: "J3_nuit" },
   ] },
 
   // ---------------------------------------------------------------- Mo, the Grand Canal

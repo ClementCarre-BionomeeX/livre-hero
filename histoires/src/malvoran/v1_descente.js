@@ -1570,9 +1570,9 @@ module.exports = {
   passages: P,
   extras: {
     people: {
-      VE_onfroi: { name: "Onfroi, intendant de Thavar", f: false, face: { age: "ancien", coif: "degarni" }, desc: "L'intendant du manoir de Thavar, soixante-dix ans, qui a ciré ses bottes pour descendre sous la montagne." },
-      VE_galien: { name: "Galien", f: false, face: { age: "jeune", coif: "court", marks: ["rousseur"] }, desc: "Le page de Veyra, quinze ans. Sa mère tient une boutique de chandelles à Ferrance." },
-      VE_lucain: { name: "Lucain Lormier", f: false, face: { age: "adulte", coif: "court" }, desc: "Le secrétaire du premier conseiller d'Aldaran. Il a porté ses lettres et son or, et il a lu les lettres avant de les cacheter." },
+      VE_onfroi: { name: "Onfroi, intendant de Thavar", aspect: { allure: "vieil intendant", habits: "habit noir élimé, bottes cirées" }, f: false, face: { age: "ancien", coif: "degarni" }, desc: "L'intendant du manoir de Thavar, soixante-dix ans, qui a ciré ses bottes pour descendre sous la montagne." },
+      VE_galien: { name: "Galien", aspect: { allure: "page de quinze ans", visage: "taches de rousseur" }, f: false, face: { age: "jeune", coif: "court", marks: ["rousseur"] }, desc: "Le page de Veyra, quinze ans. Sa mère tient une boutique de chandelles à Ferrance." },
+      VE_lucain: { name: "Lucain Lormier", aspect: { allure: "secrétaire" }, f: false, face: { age: "adulte", coif: "court" }, desc: "Le secrétaire du premier conseiller d'Aldaran. Il a porté ses lettres et son or, et il a lu les lettres avant de les cacheter." },
     },
     items: {
       VE_lame_durn: { name: "La lame des Trois-Bornes", kind: "arme", dmg: 10, att: 5, keep: true, desc: "Une épée bâtarde forgée par Durn avec le marteau que tu lui as rendu. Trois pierres levées au poinçon sur le talon." },

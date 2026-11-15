@@ -1324,11 +1324,11 @@ module.exports = {
   passages: P,
   extras: {
     people: {
-      iit_onfroi: { name: "Onfroi", f: false, face: { age: "ancien", coif: "degarni" }, desc: "L'intendant de la maison de Thavar. Un habit noir élimé, brossé avec soin, et des registres tenus depuis cinquante ans." },
-      iit_guillemette: { name: "Guillemette", f: true, face: { age: "mur", coif: "foulard" }, desc: "La cuisinière du manoir de Thavar. Elle parle fort et nourrit tout le monde d'oignons et de pommes." },
-      iit_josselin: { name: "Josselin", f: false, face: { age: "jeune", hair: "roux", marks: ["rousseur"] }, desc: "Quinze ans, valet d'écurie, de jardin et de tout le reste au manoir de Thavar. Il n'a jamais été payé." },
-      iit_groux: { name: "Anceau Groux", f: false, face: { age: "mur", shape: "rond" }, desc: "Fermier enrichi, voisin du manoir de Thavar. Il achète les droits, les prés et les dettes, et parfois il n'attend pas qu'on les vende." },
-      iit_ostrand: { name: "Messire Ostrand de Clairvent", f: false, face: { age: "adulte", coif: "court", beard: "moustache" }, desc: "L'émissaire de Maître Vendrel. Un manteau vert, des gants qu'il ôte doigt par doigt, et une politesse de marchand." },
+      iit_onfroi: { name: "Onfroi", aspect: { allure: "vieil intendant", habits: "habit noir élimé, bien brossé", signe: "ses registres" }, f: false, face: { age: "ancien", coif: "degarni" }, desc: "L'intendant de la maison de Thavar. Un habit noir élimé, brossé avec soin, et des registres tenus depuis cinquante ans." },
+      iit_guillemette: { name: "Guillemette", aspect: { allure: "femme carrée", habits: "foulard, manches retroussées", voix: "parle fort" }, f: true, face: { age: "mur", coif: "foulard" }, desc: "La cuisinière du manoir de Thavar. Elle parle fort et nourrit tout le monde d'oignons et de pommes." },
+      iit_josselin: { name: "Josselin", aspect: { allure: "valet de quinze ans", visage: "roux, taches de rousseur" }, f: false, face: { age: "jeune", hair: "roux", marks: ["rousseur"] }, desc: "Quinze ans, valet d'écurie, de jardin et de tout le reste au manoir de Thavar. Il n'a jamais été payé." },
+      iit_groux: { name: "Anceau Groux", aspect: { allure: "fermier enrichi" }, f: false, face: { age: "mur", shape: "rond" }, desc: "Fermier enrichi, voisin du manoir de Thavar. Il achète les droits, les prés et les dettes, et parfois il n'attend pas qu'on les vende." },
+      iit_ostrand: { name: "Messire Ostrand de Clairvent", aspect: { habits: "manteau vert", visage: "moustache", signe: "ôte ses gants doigt par doigt" }, f: false, face: { age: "adulte", coif: "court", beard: "moustache" }, desc: "L'émissaire de Maître Vendrel. Un manteau vert, des gants qu'il ôte doigt par doigt, et une politesse de marchand." },
     },
     items: {
       iit_gant_noir: { name: "Un gant noir", kind: "quete", desc: "Un gant de cuir noir et fin, cousu de fil gris. Sur la paume, à l'intérieur, un petit cercle brisé brodé d'argent." },

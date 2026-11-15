@@ -1401,8 +1401,8 @@ module.exports = {
   passages: passages,
   extras: {
     people: {
-      ib_hubert: { name: "Hubert Lagache", f: false, face: { age: "adulte", beard: "barbe", hair: "roux", marks: ["brulure"] }, desc: "Le forgeron de Brumefeuille. Large comme une porte de grange, la barbe roussie par les étincelles, et une fille malade de la fièvre grise." },
-      ib_ysabeau: { name: "Ysabeau", f: true, face: { age: "jeune", coif: "foulard" }, desc: "La femme d'Aubry le sabotier, à Brumefeuille. Sa fille de quelques mois a la fièvre grise. C'est Berthe qui l'a mise au monde." },
+      ib_hubert: { name: "Hubert Lagache", aspect: { allure: "large comme une porte de grange", visage: "barbe roussie par les étincelles" }, f: false, face: { age: "adulte", beard: "barbe", hair: "roux", marks: ["brulure"] }, desc: "Le forgeron de Brumefeuille. Large comme une porte de grange, la barbe roussie par les étincelles, et une fille malade de la fièvre grise." },
+      ib_ysabeau: { name: "Ysabeau", aspect: { allure: "jeune mère", habits: "foulard", signe: "son bébé contre elle" }, f: true, face: { age: "jeune", coif: "foulard" }, desc: "La femme d'Aubry le sabotier, à Brumefeuille. Sa fille de quelques mois a la fièvre grise. C'est Berthe qui l'a mise au monde." },
     },
     items: {
       ib_cle_vanne: { name: "La clé de la grande vanne", kind: "quete", keep: true, desc: "Une clé de fer longue comme l'avant-bras, à l'anneau rouillé. Elle ouvre la grande vanne du barrage du moulin de Brumefeuille, en amont, que personne n'a ouverte depuis vingt ans." },

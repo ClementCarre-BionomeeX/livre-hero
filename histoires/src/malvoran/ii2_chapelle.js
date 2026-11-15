@@ -1293,12 +1293,12 @@ module.exports = {
   passages: P,
   extras: {
     people: {
-      iic_ida: { name: "Ida", f: true, face: { age: "jeune", hair: "chatain", coif: "chignon" }, desc: "Elle sert à la Perche, à Morteau, un nourrisson sur le dos. Elle compte les pots, les deniers, et les regards." },
-      iic_gerold: { name: "Gérold", f: false, face: { age: "mur", coif: "rase", marks: ["cicatrice"] }, desc: "Le patron de la Perche, à Morteau, et le père d'Ida. Il ne pose jamais de questions, et il n'aime pas qu'on lui en pose." },
-      iic_tiburce: { name: "Tiburce", f: false, face: { age: "ancien", beard: "longue", skin: "hale" }, desc: "Le plus vieux pêcheur de Morteau. Il loue sa barque le jour, jamais la nuit." },
-      iic_herbin: { name: "Herbin", f: false, face: { age: "adulte", beard: "barbe" }, desc: "Pêcheur de Morteau. Sa femme Perrette est morte la nuit où le lac a monté. Il boit." },
-      iic_ninon: { name: "Ninon", f: true, face: { age: "enfant", coif: "tresses" }, desc: "La fille de Herbin, huit ans. Elle mesure la montée du lac avec des encoches sur un pieu." },
-      iic_anthelme: { name: "Le prieur Anthelme", f: false, face: { age: "ancien", marks: ["aveugle"] }, desc: "Le prieur de Saint-Ivo, noyé la nuit où le lac a monté. Il tient encore la Cloche dans la crypte." },
+      iic_ida: { name: "Ida", aspect: { allure: "jeune servante", visage: "chignon châtain", signe: "un bébé noué dans le dos" }, f: true, face: { age: "jeune", hair: "chatain", coif: "chignon" }, desc: "Elle sert à la Perche, à Morteau, un nourrisson sur le dos. Elle compte les pots, les deniers, et les regards." },
+      iic_gerold: { name: "Gérold", aspect: { allure: "aubergiste sans questions", visage: "crâne rasé, cicatrice" }, f: false, face: { age: "mur", coif: "rase", marks: ["cicatrice"] }, desc: "Le patron de la Perche, à Morteau, et le père d'Ida. Il ne pose jamais de questions, et il n'aime pas qu'on lui en pose." },
+      iic_tiburce: { name: "Tiburce", aspect: { allure: "vieux pêcheur", visage: "longue barbe", signe: "assis sur son tonneau" }, f: false, face: { age: "ancien", beard: "longue", skin: "hale" }, desc: "Le plus vieux pêcheur de Morteau. Il loue sa barque le jour, jamais la nuit." },
+      iic_herbin: { name: "Herbin", aspect: { allure: "pêcheur qui boit", visage: "barbe" }, f: false, face: { age: "adulte", beard: "barbe" }, desc: "Pêcheur de Morteau. Sa femme Perrette est morte la nuit où le lac a monté. Il boit." },
+      iic_ninon: { name: "Ninon", aspect: { allure: "fillette de huit ans", visage: "tresses", signe: "des encoches sur un pieu" }, f: true, face: { age: "enfant", coif: "tresses" }, desc: "La fille de Herbin, huit ans. Elle mesure la montée du lac avec des encoches sur un pieu." },
+      iic_anthelme: { name: "Le prieur Anthelme", aspect: { allure: "vieux prieur aveugle", signe: "une cloche entre les mains" }, f: false, face: { age: "ancien", marks: ["aveugle"] }, desc: "Le prieur de Saint-Ivo, noyé la nuit où le lac a monté. Il tient encore la Cloche dans la crypte." },
     },
     items: {
       iic_chapelet: { name: "Le chapelet de frère Benoît", kind: "quete", desc: "Un chapelet de buis noirci, tiré du lac par les pêcheurs de Morteau. Une petite main de plomb au bout, un prénom gratté au couteau." },

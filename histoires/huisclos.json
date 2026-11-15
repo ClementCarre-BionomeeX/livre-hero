@@ -1104,6 +1104,11 @@
  "people": {
   "odile": {
    "name": "Odile",
+   "aspect": {
+    "allure": "trente-quatre ans, droite, peu de mots",
+    "habits": "robe de deuil",
+    "voix": "parle peu, et ça coupe"
+   },
    "f": true,
    "face": {
     "age": "adulte",
@@ -1183,6 +1188,11 @@
   },
   "germain": {
    "name": "Germain Rouvière",
+   "aspect": {
+    "allure": "homme aimable, prudent",
+    "visage": "moustache brune",
+    "signe": "fait attention à ses bottes"
+   },
    "f": false,
    "face": {
     "age": "adulte",
@@ -1240,6 +1250,11 @@
   },
   "mariette": {
    "name": "Mariette Coulon",
+   "aspect": {
+    "allure": "soixante-dix ans, jamais assise",
+    "habits": "tablier, foulard",
+    "signe": "s'essuie les mains à son tablier"
+   },
    "f": true,
    "face": {
     "age": "ancien",
@@ -1292,6 +1307,11 @@
   },
   "fabre": {
    "name": "Le docteur Fabre",
+   "aspect": {
+    "habits": "gilet noir",
+    "visage": "lunettes, barbe grise",
+    "signe": "un verre à la main"
+   },
    "f": false,
    "face": {
     "age": "mur",
@@ -1350,6 +1370,11 @@
   },
   "jeanne": {
    "name": "Jeanne Gerbaud",
+   "aspect": {
+    "allure": "l'institutrice, ton amie d'autrefois",
+    "signe": "aiguille et drap noir",
+    "voix": "voix si basse qu'on se penche"
+   },
    "f": true,
    "face": {
     "age": "jeune",
