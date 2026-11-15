@@ -94,8 +94,9 @@ module.exports = {
   J2_jour: { act: "II", title: "Bas-Port masqué", place: "basport", hub: true, noLead: true, backName: "Bas-Port masqué",
     text: [
       { first: true, text: "Bas-Port masqué ressemble à une basse-cour qui aurait appris à ramer : des têtes de poule, de canard, de cochon, sur des barques chargées de vin. Personne ne te reconnaît. C'est le seul jour de l'année où un homme recherché peut aller partout. Tu as le temps de trois choses avant le soir." },
-      { again: true, if: { clock: "j2", max: 1 }, text: "Le soleil monte. Il te reste deux choses à faire avant le soir." },
-      { again: true, if: { clock: "j2", min: 2 }, text: "Le soleil descend vers les Passes. Il te reste une chose à faire. Le bal masqué de la Maison des Sels commence au coucher du soleil." },
+      { again: true, if: { clock: "j2", max: 1 }, text: "Le soleil monte. Il te reste trois choses à faire avant le soir." },
+      { again: true, if: { clock: "j2", min: 2, max: 2 }, text: "Midi passe. Les masques dorment sur les quais, à l'ombre des barques. Il te reste deux choses à faire avant le soir." },
+      { again: true, if: { clock: "j2", min: 3 }, text: "Le soleil descend vers les Passes. Il te reste une chose à faire. Le bal masqué de la Maison des Sels commence au coucher du soleil." },
       { if: { has: "clef3=corentin" }, text: "Quelque part dans la ville, Corentin a ta clef. Un gamin de la Morue t'a dit qu'il a acheté un masque de renard et un habit de fête, et qu'il a demandé l'heure du bal de la Maison des Sels." },
       { if: { all: [{ has: "ch2:oriane" }, { has: "oriane=enquete" }, { has: "oriane:cherche_jasse" }] }, text: "Un billet est arrivé à l'Ancre Basse pour toi, d'une écriture de clerc : *La secrétaire de la Doyenne voudrait parler au frère de Nella Ferrant. Quai des Saules, la maison au saule. Sans armes. O. V.*" },
     ],
@@ -106,10 +107,10 @@ module.exports = {
       { label: "Le Temple : demander la protection du Grand Prêtre", to: "J2_temple", fx: { clock: { j2: 1 } }, hide: { seen: "J2_temple" } },
       { label: "La Maison des Sels : proposer un marché au Grand Argentier", if: KEY, why: "Tu n'as rien à lui vendre.", to: "J2_morvan", fx: { clock: { j2: 1 } }, hide: { seen: "J2_morvan" } },
       { label: "Les roseaux du nord : trouver un passage vers le large, pour Nella et toi", if: LIBRE, to: "J2_fente", fx: { clock: { j2: 1 } }, hide: { seen: "J2_fente" } },
-      { label: "Le bal masqué de la Maison des Sels, au coucher du soleil", if: { clock: "j2", min: 2 }, why: "Le bal commence au coucher du soleil.", to: "J2_bal", fx: { clock: { j2: 1 } }, hide: { seen: "J2_bal" }, big: true },
+      { label: "Le bal masqué de la Maison des Sels, au coucher du soleil", if: { clock: "j2", min: 3 }, why: "Le bal commence au coucher du soleil.", to: "J2_bal", fx: { clock: { j2: 1 } }, hide: { seen: "J2_bal" }, big: true },
     ] },
   J2_suite: { branch: [
-    { if: { clock: "j2", min: 3 }, to: "J2_soir" },
+    { if: { clock: "j2", min: 4 }, to: "J2_soir" },
     { to: "J2_jour" },
   ] },
 

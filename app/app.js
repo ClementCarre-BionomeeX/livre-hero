@@ -1416,6 +1416,7 @@
     w.appendChild(h("div", null, h("div", { class: "label" }, C.multi ? C.multi.title : "Nouvelle partie"), h("h1", null, C.multi && C.multi.who ? C.multi.who + ", qui es-tu ?" : "Qui es-tu ?")));
     // The intro and the questions of the past agree with the hero as soon as the reader has said how the book speaks.
     var ac = function (t) { return st.heroes ? t : String(t).replace(/\{e\}/g, C.fem ? "e" : ""); };
+    if (st.lecture) { renderOpenBook(w, st, C); app.appendChild(w); return; }
     if (st.intro) w.appendChild(h("div", { class: "prose", html: st.intro.map(function (p) { return "<p>" + md(ac(p)) + "</p>"; }).join("") }));
     var wf = worldFold(st, "create"); if (wf) w.appendChild(wf);
     // A story told through its own characters only (heroes, none made by the reader; 8.8): no name, no calling, no
@@ -1476,6 +1477,29 @@
     var startBtn = h("button", { class: "btn primary", disabled: !ready(), onclick: startGame }, C.multi && C.multi.next ? C.multi.next : "Commencer la lecture");
     w.appendChild(h("div", { class: "row" }, startBtn, h("span", { class: "small muted" }, cast ? "" : byStory ? "Il faut un nom et une réponse à chaque question." : "Il faut un nom, une voie et une réponse à chaque question.")));
     app.appendChild(w);
+  }
+  // Intent: renderOpenBook(Element, Story, Creation) -> nothing = the opening of a book to read (story.lecture, 9.0): the
+  // historical notice first, set apart, then the author's foreword and « Commencer la lecture ». No name, calling, face,
+  // difficulty or « tout jouer » : the hero is the narrator of the book.
+  // Why: Clément, 15/11 — « Le Monde perdu » kept as Doyle wrote it, with a notice « bien visible » on its context.
+  function renderOpenBook(w, st, C) {
+    var nar = (st.people || {})[st.narrator] || {};
+    C.name = C.name || nar.name || "Le lecteur"; C.arch = C.arch || "barde"; C.fem = !!nar.f; C.toutJouer = false; C.difficulty = "conteur";
+    w.querySelector("h1").textContent = st.title;
+    if (st.author) w.appendChild(h("div", { class: "small muted" }, st.author));
+    if (st.notice) w.appendChild(bookNotice(st, true));
+    if (st.intro) w.appendChild(h("div", { class: "prose", html: st.intro.map(function (p) { return "<p>" + md(p) + "</p>"; }).join("") }));
+    w.appendChild(h("div", { class: "row" }, h("button", { class: "btn primary", onclick: startGame }, "Commencer la lecture"),
+      nar.name ? h("span", { class: "small muted" }, "Le livre est raconté par " + nar.name + ".") : null));
+  }
+  // Intent: bookNotice(Story, full) -> Element = the notice of a book to read: its whole text (opening, « En savoir
+  // plus »), or the short reminder at the head of a chapter that needs it, with a way to read it all again.
+  function bookNotice(st, full) {
+    var N = st.notice;
+    if (full) return h("aside", { class: "book-notice", role: "note" }, h("div", { class: "label" }, "⚠ " + (N.title || "Avant de lire")),
+      h("div", { class: "prose", html: [].concat(N.text || []).map(function (p) { return "<p>" + md(p) + "</p>"; }).join("") }));
+    return h("aside", { class: "book-notice short", role: "note" }, h("span", { html: md("⚠ " + (N.reminder || N.title || "")) }), " ",
+      h("button", { class: "btn ghost sm", onclick: function () { A.modal = { kind: "bookNotice" }; render(); } }, "Relire la notice"));
   }
   // Intent: renderFacePicker(Creation, Story) -> Element = « Ton visage » : the portrait as drawn from the name, and
   // every trait of Moteur.FACE to change it: age, skin, shape, eyes, nose, mouth, hair, beard, and the particular
@@ -1574,6 +1598,7 @@
     box.appendChild(h("div", { class: "small" }, facts.join(" · ")));
     var mech = mechanicsOf(st);
     if (mech.length) box.appendChild(h("div", { class: "small" }, h("b", null, "On y trouve : "), mech.join(", ") + "."));
+    if (st.notice) box.appendChild(bookNotice(st, true));
     var th = (st.adult && st.adult.themes) || [];
     if (th.length) box.appendChild(h("div", { class: "small" }, h("b", null, "Thèmes : "), th.join(" ; ") + "."));
     var wf = worldFold(st, "book:" + m.id); if (wf) box.appendChild(wf);
@@ -1908,6 +1933,7 @@
   // Intent: once per new version, a short note of what changed (NEWS, newest first), only the versions the reader has
   // not seen on this device. Why: Clément, 13/11 (piste 33).
   var NEWS = [
+    { v: "9.0", items: ["Nouveau livre à lire : « Le Monde perdu » d'Arthur Conan Doyle (1912), traduit en entier. Pas de choix : un bouton « Suivant », et les noms des personnages touchables.", "Une notice ouvre le livre et revient en tête des chapitres qui en ont besoin : le texte de 1912 contient des mots et des idées racistes de son époque, gardés tels quels.", "« Où en étais-je ? » résume les chapitres déjà lus, et « ← Page précédente » revient en arrière."] },
     { v: "8.9", items: ["Nouvelle histoire : « La Nuit de la Retenue », une nuit à Corvèze vue par sept personnes. La première partie est courte et s'arrête trop tôt ; chaque fin ouvre une autre personne à suivre, et ce que tu apprends reste d'une partie à l'autre.", "Un ✧ devant un choix : un chemin qu'une partie précédente t'a ouvert.", "Sur une scène déjà lue dans une autre partie, « Tu connais la suite » saute au prochain carrefour.", "Nouvel onglet du carnet, quand l'histoire en a : L'intrigue (les personnes à suivre, ce que tu sais, les fins trouvées)."] },
     { v: "8.8", items: ["Nouvelle histoire : « Les Fils de la Marée », trois héros, trois actes, deux carrefours où tu choisis qui suivre d'abord, et des centaines de fins : le sort de la ville, puis celui de chacun.", "Pistes déjà suivies : sous un choix que tu as déjà pris dans une partie précédente, la mention « déjà suivie » (réglage à part). Ta fiche montre la part des pistes explorées."] },
     { v: "8.6", items: ["Mots à effets : certains mots tremblent, ondulent, changent de couleur, s'effacent ou s'écrivent sous tes yeux.", "Des mots de règle (fatigue, blessure, jet, PV…) s'ouvrent d'un toucher pour dire ce qu'ils font.", "Dans « Le Cahier de Solène », des lettres d'or sont cachées dans le texte. À toi de les trouver.", "Une phrase écrite à l'envers se retourne quand tu la touches, et certaines lignes n'apparaissent qu'à la lumière du bon objet.", "La page suit l'état du héros : elle tremble quand il a peur, se brouille quand il est épuisé. Réglage « Mots à effets » : animés, discrets ou aucun.", "Le ciel change selon la région traversée, dans Kardan, Malvoran et les Cendres. En difficulté Héroïque, la route use : le mauvais temps pèse sur les jets, les longues routes fatiguent, le froid peut blesser.", "Seconde lecture dans Kardan et Le Témoin : une fois une fin trouvée, certaines pages en disent davantage.", "Kardan a sa page « Ce qu'il advint », et chaque choix laissé sans suite dans les anciennes histoires a désormais sa ligne.", "Le Témoin : l'onglet Versions garde ce que chacun a dit de la nuit des Combes et du soir au Chamois.", "Quarante jours : le Conseil des Cinq Bancs vote sur le pain, la promesse des funérailles se tient ou se rompt, l'onglet « Qui est avec qui » se remplit, et la ville avance pendant que tu es ailleurs.", "Les Cendres de l'Hiver : la dernière page dit ce que sont devenus beaucoup plus de tes choix.", "Le monde de ce livre : chaque histoire a sa page sur ses coutumes, sa monnaie, ses croyances et qui gouverne, à lire avant de partir ou dans le carnet. Les noms du monde soulignés en or s'ouvrent d'un toucher."] },
@@ -2343,7 +2369,7 @@
       skyPill(st, s),
       dreadPill(st, s),
       s.mark ? h("span", { class: "pill mark", title: "La Marque" }, "Marque " + s.mark) : null,
-      h("span", { class: "pill small" }, M.timeLabel(s)),
+      st.lecture ? null : h("span", { class: "pill small" }, M.timeLabel(s)),
       s.ironman ? h("span", { class: "pill small", title: "Sans retour : chaque choix est définitif. Jetons de destin restants dans cet acte : " + fateLeft(s), "aria-label": "Sans retour, " + fateLeft(s) + " jetons de destin" }, "⚔ 🎲" + fateLeft(s)) : null,
       h("button", { class: "btn sm primary", onclick: function () { A.carnet = true; render(); } }, "Carnet")]));
     var w = h("main", { class: "wrap" });
@@ -2363,7 +2389,8 @@
     if (rc) { if (nr) rc.appendChild(nr); page.appendChild(rc); }
     else if (nr) page.appendChild(h("aside", { class: "recap" }, h("div", { class: "row" }, h("span", { class: "grow" }), h("button", { class: "btn ghost sm", onclick: function () { A.recap = false; render(); } }, "Fermer")), nr));
     var actStart = cur >= 0 && acts[cur].start === s.node && actMin;
-    page.appendChild(h("div", { class: "page-head" }, h("div", null, h("h2", { id: "page-title", tabindex: "-1" }, v.title || ""), h("div", { class: "where" }, [v.souvenir ? "Souvenir · " + v.souvenir : null, v.interlude ? "Interlude · " + v.interlude.who + (v.interlude.where ? " · " + v.interlude.where : "") : null, cur >= 0 && !v.souvenir && !v.interlude ? acts[cur].title : null, v.souvenir || v.interlude ? null : where(st, s), actStart ? "environ " + minutesLabel(actMin) + " de lecture" : null].filter(Boolean).join(" · "))), num ? h("span", { class: "para-num", title: "Numéro du paragraphe" }, "§ " + num) : null));
+    page.appendChild(h("div", { class: "page-head" }, h("div", null, h("h2", { id: "page-title", tabindex: "-1" }, v.title || ""), h("div", { class: "where" }, [v.souvenir ? "Souvenir · " + v.souvenir : null, v.interlude ? "Interlude · " + v.interlude.who + (v.interlude.where ? " · " + v.interlude.where : "") : null, cur >= 0 && !v.souvenir && !v.interlude ? acts[cur].title : null, v.souvenir || v.interlude ? null : where(st, s), actStart ? "environ " + minutesLabel(actMin) + " de lecture" : null].filter(Boolean).join(" · "))), num && !st.lecture ? h("span", { class: "para-num", title: "Numéro du paragraphe" }, "§ " + num) : null));
+    if (st.notice && actFirst && acts[cur].notice) page.appendChild(bookNotice(st, false));
     var gb = groupBanner(G, s); if (gb) page.appendChild(gb);
     var sc = G.multi ? null : People.scene(G, v); if (sc) page.appendChild(sc);
     var fu = firstUse(G, v); if (fu) page.appendChild(fu);
@@ -2401,16 +2428,18 @@
     if (v.kind === "end") page.appendChild(renderEnding(st, s, v));
     w.appendChild(page);
     w.appendChild(h("div", { class: "tools" },
-      s.ironman ? null : h("button", { class: "btn sm", disabled: !G.undo.length, onclick: undo, title: G.multi ? "Revenir avant ton dernier choix (pas avant un choix du monde ni une charnière)" : "Revenir avant ton dernier choix" }, "↶ Choix précédent"),
+      st.lecture ? h("button", { class: "btn sm", disabled: !G.undo.length, onclick: undo }, "← Page précédente") : null,
+      st.lecture ? h("button", { class: "btn sm", "aria-pressed": A.recap ? "true" : "false", onclick: function () { A.recap = !A.recap; render(); } }, "Où en étais-je ?") : null,
+      s.ironman || st.lecture ? null : h("button", { class: "btn sm", disabled: !G.undo.length, onclick: undo, title: G.multi ? "Revenir avant ton dernier choix (pas avant un choix du monde ni une charnière)" : "Revenir avant ton dernier choix" }, "↶ Choix précédent"),
       G.multi && A.multi.kind === "local" && !v.wait ? h("button", { class: "btn sm", onclick: function () { stopSpeaking(); passTurn(); } }, "Passer la main") : null,
       A.tts ? h("button", { class: "btn sm", onclick: function () { A.speaking ? stopSpeaking() : speak(v); } }, A.speaking ? "■ Arrêter la lecture" : "🔈 Lire à voix haute") : null,
       pref("voiceChoice") && VoiceChoice.available() && !G.multi && v.kind !== "end" ? h("button", { class: "btn sm" + (VoiceChoice.listening ? " primary" : ""), "aria-pressed": VoiceChoice.listening ? "true" : "false", title: "Dis « le deuxième » ou quelques mots du choix", onclick: function () { VoiceChoice.listening ? VoiceChoice.stop() : VoiceChoice.listen(); } }, VoiceChoice.listening ? "🎤 J'écoute…" : "🎤 Choisir à la voix") : null,
       h("button", { class: "btn sm", onclick: function () { A.carnet = true; A.carnetTab = "carte"; render(); } }, "Carte"),
-      h("button", { class: "btn sm", onclick: function () { A.carnet = true; A.carnetTab = "quetes"; render(); } }, "Quêtes"),
+      st.lecture ? null : h("button", { class: "btn sm", onclick: function () { A.carnet = true; A.carnetTab = "quetes"; render(); } }, "Quêtes"),
       G.multi ? null : h("button", { class: "btn sm", onclick: function () { A.modal = { kind: "mark" }; render(); } }, "🔖 Marque-page"),
-      G.multi || G.ephemeral ? null : h("button", { class: "btn sm", "aria-pressed": groupOf(G) ? "true" : "false", onclick: function () { A.modal = { kind: "group" }; render(); } }, "👥 À plusieurs"),
+      G.multi || G.ephemeral || st.lecture ? null : h("button", { class: "btn sm", "aria-pressed": groupOf(G) ? "true" : "false", onclick: function () { A.modal = { kind: "group" }; render(); } }, "👥 À plusieurs"),
       h("button", { class: "btn sm", "aria-label": "Ambiance sonore", "aria-pressed": pref("ambiance") ? "true" : "false", onclick: function () { setPref("ambiance", !pref("ambiance")); } }, pref("ambiance") ? "🔊 Ambiance" : "🔇 Ambiance"),
-      pref("nudge") && !G.multi && v.kind !== "end" ? h("button", { class: "btn sm", disabled: nudgesLeft(G) <= 0, title: "Une phrase pour t'orienter, sans rien révéler", onclick: function () { askNudge(G); } }, "💡 Coup de pouce (" + nudgesLeft(G) + ")") : null,
+      pref("nudge") && !G.multi && !st.lecture && v.kind !== "end" ? h("button", { class: "btn sm", disabled: nudgesLeft(G) <= 0, title: "Une phrase pour t'orienter, sans rien révéler", onclick: function () { askNudge(G); } }, "💡 Coup de pouce (" + nudgesLeft(G) + ")") : null,
       h("button", { class: "btn sm", onclick: function () { A.modal = { kind: "prefs" }; render(); } }, "⚙ Réglages"),
       h("button", { class: "btn sm", onclick: function () { A.modal = { kind: "report" }; render(); } }, "⚑ Signaler")));
     app.appendChild(w);
@@ -2540,7 +2569,7 @@
   // Why: Clément, 13/11.
   function actSnap(st, s) {
     return { met: Object.keys(s.met || {}).filter(function (k) { return s.met[k]; }), feats: Object.keys(s.feats || {}), quests: M.questsOf(st).filter(function (q) { return M.questDone(s, q); }).map(function (q) { return q.id; }),
-      ep: s.ep, time: s.time, places: s.place ? [s.place] : [] };
+      ep: s.ep, time: s.time, places: s.place ? [s.place] : [], people: Object.keys(s.people || {}) };
   }
   // Called around each choice: opens the act's record, follows the hero from place to place, tells when an act closed.
   function actTrack(G, before) {
@@ -2576,6 +2605,12 @@
       svgs.push("</svg>");
       b.appendChild(h("div", { html: svgs.join("") }));
     }
+    // A book to read (9.0): the chapter's summary and the people met in it, no days, experience or level.
+    if (st.lecture) {
+      if (act.recap) b.appendChild(h("p", { class: "chapter-stats" }, act.recap));
+      var newPeople = Object.keys(s.people || {}).filter(function (k) { return (L.people || []).indexOf(k) < 0 && (st.people || {})[k]; });
+      if (newPeople.length) b.appendChild(h("p", { class: "small" }, h("span", { class: "label" }, "Rencontrés "), newPeople.map(function (k) { return st.people[k].name; }).join(", ")));
+    } else {
     var hours = s.time - L.time, days = Math.max(1, Math.round(hours / 24)), ep = s.ep - L.ep;
     b.appendChild(h("p", { class: "chapter-stats" }, days + " jour" + (days > 1 ? "s" : "") + " de route et d'aventure" + (ep > 0 ? " · +" + ep.toLocaleString("fr-FR") + " points d'expérience" : "") + " · niveau " + M.level(s)));
     var newMet = Object.keys(s.met || {}).filter(function (k) { return s.met[k] && L.met.indexOf(k) < 0 && (st.companions || {})[k]; });
@@ -2586,6 +2621,7 @@
     var quests = M.questsOf(st).filter(function (q) { return M.questDone(s, q) && L.quests.indexOf(q.id) < 0; });
     if (feats.length || quests.length) b.appendChild(h("ul", { class: "plain chapter-list" },
       quests.map(function (q) { return h("li", null, "✔ " + q.title); }), feats.map(function (f) { return h("li", null, "★ " + f.title); })));
+    }
     var nextAct = (st.acts || []).filter(function (x) { return x.id === s.lastAct; })[0], nextMin = nextAct && nextAct.id !== m.act ? actMinutes(st, nextAct.id) : 0;
     if (nextMin) b.appendChild(h("p", { class: "small muted" }, "« " + nextAct.title + " » se lit en environ " + minutesLabel(nextMin) + "."));
     b.appendChild(h("button", { class: "btn primary", onclick: close }, "Tourner la page"));
@@ -2840,6 +2876,7 @@
     return box;
   }
   function renderEnding(st, s, v) {
+    if (st.lecture) return renderBookEnd(st, s);
     var qs = M.questsOf(st), done = qs.filter(function (q) { return M.questDone(s, q); });
     return h("div", { class: "ending" }, h("h3", null, "Fin de la lecture"),
       h("div", { class: "small muted" }, s.name + ", " + M.archOf(st, s).label + " de niveau " + M.level(s) + (qs.length ? " · " + done.length + " quêtes sur " + qs.length : "") + " · " + M.timeLabel(s)),
@@ -4697,11 +4734,15 @@
   }
 
   // ------------------------------------------------------------------ dialogs: settings, report, real dice, bookmark
+  function modalBookNotice(box, close) {
+    box.appendChild(bookNotice(A.game ? A.game.story : A.create.story, true));
+    box.appendChild(h("div", { class: "row" }, h("button", { class: "btn primary", autofocus: true, onclick: close }, "Reprendre la lecture")));
+  }
   function renderModal() {
     var m = A.modal, close = function () { if (m.kind === "send" || m.kind === "receive") Transfer.stop(); A.modal = null; render(); };
     var box = h("div", { class: "modal", role: "dialog", "aria-modal": "true" });
     var bg = h("div", { class: "drawer-bg", onclick: close });
-    ({ prefs: modalPrefs, report: modalReport, dice: modalDice, mark: modalMark, bedtime: modalBedtime, send: modalSend, receive: modalReceive, words: modalWords, sync: modalSync, chapter: modalChapter, shake: modalShake, adult: modalAdult, keys: modalKeys, news: modalNews, group: modalGroup, vote: modalVote, doc: modalDoc })[m.kind](box, close, m);
+    ({ prefs: modalPrefs, report: modalReport, dice: modalDice, mark: modalMark, bedtime: modalBedtime, send: modalSend, receive: modalReceive, words: modalWords, sync: modalSync, chapter: modalChapter, shake: modalShake, adult: modalAdult, keys: modalKeys, news: modalNews, group: modalGroup, vote: modalVote, doc: modalDoc, bookNotice: modalBookNotice })[m.kind](box, close, m);
     app.appendChild(bg); app.appendChild(box);
     var f = box.querySelector("[autofocus]"); if (f) setTimeout(function () { f.focus(); }, 0);
   }
@@ -4905,6 +4946,7 @@
 
   // ------------------------------------------------------------------ "Précédemment…", the timeline, the dice
   function renderRecap(G) {
+    if (G.story.lecture) return readingRecap(G);
     var lines = G.log.slice(-7, -1).filter(function (e) { return e.title; });
     if (!lines.length) return null;
     var keep = /Indice|Quête|rejoint|quitte|Haut fait|Niveau|Acheté|Tu reçois|Tu obtiens/;
@@ -4913,6 +4955,17 @@
         var evs = (e.ev || []).filter(function (x) { return keep.test(x); }).slice(0, 2);
         return h("li", null, h("b", null, String(e.title).replace(/\*/g, "")), e.c ? h("span", null, " : tu as choisi « " + e.c + " »") : null, evs.length ? h("div", { class: "small muted" }, evs.join(" · ")) : null);
       })));
+  }
+  // Intent: readingRecap(Game) -> Element = « Où en étais-je ? » in a book to read: the summary of each chapter already
+  // finished (acts[].recap), then the pages of the current chapter read so far. Nothing of what comes next.
+  function readingRecap(G) {
+    var st = G.story, s = G.s, acts = st.acts || [], cur = acts.map(function (a) { return a.id; }).indexOf(s.lastAct);
+    var done = acts.slice(0, Math.max(0, cur)).filter(function (a) { return a.recap; });
+    var here = G.log.slice(0, -1).filter(function (e) { return e.title && e.act === s.lastAct; });
+    if (!done.length && !here.length) return null;
+    return h("aside", { class: "recap" }, h("div", { class: "row" }, h("span", { class: "label grow" }, "Où en étais-je ?"), h("button", { class: "btn ghost sm", onclick: function () { A.recap = false; render(); } }, "Fermer")),
+      done.length ? h("ol", null, done.map(function (a) { return h("li", null, h("b", null, String(a.title).replace(/\*/g, "")), h("div", { class: "small" }, a.recap)); })) : null,
+      here.length ? h("div", { class: "small muted" }, "Dans ce chapitre : " + here.map(function (e) { return String(e.title).replace(/\*/g, ""); }).join(" · ") + ".") : null);
   }
   var REDUCED = (function () { try { return window.matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) { return false; } })();
   // Intent: leadsIn(Event) -> Bool = shown before the text: a roll, or what the choice did before the page opened;
@@ -5094,6 +5147,19 @@
       }
     }
     return box;
+  }
+  // Intent: renderBookEnd(Story, State) -> Element = the last page of a book to read: its title and author, the
+  // chapters read, and only what makes sense for a book (read it again, read the notice again, see the people met,
+  // back to the library). No hero, level, quests or « autre héros ».
+  function renderBookEnd(st, s) {
+    var met = Object.keys(s.people || {}).length;
+    return h("div", { class: "ending" }, h("h3", null, "Fin du livre"),
+      h("div", { class: "small muted" }, st.title + (st.author ? " · " + st.author : "") + " · " + (st.acts || []).length + " chapitres" + (met ? " · " + met + " personnages rencontrés" : "")),
+      h("div", { class: "row" },
+        h("button", { class: "btn primary", onclick: function () { newGame(st.id); } }, "Relire le livre"),
+        st.notice ? h("button", { class: "btn", onclick: function () { A.modal = { kind: "bookNotice" }; render(); } }, "Relire la notice") : null,
+        met ? h("button", { class: "btn", onclick: function () { A.carnet = true; A.carnetTab = "gens"; render(); } }, "Les personnages") : null,
+        h("button", { class: "btn ghost", onclick: leaveGame }, "Bibliothèque")));
   }
   function endingNote(st, s) {
     var e = M.endingOf(st, s); if (!e || A.game.ephemeral) return null;
