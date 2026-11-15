@@ -58,7 +58,7 @@ module.exports = {
   Q_ch_taches: { act: "I", title: "Les taches", place: "palais",
     text: [
       "Ansel te laisse faire. Sous la chemise de lin, sur les côtes et sur les hanches, s'étalent de larges taches brunes, grandes comme la paume, pareilles à des brûlures anciennes. Le prince les cachait à tous : il s'habillait seul, porte fermée.",
-      "Ansel les regarde avec toi, sans un mot. Puis il rabat la chemise, il remonte la couverture et il lisse le drap du plat de la main, longtemps, comme on efface une écriture.",
+      "Ansel les regarde avec toi, en silence. Puis il rabat la chemise, il remonte la couverture et il lisse le drap du plat de la main, longtemps, comme on efface une écriture.",
     ],
     choices: [{ label: "Te taire aussi", back: "Q_chambre" }, { label: "« Depuis quand ? »", to: "Q_ch_depuis" }] },
   Q_ch_depuis: { act: "I", title: "Depuis quand", place: "palais",
@@ -225,7 +225,7 @@ module.exports = {
     council: { motion: "pain_taxe", to: "Q_conseil_pain_vote", label: "Passer au vote" } },
   Q_conseil_pain_vote: { act: "I", title: "Le vote", place: "palais",
     text: [
-      { if: { vote: "pain_taxe", is: "adopte" }, text: "Le pain est taxé jusqu'aux funérailles. Nello se rassied sans un mot. Orsanne tapote ses bagues contre le bois du banc, dix petits coups secs. « Une taxe fixe le prix, dit-il à mi-voix. Elle remplit mal les fours. Vous verrez. »" },
+      { if: { vote: "pain_taxe", is: "adopte" }, text: "Le pain est taxé jusqu'aux funérailles. Nello se rassied. Orsanne tapote ses bagues contre le bois du banc, dix petits coups secs. « Une taxe fixe le prix, dit-il à mi-voix. Elle remplit mal les fours. Vous verrez. »" },
       { if: { vote: "pain_taxe", is: "rejete" }, text: "La motion est rejetée. Nello reste debout un moment, les mains vides, à regarder les bancs l'un après l'autre. « Bien, dit-il. Ça se réglera dans la rue, alors. » Il se rassied." },
     ],
     choices: [{ label: "Lever la séance", to: "Q_apres_conseil" }] },
