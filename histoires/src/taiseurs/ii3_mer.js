@@ -411,7 +411,7 @@ Object.assign(P, {
   IIM_voie_verite: { act: "II", title: "Ce que tu cherches", place: "vasier", backName: "La Bavarde, sur la vase",
     text: [
       "Tu lui dis Odeline, le cornet, les feuillets d'un registre que des gens ont caché il y a trois cents ans dans des lieux où l'on ne va plus. Tu lui dis que l'un d'eux est aux Écueils, sous l'Ouïe, et que la Banque le cherche pour le brûler. Salomé t'écoute en grattant la vase de ses ongles avec la pointe de son couteau.",
-      { after: "taiseurs:connus", text: "Tu lui dis les Taiseurs aussi, puisque tu sais ce qu'ils sont. Salomé lève la tête au nom. « Les gens de l'Ouïe, dit-elle. Mon grand-père disait qu'ils ont éteint le phare pour noyer les Comptoirs. On les maudit encore, ici. »", else: "Tu ne lui dis pas tout. Tu ne sais pas tout. Elle entend les trous dans ton histoire, et elle les laisse passer." },
+      { after: "taiseurs:connus", text: "Tu lui dis les Taiseurs aussi, puisque tu sais ce qu'ils sont. Salomé lève la tête au nom. « Les gens de l'Ouïe, dit-elle. Mon grand-père disait qu'ils ont éteint le phare pour noyer les Comptoirs. On les maudit encore, ici. »", else: "Tu gardes une part pour toi ; une autre part t'échappe encore. Elle entend les trous dans ton histoire, et elle les laisse passer." },
       "« Un trésor de la reine, dit-elle enfin. Maïwenn y croyait. Elle plongeait pour la Banque en se disant qu'elle le trouverait avant eux. Elle {{oreille#iim_salome_tresor|était trop crédule|l'avait trouvé, je crois, la veille de sa mort, et elle n'a pas eu le temps de me dire où}}. »",
     ],
     choices: [
@@ -1074,7 +1074,7 @@ Object.assign(P, {
       { outcome: "win", text: "Le second spadassin passe par-dessus bord ; ses camarades le repêchent avec une gaffe. Le clerc fait larguer les grappins en criant des ordres d'une voix trop aiguë, et le cotre s'écarte. Sur ton pont, il reste une lame courte et un gant gris, que Salomé ramasse et regarde longtemps avant de le jeter à la mer." },
       { outcome: "lose", text: "Ils fouillent La Bavarde de la cale au mât. Ils prennent ta bourse, ou ce qu'ils en trouvent, et cherchent autre chose, qu'ils ne trouvent pas : tu as glissé le cornet dans ta botte. Le clerc écrit dans un carnet, signe, et le cotre s'en va." },
       { outcome: "flee", text: "Salomé tranche le dernier grappin d'un coup de coutelas et La Bavarde s'arrache au cotre avec un bruit de bois déchiré. Le temps qu'ils reprennent le vent, tu es déjà loin sous leur vent." },
-      "Le soir, la mer est vide. Tu ne dors pas beaucoup.",
+      "Le soir, la mer est vide. Tu dors peu.",
     ],
     choices: [{ back: R }] },
 
