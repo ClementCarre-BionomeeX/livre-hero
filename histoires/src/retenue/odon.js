@@ -153,7 +153,7 @@ module.exports = {
   O_insigne: { act: A, title: "Sans insigne", place: "foulons", end: true, fx: { time: 2, learn: "loutre" },
     text: [
       { via: "pont", text: "Tu tiens ton pont. À minuit, Colin dort debout. À une heure, Thomin chante pour rester éveillé. Le vent tourne au nord, puis au nord-ouest, puis il vient droit du lac, chargé d'une odeur de pluie." },
-      { via: "nine", text: "Nine t'ouvre en chemise, le ventre en avant, la chandelle à la main. Elle voit ta manche nue. Elle garde ses questions. Elle fait chauffer de l'eau pour une tisane et te met une couverture sur les épaules." },
+      { via: "nine", text: "Nine t'ouvre en chemise, le ventre en avant, la chandelle à la main. Elle voit ta manche nue. Elle se tait. Elle fait chauffer de l'eau pour une tisane et te met une couverture sur les épaules." },
       { via: "nine", text: "Tu gardes tout pour toi. Tu regardes ses mains de lavandière, rouges et gercées, poser deux tasses sur la table, et tu te demandes à quoi sert un sergent." },
       "Vers une heure, sur la Sorge, sous les fenêtres, quelqu'un siffle. Deux coups courts, un long. Une barque passe sans lanterne, à contre-courant, vite, avec une seule silhouette à la rame.",
       "Le sifflet se répète plus loin, en amont, vers la digue. Puis le vent, seul.",
@@ -182,7 +182,7 @@ module.exports = {
   O_tour: { act: A, title: "La tour du guet", place: "hauteville", fx: { time: 0.75 },
     text: [
       { via: "coupe", text: "Le lacet cède sous ton couteau. Anicet dort toujours. Le patron laisse faire." },
-      { via: "anicet", text: "Anicet se réveille mal, puis d'un coup. Quand tu dis la digue, il garde ses questions. Il a été garçon de vannes chez le vieux Ferréol, à quinze ans. Il te suit dans la rue en se tenant aux murs." },
+      { via: "anicet", text: "Anicet se réveille mal, puis d'un coup. Quand tu dis la digue, il hoche la tête. Il a été garçon de vannes chez le vieux Ferréol, à quinze ans. Il te suit dans la rue en se tenant aux murs." },
       "La tour du guet a cent quarante marches. Tu les montes dans le noir, la main sur le mur, le souffle court. En haut, la chambre des cloches est ouverte aux quatre vents. Le gros bourdon pend au milieu, et la corde du tocsin descend jusqu'au plancher, usée en son milieu par cent ans de mains.",
       "D'ici, on voit toute la vallée. Les Foulons noirs. La Sorge, plus large qu'à la tombée de la nuit. Et au bout du lac, sur la digue, trois petites lumières côte à côte.",
       "Saint-Rieul sonne deux heures.",

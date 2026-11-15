@@ -56,7 +56,7 @@ module.exports = {
     ] },
   B_retour_pere: { act: A, title: "Le fils qui rapporte la clé", place: "digue", end: true, fx: { flag: "foulons:leves", time: 6 },
     text: [
-      "Ton père t'ouvre. Il voit la toile cirée dans tes bras, et la courrière derrière toi. Il garde ses questions. Il te prend le visage dans ses mains froides, et il le garde un long moment.",
+      "Ton père t'ouvre. Il voit la toile cirée dans tes bras, et la courrière derrière toi. Il se tait. Il te prend le visage dans ses mains froides, et il le garde un long moment.",
       "À trois heures, vous descendez tous les trois à la vanne. Maëlle prend un rayon, toi l'autre. Ton père tourne la clé. Quarante tours. La digue rugit.",
       "Maëlle redescend à deux heures, avant la vanne, pour lever les Foulons avec Ilde. Au jour, le quartier est sur le parvis, la Sorge dans les rues, la digue debout.",
       "Ton père meurt à midi. Avant de mourir, il dit à Ilde, devant toi : « Mon fils a passé le pont. » Il le dit avec une fierté qui te brûle.",

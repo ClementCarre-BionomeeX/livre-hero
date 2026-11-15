@@ -154,7 +154,7 @@ module.exports = {
     ] },
   A_fils_nuit: { act: A, title: "Ce qu'on dit à Ilde", place: "digue", fx: { time: 7.5 },
     text: [
-      "À sept heures, Ilde arrive. Elle trouve le père et le fils assis côte à côte, les yeux rouges tous les deux. Elle garde ses questions.",
+      "À sept heures, Ilde arrive. Elle trouve le père et le fils assis côte à côte, les yeux rouges tous les deux. Elle pose son panier, et sa question avec.",
       "Tu gardes la clé. Tu lui donnes une lettre pour Jacquette : *Trois heures, par le canal.* Et tu lui demandes de faire lever les Foulons à deux heures, sans un mot à personne d'autre.",
       "Ce soir, Bastien reste là-haut. Le capitaine Rambert reste dans l'ignorance. Le pont des Moulins reste noir, cette nuit-là.",
       "À minuit, Bastien t'aide à descendre l'escalier de service. Tu lui apprends tout ce que tu sais, en bas, à la lanterne, en attendant. Les mesures, la mousse, le chant du parement quand l'eau monte. Le pointeau. Il écoute comme jamais.",

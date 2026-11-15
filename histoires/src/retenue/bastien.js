@@ -6,7 +6,7 @@ module.exports = {
     text: [
       "Le Chat Ferré est une cave voûtée sous la rue des Orfèvres, qui sent la chandelle de suif, le vin chaud et l'argent des autres. Quatre tables de dés, une de cartes, et au fond, derrière son comptoir, maître Lucas, qui note tout dans un grand livre noir.",
       "Ce soir, quand tu es entré, maître Lucas a ouvert son livre noir à ta page et il a rayé ta ligne. Quatre cents écus, d'un seul trait de plume. Il s'est dispensé de demander d'où venait l'argent. Il sait.",
-      "Tu as vingt écus dans ta poche. Pernelle Daguet te les a donnés à la porte du jardin, *pour vos frais*, les yeux ailleurs.",
+      "Tu as vingt écus dans ta poche. Pernelle Daguet te les a donnés à la porte du jardin, *pour vos frais*, sans lever les yeux.",
       "Il y a deux heures, tu étais allongé sur le banc chez ton père, les yeux fermés. Tu as entendu la vanne, la clé, Ilde, trois heures, deux heures. Tu es descendu à la rue Haute en courant, et tu as tout répété à une femme en gris qui prenait des notes.",
       "Les dés roulent sur la table d'à côté. Quelqu'un crie. Tu as soif.",
     ],
@@ -208,7 +208,7 @@ module.exports = {
       "Le pointeau est là où ton père te l'a montré quand tu avais huit ans : un gros bouchon de bronze, sous l'eau, à deux pas de la veine. Tu plonges les mains. Tu tournes. Il résiste. Tu tournes encore. Tes ongles cassent.",
       "Au septième tour, il cède. Au vingtième, il te reste dans les mains, et la vanne de fond se lève toute seule, tirée par son contrepoids, avec un bruit qui te jette contre la paroi.",
       "Tu remontes à quatre pattes. Tu as les mains en sang et l'eau du lac dans la bouche. La digue gronde, puis gronde moins.",
-      "Au jour, tu trouves ton père dans son fauteuil. Il vit encore. Il voit tes mains, et il garde ses questions. Il ferme les yeux et il te serre les doigts, les deux mains, très fort.",
+      "Au jour, tu trouves ton père dans son fauteuil. Il vit encore. Il voit tes mains. Il ferme les yeux et il te serre les doigts, les deux mains, très fort.",
       "Aux Foulons, personne n'a été prévenu. L'eau est entrée dans les maisons à trois heures et demie. On comptera les morts à midi.",
     ] },
   B_charge_nuit: { act: A, title: "L'inspecteur", place: "hauteville", fx: { time: 6 },

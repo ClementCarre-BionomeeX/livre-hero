@@ -138,7 +138,7 @@ module.exports = {
       "« Le capitaine a un capitaine, Colin. Ce soir, elle est passée sur ton pont. »",
       "À deux heures et demie, la même voiture redescend à toute allure, vide, et prend le chemin des Foulons. Tu entends le cocher crier aux portes : « Au nom des forges Hesdin ! Debout ! »",
       "À quatre heures, la pluie. Au jour, la Sorge est dans les Foulons jusqu'aux fenêtres basses, le quartier sur le parvis, la digue debout. Nine a monté la Côte avec son homme, le berceau sur la tête.",
-      "Rambert garde ses questions. Il sait qui est passé sur le pont. Il sait qu'on ne reproche rien à un sergent qui a salué une maison du Conseil. Tu as obéi, cette nuit, à la bonne personne. En prenant ta lanterne, tu ignorais qu'il en existait une.",
+      "Rambert reste muet. Il sait qui est passé sur le pont. Il sait qu'on ne reproche rien à un sergent qui a salué une maison du Conseil. Tu as obéi, cette nuit, à la bonne personne. En prenant ta lanterne, tu ignorais qu'il en existait une.",
     ] },
   O_monte_hesdin: { act: A, title: "Le sergent sur le marchepied", place: "digue", end: true, fx: { flag: "foulons:leves", time: 6.5 },
     text: [

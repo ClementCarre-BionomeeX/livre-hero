@@ -152,7 +152,7 @@ module.exports = {
     ] },
   H_temoin: { act: A, title: "Le témoin", place: "digue", end: true, fx: { time: 2.5 },
     text: [
-      "Tu restes assise. Vellard te regarde. Il garde ses questions. Il retourne à sa fenêtre.",
+      "Tu restes assise. Vellard te regarde un long moment. Il retourne à sa fenêtre.",
       "À quatre heures, la pluie. À cinq heures, le sol se met à trembler sous la cuisine, très doucement. Les tasses tintent sur le buffet.",
       "À cinq heures et demie, la digue s'ouvre, au milieu, à trois cents pas de la Maison des Vannes. Tu le vois de la fenêtre. Le mur se fend en long, puis il s'ouvre comme une porte, et tout le lac passe par là, en une seule vague brune qui descend la vallée.",
       "La Maison des Vannes est sur la culée de rocher. Elle tient. Vous êtes debout tous les trois devant la fenêtre, le vieux, la rousse et toi, et vous regardez la ville en bas.",
