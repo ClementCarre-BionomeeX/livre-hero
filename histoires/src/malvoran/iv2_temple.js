@@ -1245,9 +1245,9 @@ Object.assign(P, {
       { with: "aubin", text: "Frère Aubin a couru jusqu'à Josse, à genoux dans la boue, les mains sur la plaie. C'est trop tard, il le sait, et il continue. Il dit la prière des mourants très vite, en s'embrouillant, pendant que les épées arrivent." },
     ],
     combat: { title: "Les épées de Sorel", enemies: [{ id: "ivc_epee", n: 2 }, "ivc_sorel"], terrain: "nature",
-      win: { fx: { ep: ["seance", 4000], fac: { cercle: -15 } }, to: "IVC_vengeance_apres" },
-      lose: { fx: { pv: -4, fac: { cercle: -10 } }, to: "IVC_vengeance_fuite" },
-      flee: { label: "Prendre Coliane par le bras et fuir à travers le camp", dom: "discretion", diff: -10, to: "IVC_vengeance_fuite" } } },
+      win: { fx: { ep: ["seance", 4000], fac: { cercle: -15 } }, to: [{ if: { present: "coliane" }, to: "IVC_vengeance_apres" }, { to: "IVC_vengeance_seul" }] },
+      lose: { fx: { pv: -4, fac: { cercle: -10 } }, to: [{ if: { present: "coliane" }, to: "IVC_vengeance_fuite" }, { to: "IVC_vengeance_seul" }] },
+      flee: { label: "Prendre Coliane par le bras et fuir à travers le camp", dom: "discretion", diff: -10, to: [{ if: { present: "coliane" }, to: "IVC_vengeance_fuite" }, { to: "IVC_vengeance_seul" }] } } },
   IVC_vengeance_apres: { act: "IV", title: "Après", place: "vaux", with: "coliane",
     text: [
       "Sorel est à genoux dans la boue, désarmé, la main sur une épaule ouverte. Ses épées sont à terre ou en fuite. Il te regarde avec une haine propre, professionnelle. « Veyra saura, dit-il. Elle saura que vous avez tué un homme qui donnait de l'eau aux enfants. » Il crache. « Ça lui fera plaisir, je crois. Ça lui donnera raison. »",
@@ -1260,6 +1260,15 @@ Object.assign(P, {
       "Coliane a encore le couteau dans la main. Il y a du sang dessus, et sur sa manche, et sur son visage. Elle le laisse là. Elle regarde la lame comme un objet trouvé.",
     ],
     choices: [{ label: "Rester avec Coliane", big: true, to: "IVC_fin" }] },
+
+  // Coliane gone during the fight (her trust fell too low): the scene goes on without her.
+  IVC_vengeance_seul: { act: "IV", title: "Le camp sans elle", place: "vaux", without: "coliane",
+    text: [
+      { outcome: "win", text: "Sorel est à genoux dans la boue, désarmé, la main sur une épaule ouverte. Ses épées sont à terre ou en fuite. Tu te retournes vers Coliane. Sa place est vide. Une femme de la file montre du doigt la route de la vallée : Coliane est partie par là, en courant, le couteau encore à la main." },
+      { outcome: ["lose", "flee"], text: "Tu cours à travers le camp, entre les tentes, par-dessus les cordes et les feux, avec les épées du Cercle derrière toi, qui connaissent mal le camp et s'y perdent. Tu t'arrêtes contre la palissade du fond, à bout de souffle. Ta main est vide. Coliane l'a lâchée dans la cohue et elle a pris une autre route que la tienne." },
+      "Tu la cherches jusqu'au soir, de tente en tente. Le soir tombe sur le camp sans elle. Elle a fait seule ce qu'elle était venue faire, et elle est repartie seule.",
+    ],
+    choices: [{ label: "Retourner au camp de Vaux", big: true, back: "IV_hub" }] },
 
   // ---------------------------------------------------- justice
   IVC_justice: { act: "IV", title: "La justice", place: "vaux", with: "coliane",
