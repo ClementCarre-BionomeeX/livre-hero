@@ -360,6 +360,19 @@
     "combat": 0,
     "magie": 0
    }
+  },
+  "forges": {
+   "label": "Maîtresse de forges",
+   "tip": "Le fer, les hommes qui le battent, et une voix au Conseil.",
+   "like": "guerrier",
+   "bonus": {
+    "social": 30,
+    "savoir": 25,
+    "combat": 15,
+    "nature": 5,
+    "discretion": 0,
+    "magie": 0
+   }
   }
  },
  "heroes": {
@@ -406,6 +419,12 @@
    "arch": "mage",
    "time": 18,
    "place": "digue",
+   "level": 1
+  },
+  "hesdin": {
+   "arch": "guerrier",
+   "time": 21,
+   "place": "hauteville",
    "level": 1
   }
  },
@@ -474,6 +493,15 @@
     "age": "ancien",
     "beard": "barbe",
     "hair": "blanc"
+   }
+  },
+  "hesdin": {
+   "name": "Bérangère Hesdin",
+   "f": true,
+   "desc": "Maîtresse des forges Hesdin, soixante-dix ans. Une voix au Conseil.",
+   "face": {
+    "age": "ancien",
+    "coif": "foulard"
    }
   }
  },
@@ -588,6 +616,28 @@
     ]
    },
    "hint": "Quelqu'un sait tout depuis trois ans. Il faudra savoir deux choses avant de le suivre."
+  },
+  "hesdin": {
+   "name": "Dame Hesdin",
+   "desc": "maîtresse de forges, 21 h, rue Haute",
+   "start": "H_forges",
+   "fx": {
+    "voie": "forges"
+   },
+   "if": {
+    "all": [
+     {
+      "savoir": "proces_verbal"
+     },
+     {
+      "savoir": "tassin"
+     },
+     {
+      "savoir": "veine_vue"
+     }
+    ]
+   },
+   "hint": "Quelqu'un a voté contre, il y a trois ans, puis s'est tu. Il faudra savoir trois choses avant de la suivre."
   }
  },
  "savoirs": {
@@ -650,6 +700,10 @@
   "tassin": {
    "title": "Le rapport de Tassin",
    "text": "Maître Tassin a signé que la digue tiendra l'hiver. Il n'est jamais descendu dans la galerie."
+  },
+  "hausses": {
+   "title": "Les hausses du déversoir",
+   "text": "Au déversoir de la pointe des Hêtres, six planches de chêne gardent le lac deux pieds plus haut depuis août. On devait les retirer à la Saint-Michel."
   }
  },
  "people": {
@@ -1082,6 +1136,13 @@
      "fx": {
       "time": 0.25
      }
+    },
+    {
+     "label": "Descendre rue du Lavoir, chez Guillot le batelier",
+     "if": {
+      "lu": "I_guillot"
+     },
+     "to": "M_guillot"
     }
    ]
   },
@@ -1723,6 +1784,13 @@
     {
      "label": "Attendre le jour",
      "to": "M_pont"
+    },
+    {
+     "label": "Parler au jeune garde, près du poêle",
+     "if": {
+      "lu": "O_hommes"
+     },
+     "to": "M_colin"
     }
    ]
   },
@@ -3622,6 +3690,13 @@
     {
      "label": "Attendre",
      "to": "O_rapport"
+    },
+    {
+     "label": "Te relever, et redescendre",
+     "if": {
+      "savoir": "veine"
+     },
+     "to": "O_veuf"
     }
    ]
   },
@@ -3727,6 +3802,33 @@
       "savoir": "veine"
      },
      "to": "O_pichet"
+    },
+    {
+     "label": "Barrer la route à l'homme aux mains bleues qui monte des Foulons",
+     "if": {
+      "lu": "I_fulbert_vient"
+     },
+     "to": "O_fulbert"
+    },
+    {
+     "label": "Attendre : une femme rousse marche vers ta lanterne",
+     "if": {
+      "lu": "J_odon"
+     },
+     "to": "O_loutre_pont",
+     "fx": {
+      "time": 1.5
+     }
+    },
+    {
+     "label": "Attendre : une voiture descend de la Haute-Ville",
+     "if": {
+      "lu": "H_voiture"
+     },
+     "to": "O_voiture_hesdin",
+     "fx": {
+      "time": 0.5
+     }
     }
    ]
   },
@@ -4609,6 +4711,13 @@
       "has": "ilde:souvenir"
      },
      "to": "I_printemps"
+    },
+    {
+     "label": "Garder la clé ici, et attendre Jacquette avec lui",
+     "if": {
+      "lu": "J_attente_longue"
+     },
+     "to": "I_rester"
     }
    ]
   },
@@ -4716,6 +4825,27 @@
       "savoir": "ponceau"
      },
      "to": "I_ponceau"
+    },
+    {
+     "label": "Monter voir le capitaine Rambert, ton patient du mardi",
+     "if": {
+      "savoir": "rambert_paye"
+     },
+     "to": "I_rambert"
+    },
+    {
+     "label": "Aller chercher Bastien au Chat Ferré",
+     "if": {
+      "has": "ilde:sait"
+     },
+     "to": "I_chat"
+    },
+    {
+     "label": "Monter chez Dame Hesdin, ta patiente des forges",
+     "if": {
+      "lu": "H_forges"
+     },
+     "to": "I_hesdin"
     }
    ]
   },
@@ -5645,6 +5775,13 @@
       "savoir": "plan_corlay"
      },
      "to": "B_fuite_route"
+    },
+    {
+     "label": "Courir au pont des Moulins, avant la courrière",
+     "if": {
+      "lu": "M_pont"
+     },
+     "to": "B_course_pont"
     }
    ]
   },
@@ -5696,6 +5833,23 @@
     {
      "label": "Lui dire d'aller au diable, et commander un autre pichet",
      "to": "B_ivre_nuit"
+    },
+    {
+     "label": "Repousser le pichet, et attendre les joueurs de minuit",
+     "if": {
+      "lu": "C_vote_nuit"
+     },
+     "to": "B_attendre"
+    },
+    {
+     "label": "Rester au fond de la salle, et regarder qui entre",
+     "if": {
+      "lu": "H_garnier_non"
+     },
+     "to": "B_dame_chat",
+     "fx": {
+      "time": 2.5
+     }
     }
    ]
   },
@@ -5799,6 +5953,13 @@
     {
      "label": "Redescendre au Chat Ferré",
      "to": "B_dette"
+    },
+    {
+     "label": "Retenir la porte, et parler à Pernelle Daguet",
+     "if": {
+      "lu": "O_pernelle"
+     },
+     "to": "B_pernelle_jardin"
     }
    ]
   },
@@ -6564,6 +6725,13 @@
      "lose": {
       "to": "J_octroi"
      }
+    },
+    {
+     "label": "Dire à Gaudry que le lac est trop haut, et pourquoi",
+     "if": {
+      "savoir": "veine_vue"
+     },
+     "to": "J_gaudry_lac"
     }
    ]
   },
@@ -6627,6 +6795,28 @@
       "second": true
      },
      "to": "J_large_nuit"
+    },
+    {
+     "label": "Aller seule au déversoir, abattre les hausses",
+     "if": {
+      "savoir": "hausses"
+     },
+     "to": "J_deversoir",
+     "via": "seule",
+     "fx": {
+      "flag": "deversoir:seule",
+      "time": 0.75
+     }
+    },
+    {
+     "label": "Monter : une voiture à l'enclume attend au pied des marches",
+     "if": {
+      "lu": "H_maison_vannes"
+     },
+     "to": "J_dame",
+     "fx": {
+      "time": 1
+     }
     }
    ]
   },
@@ -6677,6 +6867,20 @@
       "savoir": "galerie"
      },
      "to": "J_galerie_monte"
+    },
+    {
+     "label": "Ouvrir à celui qui frappe",
+     "if": {
+      "lu": "B_galerie_seul"
+     },
+     "to": "J_bastien_porte"
+    },
+    {
+     "label": "Descendre la Sorge en barque, jusqu'à l'apothicairerie",
+     "if": {
+      "lu": "I_maison"
+     },
+     "to": "J_foulons_barque"
     }
    ]
   },
@@ -7327,6 +7531,20 @@
       "has": "corlay:pernelle"
      },
      "to": "C_pernelle"
+    },
+    {
+     "label": "Faire vider tes entrepôts des Foulons, cette nuit",
+     "if": {
+      "savoir": "veine"
+     },
+     "to": "C_entrepots"
+    },
+    {
+     "label": "Donner la clé à Pernelle, et la laisser décider",
+     "if": {
+      "has": "corlay:pernelle"
+     },
+     "to": "C_pernelle_cle"
     }
    ]
   },
@@ -7381,6 +7599,33 @@
       "second": "C_vote"
      },
      "to": "C_aude"
+    },
+    {
+     "label": "Te relever : une lumière brûle encore au cabinet",
+     "if": {
+      "lu": "O_pernelle"
+     },
+     "to": "C_escalier"
+    },
+    {
+     "label": "Dormir, jusqu'à ce qu'on frappe",
+     "if": {
+      "lu": "H_cle_corlay"
+     },
+     "to": "C_quatre_maisons",
+     "fx": {
+      "time": 2.5
+     }
+    },
+    {
+     "label": "Ouvrir à Malzieu, qui frappe à trois heures",
+     "if": {
+      "lu": "B_gagne"
+     },
+     "to": "C_malzieu",
+     "fx": {
+      "time": 2.5
+     }
     }
    ]
   },
@@ -7430,6 +7675,13 @@
       "savoir": "veine_vue"
      },
      "to": "C_route"
+    },
+    {
+     "label": "Emmener Tassin dans la galerie, cette nuit, de gré ou de force",
+     "if": {
+      "savoir": "galerie"
+     },
+     "to": "C_tassin_force"
     }
    ]
   },
@@ -7812,6 +8064,13 @@
      "fx": {
       "time": 2.5
      }
+    },
+    {
+     "label": "Aller avec Aude chez Dame Hesdin",
+     "if": {
+      "lu": "C_hesdin"
+     },
+     "to": "C_aude_hesdin"
     }
    ]
   },
@@ -7855,6 +8114,13 @@
      "fx": {
       "time": 0.5
      }
+    },
+    {
+     "label": "Lever la lanterne vers la clé de voûte",
+     "hide": {
+      "has": "anselme:ferreol"
+     },
+     "to": "A_ferreol"
     }
    ]
   },
@@ -7898,6 +8164,23 @@
       "has": "anselme:seance"
      },
      "to": "A_seance"
+    },
+    {
+     "label": "Appeler le gamin qui se chauffe dans la cuisine",
+     "if": {
+      "lu": "M_tard"
+     },
+     "to": "A_tibo"
+    },
+    {
+     "label": "Écrire à Dame Hesdin",
+     "if": {
+      "lu": "J_preuve"
+     },
+     "hide": {
+      "has": "anselme:hesdin"
+     },
+     "to": "A_lettre_hesdin"
     }
    ]
   },
@@ -8061,6 +8344,20 @@
     {
      "label": "Descendre toi-même au pointeau",
      "to": "A_seul_nuit"
+    },
+    {
+     "label": "Ouvrir à la voiture qui monte la route de la Digue",
+     "if": {
+      "has": "anselme:hesdin"
+     },
+     "to": "A_hesdin_arrive"
+    },
+    {
+     "label": "Ouvrir à la voiture de drapier qui monte la route",
+     "if": {
+      "lu": "C_maison"
+     },
+     "to": "A_corlay"
     }
    ]
   },
@@ -8803,6 +9100,3770 @@
     "Vous descendez à la vanne. Tu tournes la clé. Bastien prend un rayon, Jacquette l'autre. Quarante tours. Au quinzième, la digue rugit.",
     "Au jour, il pleut. Le lac descend. Aux Foulons, Ilde a fait lever le quartier à deux heures ; tout le monde est sur le parvis de Saint-Rieul.",
     "Ton fils dort sur le banc, pour de vrai cette fois, la bouche ouverte. Tu le regardes dormir jusqu'à ce que ta tête tombe. Il te reste peu de temps. Tu l'as passé à la bonne place."
+   ]
+  },
+  "C_entrepots": {
+   "act": "I",
+   "title": "La laine de la saison",
+   "place": "hauteville",
+   "fx": {
+    "time": 0.25
+   },
+   "text": [
+    "Tu ranges la lettre du vieux dans ton gilet. Le vieux Vellard se trompe peut-être sur la digue. Il a peut-être raison. Dans les deux cas, ta laine est au bord de la Sorge, dans trois entrepôts de briques, et elle vaut quarante mille écus.",
+    "« Pernelle. Envoyez le valet réveiller Gervais, aux Foulons. Qu'il prenne ses hommes, toutes les charrettes de la fabrique, et qu'il monte la laine dans les greniers de la Côte. Cette nuit. »",
+    "Pernelle Daguet écrit l'ordre sans lever les yeux. Puis elle demande : « Et la clé, Monsieur ? »"
+   ],
+   "choices": [
+    {
+     "label": "La ranger au coffre, et descendre surveiller le chargement",
+     "to": "C_gervais",
+     "fx": {
+      "time": 1.25
+     }
+    },
+    {
+     "label": "La prendre sur toi, et descendre surveiller le chargement",
+     "to": "C_gervais",
+     "fx": {
+      "flag": "corlay:cle_poche",
+      "time": 1.25
+     }
+    }
+   ]
+  },
+  "C_gervais": {
+   "act": "I",
+   "title": "Les charrettes",
+   "place": "foulons",
+   "fx": {},
+   "text": [
+    "À minuit et demi, la rue des Teinturiers est pleine de torches. Trente hommes chargent les balles de laine sur douze charrettes, en chemise malgré le froid. Les chevaux fument. Aux fenêtres, des femmes en bonnet regardent sans comprendre.",
+    {
+     "if": {
+      "has": "corlay:cle_poche"
+     },
+     "text": "Tu sens la clé contre ta cuisse, sous ton manteau, à chaque pas."
+    },
+    "Gervais vient à toi en s'essuyant les mains. Il est ton contremaître depuis vingt ans. Il a soixante ans, une femme et quatre petits-enfants, et il habite au-dessus de l'entrepôt du milieu.",
+    "« Monsieur. Les hommes demandent pourquoi on charge à minuit. Moi aussi, je demande. »"
+   ],
+   "choices": [
+    {
+     "label": "« Une commande de Lyon. Il faut que tout soit en haut avant l'aube. »",
+     "to": "C_mensonge"
+    },
+    {
+     "label": "Lui dire la vérité, à lui seul, à voix basse",
+     "to": "C_gervais_verite"
+    }
+   ]
+  },
+  "C_mensonge": {
+   "act": "I",
+   "title": "Une commande de Lyon",
+   "place": "foulons",
+   "fx": {
+    "time": 3.5
+   },
+   "text": [
+    "Gervais te regarde un moment. Il hoche la tête. Il retourne aux charrettes et il crie : « Lyon ! Allez ! »",
+    "Les charrettes montent la Côte une à une, toute la nuit. Tu restes sous l'auvent de l'entrepôt, dans ton manteau, à compter les balles. Trois cents. Quatre cents. Les femmes ont refermé leurs volets.",
+    "À quatre heures, la pluie. À cinq heures, la dernière charrette passe le coin de la rue, avec les registres de la fabrique et le coffre de la paie. Les hommes rentrent chez eux, trempés, et se couchent.",
+    "Tu montes dans la dernière charrette, à côté du charretier."
+   ],
+   "choices": [
+    {
+     "label": "Monter la Côte",
+     "to": "C_laine"
+    }
+   ]
+  },
+  "C_laine": {
+   "act": "I",
+   "title": "Quatre cents balles",
+   "place": "hauteville",
+   "end": true,
+   "fx": {
+    "time": 1.5
+   },
+   "text": [
+    "À cinq heures et demie, tu es devant les greniers de la Côte, à mi-pente, quand la digue cède.",
+    "Le bruit arrive avant l'eau. Puis la vague passe sous toi, dans la vallée, et elle emporte la rue des Teinturiers, les trois entrepôts vides, le lavoir, les maisons basses. La laine est au sec, au-dessus de ta tête, dans les greniers.",
+    "Gervais monte la Côte à huit heures, couvert de boue. Il a sauvé sa femme et un petit-fils par la fenêtre du grenier. Les trois autres, il les cherche encore.",
+    "Il s'arrête devant toi. Il regarde les greniers. Il compte, lui aussi : douze charrettes, trente hommes, une nuit entière, à un quart d'heure de la rue du Lavoir.",
+    "« Lyon », dit-il.",
+    "Il s'en va. Toute la ville connaîtra l'histoire avant midi : le premier drapier a sauvé sa laine cette nuit, en sachant, et il a laissé dormir les gens. Le Conseil se réunit dans une ville qui compte ses morts. Personne ne prononce ton nom pour la Charge des Vannes. Ta laine se vend très bien cet hiver-là, à cause de la disette."
+   ]
+  },
+  "C_gervais_verite": {
+   "act": "I",
+   "title": "À voix basse",
+   "place": "foulons",
+   "fx": {
+    "time": 0.25
+   },
+   "text": [
+    "Tu le prends par le bras, à l'écart, sous l'auvent. Tu lui dis la digue, la fissure, le vieux Vellard, l'orage. Tu lui dis que tu ne sais pas si c'est vrai.",
+    "Gervais écoute sans t'interrompre. Puis il lève les yeux vers les fenêtres où les femmes regardent.",
+    "« Douze charrettes, Monsieur. Elles portent quarante balles chacune. Ou bien vingt personnes, avec les vieux et les petits. » Il attend. « Je vous demande lesquelles. Je vous demande pas pourquoi. »"
+   ],
+   "choices": [
+    {
+     "label": "« Les gens. Laisse la laine. »",
+     "to": "C_charrettes"
+    },
+    {
+     "label": "« Les gens. Et toi, porte cette clé à la digue, par la berge. »",
+     "hide": {
+      "not": {
+       "has": "corlay:cle_poche"
+      }
+     },
+     "to": "C_gervais_digue"
+    }
+   ]
+  },
+  "C_charrettes": {
+   "act": "I",
+   "title": "Les charrettes de la fabrique",
+   "place": "foulons",
+   "end": true,
+   "fx": {
+    "flag": "foulons:leves",
+    "time": 5
+   },
+   "text": [
+    "Les hommes déchargent les balles dans la boue de la rue. Puis ils frappent aux portes. À une heure et demie, les charrettes montent la Côte pleines de vieilles en chemise, d'enfants endormis, de berceaux, de cages à poules. Tu marches à côté de la première, une torche à la main, et les gens te regardent sans y croire.",
+    "À cinq heures et demie, sur le parvis de Saint-Rieul, tout le quartier entend la digue céder. La vague passe sur les Foulons, sur tes entrepôts ouverts, sur quatre cents balles de laine couchées dans la rue. Elle les emporte toutes.",
+    "Le quartier est vivant. Il a tout perdu, et toi aussi : la saison entière, quarante mille écus.",
+    "À huit heures, au Conseil, Dame Hesdin te regarde entrer. Tu as de la boue jusqu'aux genoux.",
+    "« On dit que vous avez vidé les Foulons cette nuit, Corlay. Avec vos charrettes. » Elle croise les mains. « Et la clé des vannes ? Elle était où, pendant ce temps ? »",
+    "Elle était dans ton coffre. Toute la nuit. Tu as sauvé les gens et laissé partir la digue. La ville te remerciera pour les uns. Elle te demandera des comptes pour l'autre, et tu n'as pas fini de répondre."
+   ]
+  },
+  "C_gervais_digue": {
+   "act": "I",
+   "title": "Le contremaître et la clé",
+   "place": "berge",
+   "fx": {
+    "flag": "foulons:leves",
+    "time": 1.5
+   },
+   "text": [
+    "Tu sors la clé de sous ton manteau. Gervais la prend à deux mains, comme un outil dont il connaît le poids.",
+    "« La cabane des Loutres, au pied de la digue. Une rousse, Jacquette. Puis le garde-vannes. Il faut quatre bras pour la roue. »",
+    "Gervais appelle son fils, Matthieu, un garçon large comme une porte. Ils partent par la berge au pas de course, sans lanterne. Les autres hommes déchargent la laine dans la rue et frappent aux portes.",
+    "Tu restes sous l'auvent. Vers deux heures, les charrettes montent la Côte pleines de monde. Vers trois heures et demie, à la fenêtre de la Maison des Vannes, une deuxième lanterne s'allume, puis une troisième."
+   ],
+   "choices": [
+    {
+     "label": "Attendre le jour avec le quartier, sur le parvis",
+     "to": "C_fouleur",
+     "fx": {
+      "time": 2
+     }
+    }
+   ]
+  },
+  "C_fouleur": {
+   "act": "I",
+   "title": "Ce que dit le quartier",
+   "place": "hauteville",
+   "end": true,
+   "fx": {
+    "time": 2.5
+   },
+   "text": [
+    "Au jour, il pleut à verse. La Sorge monte d'un mètre et demi. Les Foulons ont de l'eau jusqu'aux fenêtres basses, et personne dedans. La digue tient.",
+    "Gervais remonte à huit heures, les mains en sang, avec son fils. Le garde-vannes a tourné la clé. La rousse, Matthieu et lui ont tourné la roue. Quarante tours.",
+    "Au Conseil, on te fait un triomphe. Le premier drapier a vidé ses entrepôts pour monter les gens, il a envoyé ses propres hommes à la vanne, il a perdu sa laine. Tu ne démens rien. On vote. Six voix pour toi, et Dame Hesdin aussi.",
+    "Le soir, Gervais vient au cabinet chercher la paie de ses hommes pour la nuit. Il la compte devant toi.",
+    "« Vous avez eu la clé dans la poche depuis dix heures, Monsieur. » Il range l'argent. « Moi je le sais. Vous, vous le savez. Ça fait deux. On verra combien ça fait dans vingt ans. »"
+   ]
+  },
+  "C_tassin_force": {
+   "act": "I",
+   "title": "Prenez votre manteau",
+   "place": "hauteville",
+   "fx": {
+    "time": 0.5
+   },
+   "text": [
+    "« Prenez votre manteau, maître Tassin. Nous allons voir. »",
+    "Tassin recule d'un pas. « Monsieur, il est onze heures du soir. L'escalier de service… »",
+    "« Le garde-vannes le descend tous les jours à soixante-quatorze ans, avec ses jambes. Vous en avez quarante-cinq. »",
+    "Tu prends la clé sur le bureau. Pernelle Daguet est déjà debout, son écritoire sous le bras. Le valet vert court faire atteler.",
+    "Le pont des Moulins est gardé : tu as donné cet ordre toi-même. Tu fais prendre à la voiture le chemin des carriers, par le plateau, qui rejoint l'autre bout de la digue sans passer la Sorge."
+   ],
+   "choices": [
+    {
+     "label": "Partir par le plateau",
+     "to": "C_carriers"
+    }
+   ]
+  },
+  "C_carriers": {
+   "act": "I",
+   "title": "Le chemin des carriers",
+   "place": "lac",
+   "fx": {
+    "time": 1.25
+   },
+   "text": [
+    "Le chemin des carriers longe le lac par le haut, dans les sapins. La voiture cahote dans les ornières. Le vent se lève vers une heure, et il fait claquer la capote.",
+    "Tassin parle tout le long de la route. Il parle de ses calculs, des plans de Ferréol, des coefficients de la pierre. Il parle de sa mère, qui l'empêchait d'aller à la rivière quand il était petit. Puis il se tait, et il regarde le lac en contrebas, noir, immense, plus haut que tu ne l'as jamais vu.",
+    "Pernelle Daguet écrit à la lueur de la lanterne. Tu te demandes comment elle fait, avec les cahots.",
+    "Au bout du chemin, la digue, et à son bout la Maison des Vannes. Une seule lanterne à la fenêtre."
+   ],
+   "choices": [
+    {
+     "label": "Frapper chez le garde-vannes",
+     "to": "C_galerie_tassin"
+    }
+   ]
+  },
+  "C_galerie_tassin": {
+   "act": "I",
+   "title": "L'escalier de service",
+   "place": "digue",
+   "fx": {
+    "time": 0.5
+   },
+   "text": [
+    "Anselme Vellard ouvre lui-même. Il voit la clé, puis toi, puis Tassin. Il sourit, pour la première fois depuis longtemps, d'un sourire qui fait peur.",
+    "« Maître Tassin. Vous venez enfin voir mes suintements. »",
+    "L'escalier de service descend en colimaçon dans la pierre, si étroit que tes épaules frottent. En bas, la galerie est noyée jusqu'à la taille. L'eau est glacée. Le vieux marche devant avec la lanterne. Tassin te suit, puis Pernelle, la robe relevée dans une main et l'écritoire dans l'autre.",
+    "À l'endroit des plâtres, le vieux lève la lanterne. La pierre pleure par une fente longue comme un homme couché. On entend l'eau passer derrière, un bruit sourd, continu.",
+    "Tassin ne bouge plus. L'eau lui arrive à la poitrine. Ses gants de chevreau flottent devant lui."
+   ],
+   "choices": [
+    {
+     "label": "Lui prendre la main, et la poser sur la pierre",
+     "test": {
+      "dom": "social",
+      "diff": 0,
+      "label": "Le tenir debout"
+     },
+     "win": {
+      "to": "C_tassin_main"
+     },
+     "lose": {
+      "to": "C_tassin_fuit"
+     }
+    }
+   ]
+  },
+  "C_tassin_main": {
+   "act": "I",
+   "title": "La pierre qui chante",
+   "place": "digue",
+   "fx": {
+    "flag": "corlay:tassin_vu",
+    "time": 0.25
+   },
+   "text": [
+    "Tu prends la main de Tassin dans l'eau, et tu la poses à plat sur la veine. Il se laisse faire. Il ferme les yeux.",
+    "Il reste longtemps ainsi. Puis il ouvre les yeux, il sort un mètre pliant de sa poche, et il mesure la fente, à la lueur de la lanterne, en dictant les chiffres à voix haute. Pernelle les écrit. Le vieux les connaît déjà. Il les dit en même temps que lui.",
+    "« Elle cède avant le jour, dit Tassin. Avec la crue, avant six heures. » Il a la voix de quelqu'un qui récite une leçon. « J'aurais dû descendre il y a quinze jours. Je n'ai pas voulu. »"
+   ],
+   "choices": [
+    {
+     "label": "Aller à la roue, tous les quatre",
+     "to": "C_roue_quatre"
+    }
+   ]
+  },
+  "C_tassin_fuit": {
+   "act": "I",
+   "title": "L'ingénieur s'enfuit",
+   "place": "digue",
+   "fx": {
+    "flag": "corlay:tassin_fui",
+    "time": 0.25
+   },
+   "text": [
+    "Tu tends la main vers lui. Tassin pousse un cri, un cri d'enfant, et il se jette en arrière dans l'eau. Il se relève, il retombe, il atteint l'escalier à quatre pattes. Tu entends ses pas monter en courant, puis la porte d'en haut qui claque.",
+    "Le vieux regarde l'escalier un moment. « Il reviendra peut-être, dit-il. Ou pas. Nous sommes trois. Une femme, un vieux et un drapier. » Il se tourne vers Pernelle. « Vous savez pousser, Mademoiselle ? »",
+    "Pernelle Daguet pose son écritoire sur une console, au sec. « J'apprendrai. »"
+   ],
+   "choices": [
+    {
+     "label": "Aller à la roue, tous les trois",
+     "to": "C_roue_quatre"
+    }
+   ]
+  },
+  "C_roue_quatre": {
+   "act": "I",
+   "title": "La roue",
+   "place": "digue",
+   "fx": {
+    "time": 3
+   },
+   "text": [
+    "La chambre de la vanne. La roue de fer à douze rayons. Le vieux tourne la clé dans le moyeu, et il prend un rayon lui-même, ses mains maigres posées bien à plat.",
+    {
+     "if": {
+      "has": "corlay:tassin_vu"
+     },
+     "text": "Tassin prend le rayon d'en face. Il a ôté ses gants. Ses mains sont blanches et molles, des mains de bureau, et elles saignent au cinquième tour."
+    },
+    {
+     "if": {
+      "has": "corlay:tassin_fui"
+     },
+     "text": "Pernelle prend le rayon d'en face. Elle pèse cinquante kilos. Elle pousse avec tout son corps, les dents serrées, et elle ne dit rien."
+    },
+    "Tu pousses le troisième rayon. La roue avance d'un pouce, puis d'un autre. Au quinzième tour, la digue rugit sous vos pieds et l'eau se met à hurler dans le conduit de fond.",
+    "Au quarantième, il est quatre heures et demie. Il pleut au-dehors. Le lac commence à descendre.",
+    {
+     "if": {
+      "has": "corlay:tassin_fui"
+     },
+     "text": "En remontant l'escalier, tu trouves Tassin assis sur la dernière marche, trempé, les gants à la main. Il s'est arrêté là. Il te regarde passer sans un mot."
+    }
+   ],
+   "choices": [
+    {
+     "label": "Lui faire écrire un second rapport, ici, ce matin",
+     "to": "C_second_rapport"
+    }
+   ]
+  },
+  "C_second_rapport": {
+   "act": "I",
+   "title": "Le second rapport",
+   "place": "digue",
+   "fx": {
+    "time": 1
+   },
+   "text": [
+    "Dans la cuisine de la Maison des Vannes, Pernelle pose une feuille blanche devant Tassin, l'encrier, la plume. Le vieux dort dans son fauteuil, la bouche ouverte.",
+    "Tassin écrit d'une main qui tremble. *Je soussigné, ingénieur du Conseil, certifie être descendu cette nuit dans la galerie basse de la Grande Digue, pour la première fois.* Il écrit la fente, les mesures, l'heure. Il écrit que son premier rapport est faux. Il s'arrête.",
+    "« Je dois écrire pourquoi il est faux, Monsieur ? »",
+    "Pernelle a levé les yeux vers toi. Tassin aussi. La plume est en l'air."
+   ],
+   "choices": [
+    {
+     "label": "« Écrivez tout. Qui vous l'a demandé, et quand. »",
+     "to": "C_ingenieur"
+    },
+    {
+     "label": "« Écrivez que vous vous êtes trompé. Ça suffira. » Et garder la feuille sur toi",
+     "to": "C_deux_rapports"
+    }
+   ]
+  },
+  "C_ingenieur": {
+   "act": "I",
+   "title": "Deux rapports sur la table",
+   "place": "hauteville",
+   "end": true,
+   "fx": {
+    "time": 2
+   },
+   "text": [
+    "À huit heures, maître Tassin se lève devant le Conseil des Sept Maisons. Il a les mains bandées. Il pose ses deux rapports sur la table ovale, le premier à gauche, le second à droite, et il les lit l'un après l'autre de la même voix.",
+    "Le second dit qui a demandé le premier, et quand. Il dit ton nom.",
+    "Tu restes assis. Tu sens les six autres se tourner vers toi. Tu reconnais tout. Tu dis seulement : « J'ai demandé un rapport avant le vote. J'ai eu celui que je voulais. Cette nuit, je suis allé voir. »",
+    "Dame Hesdin te regarde longtemps. Puis elle dit : « C'est la première fois que vous allez voir, Corlay. Il est encore temps pour une première fois. Pour vingt ans, il en faut davantage. »",
+    "La Charge des Vannes va au fils Vellard, à quatre voix contre trois, sous la tutelle du Conseil. Tu gardes la présidence jusqu'au printemps. Tassin quitte Corvèze la semaine suivante. Avant de partir, il t'envoie ses gants de chevreau dans un paquet, sans un mot. Tu cherches longtemps ce qu'il a voulu dire. Tu les gardes."
+   ]
+  },
+  "C_deux_rapports": {
+   "act": "I",
+   "title": "Une feuille dans ton gilet",
+   "place": "hauteville",
+   "end": true,
+   "fx": {
+    "time": 2
+   },
+   "text": [
+    "Tassin écrit qu'il s'est trompé. Il signe. Tu plies la feuille en quatre et tu la glisses dans ton gilet, contre la lettre du vieux.",
+    "À huit heures, au Conseil, tu racontes la nuit : le mur, la roue, le lac qui descend. Tu dis que ton ingénieur s'était trompé, que tu as eu des doutes, que tu es allé voir. Tassin est assis au fond de la salle. Il hoche la tête quand tu le nommes.",
+    "On vote. Cinq voix pour toi. Dame Hesdin et le vieux Rouvray contre.",
+    "Le soir, Tassin vient te voir au cabinet. Il reste debout. Il demande la feuille. Tu lui réponds qu'elle est dans ton coffre, avec d'autres papiers, et qu'elle y est bien.",
+    "Il comprend. Il travaillera pour la Charge des Vannes vingt ans. Il descendra dans la galerie chaque mois, maintenant, et il signera ce que tu lui diras de signer. Toi, tu as la Charge, et un ingénieur qui ne pourra jamais te dire non. Pernelle Daguet range la copie qu'elle a faite de la feuille, ce matin-là, dans son propre pupitre."
+   ]
+  },
+  "C_pernelle_cle": {
+   "act": "I",
+   "title": "Tenez ce compte-là",
+   "place": "hauteville",
+   "fx": {
+    "time": 0.25
+   },
+   "text": [
+    "Tu prends la clé sur le bureau. Elle est lourde, froide, plus longue que ton avant-bras. Tu la poses sur le pupitre de Pernelle Daguet, sur son registre ouvert.",
+    "« Vous tenez mes comptes depuis douze ans. Tenez celui-là. »",
+    "Pernelle regarde la clé un long moment, les mains sur son registre. « Monsieur sait ce que je vais en faire ? »",
+    "« Je crois que oui. C'est pour ça que je ne la porte pas moi-même. »",
+    "Elle se lève. Elle met son manteau gris, son chapeau. Elle roule la clé dans la toile cirée, avec la lettre. Elle sort par l'escalier de service."
+   ],
+   "choices": [
+    {
+     "label": "Retourner au souper, et attendre",
+     "to": "C_attente_corlay"
+    }
+   ]
+  },
+  "C_attente_corlay": {
+   "act": "I",
+   "title": "Le souper qui n'en finit pas",
+   "place": "hauteville",
+   "fx": {
+    "time": 5
+   },
+   "text": [
+    "Tu reviens à table. Tu sers le vin. Aubrac raconte une histoire de foire que tu as déjà entendue six fois. Tu ris au bon moment.",
+    "Aude te regarde. Elle a vu Pernelle traverser le vestibule en manteau. Elle attend le départ des invités.",
+    "Au lit, elle demande : « Où va Pernelle, à onze heures du soir ? »",
+    "« Faire ce que j'aurais dû faire il y a trois ans. »",
+    "Aude allume la bougie pour te regarder. Puis elle l'éteint, et elle te prend la main, dans le noir. Vous restez éveillés tous les deux. À quatre heures, la pluie. À cinq heures et demie, la maison reste immobile."
+   ],
+   "choices": [
+    {
+     "label": "Te lever, au jour",
+     "to": "C_secretaire"
+    }
+   ]
+  },
+  "C_secretaire": {
+   "act": "I",
+   "title": "Le pupitre vide",
+   "place": "hauteville",
+   "end": true,
+   "fx": {
+    "time": 2
+   },
+   "text": [
+    "Au jour, le lac est plus bas d'un mètre. On le voit du salon : une bande de vase claire tout autour, comme un cerne.",
+    "Pernelle Daguet rentre à sept heures, trempée, les mains écorchées. Elle pose la clé sur ton bureau. Elle s'assoit à son pupitre et elle ouvre son registre.",
+    "« La passeuse, le garde-vannes et moi, Monsieur. Quarante tours. J'ai inscrit la nuit au compte de la maison, à la ligne des frais extraordinaires. »",
+    "À huit heures, au Conseil, tu poses la clé sur la table ovale. Tu dis qu'elle a été saisie sur le pont, sur ton ordre, et rendue cette nuit, sur ton ordre aussi. On te demande pourquoi tu as changé d'avis. Tu réponds que ta secrétaire t'a montré tes comptes.",
+    "On rit. On croit à une figure de style. On vote, et la Charge est à toi, à quatre voix contre trois. Le soir, Pernelle te remet sa démission, d'une écriture parfaite. Elle a trouvé une place chez Dame Hesdin. Tu signes. Tu as eu le bon geste une seule fois, et c'est elle qui l'a porté jusqu'en bas."
+   ]
+  },
+  "C_escalier": {
+   "act": "I",
+   "title": "La lumière du cabinet",
+   "place": "hauteville",
+   "fx": {
+    "time": 0.25
+   },
+   "text": [
+    "Tu ne dors pas. Une lumière passe sous la porte de la chambre, dans le couloir, puis descend. Tu te lèves sans réveiller Aude.",
+    "Du palier, tu vois le cabinet ouvert. La carte de la vallée est poussée sur le côté. Le coffre est ouvert. Pernelle Daguet en sort la toile cirée, avec des gestes précis, sans hâte, comme elle range un dossier.",
+    "Elle descend l'escalier de service. Tu la suis jusqu'à la fenêtre du palier. En bas, dans la rue, sous une lanterne, il y a un homme large d'épaules avec une manche de sergent. Pernelle ouvre la porte du jardin. Elle lui met le paquet dans les bras."
+   ],
+   "choices": [
+    {
+     "label": "Ouvrir la fenêtre et appeler la garde de la maison",
+     "to": "C_garde_maison"
+    },
+    {
+     "label": "Remonter te coucher sans un bruit",
+     "to": "C_silence"
+    }
+   ]
+  },
+  "C_garde_maison": {
+   "act": "I",
+   "title": "Au voleur",
+   "place": "hauteville",
+   "end": true,
+   "fx": {
+    "time": 5
+   },
+   "text": [
+    "Tu ouvres la fenêtre. Tu cries. Les deux valets de nuit sortent de l'office avec des gourdins, et le sergent part en courant dans la rue Haute, le paquet contre la poitrine. Pernelle reste sur le seuil du jardin, les mains vides, la tête haute.",
+    "Rambert arrive à une heure avec six hommes. Il cherche le sergent dans toute la Haute-Ville. À deux heures, on lui dit qu'un cheval du guet est sorti par la poterne. Rambert envoie deux cavaliers derrière.",
+    "Tu attends au salon, à la fenêtre, toute la nuit. À trois heures et demie, au bout de la vallée, la lumière de la Maison des Vannes devient deux lumières, puis trois.",
+    "À quatre heures, la pluie. À cinq heures, l'eau monte dans la Sorge, haute et brune. Les Foulons sont noyés jusqu'aux fenêtres basses. La digue tient.",
+    "Au Conseil, à huit heures, tu dis qu'on t'a volé la clé des vannes cette nuit, chez toi, par ta propre secrétaire, avec la complicité d'un sergent du guet. Dame Hesdin te demande ce que la clé faisait dans ton coffre. Tu gardes pour toi la seule réponse vraie. Pernelle Daguet est en prison jusqu'au procès. Au procès, elle apporte ses registres."
+   ]
+  },
+  "C_silence": {
+   "act": "I",
+   "title": "Ce que tu n'as pas vu",
+   "place": "hauteville",
+   "end": true,
+   "fx": {
+    "time": 6.5
+   },
+   "text": [
+    "Tu remontes l'escalier, une marche après l'autre, en évitant la septième, qui grince. Tu te recouches. Aude dort sur le côté, le visage vers le mur.",
+    "Tu entends la porte du jardin se refermer, très doucement. Puis, longtemps après, le galop d'un cheval sur les pavés de la rue Haute.",
+    "À quatre heures, la pluie. Au jour, le lac a baissé d'un mètre. Tu le vois du salon, en buvant ton café.",
+    "Au cabinet, la carte est remise droite sur le mur. Pernelle est à son pupitre. Elle te dit bonjour. Tu lui dis bonjour. Le coffre est fermé.",
+    "À huit heures, au Conseil, le capitaine Rambert vient te dire à l'oreille que la clé saisie hier a disparu. Tu réponds : « Quelle clé ? » Rambert te regarde, puis il comprend qu'il vaut mieux comprendre. On vote. La Charge est à toi, à quatre voix contre trois.",
+    "Pernelle Daguet tient tes comptes encore dix ans. Vous gardez cette nuit pour vous, l'un et l'autre. Une fois par an, à la Toussaint, tu trouves sur ton bureau un baromètre nettoyé, et tu sais qui l'a nettoyé."
+   ]
+  },
+  "C_aude_hesdin": {
+   "act": "I",
+   "title": "Rue Haute, une heure du matin",
+   "place": "hauteville",
+   "fx": {
+    "time": 0.5
+   },
+   "text": [
+    "Tu prends la clé au coffre. Aude prend ton bras. Vous remontez à pied la rue Haute, sous une seule lanterne, jusqu'à la maison à l'enclume.",
+    "Dame Hesdin vous reçoit en robe de chambre, une canne à la main, furieuse d'être réveillée. Elle voit Aude. Elle se calme un peu. Elle voit la clé. Elle s'assoit.",
+    "Tu parles. Cette fois, tu dis tout, dans l'ordre, la séance d'il y a trois ans, le rapport, le pont. Aude se tient derrière toi. Tu sens sa main entre tes omoplates, à plat, comme pour t'empêcher de reculer.",
+    "Quand tu as fini, Dame Hesdin se tourne vers Aude. « Vous l'avez amené. » Puis vers toi. « Vous voulez que je fasse quoi, à une heure du matin, avec une clé et soixante-dix ans ? »"
+   ],
+   "choices": [
+    {
+     "label": "« Vous avez quarante forgerons. Moi, j'ai des fouleurs qui dorment aux Foulons. »",
+     "to": "C_forgerons"
+    }
+   ]
+  },
+  "C_forgerons": {
+   "act": "I",
+   "title": "Les forges",
+   "place": "berge",
+   "fx": {
+    "flag": "foulons:leves",
+    "time": 3
+   },
+   "text": [
+    "Dame Hesdin fait sonner la cloche des forges. À une heure et demie, quarante hommes en tablier de cuir sont dans sa cour, avec des torches. Elle donne la clé à son maître fondeur, un colosse qui s'appelle Barthélemy, et six hommes avec lui pour la berge. Les autres descendent aux Foulons, frapper aux portes.",
+    "Tu descends avec eux. Personne ne te le demande. Tu frappes aux portes de la rue des Teinturiers avec les forgerons, en habit de soirée. Des gens qui ne t'ont jamais vu que de loin, sur ton cheval, t'ouvrent en chemise et te reconnaissent.",
+    "À trois heures et quart, au bout de la vallée, trois lanternes. À quatre heures, la pluie. À cinq heures, la Sorge monte, brune, jusqu'aux fenêtres basses. Les Foulons sont vides. La digue tient."
+   ],
+   "choices": [
+    {
+     "label": "Monter au Conseil, à huit heures",
+     "to": "C_forges"
+    }
+   ]
+  },
+  "C_forges": {
+   "act": "I",
+   "title": "La voix de Dame Hesdin",
+   "place": "hauteville",
+   "end": true,
+   "fx": {
+    "time": 2
+   },
+   "text": [
+    "À huit heures, tu entres au Conseil derrière Dame Hesdin, avec la boue des Foulons sur tes souliers vernis.",
+    "Dame Hesdin parle la première, et la dernière. Elle dit la nuit. Elle dit la séance d'il y a trois ans, et elle dit qu'elle s'est tue, elle aussi, après avoir voté contre. Elle dit que le président du Conseil est venu chez elle à une heure du matin avec la clé et sa femme, et qu'il a tout dit.",
+    "Puis elle propose que la Charge des Vannes aille aux forges Hesdin pour cinq ans, le temps de vider le lac et de refaire la digue, et qu'on la rende ensuite à qui saura la tenir.",
+    "On vote. Tu lèves la main pour elle. Aubrac et Malzieu te regardent, stupéfaits, et ils lèvent la main à leur tour, parce qu'ils ont toujours voté comme toi.",
+    "En sortant, Aude te prend le bras sur les marches de l'Hôtel. Tu as perdu la Charge, la laine de tes entrepôts, et sans doute la présidence au printemps. Tu marches à côté d'elle sous la pluie. Tu te sens léger, pour la première fois depuis trois ans, et tu ne sais pas encore quoi faire de cette légèreté."
+   ]
+  },
+  "J_gaudry_lac": {
+   "act": "I",
+   "title": "Le lac de Gaudry",
+   "place": "lac",
+   "fx": {
+    "learn": "hausses",
+    "time": 0.5
+   },
+   "text": [
+    "Au poste, Gaudry t'assoit près du poêle. Il trempe sa plume. Tu poses ta main sur son registre.",
+    "« Gaudry. Tu as vu le lac, ce soir. Tu l'as dit toi-même : jamais si haut. Au pied de la digue, il sort de l'eau brune entre les pierres. Grosse comme mon bras. Cet été, elle était grosse comme mon doigt. »",
+    "Gaudry lève les yeux. Il a passé trente ans sur ce lac. Le jeune douanier, Firmin, s'arrête de bourrer sa pipe.",
+    "« C'est les hausses, dit Gaudry après un long moment. Au déversoir de la pointe des Hêtres. Six planches de chêne sur le seuil, pour garder deux pieds d'eau de plus. Le Conseil les a fait poser en août, à cause de la sécheresse, pour que les moulins tournent. On devait les retirer à la Saint-Michel. » Il se gratte la joue. « Personne n'a donné l'ordre. »",
+    "Il regarde ses sacs de sel saisis, puis toi, puis le poêle."
+   ],
+   "choices": [
+    {
+     "label": "« Viens avec moi les abattre. Toi, Firmin, et moi. Tu as des haches au poste. »",
+     "test": {
+      "dom": "social",
+      "diff": -5,
+      "label": "Décider un douanier"
+     },
+     "win": {
+      "to": "J_deversoir",
+      "via": "gaudry",
+      "fx": {
+       "flag": "deversoir:gaudry",
+       "time": 0.5
+      }
+     },
+     "lose": {
+      "to": "J_octroi"
+     }
+    }
+   ]
+  },
+  "J_deversoir": {
+   "act": "I",
+   "title": "Le déversoir des Hêtres",
+   "place": "lac",
+   "fx": {
+    "time": 0.25
+   },
+   "text": [
+    {
+     "via": "gaudry",
+     "text": "Gaudry rame, Firmin tient la lanterne, toi les trois haches entre tes genoux. Vous accostez à la pointe des Hêtres à minuit et demi."
+    },
+    {
+     "via": "seule",
+     "text": "Tu reprends le lac à rebours, ton sel sous la bâche, jusqu'à la pointe des Hêtres. Tu accostes à minuit et demi, une hache de bûcheron à la main."
+    },
+    "Le déversoir est un seuil de pierre long de vingt pas, entre deux culées, au ras du lac. Sur le seuil, six planches de chêne épaisses comme une main, calées dans des rainures et serrées par des coins de fer. Le lac les pousse de tout son poids. L'eau passe déjà par-dessus, en une lame mince et noire.",
+    "En contrebas du seuil, le coursier de pierre descend dans la forêt, vers le ruisseau de la Combe. Au bout du coursier, dans la clairière, il y a trois lueurs rouges : les meules des charbonniers. Ils dorment à côté, dans leurs huttes, pour surveiller le feu."
+   ],
+   "choices": [
+    {
+     "label": "Descendre d'abord réveiller les charbonniers",
+     "to": "J_charbonniers",
+     "fx": {
+      "time": 0.5
+     }
+    },
+    {
+     "label": "Attaquer les coins tout de suite",
+     "to": "J_hache",
+     "fx": {
+      "flag": "charbonniers:surpris"
+     }
+    }
+   ]
+  },
+  "J_charbonniers": {
+   "act": "I",
+   "title": "La clairière des meules",
+   "place": "lac",
+   "text": [
+    "Tu dévales le coursier à sec, sur la mousse glissante. Dans la clairière, les huttes de branches sont serrées contre les meules qui fument. Tu cognes sur les montants avec le manche de ta hache.",
+    "Un homme sort, puis deux, puis une femme avec un petit dans les bras. Ils ont le visage noir de suie et les yeux rouges. Ils te reconnaissent : la Loutre leur vend du sel, à eux aussi.",
+    "« On va lâcher le déversoir, dis-tu. L'eau va descendre par ici. Montez sur la butte, avec vos bêtes. »",
+    "Le plus vieux regarde ses meules. Elles brûlent depuis neuf jours. Si l'eau passe dessus, c'est neuf jours de travail en fumée froide. Il crache dans ses mains.",
+    "« Il faut combien de bras, là-haut ? »"
+   ],
+   "choices": [
+    {
+     "label": "« Tous ceux que vous avez. »",
+     "to": "J_hache",
+     "fx": {
+      "flag": "charbonniers:aident"
+     }
+    }
+   ]
+  },
+  "J_hache": {
+   "act": "I",
+   "title": "Les coins de fer",
+   "place": "lac",
+   "fx": {
+    "time": 1.5
+   },
+   "text": [
+    {
+     "if": {
+      "has": "charbonniers:aident"
+     },
+     "text": "Les charbonniers montent avec des masses et des pinces. Ils connaissent le bois mieux que toi : ils frappent les coins de biais, là où le fer a rouillé dans le chêne."
+    },
+    {
+     "if": {
+      "has": "deversoir:gaudry"
+     },
+     "text": "Gaudry frappe comme il fait tout, lentement, sans s'arrêter. Firmin rate sa première planche et se blesse au pied. Il continue en boitant."
+    },
+    {
+     "if": {
+      "has": "deversoir:seule"
+     },
+     "text": "Tu es seule. La hache rebondit sur le fer. Le chêne mouillé est dur comme de la pierre."
+    },
+    "La première planche cède à une heure et quart. Elle part d'un coup, aspirée, et l'eau s'engouffre par le vide avec un bruit de tonnerre. Le seuil tremble sous vos pieds."
+   ],
+   "choices": [
+    {
+     "label": "Continuer, planche après planche, dans le courant",
+     "test": {
+      "dom": "nature",
+      "diff": 0,
+      "label": "Tenir sur le seuil"
+     },
+     "win": {
+      "to": "J_lac_baisse"
+     },
+     "lose": {
+      "to": "J_hache_chute"
+     }
+    }
+   ]
+  },
+  "J_hache_chute": {
+   "act": "I",
+   "title": "Le coursier",
+   "place": "lac",
+   "fx": {
+    "time": 0.5
+   },
+   "text": [
+    "Une planche cède sous ta hache plus tôt que prévu. Le courant te prend les jambes. Tu tombes dans le coursier, et l'eau te roule sur la pierre lisse, vers la forêt, en te cognant partout.",
+    "Une main t'attrape par la tresse. Tu ne sais pas laquelle. On te tire sur la culée, et tu vomis l'eau du lac sur la mousse.",
+    "Tu as le bras gauche ouvert du coude au poignet. Tu le serres dans ton foulard. Tu reprends la hache de la main droite."
+   ],
+   "choices": [
+    {
+     "label": "Retourner sur le seuil",
+     "to": "J_lac_baisse"
+    }
+   ]
+  },
+  "J_lac_baisse": {
+   "act": "I",
+   "title": "Deux pieds",
+   "place": "lac",
+   "fx": {
+    "time": 2.5
+   },
+   "text": [
+    {
+     "if": {
+      "has": "deversoir:seule"
+     },
+     "text": "À quatre heures, tu as abattu deux planches sur six. Tes mains sont en sang. La pluie commence. Les quatre autres planches tiennent, et le lac passe par le vide comme par une porte."
+    },
+    {
+     "if": {
+      "not": {
+       "has": "deversoir:seule"
+      }
+     },
+     "text": "À trois heures, la sixième planche s'en va. Le lac passe tout entier sur le seuil, un torrent de deux pieds de haut, qui descend le coursier et entre dans la forêt en couchant les fougères."
+    },
+    {
+     "if": {
+      "has": "charbonniers:surpris"
+     },
+     "text": "En bas, dans la clairière, des cris. Les lueurs rouges s'éteignent l'une après l'autre sous l'eau, dans un sifflement de vapeur. Des silhouettes noires courent vers la butte, une femme avec un enfant, un homme qui tire un âne. Personne ne t'avait vue venir."
+    },
+    "Tu restes sur la culée, à regarder le lac. Il descend. Lentement, si lentement qu'il faut une heure pour le voir : une ligne de vase mouillée sur les rochers de la pointe, d'abord large comme un doigt, puis comme une main.",
+    "Au bout du lac, sur la digue, la lumière de la Maison des Vannes est toujours seule."
+   ],
+   "choices": [
+    {
+     "label": "Ramer jusqu'à la digue, au jour",
+     "to": "J_hausses",
+     "hide": {
+      "has": "deversoir:seule"
+     }
+    },
+    {
+     "label": "Ramer jusqu'à la digue, au jour",
+     "to": "J_hausse_seule",
+     "hide": {
+      "not": {
+       "has": "deversoir:seule"
+      }
+     }
+    }
+   ]
+  },
+  "J_hausses": {
+   "act": "I",
+   "title": "En plein jour",
+   "place": "digue",
+   "end": true,
+   "fx": {
+    "time": 3
+   },
+   "text": [
+    "Au jour, sous la pluie, tu arrives au pied de la digue avec Gaudry. Le bouillon brun sort toujours du mur. Il est plus gros que cette nuit. La pierre autour a commencé à bouger : un bloc s'est avancé d'un doigt, et l'eau sort par les joints tout autour.",
+    "À sept heures, le mur se met à cracher par dix trous. La berge est déjà pleine de monde, parce qu'il fait jour, et qu'à Corvèze on monte voir quand la Sorge est brune. On voit la digue suer. On voit les pierres bouger. Quelqu'un crie. Toute la vallée court vers les hauteurs, en plein jour, les enfants dans les bras.",
+    "À sept heures et demie, la digue s'ouvre. Lentement, pierre après pierre, parce que le lac a deux pieds de moins à pousser. La vague qui descend la vallée est brune et haute, et les Foulons sont vides quand elle les prend.",
+    "Le vieux garde-vannes est sorti sur le seuil de sa maison, au bout de la digue, du côté qui tient. Il regarde l'eau partir. Gaudry ôte son chapeau.",
+    {
+     "if": {
+      "has": "charbonniers:surpris"
+     },
+     "text": "Le soir, tu apprends qu'un charbonnier s'est cassé la jambe en fuyant la clairière dans le noir, et que leurs meules sont perdues. Tu leur porteras du sel tout l'hiver, sans le leur faire payer."
+    },
+    {
+     "if": {
+      "has": "charbonniers:aident"
+     },
+     "text": "Le soir, les charbonniers descendent en ville, noirs de suie, voir ce qu'est devenue la vallée. Le plus vieux te serre la main sans rien dire. Leurs meules sont perdues. Ils sont vivants, et ils savent ce qu'ils ont fait de leur nuit."
+    },
+    "Au Conseil, Gaudry raconte les hausses, posées en août et oubliées. Le Conseil cherche longtemps qui devait donner l'ordre de les retirer. Le registre du Conseil dit : la maison Corlay."
+   ]
+  },
+  "J_hausse_seule": {
+   "act": "I",
+   "title": "Un quart d'heure",
+   "place": "foulons",
+   "end": true,
+   "fx": {
+    "time": 2
+   },
+   "text": [
+    "Tu rames jusqu'au pied de la digue dans la pluie, avec une seule main. Le bouillon brun est là. Il est deux fois plus gros que cette nuit.",
+    "À cinq heures et demie, rien. Tu attends, la rame en travers des genoux. À cinq heures trois quarts, la digue cède.",
+    "Tu la vois céder de tout près : le mur se fend en long, puis il s'ouvre comme une porte, et le lac passe. Ta barque est déjà dans le canal de fuite, tirée à l'abri de la culée. Tu te couches au fond.",
+    "Quand tu descends en ville, l'après-midi, on parle d'un quart d'heure. La première vague a pris les Foulons un quart d'heure plus tard qu'on ne l'aurait cru. Les lavandières de la rue du Lavoir étaient déjà debout, pour le linge du lundi, et elles ont eu le temps de monter. Au Pichet, le père Mallet a eu le temps de descendre de son lit et de grimper à la poutre.",
+    "Tu n'as abattu que deux planches. Tu le sais. Deux planches de chêne, un quart d'heure, et une centaine de personnes vivantes qui ignoreront toujours ton nom. C'est peu. Tu le gardes pour toi. Tu vas t'asseoir sur le quai, et tu regardes tes mains."
+   ]
+  },
+  "J_bastien_porte": {
+   "act": "I",
+   "title": "Le fils du vieux",
+   "place": "berge",
+   "fx": {
+    "time": 0.25
+   },
+   "text": [
+    "On frappe à ta porte. C'est un homme jeune, en habit de ville trempé, qui sent le vin, la boue et la peur. Tu le reconnais. Tu l'as vu au bras de son père, aux enterrements. Bastien Vellard.",
+    "« La Loutre. Mon père t'a donné la clé de la grille du canal. Mène-moi sous la digue par l'eau. Jusqu'à la galerie basse. »",
+    "« Ton père est là-haut. Prends l'escalier. »",
+    "« Il ne doit pas me voir. » Il serre les mâchoires. « Il y a un moyen d'ouvrir la vanne sans la clé. Il me l'a montré quand j'avais huit ans. Il faut descendre sous l'eau. »"
+   ],
+   "choices": [
+    {
+     "label": "Le prendre dans ta barque",
+     "to": "J_bastien_canal"
+    },
+    {
+     "label": "Lui fermer la porte au nez",
+     "back": "J_cabane"
+    }
+   ]
+  },
+  "J_bastien_canal": {
+   "act": "I",
+   "title": "Le canal de fuite",
+   "place": "digue",
+   "fx": {
+    "time": 0.5
+   },
+   "text": [
+    "Tu prends une corde de chanvre, ta lanterne sourde, et tu le fais asseoir à l'avant. Tu passes la grille. Le canal de fuite s'enfonce sous la digue en tunnel, noir, voûté, avec l'eau qui coule vers toi.",
+    "Bastien parle tout bas, sans que tu lui demandes rien. Il dit qu'il a fait quelque chose ce soir. Il ne dit pas quoi. Il dit que c'est à cause de lui que le paquet n'arrive pas.",
+    "Au bout du tunnel, une échelle de fer monte vers la galerie. Vous montez. L'eau de la galerie vous prend à la taille. Il fait si froid que Bastien se met à claquer des dents tout de suite.",
+    "La veine est là, une fente noire qui pleure. Bastien passe devant elle sans la regarder. Il compte ses pas jusqu'à un anneau scellé au mur."
+   ],
+   "choices": [
+    {
+     "label": "Lui attacher la corde à la taille, et la tenir",
+     "test": {
+      "dom": "nature",
+      "diff": -5,
+      "label": "Tenir la corde"
+     },
+     "win": {
+      "to": "J_bastien_pointeau"
+     },
+     "lose": {
+      "to": "J_bastien_pointeau",
+      "fx": {
+       "flag": "bastien:emporte"
+      }
+     }
+    }
+   ]
+  },
+  "J_bastien_pointeau": {
+   "act": "I",
+   "title": "Sous l'eau",
+   "place": "digue",
+   "fx": {
+    "time": 1
+   },
+   "text": [
+    "Bastien plonge. Tu tiens la corde passée dans l'anneau, les pieds calés contre la paroi. Il remonte, il respire, il replonge. Trois fois. Quatre. La cinquième fois, la corde se tend d'un coup dans tes mains.",
+    "La vanne s'ouvre avec un bruit de canon. L'eau de la galerie part vers le fond, aspirée.",
+    {
+     "if": {
+      "not": {
+       "has": "bastien:emporte"
+      }
+     },
+     "text": "La corde te brûle les paumes. Tu tiens. Tu tires. Bastien ressort de l'eau au bout de la corde, le pointeau de bronze serré contre la poitrine, comme un nouveau-né."
+    },
+    {
+     "if": {
+      "has": "bastien:emporte"
+     },
+     "text": "La corde file entre tes paumes, t'arrache la peau, et part. Bastien disparaît vers le fond avec elle. Tu cours dans l'eau, tu tombes, tu te relèves. Tu le retrouves dans le canal de fuite, au pied de l'échelle, accroché à un barreau, la tête à peine hors de l'eau. Tu le tires dans ta barque. Il respire. Il a encore le pointeau de bronze dans une main."
+    },
+    "Vous restez assis sur la margelle, dans le noir, à écouter la digue rugir. Bastien tremble. Puis il parle.",
+    "« À huit heures, je suis allé chez Corlay. J'ai vendu le plan de mon père pour quatre cents écus. C'est pour ça que le paquet n'est pas venu. »"
+   ],
+   "choices": [
+    {
+     "label": "« Monte le lui dire toi-même. »",
+     "to": "J_fils_monte"
+    },
+    {
+     "label": "« Personne ne le saura par moi. Viens, je te ramène en ville. »",
+     "to": "J_secret_fils"
+    }
+   ]
+  },
+  "J_fils_monte": {
+   "act": "I",
+   "title": "L'escalier de service",
+   "place": "digue",
+   "end": true,
+   "fx": {
+    "time": 3
+   },
+   "text": [
+    "Bastien monte l'escalier de service, une marche après l'autre, avec le pointeau dans les mains. Tu montes derrière lui.",
+    "Le vieux est dans sa cuisine, dans son fauteuil, une seule lanterne à la fenêtre. Il a entendu la vanne. Il voit son fils entrer, trempé, avec le bouchon de bronze. Il voit aussi son visage.",
+    "Bastien pose le pointeau sur la table. Il dit tout, debout, sans baisser les yeux. Corlay, les quatre cents écus, la porte du jardin.",
+    "Le vieux écoute jusqu'au bout. Il regarde le pointeau. Il dit : « Tu t'en souvenais. »",
+    "Puis il ferme les yeux, longtemps. Tu sors sur le seuil pour les laisser seuls. Il pleut. En bas, la Sorge monte, brune, vers les Foulons.",
+    "Au jour, tu redescends avec ta barque. On te dira plus tard que le fils est resté avec son père jusqu'à midi, jusqu'à la fin, et qu'il est allé au Conseil le lendemain dire lui-même ce qu'il avait fait. Le Conseil lui a donné la Charge quand même. Ou à cause de ça. Lequel des deux, tu l'ignores encore."
+   ]
+  },
+  "J_secret_fils": {
+   "act": "I",
+   "title": "Ce que tu sais de lui",
+   "place": "foulons",
+   "end": true,
+   "fx": {
+    "time": 3
+   },
+   "text": [
+    "Tu ramènes Bastien par le canal, puis par la Sorge, dans la pluie. Tu le déposes au quai des Moulins à cinq heures. Il part vers la Haute-Ville sans se retourner, le pointeau sous sa veste.",
+    "Au jour, la Sorge est haute de cinq pieds. La digue tient. Les Foulons ont de l'eau jusqu'aux fenêtres, et des gens sur les toits, parce que personne ne les a prévenus. Tu passes la matinée à les descendre dans ta barque.",
+    "À midi, on te dit que le vieux garde-vannes est mort dans son fauteuil. On te dit aussi que son fils a ouvert la vanne cette nuit, seul, en héros, et que le Conseil l'a confirmé dans la Charge à huit heures.",
+    "Le soir, Bastien Vellard passe sur le quai, en noir. Il te voit. Il s'arrête une seconde. Puis il continue.",
+    "Tu as promis. Tu tiens ta promesse. Mais chaque fois qu'il passera sur le quai, pendant vingt ans, il saura que tu sais, et toi tu sauras qu'il le sait. Dans cette vallée, ça s'appelle une dette. Un jour, tu la réclameras."
+   ]
+  },
+  "J_foulons_barque": {
+   "act": "I",
+   "title": "Sous l'arche",
+   "place": "pont",
+   "fx": {
+    "time": 0.5
+   },
+   "text": [
+    "Tu laisses le sel dans les roseaux. Tu pousses ta barque dans la Sorge, et tu te laisses descendre avec le courant, sans ramer, à plat ventre, la lanterne éteinte.",
+    "Au pont des Moulins, la lanterne du guet brûle au milieu du tablier. Tu entends les voix au-dessus de toi : trois hommes, et l'un d'eux parle de sa fille. Tu passes sous l'arche du milieu, dans le noir, à une perche d'eux.",
+    "Les Foulons dorment. L'apothicairerie a encore de la lumière au premier étage."
+   ],
+   "choices": [
+    {
+     "label": "Frapper chez Ilde",
+     "to": "J_ilde_nuit"
+    }
+   ]
+  },
+  "J_ilde_nuit": {
+   "act": "I",
+   "title": "L'apothicaire",
+   "place": "foulons",
+   "fx": {
+    "time": 0.5
+   },
+   "text": [
+    "Ilde Saunier t'ouvre en robe de chambre, une bougie à la main. Elle a cinquante-huit ans et des yeux qui ne dorment pas. Elle te reconnaît à ta tresse avant de voir ton visage.",
+    "« Jacquette ? Le paquet. Tu l'as eu ? »",
+    "Elle te fait monter. Elle te dit tout, vite, à voix basse : le vieux, la veine, la clé, la lettre, Bastien derrière la porte, le guet sur le pont. Elle a donné le paquet à une courrière à neuf heures, une fille des Foulons, Maëlle Ternier. Elle ne sait pas où est Maëlle.",
+    "« Le pont est gardé, dis-tu. Si elle est maligne, elle a pris la berge, de l'autre côté. Elle a pu laisser le paquet chez moi. »",
+    "Ilde regarde la pendule. Minuit et demi. « Il faut lever le quartier à deux heures. Il me faut quelqu'un qui crie fort. Et il faut quelqu'un à la cabane. »"
+   ],
+   "choices": [
+    {
+     "label": "« Lève le quartier. Moi, je remonte à la cabane. »",
+     "to": "J_pierre_tard",
+     "fx": {
+      "flag": "foulons:leves",
+      "time": 1.5
+     }
+    },
+    {
+     "label": "« Je reste. Je crie plus fort que toi. »",
+     "to": "J_quartier_debout"
+    }
+   ]
+  },
+  "J_pierre_tard": {
+   "act": "I",
+   "title": "À contre-courant",
+   "place": "berge",
+   "fx": {
+    "item": "paquet",
+    "time": 0.5
+   },
+   "text": [
+    "Remonter la Sorge à la rame, de nuit, contre le courant, te prend une heure et demie. Tu passes sous l'arche du pont sans respirer. Tu as les épaules en feu.",
+    "À deux heures, tu entends derrière toi, aux Foulons, la cloche du lavoir qui sonne à la volée, et des portes qui claquent.",
+    "Devant ta cabane, la planche à craie est vide. Sous la pierre bleue, il y a une toile cirée ficelée en croix."
+   ],
+   "choices": [
+    {
+     "label": "Courir au canal",
+     "to": "J_chambre",
+     "via": "seule"
+    }
+   ]
+  },
+  "J_quartier_debout": {
+   "act": "I",
+   "title": "Deux heures",
+   "place": "foulons",
+   "fx": {
+    "flag": "foulons:leves",
+    "time": 2
+   },
+   "text": [
+    "À deux heures, Ilde prend la cloche du lavoir. Toi, tu prends les quais, avec ta voix de passeuse, celle qui porte d'une rive à l'autre par-dessus le vent.",
+    "« Debout ! La digue ! Montez à Saint-Rieul ! »",
+    "On te connaît, aux Foulons. On t'achète du sel, on te dénonce à l'octroi, on t'invite aux noces. Les volets s'ouvrent. On grogne. Quand on voit Ilde derrière toi, en robe de chambre et en sabots, avec la cloche, on se tait et on s'habille.",
+    "Fulbert Cosson, le teinturier, sort sur son seuil, une lanterne à la main. Il te regarde, puis il regarde Ilde. Il rentre chez lui. Une minute plus tard, il ressort avec sa femme et ses enfants, et il monte la Côte avec les autres, sans un mot.",
+    "À trois heures, le quartier est sur le parvis. À la fenêtre de la Maison des Vannes, au bout de la vallée, il y a une lanterne. Elle reste seule."
+   ],
+   "choices": [
+    {
+     "label": "Attendre avec eux",
+     "to": "J_parvis"
+    }
+   ]
+  },
+  "J_parvis": {
+   "act": "I",
+   "title": "Le parvis de Saint-Rieul",
+   "place": "hauteville",
+   "end": true,
+   "fx": {
+    "time": 3
+   },
+   "text": [
+    "À quatre heures, la pluie. Les gens se serrent sous le porche de Saint-Rieul, les enfants sur les genoux. Ilde passe de groupe en groupe avec sa sacoche. Toi, tu restes au bord du parvis, à regarder la lanterne seule, là-bas.",
+    "À cinq heures et demie, la digue cède. Le bruit monte de la vallée, puis la vague, brune, qui couvre tout. Les Foulons disparaissent sous l'eau, les toits d'abord, puis la cheminée de la teinturerie.",
+    "Le parvis se tait. Puis une femme se met à compter ses enfants à voix haute. Puis d'autres. Ils sont tous là.",
+    "Ilde vient s'asseoir à côté de toi sur la marche. Elle regarde l'endroit où était la digue. « Il a attendu jusqu'au bout, là-haut, dit-elle. Avec sa lanterne. »",
+    "Le paquet, la courrière : tu ignores où ils sont. Tu sais que mille personnes sont vivantes sur ce parvis, et qu'un vieil homme est mort dans sa maison au bout du lac, parce que tu n'as pas pu être à deux endroits à la fois. Tu choisirais la même chose. Tu le sais aussi, et ça ne console pas."
+   ]
+  },
+  "I_rambert": {
+   "act": "I",
+   "title": "Le patient du mardi",
+   "place": "hauteville",
+   "fx": {
+    "time": 0.5
+   },
+   "text": [
+    "Tu caches le paquet derrière les bocaux de sangsues, tu mets ton manteau et tu prends ta trousse. Au pont, le sergent Brasseur te laisse passer sans un mot : tu montes, tu ne descends pas, et tu as les mains vides.",
+    "Le corps de garde est au pied de la tour du guet. Le capitaine Rambert te reçoit dans son bureau, une pièce chaude, avec un tapis et un fauteuil de cuir. Il est en robe de chambre. Il a les joues roses et les mains soignées.",
+    "« Madame Saunier ! Ce n'est pas mardi. »",
+    "Depuis deux ans, chaque mardi, tu lui apportes une boîte de pilules bleues, au mercure, et tu lui regardes la gorge. Sa femme le croit soigné pour l'estomac. Toi seule sais pour quoi il est soigné. C'est le métier : on te confie le corps, et le secret avec.",
+    "Tu poses la boîte de pilules sur son bureau. Tu gardes la main dessus."
+   ],
+   "choices": [
+    {
+     "label": "« Levez la garde du pont, cette nuit. Ou votre femme saura ce que contient cette boîte. »",
+     "test": {
+      "dom": "social",
+      "diff": -10,
+      "label": "Faire plier un capitaine"
+     },
+     "win": {
+      "to": "I_rambert_cede"
+     },
+     "lose": {
+      "to": "I_rambert_rit"
+     }
+    }
+   ]
+  },
+  "I_rambert_cede": {
+   "act": "I",
+   "title": "La garde levée",
+   "place": "hauteville",
+   "fx": {
+    "time": 0.5
+   },
+   "text": [
+    "Rambert ne dit rien pendant longtemps. Ses joues ont perdu leur rose. Il regarde la boîte sous ta main.",
+    "« Corlay me paie, dit-il enfin, à voix basse. Il saura que j'ai levé le pont. »",
+    "« Dites-lui qu'il ne s'est rien passé sur le pont. Ce sera vrai. »",
+    "Il appelle son ordonnance. Il dicte un ordre au sergent Brasseur : rentrer au poste avec ses hommes, le pont n'est plus à garder. Il signe. Il ne te regarde plus.",
+    "Tu reprends la boîte. Tu la lui tends. Il la prend sans te toucher les doigts."
+   ],
+   "choices": [
+    {
+     "label": "Redescendre aux Foulons",
+     "to": "I_pont_libre",
+     "fx": {
+      "time": 0.5
+     }
+    }
+   ]
+  },
+  "I_pont_libre": {
+   "act": "I",
+   "title": "Le pont vide",
+   "place": "foulons",
+   "fx": {
+    "flag": "foulons:leves",
+    "time": 4.5
+   },
+   "text": [
+    "Au pont des Moulins, la hallebarde est partie. La lanterne aussi. Il n'y a plus que le vent sur les trois arches.",
+    "Dans ta boutique, tu reprends le paquet derrière les bocaux. Dans la rue, Maëlle Ternier rentre d'une course, son châle gris sur la tête. Tu l'appelles. Tu lui donnes un écu d'argent et le paquet. « Par le pont. Il est libre. La cabane des Loutres, au pied de la digue. À Jacquette, et à personne d'autre. »",
+    "Elle part en courant. À minuit, tu n'as pas de nouvelles. À une heure non plus.",
+    "À deux heures, tu frappes chez les Mallet. Le quartier se lève, rue après rue, et monte la Côte avec ses enfants et ses poules.",
+    "À trois heures et quart, du parvis de Saint-Rieul, tu vois au bout de la vallée la fenêtre de la Maison des Vannes. Une lanterne. Deux. Trois."
+   ],
+   "choices": [
+    {
+     "label": "Attendre le jour",
+     "to": "I_chantage"
+    }
+   ]
+  },
+  "I_chantage": {
+   "act": "I",
+   "title": "Le secret du mardi",
+   "place": "foulons",
+   "end": true,
+   "fx": {
+    "time": 3
+   },
+   "text": [
+    "Au jour, la Sorge est dans les Foulons jusqu'aux fenêtres basses. Le quartier est vivant, en couvertures sur le parvis. La digue tient.",
+    "À midi, on vient te dire qu'Anselme est mort dans son fauteuil. Tu montes le veiller. Tu lui fermes les yeux toi-même.",
+    "Rambert ne vient pas le mardi suivant. Ni l'autre. On te dit qu'il se fait soigner par un médecin de Lyon, qui le saigne et lui fait boire des eaux.",
+    "En février, Madame Rambert entre dans ta boutique. Elle a les yeux rouges. Elle te montre sa gorge. Tu reconnais ce que tu vois.",
+    "Tu la soignes. Tu ne lui dis rien de son mari. Le secret est à lui, même maintenant, même si tu l'as posé sur la table une nuit pour faire lever un pont. Tu as sauvé un quartier avec la seule chose qu'on t'ait jamais confiée sans condition. Tu sais ce que ça vaut, et ce que ça coûte. Tu continues à fermer ta boutique le mardi soir, à l'heure où tu montais chez lui."
+   ]
+  },
+  "I_rambert_rit": {
+   "act": "I",
+   "title": "Le capitaine rit",
+   "place": "hauteville",
+   "fx": {
+    "time": 0.5
+   },
+   "text": [
+    "Rambert te regarde. Puis il rit, doucement, en se renversant dans son fauteuil de cuir.",
+    "« Madame Saunier. Ma femme le sait depuis un an. Elle vous achète du laudanum le jeudi, pour dormir à côté de moi. » Il reprend sa boîte sous ta main, sans effort. « Vous portez quelque chose ce soir. Fulbert me l'a fait dire. Vous voulez que je lève le pont. Donc c'est vrai. »",
+    "Il appelle son ordonnance. « Deux hommes devant l'apothicairerie, jusqu'au matin. Madame ne sort pas. Personne n'entre. »"
+   ],
+   "choices": [
+    {
+     "label": "Redescendre, escortée",
+     "to": "I_boutique_gardee",
+     "fx": {
+      "time": 0.5
+     }
+    }
+   ]
+  },
+  "I_boutique_gardee": {
+   "act": "I",
+   "title": "Deux hommes sur ta marche",
+   "place": "foulons",
+   "end": true,
+   "fx": {
+    "time": 5
+   },
+   "text": [
+    "Deux hommes du guet te raccompagnent jusqu'à ta porte. Ils s'assoient sur ta marche, les hallebardes en travers des genoux. Ils ne fouillent pas la boutique. Rambert n'a pas donné cet ordre-là. Il attend de voir qui viendra chercher le paquet.",
+    "Le paquet est derrière les bocaux de sangsues. Toi devant le comptoir. Entre vous deux, trois pas, et personne à qui le donner.",
+    "À deux heures, tu ouvres la fenêtre du premier étage. Tu cries dans la rue : « La digue ! Montez ! » Les gardes lèvent la tête. Des volets s'ouvrent. On t'entend, on ne te voit pas, et une voix dans la nuit vaut moins qu'une main sur la porte. Quelques familles montent. Les autres se recouchent.",
+    "À trois heures, au bout de la vallée, une seule lanterne.",
+    "Tu as joué le secret d'un homme contre un pont. Tu as perdu, et tu as appris dans la même minute que ce secret n'en était plus un. Ce qui reste de la nuit se joue ailleurs, sans toi : sur l'eau, sur la digue, dans la tête d'un vieil homme qui regarde son baromètre."
+   ]
+  },
+  "I_chat": {
+   "act": "I",
+   "title": "Le Chat Ferré",
+   "place": "hauteville",
+   "fx": {
+    "time": 0.75
+   },
+   "text": [
+    "Tu remets le paquet sous ton manteau. Tu montes à la Haute-Ville par le pont : le sergent Brasseur te salue, et ses deux jeunes regardent ton ventre plus gros qu'à l'aller, sans oser rien dire à une femme de ton âge.",
+    "Le Chat Ferré est une salle basse, enfumée, au bout de la rue des Orfèvres. Des tables de jeu, des chandelles, du vin chaud. Bastien est au fond, devant une pile d'écus qu'il ne compte pas. Il joue aux dés contre un marchand de Lyon. Il gagne. Il a l'air de quelqu'un qui perd.",
+    "Il te voit. Il se lève à moitié. Il se rassoit.",
+    "Tu traverses la salle. Tu poses la main sur sa pile d'écus. Ils sont neufs, tous, à l'effigie de la ville, comme ceux que le Conseil frappe pour payer ses fournisseurs.",
+    "« Combien ? » dis-tu."
+   ],
+   "choices": [
+    {
+     "label": "« Ton père t'a appris à lire la pierre. Moi, je t'ai appris à lire. Regarde-moi. »",
+     "test": {
+      "dom": "social",
+      "diff": -5,
+      "label": "Le faire parler"
+     },
+     "win": {
+      "to": "I_chat_aveu"
+     },
+     "lose": {
+      "to": "I_chat_fuite"
+     }
+    }
+   ]
+  },
+  "I_chat_aveu": {
+   "act": "I",
+   "title": "Quatre cents écus",
+   "place": "hauteville",
+   "fx": {
+    "learn": "plan_corlay",
+    "time": 0.5
+   },
+   "text": [
+    "Bastien te regarde. Tu lui as donné ses premiers livres d'images, quand sa mère est morte. Tu lui as soigné la rougeole et le bras cassé. Il te regarde, et sa bouche tremble.",
+    "« Quatre cents, dit-il. Mes nouvelles dettes. Corlay a fait garder le pont. Et demain, si quelqu'un parle de la digue, il dira au Conseil que c'est mon père qui l'a cachée. Il a les papiers. »",
+    "Il pousse la pile d'écus vers toi, d'un revers de main, comme on pousse une assiette dont on ne veut plus. Le marchand de Lyon ramasse ses dés et s'en va sans rien dire.",
+    "« Je ne peux pas passer le pont, dis-tu. Toi, tu connais la digue mieux que personne. Le canal, l'escalier de service, la galerie. »",
+    "Tu sors le paquet de sous ton manteau. Tu le poses sur la table, entre les écus et le vin."
+   ],
+   "choices": [
+    {
+     "label": "Le lui laisser",
+     "to": "I_fils_porte"
+    }
+   ]
+  },
+  "I_fils_porte": {
+   "act": "I",
+   "title": "Trois lanternes",
+   "place": "foulons",
+   "end": true,
+   "fx": {
+    "flag": "foulons:leves",
+    "time": 7
+   },
+   "text": [
+    "Bastien prend le paquet. Il laisse les écus sur la table. Il sort sans manteau, par la porte de derrière, celle qui donne sur les remparts.",
+    "Tu redescends aux Foulons avec les quatre cents écus dans ton tablier. Tu les comptes sur ton comptoir, pièce par pièce, pour t'occuper les mains.",
+    "À deux heures, tu frappes chez les Mallet. Le quartier se lève et monte.",
+    "À trois heures, du parvis de Saint-Rieul, tu regardes la Maison des Vannes. Une lanterne. Tu attends. Tu comptes les secondes, comme les gouttes. À trois heures dix, une deuxième. À trois heures douze, une troisième.",
+    "Au jour, la Sorge est dans les Foulons, la digue tient, et le quartier est vivant sur le parvis.",
+    "Le soir, tu portes les quatre cents écus à l'Hôtel du Conseil. Tu les poses sur la table ovale, devant Enguerrand Corlay, sans un mot d'explication. Tout le monde sait d'où ils viennent, à cette table. Corlay le sait mieux que les autres. Il les range dans un tiroir. Le fils Vellard est confirmé dans la Charge le lendemain, à quatre voix contre trois."
+   ]
+  },
+  "I_chat_fuite": {
+   "act": "I",
+   "title": "Le paquet sur la table",
+   "place": "hauteville",
+   "fx": {
+    "flag": "route:pont",
+    "time": 0.5
+   },
+   "text": [
+    "Bastien ne te regarde pas. Il regarde le paquet qui dépasse de ton manteau.",
+    "Il se lève d'un coup, renverse la table, les dés, le vin, les écus. Dans le désordre, il t'arrache le paquet des bras. Tu tombes sur un banc. Tes genoux crient.",
+    "Le temps que le marchand de Lyon t'aide à te relever, Bastien est dans la rue, en courant vers la rue Haute. Vers la maison Corlay. Il porte à Corlay ce qu'il n'avait vendu qu'en paroles.",
+    "Tu redescends aux Foulons très lentement, en t'arrêtant à chaque borne. Au pont, le sergent Brasseur te prend le bras sans rien demander et te fait passer.",
+    "Tu t'assois dans ta boutique. Tu attends deux heures."
+   ],
+   "choices": [
+    {
+     "label": "Sortir, et frapper à la première porte",
+     "to": "I_reveil"
+    }
+   ]
+  },
+  "I_rester": {
+   "act": "I",
+   "title": "La clé reste ici",
+   "place": "digue",
+   "fx": {
+    "time": 0.25
+   },
+   "text": [
+    "Tu reposes la toile cirée sur ses genoux.",
+    "« Elle reste ici. Jacquette viendra, Anselme. Elle attendra le paquet à sa cabane, et quand il ne viendra pas, elle montera. Tu le sais aussi bien que moi. »",
+    "« Et les Foulons ? Il faut quelqu'un qu'ils écoutent. »",
+    "Tu regardes la porte entrouverte de la pièce d'à côté. Le banc. La respiration trop régulière.",
+    "« Ils écouteront ton fils, dis-tu. Un Vellard qui frappe à leur porte en pleine nuit pour leur parler de la digue. Ils l'écouteront plus que moi. »",
+    "Anselme suit ton regard. Il se tait un long moment. Puis il hoche la tête."
+   ],
+   "choices": [
+    {
+     "label": "Réveiller Bastien",
+     "to": "I_bastien_eveil"
+    }
+   ]
+  },
+  "I_bastien_eveil": {
+   "act": "I",
+   "title": "Le banc",
+   "place": "digue",
+   "fx": {
+    "time": 0.25
+   },
+   "text": [
+    "Tu pousses la porte. Bastien a les yeux fermés. Tu poses la main sur son épaule.",
+    "« Tu as tout entendu. Tant mieux, ça ira plus vite. »",
+    "Il ouvre les yeux. Il ne fait pas semblant. Il regarde par-dessus ton épaule, vers son père, puis vers la toile cirée sur les genoux du vieux.",
+    "« À deux heures, lui dis-tu, tu frappes chez les Mallet, rue des Teinturiers. Tu leur dis qui tu es. Le vieux Mallet réveillera la rue. Puis tu fais toutes les portes jusqu'au lavoir. Tout le monde à Saint-Rieul. »",
+    "Bastien se lève. Il met sa veste. Il est pâle. Il dit : « Oui », et seulement oui."
+   ],
+   "choices": [
+    {
+     "label": "Le regarder partir",
+     "to": "I_gardes_nuit",
+     "fx": {
+      "time": 4.5
+     }
+    }
+   ]
+  },
+  "I_gardes_nuit": {
+   "act": "I",
+   "title": "Une heure du matin",
+   "place": "digue",
+   "text": [
+    "Bastien descend l'escalier de la digue à sept heures et demie. Tu prépares le souper d'Anselme. Il mange trois cuillerées. Tu comptes ses gouttes. Il somnole. Tu tricotes, pour avoir quelque chose dans les mains.",
+    "À minuit, une seule lanterne à la fenêtre. Personne.",
+    "À une heure, on frappe. Deux coups, durs, d'un poing ganté. « Le guet ! Ouvrez, au nom du Conseil ! »",
+    "Anselme ouvre les yeux. La toile cirée est sur la table de la cuisine, à côté du pain. Ils sont deux, derrière la porte. Ils savent ce qu'ils viennent chercher, et où. Une seule personne au monde savait que la clé était restée ici."
+   ],
+   "choices": [
+    {
+     "label": "Ouvrir, et leur proposer une tisane contre le froid",
+     "to": "I_tisane_gardes"
+    },
+    {
+     "label": "Cacher la clé sous tes jupes, et ouvrir",
+     "test": {
+      "dom": "discretion",
+      "diff": -5,
+      "label": "Cacher une barre de fer"
+     },
+     "win": {
+      "to": "I_fouille",
+      "fx": {
+       "flag": "ilde:cle_cachee"
+      }
+     },
+     "lose": {
+      "to": "I_saisie"
+     }
+    }
+   ]
+  },
+  "I_tisane_gardes": {
+   "act": "I",
+   "title": "Le troisième tiroir",
+   "place": "digue",
+   "fx": {
+    "time": 0.75
+   },
+   "text": [
+    "Tu ouvres. Deux jeunes du guet, trempés, dix-huit ans à peine, qui sentent le vin bu pour se donner du courage. Ils voient une vieille femme en tablier, un vieillard dans un fauteuil, une bouilloire sur le feu.",
+    "« Vous allez attraper la mort, dis-tu. Asseyez-vous. »",
+    "Ta trousse est sur la chaise. Dans la poche du fond, la fiole du troisième tiroir. Tu en mets douze gouttes dans chaque tasse, avec du miel pour l'amertume.",
+    "Ils boivent en cherchant des yeux, sans conviction, l'objet qu'on leur a décrit. Au bout d'un quart d'heure, le premier pose la tête sur la table. Le second se lève, chancelle, et se rassoit par terre contre le buffet.",
+    "Anselme te regarde. « Douze gouttes, dit-il. Tu as toujours eu la main lourde. »"
+   ],
+   "choices": [
+    {
+     "label": "Attendre Jacquette",
+     "to": "I_jacquette_monte"
+    }
+   ]
+  },
+  "I_fouille": {
+   "act": "I",
+   "title": "Sous tes jupes",
+   "place": "digue",
+   "fx": {
+    "time": 0.5
+   },
+   "text": [
+    "Tu glisses la clé dans la poche de ton jupon, contre ta cuisse. Elle pèse comme un enfant de deux ans. Tu ouvres.",
+    "Deux jeunes du guet, trempés, mal à l'aise. Ils fouillent la cuisine, le buffet, le coffre à bois, la chambre. Ils soulèvent la couverture d'Anselme en s'excusant. Ils te regardent, toi, une vieille femme en tablier, et ils n'osent pas.",
+    "« Le capitaine dit qu'elle est ici, madame. »",
+    "« Le capitaine se trompe, dis-tu. Il fait froid. Restez si vous voulez. »",
+    "Ils restent jusqu'à deux heures, à boire le vin d'Anselme. Puis ils repartent sous la pluie qui menace, pour aller dire au capitaine qu'il s'est trompé."
+   ],
+   "choices": [
+    {
+     "label": "Attendre Jacquette",
+     "to": "I_jacquette_monte"
+    }
+   ]
+  },
+  "I_jacquette_monte": {
+   "act": "I",
+   "title": "Deux heures",
+   "place": "digue",
+   "fx": {
+    "time": 0.5
+   },
+   "text": [
+    "À deux heures, on frappe à la porte de l'escalier intérieur. Trois coups légers. Une femme rousse, trempée, les mains vides, une lanterne sourde à la ceinture.",
+    "« Le paquet n'est pas venu », dit Jacquette. Puis elle voit la toile cirée. Elle te regarde. Elle comprend.",
+    "Anselme se lève sans aide pour la première fois depuis une semaine."
+   ],
+   "choices": [
+    {
+     "label": "Descendre à la vanne, tous les trois",
+     "to": "I_roue_ilde"
+    }
+   ]
+  },
+  "I_roue_ilde": {
+   "act": "I",
+   "title": "Quatre bras, et deux qui tremblent",
+   "place": "digue",
+   "fx": {
+    "time": 1.5
+   },
+   "text": [
+    "Dans la chambre de la vanne, Anselme tourne la clé. Jacquette prend un rayon. Toi l'autre. Anselme pousse avec toi, sur ton rayon, ses mains sur les tiennes.",
+    "Tu as cinquante-huit ans. Tes genoux craquent à chaque pas que fait la roue. Au dixième tour, tu ne sens plus tes bras. Au quinzième, la digue rugit sous vos pieds, et tu cries, toi aussi, sans savoir pourquoi.",
+    "Au quarantième, il est trois heures et demie. Tu remontes allumer les deux autres lanternes à la fenêtre."
+   ],
+   "choices": [
+    {
+     "label": "Attendre le jour",
+     "to": "I_garde_cle",
+     "fx": {
+      "time": 2.5
+     }
+    }
+   ]
+  },
+  "I_garde_cle": {
+   "act": "I",
+   "title": "Les deux choses",
+   "place": "digue",
+   "end": true,
+   "fx": {
+    "time": 1.5
+   },
+   "text": [
+    "Au jour, il pleut. Le lac descend. Du seuil de la Maison des Vannes, tu vois les Foulons au bout de la vallée, dans l'eau jusqu'aux fenêtres basses. Sur la Côte, sur le parvis de Saint-Rieul, une foule noire, serrée, sous des parapluies et des couvertures.",
+    "Bastien remonte à huit heures. Il est couvert de boue jusqu'à la taille. Il a frappé à toutes les portes, de deux heures à trois heures, avec le vieux Mallet. Le quartier entier est monté.",
+    {
+     "if": {
+      "not": {
+       "has": "ilde:cle_cachee"
+      }
+     },
+     "text": "Il entre dans la cuisine. Il voit les deux gardes du guet endormis contre le buffet, la clé sur la table, son père dans le fauteuil. Il s'assoit par terre, à côté du fauteuil."
+    },
+    {
+     "if": {
+      "has": "ilde:cle_cachee"
+     },
+     "text": "Il entre dans la cuisine. Il voit la clé sur la table, à côté de deux bouteilles vides, et son père dans le fauteuil. Il s'assoit par terre, à côté du fauteuil."
+    },
+    "« À huit heures hier soir, dit-il, je suis allé chez Corlay. Je lui ai dit que la clé restait ici. » Il a la voix calme. « Puis à deux heures, je suis allé frapper aux portes. J'ai fait les deux. Je ne sais pas lequel des deux je suis. »",
+    "Anselme pose la main sur la tête de son fils. Il ne dit rien. Tu ranges les tasses.",
+    "Anselme meurt à midi. Bastien tient sa main. Tu tiens l'autre. Personne, dans cette cuisine, n'a de réponse à la question du fils. Tu crois que c'est la bonne question, et que ça suffit pour commencer."
+   ]
+  },
+  "I_saisie": {
+   "act": "I",
+   "title": "La clé saisie",
+   "place": "digue",
+   "end": true,
+   "fx": {
+    "time": 4
+   },
+   "text": [
+    "Tu essaies de glisser la clé dans ton jupon. Elle est trop longue. Elle cogne contre le pied de la table au moment où tu ouvres la porte. Le bruit du fer sur le bois.",
+    "Les deux jeunes du guet ne fouillent même pas. Le plus grand tend la main. « Madame. S'il vous plaît. » Il a l'air désolé. Il emporte la toile cirée sous la pluie qui commence.",
+    "Anselme reste dans son fauteuil. Il regarde la porte fermée.",
+    "« Il a dit à Corlay qu'elle était ici, dit-il. Il n'y avait que lui. »",
+    "Jacquette monte à deux heures, les mains vides. Vous êtes trois dans la cuisine, et il n'y a rien à tourner. Anselme regarde son baromètre. Il parle d'un autre moyen, en bas, dans la galerie, que son fils connaît. Son fils est quelque part dans la nuit, aux Foulons ou ailleurs.",
+    "À quatre heures, la pluie. Tu comptes les gouttes de laudanum. Il te demande de doubler la dose. Tu refuses. Il te le demande encore à cinq heures. Ce que tu feras à cinq heures et quart, et ce qui viendra de la vallée à cinq heures et demie, la nuit ne te laisse pas le temps de le savoir. Quelqu'un d'autre, peut-être, était dans la galerie."
+   ]
+  },
+  "B_course_pont": {
+   "act": "I",
+   "title": "Le raidillon",
+   "place": "pont",
+   "fx": {
+    "time": 0.25
+   },
+   "text": [
+    "Tu laisses tes vingt écus sur la table et tu remontes l'escalier en courant. Maître Lucas te crie quelque chose. La porte Saint-Rieul, le raidillon, les pavés mouillés : tu tombes une fois, tu te relèves avec la paume en sang.",
+    "Au milieu du pont des Moulins, une lanterne accrochée à une hallebarde. Le sergent Brasseur tient sous son bras une toile cirée ficelée en croix. Un de ses jeunes emmène une fille en châle gris vers la Haute-Ville, par le bras. Elle se retourne pour regarder le paquet.",
+    "Tu arrives trop tard d'une minute. Tu le sais. Tu marches quand même vers la lanterne.",
+    "« Sergent. Ce paquet est pour mon père. Ce sont ses remèdes, de chez l'apothicaire. »",
+    "Brasseur te regarde. Il t'a ramené trois fois du Chat Ferré à la Maison des Vannes, sur son épaule."
+   ],
+   "choices": [
+    {
+     "label": "« Vous avez soigné votre femme avec les remèdes d'Ilde. Mon père en a besoin cette nuit. »",
+     "test": {
+      "dom": "social",
+      "diff": -15,
+      "label": "Mentir à un honnête homme"
+     },
+     "win": {
+      "to": "B_escorte"
+     },
+     "lose": {
+      "to": "B_pont_saisi"
+     }
+    }
+   ]
+  },
+  "B_pont_saisi": {
+   "act": "I",
+   "title": "Ordre du capitaine",
+   "place": "pont",
+   "fx": {
+    "time": 0.25
+   },
+   "text": [
+    "Brasseur soupèse le paquet. « Des remèdes, Vellard ? Ça pèse comme une barre de fer. » Il le garde sous son bras. « Ordre du capitaine. Rien ne monte vers la digue. Va te coucher. »",
+    "Tu restes au bout du pont. Une demi-heure plus tard, un valet en livrée verte descend de la Haute-Ville, prend le paquet des mains du sergent et remonte vers la rue Haute.",
+    "Tu sais où il va. Tu y as été à huit heures."
+   ],
+   "choices": [
+    {
+     "label": "Le suivre jusqu'à la maison Corlay",
+     "to": "B_corlay",
+     "fx": {
+      "time": 0.5
+     }
+    }
+   ]
+  },
+  "B_escorte": {
+   "act": "I",
+   "title": "Les remèdes",
+   "place": "pont",
+   "fx": {
+    "item": "paquet",
+    "time": 0.25
+   },
+   "text": [
+    "Brasseur regarde la toile cirée, puis toi. Il cherche quelque chose sur ton visage. Tu le laisses chercher.",
+    "« Ton père est au plus mal ? »",
+    "« Il meurt, sergent. »",
+    "C'est la seule chose vraie que tu as dite. Brasseur le sent. Il te tend le paquet. « Le capitaine m'a dit : les porteurs. Toi, tu es le fils. » Il se tourne vers le jeune garde. « Ramène la petite. Elle n'a rien porté. »",
+    "La courrière revient vers vous, le bras libre. Elle te regarde prendre son paquet. Elle te regarde comme on regarde un voleur."
+   ],
+   "choices": [
+    {
+     "label": "« Viens avec moi. Tu me diras qui te l'a donné. »",
+     "to": "B_maelle_route"
+    }
+   ]
+  },
+  "B_maelle_route": {
+   "act": "I",
+   "title": "Dix bornes à deux",
+   "place": "berge",
+   "fx": {
+    "time": 1.25
+   },
+   "text": [
+    "Vous marchez côte à côte sur la route de la Digue. Elle s'appelle Maëlle. Elle a vingt-deux ans, un petit frère, un loyer en retard. Ilde lui a donné un écu d'argent pour porter ça à une passeuse, à la cabane des Loutres.",
+    "« Et toi, demande-t-elle. Tu es qui, pour le garde ? »",
+    "« Le fils du garde-vannes. »",
+    "Elle marche un moment sans rien dire. Puis : « Ilde m'a dit de me méfier de tout le monde. Elle a dit : surtout de ceux qui connaissent le chemin. »",
+    "La digue grandit devant vous, noire, avec sa lanterne. À mi-chemin de l'escalier, tu t'arrêtes. Tu as le paquet dans les bras, la courrière à côté de toi, et ton père en haut des deux cents marches."
+   ],
+   "choices": [
+    {
+     "label": "Monter, et donner la clé à ton père sans rien lui dire",
+     "to": "B_retour_pere"
+    },
+    {
+     "label": "Monter, et lui dire d'abord ce que tu as fait à huit heures",
+     "to": "B_confesse_pere"
+    }
+   ]
+  },
+  "B_retour_pere": {
+   "act": "I",
+   "title": "Le fils qui rapporte la clé",
+   "place": "digue",
+   "end": true,
+   "fx": {
+    "flag": "foulons:leves",
+    "time": 6
+   },
+   "text": [
+    "Ton père t'ouvre. Il voit la toile cirée dans tes bras, et la courrière derrière toi. Il ne demande rien. Il te prend le visage dans ses mains froides, et il le garde un long moment.",
+    "À trois heures, vous descendez tous les trois à la vanne. Maëlle prend un rayon, toi l'autre. Ton père tourne la clé. Quarante tours. La digue rugit.",
+    "Maëlle redescend à deux heures, avant la vanne, pour lever les Foulons avec Ilde. Au jour, le quartier est sur le parvis, la Sorge dans les rues, la digue debout.",
+    "Ton père meurt à midi. Avant de mourir, il dit à Ilde, devant toi : « Mon fils a passé le pont. » Il le dit avec une fierté qui te brûle.",
+    "Le lendemain, le Conseil te confirme dans la Charge des Vannes, à quatre voix contre trois. Corlay vote contre. Il te regarde pendant tout le vote. Il sait ce que tu as fait à huit heures, et il sait que tu le sais. Il a la lettre de ton père, où il manque la clé, et toi tu as la clé.",
+    "Tu as vingt ans de Charge devant toi, et un homme dans cette salle qui peut te défaire d'une phrase. Tu apprendras à vivre avec. Ton père, lui, est mort fier de toi."
+   ]
+  },
+  "B_confesse_pere": {
+   "act": "I",
+   "title": "Avant la clé",
+   "place": "digue",
+   "end": true,
+   "fx": {
+    "flag": "foulons:leves",
+    "time": 6
+   },
+   "text": [
+    "Ton père t'ouvre. Tu restes sur le seuil, le paquet serré contre toi.",
+    "« À huit heures, je suis allé chez Corlay. Je lui ai dit ton plan. Il a payé mes dettes. Le pont était gardé à cause de moi. Cette fille a été arrêtée à cause de moi. » Tu lui tends la toile cirée. « Et je l'ai reprise au sergent avec un mensonge. Voilà. »",
+    "Ton père prend la clé. Il regarde Maëlle, puis toi. Il dit : « Entrez. Il fait froid. »",
+    "C'est tout ce qu'il dit de la nuit. Vous tournez la roue, tous les trois. Maëlle est redescendue lever les Foulons. Au jour, la digue tient, le quartier est vivant sur le parvis.",
+    "À onze heures, ton père t'appelle près du fauteuil. Il te donne son carnet de mesures, avec trois feuilles pliées entre les pages. « Le Conseil a payé tes dettes il y a trois ans, dit-il. Pour que je me taise. Moi aussi, j'ai été vendu, et j'ai pris l'argent. Nous sommes deux. » Il meurt à midi.",
+    "La Charge, tu la laisses aux autres. Tu lis les trois feuilles devant le Conseil le jour de l'enterrement, et tu dis ce que tu as fait, toi aussi, à huit heures. Tu quittes la salle avant le vote. Dehors, la courrière t'attend sur les marches. Elle ne dit rien. Elle marche à côté de toi jusqu'au pont."
+   ]
+  },
+  "B_attendre": {
+   "act": "I",
+   "title": "La tête froide",
+   "place": "hauteville",
+   "fx": {
+    "time": 1.25
+   },
+   "text": [
+    "Tu repousses le pichet. Tu demandes de l'eau. Maître Lucas lève un sourcil.",
+    "Tu sais comment finissent les soupers de la rue Haute. À minuit, Aubrac et Malzieu, les deux voix sûres de Corlay, descendent au Chat Ferré finir la nuit, en riant fort. Malzieu joue gros quand il a bu. Il perd gros, et il paie toujours, parce qu'il a deux moulins aux Foulons et qu'il se croit riche.",
+    "Tu te mets à la table du fond, celle qui a la meilleure chandelle. Tu as vingt écus. Tu les fais rouler entre tes doigts. Tu attends."
+   ],
+   "choices": [
+    {
+     "label": "Attendre minuit",
+     "to": "B_malzieu"
+    }
+   ]
+  },
+  "B_malzieu": {
+   "act": "I",
+   "title": "Les voix sûres",
+   "place": "hauteville",
+   "fx": {
+    "time": 0.25
+   },
+   "text": [
+    "À minuit et quart, la porte du haut s'ouvre sur des rires. Aubrac, gros, rouge, le gilet ouvert. Malzieu, maigre, élégant, l'œil brillant de vin. Ils voient le fils Vellard seul à la table du fond, et ils échangent un regard.",
+    "« Vellard ! dit Malzieu. On a parlé de vous, ce soir. On a même bu à votre santé. »",
+    "Il s'assoit en face de toi. Il pose une bourse sur la table. Aubrac s'assoit à côté, pour regarder.",
+    "Maître Lucas t'apporte les dés. Il les pose devant toi, pas devant Malzieu. Ce sont les siens, ceux du tiroir de gauche. Il te regarde une seconde de plus que d'habitude."
+   ],
+   "choices": [
+    {
+     "label": "Jouer avec les dés de maître Lucas",
+     "test": {
+      "dom": "discretion",
+      "diff": -5,
+      "label": "Tricher sans trembler"
+     },
+     "win": {
+      "to": "B_gagne"
+     },
+     "lose": {
+      "to": "B_perdu"
+     }
+    },
+    {
+     "label": "Demander d'autres dés, et jouer honnêtement",
+     "test": {
+      "dom": "social",
+      "diff": -20,
+      "label": "Gagner à la loyale"
+     },
+     "win": {
+      "to": "B_gagne"
+     },
+     "lose": {
+      "to": "B_perdu"
+     }
+    }
+   ]
+  },
+  "B_gagne": {
+   "act": "I",
+   "title": "Mille écus sur parole",
+   "place": "hauteville",
+   "fx": {
+    "time": 1.25
+   },
+   "text": [
+    "À une heure et demie, Malzieu a perdu sa bourse, sa montre et sa parole pour mille écus. Il signe la reconnaissance de dette sur une page du livre noir de maître Lucas, d'une main qui ne tient plus droit. Aubrac est parti depuis longtemps.",
+    "Malzieu te regarde, dégrisé d'un coup. « Mille écus, Vellard. Je ne les ai pas. Vous le savez. »",
+    "« Je sais. »",
+    "Il attend. Il a compris qu'il y a autre chose. Il a été drapier trente ans."
+   ],
+   "choices": [
+    {
+     "label": "« Votre voix, demain à huit heures. Contre Corlay. »",
+     "to": "B_des"
+    },
+    {
+     "label": "« Vos fouleurs. Réveillez-les. Qu'ils lèvent les Foulons, à deux heures. »",
+     "to": "B_malzieu_foulons"
+    }
+   ]
+  },
+  "B_des": {
+   "act": "I",
+   "title": "La Charge aux dés",
+   "place": "hauteville",
+   "end": true,
+   "fx": {
+    "time": 6
+   },
+   "text": [
+    "Malzieu dit oui. Il n'a pas le choix. Il sort du Chat Ferré à deux heures, sous les premières gouttes, voûté.",
+    "Tu restes à la table du fond. Tu fais le compte : Rouvray, Pons et Garnier pour toi, par fidélité à ton père. Malzieu, maintenant. Quatre. Corlay, Aubrac, et Dame Hesdin qui fera ce qu'elle voudra : trois au plus. Tu viens de gagner la Charge des Vannes aux dés.",
+    "À cinq heures et demie, le Chat Ferré tremble. Les bouteilles tombent des étagères. Maître Lucas court à la porte, puis il revient très lentement s'asseoir derrière son comptoir.",
+    "À huit heures, le Conseil se réunit dans une ville qui a perdu son quartier bas et compte ses morts. On vote quand même, parce qu'il faut quelqu'un pour la digue, ou ce qu'il en reste. Malzieu lève la main pour toi sans te regarder. Quatre voix contre trois.",
+    "La Charge des Vannes est à toi pour vingt ans. Ton père est mort cette nuit dans sa maison, au bout de la digue, quand la digue est partie. Tu as gardé la tête froide toute la nuit, comme tu le voulais. Tu as joué juste. Tu as gagné. Et tu n'as pas pensé une seule fois, entre minuit et cinq heures et demie, à ce que tu aurais pu demander d'autre à un homme qui te devait mille écus."
+   ]
+  },
+  "B_malzieu_foulons": {
+   "act": "I",
+   "title": "Les fouleurs de Malzieu",
+   "place": "foulons",
+   "end": true,
+   "fx": {
+    "flag": "foulons:leves",
+    "time": 6
+   },
+   "text": [
+    "Malzieu te regarde comme si tu étais fou. Puis il voit ton visage. Il se lève.",
+    "Vous descendez ensemble aux Foulons, par le pont. Le sergent Brasseur voit passer un drapier du Conseil et le fils Vellard bras dessus bras dessous, et il s'écarte, la bouche ouverte. Malzieu frappe chez son contremaître, rue des Cardeurs. Le contremaître réveille les fouleurs. Les fouleurs réveillent les rues.",
+    "À trois heures, le quartier monte la Côte. Malzieu marche à côté de toi, dégrisé, les souliers dans la boue. Il demande : « C'est vrai, cette histoire de digue ? » Tu réponds : « Mon père le dit. » Il ne demande plus rien.",
+    "À cinq heures et demie, la digue cède. Du parvis de Saint-Rieul, au milieu de mille personnes vivantes, tu regardes la vague passer sur les Foulons. Puis tu regardes le bout de la vallée, là où était la Maison des Vannes, au bout de la digue. Là où il n'y a plus rien.",
+    "Ton père est mort cette nuit, seul, avec sa lanterne. Tu as fait monter un quartier avec un coup de dés truqué et la dette d'un ivrogne. Tu n'as pas pensé à lui une seule fois entre minuit et deux heures. Tu y penseras désormais tous les jours.",
+    "Malzieu te rend ta reconnaissance de dette le lendemain, sur les marches de l'Hôtel. Tu la déchires devant lui. Il hoche la tête. Ce sont vos derniers mots."
+   ]
+  },
+  "B_perdu": {
+   "act": "I",
+   "title": "La parole d'un Vellard",
+   "place": "hauteville",
+   "end": true,
+   "fx": {
+    "time": 4.5
+   },
+   "text": [
+    "Tu perds. Les dés tournent mal, ce soir, ou les mains tremblent. À une heure, tes vingt écus sont chez Malzieu. À une heure et demie, tu joues sur parole. À deux heures, tu as signé trois cents écus dans le livre noir de maître Lucas, sur la page qu'il avait rayée à neuf heures.",
+    "Malzieu se lève, satisfait, en bâillant. « On se reverra à l'Hôtel, Vellard. Après le vote. »",
+    "Tu restes seul à la table du fond. Maître Lucas range ses dés dans le tiroir de gauche. Il ne te regarde pas.",
+    "À quatre heures, la pluie. Tu penses à la ligne rayée et à la ligne neuve, juste en dessous. Tu as vendu ton père pour effacer l'une, et tu as écrit l'autre de ta main en trois heures.",
+    "Dehors, au bout de la rue des Orfèvres, entre deux maisons, on voit la vallée. À la fenêtre de la Maison des Vannes, une seule lanterne.",
+    "Le jeu reprend toujours ce qu'il donne. Ton père le disait. La suite de la nuit, ce sont d'autres qui la tiennent."
+   ]
+  },
+  "B_pernelle_jardin": {
+   "act": "I",
+   "title": "La porte du jardin",
+   "place": "hauteville",
+   "fx": {
+    "time": 0.25
+   },
+   "text": [
+    "Tu retiens la porte avec ton épaule avant qu'elle se ferme. Pernelle Daguet recule d'un pas.",
+    "« Mademoiselle. Ce que j'ai dit à Monsieur, tout à l'heure. Que la digue cède cette nuit. C'est vrai. Mon père l'a mesurée. Vous l'avez écrit. Vous écrivez tout. »",
+    "Elle te regarde longtemps, dans la lumière de la lanterne du jardin. Puis elle dit, très vite, très bas :",
+    "« Le coffre a deux clés. Monsieur garde l'une sur lui. L'autre est dans mon pupitre depuis douze ans. Revenez à minuit, quand les invités partent. Pas avant. »",
+    "Elle referme la porte."
+   ],
+   "choices": [
+    {
+     "label": "Attendre minuit dans la rue Haute",
+     "to": "B_attente_jardin",
+     "fx": {
+      "time": 1.25
+     }
+    }
+   ]
+  },
+  "B_attente_jardin": {
+   "act": "I",
+   "title": "La rue Haute, de onze heures à minuit",
+   "place": "hauteville",
+   "text": [
+    "Tu attends dans l'encoignure d'une porte cochère, en face de la maison Corlay. La bourse de vingt écus pèse dans ta poche. Tu pourrais aller la boire. Tu restes.",
+    "Par les fenêtres du premier étage, tu vois le souper finir. Corlay qui rit. Une femme en gris perle, au bout de la table, qui ne rit pas. Puis les invités sortent dans la rue, à minuit, en riant fort, et ils passent à deux pas de toi sans te voir.",
+    "La porte du jardin s'ouvre. Pernelle Daguet te met dans les bras une toile cirée ficelée en croix. Elle sent le froid du coffre.",
+    "« Allez-vous-en vite », dit-elle. Et elle referme."
+   ],
+   "choices": [
+    {
+     "label": "Descendre vers le pont",
+     "to": "B_pont_minuit",
+     "fx": {
+      "item": "cle_vannes"
+     }
+    }
+   ]
+  },
+  "B_pont_minuit": {
+   "act": "I",
+   "title": "Le sergent, à minuit",
+   "place": "pont",
+   "fx": {
+    "time": 0.25
+   },
+   "text": [
+    "La porte Saint-Rieul se ferme derrière toi. Le raidillon. Au milieu du pont des Moulins, la lanterne, la hallebarde, et Brasseur, seul. Ses deux jeunes dorment contre le parapet.",
+    "Il voit ce que tu portes. Il a vu passer la même toile cirée sous le bras du valet vert, il y a deux heures, dans l'autre sens.",
+    "« Vellard. Elle est remontée chez Corlay à dix heures. Et la voilà qui redescend avec toi. »",
+    "« La secrétaire me l'a donnée. Elle sait ce qu'elle fait. Moi, j'apprends. »",
+    "Brasseur regarde longtemps la rue Haute, là-haut, la maison aux fenêtres qui s'éteignent une à une. Puis il décroche sa lanterne et te la tend. « Prends ça. La route est noire. »"
+   ],
+   "choices": [
+    {
+     "label": "Courir vers la digue",
+     "to": "B_route_fin",
+     "fx": {
+      "time": 1
+     }
+    }
+   ]
+  },
+  "A_ferreol": {
+   "act": "I",
+   "title": "La clé de voûte",
+   "place": "digue",
+   "fx": {
+    "flag": "anselme:ferreol"
+   },
+   "text": [
+    "Tu lèves la lanterne. Au sommet de la voûte, au-dessus de la veine, la clé de voûte porte une inscription que tu as lue dix mille fois. Ferréol l'a fait graver de sa main, l'été où il a fermé la digue.",
+    "*CE QUE JE RETIENS, QU'UN AUTRE LE RELÂCHE À TEMPS.*",
+    "Tu avais huit ans. Tu lui as demandé ce que ça voulait dire. Il a ri. Il a dit : *Ça veut dire que l'eau gagne toujours. Le métier, c'est de choisir le jour où on la laisse gagner.*",
+    "La fente de la veine passe à un pied de la clé de voûte. Elle monte vers elle."
+   ],
+   "choices": [
+    {
+     "label": "Baisser la lanterne",
+     "back": "A_galerie"
+    }
+   ]
+  },
+  "A_tibo": {
+   "act": "I",
+   "title": "Le gamin de quatre sous",
+   "place": "digue",
+   "fx": {
+    "time": 0.25
+   },
+   "text": [
+    "Le gamin qui a porté ton mot à Jacquette cet après-midi est revenu à six heures te dire que c'était fait. Tu l'as laissé se chauffer devant ton poêle, avec du pain et un bol de lait. Il est encore là. Il lit ton almanach, le doigt sous les lignes.",
+    "Il s'appelle Tibo. Douze ans. Une sœur courrière, aux Foulons, qui court les rues la nuit pour quatre sous la lettre. Il a des yeux noirs qui regardent tout et ne demandent rien.",
+    "Il est six heures et demie. Le pont est libre. La route est libre. Ce que tu as prévu pour sept heures, avec Ilde, pourrait partir maintenant."
+   ],
+   "choices": [
+    {
+     "label": "Lui donner la clé, pour la pierre bleue devant la cabane des Loutres",
+     "to": "A_tibo_part"
+    },
+    {
+     "label": "Le payer, et le renvoyer chez lui",
+     "back": "A_fauteuil"
+    }
+   ]
+  },
+  "A_tibo_part": {
+   "act": "I",
+   "title": "Un paquet trop lourd pour un gamin",
+   "place": "digue",
+   "fx": {
+    "time": 0.5
+   },
+   "text": [
+    "Tu roules la clé dans la toile cirée. Tu la lui mets dans les bras. Il plie un peu les genoux sous le poids, et il se redresse aussitôt, vexé.",
+    "« La cabane des Loutres, en bas, au pied de la digue. La pierre peinte en bleu, devant la porte. Tu mets ça dessous, dans la paille. Tu ne le dis à personne. À personne, Tibo. Pas même à ta sœur. »",
+    "Il hoche la tête. Il demande : « C'est quoi ? »",
+    "« La clé de la digue. »",
+    "Il serre le paquet plus fort. Il descend l'escalier de la digue en comptant les marches à voix haute. Tu l'entends jusqu'à cent douze. Puis le vent couvre sa voix.",
+    "À sept heures, on frappe. Ilde, son panier, ses genoux. Dans la pièce d'à côté, la porte est entrouverte. Bastien dort sur le banc, la respiration trop régulière."
+   ],
+   "choices": [
+    {
+     "label": "Tout dire à Ilde, à voix haute, comme d'habitude",
+     "to": "A_dit_haut"
+    },
+    {
+     "label": "Lui écrire sur l'ardoise du baromètre, et effacer",
+     "to": "A_ardoise"
+    }
+   ]
+  },
+  "A_dit_haut": {
+   "act": "I",
+   "title": "Tout haut",
+   "place": "digue",
+   "fx": {
+    "time": 3
+   },
+   "text": [
+    "Tu dis tout à Ilde, dans l'ordre, de ta voix de garde-vannes, celle qui porte au-dessus du bruit de l'eau. La veine. L'orage. La clé partie avec le gamin, sous la pierre bleue. Jacquette qui la trouvera en rentrant. Trois heures, la vanne. Deux heures, les Foulons.",
+    "Ilde t'écoute. Ses yeux vont une fois vers la porte entrouverte. Tu es trop occupé à parler pour le remarquer.",
+    "Elle redescend à huit heures moins le quart. Tu restes seul. Tu prépares tes lanternes. Le banc, dans la pièce d'à côté, est vide. Tu ne l'as pas entendu partir.",
+    "À dix heures, par ta fenêtre, tu vois deux lanternes descendre la route de la Digue depuis le pont, vite, et s'arrêter au pied du mur, devant la cabane. Elles restent là longtemps. Puis elles remontent vers la ville."
+   ],
+   "choices": [
+    {
+     "label": "Attendre Jacquette",
+     "to": "A_cabane_gardee"
+    }
+   ]
+  },
+  "A_cabane_gardee": {
+   "act": "I",
+   "title": "La pierre retournée",
+   "place": "digue",
+   "end": true,
+   "fx": {
+    "time": 4
+   },
+   "text": [
+    "Jacquette monte à minuit. Elle a le visage blanc. Elle a trouvé la pierre bleue retournée, la paille éparpillée, et des empreintes de bottes partout devant sa porte.",
+    "« Le guet, dit-elle. Ils savaient où chercher. »",
+    "Tu regardes la porte de la pièce d'à côté. Le banc vide. Tu comprends, et Jacquette te voit comprendre. Elle détourne les yeux, par pitié.",
+    "Vous restez dans la cuisine. Elle parle d'un autre moyen. Tu lui parles du pointeau. Elle veut descendre. Tu sais ce que coûte cette descente pour quelqu'un qui ne l'a jamais faite, avec l'eau à la taille, à deux pas de la veine.",
+    "Ce que vous déciderez à trois heures, et ce que le gamin de quatre sous fera quand il saura que sa cachette n'a servi à rien, la nuit le dira à d'autres. Toi, tu as dit ton secret tout haut, une fois de trop, dans une maison où ton fils écoutait. Quarante ans de digue t'ont appris à mesurer l'eau. Personne ne t'a appris à mesurer un fils."
+   ]
+  },
+  "A_ardoise": {
+   "act": "I",
+   "title": "L'ardoise",
+   "place": "digue",
+   "fx": {
+    "time": 0.5
+   },
+   "text": [
+    "Tu dis tout haut : la veine, l'orage, la vanne à trois heures, les Foulons à deux. Tu dis tout haut : « La clé est ici. Jacquette viendra la chercher. »",
+    "Puis tu prends la craie, et sur l'ardoise pendue sous le baromètre, là où tu notes la pression chaque matin, tu écris en petites lettres : *Partie avec le gamin. Pierre bleue.* Tu tournes l'ardoise vers Ilde.",
+    "Elle lit. Elle lève les yeux vers la porte entrouverte de la pièce d'à côté. Puis vers toi. Tu effaces avec ta manche.",
+    "« Bien, dit Ilde tout haut. Je ferai lever les Foulons. »",
+    "Elle redescend à huit heures moins le quart. À huit heures, le banc d'à côté est vide."
+   ],
+   "choices": [
+    {
+     "label": "Préparer les lanternes, et attendre",
+     "to": "A_tibo_nuit",
+     "fx": {
+      "time": 3.5
+     }
+    }
+   ]
+  },
+  "A_tibo_nuit": {
+   "act": "I",
+   "title": "Les gardes cherchent",
+   "place": "digue",
+   "fx": {
+    "time": 3
+   },
+   "text": [
+    "À onze heures et demie, deux gardes du guet frappent à ta porte. Ils ont un ordre du capitaine Rambert : saisir une clé de fer, dans la Maison des Vannes. Ils fouillent la cuisine, le buffet, le coffre à bois, la chambre, le banc vide. Ils soulèvent ta couverture en s'excusant.",
+    "Tu les laisses faire. Tu leur sers du vin. Ils repartent à une heure, bredouilles, pour aller dire au capitaine qu'il s'est trompé.",
+    "Une heure et demie. On gratte à la porte de l'escalier intérieur. Jacquette, trempée, la toile cirée dans les bras. Derrière elle, à moitié caché dans sa jupe de passeuse, un gamin de douze ans qui claque des dents.",
+    "« Il était dans mes roseaux, dit Jacquette. Il gardait sa pierre. Il a attendu six heures, dans le froid, sans bouger. Il dit qu'on lui a dit : à personne. »"
+   ],
+   "choices": [
+    {
+     "label": "Descendre à la vanne, tous les trois",
+     "to": "A_tibo_fin"
+    }
+   ]
+  },
+  "A_tibo_fin": {
+   "act": "I",
+   "title": "Le troisième rayon",
+   "place": "digue",
+   "end": true,
+   "fx": {
+    "flag": "foulons:leves",
+    "time": 5
+   },
+   "text": [
+    "Tu tournes la clé dans le moyeu. Jacquette prend un rayon. Tu prends l'autre, avec tes mains qui tremblent. Tibo prend le troisième, de ses deux mains d'enfant, et il pousse de tout son poids.",
+    "Au quinzième tour, la digue rugit. Tibo crie de peur, puis de joie. Au quarantième, il s'endort par terre, contre la roue, avant que tu aies lâché ton rayon.",
+    "À deux heures, en bas, la cloche du lavoir sonne. Ilde a fait lever les Foulons.",
+    "Au jour, il pleut. Le lac descend. Tu allumes les deux autres lanternes, pour la forme, parce que tu l'avais promis. Puis tu regardes le gamin dormir sur le banc de la pièce d'à côté, sous ta couverture, à la place de ton fils.",
+    "Bastien remonte à huit heures. Il voit la clé dans le moyeu, le lac qui baisse, le gamin sur son banc. Il comprend ce qu'il a vendu, et ce qui ne s'est pas vendu. Il s'assoit par terre, dans l'embrasure de la porte.",
+    "Tu meurs à midi. Avant, tu donnes à Tibo ta règle de laiton, celle de quarante ans de mesures. Tu lui dis qu'il s'en servira mieux que toi. Tu dis à Bastien de le ramener chez lui, aux Foulons, à pied, par la route. Tu sais que la route est longue, et qu'il faudra bien se parler."
+   ]
+  },
+  "A_lettre_hesdin": {
+   "act": "I",
+   "title": "À Dame Hesdin",
+   "place": "digue",
+   "fx": {
+    "flag": "anselme:hesdin",
+    "time": 0.5
+   },
+   "text": [
+    "Tu prends ton écritoire sur tes genoux. Ta main tremble. Tu écris lentement, en appuyant.",
+    "*Madame,*",
+    "*Il y a trois ans, vous avez voté contre. Vous êtes la seule. Ce soir, la fissure que vous avez refusé de taire va céder. J'ouvrirai la vanne cette nuit, si on me laisse faire. Si on m'en empêche, il faudra quelqu'un pour voir. Montez. Je ne vous ai jamais rien demandé.*",
+    "*A. V.*",
+    "Tu plies la lettre. Tu la cachettes de cire verte. Tu la confies au charretier du moulin Brûlé, qui remonte à la Haute-Ville avant la fermeture de la porte. Il la portera rue Haute, à la maison à l'enclume.",
+    "Tu sais comment est Dame Hesdin. Elle lit une lettre trois fois. Elle attend la réponse de sa conscience comme celle d'un fournisseur. Elle viendra tard, si elle vient."
+   ],
+   "choices": [
+    {
+     "label": "Revenir au flacon",
+     "back": "A_fauteuil"
+    }
+   ]
+  },
+  "A_hesdin_arrive": {
+   "act": "I",
+   "title": "La voiture des forges",
+   "place": "digue",
+   "fx": {
+    "time": 0.25
+   },
+   "text": [
+    "Une voiture monte la route de la Digue, deux lanternes à la caisse, avec une enclume peinte sur la portière. Elle s'arrête au pied des deux cents marches.",
+    "Dame Hesdin monte. Elle a soixante-dix ans et une canne. Elle met vingt minutes. Derrière elle, un colosse en tablier de cuir porte une lanterne et une corde : Barthélemy, son maître fondeur.",
+    "Elle entre dans ta cuisine sans frapper. Elle voit Jacquette, trempée, les mains vides. Elle te voit, toi.",
+    "« Votre lettre, Vellard. Je l'ai lue trois fois. Montrez-moi. »"
+   ],
+   "choices": [
+    {
+     "label": "Descendre avec eux à la galerie",
+     "to": "A_hesdin_galerie"
+    }
+   ]
+  },
+  "A_hesdin_galerie": {
+   "act": "I",
+   "title": "La dame dans l'eau",
+   "place": "digue",
+   "fx": {
+    "time": 1
+   },
+   "text": [
+    "Barthélemy te porte dans l'escalier de service comme un enfant. Dame Hesdin descend derrière, une main sur la paroi, la robe noire relevée. Jacquette ferme la marche.",
+    "En bas, l'eau à la taille. Dame Hesdin entre dedans sans un cri. Elle avance jusqu'à la veine. Tu lèves la lanterne. Elle pose sa main gantée sur la pierre qui pleure, et elle l'y laisse.",
+    "« Le pointeau, dis-tu à Barthélemy. Sous l'eau, à deux pas. Un volant de bronze. Il faut tourner à gauche, vingt tours, et tenir quand il lâche. »",
+    "Barthélemy regarde sa maîtresse. Elle hoche la tête. Il ôte son tablier."
+   ],
+   "choices": [
+    {
+     "label": "Le guider, la corde passée dans l'anneau",
+     "test": {
+      "dom": "savoir",
+      "diff": 0,
+      "label": "Guider un plongeur"
+     },
+     "win": {
+      "to": "A_forgeron"
+     },
+     "lose": {
+      "to": "A_forgeron",
+      "fx": {
+       "flag": "barthelemy:blesse"
+      }
+     }
+    }
+   ]
+  },
+  "A_forgeron": {
+   "act": "I",
+   "title": "Le témoin",
+   "place": "digue",
+   "end": true,
+   "fx": {
+    "flag": "foulons:leves",
+    "time": 4.5
+   },
+   "text": [
+    "Barthélemy plonge. Jacquette tient la corde. Toi, tu comptes les tours à voix haute, à mesure qu'il remonte pour respirer. Au vingtième, la vanne se lève avec un bruit de canon. L'eau de la galerie part d'un coup vers le fond.",
+    {
+     "if": {
+      "not": {
+       "has": "barthelemy:blesse"
+      }
+     },
+     "text": "La corde tient. Barthélemy ressort de l'eau, le pointeau dans le poing, en riant comme un homme qui vient de couler une cloche."
+    },
+    {
+     "if": {
+      "has": "barthelemy:blesse"
+     },
+     "text": "La corde file. Barthélemy est jeté contre la paroi. Jacquette le rattrape par le col. Il ressort avec l'épaule démise et le pointeau dans l'autre main, sans un cri."
+    },
+    "Dame Hesdin n'a pas bougé. Elle a toujours la main sur la veine. Elle sent la pierre changer de chant sous son gant.",
+    "Elle envoie sa voiture aux Foulons, à deux heures et demie, avec ordre à son cocher de réveiller toutes les maisons au nom des forges Hesdin. Puis elle s'assoit dans ta cuisine, trempée jusqu'à la poitrine, et elle accepte un verre de ton vin.",
+    "Au jour, le lac descend. Les Foulons sont dans l'eau, et le quartier sur le parvis. À huit heures, Dame Hesdin entre au Conseil avec sa robe noire encore mouillée jusqu'à la taille. Elle ne s'est pas changée. Elle dit qu'elle a mis la main sur la fissure, cette nuit, et elle montre son gant, taché de sable.",
+    "Tu meurs à midi. Avant, tu as le temps d'apprendre que le vote est remis, et que le lac sera vidé au printemps. Ferréol l'avait écrit dans la pierre. Tu as choisi le jour."
+   ]
+  },
+  "O_fulbert": {
+   "act": "I",
+   "title": "Les mains bleues",
+   "place": "pont",
+   "fx": {
+    "time": 0.25
+   },
+   "text": [
+    "À onze heures, un homme monte des Foulons d'un pas pressé, une lanterne à la main. Fulbert Cosson, le teinturier de la rue des Teinturiers, voisin de l'apothicaire. Il a les mains bleues jusqu'aux poignets, comme tous ceux de son métier, et un manteau trop beau pour un teinturier.",
+    "Tu lèves la main. « Où vas-tu, Cosson ? »",
+    "« Chez le capitaine, sergent. J'ai quelque chose pour lui. » Il baisse la voix. « L'apothicaire. Elle va faire lever le quartier à deux heures. Elle me l'a dit elle-même, en me demandant de l'aider. Le capitaine veut savoir tout ce qui se passe chez elle. »",
+    "Il sourit. Il a l'air content de lui. Il pense que vous êtes du même côté.",
+    "Ilde Saunier a soigné ta femme pendant huit mois, jusqu'à la fin, sans jamais te demander un sou."
+   ],
+   "choices": [
+    {
+     "label": "L'enfermer dans la guérite du pont jusqu'au matin",
+     "to": "O_guerite"
+    },
+    {
+     "label": "« Tu as une voix, Cosson ? Alors à deux heures, tu crieras avec elle. »",
+     "test": {
+      "dom": "social",
+      "diff": -10,
+      "label": "Retourner un mouchard"
+     },
+     "win": {
+      "to": "O_fulbert_retourne"
+     },
+     "lose": {
+      "to": "O_guerite"
+     }
+    }
+   ]
+  },
+  "O_guerite": {
+   "act": "I",
+   "title": "La guérite",
+   "place": "pont",
+   "fx": {
+    "time": 0.5
+   },
+   "text": [
+    "Tu prends Cosson par le col et tu le pousses dans la guérite de pierre, au bout du pont, côté Haute-Ville. Il proteste. Il parle du capitaine, de ses droits, de Monsieur Corlay. Tu fermes la porte. Tu tournes la clé.",
+    "« Tu dors ici cette nuit, Cosson. Ivresse sur la voie publique. Thomin, tu as vu ? Il était ivre. »",
+    "Thomin, au bout du pont, regarde ses bottes. « Saoul comme une barrique, sergent. »",
+    "Cosson cogne à la porte pendant une heure. Puis il se tait."
+   ],
+   "choices": [
+    {
+     "label": "Tenir ton pont",
+     "to": "O_pont_tenu"
+    }
+   ]
+  },
+  "O_pont_tenu": {
+   "act": "I",
+   "title": "Un pont bien tenu",
+   "place": "pont",
+   "end": true,
+   "fx": {
+    "time": 6
+   },
+   "text": [
+    "Tu tiens ton pont. À deux heures, en bas, la cloche du lavoir sonne à la volée. Des lanternes sortent sur les quais. Le quartier monte par la Côte. Personne ne descend de la Haute-Ville pour l'en empêcher.",
+    "À trois heures et quart, au bout de la vallée, la fenêtre de la Maison des Vannes s'allume deux fois, puis trois.",
+    "À quatre heures, la pluie. À cinq heures, la Sorge monte sous tes pieds, brune, rapide, jusqu'à lécher les arches. Le pont tient. Les Foulons sont dans l'eau jusqu'aux fenêtres basses, et vides.",
+    "Au jour, tu ouvres la guérite. Cosson sort en clignant des yeux. Il te regarde, puis il regarde la vallée noyée, son atelier sous l'eau. Il comprend lentement ce qu'il serait allé dire au capitaine, et ce qu'il aurait empêché.",
+    "« Je dirai que j'étais saoul », dit-il.",
+    "Rambert te convoque à dix heures. Il te demande pourquoi tu as enfermé un honnête teinturier. Tu réponds : ivresse sur la voie publique. Il te regarde longtemps. Il sait. Il ne peut rien prouver, et le Conseil a d'autres soucis ce matin. Tu gardes ton insigne. Tu le portes un peu plus lourd."
+   ]
+  },
+  "O_fulbert_retourne": {
+   "act": "I",
+   "title": "Le crieur",
+   "place": "foulons",
+   "fx": {
+    "flag": "foulons:leves",
+    "time": 3
+   },
+   "text": [
+    "Cosson te regarde. Il cherche le piège. Il le trouve : tu as ta hallebarde, ton insigne, et deux hommes au bout du pont.",
+    "« Tu as deux enfants, Cosson. Ils dorment au rez-de-chaussée, à trois pas de la Sorge. Le capitaine habite la Haute-Ville. »",
+    "Le teinturier reste longtemps sans bouger. Puis il souffle sa lanterne, et il redescend vers les Foulons.",
+    "À deux heures, la cloche du lavoir sonne. Tu entends deux voix crier dans les rues. Celle de l'apothicaire, que tout le monde connaît. Et une voix d'homme, grave, qui crie plus fort qu'elle, rue après rue. « La digue ! Debout ! »"
+   ],
+   "choices": [
+    {
+     "label": "Tenir ton pont jusqu'au jour",
+     "to": "O_teinturier"
+    }
+   ]
+  },
+  "O_teinturier": {
+   "act": "I",
+   "title": "Deux voix dans la rue",
+   "place": "pont",
+   "end": true,
+   "fx": {
+    "time": 3.5
+   },
+   "text": [
+    "À trois heures et quart, trois lanternes à la Maison des Vannes. À quatre heures, la pluie. Au jour, la Sorge dans les Foulons jusqu'aux fenêtres basses, et le quartier entier sur le parvis.",
+    "Tu descends sur le parvis à huit heures, quand Colin te relève. Ilde est sur les marches, sa trousse sur les genoux. À côté d'elle, Fulbert Cosson, enroué, les mains bleues croisées, ses deux enfants contre lui.",
+    "On le remercie. Des femmes lui apportent du café. Il ne sait pas où se mettre. Il te voit arriver. Il baisse les yeux.",
+    "Ilde te regarde, puis elle regarde Cosson, puis toi. Elle a compris. Elle te fait une place sur la marche.",
+    "Rambert ne saura jamais ce que son mouchard a vu cette nuit. Cosson ne lui dira plus rien, à partir de ce jour. Tu as pris un homme qui vendait ses voisins, et tu lui as montré que sa voix pouvait servir à autre chose. Tu ne sais pas s'il s'en souviendra la semaine prochaine. Ce matin, il s'en souvient."
+   ]
+  },
+  "O_loutre_pont": {
+   "act": "I",
+   "title": "La Loutre, à pied",
+   "place": "pont",
+   "fx": {
+    "time": 0.25
+   },
+   "text": [
+    "À une heure, une femme marche droit sur ta lanterne depuis la route de la Digue. Une tresse rousse, une veste de toile goudronnée, et cette façon de marcher comme si le sol bougeait. Jacquette Morand, la Loutre. Tu l'as arrêtée deux fois. Tu l'as ratée vingt.",
+    "« Sergent. J'attends une commission, cette nuit. Quelqu'un est passé, avec un paquet ? »",
+    "Tu la regardes. Il y a deux heures, une courrière en châle gris est passée sur ce pont avec un paquet long comme un avant-bras, vers la digue. Tu l'as laissée passer. Tu as menti au capitaine.",
+    "La Loutre attend. Elle ne sait pas ce que tu sais."
+   ],
+   "choices": [
+    {
+     "label": "« Celle que tu attends est passée à neuf heures et demie. Regarde sous tes pierres. »",
+     "to": "O_loutre_seule"
+    },
+    {
+     "label": "Laisser le pont à Colin, et partir avec elle",
+     "to": "O_route_loutre"
+    }
+   ]
+  },
+  "O_loutre_seule": {
+   "act": "I",
+   "title": "Regarde sous tes pierres",
+   "place": "pont",
+   "end": true,
+   "fx": {
+    "time": 5
+   },
+   "text": [
+    "La Loutre te regarde une seconde de plus qu'il ne faut. Puis elle part en courant vers la digue, sans un mot.",
+    "Tu restes à ton pont. À deux heures, en bas, la cloche du lavoir sonne à la volée. Des lanternes sortent des maisons et montent la Côte en file. Tu cherches des yeux celle de la rue du Lavoir, la troisième après la fontaine. Elle sort la dernière, lentement, à la hauteur d'une femme qui porte un ventre rond.",
+    "À trois heures et demie, au bout de la vallée, la fenêtre de la Maison des Vannes s'allume deux fois, puis trois.",
+    "À quatre heures, la pluie. Au jour, la Sorge est dans les Foulons jusqu'aux fenêtres basses, et les Foulons sont vides. Tu ne peux pas quitter ton poste avant huit heures. Tu regardes le parvis de Saint-Rieul, de loin, jusqu'à ce que Colin te relève.",
+    "Tu as menti à ton capitaine, tu as aidé une contrebandière, et tu as tenu ton pont. Trois choses vraies en une nuit. Tu ne sais pas encore laquelle tu raconteras à ta petite-fille."
+   ]
+  },
+  "O_route_loutre": {
+   "act": "I",
+   "title": "Dix bornes avec la Loutre",
+   "place": "berge",
+   "fx": {
+    "time": 1
+   },
+   "text": [
+    "« Colin. Le pont est à toi. Si le capitaine descend, je suis parti pisser. »",
+    "Colin ouvre de grands yeux. Tu décroches ta lanterne. La Loutre te regarde faire sans rien dire. Puis elle se met en marche, et tu marches à côté d'elle.",
+    "Dix bornes sur la route de la Digue. Le vent dans la figure. Vous ne parlez pas. À la septième borne, elle dit : « Tu m'as arrêtée deux fois. » Tu réponds : « Et raté vingt. » Elle rit, une fois, sans s'arrêter de marcher.",
+    "Au pied du mur, la cabane des Loutres, une planche à la porte, et devant la porte une pierre plate peinte en bleu."
+   ],
+   "choices": [
+    {
+     "label": "Soulever la pierre",
+     "to": "O_pierre_bleue"
+    }
+   ]
+  },
+  "O_pierre_bleue": {
+   "act": "I",
+   "title": "Sous la pierre",
+   "place": "berge",
+   "fx": {
+    "time": 0.5
+   },
+   "text": [
+    "Jacquette soulève la pierre. Dessous, dans un creux de paille, une toile cirée ficelée en croix. Elle la prend. Elle casse le cachet vert, elle lit à la lueur de ta lanterne.",
+    "« Trois heures, la vanne de fond. Il faut quatre bras. » Elle lève les yeux vers toi. « Le vieux en a deux qui tremblent. J'en ai deux. »",
+    "Tu regardes tes mains. Vingt-deux ans de hallebarde.",
+    "Elle te fait monter dans sa barque. Elle passe une grille, sous la digue, dans un tunnel noir où l'eau coule vers vous."
+   ],
+   "choices": [
+    {
+     "label": "Monter l'échelle de fer",
+     "to": "O_quatre_bras"
+    }
+   ]
+  },
+  "O_quatre_bras": {
+   "act": "I",
+   "title": "Le sergent et la Loutre",
+   "place": "digue",
+   "end": true,
+   "fx": {
+    "time": 4.5
+   },
+   "text": [
+    "Dans la chambre de la vanne, le vieux Vellard est assis contre le mur, une lanterne à ses pieds. Il voit Jacquette. Il voit le sergent du guet derrière elle, avec sa manche et son insigne. Il ferme les yeux une seconde.",
+    "« Brasseur, dit-il. Tu m'as ramené mon fils trois fois. »",
+    "Il tourne la clé. Jacquette prend un rayon, toi l'autre. Tu pousses comme tu as poussé les charrettes embourbées, les portes de cabaret, les ivrognes : avec les épaules et le dos. La roue avance. Au quinzième tour, la digue rugit.",
+    "Au quarantième, il est trois heures et demie. Le vieux allume les deux autres lanternes.",
+    "Tu redescends en courant par la route. À cinq heures, tu es à ton pont, trempé, rouge. Colin y est encore. Le capitaine n'est pas descendu. La Sorge monte sous les arches, brune. Les Foulons sont dans l'eau, et vides : l'apothicaire a fait sonner la cloche du lavoir à deux heures.",
+    "Tu montes au parvis de Saint-Rieul sans t'arrêter. Nine est assise sous le porche, avec son homme et le berceau vide qu'ils ont porté à deux. Elle te voit arriver sans chapeau, couvert de boue jusqu'aux épaules. Elle crie ton nom. Tu ris. Tu découvres qu'un homme peut rire comme ça, trempé jusqu'aux os, devant un quartier sous l'eau."
+   ]
+  },
+  "O_veuf": {
+   "act": "I",
+   "title": "Le portrait au fusain",
+   "place": "hauteville",
+   "fx": {
+    "time": 0.5
+   },
+   "text": [
+    "Tu te rassois sur le lit. Le portrait de ta femme est au mur, au fusain, fait par un peintre de foire l'année de vos noces. Elle a l'air plus sérieuse que dans la vie. Elle riait tout le temps.",
+    "Quand elle est tombée malade, Ilde Saunier est montée chaque soir pendant huit mois. Elle n'a jamais demandé un sou. Le dernier soir, elle t'a dit : *Occupe-toi de la petite. C'est tout ce qu'elle t'a demandé.*",
+    "La petite a dix-neuf ans, un ventre rond, et une chambre au rez-de-chaussée de la rue du Lavoir, à deux pas de la Sorge. Le mercure, dans le baromètre de Vellard, est sur *Tempête*.",
+    "Tu remets tes bottes."
+   ],
+   "choices": [
+    {
+     "label": "Descendre aux Foulons",
+     "to": "O_nine_rue"
+    }
+   ]
+  },
+  "H_forges": {
+   "act": "I",
+   "title": "La maison à l'enclume",
+   "place": "hauteville",
+   "skip": {
+    "to": "H_choix",
+    "label": "Tu connais la suite : la roue des forges tourne trop vite",
+    "fx": {
+     "time": 0.5
+    }
+   },
+   "text": [
+    "Ta maison est au bout de la rue Haute, contre le rempart. Une enclume de fer sur le linteau, seule, sans autre ornement. Ton bureau est au premier, au-dessus de la cour des forges. Le feu de chêne. Tes deux chiens couchés devant. Tes registres.",
+    "Sur ton bureau, l'invitation d'Enguerrand Corlay, à souper ce soir. Tu ne l'as pas ouverte. Tu sais ce qu'il veut : ta voix demain à huit heures, pour la Charge des Vannes. Quatre contre trois, s'il l'a.",
+    "Tu as soixante-dix ans. Tu fais travailler cent quarante hommes. Il y a trois ans, dans la petite salle de l'Hôtel, tu as voté contre le secret de la digue. Seule. Puis tu es rentrée chez toi, et tu t'es tue, comme les six autres. Tu te répètes depuis que tu as eu raison de voter contre. Tu évites de te répéter le reste.",
+    "Barthélemy, ton maître fondeur, frappe à la porte. Il a les cheveux mouillés.",
+    "« Madame. La roue de la forge tourne trop vite. Le canal est plein jusqu'au bord. J'ai jamais vu ça en novembre. Les gars disent que le lac est haut comme au printemps. »"
+   ],
+   "choices": [
+    {
+     "label": "Descendre voir la roue",
+     "to": "H_choix",
+     "fx": {
+      "time": 0.5
+     }
+    }
+   ]
+  },
+  "H_choix": {
+   "act": "I",
+   "title": "La roue de la forge",
+   "place": "hauteville",
+   "text": [
+    "Dans la cour, la roue à aubes tourne dans son coursier, plus vite que tu ne l'as jamais vue tourner, en projetant de l'eau sur les pavés. Le canal des Moulins déborde par-dessus la vanne de la forge.",
+    "Au mur de la cour, la vieille échelle de crue de ton père, peinte en rouge. L'eau est au trait du printemps de la grande crue, il y a vingt ans.",
+    "Tu penses à la petite salle de l'Hôtel. À la fissure. Au mot de Corlay ce jour-là : *suintement*. Au rapport de Tassin, signé cette semaine, que tu as lu sans le croire.",
+    "Il est neuf heures et demie. Dans dix heures et demie, on vote."
+   ],
+   "choices": [
+    {
+     "label": "Faire atteler, et monter voir la digue toi-même",
+     "to": "H_voiture"
+    },
+    {
+     "label": "Réveiller trois maisons du Conseil, et en faire quatre avant le jour",
+     "to": "H_rouvray"
+    },
+    {
+     "label": "Rester. Corlay viendra bien te parler, ce soir",
+     "to": "H_corlay"
+    },
+    {
+     "label": "Ouvrir le tiroir où tu ranges ce que tu as noté, il y a trois ans",
+     "hide": {
+      "has": "hesdin:notes"
+     },
+     "to": "H_notes"
+    },
+    {
+     "label": "Écrire un mot à Pernelle Daguet, la secrétaire de Corlay",
+     "if": {
+      "lu": "O_pernelle"
+     },
+     "to": "H_pernelle"
+    }
+   ]
+  },
+  "H_notes": {
+   "act": "I",
+   "title": "Ce que tu as noté",
+   "place": "hauteville",
+   "fx": {
+    "flag": "hesdin:notes"
+   },
+   "text": [
+    "Une feuille, une seule, de ton écriture de comptable. Tu l'as écrite le soir de la séance, en rentrant, et tu ne l'as jamais relue.",
+    "*2 octobre. Vellard : fissure, galerie basse, deux mètres. Vider le lac = un an sans moulins. Corlay : mortier. Six pour. Moi contre. Les dettes du fils payées par le Conseil. Vellard a dit merci.*",
+    "En bas de la feuille, une ligne que tu avais oubliée : *Je n'ai rien dit en sortant. Pourquoi ?*",
+    "Tu as la réponse, maintenant, trois ans après. Tu avais peur de perdre ta place au Conseil, et le marché des hallebardes du guet que Corlay t'avait fait donner l'année d'avant."
+   ],
+   "choices": [
+    {
+     "label": "Replier la feuille",
+     "back": "H_choix"
+    }
+   ]
+  },
+  "H_corlay": {
+   "act": "I",
+   "title": "Le premier drapier",
+   "place": "hauteville",
+   "fx": {
+    "time": 0.75
+   },
+   "text": [
+    "Il vient à dix heures et demie, comme tu le pensais, en laissant ses invités au dessert. Tu le reçois dans ton bureau, devant le feu. Tu le laisses debout.",
+    "Il parle. Il parle bien : la stabilité, les tisserands, la Charge en de bonnes mains, la digue reprise dans les règles. Tu l'écoutes jusqu'au bout. Tu as toujours écouté les hommes jusqu'au bout. C'est souvent à la fin qu'ils se trahissent.",
+    "« Une seule question, Corlay. Vous êtes descendu dans la galerie, vous ? Une fois, dans votre vie ? »",
+    "Il ouvre la bouche. Tu le vois chercher. Il a soixante et un ans, une fabrique, neuf cents tisserands, et la réponse lui manque."
+   ],
+   "choices": [
+    {
+     "label": "« Ne répondez pas. Montrez-moi quelque chose. » Et le laisser partir",
+     "to": "H_corlay_part"
+    },
+    {
+     "label": "« Montez-y avec moi. Cette nuit. Ma voiture est prête. »",
+     "test": {
+      "dom": "social",
+      "diff": -15,
+      "label": "Entraîner Corlay"
+     },
+     "win": {
+      "to": "H_voiture",
+      "via": "corlay",
+      "fx": {
+       "flag": "hesdin:corlay"
+      }
+     },
+     "lose": {
+      "to": "H_corlay_part"
+     }
+    }
+   ]
+  },
+  "H_corlay_part": {
+   "act": "I",
+   "title": "La porte refermée",
+   "place": "hauteville",
+   "fx": {
+    "time": 0.5
+   },
+   "text": [
+    "Corlay s'en va. Tu l'entends descendre l'escalier, puis la porte de la rue. Ses pas remontent la rue Haute, vers ses fenêtres allumées.",
+    "Barthélemy est resté dans le couloir. Il a tout entendu. Il attend.",
+    "Il est onze heures. Tu as attendu qu'on vienne te parler, et on est venu, et tu n'as rien appris que tu ne savais déjà."
+   ],
+   "choices": [
+    {
+     "label": "Faire atteler, et monter voir la digue toi-même",
+     "to": "H_voiture"
+    },
+    {
+     "label": "Réveiller trois maisons du Conseil",
+     "to": "H_rouvray"
+    },
+    {
+     "label": "Envoyer Barthélemy et vingt hommes chez Corlay, reprendre ce qu'il garde",
+     "if": {
+      "savoir": "cle"
+     },
+     "to": "H_force"
+    }
+   ]
+  },
+  "H_voiture": {
+   "act": "I",
+   "title": "La voiture des forges",
+   "place": "pont",
+   "fx": {
+    "time": 0.75
+   },
+   "text": [
+    {
+     "via": "corlay",
+     "text": "Corlay monte dans ta voiture sans un mot, en habit de soirée. Il regarde par la portière. Tu le regardes, lui."
+    },
+    "Ta voiture descend à la porte Saint-Rieul, qu'on t'ouvre, puis le raidillon. Barthélemy est sur le siège à côté du cocher, une corde et une lanterne sur les genoux.",
+    "Au milieu du pont des Moulins, un sergent du guet lève la main devant tes chevaux. Il lève sa lanterne vers la portière. Il voit l'enclume peinte. Il voit une vieille dame en noir.",
+    "« Ordre du capitaine, Madame. Rien ne monte vers la digue. »",
+    "« Je suis le Conseil, sergent. Qui donne les ordres à votre capitaine. »",
+    "Il hésite une seconde. Puis il retire sa hallebarde et s'écarte."
+   ],
+   "choices": [
+    {
+     "label": "Monter à la Maison des Vannes",
+     "to": "H_maison_vannes",
+     "fx": {
+      "time": 1
+     }
+    }
+   ]
+  },
+  "H_maison_vannes": {
+   "act": "I",
+   "title": "Deux cents marches",
+   "place": "digue",
+   "fx": {
+    "time": 0.5
+   },
+   "text": [
+    "Deux cents marches. Tu les montes au bras de Barthélemy, avec ta canne, en t'arrêtant tous les vingt pas. Il te faut vingt minutes. Tu ne te plains pas.",
+    "Anselme Vellard t'ouvre lui-même, une couverture sur les épaules. Il te reconnaît. Il recule d'un pas, comme devant une apparition.",
+    "« Dame Hesdin. »",
+    "« Vellard. Il y a trois ans, vous avez dit merci. Moi, je n'ai rien dit du tout. Montrez-moi. »",
+    "Il te regarde longtemps. Puis il te dit, d'une voix sans colère, que sa clé est partie à sept heures avec l'apothicaire, qu'elle n'est pas arrivée, et qu'il sait pourquoi."
+   ],
+   "choices": [
+    {
+     "label": "Descendre avec lui dans la galerie",
+     "to": "H_galerie"
+    },
+    {
+     "label": "Attendre la clé avec lui, dans sa cuisine",
+     "to": "H_attente_vannes"
+    }
+   ]
+  },
+  "H_galerie": {
+   "act": "I",
+   "title": "La main de la dame",
+   "place": "digue",
+   "fx": {
+    "time": 0.75
+   },
+   "text": [
+    "Barthélemy porte le vieux dans l'escalier de service. Tu descends derrière, une main sur la paroi glacée, ta robe noire relevée dans l'autre.",
+    {
+     "if": {
+      "has": "hesdin:corlay"
+     },
+     "text": "Corlay descend le dernier. Tu l'entends souffler dans l'escalier étroit, et jurer à mi-voix quand l'eau lui prend les jambes."
+    },
+    "En bas, l'eau à la taille. Tu entres dedans. Le froid te coupe le souffle. Tu avances jusqu'à la lanterne que le vieux lève.",
+    "La veine. Une fente du sol à la voûte, qui pleure une eau trouble. Tu enlèves ton gant. Tu poses ta main nue sur la pierre.",
+    "Elle vibre. Un bourdonnement très bas, continu, que tu sens jusque dans les dents. La pierre chante.",
+    "« Le pointeau, dit Vellard à Barthélemy. Sous l'eau, à deux pas. Vingt tours à gauche. Et tenir quand il lâche. »",
+    "Barthélemy te regarde."
+   ],
+   "choices": [
+    {
+     "label": "Hocher la tête",
+     "test": {
+      "dom": "combat",
+      "diff": -5,
+      "label": "Tenir la corde"
+     },
+     "win": {
+      "to": "H_main"
+     },
+     "lose": {
+      "to": "H_main",
+      "fx": {
+       "flag": "barthelemy:blesse"
+      }
+     }
+    }
+   ]
+  },
+  "H_main": {
+   "act": "I",
+   "title": "La dame au gant mouillé",
+   "place": "hauteville",
+   "end": true,
+   "fx": {
+    "flag": "foulons:leves",
+    "time": 6.5
+   },
+   "text": [
+    "Barthélemy plonge. Tu tiens la corde avec lui, dans l'eau, à soixante-dix ans, les pieds calés contre la paroi. Au vingtième tour, la vanne se lève avec un bruit de canon, et la corde te brûle les mains.",
+    {
+     "if": {
+      "has": "barthelemy:blesse"
+     },
+     "text": "Barthélemy ressort avec l'épaule démise, le pointeau dans l'autre main. Il serre les dents, comme toujours."
+    },
+    {
+     "if": {
+      "not": {
+       "has": "barthelemy:blesse"
+      }
+     },
+     "text": "Barthélemy ressort avec le pointeau dans le poing, en riant comme un homme qui vient de couler une cloche."
+    },
+    "Tu envoies ta voiture aux Foulons, avec ordre au cocher de réveiller toutes les maisons au nom des forges Hesdin. À deux heures et demie, le quartier monte.",
+    {
+     "if": {
+      "has": "hesdin:corlay"
+     },
+     "text": "Corlay reste assis sur la dernière marche de l'escalier de service, trempé jusqu'à la poitrine, en habit de soirée. Il regarde ses mains. Tu le laisses à ses mains. Il a compris seul."
+    },
+    "À huit heures, tu entres au Conseil dans ta robe noire encore mouillée jusqu'à la taille. Tu ne t'es pas changée. Tu poses ton gant sur la table ovale, taché de sable.",
+    "« J'ai mis la main sur la fissure, cette nuit. Il y a trois ans, j'ai voté contre et je me suis tue. Je propose qu'on vide le lac au printemps, et qu'on nomme un garde-vannes qui ne doive rien à personne dans cette salle. »",
+    {
+     "if": {
+      "has": "hesdin:corlay"
+     },
+     "text": "Corlay lève la main le premier."
+    },
+    "Le vieux Vellard meurt à midi. Tu fais porter des fleurs de fer forgé sur sa tombe : une roue à douze rayons, que Barthélemy a coulée lui-même."
+   ]
+  },
+  "H_attente_vannes": {
+   "act": "I",
+   "title": "La cuisine du garde-vannes",
+   "place": "digue",
+   "fx": {
+    "time": 4.5
+   },
+   "text": [
+    "Tu t'assois dans la cuisine, en face de lui. Il te sert son vin. Vous attendez la clé.",
+    "Il te raconte la digue. Ferréol, la pierre, les quarante ans de mesures. Tu lui racontes tes forges. Vous avez le même âge à quatre ans près, et vous ne vous êtes jamais parlé plus de dix minutes en trente ans de Conseil.",
+    "Minuit. Une heure. Une rousse trempée monte par l'escalier intérieur, les mains vides. Elle te regarde comme une erreur.",
+    "Deux heures. Trois heures. Rien. Une seule lanterne à la fenêtre.",
+    "« Il y a un autre moyen, dit le vieux à trois heures et demie. En bas. Il faut un homme qui n'a pas peur de l'eau. »",
+    "Barthélemy dort sur une chaise, dans le couloir, la tête contre le mur."
+   ],
+   "choices": [
+    {
+     "label": "Réveiller Barthélemy, et descendre",
+     "to": "H_galerie_tard"
+    },
+    {
+     "label": "Rester assise. Tu es venue pour voir",
+     "to": "H_temoin"
+    }
+   ]
+  },
+  "H_galerie_tard": {
+   "act": "I",
+   "title": "Quatre heures moins le quart",
+   "place": "digue",
+   "end": true,
+   "fx": {
+    "time": 4
+   },
+   "text": [
+    "Vous descendez tous les quatre. L'eau de la galerie est plus haute qu'à minuit : elle te monte à la poitrine. La veine est plus large. Elle ne pleure plus, elle coule.",
+    "Barthélemy plonge. La rousse tient la corde. Tu tiens la lanterne. Vellard compte. Au vingtième tour, la vanne s'ouvre, et le courant manque d'emporter tout le monde.",
+    "À quatre heures, la pluie. Le lac descend. Au jour, la Sorge est dans les Foulons jusqu'aux fenêtres, et personne n'a fait lever le quartier. On monte sur les toits. L'eau monte lentement. On a le temps, presque toujours.",
+    "Presque. Deux vieux de la rue des Cardeurs, qu'on n'a pas pu sortir à temps. Tu apprends leurs noms à midi, sur le parvis. Tu les écris sur ta feuille de la séance, sous la ligne *Pourquoi ?*.",
+    "À huit heures, au Conseil, tu dis tout. On t'écoute. On remet le vote. Tu sais qu'une heure plus tôt, cette nuit, tu aurais pu réveiller Barthélemy. Tu as attendu une clé, par habitude d'attendre que les choses viennent par la bonne porte."
+   ]
+  },
+  "H_temoin": {
+   "act": "I",
+   "title": "Le témoin",
+   "place": "digue",
+   "end": true,
+   "fx": {
+    "time": 2.5
+   },
+   "text": [
+    "Tu restes assise. Vellard te regarde. Il ne te demande rien. Il retourne à sa fenêtre.",
+    "À quatre heures, la pluie. À cinq heures, le sol se met à trembler sous la cuisine, très doucement. Les tasses tintent sur le buffet.",
+    "À cinq heures et demie, la digue s'ouvre, au milieu, à trois cents pas de la Maison des Vannes. Tu le vois de la fenêtre. Le mur se fend en long, puis il s'ouvre comme une porte, et tout le lac passe par là, en une seule vague brune qui descend la vallée.",
+    "La Maison des Vannes est sur la culée de rocher. Elle tient. Vous êtes debout tous les trois devant la fenêtre, le vieux, la rousse et toi, et vous regardez la ville en bas.",
+    "Tu voulais voir. Tu as vu. Tu as la seule chose qui compte devant un tribunal : un témoignage, de tes yeux, au bon endroit, à la bonne heure. Au procès de Corlay, au printemps, on te le demandera, et tu le donneras. On te demandera aussi pourquoi tu as attendu, cette nuit-là, assise, avec ton maître fondeur endormi dans le couloir. Tu donneras la même réponse qu'il y a trois ans. Elle te fera le même effet."
+   ]
+  },
+  "H_rouvray": {
+   "act": "I",
+   "title": "Le vieux Rouvray",
+   "place": "hauteville",
+   "fx": {
+    "time": 0.75
+   },
+   "text": [
+    "La règle des Sept Maisons date de Ferréol : *Quatre maisons réunies font le Conseil, à toute heure, si la ville est en péril.* Personne ne s'en est servi depuis quarante ans. Tu la connais par cœur.",
+    "Tu commences par Rouvray, au coin de la rue des Cordiers. Il a quatre-vingts ans. Il vient t'ouvrir lui-même, en bonnet de nuit, une bougie à la main. Tu lui dis la roue de ta forge, l'échelle de crue, la séance d'il y a trois ans.",
+    "Le vieux Rouvray pleure. Il pleure comme un enfant, sans cacher son visage. Puis il va chercher son manteau.",
+    "« J'ai voté avec Corlay, dit-il. J'ai dit merci à Vellard dans le couloir. Je vais avec vous. »"
+   ],
+   "choices": [
+    {
+     "label": "Aller chez Pons",
+     "to": "H_pons",
+     "fx": {
+      "time": 0.5
+     }
+    }
+   ]
+  },
+  "H_pons": {
+   "act": "I",
+   "title": "Pons, qui compte",
+   "place": "hauteville",
+   "text": [
+    "Pons, le marchand de laines, te reçoit en robe de chambre de soie, dans son salon, avec un verre de cognac à la main. Il écoute. Pons, lui, compte.",
+    "« Si on vote cette nuit l'ouverture de la vanne, dit-il, on reconnaît qu'on savait. Il y a trois ans. Nous tous. Moi aussi. » Il fait tourner son cognac. « Vous voulez que je signe ma propre faute, Bérangère. »",
+    "« Je veux que vous la signiez avant qu'elle tue quelqu'un. Après, elle aura un autre nom. »",
+    "Pons te regarde par-dessus son verre."
+   ],
+   "choices": [
+    {
+     "label": "« Ma voix est déjà dedans. La première. »",
+     "test": {
+      "dom": "social",
+      "diff": -5,
+      "label": "Décider Pons"
+     },
+     "win": {
+      "to": "H_garnier"
+     },
+     "lose": {
+      "to": "H_pons_non"
+     }
+    }
+   ]
+  },
+  "H_pons_non": {
+   "act": "I",
+   "title": "Pons refuse",
+   "place": "hauteville",
+   "fx": {
+    "flag": "voix:pons_non",
+    "time": 0.25
+   },
+   "text": [
+    "« Non, dit Pons. Je vous aime bien, Bérangère. Mais non. Demain, à huit heures, je verrai. »",
+    "Il te raccompagne à la porte avec une politesse parfaite. Rouvray t'attend dans la rue, sous la lanterne, en se frottant les mains.",
+    "Deux voix. Il en faut quatre."
+   ],
+   "choices": [
+    {
+     "label": "Aller chez Garnier quand même",
+     "to": "H_garnier"
+    }
+   ]
+  },
+  "H_garnier": {
+   "act": "I",
+   "title": "Le jeune Garnier",
+   "place": "hauteville",
+   "fx": {
+    "time": 0.5
+   },
+   "text": [
+    {
+     "if": {
+      "not": {
+       "has": "voix:pons_non"
+      }
+     },
+     "text": "Pons s'habille en jurant contre les vieilles femmes et leurs forges. Vous êtes trois, maintenant, dans la rue Haute, sous une seule lanterne."
+    },
+    "Garnier a trente-cinq ans. Il a hérité la maison de son père l'an dernier, et des dettes avec. Il t'ouvre en chemise. Il voit Rouvray derrière toi, il voit l'heure, et il pâlit.",
+    "« Madame. Corlay tient mes billets. Mille écus. S'il apprend que j'ai voté cette nuit contre lui… »",
+    "Tu le connais depuis qu'il marche. Tu as tenu son père par le bras à l'enterrement de sa mère."
+   ],
+   "choices": [
+    {
+     "label": "« Je rachète tes billets demain. Ce soir, tu votes. »",
+     "test": {
+      "dom": "social",
+      "diff": 0,
+      "label": "Rassurer Garnier"
+     },
+     "win": {
+      "to": "H_garnier_oui",
+      "fx": {
+       "flag": "voix:garnier"
+      }
+     },
+     "lose": {
+      "to": "H_garnier_non"
+     }
+    }
+   ]
+  },
+  "H_garnier_non": {
+   "act": "I",
+   "title": "La porte de Garnier",
+   "place": "hauteville",
+   "fx": {
+    "time": 0.25
+   },
+   "text": [
+    "Garnier secoue la tête. Il a les larmes aux yeux. « Pardon, Madame. Pardon. » Il referme sa porte. Tu l'entends pousser le verrou.",
+    "Tu restes dans la rue Haute, sous la lanterne, avec Rouvray en bonnet de nuit.",
+    {
+     "if": {
+      "not": {
+       "has": "voix:pons_non"
+      }
+     },
+     "text": "Et Pons, qui regarde le ciel en attendant que tu décides."
+    },
+    {
+     "if": {
+      "not": {
+       "has": "voix:pons_non"
+      }
+     },
+     "text": "Vous êtes trois. Il en faut quatre. Il est une heure. Au Chat Ferré, rue des Orfèvres, on joue encore. Malzieu y descend tous les soirs après les soupers de Corlay. Il signe n'importe quoi quand il a bu."
+    },
+    {
+     "if": {
+      "has": "voix:pons_non"
+     },
+     "text": "Vous êtes deux. Il est une heure du matin, et il n'y a plus de porte où frapper."
+    }
+   ],
+   "choices": [
+    {
+     "label": "Réunir la petite salle de l'Hôtel",
+     "hide": {
+      "count": [
+       {
+        "not": {
+         "has": "voix:pons_non"
+        }
+       },
+       {
+        "has": "voix:garnier"
+       }
+      ],
+      "max": 1
+     },
+     "to": "H_seance"
+    },
+    {
+     "label": "Descendre au Chat Ferré chercher Malzieu",
+     "hide": {
+      "not": {
+       "count": [
+        {
+         "not": {
+          "has": "voix:pons_non"
+         }
+        },
+        {
+         "has": "voix:garnier"
+        }
+       ],
+       "min": 1,
+       "max": 1
+      }
+     },
+     "test": {
+      "dom": "social",
+      "diff": -10,
+      "label": "Faire voter un ivrogne"
+     },
+     "win": {
+      "to": "H_seance",
+      "fx": {
+       "flag": "voix:malzieu"
+      }
+     },
+     "lose": {
+      "to": "H_trois_voix"
+     }
+    },
+    {
+     "label": "Rentrer chez toi",
+     "hide": {
+      "count": [
+       {
+        "not": {
+         "has": "voix:pons_non"
+        }
+       },
+       {
+        "has": "voix:garnier"
+       }
+      ],
+      "min": 2
+     },
+     "to": "H_trois_voix"
+    }
+   ]
+  },
+  "H_garnier_oui": {
+   "act": "I",
+   "title": "Garnier s'habille",
+   "place": "hauteville",
+   "fx": {
+    "time": 0.25
+   },
+   "text": [
+    "Garnier te regarde longtemps. Puis il dit : « Demain. Vous les rachetez demain. » Il rentre s'habiller. Il ressort avec son chapeau de travers et ses souliers mal lacés.",
+    {
+     "if": {
+      "has": "voix:pons_non"
+     },
+     "text": "Vous êtes trois, avec Rouvray. Il en faut quatre. Il est une heure. Au Chat Ferré, rue des Orfèvres, on joue encore. Malzieu y descend tous les soirs après les soupers de Corlay. Il signe n'importe quoi quand il a bu."
+    },
+    {
+     "if": {
+      "not": {
+       "has": "voix:pons_non"
+      }
+     },
+     "text": "Vous êtes quatre. Rouvray, Pons, Garnier et toi. Quatre maisons."
+    }
+   ],
+   "choices": [
+    {
+     "label": "Réunir la petite salle de l'Hôtel",
+     "hide": {
+      "count": [
+       {
+        "not": {
+         "has": "voix:pons_non"
+        }
+       },
+       {
+        "has": "voix:garnier"
+       }
+      ],
+      "max": 1
+     },
+     "to": "H_seance"
+    },
+    {
+     "label": "Descendre au Chat Ferré chercher Malzieu",
+     "hide": {
+      "not": {
+       "count": [
+        {
+         "not": {
+          "has": "voix:pons_non"
+         }
+        },
+        {
+         "has": "voix:garnier"
+        }
+       ],
+       "min": 1,
+       "max": 1
+      }
+     },
+     "test": {
+      "dom": "social",
+      "diff": -10,
+      "label": "Faire voter un ivrogne"
+     },
+     "win": {
+      "to": "H_seance",
+      "fx": {
+       "flag": "voix:malzieu"
+      }
+     },
+     "lose": {
+      "to": "H_trois_voix"
+     }
+    },
+    {
+     "label": "Rentrer chez toi",
+     "hide": {
+      "count": [
+       {
+        "not": {
+         "has": "voix:pons_non"
+        }
+       },
+       {
+        "has": "voix:garnier"
+       }
+      ],
+      "min": 2
+     },
+     "to": "H_trois_voix"
+    }
+   ]
+  },
+  "H_seance": {
+   "act": "I",
+   "title": "La petite salle, à deux heures",
+   "place": "hauteville",
+   "fx": {
+    "time": 0.75
+   },
+   "text": [
+    "La petite salle de l'Hôtel du Conseil, au premier étage. La même table ovale qu'il y a trois ans. Le concierge allume les chandelles en bâillant, en chemise sous sa livrée.",
+    {
+     "if": {
+      "has": "voix:malzieu"
+     },
+     "text": "Malzieu sent le vin. Il s'assoit de travers. Il demande deux fois ce qu'on vote. Tu le lui dis deux fois. Il signe. Tu sais ce que vaut une voix d'ivrogne, et tu sais que la règle de Ferréol n'en demande pas davantage."
+    },
+    {
+     "if": {
+      "has": "voix:garnier"
+     },
+     "text": "Garnier signe le dernier, d'une main qui tremble. Il regarde sa signature comme une dette de plus."
+    },
+    "Quatre maisons. Le Conseil. Tu dictes l'ordre toi-même au concierge, qui écrit mieux que vous tous : *Le Conseil des Sept Maisons, réuni en péril, ordonne l'ouverture immédiate de la vanne de fond de la Grande Digue, la levée du quartier des Foulons par le guet, et la remise au garde-vannes de la clé des vannes, en quelque main qu'elle se trouve.*",
+    "Tu fais appeler le capitaine Rambert."
+   ],
+   "choices": [
+    {
+     "label": "Attendre le capitaine",
+     "to": "H_rambert"
+    }
+   ]
+  },
+  "H_rambert": {
+   "act": "I",
+   "title": "Le capitaine du guet",
+   "place": "hauteville",
+   "fx": {
+    "time": 0.5
+   },
+   "text": [
+    "Rambert arrive en tunique mal boutonnée, les yeux gonflés. Il voit la salle, les chandelles, les quatre signatures. Il lit l'ordre. Il le relit.",
+    "« Madame. La clé des vannes est chez Monsieur Corlay. »",
+    "« Je sais, capitaine. C'est vous qui la lui avez portée. » Tu poses la main sur l'ordre. « Monsieur Corlay est une maison du Conseil. Le Conseil, ce soir, c'est nous. Vous êtes payé par le Conseil. Le reste, on en parlera demain. »",
+    "Rambert regarde l'ordre, puis tes mains, puis les trois hommes autour de la table. Il fait ses comptes, lui aussi.",
+    "« À vos ordres, Madame. »"
+   ],
+   "choices": [
+    {
+     "label": "Monter avec lui chez Corlay",
+     "to": "H_cle_corlay"
+    }
+   ]
+  },
+  "H_cle_corlay": {
+   "act": "I",
+   "title": "La porte de la rue Haute",
+   "place": "hauteville",
+   "fx": {
+    "flag": "foulons:leves",
+    "time": 0.75
+   },
+   "text": [
+    "Rambert frappe à la porte de la maison Corlay avec le pommeau de son épée. Un valet ouvre. Puis Corlay descend, en robe de chambre, Aude derrière lui sur le palier.",
+    "Rambert lit l'ordre à voix haute, dans le vestibule, sous le baromètre.",
+    "Corlay te regarde. Il comprend tout d'un coup : la règle de Ferréol, les quatre maisons, l'heure. Il a les mains vides et une robe de chambre.",
+    "« Vous m'avez battu en pleine nuit, Bérangère. »",
+    "« J'ai arrêté de me taire, Enguerrand. Pour vous, ça revient au même. »",
+    "C'est Aude qui va chercher la clé au coffre. Elle la met dans les mains de Barthélemy, pas dans celles de Rambert. Barthélemy part à cheval, avec deux hommes du guet. À la même heure, aux Foulons, les hallebardes frappent aux portes."
+   ],
+   "choices": [
+    {
+     "label": "Attendre le jour à l'Hôtel",
+     "to": "H_quatre_voix",
+     "fx": {
+      "time": 3
+     }
+    }
+   ]
+  },
+  "H_quatre_voix": {
+   "act": "I",
+   "title": "Quatre maisons",
+   "place": "hauteville",
+   "end": true,
+   "fx": {
+    "time": 2
+   },
+   "text": [
+    "À trois heures et demie, de la fenêtre de la petite salle, tu vois trois lanternes s'allumer au bout de la vallée. À quatre heures, la pluie. Au jour, la Sorge est dans les Foulons jusqu'aux fenêtres basses, le quartier est sur le parvis, et la digue tient.",
+    "À huit heures, le Conseil se réunit pour le vote de la Charge. Il y a sept maisons autour de la table, et une nuit entre elles.",
+    "Corlay se lève le premier. Il retire sa candidature à la Charge. Il dit qu'il demandera au printemps que le Conseil rende public le procès-verbal d'il y a trois ans. Il le dit d'une voix égale, sans te regarder.",
+    {
+     "if": {
+      "has": "voix:malzieu"
+     },
+     "text": "Malzieu, dégrisé, demande qu'on retire son nom de l'ordre de la nuit. On le lui refuse. Il dira toute sa vie qu'il était ivre, et toute sa vie on lui répondra qu'il a bien voté."
+    },
+    {
+     "if": {
+      "has": "voix:garnier"
+     },
+     "text": "Garnier vient te voir à midi, avec ses billets. Tu les rachètes, comme promis. Tu les brûles devant lui. Tu lui dis que tu les lui rendras quand il aura voté une fois contre toi. Il rit, pour la première fois depuis un an."
+    },
+    "On donne la Charge au fils Vellard, à cinq voix contre deux, sous la tutelle d'un ingénieur qui descendra dans la galerie. Le vieux est mort à midi, sans le savoir. Tu sors de l'Hôtel sous la pluie. Tu as soixante-dix ans, et tu as fait, une nuit, ce que tu aurais dû faire un après-midi d'octobre. Les trois ans, tu les laisses de côté ce matin. Tu sais déjà qu'ils reviendront."
+   ]
+  },
+  "H_trois_voix": {
+   "act": "I",
+   "title": "Il en fallait quatre",
+   "place": "hauteville",
+   "end": true,
+   "fx": {
+    "time": 4.5
+   },
+   "text": [
+    "Tu rentres chez toi à deux heures, au bras de Rouvray, qui pleure encore un peu. Tu le raccompagnes jusqu'à sa porte. Il te serre la main longtemps.",
+    "Dans ton bureau, le feu est mort. Tu ne le rallumes pas. Tu t'assois à la fenêtre qui donne sur la vallée.",
+    "Barthélemy frappe à trois heures. « Madame. Je peux prendre vingt gars et aller chez Corlay. » Tu lui dis non. Tu lui dis : sans le Conseil, ce sont des forgerons qui enfoncent la porte d'un drapier, et demain on pendra des forgerons. Il s'en va. Tu sais que tu as raison, et tu sais que ça ne suffit pas.",
+    "À cinq heures et demie, la digue cède. La vague passe sur les Foulons, sur la rue des Cardeurs, sur le lavoir. Tu la regardes de ta fenêtre. Elle s'arrête au pied du rocher, comme toutes les crues.",
+    "À huit heures, le Conseil se réunit dans une ville qui compte ses morts. Tu poses sur la table l'ordre de la nuit, avec ses signatures, et la place vide de la quatrième. Tu dis qui a refusé. Tu le dis sans colère, puisque tu as refusé aussi, il y a trois ans.",
+    "Ce que tu as fait cette nuit servira au procès. Ça ne sert à rien d'autre. La règle de Ferréol demandait quatre maisons. Tu en as trouvé trois, et la tienne a trois ans de retard."
+   ]
+  },
+  "H_force": {
+   "act": "I",
+   "title": "Vingt hommes en tablier",
+   "place": "hauteville",
+   "fx": {
+    "time": 0.5
+   },
+   "text": [
+    "Tu fais sonner la cloche des forges. À onze heures et demie, vingt hommes sont dans ta cour, en tablier de cuir, avec des torches et des barres de fer. Barthélemy devant.",
+    "« La maison Corlay garde cette nuit une clé de fer, longue comme un avant-bras, qui appartient au garde-vannes. Allez la chercher. Ne touchez à personne si personne ne vous touche. »",
+    "Barthélemy te regarde. « Et si le guet est là, Madame ? »",
+    "« Le guet porte vos hallebardes. Il sait ce qu'elles pèsent. »"
+   ],
+   "choices": [
+    {
+     "label": "Les suivre jusqu'à la rue Haute",
+     "to": "H_rambert_face"
+    }
+   ]
+  },
+  "H_rambert_face": {
+   "act": "I",
+   "title": "Devant la maison Corlay",
+   "place": "hauteville",
+   "fx": {
+    "time": 0.5
+   },
+   "text": [
+    "Devant la maison Corlay, six hommes du guet, le capitaine Rambert à leur tête, en manteau. Quelqu'un l'a prévenu. Tes vingt forgerons s'arrêtent à dix pas, les torches levées. Aux fenêtres de la rue Haute, des bonnets de nuit.",
+    "« Dame Hesdin, dit Rambert de sa voix douce. Rentrez chez vous. Ceci n'est pas digne d'une maison du Conseil. »",
+    "Corlay est à sa fenêtre, au premier étage. Il ne dit rien. Il regarde."
+   ],
+   "choices": [
+    {
+     "label": "« Barthélemy. La porte. »",
+     "test": {
+      "dom": "combat",
+      "diff": -10,
+      "label": "Forcer la maison"
+     },
+     "win": {
+      "to": "H_force_fin"
+     },
+     "lose": {
+      "to": "H_force_perdue"
+     }
+    }
+   ]
+  },
+  "H_force_fin": {
+   "act": "I",
+   "title": "La clé prise",
+   "place": "digue",
+   "end": true,
+   "fx": {
+    "flag": "foulons:leves",
+    "time": 6
+   },
+   "text": [
+    "Les forgerons passent. Un garde tombe, un forgeron saigne de l'arcade. La porte de la maison Corlay cède au deuxième coup de barre. Barthélemy monte au cabinet, renverse la carte de la vallée, et trouve le coffre fermé. Il le porte dans l'escalier, sur son épaule, comme un sac de charbon.",
+    "Dans ta cour, il le force au burin. Dedans, une clé de fer sur une liasse attachée d'un ruban noir. Tu prends les deux.",
+    "Barthélemy part à cheval avec la clé. Tu envoies dix hommes aux Foulons, frapper aux portes. À trois heures et demie, au bout de la vallée, trois lanternes. La digue tient.",
+    "À huit heures, tu entres au Conseil avec la liasse au ruban noir. Tu la lis. Personne ne t'interrompt.",
+    "Puis on t'arrête, parce qu'une maison du Conseil a forcé la porte d'une autre avec vingt hommes et des barres de fer. Tu le savais en sonnant la cloche. On te juge au printemps, en même temps que Corlay. Vous êtes assis sur le même banc, à deux pas l'un de l'autre. Tu es condamnée à une amende que tu paies le jour même. Lui, à tout le reste.",
+    "Barthélemy vient te chercher à la sortie du tribunal avec ta voiture. Il a une cicatrice neuve à la main. Il ne dit rien. Il t'aide à monter."
+   ]
+  },
+  "H_force_perdue": {
+   "act": "I",
+   "title": "Les hallebardes",
+   "place": "hauteville",
+   "end": true,
+   "fx": {
+    "time": 5.5
+   },
+   "text": [
+    "Les forgerons avancent. Le guet baisse ses hallebardes. Rambert crie un ordre. Un forgeron tombe, la cuisse ouverte. Les autres reculent, portant le blessé. Barthélemy reste le dernier, seul devant la porte, une barre de fer à la main. Rambert le fait désarmer et lier.",
+    "On te raccompagne chez toi avec des égards. On te laisse ta canne.",
+    "Barthélemy passe la nuit au poste, dans la cellule d'à côté d'une courrière des Foulons qu'on a arrêtée sur le pont à neuf heures et demie.",
+    "À cinq heures et demie, la digue cède. Tu le vois de ta fenêtre. Le Conseil de huit heures ne parle que de la vague. Corlay parle le premier. Il dit qu'une maison du Conseil, cette nuit, a voulu forcer sa porte. Il dit pourquoi. Il dit que le garde-vannes a caché la fissure trois ans.",
+    "Tu te lèves pour répondre. Tu as voté contre, il y a trois ans. Tu t'es tue. Cette nuit, tu as envoyé des forgerons au lieu d'y aller toi-même. Tu cherches par quoi commencer."
+   ]
+  },
+  "M_guillot": {
+   "act": "I",
+   "title": "La barque à fond plat",
+   "place": "foulons",
+   "fx": {
+    "time": 0.25
+   },
+   "text": [
+    "Rue du Lavoir, la troisième maison après la fontaine. Guillot t'ouvre en chemise, une gaffe à la main. Il a vingt-cinq ans et une barque amarrée sous ses fenêtres. Derrière lui, Nine, le ventre en avant, qui te reconnaît.",
+    "« Une course pour l'apothicaire, dis-tu. La cabane des Loutres, au pied de la digue. Le pont est gardé. »",
+    "Guillot regarde Nine. « Son père garde le pont, ce soir, dit-il. Avec deux gars. » Il prend sa veste. « Par la Sorge, à contre-courant, il faut une heure. »"
+   ],
+   "choices": [
+    {
+     "label": "Monter dans la barque",
+     "to": "M_barque_pont"
+    }
+   ]
+  },
+  "M_barque_pont": {
+   "act": "I",
+   "title": "Sous l'arche",
+   "place": "pont",
+   "fx": {
+    "time": 0.5
+   },
+   "text": [
+    "Guillot rame sans bruit, à petits coups, le long de la rive. Tu es couchée au fond, le paquet sur le ventre. Au-dessus de vous, le pont des Moulins, et sa lanterne au milieu du tablier.",
+    "Vous passez sous l'arche du milieu. Une voix tombe d'en haut, grave : « Guillot ? C'est toi, là-dessous ? »",
+    "Guillot lève les rames. La barque dérive. Il lève la tête vers la lanterne."
+   ],
+   "choices": [
+    {
+     "label": "Rester couchée, sans un souffle",
+     "test": {
+      "dom": "discretion",
+      "diff": 0,
+      "label": "Disparaître au fond d'une barque"
+     },
+     "win": {
+      "to": "M_barque_passe"
+     },
+     "lose": {
+      "to": "M_barque_vue"
+     }
+    }
+   ]
+  },
+  "M_barque_passe": {
+   "act": "I",
+   "title": "Une barque vide",
+   "place": "berge",
+   "fx": {
+    "time": 0.75
+   },
+   "text": [
+    "« Je relève mes nasses, beau-père, dit Guillot. Nine veut de l'anguille. »",
+    "Un silence, là-haut. Puis la voix : « Rentre vite. Le lac est haut. »",
+    "Guillot reprend les rames. Le pont s'éloigne. Tu restes couchée jusqu'aux tanneries, puis tu t'assois. La Sorge est noire et rapide. Guillot rame à contre-courant, le visage fermé, en comptant ses coups.",
+    "Au pied de la digue, il te pose sur le ponton de la cabane des Loutres. « Je redescends, dit-il. Nine est seule. »"
+   ],
+   "choices": [
+    {
+     "label": "Regarder la cabane",
+     "to": "M_cabane_tot",
+     "via": "barque"
+    }
+   ]
+  },
+  "M_barque_vue": {
+   "act": "I",
+   "title": "Le beau-père",
+   "place": "berge",
+   "fx": {
+    "time": 0.75
+   },
+   "text": [
+    "Tu bouges. La barque gîte. La lanterne descend au bout d'une corde jusqu'à l'eau, et tu te retrouves dans la lumière, couchée sur le paquet, avec la tête du sergent Brasseur penchée au-dessus du parapet.",
+    "Il te regarde. Il regarde Guillot. Il regarde le paquet. Il reste longtemps penché.",
+    "« Tu as une femme enceinte à la maison, Guillot. Et tu promènes des courrières sur la Sorge à dix heures du soir. » La lanterne remonte. « Je n'ai rien vu. Rentre avant minuit, ou c'est moi qui viendrai le dire à Nine. »",
+    "Guillot rame plus fort. Il ne dit rien jusqu'aux tanneries. Puis il rit tout bas, les dents serrées, et il rame encore plus fort.",
+    "Au pied de la digue, il te pose sur le ponton de la cabane des Loutres."
+   ],
+   "choices": [
+    {
+     "label": "Regarder la cabane",
+     "to": "M_cabane_tot",
+     "via": "barque"
+    }
+   ]
+  },
+  "M_colin": {
+   "act": "I",
+   "title": "Le garde du poêle",
+   "place": "hauteville",
+   "fx": {
+    "time": 0.5
+   },
+   "text": [
+    "Le jeune garde a dix-neuf ans, un duvet de moustache, et le dos tourné. Tu l'appelles. Il ne se retourne pas.",
+    "« Ta mère vend des beignets, place du Lavoir. Je lui en achète le dimanche, pour mon frère. »",
+    "Il se retourne. Il s'appelle Colin. Il dit que sa mère dit que le lavoir déborde, ce soir. Il dit que la dernière fois qu'il a débordé en novembre, c'était l'année de la grande crue.",
+    "Tu lui dis ce que tu sais : le paquet, la digue, l'apothicaire qui devait faire lever les Foulons à deux heures. Le paquet est parti chez un drapier avec un valet vert.",
+    "« Ta mère dort place du Lavoir, Colin. Au rez-de-chaussée. »"
+   ],
+   "choices": [
+    {
+     "label": "« Ouvre la grille. Je cours, toi tu restes, tu dis que je me suis sauvée. »",
+     "test": {
+      "dom": "social",
+      "diff": -5,
+      "label": "Ouvrir une grille avec des mots"
+     },
+     "win": {
+      "to": "M_evasion"
+     },
+     "lose": {
+      "to": "M_pont"
+     }
+    }
+   ]
+  },
+  "M_evasion": {
+   "act": "I",
+   "title": "La grille ouverte",
+   "place": "foulons",
+   "fx": {
+    "flag": "foulons:leves",
+    "time": 1.5
+   },
+   "text": [
+    "Colin regarde la porte du poste, puis la grille, puis toi. Il prend la clé sur le clou. Ses mains tremblent.",
+    "« Je viens avec toi, dit-il. Ma mère, je la réveille moi-même. »",
+    "Vous sortez par la cour. La porte Saint-Rieul est fermée ; Colin a l'uniforme, le garde de la poterne vous laisse passer. Vous courez sur le raidillon. Au pont, Thomin vous voit passer, ouvre la bouche, et la referme.",
+    "À une heure et demie, tu sonnes la cloche du lavoir. Colin tape aux portes avec sa hallebarde en criant « Le guet ! ». Les volets s'ouvrent. On voit un uniforme. On s'habille."
+   ],
+   "choices": [
+    {
+     "label": "Monter avec eux à Saint-Rieul",
+     "to": "M_cellule_fin"
+    }
+   ]
+  },
+  "M_cellule_fin": {
+   "act": "I",
+   "title": "La courrière évadée",
+   "place": "hauteville",
+   "end": true,
+   "fx": {
+    "time": 4
+   },
+   "text": [
+    "À trois heures, le quartier est sur le parvis. Tibo est contre toi, sous ta couverture. La mère de Colin a apporté ses beignets froids, et elle les distribue aux enfants.",
+    "Au bout de la vallée, à la fenêtre de la Maison des Vannes, une seule lanterne. Elle reste seule.",
+    "À cinq heures et demie, la digue cède. Le parvis entier entend la vague, puis la voit. Elle passe sur les Foulons. Quand elle est passée, il reste des toits, et mille personnes vivantes sur les marches de Saint-Rieul.",
+    "À huit heures, le capitaine Rambert vient chercher Colin sur le parvis, pour avoir ouvert une grille sans ordre. Colin le suit sans résister. La foule regarde partir le garçon qui a frappé à toutes les portes. D'abord, elle se tait. Puis une femme crie son nom. Puis cent.",
+    "Rambert lâche le bras de Colin au bas de la Côte.",
+    "Le paquet est chez un drapier, et le vieux de la digue est mort cette nuit, seul. Tu n'as pas porté ce qu'on t'a donné à porter. Tu as porté autre chose, que personne ne t'a donné. On t'appellera la courrière évadée, aux Foulons, pendant vingt ans, et tu te demanderas toujours si c'est un compliment."
+   ]
+  },
+  "C_quatre_maisons": {
+   "act": "I",
+   "title": "Deux heures et demie",
+   "place": "hauteville",
+   "fx": {
+    "time": 0.25
+   },
+   "text": [
+    "On frappe à ta porte à coups de pommeau d'épée. Tu descends en robe de chambre. Aude est derrière toi sur le palier.",
+    "Dans ton vestibule, sous ton baromètre, le capitaine Rambert, qui ne te regarde pas, et Dame Hesdin, en manteau noir, appuyée sur sa canne. Derrière elle, un colosse en tablier de cuir.",
+    "Rambert lit un papier à voix haute. *Le Conseil des Sept Maisons, réuni en péril.* Quatre signatures. La règle de Ferréol, que personne n'a utilisée depuis quarante ans. Tu la connais. Tu l'avais oubliée.",
+    "« La clé, Corlay », dit Dame Hesdin."
+   ],
+   "choices": [
+    {
+     "label": "Aller la chercher toi-même au coffre, et la lui remettre",
+     "to": "C_rendue"
+    },
+    {
+     "label": "« Ce Conseil est une farce de nuit. Rambert, raccompagnez Madame. »",
+     "to": "C_refus_conseil"
+    }
+   ]
+  },
+  "C_rendue": {
+   "act": "I",
+   "title": "La clé rendue",
+   "place": "hauteville",
+   "end": true,
+   "fx": {
+    "flag": "foulons:leves",
+    "time": 5.5
+   },
+   "text": [
+    "Tu montes au cabinet. Tu fais glisser la carte. Tu tournes les deux clés. Tu prends la toile cirée sur la liasse au ruban noir. Tu prends aussi la liasse.",
+    "Tu redescends. Tu donnes la clé au colosse en tablier. Tu donnes la liasse à Dame Hesdin.",
+    "« Vous la lirez au Conseil à huit heures, dis-tu. Ou je la lirai. Comme vous voudrez. »",
+    "Elle te regarde longtemps, sous ton baromètre. Puis elle dit : « Lisez-la vous-même. Ça vous fera du bien. »",
+    "À trois heures et demie, de la fenêtre du salon, Aude et toi, vous voyez trois lanternes au bout de la vallée. Aude te prend la main. À quatre heures, la pluie. Au jour, les Foulons dans l'eau, et vivants sur le parvis. La digue tient.",
+    "À huit heures, tu lis la liasse toi-même devant les Sept. Ta voix tremble au début, puis plus du tout. Tu retires ta candidature à la Charge. Tu gardes la présidence jusqu'au printemps, le temps de vider le lac. On te regarde autrement. Tu ne sais pas encore si c'est mieux."
+   ]
+  },
+  "C_refus_conseil": {
+   "act": "I",
+   "title": "Une farce de nuit",
+   "place": "hauteville",
+   "end": true,
+   "fx": {
+    "time": 5.5
+   },
+   "text": [
+    "Rambert ne bouge pas. Il regarde l'ordre dans sa main, puis toi. Il fait ses comptes. Le Conseil le paie. Toi aussi. Ce soir, le Conseil a quatre voix, et toi une.",
+    "« Monsieur, dit-il doucement. C'est un ordre du Conseil. »",
+    "C'est Aude qui monte au cabinet. Tu l'entends faire glisser la carte, tourner les clés. Elle redescend avec la toile cirée. Elle la met dans les mains du colosse en tablier. Elle ne te regarde pas.",
+    "Ils partent. Tu restes dans ton vestibule, en robe de chambre, sous ton baromètre. L'aiguille est sur *Tempête*.",
+    "À huit heures, au Conseil, tu siégeras dans ton fauteuil de président. Dame Hesdin posera l'ordre de la nuit sur la table, avec ses quatre signatures, et le récit de ton refus, écrit par Rambert. Tu as tenu ta clé jusqu'au bout. Ta femme l'a rendue à ta place. On le saura dans toute la ville avant midi, et c'est ce dont on se souviendra de toi."
+   ]
+  },
+  "O_voiture_hesdin": {
+   "act": "I",
+   "title": "L'enclume peinte",
+   "place": "pont",
+   "fx": {
+    "time": 0.25
+   },
+   "text": [
+    "À minuit moins le quart, une voiture descend de la Haute-Ville, deux lanternes à la caisse. Sur la portière, une enclume peinte. Les forges Hesdin.",
+    "Tu lèves la main devant les chevaux. Tu lèves ta lanterne vers la portière. Une vieille dame en noir, une canne entre les genoux. Sur le siège, à côté du cocher, un colosse en tablier de cuir, avec une corde et une lanterne.",
+    "« Ordre du capitaine, Madame. Rien ne monte vers la digue. »",
+    "« Je suis le Conseil, sergent. Qui donne les ordres à votre capitaine. »"
+   ],
+   "choices": [
+    {
+     "label": "Retirer ta hallebarde, et la saluer",
+     "to": "O_salut_hesdin"
+    },
+    {
+     "label": "« Alors je monte avec vous, Madame. Il vous faudra des bras. »",
+     "to": "O_monte_hesdin"
+    }
+   ]
+  },
+  "O_salut_hesdin": {
+   "act": "I",
+   "title": "Le salut",
+   "place": "pont",
+   "end": true,
+   "fx": {
+    "time": 6
+   },
+   "text": [
+    "Tu retires ta hallebarde. Tu salues. La voiture passe le pont et prend la route de la Digue. Ses deux lanternes rapetissent entre les saules.",
+    "Colin te regarde. « Le capitaine a dit rien, sergent. »",
+    "« Le capitaine a un capitaine, Colin. Ce soir, elle est passée sur ton pont. »",
+    "À deux heures et demie, la même voiture redescend à toute allure, vide, et prend le chemin des Foulons. Tu entends le cocher crier aux portes : « Au nom des forges Hesdin ! Debout ! »",
+    "À quatre heures, la pluie. Au jour, la Sorge est dans les Foulons jusqu'aux fenêtres basses, le quartier sur le parvis, la digue debout. Nine a monté la Côte avec son homme, le berceau sur la tête.",
+    "Rambert ne te demande rien. Il sait qui est passé sur le pont. Il sait qu'il n'a rien à dire à quelqu'un qui a salué une maison du Conseil. Tu as obéi, cette nuit, à la bonne personne. Tu ne savais pas, en prenant ta lanterne, qu'il y en avait une."
+   ]
+  },
+  "O_monte_hesdin": {
+   "act": "I",
+   "title": "Le sergent sur le marchepied",
+   "place": "digue",
+   "end": true,
+   "fx": {
+    "flag": "foulons:leves",
+    "time": 6.5
+   },
+   "text": [
+    "Dame Hesdin te regarde. Elle voit ton insigne, ta manche, ta lanterne. « Montez, sergent. »",
+    "Tu laisses le pont à Colin. Tu montes sur le marchepied, une main sur la galerie de la voiture. Au pied de la digue, tu portes la vieille dame dans les deux cents marches, à moitié, quand ses jambes ne veulent plus. Elle ne te remercie pas. Elle te serre le bras.",
+    "Dans la galerie basse, l'eau à la taille, le vieux Vellard explique le pointeau au colosse. Tu tiens la corde avec la dame. Au vingtième tour, la vanne s'ouvre avec un bruit de canon, et la corde manque de vous arracher les bras.",
+    "Tu redescends avec la voiture pour faire lever les Foulons. Tu cognes aux portes avec ta hallebarde, rue après rue. Tu commences par la rue du Lavoir, la troisième maison après la fontaine.",
+    "À huit heures, tu montes au Conseil derrière Dame Hesdin, trempé, couvert de boue, ton insigne à la manche. Elle te fait entrer dans la grande salle. Elle dit aux Sept : « Le sergent Brasseur a quitté son pont cette nuit, contre l'ordre de son capitaine. Je demande qu'on le nomme capitaine. »",
+    "On rit. Puis on regarde Rambert. On ne rit plus. Tu ne seras pas capitaine. Tu seras sergent de la digue, au printemps, quand on videra le lac. C'est mieux. Tu verras ta petite-fille grandir de là-haut."
+   ]
+  },
+  "B_dame_chat": {
+   "act": "I",
+   "title": "Une dame au Chat Ferré",
+   "place": "hauteville",
+   "fx": {
+    "time": 0.25
+   },
+   "text": [
+    "À une heure, la porte du haut s'ouvre, et la salle se tait. Une vieille dame en noir descend l'escalier du Chat Ferré, une marche après l'autre, avec une canne. Derrière elle, le vieux Rouvray, en bonnet de nuit sous son chapeau.",
+    "Dame Hesdin. Dans une cave de dés, à une heure du matin.",
+    "Elle traverse la salle. Elle s'arrête devant Malzieu, qui joue à la table d'à côté, le gilet ouvert. Elle lui parle à voix basse. Tu entends : *Conseil*, *quatre*, *règle de Ferréol*. Malzieu rit. Il est saoul. Il ne comprend pas.",
+    "Dame Hesdin se redresse. Elle te voit. Elle sait qui tu es."
+   ],
+   "choices": [
+    {
+     "label": "Te lever, et aider Malzieu à comprendre",
+     "test": {
+      "dom": "social",
+      "diff": -5,
+      "label": "Dégriser un drapier"
+     },
+     "win": {
+      "to": "B_malzieu_signe"
+     },
+     "lose": {
+      "to": "B_malzieu_rit"
+     }
+    },
+    {
+     "label": "Baisser les yeux sur ton verre",
+     "to": "B_malzieu_rit"
+    }
+   ]
+  },
+  "B_malzieu_signe": {
+   "act": "I",
+   "title": "La quatrième maison",
+   "place": "hauteville",
+   "end": true,
+   "fx": {
+    "flag": "foulons:leves",
+    "time": 6.5
+   },
+   "text": [
+    "Tu prends Malzieu sous le bras. Tu lui fais boire un pot d'eau froide. Tu lui dis, lentement, ce qu'on attend de lui, avec la voix que tu prends pour emprunter de l'argent : chaude, simple, sûre. Malzieu t'aime bien. Tout le monde aime bien Bastien Vellard, à une heure du matin.",
+    "Il signe. Dans la petite salle de l'Hôtel, à deux heures, avec Dame Hesdin, Rouvray et Pons. Tu tiens la chandelle. Personne ne te demande de sortir.",
+    "Dame Hesdin te regarde par-dessus la table. « Vous êtes le fils. Vous écoutiez, ce soir, derrière une porte. » Elle l'affirme. Tu gardes le silence. Elle hoche la tête. « Vous écoutez bien. Ça peut servir. »",
+    "À trois heures et demie, de la fenêtre de la petite salle, trois lanternes au bout de la vallée. C'est ton père, avec la clé que Corlay a rendue. Tu restes à la fenêtre jusqu'au jour.",
+    "Ton père meurt à midi. Tu n'arrives pas à temps pour lui dire ce que tu as fait à huit heures, ni ce que tu as fait à une heure. Il meurt en ignorant les deux. Tu porteras les deux. L'un des deux pèse un peu moins que l'autre, et tu sais lequel."
+   ]
+  },
+  "B_malzieu_rit": {
+   "act": "I",
+   "title": "Malzieu rit",
+   "place": "hauteville",
+   "end": true,
+   "fx": {
+    "time": 6.5
+   },
+   "text": [
+    "Malzieu rit encore. Il propose à Dame Hesdin de jouer sa voix aux dés. Elle le regarde comme on regarde un cheval boiteux. Elle remonte l'escalier, une marche après l'autre, avec Rouvray derrière elle.",
+    "La salle reprend ses dés. Tu restes à ta table. Tu as baissé les yeux pendant qu'une vieille femme cherchait quatre voix pour sauver ton père. Tu as fait ça avec le même visage qu'à huit heures, à la porte du jardin.",
+    "À cinq heures et demie, le Chat Ferré tremble. Les bouteilles tombent. Maître Lucas court à la porte, puis il revient très lentement s'asseoir derrière son comptoir.",
+    "Tu remontes dans la rue des Orfèvres. Au bout, entre deux maisons, on voit la vallée. Au bout de la vallée, il n'y a plus de digue, et plus de lumière à la fenêtre de la Maison des Vannes.",
+    "Ce que Dame Hesdin a fait du reste de sa nuit, et ce qu'elle dira au Conseil à huit heures, tu l'apprendras avec toute la ville. Tu seras dans la salle. Elle te verra. Elle se souviendra de ton visage, au Chat Ferré, baissé sur un verre."
+   ]
+  },
+  "I_hesdin": {
+   "act": "I",
+   "title": "La goutte de Dame Hesdin",
+   "place": "hauteville",
+   "fx": {
+    "time": 0.75
+   },
+   "text": [
+    "Tu caches le paquet derrière les bocaux. Tu prends ta trousse, ton baume de colchique. Au pont, le sergent Brasseur te laisse monter : une apothicaire chez une patiente, à dix heures du soir, c'est l'ordinaire.",
+    "Dame Hesdin te reçoit dans son bureau, devant le feu, son pied malade sur un tabouret. Elle a soixante-dix ans et un regard de fondeur. Tu lui défais sa bande. Tu lui étales le baume. Et tu parles, sans lever les yeux de son pied.",
+    "La veine. Deux doigts. L'orage de quatre heures. La clé dans ta boutique, derrière les sangsues. Le pont gardé. Le fils derrière la porte.",
+    "Dame Hesdin écoute jusqu'au bout sans bouger son pied. Puis elle dit : « Il y a trois ans, j'ai voté contre. Ensuite je me suis tue. Ilde, vous êtes la première personne qui me le fait payer. »",
+    "Elle appelle Barthélemy, son maître fondeur."
+   ],
+   "choices": [
+    {
+     "label": "Lui dire où est la clé, et la laisser faire",
+     "to": "I_hesdin_fin"
+    }
+   ]
+  },
+  "I_hesdin_fin": {
+   "act": "I",
+   "title": "Ce qu'on dit à un pied malade",
+   "place": "foulons",
+   "end": true,
+   "fx": {
+    "flag": "foulons:leves",
+    "time": 6.5
+   },
+   "text": [
+    "Barthélemy descend avec toi aux Foulons, dans la voiture des forges. Le sergent du pont voit l'enclume peinte et s'écarte. Barthélemy prend le paquet derrière les sangsues. Il repart vers la digue, au trot, sous le nez du guet, dans une voiture qu'aucun garde de Corvèze n'oserait arrêter.",
+    "À deux heures, tu frappes chez les Mallet. Le quartier se lève. À trois heures et quart, du parvis, trois lanternes au bout de la vallée.",
+    "Au jour, les Foulons dans l'eau, et vivants sur le parvis. La digue tient.",
+    "À huit heures, Dame Hesdin entre au Conseil en boitant, son pied bandé de ta main. Elle dit tout. Elle dit d'où elle le tient : de son apothicaire, qui le tient du garde-vannes, qui l'a mesuré pendant trois ans. Le vote est remis au printemps.",
+    "Tu remontes chez Anselme à midi. Il est mort, dans son fauteuil, près du baromètre. Les trois lanternes brûlent encore à sa fenêtre. Tu les éteins une à une. Tu as fait passer sa clé par la seule porte que personne ne gardait : le pied malade d'une vieille femme qui avait honte depuis trois ans."
+   ]
+  },
+  "J_dame": {
+   "act": "I",
+   "title": "Une dame dans la cuisine",
+   "place": "digue",
+   "fx": {
+    "time": 0.5
+   },
+   "text": [
+    "Au pied des marches, une voiture, deux lanternes, une enclume peinte sur la portière. Le cocher dort sur son siège. Tu montes les deux cents marches avec ta lanterne sourde, sans le réveiller.",
+    "Dans la cuisine du vieux, il y a une vieille dame en noir, une canne entre les genoux, un verre de vin devant elle. Derrière elle, dans le couloir, un colosse en tablier de cuir qui dort sur une chaise. Le vieux est dans son fauteuil.",
+    "« Jacquette, dit le vieux. Dame Hesdin, des forges. » Puis à la dame : « La Loutre. Elle passe le sel sous le nez de l'octroi depuis six ans. Elle est la seule personne de la vallée qui soit venue chaque fois que je l'ai appelée. »",
+    "La dame te regarde. Elle voit tes mains vides.",
+    "« Le paquet n'est pas venu », dis-tu.",
+    "Le vieux ferme les yeux. La dame pose son verre."
+   ],
+   "choices": [
+    {
+     "label": "« Il y a la pierre bleue. Quelqu'un a pu le laisser dessous. Je redescends voir. »",
+     "if": {
+      "savoir": "pierre_bleue"
+     },
+     "to": "J_dame_pierre"
+    },
+    {
+     "label": "« Il y a le pointeau. Réveillez votre colosse, Madame. Je tiendrai la corde. »",
+     "to": "J_dame_pointeau"
+    }
+   ]
+  },
+  "J_dame_pierre": {
+   "act": "I",
+   "title": "La pierre bleue, à une heure",
+   "place": "berge",
+   "end": true,
+   "fx": {
+    "flag": "foulons:leves",
+    "time": 6
+   },
+   "text": [
+    "Tu redescends les deux cents marches en courant. Devant ta cabane, la planche à craie est vide. Tu soulèves la pierre bleue. Dans le creux de paille, une toile cirée ficelée en croix, froide, humide, longue comme un avant-bras.",
+    "Tu remontes avec. Tu la poses sur la table de la cuisine, devant la dame, plus vite que le vieux n'arrive à se lever.",
+    "À trois heures, vous êtes quatre dans la chambre de la vanne : le vieux à la clé, toi et le colosse aux rayons, et la dame contre le mur, la lanterne levée, qui compte les tours à voix haute avec le vieux. Au quinzième, la digue rugit. La dame continue de compter.",
+    "Elle envoie sa voiture aux Foulons, avec son cocher, au nom des forges. Au jour, le quartier est vivant sur le parvis.",
+    "À dix heures, un valet des forges vient te trouver sur ton ponton. Dame Hesdin te fait dire que le vote est remis, que le lac sera vidé au printemps, et que la Charge aura besoin d'une batelière qui connaisse le canal. Elle te fait dire aussi qu'elle a vu tes sacs de sel dans les roseaux, et qu'elle n'en parlera à personne.",
+    "Tu ris tellement que le valet recule."
+   ]
+  },
+  "J_dame_pointeau": {
+   "act": "I",
+   "title": "La corde et le colosse",
+   "place": "digue",
+   "end": true,
+   "fx": {
+    "flag": "foulons:leves",
+    "time": 6
+   },
+   "text": [
+    "Le colosse s'appelle Barthélemy. Il descend l'escalier de service en portant le vieux sur son dos. La dame descend derrière, une main sur la paroi. Toi, devant, avec la lanterne et la corde.",
+    "En bas, l'eau à la taille. Tu passes la corde dans l'anneau du mur. Barthélemy plonge. Le vieux compte. La dame s'est avancée jusqu'à la veine, dans l'eau froide, et elle a posé sa main nue sur la pierre.",
+    "Au vingtième tour, la vanne s'ouvre avec un bruit de canon. La corde te brûle les paumes. Tu tiens. Barthélemy ressort en riant, le pointeau dans le poing.",
+    "La dame envoie sa voiture aux Foulons. Au jour, le quartier est sur le parvis, la Sorge dans les rues, la digue debout.",
+    "Le vieux meurt à midi. Tu l'apprends sur le quai. Tu remontes ta barque, tu t'assois dedans, sous la pluie.",
+    "Le soir, un valet des forges t'apporte une paire de gants de cuir neufs, à ta taille, sans un mot. Dans le gant droit, un billet : *Pour les cordes. B. H.* Tu les mets. Ils sont trop beaux pour une passeuse. Tu les gardes pour les nuits où il faudra tenir."
+   ]
+  },
+  "C_malzieu": {
+   "act": "I",
+   "title": "Malzieu, à trois heures",
+   "place": "hauteville",
+   "fx": {
+    "time": 0.25
+   },
+   "text": [
+    "Le valet de nuit te réveille. Malzieu est en bas, dans le vestibule, sous le baromètre, le chapeau à la main, dégrisé, livide.",
+    "« Corlay. J'ai perdu mille écus au Chat Ferré. Contre le fils Vellard. Sur parole. » Il avale sa salive. « Il ne veut pas l'argent. Il veut ma voix, demain. »",
+    "Tu comptes. Toi, Aubrac. Rouvray, Pons, Garnier pour le fils. Malzieu, maintenant. Quatre contre deux. Dame Hesdin n'y changera rien.",
+    "Malzieu attend. Il t'a toujours suivi. Il te demande quoi faire, comme toujours."
+   ],
+   "choices": [
+    {
+     "label": "« Je rachète ta dette au garçon. Cette nuit. » Et descendre au Chat Ferré",
+     "to": "C_rachat"
+    },
+    {
+     "label": "« Vote pour lui. Une Charge gagnée aux dés, ça se défait au printemps. »",
+     "to": "C_des"
+    }
+   ]
+  },
+  "C_rachat": {
+   "act": "I",
+   "title": "Le fils, à la table du fond",
+   "place": "hauteville",
+   "end": true,
+   "fx": {
+    "time": 3
+   },
+   "text": [
+    "Tu descends au Chat Ferré à trois heures et demie, en manteau sur ta robe de chambre. La salle est presque vide. Le fils Vellard est à la table du fond, seul, devant une chandelle, avec la reconnaissance de dette de Malzieu.",
+    "Tu poses une bourse sur la table. « Mille écus. Rendez-lui sa parole. »",
+    "Le garçon regarde la bourse. Puis toi. Il a les yeux de son père, et tu ne l'avais jamais remarqué.",
+    "« À huit heures hier soir, dit-il, vous m'avez payé quatre cents écus pour mon père. Maintenant vous m'en offrez mille pour un ivrogne. » Il pousse la bourse vers toi. « Gardez-les. Vous en aurez besoin. »",
+    "À quatre heures, la pluie. À cinq heures et demie, le Chat Ferré tremble. Le garçon se lève d'un coup, renverse la chandelle, et monte l'escalier en courant. Tu restes assis devant ta bourse, dans le noir.",
+    "À huit heures, le Conseil se réunit dans une ville qui compte ses morts. Malzieu vote pour le fils Vellard. Le fils n'est pas là pour l'entendre. Il est au bout de la vallée, à chercher son père dans ce qui reste de la Maison des Vannes. Tu as la présidence, ta bourse, et quatre voix contre toi."
+   ]
+  },
+  "C_des": {
+   "act": "I",
+   "title": "Une Charge aux dés",
+   "place": "hauteville",
+   "end": true,
+   "fx": {
+    "time": 4.5
+   },
+   "text": [
+    "Malzieu repart soulagé. Tu remontes te coucher. Aude ne dort pas.",
+    "« Qui était-ce ? »",
+    "« Malzieu. Il a perdu sa voix aux dés. Le fils Vellard aura la Charge. »",
+    "Aude allume la bougie. Elle te regarde. « Et toi, tu dors ? »",
+    "« Au printemps, on prouvera qu'une voix jouée aux dés ne vaut rien. Le garçon tiendra six mois. »",
+    "À cinq heures et demie, la maison tremble. De la fenêtre du salon, dans le petit jour, tu vois la digue ouverte en son milieu, et le lac qui passe. Le garçon aura la Charge d'une digue qui n'existe plus. Toi, tu as la clé, dans ton coffre, sur la liasse au ruban noir. Tu l'avais oubliée en comptant les voix."
+   ]
+  },
+  "A_corlay": {
+   "act": "I",
+   "title": "Le camarade d'école",
+   "place": "digue",
+   "fx": {
+    "time": 0.25
+   },
+   "text": [
+    "Une voiture de drapier, une couronne brodée sur la portière. Un homme en habit de soirée monte tes deux cents marches, lentement, avec une lanterne. Derrière lui, une femme en gris avec une écritoire.",
+    "Enguerrand Corlay. Vous étiez à l'école ensemble, chez les frères de Saint-Rieul. Tu étais meilleur que lui en calcul. Il était meilleur que toi en tout le reste.",
+    "Il a ta clé dans la main.",
+    "« Tu es venu », dis-tu.",
+    "« J'ai vu le mur. »"
+   ],
+   "choices": [
+    {
+     "label": "Prendre la clé",
+     "to": "A_corlay_roue"
+    }
+   ]
+  },
+  "A_corlay_roue": {
+   "act": "I",
+   "title": "Deux vieux hommes à la roue",
+   "place": "digue",
+   "end": true,
+   "fx": {
+    "flag": "foulons:leves",
+    "time": 5.5
+   },
+   "text": [
+    "Tu prends la clé. Tu ne le remercies pas. Il ne s'y attend pas.",
+    "Dans la chambre de la vanne, tu tournes la clé dans le moyeu, de tes deux mains qui tremblent. La rousse prend un rayon. Corlay enlève son habit et prend l'autre. Il pousse comme un homme qui n'a rien poussé depuis ses vingt ans, avec les bras, puis avec le ventre, puis avec la rage.",
+    "Au dixième tour, il a les mains en sang. Au quinzième, la digue rugit, et il crie avec elle. Au quarantième, il s'assoit par terre, à côté de toi, contre le mur.",
+    "Vous restez là tous les deux, dans le bruit de l'eau. Il dit : « Il y a trois ans, j'aurais pu descendre. » Tu dis : « Il y a trois ans, j'aurais pu refuser ton argent. » Vous vous taisez. C'est la plus longue conversation que vous ayez eue depuis l'école.",
+    "Au jour, le lac descend. La femme en gris a écrit toute la nuit. Le guet a fait lever les Foulons, sur l'ordre de Corlay.",
+    "Tu meurs à midi, dans ton fauteuil. Corlay est encore là. Il a dormi sur le banc de ton fils. Avant de partir pour le Conseil, il te ferme les yeux. Tu ne le vois pas faire. Tu l'aurais laissé faire."
+   ]
+  },
+  "H_pernelle": {
+   "act": "I",
+   "title": "Un mot à la secrétaire",
+   "place": "hauteville",
+   "fx": {
+    "time": 0.5
+   },
+   "text": [
+    "Tu connais Pernelle Daguet. Elle vient chaque trimestre régler les comptes de la maison Corlay avec tes forges, et elle trouve tes erreurs avant ton commis. Elle est la seule personne de la rue Haute dont tu admires le travail.",
+    "Tu écris trois lignes. *Mademoiselle. On dit que votre maître garde cette nuit une clé qui n'est pas à lui. Si vous le savez aussi, ma porte du jardin est ouverte jusqu'au jour. B. H.*",
+    "Tu fais porter le mot par ta femme de chambre, qui connaît la cuisinière de Corlay. Puis tu attends, devant ton feu, tes chiens à tes pieds."
+   ],
+   "choices": [
+    {
+     "label": "Attendre minuit",
+     "to": "H_pernelle_jardin",
+     "fx": {
+      "time": 2.25
+     }
+    }
+   ]
+  },
+  "H_pernelle_jardin": {
+   "act": "I",
+   "title": "La porte du jardin",
+   "place": "hauteville",
+   "end": true,
+   "fx": {
+    "flag": "foulons:leves",
+    "time": 6
+   },
+   "text": [
+    "À minuit et quart, ta femme de chambre frappe. Pernelle Daguet est dans ta cuisine, en manteau gris, une toile cirée ficelée en croix dans les bras.",
+    "« Le coffre a deux clés, Madame. Monsieur en garde une. L'autre est dans mon pupitre depuis douze ans. » Elle te tend le paquet. « Je ne sais pas qui le portera. Moi, je dois être à mon pupitre à sept heures. »",
+    "Barthélemy part à cheval à minuit et demi, avec la clé et deux de tes hommes. Ta voiture descend aux Foulons réveiller les rues au nom des forges.",
+    "À trois heures et quart, de ta fenêtre, trois lanternes au bout de la vallée. À quatre heures, la pluie. Au jour, la digue tient.",
+    "À huit heures, au Conseil, Corlay est à sa place, frais, rasé. Il ne sait encore rien. Tu poses la clé sur la table ovale. Tu dis qu'elle a passé la nuit dans la digue, où elle devait être. On te demande d'où tu la tiens. Tu réponds : d'une personne qui fait son travail.",
+    "Corlay pâlit. Il regarde la porte, derrière laquelle Pernelle Daguet attend avec ses registres. Il comprend. Tu le vois comprendre. La semaine suivante, Pernelle entre à ton service. Elle trouve trois erreurs dans tes comptes le premier jour."
    ]
   }
  }

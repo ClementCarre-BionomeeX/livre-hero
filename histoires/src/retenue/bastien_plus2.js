@@ -122,7 +122,7 @@ module.exports = {
     ] },
   B_perdu: { act: A, title: "La parole d'un Vellard", place: "hauteville", end: true, fx: { time: 4.5 },
     text: [
-      "Tu perds. Les dés ne t'aiment pas, ce soir, ou les mains ne suivent plus. À une heure, tes vingt écus sont chez Malzieu. À une heure et demie, tu joues sur parole. À deux heures, tu as signé trois cents écus dans le livre noir de maître Lucas, sur la page qu'il avait rayée à neuf heures.",
+      "Tu perds. Les dés tournent mal, ce soir, ou les mains tremblent. À une heure, tes vingt écus sont chez Malzieu. À une heure et demie, tu joues sur parole. À deux heures, tu as signé trois cents écus dans le livre noir de maître Lucas, sur la page qu'il avait rayée à neuf heures.",
       "Malzieu se lève, satisfait, en bâillant. « On se reverra à l'Hôtel, Vellard. Après le vote. »",
       "Tu restes seul à la table du fond. Maître Lucas range ses dés dans le tiroir de gauche. Il ne te regarde pas.",
       "À quatre heures, la pluie. Tu penses à la ligne rayée et à la ligne neuve, juste en dessous. Tu as vendu ton père pour effacer l'une, et tu as écrit l'autre de ta main en trois heures.",

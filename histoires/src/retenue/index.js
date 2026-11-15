@@ -3,11 +3,12 @@
 var base = require("./base.js");
 var adds = [];
 ["./nuit.js", "./maelle.js", "./maelle_plus.js", "./maelle_plus2.js", "./odon.js", "./odon_plus.js", "./ilde.js", "./ilde_plus.js", "./bastien.js", "./bastien_plus.js", "./jacquette.js", "./jacquette_plus.js", "./corlay.js", "./corlay_plus.js", "./anselme.js", "./anselme_plus.js", "./croisements.js",
-  "./corlay_plus2.js", "./jacquette_plus2.js", "./ilde_plus2.js", "./bastien_plus2.js", "./anselme_plus2.js", "./odon_plus2.js"].forEach(function (f) {
+  "./corlay_plus2.js", "./jacquette_plus2.js", "./ilde_plus2.js", "./bastien_plus2.js", "./anselme_plus2.js", "./odon_plus2.js", "./hesdin.js", "./croisements2.js", "./croisements3.js"].forEach(function (f) {
   var ps = require(f);
   Object.keys(ps).forEach(function (k) {
     if (k === "_add") { adds.push([f, ps._add]); return; }
     if (k === "_savoirs") { Object.assign(base.savoirs, ps._savoirs); return; }
+    if (k === "_base") { Object.keys(ps._base).forEach(function (b) { base[b] = Object.assign(base[b] || {}, ps._base[b]); }); return; }
     if (base.passages[k]) throw new Error("passage en double : " + k);
     base.passages[k] = ps[k];
   });
