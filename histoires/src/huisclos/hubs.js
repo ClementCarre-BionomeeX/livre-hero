@@ -207,7 +207,7 @@ module.exports = {
   K_registres: {
     title: "Les registres", place: "bureau", back: true, fx: { flag: "germain:comptes" },
     text: [
-      "Tu prends le registre de l'année. L'écriture de ta mère jusqu'en juin, puis une autre, plus ronde et plus large : Germain a tenu les comptes à sa place.",
+      "Tu prends le registre de l'année. L'écriture de ta mère jusqu'en juin, puis une autre, plus ronde et plus large : Germain a tenu les comptes à sa place. La dernière ligne de sa main s'arrête sous une tache, là où la plume a glissé : « Planches vendues à {{tache:Vernet}} ».",
       { if: "passe:copiste", text: "Tu as passé douze ans à lire des comptes chez un notaire, et ceux-là ne tiennent pas debout : les planches vendues à Vernet sont notées au prix de l'an passé, et l'écart part chaque mois dans une colonne « frais divers » qui n'existait pas avant juin." },
       { if: { not: "passe:copiste" }, text: "Il te faut une heure pour comprendre. Depuis juin, une colonne nouvelle, « frais divers », mange chaque mois une part des ventes. Elle grossit à mesure que les mois passent." },
       "Trois cents livres, à peu près, depuis l'été. Ta mère ne pouvait plus tenir une plume. Elle ne l'a sans doute jamais su.",

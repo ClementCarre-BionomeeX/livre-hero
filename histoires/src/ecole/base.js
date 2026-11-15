@@ -339,7 +339,18 @@ module.exports = {
     drapiers: { sells: [{ item: "noix_galle", price: 3 }, { item: "vitriol", price: 4 }, { item: "lanterne", price: 2 }, { item: "pain_epices", price: 2 }] },
   },
   enemies: {},
+  // Words with effects (8.6): six golden letters hidden where Solène left a trace. Nothing points at them.
+  trouvaillesName: "lettres d'or",
+  trouvailles: {
+    s1: { title: "Un S d'or", fx: { ep: ["perso", 150] } },
+    s2: { title: "Un O d'or", fx: { ep: ["perso", 150] } },
+    s3: { title: "Un L d'or", fx: { ep: ["perso", 150] } },
+    s4: { title: "Un È d'or", fx: { ep: ["perso", 150] } },
+    s5: { title: "Un N d'or", fx: { ep: ["perso", 150] } },
+    s6: { title: "Un E d'or", fx: { ep: ["perso", 150] } },
+  },
   achievements: {
+    lettres: { title: "Six lettres d'or", desc: "Trouver les six lettres cachées dans le collège et autour.", if: { trouvailles: 6 } },
     escrimeur: { title: "Trois fois", desc: "Gagner les trois duels contre Valérien.", if: { all: [{ has: "val:battu" }, { has: "val:battu2" }, { has: "val:battu3" }] } },
     enigmes: { title: "Ce qu'il avait caché", desc: "Résoudre les trois énigmes de Maître Salvanhac.", if: { all: [{ has: "enigme:p_chiffre" }, { has: "enigme:p_cabinet" }, { has: "enigme:p_page" }] } },
     reveur: { title: "Les nuits de Hautsignes", desc: "Faire les quatre rêves.", if: { all: [{ seen: "R_noyee" }, { seen: "R_digue" }, { seen: "R_merle" }, { seen: "R_examen" }] } },

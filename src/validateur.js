@@ -6,7 +6,7 @@
 (function (root) {
   var M = typeof module !== "undefined" && module.exports ? require("./moteur.js") : root.Moteur;
 
-  var COND_KEYS = ["voie", "is", "count", "has", "not", "all", "any", "clues", "clue", "mark", "present", "loyal", "met", "gone", "conf", "fear", "relics", "relic",
+  var COND_KEYS = ["voie", "trouvaille", "trouvailles", "is", "count", "has", "not", "all", "any", "clues", "clue", "mark", "present", "loyal", "met", "gone", "conf", "fear", "relics", "relic",
     "given", "item", "gold", "food", "pv", "clock", "fac", "level", "day", "since", "night", "seen", "arch", "quest", "place", "known", "person", "party",
     "lead", "away", "team", "souv", "souvenirs", "heroLevel", "second", "via", "regard", "fresh", "stock", "days", "promise", "vote", "lean", "battle", "camp", "missed",
     "temps", "saison", "blessure", "cicatrice", "fatigue", "trait", "duel",
@@ -116,6 +116,31 @@
       if (!story.voie && !vq.length) E("L'histoire déclare des voies : une question du passé doit en donner une à chaque réponse (fx.voie), ou story.voie en fixer une.");
       (story.past || []).forEach(function (q, i) { var n = (q.answers || []).filter(function (a) { return a.fx && a.fx.voie; }).length; if (n && n < q.answers.length) E("Ton passé " + (i + 1) + " : chaque réponse doit donner une voie, ou aucune."); });
     }
+    // Words with effects (8.6): every mark of every paragraph is one the engine knows; every find is hidden somewhere.
+    (function () {
+      var texts = [], hidden = {}, kws = M.keywordsOf(story);
+      var take = function (where, t) { if (typeof t === "string") texts.push([where, t]); else if (t && typeof t === "object") { if (typeof t.text === "string") texts.push([where, t.text]); if (typeof t.else === "string") texts.push([where, t.else]); Object.keys(t.cases || {}).forEach(function (c) { texts.push([where, t.cases[c]]); }); } };
+      Object.keys(story.passages || {}).forEach(function (id) { (story.passages[id].text || []).forEach(function (t) { take("§ " + id, t); }); });
+      (story.epilogue || []).forEach(function (e, i) { take("Épilogue " + (i + 1), e); });
+      texts.forEach(function (x) {
+        var where = x[0], t = x[1];
+        if (/\{\{[a-z]+:/.test(t)) {
+          var rest = t.replace(/\{\{(fx|cle|or|envers|encre|tache):([^{}|]*)(?:\|([^{}]*))?\}\}/g, "");
+          var bad = rest.match(/\{\{[a-z]+:[^}]*\}?\}?/);
+          if (bad) E(where + " : marque inconnue ou mal fermée « " + bad[0].slice(0, 40) + " » (fx, cle, or, envers, encre, tache).");
+        }
+        M.marksOf(t).forEach(function (m) {
+          if (m.kind === "fx") { if (!M.TEXT_FX[m.arg]) E(where + " : effet « " + m.arg + " » inconnu (" + Object.keys(M.TEXT_FX).join(", ") + ")."); if (!m.text) E(where + " : effet « " + m.arg + " » sans texte."); }
+          if (m.kind === "cle") { if (m.text != null ? !kws[m.arg] : !M.keywordFor(story, m.arg)) E(where + " : mot-clé « " + m.arg + " » inconnu (story.keywords ou mots du moteur)."); }
+          if (m.kind === "or") { if (!(story.trouvailles || {})[m.arg]) E(where + " : trouvaille « " + m.arg + " » inconnue (story.trouvailles)."); else hidden[m.arg] = 1; if (!m.text) E(where + " : trouvaille « " + m.arg + " » sans texte."); }
+          if (m.kind === "encre") { if (!story.items[m.arg]) E(where + " : encre invisible, objet « " + m.arg + " » inconnu."); if (!m.text) E(where + " : encre invisible sans texte."); }
+          if ((m.kind === "envers" || m.kind === "tache") && !m.arg) E(where + " : « " + m.kind + " » sans texte.");
+        });
+      });
+      Object.keys(story.trouvailles || {}).forEach(function (k) { if (!hidden[k]) E("Trouvaille « " + k + " » cachée nulle part (aucun {{or:" + k + "|…}} dans les textes)."); });
+      Object.keys(story.keywords || {}).forEach(function (k) { if (!story.keywords[k].def) E("Mot-clé « " + k + " » sans définition (def)."); });
+      (story.moods || []).forEach(function (m, i) { if (!M.MOODS[m.mood]) E("Humeur " + (i + 1) + " : « " + m.mood + " » inconnue (" + Object.keys(M.MOODS).join(", ") + ")."); });
+    })();
     if (story.heroes && story.leadStart && !story.heroes[story.leadStart]) E("Héros de départ « " + story.leadStart + " » inconnu.");
     Object.keys(story.teams || {}).forEach(function (k) { var t = story.teams[k]; if (t.start && !P[t.start]) E("Équipe « " + k + " » : passage de départ « " + t.start + " » inconnu."); });
     var qids = {};
@@ -622,6 +647,7 @@
       eachFx(p, function (fx) { checkFx(fx, where); });
     });
     (story.past || []).forEach(function (q, i) { (q.answers || []).forEach(function (a) { checkFx(a.fx, "Ton passé " + (i + 1)); }); });
+    Object.keys(story.trouvailles || {}).forEach(function (k) { checkFx(story.trouvailles[k].fx, "Trouvaille « " + k + " »"); });
     if (!ends) E("Aucune fin (passage avec end: true).");
     return { errors: errs, warnings: warns };
   }
@@ -939,6 +965,9 @@
         try {
           v = M.view(story, s);
           v.text.forEach(function (t) { if (/undefined|NaN|\[object|\{[a-z]+\}|\{autre:/.test(t)) throw new Error("texte suspect : " + t.slice(0, 80)); });
+          // 8.6: a reader taps a hidden find, often; and nothing of a mark ever reaches the plain text.
+          (v.marked || []).forEach(function (t) { M.marksOf(t).forEach(function (m) { if (m.kind === "or" && rnd() < 0.5) { try { M.trouve(story, s, m.arg); } catch (e) { errs["trouvaille " + m.arg + " : " + e.message] = 1; } } }); });
+          v.text.forEach(function (t) { if (/\{\{[a-z]+:/.test(t)) throw new Error("marque restée dans le texte : " + t.slice(0, 80)); });
         } catch (e) { errs["§ " + s.node + " : " + e.message] = 1; return; }
         Object.keys(s.seen).forEach(function (k) { if (!seen[k]) seen[k] = 1; });
         Object.keys(s.guards || {}).forEach(function (k) { guards[k] = 1; });

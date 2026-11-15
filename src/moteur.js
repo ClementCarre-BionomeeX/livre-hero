@@ -329,6 +329,8 @@
     if ("seen" in c) return c.seen === s.node ? s.seen[c.seen] > 1 : !!s.seen[c.seen];
     if ("arch" in c) return s.arch === c.arch;
     if ("voie" in c) return s.voie === c.voie;
+    if ("trouvaille" in c) return !!(s.found || {})[c.trouvaille];
+    if ("trouvailles" in c) return Object.keys(s.found || {}).length >= +c.trouvailles;
     if ("quest" in c) return !!s.flags["quete:" + c.quest];
     // is: { key: value | [values] | null } reads a state set by fx.set (null: no value yet).
     if ("is" in c) return Object.keys(c.is).every(function (k) { var v = stateOf(s, k); return c.is[k] === null ? v == null : [].concat(c.is[k]).indexOf(v) >= 0; });
@@ -2754,8 +2756,89 @@
         if (dflt) v.urgent = { sec: Math.max(URGENT_MIN, Math.min(URGENT_MAX, +p.urgent || URGENT_MIN)), label: dflt.label };
       }
     }
+    // Words with effects (8.6): the page draws v.marked; everything that reads (voice, search, the tale, the
+    // validator) gets v.text without the marks. The hero's state may colour the page too (v.mood).
+    v.marked = v.text; v.text = v.text.map(function (t) { return plainOf(story, s, t); });
+    var md0 = moodOf(story, s); if (md0) v.mood = md0;
     return v;
   }
+
+  // ------------------------------------------------------------------ words with effects (8.6)
+  // Intent: marks in a paragraph, {{kind:arg|text}} or {{kind:text}}, that the page draws and the engine checks. Why:
+  // Clément, 15/11 — words that tremble or shimmer « à la Slay the Spire », rule words one taps to read their effect,
+  // letters hidden in the text for the reader to find, writing in a mirror, ink that only an object shows.
+  //   {{fx:<effet>|texte}}   an effect on the words (TEXT_FX)
+  //   {{cle:<id>|mot}} or {{cle:mot}}   a rule word (KEYWORDS or story.keywords): a tap tells what it does in play
+  //   {{or:<id>|texte}}      a hidden find (story.trouvailles): nothing shows it; a tap finds it
+  //   {{envers:texte}}       written in a mirror; a tap turns it round
+  //   {{encre:<item>|texte}} invisible ink: shown only while the hero carries the item
+  //   {{tache:texte}}        a blot: unreadable, and read by nobody
+  var TEXT_FX = { tremble: "tremble", ondule: "ondule", irise: "irisé", chuchote: "chuchoté", efface: "s'efface", rature: "raturé", ecrit: "s'écrit lettre à lettre", lueur: "luit" };
+  var MARK_RE = /\{\{(fx|cle|or|envers|encre|tache):([^{}|]*)(?:\|([^{}]*))?\}\}/g;
+  var MARK_KINDS = { fx: 1, cle: 1, or: 1, envers: 1, encre: 1, tache: 1 };
+  function plainOf(story, s, t) {
+    return String(t).replace(MARK_RE, function (all, k, a, b) {
+      if (k === "tache") return "";
+      if (k === "encre") return s && (s.items || []).indexOf(a) >= 0 ? (b || "") : "";
+      if (k === "envers" || (k === "cle" && b == null)) return a;
+      return b == null ? a : b;
+    }).replace(/ {2,}/g, " ").replace(/ ([,.;:!?»])/g, function (m, c) { return c === "»" || c === ":" || c === ";" || c === "!" || c === "?" ? m : c; });
+  }
+  // Intent: marksOf(text) -> [{ kind, arg, text, raw }] = the marks of a paragraph, for the page and the validator
+  function marksOf(t) {
+    var out = [], m; MARK_RE.lastIndex = 0;
+    while ((m = MARK_RE.exec(String(t)))) out.push({ kind: m[1], arg: m[2], text: m[3], raw: m[0] });
+    return out;
+  }
+  // Rule words: what the engine itself does with them, in its own numbers. A story adds its own (story.keywords:
+  // { id: { forms: [..], def } }). Forms are matched without regard to case.
+  var KEYWORDS = {
+    fatigue: { forms: ["fatigue", "fatigué", "fatiguée", "épuisé", "épuisée"], def: function () { return "Chaque point de fatigue retire " + 5 + " à tous tes jets. Une nuit de repos ou un bivouac l'efface."; } },
+    blessure: { forms: ["blessure", "blessé", "blessée"], def: function () { return "Une blessure ouverte pèse sur tes jets tant qu'elle n'est pas soignée ; une blessure grave peut laisser une cicatrice."; } },
+    cicatrice: { forms: ["cicatrice"], def: function () { return "La trace d'une blessure grave. Elle se voit sur ton portrait et le texte peut s'en souvenir."; } },
+    angoisse: { forms: ["angoisse", "troublé", "troublée"], def: function () { return "Au-delà de la moitié de la jauge, chaque point pèse sur tes jets. Le sommeil, la chaleur, une vérité dite l'apaisent."; } },
+    jet: { forms: ["jet", "jets"], def: function () { return "Un dé de 100 ouvert, plus ton bonus dans le domaine : il faut atteindre " + SUCCESS + ". Un 96 ou plus se relance et s'ajoute."; } },
+    ep: { forms: ["EP", "expérience"], def: function () { return "Les points d'expérience. Un niveau tous les " + EP_PER_LEVEL.toLocaleString("fr-FR") + " EP ; chaque niveau ajoute à tes domaines et à tes points de vie."; } },
+    pv: { forms: ["PV", "points de vie"], def: function () { return PV_BASE + " plus ce que donne ta voie, et " + PV_PER_LEVEL + " par niveau. À zéro, tu tombes."; } },
+    confiance: { forms: ["confiance"], def: function () { return "Ce qu'un compagnon pense de toi, de 0 à 100. Sous " + LEAVE_UNDER + ", il peut partir ; au-dessus de " + LOYAL_AT + ", il te suit loin."; } },
+    promesse: { forms: ["promesse", "promis", "promise"], def: function () { return "Une parole donnée, avec son échéance. Le carnet (Dettes et promesses) la garde ; ceux à qui tu as promis s'en souviennent."; } },
+    marque: { forms: ["la Marque"], def: function () { return "Ce que le monde sait de tes actes, en bien ou en mal. Elle ouvre des portes et en ferme."; } },
+  };
+  function keywordsOf(story) {
+    var out = {};
+    Object.keys(KEYWORDS).forEach(function (k) { out[k] = { forms: KEYWORDS[k].forms, def: KEYWORDS[k].def() }; });
+    Object.keys((story && story.keywords) || {}).forEach(function (k) { var K = story.keywords[k]; out[k] = { forms: K.forms || [k], def: K.def || "" }; });
+    return out;
+  }
+  function keywordFor(story, word) {
+    var w = String(word).toLowerCase(), all = keywordsOf(story), hit = null;
+    Object.keys(all).forEach(function (k) { if (!hit && (k === w || all[k].forms.some(function (f) { return f.toLowerCase() === w; }))) hit = k; });
+    return hit;
+  }
+  // Finds (story.trouvailles: { id: { title, text, fx } }, story.trouvaillesName: « lettres d'or »): a hidden word the
+  // reader taps. Found once per game; the story says what it gives.
+  function trouve(story, s, id) {
+    var T = (story.trouvailles || {})[id]; if (!T) throw new Error("trouvaille inconnue : " + id);
+    s.found = s.found || {}; if (s.found[id]) return false;
+    s.found[id] = s.turn || 1;
+    var n = Object.keys(s.found).length, all = Object.keys(story.trouvailles).length, name = story.trouvaillesName || "trouvailles";
+    ev(s, "✦ " + (T.title ? T.title + " · " : "") + cap(name) + " : " + n + " sur " + all + ".", "good");
+    if (T.text) ev(s, interp(s, T.text), "");
+    apply(story, s, T.fx);
+    return true;
+  }
+  // The page follows the hero's state (Clément, 15/11, piste T5): troubled words tremble, a tired page blurs at the
+  // edges, a wounded one darkens at its margins. A story may add its own (story.moods: [{ if, mood }]).
+  var MOODS = { trouble: 1, epuise: 1, blesse: 1, ivre: 1, fievre: 1 };
+  function moodOf(story, s) {
+    var own = (story.moods || []).filter(function (m) { return MOODS[m.mood] && evalCond(story, s, m.if); })[0];
+    if (own) return own.mood;
+    if (story.dread && dreadTrouble(story, s)) return "trouble";
+    if (s.pv != null && usesOf(story).pv && s.pv > 0 && s.pv <= pvMax(s) * MOOD_HURT) return "blesse";
+    if (s.fatigue >= MOOD_TIRED) return "epuise";
+    return null;
+  }
+  var MOOD_HURT = 0.25, MOOD_TIRED = 3;
   // Intent: solved(Story, State, Mystery) -> Bool = the story has told the answer (`solved`: a flag or a passage read)
   function mysterySolved(story, s, id) { var m = (story.mysteries || {})[id]; return !!(m && m.solved && happened(s, m.solved)); }
   // Intent: note(State, Fault) -> () = the engine had to step in for something the scenario should have said
@@ -3059,7 +3142,7 @@
 
   var API = {
     FACE: FACE, FACE_KEYS: FACE_KEYS, faceErrors: faceErrors, REGARDS: REGARDS, mysterySolved: mysterySolved, happened: happened, TAVERN_GAMES_PER_DAY: TAVERN_GAMES_PER_DAY,
-    ARCHS: ARCHS, archOf: archOf, usesOf: usesOf, TECHS: TECHS, techsOf: techsOf, partyView: partyView, cpv: cpv, cpvMax: cpvMax, FRONT: FRONT, DOMAINS: DOMAINS, EP: EP, EP_PER_LEVEL: EP_PER_LEVEL, MAX_LEVEL: MAX_LEVEL, DIFFS: DIFFS, LOYAL_AT: LOYAL_AT, SUCCESS: SUCCESS, STEP_HOURS: STEP_HOURS,
+    ARCHS: ARCHS, archOf: archOf, usesOf: usesOf, plainOf: plainOf, marksOf: marksOf, TEXT_FX: TEXT_FX, MARK_KINDS: MARK_KINDS, MOODS: MOODS, keywordsOf: keywordsOf, keywordFor: keywordFor, trouve: trouve, moodOf: moodOf, TECHS: TECHS, techsOf: techsOf, partyView: partyView, cpv: cpv, cpvMax: cpvMax, FRONT: FRONT, DOMAINS: DOMAINS, EP: EP, EP_PER_LEVEL: EP_PER_LEVEL, MAX_LEVEL: MAX_LEVEL, DIFFS: DIFFS, LOYAL_AT: LOYAL_AT, SUCCESS: SUCCESS, STEP_HOURS: STEP_HOURS,
     setRng: setRng, setDice: setDice, nudgeOf: nudgeOf, ambianceOf: ambianceOf, AMBIANCES: AMBIANCES, isNightNow: function (s) { var h = s.time % 24; return h >= NIGHT_FROM || h < NIGHT_TO; }, DIFFICULTY: DIFFICULTY, featsOf: featsOf, endingsOf: endingsOf, endingOf: endingOf, freshState: freshState, level: level, pvMax: pvMax, bonus: bonus, chance: chance, rollTest: rollTest,
     evalCond: evalCond, describeCond: describeCond, textList: textList, view: view, allowed: allowed, target: target,
     apply: apply, enter: enter, choose: choose, start: start, present: present, loyal: loyal, clueCount: clueCount,

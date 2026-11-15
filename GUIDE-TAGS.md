@@ -340,3 +340,24 @@ Quand l'histoire déclare des voies, la création du héros ne montre plus « Ta
 **Première fois** : la première fois qu'un lecteur rencontre un combat, un duel, une bataille, un conseil, une énigme, un aparté, un souvenir, un interlude, « Montrer », l'accusation, « Te taire » ou l'établi, quelques lignes expliquent le geste (`FIRST_USE` dans app.js), une seule fois par lecteur (`profil.helpSeen`).
 
 **Bibliothèque** : rangée par la taille du livre (moins de 100 passages : histoires courtes ; moins de 1 000 : romans ; au-delà : grands romans ; à plusieurs à part), filtre « Pour tous » / « Thèmes adultes », et « En savoir plus » sur chaque livre (durée, actes, fins, ce qu'on y fait, d'après les tags, sans rien de l'intrigue). Le temps de lecture d'une partie vaut au moins la moitié des mots du livre : le plus court chemin sous-estimait les histoires à carrefours.
+
+## Les mots à effets (15/11, 8.6) : effets, mots-clés, trouvailles, envers, encre, page selon l'état du héros
+
+Idée de Clément : des mots qui bougent, qui changent de couleur, des lettres à trouver dans le texte. Le scénario les déclare par une balise dans le texte ; le moteur les retire de tout ce qui n'est pas la page affichée (voix, syllabes, recherche, relecture, temps de lecture, validateur), et l'appli les dessine.
+
+| Balise | Sens |
+|---|---|
+| `{{fx:<effet>\|texte}}` | Le texte prend un effet : `tremble`, `ondule`, `irise`, `chuchote`, `efface`, `rature`, `ecrit` (lettre à lettre), `lueur`. |
+| `{{cle:<id>\|mot}}` ou `{{cle:mot}}` | Mot-clé de règle : un toucher ouvre sa définition. Le moteur en connaît (fatigue, blessure, cicatrice, angoisse, jet, EP, PV, confiance, promesse, la Marque) ; l'histoire ajoute les siens dans `story.keywords: { <id>: { forms, def } }`. Dans les événements, les mots du moteur sont reconnus seuls, une fois par écran. |
+| `{{or:<id>\|texte}}` | Trouvaille cachée : rien ne la signale ; un toucher la révèle une fois par partie. `story.trouvailles: { <id>: { title, text, fx } }`, `story.trouvaillesName` (« lettres d'or »). Conditions `{ trouvaille: "<id>" }` et `{ trouvailles: n }`. |
+| `{{envers:texte}}` | Écrit à l'envers (miroir) ; un toucher le remet à l'endroit. |
+| `{{encre:<objet>\|texte}}` | Encre invisible : le texte n'existe que si le héros porte l'objet (la lanterne de Solène). Pour un paragraphe entier, préférer `{ if: { item: … }, text: … }` avec la balise dedans. |
+| `{{tache:texte}}` | Le mot est sous une tache d'encre : la page le montre noyé, la voix et la recherche le sautent. |
+
+**La page suit l'état du héros** (`M.moodOf`, réglage « La page suit l'état du héros ») : `trouble` (angoisse au-delà de la moitié), `blesse` (un quart des points de vie ou moins), `epuise` (fatigue 3 ou plus). Une histoire ajoute les siens : `story.moods: [{ if: <condition>, mood: "ivre" | "fievre" | … }]`, le premier qui tient l'emporte.
+
+Réglage « Mots à effets » : animés, discrets (couleurs sans mouvement), aucun. « Réduire les animations » du système coupe les mouvements.
+
+Le validateur refuse une balise inconnue ou mal fermée, un effet, un mot-clé, une trouvaille ou un objet inconnus, une trouvaille cachée nulle part, un mot-clé d'histoire sans définition, une humeur inconnue. Les parties au hasard touchent la moitié des trouvailles visibles, et une balise restée dans le texte lu est une erreur.
+
+Exemple en place : « Le Cahier de Solène » (six lettres d'or, le miroir du cours de Verre, la lanterne qui révèle le carnet).

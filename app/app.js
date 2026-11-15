@@ -545,6 +545,107 @@
 
   // Intent: Glossary = rare words of the story (story.glossary, "forme|forme": définition) shown dotted in the text;
   // a tap opens their definition. Only the first time a word comes up on a page (Clément, 12/11).
+  // Intent: TextFx = the words with effects of a page (8.6): {{fx:…}}, {{cle:…}}, {{or:…}}, {{envers:…}}, {{encre:…}},
+  // {{tache:…}} drawn from the escaped html of a paragraph; and the page's mood (the hero's state) on its words.
+  // Why: Clément, 15/11 — words that tremble or shimmer, rule words one taps, hidden letters for the reader to find.
+  // The engine gives v.marked to draw and v.text, without the marks, to everything that reads aloud or searches.
+  var TextFx = (function () {
+    var RE = /\{\{(fx|cle|or|envers|encre|tache):([^{}|]*)(?:\|([^{}]*))?\}\}/g, LETTERED = { tremble: 1, ondule: 1, ecrit: 1 }, pop = null;
+    function mode() { var m = pref("textFx"); return m === "aucun" || m === "discret" ? m : "anime"; }
+    // Each letter in its own span (--i its rank), words kept whole; tags and entities left as they are.
+    function letters(html) {
+      var i = 0;
+      return html.split(/(<[^>]+>)/).map(function (part) {
+        if (/^</.test(part)) return part;
+        return part.split(/( +)/).map(function (w) {
+          if (!w || / /.test(w)) return w;
+          var out = "", toks = w.match(/&[#a-z0-9]+;|[\s\S]/gi) || [];
+          toks.forEach(function (c) { out += "<span class=\"l\" style=\"--i:" + (i++) + "\" aria-hidden=\"true\">" + c + "</span>"; });
+          return "<span class=\"w\">" + out + "</span>";
+        }).join("");
+      }).join("");
+    }
+    function plainOfHtml(html) { var d = document.createElement("div"); d.innerHTML = html; return d.textContent; }
+    function draw(st, s, html) {
+      var m = mode();
+      return html.replace(RE, function (all, k, a, b) {
+        if (k === "fx") { if (m === "aucun") return b || ""; var anim = m === "anime" && LETTERED[a] && !REDUCED; return "<span class=\"tx tx-" + a + (m === "discret" ? " calm" : "") + "\"" + (anim ? " aria-label=\"" + esc(plainOfHtml(b || "")) + "\"" : "") + ">" + (anim ? letters(b || "") : (b || "")) + "</span>"; }
+        if (k === "cle") { var id = b != null ? a : M.keywordFor(st, plainOfHtml(a)), word = b != null ? b : a; return id ? "<button type=\"button\" class=\"kw\" data-kw=\"" + esc(id) + "\">" + word + "</button>" : word; }
+        if (k === "or") { var found = (s.found || {})[a]; return "<span class=\"tx-or" + (found ? " found" + (A.justFound === a ? " just" : "") : "") + "\"" + (found ? "" : " data-or=\"" + esc(a) + "\"") + ">" + (b || "") + "</span>"; }
+        if (k === "envers") return "<span class=\"tx-envers\" role=\"button\" tabindex=\"0\" data-envers=\"1\" aria-label=\"Écrit à l'envers. Touche pour le retourner.\"><span>" + a + "</span></span>";
+        if (k === "encre") return (s.items || []).indexOf(a) >= 0 ? "<span class=\"tx-encre\">" + (b || "") + "</span>" : "<span class=\"tx-encre-vide\" aria-hidden=\"true\">" + new Array(Math.max(4, Math.round(plainOfHtml(b || "").length * 0.6))).join("\u00a0") + "</span>";
+        if (k === "tache") return "<span class=\"tx-tache\" role=\"img\" aria-label=\"Un mot sous une tache d'encre\"><span aria-hidden=\"true\">" + a + "</span></span>";
+        return all;
+      });
+    }
+    // The page's mood on its words: a troubled page has a few words that shiver, a tired one blurs at the end of its
+    // paragraphs. Chosen by the paragraph's rank, so a page looks the same at each render.
+    function mood(html, md0, ti) {
+      if (!md0 || mode() !== "anime" || REDUCED || pref("trouble") === false) return html;
+      var n = 0, step = md0 === "trouble" ? 7 : md0 === "fievre" ? 9 : 0;
+      var parts = html.split(/(<[^>]+>)/), depth = 0, total = 0;
+      parts.forEach(function (p) { if (!/^</.test(p)) total += (p.match(/\S+/g) || []).length; });
+      return parts.map(function (p) {
+        if (/^<[a-z]/i.test(p) && !/\/>$/.test(p) && !/^<br/i.test(p)) { depth++; return p; }
+        if (/^<\//.test(p)) { depth--; return p; }
+        if (/^</.test(p) || depth > 0) { if (!/^</.test(p)) n += (p.match(/\S+/g) || []).length; return p; }
+        return p.replace(/\S+/g, function (w) {
+          n++;
+          if (step && (n + ti * 3) % step === 0) return "<span class=\"mw shiver\">" + w + "</span>";
+          if (md0 === "epuise" && n > total - EPUISE_WORDS) return "<span class=\"mw blur\" style=\"--k:" + (n - (total - EPUISE_WORDS)) + "\">" + w + "</span>";
+          return w;
+        });
+      }).join("");
+    }
+    var EPUISE_WORDS = 6;
+    // Rule words in the lines the engine writes (events): the first time each comes up on the page.
+    function auto(st, html, used) {
+      if (mode() === "aucun") return html;
+      var all = M.keywordsOf(st), forms = [];
+      Object.keys(all).forEach(function (k) { all[k].forms.forEach(function (f) { forms.push([f, k]); }); });
+      forms.sort(function (a, b) { return b[0].length - a[0].length; });
+      return html.split(/(<[^>]+>)/).map(function (part) {
+        if (/^</.test(part)) return part;
+        forms.forEach(function (f) {
+          if (used[f[1]]) return;
+          var re = new RegExp("(^|[^A-Za-zÀ-ÿ])(" + f[0].replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + ")(?=$|[^A-Za-zÀ-ÿ])", f[0] === f[0].toUpperCase() ? "" : "i");
+          if (re.test(part)) { used[f[1]] = 1; part = part.replace(re, function (x, pre, w) { return pre + "\u0001" + f[1] + "\u0002" + w + "\u0003"; }); }
+        });
+        return part.replace(/\u0001([a-z0-9_]+)\u0002([^\u0003]*)\u0003/g, "<button type=\"button\" class=\"kw\" data-kw=\"$1\">$2</button>");
+      }).join("");
+    }
+    function close() { if (pop) { pop.remove(); pop = null; } }
+    function openKw(btn) {
+      close(); var G = A.game, st = G ? G.story : null, all = M.keywordsOf(st), k = btn.getAttribute("data-kw"), K = all[k]; if (!K) return;
+      pop = h("div", { class: "gl-pop kw-pop", role: "tooltip" }, h("b", null, btn.textContent), " · ", K.def);
+      pop.dataset.for = k; document.body.appendChild(pop);
+      var r = btn.getBoundingClientRect(), w = Math.min(320, innerWidth - 24);
+      pop.style.width = w + "px"; pop.style.left = Math.max(12, Math.min(innerWidth - w - 12, r.left + r.width / 2 - w / 2)) + window.scrollX + "px"; pop.style.top = r.bottom + 8 + window.scrollY + "px";
+    }
+    function find(el) {
+      var G = A.game; if (!G || G.multi && A.multi && A.multi.kind !== "local") return;
+      var id = el.getAttribute("data-or");
+      try { if (!M.trouve(G.story, G.s, id)) return; } catch (e) { return; }
+      A.justFound = id; persist(); render(); setTimeout(function () { A.justFound = null; }, 2000);
+    }
+    document.addEventListener("click", function (e) {
+      var t = e.target.closest ? e.target : null; if (!t) return;
+      var kw = t.closest("button.kw");
+      if (kw) { e.stopPropagation(); if (pop && pop.dataset.for === kw.getAttribute("data-kw")) close(); else openKw(kw); return; }
+      if (!t.closest(".kw-pop")) close();
+      var or = t.closest("[data-or]"); if (or) { find(or); return; }
+      var env = t.closest("[data-envers]"); if (env) env.classList.toggle("lu");
+    }, true);
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") close();
+      var env = e.target && e.target.closest && e.target.closest("[data-envers]");
+      if (env && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); env.classList.toggle("lu"); }
+    });
+    return { render: draw, mood: mood, auto: auto, close: close };
+  })();
+
+  // Reading without playing (the editor): every find shown found, every invisible ink shown, so the author sees them.
+  function READ_ALL(st) { var f = {}; Object.keys(st.trouvailles || {}).forEach(function (k) { f[k] = 1; }); return { found: f, items: Object.keys(st.items || {}) }; }
   var Glossary = (function () {
     var cache = { st: null, re: null, defs: null }, pop = null;
     var LETTER = "A-Za-zÀ-ÖØ-öø-ÿŒœÆæ";
@@ -560,8 +661,11 @@
     // html from md(): only <strong>, <em> and <br> tags, so the words are looked for between the tags.
     function mark(st, html, used) {
       var c = prepare(st); if (!c.re || pref("glossary") === false) return html;
+      var inBtn = 0;   // never inside a button (a rule word, 8.6)
       return html.split(/(<[^>]+>)/).map(function (part) {
-        if (/^</.test(part)) return part;
+        if (/^<button/i.test(part)) { inBtn++; return part; }
+        if (/^<\/button/i.test(part)) { inBtn = Math.max(0, inBtn - 1); return part; }
+        if (/^</.test(part) || inBtn) return part;
         return part.replace(c.re, function (all, pre, word) {
           var d = c.defs[word.toLowerCase()]; if (!d || used[d.head]) return all;
           used[d.head] = true;
@@ -1594,6 +1698,7 @@
   // Intent: once per new version, a short note of what changed (NEWS, newest first), only the versions the reader has
   // not seen on this device. Why: Clément, 13/11 (piste 33).
   var NEWS = [
+    { v: "8.6", items: ["Mots à effets : certains mots tremblent, ondulent, changent de couleur, s'effacent ou s'écrivent sous tes yeux.", "Des mots de règle (fatigue, blessure, jet, PV…) s'ouvrent d'un toucher pour dire ce qu'ils font.", "Dans « Le Cahier de Solène », des lettres d'or sont cachées dans le texte. À toi de les trouver.", "Une phrase écrite à l'envers se retourne quand tu la touches, et certaines lignes n'apparaissent qu'à la lumière du bon objet.", "La page suit l'état du héros : elle tremble quand il a peur, se brouille quand il est épuisé. Réglage « Mots à effets » : animés, discrets ou aucun."] },
     { v: "8.5", items: ["La création du héros suit l'histoire : dans les histoires récentes, ton métier (copiste, matelot, commis…) remplace le choix entre guerrier, mage et les autres.", "La fiche et la barre du haut ne montrent que ce que l'histoire utilise : plus de points de vie ni de bourse dans un livre qui ne s'en sert pas.", "Le carnet ne montre que les onglets utiles, rangés en quatre parties : Toi, L'enquête, Le monde, Le livre.", "La première fois que tu rencontres un duel, une énigme, un conseil ou une bataille, quelques lignes expliquent comment ça marche. Une seule fois.", "La bibliothèque est rangée en rayons (histoires courtes, romans, grands romans, à plusieurs), avec un filtre pour les thèmes adultes, et « En savoir plus » sur chaque livre."] },
     { v: "8.4", items: ["Nouvelle histoire à deux : « Le Pli de Brumefond ». L'un porte le pli, l'autre connaît la route, et chacun garde ses secrets.", "Nouvel onglet du carnet, dans les histoires à deux : Secrets (ce que tu caches, ce qu'on t'a confié, ce que tu as surpris).", "Interludes : au début d'un acte, une courte scène vue par quelqu'un d'autre, différente pour chaque joueur.", "Le texte s'accorde maintenant avec le héros de l'autre joueur."] },
     { v: "8.3", items: ["Nouvelle histoire : « Ce que garde la neige », trois nuits de veillée dans une maison que la neige isole.", "Nouvel onglet du carnet : Versions, ce que chacun a raconté, devant les autres ou seul à seul.", "Souvenirs joués, silences qui comptent, une angoisse qui monte et retombe."] },
@@ -2036,7 +2141,7 @@
     w.appendChild(h("div", { class: "acts", role: "img", "aria-label": cur >= 0 ? acts[cur].title + ", acte " + (cur + 1) + " sur " + acts.length : "", title: cur >= 0 ? acts[cur].title + (actMin ? " · environ " + minutesLabel(actMin) + " de lecture" : "") : "" }, acts.map(function (a, i) { return h("span", { class: i < cur ? "done" : i === cur ? "on" : "" }); })));
     var turnIn = A.turned && pref("pageTurn") && !REDUCED; A.turned = false;
     // A remembrance is set apart (8.3); dread past its threshold troubles the page, unless the reader declined it.
-    var page = h("article", { class: "page read" + (turnIn ? " turn-in" : "") + (v.souvenir ? " souvenir" : "") + (v.interlude ? " interlude" : "") + (v.trouble && pref("trouble") && !REDUCED ? " trouble" : ""), "aria-labelledby": "page-title" });
+    var page = h("article", { class: "page read" + (turnIn ? " turn-in" : "") + (v.souvenir ? " souvenir" : "") + (v.interlude ? " interlude" : "") + (v.trouble && pref("trouble") && !REDUCED ? " trouble" : "") + (v.mood && pref("trouble") && pref("textFx") !== "aucun" ? " mood-" + v.mood : ""), "aria-labelledby": "page-title" });
     if (pref("swipe") && !G.multi) swipeOn(page, v, G);
     var num = v.passage ? paraNum(st, s.node) : null;
     var actFirst = cur >= 0 && acts[cur].start === s.node && !G.multi;
@@ -2057,10 +2162,10 @@
     if (folded) prose.appendChild(h("p", { class: "reread" }, h("span", { class: "muted" }, "Tu connais déjà cette page. "),
       h("button", { class: "btn ghost sm", onclick: function () { A.unfold = s.node + "#" + s.turn; render(); } }, "Relire")));
     // A paragraph of the second reading (tag second) carries a light mark in the margin.
-    else { var glUsed = {}; v.text.forEach(function (t, ti) { var ht = Glossary.mark(st, md(t), glUsed); prose.appendChild(h("p", { class: (v.second || []).indexOf(ti) >= 0 ? "second" : null, html: pref("syllables") ? Syllables.mark(ht) : ht })); }); }
+    else { var glUsed = {}; (v.marked || v.text).forEach(function (t, ti) { var ht = TextFx.mood(Glossary.mark(st, TextFx.render(st, s, md(t)), glUsed), v.mood, ti); prose.appendChild(h("p", { class: (v.second || []).indexOf(ti) >= 0 ? "second" : null, html: pref("syllables") ? Syllables.mark(ht) : ht })); }); }
     // What led to this page (the rolls, their outcome, the blows) comes before the text; what follows from it (clues,
     // items, quests, feats) after (Clément, 11/11 then 13/11).
-    var evs = s.events || [], evEl = function (list, cls) { return list.length ? h("div", { class: "events " + cls, role: "status" }, list.map(function (e) { var el = h("div", { class: "ev " + (e.cls || "") }, rollBadge(e)); el.insertAdjacentHTML("beforeend", md(e.text));
+    var kwUsed = {}, evs = s.events || [], evEl = function (list, cls) { return list.length ? h("div", { class: "events " + cls, role: "status" }, list.map(function (e) { var el = h("div", { class: "ev " + (e.cls || "") }, rollBadge(e)); el.insertAdjacentHTML("beforeend", TextFx.auto(st, md(e.text), kwUsed));
       if (e.doc && st.items && st.items[e.doc]) el.appendChild(h("button", { class: "btn ghost sm ev-read", onclick: function () { A.modal = { kind: "doc", id: e.doc }; render(); } }, "Lire"));
       return el; })) : null; };
     if (pref("quietFx")) evs = evs.filter(function (e) { return !e.conseq; });
@@ -4319,7 +4424,7 @@
   // ------------------------------------------------------------------ reading preferences (per reader)
   // Intent: pref(Key) -> Value = the reader's own setting, else the default
   // Why: Clément (12/11): text size, spacing, theme, voice, real dice, sound… follow the reader, not the device.
-  var PREFS = { skin: "histoire", size: "m", spacing: "normal", theme: "auto", font: "livre", lettrine: true, voice: "", highlight: true, ruler: false, dialogue: false, glossary: true, nudge: false, syllables: false, voiceChoice: false, autoListen: true, battlePlan: true, relations: true, urgent: true, sfx: true, shakeDice: false, fog: true, rate: 1, autoRead: false, dice: "ecran", ambiance: false, music: false, volume: 0.6, spread: "auto", pageTurn: true, swipe: false, contrast: false, cvd: false, quietFx: false, dice3d: true, attachements: "discret", trouble: true };
+  var PREFS = { skin: "histoire", size: "m", spacing: "normal", theme: "auto", font: "livre", lettrine: true, voice: "", highlight: true, ruler: false, dialogue: false, glossary: true, nudge: false, syllables: false, voiceChoice: false, autoListen: true, battlePlan: true, relations: true, urgent: true, sfx: true, shakeDice: false, fog: true, rate: 1, autoRead: false, dice: "ecran", ambiance: false, music: false, volume: 0.6, spread: "auto", pageTurn: true, swipe: false, contrast: false, cvd: false, quietFx: false, dice3d: true, attachements: "discret", trouble: true, textFx: "anime" };
   var SIZES = { s: ["Petit", 16], m: ["Normal", 18], l: ["Grand", 21], xl: ["Très grand", 24] };
   var SPACINGS = { serre: ["Serré", 1.5], normal: ["Normal", 1.72], aere: ["Aéré", 2] };
   var THEMES = { auto: "Comme l'appareil", light: "Clair", sepia: "Sépia", dark: "Sombre", soir: "Lumière du soir" };
@@ -4438,7 +4543,9 @@
     b.appendChild(prefToggle("relations", "Relations dans l'onglet Gens", "À côté de chaque personne, ce qu'elle pense de toi (méfiante, alliée, redevable…), quand l'histoire le dit."));
     b.appendChild(seg({ montrer: "Montrés", discret: "Discrets", masquer: "Masqués" }, "attachements", "Liens affectifs (histoires pour adultes)"));
     b.appendChild(h("p", { class: "small muted" }, "Discrets : les scènes tendres restent, sans jauge. Montrés : l'onglet Gens dit aussi ce qui te lie à chacun. Masqués : l'histoire passe ces scènes et garde son fil."));
-    b.appendChild(prefToggle("trouble", "Page troublée par la peur", "Quand l'angoisse du héros est forte, le texte se trouble légèrement. À couper s'il gêne la lecture."));
+    b.appendChild(seg({ anime: "Animés", discret: "Discrets", aucun: "Aucun" }, "textFx", "Mots à effets"));
+    b.appendChild(h("p", { class: "small muted" }, "Des mots qui tremblent, ondulent ou s'écrivent sous tes yeux. Discrets : la couleur seule, sans mouvement. Rien ne bouge si l'appareil demande moins d'animations."));
+    b.appendChild(prefToggle("trouble", "La page suit l'état du héros", "Peur, épuisement, blessure : quelques mots frémissent ou se brouillent. À couper s'il gêne la lecture."));
     b.appendChild(prefToggle("quietFx", "Conséquences muettes", "L'histoire ne dit plus quand la confiance ou la crainte d'un compagnon change : tu le découvres à sa façon d'agir."));
     b.appendChild(prefToggle("urgent", "Choix sous pression", "Dans certaines scènes, un compte à rebours presse le choix ; quand il est écoulé, l'histoire choisit pour toi. Décoche pour lire ces scènes sans minuteur."));
     b.appendChild(prefToggle("battlePlan", "Plan de bataille", "Pendant un combat, un petit plan montre les rangs, les adversaires et les coups de la dernière passe."));
@@ -4743,6 +4850,14 @@
   }
   function tabFeats(b, st, s) {
     var all = M.featsOf(st), mine = s.feats || {};
+    // Finds (8.6): how many of the book's hidden words this game has found, and which.
+    var T = st.trouvailles || {}, tk = Object.keys(T);
+    if (tk.length) {
+      var got = tk.filter(function (k) { return (s.found || {})[k]; });
+      b.appendChild(h("div", { class: "label" }, "✦ " + (st.trouvaillesName ? st.trouvaillesName.charAt(0).toUpperCase() + st.trouvaillesName.slice(1) : "Trouvailles") + " · " + got.length + " sur " + tk.length));
+      if (!got.length) b.appendChild(h("div", { class: "small muted" }, "Certains mots du livre réagissent quand on les touche. À toi de les trouver."));
+      got.forEach(function (k) { b.appendChild(h("div", { class: "small" }, "✦ " + (T[k].title || "Trouvée"))); });
+    }
     b.appendChild(h("div", { class: "small muted" }, "Ceux de cette partie. La bibliothèque garde ceux de tout le lecteur."));
     all.forEach(function (f) {
       if (mine[f.id]) b.appendChild(h("div", { class: "clue" }, h("b", null, "★ " + f.title), h("div", { class: "small muted" }, f.desc)));
@@ -5881,7 +5996,7 @@
     var pc = condSay(p); if (pc.length) box.appendChild(h("div", { class: "rd-cond" }, "Passage : " + pc.join(" · ")));
     [].concat(p.text || []).forEach(function (t) {
       var o = typeof t === "string" ? { text: t } : t, c = condSay(o);
-      box.appendChild(h("div", { class: "rd-para" + (c.length ? " cond" : "") }, c.length ? h("div", { class: "rd-cond" }, c.join(" · ")) : null, h("p", null, String(o.text || "").replace(/\*\*?/g, "")), o.else ? h("p", { class: "rd-else" }, "Sinon : " + o.else) : null));
+      box.appendChild(h("div", { class: "rd-para" + (c.length ? " cond" : "") }, c.length ? h("div", { class: "rd-cond" }, c.join(" · ")) : null, h("p", { html: TextFx.render(st, READ_ALL(st), md(String(o.text || ""))) }), o.else ? h("p", { class: "rd-else" }, "Sinon : " + o.else) : null));
     });
     var counts = pickCounts(st);
     var ul = h("ul", { class: "rd-choices" });

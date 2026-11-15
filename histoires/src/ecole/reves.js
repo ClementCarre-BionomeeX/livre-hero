@@ -6,8 +6,8 @@ module.exports = {
     title: "Un rêve", place: "dortoir", back: true,
     text: [
       "Tu es dans la bibliothèque, la nuit. L'eau monte entre les rayons, verte et calme, jusqu'aux genoux, puis jusqu'à la taille. Les livres flottent autour de toi, ouverts, et leurs pages se défont dans l'eau comme des algues.",
-      "Au bout de l'allée, une jeune fille est debout entre deux rayonnages, trempée, les cheveux collés au visage. Elle lit. Elle tourne les pages d'un cahier qui ne se mouille pas. Elle lève les yeux vers toi et sourit à moitié, comme quelqu'un qui va dire une insolence.",
-      "Elle ouvre la bouche. Il en sort de l'eau, et le bruit de la mer.",
+      "Au bout de l'allée, une jeune fille est debout entre deux rayonnages, trempée, les cheveux collés au visage. Elle {{or:s3|l}}it. Elle tourne les pages d'un cahier qui ne se mouille pas. Elle lève les yeux vers toi et sourit à moitié, comme quelqu'un qui va dire une insolence.",
+      "Elle ouvre la bouche. Il en sort de l'eau, et {{fx:chuchote|le bruit de la mer}}.",
       "Tu te réveilles, la bouche sèche.",
     ],
   },

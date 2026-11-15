@@ -1729,7 +1729,71 @@
   }
  },
  "enemies": {},
+ "trouvaillesName": "lettres d'or",
+ "trouvailles": {
+  "s1": {
+   "title": "Un S d'or",
+   "fx": {
+    "ep": [
+     "perso",
+     150
+    ]
+   }
+  },
+  "s2": {
+   "title": "Un O d'or",
+   "fx": {
+    "ep": [
+     "perso",
+     150
+    ]
+   }
+  },
+  "s3": {
+   "title": "Un L d'or",
+   "fx": {
+    "ep": [
+     "perso",
+     150
+    ]
+   }
+  },
+  "s4": {
+   "title": "Un È d'or",
+   "fx": {
+    "ep": [
+     "perso",
+     150
+    ]
+   }
+  },
+  "s5": {
+   "title": "Un N d'or",
+   "fx": {
+    "ep": [
+     "perso",
+     150
+    ]
+   }
+  },
+  "s6": {
+   "title": "Un E d'or",
+   "fx": {
+    "ep": [
+     "perso",
+     150
+    ]
+   }
+  }
+ },
  "achievements": {
+  "lettres": {
+   "title": "Six lettres d'or",
+   "desc": "Trouver les six lettres cachées dans le collège et autour.",
+   "if": {
+    "trouvailles": 6
+   }
+  },
   "escrimeur": {
    "title": "Trois fois",
    "desc": "Gagner les trois duels contre Valérien.",
@@ -2337,7 +2401,7 @@
     },
     {
      "again": true,
-     "text": "Dame Castagnet donne la note d'un diapason d'argent et fait tenir aux élèves un son unique, jusqu'à ce que le verre d'eau posé au centre se couvre de rides."
+     "text": "Dame Castagnet donne la note d'un diapason d'argent et fait tenir aux élèves un son unique, jusqu'à ce que le verre d'eau posé au centre {{fx:ondule|se couvre de rides}}."
     },
     {
      "saison": "hiver",
@@ -2360,7 +2424,11 @@
    "text": [
     {
      "first": true,
-     "text": "La salle du Verre a ses volets fermés en plein jour. Des plaques de verre sont dressées sur des chevalets, des miroirs pendent du plafond, des prismes traînent sur les tables. Maître Vilmorin allume une bougie, et la pièce se remplit de lumières qui ne viennent de nulle part."
+     "text": "La salle du Verre a ses volets fermés en plein jour. Des plaques de verre sont dressées sur des chevalets, des miroirs pendent du plafond, des prismes traînent sur les tables. Maître Vilmorin allume une bougie, et la pièce se remplit de {{fx:irise|lumières qui ne viennent de nulle part}}."
+    },
+    {
+     "first": true,
+     "text": "Sur le plus grand des miroirs, quelqu'un a gravé une phrase il y a longtemps, à l'envers, pour qu'on la lise dans le verre : {{envers:La lumière ment mieux que nous.}}"
     },
     {
      "again": true,
@@ -2396,7 +2464,7 @@
     },
     {
      "with": "jodoc",
-     "text": "Jodoc, à l'établi voisin, grave un signe du premier coup, et ne s'en aperçoit même pas. Il tremble seulement quand Mère Fage dit le mot « examen »."
+     "text": "Jodoc, à l'établi voisin, grave un signe du premier coup, et ne s'en aperçoit même pas. Il {{fx:tremble|tremble}} seulement quand Mère Fage dit le mot « examen »."
     },
     {
      "if": {
@@ -3356,7 +3424,7 @@
    "back": true,
    "text": [
     "Au milieu de la digue, une grande plaque de bronze est scellée dans le granit, verdie par le sel. Les lettres en relief ont été polies par toutes les mains qui les ont touchées.",
-    "Au-dessous, quelqu'un a déposé un bouquet de bruyère, attaché d'un ruban du collège."
+    "Au-dessous, quelqu'un a déposé un bouquet de bruy{{or:s4|è}}re, attaché d'un ruban du collège."
    ],
    "fx": {
     "clue": "s_plaque"
@@ -3368,7 +3436,7 @@
    "back": true,
    "text": [
     "Des marches glissantes descendent le long du granit jusqu'à une petite grève de galets, côté mer, que la marée découvre deux fois par jour. Il y fait sombre et froid. Les vagues claquent contre les blocs, et l'écume te mouille le visage.",
-    "Contre la digue, presque cachée par les algues, une petite stèle de pierre tendre, à demi rongée par le sel. Quelqu'un a gratté les algues autour de l'inscription, il y a peu de temps.",
+    "Contre la digue, presque cachée par les algues, une petite {{or:s1|s}}tèle de pierre tendre, à demi rongée par le sel. Quelqu'un a gratté les algues autour de l'inscription, il y a peu de temps.",
     "Sur la stèle, une couronne de fleurs séchées, et un coquillage posé à plat."
    ],
    "fx": {
@@ -3382,7 +3450,7 @@
    "text": [
     {
      "first": true,
-     "text": "Tu poses la paume à plat sur un grand signe. Le granit est froid, puis il vibre, un frémissement profond, régulier, comme un chat qui ronronne sous la main. Les signes se répondent d'un bloc à l'autre, tout le long de la digue, et l'ensemble tient la mer à distance comme on tient une porte."
+     "text": "Tu poses la paume à plat sur un grand signe. Le granit est froid, puis il vibre, un frémissement profond, régulier, comme un chat qui ro{{or:s5|n}}ronne sous la main. Les signes se répondent d'un bloc à l'autre, tout le long de la digue, et l'ensemble tient la mer à distance comme on tient une porte."
     },
     {
      "again": true,
@@ -3616,7 +3684,7 @@
    "back": true,
    "text": [
     "La chambre de Maître Salvanhac est au dernier étage de l'escalier des maîtres, une pièce mansardée encombrée de livres, de papiers et de cages ouvertes. Une seule fenêtre donne sur la mer et, tout en bas, sur la digue entière, de la ville jusqu'à la Tête.",
-    "Aux murs, des dizaines de portraits au fusain, des visages de jeunes gens et de jeunes filles, chacun avec une date dans un coin. « Mes élèves, dit le vieux maître. Les meilleurs. Je les dessine le jour où ils me dépassent. » Il en touche un, puis un autre. « Celui-ci est maître à Valcourt. Celle-ci… » Il s'arrête, le doigt levé. « Celle-ci, je ne sais plus. »",
+    "Aux murs, des dizaines de p{{or:s2|o}}rtraits au fusain, des visages de jeunes gens et de jeunes filles, chacun avec une date dans un coin. « Mes élèves, dit le vieux maître. Les meilleurs. Je les dessine le jour où ils me dépassent. » Il en touche un, puis un autre. « Celui-ci est maître à Valcourt. Celle-ci… » Il s'arrête, le doigt levé. « Celle-ci, je ne sais plus. »",
     "C'est une jeune fille aux cheveux tirés, au visage mince, qui sourit à moitié comme quelqu'un qui va dire une insolence. Pas de nom. Une date : l'an trente du collège.",
     "Le merle se pose sur le cadre, penche la tête, et siffle deux notes claires, toujours les mêmes, qui ressemblent à un nom : « So-lè. So-lè. » Le vieux maître le regarde avec tendresse. « Il siffle ça depuis toujours. Je ne sais pas où il l'a appris. »"
    ],
@@ -4755,7 +4823,7 @@
    "place": "digue",
    "text": [
     "Une fois l'an, le soir du sixième jour de l'automne, Hautsignes pose des lanternes sur la digue. C'est la nuit des noyés : chaque famille en allume une pour ceux que la mer a pris, et le collège descend tout entier en procession, en robe noire, une lanterne de papier à la main.",
-    "La digue est couverte de petites lumières tremblantes, de la ville jusqu'à la Tête. Il y en a des centaines. La mer est calme, et les lanternes s'y reflètent comme une seconde digue, à l'envers.",
+    "La digue est couverte de {{fx:lueur|petites lumières tremblantes}}, de la ville jusqu'à la Tête. Il y en a des centaines. La mer est calme, et les lanternes s'y reflètent comme une seconde digue, à l'envers.",
     "Au milieu, devant la grande plaque de bronze, le Recteur fait un discours. Il parle de la nuit de la première épreuve, de la tempête, des pierres qui se sont mises à chanter pour la première fois, du jeune homme de dix-neuf ans qu'il était. Sa voix tremble un peu, et la foule l'écoute avec amour.",
     "À l'écart, au bout de la digue, Maître Salvanhac regarde la mer, seul, sans lanterne. Le merle n'est pas sur son épaule.",
     {
@@ -4981,7 +5049,7 @@
    "text": [
     "Tu poses la main sur le bras de Maître Salvanhac. Il se tourne vers toi, te regarde, et ses yeux pâles reviennent lentement de très loin. Il voit la halle, les poissons, ses pieds trempés, la femme devant lui. Il se demande ce qu'il fait là.",
     "« Pardonnez-moi, Madame, dit-il à la poissonnière. Je vous ai prise pour quelqu'un. » Elle le regarde comme on regarde un fantôme.",
-    "Sur le chemin du collège, il marche lentement, appuyé sur ton bras, et grelotte dans sa robe. Au pied de la rue en escalier, il s'arrête, fouille dans sa poche et en sort un carnet de cuir noir, gonflé de feuilles volantes. « Gardez-le, dit-il. Je ne sais plus à qui il est. Je l'ai sur moi depuis des années, et chaque fois que je l'ouvre, je ne comprends plus mon écriture. Vous avez une main qui écoute. Peut-être qu'il vous parlera. »",
+    "Sur le chemin du collège, il marche lentement, appuyé sur ton bras, et grelotte dans sa robe. Au pied de la rue en escalier, il s'arrête, fouille dans sa poche et en sort un carnet de cuir noir, gonflé de feuilles volantes. « Gardez-le, dit-il. Je ne sais plus à qui il est. Je l'ai sur moi depuis des années, et chaque fois que je l'ouvre, {{fx:efface|je ne comprends plus mon écriture}}. Vous avez une main qui écoute. Peut-être qu'il vous parlera. »",
     "Il te met le carnet dans les mains, et il reprend la montée, et il te demande ton nom."
    ],
    "fx": {
@@ -5541,6 +5609,12 @@
     {
      "with": "yse",
      "text": "Ysé s'assoit à côté de toi et lit par-dessus ton épaule, les genoux sous le menton."
+    },
+    {
+     "if": {
+      "item": "lanterne"
+     },
+     "text": "Le dos de la dernière page est jauni par plaques, comme un papier qui aurait pris l'humidité. Tu approches ta lanterne de papier. {{encre:lanterne|À la chaleur, des lettres brunes montent dans la feuille, une à une, d'une main jeune et sûre : « Pardonne-moi, Solène. »}}"
     }
    ]
   },
@@ -5549,7 +5623,7 @@
    "title": "La ligne déchiffrée",
    "place": "dortoir",
    "text": [
-    "Tu recules chaque lettre, une à une, en comptant sur tes doigts, et tu écris ce qui vient au crayon sous la ligne chiffrée. Trois mots en capitales, dans l'écriture de Maître Salvanhac, trente ans plus tard.",
+    "Tu recules chaque lettre, une à une, en comptant sur tes doigts, et tu écris ce qui vient au crayon sous la ligne chiffrée. {{fx:ecrit|Trois mots en capitales}}, dans l'écriture de Maître Salvanhac, trente ans plus tard.",
     {
      "with": "yse",
      "text": "Ysé lit par-dessus ton épaule, et sa main se crispe sur ton bras. « La bibliothèque, souffle-t-elle. La nuit. Il faudra y aller la nuit. »"
@@ -5690,8 +5764,8 @@
    "place": "bibliotheque",
    "text": [
     "Le cadenas s'ouvre avec un déclic qui te paraît assez fort pour réveiller le collège. Tu défais la chaîne, maillon par maillon, et tu ouvres les deux battants.",
-    "Dedans, des livres reliés de noir, des fioles, des rouleaux cachetés, l'odeur douce et pourrie des vieux papiers. Et sur l'étagère du bas, posé à plat, seul, un cahier relié de toile bleue, gondolé par l'eau, aux coins rongés.",
-    "Tu l'ouvres. Des signes. Des pages et des pages de signes, à l'encre brune, d'une main fine et sûre. Tu les reconnais. Ce sont les signes de la digue, un par un, avec des flèches, des calculs, des ratures, des essais manqués, des notes. Tu tournes les pages jusqu'à la Tête. Elle est là, dessinée trois fois, avec dans la marge une ligne de musique.",
+    "Dedans, des livres reliés de noir, des fioles, des rouleaux cachetés, l'odeur douce et pourrie des vieux papiers. Et sur l'étagère du bas, posé à plat, seul, un cahier relié de toil{{or:s6|e}} bleue, gondolé par l'eau, aux coins rongés.",
+    "Tu l'ouvres. Des signes. Des pages et des pages de signes, à l'encre brune, d'une main fine et sûre. Tu les reconnais. Ce sont les signes de la digue, un par un, avec des flèches, des calculs, des {{fx:rature|ratures}}, des essais manqués, des notes. Tu tournes les pages jusqu'à la Tête. Elle est là, dessinée trois fois, avec dans la marge une ligne de musique.",
     "Tu refermes le cabinet, tu remets la chaîne, tu refermes le cadenas, et tu brouilles les molettes. Le cahier est sous ta robe, contre ta peau."
    ],
    "fx": {
@@ -5780,8 +5854,8 @@
    "back": true,
    "text": [
     "Tu es dans la bibliothèque, la nuit. L'eau monte entre les rayons, verte et calme, jusqu'aux genoux, puis jusqu'à la taille. Les livres flottent autour de toi, ouverts, et leurs pages se défont dans l'eau comme des algues.",
-    "Au bout de l'allée, une jeune fille est debout entre deux rayonnages, trempée, les cheveux collés au visage. Elle lit. Elle tourne les pages d'un cahier qui ne se mouille pas. Elle lève les yeux vers toi et sourit à moitié, comme quelqu'un qui va dire une insolence.",
-    "Elle ouvre la bouche. Il en sort de l'eau, et le bruit de la mer.",
+    "Au bout de l'allée, une jeune fille est debout entre deux rayonnages, trempée, les cheveux collés au visage. Elle {{or:s3|l}}it. Elle tourne les pages d'un cahier qui ne se mouille pas. Elle lève les yeux vers toi et sourit à moitié, comme quelqu'un qui va dire une insolence.",
+    "Elle ouvre la bouche. Il en sort de l'eau, et {{fx:chuchote|le bruit de la mer}}.",
     "Tu te réveilles, la bouche sèche."
    ]
   },
