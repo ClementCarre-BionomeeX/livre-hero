@@ -1060,14 +1060,14 @@ var passages = {
     fx: { meet: ["margot"], ep: ["perso", 300] },
     text: [
       "La croix est taillée à la main dans du chêne, sans art mais avec une patience qui se voit. On y a gravé au couteau un nom, *MARGOT*, deux dates séparées de neuf ans, et une truite. La truite a été recommencée plusieurs fois : sous la dernière, on distingue les traits des autres, plus maladroits. Aucune prière.",
-      "Le fossoyeur, un vieil homme tordu qui ratisse les allées, s'approche en voyant que tu lis. « Le meunier vient tous les matins, dit-il. Il change les fleurs, il redresse le petit bateau, il reste une heure. Il prie pas. Il parle. » Il crache dans ses mains et reprend son râteau. « Avant, il venait aussi le soir. Plus maintenant. »",
+      "Le fossoyeur, un vieil homme tordu qui ratisse les allées, s'approche en voyant que tu lis. « Le meunier vient tous les matins, dit-il. Il change les fleurs, il redresse le petit bateau, il reste une heure. Il ne prie pas. Il parle. » Il crache dans ses mains et reprend son râteau. « Avant, il venait aussi le soir. Plus maintenant. »",
       { with: "pip", text: "Pip est descendu se poser sur la voile du petit bateau, tout doucement, et il y reste un long moment. « Il a dessiné un poisson, dit-il. C'est bien, de dessiner ce qu'on aimait. Ça vaut mieux que d'écrire seulement qu'on est mort. »" },
     ],
     choices: [{ back: "I_cimetiere" }] },
   I_creuse: { act: "I", title: "Le nouveau puits", place: "brumefeuille",
     text: [
       "Derrière la halle, dans un ancien jardin de curé envahi de chardons, trois hommes creusent. Un trou rond, large comme une table, déjà profond de trois toises, étayé de planches. L'un est en bas avec une pioche, les deux autres remontent la terre au seau avec une corde et une poulie. Ils sont couverts de glaise jusqu'aux cheveux.",
-      "« Un puits, dit le plus vieux, qui est charpentier, en s'essuyant le front. Un puits du village, pas un puits de maire. Si on creuse assez loin du vieux, on finira bien par trouver une eau qui pue pas. » Il te jauge, les bras, les épaules, comme on jauge une poutre. « Il nous manque des bras pour la poulie. Ça te dit ? On paie en soupe. »",
+      "« Un puits, dit le plus vieux, qui est charpentier, en s'essuyant le front. Un puits du village, pas un puits de maire. Si on creuse assez loin du vieux, on finira bien par trouver une eau qui ne pue pas. » Il te jauge, les bras, les épaules, comme on jauge une poutre. « Il nous manque des bras pour la poulie. Ça te dit ? On paie en soupe. »",
     ],
     choices: [
       { label: "Prendre la corde de la poulie", to: "I_creuse_fond" },
@@ -1222,7 +1222,7 @@ var passages = {
     fx: { ep: ["perso", 500] },
     text: [
       "Le nouveau puits est en haut du village, au-dessus des dernières maisons, à l'endroit où la prairie commence à monter vers les bois. Une margelle de pierres neuves, un treuil, un toit de chaume. Une vieille femme y tire un seau, avec des gestes lents. Elle s'appelle Benoîte. Elle a soixante-dix ans et elle a enterré tout le monde.",
-      "« Ça s'est arrêté comme c'était venu, dit-elle quand tu lui demandes. D'un coup. Pourquoi c'était venu, on l'a jamais su. Pourquoi ça s'arrêtait, on l'a su : on a remonté l'eau. On a suivi le ruisseau, puis la source, puis la mare aux Saules, là-haut, dans le bois. C'est là que l'eau tournait. On a comblé la mare, à la pelle, tout le village, même les enfants. Et on a creusé ici, en amont de tout. »",
+      "« Ça s'est arrêté comme c'était venu, dit-elle quand tu lui demandes. D'un coup. Pourquoi c'était venu, on ne l'a jamais su. Pourquoi ça s'arrêtait, on l'a su : on a remonté l'eau. On a suivi le ruisseau, puis la source, puis la mare aux Saules, là-haut, dans le bois. C'est là que l'eau tournait. On a comblé la mare, à la pelle, tout le village, même les enfants. Et on a creusé ici, en amont de tout. »",
       "Elle te tend la louche. L'eau est claire et froide. « Le prêtre dit que c'est la prière qui nous a sauvés, ajoute-t-elle. Moi je dis que c'est les pelles. Mais je vais à la messe quand même. On ne sait jamais. »",
     ],
     choices: [{ back: "I_sg" }] },
