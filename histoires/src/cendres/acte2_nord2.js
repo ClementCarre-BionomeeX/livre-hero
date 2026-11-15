@@ -53,7 +53,7 @@ module.exports = {
 
   II_N2_lac: P({ title: "Le lac noir", place: null,
     text: [
-      "Le lac est au fond d'un cirque de falaises, rond comme un œil. Tout autour, la neige. Lui ne gèle jamais. Il est noir, d'un noir mat, et l'air au-dessus de lui est immobile.",
+      "Le lac est au fond d'un cirque de falaises, rond comme un œil, large de quatre cents pas d'une rive à l'autre. Tout autour, la neige. Lui ne gèle jamais. Il est noir, d'un noir mat, et l'air au-dessus de lui est immobile.",
       "Au-dessus, dans la falaise, à mi-hauteur, une fente sombre où tournent des corbeaux. La grotte.",
       "Quand tu te penches, l'eau te renvoie une image. Ce n'est pas ton visage.",
       { if: { souv: "corbe:frere" }, text: "C'est Bran. Bran à quinze ans, qui rit, avec une dent en moins, et qui te tend un oisillon tombé du nid." },
@@ -78,8 +78,8 @@ module.exports = {
 
   II_N2_grotte: P({ title: "La grotte des Corbeaux", place: "lacnoir", hub: true,
     text: [
-      { first: true, text: "L'entrée est basse. Il faut se courber. Puis la grotte s'ouvre, haute comme un temple, et la lumière tombe d'une fente dans la voûte. Les corbeaux nichent dans les corniches, par centaines. Ils ne crient pas. Ils regardent." },
-      "Les parois sont couvertes de signes. Des lignes de traits, serrés, réguliers, gravés au silex, du sol jusqu'aussi haut qu'un bras peut monter. Des milliers.",
+      { first: true, text: "L'entrée est basse. Il faut se courber. Puis la grotte s'ouvre, haute comme un temple, et la lumière tombe d'une fente dans la voûte. Les corbeaux nichent dans les corniches, par centaines ; le sol, sous eux, est blanc de fiente sur une épaisseur de main, ce qui fait plusieurs siècles de corbeaux. Ils ne crient pas. Ils regardent." },
+      "Les parois sont couvertes de signes. Des lignes de traits, serrés, réguliers, gravés au silex, du sol jusqu'aussi haut qu'un bras peut monter. Tu comptes les lignes d'une seule paroi, et tu t'arrêtes à deux cents : il y en a des milliers.",
       { first: true, text: "Tu ne sais pas lire. Personne, au clan, ne sait lire. Tu as toujours trouvé que c'était une force." },
     ],
     choices: [
@@ -187,7 +187,7 @@ module.exports = {
 
   II_N2_nuit: P({ backName: "le feu de la grotte", title: "La nuit dans la grotte", place: "lacnoir",
     text: [
-      "Vous faites un feu de bois flotté sous la fente de la voûte, et la fumée monte droit. Les corbeaux se sont tus. Askel s'est endormie tout de suite, assise contre la paroi, la bouche ouverte, comme une très vieille femme.",
+      "Vous faites un feu de bois flotté sous la fente de la voûte, et la fumée monte droit : la grotte tire comme une cheminée. Les corbeaux se sont tus. Askel s'est endormie tout de suite, assise contre la paroi, la bouche ouverte, comme une très vieille femme.",
       { if: { has: "nord:chant_lu" }, text: "Sur la grande paroi, la lumière du feu fait bouger les traits. On dirait que les noms respirent." },
       { if: { has: "nord:aieule_glace" }, text: "De temps en temps, du fond du boyau, un craquement." },
     ],
@@ -240,7 +240,7 @@ module.exports = {
   II_N2_ombre: P({ title: "L'ombre sur le lac", place: "lacnoir",
     text: [
       "Tu te réveilles parce que les corbeaux se sont tous envolés en même temps.",
-      "Par l'entrée de la grotte, on voit le lac, sous la lune. Sur l'autre rive, quelque chose marche. Ça a la forme d'un homme. Ça a la taille d'un clocher. Ça avance lentement, à grands pas qui s'enfoncent, et la neige se soulève derrière, en poussière, comme derrière un traîneau.",
+      "Par l'entrée de la grotte, on voit le lac, sous la lune. Sur l'autre rive, quelque chose marche. Ça a la forme d'un homme. Ça a la taille d'un clocher ; tu prends pour mesure les sapins de la rive, et la chose les dépasse de trois fois leur hauteur. Ça avance lentement, à grands pas qui s'enfoncent, et la neige se soulève derrière, en poussière, comme derrière un traîneau.",
       "La chose s'arrête. Elle tourne la tête vers la falaise, vers la fente, vers vous. Elle renifle, longuement.",
       "Puis elle repart, vers l'est. Vers la combe où, depuis trois cents ans, les Veilleurs gardent le col dans leur moutier de pierre.",
       "Askel, à côté de toi, chuchote : « Elle va chez les moines. »",

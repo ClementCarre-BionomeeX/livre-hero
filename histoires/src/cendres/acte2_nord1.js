@@ -6,7 +6,7 @@ function P(o) { return Object.assign({}, N, o); }
 module.exports = {
   II_N_depart: P({ title: "Vers le nord", place: "collines",
     text: [
-      "La route du nord quitte la plaine au premier village et grimpe tout de suite, raide, entre des châtaigniers, puis des pins, puis plus rien. Tu marches devant. Tu as toujours marché devant.",
+      "La route du nord quitte la plaine au premier village et grimpe tout de suite, raide, entre des châtaigniers, puis des pins, puis de l'herbe rase. Tu comptes trois mille pieds de montée avant midi, à la façon des chasseurs, qui comptent en souffles. Tu marches devant. Tu as toujours marché devant.",
       { with: "enfant", text: "L'enfant de Sauvelune marche juste derrière toi. Il regarde les Combes, au loin, comme on regarde une maison." },
       { with: "ysolde", text: "La chevalière ferme la marche, la main jamais loin de son épée. Elle a gratté les armes de Brenne de son bouclier, au couteau, pendant la nuit." },
       { with: "pie", text: "Le voleur de Pallanche se plaint du raidillon depuis la première heure. Il n'a jamais vu une montagne. Il a peur, et il le cache en parlant." },
@@ -19,7 +19,7 @@ module.exports = {
   II_N_bergers: P({ title: "La cabane vide", place: null,
     text: [
       "La cabane des bergers, au-dessus de la vallée de la Sauve. Tu t'y es arrêtée en descendant, il y a moins d'une semaine. On t'y a donné du lait.",
-      "La pâture est blanche, d'un bout à l'autre. La cabane est ouverte. Il y a du lait tourné dans un seau, un fromage sous un linge, un manteau sur un clou, un couteau sur la table. Les chiens sont là, maigres, qui gardent un troupeau qui n'a plus de berger. Ils grognent quand vous approchez, puis ils vous suivent.",
+      "La pâture est blanche, d'un bout à l'autre. La cabane est ouverte. Tu en fais l'inventaire comme on lit une piste : du lait tourné dans un seau, caillé depuis trois jours au moins ; un fromage sous un linge ; un manteau sur un clou ; un couteau sur la table. Les bergers sont partis sans manteau et sans couteau, ce qu'aucun berger ne fait. Les chiens sont là, maigres, qui gardent un troupeau qui n'a plus de berger. Ils grognent quand vous approchez, puis ils vous suivent.",
     ],
     choices: [
       { label: "Ouvrir l'enclos et laisser les bêtes descendre vers la vallée", fx: { ep: ["perso", 400] }, to: "@route" },
@@ -29,7 +29,7 @@ module.exports = {
   II_N_traces: P({ title: "Les grandes traces", place: null,
     fx: { questSeen: "II_N_geant" },
     text: [
-      "À mi-chemin, sur le fil de la crête, il y a des traces dans la neige. Des pas. Tu connais les pas des Glaneurs : longs, plats, qui ne s'enfoncent pas. Ceux-là s'enfoncent. Chacun est grand comme une barque. Entre deux pas, il y a la longueur de quatre hommes couchés.",
+      "À mi-chemin, sur le fil de la crête, il y a des traces dans la neige. Des pas. Tu connais les pas des Glaneurs : longs, plats, qui ne s'enfoncent pas. Ceux-là s'enfoncent. Chacun est grand comme une barque, et profond d'une coudée dans la neige tassée, ce qui donne une idée du poids. Entre deux pas, il y a la longueur de quatre hommes couchés.",
       "Ils viennent du col de l'Ourse et y retournent. Ils sont passés plusieurs fois.",
       { with: "pie", text: "Pie s'assied dans une des empreintes. Il y tient en entier, les genoux sous le menton. Il ne fait pas de plaisanterie." },
       { with: "ysolde", text: "Ysolde mesure une empreinte avec son épée. Puis elle la mesure une deuxième fois." },
@@ -39,7 +39,7 @@ module.exports = {
   II_N_arrivee: P({ title: "Le silence du camp", place: null,
     text: [
       "Tu entends le camp avant de le voir, d'habitude : les chiens, les tambours, les enfants, les corbeaux. Aujourd'hui, depuis la dernière crête, tu n'entends rien.",
-      "Les tentes sont là. La fumée monte. Les gens sont dehors, assis devant les tentes, au soleil, dans la neige. Ils ne parlent pas. Les corbeaux sont sur les claies à viande, immobiles.",
+      "Les tentes sont là, quarante et une, tu les comptes. La fumée monte. Les gens sont dehors, assis devant les tentes, au soleil, dans la neige. Ils ne parlent pas. Les corbeaux sont sur les claies à viande, immobiles.",
     ],
     choices: [{ label: "Descendre au camp", to: "@route" }] }),
 
@@ -73,7 +73,7 @@ module.exports = {
   II_N_hrodna: P({ title: "La Bouche", place: "corbeau",
     fx: { questSeen: "II_N_rite" },
     text: [
-      "Hrodna est assise au fond de sa tente, le visage peint en blanc, du front au menton, sans un signe. Elle te regarde entrer. Elle sourit, d'un sourire calme que tu ne lui as jamais vu.",
+      "Hrodna est assise au fond de sa tente, le visage peint en blanc, du front au menton, sans un signe. La couche est épaisse et craquelée aux coins de la bouche : elle date de plusieurs jours, et personne ne l'a refaite. Elle te regarde entrer. Elle sourit, d'un sourire calme que tu ne lui as jamais vu.",
       "« Je n'ai plus de nom, dit-elle. Je l'ai donné, la deuxième nuit, quand la Mère est revenue. Puisque sa Bouche ne venait pas, il fallait quelqu'un pour lui parler. » Elle pose la main à plat sur la neige qui couvre le sol de la tente. « Elle ne me répond pas. Elle ne parle qu'à ceux qui ont un nom à donner. Toi, tu en as encore un. »",
       "« Le col de l'Ourse s'ouvre, Corbe. Chaque nuit un peu plus. Ce qui passe par là devient plus grand. Ou tu vas au col avec ton nom, et tu le fermes, ou tu l'ouvres. Mais tu ne peux plus rester entre les deux. »",
     ],
@@ -139,7 +139,7 @@ module.exports = {
 
   II_N_enfants: P({ title: "Le feu des enfants", place: "corbeau",
     text: [
-      "Pie est assis au feu des enfants du clan. Il leur fait des tours : une pièce qui disparaît, une bague qui passe d'une main à l'autre, un caillou qui sort d'une oreille. Les enfants ne rient pas. Ils regardent.",
+      "Pie est assis au feu des enfants du clan. Il leur fait des tours : une pièce qui disparaît, une bague qui passe d'une main à l'autre, un caillou qui sort d'une oreille, et, en prime, ton propre couteau qui sort de sa manche à lui. Les enfants ne rient pas. Ils regardent.",
       "Puis une fillette tend la main, prend la pièce, et la fait disparaître à son tour, mieux que lui. Elle dit : « Encore. » Pie lui en apprend un autre. Puis un autre.",
       "Quand tu reviens, une heure plus tard, ils sont douze autour de lui, et il leur apprend à crocheter une serrure de coffre avec une arête de poisson.",
     ],

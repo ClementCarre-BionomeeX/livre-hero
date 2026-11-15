@@ -8,7 +8,7 @@ var GASPARD = { any: [{ has: "gaspard:chant" }, { has: "gaspard:pain" }] };
 module.exports = {
   II_N4_depart: P({ title: "Vers les cirques", place: "moutier",
     text: [
-      "Les traces longent le col par l'ouest, puis montent, vers les cirques du nord, là où les clans ne chassent pas. On dit que les bêtes y vont mourir. On dit beaucoup de choses.",
+      "Les traces longent le col par l'ouest, puis montent, vers les cirques du nord, là où les clans ne chassent pas. On dit que les bêtes y vont mourir. On dit beaucoup de choses, et tu as appris à n'en croire que la moitié, en choisissant bien laquelle.",
       { if: { has: "tiennot:suit" }, text: "Tiennot marche derrière vous, avec un sac trop lourd et la grande clé du moutier pendue au cou. Il ne la lâche pas." },
       { if: { has: "tiennot:hospice" }, text: "Tiennot est parti vers l'Hospice à l'aube, avec une lettre d'Ombeline. Il s'est retourné souvent." },
       { with: "ombeline", text: "Ombeline marche en murmurant ses noms. Il y en a de nouveaux, depuis le moutier. Tu les reconnais : Arnoul, au milieu." },
@@ -17,7 +17,7 @@ module.exports = {
 
   II_N4_procession: P({ title: "La procession", place: null,
     text: [
-      "Vous les voyez avant qu'ils vous voient : une file de Glaneurs, des petits, une vingtaine, qui montent la pente l'un derrière l'autre, à pas réguliers. Chacun porte quelque chose dans ses mains jointes, contre la poitrine, comme on porte de l'eau. Une lueur pâle, qui bat.",
+      "Vous les voyez avant qu'ils vous voient : une file de Glaneurs, des petits, vingt-deux, qui montent la pente l'un derrière l'autre, à pas réguliers, à intervalles égaux de trois pas. Chacun porte quelque chose dans ses mains jointes, contre la poitrine, comme on porte de l'eau. Une lueur pâle, qui bat.",
       "Ils passent à cinquante pas de vous. Ils ne tournent pas la tête. Le dernier trébuche, et ce qu'il porte lui échappe, roule dans la neige, et s'éteint, lentement, comme une braise.",
       "Un nom. Personne ne saura lequel.",
     ],
@@ -52,7 +52,7 @@ module.exports = {
 
   II_N4_gaspard: P({ title: "Gaspard", place: null,
     text: [
-      "Il se lève. Il est plus grand que toi d'une tête, maigre, et sa neige a une couleur de pâte crue. Il marche devant, sans hésiter. Il connaît le chemin.",
+      "Il se lève. Il est plus grand que toi d'une tête, maigre, et sa neige a une couleur de pâte crue, avec, par endroits, des traces grises comme de la farine de seigle. Il marche devant, sans hésiter. Il connaît le chemin.",
       "« Le grand, dit-il en marchant. Je l'ai porté, avant. Mes noms. Ceux que je glanais pour l'homme en noir, quand le sceau est tombé, je ne savais pas où les mettre. Je les ai portés au grand. Tout le monde les porte au grand. Il a faim. Il a tellement faim. »",
       { with: "ombeline", text: "Ombeline marche à côté de lui. Elle lui a pris la main. Elle semble l'embarrasser, mais il la laisse où elle est." },
     ],
@@ -64,7 +64,7 @@ module.exports = {
 
   II_N4_cirque: P({ title: "Le cirque des Moissons", place: "cirque", hub: true,
     text: [
-      { first: true, text: "Le col étroit débouche au bord d'un cirque immense, un bol de neige entre des falaises noires, si grand qu'une ville y tiendrait. Au fond, au milieu, une montagne blanche, assise. Elle respire." },
+      { first: true, text: "Le col étroit débouche au bord d'un cirque immense, un bol de neige entre des falaises noires, d'une demi-lieue de travers ; Pallanche y tiendrait avec ses faubourgs. Au fond, au milieu, une montagne blanche, assise. Elle respire." },
       "Le géant. Assis, les genoux remontés, la tête penchée, comme quelqu'un qui écoute. De toutes les pentes du cirque, des files de petits Glaneurs descendent vers lui, et versent dans sa bouche ce qu'ils portent dans leurs mains. Il avale. Le murmure monte du fond du cirque comme d'une église pleine.",
       "Il vous ignore, par distraction ou par dédain.",
     ],
@@ -144,7 +144,7 @@ module.exports = {
 
   II_N4_face: P({ title: "Devant lui", place: "cirque",
     text: [
-      "Tu descends. La neige est dure, tassée par des milliers de pieds. Le murmure grandit à chaque pas, jusqu'à ce que tu ne t'entendes plus penser. À vingt pas, il lève la tête.",
+      "Tu descends. La neige est dure, tassée par des milliers de pieds, lisse comme un sol de grange. Le murmure grandit à chaque pas, jusqu'à ce que tu ne t'entendes plus penser. À vingt pas, il lève la tête.",
       "Il n'a pas d'yeux. Il te regarde quand même. Il se penche, et son ombre te couvre, et le murmure s'arrête.",
       "Le silence est pire.",
     ],
@@ -237,7 +237,7 @@ module.exports = {
 
   II_N4_soir: P({ backName: "le bivouac", title: "Le bivouac", place: "cirque",
     text: [
-      "Vous campez au col étroit, entre deux rochers. On parle peu. Au loin, à l'est, la lueur blanche du col de l'Ourse, plus grande qu'hier.",
+      "Vous campez au col étroit, entre deux rochers. On parle peu. Au loin, à l'est, la lueur blanche du col de l'Ourse, plus grande qu'hier : elle mangeait hier la largeur d'un pouce tendu à bout de bras ; ce soir, elle en mange deux.",
       { if: { has: "ombeline:faim" }, text: "Ombeline murmure ses noms. De temps en temps, elle s'arrête, et elle se répète le sien, tout bas, pour l'apprendre." },
       { if: { has: "nord:geant=tue" }, text: "Il n'y a plus de murmure. Ça fait un silence énorme." },
     ],
@@ -259,7 +259,7 @@ module.exports = {
     choices: [{ fx: { conf: { enfant: 5 } }, back: "II_N4_soir" }] }),
 
   II_N4_soir_ysolde: P({ title: "Ce qu'il y avait dedans", place: "cirque",
-    text: ["Ysolde nettoie son épée, qui n'a rien à nettoyer. « Au pont, dit-elle soudain, il y avait des gens. Pas des soldats. Des gens. Je le sais parce que j'en rêve depuis le lac. » Elle range l'épée. « Je ne sais pas encore ce que j'ai fait. Mais je sais qui c'était. Ce n'étaient pas des soldats. »"],
+    text: ["Ysolde nettoie son épée, qui brille déjà d'un bout à l'autre. « Au pont, dit-elle soudain, il y avait des gens. Pas des soldats. Des gens. Je le sais parce que j'en rêve depuis le lac. » Elle range l'épée. « Je ne sais pas encore ce que j'ai fait. Mais je sais qui c'était. Ce n'étaient pas des soldats. »"],
     choices: [{ fx: { conf: { ysolde: 5 } }, back: "II_N4_soir" }] }),
 
   II_N4_soir_pie: P({ title: "Deux syllabes", place: "cirque",

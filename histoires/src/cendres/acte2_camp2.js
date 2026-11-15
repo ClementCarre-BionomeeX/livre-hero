@@ -10,7 +10,7 @@ module.exports = {
   II_Q_nouveau_ne: P({ title: "L'enfant de Runa", place: "corbeau",
     fx: { questSeen: "II_Q_nouveau_ne" },
     text: [
-      "Dans une tente au bord du camp, une jeune femme, Runa, allaite un nouveau-né. Né il y a neuf jours. Au clan, on nomme un enfant le neuvième jour, devant le feu, et la Bouche peint le nom sur une bande d'écorce. C'est aujourd'hui.",
+      "Dans une tente au bord du camp, une jeune femme, Runa, allaite un nouveau-né, gros comme deux poings et rouge comme une baie. Né il y a neuf jours. Au clan, on nomme un enfant le neuvième jour, devant le feu, et la Bouche peint le nom sur une bande d'écorce. C'est aujourd'hui.",
       "Personne n'est venu. Runa te regarde entrer, et elle serre l'enfant contre elle. « Hrodna ne peint plus les noms, dit-elle. Elle les donne à la Mère. Si je lui dis le nom de mon fils, elle le donnera. Si je ne le dis à personne, il n'a pas de nom. » Elle baisse les yeux sur l'enfant. « Il n'a pas de nom depuis neuf jours. Il pleure tout le temps. »",
     ],
     choices: [
@@ -41,7 +41,7 @@ module.exports = {
   // ---------------------------------------------------------------- La course sur le lac
   II_k_course: P({ title: "La course du tarn", place: "corbeau",
     text: [
-      "Sur le petit lac gelé, en contrebas du camp, les jeunes du clan font courir les traîneaux. Un renne, un traîneau de bouleau, un garçon ou une fille debout sur les patins, et trois tours du lac en criant. Le gagnant porte le grand tambour au col, pour le rite. C'est un honneur. Tu l'as gagné deux fois, avant.",
+      "Sur le petit lac gelé, en contrebas du camp, trois cents pas de tour, les jeunes du clan font courir les traîneaux. Un renne, un traîneau de bouleau, un garçon ou une fille debout sur les patins, et trois tours du lac en criant. Le gagnant porte le grand tambour au col, pour le rite. C'est un honneur. Tu l'as gagné deux fois, avant.",
       "Ils te voient arriver. Le silence se fait. Puis un garçon, Leif, celui qui avait douze ans quand tu es partie, te tend une longe. « Il reste un renne, dit-il. Le plus têtu. Personne n'en veut. »",
     ],
     choices: [
@@ -86,7 +86,7 @@ module.exports = {
     choices: [{ back: "III_e_hameau" }] }),
   III_el_tombes: P3({ title: "Les pierres levées", place: "enfance",
     text: [
-      "Derrière la dernière maison, dans l'herbe noire, des pierres levées, petites, une centaine. Pas de noms. Pas de signes. Juste des pierres, debout, chacune de la taille d'un enfant assis.",
+      "Derrière la dernière maison, dans l'herbe noire, des pierres levées, petites, cent quatre exactement, nues de tout nom et de tout signe. Juste des pierres, debout, chacune de la taille d'un enfant assis.",
       "Une vieille femme est assise au milieu. Elle te voit regarder. « Les nôtres, dit-elle. Ceux qui sont morts dans le feu. On n'a pas écrit leurs noms. On ne savait pas écrire. On les disait. » Elle touche une pierre. « Et puis on est venus ici, et on les a oubliés, nous aussi. Il ne reste que les pierres. On s'assied à côté, au cas où. »",
     ],
     choices: [

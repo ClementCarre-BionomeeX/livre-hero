@@ -37,7 +37,7 @@ function chapterChoices() {
 module.exports = {
   II_conseil: { act: "II", title: "Sur la colline", place: "collines", noLead: true,
     text: [
-      "Le soleil est haut, maintenant. Vous êtes toujours assis dans l'herbe, au sommet de la colline, au-dessus d'une ville blanche. Personne n'a dormi. Quelqu'un a partagé un pain. Quelqu'un d'autre a dit, il y a une heure : « Et maintenant ? » et personne n'a répondu.",
+      "Le soleil est haut, maintenant. Vous êtes toujours assis dans l'herbe, au sommet de la colline, au-dessus d'une ville blanche. Personne n'a dormi. Quelqu'un a partagé un pain en six parts, inégales, et personne n'a protesté. Quelqu'un d'autre a dit, il y a une heure : « Et maintenant ? » et personne n'a répondu.",
       "C'est Corbe qui parle la première. Elle montre le nord, les Hautes-Combes, à l'horizon, blanches jusqu'aux crêtes. « Ça vient de là. Du col de l'Ourse. Mon clan l'attend depuis cent ans. Si quelqu'un sait ce que c'est, c'est eux. Ou les morts. »",
       { if: { has: "lisandre:lettre" }, text: "Lisandre sort de son corsage une lettre cachetée de noir et la pose dans l'herbe. Personne ne la touche. « Il est à Vasselin, dit-elle. Ou il y sera ce soir. Il garde tout, il l'écrit. Et la reine lui doit quelque chose qu'elle ne se rappelle plus. »" },
       { if: { not: { has: "lisandre:lettre" } }, text: "Lisandre montre le sud, la vallée de la Pallante, la route de la cour. « La reine rentre à Vasselin. Mordace la suivra : il ne la quitte plus depuis le printemps. Tout ce qu'il sait, il l'écrit. Et ce qu'il écrit, il le garde près de lui. »" },

@@ -15,7 +15,7 @@ module.exports = {
 
   II_N3_combe: P({ title: "Les mules", place: null,
     text: [
-      "Dans la combe, une caravane. Six mules, bâtées, chargées de sacs et de couvertures, debout dans la neige, en file, attachées l'une à l'autre. Elles restent immobiles. Elles sont couvertes de givre jusqu'aux yeux. Elles sont mortes debout.",
+      "Dans la combe, une caravane. Six mules, bâtées, chargées de sacs et de couvertures, debout dans la neige, en file, attachées l'une à l'autre. Elles restent immobiles, couvertes de givre jusqu'aux yeux. Tu approches la main des naseaux de la première : aucun souffle. Elles sont mortes debout.",
       "Au bout de la file, assise dans la neige, une vieille femme en laine blanche prie, les mains jointes sur la longe de la première mule. Elle lève la tête. Elle a les yeux les plus fatigués que tu aies jamais vus.",
       "« Elles ont eu peur, dit-elle. Ça les a tuées plus vite que le froid. » Elle se lève, avec peine. « Je suis Ombeline, de l'Hospice des Neiges. Le prieur des Veilleurs m'a envoyé un pigeon. Il disait : *venez vite, et apportez de quoi enterrer.* »",
       { with: "ysolde", after: "ilse:sauvee", text: "Ysolde la reconnaît avant toi. Elle s'avance. Ombeline la regarde, sourit à peine. « La capitaine et la petite fiévreuse. Elle va bien. Elle demande après vous. »" },
@@ -38,8 +38,8 @@ module.exports = {
 
   II_N3_porte: P({ title: "Le moutier", place: null,
     text: [
-      "Le moutier des Veilleurs est bâti dans le flanc de la combe, face au col, comme un poing fermé. Des murs gris, une tour carrée, une seule porte. Trois cents ans qu'on y veille, nuit et jour, sans que personne en Esquarre sache très bien sur quoi.",
-      "Il est blanc. De glace. Une couche épaisse, lisse, bleutée, qui coule des toits jusqu'au sol comme la cire d'un cierge, et qui a scellé la porte, les fenêtres, les gouttières. Sur le toit, au milieu, la glace forme une sorte de creux, très grand, avec cinq longues traînées.",
+      "Le moutier des Veilleurs est bâti dans le flanc de la combe, face au col, comme un poing fermé. Des murs gris épais de six pieds, une tour carrée, une seule porte. Trois cents ans qu'on y veille, nuit et jour, sans que personne en Esquarre sache très bien sur quoi.",
+      "Il est blanc. De glace. Une couche épaisse, lisse, bleutée, qui coule des toits jusqu'au sol comme la cire d'un cierge, et qui a scellé la porte, les fenêtres, les gouttières. Sur le toit, au milieu, la glace forme un creux très grand, avec cinq longues traînées. Tu les suis des yeux, et tu en mesures l'écart à vue : trente pieds du pouce au petit doigt.",
       "Une main. Posée à plat.",
     ],
     choices: [
@@ -60,7 +60,7 @@ module.exports = {
 
   II_N3_cloitre: P({ title: "Le cloître", place: "moutier", hub: true,
     text: [
-      { first: true, text: "Le cloître est intact, carré, avec un puits au milieu. Et partout, les moines. Dans la glace. Un qui balayait, le balai levé. Deux qui parlaient, la bouche ouverte. Un qui courait vers la chapelle, un pied en l'air. Ils sont pris dans des blocs de glace claire, bien droits, comme des saints dans leurs niches." },
+      { first: true, text: "Le cloître est intact, carré, avec un puits au milieu. Et partout, les moines, dans la glace. Tu en comptes vingt-trois dans les quatre galeries. Un qui balayait, le balai levé. Deux qui parlaient, la bouche ouverte. Un qui courait vers la chapelle, un pied en l'air. Ils sont pris dans des blocs de glace claire, bien droits, comme des saints dans leurs niches." },
       "Il fait très froid, et c'est un froid d'un silence total. Juste, de temps en temps, quelque part, le bruit d'une goutte qui tombe.",
       "Vers le nord, par les arcades, on voit le col de l'Ourse, très proche. Il y a sur lui une lumière blanche, même en plein jour.",
     ],
@@ -84,7 +84,7 @@ module.exports = {
 
   II_N3_novice: P({ title: "Le four", place: "moutier",
     text: [
-      "Les cuisines sont prises comme le reste : un frère cuisinier, la louche à la main, au-dessus d'une marmite gelée. Mais le grand four à pain est tiède. Et quand tu ouvres la porte de fonte, il y a un garçon dedans, recroquevillé sur la sole, maigre, quatorze ans, le crâne rasé, qui te regarde avec des yeux énormes.",
+      "Les cuisines sont prises comme le reste : un frère cuisinier, la louche à la main, au-dessus d'une marmite gelée. Mais le grand four à pain est tiède : tu poses la paume sur la porte de fonte, et elle garde la chaleur d'une braise couverte depuis plusieurs jours. Et quand tu ouvres la porte de fonte, il y a un garçon dedans, recroquevillé sur la sole, maigre, quatorze ans, le crâne rasé, qui te regarde avec des yeux énormes.",
       "Il s'appelle Tiennot. Il est novice. Il dormait dans le four, cette nuit-là, parce qu'il avait froid. C'était défendu, et c'est pour ça qu'il est vivant.",
       "« Il est venu à minuit, dit-il. On ne l'a pas entendu marcher. On a entendu le toit. Il a posé la main dessus, comme sur une tête. Et tout le monde s'est arrêté. » Il frissonne. « Le prieur est en haut. Il est vivant. À moitié. Il m'a dit de rester ici et de garder le feu. Je garde le feu. »",
     ],
@@ -103,7 +103,7 @@ module.exports = {
   II_N3_prieur: P({ title: "Dom Arnoul", place: "moutier",
     fx: { meet: "arnoul" },
     text: [
-      "La bibliothèque est une longue salle voûtée, pleine de livres enchaînés aux pupitres. La glace s'est arrêtée à la porte. Au fond, assis dans un fauteuil, un vieillard en robe noire, très droit. Ses jambes, jusqu'aux genoux, sont prises dans un bloc de glace qui monte du dallage. Il a un livre ouvert sur les genoux.",
+      "La bibliothèque est une longue salle voûtée, pleine de livres enchaînés aux pupitres, trois cents volumes peut-être, chacun au bout d'une chaîne d'une aune. La glace s'est arrêtée à la porte. Au fond, assis dans un fauteuil, un vieillard en robe noire, très droit. Ses jambes, jusqu'aux genoux, sont prises dans un bloc de glace qui monte du dallage. Il a un livre ouvert sur les genoux.",
       "« Corbe du Corbeau, dit-il. La Bouche qui n'est pas venue. » Il a une voix de vieux soldat. « Je suis Arnoul, prieur des Veilleurs. Je vous attendais. Pas vous exactement. Quelqu'un. »",
       "Il pose la main sur le livre. « Le Livre des Veilles. Le serment des cinq maisons, de leur main, l'année de la fondation. Nous le lisons chaque nuit, à la troisième heure. Nous jurons de ne jamais oublier, pour que le monde puisse oublier en paix. »",
       "Il tousse. La glace a gagné un peu, sur ses genoux, depuis que tu es entrée.",
@@ -136,7 +136,7 @@ module.exports = {
   II_N3_livre: P({ title: "Le Livre des Veilles", place: "moutier",
     text: [
       "« Il reviendra cette nuit, dit Arnoul. Pour moi, et pour le livre. Je ne sais pas s'il sait lire. Je ne veux pas le savoir. »",
-      "Il te tend le livre. Il est lourd, relié de bois et de cuir, fermé par une agrafe de fer.",
+      "Il te tend le livre. Il pèse le poids d'un agneau, relié de bois et de cuir, fermé par une agrafe de fer polie par trois siècles de pouces.",
       "« Emportez-le. Ou brûlez-le. Ou laissez-le-moi, et je le serrerai contre moi quand il viendra, et nous verrons lequel de nous deux est le plus froid. »",
     ],
     choices: [
@@ -190,7 +190,7 @@ module.exports = {
 
   II_N3_tour: P({ title: "La tour du guet", place: "moutier",
     text: [
-      "Cent vingt marches. En haut, une salle carrée ouverte aux quatre vents, une cloche de bronze, et la corde, gelée raide. Un moine, pris dans la glace, a la main sur la corde. Il allait sonner.",
+      "Cent vingt marches, tu les comptes. En haut, une salle carrée ouverte aux quatre vents, une cloche de bronze large comme un tonneau, et la corde, gelée raide. Un moine, pris dans la glace, a la main sur la corde. Il allait sonner.",
       "Le col de l'Ourse est là, à une demi-journée. La lumière blanche n'est pas une lumière. C'est une déchirure. Comme un drap qu'on a fendu au couteau, et derrière, du blanc.",
       { if: { souv: "corbe:col" }, text: "La grande pierre plate, au milieu du col, où la Mère Blanche s'est assise un jour, est juste devant la déchirure. Elle a l'air minuscule." },
       { if: { not: { souv: "corbe:col" } }, text: "Il y a une pierre plate au milieu du col, juste devant la déchirure. Tu ne sais pas pourquoi tu la regardes." },
@@ -247,7 +247,7 @@ module.exports = {
   II_N3_geant: P({ title: "La main sur le toit", place: "moutier",
     text: [
       "Le sol tremble. Une fois. Deux fois. Puis plus rien, et l'ombre passe sur la cour, si grande qu'elle couvre le cloître d'un coup.",
-      "Par la fenêtre des cuisines, tu le vois. Il est debout dans la combe, à côté du moutier, et le toit de la tour lui arrive à l'épaule. Il est fait de neige, et la neige bouge, en surface, comme une foule. Il n'a pas de visage. Il a une bouche, et elle murmure, et le murmure fait vibrer les vitres.",
+      "Par la fenêtre des cuisines, tu le vois. Il est debout dans la combe, à côté du moutier, et le toit de la tour lui arrive à l'épaule. La tour a cent vingt marches. Tu fais le calcul malgré toi, et le résultat te paraît déraisonnable. Il est fait de neige, et la neige bouge, en surface, comme une foule. Il n'a pas de visage. Il a une bouche, et elle murmure, et le murmure fait vibrer les vitres.",
       { with: "enfant", text: "L'enfant de Sauvelune s'est collé à la vitre. Il a les yeux fixes. Il dit, d'une voix blanche : « Agathe. Joris. Pim. » Puis : « Ce sont les miens. Il les a. Il dit leurs noms. Il dit tout Sauvelune. »" },
       "Le géant lève la main vers le toit de la bibliothèque.",
     ],

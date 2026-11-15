@@ -114,7 +114,7 @@ module.exports = {
     choices: [{ back: "@route" }] }),
   E_pont_coupe: P({ title: "Le pont coupé",
     text: [
-      "Le pont de bois sur le ruisseau des Aulnes a été coupé à la hache, cette nuit. Les entailles sont fraîches, le bois encore clair et humide de sève, et les copeaux n'ont pas noirci. Une hache de bûcheron, à en juger par la largeur du fer, maniée par un gaucher. Quelqu'un voulait empêcher le passage, ou le retour.",
+      "Le pont de bois sur le ruisseau des Aulnes a été coupé à la hache, cette nuit. Les entailles sont fraîches, le bois encore clair et humide de sève, et les copeaux n'ont pas noirci. Une hache de bûcheron, à en juger par la largeur du fer. Quelqu'un voulait empêcher le passage, ou le retour.",
     ],
     choices: [{ label: "Faire passer tout le monde à gué", test: { dom: "nature", label: "Le gué des Aulnes", help: [{ if: { item: "corde" }, v: 15 }] },
       win: { fx: { ep: ["seance", 500] }, to: "E_pont_coupe_ok" }, lose: { fx: { pv: -2, food: -1 }, to: "E_pont_coupe_rate" } }] }),

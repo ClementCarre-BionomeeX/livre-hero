@@ -7,7 +7,7 @@ var BACK = [{ back: "II_N_camp" }];
 module.exports = {
   II_N_lutte: P({ title: "La lutte",
     text: [
-      "Autour d'un cercle tracé dans la neige, les jeunes hommes du clan luttent, torse nu, en soufflant de la vapeur. On lutte, chez le Corbeau, pour se réchauffer, pour régler une dispute, pour rien. Le plus fort, un roux énorme qu'on appelle Bjarki, a déjà mis quatre adversaires à terre.",
+      "Autour d'un cercle tracé dans la neige, les jeunes hommes du clan luttent, torse nu, en soufflant de la vapeur. On lutte, chez le Corbeau, pour se réchauffer, pour régler une dispute, pour rien. Le plus fort, un roux énorme qu'on appelle Bjarki, a déjà mis quatre adversaires à terre, et le cercle de neige porte les quatre empreintes, chacune de la longueur d'un homme.",
       "Il voit Rodric. Il le montre du menton. Il dit quelque chose. Les autres rient. Tu traduis, pour Rodric : il demande si l'homme du sud est aussi lourd qu'il en a l'air, ou si c'est le manteau.",
     ],
     choices: [
@@ -41,7 +41,7 @@ module.exports = {
     choices: BACK }),
   II_N_chasseurs: P({ title: "Les chasseurs bredouilles",
     text: [
-      "Trois chasseurs reviennent des hauts pâturages, les mains vides. Les mains vides. Ils n'ont pas l'air de chasseurs bredouilles. Ils ont l'air de gens qui ont vu quelque chose.",
+      "Trois chasseurs reviennent des hauts pâturages, les mains vides et les flèches toutes au carquois : pas une n'a servi. Ils ont l'air de gens qui ont vu quelque chose, plus que de chasseurs bredouilles. Ils ont l'air de gens qui ont vu quelque chose.",
       "« Le troupeau sauvage, dit le plus vieux, en s'asseyant près du feu. On l'a trouvé. Trois cents bêtes, dans le cirque du Haut-Tarn. Elles étaient debout dans la neige blanche, immobiles, toutes tournées vers le nord. On s'est approchés à dix pas. Elles ne nous ont pas vus. » Il tend les mains vers le feu. « On n'a pas pu tirer. On ne tire pas sur des bêtes qui ont oublié qu'elles avaient peur. »",
     ],
     choices: [

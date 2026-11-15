@@ -7,7 +7,7 @@ module.exports = {
   II_N5_depart: P({ title: "Les tambours", place: "cirque",
     text: [
       "À l'aube, tu les entends avant de les voir, comme autrefois : les tambours. Ils viennent de l'ouest, de la vallée, et ils montent vers le col de l'Ourse.",
-      "Le clan. Tout le clan du Corbeau, en file, les anciens sur des traîneaux, les enfants sur les épaules, les visages peints. Il monte au col pour le rite, avec ou sans sa Bouche.",
+      "Le clan. Tout le clan du Corbeau, en file, deux cents âmes à vue de nez, les anciens sur des traîneaux, les enfants sur les épaules, les visages peints. Il monte au col pour le rite, avec ou sans sa Bouche.",
       { if: { has: "nord:rendu=clan" }, text: "En tête, Hrodna. Son visage n'est plus peint. Elle marche comme une femme qui sait comment elle s'appelle." },
       { if: { not: { has: "nord:rendu=clan" } }, text: "En tête, Hrodna, le visage peint en blanc, du front au menton, sans un signe. Elle sourit à tout le monde de la même façon." },
     ],
@@ -28,7 +28,7 @@ module.exports = {
     text: [
       "Le col de l'Ourse. L'herbe rase sous la neige. La grande pierre plate. Et devant la pierre, la déchirure.",
       "De près, ce n'est pas une lumière. C'est une absence. Un endroit du monde où le monde s'arrête, net, comme une page déchirée, et derrière, du blanc. Elle est haute comme trois hommes, large comme une grange. Elle était grande comme une porte, il y a un mois.",
-      "Le vent souffle vers elle. Tout le vent du col, des deux côtés, va vers la déchirure, doucement, comme l'eau vers une bonde.",
+      "Le vent souffle vers elle. Tu jettes une pincée de neige en l'air pour t'en assurer : tout le vent du col, des deux côtés, va vers la déchirure, doucement, comme l'eau vers une bonde.",
     ],
     choices: [{ label: "Le col", to: "@route" }] }),
 
@@ -57,7 +57,7 @@ module.exports = {
   II_N5_dechirure: P({ title: "L'Outre-Blanc", place: "col",
     text: [
       "Tu t'approches. À vingt pas, le vent te pousse dans le dos, et tu dois t'arc-bouter. À dix, tu vois.",
-      "Une plaine blanche, sans horizon. Une lumière sans soleil. Et dans la plaine, des gens. Des milliers, qui marchent vers la déchirure, lentement, de très loin. Ils ne sont pas de neige. Ils ont des visages, des vêtements d'autrefois, des enfants dans les bras. Ils marchent vers toi.",
+      "Une plaine blanche, sans horizon. Une lumière sans soleil. Et dans la plaine, des gens, qui marchent vers la déchirure, lentement, de très loin. Tu essaies de les compter par carrés, comme on compte un troupeau de rennes depuis une crête, et tu abandonnes au dixième carré : ils sont des milliers. Ils ne sont pas de neige. Ils ont des visages, des vêtements d'autrefois, des enfants dans les bras. Ils marchent vers toi.",
       "Très loin derrière eux, une ville. Des tours pointues, blanches.",
       "Et devant la ville, debout, seul, quelqu'un de très grand, avec sur la tête quelque chose qui brille comme du givre. Il ne marche pas. Il regarde. Il te regarde.",
       { with: "enfant", text: "L'enfant de Sauvelune est venu à côté de toi sans que tu l'entendes. Il regarde la silhouette couronnée. Il dit, très bas, sans savoir pourquoi : « Il m'attend. »" },
@@ -87,7 +87,7 @@ module.exports = {
 
   II_N5_pierre: P({ title: "La pierre", place: "col",
     text: [
-      "La grande pierre plate, au milieu du col. Grise, lisse.",
+      "La grande pierre plate, au milieu du col. Grise, lisse, longue de douze pas, d'un granit qu'on ne trouve nulle part ailleurs sur les Combes.",
       { when: "day", text: "Elle est chaude au soleil, malgré la neige." },
       { when: "night", text: "Elle a gardé un peu de la chaleur du jour, malgré la neige." },
       { if: { souv: "corbe:col" }, text: "Tu t'y es assise, à douze ans, un jour d'été, et tu as regardé le monde. C'est l'endroit le plus beau qui soit. C'est encore vrai, même avec ce trou blanc derrière." },

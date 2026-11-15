@@ -11,7 +11,7 @@ module.exports = {
   // ---------------------------------------------------------------- La grotte : les offrandes
   II_g_offrandes: P({ title: "La niche aux offrandes", place: "lacnoir",
     text: [
-      "Près de l'entrée, à hauteur d'épaule, une niche naturelle dans le rocher, polie par les mains. Elle est pleine. Des peignes d'os, des perles de verre, une dent d'ours percée, une petite chaussure d'enfant en peau de renne, toute raide. Des pointes de flèche. Un sifflet. Des centaines de choses, posées les unes sur les autres, couvertes de fiente de corbeau et de poussière.",
+      "Près de l'entrée, à hauteur d'épaule, une niche naturelle dans le rocher, polie par les mains. Elle est pleine. Des peignes d'os, des perles de verre, une dent d'ours percée, une petite chaussure d'enfant en peau de renne, toute raide. Des pointes de flèche. Un sifflet. Des centaines de choses, posées les unes sur les autres par couches, comme les lits d'une rivière ; la fiente de corbeau et la poussière en marquent les siècles.",
       "Personne ne t'en a jamais parlé. Mais tu sais ce que c'est. On monte à la grotte une fois dans sa vie, au clan, et on laisse quelque chose. Tu n'étais jamais montée. Tu étais trop jeune, puis tu étais partie.",
       "Tout en dessous, quand tu écartes les plus récentes, une baguette de tambour en bois de bouleau, gravée de la marque des Corbe : trois traits et un œil.",
     ],
@@ -77,7 +77,7 @@ module.exports = {
     fx: { questSeen: "II_Q_refuge" },
     text: [
       "Un peu en contrebas du col, à l'abri d'un ressaut, une cabane de pierres sèches au toit de lauzes, avec une cheminée qui ne fume pas. Le refuge des passeurs, qui mènent les marchands d'un versant à l'autre, l'été, pour un écu par tête.",
-      "Devant la porte, couché en travers du seuil, un chien. Un énorme chien de montagne, blanc et roux, au collier clouté. Il lève la tête quand tu approches. Il reste là, muet, immobile.",
+      "Devant la porte, couché en travers du seuil, un chien. Un énorme chien de montagne, blanc et roux, au collier clouté, de la taille d'un veau et du poids de deux. Ses flancs sont creux : il ne mange plus depuis plusieurs jours. Il lève la tête quand tu approches. Il reste là, muet, immobile.",
     ],
     choices: [
       { label: "Lui parler, et attendre qu'il te laisse passer", test: { dom: "nature", label: "Le chien", help: [{ if: { present: "givre" }, v: -10 }, { if: { present: "ysolde" }, v: 5 }, { if: { present: "enfant" }, v: 10 }] },
@@ -94,7 +94,7 @@ module.exports = {
   II_Q_refuge_dedans: P({ title: "Le livre des passages", place: "col",
     text: [
       "Le chien te renifle longuement, puis il se pousse d'un pas, juste assez. Dedans, une pièce, une cheminée, deux bat-flanc, des peaux de mouton, une réserve de bois. Et sur la table, un gros registre ouvert, avec un encrier gelé.",
-      "Le livre des passages. Chaque passeur y écrit qui il a fait passer, quand, et dans quel sens. Les pages sont pleines d'écritures différentes, de croix, de petits dessins pour ceux qui ne savaient pas écrire. Ça remonte à quatre-vingts ans.",
+      "Le livre des passages. Chaque passeur y écrit qui il a fait passer, quand, et dans quel sens, au prix fixe d'un écu par tête, ce qui en fait aussi un livre de comptes. Les pages sont pleines d'écritures différentes, de croix, de petits dessins pour ceux qui ne savaient pas écrire. Ça remonte à quatre-vingts ans.",
       { if: READER, text: "On te lit la dernière page. *Passé le sept : deux marchands de sel, sens nord. Passé le neuf : personne. Passé le dix : personne. Le onze : la neige est blanche, au col. Le douze : j'ai vu une ville. Je vais voir. Garde la maison, Brun.* Puis plus rien." },
       { if: { not: READER }, text: "Tu ne sais pas lire. Mais la dernière page est différente des autres : l'écriture penche de plus en plus, à chaque ligne, comme quelqu'un qui écrit en marchant. Et en bas, un petit dessin à l'encre. Un chien couché. Une flèche vers le nord." },
     ],
@@ -120,7 +120,7 @@ module.exports = {
   // ---------------------------------------------------------------- Acte III, la dernière nuit à Valcendre
   III_a_boulanger: P3({ title: "Le fournil", place: "valcendre",
     text: [
-      "Une seule rue de Valcendre a de la lumière, cette nuit : celle du fournil, au coin de la place. Un boulanger enfourne. Il enfourne depuis trois cent douze ans. Sur les étagères, derrière lui, des pains, des centaines, des milliers, qui ne rassissent pas, rangés jusqu'au plafond, et dans l'arrière-boutique, encore, et dans la cave.",
+      "Une seule rue de Valcendre a de la lumière, cette nuit : celle du fournil, au coin de la place. Un boulanger enfourne. Il enfourne depuis trois cent douze ans. Sur les étagères, derrière lui, des pains qui ne rassissent pas, rangés jusqu'au plafond, et dans l'arrière-boutique, encore, et dans la cave. Tu fais le calcul : une fournée par jour, trois cent douze ans. Cent mille pains, au bas mot.",
       "« Personne n'en mange, dit-il sans se retourner. Ici, on n'a pas faim. Mais le pain, il faut le faire. C'est le matin, après. Et s'il n'y a pas de pain, ce n'est pas le matin. » Il sort une fournée. Elle sent le pain. Tu avais oublié, ici, que les choses pouvaient sentir quelque chose.",
     ],
     choices: [
@@ -140,7 +140,7 @@ module.exports = {
 
   III_a_bibliotheque: P3({ title: "La bibliothèque des Orsans", place: "valcendre",
     text: [
-      "La bibliothèque du palais n'a pas de porte. Elle a des rayonnages qui montent si haut que leur sommet se perd dans le blanc. Les livres sont écrits dans la langue des Orsans, une écriture en boucles, sans majuscules, que tu n'as jamais vue. Pourtant, quand tu en ouvres un, tu reconnais des mots. Pas à la lecture. À l'oreille, en les épelant tout bas. Ce sont les mots de la chanson de ta mère.",
+      "La bibliothèque du palais est ouverte à tous les vents, sans porte. Ses rayonnages montent si haut que leur sommet se perd dans le blanc ; tu comptes quarante tablettes, puis tu perds le compte. Les livres sont écrits dans la langue des Orsans, une écriture en boucles, sans majuscules, que tu n'as jamais vue. Pourtant, quand tu en ouvres un, tu reconnais des mots. Pas à la lecture. À l'oreille, en les épelant tout bas. Ce sont les mots de la chanson de ta mère.",
       "Une vieille femme, en robe grise, range des livres sur une échelle. Elle les range depuis trois siècles. « Celui-là, dit-elle en te montrant un petit volume relié de bleu. C'est le livre des berceuses. Toutes les mères de Valcendre le savaient par cœur. »",
     ],
     choices: [
