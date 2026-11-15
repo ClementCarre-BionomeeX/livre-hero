@@ -115,10 +115,23 @@ assert(/TROUBLE/.test(M.view(st, s).text.join(" ")));
 // A wound weighs on the companion's fight on the road, under the rain.
 pick(st, s, "Prendre Oriane"); pick(st, s, "Se blesser");
 assert(s.wounds && Object.keys(s.wounds).length, "blessure posée");
-// The road takes its toll: rain on the plain, a point of fatigue a step, and the rain wounds.
-var r = fresh(st); r.time = 8; pick(st, r, "Aller au port");
-for (var k = 0; k < 6 && r.travel; k++) { var v = M.view(st, r); if (r.node === "E_loup") break; M.choose(st, r, v.choices.filter(function (c) { return c.ok !== false; })[0]); }
+// The road takes its toll, in Héroïque only (Clément, 15/11): rain on the plain, a point of fatigue a step, the rain wounds.
+function road(diff) {
+  var r = M.freshState(st); r.name = "Jeanne"; r.fem = true; r.difficulty = diff; M.start(st, r); r.time = 8; pick(st, r, "Aller au port");
+  for (var k = 0; k < 6 && r.travel; k++) { var v = M.view(st, r); if (r.node === "E_loup") break; M.choose(st, r, v.choices.filter(function (c) { return c.ok !== false; })[0]); }
+  return r;
+}
+var r = road("heroique");
 assert((r.fatigue || 0) >= 1, "la route fatigue");
 assert.strictEqual(M.weatherOf(st, r), "pluie", "il pleut sur la plaine");
 assert(r.wounds && r.wounds.bras, "la pluie blesse sur la route");
+assert.strictEqual(M.weatherMod(st, r, "combat"), -10, "la pluie pèse sur les jets en Héroïque");
+// At the other levels, the sky still changes and is told, and the road neither tires, nor wounds, nor weighs on the rolls.
+["aventurier", "conteur"].forEach(function (d) {
+  var q = road(d);
+  assert.strictEqual(M.weatherOf(st, q), "pluie", "le ciel change aussi en " + d);
+  assert(!(q.wounds && q.wounds.bras), "la pluie ne blesse pas en " + d);
+  assert(!(q.fatigue > 0), "la route ne fatigue pas en " + d);
+  assert.strictEqual(M.weatherMod(st, q, "combat"), 0, "la pluie ne pèse pas sur les jets en " + d);
+});
 console.log("ensemble-test : OK (" + rep.warnings.length + " remarques)");

@@ -83,7 +83,7 @@
   var DIFFICULTY = {
     conteur: { label: "Conteur", tip: "Pour savourer l'histoire : jets plus faciles, adversaires moins coriaces.", roll: 15, foePv: 0.75, foeHit: -10 },
     aventurier: { label: "Aventurier", tip: "L'équilibre prévu par l'histoire.", roll: 0, foePv: 1, foeHit: 0 },
-    heroique: { label: "Héroïque", tip: "Pour les vieux routiers : jets plus durs, adversaires plus solides.", roll: -10, foePv: 1.25, foeHit: 10 },
+    heroique: { label: "Héroïque", tip: "Pour les vieux routiers : jets plus durs, adversaires plus solides, et la route qui use (le mauvais temps pèse sur les jets, les longues routes fatiguent, le froid peut blesser).", roll: -10, foePv: 1.25, foeHit: 10, roadToll: true },
   };
   function diffOf(s) { return DIFFICULTY[(s && s.difficulty) || "aventurier"] || DIFFICULTY.aventurier; }
   function diffTerm(s) { var d = diffOf(s); return d.roll ? (d.roll > 0 ? " + " : " − ") + Math.abs(d.roll) + " (" + d.label.toLowerCase() + ")" : ""; }
@@ -989,9 +989,14 @@
   // What the road takes (piste 10, 15/11): a region `tiring: n` adds a point of fatigue every n steps; under a sky whose
   // kind says `hurts: { wound, chance, say }`, a step may leave a wound (a fall on the ice, frostbite, sunstroke).
   // The road is where these things happen: in a village, the sky only weighs on the rolls.
+  // Clément, 15/11: the rules stay simple so that a book can always be finished. The road's toll (weather that weighs on
+  // rolls when it follows the roads, long roads that tire, bad weather that wounds) is for the Héroïque difficulty only;
+  // at the other levels the sky still changes and is told, and nothing more.
+  function roadTollOn(s) { return !!diffOf(s).roadToll; }
   function roadToll(story, s, t) {
     var region = (W(story).regions || {})[t.region] || {};
     weatherTick(story, s);
+    if (!roadTollOn(s)) return;
     if (region.tiring && t.step % region.tiring === 0 && (s.fatigue || 0) < FATIGUE_MAX) apply(story, s, { fatigue: 1 });
     var K = weatherKind(story, s), H = K && K.hurts;
     if (H && story.wounds && story.wounds[H.wound] && !(s.wounds || {})[H.wound] && RNG() < (H.chance == null ? 0.25 : H.chance)) {
@@ -2120,7 +2125,7 @@
     var was = s.weather; s.weather = id; s.weatherAt = s.time; s.weatherHold = s.time + hours;
     if (was !== id) ev(s, K.say ? interp(s, K.say) : "Le temps change : " + K.name + ".", "world weather");
   }
-  function weatherMod(story, s, dom) { var K = weatherKind(story, s); return K && K.mod ? K.mod[dom] || 0 : 0; }
+  function weatherMod(story, s, dom) { if (story.weather && story.weather.by === "route" && !roadTollOn(s)) return 0; var K = weatherKind(story, s); return K && K.mod ? K.mod[dom] || 0 : 0; }
   // Wounds that leave a trace (story.wounds: { id: { name, desc, mod: { dom: n }, days, tended, scar, mark } }): fx.blessure
   // opens one; it weighs on the rolls (`mod`) until it closes, after `days` days, or `tended` days once fx.soigner has
   // dressed it (half by default); fx.guerir closes it at once. A closed wound with `scar` leaves a scar (tag and
@@ -3169,7 +3174,7 @@
     stockNow: stockNow, dailyUse: dailyUse, daysLeft: daysLeft, priceFactor: priceFactor, promiseState: promiseState, PROMISE_STATES: PROMISE_STATES, promiseDef: promiseDef,
     leanOf: leanOf, memberIds: memberIds, memberAbsent: memberAbsent, motionDef: motionDef, VOTES: VOTES, tiesKnown: tiesKnown, TIE_KINDS: TIE_KINDS, rivalsOf: rivalsOf, campOk: campOk,
     battleDef: battleDef, heroForce: heroForce, tick: tick, reached: reached,
-    weatherOf: weatherOf, weatherKind: weatherKind, seasonOf: seasonOf, woundsOpen: woundsOpen, woundDef: woundDef, woundDays: woundDays, FATIGUE_MAX: FATIGUE_MAX,
+    weatherOf: weatherOf, weatherKind: weatherKind, weatherMod: weatherMod, roadTollOn: roadTollOn, seasonOf: seasonOf, woundsOpen: woundsOpen, woundDef: woundDef, woundDays: woundDays, FATIGUE_MAX: FATIGUE_MAX,
     traitOf: traitOf, traitWord: traitWord, practiceOf: practiceOf, TRAIT_MAX: TRAIT_MAX, DUEL_MOVES: DUEL_MOVES, puzzleRight: puzzleRight,
     secretsOf: secretsOf, secretKnown: secretKnown, secretDef: secretDef, interludeOf: interludeOf, autreForm: autreForm,
     doubt: doubt, accountBy: accountBy, topicSolved: topicSolved, dreadOf: dreadOf, dreadMax: dreadMax, dreadWord: dreadWord, dreadTrouble: dreadTrouble, attachOf: attachOf, ATTACH_MAX: ATTACH_MAX,

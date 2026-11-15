@@ -368,6 +368,8 @@ Exemple en place : « Le Cahier de Solène » (six lettres d'or, le miroir du co
 
 ## La route use (15/11, 8.6) : le ciel suit les routes, la fatigue, les blessures du mauvais temps
 
+La fatigue des routes, les blessures du temps et l'effet du temps sur les jets ne jouent qu'en difficulté Héroïque (Clément, 15/11 : un livre doit toujours pouvoir se finir). Aux autres niveaux, le ciel change et se dit, sans rien de plus. La météo d'une histoire qui n'est pas `by: "route"` (la mer) garde ses effets à tous les niveaux.
+
 | Où | Clé | Sens |
 |---|---|---|
 | `story.weather` | `by: "route"` | Le temps se tire dans la table de la région de la route parcourue (`world.regions`), ou de la région du lieu (`places.<id>.region`), ou de `lieu` (au village, sous un toit). Le ciel se met à jour à chaque étape. |
