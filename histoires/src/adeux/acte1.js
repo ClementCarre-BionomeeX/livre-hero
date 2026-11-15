@@ -6,7 +6,7 @@ var PLI = { has: "role:pli" }, ROUTE = { has: "role:route" };
 module.exports = {
   D_aube: { act: "I", title: "Vérenne, avant le jour", place: "verenne",
     text: [
-      "La cloche de Saint-Vaast sonne cinq heures sur Vérenne. Il gèle. Les toits d'ardoise sont blancs, les fontaines ont des barbes de glace, et le marché aux sels, sous les fenêtres de la chancellerie, est vide depuis trois ans.",
+      "La cloche de Saint-Vaast sonne cinq heures sur Vérenne. Il gèle. Les toits d'ardoise sont blancs, les fontaines portent des barbes de glace longues d'un empan, et le marché aux sels, sous les fenêtres de la chancellerie, est vide depuis trois ans : il y pousse de l'herbe entre les pavés, et l'herbe a gelé aussi.",
       "Ce matin, deux personnes vont quitter la ville par la porte du Nord avec la réponse de la duchesse. L'une portera le pli. L'autre connaît la route du col de l'Ourse, la seule qui mène au lac de Brume en cinq jours.",
       "Laquelle es-tu ?",
     ],
@@ -19,11 +19,11 @@ module.exports = {
   A_pli: { act: "I", title: "L'antichambre", place: "verenne",
     fx: { secret: "p_pere" },
     text: [
-      "Tu as passé la nuit sur un banc de chêne, dans l'antichambre du chancelier, ton manteau roulé sous la tête. Hier soir, le clerc de garde t'a dit : « Maître Oriel te recevra avant l'aube. Tu ne bouges pas d'ici. »",
-      "Tu es courrier de la chancellerie depuis quatre ans. Tu as porté des lettres à Lunel, à Saint-Aubrac, aux comtes de la côte, et tu as appris à dormir n'importe où, la main sur la sacoche. Brumefond, jamais. Les courriers de Vérenne n'y vont plus depuis la guerre des salines.",
+      "Tu as passé la nuit sur un banc de chêne, dans l'antichambre du chancelier, ton manteau roulé sous la tête. Hier soir, le clerc de garde t'a dit : « Maître Oriel te recevra avant l'aube. Tu restes ici. »",
+      "Tu es courrier de la chancellerie depuis quatre ans. Tu as porté des lettres à Lunel, à Saint-Aubrac, aux comtes de la côte, et tu as appris à dormir n'importe où, la main sur la sacoche. Brumefond, jamais : depuis la guerre des salines, les courriers de Vérenne s'arrêtent à la frontière.",
       "Ce pli-là, tu l'as demandé. Deux fois : au clerc, puis au secrétaire du chancelier. Ton père, Aymon Cabrol, est mort à Brumefond il y a douze ans, sur la place du Marché-aux-Sels, au bout d'une corde. On l'a pendu comme espion de Vérenne. Tu avais neuf ans. Tu veux voir cette place.",
       { if: { has: "passe:couteau" }, text: "Ta main trouve dans ta botte le couteau à manche de corne. Ta mère te l'a donné le soir où la nouvelle est arrivée de Brumefond, en disant : « Il était à lui. »" },
-      { if: { has: "passe:livre" }, text: "Le livre d'heures de ton père est dans ta sacoche, contre le cuir. Tu le lis le soir, sans prier. Il a souligné des phrases au crayon, et tu cherches encore pourquoi celles-là." },
+      { if: { has: "passe:livre" }, text: "Le livre d'heures de ton père est dans ta sacoche, contre le cuir. Tu le lis le soir, sans prier. Il a souligné des phrases au crayon, et tu cherches encore la raison de ce choix-là." },
       { if: { has: "passe:flute" }, text: "Ta flûte de saule est dans ta manche. Ton père t'a appris trois airs avant de partir. Tu en joues un quatrième, que tu as inventé à quinze ans pour remplacer les autres." },
       "La porte du cabinet s'ouvre. Le chancelier est debout derrière sa table, en robe noire, une chandelle à la main. « Entre. »",
     ],
@@ -32,9 +32,9 @@ module.exports = {
     fx: { item: "pli", meet: "oriel" },
     text: [
       "Le cabinet sent la cire chaude et le bois de la cheminée. Sur la table, un seul objet : un pli plié en quatre, fermé de cire rouge au sceau de la chancellerie, la tour et les trois clés.",
-      "Maître Oriel Daumas a soixante ans, des mains de clerc et une voix que tu dois tendre l'oreille pour entendre. « La réponse de Sa Grâce à l'Assemblée des Ligues. Tu la remettras à la présidente Aude Lorge, en séance, devant l'Assemblée réunie. Pas avant l'ouverture de la séance. Pas à un autre. La séance du vote se tient au soir de la nouvelle lune, dans cinq jours. »",
+      "Maître Oriel Daumas a soixante ans, des mains de clerc tachées d'encre jusqu'à la deuxième phalange, et une voix si basse qu'il faut tendre l'oreille. « La réponse de Sa Grâce à l'Assemblée des Ligues. Tu la remettras à la présidente Aude Lorge, en séance, devant l'Assemblée réunie. Pas avant l'ouverture de la séance. Pas à un autre. La séance du vote se tient au soir de la nouvelle lune, dans cinq jours. »",
       "Il pousse le pli vers toi du bout de deux doigts. « Ton guide t'attend dans la cour. Un muletier de Sorgue, qui connaît le col en hiver. Tu dormiras à Pont-Gelé ce soir, à Sorgue-le-Haut demain. »",
-      "Puis il te regarde, plus longtemps qu'il ne faut. « Cabrol. J'ai connu ton père. Il servait bien. »",
+      "Puis il te regarde, un temps de trop. « Cabrol. J'ai connu ton père. Il servait bien. »",
     ],
     choices: [
       { label: "Demander ce que répond la duchesse", to: "A_oriel_question", hide: { seen: "A_oriel_question" } },
@@ -61,7 +61,7 @@ module.exports = {
   A_cachet: { act: "I", title: "Deux rouges", place: "verenne",
     text: [
       "Tu inclines le pli dans le soleil. Le sceau est net : la tour, les trois clés, le grènetis du bord. Mais autour du sceau, la cire a coulé en deux couches. Celle du dessous est d'un rouge sombre, presque brun ; celle du dessus, d'un rouge vif. Quelqu'un a fait fondre un second bâton de cire sur le premier.",
-      "Tu as vu sceller des centaines de lettres. Une seule couche suffit toujours.",
+      "Tu as vu sceller des centaines de lettres, et une seule couche a toujours suffi.",
     ],
     choices: [{ back: "A_escalier" }] },
   A_cachet_rien: { act: "I", title: "Un cachet", place: "verenne",
@@ -73,8 +73,8 @@ module.exports = {
   A_souvenir: { title: "Minuit, dans l'antichambre", souvenir: "Cette nuit, vers minuit", back: true,
     fx: { secret: "p_vu" },
     text: [
-      "Tu ne dors pas encore. Le banc est dur, la chandelle du couloir s'est éteinte, et sous la porte du cabinet passe un trait de lumière jaune.",
-      "La porte est entrouverte d'un doigt. Par la fente, tu vois le chancelier assis à sa table, en chemise, les manches relevées. Il écrit. Il écrit lentement, en s'arrêtant à chaque ligne, comme on recopie. À côté de son coude, il y a une autre lettre, fermée, posée à plat.",
+      "Le sommeil tarde. Le banc est dur, la chandelle du couloir s'est éteinte, et sous la porte du cabinet passe un trait de lumière jaune.",
+      "La porte est entrouverte d'un doigt. Par la fente, tu vois le chancelier assis à sa table, en chemise, les manches relevées. Il écrit lentement, en s'arrêtant à chaque ligne pour regarder à côté de lui : le geste d'un homme qui recopie. Près de son coude, il y a une autre lettre, fermée, posée à plat.",
       "Il termine, il sèche l'encre au sable, il plie, il scelle. Puis il prend la lettre fermée, la tourne une fois entre ses doigts, et l'approche de la chandelle. Le papier se recroqueville. Il le tient jusqu'au bout, jusqu'à ce que la flamme lui lèche les doigts, et il laisse tomber les cendres dans un bassin de cuivre.",
     ],
     choices: [
@@ -84,13 +84,13 @@ module.exports = {
   A_souvenir_cygne: { title: "Le cachet blanc", souvenir: "Cette nuit, vers minuit", back: true,
     text: [
       "Tu fais trois pas en chaussettes sur les dalles. Par la fente, juste avant que la flamme le prenne, tu vois le cachet de la lettre brûlée : de la cire blanche, et dedans un cygne aux ailes ouvertes.",
-      "Le sceau privé de la duchesse Ysaure. Celui qu'elle porte au doigt et qu'elle n'appose que de sa main.",
+      "Le sceau privé de la duchesse Ysaure. Elle le porte au doigt et l'appose de sa propre main, et de la sienne seulement.",
       "Tu retournes à ton banc. Tu restes allongé{e} les yeux ouverts jusqu'à ce que le clerc vienne te chercher.",
     ],
     choices: [] },
   A_souvenir_banc: { title: "Le banc qui grince", souvenir: "Cette nuit, vers minuit", back: true,
     text: [
-      "Le banc grince quand tu te lèves. Dans le cabinet, la plume s'arrête. Une voix, celle du chancelier, plus forte que tu ne l'as jamais entendue : « Ancelin ? »",
+      "Le banc grince quand tu te lèves. Dans le cabinet, la plume s'arrête. Une voix, celle du chancelier, plus forte que tu l'as jamais entendue : « Ancelin ? »",
       "Tu te rallonges. Tu fermes les yeux. Des pas, la porte s'ouvre en grand, la lumière passe sur ton visage, et la porte se referme, tout à fait cette fois. Tu entends le loquet.",
     ],
     choices: [] },
@@ -100,12 +100,12 @@ module.exports = {
     fx: { secret: "g_hiver", item: "corde" },
     text: [
       "La Corne est une auberge de rouliers, en bas de la ville, près de la porte du Nord. On y sert la soupe à cinq heures et le vin à toute heure. Tu manges ta soupe près du feu. Dans la cour, ta mule Brunette mâche le foin que tu as payé hier soir, et ta corde de chanvre est roulée sur le bât, comme toujours.",
-      "Tu es de Sorgue-le-Haut, au pied du col de l'Ourse. Depuis onze ans tu fais passer le sel et la laine de l'autre côté des Dents, avec des mules. Depuis trois ans, il n'y a plus de sel à passer : la guerre a fermé les salines, et les muletiers de Sorgue vendent leurs bêtes une à une.",
-      "Hier, un clerc de la chancellerie est venu à la Corne chercher un guide pour Brumefond. Dix écus. Il t'a demandé : « Tu as passé l'Ourse en hiver ? » Tu as répondu oui. Tu l'as passé onze fois, toujours entre la Saint-Jean et la Saint-Michel, quand la neige est dans les creux.",
+      "Tu es de Sorgue-le-Haut, au pied du col de l'Ourse. Depuis onze ans tu fais passer le sel et la laine de l'autre côté des Dents, avec des mules. Depuis trois ans, le sel a cessé de passer : la guerre a fermé les salines, et les muletiers de Sorgue vendent leurs bêtes une à une.",
+      "Hier, un clerc de la chancellerie est venu à la Corne chercher un guide pour Brumefond. Dix écus. Il t'a demandé : « Tu as passé l'Ourse en hiver ? » Tu as répondu oui. Tu l'as passé onze fois, toutes entre la Saint-Jean et la Saint-Michel, quand la neige reste dans les creux.",
       { if: { has: "passe:couteau" }, text: "Tu coupes ton pain avec le couteau à manche de corne de ta mère. Elle a fait ce chemin avant toi, avec les mules de ton grand-père." },
       { if: { has: "passe:livre" }, text: "Ton petit livre d'heures est sur la table, ouvert à la page des voyageurs. Tu le lis avant chaque passage. Ce matin, tu le lis deux fois." },
       { if: { has: "passe:flute" }, text: "Ta flûte de saule dépasse de ta poche. Les mules marchent mieux quand on leur joue quelque chose dans les montées." },
-      "Une femme vient s'asseoir en face de toi sans rien demander. Un manteau gris de bonne laine, un capuchon gris, un visage de cinquante ans, et des yeux qui ont l'habitude qu'on leur obéisse.",
+      "Une femme vient s'asseoir en face de toi sans rien demander. Un manteau gris de bonne laine, un capuchon gris, des bottes de cheval à peine crottées, un visage de cinquante ans, et des yeux qui ont l'habitude qu'on leur obéisse.",
     ],
     choices: [{ label: "Attendre qu'elle parle", to: "A_gris" }] },
   A_gris: { act: "I", title: "La femme en gris", place: "verenne",
@@ -121,7 +121,7 @@ module.exports = {
     ] },
   A_gris_qui: { act: "I", title: "Une bonne raison", place: "verenne",
     text: [
-      "Elle sourit pour la première fois. « Je sers la même dame que votre courrier. Je vous dirais pourquoi, vous ne me croiriez pas, et vous auriez raison de vous méfier de ce que vous croyez trop vite. »",
+      "Elle sourit pour la première fois. « Je sers la même dame que votre courrier. Si je vous disais pourquoi, vous auriez du mal à me croire, et vous auriez raison de vous méfier de ce que vous croyez trop vite. »",
       "Elle pousse la bourse d'un doigt vers toi. « Un jour. Ni plus, ni moins. »",
     ],
     choices: [{ back: "A_gris" }] },
@@ -136,14 +136,14 @@ module.exports = {
   A_gris_refus: { act: "I", title: "Une bourse repoussée", place: "verenne",
     fx: { clue: "hesme_cor" },
     text: [
-      "Tu repousses la bourse. Elle glisse sur la table jusqu'à ses mains. La femme en gris la reprend sans se fâcher, comme on reprend un pion sur un échiquier.",
+      "Tu repousses la bourse. Elle glisse sur la table jusqu'à ses mains. La femme en gris la reprend sans humeur, comme on reprend un pion sur un échiquier.",
       "« Vous êtes honnête. C'est dommage, aujourd'hui. » Elle se lève. En rabattant son capuchon, elle découvre sa main gauche : à l'annulaire, une bague d'argent gravée d'un cor de chasse, l'emblème des postes de la duchesse, qu'on voit peint sur la porte de tous les relais du duché.",
       "« Je trouverai un autre moyen. » Elle sort par la cour.",
     ],
     choices: [{ label: "Aller seller Brunette", to: "A_brunette" }] },
   A_brunette: { act: "I", title: "Brunette", place: "verenne",
     text: [
-      { first: true, text: "Brunette est une mule baie de neuf ans, au pied sûr et au caractère de chèvre. Elle connaît le col mieux que toi en été. En hiver, vous serez deux à le découvrir." },
+      { first: true, text: "Brunette est une mule baie de neuf ans, au pied sûr et au caractère de chèvre. Elle connaît le col mieux que toi en été. En hiver, vous le découvrirez ensemble." },
       { first: true, text: "Tu charges le bât : la corde, une couverture de plus, un sac d'avoine, la marmite, la lanterne. À la boutique de la Corne, le roulier vend des crampons et de l'onguent de marmotte." },
       { again: true, text: "Brunette attend, chargée, les oreilles en arrière." },
     ],
@@ -159,7 +159,7 @@ module.exports = {
     choices: [{ back: "A_brunette" }] },
   A_brunette_onguent: { act: "I", title: "Graisse de marmotte", place: "verenne",
     text: [
-      "Un petit pot de grès bouché à la cire. Ça sent la sauge et la bête. Sur le col, une main gercée devient une main ouverte en deux jours.",
+      "Un petit pot de grès bouché à la cire. Ça sent la sauge et la bête. Sur le col, en deux jours de vent, une main gercée s'ouvre en deux.",
     ],
     choices: [{ back: "A_brunette" }] },
 
@@ -167,7 +167,7 @@ module.exports = {
   C_cour: { act: "I", title: "La cour de la chancellerie", place: "verenne", charniere: true,
     text: [
       "Le soleil est levé. La cour de la chancellerie est pavée de gris, avec une fontaine au milieu, prise dans sa glace, et un clerc frileux qui tient un registre contre sa poitrine.",
-      { if: PLI, text: "Ton guide est là, près de la fontaine, avec une mule baie chargée jusqu'aux oreilles : {autre}, de Sorgue-le-Haut. Un manteau de berger, des bottes qui ont marché, des mains abîmées par les cordes. {autre} te salue d'un signe de tête et regarde ta sacoche avant de regarder ton visage." },
+      { if: PLI, text: "Ton guide est là, près de la fontaine, avec une mule baie chargée jusqu'aux oreilles : {autre}, de Sorgue-le-Haut. Un manteau de berger, des bottes ressemelées au moins deux fois, des mains marquées en travers des paumes par les cordes. {autre} te salue d'un signe de tête et regarde ta sacoche avant de regarder ton visage." },
       { if: ROUTE, text: "Le courrier descend l'escalier de la chancellerie : {autre}. Un manteau de drap bleu aux armes de Vérenne, une sacoche de cuir en bandoulière, et sous la chemise, à la façon dont la main y revient, l'étui du pli. {autre} te regarde, puis regarde Brunette, et a l'air de se demander qui, de la mule ou de toi, connaît le chemin." },
       "Le clerc lit son registre à voix haute, sans lever les yeux : « Départ ce jour, au lever du soleil. Pont-Gelé ce soir, Sorgue-le-Haut demain, le col de l'Ourse le troisième jour, Brumefond le cinquième au matin. Séance du vote le cinquième au soir. » Il ferme le registre. « Que Dieu vous garde du vent. »",
       { if: { all: [PLI, { has: "monde:argent_pris" }] }, text: "En te saluant, {autre} pose la main sur sa ceinture, à l'endroit où pend une bourse neuve, trop ronde pour un muletier." },
@@ -175,7 +175,7 @@ module.exports = {
     choices: [{ label: "Passer la porte du Nord", to: "C_route" }] },
   C_route: { act: "I", title: "La route des salines", place: "verenne",
     text: [
-      { first: true, text: "La route du nord suit la Sorgue entre des peupliers nus. Les charrettes de sel l'ont creusée de deux ornières profondes, et ces ornières sont pleines de glace. Personne ne les a usées depuis trois ans." },
+      { first: true, text: "La route du nord suit la Sorgue entre des peupliers nus. Les charrettes de sel l'ont creusée de deux ornières profondes, et ces ornières sont pleines d'une glace lisse, intacte, sans une trace de roue." },
       { first: true, text: "Vous marchez de part et d'autre de Brunette, qui fait la conversation pour vous deux en soufflant par les naseaux. À midi, vous vous arrêtez sur un muret, au soleil, pour manger." },
       { again: true, text: "La route continue entre les peupliers. Brunette souffle." },
     ],
@@ -187,20 +187,20 @@ module.exports = {
   C_metier: { act: "I", title: "Un métier", place: "verenne",
     text: [
       { if: PLI, text: "« Les mules, dit {autre}. Le sel, la laine, le col. Ma mère avant moi, mon grand-père avant elle. » {autre} regarde la route vide. « Il n'y a plus de sel. Alors je passe des courriers. »" },
-      { if: PLI, text: "« Et l'hiver ? » demandes-tu. {autre} met un temps à répondre. « L'hiver, c'est le même col, avec de la neige dessus. »" },
+      { if: PLI, text: "« Et l'hiver ? » demandes-tu. {autre} prend le temps de répondre. « L'hiver, c'est le même col, avec de la neige dessus. »" },
       { if: ROUTE, text: "« La chancellerie, dit {autre}. Quatre ans. On donne une lettre, je la porte, je reviens. » Une main se pose sur l'étui de cuir, sous la chemise, sans y penser." },
       { if: ROUTE, text: "« Et Brumefond ? » demandes-tu. « Jamais. » {autre} mâche son pain longtemps. « On n'y envoie personne depuis la guerre. »" },
     ],
     choices: [{ back: "C_route" }] },
   C_pain: { act: "I", title: "La moitié du pain", place: "verenne",
     text: [
-      "Tu romps ton pain en deux et tu tends une moitié. {autre} la prend, la regarde, et dit merci d'une voix qui n'a pas beaucoup servi ce matin.",
+      "Tu romps ton pain en deux et tu tends une moitié. {autre} la prend, la regarde, et dit merci d'une voix qui a peu servi ce matin.",
       "Vous mangez côte à côte sur le muret. La Sorgue coule sous la glace avec un bruit de verre qu'on remue.",
     ],
     choices: [{ back: "C_route" }] },
   C_vert: { act: "I", title: "Le cavalier en vert", place: "verenne",
     text: [
-      "Au milieu de l'après-midi, un cheval vous rattrape au trot, puis ralentit au pas à votre hauteur. Un grand cheval noir, une housse verte, et dessus un homme en manteau vert, la barbe courte, une cicatrice blanche qui lui ferme à moitié l'œil gauche.",
+      "Au milieu de l'après-midi, un cheval vous rattrape au trot, puis ralentit au pas à votre hauteur. Un grand cheval noir, une housse verte, et dessus un homme en manteau vert, la barbe courte, une cicatrice blanche qui lui ferme à moitié l'œil gauche. Il tient les rênes de la main gauche et garde la droite libre, posée sur la cuisse : une habitude de soldat.",
       "Il regarde la mule, puis la sacoche de cuir, puis vos deux visages, dans cet ordre. « Le bonjour. Vous allez loin ? »",
     ],
     choices: [
@@ -236,7 +236,7 @@ module.exports = {
     choices: [{ back: "C_relais" }] },
   C_ecurie: { act: "I", title: "Le cheval noir", place: "pontgele",
     text: [
-      "Le cheval noir est un cheval de guerre, haut, nerveux, avec une marque au fer sur la cuisse : un cercle et une croix. À ses fers, un forgeron a soudé des clous à glace, de ceux qu'on met pour la montagne.",
+      "Le cheval noir est un cheval de guerre, haut, nerveux, avec une marque au fer sur la cuisse : un cercle et une croix. À ses fers, un forgeron a soudé des clous à glace, de ceux qu'on met pour la montagne. Les têtes des clous sont encore brillantes : la soudure date de quelques jours.",
       "Sur la selle pendue au mur, il y a une épée longue dans un fourreau de cuir vert, et une sacoche fermée d'un petit cadenas de cuivre.",
     ],
     choices: [
@@ -252,13 +252,13 @@ module.exports = {
     choices: [{ back: "C_relais" }] },
   C_ecurie_surpris: { act: "I", title: "La lanterne", place: "pontgele", fx: { flag: "monde:vert_mefiant" },
     text: [
-      "Le cadenas résiste. Une lanterne entre dans l'écurie : l'homme en vert, en chemise, qui vient voir son cheval. Il te voit à côté de sa selle. Il se tait un long moment.",
+      "Le cadenas résiste. Une lanterne entre dans l'écurie : l'homme en vert, en chemise, qui vient voir son cheval. Il te voit à côté de sa selle, et garde un long moment le silence.",
       "« Il est beau, hein ? » Il caresse l'encolure du cheval noir sans te quitter des yeux. « Il mord. » Tu ressors. Tu sens son regard jusqu'à la porte.",
     ],
     choices: [{ back: "C_relais" }] },
   C_chambre: { act: "I", title: "La chambre sous le toit", place: "pontgele", aparte: true,
     text: [
-      { first: true, text: "Le père Tiburce n'a qu'une chambre de libre, sous le toit, avec deux lits étroits de part et d'autre d'un coffre, une chandelle, et un vasistas qui ferme mal. Vous vous déchaussez chacun de votre côté, le dos tourné." },
+      { first: true, text: "Le père Tiburce a une seule chambre de libre, sous le toit, avec deux lits étroits de part et d'autre d'un coffre, une chandelle, et un vasistas qui ferme mal. Vous vous déchaussez chacun de votre côté, le dos tourné." },
       { first: true, text: "Dehors, le torrent fait son bruit de pierres roulées. Brunette s'ébroue dans l'écurie. La chandelle entre vous deux éclaire le coffre, la sacoche de {autre} sur le coffre, et vos deux visages, à moitié." },
       { again: true, text: "La chandelle a baissé d'un doigt. {autre} est assis{autre:e} sur son lit, les coudes sur les genoux." },
       { if: { has: "passe:flute" }, text: "Ta flûte est sur la couverture." },
@@ -274,33 +274,33 @@ module.exports = {
   C_flute: { act: "I", title: "Un air", place: "pontgele",
     text: [
       "Tu joues l'air que tu as inventé à quinze ans, tout bas, pour toi. Il monte jusqu'aux poutres. Dans l'écurie, Brunette arrête de mâcher.",
-      "Quand tu baisses la flûte, {autre} a les yeux ouverts au plafond. « Encore », dit {autre}. Tu le rejoues.",
+      "Quand tu baisses la flûte, {autre} a les yeux ouverts au plafond. « Encore », dit {autre}. Tu rejoues l'air.",
     ],
     choices: [{ back: "C_chambre" }] },
   C_fouille: { act: "I", title: "Un papier plié", place: "pontgele",
     text: [
-      "Tu attends que la respiration de {autre} devienne longue et lente. Tu ouvres la sacoche du bout des doigts. L'étui du pli n'y est pas : il dort sous la chemise de {autre}, contre sa peau. Dans la sacoche, du linge, un briquet, un livre d'heures usé, et entre ses pages, un papier jauni plié en huit.",
+      "Tu attends que la respiration de {autre} devienne longue et lente. Tu ouvres la sacoche du bout des doigts. L'étui du pli est ailleurs : il dort sous la chemise de {autre}, contre la peau. Dans la sacoche, du linge, un briquet, un livre d'heures usé, et entre ses pages, un papier jauni plié en huit.",
       "C'est une affiche, de celles qu'on cloue aux portes des villes. *Prévôté de Brumefond. Aymon Cabrol, de Vérenne, convaincu d'espionnage pour le compte du duché, sera pendu au Marché-aux-Sels le jour de la Saint-Clair.* Il y a douze ans.",
       "Le nom sur l'affiche est le même que celui que le clerc a inscrit ce matin dans son registre, à côté du mot *courrier*.",
-      "Tu replies l'affiche, tu refermes la sacoche, tu te recouches. Tu n'arrives pas à dormir tout de suite.",
+      "Tu replies l'affiche, tu refermes la sacoche, tu te recouches. Le sommeil met longtemps à venir.",
     ],
     choices: [{ back: "C_chambre" }] },
   C_fouille_rate: { act: "I", title: "Une main sur la sacoche", place: "pontgele",
     text: [
       "Tu as la main sur la boucle de la sacoche quand {autre} se retourne dans son lit en soupirant. Tu restes immobile, à genoux sur les planches, le cœur dans la gorge.",
-      "La respiration de {autre} reprend, régulière. Peut-être. Tu retournes à ton lit sans avoir rien ouvert.",
+      "La respiration de {autre} reprend, régulière. Peut-être. Tu retournes à ton lit, la sacoche intacte.",
     ],
     choices: [{ back: "C_chambre" }] },
   C_bourse: { act: "I", title: "Une bourse trop ronde", place: "pontgele",
     fx: { surprend: "g_argent" },
     text: [
       "La bourse de {autre} est posée sur le coffre, à côté de la chandelle. Une bourse de cuir fauve, neuve, et brodée sur le rabat d'un petit cor de chasse en fil d'argent : l'emblème des postes de la duchesse, celui qui est peint sur la porte de ce relais.",
-      "Elle est ronde et lourde. Tu as vu le clerc payer ton guide ce matin : il a compté dix écus dans une main, et il ne s'est servi d'aucune bourse.",
+      "Elle est ronde et lourde. Ce matin, tu as vu le clerc payer ton guide : dix écus comptés dans le creux de la main, sans aucune bourse.",
     ],
     choices: [{ back: "C_chambre" }] },
   C_bourse_maigre: { act: "I", title: "Une bourse de muletier", place: "pontgele",
     text: [
-      "La bourse de {autre} est une bourse de muletier, en peau de chèvre, nouée d'un lacet. Elle est plate. Les dix écus de la chancellerie y sont sans doute, et pas grand-chose d'autre.",
+      "La bourse de {autre} est une bourse de muletier, en peau de chèvre, nouée d'un lacet. Elle est plate. Les dix écus de la chancellerie y sont sans doute, avec quelques sous de cuivre.",
     ],
     choices: [{ back: "C_chambre" }] },
 };
