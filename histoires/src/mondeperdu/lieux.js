@@ -42,4 +42,6 @@ module.exports = {
     desc: "Le lac central du plateau, peu profond, semé de bancs de sable jaune. Un abreuvoir, un gros bloc de lave au bord de l'eau. En face, la falaise des grottes." },
   fosse: { ambiance: "foret", name: "La fosse", map: "plateau", x: 46, y: 58, region: "Terre de Maple White", arrive: "XII_5",
     desc: "Un piège creusé en travers d'une coulée de bêtes : des parois en pente, un pieu pointu au centre, une odeur de chair pourrie." },
+  ville_singes: { ambiance: "foret", name: "La ville des hommes-singes", map: "plateau", x: 24, y: 80, region: "Terre de Maple White", arrive: "XIII_4",
+    desc: "Un millier de huttes de feuillage empilées dans les branches d'un grand bosquet, au bord de la falaise. Devant, une place dégagée d'où l'on jette les prisonniers sur les bambous." },
 };

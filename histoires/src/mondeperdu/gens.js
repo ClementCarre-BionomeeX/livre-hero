@@ -97,4 +97,12 @@ module.exports = {
     face: { age: "adulte", skin: "clair", hair: "roux", beard: "barbe", shape: "allonge" },
     qui: "Une créature des arbres du plateau, entre le singe et l'homme. Elle observe le camp depuis le début.",
     aspect: { allure: "un corps velu, roussâtre, très agile dans les branches", visage: "long, blanchâtre, couvert de boutons, le nez aplati, la mâchoire en avant", signe: "des canines recourbées et pointues" } },
+  roi_singes: { name: "Le roi des hommes-singes", aka: ["roi des hommes-singes"],
+    face: { age: "mur", skin: "clair", hair: "roux", beard: "barbe", shape: "carre" },
+    qui: "Le chef des hommes-singes. Lord John le trouve si semblable à Challenger qu'on les dirait parents.",
+    aspect: { allure: "court, large, de lourdes épaules, pas de cou, les bras qui pendent en avant", visage: "une grande collerette de barbe rousse, des sourcils en touffes, un front fuyant", signe: "le portrait roux de Challenger" } },
+  indiens_accala: { name: "Les Indiens du plateau", aka: ["Indiens du plateau"],
+    face: { age: "adulte", skin: "cuivre", hair: "noir" },
+    qui: "Les hommes qui vivent dans les grottes, de l'autre côté du lac. Ils sont en guerre contre les hommes-singes. Quatre d'entre eux, sauvés de la falaise, se réfugient auprès des voyageurs.",
+    aspect: { allure: "petits, bien découplés, la peau rouge comme du bronze poli" } },
 };
