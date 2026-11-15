@@ -10,7 +10,7 @@ module.exports = {
     text: [
       "Au matin, un garçon des cuisines frappe à la porte de l'Ancre et te remet un billet sans cachet, plié en huit. L'écriture d'Ermengarde, penchée, pressée.",
       "*Elle te demande. Cette nuit, à la deuxième heure, dans la chambre bleue. Elle a entendu dire que sa chanteuse était revenue, elle ne sait plus laquelle, elle veut l'entendre. Viens par les cuisines. Ne viens pas seule : il y aura du monde dans les couloirs, et pas que des vivants.*",
-      { if: { has: "lisandre:disgrace" }, text: "Elle t'a bannie, il y a dix jours. Elle t'appelle cette nuit. Ermengarde n'a pas jugé utile de le souligner." },
+      { if: { has: "lisandre:disgrace" }, text: "Elle t'a bannie il y a dix jours. Elle t'appelle cette nuit. Ermengarde a jugé inutile de le souligner." },
       "Le billet porte un post-scriptum, d'une autre encre, ajouté après coup. *Il sera là. Il est toujours là.*",
     ],
     choices: [{ label: "Préparer la nuit", to: "II_S2_prep" }] }),
@@ -32,7 +32,7 @@ module.exports = {
   II_S2_palais: P({ title: "Le palais la nuit", place: "vasselin",
     text: [
       { first: true, text: "Les cuisines, l'escalier des servantes, le couloir des tapisseries. Tu as fait ce chemin mille fois. Cette nuit, il y a des chandelles partout, des centaines, et personne pour les moucher ; la cire a coulé jusqu'au parquet en stalactites d'un pouce." },
-      { again: true, text: "Le couloir des tapisseries, de nouveau. Les chandelles brûlent toujours. Dans les galeries, personne n'a bougé." },
+      { again: true, text: "Le couloir des tapisseries, de nouveau. Les chandelles brûlent toujours. Dans les galeries, chacun est resté à sa place, comme des pions sur un damier qu'on a oublié de ranger." },
       { first: true, text: "Des courtisans attendent dans les galeries, en habits de jour, à deux heures du matin. Ils sont debout, adossés aux murs. Certains dorment debout. D'autres te regardent passer sans te voir. Un vieux duc que tu connais depuis toujours te demande poliment s'il est déjà venu ici." },
       { first: true, if: avec("pie"), text: "Pie porte ton luth et regarde partout à la fois. Il a l'air d'un page qui a peur. C'est très bien imité." },
       { first: true, if: avec("ysolde"), text: "Ysolde marche derrière toi, la hallebarde à l'épaule, le casque bas. Au détour d'un couloir, un sergent la salue sans la regarder. Elle lui rend le salut, d'un geste exact, vingt ans d'habitude." },
@@ -53,7 +53,7 @@ module.exports = {
       { first: true, text: "« Vous êtes la chanteuse, dit-elle. On m'a dit que j'avais une chanteuse. » Elle sourit. « Je ne me souviens pas de vous. On me dit que c'est normal. On me dit beaucoup de choses, la nuit. »" },
       { again: true, text: "La reine s'est renfoncée dans ses oreillers. Elle te regarde avec la même curiosité polie qu'à ton entrée." },
       "Sur la table de chevet, une écritoire, une plume, et une pile de feuilles déjà signées.",
-      { first: true, if: { has: "isaure:avoue" }, text: "Sur la route de Pallanche, elle t'avait parlé dans la nuit, et tu lui avais chanté n'importe quoi. Elle n'en sait plus rien." },
+      { first: true, if: { has: "isaure:avoue" }, text: "Sur la route de Pallanche, elle t'avait parlé dans la nuit, et tu lui avais chanté n'importe quoi. Il ne lui en reste rien." },
     ],
     choices: [
       { label: "Lui chanter la chanson de soldat qu'elle t'a apprise, une nuit d'hiver", if: { souv: "lisandre:isaure" }, why: "Tu ne t'en souviens plus.", fx: { flag: "sud2:isaure_chanson", ep: ["perso", 1000] }, to: "II_S2_isaure_chant" },
@@ -66,7 +66,7 @@ module.exports = {
   II_S2_isaure_chant: P({ title: "La chanson de soldat", place: "vasselin",
     text: [
       "Tu la chantes telle qu'elle te l'a apprise : sans luth, d'une voix plate, comme on chante en marchant. Une chanson de soldats de son père, sur une fille qui attend au bord d'une rivière.",
-      "À la deuxième strophe, la reine chante avec toi. Elle connaît les paroles. Elle ne sait pas d'où.",
+      "À la deuxième strophe, la reine chante avec toi. Elle connaît les paroles. D'où, elle l'ignore.",
       "Quand vous avez fini, elle a les larmes aux yeux. « J'avais un fils, dit-elle. N'est-ce pas ? Je la lui chantais. » Elle te prend la main. « Comment s'appelait-il ? Dites-le-moi vite, avant qu'il vienne. »",
     ],
     choices: [
@@ -76,7 +76,7 @@ module.exports = {
 
   II_S2_isaure_lettre: P({ title: "Le sceau noir", place: "vasselin",
     text: [
-      "Elle lit la lettre deux fois, à la chandelle. Elle reconnaît le sceau. Elle ne reconnaît rien d'autre.",
+      "Elle lit la lettre deux fois, à la chandelle. Elle reconnaît le sceau, et rien d'autre.",
       "« Hautvent, dit-elle. Lisse. » Elle secoue la tête. « Je ne sais pas ce que c'est. Mais c'est à moi qu'il écrit, et sur ce ton. » Elle replie la lettre et te la rend, avec une sorte de dignité terrible. « Gardez-la. Si je la garde, demain matin je la signerai. »",
     ],
     choices: [{ label: "Reprendre la lettre", to: "II_S2_mordace" }] }),
@@ -91,7 +91,7 @@ module.exports = {
   II_S2_isaure_role: P({ title: "Ce qu'elle demande", place: "vasselin",
     text: [
       "Elle te demande une chanson gaie. Tu chantes une chanson gaie. Elle te demande une chanson de la cour d'autrefois. Tu chantes une chanson de la cour d'autrefois, et elle bat la mesure sur le drap, en souriant, sans rien reconnaître.",
-      "Tu fais ce que tu as toujours fait : tu chantes ce qu'on te commande. Tu le fais très bien. Tu n'as jamais eu aussi honte de le faire.",
+      "Tu fais ce que tu as toujours fait : tu chantes ce qu'on te commande. Tu le fais très bien. Ce soir, tu en as honte comme jamais.",
     ],
     choices: [{ label: "Continuer", to: "II_S2_mordace" }] }),
 
@@ -136,7 +136,7 @@ module.exports = {
   II_S2_offre_feinte: P({ title: "Les confidences", place: "vasselin",
     text: [
       "Tu baisses les yeux. Tu dis que tu ne sais pas. Que ta mère, oui, peut-être. Que c'est lourd. Tu le dis avec la voix que tu prends pour les ballades tristes, et il t'écoute avec une attention de médecin.",
-      "Alors il parle. Il a besoin de parler, comme tous ceux qui ne parlent à personne. « Ce n'est pas de la méchanceté, dit-il. Le monde a trop de mémoire. Il étouffe dessous. Chaque guerre vient d'une vieille blessure que quelqu'un refuse de lâcher. Corvanne et nous : un pont, il y a moins de trois ans. Les clans et nous : un massacre, il y a trois siècles, dont personne ne sait plus rien, et qui nous tue quand même. »",
+      "Alors il parle. Il a besoin de parler, comme tous les hommes seuls. « Ce n'est pas de la méchanceté, dit-il. Le monde a trop de mémoire. Il étouffe dessous. Chaque guerre vient d'une vieille blessure que quelqu'un refuse de lâcher. Corvanne et nous : un pont, il y a moins de trois ans. Les clans et nous : un massacre, il y a trois siècles, dont personne ne sait plus rien, et qui nous tue quand même. »",
       "« Il faut un seul registre. Un seul endroit où tout est écrit, bien écrit, une fois. Et tout le reste, on peut le laisser partir. » Il te regarde. « Je ne suis pas un monstre, Dame Lisandre. Je suis un greffier. »",
     ],
     choices: [{ label: "Le laisser à la reine", to: "II_S2_compagnon" }] }),
@@ -166,7 +166,7 @@ module.exports = {
       lose: { to: "II_S2_pie_rate" } }] }),
 
   II_S2_pie_ok: P({ title: "La cire", place: "vasselin",
-    text: ["Dans l'escalier des servantes, Pie ouvre la main. Une petite boîte de fer-blanc, remplie de cire jaune. Dans la cire, trois empreintes nettes, l'une à côté de l'autre. « Il les touche tout le temps, dit Pie. C'est pire que s'il dormait avec. Mais une seconde, ça suffit. »"],
+    text: ["Dans l'escalier des servantes, Pie ouvre la main. Une petite boîte de fer-blanc, remplie de cire jaune. Dans la cire, trois empreintes nettes, l'une à côté de l'autre. « Il les touche tout le temps, dit Pie. C'est pire que s'il dormait avec. Mais un clin d'œil, ça suffit. »"],
     choices: [{ label: "Quitter le palais", to: "II_S2_aube" }] }),
 
   II_S2_pie_rate: P({ title: "Le regard", place: "vasselin",
@@ -175,9 +175,9 @@ module.exports = {
 
   II_S2_ysolde: P({ title: "Le garde", place: "vasselin",
     text: [
-      "Mordace s'arrête à deux pas d'Ysolde. Il ne la regarde pas. Il regarde la hallebarde, le casque, la façon de se tenir.",
+      "Mordace s'arrête à deux pas d'Ysolde. Ses yeux glissent sur elle et vont à la hallebarde, au casque, à la façon de se tenir.",
       "« Capitaine, dit-il à mi-voix. Vous ne vous souvenez toujours pas du pont, n'est-ce pas ? » Il n'attend pas de réponse. « Moi, si. Je l'ai bien écrit. Vous y êtes très belle. » Il s'en va.",
-      "Ysolde n'a pas bougé. Sa main, sur la hampe, est blanche.",
+      "Ysolde reste plantée là. Sa main, sur la hampe, est blanche.",
     ],
     choices: [{ label: "Quitter le palais", fx: { flag: "sud:mordace_ysolde" }, to: "II_S2_aube" }] }),
 
@@ -210,14 +210,14 @@ module.exports = {
   II_S2_linette: P({ title: "Page Onze", place: "vasselin",
     text: [
       "Mordace passe devant Linette. Il ralentit. « Toi, dit-il, je te connais. » Elle lève les yeux. « Tu as une très belle main. Tu étais à Pallanche, au scriptorium. Page Onze. » Il sourit. « Viens me voir à la Tour, quand tu voudras. On a besoin de bonnes mains. »",
-      "Il s'en va. Linette regarde l'endroit où il était. Elle ne dit rien jusqu'à l'auberge.",
+      "Il s'en va. Linette regarde l'endroit où il était. Elle garde le silence jusqu'à l'auberge.",
     ],
     choices: [{ label: "Quitter le palais", fx: { flag: "linette:invitee" }, to: "II_S2_aube" }] }),
 
   II_S2_aube: P({ title: "Les feuilles signées", place: "vasselin",
     text: [
       "Tu repasses devant la chambre bleue pour sortir. La porte est entrouverte. La reine dort. Mordace est assis à l'écritoire et écrit, vite, sans lever la tête ; la chandelle à son coude a brûlé de trois doigts depuis ton départ.",
-      "Sur la pile, la feuille du dessus. Tu ne la lis qu'à moitié, à l'envers, en passant. *… la mémoire de son fils Aymeric, de sa naissance à sa mort, pour l'apaisement de Sa Majesté…*",
+      "Sur la pile, la feuille du dessus. Tu en lis la moitié, à l'envers, en passant. *… la mémoire de son fils Aymeric, de sa naissance à sa mort, pour l'apaisement de Sa Majesté…*",
       { if: { has: "isaure:aymeric" }, text: "Tu lui as rendu ce nom, cette nuit. Demain, il ne sera plus à elle." },
       "Dehors, l'aube est grise. Les courtisans, dans les galeries, dorment toujours debout.",
     ],
@@ -225,9 +225,9 @@ module.exports = {
 
   II_S2_nuit: P({ backName: "la table de l'Ancre", title: "Le jour à l'Ancre", place: "vasselin", taverne: { mise: 5, adversaire: "un marinier aux mains goudronnées" },
     text: [
-      { first: true, text: "Tu dors jusqu'à midi. Tu te réveilles avec le goût des chandelles dans la bouche. Les autres sont autour de la table, ils t'attendent pour manger. Ils ne posent pas de questions. Tu racontes quand même." },
+      { first: true, text: "Tu dors jusqu'à midi. Tu te réveilles avec le goût des chandelles dans la bouche. Les autres sont autour de la table, ils t'attendent pour manger. Ils se gardent de poser des questions. Tu racontes quand même." },
       { again: true, text: "La table n'est pas encore desservie. Par la fenêtre, le quai, et le milieu du jour." },
-      { if: { item: "cire_cles" }, text: "Au milieu de la table, la petite boîte de fer-blanc. Personne n'y touche." },
+      { if: { item: "cire_cles" }, text: "Au milieu de la table, la petite boîte de fer-blanc. Les mains passent autour sans la toucher." },
       { if: { has: "sud2:mordace=oui" }, text: "Un coursier a apporté les paroles de la chanson. Elles sont sur ton lit, roulées, nouées d'un ruban gris." },
     ],
     choices: [
@@ -250,7 +250,7 @@ module.exports = {
   II_S2_nuit_ysolde: P({ title: "Quinze ans", place: "vasselin",
     text: [
       { if: { has: "sud:mordace_ysolde" }, text: "Ysolde a passé la matinée à marcher sur le quai. Elle s'assied à côté de toi. « Il a dit que j'y étais très belle. Sur le pont. » Elle a un rire bref. « J'ai mis quinze ans à devenir quelqu'un que je n'ai pas honte de regarder. Et un greffier a la page où je suis l'autre. »" },
-      { if: { not: { has: "sud:mordace_ysolde" } }, text: "Ysolde te demande si la reine a parlé d'elle. Tu dis que non. Elle hoche la tête. « Bien », dit-elle. Tu ne sais pas si elle le pense." },
+      { if: { not: { has: "sud:mordace_ysolde" } }, text: "Ysolde te demande si la reine a parlé d'elle. Tu dis que non. Elle hoche la tête. « Bien », dit-elle. Tu te demandes si elle le pense." },
     ],
     choices: [{ fx: { conf: { ysolde: 5 } }, back: "II_S2_nuit" }] }),
 
