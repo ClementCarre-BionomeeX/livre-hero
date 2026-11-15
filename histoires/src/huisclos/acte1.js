@@ -77,7 +77,7 @@ module.exports = {
     act: "I", title: "Le souper", place: "salle", fx: { quest: "I_retour" }, devant: ["odile", "germain"],
     text: [
       "À sept heures, Mariette sonne la cloche du souper, comme toujours, et tout le monde descend, comme toujours. On mange dans la grande salle, à un bout de la longue table, sous la pendule arrêtée. Une soupe, du lard, des pommes de terre. Personne n'a faim. Tout le monde mange.",
-      "Germain parle pour tous. De la neige, de la route, du curé qui montera dès qu'on pourra passer, du prix du sapin à Saint-Amans. Le docteur boit. Jeanne coupe son pain en petits carrés qu'elle ne mange pas. Mariette fait le service et ne s'assoit pas, malgré Odile qui le lui demande deux fois.",
+      "Germain parle pour tous. De la neige, de la route, du curé qui montera dès qu'on pourra passer, du prix du sapin à Saint-Amans. Le docteur boit. Jeanne coupe son pain en petits carrés qu'elle ne mange pas. Mariette fait le service debout, malgré Odile qui lui demande deux fois de s'asseoir.",
       { calme: true, text: "Odile, en face de toi, tend la main vers le sel. Sur le bord de sa manche gauche, une tache ronde, raide, brun-jaune, que le savon n'a pas enlevée." },
       { trouble: true, text: "Odile, en face de toi, tend la main vers le sel. Sur le bord de sa manche gauche, une tache sombre, presque noire. Du sang, penses-tu, et ton cœur bondit. Tu regardes de nouveau : la tache est toujours là, et tu ne sais plus de quelle couleur elle est." },
       "Au dessert, Germain se tourne vers toi, très aimable. « Et tu restes jusqu'à quand, alors ? Après l'enterrement, il faudra parler un peu des affaires. Rien de pressé. Le bois, la scierie, les papiers. »",

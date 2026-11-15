@@ -169,7 +169,7 @@ module.exports = {
     title: "Sous le lit", place: "chambre", back: true, fx: { regard: { odile: "mefiant" } },
     text: [
       "Tu t'es à peine penché{e} qu'une voix dit derrière toi : « Tu as perdu quelque chose ? »",
-      "Odile est sur le seuil, un broc d'eau à la main. Tu te relèves. Elle traverse la chambre, pose le broc sur la commode et ne te quitte pas des yeux pendant qu'elle remplace un cierge. Tu n'as plus rien à faire ici, pas cette fois.",
+      "Odile est sur le seuil, un broc d'eau à la main. Tu te relèves. Elle traverse la chambre, pose le broc sur la commode et te garde à l'œil pendant qu'elle remplace un cierge. Tu n'as plus rien à faire ici, pas cette fois.",
     ],
   },
   K_volets: {
@@ -187,7 +187,7 @@ module.exports = {
     text: [
       { first: true, text: "Le bureau est une petite pièce froide derrière la salle, où ton père faisait les comptes et où ta mère les a faits après lui pendant vingt ans. Un secrétaire à cylindre, des registres reliés de toile verte sur trois rayons, un poêle éteint, une fenêtre sur la scierie. Rien n'a changé, sauf le fauteuil : on a mis un coussin dessus, pour une femme qui avait mal au dos." },
       { again: true, text: "Le bureau, les registres verts, le secrétaire." },
-      { after: "B_testament", text: "Le cylindre du secrétaire est resté ouvert, et les tiroirs ne sont pas tout à fait refermés. Quelqu'un a cherché, et ne s'est pas donné la peine de cacher qu'il cherchait." },
+      { after: "B_testament", text: "Le cylindre du secrétaire est resté ouvert, et les tiroirs ne sont pas tout à fait refermés. Quelqu'un a cherché, et a laissé voir qu'il cherchait." },
     ],
     choices: [
       { label: "Ouvrir le secrétaire de ta mère", hide: { seen: "K_secretaire" }, before: "B_testament", to: "K_secretaire" },
@@ -330,7 +330,7 @@ module.exports = {
     title: "La chambre d'Odile et de Germain", place: "etage", back: true, fx: { regard: { odile: "hostile" }, attache: { odile: -1 }, geste: "g_fouille_odile" },
     text: [
       "Tu as la main sur le tiroir d'Odile quand le plancher craque derrière toi. Odile est dans l'encadrement de la porte.",
-      "« Ferme ce tiroir », dit-elle. Tu le fermes. Elle ne bouge pas, elle ne crie pas. Elle attend que tu sois sorti{e}, et quand tu passes près d'elle, elle tourne la tête pour ne pas te voir passer.",
+      "« Ferme ce tiroir », dit-elle. Tu le fermes. Elle reste immobile et muette. Elle attend que tu sois sorti{e}, et quand tu passes près d'elle, elle tourne la tête pour ne pas te voir passer.",
     ],
   },
   K_amis: {

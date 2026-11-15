@@ -1777,7 +1777,7 @@
    },
    "text": [
     "Tu t'es à peine penché{e} qu'une voix dit derrière toi : « Tu as perdu quelque chose ? »",
-    "Odile est sur le seuil, un broc d'eau à la main. Tu te relèves. Elle traverse la chambre, pose le broc sur la commode et ne te quitte pas des yeux pendant qu'elle remplace un cierge. Tu n'as plus rien à faire ici, pas cette fois."
+    "Odile est sur le seuil, un broc d'eau à la main. Tu te relèves. Elle traverse la chambre, pose le broc sur la commode et te garde à l'œil pendant qu'elle remplace un cierge. Tu n'as plus rien à faire ici, pas cette fois."
    ]
   },
   "K_volets": {
@@ -1806,7 +1806,7 @@
     },
     {
      "after": "B_testament",
-     "text": "Le cylindre du secrétaire est resté ouvert, et les tiroirs ne sont pas tout à fait refermés. Quelqu'un a cherché, et ne s'est pas donné la peine de cacher qu'il cherchait."
+     "text": "Le cylindre du secrétaire est resté ouvert, et les tiroirs ne sont pas tout à fait refermés. Quelqu'un a cherché, et a laissé voir qu'il cherchait."
     }
    ],
    "choices": [
@@ -2273,7 +2273,7 @@
    },
    "text": [
     "Tu as la main sur le tiroir d'Odile quand le plancher craque derrière toi. Odile est dans l'encadrement de la porte.",
-    "« Ferme ce tiroir », dit-elle. Tu le fermes. Elle ne bouge pas, elle ne crie pas. Elle attend que tu sois sorti{e}, et quand tu passes près d'elle, elle tourne la tête pour ne pas te voir passer."
+    "« Ferme ce tiroir », dit-elle. Tu le fermes. Elle reste immobile et muette. Elle attend que tu sois sorti{e}, et quand tu passes près d'elle, elle tourne la tête pour ne pas te voir passer."
    ]
   },
   "K_amis": {
@@ -3697,7 +3697,7 @@
    "text": [
     "« Seul ? Personne ne l'a vu sortir ? »",
     "Mariette tourne sa soupe un long moment. « Personne qui l'ait rappelé », dit-elle enfin.",
-    "Elle lève les yeux vers le plafond, vers l'étage, une seconde à peine, puis elle les baisse sur la marmite et ne les relève plus."
+    "Elle lève les yeux vers le plafond, vers l'étage, une seconde à peine, puis elle les baisse sur la marmite et les y garde."
    ]
   },
   "K_mariette_nuit": {
@@ -3754,7 +3754,7 @@
    "seul": true,
    "text": [
     "Une soupe de pain, de lard et de chou, épaisse à y planter la cuiller, comme elle la faisait les jours de battage. Mariette s'assoit en face de toi pour te regarder manger, les mains croisées sur la table.",
-    "Tu manges tout. Elle remplit le bol une seconde fois. Tu manges encore. Pendant tout ce temps, ni l'un ni l'autre ne dit rien, et c'est le premier moment depuis ton arrivée où rien ne te serre la gorge."
+    "Tu manges tout. Elle remplit le bol une seconde fois. Tu manges encore. Pendant tout ce temps, vous vous taisez tous les deux, et pour la première fois depuis ton arrivée ta gorge se desserre."
    ]
   },
   "M_mariette_bras": {
@@ -3824,7 +3824,7 @@
     }
    },
    "text": [
-    "Tu prends l'autre chaise, de l'autre côté du lit. Mariette ne dit rien, mais elle pousse vers toi la chaufferette qu'elle avait sous les pieds.",
+    "Tu prends l'autre chaise, de l'autre côté du lit. Mariette, sans un mot, pousse vers toi la chaufferette qu'elle avait sous les pieds.",
     "Vers une heure, elle parle, sans te regarder. Elle raconte ta mère à vingt ans, quand elle est arrivée de la vallée pour épouser Aimé Sorlin : une grande fille en robe bleue, qui riait fort, qui menait les bûcherons à la voix, et qui avait peur des vaches. « Personne ne s'en souvient, de ça. Qu'elle riait. Il n'y a plus que moi. »",
     "« Elle t'attendait, ajoute-t-elle. Elle a demandé trois fois l'heure de la diligence, ce dernier jour. Elle savait bien qu'elle ne passait plus en décembre. »",
     {
@@ -4425,10 +4425,10 @@
     "takes": "morning"
    },
    "text": [
-    "Tu prends la chaise en face d'elle. La tempête cogne aux volets, et les cierges se couchent à chaque rafale. Jeanne ne dit rien. Elle te tend un bout du linceul, et une aiguille, et tu couds avec elle, mal, comme tu cousais tes boutons à Varenne.",
+    "Tu prends la chaise en face d'elle. La tempête cogne aux volets, et les cierges se couchent à chaque rafale. Jeanne, sans un mot, te tend un bout du linceul, et une aiguille, et tu couds avec elle, mal, comme tu cousais tes boutons à Varenne.",
     {
      "tendre": true,
-     "text": "Vos genoux se touchent sous le drap. Ni l'un ni l'autre ne bouge pour l'empêcher.",
+     "text": "Vos genoux se touchent sous le drap. Vous les laissez se toucher.",
      "else": "Vous cousez côte à côte, en silence, jusqu'au bout du drap."
     },
     {
@@ -4831,7 +4831,7 @@
      "text": "Tu es dans la cabane, sous la couverture de cheval, et Jeanne dort contre toi. Elle a dix-sept ans et elle en a vingt-huit, les deux en même temps.",
      "else": "Tu es dans la cabane, et Jeanne est assise sur le banc de rameur. Elle a dix-sept ans et elle en a vingt-huit, les deux en même temps."
     },
-    "Quelqu'un frappe à la porte. Trois petits coups. Ni toi ni elle ne bougez pour ouvrir.",
+    "Quelqu'un frappe à la porte. Trois petits coups. Vous laissez frapper.",
     "Tu te réveilles avant de savoir qui frappait, et tu le sais quand même."
    ]
   },
@@ -5043,7 +5043,7 @@
    ],
    "text": [
     "À sept heures, Mariette sonne la cloche du souper, comme toujours, et tout le monde descend, comme toujours. On mange dans la grande salle, à un bout de la longue table, sous la pendule arrêtée. Une soupe, du lard, des pommes de terre. Personne n'a faim. Tout le monde mange.",
-    "Germain parle pour tous. De la neige, de la route, du curé qui montera dès qu'on pourra passer, du prix du sapin à Saint-Amans. Le docteur boit. Jeanne coupe son pain en petits carrés qu'elle ne mange pas. Mariette fait le service et ne s'assoit pas, malgré Odile qui le lui demande deux fois.",
+    "Germain parle pour tous. De la neige, de la route, du curé qui montera dès qu'on pourra passer, du prix du sapin à Saint-Amans. Le docteur boit. Jeanne coupe son pain en petits carrés qu'elle ne mange pas. Mariette fait le service debout, malgré Odile qui lui demande deux fois de s'asseoir.",
     {
      "calme": true,
      "text": "Odile, en face de toi, tend la main vers le sel. Sur le bord de sa manche gauche, une tache ronde, raide, brun-jaune, que le savon n'a pas enlevée."
@@ -5226,7 +5226,7 @@
    "place": "bureau",
    "devant": "germain",
    "text": [
-    "Germain t'attend dans le bureau, au secrétaire de ta mère, assis dans son fauteuil à coussin. Il se lève quand tu entres, et t'offre le fauteuil. Tu ne le prends pas. Il s'y rassoit.",
+    "Germain t'attend dans le bureau, au secrétaire de ta mère, assis dans son fauteuil à coussin. Il se lève quand tu entres, et t'offre le fauteuil. Tu restes debout. Il s'y rassoit.",
     "« Je vais te parler franchement, dit-il, parce que tu es de la famille et que tu es quelqu'un d'intelligent. Ta mère t'a laissé le bois des Fayards. C'est dans son testament, chez Combaz, au bourg. Quarante arpents. »",
     "« Il y a un acheteur, Vernet, le marchand de Saint-Amans. Neuf cents livres, comptant, pour la coupe. C'est une fortune. La scierie en a besoin, je ne te le cache pas : les affaires ont été dures, cette année, avec ta mère malade. Ta mère allait signer. Elle était d'accord. » Il sourit. « Il ne manque que ta signature, maintenant. Tu n'as rien à faire. Tu signes, tu repars, l'argent te suit à Varenne. »",
     "Il attend. Il a l'air de quelqu'un qui a l'habitude qu'on lui dise oui."
@@ -5502,7 +5502,7 @@
    "place": "etage",
    "text": [
     "Au milieu de l'après-midi, en passant dans le couloir de l'étage, tu entends un bruit derrière la porte de Lucien. Un bruit que tu mets un moment à reconnaître, parce que tu ne l'as jamais entendu : Odile qui pleure.",
-    "La porte n'est pas fermée à clef. Elle est entrouverte d'un doigt. Par la fente, tu vois Odile assise sur le lit de Lucien, sur l'édredon rouge, la boîte à musique ouverte sur les genoux, les épaules secouées. Elle tient un des patins contre sa poitrine, comme on tient un enfant."
+    "Cette fois, la porte est entrouverte d'un doigt. Par la fente, tu vois Odile assise sur le lit de Lucien, sur l'édredon rouge, la boîte à musique ouverte sur les genoux, les épaules secouées. Elle tient un des patins contre sa poitrine, comme on tient un enfant."
    ],
    "choices": [
     {
@@ -6391,7 +6391,7 @@
       "min": 3
      },
      "tendre": true,
-     "text": "Le jeudi, l'institutrice de Saint-Amans monte aux Lisières faire la classe aux enfants des trois fermes. Elle reste souper. Elle repart tard. On en parle au bourg, et on en parlera longtemps, et ni elle ni toi ne faites rien pour que cela cesse.",
+     "text": "Le jeudi, l'institutrice de Saint-Amans monte aux Lisières faire la classe aux enfants des trois fermes. Elle reste souper. Elle repart tard. On en parle au bourg, et on en parlera longtemps, et vous laissez dire, elle et toi.",
      "else": "Le jeudi, l'institutrice de Saint-Amans monte aux Lisières faire la classe aux enfants des trois fermes. Elle reste souper avant de redescendre."
     },
     {
@@ -6535,6 +6535,9 @@
   {
    "if": {
     "all": [
+     {
+      "has": "bois:decide"
+     },
      {
       "any": [
        "vente:refusee",

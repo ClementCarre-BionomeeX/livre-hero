@@ -292,7 +292,7 @@ module.exports = {
     text: [
       "« Seul ? Personne ne l'a vu sortir ? »",
       "Mariette tourne sa soupe un long moment. « Personne qui l'ait rappelé », dit-elle enfin.",
-      "Elle lève les yeux vers le plafond, vers l'étage, une seconde à peine, puis elle les baisse sur la marmite et ne les relève plus.",
+      "Elle lève les yeux vers le plafond, vers l'étage, une seconde à peine, puis elle les baisse sur la marmite et les y garde.",
     ],
   },
   K_mariette_nuit: {
@@ -321,7 +321,7 @@ module.exports = {
     title: "La soupe", back: true, seul: true,
     text: [
       "Une soupe de pain, de lard et de chou, épaisse à y planter la cuiller, comme elle la faisait les jours de battage. Mariette s'assoit en face de toi pour te regarder manger, les mains croisées sur la table.",
-      "Tu manges tout. Elle remplit le bol une seconde fois. Tu manges encore. Pendant tout ce temps, ni l'un ni l'autre ne dit rien, et c'est le premier moment depuis ton arrivée où rien ne te serre la gorge.",
+      "Tu manges tout. Elle remplit le bol une seconde fois. Tu manges encore. Pendant tout ce temps, vous vous taisez tous les deux, et pour la première fois depuis ton arrivée ta gorge se desserre.",
     ],
   },
   M_mariette_bras: {
@@ -350,7 +350,7 @@ module.exports = {
   V_mariette: {
     title: "La première veille", place: "chambre", devant: "mariette", silence: hush("mariette", { to: "N_matin", back: null, takes: "morning" }), takes: "morning", fx: { attache: { mariette: 1 } },
     text: [
-      "Tu prends l'autre chaise, de l'autre côté du lit. Mariette ne dit rien, mais elle pousse vers toi la chaufferette qu'elle avait sous les pieds.",
+      "Tu prends l'autre chaise, de l'autre côté du lit. Mariette, sans un mot, pousse vers toi la chaufferette qu'elle avait sous les pieds.",
       "Vers une heure, elle parle, sans te regarder. Elle raconte ta mère à vingt ans, quand elle est arrivée de la vallée pour épouser Aimé Sorlin : une grande fille en robe bleue, qui riait fort, qui menait les bûcherons à la voix, et qui avait peur des vaches. « Personne ne s'en souvient, de ça. Qu'elle riait. Il n'y a plus que moi. »",
       "« Elle t'attendait, ajoute-t-elle. Elle a demandé trois fois l'heure de la diligence, ce dernier jour. Elle savait bien qu'elle ne passait plus en décembre. »",
       { trouble: true, text: "Vers quatre heures, la flamme d'un cierge se couche d'un coup, comme sous un souffle. Mariette ne lève pas les yeux. Toi, tu ne regardes plus que ça." },
@@ -559,8 +559,8 @@ module.exports = {
   V_jeanne: {
     title: "La deuxième veille", place: "chambre", devant: "jeanne", silence: hush("jeanne", { back: null, to: "N_matin", takes: "morning" }),
     text: [
-      "Tu prends la chaise en face d'elle. La tempête cogne aux volets, et les cierges se couchent à chaque rafale. Jeanne ne dit rien. Elle te tend un bout du linceul, et une aiguille, et tu couds avec elle, mal, comme tu cousais tes boutons à Varenne.",
-      { tendre: true, text: "Vos genoux se touchent sous le drap. Ni l'un ni l'autre ne bouge pour l'empêcher.", else: "Vous cousez côte à côte, en silence, jusqu'au bout du drap." },
+      "Tu prends la chaise en face d'elle. La tempête cogne aux volets, et les cierges se couchent à chaque rafale. Jeanne, sans un mot, te tend un bout du linceul, et une aiguille, et tu couds avec elle, mal, comme tu cousais tes boutons à Varenne.",
+      { tendre: true, text: "Vos genoux se touchent sous le drap. Vous les laissez se toucher.", else: "Vous cousez côte à côte, en silence, jusqu'au bout du drap." },
       { trouble: true, text: "Une fois, il te semble que ta mère, sur le lit, a tourné la tête vers vous. Tu lâches ton aiguille. Jeanne la ramasse, et pose la main sur ton poignet jusqu'à ce que ça passe." },
     ],
     choices: [

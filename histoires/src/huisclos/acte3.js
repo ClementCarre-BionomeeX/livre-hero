@@ -19,7 +19,7 @@ module.exports = { passages: {
     act: "III", title: "La chambre de Lucien", place: "etage",
     text: [
       "Au milieu de l'après-midi, en passant dans le couloir de l'étage, tu entends un bruit derrière la porte de Lucien. Un bruit que tu mets un moment à reconnaître, parce que tu ne l'as jamais entendu : Odile qui pleure.",
-      "La porte n'est pas fermée à clef. Elle est entrouverte d'un doigt. Par la fente, tu vois Odile assise sur le lit de Lucien, sur l'édredon rouge, la boîte à musique ouverte sur les genoux, les épaules secouées. Elle tient un des patins contre sa poitrine, comme on tient un enfant.",
+      "Cette fois, la porte est entrouverte d'un doigt. Par la fente, tu vois Odile assise sur le lit de Lucien, sur l'édredon rouge, la boîte à musique ouverte sur les genoux, les épaules secouées. Elle tient un des patins contre sa poitrine, comme on tient un enfant.",
     ],
     choices: [
       { label: "Entrer, et t'asseoir à côté d'elle", fx: { attache: { odile: 1 } }, to: "C_odile_aveu" },
@@ -193,7 +193,7 @@ module.exports = { passages: {
       "Tu ne descends pas à la diligence. Tu la regardes passer d'en haut, à midi, une petite boîte noire sur la route blanche, et elle s'en va sans toi.",
       "Le lendemain, tu descends à la scierie avec Germain, et tu passes la journée à regarder la grande scie, les courroies, la roue prise dans la glace. Le surlendemain, tu ouvres les registres. Au dégel, la roue tourne de nouveau, et c'est toi qui tiens les comptes, avec une colonne de moins.",
       "Les Fayards restent debout. Tu y montes le dimanche, sans hache.",
-      { if: { attache: "jeanne", min: 3 }, tendre: true, text: "Le jeudi, l'institutrice de Saint-Amans monte aux Lisières faire la classe aux enfants des trois fermes. Elle reste souper. Elle repart tard. On en parle au bourg, et on en parlera longtemps, et ni elle ni toi ne faites rien pour que cela cesse.", else: "Le jeudi, l'institutrice de Saint-Amans monte aux Lisières faire la classe aux enfants des trois fermes. Elle reste souper avant de redescendre." },
+      { if: { attache: "jeanne", min: 3 }, tendre: true, text: "Le jeudi, l'institutrice de Saint-Amans monte aux Lisières faire la classe aux enfants des trois fermes. Elle reste souper. Elle repart tard. On en parle au bourg, et on en parlera longtemps, et vous laissez dire, elle et toi.", else: "Le jeudi, l'institutrice de Saint-Amans monte aux Lisières faire la classe aux enfants des trois fermes. Elle reste souper avant de redescendre." },
       { if: { attache: "odile", min: 3 }, text: "Odile et toi, vous vous disputez tous les jours, pour la scierie, pour le bois, pour la façon de couper le pain. Le soir, vous faites ensemble la chambre de Lucien. Un jour de mai, vous en ouvrez les fenêtres." },
       { if: { attache: "mariette", min: 3 }, text: "Mariette ne dit rien de ton retour. Le premier soir, elle met ton couvert à la place où tu t'asseyais enfant, et c'est tout ce qu'elle dira, et c'est beaucoup." },
     ],

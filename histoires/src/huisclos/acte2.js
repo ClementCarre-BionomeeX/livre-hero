@@ -32,7 +32,7 @@ module.exports = {
   B_germain: {
     act: "II", title: "Le bois des Fayards", place: "bureau", devant: "germain",
     text: [
-      "Germain t'attend dans le bureau, au secrétaire de ta mère, assis dans son fauteuil à coussin. Il se lève quand tu entres, et t'offre le fauteuil. Tu ne le prends pas. Il s'y rassoit.",
+      "Germain t'attend dans le bureau, au secrétaire de ta mère, assis dans son fauteuil à coussin. Il se lève quand tu entres, et t'offre le fauteuil. Tu restes debout. Il s'y rassoit.",
       "« Je vais te parler franchement, dit-il, parce que tu es de la famille et que tu es quelqu'un d'intelligent. Ta mère t'a laissé le bois des Fayards. C'est dans son testament, chez Combaz, au bourg. Quarante arpents. »",
       "« Il y a un acheteur, Vernet, le marchand de Saint-Amans. Neuf cents livres, comptant, pour la coupe. C'est une fortune. La scierie en a besoin, je ne te le cache pas : les affaires ont été dures, cette année, avec ta mère malade. Ta mère allait signer. Elle était d'accord. » Il sourit. « Il ne manque que ta signature, maintenant. Tu n'as rien à faire. Tu signes, tu repars, l'argent te suit à Varenne. »",
       "Il attend. Il a l'air de quelqu'un qui a l'habitude qu'on lui dise oui.",

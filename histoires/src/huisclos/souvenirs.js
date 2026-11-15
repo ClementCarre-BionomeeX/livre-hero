@@ -131,7 +131,7 @@ module.exports = {
     title: "Un rêve", place: "etage", back: true,
     text: [
       { tendre: true, text: "Tu es dans la cabane, sous la couverture de cheval, et Jeanne dort contre toi. Elle a dix-sept ans et elle en a vingt-huit, les deux en même temps.", else: "Tu es dans la cabane, et Jeanne est assise sur le banc de rameur. Elle a dix-sept ans et elle en a vingt-huit, les deux en même temps." },
-      "Quelqu'un frappe à la porte. Trois petits coups. Ni toi ni elle ne bougez pour ouvrir.",
+      "Quelqu'un frappe à la porte. Trois petits coups. Vous laissez frapper.",
       "Tu te réveilles avant de savoir qui frappait, et tu le sais quand même.",
     ],
   },
