@@ -808,6 +808,11 @@ button.kw { font: inherit; color: var(--accent); font-weight: 600; background: n
   .tx-tremble .l, .tx-ondule .l, .tx-irise, .tx-efface, .tx-lueur, .tx-or.just, .tx-encre, .page.mood-ivre .prose, .page.mood-fievre .prose, .mw.shiver { animation: none !important; }
   .tx-ecrit .l { opacity: 1; animation: none; }
 }
+/* A book to read (9.0): the historical notice, set apart; its reminder at the head of a chapter. */
+.book-notice { margin: 12px 0; padding: 12px 16px; border-radius: 8px; border: 2px solid var(--accent); border-left-width: 6px; background: color-mix(in srgb, var(--accent) 8%, var(--paper)); }
+.book-notice .label { font-weight: 700; margin-bottom: 4px; }
+.book-notice .prose p { margin: 6px 0; }
+.book-notice.short { font-size: 15px; display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px; border-width: 1px; border-left-width: 5px; }
 
 /* 8.9: a path an earlier game unveiled; a shortcut over a known scene */
 .choice .unveiled { color: var(--accent, #b07d2a); }
