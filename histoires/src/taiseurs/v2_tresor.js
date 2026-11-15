@@ -58,7 +58,7 @@ Object.assign(P, {
       "Au-dessus de chaque tête, sur le mur, quelqu'un a peint une ligne à l'ocre, que l'humidité a presque bue. Tu déchiffres un mot sur trois : *{{loupe#vt_secr_noms|Ici nous attendons la reine|Ivona Vasse, Pol Brac, Enora Kerhoas, Alan Danic, Gwenn Lannuzel, Tiphaine Ruellan, Judicaël Riou : nous avons fermé la porte de dedans, pour que la clé reste avec nous}}.*",
       "La femme du milieu a la main droite posée sur la main de son voisin. Elle est restée là trois cents ans.",
       { with: "fauvette", text: "Fauvette regarde les jetons, puis toi, puis les jetons. « Je demande, c'est tout, dit-elle. Je ne touche pas. » Elle met les mains dans son dos." },
-      { with: "salome", text: "Salomé reste sur la dernière marche. Elle n'aime pas les morts assis : en mer, on les couche, on les coud dans une toile, on les rend à l'eau." },
+      { with: "salome", text: "Salomé reste sur la dernière marche. Les morts assis la mettent mal à l'aise : en mer, on les couche, on les coud dans une toile, on les rend à l'eau." },
     ],
     choices: [
       { label: "Lire les noms à voix haute, un par un", hide: { not: { voile: "vt_secr_noms" } }, to: "VT_secretaires_noms" },
@@ -85,7 +85,7 @@ Object.assign(P, {
       "Les sept jetons tiennent dans ta paume. Ils sont tièdes. Quand tu fermes le poing, tu sens contre ta peau une vibration très fine, sept notes qui cherchent à s'accorder.",
       { with: "lison", text: "Lison te regarde faire sans t'arrêter. « Tu leur as pris la seule chose qu'ils avaient gardée », dit-elle. Puis elle remonte deux marches pour ne plus voir le banc." },
       { with: "fauvette", text: "Fauvette, elle, compte les jetons dans ta main, du bout du doigt. « Sept. Bien. » Elle hoche la tête, contente de ton travail, et un peu jalouse." },
-      { with: "gildas", text: "Frère Gildas trace un signe au-dessus du banc, lentement, la main ouverte. Il ne te dit rien. Il le fait pour eux." },
+      { with: "gildas", text: "Frère Gildas trace un signe au-dessus du banc, lentement, la main ouverte. En silence : le geste est pour eux." },
     ],
     choices: [{ back: "VT_seuil" }] },
 
@@ -100,7 +100,7 @@ Object.assign(P, {
       { if: M(4, 4), text: "Au-dessus de toi, la lumière du dôme a changé : la lune est plus basse, et quelque part, la mer fait le bruit d'un bassin qu'on remplit." },
       { if: M(5, 5), text: "Un filet d'eau descend l'escalier derrière toi et s'étale sur le seuil de la salle. La mer est revenue jusqu'à la dernière porte. Il te reste une heure, peut-être moins." },
       { if: MER, text: "L'eau coule dans l'escalier avec un bruit de torrent. Elle a couvert la chambre des secrétaires. Dans la salle, elle monte d'un doigt chaque fois que tu la regardes." },
-      { if: LOTH_LUTRIN, text: "Au centre, devant le lutrin, un homme en manteau sombre est penché sur la cloche de verre, une lanterne posée à ses pieds. Lothaire Brunel. Il ne se retourne pas. « Entrez, dit-il. Je vous entends penser depuis l'escalier. »" },
+      { if: LOTH_LUTRIN, text: "Au centre, devant le lutrin, un homme en manteau sombre est penché sur la cloche de verre, une lanterne posée à ses pieds. Lothaire Brunel. Il reste de dos. « Entrez, dit-il. Je vous entends penser depuis l'escalier. »" },
       { if: { all: [ALLIE, { not: { has: "vt:allie_regle" } }] }, text: "Lothaire Brunel s'est arrêté au seuil, ses gants gris à la main. Il regarde l'or une fois, puis le lutrin, et ses yeux restent sur le lutrin." },
       { first: true, with: "tibere", text: "Tibère siffle entre ses dents, longuement, et s'arrête au milieu du sifflement." },
       { first: true, with: "fauvette", text: "Fauvette fait trois pas dans la salle, tourne sur elle-même, et éclate de rire, un rire bref qu'elle étouffe dans sa manche." },
@@ -130,7 +130,7 @@ Object.assign(P, {
       "Les tas du devant {{pie#vt_or_plomb|brillent d'un or épais, et ils montent jusqu'à hauteur d'homme|sont de plomb sous une feuille d'or, un appât pour qui viendrait remplir ses sacs : le vrai or est au fond, contre le mur, en lingots bas et serrés, et il tiendrait dans trois coffres}}.",
       "Sur la tranche de chaque lingot, on a frappé une ligne au poinçon : *{{loupe#vt_or_lingots|Trésor de la couronne du delta|Rendu au peuple des marais, pour le sel qu'on lui a pris : celui qui le remonte le leur doit}}.*",
       { with: "tibere", text: "Tibère enfonce le bras jusqu'au coude dans un tas de pièces et le ressort couvert de poussière d'or. « Rosalie pourrait s'acheter un atelier entier, dit-il. Avec les aiguilles et les apprenties. » Il secoue la main au-dessus du tas, soigneusement, pour tout rendre." },
-      { with: "fauvette", text: "Fauvette s'est accroupie devant un plat et regarde son reflet dedans, tordu par l'or. Elle ne prend rien. Pour une fois, elle a l'air de ne pas savoir par où commencer." },
+      { with: "fauvette", text: "Fauvette s'est accroupie devant un plat et regarde son reflet dedans, tordu par l'or. Elle garde les mains vides. Pour une fois, elle a l'air de chercher par où commencer." },
       { if: { has: "metier:mains" }, text: "Tes mains te le disent avant tes yeux : les pièces du dessus pèsent toutes un peu moins que ce qu'elles devraient." },
     ],
     choices: [
@@ -148,7 +148,7 @@ Object.assign(P, {
       "Derrière les tas brillants, contre le mur, les lingots sont rangés à plat, sur trois rangs, bas et mats. Ils ont la couleur du beurre. Chacun pèse le poids d'un enfant de deux ans. Tu en comptes deux cent quarante. À côté, trois coffres de chêne cerclés de fer attendent, vides, le couvercle ouvert : les Taiseurs ont tout préparé pour qu'on emporte l'or, à condition de savoir lequel.",
       "Au plafond, au-dessus des coffres, une poulie de bronze pend d'une poutre, et sa corde file vers le dôme, vers une ouverture ronde dans la paroi où monte un escalier.",
       { with: "salome", text: "Salomé tire sur la corde de la poulie, deux fois, de tout son poids, et écoute. « Un treuil, en haut, dit-elle. On peut hisser. Il faut du monde pour tourner, et un bateau en bas pour recevoir. »" },
-      { with: "lison", text: "Lison passe la main sur la tranche d'un lingot, là où la ligne est frappée. Elle ne peut pas lire ce qui est dessous, mais elle sent les lettres. « Ils ont écrit dessus, dit-elle. Ils écrivaient partout. »" },
+      { with: "lison", text: "Lison passe la main sur la tranche d'un lingot, là où la ligne est frappée. Elle sent les lettres sous ses doigts, sans pouvoir les lire. « Ils ont écrit dessus, dit-elle. Ils écrivaient partout. »" },
     ],
     choices: [
       { label: "Remplir les trois coffres et les hisser par le treuil", big: true, if: HOIST, why: "Il faudrait un bateau en bas de la tour, ou un équipage, ou une capitaine qui sache recevoir une charge.", to: "VT_or_charger" },
@@ -162,7 +162,7 @@ Object.assign(P, {
       "Vous chargez les coffres, lingot par lingot, en vous les passant de main en main. À la centième barre, tout le monde se tait. À la deux-centième, quelqu'un se met à compter tout haut, pour tenir. Les coffres pleins sont si lourds qu'il faut les glisser sur des rouleaux de bois jusqu'à la poulie.",
       "La corde du treuil {{pie#vt_corde|est grosse comme le poignet, et neuve d'aspect sous sa gaine|est pourrie au cœur, sous une gaine de cuir ciré qui la fait paraître neuve : elle lâchera à la troisième charge}}.",
       { with: "tibere", text: "Tibère a pris le haut de l'escalier du dôme, où tourne le treuil. Tu l'entends souffler et jurer là-haut, une manivelle dans chaque main." },
-      { with: "salome", text: "Salomé fait les nœuds. Un nœud de chaise double, un nœud de griffe, un tour mort sur la poutre. Elle n'a pas besoin de regarder ses mains." },
+      { with: "salome", text: "Salomé fait les nœuds. Un nœud de chaise double, un nœud de griffe, un tour mort sur la poutre. Ses mains travaillent seules." },
       { if: { has: "basse:equipage" }, text: "Tu envoies quelqu'un en haut de la tour, avec une lanterne, pour faire signe à tes gens de la grève : qu'ils amènent la barque au pied de la tour quand la mer sera haute." },
       { if: { all: [{ not: { has: "basse:equipage" } }, { has: "basse:bateau" }] }, text: "Ton bateau attendra au pied de la tour quand la mer sera revenue. Il faudra descendre les coffres jusqu'à lui, par l'autre côté, à la corde." },
     ],
@@ -232,7 +232,7 @@ Object.assign(P, {
       "La couronne {{pie#vt_couronne|est un cercle de sel gris et terne, qu'on écraserait entre deux doigts|est faite du sel de chaque saline du delta, cristallisé en couches sur une âme d'argent, et elle a passé trois siècles sous la mer sans perdre un grain}}.",
       "Sur la tranche du coussin, on a gravé une ligne : *{{loupe#vt_couronne_mot|Au peuple du sel, sa reine|Qu'on la pose sur une tête qui se taira pour que les autres parlent}}.*",
       { with: "salome", text: "Salomé passe un doigt sur la couronne, puis le porte à sa langue. Elle fait la grimace. « Du sel, dit-elle. Du vrai. Du sel de Grisemotte, et du sel des Écueils, plus amer. » Elle te regarde. « Ils ont fait une couronne avec ce qu'on gratte sur les bassins. »" },
-      { with: "lison", text: "Lison s'approche et ne touche pas. « Les sauniers la lui ont faite pour son couronnement, dit-elle. Chaque saline a donné une poignée. C'est dans une chanson de Grisemotte, la seule que les sauniers chantent encore à voix haute. »" },
+      { with: "lison", text: "Lison s'approche, les mains derrière le dos. « Les sauniers la lui ont faite pour son couronnement, dit-elle. Chaque saline a donné une poignée. C'est dans une chanson de Grisemotte, la seule que les sauniers chantent encore à voix haute. »" },
       { if: { has: "saline:ouverte" }, text: "Tu te rappelles les bassins de Grisemotte, la croûte blanche qui craque sous la raclette, la sueur des sauniers. La couronne en a la couleur exacte." },
     ],
     choices: [
@@ -275,7 +275,7 @@ Object.assign(P, {
       { if: { relics: { min: 6 } }, text: "Le Registre est entier. Tu le soulèves : il pèse le poids d'un missel. Au dos, sous la reliure, un dernier texte apparaît, que l'encre des six feuillets réunis fait remonter, ligne à ligne." },
       { if: { relics: { max: 5 } }, text: "Le Registre a des trous. Les encoches vides font des jours dans la reliure, et quand tu la soulèves, elle penche du côté plein." },
       "Sur la dernière garde, une ligne : *{{loupe#vt_colophon|Écrit sous la dictée des mains de la reine, par Aymeric Vasse, chancelier|Ce qu'elle a dit avec ses mains, je l'ai écrit avec les miennes ; ce qu'elle disait avec sa bouche, la salle le garde : qu'on frappe le trône}}.*",
-      { with: "gildas", text: "Frère Gildas lit par-dessus ton épaule, les lèvres serrées. Ses yeux sont mouillés. Il ne les essuie pas." },
+      { with: "gildas", text: "Frère Gildas lit par-dessus ton épaule, les lèvres serrées. Ses yeux sont mouillés. Il les laisse ainsi." },
       { with: "lison", text: "Lison touche le dos de la reliure, une seule fois, du bout du doigt. « Ma grand-mère voudrait le tenir, dit-elle. Juste le tenir. »" },
     ],
     choices: [{ back: "VT_salle" }] },
@@ -307,7 +307,7 @@ Object.assign(P, {
       { if: { item: "diapason" }, text: "Tu frappes le diapason contre la griffe du lutrin et tu l'approches du verre. La cloche répond. Sa note monte avec celle du bronze, pareille, et l'anneau de plomb se met à grésiller. Il se fend d'un bout à l'autre, très net, et tombe en deux morceaux sur le plateau." },
       { with: "lison", if: { not: { item: "diapason" } }, text: "Lison colle la bouche contre le verre et chante une seule note, longue, celle que les femmes des Joncs-Bas donnent pour appeler les barques au crépuscule. La cloche répond. L'anneau de plomb grésille, se fend, tombe en deux morceaux." },
       { with: "gildas", if: { all: [{ not: { item: "diapason" } }, { not: { present: "lison" } }] }, text: "Frère Gildas chante la note des vêpres du Mont, grave, tenue jusqu'au bout du souffle. La cloche répond, et l'anneau de plomb se fend en deux." },
-      { outcome: "win", text: "La pointe de ta lame suit la jointure, fend le plomb sur toute la longueur. Il te faut une heure, et un calme que tu ne te connaissais pas. L'anneau tombe en deux morceaux." },
+      { outcome: "win", text: "La pointe de ta lame suit la jointure, fend le plomb sur toute la longueur. Il te faut une heure, et un calme nouveau pour toi. L'anneau tombe en deux morceaux." },
       "Tu soulèves la cloche à deux mains. Elle est lourde et tiède. Tu la poses sur la mosaïque, à côté du lutrin. La Charte est là, à portée de ta main, sur le plateau de bronze.",
       { if: { any: [{ voile: "vt_lutrin" }, { voile: "vt_cloche" }] }, text: "Le plateau, sous elle, a l'air de respirer. Il attend le poids qu'on lui prendra." },
     ],
@@ -398,7 +398,7 @@ Object.assign(P, {
   VT_porte_tenue: { act: "V", title: "La porte fermée", place: "sorne",
     text: [
       { outcome: "lose", text: "La porte se ferme, mais trop tard pour une part de ce qui était là. Le flot a emporté vers le conduit un des coffres de lingots, qui a glissé sur la mosaïque mouillée et basculé dans le noir avant que le bronze ne claque. Tu as de l'eau jusqu'aux cuisses, une épaule qui te lance, et une heure de moins." },
-      { if: { has: "vt:coffre_cale" }, text: "Le coffre de lingots fait un bruit terrible en heurtant le bronze, mais il tient. La porte reste fermée sur lui, et tu sais déjà qu'on ne le dégagera plus." },
+      { if: { has: "vt:coffre_cale" }, text: "Le coffre de lingots fait un bruit terrible en heurtant le bronze, mais il tient. La porte reste fermée sur lui, et tu sais déjà qu'il y restera." },
       { if: { voile: "vt_porte_mot" }, text: "Sous la septième dalle, dans un creux, il y a un poids de bronze en forme de bouche fermée. Tu le poses sur sa tige. La porte se referme d'elle-même, lentement, comme on referme un livre." },
       "Le battant claque. L'eau se retire de la mosaïque par les rigoles, en sifflant. Le bruit de la mer, de l'autre côté, devient sourd, lointain, un bruit de voisins.",
       { with: "any", text: "Vous restez un moment immobiles, trempés, à vous regarder." },
@@ -446,7 +446,7 @@ Object.assign(P, {
       "Le trône {{echo#vt_voix_trois|garde sa note, très basse, comme une respiration|garde la voix de la reine, la nuit, vite, presque sans souffle : « Ils viennent. J'entends leurs bottes sur la rampe. Écris, Aymeric, écris vite. Écris que je n'étais pas folle. Écris que je les ai tous vus, les quarante, et que je les ai nommés pendant que j'avais encore de quoi les nommer. Écris que c'est le jeune Marrel qui tient le couteau, et que sa main tremble plus que la mienne »}}.",
       "Ensuite il y a un bruit de porte, des pas nombreux, une table renversée. Puis plus rien que la note, qui revient seule, et qui tient.",
       { with: "salome", text: "Salomé a croisé les bras très serré sur sa poitrine. Elle regarde le sol." },
-      { with: "fauvette", text: "Fauvette s'est collée contre ton dos, sans y penser, et quand elle s'en aperçoit, elle ne bouge pas." },
+      { with: "fauvette", text: "Fauvette s'est collée contre ton dos, sans y penser, et quand elle s'en aperçoit, elle reste là." },
       { if: { has: "lothaire:allie" }, text: "Lothaire Brunel a ôté le cornet jumeau de son oreille. Il le tient à la main, loin de lui, et il a le visage d'un homme qui vient d'entendre son nom dans une conversation." },
     ],
     choices: [
@@ -530,7 +530,7 @@ Object.assign(P, {
     fx: { clock: { maree: 1 }, meet: "lothaire" },
     text: [
       { if: { has: "vn:lothaire_devant" }, text: "Lothaire se redresse, lentement, et se tourne vers toi. Il a posé ses gants sur le plateau du lutrin, à côté de la cloche. Il a essayé d'ouvrir le verre : l'anneau de plomb porte trois entailles de couteau, et il saigne d'un doigt." },
-      { if: { not: { has: "vn:lothaire_devant" } }, text: "Lothaire s'arrête sur la dernière marche et regarde la salle par-dessus ta tête : l'or, le dôme, le trône, le lutrin. Il ne montre rien. Seule sa main gauche, qui tient le cornet jumeau, s'est crispée." },
+      { if: { not: { has: "vn:lothaire_devant" } }, text: "Lothaire s'arrête sur la dernière marche et regarde la salle par-dessus ta tête : l'or, le dôme, le trône, le lutrin. Son visage reste lisse. Seule sa main gauche, qui tient le cornet jumeau, s'est crispée." },
       "« Nous voilà, dit-il de sa voix douce. Vous et moi, au bout du chemin, et entre nous de quoi acheter une province. » Il sourit. « Je {{oreille#vt_lo_offre|vous propose le tiers de l'or, et la paix|vous laisserai le tiers de l'or le temps de remonter, et j'ai deux carreaux d'arbalète dans l'escalier pour le reprendre}}. »",
       { if: { all: [{ has: "ivb:lothaire_libre" }, { not: { seen: "VN_lothaire" } }] }, text: "« Vous pensez toujours trop fort, ajoute-t-il. Je vous l'ai dit chez Madame, le soir où je vous ai laissé{e} derrière moi. Cela ne vous a pas encore perdu{e}. »" },
       "Il penche la tête, écoute. « Vous pensez *jamais*. Et dessous, plus bas, vous pensez *combien*. C'est humain. »",
@@ -546,11 +546,11 @@ Object.assign(P, {
 
   VT_lo_parle: { act: "V", title: "Ce que vous pensez", place: "sorne",
     text: [
-      "Lothaire fait trois pas dans la salle, les mains derrière le dos, comme un acheteur dans une boutique. Il ne touche à rien. Il s'arrête devant un tas de pièces, en prend une, la mord, et la repose avec un petit sourire.",
+      "Lothaire fait trois pas dans la salle, les mains derrière le dos, comme un acheteur dans une boutique. Il s'arrête devant un tas de pièces, en prend une, la mord, et la repose avec un petit sourire.",
       "« Corisande veut l'or pour payer le duc, dit-il. Le duc veut la Charte pour casser la République. Les Taiseurs veulent qu'on laisse tout à la mer. Et vous, vous ne savez pas ce que vous voulez, c'est ce qui vous rend si bruyant. » Il se tourne vers toi. « Madame {{oreille#vt_lo_madame|m'a toujours bien payé, et je la sers|m'a fait porter un billet hier soir : après cette nuit, elle n'aura plus besoin de mes services ; je sais ce que ça veut dire, chez elle}}. »",
       "Il tapote le cornet jumeau. « Je vous entends. Vous m'entendez. Nous sommes les deux seules personnes de cette salle qui savent ce que pensent les autres. C'est une solitude, vous verrez. »",
       { with: "tibere", if: { has: "tibere:espion" }, text: "Tibère a la main sur sa masse. Lothaire le salue d'un signe de tête, aimable. « Sergent. Vos cinq ducats vous attendent, si vous les voulez encore. » Tibère {{oreille#vt_lo_tibere|crache par terre|pense à Rosalie, et à ce qu'il a fait de ces cinq ducats, semaine après semaine}}." },
-      { if: { has: "taiseurs:serment" }, text: "Tu sens sa curiosité quand il t'écoute : il entend deux pensées en même temps, l'une devant l'autre, et il ne sait plus laquelle est la tienne." },
+      { if: { has: "taiseurs:serment" }, text: "Tu sens sa curiosité quand il t'écoute : il entend deux pensées en même temps, l'une devant l'autre, et il hésite sur celle qui est la tienne." },
     ],
     choices: [
       { label: "« Elle vous a congédié par billet. Venez avec nous contre elle. »", hide: { not: { voile: "vt_lo_madame" } }, fx: { ep: ["seance", 2500] }, to: "VT_lo_allie" },
@@ -588,7 +588,7 @@ Object.assign(P, {
     fx: { flag: ["lothaire:mort", "vt:banque_reglee"], unflag: "lothaire:vaincu" },
     text: [
       { with: "salome", if: { seen: "VT_lo_salome" }, text: "Salomé l'a fait. Elle essuie son coutelas sur le manteau de Lothaire, d'un geste lent, des deux côtés de la lame. Puis elle s'assied par terre, le dos contre un coffre, et elle se met à trembler, de la tête aux pieds, sans pleurer." },
-      { if: { not: { seen: "VT_lo_salome" } }, text: "Il ne se défend pas. Il te regarde jusqu'au bout, avec une curiosité tranquille, comme s'il voulait entendre ce que tu penses à ce moment-là. Tu espères qu'il ne l'entend pas." },
+      { if: { not: { seen: "VT_lo_salome" } }, text: "Il se laisse faire. Il te regarde jusqu'au bout, avec une curiosité tranquille, comme s'il voulait entendre ce que tu penses à ce moment-là. Tu espères qu'il ne l'entend pas." },
       "Lothaire Brunel est mort sur la mosaïque du delta, la joue posée sur une île. Ses gants gris sont tombés à côté de lui.",
       "Tu {{miroir#vt_lo_miroir|as fait ce qu'il fallait faire, au bout du compte|as pensé à Maïwenn, au coffret, à la corde, et tu as aussi pensé qu'il était le seul à t'entendre, et que tu ne voulais plus qu'on t'entende}}.",
     ],
@@ -611,7 +611,7 @@ Object.assign(P, {
     fx: { flag: ["lothaire:vaincu", "vt:banque_reglee", "vt:salome_epargne"], item: "ivb_cornet_jumeau", ep: ["histoire", 3000] },
     text: [
       { with: "salome", text: "Salomé baisse le coutelas. Elle le regarde comme on regarde un outil qu'on n'a plus envie de tenir, et elle le rengaine. « Tu remonteras, dit-elle à Lothaire. Et tu le diras. Devant le Guet, devant le Conseil, devant la Veuve Corbière, devant qui je voudrai. Chaque fois que je te le demanderai, tu le diras. »" },
-      "Lothaire hoche la tête. Il ne reprend pas son cornet sur le lutrin. Tu le prends. Il te regarde le prendre, et il a l'air soulagé.",
+      "Lothaire hoche la tête. Il laisse son cornet sur le lutrin. Tu le prends. Il te regarde le prendre, et il a l'air soulagé.",
       { with: "salome", text: "Salomé s'en va s'asseoir sur les marches du trône. Elle a les mains à plat sur les genoux, et elle respire, longuement, comme quelqu'un qui remonte d'une plongée." },
     ],
     choices: RETOUR },
@@ -657,7 +657,7 @@ Object.assign(P, {
       "Lothaire Brunel s'est rapproché de toi pendant que les autres regardaient l'escalier. Il ne fait rien. Il est là, à un pas, et ses yeux vont de ton visage à la toile cirée contre ta poitrine.",
       "« Je pourrais la lire ? demande-t-il. Une fois. Je l'ai cherchée vingt ans pour quelqu'un d'autre. Je {{oreille#vt_la_veut|voudrais seulement savoir ce qu'elle dit|pourrais la porter au duc demain matin, et je n'aurais plus jamais à porter de gants pour personne}}. »",
       "Il entend que tu hésites. Il sourit, un peu triste. « Vous avez raison d'hésiter. Moi aussi, j'hésite. »",
-      { if: { has: "ivm:lothaire_bord" }, text: "Tu l'as sorti des cachots de la Tour Ronde de tes mains, et il le sait. Ça pèse quelque chose, chez lui. Tu ne sais pas combien." },
+      { if: { has: "ivm:lothaire_bord" }, text: "Tu l'as sorti des cachots de la Tour Ronde de tes mains, et il le sait. Ça pèse quelque chose, chez lui. Combien, tu l'ignores." },
     ],
     choices: [
       { label: "Lui confier la Charte", hide: { not: { has: "ivm:lothaire_bord" } }, to: "VT_la_tient" },
@@ -691,7 +691,7 @@ Object.assign(P, {
   VT_la_reprise: { act: "V", title: "Sur les marches", place: "sorne",
     fx: { relic: "f_sorne", ep: ["seance", 2500] },
     text: [
-      { with: "fauvette", text: "Fauvette le rattrape au troisième palier. Elle ne le frappe pas : elle lui passe entre les jambes, et la Charte change de mains pendant qu'il tombe. Quand il se relève, elle est déjà trois marches plus bas, la toile cirée sous le bras. « Elle est mieux chez nous », lui dit-elle." },
+      { with: "fauvette", text: "Fauvette le rattrape au troisième palier. Elle lui passe entre les jambes, sans un coup, et la Charte change de mains pendant qu'il tombe. Quand il se relève, elle est déjà trois marches plus bas, la toile cirée sous le bras. « Elle est mieux chez nous », lui dit-elle." },
       { without: "fauvette", text: "Tu le rattrapes au troisième palier, où l'escalier tourne court. Tu le saisis par le manteau. Il se retourne, et il te tend la Charte avant même que tu la demandes, avec un petit haussement d'épaules." },
       "Lothaire s'assied sur une marche, essoufflé. « Il fallait que j'essaie, dit-il. Vous comprenez. Je m'en serais voulu de ne pas essayer. » Il rit doucement. « Je redescends avec vous. Je n'ai plus d'endroit où aller, de toute façon. »",
     ],
@@ -763,7 +763,7 @@ Object.assign(P, {
       { with: "tibere", if: { not: { voile: "vt_be_ordre" } }, text: "Tibère s'avance vers la file, les pouces dans le ceinturon. Il laisse Léandre de côté et parle aux hommes, un par un, par leur nom quand il le connaît. « Gaucher. Tu as une femme à Salvèze, et deux gosses. Mathelin. Ta mère est toujours sur le quai aux Herbes ? Qu'est-ce que vous faites là, avec des pelles, à trois cents marches sous la mer, pour une femme qui ne vous paie plus ? »" },
       { if: { voile: "vt_be_ordre" }, text: "Tu le dis à la file, pas à Léandre. Qu'il a ordre de brûler la Charte ici et de ne laisser remonter personne qui l'aurait lue. Que la nuit est longue, et que ceux qui auront vu Léandre faire ça sont aussi des gens qui l'auront lue, de près ou de loin. Les hommes se regardent." },
       { if: ALLIE, text: "Lothaire ajoute, de sa voix douce : « Je travaille pour Madame depuis vingt ans. Hier, elle m'a congédié par billet. Vous croyez qu'elle vous écrira, à vous ? »" },
-      "Un homme pose sa pelle. Un autre sa pince. Puis la file entière recule vers l'escalier, d'un pas tranquille. Léandre les regarde partir. Il ne les retient pas.",
+      "Un homme pose sa pelle. Un autre sa pince. Puis la file entière recule vers l'escalier, d'un pas tranquille. Léandre les regarde partir. Il les laisse aller.",
       "« Bon, dit-il. » Il remet son épée au fourreau, très soigneusement. « Je dirai à Madame que la mer est montée trop vite. C'est presque vrai. »",
     ],
     choices: RETOUR },
@@ -772,7 +772,7 @@ Object.assign(P, {
     fx: { join: "tibere", unflag: "tibere:parti", flag: ["vt:tibere_revenu", "vt:banque_reglee"], conf: { tibere: 15 }, ep: ["histoire", 3500] },
     text: [
       "Tibère te regarde enfin. Il a les yeux rouges, et la moustache qui tremble. « Il est trop tard, dit-il. Tu le sais. »",
-      "Tu ne réponds rien. Tu attends. Tu as appris à attendre, cette année, plus que dans toute ta vie.",
+      "Tu te tais, et tu attends. Tu as appris à attendre, cette année, plus que dans toute ta vie.",
       "Tibère ôte le manteau noir à boutons d'or. Il le plie, mal, et le pose sur les marches. Puis il traverse la mosaïque et vient se mettre à côté de toi, la masse à la main, face aux hommes de la Banque. « J'ai fait le Guet avec la moitié de ces gars-là, dit-il à voix haute. Le premier qui lève une arbalète, je lui dis le nom de sa mère devant tout le monde. »",
       "Les arbalètes restent basses. Léandre Escoffe regarde ses hommes, puis Tibère, puis toi. Il fait un geste de la main, las, et la file remonte l'escalier. Il les suit.",
     ],
@@ -789,7 +789,7 @@ Object.assign(P, {
       { if: { is: { or: "remonte" } }, text: "Les hommes de la Banque emportent deux des trois coffres de lingots. Ils les remontent par l'escalier de la colline, à quatre par coffre, en jurant." },
       { if: { not: SAUVEUR }, text: "Il n'y a personne pour plonger dans le feu. La Charte brûle d'un coin à l'autre, et la cire du sceau coule sur les braises avec une odeur de miel." },
       { if: { not: { seen: "VT_co_rompt" } }, text: "Puis ils s'en vont. Léandre te salue en passant, sans moquerie. « Madame aura ce qu'elle voulait, dit-il. Ou presque. »" },
-      { if: { seen: "VT_co_rompt" }, text: "Puis ils s'en vont. Corisande Marrel passe devant toi dans sa chaise à bras et ne te regarde pas. « Je préférais le savoir ici, dit-elle aux porteurs. Je le savais. »" },
+      { if: { seen: "VT_co_rompt" }, text: "Puis ils s'en vont. Corisande Marrel passe devant toi dans sa chaise à bras, les yeux ailleurs. « Je préférais le savoir ici, dit-elle aux porteurs. Je le savais. »" },
     ],
     choices: [
       { label: "Te relever", hide: { any: [{ not: SAUVEUR }, { not: CHARTE }] }, fx: { conf: { lison: 5, fauvette: 5 } }, to: "VT_be_apres" },
@@ -811,7 +811,7 @@ Object.assign(P, {
   VT_co_entree: { act: "V", title: "Corisande Marrel", place: "sorne",
     fx: { clock: { maree: 1 }, meet: "corisande" },
     text: [
-      "Les porteurs posent la chaise à bras au pied de l'escalier, sur la mosaïque. Corisande Marrel n'en descend pas. Elle regarde la salle sans hâte, l'or, le trône, le lutrin, et son regard ne s'attarde nulle part. Elle a l'air d'une femme qui inspecte un entrepôt qu'elle vient d'acheter.",
+      "Les porteurs posent la chaise à bras au pied de l'escalier, sur la mosaïque. Corisande Marrel y reste assise. Elle regarde la salle sans hâte, l'or, le trône, le lutrin, et son regard ne s'attarde nulle part. Elle a l'air d'une femme qui inspecte un entrepôt qu'elle vient d'acheter.",
       "« Nous avons un accord, dit-elle. L'or à la Banque, qui paiera le duc à la Saint-Jean. Le Registre au feu, avec la Charte. La ville vivra, et personne n'ira chercher dans des parchemins de trois siècles de quoi faire pendre des gens qui sont morts. » Elle tend la main vers un brasero que ses gens viennent d'allumer près d'elle. « Je {{oreille#vt_co_feu|brûlerai ce parchemin pour que la ville vive en paix|brûlerai ce parchemin parce qu'un Marrel tenait le couteau, et que je refuse d'entendre mon nom lu sur une place}}. »",
       "Elle ajoute, plus bas : « La ville {{oreille#vt_co_berold|a besoin de cet or avant la Saint-Jean|a besoin de cet or, et Bérold aussi : si le duc n'est pas payé à la Saint-Jean, il me rendra mon petit-fils dans un coffre}}. »",
       { if: { has: "ivm:cori_arbaletes" }, text: "Derrière la chaise, les douze arbalétriers ont pris position sur les marches. Tu les as comptés sur sa galère. Ils sont tous là." },
@@ -834,7 +834,7 @@ Object.assign(P, {
       "Corisande Marrel hoche la tête, une seule fois. Elle a l'air moins soulagée que tu ne le croyais : plutôt fatiguée, comme quelqu'un qui a gagné une partie très longue et qui a mal au dos.",
       "« Mes gens hisseront l'or, dit-elle. *La Constance* attendra au pied de votre tour quand la mer sera haute. Pour la Charte, je vous laisse jusqu'en haut. Je préfère la brûler à l'air libre, devant témoins. On dira que la Banque n'a pas eu peur de la regarder. »",
       "Ses porteurs se mettent au travail, avec ses arbalétriers, en silence. Les coffres se remplissent de lingots, mieux et plus vite que tu ne l'aurais fait.",
-      { with: "lison", text: "Lison te regarde. Elle ne dit rien. Elle se détourne et va s'asseoir sur les marches du trône, le dos tourné à la chaise à bras." },
+      { with: "lison", text: "Lison te regarde. Elle se tait. Elle se détourne et va s'asseoir sur les marches du trône, le dos tourné à la chaise à bras." },
       { with: "salome", text: "Salomé crache par terre, du côté de la chaise. Les porteurs regardent ailleurs." },
     ],
     choices: RETOUR },
@@ -842,7 +842,7 @@ Object.assign(P, {
   VT_co_rompt: { act: "V", title: "Les arbalètes", place: "sorne",
     fx: { unflag: "corisande:pacte", flag: "vt:pacte_rompu", fac: { banque: -15 } },
     text: [
-      "Corisande Marrel ne s'étonne pas. Elle lève deux doigts, sans hâte. Sur les marches, les arbalétriers épaulent.",
+      "Corisande Marrel prend la chose sans surprise. Elle lève deux doigts, sans hâte. Sur les marches, les arbalétriers épaulent.",
       "« Je préfère le savoir ici que sur le sable, dit-elle. Je vous l'avais dit. » Elle se tourne vers ses porteurs. « Reculez-moi. »",
       { if: LIBRE, text: "Lothaire Brunel tire sa canne-épée, à regret, en soupirant, comme on enfile des bottes mouillées." },
     ],
@@ -864,7 +864,7 @@ Object.assign(P, {
     fx: { unflag: "corisande:pacte", flag: ["vt:banque_reglee", "vt:cori_berold"], fac: { banque: 5 } },
     text: [
       "Corisande Marrel reste immobile. Ses mains, sur la loutre, se serrent l'une sur l'autre jusqu'à ce que les bagues lui mordent les doigts. C'est la seule chose qui bouge.",
-      "« Qui vous l'a dit ? » Tu ne réponds pas. Elle regarde ton oreille, longtemps. « Ah. Bien sûr. »",
+      "« Qui vous l'a dit ? » Tu te tais. Elle regarde ton oreille, longtemps. « Ah. Bien sûr. »",
       "Elle parle très bas, pour toi seul{e}. « Il a dix-sept ans. Il voulait être soldat. Le duc l'a pris aux cadets à l'automne, avec les fils de trois autres maisons. Nous avons tous fait semblant que c'était un honneur. Si le duc n'est pas payé à la Saint-Jean, il sera le premier à payer. »",
       "Tu lui dis ce que tu proposes. Une part de l'or pour Bérold, une part seulement, versée au duc par ta main et pour son nom à lui. La Charte, lue. La Banque, laissée à son sort.",
       "Elle réfléchit le temps de trois respirations. « Vous me prenez ma maison, et vous me rendez mon petit-fils, dit-elle. C'est un marché de chercheur de choses perdues. » Elle fait signe à ses arbalétriers de baisser leurs armes. « Je n'ai jamais aimé cette maison. »",
@@ -886,7 +886,7 @@ Object.assign(P, {
   VT_co_lothaire: { act: "V", title: "Au passé", place: "sorne",
     fx: { unflag: "corisande:pacte", flag: ["vt:banque_reglee", "lothaire:allie", "vt:allie_regle", "vt:lothaire_tourne"], fac: { banque: -10 }, ep: ["histoire", 3000] },
     text: [
-      "Lothaire Brunel prend son temps pour répondre. Il regarde Corisande, qui regarde ailleurs. Il remet son cornet jumeau à l'oreille, et il l'écoute, elle, longtemps. Elle ne dit rien. Il n'en a pas besoin.",
+      "Lothaire Brunel prend son temps pour répondre. Il regarde Corisande, qui regarde ailleurs. Il remet son cornet jumeau à l'oreille, et il l'écoute, elle, longtemps. Elle se tait ; son silence lui suffit.",
       "« Oui, dit-il enfin, très doucement. Au passé. Le billet est déjà écrit, n'est-ce pas, Madame ? Dans votre écritoire, avec les autres. » Corisande se tait. Elle assume toujours ce qu'elle a fait ; c'est une de ses qualités.",
       "Lothaire traverse la mosaïque et vient se placer à côté de toi. Les arbalétriers se regardent : ils connaissent Lothaire depuis plus longtemps que leur paie. Un à un, ils désarment.",
       "Corisande soupire. « Vingt ans, dit-elle. Vous avez toujours eu le sens du moment, Brunel. » Elle fait signe à ses porteurs. « Remontez-moi. Il fait froid, ici. »",
@@ -934,7 +934,7 @@ Object.assign(P, {
     text: [
       "Le capitaine est assis contre le pied du lutrin, son épée cassée en travers des genoux. Ses soldats ont lâché leurs piques. Le tonneau a roulé dans un coin, renversé, et l'huile de baleine s'écoule par la bonde dans les rigoles de la mosaïque, noire et luisante, jusqu'au conduit.",
       "« Le duc fera le feu ailleurs, dit le capitaine. Sur une autre tour. Il a le temps. » Il crache un peu de sang. « Moi, je ne l'ai plus. »",
-      { if: { has: "vn:aveline_doute" }, text: "Le jeune lieutenant blond aide son capitaine à se relever, sans te regarder. En passant devant toi, il dit très bas : « Merci. » Tu ne sais pas de quoi." },
+      { if: { has: "vn:aveline_doute" }, text: "Le jeune lieutenant blond aide son capitaine à se relever, sans te regarder. En passant devant toi, il dit très bas : « Merci. » Tu cherches encore de quoi." },
       "Les soldats d'Aveline remontent l'escalier de la colline, lentement, en portant leurs blessés.",
     ],
     choices: RETOUR },
@@ -1031,7 +1031,7 @@ Object.assign(P, {
     fx: { relicLose: "f_sorne", flag: ["vt:gardien_regle", "vt:charte_perdue", "vt:charte_mer"], fac: { taiseurs: 15 }, ep: ["seance", 2000] },
     text: [
       "Tu lui tends la Charte. Gildas la prend à deux mains, comme on prend un enfant qu'on vous confie, et il la regarde longtemps sans l'ouvrir.",
-      "« Tu sais ce que tu fais ? » demande-t-il. Tu hoches la tête. Tu n'en es pas sûr{e}. Il le voit, et il hoche la tête aussi.",
+      "« Tu sais ce que tu fais ? » demande-t-il. Tu hoches la tête, sans certitude. Il le voit, et il hoche la tête aussi.",
       "Il la glisse contre sa poitrine, sous sa bure, à l'endroit où l'on garde les lettres. « Elle retournera à la mer, dit-il, sur l'écueil où le phare de l'Ouïe écoute. Elle y dormira, entière. » Il remet son capuchon. « Que Dieu te garde. Je ne le mérite pas, mais toi, peut-être. »",
       "Il s'en va par où il est venu.",
       { with: "lison", text: "Lison le regarde partir. « Ma grand-mère serait d'accord avec toi, dit-elle. Moi, je ne sais pas. »" },
@@ -1040,7 +1040,7 @@ Object.assign(P, {
 
   VT_gi_vaincu: { act: "V", title: "La cordelette à sept nœuds", place: "sorne",
     text: [
-      "Gildas est à genoux, son bâton à trois pas de lui. Il a du sang au coin de la bouche. Il ne se relève pas. Il te regarde, et il attend, sans peur, la suite.",
+      "Gildas est à genoux, son bâton à trois pas de lui. Il a du sang au coin de la bouche. Il te regarde, et il attend, sans peur, la suite.",
       "« Je savais que tu étais plus fort{e}, dit-il. Je voulais en être sûr. » Il ramasse sa cordelette, la renoue à sa ceinture, nœud après nœud, avec soin. « Le Gardien s'est battu. Le Gardien a perdu. La Charte est à celui qui l'a gagnée : c'est la règle d'Aymeric. »",
       "Il se lève et s'en va vers l'escalier, en s'appuyant au mur.",
     ],
@@ -1049,7 +1049,7 @@ Object.assign(P, {
   VT_gi_defaite: { act: "V", title: "Le Gardien et la Charte", place: "sorne",
     fx: { flag: ["vt:gardien_regle", "vt:charte_perdue", "vt:charte_mer"] },
     text: [
-      "Le bâton ferré t'a fauché les jambes. Tu es à terre. Gildas se tient au-dessus de toi, essoufflé, et il ne frappe pas.",
+      "Le bâton ferré t'a fauché les jambes. Tu es à terre. Gildas se tient au-dessus de toi, essoufflé, et il retient son coup.",
       { if: CHARTE, text: "Il se penche et prend la Charte dans ta toile cirée. Il le fait doucement, en s'excusant presque." },
       { if: { not: CHARTE }, text: "Il va au lutrin et soulève la cloche d'une seule main, en chantant une note très basse. L'anneau de plomb se fend. Il prend la Charte et pose à sa place, sur le plateau, son propre bréviaire, au poids." },
       "« Elle retournera à la mer, dit-il. Elle y dormira, entière. C'est tout ce que je peux faire pour elle, et pour toi. » Il s'en va par où il est venu, sans courir.",
@@ -1084,11 +1084,11 @@ Object.assign(P, {
 
   VT_rester: { act: "V", title: "Encore un", place: "sorne",
     text: [
-      "Tu redescends les marches du trône, dans l'eau jusqu'aux genoux, puis aux cuisses. Le coffre est là, à trois pas, à demi couvert. Tu l'empoignes par une poignée de fer. Il ne bouge pas. Le courant te fait tourner sur toi-même, et ton pied glisse sur une pièce.",
+      "Tu redescends les marches du trône, dans l'eau jusqu'aux genoux, puis aux cuisses. Le coffre est là, à trois pas, à demi couvert. Tu l'empoignes par une poignée de fer. Il reste rivé au sol. Le courant te fait tourner sur toi-même, et ton pied glisse sur une pièce.",
       "L'eau est à ta taille. Elle tire. Le dôme, au-dessus, a pris la couleur de l'eau qu'il a sur le dos.",
-      { with: "any", text: "Quelqu'un crie ton nom depuis l'escalier du dôme. Une fois, deux fois, plus fort, avec une voix que tu ne lui connaissais pas." },
+      { with: "any", text: "Quelqu'un crie ton nom depuis l'escalier du dôme. Une fois, deux fois, plus fort, avec une voix nouvelle." },
       { without: "any", text: "Il n'y a que l'eau, qui parle pour tout le monde." },
-      "Le coffre ou l'escalier. Tu n'auras pas le temps des deux.",
+      "Le coffre ou l'escalier. Le temps manque pour les deux.",
     ],
     choices: [
       { label: "Lâcher le coffre et nager vers l'escalier du dôme", big: true, fx: { pv: -3 }, to: "VT_puits" },
@@ -1164,7 +1164,7 @@ Object.assign(P, {
 
   VT_signal: { act: "V", title: "Le feu du duc", place: "sorne",
     text: [
-      "Le capitaine d'Aveline te voit sortir de la trappe. Il ne lâche pas son briquet. Ses soldats se placent entre toi et le trépied, piques basses, au bord du vide.",
+      "Le capitaine d'Aveline te voit sortir de la trappe. Il garde son briquet en main. Ses soldats se placent entre toi et le trépied, piques basses, au bord du vide.",
       { if: { has: "vt:charte_aveline" }, text: "Sous sa cuirasse, un coin de toile cirée dépasse : la Charte." },
       "« Trop tard, dit-il. Le feu, la flotte, la porte des Sauniers. Le prévôt attend ce feu depuis un mois. » Il frappe le briquet. Une étincelle. Une autre. La mèche grésille.",
       "Le tonneau {{pie#vt_signal_tonneau|est dressé sur le trépied, bien calé|est dressé sur le trépied, mais un pied du trépied est rongé par la rouille jusqu'au fil : un coup d'épaule le ferait basculer par-dessus le parapet}}.",
@@ -1222,7 +1222,7 @@ Object.assign(P, {
       "Tu montes sur le parapet. Le vent te tire par le manteau. Tu déplies la Charte, tu la tiens à deux mains contre le vent, et tu lis, à voix haute, aussi fort que tu peux, face à la mer, face aux bateaux, face à la côte où dorment les Joncs-Bas.",
       "*Nous, Ysaure, reine du delta de la Salve, disons et voulons que la terre gagnée sur la mer par les gens des marais, digue après digue, soit à eux et à leurs enfants…*",
       "Ta voix porte loin, sur l'eau calme du matin. Sur le bateau, à bord de la barque des Taiseurs, sur la galère, on se tait pour écouter.",
-      { if: { any: [CORI, { has: "vt:pacte_tenu" }] }, text: "Sous son tendelet, Corisande Marrel écoute aussi. Elle a croisé les mains sur son manteau. Elle ne bouge pas jusqu'à la signature. À la signature, elle baisse la tête." },
+      { if: { any: [CORI, { has: "vt:pacte_tenu" }] }, text: "Sous son tendelet, Corisande Marrel écoute aussi. Elle a croisé les mains sur son manteau. Elle reste immobile jusqu'à la signature. À la signature, elle baisse la tête." },
       { if: { has: "basse:taiseurs" }, text: "L'Aîné, debout dans sa barque, a ôté son capuchon de dentelle. Les deux autres Taiseurs ont fait de même. Ils écoutent tête nue." },
       { if: { voile: "vt_demande" }, text: "*Lis-la tout haut, une fois, devant ceux qui m'ont faite muette, ou devant leurs enfants.* Tu y penses en lisant la dernière ligne." },
       "Tu {{miroir#vt_lecture_miroir|lis pour la reine, et pour les gens des marais|lis aussi pour Odeline, à qui tu as crié qu'elle mourrait seule avec ses secrets, et dont tu portes ce matin le dernier secret à voix haute}}.",
@@ -1245,7 +1245,7 @@ Object.assign(P, {
   VT_avis_lison: { act: "V", title: "Ce que veut Lison", place: "sorne", with: "lison",
     fx: { conf: { lison: 5 } },
     text: [
-      { with: "lison", text: "Lison est assise sur le parapet, les jambes dans le vide, au-dessus de la mer. Elle ne te regarde pas quand tu t'assieds à côté d'elle." },
+      { with: "lison", text: "Lison est assise sur le parapet, les jambes dans le vide, au-dessus de la mer. Elle garde les yeux sur la mer quand tu t'assieds à côté d'elle." },
       { with: "lison", text: "« Ma grand-mère voudrait qu'on laisse tout à la mer, dit-elle. La Charte, l'or, la couronne. Que tout redevienne silence. » Elle jette un caillou dans l'eau. « Je {{oreille#vt_avis_lison|pense qu'elle a raison, comme d'habitude|veux qu'on lise la Charte sur la place du Beffroi, devant le Conseil, devant tout le monde, et je veux être au premier rang quand on la lira, et je veux que ma grand-mère l'entende de là-bas}}. »" },
       { with: "lison", tendre: true, else: "Elle se tait un moment, puis elle hausse les épaules. « C'est toi qui choisis. Moi, je rame. »", text: "Elle se tait un moment. Puis, sans te regarder : « Et je {{oreille#vt_avis_lison_toi|veux rentrer aux Joncs, c'est tout|veux que tu viennes avec moi, après, quoi que tu choisisses}}. »" },
     ],
@@ -1265,7 +1265,7 @@ Object.assign(P, {
     text: [
       { with: "fauvette", text: "Fauvette est accroupie contre le parapet, à l'abri du vent, et elle compte quelque chose dans sa main. Quand tu t'approches, elle ferme le poing." },
       { with: "fauvette", text: "« Garde l'or, dit-elle aussitôt. File. Loin. Emmène-moi, si tu veux, je sais me rendre utile sur un bateau. » Elle rouvre le poing : trois ducats de la reine, à la bouche fermée. « Je {{oreille#vt_avis_fauvette|veux juste de quoi ne plus jamais avoir faim|veux apprendre à lire. La Charte. Le mot terre, et les autres. Je veux savoir ce que ça fait, d'avoir un endroit écrit quelque part à son nom}}. »" },
-      { with: "fauvette", if: { has: "fauvette:temoin" }, text: "Elle regarde vers la trappe, vers l'escalier, vers ce qui reste au fond. Elle ne parle pas du moine. Elle n'en a plus besoin." },
+      { with: "fauvette", if: { has: "fauvette:temoin" }, text: "Elle regarde vers la trappe, vers l'escalier, vers ce qui reste au fond. Du moine, elle se tait. Elle n'en a plus besoin." },
     ],
     choices: [{ back: "VT_tour" }] },
 
@@ -1280,7 +1280,7 @@ Object.assign(P, {
 
   VT_avis_lothaire: { act: "V", title: "Ce que veut Lothaire", place: "sorne",
     text: [
-      "Lothaire Brunel s'est assis à l'écart, contre la trappe, le cornet jumeau posé sur ses genoux. Il ne le porte plus. Il le regarde.",
+      "Lothaire Brunel s'est assis à l'écart, contre la trappe, le cornet jumeau posé sur ses genoux. Il le regarde, sans le porter.",
       "« Ce que je veux ? Vous me le demandez. » Il sourit. « Personne ne me l'a demandé depuis vingt ans. » Il réfléchit, et il a l'air de chercher pour de bon. « Faites {{oreille#vt_avis_lothaire|ce que vous voudrez, ça m'est égal|ce que vous voudrez, mais ne la vendez pas : je ne veux pas avoir eu raison sur vous}}. »",
     ],
     choices: [{ back: "VT_tour" }] },
@@ -1374,7 +1374,7 @@ Object.assign(P, {
       { with: "salome", if: { not: { has: "salome:plonge" } }, text: "« Trois ans, dit-elle. Trois ans que je ne suis pas descendue. » Elle regarde le puits, l'eau noire au fond. « Tiens la corde. Ne la lâche pas. Quoi qu'il arrive, ne la lâche pas. » Tu comprends à qui elle pense." },
       { with: "salome", if: { has: "salome:plonge" }, text: "« J'ai replongé une fois, dit-elle. Je peux bien replonger deux fois. Tiens la corde. »" },
       "Elle descend le puits à la force des bras, entre dans l'eau sans un bruit, et disparaît. Tu comptes. Trente. Soixante. La corde se tend, se détend, se tend. Quatre-vingt-dix. Tu tiens la corde à t'en blanchir les doigts.",
-      { with: "salome", text: "Elle remonte d'un coup, crachant de l'eau, le visage blanc. Elle a passé une élingue autour du coffre, au fond, à tâtons, sous trois toises d'eau. « Hissez, dit-elle. Hissez, bon sang. » Elle rit, en grelottant, et elle ne sait pas pourquoi elle rit." },
+      { with: "salome", text: "Elle remonte d'un coup, crachant de l'eau, le visage blanc. Elle a passé une élingue autour du coffre, au fond, à tâtons, sous trois toises d'eau. « Hissez, dit-elle. Hissez, bon sang. » Elle rit, en grelottant, sans savoir pourquoi." },
     ],
     choices: [{ label: "Hisser le dernier coffre, et monter jusqu'au sommet de la tour", big: true, to: "VT_tour" }] },
 
