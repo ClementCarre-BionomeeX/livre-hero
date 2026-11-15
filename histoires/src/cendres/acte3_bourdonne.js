@@ -7,7 +7,7 @@ module.exports = {
   III_b_vaure: P({ title: "La cloche de Vaure-sur-Lac", place: "cloches",
     fx: { questSeen: "III_Q_vaure" },
     text: [
-      "Au coin de la grand-place, un petit clocher de village, couvert d'algues sèches et de coquilles d'eau douce. La cloche est verte de vert-de-gris. Des herbes de lac pendent encore au battant.",
+      "Au coin de la grand-place, un petit clocher de village, haut de quatre toises à peine, couvert d'algues sèches et de coquilles d'eau douce. La cloche est verte de vert-de-gris. Des herbes de lac pendent encore au battant.",
       "La Sonneuse t'a suivi. Elle regarde sa cloche comme on regarde un vieux chien. « Cent cinquante ans, dit-elle. Plus personne là-haut ne sait que Vaure a existé. Ni le nom, ni le lac, ni l'église. Rien. »",
     ],
     choices: [
@@ -18,11 +18,11 @@ module.exports = {
   III_b_vaure_sonne: P({ title: "Un coup", place: "cloches",
     text: [
       "Tu tires sur le battant de toutes tes forces. La cloche bouge, à peine, et frappe un coup, un seul, sourd, mouillé, comme une cloche qui sonne sous l'eau.",
-      "La Sonneuse a fermé les yeux. « Ce n'est pas pareil, dit-elle. Quand on la sonne d'ici, ça ne compte pas. » Elle rouvre les yeux. « Mais c'était beau. Merci. »",
+      "La Sonneuse a fermé les yeux. « Ce n'est pas pareil, dit-elle. Quand on la sonne d'ici, ça compte pour du beurre. » Elle rouvre les yeux. « Mais c'était beau. Merci. »",
     ],
     choices: [{ fx: { quest: "III_Q_vaure" }, back: "III_c_ville" }] }),
   III_b_vaure_muette: P({ title: "Le battant", place: "cloches",
-    text: ["Le battant est soudé par la rouille. Tu t'y suspends de tout ton poids. Rien. La Sonneuse rit, d'un rire de vieille, plein de gencives. « Elle est têtue, dit-elle. Comme moi. Elle attend qu'on pense à elle. Pas qu'on la tire. »"],
+    text: ["Le battant est soudé par la rouille. Tu t'y suspends de tout ton poids. Le bronze reste de marbre. La Sonneuse rit, d'un rire de vieille, plein de gencives. « Elle est têtue, dit-elle. Comme moi. Elle attend qu'on pense à elle. Pas qu'on la tire. »"],
     choices: [
       { label: "Lui promettre de parler de Vaure, quand tu remonteras", fx: { flag: "iii:vaure_promis", ep: ["perso", 800] }, to: "III_b_vaure_promesse" },
       { fx: { quest: "III_Q_vaure" }, back: "III_c_ville" },
@@ -36,7 +36,7 @@ module.exports = {
 
   III_b_ecole: P({ title: "La cloche d'école", place: "cloches",
     text: [
-      "Une petite tour de brique, avec une cloche à main suspendue à un crochet, comme on en voit aux portes des écoles de campagne. Au pied de la tour, des bancs. Sur les bancs, des enfants, une vingtaine, en tabliers gris, qui récitent ensemble, d'une voix monotone, une leçon que personne n'écoute.",
+      "Une petite tour de brique, avec une cloche à main suspendue à un crochet, comme on en voit aux portes des écoles de campagne. Au pied de la tour, des bancs. Sur les bancs, des enfants, une vingtaine, en tabliers gris, qui récitent ensemble, d'une voix monotone, une leçon sans auditeur.",
       "Ils récitent les noms des rivières d'un pays qui n'existe plus. Ils s'arrêtent toujours au même endroit, après la septième rivière, et recommencent.",
       "Debout devant eux, une maîtresse d'école, jeune, avec une baguette, qui attend la huitième rivière comme on attend le coche.",
     ],
@@ -47,19 +47,19 @@ module.exports = {
     ] }),
   III_b_ecole_riviere: P({ title: "La huitième rivière", place: "cloches",
     text: [
-      "Tu ne connais pas ce pays. Mais tu écoutes les sept noms, et tu entends qu'ils se suivent dans l'ordre de l'alphabet, comme les maîtres d'école aiment les ranger. Tu en proposes un, qui commence par la bonne lettre et qui sonne comme les autres.",
-      "La maîtresse te regarde, interdite. Puis elle sourit. Ce n'est pas la bonne. Mais elle la répète aux enfants, et les enfants la répètent, et continuent, la neuvième, la dixième, toute la leçon, jusqu'au bout, et à la fin, ils se lèvent tous ensemble et s'en vont en courant, en criant. La classe est finie.",
+      "Ce pays t'est inconnu. Mais tu écoutes les sept noms, et tu entends qu'ils se suivent dans l'ordre de l'alphabet, comme les maîtres d'école aiment les ranger. Tu en proposes un, qui commence par la bonne lettre et qui sonne comme les autres.",
+      "La maîtresse te regarde, interdite. Puis elle sourit. C'est une fausse. Elle la répète quand même aux enfants, et les enfants la répètent, et continuent, la neuvième, la dixième, toute la leçon, jusqu'au bout, et à la fin, ils se lèvent tous ensemble et s'en vont en courant, en criant. La classe est finie.",
       "La maîtresse sonne sa cloche à main, une fois. Puis elle s'en va aussi.",
     ],
     choices: [{ back: "III_c_ville" }] }),
   III_b_ecole_rien: P({ title: "La septième rivière", place: "cloches",
-    text: ["Tu ne trouves pas. La maîtresse te regarde avec une immense politesse, et se retourne vers ses élèves. Ils reprennent du début. Tu les entends encore réciter quand tu tournes le coin de la rue, et tu sais qu'ils s'arrêteront à la septième."],
+    text: ["Le nom se dérobe. La maîtresse te regarde avec une immense politesse, et se retourne vers ses élèves. Ils reprennent du début. Tu les entends encore réciter quand tu tournes le coin de la rue, et tu sais qu'ils s'arrêteront à la septième."],
     choices: [{ back: "III_c_ville" }] }),
 
   III_b_navire: P({ title: "La cloche du navire", place: "cloches",
     text: [
-      "Une tour faite de planches de navire, goudronnées, avec des hublots en guise de fenêtres. En haut, une cloche de bord, en bronze, avec un nom gravé : LA FIDÈLE, et une date. Au pied de la tour, un marin assis sur un rouleau de cordage, qui épisse un bout avec des gestes très lents.",
-      "« Quel jour on est ? demande-t-il sans lever la tête. On devait rentrer le jour de la Saint-Martin. Ma femme m'attend avec des châtaignes. »",
+      "Une tour faite de planches de navire, goudronnées, encore cloutées de cuivre, avec des hublots en guise de fenêtres. En haut, une cloche de bord, en bronze, avec un nom gravé : LA FIDÈLE, et une date. Au pied de la tour, un marin assis sur un rouleau de cordage, qui épisse un bout avec des gestes très lents.",
+      "« Quel jour on est ? demande-t-il, les yeux sur son ouvrage. On devait rentrer le jour de la Saint-Martin. Ma femme m'attend avec des châtaignes. »",
     ],
     choices: [
       { label: "« C'est la Saint-Martin. Tu peux rentrer. »", fx: { ep: ["perso", 500] }, to: "III_b_navire_rentre" },
@@ -85,12 +85,12 @@ module.exports = {
   III_b_noces_ok: P({ title: "Le bras", place: "cloches",
     text: [
       "Tu vas chercher le vieil homme. Tu lui dis qu'on l'attend, au bout de la rue. Il te suit, poliment, sans y croire. La vieille femme se retourne quand vous arrivez. Ils se regardent.",
-      "Ils ne se reconnaissent pas. Ça se voit. Il y a cinquante ans d'oubli entre eux. Mais le vieil homme, au bout d'un moment, lui tend le bras, comme on fait, et elle le prend, comme on fait, et ils remontent la rue ensemble, au pas, très lentement.",
+      "Ils se regardent en étrangers. Il y a cinquante ans d'oubli entre eux. Mais le vieil homme, au bout d'un moment, lui tend le bras, comme on fait, et elle le prend, comme on fait, et ils remontent la rue ensemble, au pas, très lentement.",
       "La petite cloche fleurie sonne. Toute seule. À la volée.",
       { with: "lisandre", text: "Lisandre s'essuie les yeux d'un revers de main furieux. « Je ne pleure jamais aux mariages, dit-elle. J'en ai chanté cent. » Elle renifle. « Ça doit être l'air d'ici. »" },
     ],
     choices: [{ back: "III_c_ville" }] }),
   III_b_noces_rate: P({ title: "Les deux bouts", place: "cloches",
-    text: ["Le vieil homme refuse de bouger. « Elle va venir, dit-il. Elle a dit qu'elle viendrait. » À l'autre bout, la vieille femme dit la même chose, avec les mêmes mots. Tu restes un moment au milieu de la rue, entre eux deux, sous la cloche muette. Tu ne sais pas comment leur dire."],
+    text: ["Le vieil homme refuse de bouger. « Elle va venir, dit-il. Elle a dit qu'elle viendrait. » À l'autre bout, la vieille femme dit la même chose, avec les mêmes mots. Tu restes un moment au milieu de la rue, entre eux deux, sous la cloche muette. Les mots pour leur dire te manquent."],
     choices: [{ back: "III_c_ville" }] }),
 };
