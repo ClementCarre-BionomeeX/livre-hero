@@ -256,8 +256,8 @@
  "start": "A_reveil",
  "intro": [
   "Sarance tient sur un éperon de roche, dans une boucle de la Dorve. En haut, la Haute-Ville : le château du capitaine, l'église Saint-Aubin, l'Hôtel-Dieu. En bas, au bord de l'eau, la Basse-Ville des bateliers, des tanneurs et des meuniers, avec sa Halle aux grains, la plus grande du pays.",
-  "Il y a onze jours, l'armée du Margrave de Hautpré est sortie des brumes du nord et s'est installée sur les pâtures, face à la Porte des Tanneurs. Le vieux comte est mort sans fils l'hiver dernier. Le Margrave a épousé sa sœur ; il dit que la ville lui revient. Le capitaine du Roi lui a fermé les portes.",
-  "Toi, tu es arrivé{e} trois semaines plus tôt, avec un convoi qui n'est jamais reparti. Tu loges au Chat-Huant, près du port. Tu as encore un peu d'argent, une chambre sous le toit, et la sensation, chaque matin, d'être un étranger dans une maison qui brûle."
+  "Il y a onze jours, l'armée du Margrave de Hautpré est sortie des brumes du nord et s'est installée sur les pâtures, face à la Porte des Tanneurs. Le vieux comte est mort sans fils l'hiver dernier ; le Margrave, qui avait épousé sa sœur, dit que la ville lui revient. Le capitaine du Roi lui a fermé les portes.",
+  "Toi, tu es arrivé{e} trois semaines plus tôt, avec un convoi qui n'est jamais reparti. Tu loges au Chat-Huant, près du port. Il te reste un peu d'argent, une chambre sous le toit, et la sensation, chaque matin, d'être étranger{e} dans une maison qui brûle."
  ],
  "acts": [
   {
@@ -2793,17 +2793,17 @@
     },
     {
      "first": true,
-     "text": "La Maison des Greniers est collée contre le pignon : deux pièces, un bureau et une chambre. Les livres de Bréhal sont encore sur la table, ses lunettes posées sur le dernier registre, sa cape au clou."
+     "text": "La Maison des Greniers est collée contre le pignon : deux pièces, un bureau et une chambre. Les livres de Bréhal sont encore sur la table, ses lunettes posées sur le dernier registre, et sa cape pend au clou."
     },
     {
      "again": true,
      "when": "day",
-     "text": "La Halle, ses piliers de chêne, l'odeur de farine et de poussière. La file devant les comptoirs des boulangers."
+     "text": "La Halle sent la farine et la poussière entre ses piliers de chêne, et la file s'allonge devant les comptoirs des boulangers."
     },
     {
      "again": true,
      "when": "night",
-     "text": "La Halle dans la nuit. Deux gardes dorment à moitié devant les escaliers des greniers, une lanterne entre eux."
+     "text": "La Halle dort dans la nuit. Deux gardes somnolent devant les escaliers des greniers, une lanterne entre eux."
     },
     {
      "after": "marche:bombarde",
@@ -2939,7 +2939,7 @@
       "stock": "moral",
       "max": 30
      },
-     "text": "Une femme jette son jeton aux pieds d'un sergent et s'en va sans pain. Le jeton reste sur le pavé."
+     "text": "Une femme jette son jeton aux pieds d'un sergent et s'en va sans pain. Le jeton reste sur le pavé, et personne ne le ramasse."
     },
     {
      "if": {
@@ -2950,11 +2950,11 @@
     },
     {
      "after": "marche:flux",
-     "text": "Les sœurs de l'Hôtel-Dieu passent avec une civière couverte. La file s'écarte, et se referme derrière elles."
+     "text": "Les sœurs de l'Hôtel-Dieu passent avec une civière couverte. La file s'écarte, puis se referme derrière elles."
     },
     {
      "once": true,
-     "text": "Tu repères vite le tour de main d'un boulanger, un pouce sur le plateau de la balance. Un mot à l'oreille du sergent suffit : le plateau redevient juste."
+     "text": "Tu repères vite le tour de main d'un boulanger, qui pèse avec un pouce sur le plateau de la balance. Un mot à l'oreille du sergent suffit, et le plateau redevient juste."
     }
    ],
    "fx": {
@@ -2968,7 +2968,7 @@
    "place": "halle",
    "back": true,
    "text": [
-    "Tu passes de longues heures sur les registres de Bréhal, une chandelle à portée de main. Il écrivait petit, droit, sans une rature, et chaque page tombe juste jusqu'au premier jour du siège.",
+    "Tu passes de longues heures sur les registres de Bréhal, une chandelle à portée de main. Il écrivait petit et droit, sans une rature, et chaque page tombe juste jusqu'au premier jour du siège.",
     {
      "if": {
       "not": {
@@ -3007,7 +3007,7 @@
        "max": 3
       }
      },
-     "text": "Les cloches de Saint-Aubin sonnent matines. En bas, la file du pain est déjà longue."
+     "text": "Les cloches de Saint-Aubin sonnent matines. En bas, la file du pain s'allonge déjà."
     },
     {
      "if": {
@@ -3031,11 +3031,11 @@
     },
     {
      "after": "marche:flux",
-     "text": "Sous ta fenêtre, une charrette passe avec deux corps cousus dans des draps. Le flux."
+     "text": "Sous ta fenêtre passe une charrette chargée de deux corps cousus dans des draps. C'est le flux."
     },
     {
      "after": "marche:expulsion",
-     "text": "La nuit, on a encore entendu les voix dans le fossé, au pied de la Porte des Tanneurs. Puis le vent a tourné."
+     "text": "Cette nuit encore, on a entendu les voix dans le fossé, au pied de la Porte des Tanneurs, jusqu'à ce que le vent tourne."
     },
     {
      "if": {
@@ -3057,7 +3057,7 @@
        "min": 11
       }
      },
-     "text": "Le camp du Margrave s'agite comme une fourmilière qu'on a frappée du pied. Les échelles sortent des tentes."
+     "text": "Le camp du Margrave s'agite comme une fourmilière qu'on a frappée du pied, et les échelles sortent des tentes."
     }
    ],
    "choices": [
@@ -3079,22 +3079,22 @@
     },
     {
      "first": true,
-     "text": "Avant le siège, on y vendait le grain de tout le pays. Il reste des étals de cuir, de chandelles et de clous, et beaucoup de gens debout, qui regardent ceux qui achètent."
+     "text": "Avant le siège, on y vendait le grain de tout le pays. Il y reste des étals de cuir, de chandelles et de clous, et beaucoup de gens debout, qui regardent ceux qui achètent."
     },
     {
      "again": true,
      "when": "day",
-     "text": "La place du Marché, le beffroi, les volets verts de la maison Vassal, la file devant la boulangerie."
+     "text": "Tu retrouves la place du Marché, le beffroi, les volets verts de la maison Vassal, et la file devant la boulangerie."
     },
     {
      "again": true,
      "when": "night",
-     "text": "La place du Marché, de nuit. Une lanterne au beffroi. Toutes les fenêtres sont noires, sauf une, chez les Vassal."
+     "text": "La place du Marché est plongée dans la nuit. Une lanterne brûle au beffroi, et une seule fenêtre reste éclairée, chez les Vassal."
     },
     {
      "after": "marche:bombarde",
      "before": "truie:brulee",
-     "text": "Une pierre de la Truie a fendu la fontaine en deux. L'eau coule entre les pavés."
+     "text": "Une pierre de la Truie a fendu la fontaine en deux, et l'eau court entre les pavés."
     }
    ],
    "choices": [
@@ -3201,7 +3201,7 @@
     },
     {
      "first": true,
-     "text": "Sur l'autre rive, à portée d'arbalète, les feux d'un poste du Margrave. Les bateliers ne sortent plus leurs barques que de nuit, et pas loin."
+     "text": "Sur l'autre rive, à portée d'arbalète, brûlent les feux d'un poste du Margrave. Les bateliers sortent désormais leurs barques de nuit seulement, et près de la rive."
     },
     {
      "first": true,
@@ -3210,12 +3210,12 @@
     {
      "again": true,
      "when": "day",
-     "text": "Le port, les barques, les Moulins qui tournent au fil de l'eau, et en face, les feux du poste du Margrave."
+     "text": "Les barques dorment sur le port, les Moulins tournent au fil de l'eau et, en face, brûlent les feux du poste du Margrave."
     },
     {
      "again": true,
      "when": "night",
-     "text": "Le port, de nuit. Les roues des Moulins grincent dans le noir. Une lanterne au Chat-Huant."
+     "text": "Le port est plongé dans la nuit. Les roues des Moulins grincent dans le noir, et une lanterne brûle au Chat-Huant."
     }
    ],
    "choices": [
@@ -3308,7 +3308,7 @@
    "text": [
     {
      "first": true,
-     "text": "Le Chat-Huant est bas de plafond, enfumé, plein de bateliers qui boivent sans payer et de soldats qui paient sans boire. L'hôtesse, une grande femme aux bras nus, a un mot pour chacun."
+     "text": "Le Chat-Huant est bas de plafond et enfumé, plein de bateliers qui boivent sans payer et de soldats qui paient sans boire. L'hôtesse, une grande femme aux bras nus, a un mot pour chacun."
     },
     {
      "first": true,
@@ -3316,7 +3316,7 @@
     },
     {
      "again": true,
-     "text": "Le Chat-Huant, sa fumée, ses bateliers, et la grande hôtesse qui essuie ses gobelets."
+     "text": "Le Chat-Huant est toujours aussi enfumé ; les bateliers y boivent, et la grande hôtesse essuie ses gobelets."
     }
    ]
   },
@@ -3324,14 +3324,14 @@
    "title": "Les Moulins à minuit",
    "place": "port",
    "text": [
-    "Tu t'installes contre un tas de filets, face aux Moulins, et tu attends. Les heures passent au bruit des roues. Le poste du Margrave, en face, éteint ses feux un à un.",
+    "Tu t'installes contre un tas de filets, face aux Moulins, et tu attends. Les heures passent au bruit des roues, et en face, le poste du Margrave éteint ses feux un à un.",
     {
      "if": {
       "day": {
        "max": 7
       }
      },
-     "text": "Un peu avant minuit, dans le Moulin du milieu, une lumière s'allume derrière la lucarne qui donne sur la rivière. Elle s'éteint, se rallume, s'éteint. Trois fois. Puis plus rien. De l'autre côté de l'eau, une lanterne répond, une seule fois."
+     "text": "Un peu avant minuit, dans le Moulin du milieu, une lumière s'allume derrière la lucarne qui donne sur la rivière. Elle s'éteint, se rallume et s'éteint, trois fois, puis la lucarne reste noire. De l'autre côté de l'eau, une lanterne répond, une seule fois."
     },
     {
      "if": {
@@ -3339,7 +3339,7 @@
        "max": 7
       }
      },
-     "text": "Personne ne sort du moulin. Quand tu t'approches de la passerelle, la porte est fermée de l'intérieur."
+     "text": "Le moulin reste clos. Quand tu t'approches de la passerelle, tu trouves la porte fermée de l'intérieur."
     },
     {
      "if": {
@@ -3347,7 +3347,7 @@
        "min": 8
       }
      },
-     "text": "Un peu avant minuit, une silhouette en manteau sombre passe la Poterne des Moulins avec une clé, et traverse la passerelle. Le capuchon est relevé. Dans le Moulin du milieu, une lumière s'allume, trois fois, et une lanterne répond sur l'autre rive."
+     "text": "Un peu avant minuit, une silhouette en manteau sombre ouvre la Poterne des Moulins avec une clé et traverse la passerelle, le capuchon relevé. Dans le Moulin du milieu, une lumière s'allume trois fois, et une lanterne répond sur l'autre rive."
     },
     {
      "if": {
@@ -3420,7 +3420,7 @@
    "text": [
     {
      "first": true,
-     "text": "Le château de Sarance est une vieille forteresse carrée, plantée au sommet de l'éperon. On y entre par une rampe et une porte gardée. Dans la cour, des sergents s'exercent à la pique, des chevaux maigres attendent qu'on les mange, et l'on monte par un escalier à vis jusqu'à la salle du Conseil."
+     "text": "Le château de Sarance est une vieille forteresse carrée, plantée au sommet de l'éperon, où l'on entre par une rampe et une porte gardée. Dans la cour, des sergents s'exercent à la pique, des chevaux maigres attendent qu'on les mange, et un escalier à vis monte jusqu'à la salle du Conseil."
     },
     {
      "first": true,
@@ -3428,7 +3428,7 @@
     },
     {
      "again": true,
-     "text": "Le château, sa cour, ses sergents, et la route du sud, vide, au loin."
+     "text": "Tu retrouves le château, sa cour, ses sergents et, au loin, la route du sud, toujours vide."
     }
    ],
    "choices": [
@@ -3513,15 +3513,15 @@
    "text": [
     {
      "first": true,
-     "text": "L'Hôtel-Dieu de Sarance est une longue salle voûtée, avec deux rangées de lits et un autel au fond, pour que les malades entendent la messe sans se lever. Derrière, le cloître des Pénitentes, ses arcades et son puits."
+     "text": "L'Hôtel-Dieu de Sarance est une longue salle voûtée, avec deux rangées de lits et un autel au fond, pour que les malades entendent la messe sans se lever. Derrière s'étend le cloître des Pénitentes, avec ses arcades et son puits."
     },
     {
      "first": true,
-     "text": "Les sœurs y soignent les blessés des remparts, les vieux, les femmes en couches. Depuis le siège, elles ont aussi ouvert le cloître aux gens des villages, qui sont arrivés avec leurs vaches, leurs enfants et leurs coffres."
+     "text": "Les sœurs y soignent les blessés des remparts, les vieux et les femmes en couches. Depuis le siège, elles ont aussi ouvert le cloître aux gens des villages, arrivés avec leurs vaches, leurs enfants et leurs coffres."
     },
     {
      "again": true,
-     "text": "L'Hôtel-Dieu, l'odeur de vinaigre et de cire, les lits alignés, le murmure des sœurs."
+     "text": "L'Hôtel-Dieu sent le vinaigre et la cire ; les lits sont alignés, et les sœurs murmurent entre elles."
     },
     {
      "after": "marche:flux",
@@ -3529,7 +3529,7 @@
     },
     {
      "after": "marche:expulsion",
-     "text": "Le cloître des Pénitentes est vide. On a laissé les draps tendus entre les colonnes. Le vent les fait bouger."
+     "text": "Le cloître des Pénitentes est vide. On a laissé les draps tendus entre les colonnes, et le vent les fait bouger."
     }
    ],
    "choices": [
@@ -3572,10 +3572,10 @@
    "place": "hotel",
    "back": true,
    "text": [
-    "Une sœur te met un tablier dans les mains sans demander qui tu es. Tu portes de l'eau, tu tiens des jambes pendant qu'on recoud, tu changes des linges. Le temps passe sans que tu le sentes.",
+    "Une sœur te met un tablier dans les mains sans demander qui tu es. Tu portes de l'eau, tu tiens des jambes pendant qu'on recoud, tu changes des linges, et les heures passent sans que tu les sentes.",
     {
      "after": "bataille:tanneurs",
-     "text": "Les blessés de l'assaut occupent la moitié de la salle. Un tanneur de quinze ans te demande si la porte a tenu. Tu lui dis que oui, deux fois, parce qu'il redemande."
+     "text": "Les blessés de l'assaut occupent la moitié de la salle. Un tanneur de quinze ans te demande si la porte a tenu. Tu lui réponds que oui, deux fois, parce qu'il redemande."
     },
     {
      "after": "marche:flux",
@@ -3604,17 +3604,17 @@
     },
     {
      "first": true,
-     "text": "En face, sur les pâtures, le camp du Margrave : des centaines de tentes, des enclos, des fumées, des cris de sergents, des forges qui sonnent toute la journée. Il est si près qu'on entend les chiens."
+     "text": "En face, sur les pâtures, s'étend le camp du Margrave : des centaines de tentes, des enclos, des fumées, des cris de sergents, des forges qui sonnent toute la journée. Il est si près qu'on entend les chiens."
     },
     {
      "again": true,
      "when": "day",
-     "text": "Le chemin de ronde, les créneaux, et le camp du Margrave étalé sur les pâtures."
+     "text": "Tu retrouves le chemin de ronde, ses créneaux, et le camp du Margrave étalé sur les pâtures."
     },
     {
      "again": true,
      "when": "night",
-     "text": "Le chemin de ronde, de nuit. Les feux du camp, des centaines, comme une ville en face de la ville."
+     "text": "Le chemin de ronde est plongé dans la nuit. En face, les feux du camp, par centaines, dessinent une ville en face de la ville."
     },
     {
      "after": "marche:truie",
@@ -3631,7 +3631,7 @@
     },
     {
      "after": "marche:expulsion",
-     "text": "Au pied du mur, dans le fossé, entre la ville et le camp, les gens du Plessis. Ils ont fait des abris avec leurs manteaux."
+     "text": "Au pied du mur, dans le fossé, entre la ville et le camp, les gens du Plessis se sont fait des abris avec leurs manteaux."
     }
    ],
    "choices": [
@@ -3722,14 +3722,14 @@
    "place": "remparts",
    "back": true,
    "text": [
-    "Tu restes une heure dans un créneau, à regarder le camp. Les tentes des chevaliers sont au centre, rayées de couleurs, autour du grand pavillon du Margrave et de sa bannière, une tour d'or sur fond rouge. Les fantassins dorment à l'extérieur, sous des abris de branchages.",
+    "Tu restes une heure dans un créneau, à regarder le camp. Les tentes des chevaliers, rayées de couleurs, occupent le centre, autour du grand pavillon du Margrave et de sa bannière, une tour d'or sur fond rouge. Les fantassins dorment à l'extérieur, sous des abris de branchages.",
     {
      "if": {
       "day": {
        "max": 4
       }
      },
-     "text": "Des charrettes arrivent du nord en longues files : du fourrage, des tonneaux, des bœufs. Le Margrave mange, lui."
+     "text": "Des charrettes arrivent du nord en longues files, chargées de fourrage, de tonneaux, et suivies de bœufs. Le Margrave, lui, mange."
     },
     {
      "if": {
@@ -3738,7 +3738,7 @@
        "max": 9
       }
      },
-     "text": "Les charrettes du nord sont moins nombreuses. Dans les enclos, on abat des chevaux."
+     "text": "Les charrettes du nord se font plus rares. Dans les enclos, on abat des chevaux."
     },
     {
      "if": {
@@ -3746,7 +3746,7 @@
        "min": 8
       }
      },
-     "text": "Derrière le camp, au bord du ruisseau, des hommes creusent des fosses. Tu comptes les corps qu'on y porte : plus de dix, dans l'heure. Le flux n'est pas seulement chez vous."
+     "text": "Derrière le camp, au bord du ruisseau, des hommes creusent des fosses. Tu comptes les corps qu'on y porte : plus de dix dans l'heure. Le flux frappe aussi de l'autre côté des murs."
     },
     {
      "if": {
@@ -3764,7 +3764,7 @@
    "text": [
     {
      "first": true,
-     "text": "Le capitaine d'Aussonne t'écoute jusqu'au bout, debout, et te laisse debout toi aussi. Il a une balafre blanche de la tempe au menton, des yeux lourds et fatigués, et la manie de regarder vers le sud quand il réfléchit."
+     "text": "Le capitaine d'Aussonne t'écoute jusqu'au bout, debout, et te laisse debout toi aussi. Il porte une balafre blanche de la tempe au menton, il a les yeux lourds et fatigués, et la manie de regarder vers le sud quand il réfléchit."
     },
     {
      "again": true,
@@ -3982,7 +3982,7 @@
   "TA_solde_payee": {
    "title": "La solde payée",
    "text": [
-    "Aussonne compte les écus deux fois, puis il les fait porter dans la cour, où l'on appelle les sergents un à un. Tu entends les noms résonner contre les murs, et chaque fois le bruit d'une main qui frappe une épaule.",
+    "Aussonne compte les écus deux fois, puis les fait porter dans la cour, où l'on appelle les sergents un à un. Tu entends les noms résonner contre les murs, et chaque fois le bruit d'une main qui frappe une épaule.",
     "« Je n'oublierai pas », dit le capitaine. Venant de lui, c'est un discours."
    ],
    "choices": [
@@ -3997,7 +3997,7 @@
     "« Le Roi viendra. » Aussonne regarde vers le sud, par la fenêtre, la route vide. « Il a promis. Le Roi tient parole. »",
     {
      "once": true,
-     "text": "Sa main gauche s'est fermée sur le pommeau de son épée pendant qu'il parlait, et elle ne s'est pas rouverte."
+     "text": "Pendant qu'il parlait, sa main gauche s'est fermée sur le pommeau de son épée, et elle y reste."
     }
    ],
    "choices": [
@@ -4033,7 +4033,7 @@
    "title": "Avec la garnison",
    "text": [
     "Aussonne hoche la tête une fois. « Bien. » Il appelle un sergent et lui dit, devant toi, que l'intendance a désormais accès au château à toute heure, et que ses ordres valent les siens dans la Basse-Ville.",
-    "En redescendant la rampe, tu croises Oudart de Lys qui monte. Il te sourit, et son sourire a quelque chose de pensif."
+    "En redescendant la rampe, tu croises Oudart de Lys qui monte. Il te sourit, d'un sourire où entre quelque chose de pensif."
    ],
    "choices": [
     {
@@ -4050,7 +4050,7 @@
        "item": "lettre_roi"
       }
      },
-     "text": "Tu lui parles d'un pli au sceau rouge, arrivé au neuvième jour du siège. Aussonne te regarde longtemps, sans ciller. « Le courrier du Roi ne regarde que moi. » C'est tout ce que tu obtiens. Il se garde de nier, et s'en tient là."
+     "text": "Tu lui parles d'un pli au sceau rouge, arrivé au neuvième jour du siège. Aussonne te regarde longtemps, sans ciller. « Le courrier du Roi ne regarde que moi. » C'est tout ce que tu obtiens : il se garde de nier, et s'en tient là."
     },
     {
      "if": {
@@ -4139,7 +4139,7 @@
        }
       ]
      },
-     "text": "Tu poses sur la table ce que tu as de plus solide. Aussonne le regarde longtemps."
+     "text": "Tu poses sur la table ce que tu as de plus solide, et Aussonne le regarde longtemps."
     },
     {
      "if": {
@@ -4237,7 +4237,7 @@
     "Aussonne fait fermer les portes du château et appeler Oudart de Lys dans la salle du Conseil. Tu attends dans l'embrasure d'une fenêtre.",
     "Oudart entre en souriant, voit les quatre sergents, te voit, et cesse de sourire. Il laisse son épée au fourreau, défait lui-même son ceinturon et le pose sur la table.",
     "« Vous me remercierez un jour, capitaine, dit-il. Le jour où le Margrave entrera par la brèche et que vous compterez les morts. »",
-    "On l'emmène dans la tour basse. Aussonne reste debout, seul au milieu de la salle, et tu sors sans qu'il te le demande."
+    "On l'emmène dans la tour basse. Aussonne reste debout, seul au milieu de la salle, et tu sors sans attendre qu'il te le demande."
    ],
    "fx": {
     "ep": [
@@ -4259,7 +4259,7 @@
    "text": [
     {
      "first": true,
-     "text": "Oudart de Lys te salue avec une révérence de cour, à moitié pour rire. Il a des yeux clairs, une moustache soignée, un pourpoint bleu à boutons d'argent, et cette facilité des gens qui savent qu'on les aime."
+     "text": "Oudart de Lys te salue d'une révérence de cour, à moitié pour rire. Il a les yeux clairs, la moustache soignée, un pourpoint bleu à boutons d'argent, et cette aisance des gens qui se savent aimés."
     },
     {
      "first": true,
@@ -4273,7 +4273,7 @@
      "if": {
       "item": "bouton"
      },
-     "text": "Au deuxième bouton de son pourpoint, il manque un bouton d'argent. Un fil bleu pend à sa place."
+     "text": "Au deuxième rang de son pourpoint, un bouton d'argent manque. Un fil bleu pend à sa place."
     }
    ],
    "choices": [
@@ -4427,14 +4427,14 @@
   "O_confrontation": {
    "title": "Face à Oudart",
    "text": [
-    "Tu lui dis ce que tu sais. Tu le dis dans l'ordre, sans hausser la voix, comme on lit un registre : la demande au nom du capitaine, la garde relevée, le vin sur le manteau d'un homme qui ne buvait plus, les lumières des Moulins.",
+    "Tu lui dis ce que tu sais. Tu le dis dans l'ordre, sans hausser la voix, comme on lit un registre : la demande au nom du capitaine, la garde relevée, le vin sur le manteau d'un homme qui avait cessé de boire, les lumières des Moulins.",
     {
      "if": {
       "item": "bouton"
      },
      "text": "À la fin, tu poses le bouton d'argent sur la table, entre vous deux."
     },
-    "Oudart t'écoute jusqu'au bout. Puis il s'assied, se sert un gobelet, t'en sert un autre.",
+    "Oudart t'écoute jusqu'au bout. Puis il s'assied, se sert un gobelet, et t'en sert un autre.",
     "« Je ne voulais pas le tuer. Il m'a attrapé par le pourpoint, sur le parapet, en criant qu'il allait tout dire au capitaine. On s'est battus. Il est tombé. » Il boit. « Le vin, c'est moi. C'était plus propre. »",
     "« Maintenant, écoutez-moi, parce que personne d'autre ne vous le dira. Le Roi ne viendra pas. Le capitaine a reçu sa lettre il y a quinze jours, et il la cache. Le Margrave prendra la ville, cet hiver ou le prochain. Une ville prise d'assaut, on la donne aux soldats trois jours. Vous savez ce que ça veut dire. »",
     "« Moi, j'ouvre la Poterne des Moulins la nuit du douzième jour, au signal des trois lumières. Le Margrave entre sans combat, et il a juré qu'il n'y aurait pas de sac. Il me fera seigneur de Sarance. Je ne vous mens pas : je le fais aussi pour moi. »",
@@ -4490,9 +4490,9 @@
   "O_fuite": {
    "title": "Le lieutenant s'en va",
    "text": [
-    "Oudart soupire. « Je m'en doutais. » Il se lève sans hâte, prend son manteau. « Le temps que vous trouviez le capitaine, je serai de l'autre côté de la Dorve. Jacquemin connaît la passe. »",
+    "Oudart soupire. « Je m'en doutais. » Il se lève sans hâte et prend son manteau. « Le temps que vous trouviez le capitaine, je serai de l'autre côté de la Dorve. Jacquemin connaît la passe. »",
     "Il s'arrête à la porte. « Ma poterne ne s'ouvrira pas. Mais le Margrave viendra quand même, par la brèche. Souvenez-vous, ce jour-là, que je vous avais offert autre chose. »",
-    "Quand tu arrives chez Aussonne avec deux sergents, la chambre du lieutenant est vide. On retrouve son cheval à l'écurie, et sa barque, au matin, échouée sur l'autre rive."
+    "Quand tu arrives chez Aussonne avec deux sergents, la chambre du lieutenant est vide. On retrouve son cheval à l'écurie et, au matin, sa barque échouée sur l'autre rive."
    ],
    "fx": {
     "flag": [
@@ -4517,7 +4517,7 @@
    "text": [
     {
      "first": true,
-     "text": "Dame Aliénor Vassal est une femme grande et sèche, vêtue de gris, avec un trousseau de clés à la ceinture comme une abbesse. Elle te regarde de haut en bas, et tu as la sensation très nette d'être pesé{e}."
+     "text": "Dame Aliénor Vassal est une femme grande et sèche, vêtue de gris, qui porte un trousseau de clés à la ceinture comme une abbesse. Elle te regarde de haut en bas, et tu as la sensation très nette d'être pesé{e}."
     },
     {
      "first": true,
@@ -4737,7 +4737,7 @@
   "TL_souper": {
    "title": "Le souper des jurés",
    "text": [
-    "La salle à manger des Vassal sent la cire et le chapon. Sur la table, du pain blanc, du vin de la côte, des poires. Autour, Carbonnel, deux maîtres de la guilde des drapiers, un chanoine, et Dame Vassal en bout de table, qui découpe elle-même.",
+    "La salle à manger des Vassal sent la cire et le chapon. Sur la table, il y a du pain blanc, du vin de la côte et des poires. Autour sont assis Carbonnel, deux maîtres de la guilde des drapiers et un chanoine ; Dame Vassal, en bout de table, découpe elle-même.",
     "On parle de tout sauf du siège jusqu'aux poires. Puis Dame Vassal pose son couteau. « Messire de Rouvre, le héraut du Margrave, m'a fait savoir que les conditions tiennent jusqu'au soir du dixième jour, et pas une heure de plus. » Personne ne demande comment elle le sait. Tout le monde le sait.",
     "« Les vies et les biens saufs. Les franchises confirmées. C'est mieux que ce que nous aurions du Roi, qui nous oublie, et du capitaine, qui nous fera tous mourir pour son honneur. » Elle te regarde. « Il nous manque une voix. »"
    ],
@@ -4765,8 +4765,8 @@
   "TL_souper_oui": {
    "title": "Avec les jurés",
    "text": [
-    "Les verres se lèvent. Carbonnel boit le sien d'un trait, soulagé comme un homme à qui l'on ôte une épine. Dame Vassal te fait asseoir à sa droite pour le reste du repas.",
-    "En sortant, son commis te glisse que les gardes de la maison Vassal seront à tes ordres si les choses tournent mal, et une bourse, « pour les menus frais de l'intendance »."
+    "Les verres se lèvent. Carbonnel vide le sien d'un trait, soulagé comme un homme à qui l'on ôte une épine. Dame Vassal te fait asseoir à sa droite pour le reste du repas.",
+    "En sortant, son commis te glisse que les gardes de la maison Vassal seront à tes ordres si les choses tournent mal, et il te remet une bourse, « pour les menus frais de l'intendance »."
    ],
    "fx": {
     "gold": 400
@@ -4780,7 +4780,7 @@
   "G_negoce": {
    "title": "Ce que tu veux",
    "text": [
-    "Dame Vassal attend, les mains croisées. Elle a déjà fait le compte de ce que tu peux exiger et de ce que tu peux offrir. Elle attend de voir si tu sais compter aussi.",
+    "Dame Vassal attend, les mains croisées. Elle a déjà fait le compte de ce que tu peux exiger et de ce que tu peux offrir, et elle attend de voir si tu sais compter aussi.",
     {
      "if": {
       "has": "grain:vendu"
@@ -4839,7 +4839,7 @@
    "title": "Le marché conclu",
    "text": [
     "Dame Vassal te tend la main par-dessus la table. Sa poigne est sèche et ferme. « Je savais qu'on finirait par s'entendre. »",
-    "À la nuit, des charrettes bâchées traversent la place du Marché sans lanternes, et des hommes de la maison Vassal montent des sacs aux greniers de la Halle. Les gardes de nuit ont reçu chacun un écu pour ne pas savoir compter."
+    "À la nuit, des charrettes bâchées traversent la place du Marché sans lanternes, et des hommes de la maison Vassal montent des sacs aux greniers de la Halle. Les gardes de nuit ont reçu chacun un écu pour oublier l'arithmétique."
    ],
    "fx": {
     "flag": "g:trouve",
@@ -4859,7 +4859,7 @@
   "G_rendu": {
    "title": "Le grain rendu",
    "text": [
-    "Dame Vassal se lève. « Vous ne ferez pas carrière, intendant{e}. » Mais elle appelle son commis, et lui donne l'ordre à voix basse.",
+    "Dame Vassal se lève. « Vous ne ferez pas carrière, intendant{e}. » Elle appelle pourtant son commis, et lui donne l'ordre à voix basse.",
     "À la nuit, des charrettes bâchées traversent la place du Marché. Tu les suis jusqu'à la Halle, et tu comptes toi-même les sacs qu'on monte aux greniers."
    ],
    "fx": {
@@ -4883,8 +4883,8 @@
   "G_saisie": {
    "title": "La saisie",
    "text": [
-    "Aussonne t'écoute, demande à voir le bon, le lit deux fois. « Une jurée du Conseil. » Il se lève. « Je ne fais pas la loi dans les caves des marchands. Mais je la fais dans une ville assiégée. »",
-    "Une heure plus tard, vingt sergents enfoncent la porte des caves de la maison Vassal sous les yeux de toute la place. Dame Vassal, debout sur son perron, garde le silence. On l'emmène au château, avec Carbonnel qu'on est allé chercher à l'Hôtel de ville en chemise.",
+    "Aussonne t'écoute, demande à voir le bon et le lit deux fois. « Une jurée du Conseil. » Il se lève. « Je ne fais pas la loi dans les caves des marchands. Mais je la fais dans une ville assiégée. »",
+    "Une heure plus tard, vingt sergents enfoncent la porte des caves de la maison Vassal sous les yeux de toute la place. Dame Vassal, debout sur son perron, garde le silence. On l'emmène au château, avec Carbonnel, qu'on est allé chercher en chemise à l'Hôtel de ville.",
     "La place du Marché applaudit les sacs qui sortent, un à un, cousus du S couronné des greniers."
    ],
    "fx": {
@@ -5004,7 +5004,7 @@
    "text": [
     {
      "first": true,
-     "text": "Maître Carbonnel te reçoit dans son cabinet de l'Hôtel de ville, entre des piles de registres et un sceau de bronze grand comme une assiette. Il essuie ses lunettes sans arrêt, et sourit avant de répondre à chaque question, comme pour s'excuser de la réponse."
+     "text": "Maître Carbonnel te reçoit dans son cabinet de l'Hôtel de ville, entre des piles de registres et un sceau de bronze grand comme une assiette. Il essuie sans arrêt ses lunettes, et sourit avant chaque réponse, comme pour s'en excuser."
     },
     {
      "again": true,
@@ -5089,7 +5089,7 @@
    "title": "Bréhal, selon Carbonnel",
    "text": [
     "Carbonnel pâlit, essuie ses lunettes. « Bréhal… oui. Il est venu me voir, la veille de… Une histoire de papiers. Un bon. Je lui ai dit de voir ça avec le greffier. Les bons, on les copie tous au registre, vous savez. Tous. C'est la règle. »",
-    "Il le dit trop vite, et il le regrette aussitôt, à voir sa tête."
+    "Il l'a dit trop vite, et sa tête montre qu'il le regrette aussitôt."
    ],
    "fx": {
     "flag": "carbonnel:registre"
@@ -5103,7 +5103,7 @@
   "TC_registre": {
    "title": "Le registre des bons",
    "text": [
-    "Le greffier de l'Hôtel de ville te donne le registre sans discuter : l'intendance a le droit de tout voir. Tu remontes les pages jusqu'au début du mois.",
+    "Le greffier de l'Hôtel de ville te donne le registre sans discuter, puisque l'intendance a le droit de tout voir. Tu remontes les pages jusqu'au début du mois.",
     "La copie est là, au deuxième jour : un bon de sortie pour trois cents setiers de grain gâté, au sceau de la ville, signé R. Carbonnel. Tu en fais faire une copie conforme par le greffier, qui tremble un peu en appliquant le sceau."
    ],
    "fx": {
@@ -5119,7 +5119,7 @@
   "TC_bon": {
    "title": "Le bon",
    "text": [
-    "Carbonnel regarde le bon comme on regarde un serpent sur son oreiller. Ses lunettes tombent sur le registre. Il les laisse là.",
+    "Carbonnel regarde le bon comme on regarde un serpent sur son oreiller. Ses lunettes tombent sur le registre, et il les y laisse.",
     "« Elle m'a tenu, dit-il enfin. Vassal. Mes dettes. Trois mille écus, depuis la mauvaise année des draps. Elle a dit qu'elle effacerait tout. Elle a dit que le grain serait mieux gardé dans ses caves que dans les greniers de la ville, que c'était une précaution, qu'on le rendrait. » Il se tord les mains. « Ce n'était pas du grain gâté. C'était du bon blé. Je le savais. »",
     "« Ne me faites pas pendre. J'ai des petits-enfants. »"
    ],
@@ -5143,7 +5143,7 @@
   "TC_tresor": {
    "title": "Le trésor de la ville",
    "text": [
-    "« Le trésor ? » Carbonnel ouvre la bouche pour dire qu'il est vide. Il croise ton regard, la referme. Il se lève, va jusqu'à un coffre ferré derrière la tapisserie, et l'ouvre avec une clé qu'il porte au cou.",
+    "« Le trésor ? » Carbonnel ouvre la bouche pour dire qu'il est vide, croise ton regard et la referme. Il se lève, va jusqu'à un coffre ferré caché derrière la tapisserie, et l'ouvre avec une clé qu'il porte au cou.",
     "« Soixante écus. C'est tout ce qu'il reste. Je les gardais pour… pour après. » Il te les compte d'une main tremblante."
    ],
    "fx": {
@@ -5165,7 +5165,7 @@
    "text": [
     {
      "first": true,
-     "text": "Mère Ysaure est petite, ridée, les manches roulées sur des avant-bras de lavandière. Elle a un grain de beauté sur la joue et une voix qui porte jusqu'au fond de la salle sans jamais crier."
+     "text": "Mère Ysaure est petite et ridée, les manches roulées sur des avant-bras de lavandière. Elle a un grain de beauté sur la joue, et une voix qui porte jusqu'au fond de la salle sans qu'elle ait besoin de crier."
     },
     {
      "first": true,
@@ -5388,7 +5388,7 @@
   "T_ysaure_flux": {
    "title": "Le flux",
    "text": [
-    "Mère Ysaure t'emmène derrière les draps tendus au fond de la salle. Une vingtaine de paillasses, des bassins, des enfants trop calmes, l'odeur.",
+    "Mère Ysaure t'emmène derrière les draps tendus au fond de la salle : une vingtaine de paillasses, des bassins, des enfants trop calmes, et l'odeur.",
     "« Ça vient de la faim et de l'eau croupie. Ça tue les petits et les vieux d'abord. » Elle parle sans émotion, comme on dicte une ordonnance. « Il me faut du pain blanc, du bouillon, et de l'eau bouillie. Il me faut du bois. Et il me faut que la ville cesse d'entasser les gens comme des harengs. »",
     "« Le capitaine, lui, veut la ration pleine pour ses soldats. Il y a un assaut qui vient, dit-il. Il a sûrement raison. Les deux ne tiendront pas dans vos greniers. »"
    ],
@@ -5402,7 +5402,7 @@
   "D_soldats": {
    "title": "Le grain des uns et des autres",
    "text": [
-    "Les soldats veulent la ration pleine pour l'assaut qui vient. L'Hôtel-Dieu veut du pain blanc et du bouillon pour ses malades. Tu fais le compte une fois, puis une deuxième, puis une troisième, et le compte reste le même : tu ne peux pas donner aux deux.",
+    "Les soldats veulent la ration pleine pour l'assaut qui vient ; l'Hôtel-Dieu veut du pain blanc et du bouillon pour ses malades. Tu fais le compte une fois, puis une deuxième, puis une troisième, et il reste le même : tes greniers suffisent à l'un ou à l'autre.",
     {
      "if": {
       "has": "hospice:promis"
@@ -5413,7 +5413,7 @@
      "if": {
       "has": "solde:payee"
      },
-     "text": "Les sergents t'ont salué{e} ce matin quand tu es passé{e} dans la cour. Ils savent qui a payé leur solde."
+     "text": "Ce matin, dans la cour, les sergents t'ont salué{e} à ton passage. Ils savent qui a payé leur solde."
     }
    ],
    "choices": [
@@ -5464,7 +5464,7 @@
    "text": [
     {
      "via": "soldats",
-     "text": "Les sergents reçoivent leurs miches entières, sous les regards de la file. À l'Hôtel-Dieu, Mère Ysaure coupe le pain blanc en tranches de plus en plus fines. Pour tout reproche, elle t'envoie, chaque soir, le nombre des morts."
+     "text": "Les sergents reçoivent leurs miches entières, sous les regards de la file. À l'Hôtel-Dieu, Mère Ysaure coupe le pain blanc en tranches de plus en plus fines. Pour tout reproche, elle t'envoie chaque soir le nombre des morts."
     },
     {
      "via": "hospice",
@@ -5472,7 +5472,7 @@
     },
     {
      "via": "partage",
-     "text": "Tu coupes la part en deux. Les soldats ont un peu plus, les malades ont un peu plus, et personne n'en a assez. Le capitaine et l'abbesse te remercient du bout des lèvres, chacun persuadé que l'autre a eu la meilleure part."
+     "text": "Tu coupes la part en deux. Les soldats ont un peu plus, les malades aussi, et personne n'en a assez. Le capitaine et l'abbesse te remercient du bout des lèvres, chacun persuadé que l'autre a eu la meilleure part."
     }
    ]
   },
@@ -5482,7 +5482,7 @@
    "text": [
     {
      "first": true,
-     "text": "Gilles Aubron est roux, large, les mains comme des battoirs, et il parle pour être entendu de l'autre rive. Les bateliers autour de lui se taisent quand il ouvre la bouche, et rient quand il rit."
+     "text": "Gilles Aubron est roux et large, avec des mains comme des battoirs, et il parle pour être entendu de l'autre rive. Autour de lui, les bateliers se taisent quand il ouvre la bouche, et rient quand il rit."
     },
     {
      "first": true,
@@ -5678,7 +5678,7 @@
    "title": "La poix des tanneries",
    "text": [
     "« De la poix ? » Gilles appelle un tanneur. « On en a des tonneaux, pour les cuirs. C'est la ville qui les aura payés, de toute façon, d'une manière ou d'une autre. »",
-    "Le soir même, vingt pots de poix sont rangés dans la tour d'Angle."
+    "Le soir même, vingt pots de poix attendent dans la tour d'Angle."
    ],
    "fx": {
     "flag": "poix"
@@ -5755,9 +5755,9 @@
   "TG_assemblee": {
    "title": "L'assemblée de nuit",
    "text": [
-    "Ils sont deux cents sur le quai, à la lueur des torches : bateliers, tanneurs, meuniers, foulons, des femmes aussi, les bras croisés sous le châle. Gilles est debout sur une barque retournée.",
+    "Ils sont deux cents sur le quai, à la lueur des torches : bateliers, tanneurs, meuniers, foulons, et des femmes aussi, les bras croisés sous le châle. Gilles se tient debout sur une barque retournée.",
     "« Le capitaine veut tenir pour son Roi. Les jurés veulent rendre la ville pour leurs caves. Et nous ? On nous demande de mourir pour les uns, ou de nous taire pour les autres. » Un grondement. « Je dis que Sarance est à ceux qui la font tourner. Je dis qu'on jure, ici, ensemble, que nous ne laisserons personne vendre la ville par-dessus nos têtes. »",
-    "Les mains se lèvent, une à une. Gilles te regarde, en bas de sa barque. Tout le quai te regarde."
+    "Les mains se lèvent, une à une. Gilles te regarde, du haut de sa barque, et tout le quai te regarde avec lui."
    ],
    "choices": [
     {
@@ -5779,7 +5779,7 @@
   "TG_assemblee_oui": {
    "title": "Le serment",
    "text": [
-    "Ta main se lève, et un cri monte du quai, qui fait aboyer les chiens jusque dans le camp du Margrave. Gilles saute de sa barque et te serre dans ses bras comme un frère.",
+    "Ta main se lève, et un cri monte du quai, assez fort pour faire aboyer les chiens jusque dans le camp du Margrave. Gilles saute de sa barque et te serre dans ses bras comme un frère.",
     "« L'intendance est avec nous ! » Tu entends ton titre répété par deux cents voix, et tu comprends que tu viens de choisir pour toi, et pour beaucoup d'autres."
    ],
    "choices": [
@@ -5862,8 +5862,8 @@
   "TM_verite": {
    "title": "La vérité",
    "text": [
-    "Tu lui dis tout, dans un coin du cloître, où elle s'est assise sur le bord du puits. La demande faite en son nom, la garde relevée, les lumières, le parapet. Le nom.",
-    "Mahaut écoute sans pleurer. Quand tu as fini, elle reste un long moment à regarder ses mains, rouges de l'eau des baquets.",
+    "Tu lui dis tout, dans un coin du cloître, où elle s'est assise sur la margelle du puits : la demande faite en son nom, la garde relevée, les lumières, le parapet, et le nom.",
+    "Mahaut écoute sans pleurer. Quand tu as fini, elle reste un long moment à regarder ses mains, rougies par l'eau des baquets.",
     {
      "if": {
       "has": "oudart:arrete"
@@ -5920,7 +5920,7 @@
    "text": [
     {
      "first": true,
-     "text": "Hoël a vingt-deux ans, des joues de laboureur, des yeux qui fuient. Il serre son gobelet ou sa pique, selon l'heure, comme une main tendue pour ne pas tomber."
+     "text": "Hoël a vingt-deux ans, des joues de laboureur et des yeux qui fuient. Selon l'heure, il serre son gobelet ou sa pique, comme on s'accroche à une main tendue pour ne pas tomber."
     },
     {
      "again": true,
@@ -6001,7 +6001,7 @@
   "TH_muet": {
    "title": "Hoël se tait",
    "text": [
-    "Hoël devient rouge, puis blanc. « J'ai fait ma garde, j'ai rien vu. » Il le répète deux fois, et il s'en va pisser contre le mur pour ne plus avoir à te regarder."
+    "Hoël devient rouge, puis blanc. « J'ai fait ma garde, j'ai rien vu. » Il le répète deux fois, puis il s'en va pisser contre le mur, pour éviter ton regard."
    ],
    "choices": [
     {
@@ -6271,7 +6271,7 @@
    "text": [
     {
      "first": true,
-     "text": "Pernette pétrit dans l'arrière-boutique, les avant-bras blancs jusqu'aux coudes, et vend par une fenêtre ouverte sur la place. Les jetons de la ration d'un côté, les pièces de ceux qui achètent en plus de l'autre."
+     "text": "Pernette pétrit dans l'arrière-boutique, les avant-bras blancs jusqu'aux coudes, et vend par une fenêtre ouverte sur la place : d'un côté les jetons de la ration, de l'autre les pièces de ceux qui achètent en plus."
     },
     {
      "again": true,
@@ -6301,7 +6301,7 @@
    "text": [
     {
      "first": true,
-     "text": "Ugolin Tasca te reçoit derrière une grille de fer, entre deux balances et un registre ouvert. Il porte des lunettes rondes, une moustache fine, et il te sourit avec tout le visage, sauf les yeux."
+     "text": "Ugolin Tasca te reçoit derrière une grille de fer, entre deux balances et un registre ouvert. Il porte des lunettes rondes et une moustache fine, et il te sourit de tout le visage, sauf des yeux."
     },
     {
      "first": true,
@@ -6381,7 +6381,7 @@
   "TP_logis": {
    "title": "Un toit",
    "text": [
-    "Tu passes la journée à chercher. Les entrepôts des drapiers, vides depuis le siège, sont fermés à clé, et la clé est chez Carbonnel. La nef de Saint-Aubin est grande, sèche, et Mère Ysaure en a la garde."
+    "Tu passes la journée à chercher. Les entrepôts des drapiers, vides depuis le siège, sont fermés à clé, et la clé est chez Carbonnel. La nef de Saint-Aubin est grande et sèche, et Mère Ysaure en a la garde."
    ],
    "choices": [
     {
@@ -6430,7 +6430,7 @@
     },
     {
      "via": "eglise",
-     "text": "Mère Ysaure hésite une seconde, puis elle fait pousser les bancs contre les murs. Le soir, la nef de Saint-Aubin sent la paille et le lait, et le curé dit sa messe au milieu des dormeurs."
+     "text": "Mère Ysaure hésite un instant, puis fait pousser les bancs contre les murs. Le soir, la nef de Saint-Aubin sent la paille et le lait, et le curé dit sa messe au milieu des dormeurs."
     },
     "Adélaïde te remercie sans phrases, d'un regard."
    ],
@@ -6456,13 +6456,13 @@
    "title": "Le Chat-Huant",
    "place": "port",
    "text": [
-    "On frappe à la porte de ta chambre, sous le toit du Chat-Huant, alors que le jour se lève à peine. Tu ouvres sur un sergent en cotte de mailles, le casque sous le bras, qui sent la pluie et le feu de garde.",
+    "On frappe à la porte de ta chambre, sous le toit du Chat-Huant, au moment où le jour se lève à peine. Tu ouvres sur un sergent en cotte de mailles, le casque sous le bras, la barbe de trois jours, qui sent la pluie et le feu de garde.",
     "« C'est toi, l'étranger{e} du convoi ? C'est toi qui tiens les comptes ? » Il n'attend pas la réponse. « Le Conseil te demande. Tout de suite. »",
     {
      "if": {
       "has": "passe:commis"
      },
-     "text": "Tu as tenu les livres d'une maison de commerce pendant six ans. Le mot « comptes », dans la bouche d'un soldat, te fait l'effet d'une main sur l'épaule."
+     "text": "Tu as tenu pendant six ans les livres d'une maison de commerce. Le mot « comptes », dans la bouche d'un soldat, te fait l'effet d'une main posée sur l'épaule."
     },
     {
      "if": {
@@ -6474,9 +6474,9 @@
      "if": {
       "has": "passe:escorte"
      },
-     "text": "Le marchand qui t'a laissé{e} ici t'a au moins appris une chose : quand un soldat frappe chez toi avant l'aube, on le suit, et on discute après."
+     "text": "Le marchand qui t'a laissé{e} ici t'a au moins appris une chose : quand un soldat frappe chez toi avant l'aube, on le suit d'abord, et l'on discute ensuite."
     },
-    "Par la lucarne, tu vois les fumées du camp du Margrave, au nord, de l'autre côté des murs. Il y en a davantage que la veille."
+    "Par la lucarne, tu vois monter les fumées du camp du Margrave, au nord, de l'autre côté des murs. Tu en comptes davantage que la veille."
    ],
    "fx": {
     "set": {
@@ -6496,12 +6496,12 @@
    "title": "La salle du Conseil",
    "place": "chateau",
    "text": [
-    "La salle du Conseil est une pièce haute et froide, tendue de tapisseries usées. Autour d'une table de chêne, six personnes t'attendent. Personne ne se lève.",
-    "Au bout de la table, un homme de cinquante ans, une balafre blanche de la tempe au menton : Bertrand d'Aussonne, capitaine du Roi. À sa droite, son lieutenant, Oudart de Lys, en pourpoint bleu, qui te sourit comme à une vieille connaissance. En face, une femme sèche vêtue de gris, Dame Aliénor Vassal, jurée des marchands, et à côté d'elle Maître Carbonnel, le prévôt, qui essuie ses lunettes. Plus loin, une abbesse aux avant-bras de lavandière, Mère Ysaure, et un grand roux aux mains de batelier, Gilles Aubron, l'élu du port.",
+    "La salle du Conseil est une pièce haute et froide, tendue de tapisseries usées jusqu'à la trame. Autour d'une table de chêne, six personnes t'attendent, et aucune ne se lève.",
+    "Au bout de la table siège un homme de cinquante ans, une balafre blanche de la tempe au menton : Bertrand d'Aussonne, capitaine du Roi. À sa droite, son lieutenant, Oudart de Lys, en pourpoint bleu, te sourit comme à une vieille connaissance. En face, une femme sèche vêtue de gris, Dame Aliénor Vassal, jurée des marchands ; à côté d'elle, Maître Carbonnel, le prévôt, essuie ses lunettes. Plus loin se tiennent une abbesse aux avant-bras de lavandière, Mère Ysaure, et un grand roux aux mains de batelier, Gilles Aubron, l'élu du port.",
     "C'est Aussonne qui parle. « Josse Bréhal, l'intendant des greniers, est mort avant-hier soir. Il est tombé de la Tour du Sel. Ivre, à ce qu'on dit. Il nous faut quelqu'un pour tenir les greniers, et ce Conseil n'arrive pas à s'entendre sur un nom de la ville. »",
     "Dame Vassal achève pour lui, d'une voix égale : « Chacun de nous soupçonne le candidat des autres de vouloir nourrir ses amis. Vous n'avez pas d'amis ici. C'est votre principale qualité. »",
-    "Gilles Aubron éclate de rire. Carbonnel sourit sans savoir s'il doit. Mère Ysaure te regarde comme on regarde un cheval qu'on vous vend.",
-    "Aussonne pousse vers toi un anneau de fer et sept clés, et un gros registre relié de cuir. « Vous aurez la Maison des Greniers pour logis, une voix à ce Conseil, et la charge de nous dire, après-demain soir, combien de jours la ville peut tenir. Le Conseil votera alors sur la ration. Vous acceptez ? »",
+    "Gilles Aubron éclate de rire. Carbonnel sourit, sans savoir s'il le doit. Mère Ysaure te détaille comme on détaille un cheval qu'on vous propose à la foire.",
+    "Aussonne pousse vers toi un anneau de fer où pendent sept clés, et un gros registre relié de cuir. « Vous aurez la Maison des Greniers pour logis, une voix à ce Conseil, et la charge de nous dire, après-demain soir, combien de jours la ville peut tenir. Le Conseil votera alors sur la ration. Vous acceptez ? »",
     "Le ton de la question n'en fait pas une question."
    ],
    "fx": {
@@ -6535,9 +6535,9 @@
    "title": "Les greniers",
    "place": "halle",
    "text": [
-    "Les greniers de la Halle occupent toute la longueur des combles, sous la charpente : trois grandes salles où le jour entre par des lucarnes, et où les sacs s'empilent jusqu'aux poutres, par travées numérotées à la craie.",
-    "Il fait chaud et sec, ça sent la poussière de blé, le chanvre et la souris. Deux commis de la Halle t'attendent en haut de l'escalier, une lanterne à la main. Ils ont l'air de deux hommes qui ont vu partir leur maître et qui attendent de savoir à quoi ressemble le suivant.",
-    "Le registre de Bréhal dit combien il devrait y avoir de sacs. Il reste à savoir combien il y en a."
+    "Les greniers de la Halle occupent toute la longueur des combles, sous la charpente : trois grandes salles éclairées par des lucarnes, où les sacs s'empilent jusqu'aux poutres, par travées numérotées à la craie.",
+    "Il y fait chaud et sec ; l'air sent la poussière de blé, le chanvre et la souris. Deux commis de la Halle t'attendent en haut de l'escalier, une lanterne à la main. Ils ont l'air de deux hommes qui ont vu partir leur maître et qui attendent de savoir à quoi ressemblera le suivant.",
+    "Le registre de Bréhal dit combien il devrait y avoir de sacs. Il te reste à savoir combien il y en a."
    ],
    "choices": [
     {
@@ -6575,9 +6575,9 @@
    "title": "Le compte",
    "place": "halle",
    "text": [
-    "Il te faut l'après-midi entier. Les commis portent la lanterne, tu tiens la craie. À la fin, tu as un chiffre, et tu le vérifies deux fois : sept cent quatre-vingts setiers.",
+    "Il te faut l'après-midi entier. Les commis portent la lanterne, et tu tiens la craie. À la fin, tu as un chiffre, que tu vérifies deux fois : sept cent quatre-vingts setiers.",
     "Tu ouvres le registre de Bréhal sur un sac retourné, en guise de pupitre. Au soir du dixième jour du siège, sa main a écrit mille quatre-vingts. Il est mort le soir même.",
-    "Trois cents setiers. Il en faut quatre cents pour remplir une grange de village. On ne les perd pas comme on perd une clé."
+    "Il manque trois cents setiers. Il en faut quatre cents pour remplir une grange de village, et l'on égare rarement une grange."
    ],
    "fx": {
     "clue": "g_compte",
@@ -6598,7 +6598,7 @@
    "place": "halle",
    "text": [
     "Les travées se ressemblent toutes. Au milieu de la deuxième salle, tu t'aperçois que les numéros à la craie sautent de quatorze à dix-sept, et que tu as compté deux fois la même rangée, ou peut-être aucune. Les commis te regardent recommencer avec une politesse qui fait mal.",
-    "À la nuit tombante, tu as un chiffre, autour de huit cents setiers. Le registre de Bréhal en annonce davantage. Tu sais que l'erreur peut venir de toi. Il faudra recompter, autrement."
+    "À la nuit tombante, tu tiens un chiffre, autour de huit cents setiers. Le registre de Bréhal en annonce davantage. L'erreur peut venir de toi, et il faudra recompter, autrement."
    ],
    "choices": [
     {
@@ -6611,9 +6611,9 @@
    "title": "Le recompte",
    "place": "halle",
    "text": [
-    "Cette fois, tu fais apporter des cordes, des bâtons et un seau de chaux. Chaque rangée comptée reçoit un trait blanc. Les commis finissent par s'y mettre avec toi, et le jeu les amuse presque.",
+    "Cette fois, tu fais apporter des cordes, des bâtons et un seau de chaux, et chaque rangée comptée reçoit un trait blanc. Les commis finissent par s'y mettre avec toi ; le jeu les amuse presque.",
     "Sept cent quatre-vingts setiers. Tu recommences la dernière salle pour être sûr{e}, et tu trouves le même nombre.",
-    "Le registre de Bréhal, au soir du dixième jour, en porte mille quatre-vingts. Trois cents setiers manquent. L'erreur ne venait pas de toi."
+    "Au soir du dixième jour, le registre de Bréhal en porte mille quatre-vingts. Il manque trois cents setiers, et cette fois l'erreur vient d'un autre que toi."
    ],
    "fx": {
     "clue": "g_compte",
@@ -6633,9 +6633,9 @@
    "title": "Le boisseau étalon",
    "place": "halle",
    "text": [
-    "Le boisseau étalon de Sarance trône au milieu de la Halle, sur un socle de pierre : un grand récipient de bronze cerclé de fer, poinçonné aux armes de la ville. C'est sur lui que l'on vérifie toutes les mesures des marchands. « Là où l'on mesure juste », disait Bréhal à sa fille.",
-    "Tu le fais basculer avec l'aide d'un commis. Le fond est double : une plaque de bronze qui joue sous l'ongle. Dessous, enveloppé dans un linge ciré, un petit carnet de cuir noir.",
-    "Tu l'ouvres debout, sous le regard du commis que tu renvoies d'un geste. C'est l'écriture de Bréhal, petite et droite, plus serrée qu'à l'ordinaire."
+    "Le boisseau étalon de Sarance trône au milieu de la Halle, sur un socle de pierre : un grand récipient de bronze cerclé de fer, poinçonné aux armes de la ville, sur lequel on vérifie toutes les mesures des marchands. « Là où l'on mesure juste », disait Bréhal à sa fille.",
+    "Tu le fais basculer avec l'aide d'un commis. Le fond est double : une plaque de bronze joue sous l'ongle. Dessous, enveloppé dans un linge ciré, se trouve un petit carnet de cuir noir.",
+    "Tu l'ouvres debout, après avoir renvoyé le commis d'un geste. C'est l'écriture de Bréhal, petite et droite, plus serrée qu'à l'ordinaire."
    ],
    "fx": {
     "item": "carnet",
@@ -6657,7 +6657,7 @@
    "text": [
     {
      "first": true,
-     "text": "La Tour du Sel est ronde, trapue, coiffée d'une plate-forme à créneaux où l'on monte par un escalier de quatre-vingts marches. De là-haut, on voit tout : le camp du Margrave étalé sur les pâtures, la boucle de la Dorve, les Moulins, et à l'aplomb du mur, trente pieds plus bas, les dalles du fossé où l'on a trouvé Josse Bréhal."
+     "text": "La Tour du Sel est ronde et trapue, coiffée d'une plate-forme à créneaux où l'on monte par un escalier de quatre-vingts marches. De là-haut, on voit tout : le camp du Margrave étalé sur les pâtures, la boucle de la Dorve, les Moulins et, à l'aplomb du mur, trente pieds plus bas, les dalles du fossé où l'on a trouvé Josse Bréhal."
     },
     {
      "first": true,
@@ -6669,7 +6669,7 @@
     },
     {
      "when": "night",
-     "text": "La nuit, les feux du camp font une seconde ville en face de la première. En aval, les Moulins sont noirs sur l'eau noire."
+     "text": "La nuit, les feux du camp dessinent une seconde ville en face de la première. En aval, les Moulins font des masses noires sur l'eau noire."
     },
     {
      "if": {
@@ -6715,8 +6715,8 @@
    "title": "Le parapet",
    "place": "remparts",
    "text": [
-    "Tu fais le tour de la plate-forme à genoux, les mains sur la pierre. Les créneaux, les joints, les mousses. À l'angle qui donne sur le fossé, la gouttière du parapet est bouchée de feuilles mortes et de fientes. Tu y passes les doigts.",
-    "Quelque chose de dur et de rond. Un bouton d'argent ciselé d'une fleur de lys, arraché avec un bout de fil bleu encore pris dans son anneau. C'est un bouton de pourpoint, et un pourpoint de prix."
+    "Tu fais le tour de la plate-forme à genoux, les mains sur la pierre, et tu passes en revue les créneaux, les joints et les mousses. À l'angle qui donne sur le fossé, la gouttière du parapet est bouchée de feuilles mortes et de fientes. Tu y passes les doigts.",
+    "Tu sens quelque chose de dur et de rond : un bouton d'argent ciselé d'une fleur de lys, arraché avec un bout de fil bleu encore pris dans son anneau. C'est un bouton de pourpoint, et d'un pourpoint de prix."
    ],
    "fx": {
     "item": "bouton",
@@ -6736,7 +6736,7 @@
    "title": "Le parapet",
    "place": "remparts",
    "text": [
-    "Tu fais le tour de la plate-forme, tu regardes chaque créneau. Une sentinelle te demande ce que tu cherches. Tu hausses les épaules. La lumière baisse. Tu reviendras par un jour plus clair."
+    "Tu fais le tour de la plate-forme en regardant chaque créneau. Une sentinelle te demande ce que tu cherches, et tu hausses les épaules. La lumière baisse ; tu reviendras par un jour plus clair."
    ],
    "choices": [
     {
@@ -6748,9 +6748,9 @@
    "title": "Minuit sur la Tour du Sel",
    "place": "remparts",
    "text": [
-    "Tu restes accoudé{e} au parapet, ton manteau serré. La sentinelle a fini par s'asseoir dans l'escalier pour être à l'abri du vent. Les feux du camp s'éteignent un à un.",
-    "Un peu avant minuit, en aval, dans le Moulin du milieu, une lumière s'allume derrière une lucarne. Elle s'éteint, se rallume, s'éteint. Trois fois. De l'autre côté de la Dorve, une lanterne répond, une seule fois.",
-    "Puis plus rien, et la rivière."
+    "Tu restes accoudé{e} au parapet, ton manteau serré. La sentinelle a fini par s'asseoir dans l'escalier, à l'abri du vent. Les feux du camp s'éteignent un à un.",
+    "Un peu avant minuit, en aval, une lumière s'allume derrière une lucarne du Moulin du milieu. Elle s'éteint, se rallume et s'éteint, trois fois. De l'autre côté de la Dorve, une lanterne répond, une seule fois.",
+    "Puis la rivière seule."
    ],
    "fx": {
     "clue": "b_lumieres"
@@ -6765,9 +6765,9 @@
    "title": "La Truie",
    "place": "remparts",
    "text": [
-    "Tu restes un long moment au créneau à regarder la machine. Sur la butte aux Pendus, au bord de la Dorve, des charpentiers ont dressé un bâti de poutres haut comme trois maisons. Le grand bras est déjà en place. Il reste à monter la caisse du contrepoids et à la remplir de pierres.",
+    "Tu restes un long moment au créneau à regarder la machine. Sur la butte aux Pendus, au bord de la Dorve, des charpentiers ont dressé un bâti de poutres haut comme trois maisons. Le grand bras est déjà en place ; il leur reste à monter la caisse du contrepoids et à la remplir de pierres.",
     "Un vieil arbalétrier crache par-dessus le mur. « Deux jours pour le contrepoids. Après, elle tirera par-dessus la Porte des Tanneurs, droit sur la Basse-Ville. La Halle est en plein dessous. »",
-    "« Il faudrait la brûler avant », dit un autre. « Avec quoi ? Et par où ? On n'a pas de bras qui portent jusque-là. » Ils regardent tous les deux vers la barbacane, puis vers la rivière, et se taisent."
+    "« Il faudrait la brûler avant », dit un autre. « Avec quoi ? Et par où ? On n'a pas de bras qui portent jusque-là. » Ils regardent tous les deux vers la barbacane, puis vers la rivière, et ils se taisent."
    ],
    "choices": [
     {
@@ -6780,13 +6780,13 @@
    "title": "Le Conseil de la Herse",
    "place": "chateau",
    "text": [
-    "La cloche du château sonne six coups. Dans la salle du Conseil, on a allumé des chandelles de suif qui fument. Les six sont là, à leurs places. On t'a mis un tabouret au bout de la table, en face du capitaine.",
+    "La cloche du château sonne six coups. Dans la salle du Conseil, on a allumé des chandelles de suif qui fument et qui sentent le mouton. Les six sont là, à leurs places, et l'on t'a mis un tabouret au bout de la table, en face du capitaine.",
     "Aussonne ouvre la séance sans préambule. « L'intendance. Combien de jours ? »",
     {
      "if": {
       "clue": "g_compte"
      },
-     "text": "Tu as ton chiffre, juste et vérifié : sept cent quatre-vingts setiers, et trois cents qui manquent par rapport au registre. Tu les donnes tous les deux. Un silence suit. Dame Vassal regarde ses mains. Gilles Aubron frappe la table du plat de la main. « Trois cents setiers ne s'envolent pas ! »"
+     "text": "Tu as ton chiffre, juste et vérifié : sept cent quatre-vingts setiers, et trois cents qui manquent par rapport au registre. Tu donnes les deux. Un silence suit. Dame Vassal regarde ses mains, et Gilles Aubron frappe la table du plat de la main. « Trois cents setiers ne s'envolent pas ! »"
     },
     {
      "if": {
@@ -6794,21 +6794,21 @@
        "clue": "g_compte"
       }
      },
-     "text": "Tu donnes le chiffre du registre de Bréhal, faute d'en avoir un meilleur. Dame Vassal hoche la tête, satisfaite, comme on approuve un élève."
+     "text": "Tu donnes le chiffre du registre de Bréhal, faute d'en avoir un meilleur. Dame Vassal hoche la tête, satisfaite, comme on approuve un élève qui a bien récité."
     },
     {
      "if": {
       "days": "ble",
       "min": 11
      },
-     "text": "À ration pleine, tu annonces une douzaine de jours, avec les réfugiés. À demi-ration, une vingtaine. Personne ne sait quand le Roi viendra."
+     "text": "À ration pleine, tu annonces une douzaine de jours, en comptant les réfugiés ; à demi-ration, une vingtaine. Personne ne sait quand le Roi viendra."
     },
     {
      "if": {
       "days": "ble",
       "max": 10
      },
-     "text": "À ration pleine, tu annonces une dizaine de jours, à peine. À demi-ration, presque le double. Personne ne sait quand le Roi viendra."
+     "text": "À ration pleine, tu annonces une dizaine de jours, à peine ; à demi-ration, presque le double. Personne ne sait quand le Roi viendra."
     },
     "Le greffier se lève et déroule la motion."
    ],
@@ -6835,7 +6835,7 @@
       "vote": "rations",
       "is": "rejete"
      },
-     "text": "La demi-ration est rejetée. Aussonne regarde un long moment la table, puis lève la séance. Dame Vassal range ses gants avec soin. « Nous mangerons bien, dit-elle à Carbonnel, assez fort pour que tu l'entendes. Jusqu'au jour où nous ne mangerons plus du tout. »"
+     "text": "La demi-ration est rejetée. Aussonne regarde la table un long moment, puis lève la séance. Dame Vassal range ses gants avec soin. « Nous mangerons bien, dit-elle à Carbonnel, assez fort pour que tu l'entendes. Jusqu'au jour où nous ne mangerons plus du tout. »"
     },
     "Demain matin, les boulangers jurés viendront chercher leur farine à la Halle, et c'est toi qui la leur pèseras."
    ],
@@ -6858,20 +6858,20 @@
    "title": "L'assaut",
    "place": "remparts",
    "text": [
-    "Les cloches. Toutes les cloches de Sarance à la fois, avant l'aube, Saint-Aubin, le beffroi, le château. Un sergent tambourine à ta porte. « L'assaut ! À la Porte des Tanneurs ! Le capitaine veut tout le monde sur le mur ! »",
-    "Tu cours dans les rues avec la moitié de la Basse-Ville : des tanneurs en tablier de cuir, des bateliers avec des gaffes, des femmes qui portent des seaux d'eau et des pierres dans leur jupe. Sur le chemin de ronde, Aussonne distribue les secteurs comme on distribue le pain.",
+    "Ce sont les cloches, toutes les cloches de Sarance à la fois, avant l'aube : Saint-Aubin, le beffroi, le château. Un sergent tambourine à ta porte. « L'assaut ! À la Porte des Tanneurs ! Le capitaine veut tout le monde sur le mur ! »",
+    "Tu cours dans les rues avec la moitié de la Basse-Ville : des tanneurs en tablier de cuir, des bateliers armés de gaffes, des femmes qui portent des seaux d'eau, et des pierres dans leur jupe. Sur le chemin de ronde, Aussonne distribue les secteurs comme on distribue le pain.",
     "« L'intendance ! Tu as compté mes sacs, compte mes hommes. La Porte des Tanneurs, le mur des tanneries, la tour d'Angle. Tiens-les. »",
     {
      "if": {
       "has": "passe:soldat"
      },
-     "text": "Tu as tenu un mur, une fois, dans les compagnies du Roi. Tes mains s'en souviennent avant ta tête."
+     "text": "Tu as tenu un mur, une fois, dans les compagnies du Roi, et tes mains s'en souviennent avant ta tête."
     },
     {
      "if": {
       "has": "poix"
      },
-     "text": "Les pots de poix sont dans la tour d'Angle, avec les chaudrons. Quelqu'un a déjà allumé le feu dessous."
+     "text": "Les pots de poix attendent dans la tour d'Angle, avec les chaudrons, et quelqu'un a déjà allumé le feu dessous."
     },
     {
      "if": {
@@ -6888,8 +6888,8 @@
    "title": "La porte a tenu",
    "place": "remparts",
    "text": [
-    "Le soleil se lève sur le fossé plein d'échelles brisées. Les cors du Margrave sonnent la retraite, longtemps, comme on appelle des chiens perdus. Sur le chemin de ronde, les tanneurs s'assoient où ils sont, contre le parapet, et certains s'endorment tout de suite.",
-    "Aussonne passe le long du mur, s'arrête devant toi, te regarde. « Bien. » Il repart. Derrière lui, Oudart de Lys te fait un clin d'œil, le visage noir de fumée.",
+    "Le soleil se lève sur un fossé plein d'échelles brisées. Les cors du Margrave sonnent la retraite, longtemps, comme on rappelle des chiens perdus. Sur le chemin de ronde, les tanneurs s'assoient où ils se trouvent, le dos au parapet, et certains s'endorment aussitôt.",
+    "Aussonne passe le long du mur, s'arrête devant toi et te regarde. « Bien. » Il repart. Derrière lui, Oudart de Lys te fait un clin d'œil, le visage noir de fumée.",
     {
      "if": {
       "battle": "tanneurs",
@@ -6897,7 +6897,7 @@
        "min": 2
       }
      },
-     "text": "On descend les morts par l'escalier de la tour d'Angle, sur des portes arrachées. Tu en connais deux de vue : un batelier qui chantait au Chat-Huant, et un des commis de la Halle."
+     "text": "On descend les morts par l'escalier de la tour d'Angle, sur des portes arrachées. Tu en connais deux de vue : un batelier qui chantait au Chat-Huant, et l'un des commis de la Halle."
     },
     {
      "if": {
@@ -6906,9 +6906,9 @@
        "max": 1
       }
      },
-     "text": "On compte les morts : peu. Les sœurs de l'Hôtel-Dieu montent avec des civières pour les blessés, et l'on entend des rires, nerveux, qui ressemblent à des sanglots."
+     "text": "Les morts sont peu nombreux. Les sœurs de l'Hôtel-Dieu montent avec des civières pour les blessés, et l'on entend des rires nerveux qui ressemblent à des sanglots."
     },
-    "Dans la ville, les cloches sonnent encore, autrement. Pour la première fois depuis onze jours, Sarance a battu quelqu'un."
+    "Dans la ville, les cloches sonnent encore, sur un autre ton. Pour la première fois depuis onze jours, Sarance a battu quelqu'un."
    ],
    "fx": {
     "flag": "bataille:tanneurs"
@@ -6926,9 +6926,9 @@
    "title": "La barbacane",
    "place": "remparts",
    "text": [
-    "La porte a tenu, de justesse, mais la barbacane est tombée. Les soldats du Margrave y sont retranchés, à cinquante pas du mur, derrière leurs mantelets, et leurs arbalétriers tirent sur tout ce qui bouge aux créneaux.",
-    "Dans la confusion, une échelle a passé le mur des tanneries assez longtemps pour que quelques hommes du Margrave mettent le feu à un grenier de la rue Basse. On a sauvé ce qu'on a pu. Quarante setiers de blé de la ville y étaient entreposés en attendant la mouture.",
-    "Aussonne garde le silence. Il regarde la barbacane, longtemps, et sa main gauche se serre sur la poignée de son épée."
+    "La porte a tenu, de justesse, mais la barbacane est tombée. Les soldats du Margrave s'y sont retranchés, à cinquante pas du mur, derrière leurs mantelets, et leurs arbalétriers tirent sur tout ce qui bouge aux créneaux.",
+    "Dans la confusion, une échelle est restée dressée contre le mur des tanneries assez longtemps pour que quelques hommes du Margrave mettent le feu à un grenier de la rue Basse. On a sauvé ce qu'on a pu. Quarante setiers de blé de la ville y attendaient la mouture.",
+    "Aussonne garde le silence. Il regarde longtemps la barbacane, et sa main gauche se serre sur la poignée de son épée."
    ],
    "fx": {
     "flag": "bataille:tanneurs"
@@ -6946,11 +6946,11 @@
    "title": "Le héraut",
    "place": "remparts",
    "text": [
-    "Une trompette sonne devant la Porte des Tanneurs : trois notes, puis trois encore. Un cavalier attend au bord du fossé, seul, en tabard rouge à la tour d'or, une branche verte à la main. On ne tire pas sur un héraut.",
-    "Aussonne monte à la porte, et le Conseil derrière lui. On te fait signe de suivre.",
+    "Une trompette sonne devant la Porte des Tanneurs : trois notes, puis trois encore. Un cavalier attend au bord du fossé, seul, en tabard rouge à la tour d'or, une branche verte à la main. On épargne les hérauts, même en temps de siège.",
+    "Aussonne monte à la porte, le Conseil derrière lui, et l'on te fait signe de suivre.",
     "« Messire Gautier de Rouvre, héraut de Monseigneur le Margrave de Hautpré, seigneur légitime de Sarance par sa défunte épouse. » Il a une voix de chantre, claire et sans colère. « Monseigneur salue la vaillance de la garnison. Il offre ceci : les portes ouvertes, la garnison libre de partir avec ses armes et ses bannières, les vies et les biens des habitants saufs, les franchises de la ville confirmées. »",
     "« Ces conditions tiennent cinq jours, jusqu'au soir du dixième jour de ce mois. Passé ce terme, Monseigneur prendra la ville par la force, et il ne répondra plus de ce que feront ses soldats. »",
-    "Il salue, tourne bride, et repart au pas, sans se retourner. Sur le rempart, personne ne parle. Puis Gilles Aubron crache par-dessus le parapet, et Dame Vassal dit, très bas, à Carbonnel : « Les biens saufs. Tu as entendu ? »"
+    "Il salue, tourne bride et repart au pas, sans se retourner. Sur le rempart, tout le monde se tait. Puis Gilles Aubron crache par-dessus le parapet, et Dame Vassal dit très bas à Carbonnel : « Les biens saufs. Tu as entendu ? »"
    ],
    "fx": {
     "meet": "heraut",
@@ -6970,15 +6970,15 @@
    "title": "La sortie",
    "place": "remparts",
    "text": [
-    "Minuit. Vingt sergents, Oudart de Lys et toi, dans le noir de la barbacane, chacun avec un pot de poix sur le dos et une mèche dans la ceinture. On a graissé les gonds de la petite porte.",
+    "Il est minuit. Vingt sergents, Oudart de Lys et toi attendez dans le noir de la barbacane, chacun avec un pot de poix sur le dos et une mèche dans la ceinture. On a graissé les gonds de la petite porte.",
     {
      "if": {
       "has": "barbacane:perdue"
      },
-     "text": "La barbacane est aux mains du Margrave : vous sortez par une échelle, au bout du mur des tanneries, un par un, dans le fossé."
+     "text": "La barbacane est aux mains du Margrave : vous sortez donc par une échelle, au bout du mur des tanneries, et vous descendez un par un dans le fossé."
     },
-    "Oudart passe devant, sans casque, la moustache au vent, et se retourne pour sourire. « Si on meurt, ce sera la plus belle mort de la saison. »",
-    "Vous traversez les pâtures à quatre pattes, entre les feux de garde. La butte aux Pendus, la Truie au-dessus de vous comme une bête endormie. Autour du bâti, des charpentiers dorment dans la sciure. Un chien lève la tête."
+    "Oudart passe devant, tête nue, la moustache au vent, et se retourne pour sourire. « Si on meurt, ce sera la plus belle mort de la saison. »",
+    "Vous traversez les pâtures à quatre pattes, entre les feux de garde, jusqu'à la butte aux Pendus, où la Truie se dresse au-dessus de vous comme une bête endormie. Autour du bâti, des charpentiers dorment dans la sciure. Un chien lève la tête."
    ],
    "choices": [
     {
@@ -7019,9 +7019,9 @@
    "title": "La Truie brûle",
    "place": "remparts",
    "text": [
-    "Les pots éclatent contre les poutres, la poix coule, et les mèches prennent. En un instant, le bâti de la Truie est une torche haute comme le clocher de Saint-Aubin. Les flammes éclairent tout le camp du Margrave, et des milliers d'hommes qui sortent de leurs tentes en chemise.",
-    "Vous courez. Oudart rit en courant. Un carreau d'arbalète siffle à côté de ta tête. Vous sautez dans le fossé, vous remontez par l'échelle, et sur le rempart toute la Basse-Ville est là pour vous acclamer.",
-    "Oudart lève les bras vers la foule, un peu comme un acteur. Puis il se tourne vers toi, essoufflé, et te serre la main. « On fait une belle paire, l'intendance. »"
+    "Les pots éclatent contre les poutres, la poix coule, et les mèches prennent. En un instant, le bâti de la Truie devient une torche haute comme le clocher de Saint-Aubin. Les flammes éclairent tout le camp du Margrave, et des milliers d'hommes qui sortent de leurs tentes en chemise.",
+    "Vous courez, et Oudart rit en courant. Un carreau d'arbalète siffle à côté de ta tête. Vous sautez dans le fossé, vous remontez par l'échelle, et toute la Basse-Ville vous attend sur le rempart pour vous acclamer.",
+    "Oudart lève les bras vers la foule, un peu à la manière d'un acteur. Puis il se tourne vers toi, essoufflé, et te serre la main. « On fait une belle paire, l'intendance. »"
    ],
    "fx": {
     "flag": "truie:brulee",
@@ -7049,8 +7049,8 @@
    "title": "La retraite",
    "place": "remparts",
    "text": [
-    "Le chien aboie. Puis dix chiens. Des torches s'allument partout autour de la butte, et les sergents lâchent leurs pots dans l'herbe pour courir plus vite. Vous repassez le fossé sous les carreaux.",
-    "Trois sergents ne remontent pas l'échelle. Sur le rempart, Oudart de Lys compte les siens, la mâchoire serrée, en silence. La Truie est toujours là, intacte, sur sa butte."
+    "Le chien aboie, puis dix chiens. Des torches s'allument tout autour de la butte, et les sergents lâchent leurs pots dans l'herbe pour courir plus vite. Vous repassez le fossé sous les carreaux.",
+    "Trois sergents manquent au haut de l'échelle. Sur le rempart, Oudart de Lys compte les siens, la mâchoire serrée, en silence. La Truie se dresse toujours sur sa butte, intacte."
    ],
    "fx": {
     "stock": {
@@ -7069,9 +7069,9 @@
    "title": "Les brûlots",
    "place": "port",
    "text": [
-    "Trois barques à fond plat, chargées de fagots, de paille et de pots de poix, attachées l'une derrière l'autre. Gilles Aubron dans la dernière, toi dans la première, deux bateliers au milieu. Pas de rames : la Dorve vous portera.",
-    "Vous glissez le long des Moulins, sous la Poterne, puis hors des murs. Le courant prend les barques comme on prend un enfant dans ses bras. Il faut seulement les garder au milieu du lit, loin des berges et des postes de garde, en se guidant sur les étoiles et sur le bruit de l'eau.",
-    "La butte aux Pendus approche, noire sur le ciel. Il faut savoir le moment exact où pousser la perche pour échouer la barque au pied de la Truie."
+    "Trois barques à fond plat, chargées de fagots, de paille et de pots de poix, sont attachées l'une derrière l'autre. Gilles Aubron prend la dernière, toi la première, et deux bateliers celle du milieu. Vous partez sans rames : la Dorve vous portera.",
+    "Vous glissez le long des Moulins, sous la Poterne, puis hors des murs. Le courant prend les barques comme on prend un enfant dans ses bras. Il suffit de les garder au milieu du lit, loin des berges et des postes de garde, en se guidant sur les étoiles et sur le bruit de l'eau.",
+    "La butte aux Pendus approche, noire sur le ciel. Tout tient au moment exact où tu pousseras la perche pour échouer la barque au pied de la Truie."
    ],
    "choices": [
     {
@@ -7097,9 +7097,9 @@
    "title": "Le feu sur l'eau",
    "place": "port",
    "text": [
-    "Tu pousses la perche au bon moment. La barque racle le gravier au pied de la butte. Tu allumes, tu sautes à l'eau, et les deux autres barques viennent s'échouer contre la première. Le feu monte d'un coup, la poix gicle, et le vent du sud couche les flammes contre la charpente de la Truie.",
-    "Vous nagez vers l'aval, dans le froid qui coupe le souffle, pendant que le camp tout entier s'éveille dans la lumière orange. Gilles te repêche par le col, à la passe des Saules, en riant comme un enfant.",
-    "Au matin, sur la butte aux Pendus, il reste de la Truie un tas de poutres noires. Sur le quai, les bateliers chantent."
+    "Tu pousses la perche au bon moment, et la barque racle le gravier au pied de la butte. Tu allumes et tu sautes à l'eau ; les deux autres barques viennent s'échouer contre la première. Le feu monte d'un coup, la poix gicle, et le vent du sud couche les flammes contre la charpente de la Truie.",
+    "Vous nagez vers l'aval, dans un froid qui coupe le souffle, pendant que le camp tout entier s'éveille dans la lumière orange. Gilles te repêche par le col, à la passe des Saules, en riant comme un enfant.",
+    "Au matin, il reste de la Truie un tas de poutres noires sur la butte aux Pendus. Sur le quai, les bateliers chantent."
    ],
    "fx": {
     "flag": "truie:brulee",
@@ -7127,8 +7127,8 @@
    "title": "Le feu sur l'eau",
    "place": "port",
    "text": [
-    "Tu pousses trop tard. La barque passe la butte, frotte une souche, se met en travers. Le feu prend trop tôt, dans la paille, et une sentinelle donne l'alerte sur la berge. Tu sautes à l'eau avec les bateliers. Les barques brûlent au milieu de la Dorve, pour rien, en éclairant tout.",
-    "Gilles te repêche à la passe des Saules. Il garde ses reproches. « La rivière, c'est comme ça. Elle te donne, et elle te reprend. » Mais il regarde longtemps, en silence, ses trois barques qui brûlent au loin."
+    "Tu pousses trop tard. La barque dépasse la butte, frotte une souche et se met en travers. Le feu prend trop tôt, dans la paille, et une sentinelle donne l'alerte sur la berge. Tu sautes à l'eau avec les bateliers, et les barques brûlent pour rien au milieu de la Dorve, en éclairant tout.",
+    "Gilles te repêche à la passe des Saules. Il garde ses reproches pour lui. « La rivière, c'est comme ça. Elle te donne, et elle te reprend. » Mais il regarde longtemps, en silence, ses trois barques qui brûlent au loin."
    ],
    "fx": {
     "stock": {
@@ -7147,8 +7147,8 @@
    "title": "Le toit crevé",
    "place": "halle",
    "text": [
-    "Tu montes voir. La pierre de la Truie a traversé le toit et deux planchers de grenier, et elle a fini sa course dans un tas de sacs éventrés. Par le trou, on voit le ciel gris. Quand il pleuvra, l'eau tombera droit sur le grain du grenier ouest, et le grain mouillé germe ou pourrit en trois jours.",
-    "Le maître couvreur de la ville, un vieux aux mains tremblantes, fait son devis à voix haute : des poutres, des lattes, des tuiles à prendre sur les maisons détruites, six hommes, deux jours. « Quarante écus. Pas un sou de moins, avec les pierres qui tombent. »"
+    "Tu montes voir. La pierre de la Truie a traversé le toit et deux planchers de grenier avant de finir sa course dans un tas de sacs éventrés. Par le trou, on voit le ciel gris. À la première pluie, l'eau tombera droit sur le grain du grenier ouest, et le grain mouillé germe ou pourrit en trois jours.",
+    "Le maître couvreur de la ville, un vieil homme aux mains tremblantes, établit son devis à voix haute : des poutres, des lattes, des tuiles à prendre sur les maisons détruites, six hommes et deux jours. « Quarante écus. Pas un sou de moins, avec les pierres qui tombent. »"
    ],
    "choices": [
     {
@@ -7191,7 +7191,7 @@
    "title": "Les couvreurs",
    "place": "halle",
    "text": [
-    "Les couvreurs travaillent deux jours sous les pierres de la Truie, encordés, en jurant. Le deuxième soir, le trou est fermé. Les tuiles neuves sont plus rouges que les autres. On voit la réparation de loin."
+    "Les couvreurs travaillent deux jours sous les pierres de la Truie, encordés, en jurant. Le deuxième soir, le trou est fermé. Les tuiles neuves, plus rouges que les autres, signalent la réparation de loin."
    ],
    "choices": [
     {
@@ -7203,8 +7203,8 @@
    "title": "Les sacs",
    "place": "halle",
    "text": [
-    "Tu fais monter tous les commis, les porteurs et quelques soldats. Trois heures durant, une chaîne de dos courbés fait passer les sacs du grenier ouest dans les deux autres, où ils s'entassent jusqu'aux poutres. Le grenier ouest reste vide sous son trou, et la pluie y tombe désormais sur du plancher nu.",
-    "Les sacs du fond, déjà mouillés par l'averse de la nuit, sentent l'aigre. Tu en fais jeter une quinzaine aux cochons de l'Hôtel-Dieu."
+    "Tu fais monter tous les commis, les porteurs et quelques soldats. Trois heures durant, une chaîne de dos courbés fait passer les sacs du grenier ouest dans les deux autres, où ils s'entassent jusqu'aux poutres. Le grenier ouest reste vide sous son trou, et la pluie y tombe désormais sur un plancher nu.",
+    "Les sacs du fond, mouillés par l'averse de la nuit, sentent déjà l'aigre. Tu en fais porter une quinzaine aux cochons de l'Hôtel-Dieu."
    ],
    "choices": [
     {
@@ -7216,14 +7216,14 @@
    "title": "Les caves Vassal",
    "place": "marche",
    "text": [
-    "La maison Vassal a une porte de cave sur la ruelle, derrière, fermée d'un cadenas que tu ouvres avec la patience d'un voleur et une épingle à cheveux. Les marches descendent dans une odeur de terre et de futaille.",
-    "La première cave est pleine de vin. La deuxième, de draps en ballots. La troisième, la plus grande, voûtée, est pleine de sacs de blé jusqu'à la voûte, en rangs serrés, comme dans un grenier.",
-    "Tu approches ta chandelle. Chaque sac est cousu du S couronné des greniers de la ville de Sarance. Tu en ouvres un : du bon blé, sec, doré, qui coule entre tes doigts.",
+    "La maison Vassal a une porte de cave sur la ruelle de derrière, fermée d'un cadenas que tu ouvres avec la patience d'un voleur et une épingle à cheveux. Les marches descendent dans une odeur de terre et de futaille.",
+    "La première cave est pleine de vin, et la deuxième de draps en ballots. La troisième, la plus grande, voûtée, est remplie jusqu'à la voûte de sacs de blé en rangs serrés, comme dans un grenier.",
+    "Tu approches ta chandelle. Chaque sac est cousu du S couronné des greniers de la ville de Sarance. Tu en ouvres un : c'est du bon blé, sec et doré, qui coule entre tes doigts.",
     {
      "if": {
       "has": "grain:vendu"
      },
-     "text": "Un bon tiers des rangées est vide, et des traces fraîches de sacs traînés vont vers l'escalier."
+     "text": "Un bon tiers des rangées est vide, et des traces fraîches de sacs traînés mènent vers l'escalier."
     },
     "Tu remontes sans bruit, et tu refermes le cadenas derrière toi."
    ],
@@ -7245,9 +7245,9 @@
    "title": "La lanterne",
    "place": "marche",
    "text": [
-    "Le cadenas cède, mais au bas des marches une lanterne s'allume. Deux gardes de la maison Vassal, en jaque de cuir, te regardent avec intérêt. Derrière eux, en robe de chambre grise, Dame Aliénor Vassal en personne.",
-    "« L'intendance, dans ma cave, à minuit. » Elle n'a pas l'air surprise. « Raccompagnez notre intendant{e} jusqu'à la rue. Avec égards. Nous nous reverrons au Conseil. »",
-    "Les gardes te remontent par les bras. La porte se referme sur toi, et tu entends qu'on ajoute un deuxième cadenas."
+    "Le cadenas cède, mais au bas des marches une lanterne s'allume. Deux gardes de la maison Vassal, en jaque de cuir, te regardent avec intérêt. Derrière eux se tient Dame Aliénor Vassal en personne, en robe de chambre grise.",
+    "« L'intendance, dans ma cave, à minuit. » Elle a l'air de quelqu'un qui s'y attendait. « Raccompagnez notre intendant{e} jusqu'à la rue. Avec égards. Nous nous reverrons au Conseil. »",
+    "Les gardes te remontent par les bras. La porte se referme derrière toi, et tu entends qu'on y ajoute un deuxième cadenas."
    ],
    "fx": {
     "regard": {
@@ -7266,15 +7266,15 @@
    "title": "Le Conseil des bouches inutiles",
    "place": "chateau",
    "text": [
-    "On a fermé les volets de la salle du Conseil à cause des pierres de la Truie, et allumé les chandelles en plein jour. Mère Ysaure arrive la dernière, un linge encore à la ceinture, et ne s'assied pas.",
+    "On a fermé les volets de la salle du Conseil à cause des pierres de la Truie, et allumé les chandelles en plein jour. Mère Ysaure arrive la dernière, un linge encore à la ceinture, et reste debout.",
     {
      "if": {
       "stock": "flux",
       "min": 10
      },
-     "text": "Elle annonce les chiffres de l'Hôtel-Dieu d'une voix plate : le flux a gagné la grande salle et le cloître. Onze morts depuis ce matin, dont sept enfants des villages."
+     "text": "Elle annonce les chiffres de l'Hôtel-Dieu d'une voix plate : le flux a gagné la grande salle et le cloître, et il a fait onze morts depuis ce matin, dont sept enfants des villages."
     },
-    "Aussonne attend qu'elle ait fini. Puis il fait un signe au greffier. « J'ai déposé cette motion moi-même. Je veux que chacun vote à voix haute, et que chacun s'en souvienne. »",
+    "Aussonne attend qu'elle ait fini, puis fait un signe au greffier. « J'ai déposé cette motion moi-même. Je veux que chacun vote à voix haute, et que chacun s'en souvienne. »",
     {
      "if": {
       "days": "ble",
@@ -7320,7 +7320,7 @@
       "vote": "exp",
       "is": "rejete"
      },
-     "text": "La motion est rejetée. Aussonne hoche la tête comme s'il s'y attendait, et fait noter le vote au registre. Mère Ysaure ferme les yeux, et ses lèvres bougent."
+     "text": "La motion est rejetée. Aussonne hoche la tête comme s'il s'y attendait, et fait noter le vote au registre. Mère Ysaure ferme les yeux ; ses lèvres bougent."
     },
     {
      "if": {
@@ -7335,7 +7335,7 @@
        }
       ]
      },
-     "text": "En passant derrière toi, Dame Vassal te touche l'épaule, d'un doigt. « Vous avez fait ce qu'il fallait. Personne ne vous en remerciera. »"
+     "text": "En passant derrière toi, Dame Vassal te touche l'épaule d'un doigt. « Vous avez fait ce qu'il fallait. Personne ne vous en remerciera. »"
     }
    ],
    "fx": {
@@ -7356,7 +7356,7 @@
    "title": "La Porte des Tanneurs",
    "place": "remparts",
    "text": [
-    "Le jour se lève sur la Porte des Tanneurs. Les gens des villages arrivent par la rue des Tanneurs, en silence, sous la garde des sergents : des familles, des vieux portés sur des brancards, des enfants qui tiennent des poules. Ils ont laissé leurs vaches. On les a mangées.",
+    "Le jour se lève sur la Porte des Tanneurs. Les gens des villages arrivent par la rue des Tanneurs, en silence, sous la garde des sergents : des familles, des vieux portés sur des brancards, des enfants qui tiennent des poules dans leurs bras. Ils ont laissé leurs vaches, parce qu'on les a mangées.",
     "Adélaïde du Plessis marche la dernière. Quand elle passe sous la voûte, elle lève les yeux vers le rempart, et ses yeux s'arrêtent sur toi.",
     {
      "if": {
@@ -7369,8 +7369,8 @@
      "after": "plessis:abri",
      "text": "Ceux qui dormaient au sec, depuis quelques nuits, ont roulé leurs couvertures avec soin, comme on les roule quand on compte revenir."
     },
-    "La porte se referme. De l'autre côté du fossé, une ligne d'arbalétriers du Margrave attend. Un sergent du camp crie quelque chose. Les sept cents s'arrêtent au bord du fossé, entre les deux armées, et s'assoient dans l'herbe.",
-    "Ils ne passeront pas. Le Margrave veut que la ville les voie."
+    "La porte se referme. De l'autre côté du fossé, une ligne d'arbalétriers du Margrave attend, et un sergent du camp crie quelque chose. Les sept cents s'arrêtent au bord du fossé, entre les deux armées, et s'assoient dans l'herbe.",
+    "Le Margrave les gardera là, sous les yeux de la ville."
    ],
    "fx": {
     "stock": {
@@ -7402,9 +7402,9 @@
    "title": "Le passage",
    "place": "remparts",
    "text": [
-    "On te fait sortir par le guichet, avec un drapeau blanc. Messire de Rouvre vient à cheval jusqu'au bord du fossé, et t'écoute poliment.",
-    "Tu laisses la pitié de côté. Tu lui parles de ce que dira le pays, des villages qui ne lui ouvriront plus leurs portes, des chroniqueurs qui écriront « Sarance » à côté de « Pont-Aubert ». Tu lui parles du flux, aussi, que sept cents malades porteront dans son camp s'il les garde au bord de ses lignes.",
-    "Le héraut sourit à moitié. « Vous avez l'âme d'un marchand, intendant{e}. Monseigneur aime les marchands. » Il repart au galop. Une heure plus tard, la ligne d'arbalétriers s'ouvre, et les gens du Plessis passent, lentement, vers le sud, avec un sauf-conduit.",
+    "On te fait sortir par le guichet, avec un drapeau blanc. Messire de Rouvre vient à cheval jusqu'au bord du fossé et t'écoute poliment.",
+    "Tu laisses la pitié de côté. Tu lui parles de ce que dira le pays, des villages qui lui fermeront leurs portes, des chroniqueurs qui écriront « Sarance » à côté de « Pont-Aubert ». Tu lui parles aussi du flux, que sept cents malades porteront dans son camp s'il les garde au bord de ses lignes.",
+    "Le héraut sourit à moitié. « Vous avez l'âme d'un marchand, intendant{e}. Monseigneur aime les marchands. » Il repart au galop. Une heure plus tard, la ligne d'arbalétriers s'ouvre, et les gens du Plessis passent lentement vers le sud, avec un sauf-conduit.",
     "Adélaïde est la dernière à passer. Elle regarde droit devant elle."
    ],
    "fx": {
@@ -7428,7 +7428,7 @@
    "title": "Le refus",
    "place": "remparts",
    "text": [
-    "Messire de Rouvre t'écoute du haut de son cheval, au bord du fossé. Puis il secoue la tête. « Ces gens sont à vous, intendant{e}. Monseigneur n'a pas de pain pour les bouches que vous refusez de nourrir. Reprenez-les, ou regardez-les. »",
+    "Messire de Rouvre t'écoute du haut de son cheval, au bord du fossé, puis secoue la tête. « Ces gens sont à vous, intendant{e}. Monseigneur n'a pas de pain pour les bouches que vous refusez de nourrir. Reprenez-les, ou regardez-les. »",
     "Tu remontes par le guichet. Derrière toi, les gens du Plessis s'installent dans le fossé avec leurs manteaux."
    ],
    "choices": [
@@ -7443,7 +7443,7 @@
    "place": "remparts",
    "back": true,
    "text": [
-    "Tu fais monter des sacs de pain sur le rempart, au-dessus du fossé, et des soldats les jettent un par un, aussi loin qu'ils peuvent. En bas, des mains se tendent. Des enfants courent. Les arbalétriers du Margrave regardent sans tirer.",
+    "Tu fais monter des sacs de pain sur le rempart, au-dessus du fossé, et des soldats les lancent un par un, aussi loin qu'ils peuvent. En bas, des mains se tendent et des enfants courent. Les arbalétriers du Margrave regardent sans tirer.",
     {
      "if": {
       "day": {
@@ -7458,9 +7458,9 @@
        "min": 10
       }
      },
-     "text": "Ils sont moins nombreux à se lever pour le pain. Certains restent couchés sous leurs manteaux, même quand le pain tombe tout près."
+     "text": "Ils sont moins nombreux, cette fois, à se lever pour le pain. Certains restent couchés sous leurs manteaux, même quand un pain tombe tout près d'eux."
     },
-    "Sur le rempart, les soldats qui jettent le pain ont faim, eux aussi. Tout le monde se tait."
+    "Sur le rempart, les soldats qui lancent le pain ont faim, eux aussi, et tout le monde se tait."
    ],
    "fx": {
     "stock": {
@@ -7482,21 +7482,21 @@
    "text": [
     {
      "first": true,
-     "text": "Au pied de la Tour du Sel, dans la salle basse, une sentinelle te montre un seau d'eau posé sur les dalles. Tu attends. Au bout d'un moment, l'eau frissonne, sans raison, et des cercles naissent au milieu de la surface. Puis plus rien. Puis encore."
+     "text": "Au pied de la Tour du Sel, dans la salle basse, une sentinelle te montre un seau d'eau posé sur les dalles. Tu attends. Au bout d'un moment, l'eau frissonne sans raison, et des cercles naissent au milieu de la surface. Puis l'eau se calme, et recommence."
     },
     {
      "first": true,
-     "text": "Tu colles l'oreille contre la dalle. Très loin, très bas : des coups réguliers, sourds, comme un cœur. Ils creusent. Ils creusent une galerie sous le mur, pour l'étayer de bois, y mettre le feu, et faire tomber la tour dans son trou."
+     "text": "Tu colles l'oreille contre la dalle. Très loin, très bas, tu entends des coups réguliers et sourds, comme un cœur. Ils creusent une galerie sous le mur, pour l'étayer de bois, y mettre le feu et faire tomber la tour dans son trou."
     },
     {
      "again": true,
-     "text": "Le seau d'eau, sur les dalles de la salle basse. Les cercles à la surface. Les coups, plus proches qu'hier."
+     "text": "Le seau d'eau attend sur les dalles de la salle basse. Des cercles courent à sa surface, et les coups sont plus proches qu'hier."
     },
     {
      "if": {
       "has": "contremine"
      },
-     "text": "Dans un coin, les mineurs de la garnison ont ouvert un puits dans le sol. Tu entends leurs pioches répondre à celles d'en face."
+     "text": "Dans un coin, les mineurs de la garnison ont ouvert un puits dans le sol, et tu entends leurs pioches répondre à celles d'en face."
     },
     "Le sergent du secteur se gratte la nuque. « Une contre-mine, il faudrait. Des bras, du bois, et du pain pour ceux qui creusent. Ou alors savoir par où passe l'eau, sous cette ville. »"
    ],
@@ -7529,7 +7529,7 @@
    "title": "La contre-mine",
    "place": "remparts",
    "text": [
-    "Les mineurs de la garnison sont six, des gars de la Montagne, petits et carrés. Tu leur fais donner la ration pleine et un tonneau de vin, et tu leur fais porter tout le bois de la charpente d'une maison détruite. Ils descendent en silence, et creusent vers le bruit.",
+    "Les mineurs de la garnison sont six, des gars de la Montagne, petits et carrés. Tu leur fais donner la ration pleine et un tonneau de vin, et porter tout le bois de la charpente d'une maison détruite. Ils descendent en silence, et creusent vers le bruit.",
     "Au soir, ils remontent noirs de terre. « On est sur eux. Quand ils viendront, on fera tomber leur galerie et la nôtre, avec ceux qui seront dedans. Mais il faudra le faire au bon moment. »"
    ],
    "choices": [
@@ -7542,11 +7542,11 @@
    "title": "La vanne",
    "place": "port",
    "text": [
-    "Jacquemin t'emmène dans le bief des Moulins, à minuit, avec deux meuniers et des pics. Sous la passerelle du Moulin d'amont, contre la berge, un vieux mur de briques mangé de mousse. Vous l'attaquez à coups de pic, dans l'eau jusqu'aux genoux. Derrière, un conduit voûté, assez haut pour un enfant, qui descend dans le noir vers la Tour du Sel.",
-    "Jacquemin pose la main sur la roue de la vanne. Il te regarde. Tu fais signe que oui.",
-    "La vanne monte. L'eau du bief s'engouffre dans le conduit avec un bruit de bête, et tout le bief baisse d'un pied en quelques minutes. Au loin, sous la terre, tu crois entendre quelque chose. Des cris, peut-être. Peut-être l'eau seule.",
-    "Le matin, dans la salle basse de la Tour du Sel, le seau d'eau est immobile sur les dalles. Il le reste toute la journée, et les jours suivants.",
-    "Jacquemin se tait, en rentrant. Devant le Moulin, il te dit seulement : « Ils étaient combien, en dessous ? » Tu l'ignores."
+    "Jacquemin t'emmène à minuit dans le bief des Moulins, avec deux meuniers et des pics. Sous la passerelle du Moulin d'amont, contre la berge, se dresse un vieux mur de briques mangé de mousse. Vous l'attaquez à coups de pic, dans l'eau jusqu'aux genoux. Derrière s'ouvre un conduit voûté, assez haut pour un enfant, qui descend dans le noir vers la Tour du Sel.",
+    "Jacquemin pose la main sur la roue de la vanne et te regarde. Tu fais signe que oui.",
+    "La vanne monte. L'eau du bief s'engouffre dans le conduit avec un bruit de bête, et tout le bief baisse d'un pied en peu de temps. Au loin, sous la terre, tu crois entendre quelque chose : des cris, peut-être, ou peut-être l'eau seule.",
+    "Au matin, dans la salle basse de la Tour du Sel, le seau d'eau reste immobile sur les dalles. Il le reste toute la journée, et les jours suivants.",
+    "Jacquemin garde le silence sur le chemin du retour. Devant le Moulin, il te dit seulement : « Ils étaient combien, en dessous ? » Tu l'ignores."
    ],
    "fx": {
     "flag": "mine:noyee",
@@ -7571,10 +7571,10 @@
    "title": "Le registre du courrier",
    "place": "chateau",
    "text": [
-    "Le registre du courrier du château est tenu dans une petite pièce au pied de l'escalier, par un clerc à manchettes de lustrine. L'intendance a le droit de le voir : les achats de grain passent par les lettres. Le clerc te le tend en soupirant.",
+    "Le registre du courrier du château est tenu dans une petite pièce au pied de l'escalier, par un clerc à manchettes de lustrine. L'intendance a le droit de le consulter, puisque les achats de grain passent par les lettres. Le clerc te le tend en soupirant.",
     "Les entrées sont toutes de la même main, une belle écriture penchée. « Le lieutenant tient la correspondance du capitaine », dit le clerc. « Moi, je recopie. »",
     "Tu remontes les pages. Des lettres aux villes voisines, aux abbayes, au sénéchal. Rien de l'extérieur depuis le début du siège, sauf une ligne, au neuvième jour : « Reçu du Roi, une lettre close, par le passeur des Moulins. »",
-    "Pas de réponse inscrite. Tu poses la question au clerc. Il hausse les épaules. « Le capitaine l'a gardée. »"
+    "Aucune réponse n'est inscrite. Tu poses la question au clerc, qui hausse les épaules. « Le capitaine l'a gardée. »"
    ],
    "fx": {
     "clue": "l_courrier",
@@ -7593,9 +7593,9 @@
    "title": "Le logis du capitaine",
    "place": "chateau",
    "text": [
-    "Le logis d'Aussonne est une chambre de soldat : un lit étroit, un coffre, une table, un crucifix, une armure sur son chevalet. Tu as peu de temps. Tu entends le capitaine, très loin, qui crie un ordre sur le chemin de ronde.",
-    "Le coffre n'est pas fermé. Des chemises, une bible, des lettres de femme nouées d'un ruban et, tout au fond, sous une cotte pliée, un pli au grand sceau rouge du Roi, rompu.",
-    "Tu le lis debout, près de la fenêtre. Tu le relis. Puis tu le glisses sous ta chemise, et tu refermes le coffre."
+    "Le logis d'Aussonne est une chambre de soldat : un lit étroit, un coffre, une table, un crucifix, une armure sur son chevalet. Ton temps est compté. Tu entends le capitaine, très loin, crier un ordre sur le chemin de ronde.",
+    "Le coffre est ouvert. Il contient des chemises, une bible, des lettres de femme nouées d'un ruban et, tout au fond, sous une cotte pliée, un pli au grand sceau rouge du Roi, rompu.",
+    "Tu le lis debout, près de la fenêtre, puis tu le relis. Tu le glisses ensuite sous ta chemise, et tu refermes le coffre."
    ],
    "fx": {
     "item": "lettre_roi",
@@ -7617,8 +7617,8 @@
    "title": "Le capitaine",
    "place": "chateau",
    "text": [
-    "Tu as la main dans le coffre quand la porte s'ouvre. Aussonne est sur le seuil, la cape mouillée. Il revient chercher ses gants.",
-    "Il te regarde un long moment. « Sortez », dit-il sans élever la voix. Tu sors. Dans l'escalier, tu l'entends refermer le coffre avec une clé, et donner un tour de plus."
+    "Tu as la main dans le coffre quand la porte s'ouvre. Aussonne se tient sur le seuil, la cape mouillée ; il revient chercher ses gants.",
+    "Il te regarde un long moment. « Sortez », dit-il sans élever la voix. Tu sors. Dans l'escalier, tu l'entends refermer le coffre à clé, et donner un tour de plus."
    ],
    "fx": {
     "regard": {
@@ -7637,9 +7637,9 @@
    "title": "L'émeute",
    "place": "halle",
    "text": [
-    "Ça commence par un cri, sur la place devant la Halle, et ça devient une foule en moins de temps qu'il n'en faut pour descendre l'escalier. Trois cents, quatre cents personnes, des femmes devant, des hommes avec des barres de fer et des maillets de tonnelier. Les deux sergents de garde ont reculé jusqu'à la porte.",
-    "« Le pain ! Le pain des greniers ! » Une pierre traverse un volet. Quelqu'un a apporté une poutre pour enfoncer la grande porte.",
-    "Ils te voient. Le cri change. « L'intendance ! » Ils savent qui tient les clés."
+    "Ça commence par un cri sur la place devant la Halle, et c'est une foule avant que tu aies descendu l'escalier : trois cents, quatre cents personnes, des femmes devant, des hommes armés de barres de fer et de maillets de tonnelier. Les deux sergents de garde ont reculé jusqu'à la porte.",
+    "« Le pain ! Le pain des greniers ! » Une pierre traverse un volet, et quelqu'un a apporté une poutre pour enfoncer la grande porte.",
+    "Ils te voient, et le cri change. « L'intendance ! » Ils savent qui tient les clés."
    ],
    "choices": [
     {
@@ -7707,15 +7707,15 @@
    "text": [
     {
      "via": "ouvert",
-     "text": "Tu fais ouvrir le grenier est. Les sacs descendent, les boulangers jurés pétrissent toute la nuit, et la foule se disperse avec du pain sous le bras. Le lendemain, la ville est calme. Le grenier est vide, lui aussi."
+     "text": "Tu fais ouvrir le grenier est. Les sacs descendent, les boulangers jurés pétrissent toute la nuit, et la foule se disperse avec du pain sous le bras. Le lendemain, la ville est calme, et le grenier est vide."
     },
     {
      "via": "parole",
-     "text": "Tu leur parles du compte, simplement : combien il reste, combien on mange, combien de jours. Tu leur dis que si l'on ouvre aujourd'hui, on mourra de faim avant la fin du mois. Une femme crie que c'est un mensonge. Une autre la fait taire. La poutre retombe sur les pavés, et la foule se défait comme une pâte qu'on cesse de pétrir."
+     "text": "Tu leur parles du compte, simplement : combien il reste, combien on mange, combien de jours. Tu leur dis que si l'on ouvre aujourd'hui, on mourra de faim avant la fin du mois. Une femme crie que c'est un mensonge, et une autre la fait taire. La poutre retombe sur les pavés, et la foule se défait comme une pâte qu'on cesse de pétrir."
     },
     {
      "via": "sang",
-     "text": "Les sergents arrivent au pas de charge, la pique basse. La foule se brise. Quand la place est vide, il reste trois corps sur les pavés, un sabot, un panier renversé, et du sang dans les rigoles."
+     "text": "Les sergents arrivent au pas de charge, la pique basse, et la foule se brise. Quand la place est vide, il reste sur les pavés trois corps, un sabot, un panier renversé, et du sang dans les rigoles."
     },
     {
      "via": "sang",
@@ -7740,7 +7740,7 @@
    "title": "Le Conseil de la reddition",
    "place": "chateau",
    "text": [
-    "Le dixième jour, à six heures du soir. Le terme du héraut expire à minuit. La salle du Conseil est pleine : on a laissé entrer les maîtres des métiers, les chanoines, les capitaines de quartier, qui se tiennent debout contre les murs. Tout le monde sait de quoi on va parler.",
+    "C'est le dixième jour, à six heures du soir, et le terme du héraut expire à minuit. La salle du Conseil est pleine : on a laissé entrer les maîtres des métiers, les chanoines et les capitaines de quartier, qui se tiennent debout contre les murs. Tout le monde sait de quoi l'on va parler.",
     {
      "after": "oudart:arrete",
      "text": "La place d'Oudart de Lys est vide. On a laissé son tabouret."
@@ -7751,20 +7751,20 @@
     },
     {
      "after": "alienor:arretee",
-     "text": "Dame Vassal et Carbonnel sont assis entre deux sergents, sur des bancs qu'on a apportés. On leur a laissé leur voix : le Conseil n'a jamais voté leur exclusion."
+     "text": "Dame Vassal et Carbonnel sont assis entre deux sergents, sur des bancs qu'on a apportés. On leur a laissé leur voix, faute d'un vote du Conseil pour la leur retirer."
     },
-    "Aussonne ouvre la séance debout. « Le Roi viendra. Je l'ai dit le premier jour, je le redis ce soir. Nous avons tenu dix jours. Nous tiendrons dix jours de plus. » Personne ne répond.",
+    "Aussonne ouvre la séance debout. « Le Roi viendra. Je l'ai dit le premier jour, je le redis ce soir. Nous avons tenu dix jours. Nous tiendrons dix jours de plus. » La salle se tait.",
     {
      "if": {
       "item": "lettre_roi"
      },
-     "text": "Sous ta chemise, contre ta peau, la lettre du Roi."
+     "text": "La lettre du Roi est sous ta chemise, contre ta peau."
     },
     {
      "if": {
       "has": "lettre:annoncee"
      },
-     "text": "Aussonne ne te quitte pas des yeux. Il sait ce que tu portes, et que tu as dit que la ville avait le droit de savoir."
+     "text": "Aussonne garde les yeux sur toi. Il sait ce que tu portes, et que tu as dit que la ville avait le droit de savoir."
     },
     {
      "if": {
@@ -7809,8 +7809,8 @@
     "Tu te lèves et tu tires la lettre de ta chemise. Aussonne voit le sceau rouge, et tout son corps se fige.",
     "Tu lis lentement, à voix haute, pour que les gens du fond entendent. « Notre ost ne descendra pas vers vous avant le printemps. Tenez si vous le pouvez. Rendez la place à bonnes conditions si vous ne le pouvez plus. Nous ne vous en ferons pas reproche. »",
     "Le silence qui suit est le plus long de ta vie.",
-    "Puis tout le monde parle à la fois. Un chanoine pleure. Carbonnel rit, d'un rire aigu, et se cache la bouche. Mère Ysaure se signe. Dame Vassal regarde Aussonne avec quelque chose comme de la pitié.",
-    "Aussonne se tait. Il s'assied, très droit, et pose les deux mains à plat sur la table. Il a l'air d'un homme qui attend la corde.",
+    "Puis tout le monde parle à la fois. Un chanoine pleure. Carbonnel rit, d'un rire aigu, et se cache la bouche. Mère Ysaure se signe. Dame Vassal regarde Aussonne avec quelque chose qui ressemble à de la pitié.",
+    "Aussonne se tait. Il s'assied, très droit, et pose les deux mains à plat sur la table, comme un homme qui attend la corde.",
     "C'est Gilles Aubron qui se lève, et sa voix couvre la salle. « Le Roi nous laisse. Le Margrave nous veut. Et ce conseil de seigneurs et de marchands nous a caché la vérité pendant quinze jours. » Il se tourne vers les maîtres des métiers, contre le mur. « Sarance n'a plus de maître qu'elle-même. »"
    ],
    "fx": {
@@ -7844,7 +7844,7 @@
    "title": "Les hommes du Lombard",
    "creditor": "tasca",
    "text": [
-    "Deux hommes t'attendent, adossés au mur, les bras croisés. Des anciens soldats, à leur allure, en jaque de cuir et bonnet de laine. L'un d'eux tient un papier plié en quatre, ton nom au bas.",
+    "Deux hommes t'attendent, adossés au mur, les bras croisés. Ce sont d'anciens soldats, à leur allure, en jaque de cuir et bonnet de laine. L'un d'eux tient un papier plié en quatre, avec ton nom au bas.",
     "« Le seigneur Tasca te salue. Le douzième jour, six heures, soixante écus. Il est six heures passées. » Il regarde ta bourse. « Le seigneur Tasca dit qu'il prend aussi les bagues et les épées, au poids. »"
    ],
    "choices": [
@@ -7887,7 +7887,7 @@
    "title": "Les hommes du Lombard",
    "back": true,
    "text": [
-    "Ils s'en vont sans se presser, en regardant par-dessus leur épaule. Le Lombard attendra. Le Lombard sait attendre. Il a une ville entière de débiteurs, et un registre où les noms ne s'effacent pas."
+    "Ils s'en vont sans se presser, en regardant par-dessus leur épaule. Le Lombard attendra ; il sait attendre. Il a une ville entière de débiteurs, et un registre où les noms restent."
    ]
   },
   "C3_apres": {
@@ -7900,7 +7900,7 @@
       "vote": "reddition",
       "is": "adopte"
      },
-     "text": "La reddition est adoptée. Le greffier écrit le compte au registre, d'une main qui tremble. Quelqu'un, contre le mur, applaudit, seul, et s'arrête. On enverra un trompette au héraut avant minuit : les portes s'ouvriront le douzième jour, à neuf heures du matin."
+     "text": "La reddition est adoptée. Le greffier écrit le compte au registre, d'une main qui tremble. Contre le mur, quelqu'un applaudit, seul, et s'arrête. On enverra un trompette au héraut avant minuit : les portes s'ouvriront le douzième jour, à neuf heures du matin."
     },
     {
      "if": {
@@ -7923,7 +7923,7 @@
        }
       ]
      },
-     "text": "Aussonne n'a pas attendu la fin du compte. Il est sorti, et l'on a entendu son pas dans l'escalier, et la porte de son logis qu'on ferme à clé."
+     "text": "Aussonne est sorti avant la fin du compte. On a entendu son pas dans l'escalier, puis la clé tourner dans la porte de son logis."
     },
     {
      "if": {
@@ -7936,14 +7936,14 @@
        }
       ]
      },
-     "text": "Dans la cour, les maîtres des métiers ne rentrent pas chez eux. Ils restent sous les torches, autour de Gilles Aubron, et parlent à voix basse."
+     "text": "Dans la cour, les maîtres des métiers restent sous les torches, autour de Gilles Aubron, et parlent à voix basse. Aucun ne rentre chez lui."
     },
     {
      "if": {
       "promise": "alienor",
       "is": "tenue"
      },
-     "text": "Dame Vassal te salue d'un signe de tête. Le marché est soldé."
+     "text": "Dame Vassal te salue d'un signe de tête, comme on salue un marché soldé."
     },
     {
      "if": {
@@ -7991,13 +7991,13 @@
    "title": "Les clés de Sarance",
    "place": "remparts",
    "text": [
-    "Le douzième jour, à neuf heures. Sur la place de la Porte des Tanneurs, la ville est venue en habits du dimanche, ou ce qu'il en reste. Le Conseil attend sous la voûte, et toi avec lui, l'anneau des clés des greniers à la ceinture.",
-    "La porte s'ouvre en grinçant. Messire de Rouvre entre à cheval, suivi de cinquante cavaliers en tabard rouge. Il descend de cheval devant le Conseil, et attend qu'on lui remette les clés de la ville.",
+    "C'est le douzième jour, à neuf heures. Sur la place de la Porte des Tanneurs, la ville est venue en habits du dimanche, ou en ce qu'il en reste. Le Conseil attend sous la voûte, et toi avec lui, l'anneau des clés des greniers à la ceinture.",
+    "La porte s'ouvre en grinçant. Messire de Rouvre entre à cheval, suivi de cinquante cavaliers en tabard rouge. Il met pied à terre devant le Conseil et attend qu'on lui remette les clés de la ville.",
     {
      "if": {
       "has": "lettre:lue_conseil"
      },
-     "text": "Aussonne est là, en armure, la garnison rangée derrière lui avec ses bannières. Il tient la lettre du Roi à la main, et la tend au héraut avant même de saluer."
+     "text": "Aussonne est là, en armure, la garnison rangée derrière lui avec ses bannières. Il tient à la main la lettre du Roi, et la tend au héraut avant même de saluer."
     },
     {
      "if": {
@@ -8014,7 +8014,7 @@
        }
       ]
      },
-     "text": "Aussonne est absent. Le capitaine du Roi s'est enfermé au château avec quarante sergents, et la herse est baissée. Il a fait dire qu'il ne rendait pas la place du Roi sans ordre du Roi."
+     "text": "Aussonne manque à l'appel. Le capitaine du Roi s'est enfermé au château avec quarante sergents, herse baissée, et il a fait dire qu'il ne rendait pas la place du Roi sans ordre du Roi."
     },
     {
      "if": {
@@ -8065,9 +8065,9 @@
    "title": "La herse",
    "place": "chateau",
    "text": [
-    "On te laisse passer sous la herse, seul{e}. Aussonne t'attend dans la cour, en armure, au milieu de ses sergents qui ont tous l'air d'hommes qui vont mourir et le savent.",
+    "On te laisse passer sous la herse, seul{e}. Aussonne t'attend dans la cour, en armure, au milieu de sergents qui ont tous l'air d'hommes qui vont mourir et le savent.",
     "Tu lui tends la lettre. « Montrez-la au héraut. Le Roi vous l'a écrite : rendre la place à bonnes conditions. On ne pend pas un capitaine qui obéit à son Roi. »",
-    "Aussonne la prend. Il la regarde longtemps. Puis il fait lever la herse."
+    "Aussonne la prend et la regarde longtemps. Puis il fait lever la herse."
    ],
    "fx": {
     "flag": "aussonne:lettre",
@@ -8087,7 +8087,7 @@
    "title": "La commune",
    "place": "port",
    "text": [
-    "Au matin du onzième jour, le beffroi de l'Hôtel de ville sonne la cloche de la commune, celle qu'on ne sonne plus depuis cent ans. Les métiers descendent dans les rues avec leurs bannières, les bateliers avec leurs gaffes, les tanneurs avec leurs couteaux.",
+    "Au matin du onzième jour, le beffroi de l'Hôtel de ville sonne la cloche de la commune, muette depuis cent ans. Les métiers descendent dans les rues avec leurs bannières, les bateliers avec leurs gaffes, les tanneurs avec leurs couteaux.",
     {
      "if": {
       "vote": "reddition",
@@ -8099,10 +8099,10 @@
      "if": {
       "has": "lettre:lue_conseil"
      },
-     "text": "Depuis hier soir, toute la ville sait ce que disait la lettre du Roi. Personne ne viendra. Les métiers en ont tiré leur conclusion pendant la nuit."
+     "text": "Depuis hier soir, toute la ville sait ce que disait la lettre du Roi : personne ne viendra. Les métiers en ont tiré leur conclusion pendant la nuit."
     },
-    "Ils sont deux mille sur la place du Marché à l'heure de la messe. Ils jurent ensemble, la main levée, la commune de Sarance. Gilles Aubron est élu maire par acclamation, sur les marches de l'Hôtel de ville, devant Carbonnel qui lui remet le sceau de la ville en tremblant.",
-    "Au château, la herse est baissée. Aussonne et sa garnison sont enfermés dans leurs murs, et les métiers les y gardent. Personne ne tire.",
+    "Ils sont deux mille sur la place du Marché à l'heure de la messe, et ils jurent ensemble, la main levée, la commune de Sarance. Gilles Aubron est élu maire par acclamation sur les marches de l'Hôtel de ville, devant Carbonnel qui lui remet le sceau de la ville en tremblant.",
+    "Au château, la herse est baissée. Aussonne et sa garnison sont enfermés dans leurs murs, les métiers les y gardent, et de part et d'autre, on garde les arbalètes à l'épaule.",
     "À midi, Gilles te prend par l'épaule. « Le Margrave ne traitera pas avec des bateliers. Il traitera avec quelqu'un qui sait compter. Tu viens avec moi au camp. »"
    ],
    "choices": [
@@ -8117,7 +8117,7 @@
    "title": "Le conseil de guerre",
    "place": "chateau",
    "text": [
-    "Aussonne a déroulé un plan de la ville sur la table du Conseil. Autour, ses sergents, le maître des arbalétriers, deux capitaines de quartier, et toi.",
+    "Aussonne a déroulé un plan de la ville sur la table du Conseil. Autour de lui se tiennent ses sergents, le maître des arbalétriers, deux capitaines de quartier, et toi.",
     {
      "if": {
       "all": [
@@ -8140,15 +8140,15 @@
        }
       ]
      },
-     "text": "Oudart de Lys est à la droite du capitaine, frais rasé, un pourpoint neuf. Il pose le doigt sur le plan chaque fois qu'Aussonne cite un poste, et il approuve."
+     "text": "Oudart de Lys se tient à la droite du capitaine, rasé de frais, dans un pourpoint neuf. Il pose le doigt sur le plan chaque fois qu'Aussonne cite un poste, et il approuve."
     },
     {
      "after": "oudart:arrete",
-     "text": "À la droite du capitaine, la place d'Oudart de Lys. Un sergent l'occupe, mal à l'aise, qui n'ose pas s'appuyer à la table."
+     "text": "À la droite du capitaine, un sergent occupe la place d'Oudart de Lys, mal à l'aise, sans oser s'appuyer à la table."
     },
     {
      "after": "oudart:fui",
-     "text": "À la droite du capitaine, la place d'Oudart de Lys. Un sergent l'occupe, mal à l'aise, qui n'ose pas s'appuyer à la table."
+     "text": "À la droite du capitaine, un sergent occupe la place d'Oudart de Lys, mal à l'aise, sans oser s'appuyer à la table."
     },
     "« Le héraut a parlé de la nuit du douzième jour. Ils viendront partout à la fois : la porte, le mur, et ce qu'ils auront creusé. Je garde le château et la Haute-Ville. L'intendance, tu prends la Basse-Ville, des Tanneurs jusqu'aux Moulins. Tu connais les gens, et les gens te connaissent. »",
     {
@@ -8208,7 +8208,7 @@
        }
       ]
      },
-     "text": "Tu regardes, sur le plan, la Poterne des Moulins, petite et sans garde, juste derrière le Moulin du milieu."
+     "text": "Sur le plan, tes yeux vont à la Poterne des Moulins, petite et sans garde, juste derrière le Moulin du milieu."
     }
    ],
    "choices": [
@@ -8354,7 +8354,7 @@
      "if": {
       "has": "pacte:oudart"
      },
-     "text": "Tu as promis à Oudart de te taire. Tu tiens ta parole à ta manière : tu te tais. Tu poses seulement six arbalétriers devant sa porte. Il le saura avant ce soir."
+     "text": "Tu as promis à Oudart de te taire, et tu tiens ta parole à ta manière : tu te tais, et tu poses six arbalétriers devant sa porte. Il le saura avant ce soir."
     },
     "Tu les places toi-même, à la nuit tombante, dans l'ombre de la Poterne, avec ordre de tirer sur quiconque l'ouvrirait, fût-ce le capitaine en personne."
    ],
@@ -8369,7 +8369,7 @@
    "title": "La Basse-Ville se prépare",
    "place": "port",
    "text": [
-    "Tu passes la journée à courir de la Porte des Tanneurs aux Moulins. Les tanneurs remplissent des chaudrons, les bateliers affûtent leurs gaffes, les femmes montent des pierres sur le chemin de ronde dans des paniers à linge.",
+    "Tu passes la journée à courir de la Porte des Tanneurs aux Moulins. Les tanneurs remplissent des chaudrons, les bateliers affûtent leurs gaffes, et les femmes montent des pierres sur le chemin de ronde dans des paniers à linge.",
     "Au port, Gilles Aubron t'attend près des treuils rouillés des Moulins, les mains sur les hanches. « Les chaînes de la Dorve. Personne ne les a relevées depuis la dernière guerre. Si le Margrave vient par l'eau, c'est par là qu'il viendra. »"
    ],
    "choices": [
@@ -8390,7 +8390,7 @@
    "back": true,
    "text": [
     "Les chaînes de la Dorve dorment au fond de l'eau depuis la dernière guerre, accrochées à deux treuils rouillés, un sur chaque rive des Moulins. Gilles Aubron dit qu'il faut vingt hommes et une nuit pour les relever.",
-    "Il en faut trente et la nuit entière. Au matin, les chaînes sont tendues en travers de la rivière, juste sous la surface, devant les Moulins et la Poterne. Une barque qui les heurterait de nuit se retournerait."
+    "Il en faut trente, et la nuit entière. Au matin, les chaînes sont tendues en travers de la rivière, juste sous la surface, devant les Moulins et la Poterne. Une barque qui les heurterait de nuit se retournerait."
    ],
    "fx": {
     "flag": "chaines:pretes",
@@ -8402,8 +8402,8 @@
    "title": "La nuit des trois lumières",
    "place": "remparts",
    "text": [
-    "Le douzième jour, dix heures du soir. Dans le camp du Margrave, tous les feux s'éteignent en même temps. Le silence qui suit est pire que les cors.",
-    "Tu es sur le chemin de ronde avec tes gens. Les tanneurs, les bateliers, les sergents qu'Aussonne t'a donnés.",
+    "C'est le douzième jour, à dix heures du soir. Dans le camp du Margrave, tous les feux s'éteignent en même temps, et le silence qui suit est pire que les cors.",
+    "Tu es sur le chemin de ronde avec tes gens : les tanneurs, les bateliers, les sergents qu'Aussonne t'a donnés.",
     {
      "if": {
       "not": {
@@ -8416,15 +8416,15 @@
      "if": {
       "has": "pacte:oudart"
      },
-     "text": "En bas, du côté des Moulins, une lumière s'allume au Moulin du milieu. Elle s'éteint. Elle se rallume. Trois fois."
+     "text": "En bas, du côté des Moulins, une lumière s'allume au Moulin du milieu. Elle s'éteint et se rallume, trois fois."
     },
     {
      "if": {
       "has": "poterne:gardee"
      },
-     "text": "En bas, du côté des Moulins, une lanterne s'allume un instant derrière la lucarne du Moulin du milieu, et s'éteint aussitôt. On entend un cri, des pas sur la passerelle, un carreau d'arbalète. Puis plus rien."
+     "text": "En bas, du côté des Moulins, une lanterne s'allume un instant derrière la lucarne du Moulin du milieu, et s'éteint aussitôt. On entend un cri, des pas sur la passerelle, un carreau d'arbalète, puis le silence."
     },
-    "Les cors, enfin. Partout."
+    "Les cors sonnent enfin, de partout."
    ],
    "battle": "nuit"
   },
@@ -8433,7 +8433,7 @@
    "title": "L'aube",
    "place": "remparts",
    "text": [
-    "Le soleil se lève sur la Basse-Ville. Les cors du Margrave sonnent la retraite. Dans le fossé, les échelles, les morts, les blessés qui appellent. Sur le chemin de ronde, les vivants se taisent.",
+    "Le soleil se lève sur la Basse-Ville, et les cors du Margrave sonnent la retraite. Dans le fossé gisent les échelles, les morts et les blessés qui appellent. Sur le chemin de ronde, les vivants se taisent.",
     {
      "if": {
       "all": [
@@ -8476,14 +8476,14 @@
       "days": "ble",
       "min": 4
      },
-     "text": "Il reste assez de blé pour quatre jours, à la ration actuelle. Peut-être davantage."
+     "text": "À la ration actuelle, il reste assez de blé pour quatre jours, peut-être davantage."
     },
     {
      "if": {
       "days": "ble",
       "max": 3
      },
-     "text": "À la ration actuelle, il reste à peine trois jours de blé. Le Margrave n'a pas levé le camp."
+     "text": "À la ration actuelle, il reste à peine trois jours de blé, et le Margrave garde son camp."
     },
     {
      "if": {
@@ -8491,9 +8491,9 @@
        "rations": "quart"
       }
      },
-     "text": "Au quart de ration, les gens font la queue en silence. Ils ont les yeux trop grands."
+     "text": "Au quart de ration, les gens font la queue en silence, avec des yeux trop grands."
     },
-    "Du rempart, on voit le camp du Margrave sous la pluie. On creuse des fosses, derrière les tentes. Les charrettes du nord ne viennent plus."
+    "Du rempart, on voit le camp du Margrave sous la pluie. Derrière les tentes, on creuse des fosses, et les charrettes du nord ont cessé de venir."
    ],
    "choices": [
     {
@@ -8525,8 +8525,8 @@
    "title": "Le seizième jour",
    "place": "remparts",
    "text": [
-    "Le seizième jour, à l'aube, une sentinelle de la Tour du Sel appelle. Puis une autre. Puis toute la muraille.",
-    "Dans les pâtures, le camp du Margrave est en train de partir. Les tentes tombent une à une. Des charrettes chargées de malades s'éloignent vers le nord, sous la pluie. Le flux, dit-on, a tué plus de soldats dans le camp que vos murailles.",
+    "Le seizième jour, à l'aube, une sentinelle de la Tour du Sel appelle, puis une autre, puis toute la muraille.",
+    "Dans les pâtures, le camp du Margrave est en train de partir. Les tentes tombent une à une, et des charrettes chargées de malades s'éloignent vers le nord, sous la pluie. Le flux, dit-on, a tué plus de soldats dans le camp que vos murailles.",
     "Le Margrave de Hautpré lève le siège de Sarance."
    ],
    "choices": [
@@ -8551,7 +8551,7 @@
    },
    "text": [
     "Les cloches de Sarance sonnent toute la journée. On ouvre la Porte des Tanneurs pour la première fois depuis vingt-six jours, et des gens sortent dans les pâtures, simplement pour marcher dans l'herbe.",
-    "Les premiers marchands arrivent du sud trois jours plus tard, avec des charrettes de farine qu'ils vendent quatre fois son prix. On les paie.",
+    "Les premiers marchands arrivent du sud trois jours plus tard, avec des charrettes de farine qu'ils vendent quatre fois son prix, et on les paie.",
     {
      "after": "oudart:arrete",
      "text": "Oudart de Lys est pendu dans la cour du château au premier jour de la paix. Aussonne assiste à la pendaison sans détourner les yeux."
@@ -8592,7 +8592,7 @@
      },
      "text": "Le capitaine d'Aussonne reçoit, au printemps, une lettre du Roi qui le fait chevalier. Il la lit en public, cette fois."
     },
-    "Toi, tu rends les clés des greniers au Conseil, un matin, dans la salle aux tapisseries usées. Les greniers sont presque vides. La ville est pleine."
+    "Toi, tu rends un matin les clés des greniers au Conseil, dans la salle aux tapisseries usées. Les greniers sont presque vides, et la ville est pleine."
    ]
   },
   "F_reddition": {
@@ -8610,7 +8610,7 @@
    },
    "text": [
     "Carbonnel tend les clés de la ville au héraut sur un coussin de velours. Messire de Rouvre les prend, les soupèse, et les rend à Carbonnel avec un sourire. « Gardez-les. Monseigneur est votre seigneur, il n'est pas votre geôlier. »",
-    "Les soldats du Margrave entrent en bon ordre, bannières roulées. Aucun pillage. Les tavernes ouvrent le soir même, et l'on boit avec les ennemis de la veille.",
+    "Les soldats du Margrave entrent en bon ordre, bannières roulées, et la ville reste intacte. Les tavernes ouvrent le soir même, et l'on boit avec les ennemis de la veille.",
     {
      "if": {
       "any": [
@@ -8674,7 +8674,7 @@
    },
    "text": [
     "La Poterne des Moulins s'ouvre au milieu de la nuit, sans bruit. Les barques du Margrave glissent sous les roues des Moulins, et ses soldats entrent dans la Basse-Ville par la porte qu'on leur a ouverte de l'intérieur.",
-    "Ils prennent la Porte des Tanneurs à revers. À l'aube, la Basse-Ville est à eux, sans pillage : des sergents du Margrave, à chaque carrefour, ont l'ordre de pendre quiconque toucherait à une maison.",
+    "Ils prennent la Porte des Tanneurs à revers. À l'aube, la Basse-Ville est à eux, et intacte : à chaque carrefour, des sergents du Margrave ont l'ordre de pendre quiconque toucherait à une maison.",
     "Le château, lui, ne se rend pas. On l'assiège trois jours. Le quatrième, on l'escalade, et l'on ne fait pas de prisonniers. Aussonne meurt dans la cour, avec ses derniers sergents.",
     "Oudart de Lys est fait seigneur de Sarance par le Margrave, sur le parvis de Saint-Aubin. Il a tenu parole : la ville n'a pas été mise à sac. Il porte un pourpoint neuf, aux boutons d'argent ciselés d'un lys.",
     {
@@ -8729,8 +8729,8 @@
    "title": "La passe des Saules",
    "place": "port",
    "text": [
-    "Jacquemin te regarde un long moment. « Pour de bon ? Cette nuit ? » Il te regarde sans dureté. Il passe des gens depuis le début du siège : des marchands, un chanoine, une femme avec un nouveau-né. Il sait qui revient et qui ne revient pas.",
-    "« À minuit, sous les saules. Pas de bagage. Pas de lumière. Si le poste du Margrave tire, tu te couches au fond de la barque et tu ne bouges plus. »",
+    "Jacquemin te regarde un long moment, sans dureté. « Pour de bon ? Cette nuit ? » Il passe des gens depuis le début du siège : des marchands, un chanoine, une femme avec un nouveau-né. Il sait qui revient et qui reste de l'autre côté.",
+    "« À minuit, sous les saules. Ni bagage, ni lumière. Si le poste du Margrave tire, tu te couches au fond de la barque, et tu restes immobile. »",
     {
      "if": {
       "promise": "jacquemin",
@@ -8764,9 +8764,9 @@
     ]
    },
    "text": [
-    "La barque glisse sous les saules, dans le noir complet. Jacquemin pousse la perche en silence. Sur l'autre rive, le feu du poste du Margrave éclaire des visages endormis. Personne ne tire.",
+    "La barque glisse sous les saules, dans le noir complet, et Jacquemin pousse la perche en silence. Sur l'autre rive, le feu du poste du Margrave éclaire des visages endormis. Aucun coup ne part.",
     "Au matin, tu marches seul{e} sur la route de Saint-Clair, sous une pluie fine. Derrière toi, sur son éperon, Sarance fume dans la brume du matin, ses murailles grises et la Tour du Sel.",
-    "Tu as encore à la ceinture l'anneau des clés des greniers. Tu t'en aperçois à midi, en t'asseyant au bord d'un fossé. Tu les gardes longtemps dans ta main.",
+    "Tu as encore à la ceinture l'anneau des clés des greniers. Tu t'en aperçois à midi, en t'asseyant au bord d'un fossé, et tu gardes longtemps les clés dans ta main.",
     "Tu apprends la fin du siège bien plus tard, à cent lieues de là, de la bouche d'un colporteur qui ne sait pas que tu y étais."
    ]
   },
@@ -8785,8 +8785,8 @@
    },
    "text": [
     "Le Margrave vous reçoit sous sa tente, assis, et vous laisse debout. Gilles parle le premier, trop fort. Puis tu parles, toi, de ce que tu sais : des greniers, des jours, du flux qui court dans son camp autant que dans la ville, de ce que coûte un assaut et de ce que rapporte une ville qui paie l'impôt de bon cœur.",
-    "Il vous écoute jusqu'au bout. Puis il fait appeler son clerc.",
-    "La charte est signée le soir même. La commune de Sarance reconnaît le Margrave de Hautpré pour seigneur. Le Margrave reconnaît la commune de Sarance, son maire, ses jurés élus par les métiers, sa cloche et son sceau. Il entrera dans la ville avec cent hommes, pas un de plus.",
+    "Il vous écoute jusqu'au bout, puis il fait appeler son clerc.",
+    "La charte est signée le soir même. La commune de Sarance reconnaît le Margrave de Hautpré pour seigneur ; le Margrave reconnaît la commune de Sarance, son maire, ses jurés élus par les métiers, sa cloche et son sceau. Il entrera dans la ville avec cent hommes, et pas un de plus.",
     "Aussonne sort du château le lendemain, sous la garde des bateliers. Le Margrave le garde prisonnier jusqu'à la rançon, que le Roi paiera, ou pas.",
     "Sur la place du Marché, on lit la charte à voix haute, trois fois. À la troisième, la foule la sait par cœur."
    ]
