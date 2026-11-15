@@ -159,7 +159,7 @@ module.exports = {
     choices: [{ label: "Partir avec la feuille contre ta poitrine", to: "S2_suite" }] },
   S2_leonce_part: { act: "II", title: "La porte", place: "sels",
     text: [
-      "Il te regarde comme si tu lui avais ouvert une cage. Il garde ses questions pour lui. Avant même que tu aies franchi la porte, il commence à vider ses tiroirs dans un sac.",
+      "Il te regarde comme si tu lui avais ouvert une cage. Les questions attendront. Avant même que tu aies franchi la porte, il commence à vider ses tiroirs dans un sac.",
       "Dehors, sous les arcades, tu fais le compte de ce que tu viens de faire. Tu as laissé partir la seule main qui peut accuser Morvan. Tu as peut-être sauvé un homme. Ce n'est pas l'homme qu'il fallait sauver.",
     ],
     choices: [{ label: "Repartir", to: "S2_suite" }] },

@@ -105,7 +105,7 @@ module.exports = {
       "Tu te lèves. « La clef d'argent est à moi, comme secrétaire. » Tu sors la chaîne de ton col et tu la montres. Quarante paires d'yeux suivent la clef dans la lumière.",
       { if: { not: R("public") }, text: "Le père Anselme se lève à son tour. « La clef de fer est au Temple de la Marée depuis cent ans. »" },
       { if: { all: [{ not: R("public") }, { not: R("temple") }] }, text: "Dans le silence qui suit, quelqu'un tousse. Un conseiller des verriers rappelle, d'une voix timide, que la Doyenne a fait retirer la clef du tabernacle à la Saint-Martin. Anselme se rassoit sans répondre. La salle se demande où est la clef. Toi, tu penses à une ligne d'un carnet : *Sévan — les ongles.*" },
-      { if: R("temple"), text: "Anselme garde pour lui qu'elle est dans la poche d'un médecin en retraite. Il garde tout pour lui. Il sourit." },
+      { if: R("temple"), text: "Anselme tait qu'elle est dans la poche d'un médecin en retraite. Il tait tout, et il sourit." },
       { if: R("public"), text: "Ysabeau Dorne prend la parole avant lui : « La clef de fer est au Guet, sous scellés. Maître Aldric la portait. La Doyenne la lui avait confiée. » Le visage d'Anselme reste immobile. Ses mains, elles, se crispent." },
       "« Et la clef de bronze ? »",
       "Morvan se lève lentement. « La clef de bronze, dame présidente, était portée par la Doyenne à son cou, depuis toujours. On ne l'a pas retrouvée sur son corps. » Il laisse passer un temps. « On ne l'a pas retrouvée non plus dans la chambre de la servante qui la servait. »",

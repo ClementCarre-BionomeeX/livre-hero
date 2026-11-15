@@ -71,7 +71,7 @@ module.exports = {
   O2P_leonce_livre: { act: "II", title: "La Tour", place: "tour",
     text: [
       "Tu fais signe à Léonce de monter dans ta barque, à toi. Il monte, soulagé. Tes rameurs prennent le canal de la Doyenne. Au premier tournant, ils laissent la route des Passes et prennent vers la digue des Pendus.",
-      "Léonce comprend au troisième poteau noir. Il garde son cri pour lui. Il se met à pleurer, doucement, en essuyant ses lunettes.",
+      "Léonce comprend au troisième poteau noir. Il étouffe un cri. Il se met à pleurer, doucement, en essuyant ses lunettes.",
       "Ysabeau Dorne te reçoit à la porte d'eau de la Tour. Elle regarde l'apothicaire, puis toi. « Madame. J'ignorais que vous travailliez pour moi. »",
       "« Moi non plus, capitaine. »",
       "Morvan le saura avant le soir. Tu iras quand même à son bal, pour une raison que tu découvriras sur place.",
@@ -454,7 +454,7 @@ module.exports = {
     text: [
       "Tu poses la liasse dans le feu. Le ruban bleu prend le premier, puis les feuilles se recroquevillent une à une. *Je t'apprendrai à nager.* Tu restes jusqu'à la fin.",
       "Le registre de Sainte-Agathe existe toujours, tu le sais. Le curé existe. Ysabeau Dorne existe, et elle a tout lu. Tu as brûlé seulement ce que ta tante avait gardé d'un homme.",
-      "Dans la galerie, la capitaine te regarde revenir. Elle garde ses questions pour elle. Elle sait déjà.",
+      "Dans la galerie, la capitaine te regarde revenir. Elle sait déjà ; une question serait superflue.",
     ],
     choices: [{ label: "Reprendre l'enquête", to: "O2E_suite" }] },
   O2E_garde: { act: "II", title: "La liasse", place: "palais",
