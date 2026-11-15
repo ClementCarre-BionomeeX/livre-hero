@@ -23,7 +23,7 @@ module.exports = {
 
   PI_scelleurs: P({ title: "La rue des Scelleurs",
     text: [
-      "La rue des Scelleurs est une rue de gens qui ont de l'argent et peur de le perdre : des maisons étroites et hautes, des volets ferrés, des lanternes à chaque porte. La maison du greffier est la quatrième. Trois étages, un toit d'ardoise trop raide, et une lucarne au dernier, entrouverte à cause de la chaleur.",
+      "La rue des Scelleurs est une rue de gens qui ont de l'argent et peur de le perdre : des maisons étroites et hautes, des volets ferrés, des lanternes à chaque porte. La maison du greffier est la quatrième. Trois étages, un toit d'ardoise trop raide, des crochets de couvreur oubliés tous les quatre pieds, et une lucarne au dernier, entrouverte à cause de la chaleur.",
       "Les gens qui ont peur de perdre leur argent oublient toujours la chaleur.",
       "En bas, devant la porte, un homme en noir fait les cent pas : un garde de la Chancellerie, avec une hallebarde et l'air de quelqu'un qu'on a mis là pour rien. C'est la première fois que tu vois un garde noir devant une maison particulière.",
     ],
@@ -50,15 +50,15 @@ module.exports = {
       win: { fx: { ep: ["seance", 800] }, to: "PI_bureau_maison" },
       lose: { to: "PI_veuve_mains_vides" } },
     text: [
-      "Il arrive sur le palier avec sa lanterne. Il est grand, jeune, il a peur, et la peur le rend rapide. Sa hallebarde balaie l'espace entre vous. Dans le couloir étroit, c'est elle qui a l'avantage. Dans le noir, c'est toi.",
+      "Il arrive sur le palier avec sa lanterne. Il est grand, jeune, la hallebarde neuve et la cotte trop large aux épaules : une recrue. Il a peur, et la peur le rend rapide. Sa hallebarde balaie l'espace entre vous. Dans le couloir étroit, c'est elle qui a l'avantage. Dans le noir, c'est toi.",
     ],
     choices: [] }),
 
   PI_bureau_maison: P({ title: "Le cabinet du greffier",
     text: [
-      "Le cabinet est au troisième, sous les combles. Un pupitre, une chaise, des étagères de registres reliés de noir, une odeur de cire et d'encre. Et sous le pupitre, vissé au plancher, le coffret : de chêne cerclé de fer, grand comme une miche de pain, avec une serrure de Varre à trois gorges. Une belle serrure. Tu la caresses comme on caresse un chat.",
+      "Le cabinet est au troisième, sous les combles. Un pupitre, une chaise au siège creusé par vingt ans de séant, des étagères de registres reliés de noir, une odeur de cire et d'encre. Et sous le pupitre, vissé au plancher, le coffret : de chêne cerclé de fer, grand comme une miche de pain, avec une serrure de Varre à trois gorges. Une belle serrure. Tu la caresses comme on caresse un chat.",
       "Saint Anselme, ton crochet le plus fin, et saint Brice, le coudé. Une minute. La serrure soupire et s'ouvre.",
-      "Dans le coffret, il n'y a pas d'or. Il y a des petits carrés de vélin, des centaines, pliés en deux, rangés debout comme des cartes. Tu en déplies un. *Bureau des Cessions. Cédé par Jehan Peyrol, portefaix : un souvenir. Objet : le visage de sa fille Aliette, morte en couches. Prix payé : quatre sous.*",
+      "Le coffret contient du vélin : des petits carrés pliés en deux, rangés debout comme des cartes. Tu en estimes le nombre à l'épaisseur, comme un relieur, une centaine par pouce, cinq pouces. Tu en déplies un. *Bureau des Cessions. Cédé par Jehan Peyrol, portefaix : un souvenir. Objet : le visage de sa fille Aliette, morte en couches. Prix payé : quatre sous.*",
       "Un autre. *Cédé par Marion Lebas, blanchisseuse : un souvenir. Objet : la nuit où son mari l'a battue. Prix payé : deux sous.*",
       "Un autre. Un autre. Des portefaix, des lavandières, des soldats, des putains, des enfants. Des souvenirs vendus pour le prix d'une soupe. Tu as entendu parler du Bureau, dans les bas-quartiers. Une rumeur, une blague. *Si t'as faim, va vendre ta grand-mère au Bureau.* Tu ne savais pas que c'était vrai.",
     ],
@@ -72,7 +72,7 @@ module.exports = {
   PI_registre_pages: P({ title: "Les pages blanches",
     fx: { item: "coffret_cessions", clue: "n_pages" },
     text: [
-      "Les registres sont des comptes. Des colonnes de noms, de dates, de sous. Et sur la dernière étagère, un registre plus mince, relié de gris, dont le dos dit seulement : *Pages.*",
+      "Les registres sont des comptes. Des colonnes de noms, de dates, de sous, additionnées en bas de page et reportées en haut de la suivante, sans une erreur. Tu en vérifies trois par habitude de faussaire. Et sur la dernière étagère, un registre plus mince, relié de gris, dont le dos dit seulement : *Pages.*",
       "Ce sont des enfants. *Page Trois, sept ans, achetée à l'hospice Sainte-Claire, deux écus. Page Neuf, dix ans, achetée à sa tante, trois écus.* En face de chaque nom, une colonne, *Cession complète*, et une date.",
       "*Page Onze. Linette, neuf ans, des Teinturiers. Vendue par M. Corneille, faussaire, quatre écus. Cession complète : le trois juillet de l'an dernier.*",
       "Quatre écus. Tu restes longtemps assis par terre, le registre sur les genoux, dans l'odeur de cire. Quand tu te relèves, tu as arraché la page. Tu ne te souviens pas de l'avoir fait.",
@@ -89,7 +89,7 @@ module.exports = {
   PI_veuve: P({ title: "La Veuve", shop: "veuve",
     fx: { meet: "veuve" },
     text: [
-      "La Veuve tient boutique de ferronnerie au fond d'une impasse des Teinturiers. Il y a des grilles, des clous, des serrures, et dans l'arrière-boutique, tout ce qu'on a volé dans Pallanche depuis vingt ans. Elle est petite, ronde, vêtue de noir depuis la mort d'un mari dont personne ne sait s'il a existé, et elle a les yeux les plus gentils que tu aies jamais vus. C'est ce qui fait si peur.",
+      "La Veuve tient boutique de ferronnerie au fond d'une impasse des Teinturiers. Il y a des grilles, des clous au poids, des serrures pendues par grappes au plafond, et dans l'arrière-boutique, tout ce qu'on a volé dans Pallanche depuis vingt ans. Elle est petite, ronde, vêtue de noir depuis la mort d'un mari dont personne ne sait s'il a existé, et elle a les yeux les plus gentils que tu aies jamais vus. C'est ce qui fait si peur.",
       { if: { item: "coffret_cessions" }, text: "Elle ouvre le coffret, déplie trois reçus, les replie. « Bien, dit-elle. Très bien. Tu sais ce que c'est ? » Tu dis que oui. « Alors tu sais ce que ça vaut. Pas pour moi. Pour ceux à qui c'est. Il y a des gens, dans cette ville, qui paieraient cher pour savoir ce qu'ils ont vendu. »" },
       { if: { has: "pie:echec_scelleurs" }, text: "« Rien, dit-elle doucement, quand tu as fini. Et un garde noir qui connaît ta tête. » Elle te verse un verre de vin. « Tu me devais quarante écus, Pie. Maintenant, tu m'en dois cinquante. »" },
       "Tu lui parles de Linette. Tu ne voulais pas, mais tu le fais. La Veuve t'écoute sans t'interrompre, en tricotant.",
@@ -106,7 +106,7 @@ module.exports = {
   // ---------------------------------------------------------------- the city (hub of chapter 1)
   PI_ville: P({ title: "Les bas-quartiers", hub: true,
     text: [
-      "Pallanche, les jours avant la Fête des Noms. Les bas-quartiers sentent la teinture, le poisson et la sueur. Partout, des gens arrivent de la campagne avec leurs morts dans la tête, pour les faire inscrire dans le Grand Livre. Les auberges sont pleines. Les cloches sonnent toutes les heures, et on ne s'entend plus.",
+      "Pallanche, les jours avant la Fête des Noms. Les bas-quartiers sentent la teinture, le poisson et la sueur. Partout, des gens arrivent de la campagne avec leurs morts dans la tête, pour les faire inscrire dans le Grand Livre. Les auberges sont pleines, et les aubergistes louent le dessous des tables. Les cloches sonnent toutes les heures, et on ne s'entend plus.",
       { before: "pie:modele_sceau", if: { has: "pie:plan_sceau" }, text: "Dans ta poche, le vélin et la cire noire de la Veuve. Il te manque un modèle de sceau, et du temps." },
       { after: "pie:modele_sceau", before: "pie:faux_sceau", if: { has: "pie:plan_sceau" }, text: "Dans ta poche, le vélin, la cire noire de la Veuve et l'empreinte d'un sceau de greffier. Il ne te manque plus que du temps." },
       { once: true, if: { all: [{ has: "ch:ysolde:1" }, { not: { has: "ch:ysolde:2" } }] }, text: "Au marché aux poissons, on dit qu'une colonne de Corvannais arrive par la route de Varre, pour être jugés à la Fête. On dit cent. On dit mille. On dit ça de toutes les colonnes." },
@@ -133,7 +133,7 @@ module.exports = {
     fx: { meet: "corneille", questSeen: "PI_corneille" },
     text: [
       "Il te faut deux heures et trois pots de vin pour retrouver sa trace. Corneille n'a pas quitté Pallanche. Il est descendu, simplement, d'un étage à l'autre de la ville, comme une pierre au fond d'un puits : des Teinturiers aux Tanneurs, des Tanneurs aux Abattoirs, et des Abattoirs à la Fosse, sous les arches du vieux pont, là où on ne descend que pour mourir ou pour boire.",
-      "Il est assis contre un pilier, une cruche de vin aigre entre les genoux. Il a maigri. Ses mains tremblent si fort qu'il ne pourrait plus tenir une plume. Il te regarde arriver en étranger, puis il te reconnaît, et il reste assis.",
+      "Il est assis contre un pilier, une cruche de vin aigre entre les genoux. Il a perdu vingt livres, à vue de nez. Ses mains tremblent si fort qu'une plume, entre ses doigts, écrirait toute seule des zigzags. Il te regarde arriver en étranger, puis il te reconnaît, et il reste assis.",
       "« Pie, dit-il. Je me demandais combien de temps ça te prendrait. »",
     ],
     choices: [
@@ -193,7 +193,7 @@ module.exports = {
   PI_bureau: P({ title: "Le Bureau des Cessions",
     fx: { questSeen: "PI_bureau", meet: "baudoin" },
     text: [
-      "Le Bureau des Cessions occupe une salle basse au pied de la tour, avec une porte à elle, sur la rue, et une file d'attente qui fait le tour du pâté de maisons. Des pauvres gens. Des femmes avec des enfants dans les bras, des vieux, des soldats démobilisés avec leur jambe de bois. Ils ne parlent pas. Ils avancent.",
+      "Le Bureau des Cessions occupe une salle basse au pied de la tour, avec une porte à elle, sur la rue, et une file d'attente qui fait le tour du pâté de maisons. Tu la mesures en marchant : trois cent quarante pas. Des pauvres gens. Des femmes avec des enfants dans les bras, des vieux, des soldats démobilisés avec leur jambe de bois. Ils avancent en silence, d'un pas toutes les deux minutes.",
       "À l'intérieur, derrière un comptoir, un jeune greffier au visage doux, Frère Baudoin, reçoit chacun avec un sourire. « Qu'est-ce que vous voulez céder ? » On lui dit. Il écrit. Puis il ouvre un petit coffret de plomb, il en sort une pincée de quelque chose de blanc, et il souffle doucement, comme sur une bougie, au visage du cédant.",
       { first: true, text: "La femme devant toi a vendu le souvenir de son premier enfant, mort à deux ans. Trois sous. Elle sort en souriant." },
       "Chaque cédant reçoit un jeton de bois, pour revenir. Derrière le comptoir, une porte mène aux étages. Un garde l'ouvre pour les *gros cédants*, ceux qui reviennent, ceux qu'on monte voir là-haut.",
@@ -231,7 +231,7 @@ module.exports = {
 
   PI_bureau_jeton: P({ title: "Le jeton",
     text: [
-      "Un vieux soldat, une jambe de bois, le jeton qui dépasse de sa ceinture. Tu le frôles dans la file, tu t'excuses, tu passes. Le jeton est dans ta manche. Le soldat ne se retourne pas. Il ne se souviendrait pas de toi, de toute façon. Il est déjà venu trois fois.",
+      "Un vieux soldat, une jambe de bois, le jeton qui dépasse de sa ceinture. Tu le frôles dans la file, tu t'excuses, tu passes. Le jeton est dans ta manche. Le soldat garde les yeux devant lui. Il est déjà venu trois fois : ton visage s'effacerait de sa tête avant le coin de la rue.",
       "C'est un jeton de bois peint d'une plume. *Gros cédant. Étage des Cessions.* Avec ça, le soir de la Fête, on t'ouvrira la porte derrière le comptoir.",
     ],
     choices: [{ back: "PI_ville" }] }),
@@ -247,7 +247,7 @@ module.exports = {
     fx: { meet: "anseau", questSeen: "PI_sonneur" },
     text: [
       { first: true, text: "Le clocher de Saint-Gilles est le plus haut des bas-quartiers, et le seul d'où l'on voie par-dessus le mur de la Chancellerie, dans sa cour intérieure. Tu y montais, enfant, avec Linette, pour regarder les feux de la Saint-Jean. Le sonneur, Anseau, vous laissait faire, en échange de pommes." },
-      "Anseau est toujours là. Il a soixante-dix ans. Il est assis au milieu de ses huit cloches, sous les poutres, et il pleure.",
+      "Anseau est toujours là. Il a soixante-dix ans, les avant-bras d'un haleur et l'oreille droite à moitié sourde, celle qui fait face à la Grosse. Il est assis au milieu de ses huit cloches, sous les poutres, et il pleure.",
       { first: true, text: "« Je ne sais plus, dit-il. Je ne sais plus laquelle est laquelle. Quarante ans que je les sonne. Margot, Bénigne, la Grosse, la Muette… J'ai su leurs noms toute ma vie. Ce matin, je ne savais plus. » Il te montre ses mains. Il y a, dans les plis de ses paumes, une poussière blanche, très fine, qui ne part pas quand il les frotte. « On a sonné vêpres avec la cloche des morts. Tout le quartier a cru que l'évêque était mort. »" },
     ],
     choices: [
@@ -286,7 +286,7 @@ module.exports = {
   // the place aux Clercs: a greffier's seal for a model
   PI_place_clercs: P({ title: "La place aux Clercs",
     text: [
-      "Sur la place aux Clercs, dix pupitres alignés à l'ombre des tilleuls, et derrière chacun un greffier en noir, qui inscrit gratuitement, dans un grand livre relié de rouge, le nom de qui le demande : *le Grand Livre de la Fête*. Les gens font la queue depuis l'aube. On donne le nom d'un mort, d'un enfant, le sien. Le greffier écrit, sèche à la poudre blanche, et sourit. Les gens repartent en pleurant de joie. *Que nul ne soit oublié.*",
+      "Sur la place aux Clercs, dix pupitres alignés à l'ombre des tilleuls, et derrière chacun un greffier en noir, qui inscrit gratuitement, dans un grand livre relié de rouge, le nom de qui le demande : *le Grand Livre de la Fête*. Les gens font la queue depuis l'aube ; tu comptes dix pupitres, un nom par minute à chacun, et tu en conclus que la place inscrira ce soir six mille noms. On donne le nom d'un mort, d'un enfant, le sien. Le greffier écrit, sèche à la poudre blanche, et sourit. Les gens repartent en pleurant de joie. *Que nul ne soit oublié.*",
       "Une femme donne son propre nom. En repartant, elle s'arrête au bord de la place, regarde autour d'elle, puis reprend sa route.",
       "Le greffier du troisième pupitre a posé son sceau d'argent à côté de l'encrier. Pour signer les reçus.",
     ],
@@ -314,14 +314,14 @@ module.exports = {
 
   PI_graver: P({ takes: "morning", title: "Le faux sceau",
     text: [
-      "Ton grenier sent la cire chaude et l'huile de lampe. Tu graves toute la nuit, au burin, dans un morceau de laiton récupéré sur une boucle de ceinture, la plume et la clé croisées, à l'envers, d'après l'empreinte. Au matin, tu as les yeux qui brûlent, et un sceau qui ne passerait pas sous la loupe d'un greffier, mais qui passera sous la lanterne d'un garde.",
+      "Ton grenier sent la cire chaude et l'huile de lampe. Tu graves toute la nuit, au burin, dans un morceau de laiton large d'un pouce récupéré sur une boucle de ceinture, la plume et la clé croisées, à l'envers, d'après l'empreinte. Au matin, tu as les yeux qui brûlent, et un sceau qui ne passerait pas sous la loupe d'un greffier, mais qui passera sous la lanterne d'un garde.",
     ],
     choices: [{ label: "Le ranger", fx: { flag: "pie:faux_sceau", item: "faux_sceau", drop: "faux_sceau_brut", time: 8, ep: ["perso", 800] }, to: "PI_ville" }] }),
 
   // end of chapter 1
   PI_veille: P({ title: "Le grenier",
     text: [
-      "Tu dors dans ton grenier de la rue des Cordiers, sous les tuiles, là où il fait trop chaud en été et trop froid en hiver, et où personne ne vient jamais. Tu as étalé sur le plancher tout ce que tu sais de la tour. C'est peu.",
+      "Tu dors dans ton grenier de la rue des Cordiers, sous les tuiles, là où il fait trop chaud en été et trop froid en hiver, et où personne ne vient jamais. Tu as étalé sur le plancher tout ce que tu sais de la tour : un plan dessiné de mémoire, trois portes, une heure de relève. Le tout tient sur une demi-feuille.",
       { if: { item: "page_pages" }, text: "La page arrachée au registre gris est sous ton oreiller. *Page Onze. Cession complète.* Tu la relis sans la lire." },
       "Il reste trois jours avant la Fête. Tu as trois jours pour te préparer, et ensuite une seule nuit.",
     ],
@@ -331,7 +331,7 @@ module.exports = {
   PI_jour: P({ title: "La veille de la Fête",
     fx: { time: 60 },
     text: [
-      "Trois jours ont passé. Pallanche a doublé de volume. On dort dans les rues, sur les marches des églises, dans les barques du port. Demain soir, c'est la Nuit des Cloches, et ce soir, la tour ouvre ses portes basses aux premiers pèlerins.",
+      "Trois jours ont passé. Pallanche a doublé de volume ; le prix d'un pain aussi. On dort dans les rues, sur les marches des églises, dans les barques du port. Demain soir, c'est la Nuit des Cloches, et ce soir, la tour ouvre ses portes basses aux premiers pèlerins.",
       { if: { has: "ysolde:voie=obeit" }, text: "Ce matin, une colonne de Corvannais attachés à une corde est entrée dans la tour par la porte de l'Est, sous l'escorte d'une chevalière aux armes de Brenne. La foule les a hués. Tu as compté. Cent dix-huit. Aucun n'est ressorti." },
       { if: { has: "ysolde:voie=deserte" }, text: "Ce matin, dans les faubourgs de l'Est, il y a eu du grabuge : une colonne de prisonniers qui s'est égaillée dans les ruelles, des soldats de la reine qui coupaient les cordes au lieu de les tenir, des gardes noirs qui couraient. Les Teinturiers en parlent encore. On dit que la chevalière est recherchée." },
       { if: { has: "ysolde:voie=ruse" }, text: "Une colonne de prisonniers est entrée dans la tour, ce matin. Une chevalière la conduisait. Il paraît qu'il manquait des noms, et qu'un petit greffier en gris a recompté trois fois, devant la porte, en remuant les lèvres." },
@@ -367,8 +367,8 @@ module.exports = {
 
   PI_linge: P({ title: "Les draps sales",
     text: [
-      "Les lavandières du quai Saint-Jean sont six, fortes comme des portefaix, et la plus vieille te regarde grimper dans la charrette en silence. Elle tire un drap sur toi. Il sent la sueur, le sang, l'urine, l'encre. Le linge des greffiers. La charrette s'ébranle.",
-      "Au bout d'un temps qui n'en finit pas, des voix, une grille, des pavés plus lisses. Une main soulève le drap, à un pouce de ton visage, et le laisse retomber. Puis on décharge. Tu attends d'être seul. Tu sors.",
+      "Les lavandières du quai Saint-Jean sont six, fortes comme des portefaix, les avant-bras rougis par la cendre de lessive, et la plus vieille te regarde grimper dans la charrette en silence. Elle tire un drap sur toi. Il sent la sueur, le sang, l'urine, l'encre. Le linge des greffiers. La charrette s'ébranle.",
+      "Tu comptes les tours de roue pour tenir le temps, et tu perds le compte vers huit cents. Puis des voix, une grille, des pavés plus lisses. Une main soulève le drap, à un pouce de ton visage, et le laisse retomber. Puis on décharge. Tu attends d'être seul. Tu sors.",
       "L'escalier du linge monte en colimaçon dans l'épaisseur du mur.",
     ],
     choices: [
@@ -432,7 +432,7 @@ module.exports = {
   PI_scriptorium: P({ title: "Les pages blanches",
     fx: { clue: "n_pages", meet: "linette_p" },
     text: [
-      "C'est une longue salle voûtée, éclairée par des lampes à huile pendues au plafond. Quarante pupitres, en quatre rangs. À chaque pupitre, un enfant, en robe grise, la tête rasée, qui écrit. Ils gardent les yeux baissés et la bouche close. On n'entend que le grattement des plumes, quarante plumes, comme une pluie fine sur un toit.",
+      "C'est une longue salle voûtée de soixante pieds, éclairée par des lampes à huile pendues au plafond. Quarante pupitres, en quatre rangs de dix. À chaque pupitre, un enfant, en robe grise, la tête rasée, qui écrit. Ils gardent les yeux baissés et la bouche close. On n'entend que le grattement des plumes, quarante plumes, comme une pluie fine sur un toit.",
       "Ils recopient des noms. Des listes de noms, sans fin, d'un registre ouvert sur un lutrin vers un grand livre relié de rouge.",
       "Elle est au deuxième rang, la sixième. Tu la reconnais à l'épi derrière la tête, qui repousse même rasé. Elle a dix ans maintenant. Elle a grandi.",
       { before: "pie:oublie_corneille", text: "Elle a des taches d'encre jusqu'aux coudes, comme Corneille." },
@@ -467,7 +467,7 @@ module.exports = {
   PI_archives: P({ title: "Les archives des cessions",
     fx: { meet: "hylas_p" },
     text: [
-      "Derrière le scriptorium, une porte basse, et derrière la porte, des étagères qui montent jusqu'à la voûte, chargées de petites boîtes de plomb, chacune avec une étiquette. Des milliers. *Peyrol, Jehan. Lebas, Marion.*",
+      "Derrière le scriptorium, une porte basse, et derrière la porte, des étagères qui montent jusqu'à la voûte, chargées de petites boîtes de plomb, chacune avec une étiquette. Tu fais le calcul d'un regard, rangées par étagères, étagères par travées : plusieurs milliers. *Peyrol, Jehan. Lebas, Marion.*",
       { after: "pie:linette_suit", text: "Linette s'est arrêtée sur le seuil, sans lâcher le chambranle. Elle regarde les étagères." },
       "Tu trouves la boîte de Linette au troisième rang. *Page Onze. Cession complète.* Elle est lourde, et froide, et quand tu la prends, tu entends à travers le plomb un rire de petite fille.",
       "Sur le grand pupitre du fond, ouvert, un registre relié de rouge sombre, plus grand que les autres, et sur la page, une liste, d'une écriture fine et serrée : *Nuit des Cloches. Les cent, ensemble, à minuit. Grand Livre : versement complet.*",
@@ -517,7 +517,7 @@ module.exports = {
 
   PI_fenetre: P({ title: "Les toits",
     text: [
-      "Les toits. Enfin. Tu cours sur les ardoises de la Chancellerie, puis sur celles du marché couvert, puis sur celles des Teinturiers, et derrière toi, les cris et les lanternes s'éloignent, parce que personne, dans cette ville, ne connaît les toits comme toi. Personne.",
+      "Les toits. Enfin. Ton pied retrouve la pente comme on retrouve une langue maternelle. Tu cours sur les ardoises de la Chancellerie, puis sur celles du marché couvert, puis sur celles des Teinturiers, et derrière toi, les cris et les lanternes s'éloignent, parce que personne, dans cette ville, ne connaît les toits comme toi. Personne.",
       { if: { has: "pie:choix=linette" }, text: "Linette ne glisse pas une fois. Elle te suit de toit en toit, pieds nus, comme si elle l'avait toujours fait. Elle l'a toujours fait. Elle ne s'en souvient pas." },
     ],
     choices: [{ label: "Rentrer au grenier", to: "PI_fin" }] }),
