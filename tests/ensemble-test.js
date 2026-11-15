@@ -14,13 +14,14 @@ function story() {
       start: { place: "halle", hour: 8, gold: 60, food: 3 },
       places: { halle: { name: "La Halle", arrive: "H" }, port: { name: "Le port", arrive: "P" } },
       routes: [{ id: "r", name: "La route du port", from: "halle", to: "port", steps: 2, region: "plaine", label: "Aller au port", labelBack: "Revenir à la Halle", legs: [{ step: 1, passage: "E_loup" }] }],
-      regions: { plaine: { name: "La plaine", chance: 0, events: [], quiet: ["La route."], camp: ["Un feu."] } },
+      regions: { plaine: { name: "La plaine", chance: 0, tiring: 1, events: [], quiet: ["La route."], camp: ["Un feu."] } },
       events: {},
     },
     // 8.1: weather, seasons, wounds, encounters, vigils.
     seasons: [{ id: "ete", name: "L'été" }, { id: "automne", name: "L'automne", from: { day: 3, hour: 0 } }],
-    weather: { by: "zone", every: 6, start: "beau", kinds: { beau: { name: "Beau temps" }, pluie: { name: "Pluie", mod: { combat: -10 }, say: "IL_PLEUT" } },
-      regions: { ville: { beau: 1 }, dehors: { pluie: 1 } } },
+    // The sky follows the roads (piste 10): rain on the plain, and the rain may wound.
+    weather: { by: "route", every: 2, start: "beau", kinds: { beau: { name: "Beau temps" }, pluie: { name: "Pluie", mod: { combat: -10 }, say: "IL_PLEUT", hurts: { wound: "bras", chance: 1, say: "TU_GLISSES" } } },
+      regions: { lieu: { beau: 1 }, plaine: { pluie: 1 } } },
     wounds: { bras: { name: "Bras entaillé", mod: { combat: -10 }, days: 2, tended: 1, scar: "une ligne", mark: "cicatrice" } },
     encounters: { by: "zone", every: 4, chance: 1, list: [{ to: "E_mendiant", region: "ville", once: true }] },
     vigils: [{ to: "V_oriane", with: "oriane" }],
@@ -114,4 +115,10 @@ assert(/TROUBLE/.test(M.view(st, s).text.join(" ")));
 // A wound weighs on the companion's fight on the road, under the rain.
 pick(st, s, "Prendre Oriane"); pick(st, s, "Se blesser");
 assert(s.wounds && Object.keys(s.wounds).length, "blessure posée");
+// The road takes its toll: rain on the plain, a point of fatigue a step, and the rain wounds.
+var r = fresh(st); r.time = 8; pick(st, r, "Aller au port");
+for (var k = 0; k < 6 && r.travel; k++) { var v = M.view(st, r); if (r.node === "E_loup") break; M.choose(st, r, v.choices.filter(function (c) { return c.ok !== false; })[0]); }
+assert((r.fatigue || 0) >= 1, "la route fatigue");
+assert.strictEqual(M.weatherOf(st, r), "pluie", "il pleut sur la plaine");
+assert(r.wounds && r.wounds.bras, "la pluie blesse sur la route");
 console.log("ensemble-test : OK (" + rep.warnings.length + " remarques)");

@@ -966,6 +966,7 @@
     t.step++;
     s.time += STEP_HOURS;
     t.pending = null;
+    roadToll(story, s, t);
     var legs = (r.legs || []).filter(function (l) { return l.step === t.step && (l.dir == null || l.dir === dirOf(r, t)) && !s.seen[l.passage] && evalCond(story, s, l.if); });
     if (legs.length) { t.phase = "event"; enter(story, s, legs[0].passage); return; }
     var region = (W(story).regions || {})[t.region] || {};
@@ -984,6 +985,19 @@
       }
     }
     t.phase = "quiet"; s.node = "@road";
+  }
+  // What the road takes (piste 10, 15/11): a region `tiring: n` adds a point of fatigue every n steps; under a sky whose
+  // kind says `hurts: { wound, chance, say }`, a step may leave a wound (a fall on the ice, frostbite, sunstroke).
+  // The road is where these things happen: in a village, the sky only weighs on the rolls.
+  function roadToll(story, s, t) {
+    var region = (W(story).regions || {})[t.region] || {};
+    weatherTick(story, s);
+    if (region.tiring && t.step % region.tiring === 0 && (s.fatigue || 0) < FATIGUE_MAX) apply(story, s, { fatigue: 1 });
+    var K = weatherKind(story, s), H = K && K.hurts;
+    if (H && story.wounds && story.wounds[H.wound] && !(s.wounds || {})[H.wound] && RNG() < (H.chance == null ? 0.25 : H.chance)) {
+      if (H.say) ev(s, interp(s, H.say), "bad");
+      apply(story, s, { blessure: H.wound });
+    }
   }
   function dirOf(r, t) { return t.from === r.from ? "aller" : "retour"; }
   function arrive(story, s) {
@@ -2078,12 +2092,15 @@
   function weatherKind(story, s) { var w = weatherOf(story, s); return w ? (story.weather.kinds || {})[w] || null : null; }
   function weighted(list, wOf) { var tot = 0; list.forEach(function (x) { tot += wOf(x); }); var x = RNG() * tot; for (var i = 0; i < list.length; i++) { x -= wOf(list[i]); if (x <= 0) return list[i]; } return list[list.length - 1]; }
   function weatherTable(story, s) {
-    var Wt = story.weather, reg = Wt.by ? stateOf(s, Wt.by) : null, base = (Wt.regions || {})[reg] || Wt.base || {}, t = {};
+    var Wt = story.weather, reg = Wt.by === "route" ? routeRegion(story, s) : Wt.by ? stateOf(s, Wt.by) : null, base = (Wt.regions || {})[reg] || Wt.base || {}, t = {};
     Object.keys(base).forEach(function (k) { t[k] = base[k]; });
     var se = seasonOf(story, s), add = se && (Wt.seasons || {})[se.id];
     if (add && Object.keys(base).length) Object.keys(add).forEach(function (k) { t[k] = (t[k] || 0) + add[k]; });
     return t;
   }
+  // The region the hero is in, for a weather that follows the roads (weather.by: "route", piste 10, 15/11): the region
+  // of the route being travelled, or the place's own `region`, or "lieu" (in a village, under a roof).
+  function routeRegion(story, s) { if (s.travel) return s.travel.region || "route"; var pl = W(story).places[s.place] || {}; return pl.region || "lieu"; }
   function weatherTick(story, s) {
     var Wt = story.weather; if (!Wt) return;
     if (!s.weather) s.weather = weatherOf(story, s);

@@ -153,6 +153,24 @@ module.exports = {
       { label: "Rien qu'un souvenir : sa voix, la nuit, qui t'appelait « Moineau » pour te faire enrager.", fx: { flag: "passe:souvenir" } },
     ] },
   ],
+  // The road takes its toll (piste 10, 15/11): the sky follows the roads, the dry valley tires, the sun can strike.
+  weather: {
+    by: "route", every: 6, start: "clair",
+    kinds: {
+      clair: { name: "Ciel blanc", desc: "Un ciel sans nuages, d'un blanc de chaux." },
+      canicule: { name: "Canicule", desc: "La chaleur monte du sol comme d'un four.", mod: { combat: -5, nature: -5 }, say: "La chaleur monte du sol comme d'un four. L'air tremble au-dessus de la route, et les pierres brûlent à travers les semelles.",
+        hurts: { wound: "insolation", chance: 0.3, say: "Le soleil te frappe à la nuque. Tu marches encore une heure avant de comprendre que tu as cessé de transpirer." } },
+      vent_sable: { name: "Vent de sable", desc: "Le vent du sud emporte le sable en écharpes jaunes.", mod: { nature: -10, discretion: 10 }, say: "Le vent se lève du sud et emporte le sable en longues écharpes jaunes. Tu marches le visage dans ton col." },
+      suintement: { name: "L'eau qui suinte", desc: "Sous la colline, l'eau coule le long des parois.", mod: { discretion: 5 }, say: "Sous la colline, l'eau suinte le long des parois et tombe goutte à goutte dans le noir. Tout résonne." },
+      froid: { name: "Le froid de la pierre", desc: "Un froid de cave, qui monte des profondeurs.", mod: { combat: -5 }, say: "Plus tu descends, plus la pierre est froide. Ton souffle fait de la buée à la lueur de la flamme.",
+        hurts: { wound: "transi", chance: 0.25, say: "Le froid des profondeurs te prend aux doigts et ne les lâche plus. Tu les frottes, tu souffles dessus : ils restent raides." } },
+    },
+    regions: { lieu: { clair: 3, canicule: 1 }, sud: { clair: 2, canicule: 2, vent_sable: 1 }, plateau: { clair: 2, canicule: 1, vent_sable: 2 }, galeries: { suintement: 1 }, profondeurs: { froid: 1 } },
+  },
+  wounds: {
+    insolation: { name: "Coup de soleil à la nuque", desc: "La tête te tourne quand tu te relèves trop vite.", mod: { combat: -5, savoir: -10 }, days: 2, tended: 1 },
+    transi: { name: "Les doigts transis", desc: "Tes doigts ont du mal à se refermer sur une arme.", mod: { combat: -10, discretion: -5 }, days: 1, tended: 1 },
+  },
   world: {
     start: { place: "sorel", gold: 10, food: 2, items: ["dague"],
       // Class kits (Clément, 11/11): the ranger's bow, the thief's throwing knife, the mage's staff.
@@ -187,7 +205,7 @@ module.exports = {
         if: { has: "chemin:coeur" }, why: "Tu ignores encore où est le cœur." },
     ],
     regions: {
-      sud: { name: "La vallée sèche", chance: 0.7, events: ["E_puits_secs", "E_caravane", "E_vautours", "E_chevrier"],
+      sud: { tiring: 2, name: "La vallée sèche", chance: 0.7, events: ["E_puits_secs", "E_caravane", "E_vautours", "E_chevrier"],
         quiet: [
           "La route descend par lacets dans une terre couleur de croûte de pain. Il n'y a plus d'arbres ; les buissons tiennent encore, gris de poussière, et crissent quand tu les frôles. Le ciel est d'un bleu qui fait mal aux yeux.",
           "Tu marches des heures sans voir âme qui vive. De temps en temps, le lit d'une rivière morte croise la route, plein de cailloux ronds et blancs comme des œufs. Une seule fois, au loin, une colonne de poussière qui pourrait être un cavalier, ou le vent.",
@@ -201,7 +219,7 @@ module.exports = {
         "Le sentier quitte les jardins de Kardan et monte sur le plateau par une rampe de pierre plate. Derrière toi, le village est une tache verte posée sur le brun comme une feuille sur une table. Devant, rien, et puis la ravine.",
         "Tu redescends du plateau dans la lumière oblique. L'odeur des jardins de Kardan te monte au nez bien avant que tu les voies : de la menthe, de l'eau, du fumier. Tu n'avais pas remarqué à quel point l'odeur de l'eau te manquait.",
       ] },
-      galeries: { ambiance: "souterrain", name: "Les galeries", chance: 0.55, events: ["E_rats", "E_eboulement", "E_piege", "E_cadavre", "E_torche", "E_pas", "E_voix"],
+      galeries: { tiring: 2, ambiance: "souterrain", name: "Les galeries", chance: 0.55, events: ["E_rats", "E_eboulement", "E_piege", "E_cadavre", "E_torche", "E_pas", "E_voix"],
         quiet: [
           "La galerie tourne, se divise, se rejoint. Les murs sont de la même pierre ocre partout, taillée à la main en blocs si réguliers qu'on finit par les compter. Tu laisses une marque à la craie à chaque embranchement, comme on le fait dans les histoires.",
           "Il fait frais, presque froid. Quelque part, très loin, de l'eau goutte, régulière comme une cloche. Tu avances dans le rond de ta lumière, et le noir se referme derrière toi en silence.",
@@ -211,7 +229,7 @@ module.exports = {
           "Tu t'arrêtes quand tes jambes ne te portent plus. Dans le dédale, la fatigue tient lieu de jour et de nuit. Tu dors adossé au mur, et tu rêves de soleil.",
           "Vous vous serrez autour de la petite flamme. Tous se taisent. Dans la pierre, très loin, un battement lent, régulier, comme un cœur qui dormirait.",
         ] },
-      profondeurs: { ambiance: "souterrain", name: "Les profondeurs", chance: 0.4, events: ["E_voix", "E_pas"],
+      profondeurs: { tiring: 1, ambiance: "souterrain", name: "Les profondeurs", chance: 0.4, events: ["E_voix", "E_pas"],
         quiet: [
           "Les marches descendent, larges, usées en cuvette par des siècles de pas. L'air devient humide, puis doux, presque tiède. Et le bruit de l'eau grandit, jusqu'à ce que tu n'entendes plus que lui.",
           "Des racines percent la voûte, blanches, aveugles, qui descendent elles aussi vers le cœur. Sur les murs, une mousse pâle luit faiblement, et tu n'as plus besoin de ta lumière.",

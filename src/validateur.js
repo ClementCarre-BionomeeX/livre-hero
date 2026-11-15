@@ -167,6 +167,7 @@
       (r.legs || []).forEach(function (l) { if (!P[l.passage]) E("Route « " + r.id + " » : étape « " + l.passage + " » inconnue."); if (l.step > r.steps) E("Route « " + r.id + " » : étape " + l.step + " au-delà de " + r.steps + "."); });
     });
     Object.keys(Wd.regions).forEach(function (k) { (Wd.regions[k].events || []).forEach(function (e) { if (!Wd.events[e]) E("Région « " + k + " » : événement « " + e + " » inconnu."); }); });
+    Object.keys(Wd.regions).forEach(function (k) { var ti = Wd.regions[k].tiring; if (ti != null && !(ti >= 1 && ti === Math.floor(ti))) E("Région « " + k + " » : tiring doit être un nombre entier d'étapes (1 ou plus)."); });
     Object.keys(Wd.events).forEach(function (k) { if (!P[Wd.events[k].passage]) E("Événement « " + k + " » : passage « " + Wd.events[k].passage + " » inconnu."); });
     Object.keys(story.shops || {}).forEach(function (k) { (story.shops[k].sells || []).forEach(function (x) { if (!items[x.item]) E("Boutique « " + k + " » : objet « " + x.item + " » inconnu."); }); });
     Object.keys(items).forEach(function (k) { var it = items[k]; if (!it.name) E("Objet « " + k + " » sans nom."); });
@@ -386,6 +387,9 @@
       if (story.weather.start && !WK[story.weather.start]) E("Météo : temps de départ « " + story.weather.start + " » inconnu.");
       Object.keys(WK).forEach(function (k) { Object.keys(WK[k].mod || {}).forEach(function (d) { if (DOM_KEYS.indexOf(d) < 0) E("Météo « " + k + " » : domaine « " + d + " » inconnu."); }); if (!WK[k].name) E("Météo « " + k + " » : sans nom."); });
       Object.keys(story.weather.regions || {}).forEach(function (r) { Object.keys(story.weather.regions[r]).forEach(function (k) { if (!WK[k]) E("Météo, région « " + r + " » : temps « " + k + " » inconnu."); }); });
+      // A weather that follows the roads reads the world's regions (and "lieu", "route" for a place or a route without one).
+      if (story.weather.by === "route") Object.keys(story.weather.regions || {}).forEach(function (r) { var pr = Object.keys(Wd.places).some(function (k) { return Wd.places[k].region === r; }); if (!Wd.regions[r] && !pr && r !== "lieu" && r !== "route") E("Météo par la route : région « " + r + " » inconnue (ni région du monde, ni région d'un lieu, ni « lieu », ni « route »)."); });
+      Object.keys(WK).forEach(function (k) { var H = WK[k].hurts; if (!H) return; if (!(story.wounds || {})[H.wound]) E("Météo « " + k + " » : blessure « " + H.wound + " » inconnue (hurts)."); if (H.chance != null && !(H.chance > 0 && H.chance <= 1)) E("Météo « " + k + " » : hurts.chance doit être entre 0 et 1."); });
       Object.keys(story.weather.seasons || {}).forEach(function (r) { if (!(story.seasons || []).some(function (x) { return x.id === r; })) E("Météo : saison « " + r + " » inconnue."); Object.keys(story.weather.seasons[r]).forEach(function (k) { if (!WK[k]) E("Météo, saison « " + r + " » : temps « " + k + " » inconnu."); }); });
     }
     (story.seasons || []).forEach(function (x, i) { if (!x.id || !x.name) E("Saison " + (i + 1) + " : il faut un id et un nom."); moment(x.from, "Saison « " + x.id + " »"); });

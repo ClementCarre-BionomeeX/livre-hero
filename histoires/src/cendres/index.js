@@ -4,4 +4,7 @@ var base = require("./base.js");
   var ps = require("./" + f);
   Object.keys(ps).forEach(function (k) { if (base.passages && base.passages[k]) throw new Error("passage en double : " + k); base.passages = base.passages || {}; base.passages[k] = ps[k]; });
 });
+// Long roads tire (piste 10, 15/11): a point of fatigue every n steps in these regions.
+var TIRING = {"cour": 2, "combes": 2, "cretes": 2, "outreblanc": 2, "marches": 2, "montagne": 2, "iv_nord": 2, "iv_sud": 3, "iv_est": 3, "plaine": 3};
+Object.keys(TIRING).forEach(function (k) { base.world.regions[k].tiring = TIRING[k]; });
 module.exports = base;

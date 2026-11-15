@@ -77,6 +77,7 @@ module.exports = {
       "Et ceci, gravé profondément au couteau, d'une main rageuse et patiente :",
       "**NE BOIS PAS**",
       "Au-dessous, une date. Le dernier chiffre est un 7, barré d'un petit trait au milieu.",
+      { second: true, text: "Tu reconnais le 7 barré au premier coup d'œil. Il t'attend sur cette pierre depuis sept ans." },
       { if: { has: "passe:lettre" }, text: "Tu sors la lettre et tu compares. La lune des moissons, il y a sept ans. Le même 7." },
       { if: { present: "odon" }, text: "Odon lit l'inscription par-dessus ton épaule, en remuant les lèvres. « Ne bois pas, répète-t-il. Dans une vallée sèche. C'est un drôle de conseil. Ou un très bon. »" },
     ],
@@ -196,6 +197,7 @@ module.exports = {
     text: [
       "Tu la vois longtemps avant d'y arriver : une tache verte au fond de la vallée brune, si verte qu'elle paraît peinte. Puis la route tourne, et le village est là, d'un coup. Des jardins en terrasses, des canaux de pierre où l'eau court en chantant, des figuiers, des grenadiers, des rangs de fèves, des femmes qui lavent du linge en riant. Une odeur de menthe et de terre mouillée t'emplit les narines.",
       "Derrière le village, la colline. Elle est ronde, rousse, nue, et sur son flanc s'ouvre une porte de pierre taillée, haute comme trois hommes, fermée.",
+      { second: true, text: "Sept serrures de bronze. Tu sais, cette fois, ce qui dort derrière la porte, et qui tient l'eau qui chante dans les canaux." },
       "Des enfants t'ont vu. Ils courent devant toi en criant *un voyageur, un voyageur !*, et quand tu arrives sur la place, une femme t'attend déjà, les mains sur les hanches, le visage rond et rouge de quelqu'un qui passe sa vie près d'un four. « Bienvenue à Kardan ! Je suis Hesna, je tiens le Puits-Vert. Vous logerez chez moi, et vous ne paierez rien, vous m'entendez ? Rien ! Ce soir on fait la fête pour vous. On fait toujours la fête pour ceux qui arrivent. »",
       { if: { present: "odon" }, text: "Elle embrasse Odon sur les deux joues. Il en reste muet, ce qui n'est pas dans ses habitudes." },
       "Tu as l'impression, en la suivant, que tout le village te regarde, et que tout le village sourit.",
@@ -232,6 +234,7 @@ module.exports = {
       { if: { not: { seen: "K_fete" } }, text: "« Ce soir, la fête ! crie-t-elle en te voyant. Vous serez assis à la place d'honneur. Ne mangez rien d'ici là, vous m'entendez ? Rien ! »" },
       { if: { since: "kardan", min: 2 }, text: "Hesna est plus agitée que d'habitude. Elle fait tomber une cruche, rit trop fort, la ramasse. Elle a préparé ta chambre « pour la nuit de la Lune ». Elle a changé les draps deux fois." },
       "Sur une étagère derrière le puits, il y a un gros registre relié de cuir, où chaque voyageur écrit son nom.",
+      { second: true, text: "Tu sais, cette fois, quels noms chercher dans ce registre : ceux qui sont arrivés un soir de fête, et dont personne n'a noté le départ." },
     ],
     choices: [
       { label: "Attendre le soir, et rejoindre la fête qu'on donne pour toi", fx: { until: 20 }, to: "K_fete", hide: { any: [{ seen: "K_fete" }, { night: true }] }, big: true },
@@ -272,6 +275,7 @@ module.exports = {
       "Il y a de l'agneau aux abricots, du pain plat brûlant, des fèves à l'huile, des pastèques fendues, du vin de grenade qui monte à la tête. Un garçon d'une dizaine d'années, Tobie, te regarde manger sans manger lui-même. Une forgeronne aux bras énormes, Garance, te fait goûter son eau-de-vie. Une femme mince aux doigts verts, Oriel, t'observe en silence.",
       "À l'autre bout de la table, une vieille femme minuscule, droite comme un piquet, les cheveux blancs tressés en couronne : l'Aïeule, Maève. Quand elle lève son gobelet, la place se tait d'un coup.",
       "« Au Gardien, dit-elle d'une voix claire, et à celui qui le nourrira. »",
+      { second: true, text: "*Et à celui qui le nourrira.* Tu sais à présent que le mot est mal choisi. Personne ne nourrit le Gardien. On le remplace." },
       "Soixante gobelets se lèvent. Soixante visages se tournent vers toi, et sourient.",
       { if: { present: "odon" }, text: "À côté de toi, Odon a reposé son gobelet sans boire. Il te regarde, et il ne sourit pas." },
       "Plus tard, l'Aïeule t'envoie dire par un enfant qu'elle te recevra chez elle quand tu voudras.",
@@ -511,6 +515,7 @@ module.exports = {
       "La maison de l'Aïeule est la plus haute du village, la plus proche de la colline, et la plus simple : une seule pièce chaulée, un lit, un coffre, un métier à tisser, une fenêtre qui donne sur la porte du dédale. Maève t'attend assise, les mains sur les genoux.",
       "Elle te sert un thé à la menthe si sucré qu'il colle aux dents. Elle te demande d'où tu viens, et elle écoute la réponse, vraiment, comme peu de gens écoutent. Elle te parle de Kardan : deux cents ans d'eau, depuis que l'architecte a creusé la colline. « Nous avons de la chance. Nous le savons. Nous essayons de la mériter. »",
       "Avant que tu partes, elle te met dans la main une petite fiole de terre fermée de cire. « De l'eau de la Source. Elle guérit. On ne la donne qu'aux gens qu'on aime. » Elle sourit. « Vous voyez. Nous vous aimons déjà. »",
+      { second: true, text: "La fiole est tiède dans ta main. Tu sais d'où vient cette eau, et qui la tient, sous la colline, depuis sept ans." },
     ],
     choices: [
       { label: "Lui parler d'Aurèle, en regardant ses mains plutôt que son visage", test: { dom: "social", diff: -10, label: "Lire les gens", help: [{ if: { has: "fete:observe" }, v: 15 }, { if: { has: "hesna:fissure" }, v: 10 }] },
@@ -540,6 +545,7 @@ module.exports = {
       "La chapelle est petite, blanchie à la chaux, si fraîche qu'on y frissonne. Pour tout autel, une vasque de pierre verte où l'eau coule d'un tuyau de cuivre, et, sur le mur du fond, une grande plaque de bois peinte en noir, couverte de noms en lettres blanches.",
       "En haut de la plaque, en lettres dorées : *À CEUX QUI ONT GARDÉ L'EAU.*",
       "Il y a des dizaines de noms. Les plus anciens sont presque effacés. Les plus récents sont des descriptions : *un marchand de Vasque. Une femme au chapeau vert. Le muletier de la caravane.* Et le dernier, d'une peinture encore brillante : *L'homme du Nord, l'an de la grêle.*",
+      { second: true, text: "*À ceux qui ont gardé l'eau.* La première fois, tu as lu une liste de morts. Tu lis, cette fois, une liste de gardiens, chacun à son tour, et la place encore libre au bas de la plaque." },
       "L'an de la grêle, à Kardan comme chez vous, c'était il y a sept ans.",
       { if: { present: "odon" }, text: "Odon s'est agenouillé devant la vasque. Il ne prie pas. Il lit les noms en remuant les lèvres, et quand il arrive au dernier, il ferme les yeux." },
       { if: { all: [{ met: "odon" }, { not: { present: "odon" } }, { not: { gone: "odon" } }] }, text: "Frère Odon est là, assis sur le banc du fond, comme s'il t'attendait. « Tiens, dit-il. Le sud a fini par nous mettre au même endroit. »" },
@@ -560,6 +566,7 @@ module.exports = {
     text: [
       "On monte à la porte par un escalier taillé dans le flanc de la colline, bordé d'offrandes : des pains ronds, des bouquets de menthe, des petites lampes, des jouets de bois. La porte elle-même est une dalle de pierre ocre, haute comme trois hommes, sans poignée, scellée par sept serrures de bronze vert-de-grisé. Au-dessus, gravé dans la roche, un seul mot : KARDAN.",
       "Deux miliciens en cuirasse de cuir montent la garde, la lance au pied. Ils te saluent poliment et ne te laissent pas approcher à moins de dix pas. « C'est la maison du Gardien, dit l'un. On ne le dérange pas. »",
+      { second: true, text: "Au bord des marches, entre les pains et les lampes, des jouets de bois. Tu les regardes, cette fois, en comptant les années." },
       { if: { since: "kardan", min: 2 }, text: "Aujourd'hui, il y a quatre gardes au lieu de deux, et une corbeille de pain plus grande que les autres, couverte d'un linge blanc." },
     ],
     choices: [
@@ -601,6 +608,7 @@ module.exports = {
       "La fête de la Lune sèche a duré tout le soir. On a chanté pour l'eau, on a jeté des fleurs dans la fontaine, on a mangé debout. La lune s'est levée énorme et rousse au-dessus de la colline. Maintenant le village se tait, et tu montes à ta chambre.",
       "On frappe. C'est Hesna, avec un plateau. Une tasse fumante, un gâteau au miel. « Une tisane, dit-elle. Pour dormir. Après une fête, on dort mal, on a trop chaud. » Elle pose le plateau sur la table de nuit, et elle reste là, sur le seuil, ses mains serrées l'une contre l'autre.",
       "La vapeur monte de la tasse. Une odeur d'amande. Et derrière, à peine, une odeur de linge mouillé.",
+      { second: true, text: "Hesna serre les mains l'une contre l'autre. Tu sais ce qu'elle garde dans la poche de son tablier, plié en quatre, et pourquoi elle reste sur le seuil." },
       { if: { has: "oriel:odeur" }, text: "Tu la reconnais : Oriel te l'a fait sentir." },
       { if: { not: { has: "oriel:odeur" } }, text: "Tu trouves que la tisane sent bon. Tu as sommeil, de toute façon." },
       { if: { present: "odon" }, text: "Dans la chambre voisine, Odon ronfle déjà. Sur sa table de nuit, une tasse vide." },

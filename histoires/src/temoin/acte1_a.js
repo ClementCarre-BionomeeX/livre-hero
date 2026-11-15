@@ -29,6 +29,7 @@ module.exports = {
     text: [
       "Elle prend ta main, la tourne vers la lumière de la fenêtre, et la regarde comme on lit une lettre. « Un loquet de porte, dit-elle. De ceux qu'on forge dans les fermes d'ici, un anneau qu'on tire et une barre qui bascule. Le côté où il y a l'anneau, c'est le côté de l'intérieur. »",
       "Elle refait le pansement sans rien ajouter. Elle ne te demande pas de quel côté de la porte tu étais. Elle a l'air de quelqu'un qui garde la question pour plus tard.",
+      { second: true, text: "Tu connais, cette fois, la réponse à la question qu'elle garde. Tu la gardes aussi, encore un peu." },
     ],
     choices: [{ back: "H_reveil" }] },
   H_rev_sait: { act: "I", title: "Ce qu'on sait", place: "hospice",
@@ -55,6 +56,7 @@ module.exports = {
     text: [
       "Vingt écus d'argent. Neufs, brillants, tous de la même frappe, avec le profil du duc tourné vers la gauche et la date de cette année. Tu les fais rouler dans ta main gauche. Ils sont lourds.",
       "Tu sais ce que gagne un arpenteur du cadastre. Le duc paie en billets du Trésor, à la fin du trimestre, à Lorvanne, et jamais en écus neufs. Tu n'as jamais tenu vingt écus à la fois de ta vie.",
+      { second: true, text: "Vingt écus de Pélissier, pour un relevé discret. Tu le sais, cette fois, avant même de les compter." },
       { if: { has: "passe:dette" }, text: "Vingt écus. C'est presque exactement ce que tu dois à la prochaine échéance. Tu n'aimes pas l'idée qui vient. Tu la chasses. Elle revient." },
       "Sœur Odeline te regarde compter. « Le prévôt aussi les comptera », dit-elle.",
     ],
@@ -62,6 +64,7 @@ module.exports = {
   H_habits: { act: "I", title: "La fumée", place: "hospice",
     text: [
       "Les sœurs ont lavé ta chemise, mais la laine de ta veste garde l'odeur : une fumée grasse, de bois et d'autre chose, de graisse peut-être, que tu ne veux pas nommer. Le bas de ton pantalon est roussi en deux endroits.",
+      { second: true, text: "La fumée des Combes. Tu sais, cette fois, d'où elle vient, et combien de temps elle restera dans la laine." },
       "Puis tu regardes tes mains, la gauche surtout, la main nue. Tes ongles sont propres : aucune trace de suie. Il y a du foin, des brins jaunes et secs, et quelque chose de brun, de terreux, qui sent l'étable.",
     ],
     choices: [
@@ -246,6 +249,7 @@ module.exports = {
       "Jeanne s'arrête de plier. Elle te regarde. Tu dis : « Je crois que je te connais. Je ne sais pas d'où. Je ne me souviens de rien. Mais je crois que je te connais. »",
       "Elle reste immobile si longtemps que tu crois qu'elle n'a pas compris. Puis elle prend la craie, efface l'ardoise, et écrit, en lettres maladroites et appliquées, de celles qu'on apprend tard et seule :",
       "*TU DORMAIS DANS LE FOIN.*",
+      { second: true, text: "Tu sais, cette fois, ce qu'elle a vu cette nuit-là, et pourquoi elle efface l'ardoise si vite." },
       "Puis elle efface tout, avant que tu aies pu poser une question, et elle sort de la lingerie en courant.",
     ],
     fx: { flag: "jeanne:foin", conf: { lise: 10 }, ep: ["histoire", 1500] },
@@ -280,6 +284,7 @@ module.exports = {
       "Abel pose une carte. « Le jour où le chien vous a trouvé, il y a eu deux arrivées. Vous, à l'aube, sur le dos de Sœur Odeline et du frère convers, plus mort que vif. Et une heure avant vous, une autre, dont personne ne parle. »",
       "Il pose une autre carte. « Le soir même, le frère du fermier est monté, avant que la neige ne ferme le col. Le mineur, Matthias. Il a demandé à la Mère si on avait trouvé quelqu'un dans la neige. Il a dit : une fille. Pas un homme. Une fille. Moi j'étais là, dans le couloir, avec ma jambe, personne ne fait attention à un vieux. »",
       "« Quand on lui a dit qu'on avait un homme, il a eu l'air soulagé. Et puis il a demandé à vous voir, et il vous a regardé dormir, et il n'avait plus l'air soulagé du tout. » Abel ramasse ses cartes. « Je ne sais pas ce que ça veut dire. Mais si toute votre famille vient de brûler, on ne demande pas après une fille. On demande après celui qui a fait ça. »",
+      { second: true, text: "« Une fille. » Tu sais, cette fois, pourquoi Matthias demandait après elle, et pourquoi il te regardait dormir." },
     ],
     choices: [{ back: "H_abel" }] },
   H_abel_corvin: { act: "I", title: "Le docteur", place: "hospice",

@@ -58,4 +58,7 @@ function scaleEp(o, f) {
   });
 }
 Object.keys(base.passages).forEach(function (id) { var f = EP_SCALE[base.passages[id].act]; if (f) scaleEp(base.passages[id], f); });
+// Long roads tire (piste 10, 15/11): a point of fatigue every n steps in these regions.
+var TIRING = {"sorbe": 2, "val": 2, "isarde": 2, "souillee": 2, "fenne": 2, "marais": 2};
+Object.keys(TIRING).forEach(function (k) { base.world.regions[k].tiring = TIRING[k]; });
 module.exports = base;

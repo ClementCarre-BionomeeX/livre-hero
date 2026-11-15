@@ -426,6 +426,31 @@ module.exports = {
         { label: "Le ruban rouge que Tess a oublié chez toi. Tu comptes le lui rendre. Peut-être.", fx: { flag: "passe:ruban", item: "ruban" } },
       ] },
   ],
+  // The road takes its toll (piste 10, 15/11): the winter sky follows the roads, long roads tire, ice and cold wound.
+  weather: {
+    by: "route", every: 6, start: "gel",
+    kinds: {
+      gel: { name: "Gel clair", desc: "Un ciel dur et bleu, un froid qui fait craquer la neige." },
+      neige: { name: "Neige", desc: "La neige tombe, lourde, et efface les traces.", mod: { nature: -10, discretion: 10 }, say: "La neige se met à tomber, lente, lourde. Derrière toi, les traces s'effacent." },
+      bourrasque: { name: "Bourrasque", desc: "Le vent soulève la neige en rideaux.", mod: { nature: -15, combat: -10 }, say: "Le vent se lève d'un coup et soulève la neige en rideaux blancs. On ne voit plus ses propres mains.",
+        hurts: { wound: "gelure", chance: 0.3, say: "Le vent te prend le visage et les mains. Quand il retombe, tu as le bout des doigts blanc et dur." } },
+      brouillard: { name: "Brouillard givrant", desc: "Un brouillard qui givre les cils.", mod: { nature: -10, discretion: 15 }, say: "Un brouillard monte des vallées et givre tout ce qu'il touche : les cils, les cheveux, les branches." },
+      redoux: { name: "Redoux", desc: "Un vent tiède, la neige qui fond en boue.", mod: { discretion: -5 }, say: "Le vent tourne au sud. La neige fond en boue grise, et les ruisseaux grondent sous la glace." },
+      verglas: { name: "Verglas", desc: "La pluie gelée sur les chemins.", mod: { combat: -10, nature: -10 }, say: "La pluie a gelé en tombant. Les chemins luisent, et chaque pas se négocie.",
+        hurts: { wound: "chute", chance: 0.3, say: "Ton pied part sur la glace. Tu tombes sur le flanc, de tout ton poids." } },
+    },
+    regions: {
+      lieu: { gel: 3, neige: 2, redoux: 1 },
+      plaine: { gel: 2, neige: 2, brouillard: 2, redoux: 1 }, cour: { gel: 2, neige: 2, verglas: 1, redoux: 1 }, marches: { gel: 2, neige: 2, verglas: 1, bourrasque: 1 },
+      montagne: { neige: 3, bourrasque: 2, gel: 1 }, combes: { neige: 3, bourrasque: 2, gel: 2 }, cretes: { bourrasque: 3, neige: 2, gel: 1 },
+      outreblanc: { neige: 3, bourrasque: 2, brouillard: 2 },
+      iv_sud: { redoux: 2, gel: 2, neige: 1 }, iv_est: { gel: 2, neige: 2, verglas: 1 }, iv_nord: { neige: 3, bourrasque: 2, gel: 1 },
+    },
+  },
+  wounds: {
+    gelure: { name: "Gelures", desc: "Le bout de tes doigts est blanc, et te brûle quand il se réchauffe.", mod: { combat: -10, discretion: -5 }, days: 3, tended: 1 },
+    chute: { name: "Le flanc meurtri", desc: "Une douleur sourde au côté à chaque inspiration.", mod: { combat: -10, nature: -5 }, days: 2, tended: 1 },
+  },
   world: {
     // One écu is twenty sous; the engine counts in sous.
     money: { units: [{ name: "écu", plural: "écus", value: 20, short: "éc." }, { name: "sou", plural: "sous", value: 1, short: "s." }] },
