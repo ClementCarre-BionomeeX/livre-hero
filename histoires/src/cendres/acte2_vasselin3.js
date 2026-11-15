@@ -9,7 +9,7 @@ module.exports = {
   II_S_corderie: P({ title: "La corderie",
     text: [
       "Au bout du quai des Cordiers, la corderie : un hangar de quatre cents pas de long, si étroit qu'on dirait un couloir, où les cordiers marchent à reculons en filant le chanvre, la filasse autour de la taille, depuis la roue jusqu'au fond. Ils filent les aussières des galères, les drisses, les haubans. Ça sent le goudron et la paille mouillée.",
-      "Au fond du hangar, assis sur un rouleau, le maître cordier, un vieux tout tordu, tient un bout de corde entre ses mains et le regarde. Le nœud lui échappe. Lequel ? Tous. Cinquante ans de nœuds, et ce matin, ses mains sont vides. Ses apprentis attendent, gênés. « La chanson, dit-il. Il y avait une chanson. On apprenait les nœuds avec. Je ne sais plus la chanson. »",
+      "Au fond du hangar, assis sur un rouleau, le maître cordier, un vieux tout tordu, tient un bout de corde entre ses mains et le regarde. Le nœud lui échappe. Lequel ? Tous. Cinquante ans de nœuds, et ce matin, plus un seul. Ses apprentis attendent, gênés. « La chanson, dit-il. Il y avait une chanson. On apprenait les nœuds avec. Je ne sais plus la chanson. »",
     ],
     choices: [
       { label: "Lui chanter la chanson des nœuds, que chantaient les marins devant l'étal de ta mère", test: { dom: "social", label: "La chanson des nœuds", help: [{ if: { seen: "II_S_port" }, v: 15 }, { if: { item: "luth" }, v: 5 }] },
@@ -18,7 +18,7 @@ module.exports = {
     ] }),
   II_S_corderie_noeuds: P({ title: "Le lapin sort du terrier",
     text: [
-      "Tu la sais, et tu l'apprends en même temps que lui. Les marins la chantaient sur le quai, devant l'étal de ta mère, en réparant leurs filets, quand tu avais six ans. *Le lapin sort du terrier, fait le tour de l'arbre, rentre dans son trou.* Le nœud de chaise. *Deux tours morts et deux demi-clés.* *La queue de cochon, le cul-de-porc, la tête d'alouette.*",
+      "Tu la sais, et tu le découvres en même temps que lui. Les marins la chantaient sur le quai, devant l'étal de ta mère, en réparant leurs filets, quand tu avais six ans. *Le lapin sort du terrier, fait le tour de l'arbre, rentre dans son trou.* Le nœud de chaise. *Deux tours morts et deux demi-clés.* *La queue de cochon, le cul-de-porc, la tête d'alouette.*",
       "Au deuxième couplet, ses mains bougent. Au troisième, elles font le nœud de chaise, toutes seules, sans qu'il regarde. Il rit. Les apprentis reprennent le refrain. Toute la corderie chante, à reculons, en filant. Quand tu pars, il te donne un bout de filin, noué d'un nœud de chaise parfait. « Pour grimper, dit-il. Une corde, ça se monte mieux quand on sait ce qu'il y a dedans. »",
     ],
     choices: BACK }),
