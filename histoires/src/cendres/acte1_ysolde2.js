@@ -7,8 +7,8 @@ var BACK = [{ back: "YS_cour" }];
 module.exports = {
   YS_k_tilleul: P({ title: "Le tilleul",
     text: [
-      "Le tilleul de ton grand-père. Tu t'assieds dessous, comme quand tu étais petite, le dos contre le tronc. Il gêne les manœuvres depuis cinquante ans. Ton grand-père disait qu'un fort sans arbre, c'est une prison, et qu'il préférait gêner les manœuvres.",
-      "En bas du tronc, à ras de terre, là où l'écorce est la plus vieille, il y a une gravure que tu avais oubliée. Tu la retrouves sous tes doigts. Un cerf. La tête levée, les bois en couronne. Elle n'est pas dans l'écorce : c'est une pierre, prise dans les racines, que l'arbre a avalée en grandissant, et sur la pierre, le cerf.",
+      "Le tilleul de ton grand-père, au coin de la cour d'armes, large de trois brasses à hauteur d'homme. Tu t'assieds dessous, comme quand tu étais petite, le dos contre le tronc. Il gêne les manœuvres depuis cinquante ans. Ton grand-père disait qu'un fort sans arbre, c'est une prison, et qu'il préférait gêner les manœuvres.",
+      "En bas du tronc, à ras de terre, là où l'écorce est la plus vieille, il y a une gravure que tu avais oubliée. Tu la retrouves sous tes doigts. Un cerf. La tête levée, les bois en couronne. Tes doigts trouvent du froid sous l'écorce : c'est une pierre, prise dans les racines, que l'arbre a avalée en grandissant, et sur la pierre, le cerf.",
       "Les Brenne portent un loup depuis toujours. Sur les chapiteaux de la chapelle, sur la porte, sur ton écu. Ton grand-père, quand tu lui avais demandé, petite, ce que faisait ce cerf sous l'arbre, avait haussé les épaules. « Avant le loup, avait-il dit. Il y a longtemps. On en a changé. » Tu n'avais pas demandé pourquoi.",
     ],
     choices: [
@@ -16,15 +16,15 @@ module.exports = {
       { label: "Rester un moment sous l'arbre, sans penser à rien", fx: { pv: 2 }, to: "YS_k_tilleul_repos" },
     ] }),
   YS_k_tilleul_pierre: P({ title: "La pierre",
-    text: ["Sous la mousse, autour du cerf, il y a des lettres. Une devise, à moitié avalée par l'écorce. Tu lis ce qui reste : *... PREMIER ...*. Le reste est dans le bois. Il faudrait abattre l'arbre pour le lire. Tu remets la mousse en place, du plat de la main. Ton grand-père n'aurait pas voulu qu'on abatte l'arbre. Tu n'es pas sûre qu'il aurait voulu qu'on lise."],
+    text: ["Sous la mousse, autour du cerf, il y a des lettres. Une devise, à moitié avalée par l'écorce. Tu lis ce qui reste : *... PREMIER ...*. Le reste est dans le bois. Il faudrait abattre l'arbre pour le lire. Tu remets la mousse en place, du plat de la main. Ton grand-père aurait défendu l'arbre. Qu'on lise la pierre, tu en doutes davantage."],
     choices: BACK }),
   YS_k_tilleul_repos: P({ title: "L'ombre",
     text: ["Tu restes. Les feuilles bougent au-dessus de toi. Les abeilles du tilleul font un bruit de forge lointaine. Pendant un moment, l'ordre, Hautvent et Frère Sévrin à sa fenêtre s'effacent. Il y a une petite fille sous un arbre, et un vieil homme qui vient s'asseoir à côté d'elle, en se plaignant de son genou. Puis la cloche sonne. Tu te relèves. La place à côté de toi est vide, depuis longtemps."],
     choices: BACK }),
   YS_k_puits: P({ title: "Le puits",
     text: [
-      "Autour du puits, les femmes des soldats tirent l'eau du matin, les seaux à la main, et elles parlent. Elles se taisent quand tu approches. Puis l'une d'elles, la grosse Hersende, la femme de Hugues le forgeron, qui n'a peur de personne, te tend la louche.",
-      "« Hautvent, dit-elle. On sait. Ma sœur est mariée là-bas. Une tisserande. Trois enfants. » Elle ne baisse pas les yeux. « Je ne vous demande rien, capitaine. Je voulais juste que vous sachiez qu'il y a une sœur de quelqu'un, sur cette liste. Il y a toujours une sœur de quelqu'un. »",
+      "Autour du puits, les femmes des soldats tirent l'eau du matin, les seaux à la main, et elles parlent. Elles se taisent quand tu approches, toutes ensemble, comme des moineaux. Puis l'une d'elles, la grosse Hersende, la femme de Hugues le forgeron, qui n'a peur de personne, te tend la louche.",
+      "« Hautvent, dit-elle. On sait. Ma sœur est mariée là-bas. Une tisserande. Trois enfants. » Elle garde les yeux levés. « Je ne vous demande rien, capitaine. Je voulais juste que vous sachiez qu'il y a une sœur de quelqu'un, sur cette liste. Il y a toujours une sœur de quelqu'un. »",
     ],
     choices: [
       { label: "Lui demander le nom de sa sœur", fx: { ep: ["perso", 300], flag: "ysolde:perrine" }, to: "YS_k_puits_nom" },
@@ -34,6 +34,6 @@ module.exports = {
     text: ["« Perrine, dit Hersende. Perrine Fournel. Elle a une tache de vin sur la joue, ici. Elle chante faux. Elle fait le meilleur pâté de lièvre de la vallée. » Elle s'arrête. Elle a les yeux humides. Elle retient ses larmes : au puits, devant la capitaine, on se tient. « Voilà. Maintenant, vous savez qui c'est. Faites-en ce que vous voulez. » Elle reprend ses seaux. Les autres femmes la suivent en silence."],
     choices: BACK }),
   YS_k_puits_silence: P({ title: "La louche",
-    text: ["Tu bois. L'eau du puits de Brenne a le goût de fer et de pierre, le goût de ton enfance. Tu rends la louche. Tu te tais. Hersende hoche la tête : ton silence lui suffit, ou c'est tout ce qu'elle attendait d'une capitaine. Elle reprend ses seaux. Elle ne te regarde plus. Les autres non plus."],
+    text: ["Tu bois. L'eau du puits de Brenne a le goût de fer et de pierre, le goût de ton enfance. Tu rends la louche. Tu te tais. Hersende hoche la tête : ton silence lui suffit, ou c'est tout ce qu'elle attendait d'une capitaine. Elle reprend ses seaux. Les autres femmes la suivent, le regard ailleurs."],
     choices: BACK }),
 };

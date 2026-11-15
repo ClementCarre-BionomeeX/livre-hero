@@ -21,7 +21,7 @@ module.exports = {
     fx: { regroup: true, lead: "corbe", leadQuiet: true },
     text: [
       "À l'aube, un feu sur la crête du sud. Puis des silhouettes qui descendent, à pied, en tirant des chevaux fourbus.",
-      { if: { has: "sud5:fuite=bateau" }, text: "Ils sont venus par la rivière, puis par les crêtes, sans dormir. Ils sentent le poisson et la sueur de cheval." },
+      { if: { has: "sud5:fuite=bateau" }, text: "Ils sont venus par la rivière, puis par les crêtes, sans dormir. Ils sentent le poisson et la sueur de cheval, et leurs bottes ont la boue de trois pays différents." },
       "Vous vous regardez. Un mois. Ils ont l'air plus vieux. Vous aussi, sûrement.",
       { if: { has: "registre:clans" }, text: "Sur le dos d'un cheval, sanglé, un paquet de toile cirée couvert de givre. Le clan s'écarte quand il passe. Les chiens se couchent." },
       { if: { has: "registre:reine" }, text: "Lisandre te dit, avant même de t'embrasser, que le registre est à Vasselin, sur le lit d'une reine qui lit." },
@@ -36,7 +36,7 @@ module.exports = {
 
   II_R_aube: P({ title: "L'aube du rite", place: "col",
     text: [
-      "Les tambours se taisent tous en même temps. Le clan s'est rangé en cercle, autour de la pierre, à cent pas de la déchirure. Hrodna attend. Askel attend, dans sa robe blanche.",
+      "Les tambours se taisent tous en même temps. Le clan s'est rangé en cercle, autour de la pierre, à cent pas de la déchirure : trois rangs, les vieux devant, les enfants derrière, les chiens tenus court. Hrodna attend. Askel attend, dans sa robe blanche.",
       "La déchirure a encore grandi, pendant la nuit. Elle est haute comme un clocher. De l'autre côté, les gens qui marchent sont tout près, maintenant. On voit leurs visages. Ils ne se pressent pas. Ils arrivent.",
       { if: { has: "registre:clans" }, text: "Le paquet de toile cirée, posé dans la neige, tremble. Le givre s'y forme et s'y défait, en vagues. Il tire vers la déchirure, comme un chien qui tire sur sa laisse." },
       "Tout le monde te regarde. C'est toi, la Bouche.",
@@ -52,7 +52,7 @@ module.exports = {
     text: [
       "Tu montes sur la pierre. Elle est tiède sous tes pieds nus. Tu chantes les trois vers, avec ta voix trop haute, trop mince, et le clan chante avec toi, et cette fois tu les comprends.",
       "Puis tu donnes ton nom. Pas en le disant : en le lâchant. Corbe. La fille d'Askel. Celle qui a volé une bague à un corbeau, celle qui ne savait pas lire, celle qui a écrit son nom dans la cendre. Tout. Tu le sens partir comme une rivière qui quitte son lit.",
-      "Tu descends de la pierre. Tu marches vers la déchirure. Qui marche ? Tu en doutes. Derrière toi, quelqu'un crie un mot étranger.",
+      "Tu descends de la pierre. Tu marches vers la déchirure, ou quelqu'un marche à ta place, avec tes pieds. Derrière toi, quelqu'un crie un mot étranger.",
       { if: { has: "corbe:lettres" }, text: "C'est Pie. Il crie ton nom, en l'épelant, lettre par lettre, comme une leçon." },
       "Tu entres dans le blanc. La déchirure se referme sur toi, d'un coup, comme un œil.",
       "Pendant trois battements de cœur, le col est silencieux, et vert, et entier.",
@@ -80,8 +80,8 @@ module.exports = {
 
   II_R_refus: P({ title: "Personne", place: "col",
     text: [
-      "Tu ne montes pas sur la pierre. Tu le dis à voix haute, devant le clan : personne n'entrera. Ni toi, ni ta mère, ni personne. On ne bouche pas un trou avec des gens.",
-      "Hrodna ferme les yeux. Askel, dans sa robe blanche, se rassoit. Un murmure court dans le cercle, colère ou soulagement, tu hésites.",
+      "Tu restes au pied de la pierre. Tu le dis à voix haute, devant le clan : personne n'entrera. Ni toi, ni ta mère, ni personne. On ne bouche pas un trou avec des gens.",
+      "Hrodna ferme les yeux. Askel, dans sa robe blanche, se rassoit. Un murmure court dans le cercle ; colère ou soulagement, tu hésites.",
       "La déchirure continue de grandir. Les gens de l'autre côté sont au seuil, maintenant. Ils te regardent.",
     ],
     choices: [{ label: "Puis le monde craque", to: "II_R_rupture" }] }),
@@ -89,7 +89,7 @@ module.exports = {
   II_R_rupture: P({ title: "La Rupture", place: "col",
     text: [
       "Le bruit vient de partout à la fois, et de très loin. Un craquement de glace qui cède, sous tout le royaume. Comme si le monde était un lac gelé, et que quelqu'un venait de marcher au milieu.",
-      { if: { has: "corbe:rite_ii" }, text: "La déchirure s'est refermée. Ça ne sert à rien. Le col tient, et le reste lâche. Au sud, très loin, sur toutes les crêtes, des lueurs blanches s'allument, l'une après l'autre, comme des feux de signal." },
+      { if: { has: "corbe:rite_ii" }, text: "La déchirure s'est refermée. C'est peine perdue. Le col tient, et le reste lâche. Au sud, très loin, sur toutes les crêtes, des lueurs blanches s'allument, l'une après l'autre, comme des feux de signal." },
       { if: { not: { has: "corbe:rite_ii" } }, text: "La déchirure court, d'un coup, d'un bout à l'autre du col. Et au sud, très loin, sur toutes les crêtes, des lueurs blanches s'allument, l'une après l'autre, comme des feux de signal." },
       { if: { any: [{ has: "registre:reine" }, { has: "registre:greffiers" }] }, text: "Vers Vasselin, le ciel blanchit." },
       "Le sol s'ouvre sous le col. Pas la terre : le monde. Une fente noire qui court à travers la neige, à travers le cercle du clan, à travers votre feu, et sous la fente, du blanc.",

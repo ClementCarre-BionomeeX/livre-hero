@@ -8,7 +8,7 @@ function P4(o) { return Object.assign({}, Q, o); }
 module.exports = {
   II_c_file: P({ title: "La file", place: "cirque",
     text: [
-      "Une file de petits Glaneurs descend la pente la plus proche, en silence, chacun portant quelque chose dans ses mains jointes. Des lueurs, pour la plupart. Mais l'avant-dernier porte un objet. Un vrai. Une enseigne de bois peinte, grande comme un plateau, qu'il tient à deux mains au-dessus de sa tête.",
+      "Une file de petits Glaneurs descend la pente la plus proche, en silence, chacun portant quelque chose dans ses mains jointes. Des lueurs, pour la plupart. Mais l'avant-dernier porte un objet. Un vrai. Une enseigne de bois peinte, grande comme un plateau, encore pendue à ses deux anneaux de fer tordus, qu'il tient à deux mains au-dessus de sa tête.",
       "AU MOUTON BLEU. L'enseigne de l'auberge de Sauvelune.",
       { with: "enfant", text: "L'enfant de Sauvelune s'est figé. « J'ai bu ma première bière sous cette enseigne, dit-il. J'avais onze ans. Joris m'a ramené à la maison sur son dos. »" },
     ],
@@ -25,14 +25,14 @@ module.exports = {
     choices: [] }),
   II_c_file_ok: P({ title: "Au Mouton Bleu", place: "cirque",
     text: [
-      "L'enseigne est lourde, et froide, et la peinture s'écaille. Le mouton est plus gris que bleu. Tu la cales contre un rocher, à l'abri, face au sud, du côté de Sauvelune.",
+      "L'enseigne est en chêne, épaisse de deux doigts, lourde, froide, et la peinture s'écaille. Le mouton est plus gris que bleu ; quelqu'un, il y a longtemps, lui a repeint les cornes en jaune. Tu la cales contre un rocher, à l'abri, face au sud, du côté de Sauvelune.",
       "Le soir, en passant, tu vois que quelqu'un de la compagnie a gravé dessous, au couteau, une date et un nom. Personne ne dit qui.",
     ],
     choices: [{ back: "II_N4_cirque" }] }),
 
   II_c_falaise: P({ title: "La falaise noire", place: "cirque",
     text: [
-      "La falaise noire domine le cirque d'un côté. On peut y monter, par une cheminée, si on n'a pas peur du vide. De là-haut, on doit voir tout le fond : le géant, les files, les passages entre les rochers.",
+      "La falaise noire domine le cirque d'un côté. On peut y monter par une cheminée large d'une épaule, avec un bon estomac pour le vide. De là-haut, on doit voir tout le fond : le géant, les files, les passages entre les rochers.",
     ],
     choices: [
       { label: "Grimper", test: { dom: "nature", label: "La cheminée", help: [{ if: { item: "corde" }, v: 15 }, { if: { present: "ysolde" }, v: 5 }] },
@@ -41,12 +41,12 @@ module.exports = {
     ] }),
   II_c_falaise_vue: P({ title: "D'en haut", place: "cirque",
     text: [
-      "D'en haut, le cirque se lit comme une carte. Le géant au milieu. Les files de Glaneurs qui descendent de toutes les pentes, comme des rayons de roue. Et, entre deux rayons, au sud, un couloir où ne passe personne : une ravine, où la neige est plus grise. On pourrait arriver jusqu'au géant par là, sans croiser une seule file.",
-      "Tu regardes le géant longtemps. De là-haut, il n'a pas l'air d'un monstre. Il a l'air d'un très vieil homme assis, qui mange parce qu'on lui apporte à manger.",
+      "D'en haut, le cirque se lit comme une carte. Le géant au milieu. Les files de Glaneurs qui descendent de toutes les pentes, comme des rayons de roue. Et, entre deux rayons, au sud, un couloir désert : une ravine où la neige est plus grise, sans une trace de pas. On pourrait arriver jusqu'au géant par là, sans croiser une seule file.",
+      "Tu regardes le géant longtemps. De là-haut, il a l'air d'un très vieil homme assis, qui mange parce qu'on lui apporte à manger.",
     ],
     choices: [{ back: "II_N4_cirque" }] }),
   II_c_falaise_chute: P({ title: "La cheminée", place: "cirque",
-    text: ["À mi-hauteur, une prise cède. Tu redescends la cheminée beaucoup plus vite que tu ne l'as montée, sur le dos, en t'écorchant tout ce qui dépasse. En bas, les autres te regardent. Tu dis que tu as vu ce qu'il fallait voir. Ce n'est pas vrai."],
+    text: ["À mi-hauteur, une prise cède. Tu redescends la cheminée beaucoup plus vite que tu ne l'as montée, sur le dos, en t'écorchant tout ce qui dépasse. En bas, les autres te regardent. Tu dis que tu as vu ce qu'il fallait voir. Tu as surtout vu la roche, de très près."],
     choices: [{ back: "II_N4_cirque" }] }),
 
   // ------------------------------------------------------------ Acte IV, au camp du Corbeau
@@ -63,7 +63,7 @@ module.exports = {
     choices: [{ label: "L'écouter jusqu'au bout", fx: { ep: ["perso", 500] }, to: "IV_clan_fin" }] }),
   IV_k_arnald: P4({ title: "Le troupeau", place: "corbeau",
     text: [
-      "Le troupeau de rennes est plus petit qu'avant. La moitié des bêtes est partie vers le col pendant l'année blanche, et n'est jamais revenue. Le vieux Arnald compte celles qui restent, tous les soirs, deux fois, pour être sûr.",
+      "Le troupeau de rennes a fondu : quarante bêtes là où il en paissait quatre-vingts. Les autres sont parties vers le col pendant l'année blanche, sans retour. Le vieux Arnald compte celles qui restent, tous les soirs, deux fois, pour être sûr.",
       { if: { has: "co:renne=ramenee" }, text: "Une vieille femelle maigre broute au milieu, avec une ceinture de cuir à moitié mâchée qui lui pend de la bouche. « Brindille, dit Arnald. Celle de Corbe. Elle est la seule de cette année-là qui ne soit pas partie. » Il crache par terre. « Ça se soigne, cette chose. Ça se soigne avec une nuit et une longe. Personne ne l'avait jamais essayé. »" },
       { if: { not: { has: "co:renne=ramenee" } }, text: "« Il y en avait une, dit Arnald, que Corbe avait nourrie à la main. Brindille. Partie la première. » Il compte. Il recompte. Il en manque toujours autant." },
     ],

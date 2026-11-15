@@ -16,7 +16,7 @@ function verdict(f, garde, rend) {
 module.exports = {
   III_p_place: P({ title: "La grand-place", place: "valcendre", hub: true,
     text: [
-      { first: true, text: "Toute la ville est venue. Ils sont debout autour de la grand-place, serrés, des milliers, en silence, les enfants sur les épaules des pères. Ardaël est assis sur les marches du palais, seul, et sa couronne de givre lui goutte sur le front. Il ne regarde pas les statues. Il te regarde, toi." },
+      { first: true, text: "Toute la ville est venue. Ils sont debout autour de la grand-place, serrés, des milliers, en silence, les enfants sur les épaules des pères. Ardaël est assis sur les marches du palais, seul, et sa couronne de givre lui goutte sur le front. Il tourne le dos aux statues. Il te regarde, toi." },
       { first: true, text: "Le Sans-Nom te mène jusqu'au socle noir. « Pose la main sur la glace, dit-il. Tu tomberas dedans. Une heure, là-bas. Ici, ça ne dure qu'une respiration. Et quand tu reviendras, ils voudront savoir. »" },
       "Les cinq statues attendent, dos à dos. Dans la glace, leurs yeux bougent.",
       { if: { any: [rendu("tour"), rendu("gerbe"), rendu("barque"), rendu("cerf"), rendu("plume")] }, text: "Là où tu as rendu quelqu'un au monde, il reste une flaque sur la pierre noire, et la foule la contourne." },
@@ -38,9 +38,9 @@ module.exports = {
   // ---- La Tour: Aldric de la Tour, war leader, ancestor of the crown of Esquarre
   III_p_tour: P({ title: "La Tour", place: "valcendre",
     text: [
-      "Tu poses la main sur la glace. Le froid te prend le poignet, puis tout le bras, puis il n'y a plus de froid.",
-      "Tu es dans une tente. Il fait chaud. Tu as cinquante ans, des épaules de bœuf, un genou qui te fait mal quand il va pleuvoir, et il va pleuvoir. Tu t'appelles Aldric de la Tour. Tu as faim, et tu remets le repas à plus tard, parce que les autres attendent.",
-      "Sur la table, une carte. La vallée, la rivière, le village aux tours fines qu'ils appellent Valcendre. Tu l'as dessinée toi-même, en trois ans de commerce et de visites, à leur table, à leurs fêtes. Tu sais où sont leurs greniers. Tu sais combien ils ont de lances, et c'est presque rien.",
+      "Tu poses la main sur la glace. Le froid te prend le poignet, puis tout le bras, puis il disparaît d'un coup, comme une porte qu'on ferme.",
+      "Tu es dans une tente de toile goudronnée, à six piquets. Il fait chaud ; la lampe à huile fume. Tu as cinquante ans, des épaules de bœuf, un genou qui te fait mal quand il va pleuvoir, et il va pleuvoir. Tu t'appelles Aldric de la Tour. Tu as faim, et tu remets le repas à plus tard, parce que les autres attendent.",
+      "Sur la table, une carte. La vallée, la rivière, le village aux tours fines qu'ils appellent Valcendre. Tu l'as dessinée toi-même, en trois ans de commerce et de visites, à leur table, à leurs fêtes. Tu sais où sont leurs greniers. Tu sais combien ils ont de lances : quarante, et la moitié servent à la pêche.",
       "Autour de la table, les quatre autres. La grosse Berthe, muette. Osric, le passeur, qui regarde ses mains. Le petit de Brenne, qui a dix-neuf ans et brûle d'envie. Et le frère à la plume, qui écrit tout ce qu'on dit.",
     ],
     choices: [{ label: "Parler, puisque c'est à toi de parler", to: "III_p_tour2" }] }),
@@ -48,10 +48,10 @@ module.exports = {
   III_p_tour2: P({ title: "Le conseil", place: "valcendre",
     text: [
       "Tu parles. Tu entends ta voix, une voix calme, une voix de bon père. Tu dis : nos gens ont faim. Tu dis : cette terre est la meilleure du nord et ils ne la labourent pas, ils la chantent. Tu dis : ils sont peu, et l'hiver vient. Tu évites jusqu'au bout le mot tuer. Tu dis : il faut que ce soit fait vite, et une fois.",
-      "Tu sens ce qu'il sent, et c'est le pire. Il n'a pas de haine. Il a mangé à leur table la semaine dernière, il a fait danser une de leurs filles, il a trouvé leur musique belle. Il a fait le compte, c'est tout. Le compte est juste. Il dort bien.",
+      "Tu sens ce qu'il sent, et c'est le pire. Sa poitrine est vide de haine. Il a mangé à leur table la semaine dernière, il a fait danser une de leurs filles, il a trouvé leur musique belle. Il a fait le compte, c'est tout. Le compte est juste. Il dort bien.",
       "Le frère à la plume lève la tête : « Et les enfants ? »",
       "Tu sens la réponse monter dans la gorge d'Aldric. Tu essaies de la retenir, de toutes tes forces. Elle sort quand même, de sa voix calme : « Ceux qui se souviendront, nous les aurons sur le dos dans vingt ans. »",
-      "Personne ne répond. Berthe se lève, et sort de la tente. Elle revient un peu plus tard. Elle ne dit toujours rien.",
+      "La tente reste muette. Berthe se lève, et sort. Elle revient un peu plus tard, la bouche toujours close.",
     ],
     choices: [{ label: "Lâcher la glace", to: "III_p_tour3" }] }),
 
@@ -65,25 +65,25 @@ module.exports = {
     choices: verdict("tour", "III_p_tour_garde", "III_p_tour_rendu") }),
 
   III_p_tour_garde: P({ title: "La glace", place: "valcendre",
-    text: ["Tu te relèves et tu dis : « Qu'il reste. » Les yeux d'Aldric, dans la glace, se ferment. La foule se tait. Punition ou grâce, tu hésites. Tu crois que lui non plus."],
+    text: ["Tu te relèves et tu dis : « Qu'il reste. » Les yeux d'Aldric, dans la glace, se ferment. La foule se tait. Punition ou grâce ? Tu hésites. Lui aussi, tu crois."],
     choices: [{ back: "III_p_place" }] }),
 
   III_p_tour_rendu: P({ title: "La flaque", place: "valcendre",
-    text: ["Tu dis : « Qu'il parte. » La glace d'Aldric se met à couler, d'abord lentement, puis d'un coup, avec un bruit d'averse. Il ne reste qu'une flaque, et dans la flaque, un instant, le reflet d'une couronne. Quelque part, très loin, très haut, une reine d'Esquarre se réveille en sursaut et ne sait pas pourquoi."],
+    text: ["Tu dis : « Qu'il parte. » La glace d'Aldric se met à couler, d'abord lentement, puis d'un coup, avec un bruit d'averse. Il reste une flaque, et dans la flaque, un instant, le reflet d'une couronne. Quelque part, très loin, très haut, une reine d'Esquarre se réveille en sursaut, sans savoir pourquoi."],
     choices: [{ back: "III_p_place" }] }),
 
   // ---- La Gerbe: Berthe, the grain mother, from whom the valley villages descend
   III_p_gerbe: P({ title: "La Gerbe", place: "valcendre",
     text: [
       "Tu poses la main sur la glace, et tu es une femme. Lourde, essoufflée, des mains rouges et des avant-bras de pétrisseuse. Tu t'appelles Berthe. On t'appelle la Gerbe, parce que tu as nourri trois villages avec un champ, l'année de la grande faim.",
-      "Il fait nuit. Tu n'es pas dans la vallée. Tu es sur la colline, en arrière, avec les chariots, les femmes, les enfants, les bœufs. Quatre cents personnes qui attendent de descendre quand ce sera fini. Ta famille, celle des autres. Ils ont faim. Tu as promis qu'ils n'auraient plus faim.",
+      "Il fait nuit. Tu es sur la colline, en arrière de la vallée, avec les chariots, les femmes, les enfants, les bœufs. Quatre cents personnes qui attendent de descendre quand ce sera fini. Ta famille, celle des autres. Ils ont faim. Tu as promis qu'ils n'auraient plus faim.",
       "En bas, dans la vallée, une lueur. Puis dix. Puis toute la vallée. Le vent apporte l'odeur, puis les cris.",
     ],
     choices: [{ label: "Regarder", to: "III_p_gerbe2" }] }),
 
   III_p_gerbe2: P({ title: "La colline", place: "valcendre",
     text: [
-      "Une petite fille te tire par la manche. « C'est quoi, maman, la lumière ? » Tu la prends dans tes bras. Tu lui caches les yeux contre ton épaule. Tu ne caches pas les tiens. Berthe regarde jusqu'au bout. C'est la seule chose qu'elle se permet.",
+      "Une petite fille te tire par la manche. « C'est quoi, maman, la lumière ? » Tu la prends dans tes bras. Tu lui caches les yeux contre ton épaule. Les tiens restent ouverts. Berthe regarde jusqu'au bout. C'est la seule chose qu'elle se permet.",
       "Au matin, vous descendez. Les chariots roulent sur la cendre encore chaude. Les hommes de Brenne ont déjà creusé la fosse. Berthe fait semer l'orge le jour même, dans la cendre, parce que la cendre, c'est bon pour la terre. Elle le sait. Elle est la meilleure paysanne du monde.",
       "Elle donne un nom à chaque champ. Elle donne un nom au premier hameau, au bord de la petite rivière, sous la lune pâle de cette nuit-là : Sauvelune.",
     ],
@@ -94,7 +94,7 @@ module.exports = {
       "Tu es sur la place. Tu as les joues mouillées des larmes de Berthe ou des tiennes.",
       "Sauvelune. Le moulin, le temple, le pré des foins, la Sauve où Pim a appris à nager. Tout ça a poussé dans la cendre de ceux qui se tiennent autour de toi, en ce moment, et qui te regardent.",
       { if: { souv: "enfant:chanson" }, text: "La chanson des foins te revient : « Fauche le pré, fauche la nuit… » Tu comprends, pour la première fois, ce qu'on fauchait la nuit." },
-      "Si tu la rends au monde, tous les villages de la vallée sauront sur quoi ils ont semé. Ce ne sont pas des seigneurs. Ce sont des meuniers, des forgerons, des enfants. Ils n'ont rien fait. Ils mangent.",
+      "Si tu la rends au monde, tous les villages de la vallée sauront sur quoi ils ont semé. Des meuniers, des forgerons, des enfants, sans un seigneur parmi eux. Les mains propres. Ils mangent.",
     ],
     choices: verdict("gerbe", "III_p_gerbe_garde", "III_p_gerbe_rendu") }),
 
@@ -103,22 +103,22 @@ module.exports = {
     choices: [{ back: "III_p_place" }] }),
 
   III_p_gerbe_rendu: P({ title: "La flaque", place: "valcendre",
-    text: ["« Qu'elle parte. » La glace de Berthe fond lentement, comme du beurre au soleil. Dans la vallée des Cendres, cette nuit, des paysans rêveront d'une lueur sur une colline, et d'une petite fille qui demande ce que c'est. Au matin, ils ne sauront pas pourquoi ils ont envie de pleurer en semant."],
+    text: ["« Qu'elle parte. » La glace de Berthe fond lentement, comme du beurre au soleil. Dans la vallée des Cendres, cette nuit, des paysans rêveront d'une lueur sur une colline, et d'une petite fille qui demande ce que c'est. Au matin, ils auront envie de pleurer en semant, sans savoir pourquoi."],
     choices: [{ back: "III_p_place" }] }),
 
   // ---- La Barque: Osric the ferryman, half-Orsan, who guided the boats in exchange for his wife's life
   III_p_barque: P({ title: "La Barque", place: "valcendre",
     text: [
       "Tu poses la main sur la glace. Tu es dans une barque, à l'avant, une perche dans les mains. Tu t'appelles Osric. Tu as trente ans. Ta mère était de Valcendre, ton père de la côte, et tu es le seul homme au monde à connaître les deux langues et tous les bancs de sable de la rivière.",
-      "Derrière toi, dans la nuit, trente barques. Pas une lanterne. Des hommes en armes, couchés au fond, qui respirent fort. Tu les guides au son, à l'odeur, à la couleur de l'eau. Tu es très bon.",
-      "Dans ta poche, un papier. Le frère à la plume l'a écrit pour toi, Aldric l'a signé. *La maison d'Osric le passeur sera épargnée, et tous ceux qui y seront.* Ta femme est dans cette maison. Ta femme s'appelle Iselde. Elle chante. Elle ne sait pas.",
+      "Derrière toi, dans la nuit, trente barques, à une longueur de perche l'une de l'autre, toutes feux éteints. Des hommes en armes, couchés au fond, qui respirent fort. Tu les guides au son, à l'odeur, à la couleur de l'eau. Tu es très bon.",
+      "Dans ta poche, un papier. Le frère à la plume l'a écrit pour toi, Aldric l'a signé. *La maison d'Osric le passeur sera épargnée, et tous ceux qui y seront.* Ta femme est dans cette maison. Ta femme s'appelle Iselde. Elle chante. Elle ignore tout.",
     ],
     choices: [{ label: "Pousser sur la perche", to: "III_p_barque2" }] }),
 
   III_p_barque2: P({ title: "La maison du passeur", place: "valcendre",
     text: [
       "Vous accostez. Les hommes sautent. Tu cours. Tu cours vers ta maison, au bout du quai, avec le papier dans la main, et tu cries les mots qu'on t'a appris à crier, dans leur langue à eux : *ici, épargnée, signé.*",
-      "Ta maison est déjà en feu. Les hommes de Brenne sont arrivés par l'autre rive. Ils ne savaient pas lire. Ou ils savaient. Ou ça n'avait aucune importance.",
+      "Ta maison est déjà en feu. Les hommes de Brenne sont arrivés par l'autre rive. Ils ignoraient la lecture. Ou ils la savaient. Ou ça n'avait aucune importance.",
       "Iselde est sur le seuil. Elle te voit. Elle voit le papier, elle voit les barques derrière toi, et elle comprend, et c'est ça que tu emportes dans la glace depuis trois cents ans : pas sa mort. Le moment où elle a compris.",
     ],
     choices: [{ label: "Lâcher la glace", to: "III_p_barque3" }] }),
@@ -126,14 +126,14 @@ module.exports = {
   III_p_barque3: P({ title: "Ce que tu as vu", place: "valcendre",
     text: [
       "Tu es sur la place. Tu tiens encore, dans ta main fermée, un papier qui n'existe pas.",
-      "Osric a vécu quarante ans de plus. Il a fondé une compagnie de bateliers, puis une ville, au bord de la mer, avec un quai pour chaque barque. Vasselin. Il ne s'est jamais remarié. Il a payé des chanteurs pour chanter, chaque soir, sous sa fenêtre, des chansons qu'il ne comprenait pas.",
+      "Osric a vécu quarante ans de plus. Il a fondé une compagnie de bateliers, puis une ville, au bord de la mer, avec un quai pour chaque barque. Vasselin. Il est resté veuf. Il a payé des chanteurs pour chanter, chaque soir, sous sa fenêtre, des chansons qu'il ne comprenait pas.",
       { with: "pie", text: "Pie, à côté de toi, dit tout bas : « Un sauf-conduit. Il avait un sauf-conduit. » Il a la voix de quelqu'un qui en a fabriqué beaucoup." },
       "Si tu le rends au monde, Vasselin saura d'où vient son premier quai. Et quelque part ici, peut-être, une femme qui s'appelle Iselde cessera d'attendre sur un seuil.",
     ],
     choices: verdict("barque", "III_p_barque_garde", "III_p_barque_rendu") }),
 
   III_p_barque_garde: P({ title: "La glace", place: "valcendre",
-    text: ["« Qu'il reste. » Osric, dans la glace, reste immobile. Il regarde toujours vers le quai. Une femme dans la foule, une femme en robe bleue, se détourne et s'en va par une ruelle, sans se presser, et tu ne la revois pas."],
+    text: ["« Qu'il reste. » Osric, dans la glace, reste immobile. Il regarde toujours vers le quai. Une femme dans la foule, une femme en robe bleue, se détourne et s'en va par une ruelle, sans se presser, et le blanc la reprend."],
     choices: [{ back: "III_p_place" }] }),
 
   III_p_barque_rendu: P({ title: "La flaque", place: "valcendre",
@@ -143,7 +143,7 @@ module.exports = {
   // ---- Le Cerf: Raoul de Brenne, nineteen, who went in first with the fire. Ysolde's ancestor.
   III_p_cerf: P({ title: "Le Cerf", place: "valcendre",
     text: [
-      "Tu poses la main sur la glace, et tu as dix-neuf ans. Tu t'appelles Raoul de Brenne. Tu portes un cerf sur l'écu, le cerf que ton grand-père a pris à la chasse du roi. Tu as une épée neuve, et tu ne t'es jamais battu.",
+      "Tu poses la main sur la glace, et tu as dix-neuf ans. Tu t'appelles Raoul de Brenne. Tu portes un cerf sur l'écu, le cerf que ton grand-père a pris à la chasse du roi. Tu as une épée neuve, au fil intact, et ton premier combat est pour cette nuit.",
       "Tu as peur. Tu as tellement peur que tu as envie de rire. Le frère à la plume vous a dit, ce soir, à la messe : ils ne sont pas comme nous, ils parlent aux morts, ils volent les noms des enfants dans les berceaux. Tu le crois à moitié. La moitié suffit.",
       "Tu sautes de la barque. Tu as une torche dans la main gauche. Devant toi, une maison ronde, une porte ouverte, de la lumière, et une voix qui chante, une voix de vieille femme, une liste, toujours la même mélodie, des noms.",
     ],
@@ -154,7 +154,7 @@ module.exports = {
 
   III_p_cerf2: P({ title: "La maison ronde", place: "valcendre",
     text: [
-      "Ça ne change rien. Tu n'es qu'un passager. Raoul entre. La vieille femme est assise près du feu, et elle chante les noms, et elle ne s'arrête pas quand il entre. Elle le regarde et elle continue. Elle chante plus fort.",
+      "Ça ne change rien. Tu es un passager, sans prise sur la barre. Raoul entre. La vieille femme est assise près du feu, et elle chante les noms, et elle continue quand il entre. Elle le regarde et elle continue. Elle chante plus fort.",
       "Il crie quelque chose, pour qu'elle se taise. Elle continue. Il frappe.",
       "Ensuite c'est plus facile. C'est ça que tu découvres, dans son corps, et que tu voudrais ne jamais avoir su : le premier coup est le seul qui coûte. Le reste de la nuit, il ne compte plus. Il a la torche, il a l'épée, et chaque fois qu'une voix chante des noms, il va vers elle.",
       "À l'aube, il est assis sur un muret, couvert de suie. Il a enlevé son casque. Il a le visage d'un garçon. Il pleure, étonné de ses larmes, et il se jure de garder cela pour lui, et il tient parole.",
@@ -163,10 +163,10 @@ module.exports = {
 
   III_p_cerf3: P({ title: "Ce que tu as vu", place: "valcendre",
     text: [
-      "Tu es sur la place. Tu as l'odeur de la suie dans le nez, et elle ne part pas.",
-      "Les Brenne ont changé d'armes, deux générations plus tard. Le cerf est devenu un loup sur une tour. Personne n'a jamais su pourquoi. Personne n'a jamais demandé.",
-      { with: "ysolde", text: "Ysolde a tout vu. Elle a vu, par un chemin qui t'échappe : elle s'est approchée pendant que tu étais dedans, elle a posé la main sur ton épaule, et la glace l'a prise avec toi. Elle est blanche. Elle a la main sur son épée, et elle la serre, et elle ne la tire pas. « Il avait dix-neuf ans, dit-elle. Moi, à Lisse, j'en avais vingt-neuf. Je n'ai pas d'excuse. »" },
-      { without: "ysolde", text: "Tu penses à Ysolde, quelque part là-haut, avec l'épée de son père, un loup sur une tour, et qui ne sait pas." },
+      "Tu es sur la place. Tu as l'odeur de la suie dans le nez, tenace.",
+      "Les Brenne ont changé d'armes, deux générations plus tard. Le cerf est devenu un loup sur une tour. La raison est restée dans la famille, ou nulle part. La question, personne ne l'a posée.",
+      { with: "ysolde", text: "Ysolde a tout vu. Elle a vu, par un chemin qui t'échappe : elle s'est approchée pendant que tu étais dedans, elle a posé la main sur ton épaule, et la glace l'a prise avec toi. Elle est blanche. Elle a la main sur son épée, et elle la serre, la lame au fourreau. « Il avait dix-neuf ans, dit-elle. Moi, à Lisse, j'en avais vingt-neuf. Je n'ai pas d'excuse. »" },
+      { without: "ysolde", text: "Tu penses à Ysolde, quelque part là-haut, avec l'épée de son père, un loup sur une tour, dans l'ignorance." },
       "Si tu le rends au monde, la maison de Brenne saura. La dernière de la maison de Brenne, c'est Ysolde.",
     ],
     choices: verdict("cerf", "III_p_cerf_garde", "III_p_cerf_rendu") }),
@@ -174,31 +174,31 @@ module.exports = {
   III_p_cerf_garde: P({ title: "La glace", place: "valcendre",
     text: [
       "« Qu'il reste. » Raoul, dans la glace, a toujours le visage d'un garçon qui pleure sur un muret.",
-      { with: "ysolde", text: "Ysolde se tourne vers toi. « Tu l'as fait pour moi, dit-elle. Ne le fais plus. » Elle n'est pas en colère. Elle est fatiguée." },
+      { with: "ysolde", text: "Ysolde se tourne vers toi. « Tu l'as fait pour moi, dit-elle. Ne le fais plus. » Sans colère. Avec une grande fatigue." },
     ],
     choices: [{ fx: { conf: { ysolde: -5 } }, back: "III_p_place" }] }),
 
   III_p_cerf_rendu: P({ title: "La flaque", place: "valcendre",
     text: [
-      "« Qu'il parte. » La glace de Raoul fond d'un coup, comme du givre sous une paume. Il ne reste qu'une flaque, et dans la flaque, un écu au cerf, qui coule lui aussi.",
-      { with: "ysolde", text: "Ysolde s'agenouille au bord. Elle ne touche pas l'eau. « Bien, dit-elle. Je saurai. Tout le monde saura. Et on verra ce que vaut un nom, quand on sait ce qu'il y a dessous. »" },
+      "« Qu'il parte. » La glace de Raoul fond d'un coup, comme du givre sous une paume. Il reste une flaque, et dans la flaque, un écu au cerf, qui coule lui aussi.",
+      { with: "ysolde", text: "Ysolde s'agenouille au bord. Ses mains restent loin de l'eau. « Bien, dit-elle. Je saurai. Tout le monde saura. Et on verra ce que vaut un nom, quand on sait ce qu'il y a dessous. »" },
     ],
     choices: [{ fx: { conf: { ysolde: 10 }, flag: "ysolde:sait_cerf" }, back: "III_p_place" }] }),
 
   // ---- La Plume et la Clé: Frère Anselin, first Chancellor, who wrote every name before crossing it out
   III_p_plume: P({ title: "La Plume et la Clé", place: "valcendre",
     text: [
-      "Tu poses la main sur la glace. Tu as froid. Tu as toujours froid. Tu t'appelles Frère Anselin, tu as quarante ans, et tu es assis dans une grange, au milieu de la vallée brûlée, avec un registre neuf sur les genoux.",
-      "Devant toi, en file, les prisonniers. Ceux qu'on a gardés pour la fin. Un par un, on te les amène, et tu leur demandes leur nom, et ils te le disent, et tu l'écris. Puis tu leur demandes les noms qu'ils portent, les leurs, ceux de leurs morts, les cent noms que chaque Orsan porte. Ils ne comprennent pas pourquoi. Tu dis : pour que quelqu'un les ait. Ils te les disent. Tu les écris tous.",
+      "Tu poses la main sur la glace. Tu as froid. Tu as toujours froid. Tu t'appelles Frère Anselin, tu as quarante ans, et tu es assis dans une grange, au milieu de la vallée brûlée, avec un registre neuf sur les genoux : quatre cents feuillets de vélin, une reliure de cuir noir, une serrure de fer.",
+      "Devant toi, en file, les prisonniers. Ceux qu'on a gardés pour la fin. Un par un, on te les amène, et tu leur demandes leur nom, et ils te le disent, et tu l'écris. Puis tu leur demandes les noms qu'ils portent, les leurs, ceux de leurs morts, les cent noms que chaque Orsan porte. La raison leur échappe. Tu dis : pour que quelqu'un les ait. Ils te les disent. Tu les écris tous.",
       "Après, on les emmène.",
     ],
     choices: [{ label: "Écrire", to: "III_p_plume2" }] }),
 
   III_p_plume2: P({ title: "Le registre noir", place: "valcendre",
     text: [
-      "Ça dure trois jours. Ta main saigne à la fin. Tu as écrit des milliers de noms. Le troisième soir, seul, à la chandelle, tu les relis tous, à voix basse, du premier au dernier, comme eux le faisaient. Tu ne sais pas les prononcer. Tu les dis quand même.",
+      "Ça dure trois jours. Ta main saigne à la fin. Tu as écrit des milliers de noms. Le troisième soir, seul, à la chandelle, tu les relis tous, à voix basse, du premier au dernier, comme eux le faisaient. Ta bouche les écorche. Tu les dis quand même.",
       "Puis tu prends la plume, et tu les barres. Un par un. Chaque trait est une partie du pacte. Tu as trouvé la forme toi-même, dans un livre très vieux : on ne peut faire oublier au monde que ce qu'on a d'abord écrit. On ne peut rayer que ce qui est inscrit. L'Hiver prendra tout ce qui est barré.",
-      "Tu sens, en lui, la chose la plus étrange de toutes. Il ne barre pas les noms pour les effacer. Il les barre pour qu'ils soient gardés. Quelque part. Par quelqu'un. Il ferme le registre, il tourne la clé dans la serrure, il grave sur le dos une plume et une clé croisées. Et il fonde, avec ce registre, une maison de greffiers dont le seul devoir sera de ne jamais l'ouvrir.",
+      "Tu sens, en lui, la chose la plus étrange de toutes. Il barre les noms pour les garder, et non pour les effacer. Quelque part. Par quelqu'un. Il ferme le registre, il tourne la clé dans la serrure, il grave sur le dos une plume et une clé croisées. Et il fonde, avec ce registre, une maison de greffiers dont le seul devoir sera de ne jamais l'ouvrir.",
       "Il a eu froid toute sa vie, ensuite.",
     ],
     choices: [{ label: "Lâcher la glace", to: "III_p_plume3" }] }),
@@ -207,26 +207,26 @@ module.exports = {
     fx: { clue: "n_registre_noir" },
     text: [
       "Tu es sur la place. Tu as l'encre sous les ongles. Tu as les noms dans la bouche, tous, des milliers, et tu sais les prononcer, toi.",
-      { with: "hylas", text: "Hylas est à côté de toi, et il pleure sans bruit, ce qu'il ne fait jamais. « La Chancellerie, dit-il. Trois cents ans de greffiers. On nous a appris à garder. On ne nous a jamais dit quoi. » Puis, plus bas : « Mordace l'a ouvert. Il a ouvert le registre. Il a appris que ça marchait. Il a appris à vendre ce que l'autre avait gardé. »" },
+      { with: "hylas", text: "Hylas est à côté de toi, et il pleure sans bruit, lui qui garde toujours les yeux secs. « La Chancellerie, dit-il. Trois cents ans de greffiers. On nous a appris à garder. On ne nous a jamais dit quoi. » Puis, plus bas : « Mordace l'a ouvert. Il a ouvert le registre. Il a appris que ça marchait. Il a appris à vendre ce que l'autre avait gardé. »" },
       { without: "hylas", text: "Tu penses au caveau, sous la tour des Greffiers, et au registre aux noms barrés. Quelqu'un l'a ouvert. Quelqu'un a appris que ça marchait. Et quelqu'un a commencé à barrer d'autres noms, pour de l'argent." },
       "Si tu le rends au monde, la Chancellerie des Noms saura sur quoi elle est fondée. Et son Greffier-Majeur avec elle.",
     ],
     choices: verdict("plume", "III_p_plume_garde", "III_p_plume_rendu") }),
 
   III_p_plume_garde: P({ title: "La glace", place: "valcendre",
-    text: ["« Qu'il reste. » Anselin, dans la glace, ferme les yeux. Tu as l'impression qu'il a encore froid. Tu as l'impression qu'il préfère."],
+    text: ["« Qu'il reste. » Anselin, dans la glace, ferme les yeux. Il a encore froid, tu crois. Et tu crois qu'il préfère."],
     choices: [{ back: "III_p_place" }] }),
 
   III_p_plume_rendu: P({ title: "La flaque", place: "valcendre",
-    text: ["« Qu'il parte. » La glace d'Anselin ne fond pas comme les autres : elle se craquelle, en mille lignes fines, comme une page qu'on a trop pliée, puis elle tombe en poussière blanche. Dans la tour de Pallanche, au fond du caveau, un registre noir se met à suinter, et l'encre des traits, sur chaque nom, se met à pâlir."],
+    text: ["« Qu'il parte. » La glace d'Anselin a sa manière à elle : elle se craquelle, en mille lignes fines, comme une page qu'on a trop pliée, puis elle tombe en poussière blanche. Dans la tour de Pallanche, au fond du caveau, un registre noir se met à suinter, et l'encre des traits, sur chaque nom, se met à pâlir."],
     choices: [{ back: "III_p_place" }] }),
 
   // ---- The speech to the people
   III_p_parole: P({ title: "La parole", place: "valcendre",
     text: [
-      "Tu te tournes vers la foule. Des milliers de visages. Ils attendent ce que tu vas dire, et tu comprends que c'est ça, le procès : pas les verdicts. Ce que le seul d'entre eux qui a vécu là-haut va dire, maintenant, après avoir été les cinq.",
-      { if: { all: FOUNDERS.map(rendu) }, text: "Il n'y a plus de statues. Le socle noir est vide, mouillé, et l'eau coule en cinq ruisseaux entre les pavés jusqu'aux pieds de la foule. Là-haut, cinq maisons se souviennent ce soir." },
-      { if: { not: { any: FOUNDERS.map(rendu) } }, text: "Les cinq statues sont toujours là, dos à dos. Tu les as toutes gardées. Là-haut, personne ne saura rien. Ici, on le sait déjà." },
+      "Tu te tournes vers la foule. Des milliers de visages. Ils attendent ce que tu vas dire, et tu comprends que c'est ça, le procès, bien plus que les verdicts. Ce que le seul d'entre eux qui a vécu là-haut va dire, maintenant, après avoir été les cinq.",
+      { if: { all: FOUNDERS.map(rendu) }, text: "Les statues ont disparu. Le socle noir est vide, mouillé, et l'eau coule en cinq ruisseaux entre les pavés jusqu'aux pieds de la foule. Là-haut, cinq maisons se souviennent ce soir." },
+      { if: { not: { any: FOUNDERS.map(rendu) } }, text: "Les cinq statues sont toujours là, dos à dos. Tu les as toutes gardées. Là-haut, le secret tient. Ici, on le sait déjà." },
       { if: { all: [{ any: FOUNDERS.map(rendu) }, { not: { all: FOUNDERS.map(rendu) } }] }, text: "Il reste des statues, et il y a des flaques. Tu as choisi, un par un. As-tu été juste ? Tu sais que tu as choisi." },
     ],
     choices: [
@@ -239,24 +239,24 @@ module.exports = {
 
   III_p_parole_noms: P({ title: "Les noms", place: "valcendre",
     text: [
-      "Tu ouvres la bouche, et c'est le premier nom qui sort. Puis le deuxième. Tu ne les cherches pas, ils sont là, dans l'ordre où Anselin les a écrits, dans la voix d'Anselin, puis dans la tienne.",
+      "Tu ouvres la bouche, et c'est le premier nom qui sort. Puis le deuxième. Ils viennent sans effort, ils sont là, dans l'ordre où Anselin les a écrits, dans la voix d'Anselin, puis dans la tienne.",
       "Au dixième, quelqu'un dans la foule dit le onzième avec toi. Au centième, ils sont mille. La place chante les noms, sans mesure, comme une marée. Les ponts entre les tours tremblent. Très loin, au bout du blanc, quelque chose de lourd craque, comme une porte sur ses gonds.",
       "Tu t'arrêtes avant la fin. La raison t'échappe. Quelque chose en toi sait que si tu disais le dernier, la porte s'ouvrirait pour de bon, maintenant, ici, sans que personne ait choisi. La foule s'arrête avec toi.",
-      "Ardaël s'est levé. Il te regarde comme on regarde une épée qu'on ne savait pas tranchante.",
+      "Ardaël s'est levé. Il te regarde comme on regarde une épée qu'on croyait émoussée.",
     ],
     choices: [{ label: "Reprendre ton souffle", to: "III_p_revelation" }] }),
 
   III_p_parole_rate: P({ title: "Les noms", place: "valcendre",
     text: [
       "Tu commences. Les premiers noms viennent, puis ils s'emmêlent, et tu les perds, comme on perd le fil d'une prière apprise trop tôt. Tu t'arrêtes au quarantième.",
-      "Personne ne rit. Une vieille femme, au premier rang, dit le quarante et unième, doucement, pour toi. Puis elle se tait. C'est assez. C'est plus que personne n'a fait en trois cents ans.",
+      "La place garde son sérieux. Une vieille femme, au premier rang, dit le quarante et unième, doucement, pour toi. Puis elle se tait. C'est assez. C'est plus que personne n'a fait en trois cents ans.",
     ],
     choices: [{ label: "Reprendre ton souffle", to: "III_p_revelation" }] }),
 
   III_p_parole2: P({ title: "La foule", place: "valcendre",
     text: [
-      { if: { has: "parole:accuse" }, text: "Un grondement monte de la foule, à mi-chemin du oui et du non. Les gens se regardent. Une femme crie un nom, un seul, le sien, ou celui de quelqu'un. D'autres répondent. Ce n'est pas de la colère. C'est quelque chose qui ressemble à du soulagement : quelqu'un l'a dit." },
-      { if: { has: "parole:separe" }, text: "La foule se tait. Puis un vieil homme dit, très fort : « Et nous ? On attend qu'ils soient d'autres gens ? » Personne ne lui répond. Mais personne ne te hue non plus. Une femme hoche la tête, lentement, et une autre, et tu ne sauras jamais combien." },
+      { if: { has: "parole:accuse" }, text: "Un grondement monte de la foule, à mi-chemin du oui et du non. Les gens se regardent. Une femme crie un nom, un seul, le sien, ou celui de quelqu'un. D'autres répondent. La colère est absente. Il y a quelque chose comme du soulagement : quelqu'un l'a dit." },
+      { if: { has: "parole:separe" }, text: "La foule se tait. Puis un vieil homme dit, très fort : « Et nous ? On attend qu'ils soient d'autres gens ? » Sa question reste en l'air. Et pourtant, pas un sifflet. Une femme hoche la tête, lentement, et une autre, et tu ne sauras jamais combien." },
     ],
     choices: [{ label: "Te tourner vers Ardaël", to: "III_p_revelation" }] }),
 
@@ -264,7 +264,7 @@ module.exports = {
   III_p_revelation: P({ title: "La couronne", place: "valcendre",
     fx: { clue: "n_couronne" },
     text: [
-      "Le soir, Ardaël te reçoit seul, dans la salle sans murs, au sommet du palais. Le Sans-Nom garde l'escalier.",
+      "Le soir, Ardaël te reçoit seul, dans la salle sans murs, au sommet du palais, où six colonnes tiennent un toit sur le vide. Le Sans-Nom garde l'escalier.",
       "« Je vais te dire ce que ta mère ne voulait pas que tu saches, dit-il. Il y a une porte, au bout du blanc. La Porte des Cendres. C'est par elle que nous sommes entrés, et par sa fente que nous rentrons. Elle a trois clés, et ce sont des voix. »",
       "« Qui chante tous les noms l'ouvre. Pour tous. Les morts et les oubliés rentrent chez eux, là-haut, en une nuit, et le monde ne sera plus jamais le même. Il sera plus lourd. Il sera vrai. »",
       "« Qui porte la couronne la tient fermée. Je la tiens depuis trois cent douze ans. Je suis fatigué. Je suis si fatigué que je laisse passer ce qui passe. C'est ça, ta neige : un vieil homme qui ne serre plus la main. »",

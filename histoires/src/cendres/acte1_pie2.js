@@ -22,9 +22,9 @@ module.exports = {
     ] }),
   PI_Q_fiole_borgne: P({ title: "Le Borgne",
     text: [
-      "Rue des Orfèvres, une boutique sans enseigne, un comptoir, une balance de changeur. Derrière, sur des étagères, des fioles de verre bouchées de cire grise, des centaines, rangées par couleur. Certaines luisent faiblement. Le Borgne est derrière le comptoir, un bandeau sur l'œil, des mains de femme.",
+      "Rue des Orfèvres, une boutique sans enseigne, un comptoir, une balance de changeur. Derrière, sur des étagères, des fioles de verre bouchées de cire grise, des centaines, rangées par couleur. Certaines luisent faiblement. Le Borgne est derrière le comptoir, un bandeau de soie sur l'œil, des mains de femme aux ongles faits, qui n'ont jamais porté autre chose qu'une pièce ou une fiole.",
       "« Un souvenir de veuf, dit-il, quand tu demandes. J'en ai douze. Ça se vend bien, aux veuves. Elles achètent le chagrin d'un autre, pour pleurer à leur place. » Il sourit. « Cinq écus. »",
-      "Tu n'as pas cinq écus. Tu n'en as jamais eu cinq de ta vie.",
+      "Tu fais tes comptes : cinq écus, c'est cent sous, et ta fortune du jour en compte onze. Ton record personnel tient en trois écus, un soir de chance.",
     ],
     choices: [
       { label: "Voler la fiole pendant qu'il cherche", test: { dom: "discretion", label: "Les doigts", help: [{ if: { item: "crochets" }, v: 10 }, { if: { seen: "PI_Q_mouche" }, v: 10 }] },
@@ -54,14 +54,14 @@ module.exports = {
     text: [
       "Ninon t'attend sur ta marche. Tu lui donnes la fiole. Elle la regarde, déçue. « C'est tout ? C'est petit. » Elle monte chez elle en courant. Tu la suis, de loin, par curiosité, ce qui n'est pas ton genre.",
       "Par la porte entrouverte, tu vois un vieil homme dans un fauteuil, et Ninon qui débouche la fiole sous son nez, comme un flacon de sels. Il respire. Il ferme les yeux. Et il pleure. Il pleure comme un enfant, à gros sanglots, la bouche ouverte, avec un nom dedans. *Clotilde.*",
-      "Ninon te regarde, par-dessus son épaule, furieuse. « Tu l'as fait pleurer ! » Puis le vieil homme l'attire contre lui, et l'appelle Ninon, et elle ne dit plus rien.",
+      "Ninon te regarde, par-dessus son épaule, furieuse. « Tu l'as fait pleurer ! » Puis le vieil homme l'attire contre lui, et l'appelle Ninon, et elle se tait.",
     ],
     choices: [{ label: "Redescendre l'escalier", fx: { quest: "PI_Q_fiole" }, back: "PI_ville" }] }),
 
   // ---------------------------------------------------------------- Le tripot
   PI_k_tripot: P({ title: "Le tripot du Pont-Neuf",
     text: [
-      "Sous la deuxième arche du Pont-Neuf, là où la Pallante fait un remous, un tripot de planches, avec des lanternes et une table de dés. On y joue de l'argent, des bagues, des secrets. Surtout des secrets, depuis que les greffiers paient pour en entendre.",
+      "Sous la deuxième arche du Pont-Neuf, là où la Pallante fait un remous, un tripot de planches calfatées comme un bateau, avec des lanternes et une table de dés. On y joue de l'argent, des bagues, des secrets. Surtout des secrets, depuis que les greffiers paient pour en entendre.",
       "Un gros homme en tablier de boucher te fait signe. « Pie ! Un coup ? Ta mise contre la mienne. Ma mise, c'est ce qu'on raconte sur la tour cette semaine. »",
     ],
     choices: [
@@ -81,7 +81,7 @@ module.exports = {
   // ---------------------------------------------------------------- Acte III : Valcendre
   III_v_masques: P3({ title: "L'atelier des masques", place: "valcendre",
     text: [
-      "Une boutique étroite, sous les arcades. Aux murs, des masques. Des centaines, de cuir, de bois, de papier, d'argent. Des visages sans yeux, qui regardent. Une femme les fabrique, assise à son établi, un masque blanc sur le visage, elle aussi.",
+      "Une boutique étroite, sous les arcades, six pas de profondeur. Aux murs, des masques, accrochés en rangs serrés jusqu'au plafond : de cuir, de bois, de papier, d'argent, plusieurs centaines. Des visages sans yeux, qui regardent. Une femme les fabrique, assise à son établi, un masque blanc sur le visage, elle aussi.",
       "« Pour ceux qu'on a oubliés jusqu'au visage, dit-elle. Là-haut, quelqu'un se souvient de leur nom, parfois. Jamais de leur figure. Alors ici, ils n'en ont plus. Je leur en fais une. » Elle te montre un masque inachevé. « Celui-là, c'est un enfant de Lisse. Personne ne se souvient de son visage. Je fais un visage d'enfant, n'importe lequel. Il est content. »",
       { with: "sansnom", text: "Ton frère reste sur le seuil. Il touche, sans y penser, son propre masque. La femme le regarde. « Le tien, dit-elle, c'est moi qui l'ai fait. Il y a longtemps. Tu avais six ans. Tu voulais une figure de garçon qui sourit. »" },
     ],
@@ -97,7 +97,7 @@ module.exports = {
     choices: [{ back: "III_v_porte" }] }),
   III_v_bains: P3({ title: "Les bains", place: "valcendre",
     text: [
-      "Les bains publics de Valcendre, sous une coupole de marbre blanc. Des bassins, de la vapeur, des gens qui se lavent en silence, longtemps, avec application. L'eau ne mouille pas. Elle laisse seulement, sur la peau, une sensation de propre.",
+      "Les bains publics de Valcendre, sous une coupole de marbre blanc percée d'un oculus. Trois bassins, de la vapeur, des gens qui se lavent en silence, longtemps, avec l'application de qui récure une marmite. L'eau ne mouille pas. Elle laisse seulement, sur la peau, une sensation de propre.",
       "Un vieil homme, dans le bassin chaud, t'explique : « On lave ce qui reste. Les dernières choses qu'on savait de là-haut. Le goût du sel, l'odeur d'une étable. Quand c'est parti, on est tout à fait d'ici. C'est reposant, d'être tout à fait d'ici. »",
     ],
     choices: [

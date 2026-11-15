@@ -8,9 +8,9 @@ module.exports = {
   II_Q_bassin: P({ title: "La femme du bassin", place: "vasselin",
     fx: { questSeen: "II_Q_bassin" },
     text: [
-      "Sur le quai du bassin aux galères, un attroupement. Deux pêcheurs viennent de tirer une femme de l'eau, entre deux coques. Elle n'est pas noyée. Elle est assise sur les pavés, trempée, une algue dans les cheveux, et elle regarde les gens autour d'elle avec une politesse parfaite.",
-      "« Elle était debout dans l'eau jusqu'au cou, dit un pêcheur. Elle flottait, tranquille. Elle attendait. » Personne ne la connaît. On lui demande son nom. Elle sourit, comme à une bonne plaisanterie, et se tait.",
-      "Elle porte une robe de laine brune, des sabots, et au cou une petite croix d'étain. Une femme de la campagne. Pas d'ici.",
+      "Sur le quai du bassin aux galères, un attroupement. Deux pêcheurs viennent de tirer une femme de l'eau, entre deux coques. Elle est bien vivante, assise sur les pavés, trempée, une algue dans les cheveux, et elle regarde les gens autour d'elle avec une politesse parfaite.",
+      "« Elle était debout dans l'eau jusqu'au cou, dit un pêcheur. Elle flottait, tranquille. Elle attendait. » Elle est inconnue de tout le quai. On lui demande son nom. Elle sourit, comme à une bonne plaisanterie, et se tait.",
+      "Elle porte une robe de laine brune, des sabots de hêtre, et au cou une petite croix d'étain pendue à un lacet de cuir. Les sabots sont usés en biais, du côté du talon : une femme qui a beaucoup marché, et sur des routes de campagne.",
     ],
     choices: [
       { label: "T'asseoir à côté d'elle", to: "II_Q_bassin_parler" },
@@ -19,7 +19,7 @@ module.exports = {
   II_Q_bassin_parler: P({ title: "Sur le quai", place: "vasselin",
     text: [
       "Tu t'assieds sur les pavés, dans ta robe de cour, ce qui fait reculer la moitié des badauds. Elle te regarde. « Vous êtes très bien habillée », dit-elle. Elle a l'accent des vallées du nord, celui qui avale les fins de mots.",
-      "Tu lui demandes d'où elle vient. Elle réfléchit, sérieusement. « Je suis venue à pied, dit-elle. Il y avait une route. Et puis la mer. On m'avait dit que la mer lave tout. » Elle touche sa robe mouillée. « Elle n'a rien lavé. Ou alors tout. Je ne sais pas. »",
+      "Tu lui demandes d'où elle vient. Elle réfléchit, sérieusement. « Je suis venue à pied, dit-elle. Il y avait une route. Et puis la mer. On m'avait dit que la mer lave tout. » Elle touche sa robe mouillée. « Elle a lavé tout, ou rien. Je ne sais pas. »",
       { with: "hylas", text: "Hylas, derrière toi, dit très bas : « On ne cède pas tout d'un coup. On cède un morceau, puis un autre, pour payer le premier. Et un jour, on n'a plus rien à donner que le reste. »" },
     ],
     choices: [
@@ -30,22 +30,22 @@ module.exports = {
     ] }),
   II_Q_bassin_chanson: P({ title: "La chanson des fenaisons", place: "vasselin",
     text: [
-      "Tu chantes. Une ronde de Pont-de-Saule, rien. Une complainte des bergers de l'Ourse, rien. Une chanson à boire des Combes, elle sourit, poliment. Puis une chanson de fenaison, celle qu'on chante à trois voix dans les prés au-dessus de la Sauve, et qu'on t'a apprise au palais comme une curiosité de province.",
-      "Au deuxième couplet, elle chante avec toi. Pas les paroles. La deuxième voix, celle du dessous, celle des femmes qui râtellent. Elle la chante juste, sans y penser, comme on respire.",
+      "Tu chantes. Une ronde de Pont-de-Saule : son visage reste lisse. Une complainte des bergers de l'Ourse : pareil. Une chanson à boire des Combes, elle sourit, poliment. Puis une chanson de fenaison, celle qu'on chante à trois voix dans les prés au-dessus de la Sauve, et qu'on t'a apprise au palais comme une curiosité de province.",
+      "Au deuxième couplet, elle chante avec toi, sans les paroles : la deuxième voix, celle du dessous, celle des femmes qui râtellent. Elle la chante juste, sans y penser, comme on respire.",
       "« Rossignol, dit-elle à la fin. On m'appelait Rossignol, aux fenaisons. Parce que je faisais la voix du dessous. » Elle fronce les sourcils. « Ce n'était pas mon nom. Mais c'est un nom. Je vais le garder. »",
       "La patronne de l'Ancre, qui a tout vu depuis la halle, s'approche, s'essuie les mains sur son tablier. « J'ai besoin de quelqu'un pour la plonge, dit-elle. Et qui chante, ça ne gâte rien. »",
     ],
     choices: [{ fx: { quest: "II_Q_bassin", conf: { lisandre: 5 } }, back: "II_S_vasselin" }] }),
   II_Q_bassin_lettre: P({ title: "La lettre mouillée", place: "vasselin",
     text: [
-      "Dans la poche de sa robe, un papier plié, détrempé, dont l'encre a coulé. Tu le déplies sur les pavés, au soleil. On lit encore : *... de Roncière, au prieuré de ... ma sœur ... si tu ne te souviens plus, va voir ...* et un nom de couvent, à Vasselin, le couvent des Filles-Dieu, sur la colline.",
+      "Dans la poche de sa robe, un papier plié en huit, détrempé, dont l'encre a coulé en traînées violettes. Tu le déplies sur les pavés, au soleil. On lit encore : *... de Roncière, au prieuré de ... ma sœur ... si tu ne te souviens plus, va voir ...* et un nom de couvent, à Vasselin, le couvent des Filles-Dieu, sur la colline.",
       "Tu la mènes là-bas, à pied, la main dans la main, elle trempée, toi en robe de cour, toute la ville qui vous regarde passer. La sœur portière la regarde, longtemps. Puis elle ouvre les bras. « Agnès, dit-elle. Ma petite Agnès. »",
       "La femme du bassin se laisse embrasser, très polie, et demande : « C'est moi, Agnès ? » La sœur dit oui. Elle répond : « D'accord. » Et elle entre.",
     ],
     choices: [{ fx: { quest: "II_Q_bassin" }, back: "II_S_vasselin" }] }),
   II_Q_bassin_rien: P({ title: "Le quai", place: "vasselin",
     text: [
-      "Rien ne prend. Elle te regarde, gentiment, et elle attend que tu aies fini. Au bout d'un moment, les pêcheurs l'emmènent à l'hospice du port, où l'on garde les gens qu'on repêche, et qui sont de plus en plus nombreux, depuis l'été.",
+      "Tout glisse sur elle. Elle te regarde, gentiment, et elle attend que tu aies fini. Au bout d'un moment, les pêcheurs l'emmènent à l'hospice du port, où l'on garde les gens qu'on repêche, et qui sont de plus en plus nombreux, depuis l'été.",
       "En partant, elle se retourne. « Vous chantez bien, dit-elle. Je crois que je chantais, moi aussi. » Puis elle suit les pêcheurs, en sabots mouillés, et tu ne la revois pas.",
     ],
     choices: [{ fx: { quest: "II_Q_bassin" }, back: "II_S_vasselin" }] }),
@@ -55,7 +55,7 @@ module.exports = {
     fx: { questSeen: "II_Q_luthier" },
     text: [
       "Rue Basse, sous l'enseigne d'une vielle de bois peint, l'atelier de Maître Fabien, qui a fait ton luth il y a dix ans, quand tu es arrivée à la cour avec une voix et rien d'autre. Il t'avait fait crédit. Tu l'as remboursé en trois ans, et il t'a dit, le dernier jour : « Maintenant tu me dois une chanson. » Tu ne la lui as jamais écrite.",
-      "L'atelier est plein. Des luths, des vielles, des rebecs, accrochés aux poutres, posés sur les établis, sur les chaises, par terre. Aucun n'est fini. À l'un il manque le manche, à l'autre la table, au troisième les cordes. Il y en a des dizaines.",
+      "L'atelier est plein. Des luths, des vielles, des rebecs, accrochés aux poutres, posés sur les établis, sur les chaises, par terre. Tous inachevés. À l'un il manque le manche, à l'autre la table, au troisième les cordes. Tu en comptes quarante-trois avant de renoncer.",
       "Fabien est au milieu, avec un rabot, devant une table de sapin qu'il rabote depuis si longtemps qu'elle est devenue transparente.",
     ],
     choices: [
@@ -64,9 +64,9 @@ module.exports = {
     ] }),
   II_Q_luthier_parler: P({ title: "Les luths sans cordes", place: "vasselin",
     text: [
-      "Il lève les yeux. Il ne te reconnaît pas. Il reconnaît le luth, sur ton dos. Il pose son rabot. « Celui-là, dit-il, je l'ai fait. Le poirier. La rosace en nacre. » Il le prend, sans demander, le retourne, frappe la caisse du doigt. « Je l'ai fait. » Il te le rend. « Je ne sais plus comment. »",
+      "Il lève les yeux. Ton visage le laisse indifférent ; le luth, sur ton dos, l'arrête net. Il pose son rabot. « Celui-là, dit-il, je l'ai fait. Le poirier. La rosace en nacre. » Il le prend, sans demander, le retourne, frappe la caisse du doigt. « Je l'ai fait. » Il te le rend. « Je ne sais plus comment. »",
       "Il montre l'atelier. « Je commence. Je sais commencer. Et puis, au milieu, je ne sais plus ce qui vient après. Le manche ? Les barres ? Le vernis ? Alors j'en commence un autre. »",
-      "Il a cédé quelque chose. Il ne sait pas quoi. Toi, tu crois deviner : pas le métier, qui est dans ses mains, mais l'ordre des gestes, qui était dans sa tête.",
+      "Il a cédé quelque chose. Il ne sait pas quoi. Toi, tu crois deviner : le métier est resté dans ses mains ; l'ordre des gestes, qui logeait dans sa tête, est parti.",
     ],
     choices: [
       { label: "Lui jouer quelque chose, pour qu'il entende ce que ses mains ont fait", test: { dom: "social", label: "Maître Fabien", help: [{ if: { item: "luth" }, v: 15 }, { if: { has: "lisandre:ballade=double" }, v: 5 }, { if: { present: "linette" }, v: 5 }] },
@@ -78,7 +78,7 @@ module.exports = {
       "Tu t'assieds sur l'établi, entre deux luths sans manche. Tu accordes. Tu joues. Pas une chanson de cour. Une chanson que tu n'as jamais jouée à personne, parce que tu l'as commencée il y a dix ans et jamais finie : la sienne. Celle que tu lui devais.",
       "Tu la finis, là, en la jouant. Les deux derniers couplets viennent tout seuls. Tu ne sais pas d'où.",
       "Fabien écoute, la tête penchée, les yeux fermés, comme on écoute une caisse pour savoir si le bois est bon. À la fin, il ouvre les yeux. Il prend un luth sans cordes, sur l'établi, et il dit, très lentement, comme on récite : « Les barres. Puis la table. Puis le manche. Puis le vernis. Six couches. Puis les cordes. » Il te regarde. « Merci, mademoiselle. Je crois que je vous dois une chanson. »",
-      "Tu ne le corriges pas.",
+      "Tu le laisses dire.",
     ],
     choices: [{ fx: { quest: "II_Q_luthier", conf: { lisandre: 10 } }, back: "II_S_vasselin" }] }),
   II_Q_luthier_rate: P({ title: "Le rabot", place: "vasselin",
@@ -89,7 +89,7 @@ module.exports = {
     choices: [{ fx: { quest: "II_Q_luthier" }, back: "II_S_vasselin" }] }),
   II_Q_luthier_finir: P({ title: "Un luth", place: "vasselin",
     text: [
-      "Tu restes l'après-midi. Tu ignores le métier de luthier. Mais tu as regardé un luth, le tien, tous les jours pendant dix ans, et tu sais dans quel ordre il est fait, parce qu'il te l'avait expliqué, le jour où tu l'as emporté, et que tu écoutais tout, à l'époque, tout ce qu'on disait, pour faire oublier la petite chanteuse du port.",
+      "Tu restes l'après-midi. Du métier de luthier, tu sais ce qu'en sait une chanteuse : rien. Mais tu as regardé un luth, le tien, tous les jours pendant dix ans, et tu sais dans quel ordre il est fait, parce qu'il te l'avait expliqué, le jour où tu l'as emporté, et que tu écoutais tout, à l'époque, tout ce qu'on disait, pour faire oublier la petite chanteuse du port.",
       "Tu dis : les barres. Il les colle. Tu dis : la table. Il la pose. Tu dis : le manche. Il hésite, puis ses mains le savent. Au soir, il y a un luth sans vernis sur l'établi, et Fabien le regarde comme on regarde un enfant qu'on vient d'avoir.",
       "« Il faut six couches de vernis, dit-il. Six jours. » Il sourit. « Revenez dans six jours. » Tu ne seras plus là dans six jours. Tu dis que tu reviendras.",
     ],
@@ -100,8 +100,8 @@ module.exports = {
     fx: { questSeen: "II_Q_crieur" },
     text: [
       "À Vasselin, chaque samedi soir, le crieur des morts fait le tour des paroisses avec sa clochette et sa lanterne, et il dit les noms des morts de la semaine, à chaque carrefour, pour que ceux qui ne le savaient pas le sachent. Ça se fait depuis la grande peste. Tu l'entendais passer sous ta fenêtre, enfant, et tu comptais les noms.",
-      "Ce soir, il passe sous la fenêtre de l'Ancre. Le vieux Gauthier, avec sa clochette fêlée. Il dit trois noms. Puis il s'arrête. Il regarde son papier. Il le retourne. Il repart, sans dire le quatrième.",
-      "Une femme, en bas, sur le pas de sa porte, crie : « Et Jacquemin ? Vous avez oublié Jacquemin ! » Le crieur ne se retourne pas. Ce n'est pas la première fois, dit-elle à sa voisine. La semaine dernière, il en a sauté deux.",
+      "Ce soir, il passe sous la fenêtre de l'Ancre. Le vieux Gauthier, avec sa clochette fêlée et sa lanterne de corne, dont le verre manque d'un côté. Il dit trois noms. Puis il s'arrête. Il regarde son papier. Il le retourne. Il repart, sans dire le quatrième.",
+      "Une femme, en bas, sur le pas de sa porte, crie : « Et Jacquemin ? Vous avez oublié Jacquemin ! » Le crieur continue son chemin. Ça devient une habitude, dit-elle à sa voisine. La semaine dernière, il en a sauté deux.",
     ],
     choices: [
       { label: "Le suivre dans la nuit", to: "II_Q_crieur_suivre" },
@@ -109,7 +109,7 @@ module.exports = {
     ] }),
   II_Q_crieur_suivre: P({ title: "La clochette", place: "vasselin",
     text: [
-      "Tu le suis de carrefour en carrefour. Il crie, il saute des noms, il repart. Au carrefour des Tanneurs, deux hommes sortent d'une porte cochère et l'attendent. Ils ne sont pas en gris. Ils ont des gourdins.",
+      "Tu le suis de carrefour en carrefour. Il crie, il saute des noms, il repart. Au carrefour des Tanneurs, deux hommes sortent d'une porte cochère et l'attendent. Ils portent des vestes de futaine ordinaires, et des gourdins.",
       "« Le papier, vieux », dit l'un. Gauthier le tend, sans discuter, comme quelqu'un qui a l'habitude. L'homme le lit à la lanterne, raye un nom au charbon, le lui rend. « Celui-là, tu ne le dis pas. Ni ce soir, ni jamais. Tu ne l'as jamais connu. »",
       "Gauthier hoche la tête. Il reprend sa clochette. Il a l'air de ne plus savoir pourquoi il s'est arrêté.",
     ],
@@ -126,20 +126,20 @@ module.exports = {
     choices: [] }),
   II_Q_crieur_papier: P({ title: "Les noms rayés", place: "vasselin",
     text: [
-      "Les deux hommes s'enfuient en laissant un gourdin. Tu ramasses la clochette, et le papier. Sept noms de la semaine, dont deux rayés au charbon. Tu les lis à la lanterne. Ils ne te disent rien. Gauthier non plus.",
-      "De la poche de l'un d'eux, dans la bagarre, un jeton est tombé : du plomb, frappé d'une plume et d'une clé. Ce ne sont pas des brigands. Ce sont des gens qu'on paie.",
-      "Tu lis les deux noms rayés à haute voix, au carrefour, devant les fenêtres fermées. Une fenêtre s'ouvre. Puis une autre. Personne se tait. Mais on a entendu.",
+      "Les deux hommes s'enfuient en laissant un gourdin. Tu ramasses la clochette, et le papier. Sept noms de la semaine, dont deux rayés au charbon. Tu les lis à la lanterne. Ce sont des inconnus pour toi, et pour Gauthier aussi.",
+      "De la poche de l'un d'eux, dans la bagarre, un jeton est tombé : du plomb, frappé d'une plume et d'une clé. Des brigands auraient fouillé le vieux. Ces deux-là sont payés.",
+      "Tu lis les deux noms rayés à haute voix, au carrefour, devant les fenêtres fermées. Une fenêtre s'ouvre. Puis une autre. Les fenêtres gardent le silence. Mais on a entendu.",
     ],
     choices: [{ label: "Raccompagner Gauthier chez lui", fx: { quest: "II_Q_crieur", flag: "sud:crieur_noms" }, to: "II_S_vasselin" }] }),
   II_Q_crieur_fuite: P({ title: "La ruelle", place: "vasselin",
-    text: ["Vous filez par une ruelle, le crieur essoufflé, ta robe déchirée un peu plus. Quand vous vous arrêtez, il te regarde, puis regarde sa clochette, qu'il a gardée. « Je dois faire le tour, dit-il. C'est samedi. » Il repart. Tu le laisses aller. Tu ne sais pas quels noms il dira."],
+    text: ["Vous filez par une ruelle, le crieur essoufflé, ta robe déchirée un peu plus. Quand vous vous arrêtez, il te regarde, puis regarde sa clochette, qu'il a gardée. « Je dois faire le tour, dit-il. C'est samedi. » Il repart. Tu le laisses aller. Quels noms dira-t-il ? Tu l'ignores."],
     choices: [{ fx: { quest: "II_Q_crieur" }, back: "II_S_vasselin" }] }),
   II_Q_crieur_cave: P({ title: "La cave aux noms", place: "vasselin",
     text: [
       "Les deux hommes descendent vers le port, entrent dans une cave sous une maison de change, et ressortent sans leurs gourdins. Tu attends. Tu descends.",
-      "La cave est petite. Une table, une lampe, et des papiers. Les papiers de tous les crieurs de Vasselin, de toutes les paroisses, depuis le printemps, recopiés, avec des noms rayés. Et une liste, à part, des noms rayés, avec en face de chacun une somme. Payée par qui, le registre le tait. À qui, si : *Pour la Tour.*",
+      "La cave est petite, voûtée, à peine assez haute pour se tenir debout. Une table, une lampe, et des papiers, en piles nettes, tenues par des galets. Les papiers de tous les crieurs de Vasselin, de toutes les paroisses, depuis le printemps, recopiés, avec des noms rayés. Et une liste, à part, des noms rayés, avec en face de chacun une somme. Payée par qui, le registre le tait. À qui, si : *Pour la Tour.*",
       "Les noms rayés sont des noms de gens morts dans leur lit, de vieillesse, de fièvre. Mais ce sont tous des gens qui savaient écrire. Des notaires, des maîtres d'école, des clercs, une sage-femme qui tenait un registre des naissances. Ceux qui se souviennent sur le papier.",
-      "Tu prends la liste. Tu remontes. Personne ne t'a vue.",
+      "Tu prends la liste. Tu remontes, sans témoin.",
     ],
     choices: [{ fx: { quest: "II_Q_crieur", flag: "sud:crieur_noms" }, back: "II_S_vasselin" }] }),
 };

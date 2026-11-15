@@ -7,10 +7,10 @@ function P(o) { return Object.assign({}, A, o); }
 module.exports = {
   III_e_lisiere: P({ title: "Les arbres noirs", place: null,
     text: [
-      "La forêt commence d'un coup, sans lisière, comme un mur. Des arbres hauts, droits, noirs du pied à la cime. Du charbon en guise d'écorce. Pas de feuilles. Ils ont brûlé debout, il y a longtemps, et ils sont restés debout.",
-      "Sous le blanc, le sol est gris. Tu y mets la main. De la cendre, fine, tiède, si épaisse que tu n'en trouves pas le fond.",
-      { with: "corbe", text: "Corbe s'est arrêtée à l'entrée. « La Vallée des Cendres, dit-elle. C'est le nom qu'on ne dit pas, au clan. Je ne savais pas que c'était un vrai endroit. »" },
-      { with: "hylas", text: "Hylas s'est arrêté aussi. Il connaît le chemin. Ça se voit à la façon dont il ne cherche pas où mettre les pieds." },
+      "La forêt commence d'un coup, sans lisière, comme un mur. Des arbres hauts, droits, noirs du pied à la cime, à quatre ou cinq pas les uns des autres. Du charbon en guise d'écorce. Des branches nues. Ils ont brûlé debout, il y a longtemps, et ils sont restés debout.",
+      "Sous le blanc, le sol est gris. Tu y mets la main. De la cendre, fine, tiède : ton bras s'y enfonce jusqu'au coude, et le fond reste hors d'atteinte.",
+      { with: "corbe", text: "Corbe s'est arrêtée à l'entrée. « La Vallée des Cendres, dit-elle. C'est le nom qu'on ne dit pas, au clan. Je le croyais inventé. »" },
+      { with: "hylas", text: "Hylas s'est arrêté aussi. Il connaît le chemin. Ça se voit à ses pieds, qui trouvent leur place sans chercher." },
     ],
     choices: [{ label: "Entrer dans la forêt", to: "@route" }] }),
 
@@ -18,14 +18,14 @@ module.exports = {
     text: [
       "Un ruisseau traverse la forêt. Il y coule de la cendre, lente, grise, qui fait un bruit de sable.",
       "Sur la cendre, quelque chose flotte, et descend vers toi. Un jouet. Un ours sculpté dans du bois clair, gros comme le poing, avec une couronne gravée au couteau. Il tourne doucement sur lui-même.",
-      "Tu le ramasses. Il est tiède. Tu le connais. Tu ne sais pas d'où.",
+      "Tu le ramasses. Il est tiède. Tu le connais, d'un lieu qui t'échappe.",
     ],
     choices: [{ label: "Le garder, et remonter le ruisseau", fx: { item: "ours_bois" }, to: "@route" }] }),
 
   III_e_hameau: P({ title: "Ellerune", place: "enfance", hub: true,
     text: [
-      { first: true, text: "Une clairière, au milieu des arbres noirs. Des maisons rondes, en pierre sèche, au toit de chaume. De la fumée qui monte. Des gens. Ils fendent du bois déjà brûlé, ils puisent dans un puits à sec, ils filent une laine interminable. Ils font les gestes d'un village, sans fin, depuis trois cents ans." },
-      { first: true, text: "Ils te regardent passer. Ils se parlent à voix basse, dans une langue que tu n'as jamais apprise." },
+      { first: true, text: "Une clairière, au milieu des arbres noirs. Une douzaine de maisons rondes, en pierre sèche, au toit de chaume. De la fumée qui monte. Des gens. Ils fendent du bois déjà brûlé, ils puisent dans un puits à sec, ils filent une laine interminable. Ils font les gestes d'un village, sans fin, depuis trois cents ans." },
+      { first: true, text: "Ils te regardent passer. Ils se parlent à voix basse, dans une langue absente de tes leçons." },
       { first: true, text: "Tu la comprends." },
       { again: true, text: "Ils te regardent passer, et se parlent à voix basse." },
       { once: true, if: { has: "passe:reveur" }, text: "Agathe disait que tu parlais en dormant, et pas dans une langue d'ici. C'était celle-là." },
@@ -51,15 +51,15 @@ module.exports = {
       "Deux vieilles femmes, au puits. « C'est lui, dit l'une. Regarde ses mains. » L'autre : « Le petit de Maëra. Celui qui est parti avec la lanterne. » La première : « Il est revenu, alors. Ils reviennent tous. Le bourdon a sonné. »",
       "Un homme qui fend du bois, sans lever les yeux : « Il ne devrait pas être ici. Il était le seul à être là-haut. Le seul de nous à être vivant. »",
       "Tu leur parles. Les mots viennent tout seuls, dans ta bouche, comme si tu les avais toujours eus. Les deux vieilles se taisent. Puis l'une d'elles se met à pleurer.",
-      { with: "lisandre", text: "Lisandre te regarde parler. Elle ne comprend pas un mot. Elle comprend la musique. Elle te regarde comme on regarde quelqu'un pour la première fois." },
+      { with: "lisandre", text: "Lisandre te regarde parler. Les mots lui échappent tous ; la musique, non. Elle te regarde comme on regarde quelqu'un pour la première fois." },
     ],
     choices: [{ fx: { flag: "enfant:langue" }, back: "III_e_hameau" }] }),
 
   III_e_maison: P({ title: "Le berceau", place: "enfance",
     text: [
-      "La dernière maison du hameau est vide. Propre. Quelqu'un vient y faire le ménage. Il y a un lit, une table, un métier à tisser, et dans un coin, un berceau de bois sculpté, avec un ours couronné sur le chevet.",
+      "La dernière maison du hameau est vide. Propre : pas un grain de cendre sur le seuil. Quelqu'un vient y faire le ménage. Il y a un lit, une table, un métier à tisser, et dans un coin, un berceau de bois sculpté, avec un ours couronné sur le chevet.",
       { if: { item: "ours_bois" }, text: "Tu sors de ta poche l'ours de bois du ruisseau, et tu le tiens un moment contre le chevet." },
-      "Le berceau est vide. Dans le creux du petit matelas de laine, il y a encore la forme d'un enfant. Elle n'a pas bougé depuis vingt ans.",
+      "Le berceau est vide. Dans le creux du petit matelas de laine, il y a encore la forme d'un enfant. Elle est restée telle depuis vingt ans.",
     ],
     choices: [{ back: "III_e_hameau" }] }),
 
@@ -68,7 +68,7 @@ module.exports = {
     text: [
       "La voix vient d'une maison ronde, porte ouverte. Une femme chante en filant. Une berceuse. Quatre notes qui montent, trois qui descendent.",
       { if: { souv: "enfant:reve" }, text: "C'est la voix de ton rêve. La voix qui chantait sur la plaine blanche, ton plus vieux souvenir. Tu restes sur le seuil, incapable de faire un pas." },
-      { if: { not: { souv: "enfant:reve" } }, text: "Tu ne la connais pas. Tu restes sur le seuil quand même, sans savoir pourquoi tu ne peux pas faire un pas." },
+      { if: { not: { souv: "enfant:reve" } }, text: "Cette femme est une inconnue. Tu restes sur le seuil quand même, les pieds pris dans la terre, sans savoir pourquoi." },
       "Elle lève les yeux. Elle est jeune. Trente ans, peut-être. Des cheveux noirs, des yeux gris presque blancs. Elle te regarde longtemps. Le fuseau tourne encore, tout seul, puis s'arrête.",
       "« Tu as ses mains, dit-elle. Les mains de mon petit. » Elle pose le fuseau. « Il avait deux ans. Je l'ai donné à un homme des villes, un greffier, avec une lanterne. Il y a vingt ans, là-haut. Pour nous, ce matin. » Elle sourit. « Je lui ai dit : emporte-le. Qu'au moins un de nous vive là-haut, au soleil, avec un nom que personne n'a effacé. »",
     ],
@@ -81,8 +81,8 @@ module.exports = {
     text: [
       "Elle se tait. Elle se lève. Elle vient à toi, lentement, et elle te prend le visage dans les mains, comme Hylas faisait pour lire. Elle te lit.",
       "« Tu es grand », dit-elle. C'est tout ce qu'elle dit, pendant longtemps.",
-      { if: { souv: "enfant:agathe" }, text: "Tu penses à Agathe, à ses joues rouges, à sa façon de te pousser une mèche derrière l'oreille. Maëra te pousse une mèche derrière l'oreille. Tu ne sais pas si tu as le droit d'avoir deux mères. Tu les as." },
-      { if: { not: { souv: "enfant:agathe" } }, text: "Elle te pousse une mèche derrière l'oreille. Personne ne t'a jamais fait ça. Tu en es sûr." },
+      { if: { souv: "enfant:agathe" }, text: "Tu penses à Agathe, à ses joues rouges, à sa façon de te pousser une mèche derrière l'oreille. Maëra te pousse une mèche derrière l'oreille. Deux mères : en as-tu le droit ? Tu les as." },
+      { if: { not: { souv: "enfant:agathe" } }, text: "Elle te pousse une mèche derrière l'oreille. C'est la première fois qu'on te fait ça. Tu en es sûr." },
       "« Ton nom, dit-elle. Ton vrai nom. C'est ton père qui te l'a donné. Il est à Valcendre. Ce n'est pas à moi de te le dire. Il faut que ce soit lui. »",
     ],
     choices: [{ label: "Rester un peu", fx: { conf: { enfant: 10 } }, to: "III_e_hameau" }] }),
@@ -90,14 +90,14 @@ module.exports = {
   III_e_mere_chante: P({ title: "La berceuse", place: "enfance",
     text: [
       "Elle te regarde un moment de plus. Puis elle reprend son fuseau et elle chante. Quatre notes qui montent, trois qui descendent. Tu t'assieds sur le seuil, le dos contre le chambranle.",
-      "Tu t'endors. Tu ne t'étais pas endormi depuis la chute. Tu dors une heure, ou un jour. Quand tu te réveilles, elle a posé une couverture sur toi.",
-      "Elle ne t'a rien demandé. Elle sait. Elle a décidé de ne pas te le faire dire.",
+      "Tu t'endors, pour la première fois depuis la chute. Tu dors une heure, ou un jour. Quand tu te réveilles, elle a posé une couverture sur toi.",
+      "Elle garde ses questions. Elle sait. Elle a décidé de t'épargner de le dire.",
     ],
     choices: [{ back: "III_e_hameau" }] }),
 
   III_e_hylas: P({ title: "La lanterne", place: "enfance",
     text: [
-      "Hylas n'est pas entré dans la clairière. Il est assis sur une souche noire, à l'orée, ses yeux qui voient fixés sur la maison de Maëra.",
+      "Hylas est resté à l'orée de la clairière, assis sur une souche noire, ses yeux qui voient fixés sur la maison de Maëra.",
       "Tu t'assieds à côté de lui. Tu te tais. C'est lui qui parle.",
       { if: { has: "hylas:oublie_enfant" }, text: "« Je ne m'en souvenais plus, dit-il. Je l'ai donné à la neige, à Pallanche, pour que Mordace ne puisse jamais le prendre. Et puis on est entrés dans cette forêt, et j'ai su où mettre les pieds. Et puis elle a chanté. » Il serre les mains. « Il est revenu par morceaux. Le froid. La lanterne. Ton poids, sur mon dos. Elle, sur le seuil. »" },
       { if: { not: { has: "hylas:oublie_enfant" } }, text: "« Vingt ans que je me prépare à te le dire, dit-il. J'avais écrit le discours. Je l'ai relu chaque année. » Il a un petit rire. « Je ne m'en souviens plus. Pas un mot. »" },
@@ -109,7 +109,7 @@ module.exports = {
     ] }),
 
   III_e_hylas_merci: P({ title: "Merci", place: "enfance",
-    text: ["Hylas te regarde. Il ne s'attendait pas à ça. Il ouvre la bouche, la referme. Puis il se lève, très droit, et entre enfin dans la clairière, et va jusqu'au seuil de Maëra. Elle lève les yeux. Elle le reconnaît. Elle lui sourit, comme on sourit à quelqu'un qui a tenu parole."],
+    text: ["Hylas te regarde, pris de court. Il ouvre la bouche, la referme. Puis il se lève, très droit, et entre enfin dans la clairière, et va jusqu'au seuil de Maëra. Elle lève les yeux. Elle le reconnaît. Elle lui sourit, comme on sourit à quelqu'un qui a tenu parole."],
     choices: [{ back: "III_e_hameau" }] }),
 
   III_e_hylas_reproche: P({ title: "Tu aurais dû", place: "enfance",
@@ -120,9 +120,9 @@ module.exports = {
     fx: { flag: "acte3:enfance_fini", ep: ["histoire", 3000] },
     text: [
       "Maëra t'accompagne jusqu'au bout de la clairière. Elle te donne du pain, qu'elle a cuit dans un four sans feu, et qui est chaud.",
-      { if: { has: "maera:sait" }, text: "« Va voir ton père, dit-elle. Il ne sait pas que tu es là. Il croit que tu vis au soleil. Il va être en colère, et heureux, et il ne saura pas lequel montrer. Laisse-lui le temps. »" },
-      { if: { not: { has: "maera:sait" } }, text: "« Les tours blanches, dit-elle. Valcendre. Quelqu'un là-bas a besoin de te voir. » Elle n'explique pas qui." },
-      "Au-delà des arbres noirs, la plaine, et au bout, les tours. Elles ne reculent plus quand tu marches vers elles.",
+      { if: { has: "maera:sait" }, text: "« Va voir ton père, dit-elle. Il te croit au soleil, là-haut. Il va être en colère, et heureux, et il hésitera entre les deux. Laisse-lui le temps. »" },
+      { if: { not: { has: "maera:sait" } }, text: "« Les tours blanches, dit-elle. Valcendre. Quelqu'un là-bas a besoin de te voir. » Elle garde le nom pour elle." },
+      "Au-delà des arbres noirs, la plaine, et au bout, les tours. Elles se rapprochent enfin, à chaque pas.",
     ],
     choices: [{ label: "Retrouver la plaine blanche", fx: { food: 2 }, to: "III_plaine" }] }),
 };

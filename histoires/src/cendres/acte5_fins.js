@@ -10,8 +10,8 @@ var RENDUS3 = { all: [{ has: "proces:tour=rendu" }, { has: "proces:plume=rendu" 
 module.exports = {
   V_p_colonne: P({ title: "La colonne", place: "pallanche",
     text: [
-      "La colonne blanche monte du Grand Livre, droite, silencieuse. En levant la tête, tu vois qu'elle ne monte pas vers le ciel. Elle monte vers une porte. Très haut, au bout de la colonne, une porte de pierre noire couverte de noms, grande ouverte, sans mur de part et d'autre. La Porte des Cendres. Tout ce qu'on cède cette nuit y entre.",
-      "Et quelqu'un en descend. Lentement, marche après marche, sur une colonne de neige qui ne porterait pas un oiseau. Un homme très grand, couronné de givre, qui fond et se refait, goutte à goutte.",
+      "La colonne blanche monte du Grand Livre, droite, silencieuse. En levant la tête, tu vois où elle va : vers une porte, et le ciel n'est qu'un décor derrière. Très haut, au bout de la colonne, une porte de pierre noire couverte de noms, grande ouverte, sans mur de part et d'autre. La Porte des Cendres. Tout ce qu'on cède cette nuit y entre.",
+      "Et quelqu'un en descend. Lentement, marche après marche, sur une colonne de neige qui plierait sous un moineau. Un homme très grand, couronné de givre, qui fond et se refait, goutte à goutte.",
       "Ardaël pose le pied sur le parquet du cabinet. Il regarde le feu, la plume qui écrit, le Grand Livre. Il te regarde.",
       { before: "mordace:fin=cede", text: "« Je n'ai jamais quitté Valcendre, dit-il. Trois cent douze ans. Il fallait que la porte soit grande ouverte pour que je puisse sortir. Merci à cet homme. » Il ne regarde pas Mordace. « Maintenant, mon fils, elle va se refermer, ou ne plus jamais se refermer. Ça dépend de qui la tient. »" },
       { after: "mordace:fin=cede", text: "« Je n'ai jamais quitté Valcendre, dit-il. Trois cent douze ans. Il fallait que la porte soit grande ouverte pour que je puisse sortir. Merci à l'homme qui écrivait ici. » Il ne regarde pas l'escalier. « Maintenant, mon fils, elle va se refermer, ou ne plus jamais se refermer. Ça dépend de qui la tient. »" },
@@ -21,9 +21,9 @@ module.exports = {
   V_p_choix: P({ title: "Les trois voix", place: "pallanche",
     text: [
       "« Qui chante tous les noms l'ouvre, pour tous, dit Ardaël. Qui porte la couronne la tient fermée. Qui garde le livre la ferme d'en haut. Il y a d'autres façons. Il y en a toujours. Mais celles-là, je les connais. »",
-      { with: "sansnom", text: "Ton frère s'est avancé à côté de toi. Il se tait. Il regarde la couronne." },
+      { with: "sansnom", text: "Ton frère s'est avancé à côté de toi, en silence. Il regarde la couronne." },
       { if: { has: "ame:maera" }, text: "Une voix, derrière, dans l'escalier. Maëra. Elle a monté les six étages, son fuseau à la ceinture. Ardaël se fige." },
-      { if: { item: "registre_anselin" }, text: "Le registre d'Anselin pèse sous ton bras. Le feu, dans la cheminée, est énorme." },
+      { if: { item: "registre_anselin" }, text: "Le registre d'Anselin pèse sous ton bras, le poids d'un agneau. Le feu, dans la cheminée, est énorme." },
       "Derrière toi, ceux qui sont venus jusqu'ici attendent. La plume écrit. La neige monte.",
     ],
     choices: [
@@ -44,7 +44,7 @@ module.exports = {
       { with: "lisandre", text: "Lisandre chante avec toi, de sa voix rauque, et la cage de l'escalier la fait résonner jusqu'à la place." },
       { with: "linette", if: { item: "registre_anselin" }, text: "Linette lit les noms par-dessus ton épaule, plus vite que toi, et te souffle les suivants." },
       "Sur la place, dans la queue, quelqu'un reprend un nom. Puis cent. Les gens du Grand Livre, qui n'ont plus de souvenirs à eux, chantent ceux des autres, ceux qui leur arrivent par la colonne, et la neige s'arrête de monter. Elle redescend.",
-      "Au dernier nom, tu ne t'arrêtes pas, cette fois.",
+      "Au dernier nom, cette fois, tu continues.",
       "La porte, là-haut, s'ouvre jusqu'au bout. Et ils descendent. Par la colonne, par les toits, par les rues. Les marcheurs de la plaine blanche, les gens de Bourdonne, de Valcendre, d'Ellerune, les trois cents de Lisse, Sauvelune entière, les morts et les oubliés de trois siècles, qui rentrent chez eux. Ils se répandent dans la ville et dans le royaume comme une marée qui monte, et chacun cherche quelqu'un, et chacun trouve.",
       "Ardaël te regarde. Il ôte sa couronne. Elle fond dans ses mains. « Voilà, dit-il. Le monde va être lourd. » Il sourit. « Il va être vrai. »",
     ],
@@ -53,11 +53,11 @@ module.exports = {
   V_f_roi: P({ title: "La couronne", place: "pallanche",
     fx: fin("roi"),
     text: [
-      "Tu tends la main. Ardaël te regarde longtemps, et tu vois qu'il est soulagé, et qu'il a honte de l'être.",
+      "Tu tends la main. Ardaël te regarde longtemps, et tu lis sur son visage le soulagement, et la honte du soulagement.",
       "Il ôte la couronne. Elle fond et se refait entre ses doigts. Il la pose sur ta tête.",
       "Le froid te prend au front, puis tout le corps, puis il n'y a plus de froid. Tu sens la porte. Tu la sens comme on sent une main. Elle est grande ouverte, et lourde, et tu la fermes. Lentement. Ça prend toute la nuit, et toute ta force, et sur la place la neige cesse de monter, et dans le Grand Livre la plume s'arrête au milieu d'un mot.",
       { if: { souv: "enfant:reve" }, text: "Tu entends, très loin, la voix qui chantait dans ton rêve d'enfant. Tu comprends que c'était la tienne, plus tard. Que c'est maintenant." },
-      "À l'aube, tu montes la colonne. Ardaël marche à côté de toi jusqu'à la porte, et là, il s'arrête, et il passe de l'autre côté, vers la lumière jaune, vers le monde, en homme. Toi, tu restes. Tu es le Roi-Hiver. Tu tiens la porte. Tu n'as pas froid.",
+      "À l'aube, tu montes la colonne. Ardaël marche à côté de toi jusqu'à la porte, et là, il s'arrête, et il passe de l'autre côté, vers la lumière jaune, vers le monde, en homme. Toi, tu restes. Tu es le Roi-Hiver. Tu tiens la porte. Le froid t'est devenu indifférent.",
     ],
     choices: [{ label: "L'aube", to: "Z5_epilogue" }] }),
 
@@ -66,7 +66,7 @@ module.exports = {
     text: [
       "Tu te tais. Tu regardes ton frère. Il a compris avant toi.",
       "« Là-haut, ils t'ont gardé vingt ans, dit-il. Moi, ils m'oublient entre deux portes. Il est temps que ça serve à quelque chose. » Il s'avance vers son père. « Donne-la-moi. »",
-      "Ardaël le regarde comme on regarde quelqu'un qu'on n'a jamais vu. Peut-être que c'est vrai. Il lui pose la couronne sur la tête.",
+      "Ardaël le regarde comme on regarde un inconnu. C'est peut-être exact. Il lui pose la couronne sur la tête.",
       "Ton frère ferme la porte. Toute la nuit. Il a le visage d'un garçon qui porte quelque chose de trop lourd et qui ne le posera pas. À l'aube, il monte la colonne, seul. Il se retourne une fois, en haut, et lève la main.",
       { if: { any: [{ has: "ame:sansnom" }, { has: "sansnom:page" }] }, text: "Et tu sais, en le regardant, qu'en bas, dans le monde, on se souviendra de lui. Il y a une page, quelque part, avec son nom. Il y a toi." },
     ],
@@ -80,7 +80,7 @@ module.exports = {
       "« Personne. Là-haut, on sait se souvenir, maintenant. Sur la Lisse, deux armées l'ont fait ensemble. Ta couronne n'a plus rien à retenir. »",
       { if: { has: "ame:maera" }, text: "Maëra traverse la pièce. Elle prend la couronne sur la tête d'Ardaël, à deux mains, comme on prend un chaudron chaud. Elle la tient. Elle la regarde fondre. « Trois cents ans, dit-elle. Ça suffit. Viens voir le soleil. »" },
       { if: { not: { has: "ame:maera" } }, text: "Tu lui racontes la reine qui a rêvé de son ancêtre, la capitaine qui a raconté son pont, les cinq maisons qui savent, maintenant. Il écoute. À la fin, il ôte la couronne lui-même." },
-      "La couronne fond. Elle ne se refait pas. La colonne de neige, au-dessus de la tour, se met à fondre aussi, de haut en bas, en pluie tiède. La porte, là-haut, n'est plus une porte : c'est un passage, une arche sans battant, que plus rien ne ferme.",
+      "La couronne fond, pour de bon. La colonne de neige, au-dessus de la tour, se met à fondre aussi, de haut en bas, en pluie tiède. La porte, là-haut, n'est plus une porte : c'est un passage, une arche sans battant, que plus rien ne ferme.",
       "Les oubliés descendent. Un par un, quand ils veulent, comme on rentre de voyage. Ardaël descend l'escalier de la tour, et sort sur la place, et il lève le visage vers la pluie.",
     ],
     choices: [{ label: "L'aube", to: "Z5_epilogue" }] }),
@@ -90,7 +90,7 @@ module.exports = {
     text: [
       "Tu prends le registre d'Anselin. Tu prends le Grand Livre, et la plume avec. Tu les jettes au feu, les deux, l'un sur l'autre.",
       "Ardaël crie. C'est la seule fois que tu l'entends crier.",
-      "Le feu les prend comme de la paille. Les noms barrés se tordent dans les flammes, des milliers, et montent par la cheminée en étincelles. Le Grand Livre brûle plus lentement : il est plein. Toute la nuit.",
+      "Le feu les prend comme de la paille. Les noms barrés se tordent dans les flammes, des milliers, et montent par la cheminée en étincelles. Le Grand Livre brûle plus lentement : il est plein, et le vélin se défend. Il y met toute la nuit.",
       "Au matin, il n'y a plus de livre. Plus de pacte. Plus de digue. On ne peut plus vendre l'oubli : il n'y a plus de registre pour l'écrire. On ne peut plus rien céder. La neige blanche s'arrête, partout, et ne reviendra pas.",
       "Et les Orsans, les noms d'Anselin, sont partis en fumée par la cheminée de la tour. Personne ne pourra plus les chanter. Valcendre, là-bas, au bout du blanc, s'éteint doucement, comme une ville qui s'endort.",
       "Ardaël te regarde. « Tu as fait ce que les fondateurs n'ont pas osé, dit-il. Tu as fini le travail. » Il remonte la colonne, qui fond sous ses pas. Est-ce un reproche ?",
@@ -100,8 +100,8 @@ module.exports = {
   V_f_gardien: P({ title: "Le gardien", place: "pallanche",
     fx: fin("gardien"),
     text: [
-      "Tu prends la plume. Elle arrête d'écrire toute seule dès que ta main se referme dessus.",
-      "Tu tournes les pages du Grand Livre en arrière. Toutes les cessions de la nuit. Et à chacune, tu barres la formule, *cédé pour la paix de tous*, et tu écris à côté : *rendu.* Ça prend des jours. Des semaines.",
+      "Tu prends la plume. Elle cesse d'écrire seule dès que ta main se referme dessus.",
+      "Tu tournes les pages du Grand Livre en arrière. Toutes les cessions de la nuit. Et à chacune, tu barres la formule, *cédé pour la paix de tous*, et tu écris à côté : *rendu.* Ça prend des jours. Des semaines. Tu uses onze plumes.",
       { with: "linette", after: "mordace:aide", text: "Tu n'es pas seul. Linette tient l'encrier. Mordace tourne les pages, en silence, et te montre celles que tu oublierais." },
       { with: "linette", before: "mordace:aide", text: "Tu n'es pas seul. Linette tient l'encrier, et te montre les pages que tu oublierais." },
       { without: "linette", after: "mordace:aide", text: "Tu n'es pas seul. Mordace tourne les pages, en silence, et te montre celles que tu oublierais." },
@@ -114,10 +114,10 @@ module.exports = {
   V_f_cession: P({ title: "La grande cession", place: "pallanche",
     fx: fin("cession"),
     text: [
-      "Tu ne fais rien. Tu regardes la plume écrire.",
+      "Tu restes les bras le long du corps. Tu regardes la plume écrire.",
       "Elle écrit toute la nuit. À l'aube, elle s'arrête, parce qu'il n'y a plus rien à céder. La colonne retombe en neige fine sur tout le royaume, et la neige fond, enfin, sous un soleil de juillet.",
       "Le monde se réveille. Personne n'a mal. Personne n'a honte. Personne ne se souvient de rien qui pèse. Les gens de la queue rentrent chez eux en souriant. Les deux armées de la Lisse rentrent chez elles. Il n'y a plus de pont de Lisse, plus de vallée des Cendres, plus de fondateurs, plus de guerre d'avant. Il n'y a jamais eu de neige.",
-      "Ardaël remonte la colonne avant qu'elle tombe. Il se tait. Il n'a plus rien à tenir : plus personne, en haut, ne garde rien qui vaille d'être oublié.",
+      "Ardaël remonte la colonne avant qu'elle tombe, en silence. Il n'a plus rien à tenir : plus personne, en haut, ne garde rien qui vaille d'être oublié.",
       "Toi, tu te souviens de tout. La neige glisse sur toi. Elle a toujours glissé.",
     ],
     choices: [{ label: "L'aube", to: "Z5_epilogue" }] }),

@@ -8,7 +8,7 @@ var BACK = [{ back: "II_G_pont" }];
 module.exports = {
   II_G_cambuse: P({ title: "La cambuse",
     text: [
-      "Sous le gaillard d'avant, une porte basse, une odeur de fèves et de lard rance. La cambuse. Un vieil homme, assis sur un tonneau, épluche des oignons à la lueur d'une lampe à huile. Un Esquarrois, à l'accent de la côte. Il n'est pas enchaîné. Il te regarde entrer, le couteau en l'air, et il se tait.",
+      "Sous le gaillard d'avant, une porte basse, une odeur de fèves et de lard rance. La cambuse. Un vieil homme, assis sur un tonneau, épluche des oignons à la lueur d'une lampe à huile. Un Esquarrois, à l'accent de la côte, les chevilles libres. Il te regarde entrer, le couteau en l'air, et il se tait.",
       "« Si tu viens voler, dit-il, il n'y a que des fèves. Si tu viens pour eux… » Il montre le pont du menton, à travers le plafond. « Je leur fais la soupe depuis deux ans. Ils me remercient tous les soirs. Ils me remercient, tu comprends ? Avec le dos qu'ils ont. » Il pose son couteau. « Je ne peux rien faire. Je suis vieux, et j'ai peur. Mais je sais des choses. »",
     ],
     choices: [
@@ -23,7 +23,7 @@ module.exports = {
     choices: BACK }),
   II_G_vigie: P({ title: "La hune",
     text: [
-      "Tu lèves les yeux. En haut du mât, dans la hune, quelqu'un chante, à mi-voix, pour ne pas s'endormir. Une voix de garçon qui mue, qui casse sur les notes hautes. Le mousse de veille. S'il te voit, il donnera l'alerte. C'est son métier.",
+      "Tu lèves les yeux. En haut du mât, dans la hune, quelqu'un chante, à mi-voix, pour ne pas s'endormir. Une voix de garçon qui mue, et qui casse à chaque note haute avec une régularité de métronome. Le mousse de veille. S'il te voit, il donnera l'alerte. C'est son métier.",
       "Tu grimpes. Les haubans sont mouillés. À mi-hauteur, il s'arrête de chanter. Il t'a entendue. Il se penche. Un gamin de douze ans, un sifflet d'os au cou, qui te regarde comme on regarde un fantôme. Il porte le sifflet à ses lèvres.",
     ],
     choices: [
@@ -32,7 +32,7 @@ module.exports = {
       { label: "Redescendre, vite, avant qu'il siffle", back: "II_G_pont" },
     ] }),
   II_G_vigie_chanson: P({ title: "La fin de la chanson",
-    text: ["Tu chantes. Doucement, d'en bas, accrochée aux haubans. La suite de sa chanson, une chanson de port, sur un bateau perdu en mer et une fille lasse d'attendre. Il garde le sifflet aux lèvres. Il ne siffle pas. Au refrain, il chante avec toi, et sa voix ne casse plus. À la fin, il lâche le sifflet. « Je ne vous ai pas vue, dit-il. Je ne vois jamais rien, la nuit. Je suis myope. » Il te montre, du doigt, la ronde de la garde sur le quai, qu'il voit très bien. Il te dit quand elle passe."],
+    text: ["Tu chantes. Doucement, d'en bas, accrochée aux haubans. La suite de sa chanson, une chanson de port, sur un bateau perdu en mer et une fille lasse d'attendre. Il garde le sifflet aux lèvres, sans souffler dedans. Au refrain, il chante avec toi, et sa voix ne casse plus. À la fin, il lâche le sifflet. « Je ne vous ai pas vue, dit-il. Je ne vois jamais rien, la nuit. Je suis myope. » Il te montre, du doigt, la ronde de la garde sur le quai, qu'il voit très bien. Il te dit quand elle passe."],
     choices: BACK }),
   II_G_vigie_sifflet: P({ title: "Le sifflet",
     text: ["Tu chantes. Il ne connaît pas cette version. Il siffle. Un coup bref, strident, qui traverse le bassin. Puis il te regarde, et il a l'air désolé, sincèrement. « C'est mon métier », dit-il. Tu redescends en glissant le long des haubans. En bas, sous le pont, les pas commencent."],

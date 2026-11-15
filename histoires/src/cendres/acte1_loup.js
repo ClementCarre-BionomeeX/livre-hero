@@ -6,7 +6,7 @@ module.exports = {
   CO_L_depart: P({ title: "Les chasseurs",
     fx: { questSeen: "CO_Q_loup" },
     text: [
-      "Au bord du camp, trois chasseurs graissent leurs lances et vérifient leurs raquettes. Bjarki, le plus vieux, avec ses moustaches gelées. Ses deux fils. « Une louve blanche, dit-il. Elle a pris quatre rennes en six nuits. Elle ne les mange pas. Elle les tue, et elle les laisse. »",
+      "Au bord du camp, trois chasseurs graissent leurs lances et vérifient leurs raquettes. Bjarki, le plus vieux, avec ses moustaches gelées en deux pointes blanches. Ses deux fils, qui ont son nez et pas encore ses moustaches. « Une louve blanche, dit-il. Elle a pris quatre rennes en six nuits. Elle ne les mange pas. Elle les tue, et elle les laisse. »",
       "Il crache. « Ce n'est pas une louve normale. Une louve tue pour manger, ou pour ses petits. Celle-là tue comme on oublie quelque chose. » Il te regarde. « Tu es la Bouche, maintenant. Tu sais peut-être ce que c'est. Viens. »",
     ],
     choices: [
@@ -15,7 +15,7 @@ module.exports = {
     ] }),
   CO_L_piste: P({ title: "La piste",
     text: [
-      "Vous montez vers les crêtes, en file, sur les raquettes. La piste est fraîche, large, des empreintes plus grandes que la main. Puis, sur un replat, elle s'arrête. Pas d'empreintes devant. Pas d'empreintes sur les côtés. Comme si la louve s'était envolée.",
+      "Vous montez vers les crêtes, en file, sur les raquettes. La piste est fraîche, large, des empreintes plus grandes que la main, à cinq pieds l'une de l'autre : une bête au trot, lourde. Puis, sur un replat, elle s'arrête net. Devant, la neige est vierge ; sur les côtés aussi. On croirait que la louve s'est envolée.",
       "« Ça fait ça chaque fois, dit un des fils. On perd la piste ici. » Bjarki tourne en rond, le nez au vent.",
     ],
     choices: [
@@ -24,9 +24,9 @@ module.exports = {
     ] }),
   CO_L_perdus: P({ title: "Le blanc",
     text: [
-      { if: { not: { seen: "CO_L_taniere" } }, text: "Vous cherchez jusqu'au soir. Rien. La neige recommence à tomber, fine, et efface même vos propres traces. Bjarki décide de redescendre." },
+      { if: { not: { seen: "CO_L_taniere" } }, text: "Vous cherchez jusqu'au soir. En vain. La neige recommence à tomber, fine, et efface même vos propres traces. Bjarki décide de redescendre." },
       { if: { seen: "CO_L_taniere" }, text: "Vous redescendez sans elle. La neige recommence à tomber, fine, et efface derrière vous jusqu'à vos propres traces." },
-      "En chemin, l'un de ses fils s'arrête, se retourne, regarde la crête. « Elle nous suit », dit-il. Personne ne la voit.",
+      "En chemin, l'un de ses fils s'arrête, se retourne, regarde la crête. « Elle nous suit », dit-il. Les autres scrutent la crête : elle est vide.",
       "Cette nuit-là, elle prend un cinquième renne, au bord du troupeau, à vingt pas des tentes.",
     ],
     choices: [{ fx: { quest: "CO_Q_loup", flag: "corbe:loup=perdue" }, back: "CO_camp" }] }),
@@ -34,7 +34,7 @@ module.exports = {
     text: [
       "Tu t'accroupis. La neige du replat n'est pas comme l'autre : plus lisse, plus fine. Tu souffles dessus. Dessous, les empreintes continuent, recouvertes d'une neige blanche, plus blanche que la neige. Quelque chose les efface derrière la louve, à mesure qu'elle passe.",
       "Vous suivez. Une heure. Un éboulis, une fente sous un rocher. L'odeur. Et un bruit, à l'intérieur : des petits cris aigus, affamés.",
-      "Elle sort. Une louve énorme, blanche jusqu'aux yeux. Les yeux aussi sont blancs. Elle vous regarde sans vous voir, et derrière elle, dans la fente, trois louveteaux gris crient de faim, et elle ne se retourne pas vers eux. Elle ne sait plus qu'ils sont à elle.",
+      "Elle sort. Une louve énorme, haute comme un veau d'un an, blanche jusqu'aux yeux. Les yeux aussi sont blancs. Elle vous regarde sans vous voir, et derrière elle, dans la fente, trois louveteaux gris crient de faim, et elle ne se retourne pas vers eux. Elle ne sait plus qu'ils sont à elle.",
     ],
     choices: [
       { label: "La tuer, pour les rennes", to: "CO_L_combat" },
@@ -47,18 +47,18 @@ module.exports = {
     combat: { title: "La louve blanche", enemies: ["loup_blanc"], terrain: "nature", range: "contact",
       flee: { dom: "nature", label: "Redescendre en courant", to: "CO_L_perdus" },
       win: { fx: { flag: "corbe:loup=tue", ep: ["seance", 1200] }, to: "CO_L_tuee" }, lose: { fx: { pv: -4 }, to: "CO_L_perdus" } },
-    text: ["Elle ne gronde pas. Elle attaque en silence, comme la neige qui tombe d'un toit."],
+    text: ["Elle attaque muette, comme la neige qui tombe d'un toit."],
     choices: [] }),
   CO_L_tuee: P({ title: "Les louveteaux",
     text: [
       "Elle tombe dans la neige, et la neige ne se tache pas. Pas de sang. Elle devient plus blanche encore, puis elle n'est plus là. Il reste un creux, la forme d'une louve, et un peu de froid.",
-      "Dans la fente, les louveteaux crient. Bjarki les regarde. « On ne peut pas les laisser, dit-il. On ne peut pas les prendre. » Il lève sa lance. Tu détournes la tête. Ça ne dure pas.",
-      "En redescendant, personne ne parle. Les rennes sont sauvés. Ce n'est pas une victoire. C'est seulement fini.",
+      "Dans la fente, les louveteaux crient. Bjarki les regarde. « On ne peut pas les laisser, dit-il. On ne peut pas les prendre. » Il lève sa lance. Tu détournes la tête. C'est bref.",
+      "La descente se fait en silence. Les rennes sont sauvés. C'est moins une victoire qu'une fin.",
     ],
     choices: [{ fx: { quest: "CO_Q_loup" }, back: "CO_camp" }] }),
   CO_L_nommee: P({ title: "Ce qu'elle avait oublié",
     text: [
-      "Tu poses ta lance. Tu prends le tambour. Tu bats, doucement, le rythme des veillées, et tu parles à la louve comme on parle au rite, dans la vieille langue. Tu ne lui dis pas un nom. Les loups n'ont pas de nom. Tu lui dis ce qu'il y a derrière elle. Trois petits. Gris. À toi. Ils ont faim.",
+      "Tu poses ta lance. Tu prends le tambour. Tu bats, doucement, le rythme des veillées, et tu parles à la louve comme on parle au rite, dans la vieille langue. Les loups n'ont pas de nom : tu lui dis ce qu'il y a derrière elle. Trois petits. Gris. À toi. Ils ont faim.",
       "Elle tourne la tête. Lentement. Ses yeux blancs se posent sur la fente, sur les louveteaux, qui crient. Et, du fond du blanc, quelque chose remonte, une couleur, un jaune de loup, d'abord au bord des pupilles, puis partout.",
       "Elle entre dans la tanière. Elle se couche. Les louveteaux se jettent sur elle. Elle n'a plus d'yeux que pour ses petits. Bjarki baisse sa lance, lentement, et il te regarde, toi, comme on regarde une Bouche pour la première fois.",
     ],

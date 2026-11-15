@@ -10,8 +10,8 @@ module.exports = {
   II_Q_nouveau_ne: P({ title: "L'enfant de Runa", place: "corbeau",
     fx: { questSeen: "II_Q_nouveau_ne" },
     text: [
-      "Dans une tente au bord du camp, une jeune femme, Runa, allaite un nouveau-né. Né il y a neuf jours. Au clan, on nomme un enfant le neuvième jour, devant le feu, et la Bouche peint le nom sur une bande d'écorce. C'est aujourd'hui.",
-      "Personne n'est venu. Runa te regarde entrer, et elle serre l'enfant contre elle. « Hrodna ne peint plus les noms, dit-elle. Elle les donne à la Mère. Si je lui dis le nom de mon fils, elle le donnera. Si je ne le dis à personne, il n'a pas de nom. » Elle baisse les yeux sur l'enfant. « Il n'a pas de nom depuis neuf jours. Il pleure tout le temps. »",
+      "Dans une tente au bord du camp, une jeune femme, Runa, allaite un nouveau-né, gros comme deux poings et rouge comme une baie. Né il y a neuf jours. Au clan, on nomme un enfant le neuvième jour, devant le feu, et la Bouche peint le nom sur une bande d'écorce. C'est aujourd'hui.",
+      "La tente est vide de visiteurs. Runa te regarde entrer, et elle serre l'enfant contre elle. « Hrodna ne peint plus les noms, dit-elle. Elle les donne à la Mère. Si je lui dis le nom de mon fils, elle le donnera. Si je ne le dis à personne, il n'a pas de nom. » Elle baisse les yeux sur l'enfant. « Il n'a pas de nom depuis neuf jours. Il pleure tout le temps. »",
     ],
     choices: [
       { label: "« Dis-le-moi. Je le garderai. »", to: "II_Q_nouveau_ne_garder" },
@@ -29,19 +29,19 @@ module.exports = {
   II_Q_nouveau_ne_peint: P({ title: "L'écorce", place: "corbeau",
     text: [
       "Tu prends une bande d'écorce de bouleau, de l'ocre, de la suie. Tu ne sais pas écrire. Mais tu sais peindre les signes du clan, ceux qu'Askel t'a peints sur le visage.",
-      { after: "corbe:blanc", text: "Et tu sais, maintenant, ce que veut dire le blanc autour. Tu peins le nom de l'enfant, que Runa te dit à l'oreille. Tu ne mets pas de blanc. Rien. Le nom tout seul, nu, serré contre le bord de l'écorce. Un nom qui ne passera pas." },
-      { before: "corbe:blanc", text: "Tu peins le nom de l'enfant, que Runa te dit à l'oreille. Tu n'as pas de blanc : la craie du lac ne sort que pour la Bouche. Le nom tout seul, nu, serré contre le bord de l'écorce." },
+      { after: "corbe:blanc", text: "Et tu sais, maintenant, ce que veut dire le blanc autour. Tu peins le nom de l'enfant, que Runa te dit à l'oreille. Tu laisses l'écorce brute autour. Le nom tout seul, nu, serré contre le bord de l'écorce. Un nom qui ne passera pas." },
+      { before: "corbe:blanc", text: "Tu peins le nom de l'enfant, que Runa te dit à l'oreille. Le blanc te manque : la craie du lac est réservée à la Bouche. Le nom tout seul, nu, serré contre le bord de l'écorce." },
       "Runa coud l'écorce dans la doublure du bonnet de l'enfant. « Elle ne regardera pas là, dit-elle. Personne ne regarde dans un bonnet. »",
     ],
     choices: [{ fx: { quest: "II_Q_nouveau_ne", conf: { corbe: 10 } }, back: "II_N_camp" }] }),
   II_Q_nouveau_ne_rate: P({ title: "La peinture", place: "corbeau",
-    text: ["Tu peins. Le signe ne vient pas. Ta main tremble, l'ocre bave, le nom ressemble à un autre nom, à rien. Tu recommences, deux fois. Runa te prend le pinceau, doucement. « Laisse, dit-elle. Je le lui dirai tous les soirs, moi. Ça suffira peut-être. » Cela suffira-t-il ? Elle non plus."],
+    text: ["Tu peins. Le signe se dérobe. Ta main tremble, l'ocre bave, le nom ressemble à un autre nom, à rien. Tu recommences, deux fois. Runa te prend le pinceau, doucement. « Laisse, dit-elle. Je le lui dirai tous les soirs, moi. Ça suffira peut-être. » Elle l'ignore autant que toi."],
     choices: [{ fx: { quest: "II_Q_nouveau_ne" }, back: "II_N_camp" }] }),
 
   // ---------------------------------------------------------------- La course sur le lac
   II_k_course: P({ title: "La course du tarn", place: "corbeau",
     text: [
-      "Sur le petit lac gelé, en contrebas du camp, les jeunes du clan font courir les traîneaux. Un renne, un traîneau de bouleau, un garçon ou une fille debout sur les patins, et trois tours du lac en criant. Le gagnant porte le grand tambour au col, pour le rite. C'est un honneur. Tu l'as gagné deux fois, avant.",
+      "Sur le petit lac gelé, en contrebas du camp, trois cents pas de tour, les jeunes du clan font courir les traîneaux. Un renne, un traîneau de bouleau, un garçon ou une fille debout sur les patins, et trois tours du lac en criant. Le gagnant porte le grand tambour au col, pour le rite. C'est un honneur. Tu l'as gagné deux fois, avant.",
       "Ils te voient arriver. Le silence se fait. Puis un garçon, Leif, celui qui avait douze ans quand tu es partie, te tend une longe. « Il reste un renne, dit-il. Le plus têtu. Personne n'en veut. »",
     ],
     choices: [
@@ -86,7 +86,7 @@ module.exports = {
     choices: [{ back: "III_e_hameau" }] }),
   III_el_tombes: P3({ title: "Les pierres levées", place: "enfance",
     text: [
-      "Derrière la dernière maison, dans l'herbe noire, des pierres levées, petites, une centaine. Pas de noms. Pas de signes. Juste des pierres, debout, chacune de la taille d'un enfant assis.",
+      "Derrière la dernière maison, dans l'herbe noire, des pierres levées, petites, cent quatre exactement, nues de tout nom et de tout signe. Juste des pierres, debout, chacune de la taille d'un enfant assis.",
       "Une vieille femme est assise au milieu. Elle te voit regarder. « Les nôtres, dit-elle. Ceux qui sont morts dans le feu. On n'a pas écrit leurs noms. On ne savait pas écrire. On les disait. » Elle touche une pierre. « Et puis on est venus ici, et on les a oubliés, nous aussi. Il ne reste que les pierres. On s'assied à côté, au cas où. »",
     ],
     choices: [

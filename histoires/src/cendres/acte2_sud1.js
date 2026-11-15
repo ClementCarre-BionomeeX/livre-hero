@@ -7,13 +7,13 @@ var WANTED = { all: [{ present: "ysolde" }, { any: [{ has: "ysolde:voie=deserte"
 module.exports = {
   II_S_depart: P({ title: "Vers le sud", place: "collines",
     text: [
-      "La route du sud redescend vers la Pallante et la suit. Trois jours jusqu'à Vasselin, à pied. Tu as fait le chemin inverse il y a une semaine, en voiture, avec des coussins et une joueuse de flûte qui ronflait.",
+      "La route du sud redescend vers la Pallante et la suit. Trois jours jusqu'à Vasselin, à pied, vingt-deux lieues de bornes. Tu as fait le chemin inverse il y a une semaine, en voiture, avec des coussins et une joueuse de flûte qui ronflait.",
       "Tu as gardé ta robe de cour. Elle est déchirée à l'ourlet et tachée d'herbe, et tu as noué tes souliers à ta ceinture. À Vasselin, une robe de cour ouvre plus de portes qu'une épée.",
       { with: "enfant", text: "L'enfant de Sauvelune marche à côté de toi et pose des questions sur la capitale. Combien de gens ? Combien de rues ? Est-ce que la mer est vraiment salée ? Tu réponds à tout. Ça fait passer la route." },
-      { with: "ysolde", text: "Ysolde marche devant, sans se retourner. C'est elle qui choisit les haltes. Personne ne le lui a demandé, et personne ne le lui conteste." },
+      { with: "ysolde", text: "Ysolde marche devant, sans se retourner. C'est elle qui choisit les haltes. Elle s'est donné ce rôle toute seule, et chacun le lui laisse." },
       { with: "pie", text: "Pie a volé un chapeau de paille quelque part avant le premier village. Il le porte de travers et sifflote. Il dit que la mer lui est inconnue, et qu'il a tout son temps." },
       { with: "hylas", text: "Maître Hylas marche lentement. Il a demandé qu'on lui décrive la vallée, et tu le fais, comme tu le ferais d'une chanson : les vignes, les toits rouges, la rivière verte." },
-      { with: "rodric", text: "Rodric porte sa hache sur l'épaule et regarde chaque village comme un endroit à défendre ou à prendre. Il ne sait pas encore lequel." },
+      { with: "rodric", text: "Rodric porte sa hache sur l'épaule et regarde chaque village comme un endroit à défendre ou à prendre. Son choix reste à faire." },
       { with: ["linette", "pie"], text: "Linette marche à côté de son frère, en robe grise. Elle lit les bornes à voix basse, une à une, comme on lit des cotes." },
       { with: "linette", without: "pie", text: "Linette marche un peu à l'écart, en robe grise. Elle lit les bornes à voix basse, une à une, comme on lit des cotes." },
     ],
@@ -22,7 +22,7 @@ module.exports = {
   II_S_village: P({ title: "L'enseigne blanche", place: null,
     text: [
       "Le premier village s'appelait quelque chose. Tu y es passée avec la cour, il y a huit jours ; les gens sont sortis sur le pas de leur porte pour voir passer la reine, et un enfant a lancé des fleurs dans ta voiture.",
-      "L'enseigne de l'auberge est peinte en blanc. Pas repeinte : blanchie, comme si le nom avait coulé. La borne, à l'entrée, aussi. Sur le fronton du temple, les lettres gravées sont toujours là, mais elles sont pleines de neige, en juillet, et la neige ne fond pas.",
+      "L'enseigne de l'auberge est blanche. Tu la regardes de près : la peinture est d'origine, le grain du bois aussi, mais les lettres ont coulé jusqu'au bas du panneau, comme une encre sous la pluie. La borne, à l'entrée, aussi. Sur le fronton du temple, les lettres gravées sont toujours là, mais elles sont pleines de neige, en juillet, et la neige ne fond pas.",
       "L'aubergiste sert à boire. Il est aimable, un peu lent. Quand tu lui demandes le nom du village, il sourit, ouvre la bouche, et la referme.",
     ],
     choices: [
@@ -55,7 +55,7 @@ module.exports = {
 
   II_S_cortege: P({ title: "Le cortège", place: null,
     text: [
-      "Vous rattrapez la cour au deuxième jour, au gué de Marsanne. Elle avance lentement : quarante voitures, deux cents cavaliers, les chariots des cuisines, les musiciens. Personne ne chante. Les bannières pendent.",
+      "Vous rattrapez la cour au deuxième jour, au gué de Marsanne. Elle avance lentement, une lieue à l'heure : quarante voitures, deux cents cavaliers, les chariots des cuisines, les musiciens. La cour, d'ordinaire, chante en route. Aujourd'hui elle se tait, et les bannières pendent.",
       { if: { has: "nuit:ysolde=reine" }, text: "La voiture de la reine est fermée, rideaux tirés. Huit gardes l'entourent à cheval, l'épée au clair, et ils regardent les bas-côtés comme si la neige allait en sortir." },
       { if: { not: { has: "nuit:ysolde=reine" } }, text: "La voiture de la reine est ouverte. Isaure y est assise, droite, sans couronne, et regarde les vignes. De loin, on croirait qu'elle sourit." },
       "Derrière elle, à la place qui revient d'ordinaire au chancelier, une voiture noire, sans armes, aux rideaux de cuir. Quatre gardes en noir marchent à côté, à pied. Ils ne transpirent pas.",
@@ -73,7 +73,7 @@ module.exports = {
   II_S_coffre: P({ title: "La voiture noire", place: null,
     text: [
       "À midi, la cour s'arrête sous les platanes du gué. Les gardes noirs ne mangent pas. Ils restent debout autour de la voiture, les yeux sur la route, le dos aux vignes.",
-      "Par la fente d'un rideau de cuir, tu vois l'intérieur. Mordace n'y est pas. Il y a un banc, une écritoire fixée au plancher, et, sous le banc, un coffre de fer noir, cerclé, de la taille d'un enfant couché. Trois serrures. Pas une seule armoirie.",
+      "Par la fente d'un rideau de cuir, tu vois l'intérieur. Mordace n'y est pas. Il y a un banc, une écritoire fixée au plancher, et, sous le banc, un coffre de fer noir, cerclé, de la taille d'un enfant couché. Trois serrures de Varre. Aucune armoirie. Les ressorts de la voiture sont tassés d'un bon pouce du côté du coffre.",
       "Le coffre est couvert de givre.",
     ],
     choices: [{ label: "T'éclipser avant que la cour ne reparte", to: "@route" }] }),
@@ -81,7 +81,7 @@ module.exports = {
   II_S_repere: P({ title: "Un garde noir", place: null,
     text: [
       "Tu as fait trois pas hors des vignes quand l'un des gardes noirs tourne la tête vers toi. Il reste immobile, muet. Il te regarde, simplement, d'un regard vide.",
-      "Tu recules. Il te laisse reculer. À la halte du soir, il a quitté sa place à côté de la voiture. Tu ne sais pas où il est allé.",
+      "Tu recules. Il te laisse reculer. À la halte du soir, il a quitté sa place à côté de la voiture. Sa destination reste un mystère.",
     ],
     choices: [{ label: "Reprendre la route, plus vite", back: "@route" }] }),
 
@@ -96,7 +96,7 @@ module.exports = {
   II_S_porte: P({ title: "La porte de Mer", place: null,
     fx: { questSeen: "II_S_tournoi" },
     text: [
-      "Vasselin, au soir du troisième jour. Les murailles blanches, les tours rondes, et derrière, la forêt de mâts sur la mer. La cour est entrée la veille. Sur la porte, on a cloué des affiches neuves : *Grand Tournoi de la Paix, dans dix jours, sur le pré du Roi. Au vainqueur, une grâce de la main de la reine.*",
+      "Vasselin, au soir du troisième jour. Les murailles blanches, les tours rondes, et derrière, la forêt de mâts sur la mer : une soixantaine de navires à quai, dont un tiers sous pavillon de Corvanne. La cour est entrée la veille. Sur la porte, on a cloué des affiches neuves : *Grand Tournoi de la Paix, dans dix jours, sur le pré du Roi. Au vainqueur, une grâce de la main de la reine.*",
       { if: WANTED, text: "À côté, une autre affiche, avec un portrait au fusain, assez mauvais pour qu'on puisse en rire et assez bon pour qu'on n'en rie pas : *Ysolde, dite de Brenne, déserteuse. Récompense.*" },
       "Aux portes, la garde contrôle les entrants, un par un. On demande les noms. On les écrit dans un registre.",
     ],
@@ -120,7 +120,7 @@ module.exports = {
 
   II_S_vasselin: P({ title: "Vasselin", place: "vasselin", hub: true,
     text: [
-      { first: true, text: "Vous prenez deux chambres à l'Ancre, une auberge de mariniers derrière la halle aux poissons, où personne ne vient de la cour. La patronne te regarde longtemps, puis ne pose pas de questions." },
+      { first: true, text: "Vous prenez deux chambres à l'Ancre, une auberge de mariniers derrière la halle aux poissons, où l'odeur suffit à écarter la cour. La patronne te regarde longtemps, puis garde ses questions pour elle." },
       "Vasselin est comme tu l'as laissée, et pas tout à fait. Les cloches sonnent les heures. Les marchands crient. Mais on parle bas, aux carrefours, et chaque soir, un peu plus de gens s'arrêtent au milieu d'une phrase et regardent le nord.",
       "Au-dessus des toits, dans la haute ville, la Tour des Archives royales. Il y a de la lumière à toutes les fenêtres, la nuit comme le jour.",
     ],
@@ -154,7 +154,7 @@ module.exports = {
     fx: { meet: "ermengarde", questSeen: "II_S_archives" },
     text: [
       { if: { has: "sud:ermengarde_gue" }, text: "On te laisse passer aux cuisines, comme elle l'avait dit. Ermengarde t'attend dans le cellier, entre les jambons, une chandelle à la main." },
-      { if: { not: { has: "sud:ermengarde_gue" } }, text: "Tu passes par les cuisines, où une marmitonne te reconnaît et te laisse entrer pour un baiser sur la joue. Ermengarde arrive un quart d'heure plus tard, dans le cellier, entre les jambons, une chandelle à la main. Elle n'a pas l'air surprise." },
+      { if: { not: { has: "sud:ermengarde_gue" } }, text: "Tu passes par les cuisines, où une marmitonne te reconnaît et te laisse entrer pour un baiser sur la joue. Ermengarde arrive un quart d'heure plus tard, dans le cellier, entre les jambons, une chandelle à la main. Elle a l'air de t'attendre." },
       "« Il a pris la Tour des Archives, dit-elle. Le Greffier-Majeur. Le lendemain de notre retour. La reine a signé. Il a renvoyé les archivistes, sauf deux, qui ne descendent plus. Il a fait monter son coffre de fer dans la grande salle, par six hommes, avec des cordes. Il n'en sort pas. »",
       "« La reine dort. Le jour. Elle se réveille à la nuit, elle demande qui elle est, on le lui dit, elle demande Mordace, et il vient. Ils parlent jusqu'à l'aube. Le matin, elle signe. »",
       { if: { has: "lisandre:lettre" }, text: "Tu gardes pour toi la lettre au sceau noir. Elle te regarde comme si elle devinait ton secret." },
@@ -185,9 +185,9 @@ module.exports = {
 
   II_S_tournoi: P({ title: "Le pré du Roi", place: "vasselin",
     text: [
-      "Sur le pré du Roi, entre la muraille et la mer, cent charpentiers montent des tribunes. Des lices, des tentes rayées, des mâts pour les bannières. Un héraut lit l'ordonnance toutes les heures, à voix forte, à des gens qui ne l'écoutent plus.",
+      "Sur le pré du Roi, entre la muraille et la mer, cent charpentiers montent des tribunes. Tu estimes les gradins à trois mille places, et la forêt de pins qu'il a fallu pour les bâtir. Des lices, des tentes rayées, des mâts pour les bannières. Un héraut lit l'ordonnance toutes les heures, à voix forte, à des gens qui ont cessé de l'écouter.",
       "*Joute, mêlée et épreuve libre. Ouvert à quiconque se présente sous un blason, noble ou non, d'Esquarre ou d'ailleurs, en signe de la paix. Le vainqueur recevra de la main de la reine la grâce qu'il demandera, dans la grande salle des Archives royales.*",
-      "Un clerc, derrière une table, inscrit les champions. Un blason, un nom, un parrain. Il a déjà trois pages.",
+      "Un clerc, derrière une table, inscrit les champions. Un blason, un nom, un parrain. Il a déjà trois pages, à vingt lignes la page.",
     ],
     choices: [
       { label: "Inscrire Ysolde, sous un heaume fermé et un blason qui n'est pas le sien", hide: { not: { present: "ysolde" } }, fx: { flag: "sud:champion=ysolde", conf: { ysolde: 5 } }, to: "II_S_inscription" },
@@ -204,7 +204,7 @@ module.exports = {
       { with: "pie", text: "Pie dessine le blason sur le registre, à main levée, sans hésiter : d'azur à la mouette d'argent. Le clerc demande de quelle maison c'est. « D'une très vieille », dit Pie, et le clerc l'écrit." },
       { without: "pie", text: "Tu inventes un blason, d'azur à la mouette d'argent. Le clerc demande de quelle maison c'est. Tu dis : « D'une très vieille », et il l'écrit." },
       { if: { not: { has: "lisandre:disgrace" } }, text: "Pour le parrain, tu signes de ton nom. Le clerc lève la tête, te reconnaît, et sourit pour la première fois de la journée." },
-      { if: { has: "lisandre:disgrace" }, text: "Pour le parrain, tu signes du nom de ta mère, que personne à la cour n'a jamais entendu." },
+      { if: { has: "lisandre:disgrace" }, text: "Pour le parrain, tu signes du nom de ta mère, un nom inconnu de toute la cour." },
       "Le clerc souffle sur l'encre. En haut de la page, une note de sa main, pour lui-même, que tu lis à l'envers : *Tous les noms, chaque soir, à la Tour.*",
     ],
     choices: [{ back: "II_S_vasselin" }] }),
@@ -224,8 +224,8 @@ module.exports = {
 
   II_S_port_chant: P({ title: "Le cri", place: "vasselin",
     text: [
-      "Ce n'est pas une chanson. C'est un cri de marché, trois notes, des noms de poissons, un prix. Ta mère le criait cent fois par matin. Tu le cries avec sa voix, qui est la tienne, rauque et trop grave.",
-      "La halle se tait. Puis, au fond, quelqu'un répond, avec le cri de l'étal d'en face. Puis un autre. Pendant une minute, la halle entière crie comme il y a vingt ans, et les vieux pleurent en riant.",
+      "C'est moins une chanson qu'un cri de marché : trois notes, des noms de poissons, un prix. Ta mère le criait cent fois par matin. Tu le cries avec sa voix, qui est la tienne, rauque et trop grave.",
+      "La halle se tait. Puis, au fond, quelqu'un répond, avec le cri de l'étal d'en face. Puis un autre. Le temps d'un Ave, la halle entière crie comme il y a vingt ans, et les vieux pleurent en riant.",
       "La vieille femme te serre contre elle. Elle sent le sel et la seiche. « Les bateaux, dit-elle à ton oreille. Si un jour tu as besoin d'un bateau, de nuit, sans lanterne. Demande Jacotte. »",
     ],
     choices: [{ back: "II_S_vasselin" }] }),
@@ -240,7 +240,7 @@ module.exports = {
 
   II_S_mouettes: P({ title: "Les Mouettes", place: "vasselin",
     text: [
-      "Pie a trouvé les voleurs de Vasselin en une heure, comme on trouve de l'eau en descendant. Ils se réunissent dans une cale échouée, au bout du port, sous un plancher pourri. Ils s'appellent la Confrérie des Mouettes, et leur prévôte est une femme sans âge qui tricote.",
+      "Pie a trouvé les voleurs de Vasselin en une heure, comme on trouve de l'eau en descendant. Ils se réunissent dans une cale échouée, au bout du port, sous un plancher pourri. Ils s'appellent la Confrérie des Mouettes, et leur prévôte est une femme sans âge qui tricote une chaussette, longue déjà d'une aune, sans jamais tourner le talon.",
       "« Pallanche, dit-elle, en regardant Pie. On en a entendu parler. Les toits blancs. » Elle compte ses mailles. « La Tour, ici, personne n'y entre plus. Deux des nôtres ont essayé. On les a retrouvés sur le quai, le lendemain. Ils allaient bien. Ils ne savaient plus qu'ils étaient des Mouettes. »",
     ],
     choices: [
@@ -277,7 +277,7 @@ module.exports = {
 
   II_S_hylas: P({ title: "Le pied de la Tour", place: "vasselin",
     text: [
-      "Au pied de la Tour des Archives, il y a une petite place carrée, avec une fontaine sèche. Hylas s'arrête au milieu et lève la tête, comme s'il voyait.",
+      "Au pied de la Tour des Archives, il y a une petite place carrée, avec une fontaine sèche dont la vasque garde une ligne de calcaire à mi-hauteur, souvenir de l'eau. Hylas s'arrête au milieu et lève la tête, comme s'il voyait.",
       "« Écoute », dit-il. Tu écoutes. Le bruit de la ville. Et, très loin au-dessus, si faible que tu crois l'imaginer, un grattement régulier. Une plume, sur du papier. Elle ne s'arrête pas.",
       "« Il écrit, dit Hylas. Il n'a jamais su s'arrêter d'écrire. Il était mon élève. Le meilleur. » Il reste là longtemps. Puis : « Il y a un grand registre dans ce coffre. Pas une copie. Celui que j'ai cherché à Pallanche. Il l'a apporté ici, pour être près d'elle. »",
     ],
@@ -304,7 +304,7 @@ module.exports = {
   // the inn: end of chapter 1
   II_S_nuit: P({ takes: "evening", title: "L'Ancre", place: "vasselin",
     text: [
-      { first: true, text: "Le soir, à l'Ancre, on mange de la soupe de poisson à une table de mariniers qui jouent aux osselets. Personne ne vous regarde. Dehors, la mer monte contre le quai." },
+      { first: true, text: "Le soir, à l'Ancre, on mange de la soupe de poisson à une table de mariniers qui jouent aux osselets. On vous laisse à votre soupe. Dehors, la mer monte contre le quai." },
       { again: true, text: "Les mariniers jouent toujours aux osselets. La chandelle a baissé d'un doigt." },
       { if: { has: "sud:champion=ysolde" }, text: "Dans dix jours, le pré du Roi, et un heaume fermé." },
       { if: { item: "plan_tour" }, text: "Le plan de la Tour est roulé sous ton lit." },
@@ -334,7 +334,7 @@ module.exports = {
 
   II_S_nuit_pie: P({ title: "Les poches", place: "vasselin",
     text: [
-      "Pie vide ses poches sur la table : une cuillère d'argent de l'auberge à l'enseigne blanche, deux boutons de nacre, une bague de chanteuse, un sifflet de héraut. Il les range par taille.",
+      "Pie vide ses poches sur la table : une cuillère d'argent de l'auberge à l'enseigne blanche, deux boutons de nacre, une bague de chanteuse, un sifflet de héraut. Il les range par taille, puis par valeur, et l'ordre change peu.",
       "La bague est la tienne. Tu ne l'as pas sentie partir. Il te la rend avec un grand sourire. « Pour m'entraîner. La Tour, ça va demander de l'entraînement. »",
     ],
     choices: [{ fx: { conf: { pie: 5 } }, back: "II_S_nuit" }] }),

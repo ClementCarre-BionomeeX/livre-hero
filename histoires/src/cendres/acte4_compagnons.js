@@ -8,16 +8,16 @@ module.exports = {
   IV_C_ysolde: P({ title: "La crypte de Brenne", place: "brenne",
     fx: { questSeen: "IV_C_ysolde" },
     text: [
-      "La nuit, Ysolde prend une lanterne et descend sous le fort. Elle te fait signe de la suivre. Un escalier taillé dans le rocher, une porte de chêne, une crypte basse où dorment les seigneurs de Brenne, couchés sur leurs tombeaux, les mains jointes sur leurs épées de pierre.",
-      "« Je venais ici enfant, dit-elle. Mon père m'apprenait leurs noms. Tous ont le loup sur la tour. » Elle lève la lanterne vers le fond. « Sauf le premier. Il n'a rien. Son écu est lisse. On disait qu'il avait été effacé par l'humidité. »",
-      "Le premier tombeau. Un jeune homme, maigre, le visage d'un garçon. Sur son écu de pierre, rien. Une surface polie, trop polie.",
+      "La nuit, Ysolde prend une lanterne et descend sous le fort. Elle te fait signe de la suivre. Un escalier taillé dans le rocher, trente marches suintantes, une porte de chêne bardée de fer, une crypte basse où dorment les seigneurs de Brenne, couchés sur leurs tombeaux, les mains jointes sur leurs épées de pierre.",
+      "« Je venais ici enfant, dit-elle. Mon père m'apprenait leurs noms. Tous ont le loup sur la tour. » Elle lève la lanterne vers le fond. « Sauf le premier. Son écu est lisse. On disait qu'il avait été effacé par l'humidité. »",
+      "Le premier tombeau. Un jeune homme, maigre, le visage d'un garçon. Sur son écu de pierre, une surface polie, trop polie, plus claire d'un ton que le reste du tombeau.",
     ],
     choices: [{ label: "Approcher la lanterne", to: "IV_C_ysolde2" }] }),
 
   IV_C_ysolde2: P({ title: "L'écu lisse", place: "brenne",
     text: [
       "À la lumière rasante, sous le poli, on voit un dessin gratté. Des bois. Une tête. Un cerf.",
-      { if: { has: "proces:cerf=rendu" }, text: "Ysolde le sait déjà. Elle le sait depuis une nuit d'hiver où elle s'est réveillée avec l'odeur de la suie dans le nez. Elle pose la main à plat sur l'écu. « Raoul, dit-elle. Dix-neuf ans. Il a pleuré sur un muret. » Elle ne retire pas sa main." },
+      { if: { has: "proces:cerf=rendu" }, text: "Ysolde le sait déjà. Elle le sait depuis une nuit d'hiver où elle s'est réveillée avec l'odeur de la suie dans le nez. Elle pose la main à plat sur l'écu. « Raoul, dit-elle. Dix-neuf ans. Il a pleuré sur un muret. » Elle garde la main sur la pierre." },
       { if: { not: { has: "proces:cerf=rendu" } }, text: "Ysolde passe le doigt dans les rainures. « Un cerf, dit-elle. Pourquoi est-ce qu'on aurait effacé un cerf ? » Elle se tourne vers toi. Tu sais pourquoi. Tu l'as été, une heure, dans la glace de Valcendre." },
     ],
     choices: [
@@ -27,7 +27,7 @@ module.exports = {
     ] }),
 
   IV_C_ysolde_dit: P({ title: "Raoul", place: "brenne",
-    text: ["Tu lui dis tout. La barque, la torche, la maison ronde, la vieille femme qui chantait les noms et qui n'a pas arrêté. Le premier coup, le seul qui coûte. Le muret, à l'aube. Elle écoute sans bouger, la main sur l'écu. À la fin, elle dit : « Merci. » Tu ne sais pas pour quoi."],
+    text: ["Tu lui dis tout. La barque, la torche, la maison ronde, la vieille femme qui chantait les noms et qui n'a pas arrêté. Le premier coup, le seul qui coûte. Le muret, à l'aube. Elle écoute, immobile, la main sur l'écu. À la fin, elle dit : « Merci. » Pour quoi ? Tu l'ignores."],
     choices: [{ label: "Attendre qu'elle décide", to: "IV_C_ysolde_choix" }] }),
 
   IV_C_ysolde_choix: P({ title: "Les armes", place: "brenne",
@@ -43,7 +43,7 @@ module.exports = {
     choices: [{ back: "IV_br" }] }),
 
   IV_C_ysolde_deux: P({ title: "Le loup et le cerf", place: "brenne",
-    text: ["Elle ne touche pas au tombeau. Elle prend son écu à elle, celui de la compagnie, et sous le loup sur la tour, elle grave un petit cerf, dans le coin, de travers. « Le loup, c'est ce qu'on a voulu être, dit-elle. Le cerf, c'est ce qu'on a été. Je porte les deux. » Le lendemain, Gautier le voit, et se tait, et le surlendemain, il y a un petit cerf gravé sur quarante écus."],
+    text: ["Elle laisse le tombeau tel quel. Elle prend son écu à elle, celui de la compagnie, et sous le loup sur la tour, elle grave un petit cerf, dans le coin, de travers. « Le loup, c'est ce qu'on a voulu être, dit-elle. Le cerf, c'est ce qu'on a été. Je porte les deux. » Le lendemain, Gautier le voit, et se tait, et le surlendemain, il y a un petit cerf gravé sur quarante écus."],
     choices: [{ back: "IV_br" }] }),
 
   IV_C_ysolde_lisse: P({ title: "Lisse", place: "brenne",
@@ -54,8 +54,8 @@ module.exports = {
   IV_C_pie: P({ title: "L'atelier du faussaire", place: "pallanche",
     fx: { questSeen: "IV_C_pie" },
     text: [
-      "Pie t'emmène, un soir, dans une ruelle derrière les Teinturiers, devant une porte basse au heurtoir en forme de main. Il ne frappe pas tout de suite.",
-      { if: { has: "corneille:noye" }, text: "« Il habitait ici, dit-il. Maître Corneille. » Il pousse la porte. L'atelier est vide, poussiéreux, les outils rangés sur l'établi comme si quelqu'un allait revenir. Personne ne reviendra. Pie le sait mieux que quiconque. Il a encore, certaines nuits, la vase de la Pallante sous les ongles." },
+      "Pie t'emmène, un soir, dans une ruelle derrière les Teinturiers, devant une porte basse au heurtoir en forme de main, le bronze des doigts usé jusqu'au jaune. Il attend avant de frapper.",
+      { if: { has: "corneille:noye" }, text: "« Il habitait ici, dit-il. Maître Corneille. » Il pousse la porte. L'atelier est vide, poussiéreux, les outils rangés sur l'établi comme si quelqu'un allait revenir. Le retour n'aura pas lieu. Pie le sait mieux que quiconque. Il a encore, certaines nuits, la vase de la Pallante sous les ongles." },
       { if: { not: { has: "corneille:noye" } }, text: "« Il habite ici, dit-il. Maître Corneille. Celui qui m'a appris. Celui qui a vendu Linette. » Il frappe. Une voix de vieillard, à l'intérieur, dit d'entrer, que c'est ouvert, toujours ouvert, que tout a déjà été volé." },
     ],
     choices: [
@@ -65,24 +65,24 @@ module.exports = {
 
   IV_C_pie_corneille: P({ title: "Maître Corneille", place: "pallanche",
     text: [
-      "Il est assis devant l'établi, sous une lampe, et il grave des jetons de plomb. Des faux. Les plus beaux faux jetons de Pallanche, la plume et la clé dans le bon sens, le plomb dur. Il a quatre-vingts ans, des mains qui ne tremblent pas.",
+      "Il est assis devant l'établi, sous une lampe, et il grave des jetons de plomb. Des faux. Les plus beaux faux jetons de Pallanche, la plume et la clé dans le bon sens, le plomb dur. Il a quatre-vingts ans, des mains fermes comme celles d'un homme de quarante.",
       "« Le petit, dit-il sans lever les yeux. Tu travailles pour lui, maintenant, à ce qu'on dit. Comme moi, avant. »",
       { if: { has: "linette:iv=libre" }, text: "Pie dit : « Elle est dehors. Linette. Elle sait lire. Elle sait qui elle est. » Corneille arrête de graver. Il pose le burin. Il se tait longtemps. Puis il dit : « Bien. » Et sa voix se casse sur ce seul mot." },
-      { if: { not: { has: "linette:iv=libre" } }, text: "Pie dit : « Elle est encore là-haut. Linette. » Corneille ne lève pas les yeux. « Je sais. Je la vois passer, le dimanche, en rang. Je sais ce que j'ai fait. Je grave des jetons pour ne pas y penser. »" },
+      { if: { not: { has: "linette:iv=libre" } }, text: "Pie dit : « Elle est encore là-haut. Linette. » Corneille garde les yeux sur son burin. « Je sais. Je la vois passer, le dimanche, en rang. Je sais ce que j'ai fait. Je grave des jetons pour ne pas y penser. »" },
     ],
     choices: [{ label: "Laisser Pie parler", to: "IV_C_pie_matrice" }] }),
 
   IV_C_pie_matrice: P({ title: "La matrice", place: "pallanche",
     text: [
-      "Pie ne crie pas. Il regarde les outils. Il dit : « Le sceau de la Chancellerie. Le vrai. Tu en as fait une matrice, autrefois, pour lui, quand il a commencé. Je le sais, je t'ai vu. »",
+      "Pie garde sa voix basse. Il regarde les outils. Il dit : « Le sceau de la Chancellerie. Le vrai. Tu en as fait une matrice, autrefois, pour lui, quand il a commencé. Je le sais, je t'ai vu. »",
       "Corneille ouvre un tiroir, sous l'établi. Il en sort un petit cylindre de bronze, enveloppé dans un chiffon. « Je l'ai gardée, dit-il. Je ne sais pas pourquoi. Pour un jour comme celui-là, peut-être. » Il la pose dans la main de Pie. « Avec ça, tu peux écrire n'importe quoi dans son livre, et il croira l'avoir écrit de sa main. »",
-      "Pie referme la main dessus. Il regarde le vieil homme. Il ne lui pardonne pas. Il ne lui dit pas non plus qu'il ne lui pardonne pas.",
+      "Pie referme la main dessus. Il regarde le vieil homme. Il lui refuse son pardon, et garde ce refus pour lui.",
     ],
     choices: [{ label: "Partir", fx: { item: "matrice_sceau", flag: "pie:matrice", quest: "IV_C_pie", conf: { pie: 10 }, ep: ["perso", 1500] }, to: "IV_pal" }] }),
 
   IV_C_pie_vide: P({ title: "L'atelier vide", place: "pallanche",
     text: [
-      "Pie fait le tour de l'atelier sans rien toucher. Il s'arrête devant l'établi. Il ouvre le tiroir du dessous, celui que Corneille fermait toujours à clé, et qui ne l'est plus.",
+      "Pie fait le tour de l'atelier, les mains dans le dos. Il s'arrête devant l'établi. Il ouvre le tiroir du dessous, celui que Corneille fermait toujours à clé, et qui est ouvert.",
       "Dedans, un petit cylindre de bronze, dans un chiffon. La matrice du sceau de la Chancellerie, celle que Corneille avait faite pour Mordace, autrefois. Et, sous le chiffon, un papier plié. Une écriture penchée, tremblée : *Pour le petit. S'il revient. Je sais ce que j'ai fait.*",
       "Pie lit le papier deux fois. Il le plie. Il le met dans sa chemise, contre la peau. Il prend la matrice.",
       "« Je ne savais pas qu'il savait écrire autre chose que des faux », dit-il. C'est tout ce qu'il dit, ce soir-là.",
@@ -100,7 +100,7 @@ module.exports = {
 
   IV_C_hylas_marion: P({ title: "Rue des Bassins", place: "pallanche",
     text: [
-      "Elle lave du linge au bassin, les manches retroussées, les bras rouges. Elle a trente ans. Elle voit Hylas, sa canne, ses yeux blancs, et elle s'arrête de frotter.",
+      "Elle lave du linge au bassin, les manches retroussées, les bras rouges jusqu'au coude, la lessive de trois maisons empilée à côté d'elle. Elle a trente ans. Elle voit Hylas, sa canne, ses yeux blancs, et elle s'arrête de frotter.",
       { if: { has: "hylas:annule" }, text: "« Vous, dit-elle. Le vieux greffier. Celui qui a déchiré mon reçu. » Elle s'essuie les mains. « Je vous en ai voulu, vous savez. J'ai gardé la nuit. Je l'ai gardée tout l'hiver. Et au printemps, je suis partie. Avec les enfants. Je n'aurais pas pu partir si je ne m'étais pas souvenue pourquoi. » Elle a un rire bref. « Je ne vous remercie pas. Mais je suis partie. »" },
       { if: { has: "marion:garde" }, text: "« Vous, dit-elle. Le vieux greffier. Celui qui m'a demandé si j'étais sûre. » Elle s'essuie les mains. « Je n'étais pas sûre. Je suis repartie avec mes deux sous et ma nuit. Je l'ai encore. Je suis partie de chez lui au printemps. » Elle reprend son linge. « Vous m'avez juste posé une question. C'est beaucoup, une question. »" },
       { if: { not: { any: [{ has: "hylas:annule" }, { has: "marion:garde" }] } }, text: "Pour elle, il est un inconnu, et c'est bien naturel. Elle a cédé sa nuit, il y a un an, pour deux sous. Elle a un bleu sur la pommette. Elle vit toujours avec lui. Elle reste, par habitude. Sa raison de partir, elle l'a oubliée." },
@@ -112,9 +112,9 @@ module.exports = {
 
   IV_C_hylas_bocal: P({ title: "Le bocal", place: "pallanche",
     text: [
-      "Hylas lui dit, très doucement, qu'elle a cédé quelque chose, il y a un an, et que c'est dans un bocal, au premier étage de la tour, avec son nom sur l'étiquette. Il ne lui dit pas quoi.",
+      "Hylas lui dit, très doucement, qu'elle a cédé quelque chose, il y a un an, et que c'est dans un bocal, au premier étage de la tour, avec son nom sur l'étiquette. Il garde le quoi pour lui.",
       "Elle le regarde longtemps. « Est-ce que c'était important ? »",
-      "Hylas réfléchit. Il ne ment jamais. « Je crois que c'était la chose la plus importante que vous sachiez. »",
+      "Hylas réfléchit. Il dit toujours vrai. « Je crois que c'était la chose la plus importante que vous sachiez. »",
       "Elle hoche la tête. Elle reprend son linge. Quand vous partez, elle frotte toujours, mais beaucoup plus lentement, comme quelqu'un qui pense à autre chose.",
     ],
     choices: [{ fx: { quest: "IV_C_hylas", flag: "marion:iv=sait", ep: ["perso", 1200] }, back: "IV_pal" }] }),
@@ -123,7 +123,7 @@ module.exports = {
   IV_C_lisandre: P({ title: "La chanson de Lisse", place: "brenne",
     fx: { questSeen: "IV_C_lisandre" },
     text: [
-      "Au retour du camp de Corvanne, Lisandre ne dort pas. Elle s'assied sur la berge, avec son luth, face au pont, et elle accorde, et elle désaccorde, et elle recommence.",
+      "Au retour du camp de Corvanne, Lisandre veille. Elle s'assied sur la berge, avec son luth, face au pont, et elle accorde, et elle désaccorde, et elle recommence.",
       "« Il faut une chanson, dit-elle. Pour demain. Pas une ballade de cour. Une chanson que les deux rives connaissent déjà, et à laquelle il manque un couplet. » Elle pince une corde. « La chanson des mariniers, celle de Rodric. Elle a sept couplets. On n'en chante que six, des deux côtés. Le septième, personne ne le sait plus. »",
     ],
     choices: [
@@ -141,7 +141,7 @@ module.exports = {
     choices: [{ back: "IV_br" }] }),
 
   IV_C_lisandre_rate: P({ title: "Six couplets", place: "brenne",
-    text: ["Vous cherchez toute la nuit. Rien ne vient. Lisandre finit par poser le luth dans l'herbe. « Tant pis, dit-elle. On chantera les six. Les gens savent bien qu'il en manque un. C'est peut-être ça, la chanson. »"],
+    text: ["Vous cherchez toute la nuit, en vain. Lisandre finit par poser le luth dans l'herbe. « Tant pis, dit-elle. On chantera les six. Les gens savent bien qu'il en manque un. C'est peut-être ça, la chanson. »"],
     choices: [{ back: "IV_br" }] }),
 
   // ---------------------------------------------------------------- The Sans-Nom: Ilse
@@ -157,7 +157,7 @@ module.exports = {
 
   IV_C_sansnom2: P({ title: "Les enfants", place: "brenne",
     text: [
-      "Il passe l'après-midi avec elle. Elle ne l'oublie pas. Les autres enfants du village viennent, un par un, et certains l'oublient, et d'autres non. Ceux qui ne l'oublient pas sont les plus petits.",
+      "Il passe l'après-midi avec elle. Elle garde son souvenir. Les autres enfants du village viennent, un par un, et certains l'oublient, et d'autres non. Ceux qui ne l'oublient pas sont les plus petits.",
       "Le soir, il vient te trouver. « Les petits, dit-il. Ceux qui n'ont pas encore appris à oublier. Ils me gardent. » Il a l'air de quelqu'un qui a reçu un cadeau trop grand et qui ne sait pas où le poser.",
       { if: { has: "sansnom:page" }, text: "« Ildaën, dit-il encore. Elle m'a demandé mon nom. Je le lui ai dit. Elle l'a répété. Elle l'a donné à sa poupée. » Il rit. C'est la première fois que tu l'entends rire comme ça." },
     ],
@@ -167,7 +167,7 @@ module.exports = {
   IV_C_gaspard: P({ title: "Le four de campagne", place: "brenne",
     fx: { questSeen: "IV_C_gaspard" },
     text: [
-      "Gaspard a trouvé le four de campagne de l'armée, derrière les cuisines, et il l'a pris sans demander à personne. Personne n'ose lui demander de le rendre : il est grand, blanc, et il a une pelle à pain.",
+      "Gaspard a trouvé le four de campagne de l'armée, derrière les cuisines, un four de briques sur roues qui cuit cent miches à la fournée, et il l'a pris de son propre chef. On le lui laisse : il est grand, blanc, et il a une pelle à pain.",
       "« Demain, dit-il, ils vont se battre le ventre vide. Les deux côtés. On se bat mal le ventre vide. On se bat trop bien. » Il pétrit. « Je fais du pain pour huit mille. Et pour huit mille autres. Il me faut de la farine. Et quelqu'un pour passer la rivière avec. »",
     ],
     choices: [
@@ -180,19 +180,19 @@ module.exports = {
     text: [
       { with: "rodric", text: "Toute la nuit, le four brûle. À trois heures, une barque traverse la Lisse en aval du pont, chargée de pains chauds, avec Rodric aux rames. Les sentinelles de Corvanne la laissent accoster." },
       { without: "rodric", text: "Toute la nuit, le four brûle. À trois heures, une barque traverse la Lisse en aval du pont, chargée de pains chauds, un passeur de Hautvent aux rames. Les sentinelles de Corvanne la laissent accoster." },
-      "À l'aube, des deux côtés, les soldats ont dans la poche le même pain à l'anis et au miel, le pain de la fête des foins de Sauvelune. Ils ne savent pas d'où il vient. Ils savent qu'il est bon.",
+      "À l'aube, des deux côtés, les soldats ont dans la poche le même pain à l'anis et au miel, le pain de la fête des foins de Sauvelune. D'où vient-il ? Mystère. Il est bon, ça, ils le savent.",
     ],
     choices: [{ back: "IV_br" }] }),
 
   IV_C_gaspard_moitie: P({ title: "Le pain", place: "brenne",
-    text: ["Il n'y a de farine que pour un côté. Gaspard fait le pain quand même, pour le camp d'Esquarre. Il en garde une miche, une seule, qu'il pose au bord de la rivière, face à l'autre rive, sur une pierre. Au matin, elle n'y est plus."],
+    text: ["La farine suffit pour un côté. Gaspard fait le pain quand même, pour le camp d'Esquarre. Il en garde une miche, une seule, qu'il pose au bord de la rivière, face à l'autre rive, sur une pierre. Au matin, la pierre est vide."],
     choices: [{ back: "IV_br" }] }),
 
   // ---------------------------------------------------------------- Rodric: three bells
   IV_C_rodric: P({ title: "Trois cloches", place: "brenne",
     fx: { questSeen: "IV_C_rodric" },
     text: [
-      "Rodric décout ses trois cloches de son pourpoint, une par une, et les pose sur la table de Maëlle. Trois petites cloches de bronze, de celles qu'on met au cou des chèvres.",
+      "Rodric décout ses trois cloches de son pourpoint, une par une, et les pose sur la table de Maëlle. Trois petites cloches de bronze, de celles qu'on met au cou des chèvres, grosses comme une noix, cabossées.",
       "« Je les ai prises sur le pont, dit-il. Le quatorze brumaire. Après. Il y avait des chèvres mortes, avec leurs cloches. Je les ai coupées. Trois. Je ne sais pas pourquoi. Je les porte depuis. »",
       "Maëlle regarde les cloches. Elle en prend une. Elle la retourne. Gravées à l'intérieur, à la pointe d'un clou, des initiales.",
     ],
@@ -200,7 +200,7 @@ module.exports = {
 
   IV_C_rodric2: P({ title: "Les initiales", place: "brenne",
     text: [
-      "Trois paires d'initiales. Maëlle les lit. Elle connaît deux d'entre elles : des familles de Lisse-en-Corvanne, qui gardaient des chèvres au-dessus du village. La troisième, elle ne la connaît pas.",
+      "Trois paires d'initiales. Maëlle les lit. Elle connaît deux d'entre elles : des familles de Lisse-en-Corvanne, qui gardaient des chèvres au-dessus du village. La troisième lui est inconnue.",
       { if: { has: "iii:lisse_noms" }, text: "Toi, tu la connais. Tu as porté leurs trois cents noms. Tu cherches dans ta mémoire. Une petite fille avec une chèvre. Tu lui dis le nom." },
       "Rodric recoud les cloches sur son épaule, une par une, très soigneusement. « Je les rendrai, dit-il. Après demain. Aux familles. S'il en reste. »",
     ],

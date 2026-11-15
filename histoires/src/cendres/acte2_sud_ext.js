@@ -26,7 +26,7 @@ module.exports = {
       { label: "« Non. Et un jour, ça servira. »", fx: { conf: { linette: 10 } }, to: "II_S2_nuit_linette_non" },
     ] }),
   II_S2_nuit_linette_oui: P({ title: "Oublier", place: "vasselin",
-    text: ["Elle hoche la tête. Elle continue de recopier. « Moi aussi, j'espère », dit-elle. Mais elle ne s'arrête pas d'écrire, et la colonne descend, droite, régulière, jusqu'en bas de l'affiche."],
+    text: ["Elle hoche la tête. Elle continue de recopier. « Moi aussi, j'espère », dit-elle. Mais le crayon court toujours, et la colonne descend, droite, régulière, jusqu'en bas de l'affiche."],
     choices: [{ label: "La laisser à sa page", to: "II_S2_nuit" }] }),
   II_S2_nuit_linette_non: P({ title: "Ça servira", place: "vasselin",
     text: ["Elle lève les yeux. Elle te regarde longtemps, avec l'air de quelqu'un qui vérifie une écriture. « D'accord », dit-elle. Et elle se remet à écrire, plus vite, avec un petit pli au front, comme une greffière."],
@@ -35,7 +35,7 @@ module.exports = {
   // ---------------------------------------------------------------- Le camp des champions
   II_S3_cartes: P({ title: "La liseuse de cartes", place: "vasselin",
     text: [
-      "Entre deux tentes, une femme en châle rouge, assise sur un tabouret, tire les cartes aux écuyers pour un sou. Elle a un jeu usé jusqu'à la trame, avec des figures que tu ne connais pas : la Gerbe, la Barque, la Tour, le Cerf, la Plume croisée d'une Clé.",
+      "Entre deux tentes, une femme en châle rouge, assise sur un tabouret, tire les cartes aux écuyers pour un sou. Elle a un jeu usé jusqu'à la trame, aux coins arrondis par trois générations de pouces, avec des figures que tu vois pour la première fois : la Gerbe, la Barque, la Tour, le Cerf, la Plume croisée d'une Clé.",
       "« Une carte pour la chanteuse ? » Elle étale le jeu en éventail, faces cachées. « Une seule. Les autres, on ne les tire plus. Ça porte malheur, cette année. »",
     ],
     choices: [
@@ -44,7 +44,7 @@ module.exports = {
     ] }),
   II_S3_cartes_tirage: P({ title: "Une carte", place: "vasselin",
     text: [
-      "Tu tires. Elle retourne la carte. Une figure blanche, sans visage, sur un fond blanc. On ne la distingue presque pas. La femme la regarde, et se tait un moment.",
+      "Tu tires. Elle retourne la carte. Une figure blanche, sans visage, sur un fond blanc. On la distingue à peine, comme une tache de lait sur une nappe. La femme la regarde, et se tait un moment.",
       "« La Sixième, dit-elle. Il n'y a que cinq figures, d'habitude. Celle-là, elle est dans tous les jeux, mais on ne la voit pas. On la tire une fois dans sa vie, et encore. » Elle remet la carte dans le paquet, très vite. « Ça veut dire que quelqu'un qu'on a oublié va revenir. Pour le meilleur ou pour le pire. Lequel, les cartes le gardent pour elles, comme toujours. »",
     ],
     choices: [{ label: "Lui laisser deux sous, et repartir", to: "II_S3_soir" }] }),
@@ -54,7 +54,7 @@ module.exports = {
 
   II_S3_ecuyer: P({ title: "L'écuyer", place: "vasselin",
     text: [
-      "Devant une tente vert et or, un écuyer de quinze ans, assis par terre, le heaume de son maître sur les genoux. Il le frotte. Il le frotte depuis des heures, à voir l'éclat.",
+      "Devant une tente vert et or, un écuyer de quinze ans, assis par terre, le heaume de son maître sur les genoux. Il le frotte. Il le frotte depuis des heures, à voir l'éclat : le chiffon a pris la couleur du métal.",
       "« Messire Gondebaud, dit-il quand tu lui demandes. Il a couru ce matin. Il a gagné. En revenant, il m'a regardé et il m'a demandé qui j'étais. » Le garçon frotte. « Il a pris un autre écuyer, un qui passait. Il dit que je suis un voleur, qui veut son heaume. »",
     ],
     choices: [
@@ -64,12 +64,12 @@ module.exports = {
     ] }),
   II_S3_ecuyer_ok: P({ title: "Messire Gondebaud", place: "vasselin",
     text: [
-      "Le chevalier boit sous sa tente avec son nouvel écuyer. Tu entres. Tu ne parles pas du garçon. Tu parles de la joute du matin, tu lui fais raconter, coup par coup. Il raconte, ravi. Qui a sanglé votre selle, Messire ? Qui a tenu votre lance ? Qui vous a crié de baisser l'épaule, au deuxième passage ?",
+      "Le chevalier boit sous sa tente avec son nouvel écuyer. Tu entres. Tu gardes le garçon pour plus tard. Tu parles de la joute du matin, tu lui fais raconter, coup par coup. Il raconte, ravi. Qui a sanglé votre selle, Messire ? Qui a tenu votre lance ? Qui vous a crié de baisser l'épaule, au deuxième passage ?",
       "Il s'arrête. Il fronce les sourcils. Il sort de la tente, il regarde le garçon assis par terre avec son heaume. « Toi, dit-il. C'est toi qui as crié. » Le garçon se lève. Le chevalier ne dit pas qu'il se souvient. Il dit : « Ma selle est mal sanglée. Viens voir. »",
     ],
     choices: [{ back: "II_S3_soir" }] }),
   II_S3_ecuyer_rate: P({ title: "La tente verte", place: "vasselin",
-    text: ["Le chevalier t'écoute, poliment, puis il te raccompagne à l'entrée de la tente. « Je n'ai jamais eu d'autre écuyer que celui-là, Madame », dit-il en montrant le nouveau, qui baisse la tête. Dehors, le garçon frotte toujours le heaume. Il ne te demande pas comment ça s'est passé."],
+    text: ["Le chevalier t'écoute, poliment, puis il te raccompagne à l'entrée de la tente. « Je n'ai jamais eu d'autre écuyer que celui-là, Madame », dit-il en montrant le nouveau, qui baisse la tête. Dehors, le garçon frotte toujours le heaume. Il a lu la réponse sur ton visage."],
     choices: [{ back: "II_S3_soir" }] }),
   II_S3_ecuyer_pris: P({ title: "Un écuyer", place: "vasselin",
     text: ["Il pose le heaume, très délicatement, devant la tente verte, comme on dépose un enfant devant une porte. Puis il te suit. Il s'appelle Mahé. Le soir même, il a graissé tous les cuirs de la compagnie, et il dort en travers de l'entrée de la tente, comme un chien de garde."],

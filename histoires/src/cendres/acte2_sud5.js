@@ -9,7 +9,7 @@ module.exports = {
   II_S5_nuit: P({ title: "Le plan", place: "vasselin",
     text: [
       "À l'Ancre, dans la chambre, à la chandelle. Personne n'a envie de dormir. Vous faites le compte de ce que vous avez.",
-      { if: { item: "plan_tour" }, text: "Le plan des Mouettes, déroulé sur le lit, tenu aux quatre coins par des gobelets." },
+      { if: { item: "plan_tour" }, text: "Le plan des Mouettes, déroulé sur le lit, tenu aux quatre coins par des gobelets d'étain, dont un fêlé qui fuit sur la Tour." },
       { if: { item: "cire_cles" }, text: "La boîte de fer-blanc, et dans la cire, les trois clés." },
       { if: { has: "sud3:chemin_glaneur" }, text: "La grille de la halle aux poissons, par où les Glaneurs entrent." },
       { if: { has: "sud3:chemin_garde" }, text: "La porte du jardin, au pied de la Tour, et les trois coups." },
@@ -27,7 +27,7 @@ module.exports = {
 
   II_S5_serrurier: P({ title: "Le serrurier", place: "vasselin",
     text: [
-      "Le serrurier des Mouettes est un petit homme chauve qui travaille dans une cave sous la halle aux poissons, à la lueur d'une forge grosse comme une soupière. Il regarde la cire longtemps.",
+      "Le serrurier des Mouettes est un petit homme chauve, aux ongles noirs jusqu'à la racine, qui travaille dans une cave sous la halle aux poissons, à la lueur d'une forge grosse comme une soupière. Il regarde la cire longtemps, de profil, comme un oiseau regarde un grain.",
       "« Fer noir, dit-il. Je connais ce fer. On le forge à Pallanche, à la Chancellerie. Il est froid même au feu. » Il taille les trois clés en quatre heures, sans parler. Elles sont froides dans ta main.",
       { if: { has: "sud:mouettes_dette" }, text: "La prévôte, en tricotant, te rappelle la dette. « Un jour, on te demandera. Tu diras oui. »" },
     ],
@@ -39,8 +39,8 @@ module.exports = {
 
   II_S5_egouts: P({ title: "Sous la ville", place: "vasselin",
     text: [
-      "La grille se soulève sans bruit : on l'a huilée. Dessous, un égout de pierre, voûté, où l'on marche courbé dans l'eau jusqu'aux chevilles. Il monte. Vasselin est bâtie sur une colline, et ses égouts aussi.",
-      "Sur les parois, à hauteur d'épaule, des traces blanches, comme si on avait frotté de la craie. Les Glaneurs passent par là. Souvent.",
+      "La grille se soulève sans bruit : on l'a huilée. Dessous, un égout de pierre, voûté, haut de quatre pieds et demi, où l'on marche courbé dans l'eau jusqu'aux chevilles. Il monte. Vasselin est bâtie sur une colline, et ses égouts ont suivi.",
+      "Sur les parois, à hauteur d'épaule, des traces blanches, comme si on avait frotté de la craie. Les traces sont fraîches, et nombreuses : les Glaneurs passent par là, et souvent.",
       "Au bout d'une heure, une échelle de fer, et au-dessus, une trappe. Au-dessus de la trappe, du froid.",
     ],
     choices: [{ label: "Pousser la trappe", test: { dom: "discretion", label: "Silence", help: [{ if: { present: "pie" }, v: 10 }] },
@@ -75,7 +75,7 @@ module.exports = {
 
   II_S5_escalade: P({ title: "La face nord", place: "vasselin",
     text: [
-      "La Tour est en pierre de taille, aux joints larges, et la face nord, côté mer, n'est jamais éclairée. Deux cents pieds. Il y a du vent.",
+      "La Tour est en pierre de taille, aux joints larges d'un doigt, et la face nord, côté mer, reste dans l'ombre toute l'année. Deux cents pieds, à vue de nez. Du vent, et du sel dans le vent.",
       { if: { has: "sansnom:page" }, text: "La coupole est brisée, depuis la grâce. Personne ne l'a réparée. On voit, d'en bas, la neige qui tombe dedans." },
     ],
     choices: [{ label: "Monter", test: { dom: "nature", label: "Escalade", help: [{ if: { item: "corde" }, v: 15 }, { if: { present: "pie" }, v: 10 }, { if: { has: "sansnom:page" }, v: 10 }] },
@@ -84,7 +84,7 @@ module.exports = {
 
   II_S5_paliers: P({ title: "L'escalier des registres", place: "vasselin",
     text: [
-      "Deux cents marches entre les étagères. La nuit, la Tour bruisse : les registres, sur les rayons, craquent, se tassent, comme une forêt sous la neige. Il fait de plus en plus froid à mesure qu'on monte.",
+      "Deux cents marches entre les étagères ; tu les comptes, par habitude, et tu perds le compte à cent douze. La nuit, la Tour bruisse : les registres, sur les rayons, craquent, se tassent, comme une forêt sous la neige. Il fait de plus en plus froid à mesure qu'on monte.",
       { if: { has: "sud5:alerte" }, text: "En bas, une cloche s'est mise à sonner. Pas fort. Une petite cloche de pupitre, qu'on agite, une fois, deux fois. Quelqu'un sait que vous êtes là." },
       { if: { item: "plan_tour" }, text: "Le plan des Mouettes dans la tête, tu évites le palier de la serrure à trois pênes, tu prends l'escalier des copistes, plus étroit, qui contourne celui où les Mouettes ont écrit *ne pas*." },
       { if: { not: { item: "plan_tour" } }, text: "Au palier du milieu, une porte fermée, qu'on ne peut pas contourner. Derrière, du froid, et un bruit de respiration lente, énorme." },
@@ -96,7 +96,7 @@ module.exports = {
 
   II_S5_chien: P({ title: "Ne pas", place: "vasselin",
     text: [
-      "Derrière la porte, une salle d'archives, et au milieu, couché sur les dalles, quelque chose qui a été un chien de garde, un grand mâtin, et qui est maintenant de neige, de la tête aux pattes. Il dort. Il respire. Chaque souffle fait voler les feuilles sur les pupitres.",
+      "Derrière la porte, une salle d'archives, et au milieu, couché sur les dalles, quelque chose qui a été un chien de garde, un grand mâtin de cent livres au moins, et qui est maintenant de neige, de la tête aux pattes. Le collier de cuir est resté, avec sa boucle de cuivre. Il dort. Il respire. Chaque souffle fait voler les feuilles sur les pupitres.",
       "Il ouvre un œil.",
     ],
     choices: [
@@ -116,7 +116,7 @@ module.exports = {
 
   II_S5_salle: P({ title: "La grande salle", place: "vasselin",
     text: [
-      "La grande salle, sous la coupole, à la lumière de la lune. Le trône est vide. Le cercle de neige autour de l'estrade a grandi : il monte jusqu'aux genoux, maintenant, et il est lisse, sans une trace.",
+      "La grande salle, sous la coupole, à la lumière de la lune. Le trône est vide. Le cercle de neige autour de l'estrade a grandi : il monte jusqu'aux genoux, maintenant, et sa surface est lisse comme une nappe repassée.",
       { after: "sansnom:page", text: "Par la coupole crevée, la neige tombe droit sur l'estrade." },
       "Au centre, le coffre de fer noir, couvert de givre. Trois serrures.",
     ],
@@ -134,7 +134,7 @@ module.exports = {
 
   II_S5_coffre_force: P({ title: "Le fer froid", place: "vasselin",
     text: [
-      "Le fer noir ne cède pas. Les crochets glissent, la lame plie. Le froid du coffre monte dans tes mains, dans tes bras, et tu sens, une seconde, quelque chose qui part. Le nom d'une rue. Le goût d'un fruit. Rien, peut-être.",
+      "Le fer noir ne cède pas. Les crochets glissent, la lame plie. Le froid du coffre monte dans tes mains, dans tes bras, et tu sens, un instant, quelque chose qui part. Le nom d'une rue. Le goût d'un fruit. Rien, peut-être.",
       "Puis la troisième serrure claque, d'elle-même, comme si quelqu'un l'avait ouverte de l'intérieur.",
     ],
     choices: [{ label: "Soulever le couvercle", to: "II_S5_coffre" }] }),
@@ -142,7 +142,7 @@ module.exports = {
   II_S5_coffre: P({ title: "Le registre noir", place: "vasselin",
     text: [
       "Le couvercle se soulève. Le souffle froid. Le givre qui fond.",
-      "Le Grand Registre. Noir, immense, lourd comme un enfant. Il faut deux personnes pour le sortir du coffre. Sous lui, au fond du coffre, des feuilles volantes, des centaines, rangées par liasses : les cessions. Celles qu'on a payées, celles qu'on a données.",
+      "Le Grand Registre. Noir, relié de cuir sur des ais de chêne, large d'une coudée, lourd comme un enfant de six ans. Il faut deux personnes pour le sortir du coffre. Sous lui, au fond du coffre, des feuilles volantes, des centaines, rangées par liasses : les cessions. Celles qu'on a payées, celles qu'on a données.",
       { if: { not: { item: "feuilles_lisse" } }, text: "Une liasse cousue, sur le dessus : *Lisse.*" },
     ],
     choices: [
@@ -152,8 +152,8 @@ module.exports = {
 
   II_S5_escalier: P({ title: "Quelqu'un monte", place: "vasselin",
     text: [
-      "Vous avez fait dix pas vers l'escalier quand vous l'entendez. Un pas. Lent, régulier, qui monte. Un bruit de pas : ce n'est donc pas un garde.",
-      "Mordace apparaît en haut des marches, une chandelle à la main, l'écharpe autour du cou. Il est seul. Il est essoufflé. Il a monté deux cents marches à son âge, au milieu de la nuit.",
+      "Vous avez fait dix pas vers l'escalier quand vous l'entendez. Un pas. Lent, régulier, qui monte. Un bruit de pas : les gardes, eux, marchent muets. Celui-là est donc quelqu'un d'autre.",
+      "Mordace apparaît en haut des marches, une chandelle à la main, l'écharpe autour du cou. Il est seul. Il est essoufflé, et il a de la poussière aux genoux de ses chausses. Il a monté deux cents marches à son âge, au milieu de la nuit.",
       "Il regarde le registre entre vos bras. Puis toi.",
       "« Dame Lisandre, dit-il. Vous savez ce que vous portez ? »",
     ],
@@ -212,8 +212,8 @@ module.exports = {
   II_S5_orlan: P({ title: "Frère Orlan", place: "vasselin",
     fx: { meet: "orlan" },
     text: [
-      "Le Frère Orlan loge dans une mansarde de la rue des Copistes, au-dessus d'une boutique de papier. Il ouvre en chemise de nuit, avec trois châles, enrhumé.",
-      "Quand il voit le registre, il éternue. Puis il s'assied par terre, sur le seuil, parce que ses jambes ne le tiennent plus.",
+      "Le Frère Orlan loge dans une mansarde de la rue des Copistes, au-dessus d'une boutique de papier. Il ouvre en chemise de nuit, avec trois châles, dont un de femme, et le nez rouge d'un rhume qui date visiblement de l'hiver dernier.",
+      "Quand il voit le registre, il éternue, deux fois, avec beaucoup de dignité. Puis il s'assied par terre, sur le seuil, parce que ses jambes ne le tiennent plus.",
       "« Nous sommes onze, dit-il quand il peut parler. Onze Greffiers qui ne sont pas à lui. On se réunit le jeudi, on recopie ce qu'il efface, sur des feuilles qu'on cache dans les murs. On n'a jamais rien pu faire d'autre. » Il pose les mains sur le registre. « Maintenant, on peut. Il faudra des années. On le recopiera. Dix fois. Cent fois. Qu'il ne soit plus jamais dans un seul coffre. »",
     ],
     choices: [{ label: "Partir vers le nord", fx: { drop: "registre_noir" }, to: "II_S5_depart" }] }),
@@ -221,15 +221,15 @@ module.exports = {
   II_S5_col: P({ title: "Le poids", place: "vasselin",
     text: [
       "Vous l'enveloppez dans une couverture, puis dans une toile cirée, et vous le sanglez sur le dos de celui qui peut le porter le plus longtemps. Il est si froid que la toile se couvre de givre en une heure.",
-      "Il pèse. Pas comme une pierre : comme une personne endormie.",
+      "Il pèse comme une personne endormie, d'un poids qui se déplace.",
       { with: "hylas", text: "Hylas marche à côté, la main sur la toile, sans la lâcher." },
     ],
     choices: [{ label: "Partir vers le nord", to: "II_S5_depart" }] }),
 
   II_S5_depart: P({ title: "Vers le col", place: "vasselin",
     text: [
-      { if: { has: "sud5:fuite=bateau" }, text: "Jacotte vous attend au bout du quai, dans une barque de pêche à voile rousse, sans lanterne. Elle ne pose pas de questions. Elle vous remonte la côte jusqu'à l'embouchure de la Pallante, et de là, à contre-courant, avec deux rameurs qui chantent bas. Trois jours gagnés sur la route." },
-      { if: { has: "sud5:fuite=route" }, text: "À l'aube, vous quittez Vasselin par la porte du Nord, à cheval, sur des bêtes que Rodric, ou Pie, ou personne, a payées. Personne ne vous suit. La neige tombe sur la route, fine, et ne fond pas." },
+      { if: { has: "sud5:fuite=bateau" }, text: "Jacotte vous attend au bout du quai, dans une barque de pêche à voile rousse, sans lanterne. Elle garde ses questions pour elle. Elle vous remonte la côte jusqu'à l'embouchure de la Pallante, et de là, à contre-courant, avec deux rameurs qui chantent bas. Trois jours gagnés sur la route." },
+      { if: { has: "sud5:fuite=route" }, text: "À l'aube, vous quittez Vasselin par la porte du Nord, à cheval, sur des bêtes que Rodric, ou Pie, ou personne, a payées. La route derrière vous reste vide. La neige tombe sur la route, fine, et ne fond pas." },
       "Derrière vous, Vasselin blanchit, toit après toit, comme Pallanche.",
       "Devant vous, au bout de la vallée, puis des collines, puis des crêtes, le col de l'Ourse. Vous l'avez promis.",
     ],

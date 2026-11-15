@@ -10,7 +10,7 @@ module.exports = {
     text: [
       "Sur la droite de la plaine, un bruit. Le premier bruit franc depuis que tu es ici : du fer contre du fer, des cris, des chevaux. Une bataille.",
       "Tu t'approches. Au milieu du blanc, une rivière qui n'existe pas, un trait gris sans eau, et sur ses deux bords deux troupes qui se chargent. Des piquiers en bleu. Des hommes d'armes aux couleurs d'Esquarre. Ils se jettent les uns sur les autres au milieu du lit vide, ils tombent, ils se relèvent, ils reculent sur leur bord, et ils recommencent.",
-      "Personne ne meurt. Ils sont déjà morts. Ils ont été oubliés avant d'avoir fini.",
+      "Les blessés se relèvent. Ils sont déjà morts. Ils ont été oubliés avant d'avoir fini.",
       { with: "ysolde", text: "Ysolde s'est arrêtée net. Elle connaît ces couleurs. Elle connaît ce gué, ou un autre exactement pareil : il y en a eu vingt, pendant la guerre des Trois Ans. « Le gué aux Saules, dit-elle. J'avais quinze ans. J'étais page. Je tenais le cheval de mon père de l'autre côté de la colline. Je n'ai rien vu. On ne m'a jamais dit combien ils étaient. »" },
     ],
     choices: [
@@ -19,7 +19,7 @@ module.exports = {
     ] }),
   III_Q_gue_milieu: P({ title: "Au milieu", place: "plaine",
     text: [
-      "Tu descends dans le lit vide. La charge suivante passe à travers toi. C'est froid, indolore, et ça sent le cheval et la sueur. Ils ne te voient pas. Ils ne voient que l'autre bord.",
+      "Tu descends dans le lit vide. La charge suivante passe à travers toi. C'est froid, indolore, et ça sent le cheval et la sueur. Leurs yeux restent fixés sur l'autre bord.",
       "Un vieux sergent esquarrois, la jambe raide, reste en arrière à chaque charge. Il est le seul à regarder autour de lui. Il te voit. « Toi, dit-il. Tu n'es pas d'ici. Qui a gagné ? »",
     ],
     choices: [
@@ -29,8 +29,8 @@ module.exports = {
   III_Q_gue_mensonge: P({ title: "Victoire", place: "plaine",
     text: [
       "Le sergent hoche la tête, lentement. Il se tourne vers ses hommes et crie quelque chose. Ils s'arrêtent, ils lèvent les armes, ils poussent un hourra.",
-      "Sur l'autre bord, les piquiers bleus ne s'arrêtent pas. Ils chargent. Le hourra se défait. Et ça recommence, avec un peu plus de rage d'un côté, parce que maintenant ils ont gagné, et qu'on ne les laisse pas en profiter.",
-      "Tu remontes sur le bord sans te retourner.",
+      "Sur l'autre bord, les piquiers bleus chargent, sans une pause. Le hourra se défait. Et ça recommence, avec un peu plus de rage d'un côté, parce que maintenant ils ont gagné, et qu'on ne les laisse pas en profiter.",
+      "Tu remontes sur le bord, le dos tourné au gué.",
     ],
     choices: [{ fx: { quest: "III_Q_gue" }, back: "III_plaine" }] }),
   III_Q_gue_verite: P({ title: "Personne", place: "plaine",
@@ -61,18 +61,18 @@ module.exports = {
   III_Q_lac: P({ title: "Le lac", place: "plaine",
     fx: { questSeen: "III_Q_lac" },
     text: [
-      "Une étendue lisse, au milieu du blanc. Un miroir à plat, immense, où le blanc d'en haut se reflète dans le blanc d'en bas. Mais quand tu te penches, un autre visage te regarde.",
+      "Une étendue lisse, au milieu du blanc. Un miroir à plat, immense, où le blanc d'en haut se reflète dans le blanc d'en bas. Quand tu te penches, pourtant, un autre visage te regarde.",
       "C'est quelqu'un que tu as oublié.",
     ],
     choices: [{ label: "Regarder", to: "III_Q_lac_reflet" }] }),
   III_Q_lac_reflet: P({ title: "Les reflets", place: "plaine",
     text: [
-      "Dans le lac, un homme jeune, brun, aux mains abîmées, qui rit. Tu ne sais pas qui c'est. Tu sais que tu l'as aimé, quand tu avais trois ans. Tu sais qu'il te portait sur ses épaules. Rien d'autre.",
-      { with: "pie", text: "Pie se penche à côté de toi, et recule aussitôt. « Pas question, dit-il. Je sais ce que je vais voir. » Il ne se penche plus." },
+      "Dans le lac, un homme jeune, brun, aux mains abîmées, deux ongles noirs, une cicatrice blanche en travers du pouce, qui rit. Son nom t'échappe. Tu sais que tu l'as aimé, quand tu avais trois ans. Tu sais qu'il te portait sur ses épaules. Rien d'autre.",
+      { with: "pie", text: "Pie se penche à côté de toi, et recule aussitôt. « Pas question, dit-il. Je sais ce que je vais voir. » Il garde ses distances avec le bord, désormais." },
       { with: "hylas", text: "Hylas s'agenouille au bord. Lui qui voit, ici, ne regarde pas. Il ferme les yeux, pose la main à plat sur le miroir, et il sourit, d'un sourire nouveau, et il garde pour lui ce qu'il sent." },
       { with: "corbe", text: "Corbe regarde longtemps. « Mon père, dit-elle. Je ne me souvenais même pas d'en avoir eu un. Il a ma bouche. Ou j'ai la sienne. »" },
       { with: "lisandre", text: "Lisandre se penche, et éclate de rire. « C'est moi, dit-elle. Moi à seize ans. Avant la cour. Regarde ces joues. J'avais complètement oublié cette fille-là. » Elle ne rit plus, après." },
-      { with: "ysolde", text: "Ysolde ne se penche pas. Elle reste debout, droite, à trois pas du bord, et elle regarde de loin. Ce qu'elle voit de là doit lui suffire." },
+      { with: "ysolde", text: "Ysolde reste debout, droite, à trois pas du bord, et elle regarde de loin. Ce qu'elle voit de là doit lui suffire." },
     ],
     choices: [
       { label: "Toucher le reflet", test: { dom: "magie", label: "Le reflet", help: [{ if: { present: "givre" }, v: 10 }, { if: { has: "iii:toupie" }, v: 15 }] },
@@ -83,22 +83,22 @@ module.exports = {
     text: [
       "Tu poses la main sur le miroir. Le reflet pose la sienne de l'autre côté. Il est chaud. Pendant un instant, tu as trois ans, tu es en haut, très haut, sur des épaules, et quelqu'un marche dans des rues blanches en chantant faux, et tu tiens deux poignées de cheveux bruns, et tu n'as jamais eu aussi peu peur de ta vie.",
       "Puis le reflet retire sa main, et c'est ton visage qui revient dans le lac, ton visage à toi, avec ses yeux rougis.",
-      "Tu ne sais toujours pas son nom. Mais tu sais qu'il chantait faux. C'est déjà quelque chose qui t'appartient.",
+      "Son nom t'échappe toujours. Mais tu sais qu'il chantait faux. C'est déjà quelque chose qui t'appartient.",
     ],
     choices: [{ fx: { quest: "III_Q_lac" }, back: "III_plaine" }] }),
   III_Q_lac_trouble: P({ title: "Le miroir se trouble", place: "plaine",
-    text: ["Ta main passe à travers. Le miroir se trouble, comme de l'eau, et quand il redevient lisse, le reflet est parti. Il n'y a plus que toi, et le blanc. Tu restes un moment à genoux, à attendre qu'il revienne. Il ne revient pas."],
+    text: ["Ta main passe à travers. Le miroir se trouble, comme de l'eau, et quand il redevient lisse, le reflet est parti. Il reste toi, et le blanc. Tu restes un moment à genoux, à attendre qu'il revienne. Le lac garde sa surface lisse."],
     choices: [{ fx: { quest: "III_Q_lac" }, back: "III_plaine" }] }),
   III_Q_lac_fin: P({ title: "Te relever", place: "plaine",
-    text: ["Tu te relèves. C'est très difficile. Au bord du lac, assis, couchés, il y a des gens qui ne se sont pas relevés. Ils regardent. Ils regardent depuis des années. Ils ont l'air heureux, et ils n'ont plus de visage."],
+    text: ["Tu te relèves. C'est très difficile. Au bord du lac, assis, couchés, des gens sont restés là. Tu en comptes une trentaine, puis tu arrêtes de compter. Ils regardent. Ils regardent depuis des années. Ils ont l'air heureux, et ils n'ont plus de visage."],
     choices: [{ fx: { quest: "III_Q_lac" }, back: "III_plaine" }] }),
 
   // ------------------------------------------------------------ le terrier de Givre
   III_Q_givre: P({ title: "Givre s'en va", place: "plaine",
     fx: { questSeen: "III_Q_givre" },
     text: [
-      "Givre s'arrête, le nez en l'air. Il renifle. Puis il part, au trot, vers un endroit de la plaine où il n'y a rien, et il se retourne pour voir si tu suis.",
-      "Il ne t'a jamais fait ça.",
+      "Givre s'arrête, le nez en l'air. Il renifle. Puis il part, au trot, vers un endroit de la plaine vide à tes yeux, et il se retourne pour voir si tu suis.",
+      "C'est la première fois.",
     ],
     choices: [
       { label: "Le suivre", to: "III_Q_givre_terrier" },
@@ -107,9 +107,9 @@ module.exports = {
   III_Q_givre_terrier: P({ title: "Le terrier", place: "plaine",
     text: [
       "Il te mène à une butte de blanc, et dans la butte, un trou rond. Un terrier. Devant, des petits os de neige, et des choses minuscules, rangées en tas : un bouton, un dé à coudre, une dent de lait, un ruban, un caillou peint.",
-      "Une portée. Quatre renardeaux de neige, plus petits que Givre, qui sortent la tête du trou en couinant. Ils n'ont rien mangé depuis longtemps. Ils sont presque transparents.",
-      "Et sur le côté, couchée, une renarde de neige qui ne bouge plus. Elle est à moitié devenue un tas de neige ordinaire. On voit encore ses oreilles.",
-      "Givre va se coucher contre elle. Il ne mange pas. Il te regarde.",
+      "Une portée. Quatre renardeaux de neige, plus petits que Givre, qui sortent la tête du trou en couinant. Ils ont jeûné longtemps : on voit le blanc de la plaine à travers leurs flancs.",
+      "Et sur le côté, couchée, une renarde de neige, immobile. Elle est à moitié devenue un tas de neige ordinaire. On voit encore ses oreilles.",
+      "Givre va se coucher contre elle, le museau vide. Il te regarde.",
     ],
     choices: [
       { label: "Leur donner à manger. De petits oublis, sans importance", to: "III_Q_givre_nourrir" },
@@ -118,7 +118,7 @@ module.exports = {
   III_Q_givre_nourrir: P({ title: "Les miettes", place: "plaine",
     text: [
       "Tu cherches dans ta tête des choses sans importance. La couleur du ciel le matin du départ. Le nombre de marches du temple. Le nom d'un chien de Pont-de-Saule. Tu les tends, une par une. Les renardeaux les mangent dans ta main, en se bousculant, et deviennent plus blancs, plus nets, plus vivants.",
-      "Quand ils n'ont plus faim, tu essaies de te souvenir du chien de Pont-de-Saule. Tu ne peux pas. Tu ne sais pas s'il y avait un chien.",
+      "Quand ils n'ont plus faim, tu essaies de te souvenir du chien de Pont-de-Saule. Le souvenir s'est effacé. Y avait-il seulement un chien ?",
       { with: "hylas", text: "« C'est le prix, dit Hylas. Ce n'est pas cher. Mais c'est un prix. »" },
     ],
     choices: [{ label: "Attendre ce que Givre veut faire", fx: { flag: "iii:renardeaux", conf: { givre: 10 }, ep: ["perso", 1000] }, to: "III_Q_givre_choix" }] }),
@@ -133,7 +133,7 @@ module.exports = {
     ] }),
   III_Q_givre_reste: P({ title: "Le terrier", place: "plaine",
     text: [
-      "« Reste », dis-tu. Il comprend. Il comprend toujours tout ce qu'on lui dit, c'est son défaut. Il te regarde encore un moment, et il rentre dans le terrier, avec les petits, et tu entends des couinements, puis plus rien.",
+      "« Reste », dis-tu. Il comprend. Il comprend toujours tout ce qu'on lui dit, c'est son défaut. Il te regarde encore un moment, et il rentre dans le terrier, avec les petits, et tu entends des couinements, puis le silence.",
       "Tu repars sans lui. Pendant longtemps, tu te retournes sans t'en rendre compte, pour voir s'il suit.",
     ],
     choices: [{ fx: { quest: "III_Q_givre" }, back: "III_plaine" }] }),

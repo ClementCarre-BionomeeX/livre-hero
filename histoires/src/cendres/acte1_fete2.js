@@ -6,7 +6,7 @@ var BACK = [{ back: "EN_place" }];
 module.exports = {
   EN_k_doyenne: P({ title: "La doyenne",
     text: [
-      "Mathilde Aubry ne se lève plus de sa chaise depuis trois ans. On la porte. On la pose au milieu de la place, à l'ombre, avec une couverture sur les genoux en plein juillet, et elle règne. Elle a cent un ans, quatre dents, et une mémoire qui fait peur à tout le village, parce qu'elle retient tout, les dettes comme les baisers.",
+      "Mathilde Aubry ne se lève plus de sa chaise depuis trois ans. On la porte. On la pose au milieu de la place, à l'ombre, avec une couverture sur les genoux en plein juillet, et elle règne. Elle a cent un ans, quatre dents, et une mémoire qui fait peur à tout le village : elle retient tout, les dettes comme les baisers, avec la date et le montant.",
       "Elle te fait signe d'approcher, d'un doigt crochu. Tu approches. Elle te regarde de haut en bas, longuement, comme on regarde un veau à la foire. « Toi, dit-elle. Le petit du moulin. Tu as quel âge, maintenant ? » Tu le lui dis. Elle compte sur ses doigts, et elle n'a pas l'air contente du résultat.",
     ],
     choices: [
@@ -27,7 +27,7 @@ module.exports = {
     choices: BACK }),
   EN_k_linteaux: P({ title: "Le peintre des noms",
     text: [
-      "Devant la maison des Roux-Lavallée, sur une échelle, le vieux Gervais repeint le linteau. Un pot d'ocre accroché à un barreau, un pinceau en poil de blaireau, la langue entre les dents. Il est en retard. On repeint les noms au printemps, d'habitude, et on est en juillet. Il a eu les fièvres en avril.",
+      "Devant la maison des Roux-Lavallée, sur une échelle, le vieux Gervais repeint le linteau. Un pot d'ocre accroché à un barreau, un pinceau en poil de blaireau, la langue entre les dents. Au pied de l'échelle, six pots vides : il a fait six maisons depuis l'aube. Il est en retard. On repeint les noms au printemps, d'habitude, et on est en juillet. Il a eu les fièvres en avril.",
       "« Encore sept, dit-il, sans se retourner. Et le moulin. Le moulin, je ne sais jamais quoi y mettre. Depuis mon grand-père, on y écrit *Moulin*, et rien d'autre : les meuniers passent, le moulin reste, c'est la règle. Ça a toujours fait triste. » Il redescend d'un barreau. « Tu tiens le pot ? »",
     ],
     choices: [

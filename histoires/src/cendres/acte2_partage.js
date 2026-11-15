@@ -37,20 +37,20 @@ function chapterChoices() {
 module.exports = {
   II_conseil: { act: "II", title: "Sur la colline", place: "collines", noLead: true,
     text: [
-      "Le soleil est haut, maintenant. Vous êtes toujours assis dans l'herbe, au sommet de la colline, au-dessus d'une ville blanche. Personne n'a dormi. Quelqu'un a partagé un pain. Quelqu'un d'autre a dit, il y a une heure : « Et maintenant ? » et personne n'a répondu.",
+      "Le soleil est haut, maintenant. Vous êtes toujours assis dans l'herbe, au sommet de la colline, au-dessus d'une ville blanche. Vous avez tous passé la nuit les yeux ouverts. Quelqu'un a partagé un pain en six parts, inégales, sans un mot de protestation. Quelqu'un d'autre a dit, il y a une heure : « Et maintenant ? » et la question flotte encore au-dessus de l'herbe.",
       "C'est Corbe qui parle la première. Elle montre le nord, les Hautes-Combes, à l'horizon, blanches jusqu'aux crêtes. « Ça vient de là. Du col de l'Ourse. Mon clan l'attend depuis cent ans. Si quelqu'un sait ce que c'est, c'est eux. Ou les morts. »",
-      { if: { has: "lisandre:lettre" }, text: "Lisandre sort de son corsage une lettre cachetée de noir et la pose dans l'herbe. Personne ne la touche. « Il est à Vasselin, dit-elle. Ou il y sera ce soir. Il garde tout, il l'écrit. Et la reine lui doit quelque chose qu'elle ne se rappelle plus. »" },
+      { if: { has: "lisandre:lettre" }, text: "Lisandre sort de son corsage une lettre cachetée de noir et la pose dans l'herbe. Les mains restent sur les genoux. « Il est à Vasselin, dit-elle. Ou il y sera ce soir. Il garde tout, il l'écrit. Et la reine lui doit quelque chose qu'elle ne se rappelle plus. »" },
       { if: { not: { has: "lisandre:lettre" } }, text: "Lisandre montre le sud, la vallée de la Pallante, la route de la cour. « La reine rentre à Vasselin. Mordace la suivra : il ne la quitte plus depuis le printemps. Tout ce qu'il sait, il l'écrit. Et ce qu'il écrit, il le garde près de lui. »" },
-      { if: { not: { has: "hylas:oublie_enfant" } }, text: "Hylas se tait. Il a la tête tournée vers le nord, lui aussi. Puis, à voix basse : « Le registre des Fondateurs. Il ne l'a pas laissé dans la tour. Pas cette nuit. »" },
-      { if: { has: "hylas:oublie_enfant" }, text: "Hylas se tait. Il tourne la tête vers l'enfant de Sauvelune, de temps en temps, comme on vérifie qu'une porte est fermée." },
+      { if: { not: { has: "hylas:oublie_enfant" } }, text: "Hylas garde le silence, la tête tournée vers le nord, lui aussi. Puis, à voix basse : « Le registre des Fondateurs. Il ne l'a pas laissé dans la tour. Pas cette nuit. »" },
+      { if: { has: "hylas:oublie_enfant" }, text: "Hylas garde le silence. Il tourne la tête vers l'enfant de Sauvelune, de temps en temps, comme on vérifie qu'une porte est fermée." },
       "Il faut aller des deux côtés à la fois. Il faut se séparer. Le nord avec Corbe, qui connaît les Combes ; le sud avec Lisandre, qui connaît la cour. Et les quatre autres, deux de chaque côté.",
     ],
     choices: splits() },
 
   C2_carrefour: { act: "II", title: "Les deux compagnies", noLead: true,
     text: [
-      { if: { not: { any: [done("nord", 1), done("sud", 1)] } }, text: "Vous vous séparez au pied de la colline, à l'endroit où la route se divise. Personne ne dit adieu. Vous vous êtes promis de vous retrouver au col de l'Ourse, avant la fin du mois. Personne ne sait si c'est possible." },
-      { if: { all: [done("nord", 1), { not: done("sud", 1) }] }, text: "Pendant que la compagnie du Nord monte vers le camp du Corbeau, celle du Sud descend la vallée de la Pallante, entre des vignes où personne ne vendange plus." },
+      { if: { not: { any: [done("nord", 1), done("sud", 1)] } }, text: "Vous vous séparez au pied de la colline, à l'endroit où la route se divise. Les adieux restent dans les gorges. Vous vous êtes promis de vous retrouver au col de l'Ourse, avant la fin du mois. Le pari est ouvert." },
+      { if: { all: [done("nord", 1), { not: done("sud", 1) }] }, text: "Pendant que la compagnie du Nord monte vers le camp du Corbeau, celle du Sud descend la vallée de la Pallante, entre des vignes abandonnées, les grappes pourrissant sur pied." },
       { if: { all: [done("sud", 1), { not: done("nord", 1) }] }, text: "Pendant que la compagnie du Sud entre à Vasselin, celle du Nord marche sur la crête, avec le blanc à sa gauche." },
       { if: { all: [done("nord", 1), done("sud", 1), { not: { any: [done("nord", 2), done("sud", 2)] } }] }, text: "Au Sud, un billet plié en huit attend Lisandre à l'Ancre. Au Nord, Askel attend sa fille devant sa tente, chaussée pour la marche." },
       { if: { all: [done("nord", 2), done("sud", 2), { not: { any: [done("nord", 3), done("sud", 3)] } }] }, text: "Au Nord, une ombre grande comme un clocher a traversé le lac noir vers l'est. Au Sud, on monte les tribunes du pré du Roi." },

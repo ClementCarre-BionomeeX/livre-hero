@@ -6,7 +6,7 @@ function P(o) { return Object.assign({}, A, o); }
 module.exports = {
   V_t_gris: P({ title: "Le registre gris", place: "pallanche",
     text: [
-      "Tu redescends au deuxième, en courant, dans l'escalier où les greffiers montent les feuilles. Ils ne te voient pas. Au fond du couloir, une porte marquée d'une plume grise. Une petite salle, sans fenêtre, avec un seul pupitre, et sur le pupitre, un registre relié de toile grise.",
+      "Tu redescends au deuxième, en courant, dans l'escalier où les greffiers montent les feuilles. Leurs yeux restent sur leurs feuilles. Au fond du couloir, une porte marquée d'une plume grise. Une petite salle aveugle, de dix pieds sur dix, avec un seul pupitre, et sur le pupitre, un registre relié de toile grise.",
       "*Registre des enfants trouvés, confiés à la Chancellerie pour y être formés à l'écriture.* Des colonnes. Une date, un lieu, un nom. Puis, dans la dernière colonne, un numéro : *Page Un, Page Deux, Page Trois.* Cent lignes. Cent noms barrés d'un trait fin.",
     ],
     choices: [
@@ -24,11 +24,11 @@ module.exports = {
     ] }),
   V_t_gris_noms: P({ title: "Un par un", place: "pallanche",
     text: [
-      "Tu lis le premier nom. *Mathieu, trouvé sous le porche de Saint-Gilles.* Rien ne se passe. Tu le relis, plus fort. Au troisième rang, une page lève la tête. Un garçon, le crâne rasé, une tache d'encre sur la joue. Il te regarde. Sa plume s'arrête.",
+      "Tu lis le premier nom. *Mathieu, trouvé sous le porche de Saint-Gilles.* Le silence reste entier. Tu le relis, plus fort. Au troisième rang, une page lève la tête. Un garçon, le crâne rasé, une tache d'encre sur la joue. Il te regarde. Sa plume s'arrête.",
       "Tu lis le deuxième. Tu te trompes, tu recommences. Une fille, au fond, lève la tête. Tu continues. Tu butes sur les noms longs, tu épelles les plus difficiles, tu lis lentement, comme un enfant qui apprend. Peu importe. Il leur suffit d'être lus. Ils ont besoin qu'on lise.",
-      "Au centième, il n'y a plus une plume qui bouge dans la salle. Cent enfants te regardent, et la phrase s'arrête, au milieu, sur cent feuilles : *Cédé à la Couronne, pour la paix de...*",
-      { with: "linette", text: "Linette, debout à côté de toi, te souffle les noms que tu n'arrives pas à lire. Elle ne les lit pas dans le registre. Elle les sait. Elle te laisse quand même les dire, toi, à voix haute. Elle dit qu'il faut que ce soit quelqu'un d'en haut." },
-      { with: "hylas", text: "Hylas, de l'autre côté, a dit avec toi, à mi-voix, de mémoire, la moitié des noms avant que tu les lises. Il les connaissait. Il ne dit pas comment." },
+      "Au centième, toutes les plumes de la salle sont immobiles. Cent enfants te regardent, et la phrase s'arrête, au milieu, sur cent feuilles : *Cédé à la Couronne, pour la paix de...*",
+      { with: "linette", text: "Linette, debout à côté de toi, te souffle les noms que tu n'arrives pas à lire. Elle les sait par cœur, sans un regard au registre. Elle te laisse quand même les dire, toi, à voix haute. Elle dit qu'il faut que ce soit quelqu'un d'en haut." },
+      { with: "hylas", text: "Hylas, de l'autre côté, a dit avec toi, à mi-voix, de mémoire, la moitié des noms avant que tu les lises. Il les connaissait. Comment, il le garde pour lui." },
     ],
     choices: [{ label: "Monter aux archives", to: "V_t_archives" }] }),
 };

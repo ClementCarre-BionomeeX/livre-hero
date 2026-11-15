@@ -11,23 +11,23 @@ module.exports = {
       awayUnless: { ysolde: avec("ysolde"), pie: avec("pie"), hylas: avec("hylas"), corbe: avec("corbe"), lisandre: avec("lisandre"),
         rodric: false, linette: false, ombeline: false, gaspard: false, givre: false, sansnom: false } },
     text: [
-      "Tu te réveilles couché sur le dos. Au-dessus de toi, il n'y a pas de ciel. Il y a du blanc, uni, lumineux, sans soleil, comme l'intérieur d'une coquille d'œuf.",
-      "L'air est sans température. Tu te lèves. Le sol est blanc aussi, une matière douce, entre neige et sable, où les pas s'effacent aussitôt.",
-      { if: { souv: "enfant:reve" }, text: "Tu connais cet endroit. C'est ton rêve, ton plus vieux souvenir, celui que tu faisais enfant et que tu n'as jamais raconté à personne. Une plaine blanche sans fin. Il ne manque que la voix qui chante." },
+      "Tu te réveilles couché sur le dos. Au-dessus de toi, à la place du ciel, du blanc, uni, lumineux, sans soleil, comme l'intérieur d'une coquille d'œuf.",
+      "L'air est sans température : ton souffle ne fume pas, ta peau ne frissonne pas. Tu te lèves. Le sol est blanc aussi, une matière douce, entre neige et sable, où les pas s'effacent aussitôt.",
+      { if: { souv: "enfant:reve" }, text: "Tu connais cet endroit. C'est ton rêve, ton plus vieux souvenir, celui que tu faisais enfant et que tu as gardé pour toi. Une plaine blanche sans fin. Il manque seulement la voix qui chante." },
       { if: { not: { souv: "enfant:reve" } }, text: "Tu as l'impression d'être déjà venu. Quand ? C'est comme un mot sur le bout de la langue." },
-      { if: avec("ysolde"), text: "À trois pas, Ysolde se relève, l'épée déjà à la main. Elle regarde autour d'elle comme on inspecte un terrain avant la bataille. Il n'y a rien à inspecter." },
-      { if: avec("pie"), text: "Pie est assis, les jambes allongées, et se tâte les poches une à une. Tout y est. Il a l'air presque déçu." },
+      { if: avec("ysolde"), text: "À trois pas, Ysolde se relève, l'épée déjà à la main. Elle regarde autour d'elle comme on inspecte un terrain avant la bataille. Le terrain est vide jusqu'au bout du regard." },
+      { if: avec("pie"), text: "Pie est assis, les jambes allongées, et se tâte les poches une à une : sept poches, dont deux cousues à l'intérieur. Tout y est. Il a l'air presque déçu." },
       { if: avec("hylas"), text: "Hylas est debout, immobile, la tête levée. « Je vois », dit-il. Sa voix tremble. « Du blanc. Seulement du blanc. Mais je vois. »" },
       { if: avec("corbe"), text: "Corbe est à genoux, les mains à plat sur le sol, et elle écoute. « Il n'y a pas de morts ici, dit-elle. Ou alors ils sont tous vivants. »" },
-      { if: avec("lisandre"), text: "Lisandre chante une note, une seule, pour essayer. Elle ne résonne pas. Elle s'arrête net, comme si le blanc l'avait avalée." },
-      { if: NOBODY, text: "Tu es seul. Tu tournes sur toi-même. Personne. Tu as lâché toutes les mains, ou aucune ne t'a suivi. Tu cries des noms. Le blanc les avale." },
+      { if: avec("lisandre"), text: "Lisandre chante une note, une seule, pour essayer. Le son meurt à la sortie de sa bouche. Elle s'arrête net, comme si le blanc l'avait avalée." },
+      { if: NOBODY, text: "Tu es seul. Tu tournes sur toi-même : du blanc, de tous côtés. Tu as lâché toutes les mains, ou aucune ne t'a suivi. Tu cries des noms. Le blanc les avale." },
     ],
     choices: [{ label: "Quelque chose bouge, à tes pieds", to: "III_givre" }] }),
 
   III_givre: P({ title: "Givre", place: "plaine",
     text: [
       "Un renard. Un renardeau, plutôt, gros comme un chat, tout blanc, fait de neige tassée, avec deux yeux de glace. Il est en train de manger quelque chose dans la trace de tes pas. Des miettes. Il lève la tête, une miette au bout du museau.",
-      "Tu sens une petite absence. Quelque chose que tu savais il y a un instant. Où tu as mis ton couteau, la dernière fois. Il l'a mangé.",
+      "Tu sens une petite absence, à l'endroit d'une chose que tu savais il y a un instant : où tu as mis ton couteau, la dernière fois. Il l'a mangée.",
       "Il te regarde. Il remue la queue, un peu.",
     ],
     choices: [
@@ -49,14 +49,14 @@ module.exports = {
     text: [
       "Tu penses au bruit de la roue du moulin, la nuit, à travers le plancher. Le tac-tac qui t'a bercé toute ta vie. Tu le lui tends, sans savoir comment, juste en le pensant très fort.",
       "Il le prend. Délicatement. Il le mange en fermant les yeux. Et il grandit, un peu, d'un coup, comme une flamme qu'on attise.",
-      "Tu essaies de te rappeler ce qui te berçait, enfant, quand tu n'arrivais pas à dormir. Il n'y a rien. Le renardeau vient se coucher contre ta jambe. Il ronronne. Ça fait tac-tac.",
+      "Tu essaies de te rappeler ce qui te berçait, enfant, quand tu n'arrivais pas à dormir. À la place, un vide propre, comme une dent arrachée. Le renardeau vient se coucher contre ta jambe. Il ronronne. Ça fait tac-tac.",
     ],
     choices: [{ label: "Regarder autour de toi", to: "III_plaine" }] }),
 
   III_plaine: P({ title: "La plaine blanche", place: "plaine", hub: true,
     text: [
-      { first: true, text: "Au loin, des silhouettes. Elles marchent toutes dans la même direction, sans se presser. Des gens. Des milliers. Ils viennent de partout et vont vers un endroit que tu ne vois pas." },
-      "La plaine n'a pas d'horizon. Mais en la regardant longtemps, on finit par voir des choses, au loin, comme des îles dans la brume : un clocher, puis dix, serrés, sur la gauche. Une forêt d'arbres noirs. Et tout au fond, droit devant, des tours blanches, pointues.",
+      { first: true, text: "Au loin, des silhouettes. Elles marchent toutes dans la même direction, sans se presser. Des gens. Des milliers. Ils viennent de partout et vont vers un endroit hors de ta vue." },
+      "La plaine se perd dans le blanc, sans ligne d'horizon. En la regardant longtemps, pourtant, on finit par voir des choses, au loin, comme des îles dans la brume : un clocher, puis dix, serrés, sur la gauche. Une forêt d'arbres noirs. Et tout au fond, droit devant, des tours blanches, pointues.",
       { if: { has: "acte3:cloches_fini" }, text: "Du côté des clochers, la ville des cloches sonne à peine, très doucement, comme on respire en dormant." },
     ],
     choices: [
@@ -84,17 +84,17 @@ module.exports = {
 
   III_marcheurs: P({ title: "Ceux qui marchent", place: "plaine",
     text: [
-      "Tu rejoins la file. Personne ne te chasse. Personne ne te parle non plus, d'abord. Il y a de tout : des paysans en sabots, une dame dans une robe d'il y a cent ans, un soldat avec une cuirasse d'un modèle que tu n'as jamais vu, un enfant qui pousse un cerceau. Un petit dieu de bois, haut comme un chien, qui marche sur ses jambes sculptées et que personne ne prie plus.",
+      "Tu rejoins la file. On te laisse prendre place, en silence, d'abord. Il y a de tout : des paysans en sabots, une dame dans une robe d'il y a cent ans, un soldat avec une cuirasse à lames, d'un modèle inconnu, attachée par des lacets de cuir là où on mettrait des boucles, un enfant qui pousse un cerceau. Un petit dieu de bois, haut comme un chien, qui marche sur ses jambes sculptées et que personne ne prie plus.",
       "Tu demandes à une femme où ils vont. Elle te regarde, étonnée qu'on lui parle. « On rentre, dit-elle. La porte est ouverte. On l'a sentie s'ouvrir. On rentre chez nous. »",
       { if: { has: "corbe:rite_ii" }, text: "Puis elle fronce les sourcils. « Elle s'est refermée, la porte. Quelqu'un est entré, et elle s'est refermée. Mais elle va se rouvrir. Elle se rouvre toujours. »" },
       { if: { has: "corbe:ouvre" }, text: "« Quelqu'un a chanté nos noms, ajoute-t-elle. Tous. On l'a entendu jusqu'ici. »" },
-      "Tu demandes d'où elle vient. Elle cherche. Elle ne sait plus. Elle sait seulement qu'elle y retourne.",
+      "Tu demandes d'où elle vient. Elle cherche. Le lieu lui a échappé. Elle sait seulement qu'elle y retourne.",
     ],
     choices: [{ back: "III_plaine" }] }),
 
   III_halte: P({ title: "La halte", place: "plaine",
     text: [
-      "Vous vous asseyez en cercle, dans le blanc. Il n'y a pas de feu à faire. Les sacs sont vides, et la faim est restée ailleurs. Personne ne sait combien de temps a passé depuis la chute. Une heure, un jour.",
+      "Vous vous asseyez en cercle, dans le blanc. Le feu serait inutile. Les sacs sont vides, et la faim est restée ailleurs. Combien de temps a passé depuis la chute ? Chacun a son idée, et aucune ne s'accorde. Une heure, un jour.",
       { if: avec("ysolde"), text: "Ysolde dit : « Les autres. Ceux qu'on n'a pas tenus. » Elle laisse sa phrase en suspens, et tout le monde l'achève pour elle." },
       { if: avec("pie"), text: "Pie dit : « Linette était au col. » Il se tait pour le reste de la halte." },
       { if: avec("hylas"), text: "Hylas regarde ses mains. Il les voit. Il les regarde depuis une heure. « Elles sont vieilles », dit-il, étonné." },

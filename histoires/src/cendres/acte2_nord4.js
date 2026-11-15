@@ -8,8 +8,8 @@ var GASPARD = { any: [{ has: "gaspard:chant" }, { has: "gaspard:pain" }] };
 module.exports = {
   II_N4_depart: P({ title: "Vers les cirques", place: "moutier",
     text: [
-      "Les traces longent le col par l'ouest, puis montent, vers les cirques du nord, là où les clans ne chassent pas. On dit que les bêtes y vont mourir. On dit beaucoup de choses.",
-      { if: { has: "tiennot:suit" }, text: "Tiennot marche derrière vous, avec un sac trop lourd et la grande clé du moutier pendue au cou. Il ne la lâche pas." },
+      "Les traces longent le col par l'ouest, puis montent, vers les cirques du nord, là où les clans ne chassent pas. On dit que les bêtes y vont mourir. On dit beaucoup de choses, et tu as appris à n'en croire que la moitié, en choisissant bien laquelle.",
+      { if: { has: "tiennot:suit" }, text: "Tiennot marche derrière vous, avec un sac trop lourd et la grande clé du moutier pendue au cou. Sa main y revient tous les dix pas." },
       { if: { has: "tiennot:hospice" }, text: "Tiennot est parti vers l'Hospice à l'aube, avec une lettre d'Ombeline. Il s'est retourné souvent." },
       { with: "ombeline", text: "Ombeline marche en murmurant ses noms. Il y en a de nouveaux, depuis le moutier. Tu les reconnais : Arnoul, au milieu." },
     ],
@@ -17,8 +17,8 @@ module.exports = {
 
   II_N4_procession: P({ title: "La procession", place: null,
     text: [
-      "Vous les voyez avant qu'ils vous voient : une file de Glaneurs, des petits, une vingtaine, qui montent la pente l'un derrière l'autre, à pas réguliers. Chacun porte quelque chose dans ses mains jointes, contre la poitrine, comme on porte de l'eau. Une lueur pâle, qui bat.",
-      "Ils passent à cinquante pas de vous. Ils ne tournent pas la tête. Le dernier trébuche, et ce qu'il porte lui échappe, roule dans la neige, et s'éteint, lentement, comme une braise.",
+      "Vous les voyez avant qu'ils vous voient : une file de Glaneurs, des petits, vingt-deux, qui montent la pente l'un derrière l'autre, à pas réguliers, à intervalles égaux de trois pas. Chacun porte quelque chose dans ses mains jointes, contre la poitrine, comme on porte de l'eau. Une lueur pâle, qui bat.",
+      "Ils passent à cinquante pas de vous, la tête droite. Le dernier trébuche, et ce qu'il porte lui échappe, roule dans la neige, et s'éteint, lentement, comme une braise.",
       "Un nom. Personne ne saura lequel.",
     ],
     choices: [
@@ -28,7 +28,7 @@ module.exports = {
 
   II_N4_braise: P({ title: "La braise", place: null,
     text: [
-      "Il n'y a plus de lueur quand tu y arrives. Juste un creux dans la neige, tiède, et au fond, un caillou blanc, très lisse, qui est resté froid.",
+      "Quand tu y arrives, la lueur est morte. Il reste un creux dans la neige, tiède, et au fond, un caillou blanc, très lisse, qui est resté froid.",
       { if: { all: [{ has: "passe:caillou" }, { present: "enfant" }] }, text: "L'enfant de Sauvelune le regarde dans ta main. Il fouille dans sa poche et en sort un autre, tout pareil, qu'il a depuis toujours. Il se tait." },
       "Tu le mets dans ta poche. La raison t'échappe.",
     ],
@@ -41,7 +41,7 @@ module.exports = {
       { if: { all: [{ has: "gaspard:pain" }, { not: { has: "gaspard:chant" } }, { present: "enfant" }] }, text: "Elle regarde l'enfant de Sauvelune. « Tu sens le pain, dit-elle. Tu sens Sauvelune. Je suis Gaspard. »" },
       { if: { all: [{ has: "gaspard:pain" }, { not: { has: "gaspard:chant" } }, { not: { present: "enfant" } }] }, text: "« Je suis Gaspard, dit-elle. Un enfant m'a donné du pain. Il n'est pas avec vous. » Elle a l'air déçue." },
       { if: { all: [{ not: GASPARD }, { has: "nord:glaneur_libre" }] }, text: "Sur la crête, au-dessus, une silhouette blanche qui marche à votre allure. La chose de l'éboulis. Quand vous vous arrêtez, elle s'arrête. Quand tu lèves la main, elle descend, lentement, et murmure ses trois noms. *Odile. Marceau. Petit Jean.* Puis elle tend le bras vers le nord, vers un col étroit que tu n'aurais pas vu." },
-      { if: { all: [{ not: GASPARD }, { not: { has: "nord:glaneur_libre" } }] }, text: "Les traces de la procession se perdent sur un plateau de roche nue, balayé par le vent. Il n'y a plus rien à suivre." },
+      { if: { all: [{ not: GASPARD }, { not: { has: "nord:glaneur_libre" } }] }, text: "Les traces de la procession se perdent sur un plateau de roche nue, balayé par le vent. Le vent a tout effacé." },
     ],
     choices: [
       { label: "« Viens avec nous, Gaspard. »", hide: { not: GASPARD }, fx: { join: "gaspard", flag: "nord:gaspard", ep: ["perso", 1000] }, to: "II_N4_gaspard" },
@@ -52,7 +52,7 @@ module.exports = {
 
   II_N4_gaspard: P({ title: "Gaspard", place: null,
     text: [
-      "Il se lève. Il est plus grand que toi d'une tête, maigre, et sa neige a une couleur de pâte crue. Il marche devant, sans hésiter. Il connaît le chemin.",
+      "Il se lève. Il est plus grand que toi d'une tête, maigre, et sa neige a une couleur de pâte crue, avec, par endroits, des traces grises comme de la farine de seigle. Il marche devant, sans hésiter. Il connaît le chemin.",
       "« Le grand, dit-il en marchant. Je l'ai porté, avant. Mes noms. Ceux que je glanais pour l'homme en noir, quand le sceau est tombé, je ne savais pas où les mettre. Je les ai portés au grand. Tout le monde les porte au grand. Il a faim. Il a tellement faim. »",
       { with: "ombeline", text: "Ombeline marche à côté de lui. Elle lui a pris la main. Elle semble l'embarrasser, mais il la laisse où elle est." },
     ],
@@ -64,7 +64,7 @@ module.exports = {
 
   II_N4_cirque: P({ title: "Le cirque des Moissons", place: "cirque", hub: true,
     text: [
-      { first: true, text: "Le col étroit débouche au bord d'un cirque immense, un bol de neige entre des falaises noires, si grand qu'une ville y tiendrait. Au fond, au milieu, une montagne blanche, assise. Elle respire." },
+      { first: true, text: "Le col étroit débouche au bord d'un cirque immense, un bol de neige entre des falaises noires, d'une demi-lieue de travers ; Pallanche y tiendrait avec ses faubourgs. Au fond, au milieu, une montagne blanche, assise. Elle respire." },
       "Le géant. Assis, les genoux remontés, la tête penchée, comme quelqu'un qui écoute. De toutes les pentes du cirque, des files de petits Glaneurs descendent vers lui, et versent dans sa bouche ce qu'ils portent dans leurs mains. Il avale. Le murmure monte du fond du cirque comme d'une église pleine.",
       "Il vous ignore, par distraction ou par dédain.",
     ],
@@ -144,7 +144,7 @@ module.exports = {
 
   II_N4_face: P({ title: "Devant lui", place: "cirque",
     text: [
-      "Tu descends. La neige est dure, tassée par des milliers de pieds. Le murmure grandit à chaque pas, jusqu'à ce que tu ne t'entendes plus penser. À vingt pas, il lève la tête.",
+      "Tu descends. La neige est dure, tassée par des milliers de pieds, lisse comme un sol de grange. Le murmure grandit à chaque pas, jusqu'à ce que tu ne t'entendes plus penser. À vingt pas, il lève la tête.",
       "Il n'a pas d'yeux. Il te regarde quand même. Il se penche, et son ombre te couvre, et le murmure s'arrête.",
       "Le silence est pire.",
     ],
@@ -172,12 +172,12 @@ module.exports = {
       "Il tombe à genoux. Puis en avant. Il touche le sol, et il éclate, sans bruit, en une nuée blanche qui monte, qui monte, et qui remplit le cirque.",
       "Et dans la nuée, des lueurs. Des milliers. Qui battent, comme des cœurs d'oiseaux. Elles tournent un moment au-dessus de vous, hésitantes, puis le vent les prend et les emporte vers l'est. Vers le col de l'Ourse. Vers la déchirure.",
       "Le murmure s'éloigne avec elles. Puis plus rien.",
-      { if: { has: "nord:sauvelune_entendu" }, text: "L'enfant de Sauvelune court derrière, dans la neige, les bras levés, en criant des noms. Il tombe. Il ne se relève pas tout de suite." },
+      { if: { has: "nord:sauvelune_entendu" }, text: "L'enfant de Sauvelune court derrière, dans la neige, les bras levés, en criant des noms. Il tombe. Il met longtemps à se relever." },
     ],
     choices: [{ label: "Remonter au col étroit", fx: { quest: "II_N_geant" }, to: "II_N4_soir" }] }),
 
   II_N4_fuite: P({ title: "Le col étroit", place: "cirque",
-    text: ["Vous remontez le cirque en courant, sous les coups, dans la neige qui vole. Il ne vous suit pas. Il se rassoit, lentement, et les files de petits Glaneurs reprennent leur descente. Quand tu te retournes, au col, il mange de nouveau. Le murmure a repris, exactement comme avant."],
+    text: ["Vous remontez le cirque en courant, sous les coups, dans la neige qui vole. Il renonce à vous suivre. Il se rassoit, lentement, et les files de petits Glaneurs reprennent leur descente. Quand tu te retournes, au col, il mange de nouveau. Le murmure a repris, exactement comme avant."],
     choices: [{ label: "Monter le bivouac au col étroit", fx: { quest: "II_N_geant" }, to: "II_N4_soir" }] }),
 
   II_N4_un_nom: P({ title: "Un seul nom", place: "cirque",
@@ -185,7 +185,7 @@ module.exports = {
       "Tu chantes. La liste, tout ce que tu en sais, et il se penche pour écouter, de plus en plus bas, jusqu'à ce que sa bouche soit au-dessus de toi comme une voûte.",
       { if: { has: "nord:gaspard_sait" }, text: "Un seul nom. Tu te rappelles les mots de Gaspard : il ne sait en donner qu'un." },
       { if: { not: { has: "nord:gaspard_sait" } }, text: "Un seul nom. Personne ne te l'a dit, et tu le sais : il n'en rendra qu'un." },
-      "Si tu chantes le nom d'une personne, il rendra une personne. Si tu chantes le nom d'un village, il rendra peut-être un village. Tu ne sais pas. Tu as le temps d'un souffle.",
+      "Si tu chantes le nom d'une personne, il rendra une personne. Si tu chantes le nom d'un village, il rendra peut-être un village. Rien ne te le garantit. Tu as le temps d'un souffle.",
     ],
     choices: [
       { label: "« Sauvelune. »", fx: { flag: "nord:rendu=sauvelune", ep: ["perso", 2000] }, to: "II_N4_sauvelune_rendu" },
@@ -198,8 +198,8 @@ module.exports = {
     text: [
       "Il se redresse. Il ouvre la bouche, et quelque chose en sort, en tournoyant : une lueur plus grande que les autres, qui se défait en l'air en centaines de petites, comme une gerbe d'étincelles. Elles s'envolent vers le sud-ouest, vers les vallées, vers la Sauve.",
       "Le géant se rassoit. Il recommence à murmurer. Il manque quelque chose à son murmure, maintenant. Quatre cents voix.",
-      { with: "enfant", text: "L'enfant de Sauvelune les regarde partir jusqu'à ce qu'il n'y ait plus rien. Puis il te prend dans ses bras, très fort, en silence." },
-      { without: "enfant", text: "Tu penses à l'enfant, de l'autre côté du royaume. Tu ne sais pas s'il le sentira." },
+      { with: "enfant", text: "L'enfant de Sauvelune les regarde partir jusqu'à la dernière. Puis il te prend dans ses bras, très fort, en silence." },
+      { without: "enfant", text: "Tu penses à l'enfant, de l'autre côté du royaume. Tu te demandes s'il le sentira." },
     ],
     choices: [{ label: "Remonter, sans bruit", fx: { quest: "II_N_geant" }, to: "II_N4_soir" }] }),
 
@@ -237,9 +237,9 @@ module.exports = {
 
   II_N4_soir: P({ backName: "le bivouac", title: "Le bivouac", place: "cirque",
     text: [
-      "Vous campez au col étroit, entre deux rochers. On parle peu. Au loin, à l'est, la lueur blanche du col de l'Ourse, plus grande qu'hier.",
+      "Vous campez au col étroit, entre deux rochers. On parle peu. Au loin, à l'est, la lueur blanche du col de l'Ourse, plus grande qu'hier : elle mangeait hier la largeur d'un pouce tendu à bout de bras ; ce soir, elle en mange deux.",
       { if: { has: "ombeline:faim" }, text: "Ombeline murmure ses noms. De temps en temps, elle s'arrête, et elle se répète le sien, tout bas, pour l'apprendre." },
-      { if: { has: "nord:geant=tue" }, text: "Il n'y a plus de murmure. Ça fait un silence énorme." },
+      { if: { has: "nord:geant=tue" }, text: "Le murmure s'est tu. Le silence prend toute la place, du fond du cirque jusqu'aux étoiles." },
     ],
     choices: [
       { label: "Parler avec l'enfant de Sauvelune", hide: { any: [{ not: { present: "enfant" } }, { seen: "II_N4_soir_enfant" }] }, to: "II_N4_soir_enfant" },
@@ -259,7 +259,7 @@ module.exports = {
     choices: [{ fx: { conf: { enfant: 5 } }, back: "II_N4_soir" }] }),
 
   II_N4_soir_ysolde: P({ title: "Ce qu'il y avait dedans", place: "cirque",
-    text: ["Ysolde nettoie son épée, qui n'a rien à nettoyer. « Au pont, dit-elle soudain, il y avait des gens. Pas des soldats. Des gens. Je le sais parce que j'en rêve depuis le lac. » Elle range l'épée. « Je ne sais pas encore ce que j'ai fait. Mais je sais qui c'était. Ce n'étaient pas des soldats. »"],
+    text: ["Ysolde nettoie son épée, qui brille déjà d'un bout à l'autre. « Au pont, dit-elle soudain, il y avait des gens. Pas des soldats. Des gens. Je le sais parce que j'en rêve depuis le lac. » Elle range l'épée. « Je ne sais pas encore ce que j'ai fait. Mais je sais qui c'était. Ce n'étaient pas des soldats. »"],
     choices: [{ fx: { conf: { ysolde: 5 } }, back: "II_N4_soir" }] }),
 
   II_N4_soir_pie: P({ title: "Deux syllabes", place: "cirque",
@@ -274,7 +274,7 @@ module.exports = {
   II_N4_soir_hylas: P({ title: "La grande ville", place: "cirque",
     text: [
       { if: { has: "nord:gaspard_sait" }, text: "Hylas te demande ce qu'a dit Gaspard, sur la grande ville qui a brûlé. Tu le lui répètes. Il se tait longtemps. Puis : « Le registre noir dit trois cent douze ans. Gaspard dit il y a très longtemps. Le géant ramassait ceux qui brûlaient. » Il serre son bâton. « Ce n'était pas une ville. C'était un peuple. »" },
-      { if: { not: { has: "nord:gaspard_sait" } }, text: "Hylas n'a pas cessé de compter, depuis le cirque. Il se tait longtemps. Puis : « Des milliers de noms. Le registre noir dit trois cent douze ans. Les serments disent : une vallée. » Il serre son bâton. « Une vallée n'a pas tant de noms. Ce n'était pas une vallée. C'était un peuple. »" },
+      { if: { not: { has: "nord:gaspard_sait" } }, text: "Hylas compte sans relâche depuis le cirque. Il se tait longtemps. Puis : « Des milliers de noms. Le registre noir dit trois cent douze ans. Les serments disent : une vallée. » Il serre son bâton. « Une vallée n'a pas tant de noms. Ce n'était pas une vallée. C'était un peuple. »" },
     ],
     choices: [{ fx: { conf: { hylas: 5 } }, back: "II_N4_soir" }] }),
 };

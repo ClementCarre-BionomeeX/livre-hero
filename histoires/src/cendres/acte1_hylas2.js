@@ -10,7 +10,7 @@ module.exports = {
   HY_Q_relieur: P({ title: "L'atelier de reliure",
     fx: { questSeen: "HY_Q_relieur" },
     text: [
-      "Au deuxième, au fond du couloir, l'atelier de reliure. Tu le trouves à l'odeur : la colle de peau, le cuir mouillé, la cire d'abeille. Et au bruit : le petit coup sec du plioir sur le papier, régulier, qui n'a pas changé depuis que tu es entré dans cette tour, il y a soixante-quatre ans.",
+      "Au deuxième, au fond du couloir, l'atelier de reliure. Tu le trouves à l'odeur, dans l'ordre : la colle de peau, le cuir mouillé, la cire d'abeille. Et au bruit : le petit coup sec du plioir sur le papier, régulier, qui n'a pas changé depuis que tu es entré dans cette tour, il y a soixante-quatre ans.",
       "« Maître Hylas », dit Odilon, sans s'arrêter de plier. Il est plus vieux que toi. Il a relié tous les registres de la Chancellerie depuis le temps du vieux chancelier. « Vous venez toucher ? Venez toucher. Les mains ont cessé de venir. Pour les jeunes greffiers, un livre se lit de loin. »",
     ],
     choices: [
@@ -19,9 +19,9 @@ module.exports = {
     ] }),
   HY_Q_relieur_livre: P({ title: "Le cuir noir",
     text: [
-      "Il te guide la main. Sur l'établi, un livre. Non : une masse. Tu en fais le tour avec les paumes. Il est plus large que tes deux bras écartés, épais comme une marche d'escalier. La couverture est en cuir, lisse, très fin, froid. Les coins sont de fer. Tu l'ouvres, au hasard. Les pages sont vierges. Tu le sais à la façon dont elles glissent sous tes doigts : aucune encre ne les a encore alourdies.",
-      "« Six cents cahiers, dit Odilon, fier. Vélin d'agneau mort-né. Trois mois de travail. Le cuir est teint au noir de fumée, comme il l'a demandé. Pas un titre. Pas une lettre au dos. Il a dit : *Il n'aura pas besoin de titre. Tout le monde saura ce que c'est.* »",
-      "« Il », c'est Mordace. Odilon ne dit jamais le nom. Personne ne le dit, dans les ateliers.",
+      "Il te guide la main. Sur l'établi, un livre. Non : une masse. Tu en fais le tour avec les paumes. Il est plus large que tes deux bras écartés, épais comme une marche d'escalier. La couverture est en cuir, lisse, très fin, froid. Les coins sont de fer, quatre équerres larges de deux pouces. Tu l'ouvres, au hasard. Les pages sont vierges. Tu le sais à la façon dont elles glissent sous tes doigts : aucune encre ne les a encore alourdies.",
+      "« Six cents cahiers, dit Odilon, fier. Vélin d'agneau mort-né. Trois mois de travail. Le cuir est teint au noir de fumée, comme il l'a demandé. Le dos est nu, sans titre ni lettre. Il a dit : *Il n'aura pas besoin de titre. Tout le monde saura ce que c'est.* »",
+      "« Il », c'est Mordace. Odilon évite le nom. Tous l'évitent, dans les ateliers.",
     ],
     choices: [
       { label: "« Combien de noms, dans six cents cahiers ? »", test: { dom: "savoir", label: "Le compte", help: [{ if: { has: "hylas:page" }, v: 10 }, { if: { item: "canne" }, v: 5 }] },
@@ -31,8 +31,8 @@ module.exports = {
   HY_Q_relieur_compte: P({ title: "Le compte",
     text: [
       "Tu calcules à voix basse, comme on t'a appris quand tu étais jeune clerc, sur les doigts, avec la règle des trente lignes. Six cents cahiers, seize pages, deux colonnes, quarante lignes. Odilon t'écoute compter, et il cesse de plier.",
-      "Tu arrives à un nombre. Un peu plus de sept cent mille. Ce chiffre dépasse celui des morts du royaume, et celui des nés. C'est, à quelques milliers près, le nombre des vivants d'Esquarre, tel que l'a donné le dernier dénombrement.",
-      "« Tous, dit Odilon, très bas. C'est pour les mettre tous. » Il reprend son plioir. Ses mains tremblent un peu. « Moi, je fais les reliures. Je ne lis pas ce qu'on met dedans. Je n'ai jamais lu. » Il le répète deux fois, comme une prière.",
+      "Tu arrives à un nombre. Un peu plus de sept cent mille. Ce chiffre dépasse de loin les morts d'une année, et les naissances. C'est, à quelques milliers près, le nombre des vivants d'Esquarre, tel que l'a donné le dernier dénombrement.",
+      "« Tous, dit Odilon, très bas. C'est pour les mettre tous. » Il reprend son plioir. Ses mains tremblent un peu. « Moi, je fais les reliures. Ce qu'on met dedans, je le laisse aux autres. Je n'ai jamais lu. » Il le répète deux fois, comme une prière.",
     ],
     choices: [{ fx: { quest: "HY_Q_relieur" }, back: "HY_tour" }] }),
   HY_Q_relieur_fin: P({ title: "Le plioir",
@@ -42,8 +42,8 @@ module.exports = {
   // ---------------------------------------------------------------- Les cuisines
   HY_k_cuisines: P({ title: "Les cuisines de la tour",
     text: [
-      "Les cuisines, au rez-de-chaussée, derrière le Bureau. La seule pièce chaude de la tour. Mahaut est là, au milieu de ses marmites, qui crie après un marmiton parce que l'oignon brûle. Elle a toujours crié. Elle t'a toujours donné du pain.",
-      "« Maître Hylas ! Asseyez-vous. Vous n'avez pas mangé, ça se voit. Personne ne mange, dans cette tour. Ils écrivent, ils écrivent, et ils oublient de manger. » Elle te met un bol dans les mains, de la soupe aux poireaux, et un quignon. Elle s'assied en face de toi. Tu l'entends s'essuyer les mains sur son tablier.",
+      "Les cuisines, au rez-de-chaussée, derrière le Bureau. La seule pièce chaude de la tour, si l'on excepte le cabinet du sommet, où l'on brûle du hêtre en juillet. Mahaut est là, au milieu de ses marmites, qui crie après un marmiton parce que l'oignon brûle. Elle a toujours crié. Elle t'a toujours donné du pain. Les deux vont ensemble, chez elle.",
+      "« Maître Hylas ! Asseyez-vous. Vous n'avez pas mangé, ça se voit. Dans cette tour, on vit d'encre. Ils écrivent, ils écrivent, et ils oublient de manger. » Elle te met un bol dans les mains, de la soupe aux poireaux, et un quignon. Elle s'assied en face de toi. Tu l'entends s'essuyer les mains sur son tablier.",
     ],
     choices: [
       { label: "Lui parler de Mordace", to: "HY_k_cuisines_mordace" },
@@ -51,16 +51,16 @@ module.exports = {
     ] }),
   HY_k_cuisines_mordace: P({ title: "Le petit",
     text: [
-      "Mahaut se tait. C'est rare. Puis elle rit, un rire de gorge. « Je l'ai connu à onze ans, vous savez. Il est arrivé à la tour avec un baluchon et des souliers trop grands, apprenti copiste, envoyé par le curé de son village. Il pleurait le soir, dans la paneterie, où il croyait que personne ne l'entendait. Je lui donnais des pommes. »",
-      "« Il ne pleurait pas pour sa mère. Il pleurait pour sa maison. Une maison avec un figuier, il disait, et un puits, et un chien jaune. Il me la décrivait tous les soirs, pièce par pièce, pour ne pas l'oublier. » Elle soupire. « Et puis un jour, il a arrêté de me la décrire. Il a arrêté de pleurer. Il est monté au troisième, puis au quatrième. Il ne descend plus aux cuisines. »",
-      "« Je lui fais monter un plateau, le soir. Il n'y touche pas. Mais je le fais monter quand même. »",
+      "Mahaut garde le silence. Le fait est rare. Puis elle rit, un rire de gorge. « Je l'ai connu à onze ans, vous savez. Il est arrivé à la tour avec un baluchon et des souliers trop grands, apprenti copiste, envoyé par le curé de son village. Il pleurait le soir, dans la paneterie, où il se croyait seul. Je lui donnais des pommes. »",
+      "« Sa mère, il en parlait peu. Il pleurait pour sa maison. Une maison avec un figuier, il disait, et un puits, et un chien jaune. Il me la décrivait tous les soirs, pièce par pièce, pour ne pas l'oublier. » Elle soupire. « Et puis un jour, il a arrêté de me la décrire. Il a arrêté de pleurer. Il est monté au troisième, puis au quatrième. Les cuisines l'ont perdu de vue. »",
+      "« Je lui fais monter un plateau, le soir. Il redescend plein. Mais je le fais monter quand même. »",
     ],
     choices: [{ label: "Finir ta soupe", fx: { flag: "hylas:mahaut", ep: ["perso", 600], pv: 4 }, to: "HY_tour" }] }),
 
   // ---------------------------------------------------------------- Acte IV, Pont-de-Saule
   IV_ps_pont: P4({ title: "Les pêcheurs du pont", place: "pontsaule",
     text: [
-      "Sur le pont aux sept arches, une rangée d'enfants, les jambes dans le vide, une ligne à la main. Ils repartent les mains vides, en bon ordre. Ils regardent l'eau.",
+      "Sur le pont aux sept arches, une rangée d'enfants, les jambes dans le vide, une ligne à la main ; tu en comptes neuf, un par pile et deux sur la plus large. Ils repartent les mains vides, en bon ordre. Ils regardent l'eau.",
       "Un petit, au bout, plus petit que les autres, a une ligne sans hameçon. Tu lui demandes ce qu'il pêche. « Le nom de ma sœur, dit-il, sérieux. Elle l'a donné à la baraque grise, pour la taille. Le clerc a dit qu'il descendait la rivière jusqu'à Pallanche. Alors je le pêche quand il passe. »",
     ],
     choices: [
@@ -70,11 +70,11 @@ module.exports = {
   IV_ps_pont_peche: P4({ title: "Une ligne sans hameçon", place: "pontsaule",
     text: [
       "Tu t'assieds. Il te prête une ligne, sans hameçon aussi. Vous pêchez. L'eau passe sous le pont, verte, lente. Au bout d'une heure, il dit : « Elle s'appelle Margot. Je le dis tous les jours. Comme ça, si elle passe, elle saura que quelqu'un l'appelle. »",
-      { if: { has: "iv:pontsaule=libere" }, text: "Le soir même, une fillette remonte la grand-rue en courant, une fiole débouchée à la main, et elle crie un nom. Le sien. Le petit lâche sa ligne. La ligne tombe dans la Sauve. Personne ne va la repêcher." },
+      { if: { has: "iv:pontsaule=libere" }, text: "Le soir même, une fillette remonte la grand-rue en courant, une fiole débouchée à la main, et elle crie un nom. Le sien. Le petit lâche sa ligne. La ligne tombe dans la Sauve. Elle y reste." },
       { if: { not: { has: "iv:pontsaule=libere" } }, text: "Tu redis le nom avec lui, une fois, pour qu'il y ait deux voix. Margot. L'eau se referme. Il hoche la tête, satisfait. « Demain, dit-il. Elle passera peut-être demain. »" },
     ],
     choices: [{ back: "IV_ps" }] }),
   IV_ps_pont_verite: P4({ title: "La rivière", place: "pontsaule",
-    text: ["Il te regarde comme on regarde un adulte qui ne comprend rien. « Je sais, dit-il. Mais si je ne pêche pas, je fais quoi ? » Il se retourne vers l'eau. Tu n'as pas de réponse. Tu restes un moment derrière lui, puis tu t'en vas."],
+    text: ["Il te regarde comme on regarde un adulte borné. « Je sais, dit-il. Mais sans la pêche, je fais quoi ? » Il se retourne vers l'eau. La réponse te manque. Tu restes un moment derrière lui, puis tu t'en vas."],
     choices: [{ back: "IV_ps" }] }),
 };

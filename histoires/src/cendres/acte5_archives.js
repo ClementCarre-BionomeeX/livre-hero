@@ -10,7 +10,7 @@ module.exports = {
   V_ar_escalier: P({ title: "L'escalier de service", place: "pallanche",
     fx: { questSeen: "V_Q_archives" },
     text: [
-      "Derrière le guichet du Bureau, une porte basse, et un escalier qui descend au lieu de monter. Tout le monde monte, cette nuit. Personne ne descend. Les marches sont usées au milieu, par quarante ans du même pas.",
+      "Derrière le guichet du Bureau, une porte basse, et un escalier qui descend au lieu de monter. Tout le monde monte, cette nuit. Toi, tu descends. Les marches sont usées au milieu, par quarante ans du même pas.",
       "En bas, de la lumière. Une seule lampe, et un bruit de papier qu'on classe, régulier, patient, comme une pluie fine.",
     ],
     choices: [
@@ -19,8 +19,8 @@ module.exports = {
     ] }),
   V_ar_salle: P({ title: "Les archives", place: "pallanche", hub: true,
     text: [
-      { first: true, text: "Une cave voûtée, immense, plus grande que la tour au-dessus. Des rayonnages jusqu'à la voûte, des boîtes, des liasses, des fiches. Sur chaque fiche, un nom, une date, ce qui a été cédé, et une signature. Parfois une croix, pour ceux qui ne savaient pas écrire. Trois cents ans de cessions, rangées." },
-      "Au milieu, à une table, sous la lampe, une vieille femme classe. Elle ne lève pas la tête. Ses mains vont et viennent, et ses mains sont blanches jusqu'aux poignets, blanches comme la neige de cette nuit.",
+      { first: true, text: "Une cave voûtée, immense, plus large que la tour au-dessus : cent pas d'un mur à l'autre, à vue de nez, et la lampe en éclaire vingt. Des rayonnages jusqu'à la voûte, des boîtes, des liasses, des fiches. Sur chaque fiche, un nom, une date, ce qui a été cédé, et une signature. Parfois une croix, pour les illettrés. Trois cents ans de cessions, rangées." },
+      "Au milieu, à une table, sous la lampe, une vieille femme classe, des lunettes au bout du nez, une manchette de lustrine à chaque bras. Sa tête reste penchée. Ses mains vont et viennent, et ses mains sont blanches jusqu'aux poignets, blanches comme la neige de cette nuit.",
     ],
     choices: [
       { label: "L'allée des fondateurs", hide: { seen: "V_ar_fondateurs" }, to: "V_ar_fondateurs" },
@@ -32,22 +32,22 @@ module.exports = {
     ] }),
   V_ar_fondateurs: P({ title: "L'allée des fondateurs", place: "pallanche",
     text: [
-      "Les fiches les plus anciennes, dans des boîtes de cuir. Le vélin est jauni, l'encre est brune. Cinq signatures reviennent sans cesse, en bas de milliers de fiches : pas comme cédants, comme témoins. Les cinq fondateurs, qui contresignaient chaque cession, au début, de leur main.",
-      "Et puis, dans la dernière boîte, cinq fiches à part. Cinq cessions signées par les fondateurs eux-mêmes. Tu ne lis pas bien, à la lampe, mais tu lis assez. Chacun a cédé la même chose, le même jour : *le souvenir de ce que nous avons fait à Valcendre.*",
-      { with: "gaspard", text: "Gaspard a pris la fiche de Berthe. Il la regarde longtemps. « Elle me faisait refaire le pain trois fois, dit-il. Elle disait qu'il avait un goût de cendre. Je ne comprenais pas. » Il repose la fiche, doucement, à sa place." },
+      "Les fiches les plus anciennes, dans des boîtes de cuir. Le vélin est jauni, l'encre est brune, et la poussière y fait un feutre d'un doigt. Cinq signatures reviennent sans cesse, en bas de milliers de fiches : pas comme cédants, comme témoins. Les cinq fondateurs, qui contresignaient chaque cession, au début, de leur main.",
+      "Et puis, dans la dernière boîte, cinq fiches à part. Cinq cessions signées par les fondateurs eux-mêmes. La lampe est faible, mais elle suffit. Chacun a cédé la même chose, le même jour : *le souvenir de ce que nous avons fait à Valcendre.*",
+      { with: "gaspard", text: "Gaspard a pris la fiche de Berthe. Il la regarde longtemps, la tenant par le coin, comme une chose chaude. « Elle me faisait refaire le pain trois fois, dit-il. Elle disait qu'il avait un goût de cendre. Ça me dépassait. » Il repose la fiche, doucement, à sa place." },
     ],
     choices: [{ label: "Remettre les fiches dans leur boîte", fx: { ep: ["perso", 500], flag: "v:fiches_fondateurs" }, to: "V_ar_salle" }] }),
   V_ar_guerre: P({ title: "L'allée de la guerre", place: "pallanche",
     text: [
-      "Des liasses entières, ficelées par régiment. Des soldats de la Lisse. Ce qu'ils ont cédé : un jour, une nuit, un pont, un village, le visage d'un homme d'en face. Certains ont cédé la même nuit, à vingt, la même croix en bas de vingt fiches.",
-      "Une liasse est plus épaisse que les autres. *Pont de la Lisse, la nuit du feu.* Des centaines de fiches. Tous ceux qui étaient là. Personne ne voulait garder cette nuit-là.",
-      { with: "ysolde", text: "Ysolde a défait la ficelle. Elle cherche. Elle trouve. Une fiche, avec sa signature à elle, d'une écriture plus jeune, plus appliquée. Elle ne la lit pas. Elle la plie en deux, et elle la glisse dans son gant." },
-      { with: "rodric", text: "Rodric regarde la liasse sans la toucher. « Eux, ils ont donné cette nuit, dit-il. Moi, je l'ai gardée. Ça ne fait pas moins mal. Ça fait mal à un seul. »" },
+      "Des liasses entières, ficelées par régiment, une étiquette de carton à chaque nœud. Des soldats de la Lisse. Ce qu'ils ont cédé : un jour, une nuit, un pont, un village, le visage d'un homme d'en face. Certains ont cédé la même nuit, à vingt, la même croix en bas de vingt fiches.",
+      "Une liasse est plus épaisse que les autres. *Pont de la Lisse, la nuit du feu.* Des centaines de fiches. Tous ceux qui étaient là. Cette nuit-là, chacun a voulu s'en défaire.",
+      { with: "ysolde", text: "Ysolde a défait la ficelle. Elle cherche. Elle trouve. Une fiche, avec sa signature à elle, d'une écriture plus jeune, plus appliquée. Elle la garde fermée, sans un regard. Elle la plie en deux, et elle la glisse dans son gant." },
+      { with: "rodric", text: "Rodric regarde la liasse, les mains derrière le dos. « Eux, ils ont donné cette nuit, dit-il. Moi, je l'ai gardée. Ça ne fait pas moins mal. Ça fait mal à un seul. »" },
     ],
     choices: [{ label: "Renouer la ficelle", fx: { ep: ["perso", 500], flag: "v:fiches_guerre" }, to: "V_ar_salle" }] }),
   V_ar_pauvres: P({ title: "L'allée des pauvres", place: "pallanche",
     text: [
-      "L'allée la plus longue. Elle se perd dans le noir. Ici, on n'a pas cédé une nuit de guerre ou un crime. On a cédé contre de l'argent. Une mère, son premier enfant mort, contre trois mois de loyer. Un vieux, sa femme, contre le bois de l'hiver. Un enfant de onze ans, sa maison, contre une place à la Chancellerie.",
+      "L'allée la plus longue. Elle se perd dans le noir, bien au-delà de la lampe. Ici, les gens ont cédé autre chose qu'une nuit de guerre ou un crime. On a cédé contre de l'argent. Une mère, son premier enfant mort, contre trois mois de loyer. Un vieux, sa femme, contre le bois de l'hiver. Un enfant de onze ans, sa maison, contre une place à la Chancellerie.",
       "Celle-là, tu la tires de sa boîte. Les volets bleus, le figuier, le puits, le chien jaune. La signature est maladroite, une signature d'écolier qui s'est entraîné. Au dos, quelqu'un a écrit, d'une autre main : *Bon élève. À garder.*",
     ],
     choices: [
@@ -56,8 +56,8 @@ module.exports = {
     ] }),
   V_ar_hermeline: P({ title: "Hermeline", place: "pallanche",
     text: [
-      "Tu t'approches de la table. La vieille femme lève enfin la tête. Son visage est encore à elle. Ses yeux aussi. Le blanc, sous les manches, monte jusqu'aux coudes.",
-      "« Hermeline, dit-elle. Archiviste. Quarante ans. » Elle te montre ses mains. « Les fiches, ça déteint. Quand on touche trop de choses que les gens ne veulent plus, on finit par leur ressembler. » Elle reprend une fiche, la classe. « Ils montent tous, là-haut. Moi, je ne peux pas laisser le classement en plan. Qui le finirait ? »",
+      "Tu t'approches de la table. La vieille femme lève enfin la tête. Son visage est encore à elle. Ses yeux aussi. Le blanc, sous les manchettes de lustrine, monte jusqu'aux coudes.",
+      "« Hermeline, dit-elle. Archiviste. Quarante ans. » Elle te montre ses mains. « Les fiches, ça déteint. Quand on touche trop de choses que les gens ne veulent plus, on finit par leur ressembler. » Elle reprend une fiche, la classe. « Ils montent tous, là-haut. Moi, je reste au classement. Qui le finirait ? »",
     ],
     choices: [
       { label: "« Personne ne le finira. Il n'y a plus personne. »", to: "V_ar_hermeline_fin" },
@@ -65,21 +65,21 @@ module.exports = {
     ] }),
   V_ar_hermeline_fin: P({ title: "Le classement", place: "pallanche",
     text: [
-      "Elle repose la fiche. Elle regarde ses mains, longtemps, comme si elle les voyait pour la première fois. « Quarante ans, dit-elle. J'avais vingt ans. J'aimais les choses rangées. » Elle rit, doucement. « Je n'ai jamais lu une seule fiche. Pas une. On ne lit pas, on classe. C'est la règle. »",
-      "Elle tend le doigt vers le haut du mur, vers un soupirail fermé par une grille, au ras de la rue. « Par là, dit-elle, il neige. Je l'entends. Je ne l'ai pas ouvert depuis quarante ans. »",
+      "Elle repose la fiche. Elle regarde ses mains, longtemps, comme si elle les voyait pour la première fois. « Quarante ans, dit-elle. J'avais vingt ans. J'aimais les choses rangées. » Elle rit, doucement. « Les fiches, je les ai toutes classées, et toutes laissées closes. On classe, on se garde de lire. C'est la règle. »",
+      "Elle tend le doigt vers le haut du mur, vers un soupirail fermé par une grille, au ras de la rue. « Par là, dit-elle, il neige. Je l'entends. Il est fermé depuis quarante ans. »",
     ],
     choices: BACK }),
   V_ar_hermeline_classer: P({ title: "Les mains", place: "pallanche",
     text: [
-      "Tu t'assieds en face d'elle. Elle te donne une liasse. Tu classes, par date, par quartier. C'est facile. C'est apaisant, même. Au bout d'un moment, tu regardes tes doigts : le bout est blanc. Pas beaucoup. Comme de la farine.",
+      "Tu t'assieds en face d'elle. Elle te donne une liasse. Tu classes, par date, par quartier. C'est facile. C'est apaisant, même. Au bout d'un moment, tu regardes tes doigts : le bout est blanc, à peine, comme de la farine.",
       "Hermeline te prend la liasse des mains. « Pas toi, dit-elle. Toi, tu as autre chose à faire, cette nuit. » Elle souffle sur tes doigts, comme on souffle sur la farine, et le blanc s'envole. Elle montre, du menton, le soupirail fermé, en haut du mur.",
     ],
     choices: BACK }),
   V_ar_soupirail: P({ title: "Le soupirail", place: "pallanche",
     text: [
-      { first: true, text: "Tu grimpes sur un rayonnage. La grille est rouillée, mais elle cède. Le soupirail s'ouvre sur la rue, au ras des pavés. La neige entre, en tourbillons, et quand elle touche les fiches, elle ne fond pas : elle les soulève, une à une, comme si elle les attendait." },
+      { first: true, text: "Tu grimpes sur un rayonnage. La grille est rouillée, quatre barreaux scellés au plomb, mais elle cède à la troisième secousse. Le soupirail s'ouvre sur la rue, au ras des pavés. La neige entre, en tourbillons, et quand elle touche les fiches, elle ne fond pas : elle les soulève, une à une, comme si elle les attendait." },
       { again: true, text: "Tu remontes sur le rayonnage. Tu entrouvres le soupirail, d'un doigt cette fois. La neige entre, en filet, et quand elle touche les fiches, elle ne fond pas : elle les soulève, une à une, comme si elle les attendait." },
-      "Hermeline s'est levée. Elle regarde la neige entrer. « Il faut décider, dit-elle. Je ne peux pas. Je classe. Je n'ai jamais décidé. »",
+      "Hermeline s'est levée. Elle regarde la neige entrer. « Il faut décider, dit-elle. Moi, je classe. Décider, je l'ai toujours laissé aux autres. »",
     ],
     choices: [
       { label: "Donner les fiches à la neige", test: { dom: "magie", label: "Les fiches", help: [{ if: { has: "v:fiches_fondateurs" }, v: 10 }, { if: { has: "v:fiches_guerre" }, v: 10 }, { if: { present: "linette" }, v: 10 }] },
@@ -88,27 +88,27 @@ module.exports = {
       { label: "Brûler les fiches, à la lampe", fx: { flag: ["v:archives", "v:archives=brulees"], ep: ["seance", 1500], quest: "V_Q_archives" }, to: "V_ar_brulees" },
     ] }),
   V_ar_rate: P({ title: "Le tourbillon", place: "pallanche",
-    text: ["Tu ouvres trop grand. Le vent s'engouffre, renverse la lampe, fait voler les boîtes. Les fiches tourbillonnent dans la cave, sans sortir, et retombent en désordre. Hermeline gémit, à genoux, et commence déjà à les ramasser. Tu l'aides. Il faudra recommencer, plus doucement, une liasse à la fois."],
+    text: ["Tu ouvres trop grand. Le vent s'engouffre, renverse la lampe, fait voler les boîtes. Les fiches tourbillonnent dans la cave, sans sortir, et retombent en désordre. Hermeline gémit, à genoux, et commence déjà à les ramasser, par ordre de date. Tu l'aides. Il faudra recommencer, plus doucement, une liasse à la fois."],
     choices: [{ label: "Recommencer, plus doucement", to: "V_ar_soupirail" }, { back: "V_t_cessions" }] }),
   V_ar_rendues: P({ title: "La neige", place: "pallanche",
     text: [
       "Tu tends une liasse vers le soupirail. La neige la prend. Les fiches s'envolent, une à une, dans la rue, et dans la rue elles ne tombent pas : elles montent, avec la neige, vers la colonne, vers le ciel, vers les fenêtres de la ville, et elles entrent par les cheminées. Tu en donnes une autre. Et une autre.",
-      "Hermeline te regarde faire. Puis elle prend une liasse, elle aussi. Elle la tend vers la neige. Ses mains sont blanches. Quand la dernière fiche est partie, elles le sont un peu moins.",
-      "« Ils vont se souvenir, dit-elle. Tous, cette nuit. De ce qu'ils ont vendu. » Elle s'assied. « Ça va faire mal, dans la ville. Ça va faire du bruit. » Elle sourit. « Ça faisait trop longtemps que c'était silencieux. »",
+      "Hermeline te regarde faire. Puis elle prend une liasse, elle aussi. Elle la tend vers la neige. Ses mains sont blanches. Quand la dernière fiche est partie, le blanc s'arrête au poignet.",
+      "« Ils vont se souvenir, dit-elle. Tous, cette nuit. De ce qu'ils ont vendu. » Elle s'assied. « Ça va faire mal, dans la ville. Ça va faire du bruit. » Elle sourit. « Ce silence durait depuis trop longtemps. »",
     ],
     choices: [{ back: "V_t_cessions" }] }),
   V_ar_brulees: P({ title: "Le feu", place: "pallanche",
     text: [
-      "Tu prends la lampe. Tu la renverses sur la table, sur les liasses. Le papier brûle bien. Le vélin brûle mal, en se tordant, avec une odeur de corne. Hermeline recule. Elle ne t'arrête pas.",
-      "Les cessions brûlent. Personne ne retrouvera ce qu'il a donné. Mais personne, jamais, ne pourra plus montrer à quelqu'un la croix qu'il a faite en bas d'une fiche, un jour de faim, et lui dire : tu as signé. La fumée sort par le soupirail, et se mêle à la neige.",
-      "Hermeline regarde ses mains. Elles restent blanches. « C'est peut-être mieux, dit-elle. Je ne sais pas. Je n'ai jamais décidé. » Elle s'assied devant le feu, et elle se chauffe, pour la première fois depuis quarante ans.",
+      "Tu prends la lampe. Tu la renverses sur la table, sur les liasses. Le papier brûle bien. Le vélin brûle mal, en se tordant, avec une odeur de corne. Hermeline recule. Elle te laisse faire.",
+      "Les cessions brûlent. Ce que chacun a donné est perdu pour de bon. Mais la croix, aussi, est perdue : celle qu'un homme a faite en bas d'une fiche, un jour de faim, et qu'on aurait pu lui montrer en disant : tu as signé. La fumée sort par le soupirail, et se mêle à la neige.",
+      "Hermeline regarde ses mains. Elles restent blanches. « C'est peut-être mieux, dit-elle. Qui sait ? Décider, ce n'était pas mon emploi. » Elle s'assied devant le feu, et elle se chauffe, pour la première fois depuis quarante ans.",
     ],
     choices: [{ back: "V_t_cessions" }] }),
 
   V_t_fiche: P({ title: "La fiche", place: "pallanche",
     text: [
-      "Tu poses la fiche sur le Grand Livre, sous sa plume. Les volets bleus, le figuier, le puits, le chien jaune. La signature d'écolier. Il la lit, parce qu'il lit tout ce qu'on pose devant lui. Sa plume s'arrête au milieu d'un mot.",
-      "Puis il la retourne. *Bon élève. À garder.* Il reconnaît l'écriture. Tu le vois la reconnaître. C'est celle de l'homme qui était Greffier-Majeur avant lui, et qui l'a pris par la main, à onze ans, dans l'antichambre, pour le mener au guichet.",
+      "Tu poses la fiche sur le Grand Livre, sous sa plume. Les volets bleus, le figuier, le puits, le chien jaune. La signature d'écolier. Il la lit, parce qu'il lit tout ce qu'on pose devant lui, jusqu'aux étiquettes des bouteilles. Sa plume s'arrête au milieu d'un mot.",
+      "Puis il la retourne. *Bon élève. À garder.* Il reconnaît l'écriture. Tu le vois la reconnaître : un pli, entre les sourcils, qui se creuse. C'est celle de l'homme qui était Greffier-Majeur avant lui, et qui l'a pris par la main, à onze ans, dans l'antichambre, pour le mener au guichet.",
     ],
     choices: [
       { label: "« Ils t'ont acheté. Tu n'as rien vendu. »", test: { dom: "social", label: "Mordace", help: [{ if: { has: "hylas:mahaut" }, v: 15 }, { if: { has: "v:archives=rendues" }, v: 15 }, { if: { present: "hylas" }, v: 15 }, { if: { item: "dessin_mordace" }, v: 10 }] },

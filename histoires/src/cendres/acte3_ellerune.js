@@ -6,7 +6,7 @@ function P(o) { return Object.assign({}, A, o); }
 module.exports = {
   III_el_fendeur: P({ title: "Le fendeur", place: "enfance",
     text: [
-      "L'homme qui fend du bois ne lève pas les yeux. Il pose une bûche noire sur le billot, il lève la hache, il frappe. La bûche résiste, et résistera toujours : c'est du bois brûlé, dur comme du fer. Il la repose. Il recommence.",
+      "L'homme qui fend du bois garde les yeux sur le billot. Il pose une bûche noire sur le billot, il lève la hache, il frappe. La bûche résiste, et résistera toujours : c'est du bois brûlé, dur comme du fer. Il la repose. Il recommence.",
       "« Tu ne devrais pas être ici, dit-il, dans la langue que tu comprends. Je l'ai dit aux autres. Tu étais le seul vivant. » Il frappe. « Mais puisque tu es là, prends la hache. Ton grand-père fendait mieux que moi. On verra si ça se transmet. »",
     ],
     choices: [
@@ -16,8 +16,8 @@ module.exports = {
     ] }),
   III_el_fendeur_ok: P({ title: "Fendue", place: "enfance",
     text: [
-      "Tu ne fends pas comme lui. Tu fends comme on t'a appris au moulin : en lisant le bois avant de frapper, en cherchant la fente qui y est déjà. Il y en a une, minuscule, dans le charbon. Tu frappes dedans.",
-      "La bûche s'ouvre en deux, net, avec un bruit qu'on n'a pas entendu à Ellerune depuis trois siècles. À l'intérieur, au cœur, le bois n'a pas brûlé. Il est blond, et il sent la sève.",
+      "Tu fends à ta manière, celle du moulin : en lisant le bois avant de frapper, en cherchant la fente qui y est déjà. Il y en a une, minuscule, dans le charbon. Tu frappes dedans.",
+      "La bûche s'ouvre en deux, net, avec un bruit qu'on n'a pas entendu à Ellerune depuis trois siècles. À l'intérieur, au cœur, sur deux doigts de large, le bois est resté vif. Il est blond, et il sent la sève.",
       "L'homme regarde les deux moitiés longtemps. Puis il te reprend la hache, en silence, et il va poser la moitié blonde sur le seuil de la maison de Maëra.",
     ],
     choices: [{ back: "III_e_hameau" }] }),
@@ -27,7 +27,7 @@ module.exports = {
 
   III_el_fileuse: P({ title: "La fileuse", place: "enfance",
     text: [
-      "Sur un banc, devant sa porte, une vieille femme file une laine grise. Le fil sort de sa quenouille sans jamais diminuer. À ses pieds, la pelote est grosse comme un chaudron, et elle continue de grossir.",
+      "Sur un banc, devant sa porte, une vieille femme file une laine grise. Le fil sort de sa quenouille, et la quenouille reste pleine. À ses pieds, la pelote est grosse comme un chaudron, et elle continue de grossir.",
       "« Trois cents ans que je file le même fil, dit-elle. Pour une couverture. Le jour de l'incendie, j'avais promis une couverture à ma fille, pour l'hiver. L'hiver n'est jamais venu. Alors je continue. » Elle te regarde. « Tu as froid, toi. Ça se voit. Tu viens de là-haut, où il fait froid. »",
     ],
     choices: [
@@ -37,7 +37,7 @@ module.exports = {
   III_el_fileuse_fil: P({ title: "Le fil", place: "enfance",
     text: [
       "Elle coupe le fil avec ses dents. Pour la première fois en trois siècles. Elle te tend le bout, et la pelote, et tu la prends, et elle est lourde, et chaude, comme un chat.",
-      "« Ce n'est pas une couverture, dit-elle. Je n'ai jamais su tricoter. Mais ça tient chaud quand même, un fil. Si on l'enroule assez. » Elle pose les mains sur ses genoux, vides, et elle les regarde, et elle sourit, comme quelqu'un qui vient de finir un travail.",
+      "« Ça devait être une couverture, dit-elle. Le tricot, je l'ai toujours ignoré. Mais ça tient chaud quand même, un fil. Si on l'enroule assez. » Elle pose les mains sur ses genoux, vides, et elle les regarde, et elle sourit, comme quelqu'un qui vient de finir un travail.",
     ],
     choices: [{ back: "III_e_hameau" }] }),
   III_el_fileuse_fille: P({ title: "La quenouille", place: "enfance",
@@ -47,7 +47,7 @@ module.exports = {
   III_el_puits: P({ title: "Le jeu du puits", place: "enfance",
     text: [
       "Autour du puits sans eau, des enfants jouent. Ils jouent à un jeu que tu connais sans le connaître : on se met en rond, on se lance une pierre, et celui qui la rattrape doit dire un nom, n'importe lequel, et si un autre le connaît, celui-là est délivré, et il sort du rond.",
-      "Ils jouent depuis trois cents ans. Personne n'est jamais sorti du rond. Les noms qu'ils disent sont ceux d'Ellerune, et personne, ailleurs, ne les connaît.",
+      "Ils jouent depuis trois cents ans. Le rond est toujours complet. Les noms qu'ils disent sont ceux d'Ellerune, et ils sont inconnus partout ailleurs.",
       "Une petite fille te lance la pierre.",
     ],
     choices: [
@@ -55,7 +55,7 @@ module.exports = {
       { label: "Dire le nom de ta mère d'ici", hide: { not: { seen: "III_e_mere" } }, fx: { ep: ["perso", 800] }, to: "III_el_puits_maera" },
     ] }),
   III_el_puits_sauvelune: P({ title: "Sauvelune", place: "enfance",
-    text: ["Les enfants se regardent. Personne ne connaît Sauvelune. La petite fille hausse les épaules, gentiment, et reprend la pierre. « Personne ne sort, alors », dit-elle. Tu restes un moment. Tu joues. Personne ne connaît aucun de tes noms. Tu ne connais aucun des leurs. C'est un jeu très triste, et ils rient tout le temps."],
+    text: ["Les enfants se regardent. Sauvelune est un nom vide pour eux. La petite fille hausse les épaules, gentiment, et reprend la pierre. « Personne ne sort, alors », dit-elle. Tu restes un moment. Tu joues. Tes noms tombent dans le vide, et les leurs aussi. C'est un jeu très triste, et ils rient tout le temps."],
     choices: [{ label: "Sortir du rond, et revenir au centre du hameau", back: "III_e_hameau" }] }),
   III_el_puits_maera: P({ title: "Maëra", place: "enfance",
     text: [
