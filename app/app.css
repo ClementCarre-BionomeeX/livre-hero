@@ -835,3 +835,10 @@ button.pp:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px;
 #carnet .pp-card + .pp-card, .carnet-body .pp-card { margin-bottom: 8px; }
 .pp-card > .desc { font: 14.5px/1.45 var(--serif); color: var(--muted); }
 .pp-met { margin-top: -2px; }
+.pp-own { display: grid; gap: 4px; }
+.pp-own input { font: 15px/1.4 var(--serif); padding: 7px 10px; border: 1px solid var(--line); border-radius: 8px; background: var(--paper, var(--bg)); color: inherit; min-width: 0; }
+.pp-aspect dd.mine { font-style: italic; }
+.pp-scene { display: grid; gap: 6px; margin: 4px 0 14px; padding: 8px 10px; border: 1px solid var(--line); border-radius: 10px; background: color-mix(in srgb, var(--accent) 5%, transparent); }
+.pp-scene-row { display: flex; flex-wrap: wrap; gap: 6px 14px; }
+button.pp.pp-face-btn { border-bottom: 0; display: inline-flex; align-items: center; gap: 6px; padding: 2px 8px 2px 2px; border-radius: 999px; font: 500 14px/1.2 var(--sans); }
+.pp-face-btn svg { display: block; border-radius: 50%; }
