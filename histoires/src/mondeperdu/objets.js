@@ -21,4 +21,6 @@ module.exports = {
     desc: "Une magnifique carabine brun et argent, crosse garnie de caoutchouc, cinq cartouches par chargeur. « Vous pouvez lui confier votre vie. »" },
   enveloppe: { name: "L'enveloppe scellée de Challenger", kind: "document", keep: true,
     desc: "Les instructions du professeur pour trouver le plateau. À n'ouvrir qu'à Manaus, à la date et à l'heure inscrites dessus." },
+  corde: { name: "La corde de Challenger", kind: "document", keep: true,
+    desc: "Une corde d'escalade de quarante-cinq mètres, pas plus grosse qu'une corde à linge mais très solide. Zambo l'a renvoyée de l'autre côté du gouffre." },
 };

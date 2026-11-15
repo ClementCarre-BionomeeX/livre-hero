@@ -89,4 +89,8 @@ module.exports = {
     face: { age: "adulte", skin: "cuivre", hair: "noir" },
     qui: "L'autre Indien qui a guidé Challenger lors de son premier voyage.",
     aspect: { signe: "terrifié à l'idée du voyage" } },
+  colver: { name: "James Colver", aka: ["Colver", "James Colver"],
+    face: { age: "adulte", skin: "clair" },
+    qui: "Un Américain, ami et compagnon de voyage de Maple White. Il est resté dans le bateau à Rosario.",
+    aspect: { signe: "on ne connaît de lui que son nom" } },
 };

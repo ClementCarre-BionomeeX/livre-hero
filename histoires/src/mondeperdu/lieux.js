@@ -28,4 +28,8 @@ module.exports = {
     desc: "Une immense étendue de bambous serrés, où l'on avance à la machette sans voir à plus de dix mètres." },
   falaises: { ambiance: "montagne", name: "Les falaises rouges", map: "amerique", x: 14, y: 4, region: "Le plateau", arrive: "VIII_6",
     desc: "La longue ligne de hautes falaises rouges, côtelées, du dessin de Maple White. Au-dessus, le plateau." },
+  piton: { ambiance: "montagne", name: "Le piton", map: "amerique", x: 12, y: 2, region: "Le plateau", arrive: "IX_7",
+    desc: "Une haute et mince aiguille de roche rouge, comme une flèche d'église, séparée du plateau par un gouffre d'une douzaine de mètres. Au sommet poussait un hêtre." },
+  bord_plateau: { ambiance: "foret", name: "Le bord du plateau", map: "plateau", x: 50, y: 90, region: "Le plateau", arrive: "IX_9",
+    desc: "Le premier camp sur le plateau, au bord même de la falaise, face au piton. Des broussailles serrées, puis l'inconnu." },
 };
