@@ -67,7 +67,7 @@ module.exports = {
     act: "I", title: "La charpentière", place: "cale",
     text: [
       "Au pied du grand mât, une femme d'une quarantaine d'années, les manches roulées sur des avant-bras de forgeron, a démonté le piston de la grande pompe sur un sac étalé par terre. Elle tient entre deux doigts une rondelle de cuir qui s'effrite comme du pain sec.",
-      "« Armelle Kerbrat, charpentière. Tu es le nouveau subrécargue ? » Elle te tend la rondelle. « Regarde-moi ça. J'ai regarni ces pompes moi-même au retour du dernier voyage, avec du cuir de Morlaix, le meilleur. Ce matin, je trouve ça à la place. Du cuir de savetier, brûlé à la chaux. Ça tiendra trois jours de pompage, et le quatrième on se noie. »",
+      "« Armelle Kerbrat, charpentière. C'est toi qui remplaces Lerac ? » Elle te tend la rondelle. « Regarde-moi ça. J'ai regarni ces pompes moi-même au retour du dernier voyage, avec du cuir de Morlaix, le meilleur. Ce matin, je trouve ça à la place. Du cuir de savetier, brûlé à la chaux. Ça tiendra trois jours de pompage, et le quatrième on se noie. »",
       "Elle jette la rondelle dans le sac. « J'ai demandé au second l'argent pour en racheter. Il dit que l'armateur ne paiera pas deux fois la même chose, et qu'il n'a pas le temps. Et il m'interdit de descendre à terre avant le départ. »",
       "Elle te regarde. « Toi, tu tiens le coffre. Et toi, tu peux descendre à terre. »",
     ],
@@ -203,7 +203,7 @@ module.exports = {
     act: "I", title: "Chez Thibaut Lerac", place: "aubier_ville",
     text: [
       { first: true, text: "Thibaut Lerac habite deux pièces au-dessus d'une boutique de chandelles. Il t'ouvre lui-même, en sautillant sur une béquille, la jambe droite prise dans une attelle de planchettes. C'est un vieil homme maigre au crâne chauve, aux lunettes rondes, qui sent le tabac froid." },
-      { first: true, text: "Quand tu lui dis qui tu es, il te laisse sur le seuil. Il reste dans l'embrasure, la main sur la porte. « Le nouveau subrécargue de la Sterne. Eh bien. Bon voyage. »" },
+      { first: true, text: "Quand tu lui dis qui tu es, il te laisse sur le seuil. Il reste dans l'embrasure, la main sur la porte. « C'est donc vous qui me remplacez sur la Sterne. Eh bien. Bon voyage. »" },
       { again: true, text: "Lerac t'ouvre de nouveau, toujours sur sa béquille. Il soupire en te voyant, mais il ne referme pas la porte." },
     ],
     fx: { meet: "lerac" },

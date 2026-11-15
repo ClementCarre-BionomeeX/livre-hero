@@ -12,7 +12,7 @@ module.exports = {
   version: 1,
   start: "K_depart",
   intro: [
-    "Sept ans. Il a fallu sept ans pour que le nom de Kardan arrive jusqu'à toi, porté par un marchand de sel qui ne savait pas ce qu'il disait : *un village où l'eau ne manque jamais, au fond d'une vallée où elle manque partout.* Aurèle était parti vers le sud avec un sac, un couteau et sa façon de barrer les sept. Il n'a écrit qu'une seule fois.",
+    "Sept ans. Il a fallu sept ans pour que le nom de Kardan arrive jusqu'à toi, porté par un marchand de sel qui en parlait comme d'une curiosité de foire : *un village où l'eau ne manque jamais, au fond d'une vallée où elle manque partout.* Aurèle était parti vers le sud avec un sac, un couteau et sa façon de barrer les sept. En sept ans, il a écrit une seule lettre.",
     "Avant de partir, dis qui tu es.",
   ],
   acts: [
@@ -227,20 +227,20 @@ module.exports = {
       sud: { tiring: 2, name: "La vallée sèche", chance: 0.7, events: ["E_puits_secs", "E_caravane", "E_vautours", "E_chevrier"],
         quiet: [
           "La route descend par lacets dans une terre couleur de croûte de pain. Il n'y a plus d'arbres ; les buissons tiennent encore, gris de poussière, et crissent quand tu les frôles. Le ciel est d'un bleu qui fait mal aux yeux.",
-          "Tu marches des heures sans voir âme qui vive. De temps en temps, le lit d'une rivière morte croise la route, plein de cailloux ronds et blancs comme des œufs. Une seule fois, au loin, une colonne de poussière qui pourrait être un cavalier, ou le vent.",
-          "Le soleil cogne. Tu bois par petites gorgées, comme on te l'a appris, et tu comptes tes pas pour ne pas compter les heures. À l'horizon, une ligne verte, impossible, qui recule à mesure que tu avances.",
+          "Tu marches des heures sans voir âme qui vive. Trois fois dans la matinée, le lit d'une rivière morte croise la route, plein de cailloux ronds et blancs comme des œufs. Une seule fois, au loin, monte une colonne de poussière : un cavalier, ou le vent.",
+          "Le soleil cogne. Tu bois par petites gorgées, comme on te l'a appris, et tu comptes tes pas pour éviter de compter les heures : deux mille à la lieue, à peu de chose près. À l'horizon, une ligne verte, impossible, qui recule à mesure que tu avances.",
         ],
         camp: [
-          "Tu campes contre un rocher encore chaud du jour. La nuit tombe d'un coup, comme un couvercle, et le froid la suit. Au-dessus, plus d'étoiles que tu n'en as jamais vu, si serrées qu'on croirait les entendre.",
+          "Tu campes contre un rocher encore chaud du jour. La nuit tombe d'un coup, comme un couvercle, et le froid la suit de près. Au-dessus, les étoiles sont si nombreuses et si serrées qu'on croirait les entendre.",
           "Le feu de broussailles crépite et sent la résine. Quelque part, un chacal rit tout seul. Tu dors par à-coups, la main sur ton arme, et chaque fois que tu ouvres les yeux la lune a changé de place.",
         ] },
       plateau: { ambiance: "montagne", name: "Le plateau", chance: 0, quiet: [
         "Le sentier quitte les jardins de Kardan et monte sur le plateau par une rampe de pierre plate. Derrière toi, le village est une tache verte posée sur le brun comme une feuille sur une table. Devant, rien, et puis la ravine.",
-        "Tu redescends du plateau dans la lumière oblique. L'odeur des jardins de Kardan te monte au nez bien avant que tu les voies : de la menthe, de l'eau, du fumier. Tu n'avais pas remarqué à quel point l'odeur de l'eau te manquait.",
+        "Tu redescends du plateau dans la lumière oblique. L'odeur des jardins de Kardan te monte au nez bien avant que tu les voies : de la menthe, de l'eau, du fumier. Tu découvres à quel point l'odeur de l'eau te manquait.",
       ] },
       galeries: { tiring: 2, ambiance: "souterrain", name: "Les galeries", chance: 0.55, events: ["E_rats", "E_eboulement", "E_piege", "E_cadavre", "E_torche", "E_pas", "E_voix"],
         quiet: [
-          "La galerie tourne, se divise, se rejoint. Les murs sont de la même pierre ocre partout, taillée à la main en blocs si réguliers qu'on finit par les compter. Tu laisses une marque à la craie à chaque embranchement, comme on le fait dans les histoires.",
+          "La galerie tourne, se divise, se rejoint. Les murs sont partout de la même pierre ocre, taillée à la main en blocs si réguliers qu'on finit par les compter. Tu laisses une marque à la craie à chaque embranchement, comme on le fait dans les histoires, sans grande confiance dans la méthode.",
           "Il fait frais, presque froid. Quelque part, très loin, de l'eau goutte, régulière comme une cloche. Tu avances dans le rond de ta lumière, et le noir se referme derrière toi en silence.",
           "Le sol monte, puis descend, et tu perds le sens du haut et du bas. Seul le courant d'air te guide encore : il vient de devant, et il sent la pierre mouillée.",
         ],

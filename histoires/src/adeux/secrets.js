@@ -17,7 +17,7 @@ module.exports = {
       "Tu racontes la nuit dans l'antichambre. Le trait de lumière sous la porte, le chancelier en chemise, la plume qui recopie lentement, le sable sur l'encre, le cachet. Et l'autre lettre, celle qu'il a tenue dans la flamme jusqu'à se brûler les doigts.",
       { if: { clue: "cygne_brule" }, text: "« Elle était fermée de cire blanche, avec un cygne. » Tu poses la main sur l'étui du pli, sous ta chemise. « Celle-ci est fermée de cire rouge. »" },
       { if: { clue: "pli_cire" }, text: "« Et sur celle que je porte, la cire a coulé deux fois. Deux rouges l'un sur l'autre. »" },
-      "Tu te tais. Tu viens de dire à quelqu'un que tu as rencontré hier que le pli de la duchesse est peut-être un mensonge. Un courrier qui dit cela, à Vérenne, perd sa place. Ou sa tête.",
+      "Tu te tais. Tu viens de dire à quelqu'un rencontré hier que le pli de la duchesse est peut-être un mensonge. Un courrier qui dit cela, à Vérenne, perd sa place. Ou sa tête.",
     ] },
   S_aveu_argent: { title: "La bourse au cor de chasse", back: true,
     text: [
@@ -33,7 +33,7 @@ module.exports = {
   S_aveu_hiver: { title: "Onze étés", back: true,
     text: [
       "« J'ai menti au clerc. » Tu le dis tout de suite, comme on saute dans l'eau froide. « J'ai passé l'Ourse onze fois. L'été. Entre la Saint-Jean et la Saint-Michel. Jamais sous la neige. »",
-      { if: { place: "pontgele" }, text: "« Demain soir on sera à Sorgue, et après-demain là-haut. Je connais le chemin. Je ne sais pas ce qu'il devient quand il est blanc. » {autre} regarde le vasistas, où la nuit est claire et froide." },
+      { if: { place: "pontgele" }, text: "« Demain soir on sera à Sorgue, et après-demain là-haut. Je connais le chemin. Ce qu'il devient quand il est blanc, je l'ignore. » {autre} regarde le vasistas, où la nuit est claire et froide." },
       { if: { place: "col" }, text: "« Aujourd'hui, j'ai cherché les cairns sous la neige comme on cherche ses mots. » Le vent pousse la porte du refuge. {autre} met une bûche de plus dans le feu." },
       { if: { place: "brumefond" }, text: "« C'est fait, maintenant. On a passé le col. Je voulais que tu le saches quand même. » L'eau clapote contre le bac." },
     ] },
@@ -41,15 +41,15 @@ module.exports = {
   // ---------------------------------------------------------------- interludes (act II)
   I_hesme: { title: "La maison des postes", interlude: { who: "hesme", where: "Vérenne, la nuit de votre départ" }, back: true,
     text: [
-      "La maison des postes de Vérenne est derrière l'écurie ducale, et à minuit il n'y a de lumière qu'à une fenêtre. Dame Hesmé de Laudes y est assise en manteau gris, devant une carte des Dents de Sorgue épinglée au mur.",
-      "Le garçon qui entre a vingt ans, des bottes de cavalier et la peau tannée des gens qui dorment dehors. Il s'appelle Gaut, et il est le meilleur courrier des postes depuis que les postes ne servent plus à rien.",
+      "La maison des postes de Vérenne est derrière l'écurie ducale, et à minuit une seule fenêtre y est éclairée. Dame Hesmé de Laudes y est assise en manteau gris, devant une carte des Dents de Sorgue épinglée au mur, piquée d'épingles à tête rouge le long de la gorge.",
+      "Le garçon qui entre a vingt ans, des bottes de cavalier et la peau tannée des gens qui dorment dehors. Il s'appelle Gaut, et il est le meilleur courrier des postes depuis que les postes ont cessé de servir.",
       "« Tu pars cette nuit. Par la gorge de l'Ourse, le chemin des contrebandiers. Tu laisses le col à ta gauche, tu passes Sorgue de nuit, et tu gardes ta bouche fermée jusqu'au bac de Brume. » Elle lui tend une lettre fermée de cire blanche. Le cygne de la duchesse, aux ailes ouvertes. « À la présidente Aude Lorge, en main propre, avant que l'Assemblée entende la réponse de la chancellerie. »",
       "Gaut tourne la lettre. « Il y a deux réponses ? »",
-      "« Sa Grâce a écrit une réponse, et l'a donnée au chancelier pour qu'il la fasse partir. Ensuite je lui ai demandé de l'écrire une seconde fois, pour moi. Elle n'a pas demandé pourquoi. Elle me connaît. » Dame Hesmé regarde la carte. « Maître Oriel a choisi lui-même le courrier. Il ne choisit jamais lui-même. Et il a choisi un Cabrol. »",
+      "« Sa Grâce a écrit une réponse, et l'a donnée au chancelier pour qu'il la fasse partir. Ensuite je lui ai demandé de l'écrire une seconde fois, pour moi. Elle a fait ce que je demandais, sans question. Elle me connaît. » Dame Hesmé regarde la carte. « Maître Oriel a choisi lui-même le courrier, lui qui délègue toujours ce choix. Et il a choisi un Cabrol. »",
       { if: { has: "monde:argent_pris" }, text: "« Le muletier a pris l'argent. Leur pli arrivera un jour après toi. Tu as un jour d'avance, Gaut. Ne le perds pas. »" },
       { if: { has: "monde:argent_refuse" }, text: "« Le muletier a refusé l'argent. Honnête. » Elle a un petit rire sans joie. « Leur pli arrivera le cinquième au matin. Tu dois y être avant. Tu as une nuit d'avance, Gaut. Une seule. »" },
       "« Et si on m'arrête ? »",
-      "« Le chancelier a fait partir un homme ce matin, un homme à lui, en manteau vert. Il suit le courrier. Il ne sait pas que tu existes. » Elle se lève. « Pour l'instant. »",
+      "« Le chancelier a fait partir un homme ce matin, un homme à lui, en manteau vert. Il suit le courrier. Il ignore ton existence. » Elle se lève. « Pour l'instant. »",
     ] },
   I_oriel: { title: "Le cabinet du chancelier", interlude: { who: "oriel", where: "Vérenne, la veille de votre départ" }, back: true,
     text: [
@@ -58,7 +58,7 @@ module.exports = {
       "« Et Varrache ? »",
       "« Varrache veut sa guerre, et les salines de la rive nord, et il les aura, si l'Assemblée entend un non. Elle l'entendra. » Il pose la main sur une feuille blanche, à côté de la lettre au cygne. « J'écris bien comme Sa Grâce. J'ai écrit pour elle pendant vingt ans. »",
       "« Le courrier lira peut-être. »",
-      "« Le courrier est un enfant d'Aymon Cabrol. Son père est mort pendu à Brumefond. Il a demandé ce pli lui-même, deux fois. Quelqu'un qui hait cette ville ne cherchera pas pourquoi on lui donne une bonne raison de la haïr. »",
+      "« Le courrier est un enfant d'Aymon Cabrol. Son père est mort pendu à Brumefond. Ce pli, l'enfant l'a demandé en personne, deux fois. Quand on hait une ville, on accepte sans examen une bonne raison de la haïr. »",
       "Ancelin hoche la tête. « Et moi ? »",
       "« Tu les suis jusqu'au lac. Dame Hesmé tient les postes, et Dame Hesmé ne m'aime pas. Si un autre cavalier part vers Brumefond, avec une autre lettre, il n'arrive pas. » Le chancelier prend sa plume. « Va. J'ai à écrire. »",
     ] },
@@ -68,7 +68,7 @@ module.exports = {
     text: [
       "Le cheval des postes est couché dans la neige, au bord du torrent, un carreau d'arbalète dans le poitrail. Ancelin s'accroupit près de lui et ouvre les fontes une à une avec son couteau. Du pain, de l'avoine, une couverture, une gourde. Pas de lettre.",
       "Le cavalier est tombé avec le cheval. Il s'est relevé, il a couru, et il a disparu entre les rochers, là où la gorge se resserre. Il y a du sang sur la neige, des taches de la taille d'une pièce, qui montent vers le noir.",
-      "Ancelin regarde le noir un long moment. Un homme blessé, sans cheval, dans la gorge de l'Ourse, en hiver, la nuit : il ne verra pas le lac. Et sa lettre ne le verra pas non plus.",
+      "Ancelin regarde le noir un long moment. Un homme blessé, sans cheval, dans la gorge de l'Ourse, en hiver, la nuit : le lac est trop loin pour lui. Et pour sa lettre aussi.",
       { if: { has: "monde:menti_vert" }, text: "Il pense aux deux voyageurs de la route du nord, qui allaient voir de la famille à Sorgue. Il sourit dans sa barbe." },
       "Il essuie son couteau sur la housse du cheval mort. Le chemin du col et celui de la gorge se rejoignent au pont de Brume, au-dessus du lac. Tout ce qui descend de la montagne passe par ce pont. Il ira les y attendre, avec ses deux hommes, au chaud, dans la maison du péager.",
     ] },
@@ -76,9 +76,9 @@ module.exports = {
     text: [
       "La séance est levée. La salle de l'Assemblée se vide de ses quarante délégués, et Aude Lorge reste assise sous les armes des Ligues, les mains à plat sur la table, parce que ses genoux lui font mal quand elle se lève trop vite.",
       "Odo Varrache, capitaine-général, s'arrête à sa hauteur, les gants à la main. « Vérenne dira non, présidente. Vous le savez comme moi. »",
-      "« Vous le savez bien tôt, capitaine. » Elle ne lève pas les yeux. « La réponse n'est pas encore partie de Vérenne, qu'on sache. »",
+      "« Vous le savez bien tôt, capitaine. » Elle garde les yeux sur la table. « La réponse n'est pas encore partie de Vérenne, qu'on sache. »",
       "Varrache sourit. « Elle est partie ce matin. Ils envoient un enfant d'Aymon Cabrol pour la porter. Le chancelier Daumas a de l'humour. »",
-      "Quand il est sorti, Aude Lorge reste longtemps immobile. Elle se souvient du procès d'Aymon Cabrol. Elle y était, jeune déléguée de Port-Sauge. Cabrol n'a jamais dit qui l'envoyait. Mais dans ses affaires, on a trouvé des lettres signées d'un clerc de la chancellerie de Vérenne, un certain O. Daumas, et le prévôt a écrit ce nom dans son registre. Vérenne n'a jamais réclamé Cabrol. Daumas l'a laissé pendre.",
+      "Quand il est sorti, Aude Lorge reste longtemps immobile. Elle se souvient du procès d'Aymon Cabrol. Elle y était, jeune déléguée de Port-Sauge. Cabrol a emporté sous la corde le nom de qui l'envoyait. Mais dans ses affaires, on a trouvé des lettres signées d'un clerc de la chancellerie de Vérenne, un certain O. Daumas, et le prévôt a écrit ce nom dans son registre. Vérenne a renié Cabrol. Daumas l'a laissé pendre.",
       "Et Daumas, aujourd'hui, est chancelier. Elle appelle son secrétaire. « Les lettres de la duchesse Ysaure, celles des années de paix. Montrez-moi comment elles sont scellées. »",
       "Le secrétaire revient avec une liasse. Chaque lettre porte au dehors le sceau rouge de la chancellerie, et au dedans, sur le pli intérieur, un petit cygne de cire blanche.",
     ] },

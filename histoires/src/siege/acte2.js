@@ -313,7 +313,7 @@ module.exports = {
       { via: "ouvert", text: "Tu fais ouvrir le grenier est. Les sacs descendent, les boulangers jurés pétrissent toute la nuit, et la foule se disperse avec du pain sous le bras. Le lendemain, la ville est calme. Le grenier est vide, lui aussi." },
       { via: "parole", text: "Tu leur parles du compte, simplement : combien il reste, combien on mange, combien de jours. Tu leur dis que si l'on ouvre aujourd'hui, on mourra de faim avant la fin du mois. Une femme crie que c'est un mensonge. Une autre la fait taire. La poutre retombe sur les pavés, et la foule se défait comme une pâte qu'on cesse de pétrir." },
       { via: "sang", text: "Les sergents arrivent au pas de charge, la pique basse. La foule se brise. Quand la place est vide, il reste trois corps sur les pavés, un sabot, un panier renversé, et du sang dans les rigoles." },
-      { via: "sang", text: "Une pierre t'a ouvert le front. Une sœur te recoud sur les marches de la Halle, sans anesthésie, en parlant d'autre chose." },
+      { via: "sang", text: "Une pierre t'a ouvert le front. Une sœur te recoud sur les marches de la Halle, avec une gorgée d'eau-de-vie pour tout remède, en parlant d'autre chose." },
     ],
     fx: { ep: ["seance", 800] },
     choices: [{ label: "Passer dans la Halle", to: "H_halle" }],

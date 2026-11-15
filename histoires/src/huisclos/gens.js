@@ -140,7 +140,7 @@ module.exports = {
     text: [
       "Tu tires une chaise près de celle d'Odile. Elle te fait de la place sur le châle, sans un mot. C'est la troisième nuit, la dernière. Demain, on viendra chercher ta mère.",
       { if: { has: "odile:aveu" }, text: "Vous parlez à voix basse, comme lorsque vous étiez petits et que la mère dormait de l'autre côté de la cloison. Vous parlez de Lucien. Tu racontes la luge, et elle raconte le jour où il a mis le chat dans le pétrin. Vous riez, une fois, très bas, et vous vous arrêtez, effrayés, en regardant le lit." },
-      { if: { not: { has: "odile:aveu" } }, text: "Vous ne parlez pas. Odile égrène un chapelet qu'elle ne dit pas, et toi tu regardes les cierges baisser. Une fois, elle ouvre la bouche, et la referme. Tu fais semblant de n'avoir rien vu." },
+      { if: { not: { has: "odile:aveu" } }, text: "Vous gardez le silence. Odile égrène un chapelet du bout des doigts, sans remuer les lèvres, et toi tu regardes les cierges baisser. Une fois, elle ouvre la bouche, et la referme. Tu fais semblant de n'avoir rien vu." },
       { if: { has: "odile:lettre" }, text: "Elle parle de la lettre, une fois. « Elle a écrit “la plus laide”, dit-elle. Elle a toujours su choisir ses mots, même pour se faire mal. »" },
       { if: { attache: "odile", min: 3 }, text: "Vers trois heures, elle s'endort contre ton épaule. Tu ne bouges pas jusqu'au jour." },
       "Au matin, la neige a cessé tout à fait. Le soleil se lève derrière la forêt des Fayards, rouge, et touche d'abord la cime des hêtres.",

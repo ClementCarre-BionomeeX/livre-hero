@@ -236,7 +236,7 @@
  "version": 1,
  "start": "A_pont",
  "intro": [
-  "La voiture du roulier te laisse au pont de Brévannes à l'heure où les lampes s'allument. Le roulier ne descend pas. Il te tend ton sac, il regarde le ciel, il dit que la neige sera là avant la nuit, et il repart vers la ville sans attendre de réponse.",
+  "La voiture du roulier te laisse au pont de Brévannes à l'heure où les lampes s'allument. Le roulier reste sur son siège. Il te tend ton sac, il regarde le ciel, il dit que la neige sera là avant la nuit, et il repart vers la ville sans attendre de réponse.",
   "Tu as la lettre de ta grand-mère dans la poche intérieure de ta veste. Tu la connais par cœur. Tu la touches quand même."
  ],
  "acts": [
@@ -313,11 +313,11 @@
   },
   "i_manteau": {
    "rev": "I",
-   "text": "Le manteau de l'inconnu fume devant le feu depuis plus d'une heure. Il est toujours trempé. Sous sa chaise, la flaque ne diminue pas."
+   "text": "Le manteau de l'inconnu fume devant le feu depuis plus d'une heure. Il est toujours trempé. Sous son tabouret, la flaque garde sa taille."
   },
   "i_pont": {
    "rev": "I",
-   "text": "L'inconnu ne savait pas qu'il y a un pont à Brévannes. Il a demandé si le seigneur avait toujours ses chiens. Le dernier seigneur de Brévannes est mort avant ta naissance."
+   "text": "L'inconnu ne savait pas qu'il y a un pont à Brévannes. Il a demandé si le seigneur avait toujours ses chiens. Le dernier seigneur de Brévannes est mort avant la naissance de ta mère."
   },
   "i_poutre": {
    "rev": "I",
@@ -831,14 +831,14 @@
     "clue": "r_lettre"
    },
    "text": [
-    "Le pont a trois arches, et sous les trois la Ganne passe vite, grosse, couleur d'ardoise. Elle a monté depuis l'automne. À son pied, le moulin du père Gaubert tourne encore ; on entend la roue cogner l'eau, à intervalles réguliers, avec un bruit mouillé.",
-    "Le ciel est bas et jaune. Les premiers flocons descendent sans se presser, un par un, et fondent sur le parapet. De l'autre côté de la rivière, la pente monte vers les Aubiers. D'ici, tu ne vois pas la ferme : seulement le noyer de la cour, noir sur le ciel, et un peu de fumée.",
+    "Le pont a trois arches, et sous les trois la Ganne passe vite, grosse, couleur d'ardoise. Elle a pris deux bonnes coudées depuis l'automne. À son pied, le moulin du père Gaubert tourne encore ; on entend la roue cogner l'eau à intervalles réguliers, avec un bruit mouillé.",
+    "Le ciel est bas et jaune. Les premiers flocons descendent sans se presser, un par un, et fondent sur le parapet. De l'autre côté de la rivière, la pente monte vers les Aubiers. D'ici, la ferme reste cachée : tu vois seulement le noyer de la cour, noir sur le ciel, et un peu de fumée.",
     "Dans Brévannes, derrière toi, quelqu'un allume déjà la chandelle de la Longue Nuit. Puis une autre fenêtre, puis une autre. Onze ans que tu n'as pas vu ça.",
     {
      "second": true,
-     "text": "Au moulin, la fenêtre du père Gaubert est la seule où ne brûle aucune chandelle. Le vieux est debout derrière la vitre. Il ne regarde pas le pont. Il regarde l'amont, du côté des saules."
+     "text": "Au moulin, la fenêtre du père Gaubert est la seule restée sans chandelle. Le vieux est debout derrière la vitre. Il tourne le dos au pont et regarde l'amont, du côté des saules."
     },
-    "Deux chemins montent aux Aubiers. La route, qui traverse le bourg et fait le grand tour par la côte : une heure, et des gens qui te reconnaîtront. Et le vieux chemin du gué, qui longe la rivière jusqu'aux saules et grimpe tout droit dans le verger : moitié moins, si la boue veut bien."
+    "Deux chemins montent aux Aubiers. La route traverse le bourg et fait le grand tour par la côte : une heure de marche, et des gens qui te reconnaîtront. Le vieux chemin du gué longe la rivière jusqu'aux saules et grimpe tout droit dans le verger : moitié moins, si la boue le permet."
    ],
    "choices": [
     {
@@ -864,7 +864,7 @@
     "clue": "r_notaire"
    },
    "text": [
-    "La grand-rue de Brévannes n'a pas changé. Elle est seulement plus courte que dans ton souvenir. Une chandelle à chaque fenêtre, posée sur l'appui, entre le carreau et le volet qu'on fermera à minuit : c'est la Longue Nuit, la plus longue de l'année, et dans toute la vallée on veille pour ceux qui sont en route.",
+    "La grand-rue de Brévannes est restée la même. Elle est seulement plus courte que dans ton souvenir. Une chandelle brûle à chaque fenêtre, posée sur l'appui, entre le carreau et le volet qu'on fermera à minuit : c'est la Longue Nuit, la plus longue de l'année, et dans toute la vallée on veille pour ceux qui sont en route.",
     "Devant la Truite d'Or, une femme large secoue une nappe dans la neige. Mère Guite. Elle s'arrête, la nappe en l'air, et te regarde approcher.",
     "« Ah ben ça, dit-elle. Tu es revenu{e}. » Elle plisse les yeux, comme pour vérifier qu'elle ne se trompe pas de visage. « Elle t'a écrit, alors. »",
     "Tu demandes comment elle le sait.",
@@ -894,9 +894,9 @@
     "flag": "merac:vu"
    },
    "text": [
-    "Il fait chaud et sombre, ça sent le vin cuit, la laine mouillée et la pipe. Quatre hommes jouent aux cartes près du poêle. L'un d'eux, une moustache grise et des lunettes rondes, lève les yeux sur toi et repose son jeu.",
+    "Il fait chaud et sombre ; ça sent le vin cuit, la laine mouillée et la pipe. Quatre hommes jouent aux cartes près du poêle. L'un d'eux, une moustache grise et des lunettes rondes, lève les yeux sur toi et repose son jeu.",
     "« Le docteur Mérac, dit Mère Guite en te servant un vin chaud. Il soigne ta grand-mère. Enfin, il essaie. Elle ne se laisse pas faire. »",
-    "Le docteur vient s'asseoir en face de toi, son verre à la main. Il a le regard un peu trop clair des hommes qui ont commencé à boire tôt, et la voix d'un homme qui sait encore exactement ce qu'il dit.",
+    "Le docteur vient s'asseoir en face de toi, son verre à la main. Il a le regard un peu trop clair des hommes qui ont commencé à boire tôt, et la voix d'un homme qui sait encore exactement ce qu'il dit. Tu notes les deux, et tu te demandes lequel l'emportera vers minuit.",
     "« Son cœur est une vieille horloge, dit-il. Elle sonne encore, mais elle retarde. Je lui ai dit de ne pas passer l'hiver seule là-haut avec votre sœur et le gamin. Elle m'a répondu qu'elle ne passerait pas l'hiver du tout, et que ça, elle le savait mieux que moi. » Il boit. « Elle a peut-être raison. Elle a souvent raison. »",
     "Il pose deux doigts sur la table, à côté de ton verre. « Si elle a besoin de moi cette nuit, venez me chercher. Je suis ici jusqu'à minuit, comme chaque Longue Nuit. Après, je dors, et on ne me réveille plus. »",
     "Quand tu ressors, il fait nuit noire, et la neige tient sur les toits."
@@ -919,7 +919,7 @@
    "text": [
     {
      "first": true,
-     "text": "Le chemin longe l'eau sous une rangée de saules têtards, dont les branches nues pendent jusqu'au courant. Là où la rivière s'élargit, elle se fait basse et rapide sur un fond de galets : c'est le gué des Saules, par où passaient les charrettes avant qu'on bâtisse le pont. Les ornières descendent encore dans l'eau, d'un côté, et en ressortent de l'autre."
+     "text": "Le chemin longe l'eau sous une rangée de saules têtards, dont les branches nues pendent jusqu'au courant. Là où la rivière s'élargit, elle se fait basse et rapide sur un fond de galets : c'est le gué des Saules, par où passaient les charrettes avant qu'on bâtisse le pont. Les ornières descendent encore dans l'eau d'un côté, et en ressortent de l'autre."
     },
     {
      "first": true,
@@ -927,12 +927,12 @@
     },
     {
      "first": true,
-     "text": "Il est debout dans le courant jusqu'aux genoux, tête nue sous la neige, appuyé sur une longue perche à crochet. Il reste planté là, les mains vides, face au courant. Il regarde la pente, en face, vers les Aubiers."
+     "text": "Il est debout dans le courant jusqu'aux genoux, tête nue sous la neige, appuyé sur une longue perche à crochet. Il reste planté là, les mains vides, face au courant, et il regarde la pente, en face, vers les Aubiers."
     },
     {
      "first": true,
      "second": true,
-     "text": "Il ne regarde pas la ferme. Il regarde une seule fenêtre, celle du fond, la chambre de ta grand-mère, où une chandelle brûle déjà, alors qu'il fait encore jour."
+     "text": "Son regard dépasse la ferme et se pose sur une seule fenêtre, celle du fond, la chambre de ta grand-mère, où une chandelle brûle déjà, en plein jour."
     },
     {
      "again": true,
@@ -942,7 +942,7 @@
     {
      "again": true,
      "after": "A_appel",
-     "text": "Le gué, les saules, l'eau qui court sur les galets. La neige tombe plus serré. Au milieu du courant, il n'y a plus personne."
+     "text": "Le gué, les saules, l'eau qui court sur les galets. La neige tombe plus serré. Le milieu du courant est vide."
     },
     "Sur la berge, une croix de bois est plantée de travers dans la terre, à moitié prise dans les racines d'un saule."
    ],
@@ -976,7 +976,7 @@
     "clue": "i_croix"
    },
    "text": [
-    "Le bois est noir, fendu par les gels, couvert d'un lichen gris. Il n'y a pas de nom. Quelqu'un a gravé deux lettres au couteau, profondément, et une année : A. L. Il y a soixante-trois ans.",
+    "Le bois est noir, fendu par les gels, couvert d'un lichen gris. Le nom manque. Quelqu'un a gravé au couteau, profondément, deux lettres et une année : A. L., il y a soixante-trois ans.",
     "Dessous, d'une autre main, plus maladroite, plus récente aussi : *rendu à la Ganne*.",
     "Au pied de la croix, dans la neige qui commence à tenir, il y a un bout de chandelle consumé jusqu'à la mèche."
    ],
@@ -992,8 +992,8 @@
    "place": "gue",
    "text": [
     "« Hé ! Le gué est trop haut, à cette saison ! Il y a un pont, plus bas ! »",
-    "Ta voix se perd dans le bruit de l'eau. L'homme tourne la tête, lentement, et te regarde. Il est jeune. Il a des cheveux noirs collés au front, et il ne semble pas avoir froid.",
-    "Il lève la main, comme on salue quelqu'un qu'on attendait et qui arrive en avance. Puis une rafale rabat la neige entre vous, épaisse, aveuglante, et quand elle retombe, il n'y a plus que le courant, et la perche, peut-être, qu'il a laissée plantée entre les galets. Ou une branche de saule. D'ici, tu ne saurais pas dire."
+    "Ta voix se perd dans le bruit de l'eau. L'homme tourne la tête, lentement, et te regarde. Il est jeune. Il a des cheveux noirs collés au front, et le froid semble glisser sur lui.",
+    "Il lève la main, comme on salue quelqu'un qu'on attendait et qui arrive en avance. Puis une rafale rabat la neige entre vous, épaisse, aveuglante. Quand elle retombe, il reste le courant, et peut-être la perche qu'il a laissée plantée entre les galets. Ou bien une branche de saule. D'ici, impossible de trancher."
    ],
    "choices": [
     {
@@ -1014,15 +1014,15 @@
    "text": [
     {
      "via": "route",
-     "text": "La route finit devant la barrière, sous le noyer. La maison est là, plus basse que dans ta mémoire, le toit chargé de neige, une lumière jaune à la fenêtre de la salle et une autre, plus petite, à celle du fond."
+     "text": "La route finit devant la barrière, sous le noyer. La maison est là, plus basse que dans ta mémoire, le toit chargé de neige, avec une lumière jaune à la fenêtre de la salle et une autre, plus petite, à celle du fond."
     },
     {
      "via": "route",
-     "text": "Un chien sort de la grange en aboyant, gris, lourd, raide des pattes de derrière. Pataud. Il avait un an quand tu es parti{e}. Il s'arrête à trois pas, renifle, aboie encore une fois pour la forme, puis vient te pousser la main du museau, comme si tu étais descendu{e} au village le matin même."
+     "text": "Un chien sort de la grange en aboyant : gris, lourd, raide des pattes de derrière. Pataud. Il avait un an quand tu es parti{e} ; il en a donc douze, ce qui, pour un chien, est un grand âge. Il s'arrête à trois pas, renifle, aboie encore une fois pour la forme, puis vient te pousser la main du museau, comme si tu étais descendu{e} au village le matin même."
     },
     {
      "via": "tard",
-     "text": "Il fait nuit quand tu arrives devant la barrière, sous le noyer. La neige tient partout, maintenant. La maison est une masse sombre, avec deux lumières : la grande fenêtre de la salle, et celle du fond, plus petite, où brûle la chandelle de la Longue Nuit."
+     "text": "Il fait nuit quand tu arrives devant la barrière, sous le noyer. La neige tient partout, maintenant. La maison est une masse sombre percée de deux lumières : la grande fenêtre de la salle, et celle du fond, plus petite, où brûle la chandelle de la Longue Nuit."
     },
     {
      "via": "tard",
@@ -1030,11 +1030,11 @@
     },
     {
      "via": "gue",
-     "text": "Le chemin du gué finit dans le verger, derrière la grange. Tu passes sous les pommiers que ton grand-père a plantés, la neige jusqu'aux chevilles, et tu arrives par l'arrière, comme autrefois quand tu rentrais trop tard et que tu ne voulais pas qu'on t'entende."
+     "text": "Le chemin du gué finit dans le verger, derrière la grange. Tu passes sous les pommiers que ton grand-père a plantés, la neige jusqu'aux chevilles, et tu arrives par l'arrière, comme autrefois quand tu rentrais trop tard et que tu tenais à rentrer sans bruit."
     },
     {
      "via": "gue",
-     "text": "La porte de l'étable est entrouverte. Une lanterne brûle à l'intérieur. Tu entends une vache qui souffle, le seau qu'on racle, et une autre chose, plus basse, que tu mets un moment à reconnaître : quelqu'un pleure, sans bruit, en trayant."
+     "text": "La porte de l'étable est entrouverte. Une lanterne brûle à l'intérieur. Tu entends une vache qui souffle, le seau qu'on racle, et un autre son, plus bas, qu'il te faut un moment pour reconnaître : quelqu'un pleure, sans bruit, en trayant."
     },
     {
      "again": true,
@@ -1074,7 +1074,7 @@
    "text": [
     {
      "via": "etable",
-     "text": "Isaure est assise sur le tabouret de traite, le front contre le flanc de la vache, et ses mains vont et viennent sans s'arrêter. Elle t'entend. Elle ne se retourne pas tout de suite. Quand elle le fait, elle s'essuie le visage d'un revers de manche, d'un geste brusque, presque une gifle."
+     "text": "Isaure est assise sur le tabouret de traite, le front contre le flanc de la vache, et ses mains vont et viennent sans s'arrêter. Elle t'entend, et met un moment à se retourner. Quand elle le fait, elle s'essuie le visage d'un revers de manche, d'un geste brusque, presque une gifle."
     },
     {
      "via": "etable",
@@ -1092,8 +1092,8 @@
      "after": "tard",
      "text": "Puis : « Elle t'a attendu{e} pour souper. Elle n'a pas voulu commencer sans toi. Le petit a faim depuis six heures. »"
     },
-    "Elle a trente-trois ans, et tu lui en donnerais quarante. Les cheveux tirés, un tablier de toile sur une robe noire. La robe de deuil de Jacquet, deux hivers après.",
-    "« Elle t'a écrit, hein. Elle m'a dit qu'elle n'écrivait plus à personne. » Elle a l'air de quelqu'un qui découvre qu'on lui a menti pour une chose sans importance, et qui en a plus de peine que d'un vrai mensonge."
+    "Elle a trente-trois ans, et tu lui en donnerais quarante. Les cheveux tirés, un tablier de toile sur une robe noire : la robe de deuil de Jacquet, deux hivers après.",
+    "« Elle t'a écrit, hein. Elle m'a dit qu'elle n'écrivait plus à personne. » Elle a l'air de quelqu'un qui découvre qu'on lui a menti sur une broutille, et qui en souffre plus que d'un vrai mensonge."
    ],
    "choices": [
     {
@@ -1141,7 +1141,7 @@
      "if": {
       "has": "deuil:tard"
      },
-     "text": "Tu lui dis : trois mois après, par un colporteur, dans une auberge, entre deux autres nouvelles. Isaure ouvre la bouche, la referme. Elle regarde ailleurs, vers le noyer. Elle garde pour elle le *personne ne t'a écrit ?* Elle garde tout pour elle."
+     "text": "Tu lui dis : trois mois après, par un colporteur, dans une auberge, entre deux autres nouvelles. Isaure ouvre la bouche, la referme. Elle regarde ailleurs, vers le noyer. Le *personne ne t'a écrit ?* reste dans sa gorge. Elle garde tout pour elle."
     },
     {
      "if": {
@@ -1177,13 +1177,13 @@
    "text": [
     {
      "via": "etable",
-     "text": "Tu prends le deuxième seau sur le crochet, tu tires le tabouret de la Rousse, et tu t'assois. Tes mains ont oublié, puis elles se souviennent. Pendant un long moment, il n'y a que le bruit du lait dans le fer-blanc, deux fois, en désordre, puis presque en mesure."
+     "text": "Tu prends le deuxième seau sur le crochet, tu tires le tabouret de la Rousse, et tu t'assois. Tes mains ont oublié, puis elles se souviennent. Pendant un long moment, le seul bruit est celui du lait dans le fer-blanc, deux jets en désordre, puis presque en mesure."
     },
     {
      "via": "seuil",
-     "text": "Tu lui prends la lanterne des mains. Elle te la laisse. Tu la tiens pendant qu'elle referme la barrière derrière toi, rentre le seau d'eau, pousse le chien vers la grange : les gestes de chaque soir, que tu as faits mille fois, et que quelqu'un d'autre a faits pendant onze ans."
+     "text": "Tu lui prends la lanterne des mains. Elle te la laisse. Tu la tiens pendant qu'elle referme la barrière derrière toi, rentre le seau d'eau, pousse le chien vers la grange : les gestes de chaque soir, que tu as faits mille fois, et que quelqu'un d'autre a faits pendant onze ans, soit quatre mille soirs, à peu de chose près."
     },
-    "« Tu sais encore faire ça », dit Isaure, à la fin. C'est à mi-chemin du compliment et du reproche, et ça hésite encore."
+    "« Tu sais encore faire ça », dit Isaure, à la fin. La phrase reste à mi-chemin du compliment et du reproche, et elle hésite encore."
    ],
    "choices": [
     {
@@ -1219,20 +1219,20 @@
     },
     {
      "first": true,
-     "text": "La salle est telle que tu l'as laissée, et tout y est plus petit : les poutres, la grande table, la cheminée où un feu de chêne brûle haut, la comtoise dans son coin avec son balancier de cuivre. Il fait chaud. Ça sent la soupe aux choux, le bois et la cire."
+     "text": "La salle est telle que tu l'as laissée, et tout y a rapetissé : les poutres, la grande table, la cheminée où un feu de chêne brûle haut, la comtoise dans son coin avec son balancier de cuivre. Il fait chaud. Ça sent la soupe aux choux, le bois et la cire."
     },
     {
      "first": true,
-     "text": "Au bout de la table, un garçon de neuf ou dix ans dessine, la langue entre les dents, et lève vers toi des yeux ronds. Et près de la fenêtre, dans le fauteuil à oreilles, il y a ta grand-mère."
+     "text": "Au bout de la table, un garçon de neuf ou dix ans dessine, la langue entre les dents, et lève vers toi des yeux ronds. Près de la fenêtre, dans le fauteuil à oreilles, se tient ta grand-mère."
     },
     {
      "first": true,
-     "text": "Elle est si petite. Elle a toujours été petite, mais elle l'est devenue davantage, comme si l'âge l'avait repassée. Elle porte une robe bleue, de la soie épaisse, démodée, avec un col de dentelle, et elle tient un briquet à la main. Sur l'appui de la fenêtre, dans un bougeoir de cuivre, la chandelle de la Longue Nuit attend."
+     "text": "Elle est si petite. Elle l'a toujours été, mais l'âge l'a encore réduite, comme s'il l'avait repassée. Elle porte une robe bleue, de la soie épaisse, démodée, avec un col de dentelle, et elle tient un briquet à la main. Sur l'appui de la fenêtre, dans un bougeoir de cuivre, la chandelle de la Longue Nuit attend."
     },
     {
      "first": true,
      "second": true,
-     "text": "Quand la porte s'est ouverte, elle a tourné la tête trop vite pour une femme de son âge. Elle t'a vu{e}. Il y a eu dans ses yeux une seconde de déception, si courte que tu n'es pas sûr{e} de l'avoir vue, puis toute la joie du monde."
+     "text": "Quand la porte s'est ouverte, elle a tourné la tête trop vite pour une femme de son âge. Elle t'a vu{e}. Il y a eu dans ses yeux une seconde de déception, si courte que tu doutes de l'avoir vue, puis toute la joie du monde."
     },
     {
      "first": true,
@@ -1302,7 +1302,7 @@
      "after": "merac:vu",
      "text": "Tu lui dis que tu as vu le docteur Mérac, en bas. Elle rit. « Il t'a fait le coup de l'horloge ? Qui sonne mais qui retarde ? C'est moi qui la lui ai apprise. Il la ressert à tout le monde. »"
     },
-    "Puis elle glisse la main dans son corsage et en tire une petite clé de fer, pendue à un cordon, qu'elle passe par-dessus sa tête. Il y a autre chose au même cordon, et ça, elle le garde ; tu n'as pas le temps de voir quoi.",
+    "Puis elle glisse la main dans son corsage et en tire une petite clé de fer, pendue à un cordon, qu'elle passe par-dessus sa tête. Le cordon porte une autre chose, qu'elle garde ; elle la cache trop vite pour que tu voies quoi.",
     "« Après le souper, tu monteras au grenier. Le coffre bleu, sous la lucarne. Pas avant le souper, et pas devant ta sœur. Le reste, tu le comprendras tout seul{e}. Tu as toujours compris tout seul{e}, c'était bien ton défaut. »"
    ],
    "choices": [
@@ -1360,7 +1360,7 @@
     "flag": "chale:donne"
    },
    "text": [
-    "Elle déplie le châle sur ses genoux, en tâte la laine entre deux doigts, longtemps, en connaisseuse. Puis elle le pose sur ses épaules, par-dessus la soie bleue, et le croise sur sa poitrine.",
+    "Elle déplie le châle sur ses genoux et en tâte la laine entre deux doigts, longtemps, en connaisseuse. Puis elle le pose sur ses épaules, par-dessus la soie bleue, et le croise sur sa poitrine.",
     "« Gris, dit-elle. Tu as toujours su que le bleu ne m'allait pas. » Elle regarde la fenêtre, la chandelle, son reflet dans le carreau noir. « Ce soir, je le mets quand même. Mais j'aurai chaud. »"
    ],
    "choices": [
@@ -1417,9 +1417,9 @@
    "place": "aubiers",
    "second": true,
    "text": [
-    "Elle a compris tout de suite, et elle le montre. Elle te regarde, et pour la première fois ce soir, elle a l'air jeune. Elle a l'air d'une fille qui guette une voiture sur la route.",
+    "Elle a compris tout de suite, et elle le montre. Elle te regarde, et pour la première fois ce soir, elle a l'air jeune : l'air d'une fille qui guette une voiture sur la route.",
     "« Quelqu'un qui est en retard, dit-elle. Très en retard. » Elle sourit. « Il a toujours été en retard. »",
-    "Et elle ne dit plus rien là-dessus."
+    "Elle en reste là sur ce sujet."
    ],
    "choices": [
     {
@@ -1435,7 +1435,7 @@
     "clue": "i_dessin"
    },
    "text": [
-    "Le garçon ne s'arrête pas de dessiner quand tu t'assois. Il a un bout de charbon, une feuille de papier gris, et le bout des doigts tout noir. Il te regarde en coin.",
+    "Le garçon continue de dessiner quand tu t'assois. Il a un bout de charbon, une feuille de papier gris, et le bout des doigts tout noir. Il te regarde en coin.",
     "« C'est toi, l'autre ? Maman dit que tu reviendrais pas. Elle dit que tu es comme le grand-père, que tu reviens toujours trop tard. »",
     "Tu lui demandes ce qu'il dessine. Il tourne la feuille vers toi. La rivière, en traits rapides. Les saules, des boules hérissées. Et au milieu de l'eau, un bonhomme debout, très grand, avec un bâton qui finit en crochet.",
     "« Je l'ai vu cet après-midi, en bas, au gué. J'étais allé voir si la glace prenait. Il était dans l'eau. Il m'a demandé si c'était toujours ici, les Aubiers. J'ai dit oui. » Il reprend son charbon. « Il avait un drôle de manteau. Comme les gens sur les images. »"
@@ -1484,7 +1484,7 @@
     "flag": "colas:couteau"
    },
    "text": [
-    "Il le tourne dans ses mains noires de charbon, ouvre la lame, la referme, la rouvre. Il ne dit pas merci. Il dit : « Il est à moi pour de vrai ? » et, quand tu dis oui, il le serre contre lui et regarde la cuisine pour vérifier que sa mère n'a rien vu.",
+    "Il le tourne dans ses mains noires de charbon, ouvre la lame, la referme, la rouvre. Au lieu de dire merci, il dit : « Il est à moi pour de vrai ? » Quand tu dis oui, il le serre contre lui et jette un coup d'œil vers la cuisine pour vérifier que sa mère a manqué la scène.",
     {
      "if": {
       "arch": "guerrier"
@@ -1507,10 +1507,10 @@
     "clue": "i_bol"
    },
    "text": [
-    "La cuisine est une pièce étroite, ouverte sur la salle, où la marmite pend au-dessus d'un second feu. Isaure goûte la soupe, rajoute du sel, goûte encore. Elle te tend les écuelles sans te regarder, et tu les poses sur la table, une par une.",
-    "Cinq écuelles. Tu comptes : Albane, Isaure, le petit, toi. Tu lèves la cinquième.",
+    "La cuisine est une pièce étroite, ouverte sur la salle, où la marmite pend au-dessus d'un second feu. Isaure goûte la soupe, rajoute du sel, goûte encore. Elle te tend les écuelles en regardant la marmite, et tu les poses sur la table, une par une.",
+    "Cinq écuelles. Tu comptes : Albane, Isaure, le petit, toi. Le compte donne quatre. Tu lèves la cinquième.",
     "« Laisse-la, dit Isaure. Elle en met une de trop, chaque Longue Nuit. Pour les absents. Elle l'a toujours fait. » Elle remue la soupe. « Cette année, j'ai cru que c'était pour toi. »",
-    "Tu reposes l'écuelle à sa place. Tu es là, et il y en a toujours une de trop.",
+    "Tu reposes l'écuelle à sa place. Tu es là, et il en reste toujours une de trop.",
     {
      "after": "isaure:blessee",
      "text": "Isaure ajoute, sans se retourner : « Pour ce que tu as dit dans la cour. Tu as raison. Tu n'es pas venu{e} pour moi. Personne ne vient pour moi. Ça m'est égal. »"
@@ -1535,7 +1535,7 @@
     "quest": "I_retour"
    },
    "text": [
-    "Albane s'assoit au haut bout, Isaure à sa droite, toi à sa gauche, à la place qui était la tienne. Colas sur le banc, à côté de sa mère. Au bout de la table, l'écuelle vide.",
+    "Albane s'assoit au haut bout, Isaure à sa droite, toi à sa gauche, à la place qui était la tienne. Colas est sur le banc, à côté de sa mère. Au bout de la table attend l'écuelle vide.",
     "Avant de servir, Albane lève la main, et tout le monde se tait. Elle dit les mots de la Longue Nuit, ceux que tu as entendus chaque année de ton enfance : « Pour ceux qui sont en route. Qu'ils trouvent la maison. »",
     "« Pourquoi on met une chandelle ? demande Colas, la bouche pleine.",
     "— Pour qu'ils voient la maison de loin, dit Albane. Et à minuit, on la souffle, et on leur dit : bonne route.",
@@ -1561,11 +1561,11 @@
     },
     {
      "second": true,
-     "text": "Albane ne mange pas. Elle a rempli son écuelle et la laisse refroidir devant elle. Toutes les deux minutes, ses yeux vont à la porte, puis reviennent, sans hâte, comme ceux de quelqu'un qui compte."
+     "text": "Albane laisse son écuelle pleine refroidir devant elle. Toutes les deux minutes, ses yeux vont à la porte, puis reviennent, sans hâte, comme ceux de quelqu'un qui compte."
     },
-    "La soupe est épaisse et brûlante, le pain un peu rassis, le cidre aigre. C'est le meilleur repas que tu aies fait depuis des années, et personne ne le dit.",
+    "La soupe est épaisse et brûlante, le pain un peu rassis, le cidre aigre. C'est le meilleur repas que tu aies fait depuis des années, et chacun le garde pour soi.",
     "On a fini la soupe, et Isaure se lève pour le fromage, quand on frappe à la porte. Trois coups, lents, réguliers.",
-    "Pataud lève la tête de ses pattes. Il n'aboie pas."
+    "Pataud lève la tête de ses pattes. Il reste muet."
    ],
    "choices": [
     {
@@ -1603,16 +1603,16 @@
     },
     {
      "via": "isaure",
-     "text": "Isaure essuie ses mains à son tablier et va ouvrir. Tu la vois reculer d'un pas, un seul, la main encore sur le loquet. Ta sœur ne recule jamais devant personne."
+     "text": "Isaure essuie ses mains à son tablier et va ouvrir. Tu la vois reculer d'un pas, un seul, la main encore sur le loquet. Ta sœur, d'ordinaire, tient tête à tout le monde."
     },
-    "C'est un jeune homme, vingt-deux ou vingt-trois ans. Tête nue, des cheveux noirs où la neige ne fond pas. Il porte un long manteau de toile huilée, de ceux qu'on ne voit plus, trempé jusqu'à la taille, et il tient à la main une perche de flotteur, longue comme deux hommes, avec un crochet de fer au bout. Sous ses bottes, sur le seuil, c'est de l'eau vive qui coule.",
+    "C'est un jeune homme de vingt-deux ou vingt-trois ans. Il est tête nue, avec des cheveux noirs où la neige tient sans fondre. Il porte un long manteau de toile huilée, d'une coupe passée de mode depuis deux générations, trempé jusqu'à la taille, et il tient à la main une perche de flotteur, longue comme deux hommes, avec un crochet de fer au bout. Sous ses bottes, sur le seuil, coule de l'eau vive.",
     {
      "second": true,
-     "text": "Il ne regarde pas celui ou celle qui lui a ouvert. Par-dessus l'épaule, il regarde la table, et à la table, une seule personne."
+     "text": "Ses yeux passent par-dessus l'épaule de qui lui a ouvert, vont à la table, et à la table, à une seule personne."
     },
     "« Bonsoir, dit-il. Je suis flotteur. Mon train de bois s'est mis en travers au gué, et je n'ai pas pu le tenir. Je vous demande l'abri jusqu'à minuit. Pas plus. Après, je repartirai. »",
-    "Alors Pataud se lève. Il traverse la salle de son pas raide, sans un grognement, et il va se coucher en travers des bottes mouillées de l'inconnu, le menton sur ses pieds, comme il le fait avec Isaure le soir, et avec personne d'autre.",
-    "Derrière toi, Albane a posé sa cuillère. Sa main est montée à son cou, au cordon où pendait la clé, et elle reste là."
+    "Alors Pataud se lève. Il traverse la salle de son pas raide, sans un grognement, et va se coucher en travers des bottes mouillées de l'inconnu, le menton sur ses pieds, comme il le fait le soir avec Isaure, et avec elle seule.",
+    "Derrière toi, Albane a posé sa cuillère. Sa main est montée à son cou, au cordon où pendait la clé, et elle y reste."
    ],
    "choices": [
     {
@@ -1645,7 +1645,7 @@
    "place": "aubiers",
    "text": [
     "« Ambroise, dit-il. Ambroise Lantier. Flotteur, de la compagnie de Port-Ganne. »",
-    "Derrière toi, quelque chose tinte contre une écuelle. Quand tu te retournes, Albane a les deux mains à plat sur la table, et elle regarde ses mains."
+    "Derrière toi, une cuillère tinte contre une écuelle. Quand tu te retournes, Albane a les deux mains à plat sur la table, et elle regarde ses mains."
    ],
    "choices": [
     {
@@ -1671,8 +1671,8 @@
    },
    "text": [
     "Tu gardes la main sur le battant. « Il y a une auberge à Brévannes. Une heure de route. »",
-    "« Par ce temps ? » dit Isaure. Mais ce n'est pas elle qui se lève.",
-    "Albane repousse sa chaise. Il lui faut deux essais, et la main d'Isaure sous le coude, et tu entends sa respiration de l'autre bout de la salle. Elle traverse la pièce à petits pas, elle arrive à côté de toi, elle pose sa main sur la tienne, sur le battant, et elle la retire de là comme on retire la main d'un enfant d'un pot de confiture.",
+    "« Par ce temps ? » dit Isaure. Mais c'est une autre qui se lève.",
+    "Albane repousse sa chaise. Il lui faut deux essais, et la main d'Isaure sous le coude, et tu entends sa respiration de l'autre bout de la salle. Elle traverse la pièce à petits pas, arrive à côté de toi, pose sa main sur la tienne, sur le battant, et l'en retire comme on retire la main d'un enfant d'un pot de confiture.",
     "« Ce soir, ce n'est pas ta maison, dit-elle. C'est la mienne. » Puis, à l'homme sur le seuil : « Entrez. »",
     "Il s'incline devant elle, très bas, à l'ancienne. Il entre."
    ],
@@ -1704,12 +1704,12 @@
     {
      "first": true,
      "via": "accueil",
-     "text": "Il entre, secoue la neige de ses épaules, appuie sa perche contre le mur près de la porte. Isaure lui apporte une couverture. Il la remercie d'une inclinaison de tête, et il ne la met pas."
+     "text": "Il entre, secoue la neige de ses épaules, appuie sa perche contre le mur près de la porte. Isaure lui apporte une couverture. Il remercie d'une inclinaison de tête et pose la couverture à côté de lui, pliée."
     },
     {
      "first": true,
      "via": "refus",
-     "text": "Il va s'asseoir sur le tabouret bas, au coin du feu, le plus loin possible de toi. Albane ne retourne pas à table. Elle fait tirer son fauteuil près de la cheminée, à côté de lui, et elle s'y installe, le châle sur les genoux, sans te regarder."
+     "text": "Il va s'asseoir sur le tabouret bas, au coin du feu, le plus loin possible de toi. Albane reste loin de la table. Elle fait tirer son fauteuil près de la cheminée, à côté de lui, et s'y installe, le châle sur les genoux, les yeux sur le feu."
     },
     {
      "first": true,
@@ -1717,11 +1717,11 @@
       "B_nom",
       "nom:devine"
      ],
-     "text": "Il dit s'appeler Ambroise, et qu'il est flotteur de bois, de la compagnie de Port-Ganne. Personne ne lui a demandé."
+     "text": "Il dit s'appeler Ambroise, et qu'il est flotteur de bois, de la compagnie de Port-Ganne. Il le dit de lui-même, sans qu'on le lui demande."
     },
     {
      "first": true,
-     "text": "Il s'assoit au coin du feu, sur le tabouret bas de ton grand-père. Il demande la permission de sortir son couteau, un couteau de flotteur à lame courbe, et il se met à tailler un bout de branche de saule qu'il a tiré de sa poche. Les copeaux tombent dans les cendres. Son manteau se met à fumer dans la chaleur."
+     "text": "Il s'assoit au coin du feu, sur le tabouret bas de ton grand-père. Il demande la permission de sortir son couteau, un couteau de flotteur à lame courbe, et se met à tailler un bout de branche de saule tiré de sa poche. Les copeaux tombent dans les cendres. Son manteau se met à fumer dans la chaleur."
     },
     {
      "first": true,
@@ -1729,7 +1729,7 @@
     },
     {
      "again": true,
-     "text": "Le feu, la comtoise. L'inconnu taille son morceau de saule au coin de l'âtre, et son manteau fume dans la chaleur. Albane, dans son fauteuil, a les yeux mi-clos ; elle ne dort pas."
+     "text": "Le feu, la comtoise. L'inconnu taille son morceau de saule au coin de l'âtre, et son manteau fume dans la chaleur. Albane, dans son fauteuil, a les yeux mi-clos ; elle est bien éveillée."
     },
     {
      "again": true,
@@ -1824,12 +1824,12 @@
     "flag": "jeu:propose"
    },
    "text": [
-    "Tu tires un tabouret près du sien. Il ne s'arrête pas de tailler. Sous la lame, le bout de saule devient un oiseau : un ventre rond, une queue en éventail, une tête tournée de côté. Un bouvreuil. Ses mains sont rouges de froid, avec des cals épais à la base des doigts, les mains de quelqu'un qui a tenu une perche toute sa vie.",
-    "Il parle volontiers, d'une voix basse et égale. De la rivière, surtout. Des trains de bois qu'on assemble en haut, dans les forêts, des troncs liés par des harts de noisetier, cent pieds de long, et qu'on descend jusqu'à la grande ville, trois semaines d'eau, en dormant sur les bûches. Des barrages qu'il faut passer d'un coup de perche, au bon moment, sinon tout se met en travers et on y laisse le bois, et parfois un homme.",
+    "Tu tires un tabouret près du sien. Il continue de tailler. Sous la lame, le bout de saule devient un oiseau : un ventre rond, une queue en éventail, une tête tournée de côté. Un bouvreuil. Ses mains sont rouges de froid, avec des cals épais à la base des doigts : des mains qui ont tenu une perche toute une vie.",
+    "Il parle volontiers, d'une voix basse et égale. De la rivière, surtout. Des trains de bois qu'on assemble en haut, dans les forêts : des troncs liés par des harts de noisetier, cent pieds de long, qu'on descend jusqu'à la grande ville en trois semaines d'eau, en dormant sur les bûches. Des barrages qu'il faut passer d'un coup de perche, au bon moment, sinon tout se met en travers, et on y laisse le bois, et parfois un homme.",
     "« J'étais le meilleur à la perche de toute la compagnie, dit-il, sans fierté, comme on donne sa taille. Ça n'a pas suffi, ce soir. »",
     {
      "second": true,
-     "text": "Quand il dit *ce soir*, il ne te regarde pas. Il regarde le fauteuil d'Albane."
+     "text": "Quand il dit *ce soir*, ses yeux vont au fauteuil d'Albane."
     },
     "À la fin, il souffle sur l'oiseau pour en chasser les copeaux. « Chez nous, à la veillée, les flotteurs jouaient à la chandelle, dit-il. On y joue toujours, chez vous, la Longue Nuit ? Si vous voulez une partie, tout à l'heure, je suis votre homme. »"
    ],
@@ -1873,7 +1873,7 @@
     "Il réfléchit, le couteau suspendu. « Il y a un pont, maintenant, à Brévannes ? Le petit m'a dit ça, tout à l'heure. Je ne l'ai pas vu en passant. »",
     "Tu lui dis que oui, le pont de pierre, trois arches. Qu'il est là depuis toujours, depuis avant ta naissance.",
     "« Depuis toujours », répète-t-il, et il sourit comme à une bonne plaisanterie. Puis : « Et le seigneur de Brévannes ? Il a toujours ses chiens ? Ils nous aboyaient dessus depuis la berge, quand on passait. »",
-    "Le dernier seigneur de Brévannes est mort avant la naissance de ta mère. Son château est une ferme. Tu ne le lui dis pas. Il le lit sur ton visage, et il hoche la tête, lentement, comme quelqu'un qui fait un compte et le trouve juste."
+    "Le dernier seigneur de Brévannes est mort avant la naissance de ta mère, et son château est devenu une ferme. Tu gardes la nouvelle pour toi. Il la lit sur ton visage, et il hoche la tête, lentement, comme quelqu'un qui fait un compte et le trouve juste."
    ],
    "choices": [
     {
@@ -1886,9 +1886,9 @@
    "title": "Ce qu'il veut",
    "place": "aubiers",
    "text": [
-    "Tu le dis à voix basse, pour que les autres n'entendent pas. Il pose son couteau sur son genou.",
+    "Tu le dis à voix basse, pour que les autres restent en dehors. Il pose son couteau sur son genou.",
     "« Rien qu'elle ne veuille », dit-il.",
-    "Il te regarde, pour la première fois, vraiment. Il a des yeux très clairs, presque sans couleur, l'eau sous la glace. « Vous avez ses mains, dit-il. Elle avait ces mains-là. Elle tenait la chandelle comme ça. » Il ne dit pas *a*. Il dit *avait*."
+    "Il te regarde, pour la première fois, vraiment. Il a des yeux très clairs, presque sans couleur : l'eau sous la glace. « Vous avez ses mains, dit-il. Elle avait ces mains-là. Elle tenait la chandelle comme ça. » Il dit *avait*, et le temps du verbe te reste dans l'oreille."
    ],
    "choices": [
     {
@@ -1929,15 +1929,15 @@
    "text": [
     {
      "outcome": "win",
-     "text": "Tu l'attrapes par le col de son manteau, et tu le soulèves à demi de son tabouret. Il se laisse faire. Il est léger comme un fagot."
+     "text": "Tu l'attrapes par le col de son manteau et tu le soulèves à demi de son tabouret. Il se laisse faire. Il est léger comme un fagot."
     },
     {
      "outcome": "lose",
-     "text": "Tu tends la main vers son col, et sa main à lui est déjà là, autour de ton poignet, sans que tu l'aies vue venir."
+     "text": "Tu tends la main vers son col, et sa main à lui est déjà là, autour de ton poignet, plus vite que ton œil."
     },
-    "Et le froid te monte dans le bras. Pas le froid de la neige : celui de l'eau, quand on y entre en hiver, ce froid qui serre et qui coupe le souffle. Le manteau est trempé, glacé, et l'eau qui en coule te mouille la manche jusqu'au coude.",
+    "Et le froid te monte dans le bras. C'est un autre froid que celui de la neige : celui de l'eau, quand on y entre en hiver, un froid qui serre et qui coupe le souffle. Le manteau est trempé, glacé, et l'eau qui en coule te mouille la manche jusqu'au coude.",
     "« Doucement, dit-il. Le petit vous regarde. »",
-    "Colas, à la table, a les yeux grands ouverts. Tu lâches. Tu retournes près de la cheminée, et tu tends tes mains au feu, et il te faut longtemps avant qu'elles cessent de trembler."
+    "Colas, à la table, a les yeux grands ouverts. Tu lâches prise. Tu retournes près de la cheminée et tu tends tes mains au feu ; il leur faut longtemps pour cesser de trembler."
    ],
    "choices": [
     {
@@ -1951,7 +1951,7 @@
    "place": "aubiers",
    "second": true,
    "text": [
-    "Il lève les yeux de son oiseau. Il a compris tout de suite, lui aussi.",
+    "Il lève les yeux de son oiseau. Lui aussi a compris tout de suite.",
     "« Longtemps, dit-il. Plus maintenant. » Il regarde le feu. « Il fait chaud, ici. Elle a toujours fait de grands feux. Son père disait qu'elle brûlait le bois de trois hivers en un. »",
     "Puis il se remet à tailler, et tu comprends que c'est tout ce qu'il dira."
    ],
@@ -1966,7 +1966,7 @@
    "title": "De loin",
    "place": "aubiers",
    "text": [
-    "Tu prends le tricot qu'Isaure a laissé sur le banc, et tu fais semblant de démêler la laine, de l'autre côté de la salle. D'ici, tu vois le feu, le fauteuil, et le tabouret à côté."
+    "Tu prends le tricot qu'Isaure a laissé sur le banc, et tu fais semblant de démêler la laine, de l'autre côté de la salle. De ce poste d'observation, tu vois le feu, le fauteuil, et le tabouret à côté."
    ],
    "choices": [
     {
@@ -1996,10 +1996,10 @@
    "title": "Tu n'as pas changé",
    "place": "aubiers",
    "text": [
-    "Pendant un long moment, ils ne se parlent pas. Puis Albane se penche, et dit quelque chose à voix basse. Tu n'entends que la fin : « … pas changé. »",
+    "Pendant un long moment, ils se taisent. Puis Albane se penche et dit quelque chose à voix basse. Tu entends seulement la fin : « … pas changé. »",
     "Il répond, aussi bas : « Toi si. » Et après un silence : « Ça te va bien. »",
-    "Albane a froid aux épaules ; elle cherche du regard son châle de laine, resté dans l'alcôve, au fond de la salle. Il se lève avant qu'elle ait rien dit. Il traverse la pièce, et pour entrer dans l'alcôve il baisse la tête sous la grosse poutre, juste ce qu'il faut, sans la regarder. Tu t'y es cogné le front pendant toute ton enfance. Il revient avec le châle et le lui pose sur les épaules.",
-    "Albane ne dit pas merci. Elle pose sa main sur la sienne, sur son épaule, une seconde."
+    "Albane a froid aux épaules ; elle cherche du regard son châle de laine, resté dans l'alcôve, au fond de la salle. Il se lève avant qu'elle ait rien dit. Il traverse la pièce, et pour entrer dans l'alcôve, il baisse la tête sous la grosse poutre, juste ce qu'il faut, sans même la regarder. Toi, tu t'y es cogné le front pendant toute ton enfance. Il revient avec le châle et le lui pose sur les épaules.",
+    "Albane laisse le merci de côté. Elle pose sa main sur la sienne, sur son épaule, une seconde."
    ],
    "choices": [
     {
@@ -2012,9 +2012,9 @@
    "title": "Le manteau",
    "place": "aubiers",
    "text": [
-    "S'ils se parlent, c'est trop bas pour toi. Albane sourit au feu. Une fois, elle rit, la main devant la bouche, comme une fille.",
-    "Ce que tu remarques, c'est le manteau. Il fume devant les flammes depuis plus d'une heure. La toile devrait être sèche, raide, craquante. Elle est trempée. Sous le tabouret, une flaque s'est formée sur les dalles, et elle garde exactement sa taille.",
-    "Pataud est couché dedans, et ça n'a pas l'air de le gêner."
+    "S'ils se parlent, c'est trop bas pour toi. Albane sourit au feu. Une fois, elle rit, la main devant la bouche, comme une jeune fille.",
+    "Ce que tu remarques, c'est le manteau. Il fume devant les flammes depuis plus d'une heure. La toile devrait être sèche, raide, craquante. Elle est trempée. Sous le tabouret, une flaque s'est formée sur les dalles, et tu la surveilles un quart d'heure : elle garde exactement sa taille.",
+    "Pataud est couché dedans, et la chose a l'air de lui convenir."
    ],
    "choices": [
     {
@@ -2029,7 +2029,7 @@
    "text": [
     {
      "first": true,
-     "text": "La laiterie est une petite pièce froide, au nord, carrelée de pierre, où les terrines de lait reposent sur des étagères. Isaure écrème à la lueur d'une chandelle, avec une cuillère plate, d'un geste long et égal. Elle ne se retourne pas quand tu entres."
+     "text": "La laiterie est une petite pièce froide, au nord, carrelée de pierre, où les terrines de lait reposent sur des étagères. Isaure écrème à la lueur d'une chandelle, avec une cuillère plate, d'un geste long et égal. Elle reste tournée vers ses terrines quand tu entres."
     },
     {
      "first": true,
@@ -2149,7 +2149,7 @@
       "min": 1,
       "max": 1
      },
-     "text": "Isaure écrème toujours. La terrine est presque vide, et elle continue, pour avoir quelque chose à faire de ses mains. Elle t'a écouté{e}. Elle n'a pas fini de t'écouter."
+     "text": "Isaure écrème toujours. La terrine est presque vide, et elle continue, pour occuper ses mains. Elle t'a écouté{e}. Elle t'écoute encore."
     },
     {
      "if": {
@@ -2169,7 +2169,7 @@
       ],
       "min": 2
      },
-     "text": "Isaure a cessé d'écrémer. Elle tient la cuillère au-dessus de la terrine, immobile, et elle regarde le mur, et elle attend quelque chose qu'elle ne demandera pas."
+     "text": "Isaure a cessé d'écrémer. Elle tient la cuillère au-dessus de la terrine, immobile, les yeux sur le mur, et elle attend une chose qu'elle se refuse à demander."
     },
     {
      "if": {
@@ -2189,7 +2189,7 @@
       ],
       "max": 0
      },
-     "text": "Isaure écrème toujours, sans te regarder."
+     "text": "Isaure écrème toujours, les yeux sur sa terrine."
     }
    ],
    "choices": [
@@ -2278,8 +2278,8 @@
     "flag": "isaure:pt_sel"
    },
    "text": [
-    "La boîte à sel est toujours là, sur le manteau de la cheminée de la cuisine. Tu l'as vue en entrant. Bois de noyer, couvercle à charnière de cuir. Dedans, il y avait les économies de l'année, et une nuit d'été, il y a onze ans, tu les as prises, toutes, et tu es parti{e}.",
-    "Tu le dis. Tu dis aussi la somme, que tu n'as jamais oubliée.",
+    "La boîte à sel est toujours là, sur le manteau de la cheminée de la cuisine. Tu l'as remarquée en entrant : bois de noyer, couvercle à charnière de cuir. Dedans, il y avait les économies de l'année. Une nuit d'été, il y a onze ans, tu les as prises, toutes, et tu es parti{e}.",
+    "Tu le dis. Tu dis aussi la somme, que tu as gardée en mémoire au sou près.",
     "Isaure s'arrête d'écrémer. « Je me fichais de l'argent, dit-elle. On l'a refait en deux ans. » Elle repose la cuillère. « Tu es parti{e} sans dire au revoir. Tu es passé{e} devant ma porte, et j'étais réveillée. J'ai entendu tes bottes. J'ai attendu que tu frappes. »",
     "Elle reprend la cuillère."
    ],
@@ -2318,8 +2318,8 @@
     }
    },
    "text": [
-    "Elle devient très immobile. La cuillère s'arrête au-dessus de la terrine, et une goutte de crème tombe, et une autre.",
-    "Puis elle essuie ses mains à son tablier, et elle va à l'étagère du haut, celle des pots de saindoux, où personne ne va jamais. Derrière le dernier pot, il y a une enveloppe. Elle te la tend sans te regarder. Ton nom est dessus, de son écriture d'école, appliquée. Le cachet de cire n'a jamais été rompu.",
+    "Elle devient très immobile. La cuillère s'arrête au-dessus de la terrine ; une goutte de crème tombe, puis une autre.",
+    "Puis elle essuie ses mains à son tablier et va à l'étagère du haut, celle des pots de saindoux, où personne ne va jamais. Derrière le dernier pot, il y a une enveloppe. Elle te la tend sans te regarder. Ton nom est dessus, de son écriture d'école, appliquée. Le cachet de cire est intact.",
     "« Grand-mère voulait que je t'écrive, dit-elle. J'ai écrit. Je ne l'ai pas envoyée. » Elle se remet à écrémer, plus vite. « Je voulais que tu viennes sans qu'on te le demande. C'est bête. Tu n'es pas venu{e}. Alors j'ai eu raison, d'une certaine façon. Et tort, de toutes les autres. »"
    ],
    "choices": [
@@ -2336,12 +2336,12 @@
     "flag": "isaure:pt_recit"
    },
    "text": [
-    "Tu racontes. Pas tout. Ce qui se raconte dans une laiterie, à voix basse, à quelqu'un qui écrème et qui ne se retourne pas.",
+    "Tu racontes. Une partie seulement : ce qui se raconte dans une laiterie, à voix basse, à quelqu'un qui écrème le dos tourné.",
     {
      "if": {
       "arch": "guerrier"
      },
-     "text": "Le régiment. Les marches, la boue, deux sièges, un hiver dans une ville dont tu ne sais toujours pas prononcer le nom. Les camarades qu'on enterre et dont on garde le couteau. Le congé, enfin, et l'épée qu'on t'a laissée parce que personne n'en voulait."
+     "text": "Le régiment. Les marches, la boue, deux sièges, un hiver dans une ville dont tu écorches encore le nom. Les camarades qu'on enterre et dont on garde le couteau. Le congé, enfin, et l'épée qu'on t'a laissée parce que personne n'en voulait."
     },
     {
      "if": {
@@ -2353,13 +2353,13 @@
      "if": {
       "arch": "rodeur"
      },
-     "text": "Les forêts du nord, les coupes, la chasse pour un seigneur qui ne te parlait qu'à cheval. Des hivers entiers sans voir un toit. Tu as appris à te taire mieux qu'à la ferme. Ce n'est pas peu dire."
+     "text": "Les forêts du nord, les coupes, la chasse pour un seigneur qui te parlait du haut de son cheval, et de là seulement. Des hivers entiers sans voir un toit. Tu as appris à te taire mieux qu'à la ferme, ce qui, de la part de quelqu'un de la famille, est un exploit."
     },
     {
      "if": {
       "arch": "mage"
      },
-     "text": "La ville, l'école, les maîtres, les livres qu'on recopie à la chandelle jusqu'à en avoir les yeux rouges. Ce que tu as appris là-bas ne se dit pas bien dans une laiterie. Tu essaies quand même."
+     "text": "La ville, l'école, les maîtres, les livres qu'on recopie à la chandelle jusqu'à en avoir les yeux rouges. Ce que tu as appris là-bas se dit mal dans une laiterie. Tu essaies quand même."
     },
     {
      "if": {
@@ -2371,7 +2371,7 @@
      "if": {
       "arch": "barde"
      },
-     "text": "Les routes, les fêtes, les noces des autres, les chansons qu'on chante pour un repas et un coin de grange. Tu as vu tout le pays et tu n'as rien gardé, sauf des chansons. Tu lui en fredonnes une. Elle fait semblant de ne pas l'écouter."
+     "text": "Les routes, les fêtes, les noces des autres, les chansons qu'on chante pour un repas et un coin de grange. Tu as vu tout le pays et gardé seulement des chansons. Tu lui en fredonnes une. Elle fait semblant d'être sourde."
     },
     "Quand tu te tais, elle dit seulement : « Tu as eu froid, souvent. » Et elle a raison."
    ],
@@ -2415,7 +2415,7 @@
    "text": [
     "Tu lui prends la cuillère des mains. Elle te la laisse. Tu écrèmes la dernière terrine, mal, en laissant trop de lait, et elle te regarde faire avec la même expression qu'à huit ans, quand tu prenais son tour à la corvée d'eau et que tu renversais la moitié du seau.",
     "« Tu en laisses la moitié », dit-elle.",
-    "Puis elle pose son front contre ton épaule. Elle a les yeux secs. Elle reste là, le temps qu'il faut, dans le froid de la laiterie, et vous vous taisez tous les deux, parce que les mots sonneraient faux.",
+    "Puis elle pose son front contre ton épaule. Elle a les yeux secs. Elle reste là le temps qu'il faut, dans le froid de la laiterie, et vous gardez le silence : n'importe quel mot sonnerait faux.",
     "« Elle t'a fait revenir pour ça, tu sais, dit-elle enfin. Pas pour mourir. Pour ça. »"
    ],
    "choices": [
@@ -2437,7 +2437,7 @@
    },
    "text": [
     "Tu le dis. Qu'elle t'a rendu la vie impossible, qu'elle voulait la ferme pour elle, que tu le savais, que tout le monde le savait.",
-    "Isaure repose la cuillère, très doucement, dans la terrine. Elle se retourne. Elle n'a pas l'air en colère. Elle a l'air fatiguée, d'une fatigue qui vient de très loin.",
+    "Isaure repose la cuillère, très doucement, dans la terrine. Elle se retourne. Son visage est sans colère. Il porte une fatigue qui vient de très loin.",
     "« Va retrouver ton inconnu, dit-elle. Vous avez l'air de bien vous entendre, tous les deux. Vous êtes de passage. »",
     "Elle reprend la chandelle et sort, et tu restes seul{e} dans le noir, au milieu de l'odeur du lait."
    ],
@@ -2461,7 +2461,7 @@
     "L'échelle du grenier grince à chaque barreau. Là-haut, il fait aussi froid que dehors ; le vent passe sous les tuiles, et la flamme de ta chandelle se couche. Des pommes sur des claies, des sacs de grain, des harnais, le berceau où vous avez dormi tous les deux. Sous la lucarne, un coffre de bois peint, d'un bleu presque effacé.",
     {
      "second": true,
-     "text": "La poussière du couvercle a été essuyée, d'un seul geste, sur la largeur d'une main. Quelqu'un est monté ici récemment, avec difficulté, et s'est assis sur le sac de grain à côté, longtemps : le sac garde la forme."
+     "text": "La poussière du couvercle a été essuyée d'un seul geste, sur la largeur d'une main. Le sac de grain d'à côté garde la forme d'un corps assis. Tu en conclus que quelqu'un est monté ici récemment, avec difficulté, et s'est assis là longtemps."
     },
     "La clé tourne. Dedans, sur un lit de lavande sèche : une liasse de lettres liées d'un ruban bleu passé, une enveloppe épaisse de notaire, une bourse de cuir. Et un petit oiseau de bois, devenu gris avec les années. Un bouvreuil, la queue en éventail, la tête tournée de côté.",
     "Tu lis la première lettre debout. Puis tu t'assois sur le sac de grain, et tu les lis toutes."
@@ -2501,7 +2501,7 @@
    "title": "Le testament",
    "place": "aubiers",
    "text": [
-    "Une copie de la main du notaire, propre, avec un sceau. Albane laisse la ferme à ses deux petits-enfants ensemble, *à la condition qu'ils se soient parlé*. Le notaire a dû lui dire que la condition ne voulait rien dire en droit. Elle l'a fait écrire quand même.",
+    "Une copie de la main du notaire, propre, avec un sceau. Albane laisse la ferme à ses deux petits-enfants ensemble, *à la condition qu'ils se soient parlé*. Le notaire a dû lui dire que la condition était sans valeur en droit. Elle l'a fait écrire quand même.",
     "En bas, de sa main à elle, penchée : *Le reste du coffre, tu le brûleras après. Ou tu le garderas. Je ne serai plus là pour avoir honte.*"
    ],
    "choices": [
@@ -2516,7 +2516,7 @@
    "place": "aubiers",
    "text": [
     "Dix écus d'argent, de toutes les frappes, certains si vieux que le profil du roi s'est effacé. Des années de beurre vendu au marché, d'œufs, de fromages, mis de côté un par un. Un billet plié dans la bourse : *Pour quand tu reviendras.*",
-    "Elle ne savait pas que tu reviendrais. Elle a mis de côté quand même."
+    "Elle ignorait si tu reviendrais. Elle a mis de côté quand même."
    ],
    "choices": [
     {
@@ -2529,7 +2529,7 @@
    "title": "Le coucher",
    "place": "aubiers",
    "text": [
-    "Colas dort dans le lit clos de la cuisine, celui où tu dormais. Il se laisse border sans protester, ce qui veut dire qu'il a quelque chose à demander. Il attend que tu aies tiré la couverture jusqu'à son menton.",
+    "Colas dort dans le lit clos de la cuisine, celui où tu dormais. Il se laisse border sans protester, ce qui, chez un garçon de cet âge, annonce une question. Il attend que tu aies tiré la couverture jusqu'à son menton.",
     "« Le monsieur, il va rester ?",
     "— Il a dit qu'il repartirait à minuit.",
     "— Avec qui ? »",
@@ -2540,7 +2540,7 @@
     },
     {
      "after": "colas:couteau",
-     "text": "Sous l'oreiller, il a mis le couteau à manche de corne. Tu vois le bout du manche qui dépasse."
+     "text": "Sous l'oreiller, il a mis le couteau à manche de corne. Le bout du manche dépasse."
     }
    ],
    "choices": [
@@ -2559,9 +2559,9 @@
    "title": "Le conte",
    "place": "aubiers",
    "text": [
-    "Tu la sais encore par cœur. Il était une fois une fille d'en haut, qui aimait un garçon de la rivière. La plus longue nuit de l'année, il devait revenir, et elle mit une chandelle à sa fenêtre pour qu'il trouve la maison. Il ne vint pas. Elle remit la chandelle l'année d'après, et l'année d'après, et toutes les années de sa vie, et c'est pour ça, depuis, que dans toute la vallée on met une chandelle pour ceux qui sont en route.",
+    "Tu la sais encore par cœur. Il était une fois une fille d'en haut, qui aimait un garçon de la rivière. La plus longue nuit de l'année, il devait revenir, et elle mit une chandelle à sa fenêtre pour qu'il trouve la maison. Il manqua le rendez-vous. Elle remit la chandelle l'année d'après, et l'année d'après, et toutes les années de sa vie, et c'est pour ça, depuis, que dans toute la vallée on met une chandelle pour ceux qui sont en route.",
     "Quand tu étais petit{e}, tu demandais toujours : *et il est revenu ?* Et ta grand-mère disait toujours : *pas encore*.",
-    "Colas dort avant la fin. Tu restes un moment assis{e} sur le bord du lit clos, à écouter la comtoise."
+    "Colas s'endort avant la fin. Tu restes un moment assis{e} sur le bord du lit clos, à écouter la comtoise."
    ],
    "choices": [
     {
@@ -2574,7 +2574,7 @@
    "title": "La chandelle",
    "place": "aubiers",
    "text": [
-    "Albane somnole dans son fauteuil. Isaure, à la porte de la cuisine, regarde sans approcher. L'inconnu pose sur la table un bout de chandelle, l'allume à la flamme du feu, et sort de sa poche un dé d'os jauni.",
+    "Albane somnole dans son fauteuil. Isaure, à la porte de la cuisine, regarde de loin. L'inconnu pose sur la table un bout de chandelle, l'allume à la flamme du feu, et sort de sa poche un dé d'os jauni.",
     "« La règle, vous la connaissez. Chacun lance tant qu'il veut, on additionne. Un as, et la chandelle s'éteint : on a tout perdu. Celui qui s'arrête au plus haut gagne. »",
     "Il fait rouler le dé entre ses doigts. « On ne joue pas pour rien, la Longue Nuit. Si vous gagnez, je repartirai seul, à minuit, les mains vides, et je reviendrai dans un an. Si je gagne, vous ne me retiendrez pas, quand je partirai. »",
     "Avec quoi il partira, chacun l'a compris."
@@ -2613,12 +2613,12 @@
    "title": "Un an",
    "place": "aubiers",
    "text": [
-    "Il lance le premier : un cinq, un trois, un six. Il s'arrête à quatorze. Toi, tu lances, et le dé roule longtemps sur la table, et chaque fois tu attends l'as. Il ne vient pas. Quatre, six, deux, cinq. Dix-sept. Tu t'arrêtes.",
+    "Il lance le premier : un cinq, un trois, un six. Il s'arrête à quatorze. Tu lances à ton tour, et le dé roule longtemps sur la table, et chaque fois tu attends l'as. Il tarde. Quatre, six, deux, cinq. Dix-sept. Tu t'arrêtes.",
     "Il regarde les dés, puis la chandelle, qui brûle toujours. Il sourit, sans amertume.",
     "« Bien joué. Une parole est une parole. » Il regarde le fauteuil. « Un an. C'est court, un an. Elle va m'en vouloir. »",
     {
      "second": true,
-     "text": "Dans le fauteuil, Albane est restée immobile. Mais ses yeux sont ouverts, et elle regarde la chandelle de la table, le visage triste."
+     "text": "Dans le fauteuil, Albane est restée immobile. Ses yeux sont ouverts, pourtant, et elle regarde la chandelle de la table, le visage triste."
     }
    ],
    "choices": [
@@ -2632,7 +2632,7 @@
    "title": "L'as",
    "place": "aubiers",
    "text": [
-    "Il lance le premier : un deux, un quatre, un trois. Il s'arrête à neuf, comme s'il voulait te laisser ta chance. Tu lances : un six, un cinq. Onze. Tu pourrais t'arrêter. Tu relances.",
+    "Il lance le premier : un deux, un quatre, un trois. Il s'arrête à neuf, comme pour te laisser ta chance. Tu lances : un six, un cinq. Onze. Tu pourrais t'arrêter. Tu relances.",
     "Un as.",
     "Il se penche et souffle la chandelle, doucement. Le filet de fumée monte droit vers les poutres.",
     "« Je ne vous demande rien d'autre », dit-il."
@@ -2649,13 +2649,13 @@
    "place": "aubiers",
    "takes": "night",
    "text": [
-    "La veillée a passé sans qu'on la voie passer. Le feu a baissé deux fois ; deux fois Isaure a remis une bûche. La comtoise a sonné dix coups.",
+    "La veillée a filé sans qu'on la sente filer. Le feu a baissé deux fois ; deux fois Isaure a remis une bûche, du chêne, la seconde un peu verte, qui siffle encore. La comtoise a sonné dix coups.",
     "Alors Albane veut se lever. Elle dit qu'elle veut voir la neige, de près, à la fenêtre. Elle pose les mains sur les bras du fauteuil, elle pousse, elle se lève, et à mi-chemin quelque chose en elle cède, sans bruit, comme une corde qu'on lâche.",
     {
      "if": {
       "has": "isaure:paix"
      },
-     "text": "Isaure et toi, vous êtes là en même temps, sans vous être concertés, chacun d'un côté. Vous la retenez. Elle ne pèse rien. Vos mains se touchent sous son dos, et aucun de vous deux ne retire la sienne."
+     "text": "Isaure et toi, vous arrivez en même temps, d'un même mouvement, chacun{e} d'un côté. Vous la retenez. Elle pèse le poids d'un fagot de sarments. Vos mains se rejoignent sous son dos, et elles y restent, l'une contre l'autre."
     },
     {
      "if": {
@@ -2663,14 +2663,14 @@
        "has": "isaure:paix"
       }
      },
-     "text": "Tu es tout près : tu la rattrapes sous les bras. Isaure arrive une seconde après, et te l'arrache presque des mains pour la soutenir elle-même, et vous restez là, à deux, à la tenir de travers, sans savoir qui doit lâcher."
+     "text": "Tu es tout près : tu la rattrapes sous les bras. Isaure arrive une seconde après, et te l'arrache presque des mains pour la soutenir elle-même, et vous restez là, à deux, à la tenir de travers, chacun{e} attendant que l'autre lâche."
     },
     {
      "second": true,
-     "text": "L'inconnu s'est levé avant elle. Avant qu'elle ait posé les mains sur le fauteuil. Il est debout près du feu, sa casquette à la main, et il reste à sa place : il attend."
+     "text": "L'inconnu s'est levé avant elle, avant même qu'elle ait posé les mains sur le fauteuil. Il est debout près du feu, les mains vides, et il garde sa place : il attend."
     },
-    "Elle a le visage gris et les lèvres bleues, et elle respire par petits coups. Mais sa voix est la même.",
-    "« Pas au lit. À la fenêtre. Mettez-moi à la fenêtre, près de la chandelle. » Et comme Isaure ouvre la bouche : « Et pas de médecin. Mérac est saoul à cette heure-ci, et il ne sait rien que je ne sache. »",
+    "Elle a le visage gris et les lèvres bleues, et elle respire par petits coups. Sa voix, elle, est intacte.",
+    "« Pas au lit. À la fenêtre. Mettez-moi à la fenêtre, près de la chandelle. » Et comme Isaure ouvre la bouche : « Et pas de médecin. Mérac est saoul à cette heure-ci, et tout ce qu'il sait, je le sais aussi. »",
     "Vous l'installez dans le fauteuil, tourné vers la vitre, avec le châle et une couverture. La chandelle brûle à côté de son visage. Dehors, la neige a cessé. Le ciel s'est ouvert, et la lune éclaire la pente jusqu'à la rivière."
    ],
    "choices": [
@@ -2694,7 +2694,7 @@
     {
      "first": true,
      "second": true,
-     "text": "Au cordon, à côté de la place vide de la clé, pend une bague. Un anneau d'étain, mince, de ceux que les flotteurs taillaient dans une cuillère, le soir, à la veillée, pour la fille qui les attendait."
+     "text": "Au cordon, à côté de la place vide de la clé, pend une bague. Un anneau d'étain, mince, poli par l'usure à l'intérieur, de ceux que les flotteurs taillaient dans une cuillère, le soir, à la veillée, pour la fille qui les attendait."
     },
     {
      "again": true,
@@ -2706,9 +2706,9 @@
     },
     {
      "after": "isaure:rupture",
-     "text": "Isaure s'est assise à la table, loin, le dos tourné, et elle ne bouge plus."
+     "text": "Isaure s'est assise à la table, loin, le dos tourné, immobile comme une borne."
     },
-    "Au coin du feu, l'inconnu a repris son tabouret. Il ne taille plus. Il attend, les mains sur les genoux."
+    "Au coin du feu, l'inconnu a repris son tabouret. Le couteau est rangé. Il attend, les mains sur les genoux."
    ],
    "choices": [
     {
@@ -2766,7 +2766,7 @@
    "title": "Seul{e} avec elle",
    "place": "aubiers",
    "text": [
-    "Tu tires un tabouret contre le fauteuil. Elle ne détourne pas les yeux de la vitre, mais sa main quitte la couverture et trouve la tienne.",
+    "Tu tires un tabouret contre le fauteuil. Ses yeux restent sur la vitre, mais sa main quitte la couverture et trouve la tienne.",
     {
      "after": "jeu:gagne",
      "text": "« Tu as joué contre lui, dit-elle. Et tu as gagné. » Elle a l'air presque amusée. « Il n'a jamais su perdre à la chandelle. Il s'arrêtait toujours trop tôt. »"
@@ -2817,7 +2817,7 @@
      "after": "albane:entendu",
      "text": "« Tu nous as entendus, tout à l'heure, près du feu. Tu as toujours écouté aux portes. »"
     },
-    "Elle se tait longtemps. Puis elle le dit, comme on dit une chose qu'on a répétée en silence pendant des années, et qui sort enfin dans l'ordre.",
+    "Elle se tait longtemps. Puis elle le dit, comme on dit une chose répétée en silence pendant des années, et qui sort enfin dans l'ordre.",
     "« Il s'appelait Ambroise. J'avais vingt ans. Il descendait la rivière avec les trains de bois, deux fois l'an, et il s'arrêtait à Brévannes, et il montait jusqu'ici avec une excuse. Mon père le détestait. Il m'écrivait. Il m'a taillé un oiseau.",
     "« La Longue Nuit de cette année-là, il devait revenir avec le dernier bois avant les glaces, et au printemps on aurait parlé à mon père. J'ai mis la chandelle. Il n'y avait pas de pont, en ce temps-là. Il a voulu passer au gué, de nuit, avec la rivière haute, pour arriver avant minuit. Le bois s'est mis en travers. On a retrouvé les bûches jusqu'à la mer. Lui, jamais. »",
     "Elle tourne enfin la tête vers toi.",
@@ -2876,11 +2876,11 @@
     "flag": "ensemble"
    },
    "text": [
-    "Isaure prend la main gauche, toi la droite. Albane les regarde, vos deux mains, l'une après l'autre, et elle a l'air satisfaite, comme devant un travail fini.",
+    "Isaure prend la main gauche, toi la droite. Albane regarde vos deux mains, l'une après l'autre, et elle a l'air satisfaite, comme devant un travail fini.",
     "« Le notaire a le papier, dit-elle. La ferme est à vous deux, si vous vous êtes parlé. » Elle vous regarde. « Vous vous êtes parlé ?",
     "— Oui, dit Isaure.",
     "— Bien. Je n'aurais pas su comment on fait, pour vérifier. »",
-    "Elle ferme les yeux. Elle ne lâche aucune des deux mains."
+    "Elle ferme les yeux. Elle garde les deux mains, chacune dans une des siennes."
    ],
    "choices": [
     {
@@ -2898,7 +2898,7 @@
      "after": "ambroise:collet",
      "text": "Il regarde ton poignet, celui qu'il a serré tout à l'heure. Tu as encore la manche mouillée."
     },
-    "Il lève les yeux. Il n'a pas l'air offensé. Il a l'air triste, comme un homme qu'on réveille trop tôt.",
+    "Il lève les yeux. Il a l'air triste, plus qu'offensé : l'air d'un homme qu'on réveille trop tôt.",
     {
      "if": {
       "has": "jeu:perdu"
@@ -2953,9 +2953,9 @@
    "title": "L'eau",
    "place": "aubiers",
    "text": [
-    "Tu l'empoignes. C'est comme empoigner la rivière en hiver : le froid te prend aux mains, aux bras, à la poitrine, et tu le lâches avant d'avoir voulu le lâcher, le souffle coupé, à genoux sur les dalles mouillées.",
+    "Tu l'empoignes. C'est comme empoigner la rivière en hiver : le froid te prend aux mains, aux bras, à la poitrine, et tes doigts s'ouvrent d'eux-mêmes. Tu te retrouves le souffle coupé, à genoux sur les dalles mouillées.",
     "Il ne t'a pas touché{e}. Il te tend la main pour t'aider à te relever. Tu ne la prends pas.",
-    "Dans le fauteuil, Albane n'a pas tourné la tête."
+    "Dans le fauteuil, Albane regarde toujours la vitre."
    ],
    "choices": [
     {
@@ -2970,7 +2970,7 @@
    "text": [
     {
      "via": "force",
-     "text": "Tu l'empoignes par le manteau, et le froid de l'eau te monte aux bras, mais tu tiens. Tu le pousses vers la porte. Il se laisse faire. Il ne pèse rien."
+     "text": "Tu l'empoignes par le manteau, et le froid de l'eau te monte aux bras, mais tu tiens. Tu le pousses vers la porte. Il se laisse faire. Il pèse le poids d'un manteau vide."
     },
     {
      "if": {
@@ -2978,13 +2978,13 @@
        "via": "force"
       }
      },
-     "text": "Il se lève. Il remet sa casquette. Il prend sa perche, contre le mur, près de la porte."
+     "text": "Il se lève. Il replie son couteau. Il prend sa perche, contre le mur, près de la porte."
     },
-    "Sur le seuil, il se retourne, une fois, vers le fauteuil. Albane ne le regarde pas. Elle a fermé les yeux.",
+    "Sur le seuil, il se retourne, une fois, vers le fauteuil. Albane a fermé les yeux.",
     "« Elle l'a mise soixante-trois ans », dit-il. Et il sort. Tu fermes la porte. Tu pousses la barre. Le chien gémit, une fois, et se recouche.",
     {
      "second": true,
-     "text": "Sur le seuil, la neige est lisse. Elle l'était déjà à son arrivée, et tu avais regardé ailleurs."
+     "text": "Sur le seuil, la neige est lisse, sans une empreinte. Elle l'était déjà à son arrivée, et tu avais regardé ailleurs."
     }
    ],
    "choices": [
@@ -3010,7 +3010,7 @@
      "if": {
       "has": "isaure:paix"
      },
-     "text": "Isaure se lève. Elle te regarde enfiler ta veste, et elle se tait, et puis elle dit : « Encore ? » C'est tout."
+     "text": "Isaure se lève. Elle te regarde enfiler ta veste, en silence, et puis elle dit : « Encore ? » C'est tout."
     },
     {
      "if": {
@@ -3018,9 +3018,9 @@
        "has": "isaure:paix"
       }
      },
-     "text": "Isaure ne se retourne pas. Elle dit seulement, au mur : « Comme la dernière fois. »"
+     "text": "Isaure reste le dos tourné. Elle dit seulement, au mur : « Comme la dernière fois. »"
     },
-    "Albane, dans son fauteuil, ne quitte pas la vitre des yeux. « Va, dit-elle. Je t'ai dit de partir, une fois. Je ne vais pas te dire de rester. »"
+    "Albane, dans son fauteuil, garde les yeux sur la vitre. « Va, dit-elle. Je t'ai dit de partir, une fois. Je ne vais pas te dire de rester. »"
    ],
    "choices": [
     {
@@ -3038,7 +3038,7 @@
    "title": "La côte",
    "place": "pont",
    "text": [
-    "Tu cours. La lune éclaire la route comme en plein jour, et la neige fraîche crisse sous tes bottes. Sous la neige, il y a la glace : tu tombes deux fois dans la côte, et tu te relèves sans sentir tes genoux.",
+    "Tu cours. La lune éclaire la route comme en plein jour, et la neige fraîche crisse sous tes bottes. Sous la neige, il y a la glace : tu tombes deux fois dans la côte, et tu te relèves avec des genoux que tu ne sens plus.",
     "En bas, la Ganne brille, noire et argent. Au pied du pont, devant son moulin, le père Gaubert est debout dans la neige avec une lanterne, comme s'il attendait quelqu'un. Il la lève en t'entendant venir.",
     "« C'est pour Albane ? » demande-t-il."
    ],
@@ -3077,7 +3077,7 @@
     "clue": "i_gaubert"
    },
    "text": [
-    "« J'avais douze ans, dit le vieux. Avant le pont. Un flotteur, la Longue Nuit, qui a voulu passer au gué avec un train de bois, de nuit, la rivière haute. Le bois s'est mis en travers. Mon père et les autres ont repêché les bûches pendant tout l'hiver, jusqu'à la mer, à ce qu'on dit. Lui, la Ganne ne l'a jamais rendu.",
+    "« J'avais douze ans, dit le vieux. Avant le pont. Un flotteur, la Longue Nuit, qui a voulu passer au gué avec un train de bois, de nuit, la rivière haute. Le bois s'est mis en travers. Mon père et les autres ont repêché les bûches pendant tout l'hiver, jusqu'à la mer, à ce qu'on dit. Lui, la Ganne l'a gardé.",
     "« Il était promis à une fille d'en haut. » Il regarde la pente, les Aubiers, la petite lumière à la fenêtre. « C'est après, qu'on a bâti le pont. »",
     "Il baisse sa lanterne. « Je l'ai vu passer cet après-midi, au gué. Dans l'eau. J'ai quatre-vingt-quinze ans, j'ai le droit de voir des choses. » Il te fait signe de la tête. « Va chercher ton docteur. Ça ne sert à rien, mais va. »"
    ],
@@ -3095,7 +3095,7 @@
    "text": [
     {
      "via": "chute",
-     "text": "Tu entres à la Truite d'Or en boitant, de la neige jusqu'à la taille, une main en sang. On se tait autour du poêle."
+     "text": "Tu entres à la Truite d'Or en boitant, de la neige jusqu'à la taille, une main en sang. Les conversations meurent autour du poêle."
     },
     {
      "if": {
@@ -3103,7 +3103,7 @@
        "via": "chute"
       }
      },
-     "text": "Tu pousses la porte de la Truite d'Or, hors d'haleine. On se tait autour du poêle."
+     "text": "Tu pousses la porte de la Truite d'Or, hors d'haleine. Les conversations meurent autour du poêle."
     },
     {
      "after": "merac:vu",
@@ -3111,7 +3111,7 @@
     },
     {
      "before": "merac:vu",
-     "text": "Mère Guite te désigne d'un coup de menton un homme à moustache grise, qui joue aux cartes près du poêle, un verre à côté de son jeu. Le docteur Mérac t'écoute, les yeux mi-clos. Puis il regarde la pendule."
+     "text": "Mère Guite te désigne d'un coup de menton un homme à moustache grise, qui joue aux cartes près du poêle, un verre à côté de son jeu, le troisième à en juger par les ronds sur le bois. Le docteur Mérac t'écoute, les yeux mi-clos. Puis il regarde la pendule."
     }
    ],
    "choices": [
@@ -3160,7 +3160,7 @@
    "title": "Rien à faire",
    "place": "village",
    "text": [
-    "« Il n'y a rien à faire, dit le docteur, sans méchanceté. Son cœur s'arrête. Je l'ai entendu s'arrêter depuis un mois, chaque fois que je l'ai écouté. Si je monte, j'arriverai pour lui fermer les yeux, et je pourrai le faire demain matin tout aussi bien. »",
+    "« Il n'y a rien à faire, dit le docteur, sans méchanceté. Son cœur s'arrête. Je l'entends s'arrêter depuis un mois, chaque fois que je l'écoute. Si je monte, j'arriverai pour lui fermer les yeux, et je pourrai le faire demain matin tout aussi bien. »",
     "Il reprend ses cartes. « Remontez. Allez lui tenir la main. C'est tout ce qu'il y a à faire, et c'est vous qui devez le faire, pas moi. »"
    ],
    "choices": [
@@ -3181,7 +3181,7 @@
     "Albane reste immobile. « Pas celle-là, dit-elle. Elle retarde. Le clocher. »",
     {
      "second": true,
-     "text": "La comtoise retarde de six minutes depuis toujours. Ta grand-mère n'a jamais voulu qu'on la règle. Tu as toujours cru que c'était de l'avarice. Six minutes, chaque Longue Nuit, entre la comtoise et le clocher : six minutes de plus à attendre, ou six minutes de moins à avoir attendu."
+     "text": "La comtoise retarde de six minutes depuis toujours, et ta grand-mère a toujours refusé qu'on la règle. Tu as longtemps mis ce refus sur le compte de l'avarice. Six minutes, chaque Longue Nuit, entre la comtoise et le clocher : six minutes de plus à attendre, ou six minutes de moins à avoir attendu."
     },
     "Puis, de très loin, du fond de la vallée, la cloche de Brévannes. Un coup, et le suivant, qui roulent sur la neige jusqu'à la fenêtre.",
     "L'inconnu se lève. Il remet son manteau, qui ruisselle. Il prend sa perche contre le mur. Il vient jusqu'au fauteuil, et il tend la main à ta grand-mère, la paume en l'air.",
@@ -3196,7 +3196,7 @@
      "if": {
       "has": "promis"
      },
-     "text": "Tu lui as promis de ne pas la retenir. Ta main, sur le bras du fauteuil, ne le sait pas encore."
+     "text": "Tu lui as promis de la laisser partir. Ta main, sur le bras du fauteuil, l'ignore encore."
     }
    ],
    "choices": [
@@ -3244,9 +3244,9 @@
      "if": {
       "has": "isaure:paix"
      },
-     "text": "Isaure prend son manteau au crochet et vous suit sans rien demander. Elle a tiré Colas de son lit et l'a enroulé dans une couverture, et elle le porte, endormi, sur sa hanche."
+     "text": "Isaure prend son manteau au crochet et vous suit sans un mot. Elle a tiré Colas de son lit et l'a enroulé dans une couverture, et elle le porte, endormi, sur sa hanche."
     },
-    "Vous descendez la pente par le verger, dans la neige jusqu'aux mollets, à la lueur de la lanterne. Albane ne trébuche pas une fois. C'est toi qui trébuches. Elle te retient.",
+    "Vous descendez la pente par le verger, dans la neige jusqu'aux mollets, à la lueur de la lanterne. Albane garde le pied sûr d'un bout à l'autre. C'est toi qui trébuches. Elle te retient.",
     "Au gué, la rivière court, noire et blanche, entre les saules. Minuit sonne au clocher de Brévannes."
    ],
    "choices": [
@@ -3300,7 +3300,7 @@
     },
     {
      "via": "main",
-     "text": "Puis sa main à elle devient légère dans la tienne. Pas froide : légère. Tu lèves les yeux. L'inconnu n'est plus près du fauteuil. La porte est entrouverte, et un courant d'air passe sur la chandelle, qui se couche, et se redresse, et s'éteint."
+     "text": "Puis sa main à elle devient légère dans la tienne. Légère, et tiède encore. Tu lèves les yeux. L'inconnu a quitté le coin du fauteuil. La porte est entrouverte, et un courant d'air passe sur la chandelle, qui se couche, et se redresse, et s'éteint."
     },
     {
      "if": {
@@ -3318,13 +3318,13 @@
     },
     {
      "after": "jeu:gagne",
-     "text": "Tu ne lui as pas rappelé la partie de chandelle. Tu as gagné un an, et tu le lui as rendu. Tu crois que c'est ce qu'elle aurait voulu. Tu ne le sauras jamais tout à fait."
+     "text": "Tu as gardé pour toi la partie de chandelle. Tu as gagné un an, et tu le lui as rendu. Tu crois que c'est ce qu'elle aurait voulu. Tu garderas toujours un petit doute."
     },
     {
      "if": {
       "has": "isaure:paix"
      },
-     "text": "Vous l'enterrez trois jours plus tard, à Brévannes, par un grand soleil sur la neige. Isaure te tient la main pendant toute la messe, et ne la lâche pas à la sortie. Au printemps, tu es toujours aux Aubiers. Colas t'apprend à traire mieux que Basile. La ferme a deux noms sur le papier du notaire."
+     "text": "Vous l'enterrez trois jours plus tard, à Brévannes, par un grand soleil sur la neige. Isaure te tient la main pendant toute la messe, et encore à la sortie. Au printemps, tu es toujours aux Aubiers. Colas t'apprend à traire mieux que Basile. La ferme a deux noms sur le papier du notaire."
     },
     {
      "if": {
@@ -3336,7 +3336,7 @@
     },
     {
      "second": true,
-     "text": "Dans la neige de la cour, du seuil à la barrière, il y a une seule ligne de traces : de petits souliers étroits, de ceux qu'on ne fait plus, qui descendent vers la rivière. Ses souliers à elle sont sous le fauteuil."
+     "text": "Dans la neige de la cour, du seuil à la barrière, il y a une seule ligne de traces : de petits souliers étroits, d'une forme qu'on a cessé de faire, qui descendent vers la rivière. Ses souliers à elle sont sous le fauteuil."
     },
     "La Longue Nuit suivante, quelqu'un met une chandelle à la fenêtre des Aubiers."
    ]
@@ -3360,9 +3360,9 @@
    },
    "text": [
     "L'inconnu s'arrête, la main tendue. Il te regarde. Puis il sourit, et il retire sa main.",
-    "« Une parole est une parole », dit-il. Il se penche sur le fauteuil, il dit quelque chose à l'oreille de ta grand-mère, que tu n'entends pas. Elle ferme les yeux. Il prend sa perche, et il sort, et la porte se referme toute seule derrière lui.",
-    "Albane ne te parle pas jusqu'au matin. Au matin, elle te demande du café.",
-    "Elle vit un an. Un printemps, où elle t'apprend à greffer les pommiers du verger. Un été, où elle dort l'après-midi sous le noyer et se réveille de mauvaise humeur. Un automne, où elle se met à parler à Colas comme à un homme. Elle ne te reproche jamais rien. Elle te dit seulement, une fois, en septembre : « Il ne savait pas perdre. Il s'arrêtait toujours trop tôt. »",
+    "« Une parole est une parole », dit-il. Il se penche sur le fauteuil, il dit à l'oreille de ta grand-mère quelque chose qui t'échappe. Elle ferme les yeux. Il prend sa perche, et il sort, et la porte se referme toute seule derrière lui.",
+    "Albane garde le silence jusqu'au matin. Au matin, elle te demande du café.",
+    "Elle vit un an. Un printemps, où elle t'apprend à greffer les pommiers du verger. Un été, où elle dort l'après-midi sous le noyer et se réveille de mauvaise humeur. Un automne, où elle se met à parler à Colas comme à un homme. Elle te fait grâce de tout reproche. Elle te dit seulement, une fois, en septembre : « Il ne savait pas perdre. Il s'arrêtait toujours trop tôt. »",
     {
      "if": {
       "has": "isaure:paix"
@@ -3381,7 +3381,7 @@
     "Cette fois, c'est toi qui vas ouvrir.",
     {
      "second": true,
-     "text": "Elle n'a rien dit, l'année entière, de ce qu'il lui avait murmuré en partant. Le dernier soir, en te regardant aller vers la porte, elle le répète, pour elle seule, et tu l'entends : « L'an prochain, je ne jouerai pas. »"
+     "text": "Elle a gardé pour elle, l'année entière, ce qu'il lui avait murmuré en partant. Le dernier soir, en te regardant aller vers la porte, elle le répète, pour elle seule, et tu l'entends : « L'an prochain, je ne jouerai pas. »"
     }
    ]
   },
@@ -3425,7 +3425,7 @@
        "has": "isaure:paix"
       }
      },
-     "text": "Isaure est debout près du fauteuil, les bras croisés. Elle ne te regarde pas. « Tu es encore parti{e} », dit-elle. Ce n'est même pas un reproche. C'est un fait, comme le froid."
+     "text": "Isaure est debout près du fauteuil, les bras croisés, les yeux ailleurs. « Tu es encore parti{e} », dit-elle. Elle le constate, comme on constate le froid."
     },
     {
      "via": "docteur",
@@ -3470,7 +3470,7 @@
      "if": {
       "seen": "C_porte"
      },
-     "text": "Albane ouvre les yeux. Elle regarde la mèche noire. Elle se tait."
+     "text": "Albane ouvre les yeux. Elle regarde la mèche noire, et se tait."
     },
     {
      "via": "souffle",
@@ -3479,15 +3479,15 @@
        "seen": "C_porte"
       }
      },
-     "text": "L'inconnu laisse retomber sa main. Il regarde la mèche noire, puis toi, longtemps. Puis il reprend sa perche, et il sort, et le chien gémit derrière lui. Albane ne crie pas. Elle ferme les yeux."
+     "text": "L'inconnu laisse retomber sa main. Il regarde la mèche noire, puis toi, longtemps. Puis il reprend sa perche, et il sort, et le chien gémit derrière lui. Albane reste muette. Elle ferme les yeux."
     },
     {
      "via": "laisse",
-     "text": "Tu laisses la chandelle brûler. Minuit sonne. Albane, les yeux fermés, la laisse brûler. Elle s'éteint seule, vers une heure, au bout de la mèche, et personne ne dit bonne route."
+     "text": "Tu laisses la chandelle brûler. Minuit sonne. Albane, les yeux fermés, la laisse brûler. Elle s'éteint seule, vers une heure, au bout de la mèche, et personne n'a dit bonne route."
     },
     "Albane passe la nuit. Elle passe l'hiver.",
     "Elle t'épargne les reproches, et presque tous les autres mots. Elle reste dans son fauteuil, à la fenêtre, et elle regarde la pente jusqu'à la rivière, et quand Colas lui demande ce qu'elle regarde, elle dit : « Rien. Le temps qu'il fait. »",
-    "Elle meurt en mars, un après-midi, dans son lit, pendant que vous êtes aux champs. Le rebord est vide. Elle a rangé la chandelle pour de bon.",
+    "Elle meurt en mars, un après-midi, dans son lit, pendant que vous êtes aux champs. Le rebord de la fenêtre est vide. Elle a rangé la chandelle pour de bon.",
     {
      "if": {
       "has": "isaure:paix"
@@ -3500,7 +3500,7 @@
        "has": "isaure:paix"
       }
      },
-     "text": "Tu repars après l'enterrement. Isaure ne te demande pas de rester. La ferme est à elle seule, comme l'a écrit le notaire."
+     "text": "Tu repars après l'enterrement. Isaure te laisse partir sans un mot. La ferme est à elle seule, comme l'a écrit le notaire."
     },
     {
      "second": true,
@@ -3527,7 +3527,7 @@
     "until": 0
    },
    "text": [
-    "Tu descends la côte dans la neige, à la lune. Tu ne te retournes pas. Tu passes le pont. Au pied du moulin, la lanterne du père Gaubert brûle sur le rebord de sa fenêtre, mais lui n'est pas là.",
+    "Tu descends la côte dans la neige, à la lune, le dos tourné à la ferme. Tu passes le pont. Au pied du moulin, la lanterne du père Gaubert brûle sur le rebord de sa fenêtre, mais lui est ailleurs.",
     "Minuit sonne au clocher de Brévannes quand tu es sur la route de la ville. Alors tu te retournes. Là-haut, sur la pente, la petite lumière à la fenêtre des Aubiers vacille, et s'éteint.",
     "Trois semaines plus tard, dans une auberge d'une ville où tu as trouvé à t'employer, on te remet une lettre. L'écriture appliquée d'Isaure. Cette fois, elle l'a envoyée.",
     "*Elle est partie à minuit, dans son fauteuil, face à la fenêtre. Elle souriait. Le flotteur est reparti en même temps, et je ne l'ai pas vu sortir. Il a laissé un oiseau de bois sur le tabouret. Je te le garde.*",
@@ -3571,14 +3571,14 @@
    },
    "text": [
     "Au bord de l'eau, elle lâche ton bras.",
-    "Elle ne dit pas au revoir. Elle te regarde, à la lueur de la lanterne, et elle te touche la joue comme elle l'a fait en arrivant, pour vérifier ton visage. Puis elle se tourne vers lui, et ils entrent dans le gué ensemble.",
-    "La rivière ne se brise pas autour d'eux. L'eau passe sur les galets, noire et blanche, et ils marchent dedans comme sur un chemin sec, côte à côte, sans se presser. À mi-gué, sous la lune, tu ne vois plus la robe bleue, ni le manteau de toile : seulement deux silhouettes jeunes, qui se tiennent par la main.",
+    "Elle te dit adieu sans un mot. Elle te regarde, à la lueur de la lanterne, et elle te touche la joue comme elle l'a fait à ton arrivée, pour vérifier ton visage. Puis elle se tourne vers lui, et ils entrent dans le gué ensemble.",
+    "Autour d'eux, la rivière garde son cours, sans une ride. L'eau passe sur les galets, noire et blanche, et ils marchent dedans comme sur un chemin sec, côte à côte, sans se presser. À mi-gué, sous la lune, la robe bleue et le manteau de toile ont disparu : il reste deux silhouettes jeunes, qui se tiennent par la main.",
     "Puis la lanterne tremble dans ta main, et il n'y a plus que la rivière, et les saules.",
     {
      "if": {
       "has": "isaure:paix"
      },
-     "text": "Isaure, à côté de toi, serre Colas endormi contre elle. Elle ne pleure pas. Elle dit : « Elle n'a pas trébuché une seule fois. » Vous remontez ensemble, sans parler, en vous tenant l'un à l'autre dans la neige."
+     "text": "Isaure, à côté de toi, serre Colas endormi contre elle. Elle a les yeux secs. Elle dit : « Elle n'a pas trébuché une seule fois. » Vous remontez ensemble, en silence, en vous tenant par le bras dans la neige."
     },
     {
      "if": {
@@ -3586,7 +3586,7 @@
        "has": "isaure:paix"
       }
      },
-     "text": "Tu remontes seul{e}, la lanterne à la main. À la porte, Isaure t'attend sur le seuil. Elle regarde la neige sur tes jambes jusqu'aux genoux. Elle ne te demande rien. Elle s'écarte pour te laisser entrer."
+     "text": "Tu remontes seul{e}, la lanterne à la main. À la porte, Isaure t'attend sur le seuil. Elle regarde la neige collée à tes jambes jusqu'aux genoux. Elle garde ses questions. Elle s'écarte pour te laisser entrer."
     },
     "Dans la salle, Albane est dans son fauteuil, face à la vitre, les yeux fermés. Elle sourit. La chandelle est éteinte. Ses souliers, sous le fauteuil, sont mouillés jusqu'à la cheville.",
     "Sur la berge du gué, le lendemain, à côté de la vieille croix de bois, il y a un petit oiseau de saule, posé dans la neige. Tu le ramènes à la maison. Tu le mets à côté de l'autre."

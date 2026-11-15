@@ -8,21 +8,21 @@ var TEMPETE = { is: { depart: "aube" } };
 module.exports = {
   B_matin: { act: "II", title: "Le matin à Pont-Gelé", place: "pontgele",
     text: [
-      "Le père Tiburce vous réveille avec du lait chaud et la nouvelle de la nuit : le monsieur en vert est parti avant le jour, sans attendre la soupe, et il a pris la route de Sorgue.",
+      "Le père Tiburce vous réveille avec du lait chaud et la nouvelle de la nuit : le monsieur en vert est parti avant le jour, sans attendre la soupe, et il a pris la route de Sorgue. Il a laissé sur la table un écu de plus, ce que le père Tiburce trouve plus inquiétant que tout le reste.",
       { if: { all: [{ has: "monde:flute" }, { not: { seen: "C_flute" } }] }, text: "Hier soir, {autre} a joué un air de flûte, tout bas. Tu l'as encore dans la tête en laçant tes bottes." },
       { if: { all: [{ has: "monde:pain" }, { not: { seen: "C_pain" } }] }, text: "Hier, sur le muret, {autre} t'a tendu la moitié de son pain." },
       { if: { all: [ROUTE, { confie: "p_pere" }] }, text: "Tu repenses à ce que {autre} t'a dit cette nuit : un père, une corde, une place de Brumefond. Ce matin, quand {autre} boucle sa sacoche, tu regardes ses mains." },
-      { if: { all: [ROUTE, { confie: "p_vu" }] }, text: "Et la lettre brûlée dans le cabinet du chancelier. Tu ne sais pas ce que vaut un pli de duchesse. Tu sais ce que vaut une lettre qu'on brûle à minuit." },
+      { if: { all: [ROUTE, { confie: "p_vu" }] }, text: "Et la lettre brûlée dans le cabinet du chancelier. Le prix d'un pli de duchesse, tu l'ignores. Celui d'une lettre qu'on brûle à minuit, tu le connais." },
       { if: { all: [PLI, { confie: "g_argent" }] }, text: "La bourse au cor de chasse est restée sur le coffre toute la nuit, entre vos deux lits. Ce matin, {autre} la range en silence, et tu te tais aussi." },
       { if: { all: [PLI, { confie: "g_offre" }] }, text: "Tu penses à la femme en gris. Quelqu'un, à Vérenne, a voulu acheter ton guide. Quelqu'un qui porte l'emblème des postes de la duchesse." },
       { if: { all: [PLI, { confie: "g_hiver" }] }, text: "Onze étés. Tu regardes la montagne au bout de la vallée, toute blanche, et tu regardes {autre} qui la regarde aussi." },
-      { if: { all: [PLI, { has: "monde:fouille_vue" }] }, text: "Cette nuit, tu as entendu un genou sur les planches, près de ta sacoche. Tu as gardé les yeux fermés. Ce matin, tu ne sais plus si tu as rêvé." },
+      { if: { all: [PLI, { has: "monde:fouille_vue" }] }, text: "Cette nuit, tu as entendu un genou sur les planches, près de ta sacoche. Tu as gardé les yeux fermés. Ce matin, tu hésites entre le souvenir et le rêve." },
       { if: { all: [PLI, { has: "monde:sac_fouille" }] }, text: "Ta sacoche est bouclée au deuxième cran. Tu la boucles toujours au troisième." },
     ],
     choices: [{ label: "Prendre la route de Sorgue-le-Haut", to: "B_montee" }] },
   B_montee: { act: "II", title: "La montée", place: "pontgele",
     text: [
-      { first: true, text: "Au-dessus de Pont-Gelé, la vallée se resserre. Les peupliers deviennent des mélèzes, les mélèzes deviennent rares, et vers dix heures il commence à neiger, une neige fine et sèche qui crisse sous les sabots de Brunette." },
+      { first: true, text: "Au-dessus de Pont-Gelé, la vallée se resserre. Les peupliers cèdent la place aux mélèzes, les mélèzes s'espacent, et vers dix heures il commence à neiger, une neige fine et sèche qui crisse sous les sabots de Brunette." },
       { first: true, text: "Au loin, devant, les Dents de Sorgue ferment le ciel : deux pics noirs et entre eux une selle blanche, le col de l'Ourse. Un panache de neige s'envole du col, comme une fumée." },
       { again: true, text: "La neige tombe, fine et sèche. Le col fume au bout de la vallée." },
     ],
@@ -43,13 +43,13 @@ module.exports = {
     text: [
       { if: ROUTE, text: "« Tu vois la fumée ? C'est le vent qui arrache la neige des crêtes. » {autre} met la main en visière. Tu ajoutes : « Quand le col fume le matin, il hurle le lendemain. C'est ce qu'on dit à Sorgue. »" },
       { if: PLI, text: "{autre} plisse les yeux vers le col. « C'est le vent qui arrache la neige des crêtes. Quand le col fume le matin, il hurle le lendemain. C'est ce qu'on dit à Sorgue. »" },
-      "Vous regardez la fumée blanche s'en aller vers l'est, vers le lac que vous ne voyez pas.",
+      "Vous regardez la fumée blanche s'en aller vers l'est, vers le lac caché derrière les crêtes.",
     ],
     choices: [{ back: "B_montee" }] },
 
   B_sorgue: { act: "II", title: "Sorgue-le-Haut", place: "sorgue", takes: "evening",
     text: [
-      { first: true, text: "Sorgue-le-Haut est le dernier village avant le col : trente maisons de pierre sèche serrées autour d'une église trapue, des toits de lauze chargés de neige, et partout des écuries vides. Avant la guerre, il y avait ici deux cents mules. Les gamins vous suivent jusqu'à l'auberge en criant le nom de Brunette." },
+      { first: true, text: "Sorgue-le-Haut est le dernier village avant le col : trente maisons de pierre sèche serrées autour d'une église trapue, des toits de lauze chargés de neige, et partout des écuries vides, la porte ouverte sur des mangeoires sans foin. Avant la guerre, il y avait ici deux cents mules. Les gamins vous suivent jusqu'à l'auberge en criant le nom de Brunette." },
       { if: ROUTE, first: true, text: "C'est ton village. Le vieux Matthieu ferme sa forge en te voyant passer, puis la rouvre en voyant Brunette. Berthe est sur le pas de son auberge, les poings sur les hanches." },
       { if: PLI, first: true, text: "Un forgeron vous regarde passer. Une femme rousse attend sur le pas de l'auberge, les poings sur les hanches, et elle regarde {autre} comme on regarde un neveu qui revient tard." },
       "Il y a deux choses à faire avant la nuit : retenir des lits et de la soupe chez Berthe, et faire voir Brunette et les crampons au maréchal.",
@@ -60,33 +60,33 @@ module.exports = {
     ] },
   B_berthe: { act: "II", title: "L'auberge de Berthe", place: "sorgue", fx: { meet: "berthe", clue: "vert_sorgue" },
     text: [
-      { if: PLI, text: "Berthe te fait entrer, t'assied près du feu, et te sert une écuelle de soupe à l'orge avant que tu aies rien demandé. « Deux lits, je sais. Avec {autre}, je sais aussi. Tout Sorgue le sait depuis que vous avez passé le pont. »" },
+      { if: PLI, text: "Berthe te fait entrer, t'assied près du feu, et te sert une écuelle de soupe à l'orge avant même ta première question. « Deux lits, je sais. Avec {autre}, je sais aussi. Tout Sorgue le sait depuis que vous avez passé le pont. »" },
       { if: PLI, text: "Elle s'assied en face de toi, les bras croisés. « Et vous allez où, comme ça, avec la mule ? » Tu lui dis : le col. Elle ouvre de grands yeux." },
-      { if: { all: [PLI, { not: { secret: "g_hiver" } }] }, text: "« Le col ? En cette saison ? Avec {autre} ? » Elle rit, puis elle ne rit plus. « Je l'ai vu{autre:e} naître. Onze ans de mules, onze étés. Je ne l'ai jamais vu{autre:e} monter là-haut après la Saint-Michel. Personne de Sorgue n'y monte en hiver. Sauf les morts qu'on va chercher au printemps. »" },
+      { if: { all: [PLI, { not: { secret: "g_hiver" } }] }, text: "« Le col ? En cette saison ? Avec {autre} ? » Elle rit, puis son rire tombe. « Je l'ai vu{autre:e} naître. Onze ans de mules, onze étés. Après la Saint-Michel, ceux de Sorgue laissent le col aux morts, et vont les chercher au printemps. »" },
       { if: { all: [PLI, { secret: "g_hiver" }] }, text: "« Le col ? En cette saison ? » Elle te regarde, et elle comprend que tu sais déjà ce qu'elle allait dire. « Alors on vous l'a dit. Tant mieux. »" },
       { if: ROUTE, text: "Berthe t'attrape par les deux oreilles comme quand tu avais six ans. « Le col. Avec un courrier de la ville. En hiver. Toi. » Elle te lâche. « Ta mère se retournerait dans sa tombe, si elle avait une tombe. »" },
       { if: ROUTE, text: "Tu lui demandes de se taire devant {autre}. Elle hausse les épaules. « Je me tairai. Mais la montagne, elle, parlera. »" },
       "Elle baisse la voix. « Il est passé un homme à midi. Manteau vert, cheval noir, une cicatrice à l'œil. Il a payé le petit Jacou pour lui montrer le chemin de la gorge, celui des contrebandiers, qui descend vers le lac sans monter au col. »",
-      { if: ROUTE, text: "« Et hier, un cavalier des postes. Un jeune, très pressé, qui n'a même pas mangé. Il a pris la gorge lui aussi. Deux en deux jours, sur un chemin où il ne passe plus personne. »" },
+      { if: ROUTE, text: "« Et hier, un cavalier des postes. Un jeune, très pressé, qui a refusé jusqu'à la soupe. Il a pris la gorge lui aussi. Deux en deux jours, sur un chemin désert depuis la guerre. »" },
     ],
     choices: [{ label: "Attendre {autre} pour la soupe du soir", to: "B_veillee" }] },
   B_forge: { act: "II", title: "La forge de Matthieu", place: "sorgue", fx: { flag: "ciel_su" },
     text: [
       "La forge sent le charbon et la corne brûlée. Le vieux Matthieu est un homme carré aux avant-bras couverts de petites brûlures blanches, qui regarde les bêtes avant de regarder les gens.",
       { if: { all: [ROUTE, { has: "monde:retard_mule" }] }, text: "Il prend le pied gauche de Brunette, gratte, et sort le caillou plat du bout de son crochet. Il le pose sur l'enclume, entre vous deux. « Un menteur. » Il te regarde longtemps. « Ta mère n'en mettait jamais. Un jour de repos, pas moins. Je lui mets un cataplasme. »" },
-      { if: { all: [ROUTE, { not: { has: "monde:retard_mule" } }] }, text: "Il passe les mains sur les quatre jambes de Brunette, sur le dos, sous le bât. « Elle est bonne. Elle passera, si toi tu passes. » Il serre les lanières de tes crampons sans que tu le lui demandes." },
+      { if: { all: [ROUTE, { not: { has: "monde:retard_mule" } }] }, text: "Il passe les mains sur les quatre jambes de Brunette, sur le dos, sous le bât. « Elle est bonne. Elle passera, si toi tu passes. » Il serre les lanières de tes crampons sans attendre que tu le lui demandes." },
       { if: PLI, text: "« La mule de {autre} ? Je la verrai ce soir, à l'écurie de Berthe. » Il prend tes bottes de ville, les retourne, et secoue la tête. « Avec ça, vous glisserez jusqu'au lac sur le derrière. » Il te vend une paire de vieux crampons pour deux écus, et te montre comment les lacer." },
       "En sortant, Matthieu lève le nez vers le col. « Il fume. Demain, il hurle. Après-demain, il dort. C'est réglé comme une horloge, l'Ourse, quand on sait la lire. »",
     ],
     choices: [{ label: "Aller retrouver {autre} à l'auberge", to: [{ if: PLI, to: "B_forge_crampons" }, { to: "B_veillee" }] }] },
   B_forge_crampons: { act: "II", title: "Des crampons d'occasion", place: "sorgue", fx: { gold: -2, item: "crampons" },
     text: [
-      "Les crampons de Matthieu sont rouillés, et l'une des griffes a été ressoudée. Ils mordent quand même la glace de la cour, quand tu fais trois pas avec. Tu les accroches à ta ceinture.",
+      "Les crampons de Matthieu sont rouillés, et l'une des griffes a été ressoudée, de travers. Ils mordent quand même la glace de la cour, quand tu fais trois pas avec. Tu les accroches à ta ceinture.",
     ],
     choices: [{ label: "Aller retrouver {autre} à l'auberge", to: "B_veillee" }] },
   B_veillee: { act: "II", title: "La salle de Berthe", place: "sorgue",
     text: [
-      "Le soir, la salle de Berthe se remplit : des vieux muletiers sans mules, le curé, deux bergers, et le petit Jacou, très fier, qui raconte à tout le monde qu'il a gagné un écu à montrer la gorge à un monsieur.",
+      "Le soir, la salle de Berthe se remplit : des vieux muletiers sans mules, le curé, deux bergers, et le petit Jacou, très fier, qui raconte à tout le monde qu'il a gagné un écu à montrer la gorge à un monsieur. Il montre l'écu. Il le montre beaucoup.",
       "On parle du col. Tout le monde a un avis, et chaque avis commence par une histoire de mort.",
     ],
     choices: [{ label: "S'asseoir avec {autre} au bout de la table", to: "B_conseil" }] },
@@ -94,7 +94,7 @@ module.exports = {
     text: [
       "Vous avez pris le bout de la longue table, avec deux bols de soupe refroidie et la carte de {autre} étalée entre les bols.",
       { if: { has: "monde:retard_mule" }, text: "Matthieu est passé à l'écurie : Brunette boite du pied gauche. Il a trouvé un caillou coincé sous le fer, un petit caillou plat bien enfoncé. Il faut un jour de repos à la mule." },
-      { if: { all: [PLI, { has: "monde:retard_mule" }] }, text: "Un caillou qui se coince aussi bien, c'est de la malchance. Matthieu a dit le mot, en passant, sans regarder personne : « un menteur »." },
+      { if: { all: [PLI, { has: "monde:retard_mule" }] }, text: "Un caillou si bien coincé, ce serait une drôle de malchance. Matthieu a dit le mot, en passant, les yeux ailleurs : « un menteur »." },
       "Il y a trois chemins. Le col de l'Ourse à l'aube, comme prévu, et l'on sera à Brumefond le cinquième au matin. Attendre un jour à Sorgue, que le vent tombe, et arriver au soir du vote. Ou la route de la vallée, qui contourne les Dents par les salines mortes : pas de col, pas de neige, et deux jours de plus.",
       { if: { any: [{ has: "ciel_su" }, { has: "vent_su" }] }, text: "Demain, le col hurlera. Après-demain, il dormira." },
       { if: { has: "monde:retard_mule" }, text: "Avec la jambe de Brunette, partir à l'aube voudrait dire laisser la mule chez Berthe et porter le bât sur vos dos." },
@@ -109,12 +109,12 @@ module.exports = {
     text: [
       "Berthe vous donne la chambre au-dessus de l'écurie, la plus chaude, et vous réveille à quatre heures avec du pain, du lard et un regard noir.",
       { if: { has: "monde:sans_brunette" }, text: "Brunette reste à l'écurie, la jambe enveloppée d'un cataplasme qui sent la térébenthine. Vous vous partagez le bât : la corde, les couvertures, la lanterne, la marmite. Le sac pèse sur les épaules avant même le premier pas." },
-      "Le col, au-dessus du village, est invisible dans la nuit. On entend seulement le vent qui commence.",
+      "Le col, au-dessus du village, se perd dans la nuit. On entend seulement le vent qui commence.",
     ],
     choices: [{ label: "Monter", to: "B_col" }] },
   B_attente: { act: "II", title: "Un jour blanc", place: "sorgue",
     text: [
-      "Le col hurle toute la journée. Le vent passe par-dessus Sorgue avec un bruit de rivière, la neige vole à l'horizontale entre les maisons, et Berthe ferme les volets à midi. Personne ne sort.",
+      "Le col hurle toute la journée. Le vent passe par-dessus Sorgue avec un bruit de rivière, la neige vole à l'horizontale entre les maisons, et Berthe ferme les volets à midi. Le village reste clos jusqu'au soir.",
       { if: { has: "monde:retard_mule" }, text: "Brunette se repose dans l'écurie, la jambe dans un cataplasme. Le soir, elle pose le pied par terre sans grimacer." },
       "Vous passez le jour dans la salle, devant le feu. Les vieux muletiers jouent aux cartes. Le petit Jacou vous apprend un jeu de ficelle. Le jour perdu pèse sur la table comme un troisième convive.",
       "Le lendemain, à quatre heures, le vent est tombé. Le ciel est noir et plein d'étoiles.",
@@ -123,7 +123,7 @@ module.exports = {
 
   B_col: { act: "II", title: "Le col de l'Ourse", place: "col",
     text: [
-      { if: TEMPETE, text: "À neuf heures, vous êtes au-dessus des derniers mélèzes, et le col hurle comme Matthieu l'a dit. Le vent arrive de face, chargé de neige dure comme du sable. On ne voit plus les Dents. On voit à peine ses propres pieds, et la silhouette de {autre}, trois pas devant, qui se penche contre le vent." },
+      { if: TEMPETE, text: "À neuf heures, vous êtes au-dessus des derniers mélèzes, et le col hurle comme Matthieu l'a dit. Le vent arrive de face, chargé de neige dure comme du sable. Les Dents ont disparu. On voit à peine ses propres pieds, et la silhouette de {autre}, trois pas devant, qui se penche contre le vent." },
       { if: { not: TEMPETE }, text: "À neuf heures, vous êtes au-dessus des derniers mélèzes, et le col dort. Le ciel est d'un bleu dur, l'air brûle les narines, la neige fraîche efface tout : le chemin, les cairns, les pierres. Les Dents de Sorgue se dressent de chaque côté, noires et nettes, si proches qu'on croit les toucher." },
       { if: { has: "monde:sans_brunette" }, text: "Le bât pèse sur tes épaules." },
       { if: { all: [PLI, { secret: "g_hiver" }] }, text: "{autre} cherche les cairns sous la neige, s'arrête, repart, revient. Tu sais maintenant pourquoi {autre:il} s'arrête." },
@@ -138,7 +138,7 @@ module.exports = {
     ] },
   B_egares: { act: "II", title: "Le mauvais lacet", place: "col",
     text: [
-      "Tu prends un lacet pour un autre. Une heure plus tard, vous êtes au bord d'une barre de rochers que tu n'as jamais vue, avec le vide dessous et le chemin, peut-être, de l'autre côté.",
+      "Tu prends un lacet pour un autre. Une heure plus tard, vous êtes au bord d'une barre de rochers inconnue, avec le vide dessous et le chemin, peut-être, de l'autre côté.",
       "Vous redescendez. Tu glisses deux fois. La seconde, ton genou rencontre une pierre sous la neige, et la douleur te monte jusqu'à la gorge. Quand tu retrouves le premier cairn, une pyramide de pierres plates à moitié enterrée, le soleil a tourné.",
     ],
     choices: [{ label: "Repartir du cairn", to: "B_montee_col" }] },
@@ -150,9 +150,9 @@ module.exports = {
     choices: [{ label: "Reprendre la montée", to: "B_montee_col" }] },
   B_montee_col: { act: "II", title: "Sous la selle", place: "col",
     text: [
-      "Vers midi, vous arrivez sous la selle du col. La pente est raide et lisse, et au milieu, sur toute sa largeur, une crevasse coupe le chemin : une fente bleue, sans fond visible, traversée par un pont de neige que le vent a construit pendant la nuit.",
+      "Vers midi, vous arrivez sous la selle du col. La pente est raide et lisse, et au milieu, sur toute sa largeur, une crevasse coupe le chemin : une fente bleue, dont l'œil cherche le fond en vain, traversée par un pont de neige que le vent a construit pendant la nuit.",
       { if: TEMPETE, text: "Le vent hurle dans la fente. Des loups ont laissé des traces sur le bord, des traces fraîches, et tu entends quelque part, dans la neige qui vole, un aboiement bref." },
-      { if: { not: TEMPETE }, text: "Sur le bord de la crevasse, des traces de loups, profondes, à peine un jour. Au-dessus, sur l'arête, trois silhouettes grises vous regardent, assises." },
+      { if: { not: TEMPETE }, text: "Sur le bord de la crevasse, des traces de loups, profondes, nettes, d'un jour à peine : le vent de la nuit a seulement arrondi leurs bords. Au-dessus, sur l'arête, trois silhouettes grises vous regardent, assises." },
     ],
     choices: [{ label: "Faire face aux loups", to: "B_loups" }] },
   B_loups: { act: "II", title: "Les loups de l'Ourse", place: "col",
@@ -170,7 +170,7 @@ module.exports = {
     choices: [{ label: "Se traîner jusqu'au pont de neige", to: "B_pont" }] },
   B_pont: { act: "II", title: "Le pont de neige", place: "col",
     text: [
-      { first: true, text: "Le pont de neige fait trois pas de long et la largeur d'une table. Il tiendra peut-être un homme. Il tiendra peut-être deux. Il faut passer un par un, encordés : l'un traverse, l'autre tient la corde, les talons plantés dans la neige." },
+      { first: true, text: "Le pont de neige fait trois pas de long et la largeur d'une table. Il tiendra peut-être une personne. Il tiendra peut-être deux. Il faut passer un par un, encordés : l'un traverse, l'autre tient la corde, les talons plantés dans la neige." },
       { again: true, text: "Le pont de neige attend, bleu et blanc, au-dessus de la fente." },
     ],
     choices: [
@@ -193,7 +193,7 @@ module.exports = {
   B_pont_chute: { act: "II", title: "La fente bleue", place: "col",
     text: [
       "Au deuxième pas, le pont s'ouvre sous toi. Tu tombes dans le bleu, une seconde, deux, et la corde t'arrête net sous les côtes. Tu pends contre la paroi de glace, les pieds dans le vide, et au-dessus, très loin, il y a un carré de ciel et un bout de corde qui tremble.",
-      "Tu remontes. Tu ne sais pas comment. Tu plantes les doigts dans la glace, tu pousses avec les bottes, et la corde tire, tire, à chaque fois que tu bouges, comme si quelqu'un là-haut sentait chacun de tes gestes. Quand tu roules sur le bord, tu restes couché{e} dans la neige, le visage dans le ciel.",
+      "Tu remontes, d'une façon dont tu garderas seulement des morceaux. Tu plantes les doigts dans la glace, tu pousses avec les bottes, et la corde tire, tire, à chaque fois que tu bouges, comme si quelqu'un là-haut sentait chacun de tes gestes. Quand tu roules sur le bord, tu restes couché{e} dans la neige, le visage dans le ciel.",
     ],
     choices: [{ label: "Monter à la selle du col", to: "B_selle" }] },
   B_pont_tenir: { act: "II", title: "Tenir", place: "col",
@@ -212,7 +212,7 @@ module.exports = {
     choices: [{ label: "Monter à la selle du col", to: "B_selle" }] },
   B_tenir_glisse: { act: "II", title: "Les talons qui glissent", place: "col",
     text: [
-      "Une rafale te prend de côté. Tes talons labourent la neige, un mètre, deux, la corde te brûle les paumes à travers les gants, et ton dos rencontre un rocher. Tu t'y cales. Tu tiens, contre le rocher, jusqu'à ce qu'une voix crie de l'autre bord.",
+      "Une rafale te prend de côté. Tes talons labourent la neige, une coudée, deux, la corde te brûle les paumes à travers les gants, et ton dos rencontre un rocher. Tu t'y cales. Tu tiens, contre le rocher, jusqu'à ce qu'une voix crie de l'autre bord.",
       "Puis c'est ton tour de passer, assuré{e} par {autre}. De l'autre côté, tu regardes tes paumes ouvertes.",
     ],
     choices: [{ label: "Monter à la selle du col", to: "B_selle" }] },
@@ -224,9 +224,9 @@ module.exports = {
     choices: [{ label: "Entrer dans le refuge", to: "B_refuge" }] },
   B_refuge: { act: "II", title: "Le refuge de l'Ourse", place: "col", charniere: true, aparte: true,
     text: [
-      { first: true, text: "Le refuge sent la suie froide et la laine mouillée. Il y a un bat-flanc de planches, une cheminée, et un tas de genévrier sec laissé par les derniers passants, avec un mot gravé dans la porte au couteau : *Remets du bois.* Vous faites un feu. La fumée ne sait pas par où sortir, puis elle trouve." },
-      { first: true, if: { all: [{ seen: "B_pont_passer" }, { has: "monde:pont_tombe" }, { has: "monde:corde_tenue" }] }, text: "Tu repenses à la fente bleue. Au bout de la corde, là-haut, {autre} n'a pas cédé d'un pouce. Ce soir, vous avez tous les deux les mains écorchées par la même corde." },
-      { first: true, if: { all: [{ seen: "B_pont_passer" }, { has: "monde:pont_tombe" }, { has: "monde:corde_glisse" }] }, text: "Tu repenses à la fente bleue. {autre} a glissé jusqu'au rocher, les gants en lambeaux, et n'a pas lâché. Ce soir, {autre} tient ses paumes ouvertes vers le feu." },
+      { first: true, text: "Le refuge sent la suie froide et la laine mouillée. Il y a un bat-flanc de planches, une cheminée, et un tas de genévrier sec laissé par les derniers passants, avec un mot gravé dans la porte au couteau : *Remets du bois.* Vous faites un feu. La fumée hésite, cherche sa sortie, puis la trouve." },
+      { first: true, if: { all: [{ seen: "B_pont_passer" }, { has: "monde:pont_tombe" }, { has: "monde:corde_tenue" }] }, text: "Tu repenses à la fente bleue. Au bout de la corde, là-haut, {autre} a tenu sans céder d'un pouce. Ce soir, vos mains portent les écorchures de la même corde." },
+      { first: true, if: { all: [{ seen: "B_pont_passer" }, { has: "monde:pont_tombe" }, { has: "monde:corde_glisse" }] }, text: "Tu repenses à la fente bleue. {autre} a glissé jusqu'au rocher, les gants en lambeaux, et a tenu bon. Ce soir, {autre} tient ses paumes ouvertes vers le feu." },
       { first: true, if: { all: [{ seen: "B_pont_tenir" }, { has: "monde:pont_tombe" }] }, text: "Tu repenses au moment où la corde s'est tendue d'un coup, au poids qui pendait dans la fente. Tu as tenu. {autre} est là, de l'autre côté du feu, et frotte ses côtes là où la corde a mordu." },
       { first: true, if: { all: [{ seen: "B_pont_tenir" }, { has: "monde:pont_passe" }] }, text: "{autre} a passé le pont de neige d'un seul élan. Tu as tenu une corde qui n'a pas eu à servir, et tu t'en trouves très bien." },
       { first: true, if: { has: "loups_perdu" }, text: "Ta jambe te lance là où le loup a mordu. Tu la soignes près du feu." },
@@ -243,8 +243,8 @@ module.exports = {
     text: [
       "Tu chauffes la lame de ton couteau dans la braise, tu la glisses sous la cire, et la cire se soulève d'un bloc, sceau intact. Tu déplies le pli à la lumière du feu.",
       "*À l'Assemblée des Ligues du lac. Nous avons lu votre offre. Vous nous proposez de partager ce qui est à nous et de pleurer ensemble les morts que vous avez faits. Nous ne partageons pas les salines de la Sorgue. Nous ne pleurons pas avec ceux qui brûlent nos villages. Que l'Assemblée vote ce qu'elle voudra : Vérenne a voté. Ysaure, duchesse.*",
-      "Une écriture de chancellerie, belle et régulière. Un seul pli, une seule feuille. Rien à l'intérieur.",
-      "Tu replies, tu reposes la cire, tu chauffes encore la lame pour la recoller. Personne ne verra rien. Toi, tu as lu.",
+      "Une écriture de chancellerie, belle et régulière. Un seul pli, une seule feuille, sans post-scriptum ni pièce jointe.",
+      "Tu replies, tu reposes la cire, tu chauffes encore la lame pour la recoller. Le sceau paraît intact. Toi, tu as lu.",
     ],
     choices: [{ back: "B_refuge" }] },
   B_pli_brise: { act: "II", title: "La cire cassée", place: "col",
@@ -265,7 +265,7 @@ module.exports = {
   // ---------------------------------------------------------------- the valley road
   B_vallee: { act: "II", title: "La route des salines mortes", place: "sorgue",
     text: [
-      "La route de la vallée redescend vers le sud, puis tourne à l'est autour des Dents, par le pays des salines. Il n'y a pas de neige sur cette route, seulement de la boue gelée et un vent qui sent le sel.",
+      "La route de la vallée redescend vers le sud, puis tourne à l'est autour des Dents, par le pays des salines. Sur cette route, la neige laisse la place à la boue gelée et à un vent qui sent le sel.",
       { if: { has: "monde:retard_mule" }, text: "Brunette boite les deux premières heures, puis le cataplasme de Matthieu fait son effet, et elle reprend son pas de mule, régulier et têtu." },
       "Au milieu du premier jour, vous traversez Salins-Bas. Ou ce qu'il en reste : des murs noircis, une église sans toit, des bassins de sel crevés où l'eau de pluie a gelé en plaques roses. Sur la place, une vieille femme ramasse du bois dans les décombres.",
     ],
@@ -275,7 +275,7 @@ module.exports = {
     ] },
   B_salins: { act: "II", title: "Salins-Bas", place: "sorgue",
     text: [
-      "Elle s'appelle Mahaut. Elle vous fait entrer dans ce qui était sa cuisine et vous fait du feu avec le bois que vous avez porté. Elle raconte la nuit où les soldats des Ligues sont venus, il y a deux ans, et la nuit d'avant, où ceux de Vérenne étaient venus brûler l'autre rive. On ne sait plus qui a commencé, dit-elle. Les morts, eux, ne le demandent pas.",
+      "Elle s'appelle Mahaut. Elle vous fait entrer dans ce qui était sa cuisine et vous fait du feu avec le bois que vous avez porté. Elle raconte la nuit où les soldats des Ligues sont venus, il y a deux ans, et la nuit d'avant, où ceux de Vérenne étaient venus brûler l'autre rive. Qui a commencé, tout le monde l'a oublié, dit-elle. Les morts, eux, s'en moquent.",
       "« Vous allez à Brumefond ? Avec la paix ? » Elle regarde la sacoche de cuir. « Dites-leur, là-bas, que Salins-Bas a voté. »",
     ],
     choices: [{ label: "Reprendre la route", fx: { flag: "monde:mahaut" }, to: "B_vallee_nuit" }] },
