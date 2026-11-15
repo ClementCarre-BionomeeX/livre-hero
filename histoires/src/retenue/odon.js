@@ -87,6 +87,7 @@ module.exports = {
     ],
     choices: [
       { label: "Rentrer chez toi", to: "O_chambre" },
+      { label: "Sortir derrière le valet vert, et le suivre de loin", if: { second: "O_rapport" }, to: "O_valet" },
       { label: "Lui donner la lettre, et lui dire ce qu'elle dit", hide: { not: { has: "odon:lettre" } }, to: "O_lettre_dite" },
       { label: "Descendre aux Foulons chercher Nine", if: { lore: "veine" }, to: "O_nine_rue" },
       { label: "Fermer la porte derrière toi, et dire au capitaine ce que tu viens de voir", if: { all: [{ lore: "veine" }, { lore: "proces_verbal" }] }, to: "O_reprendre" },

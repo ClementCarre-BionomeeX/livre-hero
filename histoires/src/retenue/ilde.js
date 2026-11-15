@@ -56,6 +56,7 @@ module.exports = {
     choices: [
       { label: "Appeler la courrière", to: "I_courriere" },
       { label: "Porter le paquet toi-même, par la berge des Aulnes", to: "I_aulnes" },
+      { label: "Aller chez Nine, rue du Lavoir : son homme est batelier", to: "I_guillot" },
       { label: "Le porter toi-même, par le ponceau des Teinturiers et la route de la Digue", if: { lore: "ponceau" }, to: "I_ponceau" },
     ] },
   I_courriere: { act: A, title: "Un écu d'argent", place: "foulons", fx: { drop: "paquet", time: 0.25 },
@@ -72,7 +73,8 @@ module.exports = {
     ] },
   I_fulbert_vient: { act: A, title: "Le voisin", place: "foulons", fx: { time: 0.5 },
     text: [
-      "La courrière part. Tu la regardes disparaître au bout de la rue, du côté du lavoir.",
+      { if: { not: { has: "route:guillot" } }, text: "La courrière part. Tu la regardes disparaître au bout de la rue, du côté du lavoir." },
+      { if: { has: "route:guillot" }, text: "Tu rentres par la rue du Lavoir. Fulbert n'est plus sur son seuil." },
       "À dix heures moins le quart, on frappe. C'est Fulbert, sa pipe éteinte à la main, l'air d'un voisin qui a besoin de bicarbonate. Vingt ans que vous êtes voisins. Il t'a porté du bois l'hiver où tu t'es cassé le poignet.",
       "« Je t'ai vue descendre de la digue, voisine. Le vieux va mal ? » Il s'assoit sans qu'on l'en prie. « Tu as l'air soucieuse. Si je peux faire quelque chose. »",
       "Cette nuit, à deux heures, il faudra frapper à cent portes. Tu ne pourras pas le faire seule.",
@@ -133,6 +135,7 @@ module.exports = {
     text: [
       { if: { has: "route:aulnes" }, text: "À trois heures, du parvis de Saint-Rieul, tu entends la digue : un grincement de fer, puis une chaîne qu'on dévide. Ta courrière est arrivée. Ou Jacquette a trouvé ce qu'elle cherchait. Anselme a ses quatre bras." },
       { if: { has: "route:ponceau" }, text: "À trois heures, du parvis de Saint-Rieul, tu entends la digue : un grincement de fer, puis une chaîne qu'on dévide. La petite est passée sous le pont." },
+      { if: { has: "route:guillot" }, text: "À trois heures, du parvis de Saint-Rieul, tu entends la digue : un grincement de fer, puis une chaîne qu'on dévide. Guillot est passé par l'eau. Nine, à côté de toi, serre les poings sur son ventre et ne dit rien." },
       { if: { has: "route:pont" }, text: "À trois heures, tu tends l'oreille vers la digue. Le vent. Rien que le vent. À trois heures et demie, toujours rien. Au bout de la vallée, à la fenêtre de la Maison des Vannes, il n'y a qu'une lanterne." },
       { if: { not: { has: "route:pont" } }, text: "À quatre heures, la pluie. Au jour, la Sorge est dans les Foulons jusqu'aux fenêtres basses. Les maisons sont pleines d'eau brune, les cuves renversées, les draps perdus. Le quartier regarde tout ça d'en haut, en couvertures, vivant. Le vieux Mallet compte deux fois sa rue sur ses doigts. Il ne manque personne." },
       { if: { has: "route:pont" }, text: "À cinq heures et demie, la digue cède. Tu l'entends avant de la voir : un grondement qui descend la vallée, puis la Sorge qui se lève comme une bête, une seule vague brune, haute comme une maison. Elle passe sur les Foulons. Quand elle est passée, il reste des toits. Le quartier, sur le parvis, regarde l'endroit où étaient ses maisons. Il ne manque personne. Il ne reste rien." },

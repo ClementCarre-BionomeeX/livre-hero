@@ -219,7 +219,10 @@ module.exports = {
       "Contre ton dos, à travers les planches, à travers la terre, tu sens quelque chose. Un tremblement très doux, très régulier, qui vient de la digue. Comme si le mur de pierre respirait.",
       "Jacquette ne vient pas. À deux heures, au clocher de Saint-Rieul, très loin, tu entends sonner deux coups.",
     ],
-    choices: [{ label: "Laisser le paquet sous la pierre bleue et rentrer", to: "M_pierre", via: "attendu" }] },
+    choices: [
+      { label: "Laisser le paquet sous la pierre bleue et rentrer", to: "M_pierre", via: "attendu" },
+      { label: "Monter frapper à la Maison des Vannes, par l'escalier de la digue", if: { second: "M_pierre" }, to: "M_escalier" },
+    ] },
   M_signal: { act: A, title: "Une lanterne à la fenêtre", place: "berge",
     text: [
       "Tout en haut de la digue, la Maison des Vannes a une seule fenêtre éclairée. Une lanterne, une seule.",
@@ -421,7 +424,10 @@ module.exports = {
       "Elle reprend la clé dans la toile cirée. Au moment de refermer la porte, elle s'arrête, comme si elle allait dire autre chose. Puis elle referme.",
       "Tu descends chercher Tibo aux Foulons. Il dort. Tu le réveilles, tu lui fais mettre ses souliers, tu le tires par la main jusqu'à la porte Saint-Rieul, qui se ferme derrière vous à minuit.",
     ],
-    choices: [{ label: "Dormir à l'auberge du Cerf", to: "M_vendue" }] },
+    choices: [
+      { label: "Dormir à l'auberge du Cerf", to: "M_vendue" },
+      { label: "Laisser Tibo dormir au Cerf, et redescendre aux Foulons", if: { lore: "veine" }, to: "M_vendue_portes" },
+    ] },
   M_corlay_refus: { act: A, title: "La porte de service", place: "hauteville", fx: { flag: "corlay:refus", time: 0.25 },
     text: [
       "Tu refermes la toile. Pernelle Daguet ne bouge pas.",
@@ -436,9 +442,9 @@ module.exports = {
       "Reste le paquet, posé sur la table, dans sa toile cirée.",
     ],
     choices: [
-      { label: "Le laisser sur le seuil de l'apothicairerie, en passant", to: "M_route", via: "seuil", fx: { drop: "paquet" } },
-      { label: "Le jeter dans la Sorge, du haut du lavoir", to: "M_route", via: "sorge", fx: { drop: "paquet" } },
-      { label: "L'emporter", to: "M_route", via: "emporte" },
+      { label: "Le laisser sur le seuil de l'apothicairerie, en passant", to: "M_fuite_nuit", fx: { drop: "paquet", flag: "paquet:seuil" } },
+      { label: "Le jeter dans la Sorge, du haut du lavoir", to: "M_fuite_nuit", fx: { drop: "paquet", flag: "paquet:sorge" } },
+      { label: "L'emporter", to: "M_fuite_nuit", fx: { flag: "paquet:emporte" } },
     ] },
 
   // ------------------------------------------------------------------ the later endings
@@ -486,15 +492,12 @@ module.exports = {
       { if: { lore: "veine" }, text: "Tu savais. Tu savais, et tu as pris l'argent, et tu as sauvé un enfant. Tu te le répéteras dans cet ordre-là, ou dans un autre, toute ta vie." },
       "À huit heures, le Conseil vote. Le soir, toute la ville sait qui a la Charge des Vannes.",
     ] },
-  M_route: { act: A, title: "La route de Lyre", place: "berge", end: true, fx: { time: 6 },
+  M_route: { act: A, title: "La route de Lyre", place: "berge", end: true, fx: { time: 3 },
     text: [
-      { via: "seuil", text: "Tu poses le paquet contre la porte de l'apothicairerie, sous l'auvent, là où la pluie ne va pas. Tu frappes trois coups, et tu t'en vas sans attendre." },
-      { via: "sorge", text: "Du bord du lavoir, tu lances le paquet dans la Sorge. Il coule tout de suite, sans un remous, comme une pierre." },
-      { via: "emporte", text: "Tu glisses le paquet au fond du baluchon, sous le pain. Il pèse sur ton épaule à chaque pas." },
-      "La route de Lyre monte en lacets vers le col de la Grève. Tibo marche devant, le baluchon de pain sur l'épaule. Il ne se plaint pas. Il se retourne souvent.",
-      "Au col, le jour se lève, gris et mouillé. La vallée de la Sorge est sous vous, pleine de brume. Au fond, on devine les toits de Corvèze, la tour du guet, le rocher de la Haute-Ville.",
-      { via: "seuil", text: "Vers six heures, de très loin, une cloche. Une seule, puis plus rien. Tu ne sais pas ce qu'elle annonce. Tu te dis que tu le sauras à Lyre, par les rouliers, dans une semaine." },
-      { via: ["sorge", "emporte"], text: "Vers cinq heures et demie, un grondement monte de la vallée, et la brume se déchire au-dessus de la Sorge comme un rideau qu'on arrache. Tibo te prend la main. Vous ne descendez pas regarder." },
+      "Vous repartez. Tibo marche devant, le baluchon de pain sur l'épaule. Il se retourne souvent.",
+      "Au premier tournant après le col, le jour se lève, gris et mouillé. La vallée de la Sorge est sous vous, pleine de brume. Au fond, on devine les toits de Corvèze, la tour du guet, le rocher de la Haute-Ville.",
+      { if: { has: "paquet:seuil" }, text: "Vers six heures, de très loin, une cloche. Une seule, puis plus rien. Tu ne sais pas ce qu'elle annonce. Tu te dis que tu le sauras à Lyre, par les rouliers, dans une semaine." },
+      { if: { not: { has: "paquet:seuil" } }, text: "Vers cinq heures et demie, un grondement monte de la vallée, et la brume se déchire au-dessus de la Sorge comme un rideau qu'on arrache. Tibo te prend la main. Vous ne descendez pas regarder." },
       "Tibo te demande si on reviendra. Tu lui dis que oui, un jour. Vous reprenez la route.",
     ] },
 };

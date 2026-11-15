@@ -1665,6 +1665,13 @@
      "label": "Laisser le paquet sous la pierre bleue et rentrer",
      "to": "M_pierre",
      "via": "attendu"
+    },
+    {
+     "label": "Monter frapper à la Maison des Vannes, par l'escalier de la digue",
+     "if": {
+      "second": "M_pierre"
+     },
+     "to": "M_escalier"
     }
    ]
   },
@@ -2213,6 +2220,13 @@
     {
      "label": "Dormir à l'auberge du Cerf",
      "to": "M_vendue"
+    },
+    {
+     "label": "Laisser Tibo dormir au Cerf, et redescendre aux Foulons",
+     "if": {
+      "lore": "veine"
+     },
+     "to": "M_vendue_portes"
     }
    ]
   },
@@ -2255,24 +2269,26 @@
    "choices": [
     {
      "label": "Le laisser sur le seuil de l'apothicairerie, en passant",
-     "to": "M_route",
-     "via": "seuil",
+     "to": "M_fuite_nuit",
      "fx": {
-      "drop": "paquet"
+      "drop": "paquet",
+      "flag": "paquet:seuil"
      }
     },
     {
      "label": "Le jeter dans la Sorge, du haut du lavoir",
-     "to": "M_route",
-     "via": "sorge",
+     "to": "M_fuite_nuit",
      "fx": {
-      "drop": "paquet"
+      "drop": "paquet",
+      "flag": "paquet:sorge"
      }
     },
     {
      "label": "L'emporter",
-     "to": "M_route",
-     "via": "emporte"
+     "to": "M_fuite_nuit",
+     "fx": {
+      "flag": "paquet:emporte"
+     }
     }
    ]
   },
@@ -2402,32 +2418,23 @@
    "place": "berge",
    "end": true,
    "fx": {
-    "time": 6
+    "time": 3
    },
    "text": [
+    "Vous repartez. Tibo marche devant, le baluchon de pain sur l'épaule. Il se retourne souvent.",
+    "Au premier tournant après le col, le jour se lève, gris et mouillé. La vallée de la Sorge est sous vous, pleine de brume. Au fond, on devine les toits de Corvèze, la tour du guet, le rocher de la Haute-Ville.",
     {
-     "via": "seuil",
-     "text": "Tu poses le paquet contre la porte de l'apothicairerie, sous l'auvent, là où la pluie ne va pas. Tu frappes trois coups, et tu t'en vas sans attendre."
-    },
-    {
-     "via": "sorge",
-     "text": "Du bord du lavoir, tu lances le paquet dans la Sorge. Il coule tout de suite, sans un remous, comme une pierre."
-    },
-    {
-     "via": "emporte",
-     "text": "Tu glisses le paquet au fond du baluchon, sous le pain. Il pèse sur ton épaule à chaque pas."
-    },
-    "La route de Lyre monte en lacets vers le col de la Grève. Tibo marche devant, le baluchon de pain sur l'épaule. Il ne se plaint pas. Il se retourne souvent.",
-    "Au col, le jour se lève, gris et mouillé. La vallée de la Sorge est sous vous, pleine de brume. Au fond, on devine les toits de Corvèze, la tour du guet, le rocher de la Haute-Ville.",
-    {
-     "via": "seuil",
+     "if": {
+      "has": "paquet:seuil"
+     },
      "text": "Vers six heures, de très loin, une cloche. Une seule, puis plus rien. Tu ne sais pas ce qu'elle annonce. Tu te dis que tu le sauras à Lyre, par les rouliers, dans une semaine."
     },
     {
-     "via": [
-      "sorge",
-      "emporte"
-     ],
+     "if": {
+      "not": {
+       "has": "paquet:seuil"
+      }
+     },
      "text": "Vers cinq heures et demie, un grondement monte de la vallée, et la brume se déchire au-dessus de la Sorge comme un rideau qu'on arrache. Tibo te prend la main. Vous ne descendez pas regarder."
     },
     "Tibo te demande si on reviendra. Tu lui dis que oui, un jour. Vous reprenez la route."
@@ -3142,6 +3149,183 @@
     "On ne saura pas, en bas, qui a ouvert. Le vieil homme le saura. Et toi, chaque fois que tu verras une tige de fer sortir d'une eau trouble, tu sentiras ce froid jusqu'à la taille."
    ]
   },
+  "M_fuite_nuit": {
+   "act": "I",
+   "title": "Les Foulons, de nuit",
+   "place": "foulons",
+   "fx": {
+    "time": 0.5
+   },
+   "text": [
+    {
+     "if": {
+      "has": "paquet:seuil"
+     },
+     "text": "Tu poses le paquet contre la porte de l'apothicairerie, sous l'auvent, là où la pluie ne va pas. Tu frappes trois coups, et tu t'en vas sans attendre."
+    },
+    {
+     "if": {
+      "has": "paquet:sorge"
+     },
+     "text": "Du bord du lavoir, tu lances le paquet dans la Sorge. Il coule tout de suite, d'un bloc, comme une pierre."
+    },
+    {
+     "if": {
+      "has": "paquet:emporte"
+     },
+     "text": "Tu glisses le paquet au fond du baluchon, sous le pain. Il pèse sur ton épaule à chaque pas."
+    },
+    "Vous traversez le quartier endormi, Tibo devant, toi derrière. Les volets sont clos. Les chats se sauvent sous les cuves. Au coin de la rue du Lavoir, la troisième maison après la fontaine a encore une chandelle derrière le volet : Nine veille, ou son homme."
+   ],
+   "choices": [
+    {
+     "label": "Frapper chez Nine, en passant",
+     "if": {
+      "lore": "veine"
+     },
+     "to": "M_fuite_nine"
+    },
+    {
+     "label": "Passer sans t'arrêter",
+     "to": "M_fuite_col",
+     "fx": {
+      "time": 2
+     }
+    }
+   ]
+  },
+  "M_fuite_nine": {
+   "act": "I",
+   "title": "Une chandelle derrière le volet",
+   "place": "foulons",
+   "fx": {
+    "flag": "nine:prevenue",
+    "time": 0.25
+   },
+   "text": [
+    "Nine t'ouvre, son ventre rond sous un châle. Elle voit Tibo, le baluchon, tes souliers de route. Elle comprend avant que tu parles.",
+    "« Cette nuit, l'eau va descendre du lac, lui dis-tu. Je ne sais pas à quelle heure. Monte chez ton père, en Haute-Ville. Ce soir. Ne me demande pas comment je le sais. »",
+    "Nine te regarde longtemps. Puis elle rentre, et tu l'entends secouer Guillot. Quand tu es au bout de la rue, une lanterne sort de chez elle et prend la Côte."
+   ],
+   "choices": [
+    {
+     "label": "Prendre la route de Lyre",
+     "to": "M_fuite_col",
+     "fx": {
+      "time": 1.75
+     }
+    }
+   ]
+  },
+  "M_fuite_col": {
+   "act": "I",
+   "title": "Le col de la Grève",
+   "place": "berge",
+   "text": [
+    "La route de Lyre monte en lacets vers le col de la Grève. Tibo marche devant. À trois heures, au col, il s'assoit sur une pierre et dit qu'il ne fera plus un pas.",
+    "D'ici, toute la vallée est sous vous. Au bout, la digue, et à la fenêtre de la Maison des Vannes, une seule lanterne.",
+    {
+     "if": {
+      "has": "paquet:emporte"
+     },
+     "text": "Le paquet est dans ton baluchon, à tes pieds. La lanterne, là-bas, l'attend."
+    }
+   ],
+   "choices": [
+    {
+     "label": "Reprendre la route avec Tibo",
+     "to": "M_route",
+     "fx": {
+      "time": 0.25
+     }
+    },
+    {
+     "label": "Redescendre vers la digue avec Tibo, le paquet sur le dos",
+     "hide": {
+      "not": {
+       "has": "paquet:emporte"
+      }
+     },
+     "to": "M_fuite_retour"
+    }
+   ]
+  },
+  "M_fuite_retour": {
+   "act": "I",
+   "title": "Redescendre",
+   "place": "berge",
+   "fx": {
+    "time": 1.5
+   },
+   "text": [
+    "Tu prends Tibo sur ton dos, puis à la main, puis sur ton dos. Vous coupez par les prés, droit vers le lac, sans route. La pluie vous rattrape à quatre heures. Tibo pleure un peu, sans bruit, et il marche quand même.",
+    "À quatre heures et demie, vous êtes au pied des deux cents marches de la digue. Tibo les monte devant toi, à quatre pattes, en comptant tout haut, comme à l'école.",
+    "Le vieil homme qui ouvre est grand, maigre, jaune. Il voit le paquet. Il ne demande rien. Il dit seulement : « Il est tard. Il est très tard. Venez. »"
+   ],
+   "choices": [
+    {
+     "label": "Descendre avec lui à la vanne",
+     "to": "M_tard"
+    }
+   ]
+  },
+  "M_tard": {
+   "act": "I",
+   "title": "Quatre heures et demie",
+   "place": "digue",
+   "end": true,
+   "fx": {
+    "time": 2
+   },
+   "text": [
+    "Dans la chambre de la vanne, le vieux tourne la clé. Il prend un rayon, toi un autre, Tibo le troisième, ses deux mains d'enfant et tout son poids. La roue tourne lentement, si lentement. Le vieux compte. Sa voix se casse sur chaque nombre.",
+    "Au quinzième tour, la digue rugit. Au vingtième, Tibo ne sent plus ses bras ; il pousse avec le ventre. Au quarantième, il est cinq heures et dix. Le vieux s'assoit contre le mur et ne bouge plus pendant longtemps.",
+    "Vers cinq heures et demie, sous vos pieds, toute la digue gémit. Une pierre tombe quelque part, loin, dans la galerie. Puis le gémissement baisse. Le lac descend. La veine tient.",
+    "En bas, personne n'a fait lever les Foulons. L'eau entre dans les maisons au petit jour, par les portes et les soupiraux. Elle monte lentement : on a le temps de grimper aux étages, de passer les enfants par les fenêtres.",
+    {
+     "if": {
+      "has": "nine:prevenue"
+     },
+     "text": "Nine, elle, est en Haute-Ville depuis minuit, chez son père, avec son homme et le berceau."
+    },
+    "Au jour, le vieux vous fait du café. Tibo s'endort sur le banc de la pièce d'à côté, la tête sur le baluchon. Tu regardes ses paumes, rouges et gonflées. Il les a eues pour une course de quatre sous."
+   ]
+  },
+  "M_vendue_portes": {
+   "act": "I",
+   "title": "Cent écus de bruit",
+   "place": "foulons",
+   "fx": {
+    "time": 1.5
+   },
+   "text": [
+    "Tibo dort dans le grand lit du Cerf. Tu laisses la bourse sur la table, à côté de lui, et un mot pour l'aubergiste. Tu prends dix écus dans ta poche. La porte Saint-Rieul est fermée. Le garde t'ouvre la poterne pour un écu, sans poser de questions.",
+    "Aux Foulons, tu ne frappes pas aux portes. Tu vas tout droit chez Gaspard le crieur, qui annonce les morts et les ventes. Tu poses cinq écus sur sa table. « Crie que la digue cède. Toutes les rues. Maintenant. »",
+    "Il compte les écus. Il prend sa cloche à main. Tu prends l'autre bout du quartier, avec la cloche du lavoir."
+   ],
+   "choices": [
+    {
+     "label": "Sonner",
+     "to": "M_vendue_rachat"
+    }
+   ]
+  },
+  "M_vendue_rachat": {
+   "act": "I",
+   "title": "Ce qu'on rachète",
+   "place": "foulons",
+   "end": true,
+   "fx": {
+    "time": 3
+   },
+   "text": [
+    "À deux heures et demie, le quartier monte la Côte. On grogne, on jure, on croit Gaspard à moitié, on te croit à moitié, et à moitié chacun, ça fait presque tout le monde.",
+    "À cinq heures et demie, la digue cède. Tu l'entends du parvis de Saint-Rieul : un grondement qui descend la vallée, puis la Sorge qui se lève. La vague passe sur les Foulons. Quand elle est passée, il reste des toits.",
+    "Le quartier regarde en bas, en couvertures. Il est vivant. Il a perdu tout le reste.",
+    "Tu remontes au Cerf au matin. Tibo dort encore, en travers du lit. La bourse est sur la table. Il y manque quinze écus. Tu sais où ils sont passés.",
+    "Le reste, tu le gardes. Tu as vendu la clé d'un vieil homme. Tu as acheté avec son prix un peu de bruit, à temps. Les deux choses sont vraies, et tu les porteras ensemble."
+   ]
+  },
   "O_garde": {
    "act": "I",
    "title": "Le corps de garde",
@@ -3381,6 +3565,13 @@
     {
      "label": "Rentrer chez toi",
      "to": "O_chambre"
+    },
+    {
+     "label": "Sortir derrière le valet vert, et le suivre de loin",
+     "if": {
+      "second": "O_rapport"
+     },
+     "to": "O_valet"
     },
     {
      "label": "Lui donner la lettre, et lui dire ce qu'elle dit",
@@ -4516,6 +4707,10 @@
      "to": "I_aulnes"
     },
     {
+     "label": "Aller chez Nine, rue du Lavoir : son homme est batelier",
+     "to": "I_guillot"
+    },
+    {
      "label": "Le porter toi-même, par le ponceau des Teinturiers et la route de la Digue",
      "if": {
       "lore": "ponceau"
@@ -4584,7 +4779,20 @@
     "time": 0.5
    },
    "text": [
-    "La courrière part. Tu la regardes disparaître au bout de la rue, du côté du lavoir.",
+    {
+     "if": {
+      "not": {
+       "has": "route:guillot"
+      }
+     },
+     "text": "La courrière part. Tu la regardes disparaître au bout de la rue, du côté du lavoir."
+    },
+    {
+     "if": {
+      "has": "route:guillot"
+     },
+     "text": "Tu rentres par la rue du Lavoir. Fulbert n'est plus sur son seuil."
+    },
     "À dix heures moins le quart, on frappe. C'est Fulbert, sa pipe éteinte à la main, l'air d'un voisin qui a besoin de bicarbonate. Vingt ans que vous êtes voisins. Il t'a porté du bois l'hiver où tu t'es cassé le poignet.",
     "« Je t'ai vue descendre de la digue, voisine. Le vieux va mal ? » Il s'assoit sans qu'on l'en prie. « Tu as l'air soucieuse. Si je peux faire quelque chose. »",
     "Cette nuit, à deux heures, il faudra frapper à cent portes. Tu ne pourras pas le faire seule."
@@ -4766,6 +4974,12 @@
       "has": "route:ponceau"
      },
      "text": "À trois heures, du parvis de Saint-Rieul, tu entends la digue : un grincement de fer, puis une chaîne qu'on dévide. La petite est passée sous le pont."
+    },
+    {
+     "if": {
+      "has": "route:guillot"
+     },
+     "text": "À trois heures, du parvis de Saint-Rieul, tu entends la digue : un grincement de fer, puis une chaîne qu'on dévide. Guillot est passé par l'eau. Nine, à côté de toi, serre les poings sur son ventre et ne dit rien."
     },
     {
      "if": {
@@ -6401,6 +6615,13 @@
      }
     },
     {
+     "label": "Monter d'abord chez le vieux, par l'escalier de la digue",
+     "if": {
+      "second": "J_attente"
+     },
+     "to": "J_vieux_tot"
+    },
+    {
      "label": "Faire demi-tour, avec ton sel, vers l'autre rive du lac",
      "if": {
       "second": true
@@ -7719,6 +7940,16 @@
      }
     },
     {
+     "label": "Réveiller Bastien, et lui mettre la clé dans les mains",
+     "if": {
+      "lore": "plan_corlay"
+     },
+     "to": "A_bastien_porte",
+     "fx": {
+      "flag": "gouttes:dix"
+     }
+    },
+    {
      "label": "Garder Ilde auprès de toi cette nuit",
      "to": "A_ilde_reste",
      "fx": {
@@ -8418,6 +8649,160 @@
       "via": "gilles"
      }
     }
+   ]
+  },
+  "O_valet": {
+   "act": "I",
+   "title": "Le valet vert",
+   "place": "hauteville",
+   "fx": {
+    "time": 0.25
+   },
+   "text": [
+    "Tu sors du bureau. Dans la rue, à cinquante pas devant toi, la livrée verte remonte vers la rue Haute, la toile cirée sous le bras. Tu le suis de loin, comme tu suis les voleurs de foire.",
+    "Le valet entre chez Corlay par la porte du jardin. Au premier étage, derrière une fenêtre aux rideaux mal tirés, tu vois un cabinet tendu de vert, un feu, et un homme en habit de soirée qui reçoit la toile. Il l'ouvre. Il regarde la clé longtemps. Puis il fait glisser une carte encadrée sur le mur, et derrière la carte il y a un coffre.",
+    "Une femme en gris, à un pupitre, lève les yeux vers la fenêtre. Elle te voit dans la rue, sous ta lanterne, ton insigne à la manche. Elle ne dit rien à son maître."
+   ],
+   "choices": [
+    {
+     "label": "Attendre qu'elle descende",
+     "if": {
+      "lore": "veine"
+     },
+     "to": "O_pernelle"
+    },
+    {
+     "label": "Rentrer chez toi",
+     "to": "O_chambre"
+    }
+   ]
+  },
+  "O_pernelle": {
+   "act": "I",
+   "title": "La porte du jardin",
+   "place": "hauteville",
+   "fx": {
+    "time": 0.75
+   },
+   "text": [
+    "Elle descend à minuit, quand le souper finit et que les invités partent en riant fort dans la rue Haute. Elle ouvre la porte du jardin et elle te fait signe.",
+    "« Pernelle Daguet, dit-elle. Je tiens ses comptes. Vous êtes le sergent du pont. » Elle ne demande pas pourquoi tu es là. « Dites-moi ce que c'est, cette clé. Ce qu'elle ouvre vraiment. Monsieur dit : une lubie de vieillard. »",
+    "Tu lui dis la veine, l'orage, la vanne de fond, les Foulons. Elle écoute les bras croisés, sans un geste. À la fin, elle rentre. Tu attends dans le froid un quart d'heure, sûr qu'elle est allée réveiller Corlay.",
+    "Elle revient avec la toile cirée. « Le coffre a deux clés. Monsieur garde l'une sur lui. L'autre est dans mon pupitre depuis douze ans, au cas où il mourrait. » Elle te met le paquet dans les bras. « Il ne mourra pas cette nuit. Allez-vous-en vite. »"
+   ],
+   "choices": [
+    {
+     "label": "Prendre le cheval du guet, et porter la clé à la digue",
+     "to": "O_cheval",
+     "fx": {
+      "item": "cle_vannes"
+     }
+    }
+   ]
+  },
+  "I_guillot": {
+   "act": "I",
+   "title": "Le batelier de Nine",
+   "place": "foulons",
+   "fx": {
+    "flag": "route:guillot",
+    "drop": "paquet",
+    "time": 0.5
+   },
+   "text": [
+    "Rue du Lavoir, la troisième maison après la fontaine. Tu frappes. Guillot, l'homme de Nine, t'ouvre en chemise, une gaffe à la main. Il a vingt-cinq ans et une barque à fond plat amarrée sous ses fenêtres. Derrière lui, Nine, le ventre en avant. Tu l'as suivie tout l'hiver.",
+    "« Je ne peux pas passer le pont, Guillot. Toi, tu n'as pas besoin du pont. » Tu poses le paquet sur la table. « La cabane des Loutres, au pied de la digue. Par la Sorge, à contre-courant. Avant minuit. À Jacquette, et à personne d'autre. »",
+    "Guillot soupèse le paquet. Il regarde Nine. Nine regarde le paquet, puis toi. « Le père de Nine garde le pont, ce soir, dit-il. Avec deux gars. Pour un paquet, je parie. »",
+    "Il prend sa veste. Nine lui tend son bonnet sans un mot. Cinq minutes après, tu entends sa gaffe cogner contre les pierres du quai, puis plus rien que la rivière."
+   ],
+   "choices": [
+    {
+     "label": "Rentrer à ta boutique",
+     "to": "I_fulbert_vient"
+    }
+   ]
+  },
+  "J_vieux_tot": {
+   "act": "I",
+   "title": "Avant minuit",
+   "place": "digue",
+   "fx": {
+    "learn": "cle",
+    "time": 0.75
+   },
+   "text": [
+    "Tu laisses le sel dans les roseaux et tu montes les deux cents marches de la digue avant d'aller à ta cabane. Le vieux t'ouvre en chemise, une lanterne à la main. Il sent le laudanum. Derrière lui, sur l'appui de la fenêtre, une lanterne allumée, et deux autres éteintes à côté.",
+    "« Jacquette ? Il est trop tôt. »",
+    "Il te dit, parce que tu es là et qu'il est fatigué de se taire. La clé de la vanne de fond, confiée à Ilde à sept heures. Ilde qui la fera porter. Trois heures, quatre bras. Le pont gardé, on le lui a dit en bas.",
+    "« Si elle est maligne, la porteuse, dit-il, elle prendra la berge des Aulnes. »"
+   ],
+   "choices": [
+    {
+     "label": "Traverser la Sorge et descendre la berge des Aulnes au-devant d'elle",
+     "to": "J_aulnes"
+    },
+    {
+     "label": "Redescendre l'attendre à ta cabane",
+     "to": "J_cabane"
+    }
+   ]
+  },
+  "A_bastien_porte": {
+   "act": "I",
+   "title": "La clé au fils",
+   "place": "digue",
+   "fx": {
+    "time": 0.25
+   },
+   "text": [
+    "« Ilde, attends. » Tu te lèves en t'appuyant sur le bras du fauteuil. Tu vas jusqu'à la porte de la pièce d'à côté. Bastien est sur le banc, les yeux fermés, la respiration trop régulière.",
+    "« Bastien. Je sais que tu ne dors pas. »",
+    "Il ouvre les yeux. Il ne fait pas semblant de se réveiller. Il a tout entendu, et tu le sais, et il sait que tu le sais.",
+    "Tu lui mets la toile cirée dans les bras. Tu lui dis : « La cabane des Loutres, avant minuit. À Jacquette. Puis tu remontes avec elle par le canal, et tu tournes la roue avec elle. Il faut quatre bras, et tu en as deux. »",
+    "Ilde te regarde comme si tu étais devenu fou. Tu ne regardes que ton fils."
+   ],
+   "choices": [
+    {
+     "label": "Le laisser partir",
+     "to": "A_confiance_nuit"
+    }
+   ]
+  },
+  "A_confiance_nuit": {
+   "act": "I",
+   "title": "L'escalier",
+   "place": "digue",
+   "fx": {
+    "time": 4.5
+   },
+   "text": [
+    "Bastien descend l'escalier de la digue. Tu entends son pas décroître : lent au début, puis plus vite, puis très vite, comme quelqu'un qui court vers la ville.",
+    "Ilde reste. Elle ne dit rien. Elle compte tes gouttes. À neuf heures, elle redescend aux Foulons pour faire lever le quartier à deux heures, comme prévu. Elle t'embrasse sur le front en partant.",
+    "Dix heures. Onze. Minuit. Personne. Une seule lanterne à ta fenêtre. Tu ne t'étonnes de rien. Tu attends quand même.",
+    "À deux heures et quart, on gratte à la porte de l'escalier intérieur."
+   ],
+   "choices": [
+    {
+     "label": "Ouvrir",
+     "to": "A_confiance"
+    }
+   ]
+  },
+  "A_confiance": {
+   "act": "I",
+   "title": "Le fils revenu",
+   "place": "digue",
+   "end": true,
+   "fx": {
+    "time": 3.5
+   },
+   "text": [
+    "Bastien est là, avec Jacquette derrière lui. Il est trempé, couvert de boue, il a une joue ouverte. Il a la toile cirée dans les bras.",
+    "« Je suis allé jusqu'à la porte de son jardin, dit-il sans te regarder. J'avais la main sur la cloche. Je l'ai tenue longtemps. » Il pose la toile cirée sur tes genoux. « Je n'ai pas pu. Avec la clé dans les bras, je n'ai pas pu. Ce qu'on entend derrière une porte, ça se vend. Ce qu'on vous met dans les mains, non. »",
+    "Puis : « J'ai fait le tour par les Aulnes. Je suis tombé dans le déversoir. »",
+    "Vous descendez à la vanne. Tu tournes la clé. Bastien prend un rayon, Jacquette l'autre. Quarante tours. Au quinzième, la digue rugit.",
+    "Au jour, il pleut. Le lac descend. Aux Foulons, Ilde a fait lever le quartier à deux heures ; tout le monde est sur le parvis de Saint-Rieul.",
+    "Ton fils dort sur le banc, pour de vrai cette fois, la bouche ouverte. Tu le regardes dormir jusqu'à ce que ta tête tombe. Il te reste peu de temps. Tu l'as passé à la bonne place."
    ]
   }
  }

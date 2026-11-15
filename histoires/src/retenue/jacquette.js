@@ -47,6 +47,7 @@ module.exports = {
     ],
     choices: [
       { label: "Aller à la cabane attendre le paquet", to: "J_cabane", fx: { time: 0.5 } },
+      { label: "Monter d'abord chez le vieux, par l'escalier de la digue", if: { second: "J_attente" }, to: "J_vieux_tot" },
       { label: "Faire demi-tour, avec ton sel, vers l'autre rive du lac", if: { second: true }, to: "J_large_nuit" },
     ] },
   J_cabane: { act: A, title: "La cabane des Loutres", place: "berge", fx: { time: 1 },
