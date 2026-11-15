@@ -43,25 +43,33 @@
   // with the words said in their title. Without motion (the reader's system asks for less), a colour and a dotted line.
   var VEIL_HTML_RE = /\uE000([^\uE001]*)\uE001([\s\S]*?)\uE002/g;
   function unveil(t) { return String(t).replace(VEIL_HTML_RE, "$2"); }
+  // Letters move one by one (each its own delay); a word stays whole on its line (letters kept together by .vw).
   function veilLetters(html) {
-    var i = 0;
-    return html.replace(/(<[^>]+>)|(&[a-z#0-9]+;|[^<&])/gi, function (m, tag, ch) { if (tag) return tag; if (/\s/.test(ch)) { i++; return ch; } return "<span class=\"vl\" style=\"--i:" + (i++) + "\">" + ch + "</span>"; });
+    var i = 0, open = false, out = "";
+    html.replace(/(<[^>]+>)|(&[a-z#0-9]+;|[^<&])/gi, function (m, tag, ch) {
+      if (tag) { if (open) { out += "</span>"; open = false; } out += tag; return m; }
+      if (/\s/.test(ch)) { if (open) { out += "</span>"; open = false; } out += ch; i++; return m; }
+      if (!open) { out += "<span class=\"vw\">"; open = true; }
+      out += "<span class=\"vl\" style=\"--i:" + (i++) + "\">" + ch + "</span>"; return m;
+    });
+    return out + (open ? "</span>" : "");
   }
   function veilHtml(html) {
     if (html.indexOf("\uE000") < 0) return html;
     var st = (A.game && A.game.story) || {}, L = st.lenses || {};
     return html.replace(VEIL_HTML_RE, function (m, meta, inner) {
       var q = meta.split("|"), id = q[0], lens = L[q[1]] || {}, state = q[2], fx = lens.effect || "lueur", info = M.veilInfo(st, id) || {};
-      if (state === "vu") return "<span class=\"voile vu fx-" + esc(fx) + (A.veilJust === id ? " just" : "") + "\" title=\"" + esc("On disait : « " + (info.said || "") + " » · " + (lens.name || "")) + "\">" + inner + "</span>";
+      if (state === "vu") return "<span class=\"voile v-vu fx-" + esc(fx) + (A.veilJust === id ? " just" : "") + "\" title=\"" + esc("On disait : « " + (info.said || "") + " » · " + (lens.name || "")) + "\">" + inner + "</span>";
       var label = state === "eteint" ? (lens.name || "") + " : plus rien à dévoiler pour l'instant" : "Lire dessous (" + (lens.name || "") + ")";
-      return "<button type=\"button\" class=\"voile " + esc(state) + " fx-" + esc(fx) + "\" data-voile=\"" + esc(id) + "\" title=\"" + esc(label) + "\" aria-label=\"" + esc(label + " : " + unveil(inner).replace(/<[^>]+>/g, "")) + "\">" + (REDUCED_MOTION() ? inner : veilLetters(inner)) + "</button>";
+      return "<span role=\"button\" tabindex=\"0\" class=\"voile v-" + esc(state) + " fx-" + esc(fx) + "\" data-voile=\"" + esc(id) + "\" title=\"" + esc(label) + "\" aria-label=\"" + esc(label + " : " + unveil(inner).replace(/<[^>]+>/g, "")) + "\">" + (REDUCED_MOTION() ? inner : veilLetters(inner)) + "</span>";
     });
   }
   function REDUCED_MOTION() { try { return window.matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) { return false; } }
   // A tap on words that stir: the engine reveals them (a charge spent, the veil's own effects), the game is saved, the
   // page is drawn again with the words beneath, which come up through the ink.
   function onVeilTap(e) {
-    var b = e.target && e.target.closest && e.target.closest("button.voile[data-voile]"); if (!b || !A.game) return;
+    var b = e.target && e.target.closest && e.target.closest(".voile[data-voile]"); if (!b || !A.game) return;
+    if (e.type === "keydown" && e.key !== "Enter" && e.key !== " ") return;
     e.preventDefault(); e.stopPropagation();
     var G = A.game, id = b.getAttribute("data-voile");
     G.s.events = G.s.events || [];
@@ -73,6 +81,7 @@
     setTimeout(function () { A.veilJust = null; }, 1600);
   }
   document.addEventListener("click", onVeilTap, true);
+  document.addEventListener("keydown", onVeilTap, true);
   function uid() { return Date.now().toString(36) + Math.random().toString(36).slice(2, 8); }
   function clone(o) { return JSON.parse(JSON.stringify(o)); }
   function when(ts) { try { return new Date(ts).toLocaleString("fr-FR", { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" }); } catch (e) { return ""; } }
@@ -1767,6 +1776,7 @@
   // Intent: once per new version, a short note of what changed (NEWS, newest first), only the versions the reader has
   // not seen on this device. Why: Clément, 13/11 (piste 33).
   var NEWS = [
+    { v: "9.0", items: ["Nouveau grand livre : « Le Trésor des Taiseurs », une chasse au trésor dans une république marchande où chacun parle à double fond.", "Paroles cachées : avec certains objets, des mots se mettent à bouger sur la page (ils tremblent, luisent, ondulent). Touche-les : le texte caché dessous remonte.", "Nouvel onglet du carnet, dans les histoires qui en ont : Sous les mots (ce que tu as entendu dessous, et ce qui te fait entendre)."] },
     { v: "8.6", items: ["Mots à effets : certains mots tremblent, ondulent, changent de couleur, s'effacent ou s'écrivent sous tes yeux.", "Des mots de règle (fatigue, blessure, jet, PV…) s'ouvrent d'un toucher pour dire ce qu'ils font.", "Dans « Le Cahier de Solène », des lettres d'or sont cachées dans le texte. À toi de les trouver.", "Une phrase écrite à l'envers se retourne quand tu la touches, et certaines lignes n'apparaissent qu'à la lumière du bon objet.", "La page suit l'état du héros : elle tremble quand il a peur, se brouille quand il est épuisé. Réglage « Mots à effets » : animés, discrets ou aucun.", "Le ciel change selon la région traversée, dans Kardan, Malvoran et les Cendres. En difficulté Héroïque, la route use : le mauvais temps pèse sur les jets, les longues routes fatiguent, le froid peut blesser.", "Seconde lecture dans Kardan et Le Témoin : une fois une fin trouvée, certaines pages en disent davantage.", "Kardan a sa page « Ce qu'il advint », et chaque choix laissé sans suite dans les anciennes histoires a désormais sa ligne.", "Le Témoin : l'onglet Versions garde ce que chacun a dit de la nuit des Combes et du soir au Chamois.", "Quarante jours : le Conseil des Cinq Bancs vote sur le pain, la promesse des funérailles se tient ou se rompt, l'onglet « Qui est avec qui » se remplit, et la ville avance pendant que tu es ailleurs.", "Les Cendres de l'Hiver : la dernière page dit ce que sont devenus beaucoup plus de tes choix.", "Le monde de ce livre : chaque histoire a sa page sur ses coutumes, sa monnaie, ses croyances et qui gouverne, à lire avant de partir ou dans le carnet. Les noms du monde soulignés en or s'ouvrent d'un toucher."] },
     { v: "8.5", items: ["La création du héros suit l'histoire : dans les histoires récentes, ton métier (copiste, matelot, commis…) remplace le choix entre guerrier, mage et les autres.", "La fiche et la barre du haut ne montrent que ce que l'histoire utilise : plus de points de vie ni de bourse dans un livre qui ne s'en sert pas.", "Le carnet ne montre que les onglets utiles, rangés en quatre parties : Toi, L'enquête, Le monde, Le livre.", "La première fois que tu rencontres un duel, une énigme, un conseil ou une bataille, quelques lignes expliquent comment ça marche. Une seule fois.", "La bibliothèque est rangée en rayons (histoires courtes, romans, grands romans, à plusieurs), avec un filtre pour les thèmes adultes, et « En savoir plus » sur chaque livre."] },
     { v: "8.4", items: ["Nouvelle histoire à deux : « Le Pli de Brumefond ». L'un porte le pli, l'autre connaît la route, et chacun garde ses secrets.", "Nouvel onglet du carnet, dans les histoires à deux : Secrets (ce que tu caches, ce qu'on t'a confié, ce que tu as surpris).", "Interludes : au début d'un acte, une courte scène vue par quelqu'un d'autre, différente pour chaque joueur.", "Le texte s'accorde maintenant avec le héros de l'autre joueur."] },
