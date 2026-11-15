@@ -475,7 +475,7 @@ Object.assign(P, {
 
   IIE_corniche: { act: "II", title: "La corniche", place: "ecueils",
     text: [
-      "La falaise se monte par une cheminée de roche pourrie, puis par une vire où les oiseaux ne s'écartent qu'au dernier moment, en frappant du bec. Au-dessus de Briac, le surplomb ; en dessous, la roche lisse. Le garçon te regarde venir sans un mot, très pâle, les mains en sang.",
+      "La falaise se monte par une cheminée de roche pourrie, puis par une vire où les oiseaux ne s'écartent qu'au dernier moment, en frappant du bec. Au-dessus de Briac, le surplomb ; en dessous, la roche lisse. Le garçon te regarde venir, très pâle, les mains en sang.",
       "« Je bouge pas, dit-il. Maman a dit de pas bouger. »",
     ],
     choices: [
@@ -493,7 +493,7 @@ Object.assign(P, {
     text: [
       "La prise casse. Briac glisse, tu le rattrapes par le poignet, et vous partez ensemble, vous raclant à la roche, dans un nuage d'oiseaux furieux. Trente pieds. La grève n'est plus là : la marée a monté. Vous tombez dans l'eau, entre deux rochers, et l'eau est si froide que tu en perds le souffle.",
       "Tu remontes, tu cherches le garçon, tu le trouves au toucher. Il crache, il pleure, il vit. Klervi est déjà dans l'eau jusqu'à la taille, avec son épaule démise, et c'est elle qui vous tire sur les galets, l'un après l'autre, en jurant à chaque fois.",
-      { with: "salome", text: "Salomé arrive au canot, à grands coups d'avirons, et vous hisse à bord sans un mot. Elle a gardé les mains sur toi un moment de trop, pour s'assurer que tu respirais." },
+      { with: "salome", text: "Salomé arrive au canot, à grands coups d'avirons, et vous hisse à bord. Elle a gardé les mains sur toi un moment de trop, pour s'assurer que tu respirais." },
     ],
     choices: [{ label: "Reprendre ton souffle sur la grève", to: "IIE_briac" }] },
 
@@ -787,7 +787,7 @@ Object.assign(P, {
   IIE_courant: { act: "II", title: "Le Raz", place: "ecueils",
     text: [
       "Entre l'Ouïe et les Sourds, la mer se resserre entre deux plateaux de roche et file comme une rivière en crue. Les gens de Port-Vasier l'appellent le Raz. L'eau y est lisse, bombée, et elle tourne en grands cercles huileux qui avalent les paquets d'algues.",
-      { with: "salome", text: "Salomé a pris la barre. Elle est grise. Elle a vomi deux fois par-dessus bord depuis le bassin, sans un mot, en s'essuyant la bouche d'un revers de manche. « Si on prend le Raz de travers, on est sur les Sourds avant d'avoir dit ouf, dit-elle. Tiens l'écoute. {{oreille#iie_raz_s|Fais ce que je dis quand je le dis|Parle-moi tout le temps, n'importe quoi, sinon j'entends la note des Sourds et je lâche la barre}}. »" },
+      { with: "salome", text: "Salomé a pris la barre. Elle est grise. Elle a vomi deux fois par-dessus bord depuis le bassin, en s'essuyant la bouche d'un revers de manche. « Si on prend le Raz de travers, on est sur les Sourds avant d'avoir dit ouf, dit-elle. Tiens l'écoute. {{oreille#iie_raz_s|Fais ce que je dis quand je le dis|Parle-moi tout le temps, n'importe quoi, sinon j'entends la note des Sourds et je lâche la barre}}. »" },
       { without: "salome", text: "Le patron de *La Bavarde* te met l'écoute dans les mains et crache dans l'eau pour voir où elle va." },
     ],
     choices: [
@@ -827,7 +827,7 @@ Object.assign(P, {
       "La houle {{echo#iie_coupe|bat le récif, régulière, et l'écume siffle entre les têtes de roche|rend une voix douce, sans hâte : « Coupe. On a le coffret. » Puis une voix de garçon : « Monsieur, elle a tiré trois coups, elle a tiré… » Et le bruit d'une lame dans du chanvre mouillé}}.",
       "Le récif {{echo#iie_e_jobic|chante sa note grave, et rien d'autre ne vient|rend, plus tard, la même voix de garçon, seule, qui sanglote : « Pardon, madame. Pardon. Je tenais. Je tenais, je vous jure. »}}.",
       { with: "salome", after: "voile:iie_coupe", text: "Salomé a lâché la barre. Elle est debout au milieu du pont, les bras le long du corps. Elle a entendu, comme toi, la voix douce, et la lame. Elle reste muette. Elle se met à respirer très vite, puis très lentement, comme avant une plongée." },
-      { with: "salome", if: { not: { voile: "iie_coupe" } }, text: "Salomé t'a regardé{e} faire sans un mot. Elle n'a rien entendu de ce que tu as entendu, seulement le bronze, et elle attend que tu parles." },
+      { with: "salome", if: { not: { voile: "iie_coupe" } }, text: "Salomé t'a regardé{e} faire en silence. Elle n'a rien entendu de ce que tu as entendu, seulement le bronze, et elle attend que tu parles." },
     ],
     choices: [
       { label: "Aller à Salomé", big: true, with: "salome", hide: { not: { voile: "iie_coupe" } }, to: "IIE_verite" },
@@ -1044,7 +1044,7 @@ Object.assign(P, {
         else: "Tu tires avant d'avoir fini de compter le troisième coup." },
       "Salomé remonte vite, la tête renversée, les yeux ouverts. Elle crève la surface et ne prend pas son souffle tout de suite. Tu la hisses à bord par les aisselles. Elle a noué sa chemise de plongée en sac, et elle serre ce sac contre sa poitrine avec ses deux bras.",
       "Elle reste longtemps assise sur le pont, nue, ruisselante, le sac de toile contre elle, et elle tremble, de froid ou d'autre chose. Puis elle dit, d'une voix tout à fait ordinaire : « Elle avait mis ses boucles d'oreilles. Pour plonger. Elle n'en mettait jamais. »",
-      { if: { item: "iie_couteau" }, text: "Tu lui donnes le couteau au manche de corne. Elle le prend, cette fois, et le passe à sa ceinture sans un mot." },
+      { if: { item: "iie_couteau" }, text: "Tu lui donnes le couteau au manche de corne. Elle le prend, cette fois, et le passe à sa ceinture." },
       "« Je veux l'enterrer là-haut, dit-elle en regardant le phare. Avec les gardiens. Elle aimait ce phare. Elle disait qu'il écoutait. »",
     ],
     choices: [{ label: "Ramener *La Bavarde* au bassin des Gardiens", big: true, to: "IIE_adieu" }] },
@@ -1056,7 +1056,7 @@ Object.assign(P, {
       { if: { seen: "IIE_goulven" }, text: "Loïg est descendu de son phare avec un galet blanc dans chaque main. Il les pose au bord de la fosse. Puis il retourne en chercher un troisième, pour faire le compte." },
       "Salomé dépose le sac de toile au fond, elle-même, à genoux. En guise de prière, elle dit, très bas, une suite de mots qui ressemble à une liste : des noms de passes, de roches, de profondeurs. Les Sourds, neuf brasses. Le bassin, six. La Gorge à marée basse. Les noms de la carte de Maïwenn, dans l'ordre où Maïwenn les avait écrits.",
       { with: "gildas", text: "Frère Gildas attend qu'elle ait fini. Puis il dit l'office des morts, en latin, à mi-voix, sans qu'on le lui demande, et Salomé le laisse faire." },
-      { with: "lison", text: "Lison pose un brin de jonc tressé sur la terre retournée, à la façon des Joncs-Bas, et recule sans rien dire." },
+      { with: "lison", text: "Lison pose un brin de jonc tressé sur la terre retournée, à la façon des Joncs-Bas, et recule." },
       { with: "tibere", text: "Tibère a tenu la pelle tout du long. À la fin, il ôte son chapeau, et reste tête nue dans le vent jusqu'à ce que tout le monde soit parti." },
       { if: ECHO_OK, text: "Quand tous sont redescendus, l'enclos {{echo#iie_e_adieu|se tait, et le vent couche l'herbe salée|rend une voix de femme, gaie, essoufflée, très loin, une voix qui n'a pas trois ans : « Salo ! Viens voir, il écoute vraiment, ce phare ! »}}." },
     ],
@@ -1118,7 +1118,7 @@ Object.assign(P, {
     text: [
       "Ravaud tient Jobic par une dette de dés : deux ducats, plus les intérêts qu'il invente au fil des semaines. Il a la reconnaissance de dette sur lui, pliée dans son pourpoint vert, et il la sort avec un plaisir visible. *Je dois à Ravaud {{loupe#iie_dette|deux ducats de jeu, payables à vue|deux ducats de jeu, et je reste à son service tant que le cotre gris paiera pour moi}}. — Jobic, sa marque.*",
       { if: { has: "iie:ravaud=allie" }, text: "Ravaud la déchire devant toi, sans même attendre ton argent. « Je t'ai dit qu'il me gâchait le moral. Emmène-le. »" },
-      { if: { has: "iie:ravaud=vaincu" }, text: "Ravaud te la tend sans un mot, et regarde ailleurs." },
+      { if: { has: "iie:ravaud=vaincu" }, text: "Ravaud te la tend, et regarde ailleurs." },
     ],
     choices: [
       { label: "Prendre Jobic avec toi", hide: { not: { any: [{ has: "iie:ravaud=allie" }, { has: "iie:ravaud=vaincu" }] } }, fx: { quest: "IIE_jobic", set: { "iie:jobic": "temoin" }, flag: "iie:jobic", ep: ["perso", 400] }, to: "IIE_jobic_libre" },
@@ -1172,7 +1172,7 @@ Object.assign(P, {
       { if: { has: "iie:sceau_lb" }, text: "Tu lui parles de la petite cire au L et au B, dans la niche du gaillard, à côté du besant des Marrel. Lothaire ne cesse pas de sourire. « Les Marrel scellent, dit-il. Moi, je descelle. Madame n'a pas besoin de connaître chacun de mes cachets. »" },
       { with: "salome", text: "À côté de toi, Salomé s'est figée. Elle regarde les gants gris. Sa main droite s'est posée sur le manche de son coutelas, à plat, sans le serrer." },
       { with: "salome", after: "iie:salome_sait", text: "Lothaire tourne les yeux vers elle, une seconde, et quelque chose passe sur son visage, vite, et disparaît. « Madame Brac. Toujours sur l'eau. » Il a entendu, sous son silence à elle, ce qu'elle pense. Il le sait, et il reste assis." },
-      { with: "tibere", after: "iie:feu_faux", text: "Lothaire jette un regard vers le nord, vers l'île aux Fous, où un feu a brûlé toute la nuit. « Un feu bien mal placé, sergent Gaucelm. » Tibère soutient son regard sans répondre." },
+      { with: "tibere", after: "iie:feu_faux", text: "Lothaire jette un regard vers le nord, vers l'île aux Fous, où un feu a brûlé toute la nuit. « Un feu bien mal placé, sergent Gaucelm. » Tibère soutient son regard et se tait." },
       { after: "iie:cotre", text: "Tu reconnais la voile grise qui tenait la cape à l'ouest depuis ton arrivée. De là, on voyait partir chacun de tes canots." },
       { with: "tibere", after: "iie:feu_non", text: "Lothaire jette un regard vers la galerie du phare, éteinte. « Pas de feu, cette nuit, sergent Gaucelm. J'ai dû venir voir moi-même. » Tibère soutient son regard." },
       { with: "tibere", after: "iie:feu_appat", text: "Lothaire salue Tibère d'un petit signe de tête, comme on salue un employé. « Bon feu, sergent. » Tibère baisse les yeux, et il joue la honte si bien que tu en as froid dans le dos." },

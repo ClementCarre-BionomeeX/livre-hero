@@ -293,7 +293,7 @@ Object.assign(P, {
       { first: true, text: "Achille Vimeux est assis au fond, devant une chope qu'il ne boit pas. Des hommes viennent lui parler à l'oreille, un par un, et repartent. Il te regarde descendre les marches, sans quitter son banc." },
       { again: true, text: "La Grenouille, son odeur de tourbe et d'anguille. Le tribun au fond, à sa table." },
       { first: true, text: "« {{oreille|Les Hautes-Eaux n'ont besoin de personne en ville|Les Hautes-Eaux ont besoin de quelqu'un en ville, et je n'ai plus confiance en personne}}, dit-il quand tu t'assieds. Et toi, qu'est-ce que tu viens vendre ? »" },
-      { after: "joncs:sauves", text: "Un vieux pêcheur te reconnaît, à la table voisine, et lève sa chope vers toi sans rien dire. Il était aux Joncs, la nuit de la tempête." },
+      { after: "joncs:sauves", text: "Un vieux pêcheur te reconnaît, à la table voisine, et lève sa chope vers toi. Il était aux Joncs, la nuit de la tempête." },
       { after: "tribun:fils_libre", text: "Galmier, le fils du tribun, sert à boire derrière le comptoir avec un bras en écharpe. Il te fait un signe de tête, gauche et sérieux." },
     ],
     choices: [
@@ -560,7 +560,7 @@ Object.assign(P, {
 
   IVC_audience_sortie: { act: "IV", title: "L'escalier d'honneur", place: S,
     text: [
-      { outcome: "win", text: "Le prévôt ne bouge pas, mais sa main serre la couverture sur ses genoux. « Vous avez beaucoup d'imagination, dit-il enfin. Sortez. » Il a peur. Tu le vois aux phalanges, blanches sur la laine. Un homme qui a peur se presse, et un homme pressé fait des fautes." },
+      { outcome: "win", text: "Le prévôt reste immobile, mais sa main serre la couverture sur ses genoux. « Vous avez beaucoup d'imagination, dit-il enfin. Sortez. » Il a peur. Tu le vois aux phalanges, blanches sur la laine. Un homme qui a peur se presse, et un homme pressé fait des fautes." },
       { outcome: "lose", text: "Le prévôt rit doucement. « Des lettres ? Des secrétaires ? Les lettres se brûlent, les secrétaires se noient. » Il sonne. « Raccompagnez. » Dans l'escalier, tu sais qu'il fera doubler la garde de sa maison cette nuit." },
       { if: { not: { any: [{ has: "ivc:prevot_peur" }, { has: "ivc:prevot_alerte" }] } }, text: "« Comme vous voudrez, dit le prévôt. Le Guet vous trouvera bien un jour, et ce jour-là, vous viendrez me revoir. » Il retourne à son feu." },
       "Les gardes te rendent ta lame au pied de l'escalier d'honneur. L'un d'eux te glisse, sans te regarder : « Il ne reçoit jamais personne si vite. Il vous attendait. »",
@@ -772,7 +772,7 @@ Object.assign(P, {
       "Le cabinet de travail du prévôt est au premier étage de la tour d'angle, une pièce carrée aux murs couverts de livres jusqu'au plafond, avec une table de travail nue et un fauteuil tourné vers la fenêtre. Ça sent la cire, le pommier brûlé et le vieil homme. La table est nue : le prévôt range tout.",
       "Le mur du fond est une grande bibliothèque de chêne, {{pie#ivc_p_bibliotheque|chargée de coutumiers et de registres reliés en veau|dont le troisième rayon est un faux : des dos de livres collés sur un panneau, avec une serrure derrière le quatrième}}.",
       "La pièce {{echo#ivc_e_cabinet|sent la cire et ne rend que le bruit de tes pas|garde la voix du prévôt, très douce : « Le troisième rayon, Dessart. Et refermez à double tour, c'est là que je mets ma vieillesse »}}.",
-      { if: { has: "firmin:sauve" }, text: "Dessart te l'a dit, à la chapelle : le prévôt garde ce qui compte derrière ses livres. Tu ne sais pas lesquels." },
+      { if: { has: "firmin:sauve" }, text: "Dessart te l'a dit, à la chapelle : le prévôt garde ce qui compte derrière ses livres. Tu ignores lesquels." },
     ],
     choices: [
       { label: "Ouvrir le troisième rayon", hide: { not: { any: [{ voile: "ivc_p_bibliotheque" }, { voile: "ivc_e_cabinet" }] } }, to: "IVC_cabinet" },
@@ -1249,7 +1249,7 @@ Object.assign(P, {
     fx: { flag: "tribun:fils_libre", quest: "IVC_q_fils", fac: { hautes: 10 }, regard: { ivc_vimeux: "redevable" } },
     text: [
       "Galmier Vimeux sort de la Barbacane en clignant des yeux, un bras serré contre la poitrine : on le lui a démis aux émeutes, et personne ne l'a remis. Il a dix-sept ans, les épaules de son père et pas encore sa barbe. Il se tait tout le long du chemin jusqu'au port aux Sauniers. Il regarde l'eau, les barques, le ciel, comme on regarde des choses qu'on avait cru perdues.",
-      "À la Grenouille, le tribun se lève de sa table si vite qu'il renverse sa chope. Il prend son fils dans ses bras, sans un mot, et le serre jusqu'à ce que le garçon crie à cause du bras. Puis il se retourne vers toi. « Les Hautes-Eaux te doivent un fils, dit-il. Elles paient leurs dettes. »",
+      "À la Grenouille, le tribun se lève de sa table si vite qu'il renverse sa chope. Il prend son fils dans ses bras et le serre jusqu'à ce que le garçon crie à cause du bras. Puis il se retourne vers toi. « Les Hautes-Eaux te doivent un fils, dit-il. Elles paient leurs dettes. »",
       "Le patron remet le bras du garçon d'un coup sec, sur le comptoir, et lui donne une eau-de-vie. Toute la salle boit à la santé de Galmier. On te fait boire aussi, plusieurs fois.",
     ],
     choices: [{ back: "IVC_seance" }] },
@@ -1314,7 +1314,7 @@ Object.assign(P, {
 
   IVC_gilet_paix: { act: "IV", title: "Saint Nicolas", place: S,
     text: [
-      "Tu lui dis que l'eau était froide, qu'il a dû tomber du quai en portant un pli de nuit, et qu'on ne souffre pas, dans l'eau froide. Babette te regarde longtemps. Tu ne sais pas si elle te croit. Elle hoche la tête.",
+      "Tu lui dis que l'eau était froide, qu'il a dû tomber du quai en portant un pli de nuit, et qu'on ne souffre pas, dans l'eau froide. Babette te regarde longtemps. Tu ignores si elle te croit. Elle hoche la tête.",
       { if: { item: "ivc_medaille" }, text: "Elle noue le lacet de la médaille autour de son propre cou, à deux nœuds. « On l'enterre jeudi, dit-elle. Avec ou sans elle, maintenant. Avec moi, plutôt. »" },
       "Tu {{miroir|l'as épargnée, par bonté|t'es épargné sa colère, et ses questions, et ce qu'elle aurait fait de la vérité}}.",
     ],

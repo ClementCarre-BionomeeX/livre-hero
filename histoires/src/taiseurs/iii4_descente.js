@@ -311,7 +311,7 @@ Object.assign(P, {
       "Sa main est sèche et froide, et elle serre fort, en marchand. « Bien. » Elle fait signe à la porte ; Maître Fissot entre avec une écritoire et rédige, debout, un sauf-conduit au nom de la Maison Marrel, qu'elle signe et scelle du besant. « Montrez ceci à mes gens sur la route et aux portes de Salvèze. Les gens de la Banque vous laisseront passer. »",
       "Le sauf-conduit dit : *La Maison Marrel prie quiconque la sert de {{loupe#iiid_sauf|laisser passer le porteur et ses compagnons, et de leur prêter assistance|retenir le porteur aux portes de Salvèze et de saisir ses papiers pour la Maison, sans violence}}.*",
       "Tu as donné ta main. Tu {{miroir#iiid_m_main|l'as fait pour la ville, pour les boulangers, pour les gens du pont|l'as fait pour cesser d'avoir peur des créanciers, et la ville est venue après, comme une excuse}}.",
-      { with: "lison", text: "Lison quitte la salle sans un mot. Tu entends ses pas dans l'escalier, puis la porte de la cour qui claque." },
+      { with: "lison", text: "Lison quitte la salle en silence. Tu entends ses pas dans l'escalier, puis la porte de la cour qui claque." },
       { with: "salome", text: "Salomé vide son verre et le repose à l'envers sur la nappe, comme on fait à Port-Vasier quand on a fini de boire avec quelqu'un." },
     ],
     fx: { item: "iiid_sauf_conduit", conf: { lison: -10, salome: -10, tibere: 3 } },
@@ -662,7 +662,7 @@ Object.assign(P, {
   IIID_lison: { act: "III", title: "La grève sous le pont", place: "orle", backName: "la grève sous le pont", with: "lison",
     text: [
       "Sous la dernière arche du pont, la grève est faite de galets ronds et de bois flotté. Lison est assise sur une souche blanchie, sa gaffe en travers des genoux. Une barque plate des marais est tirée sur les galets à côté d'elle, et le batelier qui l'a menée jusqu'ici, un vieil homme des Joncs, mange du pain plus loin, sans vous regarder.",
-      "Elle tient un carré de dentelle grise, pas plus grand que la main. « Ma grand-mère, dit-elle. Elle a fait remonter ça par le fleuve. Neuf jours de barque pour un mouchoir. »",
+      "Elle tient un carré de dentelle grise, grand comme la main. « Ma grand-mère, dit-elle. Elle a fait remonter ça par le fleuve. Neuf jours de barque pour un mouchoir. »",
       { if: { has: "iiic:muret_message" }, text: "« Celle du muret me disait de ne pas te laisser entrer seul{e} au Mont, ajoute Lison. Celle-ci me rappelle aux Joncs. Ma grand-mère change d'avis comme le vent sur les marais, et chaque fois elle a ses raisons. »" },
       "La dentelle est fine, d'un motif de joncs et de poissons. {{loupe#iiid_dentelle|Un ouvrage des Joncs-Bas, comme on en vend sur les quais|Sous la loupe, les fils dessinent des lettres : « Ramène le cornet aux Joncs avant la Grande Basse. Le reste est l'affaire du Gardien. »}}",
       { if: { has: "lison:loyale" }, text: "« Je sais ce qu'elle dit, ajoute Lison. Je l'ai lue avec les doigts, comme elle m'a appris. » Elle plie la dentelle en quatre, puis en huit, et la glisse dans sa manche. « Je lui répondrai à Salvèze. En face. Elle m'a appris à dire les choses en face, aussi. »" },
@@ -680,7 +680,7 @@ Object.assign(P, {
       { if: { not: { has: "lison:loyale" } }, text: "Lison regarde la rivière un long moment. Puis elle se lève, va jusqu'au vieux batelier, et lui parle à voix basse dans la langue des Joncs. Le vieil homme hoche la tête, range son pain, remet sa barque à l'eau, et s'en va vers l'aval sans un regard en arrière." },
       { if: { not: { has: "lison:loyale" } }, text: "Elle revient s'asseoir. « Voilà, dit-elle. Je viens de désobéir à une femme de quatre-vingt-quatre ans, aveugle, qui m'a élevée. » Elle te donne un coup d'épaule. « Tâche d'en valoir la peine. »" },
       { if: { has: "lison:loyale" }, text: "Vous restez assis côte à côte sur la souche, à regarder l'Orle charrier ses branches. Lison lance des galets plats qui ricochent quatre fois, cinq fois, et compte à voix basse dans la langue des Joncs." },
-      { tendre: true, text: "Au bout d'un moment, sa tête se pose contre ton épaule. Elle la laisse là, sans rien dire, jusqu'à ce que le soleil passe derrière le Mont.", else: "Au bout d'un moment, elle se lève, essuie ses mains sur ses cuisses, et te tend la main pour t'aider à te relever." },
+      { tendre: true, text: "Au bout d'un moment, sa tête se pose contre ton épaule. Elle la laisse là jusqu'à ce que le soleil passe derrière le Mont.", else: "Au bout d'un moment, elle se lève, essuie ses mains sur ses cuisses, et te tend la main pour t'aider à te relever." },
     ],
     fx: { flag: "lison:loyale", conf: { lison: 10 }, fac: { taiseurs: -3 } },
     choices: [{ back: "IIID_nouvelles" }] },
@@ -694,7 +694,7 @@ Object.assign(P, {
 
   IIID_lison_lettre: { act: "III", title: "La dentelle de Lison", place: "orle", backName: "le quai d'Orle", without: "lison", after: "lison:partie",
     text: [
-      "Un batelier des marais t'attend au bas du pont, un paquet de toile cirée à la main. Il te le remet sans un mot, en tirant sur son bonnet, et repart vers sa barque.",
+      "Un batelier des marais t'attend au bas du pont, un paquet de toile cirée à la main. Il te le remet en tirant sur son bonnet, et repart vers sa barque.",
       "Dans la toile, une bande de dentelle grise, d'un motif de joncs et de poissons, que tu reconnais au premier coup d'œil : c'est le point de Lison, plus lâche et plus vif que celui de sa grand-mère. {{loupe#iiid_lison_dentelle|Un simple ruban de dentelle, un souvenir|Sous la loupe, les fils forment des lettres : « Je suis au port aux Sauniers. J'ai dit non à ma grand-mère. Ma barque t'attend. L. »}}",
       "Tu enroules la dentelle autour de ton poignet. Elle sent l'eau des marais.",
     ],
@@ -1190,7 +1190,7 @@ Object.assign(P, {
 
   IIID_mine_chambre: { act: "III", title: "La part de la reine", place: "iiid_mine", backName: "la chambre du Roy",
     text: [
-      "La pierre au sceau tourne, et derrière, une chambre ronde taillée dans le roc, pas plus grande qu'une cuisine. Des coffres de chêne se sont effondrés en poussière sur leur contenu. Une lampe de mineur pend encore à un crochet de fer, ronde, à l'anse courbe, noire de suie.",
+      "La pierre au sceau tourne, et derrière, une chambre ronde taillée dans le roc, grande comme une cuisine. Des coffres de chêne se sont effondrés en poussière sur leur contenu. Une lampe de mineur pend encore à un crochet de fer, ronde, à l'anse courbe, noire de suie.",
       "Au sol, une rangée de lingots, longs comme la main, frappés d'une couronne. Ils sont {{pie#iiid_lingots|d'argent fin, une vingtaine, alignés comme des briques|de plomb argenté au pinceau, tous sauf un : le troisième depuis le mur, plus petit, est d'argent pur, frappé de la couronne de sel}}.",
       "Tu décroches la lampe. Sous la suie, sous ton pouce, l'argent apparaît.",
     ],
@@ -1366,7 +1366,7 @@ Object.assign(P, {
     text: [
       { if: { is: { iiid_essarts: "combat" } }, text: "Romuald est à genoux sur le parvis, le souffle court, son épée à deux pas. Ses hommes ont jeté leurs piques. Avant le soir, ils sont partis par la route du sud, sans leurs cuirasses, et Romuald marche le dernier, sans se retourner." },
       { if: { is: { iiid_essarts: "ruse" } }, text: "Au premier roulement de tambour, l'église se vide comme une ruche qu'on enfume. Les déserteurs s'enfuient dans la nuit par la route du sud, à moitié habillés, en laissant tout derrière eux. Les charbonniers rient jusqu'à l'aube." },
-      { if: { is: { iiid_essarts: "partis" } }, text: "Le lendemain matin, les déserteurs sortent de l'église en file, leurs paquets sur le dos, et prennent la route des crêtes vers le sud. Romuald s'arrête devant Bertrande et lui rend les deux moutons du dernier dimanche, sans un mot." },
+      { if: { is: { iiid_essarts: "partis" } }, text: "Le lendemain matin, les déserteurs sortent de l'église en file, leurs paquets sur le dos, et prennent la route des crêtes vers le sud. Romuald s'arrête devant Bertrande et lui rend les deux moutons du dernier dimanche." },
       { if: { is: { iiid_essarts: "pont" } }, text: "Le lendemain matin, Romuald fait l'appel sur le parvis, puis il amène lui-même le drapeau bleu du clocher et le plie. « Le pont de Saint-Vrain, dit-il. Nous le tiendrons. Mais contre lui. » Ses hommes descendent vers l'Orle en colonne, au pas, et les gens des Essarts les regardent passer sans comprendre." },
       "Dans l'église, derrière l'autel, il reste le coffre de la compagnie : de la monnaie d'Aveline, une poignée de liards, une chevalière d'or et une lettre pliée. La chevalière porte les armes d'un capitaine de Pont-Sauvin. La lettre est du camp du duc. *Aux déserteurs de nos compagnies : {{loupe#iiid_lettre_duc|le duc pardonne à qui revient servir|le duc pardonne à qui tiendra un pont de l'Orle au premier jour de mai ; les gens du prévôt de Salvèze vous le livreront sans garde}}.*",
       "Bertrande te serre la main de sa grosse main noire, puis elle va chercher sa fille à l'église.",
@@ -1463,7 +1463,7 @@ Object.assign(P, {
       { if: { is: { iiid_clos_or: "tout" } }, text: "Il regarde le sac qui pend à ta ceinture, puis toi. Il se tait. Apolline aussi. Tu sors de la chambre avec un poids qui tient à autre chose qu'à l'or." },
       { if: { is: { iiid_clos_or: "apolline" } }, text: "« Garde le clos, dit-il à sa fille. Et donne à boire à celui-là, du bon, celui de l'année de ta naissance. » Apolline te sert un verre de vin noir, épais, qui sent la violette et la pierre." },
       { if: { is: { iiid_clos_or: "part" } }, text: "« Un quart, dit-il. C'est juste. C'est ce que prenait la reine, sur nos vendanges. » Il rit, et tousse, et rit encore." },
-      { if: { item: "iiid_faux_calice" }, text: "En partant, tu sens le calice doré cogner contre ta hanche dans ta besace. Le vieux t'a regardé{e} le prendre sans rien dire, avec une lueur dans l'œil." },
+      { if: { item: "iiid_faux_calice" }, text: "En partant, tu sens le calice doré cogner contre ta hanche dans ta besace. Le vieux t'a regardé{e} le prendre, avec une lueur dans l'œil." },
     ],
     choices: [{ back: "IIID_clos" }] },
 });

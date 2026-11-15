@@ -15,7 +15,7 @@ Object.assign(P, {
       { again: true, text: "La porte basse, au fond de la crypte, entre l'ossuaire et la montagne. L'air qui en monte a toujours la même odeur d'eau." },
       "La pierre du seuil est {{echo#iiir_e_seuil|usée en creux par trois siècles de pas|pleine d'une voix de vieillard, très proche : « Gildas, tu descendras seul et tu remonteras seul. Ce que tu garderas, tu le garderas sans aide. »}}. Tu prends la lampe {{miroir#iiir_m_lampe|pour éclairer la descente|pour avoir quelque chose à tenir, et que ta main cesse de chercher la rampe d'un escalier de cave}}.",
       { with: "tibere", text: "Tibère se penche dans l'ouverture, renifle, et crache de côté. « Ça sent la mine. J'ai fait trois mois à la prison des carrières, au Guet, de garde. Je n'aime pas les trous. »" },
-      { with: "lison", text: "Lison passe la main sur le chambranle, là où quelqu'un a gravé, à hauteur d'enfant, un petit croissant. Elle retire sa main sans rien dire." },
+      { with: "lison", text: "Lison passe la main sur le chambranle, là où quelqu'un a gravé, à hauteur d'enfant, un petit croissant. Elle retire sa main." },
     ],
     choices: [
       { label: "Descendre dans la montagne", big: true, hide: { seen: "IIIR_galeries" }, to: "IIIR_escalier" },
@@ -218,7 +218,7 @@ Object.assign(P, {
       { if: { is: { iiir_pont: "rien" } }, text: "« Je dors bien, dis-tu. Depuis qu'elle est morte, je dors très bien. Toutes les nuits. Ça me fait peur. »" },
       { if: { is: { iiir_pont: "guet" } }, text: "« J'ai menti au Guet, dis-tu. J'ai dit que je n'avais pas vu Odeline depuis le matin. Je l'ai vue le soir. On s'est disputé{e}s. »" },
       "L'ambre se met à luire, faiblement, d'une lumière de miel, et un loquet claque quelque part sous l'arche. La dalle du milieu s'est verrouillée. Le disque reste allumé un long moment, puis s'éteint.",
-      { with: "tibere", if: { is: { iiir_pont: "guet" } }, text: "Tibère te regarde sans rien dire. Il était du Guet, ce matin-là. Il finit par hausser les épaules. « Tout le monde ment au Guet, dit-il. Moi aussi, quand j'y étais. »" },
+      { with: "tibere", if: { is: { iiir_pont: "guet" } }, text: "Tibère te regarde en silence. Il était du Guet, ce matin-là. Il finit par hausser les épaules. « Tout le monde ment au Guet, dit-il. Moi aussi, quand j'y étais. »" },
       { with: "lison", text: "Lison te touche le coude en passant devant toi sur le pont, une seule fois, du bout des doigts." },
     ],
     choices: [{ label: "Traverser le pont", big: true, to: "IIIR_pont_passe" }] },
@@ -353,7 +353,7 @@ Object.assign(P, {
 Object.assign(P, {
   IIIR_autel: { act: "III", title: "L'autel des Taiseurs", place: "mont", backName: "l'autel des Taiseurs",
     text: [
-      { first: true, text: "La galerie basse mène à une chapelle taillée dans le roc, pas plus grande qu'une chambre. Un autel de pierre noire, sans croix. Dessus, une rangée de tablettes de cire dans des cadres de buis, comme celles où les écoliers apprennent leurs lettres, chacune avec son stylet attaché par un cordon. À côté, un petit réchaud de fer et une spatule plate, pour chauffer la cire et l'effacer." },
+      { first: true, text: "La galerie basse mène à une chapelle taillée dans le roc, grande comme une chambre. Un autel de pierre noire, sans croix. Dessus, une rangée de tablettes de cire dans des cadres de buis, comme celles où les écoliers apprennent leurs lettres, chacune avec son stylet attaché par un cordon. À côté, un petit réchaud de fer et une spatule plate, pour chauffer la cire et l'effacer." },
       { first: true, text: "C'est ici que les Taiseurs se confessent. Ils écrivent la faute dans la cire, ils la lissent avec la spatule chaude, et ils écrivent par-dessus une prière. Ce qui est dit à la reine reste à la reine." },
       { again: true, text: "La chapelle basse, l'autel noir, les tablettes de cire alignées." },
       "Une chandelle a brûlé ici il y a peu. La cire en est encore molle au bord, et le réchaud est tiède sous ta main. L'autel est {{echo#iiir_e_autel|froid, et la cire des chandelles y a coulé en longues larmes figées|plein d'une voix d'homme, basse, égale, que tu connais : « Je l'ai repoussée, et elle est tombée. Odeline Vasse, au pied de son escalier, la nuit des Lanternes. Je n'ai pas couru chercher de l'aide. J'ai cherché le cornet. »}}.",
@@ -393,7 +393,7 @@ Object.assign(P, {
       "Tu prends une tablette vierge, et le stylet. La cire est froide et ferme. Tu restes longtemps la pointe levée.",
       "Tu écris {{miroir#iiir_m_cire|une prière pour Odeline, la seule que tu saches en entier|ce que tu n'as dit à personne : « Je lui ai dit qu'elle mourrait seule. Elle est morte seule. » Puis tu chauffes la spatule et tu effaces, et tu écris une prière par-dessus}}.",
       "Tu reposes la tablette au bout de la rangée, à côté de la dernière. Les deux écritures se ressemblent, à cette distance : deux lignes droites dans de la cire jaune.",
-      { with: "lison", text: "Lison t'a regardé{e} faire sans rien dire. Quand tu reposes le stylet, elle pose le sien, qu'elle tenait aussi, sans avoir rien écrit." },
+      { with: "lison", text: "Lison t'a regardé{e} faire en silence. Quand tu reposes le stylet, elle pose le sien, qu'elle tenait aussi, sans avoir rien écrit." },
     ],
     choices: [{ back: "IIIR_autel" }] },
 
@@ -445,7 +445,7 @@ Object.assign(P, {
       "Tu prends un ciseau et le maillet dans la boîte. Tu n'as jamais gravé la pierre. Tu le fais mal, et lentement, et les éclats te sautent au visage. Tu traces le nom dans le rectangle gratté, par-dessus les creux de l'ancien, en suivant ce qui reste des lettres comme on suit une piste.",
       "*Odeline Vasse, des Joncs-Bas.* Tu hésites sur la suite. Puis tu ajoutes, en plus petit, de ta propre autorité : *Carrus, du quai des Lanternes.*",
       { with: "lison", text: "Lison te prend le maillet des mains pour la dernière ligne, parce que tu tapes de travers. Elle grave la date de la mort, proprement, en vraie fille des marais qui a appris à tailler les pieux. Quand elle a fini, elle souffle sur la poussière." },
-      { with: "gildas", text: "Frère Gildas tient la lampe pendant que tu graves, et ne dit rien. Sa main ne tremble pas. Quand tu as fini, il lit le nom, à voix basse, en entier." },
+      { with: "gildas", text: "Frère Gildas tient la lampe pendant que tu graves, et se tait. Sa main reste ferme. Quand tu as fini, il lit le nom, à voix basse, en entier." },
       { with: "tibere", text: "Tibère se racle la gorge. « Si on m'avait dit que je verrais ça, dit-il. Un chercheur qui rend quelque chose. »" },
       "Le nom est maladroit au milieu des lignes parfaites. On le voit de loin. C'est ce que tu voulais.",
     ],
@@ -527,7 +527,7 @@ Object.assign(P, {
       "« Je préviendrai les moines, dis-tu par la fente. Ils connaissent la montagne. Ils viendront avec des leviers. »",
       "Un silence, de l'autre côté. Puis : « Ils viendront. » Il le dit comme on répète une leçon pour la retenir.",
       "Tu repars. Pendant longtemps, en t'éloignant, tu entends encore les trois coups, la pause, et les trois coups. Puis tu tournes dans une autre galerie, et tu ne les entends plus.",
-      { with: "tibere", text: "Tibère marche derrière toi sans un mot jusqu'au carrefour. Là, il dit seulement : « On les enverra. » Et il compte sur ses doigts les heures qu'il faut pour remonter." },
+      { with: "tibere", text: "Tibère marche derrière toi en silence jusqu'au carrefour. Là, il dit seulement : « On les enverra. » Et il compte sur ses doigts les heures qu'il faut pour remonter." },
     ],
     choices: [{ back: "IIIR_galeries" }] },
 
@@ -888,7 +888,7 @@ Object.assign(P, {
       "Frère Gildas se lève de la margelle, s'agenouille au bord du bassin, et plonge les deux mains dans l'eau noire pour se mouiller le visage. Il reste penché un moment au-dessus de l'eau, et l'eau, comme le dit la margelle, ne lui montre que lui.",
       "La capuche glisse en arrière. Sous la couronne grise de la tonsure, à la racine des cheveux, au-dessus de l'œil gauche, il y a une cicatrice. Elle est récente, rose encore, en arc, longue comme un doigt, et les points de couture ont laissé de chaque côté des petites marques blanches.",
       "Gildas sent ton regard. Il ne remonte pas sa capuche. Il reste à genoux, les mains dans l'eau, et il attend.",
-      { with: "tibere", text: "Tibère a vu aussi. Il a vu des fronts ouverts toute sa vie, au Guet, les soirs de paie. Il regarde la cicatrice, puis toi, et ne dit rien." },
+      { with: "tibere", text: "Tibère a vu aussi. Il a vu des fronts ouverts toute sa vie, au Guet, les soirs de paie. Il regarde la cicatrice, puis toi, et se tait." },
     ],
     choices: [
       { label: "« D'où vient cette cicatrice, Gildas ? »", big: true, to: "IIIR_gildas_aveu" },

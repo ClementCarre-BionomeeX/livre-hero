@@ -284,7 +284,7 @@ Object.assign(P, {
 
   IG_reine_gants: { act: "I", title: "Les gants gris", place: "gouttieres", backName: "l'atelier de la Reine",
     text: [
-      "Tu parles de Lothaire Brunel, de la Banque Marrel, des gants gris. Margaux t'écoute en tapotant le plateau de sa balance avec un ongle. Quand tu as fini, elle reste un moment sans rien dire.",
+      "Tu parles de Lothaire Brunel, de la Banque Marrel, des gants gris. Margaux t'écoute en tapotant le plateau de sa balance avec un ongle. Quand tu as fini, elle reste un moment silencieuse.",
       "« La Banque. » Elle prononce le mot comme un poids faux. « Il m'a acheté trois choses depuis l'hiver, ton gant gris. Une boîte de corne gravée d'un croissant. Un sifflet d'os. Une clé d'ambre qui n'ouvrait rien. Il a payé comptant, et il a demandé à chaque fois si j'en avais d'autres, des choses avec le croissant. »",
       "« La Banque paie bien quand elle commence, et mal quand elle a fini, dit-elle. Mon père avait un compte chez Marrel. Il est mort en le payant. » Elle referme le registre. « La petite garde sa lentille, pour ce qui me regarde. Ce que tu feras, toi, ce sont tes affaires. Sa dette, elle me la doit toujours. »",
     ],
@@ -304,7 +304,7 @@ Object.assign(P, {
     text: [
       "Tu dis la tour des Drapiers, la cage aux pigeons. Margaux ne note rien. Elle fait un signe, et un commis se lève et sort par la cour. Elle pose sur la table un ducat neuf, et le pousse vers toi du bout de l'ongle.",
       "« Voilà ce que vaut une adresse. Tu viens de faire ton premier commerce dans les Gouttières. » Elle te regarde ramasser la pièce. « La Carrus n'aurait pas fait ça. C'est pour ça qu'elle est morte pauvre. »",
-      { with: "lison", text: "Lison sort de l'atelier sans un mot. Tu la retrouves dans la cour, adossée à un faisceau de pelles, et elle regarde ailleurs." },
+      { with: "lison", text: "Lison sort de l'atelier en silence. Tu la retrouves dans la cour, adossée à un faisceau de pelles, et elle regarde ailleurs." },
       { with: "tibere", text: "Tibère regarde le ducat sur la table, puis le plancher. « {{oreille#ig_ti_vendre|C'est le métier|C'est ce que je fais avec toi depuis le premier jour}}, dit-il. »" },
     ],
     fx: { gold: 20, mark: 1, flag: "ig:fauvette_vendue", conf: { lison: -5 } },
@@ -635,7 +635,7 @@ Object.assign(P, {
   IG_rachat_fin: { act: "I", title: "La balance de la Reine", place: "gouttieres",
     text: [
       { outcome: "lose", text: "Boscot t'attend sous la lucarne et te cueille au bas de l'échelle, sans méchanceté. On te fouille, on te prend ce que tu as, et l'on te ramène devant la Reine, qui n'a pas bougé de sa chaise. « Voilà ton offre, dit-elle. Elle est faite. »" },
-      "Margaux soulève la cloche de verre, prend l'anneau de corne entre deux doigts, et te le tend sans un mot. Un commis tranche les liens de Fauvette avec un canif à plume. La fille se lève, frotte ses poignets, ne dit pas merci.",
+      "Margaux soulève la cloche de verre, prend l'anneau de corne entre deux doigts, et te le tend. Un commis tranche les liens de Fauvette avec un canif à plume. La fille se lève, frotte ses poignets, ne dit pas merci.",
       "« Sa dette est effacée, dit Margaux. Les gants gris attendront. J'ai toujours aimé faire attendre la Banque. » Elle remet ses bésicles. « Sortez. Tous les deux. Vous me coûtez de l'argent. »",
     ],
     fx: { flag: "ig:dette_reglee", quest: "IG_dette", set: { ig_dette: "rachetee" } },
@@ -661,7 +661,7 @@ Object.assign(P, {
     text: [
       { first: true, text: "Fauvette a un endroit à elle, dit-elle, à part la cage aux pigeons : le toit de la maison du péage, sur le pont des Cordiers. Une plate-forme de plomb entre deux cheminées, avec vue sur trois canaux, les Halles et le Beffroi. On y monte par une gouttière qu'elle seule trouve commode." },
       { again: true, text: "Le toit du péage, sur le pont des Cordiers. Fauvette est là, ou elle arrive quand tu y es depuis un moment, sans que tu l'aies entendue." },
-      { if: { has: "ig:fauvette_fachee" }, text: "Elle te regarde arriver sans bouger. « Tiens. Le voleur de voleuses. » Elle a noué un nouveau cordon à son cou, sans rien au bout, par habitude ou par défi.", else: "Elle te fait de la place sur le plomb chaud, d'un mouvement de hanche, sans rien dire. Elle épluche une orange volée et t'en donne la moitié, quartier par quartier." },
+      { if: { has: "ig:fauvette_fachee" }, text: "Elle te regarde arriver sans bouger. « Tiens. Le voleur de voleuses. » Elle a noué un nouveau cordon à son cou, sans rien au bout, par habitude ou par défi.", else: "Elle te fait de la place sur le plomb chaud, d'un mouvement de hanche. Elle épluche une orange volée et t'en donne la moitié, quartier par quartier." },
       { if: { all: [{ has: "ig:fauvette_fachee" }, { has: "ig:vol_paye" }] }, text: "« Deux ducats sur ma poutre, dit-elle. T'aurais pu rien laisser. » Elle hausse les épaules. « Ça change rien. Ça change un peu. »" },
       { after: "ig:dette_reglee", text: "« La Reine m'a fait dire que j'étais quitte, dit-elle. C'est la première fois de ma vie. Je sais pas quoi faire de mes mains. »" },
     ],
@@ -843,7 +843,7 @@ Object.assign(P, {
   IG_cloche_plonge: { act: "I", title: "Entre les pieux noirs", place: "gouttieres",
     text: [
       "Tu te déshabilles sur la barque de Lubin, en grelottant. L'eau du canal est noire, même en plein jour, et froide comme une lame. Lubin a noué une corde à ta cheville et l'autre bout au banc de la barque. « Trois tirs, je te remonte. Pas de tirs, je te remonte aussi. »",
-      { with: "lison", text: "Lison s'est déshabillée elle aussi, sans un mot. « J'irai devant, dit-elle. Je vois mieux que toi dans l'eau trouble. C'est de famille. »" },
+      { with: "lison", text: "Lison s'est déshabillée elle aussi, en silence. « J'irai devant, dit-elle. Je vois mieux que toi dans l'eau trouble. C'est de famille. »" },
       { if: { voile: "ig_lu_cloche" }, text: "Tu sais ce que Lubin a gardé pour lui pendant cinquante-cinq ans : il y a de l'air dedans, assez pour respirer trois fois. Ce savoir change la façon dont on remplit ses poumons." },
     ],
     choices: [
@@ -869,7 +869,7 @@ Object.assign(P, {
       "Tu passes sous la lèvre de bronze, à tâtons dans la vase, et ta tête crève une surface que tu ne voyais pas. De l'air. Il sent la rouille et la pierre, et il est si vieux que tu as peur de le respirer. Tu le respires. Tu es dans la cloche, la tête dans la bulle, le corps dans l'eau noire, et ta main trouve le bronze au-dessus de toi, couvert d'une écriture en relief.",
       "Tu la lis du bout des doigts, lettre après lettre, comme les aveugles : *FONDUE POUR YSAURE REINE DU DELTA · LES SEPT QUI SE TAISENT M'ONT DESCENDUE ICI · QUAND L'EAU ME REMPLIT JE CHANTE POUR EUX*. Et à la fin, un croissant de lune, gravé en creux.",
       "Le battant pend au milieu de la bulle, figé dans le vert-de-gris. Quelqu'un y a noué, il y a longtemps, une bourse de cuir que l'eau a mangée. Dedans, quand ta main la défait, il reste un anneau. Il est lourd, et il ne s'est pas terni.",
-      { with: "lison", text: "Lison émerge à côté de toi, dans la bulle, ses cheveux plaqués sur le front. Elle passe la main sur le croissant de lune, et son visage se ferme. Elle ne dit rien. Ici, il n'y a pas d'air pour parler." },
+      { with: "lison", text: "Lison émerge à côté de toi, dans la bulle, ses cheveux plaqués sur le front. Elle passe la main sur le croissant de lune, et son visage se ferme. Elle se tait. Ici, l'air manque pour parler." },
     ],
     fx: { item: "ig_tr_anneau", clock: { tresors: 1 }, flag: "tresor:ig_anneau", clue: "ig_c_cloche", ep: ["seance", 800] },
     choices: [{ label: "Nager vers la lumière, l'anneau au poing", to: "IG_cloche_fin" }] },
@@ -1151,7 +1151,7 @@ Object.assign(P, {
       "« La boutique Carrus ? dit-il quand tu en parles. Paix à son âme. Une connaisseuse. » Il frotte une cuiller. « Une rousse ? {{oreille#ig_bq_rousse|Je ne me souviens jamais des visages, c'est le métier|Fauvette, la petite de la Reine ; elle m'a vendu une bague de la Carrus et m'a montré une lentille de quartz qu'elle n'a pas voulu me laisser}}. »",
       "« Je travaille {{oreille#ig_bq_gants|pour moi seul, comme mon père|pour un homme aux gants gris qui paie le double pour tout ce qui porte un croissant, et qui m'a dit de lui signaler quiconque viendrait de la part de la Carrus}}. » Il te sourit. « Une bague de la Carrus, justement. Un ducat. Pour vous, quinze liards. »",
       { after: "ig:bague_odeline", text: "La bague d'Odeline est à ton petit doigt, arrêtée à la deuxième phalange. Odeline la mettait le dimanche pour aller au cimetière des Noyés, et l'ôtait en rentrant pour la poser dans une soucoupe, près de la fenêtre." },
-      { with: "fauvette", text: "Fauvette s'est plantée devant l'étal et regarde Bocquet sans rien dire. Bocquet range sa cuiller dans sa manche, puis la ressort, gêné." },
+      { with: "fauvette", text: "Fauvette s'est plantée devant l'étal et regarde Bocquet en silence. Bocquet range sa cuiller dans sa manche, puis la ressort, gêné." },
     ],
     fx: { meet: "ig_bocquet" },
     choices: [
@@ -1229,7 +1229,7 @@ Object.assign(P, {
     text: [
       "Frère Gildas s'agenouille devant la vieille femme, sur la paille des Halles, ce qui fait reculer Ravoux d'un pas. « Je soigne, au Mont, dit-il. La fièvre des marais, je la connais. Gardez vos pièces. Emmenez-moi voir l'enfant. »",
       "La veuve regarde la bure, le visage, les mains du moine. Puis elle referme le poing sur ses deux ducats. « Venez », dit-elle. Ravoux, derrière son velours, retourne une étiquette d'un geste sec.",
-      "Gildas revient le soir, les manches roulées, l'odeur de l'écorce de saule sur les mains. « Il dormira cette nuit, dit-il. Il guérira, si l'on fait ce que j'ai dit. » Il s'assied, très fatigué. Il ne dit rien d'autre.",
+      "Gildas revient le soir, les manches roulées, l'odeur de l'écorce de saule sur les mains. « Il dormira cette nuit, dit-il. Il guérira, si l'on fait ce que j'ai dit. » Il s'assied, très fatigué. Il s'en tient là.",
     ],
     fx: { set: { ig_faux: "gildas" }, quest: "IG_faux", fac: { hautes: 3 }, ep: ["seance", 500] },
     choices: [{ back: "IG_halles" }] },
@@ -1238,7 +1238,7 @@ Object.assign(P, {
     text: [
       "Tu le dis fort, assez fort pour la rangée entière. Une dent de veau. L'abattoir de la rue aux Veaux. Le brou de noix. Les quarante autres. Il se fait un silence d'une étendue étonnante, dans les Halles, pour un endroit aussi bruyant.",
       "Ravoux ouvre la bouche, la referme. Il regarde la foule qui s'est massée, les saunières, les débardeurs, un chanoine en camail qui fronce les sourcils. « Calomnie », dit-il, d'une voix trop aiguë. Un boucher de la rue aux Veaux, son tablier taché, s'avance, prend la dent sous la cloche, la regarde. « C'est une des miennes, dit-il. Je les reconnais, je les arrache moi-même. Tu me les paies un liard la douzaine, Ravoux. »",
-      "La foule rit, puis cesse de rire. La veuve Pérenne range ses deux ducats dans sa coiffe, très lentement. Ravoux replie son velours, sans un mot, sous les regards.",
+      "La foule rit, puis cesse de rire. La veuve Pérenne range ses deux ducats dans sa coiffe, très lentement. Ravoux replie son velours sous les regards.",
       { if: { has: "ig:preuve_ravoux" }, text: "L'étiquette que tu as posée sur le velours passe de main en main : *Dent de la reine Ysaure.* L'écriture est celle de l'apprenti, qui baisse la tête et sourit dans son col." },
     ],
     fx: { flag: "ig:ravoux_demasque", set: { ig_faux: "demasque" }, quest: "IG_faux", fac: { hautes: 5 }, ep: ["seance", 700] },
@@ -1304,7 +1304,7 @@ Object.assign(P, {
 
   IG_bijoux_couronne: { act: "I", title: "La couronne de sel", place: "halles",
     text: [
-      "Tu te penches vers le valet en livrée et tu lui dis, aimablement, ce que tu vois sous la cloche : du plâtre, du verre pilé, du sucre candi. Le valet ne bouge pas. Puis une mouche, une seule, vient se poser sur la cloche de cristal, et tourne, et cherche une entrée. Le valet la regarde. Tu la regardes.",
+      "Tu te penches vers le valet en livrée et tu lui dis, aimablement, ce que tu vois sous la cloche : du plâtre, du verre pilé, du sucre candi. Le valet reste immobile. Puis une mouche, une seule, vient se poser sur la cloche de cristal, et tourne, et cherche une entrée. Le valet la regarde. Tu la regardes.",
       "« Le sucre, dit-il enfin, à voix basse, sans remuer les lèvres. Les mouches. Tout l'été. » Il soupire. « Le patron paie un liard la journée pour que je les chasse. Si vous le dites aux gens, il me paiera pour autre chose, ou pour rien. Je vous en prie. »",
     ],
     choices: [

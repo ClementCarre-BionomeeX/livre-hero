@@ -295,7 +295,7 @@ Object.assign(P, {
     text: [
       "La gabare de Salomé a la coque noire de goudron, le pont blanc de sel, et une odeur de corde mouillée et de poisson qui ne s'en ira jamais. Sous la lisse, quelqu'un a gravé au couteau deux initiales enlacées, un S et un M.",
       "Tu descends dans la cale avec une lanterne. Les membrures sont saines, mais la quille, à la hauteur du mât, {{pie#ivm_quille|a l'air saine, noire et dure sous le goudron|est piquée de trous fins comme des coups d'aiguille : le taret est entré, et la quille cassera au premier échouage}}.",
-      { with: "salome", text: "Salomé descend derrière toi, et s'accroupit. Elle tâte le bois de la paume, sans rien dire, très longtemps." },
+      { with: "salome", text: "Salomé descend derrière toi, et s'accroupit. Elle tâte le bois de la paume, très longtemps." },
       { if: { has: "salome:maiwenn" }, with: "salome", text: "« Maïwenn calfatait elle-même, dit-elle enfin. Elle disait qu'on ne confie pas sa vie à des mains qu'on ne paie pas assez. » Elle se relève. « Elle avait raison pour tout, sauf pour la Banque. »" },
     ],
     choices: [
@@ -601,7 +601,7 @@ Object.assign(P, {
       { if: { is: { ivm_charte: "silence" } }, text: "Elle attend. Tu te tais. Elle sourit, et c'est la première fois que tu la vois sourire tout à fait. « Voilà une réponse que je comprends. »" },
       "Elle se penche vers toi, si près que tu sens l'odeur de fumée et de lin de son châle. Les barques, derrière, se sont tues. Elle dit, à voix basse, une phrase de comptine des marais : « {{oreille#ivm_parole|L'eau s'en va, la reine dort, ne la réveille pas avant l'aube|L'eau s'en va, la reine attend ; dis à la porte : je rends ce qui fut pris, et frappe trois fois sur la pierre qui chante}}. »",
       "Puis elle se redresse. « Les barques iront devant toi dans les passes. Elles connaissent les fonds. À la tour, elles s'arrêteront. Ce qui est dedans t'attend, toi. »",
-      { with: "lison", text: "Lison s'est accroupie à côté du coffre de sa grand-mère, la tête contre son genou, comme une enfant. La vieille femme pose la main sur ses cheveux, sans rien dire." },
+      { with: "lison", text: "Lison s'est accroupie à côté du coffre de sa grand-mère, la tête contre son genou, comme une enfant. La vieille femme pose la main sur ses cheveux." },
     ],
     fx: { flag: "basse:taiseurs", fac: { taiseurs: 5 }, ep: ["seance", 1500] },
     choices: [
@@ -1104,7 +1104,7 @@ Object.assign(P, {
 
   IVM_q_pilote_fin: { act: "IV", title: "Le père et le fils", place: "salveze",
     text: [
-      { if: { has: "ivm:yannick_libre" }, text: "Tu ramènes Yannick au ponton de son père à l'aube. Le vieux Gwenaël est assis sur son seau, son filet sur les genoux. Il voit son fils, pose la navette, et ne se lève pas : il tend seulement la main, paume ouverte, et Yannick la prend. Ils restent comme ça, le père assis, le fils debout, sans un mot, pendant que le soleil se lève sur le port." },
+      { if: { has: "ivm:yannick_libre" }, text: "Tu ramènes Yannick au ponton de son père à l'aube. Le vieux Gwenaël est assis sur son seau, son filet sur les genoux. Il voit son fils, pose la navette, et ne se lève pas : il tend seulement la main, paume ouverte, et Yannick la prend. Ils restent comme ça, le père assis, le fils debout, en silence, pendant que le soleil se lève sur le port." },
       { if: { has: "ivm:yannick_reste" }, text: "Une paillasse craque, quelqu'un crie, une lanterne s'allume dans l'escalier. Tu remontes par la trappe sans Yannick, les mains écorchées. Le lendemain, tu vas dire au vieux Gwenaël que tu as essayé. Il hoche la tête. « Tu as essayé. C'est plus que les autres. » Il te donne quand même de quoi manger, du pain et une sole grillée sur une tôle." },
       { if: { has: "ivm:yannick_libre" }, text: "Plus tard, Gwenaël tire de son gilet une bague de laiton épaisse, gravée d'une rose des vents usée. « La bague des pilotes du port. On me l'a donnée à vingt ans. » Il la pose dans ta paume. « {{oreille|Pour la peine|Pour que la mer te reconnaisse, là-bas, et te laisse revenir}}. »" },
     ],

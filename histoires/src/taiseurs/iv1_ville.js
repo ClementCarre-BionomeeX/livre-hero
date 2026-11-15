@@ -69,7 +69,7 @@ Object.assign(P, {
   IV_egouts: { act: "IV", title: "Les égouts de la reine", place: "salveze",
     text: [
       "Sous le moulin de la Ferronnerie, la roue tourne à vide, et derrière elle une arche basse avale le bief. Il faut entrer dans l'eau jusqu'aux cuisses, se courber, et suivre le mur de gauche. Au bout de vingt pas, la voûte se relève : de la brique rouge, montée en arêtes de poisson, trois siècles d'âge. Les égouts de la reine passent sous toute la ville, et la ville les a oubliés.",
-      { with: "lison", text: "Lison marche devant, la lanterne sourde ouverte d'un doigt. Elle compte les arches à voix basse, en patois des marais. Une fois, elle pose la main sur une brique marquée d'une croix et la laisse là un moment, sans rien dire." },
+      { with: "lison", text: "Lison marche devant, la lanterne sourde ouverte d'un doigt. Elle compte les arches à voix basse, en patois des marais. Une fois, elle pose la main sur une brique marquée d'une croix et la laisse là un moment." },
       { without: "lison", text: "Tu as fait ce chemin une fois, dans l'autre sens, en fuyant, derrière la lanterne de Lison. Tu te rappelles le nombre de fourches, et l'odeur. Le reste, tu le devines." },
       "Les voûtes sont {{echo#iv_egouts_reine|sèches et muettes depuis longtemps|pleines d'un pas pressé et d'une voix d'homme, tout bas : « Par ici, Majesté. Tenez ma manche. Ne cherchez plus à parler. »}}. L'eau clapote contre tes jambes. Plus loin, quelque chose de gros plonge et nage.",
       { if: DIAPASON, text: "Le diapason pèse dans ta poche. Ici, la brique est vieille, et les vieilles pierres gardent les voix." },
@@ -164,7 +164,7 @@ Object.assign(P, {
       { if: { seen: "IV_pris" }, text: "On te remonte de la cave, les mains liées, dans une petite pièce au-dessus du poste, où une femme écrit à une table couverte de rapports.", else: "Tu marches droit vers l'estacade, les mains ouvertes. Le garde à la lanterne recule d'un pas, puis il appelle. On te lie les mains, on te fait monter dans une barque, puis dans une petite pièce au-dessus du poste du Beffroi, où une femme écrit à une table couverte de rapports." },
       "La capitaine du Guet a cinquante ans, une cuirasse de cuir passée sur une robe de laine, et une plume coincée derrière l'oreille. Elle s'appelle Ermance Mabire. Elle lit la feuille de recherche, puis ton visage, puis encore la feuille. « Quarante gardes, dit-elle. Pour trente mille personnes qui ont faim. Les caves du poste sont pleines d'émeutiers jusqu'aux soupiraux. Et vous, vous venez vous rendre. »",
       "Elle pose la feuille. « {{oreille#iv_mabire_loi|La loi est la loi, et je la sers|Le témoin qui vous accuse pue la Banque à dix pas, et je n'ai pas le temps de le sentir}}. »",
-      { with: "tibere", text: "Tibère se tient près de la porte, son chapeau à la main. La capitaine le regarde une fois. « Gaucelm. On disait que tu buvais à Orle. » Tibère ne répond pas." },
+      { with: "tibere", text: "Tibère se tient près de la porte, son chapeau à la main. La capitaine le regarde une fois. « Gaucelm. On disait que tu buvais à Orle. » Tibère se tait." },
     ],
     choices: [
       { label: "« Vous savez que ce témoin ment. Aidez-moi à le prouver. »", hide: { not: { voile: "iv_mabire_loi" } },
@@ -230,7 +230,7 @@ Object.assign(P, {
       { again: true, when: "night", text: "La place du Beffroi sous le couvre-feu. Des braseros devant le Conseil, des ombres qui passent vite le long des façades, une patrouille de six hallebardes qui fait le tour de la place toutes les demi-heures. Le gibet découpe ses trois cordes sur le ciel." },
       "Sous les sabots des patrouilles, les vieux pavés de la place {{echo#iv_place_comptoirs|résonnent comme tous les pavés|rendent une foule d'il y a trois siècles qui crie « La Muette ! La Muette ! » et qui rit}}.",
       { again: true, if: RECHERCHE, text: "Tu gardes le capuchon bas. Ta feuille est toujours clouée à la porte de la tour." },
-      { after: "ivv:grenier_ouvert", text: "On mange, sur la place. Peu : des galettes de farine grise cuites sur des tôles, que des femmes des Halles distribuent par rangées. Quand tu passes, une vieille te met une galette dans la main, sans un mot." },
+      { after: "ivv:grenier_ouvert", text: "On mange, sur la place. Peu : des galettes de farine grise cuites sur des tôles, que des femmes des Halles distribuent par rangées. Quand tu passes, une vieille te met une galette dans la main." },
       { after: "ivv:grenier_partage", text: "Jacomet a fait dresser trois tables devant le Beffroi, où l'on pèse la farine du grenier à la livre près, sous les yeux de tous, avec un registre. La file est longue, et calme." },
       { after: "ivv:toits_paix", text: "Sur les toits qui bordent la place, des brassards rouges vont et viennent. Les arbalétriers du Guet les laissent passer. Ils se font des signes, parfois." },
       { after: "iv:jacomet_pendu", text: "Une des trois cordes du gibet est coupée court. Les gens passent de l'autre côté de la place." },
@@ -443,7 +443,7 @@ Object.assign(P, {
   IV_gibet_nuit_facile: { act: "IV", title: "La relève tardive", place: "salveze", takes: "night",
     fx: { flag: "iv:jacomet_sauve", fac: { hautes: 5 }, ep: ["seance", 1500] },
     text: [
-      "Les deux gardes de la charrette dorment, comme promis, l'un contre l'autre, la hallebarde en travers des genoux. L'un des deux ronfle. Tu coupes les liens des trois condamnés. Ils glissent dans la nuit l'un après l'autre. Jacomet part le dernier et te serre l'avant-bras sans un mot.",
+      "Les deux gardes de la charrette dorment, comme promis, l'un contre l'autre, la hallebarde en travers des genoux. L'un des deux ronfle. Tu coupes les liens des trois condamnés. Ils glissent dans la nuit l'un après l'autre. Jacomet part le dernier et te serre l'avant-bras.",
       "En repartant, tu vois une lumière au premier étage du poste du Guet, et une silhouette debout à la fenêtre, une plume à la main.",
     ],
     choices: [{ back: "IV_hub" }] },
@@ -610,7 +610,7 @@ Object.assign(P, {
       "Tu lèves les yeux. Frère Gildas est debout en haut de l'escalier, là où il était cette nuit-là, à minuit, dans l'encadrement de la porte basse. La lumière de la boutique est derrière lui. Tu ne vois pas son visage. Tu vois sa main sur le chambranle.",
       "Il comprend. Tu le sais à la façon dont sa main lâche le bois. « Vous l'avez entendue », dit-il.",
       "Il descend une marche, puis s'arrête. Il pousse sa capuche en arrière. À la racine de ses cheveux gris, sur le front, une cicatrice en croissant, blanche, de la largeur d'une bobèche de bougeoir.",
-      { with: "lison", text: "Lison s'est placée entre lui et la porte, sa gaffe à la main, sans un mot." },
+      { with: "lison", text: "Lison s'est placée entre lui et la porte, sa gaffe à la main." },
       { with: "tibere", text: "Tibère a la main sur sa masse. Il attend ton signe, et rien d'autre." },
       { with: "fauvette", text: "Fauvette a son rasoir ouvert le long de la cuisse. « C'est lui, dit-elle. C'est le moine de minuit. »" },
     ],
@@ -938,7 +938,7 @@ Object.assign(P, {
 
   IVV_grenier_partage: { act: "IV", title: "La livre de blé", place: "salveze",
     text: [
-      "Jacomet entre par la porte de chargement avec dix porte-faix de la rue des Tanneurs. Il regarde les sacs jusqu'aux solives et ne dit rien pendant un long moment. Puis il fait apporter trois tables, une balance de changeur prise aux Halles, et le registre du commis, dont il arrache la dernière page pour te la donner.",
+      "Jacomet entre par la porte de chargement avec dix porte-faix de la rue des Tanneurs. Il regarde les sacs jusqu'aux solives et se tait un long moment. Puis il fait apporter trois tables, une balance de changeur prise aux Halles, et le registre du commis, dont il arrache la dernière page pour te la donner.",
       "On ouvre les grandes portes. On fait des files. Une livre par bouche, et deux pour les enfants. Jacomet pèse, un porte-faix écrit les noms. Quand les gardes de la Banque reviennent avec le Guet, ils trouvent une file de deux mille personnes qui avancent en silence, et la capitaine Mabire fait mettre ses hallebardiers des deux côtés de la file, pour l'ordre, et pas autrement.",
       { with: "tibere", text: "Tibère pèse à la troisième table. Il triche sur le poids, au bénéfice des vieilles. Les autres peseurs regardent ailleurs." },
     ],
@@ -1285,7 +1285,7 @@ Object.assign(P, {
   IVV_bannieres_rosalie_fin: { act: "IV", title: "Avant l'aube", place: "salveze",
     text: [
       { if: { has: "iv:rosalie_promesse" }, text: "À la pension Pujol, Rosalie s'endort tout habillée sur un lit trop grand, son dé de fer encore au doigt. Clarmonde ferme la porte sur elle sans bruit. « Je la garde, dit-elle. J'ai gardé pire. »", else: "La rue des Dames retrouve son silence. Les ruisseaux coulent noirs, sans teinture, jusqu'au matin." },
-      { if: { has: "iv:rosalie_promesse" }, with: "tibere", text: "Tibère est resté assis sur les marches de la pension jusqu'à l'aube. Il n'est pas entré. Au matin, Rosalie a ouvert la fenêtre, l'a vu, et l'a regardé un long moment sans rien dire. Puis elle a laissé la fenêtre ouverte." },
+      { if: { has: "iv:rosalie_promesse" }, with: "tibere", text: "Tibère est resté assis sur les marches de la pension jusqu'à l'aube. Il n'est pas entré. Au matin, Rosalie a ouvert la fenêtre, l'a vu, et l'a regardé un long moment en silence. Puis elle a laissé la fenêtre ouverte." },
     ],
     choices: [{ label: "Laisser dormir Rosalie", hide: { not: { has: "iv:rosalie_promesse" } }, fx: { flag: "iv:rosalie_sauvee", conf: { tibere: 15 }, ep: ["perso", 1000] }, back: "IV_hub" }, { label: "Laisser la rue des Dames à sa nuit", hide: { has: "iv:rosalie_promesse" }, back: "IV_hub" }] },
 
