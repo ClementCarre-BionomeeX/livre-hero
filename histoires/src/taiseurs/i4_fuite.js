@@ -914,11 +914,11 @@ Object.assign(P, {
 });
 
 var ATTENTE_BARQUE = { any: [
-  { present: "fauvette" },
+  { all: [{ present: "fauvette" }, { not: { seen: "IF_fauvette_adieu" } }] },
   { all: [{ has: "fauvette:amie" }, { not: { seen: "IF_fauvette_adieu" } }] },
   { all: [{ present: "gildas" }, { not: { seen: "IF_gildas_choix" } }] },
   { all: [{ has: "i4:tibere_trahi" }, { not: { seen: "IF_tibere_retour" } }] },
-  { all: [{ not: { item: "oeil_pie" } }, { not: { has: "fauvette:amie" } }, { not: { seen: "IF_oeil_gamin" } }] },
+  { all: [{ not: { item: "oeil_pie" } }, { not: { seen: "IF_oeil_gamin" } }, { not: { all: [{ has: "fauvette:amie" }, { not: { seen: "IF_fauvette_adieu" } }] } }] },
 ] };
 Object.assign(P, {
   IF_lothaire: { act: "I", title: "Le pont de la Reine", takes: "evening",

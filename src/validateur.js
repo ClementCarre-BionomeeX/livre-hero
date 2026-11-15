@@ -952,7 +952,7 @@
             var mark = function (k) { if (seen[k] || !P[k]) return; seen[k] = 1; found++; if (paid) richOnly.push(k); };
             for (var step = 0; step < 300; step++) {
               var v; fixed = null;
-              try { v = tryVeils(s, 1, rnd) || M.view(story, s); } catch (e) { break; }
+              try { v = tryVeils(s, wi % 4 === 3 ? 0 : 1, rnd) || M.view(story, s); } catch (e) { break; } // one walk in four leaves the words untouched, as a reader may
               if (P[s.node]) { mark(s.node); keepSnap(s); }
               if (s.seen && s.seen[target]) mark(target); // the whole walk is marked once it ends (below): cheaper
               if (seen[target] || v.kind === "end") { if (v.kind === "end" && P[s.node]) endings[s.node] = (endings[s.node] || 0) + 1; break; }
