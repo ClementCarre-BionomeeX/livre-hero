@@ -13,13 +13,13 @@ module.exports = {
       { if: { all: [done("sevan"), { not: done("jasse") }, { not: done("oriane") }] }, text: "Pendant que Sévan Aldric marchait dans la ville aux lanternes, un passeur attendait la marée, et une secrétaire comptait des voix." },
       { if: { all: [done("jasse"), { not: done("sevan") }, { not: done("oriane") }] }, text: "Pendant que Jasse Ferrant faisait sa nuit sur l'eau, un médecin et une secrétaire faisaient la leur, aux mêmes heures." },
       { if: { all: [done("oriane"), { not: done("sevan") }, { not: done("jasse") }] }, text: "Pendant qu'Oriane Valcor attendait au palais, un médecin et un passeur traversaient la ville, chacun de son côté." },
-      { if: { count: [done("sevan"), done("jasse"), done("oriane")], min: 2, max: 2 }, text: "Il reste quatre heures à raconter. Elles ont eu lieu en même temps que les autres." },
+      { if: { count: [done("sevan"), done("jasse"), done("oriane")], min: 2, max: 2 }, text: "Il reste cinq heures à raconter. Elles ont eu lieu en même temps que les autres." },
       { if: ALL, text: "Minuit approche. Sur les marches du palais, l'eau lèche la troisième pierre. Les conseillers montent, un par un, les pieds mouillés." },
     ],
     choices: [
-      { label: "Sévan Aldric · la Nuit des Lanternes", hide: done("sevan"), fx: { team: "sevan" }, to: "S3", big: true },
-      { label: "Jasse Ferrant · la Nuit des Lanternes", hide: done("jasse"), fx: { team: "jasse" }, to: "J3", big: true },
-      { label: "Oriane Valcor · la Nuit des Lanternes", hide: done("oriane"), fx: { team: "oriane" }, to: "O3", big: true },
+      { label: "Sévan Aldric · la Nuit des Lanternes", hide: done("sevan"), fx: { team: "sevan" }, to: "S3M", big: true },
+      { label: "Jasse Ferrant · la Nuit des Lanternes", hide: done("jasse"), fx: { team: "jasse" }, to: "J3M", big: true },
+      { label: "Oriane Valcor · la Nuit des Lanternes", hide: done("oriane"), fx: { team: "oriane" }, to: "O3M", big: true },
       { label: "Minuit", if: ALL, why: "Les trois nuits doivent d'abord être racontées.", to: "Z", big: true },
     ] },
 };

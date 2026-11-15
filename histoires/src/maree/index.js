@@ -3,7 +3,7 @@
 var base = require("./base.js");
 var fs = require("fs"), path = require("path");
 var parts = ["acte1_sevan", "acte1_jasse", "acte1_oriane", "acte2_carrefour", "acte2_sevan", "acte2_jasse", "acte2_oriane",
-  "acte3_carrefour", "acte3_sevan", "acte3_jasse", "acte3_oriane", "minuit", "fins"];
+  "interludes", "acte3_carrefour", "acte3_sevan", "acte3_jasse", "acte3_oriane", "minuit", "fins"];
 base.passages = {};
 parts.forEach(function (p) { if (fs.existsSync(path.join(__dirname, p + ".js"))) Object.assign(base.passages, require("./" + p + ".js")); });
 if (fs.existsSync(path.join(__dirname, "destins.js"))) { var D = require("./destins.js"); base.fates = D.fates; base.epilogue = D.epilogue; base.endings = D.endings; }

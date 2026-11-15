@@ -8,9 +8,9 @@ var FIN = { label: "Fin de la nuit d'Oriane", fx: { flag: "ch3:oriane" }, back: 
 var MORVAN_CLEF = { any: [{ has: "clef1=morvan" }, { has: "clef3=morvan" }] };
 module.exports = {
   O3: { branch: [
-    { if: { has: "oriane_malade=oui" }, fx: { until: 20 }, to: "O3_malade" },
-    { if: PACTE, fx: { until: 20 }, to: "O3_pacte" },
-    { fx: { until: 20 }, to: "O3_seule" },
+    { if: { has: "oriane_malade=oui" }, fx: { until: 19 }, to: "O3_malade" },
+    { if: PACTE, fx: { until: 19 }, to: "O3_pacte" },
+    { fx: { until: 19 }, to: "O3_seule" },
   ] },
 
   // ================================================================ openings
@@ -45,8 +45,8 @@ module.exports = {
     choices: [{ label: "Faire préparer la barque", to: "O3_arrivee" }] },
   O3_arrivee: { act: "III", title: "Le palais aux lanternes", place: "palais", ambiance: "chateau",
     text: [
-      "À huit heures, ta barque accoste aux marches du palais. L'eau couvre la deuxième. Les conseillers arrivent déjà, les chausses retroussées, en se plaignant de la marée comme chaque année.",
-      "Tu es la secrétaire du Conseil. Tu as la clef de la Chambre des Sceaux, l'ordre du jour, et le droit d'aller partout. Pendant trois heures, tout le palais passe par toi.",
+      "À sept heures, ta barque accoste aux marches du palais. L'eau couvre la deuxième. Les conseillers arrivent déjà, les chausses retroussées, en se plaignant de la marée comme chaque année.",
+      "Tu es la secrétaire du Conseil. Tu as la clef de la Chambre des Sceaux, l'ordre du jour, et le droit d'aller partout. Pendant quatre heures, tout le palais passe par toi.",
       { if: { has: "renaud=vole" }, text: "Renaud est dans la grande galerie, avec les clients de la Maison des Sels. Il évite ton regard depuis le matin. Tu sais pourquoi. Tu as vu le tiroir vide." },
       { if: { has: "renaud=aveu" }, text: "Renaud t'attend au bas de l'escalier. Il t'a tout dit cette nuit : la dette, Morvan, la clef qu'on lui demandait. Il a l'air d'un homme qui a dormi pour la première fois depuis un an." },
       { if: { has: "renaud=fidele" }, text: "Renaud t'offre son bras sur les marches. Il tait la nuit dernière. Ses yeux disent qu'il s'en souvient." },
@@ -56,9 +56,10 @@ module.exports = {
   // ================================================================ three things before eleven
   O3_palais: { act: "III", title: "Le palais", hub: true, noLead: true, backName: "les galeries",
     text: [
-      { first: true, text: "Les galeries du palais sont pleines de conseillers qui se parlent à l'oreille. On t'arrête toutes les trois marches. On te félicite, on te plaint, on te demande où tu en es. Tu as trois heures." },
-      { if: { clock: "o3", min: 1, max: 1 }, text: "Neuf heures. Il te reste du temps pour deux choses." },
-      { if: { clock: "o3", min: 2, max: 2 }, text: "Dix heures. Il te reste le temps d'une chose." },
+      { first: true, text: "Les galeries du palais sont pleines de conseillers qui se parlent à l'oreille. On t'arrête toutes les trois marches. On te félicite, on te plaint, on te demande où tu en es. Tu as quatre heures." },
+      { if: { clock: "o3", min: 1, max: 1 }, text: "Huit heures. Il te reste du temps pour trois choses." },
+      { if: { clock: "o3", min: 2, max: 2 }, text: "Neuf heures. Il te reste du temps pour deux choses." },
+      { if: { clock: "o3", min: 3, max: 3 }, text: "Dix heures. Il te reste le temps d'une chose." },
       { if: { has: "sevan:oriane3" }, text: "Le médecin est passé ce soir. Ce qu'il t'a dit est encore dans tes mains." },
       { if: { has: "leonce=temoin" }, text: "Un huissier te glisse à l'oreille qu'un apothicaire tremblant attend sur un banc de l'antichambre, gardé par un prêtre. Il demande à parler au Conseil." },
       { if: { has: "leonce=mort" }, text: "Un huissier te dit qu'on a retrouvé l'apothicaire de la Maison des Sels. Mort. Il le dit à voix basse, comme une affaire de famille." },
@@ -73,9 +74,10 @@ module.exports = {
       { label: "La capitaine du Guet", hide: { has: "oriane:ysabeau3" }, to: "O3_ysabeau" },
     ] },
   O3_suite: { branch: [
-    { if: { clock: "o3", min: 3 }, fx: { until: 23 }, to: "O3_fin" },
-    { if: { clock: "o3", min: 2 }, fx: { until: 22 }, to: "O3_palais" },
-    { fx: { until: 21 }, to: "O3_palais" },
+    { if: { clock: "o3", min: 4 }, fx: { until: 23 }, to: "O3_fin" },
+    { if: { clock: "o3", min: 3 }, fx: { until: 22 }, to: "O3_palais" },
+    { if: { clock: "o3", min: 2 }, fx: { until: 21 }, to: "O3_palais" },
+    { fx: { until: 20 }, to: "O3_palais" },
   ] },
 
   // ---------------------------------------------------------------- Renaud

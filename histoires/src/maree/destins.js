@@ -28,6 +28,13 @@ module.exports = {
     { if: { all: [{ has: "fin:valcor" }, { has: "oriane:promet_basport" }] }, text: "La Doyenne Valcor fait curer les canaux de Bas-Port avant ceux du palais, comme elle l'avait promis à la Mère Gouge. La Mère Gouge dit que c'est un début." },
     { if: { has: "sevan:sceau_rompu" }, text: "Sévan Aldric se confesse, au printemps, d'avoir rompu un secret de confession. Le vieux prêtre qui l'entend lui donne pour pénitence de ne rien regretter." },
     { if: { has: "jasse:leonce_noye" }, text: "Les neveux de la Mère Gouge ne parlent jamais de la nuit des Lanternes. Le passeur Ferrant non plus. Il évite le ponton des roseaux." },
+    { if: { has: "sevan_pavot2=donne" }, text: "Le vieil Anatole, le batelier, est mort la nuit des Lanternes, sans douleur. Ses fils ont gardé le petit flacon vide sur l'étagère, à côté du crucifix." },
+    { if: { has: "sevan_pavot2=trop" }, text: "Le vieil Anatole est mort dans son sommeil, le jour des Lanternes, plus tôt que son médecin ne l'avait voulu. Sévan Aldric, depuis, compte toujours ses gouttes deux fois." },
+    { if: { has: "sevan_pavot2=mesure" }, text: "Le vieil Anatole a vécu jusqu'au soir des Lanternes, assez pour engueuler ses fils et leur donner sa barque. Ils l'ont repeinte en vert, la couleur du Temple, en l'honneur du médecin." },
+    { if: { has: "sevan_pavot2=veille" }, text: "Le vieil Anatole est mort le jour des Lanternes, en tenant la main d'un médecin qui avait refusé de l'aider à partir plus vite. Ses fils se demandent encore s'ils doivent lui en vouloir." },
+    { if: { has: "sevan_lettre3=brule" }, text: "Des notes du médecin Aldric sur la mort de la Doyenne, il reste un peu de cendre dans une soucoupe. Les historiens d'Escalombre en ont cherché des copies pendant cent ans." },
+    { if: { has: "jasse:poupee" }, text: "La poupée au bandeau de pirate a séché tout l'hiver sur l'étagère du passeur Ferrant. Au printemps, il l'a portée à sa sœur, sans un mot." },
+    { if: { has: "jasse:sauveur" }, text: "Les vieux du pont Bas racontent encore la marée de la nuit des Lanternes, et la barque qui est passée sous l'arche quand l'eau touchait la clef de voûte." },
     { if: { has: "sevan:pavot_garde" }, text: "Le jeune garde du palier de la Tour se réveille à l'aube, honteux, la tête lourde. On le met aux arrêts huit jours. Il jure toute sa vie qu'il n'avait bu que de l'eau." },
   ],
   fates: [

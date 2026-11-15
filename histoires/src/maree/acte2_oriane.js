@@ -180,7 +180,7 @@ module.exports = {
     text: [
       "Tu as fait la liste sur ton écritoire, à six heures, comme une liste de courrier. Quarante sièges. Quatorze à Morvan. Six au Temple. Douze vieilles maisons, dont huit t'ont applaudie hier. Huit métiers, verriers, tisserands, charpentiers de marine, qui votent comme on leur promet.",
       "Il en faut vingt et un. Tu en as huit.",
-      "Tu mets un loup de velours noir, le plus simple que tu aies. Tu as le temps de trois visites avant le bal de ce soir, si l'on t'ouvre les portes.",
+      "Tu mets un loup de velours noir, le plus simple que tu aies. Tu as le temps de quatre visites avant le bal de ce soir, si l'on t'ouvre les portes.",
     ],
     choices: [{ label: "Commencer", to: "O2S_hub" }] },
   O2S_hub: { act: "II", title: "Les visites", place: "saules", hub: true, noLead: true, backName: "ta liste",
@@ -197,7 +197,7 @@ module.exports = {
       { label: "Hugues Morvan, une seconde fois", to: "O2S_morvan", fx: { clock: { o2: 1 } }, hide: { seen: "O2S_morvan" } },
     ] },
   O2S_suite: { branch: [
-    { if: { clock: "o2", min: 3 }, to: "O2S_bal" },
+    { if: { clock: "o2", min: 4 }, to: "O2S_bal" },
     { to: "O2S_hub" },
   ] },
   O2S_helis: { act: "II", title: "Dame Hélis", place: "saules",
@@ -363,9 +363,10 @@ module.exports = {
     choices: [{ label: "Réfléchir", to: "O2E_hub" }] },
   O2E_hub: { act: "II", title: "L'enquête", place: "tour", hub: true, noLead: true, backName: "l'enquête",
     text: [
-      { first: true, text: "Ysabeau Dorne déplie une carte de la ville sur une borne. Elle te laisse choisir. Vous aurez le temps de trois choses avant le soir." },
-      { again: true, if: { clock: "o2", max: 1 }, text: "La capitaine replie et redéplie sa carte. Il vous reste deux choses." },
-      { again: true, if: { clock: "o2", min: 2 }, text: "Le soleil descend. Il vous reste une chose." },
+      { first: true, text: "Ysabeau Dorne déplie une carte de la ville sur une borne. Elle te laisse choisir. Vous aurez le temps de quatre choses avant le soir." },
+      { again: true, if: { clock: "o2", max: 1 }, text: "La capitaine replie et redéplie sa carte. Il vous reste trois choses." },
+      { again: true, if: { clock: "o2", min: 2, max: 2 }, text: "Midi sonne. La capitaine partage avec toi un pain aux olives, debout, sans s'asseoir. Il vous reste deux choses." },
+      { again: true, if: { clock: "o2", min: 3 }, text: "Le soleil descend. Il vous reste une chose." },
     ],
     choices: [
       { label: "L'apothicairerie de Léonce Brisard, sous les arcades de la Maison des Sels", to: "O2E_leonce", fx: { clock: { o2: 1 } }, hide: { seen: "O2E_leonce" } },
@@ -375,7 +376,7 @@ module.exports = {
       { label: "Interroger Nella Ferrant", if: PRISON, to: "O2E_nella", fx: { clock: { o2: 1 } }, hide: { seen: "O2E_nella" } },
     ] },
   O2E_suite: { branch: [
-    { if: { clock: "o2", min: 3 }, to: "O2E_soir" },
+    { if: { clock: "o2", min: 4 }, to: "O2E_soir" },
     { to: "O2E_hub" },
   ] },
   O2E_leonce: { branch: [

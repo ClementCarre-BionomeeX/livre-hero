@@ -53,9 +53,10 @@ module.exports = {
   // ================================================================ the free day: three things before the night
   S2_enquete: { act: "II", title: "Le bec de cuir", place: "temple", hub: true, noLead: true, backName: "la ville masquée",
     text: [
-      { first: true, text: "Dans ton masque à long bec, tu es un médecin de peste parmi d'autres. Les gens s'écartent par habitude. Tu as le temps de trois choses avant le soir, si tu marches vite et si personne ne t'arrête." },
-      { again: true, if: { clock: "s2", max: 1 }, text: "La matinée est passée. Le soleil chauffe les masques de carton, les gens ont soif, les tavernes débordent sur l'eau." },
-      { again: true, if: { clock: "s2", min: 2 }, text: "L'après-midi tire vers le soir. Il te reste le temps d'une chose." },
+      { first: true, text: "Dans ton masque à long bec, tu es un médecin de peste parmi d'autres. Les gens s'écartent par habitude. Tu as le temps de quatre choses avant le soir, si tu marches vite et si personne ne t'arrête." },
+      { again: true, if: { clock: "s2", max: 1 }, text: "La matinée avance. Le soleil chauffe les masques de carton, les gens ont soif, les tavernes débordent sur l'eau." },
+      { again: true, if: { clock: "s2", min: 2, max: 2 }, text: "Midi sonne au Temple. Il te reste le temps de deux choses avant le soir." },
+      { again: true, if: { clock: "s2", min: 3 }, text: "L'après-midi tire vers le soir. Il te reste le temps d'une chose." },
     ],
     choices: [
       { label: "La Tour du Guet : visiter Nella, comme prêtre du Temple", if: PRISON, why: "Nella n'est pas à la Tour.", to: "S2_tour", fx: { clock: { s2: 1 } }, hide: { seen: "S2_tour" } },
@@ -65,7 +66,7 @@ module.exports = {
       { label: "La capitaine Dorne : lui dire ce que ton rapport tait", to: "S2_ysabeau", fx: { clock: { s2: 1 } }, hide: { seen: "S2_ysabeau" }, big: true },
     ] },
   S2_suite: { branch: [
-    { if: { clock: "s2", min: 3 }, to: "S2_soir" },
+    { if: { clock: "s2", min: 4 }, to: "S2_soir" },
     { to: "S2_enquete" },
   ] },
 

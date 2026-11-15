@@ -10,18 +10,18 @@ var TOUR = { has: "sv3l=tour" }, VILLE = { has: "sv3l=ville" };
 var FIN = { label: "Fin de la nuit de Sévan", fx: { flag: "ch3:sevan" }, back: "C3" };
 module.exports = {
   S3: { branch: [
-    { if: { all: [{ has: "sevan_temple=soumis" }, { has: "anselme=ouvre" }] }, fx: { until: 20 }, to: "S3T_libere" },
-    { if: { has: "sevan_temple=soumis" }, fx: { until: 20 }, to: "S3T_soumis" },
-    { if: { has: "sevan_temple=refus" }, fx: { until: 20 }, to: "S3T_refus" },
-    { if: { all: [{ has: "rapport=public" }, { is: { sevan_cache: null } }] }, fx: { until: 20, set: { sv3l: "tour" } }, to: "S3G" },
-    { if: { has: "sevan_cache=gouge" }, fx: { until: 20, set: { sv3l: "ville" } }, to: "S3B" },
-    { fx: { until: 20, set: { sv3l: "ville" } }, to: "S3H" },
+    { if: { all: [{ has: "sevan_temple=soumis" }, { has: "anselme=ouvre" }] }, fx: { until: 19 }, to: "S3T_libere" },
+    { if: { has: "sevan_temple=soumis" }, fx: { until: 19 }, to: "S3T_soumis" },
+    { if: { has: "sevan_temple=refus" }, fx: { until: 19 }, to: "S3T_refus" },
+    { if: { all: [{ has: "rapport=public" }, { is: { sevan_cache: null } }] }, fx: { until: 19, set: { sv3l: "tour" } }, to: "S3G" },
+    { if: { has: "sevan_cache=gouge" }, fx: { until: 19, set: { sv3l: "ville" } }, to: "S3B" },
+    { fx: { until: 19, set: { sv3l: "ville" } }, to: "S3H" },
   ] },
 
   // ================================================================ openings
   S3H: { act: "III", title: "Les lanternes", place: "temple", ambiance: "temple",
     text: [
-      "À huit heures, les sœurs de l'hospice allument les lanternes aux fenêtres des malades. Une par fenêtre, même chez les mourants. Surtout chez les mourants, dit la sœur portière : les morts de la Nuit des Lanternes trouvent leur chemin.",
+      "À sept heures, les sœurs de l'hospice allument les lanternes aux fenêtres des malades. Une par fenêtre, même chez les mourants. Surtout chez les mourants, dit la sœur portière : les morts de la Nuit des Lanternes trouvent leur chemin.",
       "Tu as passé la journée à préparer cette nuit sans savoir ce qu'elle serait. Ta sacoche est sur la table. Dedans, ce que tu as gardé de trois jours.",
       { if: { has: "preuves_volees=oui" }, text: "Dedans, presque rien. Les hommes de la Maison des Sels ont tout pris hier soir. Il te reste ta mémoire, et ce que tu as vu de tes yeux." },
       { if: { has: "sevan:sbires_battus" }, text: "Ton poignet te fait encore mal du tisonnier d'hier soir. Les hommes de la Maison des Sels savent maintenant qu'un vieux médecin peut frapper." },
@@ -33,7 +33,7 @@ module.exports = {
   S3B: { act: "III", title: "Le grenier", place: "basport", ambiance: "eau",
     text: [
       "Tu te réveilles dans le grenier de l'Ancre Basse, entre deux filets qui sèchent. En bas, la taverne est pleine. On ne boit pas : on attend. Les voix sont basses, les gaffes appuyées contre les tables.",
-      "La Mère Gouge monte l'échelle à huit heures, une lanterne à la main. Elle la pose à côté de toi.",
+      "La Mère Gouge monte l'échelle à sept heures, une lanterne à la main. Elle la pose à côté de toi.",
       { if: { has: "basport=souleve" }, text: "« Trois cents barques sur la digue, médecin. Si quelqu'un tire une flèche ce soir, la ville brûle. Je voulais que tu le saches. Les médecins aiment savoir où sont les blessés avant qu'il y en ait. »" },
       { if: { not: { has: "basport=souleve" } }, text: "« Bas-Port reste chez lui ce soir. Pour l'instant. » Elle s'assied sur un tonneau. « Tu as dormi comme un homme qui n'a plus rien à cacher. Ou comme un homme qui va tout dire. Je ne sais pas lequel. »" },
       { if: { has: "gouge:sait_nella" }, text: "Elle te regarde un moment. « Le passeur m'a dit pour la petite. Pour Tomas. » Sa voix ne bouge pas. « Tu le savais depuis dix-neuf ans, toi. C'est ton métier, de savoir et de se taire. Ce soir, choisis bien lequel des deux tu fais. »" },
@@ -42,7 +42,7 @@ module.exports = {
   S3G: { act: "III", title: "L'escorte", place: "tour", ambiance: "chateau",
     fx: { meet: "ysabeau" },
     text: [
-      "À huit heures, la porte de ta cellule s'ouvre. Ysabeau Dorne est là, en grand uniforme, le corselet ciré, la tour noire brodée sur la poitrine.",
+      "À sept heures, la porte de ta cellule s'ouvre. Ysabeau Dorne est là, en grand uniforme, le corselet ciré, la tour noire brodée sur la poitrine.",
       "« Le Conseil vous convoque comme témoin, maître Aldric. Vous vous êtes accusé vous-même devant la ville. La ville veut vous entendre. Je vous conduirai au palais à minuit, sous escorte. D'ici là, vous êtes à moi. »",
       { if: { has: "sevan:soupe_guet" }, text: "Elle hésite, puis ajoute plus bas : « La soupe d'hier. J'ai fait goûter le reste du panier à un rat. Il est mort avant la fin de la ronde. » Elle te regarde comme on regarde un allié qu'on n'a pas choisi. « Jusqu'à minuit, vous ne mangez que ce que je mange. »" },
       { if: { has: "sevan:preuves_guet" }, text: "« J'ai vos pièces sous clef, dans mon bureau. Personne d'autre que moi n'y touche. »" },
@@ -51,7 +51,7 @@ module.exports = {
   S3T_soumis: { act: "III", title: "La robe de cérémonie", place: "temple", ambiance: "temple",
     fx: { meet: "anselme" },
     text: [
-      "À huit heures, Gildas t'apporte une robe de cérémonie, blanche à bordure verte, et la pose sur ton lit sans rien dire.",
+      "À sept heures, Gildas t'apporte une robe de cérémonie, blanche à bordure verte, et la pose sur ton lit sans rien dire.",
       "Anselme entre derrière lui. Il est déjà habillé pour le Conseil, la mitre basse, l'anneau de la Marée au doigt. Il a l'air reposé. Il a l'air d'un homme qui a bien dormi.",
       "« À minuit, tu marcheras à ma droite. Quand le Conseil t'interrogera, tu diras que la Doyenne a été empoisonnée au sel par la Maison des Sels. Tu diras que tu l'as soignée jusqu'au bout. Tu ne diras rien d'autre. » Il ajuste ton col. « Et le Temple te gardera, mon fils. »",
       { if: { has: "sevan:lettre_nella" }, text: "Gildas, derrière lui, croise ton regard. Il touche sa manche, là où il avait glissé ta lettre. Elle est arrivée." },
@@ -95,7 +95,7 @@ module.exports = {
   S3T_libere: { act: "III", title: "La porte ouverte", place: "temple", ambiance: "temple",
     fx: { meet: "anselme", set: { sv3l: "ville", sevan_temple: "sorti" } },
     text: [
-      "À huit heures, Anselme entre dans ta cellule sans frapper. Il a l'air d'un homme qui vient de faire une bonne affaire et qui s'en méfie déjà.",
+      "À sept heures, Anselme entre dans ta cellule sans frapper. Il a l'air d'un homme qui vient de faire une bonne affaire et qui s'en méfie déjà.",
       "« La secrétaire et moi sommes tombés d'accord. Elle aura besoin de ton témoignage, et moi je n'en ai plus besoin. » Il pose ta clef de fer sur le lit, puis la reprend. « Celle-ci reste au Temple. J'ouvrirai le coffre moi-même, à minuit. Toi, va où tu veux. Tu n'as plus de prix. »",
       "Il sort. Pour la première fois en deux jours, Gildas laisse la porte grande ouverte.",
     ],
@@ -103,7 +103,7 @@ module.exports = {
   S3T_refus: { act: "III", title: "La clef tourne", place: "temple", ambiance: "temple",
     fx: { meet: "anselme" },
     text: [
-      "À huit heures, la clef tourne. C'est Anselme, en habit de Conseil.",
+      "À sept heures, la clef tourne. C'est Anselme, en habit de Conseil.",
       "« Dernière fois, Sévan. La clef de fer, et ton silence. Ou je te laisse ici, et à minuit je lis devant le Conseil ce que tu m'as dit cette nuit-là, au confessionnal. Le pavot. Tes mains. Tout. » Il sourit, presque tendre. « Un Grand Prêtre qui rompt le secret de confession pour sauver la ville, on le lui pardonnera. Un médecin qui endort une Doyenne, jamais. »",
     ],
     choices: [
@@ -137,10 +137,11 @@ module.exports = {
   // ================================================================ the night (two things before eleven)
   S3_ville: { act: "III", title: "La ville aux lanternes", hub: true, noLead: true, backName: "la nuit",
     text: [
-      { first: true, if: VILLE, text: "Les canaux sont des allées de lumière. Des barques passent, chargées de lanternes et de familles qui chantent. Tout le monde va vers le palais. Toi, tu as trois heures, et la ville entière à traverser." },
+      { first: true, if: VILLE, text: "Les canaux sont des allées de lumière. Des barques passent, chargées de lanternes et de familles qui chantent. Tout le monde va vers le palais. Toi, tu as quatre heures, et la ville entière à traverser." },
       { first: true, if: TOUR, text: "Ysabeau Dorne te fait descendre l'escalier de la Tour derrière elle. Deux gardes ferment la marche. Tu as jusqu'à minuit, et les murs de la Tour pour tout horizon." },
-      { if: { clock: "s3", min: 1, max: 1 }, text: "Les cloches sonnent neuf heures. Tu as encore le temps de deux choses." },
-      { if: { clock: "s3", min: 2, max: 2 }, text: "Les cloches sonnent dix heures. Tu as encore le temps d'une chose." },
+      { if: { clock: "s3", min: 1, max: 1 }, text: "Les cloches sonnent huit heures. Tu as encore le temps de trois choses." },
+      { if: { clock: "s3", min: 2, max: 2 }, text: "Les cloches sonnent neuf heures. Tu as encore le temps de deux choses." },
+      { if: { clock: "s3", min: 3, max: 3 }, text: "Les cloches sonnent dix heures. Tu as encore le temps d'une chose." },
       { if: { all: [{ has: "ysabeau=allie" }, VILLE, { not: { has: "sevan:ysabeau3" } }] }, text: "Sur le Grand Canal, une barque du Guet passe à toute vitesse vers le palais, avec quatre hallebardiers. La capitaine a pris un parti, ce soir." },
       { if: { has: "leonce=temoin" }, text: "Quelqu'un, déjà, a mis Léonce Brisard à l'abri." },
       { if: { has: "leonce=mort" }, text: "On dit sur les quais qu'on a repêché un homme sous le pont de la Maison des Sels, ce soir. Un apothicaire." },
@@ -152,12 +153,14 @@ module.exports = {
       { label: "Parler à la capitaine pendant qu'elle te garde", if: TOUR, hide: { any: [{ has: "sevan:ysabeau3" }, VILLE] }, to: "S3_ysabeau_tour" },
       { label: "Soigner les prisonniers de la Tour, pendant qu'on te garde", if: TOUR, hide: { any: [VILLE, { has: "sevan:soins3" }] }, to: "S3_soins" },
       { label: "La chapelle des Noyés : prier une heure, pour elle et pour toi", hide: { has: "sevan:priere3" }, to: "S3_priere" },
+      { label: "T'asseoir sur les marches du palais, et attendre onze heures", hide: { clock: "s3", max: 2 }, fx: { until: 23 }, to: "S3_fin" },
       { label: "Oriane Valcor, au palais", if: VILLE, why: "La capitaine ne te laissera pas sortir de la Tour avant minuit.", hide: { has: "sevan:oriane3" }, to: "S3_oriane" },
     ] },
   S3_suite: { branch: [
-    { if: { clock: "s3", min: 3 }, fx: { until: 23 }, to: "S3_fin" },
-    { if: { clock: "s3", min: 2 }, fx: { until: 22 }, to: "S3_ville" },
-    { fx: { until: 21 }, to: "S3_ville" },
+    { if: { clock: "s3", min: 4 }, fx: { until: 23 }, to: "S3_fin" },
+    { if: { clock: "s3", min: 3 }, fx: { until: 22 }, to: "S3_ville" },
+    { if: { clock: "s3", min: 2 }, fx: { until: 21 }, to: "S3_ville" },
+    { fx: { until: 20 }, to: "S3_ville" },
   ] },
 
   // ---------------------------------------------------------------- Léonce
@@ -472,6 +475,11 @@ module.exports = {
       { if: { has: "leonce=temoin" }, text: "Léonce marche à côté de toi, la tête basse, enveloppé dans un manteau de pêcheur. Il ne te lâche pas la manche." },
       { if: { has: "ysabeau3=escorte" }, text: "Ysabeau Dorne marche devant toi, ses gardes derrière. Tu es prisonnier. Tu es aussi, pour la première fois, protégé." },
       { if: { has: "nella:sait_pavot" }, text: "Nella sait. Une personne au monde, en dehors de toi, sait tout. C'est étrange : ça pèse moins lourd." },
+      { if: { has: "sevan_serment=absolu" }, text: "Tu penses au serment fait à Ermesinde, il y a dix-neuf ans, au chevet d'une enfant bleue : te taire jusqu'à ta mort. Tu es encore vivant." },
+      { if: { has: "sevan_serment=besoin" }, text: "Tu penses au serment fait à Ermesinde, il y a dix-neuf ans : te taire jusqu'au jour du besoin. Tu as passé la journée à te demander si c'était celui-ci." },
+      { if: { all: [{ has: "clef2=sevan" }, { has: "sevan_clef=pourquoi" }] }, text: "La clef de fer est dans ta poche intérieure, avec tes lancettes. *Un médecin regarde ce qu'il a devant lui.* Ce soir, tu vas devoir regarder un Conseil entier." },
+      { if: { all: [{ has: "clef2=sevan" }, { has: "sevan_clef=prise" }] }, text: "La clef de fer est dans ta poche intérieure, avec tes lancettes. Elle a pris, en quatre mois, la chaleur de ton corps." },
+      { if: { has: "sevan_lettre3=nella" }, text: "La lettre pour Nella est contre ta poitrine, sous ta chemise. Elle a pris la chaleur de ta peau." },
       "Dans une heure, tu seras devant le Conseil des Lanternes. On te demandera de quoi est morte Ermesinde Valcor.",
     ],
     choices: [
