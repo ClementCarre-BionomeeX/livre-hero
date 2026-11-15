@@ -10183,7 +10183,7 @@
     "time": 0.5
    },
    "text": [
-    "Rambert ne dit rien pendant longtemps. Ses joues ont perdu leur rose. Il regarde la boîte sous ta main.",
+    "Rambert garde longtemps le silence. Ses joues ont perdu leur rose. Il regarde la boîte sous ta main.",
     "« Corlay me paie, dit-il enfin, à voix basse. Il saura que j'ai levé le pont. »",
     "« Dites-lui qu'il ne s'est rien passé sur le pont. Ce sera vrai. »",
     "Il appelle son ordonnance. Il dicte un ordre au sergent Brasseur : rentrer au poste avec ses hommes, le pont n'est plus à garder. Il signe. Il ne te regarde plus.",
@@ -10268,7 +10268,7 @@
     "time": 5
    },
    "text": [
-    "Deux hommes du guet te raccompagnent jusqu'à ta porte. Ils s'assoient sur ta marche, les hallebardes en travers des genoux. Ils ne fouillent pas la boutique. Rambert n'a pas donné cet ordre-là. Il attend de voir qui viendra chercher le paquet.",
+    "Deux hommes du guet te raccompagnent jusqu'à ta porte. Ils s'assoient sur ta marche, les hallebardes en travers des genoux. Ils restent dehors. Rambert n'a pas donné l'ordre de fouiller. Il attend de voir qui viendra chercher le paquet.",
     "Le paquet est derrière les bocaux de sangsues. Toi devant le comptoir. Entre vous deux, trois pas, et personne à qui le donner.",
     "À deux heures, tu ouvres la fenêtre du premier étage. Tu cries dans la rue : « La digue ! Montez ! » Les gardes lèvent la tête. Des volets s'ouvrent. On t'entend, on ne te voit pas, et une voix dans la nuit vaut moins qu'une main sur la porte. Quelques familles montent. Les autres se recouchent.",
     "À trois heures, au bout de la vallée, une seule lanterne.",
@@ -10355,7 +10355,7 @@
     "time": 0.5
    },
    "text": [
-    "Bastien ne te regarde pas. Il regarde le paquet qui dépasse de ton manteau.",
+    "Bastien évite tes yeux. Il regarde le paquet qui dépasse de ton manteau.",
     "Il se lève d'un coup, renverse la table, les dés, le vin, les écus. Dans le désordre, il t'arrache le paquet des bras. Tu tombes sur un banc. Tes genoux crient.",
     "Le temps que le marchand de Lyon t'aide à te relever, Bastien est dans la rue, en courant vers la rue Haute. Vers la maison Corlay. Il porte à Corlay ce qu'il n'avait vendu qu'en paroles.",
     "Tu redescends aux Foulons très lentement, en t'arrêtant à chaque borne. Au pont, le sergent Brasseur te prend le bras sans rien demander et te fait passer.",
@@ -10557,7 +10557,7 @@
      "text": "Il entre dans la cuisine. Il voit la clé sur la table, à côté de deux bouteilles vides, et son père dans le fauteuil. Il s'assoit par terre, à côté du fauteuil."
     },
     "« À huit heures hier soir, dit-il, je suis allé chez Corlay. Je lui ai dit que la clé restait ici. » Il a la voix calme. « Puis à deux heures, je suis allé frapper aux portes. J'ai fait les deux. Je ne sais pas lequel des deux je suis. »",
-    "Anselme pose la main sur la tête de son fils. Il ne dit rien. Tu ranges les tasses.",
+    "Anselme pose la main sur la tête de son fils. Il se tait. Tu ranges les tasses.",
     "Anselme meurt à midi. Bastien tient sa main. Tu tiens l'autre. Personne, dans cette cuisine, n'a de réponse à la question du fils. Tu crois que c'est la bonne question, et que ça suffit pour commencer."
    ]
   },
@@ -10711,7 +10711,7 @@
     "Ton père prend la clé. Il regarde Maëlle, puis toi. Il dit : « Entrez. Il fait froid. »",
     "C'est tout ce qu'il dit de la nuit. Vous tournez la roue, tous les trois. Maëlle est redescendue lever les Foulons. Au jour, la digue tient, le quartier est vivant sur le parvis.",
     "À onze heures, ton père t'appelle près du fauteuil. Il te donne son carnet de mesures, avec trois feuilles pliées entre les pages. « Le Conseil a payé tes dettes il y a trois ans, dit-il. Pour que je me taise. Moi aussi, j'ai été vendu, et j'ai pris l'argent. Nous sommes deux. » Il meurt à midi.",
-    "La Charge, tu la laisses aux autres. Tu lis les trois feuilles devant le Conseil le jour de l'enterrement, et tu dis ce que tu as fait, toi aussi, à huit heures. Tu quittes la salle avant le vote. Dehors, la courrière t'attend sur les marches. Elle ne dit rien. Elle marche à côté de toi jusqu'au pont."
+    "La Charge, tu la laisses aux autres. Tu lis les trois feuilles devant le Conseil le jour de l'enterrement, et tu dis ce que tu as fait, toi aussi, à huit heures. Tu quittes la salle avant le vote. Dehors, la courrière t'attend sur les marches. En silence, elle marche à côté de toi jusqu'au pont."
    ]
   },
   "B_attendre": {
@@ -11300,7 +11300,7 @@
     "Tu descends sur le parvis à huit heures, quand Colin te relève. Ilde est sur les marches, sa trousse sur les genoux. À côté d'elle, Fulbert Cosson, enroué, les mains bleues croisées, ses deux enfants contre lui.",
     "On le remercie. Des femmes lui apportent du café. Il ne sait pas où se mettre. Il te voit arriver. Il baisse les yeux.",
     "Ilde te regarde, puis elle regarde Cosson, puis toi. Elle a compris. Elle te fait une place sur la marche.",
-    "Rambert ne saura jamais ce que son mouchard a vu cette nuit. Cosson ne lui dira plus rien, à partir de ce jour. Tu as pris un homme qui vendait ses voisins, et tu lui as montré que sa voix pouvait servir à autre chose. Tu ne sais pas s'il s'en souviendra la semaine prochaine. Ce matin, il s'en souvient."
+    "Rambert ne saura jamais ce que son mouchard a vu cette nuit. Cosson se taira, à partir de ce jour. Tu as pris un homme qui vendait ses voisins, et tu lui as montré que sa voix pouvait servir à autre chose. Tu ne sais pas s'il s'en souviendra la semaine prochaine. Ce matin, il s'en souvient."
    ]
   },
   "O_loutre_pont": {
@@ -11314,7 +11314,7 @@
     "À une heure, une femme marche droit sur ta lanterne depuis la route de la Digue. Une tresse rousse, une veste de toile goudronnée, et cette façon de marcher comme si le sol bougeait. Jacquette Morand, la Loutre. Tu l'as arrêtée deux fois. Tu l'as ratée vingt.",
     "« Sergent. J'attends une commission, cette nuit. Quelqu'un est passé, avec un paquet ? »",
     "Tu la regardes. Il y a deux heures, une courrière en châle gris est passée sur ce pont avec un paquet long comme un avant-bras, vers la digue. Tu l'as laissée passer. Tu as menti au capitaine.",
-    "La Loutre attend. Elle ne sait pas ce que tu sais."
+    "La Loutre attend. Elle ignore ce que tu sais."
    ],
    "choices": [
     {
@@ -12229,7 +12229,7 @@
    "text": [
     "Devant la maison Corlay, six hommes du guet, le capitaine Rambert à leur tête, en manteau. Quelqu'un l'a prévenu. Tes vingt forgerons s'arrêtent à dix pas, les torches levées. Aux fenêtres de la rue Haute, des bonnets de nuit.",
     "« Dame Hesdin, dit Rambert de sa voix douce. Rentrez chez vous. Ceci n'est pas digne d'une maison du Conseil. »",
-    "Corlay est à sa fenêtre, au premier étage. Il ne dit rien. Il regarde."
+    "Corlay est à sa fenêtre, au premier étage. Il se tait. Il regarde."
    ],
    "choices": [
     {
@@ -12263,7 +12263,7 @@
     "Barthélemy part à cheval avec la clé. Tu envoies dix hommes aux Foulons, frapper aux portes. À trois heures et demie, au bout de la vallée, trois lanternes. La digue tient.",
     "À huit heures, tu entres au Conseil avec la liasse au ruban noir. Tu la lis. Personne ne t'interrompt.",
     "Puis on t'arrête, parce qu'une maison du Conseil a forcé la porte d'une autre avec vingt hommes et des barres de fer. Tu le savais en sonnant la cloche. On te juge au printemps, en même temps que Corlay. Vous êtes assis sur le même banc, à deux pas l'un de l'autre. Tu es condamnée à une amende que tu paies le jour même. Lui, à tout le reste.",
-    "Barthélemy vient te chercher à la sortie du tribunal avec ta voiture. Il a une cicatrice neuve à la main. Il ne dit rien. Il t'aide à monter."
+    "Barthélemy vient te chercher à la sortie du tribunal avec ta voiture. Il a une cicatrice neuve à la main. En silence, il t'aide à monter."
    ]
   },
   "H_force_perdue": {
@@ -12362,7 +12362,7 @@
     "Tu bouges. La barque gîte. La lanterne descend au bout d'une corde jusqu'à l'eau, et tu te retrouves dans la lumière, couchée sur le paquet, avec la tête du sergent Brasseur penchée au-dessus du parapet.",
     "Il te regarde. Il regarde Guillot. Il regarde le paquet. Il reste longtemps penché.",
     "« Tu as une femme enceinte à la maison, Guillot. Et tu promènes des courrières sur la Sorge à dix heures du soir. » La lanterne remonte. « Je n'ai rien vu. Rentre avant minuit, ou c'est moi qui viendrai le dire à Nine. »",
-    "Guillot rame plus fort. Il ne dit rien jusqu'aux tanneries. Puis il rit tout bas, les dents serrées, et il rame encore plus fort.",
+    "Guillot rame plus fort. Il se tait jusqu'aux tanneries. Puis il rit tout bas, les dents serrées, et il rame encore plus fort.",
     "Au pied de la digue, il te pose sur le ponton de la cabane des Loutres."
    ],
    "choices": [

@@ -26,7 +26,7 @@ module.exports = {
     ] },
   I_rambert_cede: { act: A, title: "La garde levée", place: "hauteville", fx: { time: 0.5 },
     text: [
-      "Rambert ne dit rien pendant longtemps. Ses joues ont perdu leur rose. Il regarde la boîte sous ta main.",
+      "Rambert garde longtemps le silence. Ses joues ont perdu leur rose. Il regarde la boîte sous ta main.",
       "« Corlay me paie, dit-il enfin, à voix basse. Il saura que j'ai levé le pont. »",
       "« Dites-lui qu'il ne s'est rien passé sur le pont. Ce sera vrai. »",
       "Il appelle son ordonnance. Il dicte un ordre au sergent Brasseur : rentrer au poste avec ses hommes, le pont n'est plus à garder. Il signe. Il ne te regarde plus.",
@@ -59,7 +59,7 @@ module.exports = {
     choices: [{ label: "Redescendre, escortée", to: "I_boutique_gardee", fx: { time: 0.5 } }] },
   I_boutique_gardee: { act: A, title: "Deux hommes sur ta marche", place: "foulons", end: true, fx: { time: 5 },
     text: [
-      "Deux hommes du guet te raccompagnent jusqu'à ta porte. Ils s'assoient sur ta marche, les hallebardes en travers des genoux. Ils ne fouillent pas la boutique. Rambert n'a pas donné cet ordre-là. Il attend de voir qui viendra chercher le paquet.",
+      "Deux hommes du guet te raccompagnent jusqu'à ta porte. Ils s'assoient sur ta marche, les hallebardes en travers des genoux. Ils restent dehors. Rambert n'a pas donné l'ordre de fouiller. Il attend de voir qui viendra chercher le paquet.",
       "Le paquet est derrière les bocaux de sangsues. Toi devant le comptoir. Entre vous deux, trois pas, et personne à qui le donner.",
       "À deux heures, tu ouvres la fenêtre du premier étage. Tu cries dans la rue : « La digue ! Montez ! » Les gardes lèvent la tête. Des volets s'ouvrent. On t'entend, on ne te voit pas, et une voix dans la nuit vaut moins qu'une main sur la porte. Quelques familles montent. Les autres se recouchent.",
       "À trois heures, au bout de la vallée, une seule lanterne.",
@@ -98,7 +98,7 @@ module.exports = {
     ] },
   I_chat_fuite: { act: A, title: "Le paquet sur la table", place: "hauteville", fx: { flag: "route:pont", time: 0.5 },
     text: [
-      "Bastien ne te regarde pas. Il regarde le paquet qui dépasse de ton manteau.",
+      "Bastien évite tes yeux. Il regarde le paquet qui dépasse de ton manteau.",
       "Il se lève d'un coup, renverse la table, les dés, le vin, les écus. Dans le désordre, il t'arrache le paquet des bras. Tu tombes sur un banc. Tes genoux crient.",
       "Le temps que le marchand de Lyon t'aide à te relever, Bastien est dans la rue, en courant vers la rue Haute. Vers la maison Corlay. Il porte à Corlay ce qu'il n'avait vendu qu'en paroles.",
       "Tu redescends aux Foulons très lentement, en t'arrêtant à chaque borne. Au pont, le sergent Brasseur te prend le bras sans rien demander et te fait passer.",
@@ -176,7 +176,7 @@ module.exports = {
       { if: { not: { has: "ilde:cle_cachee" } }, text: "Il entre dans la cuisine. Il voit les deux gardes du guet endormis contre le buffet, la clé sur la table, son père dans le fauteuil. Il s'assoit par terre, à côté du fauteuil." },
       { if: { has: "ilde:cle_cachee" }, text: "Il entre dans la cuisine. Il voit la clé sur la table, à côté de deux bouteilles vides, et son père dans le fauteuil. Il s'assoit par terre, à côté du fauteuil." },
       "« À huit heures hier soir, dit-il, je suis allé chez Corlay. Je lui ai dit que la clé restait ici. » Il a la voix calme. « Puis à deux heures, je suis allé frapper aux portes. J'ai fait les deux. Je ne sais pas lequel des deux je suis. »",
-      "Anselme pose la main sur la tête de son fils. Il ne dit rien. Tu ranges les tasses.",
+      "Anselme pose la main sur la tête de son fils. Il se tait. Tu ranges les tasses.",
       "Anselme meurt à midi. Bastien tient sa main. Tu tiens l'autre. Personne, dans cette cuisine, n'a de réponse à la question du fils. Tu crois que c'est la bonne question, et que ça suffit pour commencer.",
     ] },
   I_saisie: { act: A, title: "La clé saisie", place: "digue", end: true, fx: { time: 4 },

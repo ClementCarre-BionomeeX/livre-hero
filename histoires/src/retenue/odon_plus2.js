@@ -56,7 +56,7 @@ module.exports = {
       "Tu descends sur le parvis à huit heures, quand Colin te relève. Ilde est sur les marches, sa trousse sur les genoux. À côté d'elle, Fulbert Cosson, enroué, les mains bleues croisées, ses deux enfants contre lui.",
       "On le remercie. Des femmes lui apportent du café. Il ne sait pas où se mettre. Il te voit arriver. Il baisse les yeux.",
       "Ilde te regarde, puis elle regarde Cosson, puis toi. Elle a compris. Elle te fait une place sur la marche.",
-      "Rambert ne saura jamais ce que son mouchard a vu cette nuit. Cosson ne lui dira plus rien, à partir de ce jour. Tu as pris un homme qui vendait ses voisins, et tu lui as montré que sa voix pouvait servir à autre chose. Tu ne sais pas s'il s'en souviendra la semaine prochaine. Ce matin, il s'en souvient.",
+      "Rambert ne saura jamais ce que son mouchard a vu cette nuit. Cosson se taira, à partir de ce jour. Tu as pris un homme qui vendait ses voisins, et tu lui as montré que sa voix pouvait servir à autre chose. Tu ne sais pas s'il s'en souviendra la semaine prochaine. Ce matin, il s'en souvient.",
     ] },
 
   // ------------------------------------------------------------------ the passeuse at one in the morning
@@ -65,7 +65,7 @@ module.exports = {
       "À une heure, une femme marche droit sur ta lanterne depuis la route de la Digue. Une tresse rousse, une veste de toile goudronnée, et cette façon de marcher comme si le sol bougeait. Jacquette Morand, la Loutre. Tu l'as arrêtée deux fois. Tu l'as ratée vingt.",
       "« Sergent. J'attends une commission, cette nuit. Quelqu'un est passé, avec un paquet ? »",
       "Tu la regardes. Il y a deux heures, une courrière en châle gris est passée sur ce pont avec un paquet long comme un avant-bras, vers la digue. Tu l'as laissée passer. Tu as menti au capitaine.",
-      "La Loutre attend. Elle ne sait pas ce que tu sais.",
+      "La Loutre attend. Elle ignore ce que tu sais.",
     ],
     choices: [
       { label: "« Celle que tu attends est passée à neuf heures et demie. Regarde sous tes pierres. »", to: "O_loutre_seule" },

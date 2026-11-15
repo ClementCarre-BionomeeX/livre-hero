@@ -54,7 +54,7 @@ module.exports = {
       "Tu bouges. La barque gîte. La lanterne descend au bout d'une corde jusqu'à l'eau, et tu te retrouves dans la lumière, couchée sur le paquet, avec la tête du sergent Brasseur penchée au-dessus du parapet.",
       "Il te regarde. Il regarde Guillot. Il regarde le paquet. Il reste longtemps penché.",
       "« Tu as une femme enceinte à la maison, Guillot. Et tu promènes des courrières sur la Sorge à dix heures du soir. » La lanterne remonte. « Je n'ai rien vu. Rentre avant minuit, ou c'est moi qui viendrai le dire à Nine. »",
-      "Guillot rame plus fort. Il ne dit rien jusqu'aux tanneries. Puis il rit tout bas, les dents serrées, et il rame encore plus fort.",
+      "Guillot rame plus fort. Il se tait jusqu'aux tanneries. Puis il rit tout bas, les dents serrées, et il rame encore plus fort.",
       "Au pied de la digue, il te pose sur le ponton de la cabane des Loutres.",
     ],
     choices: [{ label: "Regarder la cabane", to: "M_cabane_tot", via: "barque" }] },

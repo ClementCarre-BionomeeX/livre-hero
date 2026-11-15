@@ -271,7 +271,7 @@ module.exports = {
     text: [
       "Devant la maison Corlay, six hommes du guet, le capitaine Rambert à leur tête, en manteau. Quelqu'un l'a prévenu. Tes vingt forgerons s'arrêtent à dix pas, les torches levées. Aux fenêtres de la rue Haute, des bonnets de nuit.",
       "« Dame Hesdin, dit Rambert de sa voix douce. Rentrez chez vous. Ceci n'est pas digne d'une maison du Conseil. »",
-      "Corlay est à sa fenêtre, au premier étage. Il ne dit rien. Il regarde.",
+      "Corlay est à sa fenêtre, au premier étage. Il se tait. Il regarde.",
     ],
     choices: [
       { label: "« Barthélemy. La porte. »", test: { dom: "combat", diff: -10, label: "Forcer la maison" }, win: { to: "H_force_fin" }, lose: { to: "H_force_perdue" } },
@@ -283,7 +283,7 @@ module.exports = {
       "Barthélemy part à cheval avec la clé. Tu envoies dix hommes aux Foulons, frapper aux portes. À trois heures et demie, au bout de la vallée, trois lanternes. La digue tient.",
       "À huit heures, tu entres au Conseil avec la liasse au ruban noir. Tu la lis. Personne ne t'interrompt.",
       "Puis on t'arrête, parce qu'une maison du Conseil a forcé la porte d'une autre avec vingt hommes et des barres de fer. Tu le savais en sonnant la cloche. On te juge au printemps, en même temps que Corlay. Vous êtes assis sur le même banc, à deux pas l'un de l'autre. Tu es condamnée à une amende que tu paies le jour même. Lui, à tout le reste.",
-      "Barthélemy vient te chercher à la sortie du tribunal avec ta voiture. Il a une cicatrice neuve à la main. Il ne dit rien. Il t'aide à monter.",
+      "Barthélemy vient te chercher à la sortie du tribunal avec ta voiture. Il a une cicatrice neuve à la main. En silence, il t'aide à monter.",
     ] },
   H_force_perdue: { act: A, title: "Les hallebardes", place: "hauteville", end: true, fx: { time: 5.5 },
     text: [
