@@ -389,7 +389,35 @@ Clément (15/11) : toutes les histoires démarrent dans l'action, et le lecteur 
 
 Les noms suivent le glossaire : une seule fois par page, jamais dans un bouton, ni dans ce que lit la voix. Le validateur refuse une page sans titre ou sans texte et un nom sans sa phrase. Exemple : `tests/monde-test.js`.
 
-## Un livre à lire (15/11, 8.7) : `lecture`, `narrator`, `notice`
+## Plusieurs vies, beaucoup de fins (15/11, 8.8) : pistes déjà suivies, fins composées, aiguillages, héros prédéfinis
+
+Pour « Les Fils de la Marée » (Clément, 15/11 : trois actes, deux heures par partie, des centaines de fins, des choix qui changent vraiment la suite).
+
+| Où | Clé | Sens |
+|---|---|---|
+| appli | pistes déjà suivies | Sous chaque choix déjà pris dans une partie précédente de ce lecteur, la mention « déjà suivie ». Réglage « Pistes déjà suivies » (activé par défaut). La fiche du lecteur montre la part des pistes explorées. Rien à écrire dans l'histoire. |
+| `story.fates` | `[{ who, label, list: [{ id, title, if, text, dens }] }]` | Les destins. Sur une fin marquée `epilogue`, après l'épilogue, une phrase par personnage suivi : le premier destin de sa liste dont la condition tient, le dernier par défaut. Une fin trouvée = le dénouement + le destin de chacun ; l'appli compte les combinaisons trouvées sur le nombre déclaré. |
+| destin | `dens: "id"` ou `["id", …]` | Les dénouements (`fx.flag: "fin:<id>"`) qu'un destin peut suivre. Sans `dens`, tous. Sert au compte des fins possibles : déclarer honnêtement. |
+| passage | `branch: [{ if, to, fx }]` | Un aiguillage : le moteur passe tout de suite au premier `to` dont la condition tient, en appliquant son `fx`. Ni texte ni choix ; le dernier sans condition. Sert à lire l'état (qui a fait quoi avant) sans montrer de page. |
+| `story.heroes` | sans héros `player` | Histoire à héros prédéfinis : la création montre « Tu suivras » et la liste des héros, sans nom, genre, voie ni visage à choisir. |
+
+Règle de construction (la Marée) : chaque acte se lit en ordre libre au carrefour, et le héros suivi le premier agit le premier (un témoin sauvé ou perdu, une clef trouvée, une alliée gagnée). Les choix posent des états (`fx.set`), lus plus loin par les aiguillages et les conditions, jusqu'au dénouement. Le validateur vérifie les cibles et conditions des aiguillages et ne compte pas un aiguillage comme passage jamais atteint.
+
+## Chemins qui se dévoilent (15/11, 8.9) : personnes à suivre, savoir gardé, raccourcis
+
+| Où | Clé | Sens |
+|---|---|---|
+| histoire | `leads: { id: { name, desc, start, if, hint, label, fx } }` | Les personnes qu'on peut suivre, chacune un héros de `heroes` (avec sa fiche dans `companions`). `if` : la condition qui l'ouvre (`second`, `lore`…) ; `hint` : la phrase montrée sur le bouton grisé tant qu'elle est fermée (sans rien éventer). |
+| passage | `leads: true` | Le moteur écrit un choix par personne de `leads` : « Suivre Maëlle », qui la met en tête (`fx.lead`) et mène à son `start`. Les fermées restent grisées avec leur `hint`. |
+| histoire | `savoirs: { id: { title, text } }` | Ce qu'un lecteur garde d'une partie à l'autre. |
+| effet | `learn: "id"` ou `["a", "b"]` | Le lecteur garde ce savoir pour toutes ses parties suivantes de l'histoire. L'appli l'écrit dans son profil tout de suite (une partie laissée en route l'a quand même appris). Le moteur le dit : « Tu gardes pour les parties suivantes : … ». |
+| condition | `{ savoir: "id" }` ou `{ savoir: ["a", "b"] }` | Ce lecteur a appris ce savoir (dans cette partie ou une autre). |
+| condition | `{ lu: "PASSAGE" }` | Ce lecteur a lu ce passage dans une partie précédente (il y a pris un choix). |
+| passage | `skip: { to, label, fx }` | Raccourci : si le lecteur a déjà lu ce passage dans une autre partie, un choix de plus, « Tu connais la suite : passer » (ou `label`), mène à `to` avec les effets `fx` (ce que la scène sautée aurait donné). |
+
+Le moteur marque d'un ✧ un choix ouvert grâce à une partie précédente (`savoir`, `lu`, `second` dans son `if`, ou tag `second`), tant que le lecteur ne l'a jamais pris. À une fin, l'appli nomme les personnes que cette fin vient d'ouvrir. Onglet « L'intrigue » du carnet : personnes ouvertes et fermées, savoir gardé, fins trouvées. Le validateur joue deux parties sur cinq avec une partie du savoir et des pages lues.
+
+## Un livre à lire (15/11, 9.0) : `lecture`, `narrator`, `notice`
 
 Pour mettre dans l'appli un roman tel qu'il est écrit, sans choix (Clément, 15/11 : « Le Monde perdu » de Doyle). Le moteur enchaîne les passages dans l'ordre de leur déclaration : chaque passage sans choix reçoit un bouton « Suivant », ou le titre du chapitre suivant quand l'acte change ; le dernier passage finit le livre.
 

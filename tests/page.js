@@ -52,5 +52,5 @@ function assemble(storiesJson, opts) {
     "<script>" + safe(read("app/app.js")) + "</script>",
   ]).join("\n");
 }
-var STORIES = ["kardan", "cendres", "vaudrenne", "pages", "quarante", "temoin", "malvoran", "soiree", "enquete", "siege", "mer", "ecole", "huisclos", "adeux", "mondeperdu"];
+var STORIES = ["kardan", "cendres", "vaudrenne", "pages", "quarante", "temoin", "malvoran", "soiree", "enquete", "siege", "mer", "ecole", "huisclos", "adeux", "maree", "retenue", "mondeperdu"];
 module.exports = { assemble: assemble, buildOf: buildOf, STORIES: STORIES };
