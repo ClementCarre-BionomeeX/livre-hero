@@ -10,8 +10,8 @@ var FAMILLE = { any: [RENDU, MOULIN] };
 module.exports = {
   IV_r_sv: P({ title: "La route de l'ouest", place: null,
     text: [
-      "Vous descendez les crêtes vers l'ouest. Les villages des vallées sont habités, mais on y voit des choses étranges : un homme qui repeint le nom de sa rue sur un mur, en grosses lettres. Une femme qui récite, en faisant sa lessive, la liste de ses enfants. Partout, des noms écrits : sur les portes, sur les colliers des chiens, sur les manches des outils.",
-      "À un carrefour, une meute de loups blancs. Des loups ordinaires, maigres, devenus blancs pendant l'année blanche, et hardis parce qu'ils ont oublié la peur des hommes.",
+      "Vous descendez les crêtes vers l'ouest. Les villages des vallées sont habités, mais l'œil y relève des choses étranges : un homme qui repeint le nom de sa rue sur un mur, en grosses lettres. Une femme qui récite, en faisant sa lessive, la liste de ses enfants. Partout, des noms écrits : sur les portes, sur les colliers des chiens, sur les manches des outils.",
+      "À un carrefour, une meute de loups blancs. Des loups ordinaires, maigres à compter les côtes, devenus blancs pendant l'année blanche, et hardis parce qu'ils ont oublié la peur des hommes. Ils sont sept.",
     ],
     choices: [
       { label: "Les affronter", to: "IV_r_sv_combat" },
@@ -29,12 +29,12 @@ module.exports = {
 
   IV_sv_arrivee: P({ title: "Sauvelune", place: "sauvelune",
     text: [
-      "La route de la vallée, le pont sur la Sauve, le chêne au-dessus du village. Tu les reconnais avant de les voir, à l'odeur, au bruit de l'eau.",
+      "La route de la vallée, le pont sur la Sauve, le chêne au-dessus du village. Tu les reconnais avant de les voir, à l'odeur de foin mouillé, au bruit de l'eau sur les trois pierres du gué.",
       { if: RENDU, text: "Le village est là. Les toits, le temple, la fumée des cheminées. Le moulin tourne. Des enfants pataugent dans la Sauve. Un chien aboie. Quelqu'un fauche le pré des foins, en chantant faux. Sauvelune vit, comme si l'été dernier était un mauvais rêve." },
       { if: MOULIN, text: "Le village est là, sous les herbes hautes. Les toits, le temple, les maisons fermées. Personne. Une seule cheminée fume : celle du moulin. La roue tourne. Sur le seuil, Pim lance des cailloux dans le bief, et il se retourne en entendant vos pas, et il crie ton nom de toutes ses forces." },
-      { if: VIDE, text: "Le village est là, sous les herbes hautes. Les toits, le temple, les maisons. Personne. Les portes sont ouvertes, les volets battent. La roue du moulin est arrêtée, prise dans les ronces. Le chêne a perdu une branche. Sur le pont, l'herbe a poussé entre les pierres." },
+      { if: VIDE, text: "Le village est là, sous les herbes hautes. Les toits, le temple, les maisons. Personne. Les portes sont ouvertes, les volets battent. La roue du moulin est arrêtée, prise dans les ronces jusqu'au moyeu. Le chêne a perdu une branche, la grosse, celle de la balançoire. Sur le pont, l'herbe a poussé entre les pierres." },
       { if: { has: "sauvelune:sonne" }, text: "Et du clocher vide du temple, de temps en temps, sans personne pour tirer la corde, vient un son de cloche. Un seul coup, très loin, comme un écho de quelque chose qui sonne ailleurs." },
-      { if: VIDE, text: "Et pourtant, une fumée. Pas au moulin. Au four communal, en bas de la place. Quelqu'un cuit du pain." },
+      { if: VIDE, text: "Et pourtant, une fumée. Elle monte du four communal, en bas de la place, et le moulin reste froid. Quelqu'un cuit du pain." },
     ],
     choices: [
       { label: "Aller au moulin", hide: VIDE, to: "IV_sv_moulin" },
@@ -44,17 +44,17 @@ module.exports = {
 
   IV_sv_moulin: P({ title: "Le moulin", place: "sauvelune",
     text: [
-      { if: RENDU, text: "Joris est devant la meule, comme toujours. Il te voit. Il pose le sac qu'il portait. Il se tait, comme toujours. Il vient vers toi et il te serre contre lui, si fort que tu sens son cœur, et il dit, dans tes cheveux : « Un an. » C'est tout. C'est un reproche, et un pardon, et tout le reste." },
+      { if: RENDU, text: "Joris est devant la meule, comme toujours. Il te voit. Il pose le sac qu'il portait, un sac de cent livres, comme on pose une plume. Il se tait, comme toujours. Il vient vers toi et il te serre contre lui, si fort que tu sens son cœur, et il dit, dans tes cheveux : « Un an. » C'est tout. C'est un reproche, et un pardon, et tout le reste." },
       { if: MOULIN, text: "Joris a désherbé la roue tout seul, et la roue tourne, pour personne. Il moud un peu de grain trouvé dans un grenier. « On n'allait pas rester les bras croisés », dit-il. Agathe a fait du pain dans le four du moulin. Ils sont seuls dans un village vide, et ils ont l'air de trouver ça normal, comme des gens qui se sont réveillés d'un long rêve." },
       { if: { souv: "enfant:agathe" }, text: "Agathe arrive en courant de la cuisine, les joues rouges, et elle te pousse une mèche derrière l'oreille, avant même de dire bonjour." },
-      { if: { not: { souv: "enfant:agathe" } }, text: "Une femme arrive en courant de la cuisine, large, rieuse. Tu sais que c'est ta mère. Tu ne reconnais pas son visage. Tu l'as donné, il y a longtemps, et tu ne l'auras plus jamais. Elle te pousse une mèche derrière l'oreille, et ça, tu le reconnais." },
-      { if: { has: "ame:maera" }, text: "Maëra est restée sur le pont, en arrière. Elle regarde le moulin, la roue, la femme aux joues rouges qui t'embrasse. Elle ne s'approche pas. Elle sourit, et elle a l'air de quelqu'un qui vérifie qu'elle a eu raison." },
+      { if: { not: { souv: "enfant:agathe" } }, text: "Une femme arrive en courant de la cuisine, large, rieuse. Tu sais que c'est ta mère. Son visage t'est étranger. Tu l'as donné, il y a longtemps, et il est perdu pour toujours. Elle te pousse une mèche derrière l'oreille, et ça, tu le reconnais." },
+      { if: { has: "ame:maera" }, text: "Maëra est restée sur le pont, en arrière. Elle regarde le moulin, la roue, la femme aux joues rouges qui t'embrasse. Elle garde ses distances. Elle sourit, et elle a l'air de quelqu'un qui vérifie qu'elle a eu raison." },
     ],
     choices: [{ label: "Le soir, à table", to: "IV_sv_table" }] }),
 
   IV_sv_table: P({ takes: "evening", title: "À table", place: "sauvelune",
     text: [
-      "Le soir, à table, Agathe sert tout le monde avant de s'asseoir, comme toujours. Pim pose des questions jusqu'à ce qu'on le menace du grenier. Joris mange en silence. Tes compagnons sont serrés sur le banc, et Agathe les sert deux fois.",
+      "Le soir, à table, Agathe sert tout le monde avant de s'asseoir, comme toujours, et sa propre assiette en dernier, la moins pleine. Pim pose des questions jusqu'à ce qu'on le menace du grenier. Joris mange en silence. Tes compagnons sont serrés sur le banc, et Agathe les sert deux fois.",
       "À la fin du repas, Joris pose sa cuillère. Il te regarde. « Le coffre, dit-il. Au grenier. Il y avait une lettre. Je ne l'ai jamais ouverte. Je savais ce qu'il y avait dedans. » Il attend.",
     ],
     choices: [
@@ -65,28 +65,28 @@ module.exports = {
   IV_sv_dire: P({ title: "Aëlan", place: "sauvelune",
     text: [
       "Tu leur dis. Tout. La plaine, la forêt brûlée, la femme qui filait, le roi au siège de pierre, le nom.",
-      "Personne ne t'interrompt, même pas Pim. À la fin, Agathe se lève, et elle va chercher la marmite, et elle te ressert, alors que tu n'as plus faim.",
-      "« Aëlan, dit Joris, en essayant le mot comme on essaie un outil. C'est joli. » Il réfléchit. « Ici, tu t'appelles comme on t'a appelé. Là-bas, comme ils veulent. Un homme peut avoir deux noms. Moi, j'en ai eu un troisième, quand j'étais au régiment. Personne ne s'en souvient, et c'est tant mieux. »",
+      "Le silence tient jusqu'au bout, même chez Pim. À la fin, Agathe se lève, et elle va chercher la marmite, et elle te ressert, alors que tu n'as plus faim.",
+      "« Aëlan, dit Joris, en essayant le mot comme on essaie un outil. C'est joli. » Il réfléchit. « Ici, tu t'appelles comme on t'a appelé. Là-bas, comme ils veulent. On peut avoir deux noms. Moi, j'en ai eu un troisième, quand j'étais au régiment. Tout le monde l'a oublié, et c'est tant mieux. »",
       { if: { has: "ame:maera" }, text: "Agathe se lève de nouveau, et va ouvrir la porte. Maëra est assise sur le banc de pierre, dehors, dans le noir. Agathe lui dit d'entrer. Maëra entre. Les deux femmes se regardent par-dessus la table, très longtemps. Puis Agathe lui sert une assiette, et Maëra la mange, dans le silence de tous, et c'est la chose la plus importante qui se passe ce soir-là dans le monde entier." },
     ],
     choices: [{ label: "Dormir dans ton lit, au moulin", fx: { pv: 20 }, to: "IV_sv_matin" }] }),
 
   IV_sv_taire: P({ title: "Ton lit", place: "sauvelune",
     text: [
-      "Tu te tais. Joris hoche la tête, comme si c'était une réponse. Peut-être que c'en est une.",
+      "Tu gardes le silence. Joris hoche la tête, comme devant une réponse. C'en est peut-être une.",
       "Tu dors dans ton lit, sous le toit du moulin. La roue fait tac-tac à travers le plancher.",
       { if: { souv: "enfant:moulin" }, text: "Tu t'endors avant d'avoir compté jusqu'à dix." },
-      { if: { not: { souv: "enfant:moulin" } }, text: "Tu écoutes le bruit toute la nuit, sans dormir. Tu ne te souviens pas qu'il t'ait jamais bercé. Il devrait. Tu le sais. Tu l'as donné, il y a longtemps, à un renard." },
+      { if: { not: { souv: "enfant:moulin" } }, text: "Tu écoutes le bruit toute la nuit, les yeux ouverts. Il a bercé toutes tes nuits d'enfance, tu le sais. Le souvenir manque. Tu l'as donné, il y a longtemps, à un renard." },
       { if: { not: { souv: "enfant:moulin" } }, with: "givre", text: "Et le renard dort au pied du lit, et il ronronne, et ça fait tac-tac." },
     ],
     choices: [{ label: "Le matin", fx: { pv: 20 }, to: "IV_sv_matin" }] }),
 
   IV_sv_four: P({ title: "Le four", place: "sauvelune",
     text: [
-      "Le four communal est allumé. Devant la gueule, une grande forme blanche, voûtée, avec des bras trop longs et une pelle à pain dans les mains. Un Glaneur. Il enfourne des miches avec une précision de vieux métier.",
+      "Le four communal est allumé. Devant la gueule, une grande forme blanche, voûtée, avec des bras trop longs et une pelle à pain de six pieds dans les mains. Un Glaneur. Il enfourne des miches avec une précision de vieux métier.",
       { if: { has: "nord:gaspard" }, text: "C'est Gaspard. Il se retourne. Il n'a pas de visage, mais tu sais qu'il sourit. « Je suis revenu ici après la chute, dit-il de sa voix de vent dans les cheminées. Je ne savais pas où aller. Mes pieds savaient. »" },
-      { if: { not: { has: "nord:gaspard" } }, text: "Il se retourne. Il n'a pas de visage. Il reste sur place, calme. Il dit, d'une voix de vent dans les cheminées : « Il faut que quelqu'un fasse le pain. » Et puis, après un moment : « Gaspard. Je m'appelle Gaspard. Ici, je m'en souviens. Ailleurs, je ne sais pas. »" },
-      "Il te tend une miche. Elle est chaude, dorée, parfaite. Elle sent l'anis et le miel, comme le pain de la fête des foins.",
+      { if: { not: { has: "nord:gaspard" } }, text: "Il se retourne. Il n'a pas de visage. Il reste sur place, calme, la pelle levée comme une hampe. Il dit, d'une voix de vent dans les cheminées : « Il faut que quelqu'un fasse le pain. » Et puis, après un moment : « Gaspard. Je m'appelle Gaspard. Ici, je m'en souviens. Ailleurs, je ne sais pas. »" },
+      "Il te tend une miche. Elle est chaude, dorée, la croûte fendue en croix, parfaite. Elle sent l'anis et le miel, comme le pain de la fête des foins.",
     ],
     choices: [{ label: "« Pourquoi ici ? »", to: "IV_sv_four2" }] }),
 
@@ -106,16 +106,16 @@ module.exports = {
     choices: [{ fx: { food: 3 }, back: "IV_sv_place" }] }),
 
   IV_sv_gaspard_reste: P({ title: "Le four", place: "sauvelune",
-    text: ["Il hoche la tête. Il a l'air soulagé, et il a l'air triste de l'être. « Je ferai le pain, dit-il. Quand tu reviendras, il sera chaud. » Il te donne trois miches pour la route."],
+    text: ["Il hoche la tête. Il a l'air soulagé, et triste de l'être. « Je ferai le pain, dit-il. Quand tu reviendras, il sera chaud. » Il te donne trois miches pour la route."],
     choices: [{ fx: { food: 3 }, back: "IV_sv_place" }] }),
 
   IV_sv_chene: P({ title: "Le chêne", place: "sauvelune",
     text: [
       "Le vieux chêne au-dessus du village. Celui où les gens de Sauvelune gravent leurs noms depuis toujours, et où il n'y en avait plus, il y a un an.",
       { if: RENDU, text: "Les noms sont revenus, tous. Et il y en a de nouveaux, gravés cette année, tout frais : les enfants de Sauvelune ont gravé les leurs deux fois, une fois en bas, une fois en haut, pour être sûrs. Le tien y est. Quelqu'un l'a regravé, à côté de l'ancien." },
-      { if: { not: RENDU }, text: "L'écorce est lisse. Aucun nom. Le chêne a l'air plus jeune qu'il n'est." },
+      { if: { not: RENDU }, text: "L'écorce est lisse, vierge du pied à la fourche. Le chêne a l'air plus jeune que son âge." },
       { if: { all: [RENDU, { has: "tess:chene" }] }, text: "Tess est là. Assise contre le tronc, son marteau à côté d'elle. Elle a pris des bras de forgeronne, cette année. Elle te regarde arriver. « Un an, dit-elle. J'ai regravé ton nom tous les mois. Au cas où. »" },
-      { if: { all: [RENDU, { not: { has: "tess:chene" } }] }, text: "Tess monte vers toi, depuis la forge, en essuyant ses mains sur son tablier. Elle s'arrête à trois pas. Elle te regarde, longtemps, comme on vérifie qu'une lame est droite. « Tu es revenu », dit-elle, et ce n'est pas une question." },
+      { if: { all: [RENDU, { not: { has: "tess:chene" } }] }, text: "Tess monte vers toi, depuis la forge, en essuyant ses mains sur son tablier. Elle s'arrête à trois pas. Elle te regarde, longtemps, comme on vérifie qu'une lame est droite. « Te voilà », dit-elle, sur le ton d'un constat." },
     ],
     choices: [
       { label: "Graver ton nom. Les deux", hide: RENDU, fx: { ep: ["perso", 800] }, to: "IV_sv_chene_grave" },
@@ -126,24 +126,24 @@ module.exports = {
   IV_sv_chene_grave: P({ title: "Deux noms", place: "sauvelune",
     text: [
       "Tu prends ton couteau. Tu graves ton nom de Sauvelune, celui qu'on t'a donné au temple, devant le registre du Père Anselme. Puis, en dessous, l'autre : Aëlan.",
-      "Le bois est dur. Ça prend une heure. Quand tu as fini, le chêne n'a toujours aucun autre nom. Seulement les tiens. Ça fait un village d'une seule personne.",
+      "Le bois est dur. Ça prend une heure, et la pointe du couteau. Quand tu as fini, le chêne porte tes deux noms, et aucun autre. Seulement les tiens. Ça fait un village d'une seule personne.",
     ],
     choices: [{ back: "IV_sv_place" }] }),
 
   IV_sv_tess: P({ takes: "evening", title: "Tess", place: "sauvelune",
     text: [
       "Vous restez sous le chêne jusqu'au soir. Elle te raconte l'année : Sauvelune qui se réveille, un matin d'août, chacun dans son lit, avec l'impression d'avoir dormi un mois. Le Père Anselme qui recopie le registre trois fois. Pim qui demande où tu es, tous les jours, et que personne n'ose plus menacer du grenier.",
-      "Tu lui racontes un peu de ton année à toi. Trois jours. Elle rit, puis elle ne rit plus.",
-      { if: { has: "tess:bal" }, text: "À la fin, elle te donne un petit coup de poing dans l'épaule. « Tu avais promis, dit-elle. À la bourrée. Tu es revenu. » Elle a l'air presque déçue de ne pas pouvoir t'en vouloir." },
+      "Tu lui racontes un peu de ton année à toi. Trois jours. Elle rit, puis son rire s'arrête net.",
+      { if: { has: "tess:bal" }, text: "À la fin, elle te donne un petit coup de poing dans l'épaule. « Tu avais promis, dit-elle. À la bourrée. Et te voilà. » Elle a l'air presque déçue de ne pas pouvoir t'en vouloir." },
       { if: { souv: "enfant:tess" }, text: "Le goût de la mûre. Les fourmis. Tu t'en souviens. Elle aussi, tu le vois à sa façon de regarder l'herbe." },
-      { if: { not: { souv: "enfant:tess" } }, text: "Elle dit : « Tu te souviens du printemps, ici, sous le chêne ? » Tu ne t'en souviens pas. Tu l'as donné. Elle le voit. Elle se tait. Elle te prend la main quand même, comme si c'était la première fois, et c'est la première fois." },
+      { if: { not: { souv: "enfant:tess" } }, text: "Elle dit : « Tu te souviens du printemps, ici, sous le chêne ? » Le printemps est parti. Tu l'as donné. Elle le voit. Elle se tait. Elle te prend la main quand même, comme si c'était la première fois, et c'est la première fois." },
       "« Va à ta guerre, dit-elle à la fin. Et reviens. Ou ne reviens pas, mais écris. Je sais lire, maintenant. Anselme nous a tous appris. »",
     ],
     choices: [{ fx: { flag: "tess:iv", ep: ["perso", 1000] }, back: "IV_sv_place" }] }),
 
   IV_sv_place: P({ title: "La place", place: "sauvelune", hub: true,
     text: [
-      { if: RENDU, text: "La place de Sauvelune, le temple, la fontaine, les vieux sur le banc qui te saluent comme si tu étais parti hier." },
+      { if: RENDU, text: "La place de Sauvelune, le temple, la fontaine, les trois vieux sur le banc qui te saluent comme au lendemain d'un départ." },
       { if: { not: RENDU }, text: "La place de Sauvelune, le temple fermé, la fontaine qui coule pour personne." },
     ],
     choices: [
@@ -163,7 +163,7 @@ module.exports = {
 
   IV_sv_matin: P({ title: "Le matin", place: "sauvelune",
     text: [
-      "Au matin, Agathe a préparé des provisions pour tout le monde. Joris vous accompagne jusqu'au pont. Il se tait. Au milieu du pont, il s'arrête, et il te dit : « Si un jour je ne suis plus là. » Il ne finit pas la phrase.",
+      "Au matin, Agathe a préparé des provisions pour tout le monde. Joris vous accompagne jusqu'au pont. Il marche en silence. Au milieu du pont, il s'arrête, et il te dit : « Si un jour je ne suis plus là. » La phrase reste en suspens.",
       { if: { souv: "enfant:serment" }, text: "Tu la finis pour lui. « Je veillerai sur eux. » Il hoche la tête. Il repart vers le moulin." },
       { if: { not: { souv: "enfant:serment" } }, text: "Tu attends la suite. Tu sais qu'il y a une suite, que tu la connaissais. Il te regarde attendre, et il comprend que tu as oublié. Il t'épargne les reproches. Il te pose la main sur l'épaule, et il repart vers le moulin, un peu plus lentement." },
     ],
