@@ -10,8 +10,8 @@ module.exports = {
   III_F_lisiere: P({ title: "Solenn", place: "enfance",
     fx: { questSeen: "III_Q_foret" },
     text: [
-      "À la lisière du hameau, là où les maisons rondes s'arrêtent et où commencent les arbres noirs, une fille de ton âge t'attend, les bras croisés, le menton levé. Elle a l'air en colère. Elle a l'air de l'être depuis longtemps.",
-      "« Solenn, dit-elle. Mon frère, Ewen, est parti dans la forêt chercher le feu qui reste. Il dit qu'il y a encore une braise, quelque part, de la nuit où ils sont venus. Il dit que tant qu'elle brûle, on ne pourra pas oublier. » Elle serre les poings. « Ça fait cent ans qu'il est parti. Ici, ça ne compte pas, cent ans. Mais quand même. »",
+      "À la lisière du hameau, là où les maisons rondes s'arrêtent et où commencent les arbres noirs, une fille de ton âge t'attend, les bras croisés, le menton levé. Elle a l'air en colère, d'une colère ancienne, bien entretenue.",
+      "« Solenn, dit-elle. Mon frère, Ewen, est parti dans la forêt chercher le feu qui reste. Il dit qu'il y a encore une braise, quelque part, de la nuit où ils sont venus. Il dit que tant qu'elle brûle, on ne pourra pas oublier. » Elle serre les poings. « Ça fait cent ans qu'il est parti. Ici, cent ans, c'est peu. Mais quand même. »",
     ],
     choices: [
       { label: "« Je vais le chercher. »", to: "III_F_bois" },
@@ -19,7 +19,7 @@ module.exports = {
     ] }),
   III_F_bois: P({ title: "Les arbres noirs", place: "enfance", hub: true,
     text: [
-      { first: true, text: "Sous les arbres, il n'y a pas de neige. Il y a de la cendre, épaisse, douce, qui étouffe les pas. Les troncs sont noirs, lisses, comme vernis, et ils ne tombent pas. Pas de feuilles. Pas d'oiseaux. Une odeur, très ancienne, de bois brûlé et de résine." },
+      { first: true, text: "Sous les arbres, à la place de la neige, de la cendre, épaisse, douce, qui étouffe les pas. Les troncs sont noirs, lisses, comme vernis, et ils tiennent debout. Ni feuilles ni oiseaux. Une odeur, très ancienne, de bois brûlé et de résine." },
       "Quelque part devant toi, très loin, une lueur rouge, à peine, qui va et qui vient, comme une respiration.",
     ],
     choices: [
@@ -31,7 +31,7 @@ module.exports = {
     ] }),
   III_F_arbre: P({ title: "L'arbre qui fume", place: "enfance",
     text: [
-      "Un chêne, énorme, plus vieux que les autres. Le tronc est fendu du haut en bas, et par la fente sort un filet de fumée, mince, continu, qui monte tout droit. Il brûle encore, dedans. Il brûle depuis trois cents ans, sans se consumer.",
+      "Un chêne, énorme, de six brasses de tour, plus vieux que les autres. Le tronc est fendu du haut en bas, et par la fente sort un filet de fumée, mince, continu, qui monte tout droit. Il brûle encore, dedans. Il brûle depuis trois cents ans, sans se consumer.",
       "Tu poses la main sur l'écorce. Elle est tiède. Et sous ta main, tu entends : des cris, des pas qui courent, une porte qu'on enfonce, une femme qui appelle un nom. Le même nom, encore et encore. Puis le craquement du feu qui couvre tout.",
     ],
     choices: [
@@ -39,11 +39,11 @@ module.exports = {
       { label: "Retirer la main", to: "III_F_bois" },
     ] }),
   III_F_arbre_bout: P({ title: "Jusqu'au bout", place: "enfance",
-    text: ["Tu écoutes. Ça dure longtemps. Ça dure toute la nuit, la nuit de là-bas, et ta main brûle un peu. À la fin, quand le feu se tait, il reste une seule voix, celle de la femme, qui ne crie plus. Elle chante. Doucement. Trois vers. Tu les connais. Tu retires ta main. Elle est rouge. Elle n'est pas brûlée."],
+    text: ["Tu écoutes. Ça dure longtemps. Ça dure toute la nuit, la nuit de là-bas, et ta main brûle un peu. À la fin, quand le feu se tait, il reste une seule voix, celle de la femme, qui ne crie plus. Elle chante. Doucement. Trois vers. Tu les connais. Tu retires ta main. Elle est rouge, et la peau est intacte."],
     choices: BACK }),
   III_F_riviere: P({ title: "La rivière", place: "enfance",
     text: [
-      "En contrebas, une rivière, étroite, rapide, qui coule sur des galets noirs. L'eau est claire. Et dans l'eau, quand tu te penches, il y a des reflets qui ne sont pas les tiens. Des gens qui courent, le long de la berge, dans l'autre sens, en se retournant. Des femmes avec des enfants dans les bras. Des vieux qu'on porte.",
+      "En contrebas, une rivière, étroite, rapide, qui coule sur des galets noirs. L'eau est claire. Et dans l'eau, quand tu te penches, des reflets étrangers au tien. Des gens qui courent, le long de la berge, dans l'autre sens, en se retournant. Des femmes avec des enfants dans les bras. Des vieux qu'on porte.",
       "Ils fuient. Ils fuient depuis trois cents ans, dans l'eau, et la rivière les emporte, et ils remontent, et ils fuient de nouveau.",
       { with: "ysolde", text: "Ysolde regarde l'eau en silence. Puis elle s'accroupit, et elle met la main dans le courant, au milieu des reflets, comme pour arrêter quelqu'un. Les reflets passent à travers ses doigts." },
     ],
@@ -69,7 +69,7 @@ module.exports = {
   III_F_braise: P({ title: "Ewen", place: "enfance",
     text: [
       "Au cœur de la forêt, dans un creux de terre noire, une braise. Une seule. Grosse comme un poing, rouge, vivante, qui palpite. Et devant la braise, assis en tailleur, un garçon maigre, de quinze ans, les mains tendues au-dessus, comme pour se chauffer.",
-      "Il ne se chauffe pas. Il la nourrit. Tu le vois faire : il ferme les yeux, il pense à quelque chose, et quelque chose passe de lui à la braise, un fil de lumière pâle, et la braise rougit. Il a les tempes blanches. À quinze ans.",
+      "Il la nourrit, au lieu de s'y chauffer. Tu le vois faire : il ferme les yeux, il pense à quelque chose, et quelque chose passe de lui à la braise, un fil de lumière pâle, et la braise rougit. Il a les tempes blanches. À quinze ans.",
       "« Je sais pourquoi tu es là, dit-il sans ouvrir les yeux. Solenn. Dis-lui que non. Si la braise s'éteint, on oubliera. Comme eux, là-haut. On deviendra comme eux. Il faut que quelqu'un se souvienne du feu. Alors je me souviens. Je lui donne tout le reste, pour qu'il dure. »",
     ],
     choices: [
@@ -89,24 +89,24 @@ module.exports = {
     ] }),
   III_F_eteinte: P({ title: "La cendre", place: "enfance",
     text: [
-      "Il te regarde, longtemps. Puis il regarde ses mains, au-dessus de la braise. « Je ne sais plus la couleur des yeux de ma mère, dit-il. Je lui ai donné ça, il y a longtemps. Et le goût des mûres. Et le prénom de mon meilleur ami. » Sa voix se casse. « Et je ne me souviens pas mieux du feu qu'au début. »",
+      "Il te regarde, longtemps. Puis il regarde ses mains, au-dessus de la braise. « Je ne sais plus la couleur des yeux de ma mère, dit-il. Je lui ai donné ça, il y a longtemps. Et le goût des mûres. Et le prénom de mon meilleur ami. » Sa voix se casse. « Et le feu, je m'en souviens à peine mieux qu'au début. »",
       "Il baisse les mains. La braise, sans lui, rougit encore un moment. Puis elle pâlit. Elle devient grise. Elle devient cendre, comme tout le reste, et la forêt, autour de vous, pour la première fois depuis trois cents ans, refroidit.",
       "Ewen se lève. Il a les jambes raides. « Solenn va me crier dessus, dit-il. Pendant cent ans. » Il sourit, d'un sourire de quinze ans, qui lui va mieux.",
     ],
     choices: [{ label: "Le ramener au hameau", to: "III_F_retour" }] }),
   III_F_emportee: P({ title: "Le poing de feu", place: "enfance",
     text: [
-      "Il hésite. Puis il prend la braise dans ses mains nues, et elle ne le brûle pas, et il la pose dans les tiennes. Elle ne te brûle pas non plus. Elle est chaude comme une pierre au soleil. Elle pèse plus lourd qu'elle ne devrait.",
+      "Il hésite. Puis il prend la braise dans ses mains nues, sans brûlure, et il la pose dans les tiennes. Ta peau la supporte aussi. Elle est chaude comme une pierre au soleil. Elle pèse plus lourd qu'elle ne devrait.",
       "« Là-haut, dit-il, montre-la-leur. Qu'ils sachent qu'il y a eu un feu. Juste ça. » Il se lève. Il a les jambes raides. Il regarde ses mains vides, longtemps, comme on regarde des mains qui ont travaillé cent ans et qui n'ont plus rien à tenir.",
     ],
     choices: [{ label: "Le ramener au hameau", to: "III_F_retour" }] }),
   III_F_gardee: P({ title: "Celui qui se souvient", place: "enfance",
-    text: ["Tu le laisses. Il ne te regarde pas partir. Derrière toi, la lueur rouge va et vient, va et vient, comme une respiration. Au hameau, Solenn t'attend à la lisière. Elle voit que tu reviens sans lui. Elle se tait. Elle décroise les bras, enfin, et elle rentre chez elle, en laissant la porte ouverte, au cas où."],
+    text: ["Tu le laisses. Il garde les yeux fermés pendant que tu pars. Derrière toi, la lueur rouge va et vient, va et vient, comme une respiration. Au hameau, Solenn t'attend à la lisière. Elle voit que tu reviens sans lui. Elle se tait. Elle décroise les bras, enfin, et elle rentre chez elle, en laissant la porte ouverte, au cas où."],
     choices: [{ back: "III_e_hameau" }] }),
   III_F_retour: P({ title: "La lisière", place: "enfance",
     text: [
-      "Solenn vous voit arriver de loin. Elle ne court pas. Elle attend que son frère soit à trois pas. Puis elle le gifle. Puis elle le serre contre elle, si fort qu'il tousse. Elle se tait. Elle ne le lâche pas.",
-      "Par-dessus l'épaule de sa sœur, Ewen te fait un signe de la main. Les tempes blanches, à quinze ans. Ça ne repoussera pas. Mais le reste, peut-être.",
+      "Solenn vous voit arriver de loin. Elle reste sur place et attend que son frère soit à trois pas. Puis elle le gifle. Puis elle le serre contre elle, si fort qu'il tousse. Elle se tait, et le garde contre elle.",
+      "Par-dessus l'épaule de sa sœur, Ewen te fait un signe de la main. Les tempes blanches, à quinze ans. Le blanc des tempes restera. Le reste repoussera peut-être.",
     ],
     choices: [{ back: "III_e_hameau" }] }),
 };
