@@ -56,7 +56,7 @@ Object.assign(P, {
 
   VF_noy_voix: { act: "V", title: "La dernière note", place: "sorne",
     text: [
-      "Tu frappes le diapason sur un seuil. Sous l'eau, la note ne monte pas : elle s'étale, lente, épaisse, et te rentre dans les os des bras.",
+      "Tu frappes le diapason sur un seuil. Sous l'eau, la note s'étale au lieu de monter, lente, épaisse, et te rentre dans les os des bras.",
       "La rue autour de toi {{echo#vf_noy_echo|est noire et immobile, pleine d'une eau qui pousse|est pleine de cris d'il y a près de trois siècles, la nuit où la mer est entrée : « Les enfants sur les toits ! Les enfants d'abord ! » et une cloche, et une femme qui chante pour que les siens la trouvent dans le noir}}.",
       { after: "voile:vf_noy_echo", text: "Tu suis la voix qui chante. Elle te mène, dans le noir, jusqu'à une porte, une marche, une rampe, une voûte où il reste une poche d'air. Quelqu'un, cette nuit-là, a trouvé cette voûte avant toi." },
       { if: { not: { voile: "vf_noy_echo" } }, text: "Le courant te roule contre une porte, puis à travers. Une marche, une rampe. Ta bouche trouve de l'air sous une voûte." },
@@ -80,8 +80,8 @@ Object.assign(P, {
       { with: "lison", text: "Lison. « {{oreille#vf_noy_lison|Remonte, imbécile, remonte|Je serais allée n'importe où avec toi, je ne te l'ai jamais dit, remonte}} », crie-t-elle, et sa voix se casse sur le dernier mot." },
       { with: "salome", text: "Salomé. « Donnez-moi la corde. {{oreille#vf_noy_salome|Je sais plonger, je descends la chercher|Pas deux fois, pas deux fois la même chose, je descends}}. » Quelqu'un la retient. Tu entends le bruit d'une lutte, puis Salomé qui jure." },
       { with: "tibere", text: "Tibère. « {{oreille|Il faut partir, les gars, l'eau monte|C'est moi qui aurais dû rester en bas, j'ai fini de servir à quelque chose}} », dit-il." },
-      { with: "fauvette", text: "Fauvette ne dit rien. Tu l'entends respirer très vite, tout près, comme si elle avait collé son oreille au même endroit que toi." },
-      { with: "gildas", text: "Frère Gildas récite l'office des noyés, sans se presser, phrase après phrase. Sa voix ne bouge pas." },
+      { with: "fauvette", text: "Fauvette se tait. Tu l'entends respirer très vite, tout près, comme si elle avait collé son oreille au même endroit que toi." },
+      { with: "gildas", text: "Frère Gildas récite l'office des noyés, sans se presser, phrase après phrase. Sa voix reste égale." },
       { without: "any", text: "Ce sont des voix d'hommes que tu connais à peine, les gens de la barque. « {{oreille|On ne peut plus rien, on remonte|Je ne sais même pas son nom}} », dit l'un d'eux." },
     ],
     fx: { ep: ["perso", 500] },
@@ -102,7 +102,7 @@ Object.assign(P, {
       "Tu penses au quai des Lanternes, aux trois marches de la boutique, à la clochette au-dessus de la porte. Tu penses à Odeline qui compte la caisse, ses lunettes au bout du nez, et qui lève les yeux quand tu entres. Tu {{miroir#vf_noy_dernier|lui demandes pardon, et elle hausse les épaules comme elle le faisait toujours|lui dis enfin ce que tu as caché au Guet : que tu étais là ce soir-là, que tu as claqué la porte, et qu'elle a regardé la porte se fermer}}.",
       "La mer est sur Sorne, comme elle y est toutes les nuits de l'année sauf une, depuis près de trois siècles. Elle couvre la chaussée, les statues, le palais, la balise de chêne noir. Au soir, il ne reste que l'eau plate et grise jusqu'à l'horizon.",
       { with: "lison", text: "Lison reste à la proue jusqu'au soir, les bras croisés. Quand le soleil se couche, elle défait une de ses tresses, coupe une mèche avec son couteau et la donne à la mer." },
-      { with: "salome", text: "Salomé ne parle à personne pendant tout le retour. Elle tient la barre. À Port-Vasier, elle fait graver un deuxième nom sur la planche de la chapelle des noyés, sous celui de Maïwenn." },
+      { with: "salome", text: "Salomé se tait pendant tout le retour. Elle tient la barre. À Port-Vasier, elle fait graver un deuxième nom sur la planche de la chapelle des noyés, sous celui de Maïwenn." },
       { with: "tibere", text: "Tibère s'assied à l'arrière et sort ses dés de sa poche. Il les regarde longtemps, puis il les jette par-dessus bord, l'un après l'autre." },
       { with: "fauvette", text: "Fauvette garde ton manteau sur ses genoux jusqu'à Salvèze. Elle en a vidé les poches, par habitude, et elle a tout remis en place, une chose après l'autre." },
       { with: "gildas", text: "Frère Gildas dit la messe des morts sur le pont, à genoux, devant une mer vide. C'est la deuxième fois qu'il la dit pour quelqu'un de la boutique Carrus." },
@@ -136,7 +136,7 @@ Object.assign(P, {
     text: [
       "Le port aux Sauniers est fermé par la grande chaîne, tendue entre les deux tours. Une barque d'Aveline vous accoste, quatre piquiers et un sergent à cuirasse bleue, qui saute à bord sans demander. « Inspection, dit-il dans un salvézan sans accent. Ordre du gouverneur. Ce que vous portez, d'où vous venez, où vous allez. »",
       "Il soulève une bâche du bout de sa pique. Ses yeux passent sur toi, sur tes compagnons, sur la cale. « {{oreille#vf_duc_sergent|Je fais mon travail, rien de plus|Je suis né rue des Tanneurs, ma mère y vit encore, et si on me voit fermer les yeux elle sera pendue avec moi}}. »",
-      { if: OR, text: "Sous la bâche, il y a l'or que tu rapportes de Sorne. Le sergent n'a pas encore soulevé la toile. Il a la main dessus." },
+      { if: OR, text: "Sous la bâche, il y a l'or que tu rapportes de Sorne. La toile est encore baissée. Il a la main dessus." },
       { with: "fauvette", text: "Fauvette s'est assise sur un tas de filets, l'air de s'ennuyer à mourir. Ses yeux comptent les piquiers, puis les nœuds qui tiennent la bâche." },
     ],
     choices: [
@@ -165,10 +165,10 @@ Object.assign(P, {
 
   VF_duc_joncs: { act: "V", title: "Les roseaux", place: "joncs",
     text: [
-      "Vous laissez la Salve à bâbord et vous entrez dans les roseaux par une passe que tu ne vois qu'au moment de la prendre. Les tiges se referment derrière la poupe. Au loin, le bruit de la ville arrive en morceaux : une trompette, un tambour, une cloche qui sonne à contretemps.",
-      { if: { has: "joncs:brules" }, text: "Les Joncs-Bas ont repoussé sur leurs pilotis noircis : des cabanes neuves, en planches pas encore grises, entre les poteaux brûlés de la tempête.", else: "Les Joncs-Bas dorment sur leurs pilotis, les filets tendus entre les maisons, une lampe à chaque fenêtre tournée vers le chenal." },
+      "Vous laissez la Salve à bâbord et vous entrez dans les roseaux par une passe invisible jusqu'au moment de la prendre. Les tiges se referment derrière la poupe. Au loin, le bruit de la ville arrive en morceaux : une trompette, un tambour, une cloche qui sonne à contretemps.",
+      { if: { has: "joncs:brules" }, text: "Les Joncs-Bas ont repoussé sur leurs pilotis noircis : des cabanes neuves, en planches encore blondes, entre les poteaux brûlés de la tempête.", else: "Les Joncs-Bas dorment sur leurs pilotis, les filets tendus entre les maisons, une lampe à chaque fenêtre tournée vers le chenal." },
       { if: { not: { has: "iit:ancolie_blessee" } }, text: "Mère Ancolie vous attend au bout du ponton, assise, ses mains de dentellière posées sur les genoux. Elle tourne la tête vers toi avant que tu aies parlé. « {{oreille#vf_duc_ancolie|Le duc ne viendra pas jusqu'ici|Le duc viendra ici l'an prochain avec ses arpenteurs, et la Charte sera notre seul titre}}, dit-elle. Montre-moi ce que tu rapportes. »" },
-      { if: { has: "iit:ancolie_blessee" }, text: "Mère Ancolie ne descend plus jusqu'au ponton depuis la tempête. C'est une de ses arrière-petites-filles qui vous attend, une gamine de douze ans, et qui vous conduit à elle." },
+      { if: { has: "iit:ancolie_blessee" }, text: "Depuis la tempête, Mère Ancolie reste chez elle. C'est une de ses arrière-petites-filles qui vous attend, une gamine de douze ans, et qui vous conduit à elle." },
       { with: "lison", text: "Lison amarre sans un mot, puis reste debout dans la barque, les bras ballants, comme quelqu'un qui revient chez soi et ne sait plus où se mettre." },
     ],
     choices: [
@@ -178,7 +178,7 @@ Object.assign(P, {
 
   VF_duc_ville: { act: "V", title: "La place du Beffroi", place: "beffroi", hub: true,
     text: [
-      { first: true, text: "La place du Beffroi est pleine de soldats qui ne savent pas où se mettre. Ils ont dressé leurs faisceaux de piques devant la façade du Conseil, allumé des feux sur les pavés, et tendu des cordes à linge entre les colonnes. Les Salvézans passent le long des murs, vite, sans regarder." },
+      { first: true, text: "La place du Beffroi est pleine de soldats désœuvrés. Ils ont dressé leurs faisceaux de piques devant la façade du Conseil, allumé des feux sur les pavés, et tendu des cordes à linge entre les colonnes. Les Salvézans passent le long des murs, vite, sans regarder." },
       { first: true, text: "Au sommet du Beffroi de la reine, à la place de la bannière de la République, pendent trois bannières bleues, brodées de la tour d'argent d'Aveline. Le vent les fait claquer contre les cadrans de l'horloge." },
       { again: true, text: "Les bannières bleues claquent au sommet du Beffroi. Sous les arcades, un soldat apprend à un enfant à jouer aux osselets." },
       { if: { has: "vf:port_force" }, text: "Des soldats passent de feu en feu, une description à la main : ceux qui ont jeté des piquiers à l'eau, au port. Tu rabats ton capuchon et tu longes les arcades." },
@@ -206,8 +206,8 @@ Object.assign(P, {
   VF_duc_conseil: { act: "V", title: "Le serment", place: "beffroi",
     text: [
       "La grande salle du Conseil sent la cire froide et la sueur. On a retiré les bancs des quarante maisons et mis à leur place une table couverte d'un drap bleu. Une trentaine de marchands attendent en file, chapeau à la main, pour jurer fidélité au duc sur un évangéliaire qu'on a fait venir de la cathédrale.",
-      { if: { not: { has: "prevot:dejoue" } }, text: "Haumont Delisle préside, assis, en robe de velours neuve. Il reçoit chaque serment d'un petit signe de tête. Quand il te voit entrer, il ne cesse pas de sourire. « Nous avons sauvé la ville de la ruine, dit-il à la salle. {{oreille#vf_duc_delisle|Il n'y avait pas d'autre chemin|J'ai soixante et onze ans, et je voulais mourir dans un palais plutôt que dans une maison de commerce}}. »" },
-      { if: { has: "prevot:dejoue" }, text: "C'est un capitaine d'Aveline qui préside, un homme roux qui s'ennuie. Delisle n'est pas là. On dit que le duc le fait chercher, et qu'il n'a pas encore décidé s'il le pendra ou s'il le récompensera." },
+      { if: { not: { has: "prevot:dejoue" } }, text: "Haumont Delisle préside, assis, en robe de velours neuve. Il reçoit chaque serment d'un petit signe de tête. Quand il te voit entrer, il continue de sourire. « Nous avons sauvé la ville de la ruine, dit-il à la salle. {{oreille#vf_duc_delisle|Il n'y avait pas d'autre chemin|J'ai soixante et onze ans, et je voulais mourir dans un palais plutôt que dans une maison de commerce}}. »" },
+      { if: { has: "prevot:dejoue" }, text: "C'est un capitaine d'Aveline qui préside, un homme roux qui s'ennuie. Delisle est absent. On dit que le duc le fait chercher, et qu'il hésite encore entre la corde et la récompense." },
       "Un vieux marchand de draps se penche vers toi dans la file. « {{oreille|On jure, on attend, on verra|J'ai déjà fait coudre la bannière bleue que je pendrai à ma fenêtre demain matin}} », dit-il tout bas.",
     ],
     choices: [
@@ -286,7 +286,7 @@ Object.assign(P, {
       "Une boulangère, à ta gauche, dit à sa voisine : « {{oreille|Ils paient en bonne monnaie, au moins|Mon fils est parti avec les déserteurs, et s'il revient il sera pendu sous ces bannières}}. » Derrière toi, Ermance Mabire, la capitaine du Guet, qui porte encore son ancienne cuirasse de cuir, dit à un sergent bleu : « {{oreille|Mes hommes sont à votre service|Mes hommes ont gardé leurs hallebardes et leurs noms, et ils savent où vous dormez}}. »",
       { if: { has: "vf:franchises" }, text: "Sur la porte du Conseil, on a cloué les franchises scellées de cire bleue, à côté de l'affiche du duc. Les gens les lisent à voix haute pour ceux qui ne savent pas lire. Le Conseil des Comptoirs siégera demain, sous un gouverneur. Il siégera." },
       { if: { has: "vf:charte_duc" }, text: "On dit déjà, au port, qu'un clerc d'Aveline est parti pour les marais avec des arpenteurs et une copie de la Charte, et que la Banque Marrel a fermé ses volets pour de bon." },
-      { if: { has: "vf:charte_joncs" }, text: "La Charte dort sous le plancher de Mère Ancolie, aux Joncs-Bas. Le duc ne sait pas qu'elle existe. Les Taiseurs savent attendre un autre siècle." },
+      { if: { has: "vf:charte_joncs" }, text: "La Charte dort sous le plancher de Mère Ancolie, aux Joncs-Bas. Le duc ignore qu'elle existe. Les Taiseurs savent attendre un autre siècle." },
       { if: { all: [CHARTE, { has: "vf:fouille" }] }, text: "La Charte est partie pour Aveline dans la sacoche d'un courrier, avec le reçu signé d'une croix. Personne ne sait ce que le duc en fera." },
       { if: { all: [OR, { not: PLOMB }, { has: "vf:fouille" }] }, text: "L'or de la reine est dans les caves de la Monnaie, sous la garde des piques bleues. Il paiera la solde de l'armée qui tient la ville." },
       { if: { has: "vf:sergent_tanneurs" }, text: "Sous les arcades, tu reconnais le sergent du port. Il porte un pain sous le bras, pour sa mère, rue des Tanneurs. Il te voit, et il détourne les yeux le premier." },
@@ -343,7 +343,7 @@ Object.assign(P, {
       { with: "tibere", text: "Tibère attrape le spadassin par le col et par la ceinture, comme on attrape un ivrogne à la sortie d'une taverne, et le soulève. L'étui tombe à ses pieds. Il le ramasse sans lâcher l'homme." },
       { with: "fauvette", text: "Fauvette passe entre les jambes du spadassin. Quand il arrive au bord, il n'a plus rien dans la main. Il la regarde sans comprendre. Elle lui fait un petit signe." },
       { without: "any", text: "Tu te jettes sur lui. Vous tombez ensemble sur le pont, l'étui entre vous deux, et tu frappes jusqu'à ce qu'il le lâche." },
-      "Le flot vous dégage de la galère. Les rameurs de la Banque ne relancent pas : ils regardent leur capitaine, qui regarde la ville.",
+      "Le flot vous dégage de la galère. Les rameurs de la Banque gardent les avirons levés et regardent leur capitaine, qui regarde la ville.",
     ],
     fx: { pv: -5 },
     choices: [{ label: "Remonter la Salve jusqu'à Salvèze", to: "VF_ch_port" }] },
@@ -423,9 +423,9 @@ Object.assign(P, {
       { if: { is: { ivm_charte: "lire" } }, text: "Tu l'avais dit à Mère Ancolie, avant la Grande Basse : devant le Conseil et devant le peuple. Tu y es." },
       "Tu déroules la Charte. La cire verte craque. Tu lis d'abord lentement, puis plus fort, pour que les derniers rangs entendent. *{{loupe#vf_ch_charte|Nous, Ysaure, reine du delta, voulons que les terres gagnées sur la mer appartiennent à ceux qui les ont gagnées, à eux et à leurs enfants, sans cens ni rachat|Et si cette charte est jamais cachée, que celui qui la retrouve la lise à voix haute, sur une place, devant ceux qu'elle concerne, car une loi qu'on tait est une loi qu'on vole}}.*",
       { if: { has: "vt:charte_lue_tour" }, text: "Tu l'as déjà lue une fois, en haut de la tour de la Reine, à la mer et aux bateaux. Ta voix connaît le chemin." },
-      { if: { has: "registre:lu" }, with: "gildas", text: "Puis Frère Gildas monte à côté de toi et lit le Registre. Il lit le témoignage de la reine, dicté par signes à ses secrétaires, la nuit des Comptoirs : les noms des maisons, les noms des hommes, le couteau. Sa voix ne tremble pas. Personne ne bouge sur la place." },
+      { if: { has: "registre:lu" }, with: "gildas", text: "Puis Frère Gildas monte à côté de toi et lit le Registre. Il lit le témoignage de la reine, dicté par signes à ses secrétaires, la nuit des Comptoirs : les noms des maisons, les noms des hommes, le couteau. Sa voix reste ferme. Personne ne bouge sur la place." },
       { if: { all: [{ has: "registre:lu" }, { not: { present: "gildas" } }] }, text: "Puis tu lis le Registre, feuillet après feuillet, tel que Mère Ancolie te l'a appris : les noms des maisons, les noms des hommes, le couteau. Tu buttes sur certains mots. Personne ne bouge sur la place." },
-      { if: { not: { has: "registre:lu" } }, text: "Puis tu montres les feuillets du Registre, un à un, au-dessus de ta tête. Tu ne sais pas les lire. Quelqu'un, dans la foule, une vieille femme des Joncs-Bas, commence à traduire les signes à voix haute, et d'autres reprennent après elle, de rang en rang, jusqu'au fond de la place." },
+      { if: { not: { has: "registre:lu" } }, text: "Puis tu montres les feuillets du Registre, un à un, au-dessus de ta tête. Leurs signes te restent fermés. Quelqu'un, dans la foule, une vieille femme des Joncs-Bas, commence à traduire les signes à voix haute, et d'autres reprennent après elle, de rang en rang, jusqu'au fond de la place." },
       { if: R6, text: "Cinq feuillets et la Charte. Le Registre entier, tel que les Taiseurs l'ont caché, page après page, sans un trou." },
       { if: { all: [R4, { not: R6 }] }, text: "Il manque des feuillets au Registre. Ce qui reste suffit pour les noms et pour le couteau." },
       { if: { not: R4 }, text: "Il manque trop de feuillets au Registre. Ce qui reste dit le couteau, et quelques noms. Tu entends, sur les marches, les avocats des maisons qui comptent déjà les trous." },
@@ -457,7 +457,7 @@ Object.assign(P, {
     text: [
       "Le lendemain, à l'ouverture, il y a trois mille personnes devant la Banque Marrel, avec leurs reçus de dépôt à la main. À midi, les commis ferment les grilles. À trois heures, ils ferment les volets.",
       { if: { has: "vf:corisande_marches" }, text: "Corisande Marrel sort à quatre heures, à pied, sans garde, par la grande porte. Elle traverse la foule, qui s'écarte. Arrivée sur le pont, elle se retourne vers toi. « {{oreille#vf_ch_cori_pont|Vous avez eu raison|Je suis soulagée, et je ne le dirai à personne d'autre}} », dit-elle, et elle s'en va." },
-      { if: { not: { has: "vf:corisande_marches" } }, text: "Corisande Marrel ne sort pas. On dit qu'elle est restée dans la salle des comptes jusqu'à l'aube, seule, à vérifier les registres ligne à ligne, comme si une erreur d'addition pouvait encore tout sauver." },
+      { if: { not: { has: "vf:corisande_marches" } }, text: "Corisande Marrel reste à l'intérieur. On dit qu'elle est restée dans la salle des comptes jusqu'à l'aube, seule, à vérifier les registres ligne à ligne, comme si une erreur d'addition pouvait encore tout sauver." },
       { if: { any: [{ has: "lothaire:vaincu" }, { has: "lothaire:mort" }] }, text: "Dans le cabinet de Lothaire Brunel, les huissiers trouvent une collection de cornets, de clés et de cartes marines, et une paire de gants gris, neuve, dans sa boîte." },
       { if: { has: "lothaire:allie" }, text: "Lothaire Brunel se présente le même jour devant la commission, ses gants gris à la main, et demande à témoigner contre la maison qu'il a servie vingt ans. Il témoigne trois jours." },
     ],
@@ -482,8 +482,8 @@ Object.assign(P, {
     text: [
       "Les procès durent sept ans. Les maisons plaident chaque champ de sel, chaque vasière, chaque pilotis. Les avocats deviennent riches. Les Archives de la République ouvrent une salle exprès, où Eustache Vauquelin fait venir des rôles vieux de trois siècles et les lit tout haut aux plaignants qui ne savent pas lire.",
       { if: VRAI, text: "Le duc d'Aveline est payé à la Saint-Jean, en or de la reine. Amaury de Sauveterre compte lui-même les coffres à la porte des Sauniers, signe le reçu, et repart avec ses troupes. Il te salue en passant, de son chapeau, du haut de son cheval." },
-      { if: { not: VRAI }, text: "Le duc d'Aveline n'est pas payé à la Saint-Jean. Amaury de Sauveterre accepte un marché : la dette en sel, sur douze ans, et les salines des Hautes-Eaux en garantie. Les sauniers paient la rançon de la ville avec la terre qu'on vient de leur rendre. Ils le savent. Ils paient quand même." },
-      { after: "voile:vf_ch_fourcaud", text: "Personne ne brûle la maison de Maître Fourcaud. Ses petits-enfants dorment à l'étage. Il te salue le premier, chaque fois que vous vous croisez sur le pont des Changeurs, et il ne sait pas pourquoi tu lui souris." },
+      { if: { not: VRAI }, text: "La Saint-Jean passe sans que le duc d'Aveline soit payé. Amaury de Sauveterre accepte un marché : la dette en sel, sur douze ans, et les salines des Hautes-Eaux en garantie. Les sauniers paient la rançon de la ville avec la terre qu'on vient de leur rendre. Ils le savent. Ils paient quand même." },
+      { after: "voile:vf_ch_fourcaud", text: "Personne ne brûle la maison de Maître Fourcaud. Ses petits-enfants dorment à l'étage. Il te salue le premier, chaque fois que vous vous croisez sur le pont des Changeurs, et il ignore pourquoi tu lui souris." },
       { if: { has: "vt:carte_terres" }, text: "La carte de la mosaïque, avec ses noms de familles tracés champ par champ, reste ouverte sur la grande table des Archives pendant les sept ans. Elle abrège la moitié des procès. Les avocats des maisons la détestent." },
       { if: { has: "vt:avis_salome" }, text: "Sur la liste des familles des Hautes-Eaux, la commission inscrit, à ta demande, un nom de Port-Vasier qui n'avait aucune terre : Maïwenn Brac. Personne ne discute. Salomé vient lire la ligne elle-même." },
       "La Banque Marrel est liquidée en trois ans. Ses commis trouvent d'autres places, ou n'en trouvent pas. L'hiver qui suit la lecture, le pain des Halles coûte un liard de plus. L'hiver d'après, un liard de moins.",
@@ -509,7 +509,7 @@ Object.assign(P, {
       { if: { has: "vt:avis_tibere" }, with: "tibere", text: "Rosalie est venue avec son père. Elle se tient à deux pas de lui, et elle le regarde faire." },
       { with: "tibere", text: "Tibère pose sa lanterne sur l'eau avec des gestes de vieux soldat. « {{oreille#vf_ch_tibere|Pour personne en particulier|Pour l'homme que j'étais quand Lothaire me payait, qu'il aille au fond}} », dit-il." },
       { with: "fauvette", text: "Fauvette a appris à lire cet hiver. Elle a écrit un nom sur sa lanterne, en grosses lettres penchées : *Odeline*. « {{oreille|Elle me faisait peur|Elle m'a donné une pomme, une fois, le jour où je l'ai volée}} », dit-elle." },
-      { with: "salome", text: "Salomé est montée de Port-Vasier pour la fête. Elle pose deux lanternes sur l'eau, l'une après l'autre, et ne dit pas pour qui est la deuxième." },
+      { with: "salome", text: "Salomé est montée de Port-Vasier pour la fête. Elle pose deux lanternes sur l'eau, l'une après l'autre, et garde pour elle le nom de la deuxième." },
       { with: "lison", text: "Lison est assise sur la troisième marche de la boutique, les genoux sous le menton. « {{oreille#vf_ch_lison_fin|Tu deviens célèbre, c'est insupportable|Reste, je n'ai jamais demandé à personne de rester}} », dit-elle." },
       { with: "gildas", text: "Frère Gildas pose sa lanterne sans un mot, les mains tremblantes pour une fois. Tu sais pour qui elle brûle. Il le sait aussi." },
       "Tu poses ta lanterne sur l'eau et tu la pousses du bout des doigts. Elle tourne, hésite, puis prend le courant. Tu {{miroir#vf_ch_miroir|la regardes partir en pensant à Odeline|la regardes partir en pensant à Odeline, et tu sais enfin que tu lui as pardonné de t'avoir caché la moitié de sa vie, et que c'était cela qui te pesait, plus que la dispute}}.",
@@ -523,10 +523,10 @@ Object.assign(P, {
     text: [
       "Au pied de la tour de la Reine, la mer revenue clapote contre les pierres. On descend l'or dans la barque par le treuil et à la chaîne, sans un mot.",
       { if: PLEIN, text: "Les trois coffres de la reine descendent l'un après l'autre au bout de la corde du treuil. Au dernier, la barque s'enfonce d'une main, et le bordé grince." },
-      { if: PARTIE, text: "Les besaces passent de main en main. Ce n'est pas tout l'or de la reine. C'est ce que vous avez pu porter, et cela suffit à faire plier deux hommes." },
+      { if: PARTIE, text: "Les besaces passent de main en main. Ce que vous avez pu porter de l'or de la reine suffit à faire plier deux hommes." },
       "La Charte, dans son étui de cuir ciré, est restée contre ta poitrine. Tu sais à qui tu vas la donner. Tu ne sais pas encore à quelles mains.",
       { if: { has: "basse:taiseurs" }, text: "Dans la barque des Joncs, à vingt brasses, les trois Taiseurs attendent debout. Le plus vieux, l'Aîné, tend les deux mains, paumes en l'air, comme on attend qu'on y pose un pain." },
-      { with: "lison", text: "Lison regarde l'étui, puis toi. Elle ne demande rien. Elle a les mains derrière le dos." },
+      { with: "lison", text: "Lison regarde l'étui, puis toi. Elle se tait. Elle a les mains derrière le dos." },
       { with: "gildas", text: "Frère Gildas se tient un peu à l'écart, dans sa bure trempée. Il est le Gardien. Il n'a pas besoin de tendre la main." },
     ],
     choices: [
@@ -538,7 +538,7 @@ Object.assign(P, {
 
   VF_rep_charte: { act: "V", title: "La Charte rendue au silence", place: "sorne",
     text: [
-      { if: { is: { vf_charte_a: "aine" } }, text: "Tu poses l'étui dans les mains de l'Aîné. Il ne l'ouvre pas. Il le porte à son front, puis à sa bouche, puis le glisse sous sa capuche de dentelle. « {{oreille#vf_rep_aine|Elle retourne où elle doit être|Elle retourne sous le plancher, et mes petits-enfants mourront locataires des Fourcaud}} », dit-il." },
+      { if: { is: { vf_charte_a: "aine" } }, text: "Tu poses l'étui dans les mains de l'Aîné. Il le garde fermé et le porte à son front, puis à sa bouche, puis le glisse sous sa capuche de dentelle. « {{oreille#vf_rep_aine|Elle retourne où elle doit être|Elle retourne sous le plancher, et mes petits-enfants mourront locataires des Fourcaud}} », dit-il." },
       { if: { is: { vf_charte_a: "lison" } }, with: "lison", text: "Lison prend l'étui à deux mains. Elle le garde un moment contre elle sans bouger. « {{oreille#vf_rep_lison|Ma grand-mère sera contente|Tu me donnes la seule chose que je ne voulais pas porter seule}} », dit-elle." },
       { if: { is: { vf_charte_a: "gildas" } }, with: "gildas", text: "Frère Gildas prend l'étui et le serre contre sa bure. « Je la garderai jusqu'à ce qu'on vienne me la prendre, dit-il. Et je ne laisserai personne me la prendre. » Il le dit comme on dit une heure." },
       { if: { is: { vf_charte_a: "joncs" } }, text: "Tu gardes l'étui sur toi. Tu le porteras aux Joncs-Bas, à Mère Ancolie, de ta main à la sienne. C'est une manière de dire que tu as compris ce qu'il vaut." },
@@ -618,7 +618,7 @@ Object.assign(P, {
 
   VF_rep_corisande: { act: "V", title: "La Banque debout", place: "changeurs",
     text: [
-      { if: { has: "vf:lettres_delisle" }, text: "Haumont Delisle est arrêté le soir même, au Conseil, pendant qu'on lit ses lettres à voix haute. Il ne dit rien. Il retire lui-même sa chaîne et la pose sur la table." },
+      { if: { has: "vf:lettres_delisle" }, text: "Haumont Delisle est arrêté le soir même, au Conseil, pendant qu'on lit ses lettres à voix haute. En silence, il retire lui-même sa chaîne et la pose sur la table." },
       "La Banque Marrel a rouvert ses grilles. La dette de la République est payée, et la Banque qui la portait est debout. Ses titres sur les Hautes-Eaux aussi : personne ne les a lus devant le peuple.",
       "Corisande Marrel te reçoit dans la salle des comptes, derrière son grand registre. « Vous avez sauvé ma maison, dit-elle. {{oreille#vf_rep_cori|Je vous en suis obligée|Je vous en veux de me l'avoir sauvée sans me la demander, et de garder la Charte quelque part où je ne peux pas la trouver}}. »",
       { if: { has: "vf:poids_faux" }, text: "« Le commis aux poids, ajoute-t-elle, a été renvoyé. Il agissait seul, naturellement. » Elle le dit sans changer de voix." },
@@ -641,7 +641,7 @@ Object.assign(P, {
     text: [
       "À la Saint-Jean, Salvèze danse sur la place du Beffroi. On a allumé des feux sur les ponts. Le Conseil donne du vin aux fontaines, la Banque donne des oublies, et les soldats du Guet dansent avec leurs hallebardes posées contre les arcades.",
       { if: { is: { vf_demande: "grain" } }, text: "Sur les marches des Halles, on distribue du pain blanc aux gens des quartiers bas. Le grain est celui que tu as demandé. Les boulangers ont reçu ordre de ne pas dire d'où il vient. Ils le disent quand même." },
-      { if: { is: { vf_demande: "siege" } }, text: "Sur le banc du Conseil, à la place de la maison Delisle, une femme des Hautes-Eaux s'est assise pour la première fois, une saunière aux mains crevassées. Les autres maisons ne lui adressent pas la parole. Elle s'en moque. Elle vote." },
+      { if: { is: { vf_demande: "siege" } }, text: "Sur le banc du Conseil, à la place de la maison Delisle, une femme des Hautes-Eaux s'est assise pour la première fois, une saunière aux mains crevassées. Les autres maisons l'ignorent. Elle s'en moque. Elle vote." },
       { if: { is: { vf_demande: "amnistie" } }, text: "On a ouvert les portes de la Tour Ronde. Les émeutiers de la faim sont sortis un à un, en clignant des yeux, et leurs mères les attendaient sur le pont." },
       { if: { is: { vf_demande: "dixieme" } }, text: "Tu as dans tes coffres le dixième de l'or de la reine, voté par le Conseil, à l'unanimité moins une voix. Personne ne t'en parle. Tout le monde le sait." },
       { if: { is: { vf_demande: "rien" } }, text: "Le Conseil t'a fait remettre une médaille d'or, pour la forme, puisque tu n'as rien demandé." },
@@ -674,9 +674,9 @@ Object.assign(P, {
     text: [
       "*La Constance* est mouillée à deux encablures de la tour, ses fanaux encore allumés dans le jour levé. Une chaloupe peinte en noir s'en détache et vient se ranger au pied de l'échelle. Corisande Marrel est assise à la poupe, sa canne d'ébène en travers des genoux, sa robe de deuil serrée contre le vent. Tu descends jusqu'à elle.",
       "Elle regarde l'or qu'on charge, puis toi. « Le marché tient, dit-elle. L'or à la Banque, qui paiera le duc. Le Registre et la Charte à moi, qui les brûlerai. Vous, riche, et libre de tout ce qu'on vous reproche. {{oreille#vf_ba_cori|Je tiens toujours parole|Je tiens toujours parole, et je vous ferai surveiller jusqu'à votre mort, parce que vous avez lu ce que vous allez brûler}}. »",
-      { if: PLOMB, text: "Un de ses commis plonge la main dans ta besace, mord une pièce, et se penche à l'oreille de sa maîtresse. Corisande ne sourit pas. « Le plomb aussi, dit-elle. Vous apprendrez à trier. Les coffres de la Banque s'en chargeront. »" },
+      { if: PLOMB, text: "Un de ses commis plonge la main dans ta besace, mord une pièce, et se penche à l'oreille de sa maîtresse. Corisande garde son sérieux. « Le plomb aussi, dit-elle. Vous apprendrez à trier. Les coffres de la Banque s'en chargeront. »" },
       { with: "lison", text: "Lison s'est mise entre toi et la chaloupe. « {{oreille#vf_ba_lison|Fais ce que tu veux|Si tu lui donnes, je ne te connais plus, et je ne pourrai pas faire autrement}} », dit-elle." },
-      { with: "salome", text: "Salomé regarde la bannière noire aux besants d'or, à la poupe de *La Constance*. C'est la même que sur la barque qui accompagnait Maïwenn, le dernier matin. Elle ne dit rien. Elle ramasse son sac." },
+      { with: "salome", text: "Salomé regarde la bannière noire aux besants d'or, à la poupe de *La Constance*. C'est la même que sur la barque qui accompagnait Maïwenn, le dernier matin. Elle se tait et ramasse son sac." },
       { with: "gildas", text: "Frère Gildas fait un pas vers Corisande, les mains sorties de ses manches. Deux marins posent la main sur leur épée. Il s'arrête et te regarde, toi seul{e}." },
     ],
     choices: [
@@ -687,9 +687,9 @@ Object.assign(P, {
 
   VF_ba_constance: { act: "V", title: "Le contrat", place: null,
     text: [
-      { with: "lison", text: "Lison ne monte pas sur la chaloupe. Quand tu te retournes, elle est déjà dans la barque des Joncs, à l'aviron, et elle ne regarde pas en arrière." },
+      { with: "lison", text: "Lison reste à l'écart de la chaloupe. Quand tu te retournes, elle est déjà dans la barque des Joncs, à l'aviron, le dos tourné." },
       { with: "salome", text: "Salomé remonte sur sa propre barque et lève l'ancre sans attendre personne." },
-      { with: "gildas", text: "Frère Gildas reste sur la plate-forme de la tour, debout, sa bure claquant au vent. Il descend le dernier, dans la barque des Joncs, et ne te regarde pas." },
+      { with: "gildas", text: "Frère Gildas reste sur la plate-forme de la tour, debout, sa bure claquant au vent. Il descend le dernier, dans la barque des Joncs, les yeux ailleurs." },
       { with: "tibere", text: "Tibère, lui, monte sur la chaloupe derrière toi, sans un mot. Il s'assied sur le banc, les mains sur les cuisses, et regarde ses bottes." },
       { with: "fauvette", text: "Fauvette monte aussi. Elle examine les cordages de *La Constance* comme on examine les gouttières d'un hôtel avant d'y entrer de nuit." },
       "Dans la cabine de poupe, sur une table vissée au plancher, un contrat t'attend, déjà écrit, en double. Corisande le signe la première, d'une plume qui ne crache pas. *{{loupe#vf_ba_clause|Moyennant quoi la Banque Marrel reconnaît au chercheur du quai des Lanternes la propriété d'un hôtel sur l'île des Changeurs et une rente de mille ducats l'an|Et si ledit chercheur vient jamais à parler de ce qu'il a lu, la rente cesse, et la Banque reprend sur sa personne la créance d'Odeline Carrus, avec les intérêts depuis le jour de sa mort}}.*",
@@ -787,7 +787,7 @@ Object.assign(P, {
       "Tu descends aux Joncs-Bas dans une barque de louage, avec un manteau de drap fin que tu regrettes dès la première vasière. Sur les pontons, les dentellières lèvent la tête, te reconnaissent, et la baissent.",
       { if: { not: { has: "iit:ancolie_blessee" } }, text: "Mère Ancolie te reçoit sur le seuil, sans te faire entrer. Elle tourne la tête vers toi. « {{oreille#vf_ba_ancolie|Tu es toujours la bienvenue ici|Tu as brûlé la parole de la reine, et je t'aime encore, parce que ta mère était des nôtres, et je ne me le pardonne pas}} », dit-elle." },
       { if: { has: "iit:ancolie_blessee" }, text: "La maison de Mère Ancolie est fermée. Elle est morte l'été dernier. Une dentellière te montre sa tombe, sur le tertre, et repart sans attendre que tu aies fini de regarder." },
-      { if: { has: "vf:cens_paye" }, text: "Dix familles n'ont pas été mises dehors. Elles ne savent pas pourquoi. Elles se doutent." },
+      { if: { has: "vf:cens_paye" }, text: "Dix familles n'ont pas été mises dehors. Elles ignorent pourquoi. Elles se doutent." },
     ],
     choices: [{ label: "Rentrer en ville", to: "VF_ba_quai" }] },
 
@@ -805,7 +805,7 @@ Object.assign(P, {
     text: [
       "Les années passent rue des Lombards. Tu dînes, tu prêtes, tu fais bâtir. On t'invite au Conseil, aux mariages des maisons, aux enterrements. Corisande Marrel te salue d'un signe de tête, à la messe, chaque dimanche, et chaque samedi un commis lui porte un rapport sur toi.",
       { if: { not: { has: "vf:cornet_range" } }, text: "Tu portes toujours le cornet d'os, par habitude, dans la poche de ton pourpoint. Aux dîners, tu le portes à l'oreille. Les phrases de tes amis tremblent toutes, une à une, sans exception, comme les feuilles d'un peuplier." },
-      { if: { has: "vf:cornet_range" }, text: "Le cornet d'os dort dans sa boîte, au fond d'un coffre. Tu ne l'en sors plus. Tu lis sur les visages, à la place, et tu te trompes moins souvent qu'avant." },
+      { if: { has: "vf:cornet_range" }, text: "Le cornet d'os dort dans sa boîte, au fond d'un coffre. Il y reste. Tu lis sur les visages, à la place, et tu te trompes moins souvent qu'avant." },
       "« {{oreille|Vous êtes notre meilleur ami|Vous êtes notre meilleur placement}} », te dit le jeune Fourcaud, un soir de fête. « {{oreille|Je ne regrette rien|Je regrette la Charte chaque nuit, et chaque matin je recompte mes coffres}} », te dit Corisande Marrel, l'hiver de sa mort, en te serrant la main.",
       { if: { has: "vf:chercheur_banque" }, text: "Tu tiens le cabinet du chercheur de la Banque, celui de Lothaire Brunel. Tu ouvres pour Madame Marrel les archives de la République, et tu y trouves surtout ce qu'elle t'envoie y chercher." },
       { if: { has: "vf:ecoute_arrachee" }, text: "La tapisserie de la reine a retrouvé son mur, recousue, sans sa poche. Dans ta grande salle, on parle à voix ordinaire, et tu sais ce que cela vaut." },
@@ -874,7 +874,7 @@ Object.assign(P, {
       "À midi, vous êtes à une lieue au large. Derrière vous, la tour de la Reine est seule au-dessus de l'eau, droite et grise. Puis elle n'est plus qu'un trait, puis un point, puis la mer plate.",
       { if: { has: "basse:taiseurs" }, text: "Dans la barque des Joncs, les trois Taiseurs se lèvent ensemble. L'Aîné fait le signe vers l'endroit où la tour a disparu, puis se tourne vers toi et le refait, plus lentement." },
       { with: "tibere", text: "Tibère regarde ses mains vides. « {{oreille#vf_si_tibere|De l'or au fond de l'eau, quelle misère|Tant mieux, j'aurais tout perdu aux dés avant l'été, et Rosalie ne m'aurait jamais pardonné}} », dit-il." },
-      { with: "fauvette", text: "Fauvette se penche par-dessus bord et regarde l'eau, longtemps. Elle n'a rien pris. C'est la première fois de sa vie qu'elle sort d'un endroit plein d'or les poches vides, et elle a l'air de trouver ça intéressant." },
+      { with: "fauvette", text: "Fauvette se penche par-dessus bord et regarde l'eau, longtemps. C'est la première fois de sa vie qu'elle sort d'un endroit plein d'or les poches vides, et elle a l'air de trouver ça intéressant." },
       "Tu {{miroir#vf_si_miroir1|as laissé l'or par fidélité au serment|as laissé l'or parce que tu as eu peur de devenir Lothaire, ou Corisande, ou Odeline, et le serment t'a servi de porte}}.",
     ],
     choices: [{ label: "Rentrer aux Joncs-Bas", big: true, to: "VF_si_joncs" }] },
@@ -882,7 +882,7 @@ Object.assign(P, {
   VF_si_joncs: { act: "V", title: "Le Gardien", place: "joncs",
     takes: "night",
     text: [
-      "Aux Joncs-Bas, on vous attend avec des lampes. Personne ne demande ce que vous rapportez : tout le monde le sait. Les dentellières sont assises en cercle sur le ponton de Mère Ancolie, leurs coussins sur les genoux, et elles ne travaillent pas.",
+      "Aux Joncs-Bas, on vous attend avec des lampes. Personne ne demande ce que vous rapportez : tout le monde le sait. Les dentellières sont assises en cercle sur le ponton de Mère Ancolie, leurs coussins sur les genoux, les mains immobiles.",
       { if: { not: { has: "iit:ancolie_blessee" } }, text: "Mère Ancolie se lève quand tu montes sur le ponton. Elle te prend le visage entre ses deux mains sèches, et elle le lit, du bout des doigts, le front, les yeux, la bouche. « {{oreille#vf_si_ancolie|Tu seras le Gardien|Tu seras le Gardien, et tu le seras mieux que Gildas, parce que toi, tu sais ce que coûte un silence}} », dit-elle." },
       { if: { has: "iit:ancolie_blessee" }, text: "Mère Ancolie est couchée, depuis la tempête. On te mène à son lit. Elle te prend la main et la serre. « Le Gardien », dit-elle seulement, et elle te fait le signe dans la paume, du bout de l'index." },
       { if: { not: { present: "gildas" } }, text: "On te passe au cou le cordon de lin noir à sept nœuds, celui que Frère Gildas a rendu au Mont, et que les moines ont renvoyé par barque." },
@@ -963,11 +963,11 @@ Object.assign(P, {
   VF_fortune: { act: "V", title: "L'or à bord", place: "sorne",
     fx: { ep: ["seance", 2000] },
     text: [
-      "Au pied de la tour de la Reine, tu fais descendre l'or dans la barque. Tu donnes les ordres d'une voix nette, que tu ne te connaissais pas. On t'obéit.",
+      "Au pied de la tour de la Reine, tu fais descendre l'or dans la barque. Tu donnes les ordres d'une voix nette, nouvelle pour toi. On t'obéit.",
       { if: PLEIN, text: "Les trois coffres de la reine descendent au bout de la corde du treuil. Au dernier, la barque s'enfonce d'une main." },
-      { if: PARTIE, text: "Les besaces s'empilent au fond de la barque, sous une bâche. Ce n'est pas tout l'or de la reine. C'est assez pour une vie, ou pour trois." },
+      { if: PARTIE, text: "Les besaces s'empilent au fond de la barque, sous une bâche. Une part seulement de l'or de la reine, assez pour une vie, ou pour trois." },
       { if: PLOMB, text: "Une des besaces s'est ouverte en tombant. Les pièces roulent sur les planches avec un bruit sourd, trop sourd. Tu en ramasses une. Tu la mords. Elle cède sous la dent. Tu la remets dans la besace sans rien dire." },
-      { if: CHARTE, text: "La Charte est contre ta poitrine, dans son étui. Tu ne sais pas encore ce que tu en feras. Tu sais seulement que tu ne la laisseras à personne." },
+      { if: CHARTE, text: "La Charte est contre ta poitrine, dans son étui. Ce que tu en feras, tu l'ignores encore. Tu sais seulement que tu la garderas pour toi." },
       "Puis tu te retournes vers les autres, et tu leur dis que tu ne rentres pas à Salvèze.",
       "Tu {{miroir#vf_fo_raison|pars parce que la ville ne mérite pas cet or|pars parce que, depuis la mort d'Odeline, tu as peur tous les jours, et que l'or est la seule chose que tu as trouvée qui fasse taire la peur}}.",
     ],
@@ -990,7 +990,7 @@ Object.assign(P, {
   VF_fo_cap: { act: "V", title: "Le cap", place: null,
     text: [
       "Au large, la mer est vide et la côte n'est plus qu'une ligne. Tu déplies sur le banc une carte de marin, de celles qu'on vend au port aux Sauniers pour un ducat, et tu cherches un pays.",
-      "Au sud, à neuf jours de voile, il y a Bellarade, une ville blanche aux toits plats, où l'on parle une langue chantée et où l'on vend tout ce qui se vend, sans demander d'où il vient. À l'est, au-delà du détroit, il y a l'Ostrévie, des forêts, des fleuves larges, et la ville de Tarvène, où les banquiers d'Ostrévie prêtent aux rois et ne connaissent pas le nom de Marrel.",
+      "Au sud, à neuf jours de voile, il y a Bellarade, une ville blanche aux toits plats, où l'on parle une langue chantée et où l'on vend tout ce qui se vend, sans demander d'où il vient. À l'est, au-delà du détroit, il y a l'Ostrévie, des forêts, des fleuves larges, et la ville de Tarvène, où les banquiers d'Ostrévie prêtent aux rois et ignorent le nom de Marrel.",
       { if: { has: "ivm:part_ecumeurs" }, text: "Derrière vous, deux voiles brunes ont paru à l'horizon. Riwal attendait sa part à Port-Vasier. Il est venu la chercher." },
     ],
     choices: [
@@ -1053,7 +1053,7 @@ Object.assign(P, {
       { if: EST, text: "Tu achètes une maison de pierre au bord du fleuve, à Tarvène, avec un poêle de faïence verte qui chauffe trois pièces. Le premier hiver, tu apprends cent mots de la langue de gorge. Le deuxième, tu rêves dedans." },
       { if: { has: "vf:or_moitie" }, text: "Tu as la moitié de l'or. C'est encore une fortune. Tu le dis souvent, à voix haute, pour t'en convaincre." },
       { if: { has: "vf:besace_jetee" }, text: "Il te manque une besace, celle que tu as jetée aux poursuivants. Certains soirs, tu la comptes encore avec le reste." },
-      { with: "tibere", text: "Tibère s'est trouvé une taverne à son goût, dans la ville basse, où l'on joue aux dés dans une langue qu'il ne parle pas. Il perd moins qu'avant. Il ne comprend pas les annonces, et il dit que c'est pour ça." },
+      { with: "tibere", text: "Tibère s'est trouvé une taverne à son goût, dans la ville basse, où l'on joue aux dés dans une langue qu'il ne parle pas. Il perd moins qu'avant. Les annonces lui échappent, et il dit que c'est pour ça." },
       { with: "fauvette", text: "Fauvette parle la langue du pays avant toi, avec l'accent des docks. Elle a des amis partout, et des clés de partout." },
       { if: { has: "vt:avis_fauvette" }, with: "fauvette", text: "Le soir, sous la lampe, tu apprends à lire à Fauvette, dans ta langue et dans celle du pays. Elle a voulu commencer par le mot *terre*." },
       "On t'appelle par ton nom, ici, mais mal prononcé. Au bout d'un an, tu te retournes quand on le prononce comme eux.",
@@ -1096,7 +1096,7 @@ Object.assign(P, {
 
   VF_fo_annees: { act: "V", title: "Les années", place: null,
     text: [
-      "Les années passent. Tu deviens quelqu'un, dans ta nouvelle ville : une personne riche, discrète, qui prête sans usure aux pêcheurs et qui ne parle jamais de son pays. On t'invite. On t'envie. On te croit veuf ou veuve, à cause de ton air.",
+      "Les années passent. Tu deviens quelqu'un, dans ta nouvelle ville : une personne riche, discrète, qui prête sans usure aux pêcheurs et qui garde le silence sur son pays. On t'invite. On t'envie. On te croit veuf ou veuve, à cause de ton air.",
       { if: { has: "vf:charte_renvoyee" }, text: "Un été, un gabarier te rapporte que les gens des Joncs-Bas ont reçu un paquet de la mer. Ils l'ont caché sous un plancher. Ils ont envoyé une barque à la chapelle de Port-Vasier, pour faire dire une messe pour un vivant." },
       { if: { has: "vf:charte_brulee" }, text: "Il t'arrive de rêver de la cire verte qui fond et prend feu avec une flamme bleue. Tu te réveilles toujours au même moment, la main tendue vers le poêle." },
       { if: { has: "vf:argent_envoye" }, text: "Chaque printemps, le gabarier de Salvèze repart de ton port avec une bourse cousue dans sa veste. Une fois, il te rapporte un mot sans signature : *Reçu. Le toit tient.*" },
