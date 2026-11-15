@@ -402,3 +402,17 @@ Pour « Les Fils de la Marée » (Clément, 15/11 : trois actes, deux heures par
 | `story.heroes` | sans héros `player` | Histoire à héros prédéfinis : la création montre « Tu suivras » et la liste des héros, sans nom, genre, voie ni visage à choisir. |
 
 Règle de construction (la Marée) : chaque acte se lit en ordre libre au carrefour, et le héros suivi le premier agit le premier (un témoin sauvé ou perdu, une clef trouvée, une alliée gagnée). Les choix posent des états (`fx.set`), lus plus loin par les aiguillages et les conditions, jusqu'au dénouement. Le validateur vérifie les cibles et conditions des aiguillages et ne compte pas un aiguillage comme passage jamais atteint.
+
+## Chemins qui se dévoilent (15/11, 8.9) : personnes à suivre, savoir gardé, raccourcis
+
+| Où | Clé | Sens |
+|---|---|---|
+| histoire | `leads: { id: { name, desc, start, if, hint, label, fx } }` | Les personnes qu'on peut suivre, chacune un héros de `heroes` (avec sa fiche dans `companions`). `if` : la condition qui l'ouvre (`second`, `lore`…) ; `hint` : la phrase montrée sur le bouton grisé tant qu'elle est fermée (sans rien éventer). |
+| passage | `leads: true` | Le moteur écrit un choix par personne de `leads` : « Suivre Maëlle », qui la met en tête (`fx.lead`) et mène à son `start`. Les fermées restent grisées avec leur `hint`. |
+| histoire | `savoirs: { id: { title, text } }` | Ce qu'un lecteur garde d'une partie à l'autre. |
+| effet | `learn: "id"` ou `["a", "b"]` | Le lecteur garde ce savoir pour toutes ses parties suivantes de l'histoire. L'appli l'écrit dans son profil tout de suite (une partie laissée en route l'a quand même appris). Le moteur le dit : « Tu gardes pour les parties suivantes : … ». |
+| condition | `{ savoir: "id" }` ou `{ savoir: ["a", "b"] }` | Ce lecteur a appris ce savoir (dans cette partie ou une autre). |
+| condition | `{ lu: "PASSAGE" }` | Ce lecteur a lu ce passage dans une partie précédente (il y a pris un choix). |
+| passage | `skip: { to, label, fx }` | Raccourci : si le lecteur a déjà lu ce passage dans une autre partie, un choix de plus, « Tu connais la suite : passer » (ou `label`), mène à `to` avec les effets `fx` (ce que la scène sautée aurait donné). |
+
+Le moteur marque d'un ✧ un choix ouvert grâce à une partie précédente (`savoir`, `lu`, `second` dans son `if`, ou tag `second`), tant que le lecteur ne l'a jamais pris. À une fin, l'appli nomme les personnes que cette fin vient d'ouvrir. Onglet « L'intrigue » du carnet : personnes ouvertes et fermées, savoir gardé, fins trouvées. Le validateur joue deux parties sur cinq avec une partie du savoir et des pages lues.

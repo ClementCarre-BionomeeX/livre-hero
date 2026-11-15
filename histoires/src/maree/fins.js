@@ -25,7 +25,7 @@ module.exports = {
   ]),
   F_guet: fin("guet", "La loi de la capitaine", [
     "À une heure, la marée tourne. Personne n'a vingt et une voix. Le sable du sablier est passé.",
-    "Ysabeau Dorne monte à l'estrade. Elle ne s'assied pas dans le siège. Elle reste debout à côté, la main sur la garde de son épée.",
+    "Ysabeau Dorne monte à l'estrade. Elle reste debout à côté du siège, la main sur la garde de son épée.",
     "« Le Doyen est mort assassiné. Le Grand Argentier est sous les verrous. Le Conseil n'a pas su choisir. Jusqu'aux prochaines Hautes-Eaux, le Guet tiendra le palais, au nom de la loi et de rien d'autre. »",
     "Hélis Arnaud la regarde longtemps par-dessus ses lunettes. Puis elle referme son règlement. « Il n'y a pas d'article pour ça, capitaine. — Alors on en écrira un. »",
     "Pendant un an, Escalombre est gouvernée par une femme qui n'a jamais voulu gouverner. Les canaux sont propres, les péages justes, les procès rapides. Les conseillers s'ennuient. Les marchands se plaignent. La ville, pour la première fois depuis longtemps, dort.",

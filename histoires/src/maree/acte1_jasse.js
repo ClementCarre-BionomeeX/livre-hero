@@ -79,7 +79,7 @@ module.exports = {
     text: [
       "Le canal des Sels passe sous un pont de pierre à une seule arche, assez bas pour qu'on baisse la tête en barque quand la marée est haute. Et cet après-midi, la marée est très haute.",
       "Tu as une heure. Corentin connaît le patron d'un chaland de sel amarré dix brasses avant le pont. Mo connaît tous les gamins de Bas-Port. Toi, tu connais l'eau.",
-      "Une barque de la prison, c'est quatre rameurs du Guet et deux gardes avec des hallebardes. Ils ne s'attendent à rien. Personne n'a jamais attaqué la barque de la prison.",
+      "Une barque de la prison, c'est quatre rameurs du Guet et deux gardes avec des hallebardes. Ils rament tranquilles. Personne n'a jamais attaqué la barque de la prison.",
     ],
     choices: [
       { label: "Le chaland : le lâcher en travers du canal juste avant le pont, et prendre Nella dans la confusion", test: { dom: "discretion", diff: 0, label: "Ruse" },
