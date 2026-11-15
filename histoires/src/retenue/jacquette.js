@@ -4,9 +4,9 @@ var A = "I";
 module.exports = {
   J_lac: { act: A, title: "Le sel de Brême", place: "lac", skip: { to: "J_pied", label: "Tu connais la suite : passer l'octroi", fx: { time: 1 } },
     text: [
-      "Dix sacs de sel de Brême dans la barque, sous une bâche goudronnée. Quinze livres de profit si l'octroi ne te voit pas. Six mois de prison s'il te voit.",
-      "La Retenue est noire et lisse comme de l'encre, mais elle bouge par en dessous : une houle longue, lente, qui vient du fond du lac. Le vent tourne au nord. Tu n'as jamais vu le lac si haut en novembre. L'eau lèche le pied des hêtres sur la rive, là où il y a d'habitude trois pas de grève.",
-      "Cet après-midi, un gamin t'a apporté un mot du vieux Vellard : *Ce soir, attends un paquet à ta cabane, avant minuit. Ne bouge pas de là.* Le vieux ne t'a jamais rien demandé en six ans. Il t'a laissée passer son canal, il t'a fait du café, il t'a parlé de son grand-père. Tu as dit oui au gamin avant d'avoir lu jusqu'au bout.",
+      "Dix sacs de sel de Brême dans la barque, sous une bâche goudronnée, cinquante livres le sac. Quinze livres de profit si l'octroi ne te voit pas. Six mois de prison s'il te voit.",
+      "La Retenue est noire et lisse comme de l'encre, mais elle bouge par en dessous : une houle longue, lente, qui vient du fond du lac. Le vent tourne au nord. Le lac est plus haut qu'à aucun mois de novembre de ta vie. L'eau lèche le pied des hêtres sur la rive, là où il y a d'habitude trois pas de grève.",
+      "Cet après-midi, un gamin t'a apporté un mot du vieux Vellard : *Ce soir, attends un paquet à ta cabane, avant minuit. Ne bouge pas de là.* En six ans, le vieux t'a demandé ceci, et rien d'autre. Il t'a laissée passer son canal, il t'a fait du café, il t'a parlé de son grand-père. Tu as dit oui au gamin avant d'avoir lu jusqu'au bout.",
       "Au milieu du lac, une lanterne se balance : la barque de l'octroi. Deux hommes, une perche, un fusil. Elle croise entre toi et la digue.",
     ],
     choices: [
@@ -19,8 +19,8 @@ module.exports = {
       { via: "hetres", text: "À la pointe des Hêtres, la houle te prend de travers. Un sac glisse, la barque gîte, tu rattrapes la rame d'une main, et tu cognes le plat-bord. Le bruit roule sur l'eau. La lanterne de l'octroi se tourne vers toi." },
       { if: { not: { via: "hetres" } }, text: "À cinquante brasses, un sac glisse sous la bâche et tombe à l'eau. Le bruit roule sur le lac. La lanterne de l'octroi se tourne vers toi." },
       "« Morand ! Ne bouge plus, la Loutre ! »",
-      "Ils t'abordent. Le plus vieux, Gaudry, te connaît depuis dix ans ; il t'a ratée vingt fois. Ce soir, il sourit. Il compte les sacs.",
-      "Ils t'emmènent au poste de l'octroi, au bout du lac, côté Brême, à trois lieues de la digue. Ta barque en remorque.",
+      "Ils t'abordent. Le plus vieux, Gaudry, te connaît depuis dix ans ; il t'a ratée vingt fois. Ce soir, il sourit. Il compte les sacs, à voix haute, en mouillant son pouce.",
+      "Ils t'emmènent au poste de l'octroi, au bout du lac, côté Brême, à trois lieues de la digue. Ta barque suit en remorque.",
     ],
     choices: [
       { label: "Te taire", to: "J_octroi" },
@@ -38,12 +38,12 @@ module.exports = {
 
   J_pied: { act: A, title: "Le pied de la digue", place: "digue", fx: { learn: "veine_vue", time: 0.75 },
     text: [
-      { via: "droit", text: "Tu passes à vingt brasses de la lanterne de l'octroi. Gaudry chante. Il chante faux, et il ne te voit pas." },
-      { via: "hetres", text: "Le grand tour te coûte une demi-heure et des ampoules. L'octroi ne voit rien." },
+      { via: "droit", text: "Tu passes à vingt brasses de la lanterne de l'octroi. Gaudry chante. Il chante faux, et il regarde ailleurs." },
+      { via: "hetres", text: "Le grand tour te coûte une demi-heure et des ampoules. L'octroi reste aveugle." },
       "Tu passes la digue par son canal, comme d'habitude, par la grille dont le vieux t'a donné la clé, et tu ressors de l'autre côté, côté vallée, au pied du mur.",
       "Avant d'aller à la cabane, tu longes le parement à la rame, comme tous les soirs depuis l'été. Tu cherches l'endroit. Le voilà : entre deux pierres, à un mètre au-dessus de l'eau du canal, un bouillon trouble, chargé de sable fin, qui sort du mur et retombe en gargouillant.",
       "Cet été, c'était un filet d'eau claire, gros comme un doigt. Ce soir, c'est un bras. Et l'eau est brune.",
-      "Tu n'en as jamais parlé à personne. À qui ? Une passeuse de sel, on ne l'écoute pas, on la met en cage.",
+      "Tu as gardé cela pour toi. Le dire à qui ? Une passeuse de sel, on la met en cage avant de l'écouter.",
     ],
     choices: [
       { label: "Aller à la cabane attendre le paquet", to: "J_cabane", fx: { time: 0.5 } },
@@ -53,7 +53,7 @@ module.exports = {
   J_cabane: { act: A, title: "La cabane des Loutres", place: "berge", fx: { time: 1 },
     text: [
       "Tu caches les sacs de sel dans les roseaux, tu allumes ton poêle, tu fais chauffer de l'eau. Tu attends.",
-      "Onze heures et demie. Minuit. Rien sur la berge, rien sur la route. Le vent fait claquer la tôle du toit. Contre le mur de la cabane, à travers la terre, tu sens la digue trembler, très doucement, comme une bête qui dort mal.",
+      "Onze heures et demie. Minuit. La berge est vide, la route aussi. Le vent fait claquer la tôle du toit. Contre le mur de la cabane, à travers la terre, tu sens la digue trembler, très doucement, comme une bête qui dort mal.",
       "Minuit et demi. Le paquet devait être là avant minuit.",
     ],
     choices: [
@@ -65,7 +65,7 @@ module.exports = {
     ] },
   J_attente_longue: { act: A, title: "Rien sur la route", place: "berge", fx: { time: 1.75 },
     text: [
-      "Tu attends. Tu ne sais rien faire d'autre, la nuit, qu'attendre : l'octroi, la lune, le bon vent.",
+      "Tu attends. La nuit, attendre est ton seul métier : l'octroi, la lune, le bon vent.",
       "À deux heures, toujours rien. Tu éteins ton poêle. Tu montes l'escalier de la digue, les deux cents marches, à la lanterne.",
       "Le vieux t'ouvre. Il est jaune, maigre, il sent le laudanum. Il voit tes mains vides.",
       "« Elle n'est pas venue, dit-il. Alors ils l'ont prise. »",
@@ -76,17 +76,17 @@ module.exports = {
       "Il te fait asseoir. Il te raconte, enfin. La galerie, la fissure qu'il appelle la veine, trois ans de mortier, le Conseil qui a su et qui a voté de se taire. La clé, qu'il a donnée à Ilde à sept heures. La vanne de fond, qu'il fallait ouvrir à trois heures.",
       "« Sans la clé, la roue ne tourne pas », dit-il.",
       "Tu lui dis ce que tu as vu au pied du mur. Le bouillon brun, gros comme un bras. Il ferme les yeux.",
-      "Trois heures sonnent, très loin, à Saint-Rieul. Il n'y a qu'une lanterne à la fenêtre. Le vieux regarde son baromètre. Il se tait.",
+      "Trois heures sonnent, très loin, à Saint-Rieul. À la fenêtre, une seule lanterne. Le vieux regarde son baromètre. Il se tait.",
       "À quatre heures, la pluie. Elle frappe les vitres. Le vieux se lève, tout seul, et il se tient debout devant sa fenêtre, une main sur la vitre froide.",
       "« Il y a peut-être un autre moyen, dit-il. Mais il faudrait un garçon qui l'a appris quand il avait huit ans. »",
-      "Il ne dit pas lequel. Ce garçon-là, il faudra le suivre, une autre nuit.",
+      "Il garde le nom pour lui. Ce garçon-là, il faudra le suivre, une autre nuit.",
     ] },
 
   // ------------------------------------------------------------------ to meet the parcel
   J_audevant: { act: A, title: "Au-devant", place: "berge", fx: { time: 0.75 },
     text: [
       "Tu écris à la craie, sur une planche que tu cloues à ta porte : *Partie au-devant. Laisse ce que tu portes sous la pierre bleue.* La pierre bleue, devant ta porte, c'est là que les clients de nuit te laissent leurs commandes depuis six ans.",
-      "Tu prends la route de la Digue vers la ville, à grands pas. Dix bornes. Personne. À la dernière, tu vois le pont des Moulins, et la lanterne du guet au milieu, et trois hommes autour.",
+      "Tu prends la route de la Digue vers la ville, à grands pas. Dix bornes, toutes désertes. À la dernière, tu vois le pont des Moulins, et la lanterne du guet au milieu, et trois hommes autour.",
     ],
     choices: [
       { label: "Faire demi-tour", to: "J_retour" },
@@ -101,10 +101,10 @@ module.exports = {
     choices: [{ label: "Courir au canal", to: "J_chambre" }] },
   J_aulnes: { act: A, title: "La berge des Aulnes", place: "berge", fx: { time: 0.75 },
     text: [
-      "Le paquet ne vient pas par la route. Il viendra par la berge, de l'autre côté de l'eau, si la porteuse est maligne. Tu traverses la Sorge en barque, au gué des tanneurs, et tu remontes le sentier des Aulnes vers la ville, à la lanterne sourde.",
+      "Le paquet évitera la route. Il viendra par la berge, de l'autre côté de l'eau, si la porteuse est maligne. Tu traverses la Sorge en barque, au gué des tanneurs, et tu remontes le sentier des Aulnes vers la ville, à la lanterne sourde.",
       "Au bout d'un quart d'heure, une ombre vient vers toi entre les saules. Une jeune femme en châle gris, crottée jusqu'aux genoux, un paquet long serré contre elle. Elle s'arrête net. Elle a un caillou dans l'autre main.",
       "« C'est Ilde qui t'envoie ? dis-tu. Je suis Jacquette. »",
-      "Elle ne lâche pas le caillou. Elle te tend le paquet.",
+      "Elle garde le caillou. Elle te tend le paquet.",
     ],
     choices: [
       { label: "Lui demander son nom, et ce qu'elle a vu en route", to: "J_maelle_nom" },
@@ -130,7 +130,7 @@ module.exports = {
       "Au jour, tu ramènes ta barque sur la Sorge gonflée, vite, sans ramer, en gouvernant seulement. La pluie te coule dans le cou.",
       "Au pied du mur, en passant, tu regardes l'endroit. Le bouillon brun a baissé. Il sort maintenant au ras de l'eau, plus faible, comme une respiration qui se calme.",
       { if: { has: "foulons:leves" }, text: "Aux Foulons, l'eau est dans les maisons jusqu'aux fenêtres basses. Le quartier est sur le parvis de Saint-Rieul. La courrière en châle gris est au premier rang. Elle t'a vue passer sur l'eau. Elle te fait un signe de la main." },
-      { if: { not: { has: "foulons:leves" } }, text: "Aux Foulons, l'eau est dans les maisons jusqu'aux fenêtres basses. Personne n'a été prévenu. Les gens sont sur les toits, aux fenêtres de l'étage. Tu passes la matinée à aller de maison en maison avec ta barque, à charger des enfants, des vieux, une chèvre. Dans la rue du Lavoir, tu ramènes une vieille femme morte dans son fauteuil. Tu ne savais pas son nom." },
+      { if: { not: { has: "foulons:leves" } }, text: "Aux Foulons, l'eau est dans les maisons jusqu'aux fenêtres basses. Personne n'a été prévenu. Les gens sont sur les toits, aux fenêtres de l'étage. Tu passes la matinée à aller de maison en maison avec ta barque, à charger des enfants, des vieux, une chèvre. Dans la rue du Lavoir, tu ramènes une vieille femme morte dans son fauteuil. Son nom, tu l'as appris après." },
       { if: { all: [{ not: { has: "sel:jete" } }, { not: { has: "gaudry:paye" } }] }, text: "L'octroi te cherchera la semaine prochaine pour les dix sacs de sel dans les roseaux. Tu les auras vendus avant." },
       { if: { has: "gaudry:paye" }, text: "Gaudry viendra chercher son anguille fumée à la Saint-Martin. Tu la lui fumeras toi-même." },
       { if: { has: "sel:jete" }, text: "Ton sel dort au fond de la Retenue. Le lac a baissé de trois pieds cette nuit. Il te le rendra peut-être, en sel ou en autre chose." },
@@ -146,7 +146,7 @@ module.exports = {
     choices: [{ label: "La faire monter dans ta barque", to: "J_preuve" }] },
   J_preuve: { act: A, title: "Ce que voit la dame", place: "digue", end: true, fx: { time: 2 },
     text: [
-      "Tu remontes la Sorge à la rame, contre le courant, avec une vieille dame en noir assise à la proue, son parapluie fermé sur les genoux. Il te faut deux heures. Elle ne se plaint pas une fois.",
+      "Tu remontes la Sorge à la rame, contre le courant, avec une vieille dame en noir assise à la proue, son parapluie fermé sur les genoux. Il te faut deux heures. Elle se tait tout le long, sans une plainte.",
       "Au pied de la digue, tu la mènes à l'endroit. Le bouillon sort toujours du mur, plus faible, brun, chargé de sable. Dame Hesdin le regarde longtemps. Elle enlève son gant, elle tend la main, elle laisse l'eau couler dans sa paume, et elle frotte le sable entre ses doigts.",
       "« Il y a trois ans, dit-elle, j'ai voté contre. J'étais seule. Je me suis tue, comme les six autres. On m'a dit que c'était un suintement. »",
       "Elle remet son gant. « Ramenez-moi à l'Hôtel du Conseil, je vous prie. Le vote est à huit heures. Ils m'attendront. »",
@@ -160,22 +160,22 @@ module.exports = {
       "« Il y a le pointeau, dis-tu. En bas. Le bouchon de bronze, sous l'eau, à deux pas de la veine. »",
       "Il te regarde comme si tu lui avais parlé de sa femme morte. « Qui t'a dit ça ? Je ne l'ai montré qu'à mon fils. Il avait huit ans. »",
       "« Je l'ai su », dis-tu. C'est vrai, d'une certaine façon.",
-      "Il ne peut pas descendre. Il te donne sa lanterne, une corde, et la direction : par l'escalier de service, tout au fond, à droite.",
+      "Ses jambes refusent l'escalier. Il te donne sa lanterne, une corde, et la direction : par l'escalier de service, tout au fond, à droite.",
     ],
     choices: [{ label: "Descendre", to: "J_galerie" }] },
   J_galerie: { act: A, title: "Le ventre de la digue", place: "digue", end: true, fx: { time: 3.5 },
     text: [
-      "La galerie basse est rouge, en grès de Malbuisson, verte de mousse jusqu'à hauteur d'homme. L'eau t'arrive aux genoux, puis à la taille. Elle est si froide que tu cesses de sentir tes jambes au bout de vingt pas.",
-      "La veine est là : une fente noire du sol à la voûte, large comme deux doigts, qui pleure une eau trouble. Toute la pierre autour gémit. Un petit morceau de grès se détache pendant que tu regardes, et tombe dans l'eau avec un bruit de dent qui casse.",
-      "Le pointeau est sous l'eau, à deux pas. Tu plonges les bras jusqu'aux épaules. Tu tournes. Il ne bouge pas. Tu t'attaches avec la corde à l'anneau du mur, tu cales tes pieds contre la paroi, tu tournes encore. Il cède.",
+      "La galerie basse est rouge, en grès de Malbuisson, verte de mousse jusqu'à hauteur d'homme. L'eau t'arrive aux genoux, puis à la taille. Si froide qu'au bout de vingt pas, tes jambes deviennent étrangères.",
+      "La veine est là : une fente noire du sol à la voûte, large de deux doigts, qui pleure une eau trouble. Toute la pierre autour gémit. Un petit morceau de grès se détache pendant que tu regardes, et tombe dans l'eau avec un bruit de dent qui casse.",
+      "Le pointeau est sous l'eau, à deux pas. Tu plonges les bras jusqu'aux épaules. Tu tournes. Il résiste. Tu t'attaches avec la corde à l'anneau du mur, tu cales tes pieds contre la paroi, tu tournes encore. Il cède.",
       "Au vingtième tour, il te reste dans les mains, et la vanne se lève toute seule avec un bruit qui te jette contre la pierre. La corde te retient. Le courant te tire vers le fond pendant une éternité de dix secondes.",
       "Tu remontes à quatre pattes, sans voix, sans jambes, avec du sang dans la bouche. Le vieux est en haut de l'escalier de service. Il est descendu jusque-là, tout seul. Il te tend la main.",
-      "La digue gronde, puis gronde moins. À quatre heures, la pluie. Aux Foulons, l'eau entre dans les maisons à trois heures et demie, sans prévenir personne. On compte les morts à midi : quatre. Sans le pointeau, on n'aurait pas pu les compter.",
+      "La digue gronde, puis gronde moins. À quatre heures, la pluie. Aux Foulons, l'eau entre dans les maisons à trois heures et demie, sans prévenir personne. On compte les morts à midi : quatre. Sans le pointeau, on aurait renoncé à les compter.",
     ] },
   J_large_nuit: { act: A, title: "L'autre rive", place: "lac", fx: { time: 3 },
     text: [
       "Tu regardes le bouillon brun sortir du mur. Puis tu fais pivoter ta barque, et tu repasses le canal dans l'autre sens.",
-      "Le paquet du vieux, les Foulons, la ville, le Conseil : rien de tout ça ne t'a jamais rien donné. Un jour d'octroi, un procès-verbal, une cage. Tu as dix sacs de sel et une barque. De l'autre côté du lac, il y a Brême, et les marchands de Brême paient comptant.",
+      "Le paquet du vieux, les Foulons, la ville, le Conseil : de tout ce monde-là, tu as reçu un jour d'octroi, un procès-verbal, une cage. Tu as dix sacs de sel et une barque. De l'autre côté du lac, il y a Brême, et les marchands de Brême paient comptant.",
       "Tu rames contre le vent, vers la rive nord. La digue rapetisse derrière toi, avec sa petite lumière.",
     ],
     choices: [{ label: "Ramer", to: "J_demitour_lac" }] },
