@@ -39,18 +39,20 @@ module.exports = {
       "Tu le connais : Bastien Vellard, le fils du garde-vannes. Tu l'as ramassé trois fois au Chat Ferré, ivre mort, et ramené à son père. Le père ne t'a jamais dit merci. Il pleurait.",
       "Bastien te voit, se redresse, rentre ses mains dans ses poches, et remonte la rue vers le Chat Ferré sans te saluer.",
     ],
-    choices: [{ label: "Descendre au pont", to: "O_pont", fx: { time: 0.25 } }] },
+    choices: [
+      { label: "Descendre au pont", to: "O_pont", fx: { time: 0.25 } },
+      { label: "Suivre Bastien jusqu'au Chat Ferré", if: { second: true }, to: "O_chat" },
+    ] },
   O_pont: { act: A, title: "Tenir le pont", place: "pont", fx: { learn: "ponceau" },
     text: [
       "Tu plantes la hallebarde entre deux pavés, au milieu du pont, et tu accroches la lanterne au crochet. Thomin à l'autre bout, Colin au pied de la culée, côté Foulons.",
       "La Sorge cogne contre les piles. Elle a pris un pied depuis lundi. En bas, contre la culée, la vieille grille du ponceau des Teinturiers bâille sur son seul gond : l'égout est à sec depuis l'été, et la grille, tu la signales au capitaine chaque printemps. Un gamin agile passerait dessous en dix secondes.",
       "Aux Foulons, les fenêtres s'éteignent. Celle de Nine, rue du Lavoir, la troisième après la fontaine, s'éteint la dernière. Ta fille accouche au printemps. Tu seras grand-père. Tu le dis à Colin, pour la dixième fois de la semaine. Colin rit.",
-      "À neuf heures et demie, une silhouette monte la rue des Teinturiers d'un pas rapide, un paquet long serré contre elle. Une jeune femme, en châle de laine, des souliers de courrier.",
     ],
     choices: [
-      { label: "L'arrêter et saisir le paquet", to: "O_saisie" },
-      { label: "Lui demander ce qu'elle porte, et pour qui", to: "O_parle" },
-      { label: "Détourner les yeux, et la laisser passer", to: "O_laisse", via: "aveugle" },
+      { label: "Descendre voir la grille du ponceau", hide: { has: "odon:grille" }, to: "O_grille" },
+      { label: "Parler avec Colin et Thomin", hide: { has: "colin:mere" }, to: "O_hommes" },
+      { label: "Attendre", to: "O_courriere", fx: { time: 0.5 } },
     ] },
   O_parle: { act: A, title: "La courrière", place: "pont",
     text: [
@@ -73,17 +75,19 @@ module.exports = {
       "« Ordre du capitaine, dis-tu. Tu passeras la nuit au poste. Demain, on verra. »",
       "Elle ne pleure pas. Elle te regarde, toi, pas les deux autres, comme si elle voulait se souvenir de ton visage. Colin l'emmène par le bras. Tu prends le paquet sous le tien, tu laisses Thomin à la lanterne, et tu remontes vers la Haute-Ville.",
     ],
-    choices: [{ label: "Porter le paquet au capitaine", to: "O_bureau" }] },
+    choices: [{ label: "Porter le paquet au capitaine", to: "O_montee" }] },
   O_bureau: { act: A, title: "Le bureau du capitaine", place: "hauteville", fx: { learn: "rambert_paye", drop: "paquet", time: 0.5 },
     text: [
       "Le bureau du capitaine est au premier, au-dessus du corps de garde. Rambert y attend en buvant un vin qui ne vient pas de l'ordinaire du guet. Il prend le paquet, coupe la ficelle avec son canif, et écarte la toile cirée.",
-      "Une clé de fer, longue comme un avant-bras, deux lettres gravées sur la tige. Et une lettre cachetée de vert, qu'il glisse dans sa veste sans la lire.",
+      { if: { not: { has: "odon:lettre" } }, text: "Une clé de fer, longue comme un avant-bras, deux lettres gravées sur la tige. Et une lettre cachetée de vert, qu'il glisse dans sa veste sans la lire." },
+      { if: { has: "odon:lettre" }, text: "La clé de fer, les deux lettres gravées. Rambert fouille la toile, les doigts écartés. « Il n'y avait rien d'autre ? » Contre ton insigne, dans ta poche de poitrine, la lettre au cachet cassé te brûle." },
       "On frappe. Un valet en livrée verte, une couronne brodée sur la poitrine, la livrée de la maison Corlay. Rambert lui tend la clé dans sa toile. Le valet lui tend une bourse de cuir, sœur de celle qui pend à sa ceinture. Personne ne dit un mot. Le valet repart.",
       "Rambert soupèse la bourse, la range dans un tiroir. Le tiroir en contient déjà trois.",
       "« Bon travail, Brasseur. Ton service est fini. Va dormir. »",
     ],
     choices: [
       { label: "Rentrer chez toi", to: "O_chambre" },
+      { label: "Lui donner la lettre, et lui dire ce qu'elle dit", hide: { not: { has: "odon:lettre" } }, to: "O_lettre_dite" },
       { label: "Descendre aux Foulons chercher Nine", if: { lore: "veine" }, to: "O_nine_rue" },
       { label: "Fermer la porte derrière toi, et dire au capitaine ce que tu viens de voir", if: { all: [{ lore: "veine" }, { lore: "proces_verbal" }] }, to: "O_reprendre" },
     ] },
@@ -172,7 +176,7 @@ module.exports = {
     ],
     choices: [
       { label: "Couper le lacet et prendre la clé", to: "O_tour", via: "coupe" },
-      { label: "Réveiller Anicet et lui dire pourquoi", test: { dom: "social", diff: -10, label: "Convaincre" }, win: { to: "O_tour", via: "anicet" }, lose: { to: "O_tour", via: "coupe" } },
+      { label: "Réveiller Anicet et lui dire pourquoi", test: { dom: "social", diff: -10, label: "Convaincre" }, win: { to: "O_anicet" }, lose: { to: "O_tour", via: "coupe" } },
     ] },
   O_tour: { act: A, title: "La tour du guet", place: "hauteville", fx: { time: 0.75 },
     text: [
@@ -184,6 +188,7 @@ module.exports = {
       "Dans l'escalier, sous tes pieds, quelqu'un monte. Des bottes. Le pas du capitaine Rambert.",
     ],
     choices: [
+      { label: "Regarder d'abord par la lunette du guetteur", to: "O_lunette" },
       { label: "Sonner", to: "O_tocsin" },
       { label: "Barrer la trappe avec ta hallebarde, puis sonner", test: { dom: "combat", diff: 0, label: "Tenir la trappe" }, win: { to: "O_tocsin", via: "trappe" }, lose: { to: "O_tocsin", via: "lutte" } },
     ] },
@@ -195,6 +200,7 @@ module.exports = {
       { if: { not: { via: ["trappe", "lutte"] } }, text: "Rambert arrive au sommet de l'escalier. Il te regarde sonner. Il ne monte pas la dernière marche. Il redescend." },
       "En bas, les fenêtres s'allument. Toutes. La Haute-Ville d'abord, puis les Foulons, rue par rue. Des lanternes sortent sur les quais. Tes hommes, Colin et Thomin et les autres, réveillés au poste, descendent vers le quartier bas en criant.",
       "Tu sonnes jusqu'à ce que tes bras ne te portent plus. Puis Anicet prend la corde, ou un garçon du guet, tu ne sais plus.",
+      { if: { has: "odon:lunette" }, text: "Entre deux coups, tu retournes à la lunette. Là-bas, sur la digue, les trois lanternes sont toujours alignées sur l'appui de la fenêtre. Quelqu'un attend encore, là-haut, et ta cloche ne lui apporte pas ce qu'il attend." },
       "À trois heures, de la tour, tu entends la digue : un grincement de fer, une chaîne qu'on dévide. À quatre heures, la pluie. Au jour, les Foulons sont dans l'eau jusqu'aux fenêtres basses, et le quartier entier est sur le parvis de Saint-Rieul, dans des couvertures.",
       "Nine est là. Elle t'a cherché dans la foule. Elle a mis ta vieille capote du guet sur ses épaules.",
       { if: { has: "odon:sans_insigne" }, text: "À huit heures, on te rend ton insigne sur les marches de l'Hôtel du Conseil. C'est Dame Hesdin qui le tend. Rambert n'est pas là." },
@@ -211,7 +217,8 @@ module.exports = {
     ],
     choices: [
       { label: "Les faire monter, et monter avec eux", to: "O_nine", via: "seuls" },
-      { label: "Les faire monter, et frapper aux portes de la rue du Lavoir", to: "O_nine", via: "rue", fx: { time: 1 } },
+      { label: "Les faire monter, et frapper aux portes de la rue du Lavoir", to: "O_portes", fx: { time: 0.5 } },
+      { label: "Courir au lavoir, et sonner la cloche des lavandières", to: "O_cloche_nuit" },
     ] },
   O_nine: { act: A, title: "Nine", place: "hauteville", end: true, fx: { time: 3.5 },
     text: [
@@ -221,6 +228,7 @@ module.exports = {
       "Vers cinq heures et demie, la tour tremble. Un grondement descend la vallée, énorme, continu, et la Sorge se soulève entre ses rives comme une bête qui se lève. La vague passe sur les Foulons. Quand elle est passée, il reste des toits, et le clocher de Saint-Blaise.",
       "Nine s'est réveillée. Elle est à côté de toi, les mains sur son ventre. Elle regarde l'endroit où était sa rue.",
       { via: "rue", text: "Quatre familles, sur le palier de la tour, pleurent leurs maisons. Elles sont vivantes. Les sept autres portes, tu les revois une par une." },
+      { if: { has: "gosse:sauvee" }, text: "La veuve Gosse est là aussi, dans son fauteuil, sous une couverture. Tu as enfoncé sa porte. Elle ne t'a pas encore dit un mot, et elle ne lâche pas ta manche." },
       { via: "seuls", text: "Elle te demande : « Tu savais ? » Tu ne réponds pas. Elle n'a pas besoin que tu répondes." },
       "À huit heures, le Conseil siège dans une ville qui compte ses morts. La Charge des Vannes n'a plus de vannes à garder.",
     ] },
