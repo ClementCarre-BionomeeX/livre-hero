@@ -123,9 +123,10 @@
       // the same road twice; the story declares, the engine writes the buttons.
       if (P0.leads && story.leads && !(P0.choices || []).some(function (c) { return c.leadPick; })) {
         P0.choices = (P0.choices || []).concat(Object.keys(story.leads).map(function (k) {
-          var L = story.leads[k], c = { label: L.label || "Suivre " + (L.name || k), to: L.start, fx: Object.assign({ lead: k, leadQuiet: true }, L.fx || {}), leadPick: k };
-          if (L.desc) c.note = L.desc;
-          if (L.if != null) { c.if = L.if; c.why = L.hint || "Une autre partie ouvrira ce chemin."; }
+          // A closed one shows only its hint, never its name (the reader meets it when an ending opens it).
+          var L = story.leads[k], open = (L.label || "Suivre " + (L.name || k)) + (L.desc ? " · " + L.desc : "");
+          var c = { label: open, to: L.start, fx: Object.assign({ lead: k, leadQuiet: true }, L.fx || {}), leadPick: k };
+          if (L.if != null) { c.if = L.if; c.label = "🔒 " + (L.hint || "Une autre personne"); c.labels = [{ if: L.if, label: open }]; c.why = "Une autre partie ouvrira ce chemin."; }
           return c;
         }));
       }
@@ -2804,6 +2805,11 @@
       // Guarantee: a button agrees with the hero too ({e}, {hero}), like the text.
       if (/\{[a-z]+\}/.test(c.label)) c = Object.assign({}, c, { label: interp(s, c.label) });
       var a = allowed(story, s, p, c); return Object.assign({}, c, { ok: a.ok, why: a.why, unveiled: a.ok && unveils(c), goes: backGoes(story, s, c) || goesTo(story, s, p, c), note: c.refuse ? "refus définitif" : c.fx && c.fx.camp && c.fx.camp !== s.camp ? "choix de camp : d'autres portes se fermeront" : aheadOf(story, s, c) || c.note, chance: c.test ? chance(story, s, c.test, c.who) : null }); });
+    // Paths that unveil (8.9): a way closed until another game opens it is not shown by its words, which would tell
+    // too much; the page only counts the closed ways (v.locked). The people of a `leads` page keep their hint.
+    var lockedN = 0;
+    v.choices = v.choices.filter(function (c) { if (!c.ok && !c.leadPick && unveilsIf(c.if)) { lockedN++; return false; } return true; });
+    if (lockedN) v.locked = lockedN;
     if (p) {
       // Guarantee: no twin buttons. Of several choices with the same words, the one that can be taken stays.
       var byLabel = {};
@@ -2948,8 +2954,11 @@
   // Intent: unveils(Choice) -> bool = the choice is open only thanks to an earlier game (lore, lu, second): a path unveiled.
   function unveils(c) {
     if (c.skip || c.second != null) return !c.skip && c.second !== false;
+    return unveilsIf(c.if);
+  }
+  function unveilsIf(cond) {
     var hit = false;
-    (function walk(x) { if (!x || typeof x !== "object" || hit) return; if (Array.isArray(x)) return x.forEach(walk); if ("not" in x) return; if ("lore" in x || "lu" in x || ("second" in x && x.second !== false)) { hit = true; return; } ["all", "any", "count"].forEach(function (k) { if (x[k]) walk(x[k]); }); })(c.if);
+    (function walk(x) { if (!x || typeof x !== "object" || hit) return; if (Array.isArray(x)) return x.forEach(walk); if ("not" in x) return; if ("lore" in x || "lu" in x || ("second" in x && x.second !== false)) { hit = true; return; } ["all", "any", "count"].forEach(function (k) { if (x[k]) walk(x[k]); }); })(cond);
     return hit;
   }
   function allowed(story, s, p, c) {

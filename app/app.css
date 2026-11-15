@@ -805,3 +805,4 @@ button.kw { font: inherit; color: var(--accent); font-weight: 600; background: n
 .choice .unveiled { color: var(--accent, #b07d2a); }
 .choice .skip-mark { opacity: .7; }
 .plot-lore li, .plot-leads li { margin: .35em 0; }
+.locked-ways { text-align: center; margin-top: .4em; }

@@ -2590,6 +2590,7 @@
     pick(c);
     A.notice = "⏳ Trop tard : tu n'as pas choisi à temps."; render();
   }
+  var NUMBER_WORDS = ["", "Un", "Deux", "Trois", "Quatre", "Cinq", "Six", "Sept"];
   function renderChoices(v) {
     var box = h("div", { class: "choices" }), lastGroup = null;
     var nd = A.nudge && A.game && A.nudge.at === A.game.s.node + "#" + A.game.s.turn ? A.nudge : null;
@@ -2612,6 +2613,8 @@
       box.appendChild(h("button", { class: "choice" + (c.sys ? " sys" : "") + (c.big ? " big" : "") + (g === "order" ? " order" : "") + (c.silence ? " silence" : ""), disabled: !c.ok, onclick: function () { pick(c); } },
         h("span", null, A.kbd && nth <= KEY_CHOICES ? h("kbd", { class: "choice-key", "aria-hidden": "true" }, String(nth % 10)) : null, nd && nd.choices.indexOf(c.label) >= 0 ? h("span", { class: "nudge-star", "aria-label": "piste nouvelle" }, "✦ ") : null, c.unveiled && !trailOld(A.game, v, c) ? h("span", { class: "unveiled", title: "Un chemin qu'une partie précédente a ouvert" }, "✧ ") : null, c.skip ? h("span", { class: "skip-mark", "aria-hidden": "true" }, "» ") : null, c.label, trailOld(A.game, v, c) ? h("span", { class: "trail-old", title: "Tu as déjà pris ce chemin dans une autre partie" }, " · déjà suivie") : null, c.goes && String(c.label || "").toLowerCase().indexOf(String(c.goes).toLowerCase()) < 0 ? h("span", { class: "goes" }, " → " + c.goes) : null, c.note ? h("span", { class: "note" }, " · " + c.note) : null), meta, !c.ok && c.why ? h("span", { class: "why" }, c.why) : null));
     });
+    // Paths that unveil (8.9): the ways still closed here are counted, not named.
+    if (v.locked) box.appendChild(h("p", { class: "locked-ways small muted" }, "🔒 " + (v.locked > 1 ? NUMBER_WORDS[v.locked] || v.locked : "Un") + (v.locked > 1 ? " autres chemins partent d'ici. D'autres parties les ouvriront." : " autre chemin part d'ici. Une autre partie l'ouvrira.")));
     return box;
   }
   // Intent: renderCompare(Story, Mine) -> Element = where the other readers of the house (and this reader's earlier
@@ -4896,7 +4899,7 @@
     var r = recordOf(A.profiles.filter(function (p) { return p.id === A.game.doc.profil; })[0], st.id), n = M.endingsOf(st).filter(function (x) { return r.endings[x.id]; }).length;
     // Paths that unveil (8.9): the people this ending opens to the reader, named once, at the end.
     var opened = newLeads(st, s, r), openLine = opened.length ? " " + (opened.length > 1 ? "De nouvelles personnes à suivre : " : "Une nouvelle personne à suivre : ") + opened.join(", ") + "." : "";
-    if (opened.length) return h("div", { class: "notice" }, "Fin découverte : « " + e.title + " »" + (s.ironman ? ", sans retour" : "") + "." + openLine + (A.profile ? " " + A.profile.name + " a trouvé " + n + " fins sur " + M.endingsOf(st).length + "." : ""));
+    if (opened.length) return h("div", { class: "notice" }, "Fin découverte : « " + e.title + " »" + (s.ironman ? ", sans retour" : "") + "." + openLine + (A.profile ? " " + A.profile.name + " a trouvé " + n + " fin" + (n > 1 ? "s" : "") + " sur " + M.endingsOf(st).length + "." : ""));
     if (e.fates) return h("div", { class: "notice" }, "Fin découverte : « " + e.title + " »" + (s.ironman ? ", sans retour" : "") + ". " + e.fates.map(function (f) { return f.title; }).join(" · ") + ". " +
       (A.profile ? A.profile.name + " a trouvé " + composedFound(r) + " fins sur " + M.fateCount(st) + ", et " + n + " dénouements sur " + M.endingsOf(st).length + "." : ""));
     return h("div", { class: "notice" }, "Fin découverte : « " + e.title + " »" + (s.ironman ? ", sans retour" : "") + ". " + (A.profile ? A.profile.name + " en a trouvé " + n + " sur " + M.endingsOf(st).length + "." : ""));
