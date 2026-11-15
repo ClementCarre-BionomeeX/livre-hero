@@ -237,7 +237,7 @@ Object.assign(P, {
       "La fonderie est longue et basse, voûtée de brique, avec trois grands fourneaux éteints au fond. Rigaud entre derrière toi et referme la porte. Puis il recule, et il recule encore, jusqu'à l'angle de la pièce où une lanterne s'allume.",
       "Quatre gardes en manteau noir à boutons d'or. Et derrière eux, appuyé au fourneau du milieu, Lothaire Brunel, les gants gris croisés sur le pommeau de sa canne. Il te regarde avec un intérêt poli.",
       "« Vous pensez : le graveur m'a vendu{e}, dit-il doucement. C'est exact. Vous pensez aussi au mur du fourneau de gauche. » Il sourit. « Vous pensez fort, pour quelqu'un qui porte un cornet. »",
-      { with: "any", text: "Tes compagnons se sont mis de part et d'autre de toi, sans un mot." },
+      { with: "any", text: "Tes compagnons se sont mis de part et d'autre de toi." },
     ],
     choices: [
       { label: "Te battre", fight: { title: "La fonderie de la Monnaie", enemies: [{ id: "ivb_garde", n: 3 }],
@@ -253,7 +253,7 @@ Object.assign(P, {
       { outcome: ["win", "flee"], text: "Derrière toi, dans la fonderie, des cris, une lanterne renversée, et le bruit de bottes qui courent. Tu as peu de temps." },
       "Le fond du grand fourneau de gauche est un mur de brique noircie, chaud encore au toucher. À hauteur d'homme, la suie dessine sur la brique une tache en forme de main ouverte. Ce mur {{pie#ivb_mo_conduit|est épais de quatre pieds, plein, solide|sonne creux sous la main noire : c'est la brique d'un vieux conduit de cheminée du palais, qu'on a bouché et qui descend tout droit sous la Banque}}.",
       "Rigaud parlait d'un mur. Il y a en effet un mur, et derrière le mur, la Banque. La brique, au milieu de la main noire, s'effrite un peu sous l'ongle.",
-      { with: "gildas", text: "Frère Gildas frotte la suie du pouce et découvre, sous la tache, un petit croissant gravé dans une brique plus ancienne que les autres. Il le montre sans rien dire." },
+      { with: "gildas", text: "Frère Gildas frotte la suie du pouce et découvre, sous la tache, un petit croissant gravé dans une brique plus ancienne que les autres. Il le montre en silence." },
     ],
     choices: [
       { label: "Ouvrir le vieux conduit et t'y laisser glisser", hide: { not: { voile: "ivb_mo_conduit" } }, fx: { flag: "ivb:dedans", ep: ["perso", 1500] }, to: "IVB_mo_percee" },
@@ -300,7 +300,7 @@ Object.assign(P, {
   IVB_bal_habit: { act: "IV", title: "Le costume", place: "salveze",
     text: [
       "Un masque se trouve chez n'importe quel cartier. Un habit de bal, en trois jours, se trouve rue des Dames, chez maîtresse Brigitte Lesueur, qui habille la moitié des Changeurs et prête l'autre moitié à la journée, quand les Changeurs ont des revers.",
-      "L'atelier est une longue pièce sous les toits, encombrée de mannequins de son, de rouleaux de drap, de rubans pendus à des clous. Une apprentie de seize ans, rousse, la bouche pleine d'épingles, prend tes mesures sans un mot. Maîtresse Lesueur choisit pour toi un habit de velours sombre, déjà porté, qu'il faudra reprendre aux épaules.",
+      "L'atelier est une longue pièce sous les toits, encombrée de mannequins de son, de rouleaux de drap, de rubans pendus à des clous. Une apprentie de seize ans, rousse, la bouche pleine d'épingles, prend tes mesures en silence. Maîtresse Lesueur choisit pour toi un habit de velours sombre, déjà porté, qu'il faudra reprendre aux épaules.",
       "« Il a appartenu {{oreille#ivb_lesueur|à un monsieur qui est parti en voyage|à un Fourcaud qui l'a laissé en gage chez moi avant de se jeter dans la Salve, en janvier}}, dit-elle. Il porte bonheur. »",
       { with: "tibere", text: "Tibère est resté sur le palier. Il regarde l'apprentie rousse par la porte entrouverte, et l'apprentie garde les yeux sur son ouvrage. Ses doigts s'arrêtent sur une épingle, puis repartent." },
     ],
@@ -1196,7 +1196,7 @@ Object.assign(P, {
 
   IVB_pr_evasion: { act: "IV", title: "La grille du sol", place: "changeurs",
     text: [
-      { if: { has: "ivb:geolier_achete" }, text: "Mathelin revient à l'heure où les gardes du dessus changent. Il ouvre la porte du cachot sans un mot, et il te tend ton sac, et il s'en va par l'escalier sans se retourner." },
+      { if: { has: "ivb:geolier_achete" }, text: "Mathelin revient à l'heure où les gardes du dessus changent. Il ouvre la porte du cachot, et il te tend ton sac, et il s'en va par l'escalier sans se retourner." },
       "La grille de fer dans le sol {{pie#ivb_pr_grille|est scellée au plomb, solide, ancienne|n'est scellée que d'un côté ; de l'autre, le plomb a été rongé par l'eau depuis longtemps, et la grille tient par son poids. Dessous, une rigole du palais descend vers la crypte}}. L'eau coule en dessous, vers le bas, vers un endroit plus profond que la prison.",
       { if: { has: "ivb:truc_agasse" }, text: "Agasse a parlé d'une cuillère. Ton écuelle de ce soir est venue avec une cuillère d'étain, par oubli." },
     ],
@@ -1305,7 +1305,7 @@ Object.assign(P, {
   IVB_ag_retour: { act: "IV", title: "Rue des Forges", place: "salveze",
     text: [
       "L'atelier de Jocelyn Agasse a ses volets ouverts, et la forge est allumée. Jocelyn est à l'établi, en manches de chemise, une serrure ouverte devant lui. Ursule pèle des raves sur un tabouret, à côté de la porte. Quand elle te voit, elle pose son couteau et ses raves et se lève.",
-      "Sans un mot, elle va chercher dans un pot de grès, sur l'étagère, un petit paquet de toile, et te le met dans la main. Dedans, une clé de fer à double panneton, fine, noire, et sans dents. « Il l'a faite cette nuit, dit-elle. Elle ouvre tout ce qu'il a fermé dans cette ville. Il dit qu'il n'en fera pas d'autre. »",
+      "Elle va chercher dans un pot de grès, sur l'étagère, un petit paquet de toile, et te le met dans la main. Dedans, une clé de fer à double panneton, fine, noire, et sans dents. « Il l'a faite cette nuit, dit-elle. Elle ouvre tout ce qu'il a fermé dans cette ville. Il dit qu'il n'en fera pas d'autre. »",
       "Jocelyn, à l'établi, garde la tête baissée. Il a un sourire au coin de la bouche, et sa lime va et vient.",
     ],
     fx: { item: "ivb_passe_agasse", ep: ["perso", 1000] },

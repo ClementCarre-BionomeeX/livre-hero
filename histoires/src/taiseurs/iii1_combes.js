@@ -73,7 +73,7 @@ Object.assign(P, {
 
   III_haleurs_crete: { act: "III", title: "Les cuirasses bleues", place: null,
     text: [
-      "Baptistin te regarde de travers, puis il rit. « Tu as l'oreille longue. » Il marche un moment sans rien dire. Les chevaux soufflent.",
+      "Baptistin te regarde de travers, puis il rit. « Tu as l'oreille longue. » Il marche un moment en silence. Les chevaux soufflent.",
       "« Ils allaient vers Orle, dit-il enfin. Par la crête, en évitant les villages. L'homme à la planchette s'arrêtait à chaque pont, et il descendait de cheval pour mesurer les piles avec une corde à nœuds. Le pont de Pont-Ravel, il l'a mesuré deux fois. » Il change son harnais d'épaule. « On ne mesure pas un pont deux fois pour passer dessus à pied. On le mesure pour savoir ce qu'il porte. Des chariots. Des engins de siège, des trébuchets sur roues, comme on dit qu'ils en ont, là-haut, qui lancent des pierres grosses comme des moutons. »",
       "Il chante un couplet, pour les chevaux, et reprend plus bas : « À Orle, il y a un marchand de vin d'Aveline arrivé pour la foire. Il paie bien, il goûte peu, et il pose beaucoup de questions sur les routes. Moi, je dis ça. Je tire une corde, je ne suis pas soldat. »",
     ],
@@ -100,7 +100,7 @@ Object.assign(P, {
       "Dedans, roulés serré, trois grands feuillets de parchemin. Le premier est un plan des murs de Salvèze, levé avec soin, à l'échelle, chaque tour numérotée, chaque porte nommée. Le deuxième donne les canaux et la profondeur de l'eau sous chaque pont, en pieds. Le troisième dit, porte par porte, combien d'hommes la gardent de jour et de nuit, et à quelle heure on relève la garde.",
       "Il n'y a pas de signature. En bas du troisième feuillet, une main pressée a ajouté une ligne : *Pour maître Haquin, à la foire d'Orle.*",
       { with: "tibere", text: "Tibère regarde le troisième feuillet par-dessus ton épaule et devient très pâle. « Les relèves du Guet, dit-il. À l'heure près. Ça, ça sort du registre de la caserne des Lanternes. Il y a trois personnes à Salvèze qui ont le droit de l'ouvrir. J'étais l'une d'elles, avant. » Il se tait." },
-      { with: "gildas", text: "Frère Gildas lit les trois feuillets sans rien dire, puis les roule lui-même, avec soin, comme on roule un manuscrit. « On a écrit ceci dans une pièce chauffée, dit-il. L'encre est belle. » C'est tout ce qu'il dit." },
+      { with: "gildas", text: "Frère Gildas lit les trois feuillets en silence, puis les roule lui-même, avec soin, comme on roule un manuscrit. « On a écrit ceci dans une pièce chauffée, dit-il. L'encre est belle. » C'est tout ce qu'il dit." },
     ],
     choices: [
       { label: "Garder l'étui et refermer la barrique vide", fx: { item: "iiic_etui", flag: "iiic:etui", ep: ["perso", 600] }, back: "III_gabare" },
@@ -269,7 +269,7 @@ Object.assign(P, {
       "L'eau de l'Orle est si froide qu'elle te coupe le souffle d'un coup, comme une main sur la bouche. Tu passes sous la coque, entre les algues et la vase, et tu remontes de l'autre côté de *La Patience*, collé{e} au bordé, dans l'ombre des sacs. Au-dessus, on crie. Une pique fouille l'eau du mauvais côté.",
       "Gilduin, à la barre, crie plus fort que tout le monde. « Il a sauté ! Elle a sauté ! Par là, vers les saules ! » Il montre l'autre rive. Les soldats se ruent sur le bachot, qui part de travers, et Gilduin donne de la voix aux haleurs. La corde se tend. *La Patience* passe sous l'arche pendant que le bachot cherche encore dans les saules.",
       "On te hisse à bord une lieue plus loin, bleu{e} de froid. Gilduin te jette une couverture. « Le vin est à l'arrière, dit-il. Il est à maître Haquin. Bois-en, il paiera. »",
-      { with: "any", text: "Tes compagnons te frictionnent avec une brutalité affectueuse. Personne ne dit rien pendant un moment. Puis quelqu'un rit, et tout le monde rit, de nerfs." },
+      { with: "any", text: "Tes compagnons te frictionnent avec une brutalité affectueuse. Tous se taisent un moment. Puis quelqu'un rit, et tout le monde rit, de nerfs." },
     ],
     fx: { flag: "iiic:controle=nage", ep: ["perso", 700], pv: -2 },
     choices: [{ label: "Laisser la gabare remonter vers Orle", big: true, to: "III_arrivee" }] },
@@ -278,7 +278,7 @@ Object.assign(P, {
     text: [
       { after: "iiic:controle=cache", text: "La pique descend dans le sel à un pied de ta tête, puis plus loin, puis ailleurs. Le sel te brûle les yeux et la gorge. Quand tu ressors, la barrière rouge est loin derrière, et Gilduin, à la barre, mâche sa réglisse avec une concentration terrible." },
       { after: "iiic:controle=solde", text: "Le sergent Ravier regarde les trois ducats dans sa main. Il les regarde longtemps, comme une chose qu'il avait oubliée. Il ferme le poing. « Le sel, dit-il à ses hommes. Je l'ai fouillé. Rien. » Il descend de la gabare sans te regarder, et, sur le pont, il partage les pièces entre ses soldats, une par une, à la lumière du feu." },
-      { after: "iiic:controle=toinot", text: "Le jeune soldat sursaute à son nom. Il regarde Gilduin, qui regarde enfin son fils. Le gamin devient rouge jusqu'aux cheveux. « Sergent, dit-il, c'est la gabare de mon père. Je la connais. Il n'y a que du sel. Je réponds de lui. » Le sergent hésite, puis hausse les épaules. La barrière se lève. Gilduin ne dit rien pendant une lieue, puis il se mouche longuement, et il dit que c'est le froid." },
+      { after: "iiic:controle=toinot", text: "Le jeune soldat sursaute à son nom. Il regarde Gilduin, qui regarde enfin son fils. Le gamin devient rouge jusqu'aux cheveux. « Sergent, dit-il, c'est la gabare de mon père. Je la connais. Il n'y a que du sel. Je réponds de lui. » Le sergent hésite, puis hausse les épaules. La barrière se lève. Gilduin se tait pendant une lieue, puis il se mouche longuement, et il dit que c'est le froid." },
       { after: "iiic:controle=tibere", text: "Tibère a soulevé son chapeau. « Ravier. Tu tiens encore ta pique comme une fourche. » Le sergent blêmit, se met presque au garde-à-vous, puis se rappelle que Tibère n'est plus rien. Ils parlent un long moment près du feu, de la caserne, de gens morts, de la solde qui ne vient pas. Quand Tibère revient à bord, la barrière se lève. « Il ne t'a pas vu{e}, dit-il. Il me l'a promis. Il tient ses promesses ; c'est pour ça qu'il est encore sergent. »" },
       { after: "iiic:controle=aplomb", text: "Tu parles au sergent de ton négoce, de tes créances à Orle, du prix du sel. Tu lui demandes s'il connaît un bon tonnelier. Il regarde son papier, te regarde, regarde le papier. « Le dessin ne vaut rien, dit-il enfin, à moitié pour lui. On dirait tout le monde. » La barrière se lève." },
       "*La Patience* passe sous l'arche du milieu. L'eau résonne sous la voûte, et pendant un instant on n'entend plus que ça. Puis le jour revient, et la rivière s'ouvre sur les Combes.",
@@ -302,8 +302,8 @@ Object.assign(P, {
       "La nuit tombe. Les soldats boivent autour du feu, sur le pont. L'eau court sous le bachot, noire, froide, pressée.",
       { with: "lison", text: "Vers minuit, une ombre glisse contre la coque du bachot. Lison, à la nage, un couteau entre les dents, puis un crochet de fil de fer. Le cadenas cède au troisième essai. « Tu me dois une barque, souffle-t-elle. Et une nuit de sommeil. »" },
       { without: "lison", with: "any", text: "Vers minuit, une ombre glisse contre la coque du bachot. Un de tes compagnons, trempé, une pince à la main, prise dans la caisse à outils de Gilduin. La chaîne cède au troisième coup, étouffé dans un manteau." },
-      { without: "any", text: "Vers minuit, une ombre glisse contre la coque du bachot. Le jeune soldat blond, celui aux oreilles rouges. Il ouvre le cadenas avec la clé du sergent, sans un mot, et repart à la nage vers le pont. Tu ne sauras jamais pourquoi." },
-      "Une lieue en amont, *La Patience* t'attend, fanal éteint, amarrée sous un coteau. Gilduin te hisse à bord sans rien dire. Il te donne sa racine de réglisse, la sienne, celle qu'il mâchait.",
+      { without: "any", text: "Vers minuit, une ombre glisse contre la coque du bachot. Le jeune soldat blond, celui aux oreilles rouges. Il ouvre le cadenas avec la clé du sergent, et repart à la nage vers le pont. Tu ne sauras jamais pourquoi." },
+      "Une lieue en amont, *La Patience* t'attend, fanal éteint, amarrée sous un coteau. Gilduin te hisse à bord. Il te donne sa racine de réglisse, la sienne, celle qu'il mâchait.",
     ],
     fx: { flag: "iiic:controle=pris", ep: ["perso", 600] },
     choices: [{ label: "Laisser la gabare remonter vers Orle", big: true, to: "III_arrivee" }] },
@@ -362,7 +362,7 @@ Object.assign(P, {
       "L'avis est imprimé, ce qui est rare et cher : la République a fait les choses en grand. *Au nom du Conseil des Comptoirs de Salvèze. Est recherché{e}, pour le meurtre de sa maîtresse, dame Odeline Carus, brocanteuse sur le quai des Lanternes, l'apprenti{e} de ladite, dit{e} {hero}. Cent ducats à qui le livrera vivant au Guet, ou à tout poste de la République.*",
       { before: "III_nuit_tibere", text: "Au-dessous, d'une autre encre, en petits caractères : *L'accusé{e} a été entendu{e} se querellant avec la victime vers la dixième heure du soir, la nuit des Lanternes, par un témoin digne de foi.*", else: "Au-dessous, d'une autre encre, en petits caractères, quelques lignes sur un témoin digne de foi et une querelle. Tu les connais déjà par Tibère." },
       "Le nom de ta maîtresse est mal écrit. *Carus*, avec un seul r. Tu restes là un moment, devant cette faute, plus longtemps que devant ton propre nom.",
-      "Un vieux vigneron s'arrête à côté de toi, lit l'avis en remuant les lèvres, et crache par terre. « Cent ducats, dit-il. La République ne paie plus ses soldats, mais elle a cent ducats pour ça. » Il te regarde. Il regarde le portrait. Il s'en va sans rien dire, les mains dans le dos.",
+      "Un vieux vigneron s'arrête à côté de toi, lit l'avis en remuant les lèvres, et crache par terre. « Cent ducats, dit-il. La République ne paie plus ses soldats, mais elle a cent ducats pour ça. » Il te regarde. Il regarde le portrait. Il s'en va, les mains dans le dos.",
     ],
     choices: [
       { label: "Arracher l'avis et le mettre dans ta poche", fx: { flag: "iiic:avis_arrache", ep: ["perso", 200] }, back: "III_hub" },
@@ -544,7 +544,7 @@ Object.assign(P, {
         lose: { fx: { flag: "iiic:haquin_alerte" }, to: "IIIC_haquin_surpris" } },
       { label: "Demander à Honorine la clé de l'auberge, qui ouvre tout", test: { dom: "social", diff: -10, label: "Convaincre l'aubergiste", help: [{ if: { has: "mandat" }, v: 10 }, { with: "tibere", v: 10 }] },
         win: { fx: { ep: ["perso", 600] }, to: "IIIC_haquin_coffre" },
-        lose: { fx: { note: "Honorine te regarde sans un mot et retourne à ses pichets. Tu ressors de la chambre les mains vides." }, back: "IIIC_pressoir" } },
+        lose: { fx: { note: "Honorine te regarde et retourne à ses pichets. Tu ressors de la chambre les mains vides." }, back: "IIIC_pressoir" } },
       { label: "Laisser le coffre et redescendre", back: "IIIC_pressoir" },
     ] },
 
@@ -634,7 +634,7 @@ Object.assign(P, {
     text: [
       "Wendel Haquin prend l'étui, en fait sauter le bouchon de cire, compte les trois feuillets, et le referme. Il a l'air d'un homme qui retrouve un objet de famille.",
       "« Un marché est un marché, dit-il. La nuit de la Grande Basse. Ce jour-là, toute la ville sera sur les quais à regarder la mer se retirer, comme chaque année, et une porte de Salvèze s'ouvrira de l'intérieur. Nous serons sous les murs. Voilà la vérité, en clair, comme vous l'avez voulue. Elle ne vous servira à rien. »",
-      { if: { has: "iiic:etui_copie" }, text: "Il ne sait pas que tu as une copie de ses plans dans ton sac. Tu ne le lui dis pas. Il remet l'étui sous son manteau avec un soin d'amoureux." },
+      { if: { has: "iiic:etui_copie" }, text: "Il ignore que tu as une copie de ses plans dans ton sac. Tu gardes cela pour toi. Il remet l'étui sous son manteau avec un soin d'amoureux." },
       "Il s'incline. « Nous nous reverrons sous les murs. Je vous souhaite d'être du bon côté, ce jour-là. Il n'y en aura qu'un. »",
     ],
     fx: { flag: "iiic:invasion" },
@@ -643,7 +643,7 @@ Object.assign(P, {
   IIIC_haquin_libre: { act: "III", title: "Le message", place: "orle",
     text: [
       "Wendel Haquin rengaine à moitié, puis tout à fait. « Un message, dit-il. Pour le duc. » Il a l'air curieux, presque amusé.",
-      "Tu le lui donnes. Tu ne sais pas encore si c'est une menace ou une promesse ; lui non plus. Il le répète deux fois, pour s'en souvenir mot pour mot, comme un bon messager.",
+      "Tu le lui donnes. Tu ignores encore si c'est une menace ou une promesse ; lui non plus. Il le répète deux fois, pour s'en souvenir mot pour mot, comme un bon messager.",
       "Il tire de sa ceinture un petit carré de parchemin scellé de cire bleue, l'aigle d'Aveline à deux têtes. « Un sauf-conduit, dit-il. Si un jour vous tombez sur nos avant-postes, montrez-le. Il vaut une nuit de vie. Davantage, si l'officier sait lire. » Il remonte à cheval à la sortie du bourg, au petit jour, et prend la route de la crête sans se retourner.",
     ],
     choices: [{ label: "Le regarder partir", to: "IIIC_haquin_fin" }] },
@@ -1073,7 +1073,7 @@ Object.assign(P, {
       { if: { has: "iiic:deserteurs=partis" }, text: "Trois nuits plus tard, quatorze hommes descendent en silence le chemin des Ânes jusqu'au quai, et montent dans le sel de *La Patience*. Reinold s'arrête sur la planche. « Les gens des Combes, dit-il, je leur dois du pain. Toi, je te dois la rivière. » Il te serre l'avant-bras à la façon des soldats. La gabare part sans fanal." },
       { if: { has: "iiic:deserteurs=allies" }, text: "Reinold se lève. Il défait l'aigle d'Aveline à moitié arrachée de son épaule, la jette au feu, et regarde ses hommes. Un par un, ils font de même. « Les gués des Combes, dit-il. On les connaît. Quand les colonnes viendront, on sera dessous. » Il te tend la main. « On rendra le butin aux Bousquet. Ça, c'est pour le Gué-Rouge. Le reste, c'est pour toi. »" },
       { if: { all: [{ has: "iiic:deserteurs=chasses" }, { not: { has: "iiic:deserteurs=allies" } }, { not: { has: "iiic:deserteurs=partis" } }] }, text: "À l'aube, la loge de charbonniers est vide. Les feux sont éteints, recouverts de terre. Le butin est sous la bâche, tout entier, avec les barriques des Bousquet et la cloche de la chapelle. Les traces de bottes montent vers les cols, où il y a de la neige jusqu'aux genoux, et l'armée du duc." },
-      "Au bourg, la nouvelle fait le tour de la halle avant midi. Les Bousquet récupèrent leurs barriques, le curé sa cloche. Honorine Fabrègue, au Pressoir, dit qu'elle regrettera les pièces d'argent à l'aigle, qui étaient bonnes. La femme dont le fils portait le pain ne dit rien.",
+      "Au bourg, la nouvelle fait le tour de la halle avant midi. Les Bousquet récupèrent leurs barriques, le curé sa cloche. Honorine Fabrègue, au Pressoir, dit qu'elle regrettera les pièces d'argent à l'aigle, qui étaient bonnes. La femme dont le fils portait le pain se tait.",
     ],
     fx: { quest: "IIIC_deserteurs" },
     choices: [{ label: "Descendre au bourg", back: "III_hub" }] },
@@ -1098,7 +1098,7 @@ Object.assign(P, {
     text: [
       "Le sentier sort des pins et franchit un col nu, balayé par le vent, où la neige a durci en croûte grise. Au-delà, il y a une combe suspendue, et au fond de la combe, adossée à la montagne, l'abbaye : une longue muraille de pierre pâle, percée de fenêtres étroites, un clocher sans cloche visible, un toit de lauzes chargé de neige. Une fumée droite monte d'une cheminée. Pas un bruit.",
       "Au bord du col, une borne de pierre porte une main sculptée, les doigts serrés sur les lèvres. Le chemin, au-delà, est bordé de petits cairns, un tous les dix pas, réguliers comme des chiffres.",
-      "Un frère convers, en tablier de cuir sur sa bure, descend vers toi avec une hotte de bois. Il s'arrête, te regarde, regarde ceux qui t'accompagnent, et lève la main droite, la paume ouverte, puis la ferme lentement en poing. Il continue sa descente sans un mot.",
+      "Un frère convers, en tablier de cuir sur sa bure, descend vers toi avec une hotte de bois. Il s'arrête, te regarde, regarde ceux qui t'accompagnent, et lève la main droite, la paume ouverte, puis la ferme lentement en poing. Il continue sa descente.",
       { with: "gildas", text: "« Il dit : bienvenue, et faites vite, traduit Frère Gildas. Ou bien : bienvenue, et méfiez-vous. Le même signe dit les deux. Ça dépend de la vitesse de la main. » Il regarde le frère s'éloigner. « Il a fermé vite. »" },
       { without: "gildas", text: "Tu ne sais pas lire ses mains. Tu sais lire les gens, un peu. Celui-là avait l'air pressé, et pas seulement de redescendre." },
     ],
@@ -1110,7 +1110,7 @@ Object.assign(P, {
       "Tu marches {{miroir#iiic_desc_pas|d'un bon pas, comme on descend quand on a fini ce qu'on était venu faire|vite, pour ne pas penser à ce que le miroir t'a montré, et chaque lacet te ramène au même tournant de l'escalier du quai}}. Tu te dis que tu as fait ce qu'il fallait. Tu te dis {{miroir#iiic_desc_odeline|qu'Odeline aurait été fière de toi|qu'Odeline a veillé jusqu'à minuit pour t'attendre, une chandelle à la main, et que tu le savais en claquant la porte}}.",
       { after: "gildas:demasque", with: "gildas", text: "Frère Gildas descend devant toi, à dix pas, comme il l'a toujours fait. Il ne se retourne pas. Tu regardes sa nuque, sa capuche, ses épaules, et tu ne sais plus où poser les yeux." },
       { after: "gildas:demasque", without: "gildas", text: "Il n'y a plus de bure devant toi sur le sentier. Tu t'étais habitué{e} à la suivre. Tu marches sans repère." },
-      { with: "tibere", text: "Tibère te tend sa gourde sans rien dire. Puis, au bout d'un lacet : « Le matin où je t'ai vu{e} au pied de l'escalier, tu avais encore ton costume de la fête. Je l'ai pas écrit, ça non plus. »" },
+      { with: "tibere", text: "Tibère te tend sa gourde en silence. Puis, au bout d'un lacet : « Le matin où je t'ai vu{e} au pied de l'escalier, tu avais encore ton costume de la fête. Je l'ai pas écrit, ça non plus. »" },
     ],
     choices: [{ label: "Continuer la descente", back: R }] },
 });
@@ -1215,7 +1215,7 @@ Object.assign(P, {
     choices: [
       { label: "Suivre le moine, à gauche au deuxième cairn", if: { any: [{ present: "gildas" }, { voile: "iiic_moine_echo" }] }, why: "Tu ne sais pas lire ses mains.", fx: { ep: ["perso", 500], fac: { moines: 3 } }, back: R },
       { label: "Deviner ses signes, et le suivre", test: { dom: "savoir", diff: -10, label: "Lire la langue des mains", help: [{ if: { has: "taiseurs:serment" }, v: 20 }, { with: "lison", v: 10 }] },
-        win: { fx: { ep: ["perso", 500], fac: { moines: 2 } }, back: R }, lose: { fx: { pv: -3, time: 2, note: "À droite, au deuxième cairn, ton pied rencontre le vide sous la neige. Tu te rattrapes à un buis. Le moine te regarde, au bord, sans rien dire, et te tend son bâton." }, back: R } },
+        win: { fx: { ep: ["perso", 500], fac: { moines: 2 } }, back: R }, lose: { fx: { pv: -3, time: 2, note: "À droite, au deuxième cairn, ton pied rencontre le vide sous la neige. Tu te rattrapes à un buis. Le moine te regarde, au bord, et te tend son bâton." }, back: R } },
     ] },
 
   IIIC_ev_pierre: { act: "III", title: "La pierre qui chante", place: null,
@@ -1330,7 +1330,7 @@ Object.assign(P, {
       "Saint-Privat est un village de onze maisons accroché au-dessus d'Orle, à une heure de mule, au bout d'un chemin de vignes si raide qu'on y a taillé des marches. Salomé a demandé le chemin trois fois, à trois personnes différentes, comme pour se donner trois chances de renoncer.",
       "La vieille s'appelle Katell. Elle est venue de la côte il y a cinquante ans pour épouser un vigneron, et elle a gardé l'accent des ports, et un nom de là-bas pour sa fille. Elle est presque aveugle. Elle file de la laine sur le pas de sa porte. Quand Salomé dit son nom, elle arrête son fuseau.",
       "« Maïwenn m'écrivait, dit-elle. Une lettre par an, à la Saint-Jean, que le curé me lisait. Il y a trois ans qu'elle n'écrit plus. » Elle tourne vers Salomé ses yeux blancs. « {{oreille#iiic_katell|Je me suis dit qu'elle avait trop à faire, là-bas, avec la mer|Je sais qu'elle est morte, je l'ai su la nuit même, j'ai rêvé d'eau, et j'attends depuis trois ans que quelqu'un ait le courage de monter me le dire}}. »",
-      "Salomé s'agenouille devant elle, dans la poussière, et prend ses deux mains, le fuseau avec. Elle reste comme ça. Elle ne dit rien pendant longtemps.",
+      "Salomé s'agenouille devant elle, dans la poussière, et prend ses deux mains, le fuseau avec. Elle reste comme ça. Elle se tait longtemps.",
     ],
     choices: [
       { label: "« Elle le savait, Salomé. Elle t'attendait. »", hide: { not: { voile: "iiic_katell" } }, fx: { conf: { salome: 12 }, flag: "iiic:salome_mere", ep: ["seance", 1500] }, to: "IIIC_salome_mere_fin" },
@@ -1371,7 +1371,7 @@ Object.assign(P, {
   IIIC_tibere_relais: { act: "III", title: "Le relais de poste", place: "orle", with: "tibere",
     text: [
       "Le relais de poste d'Orle est une écurie et une salle basse, où l'on change les chevaux du courrier de Salvèze et où l'on garde les lettres pour ceux qui passent. Tibère y entre seul. Tu le suis, de loin. Il demande s'il y a quelque chose au nom de Gaucelm. Il y a quelque chose.",
-      "La lettre est cachetée d'une cire grise, sans armes. Tibère la lit debout, sans s'asseoir, puis te la tend sans un mot. *{{loupe#iiic_lettre_lothaire|Gaucelm. Vos dernières nouvelles nous ont été utiles. Continuez. Cinq ducats joints|Gaucelm. Vos dernières nouvelles étaient fausses. Je l'ai entendu en les lisant, comme j'entends tout. Si la prochaine l'est aussi, Rosalie apprendra ce que vaut son père. L. B.}}*",
+      "La lettre est cachetée d'une cire grise, sans armes. Tibère la lit debout, sans s'asseoir, puis te la tend. *{{loupe#iiic_lettre_lothaire|Gaucelm. Vos dernières nouvelles nous ont été utiles. Continuez. Cinq ducats joints|Gaucelm. Vos dernières nouvelles étaient fausses. Je l'ai entendu en les lisant, comme j'entends tout. Si la prochaine l'est aussi, Rosalie apprendra ce que vaut son père. L. B.}}*",
       { after: "iiic:tibere_lettre", text: "« Celle que j'ai brûlée sur la gabare, dit Tibère, il l'a eue quand même. Je l'avais doublée d'une autre, au Bec, avant de monter. Par habitude. » Il se frotte les yeux. « Vingt ans de Guet, ça laisse des habitudes. »" },
       "Les cinq ducats sont dans la lettre, enveloppés dans un papier. Tibère les regarde. « {{oreille#iiic_tibere_ducats|Cinq ducats, c'est toujours ça|Cinq ducats, c'est le prix d'une robe de Rosalie, et je les prends, et je me dégoûte}}, dit-il. »",
     ],
@@ -1391,7 +1391,7 @@ Object.assign(P, {
 
   IIIC_gildas_fontaine: { act: "III", title: "Gildas à la fontaine", place: "orle", with: "gildas", takes: "evening",
     text: [
-      "Le soir, Frère Gildas est assis sur la margelle de la fontaine, les mains dans les manches, et regarde le Mont. Les femmes ont fini de rincer leurs cuves. La place se vide. Il ne bouge pas quand tu t'assieds à côté de lui.",
+      "Le soir, Frère Gildas est assis sur la margelle de la fontaine, les mains dans les manches, et regarde le Mont. Les femmes ont fini de rincer leurs cuves. La place se vide. Il reste immobile quand tu t'assieds à côté de lui.",
       "« Dom Évrard, l'abbé, était novice avec moi, dit-il. Nous avons appris à nous taire ensemble. Il a mieux appris que moi. Il est abbé. » Il parle lentement, sans regarder personne. « Le Mont doit de l'argent à la Banque, depuis vingt ans. Pour le toit, pour les murs, pour une année de famine. Ce que la Banque demande en échange, l'abbé seul le sait. Vous le verrez là-haut. Méfiez-vous de lui comme de moi. »",
       "Tu le regardes, assis là, dans le soir, avec son visage tranquille. Tu te dis {{miroir#iiic_gildas_miroir|que tu as confiance en lui, parce qu'il a toujours été là|que tu as besoin de lui faire confiance, parce que s'il t'a menti, alors tu as passé tout ce temps à côté de quelqu'un que tu n'as pas voulu regarder}}.",
       "La fontaine {{echo#iiic_fontaine_soir|coule pour vous deux, régulière, sans autre bruit|rend, plus bas que l'eau, une voix d'homme qui ressemble à la sienne, plus jeune, qui dit : « Je ne le ferai pas, Père. Je ne garderai pas ce serment-là »}}.",

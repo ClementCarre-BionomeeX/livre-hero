@@ -16,7 +16,7 @@ module.exports = {
       "« Gaudry. Cinq sacs pour toi, cinq pour moi, et tu ne m'as pas vue. »",
       "Le vieux douanier te regarde par-dessus sa lanterne. Le jeune, derrière lui, regarde Gaudry.",
       "« Six, dit Gaudry. Et tu me dois une anguille fumée pour la Saint-Martin. »",
-      "Vous passez les sacs d'une barque à l'autre sans un mot, comme des gens qui déménagent. Le jeune douanier aide. Il a l'air de faire cela pour la première fois, et de comprendre beaucoup de choses en même temps.",
+      "Vous passez les sacs d'une barque à l'autre en silence, comme des gens qui déménagent. Le jeune douanier aide. Il a l'air de faire cela pour la première fois, et de comprendre beaucoup de choses en même temps.",
     ],
     choices: [{ label: "Reprendre ta route vers la digue", to: "J_pied", via: "hetres" }] },
   J_souvenir: { act: A, title: "Six ans", place: "berge", fx: { flag: "jacquette:souvenir" },

@@ -5581,7 +5581,7 @@
     "att": 5
    },
    "rep": {
-    "up": "Tibère te tend sa gourde sans rien dire. C'est du vin coupé d'eau, et c'est sa façon de dire merci.",
+    "up": "Tibère te tend sa gourde en silence. C'est du vin coupé d'eau, et c'est sa façon de dire merci.",
     "down": "Tibère te regarde comme il regardait les tricheurs, au Guet.",
     "fearUp": "Tibère garde la main sur sa masse quand tu entres."
    }
@@ -5625,7 +5625,7 @@
    },
    "rep": {
     "up": "Lison te lance une pomme ridée sans te regarder. Tu l'attrapes. Elle sourit à l'eau.",
-    "down": "Lison rame sans un mot, et elle rame mal exprès, pour que tu sois mouillé{e}.",
+    "down": "Lison rame en silence, et elle rame mal exprès, pour que tu sois mouillé{e}.",
     "fearUp": "Lison s'assied toujours entre toi et la porte."
    }
   },
@@ -16081,7 +16081,7 @@
    "text": [
     "Tu sors sur les marches et tu appelles. Ta voix part sur l'eau, rebondit sur les façades d'en face, et les volets s'ouvrent l'un après l'autre.",
     "Clarmonde Pujol arrive la première, de la pension d'à côté, un châle sur sa chemise de nuit et un bonnet de travers. Elle a cinquante ans, des bras de lavandière et un trousseau de clés à la ceinture qu'elle n'enlève jamais. Derrière elle, Prosper Galabru, le brocanteur d'en face, en bras de chemise, une bougie à la main en plein jour. Maître Lagrue, l'écrivain public, descend de son échoppe avec son chapeau, qu'il ôte sur la dernière marche.",
-    "En bas, sur l'escalier d'eau, le vieux Couzi lève la tête de sa barque. Il a sa gaffe à la main et, empilées derrière lui, trois douzaines de lanternes mouillées. Il amarre sa barque sans un mot et monte, lentement, une marche à la fois.",
+    "En bas, sur l'escalier d'eau, le vieux Couzi lève la tête de sa barque. Il a sa gaffe à la main et, empilées derrière lui, trois douzaines de lanternes mouillées. Il amarre sa barque et monte, lentement, une marche à la fois.",
     "« Titou ! crie Clarmonde par-dessus son épaule. Cours au poste du Guet. Dis qu'il y a une morte chez Carrus. Cours, je te dis ! » Un gamin en chemise file le long du quai, pieds nus."
    ],
    "choices": [
@@ -16104,7 +16104,7 @@
      "if": {
       "has": "metier:parole"
      },
-     "text": "Tu les connais tous depuis des années. Tu sais qui prête à qui sur ce quai, qui a vendu quoi à Odeline, qui lui doit encore. Ce matin, tu les regardes autrement, et tu ne sais pas pourquoi."
+     "text": "Tu les connais tous depuis des années. Tu sais qui prête à qui sur ce quai, qui a vendu quoi à Odeline, qui lui doit encore. Ce matin, tu les regardes autrement, et la raison t'échappe."
     }
    ],
    "choices": [
@@ -17515,7 +17515,7 @@
    "text": [
     "Tu lui demandes comment va Rosalie, l'apprentie couturière. Tibère s'arrête de mâcher. Il te regarde comme on regarde un homme qui vient de sortir une carte de sa manche.",
     "« Qui vous a parlé de Rosalie ? » Tu dis : tout le quai la connaît. C'est faux, et il le sait, et il décide de te croire. « Elle va bien, dit-il. Elle coud des boutonnières chez la veuve Aubrac, rue des Ciseaux. Elle a de bons doigts. Sa mère avait de bons doigts. »",
-    "« Je l'attends le dimanche à la sortie de Saint-Rieul. Elle passe de l'autre côté de la rue. Je ne lui en veux pas. J'ai joué la dot de sa sœur aînée aux dés, l'hiver où sa sœur est morte de la fièvre. » Il dit ça d'une voix égale, en regardant le canal. Puis il reprend son pain et mord dedans, et vous restez un moment ainsi, sans rien dire, toi debout, lui sur sa borne."
+    "« Je l'attends le dimanche à la sortie de Saint-Rieul. Elle passe de l'autre côté de la rue. Je ne lui en veux pas. J'ai joué la dot de sa sœur aînée aux dés, l'hiver où sa sœur est morte de la fièvre. » Il dit ça d'une voix égale, en regardant le canal. Puis il reprend son pain et mord dedans, et vous restez un moment ainsi, en silence, toi debout, lui sur sa borne."
    ],
    "choices": [
     {
@@ -17539,7 +17539,7 @@
    },
    "text": [
     "Tu le dis à voix basse, tout près : on l'a payé pour écrire *accident*. Tibère devient d'une couleur de suif. Il te prend par le bras, avec une poigne de sergent qui a traîné des ivrognes toute sa vie, et t'emmène sous l'arche du pont, à l'ombre, là où l'eau couvre les voix.",
-    "« Qui vous a dit ça ? » Tu ne réponds pas. Il te lâche le bras. Il regarde l'eau. « Il y a huit jours, dit-il enfin, un homme est venu me trouver au poste. Bien mis, des gants gris, une voix douce. Il m'a payé dix ducats d'avance pour lui rapporter ce qui se passe sur le quai, chez Carrus surtout. Et en partant, il a dit : *s'il arrive quelque chose à la vieille dame, ce sera un accident. Vous l'écrirez vite.* »",
+    "« Qui vous a dit ça ? » Tu te tais. Il te lâche le bras. Il regarde l'eau. « Il y a huit jours, dit-il enfin, un homme est venu me trouver au poste. Bien mis, des gants gris, une voix douce. Il m'a payé dix ducats d'avance pour lui rapporter ce qui se passe sur le quai, chez Carrus surtout. Et en partant, il a dit : *s'il arrive quelque chose à la vieille dame, ce sera un accident. Vous l'écrirez vite.* »",
     {
      "if": {
       "has": "pq:tibere_attendait"
@@ -18358,7 +18358,7 @@
    "place": "quai",
    "text": [
     "Prosper descend l'escalier de la cave en se tenant à la rampe à deux mains, et il passe loin de la tache sombre, au pied des marches, en se signant. Il va droit à l'établi. Il reconnaît la caisse aux clous du premier coup d'œil.",
-    "Il la vide dans une bassine, sans un mot, puis il enfonce l'ongle de son pouce dans une fente du coin, où le bois est plus usé, et il pousse en tournant. Il y a un petit claquement. « Voilà, dit-il. Je te laisse. Ce qu'il y a dedans, je ne veux pas le savoir. » Il remonte, plus vite qu'il n'est descendu."
+    "Il la vide dans une bassine, puis il enfonce l'ongle de son pouce dans une fente du coin, où le bois est plus usé, et il pousse en tournant. Il y a un petit claquement. « Voilà, dit-il. Je te laisse. Ce qu'il y a dedans, je ne veux pas le savoir. » Il remonte, plus vite qu'il n'est descendu."
    ],
    "choices": [
     {
@@ -18959,7 +18959,7 @@
      "if": {
       "item": "pq_lanterne"
      },
-     "text": "Tu plies la lanterne au nom d'Odeline avec soin, le papier encore humide, et tu la glisses dans ton sac. Couzi te regarde faire sans rien dire. « Fais-la sécher à plat, dit-il seulement. Sinon l'encre file. »"
+     "text": "Tu plies la lanterne au nom d'Odeline avec soin, le papier encore humide, et tu la glisses dans ton sac. Couzi te regarde faire en silence. « Fais-la sécher à plat, dit-il seulement. Sinon l'encre file. »"
     },
     {
      "if": {
@@ -19451,7 +19451,7 @@
    },
    "text": [
     "Tu descends l'escalier d'eau devant la boutique et tu t'assieds sur la dernière marche, les pieds au ras du canal. Tu repasses ce que tu as vu, un objet après l'autre, comme elle t'a appris à faire l'inventaire d'une pièce avant d'y chercher une bague.",
-    "Tu ne sais pas qui. Tu ne sais pas pourquoi. Tu sais seulement qu'Odeline n'est pas tombée seule dans cet escalier.",
+    "Tu ignores qui. Tu ignores pourquoi. Tu sais seulement qu'Odeline n'est pas tombée seule dans cet escalier.",
     {
      "with": "tibere",
      "text": "En haut des marches, Tibère te regarde. Puis il descend s'asseoir deux marches au-dessus de toi, sa masse sur les genoux, et attend que tu aies fini de réfléchir."
@@ -19622,7 +19622,7 @@
        }
       ]
      },
-     "why": "Tu ne sais pas encore ce qu'Odeline devait, ni à qui.",
+     "why": "Tu ignores encore ce qu'Odeline devait, et à qui.",
      "to": "PF_usurier"
     },
     {
@@ -20093,7 +20093,7 @@
       "lose",
       "flee"
      ],
-     "text": "Tu glisses, et tu tombes dans le canal jusqu'à la taille. L'eau de la fin d'hiver te coupe le souffle. Les rats s'égaillent. L'éclusier pose sa pipe, descend trois marches et te tend sa perche, l'air de quelqu'un dont la journée vient de s'éclairer. Quand tu remontes sur la pierre, trempé{e} et grelottant{e}, tu tiens la lanterne bleue contre ta poitrine, et tu ne sais pas à quel moment tu l'as attrapée."
+     "text": "Tu glisses, et tu tombes dans le canal jusqu'à la taille. L'eau de la fin d'hiver te coupe le souffle. Les rats s'égaillent. L'éclusier pose sa pipe, descend trois marches et te tend sa perche, l'air de quelqu'un dont la journée vient de s'éclairer. Quand tu remontes sur la pierre, trempé{e} et grelottant{e}, tu tiens la lanterne bleue contre ta poitrine, et tu ignores à quel moment tu l'as attrapée."
     },
     "C'est une lanterne de papier huilé, teint au pastel, tendue sur six baguettes d'osier. Elle a pris l'eau d'un côté, mais le nom tient encore, en grandes lettres blanches maladroites : *NOÉ*. Dessous, plus petit, une main d'enfant ou de femme qui sait mal écrire a ajouté : *reviens manger*.",
     "La bougie a brûlé jusqu'au bout. Elle est restée accrochée à la grille toute la nuit, allumée, au milieu de cent autres, à trois toises de la Salve.",
@@ -22228,7 +22228,7 @@
    "title": "Hier soir",
    "place": "quai",
    "text": [
-    "Gaudrel ne bouge pas. Puis il sourit, un sourire de dents serrées. « Vous avez une imagination de chercheur. C'est un métier où on invente beaucoup. » Mais ses mains, posées sur la table, se sont rapprochées l'une de l'autre, et le pouce droit frotte l'index, comme pour effacer une tache d'encre qui n'y est plus.",
+    "Gaudrel reste immobile. Puis il sourit, un sourire de dents serrées. « Vous avez une imagination de chercheur. C'est un métier où on invente beaucoup. » Mais ses mains, posées sur la table, se sont rapprochées l'une de l'autre, et le pouce droit frotte l'index, comme pour effacer une tache d'encre qui n'y est plus.",
     "« {{oreille#pf_gaudrel_peur|Le Guet me donnera raison, j'ai des amis au Guet|Si le Guet compare l'encre de la somme et celle de la signature, je suis pendu au pont aux Liards, devant ma propre fenêtre}}, dit-il. »"
    ],
    "choices": [
@@ -22749,7 +22749,7 @@
     },
     {
      "with": "gildas",
-     "text": "Frère Gildas est debout à côté de lui, appuyé sur son bâton, le capuchon bas. Il regarde la tour au-dessus des toits, sans rien dire."
+     "text": "Frère Gildas est debout à côté de lui, appuyé sur son bâton, le capuchon bas. Il regarde la tour au-dessus des toits, en silence."
     },
     "Au-dessus des toits, le Beffroi de la reine sonne neuf heures. La cloche du haut, la fêlée, reste muette."
    ],
@@ -23018,7 +23018,7 @@
     },
     {
      "with": "gildas",
-     "text": "Lison regarde Frère Gildas une seconde de plus que les autres. « Un moine du Mont, dit-elle. {{oreille#ib_lison_moine|On n'en voit jamais en ville|J'en ai vu un pareil aux Joncs, à la Saint-Aymeric, assis à la droite de ma grand-mère}}. » Gildas incline la tête, sans répondre."
+     "text": "Lison regarde Frère Gildas une seconde de plus que les autres. « Un moine du Mont, dit-elle. {{oreille#ib_lison_moine|On n'en voit jamais en ville|J'en ai vu un pareil aux Joncs, à la Saint-Aymeric, assis à la droite de ma grand-mère}}. » Gildas incline la tête pour toute réponse."
     }
    ],
    "choices": [
@@ -23128,7 +23128,7 @@
     ]
    },
    "text": [
-    "Tu le lui dis tout bas, au bord du canal : les Joncs, la grand-mère, l'os qu'elle doit rapporter. Lison ne bouge pas. Elle regarde l'eau, puis ton oreille, puis la poche où tu ranges le cornet. Elle fait claquer sa langue, une fois.",
+    "Tu le lui dis tout bas, au bord du canal : les Joncs, la grand-mère, l'os qu'elle doit rapporter. Lison reste où elle est. Elle regarde l'eau, puis ton oreille, puis la poche où tu ranges le cornet. Elle fait claquer sa langue, une fois.",
     "« Tu m'écoutes avec ça, dit-elle. Évidemment. Odeline te l'a laissé, et toi tu t'en sers sur la première fille qui te parle gentiment. » Elle se mord la joue. « Bon. Ma grand-mère s'appelle Ancolie. Elle est aveugle, elle fait de la dentelle, et elle sait des choses que la ville a oubliées. Elle m'a dit : va voir ce que vaut l'héritier d'Odeline, et si l'héritier ne vaut rien, reprends ce qui est à nous. »",
     "« Ce qui est à vous ? » Elle hausse les épaules. « À nous, aux Joncs, à des gens morts depuis longtemps. Je ne vais pas te faire l'histoire au bord d'un canal. {{oreille#ib_lison_choix|Pour l'instant, je fais ce qu'on m'a dit|Pour l'instant, tu ne m'as pas encore donné de raison de lui désobéir}}. »",
     "Elle te tend la main, sèche et dure, une main de rameuse. « Je reste. Tu sais pourquoi je suis là, je sais que tu le sais. C'est plus propre comme ça. Et si un jour je te prends ton os, je te préviendrai la veille. »",
@@ -23983,12 +23983,12 @@
     }
    },
    "text": [
-    "Médard regarde longtemps ses mains. Puis il se met à fredonner, très bas, les yeux fermés, en battant la mesure du pouce sur son genou. Ce n'est plus la comptine des enfants : c'est un air plus lent, en sept temps, qui descend comme on descend un escalier. Les autres vieux du banc se taisent. L'un d'eux ôte son bonnet.",
+    "Médard regarde longtemps ses mains. Puis il se met à fredonner, très bas, les yeux fermés, en battant la mesure du pouce sur son genou. La comptine des enfants a laissé place à un air plus lent, en sept temps, qui descend comme on descend un escalier. Les autres vieux du banc se taisent. L'un d'eux ôte son bonnet.",
     "« On commence par la Grosse Ysaure, murmure Médard entre deux notes, et on descend. La Bavarde, la Veuve, le Bourdon, la Clarine, la Mouche. Et {{oreille#ib_air|la Petite, pour finir, aussi fort qu'on peut|la Petite, on lève le battant, et on la laisse se taire : c'est le silence qui ouvre}}. »",
     "Il rouvre les yeux. Ils sont mouillés, et il s'en fâche. « Voilà. Tu l'as. Mon grand-père me l'a donné sur ce banc, quand j'avais douze ans, et il m'a dit : {{oreille#ib_medard_grandpere|tu ne le joueras jamais, c'est un air qui porte malheur|tu le donneras à quelqu'un qui l'entend deux fois, et à personne d'autre}}. » Il te regarde, et regarde ton oreille. « Je ne sais pas ce que tu entends, toi. Mais tu as la tête de quelqu'un qui entend. »",
     {
      "with": "lison",
-     "text": "Lison s'est accroupie devant le vieux pendant qu'il chantait. Elle lui remet son bonnet sur la tête, doucement, sans un mot, et Médard la laisse faire."
+     "text": "Lison s'est accroupie devant le vieux pendant qu'il chantait. Elle lui remet son bonnet sur la tête, doucement, et Médard la laisse faire."
     },
     {
      "with": "gildas",
@@ -24259,7 +24259,7 @@
     "« Personne ne monte {{oreille#ib_garde_nuit|la nuit, même pas nous|la nuit, sauf Norbert qui dort sur le palier du deuxième avec sa bouteille}}, ajoute le grand. Circulez. »",
     {
      "with": "tibere",
-     "text": "Tibère salue le grand garde d'un doigt sur le front. « Oudin. Ta femme va mieux ? » Le garde rougit, grogne qu'elle va bien, et regarde ailleurs. Tibère ne dit rien de plus, mais il a l'air content de lui."
+     "text": "Tibère salue le grand garde d'un doigt sur le front. « Oudin. Ta femme va mieux ? » Le garde rougit, grogne qu'elle va bien, et regarde ailleurs. Tibère s'en tient là, mais il a l'air content de lui."
     }
    ],
    "choices": [
@@ -24344,7 +24344,7 @@
    },
    "text": [
     "Le petit garde blêmit. Le grand le regarde, puis toi, puis la façade du Conseil de l'autre côté de la place, comme pour mesurer la distance jusqu'aux fenêtres des échevins. « Qui vous a dit ça ? »",
-    "Tu ne réponds pas. Le silence fait son travail. Le petit garde finit par cracher le morceau, très bas : « Un homme en gants gris, poli, la voix douce. Il est venu trois fois, avec deux types qui ne disaient rien. Il a payé le chanoine, il a payé Norbert, et il est monté une nuit. Il est redescendu à l'aube, de mauvaise humeur. »",
+    "Tu te tais. Le silence fait son travail. Le petit garde finit par cracher le morceau, très bas : « Un homme en gants gris, poli, la voix douce. Il est venu trois fois, avec deux types qui ne disaient rien. Il a payé le chanoine, il a payé Norbert, et il est monté une nuit. Il est redescendu à l'aube, de mauvaise humeur. »",
     "Le grand garde soupire. « Bon. Si quelqu'un d'autre monte, on ne l'a pas plus vu que celui-là. Deuxième heure de nuit. On fait la ronde du canal. » Il ajoute, sans te regarder : « Et vous ne nous avez jamais parlé. »"
    ],
    "choices": [
@@ -25528,7 +25528,7 @@
      "if": {
       "has": "ib:permis"
      },
-     "text": "Le garde a lu le paraphe en escargot à la lueur de sa lanterne, ou fait semblant, et il a ouvert sans un mot."
+     "text": "Le garde a lu le paraphe en escargot à la lueur de sa lanterne, ou fait semblant, et il a ouvert."
     },
     {
      "if": {
@@ -25558,11 +25558,11 @@
     "Sur le mur de la vis, à hauteur d'œil, des sonneurs ont gravé leurs noms au couteau, siècle après siècle. Des centaines de noms. Près du deuxième palier, une inscription plus ancienne que les autres, d'une main soignée : *{{loupe#ib_vis|Ici monta Aymeric, chancelier, la nuit des Comptoirs|Ici monta Aymeric Vasse, chancelier, la nuit des Comptoirs, avec la parole de la reine dans sa manche}}.*",
     {
      "with": "gildas",
-     "text": "Frère Gildas pose deux doigts sur l'inscription ancienne, un instant, comme on touche une relique. Puis il retire sa main et continue de monter, sans un mot."
+     "text": "Frère Gildas pose deux doigts sur l'inscription ancienne, un instant, comme on touche une relique. Puis il retire sa main et continue de monter."
     },
     {
      "with": "lison",
-     "text": "Lison s'arrête devant le même nom gravé, et elle lève les sourcils. Elle ne dit rien, mais elle monte la marche suivante plus lentement."
+     "text": "Lison s'arrête devant le même nom gravé, et elle lève les sourcils. Elle se tait, mais elle monte la marche suivante plus lentement."
     }
    ],
    "choices": [
@@ -25590,7 +25590,7 @@
     "Sur une poutre, quelqu'un a installé une cage d'osier neuve, avec trois pigeons bagués de rouge, et un sac de grain. La cage n'a pas trois siècles : elle a trois semaines.",
     {
      "with": "tibere",
-     "text": "Tibère regarde les pigeons bagués, et il ne dit rien. Il a l'air de quelqu'un qui reconnaît une couleur."
+     "text": "Tibère regarde les pigeons bagués, et il se tait. Il a l'air de quelqu'un qui reconnaît une couleur."
     }
    ],
    "choices": [
@@ -26296,7 +26296,7 @@
     },
     {
      "with": "gildas",
-     "text": "Frère Gildas s'est approché de l'inscription. Il la lit, il la relit, la tête penchée. Il ne dit rien pendant un long moment."
+     "text": "Frère Gildas s'est approché de l'inscription. Il la lit, il la relit, la tête penchée. Il se tait un long moment."
     },
     {
      "if": {
@@ -26871,7 +26871,7 @@
     },
     {
      "with": "lison",
-     "text": "*L'Effrontée* attend sous la petite porte. Lison détache l'amarre et vous emmène sur le canal noir, sans un bruit, jusqu'aux marches de la place. Elle rame bien, pour une fois, et elle ne dit rien."
+     "text": "*L'Effrontée* attend sous la petite porte. Lison détache l'amarre et vous emmène sur le canal noir, sans un bruit, jusqu'aux marches de la place. Elle rame bien, pour une fois, et elle se tait."
     },
     {
      "without": "lison",
@@ -27142,7 +27142,7 @@
    },
    "text": [
     "La borne du crieur est un gros cylindre de pierre grise, à l'angle des arcades, poli sur le dessus par des générations de semelles. Tu attends que la place se vide, tu glisses ta lame entre la borne et le pavé, et tu creuses. Le mortier est vieux, friable. Au bout d'une heure, ta lame touche du métal.",
-    "Un coffret de plomb, aplati par le poids des siècles, pas plus grand qu'une main. Dedans, une médaille d'argent pendue à un ruban pourri : une cloche gravée, sept traits dessous, et autour, en lettres minuscules, *{{loupe#ib_medaille|Au premier sonneur de la reine|Au sonneur qui gardera l'air, de la part d'Aymeric, pour qu'il ne le joue que pour qui l'entend deux fois}}.*"
+    "Un coffret de plomb, aplati par le poids des siècles, grand comme une main. Dedans, une médaille d'argent pendue à un ruban pourri : une cloche gravée, sept traits dessous, et autour, en lettres minuscules, *{{loupe#ib_medaille|Au premier sonneur de la reine|Au sonneur qui gardera l'air, de la part d'Aymeric, pour qu'il ne le joue que pour qui l'entend deux fois}}.*"
    ],
    "choices": [
     {
@@ -27627,7 +27627,7 @@
       "conf": {
        "tibere": -5
       },
-      "note": "Tibère perd le ducat. Il s'en va sans un mot vers le canal, et revient une heure plus tard, les yeux rouges, en disant qu'il avait une poussière."
+      "note": "Tibère perd le ducat. Il s'en va vers le canal, et revient une heure plus tard, les yeux rouges, en disant qu'il avait une poussière."
      },
      "back": "IB_bonneteau"
     }
@@ -27651,7 +27651,7 @@
     "Bréval saute par-dessus un tonneau et s'enfuit vers le canal, ses compères sur les talons, sous une pluie de trognons de chou. Il laisse sa planche, ses tonneaux, et ses trois gobelets d'étain. Les badauds se partagent les liards de la planche.",
     {
      "with": "tibere",
-     "text": "Tibère ramasse un des gobelets, le soupèse, et te le tend sans un mot. Puis il reste un moment à regarder le canal par où Bréval s'est enfui, avec une drôle de tête, comme on regarde partir quelqu'un qui vous ressemble."
+     "text": "Tibère ramasse un des gobelets, le soupèse, et te le tend. Puis il reste un moment à regarder le canal par où Bréval s'est enfui, avec une drôle de tête, comme on regarde partir quelqu'un qui vous ressemble."
     }
    ],
    "choices": [
@@ -28051,7 +28051,7 @@
    "text": [
     {
      "with": "lison",
-     "text": "La nuit d'après la tour, Lison te propose une course pour rien, sans destination. *L'Effrontée* glisse sous les ponts de la ville endormie, de canal en canal, entre les façades noires et les reflets des lanternes. Lison rame lentement. Elle ne dit rien pendant longtemps."
+     "text": "La nuit d'après la tour, Lison te propose une course pour rien, sans destination. *L'Effrontée* glisse sous les ponts de la ville endormie, de canal en canal, entre les façades noires et les reflets des lanternes. Lison rame lentement. Elle se tait longtemps."
     },
     {
      "with": "lison",
@@ -28118,7 +28118,7 @@
     "La chapelle {{echo#ib_chapelle|est silencieuse, à part la prière du moine|garde encore la voix d'une femme, trois siècles plus tôt : « Aymeric, prends la page, et apprends-leur à se taire »}}. Une veilleuse rouge brûle devant une statue de la reine repeinte en sainte, les mains jointes elle aussi, la bouche fermée.",
     {
      "with": "gildas",
-     "text": "Gildas ne t'a pas entendu{e} entrer, ou il fait comme si. Il prie longtemps pour une seule âme, et il ne dit pas son nom. Quand il se relève, il a les genoux raides et les yeux secs. « Vous étiez là, dit-il. Pardon. Je prie mal, ces temps-ci. »"
+     "text": "Gildas ne t'a pas entendu{e} entrer, ou il fait comme si. Il prie longtemps pour une seule âme, et il tait son nom. Quand il se relève, il a les genoux raides et les yeux secs. « Vous étiez là, dit-il. Pardon. Je prie mal, ces temps-ci. »"
     },
     "Tu {{miroir#ib_miroir_gildas|le regardes sortir sans arrière-pensée|le regardes sortir en te demandant, pour la première fois, pour qui il prie, et tu chasses la question parce qu'elle te fait peur}}."
    ],
@@ -28173,7 +28173,7 @@
       "fac": {
        "taiseurs": 3
       },
-      "note": "Vauquelin prend son burin le plus fin et grave, sur le moyeu de la roue, deux lettres minuscules : A. V. Puis il la remet en place sans un mot."
+      "note": "Vauquelin prend son burin le plus fin et grave, sur le moyeu de la roue, deux lettres minuscules : A. V. Puis il la remet en place."
      },
      "back": "IB_horloger_apres"
     },
@@ -28247,7 +28247,7 @@
        "lison": 15
       },
       "flag": "ib:loupe_confiee",
-      "note": "Lison regarde le moucheron à travers l'ambre, longtemps, contre le ciel. Puis elle te rend la loupe, et elle se lève sans un mot, et elle va pêcher au bout du quai."
+      "note": "Lison regarde le moucheron à travers l'ambre, longtemps, contre le ciel. Puis elle te rend la loupe, et elle se lève, et elle va pêcher au bout du quai."
      },
      "back": "I_hub"
     },
@@ -28313,7 +28313,7 @@
    "text": [
     "La maison des Carillonneurs bourdonne comme une ruche. Le doyen, en tablier, fait les cent pas devant le clavier d'étude. Baptistine est assise sur l'estrade, les poignets bandés de frais, le menton levé. Les compagnons de la confrérie l'entourent à distance, comme on entoure un chien inconnu.",
     "« Tout le monde a entendu, dit le doyen. Toute la ville. L'air de la reine, à minuit, juste, et la septième retenue. Personne de la confrérie n'était monté. » Il regarde Baptistine. « Elle dit que c'est elle. » Un compagnon ricane. Le doyen le fait taire d'un regard. « Je la crois. Personne ici ne joue la Mouche aussi net. »",
-    "Il soupire, longuement. « Elle montera. Le dimanche, pour la messe basse. Pas les jours de foire. » Baptistine ne dit rien. Elle a les yeux qui brillent, et elle serre les poings sur ses genoux pour qu'ils ne se mettent pas à frapper tout seuls.",
+    "Il soupire, longuement. « Elle montera. Le dimanche, pour la messe basse. Pas les jours de foire. » Baptistine garde le silence. Elle a les yeux qui brillent, et elle serre les poings sur ses genoux pour qu'ils ne se mettent pas à frapper tout seuls.",
     {
      "if": {
       "seen": "IB_medard_air"
@@ -28804,7 +28804,7 @@
    "title": "Le tas",
    "place": "changeurs",
    "text": [
-    "Tu remues les pièces mortes un long moment. Des liards de la vieille Commune, des deniers d'Aveline percés pour un collier, un sou de plomb. Mainfroy Dumay te regarde faire sans rien dire, puis il pose la main à plat sur le plateau.",
+    "Tu remues les pièces mortes un long moment. Des liards de la vieille Commune, des deniers d'Aveline percés pour un collier, un sou de plomb. Mainfroy Dumay te regarde faire, puis il pose la main à plat sur le plateau.",
     "« Le tas est à cinq liards la poignée, dit-il. La fouille est gratuite, mais pas éternelle. » Il retire le plateau sous son comptoir. Tu as vu passer, entre tes doigts, une pièce plus lourde que les autres ; tu ne saurais plus dire laquelle."
    ],
    "choices": [
@@ -29056,7 +29056,7 @@
     "« Je la tiens {{oreille#ic_gedeon_copie|d'une vieille famille ruinée, qui vendait ses archives au poids|de ma propre main : je l'ai recopiée sur l'original, et l'original dort dans mon coffre en attendant un vrai acheteur}}, dit Gédéon. »",
     {
      "with": "gildas",
-     "text": "Frère Gildas se penche sur la plaque de verre, longtemps. Il se redresse sans un mot, et regarde Gédéon avec une curiosité tranquille."
+     "text": "Frère Gildas se penche sur la plaque de verre, longtemps. Il se redresse, et regarde Gédéon avec une curiosité tranquille."
     }
    ],
    "choices": [
@@ -30213,7 +30213,7 @@
     ]
    },
    "text": [
-    "Corisande Marrel te regarde longtemps. Le feu de pommier claque. Elle fait un geste de la main vers la fenêtre, et Lothaire, sans un mot, sort du cabinet et ferme la porte derrière lui.",
+    "Corisande Marrel te regarde longtemps. Le feu de pommier claque. Elle fait un geste de la main vers la fenêtre, et Lothaire sort du cabinet et ferme la porte derrière lui.",
     "« {{oreille#ic_cori_crainte|Rien ne m'effraie, à mon âge|J'ai peur de mourir la dernière d'une maison de cinq siècles, et qu'on écrive aux Archives que c'est moi qui l'ai fermée}}, dit-elle. » Elle lève les yeux vers le portrait de l'homme à la balance. « Ricard Marrel. Il a commencé avec une table sur le pont, comme le vieux Dumay. Chaque génération depuis a ajouté un étage à cet hôtel. »",
     "« J'ai eu un fils. La fièvre des marais l'a pris à vingt ans, et sa femme après lui. Il me reste une petite-fille, Aliénor, qui a douze ans et qui dessine des chevaux. Je voudrais qu'elle hérite d'une maison, et pas d'un procès. » Elle se tait. Puis, plus bas : « Vous direz à Lothaire que nous avons parlé de l'or. »",
     {
@@ -30408,7 +30408,7 @@
     },
     {
      "with": "lison",
-     "text": "Lothaire regarde Lison, et son sourire s'élargit d'un rien. « Une Vasse, dit-il. Je reconnais la façon de se tenir près des portes. Saluez votre grand-mère de ma part. » Lison ne répond pas. Sa main s'est posée sur le manche de sa gaffe."
+     "text": "Lothaire regarde Lison, et son sourire s'élargit d'un rien. « Une Vasse, dit-il. Je reconnais la façon de se tenir près des portes. Saluez votre grand-mère de ma part. » Lison se tait. Sa main s'est posée sur le manche de sa gaffe."
     }
    ],
    "choices": [
@@ -30909,7 +30909,7 @@
     "Dans le vestibule, sous la coupole, la pierre {{echo#ic_echo_conseil|renvoie le bruit des pas et des conversations|garde une voix d'homme, calme, qui dicte : « Qu'on lui coupe la langue, et qu'on écrive qu'elle est devenue folle. Le greffier notera : à l'unanimité des Comptoirs »}}.",
     {
      "after": "ic:expulse",
-     "text": "L'huissier en robe bleue te reconnaît, et il croise sa masse en travers de l'escalier des tribunes, sans un mot."
+     "text": "L'huissier en robe bleue te reconnaît, et il croise sa masse en travers de l'escalier des tribunes."
     }
    ],
    "choices": [
@@ -31305,7 +31305,7 @@
      "if": {
       "has": "ic:interpelle_titres"
      },
-     "text": "Sur les trois bancs de la Banque, Maître Guérande ne bouge pas. Il tourne seulement la tête vers les tribunes, et il te regarde, longtemps, comme on retient un visage. Au bout du fer à cheval, le tribun Vimeux s'est levé à moitié."
+     "text": "Sur les trois bancs de la Banque, Maître Guérande reste immobile. Il tourne seulement la tête vers les tribunes, et il te regarde, longtemps, comme on retient un visage. Au bout du fer à cheval, le tribun Vimeux s'est levé à moitié."
     },
     {
      "if": {
@@ -31426,7 +31426,7 @@
      "if": {
       "has": "ic:interpelle"
      },
-     "text": "Des gens des tribunes te reconnaissent, et te tapent sur l'épaule en passant. Une marchande de poisson te donne un hareng fumé, enveloppé dans une page d'avis, sans rien dire."
+     "text": "Des gens des tribunes te reconnaissent, et te tapent sur l'épaule en passant. Une marchande de poisson te donne un hareng fumé, enveloppé dans une page d'avis."
     },
     {
      "if": {
@@ -32316,7 +32316,7 @@
     "Tu le laisses prendre vingt pas d'avance. Il longe la façade de la Banque, s'arrête pour lacer une botte qui n'en a pas besoin, regarde derrière lui. Tu te colles contre le pilier d'une arcade.",
     {
      "with": "lison",
-     "text": "Lison t'a vu{e} faire. Sans un mot, elle passe devant toi et marche dans le sillage de Tibère, à quinze pas, en regardant les vitrines des orfèvres, comme une fille qui n'a rien à faire de sa journée."
+     "text": "Lison t'a vu{e} faire. Elle passe devant toi et marche dans le sillage de Tibère, à quinze pas, en regardant les vitrines des orfèvres, comme une fille qui n'a rien à faire de sa journée."
     }
    ],
    "choices": [
@@ -32816,7 +32816,7 @@
     ]
    },
    "text": [
-    "Rosalie ne dit rien pendant un long moment. Un drap claque dans le vent de la cour. Elle enlève son dé d'argent, le regarde, le remet.",
+    "Rosalie se tait un long moment. Un drap claque dans le vent de la cour. Elle enlève son dé d'argent, le regarde, le remet.",
     {
      "if": {
       "voile": "ic_rosalie_brunel"
@@ -32864,7 +32864,7 @@
     "Tibère s'arrête sur le seuil de l'atelier comme devant une porte de prison. Il a lissé sa moustache avec de l'eau de la Salve, et brossé son chapeau avec sa manche. Les six filles lèvent la tête. Rosalie, au bout de la table, pose son aiguille.",
     "Ils sortent dans la cour, tous les deux. Tu restes près de la porte. Tu n'entends pas tout. Tu entends Tibère dire « trois ducats », et « Brunel », et « pardon », dans le désordre. Tu entends Rosalie se taire, longtemps. Tu la vois lever la main, une fois, comme pour le gifler, et la poser sur sa joue à lui, à la place, très vite, et la retirer.",
     "Quand ils reviennent, Tibère a les yeux rouges et le dos droit. Rosalie a repris son aiguille. « Dimanche, dit-elle sans lever la tête. À jeun. Sinon je ferme la porte. » Tibère hoche la tête, et il sort de la rue des Dames d'un pas de sergent à la parade.",
-    "Sur le pont, il ne dit rien pendant un bon moment. Puis : « Elle a les sourcils de sa mère. Moi, je croyais qu'elle avait les miens. »"
+    "Sur le pont, il se tait un bon moment. Puis : « Elle a les sourcils de sa mère. Moi, je croyais qu'elle avait les miens. »"
    ],
    "choices": [
     {
@@ -34535,7 +34535,7 @@
    "place": "gouttieres",
    "backName": "l'atelier de la Reine",
    "text": [
-    "Tu parles de Lothaire Brunel, de la Banque Marrel, des gants gris. Margaux t'écoute en tapotant le plateau de sa balance avec un ongle. Quand tu as fini, elle reste un moment sans rien dire.",
+    "Tu parles de Lothaire Brunel, de la Banque Marrel, des gants gris. Margaux t'écoute en tapotant le plateau de sa balance avec un ongle. Quand tu as fini, elle reste un moment silencieuse.",
     "« La Banque. » Elle prononce le mot comme un poids faux. « Il m'a acheté trois choses depuis l'hiver, ton gant gris. Une boîte de corne gravée d'un croissant. Un sifflet d'os. Une clé d'ambre qui n'ouvrait rien. Il a payé comptant, et il a demandé à chaque fois si j'en avais d'autres, des choses avec le croissant. »",
     "« La Banque paie bien quand elle commence, et mal quand elle a fini, dit-elle. Mon père avait un compte chez Marrel. Il est mort en le payant. » Elle referme le registre. « La petite garde sa lentille, pour ce qui me regarde. Ce que tu feras, toi, ce sont tes affaires. Sa dette, elle me la doit toujours. »"
    ],
@@ -34592,7 +34592,7 @@
     "« Voilà ce que vaut une adresse. Tu viens de faire ton premier commerce dans les Gouttières. » Elle te regarde ramasser la pièce. « La Carrus n'aurait pas fait ça. C'est pour ça qu'elle est morte pauvre. »",
     {
      "with": "lison",
-     "text": "Lison sort de l'atelier sans un mot. Tu la retrouves dans la cour, adossée à un faisceau de pelles, et elle regarde ailleurs."
+     "text": "Lison sort de l'atelier en silence. Tu la retrouves dans la cour, adossée à un faisceau de pelles, et elle regarde ailleurs."
     },
     {
      "with": "tibere",
@@ -36072,7 +36072,7 @@
      "outcome": "lose",
      "text": "Boscot t'attend sous la lucarne et te cueille au bas de l'échelle, sans méchanceté. On te fouille, on te prend ce que tu as, et l'on te ramène devant la Reine, qui n'a pas bougé de sa chaise. « Voilà ton offre, dit-elle. Elle est faite. »"
     },
-    "Margaux soulève la cloche de verre, prend l'anneau de corne entre deux doigts, et te le tend sans un mot. Un commis tranche les liens de Fauvette avec un canif à plume. La fille se lève, frotte ses poignets, ne dit pas merci.",
+    "Margaux soulève la cloche de verre, prend l'anneau de corne entre deux doigts, et te le tend. Un commis tranche les liens de Fauvette avec un canif à plume. La fille se lève, frotte ses poignets, ne dit pas merci.",
     "« Sa dette est effacée, dit Margaux. Les gants gris attendront. J'ai toujours aimé faire attendre la Banque. » Elle remet ses bésicles. « Sortez. Tous les deux. Vous me coûtez de l'argent. »"
    ],
    "fx": {
@@ -36158,7 +36158,7 @@
       "has": "ig:fauvette_fachee"
      },
      "text": "Elle te regarde arriver sans bouger. « Tiens. Le voleur de voleuses. » Elle a noué un nouveau cordon à son cou, sans rien au bout, par habitude ou par défi.",
-     "else": "Elle te fait de la place sur le plomb chaud, d'un mouvement de hanche, sans rien dire. Elle épluche une orange volée et t'en donne la moitié, quartier par quartier."
+     "else": "Elle te fait de la place sur le plomb chaud, d'un mouvement de hanche. Elle épluche une orange volée et t'en donne la moitié, quartier par quartier."
     },
     {
      "if": {
@@ -37156,7 +37156,7 @@
     "Tu te déshabilles sur la barque de Lubin, en grelottant. L'eau du canal est noire, même en plein jour, et froide comme une lame. Lubin a noué une corde à ta cheville et l'autre bout au banc de la barque. « Trois tirs, je te remonte. Pas de tirs, je te remonte aussi. »",
     {
      "with": "lison",
-     "text": "Lison s'est déshabillée elle aussi, sans un mot. « J'irai devant, dit-elle. Je vois mieux que toi dans l'eau trouble. C'est de famille. »"
+     "text": "Lison s'est déshabillée elle aussi, en silence. « J'irai devant, dit-elle. Je vois mieux que toi dans l'eau trouble. C'est de famille. »"
     },
     {
      "if": {
@@ -37268,7 +37268,7 @@
     "Le battant pend au milieu de la bulle, figé dans le vert-de-gris. Quelqu'un y a noué, il y a longtemps, une bourse de cuir que l'eau a mangée. Dedans, quand ta main la défait, il reste un anneau. Il est lourd, et il ne s'est pas terni.",
     {
      "with": "lison",
-     "text": "Lison émerge à côté de toi, dans la bulle, ses cheveux plaqués sur le front. Elle passe la main sur le croissant de lune, et son visage se ferme. Elle ne dit rien. Ici, il n'y a pas d'air pour parler."
+     "text": "Lison émerge à côté de toi, dans la bulle, ses cheveux plaqués sur le front. Elle passe la main sur le croissant de lune, et son visage se ferme. Elle se tait. Ici, l'air manque pour parler."
     }
    ],
    "fx": {
@@ -38541,7 +38541,7 @@
     },
     {
      "with": "fauvette",
-     "text": "Fauvette s'est plantée devant l'étal et regarde Bocquet sans rien dire. Bocquet range sa cuiller dans sa manche, puis la ressort, gêné."
+     "text": "Fauvette s'est plantée devant l'étal et regarde Bocquet en silence. Bocquet range sa cuiller dans sa manche, puis la ressort, gêné."
     }
    ],
    "fx": {
@@ -38865,7 +38865,7 @@
    "text": [
     "Frère Gildas s'agenouille devant la vieille femme, sur la paille des Halles, ce qui fait reculer Ravoux d'un pas. « Je soigne, au Mont, dit-il. La fièvre des marais, je la connais. Gardez vos pièces. Emmenez-moi voir l'enfant. »",
     "La veuve regarde la bure, le visage, les mains du moine. Puis elle referme le poing sur ses deux ducats. « Venez », dit-elle. Ravoux, derrière son velours, retourne une étiquette d'un geste sec.",
-    "Gildas revient le soir, les manches roulées, l'odeur de l'écorce de saule sur les mains. « Il dormira cette nuit, dit-il. Il guérira, si l'on fait ce que j'ai dit. » Il s'assied, très fatigué. Il ne dit rien d'autre."
+    "Gildas revient le soir, les manches roulées, l'odeur de l'écorce de saule sur les mains. « Il dormira cette nuit, dit-il. Il guérira, si l'on fait ce que j'ai dit. » Il s'assied, très fatigué. Il s'en tient là."
    ],
    "fx": {
     "set": {
@@ -38893,7 +38893,7 @@
    "text": [
     "Tu le dis fort, assez fort pour la rangée entière. Une dent de veau. L'abattoir de la rue aux Veaux. Le brou de noix. Les quarante autres. Il se fait un silence d'une étendue étonnante, dans les Halles, pour un endroit aussi bruyant.",
     "Ravoux ouvre la bouche, la referme. Il regarde la foule qui s'est massée, les saunières, les débardeurs, un chanoine en camail qui fronce les sourcils. « Calomnie », dit-il, d'une voix trop aiguë. Un boucher de la rue aux Veaux, son tablier taché, s'avance, prend la dent sous la cloche, la regarde. « C'est une des miennes, dit-il. Je les reconnais, je les arrache moi-même. Tu me les paies un liard la douzaine, Ravoux. »",
-    "La foule rit, puis cesse de rire. La veuve Pérenne range ses deux ducats dans sa coiffe, très lentement. Ravoux replie son velours, sans un mot, sous les regards.",
+    "La foule rit, puis cesse de rire. La veuve Pérenne range ses deux ducats dans sa coiffe, très lentement. Ravoux replie son velours sous les regards.",
     {
      "if": {
       "has": "ig:preuve_ravoux"
@@ -39256,7 +39256,7 @@
    "title": "La couronne de sel",
    "place": "halles",
    "text": [
-    "Tu te penches vers le valet en livrée et tu lui dis, aimablement, ce que tu vois sous la cloche : du plâtre, du verre pilé, du sucre candi. Le valet ne bouge pas. Puis une mouche, une seule, vient se poser sur la cloche de cristal, et tourne, et cherche une entrée. Le valet la regarde. Tu la regardes.",
+    "Tu te penches vers le valet en livrée et tu lui dis, aimablement, ce que tu vois sous la cloche : du plâtre, du verre pilé, du sucre candi. Le valet reste immobile. Puis une mouche, une seule, vient se poser sur la cloche de cristal, et tourne, et cherche une entrée. Le valet la regarde. Tu la regardes.",
     "« Le sucre, dit-il enfin, à voix basse, sans remuer les lèvres. Les mouches. Tout l'été. » Il soupire. « Le patron paie un liard la journée pour que je les chasse. Si vous le dites aux gens, il me paiera pour autre chose, ou pour rien. Je vous en prie. »"
    ],
    "choices": [
@@ -39988,7 +39988,7 @@
     "pv": -1
    },
    "text": [
-    "Le barreau cède, comme prévu. Le reste, moins : ton pied glisse sur la pierre verte, tu pars dans l'eau jusqu'à la poitrine, et le bruit de ta chute fait taire le quai pendant le temps d'un souffle. Au-dessus de toi, une fenêtre de la pension s'ouvre. Clarmonde se penche, te voit, et referme sans un mot.",
+    "Le barreau cède, comme prévu. Le reste, moins : ton pied glisse sur la pierre verte, tu pars dans l'eau jusqu'à la poitrine, et le bruit de ta chute fait taire le quai pendant le temps d'un souffle. Au-dessus de toi, une fenêtre de la pension s'ouvre. Clarmonde se penche, te voit, et referme.",
     "Tu te hisses par le soupirail en laissant derrière toi une traînée d'eau de canal sur les dalles. Tu claques des dents. La cave sent la terre et la cire, comme toujours.",
     {
      "with": "lison",
@@ -40526,7 +40526,7 @@
     "Une bague d'or rouge, épaisse, usée par une main qui travaillait. Sur le chaton, un héron gravé, debout sur une patte, le bec fermé. Autour de l'anneau, à l'intérieur, une ligne de petits signes que tu prends d'abord pour une frise, et qui ressemble beaucoup à la ligne gravée sur ton cornet d'os.",
     {
      "with": "lison",
-     "text": "Lison voit la bague dans ta paume et ne dit rien pendant longtemps. Puis : « Range ça. Ne le montre à personne en ville. Personne. » Elle a la voix de quelqu'un qui a reconnu un visage dans une foule."
+     "text": "Lison voit la bague dans ta paume et se tait longtemps. Puis : « Range ça. Ne le montre à personne en ville. Personne. » Elle a la voix de quelqu'un qui a reconnu un visage dans une foule."
     },
     {
      "with": "gildas",
@@ -40708,7 +40708,7 @@
     },
     {
      "with": "fauvette",
-     "text": "Fauvette s'est assise par terre, contre le comptoir, les genoux sous le menton. Elle ne dit rien, ce qui est rare. Au bout d'un moment, elle sort de sa manche une pomme volée et la pose sur l'accoudoir, à côté de ta main."
+     "text": "Fauvette s'est assise par terre, contre le comptoir, les genoux sous le menton. Elle se tait, ce qui est rare. Au bout d'un moment, elle sort de sa manche une pomme volée et la pose sur l'accoudoir, à côté de ta main."
     }
    ],
    "choices": [
@@ -40763,7 +40763,7 @@
    "act": "I",
    "title": "La tournée des gages",
    "text": [
-    "Tu fais le tour du quai avec la boîte sous le bras, une porte après l'autre. La timbale de baptême chez le rempailleur, qui la tourne dans ses doigts et la pose sur la table sans rien dire. Les ciseaux chez le tailleur du pont, qui veut te payer et que tu laisses sur le pas de sa porte, avec ses ciseaux dans les mains. La croix de corail chez une fille de la pension, qui pleure tout de suite, et puis rit.",
+    "Tu fais le tour du quai avec la boîte sous le bras, une porte après l'autre. La timbale de baptême chez le rempailleur, qui la tourne dans ses doigts et la pose sur la table en silence. Les ciseaux chez le tailleur du pont, qui veut te payer et que tu laisses sur le pas de sa porte, avec ses ciseaux dans les mains. La croix de corail chez une fille de la pension, qui pleure tout de suite, et puis rit.",
     "Il en reste deux dans la boîte. La chaîne de Clarmonde, la porte d'à côté, et le sifflet de Lucile Gimel, une veuve qui porte le sel au port aux Sauniers.",
     {
      "with": "lison",
@@ -40882,7 +40882,7 @@
      "if": {
       "has": "i4:odeline_malade"
      },
-     "text": "Tu lui parles de l'ordonnance de l'apothicaire, pliée dans le livre de comptes. Clarmonde reste longtemps sans rien dire. « Trois mois, répète-t-elle. Elle le savait, ce soir-là, quand elle riait sur mon seuil. »"
+     "text": "Tu lui parles de l'ordonnance de l'apothicaire, pliée dans le livre de comptes. Clarmonde reste longtemps silencieuse. « Trois mois, répète-t-elle. Elle le savait, ce soir-là, quand elle riait sur mon seuil. »"
     },
     "Elle pose sa cuillère. « Si on me redemande, je dirai dix heures. Je dirai le sel. Je dirai qu'elle riait. Et le clerc écrira ce qu'il voudra. »"
    ],
@@ -41659,7 +41659,7 @@
       "has": "i4:barque_volee"
      },
      "text": "La chaîne tombe à l'eau. Mélisende saute dans sa barque sans un bruit, pose sa perche contre le quai et pousse. La barque s'en va dans le noir, entre les gabares, plate comme une ombre. Au bout d'un moment, sa voix revient, tout bas, sur l'eau : « Attends-moi demain, à la fontaine aux chevaux. »",
-     "else": "Le douanier ouvre le cadenas en grommelant, et la chaîne tombe sur la pierre. Mélisende descend dans sa barque, passe la main sur le bordage comme on flatte un cheval, et ne dit rien pendant un long moment."
+     "else": "Le douanier ouvre le cadenas en grommelant, et la chaîne tombe sur la pierre. Mélisende descend dans sa barque, passe la main sur le bordage comme on flatte un cheval, et se tait un long moment."
     },
     {
      "if": {
@@ -42115,7 +42115,7 @@
     "L'argent est noir et intact. Le sel l'a gardé trois cents ans comme on garde un jambon.",
     {
      "with": "lison",
-     "text": "Lison prend le gobelet, regarde les hérons, et te le rend sans un mot. Puis elle dit : « Chez nous, on dit que la reine buvait dans l'argent pour savoir si on l'empoisonnait. L'argent noircit. » Elle regarde le gobelet noir. « Celui-là a dû voir des choses. »"
+     "text": "Lison prend le gobelet, regarde les hérons, et te le rend. Puis elle dit : « Chez nous, on dit que la reine buvait dans l'argent pour savoir si on l'empoisonnait. L'argent noircit. » Elle regarde le gobelet noir. « Celui-là a dû voir des choses. »"
     }
    ],
    "choices": [
@@ -42309,7 +42309,7 @@
     },
     {
      "without": "lison",
-     "text": "Un gamin des canaux te fourre dans la main un bout de corde nouée de trois nœuds serrés et file sans un mot. Tu connais ces nœuds : Lison les fait aux amarres de sa barque. Le pont de la Reine. À la nuit."
+     "text": "Un gamin des canaux te fourre dans la main un bout de corde nouée de trois nœuds serrés et file. Tu connais ces nœuds : Lison les fait aux amarres de sa barque. Le pont de la Reine. À la nuit."
     },
     {
      "with": "gildas",
@@ -42914,7 +42914,7 @@
     ]
    },
    "text": [
-    "Une grosse femme en tablier bleu, la cressonnière du pont, la femme du rempailleur, te prend par le bras sans rien dire et te pousse sous son tréteau, entre deux paniers vides. Elle jette par-dessus toi trois bottes de cresson mouillé et une toile à sac. Tu ne vois plus que du vert et des bottes de soldats qui passent, à un pied de ton nez.",
+    "Une grosse femme en tablier bleu, la cressonnière du pont, la femme du rempailleur, te prend par le bras et te pousse sous son tréteau, entre deux paniers vides. Elle jette par-dessus toi trois bottes de cresson mouillé et une toile à sac. Tu ne vois plus que du vert et des bottes de soldats qui passent, à un pied de ton nez.",
     {
      "if": {
       "is": {
@@ -43225,7 +43225,7 @@
      "outcome": "win",
      "text": "Tu lui parles de Rosalie, de la façon dont il a dit son nom, la première fois, au Battant, en regardant ailleurs. Tibère t'écoute la main sur le loquet. Puis il ôte la main. « Elle ne me parle plus depuis deux ans, dit-il. Si je fais ça, elle aura raison pour toujours. »"
     },
-    "Il sort quand même, mais il revient avant que la cloche ait sonné la demie, essoufflé, la bouche amère. Il s'assied sur une barque retournée et il te raconte. Il est allé trouver Brunel, à la Saumure, où l'homme aux gants gris attendait les nouvelles. Il lui a vendu une route : le pont des Tanneurs, à la nuit, par les jardins des teinturiers. Brunel l'a écouté sans rien dire, en le regardant fixement. Puis il a payé. Dix ducats d'avance.",
+    "Il sort quand même, mais il revient avant que la cloche ait sonné la demie, essoufflé, la bouche amère. Il s'assied sur une barque retournée et il te raconte. Il est allé trouver Brunel, à la Saumure, où l'homme aux gants gris attendait les nouvelles. Il lui a vendu une route : le pont des Tanneurs, à la nuit, par les jardins des teinturiers. Brunel l'a écouté en le regardant fixement. Puis il a payé. Dix ducats d'avance.",
     "Tibère pose les dix ducats sur la barque, entre vous deux. « Il m'a cru, dit-il. Je crois. Avec lui, on ne sait jamais ce qu'il entend. » Il regarde les pièces. « Garde-les. Moi, je les boirais. »"
    ],
    "choices": [
@@ -43853,7 +43853,7 @@
    "title": "Ce que pense un menteur",
    "text": [
     "Tu dis : « Jamais. » Et tu penses, aussi fort et aussi nettement que tu le peux, à la plaque du foyer dans l'atelier d'Odeline, à la niche derrière, au feuillet roulé dedans. Tu y penses comme on regarde une chose qu'on ne veut pas regarder. Tu penses : il ne faut pas qu'il pense au foyer.",
-    "Lothaire ne bouge pas. Puis il tourne la tête, très peu, vers l'un de ses hommes. « Le quai des Lanternes, dit-il. La boutique. L'étage, le foyer. Cours. » L'homme part en courant, sa lanterne dansant le long du canal. Lothaire te regarde, et pour la première fois depuis que tu le connais, il a l'air de douter de ce qu'il entend.",
+    "Lothaire reste immobile. Puis il tourne la tête, très peu, vers l'un de ses hommes. « Le quai des Lanternes, dit-il. La boutique. L'étage, le foyer. Cours. » L'homme part en courant, sa lanterne dansant le long du canal. Lothaire te regarde, et pour la première fois depuis que tu le connais, il a l'air de douter de ce qu'il entend.",
     "C'est le moment où la barque de Lison heurte les marches. L'homme qui reste perd l'équilibre et tombe à l'eau avec sa lanterne. Lothaire recule d'un pas pour ne pas mouiller ses bottes. Le temps qu'il revienne, tu es sous l'arche.",
     "Sa voix te suit sous la voûte, sans colère. « Bien joué. La prochaine fois, je saurai que vous savez mentir en dedans. Ça ne vous rendra pas service. »"
    ],
@@ -43880,7 +43880,7 @@
     },
     {
      "with": "any",
-     "text": "Les autres se sont dispersés quand on t'a pris, comme on disperse des pigeons. Tu ne sais pas où ils sont. Tu sais qu'ils savent où tu es."
+     "text": "Les autres se sont dispersés quand on t'a pris, comme on disperse des pigeons. Tu ignores où ils sont. Tu sais qu'ils savent où tu es."
     },
     "Brunon s'assied sur la marche, de l'autre côté de la grille, et pèle une pomme. « Le capitaine viendra te chercher à minuit, dit-il. Avec un monsieur de la Banque. {{oreille#if_brunon_doute|Je fais mon travail, et le mandat est signé en règle|Je ne crois pas une ligne de ce mandat, et le capitaine non plus, mais le capitaine doit trois mille ducats à la Banque}}. » La spirale de pomme tombe dans l'eau du cachot."
    ],
@@ -44237,7 +44237,7 @@
       "tibere",
       "lison"
      ],
-     "text": "Lison le regarde sans rien dire, la gaffe en travers des genoux. Elle laisse la décision à toi. Elle te le fait savoir en tournant la tête vers l'eau."
+     "text": "Lison le regarde en silence, la gaffe en travers des genoux. Elle laisse la décision à toi. Elle te le fait savoir en tournant la tête vers l'eau."
     }
    ],
    "choices": [
@@ -44435,7 +44435,7 @@
     },
     {
      "with": "lison",
-     "text": "Lison regarde le moine, longtemps, du fond de la barque. Elle ne dit rien. Elle a une façon de ne rien dire qui pèse plus lourd que la gaffe."
+     "text": "Lison regarde le moine, longtemps, du fond de la barque. Elle se tait. Elle a une façon de se taire qui pèse plus lourd que la gaffe."
     }
    ],
    "choices": [
@@ -44485,7 +44485,7 @@
      "if": {
       "has": "ib:loupe_confiee"
      },
-     "text": "Lison tend la main vers ta poche, sans un mot, comme sur les marches du canal. Tu lui passes la loupe. Elle la lève vers la clé de l'arche, longtemps, puis elle te la rend."
+     "text": "Lison tend la main vers ta poche, comme sur les marches du canal. Tu lui passes la loupe. Elle la lève vers la clé de l'arche, longtemps, puis elle te la rend."
     },
     {
      "with": "lison",
@@ -44913,7 +44913,7 @@
      "if": {
       "has": "i4:gildas_reste"
      },
-     "text": "Tu penses à Frère Gildas, resté sur la marche sous le pont de la Reine, son bâton à la main, qui dira la messe d'Odeline au bout du mois. Tu ne sais pas pourquoi cette pensée te soulage et te serre en même temps."
+     "text": "Tu penses à Frère Gildas, resté sur la marche sous le pont de la Reine, son bâton à la main, qui dira la messe d'Odeline au bout du mois. Tu ignores pourquoi cette pensée te soulage et te serre en même temps."
     },
     {
      "with": "tibere",
@@ -44995,7 +44995,7 @@
    "title": "Dans la barque",
    "with": "lison",
    "text": [
-    "Lison ne répond pas tout de suite. Elle prend un chenal plus étroit, où les roseaux se referment au-dessus de vos têtes en tunnel, et la lumière devient verte. Elle rame de la gaffe, un coup à gauche, un coup à droite, sans heurter une seule tige.",
+    "Lison prend son temps pour répondre. Elle prend un chenal plus étroit, où les roseaux se referment au-dessus de vos têtes en tunnel, et la lumière devient verte. Elle rame de la gaffe, un coup à gauche, un coup à droite, sans heurter une seule tige.",
     "« Ma grand-mère est aveugle, dit-elle enfin. Elle fait de la dentelle. Elle a quatre-vingt-quatre ans et elle entend mieux que toi avec ton os de baleine. Ce que tu diras devant elle, elle l'entendra deux fois. Ce que tu penseras aussi. » Elle souffle sur ses doigts. « Elle {{oreille#iij_lison_ordre|voudra juste te voir, c'est une vieille curieuse|voudra savoir si j'ai repris le cornet, et je n'ai pas de réponse à lui donner}}. »",
     "Elle te regarde enfin, en biais. « Les Joncs n'aiment pas les étrangers. {{oreille|Toi, tu en es un, alors tiens-toi droit et ne touche à rien|Toi, tu n'en es pas un, et c'est bien ce qui m'agace}}. »",
     {
@@ -45506,7 +45506,7 @@
     },
     {
      "with": "gildas",
-     "text": "Frère Gildas monte derrière toi. Mère Ancolie s'arrête de travailler pour la première fois. « Il y a un homme du Mont sur mon escalier, dit-elle. Qu'il attende en bas, avec la pluie. » Gildas redescend sans un mot."
+     "text": "Frère Gildas monte derrière toi. Mère Ancolie s'arrête de travailler pour la première fois. « Il y a un homme du Mont sur mon escalier, dit-elle. Qu'il attende en bas, avec la pluie. » Gildas redescend en silence."
     },
     {
      "with": "tibere",
@@ -46286,7 +46286,7 @@
    "text": [
     {
      "after": "voile:iij_gardien",
-     "text": "Mère Ancolie ne répond pas tout de suite. Ses fuseaux s'arrêtent, puis reprennent plus vite. « Tu as entendu ce que je n'ai pas dit, dit-elle. Bien. Tu n'entendras pas le reste. Le nom du Gardien appartient au serment, et tu n'as pas juré. » Sous ses mots, cette fois, le cornet ne trouve rien à faire trembler : elle dit exactement ce qu'elle pense."
+     "text": "Mère Ancolie prend son temps pour répondre. Ses fuseaux s'arrêtent, puis reprennent plus vite. « Tu as entendu ce que je n'ai pas dit, dit-elle. Bien. Tu n'entendras pas le reste. Le nom du Gardien appartient au serment, et tu n'as pas juré. » Sous ses mots, cette fois, le cornet ne trouve rien à faire trembler : elle dit exactement ce qu'elle pense."
     },
     "« Pourquoi toi ? » Elle a un petit rire. « Parce que la Banque cherche ce que nous gardons, et qu'elle a un chercheur qui entend comme toi. Parce que le premier feuillet est sorti de sa cache, et que les autres suivront. Parce que mes mains sont vieilles, et que Lison {{oreille#iij_ancolie_lison2|est trop jeune pour ça|a déjà fait son choix, que c'est toi, et qu'elle ne le sait pas encore}}. »",
     "« Va à la Saline. Va aux Écueils. Rapporte ce que tu trouves, et ne le montre à personne qui parle trop. La dentelle t'aidera, quand tu l'auras méritée. »"
@@ -46649,7 +46649,7 @@
     ]
    },
    "text": [
-    "Tibère s'assied sur le tabouret près de la porte, son chapeau sur les genoux. Mère Ancolie tourne vers lui ses yeux blancs, et ne dit rien pendant assez longtemps pour qu'il se mette à tourner son chapeau.",
+    "Tibère s'assied sur le tabouret près de la porte, son chapeau sur les genoux. Mère Ancolie tourne vers lui ses yeux blancs, et se tait assez longtemps pour qu'il se mette à tourner son chapeau.",
     {
      "if": {
       "not": {
@@ -46714,7 +46714,7 @@
    },
    "text": [
     "Frère Gildas monte l'escalier en tenant la rampe. Il s'arrête sur le seuil, rabat son capuchon, et salue la vieille femme : deux doigts au front, deux doigts aux lèvres.",
-    "Mère Ancolie ne lui rend pas son salut. Elle ne s'arrête pas de travailler. « Vous avez fait une longue route, frère, dit-elle. {{oreille#iij_anc_gildas|Le Mont est loin d'ici, et vos jambes ne sont plus jeunes|Je sais ce que le Mont t'a confié, et je sais ce que ça pèse}}. »",
+    "Mère Ancolie ne lui rend pas son salut. Elle continue de travailler. « Vous avez fait une longue route, frère, dit-elle. {{oreille#iij_anc_gildas|Le Mont est loin d'ici, et vos jambes ne sont plus jeunes|Je sais ce que le Mont t'a confié, et je sais ce que ça pèse}}. »",
     "« La route est longue pour tout le monde, Mère, dit Gildas. Je prie pour ceux qui la font. »",
     "« Priez pour ceux qui la finissent », dit-elle. Ses fuseaux claquent. Gildas reste debout sur le seuil, les mains dans les manches, jusqu'à ce qu'elle lui dise de s'asseoir, et elle ne le dit pas.",
     {
@@ -46722,7 +46722,7 @@
      "if": {
       "has": "ib:gildas_joncs"
      },
-     "text": "Lison, assise sur le coffre, regarde Frère Gildas, puis sa grand-mère. « C'est lui, dit-elle. À la Saint-Aymeric, il était assis à ta droite. » Mère Ancolie ne répond pas. Gildas baisse les yeux sur ses mains."
+     "text": "Lison, assise sur le coffre, regarde Frère Gildas, puis sa grand-mère. « C'est lui, dit-elle. À la Saint-Aymeric, il était assis à ta droite. » Mère Ancolie se tait. Gildas baisse les yeux sur ses mains."
     }
    ],
    "choices": [
@@ -46778,7 +46778,7 @@
     "La pièce, au diapason, {{echo#iij_chambre|sent la cire, la laine et l'huile de la lampe|rend une voix d'enfant qui compte des fuseaux, et la voix d'Ancolie, plus jeune, qui dit : « Iris, recommence, tu as sauté le septième. »}}.",
     {
      "with": "salome",
-     "text": "Salomé, restée près de la porte, regarde la vieille femme. « Vous avez dit que vous entendiez tout, dit-elle. Alors dites-moi. » Mère Ancolie tourne vers elle ses yeux blancs. « Vous retenez votre souffle depuis trois ans, capitaine, comme sous l'eau. » Salomé ne répond pas. « Elle {{oreille#iij_salome_ancolie|n'aimait pas qu'on parle d'elle|n'a pas lâché la corde. Je l'ai vue remonter. C'est la corde qui l'a lâchée}} », dit-elle enfin."
+     "text": "Salomé, restée près de la porte, regarde la vieille femme. « Vous avez dit que vous entendiez tout, dit-elle. Alors dites-moi. » Mère Ancolie tourne vers elle ses yeux blancs. « Vous retenez votre souffle depuis trois ans, capitaine, comme sous l'eau. » Salomé se tait. « Elle {{oreille#iij_salome_ancolie|n'aimait pas qu'on parle d'elle|n'a pas lâché la corde. Je l'ai vue remonter. C'est la corde qui l'a lâchée}} », dit-elle enfin."
     }
    ],
    "choices": [
@@ -46855,7 +46855,7 @@
     "Tu cherches un souvenir d'elle. Il te vient une odeur de fumée et de chanvre, la même que celle de Lison, et rien d'autre : pas de visage, pas de voix.",
     {
      "with": "lison",
-     "text": "Lison arrive par la passerelle et s'arrête à dix pas. Elle ne s'approche pas. Elle reste là, debout, le temps qu'il faut, puis elle s'en va sans rien dire."
+     "text": "Lison arrive par la passerelle et s'arrête à dix pas. Elle ne s'approche pas. Elle reste là, debout, le temps qu'il faut, puis elle s'en va."
     },
     {
      "without": "lison",
@@ -46909,7 +46909,7 @@
    "place": "joncs",
    "backName": "les pieux brûlés de la maison Vasse",
    "text": [
-    "Il ne reste de la maison d'Aymeric Vasse qu'un carré de pieux noircis jusqu'à l'eau, plus gros que tous ceux du village, et quelques poutres effondrées dans la vase. Les Joncs n'y amarrent jamais leurs barques. Les enfants n'y jouent pas. Une bergeronnette sautille sur la poutre du seuil, la seule restée à peu près droite.",
+    "Il ne reste de la maison d'Aymeric Vasse qu'un carré de pieux noircis jusqu'à l'eau, plus gros que tous ceux du village, et quelques poutres effondrées dans la vase. Les Joncs amarrent leurs barques ailleurs. Les enfants jouent plus loin. Une bergeronnette sautille sur la poutre du seuil, la seule restée à peu près droite.",
     "Le vent {{echo#iij_aymeric|siffle dans les pieux brûlés et fait trembler l'eau entre eux|ramène une voix d'homme, posée, la voix de quelqu'un qui dicte : « Le fuseau d'ambre sous le seuil, pour celle qui filera la dernière. Que la Banque brûle la maison, elle ne brûlera pas l'eau. »}}.",
     "La poutre du seuil {{pie#iij_seuil|est noire de suie, comme le reste|porte, sous la suie, une encoche taillée de main d'homme, juste à la hauteur de l'eau basse}}."
    ],
@@ -47435,7 +47435,7 @@
     "« Une perle des marais, dit-il. On en trouve une tous les dix ans, dans une moule d'eau douce, au fond de la grande coulée. Celle-là {{pie#iij_perle|a l'orient laiteux des vraies perles d'eau douce, avec ce reflet rose qu'on ne peut pas imiter|est une bille de verre trempée dans de la colle d'écaille, et le reflet rose vient d'un trait de cochenille passé au pinceau}}. Trois ducats. Pour vous. »",
     {
      "with": "lison",
-     "text": "Lison regarde la perle par-dessus ton épaule et ne dit rien. Elle a la bouche d'une fille qui s'empêche de rire."
+     "text": "Lison regarde la perle par-dessus ton épaule et se tait. Elle a la bouche d'une fille qui s'empêche de rire."
     }
    ],
    "choices": [
@@ -47972,7 +47972,7 @@
     "Tu attends la nuit sans lune, couché{e} dans une barque amarrée sous la passerelle, une couverture sur la tête. Le village s'éteint galerie par galerie. Vers minuit, une échelle grince du côté de la Nasse. Une silhouette descend dans une barque, sans lanterne, et s'éloigne vers la coulée à la pagaie, à petits coups silencieux.",
     {
      "with": "lison",
-     "text": "Lison est à l'arrière de ta barque. Elle détache l'amarre sans un mot et pousse sur sa gaffe. Votre barque glisse derrière l'autre."
+     "text": "Lison est à l'arrière de ta barque. Elle détache l'amarre et pousse sur sa gaffe. Votre barque glisse derrière l'autre."
     }
    ],
    "choices": [
@@ -48330,7 +48330,7 @@
     "« On le gardera au fumoir, dit-il. Il y fera chaud. Et le jour où la Banque viendra le chercher, elle saura que les Joncs ont des oreilles. »",
     {
      "after": "iij:surveille",
-     "text": "Les deux pêcheurs qui te suivaient des yeux depuis ton arrivée viennent te serrer la main, l'un après l'autre, sans un mot."
+     "text": "Les deux pêcheurs qui te suivaient des yeux depuis ton arrivée viennent te serrer la main, l'un après l'autre, en silence."
     }
    ],
    "choices": [
@@ -49219,7 +49219,7 @@
     }
    },
    "text": [
-    "Salomé Brac n'aime pas les marais. Elle le dit au bout d'une heure, puis elle ne dit plus rien. Elle se tient au milieu de la barque, les bras croisés, comme sur un pont de navire qui roule, et elle regarde les roseaux comme une côte où l'on va s'échouer.",
+    "Salomé Brac n'aime pas les marais. Elle le dit au bout d'une heure, puis elle se tait. Elle se tient au milieu de la barque, les bras croisés, comme sur un pont de navire qui roule, et elle regarde les roseaux comme une côte où l'on va s'échouer.",
     "« On ne voit pas loin, ici, finit-elle par dire. En mer, au moins, tu vois venir ce qui va te tuer. » Elle crache par-dessus bord. « {{oreille#iij_salome_marais|Je déteste l'eau qui ne bouge pas|Maïwenn venait des marais. Elle sentait la vase quand elle sortait de l'eau, même en pleine mer, et je me moquais d'elle}}. »",
     {
      "with": "lison",
@@ -50236,7 +50236,7 @@
     "Tu dis que tu cherches des choses perdues, ce qui est vrai. Elle rit, d'un rire bref. « Ici, tout le monde a perdu quelque chose depuis la Saint-Martin. Les maîtres ont signé pour nous avec la Banque. On ne nous a {{oreille#iis_domitille_greve|rien demandé, et on s'en arrange|rien demandé, et je compte bien le leur faire payer avant la Saint-Jean}}. »",
     {
      "with": "tibere",
-     "text": "Tibère se tient un pas en arrière, les pouces dans la ceinture. Domitille le regarde de haut en bas. « Et lui, c'est votre garde ? Il a une tête de Guet. » Tibère sourit sans rien dire."
+     "text": "Tibère se tient un pas en arrière, les pouces dans la ceinture. Domitille le regarde de haut en bas. « Et lui, c'est votre garde ? Il a une tête de Guet. » Tibère sourit en silence."
     },
     {
      "with": "lison",
@@ -51290,7 +51290,7 @@
     ]
    },
    "text": [
-    "Hermine Croze pose ses jetons. Elle va jusqu'au vestibule, tu la suis. Elle regarde le contrat sous le verre, puis elle tend la main sans rien dire, et tu y poses la loupe.",
+    "Hermine Croze pose ses jetons. Elle va jusqu'au vestibule, tu la suis. Elle regarde le contrat sous le verre, puis elle tend la main, et tu y poses la loupe.",
     {
      "with": "gildas",
      "text": "Frère Gildas lui tient la chandelle, d'une main parfaitement immobile."
@@ -51767,7 +51767,7 @@
    "place": "saline",
    "text": [
     "Une main t'attrape par l'épaule. Les deux casaques noires sont sur toi, et la plus jeune lève déjà son gourdin. Puis la porte de l'arche s'ouvre, et Ogier le meunier passe la tête, une lanterne au poing. « Lâchez ça, dit-il. C'est quelqu'un qui me livrait du tabac. Vous voulez que j'aille dire à Mâchefer que vous dormiez ? »",
-    "Les gardes te lâchent en grognant. Ogier te pousse vers la digue sans un mot. Avant de refermer, il dit seulement, à voix basse : « Pas comme ça. Revenez me parler, le jour. »"
+    "Les gardes te lâchent en grognant. Ogier te pousse vers la digue. Avant de refermer, il dit seulement, à voix basse : « Pas comme ça. Revenez me parler, le jour. »"
    ],
    "fx": {
     "flag": "iis:alerte"
@@ -52068,7 +52068,7 @@
    "place": "saline",
    "takes": 3,
    "text": [
-    "La retenue est presque sèche, une plaine de vase luisante où les crabes courent de travers. Le coursier ne roule plus qu'un filet d'eau. La mer s'est retirée si loin dans la Goule que tu ne la vois plus. C'est l'étale de basse mer : un moment immobile, qui ne dure pas.",
+    "La retenue est presque sèche, une plaine de vase luisante où les crabes courent de travers. Le coursier ne roule plus qu'un filet d'eau. La mer s'est retirée si loin dans la Goule qu'elle a disparu de ta vue. C'est l'étale de basse mer : un moment immobile, et bref.",
     "La roue tourne encore sur son élan, de plus en plus lentement, et ses douze pales passent l'une après l'autre au fond du coursier en raclant la pierre. Les pales {{pie#iis_pale|sont toutes pareilles, grises de sel et de vase|sont toutes pareilles, sauf une, dont la croûte de sel cache une couronne gravée dans le chêne}}. Le frein de corde pend à portée de ta main.",
     {
      "with": "gildas",
@@ -52335,7 +52335,7 @@
     },
     {
      "with": "lison",
-     "text": "Lison ne dit rien. Elle pose la main à plat sur la banquette de pierre, comme on la pose sur l'épaule de quelqu'un."
+     "text": "Lison garde le silence. Elle pose la main à plat sur la banquette de pierre, comme on la pose sur l'épaule de quelqu'un."
     },
     "Au-dessus de vous, dans le coursier, un premier filet d'eau tombe de la roue et éclabousse l'escalier."
    ],
@@ -52438,7 +52438,7 @@
    },
    "text": [
     "L'eau te prend aux jambes, te couche, te roule contre la pierre du coursier. Tu tiens le coffret de plomb à deux bras contre ta poitrine, et c'est tout ce que tu tiens. Le courant t'emporte sous l'arche, te jette dans la retenue, et tu bois une gorgée de mer qui a le goût de la vase et du sel.",
-    "Une gaffe t'accroche par la ceinture. Tu ne sais pas qui la tient. On te tire sur la vase, on te retourne, on te tape dans le dos jusqu'à ce que tu craches.",
+    "Une gaffe t'accroche par la ceinture. Tu ignores qui la tient. On te tire sur la vase, on te retourne, on te tape dans le dos jusqu'à ce que tu craches.",
     {
      "with": "lison",
      "text": "C'est Lison, à genoux dans la boue, trempée jusqu'aux épaules. « Tu ne lâches rien, toi, hein, dit-elle. Même pas le coffret. »",
@@ -52736,7 +52736,7 @@
      "if": {
       "has": "iis:meen_revenu"
      },
-     "text": "Méen marche devant toi jusqu'à la cabane qui penche, la casaque noire roulée sous le bras. Devant son grand-père, il ne dit rien. Il s'assied sur le billot, à côté de lui, et pose la casaque par terre, entre eux. Eudes la regarde longtemps. Puis il pose sa main blanche de sel sur la nuque du garçon, une seule fois, et la retire."
+     "text": "Méen marche devant toi jusqu'à la cabane qui penche, la casaque noire roulée sous le bras. Devant son grand-père, il se tait. Il s'assied sur le billot, à côté de lui, et pose la casaque par terre, entre eux. Eudes la regarde longtemps. Puis il pose sa main blanche de sel sur la nuque du garçon, une seule fois, et la retire."
     },
     {
      "if": {
@@ -53226,7 +53226,7 @@
    "text": [
     "Mâchefer se retourne lentement. Il te regarde de haut en bas, la badine encore levée, et quelque chose passe dans ses yeux, très vite, qu'il rattrape. Il baisse la badine. « Vous êtes qui, vous, pour me parler de pendaison ? »",
     "Il ne frappe plus. Il ramasse le panier dans la vase, le pose sur le talus, et s'éloigne vers la Maison du Sel sans se retourner, à grands pas, en fouettant l'air. Derrière lui, quelqu'un rit, un rire bref, aussitôt étouffé. Puis le chant reprend dans le bassin, plus fort, sur le même couplet, et le couplet n'a jamais sonné aussi juste.",
-    "Avoye Quéré se tient le bras. Elle te regarde sans rien dire, et recommence à râteler, plus vite.",
+    "Avoye Quéré se tient le bras. Elle te regarde, et recommence à râteler, plus vite.",
     {
      "with": "tibere",
      "text": "Tibère desserre la main de sa masse, doigt après doigt. « Ces types-là, dit-il, il faut leur parler de leur propre cou. Ils n'en ont qu'un. »"
@@ -54399,7 +54399,7 @@
     ]
    },
    "text": [
-    "Le Gaucher reste longtemps sans rien dire. Puis il regarde sa main droite bandée, comme si elle venait de lui rappeler quelque chose. « Mon frère s'appelait Ivain, dit-il. Il a volé pour Brunel pendant dix ans. Quand le Guet l'a pris, Brunel était à un dîner. »",
+    "Le Gaucher reste longtemps silencieux. Puis il regarde sa main droite bandée, comme si elle venait de lui rappeler quelque chose. « Mon frère s'appelait Ivain, dit-il. Il a volé pour Brunel pendant dix ans. Quand le Guet l'a pris, Brunel était à un dîner. »",
     "Il tire de son pourpoint une lettre pliée en huit et te la tend. « Tenez. C'est ce qu'il m'a écrit. Montrez-la à qui vous voudrez. Je ne l'ai jamais reçue. »",
     "Il fait un signe de tête à ses hommes. Ils rengainent, l'un après l'autre, sans comprendre, et le suivent vers la barrière. Avant l'aube, quatre chevaux passent sur la route des roseaux et prennent vers le nord, à l'opposé de Salvèze.",
     {
@@ -54422,7 +54422,7 @@
     "« Monsieur Brunel n'aimera pas ça, dit-il. Il n'aime pas qu'on lise son courrier. Moi, je m'en moque, maintenant. Je crois que je vais aller voir comment est la mer, du côté d'Aveline. »",
     {
      "with": "gildas",
-     "text": "Frère Gildas s'agenouille près de lui et bande la plaie, sans un mot, avec la ceinture de sa propre bure. Le Gaucher le regarde faire avec stupéfaction."
+     "text": "Frère Gildas s'agenouille près de lui et bande la plaie avec la ceinture de sa propre bure. Le Gaucher le regarde faire avec stupéfaction."
     }
    ],
    "choices": [
@@ -54599,7 +54599,7 @@
     "Tibère plie son papier en quatre quand tu t'assieds en face de lui. Le feu de tourbe fume entre vous. « J'écris {{oreille#iis_tibere_rapport|à ma fille, pour une fois|à Brunel : où tu es, ce que tu cherches, qui t'accompagne ; le gamin de la gabare le portera demain à Salvèze}}, dit-il. Rosalie. Elle ne répond jamais, mais j'écris quand même. »",
     {
      "after": "tibere:espion",
-     "text": "Il te regarde, puis il déplie le papier et le pose devant toi, à plat, sans rien dire. Ce n'est pas une lettre à Rosalie. C'est un rapport, en phrases de sergent, et ton nom est dedans trois fois. « Dis-moi ce que je mets, dit-il. Je mettrai ce que tu dis. »"
+     "text": "Il te regarde, puis il déplie le papier et le pose devant toi, à plat. Ce n'est pas une lettre à Rosalie. C'est un rapport, en phrases de sergent, et ton nom est dedans trois fois. « Dis-moi ce que je mets, dit-il. Je mettrai ce que tu dis. »"
     }
    ],
    "choices": [
@@ -54672,7 +54672,7 @@
    "place": "saline",
    "with": "gildas",
    "text": [
-    "Frère Gildas est agenouillé devant l'autel, sur la pierre nue, une chandelle posée près de lui. Il ne prie pas à voix haute. Ses lèvres ne bougent pas. Ses mains, posées sur la nappe de dentelle, font de petits gestes, très lents, les doigts pliés et dépliés, comme les dessins de mains au bas d'un vieux parchemin.",
+    "Frère Gildas est agenouillé devant l'autel, sur la pierre nue, une chandelle posée près de lui. Il prie en silence, les lèvres immobiles. Ses mains, posées sur la nappe de dentelle, font de petits gestes, très lents, les doigts pliés et dépliés, comme les dessins de mains au bas d'un vieux parchemin.",
     "Le dallage de la chapelle {{echo#iis_echo_gildas|garde le froid de la nuit et l'odeur de la cire|rend la voix de Gildas, tout à l'heure, à peine un souffle : « Pour celle du quai. Pour la marche de l'escalier. Je n'ai pas d'autre prière »}}.",
     "Il t'entend venir et se relève sans hâte. « La Saline est un lieu où l'on prie bien, dit-il. Tout est blanc, et le vent emporte ce qu'on dit. »",
     "Tu lui demandes pour qui il priait. Il te regarde avec ses yeux calmes. « Pour ceux que j'ai connus et qui sont morts, dit-il. C'est une longue liste, à mon âge. » Il souffle la chandelle."
@@ -56036,7 +56036,7 @@
    "text": [
     {
      "with": "salome",
-     "text": "Tu lui dis les mots tels que le diapason te les a rendus, sans rien y mettre. Salomé ne bouge pas. Elle regarde la lanterne éteinte devant l'autel, et la cordelette nouée en huit, et tu comprends que c'est elle qui les a posées là."
+     "text": "Tu lui dis les mots tels que le diapason te les a rendus, sans rien y mettre. Salomé reste immobile. Elle regarde la lanterne éteinte devant l'autel, et la cordelette nouée en huit, et tu comprends que c'est elle qui les a posées là."
     },
     {
      "with": "salome",
@@ -56529,11 +56529,11 @@
    "text": [
     "Salomé lâche le racloir dans la vase et s'essuie les mains sur ses cuisses. Elle grimpe à bord par l'échelle de corde et revient avec deux gobelets et une bouteille de rhum. Vous vous asseyez sur le plat-bord, les pieds au-dessus de la vase.",
     "« Ma femme plongeait aux Écueils pour la Banque, dit-elle. Maïwenn. On était les deux meilleures du port. La Banque payait un ducat la descente, pour chercher les épaves du temps de la reine. Un matin, sur les Sourds, elle est descendue, et la corde {{oreille#iim_salome_corde|s'est prise dans la roche|est remontée coupée, et l'homme qui la tenait m'a dit qu'elle avait glissé}}. On ne l'a jamais retrouvée. »",
-    "Elle se lève, descend dans la cale, et remonte avec un bout de chanvre goudronné long comme l'avant-bras, qu'elle garde enveloppé dans un linge. Elle te le tend sans un mot. Le bout {{pie#iim_corde_bout|est effiloché, mangé par la roche des Sourds|est tranché net, en biais, d'un seul coup de lame bien affûtée}}.",
+    "Elle se lève, descend dans la cale, et remonte avec un bout de chanvre goudronné long comme l'avant-bras, qu'elle garde enveloppé dans un linge. Elle te le tend. Le bout {{pie#iim_corde_bout|est effiloché, mangé par la roche des Sourds|est tranché net, en biais, d'un seul coup de lame bien affûtée}}.",
     "« Depuis, je ne plonge plus. J'ai essayé une fois. Au premier pied d'eau, {{oreille#iim_salome_noir|j'ai eu froid, voilà tout|j'ai vu ses cheveux dans le noir, et j'ai remonté si vite que j'ai saigné des oreilles}}. »",
     {
      "with": "tibere",
-     "text": "Tibère se racle la gorge. « Celui qui tenait la corde, dit-il, c'était qui ? » Salomé le regarde longtemps. « Un homme de la Banque. Avec des gants. » Elle n'en dit pas plus, et Tibère ne redemande pas."
+     "text": "Tibère se racle la gorge. « Celui qui tenait la corde, dit-il, c'était qui ? » Salomé le regarde longtemps. « Un homme de la Banque. Avec des gants. » Elle s'en tient là, et Tibère aussi."
     }
    ],
    "fx": {
@@ -56900,7 +56900,7 @@
    "place": "vasier",
    "backName": "La Bavarde, sur la vase",
    "text": [
-    "Tu lui dis Le Fidèle, la nouvelle lune, les douze hommes armés, et le nom de celui qui les paie. Lothaire Brunel. Salomé ne dit rien. Elle range son couteau dans sa gaine, très lentement, et tu vois ses mains trembler pendant qu'elle le fait.",
+    "Tu lui dis Le Fidèle, la nouvelle lune, les douze hommes armés, et le nom de celui qui les paie. Lothaire Brunel. Salomé se tait. Elle range son couteau dans sa gaine, très lentement, et tu vois ses mains trembler pendant qu'elle le fait.",
     "« Brunel, dit-elle. Je ne savais pas son nom. À la Banque, on l'appelait Monsieur. » Elle regarde vers le large, vers la ligne grise où commence la mer. « Il va retourner aux Sourds. {{oreille#iim_salome_retour|C'est son affaire|Il va passer au-dessus d'elle, avec ses gants, et je serai à quai en train de gratter des moules}}. »",
     "Elle se tourne vers toi. Sa voix est plate, sans rien dedans. « Je pars. Avec vous ou sans vous. Si c'est avec vous, vous payez le vivre, et vous m'aidez à faire sauter cette chaîne. »",
     {
@@ -57424,7 +57424,7 @@
     },
     {
      "after": "iim:voie_verite",
-     "text": "Salomé reste un moment sans rien dire, la main à plat sur le bordage de La Bavarde. « Elle aurait voulu, dit-elle. Elle aurait déjà largué les amarres, et elle m'aurait traitée de vieille poule. » Elle a un petit rire qui lui fait mal."
+     "text": "Salomé reste un moment silencieuse, la main à plat sur le bordage de La Bavarde. « Elle aurait voulu, dit-elle. Elle aurait déjà largué les amarres, et elle m'aurait traitée de vieille poule. » Elle a un petit rire qui lui fait mal."
     },
     {
      "after": "iim:voie_lothaire",
@@ -58189,7 +58189,7 @@
    "place": "vasier",
    "backName": "la grande chambre de la carcasse",
    "text": [
-    "La Veuve ne dit rien pendant longtemps. Le chat saute de ses genoux. Elle se lève, et elle est plus petite debout qu'assise. Elle va à la porte, l'ouvre, et dit d'une voix ordinaire : « Riwal. Viens. »",
+    "La Veuve se tait longtemps. Le chat saute de ses genoux. Elle se lève, et elle est plus petite debout qu'assise. Elle va à la porte, l'ouvre, et dit d'une voix ordinaire : « Riwal. Viens. »",
     "Riwal entre en souriant. Le sourire tombe quand il voit ton visage. « Maître Ségur, dit Armance. La jetée. Une bourse. » Riwal ouvre la bouche. « Je {{oreille#iim_riwal_aveu|ne sais pas de quoi elle parle|savais que ça finirait comme ça, et j'ai cent ducats cousus dans ma vareuse}}, Veuve. »",
     "Armance appelle deux hommes. Riwal ne se débat pas. On l'emmène, et la porte se ferme. La Veuve revient s'asseoir, ramasse le chat, et ses mains tremblent un peu. « Dix-huit ans qu'il est mon second, dit-elle. Il a appris à compter sur mes genoux. » Elle se tait. Puis : « Ses dettes sont à moi, à présent. Tout ce qu'on lui devait, on me le doit. Et moi, je vous dois. »"
    ],
@@ -58512,7 +58512,7 @@
    "place": "vasier",
    "backName": "la salle du Hareng Saur",
    "text": [
-    "Clervie écoute sans lâcher son torchon. Puis elle le pose sur le comptoir, contourne le comptoir, et te serre dans ses bras, fort, une fois, avec une odeur de hareng et de savon noir. Elle retourne derrière le comptoir sans un mot et se mouche.",
+    "Clervie écoute sans lâcher son torchon. Puis elle le pose sur le comptoir, contourne le comptoir, et te serre dans ses bras, fort, une fois, avec une odeur de hareng et de savon noir. Elle retourne derrière le comptoir et se mouche.",
     "Jaouen est resté planté devant la cuisine. Il rougit jusqu'aux oreilles. « Le navire d'argent, dit-il. De la chapelle. C'est moi. Je l'ai donné à Riwal. » Clervie se retourne d'un bloc. Jaouen ne baisse pas les yeux. « Je le dirai à Tugdual. Demain. »",
     "Clervie te fait asseoir, te sert à manger, et pose devant toi un pot d'onguent de sa mère. « Pour les coups, dit-elle. Vous en prendrez, là où vous allez. »"
    ],
@@ -58783,7 +58783,7 @@
    "place": "vasier",
    "backName": "le pont de la carcasse",
    "text": [
-    "Le cercle se tait. Gwendal te regarde, et il a perdu son sourire. Il porte la main à son oreille, un geste qu'il arrête à mi-chemin. Il ne dit rien pendant un long moment. Armance le regarde, puis toi.",
+    "Le cercle se tait. Gwendal te regarde, et il a perdu son sourire. Il porte la main à son oreille, un geste qu'il arrête à mi-chemin. Il se tait un long moment. Armance le regarde, puis toi.",
     "« Je n'irai pas à vingt brasses, dit enfin Gwendal, d'une voix basse. Vingt brasses, c'est la mort. » Il hausse les épaules. « Vous avez gagné. » Il te tend la main. Plus bas, en la serrant : « Merci de ne pas avoir dit le reste. »",
     "Armance hoche la tête. « Gagner sans mouiller sa chemise. Riwal aurait aimé. » Elle fait signe de la suivre."
    ],
@@ -58906,7 +58906,7 @@
     "Les gobelets se soulèvent. Il y a, sur le tonneau, trois six en tout. Un chez Riwal, deux chez toi. Un silence, puis les Écumeurs éclatent : on rit, on se tape sur les cuisses, on paie les paris. Riwal sourit encore, mais il ne sourit qu'avec la bouche.",
     {
      "after": "iim:bluff_jaouen",
-     "text": "Il sort la reconnaissance de dette de Jaouen et la pose sur le tonneau, sous un dé, sans un mot. Tu la prends."
+     "text": "Il sort la reconnaissance de dette de Jaouen et la pose sur le tonneau, sous un dé. Tu la prends."
     },
     "Armance, qui a tout regardé du gaillard, descend lentement. « D'habitude, on croit Riwal sur parole, dit-elle. Ça lui fera du bien. » Elle te fait signe de la suivre."
    ],
@@ -59070,7 +59070,7 @@
     "La Bavarde quitte la vase sur la marée du matin, à la gaffe d'abord, puis à la voile, quand le vent prend la toile au tiers et la gonfle d'un coup. Port-Vasier rapetisse derrière : la jetée, la carcasse, le pavillon rouge, la chapelle blanche sur sa butte. Puis le delta lui-même s'aplatit, ne fait plus qu'une ligne brune entre le ciel gris et la mer verte, et disparaît.",
     {
      "with": "salome",
-     "text": "Salomé tient la barre, debout, les jambes écartées, sans un mot. Elle regarde la voile, la mer, la voile. Au bout d'une heure, elle dit : « Elle n'a rien oublié. » Elle parle du bateau. Plus tard encore, sans tourner la tête : « Moi, {{oreille#iim_salome_large|j'ai tout oublié, c'est mieux|je me rappelle chaque vague de ce chemin, et chaque fois c'est Maïwenn qui tient l'écoute}}. »"
+     "text": "Salomé tient la barre, debout, les jambes écartées, muette. Elle regarde la voile, la mer, la voile. Au bout d'une heure, elle dit : « Elle n'a rien oublié. » Elle parle du bateau. Plus tard encore, sans tourner la tête : « Moi, {{oreille#iim_salome_large|j'ai tout oublié, c'est mieux|je me rappelle chaque vague de ce chemin, et chaque fois c'est Maïwenn qui tient l'écoute}}. »"
     },
     {
      "with": "tibere",
@@ -59289,7 +59289,7 @@
     "Un choc sourd monte de la quille et te jette à genoux sur le pont. La Bavarde gémit de tout son bois, racle, s'arrache. De l'eau entre par une couture, à l'avant ; on l'étoupe avec une chemise et on écope à la casserole pendant deux heures, en silence. Un sac de biscuit a pris l'eau.",
     {
      "with": "salome",
-     "text": "Salomé a tenu la barre. Elle a viré trop tard, et elle le sait. Elle ne dit rien jusqu'à la sortie de la passe ; puis, d'une voix plate : « J'ai regardé au sud. »"
+     "text": "Salomé a tenu la barre. Elle a viré trop tard, et elle le sait. Elle se tait jusqu'à la sortie de la passe ; puis, d'une voix plate : « J'ai regardé au sud. »"
     },
     "Mais vous êtes passés. Derrière la ceinture, l'eau est verte et calme, et l'Ouïe est là, grise, énorme, avec ses mouettes."
    ],
@@ -60028,7 +60028,7 @@
     },
     {
      "with": "salome",
-     "text": "Salomé a posé la main sur la pierre, elle aussi, sans rien dire. Quand elle la retire, ses yeux sont mouillés."
+     "text": "Salomé a posé la main sur la pierre, elle aussi, en silence. Quand elle la retire, ses yeux sont mouillés."
     }
    ],
    "choices": [
@@ -61776,7 +61776,7 @@
    "title": "La corniche",
    "place": "ecueils",
    "text": [
-    "La falaise se monte par une cheminée de roche pourrie, puis par une vire où les oiseaux ne s'écartent qu'au dernier moment, en frappant du bec. Au-dessus de Briac, le surplomb ; en dessous, la roche lisse. Le garçon te regarde venir sans un mot, très pâle, les mains en sang.",
+    "La falaise se monte par une cheminée de roche pourrie, puis par une vire où les oiseaux ne s'écartent qu'au dernier moment, en frappant du bec. Au-dessus de Briac, le surplomb ; en dessous, la roche lisse. Le garçon te regarde venir, très pâle, les mains en sang.",
     "« Je bouge pas, dit-il. Maman a dit de pas bouger. »"
    ],
    "choices": [
@@ -61913,7 +61913,7 @@
     "Tu remontes, tu cherches le garçon, tu le trouves au toucher. Il crache, il pleure, il vit. Klervi est déjà dans l'eau jusqu'à la taille, avec son épaule démise, et c'est elle qui vous tire sur les galets, l'un après l'autre, en jurant à chaque fois.",
     {
      "with": "salome",
-     "text": "Salomé arrive au canot, à grands coups d'avirons, et vous hisse à bord sans un mot. Elle a gardé les mains sur toi un moment de trop, pour s'assurer que tu respirais."
+     "text": "Salomé arrive au canot, à grands coups d'avirons, et vous hisse à bord. Elle a gardé les mains sur toi un moment de trop, pour s'assurer que tu respirais."
     }
    ],
    "choices": [
@@ -63173,7 +63173,7 @@
     "Entre l'Ouïe et les Sourds, la mer se resserre entre deux plateaux de roche et file comme une rivière en crue. Les gens de Port-Vasier l'appellent le Raz. L'eau y est lisse, bombée, et elle tourne en grands cercles huileux qui avalent les paquets d'algues.",
     {
      "with": "salome",
-     "text": "Salomé a pris la barre. Elle est grise. Elle a vomi deux fois par-dessus bord depuis le bassin, sans un mot, en s'essuyant la bouche d'un revers de manche. « Si on prend le Raz de travers, on est sur les Sourds avant d'avoir dit ouf, dit-elle. Tiens l'écoute. {{oreille#iie_raz_s|Fais ce que je dis quand je le dis|Parle-moi tout le temps, n'importe quoi, sinon j'entends la note des Sourds et je lâche la barre}}. »"
+     "text": "Salomé a pris la barre. Elle est grise. Elle a vomi deux fois par-dessus bord depuis le bassin, en s'essuyant la bouche d'un revers de manche. « Si on prend le Raz de travers, on est sur les Sourds avant d'avoir dit ouf, dit-elle. Tiens l'écoute. {{oreille#iie_raz_s|Fais ce que je dis quand je le dis|Parle-moi tout le temps, n'importe quoi, sinon j'entends la note des Sourds et je lâche la barre}}. »"
     },
     {
      "without": "salome",
@@ -63328,7 +63328,7 @@
        "voile": "iie_coupe"
       }
      },
-     "text": "Salomé t'a regardé{e} faire sans un mot. Elle n'a rien entendu de ce que tu as entendu, seulement le bronze, et elle attend que tu parles."
+     "text": "Salomé t'a regardé{e} faire en silence. Elle n'a rien entendu de ce que tu as entendu, seulement le bronze, et elle attend que tu parles."
     }
    ],
    "choices": [
@@ -64251,7 +64251,7 @@
      "if": {
       "item": "iie_couteau"
      },
-     "text": "Tu lui donnes le couteau au manche de corne. Elle le prend, cette fois, et le passe à sa ceinture sans un mot."
+     "text": "Tu lui donnes le couteau au manche de corne. Elle le prend, cette fois, et le passe à sa ceinture."
     },
     "« Je veux l'enterrer là-haut, dit-elle en regardant le phare. Avec les gardiens. Elle aimait ce phare. Elle disait qu'il écoutait. »"
    ],
@@ -64294,7 +64294,7 @@
     },
     {
      "with": "lison",
-     "text": "Lison pose un brin de jonc tressé sur la terre retournée, à la façon des Joncs-Bas, et recule sans rien dire."
+     "text": "Lison pose un brin de jonc tressé sur la terre retournée, à la façon des Joncs-Bas, et recule."
     },
     {
      "with": "tibere",
@@ -64533,7 +64533,7 @@
      "if": {
       "has": "iie:ravaud=vaincu"
      },
-     "text": "Ravaud te la tend sans un mot, et regarde ailleurs."
+     "text": "Ravaud te la tend, et regarde ailleurs."
     }
    ],
    "choices": [
@@ -64834,7 +64834,7 @@
     {
      "with": "tibere",
      "after": "iie:feu_faux",
-     "text": "Lothaire jette un regard vers le nord, vers l'île aux Fous, où un feu a brûlé toute la nuit. « Un feu bien mal placé, sergent Gaucelm. » Tibère soutient son regard sans répondre."
+     "text": "Lothaire jette un regard vers le nord, vers l'île aux Fous, où un feu a brûlé toute la nuit. « Un feu bien mal placé, sergent Gaucelm. » Tibère soutient son regard et se tait."
     },
     {
      "after": "iie:cotre",
@@ -65019,7 +65019,7 @@
     "Un vieux pêcheur, la barbe trempée, crie dans le vent : « Les douaniers {{oreille#iit_douane_barques|sont rentrés à leur tour de bonne heure|nous ont loué nos barques plates hier, et payé d'avance, en argent de la Banque}} ! Ils auront plus chaud que nous ! »",
     {
      "with": "tibere",
-     "text": "Tibère tire avec toi sans un mot. Une fois, sa main glisse, et il reste un moment immobile, l'aussière sciant ses paumes, à regarder vers le sud."
+     "text": "Tibère tire avec toi en silence. Une fois, sa main glisse, et il reste un moment immobile, l'aussière sciant ses paumes, à regarder vers le sud."
     },
     {
      "with": "salome",
@@ -65245,7 +65245,7 @@
    "title": "La barque de Tibère",
    "place": "joncs",
    "text": [
-    "Tibère obéit sans un mot. Il descend l'échelle, détache la plus petite barque du ponton et pose sa masse de sergent au fond. La pluie lui colle les cheveux au crâne. Il te regarde une dernière fois, d'en bas, la gaffe à la main.",
+    "Tibère obéit. Il descend l'échelle, détache la plus petite barque du ponton et pose sa masse de sergent au fond. La pluie lui colle les cheveux au crâne. Il te regarde une dernière fois, d'en bas, la gaffe à la main.",
     "« Si tu vois Rosalie, dit-il, ne lui dis rien de moi. Ni le bon ni le mauvais. Elle a assez à porter. »",
     "Il pousse sur la gaffe. La barque glisse dans les roseaux et la nuit la prend tout de suite. Au sud, la lumière s'allume deux fois, et attend une réponse. L'eau reste noire."
    ],
@@ -66887,7 +66887,7 @@
      "if": {
       "has": "iit:passeur"
      },
-     "text": "Maclou le passeur est sorti des roseaux à ta hauteur, sa perche à la main, sans un mot. Il te montre le raccourci des fugitifs : une ligne de pieux sous la vase, qu'on sent avec le talon."
+     "text": "Maclou le passeur est sorti des roseaux à ta hauteur, sa perche à la main. Il te montre le raccourci des fugitifs : une ligne de pieux sous la vase, qu'on sent avec le talon."
     },
     "Tu arrives à l'embouchure du chenal des Anguilles juste comme la barque à proue noire s'y engage. La marée baisse. L'eau se retire du chenal à vue d'œil. La barque racle, ralentit, s'arrête. Quesnel saute dans la vase jusqu'aux cuisses et pousse en jurant. Le rouleau de toile huilée est passé dans sa ceinture.",
     "Il te voit. Il tire son couteau. « {{oreille#iit_quesnel|Approche, et je te saigne comme une anguille|Lothaire me paie au feuillet. S'il le perd, il dira que c'est moi qui l'ai vendu, et on me retrouvera dans un canal}}. »"
@@ -67143,7 +67143,7 @@
     {
      "first": true,
      "after": "iit:douane_partie",
-     "text": "Au sud, la tour des douanes garde ses volets fermés. À l'aube, un douanier sans casque a déposé sur le ponton un sac de farine et une barrique d'eau douce, puis il est reparti sans un mot."
+     "text": "Au sud, la tour des douanes garde ses volets fermés. À l'aube, un douanier sans casque a déposé sur le ponton un sac de farine et une barrique d'eau douce, puis il est reparti."
     },
     {
      "first": true,
@@ -68090,7 +68090,7 @@
     "meet": "iit_ysore"
    },
    "text": [
-    "Au bout du ponton des pêcheurs, une rangée de nasses d'osier sèche au soleil, et chacune est crevée : des trous ronds, larges comme une tête, les brins d'osier cassés vers l'intérieur. Cyprien Huchet, le doyen des pêcheurs, les montre d'un geste du menton, sans rien dire.",
+    "Au bout du ponton des pêcheurs, une rangée de nasses d'osier sèche au soleil, et chacune est crevée : des trous ronds, larges comme une tête, les brins d'osier cassés vers l'intérieur. Cyprien Huchet, le doyen des pêcheurs, les montre d'un geste du menton.",
     "« La Vieille, dit-il enfin. L'anguille des Vasières-Rouges. Elle remonte du large tous les vingt ans, à ce qu'on dit, et elle mange les nasses avec ce qu'il y a dedans. {{oreille#iit_ang_cyprien|Elle nous a pris trois semaines de pêche|Elle a retourné la barque de mon petit-fils, mardi, et il a fallu le repêcher par les cheveux. Sa mère ne le sait pas}}. »",
     "Au fumoir, une vieille femme vide des anguilles en chantonnant, le couteau rapide, sans regarder ses mains. C'est Ysoré, la sœur de Cyprien. Elle chante une berceuse des marais, à mi-voix : « {{oreille#iit_ang_berceuse|Dors, anguille, dors dans la vase, la lune est sur l'eau|Va-t'en, Vieille, va-t'en au large, la mer est à toi, et le marais est à nous}}. »",
     "« Il faudrait quelqu'un, dit Cyprien, qui monte la garde cette nuit aux Vasières-Rouges. Quelqu'un qui n'a pas peur, ou qui a peur moins que nous. On paiera en argent et en anguilles. »"
@@ -68407,7 +68407,7 @@
      "if": {
       "has": "iit:vieille_partie"
      },
-     "text": "Cyprien écoute ton récit sans rien dire, en hochant la tête. Puis il va au fumoir, et tu l'entends parler à sa sœur. Ysoré sort, s'essuie les mains à son tablier, et te regarde longtemps. « Tu as entendu ce qu'il y avait dessous, dit-elle. Ma mère me l'a appris. Toi, qui te l'a appris ? » Elle hausse les épaules, sans attendre la réponse, et retourne à ses anguilles."
+     "text": "Cyprien écoute ton récit en hochant la tête. Puis il va au fumoir, et tu l'entends parler à sa sœur. Ysoré sort, s'essuie les mains à son tablier, et te regarde longtemps. « Tu as entendu ce qu'il y avait dessous, dit-elle. Ma mère me l'a appris. Toi, qui te l'a appris ? » Elle hausse les épaules, sans attendre la réponse, et retourne à ses anguilles."
     },
     {
      "if": {
@@ -68797,7 +68797,7 @@
     "meet": "iit_firmine"
    },
    "text": [
-    "Ils attendent dans une hutte de roseaux, sur une butte, à une demi-heure des Joncs : une femme de trente ans aux mains rongées par le sel jusqu'au sang, et deux enfants, un garçon de huit ans et une fillette de cinq, qui te regardent sans rien dire. Firmine. Elle a un baluchon, et un couteau de saunière à la ceinture.",
+    "Ils attendent dans une hutte de roseaux, sur une butte, à une demi-heure des Joncs : une femme de trente ans aux mains rongées par le sel jusqu'au sang, et deux enfants, un garçon de huit ans et une fillette de cinq, qui te regardent en silence. Firmine. Elle a un baluchon, et un couteau de saunière à la ceinture.",
     "Elle tend à Maclou trois pièces, sorties d'un nœud de son mouchoir. « C'est ce qu'il me reste de mon homme. Il les avait trouvées dans le vieux bassin, sous la vase. » Les pièces sont {{pie#iit_pass_pieces|de cuivre noirci, des liards d'avant|d'or fin, frappées d'une reine qui tient un doigt sur ses lèvres : des ducats à la Muette, qui valent chacun le prix d'une barque}}.",
     "Maclou les prend sans les regarder et les fourre dans sa poche. « Ça ira », dit-il."
    ],
@@ -69017,7 +69017,7 @@
       "has": "iit:firmine_dit"
      },
      "text": "Elle te met une des pièces dans la main et te referme les doigts dessus, très fort, avec sa main râpeuse de saunière. « Une pour toi. Tu aurais pu te taire. » Elle monte à bord sans attendre de réponse.",
-     "else": "Elle te serre la main, très fort, sans un mot. Quand le bateau a pris le large, Maclou sort une des trois pièces de sa poche et te la tend. « Ta part. » Il la regarde à peine. Tu la regardes, toi, longtemps."
+     "else": "Elle te serre la main, très fort. Quand le bateau a pris le large, Maclou sort une des trois pièces de sa poche et te la tend. « Ta part. » Il la regarde à peine. Tu la regardes, toi, longtemps."
     },
     "La voile brune monte. Le garçon, à l'arrière, lève la main, et la garde levée jusqu'à ce que la brume le prenne."
    ],
@@ -69543,7 +69543,7 @@
    "title": "Les cuirasses bleues",
    "place": null,
    "text": [
-    "Baptistin te regarde de travers, puis il rit. « Tu as l'oreille longue. » Il marche un moment sans rien dire. Les chevaux soufflent.",
+    "Baptistin te regarde de travers, puis il rit. « Tu as l'oreille longue. » Il marche un moment en silence. Les chevaux soufflent.",
     "« Ils allaient vers Orle, dit-il enfin. Par la crête, en évitant les villages. L'homme à la planchette s'arrêtait à chaque pont, et il descendait de cheval pour mesurer les piles avec une corde à nœuds. Le pont de Pont-Ravel, il l'a mesuré deux fois. » Il change son harnais d'épaule. « On ne mesure pas un pont deux fois pour passer dessus à pied. On le mesure pour savoir ce qu'il porte. Des chariots. Des engins de siège, des trébuchets sur roues, comme on dit qu'ils en ont, là-haut, qui lancent des pierres grosses comme des moutons. »",
     "Il chante un couplet, pour les chevaux, et reprend plus bas : « À Orle, il y a un marchand de vin d'Aveline arrivé pour la foire. Il paie bien, il goûte peu, et il pose beaucoup de questions sur les routes. Moi, je dis ça. Je tire une corde, je ne suis pas soldat. »"
    ],
@@ -69652,7 +69652,7 @@
     },
     {
      "with": "gildas",
-     "text": "Frère Gildas lit les trois feuillets sans rien dire, puis les roule lui-même, avec soin, comme on roule un manuscrit. « On a écrit ceci dans une pièce chauffée, dit-il. L'encre est belle. » C'est tout ce qu'il dit."
+     "text": "Frère Gildas lit les trois feuillets en silence, puis les roule lui-même, avec soin, comme on roule un manuscrit. « On a écrit ceci dans une pièce chauffée, dit-il. L'encre est belle. » C'est tout ce qu'il dit."
     }
    ],
    "choices": [
@@ -70376,7 +70376,7 @@
     "On te hisse à bord une lieue plus loin, bleu{e} de froid. Gilduin te jette une couverture. « Le vin est à l'arrière, dit-il. Il est à maître Haquin. Bois-en, il paiera. »",
     {
      "with": "any",
-     "text": "Tes compagnons te frictionnent avec une brutalité affectueuse. Personne ne dit rien pendant un moment. Puis quelqu'un rit, et tout le monde rit, de nerfs."
+     "text": "Tes compagnons te frictionnent avec une brutalité affectueuse. Tous se taisent un moment. Puis quelqu'un rit, et tout le monde rit, de nerfs."
     }
    ],
    "fx": {
@@ -70410,7 +70410,7 @@
     },
     {
      "after": "iiic:controle=toinot",
-     "text": "Le jeune soldat sursaute à son nom. Il regarde Gilduin, qui regarde enfin son fils. Le gamin devient rouge jusqu'aux cheveux. « Sergent, dit-il, c'est la gabare de mon père. Je la connais. Il n'y a que du sel. Je réponds de lui. » Le sergent hésite, puis hausse les épaules. La barrière se lève. Gilduin ne dit rien pendant une lieue, puis il se mouche longuement, et il dit que c'est le froid."
+     "text": "Le jeune soldat sursaute à son nom. Il regarde Gilduin, qui regarde enfin son fils. Le gamin devient rouge jusqu'aux cheveux. « Sergent, dit-il, c'est la gabare de mon père. Je la connais. Il n'y a que du sel. Je réponds de lui. » Le sergent hésite, puis hausse les épaules. La barrière se lève. Gilduin se tait pendant une lieue, puis il se mouche longuement, et il dit que c'est le froid."
     },
     {
      "after": "iiic:controle=tibere",
@@ -70481,9 +70481,9 @@
     },
     {
      "without": "any",
-     "text": "Vers minuit, une ombre glisse contre la coque du bachot. Le jeune soldat blond, celui aux oreilles rouges. Il ouvre le cadenas avec la clé du sergent, sans un mot, et repart à la nage vers le pont. Tu ne sauras jamais pourquoi."
+     "text": "Vers minuit, une ombre glisse contre la coque du bachot. Le jeune soldat blond, celui aux oreilles rouges. Il ouvre le cadenas avec la clé du sergent, et repart à la nage vers le pont. Tu ne sauras jamais pourquoi."
     },
-    "Une lieue en amont, *La Patience* t'attend, fanal éteint, amarrée sous un coteau. Gilduin te hisse à bord sans rien dire. Il te donne sa racine de réglisse, la sienne, celle qu'il mâchait."
+    "Une lieue en amont, *La Patience* t'attend, fanal éteint, amarrée sous un coteau. Gilduin te hisse à bord. Il te donne sa racine de réglisse, la sienne, celle qu'il mâchait."
    ],
    "fx": {
     "flag": "iiic:controle=pris",
@@ -70734,7 +70734,7 @@
      "else": "Au-dessous, d'une autre encre, en petits caractères, quelques lignes sur un témoin digne de foi et une querelle. Tu les connais déjà par Tibère."
     },
     "Le nom de ta maîtresse est mal écrit. *Carus*, avec un seul r. Tu restes là un moment, devant cette faute, plus longtemps que devant ton propre nom.",
-    "Un vieux vigneron s'arrête à côté de toi, lit l'avis en remuant les lèvres, et crache par terre. « Cent ducats, dit-il. La République ne paie plus ses soldats, mais elle a cent ducats pour ça. » Il te regarde. Il regarde le portrait. Il s'en va sans rien dire, les mains dans le dos."
+    "Un vieux vigneron s'arrête à côté de toi, lit l'avis en remuant les lèvres, et crache par terre. « Cent ducats, dit-il. La République ne paie plus ses soldats, mais elle a cent ducats pour ça. » Il te regarde. Il regarde le portrait. Il s'en va, les mains dans le dos."
    ],
    "choices": [
     {
@@ -71433,7 +71433,7 @@
      },
      "lose": {
       "fx": {
-       "note": "Honorine te regarde sans un mot et retourne à ses pichets. Tu ressors de la chambre les mains vides."
+       "note": "Honorine te regarde et retourne à ses pichets. Tu ressors de la chambre les mains vides."
       },
       "back": "IIIC_pressoir"
      }
@@ -71771,7 +71771,7 @@
      "if": {
       "has": "iiic:etui_copie"
      },
-     "text": "Il ne sait pas que tu as une copie de ses plans dans ton sac. Tu ne le lui dis pas. Il remet l'étui sous son manteau avec un soin d'amoureux."
+     "text": "Il ignore que tu as une copie de ses plans dans ton sac. Tu gardes cela pour toi. Il remet l'étui sous son manteau avec un soin d'amoureux."
     },
     "Il s'incline. « Nous nous reverrons sous les murs. Je vous souhaite d'être du bon côté, ce jour-là. Il n'y en aura qu'un. »"
    ],
@@ -71791,7 +71791,7 @@
    "place": "orle",
    "text": [
     "Wendel Haquin rengaine à moitié, puis tout à fait. « Un message, dit-il. Pour le duc. » Il a l'air curieux, presque amusé.",
-    "Tu le lui donnes. Tu ne sais pas encore si c'est une menace ou une promesse ; lui non plus. Il le répète deux fois, pour s'en souvenir mot pour mot, comme un bon messager.",
+    "Tu le lui donnes. Tu ignores encore si c'est une menace ou une promesse ; lui non plus. Il le répète deux fois, pour s'en souvenir mot pour mot, comme un bon messager.",
     "Il tire de sa ceinture un petit carré de parchemin scellé de cire bleue, l'aigle d'Aveline à deux têtes. « Un sauf-conduit, dit-il. Si un jour vous tombez sur nos avant-postes, montrez-le. Il vaut une nuit de vie. Davantage, si l'officier sait lire. » Il remonte à cheval à la sortie du bourg, au petit jour, et prend la route de la crête sans se retourner."
    ],
    "choices": [
@@ -73673,7 +73673,7 @@
      },
      "text": "À l'aube, la loge de charbonniers est vide. Les feux sont éteints, recouverts de terre. Le butin est sous la bâche, tout entier, avec les barriques des Bousquet et la cloche de la chapelle. Les traces de bottes montent vers les cols, où il y a de la neige jusqu'aux genoux, et l'armée du duc."
     },
-    "Au bourg, la nouvelle fait le tour de la halle avant midi. Les Bousquet récupèrent leurs barriques, le curé sa cloche. Honorine Fabrègue, au Pressoir, dit qu'elle regrettera les pièces d'argent à l'aigle, qui étaient bonnes. La femme dont le fils portait le pain ne dit rien."
+    "Au bourg, la nouvelle fait le tour de la halle avant midi. Les Bousquet récupèrent leurs barriques, le curé sa cloche. Honorine Fabrègue, au Pressoir, dit qu'elle regrettera les pièces d'argent à l'aigle, qui étaient bonnes. La femme dont le fils portait le pain se tait."
    ],
    "fx": {
     "quest": "IIIC_deserteurs"
@@ -73727,7 +73727,7 @@
    "text": [
     "Le sentier sort des pins et franchit un col nu, balayé par le vent, où la neige a durci en croûte grise. Au-delà, il y a une combe suspendue, et au fond de la combe, adossée à la montagne, l'abbaye : une longue muraille de pierre pâle, percée de fenêtres étroites, un clocher sans cloche visible, un toit de lauzes chargé de neige. Une fumée droite monte d'une cheminée. Pas un bruit.",
     "Au bord du col, une borne de pierre porte une main sculptée, les doigts serrés sur les lèvres. Le chemin, au-delà, est bordé de petits cairns, un tous les dix pas, réguliers comme des chiffres.",
-    "Un frère convers, en tablier de cuir sur sa bure, descend vers toi avec une hotte de bois. Il s'arrête, te regarde, regarde ceux qui t'accompagnent, et lève la main droite, la paume ouverte, puis la ferme lentement en poing. Il continue sa descente sans un mot.",
+    "Un frère convers, en tablier de cuir sur sa bure, descend vers toi avec une hotte de bois. Il s'arrête, te regarde, regarde ceux qui t'accompagnent, et lève la main droite, la paume ouverte, puis la ferme lentement en poing. Il continue sa descente.",
     {
      "with": "gildas",
      "text": "« Il dit : bienvenue, et faites vite, traduit Frère Gildas. Ou bien : bienvenue, et méfiez-vous. Le même signe dit les deux. Ça dépend de la vitesse de la main. » Il regarde le frère s'éloigner. « Il a fermé vite. »"
@@ -73763,7 +73763,7 @@
     },
     {
      "with": "tibere",
-     "text": "Tibère te tend sa gourde sans rien dire. Puis, au bout d'un lacet : « Le matin où je t'ai vu{e} au pied de l'escalier, tu avais encore ton costume de la fête. Je l'ai pas écrit, ça non plus. »"
+     "text": "Tibère te tend sa gourde en silence. Puis, au bout d'un lacet : « Le matin où je t'ai vu{e} au pied de l'escalier, tu avais encore ton costume de la fête. Je l'ai pas écrit, ça non plus. »"
     }
    ],
    "choices": [
@@ -74207,7 +74207,7 @@
       "fx": {
        "pv": -3,
        "time": 2,
-       "note": "À droite, au deuxième cairn, ton pied rencontre le vide sous la neige. Tu te rattrapes à un buis. Le moine te regarde, au bord, sans rien dire, et te tend son bâton."
+       "note": "À droite, au deuxième cairn, ton pied rencontre le vide sous la neige. Tu te rattrapes à un buis. Le moine te regarde, au bord, et te tend son bâton."
       },
       "back": "@route"
      }
@@ -74668,7 +74668,7 @@
     "Saint-Privat est un village de onze maisons accroché au-dessus d'Orle, à une heure de mule, au bout d'un chemin de vignes si raide qu'on y a taillé des marches. Salomé a demandé le chemin trois fois, à trois personnes différentes, comme pour se donner trois chances de renoncer.",
     "La vieille s'appelle Katell. Elle est venue de la côte il y a cinquante ans pour épouser un vigneron, et elle a gardé l'accent des ports, et un nom de là-bas pour sa fille. Elle est presque aveugle. Elle file de la laine sur le pas de sa porte. Quand Salomé dit son nom, elle arrête son fuseau.",
     "« Maïwenn m'écrivait, dit-elle. Une lettre par an, à la Saint-Jean, que le curé me lisait. Il y a trois ans qu'elle n'écrit plus. » Elle tourne vers Salomé ses yeux blancs. « {{oreille#iiic_katell|Je me suis dit qu'elle avait trop à faire, là-bas, avec la mer|Je sais qu'elle est morte, je l'ai su la nuit même, j'ai rêvé d'eau, et j'attends depuis trois ans que quelqu'un ait le courage de monter me le dire}}. »",
-    "Salomé s'agenouille devant elle, dans la poussière, et prend ses deux mains, le fuseau avec. Elle reste comme ça. Elle ne dit rien pendant longtemps."
+    "Salomé s'agenouille devant elle, dans la poussière, et prend ses deux mains, le fuseau avec. Elle reste comme ça. Elle se tait longtemps."
    ],
    "choices": [
     {
@@ -74815,7 +74815,7 @@
    "with": "tibere",
    "text": [
     "Le relais de poste d'Orle est une écurie et une salle basse, où l'on change les chevaux du courrier de Salvèze et où l'on garde les lettres pour ceux qui passent. Tibère y entre seul. Tu le suis, de loin. Il demande s'il y a quelque chose au nom de Gaucelm. Il y a quelque chose.",
-    "La lettre est cachetée d'une cire grise, sans armes. Tibère la lit debout, sans s'asseoir, puis te la tend sans un mot. *{{loupe#iiic_lettre_lothaire|Gaucelm. Vos dernières nouvelles nous ont été utiles. Continuez. Cinq ducats joints|Gaucelm. Vos dernières nouvelles étaient fausses. Je l'ai entendu en les lisant, comme j'entends tout. Si la prochaine l'est aussi, Rosalie apprendra ce que vaut son père. L. B.}}*",
+    "La lettre est cachetée d'une cire grise, sans armes. Tibère la lit debout, sans s'asseoir, puis te la tend. *{{loupe#iiic_lettre_lothaire|Gaucelm. Vos dernières nouvelles nous ont été utiles. Continuez. Cinq ducats joints|Gaucelm. Vos dernières nouvelles étaient fausses. Je l'ai entendu en les lisant, comme j'entends tout. Si la prochaine l'est aussi, Rosalie apprendra ce que vaut son père. L. B.}}*",
     {
      "after": "iiic:tibere_lettre",
      "text": "« Celle que j'ai brûlée sur la gabare, dit Tibère, il l'a eue quand même. Je l'avais doublée d'une autre, au Bec, avant de monter. Par habitude. » Il se frotte les yeux. « Vingt ans de Guet, ça laisse des habitudes. »"
@@ -74903,7 +74903,7 @@
    "with": "gildas",
    "takes": "evening",
    "text": [
-    "Le soir, Frère Gildas est assis sur la margelle de la fontaine, les mains dans les manches, et regarde le Mont. Les femmes ont fini de rincer leurs cuves. La place se vide. Il ne bouge pas quand tu t'assieds à côté de lui.",
+    "Le soir, Frère Gildas est assis sur la margelle de la fontaine, les mains dans les manches, et regarde le Mont. Les femmes ont fini de rincer leurs cuves. La place se vide. Il reste immobile quand tu t'assieds à côté de lui.",
     "« Dom Évrard, l'abbé, était novice avec moi, dit-il. Nous avons appris à nous taire ensemble. Il a mieux appris que moi. Il est abbé. » Il parle lentement, sans regarder personne. « Le Mont doit de l'argent à la Banque, depuis vingt ans. Pour le toit, pour les murs, pour une année de famine. Ce que la Banque demande en échange, l'abbé seul le sait. Vous le verrez là-haut. Méfiez-vous de lui comme de moi. »",
     "Tu le regardes, assis là, dans le soir, avec son visage tranquille. Tu te dis {{miroir#iiic_gildas_miroir|que tu as confiance en lui, parce qu'il a toujours été là|que tu as besoin de lui faire confiance, parce que s'il t'a menti, alors tu as passé tout ce temps à côté de quelqu'un que tu n'as pas voulu regarder}}.",
     "La fontaine {{echo#iiic_fontaine_soir|coule pour vous deux, régulière, sans autre bruit|rend, plus bas que l'eau, une voix d'homme qui ressemble à la sienne, plus jeune, qui dit : « Je ne le ferai pas, Père. Je ne garderai pas ce serment-là »}}."
@@ -79679,7 +79679,7 @@
      "if": {
       "has": "iiim:terres_rendues"
      },
-     "text": "Tu lui dis que la vigne du saule est restée à son oncle, et que son oncle a dit qu'il y avait du travail en bas. Florent ne répond pas. Il s'assied par terre, dans la sauge, et il rit sans bruit, les mains sur la bouche, comme les frères."
+     "text": "Tu lui dis que la vigne du saule est restée à son oncle, et que son oncle a dit qu'il y avait du travail en bas. Florent se tait. Il s'assied par terre, dans la sauge, et il rit sans bruit, les mains sur la bouche, comme les frères."
     },
     {
      "if": {
@@ -79973,7 +79973,7 @@
     },
     {
      "with": "lison",
-     "text": "Lison passe la main sur le chambranle, là où quelqu'un a gravé, à hauteur d'enfant, un petit croissant. Elle retire sa main sans rien dire."
+     "text": "Lison passe la main sur le chambranle, là où quelqu'un a gravé, à hauteur d'enfant, un petit croissant. Elle retire sa main."
     }
    ],
    "choices": [
@@ -80838,7 +80838,7 @@
        "iiir_pont": "guet"
       }
      },
-     "text": "Tibère te regarde sans rien dire. Il était du Guet, ce matin-là. Il finit par hausser les épaules. « Tout le monde ment au Guet, dit-il. Moi aussi, quand j'y étais. »"
+     "text": "Tibère te regarde en silence. Il était du Guet, ce matin-là. Il finit par hausser les épaules. « Tout le monde ment au Guet, dit-il. Moi aussi, quand j'y étais. »"
     },
     {
      "with": "lison",
@@ -81376,7 +81376,7 @@
    "text": [
     {
      "first": true,
-     "text": "La galerie basse mène à une chapelle taillée dans le roc, pas plus grande qu'une chambre. Un autel de pierre noire, sans croix. Dessus, une rangée de tablettes de cire dans des cadres de buis, comme celles où les écoliers apprennent leurs lettres, chacune avec son stylet attaché par un cordon. À côté, un petit réchaud de fer et une spatule plate, pour chauffer la cire et l'effacer."
+     "text": "La galerie basse mène à une chapelle taillée dans le roc, grande comme une chambre. Un autel de pierre noire, sans croix. Dessus, une rangée de tablettes de cire dans des cadres de buis, comme celles où les écoliers apprennent leurs lettres, chacune avec son stylet attaché par un cordon. À côté, un petit réchaud de fer et une spatule plate, pour chauffer la cire et l'effacer."
     },
     {
      "first": true,
@@ -81587,7 +81587,7 @@
     "Tu reposes la tablette au bout de la rangée, à côté de la dernière. Les deux écritures se ressemblent, à cette distance : deux lignes droites dans de la cire jaune.",
     {
      "with": "lison",
-     "text": "Lison t'a regardé{e} faire sans rien dire. Quand tu reposes le stylet, elle pose le sien, qu'elle tenait aussi, sans avoir rien écrit."
+     "text": "Lison t'a regardé{e} faire en silence. Quand tu reposes le stylet, elle pose le sien, qu'elle tenait aussi, sans avoir rien écrit."
     }
    ],
    "choices": [
@@ -81821,7 +81821,7 @@
     },
     {
      "with": "gildas",
-     "text": "Frère Gildas tient la lampe pendant que tu graves, et ne dit rien. Sa main ne tremble pas. Quand tu as fini, il lit le nom, à voix basse, en entier."
+     "text": "Frère Gildas tient la lampe pendant que tu graves, et se tait. Sa main reste ferme. Quand tu as fini, il lit le nom, à voix basse, en entier."
     },
     {
      "with": "tibere",
@@ -82108,7 +82108,7 @@
     "Tu repars. Pendant longtemps, en t'éloignant, tu entends encore les trois coups, la pause, et les trois coups. Puis tu tournes dans une autre galerie, et tu ne les entends plus.",
     {
      "with": "tibere",
-     "text": "Tibère marche derrière toi sans un mot jusqu'au carrefour. Là, il dit seulement : « On les enverra. » Et il compte sur ses doigts les heures qu'il faut pour remonter."
+     "text": "Tibère marche derrière toi en silence jusqu'au carrefour. Là, il dit seulement : « On les enverra. » Et il compte sur ses doigts les heures qu'il faut pour remonter."
     }
    ],
    "choices": [
@@ -83466,7 +83466,7 @@
     "Gildas sent ton regard. Il ne remonte pas sa capuche. Il reste à genoux, les mains dans l'eau, et il attend.",
     {
      "with": "tibere",
-     "text": "Tibère a vu aussi. Il a vu des fronts ouverts toute sa vie, au Guet, les soirs de paie. Il regarde la cicatrice, puis toi, et ne dit rien."
+     "text": "Tibère a vu aussi. Il a vu des fronts ouverts toute sa vie, au Guet, les soirs de paie. Il regarde la cicatrice, puis toi, et se tait."
     }
    ],
    "choices": [
@@ -85868,7 +85868,7 @@
     "Tu as donné ta main. Tu {{miroir#iiid_m_main|l'as fait pour la ville, pour les boulangers, pour les gens du pont|l'as fait pour cesser d'avoir peur des créanciers, et la ville est venue après, comme une excuse}}.",
     {
      "with": "lison",
-     "text": "Lison quitte la salle sans un mot. Tu entends ses pas dans l'escalier, puis la porte de la cour qui claque."
+     "text": "Lison quitte la salle en silence. Tu entends ses pas dans l'escalier, puis la porte de la cour qui claque."
     },
     {
      "with": "salome",
@@ -87487,7 +87487,7 @@
    "with": "lison",
    "text": [
     "Sous la dernière arche du pont, la grève est faite de galets ronds et de bois flotté. Lison est assise sur une souche blanchie, sa gaffe en travers des genoux. Une barque plate des marais est tirée sur les galets à côté d'elle, et le batelier qui l'a menée jusqu'ici, un vieil homme des Joncs, mange du pain plus loin, sans vous regarder.",
-    "Elle tient un carré de dentelle grise, pas plus grand que la main. « Ma grand-mère, dit-elle. Elle a fait remonter ça par le fleuve. Neuf jours de barque pour un mouchoir. »",
+    "Elle tient un carré de dentelle grise, grand comme la main. « Ma grand-mère, dit-elle. Elle a fait remonter ça par le fleuve. Neuf jours de barque pour un mouchoir. »",
     {
      "if": {
       "has": "iiic:muret_message"
@@ -87607,7 +87607,7 @@
     },
     {
      "tendre": true,
-     "text": "Au bout d'un moment, sa tête se pose contre ton épaule. Elle la laisse là, sans rien dire, jusqu'à ce que le soleil passe derrière le Mont.",
+     "text": "Au bout d'un moment, sa tête se pose contre ton épaule. Elle la laisse là jusqu'à ce que le soleil passe derrière le Mont.",
      "else": "Au bout d'un moment, elle se lève, essuie ses mains sur ses cuisses, et te tend la main pour t'aider à te relever."
     }
    ],
@@ -87649,7 +87649,7 @@
    "without": "lison",
    "after": "lison:partie",
    "text": [
-    "Un batelier des marais t'attend au bas du pont, un paquet de toile cirée à la main. Il te le remet sans un mot, en tirant sur son bonnet, et repart vers sa barque.",
+    "Un batelier des marais t'attend au bas du pont, un paquet de toile cirée à la main. Il te le remet en tirant sur son bonnet, et repart vers sa barque.",
     "Dans la toile, une bande de dentelle grise, d'un motif de joncs et de poissons, que tu reconnais au premier coup d'œil : c'est le point de Lison, plus lâche et plus vif que celui de sa grand-mère. {{loupe#iiid_lison_dentelle|Un simple ruban de dentelle, un souvenir|Sous la loupe, les fils forment des lettres : « Je suis au port aux Sauniers. J'ai dit non à ma grand-mère. Ma barque t'attend. L. »}}",
     "Tu enroules la dentelle autour de ton poignet. Elle sent l'eau des marais."
    ],
@@ -90073,7 +90073,7 @@
    "place": "iiid_mine",
    "backName": "la chambre du Roy",
    "text": [
-    "La pierre au sceau tourne, et derrière, une chambre ronde taillée dans le roc, pas plus grande qu'une cuisine. Des coffres de chêne se sont effondrés en poussière sur leur contenu. Une lampe de mineur pend encore à un crochet de fer, ronde, à l'anse courbe, noire de suie.",
+    "La pierre au sceau tourne, et derrière, une chambre ronde taillée dans le roc, grande comme une cuisine. Des coffres de chêne se sont effondrés en poussière sur leur contenu. Une lampe de mineur pend encore à un crochet de fer, ronde, à l'anse courbe, noire de suie.",
     "Au sol, une rangée de lingots, longs comme la main, frappés d'une couronne. Ils sont {{pie#iiid_lingots|d'argent fin, une vingtaine, alignés comme des briques|de plomb argenté au pinceau, tous sauf un : le troisième depuis le mur, plus petit, est d'argent pur, frappé de la couronne de sel}}.",
     "Tu décroches la lampe. Sous la suie, sous ton pouce, l'argent apparaît."
    ],
@@ -90741,7 +90741,7 @@
        "iiid_essarts": "partis"
       }
      },
-     "text": "Le lendemain matin, les déserteurs sortent de l'église en file, leurs paquets sur le dos, et prennent la route des crêtes vers le sud. Romuald s'arrête devant Bertrande et lui rend les deux moutons du dernier dimanche, sans un mot."
+     "text": "Le lendemain matin, les déserteurs sortent de l'église en file, leurs paquets sur le dos, et prennent la route des crêtes vers le sud. Romuald s'arrête devant Bertrande et lui rend les deux moutons du dernier dimanche."
     },
     {
      "if": {
@@ -91223,7 +91223,7 @@
      "if": {
       "item": "iiid_faux_calice"
      },
-     "text": "En partant, tu sens le calice doré cogner contre ta hanche dans ta besace. Le vieux t'a regardé{e} le prendre sans rien dire, avec une lueur dans l'œil."
+     "text": "En partant, tu sens le calice doré cogner contre ta hanche dans ta besace. Le vieux t'a regardé{e} le prendre, avec une lueur dans l'œil."
     }
    ],
    "choices": [
@@ -91441,7 +91441,7 @@
     "Sous le moulin de la Ferronnerie, la roue tourne à vide, et derrière elle une arche basse avale le bief. Il faut entrer dans l'eau jusqu'aux cuisses, se courber, et suivre le mur de gauche. Au bout de vingt pas, la voûte se relève : de la brique rouge, montée en arêtes de poisson, trois siècles d'âge. Les égouts de la reine passent sous toute la ville, et la ville les a oubliés.",
     {
      "with": "lison",
-     "text": "Lison marche devant, la lanterne sourde ouverte d'un doigt. Elle compte les arches à voix basse, en patois des marais. Une fois, elle pose la main sur une brique marquée d'une croix et la laisse là un moment, sans rien dire."
+     "text": "Lison marche devant, la lanterne sourde ouverte d'un doigt. Elle compte les arches à voix basse, en patois des marais. Une fois, elle pose la main sur une brique marquée d'une croix et la laisse là un moment."
     },
     {
      "without": "lison",
@@ -91844,7 +91844,7 @@
     "Elle pose la feuille. « {{oreille#iv_mabire_loi|La loi est la loi, et je la sers|Le témoin qui vous accuse pue la Banque à dix pas, et je n'ai pas le temps de le sentir}}. »",
     {
      "with": "tibere",
-     "text": "Tibère se tient près de la porte, son chapeau à la main. La capitaine le regarde une fois. « Gaucelm. On disait que tu buvais à Orle. » Tibère ne répond pas."
+     "text": "Tibère se tient près de la porte, son chapeau à la main. La capitaine le regarde une fois. « Gaucelm. On disait que tu buvais à Orle. » Tibère se tait."
     }
    ],
    "choices": [
@@ -92157,7 +92157,7 @@
     },
     {
      "after": "ivv:grenier_ouvert",
-     "text": "On mange, sur la place. Peu : des galettes de farine grise cuites sur des tôles, que des femmes des Halles distribuent par rangées. Quand tu passes, une vieille te met une galette dans la main, sans un mot."
+     "text": "On mange, sur la place. Peu : des galettes de farine grise cuites sur des tôles, que des femmes des Halles distribuent par rangées. Quand tu passes, une vieille te met une galette dans la main."
     },
     {
      "after": "ivv:grenier_partage",
@@ -93070,7 +93070,7 @@
     ]
    },
    "text": [
-    "Les deux gardes de la charrette dorment, comme promis, l'un contre l'autre, la hallebarde en travers des genoux. L'un des deux ronfle. Tu coupes les liens des trois condamnés. Ils glissent dans la nuit l'un après l'autre. Jacomet part le dernier et te serre l'avant-bras sans un mot.",
+    "Les deux gardes de la charrette dorment, comme promis, l'un contre l'autre, la hallebarde en travers des genoux. L'un des deux ronfle. Tu coupes les liens des trois condamnés. Ils glissent dans la nuit l'un après l'autre. Jacomet part le dernier et te serre l'avant-bras.",
     "En repartant, tu vois une lumière au premier étage du poste du Guet, et une silhouette debout à la fenêtre, une plume à la main."
    ],
    "choices": [
@@ -93785,7 +93785,7 @@
     "Il descend une marche, puis s'arrête. Il pousse sa capuche en arrière. À la racine de ses cheveux gris, sur le front, une cicatrice en croissant, blanche, de la largeur d'une bobèche de bougeoir.",
     {
      "with": "lison",
-     "text": "Lison s'est placée entre lui et la porte, sa gaffe à la main, sans un mot."
+     "text": "Lison s'est placée entre lui et la porte, sa gaffe à la main."
     },
     {
      "with": "tibere",
@@ -95326,7 +95326,7 @@
    "title": "La livre de blé",
    "place": "salveze",
    "text": [
-    "Jacomet entre par la porte de chargement avec dix porte-faix de la rue des Tanneurs. Il regarde les sacs jusqu'aux solives et ne dit rien pendant un long moment. Puis il fait apporter trois tables, une balance de changeur prise aux Halles, et le registre du commis, dont il arrache la dernière page pour te la donner.",
+    "Jacomet entre par la porte de chargement avec dix porte-faix de la rue des Tanneurs. Il regarde les sacs jusqu'aux solives et se tait un long moment. Puis il fait apporter trois tables, une balance de changeur prise aux Halles, et le registre du commis, dont il arrache la dernière page pour te la donner.",
     "On ouvre les grandes portes. On fait des files. Une livre par bouche, et deux pour les enfants. Jacomet pèse, un porte-faix écrit les noms. Quand les gardes de la Banque reviennent avec le Guet, ils trouvent une file de deux mille personnes qui avancent en silence, et la capitaine Mabire fait mettre ses hallebardiers des deux côtés de la file, pour l'ordre, et pas autrement.",
     {
      "with": "tibere",
@@ -96829,7 +96829,7 @@
       "has": "iv:rosalie_promesse"
      },
      "with": "tibere",
-     "text": "Tibère est resté assis sur les marches de la pension jusqu'à l'aube. Il n'est pas entré. Au matin, Rosalie a ouvert la fenêtre, l'a vu, et l'a regardé un long moment sans rien dire. Puis elle a laissé la fenêtre ouverte."
+     "text": "Tibère est resté assis sur les marches de la pension jusqu'à l'aube. Il n'est pas entré. Au matin, Rosalie a ouvert la fenêtre, l'a vu, et l'a regardé un long moment en silence. Puis elle a laissé la fenêtre ouverte."
     }
    ],
    "choices": [
@@ -98396,7 +98396,7 @@
     },
     {
      "after": "joncs:sauves",
-     "text": "Un vieux pêcheur te reconnaît, à la table voisine, et lève sa chope vers toi sans rien dire. Il était aux Joncs, la nuit de la tempête."
+     "text": "Un vieux pêcheur te reconnaît, à la table voisine, et lève sa chope vers toi. Il était aux Joncs, la nuit de la tempête."
     },
     {
      "after": "tribun:fils_libre",
@@ -99467,7 +99467,7 @@
    "text": [
     {
      "outcome": "win",
-     "text": "Le prévôt ne bouge pas, mais sa main serre la couverture sur ses genoux. « Vous avez beaucoup d'imagination, dit-il enfin. Sortez. » Il a peur. Tu le vois aux phalanges, blanches sur la laine. Un homme qui a peur se presse, et un homme pressé fait des fautes."
+     "text": "Le prévôt reste immobile, mais sa main serre la couverture sur ses genoux. « Vous avez beaucoup d'imagination, dit-il enfin. Sortez. » Il a peur. Tu le vois aux phalanges, blanches sur la laine. Un homme qui a peur se presse, et un homme pressé fait des fautes."
     },
     {
      "outcome": "lose",
@@ -100284,7 +100284,7 @@
      "if": {
       "has": "firmin:sauve"
      },
-     "text": "Dessart te l'a dit, à la chapelle : le prévôt garde ce qui compte derrière ses livres. Tu ne sais pas lesquels."
+     "text": "Dessart te l'a dit, à la chapelle : le prévôt garde ce qui compte derrière ses livres. Tu ignores lesquels."
     }
    ],
    "choices": [
@@ -102170,7 +102170,7 @@
    },
    "text": [
     "Galmier Vimeux sort de la Barbacane en clignant des yeux, un bras serré contre la poitrine : on le lui a démis aux émeutes, et personne ne l'a remis. Il a dix-sept ans, les épaules de son père et pas encore sa barbe. Il se tait tout le long du chemin jusqu'au port aux Sauniers. Il regarde l'eau, les barques, le ciel, comme on regarde des choses qu'on avait cru perdues.",
-    "À la Grenouille, le tribun se lève de sa table si vite qu'il renverse sa chope. Il prend son fils dans ses bras, sans un mot, et le serre jusqu'à ce que le garçon crie à cause du bras. Puis il se retourne vers toi. « Les Hautes-Eaux te doivent un fils, dit-il. Elles paient leurs dettes. »",
+    "À la Grenouille, le tribun se lève de sa table si vite qu'il renverse sa chope. Il prend son fils dans ses bras et le serre jusqu'à ce que le garçon crie à cause du bras. Puis il se retourne vers toi. « Les Hautes-Eaux te doivent un fils, dit-il. Elles paient leurs dettes. »",
     "Le patron remet le bras du garçon d'un coup sec, sur le comptoir, et lui donne une eau-de-vie. Toute la salle boit à la santé de Galmier. On te fait boire aussi, plusieurs fois."
    ],
    "choices": [
@@ -102362,7 +102362,7 @@
    "title": "Saint Nicolas",
    "place": "salveze",
    "text": [
-    "Tu lui dis que l'eau était froide, qu'il a dû tomber du quai en portant un pli de nuit, et qu'on ne souffre pas, dans l'eau froide. Babette te regarde longtemps. Tu ne sais pas si elle te croit. Elle hoche la tête.",
+    "Tu lui dis que l'eau était froide, qu'il a dû tomber du quai en portant un pli de nuit, et qu'on ne souffre pas, dans l'eau froide. Babette te regarde longtemps. Tu ignores si elle te croit. Elle hoche la tête.",
     {
      "if": {
       "item": "ivc_medaille"
@@ -103551,7 +103551,7 @@
     "« Vous pensez : le graveur m'a vendu{e}, dit-il doucement. C'est exact. Vous pensez aussi au mur du fourneau de gauche. » Il sourit. « Vous pensez fort, pour quelqu'un qui porte un cornet. »",
     {
      "with": "any",
-     "text": "Tes compagnons se sont mis de part et d'autre de toi, sans un mot."
+     "text": "Tes compagnons se sont mis de part et d'autre de toi."
     }
    ],
    "choices": [
@@ -103650,7 +103650,7 @@
     "Rigaud parlait d'un mur. Il y a en effet un mur, et derrière le mur, la Banque. La brique, au milieu de la main noire, s'effrite un peu sous l'ongle.",
     {
      "with": "gildas",
-     "text": "Frère Gildas frotte la suie du pouce et découvre, sous la tache, un petit croissant gravé dans une brique plus ancienne que les autres. Il le montre sans rien dire."
+     "text": "Frère Gildas frotte la suie du pouce et découvre, sous la tache, un petit croissant gravé dans une brique plus ancienne que les autres. Il le montre en silence."
     }
    ],
    "choices": [
@@ -103926,7 +103926,7 @@
    "place": "salveze",
    "text": [
     "Un masque se trouve chez n'importe quel cartier. Un habit de bal, en trois jours, se trouve rue des Dames, chez maîtresse Brigitte Lesueur, qui habille la moitié des Changeurs et prête l'autre moitié à la journée, quand les Changeurs ont des revers.",
-    "L'atelier est une longue pièce sous les toits, encombrée de mannequins de son, de rouleaux de drap, de rubans pendus à des clous. Une apprentie de seize ans, rousse, la bouche pleine d'épingles, prend tes mesures sans un mot. Maîtresse Lesueur choisit pour toi un habit de velours sombre, déjà porté, qu'il faudra reprendre aux épaules.",
+    "L'atelier est une longue pièce sous les toits, encombrée de mannequins de son, de rouleaux de drap, de rubans pendus à des clous. Une apprentie de seize ans, rousse, la bouche pleine d'épingles, prend tes mesures en silence. Maîtresse Lesueur choisit pour toi un habit de velours sombre, déjà porté, qu'il faudra reprendre aux épaules.",
     "« Il a appartenu {{oreille#ivb_lesueur|à un monsieur qui est parti en voyage|à un Fourcaud qui l'a laissé en gage chez moi avant de se jeter dans la Salve, en janvier}}, dit-elle. Il porte bonheur. »",
     {
      "with": "tibere",
@@ -108538,7 +108538,7 @@
      "if": {
       "has": "ivb:geolier_achete"
      },
-     "text": "Mathelin revient à l'heure où les gardes du dessus changent. Il ouvre la porte du cachot sans un mot, et il te tend ton sac, et il s'en va par l'escalier sans se retourner."
+     "text": "Mathelin revient à l'heure où les gardes du dessus changent. Il ouvre la porte du cachot, et il te tend ton sac, et il s'en va par l'escalier sans se retourner."
     },
     "La grille de fer dans le sol {{pie#ivb_pr_grille|est scellée au plomb, solide, ancienne|n'est scellée que d'un côté ; de l'autre, le plomb a été rongé par l'eau depuis longtemps, et la grille tient par son poids. Dessous, une rigole du palais descend vers la crypte}}. L'eau coule en dessous, vers le bas, vers un endroit plus profond que la prison.",
     {
@@ -109143,7 +109143,7 @@
    "place": "salveze",
    "text": [
     "L'atelier de Jocelyn Agasse a ses volets ouverts, et la forge est allumée. Jocelyn est à l'établi, en manches de chemise, une serrure ouverte devant lui. Ursule pèle des raves sur un tabouret, à côté de la porte. Quand elle te voit, elle pose son couteau et ses raves et se lève.",
-    "Sans un mot, elle va chercher dans un pot de grès, sur l'étagère, un petit paquet de toile, et te le met dans la main. Dedans, une clé de fer à double panneton, fine, noire, et sans dents. « Il l'a faite cette nuit, dit-elle. Elle ouvre tout ce qu'il a fermé dans cette ville. Il dit qu'il n'en fera pas d'autre. »",
+    "Elle va chercher dans un pot de grès, sur l'étagère, un petit paquet de toile, et te le met dans la main. Dedans, une clé de fer à double panneton, fine, noire, et sans dents. « Il l'a faite cette nuit, dit-elle. Elle ouvre tout ce qu'il a fermé dans cette ville. Il dit qu'il n'en fera pas d'autre. »",
     "Jocelyn, à l'établi, garde la tête baissée. Il a un sourire au coin de la bouche, et sa lime va et vient."
    ],
    "fx": {
@@ -110807,7 +110807,7 @@
     "Tu descends dans la cale avec une lanterne. Les membrures sont saines, mais la quille, à la hauteur du mât, {{pie#ivm_quille|a l'air saine, noire et dure sous le goudron|est piquée de trous fins comme des coups d'aiguille : le taret est entré, et la quille cassera au premier échouage}}.",
     {
      "with": "salome",
-     "text": "Salomé descend derrière toi, et s'accroupit. Elle tâte le bois de la paume, sans rien dire, très longtemps."
+     "text": "Salomé descend derrière toi, et s'accroupit. Elle tâte le bois de la paume, très longtemps."
     },
     {
      "if": {
@@ -112136,7 +112136,7 @@
     "Puis elle se redresse. « Les barques iront devant toi dans les passes. Elles connaissent les fonds. À la tour, elles s'arrêteront. Ce qui est dedans t'attend, toi. »",
     {
      "with": "lison",
-     "text": "Lison s'est accroupie à côté du coffre de sa grand-mère, la tête contre son genou, comme une enfant. La vieille femme pose la main sur ses cheveux, sans rien dire."
+     "text": "Lison s'est accroupie à côté du coffre de sa grand-mère, la tête contre son genou, comme une enfant. La vieille femme pose la main sur ses cheveux."
     }
    ],
    "fx": {
@@ -114040,7 +114040,7 @@
      "if": {
       "has": "ivm:yannick_libre"
      },
-     "text": "Tu ramènes Yannick au ponton de son père à l'aube. Le vieux Gwenaël est assis sur son seau, son filet sur les genoux. Il voit son fils, pose la navette, et ne se lève pas : il tend seulement la main, paume ouverte, et Yannick la prend. Ils restent comme ça, le père assis, le fils debout, sans un mot, pendant que le soleil se lève sur le port."
+     "text": "Tu ramènes Yannick au ponton de son père à l'aube. Le vieux Gwenaël est assis sur son seau, son filet sur les genoux. Il voit son fils, pose la navette, et ne se lève pas : il tend seulement la main, paume ouverte, et Yannick la prend. Ils restent comme ça, le père assis, le fils debout, en silence, pendant que le soleil se lève sur le port."
     },
     {
      "if": {
@@ -115903,7 +115903,7 @@
     },
     {
      "with": "lison",
-     "text": "Lison ne dit rien. Elle te pousse dans le dos, vers la chaussée."
+     "text": "Lison se tait. Elle te pousse dans le dos, vers la chaussée."
     },
     {
      "if": {
@@ -115977,7 +115977,7 @@
     },
     {
      "again": true,
-     "text": "Hélis est toujours sur son toit, la gaffe en travers des genoux. Elle te regarde venir sans rien dire."
+     "text": "Hélis est toujours sur son toit, la gaffe en travers des genoux. Elle te regarde venir."
     },
     "« Je {{oreille#vn_helis_cherche|cherche des choses qui se vendent, comme tout le monde|cherche mon fils, Aloïs, qui est resté ici à la Basse de l'an dernier, et que la mer n'a jamais rendu}}, dit-elle. Pour mes petits-enfants. Ils mangent, les petits-enfants. »",
     {
@@ -116208,7 +116208,7 @@
        "item": "vn_couteau_alois"
       }
      },
-     "text": "Hélis t'écoute sans rien dire. Puis elle hoche la tête, deux fois, comme quand on vous annonce un prix trop cher."
+     "text": "Hélis t'écoute en silence. Puis elle hoche la tête, deux fois, comme quand on vous annonce un prix trop cher."
     },
     {
      "if": {
@@ -117426,7 +117426,7 @@
     "C'est tout. La chose qu'une femme cache quand on lui a tout pris, pour garder une chose à elle.",
     {
      "with": "lison",
-     "text": "Lison prend le peigne, le retourne, et te le rend sans un mot. Elle a les yeux brillants. Elle les essuie d'un revers de manche en grommelant contre le sel."
+     "text": "Lison prend le peigne, le retourne, et te le rend. Elle a les yeux brillants. Elle les essuie d'un revers de manche en grommelant contre le sel."
     }
    ],
    "choices": [
@@ -120013,7 +120013,7 @@
     },
     {
      "after": "lothaire:allie",
-     "text": "Lothaire Brunel marche à côté de toi, le cornet jumeau à la main. Il s'arrête devant chaque statue et l'écoute, la tête penchée, sans rien dire. « Ils ont tous la même voix, dit-il enfin. Comme une seule personne qui se répète. »"
+     "text": "Lothaire Brunel marche à côté de toi, le cornet jumeau à la main. Il s'arrête devant chaque statue et l'écoute, la tête penchée. « Ils ont tous la même voix, dit-il enfin. Comme une seule personne qui se répète. »"
     },
     {
      "if": {
@@ -120354,7 +120354,7 @@
    "title": "Lothaire Brunel",
    "place": "sorne",
    "text": [
-    "Lothaire te voit venir de loin et ne bouge pas. Il ôte le cornet jumeau de son oreille, le regarde, le remet. Ses hommes se lèvent, la main sur l'épée. Il les arrête d'un doigt. Ses gants gris sont noirs de vase jusqu'aux poignets.",
+    "Lothaire te voit venir de loin et reste où il est. Il ôte le cornet jumeau de son oreille, le regarde, le remet. Ses hommes se lèvent, la main sur l'épée. Il les arrête d'un doigt. Ses gants gris sont noirs de vase jusqu'aux poignets.",
     "« Vous voilà, dit-il de sa voix douce. J'ai entendu votre cloche, ou vos pas, ou vos pensées : ça fait du bruit, une personne qui cherche. » Il sourit. « Je {{oreille#vn_lothaire_or|ne veux que l'or. Gardez votre Charte, je n'en ai que faire|veux la Charte. Corisande la croit bonne à brûler ; le duc, lui, la paiera le prix d'une ville}}. »",
     {
      "if": {
@@ -120706,7 +120706,7 @@
     },
     {
      "with": "gildas",
-     "text": "Frère Gildas lève les yeux vers le septième visage, celui qui n'a pas de bouche. Il le regarde longtemps, sans rien dire."
+     "text": "Frère Gildas lève les yeux vers le septième visage, celui qui n'a pas de bouche. Il le regarde longtemps, en silence."
     }
    ],
    "choices": [
@@ -121336,7 +121336,7 @@
     {
      "first": true,
      "with": "gildas",
-     "text": "Frère Gildas s'incline devant le banc, très bas, à la façon du Mont devant l'autel. Il se relève sans un mot."
+     "text": "Frère Gildas s'incline devant le banc, très bas, à la façon du Mont devant l'autel. Il se relève."
     },
     {
      "first": true,
@@ -121438,7 +121438,7 @@
     "Au septième nom, les jetons sur les genoux des morts se mettent à vibrer, tous ensemble, très doucement. L'accord monte, tient, s'éteint. Ensuite la chambre est plus calme qu'avant.",
     {
      "with": "lison",
-     "text": "Lison a pâli au premier nom. « Ivona Vasse, répète-t-elle. Il y a une Ivona dans la généalogie que ma grand-mère récite à Noël. Elle s'arrête toujours sur ce nom-là, et elle passe au suivant sans rien dire. » Elle pose deux doigts sur l'épaule de la morte, et les retire."
+     "text": "Lison a pâli au premier nom. « Ivona Vasse, répète-t-elle. Il y a une Ivona dans la généalogie que ma grand-mère récite à Noël. Elle s'arrête toujours sur ce nom-là, et elle passe au suivant. » Elle pose deux doigts sur l'épaule de la morte, et les retire."
     },
     {
      "with": "salome",
@@ -123483,7 +123483,7 @@
     "Le battant claque. L'eau se retire de la mosaïque par les rigoles, en sifflant. Le bruit de la mer, de l'autre côté, devient sourd, lointain, un bruit de voisins.",
     {
      "with": "any",
-     "text": "Vous restez un moment immobiles, trempés, à vous regarder sans rien dire."
+     "text": "Vous restez un moment immobiles, trempés, à vous regarder."
     }
    ],
    "choices": [
@@ -124937,7 +124937,7 @@
     "Lothaire ôte le cornet jumeau de son oreille. Il le pose sur le lutrin, à côté de lui. « Je vais vous le dire sans ça, dit-il. Pour une fois. » Il regarde Salomé. « J'ai coupé la corde. Le coffret était petit, il tenait dans une main, et j'ai pensé que je ne le partagerais pas. Je l'ai pensé une seconde. Une seconde suffit. »",
     {
      "with": "salome",
-     "text": "Salomé ne bouge pas. Le coutelas tremble dans sa main, de plus en plus, puis plus du tout."
+     "text": "Salomé reste immobile. Le coutelas tremble dans sa main, de plus en plus, puis plus du tout."
     },
     {
      "with": "salome",
@@ -125044,7 +125044,7 @@
     ]
    },
    "text": [
-    "Lothaire te regarde un long moment sans rien dire. Puis il rit, un vrai rire, bref, qui le surprend lui-même.",
+    "Lothaire te regarde un long moment en silence. Puis il rit, un vrai rire, bref, qui le surprend lui-même.",
     "« Par billet, dit-il. Vingt ans de service, et un billet, plié en quatre, cacheté à la cire noire. Oui. » Il ôte ses gants, un doigt après l'autre, et les glisse dans sa ceinture. « Elle a un petit-fils en otage chez le duc, vous savez. Bérold. Il est aux cadets d'Aveline depuis l'automne. Elle ne l'a dit à personne. Je l'ai entendu, un soir, sous ses mots. C'est pour lui qu'elle paiera le duc, bien plus que pour la ville. »",
     "Il fait signe à ses hommes, dans l'escalier. Les arbalètes se lèvent vers la voûte, désarmées. « Je vous suis. Jusqu'en haut de la tour. Ensuite, nous verrons ce que vous pensez de moi. »",
     {
@@ -126287,7 +126287,7 @@
     }
    },
    "text": [
-    "Corisande Marrel ne bouge pas. Ses mains, sur la loutre, se serrent l'une sur l'autre jusqu'à ce que les bagues lui mordent les doigts. C'est la seule chose qui bouge.",
+    "Corisande Marrel reste immobile. Ses mains, sur la loutre, se serrent l'une sur l'autre jusqu'à ce que les bagues lui mordent les doigts. C'est la seule chose qui bouge.",
     "« Qui vous l'a dit ? » Tu ne réponds pas. Elle regarde ton oreille, longtemps. « Ah. Bien sûr. »",
     "Elle parle très bas, pour toi seul{e}. « Il a dix-sept ans. Il voulait être soldat. Le duc l'a pris aux cadets à l'automne, avec les fils de trois autres maisons. Nous avons tous fait semblant que c'était un honneur. Si le duc n'est pas payé à la Saint-Jean, il sera le premier à payer. »",
     "Tu lui dis ce que tu proposes. Une part de l'or pour Bérold, une part seulement, versée au duc par ta main et pour son nom à lui. La Charte, lue. La Banque, laissée à son sort.",
@@ -126369,7 +126369,7 @@
     ]
    },
    "text": [
-    "Lothaire Brunel ne répond pas tout de suite. Il regarde Corisande, qui regarde ailleurs. Il remet son cornet jumeau à l'oreille, et il l'écoute, elle, longtemps. Elle ne dit rien. Il n'en a pas besoin.",
+    "Lothaire Brunel prend son temps pour répondre. Il regarde Corisande, qui regarde ailleurs. Il remet son cornet jumeau à l'oreille, et il l'écoute, elle, longtemps. Elle ne dit rien. Il n'en a pas besoin.",
     "« Oui, dit-il enfin, très doucement. Au passé. Le billet est déjà écrit, n'est-ce pas, Madame ? Dans votre écritoire, avec les autres. » Corisande se tait. Elle assume toujours ce qu'elle a fait ; c'est une de ses qualités.",
     "Lothaire traverse la mosaïque et vient se placer à côté de toi. Les arbalétriers se regardent : ils connaissent Lothaire depuis plus longtemps que leur paie. Un à un, ils désarment.",
     "Corisande soupire. « Vingt ans, dit-elle. Vous avez toujours eu le sens du moment, Brunel. » Elle fait signe à ses porteurs. « Remontez-moi. Il fait froid, ici. »"
@@ -126670,7 +126670,7 @@
      "without": "fauvette",
      "text": "Tu fais un pas de côté, un seul, comme pour t'écarter des piques, et tu enfonces ta lame dans la douve du tonneau, au ras du fond. L'huile se met à couler sur la mosaïque en filet noir."
     },
-    "L'huile suit les rigoles, comme les Taiseurs l'ont voulu pour l'eau, et file vers le conduit. Le capitaine la regarde partir. Il ne dit rien pendant longtemps.",
+    "L'huile suit les rigoles, comme les Taiseurs l'ont voulu pour l'eau, et file vers le conduit. Le capitaine la regarde partir. Il se tait longtemps.",
     "« Bien, dit-il enfin. Il n'y aura pas de feu sur votre tour. » Il range son épée. « Je ne me bats pas pour une Charte quand je n'ai plus de quoi l'annoncer. Le duc me fera pendre, ou il me donnera une autre compagnie. Il hésite toujours entre les deux. »",
     "Les soldats d'Aveline remontent l'escalier en bon ordre, sans tonneau."
    ],
@@ -127330,7 +127330,7 @@
        }
       ]
      },
-     "text": "Les porteurs de Corisande tournent le treuil à quatre, sans un mot, comme on tourne une meule."
+     "text": "Les porteurs de Corisande tournent le treuil à quatre, comme on tourne une meule."
     },
     {
      "with": "tibere",
@@ -127340,7 +127340,7 @@
      "if": {
       "has": "vt:lothaire_delie"
      },
-     "text": "Lothaire Brunel monte devant toi, les poignets encore liés, sans un mot. De temps en temps, il s'arrête pour souffler, et il repart avant que tu le pousses."
+     "text": "Lothaire Brunel monte devant toi, les poignets encore liés. De temps en temps, il s'arrête pour souffler, et il repart avant que tu le pousses."
     }
    ],
    "choices": [
@@ -128594,7 +128594,7 @@
      "if": {
       "voile": "vt_av_lieut"
      },
-     "text": "Le jeune lieutenant a soufflé la mèche entre ses doigts. Il regarde ses doigts brûlés, puis son capitaine, sans rien dire."
+     "text": "Le jeune lieutenant a soufflé la mèche entre ses doigts. Il regarde ses doigts brûlés, puis son capitaine."
     },
     "Le capitaine d'Aveline range son briquet. Il a l'air d'un homme qui vient de perdre une partie de cartes à laquelle il ne tenait pas tant que ça. « Le duc attendra, dit-il. Il sait attendre. Votre prévôt, lui, va devoir vivre avec ce qu'il a promis. »",
     {
@@ -128644,7 +128644,7 @@
     "Au nord, très loin, la fumée de Salvèze monte toujours droite dans le matin. Dans quelques heures, il y aura des bannières bleues sur le Beffroi.",
     {
      "with": "lison",
-     "text": "Lison regarde la fumée noire sans un mot. Puis elle tourne le dos à la mer."
+     "text": "Lison regarde la fumée noire en silence. Puis elle tourne le dos à la mer."
     }
    ],
    "choices": [
@@ -129452,7 +129452,7 @@
    "text": [
     {
      "with": "salome",
-     "text": "Salomé ôte ses bottes, sa veste, sa ceinture. Elle noue la corde cassée autour de sa taille, d'un nœud de chaise, et te tend l'autre bout sans rien dire. Ses mains ne tremblent pas. Sa mâchoire, si."
+     "text": "Salomé ôte ses bottes, sa veste, sa ceinture. Elle noue la corde cassée autour de sa taille, d'un nœud de chaise, et te tend l'autre bout. Ses mains ne tremblent pas. Sa mâchoire, si."
     },
     {
      "with": "salome",

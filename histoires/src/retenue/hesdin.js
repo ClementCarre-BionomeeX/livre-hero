@@ -86,7 +86,7 @@ module.exports = {
   // ------------------------------------------------------------------ to the dam
   H_voiture: { act: A, title: "La voiture des forges", place: "pont", fx: { time: 0.75 },
     text: [
-      { via: "corlay", text: "Corlay monte dans ta voiture sans un mot, en habit de soirée. Il regarde par la portière. Tu le regardes, lui." },
+      { via: "corlay", text: "Corlay monte dans ta voiture, en habit de soirée. Il regarde par la portière. Tu le regardes, lui." },
       "Ta voiture descend à la porte Saint-Rieul, qu'on t'ouvre, puis le raidillon. Barthélemy est sur le siège à côté du cocher, une corde et une lanterne sur les genoux.",
       "Au milieu du pont des Moulins, un sergent du guet lève la main devant tes chevaux. Il lève sa lanterne vers la portière. Il voit l'enclume peinte. Il voit une vieille dame en noir.",
       "« Ordre du capitaine, Madame. Rien ne monte vers la digue. »",

@@ -1258,7 +1258,7 @@ Object.assign(P, {
     text: [
       "Florent jette un regard vers le cloître. « Il y a trois façons de quitter le Mont, dit-il. La bénédiction de l'abbé, et l'abbé ne la donne plus, il dit qu'il a besoin de bras. Le mur. Ou mourir. »",
       { if: { not: { has: "mont:acces" } }, text: "Puis, plus bas : « Je suis de garde à la descente de la crypte, trois nuits par semaine. Je sais où le portier pend la clé de bronze, et je sais le signe, ils nous l'apprennent pour qu'on sache ce qu'on garde. Si tu m'aides à passer le mur, je t'ouvre la porte avant de partir. »" },
-      { if: { has: "iiim:terres_rendues" }, text: "Tu lui dis que la vigne du saule est restée à son oncle, et que son oncle a dit qu'il y avait du travail en bas. Florent ne répond pas. Il s'assied par terre, dans la sauge, et il rit sans bruit, les mains sur la bouche, comme les frères." },
+      { if: { has: "iiim:terres_rendues" }, text: "Tu lui dis que la vigne du saule est restée à son oncle, et que son oncle a dit qu'il y avait du travail en bas. Florent se tait. Il s'assied par terre, dans la sauge, et il rit sans bruit, les mains sur la bouche, comme les frères." },
       { if: { has: "iiim:terres_perdues" }, text: "Tu lui dis que son oncle est parti pour Orle avec sa charrette. Florent serre la binette. « Alors il a encore plus besoin de moi », dit-il." },
     ],
     choices: [

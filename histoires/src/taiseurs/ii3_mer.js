@@ -229,7 +229,7 @@ Object.assign(P, {
 
   IIM_chapelle_salome: { act: "II", title: "Ce que la chapelle a gardé", place: "vasier", with: "salome", backName: "la chapelle des noyés",
     text: [
-      { with: "salome", text: "Tu lui dis les mots tels que le diapason te les a rendus, sans rien y mettre. Salomé ne bouge pas. Elle regarde la lanterne éteinte devant l'autel, et la cordelette nouée en huit, et tu comprends que c'est elle qui les a posées là." },
+      { with: "salome", text: "Tu lui dis les mots tels que le diapason te les a rendus, sans rien y mettre. Salomé reste immobile. Elle regarde la lanterne éteinte devant l'autel, et la cordelette nouée en huit, et tu comprends que c'est elle qui les a posées là." },
       { with: "salome", text: "« Regarde ses mains, répète-t-elle. Je les ai regardées. Il avait ses gants gris. Il les a toujours. » Elle se mord la lèvre jusqu'à ce que la cicatrice blanchisse. « Merci. Je savais. Maintenant, je l'ai entendue le dire. Ça change tout. »" },
     ],
     choices: [{ back: "IIM_chapelle" }] },
@@ -352,9 +352,9 @@ Object.assign(P, {
     text: [
       "Salomé lâche le racloir dans la vase et s'essuie les mains sur ses cuisses. Elle grimpe à bord par l'échelle de corde et revient avec deux gobelets et une bouteille de rhum. Vous vous asseyez sur le plat-bord, les pieds au-dessus de la vase.",
       "« Ma femme plongeait aux Écueils pour la Banque, dit-elle. Maïwenn. On était les deux meilleures du port. La Banque payait un ducat la descente, pour chercher les épaves du temps de la reine. Un matin, sur les Sourds, elle est descendue, et la corde {{oreille#iim_salome_corde|s'est prise dans la roche|est remontée coupée, et l'homme qui la tenait m'a dit qu'elle avait glissé}}. On ne l'a jamais retrouvée. »",
-      "Elle se lève, descend dans la cale, et remonte avec un bout de chanvre goudronné long comme l'avant-bras, qu'elle garde enveloppé dans un linge. Elle te le tend sans un mot. Le bout {{pie#iim_corde_bout|est effiloché, mangé par la roche des Sourds|est tranché net, en biais, d'un seul coup de lame bien affûtée}}.",
+      "Elle se lève, descend dans la cale, et remonte avec un bout de chanvre goudronné long comme l'avant-bras, qu'elle garde enveloppé dans un linge. Elle te le tend. Le bout {{pie#iim_corde_bout|est effiloché, mangé par la roche des Sourds|est tranché net, en biais, d'un seul coup de lame bien affûtée}}.",
       "« Depuis, je ne plonge plus. J'ai essayé une fois. Au premier pied d'eau, {{oreille#iim_salome_noir|j'ai eu froid, voilà tout|j'ai vu ses cheveux dans le noir, et j'ai remonté si vite que j'ai saigné des oreilles}}. »",
-      { with: "tibere", text: "Tibère se racle la gorge. « Celui qui tenait la corde, dit-il, c'était qui ? » Salomé le regarde longtemps. « Un homme de la Banque. Avec des gants. » Elle n'en dit pas plus, et Tibère ne redemande pas." },
+      { with: "tibere", text: "Tibère se racle la gorge. « Celui qui tenait la corde, dit-il, c'était qui ? » Salomé le regarde longtemps. « Un homme de la Banque. Avec des gants. » Elle s'en tient là, et Tibère aussi." },
     ],
     fx: { ep: ["perso", 500], conf: { salome: 3 } },
     choices: [
@@ -425,7 +425,7 @@ Object.assign(P, {
 
   IIM_voie_lothaire: { act: "II", title: "Le gant gris", place: "vasier", backName: "La Bavarde, sur la vase",
     text: [
-      "Tu lui dis Le Fidèle, la nouvelle lune, les douze hommes armés, et le nom de celui qui les paie. Lothaire Brunel. Salomé ne dit rien. Elle range son couteau dans sa gaine, très lentement, et tu vois ses mains trembler pendant qu'elle le fait.",
+      "Tu lui dis Le Fidèle, la nouvelle lune, les douze hommes armés, et le nom de celui qui les paie. Lothaire Brunel. Salomé se tait. Elle range son couteau dans sa gaine, très lentement, et tu vois ses mains trembler pendant qu'elle le fait.",
       "« Brunel, dit-elle. Je ne savais pas son nom. À la Banque, on l'appelait Monsieur. » Elle regarde vers le large, vers la ligne grise où commence la mer. « Il va retourner aux Sourds. {{oreille#iim_salome_retour|C'est son affaire|Il va passer au-dessus d'elle, avec ses gants, et je serai à quai en train de gratter des moules}}. »",
       "Elle se tourne vers toi. Sa voix est plate, sans rien dedans. « Je pars. Avec vous ou sans vous. Si c'est avec vous, vous payez le vivre, et vous m'aidez à faire sauter cette chaîne. »",
       { with: "tibere", text: "Tibère a baissé les yeux en entendant le nom de Lothaire. Il trouve soudain beaucoup d'intérêt à ses bottes." },
@@ -533,7 +533,7 @@ Object.assign(P, {
   IIM_salome_oui: { act: "II", title: "Salomé Brac", place: "vasier", backName: "La Bavarde",
     text: [
       { after: "iim:voie_argent", text: "Salomé compte les pièces une à une dans sa paume, les met dans une bourse de cuir qu'elle pend à son cou, sous sa chemise. « Le vivre en plus, rappelle-t-elle. Et vous obéissez à bord. Moi, j'accepte vos prix ; vous, vous acceptez mes ordres. »" },
-      { after: "iim:voie_verite", text: "Salomé reste un moment sans rien dire, la main à plat sur le bordage de La Bavarde. « Elle aurait voulu, dit-elle. Elle aurait déjà largué les amarres, et elle m'aurait traitée de vieille poule. » Elle a un petit rire qui lui fait mal." },
+      { after: "iim:voie_verite", text: "Salomé reste un moment silencieuse, la main à plat sur le bordage de La Bavarde. « Elle aurait voulu, dit-elle. Elle aurait déjà largué les amarres, et elle m'aurait traitée de vieille poule. » Elle a un petit rire qui lui fait mal." },
       { after: "iim:voie_lothaire", text: "Salomé ne sourit pas. Elle regarde vers le large, et ses yeux sont très secs. « On part avant la nouvelle lune, dit-elle. Je veux être là quand Le Fidèle arrivera. Je veux voir ses gants. »" },
       { after: "iim:voie_service", before: "iim:voie_lothaire", text: "Salomé tape deux fois du plat de la main sur le bordage, comme on flatte une bête. « Elle a besoin de sortir, dit-elle. Moi aussi, peut-être. »" },
       { if: { not: { has: "iim:bavarde_libre" } }, text: "« La chaîne, ajoute-t-elle, je m'en charge. Je vendrai le canot à la Veuve. J'aurais dû le faire il y a trois ans. »" },
@@ -686,7 +686,7 @@ Object.assign(P, {
 
   IIM_corbiere_riwal: { act: "II", title: "Riwal", place: "vasier", backName: "la grande chambre de la carcasse",
     text: [
-      "La Veuve ne dit rien pendant longtemps. Le chat saute de ses genoux. Elle se lève, et elle est plus petite debout qu'assise. Elle va à la porte, l'ouvre, et dit d'une voix ordinaire : « Riwal. Viens. »",
+      "La Veuve se tait longtemps. Le chat saute de ses genoux. Elle se lève, et elle est plus petite debout qu'assise. Elle va à la porte, l'ouvre, et dit d'une voix ordinaire : « Riwal. Viens. »",
       "Riwal entre en souriant. Le sourire tombe quand il voit ton visage. « Maître Ségur, dit Armance. La jetée. Une bourse. » Riwal ouvre la bouche. « Je {{oreille#iim_riwal_aveu|ne sais pas de quoi elle parle|savais que ça finirait comme ça, et j'ai cent ducats cousus dans ma vareuse}}, Veuve. »",
       "Armance appelle deux hommes. Riwal ne se débat pas. On l'emmène, et la porte se ferme. La Veuve revient s'asseoir, ramasse le chat, et ses mains tremblent un peu. « Dix-huit ans qu'il est mon second, dit-elle. Il a appris à compter sur mes genoux. » Elle se tait. Puis : « Ses dettes sont à moi, à présent. Tout ce qu'on lui devait, on me le doit. Et moi, je vous dois. »",
     ],
@@ -778,7 +778,7 @@ Object.assign(P, {
 
   IIM_q_jaouen_fin: { act: "II", title: "Jaouen", place: "vasier", backName: "la salle du Hareng Saur",
     text: [
-      "Clervie écoute sans lâcher son torchon. Puis elle le pose sur le comptoir, contourne le comptoir, et te serre dans ses bras, fort, une fois, avec une odeur de hareng et de savon noir. Elle retourne derrière le comptoir sans un mot et se mouche.",
+      "Clervie écoute sans lâcher son torchon. Puis elle le pose sur le comptoir, contourne le comptoir, et te serre dans ses bras, fort, une fois, avec une odeur de hareng et de savon noir. Elle retourne derrière le comptoir et se mouche.",
       "Jaouen est resté planté devant la cuisine. Il rougit jusqu'aux oreilles. « Le navire d'argent, dit-il. De la chapelle. C'est moi. Je l'ai donné à Riwal. » Clervie se retourne d'un bloc. Jaouen ne baisse pas les yeux. « Je le dirai à Tugdual. Demain. »",
       "Clervie te fait asseoir, te sert à manger, et pose devant toi un pot d'onguent de sa mère. « Pour les coups, dit-elle. Vous en prendrez, là où vous allez. »",
     ],
@@ -842,7 +842,7 @@ Object.assign(P, {
 
   IIM_plongee_gwendal: { act: "II", title: "Gwendal", place: "vasier", backName: "le pont de la carcasse",
     text: [
-      "Le cercle se tait. Gwendal te regarde, et il a perdu son sourire. Il porte la main à son oreille, un geste qu'il arrête à mi-chemin. Il ne dit rien pendant un long moment. Armance le regarde, puis toi.",
+      "Le cercle se tait. Gwendal te regarde, et il a perdu son sourire. Il porte la main à son oreille, un geste qu'il arrête à mi-chemin. Il se tait un long moment. Armance le regarde, puis toi.",
       "« Je n'irai pas à vingt brasses, dit enfin Gwendal, d'une voix basse. Vingt brasses, c'est la mort. » Il hausse les épaules. « Vous avez gagné. » Il te tend la main. Plus bas, en la serrant : « Merci de ne pas avoir dit le reste. »",
       "Armance hoche la tête. « Gagner sans mouiller sa chemise. Riwal aurait aimé. » Elle fait signe de la suivre.",
     ],
@@ -866,7 +866,7 @@ Object.assign(P, {
   IIM_bluff_win: { act: "II", title: "Les dés sur la table", place: "vasier", backName: "le pont de la carcasse",
     text: [
       "Les gobelets se soulèvent. Il y a, sur le tonneau, trois six en tout. Un chez Riwal, deux chez toi. Un silence, puis les Écumeurs éclatent : on rit, on se tape sur les cuisses, on paie les paris. Riwal sourit encore, mais il ne sourit qu'avec la bouche.",
-      { after: "iim:bluff_jaouen", text: "Il sort la reconnaissance de dette de Jaouen et la pose sur le tonneau, sous un dé, sans un mot. Tu la prends." },
+      { after: "iim:bluff_jaouen", text: "Il sort la reconnaissance de dette de Jaouen et la pose sur le tonneau, sous un dé. Tu la prends." },
       "Armance, qui a tout regardé du gaillard, descend lentement. « D'habitude, on croit Riwal sur parole, dit-elle. Ça lui fera du bien. » Elle te fait signe de la suivre.",
     ],
     fx: { flag: "iim:ecumeurs_allies", fac: { ecumeurs: 15 } },
@@ -914,7 +914,7 @@ Object.assign(P, {
   IIM_leg_largue: { act: "II", title: "Larguer", place: null,
     text: [
       "La Bavarde quitte la vase sur la marée du matin, à la gaffe d'abord, puis à la voile, quand le vent prend la toile au tiers et la gonfle d'un coup. Port-Vasier rapetisse derrière : la jetée, la carcasse, le pavillon rouge, la chapelle blanche sur sa butte. Puis le delta lui-même s'aplatit, ne fait plus qu'une ligne brune entre le ciel gris et la mer verte, et disparaît.",
-      { with: "salome", text: "Salomé tient la barre, debout, les jambes écartées, sans un mot. Elle regarde la voile, la mer, la voile. Au bout d'une heure, elle dit : « Elle n'a rien oublié. » Elle parle du bateau. Plus tard encore, sans tourner la tête : « Moi, {{oreille#iim_salome_large|j'ai tout oublié, c'est mieux|je me rappelle chaque vague de ce chemin, et chaque fois c'est Maïwenn qui tient l'écoute}}. »" },
+      { with: "salome", text: "Salomé tient la barre, debout, les jambes écartées, muette. Elle regarde la voile, la mer, la voile. Au bout d'une heure, elle dit : « Elle n'a rien oublié. » Elle parle du bateau. Plus tard encore, sans tourner la tête : « Moi, {{oreille#iim_salome_large|j'ai tout oublié, c'est mieux|je me rappelle chaque vague de ce chemin, et chaque fois c'est Maïwenn qui tient l'écoute}}. »" },
       { with: "tibere", text: "Tibère s'est installé au pied du mât, le plus bas possible, et ne lâche pas le hauban. Il a le teint d'un fromage frais. Il dit que ça va. Il le dit souvent." },
       { with: "lison", text: "Lison a pris l'écoute sans qu'on lui demande, et Salomé la laisse faire, en la surveillant du coin de l'œil. Au bout d'un moment, elle hoche la tête. Lison fait semblant de ne pas l'avoir vu, et rougit quand même." },
       { with: "gildas", text: "Frère Gildas lit son bréviaire assis sur le panneau de cale, sans tenir sa page malgré le vent. Il a dû naviguer, autrefois. Il ne le dit pas." },
@@ -953,7 +953,7 @@ Object.assign(P, {
   IIM_leg_sourds_touche: { act: "II", title: "La roche", place: null,
     text: [
       "Un choc sourd monte de la quille et te jette à genoux sur le pont. La Bavarde gémit de tout son bois, racle, s'arrache. De l'eau entre par une couture, à l'avant ; on l'étoupe avec une chemise et on écope à la casserole pendant deux heures, en silence. Un sac de biscuit a pris l'eau.",
-      { with: "salome", text: "Salomé a tenu la barre. Elle a viré trop tard, et elle le sait. Elle ne dit rien jusqu'à la sortie de la passe ; puis, d'une voix plate : « J'ai regardé au sud. »" },
+      { with: "salome", text: "Salomé a tenu la barre. Elle a viré trop tard, et elle le sait. Elle se tait jusqu'à la sortie de la passe ; puis, d'une voix plate : « J'ai regardé au sud. »" },
       "Mais vous êtes passés. Derrière la ceinture, l'eau est verte et calme, et l'Ouïe est là, grise, énorme, avec ses mouettes.",
     ],
     choices: [{ back: R }] },
@@ -1128,7 +1128,7 @@ Object.assign(P, {
       "Tu poses la paume sur la pierre. La note entre par ta main et monte jusque dans ta mâchoire. Tout ce que tu tiens se met à vibrer avec elle : la boucle de ta ceinture, le cornet dans ta poche, les dents.",
       { if: { item: "diapason" }, text: "Le diapason, contre la pierre, reprend la note et la tient, longtemps après que la houle s'est retirée. Quand tu le retires, il est tiède, et il chante encore un peu." },
       { if: { item: "iim_tr_ambre" }, text: "L'ambre, dans ta main, bourdonne comme une ruche lointaine. Il est chaud." },
-      { with: "salome", text: "Salomé a posé la main sur la pierre, elle aussi, sans rien dire. Quand elle la retire, ses yeux sont mouillés." },
+      { with: "salome", text: "Salomé a posé la main sur la pierre, elle aussi, en silence. Quand elle la retire, ses yeux sont mouillés." },
     ],
     choices: [{ back: R }] },
 

@@ -152,7 +152,7 @@ module.exports = {
     text: [
       "Il te faut deux heures pour revenir à pied à Corvèze, les mains liées. Le garçon blond parle à son cheval pour éviter de te parler.",
       "À la porte Saint-Rieul, le capitaine Rambert vous attend sous la voûte, en bottes et en robe de chambre, avec un domestique de la maison Corlay. Le domestique prend le paquet et part en courant vers la rue Haute.",
-      "« Bon travail », dit le capitaine au garçon blond. À toi, il ne dit rien. On te met dans la petite salle de la porte, avec un tabouret et une fenêtre grillagée qui donne sur la vallée.",
+      "« Bon travail », dit le capitaine au garçon blond. Devant toi, il se tait. On te met dans la petite salle de la porte, avec un tabouret et une fenêtre grillagée qui donne sur la vallée.",
       "De cette fenêtre, on voit la digue, très loin, et la lumière de la Maison des Vannes. Vers quatre heures, la pluie se met à tomber. Tu regardes la petite lumière à travers la pluie jusqu'au matin.",
       "Elle reste seule toute la nuit, cette lumière. Quelqu'un attendait, là-haut, et tu sais maintenant qu'il attendra en vain.",
     ] },
@@ -208,7 +208,7 @@ module.exports = {
     text: [
       "La porte Saint-Rieul est encore ouverte : il manque un quart d'heure à minuit. La rue Haute dort. Chez Corlay, au deuxième étage, une seule fenêtre est allumée.",
       "C'est une femme qui t'ouvre la porte de service : trente-cinq ans, une robe grise, des manchettes de lustrine aux poignets, une plume derrière l'oreille. Pernelle Daguet, la secrétaire. Elle regarde le paquet avant de regarder ton visage.",
-      "« Ah, dit-elle. Celui-là. » Elle ne bouge pas de la porte. « Monsieur paiera. Monsieur paie toujours. Mais réfléchis à une chose avant d'entrer : Monsieur paie très bien ce qu'il n'a pas encore. Ce qu'il a déjà, il le paie moins. »",
+      "« Ah, dit-elle. Celui-là. » Elle reste à la porte. « Monsieur paiera. Monsieur paie toujours. Mais réfléchis à une chose avant d'entrer : Monsieur paie très bien ce qu'il n'a pas encore. Ce qu'il a déjà, il le paie moins. »",
     ],
     choices: [
       { label: "« Je veux le voir. »", to: "M_corlay_porte" },

@@ -52,7 +52,7 @@ module.exports = {
     text: [
       "Tu lui donnes la toile cirée et la lettre au cachet vert. *Trois heures, la vanne de fond. Il faut quatre bras. Qu'Ilde fasse lever les Foulons à deux heures.*",
       "« Trois lanternes à cette fenêtre, quand je serai prêt. »",
-      "Ilde se lève. Elle va jusqu'à la porte de la pièce d'à côté, entrouverte. Elle regarde Bastien sur son banc. Elle revient sans un mot. Elle t'embrasse sur le front, comme on embrasse un enfant malade, et elle s'en va.",
+      "Ilde se lève. Elle va jusqu'à la porte de la pièce d'à côté, entrouverte. Elle regarde Bastien sur son banc. Elle revient en silence. Elle t'embrasse sur le front, comme on embrasse un enfant malade, et elle s'en va.",
       "À huit heures, Bastien se lève. Il dit qu'il va faire un tour, les yeux ailleurs. Tu entends son pas décroître dans l'escalier de la digue, plus vite que d'habitude.",
     ],
     choices: [{ label: "Préparer les lanternes", to: "A_lanternes" }] },

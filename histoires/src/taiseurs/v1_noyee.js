@@ -236,7 +236,7 @@ Object.assign(P, {
       { if: { has: "basse:equipage" }, text: "La conque sonne encore sur la grève, puis elle se tait d'un coup. Tes gens ont dû remonter dans la barque, ou la tirer plus loin. Tu espères qu'ils l'ont fait." },
       { with: "salome", text: "Salomé t'attrape par le bras, si fort que tu sens ses ongles à travers ta manche. « Maintenant, dit-elle. On monte. On ne retourne nulle part. Tu m'entends ? Nulle part. »" },
       { with: "tibere", text: "Tibère a de l'eau jusqu'aux mollets et regarde la rue du port d'un air de regret. « On aurait pu vider ce coffre, dit-il. » Puis il secoue la tête et se met à monter." },
-      { with: "lison", text: "Lison ne dit rien. Elle te pousse dans le dos, vers la chaussée." },
+      { with: "lison", text: "Lison se tait. Elle te pousse dans le dos, vers la chaussée." },
       { if: { has: "vn:helis_reste" }, text: "Sur un toit de la rue des Tonneliers, une lanterne brûle au-dessus de l'eau qui monte. Elle reste à sa place." },
       { with: "gildas", text: "Frère Gildas a relevé sa bure jusqu'aux genoux. « Montons », dit-il simplement." },
       { without: "any", text: "Il n'y a personne pour te dire quoi faire. L'eau te touche les chevilles, froide comme une main de mort, et tire déjà vers le bas." },
@@ -266,7 +266,7 @@ Object.assign(P, {
     text: [
       { first: true, text: "La lanterne est posée sur le faîte d'un toit, rue des Tonneliers. À côté d'elle, assise jambes pendantes dans les coquillages, une vieille femme en ciré de pêcheur pêche à la gaffe dans la rue d'en dessous. Elle ramène un pot, le regarde, le jette. Elle ramène un soulier, le regarde plus longtemps, le jette aussi. Quand tu t'approches, elle lève sa lanterne sans se lever." },
       { first: true, text: "« Hélis Graumont, de Port-Vasier, dit-elle. Ne vous gênez pas pour moi. Je viens à chaque Grande Basse. C'est la quatorzième. » Elle a la voix râpée par le sel, des mains énormes, et une corde nouée autour de la taille dont l'autre bout est attaché à la cheminée." },
-      { again: true, text: "Hélis est toujours sur son toit, la gaffe en travers des genoux. Elle te regarde venir sans rien dire." },
+      { again: true, text: "Hélis est toujours sur son toit, la gaffe en travers des genoux. Elle te regarde venir." },
       "« Je {{oreille#vn_helis_cherche|cherche des choses qui se vendent, comme tout le monde|cherche mon fils, Aloïs, qui est resté ici à la Basse de l'an dernier, et que la mer n'a jamais rendu}}, dit-elle. Pour mes petits-enfants. Ils mangent, les petits-enfants. »",
       { with: "salome", text: "Salomé s'est arrêtée net. « Hélis, dit-elle. C'est toi. » La vieille femme hausse les épaules. « C'est moi, Brac. Toi aussi, tu viens chercher quelqu'un ? » Salomé ne répond pas." },
     ],
@@ -323,7 +323,7 @@ Object.assign(P, {
   VN_helis_choix: { act: "V", title: "La vieille femme et la mer", place: "sorne",
     text: [
       { if: { item: "vn_couteau_alois" }, text: "Tu poses le couteau d'Aloïs sur les genoux d'Hélis. C'est un couteau de pêche à manche de corne, avec une encoche au pouce. Elle le reconnaît tout de suite. Elle le prend à deux mains, et elle reste comme ça, sans pleurer, longtemps." },
-      { if: { not: { item: "vn_couteau_alois" } }, text: "Hélis t'écoute sans rien dire. Puis elle hoche la tête, deux fois, comme quand on vous annonce un prix trop cher." },
+      { if: { not: { item: "vn_couteau_alois" } }, text: "Hélis t'écoute en silence. Puis elle hoche la tête, deux fois, comme quand on vous annonce un prix trop cher." },
       { if: { seen: "VN_verrier" }, text: "« Il était là, dit-elle. Sous l'escalier. Je le savais. Je l'ai su tout de suite, l'an dernier, en nageant. »" },
       "Elle défait la corde de sa taille, et la laisse pendre le long de la cheminée. « Je vais rester encore un peu, dit-elle. Vous, partez. La mer {{oreille#vn_helis_fin|va revenir, il faut que je surveille ma barque|va revenir, et cette fois je l'attends ici, avec lui}}. »",
       { with: "salome", text: "Salomé s'accroupit devant elle. « Maïwenn aussi, dit-elle. Je ne suis jamais allée la chercher. J'ai cru pendant trois ans que c'était de la lâcheté. » Hélis la regarde. Salomé ne baisse pas les yeux." },
@@ -602,7 +602,7 @@ Object.assign(P, {
     text: [
       "La latte se soulève avec la pointe de ta dague. Dessous, dans un creux garni de laine pourrie, un peigne d'écaille blonde serti d'argent, avec trois dents cassées, et enroulé autour des dents, un long cheveu gris.",
       "C'est tout. La chose qu'une femme cache quand on lui a tout pris, pour garder une chose à elle.",
-      { with: "lison", text: "Lison prend le peigne, le retourne, et te le rend sans un mot. Elle a les yeux brillants. Elle les essuie d'un revers de manche en grommelant contre le sel." },
+      { with: "lison", text: "Lison prend le peigne, le retourne, et te le rend. Elle a les yeux brillants. Elle les essuie d'un revers de manche en grommelant contre le sel." },
     ],
     choices: [{ back: "VN_chambre_reine" }] },
 });
@@ -1189,7 +1189,7 @@ Object.assign(P, {
       "La quatrième statue de gauche {{pie#vn_statue|tient un livre de pierre contre sa poitrine|tient un livre de pierre, et le livre est creux : il y a une niche dedans, vide, la place d'un cornet}}.",
       { if: M(5), text: "L'eau monte sur la chaussée par le bas, en nappe mince, et elle s'arrête au pied de la quatrième statue. Plus haut, la pierre est encore sèche." },
       { if: MER, text: "Derrière toi, la ville s'enfonce. Le flot couvre la place des Quatre-Puits, entre dans les rues, roule vers la chaussée. La place ronde, au bout, est le seul endroit sec qui reste." },
-      { after: "lothaire:allie", text: "Lothaire Brunel marche à côté de toi, le cornet jumeau à la main. Il s'arrête devant chaque statue et l'écoute, la tête penchée, sans rien dire. « Ils ont tous la même voix, dit-il enfin. Comme une seule personne qui se répète. »" },
+      { after: "lothaire:allie", text: "Lothaire Brunel marche à côté de toi, le cornet jumeau à la main. Il s'arrête devant chaque statue et l'écoute, la tête penchée. « Ils ont tous la même voix, dit-il enfin. Comme une seule personne qui se répète. »" },
       { if: { all: [COURSE, M(0, 2)] }, text: "Sur la chaussée, à mi-pente, des lanternes : Lothaire Brunel et ses hommes. Ils ont posé leur tonneau au pied d'une statue, et Lothaire, le cornet jumeau à l'oreille, écoute la pierre." },
       { if: { all: [COURSE, M(0, 2), { has: "vn:vu_course" }] }, text: "D'en haut, tout à l'heure, tu les as vus avancer de statue en statue. Ils en ont gagné trois depuis. Ils écoutent chaque pierre, et cela leur prend du temps." },
       { if: { all: [COURSE, M(3)] }, text: "La chaussée est vide. Au bout, sur la place ronde, des lanternes sont posées par terre, en rond, et la porte, dans la paroi, est ouverte. Lothaire est passé avant toi." },
@@ -1204,7 +1204,7 @@ Object.assign(P, {
 
   VN_lothaire: { act: "V", title: "Lothaire Brunel", place: "sorne",
     text: [
-      "Lothaire te voit venir de loin et ne bouge pas. Il ôte le cornet jumeau de son oreille, le regarde, le remet. Ses hommes se lèvent, la main sur l'épée. Il les arrête d'un doigt. Ses gants gris sont noirs de vase jusqu'aux poignets.",
+      "Lothaire te voit venir de loin et reste où il est. Il ôte le cornet jumeau de son oreille, le regarde, le remet. Ses hommes se lèvent, la main sur l'épée. Il les arrête d'un doigt. Ses gants gris sont noirs de vase jusqu'aux poignets.",
       "« Vous voilà, dit-il de sa voix douce. J'ai entendu votre cloche, ou vos pas, ou vos pensées : ça fait du bruit, une personne qui cherche. » Il sourit. « Je {{oreille#vn_lothaire_or|ne veux que l'or. Gardez votre Charte, je n'en ai que faire|veux la Charte. Corisande la croit bonne à brûler ; le duc, lui, la paiera le prix d'une ville}}. »",
       { if: { has: "ivb:lothaire_libre" }, text: "« Nous nous sommes quittés chez Madame, ajoute-t-il. Je vous y ai laissé{e} avec ses gardes, et vous en êtes sorti{e} quand même. Je l'ai appris le lendemain. J'ai souri toute la journée. »" },
       "Il penche la tête, écoute. « Vous pensez que je mens. Vous avez raison, bien sûr. Mais vous pensez aussi que vous ne savez pas où est la porte. Et ça, c'est vrai. » Il montre le bout de la chaussée. « Moi, je le sais presque. »",
@@ -1296,7 +1296,7 @@ Object.assign(P, {
       { if: { has: "vn:soldats_porte" }, text: "Derrière toi, les piques d'Aveline attendent, en demi-cercle. Le capitaine a la main sur son épée." },
       { if: M(5, 5), text: "L'eau est au bas de la chaussée. Elle sera ici dans une heure." },
       { if: MER, text: "L'eau entre sur la place ronde. Elle te couvre les pieds. Derrière toi, la ville a disparu sous un fleuve gris qui monte. Il n'y a plus d'autre chemin que cette porte." },
-      { with: "gildas", text: "Frère Gildas lève les yeux vers le septième visage, celui qui n'a pas de bouche. Il le regarde longtemps, sans rien dire." },
+      { with: "gildas", text: "Frère Gildas lève les yeux vers le septième visage, celui qui n'a pas de bouche. Il le regarde longtemps, en silence." },
     ],
     choices: [
       { label: "Franchir la dernière porte", big: true, hide: { not: { has: "vn:porte_ouverte" } }, to: "VT_seuil" },

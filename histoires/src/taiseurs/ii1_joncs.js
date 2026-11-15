@@ -25,7 +25,7 @@ Object.assign(P, {
 
   IIJ_roseaux: { act: "II", title: "Dans la barque", with: "lison",
     text: [
-      "Lison ne répond pas tout de suite. Elle prend un chenal plus étroit, où les roseaux se referment au-dessus de vos têtes en tunnel, et la lumière devient verte. Elle rame de la gaffe, un coup à gauche, un coup à droite, sans heurter une seule tige.",
+      "Lison prend son temps pour répondre. Elle prend un chenal plus étroit, où les roseaux se referment au-dessus de vos têtes en tunnel, et la lumière devient verte. Elle rame de la gaffe, un coup à gauche, un coup à droite, sans heurter une seule tige.",
       "« Ma grand-mère est aveugle, dit-elle enfin. Elle fait de la dentelle. Elle a quatre-vingt-quatre ans et elle entend mieux que toi avec ton os de baleine. Ce que tu diras devant elle, elle l'entendra deux fois. Ce que tu penseras aussi. » Elle souffle sur ses doigts. « Elle {{oreille#iij_lison_ordre|voudra juste te voir, c'est une vieille curieuse|voudra savoir si j'ai repris le cornet, et je n'ai pas de réponse à lui donner}}. »",
       "Elle te regarde enfin, en biais. « Les Joncs n'aiment pas les étrangers. {{oreille|Toi, tu en es un, alors tiens-toi droit et ne touche à rien|Toi, tu n'en es pas un, et c'est bien ce qui m'agace}}. »",
       { after: "passe:voleur", text: "« Et garde tes mains dans tes poches, ajoute-t-elle. Une batelière sait reconnaître des doigts qui ont appris à prendre. »" },
@@ -123,7 +123,7 @@ Object.assign(P, {
       "L'escalier est raide comme une échelle, et chaque marche a sa voix. La maison a trois pièces sur des pilotis de chêne, et la première est tout entière occupée par la lumière : une fenêtre ouverte sur le marais, une lampe à huile allumée en plein jour, et devant la fenêtre une très vieille femme assise à un carreau de dentellière, cent fuseaux pendus au bord du coussin. Ses mains vont et viennent sans hâte. Ses yeux sont blancs, deux pierres de lait sous des paupières fines.",
       "« Approche, dit Mère Ancolie. Tu as {{oreille#iij_pas|le pas de quelqu'un qui a dormi dans une barque|le pas de ta mère, lourd du talon, comme si le plancher allait partir}}. » Elle ne lève pas la tête. Les fuseaux continuent. « Tu portes l'os à ta hanche. Porte-le à l'oreille, si tu veux. Moi, je n'en ai jamais eu besoin. »",
       { with: "lison", text: "Lison s'est arrêtée sur le seuil. Sa grand-mère tourne vers elle son visage aveugle, et la regarde, c'est le mot. « Tu as maigri, dit Mère Ancolie. Et tu {{oreille#iij_ancolie_lison|as bien ramé|n'as pas fait ce que je t'avais demandé}}. » Lison rougit jusqu'aux oreilles, et c'est la première fois que tu la vois rougir." },
-      { with: "gildas", text: "Frère Gildas monte derrière toi. Mère Ancolie s'arrête de travailler pour la première fois. « Il y a un homme du Mont sur mon escalier, dit-elle. Qu'il attende en bas, avec la pluie. » Gildas redescend sans un mot." },
+      { with: "gildas", text: "Frère Gildas monte derrière toi. Mère Ancolie s'arrête de travailler pour la première fois. « Il y a un homme du Mont sur mon escalier, dit-elle. Qu'il attende en bas, avec la pluie. » Gildas redescend en silence." },
       { with: "tibere", text: "Tibère, sur la dernière marche, ôte son chapeau. Mère Ancolie a un petit rire sec. « Et celui-là compte ses mots comme des liards. Entrez, sergent. Asseyez-vous près de la porte. »" },
       { if: { has: "pq:broderie_lue" }, text: "Tu lui parles de la broderie encadrée au-dessus du lit d'Odeline, du héron, du roseau, et de la ligne sous les lettres. Les fuseaux ralentissent. « Elle l'a brodée ici, à dix ans, assise à côté de moi, dit Mère Ancolie. Elle avait déjà la main plus sûre que la langue. »" },
       { if: { all: [{ has: "i4:melisende_taiseuse" }, { is: { i4_barque: "rendue" } }] }, text: "« Mélisende m'a porté ton nom, ajoute-t-elle, avec l'histoire de sa barque. Elle porte mes paroles en ville depuis vingt ans. Tu lui as rendu de quoi les porter. »" },
@@ -311,7 +311,7 @@ Object.assign(P, {
 
   IIJ_recit_silence: { act: "II", title: "Ce qu'elle tait", place: "joncs",
     text: [
-      { after: "voile:iij_gardien", text: "Mère Ancolie ne répond pas tout de suite. Ses fuseaux s'arrêtent, puis reprennent plus vite. « Tu as entendu ce que je n'ai pas dit, dit-elle. Bien. Tu n'entendras pas le reste. Le nom du Gardien appartient au serment, et tu n'as pas juré. » Sous ses mots, cette fois, le cornet ne trouve rien à faire trembler : elle dit exactement ce qu'elle pense." },
+      { after: "voile:iij_gardien", text: "Mère Ancolie prend son temps pour répondre. Ses fuseaux s'arrêtent, puis reprennent plus vite. « Tu as entendu ce que je n'ai pas dit, dit-elle. Bien. Tu n'entendras pas le reste. Le nom du Gardien appartient au serment, et tu n'as pas juré. » Sous ses mots, cette fois, le cornet ne trouve rien à faire trembler : elle dit exactement ce qu'elle pense." },
       "« Pourquoi toi ? » Elle a un petit rire. « Parce que la Banque cherche ce que nous gardons, et qu'elle a un chercheur qui entend comme toi. Parce que le premier feuillet est sorti de sa cache, et que les autres suivront. Parce que mes mains sont vieilles, et que Lison {{oreille#iij_ancolie_lison2|est trop jeune pour ça|a déjà fait son choix, que c'est toi, et qu'elle ne le sait pas encore}}. »",
       "« Va à la Saline. Va aux Écueils. Rapporte ce que tu trouves, et ne le montre à personne qui parle trop. La dentelle t'aidera, quand tu l'auras méritée. »",
     ],
@@ -411,7 +411,7 @@ Object.assign(P, {
   IIJ_ancolie_tibere: { act: "II", title: "Le sergent et la Mère", place: "joncs", with: "tibere",
     fx: { ep: ["perso", 600] },
     text: [
-      "Tibère s'assied sur le tabouret près de la porte, son chapeau sur les genoux. Mère Ancolie tourne vers lui ses yeux blancs, et ne dit rien pendant assez longtemps pour qu'il se mette à tourner son chapeau.",
+      "Tibère s'assied sur le tabouret près de la porte, son chapeau sur les genoux. Mère Ancolie tourne vers lui ses yeux blancs, et se tait assez longtemps pour qu'il se mette à tourner son chapeau.",
       { if: { not: { has: "tibere:espion" } }, text: "« Vous écrivez beaucoup de lettres, sergent, dit-elle enfin. Pour un homme qui n'a plus de famille. » Tibère s'éclaircit la gorge. « J'écris {{oreille#iij_tib_lettres|à ma fille, Rosalie, quand j'ose|à la Banque, chaque lundi, cinq ducats la lettre, et je dis où vous dormez}}, dit-il. »" },
       { if: { has: "tibere:espion" }, text: "« Vous avez honte, sergent, dit-elle enfin. C'est un début. » Tibère regarde ses mains. « J'ai {{oreille#iij_tib_honte|fait mon métier, c'est tout|vendu un enfant de la maison d'Odeline pour payer des dés, et je continue parce que je ne sais pas comment on arrête}}, dit-il. »" },
       "« Ma fille ne me parle plus », ajoute-t-il, et sous cette phrase-là, le cornet ne trouve rien du tout.",
@@ -426,10 +426,10 @@ Object.assign(P, {
     fx: { ep: ["perso", 500] },
     text: [
       "Frère Gildas monte l'escalier en tenant la rampe. Il s'arrête sur le seuil, rabat son capuchon, et salue la vieille femme : deux doigts au front, deux doigts aux lèvres.",
-      "Mère Ancolie ne lui rend pas son salut. Elle ne s'arrête pas de travailler. « Vous avez fait une longue route, frère, dit-elle. {{oreille#iij_anc_gildas|Le Mont est loin d'ici, et vos jambes ne sont plus jeunes|Je sais ce que le Mont t'a confié, et je sais ce que ça pèse}}. »",
+      "Mère Ancolie ne lui rend pas son salut. Elle continue de travailler. « Vous avez fait une longue route, frère, dit-elle. {{oreille#iij_anc_gildas|Le Mont est loin d'ici, et vos jambes ne sont plus jeunes|Je sais ce que le Mont t'a confié, et je sais ce que ça pèse}}. »",
       "« La route est longue pour tout le monde, Mère, dit Gildas. Je prie pour ceux qui la font. »",
       "« Priez pour ceux qui la finissent », dit-elle. Ses fuseaux claquent. Gildas reste debout sur le seuil, les mains dans les manches, jusqu'à ce qu'elle lui dise de s'asseoir, et elle ne le dit pas.",
-      { with: "lison", if: { has: "ib:gildas_joncs" }, text: "Lison, assise sur le coffre, regarde Frère Gildas, puis sa grand-mère. « C'est lui, dit-elle. À la Saint-Aymeric, il était assis à ta droite. » Mère Ancolie ne répond pas. Gildas baisse les yeux sur ses mains." },
+      { with: "lison", if: { has: "ib:gildas_joncs" }, text: "Lison, assise sur le coffre, regarde Frère Gildas, puis sa grand-mère. « C'est lui, dit-elle. À la Saint-Aymeric, il était assis à ta droite. » Mère Ancolie se tait. Gildas baisse les yeux sur ses mains." },
     ],
     choices: [{ back: "II_hub" }] },
 });
@@ -452,7 +452,7 @@ Object.assign(P, {
       "Tu sors le diapason de Sorne et tu le frappes doucement contre le pied de chêne du carreau. La note monte dans la pièce et ne s'arrête pas tout à fait. Mère Ancolie lâche ses fuseaux.",
       "« Ma mère m'a parlé de ce son, dit-elle. Elle ne l'avait jamais entendu. » Elle reste immobile tant que la note dure. Ensuite, elle tourne la tête vers la fenêtre, vers le large. « Le vent va tourner au suroît. Ceux qui t'ont suivi{e} aux Écueils sont rentrés à Salvèze plus vite que toi, et ils savent maintenant où dorment les feuillets. »",
       "La pièce, au diapason, {{echo#iij_chambre|sent la cire, la laine et l'huile de la lampe|rend une voix d'enfant qui compte des fuseaux, et la voix d'Ancolie, plus jeune, qui dit : « Iris, recommence, tu as sauté le septième. »}}.",
-      { with: "salome", text: "Salomé, restée près de la porte, regarde la vieille femme. « Vous avez dit que vous entendiez tout, dit-elle. Alors dites-moi. » Mère Ancolie tourne vers elle ses yeux blancs. « Vous retenez votre souffle depuis trois ans, capitaine, comme sous l'eau. » Salomé ne répond pas. « Elle {{oreille#iij_salome_ancolie|n'aimait pas qu'on parle d'elle|n'a pas lâché la corde. Je l'ai vue remonter. C'est la corde qui l'a lâchée}} », dit-elle enfin." },
+      { with: "salome", text: "Salomé, restée près de la porte, regarde la vieille femme. « Vous avez dit que vous entendiez tout, dit-elle. Alors dites-moi. » Mère Ancolie tourne vers elle ses yeux blancs. « Vous retenez votre souffle depuis trois ans, capitaine, comme sous l'eau. » Salomé se tait. « Elle {{oreille#iij_salome_ancolie|n'aimait pas qu'on parle d'elle|n'a pas lâché la corde. Je l'ai vue remonter. C'est la corde qui l'a lâchée}} », dit-elle enfin." },
     ],
     choices: [{ back: "II_hub" }] },
 
@@ -473,7 +473,7 @@ Object.assign(P, {
     text: [
       "Tu t'assieds dans l'herbe mouillée, le dos contre le poteau. Le bois est froid. Le ruban rose bat contre ta joue au rythme du vent.",
       "Tu cherches un souvenir d'elle. Il te vient une odeur de fumée et de chanvre, la même que celle de Lison, et rien d'autre : pas de visage, pas de voix.",
-      { with: "lison", text: "Lison arrive par la passerelle et s'arrête à dix pas. Elle ne s'approche pas. Elle reste là, debout, le temps qu'il faut, puis elle s'en va sans rien dire." },
+      { with: "lison", text: "Lison arrive par la passerelle et s'arrête à dix pas. Elle ne s'approche pas. Elle reste là, debout, le temps qu'il faut, puis elle s'en va." },
       { without: "lison", text: "Une barque passe dans le bassin. La femme qui rame te voit assis{e} là, devant ce poteau, et elle cesse de ramer un instant." },
     ],
     choices: [{ back: "IIJ_tertre" }] },
@@ -492,7 +492,7 @@ Object.assign(P, {
 
   IIJ_maison_vasse: { act: "II", title: "Les pieux brûlés", place: "joncs", backName: "les pieux brûlés de la maison Vasse",
     text: [
-      "Il ne reste de la maison d'Aymeric Vasse qu'un carré de pieux noircis jusqu'à l'eau, plus gros que tous ceux du village, et quelques poutres effondrées dans la vase. Les Joncs n'y amarrent jamais leurs barques. Les enfants n'y jouent pas. Une bergeronnette sautille sur la poutre du seuil, la seule restée à peu près droite.",
+      "Il ne reste de la maison d'Aymeric Vasse qu'un carré de pieux noircis jusqu'à l'eau, plus gros que tous ceux du village, et quelques poutres effondrées dans la vase. Les Joncs amarrent leurs barques ailleurs. Les enfants jouent plus loin. Une bergeronnette sautille sur la poutre du seuil, la seule restée à peu près droite.",
       "Le vent {{echo#iij_aymeric|siffle dans les pieux brûlés et fait trembler l'eau entre eux|ramène une voix d'homme, posée, la voix de quelqu'un qui dicte : « Le fuseau d'ambre sous le seuil, pour celle qui filera la dernière. Que la Banque brûle la maison, elle ne brûlera pas l'eau. »}}.",
       "La poutre du seuil {{pie#iij_seuil|est noire de suie, comme le reste|porte, sous la suie, une encoche taillée de main d'homme, juste à la hauteur de l'eau basse}}.",
     ],
@@ -626,7 +626,7 @@ Object.assign(P, {
     text: [
       "Le colporteur a de beaux yeux tristes et une moustache cirée. Il te prend tout de suite pour quelqu'un qui a de l'argent. Il sort de sa boîte un carré de velours, le déplie avec lenteur : dedans, une grosse perle grise, ronde comme un pois chiche.",
       "« Une perle des marais, dit-il. On en trouve une tous les dix ans, dans une moule d'eau douce, au fond de la grande coulée. Celle-là {{pie#iij_perle|a l'orient laiteux des vraies perles d'eau douce, avec ce reflet rose qu'on ne peut pas imiter|est une bille de verre trempée dans de la colle d'écaille, et le reflet rose vient d'un trait de cochenille passé au pinceau}}. Trois ducats. Pour vous. »",
-      { with: "lison", text: "Lison regarde la perle par-dessus ton épaule et ne dit rien. Elle a la bouche d'une fille qui s'empêche de rire." },
+      { with: "lison", text: "Lison regarde la perle par-dessus ton épaule et se tait. Elle a la bouche d'une fille qui s'empêche de rire." },
     ],
     choices: [
       { label: "Acheter la perle (trois ducats)", fx: { gold: -60, item: "iij_tr_perle" }, back: "IIJ_ponton" },
@@ -770,7 +770,7 @@ Object.assign(P, {
   IIJ_espion_nuit: { act: "II", title: "La nuit sans lune", place: "joncs", takes: "night",
     text: [
       "Tu attends la nuit sans lune, couché{e} dans une barque amarrée sous la passerelle, une couverture sur la tête. Le village s'éteint galerie par galerie. Vers minuit, une échelle grince du côté de la Nasse. Une silhouette descend dans une barque, sans lanterne, et s'éloigne vers la coulée à la pagaie, à petits coups silencieux.",
-      { with: "lison", text: "Lison est à l'arrière de ta barque. Elle détache l'amarre sans un mot et pousse sur sa gaffe. Votre barque glisse derrière l'autre." },
+      { with: "lison", text: "Lison est à l'arrière de ta barque. Elle détache l'amarre et pousse sur sa gaffe. Votre barque glisse derrière l'autre." },
     ],
     choices: [
       { label: "Suivre la barque à distance", test: { dom: "discretion", diff: -10, label: "Suivre une barque dans le noir", help: [{ with: "lison", v: 20 }, { if: { arch: "voleur" }, v: 10 }] },
@@ -857,7 +857,7 @@ Object.assign(P, {
     text: [
       "Les pêcheurs lient Ardouin Mesle avec ses propres lignes, sans brutalité, comme on lie une bête qu'on emmène au marché. Cyprien prend son bonnet rouge et le plante au bout d'une perche, au milieu du ponton.",
       "« On le gardera au fumoir, dit-il. Il y fera chaud. Et le jour où la Banque viendra le chercher, elle saura que les Joncs ont des oreilles. »",
-      { after: "iij:surveille", text: "Les deux pêcheurs qui te suivaient des yeux depuis ton arrivée viennent te serrer la main, l'un après l'autre, sans un mot." },
+      { after: "iij:surveille", text: "Les deux pêcheurs qui te suivaient des yeux depuis ton arrivée viennent te serrer la main, l'un après l'autre, en silence." },
     ],
     choices: [{ back: "II_hub" }] },
 
@@ -1097,7 +1097,7 @@ Object.assign(P, {
   IIJ_leg_retour: { act: "II", title: "La capitaine dans les roseaux", with: "salome",
     fx: { conf: { salome: 3 } },
     text: [
-      "Salomé Brac n'aime pas les marais. Elle le dit au bout d'une heure, puis elle ne dit plus rien. Elle se tient au milieu de la barque, les bras croisés, comme sur un pont de navire qui roule, et elle regarde les roseaux comme une côte où l'on va s'échouer.",
+      "Salomé Brac n'aime pas les marais. Elle le dit au bout d'une heure, puis elle se tait. Elle se tient au milieu de la barque, les bras croisés, comme sur un pont de navire qui roule, et elle regarde les roseaux comme une côte où l'on va s'échouer.",
       "« On ne voit pas loin, ici, finit-elle par dire. En mer, au moins, tu vois venir ce qui va te tuer. » Elle crache par-dessus bord. « {{oreille#iij_salome_marais|Je déteste l'eau qui ne bouge pas|Maïwenn venait des marais. Elle sentait la vase quand elle sortait de l'eau, même en pleine mer, et je me moquais d'elle}}. »",
       { with: "lison", text: "Lison, à la gaffe, lui jette un coup d'œil. Elle ne se moque pas. Elle prend le chenal le plus large, celui d'où l'on voit le ciel." },
     ],

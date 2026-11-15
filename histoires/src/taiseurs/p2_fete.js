@@ -28,7 +28,7 @@ module.exports = {
         { label: "La salle des morts de la chapelle des Noyés, au bout du quai, où l'on veille Odeline", to: "PF_morgue" },
         { label: "La boutique du père Gobelin, brocanteur, deux portes plus loin", to: "PF_gobelin" },
         { label: "Le Falot, le cabaret du pont des Changeurs", to: "PF_falot" },
-        { label: "Le comptoir de l'usurier Gaudrel, au pont aux Liards", if: { any: [{ seen: "PF_not_creanciers" }, { has: "poids:dette" }] }, why: "Tu ne sais pas encore ce qu'Odeline devait, ni à qui.", to: "PF_usurier" },
+        { label: "Le comptoir de l'usurier Gaudrel, au pont aux Liards", if: { any: [{ seen: "PF_not_creanciers" }, { has: "poids:dette" }] }, why: "Tu ignores encore ce qu'Odeline devait, et à qui.", to: "PF_usurier" },
         { label: "Ouvrir le carnet d'Odeline", hide: { not: { item: "pf_carnet" } }, to: "PF_carnet" },
         { label: "Un homme aux gants gris t'attend au pied du pont des Noyés", big: true, hide: { any: [{ seen: "PF_lothaire" }, { all: [{ not: { seen: "PF_notaire" } }, { not: { seen: "PF_morgue" } }] }] }, to: "PF_lothaire" },
         { label: "Les funérailles d'Odeline, au cimetière des Noyés", big: true, hide: { any: [{ not: { has: "pf:fun_prete" } }, { seen: "PF_fun_depart" }] }, to: "PF_fun_depart" },
@@ -119,7 +119,7 @@ module.exports = {
     PF_lant_bleue: { act: "P", title: "La lanterne bleue", place: "quai",
       fx: { flag: "pf:lanterne_bleue", ep: ["perso", 200] },
       text: [
-        { outcome: ["lose", "flee"], text: "Tu glisses, et tu tombes dans le canal jusqu'à la taille. L'eau de la fin d'hiver te coupe le souffle. Les rats s'égaillent. L'éclusier pose sa pipe, descend trois marches et te tend sa perche, l'air de quelqu'un dont la journée vient de s'éclairer. Quand tu remontes sur la pierre, trempé{e} et grelottant{e}, tu tiens la lanterne bleue contre ta poitrine, et tu ne sais pas à quel moment tu l'as attrapée." },
+        { outcome: ["lose", "flee"], text: "Tu glisses, et tu tombes dans le canal jusqu'à la taille. L'eau de la fin d'hiver te coupe le souffle. Les rats s'égaillent. L'éclusier pose sa pipe, descend trois marches et te tend sa perche, l'air de quelqu'un dont la journée vient de s'éclairer. Quand tu remontes sur la pierre, trempé{e} et grelottant{e}, tu tiens la lanterne bleue contre ta poitrine, et tu ignores à quel moment tu l'as attrapée." },
         "C'est une lanterne de papier huilé, teint au pastel, tendue sur six baguettes d'osier. Elle a pris l'eau d'un côté, mais le nom tient encore, en grandes lettres blanches maladroites : *NOÉ*. Dessous, plus petit, une main d'enfant ou de femme qui sait mal écrire a ajouté : *reviens manger*.",
         "La bougie a brûlé jusqu'au bout. Elle est restée accrochée à la grille toute la nuit, allumée, au milieu de cent autres, à trois toises de la Salve.",
         { with: "tibere", text: "Tibère la regarde par-dessus ton épaule et se racle la gorge. « Rosalie m'en faisait, des comme ça, dit-il. Avec mon nom dessus. Pour rire. Quand j'étais de garde la nuit des Lanternes. » Il se tait. Il garde pour lui depuis quand elle a cessé." },
@@ -689,7 +689,7 @@ module.exports = {
       choices: [{ back: "PF_ville" }] },
     PF_us_blanc: { act: "P", title: "Hier soir", place: "quai",
       text: [
-        "Gaudrel ne bouge pas. Puis il sourit, un sourire de dents serrées. « Vous avez une imagination de chercheur. C'est un métier où on invente beaucoup. » Mais ses mains, posées sur la table, se sont rapprochées l'une de l'autre, et le pouce droit frotte l'index, comme pour effacer une tache d'encre qui n'y est plus.",
+        "Gaudrel reste immobile. Puis il sourit, un sourire de dents serrées. « Vous avez une imagination de chercheur. C'est un métier où on invente beaucoup. » Mais ses mains, posées sur la table, se sont rapprochées l'une de l'autre, et le pouce droit frotte l'index, comme pour effacer une tache d'encre qui n'y est plus.",
         "« {{oreille#pf_gaudrel_peur|Le Guet me donnera raison, j'ai des amis au Guet|Si le Guet compare l'encre de la somme et celle de la signature, je suis pendu au pont aux Liards, devant ma propre fenêtre}}, dit-il. »",
       ],
       choices: [
@@ -826,7 +826,7 @@ module.exports = {
         { if: { has: "lothaire:refuse" }, text: "Sur le pont des Noyés, le parapet où Lothaire Brunel t'attendait hier est vide. Tu regardes quand même." },
         { if: { has: "pf:faux_vendu" }, text: "Quelque part sur l'île des Changeurs, un homme aux gants gris porte à son oreille un cornet de corne à trois liards, et n'entend que sa propre voix. Pour peu de temps." },
         { with: "tibere", text: "Tibère t'attend sur la borne du pont, la masse à la ceinture, un quignon de pain à la main. « Deux cents marches, dit-il. J'ai compté, l'hiver où j'y étais de garde. Deux cent douze, exactement. » Il se lève en grognant." },
-        { with: "gildas", text: "Frère Gildas est debout à côté de lui, appuyé sur son bâton, le capuchon bas. Il regarde la tour au-dessus des toits, sans rien dire." },
+        { with: "gildas", text: "Frère Gildas est debout à côté de lui, appuyé sur son bâton, le capuchon bas. Il regarde la tour au-dessus des toits, en silence." },
         "Au-dessus des toits, le Beffroi de la reine sonne neuf heures. La cloche du haut, la fêlée, reste muette.",
       ],
       choices: [{ label: "Monter vers la place du Beffroi", big: true, exit: true, to: "I_debut" }] },

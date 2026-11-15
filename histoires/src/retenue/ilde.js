@@ -34,7 +34,7 @@ module.exports = {
       "Bastien est allongé sur le banc, la joue sur son bras, les yeux fermés. Il respire lentement, régulièrement, trop régulièrement.",
       "Ses bottes, par terre à côté du banc, sont trempées jusqu'à la cheville. Il a plu cet après-midi entre deux et trois heures. À quatre heures, la pluie avait cessé.",
       "Tu as passé ta vie au chevet de gens qui font semblant de dormir pour qu'on les laisse tranquilles. Tu sais reconnaître une respiration qui écoute.",
-      "Tu refermes la porte doucement, sans un mot. Anselme te regarde revenir.",
+      "Tu refermes la porte doucement. Anselme te regarde revenir.",
     ],
     choices: [{ label: "Prendre la clé, et redescendre", to: "I_route", fx: { item: "paquet", time: 0.75 } }] },
   I_descente: { act: A, title: "Le pont, à neuf heures moins le quart", place: "pont",
@@ -135,7 +135,7 @@ module.exports = {
     text: [
       { if: { has: "route:aulnes" }, text: "À trois heures, du parvis de Saint-Rieul, tu entends la digue : un grincement de fer, puis une chaîne qu'on dévide. Ta courrière est arrivée. Ou Jacquette a trouvé ce qu'elle cherchait. Anselme a ses quatre bras." },
       { if: { has: "route:ponceau" }, text: "À trois heures, du parvis de Saint-Rieul, tu entends la digue : un grincement de fer, puis une chaîne qu'on dévide. La petite est passée sous le pont." },
-      { if: { has: "route:guillot" }, text: "À trois heures, du parvis de Saint-Rieul, tu entends la digue : un grincement de fer, puis une chaîne qu'on dévide. Guillot est passé par l'eau. Nine, à côté de toi, serre les poings sur son ventre, sans un mot." },
+      { if: { has: "route:guillot" }, text: "À trois heures, du parvis de Saint-Rieul, tu entends la digue : un grincement de fer, puis une chaîne qu'on dévide. Guillot est passé par l'eau. Nine, à côté de toi, serre les poings sur son ventre." },
       { if: { has: "route:pont" }, text: "À trois heures, tu tends l'oreille vers la digue. Le vent. Rien que le vent. À trois heures et demie, toujours le vent. Au bout de la vallée, à la fenêtre de la Maison des Vannes, une seule lanterne brûle." },
       { if: { not: { has: "route:pont" } }, text: "À quatre heures, la pluie. Au jour, la Sorge est dans les Foulons jusqu'aux fenêtres basses. Les maisons sont pleines d'eau brune, les cuves renversées, les draps perdus. Le quartier regarde tout cela d'en haut, en couvertures, vivant. Le vieux Mallet compte deux fois sa rue sur ses doigts. Le compte est bon." },
       { if: { has: "route:pont" }, text: "À cinq heures et demie, la digue cède. Tu l'entends avant de la voir : un grondement qui descend la vallée, puis la Sorge qui se lève comme une bête, une seule vague brune, haute comme une maison. Elle passe sur les Foulons. Quand elle est passée, il reste des toits. Le quartier, sur le parvis, regarde l'endroit où étaient ses maisons. Tout le monde est là. Tout le reste est parti." },
@@ -144,7 +144,7 @@ module.exports = {
       { if: { has: "ilde:enfant_dur" }, text: "Sous le porche, la petite Josselin dort, livide, le bébé contre elle. Il a fallu une heure. Deux fois, tu as eu peur de les perdre tous les deux. Tes mains sont encore rouges jusqu'aux poignets." },
       { if: { has: "ilde:enfant_eglise" }, text: "Dans l'église, au pied de l'autel, la petite Josselin a accouché d'un garçon, sur des chasubles pliées. Tu es arrivée à temps, de justesse." },
       { if: { has: "fulbert:dort" }, text: "Fulbert se réveille vers sept heures, sur une civière, sous le porche de Saint-Rieul. Il ignore comment il est arrivé là. Il te cherche des yeux, et il détourne le regard le premier." },
-      "Les femmes viennent te voir une à une, sans un mot. L'une t'apporte du café. Une autre t'embrasse les mains.",
+      "Les femmes viennent te voir une à une, en silence. L'une t'apporte du café. Une autre t'embrasse les mains.",
       "Là-haut, au bout du lac, tu penses au vieil homme dans son fauteuil, près du baromètre.",
     ] },
 

@@ -73,7 +73,7 @@ module.exports = {
     ] },
   O_loutre_seule: { act: A, title: "Regarde sous tes pierres", place: "pont", end: true, fx: { time: 5 },
     text: [
-      "La Loutre te regarde une seconde de trop. Puis elle part en courant vers la digue, sans un mot.",
+      "La Loutre te regarde une seconde de trop. Puis elle part en courant vers la digue.",
       "Tu restes à ton pont. À deux heures, en bas, la cloche du lavoir sonne à la volée. Des lanternes sortent des maisons et montent la Côte en file. Tu cherches des yeux celle de la rue du Lavoir, la troisième après la fontaine. Elle sort la dernière, lentement, à la hauteur d'une femme qui porte un ventre rond.",
       "À trois heures et demie, au bout de la vallée, la fenêtre de la Maison des Vannes s'allume deux fois, puis trois.",
       "À quatre heures, la pluie. Au jour, la Sorge est dans les Foulons jusqu'aux fenêtres basses, et les Foulons sont vides. Ton poste te tient jusqu'à huit heures. Tu regardes le parvis de Saint-Rieul, de loin, jusqu'à ce que Colin te relève.",
@@ -82,7 +82,7 @@ module.exports = {
   O_route_loutre: { act: A, title: "Dix bornes avec la Loutre", place: "berge", fx: { time: 1 },
     text: [
       "« Colin. Le pont est à toi. Si le capitaine descend, je suis parti pisser. »",
-      "Colin ouvre de grands yeux. Tu décroches ta lanterne. La Loutre te regarde faire sans un mot. Puis elle se met en marche, et tu marches à côté d'elle.",
+      "Colin ouvre de grands yeux. Tu décroches ta lanterne. La Loutre te regarde faire en silence. Puis elle se met en marche, et tu marches à côté d'elle.",
       "Dix bornes sur la route de la Digue. Le vent dans la figure. Vous vous taisez. À la septième borne, elle dit : « Tu m'as arrêtée deux fois. » Tu réponds : « Et ratée vingt. » Elle rit, une fois, sans s'arrêter de marcher.",
       "Au pied du mur, la cabane des Loutres, une planche à la porte, et devant la porte une pierre plate peinte en bleu.",
     ],
