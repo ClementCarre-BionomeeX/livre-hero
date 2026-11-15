@@ -69,6 +69,21 @@ module.exports = {
       { label: "D'un monastère, où l'on t'a élevé sans jamais te dire qui t'y avait laissé", fx: { flag: "passe:cloitre" } },
     ] },
   ],
+  // The world of this book (8.6): what an inhabitant knows before the first page. Nothing of the plot.
+  lore: {
+    pages: [
+      { title: "Le château de Vellane", text: [
+        "Messire Aubert de Vellane est chevalier, et il tient son château au pied du Mont-Veille. Il a deux pages, logés sous les combles. Un page sert : il lace les bottes, bouchonne les chevaux, porte les plats à table et apprend les armes quand on veut bien les lui apprendre.",
+        "À la Saint-Michel, le chevalier choisit parmi ses pages celui qui deviendra son écuyer. L'écuyer suit son maître partout, porte ses armes et son écu, et devient chevalier à son tour, un jour.",
+        "Comme partout, on raconte au coin du feu des histoires sur la montagne la plus proche. Ici, c'est le Mont-Veille.",
+      ] },
+    ],
+    names: {
+      "Vellane": "Le château de Messire Aubert, au pied du Mont-Veille.",
+      "Mont-Veille": "La montagne au-dessus de Vellane, dont on raconte des histoires au coin du feu.",
+      "Saint-Michel": "La fête d'automne où Messire Aubert choisira son écuyer.",
+    },
+  },
   world: {
     start: { place: "vellane", gold: 3, food: 1, items: ["dague"],
       kits: { guerrier: ["epee_courte"], rodeur: ["arc_court"], voleur: ["dague_jet"], mage: ["baton"], pretre: ["baton"] } },

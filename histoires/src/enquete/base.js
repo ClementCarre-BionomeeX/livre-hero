@@ -306,6 +306,31 @@ module.exports = {
       { label: "Tu ne sais pas. Elle a frappé à toutes les portes de l'auberge, et tu es la seule personne à avoir ouvert.", fx: { flag: "passe:hasard" } },
     ] },
   ],
+  // The world of this book (8.6): what an inhabitant knows before the first page. Nothing of the plot.
+  lore: {
+    pages: [
+      { title: "Orbeval, la ville aux onze ponts", text: [
+        "**Orbeval** tient sur l'Aune par onze ponts. Le plus beau, celui des Changeurs, porte des maisons à trois étages et des boutiques ouvertes sur l'eau ; le plus pauvre, celui des Lavandières, est une passerelle de planches au-dessus du canal des Tanneurs.",
+        "En haut, la **Haute-Ville**, ses cloches et la tour du Guet, où l'on garde les prisonniers. En bas, au fil de l'eau, les quartiers des métiers : les Tanneurs, les Teinturiers, le quai des Orfèvres. La Monnaie de la ville y frappe ses écus.",
+      ] },
+      { title: "Usages", text: [
+        "On paie en sous et en deniers ; un écu d'argent vaut vingt sous.",
+        "Le **Guet** fait la police de la ville et garde ceux qu'il arrête dans sa tour. Leurs proches peuvent leur porter du pain le matin.",
+        "Chaque année, à la **Fête des Lanternes**, toute la ville met à l'eau des milliers de petites barques de papier, chacune avec sa chandelle, et le fleuve descend vers la mer en brûlant jusqu'à minuit.",
+      ] },
+    ],
+    names: {
+      "Orbeval": "La ville aux onze ponts, sur l'Aune.",
+      "Aune": "Le fleuve d'Orbeval, qui descend vers la mer.",
+      "Pont des Changeurs": "Le plus beau pont d'Orbeval, bordé de maisons à trois étages et de comptoirs de changeurs.",
+      "Lavandières": "Le pont des Lavandières, une passerelle de planches sur le canal des Tanneurs.",
+      "Tanneurs": "Le quartier des tanneurs, au bord du canal et de son écluse.",
+      "Haute-Ville": "Le haut d'Orbeval, ses cloches et la tour du Guet.",
+      "Guet": "La garde de la ville ; sa tour, en Haute-Ville, sert de prison.",
+      "Monnaie": "L'atelier qui frappe les écus d'Orbeval.",
+      "Fête des Lanternes": "La nuit où toute la ville met à l'eau des barques de papier, une chandelle dans chacune.",
+    },
+  },
   world: {
     money: { units: [{ name: "écu", plural: "écus", value: 20, short: "é." }, { name: "sou", plural: "sous", value: 1, short: "s." }] },
     start: { place: "pont", hour: 7, clock: true, gold: 60, food: 0, items: [],

@@ -653,6 +653,10 @@
       if (cache.st === st) return cache;
       var defs = {}, forms = [];
       Object.keys(st.glossary || {}).forEach(function (k) { k.split("|").forEach(function (f) { f = f.trim().toLowerCase(); if (f) { defs[f] = { def: st.glossary[k], head: k.split("|")[0] }; forms.push(f); } }); });
+      // The names of the world (story.lore.names, 8.6): places, feasts, orders, what an inhabitant knows without thinking.
+      // Matched with their capital letter, so that a name that is also a common word is only taken as the name.
+      var LN = (st.lore && st.lore.names) || {};
+      Object.keys(LN).forEach(function (k) { k.split("|").forEach(function (f) { f = f.trim(); if (f) { defs[f.toLowerCase()] = { def: LN[k], head: k.split("|")[0].trim(), lore: true, form: f }; forms.push(f.toLowerCase()); } }); });
       forms.sort(function (a, b) { return b.length - a.length; });
       var esc2 = function (x) { return x.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"); };
       cache = { st: st, defs: defs, re: forms.length ? new RegExp("(^|[^" + LETTER + "-])(" + forms.map(esc2).join("|") + ")(?=$|[^" + LETTER + "-])", "gi") : null };
@@ -660,7 +664,7 @@
     }
     // html from md(): only <strong>, <em> and <br> tags, so the words are looked for between the tags.
     function mark(st, html, used) {
-      var c = prepare(st); if (!c.re || pref("glossary") === false) return html;
+      var c = prepare(st); if (!c.re || (pref("glossary") === false && pref("lore") === false)) return html;
       var inBtn = 0;   // never inside a button (a rule word, 8.6)
       return html.split(/(<[^>]+>)/).map(function (part) {
         if (/^<button/i.test(part)) { inBtn++; return part; }
@@ -668,8 +672,9 @@
         if (/^</.test(part) || inBtn) return part;
         return part.replace(c.re, function (all, pre, word) {
           var d = c.defs[word.toLowerCase()]; if (!d || used[d.head]) return all;
+          if (d.lore ? (word !== d.form || pref("lore") === false) : pref("glossary") === false) return all;
           used[d.head] = true;
-          return pre + "<button type=\"button\" class=\"gl\" data-gl=\"" + esc(word.toLowerCase()) + "\">" + word + "</button>";
+          return pre + "<button type=\"button\" class=\"gl" + (d.lore ? " lore" : "") + "\" data-gl=\"" + esc(word.toLowerCase()) + "\">" + word + "</button>";
         });
       }).join("");
     }
@@ -677,8 +682,8 @@
     function open(btn) {
       close();
       var c = cache, d = c.defs && c.defs[btn.getAttribute("data-gl")]; if (!d) return;
-      Words.learn(d.head, d.def);
-      pop = h("div", { class: "gl-pop", role: "tooltip" }, h("b", null, d.head.charAt(0).toUpperCase() + d.head.slice(1)), " · ", d.def);
+      if (!d.lore) Words.learn(d.head, d.def);
+      pop = h("div", { class: "gl-pop" + (d.lore ? " lore" : ""), role: "tooltip" }, d.lore ? h("span", { class: "small muted" }, "Le monde · ") : null, h("b", null, d.head.charAt(0).toUpperCase() + d.head.slice(1)), " · ", d.def);
       document.body.appendChild(pop);
       var r = btn.getBoundingClientRect(), w = Math.min(320, innerWidth - 24);
       pop.style.width = w + "px";
@@ -937,7 +942,33 @@
     }
     box.appendChild(b);
   }
-  function tabWords(b) {
+  // Intent: worldPage(Story) -> Element | null = « Le monde de ce livre » (story.lore.pages, 8.6): what an inhabitant
+  // knows before the first page (customs, feasts, money, beliefs, who governs), and the names of the world, for a
+  // reader who enters a new world cold. Nothing of the plot. Why: Clément, 15/11.
+  function worldPage(st, withNames) {
+    var L = st.lore; if (!L || !(L.pages || []).length) return null;
+    var box = h("div", { class: "world-page prose" });
+    L.pages.forEach(function (pg) {
+      if (pg.title) box.appendChild(h("h3", null, pg.title));
+      [].concat(pg.text || []).forEach(function (t) { box.appendChild(h("p", { html: md(String(t)) })); });
+    });
+    var names = Object.keys(L.names || {});
+    if (withNames && names.length) {
+      box.appendChild(h("h3", null, "Les noms du monde"));
+      names.sort(function (a, b) { return a.localeCompare(b, "fr"); }).forEach(function (k) { box.appendChild(h("p", { class: "small" }, h("b", null, k.split("|")[0].trim()), " · ", L.names[k])); });
+    }
+    return box;
+  }
+  // A folded « Le monde de ce livre », to open before leaving (book card, creation of the hero).
+  function worldFold(st, key) {
+    if (!st || !st.lore || !(st.lore.pages || []).length) return null;
+    var open = A.open["monde:" + key];
+    var btn = h("button", { class: "btn ghost sm", "aria-expanded": open ? "true" : "false", onclick: function () { A.open["monde:" + key] = !open; render(); } }, open ? "Refermer « Le monde de ce livre »" : "📜 Le monde de ce livre");
+    return h("div", { class: "world-fold stack tight" }, btn, open ? worldPage(st, false) : null);
+  }
+  function tabWords(b, st) {
+    var wp = st && worldPage(st, true);
+    if (wp) { b.appendChild(h("div", { class: "label" }, "Le monde de ce livre")); b.appendChild(wp); b.appendChild(h("div", { class: "label" }, "Les mots rares")); }
     var list = Words.list(A.profile);
     if (!list.length) { b.appendChild(h("div", { class: "notice" }, "Les mots rares que tu touches dans le texte (soulignés de pointillés) viennent se ranger ici.")); return; }
     if (list.length >= WORDS_MIN_GAME) b.appendChild(h("button", { class: "btn sm primary", onclick: function () { A.carnet = null; Words.start(); } }, "🎯 Jeu des mots"));
@@ -1242,6 +1273,7 @@
     var ac = function (t) { return st.heroes ? t : String(t).replace(/\{e\}/g, C.fem ? "e" : ""); };
     if (st.lecture) { renderOpenBook(w, st, C); app.appendChild(w); return; }
     if (st.intro) w.appendChild(h("div", { class: "prose", html: st.intro.map(function (p) { return "<p>" + md(ac(p)) + "</p>"; }).join("") }));
+    var wf = worldFold(st, "create"); if (wf) w.appendChild(wf);
     var nameIn = h("input", { value: C.name, placeholder: "Ton nom", maxlength: 30, "aria-label": "Nom du héros", oninput: function (e) { C.name = e.target.value; startBtn.disabled = !ready(); } });
     w.appendChild(h("div", { class: "stack" }, h("span", { class: "label" }, "Ton nom"), nameIn));
     // How the text speaks of the hero (Clément, 13/11, Malvoran): the engine fills {e} from s.fem ("assis{e}").
@@ -1414,6 +1446,7 @@
     if (st.notice) box.appendChild(bookNotice(st, true));
     var th = (st.adult && st.adult.themes) || [];
     if (th.length) box.appendChild(h("div", { class: "small" }, h("b", null, "Thèmes : "), th.join(" ; ") + "."));
+    var wf = worldFold(st, "book:" + m.id); if (wf) box.appendChild(wf);
     var who = (A.profiles || []).filter(function (p) { return (A.allGames || []).some(function (g) { return g.profil === p.id && g.story === m.id && !g.test; }); }).map(function (p) { return p.name; });
     if (who.length) box.appendChild(h("div", { class: "small muted" }, "Déjà ouvert par " + who.join(", ") + "."));
     return box;
@@ -1723,7 +1756,7 @@
   // Intent: once per new version, a short note of what changed (NEWS, newest first), only the versions the reader has
   // not seen on this device. Why: Clément, 13/11 (piste 33).
   var NEWS = [
-    { v: "8.6", items: ["Mots à effets : certains mots tremblent, ondulent, changent de couleur, s'effacent ou s'écrivent sous tes yeux.", "Des mots de règle (fatigue, blessure, jet, PV…) s'ouvrent d'un toucher pour dire ce qu'ils font.", "Dans « Le Cahier de Solène », des lettres d'or sont cachées dans le texte. À toi de les trouver.", "Une phrase écrite à l'envers se retourne quand tu la touches, et certaines lignes n'apparaissent qu'à la lumière du bon objet.", "La page suit l'état du héros : elle tremble quand il a peur, se brouille quand il est épuisé. Réglage « Mots à effets » : animés, discrets ou aucun.", "Le ciel change selon la région traversée, dans Kardan, Malvoran et les Cendres. En difficulté Héroïque, la route use : le mauvais temps pèse sur les jets, les longues routes fatiguent, le froid peut blesser.", "Seconde lecture dans Kardan et Le Témoin : une fois une fin trouvée, certaines pages en disent davantage.", "Kardan a sa page « Ce qu'il advint », et chaque choix laissé sans suite dans les anciennes histoires a désormais sa ligne.", "Le Témoin : l'onglet Versions garde ce que chacun a dit de la nuit des Combes et du soir au Chamois.", "Quarante jours : le Conseil des Cinq Bancs vote sur le pain, la promesse des funérailles se tient ou se rompt, l'onglet « Qui est avec qui » se remplit, et la ville avance pendant que tu es ailleurs.", "Les Cendres de l'Hiver : la dernière page dit ce que sont devenus beaucoup plus de tes choix."] },
+    { v: "8.6", items: ["Mots à effets : certains mots tremblent, ondulent, changent de couleur, s'effacent ou s'écrivent sous tes yeux.", "Des mots de règle (fatigue, blessure, jet, PV…) s'ouvrent d'un toucher pour dire ce qu'ils font.", "Dans « Le Cahier de Solène », des lettres d'or sont cachées dans le texte. À toi de les trouver.", "Une phrase écrite à l'envers se retourne quand tu la touches, et certaines lignes n'apparaissent qu'à la lumière du bon objet.", "La page suit l'état du héros : elle tremble quand il a peur, se brouille quand il est épuisé. Réglage « Mots à effets » : animés, discrets ou aucun.", "Le ciel change selon la région traversée, dans Kardan, Malvoran et les Cendres. En difficulté Héroïque, la route use : le mauvais temps pèse sur les jets, les longues routes fatiguent, le froid peut blesser.", "Seconde lecture dans Kardan et Le Témoin : une fois une fin trouvée, certaines pages en disent davantage.", "Kardan a sa page « Ce qu'il advint », et chaque choix laissé sans suite dans les anciennes histoires a désormais sa ligne.", "Le Témoin : l'onglet Versions garde ce que chacun a dit de la nuit des Combes et du soir au Chamois.", "Quarante jours : le Conseil des Cinq Bancs vote sur le pain, la promesse des funérailles se tient ou se rompt, l'onglet « Qui est avec qui » se remplit, et la ville avance pendant que tu es ailleurs.", "Les Cendres de l'Hiver : la dernière page dit ce que sont devenus beaucoup plus de tes choix.", "Le monde de ce livre : chaque histoire a sa page sur ses coutumes, sa monnaie, ses croyances et qui gouverne, à lire avant de partir ou dans le carnet. Les noms du monde soulignés en or s'ouvrent d'un toucher."] },
     { v: "8.5", items: ["La création du héros suit l'histoire : dans les histoires récentes, ton métier (copiste, matelot, commis…) remplace le choix entre guerrier, mage et les autres.", "La fiche et la barre du haut ne montrent que ce que l'histoire utilise : plus de points de vie ni de bourse dans un livre qui ne s'en sert pas.", "Le carnet ne montre que les onglets utiles, rangés en quatre parties : Toi, L'enquête, Le monde, Le livre.", "La première fois que tu rencontres un duel, une énigme, un conseil ou une bataille, quelques lignes expliquent comment ça marche. Une seule fois.", "La bibliothèque est rangée en rayons (histoires courtes, romans, grands romans, à plusieurs), avec un filtre pour les thèmes adultes, et « En savoir plus » sur chaque livre."] },
     { v: "8.4", items: ["Nouvelle histoire à deux : « Le Pli de Brumefond ». L'un porte le pli, l'autre connaît la route, et chacun garde ses secrets.", "Nouvel onglet du carnet, dans les histoires à deux : Secrets (ce que tu caches, ce qu'on t'a confié, ce que tu as surpris).", "Interludes : au début d'un acte, une courte scène vue par quelqu'un d'autre, différente pour chaque joueur.", "Le texte s'accorde maintenant avec le héros de l'autre joueur."] },
     { v: "8.3", items: ["Nouvelle histoire : « Ce que garde la neige », trois nuits de veillée dans une maison que la neige isole.", "Nouvel onglet du carnet : Versions, ce que chacun a raconté, devant les autres ou seul à seul.", "Souvenirs joués, silences qui comptent, une angoisse qui monte et retombe."] },
@@ -4460,7 +4493,7 @@
   // ------------------------------------------------------------------ reading preferences (per reader)
   // Intent: pref(Key) -> Value = the reader's own setting, else the default
   // Why: Clément (12/11): text size, spacing, theme, voice, real dice, sound… follow the reader, not the device.
-  var PREFS = { skin: "histoire", size: "m", spacing: "normal", theme: "auto", font: "livre", lettrine: true, voice: "", highlight: true, ruler: false, dialogue: false, glossary: true, nudge: false, syllables: false, voiceChoice: false, autoListen: true, battlePlan: true, relations: true, urgent: true, sfx: true, shakeDice: false, fog: true, rate: 1, autoRead: false, dice: "ecran", ambiance: false, music: false, volume: 0.6, spread: "auto", pageTurn: true, swipe: false, contrast: false, cvd: false, quietFx: false, dice3d: true, attachements: "discret", trouble: true, textFx: "anime" };
+  var PREFS = { skin: "histoire", size: "m", spacing: "normal", theme: "auto", font: "livre", lettrine: true, voice: "", highlight: true, ruler: false, dialogue: false, glossary: true, lore: true, nudge: false, syllables: false, voiceChoice: false, autoListen: true, battlePlan: true, relations: true, urgent: true, sfx: true, shakeDice: false, fog: true, rate: 1, autoRead: false, dice: "ecran", ambiance: false, music: false, volume: 0.6, spread: "auto", pageTurn: true, swipe: false, contrast: false, cvd: false, quietFx: false, dice3d: true, attachements: "discret", trouble: true, textFx: "anime" };
   var SIZES = { s: ["Petit", 16], m: ["Normal", 18], l: ["Grand", 21], xl: ["Très grand", 24] };
   var SPACINGS = { serre: ["Serré", 1.5], normal: ["Normal", 1.72], aere: ["Aéré", 2] };
   var THEMES = { auto: "Comme l'appareil", light: "Clair", sepia: "Sépia", dark: "Sombre", soir: "Lumière du soir" };
@@ -4578,6 +4611,7 @@
     b.appendChild(prefToggle("cvd", "Couleurs pour daltoniens", "Réussites en bleu, échecs en orange, au lieu du vert et du rouge ; chaque état garde aussi son signe (✓, ✗)."));
     b.appendChild(prefToggle("nudge", "Coup de pouce (jeunes lecteurs)", "Un bouton 💡, deux fois par acte, donne une phrase pour s'orienter quand on est perdu. Il ne révèle jamais la suite."));
     b.appendChild(prefToggle("glossary", "Expliquer les mots rares", "Les mots peu courants sont soulignés de pointillés : on les touche pour lire leur sens."));
+    b.appendChild(prefToggle("lore", "Fiches du monde", "Les noms du monde (lieux, fêtes, ordres) se touchent dans le texte pour lire ce qu'un habitant en sait."));
     b.appendChild(prefToggle("syllables", "Syllabes en couleurs", "Une syllabe sur deux change de couleur, comme dans les méthodes de lecture."));
     b.appendChild(prefToggle("fog", "Carte sous le brouillard", "La carte du carnet se dévoile autour des lieux atteints et le long des routes parcourues."));
     b.appendChild(prefToggle("relations", "Relations dans l'onglet Gens", "À côté de chaque personne, ce qu'elle pense de toi (méfiante, alliée, redevable…), quand l'histoire le dit."));

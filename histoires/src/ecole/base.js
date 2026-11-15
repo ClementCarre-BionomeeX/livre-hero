@@ -58,6 +58,33 @@ module.exports = {
       ],
     },
   ],
+  // The world of this book (8.6): what an inhabitant knows before the first page. Nothing of the plot.
+  lore: {
+    pages: [
+      { title: "Hautsignes", text: [
+        "**Hautsignes** est une ville de marins et de savants, bâtie sur une langue de terre basse entre la mer et les marais. Depuis trente ans, la mer ne l'a plus noyée : une longue digue de granit la protège, couverte de signes gravés que les maîtres du Chant font vibrer les nuits de tempête. On l'appelle la **Digue Chantée**, et les enfants de la ville apprennent son histoire avant de savoir lire.",
+        "On paie en sous. La rue des Drapiers, au pied du collège, vend aux élèves leurs plumes, leur papier, leurs chandelles et les ingrédients de leurs encres.",
+      ] },
+      { title: "Le Collège des Quatre Arts", text: [
+        "Sur la seule colline de la ville, le Collège des Quatre Arts tient en quatre ailes de pierre grise autour d'une cour plantée de tilleuls. Sa bibliothèque est célèbre dans trois royaumes. Deux cents élèves y vivent en robe noire, sous l'autorité du Recteur, et certains y entrent grâce à une bourse, quand un maître est venu les chercher dans leur village.",
+        "Chaque Art a son signe, peint sur la porte de sa salle :",
+        "**L'Encre**, la plume : tracer des signes qui retiennent. C'est le plus lent des quatre Arts, et le plus durable.",
+        "**Le Chant**, la bouche : faire vibrer les signes de la voix. On y apprend d'abord à se taire, puis à respirer.",
+        "**Le Verre**, l'œil : l'art de montrer aux gens ce qu'ils veulent voir.",
+        "**La Main**, la main : le travail de l'atelier, où l'on porte longtemps le charbon avant de toucher un outil.",
+      ] },
+    ],
+    names: {
+      "Hautsignes": "La ville de marins et de savants, entre la mer et les marais, protégée par la Digue Chantée.",
+      "Digue Chantée": "La digue de granit de Hautsignes, couverte de signes que le Chant fait vibrer les nuits de tempête.",
+      "Collège des Quatre Arts|Quatre Arts": "L'école des arts de Hautsignes : l'Encre, le Chant, le Verre et la Main.",
+      "Encre": "L'Art des signes tracés, qui retiennent. Son signe est une plume.",
+      "Chant": "L'Art de la voix qui fait vibrer les signes. Son signe est une bouche ouverte.",
+      "Verre": "L'Art de montrer aux gens ce qu'ils veulent voir. Son signe est un œil.",
+      "Recteur": "Le maître qui dirige le collège.",
+      "Drapiers": "La rue au pied du collège, où les élèves achètent plumes, papier, chandelles et ingrédients.",
+    },
+  },
   world: {
     noFood: true,
     money: { units: [{ name: "livre", plural: "livres", value: 20, short: "l." }, { name: "sou", plural: "sous", value: 1, short: "s." }] },
