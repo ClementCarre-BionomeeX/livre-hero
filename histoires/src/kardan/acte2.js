@@ -12,7 +12,7 @@ module.exports = {
       { if: WAKING, text: "Les choses qui craquent sont des os. Tu les examines de près, avec l'attention de quelqu'un qui préfère savoir. Les plus anciens sont gris et poreux comme de la pierre ponce ; d'autres gardent encore une teinte d'ivoire. Entre eux traînent des lambeaux de laine, une semelle cloutée, une boucle de ceinture en laiton. Tu tires de cet inventaire une conclusion simple et peu flatteuse : avant toi, on en a jeté beaucoup d'autres ici." },
       { if: { all: [WAKING, { has: "capture:bu" }] }, text: "Les gens de Kardan ont travaillé avec méthode. Ils ont pris tes armes, ta bourse et tes vivres. Ils t'ont laissé tes vêtements, et une miche de pain posée sur la poitrine, comme on pose une fleur sur un mort. Le pain te fait plaisir. La comparaison, beaucoup moins." },
       { if: { all: [WAKING, { has: "capture:bu" }, { has: "couteau:aurele" }] }, text: "Il y a aussi, passé dans ta ceinture, le couteau d'Aurèle. Hier soir, il n'y était pas. Quelqu'un l'y a mis, et tu ranges ce fait dans un coin de ta tête." },
-      { if: { all: [WAKING, { has: "capture:feinte" }] }, text: "Ta lame et ta lanterne sont passées dans ta ceinture : quelqu'un les y a glissées avant de te pousser dans le vide. Tu as fait semblant de dormir assez bien pour tromper un village entier, et tu as vu les visages. Tu les gardes en mémoire, un par un, comme une liste." },
+      { if: { all: [WAKING, { has: "capture:feinte" }] }, text: "Ta lame et ta lanterne sont à ta ceinture : quelqu'un les y a glissées avant de te pousser dans le vide. Tu as fait semblant de dormir assez bien pour tromper un village entier, et tu as vu les visages. Tu les gardes en mémoire, un par un, comme une liste." },
       { if: { all: [WAKING, { has: "capture:combat" }] }, text: "Ta main tient encore ton arme, si serrée que tu dois déplier les doigts un à un. Ton crâne bourdonne comme une cloche après l'office. Tu as vu les visages : ceux qui frappaient, et ceux qui pleuraient en frappant." },
       { if: { all: [WAKING, { present: "odon" }] }, text: "À côté de toi, une forme se redresse en gémissant et frotte une tonsure grise de poussière. C'est Odon. Le moine considère le rond de ciel, puis les os, puis toi, avec le calme de quelqu'un qui vérifie une addition. « Eh bien, dit-il. Nous savons maintenant ce que veut dire *rester à Kardan pour toujours*. »" },
       { if: WAKING, text: "Dans la paroi s'ouvre une galerie à hauteur d'homme, noire comme un four éteint. Autour de l'ouverture, la pierre porte des traces de doigts. Elles se comptent par centaines et se recouvrent les unes les autres. Les plus anciennes ont poli la roche comme une rampe d'escalier." },
@@ -208,7 +208,7 @@ module.exports = {
   D_noms_page: { act: "II", title: "Derrière la pierre", place: "noms", routes: true,
     text: [
       "Tu frappes chaque pierre du mur nord avec le pommeau de ton arme, en écoutant, à la manière d'un médecin qui ausculte. La quatrième sonne creux. Elle tient par un reste de mortier ; tu la fais jouer, elle vient. Derrière, dans une niche sèche, une feuille de vélin roulée est nouée d'un fil de cuivre.",
-      "L'écriture est la même, penchée, pressée. C'est la dernière page. Celle qu'il a manqué de courage pour écrire en bas.",
+      "L'écriture est la même, penchée, pressée. C'est la dernière page. Celle qu'il n'a pas eu le courage d'écrire en bas.",
     ],
     choices: [] },
   D_noms_rien: { act: "II", title: "Les pierres muettes", place: "noms", routes: true,
@@ -320,7 +320,7 @@ module.exports = {
       win: { to: "D_coeur_arret" }, lose: { to: "D_coeur_arret" },
       calm: { to: "D_coeur_apaise" } },
     text: [
-      "Il reste immobile quand tu avances. Puis, au dernier moment, il bouge, d'une vitesse incroyable : sans lâcher la vasque d'une main, il frappe de l'autre, et le coup te frappe comme toute l'eau d'une écluse.",
+      "Il reste immobile quand tu avances. Puis, au dernier moment, il bouge, d'une vitesse incroyable : sans lâcher la vasque d'une main, il frappe de l'autre, et tu reçois le coup comme toute l'eau d'une écluse.",
     ] },
   D_coeur_apaise: { act: "II", title: "Le silence", place: "coeur",
     text: [
@@ -344,7 +344,7 @@ module.exports = {
   D_reconnaissance: { act: "II", title: "Aurèle", place: "coeur",
     fx: { quest: "D_coeur", meet: "aurele", met: "aurele", flag: "aurele:retrouve", ep: ["histoire", 6000] },
     text: [
-      "Sa main reste rivée à la vasque : elle est incapable de la quitter. Alors c'est toi qui viens. Tu le prends dans tes bras. Il est léger comme un fagot, froid comme la pierre, et il pleure dans ton cou avec des sanglots de gamin.",
+      "Il est incapable de venir vers toi : sa main est rivée à la vasque. Alors c'est toi qui viens. Tu le prends dans tes bras. Il est léger comme un fagot, froid comme la pierre, et il pleure dans ton cou avec des sanglots de gamin.",
       "« Ils m'ont endormi, dit-il quand il peut parler. Comme toi. Je me suis réveillé dans la Fosse, j'ai erré, j'ai trouvé le cœur. Il y avait un homme ici, comme moi maintenant. Théoz. Il m'a supplié de boire. Il disait que c'était la seule façon de sortir, pour lui. Il pleurait. J'ai bu. »",
       "« Et il est sorti ? »",
       "« Il est mort. Il a souri, il a lâché la vasque, et il est mort dans l'heure. Vingt ans à tenir, ça use un homme jusqu'à la corde. » Aurèle regarde sa main sur la pierre. « Moi, ça fait sept ans. Il m'en reste peut-être deux. Peut-être un. »",

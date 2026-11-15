@@ -8,7 +8,7 @@ module.exports = {
     text: [
       "Le relais de Sorel est une grande ferme fortifiée où l'on a mis des tables. Tu y as dormi dans le foin, au-dessus des mules, et ce sont elles qui t'ont réveillé avant l'aube, d'un piétinement aussi régulier qu'un tambour de garnison. Le jour se lève maintenant sur la cour. Par la porte charretière ouverte, tu vois commencer le pays que tout le monde, ici, appelle simplement *la vallée sèche*.",
       "Brune, la patronne, te sert du lait caillé et du pain gris avant que tu aies rien demandé. C'est une femme carrée, aux avant-bras couverts de vieilles brûlures, du genre qui écoute tout et garde tout pour elle.",
-      { if: { has: "passe:lettre" }, text: "Hier soir, à la chandelle, tu as relu la lettre pour la centième fois. *Je suis à Sorel, au relais, chez une femme qui ne pose pas de questions.* La description convient à Brune comme un gant à sa main." },
+      { if: { has: "passe:lettre" }, text: "Hier soir, à la chandelle, tu as relu la lettre pour la centième fois. *Je suis à Sorel, au relais, chez une femme qui ne pose pas de questions.* La description va à Brune comme un gant." },
       { if: { has: "passe:sifflet" }, text: "Dans ta poche, le sifflet d'os d'Aurèle a pris la tiédeur de ta cuisse. Tu as toujours évité de souffler dedans, par crainte, un peu, de ce que tu ressentirais." },
       { if: { has: "passe:souvenir" }, text: "Cette nuit, dans le foin, tu as cru l'entendre t'appeler Moineau. Vérification faite, c'était une mule qui rêvait." },
       "Trois jours de route jusqu'à Kardan, dit-on : trois jours de cailloux, de puits taris et de soleil. Puis le vert.",
@@ -287,7 +287,7 @@ module.exports = {
     ] },
   K_fete_visages: { act: "I", title: "Les visages", place: "kardan",
     text: [
-      "Tu gardes ton gobelet à hauteur des lèvres et tu observes. Hesna rit à chaque phrase et garde son gobelet plein. Garance boit trop et regarde ses mains. Oriel s'en va avant les gâteaux ; tu la vois s'arrêter dans l'ombre de la chapelle, le front contre le mur, comme quelqu'un qui a mal au ventre. Un homme en cuirasse de cuir, la lance posée contre l'arbre, garde les yeux fixés sur la porte de la colline. « Bastien, te souffle un voisin. Le chef de la milice. »",
+      "Tu gardes ton gobelet à hauteur des lèvres et tu observes. Hesna rit à chaque phrase et laisse son vin intact. Garance boit trop et regarde ses mains. Oriel s'en va avant les gâteaux ; tu la vois s'arrêter dans l'ombre de la chapelle, le front contre le mur, comme quelqu'un qui a mal au ventre. Un homme en cuirasse de cuir, la lance posée contre l'arbre, garde les yeux fixés sur la porte de la colline. « Bastien, te souffle un voisin. Le chef de la milice. »",
       "Et l'Aïeule ne regarde que toi. Son regard est sans hostilité. Il a l'attention douloureuse qu'on porte à un objet qu'on va devoir casser.",
     ],
     choices: [{ label: "Rentrer au Puits-Vert quand la fête s'achève", to: "K_fete_nuit" }] },
@@ -594,7 +594,7 @@ module.exports = {
     text: [
       "Tu t'assois sur un banc de la place, à l'ombre, et tu poses les faits à plat, comme on étale des cartes.",
       "Aurèle est arrivé à Kardan il y a sept ans. On l'a fêté. Il a ri, chanté, appris une berceuse à un enfant. Une nuit, une seule, et puis il a disparu. Son nom a été arraché du registre ; son couteau, vendu au profit de la fontaine ; ses affaires, jetées dans un coffre avec celles des autres. Sur la plaque de la chapelle, il est seulement *l'homme du Nord*.",
-      "Ici, chacun garde le secret de ce qui lui est arrivé. Et tout le monde regarde la colline.",
+      "Ici, chacun garde pour soi ce qui est arrivé à Aurèle. Et tout le monde regarde la colline.",
       { if: { clue: "a_porte" }, text: "Il y a la porte, aussi." },
       { if: { clue: "a_borne" }, text: "Et la borne. Il est venu quand même. Aurèle allait toujours voir." },
       "Tu ignores s'il est mort. Tu sais où il est allé. Quelque part derrière cette porte.",
@@ -643,7 +643,7 @@ module.exports = {
     text: [
       "Tu remercies Hesna et tu la pousses doucement dehors. Tu verses la tasse par la fenêtre, puis tu traînes le coffre contre la porte. Ensuite tu attends, assis sur le lit, ton arme sur les genoux.",
       "Ils viennent une heure plus tard. On gratte, on pousse, on chuchote. Puis on pousse plus fort. Le coffre recule d'un pouce, puis d'un autre. Une voix d'homme, celle de Bastien, dit : *il ne dort pas.* Et une voix de femme, celle d'Hesna, gémit : *je vous l'avais dit, je vous l'avais dit.*",
-      "La porte cède. Ils entrent à trois, avec des gourdins et une couverture à te jeter sur la tête. Ils ont l'air d'avoir peur bien plus que de vouloir te tuer.",
+      "La porte cède. Ils entrent à trois, avec des gourdins et une couverture à te jeter sur la tête. Ils ont l'air d'avoir peur, bien plus que de vouloir te tuer.",
     ] },
   K_capture_nombre: { act: "I", title: "Le nombre", place: "kardan",
     fx: { flag: ["capture:combat", "capture:visages"], drop: ["gambison", "cuir", "broigne", "corde", "lanterne", "torche"], gold: -9999, food: -9999 },

@@ -1885,7 +1885,7 @@
      "if": {
       "has": "passe:lettre"
      },
-     "text": "Hier soir, à la chandelle, tu as relu la lettre pour la centième fois. *Je suis à Sorel, au relais, chez une femme qui ne pose pas de questions.* La description convient à Brune comme un gant à sa main."
+     "text": "Hier soir, à la chandelle, tu as relu la lettre pour la centième fois. *Je suis à Sorel, au relais, chez une femme qui ne pose pas de questions.* La description va à Brune comme un gant."
     },
     {
      "if": {
@@ -2864,7 +2864,7 @@
    "title": "Les visages",
    "place": "kardan",
    "text": [
-    "Tu gardes ton gobelet à hauteur des lèvres et tu observes. Hesna rit à chaque phrase et garde son gobelet plein. Garance boit trop et regarde ses mains. Oriel s'en va avant les gâteaux ; tu la vois s'arrêter dans l'ombre de la chapelle, le front contre le mur, comme quelqu'un qui a mal au ventre. Un homme en cuirasse de cuir, la lance posée contre l'arbre, garde les yeux fixés sur la porte de la colline. « Bastien, te souffle un voisin. Le chef de la milice. »",
+    "Tu gardes ton gobelet à hauteur des lèvres et tu observes. Hesna rit à chaque phrase et laisse son vin intact. Garance boit trop et regarde ses mains. Oriel s'en va avant les gâteaux ; tu la vois s'arrêter dans l'ombre de la chapelle, le front contre le mur, comme quelqu'un qui a mal au ventre. Un homme en cuirasse de cuir, la lance posée contre l'arbre, garde les yeux fixés sur la porte de la colline. « Bastien, te souffle un voisin. Le chef de la milice. »",
     "Et l'Aïeule ne regarde que toi. Son regard est sans hostilité. Il a l'attention douloureuse qu'on porte à un objet qu'on va devoir casser."
    ],
    "choices": [
@@ -3979,7 +3979,7 @@
    "text": [
     "Tu t'assois sur un banc de la place, à l'ombre, et tu poses les faits à plat, comme on étale des cartes.",
     "Aurèle est arrivé à Kardan il y a sept ans. On l'a fêté. Il a ri, chanté, appris une berceuse à un enfant. Une nuit, une seule, et puis il a disparu. Son nom a été arraché du registre ; son couteau, vendu au profit de la fontaine ; ses affaires, jetées dans un coffre avec celles des autres. Sur la plaque de la chapelle, il est seulement *l'homme du Nord*.",
-    "Ici, chacun garde le secret de ce qui lui est arrivé. Et tout le monde regarde la colline.",
+    "Ici, chacun garde pour soi ce qui est arrivé à Aurèle. Et tout le monde regarde la colline.",
     {
      "if": {
       "clue": "a_porte"
@@ -4170,7 +4170,7 @@
    "text": [
     "Tu remercies Hesna et tu la pousses doucement dehors. Tu verses la tasse par la fenêtre, puis tu traînes le coffre contre la porte. Ensuite tu attends, assis sur le lit, ton arme sur les genoux.",
     "Ils viennent une heure plus tard. On gratte, on pousse, on chuchote. Puis on pousse plus fort. Le coffre recule d'un pouce, puis d'un autre. Une voix d'homme, celle de Bastien, dit : *il ne dort pas.* Et une voix de femme, celle d'Hesna, gémit : *je vous l'avais dit, je vous l'avais dit.*",
-    "La porte cède. Ils entrent à trois, avec des gourdins et une couverture à te jeter sur la tête. Ils ont l'air d'avoir peur bien plus que de vouloir te tuer."
+    "La porte cède. Ils entrent à trois, avec des gourdins et une couverture à te jeter sur la tête. Ils ont l'air d'avoir peur, bien plus que de vouloir te tuer."
    ]
   },
   "K_capture_nombre": {
@@ -4379,7 +4379,7 @@
        }
       ]
      },
-     "text": "Ta lame et ta lanterne sont passées dans ta ceinture : quelqu'un les y a glissées avant de te pousser dans le vide. Tu as fait semblant de dormir assez bien pour tromper un village entier, et tu as vu les visages. Tu les gardes en mémoire, un par un, comme une liste."
+     "text": "Ta lame et ta lanterne sont à ta ceinture : quelqu'un les y a glissées avant de te pousser dans le vide. Tu as fait semblant de dormir assez bien pour tromper un village entier, et tu as vu les visages. Tu les gardes en mémoire, un par un, comme une liste."
     },
     {
      "if": {
@@ -5204,7 +5204,7 @@
    "routes": true,
    "text": [
     "Tu frappes chaque pierre du mur nord avec le pommeau de ton arme, en écoutant, à la manière d'un médecin qui ausculte. La quatrième sonne creux. Elle tient par un reste de mortier ; tu la fais jouer, elle vient. Derrière, dans une niche sèche, une feuille de vélin roulée est nouée d'un fil de cuivre.",
-    "L'écriture est la même, penchée, pressée. C'est la dernière page. Celle qu'il a manqué de courage pour écrire en bas."
+    "L'écriture est la même, penchée, pressée. C'est la dernière page. Celle qu'il n'a pas eu le courage d'écrire en bas."
    ],
    "choices": []
   },
@@ -5608,7 +5608,7 @@
     }
    },
    "text": [
-    "Il reste immobile quand tu avances. Puis, au dernier moment, il bouge, d'une vitesse incroyable : sans lâcher la vasque d'une main, il frappe de l'autre, et le coup te frappe comme toute l'eau d'une écluse."
+    "Il reste immobile quand tu avances. Puis, au dernier moment, il bouge, d'une vitesse incroyable : sans lâcher la vasque d'une main, il frappe de l'autre, et tu reçois le coup comme toute l'eau d'une écluse."
    ]
   },
   "D_coeur_apaise": {
@@ -5682,7 +5682,7 @@
     ]
    },
    "text": [
-    "Sa main reste rivée à la vasque : elle est incapable de la quitter. Alors c'est toi qui viens. Tu le prends dans tes bras. Il est léger comme un fagot, froid comme la pierre, et il pleure dans ton cou avec des sanglots de gamin.",
+    "Il est incapable de venir vers toi : sa main est rivée à la vasque. Alors c'est toi qui viens. Tu le prends dans tes bras. Il est léger comme un fagot, froid comme la pierre, et il pleure dans ton cou avec des sanglots de gamin.",
     "« Ils m'ont endormi, dit-il quand il peut parler. Comme toi. Je me suis réveillé dans la Fosse, j'ai erré, j'ai trouvé le cœur. Il y avait un homme ici, comme moi maintenant. Théoz. Il m'a supplié de boire. Il disait que c'était la seule façon de sortir, pour lui. Il pleurait. J'ai bu. »",
     "« Et il est sorti ? »",
     "« Il est mort. Il a souri, il a lâché la vasque, et il est mort dans l'heure. Vingt ans à tenir, ça use un homme jusqu'à la corde. » Aurèle regarde sa main sur la pierre. « Moi, ça fait sept ans. Il m'en reste peut-être deux. Peut-être un. »",
@@ -6584,13 +6584,13 @@
        }
       ]
      },
-     "text": "Aurèle s'est assis dans l'herbe, les jambes étendues, les mains à plat sur la terre. Il se tait et regarde le ciel s'éclaircir. Des larmes coulent sur son visage ; il semble ignorer leur présence."
+     "text": "Aurèle s'est assis dans l'herbe, les jambes étendues, les mains à plat sur la terre. Il se tait et regarde le ciel s'éclaircir. Des larmes coulent sur son visage, et il les laisse couler."
     },
     {
      "if": {
       "has": "aurele:mort"
      },
-     "text": "Tu as porté le corps d'Aurèle jusqu'ici. Il pèse à peine le poids d'un enfant. Tu le poses dans l'herbe, face au ciel. Tu lui dois au moins ça : la lumière du jour."
+     "text": "Tu as porté le corps d'Aurèle jusqu'ici. Il pèse moins qu'un enfant. Tu le poses dans l'herbe, face au ciel. Tu lui dois au moins ça : la lumière du jour."
     },
     {
      "if": {
@@ -6609,7 +6609,7 @@
        }
       ]
      },
-     "text": "En bas, la fontaine coule déjà moins fort. D'ici, tes yeux sont impuissants à le voir. Tu le sais quand même."
+     "text": "En bas, la fontaine coule déjà moins fort. Tu ne le vois pas d'ici. Tu le sais."
     },
     {
      "if": {
@@ -6668,7 +6668,7 @@
        }
       ]
      },
-     "text": "Un attroupement s'est formé autour de la fontaine. L'eau reste sous le bord de la vasque verte. Elle coule en un filet, et le filet baisse. Quelqu'un dit : *le Gardien est mort.* Quelqu'un d'autre te voit et dit : *non. Regardez.*"
+     "text": "Un attroupement s'est formé autour de la fontaine. L'eau a cessé de déborder de la vasque verte. Elle coule en un filet, et le filet baisse. Quelqu'un dit : *le Gardien est mort.* Quelqu'un d'autre te voit et dit : *non. Regardez.*"
     },
     {
      "if": {
@@ -7184,7 +7184,7 @@
     "time": 1
    },
    "text": [
-    "L'enclume de Garance est muette. La forgeronne est assise sur le billot, ses énormes mains pendantes entre les genoux. Quand tu entres, elle reste assise.",
+    "L'enclume de Garance est muette. La forgeronne est assise sur le billot, ses énormes mains pendantes entre les genoux. Quand tu entres, elle ne se lève pas.",
     {
      "if": {
       "all": [

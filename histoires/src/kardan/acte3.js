@@ -28,10 +28,10 @@ module.exports = {
     fx: { catchup: 6, catchupWhy: "les jours et les nuits du dédale", ep: ["perso", 500] },
     text: [
       "Tu es dehors. Le vent te passe sur le visage, chargé de thym et de poussière, et tu le respires à pleins poumons. Au-dessus, le ciel d'avant l'aube, d'un bleu d'encre, pâlit à l'est. En contrebas, Kardan dort : ses jardins en terrasses, noirs, ses toits, sa place, et sa fontaine qui brille comme une pièce au fond d'un puits.",
-      { if: { all: [{ has: "aurele:libre" }, { present: "aurele" }] }, text: "Aurèle s'est assis dans l'herbe, les jambes étendues, les mains à plat sur la terre. Il se tait et regarde le ciel s'éclaircir. Des larmes coulent sur son visage ; il semble ignorer leur présence." },
-      { if: { has: "aurele:mort" }, text: "Tu as porté le corps d'Aurèle jusqu'ici. Il pèse à peine le poids d'un enfant. Tu le poses dans l'herbe, face au ciel. Tu lui dois au moins ça : la lumière du jour." },
+      { if: { all: [{ has: "aurele:libre" }, { present: "aurele" }] }, text: "Aurèle s'est assis dans l'herbe, les jambes étendues, les mains à plat sur la terre. Il se tait et regarde le ciel s'éclaircir. Des larmes coulent sur son visage, et il les laisse couler." },
+      { if: { has: "aurele:mort" }, text: "Tu as porté le corps d'Aurèle jusqu'ici. Il pèse moins qu'un enfant. Tu le poses dans l'herbe, face au ciel. Tu lui dois au moins ça : la lumière du jour." },
       { if: { has: "lien:partage" }, text: "Là-bas, dans la fontaine de la place, le lien attend. Tu le sens, comme une corde tendue entre la colline et le village. Il faut que quelqu'un le prenne. Il faut que tout Kardan le prenne, ou la Source s'éteindra, et avec elle les jardins." },
-      { if: { any: [{ has: "vasque:brisee" }, { has: "aurele:mort" }] }, text: "En bas, la fontaine coule déjà moins fort. D'ici, tes yeux sont impuissants à le voir. Tu le sais quand même." },
+      { if: { any: [{ has: "vasque:brisee" }, { has: "aurele:mort" }] }, text: "En bas, la fontaine coule déjà moins fort. Tu ne le vois pas d'ici. Tu le sais." },
       { if: { has: "mattias:soleil" }, text: "Mattias se tient un peu à l'écart, ses mousses serrées contre sa poitrine, et il regarde Kardan avec une expression indéchiffrable." },
       { if: { present: "sidonie" }, text: "Sidonie a déjà repéré le grenier, la maison de l'Aïeule, la porte de la milice. « Le grenier d'abord, dit-elle. Le feu se voit de loin, ça les fera sortir. Puis la fontaine. Puis la vieille. Puis on attend Bastien à la porte, et on règle ça. »" },
       { if: { present: "odon" }, text: "Odon secoue la tête. « Ou alors on descend, et on parle. À Hesna, à Oriel, à l'enfant. À l'Aïeule. On découvre pourquoi. Et on les réunit tous à la fontaine, au jour, et on leur dit ce qu'ils ont fait. Ça fait plus mal que le feu, parfois. Et ça dure plus longtemps. »" },
@@ -46,7 +46,7 @@ module.exports = {
   O_kardan: { act: "III", title: "Kardan, au petit jour", backName: "la place de Kardan", place: "kardan", hub: true,
     text: [
       { if: { night: true }, text: "Le village dort encore, d'un mauvais sommeil : des chiens aboient, une fenêtre s'allume et s'éteint. On a vu des ombres sur la colline. Reste à savoir à qui elles appartiennent.", else: "Le jour est levé sur Kardan. Le village a l'air d'un lendemain de fête : guirlandes de menthe fanées, tables renversées, lanternes de papier éventrées dans la poussière. Les gens sortent, s'étirent, et s'arrêtent net en te voyant. Certains rentrent chez eux. D'autres restent pétrifiés." },
-      { if: { any: [{ has: "vasque:brisee" }, { has: "aurele:mort" }] }, text: "Un attroupement s'est formé autour de la fontaine. L'eau reste sous le bord de la vasque verte. Elle coule en un filet, et le filet baisse. Quelqu'un dit : *le Gardien est mort.* Quelqu'un d'autre te voit et dit : *non. Regardez.*" },
+      { if: { any: [{ has: "vasque:brisee" }, { has: "aurele:mort" }] }, text: "Un attroupement s'est formé autour de la fontaine. L'eau a cessé de déborder de la vasque verte. Elle coule en un filet, et le filet baisse. Quelqu'un dit : *le Gardien est mort.* Quelqu'un d'autre te voit et dit : *non. Regardez.*" },
       { if: { has: "lien:partage" }, text: "La fontaine coule comme d'habitude. Pourtant, ceux qui y boivent s'arrêtent, étonnés, une main sur la poitrine, comme si l'eau avait pris un goût nouveau, un goût de pierre." },
       { if: { has: "v:grenier" }, text: "Le grenier brûle encore. Une colonne de fumée noire monte droit dans le ciel sans vent." },
       { if: { has: "v:fontaine" }, text: "La vasque de la fontaine est fendue en deux. L'eau s'étale sur la place en une flaque qui s'élargit, et que la poussière boit." },
@@ -139,7 +139,7 @@ module.exports = {
   O_garance: { act: "III", title: "Garance", place: "kardan",
     fxEvery: { time: 1 },
     text: [
-      "L'enclume de Garance est muette. La forgeronne est assise sur le billot, ses énormes mains pendantes entre les genoux. Quand tu entres, elle reste assise.",
+      "L'enclume de Garance est muette. La forgeronne est assise sur le billot, ses énormes mains pendantes entre les genoux. Quand tu entres, elle ne se lève pas.",
       { if: { all: [{ has: "couteau:aurele" }, { present: "aurele" }] }, text: "Aurèle voit le coffre dans le coin, sous le sac. Puis il voit son couteau, à ta ceinture. Il le prend doucement et le soupèse. « Tu l'as gardé », dit-il à Garance, du ton d'un constat. Garance le regarde, et le mensonge lui devient impossible. Ça se voit sur son visage : quelque chose cède. « Je l'ai remis en état, dit-elle. Je l'ai affûté tous les ans. Je ne sais pas pourquoi. »" },
       { if: { all: [{ has: "couteau:aurele" }, { not: { present: "aurele" } }] }, text: "Tu poses le couteau d'Aurèle sur l'enclume. Garance le regarde longtemps. « Je savais, dit-elle. Je savais à qui il était. Je l'affûtais tous les ans. » Elle se tait. « Je ne savais pas ce qu'on leur faisait. Je ne voulais pas savoir. C'est différent, mais pas tant que ça. »" },
       { if: { not: { has: "couteau:aurele" } }, text: "« Le couteau, dit-elle. Je l'ai vendu hier soir, à un caravanier. Je l'ai vendu pour ne plus le voir. » Elle te regarde enfin. « C'est tout ce que j'avais à dire. »" },
