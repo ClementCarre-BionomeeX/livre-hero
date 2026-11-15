@@ -365,3 +365,13 @@ Exemple en place : « Le Cahier de Solène » (six lettres d'or, le miroir du co
 ## Tous ensemble (15/11)
 
 `tests/ensemble-test.js` fait jouer dans une seule petite histoire la voie, la route avec un combat et une compagne, la météo, les saisons, une blessure, les rencontres, une veillée, les réserves, le monde en marche, une dette, un conseil, une bataille, l'épilogue, la pratique, un trait, un duel, une énigme, un rêve, une version, un souvenir, un silence, un geste, l'angoisse, les mots à effets et une trouvaille. C'est aussi l'exemple le plus court de chaque mécanisme : partir de là pour en essayer un dans une nouvelle histoire.
+
+## La route use (15/11, 8.6) : le ciel suit les routes, la fatigue, les blessures du mauvais temps
+
+| Où | Clé | Sens |
+|---|---|---|
+| `story.weather` | `by: "route"` | Le temps se tire dans la table de la région de la route parcourue (`world.regions`), ou de la région du lieu (`places.<id>.region`), ou de `lieu` (au village, sous un toit). Le ciel se met à jour à chaque étape. |
+| région du monde | `tiring: n` | Un point de fatigue toutes les `n` étapes sur cette région (le bivouac et le sommeil l'effacent). |
+| temps | `hurts: { wound, chance, say }` | Sous ce ciel, à chaque étape de route, une chance (0,25 sans `chance`) de prendre cette blessure de `story.wounds`, avec la phrase `say`. Au village, le ciel pèse seulement sur les jets. |
+
+En place dans Kardan (canicule, vent de sable, froid des profondeurs), Malvoran (pluie, brume, neige, verglas, miasmes de la terre souillée) et les Cendres (neige, bourrasque, brouillard givrant, verglas). Le validateur refuse une région de météo inconnue, une blessure inconnue dans `hurts`, un `tiring` qui n'est pas un nombre entier d'étapes.

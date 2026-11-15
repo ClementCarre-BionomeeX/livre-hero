@@ -1698,7 +1698,7 @@
   // Intent: once per new version, a short note of what changed (NEWS, newest first), only the versions the reader has
   // not seen on this device. Why: Clément, 13/11 (piste 33).
   var NEWS = [
-    { v: "8.6", items: ["Mots à effets : certains mots tremblent, ondulent, changent de couleur, s'effacent ou s'écrivent sous tes yeux.", "Des mots de règle (fatigue, blessure, jet, PV…) s'ouvrent d'un toucher pour dire ce qu'ils font.", "Dans « Le Cahier de Solène », des lettres d'or sont cachées dans le texte. À toi de les trouver.", "Une phrase écrite à l'envers se retourne quand tu la touches, et certaines lignes n'apparaissent qu'à la lumière du bon objet.", "La page suit l'état du héros : elle tremble quand il a peur, se brouille quand il est épuisé. Réglage « Mots à effets » : animés, discrets ou aucun."] },
+    { v: "8.6", items: ["Mots à effets : certains mots tremblent, ondulent, changent de couleur, s'effacent ou s'écrivent sous tes yeux.", "Des mots de règle (fatigue, blessure, jet, PV…) s'ouvrent d'un toucher pour dire ce qu'ils font.", "Dans « Le Cahier de Solène », des lettres d'or sont cachées dans le texte. À toi de les trouver.", "Une phrase écrite à l'envers se retourne quand tu la touches, et certaines lignes n'apparaissent qu'à la lumière du bon objet.", "La page suit l'état du héros : elle tremble quand il a peur, se brouille quand il est épuisé. Réglage « Mots à effets » : animés, discrets ou aucun.", "La route use, dans Kardan, Malvoran et les Cendres : le ciel change selon la région traversée, les longues routes fatiguent, et le mauvais temps peut blesser.", "Seconde lecture dans Kardan et Le Témoin : une fois une fin trouvée, certaines pages en disent davantage.", "Kardan a sa page « Ce qu'il advint », et chaque choix laissé sans suite dans les anciennes histoires a désormais sa ligne."] },
     { v: "8.5", items: ["La création du héros suit l'histoire : dans les histoires récentes, ton métier (copiste, matelot, commis…) remplace le choix entre guerrier, mage et les autres.", "La fiche et la barre du haut ne montrent que ce que l'histoire utilise : plus de points de vie ni de bourse dans un livre qui ne s'en sert pas.", "Le carnet ne montre que les onglets utiles, rangés en quatre parties : Toi, L'enquête, Le monde, Le livre.", "La première fois que tu rencontres un duel, une énigme, un conseil ou une bataille, quelques lignes expliquent comment ça marche. Une seule fois.", "La bibliothèque est rangée en rayons (histoires courtes, romans, grands romans, à plusieurs), avec un filtre pour les thèmes adultes, et « En savoir plus » sur chaque livre."] },
     { v: "8.4", items: ["Nouvelle histoire à deux : « Le Pli de Brumefond ». L'un porte le pli, l'autre connaît la route, et chacun garde ses secrets.", "Nouvel onglet du carnet, dans les histoires à deux : Secrets (ce que tu caches, ce qu'on t'a confié, ce que tu as surpris).", "Interludes : au début d'un acte, une courte scène vue par quelqu'un d'autre, différente pour chaque joueur.", "Le texte s'accorde maintenant avec le héros de l'autre joueur."] },
     { v: "8.3", items: ["Nouvelle histoire : « Ce que garde la neige », trois nuits de veillée dans une maison que la neige isole.", "Nouvel onglet du carnet : Versions, ce que chacun a raconté, devant les autres ou seul à seul.", "Souvenirs joués, silences qui comptent, une angoisse qui monte et retombe."] },
@@ -5011,6 +5011,67 @@
     });
     return out.join("\n");
   }
+  // Intent: recitEpub(Story, State, Pages) -> bytes = « Mon aventure » as an EPUB 3 book, one chapter per act, for a
+  // reader or an e-ink tablet (piste 18, 15/11). Why: the HTML and the PDF exist; a book reader wants an EPUB.
+  // The zip is written by hand (stored, no compression): the mimetype first, then the container, the package, the
+  // table of contents and the chapters.
+  var EPUB_CSS = "body{font-family:serif;line-height:1.55}h1{font-size:1.8em}h2{font-size:1.4em;margin-top:1.2em}h3{font-size:1.1em;margin:1.4em 0 .3em}h3 small{font-weight:normal;color:#777;font-size:.75em}.by{font-style:italic;color:#555}.chosen{font-style:italic;color:#2c7464}.ev{font-size:.85em;color:#666}";
+  function xesc(t) { return esc(t).replace(/'/g, "&#39;"); }
+  function xmd(t) { return md(t).replace(/<br>/g, "<br/>"); }
+  function recitEpub(st, s, pages) {
+    var acts = {}; (st.acts || []).forEach(function (a) { acts[a.id] = a.title; });
+    var chapters = [], cur = null;
+    pages.forEach(function (p) {
+      if (!cur || (p.act && p.act !== cur.act)) { cur = { act: p.act, title: acts[p.act] || st.title, body: [] }; chapters.push(cur); }
+      cur.body.push("<section><h3>" + xmd(String(p.title || "")) + (p.t ? " <small>" + xesc(p.t) + "</small>" : "") + "</h3>");
+      (p.text || []).forEach(function (t) { cur.body.push("<p>" + xmd(t) + "</p>"); });
+      if (p.ev && p.ev.length) cur.body.push("<p class=\"ev\">" + p.ev.map(xesc).join(" · ") + "</p>");
+      if (p.c) cur.body.push("<p class=\"chosen\">Tu as choisi : « " + xesc(p.c) + " »</p>");
+      cur.body.push("</section>");
+    });
+    var title = st.title + " · " + (s.name || ""), uid = "livre-heros-" + st.id + "-" + Date.now(), when = new Date().toISOString().replace(/\.\d+Z$/, "Z");
+    function page(t, body) { return "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<!DOCTYPE html>\n<html xmlns=\"http://www.w3.org/1999/xhtml\" xmlns:epub=\"http://www.idpf.org/2007/ops\" xml:lang=\"fr\" lang=\"fr\"><head><meta charset=\"utf-8\"/><title>" + xesc(t) + "</title><link rel=\"stylesheet\" href=\"style.css\"/></head><body>" + body + "</body></html>"; }
+    var files = [["mimetype", "application/epub+zip"],
+      ["META-INF/container.xml", "<?xml version=\"1.0\"?>\n<container version=\"1.0\" xmlns=\"urn:oasis:names:tc:opendocument:xmlns:container\"><rootfiles><rootfile full-path=\"OEBPS/content.opf\" media-type=\"application/oebps-package+xml\"/></rootfiles></container>"],
+      ["OEBPS/style.css", EPUB_CSS],
+      ["OEBPS/titre.xhtml", page(title, "<h1>" + xesc(st.title) + "</h1><p class=\"by\">L'aventure de " + xesc(s.name || "") + ", " + xesc(M.archOf(st, s).label || "") + " · niveau " + M.level(s) + "</p>")]];
+    chapters.forEach(function (c, i) { files.push(["OEBPS/ch" + (i + 1) + ".xhtml", page(c.title, "<h2>" + xesc(c.title) + "</h2>" + c.body.join("\n"))]); });
+    files.push(["OEBPS/nav.xhtml", page("Sommaire", "<nav epub:type=\"toc\" id=\"toc\"><h1>Sommaire</h1><ol><li><a href=\"titre.xhtml\">" + xesc(st.title) + "</a></li>" + chapters.map(function (c, i) { return "<li><a href=\"ch" + (i + 1) + ".xhtml\">" + xesc(c.title) + "</a></li>"; }).join("") + "</ol></nav>")]);
+    var items = files.filter(function (f) { return /^OEBPS\/.+\.xhtml$/.test(f[0]); }).map(function (f) { return f[0].slice(6); });
+    files.push(["OEBPS/content.opf", "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<package xmlns=\"http://www.idpf.org/2007/opf\" version=\"3.0\" unique-identifier=\"uid\" xml:lang=\"fr\"><metadata xmlns:dc=\"http://purl.org/dc/elements/1.1/\"><dc:identifier id=\"uid\">" + xesc(uid) + "</dc:identifier><dc:title>" + xesc(title) + "</dc:title><dc:language>fr</dc:language><dc:creator>" + xesc(s.name || "") + "</dc:creator><meta property=\"dcterms:modified\">" + when + "</meta></metadata><manifest>" +
+      "<item id=\"css\" href=\"style.css\" media-type=\"text/css\"/>" + items.map(function (f) { return "<item id=\"" + f.replace(/\.xhtml$/, "") + "\" href=\"" + f + "\" media-type=\"application/xhtml+xml\"" + (f === "nav.xhtml" ? " properties=\"nav\"" : "") + "/>"; }).join("") + "</manifest><spine>" +
+      ["titre.xhtml"].concat(chapters.map(function (c, i) { return "ch" + (i + 1) + ".xhtml"; })).map(function (f) { return "<itemref idref=\"" + f.replace(/\.xhtml$/, "") + "\"/>"; }).join("") + "</spine></package>"]);
+    return zipStore(files.map(function (f) { return [f[0], new TextEncoder().encode(f[1])]; }));
+  }
+  // Intent: zipStore([[name, bytes]]) -> bytes = a zip archive without compression (what an EPUB needs, mimetype first).
+  var CRC_TABLE = null;
+  function crc32(b) {
+    if (!CRC_TABLE) { CRC_TABLE = []; for (var n = 0; n < 256; n++) { var c = n; for (var k = 0; k < 8; k++) c = c & 1 ? 0xEDB88320 ^ (c >>> 1) : c >>> 1; CRC_TABLE[n] = c >>> 0; } }
+    var x = 0xFFFFFFFF; for (var i = 0; i < b.length; i++) x = CRC_TABLE[(x ^ b[i]) & 0xFF] ^ (x >>> 8); return (x ^ 0xFFFFFFFF) >>> 0;
+  }
+  function zipStore(files) {
+    var parts = [], central = [], off = 0, enc = new TextEncoder();
+    function u16(v) { return [v & 255, (v >>> 8) & 255]; }
+    function u32(v) { return [v & 255, (v >>> 8) & 255, (v >>> 16) & 255, (v >>> 24) & 255]; }
+    files.forEach(function (f) {
+      var name = enc.encode(f[0]), data = f[1], crc = crc32(data);
+      var head = [].concat(u32(0x04034b50), u16(20), u16(0x0800), u16(0), u16(0), u16(0x21), u32(crc), u32(data.length), u32(data.length), u16(name.length), u16(0));
+      parts.push(new Uint8Array(head), name, data);
+      central.push(new Uint8Array([].concat(u32(0x02014b50), u16(20), u16(20), u16(0x0800), u16(0), u16(0), u16(0x21), u32(crc), u32(data.length), u32(data.length), u16(name.length), u16(0), u16(0), u16(0), u16(0), u32(0), u32(off))), name);
+      off += head.length + name.length + data.length;
+    });
+    var csize = central.reduce(function (n, x) { return n + x.length; }, 0);
+    var end = new Uint8Array([].concat(u32(0x06054b50), u16(0), u16(0), u16(files.length), u16(files.length), u32(csize), u32(off), u16(0)));
+    var all = parts.concat(central, [end]), len = all.reduce(function (n, x) { return n + x.length; }, 0), out = new Uint8Array(len), p = 0;
+    all.forEach(function (x) { out.set(x, p); p += x.length; });
+    return out;
+  }
+  function downloadBytes(name, bytes, type) {
+    var blob = new Blob([bytes], { type: type });
+    function viaLink() { var url = URL.createObjectURL(blob); var a = h("a", { href: url, download: name }); document.body.appendChild(a); a.click(); a.remove(); setTimeout(function () { URL.revokeObjectURL(url); }, 10000); }
+    if (A.downloads) { A.downloads.save({ filename: name, data: blob }).catch(viaLink); return; }
+    viaLink();
+  }
   var RECIT_CSS = "body{font:17px/1.65 Georgia,'Literata',serif;color:#1d2420;background:#fff;max-width:40rem;margin:2rem auto;padding:0 16px}h1{font-size:2.2em;margin:0}h2{margin-top:2.4em;page-break-before:always;border-bottom:1px solid #ccc}h3{margin:1.6em 0 .4em}h3 small{font-weight:normal;color:#777;font-size:.6em}.by{color:#555;font-style:italic}.chosen{font-style:italic;color:#2c7464}.ev{font-size:.85em;color:#666}section{page-break-inside:auto}";
   // Intent: ficheHtml(Story, State) -> html = the hero's card, to print or keep (Clément, 12/11)
   function ficheHtml(st, s) {
@@ -5062,11 +5123,14 @@
       h("button", { class: "btn sm", onclick: function () { try { window.print(); } catch (e) { flash("L'impression n'est pas possible ici ; télécharge le livre puis imprime-le.", true); } } }, "Imprimer ou PDF"),
       canDownload() ? h("button", { class: "btn sm primary", onclick: function () {
         download("aventure-" + (s.name || "heros").replace(/[^\wÀ-ÿ-]+/g, "-") + ".html", "<!doctype html><meta charset=utf-8><title>" + esc(st.title) + " · " + esc(s.name) + "</title><style>" + RECIT_CSS + "</style>" + recitHtml(st, s, A.recit.pages));
-      } }, "Télécharger le livre") : null]));
+      } }, "Télécharger le livre") : null,
+      canDownload() ? h("button", { class: "btn sm", onclick: function () {
+        downloadBytes("aventure-" + (s.name || "heros").replace(/[^\wÀ-ÿ-]+/g, "-") + ".epub", recitEpub(st, s, A.recit.pages), "application/epub+zip");
+      } }, "Livre numérique (EPUB)") : null]));
     var w = h("main", { class: "wrap read recit" });
     if (A.recit.busy) w.appendChild(h("p", null, "Le livre se rassemble…"));
     else { w.appendChild(renderAudioBook(st, s, A.recit.pages)); w.appendChild(h("div", { html: recitHtml(st, s, A.recit.pages) })); }
-    w.appendChild(h("p", { class: "small muted noprint" }, "Le fichier téléchargé s'ouvre dans n'importe quel navigateur ; « Imprimer », puis « Enregistrer en PDF », en fait un PDF."));
+    w.appendChild(h("p", { class: "small muted noprint" }, "Le fichier téléchargé s'ouvre dans n'importe quel navigateur ; « Imprimer », puis « Enregistrer en PDF », en fait un PDF. Le livre numérique (EPUB) s'ouvre dans une liseuse ou une appli de lecture."));
     app.appendChild(w);
   }
 

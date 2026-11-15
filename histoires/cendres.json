@@ -3500,6 +3500,153 @@
    ]
   }
  ],
+ "weather": {
+  "by": "route",
+  "every": 6,
+  "start": "gel",
+  "kinds": {
+   "gel": {
+    "name": "Gel clair",
+    "desc": "Un ciel dur et bleu, un froid qui fait craquer la neige."
+   },
+   "neige": {
+    "name": "Neige",
+    "desc": "La neige tombe, lourde, et efface les traces.",
+    "mod": {
+     "nature": -10,
+     "discretion": 10
+    },
+    "say": "La neige se met à tomber, lente, lourde. Derrière toi, les traces s'effacent."
+   },
+   "bourrasque": {
+    "name": "Bourrasque",
+    "desc": "Le vent soulève la neige en rideaux.",
+    "mod": {
+     "nature": -15,
+     "combat": -10
+    },
+    "say": "Le vent se lève d'un coup et soulève la neige en rideaux blancs. On ne voit plus ses propres mains.",
+    "hurts": {
+     "wound": "gelure",
+     "chance": 0.3,
+     "say": "Le vent te prend le visage et les mains. Quand il retombe, tu as le bout des doigts blanc et dur."
+    }
+   },
+   "brouillard": {
+    "name": "Brouillard givrant",
+    "desc": "Un brouillard qui givre les cils.",
+    "mod": {
+     "nature": -10,
+     "discretion": 15
+    },
+    "say": "Un brouillard monte des vallées et givre tout ce qu'il touche : les cils, les cheveux, les branches."
+   },
+   "redoux": {
+    "name": "Redoux",
+    "desc": "Un vent tiède, la neige qui fond en boue.",
+    "mod": {
+     "discretion": -5
+    },
+    "say": "Le vent tourne au sud. La neige fond en boue grise, et les ruisseaux grondent sous la glace."
+   },
+   "verglas": {
+    "name": "Verglas",
+    "desc": "La pluie gelée sur les chemins.",
+    "mod": {
+     "combat": -10,
+     "nature": -10
+    },
+    "say": "La pluie a gelé en tombant. Les chemins luisent, et chaque pas se négocie.",
+    "hurts": {
+     "wound": "chute",
+     "chance": 0.3,
+     "say": "Ton pied part sur la glace. Tu tombes sur le flanc, de tout ton poids."
+    }
+   }
+  },
+  "regions": {
+   "lieu": {
+    "gel": 3,
+    "neige": 2,
+    "redoux": 1
+   },
+   "plaine": {
+    "gel": 2,
+    "neige": 2,
+    "brouillard": 2,
+    "redoux": 1
+   },
+   "cour": {
+    "gel": 2,
+    "neige": 2,
+    "verglas": 1,
+    "redoux": 1
+   },
+   "marches": {
+    "gel": 2,
+    "neige": 2,
+    "verglas": 1,
+    "bourrasque": 1
+   },
+   "montagne": {
+    "neige": 3,
+    "bourrasque": 2,
+    "gel": 1
+   },
+   "combes": {
+    "neige": 3,
+    "bourrasque": 2,
+    "gel": 2
+   },
+   "cretes": {
+    "bourrasque": 3,
+    "neige": 2,
+    "gel": 1
+   },
+   "outreblanc": {
+    "neige": 3,
+    "bourrasque": 2,
+    "brouillard": 2
+   },
+   "iv_sud": {
+    "redoux": 2,
+    "gel": 2,
+    "neige": 1
+   },
+   "iv_est": {
+    "gel": 2,
+    "neige": 2,
+    "verglas": 1
+   },
+   "iv_nord": {
+    "neige": 3,
+    "bourrasque": 2,
+    "gel": 1
+   }
+  }
+ },
+ "wounds": {
+  "gelure": {
+   "name": "Gelures",
+   "desc": "Le bout de tes doigts est blanc, et te brûle quand il se réchauffe.",
+   "mod": {
+    "combat": -10,
+    "discretion": -5
+   },
+   "days": 3,
+   "tended": 1
+  },
+  "chute": {
+   "name": "Le flanc meurtri",
+   "desc": "Une douleur sourde au côté à chaque inspiration.",
+   "mod": {
+    "combat": -10,
+    "nature": -5
+   },
+   "days": 2,
+   "tended": 1
+  }
+ },
  "world": {
   "money": {
    "units": [
@@ -4319,7 +4466,8 @@
     ],
     "camp": [
      "Vous dormez dans une grange. Dans la paille, quelqu'un a gravé une liste de noms, au couteau, sur une poutre, et la date de l'année blanche."
-    ]
+    ],
+    "tiring": 3
    },
    "iv_est": {
     "name": "Les Marches, à la veille de la guerre",
@@ -4337,7 +4485,8 @@
     ],
     "camp": [
      "Vous dormez au bord de la route. À l'est, le ciel est rouge toute la nuit : ce sont les feux des deux armées, qui se répondent par-dessus la Lisse."
-    ]
+    ],
+    "tiring": 3
    },
    "iv_nord": {
     "name": "Les montagnes, un an après",
@@ -4355,7 +4504,8 @@
     ],
     "camp": [
      "Vous dormez sous les étoiles. Il n'y a pas de neige. Givre, à chaque réveil, va vérifier qu'il n'y en a toujours pas."
-    ]
+    ],
+    "tiring": 2
    },
    "marches": {
     "name": "Les Marches de l'Est",
@@ -4374,7 +4524,8 @@
     ],
     "camp": [
      "Le camp se monte en carré, les prisonniers au milieu, les feux aux quatre coins. Tu fais le tour des sentinelles toi-même, deux fois. Personne ne dort vraiment."
-    ]
+    ],
+    "tiring": 2
    },
    "montagne": {
     "ambiance": "montagne",
@@ -4394,7 +4545,8 @@
     ],
     "camp": [
      "Tu dors sous un surplomb de roche, ton sac sous la tête. Les étoiles d'été tournent lentement au-dessus des crêtes, et pas un flocon ne tombe."
-    ]
+    ],
+    "tiring": 2
    },
    "plaine": {
     "ambiance": "champs",
@@ -4419,7 +4571,8 @@
     "camp": [
      "Tu dors dans une grange, avec la permission d'un fermier qui te demande trois fois d'où tu viens. *Sauvelune.* Il fronce les sourcils. Il ne connaît pas.",
      "Tu campes au bord d'un fossé, sous un noyer. Au loin, les cloches de Pallanche sonnent complies, si nombreuses qu'on dirait une pluie de fer."
-    ]
+    ],
+    "tiring": 3
    },
    "cour": {
     "name": "La vallée de la Pallante",
@@ -4441,7 +4594,8 @@
     ],
     "camp": [
      "On dort au relais, dans une chambre partagée avec deux joueuses de flûte qui ronflent. Toute la nuit, sous la fenêtre, des valets chargent et déchargent."
-    ]
+    ],
+    "tiring": 2
    },
    "outreblanc": {
     "ambiance": "neige",
@@ -4465,7 +4619,8 @@
     ],
     "camp": [
      "Vous vous arrêtez sans savoir si c'est la nuit. Personne n'a faim. Personne n'a sommeil. On s'assied quand même, par habitude, et on se tait ensemble."
-    ]
+    ],
+    "tiring": 2
    },
    "combes": {
     "ambiance": "montagne",
@@ -4485,7 +4640,8 @@
     ],
     "camp": [
      "Tu dors roulée dans ta peau de renne, entre deux pierres, ton arc contre toi. Les corbeaux qui te suivent depuis le camp se posent autour de toi et se taisent."
-    ]
+    ],
+    "tiring": 2
    },
    "cretes": {
     "ambiance": "neige",
@@ -4508,7 +4664,8 @@
     ],
     "camp": [
      "Tu dors entre deux rochers, enroulé dans ta couverture. Il fait froid, un froid sec de montagne, et toute la nuit tu entends quelque chose marcher dans la neige sans jamais s'approcher."
-    ]
+    ],
+    "tiring": 2
    }
   },
   "events": {
