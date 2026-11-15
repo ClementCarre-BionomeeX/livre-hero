@@ -8,4 +8,6 @@ module.exports = {
     desc: "Un club londonien d'écrivains, d'artistes et de journalistes, près de la Tamise, à Adelphi Terrace." },
   nature: { ambiance: "ville", name: "Les bureaux de Nature", map: "londres", x: 50, y: 34, region: "Londres", arrive: "II_4",
     desc: "La rédaction de la revue scientifique où travaille Tarp Henry." },
+  enmore: { ambiance: "ville", name: "Enmore Park", map: "londres", x: 22, y: 38, region: "Londres", arrive: "III_2",
+    desc: "La maison du professeur Challenger à Kensington, à l'ouest de Londres : un portique, de lourds rideaux, un perron." },
 };

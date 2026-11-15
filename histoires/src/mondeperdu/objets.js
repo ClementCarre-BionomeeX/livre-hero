@@ -8,4 +8,13 @@ module.exports = {
   lettre_challenger: { name: "Ta lettre au professeur", kind: "document", keep: true,
     desc: "La lettre rusée écrite au bureau de Nature, pour obtenir un rendez-vous.",
     text: "*Cher professeur Challenger, en humble étudiant de la Nature, j'ai toujours porté le plus profond intérêt à vos spéculations sur les différences entre Darwin et Weismann… Je proteste énergiquement contre l'affirmation insupportable et entièrement dogmatique selon laquelle chaque ide séparé serait un microcosme… Avec votre accord, j'espère avoir l'honneur de me présenter chez vous mercredi matin, à onze heures.*\n\n*Edward D. Malone.*" },
+  reponse_challenger: { name: "La réponse du professeur", kind: "document", keep: true,
+    desc: "Une écriture en fil de fer barbelé. Il accepte de te recevoir mercredi à onze heures, et te demande de montrer l'enveloppe à Austin." },
+  carnet_maple: { name: "Le carnet de croquis de Maple White", kind: "document", keep: true,
+    desc: "Un carnet délabré, que Challenger traite comme une relique. Tu l'as feuilleté page par page.",
+    text: "Un gros homme en caban (*Jimmy Colver sur le paquebot postal*). Des Indiens et leurs coutumes. Un prêtre jovial (*Déjeuner avec Fra Cristofero à Rosario*). Des femmes et des bébés. Des animaux : *Lamantin sur un banc de sable*, *Tortues et leurs œufs*, *Agouti noir sous un palmier miriti*. Des alligators.\n\nPuis un paysage : une ligne de falaises rouges, côtelées, qui barrent tout l'horizon ; un rocher isolé en pyramide, couronné d'un grand arbre, séparé de la falaise par une fente.\n\nEnfin, une créature à tête de volaille, au corps de lézard boursouflé, le dos bordé d'une haute frange dentelée, la queue armée de piquants. Devant elle, un petit homme, dessiné pour donner l'échelle." },
+  aile: { name: "L'aile du professeur", kind: "document", keep: true,
+    desc: "Le haut d'une aile d'environ soixante centimètres : un seul os courbé et une seule membrane. Ni oiseau, ni chauve-souris. Challenger y voit un ptérodactyle, abattu sur le rocher en pyramide." },
+  carte_conference: { name: "L'invitation à la conférence", kind: "document", keep: true,
+    desc: "M. Percival Waldron parlera du *Registre des âges* ce soir à huit heures et demie, dans la grande salle de l'Institut zoologique. Challenger sera sur l'estrade." },
 };
