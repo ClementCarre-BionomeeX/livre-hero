@@ -55,6 +55,22 @@ module.exports = {
       ],
     },
   ],
+  // The world of this book (8.6): what an inhabitant knows before the first page. Nothing of the plot.
+  lore: {
+    pages: [
+      { title: "Les Lisières", text: [
+        "Les **Lisières**, ce sont trois fermes et une chapelle au bout d'une route qui monte, au-dessus du bourg de Saint-Amans-des-Combes, là où la forêt commence. Le bourg a son docteur, son église et ses diligences ; là-haut, on a le bois, l'eau du ruisseau et la neige.",
+        "La plus grande maison est celle des Sorlin : un logis de pierre grise à deux étages, une scierie en contrebas sur le ruisseau, et derrière, entre les saules, un étang que l'hiver ferme d'un couvercle de glace. Au-delà, la forêt des Fayards, des hêtres et des sapins.",
+        "L'hiver, quand la neige tient, les chevaux refusent la côte, et le dernier quart de lieue se fait à pied. Varenne, la ville, est à six jours de diligence.",
+      ] },
+    ],
+    names: {
+      "Lisières": "Trois fermes et une chapelle au-dessus de Saint-Amans, là où la forêt commence.",
+      "Saint-Amans|Saint-Amans-des-Combes": "Le bourg en contrebas des Lisières : son docteur, son église, sa route.",
+      "Fayards": "La forêt de hêtres et de sapins derrière les Lisières.",
+      "Varenne": "La ville, à six jours de diligence des Lisières.",
+    },
+  },
   world: {
     noFood: true,
     money: { units: [{ name: "livre", plural: "livres", value: 20, short: "l." }, { name: "sou", plural: "sous", value: 1, short: "s." }] },

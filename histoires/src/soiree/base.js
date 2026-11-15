@@ -104,6 +104,23 @@ module.exports = {
       { label: "Rien. Ce que tu avais mis de côté pour eux, tu l'as dépensé en route.", fx: { flag: "passe:mainsvides" } },
     ] },
   ],
+  // The world of this book (8.6): what an inhabitant knows before the first page. Nothing of the plot.
+  lore: {
+    pages: [
+      { title: "Brévannes et la Longue Nuit", text: [
+        "**Brévannes** est un village de vallée au bord de la Ganne, avec son pont à trois arches, son moulin et son auberge, la Truite d'Or. En face, la pente monte vers les fermes, dont les Aubiers.",
+        "La **Longue Nuit** est la plus longue de l'année. Ce soir-là, on pose une chandelle à chaque fenêtre, sur l'appui, entre le carreau et le volet, et on ferme le volet à minuit. Dans toute la vallée, on veille pour ceux qui sont en route.",
+        "On paie en sous.",
+      ] },
+    ],
+    names: {
+      "Brévannes": "Le village au bord de la Ganne, avec son pont, son moulin et son auberge.",
+      "Ganne": "La rivière de Brévannes.",
+      "Aubiers": "La ferme de ta grand-mère, sur la pente en face du village.",
+      "Longue Nuit": "La nuit la plus longue de l'année : une chandelle à chaque fenêtre jusqu'à minuit, pour ceux qui sont en route.",
+      "Truite d'Or": "L'auberge de Brévannes.",
+    },
+  },
   world: {
     money: { units: [{ name: "écu", plural: "écus", value: 20, short: "é." }, { name: "sou", plural: "sous", value: 1, short: "s." }] },
     start: { place: "pont", hour: 17, gold: 60, food: 1, items: ["lettre_albane"],

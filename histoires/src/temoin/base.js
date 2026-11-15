@@ -169,6 +169,23 @@ module.exports = {
       { label: "Le silence. Quand il faudrait parler, tu te tais, et tu laisses les autres décider à ta place.", fx: { flag: "vice:silence" } },
     ] },
   ],
+  // The world of this book (8.6): what an inhabitant knows before the first page. Nothing of the plot.
+  lore: {
+    pages: [
+      { title: "Les Hautes-Pierres", text: [
+        "Les **Hautes-Pierres** sont un pays de montagne, de cols et de mines. Au col des Gélines, un hospice tenu par des sœurs accueille les voyageurs ; son chien va chercher dans la neige ceux que la tempête a surpris.",
+        "En bas, **Vaugrenat** est un bourg de mineurs. La **Compagnie des Plombs** y exploite les mines et y fait travailler une bonne part des hommes. Plus haut, à un jour de marche, les fermes des Combes vivent de leurs bêtes et de leurs prés.",
+        "La justice du pays est celle du **prévôt**, qui monte enquêter lui-même quand il y a mort d'homme. On paie en sous, et en écus pour les grosses sommes.",
+      ] },
+    ],
+    names: {
+      "Hautes-Pierres": "Le pays de montagne autour du col des Gélines.",
+      "Gélines": "Le col des Gélines et son hospice, tenu par des sœurs.",
+      "Vaugrenat": "Le bourg de mineurs, en bas du col.",
+      "Combes": "Les fermes au-dessus de Vaugrenat, à un jour de marche de l'hospice.",
+      "Compagnie des Plombs": "La compagnie qui exploite les mines de plomb autour de Vaugrenat.",
+    },
+  },
   world: {
     money: { units: [{ name: "écu", plural: "écus", value: 20, short: "é." }, { name: "sou", plural: "sous", value: 1, short: "s." }] },
     start: { place: "hospice", gold: 400, food: 1, items: ["instruments", "couteau"],

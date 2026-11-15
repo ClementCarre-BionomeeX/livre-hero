@@ -378,6 +378,17 @@ La fatigue des routes, les blessures du temps et l'effet du temps sur les jets n
 
 En place dans Kardan (canicule, vent de sable, froid des profondeurs), Malvoran (pluie, brume, neige, verglas, miasmes de la terre souillée) et les Cendres (neige, bourrasque, brouillard givrant, verglas). Le validateur refuse une région de météo inconnue, une blessure inconnue dans `hurts`, un `tiring` qui n'est pas un nombre entier d'étapes.
 
+## Le monde de ce livre (15/11, 8.6) : entrer dans l'univers avant la première page
+
+Clément (15/11) : toutes les histoires démarrent dans l'action, et le lecteur ignore les coutumes, la monnaie, les croyances, qui gouverne. `story.lore` donne ce qu'un habitant sait sans y penser. Rien de l'intrigue, rien de ce que le héros doit découvrir : seulement le décor commun.
+
+| Où | Clé | Sens |
+|---|---|---|
+| `story.lore` | `pages: [{ title, text }]` | La page « Le monde de ce livre » : pliée sur la fiche du livre et à la création du héros, ouverte en tête de l'onglet Mots du carnet. `text` : une phrase ou une liste de paragraphes (gras et italique comme ailleurs). Deux à quatre pages courtes. |
+| `story.lore` | `names: { "Nom\|Variante": "phrase" }` | Les noms du monde (lieux, fêtes, ordres, monnaies, dieux). Le premier de chaque page est souligné en or et s'ouvre d'un toucher. La casse compte : « Rive » est un nom, « rive » reste un mot. La liste complète s'affiche sous la page dans le carnet. Réglage « Fiches du monde ». |
+
+Les noms suivent le glossaire : une seule fois par page, jamais dans un bouton, ni dans ce que lit la voix. Le validateur refuse une page sans titre ou sans texte et un nom sans sa phrase. Exemple : `tests/monde-test.js`.
+
 ## Plusieurs vies, beaucoup de fins (15/11, 8.8) : pistes déjà suivies, fins composées, aiguillages, héros prédéfinis
 
 Pour « Les Fils de la Marée » (Clément, 15/11 : trois actes, deux heures par partie, des centaines de fins, des choix qui changent vraiment la suite).

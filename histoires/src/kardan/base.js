@@ -171,6 +171,25 @@ module.exports = {
     insolation: { name: "Coup de soleil à la nuque", desc: "La tête te tourne quand tu te relèves trop vite.", mod: { combat: -5, savoir: -10 }, days: 2, tended: 1 },
     transi: { name: "Les doigts transis", desc: "Tes doigts ont du mal à se refermer sur une arme.", mod: { combat: -10, discretion: -5 }, days: 1, tended: 1 },
   },
+  // The world of this book (8.6): what an inhabitant knows before the first page. Nothing of the plot.
+  lore: {
+    pages: [
+      { title: "La vallée sèche", text: [
+        "Au sud de Sorel commence ce que tout le monde appelle simplement *la vallée sèche* : des collines de pierre blanche, des ravines où l'eau coule seulement après les orages, des chevriers qui comptent leurs bêtes à chaque puits. On y marche tôt le matin et tard le soir, et l'on dort à l'ombre pendant les heures blanches de midi.",
+        "Les caravanes de sel et de toile la traversent en groupe, avec leurs muletiers et leurs chameliers, et elles repassent. Un voyageur seul y est une curiosité, et une curiosité dont on parle aux haltes.",
+      ] },
+      { title: "Ce qu'on sait au relais", text: [
+        "Le relais de Sorel est le dernier toit sûr avant la vallée : une grande ferme fortifiée où l'on mange à des tables dressées dans la cour, où l'on dort dans le foin au-dessus des mules, et où l'on échange les nouvelles du sud contre celles du nord.",
+        "On paie en sous. Dans la vallée, l'eau a un prix, comme le pain : un puits qui a un maître se paie à la cruche.",
+        "De Kardan, on connaît ce qu'en disent les marchands de sel : un village vert au fond de la vallée, où l'eau ne manque jamais.",
+      ] },
+    ],
+    names: {
+      "Sorel": "Le relais fortifié au nord de la vallée sèche, dernier toit sûr pour les caravanes.",
+      "Kardan": "Un village vert au fond de la vallée sèche, adossé à une colline. Les marchands disent que l'eau n'y manque jamais.",
+      "vallée sèche": "Le pays de pierre blanche au sud de Sorel, que les caravanes traversent en groupe.",
+    },
+  },
   world: {
     start: { place: "sorel", gold: 10, food: 2, items: ["dague"],
       // Class kits (Clément, 11/11): the ranger's bow, the thief's throwing knife, the mage's staff.

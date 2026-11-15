@@ -4642,6 +4642,36 @@
    "tended": 1
   }
  },
+ "lore": {
+  "pages": [
+   {
+    "title": "La légende des Cinq Mains",
+    "text": [
+     "Tout le monde, dans les vallées, connaît l'histoire. Il y a quatre cents ans, la terre s'est ouverte sous le massif de la Fenne, et il en est monté une eau noire qui rendait fous les hommes et grises les bêtes. Un sorcier l'avait voulu. Cinq héros l'ont vaincu, l'ont enchaîné sous le glacier, et ont fermé la **Brèche** d'un **Sceau** à trois clés.",
+     "L'**Ordre de la Main** garde cette mémoire. Ses novices apprennent par cœur les noms des Cinq Mains, le geste du salut et la prière du soir ; les colporteurs vendent leurs images pieuses, et les bornes des chemins portent leurs mains sculptées dans la pierre."
+    ]
+   },
+   {
+    "title": "Le pays",
+    "text": [
+     "Deux couronnes se partagent les vallées : **Aldaran**, la tour d'argent sur champ bleu, et **Vel-Orin**, le croissant. Chacune frappe ses sous ; on voit aussi passer des deniers de cuivre et, plus rarement, des couronnes d'or, lourdes, que les marchands pèsent avant de les prendre.",
+     "Au pied de la crête, le hameau des Trois-Bornes ; plus bas, la vallée de la Sorbe, ses moulins et ses marais ; au loin, la forêt du Rouvre et le massif de la Fenne. Des trolls, il y en a toujours eu dans les hauteurs : on garde ses moutons, et on vit avec."
+    ]
+   }
+  ],
+  "names": {
+   "Cinq Mains": "Les cinq héros qui, il y a quatre cents ans, ont enchaîné le sorcier sous le glacier de la Fenne.",
+   "Ordre de la Main": "L'ordre religieux qui garde la mémoire des Cinq Mains et de la Brèche fermée.",
+   "Brèche": "La faille ouverte sous la Fenne il y a quatre cents ans, d'où montait l'eau noire.",
+   "Sceau": "Le sceau à trois clés qui ferme la Brèche, selon la légende.",
+   "Fenne": "Le massif et son glacier, au fond des vallées.",
+   "Aldaran": "Une des deux couronnes des vallées. Son signe : une tour d'argent sur champ bleu.",
+   "Vel-Orin": "L'autre couronne des vallées. Son signe : un croissant.",
+   "Trois-Bornes": "Un hameau de six toits au pied de la crête, autour de trois pierres levées.",
+   "Sorbe": "La vallée et la rivière en contrebas de la crête, avec ses moulins et ses marais.",
+   "Brumefeuille": "Un village de la Sorbe, de l'autre côté de la crête."
+  }
+ },
  "world": {
   "money": {
    "units": [
