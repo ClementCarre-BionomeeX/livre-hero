@@ -14,7 +14,7 @@
     "secret", "confie", "garde", "savoir", "lu"];
   // The siege's conditions (8.0) carry a second key (is, member, hero, losses): they are read by their first key.
   var SIEGE_KEYS = ["stock", "days", "promise", "vote", "lean", "battle", "camp", "missed", "fatigue", "trait", "duel"];
-  var FX_KEYS = ["voie", "regard", "resume", "set", "flag", "flags", "unflag", "clue", "mark", "ep", "catchup", "catchupWhy", "join", "met", "leave", "conf", "fear", "fac", "relic",
+  var FX_KEYS = ["voie", "regard", "aspect", "qui", "resume", "set", "flag", "flags", "unflag", "clue", "mark", "ep", "catchup", "catchupWhy", "join", "met", "leave", "conf", "fear", "fac", "relic",
     "give", "relicLose", "item", "drop", "gold", "food", "pv", "rest", "time", "until", "stamp", "reveal", "meet", "clock", "quest", "questSeen", "note", "noteCls",
     "assign", "team", "regroup", "away", "lead", "leadQuiet", "learn", "souv", "souvBack", "catchupAll", "awayUnless",
     "stock", "promise", "keep", "break", "forgive", "sway", "sound", "camp", "tie",
@@ -95,6 +95,23 @@
         M.faceErrors(fc).forEach(function (m) { E("Visage de « " + k + " » (" + kind + ") : " + m); });
       });
     });
+    // Who is who (15/11): the five groups of an aspect, each a few words (the reader may set them beside the name).
+    var aspectErrors = function (a, where) {
+      if (!a || typeof a !== "object" || Array.isArray(a)) { E(where + " : aspect mal formé ({ " + Object.keys(M.ASPECT_KEYS).join(", ") + " })."); return; }
+      Object.keys(a).forEach(function (x) {
+        if (!M.ASPECT_KEYS[x]) E(where + " : aspect, « " + x + " » inconnu (" + Object.keys(M.ASPECT_KEYS).join(", ") + ").");
+        else if (typeof a[x] !== "string" || !a[x].trim()) E(where + " : aspect « " + x + " » vide.");
+        else if (a[x].trim().split(/\s+/).length > M.ASPECT_MAX_WORDS) E(where + " : aspect « " + x + " » trop long (" + M.ASPECT_MAX_WORDS + " mots au plus, il s'écrit à côté du nom).");
+      });
+    };
+    ["people", "companions"].forEach(function (kind) {
+      Object.keys(story[kind] || {}).forEach(function (k) {
+        var P = story[kind][k];
+        if (P.aspect !== undefined) aspectErrors(P.aspect, "« " + k + " » (" + kind + ")");
+        if (P.aka !== undefined && (!Array.isArray(P.aka) || P.aka.some(function (f) { return typeof f !== "string" || f.trim().length < 2; }))) E("« " + k + " » (" + kind + ") : aka doit être une liste de noms.");
+        if (P.qui !== undefined && typeof P.qui !== "string") E("« " + k + " » (" + kind + ") : qui doit être une phrase.");
+      });
+    });
     Object.keys(story.heroes || {}).forEach(function (k) {
       var H = story.heroes[k];
       if (!story.companions[k]) E("Héros « " + k + " » : il lui faut aussi une entrée dans companions (nom, confiance).");
@@ -125,15 +142,16 @@
       texts.forEach(function (x) {
         var where = x[0], t = x[1];
         if (/\{\{[a-z]+:/.test(t)) {
-          var rest = t.replace(/\{\{(fx|cle|or|envers|encre|tache):([^{}|]*)(?:\|([^{}]*))?\}\}/g, "");
+          var rest = t.replace(/\{\{(fx|cle|or|envers|encre|tache|gens):([^{}|]*)(?:\|([^{}]*))?\}\}/g, "");
           var bad = rest.match(/\{\{[a-z]+:[^}]*\}?\}?/);
-          if (bad) E(where + " : marque inconnue ou mal fermée « " + bad[0].slice(0, 40) + " » (fx, cle, or, envers, encre, tache).");
+          if (bad) E(where + " : marque inconnue ou mal fermée « " + bad[0].slice(0, 40) + " » (fx, cle, or, envers, encre, tache, gens).");
         }
         M.marksOf(t).forEach(function (m) {
           if (m.kind === "fx") { if (!M.TEXT_FX[m.arg]) E(where + " : effet « " + m.arg + " » inconnu (" + Object.keys(M.TEXT_FX).join(", ") + ")."); if (!m.text) E(where + " : effet « " + m.arg + " » sans texte."); }
           if (m.kind === "cle") { if (m.text != null ? !kws[m.arg] : !M.keywordFor(story, m.arg)) E(where + " : mot-clé « " + m.arg + " » inconnu (story.keywords ou mots du moteur)."); }
           if (m.kind === "or") { if (!(story.trouvailles || {})[m.arg]) E(where + " : trouvaille « " + m.arg + " » inconnue (story.trouvailles)."); else hidden[m.arg] = 1; if (!m.text) E(where + " : trouvaille « " + m.arg + " » sans texte."); }
           if (m.kind === "encre") { if (!story.items[m.arg]) E(where + " : encre invisible, objet « " + m.arg + " » inconnu."); if (!m.text) E(where + " : encre invisible sans texte."); }
+          if (m.kind === "gens") { if (m.arg !== "aucun" && !M.personOf(story, m.arg)) E(where + " : {{gens:" + m.arg + "|…}}, personnage inconnu (people, companions ou « aucun »)."); if (!m.text) E(where + " : {{gens:" + m.arg + "}} sans texte."); }
           if ((m.kind === "envers" || m.kind === "tache") && !m.arg) E(where + " : « " + m.kind + " » sans texte.");
         });
       });
@@ -255,6 +273,8 @@
       [].concat(fx.join || [], fx.met || [], fx.leave || []).concat(Object.keys(fx.conf || {}), Object.keys(fx.fear || {}))
         .forEach(function (x) { if (!story.companions[x]) E(where + " : compagnon « " + x + " » inconnu."); });
       Object.keys(fx.fac || {}).forEach(function (x) { if (!story.factions[x]) E(where + " : faction « " + x + " » inconnue."); });
+      Object.keys(fx.aspect || {}).forEach(function (x) { if (!people[x] && !story.companions[x]) E(where + " : aspect, personnage « " + x + " » inconnu."); else aspectErrors(fx.aspect[x], where + " : aspect de " + x); });
+      Object.keys(fx.qui || {}).forEach(function (x) { if (!people[x] && !story.companions[x]) E(where + " : qui, personnage « " + x + " » inconnu."); else if (typeof fx.qui[x] !== "string") E(where + " : qui de " + x + " doit être une phrase."); });
       Object.keys(fx.regard || {}).forEach(function (x) {
         if (!people[x] && !story.companions[x]) E(where + " : regard, personnage « " + x + " » inconnu.");
         if (!M.REGARDS[fx.regard[x]]) E(where + " : regard « " + fx.regard[x] + " » inconnu (" + Object.keys(M.REGARDS).join(", ") + ").");

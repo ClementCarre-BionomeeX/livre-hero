@@ -1352,13 +1352,13 @@ module.exports = {
   passages: P,
   extras: {
     people: {
-      IF_guillot: { name: "Guillot", f: false, face: { age: "mur", beard: "barbe", coif: "court" }, desc: "Bûcheron à la lisière du Rouvre. Des avant-bras comme des bûches, une jambe qui ne tient plus quand le temps tourne." },
-      IF_mahaut: { name: "Mahaut", f: true, face: { age: "adulte", coif: "foulard" }, desc: "La femme de Guillot, la mère de Tiennot. Elle attend sur le seuil." },
-      IF_tiennot: { name: "Tiennot", f: false, face: { age: "jeune", coif: "court" }, desc: "Le fils du bûcheron, quatorze ans. Il est parti dans le Rouvre après un cerf gris, et il a bu à une flaque qui chantait." },
-      IF_jacquemin: { name: "Jacquemin", f: false, face: { age: "adulte", hair: "roux", beard: "barbe" }, desc: "Un braconnier roux qui vend au marchand de Sorbe les peaux grises des bêtes du Rouvre. Ses mains sont grises jusqu'aux poignets." },
-      IF_barnabe: { name: "Barnabé", f: false, face: { age: "mur", beard: "moustache" }, desc: "Le cuisinier des scieurs de long du Haut-Pays, le seul d'entre eux qui parle la langue d'ici." },
-      IM_sauge: { name: "La Vieille Sauge", f: true, face: { age: "ancien", coif: "foulard" }, desc: "Une sorcière des marais, si vieille et si ridée qu'on dirait une pomme oubliée au grenier. Elle vit sur pilotis avec un héron qu'elle appelle Messire." },
-      IM_pernelle: { name: "Pernelle l'anguillère", f: true, face: { age: "mur", coif: "chignon", skin: "hale" }, desc: "Une pêcheuse d'anguilles du bord des marais, sèche et noire comme une anguille fumée." },
+      IF_guillot: { name: "Guillot", aspect: { allure: "bûcheron, une jambe faible", visage: "barbe", signe: "avant-bras comme des bûches" }, f: false, face: { age: "mur", beard: "barbe", coif: "court" }, desc: "Bûcheron à la lisière du Rouvre. Des avant-bras comme des bûches, une jambe qui ne tient plus quand le temps tourne." },
+      IF_mahaut: { name: "Mahaut", aspect: { allure: "mère qui attend sur le seuil", habits: "foulard", visage: "yeux rouges et secs" }, f: true, face: { age: "adulte", coif: "foulard" }, desc: "La femme de Guillot, la mère de Tiennot. Elle attend sur le seuil." },
+      IF_tiennot: { name: "Tiennot", aspect: { allure: "garçon de quatorze ans, lent" }, f: false, face: { age: "jeune", coif: "court" }, desc: "Le fils du bûcheron, quatorze ans. Il est parti dans le Rouvre après un cerf gris, et il a bu à une flaque qui chantait." },
+      IF_jacquemin: { name: "Jacquemin", aspect: { allure: "braconnier", visage: "roux, barbe", signe: "mains grises jusqu'aux poignets" }, f: false, face: { age: "adulte", hair: "roux", beard: "barbe" }, desc: "Un braconnier roux qui vend au marchand de Sorbe les peaux grises des bêtes du Rouvre. Ses mains sont grises jusqu'aux poignets." },
+      IF_barnabe: { name: "Barnabé", aspect: { allure: "cuisinier des scieurs de long", visage: "moustache" }, f: false, face: { age: "mur", beard: "moustache" }, desc: "Le cuisinier des scieurs de long du Haut-Pays, le seul d'entre eux qui parle la langue d'ici." },
+      IM_sauge: { name: "La Vieille Sauge", aka: ["la Vieille Sauge", "la Sauge"], aspect: { allure: "ridée comme une pomme oubliée", signe: "un héron nommé Messire, une pipe" }, f: true, face: { age: "ancien", coif: "foulard" }, desc: "Une sorcière des marais, si vieille et si ridée qu'on dirait une pomme oubliée au grenier. Elle vit sur pilotis avec un héron qu'elle appelle Messire." },
+      IM_pernelle: { name: "Pernelle l'anguillère", aspect: { allure: "sèche et noire comme une anguille fumée", signe: "un seau de peaux d'anguilles" }, f: true, face: { age: "mur", coif: "chignon", skin: "hale" }, desc: "Une pêcheuse d'anguilles du bord des marais, sèche et noire comme une anguille fumée." },
     },
     items: {
       IM_noeud: { name: "Le nœud de jonc de Sauge", kind: "quete", keep: true, bonus: { magie: 5 }, desc: "Un nœud de veuve, en jonc tressé serré autour d'une perle de saule. Ce qui parle dans l'eau ne peut pas dire ton nom tant que tu le portes." },

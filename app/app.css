@@ -814,6 +814,41 @@ button.kw { font: inherit; color: var(--accent); font-weight: 600; background: n
 .book-notice .prose p { margin: 6px 0; }
 .book-notice.short { font-size: 15px; display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px; border-width: 1px; border-left-width: 5px; }
 
+/* Who is who (15/11): touchable names, the reminder beside a name, the card of a person */
+button.pp { all: unset; cursor: pointer; border-bottom: 2px solid color-mix(in srgb, var(--accent) 45%, transparent); }
+button.pp:hover { background: color-mix(in srgb, var(--accent) 10%, transparent); }
+button.pp:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
+.pp-rappel { display: inline-block; margin: 0 .15em 0 .3em; padding: 0 .45em; border-radius: 999px; font: 500 .74em/1.55 var(--sans); letter-spacing: .01em; color: var(--muted); background: color-mix(in srgb, var(--accent) 11%, transparent); border: 1px solid color-mix(in srgb, var(--accent) 22%, transparent); vertical-align: .08em; white-space: normal; }
+.pp-pop { padding: 12px; }
+.pp-pop > .btn { margin-top: 8px; }
+.pp-card { display: grid; gap: 8px; padding: 10px 12px; border: 1px solid var(--line); border-radius: 10px; background: var(--bg); }
+.pp-pop .pp-card { padding: 0; border: 0; background: none; }
+.pp-head { display: flex; gap: 10px; align-items: flex-start; }
+.pp-face svg { display: block; border-radius: 50%; }
+.pp-name { font: 600 17px/1.3 var(--serif); }
+.pp-qui { font: 14.5px/1.45 var(--serif); color: var(--ink, inherit); margin-top: 2px; }
+.pp-tags:empty { display: none; }
+.pp-tags { margin-top: 4px; display: flex; gap: 6px; flex-wrap: wrap; }
+.pp-aspect { display: grid; grid-template-columns: max-content 1fr; gap: 3px 10px; margin: 0; font-size: 14px; line-height: 1.4; }
+.pp-aspect dt { font: 600 12px/1.6 var(--sans); color: var(--muted); text-transform: uppercase; letter-spacing: .04em; }
+.pp-aspect dd { margin: 0; font-family: var(--serif); }
+.pp-pick { border-top: 1px dashed var(--line); padding-top: 8px; display: grid; gap: 6px; }
+.pp-checks { display: flex; flex-wrap: wrap; gap: 6px 14px; }
+.pp-check { display: inline-flex; align-items: center; gap: 6px; font: 14px/1.3 var(--sans); cursor: pointer; }
+.pp-check input { width: 18px; height: 18px; accent-color: var(--accent); }
+.pp-connu { font-weight: 600; }
+.pp-meet { margin: 18px 0 6px; display: grid; gap: 10px; }
+.pp-meet .pp-card { border-color: color-mix(in srgb, var(--accent) 40%, var(--line)); }
+#carnet .pp-card + .pp-card, .carnet-body .pp-card { margin-bottom: 8px; }
+.pp-card > .desc { font: 14.5px/1.45 var(--serif); color: var(--muted); }
+.pp-met { margin-top: -2px; }
+.pp-own { display: grid; gap: 4px; }
+.pp-own input { font: 15px/1.4 var(--serif); padding: 7px 10px; border: 1px solid var(--line); border-radius: 8px; background: var(--paper, var(--bg)); color: inherit; min-width: 0; }
+.pp-aspect dd.mine { font-style: italic; }
+.pp-scene { display: grid; gap: 6px; margin: 4px 0 14px; padding: 8px 10px; border: 1px solid var(--line); border-radius: 10px; background: color-mix(in srgb, var(--accent) 5%, transparent); }
+.pp-scene-row { display: flex; flex-wrap: wrap; gap: 6px 14px; }
+button.pp.pp-face-btn { border-bottom: 0; display: inline-flex; align-items: center; gap: 6px; padding: 2px 8px 2px 2px; border-radius: 999px; font: 500 14px/1.2 var(--sans); }
+.pp-face-btn svg { display: block; border-radius: 50%; }
 /* 8.9: a path an earlier game unveiled; a shortcut over a known scene */
 .choice .unveiled { color: var(--accent, #b07d2a); }
 .choice .skip-mark { opacity: .7; }

@@ -51,6 +51,11 @@
   // fx.regard: { <person>: "<word>" }. Nothing is said on the page when it changes; the notebook (Gens) shows it.
   var REGARDS = { hostile: "Hostile", mefiant: "Méfiant", distant: "Distant", neutre: "Sans avis", curieux: "Curieux", cordial: "Cordial",
     allie: "Allié", redevable: "Redevable", craintif: "Te craint", admiratif: "Admiratif", trahi: "Se sent trahi", rancunier: "Rancunier" };
+  // Who is who (Clément, 15/11, for a reader who finds names hard to follow): what a person looks like, in five fixed
+  // groups of a few words each (a reader may ask for any of them beside the name in the text), and who the person is
+  // to the hero. Declared in people.<id>.aspect / .qui, changed by the passage effects `aspect` and `qui`.
+  var ASPECT_KEYS = { allure: "Allure", visage: "Visage", habits: "Habits", signe: "Signe", voix: "Voix" };
+  var ASPECT_MAX_WORDS = 8;
   // A pressing scene (passage tag `urgent`: seconds to choose) stays between these bounds.
   var URGENT_MIN = 5, URGENT_MAX = 120;
   // The tavern game, « la Chandelle » (passage tag `taverne`): a six-sided die thrown again and again, the sum kept,
@@ -672,11 +677,11 @@
     }
     [].concat(fx.join || []).forEach(function (c2) {
       if (!story.companions[c2]) throw new Error("compagnon inconnu " + c2);
-      if (s.met[c2] !== "party") { var fresh = !s.met[c2]; s.met[c2] = "party"; if (s.conf[c2] == null) s.conf[c2] = CONF_START_PARTY; if (s.fear[c2] == null) s.fear[c2] = 0; if (fresh) carryRep(s, c2); ev(s, story.companions[c2].name + " rejoint le groupe.", "good"); }
+      if (s.met[c2] !== "party") { var fresh = !s.met[c2]; if (fresh) metAt(s, c2); s.met[c2] = "party"; if (s.conf[c2] == null) s.conf[c2] = CONF_START_PARTY; if (s.fear[c2] == null) s.fear[c2] = 0; if (fresh) carryRep(s, c2); ev(s, story.companions[c2].name + " rejoint le groupe.", "good"); }
     });
     [].concat(fx.met || []).forEach(function (c2) {
       if (!story.companions[c2]) throw new Error("compagnon inconnu " + c2);
-      if (!s.met[c2]) { s.met[c2] = "met"; if (s.conf[c2] == null) s.conf[c2] = CONF_START_MET; if (s.fear[c2] == null) s.fear[c2] = 0; carryRep(s, c2); }
+      if (!s.met[c2]) { metAt(s, c2); s.met[c2] = "met"; if (s.conf[c2] == null) s.conf[c2] = CONF_START_MET; if (s.fear[c2] == null) s.fear[c2] = 0; carryRep(s, c2); }
     });
     [].concat(fx.leave || []).forEach(function (c2) { if (s.met[c2] === "party") { s.met[c2] = "gone"; ev(s, story.companions[c2].name + " quitte le groupe.", "bad"); } });
     [["conf", "Confiance"], ["fear", "Crainte"]].forEach(function (m) {
@@ -757,13 +762,18 @@
     });
     [].concat(fx.meet || []).forEach(function (pe) {
       if (!(story.people || {})[pe]) throw new Error("personnage inconnu " + pe);
-      if (!s.people[pe]) { s.people[pe] = true; ev(s, "Rencontré : " + story.people[pe].name, "people"); }
+      if (!s.people[pe]) { s.people[pe] = true; metAt(s, pe); ev(s, "Rencontré : " + story.people[pe].name, "people"); }
     });
     if (fx.regard) for (k in fx.regard) {
       if (!(story.people || {})[k] && !(story.companions || {})[k]) throw new Error("personnage inconnu " + k);
       if (!REGARDS[fx.regard[k]]) throw new Error("regard inconnu " + fx.regard[k]);
       s.regard = s.regard || {}; s.regard[k] = fx.regard[k];
     }
+    if (fx.aspect) for (k in fx.aspect) {
+      if (!personOf(story, k)) throw new Error("personnage inconnu " + k);
+      s.aspect = s.aspect || {}; s.aspect[k] = Object.assign({}, s.aspect[k] || {}, fx.aspect[k]);
+    }
+    if (fx.qui) for (k in fx.qui) { if (!personOf(story, k)) throw new Error("personnage inconnu " + k); s.qui = s.qui || {}; s.qui[k] = fx.qui[k]; }
     if (fx.clock) for (k in fx.clock) s.clock[k] = (s.clock[k] || 0) + fx.clock[k];
     [].concat(fx.quest || []).forEach(function (q) {
       if (!(story.quests || []).some(function (x) { return x.id === q; })) throw new Error("quête inconnue " + q);
@@ -2870,9 +2880,10 @@
   //   {{envers:texte}}       written in a mirror; a tap turns it round
   //   {{encre:<item>|texte}} invisible ink: shown only while the hero carries the item
   //   {{tache:texte}}        a blot: unreadable, and read by nobody
+  //   {{gens:<id>|texte}}    these words name that person (people or companions); {{gens:aucun|texte}}: they name nobody
   var TEXT_FX = { tremble: "tremble", ondule: "ondule", irise: "irisé", chuchote: "chuchoté", efface: "s'efface", rature: "raturé", ecrit: "s'écrit lettre à lettre", lueur: "luit" };
-  var MARK_RE = /\{\{(fx|cle|or|envers|encre|tache):([^{}|]*)(?:\|([^{}]*))?\}\}/g;
-  var MARK_KINDS = { fx: 1, cle: 1, or: 1, envers: 1, encre: 1, tache: 1 };
+  var MARK_RE = /\{\{(fx|cle|or|envers|encre|tache|gens):([^{}|]*)(?:\|([^{}]*))?\}\}/g;
+  var MARK_KINDS = { fx: 1, cle: 1, or: 1, envers: 1, encre: 1, tache: 1, gens: 1 };
   function plainOf(story, s, t) {
     return String(t).replace(MARK_RE, function (all, k, a, b) {
       if (k === "tache") return "";
@@ -2880,6 +2891,61 @@
       if (k === "envers" || (k === "cle" && b == null)) return a;
       return b == null ? a : b;
     }).replace(/ {2,}/g, " ").replace(/ ([,.;:!?»])/g, function (m, c) { return c === "»" || c === ":" || c === ";" || c === "!" || c === "?" ? m : c; });
+  }
+  // Intent: personOf(story, id) -> the person (people, else companions) or null
+  // Where and when the hero first met someone (people or companions), for the card of who is who.
+  function metAt(s, id) { s.metAt = s.metAt || {}; if (!s.metAt[id]) s.metAt[id] = { day: day(s), place: s.place || null }; }
+  function personOf(story, id) { return (story.people || {})[id] || (story.companions || {})[id] || null; }
+  // Intent: aspectOf(story, s, id) -> { allure, visage, habits, signe, voix } = how the person looks now: what the story
+  // declares, then what the passages changed (fx.aspect). With no visage declared, one is read from the face.
+  function aspectOf(story, s, id) {
+    var p = personOf(story, id); if (!p) return {};
+    var a = Object.assign({}, p.aspect || {}, ((s && s.aspect) || {})[id] || {});
+    if (!a.visage && p.face) { var v = faceWords(p.face, p.f); if (v) a.visage = v; }
+    Object.keys(a).forEach(function (k) { if (!ASPECT_KEYS[k] || !a[k]) delete a[k]; });
+    return a;
+  }
+  // Intent: quiOf(story, s, id) -> one sentence: who the person is to the hero now (fx.qui, else qui, else role, else desc)
+  function quiOf(story, s, id) {
+    var p = personOf(story, id); if (!p) return "";
+    var t = ((s && s.qui) || {})[id] || p.qui || p.role || p.desc || "";
+    return s ? interp(s, t) : t;
+  }
+  // Intent: nameForms(story) -> [[form, id]] = the words that name each person in a text, longest first: the aka the
+  // story gives, else the name and its capitalised words (titles and articles left out).
+  var NAME_SKIP = { Le: 1, La: 1, Les: 1, "L'": 1, De: 1, Du: 1, Des: 1, Vieux: 1, Vieille: 1, Petit: 1, Petite: 1, Grand: 1, Mère: 1, Père: 1, Frère: 1, "Sœur": 1, Dame: 1, Sire: 1, Messire: 1, Maître: 1, Maîtresse: 1, Capitaine: 1, Professeur: 1, Docteur: 1, Monsieur: 1, Madame: 1, Lord: 1, Lady: 1, Sir: 1, Ser: 1, Messire: 1, Comte: 1, Comtesse: 1, Princesse: 1, Prince: 1, Amiral: 1, Sergente: 1, Sergent: 1, Recteur: 1, Dom: 1, Messer: 1, Mr: 1, Mrs: 1 };
+  function nameForms(story) {
+    if (story && story._nameForms) return story._nameForms;
+    var out = [], seen = {};
+    // two people named alike: the word names nobody, unless they are the same person under two ids (same name)
+    var who = {}, nameOf = function (id) { var p = (story.people || {})[id] || (story.companions || {})[id]; return p ? String(p.name).split(",")[0].trim() : id; };
+    var add = function (f, id) { f = String(f || "").trim(); if (f.length < 2) return; if (seen[f] && seen[f] !== id) { if (seen[f] !== "?" && who[f] === nameOf(id)) return; seen[f] = "?"; return; } seen[f] = id; who[f] = nameOf(id); };
+    [["people", story.people || {}], ["companions", story.companions || {}]].forEach(function (g) {
+      Object.keys(g[1]).forEach(function (id) {
+        var p = g[1][id];
+        if (p.aka) [].concat(p.aka).forEach(function (f) { add(f, id); });
+        var n = String(p.name || "").split(",")[0].trim(); add(n, id);
+        // the words of the name up to a particle (« de Brenne » is often a place, not the person)
+        if (!p.aka) { var stop = false; n.split(/\s+/).forEach(function (w) { if (stop || /^(de|du|des|d['’].*)$/.test(w)) { stop = true; return; } w = w.replace(/^[Ll]['’]/, ""); if (/^[A-ZÀ-ÖØ-Þ]/.test(w) && !NAME_SKIP[w] && w.length > 2) add(w, id); }); }
+      });
+    });
+    Object.keys(seen).forEach(function (f) { if (seen[f] !== "?") out.push([f, seen[f]]); });
+    out.sort(function (a, b) { return b[0].length - a[0].length; });
+    if (story) try { Object.defineProperty(story, "_nameForms", { value: out, enumerable: false, configurable: true }); } catch (e) {}
+    return out;
+  }
+  // A face said in words (when the story wrote no visage): hair and how it is worn, beard, marks.
+  var HAIR_ADJ = { noir: ["noirs", "noires", "noir"], brun: ["bruns", "brunes", "brun"], chatain: ["châtains", "châtain", "châtain"], noisette: ["noisette", "noisette", "noisette"], roux: ["roux", "rousses", "roux"], cuivre: ["cuivrés", "cuivrées", "cuivré"], blond: ["blonds", "blondes", "blond"], platine: ["platine", "platine", "platine"], gris: ["gris", "grises", "gris"], blanc: ["blancs", "blanches", "blanc"], acajou: ["acajou", "acajou", "acajou"] };
+  var COIF_WORDS = { court: "cheveux % courts", milong: "cheveux % mi-longs", long: "longs cheveux %", boucles: "cheveux % bouclés", crepus: "cheveux % crépus", tresses: "tresses @", locks: "locks @", chignon: "chignon $", degarni: "crâne dégarni", couronne: "cheveux % en couronne", rase: "crâne rasé", foulard: "foulard", turban: "turban", capuche: "capuche" };
+  var BEARD_WORDS = { moustache: "moustache", barbe: "barbe", longue: "longue barbe" };
+  var MARK_WORDS = { rousseur: "taches de rousseur", vitiligo: "vitiligo", tache: "tache de naissance", cicatrice: "cicatrice", balafre: "balafre", brulure: "brûlure", bandeau: "bandeau sur l'œil", oeil_voile: "un œil voilé", aveugle: "aveugle", vairons: "yeux vairons", lunettes: "lunettes", appareil: "appareil auditif", tatouage: "tatouage" };
+  function faceWords(f, fem) {
+    var bits = [], c = HAIR_ADJ[f.hair];
+    if (f.coif && COIF_WORDS[f.coif]) bits.push(COIF_WORDS[f.coif].replace("%", c ? c[0] : "").replace("@", c ? c[1] : "").replace("$", c ? c[2] : "").replace(/ {2,}/g, " ").trim());
+    else if (c) bits.push("cheveux " + c[0]);
+    if (f.beard && BEARD_WORDS[f.beard]) bits.push(BEARD_WORDS[f.beard]);
+    (f.marks || []).forEach(function (m) { if (MARK_WORDS[m]) bits.push(MARK_WORDS[m]); });
+    return bits.slice(0, 3).join(", ");
   }
   // Intent: marksOf(text) -> [{ kind, arg, text, raw }] = the marks of a paragraph, for the page and the validator
   function marksOf(t) {
@@ -3272,7 +3338,7 @@
   }
 
   var API = {
-    FACE: FACE, FACE_KEYS: FACE_KEYS, faceErrors: faceErrors, REGARDS: REGARDS, mysterySolved: mysterySolved, happened: happened, TAVERN_GAMES_PER_DAY: TAVERN_GAMES_PER_DAY,
+    FACE: FACE, FACE_KEYS: FACE_KEYS, ASPECT_KEYS: ASPECT_KEYS, ASPECT_MAX_WORDS: ASPECT_MAX_WORDS, personOf: personOf, aspectOf: aspectOf, quiOf: quiOf, nameForms: nameForms, faceErrors: faceErrors, REGARDS: REGARDS, mysterySolved: mysterySolved, happened: happened, TAVERN_GAMES_PER_DAY: TAVERN_GAMES_PER_DAY,
     ARCHS: ARCHS, archOf: archOf, usesOf: usesOf, plainOf: plainOf, marksOf: marksOf, TEXT_FX: TEXT_FX, MARK_KINDS: MARK_KINDS, MOODS: MOODS, keywordsOf: keywordsOf, keywordFor: keywordFor, trouve: trouve, moodOf: moodOf, TECHS: TECHS, techsOf: techsOf, partyView: partyView, cpv: cpv, cpvMax: cpvMax, FRONT: FRONT, DOMAINS: DOMAINS, EP: EP, EP_PER_LEVEL: EP_PER_LEVEL, MAX_LEVEL: MAX_LEVEL, DIFFS: DIFFS, LOYAL_AT: LOYAL_AT, SUCCESS: SUCCESS, STEP_HOURS: STEP_HOURS,
     setRng: setRng, setDice: setDice, nudgeOf: nudgeOf, ambianceOf: ambianceOf, AMBIANCES: AMBIANCES, isNightNow: function (s) { var h = s.time % 24; return h >= NIGHT_FROM || h < NIGHT_TO; }, DIFFICULTY: DIFFICULTY, featsOf: featsOf, endingsOf: endingsOf, endingOf: endingOf, fatesOf: fatesOf, fateCount: fateCount, freshState: freshState, level: level, pvMax: pvMax, bonus: bonus, chance: chance, rollTest: rollTest,
     evalCond: evalCond, describeCond: describeCond, textList: textList, view: view, allowed: allowed, target: target,

@@ -1399,7 +1399,7 @@ module.exports = {
   passages: P,
   extras: {
     people: {
-      VF_malvoran: { name: "Malvoran le Guérisseur", f: false, face: { age: "jeune", beard: "barbe" }, desc: "Le sixième fondateur, le plus jeune. Il soignait les gens de village en village, avec une trousse de cuir et un bol fêlé. Il a tenu la porte quatre cents ans." },
+      VF_malvoran: { name: "Malvoran le Guérisseur", aspect: { allure: "le plus jeune des fondateurs", signe: "une trousse de cuir, un bol fêlé" }, f: false, face: { age: "jeune", beard: "barbe" }, desc: "Le sixième fondateur, le plus jeune. Il soignait les gens de village en village, avec une trousse de cuir et un bol fêlé. Il a tenu la porte quatre cents ans." },
     },
     enemies: {
       vf_voix: { name: "La Voix", look: "ombre", pv: 260, att: 122, def: 45, dmg: 13, desc: "Une femme de vase aux cheveux d'algue, qui sort de l'eau sans jamais en sortir tout à fait. Elle frappe comme une vague : sans hâte, et de partout." },

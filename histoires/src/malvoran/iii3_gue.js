@@ -1345,13 +1345,13 @@ module.exports = {
 
   extras: {
     people: {
-      IIIF_aymar: { name: "Sire Aymar de Gaudre", f: false, face: { age: "ancien", coif: "rase", marks: ["cicatrice"] }, desc: "Commandeur de Fort-Gaudre depuis vingt-deux ans. Un grand chevalier, autrefois, qui a tenu le gué de l'Isarde contre les pillards. Sa main droite tremble." },
-      IIIF_tiburce: { name: "Frère Arnoul", f: false, face: { age: "jeune", coif: "court" }, desc: "Un frère de Fort-Gaudre de dix-sept ans, maigre, qui s'est enfui par les latrines et a laissé son gant derrière lui." },
-      IIIF_gildas: { name: "Frère Gildas", f: false, face: { age: "ancien", beard: "longue" }, desc: "Le vieux chapelain de Fort-Gaudre, qui a dit en chaire que l'Ordre ne vend pas les routes." },
-      IIIF_morand: { name: "Frère Morand", f: false, face: { age: "jeune", coif: "court" }, desc: "Un jeune frère de Gaudre, pendu à la croisée des Trois-Ormes avec deux autres, et dépendu à temps." },
-      IIIF_ombert: { name: "Sire Ombert", f: false, face: { age: "mur", coif: "court", marks: ["cicatrice"] }, desc: "Un chevalier sans couleurs, à la solde du premier conseiller d'Aldaran. Une cicatrice lui ferme à moitié l'œil gauche." },
-      IIIF_bertolde: { name: "Bertolde l'intendant", f: false, face: { age: "mur", beard: "barbe" }, desc: "L'intendant de Fort-Gaudre. Il tient les comptes depuis vingt ans, et il boit depuis six." },
-      IIIF_bastien: { name: "Frère Baudouin", f: false, face: { age: "adulte", beard: "barbe" }, desc: "Sergent de Fort-Gaudre, jeté au cachot pour avoir posé des questions. Le bras en écharpe, et la tête dure." },
+      IIIF_aymar: { name: "Sire Aymar de Gaudre", aspect: { allure: "grand corps maigre", visage: "cheveux blancs coupés ras", signe: "la main droite qui tremble" }, f: false, face: { age: "ancien", coif: "rase", marks: ["cicatrice"] }, desc: "Commandeur de Fort-Gaudre depuis vingt-deux ans. Un grand chevalier, autrefois, qui a tenu le gué de l'Isarde contre les pillards. Sa main droite tremble." },
+      IIIF_tiburce: { name: "Frère Arnoul", aspect: { allure: "frère de dix-sept ans, maigre", signe: "cache sa main sans gant" }, f: false, face: { age: "jeune", coif: "court" }, desc: "Un frère de Fort-Gaudre de dix-sept ans, maigre, qui s'est enfui par les latrines et a laissé son gant derrière lui." },
+      IIIF_gildas: { name: "Frère Gildas", aspect: { allure: "vieux chapelain", visage: "longue barbe", signe: "une couverture sur les épaules" }, f: false, face: { age: "ancien", beard: "longue" }, desc: "Le vieux chapelain de Fort-Gaudre, qui a dit en chaire que l'Ordre ne vend pas les routes." },
+      IIIF_morand: { name: "Frère Morand", aspect: { allure: "jeune frère", signe: "col de laine sur une cicatrice au cou" }, f: false, face: { age: "jeune", coif: "court" }, desc: "Un jeune frère de Gaudre, pendu à la croisée des Trois-Ormes avec deux autres, et dépendu à temps." },
+      IIIF_ombert: { name: "Sire Ombert", aspect: { allure: "chevalier sans couleurs", visage: "cicatrice à l'œil gauche" }, f: false, face: { age: "mur", coif: "court", marks: ["cicatrice"] }, desc: "Un chevalier sans couleurs, à la solde du premier conseiller d'Aldaran. Une cicatrice lui ferme à moitié l'œil gauche." },
+      IIIF_bertolde: { name: "Bertolde l'intendant", aspect: { allure: "intendant qui boit", visage: "barbe", signe: "assis sur une barrique" }, f: false, face: { age: "mur", beard: "barbe" }, desc: "L'intendant de Fort-Gaudre. Il tient les comptes depuis vingt ans, et il boit depuis six." },
+      IIIF_bastien: { name: "Frère Baudouin", aspect: { allure: "sergent à la tête dure", visage: "barbe", signe: "le bras en écharpe" }, f: false, face: { age: "adulte", beard: "barbe" }, desc: "Sergent de Fort-Gaudre, jeté au cachot pour avoir posé des questions. Le bras en écharpe, et la tête dure." },
     },
     items: {
       IIIF_cles: { name: "Le trousseau de Gaudre", kind: "outil", desc: "Les clés de l'intendant de Fort-Gaudre, de la porte charretière au coffre à sel. La plus petite, en cuivre, ouvre la chambre du commandeur." },
