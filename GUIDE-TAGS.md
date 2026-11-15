@@ -447,3 +447,23 @@ Pour mettre dans l'appli un roman tel qu'il est écrit, sans choix (Clément, 15
 | acte | `recap: "…"` | Résumé du chapitre, montré par « Où en étais-je ? » une fois le chapitre lu, et à la fin du chapitre. |
 
 Les tags habituels restent valables : `place` (la carte se remplit), `fx.meet` (noms touchables, portrait, allure et vêtements dans `people[].aspect`), `fx.item` (documents gardés), glossaire. Exemple en place : « Le Monde perdu » (`histoires/src/mondeperdu/`).
+
+## Les paroles cachées (15/11, 9.1) : des mots qui bougent, et ce qu'ils cachent
+
+Idée de Clément (15/11, piste T4) : certains objets font bouger, dans le texte, des morceaux de phrases ; un toucher dévoile le vrai texte caché dessous. Le scénario déclare ; le moteur décide ce qui bouge, ce que coûte un dévoilement, ce qu'il pose.
+
+| Où | Clé | Sens |
+|---|---|---|
+| texte (paragraphe, `text` d'un objet `document`, épilogue) | `{{lentille\|dit\|dessous}}` · `{{lentille#id\|dit\|dessous}}` | Les mots dits, et ceux qu'ils cachent. Le dessous remplace le dessus dans la même phrase. `{e}` et `{hero}` y sont permis. Sans la lentille, le lecteur lit les mots dits, sans rien qui les distingue. Un voile sans `#id` est reconnu par sa lentille et ses mots dits. Jamais dans un bouton. |
+| `story.lenses` | `{ <id>: { name, item \| if, effect, hint, say, charges, max, unit, empty, spent } }` | Ce qui fait entendre (ou voir) dessous. Tenue quand l'objet `item` est dans le sac (le sien ou celui d'un héros qui marche avec lui) et que `if` tient. `effect` : `tremble`, `ondule`, `lueur`, `givre`, `braise`, `encre`, `chuchote`. `charges` : chaque dévoilement en coûte une (sinon, illimité). `say` : la ligne dite la première fois qu'on la tient. |
+| `story.veils` | `{ <id>: { fx } }` | Ce qu'un dévoilement pose en plus de `voile:<id>` : un indice, un drapeau, de l'EP. |
+| fx | `recharge: { <lentille>: n }` | Rend des charges (jusqu'à `max`, ou `charges`). |
+| fx | `devoile: "<id>"` | L'histoire lève elle-même un voile (quelqu'un le dit enfin en clair). |
+| condition | `{ voile: "<id>" }` · `{ voiles: { min, max }, lens }` · `{ lens: "<lentille>" }` | Ce voile est levé · combien le sont (d'une lentille, ou de toutes) · la lentille est tenue. `after: "voile:<id>"` marche aussi. |
+| `story.veilsTab` | texte | Le nom de l'onglet du carnet (« Sous les mots » par défaut). |
+
+L'appli : les mots qui bougent sont des boutons (clavier et lecteur d'écran compris), animés lettre par lettre selon l'effet ; si le système demande moins de mouvement, une couleur et un pointillé. Les mots dévoilés restent dévoilés (en italique souligné, les mots dits en info-bulle), dans la page, dans les documents du sac et dans l'onglet « Sous les mots ». La lecture à voix haute lit le texte tel qu'il est affiché.
+
+Le validateur : syntaxe des voiles, lentille déclarée, objet existant, même voile qui cacherait deux textes (collision d'id), voile sur un bouton, conditions et effets qui citent un voile inconnu. Les parties d'essai dévoilent ce qui bouge (souvent ; toujours en exploration), comme un lecteur curieux.
+
+Pièges : un voile sans `#id` dont les mots dits sont courts (« rien ») risque de rencontrer un autre voile ; donner un `#id` dès qu'il a une suite. Les charges se dépensent aussi sur les voiles sans suite : un lecteur prudent les garde.

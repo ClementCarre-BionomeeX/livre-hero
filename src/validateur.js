@@ -11,16 +11,16 @@
     "lead", "away", "team", "souv", "souvenirs", "heroLevel", "second", "via", "regard", "fresh", "stock", "days", "promise", "vote", "lean", "battle", "camp", "missed",
     "temps", "saison", "blessure", "cicatrice", "fatigue", "trait", "duel",
     "recit", "doute", "dementi", "silences", "geste", "poids", "angoisse", "attache",
-    "secret", "confie", "garde", "savoir", "lu"];
+    "secret", "confie", "garde", "savoir", "lu", "voile", "voiles", "lens"];
   // The siege's conditions (8.0) carry a second key (is, member, hero, losses): they are read by their first key.
-  var SIEGE_KEYS = ["stock", "days", "promise", "vote", "lean", "battle", "camp", "missed", "fatigue", "trait", "duel"];
+  var SIEGE_KEYS = ["voiles", "stock", "days", "promise", "vote", "lean", "battle", "camp", "missed", "fatigue", "trait", "duel"];
   var FX_KEYS = ["voie", "regard", "aspect", "qui", "resume", "set", "flag", "flags", "unflag", "clue", "mark", "ep", "catchup", "catchupWhy", "join", "met", "leave", "conf", "fear", "fac", "relic",
     "give", "relicLose", "item", "drop", "gold", "food", "pv", "rest", "time", "until", "stamp", "reveal", "meet", "clock", "quest", "questSeen", "note", "noteCls",
     "assign", "team", "regroup", "away", "lead", "leadQuiet", "learn", "souv", "souvBack", "catchupAll", "awayUnless",
     "stock", "promise", "keep", "break", "forgive", "sway", "sound", "camp", "tie",
     "meteo", "blessure", "soigner", "guerir", "fatigue", "trait", "pratique",
     "recit", "geste", "angoisse", "attache",
-    "secret", "surprend", "confier"];
+    "secret", "surprend", "confier", "recharge", "devoile"];
   var DOM_KEYS = Object.keys(M.DOMAINS);
 
   // Collects every tag a condition reads (for the echo check).
@@ -29,6 +29,8 @@
     if (typeof c === "string") { out.push(c); return out; }
     if (Array.isArray(c)) { c.forEach(function (x) { readTags(x, out); }); return out; }
     if ("has" in c) out.push(c.has);
+    // { is: { key: "value" } } reads the state set by set: { key: "value" }, which also stands as the tag "key=value".
+    if (c.is && typeof c.is === "object") Object.keys(c.is).forEach(function (k) { [].concat(c.is[k]).forEach(function (v) { out.push(k + "=" + v); }); });
     if ("quest" in c) out.push("quete:" + c.quest);
     if ("not" in c) readTags(c.not, out);
     if ("all" in c) readTags(c.all, out);
@@ -64,6 +66,7 @@
     ["id", "title", "start", "acts", "passages"].forEach(function (k) { if (!story[k]) E("Il manque « " + k + " » à l'histoire."); });
     if (errs.length) return { errors: errs, warnings: warns };
     M.prepare(story);   // the ways back get their destination and label, as in play (an edited or imported story is raw)
+    var VEILS = M.veilsOf(story);
     // Clément, 13/11: a story with adult themes says so, and lists them; the library warns before it opens.
     if (story.adult !== undefined) {
       var ad = story.adult;
@@ -239,6 +242,10 @@
       if (k === "battle" && !(story.battles || {})[c.battle]) E(where + " : bataille « " + c.battle + " » inconnue.");
       if (k === "battle" && c.is != null && c.is !== "win" && c.is !== "lose") E(where + " : bataille, « " + c.is + " » (attendu : win ou lose).");
       if (k === "camp" && c.camp != null && c.camp !== "none" && !(story.camps || {})[c.camp]) E(where + " : camp « " + c.camp + " » inconnu.");
+      // Hidden words (9.1).
+      if (k === "voile") [].concat(c.voile).forEach(function (x) { if (!VEILS[x]) E(where + " : voile « " + x + " » inconnu (aucun {{lentille#" + x + "|…|…}} dans le texte)."); });
+      if ((k === "voiles" || k === "lens") && c.lens != null) [].concat(c.lens).forEach(function (x) { if (!(story.lenses || {})[x]) E(where + " : lentille « " + x + " » inconnue (lenses)."); });
+      if (k === "voiles" && (c.voiles === null || typeof c.voiles !== "object")) E(where + " : la condition « voiles » s'écrit { voiles: { min: …, max: … } }.");
       if (k === "missed" && !qids[c.missed]) E(where + " : quête « " + c.missed + " » inconnue.");
       // At sea (8.1).
       if (k === "temps") checkSea("temps", c.temps, where);
@@ -310,6 +317,8 @@
       if (fx.fatigue != null && typeof fx.fatigue !== "number") E(where + " : fatigue, un nombre (positif ou négatif).");
       // A closed room (8.3).
       [].concat(fx.recit || []).forEach(function (x) { if (!(story.accounts || {})[x]) E(where + " : version « " + x + " » inconnue (accounts)."); });
+      Object.keys(fx.recharge || {}).forEach(function (x) { if (!(story.lenses || {})[x]) E(where + " : recharge, lentille « " + x + " » inconnue."); else if (typeof fx.recharge[x] !== "number") E(where + " : recharge, un nombre."); });
+      [].concat(fx.devoile || []).forEach(function (x) { if (!VEILS[x]) E(where + " : devoile, voile « " + x + " » inconnu."); });
       [].concat(fx.secret || [], fx.surprend || [], fx.confier || []).forEach(function (x) { if (!(story.secrets || {})[x]) E(where + " : secret « " + x + " » inconnu (secrets)."); });
       [].concat(fx.geste || []).forEach(function (x) { if (!(story.gestes || {})[x]) E(where + " : geste « " + x + " » inconnu (gestes)."); });
       if (fx.angoisse != null && (typeof fx.angoisse !== "number" || !story.dread)) E(where + " : angoisse, un nombre, et story.dread déclaré.");
@@ -580,6 +589,35 @@
       if (A.belie != null && A.by !== "hero" && !Object.keys(P).some(function (id) { return [].concat(P[id].devant || []).indexOf(A.by) >= 0; })) E(w + " : belie, mais aucun passage devant: \"" + A.by + "\" où la mettre en doute.");
       if (A.belie != null && A.by === "hero" && !Object.keys(P).some(function (id) { return P[id].seul; })) E(w + " : belie, mais aucun passage seul: true où revenir sur sa version.");
     });
+    // Hidden words (9.1): the lenses, the veils written in the text, what the story says of them.
+    Object.keys(story.lenses || {}).forEach(function (k) {
+      var L = story.lenses[k], w = "Lentille « " + k + " »";
+      // The marks of 8.6 ({{fx:…}}, {{cle:…}}…) and the hidden words share the braces: a lens never takes their names.
+      if ((M.MARK_KINDS || {})[k]) E(w + " : ce nom est celui d'une balise de mots à effets ({{" + k + ":…}}) ; choisir un autre nom.");
+      if (!L.name) E(w + " : il faut un nom (name).");
+      if (!L.item && L.if == null) E(w + " : il faut un objet (item) ou une condition (if).");
+      if (L.item && !items[L.item]) E(w + " : objet « " + L.item + " » inconnu.");
+      if (L.effect && M.LENS_EFFECTS.indexOf(L.effect) < 0) E(w + " : effet « " + L.effect + " » inconnu (" + M.LENS_EFFECTS.join(", ") + ").");
+      if (L.charges != null && !(L.charges >= 0)) E(w + " : charges, un nombre.");
+      checkCond(L.if, w);
+      if (!Object.keys(VEILS).some(function (v) { return VEILS[v].lens === k; })) W(w + " : aucun mot caché ne s'y rapporte.");
+    });
+    (story.__veilClash || []).forEach(function (k) { E("Voile « " + k + " » : le même voile (mêmes mots dits, ou même #id) cache deux textes différents ; donne-lui un #id à lui."); });
+    Object.keys(VEILS).forEach(function (k) {
+      var V = VEILS[k];
+      if (!(story.lenses || {})[V.lens]) E("Voile « " + k + " » (" + V.at + ") : lentille « " + V.lens + " » inconnue (lenses).");
+      if (!V.said.trim() || !V.truth.trim()) E("Voile « " + k + " » (" + V.at + ") : les mots dits et les mots dessous sont tous deux obligatoires.");
+    });
+    Object.keys(story.veils || {}).forEach(function (k) {
+      if (!VEILS[k]) E("Voile « " + k + " » (veils) : aucun {{lentille#" + k + "|…|…}} dans le texte.");
+      else if (story.veils[k].fx) checkFx(story.veils[k].fx, "Voile « " + k + " »");
+    });
+    // A veil goes in a paragraph or a document, never on a button; a {{ … }} the engine cannot read is an error.
+    Object.keys(P).forEach(function (id) {
+      var p = P[id];
+      (p.choices || []).forEach(function (c) { if (String(c.label || "").indexOf("{{") >= 0) E("§ " + id + " : un mot caché sur un bouton (« " + String(c.label).slice(0, 40) + " ») ; les mots cachés vont dans le texte."); });
+      (function scan(o) { if (o == null) return; if (typeof o === "string") { var rest = o.replace(M.VEIL_RE, "").replace(/\{\{[a-z]+:[^{}]*\}\}/g, ""); if (/\{\{|\}\}/.test(rest)) E("§ " + id + " : mot caché mal écrit : « " + o.slice(Math.max(0, o.indexOf("{{") - 10), o.indexOf("{{") + 60) + " » (attendu {{lentille|dit|dessous}} ou {{lentille#id|dit|dessous}})."); return; } if (Array.isArray(o)) o.forEach(scan); else if (typeof o === "object") Object.keys(o).forEach(function (k) { scan(o[k]); }); })(p.text);
+    });
     // Two players (8.4): secrets and their confessions, interludes from another point of view.
     Object.keys(story.secrets || {}).forEach(function (k) {
       var S = story.secrets[k], w = "Secret « " + k + " »";
@@ -827,6 +865,15 @@
     function tryDoubt(s, chance, rnd) {
       Object.keys(s.accounts || {}).forEach(function (k) { if (!(s.doubts || {})[k] && rnd() < chance) M.doubt(story, s, k, true); });
     }
+    // 8.5: a reader who holds a lens taps the words that stir on the page (and in the documents in the bag), often.
+    // Returns the view when nothing was revealed (the caller reuses it: a view costs much on a long story), else null.
+    function tryVeils(s, chance, rnd) {
+      if (!story.lenses || !P[s.node]) return null;
+      var any = false, v0 = M.view(story, s), texts = (v0.marked || v0.text).slice();
+      (s.items || []).forEach(function (k) { var it = (story.items || {})[k]; if (it && it.text) texts.push(M.veilMark(story, s, it.text)); });
+      M.veilsIn(texts).forEach(function (x) { if (x.state === "cache" && rnd() < chance && M.reveal(story, s, x.id)) any = true; });
+      return any ? null : v0;
+    }
     // At the accusation, the walk tries every who / why / proof and keeps the one that brings the target nearest.
     function accuseSearch(s, d) {
       var best = null, bestD = Infinity, v0 = M.view(story, s);
@@ -942,9 +989,9 @@
             var mark = function (k) { if (seen[k] || !P[k]) return; seen[k] = 1; found++; if (paid) richOnly.push(k); };
             for (var step = 0; step < 300; step++) {
               var v; fixed = null;
-              try { v = M.view(story, s); } catch (e) { break; }
+              try { v = tryVeils(s, [1, 1, 0.5, 0][wi % 4], rnd) || M.view(story, s); } catch (e) { break; } // one walk in four leaves the words untouched, one lifts half of them, as a reader may
               if (P[s.node]) { mark(s.node); keepSnap(s); }
-              Object.keys(s.seen).forEach(mark);
+              if (s.seen && s.seen[target]) mark(target); // the whole walk is marked once it ends (below): cheaper
               if (seen[target] || v.kind === "end") { if (v.kind === "end" && P[s.node]) endings[s.node] = (endings[s.node] || 0) + 1; break; }
               if (s.node === "@accuse" && s.acc && s.acc.step === "qui" && rnd() > wander) { var sa = accuseSearch(s, d); if (sa) { s = sa; continue; } }
               tryContra(s, 1, rnd); tryDoubt(s, 1, rnd);
@@ -961,6 +1008,7 @@
               // Spending into the added money: what follows was paid with savings the games did not have.
               if (s._extra && ((s.gold || 0) < extra.gold || (s.food || 0) < extra.food)) paid = s._paid = true;
             }
+            if (s && s.seen) Object.keys(s.seen).forEach(mark);
           }
         });
         return false;
@@ -993,6 +1041,7 @@
     }
     function play(mode, seed, toutJouer, second) {
       var rnd = seededRng(seed), s = null, fixed = mode === "win" ? 0.94 : mode === "lose" ? 0.02 : null;
+      var shy = seed % 7 === 3; // one game in seven barely touches the hidden words, as a reader who rarely taps may
       // Fixed dice only on tests: a fight always uses real dice, or two sides that always miss would never end.
       M.setRng(fixed == null ? rnd : function () { return s && s.node === "@combat" ? rnd() : fixed; });
       s = M.freshState(story, { toutJouer: toutJouer });
@@ -1013,7 +1062,7 @@
         keepSnap(s);
         if (P[s.node]) { var am = actMax[P[s.node].act] = actMax[P[s.node].act] || { gold: 0, food: 0 }; am.gold = Math.max(am.gold, s.gold || 0); am.food = Math.max(am.food, s.food || 0); }
         try {
-          v = M.view(story, s);
+          v = tryVeils(s, shy ? 0.1 : mode === "explore" ? 1 : mode === "lose" ? 0.2 : 0.6, rnd) || M.view(story, s);
           v.text.forEach(function (t) { if (/undefined|NaN|\[object|\{[a-z]+\}|\{autre:/.test(t)) throw new Error("texte suspect : " + t.slice(0, 80)); });
           // 8.6: a reader taps a hidden find, often; and nothing of a mark ever reaches the plain text.
           (v.marked || []).forEach(function (t) { M.marksOf(t).forEach(function (m) { if (m.kind === "or" && rnd() < 0.5) { try { M.trouve(story, s, m.arg); } catch (e) { errs["trouvaille " + m.arg + " : " + e.message] = 1; } } }); });
@@ -1060,7 +1109,10 @@
       play(mode, i * 7919, i % 2 === 0, i % 5 < 2);
       n++;
     }
+    var T = typeof process !== "undefined" && process.env && process.env.VALID_TIME, t0 = Date.now();
+    if (T) console.log("parties : " + n + ", passages jamais vus : " + ids.filter(function (id) { return !seen[id]; }).length);
     reachMissing();
+    if (T) console.log("recherche ciblée : " + (Date.now() - t0) + " ms");
     M.setRng(null);
     var unreached = ids.filter(function (id) { return !seen[id] && !P[id].branch; });   // a switch passage has no page
     var neverTaken = [];

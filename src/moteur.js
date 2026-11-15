@@ -163,6 +163,7 @@
       });
     });
     try { Object.defineProperty(story, "__prepared", { value: true, enumerable: false }); } catch (e) { story.__prepared = true; }
+    veilIndex(story);
     return story;
   }
   function freshState(story, opts) {
@@ -387,6 +388,10 @@
     if ("souvenirs" in c) return rng(souvCount(story, s, c.souvenirs === "lead" ? s.lead : c.souvenirs), c.min, c.max);
     if ("heroLevel" in c) return rng(heroLevel(s, c.heroLevel), c.min, c.max);
     if ("party" in c) return rng(Object.keys(story.companions || {}).filter(function (k) { return present(s, k); }).length, c.party.min, c.party.max);
+    // Hidden words (9.1): a veil revealed; how many were (of one lens, or any); a lens held.
+    if ("voile" in c) return [].concat(c.voile).every(function (k) { return revealed(s, k); });
+    if ("voiles" in c) return rng(veilCount(story, s, c.lens), minOf(c, "voiles"), maxOf(c, "voiles"));
+    if ("lens" in c) return lensHeld(story, s, c.lens);
     throw new Error("condition inconnue : " + JSON.stringify(c));
   }
   // takes: the time a scene spends, told to the reader in brackets (Clément, 12/11). The clock moves to that hour.
@@ -468,11 +473,105 @@
     if ("doute" in c) return "Il faudrait d'abord douter de ce qu'on t'a dit.";
     if ("recit" in c) return "Tu n'as pas encore entendu cette version.";
     if ("secret" in c) return "Tu ne le sais pas.";
+    if ("voile" in c || "voiles" in c) return "Il faudrait avoir entendu ce que les mots cachent.";
+    if ("lens" in c) return "Il te faudrait : " + ((lensDef(story, c.lens) || {}).name || c.lens) + ".";
     if ("camp" in c) return c.camp && c.camp !== "none" ? "Seulement pour qui a rallié " + (((story.camps || {})[c.camp] || {}).name || c.camp) + "." : "Seulement tant que tu n'as rallié aucun camp.";
     return "Ce chemin est fermé pour l'instant.";
   }
   function nameOf(story, c) { return ((story.companions || {})[c] || {}).name || c; }
   function questTitle(story, id) { var q = (story.quests || []).filter(function (x) { return x.id === id; })[0]; return q ? q.title : id; }
+
+  // ------------------------------------------------------------------ hidden words (8.5, « paroles cachées »)
+  // Intent: a sentence said aloud may hide another one. The scenario writes {{lens|what is said|what lies beneath}} (or
+  // {{lens#id|…|…}} to name it); the story declares its lenses (story.lenses: { <lens>: { name, item | if, effect, hint,
+  // charges, empty, say } }). A hero who holds the lens sees the words stir on the page (the lens's effect); a tap
+  // reveals the words beneath, for good. A hero without it reads the words said, plainly, with nothing to tell them apart.
+  // Why: Clément, 15/11: objects that let the reader find, in the characters' lines, pieces of sentences that move,
+  // and a tap shows the true text hidden beneath; a whole story built on it. The engine vouches for the rest: which
+  // words stir, what a reveal sets (`voile:<id>`, the veil's own fx from story.veils), the lens's charges, the notebook.
+  var VEIL_RE = /\{\{([a-z0-9_]+)(?:#([a-z0-9_:-]+))?\|((?:[^|{}]|\{[A-Za-z_]+\})*)\|((?:[^{}]|\{[A-Za-z_]+\})*)\}\}/g; // {e}, {hero} allowed inside
+  // The way the words stir on the page (the app draws them; without motion, a colour and a dotted line).
+  var LENS_EFFECTS = ["tremble", "ondule", "lueur", "givre", "braise", "encre", "chuchote"];
+  var VEIL_OPEN = "\uE000", VEIL_MID = "\uE001", VEIL_CLOSE = "\uE002";
+  function veilHash(t) { var x = 0; for (var i = 0; i < t.length; i++) x = (x * 31 + t.charCodeAt(i)) >>> 0; return x.toString(36); }
+  // An unnamed veil is known by its lens and its words said: the same words, wherever they stand, are the same veil.
+  function veilId(lens, id, said) { return id || lens + "~" + veilHash(said); }
+  // Intent: index(Story) ! every veil written anywhere in the story, by id: { lens, said, truth, at } (non-enumerable)
+  function veilIndex(story) {
+    var idx = {}, clash = [];
+    function scan(o, at) {
+      if (o == null) return;
+      if (typeof o === "string") { if (o.indexOf("{{") >= 0) o.replace(VEIL_RE, function (m, lens, id, a, b) { var k = veilId(lens, id, a); if (!idx[k]) idx[k] = { id: k, lens: lens, said: a, truth: b, at: at }; else if (idx[k].truth !== b || idx[k].lens !== lens) clash.push(k + " (" + idx[k].at + " / " + at + ")"); return m; }); return; }
+      if (Array.isArray(o)) { o.forEach(function (x) { scan(x, at); }); return; }
+      if (typeof o === "object") Object.keys(o).forEach(function (k) { scan(o[k], at); });
+    }
+    Object.keys(story.passages || {}).forEach(function (id) { scan(story.passages[id].text, id); });
+    Object.keys(story.items || {}).forEach(function (id) { scan(story.items[id].text, "objet:" + id); });
+    scan(story.epilogue, "epilogue");
+    try { Object.defineProperty(story, "__veils", { value: idx, enumerable: false, configurable: true }); Object.defineProperty(story, "__veilClash", { value: clash, enumerable: false, configurable: true }); } catch (e) { story.__veils = idx; }
+  }
+  function veilsOf(story) { if (!story.__veils) veilIndex(story); return story.__veils || {}; }
+  function veilInfo(story, id) { return veilsOf(story)[id] || null; }
+  function lensDef(story, k) { return (story.lenses || {})[k] || null; }
+  // A lens is held when its object is in the bag (the hero's, or a fellow hero's who walks along) and its condition holds.
+  function lensHeld(story, s, k) {
+    var L = lensDef(story, k); if (!L) return false;
+    if (L.item && !countItem(s, L.item) && !carrier(s, L.item)) return false;
+    if (L.if != null && !evalCond(story, s, L.if)) return false;
+    return !!(L.item || L.if != null);
+  }
+  // A lens may have charges (an oil that burns, a breath that tires): each reveal spends one; fx.recharge gives some back.
+  function lensLeft(story, s, k) { var L = lensDef(story, k) || {}; if (L.charges == null) return Infinity; var v = (s.lensLeft || {})[k]; return v == null ? L.charges : v; }
+  function revealed(s, id) { return !!(s.veils || {})[id]; }
+  // In a paragraph: the words said, marked for the page when the hero can see them stir (state "cache", or "eteint"
+  // when the lens has no charge left), or the words beneath, marked "vu", once revealed.
+  function veilMark(story, s, t) {
+    if (!story.lenses || String(t).indexOf("{{") < 0) return t;
+    return String(t).replace(VEIL_RE, function (m, lens, id, a, b) {
+      var k = veilId(lens, id, a);
+      if (revealed(s, k)) return VEIL_OPEN + k + "|" + lens + "|vu" + VEIL_MID + b + VEIL_CLOSE;
+      if (!lensHeld(story, s, lens)) return a;
+      return VEIL_OPEN + k + "|" + lens + "|" + (lensLeft(story, s, lens) > 0 ? "cache" : "eteint") + VEIL_MID + a + VEIL_CLOSE;
+    });
+  }
+  // Anywhere else (a button, a line of the notebook): the plain words, said or revealed.
+  function veilPlain(s, t) { return t.indexOf("{{") < 0 ? t : t.replace(VEIL_RE, function (m, lens, id, a, b) { return revealed(s, veilId(lens, id, a)) ? b : a; }); }
+  // The markers left in a text by veilMark: [{ id, lens, state, text }].
+  var VEIL_MARK_RE = /\uE000([^\uE001]*)\uE001([\s\S]*?)\uE002/g;
+  function veilsIn(texts) {
+    var out = [];
+    [].concat(texts || []).forEach(function (t) { String(t).replace(VEIL_MARK_RE, function (m, meta, txt) { var q = meta.split("|"); out.push({ id: q[0], lens: q[1], state: q[2], text: txt }); return m; }); });
+    return out;
+  }
+  function unveil(t) { return String(t).replace(VEIL_MARK_RE, "$2"); }
+  // Intent: reveal(Story, State, VeilId) -> Bool ! the words beneath are shown for good: `voile:<id>` is set, the
+  // veil's own fx (story.veils[id].fx: a clue, a flag) applies, a charge is spent. False when the hero cannot.
+  function reveal(story, s, id) {
+    var V = veilInfo(story, id); if (!V) throw new Error("voile inconnu " + id);
+    if (revealed(s, id) || !lensHeld(story, s, V.lens)) return false;
+    var L = lensDef(story, V.lens);
+    if (lensLeft(story, s, V.lens) <= 0) { ev(s, interp(s, L.empty || (L.name + " ne montre plus rien pour l'instant.")), "veil"); return false; }
+    s.veils = s.veils || {}; s.veils[id] = { t: s.turn || 1, at: s.node };
+    if (L.charges != null) { s.lensLeft = s.lensLeft || {}; s.lensLeft[V.lens] = lensLeft(story, s, V.lens) - 1; }
+    s.flags["voile:" + id] = true;
+    stat(s, "voiles");
+    var D = (story.veils || {})[id];
+    if (D && D.fx) apply(story, s, D.fx);
+    if (L.charges != null && s.lensLeft[V.lens] === 0) ev(s, interp(s, L.spent || (L.name + " : plus rien à dévoiler avant de l'avoir ravivé{e}.")).replace(/ravivé\{e\}/, "ravivé"), "veil");
+    checkFeats(story, s);
+    return true;
+  }
+  // The first time a lens is in hand, one line says what it does (story.lenses[k].say, or its hint).
+  function lensNews(story, s) {
+    if (!story.lenses) return;
+    s.lensSeen = s.lensSeen || {};
+    Object.keys(story.lenses).forEach(function (k) {
+      if (s.lensSeen[k] || !lensHeld(story, s, k)) return;
+      s.lensSeen[k] = 1; var L = story.lenses[k];
+      ev(s, interp(s, L.say || (L.name + " : " + (L.hint || "certains mots, désormais, bougent sur la page.") + " Touche-les pour lire dessous.")), "veil");
+    });
+  }
+  function veilCount(story, s, lens) { return Object.keys(s.veils || {}).filter(function (k) { return !lens || [].concat(lens).indexOf((veilInfo(story, k) || {}).lens) >= 0; }).length; }
 
   // ------------------------------------------------------------------ text
   // {autre}: in a game with several players, the other players' heroes (s.allies, set by src/multi.js).
@@ -480,7 +579,7 @@
   // (s.alliesFem, set by src/multi.js); with several others, the plural; alone, the masculine of « l'autre ».
   var AUTRE = { e: ["", "e", "s"], il: ["il", "elle", "ils"], Il: ["Il", "Elle", "Ils"], le: ["le", "la", "les"], lui: ["lui", "elle", "eux"] };
   function autreForm(s, k) { var f = s.alliesFem || [], n = (s.allies || []).length; var F = AUTRE[k]; return n > 1 ? F[2] : f[0] ? F[1] : F[0]; }
-  function interp(s, t) { return String(t).replace(/\{autre:(e|il|Il|le|lui)\}/g, function (m, k) { return autreForm(s, k); }).replace(/\{autre\}/g, s.allies && s.allies.length ? s.allies.join(" et ") : "l'autre").replace(/\{hero\}/g, heroName(s)).replace(/\{niveau\}/g, String(level(s))).replace(/\{marque\}/g, String(s.mark))
+  function interp(s, t) { return veilPlain(s, String(t)).replace(/\{autre:(e|il|Il|le|lui)\}/g, function (m, k) { return autreForm(s, k); }).replace(/\{autre\}/g, s.allies && s.allies.length ? s.allies.join(" et ") : "l'autre").replace(/\{hero\}/g, heroName(s)).replace(/\{niveau\}/g, String(level(s))).replace(/\{marque\}/g, String(s.mark))
     // {e}: the agreement of the lead hero ("assis{e}"), from the companion's own f: true.
     .replace(/\{e\}/g, s.fem ? "e" : ""); }
   // Intent: read(Story, State, Tagged, PassageId) -> Bool = do the tags a paragraph, a choice or a passage carries hold now
@@ -550,12 +649,12 @@
     var out = [];
     node = node || s.node;
     (list || []).forEach(function (t, i) {
-      if (typeof t === "string") out.push(interp(s, t));
+      if (typeof t === "string") out.push(interp(s, veilMark(story, s, t)));
       // by / cases: one paragraph per value of a state, else for any other value or none.
       else if (t && typeof t === "object" && t.by != null && t.cases) {
         if (!tagsOk(story, s, t, node) || !evalCond(story, s, t.if)) return;
         var cv = stateOf(s, t.by), txt = cv != null && t.cases[cv] != null ? t.cases[cv] : t.else;
-        if (txt != null) out.push(interp(s, txt));
+        if (txt != null) out.push(interp(s, veilMark(story, s, txt)));
       }
       else if (t && typeof t === "object") {
         var ok = tagsOk(story, s, t, node) && evalCond(story, s, t.if);
@@ -564,8 +663,8 @@
           s.once = s.once || {}; var key = node + "#" + i, visit = s.seen[node] || 1;
           if (s.once[key] == null) s.once[key] = visit; else if (s.once[key] !== visit) return;
         }
-        if (ok && t.text != null) { out.push(interp(s, t.text)); if (marks && t.second != null && t.second !== false) marks.push(out.length - 1); }
-        else if (!ok && t.else != null) out.push(interp(s, t.else));
+        if (ok && t.text != null) { out.push(interp(s, veilMark(story, s, t.text))); if (marks && t.second != null && t.second !== false) marks.push(out.length - 1); }
+        else if (!ok && t.else != null) out.push(interp(s, veilMark(story, s, t.else)));
       }
     });
     return out;
@@ -638,6 +737,15 @@
   function apply(story, s, fx) {
     if (!fx) return;
     var k;
+    // Hidden words (9.1): a lens's charges given back (recharge: { <lens>: n }), up to its own count (or `max`).
+    if (fx.recharge) Object.keys(fx.recharge).forEach(function (L) {
+      var LD = lensDef(story, L); if (!LD) throw new Error("lentille inconnue " + L); if (LD.charges == null) return;
+      s.lensLeft = s.lensLeft || {}; var was = lensLeft(story, s, L);
+      s.lensLeft[L] = Math.max(0, Math.min(LD.max || LD.charges, was + fx.recharge[L]));
+      if (s.lensLeft[L] > was) ev(s, interp(s, LD.name) + " : " + s.lensLeft[L] + " " + (LD.unit || "charge") + (s.lensLeft[L] > 1 ? "s" : ""), "veil");
+    });
+    // devoile: the story itself lifts a veil (someone says it plainly at last).
+    [].concat(fx.devoile || []).forEach(function (id) { if (!revealed(s, id)) { s.veils = s.veils || {}; s.veils[id] = { t: s.turn || 1, at: s.node }; s.flags["voile:" + id] = true; } });
     [].concat(fx.flag || [], fx.flags || []).forEach(function (f) { s.flags[f] = true; });
     // voie (8.5): the hero's calling, from a past answer; the class it plays like follows.
     if (fx.voie && (story.voies || {})[fx.voie]) { s.voie = fx.voie; s.arch = story.voies[fx.voie].like; }
@@ -2729,6 +2837,8 @@
     return (p.choices || []).filter(function (c) {
       if (hiddenChoice(story, s, c) || (c.who && !present(s, c.who))) return false;
       if (c.back === true && (!s.hubLast || s.hubLast === here)) return false;
+      // A refusal is offered only while there is a quest here to refuse (not once it is done, refused or never opened).
+      if (c.refuse === true && here && !questOfRefusal(story, s, c)) return false;
       // On a choice, `via` is what the choice gives to the page it leads to, not a condition: it is read there.
       if (!tagsOk(story, s, c.via != null ? Object.assign({}, c, { via: null }) : c, here)) return false;
       if (c.once && here && (s.once || {})["c|" + here + "|" + interp(s, c.label)]) return false;
@@ -2736,11 +2846,12 @@
       var ts = [];
       (function add(to) { if (Array.isArray(to)) to.forEach(function (x) { add(x.to); }); else if (to != null) ts.push(to); })([{ to: c.to }, { to: c.win && c.win.to }, { to: c.lose && c.lose.to }]);
       var scenes = ts.map(function (t) { return story.passages[t]; });
-      // The cast is read as it will be once the choice is made: a companion the choice makes join (or leave) counts.
+      // The cast is read as it will be once the choice is made: a companion the choice makes join counts. A leave does
+      // not: the one sent away is still there for the scene of the parting (« Va-t'en » → the scene where they go).
       var fxs = [c.fx, c.win && c.win.fx, c.lose && c.lose.fx].filter(Boolean), sc = s;
-      if (fxs.some(function (f) { return f.join || f.leave; })) {
+      if (fxs.some(function (f) { return f.join; })) {
         sc = Object.assign({}, s, { met: Object.assign({}, s.met) });
-        fxs.forEach(function (f) { [].concat(f.join || []).forEach(function (k) { sc.met[k] = "party"; }); [].concat(f.leave || []).forEach(function (k) { if (sc.met[k] === "party") sc.met[k] = "gone"; }); });
+        fxs.forEach(function (f) { [].concat(f.join || []).forEach(function (k) { sc.met[k] = "party"; }); });
       }
       if (scenes.length && scenes.every(function (tp) { return tp && !sceneOk(story, sc, tp); })) return false;
       return true;
@@ -2773,6 +2884,7 @@
   function view(story, s) {
     // A saved game reopened gets a story freshly read, never prepared by freshState: the engine prepares it here too.
     prepare(story);
+    lensNews(story, s);
     var v, p = null;
     if (BUILTIN[s.node]) v = BUILTIN[s.node](story, s);
     else {
@@ -2845,11 +2957,26 @@
       v.choices.forEach(function (c) { if (!c.sys) (byLabel[c.label] = byLabel[c.label] || []).push(c); });
       Object.keys(byLabel).forEach(function (l) {
         var tw = byLabel[l]; if (tw.length < 2) return;
+        // Companions offering the same words (« Laisse-moi faire ») are told apart by their names: these are not twins.
+        var whos = tw.map(function (c) { return c.who || ""; });
+        if (whos.every(function (w, i) { return w && whos.indexOf(w) === i; })) {
+          v.choices = v.choices.map(function (c) { return tw.indexOf(c) < 0 ? c : Object.assign({}, c, { label: nameOf(story, c.who) + " : " + c.label }); });
+          return;
+        }
         var keep = tw.filter(function (c) { return c.ok; })[0] || tw[0];
         if (tw.filter(function (c) { return c.ok; }).length > 1) guard(s, "deux choix possibles portent le même texte « " + l.slice(0, 40) + " »");
         v.choices = v.choices.filter(function (c) { return tw.indexOf(c) < 0 || c === keep; });
       });
       // Guarantee: no dead end. When nothing can be taken, the first choice opens rather than leaving the reader stuck.
+      // In « tout jouer », an act's exit waits for the other quests: a passage that only leads out sends the reader back
+      // to the last crossroads, where they are, instead of opening the exit.
+      // Both stay offered: the exit too, opened, so that a quest left out of reach never locks the reader in a loop.
+      if (!story.multi && s.toutJouer && v.kind !== "end" && v.choices.length && !v.choices.some(function (c) { return c.ok && !c.restart; })
+        && v.choices.some(function (c) { return c.exit; }) && s.hubLast && s.hubLast !== s.node && story.passages[s.hubLast]) {
+        var hb2 = story.passages[s.hubLast];
+        v.choices.forEach(function (c) { if (c.exit) { c.ok = true; c.note = c.why; c.why = ""; } });
+        v.choices.push({ label: "Revenir : " + cap(interp(s, String(hb2.backName || hb2.title || "").replace(/\*/g, ""))), to: s.hubLast, back: s.hubLast, autoBack: true, ok: true, why: "" });
+      }
       if (!story.multi && v.kind !== "end" && v.choices.length && !v.choices.some(function (c) { return c.ok && !c.restart; })) {
         var open = v.choices.filter(function (c) { return !c.sys && !c.restart; })[0];
         if (open) { open.ok = true; open.why = ""; open.forced = true; guard(s, "aucun choix possible, le premier est ouvert d'office"); }
@@ -2865,7 +2992,7 @@
     }
     // Words with effects (8.6): the page draws v.marked; everything that reads (voice, search, the tale, the
     // validator) gets v.text without the marks. The hero's state may colour the page too (v.mood).
-    v.marked = v.text; v.text = v.text.map(function (t) { return plainOf(story, s, t); });
+    v.marked = v.text; v.text = v.text.map(function (t) { return unveil(plainOf(story, s, t)); }); // hidden words (9.1): as shown, without their marks
     var md0 = moodOf(story, s); if (md0) v.mood = md0;
     return v;
   }
@@ -3353,6 +3480,7 @@
     traitOf: traitOf, traitWord: traitWord, practiceOf: practiceOf, TRAIT_MAX: TRAIT_MAX, DUEL_MOVES: DUEL_MOVES, puzzleRight: puzzleRight,
     secretsOf: secretsOf, secretKnown: secretKnown, secretDef: secretDef, interludeOf: interludeOf, autreForm: autreForm,
     doubt: doubt, accountBy: accountBy, topicSolved: topicSolved, dreadOf: dreadOf, dreadMax: dreadMax, dreadWord: dreadWord, dreadTrouble: dreadTrouble, attachOf: attachOf, ATTACH_MAX: ATTACH_MAX,
+    LENS_EFFECTS: LENS_EFFECTS, reveal: reveal, veilsIn: veilsIn, unveil: unveil, veilInfo: veilInfo, veilsOf: veilsOf, veilMark: veilMark, lensHeld: lensHeld, lensLeft: lensLeft, lensDef: lensDef, veilCount: veilCount, VEIL_RE: VEIL_RE,
     item: item, weapon: weapon, armor: armor, useItem: useItem, day: day, timeLabel: timeLabel, routesFrom: routesFrom, isNight: isNight,
   };
   if (typeof module !== "undefined" && module.exports) module.exports = API; else root.Moteur = API;
