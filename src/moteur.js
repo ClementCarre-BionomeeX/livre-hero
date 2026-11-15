@@ -156,7 +156,7 @@
   function usesOf(story) {
     if (story.__uses) return story.__uses;
     var w = story.world || {}, rest = {};
-    Object.keys(story).forEach(function (k) { if (k !== "world" && k !== "glossary" && k !== "items" && k !== "__uses") rest[k] = story[k]; });
+    Object.keys(story).forEach(function (k) { if (k !== "world" && k !== "glossary" && k !== "lore" && k !== "items" && k !== "__uses") rest[k] = story[k]; });
     var j = JSON.stringify(rest) + JSON.stringify(w.routes || []) + JSON.stringify(w.events || {}) + JSON.stringify(w.regions || {});
     var combat = /"combat":\{|"fight":/.test(j);
     var u = {

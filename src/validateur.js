@@ -381,6 +381,13 @@
     });
     M.endingsOf(story).forEach(function (e) { endIds[e.id] = 1; });
     // At sea (8.1): the sky, the seasons, the wounds, the encounters, the things put together, the vigils, the charts.
+    // The world of a book (8.6): pages to read before and during play, and names a touch explains.
+    if (story.lore) {
+      var LO = story.lore;
+      if (LO.pages !== undefined && !Array.isArray(LO.pages)) E("Le monde : « pages » doit être une liste.");
+      (Array.isArray(LO.pages) ? LO.pages : []).forEach(function (pg, i) { if (!pg || !pg.title || !pg.text || !(typeof pg.text === "string" || Array.isArray(pg.text))) E("Le monde, page " + (i + 1) + " : il faut un titre (title) et un texte (text)."); });
+      Object.keys(LO.names || {}).forEach(function (k) { if (typeof LO.names[k] !== "string" || !LO.names[k].trim()) E("Le monde, nom « " + k + " » : il faut une phrase qui l'explique."); });
+    }
     if (story.weather) {
       var WK = story.weather.kinds || {};
       if (!Object.keys(WK).length) E("Météo : aucun temps déclaré (kinds).");

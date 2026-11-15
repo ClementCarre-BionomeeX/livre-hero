@@ -210,6 +210,39 @@ module.exports = {
       { label: "Le jeu. Tu as perdu plus que tu ne pourras jamais rendre ; le prince a racheté tes dettes. Les reconnaissances signées sont quelque part dans ses comptes.", fx: { flag: "secret:dette" } },
     ] },
   ],
+  // The world of this book (8.6): what an inhabitant knows before the first page. Nothing of the plot.
+  lore: {
+    pages: [
+      { title: "Sarvelle", text: [
+        "**Sarvelle** est une cité de lagune : des îles reliées par des ponts, le Grand Canal, des palais posés sur l'eau, et sur la terre ferme, quelques domaines et castels. Un prince la gouverne. Les cloches de la ville sonnent rarement toutes ensemble : pour la paix de Corne, il y a vingt ans, pour la grande crue, et pour la mort d'un prince. La grosse cloche du palais sonne seulement pour les princes.",
+        "On paie en sous et en deniers, et la Hanse compte en écus.",
+      ] },
+      { title: "La Coutume du Deuil", text: [
+        "Quand le prince meurt, la **Coutume** ouvre les quarante jours du **Deuil**. Pendant ces quarante jours, le **Garde du Sceau** tient la cité en son nom et à sa place, sans pouvoir rien changer à la loi. Les funérailles ont lieu sur l'Île des Morts.",
+        "Au quarantième jour, si l'héritier n'a pas seize ans, les **Cinq Bancs** élisent un régent.",
+      ] },
+      { title: "Les puissances de la cité", text: [
+        "On le dit à Sarvelle : *la Hanse compte, l'Amirauté commande, les Canaux crient, et Thérance attend.*",
+        "Le Conseil des Cinq Bancs réunit le **Banc du Sel** (la Hanse du Sel, ses marchands et ses navires), le **Banc de la Mer** (l'Amirauté et l'Arsenal), le **Banc des Eaux** (le Temple des Eaux), le **Banc des Rames** (les Canaux, les bateliers, le petit peuple) et le **Banc du Prince**, où vote le Garde du Sceau.",
+        "**Thérance**, la grande voisine, entretient une ambassade dans la ville, et lit attentivement tout ce qui s'y passe.",
+      ] },
+    ],
+    names: {
+      "Sarvelle": "La cité de la lagune, gouvernée par un prince.",
+      "Garde du Sceau": "Celui qui garde le sceau du prince. Pendant le Deuil, il tient la cité sans pouvoir changer la loi.",
+      "Deuil": "Les quarante jours qui suivent la mort d'un prince.",
+      "Coutume": "La loi ancienne de Sarvelle, qui règle entre autres le Deuil et la régence.",
+      "Cinq Bancs": "Le Conseil de la cité : le Sel, la Mer, les Eaux, les Rames et le Prince.",
+      "Hanse|Hanse du Sel": "La compagnie des marchands de sel, la plus riche puissance de la cité. Elle siège à la Loge du Sel.",
+      "Amirauté": "La flotte de la cité et ceux qui la commandent, avec l'Arsenal.",
+      "Temple des Eaux": "Le grand temple de la lagune, une coupole verte sur une île de pierre.",
+      "Canaux": "Les bateliers et le petit peuple des canaux, et le banc qui parle pour eux.",
+      "Thérance": "La grande puissance voisine, qui tient une ambassade à Sarvelle.",
+      "Île des Morts": "L'île de la lagune où l'on enterre les morts de la cité.",
+      "Arsenal": "Les chantiers et les magasins de la flotte.",
+      "Loge du Sel": "La maison de la Hanse du Sel.",
+    },
+  },
   world: {
     money: { units: [{ name: "besant", plural: "besants", value: 12, short: "b." }, { name: "denier", plural: "deniers", value: 1, short: "d." }] },
     start: { place: "palais", gold: 24, food: 2, items: ["dague"],
