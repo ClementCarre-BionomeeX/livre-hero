@@ -15,9 +15,9 @@ module.exports = {
 
   II_N5_clan: P({ title: "Le clan", place: null,
     text: [
-      "Vous rejoignez la file au pied du col. Les gens s'écartent pour te laisser passer. Personne ne crache. Personne ne recule. Ils te regardent comme on regarde le temps qu'il va faire.",
-      { if: { has: "nord:geant=dort" }, text: "On sait déjà, au clan, que le grand dort, au fond du cirque. Les nouvelles vont vite, en montagne, même quand personne ne les porte." },
-      { if: { has: "nord:geant=tue" }, text: "On sait déjà, au clan, que le grand est tombé, et que les noms sont partis vers le col. Les anciens ne savent pas si c'est une bonne nouvelle. Toi non plus." },
+      "Vous rejoignez la file au pied du col. Les gens s'écartent pour te laisser passer. Les crachats et les mouvements de recul du premier jour ont cessé. Ils te regardent comme on regarde le temps qu'il va faire.",
+      { if: { has: "nord:geant=dort" }, text: "On sait déjà, au clan, que le grand dort, au fond du cirque. Les nouvelles vont vite, en montagne, même sans messager." },
+      { if: { has: "nord:geant=tue" }, text: "On sait déjà, au clan, que le grand est tombé, et que les noms sont partis vers le col. Les anciens hésitent à y voir une bonne nouvelle. Toi aussi." },
       { if: { has: "nord:rendu=clan" }, text: "Hrodna vient à toi. Elle te prend les deux mains. « Je me suis réveillée en sachant mon nom, dit-elle. Et le tien. Je ne sais pas ce que tu as fait. Je sais que c'est toi. »" },
       "Askel est là, au milieu des femmes, en robe blanche. Elle est descendue de la grotte. Elle ne te regarde pas.",
       { with: "gaspard", text: "Les enfants du clan regardent Gaspard avec effroi, puis avec curiosité. Une fillette lui tend un morceau de galette. Il le prend avec une délicatesse infinie." },
@@ -27,14 +27,14 @@ module.exports = {
   II_N5_bord: P({ title: "Le bord", place: null,
     text: [
       "Le col de l'Ourse. L'herbe rase sous la neige. La grande pierre plate. Et devant la pierre, la déchirure.",
-      "De près, ce n'est pas une lumière. C'est une absence. Un endroit du monde où le monde s'arrête, net, comme une page déchirée, et derrière, du blanc. Elle est haute comme trois hommes, large comme une grange. Elle était grande comme une porte, il y a un mois.",
+      "De près, la lueur se révèle une absence. Un endroit du monde où le monde s'arrête, net, comme une page déchirée, et derrière, du blanc. Elle est haute comme trois hommes, large comme une grange. Elle était grande comme une porte, il y a un mois.",
       "Le vent souffle vers elle. Tu jettes une pincée de neige en l'air pour t'en assurer : tout le vent du col, des deux côtés, va vers la déchirure, doucement, comme l'eau vers une bonde.",
     ],
     choices: [{ label: "Le col", to: "@route" }] }),
 
   II_N5_col: P({ title: "Le col de l'Ourse", place: "col", hub: true,
     text: [
-      "Le clan a monté son camp autour de la pierre, à cent pas de la déchirure. Personne ne va plus près. Les tambours battent doucement, sans arrêt, comme un cœur.",
+      "Le clan a monté son camp autour de la pierre, à cent pas de la déchirure. C'est la limite, et tout le monde la respecte. Les tambours battent doucement, sans arrêt, comme un cœur.",
       "Le rite est pour demain, à l'aube. Ils attendent ta réponse, sans te la demander.",
       "Au sud, la vallée, les crêtes, et quelque part derrière, les autres. Vous vous êtes promis le col avant la fin du mois. C'est demain.",
     ],
@@ -57,9 +57,9 @@ module.exports = {
   II_N5_dechirure: P({ title: "L'Outre-Blanc", place: "col",
     text: [
       "Tu t'approches. À vingt pas, le vent te pousse dans le dos, et tu dois t'arc-bouter. À dix, tu vois.",
-      "Une plaine blanche, sans horizon. Une lumière sans soleil. Et dans la plaine, des gens, qui marchent vers la déchirure, lentement, de très loin. Tu essaies de les compter par carrés, comme on compte un troupeau de rennes depuis une crête, et tu abandonnes au dixième carré : ils sont des milliers. Ils ne sont pas de neige. Ils ont des visages, des vêtements d'autrefois, des enfants dans les bras. Ils marchent vers toi.",
+      "Une plaine blanche, sans horizon. Une lumière sans soleil. Et dans la plaine, des gens, qui marchent vers la déchirure, lentement, de très loin. Tu essaies de les compter par carrés, comme on compte un troupeau de rennes depuis une crête, et tu abandonnes au dixième carré : ils sont des milliers. Ils sont de chair, avec des visages, des vêtements d'autrefois, des enfants dans les bras. Ils marchent vers toi.",
       "Très loin derrière eux, une ville. Des tours pointues, blanches.",
-      "Et devant la ville, debout, seul, quelqu'un de très grand, avec sur la tête quelque chose qui brille comme du givre. Il ne marche pas. Il regarde. Il te regarde.",
+      "Et devant la ville, debout, seul, quelqu'un de très grand, avec sur la tête quelque chose qui brille comme du givre. Il se tient immobile. Il regarde. Il te regarde.",
       { with: "enfant", text: "L'enfant de Sauvelune est venu à côté de toi sans que tu l'entendes. Il regarde la silhouette couronnée. Il dit, très bas, sans savoir pourquoi : « Il m'attend. »" },
     ],
     choices: [{ label: "Reculer", fx: { clue: "n_outreblanc" }, to: "II_N5_col" }] }),
@@ -80,7 +80,7 @@ module.exports = {
       "« La robe est pour moi, dit-elle. Je te l'ai dit. Si tu n'y vas pas, j'irai. Je n'ai pas ta voix. Ça tiendra moins longtemps. Un an. Deux. » Elle trempe le doigt dans le pot de blanc. « Assez pour que tu sois loin. »",
       "Elle lève les yeux sur toi pour la première fois depuis ton retour. « Le jour où ils t'ont choisie, je ne t'ai pas regardée. Tu t'en souviens ? »",
       { if: { souv: "corbe:rite" }, text: "Tu t'en souviens. Les tambours, les visages peints, et ta mère qui regardait ailleurs." },
-      { if: { not: { souv: "corbe:rite" } }, text: "Tu ne t'en souviens pas. Tu l'as donné, ce jour-là. Elle le voit à ton visage. Elle a l'air presque soulagée." },
+      { if: { not: { souv: "corbe:rite" } }, text: "Ce souvenir-là est parti. Tu l'as donné, ce jour-là. Elle le voit à ton visage. Elle a l'air presque soulagée." },
       "« Je ne pouvais pas. Je savais ce que ça voulait dire. » Elle se peint la bouche. « Cette fois, je te regarde. »",
     ],
     choices: [{ label: "Rester près d'elle un moment", fx: { flag: "nord:askel_robe", conf: { corbe: 5 } }, to: "II_N5_col" }] }),
@@ -99,7 +99,7 @@ module.exports = {
   II_N5_feu: P({ backName: "le feu, à l'écart du clan", takes: "evening", title: "La veille du rite", place: "col",
     text: [
       "Le soir, vous faites votre feu à l'écart du clan, entre deux rochers. La déchirure éclaire tout le col d'une lumière froide, sans ombres. Tout le monde veille.",
-      "Au sud, rien encore. Pas un feu sur les crêtes.",
+      "Au sud, les crêtes restent noires.",
     ],
     choices: [
       { label: "Parler avec l'enfant de Sauvelune", hide: { any: [{ not: { present: "enfant" } }, { seen: "II_N5_feu_enfant" }] }, to: "II_N5_feu_enfant" },

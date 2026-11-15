@@ -12,7 +12,7 @@ module.exports = {
   II_g_offrandes: P({ title: "La niche aux offrandes", place: "lacnoir",
     text: [
       "Près de l'entrée, à hauteur d'épaule, une niche naturelle dans le rocher, polie par les mains. Elle est pleine. Des peignes d'os, des perles de verre, une dent d'ours percée, une petite chaussure d'enfant en peau de renne, toute raide. Des pointes de flèche. Un sifflet. Des centaines de choses, posées les unes sur les autres par couches, comme les lits d'une rivière ; la fiente de corbeau et la poussière en marquent les siècles.",
-      "Personne ne t'en a jamais parlé. Mais tu sais ce que c'est. On monte à la grotte une fois dans sa vie, au clan, et on laisse quelque chose. Tu n'étais jamais montée. Tu étais trop jeune, puis tu étais partie.",
+      "Tu sais ce que c'est sans qu'on te l'ait jamais dit. On monte à la grotte une fois dans sa vie, au clan, et on laisse quelque chose. Ton tour n'était jamais venu : trop jeune, puis partie.",
       "Tout en dessous, quand tu écartes les plus récentes, une baguette de tambour en bois de bouleau, gravée de la marque des Corbe : trois traits et un œil.",
     ],
     choices: [
@@ -27,7 +27,7 @@ module.exports = {
     choices: [{ back: "II_N2_grotte" }] }),
   II_g_offrandes_laissee: P({ title: "Ce qu'on laisse", place: "lacnoir",
     text: [
-      "Tu cherches dans tes poches. Un caillou, un bout de ficelle, une boucle de ceinture. Rien qui vaille. Puis tu défais une de tes tresses, la plus longue, et tu coupes la mèche au couteau, et tu la poses sur la baguette, tout au fond, là où personne ne la verra.",
+      "Tu cherches dans tes poches. Un caillou, un bout de ficelle, une boucle de ceinture. Rien qui vaille. Puis tu défais une de tes tresses, la plus longue, et tu coupes la mèche au couteau, et tu la poses sur la baguette, tout au fond, à l'abri des regards.",
       "Peut-être pour que quelque chose de toi reste ici, si le reste se perd en route. C'est léger comme une plume. Ça pèse quand même.",
     ],
     choices: [{ back: "II_N2_grotte" }] }),
@@ -37,7 +37,7 @@ module.exports = {
     fx: { questSeen: "II_Q_echo" },
     text: [
       "Derrière la grande paroi, une fente à peine large comme un homme de profil. Tu passes. De l'autre côté, une petite salle ronde, nue, parfaitement noire. Ta torche n'en éclaire que le sol.",
-      "Tu toussotes. La salle te renvoie la toux. Puis une autre toux, plus grave, qui n'est pas la tienne. Puis un rire d'enfant.",
+      "Tu toussotes. La salle te renvoie la toux. Puis une autre toux, plus grave, sortie d'une autre poitrine. Puis un rire d'enfant.",
       "Tu dis : « Il y a quelqu'un ? » La salle répond, avec ta voix, puis avec une voix de vieille femme, puis avec une voix d'homme qui a l'accent du clan : *Il y a quelqu'un. Il y a quelqu'un.*",
     ],
     choices: [
@@ -59,7 +59,7 @@ module.exports = {
   II_Q_echo_voix: P({ title: "Les voix", place: "lacnoir",
     text: [
       "Tu bats. Doucement, le rythme lent des veillées. La salle le reprend, le double, le triple. Bientôt il y a dix tambours dans le noir, puis vingt, et des voix qui chantent par-dessus, des voix de femmes, d'enfants, de vieux, dans la langue du clan, mais une langue plus ancienne, plus lente, où certains mots ont encore toutes leurs lettres.",
-      "Elles chantent les lignées. Pas comme Torgal. Elles ne s'arrêtent pas à Haldis. Elles passent Haldis, et elles disent *Sigrun*, et elles continuent.",
+      "Elles chantent les lignées, plus loin que Torgal. Elles passent Haldis, et elles disent *Sigrun*, et elles continuent.",
       "Puis ton bras se fatigue, et tu t'arrêtes, et les tambours s'arrêtent un par un, comme des gens qui quittent une veillée, et la salle redevient noire.",
       { if: { not: { has: "nord:lignee" } }, text: "Tu ressors. Tu ne sais pas lire. Mais tu sais, maintenant, un nom que Torgal cherche depuis des années, et tu le tiens dans la bouche comme un caillou chaud." },
       { if: { has: "nord:lignee" }, text: "Tu ressors. Le nom, tu le savais déjà, par le vieux corbeau de l'aire. Mais tu ne savais pas que d'autres l'avaient chanté avant Torgal, si longtemps, et si nombreux." },
@@ -76,8 +76,8 @@ module.exports = {
   II_Q_refuge: P({ title: "Le refuge des passeurs", place: "col",
     fx: { questSeen: "II_Q_refuge" },
     text: [
-      "Un peu en contrebas du col, à l'abri d'un ressaut, une cabane de pierres sèches au toit de lauzes, avec une cheminée qui ne fume pas. Le refuge des passeurs, qui mènent les marchands d'un versant à l'autre, l'été, pour un écu par tête.",
-      "Devant la porte, couché en travers du seuil, un chien. Un énorme chien de montagne, blanc et roux, au collier clouté, de la taille d'un veau et du poids de deux. Ses flancs sont creux : il ne mange plus depuis plusieurs jours. Il lève la tête quand tu approches. Il reste là, muet, immobile.",
+      "Un peu en contrebas du col, à l'abri d'un ressaut, une cabane de pierres sèches au toit de lauzes, avec une cheminée froide. Le refuge des passeurs, qui mènent les marchands d'un versant à l'autre, l'été, pour un écu par tête.",
+      "Devant la porte, couché en travers du seuil, un chien. Un énorme chien de montagne, blanc et roux, au collier clouté, de la taille d'un veau et du poids de deux. Ses flancs sont creux : il jeûne depuis plusieurs jours. Il lève la tête quand tu approches. Il reste là, muet, immobile.",
     ],
     choices: [
       { label: "Lui parler, et attendre qu'il te laisse passer", test: { dom: "nature", label: "Le chien", help: [{ if: { present: "givre" }, v: -10 }, { if: { present: "ysolde" }, v: 5 }, { if: { present: "enfant" }, v: 10 }] },
@@ -104,15 +104,15 @@ module.exports = {
     ] }),
   II_Q_refuge_marque: P({ title: "La marque", place: "col",
     text: [
-      "Tu dégèles l'encre au creux de ta main. Tu ne sais pas écrire. Tu dessines un corbeau, trois traits et un œil, la marque des tiens, et à côté une flèche, vers le nord. Puis, après avoir réfléchi, une deuxième flèche, vers le sud. Tu ne sais pas encore dans quel sens tu passeras.",
-      { if: READER, text: "On écrit la date à côté, pour toi. Tu regardes les lettres sécher. Tu te demandes à quoi ressemble ton nom, écrit. On ne l'a pas écrit. Tu n'as pas demandé." },
+      "Tu dégèles l'encre au creux de ta main. Tu ne sais pas écrire. Tu dessines un corbeau, trois traits et un œil, la marque des tiens, et à côté une flèche, vers le nord. Puis, après avoir réfléchi, une deuxième flèche, vers le sud. Le sens de ton passage reste à choisir.",
+      { if: READER, text: "On écrit la date à côté, pour toi. Tu regardes les lettres sécher. Tu te demandes à quoi ressemble ton nom, écrit. Ton nom, lui, reste sans lettres. Tu as gardé la question pour toi." },
       "En partant, tu remets une bûche dans la cheminée, pour rien, pour qu'il y ait du bois si quelqu'un revient.",
     ],
     choices: [{ fx: { quest: "II_Q_refuge", flag: "nord:refuge", ep: ["perso", 500] }, back: "II_N5_col" }] }),
   II_Q_refuge_chien: P({ title: "Brun", place: "col",
     text: [
       "Tu l'appelles. Il te regarde. Tu fais trois pas vers le col, tu tapes sur ta cuisse. Il se lève, il te suit jusqu'au seuil. Puis il s'arrête, et il se recouche, en travers, le museau vers la déchirure.",
-      "Il garde la maison. On le lui a dit. Tu n'as pas d'ordre plus fort que celui-là à lui donner.",
+      "Il garde la maison. On le lui a dit. Cet ordre-là pèse plus lourd que tous ceux que tu pourrais lui donner.",
       "Tu reviens t'asseoir à côté de lui, un moment. Il pose sa tête sur ton pied. Il est très chaud. Puis tu repars seule, les yeux sur le chemin : tu sais déjà qu'il regarde ailleurs.",
     ],
     choices: [{ fx: { quest: "II_Q_refuge", conf: { corbe: 5 } }, back: "II_N5_col" }] }),
@@ -140,7 +140,7 @@ module.exports = {
 
   III_a_bibliotheque: P3({ title: "La bibliothèque des Orsans", place: "valcendre",
     text: [
-      "La bibliothèque du palais est ouverte à tous les vents, sans porte. Ses rayonnages montent si haut que leur sommet se perd dans le blanc ; tu comptes quarante tablettes, puis tu perds le compte. Les livres sont écrits dans la langue des Orsans, une écriture en boucles, sans majuscules, que tu n'as jamais vue. Pourtant, quand tu en ouvres un, tu reconnais des mots. Pas à la lecture. À l'oreille, en les épelant tout bas. Ce sont les mots de la chanson de ta mère.",
+      "La bibliothèque du palais est ouverte à tous les vents, sans porte. Ses rayonnages montent si haut que leur sommet se perd dans le blanc ; tu comptes quarante tablettes, puis tu perds le compte. Les livres sont écrits dans la langue des Orsans, une écriture en boucles, sans majuscules, toute nouvelle pour toi. Pourtant, quand tu en ouvres un, tu reconnais des mots. Pas à la lecture. À l'oreille, en les épelant tout bas. Ce sont les mots de la chanson de ta mère.",
       "Une vieille femme, en robe grise, range des livres sur une échelle. Elle les range depuis trois siècles. « Celui-là, dit-elle en te montrant un petit volume relié de bleu. C'est le livre des berceuses. Toutes les mères de Valcendre le savaient par cœur. »",
     ],
     choices: [
@@ -150,7 +150,7 @@ module.exports = {
     ] }),
   III_a_bibliotheque_lue: P3({ title: "La berceuse", place: "valcendre",
     text: [
-      "Tu épelles. Lentement. La vieille femme corrige ta prononciation d'un doigt levé, comme une maîtresse d'école. Et à la troisième ligne, tu ne lis plus. Tu chantes. La chanson de ta mère. Entière, pour la première fois. Il y avait un troisième couplet. Personne ne te l'avait jamais chanté.",
+      "Tu épelles. Lentement. La vieille femme corrige ta prononciation d'un doigt levé, comme une maîtresse d'école. Et à la troisième ligne, tu ne lis plus. Tu chantes. La chanson de ta mère. Entière, pour la première fois. Il y avait un troisième couplet. Celui-là, tu l'entends pour la première fois.",
       "Le troisième couplet dit, à peu près : *Si tu oublies ton nom, mon petit, ne pleure pas. Il est écrit dans ma bouche. Je le garde pour toi.*",
       { with: "sansnom", text: "Ton frère est là, à l'entrée des rayonnages. Il a tout entendu. Il se tait. Il a les lèvres qui bougent, en silence, sur le troisième couplet, qu'il connaissait." },
     ],
