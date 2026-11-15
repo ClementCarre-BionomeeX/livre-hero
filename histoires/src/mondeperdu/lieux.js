@@ -16,4 +16,8 @@ module.exports = {
     desc: "L'appartement de lord John Roxton : fourrures, tableaux de maîtres, avirons croisés, têtes de gros gibier et un râtelier de fusils." },
   quai: { ambiance: "port", name: "Le quai d'embarquement", map: "londres", x: 70, y: 92, region: "Angleterre", arrive: "VI_5",
     desc: "Le quai où attend le *Francisca*, paquebot de la compagnie Booth, en partance pour le Brésil." },
+  manaus: { ambiance: "foret", name: "Manaus", map: "amerique", x: 48, y: 40, region: "Amazonie", arrive: "VII_1",
+    desc: "La ville au cœur de l'Amazonie, et la fazenda Saint-Ignace de M. Shortman, sa véranda, son jardin de cactus et de colibris." },
+  village_indien: { ambiance: "foret", name: "Le village de l'affluent", map: "amerique", x: 30, y: 26, region: "Amazonie", arrive: "VII_5",
+    desc: "Un village indien au bord d'un affluent, où l'expédition quitte l'*Esmeralda* pour des canoës de peaux et de bambou." },
 };
