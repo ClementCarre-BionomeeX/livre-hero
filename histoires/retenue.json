@@ -4391,10 +4391,10 @@
    "choices": [
     {
      "label": "Prendre la clé, et redescendre",
-     "to": "I_descente",
+     "to": "I_route",
      "fx": {
       "item": "paquet",
-      "time": 1
+      "time": 0.75
      }
     },
     {
@@ -4404,6 +4404,20 @@
     {
      "label": "Pousser la porte de la pièce d'à côté",
      "to": "I_bastien"
+    },
+    {
+     "label": "Demander à voir la veine",
+     "hide": {
+      "has": "ilde:vu_veine"
+     },
+     "to": "I_galerie"
+    },
+    {
+     "label": "Lui parler du lavoir, d'il y a quarante ans",
+     "hide": {
+      "has": "ilde:souvenir"
+     },
+     "to": "I_printemps"
     }
    ]
   },
@@ -4424,10 +4438,10 @@
    "choices": [
     {
      "label": "Prendre la clé, et redescendre",
-     "to": "I_descente",
+     "to": "I_route",
      "fx": {
       "item": "paquet",
-      "time": 1
+      "time": 0.75
      }
     }
    ]
@@ -4448,10 +4462,10 @@
    "choices": [
     {
      "label": "Prendre la clé, et redescendre",
-     "to": "I_descente",
+     "to": "I_route",
      "fx": {
       "item": "paquet",
-      "time": 1
+      "time": 0.75
      }
     }
    ]
@@ -4585,6 +4599,10 @@
      "to": "I_attente"
     },
     {
+     "label": "Lui offrir une tisane, avec quelques gouttes du troisième tiroir",
+     "to": "I_tisane"
+    },
+    {
      "label": "Lui demander depuis quand il fume sa pipe sur le seuil de la maison Corlay",
      "if": {
       "lore": "rambert_paye"
@@ -4658,9 +4676,21 @@
    },
    "text": [
     {
+     "via": "dort",
+     "text": "La rue est calme. Personne ne monte vers le pont. Chez Fulbert, la fenêtre reste noire."
+    },
+    {
+     "via": "gardes",
+     "text": "Colin s'est enveloppé dans sa cape, sur ta marche. Il compte les heures à Saint-Rieul en même temps que toi."
+    },
+    {
      "if": {
       "not": {
-       "via": "fulbert"
+       "via": [
+        "fulbert",
+        "dort",
+        "gardes"
+       ]
       }
      },
      "text": "Fulbert repart chez lui, avec des vœux pour le vieux. Tu le vois, une demi-heure après, ressortir de chez lui en manteau et monter vers le pont. Tu ne sais pas ce qu'il va dire, ni à qui."
@@ -4692,15 +4722,27 @@
     "« Madame Saunier ? »",
     "Quand tu soignes un quartier depuis trente ans, quand tu as accouché les mères et fermé les yeux des pères, on t'ouvre. On te croit, même quand tu dis des choses folles, même à deux heures du matin. Mallet réveille sa femme. Sa femme réveille la rue.",
     {
+     "if": {
+      "has": "colin:aide"
+     },
+     "text": "Colin frappe avec toi, à coups de poing, en criant : « Le guet ! Debout ! » Quand le guet frappe, on ouvre plus vite."
+    },
+    {
      "via": "fulbert",
      "text": "Rue des Teinturiers, Fulbert frappe aux portes, les mains bleues, sans regarder personne."
+    },
+    {
+     "if": {
+      "has": "fulbert:dort"
+     },
+     "text": "Chez Fulbert, personne ne répond. Il dort de tes douze gouttes. Le fils Mallet enfonce la porte d'un coup d'épaule, et deux teinturiers le sortent de son lit en chemise, mou comme un sac, qui grogne sans se réveiller."
     },
     "À trois heures moins le quart, le quartier entier monte les escaliers de la Côte, avec les enfants, les vieux, les poules dans des paniers."
    ],
    "choices": [
     {
-     "label": "Monter la dernière, avec ta trousse",
-     "to": "I_foulons"
+     "label": "Monter la dernière, avec ta trousse, en passant par le bout de la rue du Lavoir",
+     "to": "I_gosse"
     }
    ]
   },
@@ -4744,6 +4786,36 @@
       "has": "route:pont"
      },
      "text": "À cinq heures et demie, la digue cède. Tu l'entends avant de la voir : un grondement qui descend la vallée, puis la Sorge qui se lève comme une bête, une seule vague brune, haute comme une maison. Elle passe sur les Foulons. Quand elle est passée, il reste des toits. Le quartier, sur le parvis, regarde l'endroit où étaient ses maisons. Il ne manque personne. Il ne reste rien."
+    },
+    {
+     "if": {
+      "has": "gosse:sauvee"
+     },
+     "text": "Henriette Gosse est assise sur les marches de l'église, son chapelet à la main. Elle regarde sa maison dans l'eau. Elle te dit : « Tu avais raison. Je ne te remercierai pas. » Elle te garde une place à côté d'elle."
+    },
+    {
+     "if": {
+      "has": "ilde:enfant"
+     },
+     "text": "Sous le porche, la petite Josselin dort, le bébé contre elle. Une fille. Née sur le palier de la Vierge, à la lueur d'une veilleuse, entre deux cents personnes qui montaient. On l'appellera Côte, ou Véronique, on ne sait pas encore."
+    },
+    {
+     "if": {
+      "has": "ilde:enfant_dur"
+     },
+     "text": "Sous le porche, la petite Josselin dort, livide, le bébé contre elle. Il a fallu une heure. Tu as eu peur deux fois de les perdre tous les deux. Tes mains sont encore rouges jusqu'aux poignets."
+    },
+    {
+     "if": {
+      "has": "ilde:enfant_eglise"
+     },
+     "text": "Dans l'église, au pied de l'autel, la petite Josselin a accouché d'un garçon, sur des chasubles pliées. Tu es arrivée à temps, de justesse."
+    },
+    {
+     "if": {
+      "has": "fulbert:dort"
+     },
+     "text": "Fulbert se réveille vers sept heures, sur une civière, sous le porche de Saint-Rieul. Il ne sait pas comment il est arrivé là. Il te cherche des yeux, et il détourne le regard le premier."
     },
     "Les femmes viennent te voir une à une, sans rien dire. L'une t'apporte du café. Une autre t'embrasse les mains.",
     "Là-haut, au bout du lac, tu penses au vieil homme dans son fauteuil, près du baromètre."
@@ -4808,6 +4880,23 @@
     {
      "label": "Rentrer",
      "to": "I_suivie"
+    },
+    {
+     "label": "Leur dire la vérité, à ces deux garçons",
+     "if": {
+      "second": "I_suivie"
+     },
+     "test": {
+      "dom": "social",
+      "diff": -10,
+      "label": "Convaincre"
+     },
+     "win": {
+      "to": "I_gardes"
+     },
+     "lose": {
+      "to": "I_suivie"
+     }
     }
    ]
   },
@@ -4822,6 +4911,12 @@
    "text": [
     "Tu t'assois dans ta boutique, ton manteau encore sur le dos. La lampe du comptoir, les bocaux, les sangsues qui dorment.",
     "Tu repasses la soirée dans ta tête. La Maison des Vannes, le baromètre, la toile cirée. La porte entrouverte de la pièce d'à côté. Le banc. Bastien qui dormait trop bien.",
+    {
+     "if": {
+      "has": "ilde:bastien_route"
+     },
+     "text": "Tu revois une silhouette qui courait vers la ville, à la sixième borne, l'épaule gauche plus basse que l'autre."
+    },
     "Ils savaient que tu portais quelque chose, et ils savaient où tu allais. Quelqu'un leur a dit. Quelqu'un qui écoutait derrière une porte.",
     "Deux heures sonnent. Personne ne frappe aux portes des Foulons. Le garde, sur ta marche, s'est endormi.",
     "Tu prends ta plume et tu commences une lettre à Anselme. Tu n'en écris que la première ligne.",
@@ -4842,7 +4937,29 @@
     },
     "Au bout de la rue des Teinturiers, contre la culée du pont, la grille du ponceau tient par un seul gond. Tu la soulèves, et tu te glisses dessous, ton paquet d'abord, toi ensuite, tes genoux de cinquante-huit ans dans la boue sèche.",
     "Au-dessus de toi, sur le pont, la voix du sergent Brasseur, qui parle de sa fille.",
-    "De l'autre côté, la route de la Digue. Dix bornes. Tu les fais en deux heures, en t'arrêtant à chacune.",
+    "De l'autre côté, la route de la Digue. Dix bornes."
+   ],
+   "choices": [
+    {
+     "label": "Prendre la route",
+     "to": "I_bornes"
+    }
+   ]
+  },
+  "I_ponceau_cabane": {
+   "act": "I",
+   "title": "La cabane des Loutres",
+   "place": "berge",
+   "fx": {
+    "time": 0.5
+   },
+   "text": [
+    {
+     "if": {
+      "has": "ilde:coca"
+     },
+     "text": "Tu arrives au pied de la digue avec le cœur qui bat trop vite et des jambes qui ne sont plus les tiennes."
+    },
     "À la cabane des Loutres, il est onze heures et demie. Une barque arrive sur le canal, sans lanterne, chargée de sacs. Une rousse saute sur le ponton, un couteau à la main.",
     "« Ilde ? Toi ? Toute seule, à ton âge ? »"
    ],
@@ -4872,6 +4989,12 @@
     "Jacquette rame vers l'arche du canal de fuite, ouvre la grille avec la clé pendue à son cou, et vous entrez dans le ventre de la digue. Tu ne dis rien pendant tout le trajet. L'eau est noire, l'air résonne.",
     "Dans la chambre de la vanne, Anselme vous attend, assis contre le mur. Il voit qui tient la lanterne. Il dit ton nom comme on le disait il y a quarante ans.",
     "Il tourne la clé de ses deux mains. Jacquette prend un rayon de la roue, toi l'autre. Tu as cinquante-huit ans et des genoux de vieille femme. Tu as aussi des bras d'apothicaire qui ont pilé trente ans de racines.",
+    {
+     "if": {
+      "has": "ilde:souvenir"
+     },
+     "text": "Au premier tour, Anselme te regarde pousser, et il dit, pour toi seule : « Le panier. » Tu ris, et tu pousses plus fort."
+    },
     "Quarante tours. Au quinzième, la digue rugit."
    ],
    "choices": [
@@ -4978,6 +5101,284 @@
     "Enguerrand Corlay se lève pour parler. Dame Hesdin, au bout de la table, se lève avant lui.",
     "« J'étais là, il y a trois ans, dit-elle. J'ai voté contre. J'ai perdu. Je me suis tue comme les autres. Ce que dit Madame Saunier est vrai. »",
     "Le vote de la Charge est remis. Dehors, la pluie, et les Foulons dans l'eau jusqu'aux fenêtres basses. Tu rentres chez toi à pied. En passant le pont, tu croises le sergent Brasseur, qui te salue de la tête."
+   ]
+  },
+  "I_galerie": {
+   "act": "I",
+   "title": "Le compas d'Anselme",
+   "place": "digue",
+   "fx": {
+    "learn": "veine_vue",
+    "flag": "ilde:vu_veine",
+    "time": 0.5
+   },
+   "text": [
+    "« Je veux la voir », dis-tu. Anselme te tend son compas de fer et une lanterne sourde. Il ne peut plus descendre les soixante marches de l'escalier intérieur. Il te dit où poser les pointes.",
+    "La galerie basse est un couloir de pierre qui sent la cave et la rivière. Il y fait plus chaud que dehors. L'eau ruisselle partout, sur les murs, sous tes semelles, dans les rigoles.",
+    "La veine court dans la paroi de gauche, du sol à la voûte. Elle est couverte de plâtres de toutes les couleurs, posés l'un sur l'autre, comme des pansements sur une vieille plaie. Tous suintent. Tu poses les pointes du compas comme il l'a dit, sur les deux clous de cuivre plantés de part et d'autre. Deux doigts.",
+    "Tu as vu des plaies. Tu sais reconnaître celles qu'on soigne et celles qu'on panse en attendant. Ici, on a pansé pendant trois ans."
+   ],
+   "choices": [
+    {
+     "label": "Remonter auprès d'Anselme",
+     "back": "I_maison"
+    }
+   ]
+  },
+  "I_printemps": {
+   "act": "I",
+   "title": "Le printemps du lavoir",
+   "place": "digue",
+   "fx": {
+    "flag": "ilde:souvenir"
+   },
+   "text": [
+    "Tu poses la main sur l'accoudoir de son fauteuil. Il la regarde.",
+    "Tu avais dix-huit ans. Tu portais le linge de ta mère au lavoir, un panier trop lourd pour toi. Un garçon maigre, en veste de garçon de vannes, te l'a pris des mains sans rien demander, et il l'a porté jusqu'au bassin. Il est revenu le lundi suivant, et tous les lundis jusqu'à la Saint-Jean.",
+    "À la Saint-Jean, son père est tombé malade. Il est monté à la Maison des Vannes pour le remplacer « quelques semaines ». Il y est resté cinquante ans. Tu es montée le voir deux fois. La troisième, il a épousé la fille du meunier de Malbuisson, qui pouvait vivre là-haut, au bord de l'eau, et toi tu avais la boutique de ton père.",
+    "« Je pensais à ce panier, dit Anselme, sans quitter le lac des yeux. Tout à l'heure, quand je t'ai vue monter. »"
+   ],
+   "choices": [
+    {
+     "label": "Lui serrer la main, et revenir à la clé",
+     "back": "I_maison"
+    }
+   ]
+  },
+  "I_route": {
+   "act": "I",
+   "title": "La sixième borne",
+   "place": "berge",
+   "fx": {
+    "time": 0.25
+   },
+   "text": [
+    "Tu descends la route de la Digue à petits pas, le paquet sous ton manteau. Il fait noir. Les bornes blanches sortent de la nuit une à une.",
+    "À la sixième borne, des pas pressés te rattrapent. Quelqu'un court derrière toi, sans lanterne, sur l'herbe du bas-côté. Tu te retournes. Il te dépasse sans ralentir, à trois pas, la tête dans le col.",
+    "Tu reconnais la silhouette, l'épaule gauche plus basse que l'autre : Bastien Vellard. Il dormait sur le banc il y a une heure. Il court vers la ville comme un homme qui a rendez-vous."
+   ],
+   "choices": [
+    {
+     "label": "L'appeler par son nom",
+     "to": "I_bastien_route"
+    },
+    {
+     "label": "Le laisser filer",
+     "to": "I_descente"
+    }
+   ]
+  },
+  "I_bastien_route": {
+   "act": "I",
+   "title": "Le fils",
+   "place": "berge",
+   "fx": {
+    "flag": "ilde:bastien_route",
+    "time": 0.25
+   },
+   "text": [
+    "« Bastien ! »",
+    "Il s'arrête. Il se retourne lentement. Dans le noir, tu ne vois pas son visage, tu vois sa respiration, une petite fumée blanche, rapide.",
+    "« Madame Saunier. » Sa voix est gaie, trop gaie. « Je descends jouer. Je joue tous les soirs, vous savez. Mon père vous l'a dit, je suppose. »",
+    "« Ton père va mourir, Bastien. Cette semaine, ou la suivante. Il t'aime. Il n'a jamais su te le dire autrement qu'en payant. »",
+    "Il ne répond rien. La fumée blanche s'arrête, une seconde. Puis il rit, un rire de taverne, et il repart en courant vers les lumières de Corvèze."
+   ],
+   "choices": [
+    {
+     "label": "Reprendre la route",
+     "to": "I_descente"
+    }
+   ]
+  },
+  "I_tisane": {
+   "act": "I",
+   "title": "Une tisane",
+   "place": "foulons",
+   "fx": {
+    "flag": "fulbert:dort",
+    "time": 0.5
+   },
+   "text": [
+    "« Tu as l'air gelé, voisin. Je te fais une tisane. »",
+    "Tu mets l'eau à chauffer sur le petit réchaud du comptoir. Tu prends le bocal de tilleul, puis, de l'autre main, sans te retourner, le flacon brun du troisième tiroir. Quarante ans de métier : tes doigts comptent seuls. Douze gouttes. Assez pour qu'un homme de son poids dorme jusqu'au matin. Assez peu pour qu'il se réveille.",
+    "Fulbert boit en parlant de son indigo. Il bâille au milieu d'une phrase. Il s'excuse. Il rentre chez lui en se tenant au chambranle.",
+    "Sa fenêtre s'éteint un quart d'heure après. Tu as endormi ton voisin de vingt ans. Ton père disait : *Le jour où tu soigneras quelqu'un contre lui, ferme boutique.* Tu laisses la boutique ouverte."
+   ],
+   "choices": [
+    {
+     "label": "Attendre deux heures",
+     "to": "I_attente",
+     "via": "dort"
+    }
+   ]
+  },
+  "I_gardes": {
+   "act": "I",
+   "title": "Deux jeunes du guet",
+   "place": "berge",
+   "fx": {
+    "flag": [
+     "route:pont",
+     "colin:aide"
+    ],
+    "time": 0.5
+   },
+   "text": [
+    "Tu leur dis tout. La digue, la veine, l'orage, la vanne de fond. Le vieux Vellard qui attend là-haut. Tu leur dis : vos mères habitent où ?",
+    "Le plus jeune s'appelle Colin. Sa mère vend des beignets sur la place du Lavoir. L'autre est d'un village de la vallée, en aval. Ils se regardent.",
+    "« Le paquet, on doit le rapporter, madame, dit Colin. Le capitaine compte. » Il a les larmes aux yeux, de froid ou d'autre chose. « Mais à deux heures, on frappera aux portes avec vous. Ça, il ne l'a pas défendu. »",
+    "Ils te ramènent chez toi. Le paquet part vers la Haute-Ville sous le bras de l'autre garçon. Colin reste sur ta marche, à attendre deux heures avec toi."
+   ],
+   "choices": [
+    {
+     "label": "Attendre deux heures",
+     "to": "I_attente",
+     "via": "gardes"
+    }
+   ]
+  },
+  "I_bornes": {
+   "act": "I",
+   "title": "Dix bornes",
+   "place": "berge",
+   "fx": {
+    "time": 0.5
+   },
+   "text": [
+    "À la quatrième borne, tes genoux refusent. Tu t'assois sur la pierre blanche, le paquet sur les cuisses. Le vent te mord les oreilles. La Sorge gronde en contrebas.",
+    "Dans la poche de ton manteau, il y a un flacon de sel de corne de cerf et une fiole de teinture de coca que tu gardes pour les accouchements qui durent. Elle donne trois heures de jambes, et elle les reprend le lendemain, avec les intérêts."
+   ],
+   "choices": [
+    {
+     "label": "Boire la teinture de coca",
+     "to": "I_bornes_coca",
+     "fx": {
+      "flag": "ilde:coca"
+     }
+    },
+    {
+     "label": "Te reposer un quart d'heure, et repartir",
+     "to": "I_bornes_repos",
+     "fx": {
+      "time": 0.5
+     }
+    }
+   ]
+  },
+  "I_bornes_coca": {
+   "act": "I",
+   "title": "Trois heures de jambes",
+   "place": "berge",
+   "fx": {
+    "time": 0.5
+   },
+   "text": [
+    "C'est amer et ça brûle. Au bout de cinq minutes, ton cœur bat plus vite. Au bout de dix, tes genoux se taisent. Tu te lèves, et tu marches comme à quarante ans, le paquet contre la poitrine.",
+    "Les bornes défilent. Cinq, six, sept. Tu sais exactement ce que tu paieras demain. Tu as fait payer ça à d'autres, pour de moins bonnes raisons."
+   ],
+   "choices": [
+    {
+     "label": "Continuer jusqu'à la digue",
+     "to": "I_ponceau_cabane"
+    }
+   ]
+  },
+  "I_bornes_repos": {
+   "act": "I",
+   "title": "Un quart d'heure",
+   "place": "berge",
+   "text": [
+    "Tu fermes les yeux un quart d'heure. Tu entends la Sorge, le vent, ton cœur. Tu penses à toutes les femmes que tu as fait marcher pendant le travail, dans leur chambre, d'un mur à l'autre, en leur disant : encore un tour.",
+    "Encore une borne. Tu te relèves en t'aidant du paquet, comme d'une canne."
+   ],
+   "choices": [
+    {
+     "label": "Continuer jusqu'à la digue",
+     "to": "I_ponceau_cabane"
+    }
+   ]
+  },
+  "I_gosse": {
+   "act": "I",
+   "title": "La veuve Gosse",
+   "place": "foulons",
+   "fx": {
+    "time": 0.25
+   },
+   "text": [
+    "Au bout de la rue du Lavoir, la veuve Gosse ne veut pas ouvrir. Elle te parle à travers sa porte, de sa voix de vieille, pointue et calme.",
+    "« Je suis née dans cette maison, Ilde. Si l'eau vient, elle me trouvera dans mon fauteuil. »",
+    "Tu l'as accouchée de ses deux fils, il y a quarante ans. Les deux sont morts à la guerre du Sel."
+   ],
+   "choices": [
+    {
+     "label": "« Henriette, tes fils t'attendent depuis longtemps. Moi, j'ai encore besoin de toi. »",
+     "test": {
+      "dom": "social",
+      "diff": -10,
+      "label": "La faire sortir"
+     },
+     "win": {
+      "to": "I_accouchement",
+      "fx": {
+       "flag": "gosse:sauvee"
+      }
+     },
+     "lose": {
+      "to": "I_accouchement"
+     }
+    },
+    {
+     "label": "La laisser, et courir aux autres portes",
+     "to": "I_accouchement"
+    }
+   ]
+  },
+  "I_accouchement": {
+   "act": "I",
+   "title": "Sur les marches",
+   "place": "foulons",
+   "fx": {
+    "time": 0.5
+   },
+   "text": [
+    {
+     "if": {
+      "has": "gosse:sauvee"
+     },
+     "text": "La porte s'ouvre. Henriette Gosse sort en manteau, son chapelet à la main, et elle te dit seulement : « Ne me tiens pas le bras, je ne suis pas infirme. »"
+    },
+    "À mi-hauteur des escaliers de la Côte, au palier de la Vierge, une femme s'arrête et se plie en deux. La petite Josselin, la femme du cardeur, enceinte de huit mois. Elle s'accroche à la rampe. Il y a de l'eau sur les marches, sous elle, et cette eau-là ne vient pas de la Sorge.",
+    "Derrière elle, l'escalier est plein de monde qui monte, et qui ne peut pas passer."
+   ],
+   "choices": [
+    {
+     "label": "L'accoucher ici, sur le palier, sous la veilleuse",
+     "test": {
+      "dom": "nature",
+      "diff": 0,
+      "label": "Accoucher"
+     },
+     "win": {
+      "to": "I_foulons",
+      "fx": {
+       "flag": "ilde:enfant"
+      }
+     },
+     "lose": {
+      "to": "I_foulons",
+      "fx": {
+       "flag": "ilde:enfant_dur"
+      }
+     }
+    },
+    {
+     "label": "La faire porter jusqu'à l'église par deux hommes",
+     "to": "I_foulons",
+     "fx": {
+      "flag": "ilde:enfant_eglise"
+     }
+    }
    ]
   },
   "B_chat": {
