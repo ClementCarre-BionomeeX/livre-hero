@@ -6,7 +6,7 @@
 (function (root) {
   var M = typeof module !== "undefined" && module.exports ? require("./moteur.js") : root.Moteur;
 
-  var COND_KEYS = ["is", "count", "has", "not", "all", "any", "clues", "clue", "mark", "present", "loyal", "met", "gone", "conf", "fear", "relics", "relic",
+  var COND_KEYS = ["voie", "trouvaille", "trouvailles", "is", "count", "has", "not", "all", "any", "clues", "clue", "mark", "present", "loyal", "met", "gone", "conf", "fear", "relics", "relic",
     "given", "item", "gold", "food", "pv", "clock", "fac", "level", "day", "since", "night", "seen", "arch", "quest", "place", "known", "person", "party",
     "lead", "away", "team", "souv", "souvenirs", "heroLevel", "second", "via", "regard", "fresh", "stock", "days", "promise", "vote", "lean", "battle", "camp", "missed",
     "temps", "saison", "blessure", "cicatrice", "fatigue", "trait", "duel",
@@ -14,7 +14,7 @@
     "secret", "confie", "garde"];
   // The siege's conditions (8.0) carry a second key (is, member, hero, losses): they are read by their first key.
   var SIEGE_KEYS = ["stock", "days", "promise", "vote", "lean", "battle", "camp", "missed", "fatigue", "trait", "duel"];
-  var FX_KEYS = ["regard", "resume", "set", "flag", "flags", "unflag", "clue", "mark", "ep", "catchup", "catchupWhy", "join", "met", "leave", "conf", "fear", "fac", "relic",
+  var FX_KEYS = ["voie", "regard", "resume", "set", "flag", "flags", "unflag", "clue", "mark", "ep", "catchup", "catchupWhy", "join", "met", "leave", "conf", "fear", "fac", "relic",
     "give", "relicLose", "item", "drop", "gold", "food", "pv", "rest", "time", "until", "stamp", "reveal", "meet", "clock", "quest", "questSeen", "note", "noteCls",
     "assign", "team", "regroup", "away", "lead", "leadQuiet", "souv", "souvBack", "catchupAll", "awayUnless",
     "stock", "promise", "keep", "break", "forgive", "sway", "sound", "camp", "tie",
@@ -101,6 +101,46 @@
       if (!H.player && !M.ARCHS[H.arch]) E("Héros « " + k + " » : classe « " + H.arch + " » inconnue.");
       Object.keys(H.souvenirs || {}).forEach(function (id) { if (!H.souvenirs[id].label) E("Héros « " + k + " » : souvenir « " + id + " » sans libellé."); });
     });
+    // A story's own callings (8.5): each plays like one of the six classes; the hero must get one, by a past answer
+    // (fx.voie on every answer of one question) or by story.voie.
+    Object.keys(story.voies || {}).forEach(function (k) {
+      var V = story.voies[k];
+      if (!V.label) E("Voie « " + k + " » : il lui faut un libellé.");
+      if (!M.ARCHS[V.like]) E("Voie « " + k + " » : « like » doit nommer une classe (" + Object.keys(M.ARCHS).join(", ") + ").");
+      Object.keys(V.bonus || {}).forEach(function (d) { if (!M.DOMAINS[d]) E("Voie « " + k + " » : domaine « " + d + " » inconnu."); });
+      (V.kit || []).forEach(function (id) { if (!story.items[id]) E("Voie « " + k + " » : objet « " + id + " » inconnu."); });
+    });
+    if (story.voies && Object.keys(story.voies).length) {
+      if (story.voie && !story.voies[story.voie]) E("Voie de départ « " + story.voie + " » inconnue.");
+      var vq = (story.past || []).filter(function (q) { return (q.answers || []).every(function (a) { return a.fx && a.fx.voie; }); });
+      if (!story.voie && !vq.length) E("L'histoire déclare des voies : une question du passé doit en donner une à chaque réponse (fx.voie), ou story.voie en fixer une.");
+      (story.past || []).forEach(function (q, i) { var n = (q.answers || []).filter(function (a) { return a.fx && a.fx.voie; }).length; if (n && n < q.answers.length) E("Ton passé " + (i + 1) + " : chaque réponse doit donner une voie, ou aucune."); });
+    }
+    // Words with effects (8.6): every mark of every paragraph is one the engine knows; every find is hidden somewhere.
+    (function () {
+      var texts = [], hidden = {}, kws = M.keywordsOf(story);
+      var take = function (where, t) { if (typeof t === "string") texts.push([where, t]); else if (t && typeof t === "object") { if (typeof t.text === "string") texts.push([where, t.text]); if (typeof t.else === "string") texts.push([where, t.else]); Object.keys(t.cases || {}).forEach(function (c) { texts.push([where, t.cases[c]]); }); } };
+      Object.keys(story.passages || {}).forEach(function (id) { (story.passages[id].text || []).forEach(function (t) { take("§ " + id, t); }); });
+      (story.epilogue || []).forEach(function (e, i) { take("Épilogue " + (i + 1), e); });
+      texts.forEach(function (x) {
+        var where = x[0], t = x[1];
+        if (/\{\{[a-z]+:/.test(t)) {
+          var rest = t.replace(/\{\{(fx|cle|or|envers|encre|tache):([^{}|]*)(?:\|([^{}]*))?\}\}/g, "");
+          var bad = rest.match(/\{\{[a-z]+:[^}]*\}?\}?/);
+          if (bad) E(where + " : marque inconnue ou mal fermée « " + bad[0].slice(0, 40) + " » (fx, cle, or, envers, encre, tache).");
+        }
+        M.marksOf(t).forEach(function (m) {
+          if (m.kind === "fx") { if (!M.TEXT_FX[m.arg]) E(where + " : effet « " + m.arg + " » inconnu (" + Object.keys(M.TEXT_FX).join(", ") + ")."); if (!m.text) E(where + " : effet « " + m.arg + " » sans texte."); }
+          if (m.kind === "cle") { if (m.text != null ? !kws[m.arg] : !M.keywordFor(story, m.arg)) E(where + " : mot-clé « " + m.arg + " » inconnu (story.keywords ou mots du moteur)."); }
+          if (m.kind === "or") { if (!(story.trouvailles || {})[m.arg]) E(where + " : trouvaille « " + m.arg + " » inconnue (story.trouvailles)."); else hidden[m.arg] = 1; if (!m.text) E(where + " : trouvaille « " + m.arg + " » sans texte."); }
+          if (m.kind === "encre") { if (!story.items[m.arg]) E(where + " : encre invisible, objet « " + m.arg + " » inconnu."); if (!m.text) E(where + " : encre invisible sans texte."); }
+          if ((m.kind === "envers" || m.kind === "tache") && !m.arg) E(where + " : « " + m.kind + " » sans texte.");
+        });
+      });
+      Object.keys(story.trouvailles || {}).forEach(function (k) { if (!hidden[k]) E("Trouvaille « " + k + " » cachée nulle part (aucun {{or:" + k + "|…}} dans les textes)."); });
+      Object.keys(story.keywords || {}).forEach(function (k) { if (!story.keywords[k].def) E("Mot-clé « " + k + " » sans définition (def)."); });
+      (story.moods || []).forEach(function (m, i) { if (!M.MOODS[m.mood]) E("Humeur " + (i + 1) + " : « " + m.mood + " » inconnue (" + Object.keys(M.MOODS).join(", ") + ")."); });
+    })();
     if (story.heroes && story.leadStart && !story.heroes[story.leadStart]) E("Héros de départ « " + story.leadStart + " » inconnu.");
     Object.keys(story.teams || {}).forEach(function (k) { var t = story.teams[k]; if (t.start && !P[t.start]) E("Équipe « " + k + " » : passage de départ « " + t.start + " » inconnu."); });
     var qids = {};
@@ -127,6 +167,7 @@
       (r.legs || []).forEach(function (l) { if (!P[l.passage]) E("Route « " + r.id + " » : étape « " + l.passage + " » inconnue."); if (l.step > r.steps) E("Route « " + r.id + " » : étape " + l.step + " au-delà de " + r.steps + "."); });
     });
     Object.keys(Wd.regions).forEach(function (k) { (Wd.regions[k].events || []).forEach(function (e) { if (!Wd.events[e]) E("Région « " + k + " » : événement « " + e + " » inconnu."); }); });
+    Object.keys(Wd.regions).forEach(function (k) { var ti = Wd.regions[k].tiring; if (ti != null && !(ti >= 1 && ti === Math.floor(ti))) E("Région « " + k + " » : tiring doit être un nombre entier d'étapes (1 ou plus)."); });
     Object.keys(Wd.events).forEach(function (k) { if (!P[Wd.events[k].passage]) E("Événement « " + k + " » : passage « " + Wd.events[k].passage + " » inconnu."); });
     Object.keys(story.shops || {}).forEach(function (k) { (story.shops[k].sells || []).forEach(function (x) { if (!items[x.item]) E("Boutique « " + k + " » : objet « " + x.item + " » inconnu."); }); });
     Object.keys(items).forEach(function (k) { var it = items[k]; if (!it.name) E("Objet « " + k + " » sans nom."); });
@@ -154,6 +195,7 @@
       if (k === "seen" && !P[c.seen]) E(where + " : passage « " + c.seen + " » inconnu.");
       if (k === "quest" && !qids[c.quest]) E(where + " : quête « " + c.quest + " » inconnue.");
       if (k === "arch" && !M.ARCHS[c.arch]) E(where + " : archétype « " + c.arch + " » inconnu.");
+      if (k === "voie" && !(story.voies || {})[c.voie]) E(where + " : voie « " + c.voie + " » inconnue.");
       if (k === "item" && !items[c.item]) E(where + " : objet « " + c.item + " » inconnu.");
       if ((k === "place" || k === "known") && !places[c[k]]) E(where + " : lieu « " + c[k] + " » inconnu.");
       if (k === "person" && !people[c.person]) E(where + " : personnage « " + c.person + " » inconnu.");
@@ -201,6 +243,7 @@
       if (typeof fx !== "object" || Array.isArray(fx)) { E(where + " : effets mal formés."); return; }
       Object.keys(fx).forEach(function (k) { if (FX_KEYS.indexOf(k) < 0) E(where + " : effet inconnu « " + k + " »."); });
       [].concat(fx.clue || []).forEach(function (x) { if (!story.clues[x]) E(where + " : indice « " + x + " » inconnu."); });
+      if (fx.voie && !(story.voies || {})[fx.voie]) E(where + " : voie « " + fx.voie + " » inconnue.");
       [].concat(fx.join || [], fx.met || [], fx.leave || []).concat(Object.keys(fx.conf || {}), Object.keys(fx.fear || {}))
         .forEach(function (x) { if (!story.companions[x]) E(where + " : compagnon « " + x + " » inconnu."); });
       Object.keys(fx.fac || {}).forEach(function (x) { if (!story.factions[x]) E(where + " : faction « " + x + " » inconnue."); });
@@ -338,12 +381,22 @@
     });
     M.endingsOf(story).forEach(function (e) { endIds[e.id] = 1; });
     // At sea (8.1): the sky, the seasons, the wounds, the encounters, the things put together, the vigils, the charts.
+    // The world of a book (8.6): pages to read before and during play, and names a touch explains.
+    if (story.lore) {
+      var LO = story.lore;
+      if (LO.pages !== undefined && !Array.isArray(LO.pages)) E("Le monde : « pages » doit être une liste.");
+      (Array.isArray(LO.pages) ? LO.pages : []).forEach(function (pg, i) { if (!pg || !pg.title || !pg.text || !(typeof pg.text === "string" || Array.isArray(pg.text))) E("Le monde, page " + (i + 1) + " : il faut un titre (title) et un texte (text)."); });
+      Object.keys(LO.names || {}).forEach(function (k) { if (typeof LO.names[k] !== "string" || !LO.names[k].trim()) E("Le monde, nom « " + k + " » : il faut une phrase qui l'explique."); });
+    }
     if (story.weather) {
       var WK = story.weather.kinds || {};
       if (!Object.keys(WK).length) E("Météo : aucun temps déclaré (kinds).");
       if (story.weather.start && !WK[story.weather.start]) E("Météo : temps de départ « " + story.weather.start + " » inconnu.");
       Object.keys(WK).forEach(function (k) { Object.keys(WK[k].mod || {}).forEach(function (d) { if (DOM_KEYS.indexOf(d) < 0) E("Météo « " + k + " » : domaine « " + d + " » inconnu."); }); if (!WK[k].name) E("Météo « " + k + " » : sans nom."); });
       Object.keys(story.weather.regions || {}).forEach(function (r) { Object.keys(story.weather.regions[r]).forEach(function (k) { if (!WK[k]) E("Météo, région « " + r + " » : temps « " + k + " » inconnu."); }); });
+      // A weather that follows the roads reads the world's regions (and "lieu", "route" for a place or a route without one).
+      if (story.weather.by === "route") Object.keys(story.weather.regions || {}).forEach(function (r) { var pr = Object.keys(Wd.places).some(function (k) { return Wd.places[k].region === r; }); if (!Wd.regions[r] && !pr && r !== "lieu" && r !== "route") E("Météo par la route : région « " + r + " » inconnue (ni région du monde, ni région d'un lieu, ni « lieu », ni « route »)."); });
+      Object.keys(WK).forEach(function (k) { var H = WK[k].hurts; if (!H) return; if (!(story.wounds || {})[H.wound]) E("Météo « " + k + " » : blessure « " + H.wound + " » inconnue (hurts)."); if (H.chance != null && !(H.chance > 0 && H.chance <= 1)) E("Météo « " + k + " » : hurts.chance doit être entre 0 et 1."); });
       Object.keys(story.weather.seasons || {}).forEach(function (r) { if (!(story.seasons || []).some(function (x) { return x.id === r; })) E("Météo : saison « " + r + " » inconnue."); Object.keys(story.weather.seasons[r]).forEach(function (k) { if (!WK[k]) E("Météo, saison « " + r + " » : temps « " + k + " » inconnu."); }); });
     }
     (story.seasons || []).forEach(function (x, i) { if (!x.id || !x.name) E("Saison " + (i + 1) + " : il faut un id et un nom."); moment(x.from, "Saison « " + x.id + " »"); });
@@ -605,6 +658,7 @@
       eachFx(p, function (fx) { checkFx(fx, where); });
     });
     (story.past || []).forEach(function (q, i) { (q.answers || []).forEach(function (a) { checkFx(a.fx, "Ton passé " + (i + 1)); }); });
+    Object.keys(story.trouvailles || {}).forEach(function (k) { checkFx(story.trouvailles[k].fx, "Trouvaille « " + k + " »"); });
     if (!ends) E("Aucune fin (passage avec end: true).");
     return { errors: errs, warnings: warns };
   }
@@ -922,6 +976,9 @@
         try {
           v = M.view(story, s);
           v.text.forEach(function (t) { if (/undefined|NaN|\[object|\{[a-z]+\}|\{autre:/.test(t)) throw new Error("texte suspect : " + t.slice(0, 80)); });
+          // 8.6: a reader taps a hidden find, often; and nothing of a mark ever reaches the plain text.
+          (v.marked || []).forEach(function (t) { M.marksOf(t).forEach(function (m) { if (m.kind === "or" && rnd() < 0.5) { try { M.trouve(story, s, m.arg); } catch (e) { errs["trouvaille " + m.arg + " : " + e.message] = 1; } } }); });
+          v.text.forEach(function (t) { if (/\{\{[a-z]+:/.test(t)) throw new Error("marque restée dans le texte : " + t.slice(0, 80)); });
         } catch (e) { errs["§ " + s.node + " : " + e.message] = 1; return; }
         Object.keys(s.seen).forEach(function (k) { if (!seen[k]) seen[k] = 1; });
         Object.keys(s.guards || {}).forEach(function (k) { guards[k] = 1; });

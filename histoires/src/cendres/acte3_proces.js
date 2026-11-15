@@ -9,7 +9,7 @@ function done(f) { return { has: "proces:" + f }; }
 function rendu(f) { return { has: "proces:" + f + "=rendu" }; }
 function verdict(f, garde, rend) {
   return [
-    { label: "Le garder ici, dans sa glace. Que le monde ne sache jamais", fx: { flag: ["proces:" + f, "proces:" + f + "=garde"], ep: ["perso", 800] }, to: garde },
+    { label: "Le garder ici, dans sa glace. Que le monde ne sache jamais", fx: { flag: "proces:" + f, ep: ["perso", 800] }, to: garde },
     { label: "Le rendre au monde. Qu'il fonde, et que là-haut on se souvienne", fx: { flag: ["proces:" + f, "proces:" + f + "=rendu"], ep: ["perso", 1200] }, to: rend },
   ];
 }
@@ -138,7 +138,7 @@ module.exports = {
 
   III_p_barque_rendu: P({ title: "La flaque", place: "valcendre",
     text: ["« Qu'il parte. » La glace d'Osric se fend en deux, proprement, comme une coque qui touche un roc. L'eau coule entre les pavés, vers la foule, et une femme en robe bleue s'avance, s'agenouille, et trempe la main dedans. Elle reste comme ça longtemps. Puis elle se relève, et elle sourit, et elle te fait un signe de tête, et elle s'en va vers les portes de la ville."],
-    choices: [{ fx: { flag: "iii:iselde" }, back: "III_p_place" }] }),
+    choices: [{ back: "III_p_place" }] }),
 
   // ---- Le Cerf: Raoul de Brenne, nineteen, who went in first with the fire. Ysolde's ancestor.
   III_p_cerf: P({ title: "Le Cerf", place: "valcendre",
@@ -233,8 +233,8 @@ module.exports = {
       { label: "« Ils savaient. Tous les cinq. Et ils ont choisi l'oubli pour ne pas avoir à le porter. »", fx: { flag: "parole:accuse" }, to: "III_p_parole2" },
       { label: "« Ils avaient faim, et peur, et ils ont fait le pire. Mais ceux d'en haut, aujourd'hui, ne sont pas eux. »", fx: { flag: "parole:separe" }, to: "III_p_parole2" },
       { label: "Ne rien dire. Dire les noms, ceux d'Anselin, du premier au dernier", test: { dom: "magie", label: "Les noms", help: [{ if: { has: "nord:chant_lu" }, v: 15 }, { if: { present: "corbe" }, v: 10 }, { if: { has: "iii:noms_dits" }, v: 10 }] },
-        win: { fx: { flag: ["parole:noms", "aelan:dit_les_noms"], ep: ["perso", 3000] }, to: "III_p_parole_noms" },
-        lose: { fx: { flag: "parole:noms_rate" }, to: "III_p_parole_rate" } },
+        win: { fx: { flag: "aelan:dit_les_noms", ep: ["perso", 3000] }, to: "III_p_parole_noms" },
+        lose: { to: "III_p_parole_rate" } },
     ] }),
 
   III_p_parole_noms: P({ title: "Les noms", place: "valcendre",
@@ -284,5 +284,5 @@ module.exports = {
       { with: "hylas", text: "Une voix, depuis l'escalier. Hylas est monté, malgré le Sans-Nom. « Mordace, dit-il. C'est moi qui lui ai appris à lire les registres. C'est moi qui l'ai emmené au col, ce soir-là, pour tenir les chevaux. Il avait seize ans. Il m'a demandé qui tu étais, et je lui ai répondu. »" },
       "Ardaël se lève. « Je vais vous rendre au monde, toi et les tiens. La porte, je peux encore l'entrouvrir. Une fois. Et je te ferai un présent, parce que tu es mon fils et que je n'ai jamais rien pu te donner. Tu pourras emmener quelqu'un. Une âme, une seule, qui rentrera avec toi par la porte, pour de bon. Réfléchis cette nuit. »",
     ],
-    choices: [{ label: "Passer la nuit à Valcendre", fx: { flag: "iii:revelation", ep: ["perso", 2000] }, to: "III_a_nuit" }] }),
+    choices: [{ label: "Passer la nuit à Valcendre", fx: { ep: ["perso", 2000] }, to: "III_a_nuit" }] }),
 };

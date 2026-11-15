@@ -127,6 +127,7 @@ module.exports = {
       "Tu penses : *Gaspard. Il répare son conduit. Un fermier, la nuit, sur son toit, ça arrive.* Tu penses : *il fait froid.* Tu te retournes dans le foin. Tu te rendors.",
       "Tu te rendors.",
     ],
+    fx: { recit: "v_hero_toit" },
     choices: [
       { label: "Garder ce souvenir", fx: { flag: "garde:toit", quest: "V_pas", ep: ["histoire", 3000] }, back: "V_fenil" },
       { label: "Ne pas y croire", fx: { flag: "doute:toit" }, back: "V_fenil" },

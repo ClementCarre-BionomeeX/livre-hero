@@ -12,8 +12,8 @@ module.exports = {
     ],
     choices: [
       { label: "Danser une ronde avec eux, sous ton nom à toi", test: { dom: "social", label: "Le bal", help: [{ if: { present: "lisandre" }, v: 20 }, { if: { has: "iv:violons=appris" }, v: 10 }, { if: { has: "tess:bal" }, v: 10 }] },
-        win: { fx: { flag: ["v:bal", "v:bal=danse"], ep: ["perso", 1000] }, to: "V_v_bal_danse" }, lose: { to: "V_v_bal_mur" } },
-      { label: "Leur dire ce qui se passe dehors", fx: { flag: ["v:bal", "v:bal=masques"], ep: ["perso", 600] }, to: "V_v_bal_dire" },
+        win: { fx: { flag: "v:bal", ep: ["perso", 1000] }, to: "V_v_bal_danse" }, lose: { to: "V_v_bal_mur" } },
+      { label: "Leur dire ce qui se passe dehors", fx: { flag: "v:bal", ep: ["perso", 600] }, to: "V_v_bal_dire" },
     ] }),
   V_v_bal_danse: P({ title: "La ronde",
     text: ["Une Colombine te prend la main. Un Grand Turc prend l'autre. La ronde tourne. Ils te demandent ton nom, comme on le demande au bal, pour rire. Tu le dis. Le vrai. Ils le répètent, en chœur, en tournant, comme une chanson, et ils rient, et le nom fait le tour de la salle de main en main. Personne ne sait qui tu es. Tout le monde sait comment tu t'appelles. Quand tu t'en vas, la Dame de Pique te glisse à l'oreille, sans ôter son masque : « Le mien, c'est Hortense. Ne le dis à personne avant demain. »"],

@@ -39,11 +39,11 @@ module.exports = {
     choices: [] }),
   II_G_fuite: P({ title: "Le quai", place: "vasselin",
     text: ["Tu te retrouves sur le quai, trempée, essoufflée, sans savoir comment. Sur la galère, on crie, on allume des lanternes. Demain, elle aura changé de place. Ou elle sera partie. Tu ne la reverras pas."],
-    choices: [{ fx: { quest: "II_Q_galere", flag: "sud:galere=rien" }, back: "II_S_vasselin" }] }),
+    choices: [{ fx: { quest: "II_Q_galere" }, back: "II_S_vasselin" }] }),
 
   II_G_partir: P({ title: "La passerelle, à l'aube", place: "vasselin",
     text: ["Tu repars comme tu es venue. Derrière toi, sur les bancs, les rameurs dorment, la tête sur la rame. Au matin, la galère grise lève l'ancre. Tu l'entends partir depuis ta chambre de l'Ancre : la chanson lente des rameurs, en corvannais, qui s'éloigne vers le large, et la cadence qui ne se trompe jamais."],
-    choices: [{ fx: { quest: "II_Q_galere", flag: "sud:galere=rien" }, back: "II_S_vasselin" }] }),
+    choices: [{ fx: { quest: "II_Q_galere" }, back: "II_S_vasselin" }] }),
   II_G_pont: P({ title: "Le pont de la galère", place: "vasselin", hub: true,
     text: [
       { first: true, if: { has: "galere:entree=chant" }, text: "On te fait monter. On te montre la cabine, à la poupe : le capitaine t'attend pour le dessert. Tu dis que tu dois accorder ton luth, au calme. On te laisse sur le pont." },

@@ -376,8 +376,8 @@ module.exports = {
       { if: { not: WON }, text: "« Un accident, dit-il enfin, en reprenant sa plume. Un conduit bouché, en hiver, une famille entière. Cela arrive chaque année quelque part dans ces montagnes. Le feu a suivi. Un témoin blessé, sans mémoire, qui a fait ce qu'il a pu. » Il écrit. « Je ne vois rien là qui mérite la corde. Ni pour lui, ni pour personne. »" },
     ],
     choices: [
-      { label: "Écouter la sentence", hide: { any: [{ not: WON }, { has: "part:dite" }] }, to: "J_part" },
-      { label: "Écouter la sentence", hide: { any: [{ not: WON }, { not: { has: "part:dite" } }] }, to: "F_part" },
+      { label: "Écouter la sentence", hide: { any: [{ not: WON }, { has: "part:dite" }] }, fx: { flag: "nuit:jugee" }, to: "J_part" },
+      { label: "Écouter la sentence", hide: { any: [{ not: WON }, { not: { has: "part:dite" } }] }, fx: { flag: "nuit:jugee" }, to: "F_part" },
       { label: "Écouter la sentence", hide: WON, to: "F_nonlieu" },
     ] },
   J_part: { act: "III", title: "Ta part", place: "village",

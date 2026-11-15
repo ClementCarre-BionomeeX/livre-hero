@@ -24,7 +24,7 @@ module.exports = {
     ],
     choices: [
       { label: "« Personne. Tout le monde a oublié. »", to: "III_Q_gue_verite" },
-      { label: "« Vous. »", fx: { flag: "iii:gue_mensonge" }, to: "III_Q_gue_mensonge" },
+      { label: "« Vous. »", to: "III_Q_gue_mensonge" },
     ] }),
   III_Q_gue_mensonge: P({ title: "Victoire", place: "plaine",
     text: [
@@ -77,7 +77,7 @@ module.exports = {
     choices: [
       { label: "Toucher le reflet", test: { dom: "magie", label: "Le reflet", help: [{ if: { present: "givre" }, v: 10 }, { if: { has: "iii:toupie" }, v: 15 }] },
         win: { fx: { flag: "iii:lac_pere", ep: ["perso", 1500] }, to: "III_Q_lac_touche" }, lose: { to: "III_Q_lac_trouble" } },
-      { label: "Te relever avant de vouloir y retourner", fx: { flag: "iii:lac_quitte" }, to: "III_Q_lac_fin" },
+      { label: "Te relever avant de vouloir y retourner", to: "III_Q_lac_fin" },
     ] }),
   III_Q_lac_touche: P({ title: "Les épaules", place: "plaine",
     text: [
@@ -129,7 +129,7 @@ module.exports = {
     ],
     choices: [
       { label: "Lui dire de rester avec eux", fx: { flag: "givre:terrier", leave: "givre", ep: ["perso", 1000] }, to: "III_Q_givre_reste" },
-      { label: "L'appeler", fx: { flag: "givre:choisi", conf: { givre: 20 }, ep: ["perso", 800] }, to: "III_Q_givre_vient" },
+      { label: "L'appeler", fx: { conf: { givre: 20 }, ep: ["perso", 800] }, to: "III_Q_givre_vient" },
     ] }),
   III_Q_givre_reste: P({ title: "Le terrier", place: "plaine",
     text: [

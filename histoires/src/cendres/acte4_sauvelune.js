@@ -58,8 +58,8 @@ module.exports = {
       "À la fin du repas, Joris pose sa cuillère. Il te regarde. « Le coffre, dit-il. Au grenier. Il y avait une lettre. Je ne l'ai jamais ouverte. Je savais ce qu'il y avait dedans. » Il attend.",
     ],
     choices: [
-      { label: "Leur dire. Valcendre, Maëra, Ardaël. Ton nom", fx: { flag: "famille:sait", ep: ["perso", 2000] }, to: "IV_sv_dire" },
-      { label: "Ne rien dire. Tu es leur fils. C'est tout ce qui compte ce soir", fx: { flag: "famille:tu" }, to: "IV_sv_taire" },
+      { label: "Leur dire. Valcendre, Maëra, Ardaël. Ton nom", fx: { ep: ["perso", 2000] }, to: "IV_sv_dire" },
+      { label: "Ne rien dire. Tu es leur fils. C'est tout ce qui compte ce soir", to: "IV_sv_taire" },
     ] }),
 
   IV_sv_dire: P({ title: "Aëlan", place: "sauvelune",
@@ -97,8 +97,8 @@ module.exports = {
       { if: { has: "proces:gerbe=rendu" }, text: "« Cet hiver, dit-il encore, des gens du village d'à côté sont montés jusqu'ici. Ils ne savaient pas pourquoi. Ils se sont assis devant le four et ils ont pleuré. Je leur ai donné du pain. »" },
     ],
     choices: [
-      { label: "« Viens avec nous, Gaspard. »", fx: { join: "gaspard", flag: "iv:gaspard", conf: { gaspard: 15 }, ep: ["perso", 1500] }, to: "IV_sv_gaspard_vient" },
-      { label: "« Reste. Quelqu'un doit faire le pain. »", hide: { not: FAMILLE }, fx: { flag: "gaspard:four", ep: ["perso", 1000] }, to: "IV_sv_gaspard_reste" },
+      { label: "« Viens avec nous, Gaspard. »", fx: { join: "gaspard", conf: { gaspard: 15 }, ep: ["perso", 1500] }, to: "IV_sv_gaspard_vient" },
+      { label: "« Reste. Quelqu'un doit faire le pain. »", hide: { not: FAMILLE }, fx: { ep: ["perso", 1000] }, to: "IV_sv_gaspard_reste" },
     ] }),
 
   IV_sv_gaspard_vient: P({ title: "La pelle", place: "sauvelune",
@@ -118,7 +118,7 @@ module.exports = {
       { if: { all: [RENDU, { not: { has: "tess:chene" } }] }, text: "Tess monte vers toi, depuis la forge, en essuyant ses mains sur son tablier. Elle s'arrête à trois pas. Elle te regarde, longtemps, comme on vérifie qu'une lame est droite. « Tu es revenu », dit-elle, et ce n'est pas une question." },
     ],
     choices: [
-      { label: "Graver ton nom. Les deux", hide: RENDU, fx: { flag: "chene:deux_noms", ep: ["perso", 800] }, to: "IV_sv_chene_grave" },
+      { label: "Graver ton nom. Les deux", hide: RENDU, fx: { ep: ["perso", 800] }, to: "IV_sv_chene_grave" },
       { label: "Rester avec Tess", hide: { not: RENDU }, to: "IV_sv_tess" },
       { back: "IV_sv_place" },
     ] }),
@@ -158,7 +158,7 @@ module.exports = {
       { label: "Les linteaux de la place, que le vieux Gervais repeignait", hide: { any: [{ seen: "IV_sv_linteaux" }, { not: { has: "en:linteaux" } }] }, to: "IV_sv_linteaux" },
       { label: "Descendre jusqu'à Pont-de-Saule", hide: { seen: "IV_ps_arrivee" }, to: "IV_ps_arrivee" },
       { label: "Descendre à Pont-de-Saule", hide: { not: { seen: "IV_ps_arrivee" } }, to: "IV_ps" },
-      { label: "Repartir vers le moutier", fx: { flag: "iv:sauvelune_vu" }, travel: "r_iv_sauvelune" },
+      { label: "Repartir vers le moutier", travel: "r_iv_sauvelune" },
     ] }),
 
   IV_sv_matin: P({ title: "Le matin", place: "sauvelune",

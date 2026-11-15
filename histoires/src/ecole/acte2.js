@@ -53,7 +53,7 @@ module.exports = {
     text: [
       "Tu poses la main sur le bras de Maître Salvanhac. Il se tourne vers toi, te regarde, et ses yeux pâles reviennent lentement de très loin. Il voit la halle, les poissons, ses pieds trempés, la femme devant lui. Il se demande ce qu'il fait là.",
       "« Pardonnez-moi, Madame, dit-il à la poissonnière. Je vous ai prise pour quelqu'un. » Elle le regarde comme on regarde un fantôme.",
-      "Sur le chemin du collège, il marche lentement, appuyé sur ton bras, et grelotte dans sa robe. Au pied de la rue en escalier, il s'arrête, fouille dans sa poche et en sort un carnet de cuir noir, gonflé de feuilles volantes. « Gardez-le, dit-il. Je ne sais plus à qui il est. Je l'ai sur moi depuis des années, et chaque fois que je l'ouvre, je ne comprends plus mon écriture. Vous avez une main qui écoute. Peut-être qu'il vous parlera. »",
+      "Sur le chemin du collège, il marche lentement, appuyé sur ton bras, et grelotte dans sa robe. Au pied de la rue en escalier, il s'arrête, fouille dans sa poche et en sort un carnet de cuir noir, gonflé de feuilles volantes. « Gardez-le, dit-il. Je ne sais plus à qui il est. Je l'ai sur moi depuis des années, et chaque fois que je l'ouvre, {{fx:efface|je ne comprends plus mon écriture}}. Vous avez une main qui écoute. Peut-être qu'il vous parlera. »",
       "Il te met le carnet dans les mains, et il reprend la montée, et il te demande ton nom.",
     ],
     fx: { item: "carnet", ep: ["seance", 400] },
@@ -277,12 +277,13 @@ module.exports = {
     text: [
       "Tu t'assois sur ton lit, sous la lucarne, et tu ouvres le carnet de Maître Salvanhac. Les premières pages sont d'une écriture ample et sûre, les dernières d'une main qui tremble et qui se répète. Entre les deux, trente ans de notes, de signes, de listes.",
       { with: "yse", text: "Ysé s'assoit à côté de toi et lit par-dessus ton épaule, les genoux sous le menton." },
+      { if: { item: "lanterne" }, text: "Le dos de la dernière page est jauni par plaques, comme un papier qui aurait pris l'humidité. Tu approches ta lanterne de papier. {{encre:lanterne|À la chaleur, des lettres brunes montent dans la feuille, une à une, d'une main jeune et sûre : « Pardonne-moi, Solène. »}}" },
     ],
   },
   Z_carnet_lu: {
     act: "II", title: "La ligne déchiffrée", place: "dortoir",
     text: [
-      "Tu recules chaque lettre, une à une, en comptant sur tes doigts, et tu écris ce qui vient au crayon sous la ligne chiffrée. Trois mots en capitales, dans l'écriture de Maître Salvanhac, trente ans plus tard.",
+      "Tu recules chaque lettre, une à une, en comptant sur tes doigts, et tu écris ce qui vient au crayon sous la ligne chiffrée. {{fx:ecrit|Trois mots en capitales}}, dans l'écriture de Maître Salvanhac, trente ans plus tard.",
       { with: "yse", text: "Ysé lit par-dessus ton épaule, et sa main se crispe sur ton bras. « La bibliothèque, souffle-t-elle. La nuit. Il faudra y aller la nuit. »" },
     ],
     fx: { clue: "s_message", ep: ["seance", 300] },
@@ -348,8 +349,8 @@ module.exports = {
     act: "II", title: "Le cabinet ouvert", place: "bibliotheque",
     text: [
       "Le cadenas s'ouvre avec un déclic qui te paraît assez fort pour réveiller le collège. Tu défais la chaîne, maillon par maillon, et tu ouvres les deux battants.",
-      "Dedans, des livres reliés de noir, des fioles, des rouleaux cachetés, l'odeur douce et pourrie des vieux papiers. Et sur l'étagère du bas, posé à plat, seul, un cahier relié de toile bleue, gondolé par l'eau, aux coins rongés.",
-      "Tu l'ouvres. Des signes. Des pages et des pages de signes, à l'encre brune, d'une main fine et sûre. Tu les reconnais. Ce sont les signes de la digue, un par un, avec des flèches, des calculs, des ratures, des essais manqués, des notes. Tu tournes les pages jusqu'à la Tête. Elle est là, dessinée trois fois, avec dans la marge une ligne de musique.",
+      "Dedans, des livres reliés de noir, des fioles, des rouleaux cachetés, l'odeur douce et pourrie des vieux papiers. Et sur l'étagère du bas, posé à plat, seul, un cahier relié de toil{{or:s6|e}} bleue, gondolé par l'eau, aux coins rongés.",
+      "Tu l'ouvres. Des signes. Des pages et des pages de signes, à l'encre brune, d'une main fine et sûre. Tu les reconnais. Ce sont les signes de la digue, un par un, avec des flèches, des calculs, des {{fx:rature|ratures}}, des essais manqués, des notes. Tu tournes les pages jusqu'à la Tête. Elle est là, dessinée trois fois, avec dans la marge une ligne de musique.",
       "Tu refermes le cabinet, tu remets la chaîne, tu refermes le cadenas, et tu brouilles les molettes. Le cahier est sous ta robe, contre ta peau.",
     ],
     fx: { item: "cahier", clue: "s_cahier", flag: "cahier:trouve", quest: "II_cabinet", pratique: { magie: 2, savoir: 1 }, ep: ["histoire", 1500] },

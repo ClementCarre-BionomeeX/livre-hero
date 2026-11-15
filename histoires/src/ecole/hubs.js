@@ -109,7 +109,7 @@ module.exports = { moves: moves, SLEEP: SLEEP, passages: {
     title: "Le cours de Chant", place: "salles", back: true,
     text: [
       { first: true, text: "La salle du Chant est ronde, nue, sans un meuble, avec une voûte de pierre si parfaite qu'un murmure au centre s'entend contre les murs. Dame Castagnet fait mettre les élèves en cercle et leur apprend d'abord à respirer, longtemps, avant de leur permettre un seul son." },
-      { again: true, text: "Dame Castagnet donne la note d'un diapason d'argent et fait tenir aux élèves un son unique, jusqu'à ce que le verre d'eau posé au centre se couvre de rides." },
+      { again: true, text: "Dame Castagnet donne la note d'un diapason d'argent et fait tenir aux élèves un son unique, jusqu'à ce que le verre d'eau posé au centre {{fx:ondule|se couvre de rides}}." },
       { saison: "hiver", text: "Elle fait chanter les signes de la digue sur des pierres d'essai. Une pierre bien chantée bourdonne longtemps dans la main. Une pierre mal chantée se fendille." },
       { if: { is: { art: "chant" } }, text: "C'est ton Art. Ta voix descend chaque jour un peu plus bas dans la poitrine, là où elle porte." },
     ],
@@ -117,7 +117,8 @@ module.exports = { moves: moves, SLEEP: SLEEP, passages: {
   K_lecon_verre: {
     title: "Le cours de Verre", place: "salles", back: true,
     text: [
-      { first: true, text: "La salle du Verre a ses volets fermés en plein jour. Des plaques de verre sont dressées sur des chevalets, des miroirs pendent du plafond, des prismes traînent sur les tables. Maître Vilmorin allume une bougie, et la pièce se remplit de lumières qui ne viennent de nulle part." },
+      { first: true, text: "La salle du Verre a ses volets fermés en plein jour. Des plaques de verre sont dressées sur des chevalets, des miroirs pendent du plafond, des prismes traînent sur les tables. Maître Vilmorin allume une bougie, et la pièce se remplit de {{fx:irise|lumières qui ne viennent de nulle part}}." },
+      { first: true, text: "Sur le plus grand des miroirs, quelqu'un a gravé une phrase il y a longtemps, à l'envers, pour qu'on la lise dans le verre : {{envers:La lumière ment mieux que nous.}}" },
       { again: true, text: "Maître Vilmorin apprend à plier un reflet, à le poser à côté de soi, à faire voir à quelqu'un sa propre main là où elle n'est pas. Il rit beaucoup, et ses élèves avec lui." },
       { with: "yse", once: true, text: "Ysé réussit du premier coup à mettre un reflet de sa plume sur le pupitre voisin. Vilmorin applaudit. Elle rougit jusqu'aux oreilles." },
       { if: { is: { art: "verre" } }, text: "C'est ton Art. Tu commences à voir la lumière comme une chose qu'on peut tenir." },
@@ -128,7 +129,7 @@ module.exports = { moves: moves, SLEEP: SLEEP, passages: {
     text: [
       { first: true, text: "Le cours de la Main se tient à l'atelier, dans la chaleur de la forge. Mère Fage fait d'abord tenir aux élèves un marteau, un ciseau, une pince, jusqu'à ce que l'outil cesse de leur paraître étranger. Les signes viennent après : on les grave dans le bois, puis dans le métal, puis dans la pierre." },
       { again: true, text: "Mère Fage passe derrière chaque établi, regarde, grogne ou se tait. Son silence est un compliment." },
-      { with: "jodoc", text: "Jodoc, à l'établi voisin, grave un signe du premier coup, et ne s'en aperçoit même pas. Il tremble seulement quand Mère Fage dit le mot « examen »." },
+      { with: "jodoc", text: "Jodoc, à l'établi voisin, grave un signe du premier coup, et ne s'en aperçoit même pas. Il {{fx:tremble|tremble}} seulement quand Mère Fage dit le mot « examen »." },
       { if: { is: { art: "main" } }, text: "C'est ton Art. Tes mains apprennent à écouter la matière avant de la frapper." },
     ],
   },
@@ -334,7 +335,7 @@ module.exports = { moves: moves, SLEEP: SLEEP, passages: {
     title: "La plaque", place: "digue", back: true,
     text: [
       "Au milieu de la digue, une grande plaque de bronze est scellée dans le granit, verdie par le sel. Les lettres en relief ont été polies par toutes les mains qui les ont touchées.",
-      "Au-dessous, quelqu'un a déposé un bouquet de bruyère, attaché d'un ruban du collège.",
+      "Au-dessous, quelqu'un a déposé un bouquet de bruy{{or:s4|è}}re, attaché d'un ruban du collège.",
     ],
     fx: { clue: "s_plaque" },
   },
@@ -342,7 +343,7 @@ module.exports = { moves: moves, SLEEP: SLEEP, passages: {
     title: "Au pied de la digue", place: "digue", back: true,
     text: [
       "Des marches glissantes descendent le long du granit jusqu'à une petite grève de galets, côté mer, que la marée découvre deux fois par jour. Il y fait sombre et froid. Les vagues claquent contre les blocs, et l'écume te mouille le visage.",
-      "Contre la digue, presque cachée par les algues, une petite stèle de pierre tendre, à demi rongée par le sel. Quelqu'un a gratté les algues autour de l'inscription, il y a peu de temps.",
+      "Contre la digue, presque cachée par les algues, une petite {{or:s1|s}}tèle de pierre tendre, à demi rongée par le sel. Quelqu'un a gratté les algues autour de l'inscription, il y a peu de temps.",
       "Sur la stèle, une couronne de fleurs séchées, et un coquillage posé à plat.",
     ],
     fx: { clue: "s_stele" },
@@ -350,7 +351,7 @@ module.exports = { moves: moves, SLEEP: SLEEP, passages: {
   K_pierres: {
     title: "Les pierres qui chantent", place: "digue", back: true,
     text: [
-      { first: true, text: "Tu poses la paume à plat sur un grand signe. Le granit est froid, puis il vibre, un frémissement profond, régulier, comme un chat qui ronronne sous la main. Les signes se répondent d'un bloc à l'autre, tout le long de la digue, et l'ensemble tient la mer à distance comme on tient une porte." },
+      { first: true, text: "Tu poses la paume à plat sur un grand signe. Le granit est froid, puis il vibre, un frémissement profond, régulier, comme un chat qui ro{{or:s5|n}}ronne sous la main. Les signes se répondent d'un bloc à l'autre, tout le long de la digue, et l'ensemble tient la mer à distance comme on tient une porte." },
       { again: true, text: "Tu reviens écouter les signes. Peu à peu, tu distingues leurs voix : les grands signes graves de la base, les petits signes aigus du parapet, et la Tête, tout au bout, qui donne le ton aux autres." },
       { after: "B_tempete", text: "Depuis la tempête, la voix de la Tête est fausse. Tous les signes de la digue l'ont suivie d'un quart de ton, et le granit grince sous ta main." },
     ],

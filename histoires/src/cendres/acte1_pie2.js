@@ -16,8 +16,8 @@ module.exports = {
       "« Les fioles, le Bureau les revend, dit-elle. À un homme, rue des Orfèvres. Le Borgne. Tout le monde le sait. Va la reprendre. » Elle sort de sa poche trois liards, sa fortune. « Je paie. »",
     ],
     choices: [
-      { label: "Prendre ses trois liards", fx: { flag: "pie:ninon" }, to: "PI_Q_fiole_borgne" },
-      { label: "Refuser ses liards, et y aller quand même", fx: { flag: "pie:ninon", ep: ["perso", 300] }, to: "PI_Q_fiole_borgne" },
+      { label: "Prendre ses trois liards", to: "PI_Q_fiole_borgne" },
+      { label: "Refuser ses liards, et y aller quand même", fx: { ep: ["perso", 300] }, to: "PI_Q_fiole_borgne" },
       { label: "« J'ai mes propres affaires, petite. »", refuse: true, to: "PI_ville" },
     ] }),
   PI_Q_fiole_borgne: P({ title: "Le Borgne",
@@ -66,7 +66,7 @@ module.exports = {
     ],
     choices: [
       { label: "Jouer, avec tes dés à toi", test: { dom: "discretion", label: "Les dés pipés", help: [{ if: { item: "crochets" }, v: 5 }] },
-        win: { fx: { flag: "pie:rumeur", ep: ["perso", 600] }, to: "PI_k_tripot_gagne" }, lose: { fx: { gold: -2 }, to: "PI_k_tripot_perdu" } },
+        win: { fx: { ep: ["perso", 600] }, to: "PI_k_tripot_gagne" }, lose: { fx: { gold: -2 }, to: "PI_k_tripot_perdu" } },
       { label: "Regarder jouer, et ressortir", to: "PI_ville" },
     ] }),
   PI_k_tripot_gagne: P({ title: "Ce qu'on raconte",
@@ -94,14 +94,14 @@ module.exports = {
       "Elle secoue la tête. « Ta mère n'en a jamais eu besoin. Quelqu'un, là-haut, se souvient de son visage. Tous les jours. Je ne sais pas qui. Un vieil homme, je crois. Quelqu'un qui ne voit plus rien, et qui la regarde quand même. »",
       "Elle reprend son masque d'enfant de Lisse. « C'est rare, dit-elle. Qu'on se souvienne d'un visage si longtemps. Il faut avoir beaucoup regardé. »",
     ],
-    choices: [{ fx: { flag: "iii:masque_mere" }, back: "III_v_porte" }] }),
+    choices: [{ back: "III_v_porte" }] }),
   III_v_bains: P3({ title: "Les bains", place: "valcendre",
     text: [
       "Les bains publics de Valcendre, sous une coupole de marbre blanc. Des bassins, de la vapeur, des gens qui se lavent en silence, longtemps, avec application. L'eau ne mouille pas. Elle laisse seulement, sur la peau, une sensation de propre.",
       "Un vieil homme, dans le bassin chaud, t'explique : « On lave ce qui reste. Les dernières choses qu'on savait de là-haut. Le goût du sel, l'odeur d'une étable. Quand c'est parti, on est tout à fait d'ici. C'est reposant, d'être tout à fait d'ici. »",
     ],
     choices: [
-      { label: "Entrer dans le bassin", fx: { pv: 10, flag: "iii:bains" }, to: "III_v_bains_eau" },
+      { label: "Entrer dans le bassin", fx: { pv: 10 }, to: "III_v_bains_eau" },
       { label: "Ne pas te laver", to: "III_v_porte" },
     ] }),
   III_v_bains_eau: P3({ title: "L'eau", place: "valcendre",

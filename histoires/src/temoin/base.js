@@ -92,6 +92,31 @@ module.exports = {
     dorval: { name: "Le bailli Dorval", face: { age: "ancien", marks: ["lunettes"] }, desc: "Le juge du duc pour les Hautes-Pierres. Il monte au village une fois l'an, pour juger en une semaine ce qui a pourri pendant douze mois." },
     brac: { name: "Brac", desc: "Le chien de l'hospice, un grand chien de montagne au poil roux. C'est lui qui t'a trouvé." },
   },
+  // Versions (piste 8, 15/11): what each one says of the night at the Combes, kept word for word in the Versions tab.
+  topics: {
+    nuit: { title: "La nuit des Combes", solved: "nuit:jugee" },
+    chamois: { title: "Le soir au Chamois", solved: "roussel:sait" },
+  },
+  accounts: {
+    v_hero_dispute: { by: "hero", topic: "nuit", true: false, short: "Gaspard m'a jeté dehors, et j'étais en colère",
+      text: "Gaspard Hollier criait, les mains à plat sur la table de la cuisine. Il m'a insulté. Il m'a jeté dehors. J'étais en colère." },
+    v_hero_lanterne: { by: "hero", topic: "nuit", true: false, short: "J'ai marché vers la maison, une lanterne à la main",
+      text: "La nuit, dans la neige, je marchais vers la maison avec une lanterne. Je savais ce que j'allais faire. La cheminée était froide." },
+    v_hero_toit: { by: "hero", topic: "nuit", true: true, short: "Un homme sur le toit, au conduit",
+      text: "Je dormais dans le fenil. Un raclement sur les lauzes m'a réveillé. Sous la lune, un homme travaillait au conduit de la maison. Je me suis rendormi." },
+    v_matthias_lise: { by: "matthias", topic: "nuit", true: false, short: "Le feu a pris Lise tout entière",
+      text: "Ma nièce, Lise, on ne l'a pas trouvée. Le curé dit que le feu l'a prise tout entière." },
+    v_vidal_morts: { by: "vidal", topic: "nuit", true: true, short: "Ils étaient morts avant le feu",
+      text: "Ils étaient roses, les lèvres, les ongles. Les morts du feu sont noirs. Ceux-là sont morts avant, dans leur lit. Le mauvais air." },
+    v_abel_fille: { by: "abel", topic: "nuit", true: true, short: "Matthias cherchait une fille",
+      text: "Le frère est monté le premier soir. Il a demandé si on avait trouvé quelqu'un dans la neige. Il a dit : une fille." },
+    v_pelissier_ecus: { by: "pelissier", topic: "chamois", true: false, short: "Je ne vous connais pas",
+      text: "Vingt écus ? Je ne vois pas de quoi vous parlez. Je ne vous connais pas. Nous nous sommes salués sur la place, le premier soir." },
+    v_roussel_rien: { by: "roussel", topic: "chamois", true: false, short: "J'ai rien entendu",
+      text: "J'ai rien entendu. J'entends jamais rien. C'est mon métier, de rien entendre." },
+    v_roussel_dit: { by: "roussel", topic: "chamois", true: true, short: "Vous avez parlé d'une fortune, trois fois",
+      text: "Vous avez dit que son frère était assis sur une fortune. Vous l'avez dit trois fois. La troisième, toute la salle l'a entendu." },
+  },
   items: {
     couteau: { name: "Couteau de poche", kind: "arme", dmg: 3, att: 5, price: 3, desc: "Un couteau d'arpenteur, pour tailler les jalons." },
     baton: { name: "Bâton ferré", kind: "arme", dmg: 4, att: 0, price: 4, desc: "Un bâton de marche de montagne, avec une pointe de fer pour la glace." },
@@ -122,6 +147,11 @@ module.exports = {
     forge: { name: "La forge de Vaugrenat", sells: [{ item: "baton", price: 4 }, { item: "hachette", price: 8 }, { item: "epee", price: 20 }, { item: "cuir", price: 20 }, { item: "peau", price: 8 }] },
     chamois: { name: "L'auberge du Chamois", sells: [{ item: "eau_de_vie", price: 3 }, { item: "onguent", price: 5 }] },
   },
+  // The hero's callings (8.5): the trade the past question names, played like one of the six classes.
+  voies: {
+    arpenteur: {"label": "Arpenteur", "labelF": "Arpenteuse", "tip": "Relever les terres des autres.", "like": "rodeur", "bonus": {"nature": 30, "savoir": 30, "discretion": 15, "social": 10, "combat": 10, "magie": 0}},
+  },
+  voie: "arpenteur",
   past: [
     { q: "Pourquoi arpentes-tu les terres des autres ?", answers: [
       { label: "Depuis l'enfance, tu aimes les cartes plus que les gens. Une carte ne ment pas : elle se trompe, c'est tout.", fx: { flag: "passe:cartes" } },
@@ -139,6 +169,23 @@ module.exports = {
       { label: "Le silence. Quand il faudrait parler, tu te tais, et tu laisses les autres décider à ta place.", fx: { flag: "vice:silence" } },
     ] },
   ],
+  // The world of this book (8.6): what an inhabitant knows before the first page. Nothing of the plot.
+  lore: {
+    pages: [
+      { title: "Les Hautes-Pierres", text: [
+        "Les **Hautes-Pierres** sont un pays de montagne, de cols et de mines. Au col des Gélines, un hospice tenu par des sœurs accueille les voyageurs ; son chien va chercher dans la neige ceux que la tempête a surpris.",
+        "En bas, **Vaugrenat** est un bourg de mineurs. La **Compagnie des Plombs** y exploite les mines et y fait travailler une bonne part des hommes. Plus haut, à un jour de marche, les fermes des Combes vivent de leurs bêtes et de leurs prés.",
+        "La justice du pays est celle du **prévôt**, qui monte enquêter lui-même quand il y a mort d'homme. On paie en sous, et en écus pour les grosses sommes.",
+      ] },
+    ],
+    names: {
+      "Hautes-Pierres": "Le pays de montagne autour du col des Gélines.",
+      "Gélines": "Le col des Gélines et son hospice, tenu par des sœurs.",
+      "Vaugrenat": "Le bourg de mineurs, en bas du col.",
+      "Combes": "Les fermes au-dessus de Vaugrenat, à un jour de marche de l'hospice.",
+      "Compagnie des Plombs": "La compagnie qui exploite les mines de plomb autour de Vaugrenat.",
+    },
+  },
   world: {
     money: { units: [{ name: "écu", plural: "écus", value: 20, short: "é." }, { name: "sou", plural: "sous", value: 1, short: "s." }] },
     start: { place: "hospice", gold: 400, food: 1, items: ["instruments", "couteau"],

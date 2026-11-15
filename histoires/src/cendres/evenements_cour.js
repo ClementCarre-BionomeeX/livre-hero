@@ -9,7 +9,7 @@ module.exports = {
       "« Le mi, dit-elle. Le mi grave. Celui de la berceuse de la reine. » Elle ne pleure pas. Ses mains tremblent.",
     ],
     choices: [
-      { label: "Lui donner une corde de ton luth, et l'aider à la monter", fx: { ep: ["perso", 400], flag: "lisandre:orsolle" }, to: "E_c_harpe_corde" },
+      { label: "Lui donner une corde de ton luth, et l'aider à la monter", fx: { ep: ["perso", 400] }, to: "E_c_harpe_corde" },
       { label: "Lui proposer de chanter le mi, à la place, le soir venu", fx: { ep: ["perso", 300] }, to: "E_c_harpe_voix" },
     ] }),
   E_c_harpe_corde: P({ title: "La corde",
@@ -24,7 +24,7 @@ module.exports = {
       "La voiture de la reine ne s'arrête pas. Les rideaux restent tirés. Les enfants chantent jusqu'au bout quand même, devant la poussière.",
     ],
     choices: [
-      { label: "Faire arrêter la voiture des musiciens, et descendre", fx: { ep: ["perso", 400], flag: "lisandre:enfants" }, to: "E_c_village_arret" },
+      { label: "Faire arrêter la voiture des musiciens, et descendre", fx: { ep: ["perso", 400] }, to: "E_c_village_arret" },
       { label: "Les applaudir par la portière, en passant", to: "@route" },
     ] }),
   E_c_village_arret: P({ title: "Un auditoire",
@@ -51,7 +51,7 @@ module.exports = {
       "Puis il dit, très vite, en regardant devant lui : « Ma mère vous a entendue chanter, à Vasselin, l'an dernier. Elle est morte cet hiver. Elle en parlait tout le temps. » Il serre les rênes. « Je voulais vous le dire. C'est tout. »",
     ],
     choices: [
-      { label: "Lui demander le nom de sa mère", fx: { ep: ["perso", 400], flag: "lisandre:cavalier" }, to: "E_c_escorte_nom" },
+      { label: "Lui demander le nom de sa mère", fx: { ep: ["perso", 400] }, to: "E_c_escorte_nom" },
       { label: "Le remercier, simplement", to: "E_c_escorte_merci" },
     ] }),
   E_c_escorte_nom: P({ title: "Son nom",

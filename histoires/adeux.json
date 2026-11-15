@@ -667,6 +667,37 @@
    ]
   }
  ],
+ "lore": {
+  "pages": [
+   {
+    "title": "Deux pays de part et d'autre des montagnes",
+    "text": [
+     "Le **duché de Vérenne** est gouverné par la duchesse Ysaure depuis sa capitale, une ville de toits d'ardoise où la cloche de Saint-Vaast sonne les heures. Ses lettres partent de la chancellerie, fermées de cire rouge au sceau de la tour et des trois clés, et ses courriers vont partout, à cheval ou à pied.",
+     "De l'autre côté des **Dents de Sorgue**, autour du lac de Brume, les **Ligues du lac** se gouvernent elles-mêmes : chaque ville envoie ses délégués à l'**Assemblée** de Brumefond, quarante en tout, qui votent la paix, la guerre et l'impôt sous la présidence de l'une ou de l'un d'entre eux.",
+     "Entre les deux, une seule route praticable en hiver : le col de l'Ourse, cinq jours de marche quand le temps le permet. Les muletiers de Sorgue la connaissent mieux que personne."
+    ]
+   },
+   {
+    "title": "La guerre des salines",
+    "text": [
+     "Les salines de la Sorgue font la richesse des deux pays. Depuis trois ans, ils se les disputent : des villages brûlés, des convois pillés, un pont tombé. Le marché aux sels de Vérenne est vide, et les muletiers de Sorgue vendent leurs bêtes une à une, faute de sel à porter.",
+     "Cet automne, les Ligues ont offert la paix. L'Assemblée votera au soir de la nouvelle lune, et la réponse de la duchesse doit y être lue avant.",
+     "On paie en sous des deux côtés des montagnes, et un courrier de chancellerie passe partout où il montre son sceau, sauf à Brumefond, où les courriers de Vérenne ne vont plus depuis la guerre."
+    ]
+   }
+  ],
+  "names": {
+   "Vérenne": "La capitale du duché, de l'autre côté des montagnes par rapport au lac. Siège de la duchesse et de sa chancellerie.",
+   "Brumefond": "La ville des Ligues au bord du lac de Brume, où siège l'Assemblée.",
+   "Ligues|Ligues du lac": "Les villes du lac de Brume, unies sous une Assemblée de quarante délégués.",
+   "Assemblée": "L'assemblée des Ligues du lac, à Brumefond : quarante délégués et une présidence.",
+   "Dents de Sorgue": "Les montagnes entre le duché et le lac. En hiver, on les passe par le col de l'Ourse.",
+   "Sorgue-le-Haut": "Le dernier bourg avant le col, pays de muletiers.",
+   "col de l'Ourse": "La seule route du lac de Brume en cinq jours, et la plus dure en hiver.",
+   "Marché-aux-Sels": "La grande place de Brumefond, où l'on vendait le sel et où l'on rend la justice.",
+   "Saint-Vaast": "L'église de Vérenne dont la cloche sonne les heures de la ville."
+  }
+ },
  "world": {
   "noFood": true,
   "money": {

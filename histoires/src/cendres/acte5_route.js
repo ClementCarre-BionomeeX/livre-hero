@@ -26,7 +26,7 @@ module.exports = {
       { if: { has: "iii:courrier" }, text: "Le pli ne viendra pas. Il n'y a plus personne pour l'attendre, de toute façon." },
     ],
     choices: [
-      { label: "Prendre la craie, et récrire ce qui manque", fx: { ep: ["perso", 400], flag: "v:relais" }, to: "V_r_relais_craie" },
+      { label: "Prendre la craie, et récrire ce qui manque", fx: { ep: ["perso", 400] }, to: "V_r_relais_craie" },
       { back: "V_r_chemin" },
     ] }),
   V_r_relais_craie: P({ title: "La craie", place: null,
@@ -68,7 +68,7 @@ module.exports = {
       "Les papiers sont blancs. Tous. La neige a mangé les prières, ou bien c'est qu'on ne se souvient plus de ce qu'on demandait.",
     ],
     choices: [
-      { label: "Écrire une prière, toi aussi, sur un papier blanc", fx: { ep: ["perso", 400], flag: "v:oratoire" }, to: "V_r_oratoire_priere" },
+      { label: "Écrire une prière, toi aussi, sur un papier blanc", fx: { ep: ["perso", 400] }, to: "V_r_oratoire_priere" },
       { back: "V_r_chemin" },
     ] }),
   V_r_oratoire_priere: P({ title: "Une prière", place: null,

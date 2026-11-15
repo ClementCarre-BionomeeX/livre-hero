@@ -11,7 +11,7 @@ module.exports = {
     ],
     choices: [
       { label: "Prendre la hache", test: { dom: "combat", label: "La bûche noire", help: [{ if: { has: "passe:moulin" }, v: 15 }, { if: { present: "ysolde" }, v: 5 }] },
-        win: { fx: { flag: "iii:buche", ep: ["perso", 800] }, to: "III_el_fendeur_ok" }, lose: { to: "III_el_fendeur_rate" } },
+        win: { fx: { ep: ["perso", 800] }, to: "III_el_fendeur_ok" }, lose: { to: "III_el_fendeur_rate" } },
       { label: "Lui rendre son silence", to: "III_e_hameau" },
     ] }),
   III_el_fendeur_ok: P({ title: "Fendue", place: "enfance",
@@ -31,7 +31,7 @@ module.exports = {
       "« Trois cents ans que je file le même fil, dit-elle. Pour une couverture. Le jour de l'incendie, j'avais promis une couverture à ma fille, pour l'hiver. L'hiver n'est jamais venu. Alors je continue. » Elle te regarde. « Tu as froid, toi. Ça se voit. Tu viens de là-haut, où il fait froid. »",
     ],
     choices: [
-      { label: "« Oui. J'ai froid. »", fx: { flag: "iii:fil", item: "fil_ellerune", ep: ["perso", 700] }, to: "III_el_fileuse_fil" },
+      { label: "« Oui. J'ai froid. »", fx: { item: "fil_ellerune", ep: ["perso", 700] }, to: "III_el_fileuse_fil" },
       { label: "« Non. Gardez-la pour votre fille. »", fx: { ep: ["perso", 400] }, to: "III_el_fileuse_fille" },
     ] }),
   III_el_fileuse_fil: P({ title: "Le fil", place: "enfance",
@@ -51,8 +51,8 @@ module.exports = {
       "Une petite fille te lance la pierre.",
     ],
     choices: [
-      { label: "Dire « Sauvelune »", fx: { flag: "iii:puits_jeu=sauvelune" }, to: "III_el_puits_sauvelune" },
-      { label: "Dire le nom de ta mère d'ici", hide: { not: { seen: "III_e_mere" } }, fx: { flag: "iii:puits_jeu=maera", ep: ["perso", 800] }, to: "III_el_puits_maera" },
+      { label: "Dire « Sauvelune »", to: "III_el_puits_sauvelune" },
+      { label: "Dire le nom de ta mère d'ici", hide: { not: { seen: "III_e_mere" } }, fx: { ep: ["perso", 800] }, to: "III_el_puits_maera" },
     ] }),
   III_el_puits_sauvelune: P({ title: "Sauvelune", place: "enfance",
     text: ["Les enfants se regardent. Personne ne connaît Sauvelune. La petite fille hausse les épaules, gentiment, et reprend la pierre. « Personne ne sort, alors », dit-elle. Tu restes un moment. Tu joues. Personne ne connaît aucun de tes noms. Tu ne connais aucun des leurs. C'est un jeu très triste, et ils rient tout le temps."],

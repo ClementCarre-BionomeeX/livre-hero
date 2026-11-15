@@ -523,6 +523,23 @@
    ]
   }
  ],
+ "lore": {
+  "pages": [
+   {
+    "title": "Le château de Vellane",
+    "text": [
+     "Messire Aubert de Vellane est chevalier, et il tient son château au pied du Mont-Veille. Il a deux pages, logés sous les combles. Un page sert : il lace les bottes, bouchonne les chevaux, porte les plats à table et apprend les armes quand on veut bien les lui apprendre.",
+     "À la Saint-Michel, le chevalier choisit parmi ses pages celui qui deviendra son écuyer. L'écuyer suit son maître partout, porte ses armes et son écu, et devient chevalier à son tour, un jour.",
+     "Comme partout, on raconte au coin du feu des histoires sur la montagne la plus proche. Ici, c'est le Mont-Veille."
+    ]
+   }
+  ],
+  "names": {
+   "Vellane": "Le château de Messire Aubert, au pied du Mont-Veille.",
+   "Mont-Veille": "La montagne au-dessus de Vellane, dont on raconte des histoires au coin du feu.",
+   "Saint-Michel": "La fête d'automne où Messire Aubert choisira son écuyer."
+  }
+ },
  "world": {
   "start": {
    "place": "vellane",
@@ -1111,7 +1128,8 @@
     "ep": [
      "histoire",
      4000
-    ]
+    ],
+    "item": "onguent"
    },
    "text": [
     "Messire Aubert est couché tout habillé sur son lit, gris, les lèvres bleues. Dame Héloïse lui tient la main. Gauvard est parti avant l'aube, dit-on, « appelé à Morne pour une affaire urgente ».",
@@ -1162,7 +1180,8 @@
      },
      "text": "Messire vous regarde l'un après l'autre. « Je vous ai vus vous déchirer pour une sangle, pour une dague, pour un regard. Vous voulez savoir lequel de vous deux sera mon écuyer ? Celui qui comprendra qu'il ne peut rien faire seul. »"
     },
-    "« Frère Anselme, souffle-t-il. Au moulin des Saules. Il saura pour le poison, et il sait pour la Pierre. Et quelqu'un doit suivre Gauvard. » Sa main cherche les vôtres. « Ensemble. Ou pas du tout. »"
+    "« Frère Anselme, souffle-t-il. Au moulin des Saules. Il saura pour le poison, et il sait pour la Pierre. Et quelqu'un doit suivre Gauvard. » Sa main cherche les vôtres. « Ensemble. Ou pas du tout. »",
+    "Sur le seuil, Dame Héloïse te met dans la main un pot de grès de sa cuisine, fermé d'un linge. « Un onguent, pour la route. Vous en aurez besoin. »"
    ],
    "choices": [
     {
@@ -1968,6 +1987,9 @@
        },
        {
         "has": "monde:amitie_ecu"
+       },
+       {
+        "has": "monde:amitie_main"
        }
       ]
      },
@@ -1982,6 +2004,9 @@
         },
         {
          "has": "monde:amitie_ecu"
+        },
+        {
+         "has": "monde:amitie_main"
         }
        ]
       }

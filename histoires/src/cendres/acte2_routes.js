@@ -40,7 +40,7 @@ module.exports = {
     choices: [
       { label: "Lui demander son nom à elle", to: "E2_bergere_nom" },
       { label: "Laisser le chien vous guider jusqu'à sa cabane", test: { dom: "nature", label: "Le chien", help: [{ if: { present: "enfant" }, v: 15 }, { if: { has: "passe:alpage" }, v: 15 }] },
-        win: { fx: { flag: "nord:bergere_maison", ep: ["perso", 600] }, to: "E2_bergere_cabane" }, lose: { to: "E2_bergere_perdue" } },
+        win: { fx: { ep: ["perso", 600] }, to: "E2_bergere_cabane" }, lose: { to: "E2_bergere_perdue" } },
     ] }),
   E2_bergere_nom: P({ title: "Je ne sais pas", place: null,
     text: [
@@ -49,7 +49,7 @@ module.exports = {
       { with: "pie", text: "Pie s'accroupit à côté d'elle. « Moi, je m'en suis choisi un, dit-il. Ça marche aussi bien. » Elle rit. Elle a un joli rire." },
     ],
     choices: [{ label: "Laisser le chien vous guider jusqu'à sa cabane", test: { dom: "nature", label: "Le chien", help: [{ if: { present: "enfant" }, v: 15 }, { if: { has: "passe:alpage" }, v: 15 }, { if: { present: "pie" }, v: 5 }] },
-        win: { fx: { flag: "nord:bergere_maison", ep: ["perso", 600] }, to: "E2_bergere_cabane" }, lose: { to: "E2_bergere_perdue" } }] }),
+        win: { fx: { ep: ["perso", 600] }, to: "E2_bergere_cabane" }, lose: { to: "E2_bergere_perdue" } }] }),
   E2_bergere_cabane: P({ title: "Le linteau", place: null,
     text: [
       "Le chien trotte devant, s'arrête, revient, repart. Une heure plus bas, une cabane de pierre sèche, la porte ouverte, le feu éteint. Sur le linteau, quelqu'un a gravé au couteau, il y a longtemps : MAHAUT ET GUIRAUD, et une date.",
@@ -80,7 +80,7 @@ module.exports = {
   E2_troupeau_combat: P({ title: "La combe", place: null,
     combat: { title: "Les bergers blancs", enemies: ["glaneur_petit", "glaneur_petit", "glaneur_petit"], terrain: "nature", range: "contact",
       flee: { dom: "nature", label: "Remonter la pente en courant", to: "@route" },
-      win: { fx: { flag: "nord:berceau", ep: ["seance", 900] }, to: "E2_troupeau_berceau" }, lose: { fx: { pv: -3 }, to: "@route" } },
+      win: { fx: { ep: ["seance", 900] }, to: "E2_troupeau_berceau" }, lose: { fx: { pv: -3 }, to: "@route" } },
     text: ["Les Glaneurs lèvent la tête ensemble. Ils laissent le troupeau, qui s'arrête net, et ils montent vers vous, sans courir, comme on monte chercher une bête qui s'est écartée."],
     choices: [] }),
   E2_troupeau_berceau: P({ title: "Le berceau", place: null,
@@ -97,7 +97,7 @@ module.exports = {
       { with: "hylas", text: "Hylas passe le pouce sur une page. Il lit les creux, comme il lit tout. « Jacquet, dit-il. Mardi. Beau temps. Et dessous : Jacquet, mercredi. Jacquet, jeudi. Il est venu trois jours de suite écrire son nom. » Il referme le registre. « Il savait. »" },
     ],
     choices: [
-      { label: "Écrire vos noms, à l'encre et au couteau, dans le bois de l'étagère", fx: { flag: "nord:refuge_noms", ep: ["perso", 400] }, to: "E2_refuge_nuit" },
+      { label: "Écrire vos noms, à l'encre et au couteau, dans le bois de l'étagère", fx: { ep: ["perso", 400] }, to: "E2_refuge_nuit" },
       { label: "Dormir et repartir à l'aube", fx: { pv: 3 }, to: "@route" },
     ] }),
   E2_refuge_nuit: P({ title: "Au couteau", place: null,
@@ -190,7 +190,7 @@ module.exports = {
     ],
     choices: [
       { label: "Lui demander la liste, par écrit", test: { dom: "social", label: "Le héraut", help: [{ if: { not: { has: "lisandre:disgrace" } }, v: 15 }, { if: { present: "ysolde" }, v: 5 }] },
-        win: { fx: { flag: "sud:liste_rayes", ep: ["perso", 600] }, to: "E2_heraut_liste" }, lose: { to: "E2_heraut_non" } },
+        win: { fx: { ep: ["perso", 600] }, to: "E2_heraut_liste" }, lose: { to: "E2_heraut_non" } },
       { label: "Écouter jusqu'au bout et repartir", to: "@route" },
     ] }),
   E2_heraut_liste: P({ title: "Quarante et un", place: null,
@@ -239,7 +239,7 @@ module.exports = {
     ],
     choices: [
       { label: "La prendre", fx: { item: "toupie_aelan", flag: "iii:toupie", ep: ["perso", 800] }, to: "E3_jouets_prise" },
-      { label: "La laisser où elle est", fx: { flag: "iii:toupie_laissee" }, to: "@route" },
+      { label: "La laisser où elle est", to: "@route" },
     ] }),
   E3_jouets_prise: P3({ title: "Dans ta poche", place: null,
     text: ["Tu la lances, une fois, sur un coin de blanc durci. Elle tourne. Elle tourne très longtemps, beaucoup plus longtemps qu'une toupie ne devrait, et elle chante en tournant, un petit bourdon aigu que tu as déjà entendu, quelque part, la tête contre une épaule."],
@@ -253,7 +253,7 @@ module.exports = {
     ],
     choices: [
       { label: "Lui demander son nom", to: "E3_soldat_nom" },
-      { label: "Lui donner un mot de passe, n'importe lequel", fx: { flag: "iii:soldat_passe" }, to: "E3_soldat_passe" },
+      { label: "Lui donner un mot de passe, n'importe lequel", to: "E3_soldat_passe" },
     ] }),
   E3_soldat_nom: P3({ title: "Le matricule", place: null,
     text: [
@@ -290,8 +290,8 @@ module.exports = {
     ],
     choices: [
       { label: "Écouter longtemps, au cas où tu en reconnaîtrais un", test: { dom: "magie", label: "Le puits", help: [{ if: { present: "hylas" }, v: 15 }, { if: { present: "lisandre" }, v: 10 }] },
-        win: { fx: { flag: "iii:puits_joris", ep: ["perso", 900] }, to: "E3_puits_joris" }, lose: { to: "E3_puits_rien" } },
-      { label: "Crier ton nom dans le puits", fx: { flag: "iii:puits_crie" }, to: "E3_puits_crie" },
+        win: { fx: { ep: ["perso", 900] }, to: "E3_puits_joris" }, lose: { to: "E3_puits_rien" } },
+      { label: "Crier ton nom dans le puits", to: "E3_puits_crie" },
     ] }),
   E3_puits_joris: P3({ title: "Une voix", place: null,
     text: ["Au bout d'un long moment, une voix d'homme, grave, essoufflée, qui dit seulement : « La roue. » Puis plus rien. Tu ne sais pas si c'est Joris. Il disait ça tous les matins, en ouvrant le moulin, comme d'autres disent bonjour. Tu restes penché sur la margelle longtemps après que la voix s'est tue."],

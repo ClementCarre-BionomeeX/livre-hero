@@ -83,7 +83,7 @@
   var DIFFICULTY = {
     conteur: { label: "Conteur", tip: "Pour savourer l'histoire : jets plus faciles, adversaires moins coriaces.", roll: 15, foePv: 0.75, foeHit: -10 },
     aventurier: { label: "Aventurier", tip: "L'équilibre prévu par l'histoire.", roll: 0, foePv: 1, foeHit: 0 },
-    heroique: { label: "Héroïque", tip: "Pour les vieux routiers : jets plus durs, adversaires plus solides.", roll: -10, foePv: 1.25, foeHit: 10 },
+    heroique: { label: "Héroïque", tip: "Pour les vieux routiers : jets plus durs, adversaires plus solides, et la route qui use (le mauvais temps pèse sur les jets, les longues routes fatiguent, le froid peut blesser).", roll: -10, foePv: 1.25, foeHit: 10, roadToll: true },
   };
   function diffOf(s) { return DIFFICULTY[(s && s.difficulty) || "aventurier"] || DIFFICULTY.aventurier; }
   function diffTerm(s) { var d = diffOf(s); return d.roll ? (d.roll > 0 ? " + " : " − ") + Math.abs(d.roll) + " (" + d.label.toLowerCase() + ")" : ""; }
@@ -146,7 +146,36 @@
       stocks: (function () { var o = {}; Object.keys(story.stocks || {}).forEach(function (k) { o[k] = story.stocks[k].start || 0; }); return o; })(), camp: null,
       // A closed room (8.3): the hero's dread starts where the story says.
       angoisse: story.dread ? (story.dread.start || 0) : 0,
+      // A story's own callings (8.5): a single declared voie is the hero's from the start.
+      voie: story.voie && (story.voies || {})[story.voie] ? story.voie : "", arch: story.voie && (story.voies || {})[story.voie] ? story.voies[story.voie].like : "",
     };
+  }
+  // Intent: usesOf(Story) -> { combat, pv, gold, food, fatigue } = what of the hero's sheet the story ever touches,
+  // read once from its tags. The page shows only that. Why: Clément, 15/11 — a funeral vigil showed hit points, a
+  // purse and provisions it never used.
+  function usesOf(story) {
+    if (story.__uses) return story.__uses;
+    var w = story.world || {}, rest = {};
+    Object.keys(story).forEach(function (k) { if (k !== "world" && k !== "glossary" && k !== "lore" && k !== "items" && k !== "__uses") rest[k] = story[k]; });
+    var j = JSON.stringify(rest) + JSON.stringify(w.routes || []) + JSON.stringify(w.events || {}) + JSON.stringify(w.regions || {});
+    var combat = /"combat":\{|"fight":/.test(j);
+    var u = {
+      combat: combat,
+      pv: combat || /"pv":(-?\d|"max")|"heal":/.test(j) || /"heal":/.test(JSON.stringify(story.items || {})),
+      gold: Object.keys(story.shops || {}).length > 0 || /"gold":/.test(j),
+      food: !w.noFood && (/"food":/.test(j) || (w.routes || []).length > 0 || /"@camp"/.test(j)),
+      fatigue: (w.routes || []).length > 0 || /"fatigue":/.test(j) || !!story.wounds,
+    };
+    try { Object.defineProperty(story, "__uses", { value: u, enumerable: false, configurable: true }); } catch (e) { /* frozen story: computed each time */ }
+    return u;
+  }
+  // Intent: archOf(Story, State) -> { label, tip, pv, bonus } = the hero's calling: the story's own voie (story.voies,
+  // 8.5) laid over the class it plays like, or the class alone. Why: Clément, 15/11 — a funeral vigil has no
+  // warriors; the story names the hero's trade, the engine keeps the six classes underneath for rules.
+  function archOf(story, s) {
+    var base = ARCHS[s.arch] || ARCHS.guerrier, v = s.voie && story && (story.voies || {})[s.voie];
+    if (!v) return base;
+    return { label: (s.fem && v.labelF) || v.label, tip: v.tip || base.tip, pv: base.pv, bonus: Object.assign({}, base.bonus, v.bonus || {}), like: s.arch, voie: s.voie };
   }
   function levelOfEp(ep) { return Math.min(MAX_LEVEL, Math.max(1, Math.floor(ep / EP_PER_LEVEL))); }
   function level(s) { return levelOfEp(s.ep); }
@@ -181,7 +210,7 @@
   // plus what carried items add (an item's `bonus` by domain).
   function bonus(story, s, dom, who) {
     var hs = who && isHero(story, who) ? heroSheet(s, who) : null;
-    var base = hs ? ((ARCHS[hs.arch] || ARCHS.guerrier).bonus[dom] || 0) : who ? (((story.companions || {})[who] || {}).bonus || {})[dom] || 0 : ((ARCHS[s.arch] || ARCHS.guerrier).bonus[dom] || 0);
+    var base = hs ? ((ARCHS[hs.arch] || ARCHS.guerrier).bonus[dom] || 0) : who ? (((story.companions || {})[who] || {}).bonus || {})[dom] || 0 : (archOf(story, s).bonus[dom] || 0);
     var b = base + (base >= 20 ? 3 : 1) * ((hs ? levelOfEp(hs.ep) : level(s)) - 1);
     if (!who) {
       var seenKinds = {};
@@ -299,6 +328,9 @@
     // ({ not: { seen: <itself> } }) would otherwise never show, since entering a passage marks it seen.
     if ("seen" in c) return c.seen === s.node ? s.seen[c.seen] > 1 : !!s.seen[c.seen];
     if ("arch" in c) return s.arch === c.arch;
+    if ("voie" in c) return s.voie === c.voie;
+    if ("trouvaille" in c) return !!(s.found || {})[c.trouvaille];
+    if ("trouvailles" in c) return Object.keys(s.found || {}).length >= +c.trouvailles;
     if ("quest" in c) return !!s.flags["quete:" + c.quest];
     // is: { key: value | [values] | null } reads a state set by fx.set (null: no value yet).
     if ("is" in c) return Object.keys(c.is).every(function (k) { var v = stateOf(s, k); return c.is[k] === null ? v == null : [].concat(c.is[k]).indexOf(v) >= 0; });
@@ -567,6 +599,8 @@
     if (!fx) return;
     var k;
     [].concat(fx.flag || [], fx.flags || []).forEach(function (f) { s.flags[f] = true; });
+    // voie (8.5): the hero's calling, from a past answer; the class it plays like follows.
+    if (fx.voie && (story.voies || {})[fx.voie]) { s.voie = fx.voie; s.arch = story.voies[fx.voie].like; }
     // set: { key: value }, a state with one value at a time (written as the flag "key=value", read by has or is).
     if (fx.set) Object.keys(fx.set).forEach(function (k) {
       Object.keys(s.flags).forEach(function (f) { if (f.indexOf(k + "=") === 0) delete s.flags[f]; });
@@ -932,6 +966,7 @@
     t.step++;
     s.time += STEP_HOURS;
     t.pending = null;
+    roadToll(story, s, t);
     var legs = (r.legs || []).filter(function (l) { return l.step === t.step && (l.dir == null || l.dir === dirOf(r, t)) && !s.seen[l.passage] && evalCond(story, s, l.if); });
     if (legs.length) { t.phase = "event"; enter(story, s, legs[0].passage); return; }
     var region = (W(story).regions || {})[t.region] || {};
@@ -950,6 +985,24 @@
       }
     }
     t.phase = "quiet"; s.node = "@road";
+  }
+  // What the road takes (piste 10, 15/11): a region `tiring: n` adds a point of fatigue every n steps; under a sky whose
+  // kind says `hurts: { wound, chance, say }`, a step may leave a wound (a fall on the ice, frostbite, sunstroke).
+  // The road is where these things happen: in a village, the sky only weighs on the rolls.
+  // Clément, 15/11: the rules stay simple so that a book can always be finished. The road's toll (weather that weighs on
+  // rolls when it follows the roads, long roads that tire, bad weather that wounds) is for the Héroïque difficulty only;
+  // at the other levels the sky still changes and is told, and nothing more.
+  function roadTollOn(s) { return !!diffOf(s).roadToll; }
+  function roadToll(story, s, t) {
+    var region = (W(story).regions || {})[t.region] || {};
+    weatherTick(story, s);
+    if (!roadTollOn(s)) return;
+    if (region.tiring && t.step % region.tiring === 0 && (s.fatigue || 0) < FATIGUE_MAX) apply(story, s, { fatigue: 1 });
+    var K = weatherKind(story, s), H = K && K.hurts;
+    if (H && story.wounds && story.wounds[H.wound] && !(s.wounds || {})[H.wound] && RNG() < (H.chance == null ? 0.25 : H.chance)) {
+      if (H.say) ev(s, interp(s, H.say), "bad");
+      apply(story, s, { blessure: H.wound });
+    }
   }
   function dirOf(r, t) { return t.from === r.from ? "aller" : "retour"; }
   function arrive(story, s) {
@@ -2044,12 +2097,15 @@
   function weatherKind(story, s) { var w = weatherOf(story, s); return w ? (story.weather.kinds || {})[w] || null : null; }
   function weighted(list, wOf) { var tot = 0; list.forEach(function (x) { tot += wOf(x); }); var x = RNG() * tot; for (var i = 0; i < list.length; i++) { x -= wOf(list[i]); if (x <= 0) return list[i]; } return list[list.length - 1]; }
   function weatherTable(story, s) {
-    var Wt = story.weather, reg = Wt.by ? stateOf(s, Wt.by) : null, base = (Wt.regions || {})[reg] || Wt.base || {}, t = {};
+    var Wt = story.weather, reg = Wt.by === "route" ? routeRegion(story, s) : Wt.by ? stateOf(s, Wt.by) : null, base = (Wt.regions || {})[reg] || Wt.base || {}, t = {};
     Object.keys(base).forEach(function (k) { t[k] = base[k]; });
     var se = seasonOf(story, s), add = se && (Wt.seasons || {})[se.id];
     if (add && Object.keys(base).length) Object.keys(add).forEach(function (k) { t[k] = (t[k] || 0) + add[k]; });
     return t;
   }
+  // The region the hero is in, for a weather that follows the roads (weather.by: "route", piste 10, 15/11): the region
+  // of the route being travelled, or the place's own `region`, or "lieu" (in a village, under a roof).
+  function routeRegion(story, s) { if (s.travel) return s.travel.region || "route"; var pl = W(story).places[s.place] || {}; return pl.region || "lieu"; }
   function weatherTick(story, s) {
     var Wt = story.weather; if (!Wt) return;
     if (!s.weather) s.weather = weatherOf(story, s);
@@ -2069,7 +2125,7 @@
     var was = s.weather; s.weather = id; s.weatherAt = s.time; s.weatherHold = s.time + hours;
     if (was !== id) ev(s, K.say ? interp(s, K.say) : "Le temps change : " + K.name + ".", "world weather");
   }
-  function weatherMod(story, s, dom) { var K = weatherKind(story, s); return K && K.mod ? K.mod[dom] || 0 : 0; }
+  function weatherMod(story, s, dom) { if (story.weather && story.weather.by === "route" && !roadTollOn(s)) return 0; var K = weatherKind(story, s); return K && K.mod ? K.mod[dom] || 0 : 0; }
   // Wounds that leave a trace (story.wounds: { id: { name, desc, mod: { dom: n }, days, tended, scar, mark } }): fx.blessure
   // opens one; it weighs on the rolls (`mod`) until it closes, after `days` days, or `tended` days once fx.soigner has
   // dressed it (half by default); fx.guerir closes it at once. A closed wound with `scar` leaves a scar (tag and
@@ -2612,7 +2668,13 @@
       var ts = [];
       (function add(to) { if (Array.isArray(to)) to.forEach(function (x) { add(x.to); }); else if (to != null) ts.push(to); })([{ to: c.to }, { to: c.win && c.win.to }, { to: c.lose && c.lose.to }]);
       var scenes = ts.map(function (t) { return story.passages[t]; });
-      if (scenes.length && scenes.every(function (tp) { return tp && !sceneOk(story, s, tp); })) return false;
+      // The cast is read as it will be once the choice is made: a companion the choice makes join (or leave) counts.
+      var fxs = [c.fx, c.win && c.win.fx, c.lose && c.lose.fx].filter(Boolean), sc = s;
+      if (fxs.some(function (f) { return f.join || f.leave; })) {
+        sc = Object.assign({}, s, { met: Object.assign({}, s.met) });
+        fxs.forEach(function (f) { [].concat(f.join || []).forEach(function (k) { sc.met[k] = "party"; }); [].concat(f.leave || []).forEach(function (k) { if (sc.met[k] === "party") sc.met[k] = "gone"; }); });
+      }
+      if (scenes.length && scenes.every(function (tp) { return tp && !sceneOk(story, sc, tp); })) return false;
       return true;
     });
   }
@@ -2722,8 +2784,89 @@
         if (dflt) v.urgent = { sec: Math.max(URGENT_MIN, Math.min(URGENT_MAX, +p.urgent || URGENT_MIN)), label: dflt.label };
       }
     }
+    // Words with effects (8.6): the page draws v.marked; everything that reads (voice, search, the tale, the
+    // validator) gets v.text without the marks. The hero's state may colour the page too (v.mood).
+    v.marked = v.text; v.text = v.text.map(function (t) { return plainOf(story, s, t); });
+    var md0 = moodOf(story, s); if (md0) v.mood = md0;
     return v;
   }
+
+  // ------------------------------------------------------------------ words with effects (8.6)
+  // Intent: marks in a paragraph, {{kind:arg|text}} or {{kind:text}}, that the page draws and the engine checks. Why:
+  // Clément, 15/11 — words that tremble or shimmer « à la Slay the Spire », rule words one taps to read their effect,
+  // letters hidden in the text for the reader to find, writing in a mirror, ink that only an object shows.
+  //   {{fx:<effet>|texte}}   an effect on the words (TEXT_FX)
+  //   {{cle:<id>|mot}} or {{cle:mot}}   a rule word (KEYWORDS or story.keywords): a tap tells what it does in play
+  //   {{or:<id>|texte}}      a hidden find (story.trouvailles): nothing shows it; a tap finds it
+  //   {{envers:texte}}       written in a mirror; a tap turns it round
+  //   {{encre:<item>|texte}} invisible ink: shown only while the hero carries the item
+  //   {{tache:texte}}        a blot: unreadable, and read by nobody
+  var TEXT_FX = { tremble: "tremble", ondule: "ondule", irise: "irisé", chuchote: "chuchoté", efface: "s'efface", rature: "raturé", ecrit: "s'écrit lettre à lettre", lueur: "luit" };
+  var MARK_RE = /\{\{(fx|cle|or|envers|encre|tache):([^{}|]*)(?:\|([^{}]*))?\}\}/g;
+  var MARK_KINDS = { fx: 1, cle: 1, or: 1, envers: 1, encre: 1, tache: 1 };
+  function plainOf(story, s, t) {
+    return String(t).replace(MARK_RE, function (all, k, a, b) {
+      if (k === "tache") return "";
+      if (k === "encre") return s && (s.items || []).indexOf(a) >= 0 ? (b || "") : "";
+      if (k === "envers" || (k === "cle" && b == null)) return a;
+      return b == null ? a : b;
+    }).replace(/ {2,}/g, " ").replace(/ ([,.;:!?»])/g, function (m, c) { return c === "»" || c === ":" || c === ";" || c === "!" || c === "?" ? m : c; });
+  }
+  // Intent: marksOf(text) -> [{ kind, arg, text, raw }] = the marks of a paragraph, for the page and the validator
+  function marksOf(t) {
+    var out = [], m; MARK_RE.lastIndex = 0;
+    while ((m = MARK_RE.exec(String(t)))) out.push({ kind: m[1], arg: m[2], text: m[3], raw: m[0] });
+    return out;
+  }
+  // Rule words: what the engine itself does with them, in its own numbers. A story adds its own (story.keywords:
+  // { id: { forms: [..], def } }). Forms are matched without regard to case.
+  var KEYWORDS = {
+    fatigue: { forms: ["fatigue", "fatigué", "fatiguée", "épuisé", "épuisée"], def: function () { return "Chaque point de fatigue retire " + 5 + " à tous tes jets. Une nuit de repos ou un bivouac l'efface."; } },
+    blessure: { forms: ["blessure", "blessé", "blessée"], def: function () { return "Une blessure ouverte pèse sur tes jets tant qu'elle n'est pas soignée ; une blessure grave peut laisser une cicatrice."; } },
+    cicatrice: { forms: ["cicatrice"], def: function () { return "La trace d'une blessure grave. Elle se voit sur ton portrait et le texte peut s'en souvenir."; } },
+    angoisse: { forms: ["angoisse", "troublé", "troublée"], def: function () { return "Au-delà de la moitié de la jauge, chaque point pèse sur tes jets. Le sommeil, la chaleur, une vérité dite l'apaisent."; } },
+    jet: { forms: ["jet", "jets"], def: function () { return "Un dé de 100 ouvert, plus ton bonus dans le domaine : il faut atteindre " + SUCCESS + ". Un 96 ou plus se relance et s'ajoute."; } },
+    ep: { forms: ["EP", "expérience"], def: function () { return "Les points d'expérience. Un niveau tous les " + EP_PER_LEVEL.toLocaleString("fr-FR") + " EP ; chaque niveau ajoute à tes domaines et à tes points de vie."; } },
+    pv: { forms: ["PV", "points de vie"], def: function () { return PV_BASE + " plus ce que donne ta voie, et " + PV_PER_LEVEL + " par niveau. À zéro, tu tombes."; } },
+    confiance: { forms: ["confiance"], def: function () { return "Ce qu'un compagnon pense de toi, de 0 à 100. Sous " + LEAVE_UNDER + ", il peut partir ; au-dessus de " + LOYAL_AT + ", il te suit loin."; } },
+    promesse: { forms: ["promesse", "promis", "promise"], def: function () { return "Une parole donnée, avec son échéance. Le carnet (Dettes et promesses) la garde ; ceux à qui tu as promis s'en souviennent."; } },
+    marque: { forms: ["la Marque"], def: function () { return "Ce que le monde sait de tes actes, en bien ou en mal. Elle ouvre des portes et en ferme."; } },
+  };
+  function keywordsOf(story) {
+    var out = {};
+    Object.keys(KEYWORDS).forEach(function (k) { out[k] = { forms: KEYWORDS[k].forms, def: KEYWORDS[k].def() }; });
+    Object.keys((story && story.keywords) || {}).forEach(function (k) { var K = story.keywords[k]; out[k] = { forms: K.forms || [k], def: K.def || "" }; });
+    return out;
+  }
+  function keywordFor(story, word) {
+    var w = String(word).toLowerCase(), all = keywordsOf(story), hit = null;
+    Object.keys(all).forEach(function (k) { if (!hit && (k === w || all[k].forms.some(function (f) { return f.toLowerCase() === w; }))) hit = k; });
+    return hit;
+  }
+  // Finds (story.trouvailles: { id: { title, text, fx } }, story.trouvaillesName: « lettres d'or »): a hidden word the
+  // reader taps. Found once per game; the story says what it gives.
+  function trouve(story, s, id) {
+    var T = (story.trouvailles || {})[id]; if (!T) throw new Error("trouvaille inconnue : " + id);
+    s.found = s.found || {}; if (s.found[id]) return false;
+    s.found[id] = s.turn || 1;
+    var n = Object.keys(s.found).length, all = Object.keys(story.trouvailles).length, name = story.trouvaillesName || "trouvailles";
+    ev(s, "✦ " + (T.title ? T.title + " · " : "") + cap(name) + " : " + n + " sur " + all + ".", "good");
+    if (T.text) ev(s, interp(s, T.text), "");
+    apply(story, s, T.fx);
+    return true;
+  }
+  // The page follows the hero's state (Clément, 15/11, piste T5): troubled words tremble, a tired page blurs at the
+  // edges, a wounded one darkens at its margins. A story may add its own (story.moods: [{ if, mood }]).
+  var MOODS = { trouble: 1, epuise: 1, blesse: 1, ivre: 1, fievre: 1 };
+  function moodOf(story, s) {
+    var own = (story.moods || []).filter(function (m) { return MOODS[m.mood] && evalCond(story, s, m.if); })[0];
+    if (own) return own.mood;
+    if (story.dread && dreadTrouble(story, s)) return "trouble";
+    if (s.pv != null && usesOf(story).pv && s.pv > 0 && s.pv <= pvMax(s) * MOOD_HURT) return "blesse";
+    if (s.fatigue >= MOOD_TIRED) return "epuise";
+    return null;
+  }
+  var MOOD_HURT = 0.25, MOOD_TIRED = 3;
   // Intent: solved(Story, State, Mystery) -> Bool = the story has told the answer (`solved`: a flag or a passage read)
   function mysterySolved(story, s, id) { var m = (story.mysteries || {})[id]; return !!(m && m.solved && happened(s, m.solved)); }
   // Intent: note(State, Fault) -> () = the engine had to step in for something the scenario should have said
@@ -3019,14 +3162,15 @@
     if (s.tickDay == null) s.tickDay = day(s);
     if (story.heroes) { initHeroes(story, s); enter(story, s, story.start); return; }
     if (s.pv == null) s.pv = pvMax(s);
-    var kit = ((W(story).start || {}).kits || {})[s.arch] || [];
+    // A voie's own kit (8.5) wins over its class's: the copiste has a pen case, not a lute.
+    var kits = (W(story).start || {}).kits || {}, kit = (s.voie && ((story.voies || {})[s.voie] || {}).kit) || kits[s.arch] || [];
     kit.forEach(function (id) { s.items.push(id); if (item(story, id).ammo) s.arrows = (s.arrows || 0) + BOW_ARROWS; });
     enter(story, s, story.start);
   }
 
   var API = {
     FACE: FACE, FACE_KEYS: FACE_KEYS, faceErrors: faceErrors, REGARDS: REGARDS, mysterySolved: mysterySolved, happened: happened, TAVERN_GAMES_PER_DAY: TAVERN_GAMES_PER_DAY,
-    ARCHS: ARCHS, TECHS: TECHS, techsOf: techsOf, partyView: partyView, cpv: cpv, cpvMax: cpvMax, FRONT: FRONT, DOMAINS: DOMAINS, EP: EP, EP_PER_LEVEL: EP_PER_LEVEL, MAX_LEVEL: MAX_LEVEL, DIFFS: DIFFS, LOYAL_AT: LOYAL_AT, SUCCESS: SUCCESS, STEP_HOURS: STEP_HOURS,
+    ARCHS: ARCHS, archOf: archOf, usesOf: usesOf, plainOf: plainOf, marksOf: marksOf, TEXT_FX: TEXT_FX, MARK_KINDS: MARK_KINDS, MOODS: MOODS, keywordsOf: keywordsOf, keywordFor: keywordFor, trouve: trouve, moodOf: moodOf, TECHS: TECHS, techsOf: techsOf, partyView: partyView, cpv: cpv, cpvMax: cpvMax, FRONT: FRONT, DOMAINS: DOMAINS, EP: EP, EP_PER_LEVEL: EP_PER_LEVEL, MAX_LEVEL: MAX_LEVEL, DIFFS: DIFFS, LOYAL_AT: LOYAL_AT, SUCCESS: SUCCESS, STEP_HOURS: STEP_HOURS,
     setRng: setRng, setDice: setDice, nudgeOf: nudgeOf, ambianceOf: ambianceOf, AMBIANCES: AMBIANCES, isNightNow: function (s) { var h = s.time % 24; return h >= NIGHT_FROM || h < NIGHT_TO; }, DIFFICULTY: DIFFICULTY, featsOf: featsOf, endingsOf: endingsOf, endingOf: endingOf, freshState: freshState, level: level, pvMax: pvMax, bonus: bonus, chance: chance, rollTest: rollTest,
     evalCond: evalCond, describeCond: describeCond, textList: textList, view: view, allowed: allowed, target: target,
     apply: apply, enter: enter, choose: choose, start: start, present: present, loyal: loyal, clueCount: clueCount,
@@ -3036,7 +3180,7 @@
     stockNow: stockNow, dailyUse: dailyUse, daysLeft: daysLeft, priceFactor: priceFactor, promiseState: promiseState, PROMISE_STATES: PROMISE_STATES, promiseDef: promiseDef,
     leanOf: leanOf, memberIds: memberIds, memberAbsent: memberAbsent, motionDef: motionDef, VOTES: VOTES, tiesKnown: tiesKnown, TIE_KINDS: TIE_KINDS, rivalsOf: rivalsOf, campOk: campOk,
     battleDef: battleDef, heroForce: heroForce, tick: tick, reached: reached,
-    weatherOf: weatherOf, weatherKind: weatherKind, seasonOf: seasonOf, woundsOpen: woundsOpen, woundDef: woundDef, woundDays: woundDays, FATIGUE_MAX: FATIGUE_MAX,
+    weatherOf: weatherOf, weatherKind: weatherKind, weatherMod: weatherMod, roadTollOn: roadTollOn, seasonOf: seasonOf, woundsOpen: woundsOpen, woundDef: woundDef, woundDays: woundDays, FATIGUE_MAX: FATIGUE_MAX,
     traitOf: traitOf, traitWord: traitWord, practiceOf: practiceOf, TRAIT_MAX: TRAIT_MAX, DUEL_MOVES: DUEL_MOVES, puzzleRight: puzzleRight,
     secretsOf: secretsOf, secretKnown: secretKnown, secretDef: secretDef, interludeOf: interludeOf, autreForm: autreForm,
     doubt: doubt, accountBy: accountBy, topicSolved: topicSolved, dreadOf: dreadOf, dreadMax: dreadMax, dreadWord: dreadWord, dreadTrouble: dreadTrouble, attachOf: attachOf, ATTACH_MAX: ATTACH_MAX,

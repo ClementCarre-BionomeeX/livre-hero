@@ -83,8 +83,8 @@ C.V_q_tete = P({ title: "La tête de la queue", place: "pallanche",
     { if: atLeast(3), text: "Il regarde par-dessus ton épaule, vers la file, vers les trous dans la file. « Tu en as fait partir, dit-il. J'ai vu. » Il hoche la tête, lentement. « C'est peut-être pour ça que j'attendais. Pour voir si quelqu'un viendrait les chercher. »" },
   ],
   choices: [
-    { label: "« Alors ne rentre pas. Garde-les. »", hide: atLeast(3), fx: { flag: "v:queue", quest: "V_Q_queue", ep: ["perso", 800] }, to: "V_q_fin" },
-    { label: "« Alors ne rentre pas. Sors de la file. »", hide: { not: atLeast(3) }, fx: { flag: ["v:queue", "v:queue=vide"], quest: "V_Q_queue", ep: ["perso", 1500] }, to: "V_q_fin" },
+    { label: "« Alors ne rentre pas. Garde-les. »", hide: atLeast(3), fx: { quest: "V_Q_queue", ep: ["perso", 800] }, to: "V_q_fin" },
+    { label: "« Alors ne rentre pas. Sors de la file. »", hide: { not: atLeast(3) }, fx: { flag: "v:queue=vide", quest: "V_Q_queue", ep: ["perso", 1500] }, to: "V_q_fin" },
   ] });
 C.V_q_fin = P({ title: "Le premier", place: "pallanche",
   text: [

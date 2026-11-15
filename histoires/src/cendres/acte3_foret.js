@@ -74,9 +74,9 @@ module.exports = {
     ],
     choices: [
       { label: "« Le feu ne se souvient de rien. Il mange. »", test: { dom: "social", label: "Ewen", help: [{ if: { has: "iii:arbre_ecoute" }, v: 15 }, { if: { has: "iii:riviere_vue" }, v: 10 }, { if: { has: "iii:cuillere" }, v: 10 }, { if: { has: "iii:noms_dits" }, v: 10 }, { if: { present: "hylas" }, v: 10 }] },
-        win: { fx: { flag: ["iii:braise", "iii:braise=eteinte"], quest: "III_Q_foret", ep: ["perso", 1500] }, to: "III_F_eteinte" },
+        win: { fx: { flag: "iii:braise=eteinte", quest: "III_Q_foret", ep: ["perso", 1500] }, to: "III_F_eteinte" },
         lose: { to: "III_F_refus" } },
-      { label: "« Donne-la-moi. Je l'emporte là-haut. Ils en ont besoin plus que toi. »", fx: { flag: ["iii:braise", "iii:braise=emportee"], quest: "III_Q_foret", ep: ["perso", 1200], item: "braise_ellerune" }, to: "III_F_emportee" },
+      { label: "« Donne-la-moi. Je l'emporte là-haut. Ils en ont besoin plus que toi. »", fx: { flag: "iii:braise=emportee", quest: "III_Q_foret", ep: ["perso", 1200], item: "braise_ellerune" }, to: "III_F_emportee" },
     ] }),
   III_F_refus: P({ title: "La braise", place: "enfance",
     text: [
@@ -84,8 +84,8 @@ module.exports = {
       "La braise palpite. Tu pourrais la lui prendre. Tu pourrais aussi le laisser. C'est son feu.",
     ],
     choices: [
-      { label: "« Donne-la-moi. Je l'emporte là-haut. »", fx: { flag: ["iii:braise", "iii:braise=emportee"], quest: "III_Q_foret", ep: ["perso", 1000], item: "braise_ellerune" }, to: "III_F_emportee" },
-      { label: "Le laisser à sa braise", fx: { flag: ["iii:braise", "iii:braise=gardee"], quest: "III_Q_foret" }, to: "III_F_gardee" },
+      { label: "« Donne-la-moi. Je l'emporte là-haut. »", fx: { flag: "iii:braise=emportee", quest: "III_Q_foret", ep: ["perso", 1000], item: "braise_ellerune" }, to: "III_F_emportee" },
+      { label: "Le laisser à sa braise", fx: { flag: "iii:braise=gardee", quest: "III_Q_foret" }, to: "III_F_gardee" },
     ] }),
   III_F_eteinte: P({ title: "La cendre", place: "enfance",
     text: [

@@ -14,8 +14,8 @@ module.exports = {
     ],
     choices: [
       { label: "Parler à l'ingénieur, et lui trouver d'autres pieux", test: { dom: "social", label: "L'ingénieur", help: [{ if: { present: "rodric" }, v: 15 }, { if: { has: "iv:tap_promis" }, v: 10 }] },
-        win: { fx: { flag: ["iv:tilleul", "iv:tilleul=sauve"], ep: ["perso", 800], conf: { ysolde: 5 } }, to: "IV_br_tilleul_sauve" }, lose: { fx: { flag: ["iv:tilleul", "iv:tilleul=abattu"] }, to: "IV_br_tilleul_abattu" } },
-      { label: "Regarder Ysolde, et la laisser décider", fx: { flag: ["iv:tilleul", "iv:tilleul=abattu"], ep: ["perso", 400] }, to: "IV_br_tilleul_abattu" },
+        win: { fx: { flag: "iv:tilleul=sauve", ep: ["perso", 800], conf: { ysolde: 5 } }, to: "IV_br_tilleul_sauve" }, lose: { fx: { flag: "iv:tilleul=abattu" }, to: "IV_br_tilleul_abattu" } },
+      { label: "Regarder Ysolde, et la laisser décider", fx: { flag: "iv:tilleul=abattu", ep: ["perso", 400] }, to: "IV_br_tilleul_abattu" },
     ] }),
   IV_br_tilleul_sauve: P({ title: "Les pieux de Hautvent",
     text: [

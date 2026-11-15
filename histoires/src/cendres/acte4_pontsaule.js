@@ -60,7 +60,7 @@ module.exports = {
       { if: { not: SERGENT }, text: "Il te regarde entrer sans te reconnaître. « Encore un de la montagne, dit-il. Vous descendez tous. Il n'y a plus rien là-haut ? »" },
     ],
     choices: [
-      { label: "Lui parler de la baraque grise", fx: { flag: "iv:sergent_allie" }, to: "IV_ps_sergent_taille" },
+      { label: "Lui parler de la baraque grise", to: "IV_ps_sergent_taille" },
       { label: "Le laisser à son pont", to: "IV_ps" },
     ] }),
   IV_ps_sergent_taille: P({ title: "La taille", place: "pontsaule",

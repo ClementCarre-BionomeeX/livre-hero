@@ -28,13 +28,13 @@ module.exports = {
     ],
     choices: [
       { label: "Faire la queue, et donner un faux nom", test: { dom: "social", label: "Le faux nom", help: [{ if: PIE_LA, v: 20 }, { if: { present: "lisandre" }, v: 10 }, { if: { present: "sansnom" }, v: -10 }] },
-        win: { fx: { flag: "pal:entree=faux_nom", ep: ["perso", 1000] }, to: "IV_pal_entree" },
-        lose: { fx: { flag: ["pal:entree=reperes", "pal:alerte"] }, to: "IV_pal_repere" } },
-      { label: "Passer par la teinturerie, sous les remparts, comme Pie l'a appris", hide: { not: PIE_LA }, fx: { flag: "pal:entree=teinturiers", ep: ["perso", 800] }, to: "IV_pal_teinture" },
+        win: { fx: { ep: ["perso", 1000] }, to: "IV_pal_entree" },
+        lose: { to: "IV_pal_repere" } },
+      { label: "Passer par la teinturerie, sous les remparts, comme Pie l'a appris", hide: { not: PIE_LA }, fx: { ep: ["perso", 800] }, to: "IV_pal_teinture" },
       { label: "Chercher les Liseurs. Ils ont sûrement une porte", hide: { not: REG_GREF }, to: "IV_pal_liseurs_porte" },
       { label: "Escalader le rempart de nuit, côté rivière", test: { dom: "discretion", label: "Le rempart", help: [{ if: { present: "corbe" }, v: 10 }, { if: { present: "givre" }, v: 10 }, { if: { present: "gaspard" }, v: -15 }] },
         win: { fx: { flag: "pal:entree=rempart", ep: ["perso", 1000] }, to: "IV_pal_entree" },
-        lose: { fx: { pv: -3, flag: ["pal:entree=rempart", "pal:alerte"] }, to: "IV_pal_repere" } },
+        lose: { fx: { pv: -3, flag: "pal:entree=rempart" }, to: "IV_pal_repere" } },
     ] }),
 
   IV_pal_teinture: P({ title: "La teinturerie", place: "pallanche",
@@ -50,7 +50,7 @@ module.exports = {
       "Tu dis : le Frère Orlan. Elle te mène à un égout, à une échelle, à une cave. Orlan est là, plus maigre, toujours enrhumé, entouré d'une dizaine de greffiers sans leur robe qui recopient des listes à la chandelle.",
       "« Les nôtres lisent sur les places, dit-il. Les gens écoutent. Puis ils vont faire la queue à la tour pour se faire écrire quand même. Ils ont peur, tu comprends. Peur d'être oubliés, alors ils donnent leur nom à celui qui fait oublier. » Il éternue. « Entre. Tu es attendu. Pas par nous. »",
     ],
-    choices: [{ label: "Entrer dans la ville par les caves", fx: { flag: ["pal:entree=liseurs", "pal:orlan"], ep: ["perso", 1000] }, to: "IV_pal_entree" }] }),
+    choices: [{ label: "Entrer dans la ville par les caves", fx: { flag: "pal:orlan", ep: ["perso", 1000] }, to: "IV_pal_entree" }] }),
 
   IV_pal_repere: P({ title: "Repérés", place: "pallanche",
     text: [
@@ -120,7 +120,7 @@ module.exports = {
       { if: HYLAS_LA, text: "Puis elle regarde Hylas, qui a de nouveau les yeux blancs, et elle baisse la voix. « On dit qu'il garde un vieux au caveau, maintenant, depuis que vous êtes partis. Un greffier. Pour le livre noir. Il en faut toujours un, paraît-il. »" },
       { if: { not: HYLAS_LA }, text: "Puis, plus bas : « Et ton vieux greffier aveugle, il est au caveau. Mordace l'a repris l'an passé, au col, ou ailleurs. Il garde le livre noir. On dit qu'il ne remonte jamais. »" },
     ],
-    choices: [{ label: "Remercier la Veuve", fx: { flag: "pal:veuve" }, to: "IV_pal" }] }),
+    choices: [{ label: "Remercier la Veuve", to: "IV_pal" }] }),
 
   IV_pal_anseau: P({ title: "Saint-Gilles", place: "pallanche",
     text: [
@@ -138,7 +138,7 @@ module.exports = {
       "Tu regardes les pupitres. Tu regardes les mains des greffiers.",
       { if: { has: "proces:plume=rendu" }, text: "Une femme, plus loin, sort de la queue sans raison. Elle reste au milieu de la place, son enfant dans les bras, à regarder la tour. Puis elle s'en va, sans son jeton. Personne ne sait pourquoi. Toi, tu crois savoir." },
     ],
-    choices: [{ fx: { flag: "pal:queue" }, back: "IV_pal" }] }),
+    choices: [{ back: "IV_pal" }] }),
 
   IV_pal_orlan: P({ title: "La cave", place: "pallanche",
     text: [
@@ -156,9 +156,9 @@ module.exports = {
     ],
     choices: [
       { label: "« Aide-nous à la sortir. Cette nuit, ou la semaine prochaine. »", test: { dom: "social", label: "Pie", help: [{ if: { conf: "pie", min: 40 }, v: 20 }, { if: { has: "ame:linette" }, v: 25 }, { if: { has: "linette_avant:vue" }, v: 10 }] },
-        win: { fx: { flag: ["pie:iv=aide", "pal:pie_dedans"], conf: { pie: 10 }, ep: ["perso", 1500] }, to: "IV_pal_pie_oui" },
-        lose: { fx: { flag: "pie:iv=refus" }, to: "IV_pal_pie_non" } },
-      { label: "Lui montrer qui est avec toi", hide: { not: { has: "ame:linette" } }, fx: { flag: ["pie:iv=aide", "pal:pie_dedans", "pie:voit_linette_avant"], conf: { pie: 25 }, ep: ["perso", 2500] }, to: "IV_pal_pie_petite" },
+        win: { fx: { flag: "pal:pie_dedans", conf: { pie: 10 }, ep: ["perso", 1500] }, to: "IV_pal_pie_oui" },
+        lose: { to: "IV_pal_pie_non" } },
+      { label: "Lui montrer qui est avec toi", hide: { not: { has: "ame:linette" } }, fx: { flag: ["pal:pie_dedans", "pie:voit_linette_avant"], conf: { pie: 25 }, ep: ["perso", 2500] }, to: "IV_pal_pie_petite" },
     ] }),
 
   IV_pal_pie_petite: P({ title: "La petite fille", place: "pallanche",
@@ -207,12 +207,12 @@ module.exports = {
       "La tour monte dans le noir. Une seule fenêtre est allumée, tout en haut, sous la plume et la clé.",
     ],
     choices: [
-      { label: "La porte de service, où Pie attend", hide: { not: { has: "pal:pie_dedans" } }, fx: { flag: "tour:entree=pie" }, to: "IV_tour_escalier" },
-      { label: "La porte de service, avec le vin pour le portier", hide: { not: { has: "pal:orlan_vin" } }, fx: { drop: "vin_corvanne", flag: "tour:entree=vin" }, to: "IV_tour_portier" },
-      { label: "Attendre la cloche d'Anseau, et passer par le grand porche", hide: { not: { has: "pal:anseau" } }, fx: { flag: "tour:entree=cloche" }, to: "IV_tour_cloche" },
-      { label: "Le grand porche, où Baudoin est de garde", hide: { not: { has: "pal:baudoin" } }, fx: { flag: "tour:entree=baudoin" }, to: "IV_tour_escalier" },
-      { label: "Sous les draps, dans le chariot de la lingerie", hide: { not: { has: "pal:lingerie" } }, fx: { flag: "tour:entree=lingerie" }, to: "IV_tour_lingerie" },
-      { label: "Forcer la porte de service", fx: { flag: "tour:entree=force" }, to: "IV_tour_force" },
+      { label: "La porte de service, où Pie attend", hide: { not: { has: "pal:pie_dedans" } }, to: "IV_tour_escalier" },
+      { label: "La porte de service, avec le vin pour le portier", hide: { not: { has: "pal:orlan_vin" } }, fx: { drop: "vin_corvanne" }, to: "IV_tour_portier" },
+      { label: "Attendre la cloche d'Anseau, et passer par le grand porche", hide: { not: { has: "pal:anseau" } }, to: "IV_tour_cloche" },
+      { label: "Le grand porche, où Baudoin est de garde", hide: { not: { has: "pal:baudoin" } }, to: "IV_tour_escalier" },
+      { label: "Sous les draps, dans le chariot de la lingerie", hide: { not: { has: "pal:lingerie" } }, to: "IV_tour_lingerie" },
+      { label: "Forcer la porte de service", to: "IV_tour_force" },
     ] }),
 
   IV_tour_portier: P({ title: "Le portier", place: "pallanche",
@@ -267,7 +267,7 @@ module.exports = {
       { if: { has: "pie:choix=boite" }, without: "pie", before: "pal:pie_indice", text: "Elle te regarde longtemps. Elle n'a pas de souvenirs à te rendre. Mais elle pose la plume. Elle se lève. Elle te donne la main, comme on obéit, et puis, au bout de trois pas, elle la serre, et ça, ce n'est plus de l'obéissance." },
       { if: { not: { has: "pie:choix=boite" } }, text: "Elle te regarde longtemps. Elle n'a pas de souvenirs à te rendre. Mais elle pose la plume. Elle se lève. Elle te donne la main, comme on obéit, et puis, au bout de trois pas, elle la serre, et ça, ce n'est plus de l'obéissance." },
     ],
-    choices: [{ label: "Redescendre avec elle", fx: { join: "linette", flag: ["linette:iv=libre", "tour:linette"], ep: ["perso", 2000] }, back: "IV_tour_escalier" }] }),
+    choices: [{ label: "Redescendre avec elle", fx: { join: "linette", flag: "linette:iv=libre", ep: ["perso", 2000] }, back: "IV_tour_escalier" }] }),
 
   IV_tour_linette_une: P({ title: "Une seule", place: "pallanche",
     text: [
@@ -279,7 +279,7 @@ module.exports = {
       { without: "pie", after: "pal:pie_indice", text: "« Pie, dit-elle. Pie, tu as vu ? J'ai écrit toute la nuit. Je sais écrire ! »" },
       { without: "pie", before: "pal:pie_indice", text: "Elle lève la tête vers toi. « Tu as vu ? J'ai écrit toute la nuit. Je sais écrire ! »" },
     ],
-    choices: [{ label: "Redescendre avec elle", fx: { join: "linette", flag: ["linette:iv=libre", "linette:une", "tour:linette"], ep: ["perso", 3000] }, back: "IV_tour_escalier" }] }),
+    choices: [{ label: "Redescendre avec elle", fx: { join: "linette", flag: "linette:iv=libre", ep: ["perso", 3000] }, back: "IV_tour_escalier" }] }),
 
   IV_tour_caveau: P({ title: "Le caveau", place: "pallanche",
     text: [
@@ -292,8 +292,8 @@ module.exports = {
     ],
     choices: [
       { label: "Prendre le registre. Il ne le gardera pas", fx: { item: "registre_anselin", flag: ["tour:anselin_pris", "tour:alerte"], ep: ["perso", 2500] }, to: "IV_tour_caveau_pris" },
-      { label: "Le laisser. Prendre Hylas, et partir", hide: HYLAS_LA, fx: { flag: "tour:anselin_laisse" }, to: "IV_tour_caveau_hylas" },
-      { label: "Le laisser, et partir", hide: { not: HYLAS_LA }, fx: { flag: "tour:anselin_laisse" }, to: "IV_tour_escalier" },
+      { label: "Le laisser. Prendre Hylas, et partir", hide: HYLAS_LA, to: "IV_tour_caveau_hylas" },
+      { label: "Le laisser, et partir", hide: { not: HYLAS_LA }, to: "IV_tour_escalier" },
     ] }),
 
   IV_tour_caveau_pris: P({ title: "Le registre", place: "pallanche",
@@ -309,7 +309,7 @@ module.exports = {
       "Tu prends Hylas par le bras. Il résiste, d'abord. « Si je pars, il l'ouvrira. » Tu lui dis qu'il l'a déjà ouvert. Il se tait.",
       "Il se lève. Il pose la main une dernière fois sur la reliure, comme on pose la main sur un cercueil, et il te suit.",
     ],
-    choices: [{ fx: { join: "hylas", flag: "hylas:iv=libre" }, back: "IV_tour_escalier" }] }),
+    choices: [{ fx: { join: "hylas" }, back: "IV_tour_escalier" }] }),
 
   // ---- Mordace on the stairs
   IV_tour_mordace: P({ title: "La lanterne", place: "pallanche",
@@ -331,9 +331,9 @@ module.exports = {
       "« Mais une ligne comme ça, il faut quelqu'un pour la porter. Le pacte a besoin d'un passeur, quelqu'un des deux côtés. Toi. » Il baisse la lanterne. « Je ne te force pas. Je ne peux pas. Viens à la Lisse. Regarde le pont. Compte les morts. Et décide. »",
     ],
     choices: [
-      { label: "« Jamais. »", fx: { flag: "mordace:iv=jamais" }, to: "IV_tour_mordace3" },
-      { label: "Ne rien répondre", fx: { flag: "mordace:iv=silence" }, to: "IV_tour_mordace3" },
-      { label: "« Et Sauvelune ? Tu l'as cédée aussi, pour la paix ? »", fx: { flag: "mordace:iv=sauvelune" }, to: "IV_tour_mordace_sv" },
+      { label: "« Jamais. »", to: "IV_tour_mordace3" },
+      { label: "Ne rien répondre", to: "IV_tour_mordace3" },
+      { label: "« Et Sauvelune ? Tu l'as cédée aussi, pour la paix ? »", to: "IV_tour_mordace_sv" },
     ] }),
 
   IV_tour_mordace_sv: P({ title: "Sauvelune", place: "pallanche",
@@ -341,7 +341,7 @@ module.exports = {
       "« Sauvelune, dit-il. Quatre cents noms. Le prix d'une nuit de cloches. » Il ne baisse pas les yeux. « Je l'ai cédée pour te trouver. Je savais que tu étais là-haut, quelque part, dans un village de la vallée. Je ne savais pas lequel. Alors j'ai fait neiger sur tous, un par un, en regardant qui se souvenait. Tu t'es souvenu. »",
       "Il a l'air presque désolé. « C'est toi qui m'as montré où tu étais. »",
     ],
-    choices: [{ label: "Passer devant lui", fx: { flag: "enfant:sait_sauvelune" }, to: "IV_tour_mordace3" }] }),
+    choices: [{ label: "Passer devant lui", to: "IV_tour_mordace3" }] }),
 
   IV_tour_mordace3: P({ title: "La sortie", place: "pallanche",
     text: [

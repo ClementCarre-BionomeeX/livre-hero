@@ -129,7 +129,7 @@ module.exports = {
     ],
     choices: [
       { label: "« Il a gardé la paix vingt ans. Gardons-la quarante jours. »", fx: { flag: "oraison:paix", fac: { therance: 10, mer: -5, rames: 5 } }, to: "Q_fun_parole" },
-      { label: "« Pendant le Deuil, personne n'aura faim dans cette ville. Je vous le promets. »", fx: { flag: ["oraison:pain", "promesse:pain"], fac: { rames: 15, sel: -5 } }, to: "Q_fun_parole" },
+      { label: "« Pendant le Deuil, personne n'aura faim dans cette ville. Je vous le promets. »", fx: { flag: ["oraison:pain", "promesse:pain"], promise: "pain", fac: { rames: 15, sel: -5 } }, to: "Q_fun_parole" },
       { label: "« Sa mort ne restera pas impunie. »", fx: { flag: "oraison:justice", fac: { mer: 10, therance: -10 }, clock: { emprise: 1 } }, to: "Q_fun_parole" },
       { label: "« Il était fatigué, et il était bon. C'est tout ce que je sais de lui. »", fx: { flag: "oraison:vraie", fac: { eaux: 10 }, conf: { ansel: 10, livia: 10 } }, to: "Q_fun_parole" },
     ] },

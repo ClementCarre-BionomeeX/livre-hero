@@ -76,7 +76,7 @@ module.exports = {
       "« Le pain des cendres, dit-elle dans la langue que tu comprends. La première nuit, quand ils ont brûlé la vallée, on n'avait plus que ça. Alors on a fait du pain avec. Depuis, on continue. » Elle t'en tend un morceau. « Mange. C'est le pain de chez toi. »",
     ],
     choices: [
-      { label: "Manger", fx: { ep: ["perso", 400], flag: "iii:pain_cendres" }, to: "III_el_four_manger" },
+      { label: "Manger", fx: { ep: ["perso", 400] }, to: "III_el_four_manger" },
       { label: "Remercier, et garder le morceau", to: "III_e_hameau" },
     ] }),
   III_el_four_manger: P3({ title: "Le goût", place: "enfance",

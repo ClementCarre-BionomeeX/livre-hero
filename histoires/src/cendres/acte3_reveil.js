@@ -34,7 +34,7 @@ module.exports = {
       { label: "Le laisser manger. Ce n'est qu'un couteau", fx: { join: "givre", conf: { givre: 10 }, ep: ["perso", 500] }, to: "III_givre_suit" },
       { label: "Le chasser d'un geste", fx: { join: "givre", conf: { givre: -5 } }, to: "III_givre_revient" },
       { label: "Lui tendre la main, et lui offrir un vrai souvenir", tag: "Souvenir donné", stain: true, if: { souv: "enfant:moulin" }, why: "Tu ne l'as plus.",
-        fx: { souv: "enfant:moulin", join: "givre", conf: { givre: 30 }, flag: "givre:moulin", ep: ["perso", 1500] }, to: "III_givre_moulin" },
+        fx: { souv: "enfant:moulin", join: "givre", conf: { givre: 30 }, ep: ["perso", 1500] }, to: "III_givre_moulin" },
     ] }),
 
   III_givre_suit: P({ title: "Il suit", place: "plaine",
@@ -90,7 +90,7 @@ module.exports = {
       { if: { has: "corbe:ouvre" }, text: "« Quelqu'un a chanté nos noms, ajoute-t-elle. Tous. On l'a entendu jusqu'ici. »" },
       "Tu demandes d'où elle vient. Elle cherche. Elle ne sait plus. Elle sait seulement qu'elle y retourne.",
     ],
-    choices: [{ fx: { flag: "acte3:marcheurs" }, back: "III_plaine" }] }),
+    choices: [{ back: "III_plaine" }] }),
 
   III_halte: P({ title: "La halte", place: "plaine",
     text: [

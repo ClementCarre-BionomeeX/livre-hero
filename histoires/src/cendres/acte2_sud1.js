@@ -20,7 +20,6 @@ module.exports = {
     choices: [{ label: "Descendre la vallée de la Pallante", travel: "r_ii_sud" }] }),
 
   II_S_village: P({ title: "L'enseigne blanche", place: null,
-    fx: { flag: "sud:village_blanc" },
     text: [
       "Le premier village s'appelait quelque chose. Tu y es passée avec la cour, il y a huit jours ; les gens sont sortis sur le pas de leur porte pour voir passer la reine, et un enfant a lancé des fleurs dans ta voiture.",
       "L'enseigne de l'auberge est peinte en blanc. Pas repeinte : blanchie, comme si le nom avait coulé. La borne, à l'entrée, aussi. Sur le fronton du temple, les lettres gravées sont toujours là, mais elles sont pleines de neige, en juillet, et la neige ne fond pas.",
@@ -28,9 +27,9 @@ module.exports = {
     ],
     choices: [
       { label: "Chercher le nom ailleurs : un registre de baptêmes, une lettre, une marque sur un tonneau", test: { dom: "savoir", label: "Recherche", help: [{ if: { present: "hylas" }, v: 15 }, { if: { present: "linette" }, v: 10 }] },
-        win: { fx: { flag: "sud:village_nomme", ep: ["perso", 600] }, to: "II_S_village_nom" },
+        win: { fx: { ep: ["perso", 600] }, to: "II_S_village_nom" },
         lose: { to: "II_S_village_rien" } },
-      { label: "Leur en donner un. N'importe lequel. Un village ne peut pas rester sans nom", fx: { flag: "sud:village_rebaptise", ep: ["perso", 300] }, to: "II_S_village_neuf" },
+      { label: "Leur en donner un. N'importe lequel. Un village ne peut pas rester sans nom", fx: { ep: ["perso", 300] }, to: "II_S_village_neuf" },
       { label: "Boire et repartir", to: "@route" },
     ] }),
 
@@ -65,8 +64,8 @@ module.exports = {
     ],
     choices: [
       { label: "Approcher la voiture noire, à la halte de midi", test: { dom: "discretion", label: "Approche", help: [{ if: { present: "pie" }, v: 15 }] },
-        win: { fx: { flag: "sud:coffre_vu", clue: "n_coffre_fer", ep: ["perso", 800] }, to: "II_S_coffre" },
-        lose: { fx: { flag: "sud:repere" }, to: "II_S_repere" } },
+        win: { fx: { clue: "n_coffre_fer", ep: ["perso", 800] }, to: "II_S_coffre" },
+        lose: { to: "II_S_repere" } },
       { label: "Approcher la voiture des dames et chercher Ermengarde", hide: { has: "lisandre:disgrace" }, fx: { flag: "sud:ermengarde_gue" }, to: "II_S_gue" },
       { label: "Les laisser passer, cachés dans les vignes", to: "@route" },
     ] }),
@@ -106,7 +105,7 @@ module.exports = {
         win: { fx: { ep: ["perso", 400] }, to: "@route" },
         lose: { to: "II_S_porte_mer" } },
       { label: "Laisser Pie fabriquer un laissez-passer avec ce qu'il a dans ses poches", hide: { not: { present: "pie" } }, test: { dom: "discretion", label: "Faux", help: [{ if: { item: "faux_sceau" }, v: 20 }] },
-        win: { fx: { flag: "sud:faux_passe", ep: ["perso", 400] }, to: "@route" },
+        win: { fx: { ep: ["perso", 400] }, to: "@route" },
         lose: { to: "II_S_porte_mer" } },
       { label: "Passer par la grève, au pied des remparts, à marée basse. Tu le faisais, enfant", to: "II_S_porte_mer" },
     ] }),
@@ -117,7 +116,7 @@ module.exports = {
       "L'eau vous arrive aux genoux, puis à la taille. Au bout, une poterne de pêcheurs, jamais fermée, parce que personne à la garde ne sait qu'elle existe.",
       { if: { all: [{ present: "hylas" }, { present: "rodric" }] }, text: "Hylas se fait porter par Rodric sur les derniers pas. Il garde le silence là-dessus, avant comme après." },
     ],
-    choices: [{ label: "Entrer dans Vasselin", fx: { flag: "sud:entree_greve" }, to: "@route" }] }),
+    choices: [{ label: "Entrer dans Vasselin", to: "@route" }] }),
 
   II_S_vasselin: P({ title: "Vasselin", place: "vasselin", hub: true,
     text: [
@@ -165,7 +164,7 @@ module.exports = {
     choices: [
       { label: "« Fais-moi entrer dans la Tour. »", to: "II_S_ermengarde_non" },
       { label: "« Qu'est-ce qu'elle signe, le matin ? »", test: { dom: "social", label: "Confiance", help: [{ if: { not: { has: "lisandre:disgrace" } }, v: 10 }, { if: { has: "lisandre:surprise" }, v: 10 }] },
-        win: { fx: { flag: "sud:cessions_reine", clue: "n_cessions_reine", ep: ["perso", 800] }, to: "II_S_ermengarde_signe" },
+        win: { fx: { clue: "n_cessions_reine", ep: ["perso", 800] }, to: "II_S_ermengarde_signe" },
         lose: { to: "II_S_ermengarde_non" } },
     ] }),
 
@@ -272,8 +271,8 @@ module.exports = {
       "Puis, sans transition : « Il y a un pont, sur la Lisse, à une lieue du fort. On l'a reconstruit depuis la guerre. Je ne peux pas le regarder. Tout le monde, au fort, change de voix quand on en parle. Moi, je n'ai rien. Un trou. J'ai payé pour ce trou. » Elle se retourne. « Le reçu doit être là-haut. »",
     ],
     choices: [
-      { label: "« On ira le chercher. »", fx: { flag: "sud:lisse_promis", conf: { ysolde: 5 } }, to: "II_S_vasselin" },
-      { label: "« Tu l'as payé. Peut-être que tu avais raison. »", fx: { flag: "sud:lisse_doute" }, to: "II_S_vasselin" },
+      { label: "« On ira le chercher. »", fx: { conf: { ysolde: 5 } }, to: "II_S_vasselin" },
+      { label: "« Tu l'as payé. Peut-être que tu avais raison. »", to: "II_S_vasselin" },
     ] }),
 
   II_S_hylas: P({ title: "Le pied de la Tour", place: "vasselin",
@@ -282,7 +281,7 @@ module.exports = {
       "« Écoute », dit-il. Tu écoutes. Le bruit de la ville. Et, très loin au-dessus, si faible que tu crois l'imaginer, un grattement régulier. Une plume, sur du papier. Elle ne s'arrête pas.",
       "« Il écrit, dit Hylas. Il n'a jamais su s'arrêter d'écrire. Il était mon élève. Le meilleur. » Il reste là longtemps. Puis : « Il y a un grand registre dans ce coffre. Pas une copie. Celui que j'ai cherché à Pallanche. Il l'a apporté ici, pour être près d'elle. »",
     ],
-    choices: [{ label: "Le ramener à l'Ancre", fx: { flag: "sud:hylas_tour", conf: { hylas: 5 } }, to: "II_S_vasselin" }] }),
+    choices: [{ label: "Le ramener à l'Ancre", fx: { conf: { hylas: 5 } }, to: "II_S_vasselin" }] }),
 
   II_S_enfant: P({ title: "Le quai", place: "vasselin",
     text: [
@@ -291,7 +290,7 @@ module.exports = {
       "Il lui demande qui il est.",
     ],
     choices: [
-      { label: "Aller t'asseoir à côté de lui", fx: { flag: "sud:quai", conf: { enfant: 5, lisandre: 5 } }, to: "II_S_enfant_quai" },
+      { label: "Aller t'asseoir à côté de lui", fx: { conf: { enfant: 5, lisandre: 5 } }, to: "II_S_enfant_quai" },
       { label: "Le laisser seul", to: "II_S_vasselin" },
     ] }),
 

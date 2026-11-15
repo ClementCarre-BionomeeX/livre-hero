@@ -4462,6 +4462,216 @@
    ]
   }
  ],
+ "weather": {
+  "by": "route",
+  "every": 6,
+  "start": "gris",
+  "kinds": {
+   "gris": {
+    "name": "Ciel gris",
+    "desc": "Un ciel bas et égal, de fin d'automne."
+   },
+   "pluie": {
+    "name": "Pluie",
+    "desc": "Une pluie fine et froide, qui traverse tout.",
+    "mod": {
+     "nature": -5,
+     "discretion": 5
+    },
+    "say": "La pluie se met à tomber, fine, froide, régulière. Elle traverse la laine en une heure."
+   },
+   "brume": {
+    "name": "Brume",
+    "desc": "Un mur blanc à vingt pas.",
+    "mod": {
+     "nature": -10,
+     "discretion": 15
+    },
+    "say": "La brume monte des eaux basses. À vingt pas, le chemin disparaît dans un mur blanc."
+   },
+   "vent": {
+    "name": "Grand vent",
+    "desc": "Le vent des crêtes, qui emporte les mots.",
+    "mod": {
+     "combat": -5,
+     "social": -5
+    },
+    "say": "Le vent se lève sur les hauteurs et siffle dans les pierres. Il faut crier pour se parler."
+   },
+   "neige": {
+    "name": "Neige",
+    "desc": "La neige tombe, lourde, et efface le chemin.",
+    "mod": {
+     "nature": -15,
+     "combat": -5
+    },
+    "say": "La neige se met à tomber, à gros flocons lourds. En une heure, le chemin a disparu.",
+    "hurts": {
+     "wound": "engelure",
+     "chance": 0.25,
+     "say": "Le froid te mord les doigts de pied à travers les bottes, puis tu cesses de les sentir."
+    }
+   },
+   "verglas": {
+    "name": "Verglas",
+    "desc": "La glace sur les pierres du chemin.",
+    "mod": {
+     "nature": -10,
+     "combat": -10
+    },
+    "say": "La pluie a gelé sur les pierres. Le chemin luit comme une lame.",
+    "hurts": {
+     "wound": "cheville",
+     "chance": 0.3,
+     "say": "Ton pied part sur la glace, et tu tombes de tout ton poids sur la cheville."
+    }
+   },
+   "miasmes": {
+    "name": "Miasmes",
+    "desc": "Une vapeur grise monte de la terre souillée.",
+    "mod": {
+     "nature": -10,
+     "magie": -5
+    },
+    "say": "Une vapeur grise monte de la terre souillée et colle au fond de la gorge.",
+    "hurts": {
+     "wound": "toux",
+     "chance": 0.25,
+     "say": "Tu respires trop longtemps la vapeur grise. Une toux sèche te prend, qui ne te lâche plus."
+    }
+   }
+  },
+  "regions": {
+   "lieu": {
+    "gris": 3,
+    "pluie": 2,
+    "brume": 1
+   },
+   "crete": {
+    "gris": 2,
+    "vent": 3,
+    "pluie": 1
+   },
+   "sorbe": {
+    "gris": 2,
+    "pluie": 2,
+    "brume": 2
+   },
+   "foret": {
+    "gris": 2,
+    "pluie": 2,
+    "brume": 1
+   },
+   "marais": {
+    "brume": 4,
+    "pluie": 2,
+    "miasmes": 1
+   },
+   "val": {
+    "gris": 3,
+    "pluie": 2
+   },
+   "lac": {
+    "brume": 3,
+    "gris": 2
+   },
+   "vergers": {
+    "gris": 3,
+    "pluie": 1
+   },
+   "isarde": {
+    "gris": 2,
+    "pluie": 2,
+    "vent": 1
+   },
+   "IIIV_lignes": {
+    "gris": 2,
+    "pluie": 2
+   },
+   "IIIF_rives": {
+    "brume": 2,
+    "pluie": 2
+   },
+   "souillee": {
+    "miasmes": 4,
+    "gris": 1,
+    "brume": 1
+   },
+   "fenne": {
+    "neige": 3,
+    "vent": 2,
+    "verglas": 2
+   },
+   "VE_descente": {
+    "gris": 2,
+    "verglas": 1,
+    "brume": 1
+   }
+  }
+ },
+ "wounds": {
+  "engelure": {
+   "name": "Engelures",
+   "desc": "Tes orteils brûlent quand ils se réchauffent.",
+   "mod": {
+    "combat": -5,
+    "discretion": -10
+   },
+   "days": 3,
+   "tended": 1
+  },
+  "cheville": {
+   "name": "La cheville foulée",
+   "desc": "Chaque pas te lance jusqu'au genou.",
+   "mod": {
+    "combat": -10,
+    "discretion": -10,
+    "nature": -5
+   },
+   "days": 3,
+   "tended": 2
+  },
+  "toux": {
+   "name": "La toux grise",
+   "desc": "Une toux sèche, qui revient la nuit.",
+   "mod": {
+    "discretion": -15,
+    "magie": -5
+   },
+   "days": 2,
+   "tended": 1
+  }
+ },
+ "lore": {
+  "pages": [
+   {
+    "title": "La légende des Cinq Mains",
+    "text": [
+     "Tout le monde, dans les vallées, connaît l'histoire. Il y a quatre cents ans, la terre s'est ouverte sous le massif de la Fenne, et il en est monté une eau noire qui rendait fous les hommes et grises les bêtes. Un sorcier l'avait voulu. Cinq héros l'ont vaincu, l'ont enchaîné sous le glacier, et ont fermé la **Brèche** d'un **Sceau** à trois clés.",
+     "L'**Ordre de la Main** garde cette mémoire. Ses novices apprennent par cœur les noms des Cinq Mains, le geste du salut et la prière du soir ; les colporteurs vendent leurs images pieuses, et les bornes des chemins portent leurs mains sculptées dans la pierre."
+    ]
+   },
+   {
+    "title": "Le pays",
+    "text": [
+     "Deux couronnes se partagent les vallées : **Aldaran**, la tour d'argent sur champ bleu, et **Vel-Orin**, le croissant. Chacune frappe ses sous ; on voit aussi passer des deniers de cuivre et, plus rarement, des couronnes d'or, lourdes, que les marchands pèsent avant de les prendre.",
+     "Au pied de la crête, le hameau des Trois-Bornes ; plus bas, la vallée de la Sorbe, ses moulins et ses marais ; au loin, la forêt du Rouvre et le massif de la Fenne. Des trolls, il y en a toujours eu dans les hauteurs : on garde ses moutons, et on vit avec."
+    ]
+   }
+  ],
+  "names": {
+   "Cinq Mains": "Les cinq héros qui, il y a quatre cents ans, ont enchaîné le sorcier sous le glacier de la Fenne.",
+   "Ordre de la Main": "L'ordre religieux qui garde la mémoire des Cinq Mains et de la Brèche fermée.",
+   "Brèche": "La faille ouverte sous la Fenne il y a quatre cents ans, d'où montait l'eau noire.",
+   "Sceau": "Le sceau à trois clés qui ferme la Brèche, selon la légende.",
+   "Fenne": "Le massif et son glacier, au fond des vallées.",
+   "Aldaran": "Une des deux couronnes des vallées. Son signe : une tour d'argent sur champ bleu.",
+   "Vel-Orin": "L'autre couronne des vallées. Son signe : un croissant.",
+   "Trois-Bornes": "Un hameau de six toits au pied de la crête, autour de trois pierres levées.",
+   "Sorbe": "La vallée et la rivière en contrebas de la crête, avec ses moulins et ses marais.",
+   "Brumefeuille": "Un village de la Sorbe, de l'autre côté de la crête."
+  }
+ },
  "world": {
   "money": {
    "units": [
@@ -5732,7 +5942,8 @@
      "Tu campes sous un saule creux, assez large pour t'abriter de la pluie fine. Le feu de bois mort fume plus qu'il ne chauffe. Toute la nuit, la rivière parle à côté de toi, à mi-voix, et tu te réveilles plusieurs fois avec l'impression qu'elle a dit ton nom.",
      "Une grange abandonnée, du foin sec, un toit qui tient. Tu y dors mieux que dans bien des auberges. Avant l'aube, une chouette entre par la lucarne, te regarde, et ressort sans bruit.",
      "Tu fais ton feu au creux d'un talus, à l'abri du vent. Les étoiles sont nettes et froides. Loin vers l'est, au-dessus de la Fenne, le glacier garde une lueur pâle longtemps après le coucher du soleil, comme s'il avait sa propre lumière."
-    ]
+    ],
+    "tiring": 2
    },
    "foret": {
     "name": "La forêt du Rouvre",
@@ -5776,7 +5987,8 @@
     "camp": [
      "Vous campez sur une butte sèche, à peine plus haute que l'eau, sous un saule mort. Le feu fume, le bois est humide. Toute la nuit, les grenouilles chantent, et puis, vers le matin, elles se taisent toutes en même temps, et tu te réveilles à cause du silence.",
      "Une cabane de pêcheur abandonnée, sur pilotis, avec la moitié du plancher. Vous dormez sur l'autre moitié. Le vent passe entre les roseaux du mur. Au loin, des lueurs bleues flottent sur l'eau, et tu ne les regardes pas."
-    ]
+    ],
+    "tiring": 2
    },
    "val": {
     "name": "Le Val d'Anse",
@@ -5801,7 +6013,8 @@
      "Vous faites halte dans une grange à foin abandonnée, au bord de l'Anse. Le foin est vieux, mais il est sec. On entend la rivière toute la nuit, et un hibou dans la charpente, qui ne veut pas partir.",
      "Le camp est dressé à l'abri d'un mur de pierres sèches, sous un grand châtaignier. Tu fais griller des châtaignes sous la cendre. Elles éclatent dans la nuit avec des petits bruits secs, et chaque fois, tu sursautes.",
      "Vous dormez dans le porche d'une chapelle des champs, sous une main ouverte sculptée au-dessus de la porte. Il fait froid. La pierre garde un peu de la chaleur du jour, et puis plus rien."
-    ]
+    ],
+    "tiring": 2
    },
    "lac": {
     "name": "Le lac de Morteau",
@@ -5872,7 +6085,8 @@
      "Vous campez dans une grange vide, au foin moisi, sans feu, pour ne pas être vus. On entend au loin, toute la nuit, les chiens d'un village qu'on ne voit pas.",
      "Vous dormez sous un pont, à l'abri du vent, les pieds presque dans l'eau. Une fois, vers minuit, des chevaux passent au-dessus, au pas, et personne ne respire.",
      "Un verger abandonné, des pommes tombées dans l'herbe que personne n'a ramassées. Vous en faites cuire sous la cendre. C'est le meilleur repas depuis le Val d'Anse."
-    ]
+    ],
+    "tiring": 2
    },
    "IIIV_lignes": {
     "name": "Entre les lignes",
@@ -5947,7 +6161,8 @@
      "Tu campes dans une grange ouverte, au milieu d'un champ gris. Le foin est sec. Tu dors mal : toute la nuit, tu entends, quelque part sous le plancher, un goutte-à-goutte qui ne s'arrête pas.",
      "Tu fais ton feu au pied d'un rocher, loin de toute eau. La montagne est toute proche, maintenant, et au-dessus, le glacier garde une lueur pâle longtemps après le coucher du soleil.",
      "Tu dors dans une chapelle de carrefour, une petite chambre de pierre avec cinq mains peintes au mur et un banc. Quelqu'un a laissé des chandelles. Tu en allumes une. Tu en laisses deux."
-    ]
+    ],
+    "tiring": 2
    },
    "fenne": {
     "name": "Le massif de la Fenne",
@@ -5972,7 +6187,8 @@
      "Tu campes sous un bloc de granit gros comme une maison, sur un lit de pierres plates que tu as raclées de la neige. Le feu de branches de genévrier sent la résine et donne peu de chaleur. La nuit, le glacier craque, très loin au-dessus, avec des bruits de portes qu'on claque.",
      "Une grotte peu profonde, à peine un renfoncement dans la roche, mais qui coupe le vent. Vous y dormez serrés, roulés dans tout ce que vous avez, et le matin le givre a dessiné des fougères sur vos couvertures.",
      "Pas d'abri, cette nuit. Tu creuses un trou dans la neige, à l'abri d'une congère, comme le font les chasseurs, et tu y dors mieux que tu ne l'aurais cru. Au-dessus de toi, les étoiles sont si nombreuses qu'elles se touchent."
-    ]
+    ],
+    "tiring": 2
    },
    "VE_descente": {
     "name": "La Descente",
@@ -102142,6 +102358,18 @@
      },
      "text": "Barthélemy, le meunier, est parti de Brumefeuille en silence, un matin, avec un sac. Le moulin ne tourne plus. Le bief est clair, ou presque."
     },
+    {
+     "if": {
+      "has": "II:tronc"
+     },
+     "text": "Les vingt sous que tu as donnés au tronc des veuves du bief sont partis pour de bon. Père Odon avait raison : ils ont emporté quelque chose avec eux, et ta main s'en souvient."
+    },
+    {
+     "if": {
+      "has": "sg:fermage"
+     },
+     "text": "Les Rabier paient le fermage en entier, chaque Saint-Martin, au notaire de Merle, en ton nom. Les plaques grises gagnent un peu sur les champs chaque année. Ils paient quand même."
+    },
     "*Ferrance, Morteau et Thavar*",
     {
      "if": {
@@ -102453,6 +102681,12 @@
       "has": "V:josse_vu"
      },
      "text": "Au fort de la Descente, un gant noir est resté par terre, sur le seuil d'une poterne. Celui qui l'a jeté ne l'a pas ramassé."
+    },
+    {
+     "if": {
+      "has": "IIF:clou_vole"
+     },
+     "text": "À Ferrance, on a bouché le trou de l'enclume avec un clou neuf, qui sonne faux sous le marteau. Les compagnons savent qui a pris l'ancien. Ils en parlent à voix basse, avec une sorte de respect."
     },
     "*L'Ordre et le Cercle*",
     {
@@ -103519,6 +103753,105 @@
       ]
      },
      "text": "Ardhal est toujours sous ta main, quelque part dans la glace de la Fenne. Tu le sens, la nuit, comme on sent un chien qui tire sur sa chaîne. Il ne tire plus très fort."
+    },
+    "*La montagne*",
+    {
+     "if": {
+      "has": "IVD:obole"
+     },
+     "text": "Le sou que tu as laissé à l'oratoire des pèlerins est toujours sur la tablette, sous la main de bois. D'autres sont venus à côté, un par un, à chaque printemps."
+    },
+    {
+     "if": {
+      "all": [
+       {
+        "has": "IVD:bastienne_promesse"
+       },
+       {
+        "not": {
+         "has": "VF:tient_heros"
+        }
+       }
+      ]
+     },
+     "text": "Tu avais promis à Bastienne de chercher Gaspard. Tu es redescendu{e} jusqu'à sa borne, au bord du chemin, et tu lui as dit ce que tu avais vu là-haut. Le lendemain, elle a rangé son panier et elle est rentrée chez elle."
+    },
+    {
+     "if": {
+      "all": [
+       {
+        "has": "IVD:bastienne_promesse"
+       },
+       {
+        "has": "VF:tient_heros"
+       }
+      ]
+     },
+     "text": "Bastienne regarde toujours la montagne, de l'aube au soir, assise sur sa borne. Tu lui avais promis de chercher Gaspard. Personne n'est redescendu le lui dire."
+    },
+    {
+     "if": {
+      "has": "IVD:pelerins_apaises"
+     },
+     "text": "Les pèlerins de la Main dorment sous la glace, dans le silence d'un cimetière. Aubin a dit l'office, et toi, leurs noms. Tibaut, neuf ans, est le nom qui te revient le plus souvent."
+    },
+    {
+     "if": {
+      "has": "IVD:avalanche"
+     },
+     "text": "Tu revois parfois la combe rabotée par la coulée, le sac de pèlerin déchiré, et les grandes traces qui s'arrêtaient au bord de la corniche."
+    },
+    {
+     "if": {
+      "has": "IVD:flaque_vue"
+     },
+     "text": "Au dégel, tu évites les flaques au bord des chemins. Tu sais ce qui peut te regarder du fond."
+    },
+    {
+     "if": {
+      "has": "IVD:voix_glacier"
+     },
+     "text": "Sous l'arche, la Voix t'a parlé avec une immense tendresse. Tu te souviens de chaque mot. De tout ce qu'elle a dit, c'est la tendresse que tu as eu le plus de mal à oublier."
+    },
+    {
+     "if": {
+      "all": [
+       {
+        "has": "IVD:carnet_ecrit"
+       },
+       {
+        "not": {
+         "has": "VF:tient_heros"
+        }
+       }
+      ]
+     },
+     "text": "Le carnet d'Isolde porte une page de ta main, droite et serrée, et la trace d'un crayon cassé sur le dernier mot. Tu l'as portée au Cercle. Ils l'ont lue debout, en silence."
+    },
+    {
+     "if": {
+      "all": [
+       {
+        "has": "IVD:carnet_ecrit"
+       },
+       {
+        "has": "VF:tient_heros"
+       }
+      ]
+     },
+     "text": "Le carnet d'Isolde est resté là-haut, ouvert sur une page de ta main. La neige le recouvre un peu plus chaque hiver."
+    },
+    {
+     "if": {
+      "has": "IVD:porte"
+     },
+     "text": "Ardhal a dormi quatre cents ans sur la porte du puits. Il savait ce qu'il y avait dessous. Tu penses à lui chaque fois que tu vois de la glace bleue."
+    },
+    {
+     "if": {
+      "has": "marque:dragon"
+     },
+     "text": "La main que tu as posée sur le front du dragon garde le froid de ses écailles. Certaines nuits, elle mord encore, comme elle a mordu là-haut."
     },
     "*La Descente*",
     {
@@ -104951,6 +105284,18 @@
      },
      "text": "Barthélemy, le meunier, est parti de Brumefeuille en silence, un matin, avec un sac. Le moulin ne tourne plus. Le bief est clair, ou presque."
     },
+    {
+     "if": {
+      "has": "II:tronc"
+     },
+     "text": "Les vingt sous que tu as donnés au tronc des veuves du bief sont partis pour de bon. Père Odon avait raison : ils ont emporté quelque chose avec eux, et ta main s'en souvient."
+    },
+    {
+     "if": {
+      "has": "sg:fermage"
+     },
+     "text": "Les Rabier paient le fermage en entier, chaque Saint-Martin, au notaire de Merle, en ton nom. Les plaques grises gagnent un peu sur les champs chaque année. Ils paient quand même."
+    },
     "*Ferrance, Morteau et Thavar*",
     {
      "if": {
@@ -105240,6 +105585,12 @@
       "has": "V:josse_vu"
      },
      "text": "Au fort de la Descente, un gant noir est resté par terre, sur le seuil d'une poterne. Celui qui l'a jeté ne l'a pas ramassé."
+    },
+    {
+     "if": {
+      "has": "IIF:clou_vole"
+     },
+     "text": "À Ferrance, on a bouché le trou de l'enclume avec un clou neuf, qui sonne faux sous le marteau. Les compagnons savent qui a pris l'ancien. Ils en parlent à voix basse, avec une sorte de respect."
     },
     "*L'Ordre et le Cercle*",
     {
@@ -106127,6 +106478,61 @@
       ]
      },
      "text": "Ardhal est toujours sous ta main, quelque part dans la glace de la Fenne. Tu le sens, la nuit, comme on sent un chien qui tire sur sa chaîne. Il ne tire plus très fort."
+    },
+    "*La montagne*",
+    {
+     "if": {
+      "has": "IVD:obole"
+     },
+     "text": "Le sou que tu as laissé à l'oratoire des pèlerins est toujours sur la tablette, sous la main de bois. D'autres sont venus à côté, un par un, à chaque printemps."
+    },
+    {
+     "if": {
+      "has": "IVD:bastienne_promesse"
+     },
+     "text": "Tu avais promis à Bastienne de chercher Gaspard. Tu es redescendu{e} jusqu'à sa borne, au bord du chemin, et tu lui as dit ce que tu avais vu là-haut. Le lendemain, elle a rangé son panier et elle est rentrée chez elle."
+    },
+    {
+     "if": {
+      "has": "IVD:pelerins_apaises"
+     },
+     "text": "Les pèlerins de la Main dorment sous la glace, dans le silence d'un cimetière. Aubin a dit l'office, et toi, leurs noms. Tibaut, neuf ans, est le nom qui te revient le plus souvent."
+    },
+    {
+     "if": {
+      "has": "IVD:avalanche"
+     },
+     "text": "Tu revois parfois la combe rabotée par la coulée, le sac de pèlerin déchiré, et les grandes traces qui s'arrêtaient au bord de la corniche."
+    },
+    {
+     "if": {
+      "has": "IVD:flaque_vue"
+     },
+     "text": "Au dégel, tu évites les flaques au bord des chemins. Tu sais ce qui peut te regarder du fond."
+    },
+    {
+     "if": {
+      "has": "IVD:voix_glacier"
+     },
+     "text": "Sous l'arche, la Voix t'a parlé avec une immense tendresse. Tu te souviens de chaque mot. De tout ce qu'elle a dit, c'est la tendresse que tu as eu le plus de mal à oublier."
+    },
+    {
+     "if": {
+      "has": "IVD:carnet_ecrit"
+     },
+     "text": "Le carnet d'Isolde porte une page de ta main, droite et serrée, et la trace d'un crayon cassé sur le dernier mot. Tu l'as portée au Cercle. Ils l'ont lue debout, en silence."
+    },
+    {
+     "if": {
+      "has": "IVD:porte"
+     },
+     "text": "Ardhal a dormi quatre cents ans sur la porte du puits. Il savait ce qu'il y avait dessous. Tu penses à lui chaque fois que tu vois de la glace bleue."
+    },
+    {
+     "if": {
+      "has": "marque:dragon"
+     },
+     "text": "La main que tu as posée sur le front du dragon garde le froid de ses écailles. Certaines nuits, elle mord encore, comme elle a mordu là-haut."
     },
     "*La Descente*",
     {
@@ -107456,6 +107862,18 @@
      },
      "text": "Barthélemy, le meunier, est parti de Brumefeuille en silence, un matin, avec un sac. Le moulin ne tourne plus. Le bief est clair, ou presque."
     },
+    {
+     "if": {
+      "has": "II:tronc"
+     },
+     "text": "Les vingt sous que tu as donnés au tronc des veuves du bief sont partis pour de bon. Père Odon avait raison : ils ont emporté quelque chose avec eux, et ta main s'en souvient."
+    },
+    {
+     "if": {
+      "has": "sg:fermage"
+     },
+     "text": "Les Rabier paient le fermage en entier, chaque Saint-Martin, au notaire de Merle, en ton nom. Les plaques grises gagnent un peu sur les champs chaque année. Ils paient quand même."
+    },
     "*Ferrance, Morteau et Thavar*",
     {
      "if": {
@@ -107745,6 +108163,12 @@
       "has": "V:josse_vu"
      },
      "text": "Au fort de la Descente, un gant noir est resté par terre, sur le seuil d'une poterne. Celui qui l'a jeté ne l'a pas ramassé."
+    },
+    {
+     "if": {
+      "has": "IIF:clou_vole"
+     },
+     "text": "À Ferrance, on a bouché le trou de l'enclume avec un clou neuf, qui sonne faux sous le marteau. Les compagnons savent qui a pris l'ancien. Ils en parlent à voix basse, avec une sorte de respect."
     },
     "*L'Ordre et le Cercle*",
     {
@@ -108632,6 +109056,61 @@
       ]
      },
      "text": "Ardhal est toujours sous ta main, quelque part dans la glace de la Fenne. Tu le sens, la nuit, comme on sent un chien qui tire sur sa chaîne. Il ne tire plus très fort."
+    },
+    "*La montagne*",
+    {
+     "if": {
+      "has": "IVD:obole"
+     },
+     "text": "Le sou que tu as laissé à l'oratoire des pèlerins est toujours sur la tablette, sous la main de bois. D'autres sont venus à côté, un par un, à chaque printemps."
+    },
+    {
+     "if": {
+      "has": "IVD:bastienne_promesse"
+     },
+     "text": "Tu avais promis à Bastienne de chercher Gaspard. Tu es redescendu{e} jusqu'à sa borne, au bord du chemin, et tu lui as dit ce que tu avais vu là-haut. Le lendemain, elle a rangé son panier et elle est rentrée chez elle."
+    },
+    {
+     "if": {
+      "has": "IVD:pelerins_apaises"
+     },
+     "text": "Les pèlerins de la Main dorment sous la glace, dans le silence d'un cimetière. Aubin a dit l'office, et toi, leurs noms. Tibaut, neuf ans, est le nom qui te revient le plus souvent."
+    },
+    {
+     "if": {
+      "has": "IVD:avalanche"
+     },
+     "text": "Tu revois parfois la combe rabotée par la coulée, le sac de pèlerin déchiré, et les grandes traces qui s'arrêtaient au bord de la corniche."
+    },
+    {
+     "if": {
+      "has": "IVD:flaque_vue"
+     },
+     "text": "Au dégel, tu évites les flaques au bord des chemins. Tu sais ce qui peut te regarder du fond."
+    },
+    {
+     "if": {
+      "has": "IVD:voix_glacier"
+     },
+     "text": "Sous l'arche, la Voix t'a parlé avec une immense tendresse. Tu te souviens de chaque mot. De tout ce qu'elle a dit, c'est la tendresse que tu as eu le plus de mal à oublier."
+    },
+    {
+     "if": {
+      "has": "IVD:carnet_ecrit"
+     },
+     "text": "Le carnet d'Isolde porte une page de ta main, droite et serrée, et la trace d'un crayon cassé sur le dernier mot. Tu l'as portée au Cercle. Ils l'ont lue debout, en silence."
+    },
+    {
+     "if": {
+      "has": "IVD:porte"
+     },
+     "text": "Ardhal a dormi quatre cents ans sur la porte du puits. Il savait ce qu'il y avait dessous. Tu penses à lui chaque fois que tu vois de la glace bleue."
+    },
+    {
+     "if": {
+      "has": "marque:dragon"
+     },
+     "text": "La main que tu as posée sur le front du dragon garde le froid de ses écailles. Certaines nuits, elle mord encore, comme elle a mordu là-haut."
     },
     "*La Descente*",
     {
@@ -109968,6 +110447,18 @@
      },
      "text": "Barthélemy, le meunier, est parti de Brumefeuille en silence, un matin, avec un sac. Le moulin ne tourne plus. Le bief est clair, ou presque."
     },
+    {
+     "if": {
+      "has": "II:tronc"
+     },
+     "text": "Les vingt sous que tu as donnés au tronc des veuves du bief sont partis pour de bon. Père Odon avait raison : ils ont emporté quelque chose avec eux, et ta main s'en souvient."
+    },
+    {
+     "if": {
+      "has": "sg:fermage"
+     },
+     "text": "Les Rabier paient le fermage en entier, chaque Saint-Martin, au notaire de Merle, en ton nom. Les plaques grises gagnent un peu sur les champs chaque année. Ils paient quand même."
+    },
     "*Ferrance, Morteau et Thavar*",
     {
      "if": {
@@ -110257,6 +110748,12 @@
       "has": "V:josse_vu"
      },
      "text": "Au fort de la Descente, un gant noir est resté par terre, sur le seuil d'une poterne. Celui qui l'a jeté ne l'a pas ramassé."
+    },
+    {
+     "if": {
+      "has": "IIF:clou_vole"
+     },
+     "text": "À Ferrance, on a bouché le trou de l'enclume avec un clou neuf, qui sonne faux sous le marteau. Les compagnons savent qui a pris l'ancien. Ils en parlent à voix basse, avec une sorte de respect."
     },
     "*L'Ordre et le Cercle*",
     {
@@ -111144,6 +111641,61 @@
       ]
      },
      "text": "Ardhal est toujours sous ta main, quelque part dans la glace de la Fenne. Tu le sens, la nuit, comme on sent un chien qui tire sur sa chaîne. Il ne tire plus très fort."
+    },
+    "*La montagne*",
+    {
+     "if": {
+      "has": "IVD:obole"
+     },
+     "text": "Le sou que tu as laissé à l'oratoire des pèlerins est toujours sur la tablette, sous la main de bois. D'autres sont venus à côté, un par un, à chaque printemps."
+    },
+    {
+     "if": {
+      "has": "IVD:bastienne_promesse"
+     },
+     "text": "Bastienne regarde toujours la montagne, de l'aube au soir, assise sur sa borne. Tu lui avais promis de chercher Gaspard. Personne n'est redescendu le lui dire."
+    },
+    {
+     "if": {
+      "has": "IVD:pelerins_apaises"
+     },
+     "text": "Les pèlerins de la Main dorment sous la glace, dans le silence d'un cimetière. Aubin a dit l'office, et toi, leurs noms. Tibaut, neuf ans, est le nom qui te revient le plus souvent."
+    },
+    {
+     "if": {
+      "has": "IVD:avalanche"
+     },
+     "text": "Tu revois parfois la combe rabotée par la coulée, le sac de pèlerin déchiré, et les grandes traces qui s'arrêtaient au bord de la corniche."
+    },
+    {
+     "if": {
+      "has": "IVD:flaque_vue"
+     },
+     "text": "Au dégel, tu évites les flaques au bord des chemins. Tu sais ce qui peut te regarder du fond."
+    },
+    {
+     "if": {
+      "has": "IVD:voix_glacier"
+     },
+     "text": "Sous l'arche, la Voix t'a parlé avec une immense tendresse. Tu te souviens de chaque mot. De tout ce qu'elle a dit, c'est la tendresse que tu as eu le plus de mal à oublier."
+    },
+    {
+     "if": {
+      "has": "IVD:carnet_ecrit"
+     },
+     "text": "Le carnet d'Isolde est resté là-haut, ouvert sur une page de ta main. La neige le recouvre un peu plus chaque hiver."
+    },
+    {
+     "if": {
+      "has": "IVD:porte"
+     },
+     "text": "Ardhal a dormi quatre cents ans sur la porte du puits. Il savait ce qu'il y avait dessous. Tu penses à lui chaque fois que tu vois de la glace bleue."
+    },
+    {
+     "if": {
+      "has": "marque:dragon"
+     },
+     "text": "La main que tu as posée sur le front du dragon garde le froid de ses écailles. Certaines nuits, elle mord encore, comme elle a mordu là-haut."
     },
     "*La Descente*",
     {
@@ -112486,6 +113038,18 @@
      },
      "text": "Barthélemy, le meunier, est parti de Brumefeuille en silence, un matin, avec un sac. Le moulin ne tourne plus. Le bief est clair, ou presque."
     },
+    {
+     "if": {
+      "has": "II:tronc"
+     },
+     "text": "Les vingt sous que tu as donnés au tronc des veuves du bief sont partis pour de bon. Père Odon avait raison : ils ont emporté quelque chose avec eux, et ta main s'en souvient."
+    },
+    {
+     "if": {
+      "has": "sg:fermage"
+     },
+     "text": "Les Rabier paient le fermage en entier, chaque Saint-Martin, au notaire de Merle, en ton nom. Les plaques grises gagnent un peu sur les champs chaque année. Ils paient quand même."
+    },
     "*Ferrance, Morteau et Thavar*",
     {
      "if": {
@@ -112775,6 +113339,12 @@
       "has": "V:josse_vu"
      },
      "text": "Au fort de la Descente, un gant noir est resté par terre, sur le seuil d'une poterne. Celui qui l'a jeté ne l'a pas ramassé."
+    },
+    {
+     "if": {
+      "has": "IIF:clou_vole"
+     },
+     "text": "À Ferrance, on a bouché le trou de l'enclume avec un clou neuf, qui sonne faux sous le marteau. Les compagnons savent qui a pris l'ancien. Ils en parlent à voix basse, avec une sorte de respect."
     },
     "*L'Ordre et le Cercle*",
     {
@@ -113662,6 +114232,61 @@
       ]
      },
      "text": "Ardhal est toujours sous ta main, quelque part dans la glace de la Fenne. Tu le sens, la nuit, comme on sent un chien qui tire sur sa chaîne. Il ne tire plus très fort."
+    },
+    "*La montagne*",
+    {
+     "if": {
+      "has": "IVD:obole"
+     },
+     "text": "Le sou que tu as laissé à l'oratoire des pèlerins est toujours sur la tablette, sous la main de bois. D'autres sont venus à côté, un par un, à chaque printemps."
+    },
+    {
+     "if": {
+      "has": "IVD:bastienne_promesse"
+     },
+     "text": "Tu avais promis à Bastienne de chercher Gaspard. Tu es redescendu{e} jusqu'à sa borne, au bord du chemin, et tu lui as dit ce que tu avais vu là-haut. Le lendemain, elle a rangé son panier et elle est rentrée chez elle."
+    },
+    {
+     "if": {
+      "has": "IVD:pelerins_apaises"
+     },
+     "text": "Les pèlerins de la Main dorment sous la glace, dans le silence d'un cimetière. Aubin a dit l'office, et toi, leurs noms. Tibaut, neuf ans, est le nom qui te revient le plus souvent."
+    },
+    {
+     "if": {
+      "has": "IVD:avalanche"
+     },
+     "text": "Tu revois parfois la combe rabotée par la coulée, le sac de pèlerin déchiré, et les grandes traces qui s'arrêtaient au bord de la corniche."
+    },
+    {
+     "if": {
+      "has": "IVD:flaque_vue"
+     },
+     "text": "Au dégel, tu évites les flaques au bord des chemins. Tu sais ce qui peut te regarder du fond."
+    },
+    {
+     "if": {
+      "has": "IVD:voix_glacier"
+     },
+     "text": "Sous l'arche, la Voix t'a parlé avec une immense tendresse. Tu te souviens de chaque mot. De tout ce qu'elle a dit, c'est la tendresse que tu as eu le plus de mal à oublier."
+    },
+    {
+     "if": {
+      "has": "IVD:carnet_ecrit"
+     },
+     "text": "Le carnet d'Isolde porte une page de ta main, droite et serrée, et la trace d'un crayon cassé sur le dernier mot. Tu l'as portée au Cercle. Ils l'ont lue debout, en silence."
+    },
+    {
+     "if": {
+      "has": "IVD:porte"
+     },
+     "text": "Ardhal a dormi quatre cents ans sur la porte du puits. Il savait ce qu'il y avait dessous. Tu penses à lui chaque fois que tu vois de la glace bleue."
+    },
+    {
+     "if": {
+      "has": "marque:dragon"
+     },
+     "text": "La main que tu as posée sur le front du dragon garde le froid de ses écailles. Certaines nuits, elle mord encore, comme elle a mordu là-haut."
     },
     "*La Descente*",
     {
@@ -114926,6 +115551,18 @@
      },
      "text": "Barthélemy, le meunier, est parti de Brumefeuille en silence, un matin, avec un sac. Le moulin ne tourne plus. Le bief est clair, ou presque."
     },
+    {
+     "if": {
+      "has": "II:tronc"
+     },
+     "text": "Les vingt sous que tu as donnés au tronc des veuves du bief sont partis pour de bon. Père Odon avait raison : ils ont emporté quelque chose avec eux, et ta main s'en souvient."
+    },
+    {
+     "if": {
+      "has": "sg:fermage"
+     },
+     "text": "Les Rabier paient le fermage en entier, chaque Saint-Martin, au notaire de Merle, en ton nom. Les plaques grises gagnent un peu sur les champs chaque année. Ils paient quand même."
+    },
     "*Ferrance, Morteau et Thavar*",
     {
      "if": {
@@ -115215,6 +115852,12 @@
       "has": "V:josse_vu"
      },
      "text": "Au fort de la Descente, un gant noir est resté par terre, sur le seuil d'une poterne. Celui qui l'a jeté ne l'a pas ramassé."
+    },
+    {
+     "if": {
+      "has": "IIF:clou_vole"
+     },
+     "text": "À Ferrance, on a bouché le trou de l'enclume avec un clou neuf, qui sonne faux sous le marteau. Les compagnons savent qui a pris l'ancien. Ils en parlent à voix basse, avec une sorte de respect."
     },
     "*L'Ordre et le Cercle*",
     {
@@ -116102,6 +116745,61 @@
       ]
      },
      "text": "Ardhal est toujours sous ta main, quelque part dans la glace de la Fenne. Tu le sens, la nuit, comme on sent un chien qui tire sur sa chaîne. Il ne tire plus très fort."
+    },
+    "*La montagne*",
+    {
+     "if": {
+      "has": "IVD:obole"
+     },
+     "text": "Le sou que tu as laissé à l'oratoire des pèlerins est toujours sur la tablette, sous la main de bois. D'autres sont venus à côté, un par un, à chaque printemps."
+    },
+    {
+     "if": {
+      "has": "IVD:bastienne_promesse"
+     },
+     "text": "Bastienne regarde toujours la montagne, de l'aube au soir, assise sur sa borne. Tu lui avais promis de chercher Gaspard. Personne n'est redescendu le lui dire."
+    },
+    {
+     "if": {
+      "has": "IVD:pelerins_apaises"
+     },
+     "text": "Les pèlerins de la Main dorment sous la glace, dans le silence d'un cimetière. Aubin a dit l'office, et toi, leurs noms. Tibaut, neuf ans, est le nom qui te revient le plus souvent."
+    },
+    {
+     "if": {
+      "has": "IVD:avalanche"
+     },
+     "text": "Tu revois parfois la combe rabotée par la coulée, le sac de pèlerin déchiré, et les grandes traces qui s'arrêtaient au bord de la corniche."
+    },
+    {
+     "if": {
+      "has": "IVD:flaque_vue"
+     },
+     "text": "Au dégel, tu évites les flaques au bord des chemins. Tu sais ce qui peut te regarder du fond."
+    },
+    {
+     "if": {
+      "has": "IVD:voix_glacier"
+     },
+     "text": "Sous l'arche, la Voix t'a parlé avec une immense tendresse. Tu te souviens de chaque mot. De tout ce qu'elle a dit, c'est la tendresse que tu as eu le plus de mal à oublier."
+    },
+    {
+     "if": {
+      "has": "IVD:carnet_ecrit"
+     },
+     "text": "Le carnet d'Isolde est resté là-haut, ouvert sur une page de ta main. La neige le recouvre un peu plus chaque hiver."
+    },
+    {
+     "if": {
+      "has": "IVD:porte"
+     },
+     "text": "Ardhal a dormi quatre cents ans sur la porte du puits. Il savait ce qu'il y avait dessous. Tu penses à lui chaque fois que tu vois de la glace bleue."
+    },
+    {
+     "if": {
+      "has": "marque:dragon"
+     },
+     "text": "La main que tu as posée sur le front du dragon garde le froid de ses écailles. Certaines nuits, elle mord encore, comme elle a mordu là-haut."
     },
     "*La Descente*",
     {

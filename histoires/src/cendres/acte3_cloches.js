@@ -11,8 +11,8 @@ module.exports = {
       "Il te regarde de temps en temps, plein d'espoir. Tu fouilles tes poches.",
     ],
     choices: [
-      { label: "Lui donner une pièce", if: { gold: { min: 1 } }, why: "Tu n'as rien.", fx: { gold: -1, flag: "iii:dieu_prie" }, to: "III_c_dieu_prie" },
-      { label: "Lui dire une prière, n'importe laquelle", fx: { flag: "iii:dieu_prie" }, to: "III_c_dieu_prie" },
+      { label: "Lui donner une pièce", if: { gold: { min: 1 } }, why: "Tu n'as rien.", fx: { gold: -1 }, to: "III_c_dieu_prie" },
+      { label: "Lui dire une prière, n'importe laquelle", to: "III_c_dieu_prie" },
       { label: "Continuer", to: "@route" },
     ] }),
 
@@ -73,7 +73,7 @@ module.exports = {
       "« Demande-lui, dit-elle seulement. C'est son histoire. Les miennes, c'est les cloches. »",
       "Hylas a les yeux fermés. Il ne les a pas fermés depuis qu'il voit.",
     ],
-    choices: [{ label: "Ne pas insister, pour l'instant", fx: { flag: "iii:hylas_soupcon" }, to: "III_c_ville" }] }),
+    choices: [{ label: "Ne pas insister, pour l'instant", to: "III_c_ville" }] }),
 
   III_c_sauvelune: P({ title: "Le clocher de Sauvelune", place: "cloches",
     text: [
@@ -83,7 +83,7 @@ module.exports = {
       { if: { not: { has: "nord:rendu=sauvelune" } }, text: "La cloche est là. Elle est arrivée il y a un mois. Elle est encore tiède. Elle se tait. Personne, là-haut, ne pense à Sauvelune. Personne sauf toi, et tu n'es plus là-haut." },
     ],
     choices: [
-      { label: "Pleurer, ou rire, tu hésites", hide: { not: { has: "nord:rendu=sauvelune" } }, fx: { flag: "iii:sauvelune_partie", ep: ["perso", 1000] }, to: "III_c_ville" },
+      { label: "Pleurer, ou rire, tu hésites", hide: { not: { has: "nord:rendu=sauvelune" } }, fx: { ep: ["perso", 1000] }, to: "III_c_ville" },
       { label: "La faire sonner toi-même, à la main", hide: { has: "nord:rendu=sauvelune" }, to: "III_c_sauvelune_main" },
       { label: "Lui donner un souvenir, pour qu'elle sonne toute seule, pour toujours", tag: "Souvenir donné", stain: true, hide: { has: "nord:rendu=sauvelune" }, if: { souv: "enfant:chanson" }, why: "Tu ne l'as plus.",
         fx: { souv: "enfant:chanson", flag: "sauvelune:sonne", ep: ["perso", 2500] }, to: "III_c_sauvelune_don" },
@@ -135,7 +135,6 @@ module.exports = {
     ] }),
 
   III_c_lisse_ysolde: P({ title: "La capitaine", place: "cloches",
-    fx: { flag: "iii:lisse_ysolde" },
     text: [
       "Ysolde avance. Les gens se lèvent. Ils ne s'écartent pas. Ils l'entourent.",
       "Une femme dit son nom. Puis celui de son fils, qu'elle tient par la main, huit ans. Puis un vieux dit le sien. Puis tous, l'un après l'autre, lentement, calmement, en la regardant dans les yeux. Ça dure longtemps. Ysolde reste debout. Elle les écoute tous.",
@@ -179,7 +178,7 @@ module.exports = {
     ] }),
 
   III_c_linette_pie: P({ title: "Il l'a promis", place: "cloches",
-    fx: { flag: ["linette_avant:vue", "linette_avant:pie"] },
+    fx: { flag: ["linette_avant:vue"] },
     text: [
       "Pie s'agenouille devant elle. Elle le regarde, la tête penchée. Elle ne le reconnaît pas : il a vingt ans de plus que le frère dont elle se souvient.",
       "« Tu es qui, toi ? »",
@@ -198,7 +197,7 @@ module.exports = {
       "Il n'est pas vraiment là. Il est fait de ce qu'elle se rappelait de lui : il change, quand on le regarde. Tantôt il a dix ans, tantôt quatre, tantôt il en a seize et une épée. Il est mort il y a dix ans. Il est ici parce qu'elle l'a donné.",
       { with: "lisandre", text: "Lisandre s'est accroupie devant lui. « Elle va venir, lui dit-elle. Elle te cherche. Je lui dirai où tu es. » Elle le dit avec la voix des ballades tristes. Puis elle se relève, et elle n'a plus cette voix du tout." },
     ],
-    choices: [{ label: "Le regarder repartir en courant", fx: { flag: "aymeric:vu" }, to: "III_c_ville" }] }),
+    choices: [{ label: "Le regarder repartir en courant", to: "III_c_ville" }] }),
 
   III_c_bourdon: P({ title: "Le bourdon", place: "cloches",
     text: [
@@ -209,7 +208,7 @@ module.exports = {
     choices: [{ label: "Tirer la corde", to: "III_c_bourdon_sonne" }] }),
 
   III_c_bourdon_sonne: P({ title: "Une main de là-bas", place: "cloches",
-    fx: { flag: ["acte3:cloches_fini", "enfant:bourdon"], ep: ["histoire", 4000] },
+    fx: { flag: ["acte3:cloches_fini"], ep: ["histoire", 4000] },
     text: [
       "Tu tires. Rien. Tu tires encore, de tout ton poids.",
       "Elle sonne.",

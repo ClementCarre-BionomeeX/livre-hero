@@ -73,6 +73,7 @@ module.exports = {
       "Mère Roussel continue d'essuyer le même verre. « J'ai rien entendu, dit-elle. J'entends jamais rien. C'est mon métier, de rien entendre. » Elle pose le verre. « Et puis l'auberge est à Maître Pélissier. Les murs, le comptoir, le tonneau, tout. Je lui paie un loyer. Il me le rappelle tous les mois. »",
       "Elle reprend un autre verre. Elle évite ton regard. Mais elle reste.",
     ],
+    fx: { recit: "v_roussel_rien" },
     choices: [
       { label: "« Je ne vous demande pas de témoigner. Je vous demande ce que j'ai dit. Pour moi. »", hide: { has: "garde:chamois" }, test: { dom: "social", label: "Social" },
         win: { fx: { flag: "roussel:dit", ep: ["perso", 500] }, to: "V_roussel_dit" }, lose: { fx: { quest: "V_roussel", flag: ["roussel:silence", "roussel:sort"] }, to: "V_roussel_non" } },
@@ -85,7 +86,7 @@ module.exports = {
       "Mère Roussel soupire, et pose le torchon. « Vous avez dit que son frère était assis sur une fortune. Vous l'avez dit trois fois. La troisième, toute la salle l'a entendu. Il vous a payé à boire jusqu'à minuit. Il vous a ramené jusqu'à votre chambre. Le lendemain matin, vous êtes monté aux Combes avec un mal de tête que je ne souhaite à personne, et lui, il est allé chez le notaire. »",
       "Elle reprend son verre. « Voilà. Maintenant vous savez. Ça vous fait une belle jambe. »",
     ],
-    fx: { flag: "roussel:sait" },
+    fx: { flag: "roussel:sait", recit: "v_roussel_dit" },
     choices: [{ back: "V_roussel" }] },
   V_roussel_temoin: { act: "II", title: "Le loyer", place: "village",
     text: [
@@ -123,6 +124,7 @@ module.exports = {
       "Pélissier ôte ses lunettes et les essuie, longtemps. « Vingt écus ? Je ne vois pas de quoi vous parlez. Je ne vous connais pas. Nous nous sommes salués sur la place, le premier soir, comme on salue un fonctionnaire du duc. » Il remet ses lunettes. « Si vous aviez vingt écus sur vous, c'est que quelqu'un vous les a donnés. Je vous suggère de chercher qui. Et pourquoi. »",
       "Il sourit. Il a de très petites dents.",
     ],
+    fx: { recit: "v_pelissier_ecus" },
     choices: [{ back: "V_etude" }] },
   V_etude_registre: { act: "II", title: "Le registre", place: "village",
     text: [
@@ -347,7 +349,7 @@ module.exports = {
       { back: "V_place" },
     ] },
   V_vidal_morts: { act: "II", title: "Le mauvais air", place: "village",
-    fx: { clue: "h_morts", ep: ["perso", 600] },
+    fx: { clue: "h_morts", recit: "v_vidal_morts", ep: ["perso", 600] },
     text: [
       "Le curé Vidal regarde les cercueils. « Je les ai lavés, dit-il. Tous les quatre. Il n'y avait personne d'autre pour le faire. » Il fait tourner son bréviaire entre ses grosses mains.",
       "« Ils étaient roses. Les lèvres, les ongles, les joues du petit. Comme des gens qui ont trop chaud. Les morts du feu, j'en ai lavé, à la grande sécheresse : ils sont noirs, recroquevillés, les poings serrés. Ceux-là étaient dans leur lit, couchés, les mains ouvertes. Le feu les a pris après. Ils étaient déjà partis. » Il te regarde. « Le mauvais air. Ça arrive, l'hiver, quand un conduit se bouche. Une famille entière, sans un cri. On les trouve au matin. »",

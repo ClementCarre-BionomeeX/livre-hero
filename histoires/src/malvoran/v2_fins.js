@@ -1060,6 +1060,9 @@ function epilogue(fin) {
     "Barthélemy, le meunier, est parti de Brumefeuille en silence, un matin, avec un sac. Le moulin ne tourne plus. Le bief est clair, ou presque.");
 
   // ------------------------------------------------ the guardians (act II)
+  add(H("II:tronc"), "Les vingt sous que tu as donnés au tronc des veuves du bief sont partis pour de bon. Père Odon avait raison : ils ont emporté quelque chose avec eux, et ta main s'en souvient.");
+  add(H("sg:fermage"), "Les Rabier paient le fermage en entier, chaque Saint-Martin, au notaire de Merle, en ton nom. Les plaques grises gagnent un peu sur les champs chaque année. Ils paient quand même.");
+
   T("Ferrance, Morteau et Thavar");
   add(H("livre=rendu"), "La chronique de l'an trois est revenue à l'Athénée, et Maître Corbin l'a fait enchaîner de nouveau, mais à une table où l'on peut s'asseoir. On y lit *Malvoran le Guérisseur*. Les étudiants en recopient la page, en cachette, puis plus en cachette du tout.");
   toi(H("livre=garde"), "La chronique de l'an trois est dans ta besace, ou dans ta maison, enveloppée dans une couverture. Elle est restée intacte. Un jour, tu la donneras. Tu ne sais pas encore à qui.",
@@ -1099,6 +1102,8 @@ function epilogue(fin) {
   add(H("V:josse_vu"), "Au fort de la Descente, un gant noir est resté par terre, sur le seuil d'une poterne. Celui qui l'a jeté ne l'a pas ramassé.");
 
   // ------------------------------------------------ the Order and the Circle
+  add(H("IIF:clou_vole"), "À Ferrance, on a bouché le trou de l'enclume avec un clou neuf, qui sonne faux sous le marteau. Les compagnons savent qui a pris l'ancien. Ils en parlent à voix basse, avec une sorte de respect.");
+
   T("L'Ordre et le Cercle");
   add(H("edrin=parle"), "Edrin, le Grand Maître, est mort l'hiver suivant, à Hautecombe, dans son fauteuil. Il avait parlé, sur le parvis, devant trois cents personnes. Ils étaient six. On le dit, maintenant, dans les commanderies, d'abord à voix basse, puis à voix normale.");
   add(H("edrin=tait"), "Edrin, le Grand Maître, est mort l'hiver suivant, à Hautecombe, sans avoir rien dit à personne. On a sculpté cinq mains sur son tombeau. La sixième place est restée lisse.");
@@ -1207,6 +1212,19 @@ function epilogue(fin) {
   add(ALL(H("dragon=lie"), N(H("V:ardhal_libere"))), "Ardhal est toujours sous ta main, quelque part dans la glace de la Fenne. Tu le sens, la nuit, comme on sent un chien qui tire sur sa chaîne. Il ne tire plus très fort.");
 
   // ------------------------------------------------ the Descent (act V)
+  T("La montagne");
+  add(H("IVD:obole"), "Le sou que tu as laissé à l'oratoire des pèlerins est toujours sur la tablette, sous la main de bois. D'autres sont venus à côté, un par un, à chaque printemps.");
+  toi(H("IVD:bastienne_promesse"), "Tu avais promis à Bastienne de chercher Gaspard. Tu es redescendu{e} jusqu'à sa borne, au bord du chemin, et tu lui as dit ce que tu avais vu là-haut. Le lendemain, elle a rangé son panier et elle est rentrée chez elle.",
+    "Bastienne regarde toujours la montagne, de l'aube au soir, assise sur sa borne. Tu lui avais promis de chercher Gaspard. Personne n'est redescendu le lui dire.");
+  add(H("IVD:pelerins_apaises"), "Les pèlerins de la Main dorment sous la glace, dans le silence d'un cimetière. Aubin a dit l'office, et toi, leurs noms. Tibaut, neuf ans, est le nom qui te revient le plus souvent.");
+  add(H("IVD:avalanche"), "Tu revois parfois la combe rabotée par la coulée, le sac de pèlerin déchiré, et les grandes traces qui s'arrêtaient au bord de la corniche.");
+  add(H("IVD:flaque_vue"), "Au dégel, tu évites les flaques au bord des chemins. Tu sais ce qui peut te regarder du fond.");
+  add(H("IVD:voix_glacier"), "Sous l'arche, la Voix t'a parlé avec une immense tendresse. Tu te souviens de chaque mot. De tout ce qu'elle a dit, c'est la tendresse que tu as eu le plus de mal à oublier.");
+  toi(H("IVD:carnet_ecrit"), "Le carnet d'Isolde porte une page de ta main, droite et serrée, et la trace d'un crayon cassé sur le dernier mot. Tu l'as portée au Cercle. Ils l'ont lue debout, en silence.",
+    "Le carnet d'Isolde est resté là-haut, ouvert sur une page de ta main. La neige le recouvre un peu plus chaque hiver.");
+  add(H("IVD:porte"), "Ardhal a dormi quatre cents ans sur la porte du puits. Il savait ce qu'il y avait dessous. Tu penses à lui chaque fois que tu vois de la glace bleue.");
+  add(H("marque:dragon"), "La main que tu as posée sur le front du dragon garde le froid de ses écailles. Certaines nuits, elle mord encore, comme elle a mordu là-haut.");
+
   T("La Descente");
   add(H("noyes_puits=nommes"), "Les noyés du puits de la Descente sont partis, un à un, chacun à son nom. Jehan Loriot. La mère Gertrude. Les trois petits Fournier. Leurs familles ne le sauront jamais. Toi, tu le sais.");
   add(H("noyes_puits=commandes"), "Les noyés du puits de la Descente se sont écartés devant ta main tachée. Ils attendent toujours, assis sur leurs marches. Ils attendent celle ou celui qui leur donnera un autre ordre.");

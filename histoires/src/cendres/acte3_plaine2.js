@@ -11,7 +11,7 @@ module.exports = {
       "Il relève son chapeau quand tu approches. « Vous voulez passer ? demande-t-il. Ça fait un denier. » Passer quoi ? Il regarde autour de lui. Il fronce les sourcils. « La... » Il cherche. Il ne trouve pas. « Elle avait un nom, dit-il. Elle était large comme ça, verte au printemps, jaune après l'orage. J'y ai passé des gens pendant quarante ans. Je ne sais plus comment elle s'appelait. Alors elle est partie. »",
     ],
     choices: [
-      { label: "Lui donner le nom de la rivière que tu connais le mieux : la Sauve", fx: { flag: "iii:passeur", ep: ["perso", 600] }, to: "III_p_passeur_sauve" },
+      { label: "Lui donner le nom de la rivière que tu connais le mieux : la Sauve", fx: { ep: ["perso", 600] }, to: "III_p_passeur_sauve" },
       { label: "Payer le denier, et monter dans la barque", fx: { gold: -1, ep: ["perso", 300] }, to: "III_p_passeur_monter" },
     ] }),
   III_p_passeur_sauve: P({ title: "La Sauve",
@@ -30,9 +30,9 @@ module.exports = {
       { if: { seen: "III_B_cheval" }, text: "Il te demande, comme on demande l'heure, si tu n'aurais pas vu un cheval pie, noir et blanc, avec une sacoche. Le sien. Il l'a perdu en route. Il y avait dedans le pli le plus pressé de tous. Tu l'as vu : il marchait au milieu des chèvres d'une bergère, la tête droite, à quelques heures d'ici." },
     ],
     choices: [
-      { label: "Lui dire où est son cheval", hide: { not: { seen: "III_B_cheval" } }, fx: { flag: "iii:courrier_cheval", ep: ["perso", 600] }, to: "III_p_courrier_cheval" },
+      { label: "Lui dire où est son cheval", hide: { not: { seen: "III_B_cheval" } }, fx: { ep: ["perso", 600] }, to: "III_p_courrier_cheval" },
       { label: "L'aider à trier, en devinant à qui sont les lettres", test: { dom: "savoir", label: "Les lettres sans adresse", help: [{ if: { present: "hylas" }, v: 15 }, { if: { present: "linette" }, v: 15 }] },
-        win: { fx: { flag: "iii:courrier_tri", ep: ["perso", 800] }, to: "III_p_courrier_tri" }, lose: { to: "III_p_courrier_poids" } },
+        win: { fx: { ep: ["perso", 800] }, to: "III_p_courrier_tri" }, lose: { to: "III_p_courrier_poids" } },
     ] }),
   III_p_courrier_cheval: P({ title: "Le cheval pie",
     text: [

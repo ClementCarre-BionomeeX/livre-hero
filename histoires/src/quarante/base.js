@@ -102,6 +102,55 @@ module.exports = {
     ancille: { name: "Sœur Ancille", desc: "Archiviste du Temple. Elle a appris à lire à Livia." },
     gris: { name: "Le Gris", desc: "Un spadassin, payé pour te tuer." },
   },
+  // The siege's tools (piste 9, 15/11): the Council of the Five Benches votes, a promise made at the funeral, who is
+  // with whom, and a city that moves on while the hero is elsewhere.
+  councils: {
+    bancs: {
+      title: "Le Conseil des Cinq Bancs", hero: true, order: ["orsanne", "ghislain", "ysaure", "nello"],
+      members: { orsanne: {}, ghislain: {}, ysaure: {}, nello: {} },
+    },
+  },
+  motions: {
+    pain_taxe: {
+      council: "bancs", title: "Le pain taxé", shown: { seen: "Q_conseil_pain" },
+      text: "Nello Brisse dépose la motion, et le greffier la lit : « Que le pain soit vendu aux Canaux au prix de la veille du Deuil, jusqu'aux funérailles du prince. »",
+      lean: { orsanne: "contre", ghislain: "indecis", ysaure: "indecis", nello: "pour" },
+      say: {
+        orsanne: { contre: "Taxez le pain, et les boulangers cuiront pour la terre ferme. Le Banc du Sel vote contre.", pour: "Huit jours. Le Sel peut perdre huit jours." },
+        ghislain: { pour: "Mes marins ont des femmes aux Canaux. La Mer vote pour.", contre: "La flotte a d'autres soucis que le prix des miches. Contre." },
+        ysaure: { pour: "On ne marchande pas le pain d'un deuil. Les Eaux votent pour.", contre: "Le Temple nourrira ses pauvres lui-même, comme toujours. Contre." },
+        nello: { pour: "Les Rames votent pour. Vous vous en doutiez." },
+      },
+      fx: { adopte: { fac: { rames: 10, sel: -10 } }, rejete: { fac: { rames: -5 } } },
+    },
+  },
+  promises: {
+    pain: { to: "nello", text: "Que personne n'aura faim dans Sarvelle pendant le Deuil",
+      keeps: { any: [{ has: "salines:grain" }, { has: "salines:chantage" }] }, breaks: { has: "salines:laisse" }, kept: "redevable", broken: "trahi" },
+  },
+  ties: [
+    { id: "oncle", a: "ghislain", b: "iselda", kind: "famille", label: "L'amiral Ghislain est le frère du prince, et l'oncle d'Iselda." },
+    { id: "mere", a: "liane", b: "iselda", kind: "famille", label: "La princesse Liane est la mère d'Iselda. Elle est née à la cour de Thérance." },
+    { id: "marraine", a: "ysaure", b: "iselda", kind: "allie", label: "Mère Ysaure est la marraine d'Iselda.", if: { seen: "Q_conseil_garde" } },
+    { id: "gouvernante", a: "ortensia", b: "iselda", kind: "sert", label: "Dame Ortensia est la gouvernante d'Iselda. Elle a élevé le prince avant elle.", if: { person: "ortensia" } },
+    { id: "cuisinier", a: "bertin", b: "corradin", kind: "sert", label: "Bertin a cuisiné pour le prince pendant vingt ans.", if: { person: "bertin" } },
+    { id: "tribun", a: "tessa", b: "nello", kind: "famille", label: "Tessa est la sœur de Nello Brisse. Elle tient les distributions de pain aux Canaux.", if: { person: "tessa" } },
+    { id: "secretaire", a: "odile", b: "merande", kind: "sert", label: "Odile Varn est la secrétaire du comte Mérande.", if: { person: "odile" } },
+    { id: "commis", a: "grizzo", b: "orsanne", kind: "sert", label: "Grizzo est commis à la Hanse du Sel, sous Ser Orsanne.", if: { person: "grizzo" } },
+    { id: "grain_cache", a: "orsanne", b: "nello", kind: "ennemi", label: "Ser Orsanne gardait quatre mille sacs de blé aux salines, à vendre après le trentième jour.", if: { seen: "C_sal_grain" } },
+  ],
+  march: [
+    { id: "pain_affiche", acts: ["I"], if: { vote: "pain_taxe", is: "adopte" },
+      say: "Aux Canaux, les boulangers ont écrit à la craie, sur leurs volets, le prix de la veille du Deuil. Ils ouvrent à l'aube, et ferment à midi, faute de farine." },
+    { id: "pain_monte", acts: ["I"], if: { vote: "pain_taxe", is: "rejete" },
+      say: "Aux Canaux, le pain a encore pris deux deniers dans la nuit. Les boulangers effacent le vieux prix d'un revers de manche, et écrivent le nouveau à la craie." },
+    { id: "trois_morts", acts: ["II"], if: { has: "emeute:sang" },
+      say: "On enterre les trois morts du quai à l'Île des Morts, sans cloches. Les gondoles des Canaux suivent le cortège, en file, rames levées." },
+    { id: "barges", acts: ["II", "III"], if: { has: "salines:grain" },
+      say: "Le pain est revenu à son prix aux Canaux. Sur les volets des boulangers, quelqu'un a dessiné à la craie une barge chargée jusqu'au bord." },
+    { id: "sceau_barre", acts: ["II", "III"], if: { clock: "emprise", min: 4 },
+      say: "Sur le mur du port, au-dessus des quais, quelqu'un a peint pendant la nuit un grand sceau rouge, barré d'un trait noir." },
+  ],
   items: {
     dague: { name: "Dague", kind: "arme", dmg: 4, att: 5, price: 8, desc: "Une lame courte de Sarvelle, avec un lion ailé sur le pommeau, comme toutes les autres." },
     rapiere: { name: "Rapière", kind: "arme", dmg: 6, att: 5, price: 30, desc: "Une lame de duel, fine et longue. À Sarvelle, les gens de bien la portent ; les gens de mal aussi." },
@@ -138,11 +187,17 @@ module.exports = {
     temple: { name: "L'apothicairerie du Temple", sells: [{ item: "onguent", price: 6 }] },
     ansel: { name: "La pharmacie d'Ansel", sells: [{ item: "cordial", price: 10 }, { item: "onguent", price: 6 }] },
   },
+  // The hero's callings (8.5): the trade the past question names, played like one of the six classes.
+  voies: {
+    ardre: {"label": "Lettré des montagnes", "labelF": "Lettrée des montagnes", "tip": "Lire au feu de berger, marcher, tenir.", "like": "rodeur", "bonus": {"nature": 30, "savoir": 25, "social": 15, "combat": 15, "discretion": 10, "magie": 0}, "kit": ["arc_court"]},
+    therance: {"label": "Noble sans fortune", "tip": "Un nom, une rapière et des manières.", "like": "barde", "bonus": {"social": 35, "combat": 20, "savoir": 20, "discretion": 10, "nature": 0, "magie": 0}, "kit": []},
+    marin: {"label": "Ancien second", "labelF": "Ancienne seconde", "tip": "Commander des hommes et lire la mer.", "like": "rodeur", "bonus": {"nature": 25, "combat": 20, "social": 20, "discretion": 10, "savoir": 10, "magie": 0}, "kit": ["dague_jet"]},
+  },
   past: [
     { q: "D'où viens-tu ?", answers: [
-      { label: "Des montagnes de l'Ardre. Un berger t'a appris à lire à la lueur du feu, et tu es descendu vers la mer avec un livre et une paire de souliers.", fx: { flag: "passe:ardre", food: 2 } },
-      { label: "De Thérance même, d'une vieille famille ruinée dont il ne reste que le nom et un procès.", fx: { flag: "passe:therance", item: "rapiere" } },
-      { label: "De la mer. Tu as été second sur un navire marchand, jusqu'au naufrage, dont tu es sorti vivant.", fx: { flag: "passe:marin", gold: 30 } },
+      { label: "Des montagnes de l'Ardre. Un berger t'a appris à lire à la lueur du feu, et tu es descendu vers la mer avec un livre et une paire de souliers.", fx: { voie: "ardre", flag: "passe:ardre", food: 2 } },
+      { label: "De Thérance même, d'une vieille famille ruinée dont il ne reste que le nom et un procès.", fx: { voie: "therance", flag: "passe:therance", item: "rapiere" } },
+      { label: "De la mer. Tu as été second sur un navire marchand, jusqu'au naufrage, dont tu es sorti vivant.", fx: { voie: "marin", flag: "passe:marin", gold: 30 } },
     ] },
     { q: "Pourquoi le prince t'a-t-il choisi ?", answers: [
       { label: "Tu lui as sauvé la vie, une nuit de chasse au marais. Il t'a demandé ton nom, puis ton avis, puis ton aide.", fx: { flag: "passe:chasse" } },
@@ -155,6 +210,39 @@ module.exports = {
       { label: "Le jeu. Tu as perdu plus que tu ne pourras jamais rendre ; le prince a racheté tes dettes. Les reconnaissances signées sont quelque part dans ses comptes.", fx: { flag: "secret:dette" } },
     ] },
   ],
+  // The world of this book (8.6): what an inhabitant knows before the first page. Nothing of the plot.
+  lore: {
+    pages: [
+      { title: "Sarvelle", text: [
+        "**Sarvelle** est une cité de lagune : des îles reliées par des ponts, le Grand Canal, des palais posés sur l'eau, et sur la terre ferme, quelques domaines et castels. Un prince la gouverne. Les cloches de la ville sonnent rarement toutes ensemble : pour la paix de Corne, il y a vingt ans, pour la grande crue, et pour la mort d'un prince. La grosse cloche du palais sonne seulement pour les princes.",
+        "On paie en sous et en deniers, et la Hanse compte en écus.",
+      ] },
+      { title: "La Coutume du Deuil", text: [
+        "Quand le prince meurt, la **Coutume** ouvre les quarante jours du **Deuil**. Pendant ces quarante jours, le **Garde du Sceau** tient la cité en son nom et à sa place, sans pouvoir rien changer à la loi. Les funérailles ont lieu sur l'Île des Morts.",
+        "Au quarantième jour, si l'héritier n'a pas seize ans, les **Cinq Bancs** élisent un régent.",
+      ] },
+      { title: "Les puissances de la cité", text: [
+        "On le dit à Sarvelle : *la Hanse compte, l'Amirauté commande, les Canaux crient, et Thérance attend.*",
+        "Le Conseil des Cinq Bancs réunit le **Banc du Sel** (la Hanse du Sel, ses marchands et ses navires), le **Banc de la Mer** (l'Amirauté et l'Arsenal), le **Banc des Eaux** (le Temple des Eaux), le **Banc des Rames** (les Canaux, les bateliers, le petit peuple) et le **Banc du Prince**, où vote le Garde du Sceau.",
+        "**Thérance**, la grande voisine, entretient une ambassade dans la ville, et lit attentivement tout ce qui s'y passe.",
+      ] },
+    ],
+    names: {
+      "Sarvelle": "La cité de la lagune, gouvernée par un prince.",
+      "Garde du Sceau": "Celui qui garde le sceau du prince. Pendant le Deuil, il tient la cité sans pouvoir changer la loi.",
+      "Deuil": "Les quarante jours qui suivent la mort d'un prince.",
+      "Coutume": "La loi ancienne de Sarvelle, qui règle entre autres le Deuil et la régence.",
+      "Cinq Bancs": "Le Conseil de la cité : le Sel, la Mer, les Eaux, les Rames et le Prince.",
+      "Hanse|Hanse du Sel": "La compagnie des marchands de sel, la plus riche puissance de la cité. Elle siège à la Loge du Sel.",
+      "Amirauté": "La flotte de la cité et ceux qui la commandent, avec l'Arsenal.",
+      "Temple des Eaux": "Le grand temple de la lagune, une coupole verte sur une île de pierre.",
+      "Canaux": "Les bateliers et le petit peuple des canaux, et le banc qui parle pour eux.",
+      "Thérance": "La grande puissance voisine, qui tient une ambassade à Sarvelle.",
+      "Île des Morts": "L'île de la lagune où l'on enterre les morts de la cité.",
+      "Arsenal": "Les chantiers et les magasins de la flotte.",
+      "Loge du Sel": "La maison de la Hanse du Sel.",
+    },
+  },
   world: {
     money: { units: [{ name: "besant", plural: "besants", value: 12, short: "b." }, { name: "denier", plural: "deniers", value: 1, short: "d." }] },
     start: { place: "palais", gold: 24, food: 2, items: ["dague"],

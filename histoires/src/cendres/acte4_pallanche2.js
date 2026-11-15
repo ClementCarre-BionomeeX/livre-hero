@@ -99,7 +99,7 @@ module.exports = {
       "Quand la patrouille repart, la rue est vide. Le tonneau est renversé, les jetons écrasés dans le ruisseau. On a emmené le grand. Le petit au pinceau est assis sur une marche, plus loin, son pinceau à la main.",
       "« Ils l'ont emmené à la tour, dit-il. Pour l'écrire. » Il ne pleure pas. Il range son pinceau dans sa manche, avec soin, comme une chose qui servira.",
     ],
-    choices: [{ fx: { quest: "IV_Q_jetons", flag: "iv:jetons=pris" }, back: "IV_pal" }] }),
+    choices: [{ fx: { quest: "IV_Q_jetons" }, back: "IV_pal" }] }),
   IV_Q_jetons_partir: P({ title: "Au bout de la rue", place: "pallanche",
     text: ["Tu tournes au coin avant que la patrouille arrive. Derrière toi, un bruit de tonneau renversé, des cris d'enfants, puis plus rien. Tu ne te retournes pas. Tu y penses tout le reste de la journée."],
     choices: [{ back: "IV_pal" }] }),

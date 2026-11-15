@@ -339,6 +339,8 @@ module.exports = {
       { if: { has: "monde:joss_libre" }, text: "Joss Ferrand note la hauteur de l'eau dans son registre, comme tous les matins depuis trente ans. Puis, sous la ligne, il écrit autre chose, et il porte le registre au juge du roi, à Montclair, par le premier bac." },
       { if: { all: [{ not: { has: "monde:joss_libre" } }, { has: "monde:joss_laisse" }] }, text: "Quelqu'un finit par se souvenir de Joss. On le trouve dans la cave des chanoines, vivant, furieux. Le bailli jure qu'il n'en savait rien." },
       { if: { has: "paye_bailli" }, text: "Le bailli te fait savoir, par son valet, qu'il te remercie. De quoi, tu le sauras plus tard." },
+      { if: { has: "ligne_tenue" }, text: "Tu as tenu la ligne de Ravel jusqu'à l'aube, au bout du rang, comme le bailli l'avait payé. Tu as tout vu d'en bas. Ce matin, les vingt pièces pèsent lourd dans ta bourse." },
+      { if: { has: "morel_lu" }, text: "Tu repenses aux gants du bailli, à la poussière grise au bout de l'index. Tu l'avais su dès le premier soir." },
       "Le bac repasse à midi. Vous montez dedans, les voyageurs, sans beaucoup vous parler. Chacun de vous a vu la même nuit d'un autre côté. Sur l'autre rive, vous vous retournez tous en même temps vers Vaudrenne, et aucun de vous ne sait dire si c'est la ville qui a changé, ou vous.",
     ],
     choices: [] },

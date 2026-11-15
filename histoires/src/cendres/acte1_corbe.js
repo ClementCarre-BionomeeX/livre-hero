@@ -210,6 +210,8 @@ module.exports = {
       "Tu te réveilles couverte de givre. La crête court vers le sud, sur le fil, entre deux vides : à droite, les vallées vertes, à gauche, les Combes blanches. Les traces de la chose la suivent.",
       { if: { has: "corbe:voie=rite" }, text: "Derrière toi, sur le col, une fumée monte encore du camp. Ils doivent chanter pour la Bouche. Ils ne savent pas encore." },
       { if: { has: "corbe:voie=bran" }, text: "La lettre gratte contre ta peau à chaque pas." },
+      { if: { has: "corbe:rite_vide" }, text: "Ton nom est toujours à toi. Le blanc l'a écouté toute une journée, et il l'a laissé." },
+      { if: { has: "corbe:voie=suivre" }, text: "Tu es partie avant le rite, seule, pour savoir si la chose est la Mère. Ses traces t'attendent sur le fil de la crête." },
     ],
     choices: [{ label: "Suivre la crête vers le sud", travel: "r_combes" }] }),
 
@@ -221,7 +223,7 @@ module.exports = {
       { if: { has: "croise:fleche_corbe" }, text: "Le lendemain, quand tu reviens la chercher, elle n'est plus là. À sa place, des traces de chaussures de montagne, usées, qui suivent la chose, comme toi." },
       { if: { has: "croise:fleche_laissee" }, text: "Le lendemain, quand tu reviens la chercher, elle est toujours plantée là, droite. Mais quelqu'un est passé à côté, a fait le tour, et ne l'a pas touchée. Des chaussures de montagne, usées. Tu reprends ta flèche." },
     ],
-    choices: [{ fx: { flag: "corbe:fleche" }, back: "@route" }] }),
+    choices: [{ back: "@route" }] }),
 
   CO_four: R({ title: "Le four",
     fx: { questSeen: "CO_four" },
@@ -307,12 +309,19 @@ module.exports = {
     choices: [{ label: "Entrer dans la ville", fx: { flag: "corbe:voie_bran=tu", quest: "CO_bran", ep: ["histoire", 3000] }, to: "CO_fin" }] }),
 
   CO_fin: P({ title: "Corbe, à Pallanche", place: "pallanche",
-    fx: { flag: "prologue:corbe", quest: "CO_rite", catchup: 4, catchupWhy: "la route des crêtes" },
+    fx: { quest: "CO_rite", catchup: 4, catchupWhy: "la route des crêtes" },
     text: [
       "Tu dors cette nuit-là dans une écurie, près de la porte du Nord, parce que c'est l'endroit de la ville dont l'odeur rappelle le plus les Combes. Les cloches sonnent toutes les heures. À chaque fois, tu te réveilles, la main sur le couteau.",
       { if: { has: "corbe:voie_bran=oui" }, text: "Bran est venu, à la relève, s'asseoir à côté de toi dans la paille. Il n'a rien dit. Il est resté. Il ne sait pas pourquoi." },
       { if: { has: "corbe:voie_bran=donne" }, text: "Bran dort à côté de toi, dans la paille, en uniforme noir, ta main dans la sienne. Tu ne sais pas qui il est. Tu sais qu'il ne faut pas la lâcher." },
       { if: { has: "corbe:voie_bran=non" }, text: "À la relève, le garde roux est passé devant l'écurie. Il a ralenti. Il a regardé la paille. Il est reparti." },
+      { if: { has: "corbe:a_donne" }, text: "Il neige sur Pallanche, une neige sèche, qui crisse comme du sel. Tu ne connais que celle-là." },
+      { if: { has: "corbe:bran_dit" }, text: "*Une neige de ville.* Tu as dit le nom de Bran sous la tente de ta mère, et elle t'a répondu. Tu y penses en regardant la neige tomber sur les toits." },
+      { if: { all: [{ has: "corbe:bran_tu" },{ has: "corbe:voie_bran=tu" }] }, text: "Le jeton de bois de la porte du Nord est dans ta poche. Ton arc est resté au râtelier, et ton frère à la herse." },
+      { if: { has: "corbe:frere_donne" }, text: "Tu as donné à Bran ton souvenir de lui. Tu sais que tu l'as fait. Ce que tu lui as donné, tu le cherches, et tu trouves une place vide, chaude encore." },
+      { if: { has: "corbe:lettre_brulee" }, text: "Quand tu fermes les yeux, tu revois les signes rouges de la lettre, dans les flammes. Tu ne sais toujours pas les lire." },
+      { if: { has: "corbe:lettre_gardee" }, text: "La lettre est toujours cachetée, contre ta peau." },
+      { if: { has: "corbe:regarde" }, text: "Treize sont revenus de la veillée en souriant, en demandant où ils étaient. Tu les as comptés. La nuit, tu les comptes encore." },
       "Demain soir, la Nuit des Cloches. Les gens de la ville en parlent comme d'une fête.",
     ],
     choices: [

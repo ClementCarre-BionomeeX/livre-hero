@@ -87,7 +87,7 @@ module.exports = {
     choices: [
       { label: "Courir contre lui", test: { dom: "combat", label: "Lance", help: JOUTE.concat([{ if: { not: { has: "sud3:j2" } }, v: -15 }]) },
         win: { fx: { flag: "sud3:j2", ep: ["perso", 1200] }, to: "II_S3_joute2_ok" },
-        lose: { fx: { flag: "sud3:j2_perdu" }, to: "II_S3_joute2_rate" } },
+        lose: { to: "II_S3_joute2_rate" } },
     ] }),
 
   II_S3_joute2_ok: P({ title: "Le masque tombe", place: "vasselin",
@@ -139,7 +139,6 @@ module.exports = {
     choices: [{ label: "Lui demander ce qu'il veut à Mordace", to: "II_S3_masque_veut" }] }),
 
   II_S3_masque_veut: P({ title: "Ce qu'il veut", place: "vasselin",
-    fx: { flag: "sud3:masque_parle" },
     text: [
       "« Il a quelque chose à mon père, dit-il. Dans son coffre. Un nom. Le seul que mon père n'a pas pu garder. » Il remet son masque. « Le vainqueur entre dans la grande salle des Archives, devant le coffre. Je compte gagner. »",
       "Puis, par-dessus son épaule, en s'en allant : « Si tu gagnes avant moi, ouvre-le. Tu verras. »",
@@ -187,7 +186,7 @@ module.exports = {
     combat: { title: "Le Glaneur du camp", enemies: ["glaneur_petit"], terrain: "bati", range: "contact",
       flee: { dom: "discretion", label: "Se jeter sous un chariot", to: "II_S3_nuit" },
       win: { fx: { ep: ["seance", 800], flag: "sud3:glaneur_battu" }, to: "II_S3_nuit" },
-      lose: { fx: { flag: "sud3:glaneur_passe" }, to: "II_S3_nuit" } },
+      lose: { to: "II_S3_nuit" } },
     text: ["La chose se retourne vers toi. Elle n'a pas de visage, et pourtant tu sais qu'elle te regarde. Elle tend la main, comme elle l'a tendue dans la tente, vers ta bouche."],
     choices: [] }),
 
@@ -207,7 +206,7 @@ module.exports = {
       "Le clerc lève les yeux. Il a pleuré. « Je sais ce que ça fait, dit-il, avant que tu aies rien dit. Je ne suis pas idiot. Onze d'abord. Puis dix-sept. Je les inscris, je les envoie, et le lendemain ils ne savent plus monter à cheval. » Il se mouche. « Si je n'envoie pas la liste, c'est moi qu'on oublie. J'ai une femme. »",
       "Il te tend sa liste du jour, la copie. « Prenez-la. Faites-en ce que vous voulez. Je n'en peux plus de la savoir par cœur. »",
     ],
-    choices: [{ label: "Prendre la copie", fx: { item: "liste_champions", flag: "sud3:clerc_ami" }, to: "II_S3_nuit" }] }),
+    choices: [{ label: "Prendre la copie", fx: { item: "liste_champions" }, to: "II_S3_nuit" }] }),
 
   II_S3_suivre: P({ title: "Le chemin du Glaneur", place: "vasselin",
     text: [

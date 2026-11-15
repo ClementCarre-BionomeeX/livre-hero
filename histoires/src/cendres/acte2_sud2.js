@@ -57,8 +57,8 @@ module.exports = {
     ],
     choices: [
       { label: "Lui chanter la chanson de soldat qu'elle t'a apprise, une nuit d'hiver", if: { souv: "lisandre:isaure" }, why: "Tu ne t'en souviens plus.", fx: { flag: "sud2:isaure_chanson", ep: ["perso", 1000] }, to: "II_S2_isaure_chant" },
-      { label: "Lui montrer la lettre au sceau noir", hide: { not: { item: "lettre_mordace" } }, fx: { flag: "sud2:lettre_montree" }, to: "II_S2_isaure_lettre" },
-      { label: "Lui montrer la copie d'Ermengarde", hide: { not: { item: "copie_cession" } }, fx: { flag: "sud2:copie_montree" }, to: "II_S2_isaure_copie" },
+      { label: "Lui montrer la lettre au sceau noir", hide: { not: { item: "lettre_mordace" } }, to: "II_S2_isaure_lettre" },
+      { label: "Lui montrer la copie d'Ermengarde", hide: { not: { item: "copie_cession" } }, to: "II_S2_isaure_copie" },
       { label: "Lui donner le bol de soupe de Maître Guérin", hide: { any: [{ not: { has: "sud2:soupe" } }, { seen: "II_S2_isaure_soupe" }] }, to: "II_S2_isaure_soupe" },
       { label: "Jouer ton rôle : chanter ce qu'elle demandera", to: "II_S2_isaure_role" },
     ] }),
@@ -79,14 +79,14 @@ module.exports = {
       "Elle lit la lettre deux fois, à la chandelle. Elle reconnaît le sceau. Elle ne reconnaît rien d'autre.",
       "« Hautvent, dit-elle. Lisse. » Elle secoue la tête. « Je ne sais pas ce que c'est. Mais c'est à moi qu'il écrit, et sur ce ton. » Elle replie la lettre et te la rend, avec une sorte de dignité terrible. « Gardez-la. Si je la garde, demain matin je la signerai. »",
     ],
-    choices: [{ label: "Reprendre la lettre", fx: { flag: "isaure:lettre_lue" }, to: "II_S2_mordace" }] }),
+    choices: [{ label: "Reprendre la lettre", to: "II_S2_mordace" }] }),
 
   II_S2_isaure_copie: P({ title: "Sarlat", place: "vasselin",
     text: [
       "Elle lit. « Sarlat. » Elle cherche. « C'est un nom de chez nous ? Ou de chez eux ? » Elle regarde la signature, la sienne, en copie. « C'est ma main. Je fais les boucles comme ça. »",
       "Elle se met à rire, doucement, sans joie. « Je donne des villes, la nuit. Comme on donne des sous aux mendiants, pour ne plus les voir. »",
     ],
-    choices: [{ label: "Reprendre la copie", fx: { flag: "isaure:sarlat" }, to: "II_S2_mordace" }] }),
+    choices: [{ label: "Reprendre la copie", to: "II_S2_mordace" }] }),
 
   II_S2_isaure_role: P({ title: "Ce qu'elle demande", place: "vasselin",
     text: [
@@ -114,10 +114,10 @@ module.exports = {
     ],
     choices: [
       { label: "« Je chanterai. »", fx: { flag: "sud2:mordace=oui", ep: ["perso", 400] }, to: "II_S2_offre_oui" },
-      { label: "« Non. »", fx: { flag: "sud2:mordace=non", conf: { lisandre: 5 }, ep: ["perso", 800] }, to: "II_S2_offre_non" },
+      { label: "« Non. »", fx: { conf: { lisandre: 5 }, ep: ["perso", 800] }, to: "II_S2_offre_non" },
       { label: "Faire semblant d'hésiter, de céder, pour gagner du temps et ses confidences", test: { dom: "social", label: "Jeu", help: [{ if: { has: "lisandre:ballade=double" }, v: 10 }, { if: { has: "sud2:isaure_chanson" }, v: -10 }] },
-        win: { fx: { flag: ["sud2:mordace=feinte", "sud2:confidence"], clue: "n_mordace_veut", ep: ["perso", 1200] }, to: "II_S2_offre_feinte" },
-        lose: { fx: { flag: "sud2:mordace=demasquee" }, to: "II_S2_offre_rate" } },
+        win: { fx: { flag: "sud2:confidence", clue: "n_mordace_veut", ep: ["perso", 1200] }, to: "II_S2_offre_feinte" },
+        lose: { to: "II_S2_offre_rate" } },
     ] }),
 
   II_S2_offre_oui: P({ title: "Une belle chanson", place: "vasselin",
@@ -162,8 +162,8 @@ module.exports = {
   II_S2_pie: P({ title: "La main de Pie", place: "vasselin",
     text: ["Pie se trouve sur le chemin de Mordace au moment exact où il ne faut pas, trébuche, s'excuse, ramasse ton luth. Mordace ne s'arrête pas. À sa ceinture, sous la robe, un anneau de clés. Trois clés de fer noir."],
     choices: [{ label: "Le regarder faire", test: { dom: "discretion", label: "Doigts", help: [{ if: { has: "pie:a_vendu" }, v: -5 }] },
-      win: { fx: { flag: "sud:empreinte_cles", item: "cire_cles", ep: ["perso", 1500] }, to: "II_S2_pie_ok" },
-      lose: { fx: { flag: "sud:pie_vu" }, to: "II_S2_pie_rate" } }] }),
+      win: { fx: { item: "cire_cles", ep: ["perso", 1500] }, to: "II_S2_pie_ok" },
+      lose: { to: "II_S2_pie_rate" } }] }),
 
   II_S2_pie_ok: P({ title: "La cire", place: "vasselin",
     text: ["Dans l'escalier des servantes, Pie ouvre la main. Une petite boîte de fer-blanc, remplie de cire jaune. Dans la cire, trois empreintes nettes, l'une à côté de l'autre. « Il les touche tout le temps, dit Pie. C'est pire que s'il dormait avec. Mais une seconde, ça suffit. »"],
@@ -187,9 +187,9 @@ module.exports = {
       "« Comment t'appelles-tu, petit page ? »",
     ],
     choices: [
-      { label: "Laisser l'enfant répondre", fx: { flag: "sud:mordace_enfant_nom" }, to: "II_S2_enfant_nom" },
+      { label: "Laisser l'enfant répondre", to: "II_S2_enfant_nom" },
       { label: "Répondre à sa place : « Il est muet, Monseigneur. »", test: { dom: "social", label: "Aplomb" },
-        win: { to: "II_S2_enfant_muet" }, lose: { fx: { flag: "sud:mordace_enfant_nom" }, to: "II_S2_enfant_nom" } },
+        win: { to: "II_S2_enfant_muet" }, lose: { to: "II_S2_enfant_nom" } },
     ] }),
 
   II_S2_enfant_nom: P({ title: "Ce qu'il écrit", place: "vasselin",
@@ -205,7 +205,7 @@ module.exports = {
 
   II_S2_rodric: P({ title: "Le porteur", place: "vasselin",
     text: ["Mordace passe devant Rodric sans le voir. Un porteur. Mais Rodric, lui, l'a vu, et quand tu te retournes, il le suit des yeux avec l'expression qu'il devait avoir, pendant la guerre, en regardant l'autre rive de la Lisse."],
-    choices: [{ label: "Quitter le palais", fx: { flag: "sud:rodric_mordace" }, to: "II_S2_aube" }] }),
+    choices: [{ label: "Quitter le palais", to: "II_S2_aube" }] }),
 
   II_S2_linette: P({ title: "Page Onze", place: "vasselin",
     text: [

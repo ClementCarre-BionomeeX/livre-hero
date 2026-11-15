@@ -4,7 +4,7 @@ var A = { act: "III", noLead: true };
 function P(o) { return Object.assign({}, A, o); }
 function marche(who, title, text, a, b) {
   var o = {}, id = "III_m_" + who;
-  o[id] = P({ title: title, place: "plaine", fx: { flag: "iii:marche=" + who }, text: text,
+  o[id] = P({ title: title, place: "plaine", text: text,
     choices: [{ label: a.label, fx: { conf: a.conf }, to: id + "_a" }, { label: b.label, fx: { conf: b.conf }, to: id + "_b" }] });
   o[id + "_a"] = P({ title: title, place: "plaine", text: [a.text], choices: [{ back: "III_plaine" }] });
   o[id + "_b"] = P({ title: title, place: "plaine", text: [b.text], choices: [{ back: "III_plaine" }] });

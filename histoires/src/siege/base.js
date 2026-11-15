@@ -45,16 +45,50 @@ module.exports = {
   companions: {},
   factions: {},
   relics: {},
+  // The hero's callings (8.5): the trade the past question names, played like one of the six classes.
+  voies: {
+    escorte: {"label": "Escorte de convoi", "tip": "Les routes, les bêtes et les marchands.", "like": "guerrier", "bonus": {"combat": 30, "nature": 20, "social": 10, "discretion": 10, "savoir": 5, "magie": 0}, "kit": ["epee"]},
+    commis: {"label": "Commis aux écritures", "tip": "Les livres de comptes et ce qu'ils cachent.", "like": "barde", "bonus": {"savoir": 35, "social": 25, "discretion": 10, "combat": 5, "nature": 5, "magie": 0}, "kit": ["dague"]},
+    soldat: {"label": "Soldat", "tip": "Tenir un mur, obéir et faire obéir.", "like": "guerrier", "bonus": {"combat": 35, "nature": 10, "social": 10, "discretion": 10, "savoir": 5, "magie": 0}, "kit": ["epee"]},
+  },
   past: [
     {
       q: "Qu'est-ce qui t'a amené{e} à Sarance, trois semaines avant le siège ?",
       answers: [
-        { label: "Tu escortais un convoi de vin pour un marchand du sud. Le marchand est reparti sans toi, et sans te payer la fin du voyage.", fx: { flag: "passe:escorte", gold: 60 } },
-        { label: "Tu tenais les livres d'une maison de commerce. Tu es venu{e} régler une affaire de grain, et l'affaire t'a retenu{e}.", fx: { flag: "passe:commis" } },
-        { label: "Tu as servi dans les compagnies du Roi. Tu rentrais chez toi par le chemin le plus long.", fx: { flag: "passe:soldat" } },
+        { label: "Tu escortais un convoi de vin pour un marchand du sud. Le marchand est reparti sans toi, et sans te payer la fin du voyage.", fx: { voie: "escorte", flag: "passe:escorte", gold: 60 } },
+        { label: "Tu tenais les livres d'une maison de commerce. Tu es venu{e} régler une affaire de grain, et l'affaire t'a retenu{e}.", fx: { voie: "commis", flag: "passe:commis" } },
+        { label: "Tu as servi dans les compagnies du Roi. Tu rentrais chez toi par le chemin le plus long.", fx: { voie: "soldat", flag: "passe:soldat" } },
       ],
     },
   ],
+  // The world of this book (8.6): what an inhabitant knows before the first page. Nothing of the plot.
+  lore: {
+    pages: [
+      { title: "Sarance", text: [
+        "**Sarance** tient sur un éperon de roche, dans une boucle de la Dorve. En haut, la **Haute-Ville** : le château du capitaine, l'église Saint-Aubin, l'Hôtel-Dieu tenu par les sœurs. En bas, au bord de l'eau, la **Basse-Ville** des bateliers, des tanneurs et des meuniers, avec sa Halle aux grains, la plus grande du pays.",
+        "Les remparts font le tour des deux villes. La Tour du Sel garde l'angle nord-est ; la Porte des Tanneurs ouvre sur les pâtures du nord.",
+        "On paie en sous. Les boulangers jurés prennent leur farine à la Halle, et la Maison des Greniers tient les comptes de ce que la ville a en réserve.",
+      ] },
+      { title: "Qui gouverne", text: [
+        "Le vieux comte est mort sans fils l'hiver dernier. Le **Margrave** de Hautpré a épousé sa sœur et dit que la ville lui revient. Le capitaine du Roi lui a fermé les portes.",
+        "Pendant le siège, la ville est tenue par le **Conseil** : le capitaine du Roi et son lieutenant, la jurée des marchands, le prévôt, l'abbesse et l'élu du port.",
+      ] },
+    ],
+    names: {
+      "Sarance": "La ville sur son éperon de roche, dans une boucle de la Dorve.",
+      "Dorve": "La rivière qui entoure Sarance.",
+      "Margrave": "Le Margrave de Hautpré, beau-frère du comte mort, qui réclame la ville.",
+      "Hautpré": "Le pays du Margrave, au nord.",
+      "Haute-Ville": "Le haut de Sarance : le château, Saint-Aubin, l'Hôtel-Dieu.",
+      "Basse-Ville": "Le bas de Sarance, au bord de l'eau : bateliers, tanneurs, meuniers, la Halle aux grains.",
+      "Halle aux grains": "La grande halle de la Basse-Ville, avec les greniers de la ville sous ses combles.",
+      "Hôtel-Dieu": "L'hôpital de Sarance, tenu par les sœurs.",
+      "Tour du Sel": "La tour ronde à l'angle nord-est des remparts.",
+      "Porte des Tanneurs": "La porte qui ouvre sur les pâtures du nord.",
+      "Conseil": "Les six qui tiennent la ville pendant le siège.",
+      "Maison des Greniers": "Le bureau qui tient les comptes des greniers de la ville, contre le pignon de la Halle.",
+    },
+  },
   world: {
     noFood: true,
     money: { units: [{ name: "écu", plural: "écus", value: 20, short: "é." }, { name: "sou", plural: "sous", value: 1, short: "s." }] },

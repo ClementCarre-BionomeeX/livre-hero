@@ -1228,6 +1228,129 @@
    ]
   }
  ],
+ "weather": {
+  "by": "route",
+  "every": 6,
+  "start": "clair",
+  "kinds": {
+   "clair": {
+    "name": "Ciel blanc",
+    "desc": "Un ciel sans nuages, d'un blanc de chaux."
+   },
+   "canicule": {
+    "name": "Canicule",
+    "desc": "La chaleur monte du sol comme d'un four.",
+    "mod": {
+     "combat": -5,
+     "nature": -5
+    },
+    "say": "La chaleur monte du sol comme d'un four. L'air tremble au-dessus de la route, et les pierres brûlent à travers les semelles.",
+    "hurts": {
+     "wound": "insolation",
+     "chance": 0.3,
+     "say": "Le soleil te frappe à la nuque. Tu marches encore une heure avant de comprendre que tu as cessé de transpirer."
+    }
+   },
+   "vent_sable": {
+    "name": "Vent de sable",
+    "desc": "Le vent du sud emporte le sable en écharpes jaunes.",
+    "mod": {
+     "nature": -10,
+     "discretion": 10
+    },
+    "say": "Le vent se lève du sud et emporte le sable en longues écharpes jaunes. Tu marches le visage dans ton col."
+   },
+   "suintement": {
+    "name": "L'eau qui suinte",
+    "desc": "Sous la colline, l'eau coule le long des parois.",
+    "mod": {
+     "discretion": 5
+    },
+    "say": "Sous la colline, l'eau suinte le long des parois et tombe goutte à goutte dans le noir. Tout résonne."
+   },
+   "froid": {
+    "name": "Le froid de la pierre",
+    "desc": "Un froid de cave, qui monte des profondeurs.",
+    "mod": {
+     "combat": -5
+    },
+    "say": "Plus tu descends, plus la pierre est froide. Ton souffle fait de la buée à la lueur de la flamme.",
+    "hurts": {
+     "wound": "transi",
+     "chance": 0.25,
+     "say": "Le froid des profondeurs te prend aux doigts et ne les lâche plus. Tu les frottes, tu souffles dessus : ils restent raides."
+    }
+   }
+  },
+  "regions": {
+   "lieu": {
+    "clair": 3,
+    "canicule": 1
+   },
+   "sud": {
+    "clair": 2,
+    "canicule": 2,
+    "vent_sable": 1
+   },
+   "plateau": {
+    "clair": 2,
+    "canicule": 1,
+    "vent_sable": 2
+   },
+   "galeries": {
+    "suintement": 1
+   },
+   "profondeurs": {
+    "froid": 1
+   }
+  }
+ },
+ "wounds": {
+  "insolation": {
+   "name": "Coup de soleil à la nuque",
+   "desc": "La tête te tourne quand tu te relèves trop vite.",
+   "mod": {
+    "combat": -5,
+    "savoir": -10
+   },
+   "days": 2,
+   "tended": 1
+  },
+  "transi": {
+   "name": "Les doigts transis",
+   "desc": "Tes doigts ont du mal à se refermer sur une arme.",
+   "mod": {
+    "combat": -10,
+    "discretion": -5
+   },
+   "days": 1,
+   "tended": 1
+  }
+ },
+ "lore": {
+  "pages": [
+   {
+    "title": "La vallée sèche",
+    "text": [
+     "Au sud de Sorel commence ce que tout le monde appelle simplement *la vallée sèche* : des collines de pierre blanche, des ravines où l'eau coule seulement après les orages, des chevriers qui comptent leurs bêtes à chaque puits. On y marche tôt le matin et tard le soir, et l'on dort à l'ombre pendant les heures blanches de midi.",
+     "Les caravanes de sel et de toile la traversent en groupe, avec leurs muletiers et leurs chameliers, et elles repassent. Un voyageur seul y est une curiosité, et une curiosité dont on parle aux haltes."
+    ]
+   },
+   {
+    "title": "Ce qu'on sait au relais",
+    "text": [
+     "Le relais de Sorel est le dernier toit sûr avant la vallée : une grande ferme fortifiée où l'on mange à des tables dressées dans la cour, où l'on dort dans le foin au-dessus des mules, et où l'on échange les nouvelles du sud contre celles du nord.",
+     "On paie en sous. Dans la vallée, l'eau a un prix, comme le pain : un puits qui a un maître se paie à la cruche.",
+     "De Kardan, on connaît ce qu'en disent les marchands de sel : un village vert au fond de la vallée, où l'eau ne manque jamais."
+    ]
+   }
+  ],
+  "names": {
+   "Sorel": "Le relais fortifié au nord de la vallée sèche, dernier toit sûr pour les caravanes.",
+   "Kardan": "Un village vert au fond de la vallée sèche, adossé à une colline. Les marchands disent que l'eau n'y manque jamais.",
+   "vallée sèche": "Le pays de pierre blanche au sud de Sorel, que les caravanes traversent en groupe."
+  }
+ },
  "world": {
   "start": {
    "place": "sorel",
@@ -1515,6 +1638,7 @@
   ],
   "regions": {
    "sud": {
+    "tiring": 2,
     "name": "La vallée sèche",
     "chance": 0.7,
     "events": [
@@ -1543,6 +1667,7 @@
     ]
    },
    "galeries": {
+    "tiring": 2,
     "ambiance": "souterrain",
     "name": "Les galeries",
     "chance": 0.55,
@@ -1566,6 +1691,7 @@
     ]
    },
    "profondeurs": {
+    "tiring": 1,
     "ambiance": "souterrain",
     "name": "Les profondeurs",
     "chance": 0.4,
@@ -1891,6 +2017,10 @@
     "Et ceci, gravé profondément au couteau, d'une main rageuse et patiente :",
     "**NE BOIS PAS**",
     "Au-dessous, une date. Le dernier chiffre est un 7, barré d'un petit trait au milieu.",
+    {
+     "second": true,
+     "text": "Tu reconnais le 7 barré au premier coup d'œil. Il t'attend sur cette pierre depuis sept ans."
+    },
     {
      "if": {
       "has": "passe:lettre"
@@ -2252,6 +2382,10 @@
    "text": [
     "Tu la vois longtemps avant d'y arriver : une tache verte au fond de la vallée brune, si verte qu'elle paraît peinte. Puis la route tourne, et le village est là, d'un coup. Des jardins en terrasses, des canaux de pierre où l'eau court en chantant, des figuiers, des grenadiers, des rangs de fèves, des femmes qui lavent du linge en riant. Une odeur de menthe et de terre mouillée t'emplit les narines.",
     "Derrière le village, la colline. Elle est ronde, rousse, nue, et sur son flanc s'ouvre une porte de pierre taillée, haute comme trois hommes, fermée.",
+    {
+     "second": true,
+     "text": "Sept serrures de bronze. Tu sais, cette fois, ce qui dort derrière la porte, et qui tient l'eau qui chante dans les canaux."
+    },
     "Des enfants t'ont vu. Ils courent devant toi en criant *un voyageur, un voyageur !*, et quand tu arrives sur la place, une femme t'attend déjà, les mains sur les hanches, le visage rond et rouge de quelqu'un qui passe sa vie près d'un four. « Bienvenue à Kardan ! Je suis Hesna, je tiens le Puits-Vert. Vous logerez chez moi, et vous ne paierez rien, vous m'entendez ? Rien ! Ce soir on fait la fête pour vous. On fait toujours la fête pour ceux qui arrivent. »",
     {
      "if": {
@@ -2409,7 +2543,11 @@
      },
      "text": "Hesna est plus agitée que d'habitude. Elle fait tomber une cruche, rit trop fort, la ramasse. Elle a préparé ta chambre « pour la nuit de la Lune ». Elle a changé les draps deux fois."
     },
-    "Sur une étagère derrière le puits, il y a un gros registre relié de cuir, où chaque voyageur écrit son nom."
+    "Sur une étagère derrière le puits, il y a un gros registre relié de cuir, où chaque voyageur écrit son nom.",
+    {
+     "second": true,
+     "text": "Tu sais, cette fois, quels noms chercher dans ce registre : ceux qui sont arrivés un soir de fête, et dont personne n'a noté le départ."
+    }
    ],
    "choices": [
     {
@@ -2616,6 +2754,10 @@
     "Il y a de l'agneau aux abricots, du pain plat brûlant, des fèves à l'huile, des pastèques fendues, du vin de grenade qui monte à la tête. Un garçon d'une dizaine d'années, Tobie, te regarde manger sans manger lui-même. Une forgeronne aux bras énormes, Garance, te fait goûter son eau-de-vie. Une femme mince aux doigts verts, Oriel, t'observe en silence.",
     "À l'autre bout de la table, une vieille femme minuscule, droite comme un piquet, les cheveux blancs tressés en couronne : l'Aïeule, Maève. Quand elle lève son gobelet, la place se tait d'un coup.",
     "« Au Gardien, dit-elle d'une voix claire, et à celui qui le nourrira. »",
+    {
+     "second": true,
+     "text": "*Et à celui qui le nourrira.* Tu sais à présent que le mot est mal choisi. Personne ne nourrit le Gardien. On le remplace."
+    },
     "Soixante gobelets se lèvent. Soixante visages se tournent vers toi, et sourient.",
     {
      "if": {
@@ -3484,7 +3626,11 @@
    "text": [
     "La maison de l'Aïeule est la plus haute du village, la plus proche de la colline, et la plus simple : une seule pièce chaulée, un lit, un coffre, un métier à tisser, une fenêtre qui donne sur la porte du dédale. Maève t'attend assise, les mains sur les genoux.",
     "Elle te sert un thé à la menthe si sucré qu'il colle aux dents. Elle te demande d'où tu viens, et elle écoute la réponse, vraiment, comme peu de gens écoutent. Elle te parle de Kardan : deux cents ans d'eau, depuis que l'architecte a creusé la colline. « Nous avons de la chance. Nous le savons. Nous essayons de la mériter. »",
-    "Avant que tu partes, elle te met dans la main une petite fiole de terre fermée de cire. « De l'eau de la Source. Elle guérit. On ne la donne qu'aux gens qu'on aime. » Elle sourit. « Vous voyez. Nous vous aimons déjà. »"
+    "Avant que tu partes, elle te met dans la main une petite fiole de terre fermée de cire. « De l'eau de la Source. Elle guérit. On ne la donne qu'aux gens qu'on aime. » Elle sourit. « Vous voyez. Nous vous aimons déjà. »",
+    {
+     "second": true,
+     "text": "La fiole est tiède dans ta main. Tu sais d'où vient cette eau, et qui la tient, sous la colline, depuis sept ans."
+    }
    ],
    "choices": [
     {
@@ -3581,6 +3727,10 @@
     "La chapelle est petite, blanchie à la chaux, si fraîche qu'on y frissonne. Pour tout autel, une vasque de pierre verte où l'eau coule d'un tuyau de cuivre, et, sur le mur du fond, une grande plaque de bois peinte en noir, couverte de noms en lettres blanches.",
     "En haut de la plaque, en lettres dorées : *À CEUX QUI ONT GARDÉ L'EAU.*",
     "Il y a des dizaines de noms. Les plus anciens sont presque effacés. Les plus récents sont des descriptions : *un marchand de Vasque. Une femme au chapeau vert. Le muletier de la caravane.* Et le dernier, d'une peinture encore brillante : *L'homme du Nord, l'an de la grêle.*",
+    {
+     "second": true,
+     "text": "*À ceux qui ont gardé l'eau.* La première fois, tu as lu une liste de morts. Tu lis, cette fois, une liste de gardiens, chacun à son tour, et la place encore libre au bas de la plaque."
+    },
     "L'an de la grêle, à Kardan comme chez vous, c'était il y a sept ans.",
     {
      "if": {
@@ -3664,6 +3814,10 @@
    "text": [
     "On monte à la porte par un escalier taillé dans le flanc de la colline, bordé d'offrandes : des pains ronds, des bouquets de menthe, des petites lampes, des jouets de bois. La porte elle-même est une dalle de pierre ocre, haute comme trois hommes, sans poignée, scellée par sept serrures de bronze vert-de-grisé. Au-dessus, gravé dans la roche, un seul mot : KARDAN.",
     "Deux miliciens en cuirasse de cuir montent la garde, la lance au pied. Ils te saluent poliment et ne te laissent pas approcher à moins de dix pas. « C'est la maison du Gardien, dit l'un. On ne le dérange pas. »",
+    {
+     "second": true,
+     "text": "Au bord des marches, entre les pains et les lampes, des jouets de bois. Tu les regardes, cette fois, en comptant les années."
+    },
     {
      "if": {
       "since": "kardan",
@@ -3797,6 +3951,10 @@
     "La fête de la Lune sèche a duré tout le soir. On a chanté pour l'eau, on a jeté des fleurs dans la fontaine, on a mangé debout. La lune s'est levée énorme et rousse au-dessus de la colline. Maintenant le village se tait, et tu montes à ta chambre.",
     "On frappe. C'est Hesna, avec un plateau. Une tasse fumante, un gâteau au miel. « Une tisane, dit-elle. Pour dormir. Après une fête, on dort mal, on a trop chaud. » Elle pose le plateau sur la table de nuit, et elle reste là, sur le seuil, ses mains serrées l'une contre l'autre.",
     "La vapeur monte de la tasse. Une odeur d'amande. Et derrière, à peine, une odeur de linge mouillé.",
+    {
+     "second": true,
+     "text": "Hesna serre les mains l'une contre l'autre. Tu sais ce qu'elle garde dans la poche de son tablier, plié en quatre, et pourquoi elle reste sur le seuil."
+    },
     {
      "if": {
       "has": "oriel:odeur"
@@ -5654,7 +5812,10 @@
     "La Source hésite. Tu le sens dans la pierre, sous tes pieds : le battement s'arrête, une seconde, deux. Puis il reprend, plus léger, moins profond, comme une respiration qui se détend. La main d'Aurèle glisse sur la vasque. Elle se décolle. Il la regarde, incrédule, il la retourne, il ferme le poing.",
     "« Elle ne me tient plus, dit-il. Elle ne me tient plus. »",
     "« Le lien attend là-haut, dis-tu. Dans la fontaine. Il faut que quelqu'un le prenne. Il faut que tout Kardan le prenne. Sinon, dans quelques semaines… »",
-    "Aurèle hoche la tête. Il a compris. « Sinon ce sera la soif. Il faut qu'ils acceptent. » Il rit, un rire faible, vrai. « Tu n'as pas changé, Moineau. Tu choisis toujours la solution où il faut convaincre tout le monde. »"
+    {
+     "with": "aurele",
+     "text": "Aurèle hoche la tête. Il a compris. « Sinon ce sera la soif. Il faut qu'ils acceptent. » Il rit, un rire faible, vrai. « Tu n'as pas changé, Moineau. Tu choisis toujours la solution où il faut convaincre tout le monde. »"
+    }
    ],
    "choices": [
     {
@@ -6314,8 +6475,10 @@
    "act": "II",
    "title": "Le nouveau Gardien",
    "end": true,
+   "epilogue": true,
    "place": "coeur",
    "fx": {
+    "flag": "fin:gardien",
     "ep": [
      "histoire",
      10000
@@ -6331,182 +6494,7 @@
     },
     "Toi, tu restes. Tu tiens l'eau de Kardan. Tu sens chaque canal, chaque puits, chaque racine qui boit, là-haut, comme on sent ses propres doigts. Tu sens la fontaine de la place déborder, et les enfants qui y trempent les mains, et les femmes qui y lavent le linge en riant.",
     "Ils ignorent que c'est toi. Ils l'ignoreront toujours, à moins que quelqu'un ne remonte le leur dire. Tu les entends chanter, une fois par an, à la Lune sèche. Ils chantent pour le Gardien. Ils chantent pour toi.",
-    "Dans quelques années, un étranger tombera dans la Fosse. Tu l'attendras. Tu ne sais pas encore ce que tu lui diras.",
-    "—",
-    {
-     "if": {
-      "has": "aurele:mort"
-     },
-     "text": "Aurèle repose sur le flanc de la colline, sous un cairn de pierres ocre, face au nord. Tu as gravé sur la plus grosse un nom et un 7 barré. Tu n'as pas trouvé d'autres mots."
-    },
-    {
-     "if": {
-      "all": [
-       {
-        "has": "aurele:libre"
-       },
-       {
-        "present": "aurele"
-       }
-      ]
-     },
-     "text": "Aurèle reprend des forces lentement. Au bout d'un mois, il chante faux de nouveau. Au bout de deux, il te dit pardon, pour le départ, l'argent, le silence. Tu lui dis pardon aussi. Vous ne précisez pas pour quoi."
-    },
-    {
-     "if": {
-      "all": [
-       {
-        "has": "couteau:aurele"
-       },
-       {
-        "not": {
-         "has": "aurele:mort"
-        }
-       },
-       {
-        "not": {
-         "has": "fin:gardien"
-        }
-       }
-      ]
-     },
-     "text": "Aurèle a repris son couteau. Il passe le pouce sur le manche, le soir, sans y penser, et la corne s'use de nouveau à cet endroit-là."
-    },
-    {
-     "if": {
-      "all": [
-       {
-        "has": "couteau:aurele"
-       },
-       {
-        "has": "aurele:mort"
-       }
-      ]
-     },
-     "text": "Le couteau d'Aurèle est planté au sommet du cairn, la lame dans la pierre. Garance est montée le voir, une fois. Elle n'a rien dit. Elle a laissé une pièce à côté."
-    },
-    {
-     "if": {
-      "all": [
-       {
-        "has": "couteau:aurele"
-       },
-       {
-        "has": "fin:gardien"
-       }
-      ]
-     },
-     "text": "Le couteau d'Aurèle est posé sur le bord de la vasque, à portée de ta main. C'est la seule chose de là-haut que tu aies gardée."
-    },
-    {
-     "if": {
-      "has": "noms:copies"
-     },
-     "text": "Les noms que tu as recopiés, tu les as confiés à ceux qui remontaient. Tu ne sais pas ce qu'ils en ont fait. Toi, tu les sais par cœur. Tu les récites, la nuit, pour que quelqu'un les dise."
-    },
-    {
-     "if": {
-      "has": "journal:complet"
-     },
-     "text": "Les trois pages du journal de Kardan sont sous verre, dans la chapelle, à côté de la vasque. Les enfants de l'école les recopient pour apprendre à écrire. C'est Odon qui a eu l'idée."
-    },
-    {
-     "if": {
-      "all": [
-       {
-        "has": "tobie:ami"
-       },
-       {
-        "not": {
-         "has": "tobie:blesse"
-        }
-       }
-      ]
-     },
-     "text": "Tobie a appris la suite de la berceuse : il n'en connaissait que le premier couplet. Il la chante faux, la note qui monte au lieu de descendre. Il dit que c'est la bonne façon, et il a raison."
-    },
-    {
-     "if": {
-      "has": "tobie:blesse"
-     },
-     "text": "Tobie s'est relevé. Il boite un peu, et il a cessé de chanter. Tu penses à lui plus souvent qu'à tout le reste."
-    },
-    {
-     "if": {
-      "has": "oriel:chardon"
-     },
-     "text": "Oriel ne prépare plus de tisane de chardon-lune, sauf pour les amputations. Elle t'a envoyé un sachet de graines, avec un mot : *pour que tu saches toujours reconnaître l'odeur.*"
-    },
-    {
-     "if": {
-      "all": [
-       {
-        "met": "sidonie"
-       },
-       {
-        "has": "sidonie:anneau"
-       }
-      ]
-     },
-     "text": "Sidonie est allée à Vasque, deux anneaux au pouce, et elle a frappé chez la mère de Lucas. Elle y est restée une semaine. Puis elle est repartie sur les routes du sel, seule, et on dit qu'elle ne passe plus jamais par la vallée sèche."
-    },
-    {
-     "if": {
-      "all": [
-       {
-        "met": "sidonie"
-       },
-       {
-        "not": {
-         "has": "sidonie:anneau"
-        }
-       }
-      ]
-     },
-     "text": "Sidonie est partie un matin sans dire au revoir, avec l'anneau qui lui restait. L'autre est toujours au fond du puits aux os. Elle n'en parle plus."
-    },
-    {
-     "if": {
-      "has": "mattias:soleil"
-     },
-     "text": "Mattias a planté ses mousses à l'ombre du platane, sur la place. Il s'assoit à côté tous les jours, au soleil, les yeux mi-clos, et quand les enfants lui demandent ce qu'il fait, il répond : je regarde."
-    },
-    {
-     "if": {
-      "all": [
-       {
-        "has": "mattias:ami"
-       },
-       {
-        "not": {
-         "has": "mattias:soleil"
-        }
-       }
-      ]
-     },
-     "text": "Mattias est resté dans le dédale, avec ses mousses et sa mousse-lumière. Parfois, la nuit, on croit l'entendre chanter dans les canaux. Personne n'a encore eu le courage d'aller voir s'il va bien."
-    },
-    {
-     "if": {
-      "all": [
-       {
-        "met": "odon"
-       },
-       {
-        "not": {
-         "gone": "odon"
-        }
-       }
-      ]
-     },
-     "text": "Frère Odon a repris la route au premier automne, après avoir partagé son pain avec tout le village. Il t'a dit : *on se reverra au sud, il n'y a que du sud.* Tu n'es pas sûr qu'il plaisantait."
-    },
-    {
-     "if": {
-      "gone": "odon"
-     },
-     "text": "Frère Odon vous a quittés en chemin. Tu ignores où il marche. Tu espères qu'il a trouvé quelqu'un avec qui partager son pain."
-    }
+    "Dans quelques années, un étranger tombera dans la Fosse. Tu l'attendras. Tu ne sais pas encore ce que tu lui diras."
    ]
   },
   "O_flanc": {
@@ -7732,8 +7720,10 @@
    "act": "III",
    "title": "Le pacte rompu",
    "end": true,
+   "epilogue": true,
    "place": "kardan",
    "fx": {
+    "flag": "fin:pacte",
     "quest": "O_kardan",
     "ep": [
      "histoire",
@@ -7744,190 +7734,17 @@
     "Ils boivent. Chacun à son heure, certains à contrecœur. L'Aïeule descend la première, et elle boit à la fontaine devant tout le village, à longues gorgées, les yeux fermés. Puis Tobie. Puis Oriel. Puis Bastien, après un long moment, en posant sa lance contre le platane. Puis tous les autres, en file, comme on va à la communion.",
     "Chacun d'eux, en se redressant, porte une main à sa poitrine. Ils sentent le lien. Une part, minuscule, à peine plus lourde qu'une pièce dans une poche. Mille porteurs ne s'usent pas.",
     "Sous la colline, la Source bat plus doucement, plus amplement, comme un cœur qui se détend. L'eau de Kardan coule toujours. Elle coule même un peu plus loin qu'avant : le printemps suivant, les puits du hameau sec se remettent à suinter.",
-    "On n'envoie plus d'étrangers dans le dédale. La fête de la Lune sèche existe toujours ; on y boit tous à la fontaine, une fois l'an, en disant à voix haute ce qu'on boit. Les étrangers qui passent sont invités à boire aussi. Certains le font.",
-    "—",
-    {
-     "if": {
-      "has": "aurele:mort"
-     },
-     "text": "Aurèle repose sur le flanc de la colline, sous un cairn de pierres ocre, face au nord. Tu as gravé sur la plus grosse un nom et un 7 barré. Tu n'as pas trouvé d'autres mots."
-    },
-    {
-     "if": {
-      "all": [
-       {
-        "has": "aurele:libre"
-       },
-       {
-        "present": "aurele"
-       }
-      ]
-     },
-     "text": "Aurèle reprend des forces lentement. Au bout d'un mois, il chante faux de nouveau. Au bout de deux, il te dit pardon, pour le départ, l'argent, le silence. Tu lui dis pardon aussi. Vous ne précisez pas pour quoi."
-    },
-    {
-     "if": {
-      "all": [
-       {
-        "has": "couteau:aurele"
-       },
-       {
-        "not": {
-         "has": "aurele:mort"
-        }
-       },
-       {
-        "not": {
-         "has": "fin:gardien"
-        }
-       }
-      ]
-     },
-     "text": "Aurèle a repris son couteau. Il passe le pouce sur le manche, le soir, sans y penser, et la corne s'use de nouveau à cet endroit-là."
-    },
-    {
-     "if": {
-      "all": [
-       {
-        "has": "couteau:aurele"
-       },
-       {
-        "has": "aurele:mort"
-       }
-      ]
-     },
-     "text": "Le couteau d'Aurèle est planté au sommet du cairn, la lame dans la pierre. Garance est montée le voir, une fois. Elle n'a rien dit. Elle a laissé une pièce à côté."
-    },
-    {
-     "if": {
-      "all": [
-       {
-        "has": "couteau:aurele"
-       },
-       {
-        "has": "fin:gardien"
-       }
-      ]
-     },
-     "text": "Le couteau d'Aurèle est posé sur le bord de la vasque, à portée de ta main. C'est la seule chose de là-haut que tu aies gardée."
-    },
-    {
-     "if": {
-      "has": "noms:copies"
-     },
-     "text": "Les noms que tu as recopiés ont été repeints sur la plaque de la chapelle, chacun avec son vrai nom quand on a pu le retrouver. *L'homme du Nord* s'appelle Aurèle, maintenant. *Le muletier* s'appelait Faris. Il y a encore des trous. On les laisse en blanc."
-    },
-    {
-     "if": {
-      "has": "journal:complet"
-     },
-     "text": "Les trois pages du journal de Kardan sont sous verre, dans la chapelle, à côté de la vasque. Les enfants de l'école les recopient pour apprendre à écrire. C'est Odon qui a eu l'idée."
-    },
-    {
-     "if": {
-      "all": [
-       {
-        "has": "tobie:ami"
-       },
-       {
-        "not": {
-         "has": "tobie:blesse"
-        }
-       }
-      ]
-     },
-     "text": "Tobie a appris la suite de la berceuse : il n'en connaissait que le premier couplet. Il la chante faux, la note qui monte au lieu de descendre. Il dit que c'est la bonne façon, et il a raison."
-    },
-    {
-     "if": {
-      "has": "tobie:blesse"
-     },
-     "text": "Tobie s'est relevé. Il boite un peu, et il a cessé de chanter. Tu penses à lui plus souvent qu'à tout le reste."
-    },
-    {
-     "if": {
-      "has": "oriel:chardon"
-     },
-     "text": "Oriel ne prépare plus de tisane de chardon-lune, sauf pour les amputations. Elle t'a envoyé un sachet de graines, avec un mot : *pour que tu saches toujours reconnaître l'odeur.*"
-    },
-    {
-     "if": {
-      "all": [
-       {
-        "met": "sidonie"
-       },
-       {
-        "has": "sidonie:anneau"
-       }
-      ]
-     },
-     "text": "Sidonie est allée à Vasque, deux anneaux au pouce, et elle a frappé chez la mère de Lucas. Elle y est restée une semaine. Puis elle est repartie sur les routes du sel, seule, et on dit qu'elle ne passe plus jamais par la vallée sèche."
-    },
-    {
-     "if": {
-      "all": [
-       {
-        "met": "sidonie"
-       },
-       {
-        "not": {
-         "has": "sidonie:anneau"
-        }
-       }
-      ]
-     },
-     "text": "Sidonie est partie un matin sans dire au revoir, avec l'anneau qui lui restait. L'autre est toujours au fond du puits aux os. Elle n'en parle plus."
-    },
-    {
-     "if": {
-      "has": "mattias:soleil"
-     },
-     "text": "Mattias a planté ses mousses à l'ombre du platane, sur la place. Il s'assoit à côté tous les jours, au soleil, les yeux mi-clos, et quand les enfants lui demandent ce qu'il fait, il répond : je regarde."
-    },
-    {
-     "if": {
-      "all": [
-       {
-        "has": "mattias:ami"
-       },
-       {
-        "not": {
-         "has": "mattias:soleil"
-        }
-       }
-      ]
-     },
-     "text": "Mattias est resté dans le dédale, avec ses mousses et sa mousse-lumière. Parfois, la nuit, on croit l'entendre chanter dans les canaux. Personne n'a encore eu le courage d'aller voir s'il va bien."
-    },
-    {
-     "if": {
-      "all": [
-       {
-        "met": "odon"
-       },
-       {
-        "not": {
-         "gone": "odon"
-        }
-       }
-      ]
-     },
-     "text": "Frère Odon a repris la route au premier automne, après avoir partagé son pain avec tout le village. Il t'a dit : *on se reverra au sud, il n'y a que du sud.* Tu n'es pas sûr qu'il plaisantait."
-    },
-    {
-     "if": {
-      "gone": "odon"
-     },
-     "text": "Frère Odon vous a quittés en chemin. Tu ignores où il marche. Tu espères qu'il a trouvé quelqu'un avec qui partager son pain."
-    }
+    "On n'envoie plus d'étrangers dans le dédale. La fête de la Lune sèche existe toujours ; on y boit tous à la fontaine, une fois l'an, en disant à voix haute ce qu'on boit. Les étrangers qui passent sont invités à boire aussi. Certains le font."
    ]
   },
   "F_jugement": {
    "act": "III",
    "title": "Le jugement de l'Aïeule",
    "end": true,
+   "epilogue": true,
    "place": "kardan",
    "fx": {
+    "flag": "fin:jugement",
     "quest": "O_kardan",
     "ep": [
      "histoire",
@@ -7938,190 +7755,17 @@
     "Quand la place s'est tue, l'Aïeule descend de son seuil, lentement, et traverse la foule qui s'écarte. Elle s'arrête devant toi. « La vasque est brisée, dit-elle. Mais la Source n'est pas morte. Elle attend qu'on la tienne. » Elle se tourne vers son village. « J'ai tiré le nom de mon fils. J'ai envoyé vingt étrangers à sa place, et à la place de celui qui l'a remplacé. C'est à moi de descendre. »",
     "Personne ne la retient. Tobie lui prend la main, et elle se laisse faire jusqu'à la porte de la colline. Là, elle l'embrasse sur le front, et elle entre seule. Les sept serrures se referment derrière elle.",
     "Trois jours plus tard, la fontaine de la place se remet à déborder. L'eau a un goût nouveau, que personne n'arrive à nommer. Hesna dit que c'est le goût du thé à la menthe, trop sucré. Tout le monde rit, et puis personne ne rit plus.",
-    "Kardan sait, maintenant, ce que coûte son eau. Le village a gravé un nouveau nom sur la plaque de la chapelle, en lettres d'or, en haut, au-dessus de tous les autres : *Maève, qui a pris sa part.* Et au-dessous, en lettres blanches, tous les noms des étrangers, un par un. On les lit à voix haute à chaque Lune sèche. Ça prend une heure.",
-    "—",
-    {
-     "if": {
-      "has": "aurele:mort"
-     },
-     "text": "Aurèle repose sur le flanc de la colline, sous un cairn de pierres ocre, face au nord. Tu as gravé sur la plus grosse un nom et un 7 barré. Tu n'as pas trouvé d'autres mots."
-    },
-    {
-     "if": {
-      "all": [
-       {
-        "has": "aurele:libre"
-       },
-       {
-        "present": "aurele"
-       }
-      ]
-     },
-     "text": "Aurèle reprend des forces lentement. Au bout d'un mois, il chante faux de nouveau. Au bout de deux, il te dit pardon, pour le départ, l'argent, le silence. Tu lui dis pardon aussi. Vous ne précisez pas pour quoi."
-    },
-    {
-     "if": {
-      "all": [
-       {
-        "has": "couteau:aurele"
-       },
-       {
-        "not": {
-         "has": "aurele:mort"
-        }
-       },
-       {
-        "not": {
-         "has": "fin:gardien"
-        }
-       }
-      ]
-     },
-     "text": "Aurèle a repris son couteau. Il passe le pouce sur le manche, le soir, sans y penser, et la corne s'use de nouveau à cet endroit-là."
-    },
-    {
-     "if": {
-      "all": [
-       {
-        "has": "couteau:aurele"
-       },
-       {
-        "has": "aurele:mort"
-       }
-      ]
-     },
-     "text": "Le couteau d'Aurèle est planté au sommet du cairn, la lame dans la pierre. Garance est montée le voir, une fois. Elle n'a rien dit. Elle a laissé une pièce à côté."
-    },
-    {
-     "if": {
-      "all": [
-       {
-        "has": "couteau:aurele"
-       },
-       {
-        "has": "fin:gardien"
-       }
-      ]
-     },
-     "text": "Le couteau d'Aurèle est posé sur le bord de la vasque, à portée de ta main. C'est la seule chose de là-haut que tu aies gardée."
-    },
-    {
-     "if": {
-      "has": "noms:copies"
-     },
-     "text": "Les noms que tu as recopiés ont été repeints sur la plaque de la chapelle, chacun avec son vrai nom quand on a pu le retrouver. *L'homme du Nord* s'appelle Aurèle, maintenant. *Le muletier* s'appelait Faris. Il y a encore des trous. On les laisse en blanc."
-    },
-    {
-     "if": {
-      "has": "journal:complet"
-     },
-     "text": "Les trois pages du journal de Kardan sont sous verre, dans la chapelle, à côté de la vasque. Les enfants de l'école les recopient pour apprendre à écrire. C'est Odon qui a eu l'idée."
-    },
-    {
-     "if": {
-      "all": [
-       {
-        "has": "tobie:ami"
-       },
-       {
-        "not": {
-         "has": "tobie:blesse"
-        }
-       }
-      ]
-     },
-     "text": "Tobie a appris la suite de la berceuse : il n'en connaissait que le premier couplet. Il la chante faux, la note qui monte au lieu de descendre. Il dit que c'est la bonne façon, et il a raison."
-    },
-    {
-     "if": {
-      "has": "tobie:blesse"
-     },
-     "text": "Tobie s'est relevé. Il boite un peu, et il a cessé de chanter. Tu penses à lui plus souvent qu'à tout le reste."
-    },
-    {
-     "if": {
-      "has": "oriel:chardon"
-     },
-     "text": "Oriel ne prépare plus de tisane de chardon-lune, sauf pour les amputations. Elle t'a envoyé un sachet de graines, avec un mot : *pour que tu saches toujours reconnaître l'odeur.*"
-    },
-    {
-     "if": {
-      "all": [
-       {
-        "met": "sidonie"
-       },
-       {
-        "has": "sidonie:anneau"
-       }
-      ]
-     },
-     "text": "Sidonie est allée à Vasque, deux anneaux au pouce, et elle a frappé chez la mère de Lucas. Elle y est restée une semaine. Puis elle est repartie sur les routes du sel, seule, et on dit qu'elle ne passe plus jamais par la vallée sèche."
-    },
-    {
-     "if": {
-      "all": [
-       {
-        "met": "sidonie"
-       },
-       {
-        "not": {
-         "has": "sidonie:anneau"
-        }
-       }
-      ]
-     },
-     "text": "Sidonie est partie un matin sans dire au revoir, avec l'anneau qui lui restait. L'autre est toujours au fond du puits aux os. Elle n'en parle plus."
-    },
-    {
-     "if": {
-      "has": "mattias:soleil"
-     },
-     "text": "Mattias a planté ses mousses à l'ombre du platane, sur la place. Il s'assoit à côté tous les jours, au soleil, les yeux mi-clos, et quand les enfants lui demandent ce qu'il fait, il répond : je regarde."
-    },
-    {
-     "if": {
-      "all": [
-       {
-        "has": "mattias:ami"
-       },
-       {
-        "not": {
-         "has": "mattias:soleil"
-        }
-       }
-      ]
-     },
-     "text": "Mattias est resté dans le dédale, avec ses mousses et sa mousse-lumière. Parfois, la nuit, on croit l'entendre chanter dans les canaux. Personne n'a encore eu le courage d'aller voir s'il va bien."
-    },
-    {
-     "if": {
-      "all": [
-       {
-        "met": "odon"
-       },
-       {
-        "not": {
-         "gone": "odon"
-        }
-       }
-      ]
-     },
-     "text": "Frère Odon a repris la route au premier automne, après avoir partagé son pain avec tout le village. Il t'a dit : *on se reverra au sud, il n'y a que du sud.* Tu n'es pas sûr qu'il plaisantait."
-    },
-    {
-     "if": {
-      "gone": "odon"
-     },
-     "text": "Frère Odon vous a quittés en chemin. Tu ignores où il marche. Tu espères qu'il a trouvé quelqu'un avec qui partager son pain."
-    }
+    "Kardan sait, maintenant, ce que coûte son eau. Le village a gravé un nouveau nom sur la plaque de la chapelle, en lettres d'or, en haut, au-dessus de tous les autres : *Maève, qui a pris sa part.* Et au-dessous, en lettres blanches, tous les noms des étrangers, un par un. On les lit à voix haute à chaque Lune sèche. Ça prend une heure."
    ]
   },
   "F_tarie": {
    "act": "III",
    "title": "La source tarie",
    "end": true,
+   "epilogue": true,
    "place": "kardan",
    "fx": {
+    "flag": "fin:tarie",
     "quest": "O_kardan",
     "ep": [
      "histoire",
@@ -8144,181 +7788,6 @@
       "present": "aurele"
      },
      "text": "Aurèle est vivant. Il est vieux avant l'âge, il a les cheveux blancs et la peau couleur d'eau, mais il est vivant, et il rit de nouveau, de loin en loin."
-    },
-    "—",
-    {
-     "if": {
-      "has": "aurele:mort"
-     },
-     "text": "Aurèle repose sur le flanc de la colline, sous un cairn de pierres ocre, face au nord. Tu as gravé sur la plus grosse un nom et un 7 barré. Tu n'as pas trouvé d'autres mots."
-    },
-    {
-     "if": {
-      "all": [
-       {
-        "has": "aurele:libre"
-       },
-       {
-        "present": "aurele"
-       }
-      ]
-     },
-     "text": "Aurèle reprend des forces lentement. Au bout d'un mois, il chante faux de nouveau. Au bout de deux, il te dit pardon, pour le départ, l'argent, le silence. Tu lui dis pardon aussi. Vous ne précisez pas pour quoi."
-    },
-    {
-     "if": {
-      "all": [
-       {
-        "has": "couteau:aurele"
-       },
-       {
-        "not": {
-         "has": "aurele:mort"
-        }
-       },
-       {
-        "not": {
-         "has": "fin:gardien"
-        }
-       }
-      ]
-     },
-     "text": "Aurèle a repris son couteau. Il passe le pouce sur le manche, le soir, sans y penser, et la corne s'use de nouveau à cet endroit-là."
-    },
-    {
-     "if": {
-      "all": [
-       {
-        "has": "couteau:aurele"
-       },
-       {
-        "has": "aurele:mort"
-       }
-      ]
-     },
-     "text": "Le couteau d'Aurèle est planté au sommet du cairn, la lame dans la pierre. Garance est montée le voir, une fois. Elle n'a rien dit. Elle a laissé une pièce à côté."
-    },
-    {
-     "if": {
-      "all": [
-       {
-        "has": "couteau:aurele"
-       },
-       {
-        "has": "fin:gardien"
-       }
-      ]
-     },
-     "text": "Le couteau d'Aurèle est posé sur le bord de la vasque, à portée de ta main. C'est la seule chose de là-haut que tu aies gardée."
-    },
-    {
-     "if": {
-      "has": "noms:copies"
-     },
-     "text": "Les noms que tu as recopiés ont été repeints sur la plaque de la chapelle, chacun avec son vrai nom quand on a pu le retrouver. *L'homme du Nord* s'appelle Aurèle, maintenant. *Le muletier* s'appelait Faris. Il y a encore des trous. On les laisse en blanc."
-    },
-    {
-     "if": {
-      "has": "journal:complet"
-     },
-     "text": "Les trois pages du journal de Kardan sont sous verre, dans la chapelle, à côté de la vasque. Les enfants de l'école les recopient pour apprendre à écrire. C'est Odon qui a eu l'idée."
-    },
-    {
-     "if": {
-      "all": [
-       {
-        "has": "tobie:ami"
-       },
-       {
-        "not": {
-         "has": "tobie:blesse"
-        }
-       }
-      ]
-     },
-     "text": "Tobie a appris la suite de la berceuse : il n'en connaissait que le premier couplet. Il la chante faux, la note qui monte au lieu de descendre. Il dit que c'est la bonne façon, et il a raison."
-    },
-    {
-     "if": {
-      "has": "tobie:blesse"
-     },
-     "text": "Tobie s'est relevé. Il boite un peu, et il a cessé de chanter. Tu penses à lui plus souvent qu'à tout le reste."
-    },
-    {
-     "if": {
-      "has": "oriel:chardon"
-     },
-     "text": "Oriel ne prépare plus de tisane de chardon-lune, sauf pour les amputations. Elle t'a envoyé un sachet de graines, avec un mot : *pour que tu saches toujours reconnaître l'odeur.*"
-    },
-    {
-     "if": {
-      "all": [
-       {
-        "met": "sidonie"
-       },
-       {
-        "has": "sidonie:anneau"
-       }
-      ]
-     },
-     "text": "Sidonie est allée à Vasque, deux anneaux au pouce, et elle a frappé chez la mère de Lucas. Elle y est restée une semaine. Puis elle est repartie sur les routes du sel, seule, et on dit qu'elle ne passe plus jamais par la vallée sèche."
-    },
-    {
-     "if": {
-      "all": [
-       {
-        "met": "sidonie"
-       },
-       {
-        "not": {
-         "has": "sidonie:anneau"
-        }
-       }
-      ]
-     },
-     "text": "Sidonie est partie un matin sans dire au revoir, avec l'anneau qui lui restait. L'autre est toujours au fond du puits aux os. Elle n'en parle plus."
-    },
-    {
-     "if": {
-      "has": "mattias:soleil"
-     },
-     "text": "Mattias a planté ses mousses à l'ombre du platane, sur la place. Il s'assoit à côté tous les jours, au soleil, les yeux mi-clos, et quand les enfants lui demandent ce qu'il fait, il répond : je regarde."
-    },
-    {
-     "if": {
-      "all": [
-       {
-        "has": "mattias:ami"
-       },
-       {
-        "not": {
-         "has": "mattias:soleil"
-        }
-       }
-      ]
-     },
-     "text": "Mattias est resté dans le dédale, avec ses mousses et sa mousse-lumière. Parfois, la nuit, on croit l'entendre chanter dans les canaux. Personne n'a encore eu le courage d'aller voir s'il va bien."
-    },
-    {
-     "if": {
-      "all": [
-       {
-        "met": "odon"
-       },
-       {
-        "not": {
-         "gone": "odon"
-        }
-       }
-      ]
-     },
-     "text": "Frère Odon a repris la route au premier automne, après avoir partagé son pain avec tout le village. Il t'a dit : *on se reverra au sud, il n'y a que du sud.* Tu n'es pas sûr qu'il plaisantait."
-    },
-    {
-     "if": {
-      "gone": "odon"
-     },
-     "text": "Frère Odon vous a quittés en chemin. Tu ignores où il marche. Tu espères qu'il a trouvé quelqu'un avec qui partager son pain."
     }
    ]
   },
@@ -8326,8 +7795,10 @@
    "act": "III",
    "title": "Kardan en flammes",
    "end": true,
+   "epilogue": true,
    "place": "kardan",
    "fx": {
+    "flag": "fin:flammes",
     "quest": "O_kardan",
     "mark": 2,
     "ep": [
@@ -8365,181 +7836,6 @@
       "has": "hesna:brulee"
      },
      "text": "Tu revois, longtemps, deux mains brûlées jusqu'au coude, qui tiennent un enfant."
-    },
-    "—",
-    {
-     "if": {
-      "has": "aurele:mort"
-     },
-     "text": "Aurèle repose sur le flanc de la colline, sous un cairn de pierres ocre, face au nord. Tu as gravé sur la plus grosse un nom et un 7 barré. Tu n'as pas trouvé d'autres mots."
-    },
-    {
-     "if": {
-      "all": [
-       {
-        "has": "aurele:libre"
-       },
-       {
-        "present": "aurele"
-       }
-      ]
-     },
-     "text": "Aurèle marche à tes côtés sur la route du nord. Il ne se retourne pas vers la fumée. Il se tait sur Kardan, et quand on lui demande d'où lui vient la couleur de sa peau, il dit : d'une source."
-    },
-    {
-     "if": {
-      "all": [
-       {
-        "has": "couteau:aurele"
-       },
-       {
-        "not": {
-         "has": "aurele:mort"
-        }
-       },
-       {
-        "not": {
-         "has": "fin:gardien"
-        }
-       }
-      ]
-     },
-     "text": "Aurèle a repris son couteau. Il passe le pouce sur le manche, le soir, sans y penser, et la corne s'use de nouveau à cet endroit-là."
-    },
-    {
-     "if": {
-      "all": [
-       {
-        "has": "couteau:aurele"
-       },
-       {
-        "has": "aurele:mort"
-       }
-      ]
-     },
-     "text": "Le couteau d'Aurèle est planté au sommet du cairn, la lame dans la pierre. Garance est montée le voir, une fois. Elle n'a rien dit. Elle a laissé une pièce à côté."
-    },
-    {
-     "if": {
-      "all": [
-       {
-        "has": "couteau:aurele"
-       },
-       {
-        "has": "fin:gardien"
-       }
-      ]
-     },
-     "text": "Le couteau d'Aurèle est posé sur le bord de la vasque, à portée de ta main. C'est la seule chose de là-haut que tu aies gardée."
-    },
-    {
-     "if": {
-      "has": "noms:copies"
-     },
-     "text": "Les noms que tu as recopiés ont été repeints sur la plaque de la chapelle, chacun avec son vrai nom quand on a pu le retrouver. *L'homme du Nord* s'appelle Aurèle, maintenant. *Le muletier* s'appelait Faris. Il y a encore des trous. On les laisse en blanc."
-    },
-    {
-     "if": {
-      "has": "journal:complet"
-     },
-     "text": "Le journal de Kardan a brûlé avec le reste. Tu t'en souviens mot pour mot. Tu aurais préféré l'oublier."
-    },
-    {
-     "if": {
-      "all": [
-       {
-        "has": "tobie:ami"
-       },
-       {
-        "not": {
-         "has": "tobie:blesse"
-        }
-       }
-      ]
-     },
-     "text": "Tobie a appris la suite de la berceuse : il n'en connaissait que le premier couplet. Il la chante faux, la note qui monte au lieu de descendre. Il dit que c'est la bonne façon, et il a raison."
-    },
-    {
-     "if": {
-      "has": "tobie:blesse"
-     },
-     "text": "Tobie s'est relevé. Il boite un peu, et il a cessé de chanter. Tu penses à lui plus souvent qu'à tout le reste."
-    },
-    {
-     "if": {
-      "has": "oriel:chardon"
-     },
-     "text": "Oriel a sauvé ses herbes, et rien d'autre. On dit qu'elle soigne les blessés des deux camps, sur la route, sans demander de quel côté ils étaient."
-    },
-    {
-     "if": {
-      "all": [
-       {
-        "met": "sidonie"
-       },
-       {
-        "has": "sidonie:anneau"
-       }
-      ]
-     },
-     "text": "Sidonie est allée à Vasque, deux anneaux au pouce, et elle a frappé chez la mère de Lucas. Elle y est restée une semaine. Puis elle est repartie sur les routes du sel, seule, et on dit qu'elle ne passe plus jamais par la vallée sèche."
-    },
-    {
-     "if": {
-      "all": [
-       {
-        "met": "sidonie"
-       },
-       {
-        "not": {
-         "has": "sidonie:anneau"
-        }
-       }
-      ]
-     },
-     "text": "Sidonie est partie un matin sans dire au revoir, avec l'anneau qui lui restait. L'autre est toujours au fond du puits aux os. Elle n'en parle plus."
-    },
-    {
-     "if": {
-      "has": "mattias:soleil"
-     },
-     "text": "Mattias a planté ses mousses à l'ombre du platane, sur la place. Il s'assoit à côté tous les jours, au soleil, les yeux mi-clos, et quand les enfants lui demandent ce qu'il fait, il répond : je regarde."
-    },
-    {
-     "if": {
-      "all": [
-       {
-        "has": "mattias:ami"
-       },
-       {
-        "not": {
-         "has": "mattias:soleil"
-        }
-       }
-      ]
-     },
-     "text": "Mattias est resté dans le dédale, avec ses mousses et sa mousse-lumière. Parfois, la nuit, on croit l'entendre chanter dans les canaux. Personne n'a encore eu le courage d'aller voir s'il va bien."
-    },
-    {
-     "if": {
-      "all": [
-       {
-        "met": "odon"
-       },
-       {
-        "not": {
-         "gone": "odon"
-        }
-       }
-      ]
-     },
-     "text": "Frère Odon ne t'a pas suivi. Il est resté dans les cendres de Kardan, à partager son pain avec ceux qui n'avaient plus de maison. Il t'a regardé partir en silence, et ce silence pesait plus que des reproches."
-    },
-    {
-     "if": {
-      "gone": "odon"
-     },
-     "text": "Frère Odon vous a quittés en chemin. Tu ignores où il marche. Tu espères qu'il a trouvé quelqu'un avec qui partager son pain."
     }
    ]
   },
@@ -8547,8 +7843,10 @@
    "act": "III",
    "title": "La route du nord",
    "end": true,
+   "epilogue": true,
    "place": "kardan",
    "fx": {
+    "flag": "fin:nord",
     "quest": "O_kardan",
     "ep": [
      "histoire",
@@ -8583,16 +7881,21 @@
      "text": "Tu portes le couteau d'Aurèle, et une poignée de terre de la colline dans un mouchoir. Tu la verseras sur la tombe de votre mère. C'est tout ce que tu rapportes."
     },
     "Kardan continue d'attendre ses étrangers. La Lune sèche revient chaque été. On y boit au Gardien, et à celui qui le nourrira. Quelque part au fond de la colline, la Source bat, et attend.",
-    "Sur la borne, au bord de la route, tu t'arrêtes une dernière fois. Sous le NE BOIS PAS d'Aurèle, tu graves au couteau, en prenant ton temps : *ILS NE MANGENT PERSONNE. ILS VOUS REMPLACENT.* Et tu dates d'un 7, que tu barres, pour la première fois de ta vie.",
-    "—",
-    {
-     "if": {
-      "has": "aurele:mort"
-     },
-     "text": "Aurèle repose sur le flanc de la colline, sous un cairn de pierres ocre, face au nord. Tu as gravé sur la plus grosse un nom et un 7 barré. Tu n'as pas trouvé d'autres mots."
-    },
-    {
-     "if": {
+    "Sur la borne, au bord de la route, tu t'arrêtes une dernière fois. Sous le NE BOIS PAS d'Aurèle, tu graves au couteau, en prenant ton temps : *ILS NE MANGENT PERSONNE. ILS VOUS REMPLACENT.* Et tu dates d'un 7, que tu barres, pour la première fois de ta vie."
+   ]
+  }
+ },
+ "epilogue": [
+  {
+   "if": {
+    "has": "aurele:mort"
+   },
+   "text": "Aurèle repose sur le flanc de la colline, sous un cairn de pierres ocre, face au nord. Tu as gravé sur la plus grosse un nom et un 7 barré. Tu n'as pas trouvé d'autres mots."
+  },
+  {
+   "if": {
+    "all": [
+     {
       "all": [
        {
         "has": "aurele:libre"
@@ -8602,164 +7905,678 @@
        }
       ]
      },
-     "text": "Aurèle reprend des forces lentement. Au bout d'un mois, il chante faux de nouveau. Au bout de deux, il te dit pardon, pour le départ, l'argent, le silence. Tu lui dis pardon aussi. Vous ne précisez pas pour quoi."
-    },
-    {
-     "if": {
+     {
+      "has": "fin:flammes"
+     }
+    ]
+   },
+   "text": "Aurèle marche à tes côtés sur la route du nord. Il ne se retourne pas vers la fumée. Il se tait sur Kardan, et quand on lui demande d'où lui vient la couleur de sa peau, il dit : d'une source."
+  },
+  {
+   "if": {
+    "all": [
+     {
       "all": [
        {
-        "has": "couteau:aurele"
+        "has": "aurele:libre"
        },
        {
-        "not": {
-         "has": "aurele:mort"
-        }
-       },
-       {
-        "not": {
-         "has": "fin:gardien"
-        }
+        "present": "aurele"
        }
       ]
      },
-     "text": "Aurèle a repris son couteau. Il passe le pouce sur le manche, le soir, sans y penser, et la corne s'use de nouveau à cet endroit-là."
-    },
-    {
-     "if": {
+     {
+      "not": {
+       "has": "fin:flammes"
+      }
+     }
+    ]
+   },
+   "text": "Aurèle reprend des forces lentement. Au bout d'un mois, il chante faux de nouveau. Au bout de deux, il te dit pardon, pour le départ, l'argent, le silence. Tu lui dis pardon aussi. Vous ne précisez pas pour quoi."
+  },
+  {
+   "if": {
+    "all": [
+     {
+      "has": "odon:maison"
+     },
+     {
       "all": [
        {
-        "has": "couteau:aurele"
+        "has": "aurele:libre"
        },
        {
-        "has": "aurele:mort"
+        "present": "aurele"
        }
       ]
      },
-     "text": "Le couteau d'Aurèle est planté au sommet du cairn, la lame dans la pierre. Garance est montée le voir, une fois. Elle n'a rien dit. Elle a laissé une pièce à côté."
-    },
-    {
-     "if": {
+     {
+      "not": {
+       "has": "fin:gardien"
+      }
+     }
+    ]
+   },
+   "text": "Tu avais dit à Odon que tu ramènerais ton frère à la maison. Vous arrivez à la ferme avant les premières gelées. Aurèle reste longtemps devant la porte, la main sur le loquet, avant d'entrer."
+  },
+  {
+   "if": {
+    "all": [
+     {
+      "has": "odon:compte"
+     },
+     {
       "all": [
        {
-        "has": "couteau:aurele"
+        "has": "aurele:libre"
        },
        {
-        "has": "fin:gardien"
+        "present": "aurele"
        }
       ]
      },
-     "text": "Le couteau d'Aurèle est posé sur le bord de la vasque, à portée de ta main. C'est la seule chose de là-haut que tu aies gardée."
-    },
-    {
-     "if": {
+     {
+      "not": {
+       "has": "fin:gardien"
+      }
+     }
+    ]
+   },
+   "text": "Tu avais dit à Odon que tu ferais rendre à Aurèle ce qu'il avait pris. Il te rend la somme un matin, en pièces de Kardan, posées en pile sur la table. Tu les laisses là une semaine, puis tu les donnes au premier mendiant venu."
+  },
+  {
+   "if": {
+    "all": [
+     {
+      "has": "odon:pardon"
+     },
+     {
+      "not": {
+       "has": "fin:gardien"
+      }
+     }
+    ]
+   },
+   "text": "Tu avais dit à Odon que tu demanderais pardon. Un hiver, il t'écrit une seule ligne, d'une écriture penchée : *L'as-tu fait ?* Tu lui réponds oui, et c'est vrai."
+  },
+  {
+   "if": {
+    "all": [
+     {
+      "has": "couteau:aurele"
+     },
+     {
+      "not": {
+       "has": "aurele:mort"
+      }
+     },
+     {
+      "not": {
+       "has": "fin:gardien"
+      }
+     }
+    ]
+   },
+   "text": "Aurèle a repris son couteau. Il passe le pouce sur le manche, le soir, sans y penser, et la corne s'use de nouveau à cet endroit-là."
+  },
+  {
+   "if": {
+    "all": [
+     {
+      "has": "couteau:aurele"
+     },
+     {
+      "has": "aurele:mort"
+     }
+    ]
+   },
+   "text": "Le couteau d'Aurèle est planté au sommet du cairn, la lame dans la pierre. Garance est montée le voir, une fois. Elle n'a rien dit. Elle a laissé une pièce à côté."
+  },
+  {
+   "if": {
+    "all": [
+     {
+      "has": "couteau:aurele"
+     },
+     {
+      "has": "fin:gardien"
+     }
+    ]
+   },
+   "text": "Le couteau d'Aurèle est posé sur le bord de la vasque, à portée de ta main. C'est la seule chose de là-haut que tu aies gardée."
+  },
+  {
+   "if": {
+    "all": [
+     {
+      "has": "garance:respect"
+     },
+     {
+      "not": {
+       "has": "fin:flammes"
+      }
+     }
+    ]
+   },
+   "text": "Garance a forgé un couteau neuf et gravé un moineau sur le manche, avec un clou, comme le garçon de quinze ans. Elle te l'a fait porter sans un mot."
+  },
+  {
+   "if": {
+    "all": [
+     {
+      "has": "garance:honte"
+     },
+     {
+      "not": {
+       "has": "fin:flammes"
+      }
+     }
+    ]
+   },
+   "text": "Garance forge des socs de charrue, à présent, et plus aucun fer de lance pour la milice. Quand Bastien vient en commander, elle lui montre la porte avec son marteau."
+  },
+  {
+   "if": {
+    "all": [
+     {
       "has": "noms:copies"
      },
-     "text": "Les noms que tu as recopiés ont été repeints sur la plaque de la chapelle, chacun avec son vrai nom quand on a pu le retrouver. *L'homme du Nord* s'appelle Aurèle, maintenant. *Le muletier* s'appelait Faris. Il y a encore des trous. On les laisse en blanc."
-    },
-    {
-     "if": {
+     {
+      "has": "fin:gardien"
+     }
+    ]
+   },
+   "text": "Les noms que tu as recopiés, tu les as confiés à ceux qui remontaient. Tu ignores ce qu'ils en ont fait. Toi, tu les sais par cœur. Tu les récites, la nuit, pour que quelqu'un les dise."
+  },
+  {
+   "if": {
+    "all": [
+     {
+      "has": "noms:copies"
+     },
+     {
+      "not": {
+       "has": "fin:gardien"
+      }
+     }
+    ]
+   },
+   "text": "Les noms que tu as recopiés ont été repeints sur la plaque de la chapelle, chacun avec son vrai nom quand on a pu le retrouver. *L'homme du Nord* s'appelle Aurèle, maintenant. *Le muletier* s'appelait Faris. Il y a encore des trous. On les laisse en blanc."
+  },
+  {
+   "if": {
+    "all": [
+     {
       "has": "journal:complet"
      },
-     "text": "Les trois pages du journal de Kardan sont sous verre, dans la chapelle, à côté de la vasque. Les enfants de l'école les recopient pour apprendre à écrire. C'est Odon qui a eu l'idée."
-    },
-    {
-     "if": {
-      "all": [
-       {
-        "has": "tobie:ami"
-       },
-       {
-        "not": {
-         "has": "tobie:blesse"
-        }
-       }
-      ]
+     {
+      "has": "fin:flammes"
+     }
+    ]
+   },
+   "text": "Le journal de Kardan a brûlé avec le reste. Tu t'en souviens mot pour mot. Tu aurais préféré l'oublier."
+  },
+  {
+   "if": {
+    "all": [
+     {
+      "has": "journal:complet"
      },
-     "text": "Tobie fait voler son cerf-volant au-dessus de la vieille tour. Personne ne lui a dit pour son père. Un jour, il demandera. Tu ne seras pas là pour lui répondre."
-    },
-    {
-     "if": {
-      "has": "tobie:blesse"
+     {
+      "not": {
+       "has": "fin:flammes"
+      }
+     }
+    ]
+   },
+   "text": "Les trois pages du journal de Kardan sont sous verre, dans la chapelle, à côté de la vasque. Les enfants de l'école les recopient pour apprendre à écrire. C'est Odon qui a eu l'idée."
+  },
+  {
+   "if": {
+    "has": "maeve:verite"
+   },
+   "text": "Ce que Maève t'a dit de Théoz, vous êtes deux à le savoir. Tu le gardes comme on garde la clé d'une maison fermée."
+  },
+  {
+   "if": {
+    "all": [
+     {
+      "has": "maeve:lapsus"
      },
-     "text": "Tobie s'est relevé. Il boite un peu, et il a cessé de chanter. Tu penses à lui plus souvent qu'à tout le reste."
-    },
-    {
-     "if": {
+     {
+      "not": {
+       "has": "fin:jugement"
+      }
+     },
+     {
+      "not": {
+       "has": "fin:flammes"
+      }
+     }
+    ]
+   },
+   "text": "L'Aïeule sert toujours le thé à la menthe aux étrangers de passage. Depuis ton séjour, elle le sert moins sucré, et elle les regarde boire jusqu'à la dernière gorgée."
+  },
+  {
+   "if": {
+    "all": [
+     {
+      "has": "tobie:ami"
+     },
+     {
+      "not": {
+       "has": "tobie:blesse"
+      }
+     },
+     {
+      "has": "fin:nord"
+     }
+    ]
+   },
+   "text": "Tobie fait voler son cerf-volant au-dessus de la vieille tour. Personne ne lui a dit pour son père. Un jour, il demandera. Tu seras loin pour lui répondre."
+  },
+  {
+   "if": {
+    "all": [
+     {
+      "has": "tobie:ami"
+     },
+     {
+      "not": {
+       "has": "tobie:blesse"
+      }
+     },
+     {
+      "not": {
+       "has": "fin:nord"
+      }
+     }
+    ]
+   },
+   "text": "Tobie a appris la suite de la berceuse : il n'en connaissait que le premier couplet. Il la chante faux, la note qui monte au lieu de descendre. Il dit que c'est la bonne façon, et il a raison."
+  },
+  {
+   "if": {
+    "has": "tobie:blesse"
+   },
+   "text": "Tobie s'est relevé. Il boite un peu, et il a cessé de chanter. Tu penses à lui plus souvent qu'à tout le reste."
+  },
+  {
+   "if": {
+    "has": "hesna:sauvee"
+   },
+   "text": "L'enfant que tu as tiré de la fumée du grenier a gardé une toux d'hiver, et la vie. Hesna lui a appris ton nom."
+  },
+  {
+   "if": {
+    "all": [
+     {
       "has": "oriel:chardon"
      },
-     "text": "Oriel ne prépare plus de tisane de chardon-lune, sauf pour les amputations. Elle t'a envoyé un sachet de graines, avec un mot : *pour que tu saches toujours reconnaître l'odeur.*"
-    },
-    {
-     "if": {
-      "all": [
-       {
-        "met": "sidonie"
-       },
-       {
-        "has": "sidonie:anneau"
-       }
-      ]
+     {
+      "has": "fin:flammes"
+     }
+    ]
+   },
+   "text": "Oriel a sauvé ses herbes, et rien d'autre. On dit qu'elle soigne les blessés des deux camps, sur la route, sans demander de quel côté ils étaient."
+  },
+  {
+   "if": {
+    "all": [
+     {
+      "has": "oriel:chardon"
      },
-     "text": "Sidonie est allée à Vasque, deux anneaux au pouce, et elle a frappé chez la mère de Lucas. Elle y est restée une semaine. Puis elle est repartie sur les routes du sel, seule, et on dit qu'elle ne passe plus jamais par la vallée sèche."
-    },
-    {
-     "if": {
-      "all": [
-       {
-        "met": "sidonie"
-       },
-       {
-        "not": {
-         "has": "sidonie:anneau"
-        }
-       }
-      ]
+     {
+      "not": {
+       "has": "fin:flammes"
+      }
+     }
+    ]
+   },
+   "text": "Oriel garde le chardon-lune pour les amputations, à présent. Elle t'a envoyé un sachet de graines, avec un mot : *pour que tu saches toujours reconnaître l'odeur.*"
+  },
+  {
+   "if": {
+    "has": "oriel:epargnee"
+   },
+   "text": "Oriel raconte que tu l'as laissée remplir ses seaux à la fontaine brisée. Elle dit de toi que tu avais de la colère, et de la mesure."
+  },
+  {
+   "if": {
+    "has": "oriel:humiliee"
+   },
+   "text": "Oriel a gardé ses seaux cabossés, tels quels, près de sa porte. Elle les montre aux enfants quand ils demandent ce qui s'est passé à la fontaine."
+  },
+  {
+   "if": {
+    "all": [
+     {
+      "met": "sidonie"
      },
-     "text": "Sidonie est partie un matin sans dire au revoir, avec l'anneau qui lui restait. L'autre est toujours au fond du puits aux os. Elle n'en parle plus."
-    },
-    {
-     "if": {
-      "has": "mattias:soleil"
+     {
+      "has": "sidonie:anneau"
+     }
+    ]
+   },
+   "text": "Sidonie est allée à Vasque, deux anneaux au pouce, et elle a frappé chez la mère de Lucas. Elle y est restée une semaine. Puis elle est repartie sur les routes du sel, seule, et on dit qu'elle évite désormais la vallée sèche."
+  },
+  {
+   "if": {
+    "all": [
+     {
+      "met": "sidonie"
      },
-     "text": "Mattias a planté ses mousses à l'ombre du platane, sur la place. Il s'assoit à côté tous les jours, au soleil, les yeux mi-clos, et quand les enfants lui demandent ce qu'il fait, il répond : je regarde."
-    },
-    {
-     "if": {
-      "all": [
-       {
-        "has": "mattias:ami"
-       },
-       {
-        "not": {
-         "has": "mattias:soleil"
-        }
-       }
-      ]
+     {
+      "not": {
+       "has": "sidonie:anneau"
+      }
+     }
+    ]
+   },
+   "text": "Sidonie est partie un matin sans dire au revoir, avec l'anneau qui lui restait. L'autre est toujours au fond du puits aux os. Elle n'en parle plus."
+  },
+  {
+   "if": {
+    "all": [
+     {
+      "has": "sidonie:complice"
      },
-     "text": "Mattias est resté dans le dédale, avec ses mousses et sa mousse-lumière. Parfois, la nuit, on croit l'entendre chanter dans les canaux. Personne n'a encore eu le courage d'aller voir s'il va bien."
-    },
-    {
-     "if": {
-      "all": [
-       {
-        "met": "odon"
-       },
-       {
-        "not": {
-         "gone": "odon"
-        }
-       }
-      ]
+     {
+      "not": {
+       "has": "sidonie:renonce"
+      }
+     }
+    ]
+   },
+   "text": "Sidonie se souvient que tu avais dit oui, dans le noir, quand elle parlait du feu. Elle te le rappelle une fois, sans reproche, comme on rappelle une dette."
+  },
+  {
+   "if": {
+    "has": "sidonie:renonce"
+   },
+   "text": "Sidonie a tenu parole. Elle tourne encore les deux anneaux autour de son pouce quand elle pense à Lucas, et ses mains restent froides."
+  },
+  {
+   "if": {
+    "has": "mattias:soleil"
+   },
+   "text": "Mattias a planté ses mousses à l'ombre du platane, sur la place. Il s'assoit à côté tous les jours, au soleil, les yeux mi-clos, et quand les enfants lui demandent ce qu'il fait, il répond : je regarde."
+  },
+  {
+   "if": {
+    "all": [
+     {
+      "has": "mattias:ami"
      },
-     "text": "Frère Odon a repris la route au premier automne, après avoir partagé son pain avec tout le village. Il t'a dit : *on se reverra au sud, il n'y a que du sud.* Tu n'es pas sûr qu'il plaisantait."
-    },
-    {
-     "if": {
-      "gone": "odon"
+     {
+      "not": {
+       "has": "mattias:soleil"
+      }
+     }
+    ]
+   },
+   "text": "Mattias est resté dans le dédale, avec ses mousses et sa mousse-lumière. Parfois, la nuit, on croit l'entendre chanter dans les canaux. Personne n'a encore eu le courage d'aller voir s'il va bien."
+  },
+  {
+   "if": {
+    "all": [
+     {
+      "has": "mattias:demande"
      },
-     "text": "Frère Odon vous a quittés en chemin. Tu ignores où il marche. Tu espères qu'il a trouvé quelqu'un avec qui partager son pain."
-    }
-   ]
+     {
+      "not": {
+       "has": "mattias:ami"
+      }
+     }
+    ]
+   },
+   "text": "La mousse-lumière que Mattias t'avait demandée luit toujours au fond du jardin noyé. Il l'attend encore, au bord de l'eau, avec sa lampe."
+  },
+  {
+   "if": {
+    "all": [
+     {
+      "has": "mattias:reste"
+     },
+     {
+      "not": {
+       "has": "mattias:ami"
+      }
+     },
+     {
+      "not": {
+       "has": "mattias:demande"
+      }
+     }
+    ]
+   },
+   "text": "Mattias est resté dans le noir avec ses mousses, comme il l'avait choisi trente ans plus tôt."
+  },
+  {
+   "if": {
+    "all": [
+     {
+      "has": "sortie:canal"
+     },
+     {
+      "not": {
+       "has": "fin:gardien"
+      }
+     }
+    ]
+   },
+   "text": "Tu es sorti{e} du dédale par le canal de la Source, de l'eau jusqu'aux cuisses. Depuis, sur chaque route, tu entends l'eau qui court sous la terre."
+  },
+  {
+   "if": {
+    "all": [
+     {
+      "has": "sortie:galerie"
+     },
+     {
+      "not": {
+       "has": "fin:gardien"
+      }
+     }
+    ]
+   },
+   "text": "Tu es sorti{e} du dédale par la fente de la galerie haute, au bout d'une corde. Le premier souffle de vent de cette nuit-là, tu le sens encore sur ton visage."
+  },
+  {
+   "if": {
+    "all": [
+     {
+      "has": "sortie:mattias"
+     },
+     {
+      "not": {
+       "has": "fin:gardien"
+      }
+     }
+    ]
+   },
+   "text": "Le passage de Mattias, sous l'éboulis des jardins, est resté ouvert. Vous êtes deux à savoir où il débouche."
+  },
+  {
+   "if": {
+    "all": [
+     {
+      "met": "odon"
+     },
+     {
+      "not": {
+       "gone": "odon"
+      }
+     },
+     {
+      "not": {
+       "has": "odon:croise"
+      }
+     },
+     {
+      "has": "fin:flammes"
+     }
+    ]
+   },
+   "text": "Frère Odon est resté dans les cendres de Kardan, à partager son pain avec ceux qui n'avaient plus de maison. Il t'a regardé partir en silence, et ce silence pesait plus que des reproches."
+  },
+  {
+   "if": {
+    "all": [
+     {
+      "met": "odon"
+     },
+     {
+      "not": {
+       "gone": "odon"
+      }
+     },
+     {
+      "not": {
+       "has": "odon:croise"
+      }
+     },
+     {
+      "not": {
+       "has": "fin:flammes"
+      }
+     }
+    ]
+   },
+   "text": "Frère Odon a repris la route au premier automne, après avoir partagé son pain avec tout le village. Il t'a dit : *on se reverra au sud, il n'y a que du sud.* Tu n'es pas sûr{e} qu'il plaisantait."
+  },
+  {
+   "if": {
+    "gone": "odon"
+   },
+   "text": "Frère Odon vous a quittés en chemin. Tu ignores où il marche. Tu espères qu'il a trouvé quelqu'un avec qui partager son pain."
+  },
+  {
+   "if": {
+    "has": "odon:veille"
+   },
+   "text": "Odon a gardé les yeux ouverts, comme tu le lui avais demandé sous le platane, et il les garde encore : dans chaque village où il passe, il regarde d'abord le puits, puis les visages autour du puits."
+  },
+  {
+   "if": {
+    "all": [
+     {
+      "has": "odon:croise"
+     },
+     {
+      "not": {
+       "has": "fin:flammes"
+      }
+     }
+    ]
+   },
+   "text": "Le frère mendiant que tu avais laissé sur la route est arrivé à Kardan bien après toi. On dit qu'il a lu la plaque de la chapelle, nom par nom, et qu'il est reparti le soir même."
+  },
+  {
+   "if": {
+    "all": [
+     {
+      "has": "passe:ane"
+     },
+     {
+      "not": {
+       "has": "fin:flammes"
+      }
+     }
+    ]
+   },
+   "text": "L'âne qui t'avait porté jusqu'à Kardan finit ses jours chez Garance, à tourner la meule de la forge. Chaque soir, il s'arrête à la fontaine et boit longtemps, comme s'il savait."
+  },
+  {
+   "if": {
+    "all": [
+     {
+      "has": "passe:bourse"
+     },
+     {
+      "not": {
+       "has": "fin:gardien"
+      }
+     }
+    ]
+   },
+   "text": "De la bourse pleine que tu avais emportée en partant, il te reste trois pièces au fond d'une poche. Tu les gardes. Elles viennent d'avant."
+  },
+  {
+   "if": {
+    "has": "puits:creuse"
+   },
+   "text": "Le trou que tu as creusé dans le lit du torrent, là où poussent les joncs, donne encore un filet d'eau. La vieille du hameau aux puits secs l'a entouré de pierres, et elle l'appelle le puits de l'étranger."
+  },
+  {
+   "if": {
+    "has": "caravane:averti"
+   },
+   "text": "Le chef de caravane à la barbe teinte raconte, dans les caravansérails du nord, l'histoire d'un voyageur qui descendait seul à Kardan. Il la finit toujours par son proverbe, et personne autour du feu n'en saisit le sens."
+  },
+  {
+   "if": {
+    "all": [
+     {
+      "has": "borne:ancienne"
+     },
+     {
+      "not": {
+       "has": "fin:gardien"
+      }
+     }
+    ]
+   },
+   "text": "L'inscription ancienne de la borne, celle que tu avais su lire, ouvre la première page de ton carnet de route. Tu l'as recopiée lettre à lettre."
+  },
+  {
+   "if": {
+    "has": "fete:danse"
+   },
+   "text": "Tu as dansé à la fête de Kardan, le premier soir, avant de savoir. Tu en gardes un souvenir heureux, et c'est ce qui te trouble le plus."
+  },
+  {
+   "if": {
+    "has": "capture:visages"
+   },
+   "text": "Certaines nuits, tu revois les visages penchés sur toi à la lueur des lanternes, la nuit de ta capture. Tu connais leurs noms, maintenant, à tous."
+  },
+  {
+   "if": {
+    "has": "pas:vu"
+   },
+   "text": "Les pas qui te suivaient dans les galeries, tu as vu à qui ils étaient. Tu gardes ce visage pour toi."
+  },
+  {
+   "if": {
+    "has": "voix:entendue"
+   },
+   "text": "La voix qui t'appelait Moineau dans les galeries revient parfois dans tes rêves. Elle a le ton de ton frère à dix ans."
+  },
+  {
+   "if": {
+    "has": "assemblee:non"
+   },
+   "text": "À la fontaine, ils ont refusé de te croire. Plusieurs de ceux qui t'ont jeté des pierres ce jour-là t'ont écrit, plus tard, l'un après l'autre. Tu gardes les lettres."
+  },
+  {
+   "if": {
+    "has": "milice:perdu"
+   },
+   "text": "La lance de Bastien s'est arrêtée à un pouce de ta gorge. Tu sens encore, certains matins, l'endroit exact."
+  },
+  {
+   "if": {
+    "all": [
+     {
+      "has": "fin:gardien"
+     },
+     {
+      "has": "gardien:repos"
+     }
+    ]
+   },
+   "text": "« Repose-toi », lui as-tu dit. C'est le dernier mot qu'il a entendu de toi, et le plus juste."
   }
- }
+ ]
 }

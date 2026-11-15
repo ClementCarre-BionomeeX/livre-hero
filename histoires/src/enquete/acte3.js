@@ -164,6 +164,7 @@ module.exports = {
     fx: endFx("verite", { flag: ["m:verite", "d:argent"] }),
     text: [
       "On ouvre les tonneaux marqués G. devant le conseil assemblé : dix ans d'argent fin, pris un demi-denier à la fois sur chaque écu d'Orbeval, fondu en lingots dans le fourneau de la salle des essais, les nuits où personne ne descendait.",
+      { if: { has: "gaspard:aube" }, text: "De toute l'affaire, tu gardes une image : le soleil qui se lève sur l'Aune, et l'argent qui luit au fond des tonneaux, sur le quai des Teinturiers." },
       "On exhume le corps enterré sous le nom de Gaspard Ombreuil, et on lui rend le sien. Théophane Lescot est enterré une seconde fois, sous la bonne pierre, à côté de sa mère. Maître Faverge paie la pierre. La mère Garnaude revient de chez sa sœur pour l'enterrement, et elle pose sur la tombe un petit portrait peint sur bois, dans un cadre de cuivre.",
       "Gaspard Ombreuil est jugé un mois plus tard. Il ne nie rien. Il répond à toutes les questions avec une exactitude parfaite, comme on remplit un registre. On le pend un matin de pluie, sur la place de la Haute-Ville, et l'on dit qu'il a demandé, avant de monter, quelle heure il était, précisément.",
       { if: { has: "sibylle:aveu" }, text: "Dame Sibylle Ombreuil quitte Orbeval avant le procès. Elle laisse une lettre à l'Échevinage, d'une écriture droite et calme, où elle dit ce qu'elle a entendu la nuit de la fête, et ce qu'elle a choisi de ne pas voir le lendemain. Personne ne la poursuit." },

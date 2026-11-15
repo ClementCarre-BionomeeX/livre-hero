@@ -18,7 +18,7 @@ module.exports = {
     ] },
 
   YS_pont_regard: { act: "I", title: "Le pont de Lisse", place: "brenne",
-    fx: { flag: "ysolde:pont_regarde", ep: ["perso", 300] },
+    fx: { ep: ["perso", 300] },
     text: [
       "Tu te forces. Tu fixes le pont comme on fixe un adversaire dans un duel, sans ciller.",
       "Rien ne vient. Pas une image. Tu sais qu'il y a eu une bataille au pont de Lisse, la dernière de la guerre, le quatorze brumaire, il y a deux ans et demi. Tu sais que tu y étais, parce que c'est écrit dans tes états de service, et que tu as reçu pour ça la croix d'argent que tu ne portes jamais. Tu sais tout ce qu'on peut savoir de l'extérieur. De l'intérieur, il n'y a rien. Un trou, propre, aux bords nets, comme taillé au couteau.",
@@ -56,7 +56,7 @@ module.exports = {
       { label: "Le prendre au col", test: { dom: "combat", label: "Intimidation" },
         win: { fx: { flag: "sevrin:peur", ep: ["perso", 300] }, to: "YS_sevrin_col" },
         lose: { fx: { flag: "sevrin:mefiant" }, to: "YS_sevrin_col_rate" } },
-      { label: "Le laisser parler, et retenir chacun de ses mots", fx: { flag: "sevrin:ecoute" }, to: "YS_cour" },
+      { label: "Le laisser parler, et retenir chacun de ses mots", to: "YS_cour" },
     ] },
 
   YS_sevrin_col: { act: "I", title: "Le col d'un greffier", place: "brenne",
@@ -111,7 +111,7 @@ module.exports = {
       { label: "« Je te délie de ton serment. Parle. »", test: { dom: "social", label: "Autorité", diff: -20 },
         win: { fx: { flag: "gautier:parle", ep: ["perso", 600] }, to: "YS_gautier_parle" },
         lose: { fx: { flag: "gautier:refuse" }, to: "YS_gautier_refus" } },
-      { label: "Le laisser à son cheval", fx: { flag: "gautier:respecte" }, to: "YS_cour" },
+      { label: "Le laisser à son cheval", to: "YS_cour" },
     ] },
 
   YS_gautier_parle: { act: "I", title: "Ce que dit Gautier", place: "brenne",
@@ -224,8 +224,8 @@ module.exports = {
     choices: [
       { label: "Lui dire la vérité, et lui demander de faire sortir le village sans qu'il y ait de sang", test: { dom: "social", label: "Parole", help: [{ if: { has: "ysolde:recu" }, v: 10 }] },
         win: { fx: { flag: "hautvent:parole", ep: ["perso", 800] }, to: "YS_hautvent_parole" },
-        lose: { fx: { flag: "hautvent:refus" }, to: "YS_hautvent_force" } },
-      { label: "Donner le signal. On fait sortir tout le monde, maison par maison", fx: { flag: "hautvent:force" }, to: "YS_hautvent_force" },
+        lose: { to: "YS_hautvent_force" } },
+      { label: "Donner le signal. On fait sortir tout le monde, maison par maison", to: "YS_hautvent_force" },
     ] },
 
   YS_hautvent_parole: { act: "I", title: "Maëlle", place: "hautvent",
@@ -241,7 +241,7 @@ module.exports = {
     combat: { title: "Les hommes de Hautvent", enemies: [{ id: "paysan_hautvent", n: 2 }], terrain: "bati",
       talk: { label: "Crier que personne ne sera tué", diff: -10, win: { fx: { ep: ["perso", 500] }, to: "YS_rodric_rencontre" } },
       win: { fx: { ep: ["seance", 800], flag: "hautvent:sang" }, to: "YS_rodric_rencontre" },
-      lose: { fx: { flag: "hautvent:humiliee" }, to: "YS_rodric_rencontre" } },
+      lose: { to: "YS_rodric_rencontre" } },
     text: [
       "Les portes s'ouvrent sous les bottes de tes hommes. Des cris, en corvannais et en esquarrois. Deux tisserands sortent d'une grange avec des fourches et se jettent sur toi, droit sur la capitaine, comme si ta chute pouvait tout arrêter.",
     ] },
@@ -257,13 +257,13 @@ module.exports = {
     choices: [
       { label: "Lever ton épée et le défier", to: "YS_rodric_duel" },
       { label: "Baisser ton épée. « Personne ne mourra ici ce matin, capitaine. Ni toi, ni moi. »", test: { dom: "social", label: "Parole", diff: -10, help: [{ if: { has: "hautvent:parole" }, v: 20 }] },
-        win: { fx: { flag: "rodric:rendu", conf: { rodric: 10 }, ep: ["perso", 800] }, to: "YS_rodric_rendu" },
+        win: { fx: { conf: { rodric: 10 }, ep: ["perso", 800] }, to: "YS_rodric_rendu" },
         lose: { to: "YS_rodric_duel" } },
     ] },
 
   YS_rodric_duel: { act: "I", title: "Le duel", place: "hautvent",
     combat: { title: "Rodric Trois-Cloches", enemies: ["rodric_e"], terrain: "bati",
-      talk: { label: "« Rends-toi, et je te jure que ta sœur ne sera pas séparée de ses enfants. »", diff: -20, win: { fx: { flag: "rodric:rendu", conf: { rodric: 5 }, ep: ["perso", 800] }, to: "YS_rodric_rendu" } },
+      talk: { label: "« Rends-toi, et je te jure que ta sœur ne sera pas séparée de ses enfants. »", diff: -20, win: { fx: { conf: { rodric: 5 }, ep: ["perso", 800] }, to: "YS_rodric_rendu" } },
       win: { fx: { flag: "rodric:vaincu", ep: ["seance", 1500] }, to: "YS_rodric_vaincu" },
       lose: { fx: { flag: "rodric:vainqueur" }, to: "YS_rodric_vainqueur" } },
     text: ["Il ne charge pas. Il attend, la hache basse, que tu viennes. Les trois cloches tintent à chaque respiration."] },
@@ -291,7 +291,6 @@ module.exports = {
 
   // ---------------------------------------------------------------- Thibaut (side quest)
   YS_thibaut: { act: "I", title: "Le déserteur", place: "hautvent",
-    fx: { flag: "YS:hautvent_pris" },
     text: [
       "On rassemble les gens sur le pré, devant l'église. Sévrin passe dans les rangs avec sa liste, et demande à chacun son nom, et le coche. Les enfants pleurent. Les vieux se taisent. Un homme vomit.",
       "Et au bout du rang, il y a Thibaut. Dix-neuf ans, toujours le même visage d'enfant trop vite grandi, en chemise de tisserand, avec à côté de lui une fille blonde qui tient un nouveau-né contre sa poitrine. Il te regarde. Il soutient ton regard, les mains vides.",
@@ -362,7 +361,7 @@ module.exports = {
     ] },
 
   YS_maelle_lisse: { act: "I", title: "Ce que sait Maëlle", place: null,
-    fx: { flag: "maelle:lisse", ep: ["perso", 400] },
+    fx: { ep: ["perso", 400] },
     text: [
       "Maëlle marche dans l'eau à côté de ton étrier. Elle prend son temps pour répondre.",
       "« Demande à ta mémoire, capitaine. » Elle te regarde. « Ah. Non. Tu ne peux pas. » Elle se tait quelques pas. « Mon mari était sur le pont, cette nuit-là. Il ramenait les gens de Lisse vers Corvanne. Des familles. On fuyait la guerre, de ce côté-là aussi. » Elle sort de l'eau, sur la berge. « Il n'est pas revenu. C'est tout ce que je sais. Le reste, mon frère le sait. Demande-lui. S'il veut bien te le dire. »",
@@ -378,11 +377,11 @@ module.exports = {
       "Il n'y a pas de charrette. À deux heures de là, en haut du col, l'Hospice des Neiges, où les prêtresses soignent les voyageurs depuis cinq cents ans. C'est un détour d'une demi-journée.",
     ],
     choices: [
-      { label: "Faire le détour par l'Hospice, malgré Sévrin", fx: { flag: "ilse:hospice", time: 6, ep: ["perso", 500] }, to: "YS_hospice" },
+      { label: "Faire le détour par l'Hospice, malgré Sévrin", fx: { time: 6, ep: ["perso", 500] }, to: "YS_hospice" },
       { label: "Prendre Ilse en selle devant toi, et la veiller toi-même pendant la marche", test: { dom: "nature", label: "Soins", help: [{ if: { item: "onguent" }, v: 15 }, { if: { item: "miel" }, v: 10 }] },
-        win: { fx: { flag: ["ilse:sauvee", "ilse:selle"], quest: "YS_ilse", ep: ["perso", 800], item: "poupee" }, to: "YS_ilse_selle" },
-        lose: { fx: { flag: "ilse:faible", quest: "YS_ilse" }, to: "YS_ilse_faible" } },
-      { label: "« On ne s'arrête pas. » Et faire porter la petite par sa mère", fx: { flag: "ilse:portee", quest: "YS_ilse" }, to: "YS_ilse_portee" },
+        win: { fx: { flag: "ilse:sauvee", quest: "YS_ilse", ep: ["perso", 800], item: "poupee" }, to: "YS_ilse_selle" },
+        lose: { fx: { quest: "YS_ilse" }, to: "YS_ilse_faible" } },
+      { label: "« On ne s'arrête pas. » Et faire porter la petite par sa mère", fx: { quest: "YS_ilse" }, to: "YS_ilse_portee" },
     ] },
 
   YS_hospice: { act: "I", title: "L'Hospice des Neiges", place: null, shop: "hospice",
@@ -396,7 +395,7 @@ module.exports = {
       { if: { has: "ysolde:recu" }, text: "Tu penses au reçu, dans ton pourpoint. *Signé : Y. de Brenne.* « Je l'ai signé, dis-tu. — On signe beaucoup de choses, ma fille, quand on a un couteau sous la gorge. Même quand le couteau est une couronne. »" },
     ],
     choices: [
-      { label: "Lui demander ce qu'on fait des gens, à la Chancellerie", fx: { flag: "ombeline:chancellerie", ep: ["perso", 400] }, to: "YS_hospice_parle" },
+      { label: "Lui demander ce qu'on fait des gens, à la Chancellerie", fx: { ep: ["perso", 400] }, to: "YS_hospice_parle" },
       { label: "La remercier et repartir", to: "@route" },
     ] },
 
@@ -442,7 +441,7 @@ module.exports = {
       { if: { not: { any: [{ has: "croise:eau_rodric" }, { has: "croise:parle_ysolde" }] } }, text: "Il s'écarte pour vous laisser passer, comme les autres. Tu sens son regard dans ton dos pendant une lieue. Tu regardes devant toi, par vieille discipline." },
     ],
     choices: [
-      { hide: { not: { has: "croise:parle_ysolde" } }, fx: { flag: ["ysolde:sait_neige", "sevrin:mefiant"] }, back: "@route" },
+      { hide: { not: { has: "croise:parle_ysolde" } }, fx: { flag: "sevrin:mefiant" }, back: "@route" },
       { hide: { has: "croise:parle_ysolde" }, back: "@route" },
     ] },
 
@@ -459,12 +458,12 @@ module.exports = {
     ],
     choices: [
       { label: "Arracher la boîte des mains de Sévrin", test: { dom: "combat", label: "Vitesse" },
-        win: { fx: { flag: ["sevrin:affronte", "ysolde:boite_prise"], ep: ["perso", 800], fac: { greffiers: -10 } }, to: "YS_boite_prise" },
-        lose: { fx: { flag: ["sevrin:affronte", "sevrin:mefiant"] }, to: "YS_boite_rate" } },
+        win: { fx: { flag: "ysolde:boite_prise", ep: ["perso", 800], fac: { greffiers: -10 } }, to: "YS_boite_prise" },
+        lose: { fx: { flag: "sevrin:mefiant" }, to: "YS_boite_rate" } },
       { label: "« Plus jamais ça dans mon camp, Frère. Sous mes ordres, ça n'arrive pas. »", test: { dom: "social", label: "Autorité", help: [{ if: { item: "carnet_sevrin" }, v: 10 }, { if: { has: "sevrin:peur" }, v: 10 }] },
         win: { fx: { flag: "sevrin:recule", ep: ["perso", 600] }, to: "YS_boite_ordre" },
         lose: { fx: { flag: "sevrin:mefiant" }, to: "YS_boite_ordre_rate" } },
-      { label: "Ne rien dire. Ce n'est pas ton affaire, c'est celle de la Chancellerie", fx: { flag: "ysolde:silence", fac: { greffiers: 5 } }, to: "@route" },
+      { label: "Ne rien dire. Ce n'est pas ton affaire, c'est celle de la Chancellerie", fx: { fac: { greffiers: 5 } }, to: "@route" },
     ] },
 
   YS_boite_prise: { act: "I", title: "La boîte", place: null,
@@ -499,7 +498,7 @@ module.exports = {
     choices: [{ label: "Continuer", to: "@route" }] },
 
   YS_rodric: { act: "I", title: "La dernière nuit", place: null,
-    fx: { flag: "rodric:lisse", ep: ["seance", 1000] },
+    fx: { ep: ["seance", 1000] },
     text: [
       "La dernière nuit avant Pallanche, tu fais le tour du camp seule. Rodric ne dort pas. Il est assis dans l'herbe, au bout de sa corde, et il te regarde venir.",
       { if: { has: "croise:eau_rodric" }, text: "« Un paysan m'a donné à boire, cet après-midi, sur la route, dit-il. Un jeune, qui venait des montagnes. Ton soldat voulait l'en empêcher, et tu as fait signe de laisser faire. » Il sourit. « Tu fais souvent ça. Laisser faire. »" },
@@ -551,8 +550,8 @@ module.exports = {
     ],
     choices: [
       { label: "Te tourner vers tes quarante hommes et leur parler", test: { dom: "social", label: "Commandement", help: [{ if: { has: "hautvent:parole" }, v: 10 }, { if: { has: "thibaut:sort=libre" }, v: 10 }, { if: { has: "sevrin:recule" }, v: 10 }, { if: { has: "gautier:parle" }, v: 10 }] },
-        win: { fx: { flag: "ysolde:hommes=suivent", ep: ["perso", 1000] }, to: "YS_deserte_suivent" },
-        lose: { fx: { flag: "ysolde:hommes=divises" }, to: "YS_deserte_divises" } },
+        win: { fx: { ep: ["perso", 1000] }, to: "YS_deserte_suivent" },
+        lose: { to: "YS_deserte_divises" } },
     ] },
 
   YS_deserte_suivent: { act: "I", title: "Les quarante", place: "pallanche",
@@ -571,7 +570,7 @@ module.exports = {
       "Vous avez le temps de couper les cordes et de disperser la colonne dans les faubourgs avant que les gardes noirs n'arrivent. Pas tous. Une trentaine de gens de Hautvent sont repris, là, sous tes yeux, et emmenés vers la tour. Tu ne peux rien faire.",
       "Rodric, Maëlle et ses enfants sont avec toi, dans une auberge de rouliers près des abattoirs, avec Gautier. Rodric te regarde. « La moitié, dit-il. C'est déjà beaucoup plus que la dernière fois. »",
     ],
-    choices: [{ label: "Attendre la Nuit des Cloches", fx: { join: "rodric", flag: "hautvent:trente_repris" }, to: "YS_fin" }] },
+    choices: [{ label: "Attendre la Nuit des Cloches", fx: { join: "rodric" }, to: "YS_fin" }] },
 
   YS_ruse: { act: "I", title: "Une famille", place: "pallanche",
     text: [
@@ -581,10 +580,10 @@ module.exports = {
       "Il doute, et il manque de preuves. Il raye cinq noms, d'une écriture minuscule.",
       "Le reste de la colonne entre dans la tour noire. Cent treize personnes. Tu les regardes passer. Tu as sauvé une famille. Tu en as livré vingt.",
     ],
-    choices: [{ label: "Attendre la Nuit des Cloches", fx: { met: "rodric", flag: "rodric:cache" }, to: "YS_fin" }] },
+    choices: [{ label: "Attendre la Nuit des Cloches", fx: { met: "rodric" }, to: "YS_fin" }] },
 
   YS_fin: { act: "I", title: "Ysolde, à Pallanche", place: "pallanche",
-    fx: { flag: "prologue:ysolde", catchup: 4, catchupWhy: "la route de Brenne à Pallanche", ep: ["histoire", 4000] },
+    fx: { catchup: 4, catchupWhy: "la route de Brenne à Pallanche", ep: ["histoire", 4000] },
     text: [
       "Pallanche se prépare pour la Fête des Noms. Partout, des banderoles, des lampions, des greffiers à leurs pupitres sur les places, des files de gens qui veulent faire inscrire le nom de leurs morts. Les cloches sonnent toutes les heures, et chaque fois tu sursautes.",
       { if: { has: "ysolde:recu" }, text: "Tu as relu le reçu vingt fois. Ta signature. Ta propre main. Tu as vendu ce souvenir pour le service de la Couronne. Pour rien. La reine sera là, demain soir." },
@@ -609,7 +608,7 @@ module.exports = {
     choices: [
       { label: "Lever la main, paume ouverte, vers l'autre rive, et attendre", test: { dom: "social", label: "Sang-froid" },
         win: { fx: { ep: ["perso", 600] }, to: "@route" },
-        lose: { fx: { flag: "corvanne:incident", ep: ["perso", 200] }, to: "E_patrouille_tir" } },
+        lose: { fx: { ep: ["perso", 200] }, to: "E_patrouille_tir" } },
       { label: "Faire presser le pas, sans regarder l'autre rive", to: "@route" },
     ] },
 

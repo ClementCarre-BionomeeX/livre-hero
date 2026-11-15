@@ -26,7 +26,7 @@ module.exports = {
       { if: { not: { has: "hylas:berengere=dit" } }, text: "« Vous m'avez vendu un ruban bleu, dit-il. L'an dernier. Vous m'avez rendu trop de monnaie. » Elle le regarde. Elle cherche. « J'en vends beaucoup, des rubans », dit-elle, gentiment. Il hoche la tête. Il lui prend le jeton dans la main. Elle le laisse faire. Elle ne sait pas pourquoi elle le laisse faire." },
       "Il revient vers toi, le jeton de plomb serré dans son poing. Il se tait. Derrière lui, sur le seuil, Bérengère ne regarde plus la place. Elle regarde ses mains vides, puis la rue, puis le dos du vieil homme qui s'en va.",
     ],
-    choices: [{ fx: { flag: "v:berengere", conf: { hylas: 10 }, ep: ["perso", 800] }, back: "V_ville" }] }),
+    choices: [{ fx: { conf: { hylas: 10 }, ep: ["perso", 800] }, back: "V_ville" }] }),
   V_v_orgue: P({ title: "Une seule note",
     text: [
       "Saint-Gilles est ouverte. Dedans, une seule note, tenue, qui ne s'arrête pas : l'orgue. À la tribune, l'organiste est assis, immobile, souriant, un doigt posé sur une touche, et la note sonne depuis hier soir, un grave qui fait trembler les vitraux.",
@@ -42,7 +42,7 @@ module.exports = {
       "L'organiste cligne des yeux. Il regarde ses mains sur le clavier. Il regarde la nef vide. Puis, lentement, sans te voir, il pose les deux mains, et il joue le début d'un choral, et quand la basse descend vers la note qui grince, il l'évite, et il en joue une autre, qui n'est pas dans la partition. Il ne sait pas pourquoi. Ses mains le savent.",
       { with: "hylas", text: "En bas, dans la nef, Hylas s'est assis au dernier rang. Il chante, à mi-voix, avec sa voix cassée. Il connaît les paroles." },
     ],
-    choices: [{ fx: { flag: "v:orgue" }, back: "V_ville" }] }),
+    choices: [{ back: "V_ville" }] }),
   V_v_renne: P({ title: "Le marché aux bêtes",
     text: [
       "Le marché aux bêtes est désert. Les enclos sont ouverts. Les vaches, les cochons sont partis, ou restés debout, sous la neige, sans comprendre. Les marchands sont dans la queue, avec leurs jetons.",

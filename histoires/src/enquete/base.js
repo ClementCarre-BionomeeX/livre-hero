@@ -288,11 +288,17 @@ module.exports = {
     vieil_homme: { name: "Homme aux abois", look: "humain", pv: 7, att: 10, def: -10, dmg: 3, desc: "Un homme de cinquante-cinq ans, un couteau à la main, qui n'a plus rien à perdre." },
   },
   shops: {},
+  // The hero's callings (8.5): the trade the past question names, played like one of the six classes.
+  voies: {
+    escorte: {"label": "Escorte de convoi", "tip": "Les routes, les contrats et les rixes.", "like": "guerrier", "bonus": {"combat": 30, "nature": 20, "social": 10, "discretion": 10, "savoir": 5, "magie": 0}, "kit": ["epee"]},
+    guet: {"label": "Ancien garde du guet", "labelF": "Ancienne garde du guet", "tip": "Les témoins, les alibis et les mensonges.", "like": "voleur", "bonus": {"discretion": 30, "social": 20, "combat": 20, "savoir": 15, "nature": 5, "magie": 0}, "kit": ["dague"]},
+    fleuve: {"label": "Batelier", "labelF": "Batelière", "tip": "Le fleuve, les barges et ceux qui y vivent.", "like": "rodeur", "bonus": {"nature": 35, "combat": 15, "social": 15, "discretion": 15, "savoir": 5, "magie": 0}, "kit": ["dague"]},
+  },
   past: [
     { q: "Qu'est-ce qui t'a amené{e} à Orbeval pour la Fête des Lanternes ?", answers: [
-      { label: "Tu escortais un convoi de draps depuis le sud. On t'a payé{e} hier soir, et tu cherches un autre contrat.", fx: { flag: "passe:escorte", gold: 40 } },
-      { label: "Tu as servi trois ans dans le guet d'une autre ville. Tu viens voir si celui d'Orbeval engage.", fx: { flag: "passe:guet", regard: { hallard: "cordial" } } },
-      { label: "Tu as grandi sur les barges de l'Aune. Tu reviens voir le fleuve, et ceux qui y travaillent encore.", fx: { flag: "passe:fleuve" } },
+      { label: "Tu escortais un convoi de draps depuis le sud. On t'a payé{e} hier soir, et tu cherches un autre contrat.", fx: { voie: "escorte", flag: "passe:escorte", gold: 40 } },
+      { label: "Tu as servi trois ans dans le guet d'une autre ville. Tu viens voir si celui d'Orbeval engage.", fx: { voie: "guet", flag: "passe:guet", regard: { hallard: "cordial" } } },
+      { label: "Tu as grandi sur les barges de l'Aune. Tu reviens voir le fleuve, et ceux qui y travaillent encore.", fx: { voie: "fleuve", flag: "passe:fleuve" } },
     ] },
     { q: "Pourquoi Gervaise Maupas vient-elle frapper à ta porte, à toi ?", answers: [
       { label: "Hier soir, à la Lanterne Sourde, tu as séparé deux hommes qui se battaient au couteau. Tout le quartier en parle.", fx: { flag: "passe:rixe" } },
@@ -300,6 +306,31 @@ module.exports = {
       { label: "Tu ne sais pas. Elle a frappé à toutes les portes de l'auberge, et tu es la seule personne à avoir ouvert.", fx: { flag: "passe:hasard" } },
     ] },
   ],
+  // The world of this book (8.6): what an inhabitant knows before the first page. Nothing of the plot.
+  lore: {
+    pages: [
+      { title: "Orbeval, la ville aux onze ponts", text: [
+        "**Orbeval** tient sur l'Aune par onze ponts. Le plus beau, celui des Changeurs, porte des maisons à trois étages et des boutiques ouvertes sur l'eau ; le plus pauvre, celui des Lavandières, est une passerelle de planches au-dessus du canal des Tanneurs.",
+        "En haut, la **Haute-Ville**, ses cloches et la tour du Guet, où l'on garde les prisonniers. En bas, au fil de l'eau, les quartiers des métiers : les Tanneurs, les Teinturiers, le quai des Orfèvres. La Monnaie de la ville y frappe ses écus.",
+      ] },
+      { title: "Usages", text: [
+        "On paie en sous et en deniers ; un écu d'argent vaut vingt sous.",
+        "Le **Guet** fait la police de la ville et garde ceux qu'il arrête dans sa tour. Leurs proches peuvent leur porter du pain le matin.",
+        "Chaque année, à la **Fête des Lanternes**, toute la ville met à l'eau des milliers de petites barques de papier, chacune avec sa chandelle, et le fleuve descend vers la mer en brûlant jusqu'à minuit.",
+      ] },
+    ],
+    names: {
+      "Orbeval": "La ville aux onze ponts, sur l'Aune.",
+      "Aune": "Le fleuve d'Orbeval, qui descend vers la mer.",
+      "Pont des Changeurs": "Le plus beau pont d'Orbeval, bordé de maisons à trois étages et de comptoirs de changeurs.",
+      "Lavandières": "Le pont des Lavandières, une passerelle de planches sur le canal des Tanneurs.",
+      "Tanneurs": "Le quartier des tanneurs, au bord du canal et de son écluse.",
+      "Haute-Ville": "Le haut d'Orbeval, ses cloches et la tour du Guet.",
+      "Guet": "La garde de la ville ; sa tour, en Haute-Ville, sert de prison.",
+      "Monnaie": "L'atelier qui frappe les écus d'Orbeval.",
+      "Fête des Lanternes": "La nuit où toute la ville met à l'eau des barques de papier, une chandelle dans chacune.",
+    },
+  },
   world: {
     money: { units: [{ name: "écu", plural: "écus", value: 20, short: "é." }, { name: "sou", plural: "sous", value: 1, short: "s." }] },
     start: { place: "pont", hour: 7, clock: true, gold: 60, food: 0, items: [],

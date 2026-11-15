@@ -421,11 +421,67 @@ module.exports = {
       ] },
     { q: "Qu'est-ce que tu as mis dans ta poche ce matin ?",
       answers: [
-        { label: "Les six pièces que tu économises pour un couteau de chez Ferrand.", fx: { flag: "passe:pieces", gold: 6 } },
+        { label: "Les six pièces que tu économises pour un couteau de chez Ferrand.", fx: { gold: 6 } },
         { label: "Un caillou blanc, très lisse, que tu gardes depuis toujours. Il est froid, même en été.", fx: { flag: "passe:caillou" } },
-        { label: "Le ruban rouge que Tess a oublié chez toi. Tu comptes le lui rendre. Peut-être.", fx: { flag: "passe:ruban", item: "ruban" } },
+        { label: "Le ruban rouge que Tess a oublié chez toi. Tu comptes le lui rendre. Peut-être.", fx: { item: "ruban" } },
       ] },
   ],
+  // The road takes its toll (piste 10, 15/11): the winter sky follows the roads, long roads tire, ice and cold wound.
+  weather: {
+    by: "route", every: 6, start: "gel",
+    kinds: {
+      gel: { name: "Gel clair", desc: "Un ciel dur et bleu, un froid qui fait craquer la neige." },
+      neige: { name: "Neige", desc: "La neige tombe, lourde, et efface les traces.", mod: { nature: -10, discretion: 10 }, say: "La neige se met à tomber, lente, lourde. Derrière toi, les traces s'effacent." },
+      bourrasque: { name: "Bourrasque", desc: "Le vent soulève la neige en rideaux.", mod: { nature: -15, combat: -10 }, say: "Le vent se lève d'un coup et soulève la neige en rideaux blancs. On ne voit plus ses propres mains.",
+        hurts: { wound: "gelure", chance: 0.3, say: "Le vent te prend le visage et les mains. Quand il retombe, tu as le bout des doigts blanc et dur." } },
+      brouillard: { name: "Brouillard givrant", desc: "Un brouillard qui givre les cils.", mod: { nature: -10, discretion: 15 }, say: "Un brouillard monte des vallées et givre tout ce qu'il touche : les cils, les cheveux, les branches." },
+      redoux: { name: "Redoux", desc: "Un vent tiède, la neige qui fond en boue.", mod: { discretion: -5 }, say: "Le vent tourne au sud. La neige fond en boue grise, et les ruisseaux grondent sous la glace." },
+      verglas: { name: "Verglas", desc: "La pluie gelée sur les chemins.", mod: { combat: -10, nature: -10 }, say: "La pluie a gelé en tombant. Les chemins luisent, et chaque pas se négocie.",
+        hurts: { wound: "chute", chance: 0.3, say: "Ton pied part sur la glace. Tu tombes sur le flanc, de tout ton poids." } },
+    },
+    regions: {
+      lieu: { gel: 3, neige: 2, redoux: 1 },
+      plaine: { gel: 2, neige: 2, brouillard: 2, redoux: 1 }, cour: { gel: 2, neige: 2, verglas: 1, redoux: 1 }, marches: { gel: 2, neige: 2, verglas: 1, bourrasque: 1 },
+      montagne: { neige: 3, bourrasque: 2, gel: 1 }, combes: { neige: 3, bourrasque: 2, gel: 2 }, cretes: { bourrasque: 3, neige: 2, gel: 1 },
+      outreblanc: { neige: 3, bourrasque: 2, brouillard: 2 },
+      iv_sud: { redoux: 2, gel: 2, neige: 1 }, iv_est: { gel: 2, neige: 2, verglas: 1 }, iv_nord: { neige: 3, bourrasque: 2, gel: 1 },
+    },
+  },
+  wounds: {
+    gelure: { name: "Gelures", desc: "Le bout de tes doigts est blanc, et te brûle quand il se réchauffe.", mod: { combat: -10, discretion: -5 }, days: 3, tended: 1 },
+    chute: { name: "Le flanc meurtri", desc: "Une douleur sourde au côté à chaque inspiration.", mod: { combat: -10, nature: -5 }, days: 2, tended: 1 },
+  },
+  // The world of this book (8.6): what an inhabitant knows before the first page. Nothing of the plot.
+  lore: {
+    pages: [
+      { title: "Le royaume d'Esquarre", text: [
+        "**Esquarre** est un royaume de vallées et de montagnes, gouverné par une reine depuis Pallanche. Ses soldats tiennent les ponts et les relais de poste, et ses messagers courent les routes d'un bout à l'autre du pays.",
+        "À l'est, la Lisse marque la frontière avec **Corvanne**. La dernière guerre s'y est terminée il y a deux ans et demi, au pont de Lisse, et la forteresse de Brenne garde toujours la rive.",
+        "Au nord, au-dessus des dernières vallées, les **Hautes-Combes** sont le pays des clans, qui vivent de chasse et de rennes et descendent rarement dans les villes.",
+      ] },
+      { title: "Pallanche et la Fête des Noms", text: [
+        "**Pallanche** est la ville aux cent cloches : cent clochers, et un grand beffroi qui les commande toutes. Au-dessus des toits se dresse la **Chancellerie des Noms**, une tour noire sans fenêtres, coiffée d'une plume et d'une clé de fer. Les Greffiers, en robe noire, y tiennent les registres du royaume.",
+        "Chaque été, la **Fête des Noms** y attire tout le pays. Chaque maison peint son nom en lettres d'or au-dessus de sa porte, des greffiers installés sur les places inscrivent gratuitement le nom de qui le demande dans le Grand Livre, et des pèlerins viennent de loin y faire écrire le nom de leurs morts, pour qu'on se souvienne d'eux.",
+      ] },
+      { title: "La vie des villages", text: [
+        "Dans la montagne, l'été tourne autour de la fête des foins : on sort les tréteaux, on danse jusqu'à la nuit, et l'on règle le lendemain les querelles de bornage. Chaque village a son temple, chaque route ses chapelles.",
+        "On paie en sous, et l'on compte les grosses sommes en écus.",
+      ] },
+    ],
+    names: {
+      "Esquarre": "Le royaume, gouverné par une reine depuis Pallanche.",
+      "Pallanche": "La capitale d'Esquarre, la ville aux cent cloches.",
+      "Chancellerie des Noms": "La tour noire de Pallanche, où les Greffiers tiennent les registres du royaume.",
+      "Greffiers": "L'ordre des clercs en robe noire qui tiennent les registres d'Esquarre, à la Chancellerie des Noms.",
+      "Fête des Noms": "La grande fête d'été de Pallanche : on y fait écrire son nom, et celui de ses morts, dans le Grand Livre.",
+      "Grand Livre": "Le registre de la Fête des Noms, où chacun peut faire inscrire un nom.",
+      "Corvanne": "Le pays voisin, à l'est, de l'autre côté de la Lisse. La dernière guerre avec Esquarre s'est terminée il y a deux ans et demi.",
+      "Lisse": "La rivière de la frontière de l'Est, entre Esquarre et Corvanne.",
+      "Brenne": "La forteresse qui garde la frontière de l'Est, au-dessus de la Lisse.",
+      "Hautes-Combes": "Les hautes terres du nord, pays des clans.",
+      "Sauvelune": "Un village de montagne de quatre cents âmes, avec un moulin, un temple et sa fête des foins.",
+    },
+  },
   world: {
     // One écu is twenty sous; the engine counts in sous.
     money: { units: [{ name: "écu", plural: "écus", value: 20, short: "éc." }, { name: "sou", plural: "sous", value: 1, short: "s." }] },

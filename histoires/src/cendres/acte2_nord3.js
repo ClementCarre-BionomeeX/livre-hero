@@ -89,7 +89,7 @@ module.exports = {
       "« Il est venu à minuit, dit-il. On ne l'a pas entendu marcher. On a entendu le toit. Il a posé la main dessus, comme sur une tête. Et tout le monde s'est arrêté. » Il frissonne. « Le prieur est en haut. Il est vivant. À moitié. Il m'a dit de rester ici et de garder le feu. Je garde le feu. »",
     ],
     choices: [
-      { label: "Lui donner à manger et le laisser garder le feu", fx: { flag: "nord:tiennot", food: -1 }, to: "II_N3_cloitre" },
+      { label: "Lui donner à manger et le laisser garder le feu", fx: { food: -1 }, to: "II_N3_cloitre" },
       { label: "Lui demander ce que les Veilleurs veillent", to: "II_N3_novice_veille" },
     ] }),
 
@@ -98,7 +98,7 @@ module.exports = {
       "Tiennot hausse les épaules. « On ne sait pas. Les novices, on ne sait pas. On veille. Toutes les heures, quelqu'un monte à la tour et regarde le col. Et s'il voit la lumière, il sonne. »",
       "Il regarde vers le nord, par la porte. « Elle est là depuis un mois, la lumière. On a sonné tous les jours. Personne n'est venu. »",
     ],
-    choices: [{ fx: { flag: "nord:tiennot" }, back: "II_N3_cloitre" }] }),
+    choices: [{ back: "II_N3_cloitre" }] }),
 
   II_N3_prieur: P({ title: "Dom Arnoul", place: "moutier",
     fx: { meet: "arnoul" },
@@ -114,7 +114,7 @@ module.exports = {
     ] }),
 
   II_N3_serment: P({ title: "Le serment", place: "moutier",
-    fx: { clue: "n_veilleurs", flag: "nord:serment_lu" },
+    fx: { clue: "n_veilleurs" },
     text: [
       "Il lit, à voix haute, sans regarder la page. Il la sait par cœur.",
       "*Nous, Tour, Gerbe, Barque, Cerf, et Plume-et-Clé, ayant fait ce qui devait être fait dans la vallée qu'on ne nommera plus, et ayant fait pacte avec l'Hiver pour que cela soit oublié de tous, établissons ici des Veilleurs qui seuls s'en souviendront, et garderont le col fermé tant que l'oubli tiendra.*",
@@ -161,8 +161,8 @@ module.exports = {
     ],
     choices: [
       { label: "« Fais-le. »", hide: { not: { present: "ombeline" } }, fx: { flag: "nord:ombeline_moines", conf: { ombeline: 10 }, ep: ["perso", 800] }, to: "II_N3_chapelle_ombeline" },
-      { label: "« Non. Ce qu'ils ont, c'est à eux. »", hide: { not: { present: "ombeline" } }, fx: { flag: "nord:moines_gardent", conf: { ombeline: -5 } }, to: "II_N3_cloitre" },
-      { label: "Leur chanter le chant des morts", fx: { flag: "nord:moines_chant", ep: ["perso", 600] }, to: "II_N3_cloitre" },
+      { label: "« Non. Ce qu'ils ont, c'est à eux. »", hide: { not: { present: "ombeline" } }, fx: { conf: { ombeline: -5 } }, to: "II_N3_cloitre" },
+      { label: "Leur chanter le chant des morts", fx: { ep: ["perso", 600] }, to: "II_N3_cloitre" },
     ] }),
 
   II_N3_chapelle_ombeline: P({ title: "Ce qu'elle prend", place: "moutier",
@@ -176,7 +176,7 @@ module.exports = {
   II_N3_glace: P({ title: "Le frère au balai", place: "moutier",
     text: ["Il est jeune, roux, les joues rondes. Il balayait. La glace qui l'entoure est mince, à peine un doigt. On pourrait la briser. Il y a une torche éteinte dans une niche, et un briquet."],
     choices: [
-      { label: "Faire fondre la glace, à la torche, doucement", fx: { flag: "nord:frere_degage" }, to: "II_N3_glace_fond" },
+      { label: "Faire fondre la glace, à la torche, doucement", to: "II_N3_glace_fond" },
       { label: "Le laisser", to: "II_N3_cloitre" },
     ] }),
 
@@ -235,7 +235,7 @@ module.exports = {
       "Hylas est resté à la bibliothèque, avec le prieur. Tu les trouves qui parlent à voix basse, l'un dans son fauteuil, l'autre debout, la main sur le dossier. Ils se taisent quand tu entres.",
       "En redescendant, Hylas dit seulement : « Il m'a dit ce qu'on dit au prieur. Je le savais déjà. Je l'avais lu, il y a vingt ans, et j'ai fait comme si. » Il s'appuie au mur. « Les Greffiers aussi ont un serment. Le même, à un mot près. »",
     ],
-    choices: [{ fx: { conf: { hylas: 5 }, flag: "hylas:arnoul" }, back: "II_N3_soir" }] }),
+    choices: [{ fx: { conf: { hylas: 5 } }, back: "II_N3_soir" }] }),
 
   II_N3_nuit_ombeline: P({ title: "Le poids", place: "moutier",
     text: [
@@ -266,7 +266,7 @@ module.exports = {
       "La cloche sonne au-dessus de ta tête, énorme, et le son roule dans la combe. Le géant s'arrête, la main levée. Il tourne la tête vers la tour. Le murmure cesse. Pendant dix coups, il écoute. Comme un chien qui reconnaît une voix.",
       "Puis il baisse la main. Il se détourne, lentement, et repart vers le col. Tu sonnes jusqu'à ce que tes bras n'en puissent plus.",
     ],
-    choices: [{ label: "Redescendre", fx: { flag: "nord:geant_cloche", ep: ["perso", 1500] }, to: "II_N3_aube" }] }),
+    choices: [{ label: "Redescendre", fx: { ep: ["perso", 1500] }, to: "II_N3_aube" }] }),
 
   II_N3_chant: P({ title: "Le chant des morts", place: "moutier",
     text: [
@@ -281,8 +281,8 @@ module.exports = {
   II_N3_combat: P({ title: "Le géant",
     combat: { title: "Le Glaneur géant", enemies: [{ id: "glaneur_petit", n: 2 }], terrain: "bati", range: "distance",
       flee: { dom: "discretion", label: "Se jeter dans la crypte", to: "II_N3_main" },
-      win: { fx: { ep: ["seance", 1500], flag: "nord:geant_blesse" }, to: "II_N3_main" },
-      lose: { fx: { flag: "nord:geant_fuite" }, to: "II_N3_main" } },
+      win: { fx: { ep: ["seance", 1500] }, to: "II_N3_main" },
+      lose: { to: "II_N3_main" } },
     text: [
       "Les flèches entrent dans la neige sans bruit, et la poix brûle sur son épaule, un instant, avant que la neige ne se referme dessus. Il ne te regarde même pas. Mais de son flanc se détachent deux formes, plus petites, des Glaneurs comme les autres, qui descendent vers la cour.",
     ],

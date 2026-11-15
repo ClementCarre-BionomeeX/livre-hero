@@ -35,7 +35,7 @@ module.exports = {
       "Sur une étagère, un pot de peinture rouge et un pinceau. Le sacristain a dû essayer.",
     ],
     choices: [
-      { label: "Prendre le pinceau, et repeindre les noms effacés", fx: { flag: "iv:ossuaire_pinceau", ep: ["perso", 600] }, to: "IV_O_cranes_peindre" },
+      { label: "Prendre le pinceau, et repeindre les noms effacés", fx: { ep: ["perso", 600] }, to: "IV_O_cranes_peindre" },
       { back: "IV_O_galeries" },
     ] }),
   IV_O_cranes_peindre: P({ title: "Le pinceau", place: "pallanche",

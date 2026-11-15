@@ -33,7 +33,7 @@ module.exports = {
     ],
     choices: [
       { label: "« Oui. »", fx: { ep: ["perso", 400] }, to: "YS_k_maitre_page" },
-      { label: "« Montre-moi les pages de la Lisse. »", fx: { flag: "ysolde:gerbold", ep: ["perso", 600] }, to: "YS_k_maitre_lisse" },
+      { label: "« Montre-moi les pages de la Lisse. »", fx: { ep: ["perso", 600] }, to: "YS_k_maitre_lisse" },
     ] }),
   YS_k_maitre_page: YS({ title: "Ta page",
     text: ["Il l'ouvre, presque au milieu. *Ysolde, fille du capitaine. Six ans. Défaut : frappe trop fort, trop tôt. N'attend pas.* Et en dessous, d'une encre plus récente : *Capitaine. Frappe toujours trop fort. Attend un peu mieux.* Il referme le livre. « J'écrirai la suite quand tu reviendras, dit-il. Reviens. »"],
@@ -52,7 +52,7 @@ module.exports = {
       "En haut, un guetteur. Vieux, en cotte rouillée, une trompe de corne à la ceinture. Il regarde le nord. Il regarde toujours le nord. « Je dois sonner quand ils arrivent, dit-il sans se retourner. Les Orsans. Je n'ai jamais sonné. Ils ne sont jamais venus. »",
     ],
     choices: [
-      { label: "« Ils ne viendront pas. Vous pouvez descendre. »", fx: { ep: ["perso", 500], flag: "iii:guetteur" }, to: "III_p_tour_guet_descendre" },
+      { label: "« Ils ne viendront pas. Vous pouvez descendre. »", fx: { ep: ["perso", 500] }, to: "III_p_tour_guet_descendre" },
       { label: "Le laisser à son guet", to: "III_plaine" },
     ] }),
   III_p_tour_guet_descendre: T3({ title: "La trompe",

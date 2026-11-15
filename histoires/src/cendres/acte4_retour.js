@@ -45,8 +45,8 @@ module.exports = {
       { if: { has: "nord:ombeline" }, before: "nord:rendu=arnoul", once: true, text: "« Vous êtes tombés, dit-elle. Moi, je suis restée en haut. Je vous ai cherchés trois jours dans la neige du col, avec les chiens du clan. Puis les Veilleurs m'ont dit d'attendre. Qu'on revient toujours par où on est parti. »" },
     ],
     choices: [
-      { label: "« Viens avec nous. »", hide: { has: "ombeline:faim" }, fx: { join: "ombeline", conf: { ombeline: 10 }, flag: "iv:ombeline" }, to: "IV_moutier" },
-      { label: "« Viens avec nous. On trouvera comment t'en défaire. »", hide: { not: { has: "ombeline:faim" } }, fx: { join: "ombeline", conf: { ombeline: 15 }, flag: ["iv:ombeline", "ombeline:faim_suit"] }, to: "IV_ombeline_faim" },
+      { label: "« Viens avec nous. »", hide: { has: "ombeline:faim" }, fx: { join: "ombeline", conf: { ombeline: 10 } }, to: "IV_moutier" },
+      { label: "« Viens avec nous. On trouvera comment t'en défaire. »", hide: { not: { has: "ombeline:faim" } }, fx: { join: "ombeline", conf: { ombeline: 15 } }, to: "IV_ombeline_faim" },
       { label: "Lui proposer de prendre une part de sa faim", hide: { not: { has: "ombeline:faim" } }, to: "IV_ombeline_part" },
       { label: "La laisser à ses malades, pour l'instant", to: "IV_moutier" },
     ] }),
@@ -66,7 +66,7 @@ module.exports = {
     ],
     choices: [
       { label: "Garder la part. Elle est à toi, maintenant", tag: "Souvenir donné", stain: true, if: { souv: "enfant:serment" }, why: "Il faudrait quelque chose de solide à quoi t'accrocher, et tu l'as déjà donné.",
-        fx: { souv: "enfant:serment", flag: ["ombeline:faim_partagee", "enfant:faim"], join: "ombeline", conf: { ombeline: 30 }, ep: ["perso", 2500] }, to: "IV_ombeline_partagee" },
+        fx: { souv: "enfant:serment", join: "ombeline", conf: { ombeline: 30 }, ep: ["perso", 2500] }, to: "IV_ombeline_partagee" },
       { label: "Lui rendre. Tu ne peux pas", fx: { conf: { ombeline: -5 } }, to: "IV_ombeline" },
     ] }),
 
@@ -111,14 +111,14 @@ module.exports = {
       "*Le dix-neuf de mars, la neige s'est arrêtée. Personne ne sait pourquoi. Frère Odon dit qu'il a senti, cette nuit-là, quelque chose se fermer, très loin au nord, comme une main.*",
       "Tu penses au bourdon de Bourdonne, à la corde qui t'a brûlé les mains. Là-bas, il n'y avait pas de dates.",
     ],
-    choices: [{ fx: { flag: "iv:chronique" }, back: "IV_moutier" }] }),
+    choices: [{ back: "IV_moutier" }] }),
 
   IV_arnoul: P({ title: "Le prieur", place: "moutier",
     text: [
       { if: { has: "nord:rendu=arnoul" }, text: "« Le Livre des Veilles dit ce qu'il faut faire quand la porte rend quelqu'un, dit Arnoul. Je l'ai lu cent fois. Il dit : *conduisez-le au caveau de la plume et de la clé, et qu'il lise ce qui est barré.* Je n'ai jamais compris. Maintenant je comprends. » Il te prend le poignet, d'une poigne de vieux soldat. « Le registre d'Anselin. Le premier. Celui qu'aucun greffier ne devait ouvrir. Il est sous la tour. Mordace l'a ouvert. Tu es le seul qui puisse le lire jusqu'au bout. Ne le laisse pas à cet homme. »" },
       { if: { not: { has: "nord:rendu=arnoul" } }, text: "Le vieil homme te sourit. Il ne sait pas qui tu es. Il te dit qu'il a fait un rêve, cette nuit : un caveau, sous une tour, et un livre noir qu'on lui demandait de garder. Il ne sait plus pour qui. « C'est drôle, dit-il, les rêves. On dirait des ordres. »" },
     ],
-    choices: [{ fx: { flag: "iv:arnoul", clue: "n_caveau" }, back: "IV_moutier" }] }),
+    choices: [{ fx: { clue: "n_caveau" }, back: "IV_moutier" }] }),
 
   IV_depart_sud: P({ title: "Le départ", place: "moutier",
     text: [

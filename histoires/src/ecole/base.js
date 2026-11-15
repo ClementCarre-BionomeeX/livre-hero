@@ -42,16 +42,49 @@ module.exports = {
   ],
   factions: {},
   relics: {},
+  // The hero's callings (8.5): the trade the past question names, played like one of the six classes.
+  voies: {
+    berger: {"label": "Berger", "labelF": "Bergère", "tip": "Le ciel, la marche et le silence.", "like": "rodeur", "bonus": {"nature": 35, "discretion": 20, "magie": 10, "social": 10, "savoir": 10, "combat": 5}},
+    ecole: {"label": "Aide de l'institutrice", "tip": "Les livres, les lettres et les petits.", "like": "mage", "bonus": {"savoir": 35, "magie": 20, "social": 15, "discretion": 5, "nature": 5, "combat": 0}},
+    forge: {"label": "Apprenti forgeron", "labelF": "Apprentie forgeronne", "tip": "Le feu, le fer et l'outil.", "like": "guerrier", "bonus": {"nature": 30, "combat": 20, "magie": 10, "social": 10, "savoir": 5, "discretion": 5}},
+  },
   past: [
     {
       q: "Que faisais-tu à Brèches avant la lettre du collège ?",
       answers: [
-        { label: "Tu gardais les moutons de ton oncle sur le plateau. Tu sais lire le ciel, marcher longtemps et te taire quand il faut.", fx: { flag: "passe:berger" } },
-        { label: "Tu aidais l'institutrice à tenir la classe des petits. Tu as lu tous ses livres, deux fois.", fx: { flag: "passe:ecole" } },
-        { label: "Tu travaillais à la forge de ton père. Tu as des mains qui savent tenir un outil, et des bras pour le lever.", fx: { flag: "passe:forge" } },
+        { label: "Tu gardais les moutons de ton oncle sur le plateau. Tu sais lire le ciel, marcher longtemps et te taire quand il faut.", fx: { voie: "berger", flag: "passe:berger" } },
+        { label: "Tu aidais l'institutrice à tenir la classe des petits. Tu as lu tous ses livres, deux fois.", fx: { voie: "ecole", flag: "passe:ecole" } },
+        { label: "Tu travaillais à la forge de ton père. Tu as des mains qui savent tenir un outil, et des bras pour le lever.", fx: { voie: "forge", flag: "passe:forge" } },
       ],
     },
   ],
+  // The world of this book (8.6): what an inhabitant knows before the first page. Nothing of the plot.
+  lore: {
+    pages: [
+      { title: "Hautsignes", text: [
+        "**Hautsignes** est une ville de marins et de savants, bâtie sur une langue de terre basse entre la mer et les marais. Depuis trente ans, la mer ne l'a plus noyée : une longue digue de granit la protège, couverte de signes gravés que les maîtres du Chant font vibrer les nuits de tempête. On l'appelle la **Digue Chantée**, et les enfants de la ville apprennent son histoire avant de savoir lire.",
+        "On paie en sous. La rue des Drapiers, au pied du collège, vend aux élèves leurs plumes, leur papier, leurs chandelles et les ingrédients de leurs encres.",
+      ] },
+      { title: "Le Collège des Quatre Arts", text: [
+        "Sur la seule colline de la ville, le Collège des Quatre Arts tient en quatre ailes de pierre grise autour d'une cour plantée de tilleuls. Sa bibliothèque est célèbre dans trois royaumes. Deux cents élèves y vivent en robe noire, sous l'autorité du Recteur, et certains y entrent grâce à une bourse, quand un maître est venu les chercher dans leur village.",
+        "Chaque Art a son signe, peint sur la porte de sa salle :",
+        "**L'Encre**, la plume : tracer des signes qui retiennent. C'est le plus lent des quatre Arts, et le plus durable.",
+        "**Le Chant**, la bouche : faire vibrer les signes de la voix. On y apprend d'abord à se taire, puis à respirer.",
+        "**Le Verre**, l'œil : l'art de montrer aux gens ce qu'ils veulent voir.",
+        "**La Main**, la main : le travail de l'atelier, où l'on porte longtemps le charbon avant de toucher un outil.",
+      ] },
+    ],
+    names: {
+      "Hautsignes": "La ville de marins et de savants, entre la mer et les marais, protégée par la Digue Chantée.",
+      "Digue Chantée": "La digue de granit de Hautsignes, couverte de signes que le Chant fait vibrer les nuits de tempête.",
+      "Collège des Quatre Arts|Quatre Arts": "L'école des arts de Hautsignes : l'Encre, le Chant, le Verre et la Main.",
+      "Encre": "L'Art des signes tracés, qui retiennent. Son signe est une plume.",
+      "Chant": "L'Art de la voix qui fait vibrer les signes. Son signe est une bouche ouverte.",
+      "Verre": "L'Art de montrer aux gens ce qu'ils veulent voir. Son signe est un œil.",
+      "Recteur": "Le maître qui dirige le collège.",
+      "Drapiers": "La rue au pied du collège, où les élèves achètent plumes, papier, chandelles et ingrédients.",
+    },
+  },
   world: {
     noFood: true,
     money: { units: [{ name: "livre", plural: "livres", value: 20, short: "l." }, { name: "sou", plural: "sous", value: 1, short: "s." }] },
@@ -333,7 +366,18 @@ module.exports = {
     drapiers: { sells: [{ item: "noix_galle", price: 3 }, { item: "vitriol", price: 4 }, { item: "lanterne", price: 2 }, { item: "pain_epices", price: 2 }] },
   },
   enemies: {},
+  // Words with effects (8.6): six golden letters hidden where Solène left a trace. Nothing points at them.
+  trouvaillesName: "lettres d'or",
+  trouvailles: {
+    s1: { title: "Un S d'or", fx: { ep: ["perso", 150] } },
+    s2: { title: "Un O d'or", fx: { ep: ["perso", 150] } },
+    s3: { title: "Un L d'or", fx: { ep: ["perso", 150] } },
+    s4: { title: "Un È d'or", fx: { ep: ["perso", 150] } },
+    s5: { title: "Un N d'or", fx: { ep: ["perso", 150] } },
+    s6: { title: "Un E d'or", fx: { ep: ["perso", 150] } },
+  },
   achievements: {
+    lettres: { title: "Six lettres d'or", desc: "Trouver les six lettres cachées dans le collège et autour.", if: { trouvailles: 6 } },
     escrimeur: { title: "Trois fois", desc: "Gagner les trois duels contre Valérien.", if: { all: [{ has: "val:battu" }, { has: "val:battu2" }, { has: "val:battu3" }] } },
     enigmes: { title: "Ce qu'il avait caché", desc: "Résoudre les trois énigmes de Maître Salvanhac.", if: { all: [{ has: "enigme:p_chiffre" }, { has: "enigme:p_cabinet" }, { has: "enigme:p_page" }] } },
     reveur: { title: "Les nuits de Hautsignes", desc: "Faire les quatre rêves.", if: { all: [{ seen: "R_noyee" }, { seen: "R_digue" }, { seen: "R_merle" }, { seen: "R_examen" }] } },

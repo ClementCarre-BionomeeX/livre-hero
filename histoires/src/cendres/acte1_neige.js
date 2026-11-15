@@ -26,7 +26,7 @@ module.exports = {
       { if: { not: { has: "en:linteaux" } }, text: "Il te regarde, puis il regarde le pot, puis les linteaux. « Il y avait des noms, dit-il. Je les ai peints. Tous les printemps. Je ne sais plus lesquels. » Il pose le pot dans la neige, très doucement, comme on pose quelque chose qu'on ne reprendra pas." },
     ],
     choices: [
-      { label: "Lui dicter les noms, maison après maison, comme il te les avait dictés", hide: { not: { has: "en:linteaux" } }, fx: { flag: "en:linteaux_neige", ep: ["perso", 600] }, to: "EN_k_gervais_peindre" },
+      { label: "Lui dicter les noms, maison après maison, comme il te les avait dictés", hide: { not: { has: "en:linteaux" } }, fx: { ep: ["perso", 600] }, to: "EN_k_gervais_peindre" },
       { label: "Prendre le pot, et le garder", fx: { ep: ["perso", 200] }, to: "EN_k_gervais_pot" },
     ] }),
   EN_k_gervais_peindre: P({ title: "Repeindre",

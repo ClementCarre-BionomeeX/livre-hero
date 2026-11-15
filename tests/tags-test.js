@@ -88,4 +88,14 @@ assert.deepStrictEqual(r3.errors, [], "validateur via/second");
 st3.passages.C.text.push({ via: "nulle-part", text: "X" }); st3.passages.G.text.push({ second: "inconnue", text: "X" });
 var e3 = V.staticCheck(st3).errors.join("\n");
 assert(/via, « nulle-part »/.test(e3) && /second, « inconnue »/.test(e3), "validateur : via et second inconnus");
+// A scene tagged with a companion is offered by the choice that makes that companion join (the cast as it will be).
+var st4 = { id: "t4", title: "T4", start: "A", acts: [{ id: "I", title: "I", levels: [1, 3], start: "A" }],
+  companions: { ami: { name: "Ami", bonus: {} } },
+  passages: {
+    A: { act: "I", title: "A", text: ["a"], choices: [{ label: "Le prendre avec toi", fx: { join: "ami" }, to: "B" }, { label: "Partir seul", to: "C" }] },
+    B: { act: "I", title: "B", with: "ami", text: ["b"], choices: [{ label: "Fin", to: "C" }] },
+    C: { act: "I", title: "C", end: true, text: ["c"] },
+  } };
+var u4 = M.freshState(st4); u4.name = "A"; u4.arch = "voleur"; M.start(st4, u4);
+assert(M.view(st4, u4).choices.some(function (c) { return c.label === "Le prendre avec toi" && c.ok !== false; }), "un choix qui fait rejoindre ouvre la scène avec ce compagnon");
 console.log("tags-test : OK");

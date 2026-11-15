@@ -502,6 +502,25 @@
   }
  },
  "past": [],
+ "lore": {
+  "pages": [
+   {
+    "title": "Vaudrenne",
+    "text": [
+     "**Vaudrenne** est une ville de moulins, coupée en deux par l'Aune. En haut, la ville des meuniers, ses toits d'ardoise, son clocher et les trois grandes roues des moulins. En bas, le **Bas-Port** des tanneurs, son odeur d'écorce et de chaux. Les deux villes se parlent peu : à l'auberge, meuniers et tanneurs ont chacun leur table.",
+     "Le bailli gouverne la ville depuis son hôtel sur la place. L'écluse et ses vannes règlent la rivière, et quand l'Aune monte, celui qui tient la clé des vannes décide où va l'eau.",
+     "On paie en sous. Au coin de la place, la chapelle des Noyés garde la mémoire de ceux que la rivière a pris."
+    ]
+   }
+  ],
+  "names": {
+   "Vaudrenne": "Une ville de moulins coupée en deux par l'Aune.",
+   "Aune": "La rivière de Vaudrenne, qui fait tourner les moulins et monte à chaque crue.",
+   "Bas-Port": "Le bas de Vaudrenne, au bord de l'eau : les tanneurs.",
+   "Anguille": "L'auberge de la place, à l'enseigne d'un poisson de fer blanc.",
+   "Noyés": "La chapelle des Noyés, au coin de la place, pour ceux que la rivière a pris."
+  }
+ },
  "world": {
   "start": {
    "place": "vaudrenne",
@@ -1745,6 +1764,18 @@
       "has": "paye_bailli"
      },
      "text": "Le bailli te fait savoir, par son valet, qu'il te remercie. De quoi, tu le sauras plus tard."
+    },
+    {
+     "if": {
+      "has": "ligne_tenue"
+     },
+     "text": "Tu as tenu la ligne de Ravel jusqu'à l'aube, au bout du rang, comme le bailli l'avait payé. Tu as tout vu d'en bas. Ce matin, les vingt pièces pèsent lourd dans ta bourse."
+    },
+    {
+     "if": {
+      "has": "morel_lu"
+     },
+     "text": "Tu repenses aux gants du bailli, à la poussière grise au bout de l'index. Tu l'avais su dès le premier soir."
     },
     "Le bac repasse à midi. Vous montez dedans, les voyageurs, sans beaucoup vous parler. Chacun de vous a vu la même nuit d'un autre côté. Sur l'autre rive, vous vous retournez tous en même temps vers Vaudrenne, et aucun de vous ne sait dire si c'est la ville qui a changé, ou vous."
    ],

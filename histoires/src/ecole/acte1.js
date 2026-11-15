@@ -254,7 +254,7 @@ module.exports = {
     act: "I", title: "La nuit des lanternes", place: "digue",
     text: [
       "Une fois l'an, le soir du sixième jour de l'automne, Hautsignes pose des lanternes sur la digue. C'est la nuit des noyés : chaque famille en allume une pour ceux que la mer a pris, et le collège descend tout entier en procession, en robe noire, une lanterne de papier à la main.",
-      "La digue est couverte de petites lumières tremblantes, de la ville jusqu'à la Tête. Il y en a des centaines. La mer est calme, et les lanternes s'y reflètent comme une seconde digue, à l'envers.",
+      "La digue est couverte de {{fx:lueur|petites lumières tremblantes}}, de la ville jusqu'à la Tête. Il y en a des centaines. La mer est calme, et les lanternes s'y reflètent comme une seconde digue, à l'envers.",
       "Au milieu, devant la grande plaque de bronze, le Recteur fait un discours. Il parle de la nuit de la première épreuve, de la tempête, des pierres qui se sont mises à chanter pour la première fois, du jeune homme de dix-neuf ans qu'il était. Sa voix tremble un peu, et la foule l'écoute avec amour.",
       "À l'écart, au bout de la digue, Maître Salvanhac regarde la mer, seul, sans lanterne. Le merle n'est pas sur son épaule.",
       { with: "jodoc", text: "Jodoc a allumé trois lanternes : une pour sa grand-mère, deux pour des cousins pêcheurs. Il les pose avec un soin infini." },

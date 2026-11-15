@@ -42,7 +42,7 @@ module.exports = {
     ],
     choices: [
       { label: "Chercher la huitième rivière", test: { dom: "savoir", label: "La leçon", help: [{ if: { present: "hylas" }, v: 20 }, { if: { has: "passe:temple" }, v: 15 }, { if: { present: "lisandre" }, v: 5 }] },
-        win: { fx: { flag: "iii:ecole", ep: ["perso", 900] }, to: "III_b_ecole_riviere" }, lose: { to: "III_b_ecole_rien" } },
+        win: { fx: { ep: ["perso", 900] }, to: "III_b_ecole_riviere" }, lose: { to: "III_b_ecole_rien" } },
       { back: "III_c_ville" },
     ] }),
   III_b_ecole_riviere: P({ title: "La huitième rivière", place: "cloches",
@@ -62,8 +62,8 @@ module.exports = {
       "« Quel jour on est ? demande-t-il sans lever la tête. On devait rentrer le jour de la Saint-Martin. Ma femme m'attend avec des châtaignes. »",
     ],
     choices: [
-      { label: "« C'est la Saint-Martin. Tu peux rentrer. »", fx: { flag: "iii:navire=rentre", ep: ["perso", 500] }, to: "III_b_navire_rentre" },
-      { label: "« Je ne sais pas. Ici, il n'y a pas de jours. »", fx: { flag: "iii:navire=verite" }, to: "III_b_navire_verite" },
+      { label: "« C'est la Saint-Martin. Tu peux rentrer. »", fx: { ep: ["perso", 500] }, to: "III_b_navire_rentre" },
+      { label: "« Je ne sais pas. Ici, il n'y a pas de jours. »", to: "III_b_navire_verite" },
     ] }),
   III_b_navire_rentre: P({ title: "Les châtaignes", place: "cloches",
     text: ["Il lève la tête. Il sourit, de toutes ses dents gâtées. Il range son épissoir, se lève, ajuste son bonnet, et s'en va, d'un pas de marin, vers les files qui marchent. Au-dessus de toi, la cloche de La Fidèle sonne un coup, tout seul, comme quand un navire entre au port."],

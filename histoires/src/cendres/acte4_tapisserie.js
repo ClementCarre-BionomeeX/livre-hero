@@ -28,7 +28,7 @@ module.exports = {
     choices: [{ back: "IV_br" }] }),
   IV_Q_tap_esq_rate: P({ title: "Les feux", place: "brenne",
     text: ["Au troisième feu, un capitaine te prend ta tablette et la jette dans les flammes. « Pas d'espions dans mon camp, dit-il. Même pas des petits. » Tu recommences ailleurs. Au soir, tu n'as que quelques dizaines de noms, et un peu de honte de ne pas en avoir plus."],
-    choices: [{ fx: { flag: "iv:tap_esq_peu" }, back: "IV_br" }] }),
+    choices: [{ back: "IV_br" }] }),
   IV_Q_tap_cv: P({ title: "Les noms de Corvanne", place: "brenne",
     text: [
       "Rodric te fait repasser la Lisse, de nuit, dans la barque de son beau-frère. Sur l'autre rive, le camp bleu. Les feux. Les mêmes gens que de ce côté-ci, avec un autre accent.",

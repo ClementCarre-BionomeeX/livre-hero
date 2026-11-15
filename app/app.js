@@ -309,16 +309,36 @@
     var live = renderLiveList(); if (live) w.appendChild(live);
     w.appendChild(renderMultiList());
 
-    // Library
+    // Library, in shelves (8.5, Clément 15/11): short stories, novels, long novels, to play together; a filter for
+    // the adult themes, and each book's « En savoir plus » card.
     var lib = h("section", { class: "section" }, h("h2", null, "Les livres"));
-    var cards = h("div", { class: "cards" });
-    stories.forEach(function (m) {
-      cards.appendChild(h("article", { class: "card has-cover" + (m.adult ? " adult" : "") },
+    var shelf = A.shelf || lsGet("shelf") || "tout";
+    var pick = function (k) { A.shelf = k; lsSet("shelf", k); render(); };
+    lib.appendChild(h("div", { class: "shelf-chips", role: "group", "aria-label": "Quels livres montrer" }, [["tout", "Tous les livres"], ["tous", "Pour tous"], ["adulte", "Thèmes adultes"]].map(function (o) {
+      return h("button", { class: "chip" + (shelf === o[0] ? " on" : ""), "aria-pressed": shelf === o[0] ? "true" : "false", onclick: function () { pick(o[0]); } }, o[1]);
+    })));
+    var mins = function (m) { return A.builtins[m.id] ? storyMinutes(A.builtins[m.id]) : null; }, SHORT_BOOK = 100, LONG_BOOK = 1000;
+    var SHELVES = [["courtes", "Histoires courtes", "Une soirée, d'une traite."], ["romans", "Romans", "Quelques soirées, plusieurs fins."], ["grands", "Grands romans", "Des heures et des heures, en plusieurs actes."], ["plusieurs", "À plusieurs", "Chacun son héros, sur le même appareil ou dans une salle commune."]];
+    // By the size of the book (its passages), not by the reading time of one game.
+    var size = function (m) { var st = A.builtins[m.id]; return st ? Object.keys(st.passages || {}).length : m.passages || 0; };
+    var shelfOf = function (m) { if (m.multi) return "plusieurs"; var n = size(m); return !n ? "romans" : n < SHORT_BOOK ? "courtes" : n < LONG_BOOK ? "romans" : "grands"; };
+    var keep = stories.filter(function (m) { return shelf === "tout" || (shelf === "adulte" ? !!m.adult : !m.adult); });
+    SHELVES.forEach(function (sh) {
+      var mine = keep.filter(function (m) { return shelfOf(m) === sh[0]; }).sort(function (a, b) { return (mins(a) || 0) - (mins(b) || 0); });
+      if (!mine.length) return;
+      lib.appendChild(h("h3", { class: "shelf-h" }, sh[1], h("span", { class: "small muted" }, " · " + sh[2])));
+      var cards = h("div", { class: "cards" });
+      mine.forEach(function (m) { cards.appendChild(bookCard(m)); });
+      lib.appendChild(cards);
+    });
+    if (!keep.length) lib.appendChild(h("div", { class: "notice" }, "Aucun livre sur ce rayon."));
+    function bookCard(m) {
+      return h("article", { class: "card has-cover" + (m.adult ? " adult" : "") },
         cover(m, A.builtins[m.id] || null),
         m.adult ? h("div", { class: "adult-tag" }, "Thème adulte") : null,
         h("h3", null, m.title), m.subtitle ? h("div", { class: "sub" }, m.subtitle) : null,
         h("p", null, m.summary),
-        h("div", { class: "small muted" }, (m.age ? "Dès " + m.age + " ans · " : "") + (A.builtins[m.id] && !m.multi ? "environ " + minutesLabel(storyMinutes(A.builtins[m.id])) + " de lecture par partie · " : "") + (m.multi ? "À plusieurs, de " + (m.multi.min || 2) + " à " + (m.multi.max || 6) + " joueurs · " : "") + m.acts + " actes · " + m.passages + " passages" + (m.builtin ? "" : " · importée")),
+        h("div", { class: "small muted" }, (m.age ? "Dès " + m.age + " ans · " : "") + (A.builtins[m.id] && !m.multi ? "environ " + minutesLabel(storyMinutes(A.builtins[m.id])) + " de lecture par partie · " : "") + (m.multi ? playersLabel(m.multi) + " · " : "") + m.acts + " actes · " + m.passages + " passages" + (m.builtin ? "" : " · importée")),
         m.multi ? null : renderRecords(m),
         h("div", { class: "row" },
           // Clément, 11/11: stories for several players are written for it; the others stay solo.
@@ -327,9 +347,8 @@
           canDownload() ? h("button", { class: "btn sm ghost", onclick: function () { loadStory(m.id).then(function (st) { download(m.id + ".json", JSON.stringify(st, null, 1)); }); } }, "Exporter") : null,
           !m.builtin ? (A.confirmDel === "s:" + m.id
             ? h("span", { class: "confirm small" }, "Retirer ?", h("button", { class: "btn sm danger", onclick: function () { removeStory(m); } }, "Oui"), h("button", { class: "btn sm", onclick: function () { A.confirmDel = null; render(); } }, "Non"))
-            : h("button", { class: "btn sm ghost", onclick: function () { A.confirmDel = "s:" + m.id; render(); } }, "Retirer")) : null)));
-    });
-    lib.appendChild(cards);
+            : h("button", { class: "btn sm ghost", onclick: function () { A.confirmDel = "s:" + m.id; render(); } }, "Retirer")) : null), aboutBook(m));
+    }
     var file = h("input", { type: "file", accept: ".json,application/json", "aria-label": "Fichier d'histoire", onchange: function (e) { importStory(e.target.files[0]); e.target.value = ""; } });
     lib.appendChild(h("div", { class: "row" }, h("span", { class: "label" }, "Importer une histoire (.json)"), file));
     if (A.importReport) lib.appendChild(h("pre", { class: "report" }, A.importReport));
@@ -526,6 +545,107 @@
 
   // Intent: Glossary = rare words of the story (story.glossary, "forme|forme": définition) shown dotted in the text;
   // a tap opens their definition. Only the first time a word comes up on a page (Clément, 12/11).
+  // Intent: TextFx = the words with effects of a page (8.6): {{fx:…}}, {{cle:…}}, {{or:…}}, {{envers:…}}, {{encre:…}},
+  // {{tache:…}} drawn from the escaped html of a paragraph; and the page's mood (the hero's state) on its words.
+  // Why: Clément, 15/11 — words that tremble or shimmer, rule words one taps, hidden letters for the reader to find.
+  // The engine gives v.marked to draw and v.text, without the marks, to everything that reads aloud or searches.
+  var TextFx = (function () {
+    var RE = /\{\{(fx|cle|or|envers|encre|tache):([^{}|]*)(?:\|([^{}]*))?\}\}/g, LETTERED = { tremble: 1, ondule: 1, ecrit: 1 }, pop = null;
+    function mode() { var m = pref("textFx"); return m === "aucun" || m === "discret" ? m : "anime"; }
+    // Each letter in its own span (--i its rank), words kept whole; tags and entities left as they are.
+    function letters(html) {
+      var i = 0;
+      return html.split(/(<[^>]+>)/).map(function (part) {
+        if (/^</.test(part)) return part;
+        return part.split(/( +)/).map(function (w) {
+          if (!w || / /.test(w)) return w;
+          var out = "", toks = w.match(/&[#a-z0-9]+;|[\s\S]/gi) || [];
+          toks.forEach(function (c) { out += "<span class=\"l\" style=\"--i:" + (i++) + "\" aria-hidden=\"true\">" + c + "</span>"; });
+          return "<span class=\"w\">" + out + "</span>";
+        }).join("");
+      }).join("");
+    }
+    function plainOfHtml(html) { var d = document.createElement("div"); d.innerHTML = html; return d.textContent; }
+    function draw(st, s, html) {
+      var m = mode();
+      return html.replace(RE, function (all, k, a, b) {
+        if (k === "fx") { if (m === "aucun") return b || ""; var anim = m === "anime" && LETTERED[a] && !REDUCED; return "<span class=\"tx tx-" + a + (m === "discret" ? " calm" : "") + "\"" + (anim ? " aria-label=\"" + esc(plainOfHtml(b || "")) + "\"" : "") + ">" + (anim ? letters(b || "") : (b || "")) + "</span>"; }
+        if (k === "cle") { var id = b != null ? a : M.keywordFor(st, plainOfHtml(a)), word = b != null ? b : a; return id ? "<button type=\"button\" class=\"kw\" data-kw=\"" + esc(id) + "\">" + word + "</button>" : word; }
+        if (k === "or") { var found = (s.found || {})[a]; return "<span class=\"tx-or" + (found ? " found" + (A.justFound === a ? " just" : "") : "") + "\"" + (found ? "" : " data-or=\"" + esc(a) + "\"") + ">" + (b || "") + "</span>"; }
+        if (k === "envers") return "<span class=\"tx-envers\" role=\"button\" tabindex=\"0\" data-envers=\"1\" aria-label=\"Écrit à l'envers. Touche pour le retourner.\"><span>" + a + "</span></span>";
+        if (k === "encre") return (s.items || []).indexOf(a) >= 0 ? "<span class=\"tx-encre\">" + (b || "") + "</span>" : "<span class=\"tx-encre-vide\" aria-hidden=\"true\">" + new Array(Math.max(4, Math.round(plainOfHtml(b || "").length * 0.6))).join("\u00a0") + "</span>";
+        if (k === "tache") return "<span class=\"tx-tache\" role=\"img\" aria-label=\"Un mot sous une tache d'encre\"><span aria-hidden=\"true\">" + a + "</span></span>";
+        return all;
+      });
+    }
+    // The page's mood on its words: a troubled page has a few words that shiver, a tired one blurs at the end of its
+    // paragraphs. Chosen by the paragraph's rank, so a page looks the same at each render.
+    function mood(html, md0, ti) {
+      if (!md0 || mode() !== "anime" || REDUCED || pref("trouble") === false) return html;
+      var n = 0, step = md0 === "trouble" ? 7 : md0 === "fievre" ? 9 : 0;
+      var parts = html.split(/(<[^>]+>)/), depth = 0, total = 0;
+      parts.forEach(function (p) { if (!/^</.test(p)) total += (p.match(/\S+/g) || []).length; });
+      return parts.map(function (p) {
+        if (/^<[a-z]/i.test(p) && !/\/>$/.test(p) && !/^<br/i.test(p)) { depth++; return p; }
+        if (/^<\//.test(p)) { depth--; return p; }
+        if (/^</.test(p) || depth > 0) { if (!/^</.test(p)) n += (p.match(/\S+/g) || []).length; return p; }
+        return p.replace(/\S+/g, function (w) {
+          n++;
+          if (step && (n + ti * 3) % step === 0) return "<span class=\"mw shiver\">" + w + "</span>";
+          if (md0 === "epuise" && n > total - EPUISE_WORDS) return "<span class=\"mw blur\" style=\"--k:" + (n - (total - EPUISE_WORDS)) + "\">" + w + "</span>";
+          return w;
+        });
+      }).join("");
+    }
+    var EPUISE_WORDS = 6;
+    // Rule words in the lines the engine writes (events): the first time each comes up on the page.
+    function auto(st, html, used) {
+      if (mode() === "aucun") return html;
+      var all = M.keywordsOf(st), forms = [];
+      Object.keys(all).forEach(function (k) { all[k].forms.forEach(function (f) { forms.push([f, k]); }); });
+      forms.sort(function (a, b) { return b[0].length - a[0].length; });
+      return html.split(/(<[^>]+>)/).map(function (part) {
+        if (/^</.test(part)) return part;
+        forms.forEach(function (f) {
+          if (used[f[1]]) return;
+          var re = new RegExp("(^|[^A-Za-zÀ-ÿ])(" + f[0].replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + ")(?=$|[^A-Za-zÀ-ÿ])", f[0] === f[0].toUpperCase() ? "" : "i");
+          if (re.test(part)) { used[f[1]] = 1; part = part.replace(re, function (x, pre, w) { return pre + "\u0001" + f[1] + "\u0002" + w + "\u0003"; }); }
+        });
+        return part.replace(/\u0001([a-z0-9_]+)\u0002([^\u0003]*)\u0003/g, "<button type=\"button\" class=\"kw\" data-kw=\"$1\">$2</button>");
+      }).join("");
+    }
+    function close() { if (pop) { pop.remove(); pop = null; } }
+    function openKw(btn) {
+      close(); var G = A.game, st = G ? G.story : null, all = M.keywordsOf(st), k = btn.getAttribute("data-kw"), K = all[k]; if (!K) return;
+      pop = h("div", { class: "gl-pop kw-pop", role: "tooltip" }, h("b", null, btn.textContent), " · ", K.def);
+      pop.dataset.for = k; document.body.appendChild(pop);
+      var r = btn.getBoundingClientRect(), w = Math.min(320, innerWidth - 24);
+      pop.style.width = w + "px"; pop.style.left = Math.max(12, Math.min(innerWidth - w - 12, r.left + r.width / 2 - w / 2)) + window.scrollX + "px"; pop.style.top = r.bottom + 8 + window.scrollY + "px";
+    }
+    function find(el) {
+      var G = A.game; if (!G || G.multi && A.multi && A.multi.kind !== "local") return;
+      var id = el.getAttribute("data-or");
+      try { if (!M.trouve(G.story, G.s, id)) return; } catch (e) { return; }
+      A.justFound = id; persist(); render(); setTimeout(function () { A.justFound = null; }, 2000);
+    }
+    document.addEventListener("click", function (e) {
+      var t = e.target.closest ? e.target : null; if (!t) return;
+      var kw = t.closest("button.kw");
+      if (kw) { e.stopPropagation(); if (pop && pop.dataset.for === kw.getAttribute("data-kw")) close(); else openKw(kw); return; }
+      if (!t.closest(".kw-pop")) close();
+      var or = t.closest("[data-or]"); if (or) { find(or); return; }
+      var env = t.closest("[data-envers]"); if (env) env.classList.toggle("lu");
+    }, true);
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") close();
+      var env = e.target && e.target.closest && e.target.closest("[data-envers]");
+      if (env && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); env.classList.toggle("lu"); }
+    });
+    return { render: draw, mood: mood, auto: auto, close: close };
+  })();
+
+  // Reading without playing (the editor): every find shown found, every invisible ink shown, so the author sees them.
+  function READ_ALL(st) { var f = {}; Object.keys(st.trouvailles || {}).forEach(function (k) { f[k] = 1; }); return { found: f, items: Object.keys(st.items || {}) }; }
   var Glossary = (function () {
     var cache = { st: null, re: null, defs: null }, pop = null;
     var LETTER = "A-Za-zÀ-ÖØ-öø-ÿŒœÆæ";
@@ -533,6 +653,10 @@
       if (cache.st === st) return cache;
       var defs = {}, forms = [];
       Object.keys(st.glossary || {}).forEach(function (k) { k.split("|").forEach(function (f) { f = f.trim().toLowerCase(); if (f) { defs[f] = { def: st.glossary[k], head: k.split("|")[0] }; forms.push(f); } }); });
+      // The names of the world (story.lore.names, 8.6): places, feasts, orders, what an inhabitant knows without thinking.
+      // Matched with their capital letter, so that a name that is also a common word is only taken as the name.
+      var LN = (st.lore && st.lore.names) || {};
+      Object.keys(LN).forEach(function (k) { k.split("|").forEach(function (f) { f = f.trim(); if (f) { defs[f.toLowerCase()] = { def: LN[k], head: k.split("|")[0].trim(), lore: true, form: f }; forms.push(f.toLowerCase()); } }); });
       forms.sort(function (a, b) { return b.length - a.length; });
       var esc2 = function (x) { return x.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"); };
       cache = { st: st, defs: defs, re: forms.length ? new RegExp("(^|[^" + LETTER + "-])(" + forms.map(esc2).join("|") + ")(?=$|[^" + LETTER + "-])", "gi") : null };
@@ -540,13 +664,17 @@
     }
     // html from md(): only <strong>, <em> and <br> tags, so the words are looked for between the tags.
     function mark(st, html, used) {
-      var c = prepare(st); if (!c.re || pref("glossary") === false) return html;
+      var c = prepare(st); if (!c.re || (pref("glossary") === false && pref("lore") === false)) return html;
+      var inBtn = 0;   // never inside a button (a rule word, 8.6)
       return html.split(/(<[^>]+>)/).map(function (part) {
-        if (/^</.test(part)) return part;
+        if (/^<button/i.test(part)) { inBtn++; return part; }
+        if (/^<\/button/i.test(part)) { inBtn = Math.max(0, inBtn - 1); return part; }
+        if (/^</.test(part) || inBtn) return part;
         return part.replace(c.re, function (all, pre, word) {
           var d = c.defs[word.toLowerCase()]; if (!d || used[d.head]) return all;
+          if (d.lore ? (word !== d.form || pref("lore") === false) : pref("glossary") === false) return all;
           used[d.head] = true;
-          return pre + "<button type=\"button\" class=\"gl\" data-gl=\"" + esc(word.toLowerCase()) + "\">" + word + "</button>";
+          return pre + "<button type=\"button\" class=\"gl" + (d.lore ? " lore" : "") + "\" data-gl=\"" + esc(word.toLowerCase()) + "\">" + word + "</button>";
         });
       }).join("");
     }
@@ -554,8 +682,8 @@
     function open(btn) {
       close();
       var c = cache, d = c.defs && c.defs[btn.getAttribute("data-gl")]; if (!d) return;
-      Words.learn(d.head, d.def);
-      pop = h("div", { class: "gl-pop", role: "tooltip" }, h("b", null, d.head.charAt(0).toUpperCase() + d.head.slice(1)), " · ", d.def);
+      if (!d.lore) Words.learn(d.head, d.def);
+      pop = h("div", { class: "gl-pop" + (d.lore ? " lore" : ""), role: "tooltip" }, d.lore ? h("span", { class: "small muted" }, "Le monde · ") : null, h("b", null, d.head.charAt(0).toUpperCase() + d.head.slice(1)), " · ", d.def);
       document.body.appendChild(pop);
       var r = btn.getBoundingClientRect(), w = Math.min(320, innerWidth - 24);
       pop.style.width = w + "px";
@@ -814,7 +942,33 @@
     }
     box.appendChild(b);
   }
-  function tabWords(b) {
+  // Intent: worldPage(Story) -> Element | null = « Le monde de ce livre » (story.lore.pages, 8.6): what an inhabitant
+  // knows before the first page (customs, feasts, money, beliefs, who governs), and the names of the world, for a
+  // reader who enters a new world cold. Nothing of the plot. Why: Clément, 15/11.
+  function worldPage(st, withNames) {
+    var L = st.lore; if (!L || !(L.pages || []).length) return null;
+    var box = h("div", { class: "world-page prose" });
+    L.pages.forEach(function (pg) {
+      if (pg.title) box.appendChild(h("h3", null, pg.title));
+      [].concat(pg.text || []).forEach(function (t) { box.appendChild(h("p", { html: md(String(t)) })); });
+    });
+    var names = Object.keys(L.names || {});
+    if (withNames && names.length) {
+      box.appendChild(h("h3", null, "Les noms du monde"));
+      names.sort(function (a, b) { return a.localeCompare(b, "fr"); }).forEach(function (k) { box.appendChild(h("p", { class: "small" }, h("b", null, k.split("|")[0].trim()), " · ", L.names[k])); });
+    }
+    return box;
+  }
+  // A folded « Le monde de ce livre », to open before leaving (book card, creation of the hero).
+  function worldFold(st, key) {
+    if (!st || !st.lore || !(st.lore.pages || []).length) return null;
+    var open = A.open["monde:" + key];
+    var btn = h("button", { class: "btn ghost sm", "aria-expanded": open ? "true" : "false", onclick: function () { A.open["monde:" + key] = !open; render(); } }, open ? "Refermer « Le monde de ce livre »" : "📜 Le monde de ce livre");
+    return h("div", { class: "world-fold stack tight" }, btn, open ? worldPage(st, false) : null);
+  }
+  function tabWords(b, st) {
+    var wp = st && worldPage(st, true);
+    if (wp) { b.appendChild(h("div", { class: "label" }, "Le monde de ce livre")); b.appendChild(wp); b.appendChild(h("div", { class: "label" }, "Les mots rares")); }
     var list = Words.list(A.profile);
     if (!list.length) { b.appendChild(h("div", { class: "notice" }, "Les mots rares que tu touches dans le texte (soulignés de pointillés) viennent se ranger ici.")); return; }
     if (list.length >= WORDS_MIN_GAME) b.appendChild(h("button", { class: "btn sm primary", onclick: function () { A.carnet = null; Words.start(); } }, "🎯 Jeu des mots"));
@@ -1118,6 +1272,7 @@
     // The intro and the questions of the past agree with the hero as soon as the reader has said how the book speaks.
     var ac = function (t) { return st.heroes ? t : String(t).replace(/\{e\}/g, C.fem ? "e" : ""); };
     if (st.intro) w.appendChild(h("div", { class: "prose", html: st.intro.map(function (p) { return "<p>" + md(ac(p)) + "</p>"; }).join("") }));
+    var wf = worldFold(st, "create"); if (wf) w.appendChild(wf);
     var nameIn = h("input", { value: C.name, placeholder: "Ton nom", maxlength: 30, "aria-label": "Nom du héros", oninput: function (e) { C.name = e.target.value; startBtn.disabled = !ready(); } });
     w.appendChild(h("div", { class: "stack" }, h("span", { class: "label" }, "Ton nom"), nameIn));
     // How the text speaks of the hero (Clément, 13/11, Malvoran): the engine fills {e} from s.fem ("assis{e}").
@@ -1128,18 +1283,22 @@
       });
       w.appendChild(h("div", { class: "stack" }, h("span", { class: "label" }, "Le livre te parle"), gd));
     }
-    var archs = h("div", { class: "archs" });
-    Object.keys(M.ARCHS).forEach(function (k) {
+    // A story with its own callings (story.voies, 8.5): the past answer that names the hero's trade is the voie; no
+    // class to pick. Why: Clément, 15/11 — « Guerrier, Mage » made no sense at a funeral vigil.
+    var byStory = hasVoies(st), archs = h("div", { class: "archs" });
+    if (!byStory) Object.keys(M.ARCHS).forEach(function (k) {
       var a = M.ARCHS[k], best = Object.keys(a.bonus).sort(function (x, y) { return a.bonus[y] - a.bonus[x]; }).slice(0, 2);
       archs.appendChild(h("button", { class: "arch" + (C.arch === k ? " on" : ""), "aria-pressed": C.arch === k ? "true" : "false", onclick: function () { C.arch = k; render(); } },
         h("b", null, a.label), h("span", { class: "small muted" }, a.tip), h("span", { class: "small" }, best.map(function (d) { return M.DOMAINS[d] + " +" + a.bonus[d]; }).join(" · "))));
     });
-    w.appendChild(h("div", { class: "stack" }, h("span", { class: "label" }, "Ta voie"), archs));
+    if (!byStory) w.appendChild(h("div", { class: "stack" }, h("span", { class: "label" }, "Ta voie"), archs));
     w.appendChild(renderFacePicker(C, st));
     (st.past || []).forEach(function (q, qi) {
       var box = h("div", { class: "past" }, h("h3", null, ac(q.q)));
       q.answers.forEach(function (a, ai) {
-        box.appendChild(h("button", { class: "answer" + (C.past[qi] === ai ? " on" : ""), "aria-pressed": C.past[qi] === ai ? "true" : "false", onclick: function () { C.past[qi] = ai; render(); } }, ac(a.label)));
+        var vo = a.fx && a.fx.voie && st.voies[a.fx.voie];
+        box.appendChild(h("button", { class: "answer" + (C.past[qi] === ai ? " on" : ""), "aria-pressed": C.past[qi] === ai ? "true" : "false", onclick: function () { C.past[qi] = ai; render(); } }, ac(a.label),
+          vo ? h("span", { class: "small voie-line" }, voieLine(st, a.fx.voie)) : null));
       });
       w.appendChild(box);
     });
@@ -1158,9 +1317,9 @@
       w.appendChild(h("label", { class: "toggle" }, h("input", { type: "checkbox", checked: !!C.ironman, onchange: function (e) { C.ironman = e.target.checked; } }),
         h("span", null, h("b", null, "⚔ Sans retour"), h("br"), h("span", { class: "small muted" }, "Pas de « Choix précédent » : chaque choix est définitif. Les fins trouvées ainsi portent leur propre marque."))));
     }
-    function ready() { return C.name.trim() && C.arch && C.past.every(function (x) { return x >= 0; }); }
+    function ready() { return C.name.trim() && (C.arch || byStory) && C.past.every(function (x) { return x >= 0; }); }
     var startBtn = h("button", { class: "btn primary", disabled: !ready(), onclick: startGame }, C.multi && C.multi.next ? C.multi.next : "Commencer la lecture");
-    w.appendChild(h("div", { class: "row" }, startBtn, h("span", { class: "small muted" }, "Il faut un nom, une voie et une réponse à chaque question.")));
+    w.appendChild(h("div", { class: "row" }, startBtn, h("span", { class: "small muted" }, byStory ? "Il faut un nom et une réponse à chaque question." : "Il faut un nom, une voie et une réponse à chaque question.")));
     app.appendChild(w);
   }
   // Intent: renderFacePicker(Creation, Story) -> Element = « Ton visage » : the portrait as drawn from the name, and
@@ -1218,10 +1377,66 @@
     return box;
   }
 
+  // Intent: playersLabel(multi) -> « À deux » / « À plusieurs, de 2 à 4 joueurs » / « À trois »
+  function playersLabel(mu) {
+    var a = mu.min || 2, b = mu.max || 6, N = { 2: "deux", 3: "trois", 4: "quatre", 5: "cinq", 6: "six" };
+    return a === b ? "À " + (N[a] || a) : "À plusieurs, de " + a + " à " + b + " joueurs";
+  }
+  // Intent: mechanicsOf(Story) -> [text] = what one does in this book, from its tags, without telling its story
+  function mechanicsOf(st) {
+    var out = [], U = M.usesOf(st), n = function (o) { return Object.keys(o || {}).length; }, w = st.world || {};
+    if ((w.routes || []).length) out.push("des voyages étape par étape");
+    if (U.combat) out.push("des combats");
+    if (st.heroes) out.push("plusieurs héros à reprendre tour à tour");
+    if (n(st.people) && (JSON.stringify(st.people).indexOf('"at"') >= 0)) out.push("des gens qui ont leurs heures et leurs lieux");
+    if (st.contradictions || JSON.stringify(st.passages).indexOf('"accuse"') >= 0) out.push("une enquête : témoins, contradictions, accusation");
+    if (st.stocks) out.push("des réserves à tenir");
+    if (st.councils) out.push("un conseil qui vote");
+    if (st.battles) out.push("des batailles rangées");
+    if (st.promises) out.push("des dettes et des promesses");
+    if (st.weather) out.push(st.weather.by === "route" ? "le temps qu'il fait sur les routes (en Héroïque, la route use)" : "la mer et le temps qu'il fait");
+    if (st.duels) out.push("des duels réglés");
+    if (st.puzzles) out.push("des énigmes à manipuler");
+    if (st.practice || st.traits) out.push("un caractère qui se forme à l'usage");
+    if (st.accounts) out.push("des versions qui ne concordent pas");
+    if (st.dread) out.push("une angoisse qui monte");
+    if (st.secrets) out.push("des secrets à garder ou à confier");
+    if (n(st.companions)) out.push("des compagnons");
+    if (n(st.shops)) out.push("des boutiques");
+    if (st.deadline) out.push("une échéance");
+    return out;
+  }
+  // Intent: aboutBook(meta) -> Element = « En savoir plus » on a book's card: length, acts, endings, what one does in
+  // it, the adult themes, who in the family is reading it. Nothing of the plot. Why: Clément, 15/11 (piste 17).
+  function aboutBook(m) {
+    var st = A.builtins[m.id], open = A.open["book:" + m.id];
+    var btn = h("button", { class: "btn ghost sm", "aria-expanded": open ? "true" : "false", onclick: function () { A.open["book:" + m.id] = !open; render(); } }, open ? "Moins" : "En savoir plus");
+    if (!open) return h("div", { class: "about-book" }, btn);
+    var box = h("div", { class: "about-book stack tight" }, btn);
+    if (!st) { box.appendChild(h("div", { class: "small muted" }, "Le livre se charge…")); return box; }
+    var ends = M.endingsOf(st).length, acts = (st.acts || []).length;
+    var facts = [m.multi ? playersLabel(m.multi) : "environ " + minutesLabel(storyMinutes(st)) + " de lecture par partie", acts ? acts + " acte" + (acts > 1 ? "s" : "") : null, ends ? ends + " fins" : null, st.voies ? "un héros au métier choisi par l'histoire" : null].filter(Boolean);
+    box.appendChild(h("div", { class: "small" }, facts.join(" · ")));
+    var mech = mechanicsOf(st);
+    if (mech.length) box.appendChild(h("div", { class: "small" }, h("b", null, "On y trouve : "), mech.join(", ") + "."));
+    var th = (st.adult && st.adult.themes) || [];
+    if (th.length) box.appendChild(h("div", { class: "small" }, h("b", null, "Thèmes : "), th.join(" ; ") + "."));
+    var wf = worldFold(st, "book:" + m.id); if (wf) box.appendChild(wf);
+    var who = (A.profiles || []).filter(function (p) { return (A.allGames || []).some(function (g) { return g.profil === p.id && g.story === m.id && !g.test; }); }).map(function (p) { return p.name; });
+    if (who.length) box.appendChild(h("div", { class: "small muted" }, "Déjà ouvert par " + who.join(", ") + "."));
+    return box;
+  }
+  // Intent: hasVoies(Story) -> bool = the story names the hero's callings itself (8.5)
+  function hasVoies(st) { return !!(st.voies && Object.keys(st.voies).length); }
+  // Intent: voieLine(Story, voie) -> text = « Copiste · Savoir +30 · Social +20 », the calling and its two best domains
+  function voieLine(st, id) {
+    var a = M.archOf(st, { arch: st.voies[id].like, voie: id }), best = Object.keys(a.bonus).sort(function (x, y) { return a.bonus[y] - a.bonus[x]; }).slice(0, 2);
+    return [a.label].concat(best.map(function (d) { return M.DOMAINS[d] + " +" + a.bonus[d]; })).join(" · ");
+  }
   // Intent: build(Creation) -> State = the new hero, his past answers applied, the story started
   function buildState(C) {
     var st = C.story, s = M.freshState(st, { toutJouer: C.toutJouer, difficulty: C.difficulty, ironman: !C.multi && !!C.ironman });
-    s.name = C.name.trim(); s.arch = C.arch; if (C.face) s.face = C.face; if (!st.heroes) s.fem = !!C.fem;
+    s.name = C.name.trim(); s.arch = C.arch || s.arch; if (C.face) s.face = C.face; if (!st.heroes) s.fem = !!C.fem;
     // Second reading (tag second): the endings this reader has already reached in this story, known from the start.
     if (!C.multi && A.profile) { var known = recordOf(A.profile, st.id).endings || {}; if (Object.keys(known).length) { s.second = {}; Object.keys(known).forEach(function (k) { s.second[k] = 1; }); } }
     s.events = [];
@@ -1293,7 +1508,7 @@
     if (A.game.ephemeral) return;
     var G = A.game, s = G.s, st = G.story, d = G.doc, v = M.view(st, s);
     d.state = JSON.stringify(s); d.undo = G.undo; d.log = G.log; d.updated = Date.now();
-    d.hero = s.name; d.arch = s.arch; d.archLabel = (M.ARCHS[s.arch] || {}).label; d.level = M.level(s); d.where = where(st, s) || v.title; d.ended = v.kind === "end";
+    d.hero = s.name; d.arch = s.arch; d.archLabel = M.archOf(st, s).label; d.level = M.level(s); d.where = where(st, s) || v.title; d.ended = v.kind === "end";
     while (JSON.stringify(d).length > DOC_MAX_CHARS && d.undo.length) d.undo = d.undo.slice(1);
     while (JSON.stringify(d).length > DOC_MAX_CHARS && d.log.length > 20) d.log = d.log.slice(Math.ceil(d.log.length / 4));
     while (JSON.stringify(d).length > DOC_MAX_CHARS && (d.marks || []).length) d.marks = d.marks.slice(1);
@@ -1422,10 +1637,17 @@
   }
   function actMinutes(st, actId) { var w = actWords(st, actId); return w ? Math.max(ROUND_MIN, Math.round(w / readerWpm(A.profile) / ROUND_MIN) * ROUND_MIN) : 0; }
   // the word count of a whole game, kept on the device per version of the story: counting walks every act (slow on an old phone)
+  var HALF_BOOK = 0.5;
   function storyWords(st) {
     if (st._words != null) return st._words;
-    var key = "mots:" + st.id, k2 = (st.version || 1) + ":" + Object.keys(st.passages || {}).length, got = lsGet(key), w = got && got.k === k2 ? got.w : null;
-    if (typeof w !== "number") { w = (st.acts || []).reduce(function (n, a) { return n + actWords(st, a.id); }, 0); lsSet(key, { k: k2, w: w }); }
+    var key = "mots2:" + st.id, k2 = (st.version || 1) + ":" + Object.keys(st.passages || {}).length, got = lsGet(key), w = got && got.k === k2 ? got.w : null;
+    // The shortest way through each act, or half the book, whichever is longer: in a book of hubs (a siege, a ship) the
+    // shortest way skips most of what a reader actually reads (8.5).
+    if (typeof w !== "number") {
+      w = (st.acts || []).reduce(function (n, a) { return n + actWords(st, a.id); }, 0);
+      var all = Object.keys(st.passages || {}).reduce(function (n, k) { return n + wordsOf(st.passages[k].text); }, 0);
+      w = Math.max(w, Math.round(all * HALF_BOOK)); lsSet(key, { k: k2, w: w });
+    }
     return (st._words = w);
   }
   function storyMinutes(st) { var w = storyWords(st); return Math.max(ROUND_MIN, Math.round(w / readerWpm(A.profile) / ROUND_MIN) * ROUND_MIN); }
@@ -1509,7 +1731,12 @@
   // Intent: once per new version, a short note of what changed (NEWS, newest first), only the versions the reader has
   // not seen on this device. Why: Clément, 13/11 (piste 33).
   var NEWS = [
+    { v: "8.6", items: ["Mots à effets : certains mots tremblent, ondulent, changent de couleur, s'effacent ou s'écrivent sous tes yeux.", "Des mots de règle (fatigue, blessure, jet, PV…) s'ouvrent d'un toucher pour dire ce qu'ils font.", "Dans « Le Cahier de Solène », des lettres d'or sont cachées dans le texte. À toi de les trouver.", "Une phrase écrite à l'envers se retourne quand tu la touches, et certaines lignes n'apparaissent qu'à la lumière du bon objet.", "La page suit l'état du héros : elle tremble quand il a peur, se brouille quand il est épuisé. Réglage « Mots à effets » : animés, discrets ou aucun.", "Le ciel change selon la région traversée, dans Kardan, Malvoran et les Cendres. En difficulté Héroïque, la route use : le mauvais temps pèse sur les jets, les longues routes fatiguent, le froid peut blesser.", "Seconde lecture dans Kardan et Le Témoin : une fois une fin trouvée, certaines pages en disent davantage.", "Kardan a sa page « Ce qu'il advint », et chaque choix laissé sans suite dans les anciennes histoires a désormais sa ligne.", "Le Témoin : l'onglet Versions garde ce que chacun a dit de la nuit des Combes et du soir au Chamois.", "Quarante jours : le Conseil des Cinq Bancs vote sur le pain, la promesse des funérailles se tient ou se rompt, l'onglet « Qui est avec qui » se remplit, et la ville avance pendant que tu es ailleurs.", "Les Cendres de l'Hiver : la dernière page dit ce que sont devenus beaucoup plus de tes choix.", "Le monde de ce livre : chaque histoire a sa page sur ses coutumes, sa monnaie, ses croyances et qui gouverne, à lire avant de partir ou dans le carnet. Les noms du monde soulignés en or s'ouvrent d'un toucher."] },
+    { v: "8.5", items: ["La création du héros suit l'histoire : dans les histoires récentes, ton métier (copiste, matelot, commis…) remplace le choix entre guerrier, mage et les autres.", "La fiche et la barre du haut ne montrent que ce que l'histoire utilise : plus de points de vie ni de bourse dans un livre qui ne s'en sert pas.", "Le carnet ne montre que les onglets utiles, rangés en quatre parties : Toi, L'enquête, Le monde, Le livre.", "La première fois que tu rencontres un duel, une énigme, un conseil ou une bataille, quelques lignes expliquent comment ça marche. Une seule fois.", "La bibliothèque est rangée en rayons (histoires courtes, romans, grands romans, à plusieurs), avec un filtre pour les thèmes adultes, et « En savoir plus » sur chaque livre."] },
     { v: "8.4", items: ["Nouvelle histoire à deux : « Le Pli de Brumefond ». L'un porte le pli, l'autre connaît la route, et chacun garde ses secrets.", "Nouvel onglet du carnet, dans les histoires à deux : Secrets (ce que tu caches, ce qu'on t'a confié, ce que tu as surpris).", "Interludes : au début d'un acte, une courte scène vue par quelqu'un d'autre, différente pour chaque joueur.", "Le texte s'accorde maintenant avec le héros de l'autre joueur."] },
+    { v: "8.3", items: ["Nouvelle histoire : « Ce que garde la neige », trois nuits de veillée dans une maison que la neige isole.", "Nouvel onglet du carnet : Versions, ce que chacun a raconté, devant les autres ou seul à seul.", "Souvenirs joués, silences qui comptent, une angoisse qui monte et retombe."] },
+    { v: "8.2", items: ["Nouvelle histoire : « Le Cahier de Solène », une année dans un collège des arts.", "Duels réglés, énigmes à manipuler, rêves au réveil, et un caractère qui se forme à l'usage."] },
+    { v: "8.1", items: ["Nouvelle histoire : « La Traversée de la Sterne », onze jours en mer.", "Le temps qu'il fait, les saisons, les blessures qui laissent une cicatrice, l'établi et les veillées."] },
     { v: "8.0", items: ["Nouvelle histoire : « Le Pain de Sarance », une ville assiégée dont tu tiens les greniers : chaque jour mange le blé, le monde avance sans toi, et le Conseil vote.", "Nouveaux onglets du carnet, quand l'histoire en a : La ville (les réserves, ce qui a changé), Conseil (qui vote quoi), Dettes et promesses, Qui est avec qui.", "Batailles rangées : tu places tes troupes sur les postes, puis tu donnes un ordre à chaque vague."] },
     { v: "7.9", items: ["Nouvelle histoire : « L'Écluse des Tanneurs », une enquête de trois jours dans une ville qui vit : chacun a ses heures et ses lieux, et le temps presse jusqu'à la cloche du soir.", "On peut montrer un indice ou un document à un témoin, et relier deux déclarations qui se contredisent, dans le carnet ou sur le tableau.", "L'accusation se fait en trois temps : qui, pourquoi, et la preuve.", "Nouveaux onglets du carnet, quand l'histoire en a : Documents (les lettres et registres trouvés, à relire) et Reconstitution (qui était où, heure par heure)."] },
     { v: "7.8", items: ["Nouvelle histoire : « La Veillée des Aubiers », une soirée d'une demi-heure, à finir avant le coucher, et à relire.", "Une page peut s'ouvrir autrement selon le chemin par lequel on y arrive.", "Seconde lecture : une fois une fin trouvée, une histoire peut montrer en la relisant des passages nouveaux, marqués d'un ✧ dans la marge.", "Les boutons s'accordent au masculin ou au féminin, comme le texte."] },
@@ -1881,19 +2108,58 @@
     return h("div", { class: "stack tight" }, h("h3", { class: "sub-h" }, "Plan de " + (pl.name || plId)), h("div", { class: "scrollx" }, svgEl));
   }
 
+  // Intent: firstUse(Game, View) -> Element|null = the first time a reader meets a mechanism (a duel, a riddle, a
+  // council…), a few lines on how it works; once per reader, never again. Why: Clément, 15/11 (piste 4).
+  var FIRST_USE = {
+    combat: ["Un combat", "Chaque tour, choisis un geste : frapper, te défendre, une technique de ta voie, ou fuir. Le carnet (onglet Héros) dit tes points de vie."],
+    duel: ["Un duel réglé", "Attaque, parade ou feinte, à chaque passe. L'adversaire retient tes habitudes d'un duel à l'autre : varie."],
+    battle: ["Une bataille", "Place d'abord tes gens sur les postes, puis donne un ordre à chaque vague. Une ligne qui plie se voit sur le plan."],
+    council: ["Le Conseil", "Chacun vote selon ses intérêts et ce que tu lui as promis. Tu peux parler avant le vote ; le carnet (Conseil) dit qui penche où."],
+    puzzle: ["Une énigme", "Tourne, place ou écris, puis valide. Les essais sont comptés, et un indice du carnet peut aider."],
+    aparte: ["Un aparté", "Vous êtes seuls tous les deux : c'est le moment de confier un secret, ou de le garder. L'autre l'apprend au rendez-vous suivant."],
+    souvenir: ["Un souvenir", "Le présent attend : le temps ne passe pas pendant un souvenir. Un bouton te ramène là où tu étais."],
+    interlude: ["Un interlude", "Une courte scène vue par quelqu'un d'autre. Ensuite, le livre te rend ton héros."],
+    montrer: ["Montrer une pièce", "Tu peux mettre un indice ou un document sous les yeux de quelqu'un. Certains réagissent, d'autres pas."],
+    accuse: ["L'accusation", "En trois temps : qui, pourquoi, et la preuve. Chacun des trois compte à part."],
+    silence: ["Te taire", "Se taire est un choix comme un autre, et il a ses suites."],
+    atelier: ["L'établi", "Deux objets du sac peuvent en faire un troisième, quand on sait comment."],
+  };
+  function firstUse(G, v) {
+    if (G.multi && A.multi && A.multi.kind !== "local") return null;
+    var prof = A.profile, gid = (G.doc && G.doc.id) || "", s = G.s, p = (G.story.passages || {})[s.node] || {}, cs = v.choices || [];
+    if (!prof) return null;
+    var seen = prof.helpSeen = prof.helpSeen || {};
+    if (A.helpNow && A.helpNow.node === s.node && A.helpNow.game === gid) return A.helpNow.key ? helpBox(A.helpNow.key) : null;
+    var keys = [];
+    if (v.kind === "combat") keys.push(s.combat && s.combat.duel ? "duel" : "combat");
+    if (p.duel) keys.push("duel");
+    if (v.battle) keys.push("battle"); if (v.council) keys.push("council"); if (v.puzzle) keys.push("puzzle");
+    if (p.aparte) keys.push("aparte"); if (v.souvenir) keys.push("souvenir"); if (v.interlude) keys.push("interlude");
+    if (p.atelier) keys.push("atelier");
+    cs.forEach(function (c) { if (c.sys === "montrer") keys.push("montrer"); if (c.sys === "accuse") keys.push("accuse"); if (c.silence) keys.push("silence"); });
+    var key = keys.filter(function (k) { return FIRST_USE[k] && !seen[k]; })[0];
+    if (!key) return null;
+    seen[key] = Date.now(); A.helpNow = { key: key, node: s.node, game: gid };
+    Store.put("profils", prof.id, prof).catch(function () {});
+    return helpBox(key);
+    function helpBox(k) {
+      var t = FIRST_USE[k];
+      return h("div", { class: "notice soft first-use", role: "note" }, h("b", null, t[0]), " · ", t[1], " ", h("button", { class: "btn ghost sm", onclick: function () { A.helpNow = { key: "", node: s.node, game: gid }; render(); } }, "Compris"));
+    }
+  }
   function renderGame() {
     var G = A.game, st = G.story, s = G.s;
     // A closed room (8.3): the reader says how much tenderness the book may show (Réglages), the engine reads it.
     if (st.attachments) s.tendre = pref("attachements");
     var v = G.multi ? multiView() : M.view(st, s);
-    var pvMax = M.pvMax(s);
+    var pvMax = M.pvMax(s), U = M.usesOf(st);     // only what the story uses (8.5)
     app.appendChild(topBar([
       h("button", { class: "btn ghost sm", onclick: function () { stopSpeaking(); leaveGame(); } }, "← Bibliothèque"),
       G.multi ? multiBadge() : null,
       h("span", { class: "grow" }),
-      h("span", { class: "pill", title: "Points de vie", "aria-label": "Points de vie : " + s.pv + " sur " + pvMax }, "PV " + s.pv + "/" + pvMax, h("span", { class: "bar pv", style: "width:48px" }, h("i", { style: "width:" + Math.round(100 * s.pv / pvMax) + "%" }))),
-      h("span", { class: "pill gold", title: "Bourse : " + M.money(st, s.gold) }, M.money(st, s.gold, true)),
-      (st.world || {}).noFood ? null : h("span", { class: "pill", title: "Jours de vivres", "aria-label": "Vivres : " + s.food + " jour" + (s.food > 1 ? "s" : "") }, "Vivres " + s.food),
+      !U.pv && s.pv >= pvMax ? null : h("span", { class: "pill", title: "Points de vie", "aria-label": "Points de vie : " + s.pv + " sur " + pvMax }, "PV " + s.pv + "/" + pvMax, h("span", { class: "bar pv", style: "width:48px" }, h("i", { style: "width:" + Math.round(100 * s.pv / pvMax) + "%" }))),
+      !U.gold ? null : h("span", { class: "pill gold", title: "Bourse : " + M.money(st, s.gold) }, M.money(st, s.gold, true)),
+      !U.food && !s.food ? null : h("span", { class: "pill", title: "Jours de vivres", "aria-label": "Vivres : " + s.food + " jour" + (s.food > 1 ? "s" : "") }, "Vivres " + s.food),
       stockPills(st, s),
       skyPill(st, s),
       dreadPill(st, s),
@@ -1908,7 +2174,7 @@
     w.appendChild(h("div", { class: "acts", role: "img", "aria-label": cur >= 0 ? acts[cur].title + ", acte " + (cur + 1) + " sur " + acts.length : "", title: cur >= 0 ? acts[cur].title + (actMin ? " · environ " + minutesLabel(actMin) + " de lecture" : "") : "" }, acts.map(function (a, i) { return h("span", { class: i < cur ? "done" : i === cur ? "on" : "" }); })));
     var turnIn = A.turned && pref("pageTurn") && !REDUCED; A.turned = false;
     // A remembrance is set apart (8.3); dread past its threshold troubles the page, unless the reader declined it.
-    var page = h("article", { class: "page read" + (turnIn ? " turn-in" : "") + (v.souvenir ? " souvenir" : "") + (v.interlude ? " interlude" : "") + (v.trouble && pref("trouble") && !REDUCED ? " trouble" : ""), "aria-labelledby": "page-title" });
+    var page = h("article", { class: "page read" + (turnIn ? " turn-in" : "") + (v.souvenir ? " souvenir" : "") + (v.interlude ? " interlude" : "") + (v.trouble && pref("trouble") && !REDUCED ? " trouble" : "") + (v.mood && pref("trouble") && pref("textFx") !== "aucun" ? " mood-" + v.mood : ""), "aria-labelledby": "page-title" });
     if (pref("swipe") && !G.multi) swipeOn(page, v, G);
     var num = v.passage ? paraNum(st, s.node) : null;
     var actFirst = cur >= 0 && acts[cur].start === s.node && !G.multi;
@@ -1920,6 +2186,7 @@
     var actStart = cur >= 0 && acts[cur].start === s.node && actMin;
     page.appendChild(h("div", { class: "page-head" }, h("div", null, h("h2", { id: "page-title", tabindex: "-1" }, v.title || ""), h("div", { class: "where" }, [v.souvenir ? "Souvenir · " + v.souvenir : null, v.interlude ? "Interlude · " + v.interlude.who + (v.interlude.where ? " · " + v.interlude.where : "") : null, cur >= 0 && !v.souvenir && !v.interlude ? acts[cur].title : null, v.souvenir || v.interlude ? null : where(st, s), actStart ? "environ " + minutesLabel(actMin) + " de lecture" : null].filter(Boolean).join(" · "))), num ? h("span", { class: "para-num", title: "Numéro du paragraphe" }, "§ " + num) : null));
     var gb = groupBanner(G, s); if (gb) page.appendChild(gb);
+    var fu = firstUse(G, v); if (fu) page.appendChild(fu);
     if (A.notice) page.appendChild(h("div", { class: "notice" }, A.notice));
     if (A.bedWarn && !G.multi) page.appendChild(h("div", { class: "notice soft" }, "🌙 Bientôt l'heure de refermer le livre : le récit te proposera de t'arrêter à une page calme."));
     var prose = h("div", { class: "prose" });
@@ -1928,10 +2195,10 @@
     if (folded) prose.appendChild(h("p", { class: "reread" }, h("span", { class: "muted" }, "Tu connais déjà cette page. "),
       h("button", { class: "btn ghost sm", onclick: function () { A.unfold = s.node + "#" + s.turn; render(); } }, "Relire")));
     // A paragraph of the second reading (tag second) carries a light mark in the margin.
-    else { var glUsed = {}; v.text.forEach(function (t, ti) { var ht = Glossary.mark(st, md(t), glUsed); prose.appendChild(h("p", { class: (v.second || []).indexOf(ti) >= 0 ? "second" : null, html: pref("syllables") ? Syllables.mark(ht) : ht })); }); }
+    else { var glUsed = {}; (v.marked || v.text).forEach(function (t, ti) { var ht = TextFx.mood(Glossary.mark(st, TextFx.render(st, s, md(t)), glUsed), v.mood, ti); prose.appendChild(h("p", { class: (v.second || []).indexOf(ti) >= 0 ? "second" : null, html: pref("syllables") ? Syllables.mark(ht) : ht })); }); }
     // What led to this page (the rolls, their outcome, the blows) comes before the text; what follows from it (clues,
     // items, quests, feats) after (Clément, 11/11 then 13/11).
-    var evs = s.events || [], evEl = function (list, cls) { return list.length ? h("div", { class: "events " + cls, role: "status" }, list.map(function (e) { var el = h("div", { class: "ev " + (e.cls || "") }, rollBadge(e)); el.insertAdjacentHTML("beforeend", md(e.text));
+    var kwUsed = {}, evs = s.events || [], evEl = function (list, cls) { return list.length ? h("div", { class: "events " + cls, role: "status" }, list.map(function (e) { var el = h("div", { class: "ev " + (e.cls || "") }, rollBadge(e)); el.insertAdjacentHTML("beforeend", TextFx.auto(st, md(e.text), kwUsed));
       if (e.doc && st.items && st.items[e.doc]) el.appendChild(h("button", { class: "btn ghost sm ev-read", onclick: function () { A.modal = { kind: "doc", id: e.doc }; render(); } }, "Lire"));
       return el; })) : null; };
     if (pref("quietFx")) evs = evs.filter(function (e) { return !e.conseq; });
@@ -2391,7 +2658,7 @@
   function renderEnding(st, s, v) {
     var qs = M.questsOf(st), done = qs.filter(function (q) { return M.questDone(s, q); });
     return h("div", { class: "ending" }, h("h3", null, "Fin de la lecture"),
-      h("div", { class: "small muted" }, s.name + ", " + (M.ARCHS[s.arch] || {}).label + " de niveau " + M.level(s) + (qs.length ? " · " + done.length + " quêtes sur " + qs.length : "") + " · " + M.timeLabel(s)),
+      h("div", { class: "small muted" }, s.name + ", " + M.archOf(st, s).label + " de niveau " + M.level(s) + (qs.length ? " · " + done.length + " quêtes sur " + qs.length : "") + " · " + M.timeLabel(s)),
       A.game && !A.game.multi ? endingNote(st, s) : null,
       h("div", { class: "row" },
         A.game && A.game.multi ? null : h("button", { class: "btn primary", onclick: function () { newGame(st.id); } }, "Relire avec un autre héros"),
@@ -3381,10 +3648,19 @@
     var plan = Object.keys(st.mysteries || {}).some(function (k) { return st.mysteries[k].plan; });
     // A siege (8.0): the city's stocks, the council, debts and promises, who is with whom, when the story has them.
     var has = { ville: !!(st.stocks || st.march), conseil: !!st.councils, dettes: !!st.promises, liens: !!st.ties, versions: !!st.accounts, secrets: !!st.secrets };
+    // 8.5 (Clément, 15/11): a tab shows only when the story has something to put in it.
+    var n = function (o) { return Object.keys(o || {}).length; }, places = n((st.world || {}).places);
+    has.quetes = n(st.quests) > 0; has.indices = n(st.clues) > 0; has.soupcons = has.tableau = n(st.mysteries) > 0;
+    has.compagnons = n(st.companions) > 0; has.gens = n(st.people) > 0; has.carte = places > 1; has.codex = n(st.enemies) > 0 || places > 1;
     // A story names its stocks' tab (8.1: « Le navire »).
     return TABS.filter(function (t) { return (t[0] !== "documents" || docs) && (t[0] !== "reconst" || plan) && (has[t[0]] == null || has[t[0]]); })
       .map(function (t) { return t[0] === "ville" && st.stocksTab ? [t[0], st.stocksTab] : t; });
   }
+  // The notebook's tabs in four groups (8.5): past nine tabs, the group is chosen first, then the tab.
+  var TAB_GROUPS = [["toi", "Toi", ["heros", "sac", "quetes", "compagnons", "secrets"]], ["enquete", "L'enquête", ["indices", "soupcons", "tableau", "documents", "reconst", "versions"]],
+    ["monde", "Le monde", ["gens", "carte", "ville", "conseil", "dettes", "liens", "codex", "mots"]], ["livre", "Le livre", ["journal", "frise", "marques", "notes", "exploits", "coulisses"]]];
+  var TABS_FLAT = 9;
+  function tabGroupOf(tab) { return (TAB_GROUPS.filter(function (g) { return g[2].indexOf(tab) >= 0; })[0] || TAB_GROUPS[0])[0]; }
   function renderCarnet() {
     var G = A.game; if (!G) { A.carnet = null; return; }
     var close = function () { A.carnet = null; render(); };
@@ -3397,8 +3673,19 @@
     // The tab bar and the page keep their place across a render (Clément, 13/11: a tap on a tab sent the bar back to
     // its start); a new tab opens at its top.
     var tabsX = A.tabsX || 0, bodyY = A.carnetY && A.carnetY.tab === A.carnetTab ? A.carnetY.y : 0;
-    if (!tabsOf(G.story).some(function (t) { return t[0] === A.carnetTab; })) A.carnetTab = "heros";
-    var nav = h("nav", { class: "tabs" }, tabsOf(G.story).map(function (t) { return h("button", { class: "tab" + (A.carnetTab === t[0] ? " on" : ""), "aria-current": A.carnetTab === t[0] ? "page" : null, onclick: function () { A.carnetTab = t[0]; A.carnetQ = ""; render(); } }, t[1]); }));
+    var all = tabsOf(G.story);
+    if (!all.some(function (t) { return t[0] === A.carnetTab; })) A.carnetTab = "heros";
+    var shown = all;
+    if (all.length > TABS_FLAT) {
+      var grp = tabGroupOf(A.carnetTab);
+      d.appendChild(h("nav", { class: "tab-groups", "aria-label": "Parties du carnet" }, TAB_GROUPS.map(function (g) {
+        var mine = all.filter(function (t) { return g[2].indexOf(t[0]) >= 0; });
+        if (!mine.length) return null;
+        return h("button", { class: "chip" + (grp === g[0] ? " on" : ""), "aria-pressed": grp === g[0] ? "true" : "false", onclick: function () { A.carnetTab = mine[0][0]; A.carnetQ = ""; A.tabsX = 0; render(); } }, g[1]);
+      })));
+      shown = all.filter(function (t) { return tabGroupOf(t[0]) === grp; });
+    }
+    var nav = h("nav", { class: "tabs" }, shown.map(function (t) { return h("button", { class: "tab" + (A.carnetTab === t[0] ? " on" : ""), "aria-current": A.carnetTab === t[0] ? "page" : null, onclick: function () { A.carnetTab = t[0]; A.carnetQ = ""; render(); } }, t[1]); }));
     nav.addEventListener("scroll", function () { A.tabsX = nav.scrollLeft; });
     d.appendChild(nav);
     var body = h("div", { class: "drawer-body" }), tabNow = A.carnetTab;
@@ -3424,14 +3711,15 @@
   }
   function bar(cls, v, max) { return h("span", { class: "bar " + cls }, h("i", { style: "width:" + Math.max(0, Math.min(100, Math.round(100 * v / max))) + "%" })); }
   function tabHero(b, st, s) {
-    var a = M.ARCHS[s.arch] || {}, lv = M.level(s), into = s.ep - lv * M.EP_PER_LEVEL;
+    var a = M.archOf(st, s), lv = M.level(s), into = s.ep - lv * M.EP_PER_LEVEL;
+    var U = M.usesOf(st);
     b.appendChild(h("div", { class: "hero-head" }, h("span", { html: heroFace(st, s) }), h("div", null, h("div", { class: "label" }, a.label + " · niveau " + lv), h("div", { class: "small muted" }, a.tip + " Difficulté : " + (M.DIFFICULTY[s.difficulty || "aventurier"] || {}).label + "."))));
     b.appendChild(h("div", { class: "kv" },
-      h("span", null, "Points de vie"), bar("pv", s.pv, M.pvMax(s)), h("span", { class: "num" }, s.pv + "/" + M.pvMax(s)),
+      U.pv || s.pv < M.pvMax(s) ? [h("span", null, "Points de vie"), bar("pv", s.pv, M.pvMax(s)), h("span", { class: "num" }, s.pv + "/" + M.pvMax(s))] : null,
       h("span", null, "Expérience"), bar("", into, M.EP_PER_LEVEL), h("span", { class: "num" }, s.ep.toLocaleString("fr-FR") + " EP"),
-      h("span", null, "Fatigue"), bar("fear", s.fatigue, M.FATIGUE_MAX || 5), h("span", { class: "num" }, s.fatigue ? "−" + s.fatigue * 5 : "aucune"),
-      h("span", null, "Bourse"), h("span"), h("span", { class: "num" }, M.money(st, s.gold)),
-      h("span", null, "Vivres"), h("span"), h("span", { class: "num" }, s.food + " j"),
+      U.fatigue || s.fatigue ? [h("span", null, "Fatigue"), bar("fear", s.fatigue, M.FATIGUE_MAX || 5), h("span", { class: "num" }, s.fatigue ? "−" + s.fatigue * 5 : "aucune")] : null,
+      U.gold ? [h("span", null, "Bourse"), h("span"), h("span", { class: "num" }, M.money(st, s.gold))] : null,
+      U.food || s.food ? [h("span", null, "Vivres"), h("span"), h("span", { class: "num" }, s.food + " j")] : null,
       s.mark ? [h("span", null, "Marque"), h("span"), h("span", { class: "num" }, s.mark)] : null));
     b.appendChild(h("div", { class: "label" }, "Domaines (jet : d100 ouvert + bonus, il faut 101)"));
     b.appendChild(h("div", { class: "kv" }, Object.keys(M.DOMAINS).map(function (k) { var v = M.bonus(st, s, k); return [h("span", null, M.DOMAINS[k]), bar("conf", v, 80), h("span", { class: "num" }, (v >= 0 ? "+" : "") + v)]; })));
@@ -3441,7 +3729,7 @@
     var w = M.weapon(st, s), ar = M.armor(st, s);
     if (!A.game.multi) b.appendChild(h("button", { class: "btn sm", onclick: function () { A.carnet = null; A.screen = "fiche"; render(); window.scrollTo(0, 0); } }, "🖨 Fiche du héros à imprimer"));
     if (st.heroes) tabHeroes(b, st, s);
-    b.appendChild(h("div", { class: "small" }, "Arme : " + (w ? w.name + " (dégâts " + w.dmg + (w.att ? ", attaque " + (w.att > 0 ? "+" : "") + w.att : "") + ")" : "mains nues (dégâts 2)") + " · Protection : " + (ar ? ar.name + " (+" + ar.def + ")" : "aucune")));
+    if (U.combat) b.appendChild(h("div", { class: "small" }, "Arme : " + (w ? w.name + " (dégâts " + w.dmg + (w.att ? ", attaque " + (w.att > 0 ? "+" : "") + w.att : "") + ")" : "mains nues (dégâts 2)") + " · Protection : " + (ar ? ar.name + " (+" + ar.def + ")" : "aucune")));
     var me = !A.game.multi && !A.game.ephemeral && A.profiles.filter(function (p) { return p.id === A.game.doc.profil; })[0], stamps = me && renderStamps(me);
     if (stamps) b.appendChild(stamps);
   }
@@ -3902,7 +4190,7 @@
   // The sky and the season in the top bar (« Équinoxe · grain »), with what the weather does to the rolls.
   function skyPill(st, s) {
     var w = M.weatherKind(st, s), se = M.seasonOf(st, s); if (!w && !se) return null;
-    var mods = w && w.mod ? Object.keys(w.mod).filter(function (d) { return w.mod[d]; }).map(function (d) { return (w.mod[d] > 0 ? "+" : "−") + Math.abs(w.mod[d]) + " " + M.DOMAINS[d]; }) : [];
+    var mods = w && w.mod ? Object.keys(w.mod).map(function (d) { return [d, M.weatherMod(st, s, d)]; }).filter(function (x) { return x[1]; }).map(function (x) { return (x[1] > 0 ? "+" : "−") + Math.abs(x[1]) + " " + M.DOMAINS[x[0]]; }) : [];
     var label = [se ? se.name : null, w ? w.name : null].filter(Boolean).join(" · ");
     return h("span", { class: "pill small sky", title: (w && w.desc ? w.desc + " " : "") + (mods.length ? "Effet sur tes jets : " + mods.join(", ") + "." : ""), "aria-label": "Temps : " + label }, "☁ " + label);
   }
@@ -4169,7 +4457,7 @@
   // ------------------------------------------------------------------ reading preferences (per reader)
   // Intent: pref(Key) -> Value = the reader's own setting, else the default
   // Why: Clément (12/11): text size, spacing, theme, voice, real dice, sound… follow the reader, not the device.
-  var PREFS = { skin: "histoire", size: "m", spacing: "normal", theme: "auto", font: "livre", lettrine: true, voice: "", highlight: true, ruler: false, dialogue: false, glossary: true, nudge: false, syllables: false, voiceChoice: false, autoListen: true, battlePlan: true, relations: true, urgent: true, sfx: true, shakeDice: false, fog: true, rate: 1, autoRead: false, dice: "ecran", ambiance: false, music: false, volume: 0.6, spread: "auto", pageTurn: true, swipe: false, contrast: false, cvd: false, quietFx: false, dice3d: true, attachements: "discret", trouble: true };
+  var PREFS = { skin: "histoire", size: "m", spacing: "normal", theme: "auto", font: "livre", lettrine: true, voice: "", highlight: true, ruler: false, dialogue: false, glossary: true, lore: true, nudge: false, syllables: false, voiceChoice: false, autoListen: true, battlePlan: true, relations: true, urgent: true, sfx: true, shakeDice: false, fog: true, rate: 1, autoRead: false, dice: "ecran", ambiance: false, music: false, volume: 0.6, spread: "auto", pageTurn: true, swipe: false, contrast: false, cvd: false, quietFx: false, dice3d: true, attachements: "discret", trouble: true, textFx: "anime" };
   var SIZES = { s: ["Petit", 16], m: ["Normal", 18], l: ["Grand", 21], xl: ["Très grand", 24] };
   var SPACINGS = { serre: ["Serré", 1.5], normal: ["Normal", 1.72], aere: ["Aéré", 2] };
   var THEMES = { auto: "Comme l'appareil", light: "Clair", sepia: "Sépia", dark: "Sombre", soir: "Lumière du soir" };
@@ -4283,12 +4571,15 @@
     b.appendChild(prefToggle("cvd", "Couleurs pour daltoniens", "Réussites en bleu, échecs en orange, au lieu du vert et du rouge ; chaque état garde aussi son signe (✓, ✗)."));
     b.appendChild(prefToggle("nudge", "Coup de pouce (jeunes lecteurs)", "Un bouton 💡, deux fois par acte, donne une phrase pour s'orienter quand on est perdu. Il ne révèle jamais la suite."));
     b.appendChild(prefToggle("glossary", "Expliquer les mots rares", "Les mots peu courants sont soulignés de pointillés : on les touche pour lire leur sens."));
+    b.appendChild(prefToggle("lore", "Fiches du monde", "Les noms du monde (lieux, fêtes, ordres) se touchent dans le texte pour lire ce qu'un habitant en sait."));
     b.appendChild(prefToggle("syllables", "Syllabes en couleurs", "Une syllabe sur deux change de couleur, comme dans les méthodes de lecture."));
     b.appendChild(prefToggle("fog", "Carte sous le brouillard", "La carte du carnet se dévoile autour des lieux atteints et le long des routes parcourues."));
     b.appendChild(prefToggle("relations", "Relations dans l'onglet Gens", "À côté de chaque personne, ce qu'elle pense de toi (méfiante, alliée, redevable…), quand l'histoire le dit."));
     b.appendChild(seg({ montrer: "Montrés", discret: "Discrets", masquer: "Masqués" }, "attachements", "Liens affectifs (histoires pour adultes)"));
     b.appendChild(h("p", { class: "small muted" }, "Discrets : les scènes tendres restent, sans jauge. Montrés : l'onglet Gens dit aussi ce qui te lie à chacun. Masqués : l'histoire passe ces scènes et garde son fil."));
-    b.appendChild(prefToggle("trouble", "Page troublée par la peur", "Quand l'angoisse du héros est forte, le texte se trouble légèrement. À couper s'il gêne la lecture."));
+    b.appendChild(seg({ anime: "Animés", discret: "Discrets", aucun: "Aucun" }, "textFx", "Mots à effets"));
+    b.appendChild(h("p", { class: "small muted" }, "Des mots qui tremblent, ondulent ou s'écrivent sous tes yeux. Discrets : la couleur seule, sans mouvement. Rien ne bouge si l'appareil demande moins d'animations."));
+    b.appendChild(prefToggle("trouble", "La page suit l'état du héros", "Peur, épuisement, blessure : quelques mots frémissent ou se brouillent. À couper s'il gêne la lecture."));
     b.appendChild(prefToggle("quietFx", "Conséquences muettes", "L'histoire ne dit plus quand la confiance ou la crainte d'un compagnon change : tu le découvres à sa façon d'agir."));
     b.appendChild(prefToggle("urgent", "Choix sous pression", "Dans certaines scènes, un compte à rebours presse le choix ; quand il est écoulé, l'histoire choisit pour toi. Décoche pour lire ces scènes sans minuteur."));
     b.appendChild(prefToggle("battlePlan", "Plan de bataille", "Pendant un combat, un petit plan montre les rangs, les adversaires et les coups de la dernière passe."));
@@ -4593,6 +4884,14 @@
   }
   function tabFeats(b, st, s) {
     var all = M.featsOf(st), mine = s.feats || {};
+    // Finds (8.6): how many of the book's hidden words this game has found, and which.
+    var T = st.trouvailles || {}, tk = Object.keys(T);
+    if (tk.length) {
+      var got = tk.filter(function (k) { return (s.found || {})[k]; });
+      b.appendChild(h("div", { class: "label" }, "✦ " + (st.trouvaillesName ? st.trouvaillesName.charAt(0).toUpperCase() + st.trouvaillesName.slice(1) : "Trouvailles") + " · " + got.length + " sur " + tk.length));
+      if (!got.length) b.appendChild(h("div", { class: "small muted" }, "Certains mots du livre réagissent quand on les touche. À toi de les trouver."));
+      got.forEach(function (k) { b.appendChild(h("div", { class: "small" }, "✦ " + (T[k].title || "Trouvée"))); });
+    }
     b.appendChild(h("div", { class: "small muted" }, "Ceux de cette partie. La bibliothèque garde ceux de tout le lecteur."));
     all.forEach(function (f) {
       if (mine[f.id]) b.appendChild(h("div", { class: "clue" }, h("b", null, "★ " + f.title), h("div", { class: "small muted" }, f.desc)));
@@ -4735,7 +5034,7 @@
   }
   function recitHtml(st, s, pages) {
     var acts = {}; (st.acts || []).forEach(function (a) { acts[a.id] = a.title; });
-    var out = ["<h1>" + esc(st.title) + "</h1>", "<p class=\"by\">L'aventure de " + esc(s.name) + ", " + esc((M.ARCHS[s.arch] || {}).label || "") + " · niveau " + M.level(s) + "</p>"], lastAct = null;
+    var out = ["<h1>" + esc(st.title) + "</h1>", "<p class=\"by\">L'aventure de " + esc(s.name) + ", " + esc(M.archOf(st, s).label || "") + " · niveau " + M.level(s) + "</p>"], lastAct = null;
     pages.forEach(function (p) {
       if (p.act && p.act !== lastAct) { out.push("<h2>" + esc(acts[p.act] || p.act) + "</h2>"); lastAct = p.act; }
       out.push("<section><h3>" + md(String(p.title || "")) + " <small>" + esc(p.t || "") + "</small></h3>");
@@ -4746,10 +5045,71 @@
     });
     return out.join("\n");
   }
+  // Intent: recitEpub(Story, State, Pages) -> bytes = « Mon aventure » as an EPUB 3 book, one chapter per act, for a
+  // reader or an e-ink tablet (piste 18, 15/11). Why: the HTML and the PDF exist; a book reader wants an EPUB.
+  // The zip is written by hand (stored, no compression): the mimetype first, then the container, the package, the
+  // table of contents and the chapters.
+  var EPUB_CSS = "body{font-family:serif;line-height:1.55}h1{font-size:1.8em}h2{font-size:1.4em;margin-top:1.2em}h3{font-size:1.1em;margin:1.4em 0 .3em}h3 small{font-weight:normal;color:#777;font-size:.75em}.by{font-style:italic;color:#555}.chosen{font-style:italic;color:#2c7464}.ev{font-size:.85em;color:#666}";
+  function xesc(t) { return esc(t).replace(/'/g, "&#39;"); }
+  function xmd(t) { return md(t).replace(/<br>/g, "<br/>"); }
+  function recitEpub(st, s, pages) {
+    var acts = {}; (st.acts || []).forEach(function (a) { acts[a.id] = a.title; });
+    var chapters = [], cur = null;
+    pages.forEach(function (p) {
+      if (!cur || (p.act && p.act !== cur.act)) { cur = { act: p.act, title: acts[p.act] || st.title, body: [] }; chapters.push(cur); }
+      cur.body.push("<section><h3>" + xmd(String(p.title || "")) + (p.t ? " <small>" + xesc(p.t) + "</small>" : "") + "</h3>");
+      (p.text || []).forEach(function (t) { cur.body.push("<p>" + xmd(t) + "</p>"); });
+      if (p.ev && p.ev.length) cur.body.push("<p class=\"ev\">" + p.ev.map(xesc).join(" · ") + "</p>");
+      if (p.c) cur.body.push("<p class=\"chosen\">Tu as choisi : « " + xesc(p.c) + " »</p>");
+      cur.body.push("</section>");
+    });
+    var title = st.title + " · " + (s.name || ""), uid = "livre-heros-" + st.id + "-" + Date.now(), when = new Date().toISOString().replace(/\.\d+Z$/, "Z");
+    function page(t, body) { return "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<!DOCTYPE html>\n<html xmlns=\"http://www.w3.org/1999/xhtml\" xmlns:epub=\"http://www.idpf.org/2007/ops\" xml:lang=\"fr\" lang=\"fr\"><head><meta charset=\"utf-8\"/><title>" + xesc(t) + "</title><link rel=\"stylesheet\" href=\"style.css\"/></head><body>" + body + "</body></html>"; }
+    var files = [["mimetype", "application/epub+zip"],
+      ["META-INF/container.xml", "<?xml version=\"1.0\"?>\n<container version=\"1.0\" xmlns=\"urn:oasis:names:tc:opendocument:xmlns:container\"><rootfiles><rootfile full-path=\"OEBPS/content.opf\" media-type=\"application/oebps-package+xml\"/></rootfiles></container>"],
+      ["OEBPS/style.css", EPUB_CSS],
+      ["OEBPS/titre.xhtml", page(title, "<h1>" + xesc(st.title) + "</h1><p class=\"by\">L'aventure de " + xesc(s.name || "") + ", " + xesc(M.archOf(st, s).label || "") + " · niveau " + M.level(s) + "</p>")]];
+    chapters.forEach(function (c, i) { files.push(["OEBPS/ch" + (i + 1) + ".xhtml", page(c.title, "<h2>" + xesc(c.title) + "</h2>" + c.body.join("\n"))]); });
+    files.push(["OEBPS/nav.xhtml", page("Sommaire", "<nav epub:type=\"toc\" id=\"toc\"><h1>Sommaire</h1><ol><li><a href=\"titre.xhtml\">" + xesc(st.title) + "</a></li>" + chapters.map(function (c, i) { return "<li><a href=\"ch" + (i + 1) + ".xhtml\">" + xesc(c.title) + "</a></li>"; }).join("") + "</ol></nav>")]);
+    var items = files.filter(function (f) { return /^OEBPS\/.+\.xhtml$/.test(f[0]); }).map(function (f) { return f[0].slice(6); });
+    files.push(["OEBPS/content.opf", "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<package xmlns=\"http://www.idpf.org/2007/opf\" version=\"3.0\" unique-identifier=\"uid\" xml:lang=\"fr\"><metadata xmlns:dc=\"http://purl.org/dc/elements/1.1/\"><dc:identifier id=\"uid\">" + xesc(uid) + "</dc:identifier><dc:title>" + xesc(title) + "</dc:title><dc:language>fr</dc:language><dc:creator>" + xesc(s.name || "") + "</dc:creator><meta property=\"dcterms:modified\">" + when + "</meta></metadata><manifest>" +
+      "<item id=\"css\" href=\"style.css\" media-type=\"text/css\"/>" + items.map(function (f) { return "<item id=\"" + f.replace(/\.xhtml$/, "") + "\" href=\"" + f + "\" media-type=\"application/xhtml+xml\"" + (f === "nav.xhtml" ? " properties=\"nav\"" : "") + "/>"; }).join("") + "</manifest><spine>" +
+      ["titre.xhtml"].concat(chapters.map(function (c, i) { return "ch" + (i + 1) + ".xhtml"; })).map(function (f) { return "<itemref idref=\"" + f.replace(/\.xhtml$/, "") + "\"/>"; }).join("") + "</spine></package>"]);
+    return zipStore(files.map(function (f) { return [f[0], new TextEncoder().encode(f[1])]; }));
+  }
+  // Intent: zipStore([[name, bytes]]) -> bytes = a zip archive without compression (what an EPUB needs, mimetype first).
+  var CRC_TABLE = null;
+  function crc32(b) {
+    if (!CRC_TABLE) { CRC_TABLE = []; for (var n = 0; n < 256; n++) { var c = n; for (var k = 0; k < 8; k++) c = c & 1 ? 0xEDB88320 ^ (c >>> 1) : c >>> 1; CRC_TABLE[n] = c >>> 0; } }
+    var x = 0xFFFFFFFF; for (var i = 0; i < b.length; i++) x = CRC_TABLE[(x ^ b[i]) & 0xFF] ^ (x >>> 8); return (x ^ 0xFFFFFFFF) >>> 0;
+  }
+  function zipStore(files) {
+    var parts = [], central = [], off = 0, enc = new TextEncoder();
+    function u16(v) { return [v & 255, (v >>> 8) & 255]; }
+    function u32(v) { return [v & 255, (v >>> 8) & 255, (v >>> 16) & 255, (v >>> 24) & 255]; }
+    files.forEach(function (f) {
+      var name = enc.encode(f[0]), data = f[1], crc = crc32(data);
+      var head = [].concat(u32(0x04034b50), u16(20), u16(0x0800), u16(0), u16(0), u16(0x21), u32(crc), u32(data.length), u32(data.length), u16(name.length), u16(0));
+      parts.push(new Uint8Array(head), name, data);
+      central.push(new Uint8Array([].concat(u32(0x02014b50), u16(20), u16(20), u16(0x0800), u16(0), u16(0), u16(0x21), u32(crc), u32(data.length), u32(data.length), u16(name.length), u16(0), u16(0), u16(0), u16(0), u32(0), u32(off))), name);
+      off += head.length + name.length + data.length;
+    });
+    var csize = central.reduce(function (n, x) { return n + x.length; }, 0);
+    var end = new Uint8Array([].concat(u32(0x06054b50), u16(0), u16(0), u16(files.length), u16(files.length), u32(csize), u32(off), u16(0)));
+    var all = parts.concat(central, [end]), len = all.reduce(function (n, x) { return n + x.length; }, 0), out = new Uint8Array(len), p = 0;
+    all.forEach(function (x) { out.set(x, p); p += x.length; });
+    return out;
+  }
+  function downloadBytes(name, bytes, type) {
+    var blob = new Blob([bytes], { type: type });
+    function viaLink() { var url = URL.createObjectURL(blob); var a = h("a", { href: url, download: name }); document.body.appendChild(a); a.click(); a.remove(); setTimeout(function () { URL.revokeObjectURL(url); }, 10000); }
+    if (A.downloads) { A.downloads.save({ filename: name, data: blob }).catch(viaLink); return; }
+    viaLink();
+  }
   var RECIT_CSS = "body{font:17px/1.65 Georgia,'Literata',serif;color:#1d2420;background:#fff;max-width:40rem;margin:2rem auto;padding:0 16px}h1{font-size:2.2em;margin:0}h2{margin-top:2.4em;page-break-before:always;border-bottom:1px solid #ccc}h3{margin:1.6em 0 .4em}h3 small{font-weight:normal;color:#777;font-size:.6em}.by{color:#555;font-style:italic}.chosen{font-style:italic;color:#2c7464}.ev{font-size:.85em;color:#666}section{page-break-inside:auto}";
   // Intent: ficheHtml(Story, State) -> html = the hero's card, to print or keep (Clément, 12/11)
   function ficheHtml(st, s) {
-    var a = M.ARCHS[s.arch] || {}, lv = M.level(s), w = M.weapon(st, s), ar = M.armor(st, s);
+    var a = M.archOf(st, s), lv = M.level(s), w = M.weapon(st, s), ar = M.armor(st, s), U = M.usesOf(st);
     var counted = {}; s.items.forEach(function (id) { counted[id] = (counted[id] || 0) + 1; });
     var items = Object.keys(counted).map(function (id) { return esc(M.item(st, id).name) + (counted[id] > 1 ? " ×" + counted[id] : ""); });
     var comps = Object.keys(st.companions || {}).filter(function (k) { return s.met[k] === "party"; }).map(function (k) { return esc(st.companions[k].name); });
@@ -4761,14 +5121,14 @@
       "<p class=\"sub\">" + esc(a.label || "") + " · niveau " + lv + " · " + esc((M.DIFFICULTY[s.difficulty || "aventurier"] || {}).label || "") + "</p>" +
       "<p class=\"story\">" + esc(st.title) + "</p></div></header>" +
       "<div class=\"cols\"><section><h2>Le héros</h2><table class=\"kv\">" +
-      "<tr><td>Points de vie</td><td class=n>" + M.pvMax(s) + "</td></tr>" +
+      (U.pv ? "<tr><td>Points de vie</td><td class=n>" + M.pvMax(s) + "</td></tr>" : "") +
       "<tr><td>Expérience</td><td class=n>" + s.ep.toLocaleString("fr-FR") + " EP</td></tr>" +
-      "<tr><td>Bourse</td><td class=n>" + esc(M.money(st, s.gold)) + "</td></tr>" +
-      "<tr><td>Arme</td><td class=n>" + (w ? esc(w.name) + " (" + w.dmg + ")" : "mains nues") + "</td></tr>" +
-      "<tr><td>Protection</td><td class=n>" + (ar ? esc(ar.name) + " (+" + ar.def + ")" : "aucune") + "</td></tr></table>" +
+      (U.gold ? "<tr><td>Bourse</td><td class=n>" + esc(M.money(st, s.gold)) + "</td></tr>" : "") +
+      (U.combat ? "<tr><td>Arme</td><td class=n>" + (w ? esc(w.name) + " (" + w.dmg + ")" : "mains nues") + "</td></tr>" +
+      "<tr><td>Protection</td><td class=n>" + (ar ? esc(ar.name) + " (+" + ar.def + ")" : "aucune") + "</td></tr>" : "") + "</table>" +
       "<h2>Domaines</h2><table class=\"doms\">" + doms + "</table></section>" +
       "<section><h2>Le sac</h2><p>" + (items.length ? items.join(" · ") : "vide") + "</p>" +
-      "<h2>Compagnons</h2><p>" + (comps.length ? comps.join(" · ") : "voyage seul") + "</p>" +
+      (Object.keys(st.companions || {}).length ? "<h2>Compagnons</h2><p>" + (comps.length ? comps.join(" · ") : "voyage seul") + "</p>" : "") +
       "<h2>Hauts faits</h2>" + (feats.length ? "<ul>" + feats.join("") + "</ul>" : "<p>à conquérir</p>") + "</section></div>" +
       "<footer>" + esc(a.tip || "") + "<br>Fiche du " + d.toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric" }) + "</footer></div>";
   }
@@ -4797,11 +5157,14 @@
       h("button", { class: "btn sm", onclick: function () { try { window.print(); } catch (e) { flash("L'impression n'est pas possible ici ; télécharge le livre puis imprime-le.", true); } } }, "Imprimer ou PDF"),
       canDownload() ? h("button", { class: "btn sm primary", onclick: function () {
         download("aventure-" + (s.name || "heros").replace(/[^\wÀ-ÿ-]+/g, "-") + ".html", "<!doctype html><meta charset=utf-8><title>" + esc(st.title) + " · " + esc(s.name) + "</title><style>" + RECIT_CSS + "</style>" + recitHtml(st, s, A.recit.pages));
-      } }, "Télécharger le livre") : null]));
+      } }, "Télécharger le livre") : null,
+      canDownload() ? h("button", { class: "btn sm", onclick: function () {
+        downloadBytes("aventure-" + (s.name || "heros").replace(/[^\wÀ-ÿ-]+/g, "-") + ".epub", recitEpub(st, s, A.recit.pages), "application/epub+zip");
+      } }, "Livre numérique (EPUB)") : null]));
     var w = h("main", { class: "wrap read recit" });
     if (A.recit.busy) w.appendChild(h("p", null, "Le livre se rassemble…"));
     else { w.appendChild(renderAudioBook(st, s, A.recit.pages)); w.appendChild(h("div", { html: recitHtml(st, s, A.recit.pages) })); }
-    w.appendChild(h("p", { class: "small muted noprint" }, "Le fichier téléchargé s'ouvre dans n'importe quel navigateur ; « Imprimer », puis « Enregistrer en PDF », en fait un PDF."));
+    w.appendChild(h("p", { class: "small muted noprint" }, "Le fichier téléchargé s'ouvre dans n'importe quel navigateur ; « Imprimer », puis « Enregistrer en PDF », en fait un PDF. Le livre numérique (EPUB) s'ouvre dans une liseuse ou une appli de lecture."));
     app.appendChild(w);
   }
 
@@ -5731,7 +6094,7 @@
     var pc = condSay(p); if (pc.length) box.appendChild(h("div", { class: "rd-cond" }, "Passage : " + pc.join(" · ")));
     [].concat(p.text || []).forEach(function (t) {
       var o = typeof t === "string" ? { text: t } : t, c = condSay(o);
-      box.appendChild(h("div", { class: "rd-para" + (c.length ? " cond" : "") }, c.length ? h("div", { class: "rd-cond" }, c.join(" · ")) : null, h("p", null, String(o.text || "").replace(/\*\*?/g, "")), o.else ? h("p", { class: "rd-else" }, "Sinon : " + o.else) : null));
+      box.appendChild(h("div", { class: "rd-para" + (c.length ? " cond" : "") }, c.length ? h("div", { class: "rd-cond" }, c.join(" · ")) : null, h("p", { html: TextFx.render(st, READ_ALL(st), md(String(o.text || ""))) }), o.else ? h("p", { class: "rd-else" }, "Sinon : " + o.else) : null));
     });
     var counts = pickCounts(st);
     var ul = h("ul", { class: "rd-choices" });

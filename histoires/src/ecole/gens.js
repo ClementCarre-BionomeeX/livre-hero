@@ -93,7 +93,7 @@ module.exports = { rumors: {
     title: "La chambre du maître", place: "salles", back: true,
     text: [
       "La chambre de Maître Salvanhac est au dernier étage de l'escalier des maîtres, une pièce mansardée encombrée de livres, de papiers et de cages ouvertes. Une seule fenêtre donne sur la mer et, tout en bas, sur la digue entière, de la ville jusqu'à la Tête.",
-      "Aux murs, des dizaines de portraits au fusain, des visages de jeunes gens et de jeunes filles, chacun avec une date dans un coin. « Mes élèves, dit le vieux maître. Les meilleurs. Je les dessine le jour où ils me dépassent. » Il en touche un, puis un autre. « Celui-ci est maître à Valcourt. Celle-ci… » Il s'arrête, le doigt levé. « Celle-ci, je ne sais plus. »",
+      "Aux murs, des dizaines de p{{or:s2|o}}rtraits au fusain, des visages de jeunes gens et de jeunes filles, chacun avec une date dans un coin. « Mes élèves, dit le vieux maître. Les meilleurs. Je les dessine le jour où ils me dépassent. » Il en touche un, puis un autre. « Celui-ci est maître à Valcourt. Celle-ci… » Il s'arrête, le doigt levé. « Celle-ci, je ne sais plus. »",
       "C'est une jeune fille aux cheveux tirés, au visage mince, qui sourit à moitié comme quelqu'un qui va dire une insolence. Pas de nom. Une date : l'an trente du collège.",
       "Le merle se pose sur le cadre, penche la tête, et siffle deux notes claires, toujours les mêmes, qui ressemblent à un nom : « So-lè. So-lè. » Le vieux maître le regarde avec tendresse. « Il siffle ça depuis toujours. Je ne sais pas où il l'a appris. »",
     ],

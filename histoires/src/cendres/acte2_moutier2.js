@@ -61,7 +61,7 @@ module.exports = {
     ],
     choices: [
       { label: "Lui demander le nom du village", fx: { ep: ["perso", 400] }, to: "III_p_village_nom" },
-      { label: "Porter un moment la cloche du curé", fx: { pv: -1, ep: ["perso", 500], flag: "iii:village" }, to: "III_p_village_cloche" },
+      { label: "Porter un moment la cloche du curé", fx: { pv: -1, ep: ["perso", 500] }, to: "III_p_village_cloche" },
     ] }),
   III_p_village_nom: P3({ title: "Le nom", place: "plaine",
     text: ["Elle s'arrête. Elle se retourne vers les autres. Ils s'arrêtent tous, avec leurs morceaux de maisons. Ils se regardent. Personne ne le sait. « On le retrouvera en arrivant, dit enfin le forgeron. Il sera gravé sur la borne. » Il soulève son enclume. Personne ne porte de borne. Personne ne le leur fait remarquer."],

@@ -399,7 +399,7 @@ module.exports = {
       "La Source hésite. Tu le sens dans la pierre, sous tes pieds : le battement s'arrête, une seconde, deux. Puis il reprend, plus léger, moins profond, comme une respiration qui se détend. La main d'Aurèle glisse sur la vasque. Elle se décolle. Il la regarde, incrédule, il la retourne, il ferme le poing.",
       "« Elle ne me tient plus, dit-il. Elle ne me tient plus. »",
       "« Le lien attend là-haut, dis-tu. Dans la fontaine. Il faut que quelqu'un le prenne. Il faut que tout Kardan le prenne. Sinon, dans quelques semaines… »",
-      "Aurèle hoche la tête. Il a compris. « Sinon ce sera la soif. Il faut qu'ils acceptent. » Il rit, un rire faible, vrai. « Tu n'as pas changé, Moineau. Tu choisis toujours la solution où il faut convaincre tout le monde. »",
+      { with: "aurele", text: "Aurèle hoche la tête. Il a compris. « Sinon ce sera la soif. Il faut qu'ils acceptent. » Il rit, un rire faible, vrai. « Tu n'as pas changé, Moineau. Tu choisis toujours la solution où il faut convaincre tout le monde. »" },
     ],
     choices: [{ label: "L'aider à se relever", to: "D_sortie" }] },
   D_frapper: { act: "II", title: "Jusqu'au bout", place: "coeur",

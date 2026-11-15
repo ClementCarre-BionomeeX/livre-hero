@@ -28,7 +28,7 @@ module.exports = {
     ],
     choices: [
       { label: "Lui demander le nom de son village", fx: { ep: ["perso", 400] }, to: "IV_cv_villages_nom" },
-      { label: "Rester un moment, et lui tenir la main", fx: { ep: ["perso", 300], flag: "iv:onze_villages" }, to: "IV_cv_villages_main" },
+      { label: "Rester un moment, et lui tenir la main", fx: { ep: ["perso", 300] }, to: "IV_cv_villages_main" },
     ] }),
   IV_cv_villages_nom: P({ title: "Le nom", place: "brenne",
     text: ["Elle ouvre la bouche. Elle la referme. Elle cherche. « Il y avait un clocher, dit-elle. Avec un coq de travers. Et un lavoir, où ma mère m'emmenait. » Elle sourit. « Je ne sais plus comment il s'appelait. Mais le coq, je le vois. Il est toujours de travers. Ils n'ont jamais voulu le redresser. » Elle te serre la main, très fort. « Si tu le vois, ce coq, dis-moi où c'est. »"],
@@ -42,7 +42,7 @@ module.exports = {
       "« Et quand ils meurent, dit-elle, je ne raye pas la dette. Je mets une croix à côté, c'est tout. Je garde la page. » Elle feuillette. Des pages et des pages, des croix, des noms, des sommes. « Trente ans que je marche derrière cette armée. Les greffiers de la margrave perdent leurs listes. Moi, jamais. Les morts me doivent quatre cents écus. Je ne les réclamerai pas. Mais je sais qui ils étaient, à un sou près. »",
     ],
     choices: [
-      { label: "Lui acheter un lacet, et lui dire ton nom pour la page", fx: { gold: -1, ep: ["perso", 400], flag: "iv:cantiniere" }, to: "IV_cv_cantiniere_nom" },
+      { label: "Lui acheter un lacet, et lui dire ton nom pour la page", fx: { gold: -1, ep: ["perso", 400] }, to: "IV_cv_cantiniere_nom" },
       { label: "Revenir entre les feux", back: "IV_cv_camp" },
     ] }),
   IV_cv_cantiniere_nom: P({ title: "À crédit", place: "brenne",
@@ -61,5 +61,5 @@ module.exports = {
       "Un vieux soldat sans dents lui prend les deux mains et dit une phrase, en corvannais, que Rodric ne traduit pas. Puis il montre les trois cloches, cousues à l'épaule de Rodric, et il demande quelque chose. Rodric les fait sonner du bout du doigt, l'une après l'autre, lentement, au milieu du cercle.",
       "Les vieux ferment les yeux. Ils écoutent. À la troisième, l'un d'eux pleure, sans bruit, et les autres font semblant de ne pas le voir. Rodric laisse retomber sa main. « C'est le son du pont, dit-il quand il revient vers toi. Le son qu'il faisait, avant, quand les charrettes passaient. Ils ne l'avaient pas entendu depuis vingt ans. » Il ne dit plus rien de la soirée.",
     ],
-    choices: [{ label: "Revenir entre les feux", fx: { conf: { rodric: 10 }, ep: ["perso", 600], flag: "iv:rodric_pays" }, back: "IV_cv_camp" }] }),
+    choices: [{ label: "Revenir entre les feux", fx: { conf: { rodric: 10 }, ep: ["perso", 600] }, back: "IV_cv_camp" }] }),
 };

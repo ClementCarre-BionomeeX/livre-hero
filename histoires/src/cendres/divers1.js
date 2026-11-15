@@ -33,7 +33,7 @@ module.exports = {
     ],
     choices: [
       { label: "Aider les frères à la monter", test: { dom: "nature", label: "La cloche", help: [{ if: { present: "corbe" }, v: 10 }, { if: { present: "gaspard" }, v: 10 }, { if: { item: "corde" }, v: 10 }] },
-        win: { fx: { flag: "iv:cloche_moutier", ep: ["perso", 800] }, to: "IV_m_cloche_montee" }, lose: { fx: { pv: -2 }, to: "IV_m_cloche_rate" } },
+        win: { fx: { ep: ["perso", 800] }, to: "IV_m_cloche_montee" }, lose: { fx: { pv: -2 }, to: "IV_m_cloche_rate" } },
       { label: "Revenir sous les arcades", back: "IV_moutier" },
     ] }),
   IV_m_cloche_montee: P4({ title: "Le premier coup",
@@ -49,7 +49,7 @@ module.exports = {
       "Le capitaine de la garde s'arrête à côté de toi. « Tu pars demain, dit-il. Pour là-haut. » Il regarde le blanc. « Si tu vois un pays avec des collines vertes et une rivière qui fait un coude, dis-lui qu'on monte encore la garde. Il ne s'en souvient sûrement pas. Dis-le-lui quand même. »",
     ],
     choices: [
-      { label: "« Je le dirai. »", fx: { ep: ["perso", 400], flag: "iii:remparts" }, to: "III_a_nuit" },
+      { label: "« Je le dirai. »", fx: { ep: ["perso", 400] }, to: "III_a_nuit" },
       { label: "« Depuis quand montez-vous la garde ? »", to: "III_a_remparts_capitaine" },
     ] }),
   III_a_remparts_capitaine: P3({ title: "Le capitaine",
@@ -57,5 +57,5 @@ module.exports = {
       "« Depuis le jour où on nous a oubliés, dit-il. Le matin, on gardait une ville. Le soir, on gardait ça. » Il montre le blanc. « On n'a pas eu d'ordre de quitter le poste. Alors on ne l'a pas quitté. »",
       "Il ôte son gant. Sa main est grise, transparente au bout des doigts. « Les hommes s'usent, dit-il. Je les vois s'user. Moi aussi. Un jour, il n'y aura plus que les armures qui feront la ronde. Elles la feront bien. Elles ont l'habitude. »",
     ],
-    choices: [{ label: "« Je le dirai, là-haut. »", fx: { ep: ["perso", 400], flag: "iii:remparts" }, to: "III_a_nuit" }] }),
+    choices: [{ label: "« Je le dirai, là-haut. »", fx: { ep: ["perso", 400] }, to: "III_a_nuit" }] }),
 };

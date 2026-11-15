@@ -11,7 +11,7 @@ module.exports = {
       "« Toi ! dit-elle. Je te connais ! Je ne sais pas d'où, mais je te connais ! » Elle saute de la carriole. « J'ai tout ce qu'il faut pour l'année blanche. Des craies pour écrire son nom sur les portes. Des colliers à graver pour les enfants. Et des almanachs de l'an passé : ils sont vrais, cette fois, j'ai vérifié. »",
     ],
     choices: [
-      { label: "Lui acheter des nouvelles, pour deux sous", fx: { gold: -2, flag: "fanchon:iv" }, to: "E4_fanchon_nouvelles" },
+      { label: "Lui acheter des nouvelles, pour deux sous", fx: { gold: -2 }, to: "E4_fanchon_nouvelles" },
       { label: "Lui demander si elle est passée à Sauvelune", to: "E4_fanchon_sv" },
     ] }),
 
@@ -32,8 +32,8 @@ module.exports = {
       "Au pied du cairn, des pierres plates, et un clou rouillé pour graver.",
     ],
     choices: [
-      { label: "Graver le nom de Sauvelune", fx: { flag: "cairn:sauvelune", ep: ["perso", 400] }, to: "E4_cairn_grave" },
-      { label: "Graver ton autre nom, celui de Valcendre", fx: { flag: "cairn:aelan", ep: ["perso", 400] }, to: "E4_cairn_grave" },
+      { label: "Graver le nom de Sauvelune", fx: { ep: ["perso", 400] }, to: "E4_cairn_grave" },
+      { label: "Graver ton autre nom, celui de Valcendre", fx: { ep: ["perso", 400] }, to: "E4_cairn_grave" },
       { label: "Ne rien graver. Passer", to: "@route" },
     ] }),
 
@@ -76,8 +76,8 @@ module.exports = {
     ],
     choices: [
       { label: "Les démasquer devant la file", test: { dom: "social", label: "Démasquer", help: [{ if: { present: "pie" }, v: 20 }, { if: { present: "hylas" }, v: 10 }] },
-        win: { fx: { flag: "faux_jetons:demasques", ep: ["perso", 800] }, to: "E4_faux_jetons_ok" }, lose: { to: "E4_faux_jetons_combat" } },
-      { label: "Les laisser. Un faux jeton protège autant qu'un vrai", fx: { flag: "faux_jetons:laisses" }, to: "E4_faux_jetons_laisse" },
+        win: { fx: { ep: ["perso", 800] }, to: "E4_faux_jetons_ok" }, lose: { to: "E4_faux_jetons_combat" } },
+      { label: "Les laisser. Un faux jeton protège autant qu'un vrai", to: "E4_faux_jetons_laisse" },
     ] }),
 
   E4_faux_jetons_ok: P({ title: "La file",
@@ -112,8 +112,8 @@ module.exports = {
 
   E4_gris_combat: P({ title: "Le barrage",
     combat: { title: "Le barrage du ruisseau", enemies: [{ id: "garde_noir", n: 2 }], terrain: "nature", range: "contact",
-      flee: { dom: "nature", label: "Sauter dans le ruisseau et descendre le courant", fx: { flag: "gris:vu" }, to: "@route" },
-      win: { fx: { ep: ["seance", 1200], flag: "gris:vu" }, to: "@route" }, lose: { fx: { pv: -3, flag: "gris:vu" }, to: "@route" } },
+      flee: { dom: "nature", label: "Sauter dans le ruisseau et descendre le courant", to: "@route" },
+      win: { fx: { ep: ["seance", 1200] }, to: "@route" }, lose: { fx: { pv: -3 }, to: "@route" } },
     text: ["Le greffier lâche la lanterne. « C'est lui ! » Les gardes noirs tirent l'épée. Le greffier, lui, s'enfuit vers Pallanche, à toutes jambes, pour prévenir."],
     choices: [] }),
 
@@ -123,7 +123,7 @@ module.exports = {
       "La mère te demande de l'eau. Pendant qu'elle boit, elle regarde la place vide. Elle dit : « Il y a quelque chose qui manque. Je ne sais pas quoi. Depuis l'hiver. On met une écuelle de trop, le soir. On ne sait pas pour qui. »",
     ],
     choices: [
-      { label: "Lui donner une cuillère de miel blanc", hide: { not: { item: "miel_blanc" } }, fx: { drop: "miel_blanc", flag: "famille_route:miel", ep: ["perso", 1200] }, to: "E4_famille_miel" },
+      { label: "Lui donner une cuillère de miel blanc", hide: { not: { item: "miel_blanc" } }, fx: { drop: "miel_blanc", ep: ["perso", 1200] }, to: "E4_famille_miel" },
       { label: "Lui dire de continuer à mettre l'écuelle", fx: { ep: ["perso", 300] }, to: "E4_famille_ecuelle" },
     ] }),
 
@@ -173,13 +173,13 @@ module.exports = {
       "Dans la sacoche, une lettre cachetée, adressée au Greffier-Majeur, à Pallanche. Le sceau de la reine.",
     ],
     choices: [
-      { label: "Lire la lettre", fx: { flag: "messager:lu", clue: "n_lettre_reine_iv", ep: ["perso", 800] }, to: "E4_messager_lu" },
-      { label: "Remettre la lettre au messager, et lui dire où il allait", fx: { flag: "messager:aide" }, to: "E4_messager_aide" },
+      { label: "Lire la lettre", fx: { clue: "n_lettre_reine_iv", ep: ["perso", 800] }, to: "E4_messager_lu" },
+      { label: "Remettre la lettre au messager, et lui dire où il allait", to: "E4_messager_aide" },
     ] }),
 
   E4_messager_lu: P({ title: "La lettre",
     text: ["*Monsieur le Greffier-Majeur. Je vous ai déclaré traître, et je vous écris. Vous savez ce que je vais vous demander, puisque vous savez tout. Je vous le demanderai seulement si à l'aube du jour fixé, il n'y a rien. Tenez-vous prêt. Je prie pour qu'il y ait quelque chose. Isaure.* Tu recachettes la lettre avec la cire d'une chandelle. La reine ne te pardonnerait pas de l'avoir lue. Toi, tu lui pardonnes de l'avoir écrite."],
-    choices: [{ label: "Remettre la lettre au messager", fx: { flag: "messager:aide" }, to: "E4_messager_aide" }] }),
+    choices: [{ label: "Remettre la lettre au messager", to: "E4_messager_aide" }] }),
 
   E4_messager_aide: P({ title: "Pallanche",
     text: ["Tu lui dis : « Pallanche. Le Greffier-Majeur. » Il répète, comme une leçon. Il remonte à cheval, et il repart vers l'ouest, au trot, en répétant à voix haute le nom de la ville et celui de l'homme, pour ne pas les perdre en route."],

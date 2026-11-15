@@ -38,8 +38,8 @@ module.exports = {
     ],
     choices: [
       { label: "Monter sur la caisse à côté de lui, et raconter ce qui s'est vraiment passé", test: { dom: "social", label: "La vraie complainte", help: [{ if: { present: "lisandre" }, v: 20 }, { if: { has: "iv:violons=appris" }, v: 10 }] },
-        win: { fx: { flag: ["iv:complainte", "iv:complainte=vraie"], ep: ["perso", 1000] }, to: "IV_ps_complainte_vraie" }, lose: { to: "IV_ps_complainte_rire" } },
-      { label: "Acheter une feuille, pour la garder", fx: { flag: ["iv:complainte", "iv:complainte=achetee"], gold: -1 }, to: "IV_ps_complainte_feuille" },
+        win: { fx: { flag: "iv:complainte=vraie", ep: ["perso", 1000] }, to: "IV_ps_complainte_vraie" }, lose: { to: "IV_ps_complainte_rire" } },
+      { label: "Acheter une feuille, pour la garder", fx: { flag: "iv:complainte=achetee", gold: -1 }, to: "IV_ps_complainte_feuille" },
     ] }),
   IV_ps_complainte_vraie: P({ title: "Le petit du moulin",
     text: [

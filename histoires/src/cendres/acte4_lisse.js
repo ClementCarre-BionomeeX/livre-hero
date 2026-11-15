@@ -7,7 +7,6 @@ function P(o) { return Object.assign({}, A, o); }
 var TEMOINS = { has: "ame:lisse" }, CLAN = { any: [{ has: "clan:descend" }, { present: "corbe" }] };
 module.exports = {
   IV_l_aube: P({ title: "L'aube", place: "brenne",
-    fx: { flag: "lisse:aube" },
     text: [
       "La brume monte de la Lisse comme tous les matins d'été, épaisse, blanche, et noie la vallée. Quand elle se lève, les deux armées sont là, rangées, sur les deux rives, à trois cents pas du pont. Personne n'a dormi.",
       { if: { has: "ysolde:pont" }, text: "Sur la tête du pont, côté Esquarre, la compagnie de Brenne. Quarante hommes. Devant eux, à pied, Ysolde, l'épée de son père au fourreau. Elle ne l'a pas tirée." },
@@ -43,7 +42,7 @@ module.exports = {
       { with: "sansnom", text: "Ton frère ne dit rien. Il a remis son masque." },
     ],
     choices: [
-      { label: "Écrire la ligne", tag: "Corvanne cédée", stain: true, fx: { flag: ["lisse:cession", "aelan:passeur"], conf: { lisandre: -40, ysolde: -20, pie: -15, hylas: -25, corbe: -20, sansnom: -20, linette: -10 }, ep: ["histoire", 4000] }, to: "IV_l_cession_ecrite" },
+      { label: "Écrire la ligne", tag: "Corvanne cédée", stain: true, fx: { flag: "lisse:cession", conf: { lisandre: -40, ysolde: -20, pie: -15, hylas: -25, corbe: -20, sansnom: -20, linette: -10 }, ep: ["histoire", 4000] }, to: "IV_l_cession_ecrite" },
       { label: "Reposer la plume", to: "IV_l_mordace" },
     ] }),
 
@@ -144,7 +143,7 @@ module.exports = {
     ],
     choices: [
       { label: "Laisser Ysolde décider", hide: { not: { has: "ysolde:pont" } }, to: "IV_l_ysolde_torche" },
-      { label: "Ramasser les blessés des deux côtés", hide: { has: "ysolde:pont" }, fx: { flag: "lisse:blesses", ep: ["perso", 1500] }, to: "IV_l_soir" },
+      { label: "Ramasser les blessés des deux côtés", hide: { has: "ysolde:pont" }, fx: { ep: ["perso", 1500] }, to: "IV_l_soir" },
     ] }),
 
   IV_l_ysolde_torche: P({ title: "La torche", place: "brenne",
@@ -154,7 +153,7 @@ module.exports = {
       "Puis elle la jette dans la Lisse. Elle se tait. Le sergent se tait. Sur l'autre rive, quelqu'un a vu, et un murmure court dans les rangs de Corvanne, d'un bout à l'autre.",
       "« Ramassez les blessés, dit-elle. Des deux côtés. Et les morts. Qu'on ait leurs noms. Tous. »",
     ],
-    choices: [{ label: "Le soir", fx: { flag: ["lisse:pont_debout", "ysolde:torche_jetee"], conf: { ysolde: 15 }, ep: ["perso", 2500] }, to: "IV_l_soir" }] }),
+    choices: [{ label: "Le soir", fx: { conf: { ysolde: 15 }, ep: ["perso", 2500] }, to: "IV_l_soir" }] }),
 
   // ---- Evening: the snow again
   IV_l_soir: P({ title: "Le soir", place: "brenne",
@@ -168,7 +167,7 @@ module.exports = {
       { with: "hylas", text: "Hylas a levé son visage aveugle vers le ciel. « Il a commencé, dit-il. La grande cession. Il ne cède plus un village, ou un royaume. Il cède tout ce qui fait mal. À tout le monde. En une nuit. Et pour la porter, il n'a plus besoin de toi. Il a la digue. »" },
       { without: "hylas", text: "Tu sais ce que c'est. Il n'a plus besoin de ta main. Il ne cède plus un village, ou un royaume. Il cède tout." },
     ],
-    choices: [{ label: "Tourner le dos à la Lisse, vers l'ouest", fx: { flag: "acte4:fin", ep: ["histoire", 8000] }, to: "Z4_fin", big: true }] }),
+    choices: [{ label: "Tourner le dos à la Lisse, vers l'ouest", fx: { ep: ["histoire", 8000] }, to: "Z4_fin", big: true }] }),
 
   Z4_fin: P({ title: "Fin de l'Acte IV", place: null,
     text: [

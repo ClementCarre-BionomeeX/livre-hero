@@ -33,7 +33,7 @@ module.exports = {
       { with: "hylas", text: "Hylas pose les mains sur la pierre. Il lit. Il s'arrête, tout en bas. « Le mien, dit-il, très calme. Encore. Il est têtu. » Il continue de lire. Il s'arrête une deuxième fois. Le nom qu'il a trouvé, il le garde pour lui." },
     ],
     choices: [
-      { label: "Chercher ton propre nom", fx: { flag: "v:chapelle" }, to: "V_e_chapelle_nom" },
+      { label: "Chercher ton propre nom", to: "V_e_chapelle_nom" },
       { back: "V_t_cessions" },
     ] }),
   V_e_chapelle_nom: P({ title: "Deux noms", place: "pallanche",

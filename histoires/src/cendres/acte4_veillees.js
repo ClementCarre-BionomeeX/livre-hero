@@ -7,7 +7,7 @@ function back(place) { return place === "moutier" ? "IV_moutier" : place === "pa
 // One talk: a setting, two replies, two short answers.
 function veillee(id, who, place, title, text, a, b) {
   var o = {};
-  o[id] = P({ takes: "night", title: title, place: place, fx: { flag: "veillee:" + who }, text: text,
+  o[id] = P({ takes: "night", title: title, place: place, text: text,
     choices: [{ label: a.label, fx: { conf: a.conf }, to: id + "_a" }, { label: b.label, fx: { conf: b.conf }, to: id + "_b" }] });
   o[id + "_a"] = P({ takes: "morning", title: title, place: place, text: [a.text], choices: [{ label: "Laisser la nuit finir", to: back(place) }] });
   o[id + "_b"] = P({ takes: "morning", title: title, place: place, text: [b.text], choices: [{ label: "Laisser la nuit finir", to: back(place) }] });

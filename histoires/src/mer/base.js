@@ -63,16 +63,46 @@ module.exports = {
   ],
   factions: {},
   relics: {},
+  // The hero's callings (8.5): the trade the past question names, played like one of the six classes.
+  voies: {
+    marin: {"label": "Matelot", "labelF": "Matelote", "tip": "Les cordages, les quarts et les colères du ciel.", "like": "rodeur", "bonus": {"nature": 35, "combat": 15, "discretion": 10, "social": 10, "savoir": 5, "magie": 0}, "kit": ["couteau"]},
+    commis: {"label": "Commis aux écritures", "tip": "Les manifestes, les chiffres et ce qu'ils cachent.", "like": "barde", "bonus": {"savoir": 35, "social": 25, "discretion": 10, "combat": 5, "nature": 5, "magie": 0}, "kit": ["couteau"]},
+    garde: {"label": "Garde de convoi", "tip": "Se battre, et savoir quand il vaut mieux s'abstenir.", "like": "guerrier", "bonus": {"combat": 35, "nature": 15, "social": 10, "discretion": 10, "savoir": 5, "magie": 0}, "kit": ["sabre"]},
+  },
   past: [
     {
       q: "Qu'as-tu fait avant d'arriver à Port-Aubier ?",
       answers: [
-        { label: "Tu as navigué six ans comme matelot sur les caboteurs du nord. Tu connais les cordages, les quarts et les colères de la mer.", fx: { flag: "passe:marin" } },
-        { label: "Tu as tenu les livres d'une maison de commerce. Tu sais lire un manifeste, et tu sais ce qu'un chiffre peut cacher.", fx: { flag: "passe:commis", gold: 100 } },
-        { label: "Tu as servi comme garde sur les convois du sud. Tu sais te battre, et tu sais quand il vaut mieux ne pas le faire.", fx: { flag: "passe:garde" } },
+        { label: "Tu as navigué six ans comme matelot sur les caboteurs du nord. Tu connais les cordages, les quarts et les colères de la mer.", fx: { voie: "marin", flag: "passe:marin" } },
+        { label: "Tu as tenu les livres d'une maison de commerce. Tu sais lire un manifeste, et tu sais ce qu'un chiffre peut cacher.", fx: { voie: "commis", flag: "passe:commis", gold: 100 } },
+        { label: "Tu as servi comme garde sur les convois du sud. Tu sais te battre, et tu sais quand il vaut mieux ne pas le faire.", fx: { voie: "garde", flag: "passe:garde" } },
       ],
     },
   ],
+  // The world of this book (8.6): what an inhabitant knows before the first page. Nothing of the plot.
+  lore: {
+    pages: [
+      { title: "Port-Aubier", text: [
+        "**Port-Aubier** vit de la mer. Ses quais de granit ferment une rade grise où mouillent les navires de trois royaumes. La ville basse grimpe en escaliers depuis les quais, et tout ce qui sert à la mer s'y vend : poulies, cordages, biscuit, instruments, assurances et prières. En haut, les armateurs comptent leur argent derrière des fenêtres à petits carreaux.",
+        "La **Chambre des Assurances** tient séance sur la place du Change. Elle couvre les navires et leurs cargaisons, à moitié seulement quand un navire part sans manifeste signé. Une cloche de bronze y sonne un coup chaque fois qu'un navire est perdu.",
+      ] },
+      { title: "La route du sud-ouest", text: [
+        "À onze jours de mer quand le vent est bon s'étendent les **Îles Blanches**, une colonie de pêcheurs et de planteurs qui manque de tout. Entre les deux, la mer des Brumes, et au bout, une barre de récifs que les marins appellent les **Dents de Morgue**.",
+        "À bord, chacun a sa place. Le capitaine commande le navire ; le **subrécargue** représente l'armateur : il tient la cargaison, l'argent du voyage et les comptes, et pour l'équipage, c'est celui qui compte la solde trop juste.",
+        "On paie en sous ; les droits de port et les grosses dépenses se règlent en écus, roulés en piles de dix dans du papier.",
+      ] },
+    ],
+    names: {
+      "Port-Aubier": "Le grand port du nord, sa rade de granit, sa ville basse en escaliers.",
+      "Chambre des Assurances": "La maison qui assure navires et cargaisons, place du Change. Sa cloche sonne pour chaque navire perdu.",
+      "Îles Blanches": "Une colonie de pêcheurs et de planteurs, à onze jours de mer au sud-ouest.",
+      "Dents de Morgue": "La barre de récifs au bout de la mer des Brumes.",
+      "Marbecq": "Le port au bout de la traversée.",
+      "Gavre": "Un port de pêche dans un fer à cheval de rochers noirs ; son clocher sert d'amer à toute la côte.",
+      "Saint-Elme": "Les feux de Saint-Elme : des lueurs aux mâts par temps d'orage, que les marins regardent comme un signe.",
+      "Morutiers": "Le quai des Morutiers, au bout de la rade de Port-Aubier.",
+    },
+  },
   world: {
     noFood: true,
     money: { units: [{ name: "écu", plural: "écus", value: 20, short: "é." }, { name: "sou", plural: "sous", value: 1, short: "s." }] },

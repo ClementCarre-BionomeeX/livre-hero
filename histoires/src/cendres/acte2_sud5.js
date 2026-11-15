@@ -18,11 +18,11 @@ module.exports = {
       "Mordace passe ses nuits au chevet de la reine. La Tour, la nuit, n'a que ses gardes, ses deux archivistes, et ce qui descend du ciel.",
     ],
     choices: [
-      { label: "Faire tailler les trois clés par le serrurier des Mouettes", hide: { not: KEYS }, fx: { flag: "sud5:cles", item: "trois_cles" }, to: "II_S5_serrurier" },
-      { label: "Entrer par la grille de la halle, comme les Glaneurs", hide: { not: { has: "sud3:chemin_glaneur" } }, fx: { flag: "sud5:entree=grille" }, to: "II_S5_egouts" },
-      { label: "Entrer par la porte du jardin, avec les trois coups", hide: { not: { has: "sud3:chemin_garde" } }, fx: { flag: "sud5:entree=jardin" }, to: "II_S5_jardin" },
-      { label: "Laisser Linette entrer, seule, par la grande porte, en apprentie", hide: { not: { all: [{ has: "linette:invitee" }, { present: "linette" }] } }, fx: { flag: "sud5:entree=linette" }, to: "II_S5_linette" },
-      { label: "Escalader la Tour par la face nord, jusqu'à la coupole", fx: { flag: "sud5:entree=coupole" }, to: "II_S5_escalade" },
+      { label: "Faire tailler les trois clés par le serrurier des Mouettes", hide: { not: KEYS }, fx: { item: "trois_cles" }, to: "II_S5_serrurier" },
+      { label: "Entrer par la grille de la halle, comme les Glaneurs", hide: { not: { has: "sud3:chemin_glaneur" } }, to: "II_S5_egouts" },
+      { label: "Entrer par la porte du jardin, avec les trois coups", hide: { not: { has: "sud3:chemin_garde" } }, to: "II_S5_jardin" },
+      { label: "Laisser Linette entrer, seule, par la grande porte, en apprentie", hide: { not: { all: [{ has: "linette:invitee" }, { present: "linette" }] } }, to: "II_S5_linette" },
+      { label: "Escalader la Tour par la face nord, jusqu'à la coupole", to: "II_S5_escalade" },
     ] }),
 
   II_S5_serrurier: P({ title: "Le serrurier", place: "vasselin",
@@ -32,9 +32,9 @@ module.exports = {
       { if: { has: "sud:mouettes_dette" }, text: "La prévôte, en tricotant, te rappelle la dette. « Un jour, on te demandera. Tu diras oui. »" },
     ],
     choices: [
-      { label: "Entrer par la grille de la halle", hide: { not: { has: "sud3:chemin_glaneur" } }, fx: { flag: "sud5:entree=grille" }, to: "II_S5_egouts" },
-      { label: "Entrer par la porte du jardin", hide: { not: { has: "sud3:chemin_garde" } }, fx: { flag: "sud5:entree=jardin" }, to: "II_S5_jardin" },
-      { label: "Escalader la face nord", fx: { flag: "sud5:entree=coupole" }, to: "II_S5_escalade" },
+      { label: "Entrer par la grille de la halle", hide: { not: { has: "sud3:chemin_glaneur" } }, to: "II_S5_egouts" },
+      { label: "Entrer par la porte du jardin", hide: { not: { has: "sud3:chemin_garde" } }, to: "II_S5_jardin" },
+      { label: "Escalader la face nord", to: "II_S5_escalade" },
     ] }),
 
   II_S5_egouts: P({ title: "Sous la ville", place: "vasselin",
@@ -52,7 +52,7 @@ module.exports = {
     ],
     choices: [
       { label: "« Vingt-trois. »", test: { dom: "social", label: "Aplomb", help: [{ if: { item: "liste_champions" }, v: 15 }, { if: { present: "ysolde" }, v: 5 }] },
-        win: { fx: { flag: "sud5:garde_dupe" }, to: "II_S5_paliers" },
+        win: { to: "II_S5_paliers" },
         lose: { fx: { flag: "sud5:alerte" }, to: "II_S5_garde_combat" } },
       { label: "Le faire taire avant qu'il ne crie", to: "II_S5_garde_combat" },
     ] }),
@@ -103,7 +103,7 @@ module.exports = {
       { label: "Passer le long du mur, sans respirer", test: { dom: "discretion", label: "Silence" },
         win: { to: "II_S5_salle" }, lose: { to: "II_S5_chien_combat" } },
       { label: "Lui parler. C'était un chien, avant", test: { dom: "nature", label: "Bêtes", help: [{ if: { present: "enfant" }, v: 10 }] },
-        win: { fx: { flag: "sud5:chien_calme" }, to: "II_S5_salle" }, lose: { to: "II_S5_chien_combat" } },
+        win: { to: "II_S5_salle" }, lose: { to: "II_S5_chien_combat" } },
     ] }),
 
   II_S5_chien_combat: P({ title: "Le mâtin",
@@ -137,7 +137,7 @@ module.exports = {
       "Le fer noir ne cède pas. Les crochets glissent, la lame plie. Le froid du coffre monte dans tes mains, dans tes bras, et tu sens, une seconde, quelque chose qui part. Le nom d'une rue. Le goût d'un fruit. Rien, peut-être.",
       "Puis la troisième serrure claque, d'elle-même, comme si quelqu'un l'avait ouverte de l'intérieur.",
     ],
-    choices: [{ label: "Soulever le couvercle", fx: { flag: "sud5:coffre_force" }, to: "II_S5_coffre" }] }),
+    choices: [{ label: "Soulever le couvercle", to: "II_S5_coffre" }] }),
 
   II_S5_coffre: P({ title: "Le registre noir", place: "vasselin",
     text: [
@@ -146,8 +146,8 @@ module.exports = {
       { if: { not: { item: "feuilles_lisse" } }, text: "Une liasse cousue, sur le dessus : *Lisse.*" },
     ],
     choices: [
-      { label: "Prendre le registre", fx: { item: "registre_noir", flag: "sud5:registre", quest: "II_S_archives", ep: ["perso", 3000] }, to: "II_S5_escalier" },
-      { label: "Prendre aussi la liasse de Lisse", hide: { item: "feuilles_lisse" }, fx: { item: ["registre_noir", "feuilles_lisse"], flag: ["sud5:registre", "sud5:lisse_pris"], quest: ["II_S_archives", "II_S_lisse"], ep: ["perso", 3000] }, to: "II_S5_escalier" },
+      { label: "Prendre le registre", fx: { item: "registre_noir", quest: "II_S_archives", ep: ["perso", 3000] }, to: "II_S5_escalier" },
+      { label: "Prendre aussi la liasse de Lisse", hide: { item: "feuilles_lisse" }, fx: { item: ["registre_noir", "feuilles_lisse"], quest: ["II_S_archives", "II_S_lisse"], ep: ["perso", 3000] }, to: "II_S5_escalier" },
     ] }),
 
   II_S5_escalier: P({ title: "Quelqu'un monte", place: "vasselin",
@@ -216,7 +216,7 @@ module.exports = {
       "Quand il voit le registre, il éternue. Puis il s'assied par terre, sur le seuil, parce que ses jambes ne le tiennent plus.",
       "« Nous sommes onze, dit-il quand il peut parler. Onze Greffiers qui ne sont pas à lui. On se réunit le jeudi, on recopie ce qu'il efface, sur des feuilles qu'on cache dans les murs. On n'a jamais rien pu faire d'autre. » Il pose les mains sur le registre. « Maintenant, on peut. Il faudra des années. On le recopiera. Dix fois. Cent fois. Qu'il ne soit plus jamais dans un seul coffre. »",
     ],
-    choices: [{ label: "Partir vers le nord", fx: { drop: "registre_noir", flag: "orlan:registre" }, to: "II_S5_depart" }] }),
+    choices: [{ label: "Partir vers le nord", fx: { drop: "registre_noir" }, to: "II_S5_depart" }] }),
 
   II_S5_col: P({ title: "Le poids", place: "vasselin",
     text: [

@@ -33,7 +33,7 @@ module.exports = {
       "La foule t'emporte jusqu'à la cour de la Chancellerie, puis dans un escalier immense, puis dans une galerie qui fait le tour d'une salle ronde, sans fenêtres, éclairée par cent lampes. En bas, un livre ouvert sur un lutrin. Des gradins pleins de gens en soie. Une femme en bleu, couronnée.",
       "Il fait froid, dans la salle. Personne n'a l'air de le remarquer.",
     ],
-    choices: [{ label: "Attendre minuit", fx: { flag: "nuit:enfant_salle" }, to: "N_garde" }] }),
+    choices: [{ label: "Attendre minuit", to: "N_garde" }] }),
 
   // ---------------------------------------------------------------- 2 · Ysolde
   N_garde: P({ title: "Onze heures",
@@ -59,7 +59,7 @@ module.exports = {
     ],
     choices: [
       { label: "Les faire lever, un par un, et les faire sortir par la porte du linge", test: { dom: "social", label: "Commandement", help: [{ if: { has: "hautvent:parole" }, v: 10 }, { if: { has: "ysolde:voie=deserte" }, v: 10 }] },
-        win: { fx: { flag: "hautvent:sortis", ep: ["histoire", 2000] }, to: "N_chant" }, lose: { fx: { flag: "hautvent:quelques_uns" }, to: "N_chant" } },
+        win: { fx: { ep: ["histoire", 2000] }, to: "N_chant" }, lose: { to: "N_chant" } },
     ] }),
 
   // ---------------------------------------------------------------- 3 · Lisandre
@@ -110,7 +110,7 @@ module.exports = {
       "Derrière toi, la reine s'est levée. Elle chante. Faux. Avec l'accent de Corvanne. Elle te regarde, et tu vois, dans ses yeux, quelque chose revenir de très loin.",
       "« Lisandre », dit-elle, sans chercher.",
     ],
-    choices: [{ label: "Minuit", fx: { flag: "isaure:revenue" }, to: "N_cloches" }] }),
+    choices: [{ label: "Minuit", to: "N_cloches" }] }),
 
   // ---------------------------------------------------------------- 4 · the belfry: Hylas or Pie
   N_cloches: P({ title: "Le grand beffroi",
@@ -126,9 +126,9 @@ module.exports = {
     ],
     choices: [
       { label: "Couper les cordes, autant que tu peux, avant le signal", test: { dom: "discretion", label: "Lame", help: [{ if: { has: "hylas:voie=cloches" }, v: 15 }, { if: { has: "pie:plan_clocher" }, v: 10 }] },
-        win: { fx: { flag: "nuit:cordes=coupees", ep: ["histoire", 2000] }, to: "N_cordes" }, lose: { fx: { flag: "nuit:cordes=quelques" }, to: "N_cordes_rate" } },
+        win: { fx: { flag: "nuit:cordes=coupees", ep: ["histoire", 2000] }, to: "N_cordes" }, lose: { to: "N_cordes_rate" } },
       { label: "Bloquer la roue avec ta dague", test: { dom: "combat", label: "Force", diff: -10 },
-        win: { fx: { flag: "nuit:roue=bloquee", ep: ["histoire", 2000] }, to: "N_roue" }, lose: { fx: { flag: "nuit:cordes=quelques" }, to: "N_cordes_rate" } },
+        win: { fx: { flag: "nuit:roue=bloquee", ep: ["histoire", 2000] }, to: "N_roue" }, lose: { to: "N_cordes_rate" } },
     ] }),
 
   N_cordes: P({ title: "Quarante cordes",
@@ -166,10 +166,10 @@ module.exports = {
     ],
     choices: [
       { label: "Faire fermer la herse", test: { dom: "social", label: "Cri", help: [{ if: { any: [{ has: "corbe:voie_bran=donne" }, { has: "corbe:voie_bran=oui" }] }, v: 20 }] },
-        win: { fx: { flag: "nuit:herse=fermee", ep: ["histoire", 1500] }, to: "N_herse" }, lose: { fx: { flag: "nuit:herse=ouverte" }, to: "N_herse_ouverte" } },
+        win: { fx: { ep: ["histoire", 1500] }, to: "N_herse" }, lose: { to: "N_herse_ouverte" } },
       { label: "Battre le tambour et chanter le chant des morts, du haut du rempart", if: { item: "tambour" }, why: "Tu n'as pas ton tambour.",
         test: { dom: "magie", label: "Chant", help: [{ if: { souv: "corbe:chant" }, v: 15 }, { if: { has: "gaspard:chant" }, v: 10 }] },
-        win: { fx: { flag: "nuit:chant_corbe", ep: ["histoire", 1500] }, to: "N_chant_corbe" }, lose: { fx: { flag: "nuit:herse=ouverte" }, to: "N_herse_ouverte" } },
+        win: { fx: { ep: ["histoire", 1500] }, to: "N_chant_corbe" }, lose: { to: "N_herse_ouverte" } },
     ] }),
 
   N_herse: P({ title: "La herse",
@@ -189,7 +189,7 @@ module.exports = {
 
   // ---------------------------------------------------------------- 6 · together
   N_place: P({ title: "La place aux Clercs",
-    fx: { regroup: true, lead: "enfant", flag: "nuit:reunis" },
+    fx: { regroup: true, lead: "enfant" },
     text: [
       "La place aux Clercs, au pied de la tour, est blanche. Les pupitres des greffiers sont renversés. Des gens errent, au milieu de la neige, en se tenant les coudes, et se demandent les uns aux autres où ils sont.",
       "Toi, tu sais où tu es. Tu sais qui tu es. La neige te tombe sur les cheveux, sur les mains, et tu ne perds rien. Tu le sens : elle glisse.",
@@ -203,9 +203,9 @@ module.exports = {
 
   N_glaneurs: P({ title: "Les choses blanches",
     combat: { title: "Les Glaneurs", enemies: [{ id: "glaneur_petit", n: 3 }, "garde_noir"], terrain: "bati", range: "contact",
-      flee: { dom: "discretion", label: "Suivre le jeune homme couvert de suie par les toits", fx: { flag: "nuit:fuite_toits" }, to: "N_aube" },
-      win: { fx: { ep: ["seance", 3000], flag: "nuit:glaneurs_battus" }, to: "N_aube" },
-      lose: { fx: { flag: "nuit:fuite_dure" }, to: "N_aube" } },
+      flee: { dom: "discretion", label: "Suivre le jeune homme couvert de suie par les toits", to: "N_aube" },
+      win: { fx: { ep: ["seance", 3000] }, to: "N_aube" },
+      lose: { to: "N_aube" } },
     text: [
       "Elles débouchent de toutes les rues à la fois. Trois choses blanches, plus grandes que des hommes, et derrière elles, un garde noir qui les mène comme on mène des chiens, une boîte de plomb ouverte à la main.",
       "Pour la première fois, vous êtes six à faire face.",
@@ -213,7 +213,7 @@ module.exports = {
     choices: [] }),
 
   N_aube: P({ title: "L'aube sur Pallanche",
-    fx: { flag: "acte1:fin", ep: ["histoire", 5000], catchup: 5, catchupAll: true, catchupWhy: "la Nuit des Cloches" },
+    fx: { ep: ["histoire", 5000], catchup: 5, catchupAll: true, catchupWhy: "la Nuit des Cloches" },
     text: [
       "Vous sortez de Pallanche par une poterne des Teinturiers que le jeune homme maigre connaît, et vous marchez jusqu'à l'aube, jusqu'aux collines du nord. La route derrière vous reste vide. Ceux qui devaient vous suivre l'ont oublié.",
       "Au lever du jour, vous vous asseyez dans l'herbe, au sommet d'une colline, et vous regardez la ville en bas.",

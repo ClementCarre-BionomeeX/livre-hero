@@ -11,7 +11,7 @@ module.exports = {
       "La porte est ouverte. Dedans, la meule tourne, la farine coule dans un sac, et un vieux meunier, enfariné jusqu'aux sourcils, tient le sac et compte. À voix haute. *Trois cent douze. Trois cent treize.* Il ne s'arrête pas pour te regarder. « Si je m'arrête de compter, dit-il, entre deux sacs, je m'arrête tout court. Je l'ai senti, vers minuit. Alors je compte. »",
     ],
     choices: [
-      { label: "Prendre un sac, et compter avec lui", fx: { flag: "v:moulin_vent", ep: ["perso", 800] }, to: "V_r_moulin_compter" },
+      { label: "Prendre un sac, et compter avec lui", fx: { ep: ["perso", 800] }, to: "V_r_moulin_compter" },
       { label: "Lui demander son nom, avant qu'il ne l'oublie", to: "V_r_moulin_nom" },
     ] }),
   V_r_moulin_compter: P({ title: "Trois cent quatorze",
@@ -29,7 +29,7 @@ module.exports = {
       "Tu le suis, à travers un champ, jusqu'à une cabane de berger, et devant la cabane, un parc, et dans le parc, des moutons serrés les uns contre les autres. Et un berger, assis sur une souche, son bâton en travers des genoux, qui sourit à la neige. Le chien va à lui. Il pose la tête sur son genou. Le berger lui gratte la tête, poliment, comme on gratte la tête d'un chien qu'on ne connaît pas.",
     ],
     choices: [
-      { label: "Chercher le nom du chien, sur son collier", fx: { flag: "v:berger", ep: ["perso", 800] }, to: "V_r_chien_collier" },
+      { label: "Chercher le nom du chien, sur son collier", fx: { ep: ["perso", 800] }, to: "V_r_chien_collier" },
       { label: "Rentrer les moutons dans la cabane, à l'abri, avec le chien", fx: { ep: ["perso", 400] }, to: "V_r_chien_moutons" },
     ] }),
   V_r_chien_collier: P({ title: "Le collier",

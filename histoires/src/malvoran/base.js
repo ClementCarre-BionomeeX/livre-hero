@@ -214,6 +214,59 @@ module.exports = {
       { label: "Maëlle Vautrin, cartographe, qui t'a appris à lire le pays comme un livre.", fx: { flag: "maitre:maelle", item: "lanterne", meet: "maelle" } },
     ] },
   ],
+  // The road takes its toll (piste 10, 15/11): the sky follows the roads, long roads tire, ice and soiled water wound.
+  weather: {
+    by: "route", every: 6, start: "gris",
+    kinds: {
+      gris: { name: "Ciel gris", desc: "Un ciel bas et égal, de fin d'automne." },
+      pluie: { name: "Pluie", desc: "Une pluie fine et froide, qui traverse tout.", mod: { nature: -5, discretion: 5 }, say: "La pluie se met à tomber, fine, froide, régulière. Elle traverse la laine en une heure." },
+      brume: { name: "Brume", desc: "Un mur blanc à vingt pas.", mod: { nature: -10, discretion: 15 }, say: "La brume monte des eaux basses. À vingt pas, le chemin disparaît dans un mur blanc." },
+      vent: { name: "Grand vent", desc: "Le vent des crêtes, qui emporte les mots.", mod: { combat: -5, social: -5 }, say: "Le vent se lève sur les hauteurs et siffle dans les pierres. Il faut crier pour se parler." },
+      neige: { name: "Neige", desc: "La neige tombe, lourde, et efface le chemin.", mod: { nature: -15, combat: -5 }, say: "La neige se met à tomber, à gros flocons lourds. En une heure, le chemin a disparu.",
+        hurts: { wound: "engelure", chance: 0.25, say: "Le froid te mord les doigts de pied à travers les bottes, puis tu cesses de les sentir." } },
+      verglas: { name: "Verglas", desc: "La glace sur les pierres du chemin.", mod: { nature: -10, combat: -10 }, say: "La pluie a gelé sur les pierres. Le chemin luit comme une lame.",
+        hurts: { wound: "cheville", chance: 0.3, say: "Ton pied part sur la glace, et tu tombes de tout ton poids sur la cheville." } },
+      miasmes: { name: "Miasmes", desc: "Une vapeur grise monte de la terre souillée.", mod: { nature: -10, magie: -5 }, say: "Une vapeur grise monte de la terre souillée et colle au fond de la gorge.",
+        hurts: { wound: "toux", chance: 0.25, say: "Tu respires trop longtemps la vapeur grise. Une toux sèche te prend, qui ne te lâche plus." } },
+    },
+    regions: {
+      lieu: { gris: 3, pluie: 2, brume: 1 },
+      crete: { gris: 2, vent: 3, pluie: 1 }, sorbe: { gris: 2, pluie: 2, brume: 2 }, foret: { gris: 2, pluie: 2, brume: 1 }, marais: { brume: 4, pluie: 2, miasmes: 1 },
+      val: { gris: 3, pluie: 2 }, lac: { brume: 3, gris: 2 }, vergers: { gris: 3, pluie: 1 }, isarde: { gris: 2, pluie: 2, vent: 1 },
+      IIIV_lignes: { gris: 2, pluie: 2 }, IIIF_rives: { brume: 2, pluie: 2 }, souillee: { miasmes: 4, gris: 1, brume: 1 },
+      fenne: { neige: 3, vent: 2, verglas: 2 }, VE_descente: { gris: 2, verglas: 1, brume: 1 },
+    },
+  },
+  wounds: {
+    engelure: { name: "Engelures", desc: "Tes orteils brûlent quand ils se réchauffent.", mod: { combat: -5, discretion: -10 }, days: 3, tended: 1 },
+    cheville: { name: "La cheville foulée", desc: "Chaque pas te lance jusqu'au genou.", mod: { combat: -10, discretion: -10, nature: -5 }, days: 3, tended: 2 },
+    toux: { name: "La toux grise", desc: "Une toux sèche, qui revient la nuit.", mod: { discretion: -15, magie: -5 }, days: 2, tended: 1 },
+  },
+  // The world of this book (8.6): what an inhabitant knows before the first page. Nothing of the plot.
+  lore: {
+    pages: [
+      { title: "La légende des Cinq Mains", text: [
+        "Tout le monde, dans les vallées, connaît l'histoire. Il y a quatre cents ans, la terre s'est ouverte sous le massif de la Fenne, et il en est monté une eau noire qui rendait fous les hommes et grises les bêtes. Un sorcier l'avait voulu. Cinq héros l'ont vaincu, l'ont enchaîné sous le glacier, et ont fermé la **Brèche** d'un **Sceau** à trois clés.",
+        "L'**Ordre de la Main** garde cette mémoire. Ses novices apprennent par cœur les noms des Cinq Mains, le geste du salut et la prière du soir ; les colporteurs vendent leurs images pieuses, et les bornes des chemins portent leurs mains sculptées dans la pierre.",
+      ] },
+      { title: "Le pays", text: [
+        "Deux couronnes se partagent les vallées : **Aldaran**, la tour d'argent sur champ bleu, et **Vel-Orin**, le croissant. Chacune frappe ses sous ; on voit aussi passer des deniers de cuivre et, plus rarement, des couronnes d'or, lourdes, que les marchands pèsent avant de les prendre.",
+        "Au pied de la crête, le hameau des Trois-Bornes ; plus bas, la vallée de la Sorbe, ses moulins et ses marais ; au loin, la forêt du Rouvre et le massif de la Fenne. Des trolls, il y en a toujours eu dans les hauteurs : on garde ses moutons, et on vit avec.",
+      ] },
+    ],
+    names: {
+      "Cinq Mains": "Les cinq héros qui, il y a quatre cents ans, ont enchaîné le sorcier sous le glacier de la Fenne.",
+      "Ordre de la Main": "L'ordre religieux qui garde la mémoire des Cinq Mains et de la Brèche fermée.",
+      "Brèche": "La faille ouverte sous la Fenne il y a quatre cents ans, d'où montait l'eau noire.",
+      "Sceau": "Le sceau à trois clés qui ferme la Brèche, selon la légende.",
+      "Fenne": "Le massif et son glacier, au fond des vallées.",
+      "Aldaran": "Une des deux couronnes des vallées. Son signe : une tour d'argent sur champ bleu.",
+      "Vel-Orin": "L'autre couronne des vallées. Son signe : un croissant.",
+      "Trois-Bornes": "Un hameau de six toits au pied de la crête, autour de trois pierres levées.",
+      "Sorbe": "La vallée et la rivière en contrebas de la crête, avec ses moulins et ses marais.",
+      "Brumefeuille": "Un village de la Sorbe, de l'autre côté de la crête.",
+    },
+  },
   world: {
     money: { units: [{ name: "couronne", plural: "couronnes", value: 20, short: "c." }, { name: "sou", plural: "sous", value: 1, short: "s." }] },
     start: { place: "bornes", gold: 15, food: 2, items: ["dague", "lettre"],

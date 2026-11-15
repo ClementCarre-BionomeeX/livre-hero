@@ -29,7 +29,7 @@ module.exports = {
       "Il te voit. Il se redresse, péniblement. « La relève ? » demande-t-il. Il y a dans sa voix un espoir si vieux, si usé, que tu as honte de ne pas l'être. « On m'a dit qu'on viendrait me relever à la cloche de vêpres. Je ne l'ai pas entendue. Elle n'a pas sonné, n'est-ce pas ? Je l'aurais entendue. »",
     ],
     choices: [
-      { label: "Prendre sa lance, et lui dire d'aller dormir : tu es la relève", fx: { flag: "iii:releve", ep: ["perso", 800] }, to: "III_v_porte_nord_releve" },
+      { label: "Prendre sa lance, et lui dire d'aller dormir : tu es la relève", fx: { ep: ["perso", 800] }, to: "III_v_porte_nord_releve" },
       { label: "Lui demander ce qu'il garde, contre un blanc où rien ne bouge", to: "III_v_porte_nord_quoi" },
     ] }),
   III_v_porte_nord_releve: P({ title: "La relève",

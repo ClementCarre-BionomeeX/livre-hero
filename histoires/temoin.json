@@ -702,6 +702,81 @@
    "desc": "Le chien de l'hospice, un grand chien de montagne au poil roux. C'est lui qui t'a trouvé."
   }
  },
+ "topics": {
+  "nuit": {
+   "title": "La nuit des Combes",
+   "solved": "nuit:jugee"
+  },
+  "chamois": {
+   "title": "Le soir au Chamois",
+   "solved": "roussel:sait"
+  }
+ },
+ "accounts": {
+  "v_hero_dispute": {
+   "by": "hero",
+   "topic": "nuit",
+   "true": false,
+   "short": "Gaspard m'a jeté dehors, et j'étais en colère",
+   "text": "Gaspard Hollier criait, les mains à plat sur la table de la cuisine. Il m'a insulté. Il m'a jeté dehors. J'étais en colère."
+  },
+  "v_hero_lanterne": {
+   "by": "hero",
+   "topic": "nuit",
+   "true": false,
+   "short": "J'ai marché vers la maison, une lanterne à la main",
+   "text": "La nuit, dans la neige, je marchais vers la maison avec une lanterne. Je savais ce que j'allais faire. La cheminée était froide."
+  },
+  "v_hero_toit": {
+   "by": "hero",
+   "topic": "nuit",
+   "true": true,
+   "short": "Un homme sur le toit, au conduit",
+   "text": "Je dormais dans le fenil. Un raclement sur les lauzes m'a réveillé. Sous la lune, un homme travaillait au conduit de la maison. Je me suis rendormi."
+  },
+  "v_matthias_lise": {
+   "by": "matthias",
+   "topic": "nuit",
+   "true": false,
+   "short": "Le feu a pris Lise tout entière",
+   "text": "Ma nièce, Lise, on ne l'a pas trouvée. Le curé dit que le feu l'a prise tout entière."
+  },
+  "v_vidal_morts": {
+   "by": "vidal",
+   "topic": "nuit",
+   "true": true,
+   "short": "Ils étaient morts avant le feu",
+   "text": "Ils étaient roses, les lèvres, les ongles. Les morts du feu sont noirs. Ceux-là sont morts avant, dans leur lit. Le mauvais air."
+  },
+  "v_abel_fille": {
+   "by": "abel",
+   "topic": "nuit",
+   "true": true,
+   "short": "Matthias cherchait une fille",
+   "text": "Le frère est monté le premier soir. Il a demandé si on avait trouvé quelqu'un dans la neige. Il a dit : une fille."
+  },
+  "v_pelissier_ecus": {
+   "by": "pelissier",
+   "topic": "chamois",
+   "true": false,
+   "short": "Je ne vous connais pas",
+   "text": "Vingt écus ? Je ne vois pas de quoi vous parlez. Je ne vous connais pas. Nous nous sommes salués sur la place, le premier soir."
+  },
+  "v_roussel_rien": {
+   "by": "roussel",
+   "topic": "chamois",
+   "true": false,
+   "short": "J'ai rien entendu",
+   "text": "J'ai rien entendu. J'entends jamais rien. C'est mon métier, de rien entendre."
+  },
+  "v_roussel_dit": {
+   "by": "roussel",
+   "topic": "chamois",
+   "true": true,
+   "short": "Vous avez parlé d'une fortune, trois fois",
+   "text": "Vous avez dit que son frère était assis sur une fortune. Vous l'avez dit trois fois. La troisième, toute la salle l'a entendu."
+  }
+ },
  "items": {
   "couteau": {
    "name": "Couteau de poche",
@@ -907,6 +982,23 @@
    ]
   }
  },
+ "voies": {
+  "arpenteur": {
+   "label": "Arpenteur",
+   "labelF": "Arpenteuse",
+   "tip": "Relever les terres des autres.",
+   "like": "rodeur",
+   "bonus": {
+    "nature": 30,
+    "savoir": 30,
+    "discretion": 15,
+    "social": 10,
+    "combat": 10,
+    "magie": 0
+   }
+  }
+ },
+ "voie": "arpenteur",
  "past": [
   {
    "q": "Pourquoi arpentes-tu les terres des autres ?",
@@ -978,6 +1070,25 @@
    ]
   }
  ],
+ "lore": {
+  "pages": [
+   {
+    "title": "Les Hautes-Pierres",
+    "text": [
+     "Les **Hautes-Pierres** sont un pays de montagne, de cols et de mines. Au col des Gélines, un hospice tenu par des sœurs accueille les voyageurs ; son chien va chercher dans la neige ceux que la tempête a surpris.",
+     "En bas, **Vaugrenat** est un bourg de mineurs. La **Compagnie des Plombs** y exploite les mines et y fait travailler une bonne part des hommes. Plus haut, à un jour de marche, les fermes des Combes vivent de leurs bêtes et de leurs prés.",
+     "La justice du pays est celle du **prévôt**, qui monte enquêter lui-même quand il y a mort d'homme. On paie en sous, et en écus pour les grosses sommes."
+    ]
+   }
+  ],
+  "names": {
+   "Hautes-Pierres": "Le pays de montagne autour du col des Gélines.",
+   "Gélines": "Le col des Gélines et son hospice, tenu par des sœurs.",
+   "Vaugrenat": "Le bourg de mineurs, en bas du col.",
+   "Combes": "Les fermes au-dessus de Vaugrenat, à un jour de marche de l'hospice.",
+   "Compagnie des Plombs": "La compagnie qui exploite les mines de plomb autour de Vaugrenat."
+  }
+ },
  "world": {
   "money": {
    "units": [
@@ -1265,7 +1376,11 @@
    "place": "hospice",
    "text": [
     "Elle prend ta main, la tourne vers la lumière de la fenêtre, et la regarde comme on lit une lettre. « Un loquet de porte, dit-elle. De ceux qu'on forge dans les fermes d'ici, un anneau qu'on tire et une barre qui bascule. Le côté où il y a l'anneau, c'est le côté de l'intérieur. »",
-    "Elle refait le pansement sans rien ajouter. Elle ne te demande pas de quel côté de la porte tu étais. Elle a l'air de quelqu'un qui garde la question pour plus tard."
+    "Elle refait le pansement sans rien ajouter. Elle ne te demande pas de quel côté de la porte tu étais. Elle a l'air de quelqu'un qui garde la question pour plus tard.",
+    {
+     "second": true,
+     "text": "Tu connais, cette fois, la réponse à la question qu'elle garde. Tu la gardes aussi, encore un peu."
+    }
    ],
    "choices": [
     {
@@ -1341,6 +1456,10 @@
     "Vingt écus d'argent. Neufs, brillants, tous de la même frappe, avec le profil du duc tourné vers la gauche et la date de cette année. Tu les fais rouler dans ta main gauche. Ils sont lourds.",
     "Tu sais ce que gagne un arpenteur du cadastre. Le duc paie en billets du Trésor, à la fin du trimestre, à Lorvanne, et jamais en écus neufs. Tu n'as jamais tenu vingt écus à la fois de ta vie.",
     {
+     "second": true,
+     "text": "Vingt écus de Pélissier, pour un relevé discret. Tu le sais, cette fois, avant même de les compter."
+    },
+    {
      "if": {
       "has": "passe:dette"
      },
@@ -1360,6 +1479,10 @@
    "place": "hospice",
    "text": [
     "Les sœurs ont lavé ta chemise, mais la laine de ta veste garde l'odeur : une fumée grasse, de bois et d'autre chose, de graisse peut-être, que tu ne veux pas nommer. Le bas de ton pantalon est roussi en deux endroits.",
+    {
+     "second": true,
+     "text": "La fumée des Combes. Tu sais, cette fois, d'où elle vient, et combien de temps elle restera dans la laine."
+    },
     "Puis tu regardes tes mains, la gauche surtout, la main nue. Tes ongles sont propres : aucune trace de suie. Il y a du foin, des brins jaunes et secs, et quelque chose de brun, de terreux, qui sent l'étable."
    ],
    "choices": [
@@ -1834,6 +1957,9 @@
     "Puis la cuisine s'éteint comme une chandelle soufflée, et tu ouvres les yeux sur la cellule du docteur, la bouche sèche, en sueur. Il écrit.",
     "« Bien, dit-il. Très bien. C'est un début. »"
    ],
+   "fx": {
+    "recit": "v_hero_dispute"
+   },
    "choices": [
     {
      "label": "Garder ce souvenir",
@@ -2172,6 +2298,10 @@
     "Jeanne s'arrête de plier. Elle te regarde. Tu dis : « Je crois que je te connais. Je ne sais pas d'où. Je ne me souviens de rien. Mais je crois que je te connais. »",
     "Elle reste immobile si longtemps que tu crois qu'elle n'a pas compris. Puis elle prend la craie, efface l'ardoise, et écrit, en lettres maladroites et appliquées, de celles qu'on apprend tard et seule :",
     "*TU DORMAIS DANS LE FOIN.*",
+    {
+     "second": true,
+     "text": "Tu sais, cette fois, ce qu'elle a vu cette nuit-là, et pourquoi elle efface l'ardoise si vite."
+    },
     "Puis elle efface tout, avant que tu aies pu poser une question, et elle sort de la lingerie en courant."
    ],
    "fx": {
@@ -2325,6 +2455,7 @@
    "place": "hospice",
    "fx": {
     "clue": "h_fille",
+    "recit": "v_abel_fille",
     "ep": [
      "perso",
      600
@@ -2333,7 +2464,11 @@
    "text": [
     "Abel pose une carte. « Le jour où le chien vous a trouvé, il y a eu deux arrivées. Vous, à l'aube, sur le dos de Sœur Odeline et du frère convers, plus mort que vif. Et une heure avant vous, une autre, dont personne ne parle. »",
     "Il pose une autre carte. « Le soir même, le frère du fermier est monté, avant que la neige ne ferme le col. Le mineur, Matthias. Il a demandé à la Mère si on avait trouvé quelqu'un dans la neige. Il a dit : une fille. Pas un homme. Une fille. Moi j'étais là, dans le couloir, avec ma jambe, personne ne fait attention à un vieux. »",
-    "« Quand on lui a dit qu'on avait un homme, il a eu l'air soulagé. Et puis il a demandé à vous voir, et il vous a regardé dormir, et il n'avait plus l'air soulagé du tout. » Abel ramasse ses cartes. « Je ne sais pas ce que ça veut dire. Mais si toute votre famille vient de brûler, on ne demande pas après une fille. On demande après celui qui a fait ça. »"
+    "« Quand on lui a dit qu'on avait un homme, il a eu l'air soulagé. Et puis il a demandé à vous voir, et il vous a regardé dormir, et il n'avait plus l'air soulagé du tout. » Abel ramasse ses cartes. « Je ne sais pas ce que ça veut dire. Mais si toute votre famille vient de brûler, on ne demande pas après une fille. On demande après celui qui a fait ça. »",
+    {
+     "second": true,
+     "text": "« Une fille. » Tu sais, cette fois, pourquoi Matthias demandait après elle, et pourquoi il te regardait dormir."
+    }
    ],
    "choices": [
     {
@@ -3202,6 +3337,7 @@
    ],
    "fx": {
     "flag": "matthias:lise",
+    "recit": "v_matthias_lise",
     "ep": [
      "perso",
      400
@@ -3294,6 +3430,9 @@
     "Puis la neige s'éteint, et tu es assis dans la cellule du docteur, en sueur, la bouche pleine d'un goût de cuivre.",
     "« Bien, dit le docteur Corvin en écrivant. Nous approchons. »"
    ],
+   "fx": {
+    "recit": "v_hero_lanterne"
+   },
    "choices": [
     {
      "label": "Garder ce souvenir",
@@ -4223,6 +4362,9 @@
     "Mère Roussel continue d'essuyer le même verre. « J'ai rien entendu, dit-elle. J'entends jamais rien. C'est mon métier, de rien entendre. » Elle pose le verre. « Et puis l'auberge est à Maître Pélissier. Les murs, le comptoir, le tonneau, tout. Je lui paie un loyer. Il me le rappelle tous les mois. »",
     "Elle reprend un autre verre. Elle évite ton regard. Mais elle reste."
    ],
+   "fx": {
+    "recit": "v_roussel_rien"
+   },
    "choices": [
     {
      "label": "« Je ne vous demande pas de témoigner. Je vous demande ce que j'ai dit. Pour moi. »",
@@ -4294,7 +4436,8 @@
     "Elle reprend son verre. « Voilà. Maintenant vous savez. Ça vous fait une belle jambe. »"
    ],
    "fx": {
-    "flag": "roussel:sait"
+    "flag": "roussel:sait",
+    "recit": "v_roussel_dit"
    },
    "choices": [
     {
@@ -4478,6 +4621,9 @@
     "Pélissier ôte ses lunettes et les essuie, longtemps. « Vingt écus ? Je ne vois pas de quoi vous parlez. Je ne vous connais pas. Nous nous sommes salués sur la place, le premier soir, comme on salue un fonctionnaire du duc. » Il remet ses lunettes. « Si vous aviez vingt écus sur vous, c'est que quelqu'un vous les a donnés. Je vous suggère de chercher qui. Et pourquoi. »",
     "Il sourit. Il a de très petites dents."
    ],
+   "fx": {
+    "recit": "v_pelissier_ecus"
+   },
    "choices": [
     {
      "back": "V_etude"
@@ -5328,6 +5474,7 @@
    "place": "village",
    "fx": {
     "clue": "h_morts",
+    "recit": "v_vidal_morts",
     "ep": [
      "perso",
      600
@@ -6369,6 +6516,9 @@
     "Tu penses : *Gaspard. Il répare son conduit. Un fermier, la nuit, sur son toit, ça arrive.* Tu penses : *il fait froid.* Tu te retournes dans le foin. Tu te rendors.",
     "Tu te rendors."
    ],
+   "fx": {
+    "recit": "v_hero_toit"
+   },
    "choices": [
     {
      "label": "Garder ce souvenir",
@@ -8053,6 +8203,9 @@
        }
       ]
      },
+     "fx": {
+      "flag": "nuit:jugee"
+     },
      "to": "J_part"
     },
     {
@@ -8119,6 +8272,9 @@
         }
        }
       ]
+     },
+     "fx": {
+      "flag": "nuit:jugee"
      },
      "to": "F_part"
     },

@@ -270,7 +270,7 @@ recherche des passages jamais atteints sait montrer, relier et accuser.
 | passage | `puzzle: "<id>"`, `puzzleLabel` | Le passage ouvre l'énigme. |
 | `story.dreams` | `[{ to, if, weight }]`, `story.dreamChance` | En arrivant sur un passage `reveil: true` (le matin), le moteur joue d'abord un rêve dont la condition tient, une fois chacun, un par nuit. Le rêve finit par `back: true`. |
 
-Pièges : un choix `test` sur une énigme compte aussi un usage pour la pratique ; une condition `after` lit un drapeau ou un passage vu, pas un indice (écrire `after: "enigme:<id>"` plutôt que l'id de l'indice). Les parties d'essai du validateur tapent la bonne réponse d'une énigme sept fois sur dix.
+Pièges : un choix `test` sur une énigme compte aussi un usage pour la pratique ; une condition `after` lit un drapeau ou un passage vu, pas un indice (écrire `after: "enigme:<id>"` plutôt que l'id de l'indice). Les parties d'essai du validateur tapent la bonne réponse d'une énigme sept fois sur dix. Un passage `duel` déjà joué n'a plus de choix : cacher son entrée avec `hide: { duel: "<id>" }`.
 
 ## Le huis clos (15/11, 8.3) : versions, souvenirs, se taire, conscience, angoisse, attachements
 
@@ -319,3 +319,72 @@ Onglet du carnet « Secrets » (seulement si l'histoire en déclare) : ce que tu
 Le validateur joue une histoire à plusieurs en solo avec un **partenaire fantôme** : à chaque rendez-vous (nouvel acte, passage `charniere`), il pose au hasard des marques `monde:` que le scénario sait poser ailleurs que dans un choix du monde, et dit certains secrets, comme l'autre joueur aurait pu le faire. `node tests/multi-test.js` joue l'histoire à deux pour de vrai.
 
 Pièges : une scène d'aveu ou un interlude qui porterait `act` changerait l'acte du joueur et déclencherait un rendez-vous ; le validateur le refuse. Ce qu'un joueur fait n'arrive chez l'autre qu'au rendez-vous suivant : écrire les réactions de l'autre après une `charniere` ou un début d'acte. Ce qui ne regarde qu'un héros (« j'ai pris l'argent ») gagne à porter aussi une marque sans `monde:`, que le partenaire fantôme ne touche pas.
+
+## La fiche suit l'histoire (15/11, 8.5) : voies, ce que l'histoire utilise, carnet rangé
+
+Le héros d'une histoire n'est pas toujours guerrier ou mage. Une histoire peut nommer ses propres **voies** : le métier ou l'origine que le joueur choisit dans « Ton passé ». Le moteur garde les six classes en dessous pour les règles (techniques de combat, sorts, points de vie).
+
+| Où | Clé | Sens |
+|---|---|---|
+| `story.voies` | `{ <id>: { label, labelF, tip, like, bonus, kit } }` | `label` (et `labelF` au féminin) : le nom montré partout (fiche, carnet, récit). `like` : la classe dont la voie suit les règles (`guerrier`, `rodeur`, `voleur`, `mage`, `pretre`, `barde`). `bonus` : les bonus de domaine de la voie (les domaines absents gardent ceux de la classe). `kit` : les objets de départ (sinon le kit de la classe ; `[]` pour aucun). |
+| réponse du passé | `fx: { voie: "<id>" }` | Le héros prend cette voie. Toutes les réponses d'une même question en donnent une, ou aucune. |
+| `story.voie` | `"<id>"` | Une seule voie possible (Le Témoin : arpenteur). Aucune question n'est nécessaire. |
+| condition | `{ voie: "<id>" }` | Le héros a cette voie. `{ arch: … }` lit toujours la classe en dessous. |
+
+Quand l'histoire déclare des voies, la création du héros ne montre plus « Ta voie : Guerrier, Rôdeur… » : chaque réponse de la question du passé affiche la voie et ses deux meilleurs domaines. Le validateur refuse une voie sans libellé, un `like` inconnu, un domaine inconnu, une question dont une partie des réponses seulement donnent une voie, et une histoire à voies où rien ne donne de voie.
+
+**Ce que l'histoire utilise** (`M.usesOf(story)`, lu une fois dans les tags) : combat (un passage `combat` ou un choix `fight`), points de vie (combat, effets `pv` ou `heal`), bourse (boutiques ou effets `gold`), vivres (effets `food`, routes, bivouac ; `world.noFood` les coupe), fatigue (routes, effets `fatigue`, blessures). La barre du haut, l'onglet Héros et la fiche à imprimer ne montrent que cela. Une valeur touchée malgré tout (des points de vie perdus) réapparaît d'elle-même.
+
+**Carnet** : un onglet n'apparaît que si l'histoire a de quoi le remplir (quêtes, indices, mystères pour Soupçons et Tableau, compagnons, gens, plus d'un lieu pour la carte, ennemis ou lieux pour le Bestiaire). Au-delà de neuf onglets, ils sont rangés en quatre parties (Toi, L'enquête, Le monde, Le livre ; `TAB_GROUPS` dans app.js) : un nouvel onglet doit y être ajouté, sinon il tombe dans « Toi ».
+
+**Première fois** : la première fois qu'un lecteur rencontre un combat, un duel, une bataille, un conseil, une énigme, un aparté, un souvenir, un interlude, « Montrer », l'accusation, « Te taire » ou l'établi, quelques lignes expliquent le geste (`FIRST_USE` dans app.js), une seule fois par lecteur (`profil.helpSeen`).
+
+**Bibliothèque** : rangée par la taille du livre (moins de 100 passages : histoires courtes ; moins de 1 000 : romans ; au-delà : grands romans ; à plusieurs à part), filtre « Pour tous » / « Thèmes adultes », et « En savoir plus » sur chaque livre (durée, actes, fins, ce qu'on y fait, d'après les tags, sans rien de l'intrigue). Le temps de lecture d'une partie vaut au moins la moitié des mots du livre : le plus court chemin sous-estimait les histoires à carrefours.
+
+## Les mots à effets (15/11, 8.6) : effets, mots-clés, trouvailles, envers, encre, page selon l'état du héros
+
+Idée de Clément : des mots qui bougent, qui changent de couleur, des lettres à trouver dans le texte. Le scénario les déclare par une balise dans le texte ; le moteur les retire de tout ce qui n'est pas la page affichée (voix, syllabes, recherche, relecture, temps de lecture, validateur), et l'appli les dessine.
+
+| Balise | Sens |
+|---|---|
+| `{{fx:<effet>\|texte}}` | Le texte prend un effet : `tremble`, `ondule`, `irise`, `chuchote`, `efface`, `rature`, `ecrit` (lettre à lettre), `lueur`. |
+| `{{cle:<id>\|mot}}` ou `{{cle:mot}}` | Mot-clé de règle : un toucher ouvre sa définition. Le moteur en connaît (fatigue, blessure, cicatrice, angoisse, jet, EP, PV, confiance, promesse, la Marque) ; l'histoire ajoute les siens dans `story.keywords: { <id>: { forms, def } }`. Dans les événements, les mots du moteur sont reconnus seuls, une fois par écran. |
+| `{{or:<id>\|texte}}` | Trouvaille cachée : rien ne la signale ; un toucher la révèle une fois par partie. `story.trouvailles: { <id>: { title, text, fx } }`, `story.trouvaillesName` (« lettres d'or »). Conditions `{ trouvaille: "<id>" }` et `{ trouvailles: n }`. |
+| `{{envers:texte}}` | Écrit à l'envers (miroir) ; un toucher le remet à l'endroit. |
+| `{{encre:<objet>\|texte}}` | Encre invisible : le texte n'existe que si le héros porte l'objet (la lanterne de Solène). Pour un paragraphe entier, préférer `{ if: { item: … }, text: … }` avec la balise dedans. |
+| `{{tache:texte}}` | Le mot est sous une tache d'encre : la page le montre noyé, la voix et la recherche le sautent. |
+
+**La page suit l'état du héros** (`M.moodOf`, réglage « La page suit l'état du héros ») : `trouble` (angoisse au-delà de la moitié), `blesse` (un quart des points de vie ou moins), `epuise` (fatigue 3 ou plus). Une histoire ajoute les siens : `story.moods: [{ if: <condition>, mood: "ivre" | "fievre" | … }]`, le premier qui tient l'emporte.
+
+Réglage « Mots à effets » : animés, discrets (couleurs sans mouvement), aucun. « Réduire les animations » du système coupe les mouvements.
+
+Le validateur refuse une balise inconnue ou mal fermée, un effet, un mot-clé, une trouvaille ou un objet inconnus, une trouvaille cachée nulle part, un mot-clé d'histoire sans définition, une humeur inconnue. Les parties au hasard touchent la moitié des trouvailles visibles, et une balise restée dans le texte lu est une erreur.
+
+Exemple en place : « Le Cahier de Solène » (six lettres d'or, le miroir du cours de Verre, la lanterne qui révèle le carnet).
+
+## Tous ensemble (15/11)
+
+`tests/ensemble-test.js` fait jouer dans une seule petite histoire la voie, la route avec un combat et une compagne, la météo, les saisons, une blessure, les rencontres, une veillée, les réserves, le monde en marche, une dette, un conseil, une bataille, l'épilogue, la pratique, un trait, un duel, une énigme, un rêve, une version, un souvenir, un silence, un geste, l'angoisse, les mots à effets et une trouvaille. C'est aussi l'exemple le plus court de chaque mécanisme : partir de là pour en essayer un dans une nouvelle histoire.
+
+## La route use (15/11, 8.6) : le ciel suit les routes, la fatigue, les blessures du mauvais temps
+
+La fatigue des routes, les blessures du temps et l'effet du temps sur les jets ne jouent qu'en difficulté Héroïque (Clément, 15/11 : un livre doit toujours pouvoir se finir). Aux autres niveaux, le ciel change et se dit, sans rien de plus. La météo d'une histoire qui n'est pas `by: "route"` (la mer) garde ses effets à tous les niveaux.
+
+| Où | Clé | Sens |
+|---|---|---|
+| `story.weather` | `by: "route"` | Le temps se tire dans la table de la région de la route parcourue (`world.regions`), ou de la région du lieu (`places.<id>.region`), ou de `lieu` (au village, sous un toit). Le ciel se met à jour à chaque étape. |
+| région du monde | `tiring: n` | Un point de fatigue toutes les `n` étapes sur cette région (le bivouac et le sommeil l'effacent). |
+| temps | `hurts: { wound, chance, say }` | Sous ce ciel, à chaque étape de route, une chance (0,25 sans `chance`) de prendre cette blessure de `story.wounds`, avec la phrase `say`. Au village, le ciel pèse seulement sur les jets. |
+
+En place dans Kardan (canicule, vent de sable, froid des profondeurs), Malvoran (pluie, brume, neige, verglas, miasmes de la terre souillée) et les Cendres (neige, bourrasque, brouillard givrant, verglas). Le validateur refuse une région de météo inconnue, une blessure inconnue dans `hurts`, un `tiring` qui n'est pas un nombre entier d'étapes.
+
+## Le monde de ce livre (15/11, 8.6) : entrer dans l'univers avant la première page
+
+Clément (15/11) : toutes les histoires démarrent dans l'action, et le lecteur ignore les coutumes, la monnaie, les croyances, qui gouverne. `story.lore` donne ce qu'un habitant sait sans y penser. Rien de l'intrigue, rien de ce que le héros doit découvrir : seulement le décor commun.
+
+| Où | Clé | Sens |
+|---|---|---|
+| `story.lore` | `pages: [{ title, text }]` | La page « Le monde de ce livre » : pliée sur la fiche du livre et à la création du héros, ouverte en tête de l'onglet Mots du carnet. `text` : une phrase ou une liste de paragraphes (gras et italique comme ailleurs). Deux à quatre pages courtes. |
+| `story.lore` | `names: { "Nom\|Variante": "phrase" }` | Les noms du monde (lieux, fêtes, ordres, monnaies, dieux). Le premier de chaque page est souligné en or et s'ouvre d'un toucher. La casse compte : « Rive » est un nom, « rive » reste un mot. La liste complète s'affiche sous la page dans le carnet. Réglage « Fiches du monde ». |
+
+Les noms suivent le glossaire : une seule fois par page, jamais dans un bouton, ni dans ce que lit la voix. Le validateur refuse une page sans titre ou sans texte et un nom sans sa phrase. Exemple : `tests/monde-test.js`.

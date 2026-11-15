@@ -78,7 +78,7 @@ module.exports = {
     ],
     choices: [
       { label: "Briser la glace et libérer les noms", test: { dom: "combat", label: "La glace", help: [{ if: { present: "corbe" }, v: 15 }, { if: { present: "rodric" }, v: 15 }, { if: { present: "ysolde" }, v: 10 }] },
-        win: { fx: { flag: "iv:nid_noms", ep: ["perso", 2000] }, to: "IV_N_reserve_libre" }, lose: { fx: { pv: -2 }, to: "IV_N_reserve_rate" } },
+        win: { fx: { ep: ["perso", 2000] }, to: "IV_N_reserve_libre" }, lose: { fx: { pv: -2 }, to: "IV_N_reserve_rate" } },
       { label: "Laisser la réserve", to: "IV_N_galeries" },
     ] }),
   IV_N_reserve_libre: P({ title: "Les noms", place: "moutier",
@@ -112,7 +112,7 @@ module.exports = {
       "Les dernières pages ne sont plus des relevés. *Je ne retrouve plus le pont. Je ne retrouve plus mon nom. Il est écrit sur la première page, je le lis, et il ne me dit rien. Je crois qu'ils l'ont mangé pendant que je dormais. Il fait chaud, maintenant. C'est bon signe, ou très mauvais.*",
       "L'épée courte, sur ses genoux, a une lame d'un gris très pâle, comme de la glace, et elle ne gèle pas.",
     ],
-    choices: [{ label: "Prendre l'épée, lui fermer les yeux, et repasser le pont", fx: { item: "lame_nid", flag: "iv:nid_greffier", ep: ["perso", 1000] }, to: "IV_N_galeries" }] }),
+    choices: [{ label: "Prendre l'épée, lui fermer les yeux, et repasser le pont", fx: { item: "lame_nid", ep: ["perso", 1000] }, to: "IV_N_galeries" }] }),
 
   IV_N_fond: P({ title: "Le fond", place: "moutier",
     text: [
@@ -139,7 +139,7 @@ module.exports = {
       "Quand il se relève, la Glaneuse a posé la tête sur ses pattes. « Elle ne savait pas qu'on pouvait revenir, dit Gaspard. Personne ne le lui avait dit. Elle va remonter le col, au printemps, quand il se rouvrira. Avec les petits. Ils ne mangeront plus d'enfants. Je lui ai promis qu'on leur laisserait des miettes, au cairn du col. Des petites choses. Des choses qu'on peut perdre. »",
       "Il ouvre la main. Trois petites lueurs, qu'elle gardait sous son ventre et qu'elle lui a rendues. Trois noms. Ceux des enfants du moutier. Il les verse dans ta paume, et tu refermes les doigts dessus.",
     ],
-    choices: [{ label: "Remonter", fx: { flag: ["iv:nid=pacte", "gaspard:nid"], conf: { gaspard: 15 }, ep: ["perso", 3000] }, to: "IV_N_sortie" }] }),
+    choices: [{ label: "Remonter", fx: { flag: "iv:nid=pacte", conf: { gaspard: 15 }, ep: ["perso", 3000] }, to: "IV_N_sortie" }] }),
   IV_N_pacte: P({ title: "La promesse", place: "moutier",
     text: [
       "Tu t'assieds devant elle, comme devant une bête qu'on ne veut pas effrayer. Tu lui parles de Sauvelune, de la porte, des miettes. Tu lui dis qu'il y a des choses qu'on peut donner sans rien perdre : la couleur d'une écuelle, le nombre des marches du temple. Que les enfants du moutier n'en font pas partie.",
