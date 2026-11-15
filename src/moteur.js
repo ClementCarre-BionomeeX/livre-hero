@@ -109,6 +109,14 @@
     Object.keys(story.passages).forEach(function (id) {
       // A roll's or a fight's outcome may also say back: "PASSAGE" (a way back after the roll).
       var P0 = story.passages[id], branches = [];
+      // Keeping silent (8.3): `silence: { who, to, label, fx }` on a passage where someone waits for an answer becomes a
+      // choice of its own, « Te taire », counted by the engine. In a pressing scene, it is what happens when time runs out.
+      if (P0.silence && !(P0.choices || []).some(function (c) { return c.silence; })) {
+        var S0 = P0.silence, sc = { label: S0.label || "Te taire", silence: S0.who || true };
+        ["to", "back", "fx", "if", "hide", "via", "takes"].forEach(function (k) { if (S0[k] != null) sc[k] = S0[k]; });
+        if (P0.urgent && !(P0.choices || []).some(function (c) { return c.timeout; })) sc.timeout = true;
+        P0.choices = (P0.choices || []).concat([sc]);
+      }
       (P0.choices || []).forEach(function (c) { branches.push(c.win, c.lose); if (c.fight) branches.push(c.fight.win, c.fight.lose, c.fight.flee, c.fight.calm); });
       if (P0.combat) branches.push(P0.combat.win, P0.combat.lose, P0.combat.flee, P0.combat.calm);
       branches.forEach(function (b) { if (b && b.to == null && typeof b.back === "string") b.to = b.back; });
@@ -136,6 +144,8 @@
       clockShown: !!(w.start && w.start.clock),
       // A siege (8.0): the city's stocks, the last day they were counted, the camp the hero has rallied.
       stocks: (function () { var o = {}; Object.keys(story.stocks || {}).forEach(function (k) { o[k] = story.stocks[k].start || 0; }); return o; })(), camp: null,
+      // A closed room (8.3): the hero's dread starts where the story says.
+      angoisse: story.dread ? (story.dread.start || 0) : 0,
     };
   }
   function levelOfEp(ep) { return Math.min(MAX_LEVEL, Math.max(1, Math.floor(ep / EP_PER_LEVEL))); }
@@ -182,6 +192,8 @@
       if (s.wounds) b += woundMod(story, s, dom);
       // At school (8.2): what practice has added.
       if (story.practice) b += practiceOf(s, dom);
+      // A closed room (8.3): dread past its threshold shakes the hand and the judgement.
+      if (story.dread) b += dreadMod(story, s);
     }
     return b;
   }
@@ -216,6 +228,9 @@
 
   // ------------------------------------------------------------------ conditions (JSON)
   function rng(v, lo, hi) { return (lo == null || v >= lo) && (hi == null || v <= hi); }
+  // { angoisse: { min: 3 } } or { angoisse: true, min: 3 }: both are read.
+  function minOf(c, k) { return c[k] && typeof c[k] === "object" ? c[k].min : c.min; }
+  function maxOf(c, k) { return c[k] && typeof c[k] === "object" ? c[k].max : c.max; }
   function evalCond(story, s, c) {
     if (c == null || c === true) return true;
     if (c === false) return false;
@@ -237,6 +252,15 @@
     // At school (8.2): a trait of character, a duel fought.
     if ("trait" in c) return rng(traitOf(s, c.trait), c.min, c.max);
     if ("duel" in c) { var DU = (s.duels || {})[c.duel]; if (!DU) return c.is === null; return c.is == null || DU.out === c.is; }
+    // A closed room (8.3): accounts heard, doubted, belied; silences kept; what the hero did and what it weighs; dread; attachments.
+    if ("recit" in c) return !!(s.accounts || {})[c.recit];
+    if ("doute" in c) return !!(s.doubts || {})[c.doute];
+    if ("dementi" in c) return !!(s.belied || {})[c.dementi];
+    if ("silences" in c) return rng(((s.silences || {})[c.silences === true ? "*" : c.silences]) || 0, c.min, c.max);
+    if ("geste" in c) return !!(s.gestes || {})[c.geste];
+    if ("poids" in c) return rng(s.poids || 0, minOf(c, "poids"), maxOf(c, "poids"));
+    if ("angoisse" in c) return rng(s.angoisse || 0, minOf(c, "angoisse"), maxOf(c, "angoisse"));
+    if ("attache" in c) return rng(attachOf(s, c.attache), c.min, c.max);
     if ("missed" in c) { var mq = (story.quests || []).filter(function (q) { return q.id === c.missed; })[0]; return !!mq && questMissed(story, s, mq); }
     // count: [conditions], min / max: how many of them hold ("at least three of these").
     if ("count" in c) { var nc = c.count.filter(function (x) { return evalCond(story, s, x); }).length; return nc >= (c.min || 0) && (c.max == null || nc <= c.max); }
@@ -363,6 +387,10 @@
     if ("blessure" in c) return c.blessure === false ? "Pas avec une blessure ouverte." : "Seulement avec cette blessure.";
     if ("fatigue" in c) return c.max != null ? "La fatigue te le défend." : "Il faut avoir veillé davantage.";
     if ("trait" in c) return "Ce n'est pas dans ton caractère.";
+    if ("angoisse" in c) return maxOf(c, "angoisse") != null ? "Tu es trop troublé{e} pour cela." : "Il faudrait que la peur te tienne davantage.";
+    if ("attache" in c) return "Ce lien n'est pas assez fort pour cela.";
+    if ("doute" in c) return "Il faudrait d'abord douter de ce qu'on t'a dit.";
+    if ("recit" in c) return "Tu n'as pas encore entendu cette version.";
     if ("camp" in c) return c.camp && c.camp !== "none" ? "Seulement pour qui a rallié " + (((story.camps || {})[c.camp] || {}).name || c.camp) + "." : "Seulement tant que tu n'as rallié aucun camp.";
     return "Ce chemin est fermé pour l'instant.";
   }
@@ -418,6 +446,10 @@
     if (t.saison != null && !(seasonOf(story, s) && [].concat(t.saison).indexOf(seasonOf(story, s).id) >= 0)) return false;
     if (t.blessure != null && !woundOk(story, s, t.blessure)) return false;
     if (t.cicatrice != null && ![].concat(t.cicatrice).some(function (k) { return !!s.flags["cicatrice:" + k]; })) return false;
+    // A closed room (8.3): what dread shows (trouble) and what it hides (calme); tender lines the reader may mask.
+    if (t.trouble != null && t.trouble !== false && !dreadTrouble(story, s, t.trouble)) return false;
+    if (t.calme != null && t.calme !== false && dreadTrouble(story, s, t.calme)) return false;
+    if (t.tendre && s.tendre === "masquer") return false;
     if (t.first && s.seen[node] > 1) return false;
     if (t.again && !(s.seen[node] > 1)) return false;
     return true;
@@ -428,7 +460,7 @@
     if (k === false) return !Object.keys(known).length;
     return [].concat(k).some(function (e) { return !!(known[e] || known["fin:" + e]); });
   }
-  var SCENE_TAGS = ["with", "without", "when", "after", "before", "second", "regard", "fresh", "camp", "temps", "saison"];
+  var SCENE_TAGS = ["with", "without", "when", "after", "before", "second", "regard", "fresh", "camp", "temps", "saison", "tendre", "trouble", "calme"];
   // blessure: true = some wound is open; an id or a list: one of these is open; false: none is.
   function woundOk(story, s, w) { var open = woundsOpen(story, s); if (w === true) return open.length > 0; if (w === false) return !open.length; return [].concat(w).some(function (k) { return open.indexOf(k) >= 0; }); }
   function sceneOk(story, s, p) { return !SCENE_TAGS.some(function (k) { return p[k] != null; }) || tagsOk(story, s, p, null); }
@@ -537,7 +569,12 @@
       if (!cl) throw new Error("indice inconnu " + id);
       // A clue that has faded (its moment is past) can no longer be found: the scene should have said so (fresh).
       if (faded(story, s, id)) { guard(s, "l'indice « " + id + " » s'est effacé et le texte le donne encore (tag fresh)"); return; }
-      if (!s.clues[id]) { s.clues[id] = true; ev(s, "Indice (" + ((story.mysteries[cl.rev] || {}).title || cl.rev) + ") : " + cl.text, "clue"); }
+      if (!s.clues[id]) {
+        s.clues[id] = true;
+        // A closed room (8.3): a clue noted in the grip of dread is marked so; the reader may weigh it.
+        var shaky = story.dread && dreadTrouble(story, s); if (shaky) { s.shaky = s.shaky || {}; s.shaky[id] = 1; }
+        ev(s, "Indice (" + ((story.mysteries[cl.rev] || {}).title || cl.rev) + ") : " + cl.text + (shaky ? " (noté dans le trouble)" : ""), "clue" + (shaky ? " shaky" : ""));
+      }
     });
     if (fx.mark) { s.mark = Math.max(0, s.mark + fx.mark); ev(s, fx.mark > 0 ? "La Marque grandit : " + s.mark : "La Marque pâlit : " + s.mark, "stain"); }
     if (fx.ep) {
@@ -717,6 +754,14 @@
       var T = (story.ties || []).filter(function (x) { return x.id === id; })[0]; if (!T) throw new Error("lien inconnu " + id);
       s.tiesKnown = s.tiesKnown || {}; if (s.tiesKnown[id]) return; s.tiesKnown[id] = timeLabel(s);
       ev(s, "Qui est avec qui : " + interp(s, T.label), "tie");
+    });
+    // A closed room (8.3).
+    [].concat(fx.recit || []).forEach(function (id) { accountHear(story, s, id); });
+    [].concat(fx.geste || []).forEach(function (id) { gesteDo(story, s, id); });
+    if (fx.angoisse) dreadMove(story, s, fx.angoisse);
+    if (fx.attache) Object.keys(fx.attache).forEach(function (k) {
+      if (!(story.attachments || {})[k]) throw new Error("attachement inconnu " + k);
+      s.attache = s.attache || {}; s.attache[k] = Math.max(0, Math.min(ATTACH_MAX, attachOf(s, k) + fx.attache[k]));
     });
     if (fx.note) ev(s, interp(s, fx.note), fx.noteCls || "");
   }
@@ -2279,6 +2324,110 @@
     return weighted(pool, function (d) { return d.weight || 1; }).to;
   }
 
+  // ------------------------------------------------------------------ a closed room (8.3, « Ce que garde la neige »)
+  // Accounts (story.accounts: { id: { by, topic, text, short, true, belie } }, story.topics: { id: { title, solved } }):
+  // what someone says happened, kept word for word in the notebook (fx.recit). The reader may doubt an account from the
+  // notebook (M.doubt); on a passage `devant: "<person>"`, each doubted account of that person with a `belie` page
+  // offers to put it in doubt before them. The hero's own accounts (by: "hero") are put in doubt on the passages where
+  // the hero is alone (`seul: true`). Whether an account was true shows once its topic is solved (topics.solved).
+  function accountDef(story, id) { var A = (story.accounts || {})[id]; if (!A) throw new Error("version inconnue " + id); return A; }
+  function accountBy(story, A) { return A.by === "hero" ? "toi" : (((story.people || {})[A.by] || (story.companions || {})[A.by] || {}).name || A.by); }
+  function accountHear(story, s, id) {
+    var A = accountDef(story, id); s.accounts = s.accounts || {};
+    if (s.accounts[id]) return;
+    s.accounts[id] = timeLabel(s);
+    var T = (story.topics || {})[A.topic] || {};
+    ev(s, (A.by === "hero" ? "Ta version" : "La version " + deName(accountBy(story, A))) + (T.title ? " · " + interp(s, T.title) : "") + " : « " + interp(s, A.short || shortText(A.text)) + " »", "account");
+  }
+  // Intent: doubt(Story, State, Account, Bool) -> Bool ! the reader's mark in the notebook: « J'en doute ».
+  function doubt(story, s, id, on) {
+    if (!(s.accounts || {})[id] || !(story.accounts || {})[id]) return false;
+    s.doubts = s.doubts || {};
+    if (on === false) delete s.doubts[id]; else s.doubts[id] = s.turn || 1;
+    return true;
+  }
+  // "d'Odile", "de Germain", "du docteur Fabre".
+  function deName(n) { return /^[aeiouyàâäéèêëîïôöùûü]/i.test(String(n)) ? "d'" + n : withPrep("de", n); }
+  function topicSolved(story, s, t) { var T = (story.topics || {})[t]; return !!(T && T.solved && happened(s, T.solved)); }
+  function belieChoices(story, s, p) {
+    if (!p || !story.accounts || s.combat) return [];
+    var out = [];
+    Object.keys(s.accounts || {}).forEach(function (id) {
+      var A = story.accounts[id]; if (!A || !A.belie || !(s.doubts || {})[id] || (s.belied || {})[id]) return;
+      var here = A.by === "hero" ? !!p.seul : [].concat(p.devant || []).indexOf(A.by) >= 0;
+      var tp = story.passages[A.belie]; if (!here || !tp || !sceneOk(story, s, tp)) return;
+      var q = interp(s, A.short || shortText(A.text));
+      out.push({ sys: "belie", account: id, group: "doute", label: A.by === "hero" ? "Revenir sur ta propre version : « " + q + " »" : "Mettre en doute sa version : « " + q + " »" });
+    });
+    return out;
+  }
+  // Keeping silent (8.3): the choice `silence` counts, by person and in all (s.silences["*"]).
+  function silenceNote(story, s, who) {
+    s.silences = s.silences || {};
+    [].concat(who === true ? [] : who).concat(["*"]).forEach(function (k) { s.silences[k] = (s.silences[k] || 0) + 1; });
+    s.silentTurn = s.turn;
+  }
+  // Conscience (story.gestes: { id: { name, poids, echoes: ["…" | { text, if }] } }): fx.geste records what the hero did
+  // and adds its weight (s.poids). Nothing is said then. Later, on a page where the hero is alone (`seul: true`), on
+  // waking (`reveil: true`), or right after a silence, one line of it comes back, each line once, one at a time.
+  var ECHO_GAP = 2;
+  function gesteDo(story, s, id) {
+    var G = (story.gestes || {})[id]; if (!G) throw new Error("geste inconnu " + id);
+    s.gestes = s.gestes || {}; if (s.gestes[id]) return;
+    s.gestes[id] = { turn: s.turn || 0, t: timeLabel(s) };
+    s.poids = (s.poids || 0) + (G.poids == null ? 1 : G.poids);
+  }
+  function echoPick(story, s) {
+    if (!story.gestes || !s.gestes || (s.echoTurn != null && s.turn - s.echoTurn < ECHO_GAP)) return null;
+    s.echoed = s.echoed || {};
+    var ids = Object.keys(s.gestes).filter(function (k) { return s.gestes[k].turn < s.turn; }).sort(function (a, b) { return s.gestes[a].turn - s.gestes[b].turn; });
+    for (var i = 0; i < ids.length; i++) {
+      var G = story.gestes[ids[i]] || {}, list = G.echoes || [], used = s.echoed[ids[i]] || 0;
+      while (used < list.length) {
+        var e = list[used]; used++;
+        var ok = typeof e === "string" || (tagsOk(story, s, e, s.node) && evalCond(story, s, e.if));
+        if (ok) { s.echoed[ids[i]] = used; s.echoTurn = s.turn; return interp(s, typeof e === "string" ? e : e.text); }
+      }
+      s.echoed[ids[i]] = used;
+    }
+    return null;
+  }
+  // Dread (story.dread: { name, start, max, trouble, sleep, mod: { from, per }, panic: { to, acts }, say: { trouble, calm } }):
+  // fx.angoisse moves it from 0 to max. Past `trouble`, the page shows what dread shows (tag trouble) and loses what it
+  // hides (tag calme); the clues then noted are marked; past mod.from, each point weighs on every roll. Waking
+  // (`reveil: true`) eases it by `sleep`. At max, the next page is `panic.to`, once, until dread has come down again.
+  var DREAD_MAX = 10, DREAD_TROUBLE = 6, DREAD_FROM = 5, DREAD_PER = -3;
+  function dreadOf(s) { return s.angoisse || 0; }
+  function dreadMax(story) { return ((story.dread || {}).max) || DREAD_MAX; }
+  function dreadTrouble(story, s, n) { if (!story.dread) return false; return dreadOf(s) >= (typeof n === "number" ? n : story.dread.trouble || DREAD_TROUBLE); }
+  function dreadMod(story, s) { var Md = story.dread.mod || {}, from = Md.from == null ? DREAD_FROM : Md.from, per = Md.per == null ? DREAD_PER : Md.per; return dreadOf(s) > from ? per * (dreadOf(s) - from) : 0; }
+  var DREAD_SAY = { trouble: "Ton cœur cogne trop fort. Les choses autour de toi perdent leur netteté.", calm: "Ton souffle revient. Les choses reprennent leurs contours." };
+  function dreadMove(story, s, d) {
+    var D = story.dread; if (!D) throw new Error("angoisse sans story.dread");
+    var a0 = dreadOf(s), t0 = dreadTrouble(story, s), a = Math.max(0, Math.min(dreadMax(story), a0 + d));
+    if (a === a0) return;
+    s.angoisse = a;
+    if (a < dreadMax(story)) s.panicArmed = true;
+    ev(s, interp(s, D.name || "Angoisse") + " " + (a > a0 ? "+" : "−") + Math.abs(a - a0) + " (" + a + "/" + dreadMax(story) + ")", (a > a0 ? "bad" : "good") + " dread conseq");
+    var t1 = dreadTrouble(story, s), say = D.say || {};
+    if (t1 && !t0) ev(s, interp(s, say.trouble || DREAD_SAY.trouble), "bad dread");
+    if (t0 && !t1) ev(s, interp(s, say.calm || DREAD_SAY.calm), "good dread");
+  }
+  function dreadWord(story, s) {
+    var D = story.dread || {}, a = dreadOf(s), lv = (D.levels || [{ min: 0, word: "Calme" }, { min: 3, word: "Inquiet{e}" }, { min: D.trouble || DREAD_TROUBLE, word: "Troublé{e}" }, { min: dreadMax(story), word: "Au bord de la panique" }]).filter(function (x) { return a >= x.min; });
+    return interp(s, (lv[lv.length - 1] || {}).word || "");
+  }
+  function panicDue(story, s, p) {
+    var D = story.dread; if (!D || !D.panic || !D.panic.to || p.end || p.souvenir || dreadOf(s) < dreadMax(story) || s.panicArmed === false) return false;
+    if (D.panic.acts && D.panic.acts.indexOf(p.act || s.lastAct) < 0) return false;
+    return !!story.passages[D.panic.to];
+  }
+  // Attachments (story.attachments: { <person>: { tendre } }): fx.attache moves a bond from 0 to ATTACH_MAX, in silence.
+  // A paragraph, a choice or a scene marked `tendre: true` is affection the reader may mask (s.tendre = "masquer", set by
+  // the app from the reader's settings); the author gives an `else` or another way.
+  var ATTACH_MAX = 5;
+  function attachOf(s, k) { return ((s.attache || {})[k]) || 0; }
+
   // ------------------------------------------------------------------ the current view
   var BUILTIN = {
     "@jeu": function (story, s) {
@@ -2432,13 +2581,15 @@
     else {
       p = story.passages[s.node];
       var cs = peopleChoices(story, s, p).concat(ownChoices(story, s, p));
+      // A remembrance (8.3) that ends with back: true goes back to the present, to the page it opened from.
+      if (p.back && p.souvenir && s.present && story.passages[s.present.node]) cs = cs.concat([{ to: s.present.node, label: "Revenir au présent", auto: "back" }]);
       // back: true, the scene ends on the way back to the crossroads the reader came from, its label written by the engine.
-      if (p.back && s.hubLast && s.hubLast !== s.node && story.passages[s.hubLast]) {
+      else if (p.back && s.hubLast && s.hubLast !== s.node && story.passages[s.hubLast]) {
         var hp = story.passages[s.hubLast];
         cs = cs.concat([{ to: s.hubLast, label: "Revenir : " + interp(s, hp.title || (W(story).places[hp.place] || {}).name || "…"), auto: "back" }]);
       }
       if (!cs.length) { var back = backChoice(story, s, p); if (back) cs = [back]; }
-      cs = cs.concat(councilChoices(story, s, p), battleChoices(story, s, p), montrerChoices(story, s, p), accuseChoices(story, s, p), repayChoices(story, s, p), shopChoices(story, s, p), tavernChoices(story, s, p), craftChoices(story, s, p), vigilChoices(story, s, p), duelChoices(story, s, p), puzzleChoices(story, s, p), travelChoices(story, s, p), leadChoices(story, s, p));
+      cs = cs.concat(councilChoices(story, s, p), battleChoices(story, s, p), montrerChoices(story, s, p), accuseChoices(story, s, p), repayChoices(story, s, p), shopChoices(story, s, p), tavernChoices(story, s, p), craftChoices(story, s, p), vigilChoices(story, s, p), duelChoices(story, s, p), puzzleChoices(story, s, p), belieChoices(story, s, p), travelChoices(story, s, p), leadChoices(story, s, p));
       var sec = [];
       v = { title: interp(s, p.title || ""), kind: p.end ? "end" : "passage", text: textList(story, s, p.text, null, sec), choices: cs, passage: p };
       // The people here at this hour, then the rumour heard on coming in (7.9).
@@ -2446,6 +2597,11 @@
       // The epilogue (8.0): on an ending marked `epilogue`, what came of the hero's choices, told without judging.
       if (p.epilogue && p.end) { var epi = (story.epilogue || []).filter(function (e) { return tagsOk(story, s, e, s.node) && evalCond(story, s, e.if); }).map(function (e) { return interp(s, e.text); }); if (epi.length) { v.epilogue = epi; v.text = v.text.concat(["**" + (story.epilogueTitle || "Ce qu'il advint") + "**"], epi); } }
       if (s.rumorNow && s.rumorNow.node === s.node && s.rumorNow.turn === s.turn) { var rr = rumorById(story, s.rumorNow.id); if (rr) v.text.push(interp(s, rr.text)); }
+      // A closed room (8.3): what the hero did comes back (one line, in italics); a remembrance says when it was;
+      // dread past its threshold troubles the page.
+      if (s.echoNow && s.echoNow.node === s.node && s.echoNow.turn === s.turn) v.text.push("*" + s.echoNow.text + "*");
+      if (p.souvenir) v.souvenir = interp(s, p.souvenir === true ? "Souvenir" : p.souvenir);
+      if (story.dread) { v.dread = { v: dreadOf(s), max: dreadMax(story), word: dreadWord(story, s) }; if (dreadTrouble(story, s) && !p.souvenir) v.trouble = true; }
       // A scene that spends the night tells it at its end; one that waits for the evening, at its start.
       if (s.took && s.took.node === s.node && s.took.turn === s.turn) { v.text[s.took.end ? "push" : "unshift"]("*(" + s.took.say + ")*"); if (!s.took.end) sec = sec.map(function (i) { return i + 1; }); }
       // The paragraphs of a second reading: the page may mark them, lightly.
@@ -2460,6 +2616,8 @@
       }
     }
     v.choices = v.choices.map(function (c) {
+      // The way the hero speaks (8.3): a choice may carry other words when a condition holds (labels: [{ if, label }]).
+      if (c.labels) { var lb = c.labels.filter(function (x) { return tagsOk(story, s, x, s.node) && evalCond(story, s, x.if); })[0]; if (lb) c = Object.assign({}, c, { label: lb.label, onceKey: c.label }); }
       if (c.back === true && !c.label) { var hb = story.passages[s.hubLast] || {}; c = Object.assign({}, c, { label: "Revenir : " + cap(interp(s, String(hb.backName || hb.title || "").replace(/\*/g, ""))), autoBack: true }); }
       // Guarantee: every button has words. One left without (a scenario fault) says where it goes.
       if (typeof c.label !== "string" || !c.label) {
@@ -2574,6 +2732,14 @@
     if (id === "@camp") { s.node = "@camp"; return; }
     if (id === "@route") { if (!s.travel) throw new Error("@route hors d'un voyage (depuis " + s.node + ")"); advanceTravel(story, s); return; }
     if (!story.passages[id]) throw new Error("passage inconnu " + id + " (depuis " + s.node + ")");
+    // A remembrance (8.3, passage `souvenir`): the present is kept (the page one came from, its hour); inside, the clock
+    // stands still and the world waits. Back in the present, the hour is the one the reader left.
+    var mem = !!story.passages[id].souvenir;
+    if (mem && !s.present && s.node && story.passages[s.node] && !story.passages[s.node].souvenir) s.present = { node: s.node, time: s.time };
+    if (!mem && s.present) { s.time = s.present.time; s.present = null; }
+    if (mem) { enterIn(story, s, id, true); return; }
+    // Dread at its height (8.3): the page the story gives to panic, once until dread comes down.
+    if (panicDue(story, s, story.passages[id])) { s.panicArmed = false; s.flags.panique = true; s.panics = (s.panics || 0) + 1; id = story.dread.panic.to; }
     // The case is judged at its hour (story.deadline), wherever the reader is: the story goes there, once.
     // The hour of the deadline is the hour of the scene it opens: a long rest that would end past it ends on it.
     if (deadlineDue(story, s, id)) { s.flags["echeance"] = true; s.time = momentOf(story.deadline); id = story.deadline.to; }
@@ -2587,6 +2753,9 @@
     if (story.passages[id].hub && story.encounters) { var en = encounterDue(story, s); if (en) { s.hubLast = id; s.ret = id; id = en; } }
     // At school (8.2): waking up, a dream may come first.
     if (story.passages[id].reveil && story.dreams) { var dr = dreamDue(story, s); if (dr) { s.hubLast = id; s.ret = id; id = dr; } }
+    enterIn(story, s, id, false);
+  }
+  function enterIn(story, s, id, mem) {
     // The passage left (a fight or a road in between does not count): read by the tag `via`.
     if (s.node && s.node.charAt(0) !== "@" && s.node !== id) s.from = s.node;
     s.node = id;
@@ -2601,12 +2770,16 @@
     var first = !s.seen[id];
     s.seen[id] = (s.seen[id] || 0) + 1;
     (story.quests || []).forEach(function (q) { if (q.start === id && !s.flags["quete-vue:" + q.id]) { s.flags["quete-vue:" + q.id] = true; ev(s, "Nouvelle quête : " + q.title, "quest"); } });
-    var tk = takesOf(s, p.takes); s.took = null;
+    var tk = mem ? null : takesOf(s, p.takes); s.took = null;
     if (tk) { var pst = stopAt(story, s, s.time + tk.hours); s.time = pst != null ? pst : s.time + tk.hours; s.took = { node: id, turn: s.turn, say: tk.say, end: tk.end }; }
     if (first) apply(story, s, p.fx);
     apply(story, s, p.fxEvery);
     if (p.rumeur) rumorPick(story, s, p, id); else s.rumorNow = null;
-    tick(story, s);
+    // A closed room (8.3): sleep eases dread; alone, on waking, or after a silence, what the hero did comes back.
+    if (p.reveil && story.dread && story.dread.sleep && s.dreadSlept !== day(s)) { s.dreadSlept = day(s); dreadMove(story, s, story.dread.sleep); }
+    s.echoNow = null;
+    if (story.gestes && !mem && (p.seul || p.reveil || s.silentTurn === s.turn)) { var et = echoPick(story, s); if (et) s.echoNow = { node: id, turn: s.turn, text: et }; }
+    if (!mem) tick(story, s);
     greetBack(story, s);
     if (p.combat) { startCombat(story, s, p.combat); s.combat.intro = textList(story, s, p.text).join("\n\n"); }
   }
@@ -2680,7 +2853,8 @@
     s.turn++;
     if (c.sys) return chooseSys(story, s, c);
     if (c.back === true) c = Object.assign({}, c, { to: s.hubLast });
-    if (c.once && s.node) { s.once = s.once || {}; s.once["c|" + s.node + "|" + c.label] = 1; }
+    if (c.once && s.node) { s.once = s.once || {}; s.once["c|" + s.node + "|" + (c.onceKey ? interp(s, c.onceKey) : c.label)] = 1; }
+    if (c.silence) silenceNote(story, s, c.silence);
     if (c.refuse) { var rq = questOfRefusal(story, s, c); if (rq) { s.flags["quete-refus:" + rq.id] = true; ev(s, "Quête refusée : " + rq.title + ". Tu n'y reviendras pas.", "quest"); } else guard(s, "refuse : aucune quête ouverte ici"); }
     s.last = null; s.via = c.via || null;
     // takes on a choice (7.9): the way there spends time (a walk, a talk); the clock moves before the page opens, so
@@ -2751,6 +2925,8 @@
       case "puzzle": puzzleOpen(story, s); break;
       case "puzzleTry": puzzleTry(story, s, c.answer); break;
       case "puzzleForce": puzzleForce(story, s); break;
+      // A closed room (8.3): putting an account in doubt before the one who gave it (or before oneself).
+      case "belie": { var BA = accountDef(story, c.account); s.belied = s.belied || {}; s.belied[c.account] = s.turn; s.via = "doute"; go(story, s, BA.belie); break; }
       case "puzzleLeave": { var pf = s.puzzle.from; s.puzzle = null; go(story, s, pf); break; }
       case "bplace": { var bb = s.battle; bb.at[bb.troops[bb.i]] = c.post; bb.i++; if (bb.i >= bb.troops.length) bb.step = "wave"; break; }
       case "border": battleOrder(story, s, c); break;
@@ -2789,6 +2965,7 @@
     battleDef: battleDef, heroForce: heroForce, tick: tick, reached: reached,
     weatherOf: weatherOf, weatherKind: weatherKind, seasonOf: seasonOf, woundsOpen: woundsOpen, woundDef: woundDef, woundDays: woundDays, FATIGUE_MAX: FATIGUE_MAX,
     traitOf: traitOf, traitWord: traitWord, practiceOf: practiceOf, TRAIT_MAX: TRAIT_MAX, DUEL_MOVES: DUEL_MOVES, puzzleRight: puzzleRight,
+    doubt: doubt, accountBy: accountBy, topicSolved: topicSolved, dreadOf: dreadOf, dreadMax: dreadMax, dreadWord: dreadWord, dreadTrouble: dreadTrouble, attachOf: attachOf, ATTACH_MAX: ATTACH_MAX,
     item: item, weapon: weapon, armor: armor, useItem: useItem, day: day, timeLabel: timeLabel, routesFrom: routesFrom, isNight: isNight,
   };
   if (typeof module !== "undefined" && module.exports) module.exports = API; else root.Moteur = API;

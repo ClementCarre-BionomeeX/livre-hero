@@ -716,3 +716,21 @@ ul.vote-res { list-style: none; padding: 0; margin: 0 0 12px; display: grid; gap
 .trait-axis { grid-column: 1 / -1; display: flex; align-items: center; gap: 8px; }
 .trait-axis .axis { position: relative; flex: 1; height: 4px; border-radius: 2px; background: var(--line); }
 .trait-axis .axis i { position: absolute; top: -4px; width: 12px; height: 12px; margin-left: -6px; border-radius: 50%; background: var(--accent); }
+
+/* A closed room (8.3): a remembrance set apart, a page troubled by dread, silence, accounts, attachments. */
+.page.souvenir .prose { border-left: 3px solid color-mix(in srgb, currentColor 25%, transparent); padding-left: 14px; font-style: italic; }
+.page.souvenir .where { letter-spacing: .04em; }
+.page.trouble .prose p { animation: trouble-drift 7s ease-in-out infinite alternate; }
+.page.trouble .prose p:nth-child(2n) { animation-delay: -3s; }
+@keyframes trouble-drift { 0% { filter: blur(0); letter-spacing: 0; } 60% { filter: blur(.35px); letter-spacing: .012em; } 100% { filter: blur(.15px); letter-spacing: .004em; } }
+@media (prefers-reduced-motion: reduce) { .page.trouble .prose p { animation: none; } }
+.choice.silence > span:first-child { font-style: italic; }
+.pill.dread.high { border-color: #b4532a; }
+.account { margin: 8px 0 14px; }
+.account .said { margin: 4px 0 0; padding-left: 12px; border-left: 2px solid color-mix(in srgb, currentColor 20%, transparent); }
+.account.doubted .said { opacity: .75; text-decoration: underline dotted color-mix(in srgb, currentColor 45%, transparent); }
+.account .truth { padding: 0 6px; border-radius: 8px; border: 1px solid currentColor; }
+.account .truth.false { color: #b4532a; }
+.account .truth.true { color: #2f7a4b; }
+.shaky { font-style: italic; margin-left: 6px; }
+.attach { letter-spacing: .1em; margin-left: 6px; color: #a0465a; }

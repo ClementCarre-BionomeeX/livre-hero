@@ -271,3 +271,29 @@ recherche des passages jamais atteints sait montrer, relier et accuser.
 | `story.dreams` | `[{ to, if, weight }]`, `story.dreamChance` | En arrivant sur un passage `reveil: true` (le matin), le moteur joue d'abord un rêve dont la condition tient, une fois chacun, un par nuit. Le rêve finit par `back: true`. |
 
 Pièges : un choix `test` sur une énigme compte aussi un usage pour la pratique ; une condition `after` lit un drapeau ou un passage vu, pas un indice (écrire `after: "enigme:<id>"` plutôt que l'id de l'indice). Les parties d'essai du validateur tapent la bonne réponse d'une énigme sept fois sur dix.
+
+## Le huis clos (15/11, 8.3) : versions, souvenirs, se taire, conscience, angoisse, attachements
+
+| Où | Clé | Sens |
+|---|---|---|
+| `story.topics` | `{ <id>: { title, solved } }` | Les sujets sur lesquels chacun donne sa version (« La nuit de l'étang »). `solved` : le drapeau qui dit la vérité connue ; l'onglet Versions montre alors, pour chaque version, si elle était vraie. |
+| `story.accounts` | `{ <id>: { by, topic, text, short, true, belie } }` | Une version, gardée mot pour mot dans l'onglet Versions. `by` : une personne de `people`, ou `"hero"` (ce dont le héros croit se souvenir). `true` : `true`, `false` ou `"partiel"`. `belie` : le passage joué quand on la met en doute devant celui qui l'a donnée. |
+| fx | `recit: "<version>"` | Le héros entend cette version (une ligne dans le fil : « La version d'Odile · … »). |
+| passage | `devant: "<personne>"` (ou liste) | Cette personne est en face du héros : pour chaque version d'elle que le lecteur a marquée « J'en doute » dans l'onglet Versions, le choix « Mettre en doute sa version : « … » » s'ajoute, une fois. |
+| passage | `seul: true` | Le héros est seul : il peut revenir sur sa propre version (si le lecteur en doute), et ce qu'il a fait lui revient (voir `gestes`). |
+| condition | `recit`, `doute`, `dementi` : `"<version>"` | Version entendue, marquée « J'en doute », mise en doute devant la personne. Le passage `belie` est joué avec le chemin `via: "doute"`. |
+| passage | `souvenir: "Il y a douze ans"` | Une scène du passé jouée au présent. L'horloge s'arrête (rien ne passe : ni temps, ni monde en marche, ni échéance, ni panique) ; `back: true` y devient « Revenir au présent », qui ramène à la page et à l'heure qu'on avait quittées. Ce qu'on choisit dans le souvenir reste (`set`, `trait`). Pas de `hub`, `routes` ni `place`. |
+| passage | `silence: { who, to \| back, label, fx, if, hide, via, takes }` | Quelqu'un attend une réponse : le choix « Te taire » s'ajoute (libellé `label`), en italique. Dans une scène `urgent` sans `timeout`, c'est lui qui est pris quand le temps est écoulé. |
+| condition | `{ silences: "<personne>" \| "*", min, max }` | Le nombre de silences gardés devant cette personne, ou en tout. |
+| `story.gestes` | `{ <id>: { name, poids, echoes: ["…" \| { text, if, tendre, else }] } }` | Ce que le héros a fait et qui lui pèse (fouiller, mentir, signer, brûler). Rien ne s'affiche sur le moment ; ensuite, sur un passage `seul` ou `reveil`, ou juste après un silence, une ligne d'écho revient en italique, chacune une fois, pas plus d'une tous les deux choix. |
+| fx | `geste: "<id>"` | Le héros l'a fait : `poids` s'ajoute au poids qu'il porte. |
+| condition | `{ geste: "<id>" }`, `{ poids: { min, max } }` | |
+| choix | `labels: [{ if, label }]` | Le même choix, dit autrement selon ce qui tient (par exemple selon le poids porté). |
+| `story.dread` | `{ name, start, max, trouble, sleep, mod: { from, per }, panic: { to, acts }, levels: [{ min, word }], say: { trouble, calm } }` | L'angoisse (0 à `max`). Au-delà de `trouble`, la page se trouble (les paragraphes `trouble` remplacent les `calme`, l'appli brouille légèrement le texte si le lecteur le veut), et un indice trouvé alors est marqué « noté dans le trouble ». À partir de `mod.from`, chaque point compte `per` aux jets. Le sommeil retire `sleep`. À `max`, la page suivante est `panic.to`. |
+| fx, condition | `angoisse: ±n` · `{ angoisse: { min, max } }` | |
+| paragraphe, choix | `trouble: true`, `calme: true` | Seulement quand le héros est troublé, ou calme. Les deux ensemble disent la même chose vue de deux façons. |
+| `story.attachments` | `{ <personne>: { tendre } }` | Les liens du héros (0 à 5), muets : jamais affichés comme un chiffre. `tendre: true` : ce lien peut devenir tendre. |
+| fx, condition | `attache: { <personne>: ±n }` · `{ attache: "<personne>", min, max }` | |
+| paragraphe, choix, passage | `tendre: true` (avec `else`) | Une ligne ou une scène tendre. Le lecteur choisit dans ses réglages de les montrer, de les rendre discrètes, ou de les masquer (alors `else` est dit à la place, et un choix tendre disparaît). |
+
+Pièges : une version n'est mise en doute qu'une fois ; le passage `belie` finit en général par `back: true`. Un souvenir ouvert depuis une page qui n'a qu'un seul choix y ramène : donner à cette page un retour (`back: true`) et cacher l'entrée du souvenir une fois vu. Les silences dans un souvenir comptent aussi.
