@@ -15,8 +15,8 @@ var P = {};
 Object.assign(P, {
   IG_entree: { act: "I", title: "Les Gouttières", place: "gouttieres", hub: true, backName: "les Gouttières",
     text: [
-      { first: true, text: "Les Gouttières commencent rue des Tanneurs, à l'endroit où le pavé s'arrête. Ensuite viennent la terre battue, des planches posées sur la boue, et des maisons qui penchent l'une vers l'autre jusqu'à se toucher par le haut. Là-haut, des passerelles de planches vont d'une lucarne à l'autre, des cordes à linge servent de rampes, et tout un peuple circule à la hauteur des cheminées. En bas, l'eau des toits tombe en fils sur les têtes et donne son nom au quartier." },
-      { first: true, text: "Un gamin assis sur une borne te regarde passer en comptant tes poches. Une femme vide un seau par une fenêtre du second. Au bout de la rue, le canal des Gouttières fait un coude, vert et lent, et quelque part derrière les toits une fontaine coule avec un bruit de voix basses." },
+      { first: true, text: "Les Gouttières commencent rue des Tanneurs, à l'endroit précis où le pavé s'arrête. Suivent la terre battue, des planches posées sur la boue, et des maisons qui penchent l'une vers l'autre jusqu'à se toucher par le haut. Là-haut, des passerelles de planches vont d'une lucarne à l'autre, des cordes à linge servent de rampes, et tout un peuple circule à hauteur des cheminées. En bas, l'eau des toits tombe en fils sur les têtes ; elle a donné son nom au quartier." },
+      { first: true, text: "Un gamin assis sur une borne te regarde passer en comptant tes poches ; il en trouve trois, à en juger par ses yeux. Une femme vide un seau par une fenêtre du second. Au bout de la rue, le canal des Gouttières fait un coude, vert et lent, et quelque part derrière les toits une fontaine coule avec un bruit de voix basses." },
       { again: true, when: "day", text: "Les Gouttières : la boue, les planches, le linge tendu entre les toits. L'eau tombe en fils devant les portes, et là-haut, sur les passerelles, quelqu'un siffle pour annoncer ton passage." },
       { again: true, when: "night", text: "Les Gouttières, la nuit. Une lanterne à une fenêtre sur dix, et des pas sur les toits, plus nombreux que dans la rue. On marche au milieu de la ruelle, loin des porches." },
       { first: true, with: "tibere", text: "Tibère a remonté son col. « J'ai fait trois rafles ici, du temps du Guet. On m'a vidé un pot de chambre sur le casque à chaque fois. Le même pot, je crois bien. »" },
@@ -112,7 +112,7 @@ Object.assign(P, {
       "La ruelle des Fileuses descend vers le canal entre deux murs si proches que tu les touches des deux coudes. Des écheveaux de laine sèchent au-dessus, et l'eau qui en tombe est bleue. Un gamin arrive en sens inverse en courant, glisse sur une planche, se rattrape à toi.",
       "« Pardon, m'sieur-dame. » Il repart. Ta ceinture est plus légère. Le cordon de ta bourse pend, tranché net, et le gamin file vers le canal, maigre comme un clou, une casquette de feutre enfoncée jusqu'aux yeux.",
       { with: "lison", text: "Lison a déjà tendu sa gaffe en travers de la ruelle, à hauteur de cheville. Le gamin saute par-dessus comme un chat et prend de l'avance." },
-      { with: "tibere", text: "Tibère jure et part au trot, en soufflant comme un soufflet de forge. Il ne rattrapera personne, et il le sait." },
+      { with: "tibere", text: "Tibère jure et part au trot, en soufflant comme un soufflet de forge. Il a passé l'âge de rattraper quiconque, et il le sait." },
     ],
     choices: [
       { label: "Le rattraper avant le canal", test: { dom: "discretion", diff: -10, label: "Courir sur les planches sans glisser", help: [LIS] },
@@ -125,7 +125,7 @@ Object.assign(P, {
     text: [
       "Le gamin disparaît dans une porte basse. Quand tu y arrives, la porte donne sur une cour, la cour sur une autre ruelle, et la ruelle sur le canal où trois barques de laveuses se balancent. Ta bourse, elle, a quitté le quartier par les toits.",
       "Une laveuse rit sans lever les yeux de son linge. « C'est Merlot. Il travaille pour la Reine, comme tout le monde ici. Si tu veux tes liards, va les demander à la Cour des Pelles. Ils y sont déjà. »",
-      { if: { has: "poids:dette" }, text: "Ce n'était pas grand-chose. C'était quand même un peu de ce que tu dois." },
+      { if: { has: "poids:dette" }, text: "Une petite somme. Un peu de ce que tu dois, tout de même." },
     ],
     fx: { flag: "ig:merlot_vole" },
     choices: [{ label: "Continuer jusqu'au canal", to: "IG_canal" }] },
@@ -135,7 +135,7 @@ Object.assign(P, {
       "Tu le tiens par le col au bout de la ruelle, à deux pas de l'eau. Il pèse le poids d'un chat mouillé et se débat comme un chat. Ta bourse tombe de sa manche. Puis deux silhouettes se détachent d'un porche, plus grandes, avec chacune une lame courte qui brille dans le poing.",
       "« Lâchez-moi, crie le gamin, {{oreille#ig_me_cri|j'ai rien fait, j'ai rien pris|si la Reine apprend que je me suis fait prendre, Boscot me casse les doigts}} ! »",
       "Les deux autres approchent sans se presser. Ils ont seize ans, peut-être, et des couteaux à écailler. « Rends-nous le petit, dit l'un, et garde ta bourse. On est des gens raisonnables. »",
-      { with: "gildas", text: "Frère Gildas se place à côté de toi, son bâton planté dans la boue. Il ne dit rien. Les deux garçons regardent le bâton, puis la bure, et hésitent." },
+      { with: "gildas", text: "Frère Gildas se place à côté de toi, son bâton planté dans la boue. Il se tait. Les deux garçons regardent le bâton, puis la bure, et hésitent." },
     ],
     choices: [
       { label: "Dire au gamin que Boscot n'en saura rien, s'il te parle", hide: { not: { voile: "ig_me_cri" } }, fx: { ep: ["perso", 150] }, to: "IG_merlot_parle" },
@@ -161,7 +161,7 @@ Object.assign(P, {
 
   IG_cour: { act: "I", title: "La Cour des Pelles", place: "gouttieres", backName: "la Cour des Pelles",
     text: [
-      { first: true, text: "Derrière le lavoir, une voûte basse donne sur une cour pavée de briques. C'était une fabrique de pelles : il en reste des centaines, plantées en faisceaux le long des murs, rouillées, emmanchées de frêne gris. Au fond, un grand atelier à deux étages, fenêtres grillées. Devant la voûte, trois hommes jouent aux osselets sur un tonneau. Ils ont des mains de débardeurs et des bâtons ferrés." },
+      { first: true, text: "Derrière le lavoir, une voûte basse donne sur une cour pavée de briques. C'était une fabrique de pelles : il en reste des centaines, plantées en faisceaux le long des murs, rouillées, emmanchées de frêne gris. Au fond, un grand atelier à deux étages, aux fenêtres grillées. Devant la voûte, trois hommes jouent aux osselets sur un tonneau. Ils ont des mains de débardeurs, et chacun un bâton ferré posé à portée." },
       { first: true, text: "Le plus gros se lève. Il a le crâne rasé, une oreille en chou-fleur, et la voix douce. « Boscot. C'est moi qui pèse les gens avant la Reine. Tu viens pour quoi ? »" },
       { again: true, before: "ig:cour_ouverte", text: "Boscot et ses osselets, devant la voûte de la Cour des Pelles. Il lève les yeux, et il attend." },
       { again: true, after: "ig:cour_ouverte", text: "Boscot s'écarte de la voûte sans quitter son tonneau des yeux. Tu peux passer." },
@@ -230,7 +230,7 @@ Object.assign(P, {
 Object.assign(P, {
   IG_reine: { act: "I", title: "La Reine des Gouttières", place: "gouttieres", backName: "l'atelier de la Reine",
     text: [
-      { first: true, text: "L'atelier des Pelles est une halle de poutres où l'on a tendu des cordes pour y pendre des manteaux, des bottes, des harnais, des chasubles. Sur de longues tables, des choses triées par métal : les cuivres, les étains, les argents, les ors, ces derniers sous une cloche de verre. Partout des balances, de la romaine de boucher au trébuchet d'orfèvre. Il y a des commis qui écrivent, et personne qui parle fort." },
+      { first: true, text: "L'atelier des Pelles est une halle de poutres où des cordes tendues portent des manteaux, des bottes, des harnais, des chasubles. Sur de longues tables, le butin est trié par métal : les cuivres, les étains, les argents, et les ors sous une cloche de verre. Partout des balances, de la romaine de boucher au trébuchet d'orfèvre ; tu en comptes onze avant de renoncer. Des commis écrivent. Personne ne parle fort." },
       { first: true, text: "Sur un pilier, près de l'entrée, une ardoise porte d'une écriture de commis : *{{loupe#ig_mg_ardoise|Dîme des toits : un liard par ducat, payable le lundi|Dîme des toits : un liard par ducat ; Boscot en garde un sur dix, et je le laisse faire}}*." },
       { first: true, text: "Au fond, sous la seule fenêtre propre, une femme de cinquante ans pèse une cuiller d'argent. Elle est large, vêtue de laine grise, les cheveux pris dans une résille, des bésicles d'acier sur le nez. Elle ne lève pas les yeux. « Tu es l'apprenti{e} de la Carrus, dit Margaux Pelle. Assieds-toi. Ne touche à rien : tout ce qui est ici a déjà été volé une fois. »" },
       { first: true, text: "« Odeline Carrus ? {{oreille#ig_mg_odeline|Une cliente comme une autre|La seule du quai qui me payait le prix juste, et je lui en voulais pour ça}}. Elle venait le jeudi, elle achetait ce que les gens pleuraient, et elle le leur rendait au double. C'était du commerce honnête. Je n'ai jamais compris comment elle en vivait. »" },
@@ -254,7 +254,7 @@ Object.assign(P, {
 
   IG_reine_lucarne: { act: "I", title: "Par la lucarne", place: "gouttieres",
     text: [
-      "La lucarne donne sur une soupente pleine de chaises empilées, puis sur une échelle, puis sur l'atelier. Tu descends le dernier barreau au milieu de trois commis qui écrivent. Aucun ne s'arrête d'écrire.",
+      "La lucarne donne sur une soupente pleine de chaises empilées, puis sur une échelle, puis sur l'atelier. Tu descends le dernier barreau au milieu de trois commis qui écrivent. Tous trois continuent d'écrire.",
       "Au fond, une femme en laine grise pose une cuiller sur un plateau de balance. « On entre par le toit, chez moi, quand on a du talent, dit-elle sans se retourner. Ceux qui en ont, je les reçois. Les autres, je les reçois aussi, mais en bas, dans la cour, avec Boscot. Approche. »",
     ],
     fx: { ep: ["perso", 100] },
@@ -338,7 +338,7 @@ Object.assign(P, {
     text: [
       { first: true, text: "L'escalier des Fileuses monte en colimaçon dans une tour de brique et débouche sur un toit plat, couvert de plomb, où l'on a mis à sécher des peaux. De là, la ville change de forme. Les toits des Gouttières font une seconde ville posée sur la première, avec ses rues de planches, ses ponts de cordes, ses carrefours autour des cheminées. On y croise des couvreurs, des ramoneurs, des enfants, des chats, et des gens qui préfèrent ne croiser personne." },
       { again: true, when: "day", text: "Les toits, leurs passerelles de planches, leurs cordes à linge. Le vent sent la suie et l'eau du canal. Au loin, les Halles font une grande carène de tuiles brunes." },
-      { when: "night", text: "La nuit, les toits sont plus peuplés que les rues. Des silhouettes passent devant la lune d'une cheminée à l'autre, sans bruit, et chacune fait semblant de ne pas voir les autres." },
+      { when: "night", text: "La nuit, les toits sont plus peuplés que les rues. Des silhouettes passent devant la lune d'une cheminée à l'autre, sans bruit, et chacune feint d'ignorer les autres." },
       { first: true, text: "Sur la cheminée de l'ancienne teinturerie, à deux toises au-dessus de toi, une pie a bâti un nid énorme, hérissé de brindilles et de choses qui brillent." },
       { with: "lison", text: "Lison marche sur les planches comme sur le plat-bord de sa barque, sans regarder ses pieds. « Les toits, c'est un canal sans eau, dit-elle. On y tombe pareil. »" },
       { with: "tibere", text: "Tibère se tient à une cheminée, le teint gris. « Le Guet avait une règle, dit-il. On n'arrête personne au-dessus du deuxième étage. Je comprends pourquoi. »" },
@@ -411,7 +411,7 @@ Object.assign(P, {
 
   IG_poursuite_saut: { act: "I", title: "Le saut du canal", place: "gouttieres", urgent: 20,
     text: [
-      "Elle arrive au bord du dernier toit avant le canal, et elle ne ralentit pas. Entre ce toit et celui d'en face, il y a le canal des Gouttières, trois toises de vide et l'eau verte en bas. Une planche de couvreur est jetée en travers, trop courte d'une coudée, posée d'un côté seulement. Fauvette court sur la planche, saute la coudée qui manque, roule sur les tuiles d'en face, et se relève.",
+      "Elle arrive au bord du dernier toit avant le canal, et elle garde son allure. Entre ce toit et celui d'en face, le canal des Gouttières : trois toises de vide, et l'eau verte en bas. Une planche de couvreur est jetée en travers, trop courte d'une coudée, posée d'un seul côté. Fauvette court sur la planche, saute la coudée qui manque, roule sur les tuiles d'en face, et se relève.",
       "Elle se retourne. Elle attend de voir. La planche bascule encore un peu sur son appui.",
     ],
     choices: [
@@ -441,7 +441,7 @@ Object.assign(P, {
   IG_poursuite_perdue: { act: "I", title: "Les toits des Gouttières", place: "gouttieres",
     text: [
       "Tu la perds derrière une rangée de cheminées. Il y a là quatre chemins de planches, un trou de lucarne, une corde qui pend dans une cour, et le silence. Tu restes un moment à reprendre ton souffle, les mains sur les genoux.",
-      "Au loin, au-dessus des toits, la tour carrée des Drapiers dépasse le reste, avec sa cage à pigeons au sommet. Une silhouette rousse en escalade la façade, petite comme une mouche, et entre dans la cage. Elle ne sait pas que tu la vois.",
+      "Au loin, au-dessus des toits, la tour carrée des Drapiers dépasse le reste, avec sa cage à pigeons au sommet. Une silhouette rousse en escalade la façade, petite comme une mouche, et entre dans la cage. Elle se croit seule.",
       { with: "tibere", text: "Tibère arrive par l'escalier, rouge, en se tenant le côté. Il suit ton regard. « La tour des Drapiers. Fermée depuis la faillite de la guilde. Un bon endroit pour dormir, si on aime les pigeons. »" },
     ],
     fx: { flag: "ig:nid" },
@@ -452,7 +452,7 @@ Object.assign(P, {
 
   IG_nid: { act: "I", title: "La tour des Drapiers", place: "gouttieres", backName: "la tour des Drapiers",
     text: [
-      "La tour des Drapiers est carrée, de pierre grise, avec une horloge qui a perdu ses aiguilles. La porte est murée depuis la faillite de la guilde. Mais sur la face nord, des trous de boulin font une échelle à qui sait les voir, jusqu'à la cage aux pigeons du sommet : une loge de bois et de grillage, où roucoulent cent oiseaux.",
+      "La tour des Drapiers est carrée, de pierre grise, avec une horloge qui a perdu ses aiguilles. La porte est murée depuis la faillite de la guilde. Sur la face nord, des trous de boulin font une échelle à qui sait les voir, jusqu'à la cage aux pigeons du sommet : une loge de bois et de grillage, où roucoule une centaine d'oiseaux.",
       { if: { has: "ig:fauvette_vendue" }, text: "Le grillage de la cage pend, arraché. Sur la pierre, en dessous, des plumes, une couverture déchirée, un bol renversé. Les hommes de la Reine sont passés. Au loin, du côté du canal, on entend crier.", else: "Dans la cage, entre les perchoirs, il y a une paillasse, une couverture de cheval, un bol, un pot de miel, et une collection de choses brillantes alignées sur une poutre comme dans une vitrine." },
       { when: "night", if: { not: { has: "ig:fauvette_vendue" } }, text: "Fauvette dort, roulée dans la couverture, le poing fermé sur un cordon passé autour de son cou. Les pigeons dorment autour d'elle. Elle respire vite, comme ceux qui dorment en guettant." },
       { when: "day", if: { not: { has: "ig:fauvette_vendue" } }, text: "La cage est vide, à cette heure. Fauvette travaille. Elle reviendra au crépuscule, quand les toits se vident." },
@@ -469,7 +469,7 @@ Object.assign(P, {
   IG_nid_attente: { act: "I", title: "La cage aux pigeons", place: "gouttieres", takes: "evening",
     text: [
       "Tu attends dans la cage, assis{e} sur la paillasse, avec les pigeons qui marchent sur tes bottes. Sur la poutre, sa vitrine : une boucle de ceinture, trois dés d'os, un peigne d'écaille, une médaille de pèlerin, une petite tête de poupée en porcelaine. Rien de tout cela ne vaut deux liards. Tout est rangé avec soin, à égale distance.",
-      "Au crépuscule, elle arrive par les trous de boulin, passe la tête par la trappe, et te voit. Elle ne crie pas. Elle sort un rasoir de sa manche et l'ouvre, d'un coup de pouce.",
+      "Au crépuscule, elle arrive par les trous de boulin, passe la tête par la trappe, et te voit. Elle garde le silence. Elle sort un rasoir de sa manche et l'ouvre, d'un coup de pouce.",
     ],
     choices: [{ label: "Lever les mains, lentement", to: "IG_rencontre" }] },
 
@@ -588,7 +588,7 @@ Object.assign(P, {
 
   IG_guetapens_combat: { act: "I", title: "Sous le pont des Cordiers", place: "gouttieres",
     text: [
-      "Boscot soupire comme un homme qu'on dérange à table. Il lâche la main de Fauvette, ramasse son maillet, et vient vers toi. Les deux casseurs lâchent la fille pour le suivre. Fauvette tombe à genoux dans la vase, puis se relève, et elle ne s'enfuit pas.",
+      "Boscot soupire comme un homme qu'on dérange à table. Il lâche la main de Fauvette, ramasse son maillet, et vient vers toi. Les deux casseurs lâchent la fille pour le suivre. Fauvette tombe à genoux dans la vase, puis se relève, et elle reste.",
     ],
     combat: { title: "Sous le pont des Cordiers", enemies: [{ id: "ig_boscot", n: 1 }, { id: "ig_casseur", n: 2 }],
       win: { fx: { flag: "ig:reine_fachee", ep: ["seance", 800] }, to: "IG_sauvee" }, lose: { to: "IG_guetapens_perdu" } },
@@ -612,7 +612,7 @@ Object.assign(P, {
 
   IG_guetapens_perdu: { act: "I", title: "Sous le pont des Cordiers", place: "gouttieres",
     text: [
-      "Tu te réveilles dans la vase, la joue contre le flanc d'une barque. Il fait nuit. Ta tête bourdonne comme un rucher. Sous l'arche, il n'y a plus personne. Sur la bitte d'amarrage, quelqu'un a laissé le cordon de cuir, coupé, sans rien au bout.",
+      "Tu te réveilles dans la vase, la joue contre le flanc d'une barque. Il fait nuit. Ta tête bourdonne comme un rucher. Sous l'arche, personne. Sur la bitte d'amarrage, quelqu'un a laissé le cordon de cuir, coupé, sans rien au bout.",
       "Une laveuse, sur le quai, rince son linge à la lanterne. « Ils l'ont emmenée à la Cour, dit-elle sans lever la tête. Entière. Boscot a dit que la Reine déciderait. Il avait l'air de quelqu'un qui préfère que ce soit la Reine qui décide. »",
     ],
     fx: { pv: -2 },
@@ -708,7 +708,7 @@ Object.assign(P, {
 
   IG_dette_troc: { act: "I", title: "La balance de la Reine", place: "gouttieres",
     text: [
-      "Tu poses sur la table ce que tu as trouvé dans les Gouttières. Margaux sort un trébuchet d'orfèvre, une pierre de touche, un flacon d'eau-forte, et une loupe de cristal. Elle ne se presse pas. Les commis se sont levés pour voir.",
+      "Tu poses sur la table ce que tu as trouvé dans les Gouttières. Margaux sort un trébuchet d'orfèvre, une pierre de touche, un flacon d'eau-forte, et une loupe de cristal. Elle prend son temps. Les commis se sont levés pour voir.",
     ],
     choices: troc("IG_dette_fin").concat([{ back: "IG_dette_reine" }]) },
 
@@ -761,7 +761,7 @@ Object.assign(P, {
 Object.assign(P, {
   IG_canal: { act: "I", title: "Le canal des Gouttières", place: "gouttieres", backName: "le canal des Gouttières",
     text: [
-      { first: true, text: "Le canal des Gouttières est le plus vieux de Salvèze, et le plus étroit. Ses quais sont de pierre noire, rongée au ras de l'eau, plantés de pieux de chêne où l'on amarre les barques des laveuses. L'eau est verte, épaisse, et elle sent l'écorce de tan, le savon noir et la vase. À l'endroit où il fait un coude, un vieux passeur attend sur une barque plate, une perche en travers des genoux, qu'on veuille aller de l'autre côté." },
+      { first: true, text: "Le canal des Gouttières est le plus vieux de Salvèze, et le plus étroit : deux barques s'y croisent en rentrant les rames. Ses quais sont de pierre noire, rongée au ras de l'eau, plantés de pieux de chêne où l'on amarre les barques des laveuses. L'eau est verte, épaisse, et elle sent l'écorce de tan, le savon noir et la vase. À l'endroit où il fait un coude, un vieux passeur attend sur une barque plate, une perche en travers des genoux, qu'on veuille aller de l'autre côté." },
       { again: true, when: "day", text: "Le canal des Gouttières, ses laveuses à genoux sur les marches, ses battoirs qui claquent. Le passeur somnole sur sa barque, au coude." },
       { again: true, when: "night", text: "Le canal la nuit : une lanterne sur la barque du passeur, et l'eau noire qui monte doucement le long des marches. On entend les rats sur les pieux, et, de temps en temps, rien du tout, ce qui est pire." },
       { when: "night", after: "voile:ig_lu_sonne", text: "Tu tends l'oreille vers le coude du canal. Sous l'eau, très loin, quelque chose fait un son rond, qui ne finit pas tout à fait." },
@@ -855,7 +855,7 @@ Object.assign(P, {
 
   IG_cloche_rate: { act: "I", title: "Le canal des Gouttières", place: "gouttieres",
     text: [
-      "L'eau te prend, te retourne, te colle à la vase. Tu ne sais plus où est le haut. Ta main heurte un pieu, glisse sur les moules, puis une corde se tend à ta cheville et te tire, sans douceur, vers une lumière jaune. Tu sors la tête en vomissant de l'eau verte.",
+      "L'eau te prend, te retourne, te colle à la vase. Le haut et le bas se confondent. Ta main heurte un pieu, glisse sur les moules, puis une corde se tend à ta cheville et te tire, sans douceur, vers une lumière jaune. Tu sors la tête en vomissant de l'eau verte.",
       "Lubin te hisse dans la barque par la ceinture comme un sac de farine. « Voilà, dit-il. Maintenant tu sais ce que ça fait. La plupart, ça leur suffit. »",
       { with: "lison", text: "Lison remonte à son tour, de l'autre côté de la barque. « Tu as nagé vers le nord, dit-elle. Elle est au sud. Recommence quand tu auras arrêté de trembler. »" },
     ],
@@ -911,7 +911,7 @@ Object.assign(P, {
 Object.assign(P, {
   IG_fontaine: { act: "I", title: "La Fontaine-Sourde", place: "gouttieres", backName: "la place de la Fontaine-Sourde",
     text: [
-      { first: true, text: "La place est un triangle de pavés gras entre trois maisons à encorbellement. Au milieu, la fontaine : un bassin octogonal de pierre grise, et au-dessus, adossé à une colonne, un mascaron de femme couronnée, les yeux ouverts, la bouche close, les lèvres serrées. L'eau ne sort pas de sa bouche. Elle sort de ses deux oreilles, en deux filets minces, et tombe dans le bassin avec un bruit de conversation." },
+      { first: true, text: "La place est un triangle de pavés gras entre trois maisons à encorbellement. Au milieu, la fontaine : un bassin octogonal de pierre grise et, adossé à une colonne au-dessus, un mascaron de femme couronnée, les yeux ouverts, les lèvres serrées. L'eau sort de ses deux oreilles, en deux filets minces, et tombe dans le bassin avec un bruit de conversation." },
       { first: true, text: "On l'appelle la Fontaine-Sourde parce que personne, dit-on, ne l'écoute. Les porteuses d'eau du quartier y remplissent leurs seaux à la file, avec des jougs d'épaule et des chapeaux de paille, et elles se taisent en le faisant, toutes, comme on se tait à l'église." },
       { again: true, when: "day", text: "La Fontaine-Sourde, son mascaron à la bouche close, ses deux filets d'eau. Les porteuses font la queue, leurs seaux à la main." },
       { again: true, when: "night", text: "La place est vide, la nuit. L'eau coule des oreilles de la reine de pierre, et ce bruit tient compagnie à qui passe." },
@@ -979,7 +979,7 @@ Object.assign(P, {
 
   IG_fontaine_rate: { act: "I", title: "La couronne de la reine", place: "gouttieres",
     text: [
-      "La couronne bouge d'un doigt, puis se bloque. Un filet d'eau jaillit de travers et t'arrose de la tête aux pieds. Sur la place, quelqu'un rit, puis plusieurs. Les porteuses, elles, ne rient pas : elles te regardent comme on regarde quelqu'un qui a marché sur une tombe.",
+      "La couronne bouge d'un doigt, puis se bloque. Un filet d'eau jaillit de travers et t'arrose de la tête aux pieds. Sur la place, quelqu'un rit, puis plusieurs. Les porteuses gardent leur sérieux : elles te regardent comme on regarde quelqu'un qui a marché sur une tombe.",
       "Bérangère s'approche, mains sur les hanches. « Seul{e}, tu n'y arriveras pas. Ma mère non plus. Si tu veux la reine, demande-nous. »",
     ],
     choices: [
@@ -1087,10 +1087,10 @@ Object.assign(P, {
   IG_halles: { act: "I", title: "Les Halles", place: "halles", hub: true, backName: "les Halles",
     text: [
       { first: true, text: "Les Halles de Salvèze sont une nef de bois plus longue que la cathédrale, posée sur des piliers de chêne gros comme des tours. Le toit de tuiles brunes descend presque jusqu'au sol. Dessous, dans une pénombre traversée de rayons de poussière, mille étals : la viande, le poisson, le sel, les draps, le fer, les livres, les épices, les choses de la mer, et, tout au fond, sous la grande poutre, ceux qui vendent ce qui a appartenu à quelqu'un d'autre." },
-      { first: true, text: "Le bruit est un mur. Les marchands crient leurs prix, les acheteurs crient les leurs, les débardeurs crient qu'on s'écarte. Ça sent la marée, le cuir, le pain chaud, le crottin. Un crieur juré, sur une estrade, annonce la criée des épaves pour la prochaine heure." },
+      { first: true, text: "Le bruit est un mur. Les marchands crient leurs prix, les acheteurs crient les leurs, les débardeurs crient qu'on s'écarte. L'air sent la marée, le cuir, le pain chaud, le crottin. Un crieur juré, sur une estrade, annonce la criée des épaves pour la prochaine heure." },
       { again: true, when: "day", text: "Les Halles, leur pénombre pleine de cris, leurs rayons de poussière. Sous la grande poutre, les receleurs ont déplié leurs tapis." },
       { again: true, when: "night", text: "Les Halles la nuit : les étals bâchés, les piliers comme une forêt. Des gardiens font leur ronde avec des chiens. Sous la grande poutre, quelques lanternes encore, autour de marchands qui ne vendent qu'à la nuit tombée." },
-      { if: { item: "oeil_pie" }, text: "Avec l'œil de pie dans ta poche, les Halles ne sont plus le même endroit. C'est un musée du faux, où chaque étal attend que tu regardes." },
+      { if: { item: "oeil_pie" }, text: "Avec l'œil de pie dans ta poche, les Halles deviennent un autre endroit : un musée du faux, où chaque étal attend que tu regardes." },
       { with: "tibere", first: true, text: "Tibère se tâte la ceinture par réflexe. « Aux Halles, on se fait voler deux fois : une fois en achetant, une fois en sortant. »" },
       { with: "fauvette", text: "Fauvette marche à côté de toi les mains dans le dos, très sage, pour montrer qu'elle ne vole pas aujourd'hui. Les marchands, eux, la reconnaissent et rapprochent leurs marchandises." },
     ],
@@ -1162,7 +1162,7 @@ Object.assign(P, {
 
   IG_bocquet_menace: { act: "I", title: "Alexis Bocquet", place: "halles",
     text: [
-      "Tu te penches au-dessus du tapis de Smyrne et tu parles bas : les gants gris, le croissant, la Carrus, ceux qu'il doit signaler. Bocquet a l'œil qui lui reste qui s'arrondit. Il regarde à droite, à gauche, puis dévisse lentement sa loupe.",
+      "Tu te penches au-dessus du tapis de Smyrne et tu parles bas : les gants gris, le croissant, la Carrus, ceux qu'il doit signaler. L'œil qui reste à Bocquet s'arrondit. Il regarde à droite, à gauche, puis dévisse lentement sa loupe.",
       "« Je n'ai rien dit, chuchote-t-il. Je ne dirai rien. Il paie bien, mais il fait peur, et vous, vous avez l'air de savoir des choses que personne ne vous a dites. Ça fait plus peur encore. » Il pousse vers toi la bague d'Odeline. « Pour la peine. Et dites-lui, si vous le voyez, que Bocquet n'a vu personne. »",
       { with: "tibere", text: "Tibère regarde Bocquet suer, et il a l'air de quelqu'un qui reconnaît une expression qu'il a vue dans un miroir." },
     ],
@@ -1351,7 +1351,7 @@ Object.assign(P, {
   IG_poissons: { act: "I", title: "La halle aux poissons", place: "halles",
     text: [
       "La halle aux poissons est un vacarme mouillé. Des anguilles dans des baquets, des harengs en tonnes, des raies pendues par la queue, et des poissonnières aux bras rouges qui crient plus fort que tout. Tu traverses, tu te fais bousculer, un gamin se cogne à toi, s'excuse, file.",
-      "Trois pas plus loin, une poissonnière hurle qu'on lui a volé sa bourse. Ses deux fils, des débardeurs, lâchent leurs paniers. L'un d'eux te montre du doigt : tu étais là. Et dans la poche de ta veste, ta main trouve une bourse de cuir graisseux, au cordon tranché, qui n'est pas à toi.",
+      "Trois pas plus loin, une poissonnière hurle qu'on lui a volé sa bourse. Ses deux fils, des débardeurs, lâchent leurs paniers. L'un d'eux te montre du doigt : tu étais là. Et dans la poche de ta veste, ta main trouve une bourse de cuir graisseux, au cordon tranché, qui appartient à quelqu'un d'autre.",
       "Le gamin qui t'a bousculé{e} s'est arrêté au bout de l'allée. Il crie avec les autres, en te montrant : « {{oreille#ig_po_gamin|C'est lui, m'dame, je l'ai vu faire|C'est moi, et si elle regarde le cordon, elle verra ma coupe en biseau, celle que Fauvette m'a apprise}} ! »",
       { with: "fauvette", text: "Fauvette a déjà repéré le gamin. Elle siffle entre ses dents, deux notes, et le gamin pâlit." },
     ],
