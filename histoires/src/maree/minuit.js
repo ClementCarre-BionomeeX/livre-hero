@@ -30,7 +30,7 @@ module.exports = {
       { if: { has: "oriane_malade=oui" }, text: "Dans la galerie des Sceaux, Oriane Valcor s'appuie une minute au chambranle d'une fenêtre. Le vin d'orange d'hier soir lui tient encore les mains froides. Elle compte jusqu'à dix, se redresse, et entre." },
       { if: { not: { has: "oriane_malade=oui" } }, text: "Dans la galerie des Sceaux, Oriane Valcor relit une dernière fois l'ordre du jour. Elle le connaît par cœur. Elle le relit quand même, pour occuper ses mains." },
       { if: { has: "sv3=conseil" }, text: "Sévan Aldric monte les marches du palais dans sa robe de médecin, les chausses trempées. Il s'arrête sur la dernière, se retourne vers la lagune, et fait un signe de croix, sans savoir pour qui." },
-      { if: { has: "sv3=anselme" }, text: "Le cortège du Temple monte les marches en chantant. Sévan Aldric marche à la droite du Grand Prêtre, la tête basse. Il chante avec les autres, et sa voix ne porte pas." },
+      { if: { has: "sv3=anselme" }, text: "Le cortège du Temple monte les marches en chantant. Sévan Aldric marche à la droite du Grand Prêtre, la tête basse. Il chante avec les autres, d'une voix qui se perd." },
       { if: { has: "sv3=tour" }, text: "Au pied de la Tour du Guet, Sévan Aldric est assis sur une borne, les yeux sur une fenêtre du deuxième étage. Il a choisi d'être là. Il se demande, une fois encore, si c'était le bon endroit." },
       { if: { has: "sv3=fui" }, text: "Loin vers les Passes, une barque de pêche file vers le large avec un passager en manteau sombre. Sévan Aldric regarde la ville s'éloigner. La grande lanterne n'est pas encore allumée." },
       { if: { has: "sv3=enferme" }, text: "Dans une cellule du Temple, Sévan Aldric entend le cortège partir sans lui. Il compte les pas qui s'éloignent sur le quai, jusqu'au dernier." },
@@ -38,7 +38,7 @@ module.exports = {
       { if: { has: "jasse3=fuite" }, text: "Dans les roseaux du nord, une barque plate glisse sans lanterne. Deux neveux de la Mère Gouge rament. Jasse Ferrant, à la proue, tient la main de sa sœur, et ne se retourne pas vers le palais." },
       { if: { has: "jasse3=pris" }, text: "Dans une cellule de la Tour, Jasse Ferrant a le front contre la grille. Par la lucarne, il voit le haut de la tour du palais, et la grande lanterne éteinte qui attend." },
       { if: { has: "bp3=palais" }, text: "Devant le palais, la lagune se couvre de barques. Elles arrivent de Bas-Port par tous les canaux, une lanterne à la proue, sans un cri. Les conseillers qui montent les marches les regardent arriver, et pressent le pas." },
-      { if: { has: "bp3=digue" }, text: "Sur la digue d'en face, une ligne de lanternes s'allume, une à une. Bas-Port est venu regarder, de loin, sans approcher." },
+      { if: { has: "bp3=digue" }, text: "Sur la digue d'en face, une ligne de lanternes s'allume, une à une. Bas-Port est venu regarder, de loin." },
     ],
     choices: [{ label: "Douze coups", to: "Z_salle" }] },
 
