@@ -69,7 +69,7 @@ module.exports = {
   K_manteau: {
     title: "Le manteau de Germain", place: "salle", back: true, fx: { item: "acte_vente" },
     text: [
-      "Un manteau de drap fin, trop fin pour la montagne, avec un col de loutre. Tu passes la main dans les poches pendant que la salle est vide. Un mouchoir, un briquet d'amadou, de la menue monnaie.",
+      "Un manteau de drap fin, trop fin pour la montagne, avec un col de loutre. Tu passes la main dans les poches pendant que la salle est vide, et tu y trouves un mouchoir, un briquet d'amadou, de la menue monnaie.",
       "Dans la poche intérieure, un papier plié en quatre, d'un beau papier de notaire.",
     ],
   },
@@ -77,7 +77,7 @@ module.exports = {
     title: "Le manteau de Germain", place: "salle", back: true, fx: { regard: { germain: "mefiant" } },
     text: [
       "Ta main est dans la poche du manteau quand la porte s'ouvre. Germain secoue la neige de ses bottes, te voit, et sourit.",
-      "« Il fait froid, hein ? dit-il. Tu cherchais tes gants ? Les tiens sont sur le banc. » Il reprend son manteau, l'enfile, et ressort sans se presser. Il n'a rien dit d'autre. Il n'en avait pas besoin.",
+      "« Il fait froid, hein ? dit-il. Tu cherchais tes gants ? Les tiens sont sur le banc. » Il reprend son manteau, l'enfile, et ressort sans se presser. Ces quelques mots lui ont suffi.",
     ],
   },
   M_cheminee: {
@@ -216,7 +216,7 @@ module.exports = {
   K_registres_rien: {
     title: "Les registres", place: "bureau", back: true,
     text: [
-      "Des colonnes de chiffres, des noms de marchands, des stères et des toises. Tu tournes les pages pendant une heure. Les chiffres se brouillent. Tu refermes le registre sans avoir rien appris d'autre que le prix du sapin.",
+      "Des colonnes de chiffres, des noms de marchands, des stères et des toises. Tu tournes les pages pendant une heure, jusqu'à ce que les chiffres se brouillent, et tu refermes le registre en ayant appris le prix du sapin, et rien d'autre.",
     ],
   },
 
@@ -330,7 +330,7 @@ module.exports = {
     title: "La chambre d'Odile et de Germain", place: "etage", back: true, fx: { regard: { odile: "hostile" }, attache: { odile: -1 }, geste: "g_fouille_odile" },
     text: [
       "Tu as la main sur le tiroir d'Odile quand le plancher craque derrière toi. Odile est dans l'encadrement de la porte.",
-      "« Ferme ce tiroir », dit-elle. Tu le fermes. Elle reste immobile et muette. Elle attend que tu sois sorti{e}, et quand tu passes près d'elle, elle tourne la tête pour ne pas te voir passer.",
+      "« Ferme ce tiroir », dit-elle. Tu le fermes. Elle attend, immobile et muette, que tu sois sorti{e}, et quand tu passes près d'elle, elle tourne la tête pour ne pas te voir.",
     ],
   },
   K_amis: {
@@ -367,7 +367,7 @@ module.exports = {
   K_malles: {
     title: "Les malles", place: "grenier", back: true, fx: { clue: "e_firmin" },
     text: [
-      "La première malle contient des robes d'avant ta naissance. La deuxième, des draps. La troisième, du papier : des liasses de lettres classées par années, chacune nouée d'une ficelle.",
+      "La première malle contient des robes d'avant ta naissance ; la deuxième, des draps ; la troisième, du papier : des liasses de lettres classées par années, chacune nouée d'une ficelle.",
       "Ce sont les lettres de ton oncle Firmin, de Varenne. Une par mois, pendant douze ans. Tu en ouvres une au hasard, puis une autre, puis dix.",
       "« Tu me demandes encore comment il va. Il va. Il a eu sa place chez le notaire. » « Tu me demandes encore comment il va. Il a été malade en mars, rien de grave. » « Tu me demandes encore comment il va. Il ne parle jamais de toi. Je ne sais pas si c'est bon signe. »",
       "Firmin écrivait « il » dans toutes les lettres, quel que fût le sujet, à la manière des vieux. Cela n'a pas d'importance. Ce qui en a, c'est qu'elle demandait. Cent quarante-quatre fois.",
@@ -407,7 +407,7 @@ module.exports = {
   K_bucher: {
     title: "Le bûcher", place: "cour", back: true,
     text: [
-      "Le bûcher, sous son auvent, est plein jusqu'au toit : des stères de hêtre fendu, rangés comme un mur. Contre la paroi du fond, des outils pendus à des clous. Une hache, des scies, une fourche.",
+      "Le bûcher, sous son auvent, est plein jusqu'au toit : des stères de hêtre fendu, rangés comme un mur. Contre la paroi du fond pendent les outils, chacun à son clou : une hache, des scies, une fourche.",
       "Et une gaffe : une longue perche de frêne terminée par un crochet de fer, comme en ont les bateliers. Elle n'a rien à faire ici, à trois cents pas de toute barque.",
       { calme: true, text: "Le frêne, à un mètre du crochet, est poli par l'usure, comme si des mains l'avaient serré très fort, une fois, longtemps." },
     ],
@@ -454,7 +454,7 @@ module.exports = {
   K_poutre: {
     title: "La poutre", place: "etang",
     text: [
-      "Tu la cherchais sans le savoir. La poutre maîtresse, au-dessus du banc, à hauteur de main. Gravées au couteau, profondément, deux initiales : la tienne et un J. Et sous elles, une date. L'hiver de tes dix-sept ans. Le mois de janvier.",
+      "Tu la cherchais sans le savoir. La poutre maîtresse, au-dessus du banc, à hauteur de main, porte deux initiales gravées au couteau, profondément : la tienne et un J ; et sous elles, une date : le mois de janvier, l'hiver de tes dix-sept ans.",
       "Tu poses la main dessus. Le bois est froid, et sous ta paume les lettres sont nettes comme au premier jour.",
     ],
     fx: { clue: "e_poutre" },
