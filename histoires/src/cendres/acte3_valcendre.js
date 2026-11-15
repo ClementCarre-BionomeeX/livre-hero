@@ -7,18 +7,18 @@ var NOMME = { has: "sansnom:page" };
 module.exports = {
   III_v_route: P({ title: "Le chevalier sur la route", place: null,
     text: [
-      "Les tours blanches grandissent à chaque pas. Elles ne reculent plus. Sur la route, quelqu'un vous attend, assis sur une borne, en armure d'argent mat, un masque blanc posé sur les genoux.",
-      "Il a vingt ans, des yeux gris presque blancs, et ici, dans le blanc, on le voit très bien. On ne l'oublie pas. Il se lève quand vous arrivez.",
+      "Les tours blanches grandissent à chaque pas, enfin à portée. Sur la route, quelqu'un vous attend, assis sur une borne, en armure d'argent mat, un masque blanc posé sur les genoux.",
+      "Il a vingt ans, des yeux gris presque blancs, et ici, dans le blanc, on le voit très bien, et on se souvient de lui. Il se lève quand vous arrivez.",
       { if: NOMME, text: "« Je m'appelle Ildaën, dit-il. Je peux le dire, maintenant. Une page, dans un coffre, à Vasselin. On me l'a rendue. » Il sourit, d'un sourire de garçon. « C'est étrange, d'avoir un nom. Ça pèse. »" },
       { if: { not: NOMME }, text: "« Je n'ai pas de nom, dit-il. Pas encore. Il est dans un coffre, là-haut. Tu peux m'appeler comme les autres : le Sans-Nom. »" },
-      { if: { all: [{ has: "sansnom:ancre_lisandre" }, { present: "lisandre" }] }, text: "Il voit Lisandre. Il s'avance, et il lui prend la main, devant tout le monde. « La reine qui rit, lui dit-il. Je l'ai gardée. Elle rit encore. » Lisandre ne sait pas de quoi il parle. Elle le laisse tenir sa main." },
-      "Puis il te regarde, toi, longtemps, et quelque chose passe sur son visage. « Mon père m'a envoyé t'attendre, dit-il. Il a entendu le bourdon. Il ne sait pas qui l'a sonné. Moi, je crois que je sais. »",
+      { if: { all: [{ has: "sansnom:ancre_lisandre" }, { present: "lisandre" }] }, text: "Il voit Lisandre. Il s'avance, et il lui prend la main, devant tout le monde. « La reine qui rit, lui dit-il. Je l'ai gardée. Elle rit encore. » Lisandre cherche de quoi il parle, en vain. Elle le laisse tenir sa main." },
+      "Puis il te regarde, toi, longtemps, et quelque chose passe sur son visage. « Mon père m'a envoyé t'attendre, dit-il. Il a entendu le bourdon. Qui l'a sonné ? Il l'ignore. Moi, je crois que je sais. »",
     ],
     choices: [{ label: "Le suivre", fx: { join: "sansnom", conf: { sansnom: 10 } }, to: "@route" }] }),
 
   III_v_porte: P({ title: "Valcendre", place: "valcendre", hub: true,
     text: [
-      { first: true, text: "Les portes de Valcendre sont ouvertes. Elles n'ont jamais été fermées. Derrière, une ville. Une ville entière, debout. Des rues pavées, des fontaines, des marchés, des enfants qui courent, des chiens. Des tours fines comme des aiguilles, reliées par des ponts. Tout est blanc, et tout est vivant." },
+      { first: true, text: "Les portes de Valcendre sont ouvertes, et leurs gonds ont la patine des portes qui le sont depuis toujours. Derrière, une ville. Une ville entière, debout. Des rues pavées, des fontaines, des marchés, des enfants qui courent, des chiens. Des tours fines comme des aiguilles, reliées par des ponts si légers qu'un chat y hésiterait. Tout est blanc, et tout est vivant." },
       "Les gens portent des vêtements d'un autre temps, des manteaux à capuchon brodés d'ours et d'étoiles. Ils parlent la langue que tu parles en dormant. Ils te regardent passer. Le bruit court devant toi, de rue en rue, plus vite que tes pas.",
       "Au centre, la grand-place. Au fond, le palais, une tour plus haute que les autres, et sur la plus haute pointe, une couronne de givre qui brille sans soleil.",
     ],
@@ -42,8 +42,8 @@ module.exports = {
   III_v_marche: P({ title: "Le marché", place: "valcendre",
     text: [
       "On vend des choses disparues : des fruits d'une espèce éteinte, des étoffes d'une couleur que l'esquarrois ignore, des jouets. On paie avec des chansons. Tu vois une femme acheter un panier de pommes rouges contre un couplet.",
-      "Une marchande te tend une pomme. Elle ne veut rien. « Pour le fils de Maëra », dit-elle, et les gens autour hochent la tête.",
-      "La pomme a le goût d'une pomme. Exactement. Tu avais oublié que les pommes avaient un goût aussi précis.",
+      "Une marchande te tend une pomme, et refuse ta chanson. « Pour le fils de Maëra », dit-elle, et les gens autour hochent la tête.",
+      "La pomme a le goût d'une pomme. Exactement : acide d'abord, puis sucrée, avec un fond de cidre près du trognon. Tu avais oublié que les pommes avaient un goût aussi précis.",
     ],
     choices: [{ fx: { pv: 4, flag: "iii:pomme" }, back: "III_v_porte" }] }),
 
@@ -51,8 +51,8 @@ module.exports = {
     text: [
       "Au milieu de la grand-place, sur un socle de pierre noire, cinq statues de glace. Cinq personnes, grandeur nature, debout, dos à dos, comme pour se défendre.",
       "Un homme en armure, avec une tour sur le plastron. Une femme corpulente, avec une gerbe brodée sur la manche. Un homme maigre, en manteau de marin, avec une barque au pommeau de son poignard. Un chevalier jeune, avec un cerf sur l'écu. Et un homme en robe longue, tenant une plume et une clé.",
-      "Ils ne sont pas sculptés. Ils sont pris. Dans la glace, leurs yeux bougent.",
-      "« Les fondateurs, dit le Sans-Nom à côté de toi. Pas eux : ce qu'il reste d'eux. Leurs souvenirs de ce jour-là. Le monde les a oubliés, alors ils sont venus ici, comme tout le reste. Et nous les avons gardés. »",
+      "Aucun ciseau ne les a taillés : ils sont pris. Dans la glace, leurs yeux bougent.",
+      "« Les fondateurs, dit le Sans-Nom à côté de toi. Ou plutôt ce qu'il reste d'eux. Leurs souvenirs de ce jour-là. Le monde les a oubliés, alors ils sont venus ici, comme tout le reste. Et nous les avons gardés. »",
       { with: "ysolde", text: "Ysolde regarde le chevalier au cerf. Il a son menton. Il a ses mains." },
       { with: "hylas", text: "Hylas regarde l'homme à la plume et à la clé. Il a l'air de reconnaître un confrère." },
     ],
@@ -60,8 +60,8 @@ module.exports = {
 
   III_v_noms: P({ title: "La maison des noms dits", place: "valcendre",
     text: [
-      "Une grande salle ronde, aux murs nus. Des bancs. Sur les bancs, des gens assis, qui parlent à voix basse, chacun pour soi. Ils disent des noms. Chacun a les siens : il les dit, du premier au dernier, puis il recommence.",
-      "« Les Orsans n'écrivaient pas, dit le Sans-Nom. Ils se disaient. Chacun portait cent noms, et les disait chaque jour, et les apprenait à ses enfants. Tant qu'on les dit, ils sont. » Il regarde la salle. « Quand les fondateurs sont venus, ils ont tué ceux qui disaient. Il n'est resté personne pour dire les noms des morts. Alors ils sont tous venus ici. »",
+      "Une grande salle ronde, aux murs nus, trente pas de diamètre. Des bancs, en cercles serrés. Sur les bancs, des gens assis, qui parlent à voix basse, chacun pour soi. Ils disent des noms. Chacun a les siens : il les dit, du premier au dernier, puis il recommence.",
+      "« Les Orsans ignoraient l'écriture, dit le Sans-Nom. Ils se disaient. Chacun portait cent noms, et les disait chaque jour, et les apprenait à ses enfants. Tant qu'on les dit, ils sont. » Il regarde la salle. « Quand les fondateurs sont venus, ils ont tué ceux qui disaient. Les noms des morts sont restés sans voix. Alors ils sont tous venus ici. »",
       { if: { has: "nord:chant_lu" }, text: "Tu penses à la grande paroi de la grotte des Corbeaux. Quelqu'un a gravé les noms dans la pierre, malgré tout. Pour qu'ils tiennent sans personne." },
     ],
     choices: [{ fx: { flag: "iii:noms_dits" }, back: "III_v_porte" }] }),
@@ -69,15 +69,15 @@ module.exports = {
   III_v_ysolde: P({ title: "Les remparts", place: "valcendre",
     text: [
       "Ysolde fait le tour des remparts. C'est plus fort qu'elle. Les soldats orsans, sur le chemin de ronde, la regardent passer avec curiosité : une guerrière d'Esquarre, avec une épée d'Esquarre. Un vieux sergent la salue, à leur manière, la main ouverte sur le cœur.",
-      "« Les murs ne servaient à rien, dit-il dans sa langue, et tu traduis. Ils sont venus par la rivière, de nuit, avec le feu. Le chevalier au cerf est entré le premier. » Il regarde Ysolde. « Il te ressemble. »",
+      "« Les murs ont servi à peu de chose, dit-il dans sa langue, et tu traduis. Ils sont venus par la rivière, de nuit, avec le feu. Le chevalier au cerf est entré le premier. » Il regarde Ysolde. « Il te ressemble. »",
       "Ysolde lui rend son salut, la main ouverte sur le cœur. Elle se tait.",
     ],
     choices: [{ fx: { conf: { ysolde: 5 } }, back: "III_v_porte" }] }),
 
   III_v_lisandre: P({ title: "Les chœurs", place: "valcendre",
     text: [
-      "Dans une cour, un chœur répète. Vingt voix, sans instruments, une musique qui n'a pas de mesure, qui monte et s'étale comme une marée. Lisandre est restée sur le seuil, les larmes aux yeux.",
-      "La cheffe du chœur, une vieille femme, lui fait signe d'entrer. Lisandre entre. On lui donne une place. Elle chante avec eux, sans connaître la musique, et à la troisième reprise elle la connaît.",
+      "Dans une cour, un chœur répète. Vingt voix, sans instruments, une musique sans mesure, qui monte et s'étale comme une marée. Lisandre est restée sur le seuil, les larmes aux yeux.",
+      "La cheffe du chœur, une vieille femme, lui fait signe d'entrer. Lisandre entre. On lui donne une place. Elle chante avec eux, la musique inconnue d'abord, et à la troisième reprise elle la sait.",
       { if: { souv: "lisandre:voix" }, text: "Elle chante avec sa vraie voix. Rauque, trop grave. Ici, c'est la voix qui va." },
       { if: { not: { souv: "lisandre:voix" } }, text: "Elle chante juste, et beau, comme à la cour. La vieille femme l'écoute, et secoue la tête, doucement, avec tristesse : il manque quelque chose. Lisandre le sait." },
     ],
@@ -86,25 +86,25 @@ module.exports = {
   III_v_corbe: P({ title: "Celle qui cherche", place: "valcendre",
     text: [
       "Corbe dévisage tous les gens qu'elle croise. Tu finis par lui demander qui elle cherche.",
-      { if: { has: "askel:rite" }, text: "« Ma mère, dit-elle. Elle est entrée par le col, à ma place. Elle doit être quelque part. » Elle la cherche toute la journée, dans les rues blanches. Le soir, une passante lui dit qu'une femme du clan, en robe blanche, est passée par Valcendre, il y a un jour ou cent ans, et a continué vers le nord, vers le bout du blanc, où il n'y a plus rien. Corbe hoche la tête. « Elle tient la porte. Elle chante. » Elle ne la cherche plus." },
-      { if: { not: { has: "askel:rite" } }, text: "« L'aïeule, dit-elle. Celle qui m'a appris les chants. Elle est morte dans la glace, dans la grotte. Elle doit être ici. » Elle ne la trouve pas. Le soir, un vieil homme lui dit que ceux qui chantent pour tenir une porte ne viennent pas à Valcendre. Ils restent à la porte." },
+      { if: { has: "askel:rite" }, text: "« Ma mère, dit-elle. Elle est entrée par le col, à ma place. Elle doit être quelque part. » Elle la cherche toute la journée, dans les rues blanches. Le soir, une passante lui dit qu'une femme du clan, en robe blanche, est passée par Valcendre, il y a un jour ou cent ans, et a continué vers le nord, vers le bout du blanc, où s'arrête tout. Corbe hoche la tête. « Elle tient la porte. Elle chante. » Elle arrête ses recherches." },
+      { if: { not: { has: "askel:rite" } }, text: "« L'aïeule, dit-elle. Celle qui m'a appris les chants. Elle est morte dans la glace, dans la grotte. Elle doit être ici. » Ses recherches restent vaines. Le soir, un vieil homme lui dit que ceux qui chantent pour tenir une porte restent à la porte, loin de Valcendre." },
     ],
     choices: [{ fx: { conf: { corbe: 5 } }, back: "III_v_porte" }] }),
 
   III_v_pie: P({ title: "Les voleurs de Valcendre", place: "valcendre",
     text: [
       "Tu retrouves Pie dans une ruelle, assis sur une marche, en grande conversation avec trois gamins orsans, par gestes. Il leur fait des tours de pièce. Ils lui font des tours de pomme.",
-      "« Ils n'ont rien à voler, ici, dit Pie quand il te voit. Tout est à tout le monde. Personne ne garde rien. » Il a l'air désemparé. « Je ne sais pas quoi faire de mes mains, dans une ville comme ça. »",
+      "« Ici, le vol est impossible, dit Pie quand il te voit. Tout est à tout le monde. Chacun laisse tout traîner. » Il a l'air désemparé. « Mes mains se sentent inutiles, dans une ville comme ça. »",
       "Un des gamins lui prend une pièce dans la poche, très proprement, et la lui rend, très fier. Pie éclate de rire.",
     ],
     choices: [{ fx: { conf: { pie: 5 } }, back: "III_v_porte" }] }),
 
   III_v_palais: P({ title: "Le palais de givre", place: "valcendre",
     text: [
-      "Le palais n'a pas de gardes. Les portes s'ouvrent devant le Sans-Nom. Des escaliers, des galeries, des salles vides, toutes blanches, toutes froides, et au sommet, une salle ronde, ouverte sur le blanc, sans murs, sous un toit porté par des colonnes de glace.",
+      "Le palais est sans gardes. Les portes s'ouvrent devant le Sans-Nom. Des escaliers, des galeries, des salles vides, toutes blanches, toutes froides, et au sommet, une salle ronde, ouverte sur le blanc, sans murs, sous un toit porté par des colonnes de glace.",
       "Au milieu, un homme assis sur un siège de pierre. Il est très grand. Il est très vieux, et il a l'air d'avoir quarante ans. Il porte sur la tête une couronne de givre qui fond et se refait sans cesse, goutte à goutte. Il a les yeux gris presque blancs.",
       "Le Roi-Hiver. Ardaël.",
-      "Il se lève quand tu entres. Il se tait. Il descend les trois marches. Il s'arrête devant toi.",
+      "Il se lève quand tu entres, en silence. Il descend les trois marches. Il s'arrête devant toi.",
     ],
     choices: [{ label: "Attendre", to: "III_v_ardael" }] }),
 
@@ -126,7 +126,7 @@ module.exports = {
   III_v_pourquoi: P({ title: "Pourquoi", place: "valcendre",
     fx: { clue: "n_ardael" },
     text: [
-      "Ardaël retourne s'asseoir. Il parle longtemps, et il ne crie jamais.",
+      "Ardaël retourne s'asseoir. Il parle longtemps, sans jamais élever la voix.",
       "« Nous vivions dans la vallée qu'on appelle aujourd'hui des Cendres. Nous ne savions pas écrire. Nous nous disions. Cinq maisons sont venues du sud, avec des chevaux, des registres, et la faim de nos terres. Une nuit d'automne, elles ont brûlé la vallée. Tout. Ceux qui disaient les noms en premier. Ensuite les autres. »",
       "« Puis elles ont eu honte. Ou peur. Elles ont fait un pacte avec l'Hiver : que le monde nous oublie, et qu'il oublie ce qu'elles avaient fait. L'Hiver a pris le pacte. Il nous a pris, nous, morts et vivants, et nous a mis ici. Et il a bâti une digue avec leur oubli. »",
       "« La digue tenait. Puis un greffier a appris à vendre l'oubli. Chaque cession, chaque village vendu, chaque reine soulagée, alourdissait la digue. Elle s'est fendue. Ce qui passe par la fente, ce n'est pas moi. C'est nous. Ce sont tous les oubliés qui rentrent, et qui prennent la place de ce qu'on oublie là-haut. Ta Sauvelune n'est pas morte. Elle a été vendue. »",
