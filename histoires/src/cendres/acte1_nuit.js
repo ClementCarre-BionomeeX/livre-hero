@@ -20,7 +20,7 @@ module.exports = {
 
   N_tissot: P({ title: "Maître Hylas",
     text: [
-      { if: { has: "hylas:voie=attendre" }, text: "Il est là. Seul, au comptoir. La mère Tissot a fermé les volets, et il a la clé dans la main. Quand tu t'assieds à côté de lui, il ne tourne pas la tête. « Tu t'es enfin décidé », dit-il." },
+      { if: { has: "hylas:voie=attendre" }, text: "Il est là. Seul, au comptoir. La mère Tissot a fermé les volets, et il a la clé dans la main. Quand tu t'assieds à côté de lui, il garde la tête droite. « Tu t'es enfin décidé », dit-il." },
       { if: { not: { has: "hylas:voie=attendre" } }, text: "Le comptoir est vide. La mère Tissot essuie un verre. « Le vieux ? Il est remonté à la tour, ce soir. Pour la première fois en trente ans, il n'a pas fini son vin. » Elle te tend une feuille pliée. « Il a dit : si quelqu'un des montagnes vient avec une lettre, donne-lui ça. »" },
       { if: { all: [{ has: "hylas:voie=attendre" }, { not: { has: "hylas:oublie_enfant" } }] }, text: "Il tend la main. Il touche ton visage, du bout des doigts, comme il lit. Le front, les yeux, le menton. Il garde la main là un long moment. « Tu as grandi », dit-il. Rien d'autre." },
       { if: { all: [{ has: "hylas:voie=attendre" }, { has: "hylas:oublie_enfant" }] }, text: "Tu lui montres la lettre. Il la lit du bout des doigts, en suivant les creux de la plume. C'est son écriture. Il le sait. Il ne sait pas l'avoir écrite. « Je t'attendais, dit-il lentement. Je ne savais pas que c'était toi. »" },
@@ -31,7 +31,7 @@ module.exports = {
   N_foule: P({ title: "Dans la foule",
     text: [
       "La foule t'emporte jusqu'à la cour de la Chancellerie, puis dans un escalier immense, puis dans une galerie qui fait le tour d'une salle ronde, sans fenêtres, éclairée par cent lampes. En bas, un livre ouvert sur un lutrin, large comme une table. Des gradins pleins de gens en soie, assez de soie pour habiller une ville. Une femme en bleu, couronnée.",
-      "Il fait froid, dans la salle. Personne n'a l'air de le remarquer.",
+      "Il fait froid, dans la salle. La foule semble insensible au froid.",
     ],
     choices: [{ label: "Attendre minuit", to: "N_garde" }] }),
 
@@ -91,8 +91,8 @@ module.exports = {
 
   N_silence: P({ title: "Le silence",
     text: [
-      "Tu poses le luth. Tu ne chantes pas. La salle attend. Les secondes passent. Quelqu'un tousse. La reine se penche en avant.",
-      "Mordace ne s'est pas retourné. Il dit, sans élever la voix : « Le chœur. » Et du fond de la salle, quarante voix d'enfants, grêles, parfaitement justes, se mettent à chanter la ballade à ta place. Des enfants en gris, la tête rasée.",
+      "Tu poses le luth. Tu ne chantes pas. La salle attend. Le silence s'étire. Quelqu'un tousse. La reine se penche en avant.",
+      "Mordace reste de dos. Il dit, sans élever la voix : « Le chœur. » Et du fond de la salle, quarante voix d'enfants, grêles, parfaitement justes, se mettent à chanter la ballade à ta place. Des enfants en gris, la tête rasée.",
     ],
     choices: [{ label: "Minuit", to: "N_cloches" }] }),
 
@@ -116,9 +116,9 @@ module.exports = {
   N_cloches: P({ title: "Le grand beffroi",
     fx: { lead: "pie", away: ALL, leadQuiet: true },
     text: [
-      "Au sommet de la tour, sous la plume et la clé de fer, il y a une salle que personne ne voit jamais : le grand beffroi. Cent cordes descendent du plafond, tendues, et vont, par des poulies, par des gaines de cuir, jusqu'aux cent clochers de la ville. Au centre, une roue de chêne, grande comme une meule, cerclée de fer et graissée de frais, avec un seul levier. Quelqu'un en a pris soin récemment.",
+      "Au sommet de la tour, sous la plume et la clé de fer, il y a une salle dont la ville ignore tout : le grand beffroi. Cent cordes descendent du plafond, tendues, et vont, par des poulies, par des gaines de cuir, jusqu'aux cent clochers de la ville. Au centre, une roue de chêne, grande comme une meule, cerclée de fer et graissée de frais, avec un seul levier. Quelqu'un en a pris soin récemment.",
       { if: { has: "hylas:voie=cloches" }, text: "Le vieil aveugle est déjà là, assis sur la dernière marche, à bout de souffle. Il est venu par l'escalier. Il tient la porte ouverte pour toi. « Tu sens toujours la suie, dit-il. Bien. »" },
-      { if: { has: "pie:choix=liste" }, text: "La page arrachée est dans ta chemise. *Les cent, ensemble, à minuit.* Personne ne t'a cru, en ville. Alors tu es venu." },
+      { if: { has: "pie:choix=liste" }, text: "La page arrachée est dans ta chemise. *Les cent, ensemble, à minuit.* En ville, tes avertissements sont tombés dans le vide. Alors tu es venu." },
       { before: "pie:souvenir_donne", if: { has: "pie:choix=linette" }, text: "Linette est restée au grenier. Tu lui as dit de ne pas ouvrir. Elle a dit oui, maître." },
       { after: "pie:souvenir_donne", if: { has: "pie:choix=linette" }, text: "Linette est restée au grenier. Tu lui as dit de ne pas ouvrir. Elle a dit oui, sans demander pourquoi." },
       { if: { has: "pie:choix=boite" }, text: "La boîte de plomb est contre ta poitrine. Linette est quelque part en dessous, dans le chœur." },
@@ -146,7 +146,7 @@ module.exports = {
 
   N_cordes_rate: P({ title: "Les cent",
     text: [
-      "Tu n'as pas le temps. Un garde te jette contre le mur. En bas, très loin, une voix crie : *Maintenant.* La roue tourne. Les cent cordes se tendent ensemble, d'un coup, avec un bruit de harpe qu'on arrache.",
+      "Le temps te manque. Un garde te jette contre le mur. En bas, très loin, une voix crie : *Maintenant.* La roue tourne. Les cent cordes se tendent ensemble, d'un coup, avec un bruit de harpe qu'on arrache.",
       "Les cent cloches de Pallanche sonnent minuit en même temps.",
     ],
     choices: [{ label: "Minuit", to: "N_minuit" }] }),
@@ -184,7 +184,7 @@ module.exports = {
     choices: [{ label: "Descendre vers la tour", to: "N_place" }] }),
 
   N_herse_ouverte: P({ title: "Dans les rues",
-    text: ["Personne ne t'entend. La herse reste levée. Les choses blanches passent sous la voûte, lentement, sans toucher les gardes qui les regardent passer sans comprendre, et se répandent dans les rues. Tu cours devant elles, vers la tour."],
+    text: ["Ta voix se perd dans le vacarme. La herse reste levée. Les choses blanches passent sous la voûte, lentement, sans toucher les gardes qui les regardent passer sans comprendre, et se répandent dans les rues. Tu cours devant elles, vers la tour."],
     choices: [{ label: "Courir vers la tour", to: "N_place" }] }),
 
   // ---------------------------------------------------------------- 6 · together

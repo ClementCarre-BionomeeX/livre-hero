@@ -12,7 +12,7 @@ module.exports = {
     text: [
       "Tu te réveilles avant les cloches, comme toujours. Il y a vingt ans que tu ne vois plus, et ton corps a gardé l'habitude de l'aube, comme un chien garde l'habitude d'un maître mort.",
       "Ta cellule est au septième étage de la tour, côté nord : cent quarante-quatre marches depuis la cour, tu les as comptées la première année. Quatre pas sur trois. Un lit, une table, une cuvette, une étagère de livres désormais fermés pour toi, que tu gardes par tendresse. Tu passes le doigt sur leurs dos, un par un, en t'habillant. C'est ta prière.",
-      "Tu as soixante-dix-huit ans. Tu es greffier de la Chancellerie des Noms depuis l'âge de quatorze ans. Tu lis encore, à ta façon : du bout des doigts, dans le creux que la plume laisse au vélin. Tu es le seul à savoir le faire. On te garde pour ça, et parce qu'on n'ose pas te chasser.",
+      "Tu as soixante-dix-huit ans. Tu es greffier de la Chancellerie des Noms depuis l'âge de quatorze ans. Tu lis encore, à ta façon : du bout des doigts, dans le creux que la plume laisse au vélin. Tu es le seul à savoir le faire. On te garde pour ça, et parce que te chasser demanderait un courage que personne ici ne possède.",
       "On frappe. Une voix de jeune homme, essoufflée. « Maître Hylas ? Le Greffier-Majeur vous fait dire qu'il vous recevra ce soir, après complies. Et que vous aurez désormais une page pour vous faire la lecture. Elle vous attend au scriptorium. »",
     ],
     choices: [{ label: "Descendre", to: "HY_tour" }] }),
@@ -52,7 +52,7 @@ module.exports = {
 
   HY_linette_nom: P({ title: "Linette",
     text: [
-      "Elle répète le nom, trois fois, sans voix, en bougeant les lèvres. Tu l'entends au souffle. Puis elle reprend sa lecture, et pendant tout l'après-midi, sa voix est un peu différente. Tu ne saurais pas dire en quoi.",
+      "Elle répète le nom, trois fois, sans voix, en bougeant les lèvres. Tu l'entends au souffle. Puis elle reprend sa lecture, et pendant tout l'après-midi, sa voix est un peu différente. En quoi, tu serais en peine de le dire.",
     ],
     choices: [{ label: "Continuer", to: "HY_tour" }] }),
 
@@ -191,7 +191,7 @@ module.exports = {
     text: [
       "Tu te tais. Il attend. Tu te tais. Il finit par sourire, tu l'entends à sa voix. « Bien. Nous avons le temps. »",
       "Cette nuit-là, dans ta cellule, tu ouvres la fenêtre étroite qui donne sur la cour. Il y a, sur le rebord, une poussière blanche, froide, que le vent apporte du sommet de la tour. Tu en prends une pincée. Tu penses à trois jours de marche dans la neige, à un poids chaud contre ta poitrine, à un moulin. Tu souffles.",
-      "Quand tu refermes la fenêtre, tu sais que tu as donné quelque chose. Tu ne sais plus quoi. Tu sais que c'était à toi, et que c'était important, et que maintenant, personne ne pourra jamais te le prendre.",
+      "Quand tu refermes la fenêtre, tu sais que tu as donné quelque chose. Quoi, la mémoire te le refuse. Tu sais que c'était à toi, et que c'était important, et que maintenant, personne ne pourra jamais te le prendre.",
     ],
     choices: [{ label: "Te coucher", to: "HY_nuit" }] }),
 
@@ -208,7 +208,7 @@ module.exports = {
       "Trois jours ont passé. La tour est devenue une ruche ; l'escalier principal, que tu entendais grincer vingt fois par heure, grince maintenant sans arrêt. On entend des pas dans tous les escaliers, des portes, des voix. Les pages copient jour et nuit. Mordace ne t'a pas rappelé. Ce matin, un garde t'a conduit à la porte de l'Est.",
       { if: { has: "ysolde:voie=obeit" }, text: "Une colonne entre dans la cour. Tu l'entends : des pieds nus, des chaînes, des enfants, et des chevaux ferrés. Une voix de femme, sèche, donne le compte à un greffier. Cent dix-huit." },
       { if: { has: "ysolde:voie=ruse" }, text: "Une colonne entre dans la cour. Une voix de femme donne le compte à un greffier : cent treize. Le greffier, une voix fluette que tu reconnais, celle de Frère Sévrin, recompte, et se tait." },
-      { if: { has: "ysolde:voie=deserte" }, text: "La colonne attendue n'arrive pas. On parle de cordes coupées dans les faubourgs, de soldats de la reine qui ont tourné bride. Des gardes noirs passent en courant. Un greffier te met quand même une liste sous la main." },
+      { if: { has: "ysolde:voie=deserte" }, text: "La colonne attendue manque au rendez-vous. On parle de cordes coupées dans les faubourgs, de soldats de la reine qui ont tourné bride. Des gardes noirs passent en courant. Un greffier te met quand même une liste sous la main." },
       { if: { not: { has: "ch:ysolde:2" } }, text: "Une colonne arrive par la route de Varre. On t'a fait venir pour la recevoir. En attendant, on te fait asseoir sur un banc, au soleil, comme un vieux chien." },
       "« Le Greffier-Majeur demande que vous certifiiez la livraison, maître. Votre sceau, ici. »",
     ],
@@ -221,7 +221,7 @@ module.exports = {
   HY_noms: P({ title: "Un par un",
     text: [
       { if: { not: { has: "ysolde:voie=deserte" } }, text: "Le greffier soupire et commence. Tu l'arrêtes au troisième. « Plus lentement. » Il reprend. Tu répètes chaque nom après lui, à voix haute, dans la cour, devant les prisonniers. Quatre heures. Les gardes s'assoient. Les prisonniers se taisent. À la fin, une femme dit, en esquarrois, avec un accent de Corvanne : « Merci, vieil homme. »" },
-      { if: { has: "ysolde:voie=deserte" }, text: "Le greffier soupire et commence. Tu l'arrêtes au troisième. « Plus lentement. » Il reprend. Tu répètes chaque nom après lui, à voix haute, dans la cour vide, devant les gardes. Quatre heures. Les gardes s'assoient. Personne ne répond à aucun nom. À la fin, le greffier dit, plus bas qu'au début : « C'est tout, maître. »" },
+      { if: { has: "ysolde:voie=deserte" }, text: "Le greffier soupire et commence. Tu l'arrêtes au troisième. « Plus lentement. » Il reprend. Tu répètes chaque nom après lui, à voix haute, dans la cour vide, devant les gardes. Quatre heures. Les gardes s'assoient. Chaque nom tombe dans le silence. À la fin, le greffier dit, plus bas qu'au début : « C'est tout, maître. »" },
       "Tu poses ton sceau. Tu sais leurs noms, maintenant. Tous. Tu les sauras jusqu'à ta mort.",
     ],
     choices: [{ label: "Rentrer", to: "HY_baudoin" }] }),
@@ -269,7 +269,7 @@ module.exports = {
   HY_tissot: P({ title: "Chez la mère Tissot",
     text: [
       "La mère Tissot tient une taverne de quatre tables dans une ruelle des Teinturiers, et elle sert le seul vin de Corvanne de tout Pallanche, sous le comptoir, depuis la guerre. Tu viens ici tous les soirs depuis trente ans. Elle pose ton verre devant toi, et elle te parle de ses rhumatismes.",
-      { if: { has: "croise:pie_enfant" }, text: "Ce soir, quelqu'un est assis à la table du fond. Tu entends un souffle jeune, une respiration de quelqu'un qui a marché longtemps, et le froissement d'un papier qu'on plie et qu'on déplie. Personne ne vient vers toi." },
+      { if: { has: "croise:pie_enfant" }, text: "Ce soir, quelqu'un est assis à la table du fond. Tu entends un souffle jeune, une respiration de quelqu'un qui a marché longtemps, et le froissement d'un papier qu'on plie et qu'on déplie. L'inconnu reste à sa table." },
       { if: { not: { has: "croise:pie_enfant" } }, text: "Ce soir, il n'y a personne d'autre que toi. La mère Tissot a mis des lampions pour la Fête. Tu entends leur papier frémir au vent." },
       { if: { has: "hylas:oublie_enfant" }, text: "Tu as oublié pourquoi tu viens ici tous les soirs depuis trois jours, à vêpres, au lieu de complies, comme avant. Tu sais seulement que tu dois y être." },
       "Demain soir, les cent cloches.",

@@ -11,7 +11,7 @@ module.exports = {
       { with: "ysolde", text: "La chevalière ferme la marche, la main jamais loin de son épée. Elle a gratté les armes de Brenne de son bouclier, au couteau, pendant la nuit." },
       { with: "pie", text: "Le voleur de Pallanche se plaint du raidillon depuis la première heure. Il n'a jamais vu une montagne. Il a peur, et il le cache en parlant." },
       { with: "hylas", text: "Le vieil aveugle marche à ton bras dans les passages difficiles. Il ne se plaint pas. Il compte ses pas, à voix basse." },
-      { with: "rodric", text: "Rodric porte le sac le plus lourd sans qu'on le lui demande. Il chante, en corvannais, des chansons de marche dont il ne traduit pas les paroles." },
+      { with: "rodric", text: "Rodric porte le sac le plus lourd sans qu'on le lui demande. Il chante, en corvannais, des chansons de marche dont il garde les paroles pour lui." },
       { with: "linette", text: "Linette suit son frère d'un pas exact, en robe grise, sans regarder le paysage." },
     ],
     choices: [{ label: "Prendre la crête", travel: "r_ii_nord" }] }),
@@ -19,7 +19,7 @@ module.exports = {
   II_N_bergers: P({ title: "La cabane vide", place: null,
     text: [
       "La cabane des bergers, au-dessus de la vallée de la Sauve. Tu t'y es arrêtée en descendant, il y a moins d'une semaine. On t'y a donné du lait.",
-      "La pâture est blanche, d'un bout à l'autre. La cabane est ouverte. Tu en fais l'inventaire comme on lit une piste : du lait tourné dans un seau, caillé depuis trois jours au moins ; un fromage sous un linge ; un manteau sur un clou ; un couteau sur la table. Les bergers sont partis sans manteau et sans couteau, ce qu'aucun berger ne fait. Les chiens sont là, maigres, qui gardent un troupeau qui n'a plus de berger. Ils grognent quand vous approchez, puis ils vous suivent.",
+      "La pâture est blanche, d'un bout à l'autre. La cabane est ouverte. Tu en fais l'inventaire comme on lit une piste : du lait tourné dans un seau, caillé depuis trois jours au moins ; un fromage sous un linge ; un manteau sur un clou ; un couteau sur la table. Les bergers sont partis sans manteau et sans couteau, ce qu'aucun berger ne fait. Les chiens sont là, maigres, qui gardent seuls un troupeau sans maître. Ils grognent quand vous approchez, puis ils vous suivent.",
     ],
     choices: [
       { label: "Ouvrir l'enclos et laisser les bêtes descendre vers la vallée", fx: { ep: ["perso", 400] }, to: "@route" },
@@ -31,15 +31,15 @@ module.exports = {
     text: [
       "À mi-chemin, sur le fil de la crête, il y a des traces dans la neige. Des pas. Tu connais les pas des Glaneurs : longs, plats, qui ne s'enfoncent pas. Ceux-là s'enfoncent. Chacun est grand comme une barque, et profond d'une coudée dans la neige tassée, ce qui donne une idée du poids. Entre deux pas, il y a la longueur de quatre hommes couchés.",
       "Ils viennent du col de l'Ourse et y retournent. Ils sont passés plusieurs fois.",
-      { with: "pie", text: "Pie s'assied dans une des empreintes. Il y tient en entier, les genoux sous le menton. Il ne fait pas de plaisanterie." },
+      { with: "pie", text: "Pie s'assied dans une des empreintes. Il y tient en entier, les genoux sous le menton. Pour une fois, il garde ses plaisanteries." },
       { with: "ysolde", text: "Ysolde mesure une empreinte avec son épée. Puis elle la mesure une deuxième fois." },
     ],
     choices: [{ label: "Reprendre la route, plus vite", back: "@route" }] }),
 
   II_N_arrivee: P({ title: "Le silence du camp", place: null,
     text: [
-      "Tu entends le camp avant de le voir, d'habitude : les chiens, les tambours, les enfants, les corbeaux. Aujourd'hui, depuis la dernière crête, tu n'entends rien.",
-      "Les tentes sont là, quarante et une, tu les comptes. La fumée monte. Les gens sont dehors, assis devant les tentes, au soleil, dans la neige. Ils ne parlent pas. Les corbeaux sont sur les claies à viande, immobiles.",
+      "Tu entends le camp avant de le voir, d'habitude : les chiens, les tambours, les enfants, les corbeaux. Aujourd'hui, depuis la dernière crête, tu entends le silence.",
+      "Les tentes sont là, quarante et une, tu les comptes. La fumée monte. Les gens sont dehors, assis devant les tentes, au soleil, dans la neige. Ils se taisent. Les corbeaux sont sur les claies à viande, immobiles.",
     ],
     choices: [{ label: "Descendre au camp", to: "@route" }] }),
 
@@ -85,7 +85,7 @@ module.exports = {
   II_N_askel: P({ title: "Askel", place: "corbeau",
     fx: { meet: "askel", questSeen: "II_N_chants" },
     text: [
-      "Ta mère coud. Une autre robe blanche. Elle ne lève pas les yeux. « Tu es revenue », dit-elle, et c'est un simple constat.",
+      "Ta mère coud. Une autre robe blanche. Elle garde les yeux sur son ouvrage. « Tu es revenue », dit-elle, et c'est un simple constat.",
       "Tu t'assieds en face d'elle. Longtemps. Puis elle pose son aiguille. « L'aïeule ne chantait pas tout, dit-elle. Les trois vers qu'elle t'a appris, ce sont les derniers d'un chant plus long. Le reste, elle l'avait gravé dans la grotte des Corbeaux, au-dessus du lac noir, pour que personne ne le chante par hasard. J'y suis montée une fois. Je n'ai pas su lire. »",
       "Elle reprend son aiguille. « Personne ne sait lire, ici. C'est ce dont on nous a appris à être fiers. »",
     ],
@@ -100,7 +100,7 @@ module.exports = {
 
   II_N_ylva: P({ title: "Ylva", place: "corbeau",
     text: [
-      { if: { has: "ylva:sauvee" }, text: "Ylva joue seule au bord de la neige. Elle chante en jouant, un air que tu reconnais au bout de trois notes : les trois vers. Personne ne les lui a appris. Elle chante juste. Elle s'arrête en te voyant, et te demande, très poliment, qui tu es." },
+      { if: { has: "ylva:sauvee" }, text: "Ylva joue seule au bord de la neige. Elle chante en jouant, un air que tu reconnais au bout de trois notes : les trois vers. Elle les tient de nulle part. Elle chante juste. Elle s'arrête en te voyant, et te demande, très poliment, qui tu es." },
       { if: { has: "ylva:perdue" }, text: "La mère d'Ylva est assise devant sa tente, le visage peint en blanc, sans un signe. Elle a donné son nom, la deuxième nuit, pour aller rejoindre sa fille. Elle sourit. Elle t'offre du lait." },
     ],
     choices: [{ back: "II_N_camp" }] }),
@@ -117,7 +117,7 @@ module.exports = {
   II_N_guerriers: P({ title: "La chevalière", place: "corbeau",
     text: [
       "Les guerriers du clan ont fait cercle autour d'Ysolde. Ils ont reconnu la cotte, la façon de se tenir, l'épée longue. Une femme d'armes des villes, aux Combes. Le plus jeune, Haskel, a tiré son couteau.",
-      "Ysolde ne tire pas son épée. Elle te regarde.",
+      "Ysolde laisse son épée au fourreau. Elle te regarde.",
     ],
     choices: [
       { label: "Dire au clan qu'elle est sous ta tente, et donc sous ta protection", test: { dom: "social", label: "Autorité", help: [{ if: { has: "nord:promet_hrodna" }, v: 15 }, { if: { has: "clan:colere" }, v: -15 }] },
@@ -127,12 +127,12 @@ module.exports = {
     ] }),
 
   II_N_guerriers_ok: P({ title: "Sous ta tente", place: "corbeau",
-    text: ["Haskel range son couteau. Les autres s'écartent. Ils ne la regardent pas moins. Ysolde passe au milieu d'eux sans se presser et vient s'asseoir près de toi. « Merci », dit-elle, très bas. C'est la première fois qu'elle te dit quelque chose qui n'est pas un ordre."],
+    text: ["Haskel range son couteau. Les autres s'écartent. Leurs regards restent sur elle. Ysolde passe au milieu d'eux sans se presser et vient s'asseoir près de toi. « Merci », dit-elle, très bas. C'est la première fois qu'elle te dit quelque chose qui n'est pas un ordre."],
     choices: [{ back: "II_N_camp" }] }),
 
   II_N_guerriers_duel: P({ title: "Haskel", place: "corbeau",
     text: [
-      "Ysolde ôte son baudrier, pose l'épée dans la neige, et ouvre les mains. Haskel se jette sur elle. Elle le reçoit, le fait passer par-dessus sa hanche, et il se retrouve sur le dos, dans la neige, la main de la chevalière posée à plat sur sa poitrine. Elle ne serre pas. Elle attend.",
+      "Ysolde ôte son baudrier, pose l'épée dans la neige, et ouvre les mains. Haskel se jette sur elle. Elle le reçoit, le fait passer par-dessus sa hanche, et il se retrouve sur le dos, dans la neige, la main de la chevalière posée à plat sur sa poitrine. Elle appuie à peine. Elle attend.",
       "Le cercle se défait en riant. Haskel aussi finit par rire. Le soir, il lui apporte de la viande.",
     ],
     choices: [{ fx: { conf: { ysolde: 5 } }, back: "II_N_camp" }] }),
@@ -163,9 +163,9 @@ module.exports = {
   // the fire: end of chapter 1
   II_N_feu: P({ backName: "le feu du camp", takes: "evening", title: "Le feu du soir", place: "corbeau",
     text: [
-      "Le soir, le clan allume un feu au centre du camp, comme toujours. Personne ne chante. Vous êtes assis un peu à l'écart, sur une peau, à partager une viande trop dure.",
+      "Le soir, le clan allume un feu au centre du camp, comme toujours. Le chant s'est tu. Vous êtes assis un peu à l'écart, sur une peau, à partager une viande trop dure.",
       { if: { has: "nord:grotte_connue" }, text: "Demain, la grotte des Corbeaux, au-dessus du lac noir. Une journée de marche." },
-      "Au nord, au-dessus du col de l'Ourse, le ciel a une lueur blanche, qui n'est pas la lune.",
+      "Au nord, au-dessus du col de l'Ourse, le ciel a une lueur blanche, sans lune pour l'expliquer.",
     ],
     choices: [
       { label: "Parler avec l'enfant de Sauvelune", with: "enfant", once: true, to: "II_N_feu_enfant" },
