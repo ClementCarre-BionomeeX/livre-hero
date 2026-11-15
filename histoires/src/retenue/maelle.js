@@ -44,6 +44,7 @@ module.exports = {
     choices: [
       { label: "Prendre le pont des Moulins, puis la route de la Digue", hide: { has: "pont:refoulee" }, to: "M_moulins", fx: { time: 0.25 } },
       { label: "Prendre la berge des Aulnes", to: "M_aulnes", fx: { time: 0.25 } },
+      { label: "Couper par la place du Lavoir", hide: { has: "lavoir:vu" }, to: "M_lavoir" },
       { label: "Passer sous le pont, par le ponceau des Teinturiers", if: { lore: "ponceau" }, to: "M_ponceau", fx: { time: 0.25 } },
       { label: "T'arrêter sous un porche et défaire la ficelle", hide: { has: "paquet:ouvert" }, to: "M_ouvrir" },
       { label: "Passer d'abord chez toi, et réveiller Tibo", if: { lore: "veine" }, hide: { has: "tibo:reveille" }, to: "M_tibo" },
@@ -97,8 +98,9 @@ module.exports = {
       { label: "Mentir : tu montes chez ta tante, rue des Cordiers", hide: { via: ["denonce", "vendre"] }, to: "M_pont_tante" },
       { label: "Faire demi-tour", hide: { via: ["denonce", "vendre"] }, to: "M_demitour" },
       { label: "Courir vers l'autre bout du pont", hide: { via: ["denonce", "vendre"] }, to: "M_course" },
+      { label: "Dire au sergent que Nine l'embrasse", if: { all: [{ second: true }, { has: "nine:vue" }] }, hide: { via: ["denonce", "vendre"] }, to: "M_pont_nine" },
       { label: "Dire au sergent que tu sais qui paie son capitaine", if: { lore: "rambert_paye" }, hide: { via: ["denonce", "vendre"] }, to: "M_pont_odon" },
-      { label: "« Je porte ceci à la maison Corlay. On m'y attend. »", hide: { not: { via: "vendre" } }, to: "M_corlay_porte", fx: { time: 0.5 } },
+      { label: "« Je porte ceci à la maison Corlay. On m'y attend. »", hide: { not: { via: "vendre" } }, to: "M_pernelle", fx: { time: 0.5 } },
       { label: "Attendre ce que va dire le sergent", hide: { not: { via: "denonce" } }, to: "M_pont_arrete", via: "denonce" },
     ] },
   M_pont_tante: { act: A, title: "La tante de la rue des Cordiers", place: "pont",
@@ -153,7 +155,7 @@ module.exports = {
       "La Sorge est haute. Elle porte des branches, des paquets d'herbe, une planche de clôture. Elle fait un bruit continu de foule qui parle à voix basse.",
       "Derrière toi, les dernières fenêtres des Foulons s'éteignent une à une. Devant toi, il n'y a que le vent dans les saules, et tout au bout de la vallée, si haut qu'on dirait une étoile, la petite lumière de la Maison des Vannes.",
     ],
-    choices: [{ label: "Avancer", to: "M_aulnes_gue", fx: { time: 0.75 } }] },
+    choices: [{ label: "Avancer", to: "M_aulnes_tannerie", fx: { time: 0.5 } }] },
   M_aulnes_gue: { act: A, title: "Le déversoir des tanneries", place: "berge",
     text: [
       "À mi-chemin, le déversoir des tanneries coupe le sentier : un bras d'eau large de trois mètres, qui pue le tan et la chaux. Quelqu'un a jeté une planche en travers. La planche ploie au milieu, luisante.",
@@ -162,12 +164,15 @@ module.exports = {
     choices: [
       { label: "Passer sur la planche", test: { dom: "discretion", diff: -10, label: "Équilibre" }, win: { to: "M_aulnes_ombre", via: "planche" }, lose: { to: "M_aulnes_ombre", via: "tombee", fx: { time: 0.25 } } },
       { label: "Faire le détour par le pré", to: "M_aulnes_ombre", via: "pre", fx: { time: 0.5 } },
+      { label: "Prendre le sentier du haut, le long de la haie des Prêcheurs", hide: { not: { has: "margot:conseil" } }, to: "M_aulnes_haut" },
     ] },
   M_aulnes_ombre: { act: A, title: "Une lanterne derrière toi", place: "berge", fx: { time: 0.5 },
     text: [
       { via: "planche", text: "La planche plie, tu ne t'arrêtes pas, et tu es de l'autre côté avant qu'elle ait fini de plier." },
       { via: "tombee", text: "Au milieu, la planche se dérobe. Tu tombes dans l'eau du déversoir jusqu'à la taille, le paquet levé au-dessus de ta tête. L'eau est si froide qu'elle te coupe le souffle. Tu ressors en rampant sur la berge, les jambes en feu." },
+      { via: "haut", text: "Tu retrouves le sentier des pêcheurs au-delà du moulin Brûlé, les pieds secs, sans avoir touché la planche." },
       { via: "pre", text: "Le pré du moulin Brûlé est plein d'eau, et la passerelle est là où on te l'avait dit, vermoulue, mais là." },
+      { if: { has: "maelle:vue_tannerie" }, text: "Tu repenses au tanneur à sa fenêtre, et à ta voix dans le vent." },
       "Un peu plus loin, tu te retournes, sans savoir pourquoi. Loin derrière toi, entre les saules, une lanterne avance sur le sentier. Elle s'arrête quand tu t'arrêtes.",
     ],
     choices: [
@@ -181,7 +186,7 @@ module.exports = {
       "Il passe à trois pas de toi. À la lumière de sa lanterne, tu vois ses mains : bleues jusqu'aux poignets.",
       "Il va jusqu'au tournant suivant, s'arrête, lève sa lanterne vers le sentier vide. Il jure entre ses dents. Puis il fait demi-tour et repasse devant toi, vers la ville, plus vite qu'à l'aller.",
     ],
-    choices: [{ label: "Attendre encore un peu, puis repartir", to: "M_cabane_tard", fx: { time: 1 } }] },
+    choices: [{ label: "Attendre encore un peu, puis repartir", to: "M_aulnes_croix", fx: { time: 0.25 } }] },
   M_aulnes_fulbert: { act: A, title: "Les mains bleues", place: "berge",
     text: [
       "Tu l'attends derrière le gros saule du tournant. Quand la lanterne arrive à ta hauteur, tu sors du noir.",
@@ -190,7 +195,7 @@ module.exports = {
       "« À onze heures du soir, sur la berge des Aulnes, avec ta lanterne ? »",
       "Il ne répond pas. Il regarde le paquet que tu tiens derrière ton dos, puis il crache par terre et repart vers les Foulons, sans se retourner.",
     ],
-    choices: [{ label: "Repartir vers la digue", to: "M_cabane_tard", fx: { time: 1 } }] },
+    choices: [{ label: "Repartir vers la digue", to: "M_aulnes_croix", fx: { time: 0.25 } }] },
   M_cabane_tard: { act: A, title: "La cabane des Loutres", place: "berge", fx: { item: "mot_jacquette", learn: "pierre_bleue" },
     text: [
       "La digue sort de la nuit d'un coup : un mur de pierre qui monte plus haut que le clocher de Saint-Rieul et se perd dans le noir. Au pied du mur, l'eau de fuite coule dans un canal de pierre en faisant un bruit de grosse respiration.",
@@ -204,6 +209,8 @@ module.exports = {
       { label: "Glisser le paquet sous la pierre bleue", hide: { not: { item: "paquet" } }, to: "M_pierre", via: "pose" },
       { label: "Garder le paquet et attendre Jacquette", hide: { not: { item: "paquet" } }, to: "M_attente" },
       { label: "Lever les yeux vers la Maison des Vannes", if: { lore: "signal" }, to: "M_signal" },
+      { label: "Faire le tour de la cabane", hide: { has: "cabane:tour" }, to: "M_cabane_tour" },
+      { label: "Chercher la porte de la galerie, et le pointeau", if: { lore: "galerie" }, hide: { not: { item: "paquet" } }, to: "M_galerie_porte" },
     ] },
   M_attente: { act: A, title: "L'attente", place: "berge", fx: { time: 1.25 },
     text: [
@@ -267,14 +274,16 @@ module.exports = {
       { via: "odon", text: "Tu sens le regard du sergent dans ton dos jusqu'au bout du pont. Puis la route tourne, et il n'y a plus que la nuit." },
       { via: "refus", text: "La porte Saint-Rieul est encore ouverte. Le garde dort debout dans sa guérite. Tu passes, tu descends le raidillon jusqu'à la route, et tu cours jusqu'à la première borne." },
       "La route de la Digue suit la rive droite, large, empierrée, bordée de bornes blanches. Les charrettes de laine y passent le jour. La nuit, il n'y a que toi, et le vent, et la Sorge en contrebas qui gronde plus fort à chaque borne.",
-      "À la dixième borne, la forêt s'ouvre. La digue est devant toi, noire contre le ciel noir, avec sa petite lumière tout en haut.",
+      "Tout au bout, à dix bornes, la petite lumière de la Maison des Vannes brille au sommet de la digue.",
     ],
     choices: [
-      { label: "Descendre vers la cabane des Loutres", if: { not: { has: "corlay:refus" } }, to: "M_cabane_tot" },
+      { label: "Marcher vers la digue", if: { not: { has: "corlay:refus" } }, to: "M_route_charrette" },
       { label: "Descendre vers la cabane des Loutres", if: { has: "corlay:refus" }, to: "M_jacquette", via: "tard" },
     ] },
   M_cabane_tot: { act: A, title: "La cabane, avant l'heure", place: "berge",
     text: [
+      { via: "talus", text: "Tu descends le talus sur les fesses, en te tenant aux ronces. En haut, le cavalier tire sur sa pipe et regarde la route." },
+      { via: "chute", text: "À mi-pente, une racine cède. Tu roules jusqu'en bas, le paquet serré contre le ventre, et tu t'arrêtes dans les orties, au bord du canal. Rien de cassé. Tu restes un moment couchée à écouter : en haut, le cavalier n'a pas bougé." },
       "Il n'est pas onze heures. La cabane des Loutres est fermée, le ponton vide. Pas de mot sur la porte, rien que les traces de vieilles craies effacées par la pluie.",
       "Devant la porte, une pierre plate peinte en bleu.",
       "Le lac est de l'autre côté de la digue. D'ici, on ne le voit pas, on l'entend : un clapotis énorme et lent, très haut, au-dessus de ta tête.",
@@ -306,7 +315,10 @@ module.exports = {
       "Sous l'arche, la barque glisse dans un tunnel de pierre. L'eau est noire, rapide, et l'air résonne comme dans une église. Au bout, un escalier de fer remonte vers une lueur.",
       "Vous attendez là, dans le ventre de la digue, assises sur les marches de fer, pendant que l'heure passe. Le mur, autour de vous, respire. De temps en temps, quelque part plus bas, une pierre craque.",
     ],
-    choices: [{ label: "Monter vers la lueur quand la cloche sonne deux heures", to: "M_chambre_vanne", via: "canal" }] },
+    choices: [
+      { label: "Monter vers la lueur quand la cloche sonne deux heures", to: "M_chambre_vanne", via: "canal" },
+      { label: "Demander à Jacquette ce qui craque, plus bas", to: "M_canal_veine" },
+    ] },
   M_escalier: { act: A, title: "Les deux cents marches", place: "digue", fx: { time: 0.75 },
     text: [
       "L'escalier de la digue est taillé dans le parement, sans rampe. Le vent du lac te plaque contre la pierre. Tu comptes les marches pour ne pas regarder le vide. À cent quatre-vingt-sept, tu cesses de compter.",
@@ -325,11 +337,12 @@ module.exports = {
       "Anselme enfonce la clé dans la serrure. Il faut ses deux mains, et elles tremblent. La clé tourne. Le verrou tombe avec un bruit de cloche fêlée.",
       "« Quarante tours, dit-il. Sens de la marche. Et quand vous aurez commencé, ne vous arrêtez plus, ou la roue repartira en arrière. »",
     ],
-    choices: [{ label: "Prendre un rayon de la roue", to: "M_roue" }] },
+    choices: [{ label: "Prendre un rayon de la roue", to: "M_roue_bloque" }] },
   M_roue: { act: A, title: "Quarante tours", place: "digue", fx: { time: 0.75 },
     text: [
-      "Tu prends un rayon à deux mains. Jacquette prend celui d'en face. Vous poussez.",
-      "Rien ne bouge. Puis tout bouge d'un coup : la roue cède d'un pouce, la chaîne grince, et loin sous vos pieds, quelque chose de très lourd commence à monter.",
+      { via: "huile", text: "L'huile coule dans le pas de vis en filets dorés. Tu frappes trois coups de maillet sur le moyeu. Au troisième, la roue tressaille." },
+      { via: "force", text: "« Un, deux, trois ! » Vous poussez tous ensemble. La roue résiste, puis cède avec un claquement de fer qui vous fait sursauter. Il y a du sang sur ton rayon : le tien." },
+      "Vous reprenez les rayons. La roue cède d'un pouce, la chaîne grince, et loin sous vos pieds, quelque chose de très lourd commence à monter.",
       "Au cinquième tour, tu as les paumes en feu. Au dixième, tu ne sens plus tes bras. Anselme compte à voix haute, assis contre le mur, et sa voix se brise sur chaque nombre.",
       "Au quinzième tour, le bruit arrive. Un rugissement sous la salle, comme si toute la digue ouvrait la bouche. Le sol tremble. L'air se remplit d'une poussière d'eau froide.",
       "Au quarantième, Jacquette tombe à genoux en riant, et tu tombes à côté d'elle.",
@@ -379,7 +392,7 @@ module.exports = {
       "Les fenêtres s'allument. Des femmes sortent en jupon, des hommes en chemise, un chandelier, une lanterne, une gaffe. Une jeune lavandière enceinte jusqu'aux yeux arrive la première, et quand tu lui dis l'eau, trois heures, Saint-Rieul, elle se met à crier les noms des maisons, une par une, de sa voix de lavoir.",
       "Tibo est là. Il a pris la couverture. Il porte déjà la petite des Cardeurs sur son dos.",
     ],
-    choices: [{ label: "Faire monter tout le monde par les escaliers de la Côte", to: "M_foulons" }] },
+    choices: [{ label: "Courir aux portes qui restent fermées", to: "M_foulons_mallet" }] },
   M_foulons_portes: { act: A, title: "De porte en porte", place: "foulons", fx: { time: 1 },
     text: [
       "Tibo frappe d'un côté de la rue, toi de l'autre.",
@@ -443,6 +456,7 @@ module.exports = {
     text: [
       "À huit heures, tu entres trempée dans la grande salle de l'Hôtel du Conseil, de l'eau jusqu'aux cuisses et le carnet d'Anselme serré contre toi. Les sept drapiers sont assis sous le portrait de l'ingénieur Ferréol. Le premier drapier, Enguerrand Corlay, se lève pour te faire sortir.",
       "Une vieille femme, au bout de la table, lève la main. « Laissez-la parler, dit Dame Hesdin. Il y a trois ans, j'ai été seule à voter contre. Je voudrais savoir ce qu'on a acheté avec ma voix perdue. »",
+      { if: { has: "basile:vu" }, text: "Tu repenses au charretier des forges : la Dame ne croit que ce qu'elle voit de ses yeux. Tu ouvres le carnet à la bonne page et tu le poses devant elle, sur la table, avant de lire." },
       "Tu lis. Ta voix tremble au début. Puis elle ne tremble plus. Tu lis la date, les présents, la fissure, le mortier, le silence, les onze cents écus, et le nom du président de séance.",
       "Personne ne parle. Dehors, la pluie. Par les hautes fenêtres, on voit les Foulons sous l'eau jusqu'aux fenêtres basses, et le quartier entier sur le parvis de Saint-Rieul.",
       "Le vote de la Charge des Vannes est remis. Le soir, on dit en ville que le premier drapier a quitté la salle sans un mot et que Dame Hesdin a demandé la clé.",
@@ -455,6 +469,8 @@ module.exports = {
       "À trois heures, du haut du parvis, tu entends le bruit. Il vient de la digue, loin, au bout de la vallée : un grincement de fer, puis un cliquetis régulier de chaîne qu'on dévide.",
       "À trois heures et demie, la Sorge change de voix. À quatre heures, elle passe les quais. Quand la pluie commence, elle entre dans la rue des Teinturiers.",
       "Au jour, le quartier regarde ses maisons dans l'eau jusqu'aux fenêtres basses, les cuves de teinture renversées, les écheveaux qui flottent. Une femme pleure ses draps. Un homme jure contre la ville. Le vieux Mallet compte les gens de sa rue, deux fois, sur ses doigts, et il ne manque personne.",
+      { if: { has: "gregoire:porte" }, text: "Le vieux Grégoire est assis sur la dernière marche, enveloppé dans une couverture. Tu l'as monté sur ton dos, deux cent douze marches, en t'arrêtant tous les vingt pas. Tu as encore la marque de ses mains sur tes épaules." },
+      { if: { has: "gregoire:aide" }, text: "Le vieux Grégoire est arrivé en haut sur une porte arrachée, que quatre teinturiers portaient comme une civière. Il a donné des ordres pendant toute la montée." },
       { via: "portes", text: "Il manque la veuve Gosse, du bout de la rue, qui n'a pas voulu ouvrir. On la trouvera dans son fauteuil quand l'eau baissera." },
       "Mallet vient s'asseoir à côté de toi sur les marches. Il te demande comment tu savais. Tu lui montres tes mains vides.",
       "En bas, à huit heures, le Conseil des Sept Maisons se réunit pour voter la Charge des Vannes. D'ici, on entend sonner la cloche de l'Hôtel. Le quartier se tourne vers elle, tout entier, et la regarde en silence.",
