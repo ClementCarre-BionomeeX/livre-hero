@@ -7,14 +7,14 @@ var ALL = { all: [done("sevan"), done("jasse"), done("oriane")] };
 module.exports = {
   C3: { act: "III", title: "La Nuit des Lanternes", hub: true, noLead: true, backName: "la Nuit des Lanternes",
     text: [
-      { first: true, text: "La troisième nuit des Hautes-Eaux, l'eau monte jusqu'aux marches du palais du Conseil. On allume une lanterne à chaque fenêtre de la ville, des milliers, et la lagune devient un second ciel posé sous le premier. À minuit, sur la tour du palais, on allume la plus grande, celle du Doyen. Cette année, personne n'a le droit de l'allumer." },
-      { first: true, text: "La loi est claire. Avant que la grande lanterne brûle, on tire le testament de la Doyenne du coffre aux trois serrures, et on le lit. Puis le Conseil vote. Si personne n'a vingt et une voix quand la marée tourne, à une heure, le siège reste vide jusqu'aux Hautes-Eaux suivantes, et la ville attend un an." },
+      { first: true, text: "La troisième nuit des Hautes-Eaux, l'eau monte jusqu'aux marches du palais du Conseil. On allume une lanterne à chaque fenêtre de la ville, des milliers, et la lagune devient un second ciel posé sous le premier. À minuit, sur la tour du palais, on allume la plus grande, celle du Doyen. Cette année, elle attend une main qui ait le droit de l'allumer." },
+      { first: true, text: "La loi est claire. Avant que la grande lanterne brûle, on tire le testament de la Doyenne du coffre aux trois serrures, et on le lit. Puis le Conseil vote. Si personne n'a réuni vingt et une voix quand la marée tourne, à une heure, le siège reste vide jusqu'aux Hautes-Eaux suivantes, et la ville attend un an." },
       { first: true, text: "Trois personnes ont quatre heures. Celle que tu suis la première agit la première. Les deux autres trouveront la nuit telle qu'elle l'a laissée." },
       { if: { all: [done("sevan"), { not: done("jasse") }, { not: done("oriane") }] }, text: "Pendant que Sévan Aldric marchait dans la ville aux lanternes, un passeur attendait la marée, et une secrétaire comptait des voix." },
       { if: { all: [done("jasse"), { not: done("sevan") }, { not: done("oriane") }] }, text: "Pendant que Jasse Ferrant faisait sa nuit sur l'eau, un médecin et une secrétaire faisaient la leur, aux mêmes heures." },
       { if: { all: [done("oriane"), { not: done("sevan") }, { not: done("jasse") }] }, text: "Pendant qu'Oriane Valcor attendait au palais, un médecin et un passeur traversaient la ville, chacun de son côté." },
       { if: { count: [done("sevan"), done("jasse"), done("oriane")], min: 2, max: 2 }, text: "Il reste cinq heures à raconter. Elles ont eu lieu en même temps que les autres." },
-      { if: ALL, text: "Minuit approche. Sur les marches du palais, l'eau lèche la troisième pierre. Les conseillers montent, un par un, les pieds mouillés." },
+      { if: ALL, text: "Minuit approche. Sur les marches du palais, l'eau lèche la troisième pierre. Les conseillers montent un par un, les pieds mouillés, et chacun relève sa robe à la hauteur que lui dicte sa dignité." },
     ],
     choices: [
       { label: "Sévan Aldric · la Nuit des Lanternes", hide: done("sevan"), fx: { team: "sevan" }, to: "S3M", big: true },
