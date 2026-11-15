@@ -252,7 +252,7 @@ module.exports = {
     choices: [{ back: "C_relais" }] },
   C_ecurie_surpris: { act: "I", title: "La lanterne", place: "pontgele", fx: { flag: "monde:vert_mefiant" },
     text: [
-      "Le cadenas résiste. Une lanterne entre dans l'écurie : l'homme en vert, en chemise, qui vient voir son cheval. Il te voit à côté de sa selle. Il ne dit rien pendant un long moment.",
+      "Le cadenas résiste. Une lanterne entre dans l'écurie : l'homme en vert, en chemise, qui vient voir son cheval. Il te voit à côté de sa selle. Il se tait un long moment.",
       "« Il est beau, hein ? » Il caresse l'encolure du cheval noir sans te quitter des yeux. « Il mord. » Tu ressors. Tu sens son regard jusqu'à la porte.",
     ],
     choices: [{ back: "C_relais" }] },

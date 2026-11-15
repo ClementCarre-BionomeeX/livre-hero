@@ -1571,7 +1571,7 @@
     "flag": "monde:vert_mefiant"
    },
    "text": [
-    "Le cadenas résiste. Une lanterne entre dans l'écurie : l'homme en vert, en chemise, qui vient voir son cheval. Il te voit à côté de sa selle. Il ne dit rien pendant un long moment.",
+    "Le cadenas résiste. Une lanterne entre dans l'écurie : l'homme en vert, en chemise, qui vient voir son cheval. Il te voit à côté de sa selle. Il se tait un long moment.",
     "« Il est beau, hein ? » Il caresse l'encolure du cheval noir sans te quitter des yeux. « Il mord. » Tu ressors. Tu sens son regard jusqu'à la porte."
    ],
    "choices": [
@@ -2011,7 +2011,7 @@
        }
       ]
      },
-     "text": "La bourse au cor de chasse est restée sur le coffre toute la nuit, entre vos deux lits. Ce matin, {autre} la range sans rien dire, et tu ne dis rien non plus."
+     "text": "La bourse au cor de chasse est restée sur le coffre toute la nuit, entre vos deux lits. Ce matin, {autre} la range en silence, et tu te tais aussi."
     },
     {
      "if": {
@@ -3467,7 +3467,7 @@
      "if": {
       "has": "monde:sans_brunette"
      },
-     "text": "Il ne peut pas marcher seul. Vous le soutiendrez à deux, un bras sur chaque épaule, jusqu'au lac."
+     "text": "Il lui faut de l'aide pour marcher. Vous le soutiendrez à deux, un bras sur chaque épaule, jusqu'au lac."
     },
     {
      "if": {
@@ -3917,7 +3917,7 @@
    "title": "La lettre au cygne",
    "place": "ourse",
    "text": [
-    "Ancelin tient le pli au cygne entre deux doigts. Il ne l'ouvre pas. Il le regarde, comme on regarde une carte qu'on vient de gagner, et il le glisse sous son manteau vert.",
+    "Ancelin tient le pli au cygne entre deux doigts. Il le garde fermé. Il le regarde, comme on regarde une carte qu'on vient de gagner, et il le glisse sous son manteau vert.",
     {
      "if": {
       "has": "monde:gaut_soigne"
@@ -4081,7 +4081,7 @@
    "text": [
     {
      "first": true,
-     "text": "Le bac est un grand radeau de planches tiré par une corde d'une rive à l'autre, et le passeur est un vieux qui chique et qui ne pose pas de questions. De l'autre côté de l'eau, à une heure, Brumefond allume ses lumières une à une : les quais, les ponts couverts, et au milieu, sur une butte, le toit d'ardoise de la salle de l'Assemblée."
+     "text": "Le bac est un grand radeau de planches tiré par une corde d'une rive à l'autre, et le passeur est un vieux qui chique et qui garde ses questions pour lui. De l'autre côté de l'eau, à une heure, Brumefond allume ses lumières une à une : les quais, les ponts couverts, et au milieu, sur une butte, le toit d'ardoise de la salle de l'Assemblée."
     },
     {
      "first": true,
@@ -4549,7 +4549,7 @@
        }
       ]
      },
-     "text": "C'est ici. Tu regardes {autre}, au pied de l'estrade, et tu ne dis rien. Tu restes un peu en arrière, assez près pour qu'on te sache là."
+     "text": "C'est ici. Tu regardes {autre}, au pied de l'estrade, et tu te tais. Tu restes un peu en arrière, assez près pour qu'on te sache là."
     },
     {
      "if": {

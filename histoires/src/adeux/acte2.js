@@ -13,7 +13,7 @@ module.exports = {
       { if: { all: [{ has: "monde:pain" }, { not: { seen: "C_pain" } }] }, text: "Hier, sur le muret, {autre} t'a tendu la moitié de son pain." },
       { if: { all: [ROUTE, { confie: "p_pere" }] }, text: "Tu repenses à ce que {autre} t'a dit cette nuit : un père, une corde, une place de Brumefond. Ce matin, quand {autre} boucle sa sacoche, tu regardes ses mains." },
       { if: { all: [ROUTE, { confie: "p_vu" }] }, text: "Et la lettre brûlée dans le cabinet du chancelier. Tu ne sais pas ce que vaut un pli de duchesse. Tu sais ce que vaut une lettre qu'on brûle à minuit." },
-      { if: { all: [PLI, { confie: "g_argent" }] }, text: "La bourse au cor de chasse est restée sur le coffre toute la nuit, entre vos deux lits. Ce matin, {autre} la range sans rien dire, et tu ne dis rien non plus." },
+      { if: { all: [PLI, { confie: "g_argent" }] }, text: "La bourse au cor de chasse est restée sur le coffre toute la nuit, entre vos deux lits. Ce matin, {autre} la range en silence, et tu te tais aussi." },
       { if: { all: [PLI, { confie: "g_offre" }] }, text: "Tu penses à la femme en gris. Quelqu'un, à Vérenne, a voulu acheter ton guide. Quelqu'un qui porte l'emblème des postes de la duchesse." },
       { if: { all: [PLI, { confie: "g_hiver" }] }, text: "Onze étés. Tu regardes la montagne au bout de la vallée, toute blanche, et tu regardes {autre} qui la regarde aussi." },
       { if: { all: [PLI, { has: "monde:fouille_vue" }] }, text: "Cette nuit, tu as entendu un genou sur les planches, près de ta sacoche. Tu as gardé les yeux fermés. Ce matin, tu ne sais plus si tu as rêvé." },

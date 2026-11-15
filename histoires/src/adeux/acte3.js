@@ -60,7 +60,7 @@ var passages = {
     fx: { flag: ["monde:gaut_soigne", "monde:preuve_gaut"], ep: ["perso", 600] },
     text: [
       "Tu casses le carreau au ras de la peau et tu tires l'autre bout, d'un coup, par derrière. Gaut crie dans ton gant. Tu bandes l'épaule avec une chemise découpée, tu lui fais boire ce qu'il reste dans la gourde, tu le frictionnes jusqu'à ce que ses lèvres changent de couleur.",
-      { if: { has: "monde:sans_brunette" }, text: "Il ne peut pas marcher seul. Vous le soutiendrez à deux, un bras sur chaque épaule, jusqu'au lac." },
+      { if: { has: "monde:sans_brunette" }, text: "Il lui faut de l'aide pour marcher. Vous le soutiendrez à deux, un bras sur chaque épaule, jusqu'au lac." },
       { if: { not: { has: "monde:sans_brunette" } }, text: "Brunette accepte Gaut sur son bât en soufflant comme une forge. Il s'y couche, la joue contre la couverture." },
       "« Le pli au cygne, dit-il en fermant les yeux. Il ne me quitte pas. Je le donne à Lorge moi-même, ou à vous si je meurs en route. »",
     ],
@@ -126,7 +126,7 @@ var passages = {
     choices: [{ label: "Regarder ce qu'il en fait", to: "E_pont_rendu" }] },
   E_pont_rendu: { act: "III", title: "La lettre au cygne", place: "ourse",
     text: [
-      "Ancelin tient le pli au cygne entre deux doigts. Il ne l'ouvre pas. Il le regarde, comme on regarde une carte qu'on vient de gagner, et il le glisse sous son manteau vert.",
+      "Ancelin tient le pli au cygne entre deux doigts. Il le garde fermé. Il le regarde, comme on regarde une carte qu'on vient de gagner, et il le glisse sous son manteau vert.",
       { if: { has: "monde:gaut_soigne" }, text: "Sur le bât de Brunette, Gaut tourne la tête vers le lac et ferme les yeux." },
       "« Passez, dit Ancelin. Bonne séance. » Ses hommes s'écartent. Le pont couvert sent le bois humide et la fiente de pigeon. Vous le traversez sans vous retourner.",
     ],
@@ -177,7 +177,7 @@ var passages = {
   // ---------------------------------------------------------------- the ferry
   E_bac: { act: "III", title: "Le bac de Brume", place: "brumefond", aparte: true,
     text: [
-      { first: true, text: "Le bac est un grand radeau de planches tiré par une corde d'une rive à l'autre, et le passeur est un vieux qui chique et qui ne pose pas de questions. De l'autre côté de l'eau, à une heure, Brumefond allume ses lumières une à une : les quais, les ponts couverts, et au milieu, sur une butte, le toit d'ardoise de la salle de l'Assemblée." },
+      { first: true, text: "Le bac est un grand radeau de planches tiré par une corde d'une rive à l'autre, et le passeur est un vieux qui chique et qui garde ses questions pour lui. De l'autre côté de l'eau, à une heure, Brumefond allume ses lumières une à une : les quais, les ponts couverts, et au milieu, sur une butte, le toit d'ardoise de la salle de l'Assemblée." },
       { first: true, if: { has: "monde:gaut_soigne" }, text: "Gaut dort sur le bât de Brunette, ou sur vos manteaux. Il respire." },
       { first: true, if: { has: "monde:pont_saut" }, text: "Le passeur te jette une couverture de cheval sans rien dire." },
       { first: true, if: RETARD, text: "« Le vote, c'est demain soir, dit le passeur en crachant dans l'eau. Toute la ville ne parle que de ça. »" },
@@ -215,7 +215,7 @@ var passages = {
       "La place est pavée de pierres roses, usées par le sel. Les marchands ont replié leurs étals : il n'y a plus de sel à vendre depuis trois ans. Au milieu, une estrade de planches, où l'on monte les jours de fête pour jouer des farces. Et les jours de justice pour autre chose.",
       { if: PLI, text: "Tu restes au pied de l'estrade. Tu avais une image de cette place, depuis douze ans, faite de l'affiche et de ce que ta mère n'a pas dit. Elle est plus petite. Il y a des enfants qui jouent à la marelle sur les pierres roses, et un chat sur les marches de l'estrade." },
       { if: { all: [PLI, { has: "passe:couteau" }] }, text: "Tu sors le couteau à manche de corne de ta botte. Tu le tiens longtemps. Puis tu le ranges." },
-      { if: { all: [ROUTE, { secret: "p_pere" }] }, text: "C'est ici. Tu regardes {autre}, au pied de l'estrade, et tu ne dis rien. Tu restes un peu en arrière, assez près pour qu'on te sache là." },
+      { if: { all: [ROUTE, { secret: "p_pere" }] }, text: "C'est ici. Tu regardes {autre}, au pied de l'estrade, et tu te tais. Tu restes un peu en arrière, assez près pour qu'on te sache là." },
       { if: { all: [ROUTE, { not: { secret: "p_pere" } }] }, text: "{autre} s'arrête au pied de l'estrade et reste là un long moment, sans un mot, à regarder les planches. Tu attends. Tu ne sais pas ce que tu attends." },
     ],
     choices: [{ back: "E_ville" }] },
