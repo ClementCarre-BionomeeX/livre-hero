@@ -93601,6 +93601,9 @@
         }
        },
        {
+        "present": "gildas"
+       },
+       {
         "has": "gildas:demasque"
        }
       ]
@@ -93694,11 +93697,6 @@
     "Tu t'assieds sur la septième marche, parce que tes jambes le décident. La voix a les mots courts et l'accent du Mont, cette façon de poser chaque syllabe comme une pierre dans un mur. Tu l'as entendue lire des chartes, réciter des psaumes, te dire « prenez garde à la marche ». Frère Gildas.",
     "Il est venu à minuit. Il voulait le cornet. Elle l'a frappé avec le bougeoir de cuivre, celui qui est toujours sur le comptoir, avec sa bobèche tordue. Il l'a repoussée. Elle est tombée. Il l'a appelée. Le matin, toi, tu as trouvé le bougeoir de cuivre à sa place sur le comptoir. Quelqu'un l'y avait remis.",
     {
-     "with": "gildas",
-     "text": "Il est là-haut, dans l'encadrement de la porte basse, une main sur le chambranle. Tu gardes les yeux sur la pierre. Tu sens son regard sur ta nuque, et tu le laisses attendre."
-    },
-    {
-     "without": "gildas",
      "if": {
       "has": "gildas:mort"
      },
@@ -93707,22 +93705,18 @@
     },
     {
      "with": "lison",
-     "without": "gildas",
      "text": "Lison s'assied deux marches au-dessus de toi. « Le Gardien, dit-elle. Ma grand-mère savait qu'il était descendu en ville, cet hiver-là. » Elle serre les poings sur ses genoux. « Elle me l'a dit après. Après. »"
     },
     {
      "with": "tibere",
-     "without": "gildas",
      "text": "Tibère, en haut, dit d'une voix enrouée : « J'ai écrit *accident* dans mon rapport. J'ai écrit *accident*, et j'ai pris l'argent de la Banque le même jour. »"
     },
     {
      "with": "fauvette",
-     "without": "gildas",
      "text": "Fauvette, accroupie sur la marche du haut, a les yeux très ouverts. « Un moine, dit-elle tout bas. J'ai vu un moine sortir. C'était lui. »"
     },
     {
      "with": "salome",
-     "without": "gildas",
      "text": "Salomé descend trois marches et pose une main sur ton épaule, lourde, et l'y laisse. Elle connaît ce genre de nouvelle. Elle sait qu'il n'y a rien à dire dessus."
     },
     "Tu {{miroir#iv_apprend|as enfin le nom que tu cherchais|as enfin un coupable, et tu sens, honteusement, que ta phrase de dix heures pèse un peu moins lourd}}."
