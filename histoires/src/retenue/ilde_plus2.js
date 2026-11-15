@@ -15,7 +15,7 @@ module.exports = {
   // ------------------------------------------------------------------ the captain's pills
   I_rambert: { act: A, title: "Le patient du mardi", place: "hauteville", fx: { time: 0.5 },
     text: [
-      "Tu caches le paquet derrière les bocaux de sangsues, tu mets ton manteau et tu prends ta trousse. Au pont, le sergent Brasseur te laisse passer sans un mot : tu montes, et tu as les mains vides.",
+      "Tu caches le paquet derrière les bocaux de sangsues, tu mets ton manteau et tu prends ta trousse. Au pont, le sergent Brasseur te laisse passer : tu montes, et tu as les mains vides.",
       "Le corps de garde est au pied de la tour du guet. Le capitaine Rambert te reçoit dans son bureau, une pièce chaude, avec un tapis et un fauteuil de cuir. Il est en robe de chambre. Il a les joues roses et les ongles faits.",
       "« Madame Saunier ! Ce n'est pas mardi. »",
       "Depuis deux ans, chaque mardi, tu lui apportes une boîte de pilules bleues, au mercure, et tu lui regardes la gorge. Sa femme le croit soigné pour l'estomac. Toi seule sais de quoi il est soigné. C'est le métier : on te confie le corps, et le secret avec.",
@@ -82,7 +82,7 @@ module.exports = {
     text: [
       "Bastien te regarde. Tu lui as donné ses premiers livres d'images, quand sa mère est morte. Tu lui as soigné la rougeole et le bras cassé. Il te regarde, et sa bouche tremble.",
       "« Quatre cents, dit-il. Mes nouvelles dettes. Corlay a fait garder le pont. Et demain, si quelqu'un parle de la digue, il dira au Conseil que c'est mon père qui l'a cachée. Il a les papiers. »",
-      "Il pousse la pile d'écus vers toi, d'un revers de main, comme on repousse une assiette. Le marchand de Lyon ramasse ses dés et s'en va sans un mot.",
+      "Il pousse la pile d'écus vers toi, d'un revers de main, comme on repousse une assiette. Le marchand de Lyon ramasse ses dés et s'en va.",
       "« Je ne peux pas passer le pont, dis-tu. Toi, tu connais la digue mieux que personne. Le canal, l'escalier de service, la galerie. »",
       "Tu sors le paquet de sous ton manteau. Tu le poses sur la table, entre les écus et le vin.",
     ],

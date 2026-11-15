@@ -31,7 +31,7 @@ module.exports = {
       "Rue du Lavoir, la troisième maison après la fontaine. Tu frappes. Guillot, l'homme de Nine, t'ouvre en chemise, une gaffe à la main. Il a vingt-cinq ans et une barque à fond plat amarrée sous ses fenêtres. Derrière lui, Nine, le ventre en avant. Tu l'as suivie tout l'hiver.",
       "« Je ne peux pas passer le pont, Guillot. Toi, tu n'as pas besoin du pont. » Tu poses le paquet sur la table. « La cabane des Loutres, au pied de la digue. Par la Sorge, à contre-courant. Avant minuit. À Jacquette, et à personne d'autre. »",
       "Guillot soupèse le paquet. Il regarde Nine. Nine regarde le paquet, puis toi. « Le père de Nine garde le pont, ce soir, dit-il. Avec deux gars. Pour un paquet, je parie. »",
-      "Il prend sa veste. Nine lui tend son bonnet sans un mot. Cinq minutes après, tu entends sa gaffe cogner contre les pierres du quai, puis la rivière, seule.",
+      "Il prend sa veste. Nine lui tend son bonnet. Cinq minutes après, tu entends sa gaffe cogner contre les pierres du quai, puis la rivière, seule.",
     ],
     choices: [{ label: "Rentrer à ta boutique", to: "I_fulbert_vient" }] },
 
@@ -61,7 +61,7 @@ module.exports = {
   A_confiance_nuit: { act: A, title: "L'escalier", place: "digue", fx: { time: 4.5 },
     text: [
       "Bastien descend l'escalier de la digue. Tu entends son pas décroître : lent au début, puis plus vite, puis très vite, comme quelqu'un qui court vers la ville.",
-      "Ilde reste. Sans un mot, elle compte tes gouttes. À neuf heures, elle redescend aux Foulons pour faire lever le quartier à deux heures, comme prévu. Elle t'embrasse sur le front en partant.",
+      "Ilde reste. En silence, elle compte tes gouttes. À neuf heures, elle redescend aux Foulons pour faire lever le quartier à deux heures, comme prévu. Elle t'embrasse sur le front en partant.",
       "Dix heures. Onze. Minuit. Personne. Une seule lanterne à ta fenêtre. Rien ne t'étonne plus. Tu attends quand même.",
       "À deux heures et quart, on gratte à la porte de l'escalier intérieur.",
     ],

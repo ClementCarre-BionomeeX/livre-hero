@@ -128,7 +128,7 @@ module.exports = {
       { via: "verite", text: "Le sergent t'écoute jusqu'au bout, la lanterne baissée. Puis il dit : « Ma fille dort rue du Lavoir. » Il crie à ses deux hommes de le suivre, et ils partent en courant vers les Foulons, sans attendre le capitaine." },
       "La route de la Digue. Les bornes passent dans la lanterne. Pernelle se tait. Au bout de la route, au pied du mur, il y a une cabane de planches goudronnées, de la lumière dedans, et une femme rousse sur le ponton, un couteau à la main.",
       "La femme te regarde, toi, ton manteau, ta voiture. Elle te reconnaît. Tout le monde te reconnaît, dans cette vallée.",
-      "Elle te fait monter dans sa barque sans un mot. Elle longe le parement à la rame, jusqu'à un endroit qu'elle connaît. Elle lève la lanterne.",
+      "Elle te fait monter dans sa barque. Elle longe le parement à la rame, jusqu'à un endroit qu'elle connaît. Elle lève la lanterne.",
       "Entre deux pierres, un mètre au-dessus de l'eau, un bouillon sort du mur, gros comme un bras, brun, chargé de sable. Il gargouille. La pierre autour est mouillée sur toute sa hauteur.",
       "Tu tends la main. L'eau est glacée. Le sable te reste entre les doigts.",
       "Derrière toi, Pernelle Daguet écrit quelque chose, à la lueur de la lanterne, sur son écritoire mouillée.",

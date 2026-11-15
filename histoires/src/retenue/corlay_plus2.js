@@ -141,10 +141,10 @@ module.exports = {
     text: [
       "La chambre de la vanne. La roue de fer à douze rayons. Le vieux tourne la clé dans le moyeu, et il prend un rayon lui-même, ses mains maigres posées bien à plat.",
       { if: { has: "corlay:tassin_vu" }, text: "Tassin prend le rayon d'en face. Il a ôté ses gants. Ses mains sont blanches et molles, des mains de bureau, et elles saignent au cinquième tour." },
-      { if: { has: "corlay:tassin_fui" }, text: "Pernelle prend le rayon d'en face. Elle pèse cinquante kilos. Elle pousse avec tout son corps, les dents serrées, sans un mot." },
+      { if: { has: "corlay:tassin_fui" }, text: "Pernelle prend le rayon d'en face. Elle pèse cinquante kilos. Elle pousse avec tout son corps, les dents serrées." },
       "Tu pousses le troisième rayon. La roue avance d'un pouce, puis d'un autre. Au quinzième tour, la digue rugit sous vos pieds et l'eau se met à hurler dans le conduit de fond.",
       "Au quarantième, il est quatre heures et demie. Il pleut au-dehors. Le lac commence à descendre.",
-      { if: { has: "corlay:tassin_fui" }, text: "En remontant l'escalier, tu trouves Tassin assis sur la dernière marche, trempé, les gants à la main. Il s'est arrêté là. Il te regarde passer sans un mot." },
+      { if: { has: "corlay:tassin_fui" }, text: "En remontant l'escalier, tu trouves Tassin assis sur la dernière marche, trempé, les gants à la main. Il s'est arrêté là. Il te regarde passer en silence." },
     ],
     choices: [
       { label: "Lui faire écrire un second rapport, ici, ce matin", to: "C_second_rapport" },
@@ -166,7 +166,7 @@ module.exports = {
       "Le second dit qui a demandé le premier, et quand. Il dit ton nom.",
       "Tu restes assis. Tu sens les six autres se tourner vers toi. Tu reconnais tout. Tu dis seulement : « J'ai demandé un rapport avant le vote. J'ai eu celui que je voulais. Cette nuit, je suis allé voir. »",
       "Dame Hesdin te regarde longtemps. Puis elle dit : « C'est la première fois que vous allez voir, Corlay. Il est encore temps pour une première fois. Pour vingt ans, il en faut davantage. »",
-      "La Charge des Vannes va au fils Vellard, à quatre voix contre trois, sous la tutelle du Conseil. Tu gardes la présidence jusqu'au printemps. Tassin quitte Corvèze la semaine suivante. Avant de partir, il t'envoie ses gants de chevreau dans un paquet, sans un mot. Tu cherches longtemps ce qu'il a voulu dire. Tu les gardes.",
+      "La Charge des Vannes va au fils Vellard, à quatre voix contre trois, sous la tutelle du Conseil. Tu gardes la présidence jusqu'au printemps. Tassin quitte Corvèze la semaine suivante. Avant de partir, il t'envoie ses gants de chevreau dans un paquet. Tu cherches longtemps ce qu'il a voulu dire. Tu les gardes.",
     ] },
   C_deux_rapports: { act: A, title: "Une feuille dans ton gilet", place: "hauteville", end: true, fx: { time: 2 },
     text: [

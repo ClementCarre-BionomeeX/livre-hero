@@ -335,7 +335,7 @@ module.exports = {
   M_chambre_vanne: { act: A, title: "La chambre de la vanne", place: "digue", fx: { time: 0.75 },
     text: [
       "La chambre de la vanne de fond est une salle voûtée, ronde, creusée au cœur de la digue. Au milieu, une roue de fer haute comme deux hommes, à douze rayons, posée à plat sur un arbre de fer qui descend dans le sol. Une chaîne grosse comme un bras s'enroule autour de l'arbre. Une serrure de fer fermée d'un verrou bloque la roue.",
-      { via: "canal", text: "Le vieil homme descend l'escalier intérieur une marche après l'autre, une main au mur, une lanterne dans l'autre. Il est grand, maigre, la peau jaune. Jacquette va le prendre sous le bras sans un mot." },
+      { via: "canal", text: "Le vieil homme descend l'escalier intérieur une marche après l'autre, une main au mur, une lanterne dans l'autre. Il est grand, maigre, la peau jaune. Jacquette va le prendre sous le bras." },
       { via: "canal", text: "« Il y a deux gardes là-haut, chez moi, dit Anselme Vellard. Le capitaine Rambert me les a envoyés à minuit, pour veiller sur ma santé. Ils boivent mon vin. J'ai mis dans la deuxième bouteille de quoi les faire veiller jusqu'à midi. »" },
       "Anselme enfonce la clé dans la serrure. Il lui faut ses deux mains, et elles tremblent. La clé tourne. Le verrou tombe avec un bruit de cloche fêlée.",
       "« Quarante tours, dit-il. Sens de la marche. Et une fois parties, gardez la roue en mouvement jusqu'au bout, ou elle repartira en arrière. »",
@@ -479,7 +479,7 @@ module.exports = {
       { if: { has: "gregoire:aide" }, text: "Le vieux Grégoire est arrivé en haut sur une porte arrachée, que quatre teinturiers portaient comme une civière. Il a donné des ordres pendant toute la montée." },
       { via: "portes", text: "Il manque la veuve Gosse, du bout de la rue, qui a refusé d'ouvrir. On la trouvera dans son fauteuil quand l'eau baissera." },
       "Mallet vient s'asseoir à côté de toi sur les marches. Il te demande comment tu savais. Tu lui montres tes mains vides.",
-      "En bas, à huit heures, le Conseil des Sept Maisons se réunit pour voter la Charge des Vannes. D'ici, on entend sonner la cloche de l'Hôtel. Le quartier tout entier se tourne vers elle, et la regarde sans un mot.",
+      "En bas, à huit heures, le Conseil des Sept Maisons se réunit pour voter la Charge des Vannes. D'ici, on entend sonner la cloche de l'Hôtel. Le quartier tout entier se tourne vers elle, et la regarde en silence.",
     ] },
   M_vendue: { act: A, title: "Cent écus", place: "hauteville", end: true, fx: { time: 4.5 },
     text: [

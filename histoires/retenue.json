@@ -2143,7 +2143,7 @@
     "La chambre de la vanne de fond est une salle voûtée, ronde, creusée au cœur de la digue. Au milieu, une roue de fer haute comme deux hommes, à douze rayons, posée à plat sur un arbre de fer qui descend dans le sol. Une chaîne grosse comme un bras s'enroule autour de l'arbre. Une serrure de fer fermée d'un verrou bloque la roue.",
     {
      "via": "canal",
-     "text": "Le vieil homme descend l'escalier intérieur une marche après l'autre, une main au mur, une lanterne dans l'autre. Il est grand, maigre, la peau jaune. Jacquette va le prendre sous le bras sans un mot."
+     "text": "Le vieil homme descend l'escalier intérieur une marche après l'autre, une main au mur, une lanterne dans l'autre. Il est grand, maigre, la peau jaune. Jacquette va le prendre sous le bras."
     },
     {
      "via": "canal",
@@ -2548,7 +2548,7 @@
      "text": "Il manque la veuve Gosse, du bout de la rue, qui a refusé d'ouvrir. On la trouvera dans son fauteuil quand l'eau baissera."
     },
     "Mallet vient s'asseoir à côté de toi sur les marches. Il te demande comment tu savais. Tu lui montres tes mains vides.",
-    "En bas, à huit heures, le Conseil des Sept Maisons se réunit pour voter la Charge des Vannes. D'ici, on entend sonner la cloche de l'Hôtel. Le quartier tout entier se tourne vers elle, et la regarde sans un mot."
+    "En bas, à huit heures, le Conseil des Sept Maisons se réunit pour voter la Charge des Vannes. D'ici, on entend sonner la cloche de l'Hôtel. Le quartier tout entier se tourne vers elle, et la regarde en silence."
    ]
   },
   "M_vendue": {
@@ -3035,7 +3035,7 @@
    "text": [
     "Il te faut deux heures pour revenir à pied à Corvèze, les mains liées. Le garçon blond parle à son cheval pour éviter de te parler.",
     "À la porte Saint-Rieul, le capitaine Rambert vous attend sous la voûte, en bottes et en robe de chambre, avec un domestique de la maison Corlay. Le domestique prend le paquet et part en courant vers la rue Haute.",
-    "« Bon travail », dit le capitaine au garçon blond. À toi, il ne dit rien. On te met dans la petite salle de la porte, avec un tabouret et une fenêtre grillagée qui donne sur la vallée.",
+    "« Bon travail », dit le capitaine au garçon blond. Devant toi, il se tait. On te met dans la petite salle de la porte, avec un tabouret et une fenêtre grillagée qui donne sur la vallée.",
     "De cette fenêtre, on voit la digue, très loin, et la lumière de la Maison des Vannes. Vers quatre heures, la pluie se met à tomber. Tu regardes la petite lumière à travers la pluie jusqu'au matin.",
     "Elle reste seule toute la nuit, cette lumière. Quelqu'un attendait, là-haut, et tu sais maintenant qu'il attendra en vain."
    ]
@@ -3200,7 +3200,7 @@
    "text": [
     "La porte Saint-Rieul est encore ouverte : il manque un quart d'heure à minuit. La rue Haute dort. Chez Corlay, au deuxième étage, une seule fenêtre est allumée.",
     "C'est une femme qui t'ouvre la porte de service : trente-cinq ans, une robe grise, des manchettes de lustrine aux poignets, une plume derrière l'oreille. Pernelle Daguet, la secrétaire. Elle regarde le paquet avant de regarder ton visage.",
-    "« Ah, dit-elle. Celui-là. » Elle ne bouge pas de la porte. « Monsieur paiera. Monsieur paie toujours. Mais réfléchis à une chose avant d'entrer : Monsieur paie très bien ce qu'il n'a pas encore. Ce qu'il a déjà, il le paie moins. »"
+    "« Ah, dit-elle. Celui-là. » Elle reste à la porte. « Monsieur paiera. Monsieur paie toujours. Mais réfléchis à une chose avant d'entrer : Monsieur paie très bien ce qu'il n'a pas encore. Ce qu'il a déjà, il le paie moins. »"
    ],
    "choices": [
     {
@@ -4124,7 +4124,7 @@
     },
     {
      "via": "lutte",
-     "text": "Rambert passe la trappe. Il t'empoigne, tu le repousses, il glisse, il se rattrape à la corde, et le bourdon sonne sous vos deux poids mêlés. Il finit par lâcher. Il redescend sans un mot, la lèvre fendue. Tu reprends la corde."
+     "text": "Rambert passe la trappe. Il t'empoigne, tu le repousses, il glisse, il se rattrape à la corde, et le bourdon sonne sous vos deux poids mêlés. Il finit par lâcher. Il redescend, la lèvre fendue. Tu reprends la corde."
     },
     {
      "if": {
@@ -4852,7 +4852,7 @@
     "Bastien est allongé sur le banc, la joue sur son bras, les yeux fermés. Il respire lentement, régulièrement, trop régulièrement.",
     "Ses bottes, par terre à côté du banc, sont trempées jusqu'à la cheville. Il a plu cet après-midi entre deux et trois heures. À quatre heures, la pluie avait cessé.",
     "Tu as passé ta vie au chevet de gens qui font semblant de dormir pour qu'on les laisse tranquilles. Tu sais reconnaître une respiration qui écoute.",
-    "Tu refermes la porte doucement, sans un mot. Anselme te regarde revenir."
+    "Tu refermes la porte doucement. Anselme te regarde revenir."
    ],
    "choices": [
     {
@@ -5204,7 +5204,7 @@
      "if": {
       "has": "route:guillot"
      },
-     "text": "À trois heures, du parvis de Saint-Rieul, tu entends la digue : un grincement de fer, puis une chaîne qu'on dévide. Guillot est passé par l'eau. Nine, à côté de toi, serre les poings sur son ventre, sans un mot."
+     "text": "À trois heures, du parvis de Saint-Rieul, tu entends la digue : un grincement de fer, puis une chaîne qu'on dévide. Guillot est passé par l'eau. Nine, à côté de toi, serre les poings sur son ventre."
     },
     {
      "if": {
@@ -5256,7 +5256,7 @@
      },
      "text": "Fulbert se réveille vers sept heures, sur une civière, sous le porche de Saint-Rieul. Il ignore comment il est arrivé là. Il te cherche des yeux, et il détourne le regard le premier."
     },
-    "Les femmes viennent te voir une à une, sans un mot. L'une t'apporte du café. Une autre t'embrasse les mains.",
+    "Les femmes viennent te voir une à une, en silence. L'une t'apporte du café. Une autre t'embrasse les mains.",
     "Là-haut, au bout du lac, tu penses au vieil homme dans son fauteuil, près du baromètre."
    ]
   },
@@ -6713,7 +6713,7 @@
     },
     "À cinq heures, une partie du quartier monte la Côte, sous la pluie, avec les enfants dans des couvertures. L'autre partie reste aux fenêtres, à regarder ce fils d'ivrogne qui crie dans la rue.",
     "À cinq heures et demie, la digue cède. Le grondement descend la vallée, la Sorge se soulève, et la vague passe sur les Foulons.",
-    "Du haut de la Côte, trempé, tu regardes l'endroit où étaient les maisons. Les gens autour de toi se taisent. Ils sont vivants. Certains te touchent l'épaule en passant, sans un mot, puis s'écartent.",
+    "Du haut de la Côte, trempé, tu regardes l'endroit où étaient les maisons. Les gens autour de toi se taisent. Ils sont vivants. Certains te touchent l'épaule en passant, puis s'écartent.",
     "Tu as fait lever un quartier. Tu l'as fait trop tard pour l'autre moitié. Et au bout de la vallée, là où était la digue, toute lumière s'est éteinte."
    ]
   },
@@ -7347,7 +7347,7 @@
     "« Gaudry. Cinq sacs pour toi, cinq pour moi, et tu ne m'as pas vue. »",
     "Le vieux douanier te regarde par-dessus sa lanterne. Le jeune, derrière lui, regarde Gaudry.",
     "« Six, dit Gaudry. Et tu me dois une anguille fumée pour la Saint-Martin. »",
-    "Vous passez les sacs d'une barque à l'autre sans un mot, comme des gens qui déménagent. Le jeune douanier aide. Il a l'air de faire cela pour la première fois, et de comprendre beaucoup de choses en même temps."
+    "Vous passez les sacs d'une barque à l'autre en silence, comme des gens qui déménagent. Le jeune douanier aide. Il a l'air de faire cela pour la première fois, et de comprendre beaucoup de choses en même temps."
    ],
    "choices": [
     {
@@ -7862,7 +7862,7 @@
     },
     "La route de la Digue. Les bornes passent dans la lanterne. Pernelle se tait. Au bout de la route, au pied du mur, il y a une cabane de planches goudronnées, de la lumière dedans, et une femme rousse sur le ponton, un couteau à la main.",
     "La femme te regarde, toi, ton manteau, ta voiture. Elle te reconnaît. Tout le monde te reconnaît, dans cette vallée.",
-    "Elle te fait monter dans sa barque sans un mot. Elle longe le parement à la rame, jusqu'à un endroit qu'elle connaît. Elle lève la lanterne.",
+    "Elle te fait monter dans sa barque. Elle longe le parement à la rame, jusqu'à un endroit qu'elle connaît. Elle lève la lanterne.",
     "Entre deux pierres, un mètre au-dessus de l'eau, un bouillon sort du mur, gros comme un bras, brun, chargé de sable. Il gargouille. La pierre autour est mouillée sur toute sa hauteur.",
     "Tu tends la main. L'eau est glacée. Le sable te reste entre les doigts.",
     "Derrière toi, Pernelle Daguet écrit quelque chose, à la lueur de la lanterne, sur son écritoire mouillée."
@@ -8356,7 +8356,7 @@
    "text": [
     "Tu lui donnes la toile cirée et la lettre au cachet vert. *Trois heures, la vanne de fond. Il faut quatre bras. Qu'Ilde fasse lever les Foulons à deux heures.*",
     "« Trois lanternes à cette fenêtre, quand je serai prêt. »",
-    "Ilde se lève. Elle va jusqu'à la porte de la pièce d'à côté, entrouverte. Elle regarde Bastien sur son banc. Elle revient sans un mot. Elle t'embrasse sur le front, comme on embrasse un enfant malade, et elle s'en va.",
+    "Ilde se lève. Elle va jusqu'à la porte de la pièce d'à côté, entrouverte. Elle regarde Bastien sur son banc. Elle revient en silence. Elle t'embrasse sur le front, comme on embrasse un enfant malade, et elle s'en va.",
     "À huit heures, Bastien se lève. Il dit qu'il va faire un tour, les yeux ailleurs. Tu entends son pas décroître dans l'escalier de la digue, plus vite que d'habitude."
    ],
    "choices": [
@@ -9105,7 +9105,7 @@
     "Rue du Lavoir, la troisième maison après la fontaine. Tu frappes. Guillot, l'homme de Nine, t'ouvre en chemise, une gaffe à la main. Il a vingt-cinq ans et une barque à fond plat amarrée sous ses fenêtres. Derrière lui, Nine, le ventre en avant. Tu l'as suivie tout l'hiver.",
     "« Je ne peux pas passer le pont, Guillot. Toi, tu n'as pas besoin du pont. » Tu poses le paquet sur la table. « La cabane des Loutres, au pied de la digue. Par la Sorge, à contre-courant. Avant minuit. À Jacquette, et à personne d'autre. »",
     "Guillot soupèse le paquet. Il regarde Nine. Nine regarde le paquet, puis toi. « Le père de Nine garde le pont, ce soir, dit-il. Avec deux gars. Pour un paquet, je parie. »",
-    "Il prend sa veste. Nine lui tend son bonnet sans un mot. Cinq minutes après, tu entends sa gaffe cogner contre les pierres du quai, puis la rivière, seule."
+    "Il prend sa veste. Nine lui tend son bonnet. Cinq minutes après, tu entends sa gaffe cogner contre les pierres du quai, puis la rivière, seule."
    ],
    "choices": [
     {
@@ -9169,7 +9169,7 @@
    },
    "text": [
     "Bastien descend l'escalier de la digue. Tu entends son pas décroître : lent au début, puis plus vite, puis très vite, comme quelqu'un qui court vers la ville.",
-    "Ilde reste. Sans un mot, elle compte tes gouttes. À neuf heures, elle redescend aux Foulons pour faire lever le quartier à deux heures, comme prévu. Elle t'embrasse sur le front en partant.",
+    "Ilde reste. En silence, elle compte tes gouttes. À neuf heures, elle redescend aux Foulons pour faire lever le quartier à deux heures, comme prévu. Elle t'embrasse sur le front en partant.",
     "Dix heures. Onze. Minuit. Personne. Une seule lanterne à ta fenêtre. Rien ne t'étonne plus. Tu attends quand même.",
     "À deux heures et quart, on gratte à la porte de l'escalier intérieur."
    ],
@@ -9508,7 +9508,7 @@
      "if": {
       "has": "corlay:tassin_fui"
      },
-     "text": "Pernelle prend le rayon d'en face. Elle pèse cinquante kilos. Elle pousse avec tout son corps, les dents serrées, sans un mot."
+     "text": "Pernelle prend le rayon d'en face. Elle pèse cinquante kilos. Elle pousse avec tout son corps, les dents serrées."
     },
     "Tu pousses le troisième rayon. La roue avance d'un pouce, puis d'un autre. Au quinzième tour, la digue rugit sous vos pieds et l'eau se met à hurler dans le conduit de fond.",
     "Au quarantième, il est quatre heures et demie. Il pleut au-dehors. Le lac commence à descendre.",
@@ -9516,7 +9516,7 @@
      "if": {
       "has": "corlay:tassin_fui"
      },
-     "text": "En remontant l'escalier, tu trouves Tassin assis sur la dernière marche, trempé, les gants à la main. Il s'est arrêté là. Il te regarde passer sans un mot."
+     "text": "En remontant l'escalier, tu trouves Tassin assis sur la dernière marche, trempé, les gants à la main. Il s'est arrêté là. Il te regarde passer en silence."
     }
    ],
    "choices": [
@@ -9563,7 +9563,7 @@
     "Le second dit qui a demandé le premier, et quand. Il dit ton nom.",
     "Tu restes assis. Tu sens les six autres se tourner vers toi. Tu reconnais tout. Tu dis seulement : « J'ai demandé un rapport avant le vote. J'ai eu celui que je voulais. Cette nuit, je suis allé voir. »",
     "Dame Hesdin te regarde longtemps. Puis elle dit : « C'est la première fois que vous allez voir, Corlay. Il est encore temps pour une première fois. Pour vingt ans, il en faut davantage. »",
-    "La Charge des Vannes va au fils Vellard, à quatre voix contre trois, sous la tutelle du Conseil. Tu gardes la présidence jusqu'au printemps. Tassin quitte Corvèze la semaine suivante. Avant de partir, il t'envoie ses gants de chevreau dans un paquet, sans un mot. Tu cherches longtemps ce qu'il a voulu dire. Tu les gardes."
+    "La Charge des Vannes va au fils Vellard, à quatre voix contre trois, sous la tutelle du Conseil. Tu gardes la présidence jusqu'au printemps. Tassin quitte Corvèze la semaine suivante. Avant de partir, il t'envoie ses gants de chevreau dans un paquet. Tu cherches longtemps ce qu'il a voulu dire. Tu les gardes."
    ]
   },
   "C_deux_rapports": {
@@ -9983,7 +9983,7 @@
      "if": {
       "has": "charbonniers:aident"
      },
-     "text": "Le soir, les charbonniers descendent en ville, noirs de suie, voir ce qu'est devenue la vallée. Le plus vieux te serre la main sans un mot. Leurs meules sont perdues. Ils sont vivants, et ils savent ce qu'ils ont fait de leur nuit."
+     "text": "Le soir, les charbonniers descendent en ville, noirs de suie, voir ce qu'est devenue la vallée. Le plus vieux te serre la main. Leurs meules sont perdues. Ils sont vivants, et ils savent ce qu'ils ont fait de leur nuit."
     },
     "Au Conseil, Gaudry raconte les hausses, posées en août et oubliées. Le Conseil cherche longtemps qui devait donner l'ordre de les retirer. Le registre du Conseil dit : la maison Corlay."
    ]
@@ -10213,7 +10213,7 @@
     "À deux heures, Ilde prend la cloche du lavoir. Toi, tu prends les quais, avec ta voix de passeuse, celle qui porte d'une rive à l'autre par-dessus le vent.",
     "« Debout ! La digue ! Montez à Saint-Rieul ! »",
     "On te connaît, aux Foulons. On t'achète du sel, on te dénonce à l'octroi, on t'invite aux noces. Les volets s'ouvrent. On grogne. Quand on voit Ilde derrière toi, en robe de chambre et en sabots, avec la cloche, on se tait et on s'habille.",
-    "Fulbert Cosson, le teinturier, sort sur son seuil, une lanterne à la main. Il te regarde, puis il regarde Ilde. Il rentre chez lui. Une minute plus tard, il ressort avec sa femme et ses enfants, et il monte la Côte avec les autres, sans un mot.",
+    "Fulbert Cosson, le teinturier, sort sur son seuil, une lanterne à la main. Il te regarde, puis il regarde Ilde. Il rentre chez lui. Une minute plus tard, il ressort avec sa femme et ses enfants, et il monte la Côte avec les autres.",
     "À trois heures, le quartier est sur le parvis. À la fenêtre de la Maison des Vannes, au bout de la vallée, il y a une lanterne. Elle reste seule."
    ],
    "choices": [
@@ -10247,7 +10247,7 @@
     "time": 0.5
    },
    "text": [
-    "Tu caches le paquet derrière les bocaux de sangsues, tu mets ton manteau et tu prends ta trousse. Au pont, le sergent Brasseur te laisse passer sans un mot : tu montes, et tu as les mains vides.",
+    "Tu caches le paquet derrière les bocaux de sangsues, tu mets ton manteau et tu prends ta trousse. Au pont, le sergent Brasseur te laisse passer : tu montes, et tu as les mains vides.",
     "Le corps de garde est au pied de la tour du guet. Le capitaine Rambert te reçoit dans son bureau, une pièce chaude, avec un tapis et un fauteuil de cuir. Il est en robe de chambre. Il a les joues roses et les ongles faits.",
     "« Madame Saunier ! Ce n'est pas mardi. »",
     "Depuis deux ans, chaque mardi, tu lui apportes une boîte de pilules bleues, au mercure, et tu lui regardes la gorge. Sa femme le croit soigné pour l'estomac. Toi seule sais de quoi il est soigné. C'est le métier : on te confie le corps, et le secret avec.",
@@ -10412,7 +10412,7 @@
    "text": [
     "Bastien te regarde. Tu lui as donné ses premiers livres d'images, quand sa mère est morte. Tu lui as soigné la rougeole et le bras cassé. Il te regarde, et sa bouche tremble.",
     "« Quatre cents, dit-il. Mes nouvelles dettes. Corlay a fait garder le pont. Et demain, si quelqu'un parle de la digue, il dira au Conseil que c'est mon père qui l'a cachée. Il a les papiers. »",
-    "Il pousse la pile d'écus vers toi, d'un revers de main, comme on repousse une assiette. Le marchand de Lyon ramasse ses dés et s'en va sans un mot.",
+    "Il pousse la pile d'écus vers toi, d'un revers de main, comme on repousse une assiette. Le marchand de Lyon ramasse ses dés et s'en va.",
     "« Je ne peux pas passer le pont, dis-tu. Toi, tu connais la digue mieux que personne. Le canal, l'escalier de service, la galerie. »",
     "Tu sors le paquet de sous ton manteau. Tu le poses sur la table, entre les écus et le vin."
    ],
@@ -10759,7 +10759,7 @@
     "Vous marchez côte à côte sur la route de la Digue. Elle s'appelle Maëlle. Elle a vingt-deux ans, un petit frère, un loyer en retard. Ilde lui a donné un écu d'argent pour porter ça à une passeuse, à la cabane des Loutres.",
     "« Et toi, demande-t-elle. Tu es qui, pour le garde ? »",
     "« Le fils du garde-vannes. »",
-    "Elle marche un moment sans un mot. Puis : « Ilde m'a dit de me méfier de tout le monde. Elle a dit : surtout de ceux qui connaissent le chemin. »",
+    "Elle marche un moment en silence. Puis : « Ilde m'a dit de me méfier de tout le monde. Elle a dit : surtout de ceux qui connaissent le chemin. »",
     "La digue grandit devant vous, noire, avec sa lanterne. À mi-chemin de l'escalier, tu t'arrêtes. Tu as le paquet dans les bras, la courrière à côté de toi, et ton père en haut des deux cents marches."
    ],
    "choices": [
@@ -10806,7 +10806,7 @@
     "Ton père prend la clé. Il regarde Maëlle, puis toi. Il dit : « Entrez. Il fait froid. »",
     "C'est tout ce qu'il dit de la nuit. Vous tournez la roue, tous les trois. Maëlle est redescendue lever les Foulons. Au jour, la digue tient, le quartier est vivant sur le parvis.",
     "À onze heures, ton père t'appelle près du fauteuil. Il te donne son carnet de mesures, avec trois feuilles pliées entre les pages. « Le Conseil a payé tes dettes il y a trois ans, dit-il. Pour que je me taise. Moi aussi, j'ai été vendu, et j'ai pris l'argent. Nous sommes deux. » Il meurt à midi.",
-    "La Charge, tu la laisses aux autres. Tu lis les trois feuilles devant le Conseil le jour de l'enterrement, et tu dis ce que tu as fait, toi aussi, à huit heures. Tu quittes la salle avant le vote. Dehors, la courrière t'attend sur les marches. Elle marche à côté de toi jusqu'au pont, sans un mot."
+    "La Charge, tu la laisses aux autres. Tu lis les trois feuilles devant le Conseil le jour de l'enterrement, et tu dis ce que tu as fait, toi aussi, à huit heures. Tu quittes la salle avant le vote. Dehors, la courrière t'attend sur les marches. Elle marche à côté de toi jusqu'au pont, muette."
    ]
   },
   "B_attendre": {
@@ -11431,7 +11431,7 @@
     "time": 5
    },
    "text": [
-    "La Loutre te regarde une seconde de trop. Puis elle part en courant vers la digue, sans un mot.",
+    "La Loutre te regarde une seconde de trop. Puis elle part en courant vers la digue.",
     "Tu restes à ton pont. À deux heures, en bas, la cloche du lavoir sonne à la volée. Des lanternes sortent des maisons et montent la Côte en file. Tu cherches des yeux celle de la rue du Lavoir, la troisième après la fontaine. Elle sort la dernière, lentement, à la hauteur d'une femme qui porte un ventre rond.",
     "À trois heures et demie, au bout de la vallée, la fenêtre de la Maison des Vannes s'allume deux fois, puis trois.",
     "À quatre heures, la pluie. Au jour, la Sorge est dans les Foulons jusqu'aux fenêtres basses, et les Foulons sont vides. Ton poste te tient jusqu'à huit heures. Tu regardes le parvis de Saint-Rieul, de loin, jusqu'à ce que Colin te relève.",
@@ -11447,7 +11447,7 @@
    },
    "text": [
     "« Colin. Le pont est à toi. Si le capitaine descend, je suis parti pisser. »",
-    "Colin ouvre de grands yeux. Tu décroches ta lanterne. La Loutre te regarde faire sans un mot. Puis elle se met en marche, et tu marches à côté d'elle.",
+    "Colin ouvre de grands yeux. Tu décroches ta lanterne. La Loutre te regarde faire en silence. Puis elle se met en marche, et tu marches à côté d'elle.",
     "Dix bornes sur la route de la Digue. Le vent dans la figure. Vous vous taisez. À la septième borne, elle dit : « Tu m'as arrêtée deux fois. » Tu réponds : « Et ratée vingt. » Elle rit, une fois, sans s'arrêter de marcher.",
     "Au pied du mur, la cabane des Loutres, une planche à la porte, et devant la porte une pierre plate peinte en bleu."
    ],
@@ -11680,7 +11680,7 @@
    "text": [
     {
      "via": "corlay",
-     "text": "Corlay monte dans ta voiture sans un mot, en habit de soirée. Il regarde par la portière. Tu le regardes, lui."
+     "text": "Corlay monte dans ta voiture, en habit de soirée. Il regarde par la portière. Tu le regardes, lui."
     },
     "Ta voiture descend à la porte Saint-Rieul, qu'on t'ouvre, puis le raidillon. Barthélemy est sur le siège à côté du cocher, une corde et une lanterne sur les genoux.",
     "Au milieu du pont des Moulins, un sergent du guet lève la main devant tes chevaux. Il lève sa lanterne vers la portière. Il voit l'enclume peinte. Il voit une vieille dame en noir.",

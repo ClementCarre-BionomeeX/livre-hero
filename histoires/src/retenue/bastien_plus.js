@@ -87,7 +87,7 @@ module.exports = {
       { via: "nom", text: "« Je suis Bastien Vellard ! Mon père garde la digue ! Il dit qu'elle cède cette nuit ! » Au bout de la quatrième porte, quelqu'un te croit. Au bout de la dixième, c'est la rue entière qui frappe avec toi." },
       "À cinq heures, une partie du quartier monte la Côte, sous la pluie, avec les enfants dans des couvertures. L'autre partie reste aux fenêtres, à regarder ce fils d'ivrogne qui crie dans la rue.",
       "À cinq heures et demie, la digue cède. Le grondement descend la vallée, la Sorge se soulève, et la vague passe sur les Foulons.",
-      "Du haut de la Côte, trempé, tu regardes l'endroit où étaient les maisons. Les gens autour de toi se taisent. Ils sont vivants. Certains te touchent l'épaule en passant, sans un mot, puis s'écartent.",
+      "Du haut de la Côte, trempé, tu regardes l'endroit où étaient les maisons. Les gens autour de toi se taisent. Ils sont vivants. Certains te touchent l'épaule en passant, puis s'écartent.",
       "Tu as fait lever un quartier. Tu l'as fait trop tard pour l'autre moitié. Et au bout de la vallée, là où était la digue, toute lumière s'est éteinte.",
     ] },
 };

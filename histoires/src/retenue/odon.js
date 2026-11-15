@@ -197,7 +197,7 @@ module.exports = {
     text: [
       "Tu tires. Le bourdon bascule, hésite, frappe. Le son te traverse les os. Tu tires encore, à coups pressés, à coups courts, comme pour un incendie, comme pour la peste.",
       { via: "trappe", text: "Sous la trappe, Rambert cogne, crie, jure, menace. Tu entends seulement la cloche." },
-      { via: "lutte", text: "Rambert passe la trappe. Il t'empoigne, tu le repousses, il glisse, il se rattrape à la corde, et le bourdon sonne sous vos deux poids mêlés. Il finit par lâcher. Il redescend sans un mot, la lèvre fendue. Tu reprends la corde." },
+      { via: "lutte", text: "Rambert passe la trappe. Il t'empoigne, tu le repousses, il glisse, il se rattrape à la corde, et le bourdon sonne sous vos deux poids mêlés. Il finit par lâcher. Il redescend, la lèvre fendue. Tu reprends la corde." },
       { if: { not: { via: ["trappe", "lutte"] } }, text: "Rambert arrive au sommet de l'escalier. Il te regarde sonner. Il s'arrête avant la dernière marche. Il redescend." },
       "En bas, les fenêtres s'allument. Toutes. La Haute-Ville d'abord, puis les Foulons, rue par rue. Des lanternes sortent sur les quais. Tes hommes, Colin et Thomin et les autres, réveillés au poste, descendent vers le quartier bas en criant.",
       "Tu sonnes jusqu'à ce que tes bras te lâchent. Puis Anicet prend la corde, ou un garçon du guet ; tu as perdu le compte.",

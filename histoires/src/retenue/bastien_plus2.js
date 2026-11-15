@@ -47,7 +47,7 @@ module.exports = {
       "Vous marchez côte à côte sur la route de la Digue. Elle s'appelle Maëlle. Elle a vingt-deux ans, un petit frère, un loyer en retard. Ilde lui a donné un écu d'argent pour porter ça à une passeuse, à la cabane des Loutres.",
       "« Et toi, demande-t-elle. Tu es qui, pour le garde ? »",
       "« Le fils du garde-vannes. »",
-      "Elle marche un moment sans un mot. Puis : « Ilde m'a dit de me méfier de tout le monde. Elle a dit : surtout de ceux qui connaissent le chemin. »",
+      "Elle marche un moment en silence. Puis : « Ilde m'a dit de me méfier de tout le monde. Elle a dit : surtout de ceux qui connaissent le chemin. »",
       "La digue grandit devant vous, noire, avec sa lanterne. À mi-chemin de l'escalier, tu t'arrêtes. Tu as le paquet dans les bras, la courrière à côté de toi, et ton père en haut des deux cents marches.",
     ],
     choices: [
@@ -70,7 +70,7 @@ module.exports = {
       "Ton père prend la clé. Il regarde Maëlle, puis toi. Il dit : « Entrez. Il fait froid. »",
       "C'est tout ce qu'il dit de la nuit. Vous tournez la roue, tous les trois. Maëlle est redescendue lever les Foulons. Au jour, la digue tient, le quartier est vivant sur le parvis.",
       "À onze heures, ton père t'appelle près du fauteuil. Il te donne son carnet de mesures, avec trois feuilles pliées entre les pages. « Le Conseil a payé tes dettes il y a trois ans, dit-il. Pour que je me taise. Moi aussi, j'ai été vendu, et j'ai pris l'argent. Nous sommes deux. » Il meurt à midi.",
-      "La Charge, tu la laisses aux autres. Tu lis les trois feuilles devant le Conseil le jour de l'enterrement, et tu dis ce que tu as fait, toi aussi, à huit heures. Tu quittes la salle avant le vote. Dehors, la courrière t'attend sur les marches. Elle marche à côté de toi jusqu'au pont, sans un mot.",
+      "La Charge, tu la laisses aux autres. Tu lis les trois feuilles devant le Conseil le jour de l'enterrement, et tu dis ce que tu as fait, toi aussi, à huit heures. Tu quittes la salle avant le vote. Dehors, la courrière t'attend sur les marches. Elle marche à côté de toi jusqu'au pont, muette.",
     ] },
 
   // ------------------------------------------------------------------ the dice at midnight
