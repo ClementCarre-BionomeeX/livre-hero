@@ -8,7 +8,7 @@ module.exports = {
   II_G_quai: P({ title: "La galère grise", place: "vasselin",
     fx: { questSeen: "II_Q_galere" },
     text: [
-      "Au fond du bassin aux galères, à l'écart des autres, une galère peinte en gris, sans nom à la proue. Pas de bannière. Des gardes en manteau gris sur le quai, devant la passerelle. Les pêcheurs ne la regardent pas. Ils ont appris.",
+      "Au fond du bassin aux galères, à l'écart des autres, une galère peinte en gris, longue de cent vingt pieds, la proue rase et le mât nu. Des gardes en manteau gris sur le quai, devant la passerelle. Les pêcheurs regardent ailleurs, avec l'aisance d'une longue habitude.",
       "La nuit, on entend chanter, à bord. Une chanson lente, dans une langue que personne au port ne comprend. Toi, tu la comprends : c'est du corvannais. Une chanson de rameurs, celle qu'on chante pour tenir la cadence.",
       "« Des prisonniers de la Lisse, dit un pêcheur, très bas, sans te regarder. Ils rament pour la Chancellerie. Ils ne savent pas qu'ils sont prisonniers. On leur a pris ça. Ils croient qu'ils sont payés. »",
     ],
@@ -18,7 +18,7 @@ module.exports = {
     ] }),
   II_G_approche: P({ takes: "night", title: "La nuit sur le bassin", place: "vasselin",
     text: [
-      "Minuit. Le bassin est noir, l'eau clapote contre les coques. Sur la passerelle de la galère grise, deux gardes, une lanterne. À la poupe, une fenêtre allumée : la cabine du capitaine, qui a des invités. On entend rire.",
+      "Minuit. Le bassin est noir, l'eau clapote contre les coques, et l'air sent le goudron et le poisson de la veille. Sur la passerelle de la galère grise, deux gardes, une lanterne. À la poupe, une fenêtre allumée : la cabine du capitaine, qui a des invités. On entend rire.",
     ],
     choices: [
       { label: "Te présenter à la passerelle comme la chanteuse qu'on a demandée pour le souper", test: { dom: "social", label: "L'aplomb", help: [{ if: { item: "luth" }, v: 15 }, { if: { has: "lisandre:disgrace" }, v: -10 }] },
@@ -29,13 +29,13 @@ module.exports = {
         win: { fx: { flag: "galere:entree=pie", conf: { pie: 5 } }, to: "II_G_pont" }, lose: { to: "II_G_passerelle_combat" } },
     ] }),
   II_G_approche_rate: P({ title: "L'eau noire", place: "vasselin",
-    text: ["L'eau est plus froide que tu ne le croyais. La chaîne est couverte d'algues. Tu glisses deux fois, et la deuxième, tu tombes, avec un bruit qui fait se retourner la lanterne de la passerelle. Tu restes sous la coque, immobile, longtemps. La lanterne se détourne. Tu regagnes le quai, transie, et tu recommences par la passerelle."],
+    text: ["L'eau est froide à couper le souffle. La chaîne d'ancre, grosse comme ton poignet, est couverte d'algues. Tu glisses deux fois, et la deuxième, tu tombes, avec un bruit qui fait se retourner la lanterne de la passerelle. Tu restes sous la coque, immobile, longtemps. La lanterne se détourne. Tu regagnes le quai, transie, et tu recommences par la passerelle."],
     choices: [{ label: "Aller à la passerelle", to: "II_G_passerelle_combat" }] }),
   II_G_passerelle_combat: P({ title: "La passerelle",
     combat: { title: "Les gardes de la passerelle", enemies: ["garde_noir", "garde_noir"], terrain: "ville", range: "contact",
       flee: { dom: "discretion", label: "Plonger dans le bassin", to: "II_G_fuite" },
       win: { fx: { flag: "galere:alerte", ep: ["seance", 1000] }, to: "II_G_pont" }, lose: { fx: { pv: -3 }, to: "II_G_fuite" } },
-    text: ["Le premier garde lève sa lanterne vers ton visage, et l'autre a déjà la main à l'épée. Ce ne sont pas des gardes de port. Ce sont des hommes de la Chancellerie."],
+    text: ["Le premier garde lève sa lanterne vers ton visage, et l'autre a déjà la main à l'épée. Ils tiennent leur épée à la manière de la Chancellerie, coude serré, pointe basse : des gardes de port tiendraient une gaffe."],
     choices: [] }),
   II_G_fuite: P({ title: "Le quai", place: "vasselin",
     text: ["Tu te retrouves sur le quai, trempée, essoufflée, sans savoir comment. Sur la galère, on crie, on allume des lanternes. Demain, elle aura changé de place. Ou elle sera partie. Tu ne la reverras pas."],
@@ -50,7 +50,7 @@ module.exports = {
       { first: true, if: { has: "galere:entree=ancre" }, text: "Tu passes la lisse, ruisselante, et tu te glisses entre deux rouleaux de cordage. Personne ne t'a vue." },
       { first: true, if: { has: "galere:entree=pie" }, text: "La trappe du gaillard s'ouvre. Pie te fait signe, un doigt sur les lèvres. Vous êtes dedans." },
       { if: { has: "galere:alerte" }, text: "L'alerte est donnée. Des pas, sous le pont. Il n'y a pas beaucoup de temps." },
-      "Le pont est long et étroit. De chaque côté, les bancs, et sur les bancs, les rameurs, enchaînés par la cheville, qui dorment assis, la tête sur la rame. Au milieu, la coursive, où marche le comite avec son fouet. À la poupe, la cabine. Sous tes pieds, la cale.",
+      "Le pont est long et étroit. De chaque côté, les bancs, trente par bord, trois hommes par banc, et sur les bancs, les rameurs, enchaînés par la cheville, qui dorment assis, la tête sur la rame. Au milieu, la coursive, où marche le comite avec son fouet. À la poupe, la cabine. Sous tes pieds, la cale.",
     ],
     choices: [
       { label: "Les bancs des rameurs", hide: { seen: "II_G_rameurs" }, to: "II_G_rameurs" },
@@ -64,7 +64,7 @@ module.exports = {
     ] }),
   II_G_rameurs: P({ title: "Les rameurs", place: "vasselin",
     text: [
-      "Tu t'accroupis près du premier banc. Le rameur se réveille. Un homme de trente ans, maigre, le dos zébré, la barbe blonde. Il te sourit. « Madame, dit-il en corvannais. Vous venez nous payer ? »",
+      "Tu t'accroupis près du premier banc. Le rameur se réveille. Un homme de trente ans, maigre, le dos zébré, la barbe blonde, avec aux paumes des cals épais comme des semelles. Il te sourit. « Madame, dit-il en corvannais. Vous venez nous payer ? »",
       "Il croit qu'il est payé. Qu'il est rameur de son plein gré, engagé pour une saison, et que la saison finira bientôt. Depuis quand est-il là ? D'où viennent les marques sur son dos ? Il l'ignore. « Je suis maladroit, dit-il. Je tombe souvent. »",
       { with: "rodric", text: "Rodric s'est penché sur le banc d'à côté. Il se tait longtemps. Puis il prononce un nom, à voix basse, un nom de village de la Lisse. Le rameur lève la tête. « C'est chez moi, dit-il. Comment vous savez ? » Rodric se tait. Il a les poings serrés à s'en faire blanchir les jointures." },
       "Sous le banc, gravées dans le bois avec un clou, des marques. Des traits, par groupes de sept. Des centaines. Quelqu'un comptait les semaines, avant d'oublier qu'il comptait.",
@@ -92,7 +92,7 @@ module.exports = {
     choices: [] }),
   II_G_cale: P({ title: "La cale", place: "vasselin",
     text: [
-      "La cale sent la sentine et la cire. Des tonneaux, des cordages, et au fond, des caisses. Tu en ouvres une. Dedans, dans la paille, des fioles. Bouchées de cire grise. Des centaines, avec des étiquettes.",
+      "La cale sent la sentine et la cire. Des tonneaux d'eau douce, des cordages, et au fond, une rangée de caisses de sapin, neuves, clouées de frais. Tu en ouvres une. Dedans, dans la paille, des fioles. Bouchées de cire grise. Des centaines, avec des étiquettes.",
       "*Joachim, de Lisse : la captivité. Piotr, de Lisse : la captivité. Wenzel, de Lisse : la captivité.* Cent quatre-vingts. Les souvenirs des rameurs. On les garde à bord, avec eux, dans la cale, sous leurs pieds. Comme du lest.",
     ],
     choices: [
@@ -101,7 +101,7 @@ module.exports = {
     ] }),
   II_G_comite: P({ title: "Le comite", place: "vasselin",
     text: [
-      "Le comite fait les cent pas, le fouet roulé à la ceinture. Un gros homme, chauve, avec un sifflet d'argent au cou. Il te voit. Il ne crie pas. Il te regarde, la tête penchée.",
+      "Le comite fait les cent pas, le fouet roulé à la ceinture. Un gros homme, chauve, avec un sifflet d'argent au cou et des sandales de corde. Il te voit. Il garde le silence et te regarde, la tête penchée, comme on évalue une marchandise.",
       "« Je sais ce qu'ils sont, dit-il. Moi, je n'ai rien cédé. Je suis payé pour les faire ramer. Je les fais ramer. » Il touche son sifflet. « Si je siffle, vingt gardes montent. Si je ne siffle pas, je n'ai rien vu. » Il attend.",
     ],
     choices: [
@@ -109,7 +109,7 @@ module.exports = {
       { label: "Lui arracher le sifflet", to: "II_G_comite_combat" },
     ] }),
   II_G_comite_achete: P({ title: "Le sifflet", place: "vasselin",
-    text: ["Il soupèse la bourse. Il la glisse dans sa chemise. Puis il te tourne le dos, et il va s'asseoir à la proue, face au large, et il allume une pipe. Il n'a rien vu. Il ne verra rien. Il fume."],
+    text: ["Il soupèse la bourse. Il la glisse dans sa chemise. Puis il te tourne le dos, et il va s'asseoir à la proue, face au large, et il allume une pipe. Il fume, les yeux sur l'horizon, avec la concentration d'un homme qui voit très peu de choses."],
     choices: [{ back: "II_G_pont" }] }),
   II_G_comite_combat: P({ title: "La coursive",
     combat: { title: "Le comite", enemies: ["brigand"], terrain: "ville", range: "contact",
@@ -120,7 +120,7 @@ module.exports = {
   II_G_liberer: P({ title: "Les chaînes", place: "vasselin",
     text: [
       "Tu ouvres le premier fer. Le rameur, un homme maigre à la barbe blonde, regarde sa cheville nue, marquée d'un anneau de peau blanche. Il reste assis, l'air perdu. Pourquoi se lever ? Il est payé.",
-      { if: { has: "galere:fioles" }, text: "Alors tu ouvres une fiole, la sienne, *Joachim, de Lisse*, et tu la lui mets sous le nez. Il respire. Et il se souvient d'être prisonnier. Il se souvient de tout, d'un coup, de la Lisse, du pont, de la cale, du fouet, des semaines comptées au clou. Il se lève. Il ne crie pas. Il prend les clés de ta main, et il ouvre le fer de son voisin." },
+      { if: { has: "galere:fioles" }, text: "Alors tu ouvres une fiole, la sienne, *Joachim, de Lisse*, et tu la lui mets sous le nez. Il respire. Et il se souvient d'être prisonnier. Il se souvient de tout, d'un coup, de la Lisse, du pont, de la cale, du fouet, des semaines comptées au clou. Il se lève, sans un cri. Il prend les clés de ta main, et il ouvre le fer de son voisin." },
       { if: { not: { has: "galere:fioles" } }, after: "galere:role", text: "Tu lui dis qu'il est prisonnier. Il rit, poliment. Tu insistes. Tu lui montres le rôle. Il ne sait pas lire. Tu lui lis son nom, et ce qu'il y a en face. *Cédé : la captivité.* Il fronce les sourcils, longtemps." },
       { if: { not: { has: "galere:fioles" } }, before: "galere:role", text: "Tu lui dis qu'il est prisonnier. Il rit, poliment. Tu insistes. Tu lui montres le fer ouvert, son dos, les autres bancs. Il regarde tout cela, l'un après l'autre. Il fronce les sourcils, longtemps." },
     ],
