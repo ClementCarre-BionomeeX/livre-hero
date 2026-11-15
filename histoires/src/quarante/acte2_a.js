@@ -4,12 +4,12 @@ module.exports = {
   C_aube: { act: "II", title: "Le treizième jour", place: "palais",
     fx: { questSeen: ["C_testament", "C_gris"], catchup: 3, catchupWhy: "la nuit du douzième jour" },
     text: [
-      { after: "gris:vaincu", text: "On a emporté les corps avant l'aube. Il reste sur le tapis du cabinet une tache sombre que les servantes frottent à genoux, en silence, et qui reste. Tu as dormi deux heures, assis dans un fauteuil, le coffret sur les genoux." },
-      { after: "gris:fui", text: "Tu as dormi deux heures, la plaie recousue tirant à chaque souffle. Au matin, Joris entre avec un homme ligoté : l'un des deux coupe-jarrets, qu'on a repêché sous le pont des Fièvres, à moitié noyé. Il a parlé de lui-même, tout de suite." },
+      { after: "gris:vaincu", text: "On a emporté les corps avant l'aube. Sur le tapis du cabinet, il reste une tache sombre, grande comme un plat, que les servantes frottent à genoux, en silence, et qui résiste au savon. Tu as dormi deux heures, assis dans un fauteuil, le coffret sur les genoux." },
+      { after: "gris:fui", text: "Tu as dormi deux heures ; la plaie recousue tire à chaque souffle. Au matin, Joris entre avec un homme ligoté : l'un des deux coupe-jarrets, repêché sous le pont des Fièvres, à moitié noyé. Il a parlé de lui-même, tout de suite, comme parlent les gens qui ont bu beaucoup d'eau froide." },
       { after: "gris:fui", text: "« Un commis, dit Joris. Au quai des Morues, il y a quatre jours. Une plume derrière l'oreille. Il les a payés en besants tout neufs, de ceux qui sortent de la Monnaie. L'homme gris, pour lui comme pour tout le quai, c'est un inconnu. »" },
-      "La nouvelle a fait le tour de la ville avant que le soleil soit levé : *on a voulu tuer le Sceau.* À la troisième heure, l'amiral est dans ton antichambre ; à la quatrième, un billet d'Orsanne, plein de sollicitude ; à la cinquième, un panier de fruits de l'ambassade de Thérance, avec la carte du comte. Du Temple, aucun signe. Nello Brisse vient en personne, et serre longuement ta main valide.",
+      "La nouvelle a fait le tour de la ville avant le lever du soleil : *on a voulu tuer le Sceau.* Le reste de la matinée se compte en visites. À la troisième heure, l'amiral est dans ton antichambre ; à la quatrième arrive un billet d'Orsanne, plein de sollicitude ; à la cinquième, un panier de fruits de l'ambassade de Thérance, avec la carte du comte. Du Temple, aucun signe. Nello Brisse vient en personne et serre longuement ta main valide.",
       "Le testament est contre ta poitrine, sous ta chemise, avec la lettre du prince. Tu es seul à l'avoir lu.",
-      { with: ["livia", "joris"], text: "Tes conseillers attendent que tu parles. Ils savent qu'il s'est passé autre chose cette nuit, que le coffret a été ouvert. Ils attendent." },
+      { with: ["livia", "joris"], text: "Tes conseillers attendent que tu parles. Ils savent qu'il s'est passé autre chose cette nuit, et que le coffret a été ouvert." },
     ],
     choices: [
       { label: "Leur dire ce que tu as trouvé dans le coffret", fx: { flag: "testament:conseillers", conf: { livia: 10, joris: 10, ansel: 5 } }, to: "C_aube_dire" },
@@ -17,16 +17,16 @@ module.exports = {
     ] },
   C_aube_dire: { act: "II", title: "Ce qu'il y avait dans le coffret", place: "palais",
     text: [
-      "Tu fermes la porte. Tu poses les quatre feuilles sur la table, et tu les laisses lire.",
-      { with: "livia", text: "Livia lit la première ligne, et s'arrête. Elle relit. Elle pose la main à plat sur la feuille comme pour la retenir. « *Par choix, sinon par le sang* », répète-t-elle très bas. Puis elle lit la suite en silence." },
-      { with: "joris", text: "Joris lit lentement, en remuant les lèvres. Arrivé au nom de l'amiral, il s'arrête, et il repose la feuille. « Moi, j'ai vu du papier, dit-il. Je suis illettré, tout le monde le sait. »" },
-      { with: "ansel", text: "Ansel regarde les feuilles de loin, le cachet rouge, l'écriture. « Je sais ce qu'il y a dedans, dit-il. J'étais là quand il l'a écrit. » Puis il sort." },
+      "Tu fermes la porte. Tu poses les quatre feuilles sur la table et tu les laisses lire.",
+      { with: "livia", text: "Livia lit la première ligne et s'arrête. Elle relit. Elle pose la main à plat sur la feuille, comme pour la retenir. « *Par choix, sinon par le sang* », répète-t-elle très bas. Puis elle lit la suite en silence." },
+      { with: "joris", text: "Joris lit lentement, en remuant les lèvres. Arrivé au nom de l'amiral, il repose la feuille. « Moi, j'ai vu du papier, dit-il. Je suis illettré, tout le monde le sait. » Tu l'as vu lire des rapports de garde plus vite que toi." },
+      { with: "ansel", text: "Ansel regarde les feuilles de loin : le cachet rouge, l'écriture. « Je sais ce qu'il y a dedans, dit-il. J'étais là quand il l'a écrit. » Puis il sort." },
     ],
     choices: [{ label: "Reprendre ta journée", to: "C_cabinet" }] },
   C_aube_taire: { act: "II", title: "Sous la chemise", place: "palais",
     text: [
-      "Tu te tais. Tu demandes un rapport sur la nuit, des noms, des comptes, et le capitaine des gardes de jour. Tes trois conseillers se regardent, puis se mettent au travail.",
-      "Le papier est tiède contre ta peau. Il a l'odeur de la chambre du prince : la cire, l'encre, quelque chose de sucré.",
+      "Tu gardes le silence. Tu demandes un rapport sur la nuit, des noms, des comptes, et le capitaine des gardes de jour. Tes trois conseillers échangent un regard, puis se mettent au travail.",
+      "Le papier est tiède contre ta peau. Il garde l'odeur de la chambre du prince : la cire, l'encre, quelque chose de sucré.",
     ],
     choices: [{ label: "Reprendre ta journée", to: "C_cabinet" }] },
 
@@ -34,9 +34,9 @@ module.exports = {
   C_cabinet: { act: "II", title: "Le cabinet du Sceau", backName: "le cabinet du Sceau", place: "palais", hub: true, routes: true,
     fx: { questSeen: ["C_ansel", "C_liane"] },
     text: [
-      { first: true, text: "On a changé le tapis, recollé le fond du coffret, mis des barreaux à la fenêtre du Grand Canal. Le cabinet ressemble maintenant à une cellule bien tenue. Joris a doublé la garde ; il y a deux hommes dans l'escalier et un sous ta fenêtre, dans une barque, qui pêche sans appât." },
+      { first: true, text: "On a changé le tapis, recollé le fond du coffret, scellé des barreaux à la fenêtre du Grand Canal. Le cabinet ressemble maintenant à une cellule bien tenue. Joris a doublé la garde : deux hommes dans l'escalier, et un sous ta fenêtre, dans une barque, qui pêche sans appât." },
       { before: "emeute:faite", text: "La ville a changé d'humeur depuis les funérailles. Le pain remonte. Les péniches de terre ferme restent bloquées en amont, et l'on parle à voix haute, sur les quais, de ce qu'on fera au quarantième jour." },
-      { after: "emeute:faite", text: "Depuis l'émeute, il y a des soldats sur les ponts des Canaux, et des taches sur les pavés devant la Loge que la pluie laisse intactes. Le quarantième jour était une date ; c'est devenu une échéance." },
+      { after: "emeute:faite", text: "Depuis l'émeute, des soldats gardent les ponts des Canaux, et devant la Loge, les pavés gardent des taches que trois pluies ont laissées intactes. Le quarantième jour était une date ; c'est devenu une échéance." },
       { after: "chantage:recu", before: "secret:regle", text: "Le pli est dans ton tiroir, sous le coffret. Tu l'as gardé. Tu y penses en signant des actes, en mangeant, en dormant." },
     ],
     choices: [
@@ -62,9 +62,9 @@ module.exports = {
   // ------------------------------------------------------------------ the palace
   C_iselda: { act: "II", title: "Iselda", place: "palais", backName: "la chambre d'Iselda",
     text: [
-      { if: { has: "garde:temple" }, text: "Iselda est toujours au Temple. Tu prends la barque jusqu'à la coupole verte. Elle t'attend dans sa cellule blanche, assise sur le rebord de la fenêtre, les pieds dans le vide au-dessus de l'eau, ce qui terrifie les sœurs.",
-        else: "Iselda a démonté sa forteresse. Les coquillages sont rangés dans leur boîte, les soldats de plomb dans un tiroir. Elle est assise à une table, devant un livre de géographie, le regard par la fenêtre." },
-      { first: true, text: "« On a voulu te tuer », dit-elle quand tu entres. Elle le dit comme un fait. Elle regarde ton côté, cherche un pansement sous la chemise, et ses yeux remontent à ton visage. « Moi aussi, on va vouloir ? »" },
+      { if: { has: "garde:temple" }, text: "Iselda est toujours au Temple. Tu prends la barque jusqu'à la coupole verte. Elle t'attend dans sa cellule blanche, assise sur le rebord de la fenêtre, les pieds dans le vide à deux toises au-dessus de l'eau, ce qui terrifie les sœurs.",
+        else: "Iselda a démonté sa forteresse. Les coquillages sont rangés dans leur boîte, les soldats de plomb dans un tiroir. Elle est assise à une table, devant un livre de géographie, et elle regarde par la fenêtre." },
+      { first: true, text: "« On a voulu te tuer », dit-elle à ton entrée. Elle le dit comme un fait. Elle regarde ton côté, cherche un pansement sous la chemise, et ses yeux remontent à ton visage. « Moi aussi, on va vouloir ? »" },
       { again: true, text: "Iselda lève les yeux de son livre. Elle tire sur le lobe de son oreille gauche, et elle attend que tu parles le premier." },
     ],
     choices: [
@@ -84,7 +84,7 @@ module.exports = {
   C_iselda_rumeur: { act: "II", title: "Ce qu'on dit", place: "palais",
     fx: { clue: "i_oreille", flag: "iselda:rumeur" },
     text: [
-      "Iselda réfléchit, en tirant sur son oreille, exactement comme le faisait l'amiral le jour des funérailles, dans la barque. « Les dames de maman disent que maman va retourner à Thérance. Ortensia dit que non. Les marins de mon oncle disent que mon oncle va être régent. Et un page a dit à un autre page que j'avais rien de papa. Il croyait que je dormais. »",
+      "Iselda réfléchit en tirant sur son oreille. « Les dames de maman disent que maman va retourner à Thérance. Ortensia dit que non. Les marins de mon oncle disent que mon oncle va être régent. Et un page a dit à un autre page que j'avais rien de papa. Il croyait que je dormais. »",
       "Elle lève les yeux. « C'est vrai que j'ai rien de papa ? »",
     ],
     choices: [
@@ -94,14 +94,14 @@ module.exports = {
   C_iselda_jeu: { act: "II", title: "Les osselets", place: "palais",
     fx: { clock: { iselda: 1 }, pv: 3 },
     text: [
-      "Elle gagne. Elle gagne toutes les parties, avec une concentration féroce, en comptant à voix haute, et quand tu gagnes enfin une manche, elle te regarde avec une méfiance telle que tu la soupçonnes de t'avoir laissé gagner.",
-      "Pendant une heure, le monde tient en cinq petits os de mouton sur un tapis, et une enfant qui rit, une fois, très fort, puis se tait, étonnée de s'être entendue.",
+      "Elle gagne. Elle gagne toutes les parties, avec une concentration féroce, en comptant à voix haute. Quand tu remportes enfin une manche, elle te regarde avec une telle méfiance que tu la soupçonnes de t'avoir laissé gagner.",
+      "Pendant une heure, le monde tient en cinq petits os de mouton sur un tapis, et une enfant qui rit une fois, très fort, puis se tait, étonnée de s'être entendue.",
     ],
     choices: [{ back: "C_iselda" }] },
   C_archives: { act: "II", title: "Les archives", place: "palais", backName: "les archives",
     text: [
-      "Les archives du palais occupent trois étages de la tour nord : des registres, des chartes, des traités, des comptes, quatre siècles de papier serré sur des rayonnages qui montent jusqu'aux voûtes. Livia s'y déplace comme un poisson dans l'eau.",
-      { without: "livia", text: "Sans Livia, tu te perds dans les rayons. Le vieux garde des archives te regarde chercher, en suçant sa pipe éteinte." },
+      "Les archives du palais occupent trois étages de la tour nord : des registres, des chartes, des traités, des comptes, quatre siècles de papier serré sur des rayonnages qui montent jusqu'aux voûtes. À vue de nez, il faudrait une vie pour tout lire, et deux pour tout comprendre. Livia s'y déplace comme un poisson dans l'eau.",
+      { without: "livia", text: "Sans Livia, tu te perds dans les rayons. Le vieux garde des archives te regarde chercher en suçant sa pipe éteinte, avec la satisfaction d'un homme qui voit un autre souffrir à sa place." },
     ],
     choices: [
       { label: "Chercher à qui appartient la cire verte du billet", hide: { clue: "g_cachet" }, test: { dom: "savoir", label: "Savoir", help: [{ with: "livia", v: 25 }] },
@@ -112,15 +112,15 @@ module.exports = {
     ] },
   C_arch_cire: { act: "II", title: "La cire verte", place: "palais",
     text: [
-      "Il vous faut deux heures. Livia sort des liasses de lettres diplomatiques, une par cour, et vous comparez les cachets à la lumière de la fenêtre. Thérance scelle en rouge, le roi en rouge et or. Mais dans une liasse de lettres vieilles de dix ans, adressées au prince par la maison du duc Amaury, le frère du roi, la cire est verte, d'un vert de bouteille, exactement celui-là.",
+      "Il vous faut deux heures. Livia sort des liasses de lettres diplomatiques, une par cour, et vous comparez les cachets à la lumière de la fenêtre. Thérance scelle en rouge, le roi en rouge et or. Mais dans une liasse vieille de dix ans, adressée au prince par la maison du duc Amaury, le frère du roi, la cire est verte, d'un vert de bouteille, exactement celui-là.",
       { with: "livia", text: "Livia pose ton billet à côté d'une lettre du duc. Le même vert. « Le comte Mérande scelle en rouge, dit-elle. Je l'ai vu cent fois. Ceci vient d'ailleurs. »" },
     ],
     choices: [{ back: "C_archives" }] },
   C_arch_dates: { act: "II", title: "L'hiver du Grand Gel", place: "palais",
     text: [
-      "Le registre des voyages du prince est tenu par le chambellan, jour après jour, depuis trente ans. Iselda est née au printemps de l'an du Grand Gel, au mois des Pluies. Tu comptes les mois à rebours, avec tes doigts, comme un écolier.",
-      "Cet hiver-là, le prince était à Corne, pour négocier la paix. Il est parti à l'automne. Il est revenu au dégel. Entre les deux, le registre est vide : la lagune était gelée, fermée à toute barque.",
-      { with: "livia", text: "Livia a fait le même calcul que toi. Elle referme le registre, et elle le range à sa place, exactement à sa place, les lèvres serrées." },
+      "Le registre des voyages du prince est tenu par le chambellan, jour après jour, depuis trente ans. Iselda est née au printemps de l'an du Grand Gel, au mois des Pluies. Tu comptes les mois à rebours, sur tes doigts, comme un écolier.",
+      "Cet hiver-là, le prince était à Corne, pour négocier la paix. Il est parti à l'automne et revenu au dégel. Entre les deux, le registre est vide : la lagune était gelée, fermée à toute barque.",
+      { with: "livia", text: "Livia a fait le même calcul que toi. Elle referme le registre et le range à sa place, exactement à sa place, les lèvres serrées." },
     ],
     choices: [{ back: "C_archives" }] },
   C_arch_rien: { act: "II", title: "Trop de papier", place: "palais",
@@ -132,9 +132,9 @@ module.exports = {
   // ------------------------------------------------------------------ the city
   C_arsenal: { act: "II", title: "L'Arsenal", place: "arsenal", backName: "l'Arsenal",
     text: [
-      "L'amiral te reçoit dans la salle des cartes. Il a l'air d'avoir maigri. Sur sa table, une nouvelle carte : la terre ferme, le fleuve, et Castel-Brume, entourée d'un cercle rouge.",
+      "L'amiral te reçoit dans la salle des cartes. Il a maigri ; son ceinturon a gagné un cran. Sur sa table, une nouvelle carte : la terre ferme, le fleuve, et Castel-Brume, cerclée de rouge.",
       { first: true, text: "« Mes espions disent que le duc Amaury a doublé la garnison de Castel-Brume, dit-il d'entrée. Trois mille épées noires, des chevaux, des chariots. Il ferme le fleuve, et il attend. On a voulu tuer le Garde du Sceau. Si on y était parvenu, la ville serait sans maître à vingt-huit jours du Conseil. Qui croyez-vous que cela arrangeait ? »" },
-      { after: "solde:attente", text: "Sur les quais, les marins sont toujours assis. Certains ont des cocardes rouges et or à leur bonnet. Thérance." },
+      { after: "solde:attente", text: "Sur les quais, les marins sont toujours assis. Certains portent à leur bonnet des cocardes rouge et or. Les couleurs de Thérance." },
     ],
     choices: [
       { label: "Lui demander ce qu'il fera au quarantième jour", hide: { seen: "C_ar_quarante" }, to: "C_ar_quarante" },
@@ -149,17 +149,17 @@ module.exports = {
     choices: [{ back: "C_arsenal" }] },
   C_ar_iselda: { act: "II", title: "Le médaillon", place: "arsenal",
     text: [
-      "Tu parles d'Iselda. De la façon dont elle tire sur son oreille. De l'hiver où son père était à Corne. Tu t'arrêtes là ; c'est assez.",
-      "L'amiral sort de sa poche le médaillon d'argent usé, il l'ouvre, il le regarde, il le referme. Il le pose sur la table, entre vous deux, comme on pose une arme en signe de trêve.",
+      "Tu parles d'Iselda. De sa manie de tirer sur son oreille. De l'hiver où son père était à Corne. Tu t'arrêtes là ; c'est assez.",
+      "L'amiral sort de sa poche le médaillon d'argent usé ; il l'ouvre, le regarde, le referme. Il le pose sur la table, entre vous deux, comme on pose une arme en signe de trêve.",
       "« Mon frère le savait, dit-il enfin. Depuis le début. En neuf ans, j'ai attendu un reproche. Il s'est tu. Il l'a appelée sa fille devant toute la ville, il l'a portée sur ses épaules, il l'a emmenée chercher des coquillages. Il m'a laissé être son oncle. » Il se tait. « Vous savez ce que c'est, d'être pardonné par quelqu'un qu'on a trahi, tous les jours, pendant neuf ans ? On voudrait qu'il vous frappe. »",
       "Il reprend le médaillon. « Si vous dites cela au Conseil, ma nièce perd tout. Prenez cela comme un fait. »",
     ],
     choices: [{ label: "Le laisser seul", fx: { flag: "amiral:aveu", fac: { mer: 5 } }, back: "C_cabinet" }] },
   C_loge: { act: "II", title: "La Loge du Sel", place: "loge", backName: "la Loge du Sel",
     text: [
-      "Orsanne est à table. Il a l'air soucieux pour la première fois, et il mange un peu moins. « On a voulu vous tuer, dit-il. C'est très mauvais pour les affaires. Je suis navré. Prenez du pâté. »",
-      { after: "salines:grain", text: "Sur Morte-Eau, il se tait. Il te sert lui-même, avec une courtoisie appliquée, comme on sert un créancier." },
-      { after: "loge:brulee", text: "Il reçoit maintenant dans une salle de la Monnaie : la Loge n'est plus qu'un squelette noirci sur le port. Il a perdu sa balance d'or, ses registres, et vingt ans de vins de Corne. L'appétit, lui, est sauf." },
+      "Orsanne est à table. Il a l'air soucieux pour la première fois, et il mange un peu moins : deux plats au lieu de trois. « On a voulu vous tuer, dit-il. C'est très mauvais pour les affaires. Je suis navré. Prenez du pâté. »",
+      { after: "salines:grain", text: "Sur Morte-Eau, il garde le silence. Il te sert lui-même, avec une courtoisie appliquée, comme on sert un créancier." },
+      { after: "loge:brulee", text: "Il reçoit maintenant dans une salle de la Monnaie : la Loge n'est plus qu'un squelette noirci sur le port. Il a perdu sa balance d'or, ses registres et vingt ans de vins de Corne. L'appétit, lui, a survécu." },
     ],
     choices: [
       { label: "Lui parler des besants neufs trouvés sur le Gris", hide: { any: [{ clue: "g_grizzo" }, { not: { clue: "g_bourse" } }] }, to: "C_loge_besants" },
@@ -168,7 +168,7 @@ module.exports = {
   C_loge_besants: { act: "II", title: "Les besants neufs", place: "loge",
     text: [
       "Orsanne repose sa fourchette. « Des besants de cette année ? La Monnaie les frappe pour la Hanse d'abord, c'est vrai. Ils passent ensuite par mes commis, par les changeurs, par les boutiques. Ils sont partout en trois semaines. » Il réfléchit. « Mais il y a vingt jours, ils n'étaient encore que chez nous. »",
-      "Il fait un signe. Un valet sort. Il revient avec un registre, et derrière le registre, très pâle, Grizzo, le jeune commis à la plume.",
+      "Il fait un signe. Un valet sort et revient avec un registre ; derrière le registre, très pâle, marche Grizzo, le jeune commis à la plume.",
       "« Grizzo tient la caisse des petites sorties, dit Orsanne, aimable. Grizzo a aussi des dettes de jeu, chez les Dalmates du quai des Morues. Je le sais parce que je les ai rachetées. Grizzo va vous dire ce qu'il a fait de soixante besants neufs, il y a dix-sept jours. N'est-ce pas, Grizzo ? »",
     ],
     choices: [
@@ -178,7 +178,7 @@ module.exports = {
     ] },
   C_loge_grizzo: { act: "II", title: "Grizzo", place: "loge",
     text: [
-      "Grizzo parle en regardant ses chaussures. Une femme est venue le trouver chez les Dalmates, voilée, il y a dix-huit jours. Elle savait ses dettes. Elle lui a donné une bourse pour en payer une partie et lui a demandé d'en porter une autre à un homme, au quai des Morues, un homme en gris. Il l'a fait, les yeux fermés. Il le jure.",
+      "Grizzo parle en regardant ses chaussures. Une femme est venue le trouver chez les Dalmates, voilée, il y a dix-huit jours. Elle connaissait ses dettes. Elle lui a donné une bourse pour en payer une partie, et une autre à porter à un homme, au quai des Morues, un homme en gris. Il l'a fait, les yeux fermés. Il le jure.",
       "« Elle parlait un sarvellan trop pur, dit-il. Comme quelqu'un qui l'a appris dans les livres. Et elle sentait la fleur. L'iris. Ma mère en mettait dans le linge. »",
       "Orsanne se tourne vers toi, une huître à la main. « Je vous le laisse, ou je m'en occupe ? Je préférerais m'en occuper. Un commis qui fait des courses pour des femmes voilées, cela se congédie. »",
     ],
@@ -188,14 +188,14 @@ module.exports = {
     ] },
   C_loge_grizzo_seul: { act: "II", title: "Grizzo", place: "loge",
     text: [
-      "Dans un petit bureau, porte fermée, Grizzo s'effondre. Il pleure, il parle, il pleure. Une femme voilée, chez les Dalmates, ses dettes, une bourse pour un homme gris au quai des Morues. Il a obéi les yeux fermés. Il le jure.",
+      "Dans un petit bureau, porte fermée, Grizzo s'effondre. Il pleure, il parle, il pleure encore. Une femme voilée, chez les Dalmates ; ses dettes ; une bourse pour un homme gris au quai des Morues. Il a obéi les yeux fermés. Il le jure.",
       "« Elle parlait un sarvellan trop pur, dit-il. Et elle sentait l'iris. » Il te saisit la manche. « Sauvez-moi de Ser Matteo. Il me laissera vivre, et c'est le pire : il me gardera. »",
-      "Tu le fais sortir par l'escalier des commis, avec Joris, et tu le mets dans une barque pour la terre ferme. Il refuse ta bourse. Il veut seulement partir pour toujours.",
+      "Tu le fais sortir par l'escalier des commis, avec Joris, et tu le mets dans une barque pour la terre ferme. Il refuse ta bourse. Il veut seulement partir, et pour toujours.",
     ],
     choices: [{ back: "C_loge" }] },
   C_temple: { act: "II", title: "Le Temple des Eaux", place: "temple", backName: "le Temple des Eaux", shop: "temple",
     text: [
-      "Mère Ysaure te reçoit dans sa cellule. Elle te sert de l'eau, comme toujours. Elle a appris pour la nuit du douzième jour ; elle garde cela pour elle. Elle te regarde boire, longtemps, avec l'air de lire quelque chose sur ton visage.",
+      "Mère Ysaure te reçoit dans sa cellule et te sert de l'eau, comme toujours. Elle a appris la nuit du douzième jour ; elle garde cela pour elle. Elle te regarde boire, longtemps, comme on déchiffre une page.",
     ],
     choices: [
       { label: "Lui demander ce que la princesse Liane lui a confessé", hide: { any: [{ clue: "i_confession" }, { clues: "I", max: 0 }] }, to: "C_temple_confession" },
@@ -210,7 +210,7 @@ module.exports = {
     choices: [{ back: "C_temple" }] },
   C_voiles: { act: "II", title: "Le marché aux Voiles", place: "canaux", shop: "voiles",
     text: [
-      "L'armurier de Corne a doublé ses prix depuis l'attaque : tout le monde veut une lame, dans les maisons de bien. Il te fait quand même le prix d'avant. Il dit que c'est par respect. C'est surtout parce que Joris est derrière toi.",
+      "L'armurier de Corne a doublé ses prix depuis l'attaque : toutes les maisons de bien veulent une lame. Il te fait quand même le prix d'avant. Il dit que c'est par respect. Joris, derrière toi, y est sans doute pour quelque chose.",
     ],
     choices: [{ back: "C_cabinet" }] },
 
@@ -219,9 +219,9 @@ module.exports = {
     fx: { flag: "emeute:faite" },
     text: [
       "On vient te chercher en courant : les Canaux marchent sur la Loge du Sel.",
-      "Le pain a doublé en trois jours. Les péniches de terre ferme restent en amont, les réserves de la Hanse se vident, ou bien on le dit, et ce matin une boulangère des Canaux a fermé sa boutique en montrant son pétrin vide. Une heure plus tard, mille personnes traversaient les ponts.",
+      "Le pain a doublé en trois jours. Les péniches de terre ferme restent en amont ; les réserves de la Hanse se vident, du moins on le dit ; et ce matin, une boulangère des Canaux a fermé sa boutique en montrant son pétrin vide. Une heure plus tard, mille personnes traversaient les ponts.",
       { after: "promesse:pain", text: "En arrivant sur le port, tu entends ta propre phrase, celle des funérailles, crachée par cent bouches : *Personne n'aura faim pendant le Deuil !* Ils te la rendent." },
-      "Quand tu arrives, ils sont devant la grille de la Loge : des débardeurs, des femmes, des gamins, des vieux, avec des barres de fer, des rames, des pierres. Derrière la grille, trente gardes de la Hanse en livrée blanche et bleue, hallebardes baissées. Au balcon, Orsanne, en robe de chambre, une serviette encore au cou. Et devant la foule, montée sur une borne d'amarrage, Tessa Brisse, qui hurle des mots que le vacarme emporte.",
+      "Ils sont devant la grille de la Loge. Tu passes la foule en revue d'un coup d'œil : des débardeurs, des femmes, des gamins, des vieux ; des barres de fer, des rames, des pierres. Derrière la grille, trente gardes de la Hanse en livrée blanche et bleue, hallebardes baissées. Au balcon, Orsanne, en robe de chambre, la serviette encore au cou. Et devant la foule, juchée sur une borne d'amarrage, Tessa Brisse hurle des mots que le vacarme emporte.",
       "Un garde vient d'être blessé à la tête par une pierre. Un autre lève sa hallebarde.",
     ],
     choices: [
@@ -232,8 +232,8 @@ module.exports = {
     ] },
   C_emeute_calme: { act: "II", title: "La borne", place: "loge",
     text: [
-      "Tu montes sur la borne. Tessa te regarde comme si tu étais fou, puis elle te laisse la place. La foule gronde toujours. Tu attends, debout, muet, longtemps, jusqu'à ce que les premiers rangs se taisent pour voir ce que tu vas faire, et que le silence gagne de proche en proche.",
-      "Alors tu parles. Tu dis ce qui se passe : le fleuve fermé à Castel-Brume, les péniches à quai, le grain qui manque sur toute la côte. Tu dis que tu vas chercher le grain là où il est, et que s'il est quelque part dans cette ville, tu le trouveras. Tu dis qu'un garde blessé, c'est un homme des Canaux de moins pour porter les sacs quand ils arriveront.",
+      "Tu montes sur la borne. Tessa te regarde comme un fou, puis elle te laisse la place. La foule gronde toujours. Tu attends, debout, muet, longtemps. Les premiers rangs se taisent pour voir ce que tu vas faire, et le silence gagne de proche en proche.",
+      "Alors tu parles. Tu exposes les faits : le fleuve fermé à Castel-Brume, les péniches à quai, le grain qui manque sur toute la côte. Tu dis que tu vas chercher le grain là où il est, et que s'il se trouve dans cette ville, tu le trouveras. Tu ajoutes qu'un garde blessé, c'est un bras de moins pour porter les sacs quand ils arriveront.",
       "C'est peu. Pour aujourd'hui, c'est assez. La foule reflue, lentement, en grondant, vers les ponts.",
     ],
     choices: [{ label: "Descendre de la borne", to: "C_emeute_suite" }] },
@@ -242,7 +242,7 @@ module.exports = {
       win: { fx: { flag: "emeute:sang" }, to: "C_emeute_apres" }, lose: { fx: { flag: "emeute:sang", pv: -2 }, to: "C_emeute_apres" } },
     text: [
       { after: "emeute:echec", text: "Tu montes sur la borne. Quelqu'un te tire par la cheville. Tu tombes dans la foule, et la foule se referme. Joris crie un ordre. La garde charge." },
-      { after: "emeute:reprimee", text: "Joris te regarde une seconde de trop, puis il donne l'ordre. La garde du Sceau charge, en coin, à coups de plat d'épée et de bâton, et les gardes de la Hanse sortent par la grille pour prendre la foule à revers." },
+      { after: "emeute:reprimee", text: "Joris te regarde une seconde de trop, puis il donne l'ordre. La garde du Sceau charge en coin, du plat de l'épée et du bâton, et les gardes de la Hanse sortent par la grille pour prendre la foule à revers." },
       "En un instant, la foule se défait en corps qui courent, qui tombent, qui frappent. Un homme se jette sur toi avec une barre de fer, les yeux blancs. Puis un autre.",
     ] },
   C_emeute_corps: { act: "II", title: "Entre les deux", place: "loge",
@@ -250,16 +250,16 @@ module.exports = {
     text: [
       "Tu traverses la foule et tu te places entre elle et la grille, dos aux hallebardes, face aux pierres. Tu lèves tes mains vides.",
       "Une pierre te frappe à l'épaule. Une autre à la tempe, de biais. Tu restes debout. Le sang te coule dans l'œil.",
-      "Quelqu'un crie *C'est le Sceau !* et les pierres s'espacent, puis cessent. Derrière toi, Orsanne crie aux gardes de relever leurs hallebardes, d'une voix de commandement toute neuve.",
-      "Tessa descend de sa borne, vient jusqu'à toi, et regarde ton visage en sang. « Vous êtes complètement fou », dit-elle. Elle a baissé la voix.",
+      "Quelqu'un crie *C'est le Sceau !* et les pierres s'espacent, puis cessent. Derrière toi, Orsanne ordonne aux gardes de relever leurs hallebardes, d'une voix de commandement toute neuve.",
+      "Tessa descend de sa borne, vient jusqu'à toi et regarde ton visage en sang. « Vous êtes complètement fou », dit-elle, à voix basse.",
     ],
     choices: [{ label: "Rester debout jusqu'à ce que la foule s'en aille", fx: { flag: "emeute:calmee", fac: { rames: 15, sel: 5 }, ep: ["seance", 3500] }, to: "C_emeute_suite" }] },
   C_emeute_apres: { act: "II", title: "Les pavés", place: "loge",
     text: [
-      "Quand c'est fini, il y a des gens par terre sur le quai. La plupart se relèvent. Trois restent sur le pavé : un débardeur, un gamin de quatorze ans, une femme qu'on avait poussée dans l'eau et qu'on a repêchée trop tard.",
+      "Quand c'est fini, des gens gisent sur le quai. La plupart se relèvent. Trois restent sur le pavé : un débardeur ; un gamin de quatorze ans ; une femme qu'on avait poussée dans l'eau et qu'on a repêchée trop tard.",
       { with: "ansel", text: "Ansel s'agenouille près de chacun, l'un après l'autre. Il reste plus longtemps près du gamin." },
-      { with: "livia", text: "Livia note les noms. Elle demande à chaque témoin comment ils s'appelaient, et elle les écrit, très lisiblement, sur une feuille à part." },
-      "Tessa Brisse est assise sur la borne, la tête dans les mains. Quand elle la relève, son regard te reste planté dans la mémoire.",
+      { with: "livia", text: "Livia note les noms. Elle demande à chaque témoin comment s'appelaient les morts, et elle les écrit très lisiblement, sur une feuille à part." },
+      "Tessa Brisse est assise sur la borne, la tête dans les mains. Quand elle la relève, son regard se plante dans ta mémoire et y reste.",
     ],
     choices: [{ label: "Aller lui parler", to: "C_emeute_suite" }] },
   C_emeute_suite: { act: "II", title: "Ce que sait Tessa", place: "loge",
@@ -268,15 +268,15 @@ module.exports = {
       { after: "emeute:sang", text: "Tessa te regarde venir, immobile. « Trois, dit-elle. Retenez bien ce chiffre. Mon frère va le retenir, et moi aussi. » Puis, comme on crache : « Vous voulez du grain ? Il est à Morte-Eau. »" },
       { after: "emeute:calmee", text: "Tessa t'attend au bout du quai, les bras croisés. « Vous avez dit que vous chercheriez le grain là où il est. Je vais vous dire où il est. Et on verra si vous le cherchez. »" },
       "« Aux salines de Morte-Eau, deux jours de rame au sud. La Hanse y a des entrepôts, pour le sel. Depuis six semaines, des barges y descendent la nuit, chargées, et remontent vides. Les registres disent *sel humide*. Drôle de sel, qui voyage en sacs de jute et fait tousser les débardeurs. Quatre mille sacs, peut-être plus. Il attend que le pain monte encore. »",
-      "Elle s'en va, ta réponse encore dans ta bouche.",
+      "Elle s'en va. Ta réponse reste dans ta bouche.",
     ],
     choices: [{ label: "Rentrer au palais", back: "C_cabinet" }] },
 
   // ------------------------------------------------------------------ the salt-pans
   C_salines_arrivee: { act: "II", title: "Morte-Eau", place: "salines", backName: "Morte-Eau", routes: true,
     text: [
-      { first: true, text: "Les salines de Morte-Eau s'étendent jusqu'à l'horizon : des bassins carrés, roses, blancs, gris, séparés par des digues de terre, et l'eau qui y stagne au soleil a des reflets de métal. Au milieu, un village sur pilotis, quelques centaines d'âmes, et au bord du chenal, quatre grands entrepôts de bois goudronné, gardés." },
-      { first: true, text: "Les gens de Morte-Eau ont la peau brûlée et les mains crevassées par le sel. Ils regardent ta barque accoster, de loin. Un homme sec, le contremaître de la Hanse, vient à ta rencontre en s'essuyant les mains : Barnabé. Il a un sourire de cinq dents." },
+      { first: true, text: "Les salines de Morte-Eau s'étendent jusqu'à l'horizon : des bassins carrés, roses, blancs, gris, séparés par des digues de terre, où l'eau qui stagne au soleil prend des reflets de métal. Au milieu, un village sur pilotis, quelques centaines d'âmes. Au bord du chenal, quatre grands entrepôts de bois goudronné, gardés. Les gardes y montrent plus de zèle qu'on n'en met d'ordinaire à surveiller du sel, qui reste sagement où on le pose." },
+      { first: true, text: "Les gens de Morte-Eau ont la peau brûlée et les mains crevassées par le sel. Ils regardent ta barque accoster, de loin. Un homme sec, le contremaître de la Hanse, vient à ta rencontre en s'essuyant les mains : Barnabé. Tu comptes cinq dents dans son sourire, et il les montre toutes." },
       { again: true, text: "Les bassins miroitent. Les entrepôts sont toujours là, au bord du chenal." },
       { after: "salines:sort", text: "Les entrepôts sont ouverts. Il y reste l'odeur du jute et un peu de grain répandu sur les planches, que les oiseaux viennent picorer." },
     ],
@@ -286,7 +286,7 @@ module.exports = {
     ] },
   C_sal_inspection: { act: "II", title: "L'inspection", place: "salines",
     text: [
-      "Barnabé lit ton ordre, deux fois, en suivant les lignes du doigt. « Le sel de la Hanse, c'est le sel de la Hanse, dit-il. Le Sceau, c'est la ville. Ici, c'est le marais. » Il fait un signe. Derrière lui, quatre gardes en livrée blanche et bleue sortent d'un entrepôt, et deux hommes du village, des salauniers, qui tiennent des gaffes.",
+      "Barnabé lit ton ordre deux fois, en suivant les lignes du doigt. « Le sel de la Hanse, c'est le sel de la Hanse, dit-il. Le Sceau, c'est la ville. Ici, c'est le marais. » Il fait un signe. Derrière lui sortent d'un entrepôt quatre gardes en livrée blanche et bleue, et deux hommes du village, des salauniers, armés de gaffes.",
     ],
     choices: [
       { label: "Le convaincre qu'il vaut mieux ouvrir", test: { dom: "social", label: "Social", help: [{ with: "joris", v: 10 }, { if: { fac: "sel", min: 20 }, v: 10 }] },
@@ -295,7 +295,7 @@ module.exports = {
     ] },
   C_sal_nuit: { act: "II", title: "La nuit des salines", place: "salines",
     text: [
-      "Tu fais semblant de repartir. Ta barque remonte le chenal, tourne derrière une digue, et attend la nuit. Puis tu reviens à la rame, tous feux éteints, entre les bassins où la lune se reflète comme dans des plats d'argent.",
+      "Tu fais mine de repartir. Ta barque remonte le chenal, tourne derrière une digue et attend la nuit. Puis tu reviens à la rame, tous feux éteints, entre les bassins où la lune se reflète comme dans des plats d'argent.",
     ],
     choices: [
       { label: "Te glisser dans l'entrepôt du milieu", test: { dom: "discretion", label: "Discrétion", help: [{ with: "joris", v: 5 }] },
@@ -305,12 +305,12 @@ module.exports = {
     combat: { title: "Les gardes de Morte-Eau", enemies: [{ id: "garde_sel", n: 2 }, { id: "contrebandier", n: 2 }], terrain: "nature",
       win: { fx: { item: "liste_greniers", flag: "salines:sang", ep: ["seance", 2500] }, to: "C_sal_grain" }, lose: { fx: { item: "liste_greniers", flag: "salines:sang", pv: -3 }, to: "C_sal_grain" } },
     text: [
-      "Ils viennent sur toi par la digue, deux gardes de face, deux salauniers sur les côtés, qui connaissent la vase et y marchent comme sur un plancher. Une gaffe siffle à hauteur de tes genoux.",
+      "Ils viennent sur toi par la digue : deux gardes de face, deux salauniers sur les côtés, qui connaissent la vase et y marchent comme sur un plancher. Une gaffe siffle à hauteur de tes genoux.",
     ] },
   C_sal_grain: { act: "II", title: "Le sel humide", place: "salines",
     text: [
       { after: "salines:sang", text: "Quand c'est fini, Barnabé s'est enfui par les bassins, et les gens du village sont sortis sur leurs pontons pour regarder. Ils te laissent faire, les bras croisés." },
-      "Tu ouvres les portes de l'entrepôt. L'odeur te prend à la gorge : la poussière de blé, le jute, la souris. Des sacs empilés jusqu'aux poutres, des centaines, des milliers. Tu en crèves un d'un coup de lame. Du grain doré coule sur tes bottes.",
+      "Tu ouvres les portes de l'entrepôt. L'odeur te prend à la gorge : la poussière de blé, le jute, la souris. Des sacs empilés jusqu'aux poutres, des centaines, des milliers. Tu en crèves un d'un coup de lame. Du grain doré coule sur tes bottes. Pour du sel, il a une couleur remarquable.",
       "Sur une table, à l'entrée, le cahier de comptes de l'entrepôt. Quatre mille deux cents sacs. Colonne *marchandise* : *sel humide*. Colonne *destinataire* : *réserve de Ser M. O., à vendre après le trentième jour.*",
     ],
     choices: [
@@ -320,13 +320,13 @@ module.exports = {
     ] },
   C_sal_barges: { act: "II", title: "Les barges", place: "salines",
     text: [
-      "Il faut trois jours pour tout charger. Les gens du village aident, à la fin, quand ils comprennent où va le grain : certains ont de la famille aux Canaux. Douze barges remontent le chenal en file, lourdes, basses sur l'eau, avec le pavillon des Deux Eaux à la poupe.",
-      "Quand elles arrivent aux Canaux, Tessa est sur le quai. Elle compte les sacs, un par un. Arrivée au dernier, elle se retourne vers toi et elle te fait un signe de tête. Un seul.",
+      "Il faut trois jours pour tout charger. Les gens du village aident, à la fin, quand ils comprennent où va le grain : certains ont de la famille aux Canaux. Douze barges remontent le chenal en file, lourdes, basses sur l'eau, le pavillon des Deux Eaux à la poupe.",
+      "À l'arrivée aux Canaux, Tessa est sur le quai. Elle compte les sacs un par un. Au dernier, elle se retourne vers toi et te fait un signe de tête. Un seul.",
     ],
     choices: [{ label: "Rentrer au palais", back: "C_cabinet" }] },
   C_sal_orsanne: { act: "II", title: "Le cahier", place: "salines",
     text: [
-      "Tu glisses le cahier dans ton pourpoint. Tu fais porter un billet à la Loge par la barque la plus rapide de Morte-Eau. Trois lignes : où tu es, ce que tu as dans ton pourpoint, et le prix du pain que tu veux voir aux Canaux dans deux jours.",
+      "Tu glisses le cahier dans ton pourpoint. Tu fais porter un billet à la Loge par la barque la plus rapide de Morte-Eau. Trois lignes : où tu es ; ce que tu as dans ton pourpoint ; le prix du pain que tu veux voir aux Canaux dans deux jours.",
       "La réponse arrive le lendemain, de la main d'Orsanne lui-même : *Vous avez la manière. Le pain sera au prix. Gardez le cahier au sec : il me sera cher.* Le pain baisse aux Canaux le surlendemain. La ville cherche pourquoi. Tessa le sait : on lui dit tout.",
     ],
     choices: [{ label: "Rentrer au palais", back: "C_cabinet" }] },
@@ -348,9 +348,9 @@ module.exports = {
   C_ambassade: { act: "II", title: "L'ambassade de Thérance", place: "ambassade", backName: "l'ambassade de Thérance",
     text: [
       { after: "vote:surveillance", text: "Deux marins de l'amiral montent la garde à la grille de la villa Mérande. Ils fouillent tes gens et te laissent passer. Dans le jardin, les orangers ont perdu leurs fleurs." },
-      { before: "vote:surveillance", text: "Les orangers sont toujours là, le gravier blanc, la fontaine aux poissons rouges. Le comte te reçoit dans sa bibliothèque, avec du thé." },
-      { before: "gris:demasque", text: "Odile Varn est à sa petite table, la plume à la main. Elle se lève quand tu entres, et te salue d'une révérence parfaite." },
-      { after: "gris:demasque", text: "La petite table de la secrétaire est vide. Le comte a l'air plus vieux." },
+      { before: "vote:surveillance", text: "Les orangers sont toujours là, avec le gravier blanc et la fontaine aux poissons rouges. Le comte te reçoit dans sa bibliothèque, avec du thé." },
+      { before: "gris:demasque", text: "Odile Varn est à sa petite table, la plume à la main. Elle se lève à ton entrée et te salue d'une révérence parfaite." },
+      { after: "gris:demasque", text: "La petite table de la secrétaire est vide. Le comte a vieilli de dix ans en quelques jours." },
       "« Le Sceau est vivant, dit le comte en te servant. J'en suis plus soulagé que vous ne le croyez. Le Sceau mort, il ne resterait que l'amiral entre le duc Amaury et cette ville, et l'amiral, c'est précisément ce que le duc espère : quelqu'un contre qui faire la guerre. »",
     ],
     choices: [
@@ -366,9 +366,9 @@ module.exports = {
     choices: [{ back: "C_ambassade" }] },
   C_odile: { act: "II", title: "Odile Varn", place: "ambassade",
     text: [
-      "Tu entres dans la bibliothèque avant l'huissier. Le comte lève les yeux de son échiquier. Odile Varn lève les yeux de sa plume. Elle comprend avant lui. Elle pose la plume, très doucement, parallèle au bord de la feuille.",
+      "Tu entres dans la bibliothèque avant l'huissier. Le comte lève les yeux de son échiquier ; Odile Varn lève les yeux de sa plume. Elle comprend avant lui. Elle pose la plume, très doucement, parallèle au bord de la feuille.",
       "Tu poses sur la table le billet au cachet vert.",
-      "Le comte le regarde. Il regarde sa secrétaire. Son silence dure.",
+      "Le comte regarde le billet, puis sa secrétaire. Son silence dure.",
       "« Le duc paie mieux que le roi, dit Odile Varn, d'une voix tranquille. Et il a raison : un port, cela se prend. Vous auriez dû mourir, la ville aurait pris peur, l'amiral aurait pris le pouvoir, et le duc serait venu nous protéger de l'amiral. Ç'aurait été propre. » Elle te regarde. « Vous vous êtes bien battu. Voilà ce qui manquait au plan. »",
     ],
     choices: [
@@ -378,19 +378,19 @@ module.exports = {
     ] },
   C_odile_comte: { act: "II", title: "Ce que vaut une parole", place: "ambassade",
     text: [
-      "Le comte se lève. Il appelle deux de ses gens, des hommes âgés qui l'ont suivi de poste en poste. Il leur parle en théran, à voix basse. Ils emmènent Odile Varn, qui les suit, le dos droit.",
+      "Le comte se lève. Il appelle deux de ses gens, des hommes âgés qui l'ont suivi de poste en poste, et leur parle en théran, à voix basse. Ils emmènent Odile Varn, qui les suit, le dos droit.",
       "« Elle partira demain, dit le comte. Avec une lettre de ma main au roi, et une copie pour la reine, qui déteste son beau-frère. Le duc ira quand même. Il ira avec moins d'amis à la cour. » Il te regarde. « Je vous dois quelque chose. Devoir me pèse. Je paie toujours. »",
     ],
     choices: [{ label: "Rentrer au palais", back: "C_cabinet" }] },
   C_odile_arretee: { act: "II", title: "Le procès d'Odile", place: "ambassade",
     text: [
-      "Joris passe les fers à Odile Varn dans la bibliothèque du comte, devant le comte, figé. On la fait sortir par la grande grille, sur le canal des Dames, devant tout le quartier. Le soir, toute la ville sait qu'une espionne de Thérance a payé l'assassin du Sceau.",
-      "L'amiral t'envoie un mot : *Bien.* De l'ambassade, aucun signe. Le lendemain, on apprend qu'il a écrit à son roi pour demander son rappel. Le roi se tait. Le duc répond.",
+      "Joris passe les fers à Odile Varn dans la bibliothèque, sous les yeux du comte, figé. On la fait sortir par la grande grille, sur le canal des Dames, devant tout le quartier. Le soir, la ville entière sait qu'une espionne de Thérance a payé l'assassin du Sceau.",
+      "L'amiral t'envoie un mot : *Bien.* De l'ambassade, aucun signe. Le lendemain, on apprend que le comte a écrit à son roi pour demander son rappel. Le roi se tait. Le duc répond.",
     ],
     choices: [{ label: "Rentrer au palais", back: "C_cabinet" }] },
   C_odile_retournee: { act: "II", title: "Le prix", place: "ambassade",
     text: [
-      "Le comte te regarde comme s'il te voyait pour la première fois. Odile Varn, elle, sourit, d'un vrai sourire, presque admiratif.",
+      "Le comte te regarde comme s'il te voyait pour la première fois. Odile Varn sourit, d'un vrai sourire, presque admiratif.",
       "« Vous voulez savoir ce que prépare le duc, dit-elle. Quand, combien, par où. Et vous voulez que je continue à lui écrire comme si de rien n'était. » Elle reprend sa plume. « Très bien. Je suis secrétaire. J'écris pour qui me paie. Vous me paierez de ma tête. »",
       "Le comte se lève et sort de sa propre bibliothèque. Sur le seuil, il dit, le dos tourné : « Corradin aurait fait la même chose. C'est ce qui m'a toujours tenu à distance de lui. »",
     ],
