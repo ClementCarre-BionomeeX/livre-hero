@@ -388,3 +388,17 @@ Clément (15/11) : toutes les histoires démarrent dans l'action, et le lecteur 
 | `story.lore` | `names: { "Nom\|Variante": "phrase" }` | Les noms du monde (lieux, fêtes, ordres, monnaies, dieux). Le premier de chaque page est souligné en or et s'ouvre d'un toucher. La casse compte : « Rive » est un nom, « rive » reste un mot. La liste complète s'affiche sous la page dans le carnet. Réglage « Fiches du monde ». |
 
 Les noms suivent le glossaire : une seule fois par page, jamais dans un bouton, ni dans ce que lit la voix. Le validateur refuse une page sans titre ou sans texte et un nom sans sa phrase. Exemple : `tests/monde-test.js`.
+
+## Plusieurs vies, beaucoup de fins (15/11, 8.8) : pistes déjà suivies, fins composées, aiguillages, héros prédéfinis
+
+Pour « Les Fils de la Marée » (Clément, 15/11 : trois actes, deux heures par partie, des centaines de fins, des choix qui changent vraiment la suite).
+
+| Où | Clé | Sens |
+|---|---|---|
+| appli | pistes déjà suivies | Sous chaque choix déjà pris dans une partie précédente de ce lecteur, la mention « déjà suivie ». Réglage « Pistes déjà suivies » (activé par défaut). La fiche du lecteur montre la part des pistes explorées. Rien à écrire dans l'histoire. |
+| `story.fates` | `[{ who, label, list: [{ id, title, if, text, dens }] }]` | Les destins. Sur une fin marquée `epilogue`, après l'épilogue, une phrase par personnage suivi : le premier destin de sa liste dont la condition tient, le dernier par défaut. Une fin trouvée = le dénouement + le destin de chacun ; l'appli compte les combinaisons trouvées sur le nombre déclaré. |
+| destin | `dens: "id"` ou `["id", …]` | Les dénouements (`fx.flag: "fin:<id>"`) qu'un destin peut suivre. Sans `dens`, tous. Sert au compte des fins possibles : déclarer honnêtement. |
+| passage | `branch: [{ if, to, fx }]` | Un aiguillage : le moteur passe tout de suite au premier `to` dont la condition tient, en appliquant son `fx`. Ni texte ni choix ; le dernier sans condition. Sert à lire l'état (qui a fait quoi avant) sans montrer de page. |
+| `story.heroes` | sans héros `player` | Histoire à héros prédéfinis : la création montre « Tu suivras » et la liste des héros, sans nom, genre, voie ni visage à choisir. |
+
+Règle de construction (la Marée) : chaque acte se lit en ordre libre au carrefour, et le héros suivi le premier agit le premier (un témoin sauvé ou perdu, une clef trouvée, une alliée gagnée). Les choix posent des états (`fx.set`), lus plus loin par les aiguillages et les conditions, jusqu'au dénouement. Le validateur vérifie les cibles et conditions des aiguillages et ne compte pas un aiguillage comme passage jamais atteint.

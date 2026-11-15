@@ -154,7 +154,9 @@
 
     var Wd = story.world = story.world || {}; Wd.places = Wd.places || {}; Wd.routes = Wd.routes || []; Wd.regions = Wd.regions || {}; Wd.events = Wd.events || {};
     var places = Wd.places, routes = {}, items = story.items = story.items || {}, people = story.people = story.people || {}, enemies = story.enemies = story.enemies || {};
-    Object.keys(places).forEach(function (k) { var pl = places[k]; if (!P[pl.arrive]) E("Lieu « " + k + " » : passage d'arrivée « " + pl.arrive + " » inconnu."); (pl.arriveIf || []).forEach(function (a) { if (!P[a.passage]) E("Lieu « " + k + " » : arrivée « " + a.passage + " » inconnue."); }); });
+    // A place no road leads to (a city told in scenes, 8.8) needs no arrival passage.
+    var routeEnds = {}; ((story.world || {}).routes || []).forEach(function (r) { routeEnds[r.from] = routeEnds[r.to] = 1; });
+    Object.keys(places).forEach(function (k) { var pl = places[k]; if (!pl.arrive && !routeEnds[k]) return; if (!P[pl.arrive]) E("Lieu « " + k + " » : passage d'arrivée « " + pl.arrive + " » inconnu."); (pl.arriveIf || []).forEach(function (a) { if (!P[a.passage]) E("Lieu « " + k + " » : arrivée « " + a.passage + " » inconnue."); }); });
     if (Wd.start && Wd.start.place && !places[Wd.start.place]) E("Lieu de départ « " + Wd.start.place + " » inconnu.");
     Wd.routes.forEach(function (r) {
       if (routes[r.id]) E("Route « " + r.id + " » en double."); routes[r.id] = r;
@@ -612,6 +614,14 @@
     Object.keys(P).forEach(function (id) {
       var p = P[id], where = "§ " + id;
       if (p.act && !acts[p.act]) E(where + " : acte « " + p.act + " » inconnu.");
+      // A switch passage (8.8): no page of its own; the engine takes the first branch whose condition holds.
+      if (p.branch) {
+        if (!Array.isArray(p.branch) || !p.branch.length) { E(where + " : branch vide."); return; }
+        p.branch.forEach(function (b, i) { if (!P[b.to]) E(where + " : branche " + (i + 1) + " vers « " + b.to + " », qui n'existe pas."); checkCond(b.if, where); if (b.fx) checkFx(b.fx, where); });
+        if (p.branch[p.branch.length - 1].if) E(where + " : la dernière branche doit être sans condition (le cas par défaut).");
+        if (p.text || p.choices) E(where + " : un aiguillage (branch) n'a ni texte ni choix.");
+        return;
+      }
       if (!Array.isArray(p.text) || !p.text.length) E(where + " : pas de texte.");
       if (p.end) { ends++; return; }
       if (p.combat) { checkFight(p.combat, where); eachFx(p, function (fx) { checkFx(fx, where); }); return; }
@@ -814,6 +824,7 @@
       function fight(f) { if (f) ["win", "lose", "flee", "calm"].forEach(function (o) { if (f[o]) add(f[o].to); }); if (f && f.talk && f.talk.win) add(f.talk.win.to); }
       (p.choices || []).forEach(function (c) { add(c.to); if (c.win) add(c.win.to); if (c.lose) add(c.lose.to); fight(c.fight); });
       fight(p.combat);
+      (p.branch || []).forEach(function (b) { add(b.to); });
       if (p.place || p.back) arrivals.forEach(function (a) { out.push(a); });
       // 7.9: the people met on a crossroads at their hour, the witness's reactions, the accusation, the deadline.
       if (p.hub && p.place) Object.keys(story.people || {}).forEach(function (k) { (story.people[k].at || []).forEach(function (a) { if (a.place === p.place && a.talk) add(a.talk); }); });
@@ -1023,7 +1034,7 @@
     }
     reachMissing();
     M.setRng(null);
-    var unreached = ids.filter(function (id) { return !seen[id]; });
+    var unreached = ids.filter(function (id) { return !seen[id] && !P[id].branch; });   // a switch passage has no page
     var neverTaken = [];
     ids.forEach(function (id) { var p = P[id]; (p.choices || []).forEach(function (c) { if (c.restart) return; var k = id + " | " + String(c.label).replace(/\{e\}/g, "").replace(/\{autre:(e|il|Il|le|lui)\}/g, function (m, x) { return M.autreForm({}, x); }).replace(/\{autre\}/g, "l'autre"); if (!taken[k]) neverTaken.push("§ " + id + " : « " + String(c.label).slice(0, 60) + " »" + (allowedCount[k] ? " (possible, jamais pris)" : " (jamais possible)")); }); });
     return {
