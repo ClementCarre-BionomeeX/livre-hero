@@ -21,7 +21,7 @@ module.exports = {
     fx: { regroup: true, lead: "corbe", leadQuiet: true },
     text: [
       "À l'aube, un feu sur la crête du sud. Puis des silhouettes qui descendent, à pied, en tirant des chevaux fourbus.",
-      { if: { has: "sud5:fuite=bateau" }, text: "Ils sont venus par la rivière, puis par les crêtes, sans dormir. Ils sentent le poisson et la sueur de cheval." },
+      { if: { has: "sud5:fuite=bateau" }, text: "Ils sont venus par la rivière, puis par les crêtes, sans dormir. Ils sentent le poisson et la sueur de cheval, et leurs bottes ont la boue de trois pays différents." },
       "Vous vous regardez. Un mois. Ils ont l'air plus vieux. Vous aussi, sûrement.",
       { if: { has: "registre:clans" }, text: "Sur le dos d'un cheval, sanglé, un paquet de toile cirée couvert de givre. Le clan s'écarte quand il passe. Les chiens se couchent." },
       { if: { has: "registre:reine" }, text: "Lisandre te dit, avant même de t'embrasser, que le registre est à Vasselin, sur le lit d'une reine qui lit." },
@@ -36,7 +36,7 @@ module.exports = {
 
   II_R_aube: P({ title: "L'aube du rite", place: "col",
     text: [
-      "Les tambours se taisent tous en même temps. Le clan s'est rangé en cercle, autour de la pierre, à cent pas de la déchirure. Hrodna attend. Askel attend, dans sa robe blanche.",
+      "Les tambours se taisent tous en même temps. Le clan s'est rangé en cercle, autour de la pierre, à cent pas de la déchirure : trois rangs, les vieux devant, les enfants derrière, les chiens tenus court. Hrodna attend. Askel attend, dans sa robe blanche.",
       "La déchirure a encore grandi, pendant la nuit. Elle est haute comme un clocher. De l'autre côté, les gens qui marchent sont tout près, maintenant. On voit leurs visages. Ils ne se pressent pas. Ils arrivent.",
       { if: { has: "registre:clans" }, text: "Le paquet de toile cirée, posé dans la neige, tremble. Le givre s'y forme et s'y défait, en vagues. Il tire vers la déchirure, comme un chien qui tire sur sa laisse." },
       "Tout le monde te regarde. C'est toi, la Bouche.",
@@ -81,7 +81,7 @@ module.exports = {
   II_R_refus: P({ title: "Personne", place: "col",
     text: [
       "Tu ne montes pas sur la pierre. Tu le dis à voix haute, devant le clan : personne n'entrera. Ni toi, ni ta mère, ni personne. On ne bouche pas un trou avec des gens.",
-      "Hrodna ferme les yeux. Askel, dans sa robe blanche, se rassoit. Un murmure court dans le cercle, colère ou soulagement, tu hésites.",
+      "Hrodna ferme les yeux. Askel, dans sa robe blanche, se rassoit. Un murmure court dans le cercle ; colère ou soulagement, tu hésites.",
       "La déchirure continue de grandir. Les gens de l'autre côté sont au seuil, maintenant. Ils te regardent.",
     ],
     choices: [{ label: "Puis le monde craque", to: "II_R_rupture" }] }),

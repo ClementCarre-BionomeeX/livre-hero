@@ -32,7 +32,7 @@ module.exports = {
 
   II_c_falaise: P({ title: "La falaise noire", place: "cirque",
     text: [
-      "La falaise noire domine le cirque d'un côté. On peut y monter, par une cheminée, si on n'a pas peur du vide. De là-haut, on doit voir tout le fond : le géant, les files, les passages entre les rochers.",
+      "La falaise noire domine le cirque d'un côté. On peut y monter par une cheminée large d'une épaule, avec un bon estomac pour le vide. De là-haut, on doit voir tout le fond : le géant, les files, les passages entre les rochers.",
     ],
     choices: [
       { label: "Grimper", test: { dom: "nature", label: "La cheminée", help: [{ if: { item: "corde" }, v: 15 }, { if: { present: "ysolde" }, v: 5 }] },
@@ -63,7 +63,7 @@ module.exports = {
     choices: [{ label: "L'écouter jusqu'au bout", fx: { ep: ["perso", 500] }, to: "IV_clan_fin" }] }),
   IV_k_arnald: P4({ title: "Le troupeau", place: "corbeau",
     text: [
-      "Le troupeau de rennes est plus petit qu'avant. La moitié des bêtes est partie vers le col pendant l'année blanche, et n'est jamais revenue. Le vieux Arnald compte celles qui restent, tous les soirs, deux fois, pour être sûr.",
+      "Le troupeau de rennes a fondu : quarante bêtes là où il en paissait quatre-vingts. La moitié des bêtes est partie vers le col pendant l'année blanche, et n'est jamais revenue. Le vieux Arnald compte celles qui restent, tous les soirs, deux fois, pour être sûr.",
       { if: { has: "co:renne=ramenee" }, text: "Une vieille femelle maigre broute au milieu, avec une ceinture de cuir à moitié mâchée qui lui pend de la bouche. « Brindille, dit Arnald. Celle de Corbe. Elle est la seule de cette année-là qui ne soit pas partie. » Il crache par terre. « Ça se soigne, cette chose. Ça se soigne avec une nuit et une longe. Personne ne l'avait jamais essayé. »" },
       { if: { not: { has: "co:renne=ramenee" } }, text: "« Il y en avait une, dit Arnald, que Corbe avait nourrie à la main. Brindille. Partie la première. » Il compte. Il recompte. Il en manque toujours autant." },
     ],

@@ -35,7 +35,7 @@ module.exports = {
   // ---------------------------------------------------------------- Le camp des champions
   II_S3_cartes: P({ title: "La liseuse de cartes", place: "vasselin",
     text: [
-      "Entre deux tentes, une femme en châle rouge, assise sur un tabouret, tire les cartes aux écuyers pour un sou. Elle a un jeu usé jusqu'à la trame, avec des figures que tu ne connais pas : la Gerbe, la Barque, la Tour, le Cerf, la Plume croisée d'une Clé.",
+      "Entre deux tentes, une femme en châle rouge, assise sur un tabouret, tire les cartes aux écuyers pour un sou. Elle a un jeu usé jusqu'à la trame, aux coins arrondis par trois générations de pouces, avec des figures que tu ne connais pas : la Gerbe, la Barque, la Tour, le Cerf, la Plume croisée d'une Clé.",
       "« Une carte pour la chanteuse ? » Elle étale le jeu en éventail, faces cachées. « Une seule. Les autres, on ne les tire plus. Ça porte malheur, cette année. »",
     ],
     choices: [
@@ -54,7 +54,7 @@ module.exports = {
 
   II_S3_ecuyer: P({ title: "L'écuyer", place: "vasselin",
     text: [
-      "Devant une tente vert et or, un écuyer de quinze ans, assis par terre, le heaume de son maître sur les genoux. Il le frotte. Il le frotte depuis des heures, à voir l'éclat.",
+      "Devant une tente vert et or, un écuyer de quinze ans, assis par terre, le heaume de son maître sur les genoux. Il le frotte. Il le frotte depuis des heures, à voir l'éclat : le chiffon a pris la couleur du métal.",
       "« Messire Gondebaud, dit-il quand tu lui demandes. Il a couru ce matin. Il a gagné. En revenant, il m'a regardé et il m'a demandé qui j'étais. » Le garçon frotte. « Il a pris un autre écuyer, un qui passait. Il dit que je suis un voleur, qui veut son heaume. »",
     ],
     choices: [
