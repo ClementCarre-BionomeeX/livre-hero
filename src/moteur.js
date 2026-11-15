@@ -1890,6 +1890,22 @@
     return best;
   }
   // Intent: redirect(Story, State, PassageId) -> PassageId = the scene the world imposes now, if any (march `to`, collect)
+  // Intent: branchTo(Story, State, Passage) -> Passage = a switch passage (`branch: [{ if, to }]`, 8.8) sends the reader
+  // on to the first branch whose condition holds (the last one should have none), without a page of its own.
+  // Why: when the whole state of the story decides what comes next (whose plan held, who is free, who is dead), the
+  // story declares the order of the cases and the engine chooses; no lone « Continuer » button that says nothing.
+  function branchTo(story, s, id) {
+    for (var n = 0; n < BRANCH_MAX && story.passages[id] && story.passages[id].branch; n++) {
+      var bs = story.passages[id].branch, hit = null;
+      for (var i = 0; i < bs.length && !hit; i++) if (evalCond(story, s, bs[i].if) && tagsOk(story, s, bs[i], id)) hit = bs[i];
+      if (!hit) { guard(s, "§ " + id + " : aucune branche ne tient, la dernière est prise"); hit = bs[bs.length - 1]; }
+      if (hit.fx) apply(story, s, hit.fx);
+      if (!story.passages[hit.to]) throw new Error("branche vers un passage inconnu " + hit.to + " (depuis " + id + ")");
+      id = hit.to;
+    }
+    return id;
+  }
+  var BRANCH_MAX = 12;
   function redirect(story, s, id) {
     var p = story.passages[id];
     if (!s.pending || !s.pending.length || !p || p.end) return id;
@@ -2720,7 +2736,13 @@
       // The people here at this hour, then the rumour heard on coming in (7.9).
       v.text = v.text.concat(peopleLines(story, s, p), shopSays(story, s, p));
       // The epilogue (8.0): on an ending marked `epilogue`, what came of the hero's choices, told without judging.
-      if (p.epilogue && p.end) { var epi = (story.epilogue || []).filter(function (e) { return tagsOk(story, s, e, s.node) && evalCond(story, s, e.if); }).map(function (e) { return interp(s, e.text); }); if (epi.length) { v.epilogue = epi; v.text = v.text.concat(["**" + (story.epilogueTitle || "Ce qu'il advint") + "**"], epi); } }
+      if (p.epilogue && p.end) {
+        var epi = (story.epilogue || []).filter(function (e) { return tagsOk(story, s, e, s.node) && evalCond(story, s, e.if); }).map(function (e) { return interp(s, e.text); });
+        // Composed endings (8.8): after the epilogue, what became of each one the story follows, one fate each.
+        var fts = fatesOf(story, s).filter(function (f) { return f.text; }).map(function (f) { return interp(s, f.text); });
+        epi = epi.concat(fts);
+        if (epi.length) { v.epilogue = epi; v.text = v.text.concat(["**" + (story.epilogueTitle || "Ce qu'il advint") + "**"], epi); }
+      }
       if (s.rumorNow && s.rumorNow.node === s.node && s.rumorNow.turn === s.turn) { var rr = rumorById(story, s.rumorNow.id); if (rr) v.text.push(interp(s, rr.text)); }
       // A closed room (8.3): what the hero did comes back (one line, in italics); a remembrance says when it was;
       // dread past its threshold troubles the page.
@@ -2958,6 +2980,7 @@
     tick(story, s);
     if (!s.holdWorld) id = redirect(story, s, id);
     s.holdWorld = false;
+    id = branchTo(story, s, id);
     if (story.passages[id].hub) { var b = dueBanter(story, s, story.passages[id].act); if (b) { s.ret = id; id = b; } }
     // At sea (8.1): back on a crossroads, an encounter of the region, the season and the sky may come first.
     if (story.passages[id].hub && story.encounters) { var en = encounterDue(story, s); if (en) { s.hubLast = id; s.ret = id; id = en; } }
@@ -3036,7 +3059,30 @@
   function endingOf(story, s) {
     var p = story.passages[s.node]; if (!p || !p.end) return null;
     var list = endingsOf(story), f = list.filter(function (e) { return e.id.indexOf("fin:") === 0 && s.flags[e.id]; })[0];
-    return f || list.filter(function (e) { return e.id === s.node; })[0] || { id: s.node, title: String(p.title || s.node) };
+    var base = f || list.filter(function (e) { return e.id === s.node; })[0] || { id: s.node, title: String(p.title || s.node) };
+    if (!story.fates || !story.fates.length) return base;
+    // Composed endings (8.8): the dénouement and the fate of each one the story follows make the ending.
+    var fs = fatesOf(story, s);
+    return { id: base.id + "|" + fs.map(function (x) { return x.id; }).join("|"), base: base.id, title: base.title, fates: fs,
+      full: base.title + " · " + fs.map(function (x) { return x.title; }).join(" · ") };
+  }
+  // Intent: fatesOf(Story, State) -> [{ who, label, id, title, text }] = for each one the story follows, the first fate
+  // whose condition holds (story.fates: [{ who, label, list: [{ id, title, if, text, dens }] }]); the last of a list
+  // is the fate by default. Why: Clément (15/11) wants hundreds of endings in a short book: the dénouement of the city
+  // and the fate of each character, each set by the choices made, multiply.
+  function fatesOf(story, s) {
+    return (story.fates || []).map(function (g) {
+      var hit = (g.list || []).filter(function (o) { return tagsOk(story, s, o, s.node) && evalCond(story, s, o.if); })[0] || (g.list || [])[g.list.length - 1] || {};
+      return { who: g.who, label: g.label || g.who, id: g.who + ":" + (hit.id || "?"), title: hit.title || "", text: hit.text || "" };
+    });
+  }
+  // Intent: fateCount(Story) -> int = how many composed endings the story declares: for each dénouement, the product of
+  // the fates of each one that may go with it (a fate's `dens` names the dénouements it can follow; none = all).
+  function fateCount(story) {
+    var ends = endingsOf(story); if (!story.fates || !story.fates.length) return ends.length;
+    return ends.reduce(function (n, e) {
+      return n + story.fates.reduce(function (m, g) { return m * (g.list || []).filter(function (o) { return !o.dens || [].concat(o.dens).some(function (d) { return d === e.id || "fin:" + d === e.id; }); }).length; }, 1);
+    }, 0);
   }
 
   // Intent: ambiance(Story, State) -> Kind | null = the sound and picture of the moment
@@ -3165,7 +3211,7 @@
   var API = {
     FACE: FACE, FACE_KEYS: FACE_KEYS, faceErrors: faceErrors, REGARDS: REGARDS, mysterySolved: mysterySolved, happened: happened, TAVERN_GAMES_PER_DAY: TAVERN_GAMES_PER_DAY,
     ARCHS: ARCHS, archOf: archOf, usesOf: usesOf, plainOf: plainOf, marksOf: marksOf, TEXT_FX: TEXT_FX, MARK_KINDS: MARK_KINDS, MOODS: MOODS, keywordsOf: keywordsOf, keywordFor: keywordFor, trouve: trouve, moodOf: moodOf, TECHS: TECHS, techsOf: techsOf, partyView: partyView, cpv: cpv, cpvMax: cpvMax, FRONT: FRONT, DOMAINS: DOMAINS, EP: EP, EP_PER_LEVEL: EP_PER_LEVEL, MAX_LEVEL: MAX_LEVEL, DIFFS: DIFFS, LOYAL_AT: LOYAL_AT, SUCCESS: SUCCESS, STEP_HOURS: STEP_HOURS,
-    setRng: setRng, setDice: setDice, nudgeOf: nudgeOf, ambianceOf: ambianceOf, AMBIANCES: AMBIANCES, isNightNow: function (s) { var h = s.time % 24; return h >= NIGHT_FROM || h < NIGHT_TO; }, DIFFICULTY: DIFFICULTY, featsOf: featsOf, endingsOf: endingsOf, endingOf: endingOf, freshState: freshState, level: level, pvMax: pvMax, bonus: bonus, chance: chance, rollTest: rollTest,
+    setRng: setRng, setDice: setDice, nudgeOf: nudgeOf, ambianceOf: ambianceOf, AMBIANCES: AMBIANCES, isNightNow: function (s) { var h = s.time % 24; return h >= NIGHT_FROM || h < NIGHT_TO; }, DIFFICULTY: DIFFICULTY, featsOf: featsOf, endingsOf: endingsOf, endingOf: endingOf, fatesOf: fatesOf, fateCount: fateCount, freshState: freshState, level: level, pvMax: pvMax, bonus: bonus, chance: chance, rollTest: rollTest,
     evalCond: evalCond, describeCond: describeCond, textList: textList, view: view, allowed: allowed, target: target,
     apply: apply, enter: enter, choose: choose, start: start, present: present, loyal: loyal, clueCount: clueCount,
     PERIODS: PERIODS, periodOf: periodOf, hereNow: hereNow, contradict: contradict, contradictionOf: contradictionOf, faded: faded, regardOk: regardOk, rumorById: rumorById, momentOf: momentOf,
