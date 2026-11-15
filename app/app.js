@@ -36,7 +36,43 @@
   }
   function esc(t) { return String(t).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
   // Minimal markdown for story text: *italic*, **bold**, line breaks. Escaped first, so story text cannot inject markup.
-  function md(t) { return esc(t).replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>").replace(/\*(.+?)\*/g, "<em>$1</em>").replace(/\n/g, "<br>"); }
+  function md(t) { return veilHtml(esc(t).replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>").replace(/\*(.+?)\*/g, "<em>$1</em>").replace(/\n/g, "<br>")); }
+  // Hidden words (8.5): the engine marks, in a paragraph, the words said that the hero's lens makes stir (state
+  // "cache"), those it can no longer lift ("eteint"), and the words beneath once revealed ("vu"). Here they become a
+  // button (a tap reveals, see onVeilTap) whose letters move with the lens's effect, or the revealed words, set apart,
+  // with the words said in their title. Without motion (the reader's system asks for less), a colour and a dotted line.
+  var VEIL_HTML_RE = /\uE000([^\uE001]*)\uE001([\s\S]*?)\uE002/g;
+  function unveil(t) { return String(t).replace(VEIL_HTML_RE, "$2"); }
+  function veilLetters(html) {
+    var i = 0;
+    return html.replace(/(<[^>]+>)|(&[a-z#0-9]+;|[^<&])/gi, function (m, tag, ch) { if (tag) return tag; if (/\s/.test(ch)) { i++; return ch; } return "<span class=\"vl\" style=\"--i:" + (i++) + "\">" + ch + "</span>"; });
+  }
+  function veilHtml(html) {
+    if (html.indexOf("\uE000") < 0) return html;
+    var st = (A.game && A.game.story) || {}, L = st.lenses || {};
+    return html.replace(VEIL_HTML_RE, function (m, meta, inner) {
+      var q = meta.split("|"), id = q[0], lens = L[q[1]] || {}, state = q[2], fx = lens.effect || "lueur", info = M.veilInfo(st, id) || {};
+      if (state === "vu") return "<span class=\"voile vu fx-" + esc(fx) + (A.veilJust === id ? " just" : "") + "\" title=\"" + esc("On disait : « " + (info.said || "") + " » · " + (lens.name || "")) + "\">" + inner + "</span>";
+      var label = state === "eteint" ? (lens.name || "") + " : plus rien à dévoiler pour l'instant" : "Lire dessous (" + (lens.name || "") + ")";
+      return "<button type=\"button\" class=\"voile " + esc(state) + " fx-" + esc(fx) + "\" data-voile=\"" + esc(id) + "\" title=\"" + esc(label) + "\" aria-label=\"" + esc(label + " : " + unveil(inner).replace(/<[^>]+>/g, "")) + "\">" + (REDUCED_MOTION() ? inner : veilLetters(inner)) + "</button>";
+    });
+  }
+  function REDUCED_MOTION() { try { return window.matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) { return false; } }
+  // A tap on words that stir: the engine reveals them (a charge spent, the veil's own effects), the game is saved, the
+  // page is drawn again with the words beneath, which come up through the ink.
+  function onVeilTap(e) {
+    var b = e.target && e.target.closest && e.target.closest("button.voile[data-voile]"); if (!b || !A.game) return;
+    e.preventDefault(); e.stopPropagation();
+    var G = A.game, id = b.getAttribute("data-voile");
+    G.s.events = G.s.events || [];
+    var ok = false;
+    try { ok = M.reveal(G.story, G.s, id); } catch (err) { A.notice = "Ce mot caché a buté sur une erreur de l'histoire : " + err.message; render(); return; }
+    A.veilJust = ok ? id : null;
+    if (ok && G.recit && !G.multi) { var rp = G.recit.pages, last = rp[rp.length - 1]; if (last) last.text = M.view(G.story, G.s).text.slice(); }
+    persist(); render();
+    setTimeout(function () { A.veilJust = null; }, 1600);
+  }
+  document.addEventListener("click", onVeilTap, true);
   function uid() { return Date.now().toString(36) + Math.random().toString(36).slice(2, 8); }
   function clone(o) { return JSON.parse(JSON.stringify(o)); }
   function when(ts) { try { return new Date(ts).toLocaleString("fr-FR", { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" }); } catch (e) { return ""; } }
@@ -1605,7 +1641,7 @@
   // Why: Clément, 13/11 (piste 5), to know if there is time for a chapter before bed.
   var WPM_DEFAULT = 170, WPM_MIN = 60, WPM_MAX = 400, WPM_SAMPLE_MS = 10 * 60 * 1000, PATH_DETOUR = 1.7, ACT_SHARE = 0.45, ROUND_MIN = 5;
   function wordsOf(lines) {
-    return (lines || []).reduce(function (n, t) { var x = typeof t === "string" ? t : (t && t.text) || ""; return n + String(x).split(/\s+/).filter(Boolean).length; }, 0);
+    return (lines || []).reduce(function (n, t) { var x = typeof t === "string" ? t : (t && t.text) || ""; return n + unveil(String(x)).split(/\s+/).filter(Boolean).length; }, 0);
   }
   function readerWpm(p) {
     var w = 0, ms = 0;
@@ -3255,7 +3291,7 @@
   // ------------------------------------------------------------------ read aloud
   function speak(v) {
     if (!A.tts) return;
-    var lines = [{ text: v.title }].concat(v.text.map(function (t) { return { text: t.replace(/\*/g, "") }; }));
+    var lines = [{ text: v.title }].concat(v.text.map(function (t) { return { text: unveil(t).replace(/\*/g, "") }; }));
     var out = [];
     lines.forEach(function (l) { var t = l.text; while (t.length > TTS_LINE_MAX) { var cut = t.lastIndexOf(". ", TTS_LINE_MAX); cut = cut > 0 ? cut + 1 : TTS_LINE_MAX; out.push({ text: t.slice(0, cut) }); t = t.slice(cut).trim(); } if (t) out.push({ text: t }); });
     A.speaking = true; render();
@@ -3641,7 +3677,7 @@
   })();
 
   // ------------------------------------------------------------------ the notebook
-  var TABS = [["heros", "Héros"], ["sac", "Sac"], ["quetes", "Quêtes"], ["indices", "Indices"], ["notes", "Notes"], ["soupcons", "Soupçons"], ["tableau", "Tableau d'enquête"], ["documents", "Documents"], ["reconst", "Reconstitution"], ["ville", "La ville"], ["conseil", "Conseil"], ["dettes", "Dettes et promesses"], ["liens", "Qui est avec qui"], ["versions", "Versions"], ["secrets", "Secrets"], ["compagnons", "Compagnons"], ["carte", "Carte"], ["gens", "Gens"], ["frise", "Frise"], ["marques", "Marque-pages"], ["exploits", "Hauts faits"], ["codex", "Bestiaire et atlas"], ["mots", "Mots"], ["journal", "Journal"], ["coulisses", "Coulisses"]];
+  var TABS = [["heros", "Héros"], ["sac", "Sac"], ["quetes", "Quêtes"], ["indices", "Indices"], ["notes", "Notes"], ["soupcons", "Soupçons"], ["tableau", "Tableau d'enquête"], ["documents", "Documents"], ["reconst", "Reconstitution"], ["ville", "La ville"], ["conseil", "Conseil"], ["dettes", "Dettes et promesses"], ["liens", "Qui est avec qui"], ["versions", "Versions"], ["secrets", "Secrets"], ["voiles", "Sous les mots"], ["compagnons", "Compagnons"], ["carte", "Carte"], ["gens", "Gens"], ["frise", "Frise"], ["marques", "Marque-pages"], ["exploits", "Hauts faits"], ["codex", "Bestiaire et atlas"], ["mots", "Mots"], ["journal", "Journal"], ["coulisses", "Coulisses"]];
   // Documents and Reconstitution only show in a story that has them (7.9).
   function tabsOf(st) {
     var docs = Object.keys(st.items || {}).some(function (k) { return st.items[k].kind === "document" && st.items[k].text; });
@@ -3652,6 +3688,7 @@
     var n = function (o) { return Object.keys(o || {}).length; }, places = n((st.world || {}).places);
     has.quetes = n(st.quests) > 0; has.indices = n(st.clues) > 0; has.soupcons = has.tableau = n(st.mysteries) > 0;
     has.compagnons = n(st.companions) > 0; has.gens = n(st.people) > 0; has.carte = places > 1; has.codex = n(st.enemies) > 0 || places > 1;
+    has.voiles = !!st.lenses;
     // A story names its stocks' tab (8.1: « Le navire »).
     return TABS.filter(function (t) { return (t[0] !== "documents" || docs) && (t[0] !== "reconst" || plan) && (has[t[0]] == null || has[t[0]]); })
       .map(function (t) { return t[0] === "ville" && st.stocksTab ? [t[0], st.stocksTab] : t; });
@@ -3693,7 +3730,7 @@
     var fill = function () {
       body.textContent = "";
       if ((A.carnetQ || "").trim().length >= SEARCH_MIN) { searchCarnet(body, G.story, G.s, A.carnetQ.trim()); return; }
-      ({ heros: tabHero, sac: tabBag, quetes: tabQuests, indices: tabClues, notes: tabNotes, soupcons: tabSuspects, tableau: tabBoard, documents: tabDocs, reconst: tabRecon, ville: tabCity, conseil: tabCouncil, dettes: tabDebts, liens: tabTies, versions: tabVersions, secrets: tabSecrets, compagnons: tabCompanions, carte: tabMap, gens: tabPeople, frise: tabFrise, marques: tabMarks, exploits: tabFeats, codex: tabCodex, mots: tabWords, journal: tabLog, coulisses: tabBackstage })[A.carnetTab](body, G.story, G.s);
+      ({ heros: tabHero, sac: tabBag, quetes: tabQuests, indices: tabClues, notes: tabNotes, soupcons: tabSuspects, tableau: tabBoard, documents: tabDocs, reconst: tabRecon, ville: tabCity, conseil: tabCouncil, dettes: tabDebts, liens: tabTies, versions: tabVersions, secrets: tabSecrets, voiles: tabVeils, compagnons: tabCompanions, carte: tabMap, gens: tabPeople, frise: tabFrise, marques: tabMarks, exploits: tabFeats, codex: tabCodex, mots: tabWords, journal: tabLog, coulisses: tabBackstage })[A.carnetTab](body, G.story, G.s);
     };
     fill();
     q.addEventListener("input", function () { A.carnetQ = q.value; fill(); });
@@ -3765,7 +3802,7 @@
           it.heal && !inFight ? h("button", { class: "btn sm", disabled: s.pv >= M.pvMax(s), onclick: function () { A.game.undo.push(JSON.stringify(s)); s.events = []; M.useItem(st, s, id); persist(); render(); } }, "Utiliser") : null,
           it.text ? h("button", { class: "btn sm", onclick: function () { A.readDoc = open ? null : id; render(); } }, open ? "Refermer" : "Lire") : null),
         it.desc ? h("div", { class: "desc" }, it.desc) : null,
-        open ? h("div", { class: "doc", html: md(it.text) }) : null));
+        open ? h("div", { class: "doc", html: md(M.veilMark(st, s, it.text)) }) : null));
     });
   }
   function tabQuests(b, st, s) {
@@ -4038,7 +4075,7 @@
     modalHead(box, it.name, close);
     var body = h("div", { class: "drawer-body" });
     if (it.desc) body.appendChild(h("p", { class: "small muted" }, it.desc));
-    body.appendChild(h("div", { class: "manuscrit " + (it.form || "lettre") + " " + (it.hand || "soignee"), html: md(it.text) }));
+    body.appendChild(h("div", { class: "manuscrit " + (it.form || "lettre") + " " + (it.hand || "soignee"), html: md(A.game ? M.veilMark(A.game.story, A.game.s, it.text) : it.text) }));
     box.appendChild(body);
   }
   // ------------------------------------------------------------------ contradictions (7.9)
@@ -4417,6 +4454,24 @@
         b.appendChild(h("div", { class: "itemrow" }, h("b", null, x.title), g[0] === "own" ? h("span", { class: "small muted" }, x.told ? "dit à " + M.interp(s, "{autre}") : "gardé") : null,
           h("div", { class: "desc", html: md(x.text) })));
       });
+    });
+  }
+  // Hidden words (8.5): the lenses in hand (and their charges), then every veil lifted, in the order found: where,
+  // the words said (struck), the words beneath. A story may name the tab (story.veilsTab).
+  function tabVeils(b, st, s) {
+    var L = st.lenses || {}, held = Object.keys(L).filter(function (k) { return M.lensHeld(st, s, k); });
+    if (held.length) {
+      b.appendChild(h("div", { class: "label" }, "Ce qui te fait entendre"));
+      held.forEach(function (k) { var left = M.lensLeft(st, s, k); b.appendChild(h("div", { class: "itemrow" }, h("b", null, h("span", { class: "voile-pastille fx-" + (L[k].effect || "lueur") }, "◆"), " " + L[k].name), left !== Infinity ? h("span", { class: "small muted" }, left + " " + (L[k].unit || "charge") + (left > 1 ? "s" : "")) : null, L[k].hint ? h("div", { class: "desc" }, L[k].hint) : null)); });
+    }
+    var vs = Object.keys(s.veils || {}).map(function (k) { var x = s.veils[k]; return { id: k, t: typeof x === "object" ? x.t : x, at: typeof x === "object" ? x.at : null }; }).sort(function (a, b2) { return a.t - b2.t; });
+    if (!vs.length) { b.appendChild(h("div", { class: "notice" }, held.length ? "Rien de dévoilé encore. Les mots qui bougent sur la page cachent autre chose : touche-les." : "Rien encore.")); return; }
+    b.appendChild(h("div", { class: "label" }, "Ce que tu as entendu dessous (" + vs.length + ")"));
+    vs.forEach(function (x) {
+      var V = M.veilInfo(st, x.id); if (!V) return;
+      var P = x.at && st.passages[x.at], where = P ? M.interp(s, P.title || "") : (x.at && x.at.indexOf("objet:") === 0 ? M.item(st, x.at.slice(6)).name : "");
+      b.appendChild(h("div", { class: "itemrow voile-ligne" }, h("span", { class: "small muted" }, (where ? where + " · " : "") + ((L[V.lens] || {}).name || "")),
+        h("div", { class: "desc" }, h("s", { html: md(M.interp(s, V.said)) })), h("div", { class: "desc voile-dessous", html: md(M.interp(s, V.truth)) })));
     });
   }
   function tabPeople(b, st, s) {
