@@ -1852,6 +1852,11 @@
  "companions": {
   "armelle": {
    "name": "Armelle Kerbrat",
+   "aspect": {
+    "allure": "charpentière, mâchoire serrée",
+    "visage": "chignon châtain",
+    "signe": "ses outils en ordre parfait"
+   },
    "f": true,
    "face": {
     "age": "mur",
@@ -1886,6 +1891,11 @@
   },
   "pierrick": {
    "name": "Pierrick",
+   "aspect": {
+    "allure": "mousse de douze ans",
+    "visage": "roux, taches de rousseur",
+    "signe": "sourire en coin"
+   },
    "f": false,
    "face": {
     "age": "enfant",
@@ -1919,6 +1929,11 @@
   },
   "gabin": {
    "name": "Gabin Corbière",
+   "aspect": {
+    "allure": "quinze ans, poli",
+    "visage": "cheveux bruns mi-longs",
+    "signe": "des yeux brillants"
+   },
    "f": false,
    "face": {
     "age": "jeune",
@@ -1953,6 +1968,12 @@
  "people": {
   "corbiere": {
    "name": "Maître Anselme Corbière",
+   "aspect": {
+    "allure": "homme rond",
+    "habits": "habit de drap gris",
+    "signe": "regarde ses mains à plat",
+    "voix": "parle doucement"
+   },
    "f": false,
    "face": {
     "age": "mur",
@@ -1967,6 +1988,12 @@
   },
   "coet": {
    "name": "Le capitaine Ysembart Coët",
+   "aspect": {
+    "allure": "vieux marin sec et dur",
+    "visage": "barbe blanche",
+    "signe": "les mains dans le dos",
+    "voix": "répond en trois mots"
+   },
    "f": false,
    "face": {
     "age": "ancien",
@@ -2023,6 +2050,10 @@
   },
   "morvan": {
    "name": "Morvan Le Hir",
+   "aspect": {
+    "allure": "bel homme au sourire facile",
+    "visage": "cheveux noirs, moustache, cicatrice"
+   },
    "f": false,
    "face": {
     "age": "adulte",
@@ -2098,6 +2129,11 @@
   },
   "guenole": {
    "name": "Guénolé Le Bihan",
+   "aspect": {
+    "visage": "longue barbe grise",
+    "signe": "ancres tatouées sur les bras, pipe",
+    "voix": "commande au sifflet"
+   },
    "f": false,
    "face": {
     "age": "mur",
@@ -2145,6 +2181,11 @@
   },
   "kerlo": {
    "name": "Yves Kerlo",
+   "aspect": {
+    "allure": "taciturne",
+    "visage": "barbe blonde",
+    "signe": "les yeux sur son compas"
+   },
    "f": false,
    "face": {
     "age": "mur",
@@ -2173,6 +2214,11 @@
   },
   "rozenn": {
    "name": "Rozenn Le Dû",
+   "aspect": {
+    "allure": "bras de lavandière",
+    "habits": "foulard",
+    "signe": "son couteau à la main"
+   },
    "f": true,
    "face": {
     "age": "mur",
@@ -2206,6 +2252,10 @@
   },
   "daoulas": {
    "name": "Maître Lucien Daoulas",
+   "aspect": {
+    "habits": "en manches de chemise",
+    "signe": "tourne ses lunettes entre ses doigts"
+   },
    "f": false,
    "face": {
     "age": "mur",
@@ -2237,6 +2287,10 @@
   },
   "erwan": {
    "name": "Erwan Le Goff",
+   "aspect": {
+    "allure": "jeune matelot",
+    "signe": "joue aux dés, rit trop fort"
+   },
    "f": false,
    "face": {
     "age": "jeune",
@@ -2272,6 +2326,10 @@
   },
   "lerac": {
    "name": "Thibaut Lerac",
+   "aspect": {
+    "allure": "vieil homme sur une béquille",
+    "visage": "lunettes, crâne dégarni"
+   },
    "f": false,
    "face": {
     "age": "ancien",
@@ -2287,6 +2345,10 @@
   },
   "dornac": {
    "name": "Pélagie Dornac",
+   "aspect": {
+    "visage": "chignon brun, lunettes",
+    "voix": "voix très basse"
+   },
    "f": true,
    "face": {
     "age": "adulte",
@@ -2301,6 +2363,10 @@
   },
   "haudry": {
    "name": "Maître Quentin Haudry",
+   "aspect": {
+    "allure": "gros et barbu",
+    "signe": "broie dans un mortier en chantonnant"
+   },
    "f": false,
    "face": {
     "age": "ancien",
@@ -2313,6 +2379,10 @@
   },
   "treguer": {
    "name": "Joachim Tréguer",
+   "aspect": {
+    "allure": "vieux pilote, jambes écartées",
+    "visage": "longue barbe blanche, un œil voilé"
+   },
    "f": false,
    "face": {
     "age": "ancien",
@@ -2328,6 +2398,11 @@
   },
   "nolwenn": {
    "name": "Nolwenn Guivarc'h",
+   "aspect": {
+    "allure": "grave",
+    "visage": "rousse, tresses",
+    "signe": "une lunette de vue à la main"
+   },
    "f": true,
    "face": {
     "age": "mur",
@@ -2343,6 +2418,10 @@
   },
   "soizic": {
    "name": "Soizic",
+   "aspect": {
+    "allure": "vieille gardienne de phare",
+    "signe": "trois chèvres"
+   },
    "f": true,
    "face": {
     "age": "ancien",

@@ -318,6 +318,10 @@
  "companions": {
   "pip": {
    "name": "Pip",
+   "aspect": {
+    "allure": "lumière grosse comme une prune",
+    "visage": "deux yeux dedans"
+   },
    "f": false,
    "role": "Une petite lumière avec des yeux",
    "wound": "Il ne se souvient pas de la main qui le tenait.",
@@ -346,6 +350,10 @@
   },
   "coliane": {
    "name": "Coliane",
+   "aspect": {
+    "allure": "chasseuse de souillure",
+    "visage": "cheveux courts, balafre"
+   },
    "f": true,
    "face": {
     "age": "jeune",
@@ -382,6 +390,9 @@
   },
   "gloup": {
    "name": "Gloup",
+   "aspect": {
+    "allure": "petit monstre de bave"
+   },
    "f": false,
    "role": "Un petit monstre de bave, né de la souillure",
    "wound": "Il ne sait pas s'il est une bête ou une tache.",
@@ -409,6 +420,11 @@
   },
   "charline": {
    "name": "Charline Hildrand",
+   "aspect": {
+    "allure": "magicienne",
+    "visage": "rousse, taches de rousseur, brûlure",
+    "signe": "les mains dans les manches"
+   },
    "f": true,
    "face": {
     "age": "jeune",
@@ -446,6 +462,11 @@
   },
   "aubin": {
    "name": "Frère Aubin",
+   "aspect": {
+    "allure": "prêtre",
+    "visage": "barbe, crâne dégarni",
+    "signe": "prie les yeux ouverts"
+   },
    "f": false,
    "face": {
     "age": "mur",
@@ -479,6 +500,11 @@
   },
   "thavary": {
    "name": "Thavary de Thavar",
+   "aspect": {
+    "allure": "chevalière",
+    "visage": "tresses noires, cicatrice",
+    "signe": "la main sur le pommeau"
+   },
    "f": true,
    "face": {
     "age": "adulte",
@@ -1355,6 +1381,10 @@
  "people": {
   "hauberte": {
    "name": "Hauberte de Sarn",
+   "aspect": {
+    "allure": "vieille chevalière sans cheval",
+    "visage": "cheveux courts, balafre"
+   },
    "f": true,
    "face": {
     "age": "ancien",
@@ -1367,6 +1397,11 @@
   },
   "ortie": {
    "name": "Ortie",
+   "aspect": {
+    "allure": "vieille sorcière des marais",
+    "habits": "foulard",
+    "signe": "regarde l'eau avant de boire"
+   },
    "f": true,
    "face": {
     "age": "ancien",
@@ -1376,6 +1411,10 @@
   },
   "maelle": {
    "name": "Maëlle Vautrin",
+   "aspect": {
+    "allure": "cartographe lettrée",
+    "signe": "ses lunettes à la main"
+   },
    "f": true,
    "face": {
     "age": "mur",
@@ -1387,11 +1426,24 @@
   },
   "voix": {
    "name": "La Voix",
+   "aka": [
+    "la Voix"
+   ],
+   "aspect": {
+    "allure": "femme faite de vase",
+    "visage": "cheveux d'algue",
+    "voix": "parle par l'eau"
+   },
    "f": true,
    "desc": "Une femme faite de vase, de cheveux d'algue et d'eau sale. Elle parle par l'eau. Elle a toujours l'air de comprendre."
   },
   "veyra": {
    "name": "Veyra de Hautcastel",
+   "aspect": {
+    "allure": "chevalière, l'épée du Cercle",
+    "visage": "chignon, cicatrice",
+    "signe": "gants noirs jamais ôtés"
+   },
    "f": true,
    "face": {
     "age": "mur",
@@ -1404,6 +1456,11 @@
   },
   "vendrel": {
    "name": "Maître Vendrel",
+   "aspect": {
+    "allure": "homme mince en noir",
+    "habits": "col montant, gants blancs",
+    "voix": "voix posée"
+   },
    "f": false,
    "face": {
     "age": "mur",
@@ -1413,6 +1470,10 @@
   },
   "josse": {
    "name": "Josse Ferlan",
+   "aspect": {
+    "allure": "homme blessé qui attend une punition",
+    "visage": "barbe"
+   },
    "f": false,
    "face": {
     "age": "adulte",
@@ -1422,16 +1483,27 @@
   },
   "grauk": {
    "name": "Grauk, roi des trolls",
+   "aspect": {
+    "allure": "vieux troll gros et fin",
+    "voix": "voix de pierre qu'on traîne"
+   },
    "f": false,
    "desc": "Gros, vieux, et plus fin qu'il n'en a l'air. Il a peur de ce qui chante sous son château."
   },
   "ardhal": {
    "name": "Ardhal",
+   "aspect": {
+    "allure": "vieux dragon blanc"
+   },
    "f": false,
    "desc": "Le vieux dragon blanc du glacier de la Fenne. On dit qu'il a vu les fondateurs."
   },
   "edrin": {
    "name": "Edrin, Grand Maître de l'Ordre",
+   "aspect": {
+    "allure": "très petit, très maigre, presque aveugle",
+    "visage": "crâne nu, barbe blanche courte"
+   },
    "f": false,
    "face": {
     "age": "ancien",
@@ -1443,6 +1515,12 @@
   },
   "brann": {
    "name": "Brann, sénéchal de l'Ordre",
+   "aspect": {
+    "allure": "cinquante ans, visage dur",
+    "visage": "barbe, balafre",
+    "signe": "mains de bûcheron",
+    "voix": "n'a jamais besoin de crier"
+   },
    "f": false,
    "face": {
     "age": "mur",
@@ -1455,6 +1533,14 @@
   },
   "aldric": {
    "name": "Aldric III, roi d'Aldaran",
+   "aka": [
+    "le roi Aldric",
+    "Aldric"
+   ],
+   "aspect": {
+    "allure": "vieux roi malade",
+    "visage": "longue barbe, couronne"
+   },
    "f": false,
    "face": {
     "age": "ancien",
@@ -1465,6 +1551,11 @@
   },
   "nerys": {
    "name": "Nerys d'Aldaran",
+   "aspect": {
+    "allure": "princesse de dix-neuf ans",
+    "habits": "robe sombre",
+    "visage": "tresses brunes"
+   },
    "f": true,
    "face": {
     "age": "jeune",
@@ -1474,6 +1565,11 @@
   },
   "orsini": {
    "name": "Orsini, duchesse de Vel-Orin",
+   "aspect": {
+    "allure": "duchesse de soixante ans",
+    "habits": "robe de drap noir",
+    "signe": "une bague à chaque doigt"
+   },
    "f": true,
    "face": {
     "age": "ancien",
@@ -1483,6 +1579,10 @@
   },
   "morn": {
    "name": "Morn",
+   "aspect": {
+    "allure": "homme aimable qui ne dort jamais",
+    "signe": "sourit comme s'il t'attendait"
+   },
    "f": false,
    "face": {
     "age": "mur"
@@ -1491,6 +1591,11 @@
   },
   "anselme": {
    "name": "Anselme le colporteur",
+   "aspect": {
+    "allure": "colporteur à la mule",
+    "visage": "moustache",
+    "signe": "un sourire qu'il ne faut pas croire"
+   },
    "f": false,
    "face": {
     "age": "mur",
@@ -1500,6 +1605,10 @@
   },
   "barthelemy": {
    "name": "Barthélemy",
+   "aspect": {
+    "allure": "meunier veuf, amaigri",
+    "habits": "tablier blanc"
+   },
    "f": false,
    "face": {
     "age": "mur",
@@ -1509,6 +1618,9 @@
   },
   "margot": {
    "name": "Margot",
+   "aspect": {
+    "allure": "fillette de neuf ans"
+   },
    "f": true,
    "face": {
     "age": "enfant"
@@ -1517,6 +1629,10 @@
   },
   "berthe": {
    "name": "Berthe",
+   "aspect": {
+    "allure": "vieille femme seule",
+    "signe": "ses chèvres"
+   },
    "f": true,
    "face": {
     "age": "ancien"
@@ -1525,6 +1641,11 @@
   },
   "ansgar": {
    "name": "Ansgar Hildrand",
+   "aspect": {
+    "allure": "soixante-dix ans, visage creusé",
+    "visage": "yeux bleu pâle, barbe",
+    "signe": "mains brûlées dans des gants de cuir"
+   },
    "f": false,
    "face": {
     "age": "ancien",
@@ -1537,6 +1658,11 @@
   },
   "ermesinde": {
    "name": "Dame Ermesinde de Thavar",
+   "aspect": {
+    "allure": "très vieille dame droite comme une borne",
+    "habits": "en noir, foulard de soie grise",
+    "voix": "voix sèche et très claire"
+   },
    "f": true,
    "face": {
     "age": "ancien",
@@ -1546,6 +1672,11 @@
   },
   "p_ternes": {
    "name": "Mère Ternes",
+   "aspect": {
+    "allure": "vieille aubergiste",
+    "visage": "chignon",
+    "signe": "écosse des fèves au comptoir"
+   },
    "f": true,
    "face": {
     "age": "ancien",
@@ -1556,6 +1687,11 @@
   },
   "p_durn": {
    "name": "Durn",
+   "aspect": {
+    "allure": "forgeron carré et lent",
+    "visage": "crâne rasé, barbe courte grise",
+    "signe": "avant-bras piqués de brûlures"
+   },
    "f": false,
    "face": {
     "age": "mur",
@@ -1569,6 +1705,11 @@
   },
   "p_isaure": {
    "name": "Isaure",
+   "aspect": {
+    "allure": "jeune bergère",
+    "visage": "tresses",
+    "signe": "ses brebis"
+   },
    "f": true,
    "face": {
     "age": "jeune",
@@ -1579,6 +1720,10 @@
   },
   "p_rouaix": {
    "name": "Mariette Rouaix",
+   "aspect": {
+    "allure": "veuve",
+    "habits": "foulard"
+   },
    "f": true,
    "face": {
     "age": "adulte",
@@ -1588,6 +1733,10 @@
   },
   "p_pons": {
    "name": "Maître Pons",
+   "aspect": {
+    "allure": "homme poli aux ongles propres",
+    "visage": "lunettes, crâne dégarni"
+   },
    "f": false,
    "face": {
     "age": "mur",
@@ -1600,6 +1749,10 @@
   },
   "p_blaise": {
    "name": "Blaise le charbonnier",
+   "aspect": {
+    "allure": "charbonnier noir de la tête aux pieds",
+    "visage": "barbe, le blanc des yeux"
+   },
    "f": false,
    "face": {
     "age": "adulte",
@@ -1610,6 +1763,11 @@
   },
   "p_thibaut": {
    "name": "Thibaut",
+   "aspect": {
+    "allure": "jeune homme muet",
+    "visage": "cheveux devenus blancs",
+    "signe": "taille un bout de bois"
+   },
    "f": false,
    "face": {
     "age": "jeune",
@@ -1620,6 +1778,13 @@
   },
   "p_guerin": {
    "name": "Les enfants Guérin",
+   "aka": [
+    "les enfants Guérin"
+   ],
+   "aspect": {
+    "allure": "deux enfants de dix et huit ans",
+    "visage": "roux, taches de rousseur"
+   },
    "f": false,
    "face": {
     "age": "enfant",
@@ -1632,6 +1797,10 @@
   },
   "aglae": {
    "name": "Aglaé",
+   "aspect": {
+    "allure": "maigre, poings sur les hanches",
+    "habits": "fichu taillé dans un sac de farine"
+   },
    "f": true,
    "face": {
     "age": "mur",
@@ -1642,21 +1811,38 @@
   },
   "pt_bourle": {
    "name": "Bourle",
+   "aspect": {
+    "allure": "jeune troll gris de pierre mouillée",
+    "signe": "oreilles trop grandes"
+   },
    "f": false,
    "desc": "Un jeune troll aux oreilles trop grandes, qui tourne la broche aux cuisines du château et apprend à faire le pain."
   },
   "pt_ragne": {
    "name": "Ragne",
+   "aspect": {
+    "allure": "troll fatigué sur sa borne",
+    "signe": "une souche de chêne sur les genoux"
+   },
    "f": false,
    "desc": "Le troll qui garde la grande porte du château, assis sur sa borne, une souche de chêne en travers des genoux. Il a l'air moins méchant que fatigué."
   },
   "pt_moufle": {
    "name": "Moufle",
+   "aspect": {
+    "allure": "gros troll mou",
+    "habits": "bonnet de laine rouge"
+   },
    "f": false,
    "desc": "Un gros troll mou au bonnet de laine rouge, qui dort mal dans les dortoirs du château."
   },
   "i_lune": {
    "name": "Lune",
+   "aspect": {
+    "allure": "herboriste maigre",
+    "habits": "foulard",
+    "signe": "mains rouges, sacoche contre la poitrine"
+   },
    "f": true,
    "face": {
     "age": "adulte",
@@ -1666,6 +1852,11 @@
   },
   "i_charron": {
    "name": "Gilles Charron",
+   "aspect": {
+    "allure": "gras et rose",
+    "signe": "la clé du puits au cou",
+    "voix": "sourire qui ne s'arrête jamais"
+   },
    "f": false,
    "face": {
     "age": "mur",
@@ -1676,6 +1867,11 @@
   },
   "i_odon": {
    "name": "Père Odon",
+   "aspect": {
+    "allure": "vieux gardien du sanctuaire",
+    "visage": "crâne rasé, barbe",
+    "signe": "les yeux plissés"
+   },
    "f": false,
    "face": {
     "age": "ancien",
@@ -1686,6 +1882,10 @@
   },
   "i_hortense": {
    "name": "Hortense",
+   "aspect": {
+    "allure": "large, bras de lavandière",
+    "visage": "rousse, chignon"
+   },
    "f": true,
    "face": {
     "age": "mur",
@@ -1696,6 +1896,10 @@
   },
   "i_perrine": {
    "name": "Perrine Guérin",
+   "aspect": {
+    "allure": "laveuse, veuve de batelier",
+    "habits": "foulard"
+   },
    "f": true,
    "face": {
     "age": "adulte",
@@ -1705,6 +1909,10 @@
   },
   "i_benoite": {
    "name": "Benoîte",
+   "aspect": {
+    "allure": "vieille femme qui ronchonne",
+    "habits": "foulard"
+   },
    "f": true,
    "face": {
     "age": "ancien",
@@ -1714,6 +1922,10 @@
   },
   "i_jeannot": {
    "name": "Jeannot Guérin",
+   "aspect": {
+    "allure": "garçon de sept ans",
+    "visage": "blond, taches de rousseur"
+   },
    "f": false,
    "face": {
     "age": "enfant",
@@ -1726,6 +1938,11 @@
   },
   "IF_guillot": {
    "name": "Guillot",
+   "aspect": {
+    "allure": "bûcheron, une jambe faible",
+    "visage": "barbe",
+    "signe": "avant-bras comme des bûches"
+   },
    "f": false,
    "face": {
     "age": "mur",
@@ -1736,6 +1953,11 @@
   },
   "IF_mahaut": {
    "name": "Mahaut",
+   "aspect": {
+    "allure": "mère qui attend sur le seuil",
+    "habits": "foulard",
+    "visage": "yeux rouges et secs"
+   },
    "f": true,
    "face": {
     "age": "adulte",
@@ -1745,6 +1967,9 @@
   },
   "IF_tiennot": {
    "name": "Tiennot",
+   "aspect": {
+    "allure": "garçon de quatorze ans, lent"
+   },
    "f": false,
    "face": {
     "age": "jeune",
@@ -1754,6 +1979,11 @@
   },
   "IF_jacquemin": {
    "name": "Jacquemin",
+   "aspect": {
+    "allure": "braconnier",
+    "visage": "roux, barbe",
+    "signe": "mains grises jusqu'aux poignets"
+   },
    "f": false,
    "face": {
     "age": "adulte",
@@ -1764,6 +1994,10 @@
   },
   "IF_barnabe": {
    "name": "Barnabé",
+   "aspect": {
+    "allure": "cuisinier des scieurs de long",
+    "visage": "moustache"
+   },
    "f": false,
    "face": {
     "age": "mur",
@@ -1773,6 +2007,14 @@
   },
   "IM_sauge": {
    "name": "La Vieille Sauge",
+   "aka": [
+    "la Vieille Sauge",
+    "la Sauge"
+   ],
+   "aspect": {
+    "allure": "ridée comme une pomme oubliée",
+    "signe": "un héron nommé Messire, une pipe"
+   },
    "f": true,
    "face": {
     "age": "ancien",
@@ -1782,6 +2024,10 @@
   },
   "IM_pernelle": {
    "name": "Pernelle l'anguillère",
+   "aspect": {
+    "allure": "sèche et noire comme une anguille fumée",
+    "signe": "un seau de peaux d'anguilles"
+   },
    "f": true,
    "face": {
     "age": "mur",
@@ -1792,6 +2038,10 @@
   },
   "ib_hubert": {
    "name": "Hubert Lagache",
+   "aspect": {
+    "allure": "large comme une porte de grange",
+    "visage": "barbe roussie par les étincelles"
+   },
    "f": false,
    "face": {
     "age": "adulte",
@@ -1805,6 +2055,11 @@
   },
   "ib_ysabeau": {
    "name": "Ysabeau",
+   "aspect": {
+    "allure": "jeune mère",
+    "habits": "foulard",
+    "signe": "son bébé contre elle"
+   },
    "f": true,
    "face": {
     "age": "jeune",
@@ -1814,6 +2069,11 @@
   },
   "corbin": {
    "name": "Maître Corbin",
+   "aspect": {
+    "habits": "robe bleue sans un pli",
+    "visage": "barbe",
+    "signe": "un sourire qui arrive avant lui"
+   },
    "f": false,
    "face": {
     "age": "mur",
@@ -1824,6 +2084,10 @@
   },
   "II_gontran": {
    "name": "Frère Gontran",
+   "aspect": {
+    "allure": "rond, rose, chauve",
+    "signe": "un énorme registre de comptes"
+   },
    "f": false,
    "face": {
     "age": "mur",
@@ -1833,6 +2097,10 @@
   },
   "II_gauvard": {
    "name": "Messire Gauvard",
+   "aspect": {
+    "allure": "vieux, sec comme un cep",
+    "signe": "trois doigts à la main gauche, une baguette"
+   },
    "f": false,
    "face": {
     "age": "ancien",
@@ -1845,6 +2113,10 @@
   },
   "II_hilaire": {
    "name": "Frère Hilaire",
+   "aspect": {
+    "allure": "vieux portier",
+    "signe": "dort assis devant une porte noire"
+   },
    "f": false,
    "face": {
     "age": "ancien"
@@ -1853,6 +2125,11 @@
   },
   "II_berenger": {
    "name": "Frère Bérenger",
+   "aspect": {
+    "allure": "le plus jeune gant gris",
+    "visage": "taches de rousseur",
+    "signe": "croque une pomme"
+   },
    "f": false,
    "face": {
     "age": "jeune",
@@ -1864,6 +2141,11 @@
   },
   "II_pacome": {
    "name": "Pacôme",
+   "aspect": {
+    "allure": "palefrenier d'une quinzaine d'années",
+    "visage": "cheveux pleins de paille",
+    "signe": "une fourche plus grande que lui"
+   },
    "f": false,
    "face": {
     "age": "enfant"
@@ -1872,6 +2154,11 @@
   },
   "II_ombeline": {
    "name": "Ombeline Vasseur",
+   "aspect": {
+    "allure": "souffleuse de verre, meneuse de grève",
+    "visage": "yeux gris très calmes, cicatrice",
+    "signe": "debout sur sa caisse"
+   },
    "f": true,
    "face": {
     "age": "adulte",
@@ -1884,6 +2171,10 @@
   },
   "II_bastide": {
    "name": "Maître Ernoul Bastide",
+   "aspect": {
+    "allure": "grand, gras, poudré",
+    "signe": "bagues de verre à chaque doigt"
+   },
    "f": false,
    "face": {
     "age": "mur",
@@ -1893,6 +2184,11 @@
   },
   "II_bertille": {
    "name": "Bertille Ferrat",
+   "aspect": {
+    "allure": "copiste de vingt ans",
+    "visage": "yeux cernés",
+    "signe": "doigts violets d'encre"
+   },
    "f": true,
    "face": {
     "age": "jeune",
@@ -1902,6 +2198,10 @@
   },
   "II_gerberte": {
    "name": "Gerberte",
+   "aspect": {
+    "allure": "femme forte",
+    "visage": "cheveux gris tirés en arrière"
+   },
    "f": true,
    "face": {
     "age": "mur",
@@ -1911,6 +2211,10 @@
   },
   "II_mathelin": {
    "name": "Mathelin",
+   "aspect": {
+    "allure": "seize ans, bras de forgeron, tête d'enfant",
+    "habits": "tablier de forge"
+   },
    "f": false,
    "face": {
     "age": "jeune"
@@ -1919,6 +2223,11 @@
   },
   "iic_ida": {
    "name": "Ida",
+   "aspect": {
+    "allure": "jeune servante",
+    "visage": "chignon châtain",
+    "signe": "un bébé noué dans le dos"
+   },
    "f": true,
    "face": {
     "age": "jeune",
@@ -1929,6 +2238,10 @@
   },
   "iic_gerold": {
    "name": "Gérold",
+   "aspect": {
+    "allure": "aubergiste sans questions",
+    "visage": "crâne rasé, cicatrice"
+   },
    "f": false,
    "face": {
     "age": "mur",
@@ -1941,6 +2254,11 @@
   },
   "iic_tiburce": {
    "name": "Tiburce",
+   "aspect": {
+    "allure": "vieux pêcheur",
+    "visage": "longue barbe",
+    "signe": "assis sur son tonneau"
+   },
    "f": false,
    "face": {
     "age": "ancien",
@@ -1951,6 +2269,10 @@
   },
   "iic_herbin": {
    "name": "Herbin",
+   "aspect": {
+    "allure": "pêcheur qui boit",
+    "visage": "barbe"
+   },
    "f": false,
    "face": {
     "age": "adulte",
@@ -1960,6 +2282,11 @@
   },
   "iic_ninon": {
    "name": "Ninon",
+   "aspect": {
+    "allure": "fillette de huit ans",
+    "visage": "tresses",
+    "signe": "des encoches sur un pieu"
+   },
    "f": true,
    "face": {
     "age": "enfant",
@@ -1969,6 +2296,10 @@
   },
   "iic_anthelme": {
    "name": "Le prieur Anthelme",
+   "aspect": {
+    "allure": "vieux prieur aveugle",
+    "signe": "une cloche entre les mains"
+   },
    "f": false,
    "face": {
     "age": "ancien",
@@ -1980,6 +2311,11 @@
   },
   "iit_onfroi": {
    "name": "Onfroi",
+   "aspect": {
+    "allure": "vieil intendant",
+    "habits": "habit noir élimé, bien brossé",
+    "signe": "ses registres"
+   },
    "f": false,
    "face": {
     "age": "ancien",
@@ -1989,6 +2325,11 @@
   },
   "iit_guillemette": {
    "name": "Guillemette",
+   "aspect": {
+    "allure": "femme carrée",
+    "habits": "foulard, manches retroussées",
+    "voix": "parle fort"
+   },
    "f": true,
    "face": {
     "age": "mur",
@@ -1998,6 +2339,10 @@
   },
   "iit_josselin": {
    "name": "Josselin",
+   "aspect": {
+    "allure": "valet de quinze ans",
+    "visage": "roux, taches de rousseur"
+   },
    "f": false,
    "face": {
     "age": "jeune",
@@ -2010,6 +2355,9 @@
   },
   "iit_groux": {
    "name": "Anceau Groux",
+   "aspect": {
+    "allure": "fermier enrichi"
+   },
    "f": false,
    "face": {
     "age": "mur",
@@ -2019,6 +2367,11 @@
   },
   "iit_ostrand": {
    "name": "Messire Ostrand de Clairvent",
+   "aspect": {
+    "habits": "manteau vert",
+    "visage": "moustache",
+    "signe": "ôte ses gants doigt par doigt"
+   },
    "f": false,
    "face": {
     "age": "adulte",
@@ -2029,6 +2382,10 @@
   },
   "III_hugues": {
    "name": "Hugues de Vaux",
+   "aspect": {
+    "allure": "connétable de soixante ans",
+    "visage": "nez cassé, yeux très clairs"
+   },
    "f": false,
    "face": {
     "age": "ancien",
@@ -2041,6 +2398,10 @@
   },
   "III_kell": {
    "name": "Oswin Kell",
+   "aspect": {
+    "allure": "géant roux et borgne",
+    "signe": "fait craquer ses doigts"
+   },
    "f": false,
    "face": {
     "age": "adulte",
@@ -2054,6 +2415,9 @@
   },
   "III_jehan": {
    "name": "Arnaud Morel",
+   "aspect": {
+    "allure": "jeune piquier"
+   },
    "f": false,
    "face": {
     "age": "jeune",
@@ -2063,6 +2427,10 @@
   },
   "III_perrine": {
    "name": "Gisèle Morel",
+   "aspect": {
+    "allure": "vieille réfugiée",
+    "habits": "foulard"
+   },
    "f": true,
    "face": {
     "age": "ancien",
@@ -2072,6 +2440,10 @@
   },
   "III_mathurin": {
    "name": "Rainier, curé de Merle",
+   "aspect": {
+    "allure": "grand homme maigre",
+    "visage": "cheveux blancs en désordre"
+   },
    "f": false,
    "face": {
     "age": "ancien",
@@ -2081,6 +2453,11 @@
   },
   "III_fanchon": {
    "name": "Tiphaine",
+   "aspect": {
+    "allure": "chef de bande de douze ans",
+    "habits": "foulard",
+    "signe": "ramasse les flèches"
+   },
    "f": true,
    "face": {
     "age": "enfant",
@@ -2114,6 +2491,10 @@
   },
   "iiiv_aude": {
    "name": "Aude Pelletier",
+   "aspect": {
+    "habits": "foulard",
+    "signe": "des clés à la ceinture"
+   },
    "f": true,
    "face": {
     "age": "adulte",
@@ -2123,6 +2504,11 @@
   },
   "iiiv_guiraud": {
    "name": "Guiraud Pelletier",
+   "aspect": {
+    "allure": "échevin d'une cinquantaine d'années",
+    "visage": "barbe grise",
+    "signe": "sa chaîne d'office au cou"
+   },
    "f": false,
    "face": {
     "age": "mur",
@@ -2132,6 +2518,10 @@
   },
   "iiiv_rosine": {
    "name": "Rosine Vasseur",
+   "aspect": {
+    "allure": "quinze ans, poings serrés",
+    "visage": "yeux noirs, tresses"
+   },
    "f": true,
    "face": {
     "age": "jeune",
@@ -2142,6 +2532,11 @@
   },
   "iiiv_sabin": {
    "name": "Sabin Rocca",
+   "aspect": {
+    "allure": "jeune clerc qui boit seul",
+    "visage": "lunettes",
+    "signe": "encre jusqu'aux poignets"
+   },
    "f": false,
    "face": {
     "age": "jeune",
@@ -2153,6 +2548,10 @@
   },
   "iiiv_fava": {
    "name": "Messer Lodovico Fava",
+   "aspect": {
+    "allure": "gros et rose",
+    "signe": "bagues, un mouchoir à la main"
+   },
    "f": false,
    "face": {
     "age": "mur",
@@ -2163,6 +2562,11 @@
   },
   "iiiv_bruna": {
    "name": "Bruna Calvi",
+   "aspect": {
+    "allure": "carrée, directe",
+    "visage": "cheveux courts, cicatrice",
+    "signe": "son arbalète"
+   },
    "f": true,
    "face": {
     "age": "adulte",
@@ -2175,6 +2579,11 @@
   },
   "iiiv_danese": {
    "name": "Ser Fulvio Danese",
+   "aspect": {
+    "habits": "pourpoint prune",
+    "visage": "moustache cirée",
+    "signe": "une odeur de lavande"
+   },
    "f": false,
    "face": {
     "age": "adulte",
@@ -2184,6 +2593,11 @@
   },
   "iiiv_clotilde": {
    "name": "Mère Clotilde",
+   "aspect": {
+    "allure": "vieille abbesse jamais assise",
+    "habits": "foulard",
+    "signe": "une lanterne à la main"
+   },
    "f": true,
    "face": {
     "age": "ancien",
@@ -2193,6 +2607,11 @@
   },
   "iiit_brisemur": {
    "name": "Ancel Brisemur",
+   "aspect": {
+    "allure": "vieux héraut, une jambe raide",
+    "visage": "barbe",
+    "voix": "voix de chantre"
+   },
    "f": false,
    "face": {
     "age": "ancien",
@@ -2202,6 +2621,11 @@
   },
   "iiit_ferri": {
    "name": "Tomaso Ferri",
+   "aspect": {
+    "allure": "héraut de vingt-cinq ans",
+    "visage": "boucles",
+    "signe": "gants parfumés, carnet pourpre"
+   },
    "f": false,
    "face": {
     "age": "jeune",
@@ -2211,6 +2635,11 @@
   },
   "IIIF_aymar": {
    "name": "Sire Aymar de Gaudre",
+   "aspect": {
+    "allure": "grand corps maigre",
+    "visage": "cheveux blancs coupés ras",
+    "signe": "la main droite qui tremble"
+   },
    "f": false,
    "face": {
     "age": "ancien",
@@ -2223,6 +2652,10 @@
   },
   "IIIF_tiburce": {
    "name": "Frère Arnoul",
+   "aspect": {
+    "allure": "frère de dix-sept ans, maigre",
+    "signe": "cache sa main sans gant"
+   },
    "f": false,
    "face": {
     "age": "jeune",
@@ -2232,6 +2665,11 @@
   },
   "IIIF_gildas": {
    "name": "Frère Gildas",
+   "aspect": {
+    "allure": "vieux chapelain",
+    "visage": "longue barbe",
+    "signe": "une couverture sur les épaules"
+   },
    "f": false,
    "face": {
     "age": "ancien",
@@ -2241,6 +2679,10 @@
   },
   "IIIF_morand": {
    "name": "Frère Morand",
+   "aspect": {
+    "allure": "jeune frère",
+    "signe": "col de laine sur une cicatrice au cou"
+   },
    "f": false,
    "face": {
     "age": "jeune",
@@ -2250,6 +2692,10 @@
   },
   "IIIF_ombert": {
    "name": "Sire Ombert",
+   "aspect": {
+    "allure": "chevalier sans couleurs",
+    "visage": "cicatrice à l'œil gauche"
+   },
    "f": false,
    "face": {
     "age": "mur",
@@ -2262,6 +2708,11 @@
   },
   "IIIF_bertolde": {
    "name": "Bertolde l'intendant",
+   "aspect": {
+    "allure": "intendant qui boit",
+    "visage": "barbe",
+    "signe": "assis sur une barrique"
+   },
    "f": false,
    "face": {
     "age": "mur",
@@ -2271,6 +2722,11 @@
   },
   "IIIF_bastien": {
    "name": "Frère Baudouin",
+   "aspect": {
+    "allure": "sergent à la tête dure",
+    "visage": "barbe",
+    "signe": "le bras en écharpe"
+   },
    "f": false,
    "face": {
     "age": "adulte",
@@ -2280,6 +2736,10 @@
   },
   "IV_garance": {
    "name": "Garance",
+   "aspect": {
+    "allure": "tonnelière veuve",
+    "signe": "un cahier de comptes"
+   },
    "f": true,
    "face": {
     "age": "mur",
@@ -2290,6 +2750,10 @@
   },
   "IV_fulcran": {
    "name": "Fulcran",
+   "aspect": {
+    "allure": "homme roux sur un timon",
+    "voix": "voix de forge"
+   },
    "f": false,
    "face": {
     "age": "adulte",
@@ -2300,6 +2764,11 @@
   },
   "ivr_godefroy": {
    "name": "Frère Godefroy",
+   "aspect": {
+    "allure": "vieux frère",
+    "visage": "crâne rasé",
+    "signe": "mains de paysan"
+   },
    "f": false,
    "face": {
     "age": "ancien",
@@ -2309,6 +2778,11 @@
   },
   "ivr_isembert": {
    "name": "Frère Isembert",
+   "aspect": {
+    "allure": "très maigre",
+    "visage": "nez cassé",
+    "signe": "note chaque nom dans son registre"
+   },
    "f": false,
    "face": {
     "age": "mur",
@@ -2318,6 +2792,10 @@
   },
   "ivr_herbelin": {
    "name": "Frère Herbelin",
+   "aspect": {
+    "allure": "vieil infirmier",
+    "signe": "un gourdin de frêne, une louche"
+   },
    "f": false,
    "face": {
     "age": "mur",
@@ -2328,6 +2806,10 @@
   },
   "ivr_amaury": {
    "name": "Frère Amaury",
+   "aspect": {
+    "allure": "gras et doux",
+    "signe": "tricote des chaussettes grises, clés à la ceinture"
+   },
    "f": false,
    "face": {
     "age": "mur",
@@ -2337,6 +2819,10 @@
   },
   "ivr_gisquette": {
    "name": "Dame Gisquette",
+   "aspect": {
+    "allure": "aubergiste qui gronde et rit",
+    "signe": "une cuillère de bois à la main"
+   },
    "f": true,
    "face": {
     "age": "mur",
@@ -2346,6 +2832,10 @@
   },
   "ivr_hodierne": {
    "name": "Hodierne",
+   "aspect": {
+    "allure": "réfugiée qui boite",
+    "habits": "foulard"
+   },
    "f": true,
    "face": {
     "age": "adulte",
@@ -2355,6 +2845,11 @@
   },
   "ivr_babet": {
    "name": "Babet",
+   "aspect": {
+    "allure": "fille de douze ans",
+    "visage": "cheveux coupés au couteau",
+    "signe": "un bâton"
+   },
    "f": true,
    "face": {
     "age": "enfant",
@@ -2364,6 +2859,11 @@
   },
   "ivc_sorel": {
    "name": "Gautier Sorel",
+   "aspect": {
+    "allure": "grand rouquin",
+    "visage": "tête rasée",
+    "signe": "une tablette de noms"
+   },
    "f": false,
    "face": {
     "age": "adulte",
@@ -2374,6 +2874,13 @@
   },
   "ivc_guiraud": {
    "name": "Guiraud l'éclusier",
+   "aka": [
+    "Guiraud l'éclusier"
+   ],
+   "aspect": {
+    "allure": "vieil éclusier",
+    "visage": "barbe"
+   },
    "f": false,
    "face": {
     "age": "ancien",
@@ -2383,6 +2890,11 @@
   },
   "IVD_ancelin": {
    "name": "Ancelin le fourreur",
+   "aspect": {
+    "allure": "petit et carré",
+    "visage": "barbe en éventail",
+    "voix": "parle sans s'arrêter"
+   },
    "f": false,
    "face": {
     "age": "mur",
@@ -2393,6 +2905,10 @@
   },
   "IVD_bastienne": {
    "name": "Bastienne",
+   "aspect": {
+    "allure": "lavandière qui attend sur une borne",
+    "habits": "foulard"
+   },
    "f": true,
    "face": {
     "age": "adulte",
@@ -2402,6 +2918,10 @@
   },
   "IVD_gaspard": {
    "name": "Gaspard de Sorbe-le-Haut",
+   "aspect": {
+    "allure": "pèlerin",
+    "signe": "tache de vin sur la main droite"
+   },
    "f": false,
    "face": {
     "age": "adulte",
@@ -2411,6 +2931,10 @@
   },
   "IVD_firmin": {
    "name": "Firmin Fermaud",
+   "aspect": {
+    "allure": "vieux gardien de refuge",
+    "visage": "longue barbe"
+   },
    "f": false,
    "face": {
     "age": "ancien",
@@ -2421,6 +2945,10 @@
   },
   "IVD_joachim": {
    "name": "Joachim Fermaud",
+   "aspect": {
+    "allure": "garçon de quinze ans",
+    "visage": "taches de rousseur"
+   },
    "f": false,
    "face": {
     "age": "jeune",
@@ -2433,6 +2961,10 @@
   },
   "VE_onfroi": {
    "name": "Onfroi, intendant de Thavar",
+   "aspect": {
+    "allure": "vieil intendant",
+    "habits": "habit noir élimé, bottes cirées"
+   },
    "f": false,
    "face": {
     "age": "ancien",
@@ -2442,6 +2974,10 @@
   },
   "VE_galien": {
    "name": "Galien",
+   "aspect": {
+    "allure": "page de quinze ans",
+    "visage": "taches de rousseur"
+   },
    "f": false,
    "face": {
     "age": "jeune",
@@ -2454,6 +2990,9 @@
   },
   "VE_lucain": {
    "name": "Lucain Lormier",
+   "aspect": {
+    "allure": "secrétaire"
+   },
    "f": false,
    "face": {
     "age": "adulte",
@@ -2463,6 +3002,10 @@
   },
   "VF_malvoran": {
    "name": "Malvoran le Guérisseur",
+   "aspect": {
+    "allure": "le plus jeune des fondateurs",
+    "signe": "une trousse de cuir, un bol fêlé"
+   },
    "f": false,
    "face": {
     "age": "jeune",

@@ -1457,11 +1457,11 @@ module.exports = {
   passages: P,
   extras: {
     people: {
-      IVD_ancelin: { name: "Ancelin le fourreur", f: false, face: { age: "mur", beard: "barbe", shape: "carre" }, desc: "Un fourreur de Sorbe-le-Haut réfugié à Vaux, petit, carré, la barbe en éventail. Il parle sans s'arrêter et compte encore plus vite." },
-      IVD_bastienne: { name: "Bastienne", f: true, face: { age: "adulte", coif: "foulard" }, desc: "Une lavandière de Sorbe-le-Haut qui attend, sur une borne au bout du camp de Vaux, que son frère redescende de la montagne." },
-      IVD_gaspard: { name: "Gaspard de Sorbe-le-Haut", f: false, face: { age: "adulte", coif: "court" }, desc: "Un pèlerin de la Main monté vers l'antre du dragon derrière un prêcheur de Ferrance. Une tache de vin sur la main droite." },
-      IVD_firmin: { name: "Firmin Fermaud", f: false, face: { age: "ancien", beard: "longue", skin: "hale" }, desc: "Le vieux gardien du refuge des chasseurs, sur le chemin de la Fenne. Il connaît la montagne comme on connaît une maison où l'on est né." },
-      IVD_joachim: { name: "Joachim Fermaud", f: false, face: { age: "jeune", coif: "court", marks: ["rousseur"] }, desc: "Le fils de Firmin, quinze ans, mordu par un bouquetin gris au-dessus des séracs." },
+      IVD_ancelin: { name: "Ancelin le fourreur", aspect: { allure: "petit et carré", visage: "barbe en éventail", voix: "parle sans s'arrêter" }, f: false, face: { age: "mur", beard: "barbe", shape: "carre" }, desc: "Un fourreur de Sorbe-le-Haut réfugié à Vaux, petit, carré, la barbe en éventail. Il parle sans s'arrêter et compte encore plus vite." },
+      IVD_bastienne: { name: "Bastienne", aspect: { allure: "lavandière qui attend sur une borne", habits: "foulard" }, f: true, face: { age: "adulte", coif: "foulard" }, desc: "Une lavandière de Sorbe-le-Haut qui attend, sur une borne au bout du camp de Vaux, que son frère redescende de la montagne." },
+      IVD_gaspard: { name: "Gaspard de Sorbe-le-Haut", aspect: { allure: "pèlerin", signe: "tache de vin sur la main droite" }, f: false, face: { age: "adulte", coif: "court" }, desc: "Un pèlerin de la Main monté vers l'antre du dragon derrière un prêcheur de Ferrance. Une tache de vin sur la main droite." },
+      IVD_firmin: { name: "Firmin Fermaud", aspect: { allure: "vieux gardien de refuge", visage: "longue barbe" }, f: false, face: { age: "ancien", beard: "longue", skin: "hale" }, desc: "Le vieux gardien du refuge des chasseurs, sur le chemin de la Fenne. Il connaît la montagne comme on connaît une maison où l'on est né." },
+      IVD_joachim: { name: "Joachim Fermaud", aspect: { allure: "garçon de quinze ans", visage: "taches de rousseur" }, f: false, face: { age: "jeune", coif: "court", marks: ["rousseur"] }, desc: "Le fils de Firmin, quinze ans, mordu par un bouquetin gris au-dessus des séracs." },
     },
     items: {
       IVD_fourrure: { name: "Fourrures d'Ancelin", kind: "outil", price: 12, desc: "Des moufles de feutre, un bonnet de loutre et une peau de mouton retournée. On ne gèle pas dedans, ou moins vite." },

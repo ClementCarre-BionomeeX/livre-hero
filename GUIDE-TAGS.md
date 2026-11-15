@@ -395,11 +395,13 @@ Pour le lecteur qui a du mal à suivre les personnages par leur nom. Le lecteur 
 
 | Où | Clé | Sens |
 |---|---|---|
-| `people.<id>` ou `companions.<id>` | `aka: ["Challenger", "le professeur"]` | Les formes qui nomment la personne dans le texte. Sans `aka`, le moteur prend le nom (avant la virgule) et ses mots en majuscule, sans les titres (Le vieux, Frère, Dame…). Une forme en minuscules accepte la majuscule de début de phrase. |
+| `people.<id>` ou `companions.<id>` | `aka: ["Challenger", "le professeur"]` | Les formes qui nomment la personne dans le texte. Sans `aka`, le moteur prend le nom (avant la virgule) et ses mots en majuscule jusqu'à une particule (de, d', du : « de Brenne » est souvent un lieu), sans les titres (Le vieux, Frère, Dame…). Deux personnes qui partagent une forme : elle ne lie personne (sauf si c'est la même personne sous deux identifiants, même `name`). Une forme en minuscules accepte la majuscule de début de phrase. |
 | `people.<id>` | `qui: "L'aubergiste du Puits-Vert."` | Qui est la personne pour le héros, en une phrase (la bulle). Sans `qui` : `role`, puis `desc`. |
 | `people.<id>` ou `companions.<id>` | `aspect: { allure, visage, habits, signe, voix }` | Comment elle est, en cinq groupes fixes de quelques mots (8 au plus) : le lecteur peut en accoler à son nom dans tout le livre. Sans `visage`, le moteur en tire un de `face` (cheveux, barbe, marques). |
 | passage (fx) | `aspect: { hesna: { habits: "robe de fête jaune" } }` | Elle change d'allure : seules les clés données changent. |
 | passage (fx) | `qui: { hesna: "…" }` | Ce que le héros sait d'elle change (une révélation). |
 | texte | `{{gens:hesna|la patronne}}` / `{{gens:aucun|Brune}}` | Forcer un lien sur des mots qui la désignent, ou l'empêcher (un nom qui est aussi un mot courant). |
 
-Seules les personnes rencontrées (`meet`) et les compagnons connus sont repérés, pour ne rien dévoiler : posez `meet` sur la page où chacun entre en scène. Le moteur retient le lieu et le jour de la première rencontre. Les choix du lecteur (traits rappelés, « je connais son nom ») vont dans ses réglages, par histoire.
+Seules les personnes rencontrées (`meet`) et les compagnons connus sont repérés, pour ne rien dévoiler : posez `meet` sur la page où chacun entre en scène. Le moteur retient le lieu et le jour de la première rencontre. Les choix du lecteur (traits rappelés, « Ma description » écrite avec ses mots, « je connais son nom ») vont dans ses réglages, par histoire. En option, un bandeau « Dans cette scène » montre en haut de page les visages des personnes que la page nomme.
+
+Toute la bibliothèque déclare ses `aspect` (15/11). Une nouvelle histoire fait de même pour chaque personnage, en ne prenant rien qui dévoile une surprise.

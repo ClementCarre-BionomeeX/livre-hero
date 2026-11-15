@@ -2844,17 +2844,20 @@
   }
   // Intent: nameForms(story) -> [[form, id]] = the words that name each person in a text, longest first: the aka the
   // story gives, else the name and its capitalised words (titles and articles left out).
-  var NAME_SKIP = { Le: 1, La: 1, Les: 1, "L'": 1, De: 1, Du: 1, Des: 1, Vieux: 1, Vieille: 1, Petit: 1, Petite: 1, Grand: 1, Mère: 1, Père: 1, Frère: 1, "Sœur": 1, Dame: 1, Sire: 1, Messire: 1, Maître: 1, Maîtresse: 1, Capitaine: 1, Professeur: 1, Docteur: 1, Monsieur: 1, Madame: 1, Lord: 1, Lady: 1, Sir: 1, Mr: 1, Mrs: 1 };
+  var NAME_SKIP = { Le: 1, La: 1, Les: 1, "L'": 1, De: 1, Du: 1, Des: 1, Vieux: 1, Vieille: 1, Petit: 1, Petite: 1, Grand: 1, Mère: 1, Père: 1, Frère: 1, "Sœur": 1, Dame: 1, Sire: 1, Messire: 1, Maître: 1, Maîtresse: 1, Capitaine: 1, Professeur: 1, Docteur: 1, Monsieur: 1, Madame: 1, Lord: 1, Lady: 1, Sir: 1, Ser: 1, Messire: 1, Comte: 1, Comtesse: 1, Princesse: 1, Prince: 1, Amiral: 1, Sergente: 1, Sergent: 1, Recteur: 1, Dom: 1, Messer: 1, Mr: 1, Mrs: 1 };
   function nameForms(story) {
     if (story && story._nameForms) return story._nameForms;
     var out = [], seen = {};
-    var add = function (f, id) { f = String(f || "").trim(); if (f.length < 2) return; if (seen[f] && seen[f] !== id) { seen[f] = "?"; return; } seen[f] = id; };
+    // two people named alike: the word names nobody, unless they are the same person under two ids (same name)
+    var who = {}, nameOf = function (id) { var p = (story.people || {})[id] || (story.companions || {})[id]; return p ? String(p.name).split(",")[0].trim() : id; };
+    var add = function (f, id) { f = String(f || "").trim(); if (f.length < 2) return; if (seen[f] && seen[f] !== id) { if (seen[f] !== "?" && who[f] === nameOf(id)) return; seen[f] = "?"; return; } seen[f] = id; who[f] = nameOf(id); };
     [["people", story.people || {}], ["companions", story.companions || {}]].forEach(function (g) {
       Object.keys(g[1]).forEach(function (id) {
         var p = g[1][id];
         if (p.aka) [].concat(p.aka).forEach(function (f) { add(f, id); });
         var n = String(p.name || "").split(",")[0].trim(); add(n, id);
-        if (!p.aka) n.split(/\s+/).forEach(function (w) { w = w.replace(/^[Ll]['’]/, ""); if (/^[A-ZÀ-ÖØ-Þ]/.test(w) && !NAME_SKIP[w] && w.length > 2) add(w, id); });
+        // the words of the name up to a particle (« de Brenne » is often a place, not the person)
+        if (!p.aka) { var stop = false; n.split(/\s+/).forEach(function (w) { if (stop || /^(de|du|des|d['’].*)$/.test(w)) { stop = true; return; } w = w.replace(/^[Ll]['’]/, ""); if (/^[A-ZÀ-ÖØ-Þ]/.test(w) && !NAME_SKIP[w] && w.length > 2) add(w, id); }); }
       });
     });
     Object.keys(seen).forEach(function (f) { if (seen[f] !== "?") out.push([f, seen[f]]); });

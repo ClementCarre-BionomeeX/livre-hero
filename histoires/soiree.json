@@ -403,6 +403,11 @@
  "people": {
   "albane": {
    "name": "Albane Aubier",
+   "aspect": {
+    "allure": "quatre-vingt-trois ans, petite et droite",
+    "visage": "chignon blanc",
+    "voix": "la langue vive"
+   },
    "f": true,
    "face": {
     "age": "ancien",
@@ -413,6 +418,11 @@
   },
   "isaure": {
    "name": "Isaure Morel",
+   "aspect": {
+    "allure": "fermière qui ne s'arrête jamais",
+    "visage": "chignon châtain",
+    "signe": "une lanterne à la main"
+   },
    "f": true,
    "face": {
     "age": "adulte",
@@ -423,6 +433,11 @@
   },
   "colas": {
    "name": "Colas Morel",
+   "aspect": {
+    "allure": "garçon de neuf ans",
+    "visage": "taches de rousseur",
+    "signe": "des yeux grands ouverts"
+   },
    "face": {
     "age": "enfant",
     "hair": "chatain",
@@ -434,6 +449,11 @@
   },
   "ambroise": {
    "name": "Ambroise Lantier",
+   "aspect": {
+    "allure": "jeune homme trempé jusqu'à la taille",
+    "habits": "manteau de toile huilée",
+    "signe": "une gaffe de flotteur"
+   },
    "face": {
     "age": "jeune",
     "hair": "noir",
@@ -444,6 +464,9 @@
   },
   "guite": {
    "name": "Mère Guite",
+   "aspect": {
+    "signe": "désigne les gens d'un coup de menton"
+   },
    "f": true,
    "face": {
     "age": "mur"
@@ -452,6 +475,10 @@
   },
   "merac": {
    "name": "Le docteur Mérac",
+   "aspect": {
+    "visage": "moustache grise, lunettes",
+    "signe": "joue aux cartes près du poêle"
+   },
    "face": {
     "age": "mur",
     "beard": "moustache",
@@ -463,6 +490,10 @@
   },
   "gaubert": {
    "name": "Le père Gaubert",
+   "aspect": {
+    "allure": "vieux meunier",
+    "visage": "barbe"
+   },
    "face": {
     "age": "ancien",
     "beard": "barbe"
@@ -475,6 +506,10 @@
   },
   "pataud": {
    "name": "Pataud",
+   "aspect": {
+    "allure": "vieux chien gris du museau",
+    "voix": "aboie contre tout ce qui passe"
+   },
    "desc": "Le chien de la ferme, vieux, gris du museau, qui aboie contre tout ce qui passe la barrière."
   }
  },

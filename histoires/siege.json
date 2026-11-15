@@ -1935,6 +1935,15 @@
  "people": {
   "aussonne": {
    "name": "Bertrand d'Aussonne",
+   "aka": [
+    "Bertrand d'Aussonne",
+    "Aussonne"
+   ],
+   "aspect": {
+    "allure": "droit comme une lance",
+    "visage": "balafre blanche de la tempe au menton",
+    "voix": "avare de mots"
+   },
    "f": false,
    "camp": "garnison",
    "face": {
@@ -1973,6 +1982,11 @@
   },
   "oudart": {
    "name": "Oudart de Lys",
+   "aspect": {
+    "allure": "beau parleur",
+    "habits": "pourpoint bleu aux boutons d'argent",
+    "signe": "un clin d'œil"
+   },
    "f": false,
    "camp": "garnison",
    "face": {
@@ -2009,6 +2023,11 @@
   },
   "alienor": {
    "name": "Dame Aliénor Vassal",
+   "aspect": {
+    "allure": "grande et sèche",
+    "habits": "vêtue de gris",
+    "signe": "trousseau de clés à la ceinture"
+   },
    "f": true,
    "camp": "jures",
    "face": {
@@ -2045,6 +2064,10 @@
   },
   "carbonnel": {
    "name": "Maître Renaud Carbonnel",
+   "aspect": {
+    "allure": "rond et inquiet",
+    "signe": "essuie ses lunettes"
+   },
    "f": false,
    "camp": "jures",
    "face": {
@@ -2077,6 +2100,11 @@
   },
   "ysaure": {
    "name": "Mère Ysaure",
+   "aspect": {
+    "allure": "petite, ridée",
+    "habits": "manches roulées, tablier",
+    "signe": "avant-bras de lavandière"
+   },
    "f": true,
    "face": {
     "age": "ancien",
@@ -2102,6 +2130,11 @@
   },
   "gilles": {
    "name": "Gilles Aubron",
+   "aspect": {
+    "allure": "roux et large",
+    "signe": "mains comme des battoirs",
+    "voix": "parle pour l'autre rive"
+   },
    "f": false,
    "camp": "commune",
    "face": {
@@ -2140,6 +2173,10 @@
   },
   "mahaut": {
    "name": "Mahaut Bréhal",
+   "aspect": {
+    "allure": "vingt ans, épuisée de veilles",
+    "visage": "tresses noires"
+   },
    "f": true,
    "face": {
     "age": "jeune",
@@ -2168,6 +2205,10 @@
   },
   "hoel": {
    "name": "Hoël",
+   "aspect": {
+    "allure": "jeune soldat",
+    "visage": "joues de laboureur, yeux qui fuient"
+   },
    "f": false,
    "face": {
     "age": "jeune",
@@ -2196,6 +2237,10 @@
   },
   "jacquemin": {
    "name": "Jacquemin",
+   "aspect": {
+    "allure": "maigre comme un loup de mars",
+    "visage": "cicatrice qui fend le sourcil"
+   },
    "f": false,
    "face": {
     "age": "jeune",
@@ -2222,6 +2267,11 @@
   },
   "pernette": {
    "name": "Pernette",
+   "aspect": {
+    "allure": "boulangère",
+    "habits": "foulard",
+    "signe": "avant-bras blancs de farine"
+   },
    "f": true,
    "face": {
     "age": "adulte",
@@ -2246,6 +2296,11 @@
   },
   "tasca": {
    "name": "Ugolin Tasca",
+   "aspect": {
+    "allure": "poli comme une balance",
+    "visage": "moustache noire, lunettes",
+    "signe": "sa balance de prêteur"
+   },
    "f": false,
    "face": {
     "age": "mur",
@@ -2273,6 +2328,10 @@
   },
   "adelaide": {
    "name": "Adélaïde du Plessis",
+   "aspect": {
+    "allure": "trente ans, mains de moissonneuse",
+    "visage": "peau brune, foulard"
+   },
    "f": true,
    "face": {
     "age": "adulte",
@@ -2298,6 +2357,10 @@
   },
   "heraut": {
    "name": "Messire Gautier de Rouvre",
+   "aspect": {
+    "habits": "tabard aux armes du Margrave",
+    "visage": "blond"
+   },
    "f": false,
    "face": {
     "age": "mur",

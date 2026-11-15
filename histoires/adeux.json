@@ -399,6 +399,11 @@
  "people": {
   "oriel": {
    "name": "Maître Oriel Daumas",
+   "aspect": {
+    "allure": "soixante ans, mains de clerc",
+    "signe": "garde le sceau de la duchesse",
+    "voix": "voix basse qu'on tend l'oreille pour entendre"
+   },
    "face": {
     "age": "mur",
     "skin": "clair",
@@ -416,6 +421,10 @@
   },
   "hesme": {
    "name": "Dame Hesmé de Laudes",
+   "aspect": {
+    "habits": "manteau gris",
+    "signe": "toujours devant une carte épinglée"
+   },
    "face": {
     "age": "mur",
     "skin": "beige",
@@ -433,6 +442,10 @@
   },
   "ancelin": {
    "name": "L'homme au manteau vert",
+   "aspect": {
+    "habits": "manteau vert",
+    "visage": "barbe courte, cicatrice à l'œil gauche"
+   },
    "face": {
     "age": "adulte",
     "skin": "clair",
@@ -452,6 +465,10 @@
   },
   "tiburce": {
    "name": "Le père Tiburce",
+   "aspect": {
+    "allure": "vieil homme qui compte tout",
+    "visage": "barbe blanche"
+   },
    "face": {
     "age": "ancien",
     "skin": "clair",
@@ -469,6 +486,9 @@
   },
   "berthe": {
    "name": "Berthe",
+   "aspect": {
+    "signe": "regard noir, pain et lard à l'aube"
+   },
    "face": {
     "age": "mur",
     "skin": "beige",
@@ -486,6 +506,10 @@
   },
   "gaut": {
    "name": "Gaut",
+   "aspect": {
+    "allure": "jeune cavalier blessé",
+    "habits": "livrée des postes de la duchesse"
+   },
    "face": {
     "age": "jeune",
     "skin": "brun",
@@ -503,6 +527,10 @@
   },
   "lorge": {
    "name": "Aude Lorge",
+   "aspect": {
+    "allure": "vieille femme aux genoux douloureux",
+    "signe": "mains à plat sur la table"
+   },
    "face": {
     "age": "ancien",
     "skin": "ebene",
@@ -520,6 +548,10 @@
   },
   "varrache": {
    "name": "Odo Varrache",
+   "aspect": {
+    "visage": "blond à moustache",
+    "signe": "les gants à la main"
+   },
    "face": {
     "age": "adulte",
     "skin": "clair",
