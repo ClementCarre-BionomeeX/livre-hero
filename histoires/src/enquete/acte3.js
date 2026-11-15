@@ -168,7 +168,7 @@ module.exports = {
       "On exhume le corps enterré sous le nom de Gaspard Ombreuil, et on lui rend le sien. Théophane Lescot est enterré une seconde fois, sous la bonne pierre, à côté de sa mère. Maître Faverge paie la pierre. La mère Garnaude revient de chez sa sœur pour l'enterrement, et elle pose sur la tombe un petit portrait peint sur bois, dans un cadre de cuivre.",
       "Gaspard Ombreuil est jugé un mois plus tard. Il ne nie rien. Il répond à toutes les questions avec une exactitude parfaite, comme on remplit un registre. On le pend un matin de pluie, sur la place de la Haute-Ville, et l'on dit qu'il a demandé, avant de monter, quelle heure il était, précisément.",
       { if: { has: "sibylle:aveu" }, text: "Dame Sibylle Ombreuil quitte Orbeval avant le procès. Elle laisse une lettre à l'Échevinage, d'une écriture droite et calme, où elle dit ce qu'elle a entendu la nuit de la fête, et ce qu'elle a choisi de ne pas voir le lendemain. Personne ne la poursuit." },
-      { if: { has: "r:aveu" }, text: "Évrard Malestroit n'est pas réélu. Il n'est pas poursuivi non plus : il a seulement su, et s'est tu, et cela, à Orbeval, n'est pas un crime. Il vit encore longtemps, dans son hôtel de la Haute-Ville, et ne sort plus beaucoup." },
+      { if: { has: "r:aveu" }, text: "Évrard Malestroit perd son siège aux élections suivantes. La justice le laisse en paix : il a seulement su, et s'est tu, et à Orbeval le silence est permis. Il vit encore longtemps, dans son hôtel de la Haute-Ville, et en sort de moins en moins." },
       ECUS,
       "Hugon Maupas sort de la tour du Guet le lendemain de l'audience, à neuf heures, l'heure des visites. Sa mère est en bas depuis six heures, avec son panier.",
       AMANTS, AMANTS_NON,
@@ -179,7 +179,7 @@ module.exports = {
     fx: endFx("enfui"),
     text: [
       "La Vouivre descend l'Aune, passe les rapides avec la crue, et arrive à Basse-Aune trois jours plus tard, où un homme grand et voûté, rasé de près, débarque avec trois tonneaux d'indigo et disparaît dans le port. On ne le reverra jamais.",
-      "Hugon Maupas n'est pas pendu. Le conseil, ébranlé par ce que tu as dit, et peut-être par ce que la ville commence à murmurer, n'ose plus le juger pour meurtre. Il le garde trois mois en cellule pour le vol de la bague, puis le relâche un matin, sans explication.",
+      "Hugon Maupas échappe à la corde. Le conseil, ébranlé par ce que tu as dit, et peut-être par ce que la ville commence à murmurer, renonce à le juger pour meurtre. Il le garde trois mois en cellule pour le vol de la bague, puis le relâche un matin, sans explication.",
       "On ne rouvre pas la tombe de l'essayeur. Sous le nom de Gaspard Ombreuil, Théophane Lescot dort dans le caveau d'une famille qui n'était pas la sienne, et à Orbeval on continue à dire que le second de l'essayeur était un voleur qui a filé avec l'argent de la Monnaie.",
       ECUS,
       AMANTS, AMANTS_NON,

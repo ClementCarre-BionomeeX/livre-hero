@@ -3311,7 +3311,7 @@
        "has": "odile:aveu"
       }
      },
-     "text": "Vous ne parlez pas. Odile égrène un chapelet qu'elle ne dit pas, et toi tu regardes les cierges baisser. Une fois, elle ouvre la bouche, et la referme. Tu fais semblant de n'avoir rien vu."
+     "text": "Vous gardez le silence. Odile égrène un chapelet du bout des doigts, sans remuer les lèvres, et toi tu regardes les cierges baisser. Une fois, elle ouvre la bouche, et la referme. Tu fais semblant de n'avoir rien vu."
     },
     {
      "if": {
@@ -5438,7 +5438,7 @@
        }
       ]
      },
-     "text": "Tu ne dis rien. Germain prend ton silence pour ce qu'il veut qu'il soit. « Bon. On en reparlera après l'enterrement, mais je vois qu'on est d'accord. » Il te tape sur l'épaule. Tu n'as rien promis. Il est persuadé du contraire."
+     "text": "Tu te tais. Germain prend ton silence pour ce qu'il veut qu'il soit. « Bon. On en reparlera après l'enterrement, mais je vois qu'on est d'accord. » Il te tape sur l'épaule. Tu n'as rien promis. Il est persuadé du contraire."
     },
     "Par la fenêtre du bureau, à travers la neige qui file, on devine à peine le versant des Fayards, une masse plus sombre dans le blanc."
    ],
@@ -5529,7 +5529,7 @@
     "Une rafale plus forte que les autres secoue les volets, la porte de la cour s'ouvre d'un coup, et un tourbillon de neige entre, et la lampe s'éteint. Le feu se couche sous le vent. Pendant quelques secondes, il n'y a plus rien que le noir et le hurlement de la tempête dans la cheminée.",
     {
      "trouble": true,
-     "text": "Dans le noir, quelqu'un respire tout près de toi. Tu sens un souffle froid sur ta nuque, comme d'une bouche mouillée. Tu ne bouges pas. Tu n'oses pas bouger."
+     "text": "Dans le noir, quelqu'un respire tout près de toi. Tu sens un souffle froid sur ta nuque, comme d'une bouche mouillée. Tu restes immobile. Tu n'oses pas bouger."
     },
     {
      "calme": true,
@@ -5898,7 +5898,7 @@
        "veillee": "tu"
       }
      },
-     "text": "Tu ne dis rien. La coutume ne prévoit pas ça. On attend. Puis Odile souffle sa bougie, et les autres font comme elle, un par un, et la veillée est finie."
+     "text": "Tu gardes le silence. La coutume n'a rien prévu pour ça. On attend. Puis Odile souffle sa bougie, et les autres font comme elle, un par un, et la veillée est finie."
     },
     "On redescend. Dans l'escalier, quelqu'un pose la main sur ton épaule, une seconde, et la retire. Tu ne sais pas qui."
    ],
@@ -6363,7 +6363,7 @@
        "denonce": "odile"
       }
      },
-     "text": "Tu dis tout au curé et au brigadier, dans le bureau, porte fermée : la fiole sous le lit, la cuiller, le mot de ta mère, et la main de ta sœur qui a versé. Le brigadier écrit lentement, en tirant la langue. Le curé ne dit rien. À la fin, il te demande si tu es bien sûr{e} que c'est ce que ta mère aurait voulu. Tu ne réponds pas."
+     "text": "Tu dis tout au curé et au brigadier, dans le bureau, porte fermée : la fiole sous le lit, la cuiller, le mot de ta mère, et la main de ta sœur qui a versé. Le brigadier écrit lentement, en tirant la langue. Le curé écoute en silence. À la fin, il te demande si tu es bien sûr{e} que c'est ce que ta mère aurait voulu. Tu laisses la question sans réponse."
     },
     {
      "if": {

@@ -16,7 +16,7 @@ module.exports = {
   version: 1,
   start: "A_pont",
   intro: [
-    "La voiture du roulier te laisse au pont de Brévannes à l'heure où les lampes s'allument. Le roulier ne descend pas. Il te tend ton sac, il regarde le ciel, il dit que la neige sera là avant la nuit, et il repart vers la ville sans attendre de réponse.",
+    "La voiture du roulier te laisse au pont de Brévannes à l'heure où les lampes s'allument. Le roulier reste sur son siège. Il te tend ton sac, il regarde le ciel, il dit que la neige sera là avant la nuit, et il repart vers la ville sans attendre de réponse.",
     "Tu as la lettre de ta grand-mère dans la poche intérieure de ta veste. Tu la connais par cœur. Tu la touches quand même.",
   ],
   acts: [
@@ -38,8 +38,8 @@ module.exports = {
     i_bol: { rev: "I", text: "Isaure : « Elle met un bol de trop, chaque Longue Nuit. Pour les absents. Cette année, j'ai cru que c'était pour toi. » Tu es là, et il y a toujours un bol de trop." },
     i_dessin: { rev: "I", text: "Le dessin de Colas : la rivière, les saules, et un homme debout dans l'eau jusqu'aux genoux, avec un grand bâton à crochet. « Il m'a demandé si c'était toujours ici, les Aubiers. »" },
     i_chien: { rev: "I", text: "Pataud, qui aboie contre le facteur depuis douze ans, n'a pas aboyé contre l'inconnu. Il est allé se coucher sur ses pieds." },
-    i_manteau: { rev: "I", text: "Le manteau de l'inconnu fume devant le feu depuis plus d'une heure. Il est toujours trempé. Sous sa chaise, la flaque ne diminue pas." },
-    i_pont: { rev: "I", text: "L'inconnu ne savait pas qu'il y a un pont à Brévannes. Il a demandé si le seigneur avait toujours ses chiens. Le dernier seigneur de Brévannes est mort avant ta naissance." },
+    i_manteau: { rev: "I", text: "Le manteau de l'inconnu fume devant le feu depuis plus d'une heure. Il est toujours trempé. Sous son tabouret, la flaque garde sa taille." },
+    i_pont: { rev: "I", text: "L'inconnu ne savait pas qu'il y a un pont à Brévannes. Il a demandé si le seigneur avait toujours ses chiens. Le dernier seigneur de Brévannes est mort avant la naissance de ta mère." },
     i_poutre: { rev: "I", text: "Pour passer dans l'alcôve, l'inconnu baisse la tête sous la poutre basse sans la regarder. Toi, tu t'y cognes depuis ton enfance, et il dit n'être jamais venu ici." },
     i_oiseau: { rev: "I", text: "Devant le feu, l'inconnu taille un petit oiseau dans un bout de saule : un bouvreuil, la queue en éventail, la tête tournée." },
     i_lettres: { rev: "I", text: "Dans le coffre bleu, des lettres liées d'un ruban, toutes signées *A.*, la dernière datée d'il y a soixante-trois ans : *Je descends avec le dernier train de bois avant les glaces. Je serai là pour la Longue Nuit. Mets la chandelle, que je trouve la maison.* Avec elles, un bouvreuil de bois, la tête tournée." },
