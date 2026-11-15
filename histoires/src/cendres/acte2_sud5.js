@@ -134,7 +134,7 @@ module.exports = {
 
   II_S5_coffre_force: P({ title: "Le fer froid", place: "vasselin",
     text: [
-      "Le fer noir ne cède pas. Les crochets glissent, la lame plie. Le froid du coffre monte dans tes mains, dans tes bras, et tu sens, une seconde, quelque chose qui part. Le nom d'une rue. Le goût d'un fruit. Rien, peut-être.",
+      "Le fer noir ne cède pas. Les crochets glissent, la lame plie. Le froid du coffre monte dans tes mains, dans tes bras, et tu sens, un instant, quelque chose qui part. Le nom d'une rue. Le goût d'un fruit. Rien, peut-être.",
       "Puis la troisième serrure claque, d'elle-même, comme si quelqu'un l'avait ouverte de l'intérieur.",
     ],
     choices: [{ label: "Soulever le couvercle", to: "II_S5_coffre" }] }),

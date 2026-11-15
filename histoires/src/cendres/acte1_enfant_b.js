@@ -572,7 +572,7 @@ module.exports = {
 
   EN_portes_sud: { act: "I", title: "Pallanche, par le sud", place: null,
     text: [
-      "Pallanche apparaît au matin du quatrième jour, au bout de la route des Cloches, posée sur la plaine comme une couronne qu'on aurait oubliée là : des murs ocre, des faubourgs qui débordent des murs, des clochers partout. On dit qu'il y en a cent. Tu les entends avant de les voir, qui sonnent prime l'un après l'autre, en vague, d'un bout à l'autre de la ville, comme une pluie de fer. La vague met près d'une minute à traverser les murs : la ville est grande.",
+      "Pallanche apparaît au matin du quatrième jour, au bout de la route des Cloches, posée sur la plaine comme une couronne qu'on aurait oubliée là : des murs ocre, des faubourgs qui débordent des murs, des clochers partout. On dit qu'il y en a cent. Tu les entends avant de les voir, qui sonnent prime l'un après l'autre, en vague, d'un bout à l'autre de la ville, comme une pluie de fer. La vague met le temps d'un Ave à traverser les murs : la ville est grande.",
       "Au milieu, plus haute que tous les clochers, une tour noire, sans fenêtres, avec au sommet une plume et une clé croisées, en fer : la Chancellerie des Noms.",
       "Aux portes, des banderoles. *FÊTE DES NOMS. QUE NUL NE SOIT OUBLIÉ.*",
     ],
@@ -581,7 +581,7 @@ module.exports = {
   EN_pallanche: { act: "I", title: "La ville aux cent cloches", place: "pallanche",
     fx: { ep: ["histoire", 6000], catchup: 3, catchupWhy: "la route de Sauvelune à Pallanche" },
     text: [
-      "Pallanche, la veille de la Fête des Noms, c'est cent mille personnes et cent clochers qui sonnent. Les rues sont tendues de bannières, chaque maison a peint son nom en lettres d'or au-dessus de sa porte, et sur les places, des greffiers en robe noire, assis à des pupitres, inscrivent gratuitement le nom de qui le demande dans le Grand Livre de la Fête. Les files d'attente font le tour des places. À la plus courte, tu estimes l'attente à trois heures, en comptant un nom par minute et par greffier.",
+      "Pallanche, la veille de la Fête des Noms, c'est cent mille personnes et cent clochers qui sonnent. Les rues sont tendues de bannières, chaque maison a peint son nom en lettres d'or au-dessus de sa porte, et sur les places, des greffiers en robe noire, assis à des pupitres, inscrivent gratuitement le nom de qui le demande dans le Grand Livre de la Fête. Les files d'attente font le tour des places. À la plus courte, tu estimes l'attente à trois heures, en comptant soixante noms à l'heure par greffier.",
       { after: "enfant:lettre", text: "Tu vas droit à la Chancellerie. La tour noire est entourée d'un mur, et le mur d'une grille, et devant la grille, des gardes en noir qui t'entendent demander Maître Hylas sans t'écouter. « Fermé pour la Fête. Revenez après la Nuit des Cloches. »" },
       { before: "enfant:lettre", text: "Tu vas droit à la Chancellerie. La tour noire est entourée d'un mur, et le mur d'une grille, et devant la grille, des gardes en noir qui t'entendent parler de neige et de noms sans t'écouter. « Fermé pour la Fête. Revenez après la Nuit des Cloches. »" },
       { if: { has: "enfant:voie=nord" }, text: "Les traces du Glaneur se sont arrêtées au pied des collines. Mais en entrant dans la ville, tu as vu, sur le pavé d'une ruelle, une poudre blanche, très fine, qui ne fondait pas au soleil." },

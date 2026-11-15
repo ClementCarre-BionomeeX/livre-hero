@@ -61,7 +61,7 @@ module.exports = {
     text: [
       "Tu chantes le cri de la halle aux poissons, puis une chanson de port, rauque, trop grave, fausse. Les juges se regardent, choqués. Puis, du fond du pré, là où se tiennent les gens du port, quelqu'un reprend le refrain. Puis cent. Puis mille.",
       "Dans la loge, la reine ouvre les yeux. Elle se penche. Elle écoute, la bouche un peu ouverte, comme une petite fille.",
-      "Le chevalier, au pied de l'estrade, a retiré son masque une seconde, pour mieux entendre.",
+      "Le chevalier, au pied de l'estrade, a retiré son masque un instant, pour mieux entendre.",
     ],
     choices: [{ label: "La cérémonie", to: "II_S4_ceremonie" }] }),
 

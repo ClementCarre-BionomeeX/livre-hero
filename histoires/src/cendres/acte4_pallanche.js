@@ -274,7 +274,7 @@ module.exports = {
       "La petite fille au bonnet de travers est montée avec vous. Elle s'avance entre les pupitres, sans peur, en regardant les pages au travail comme on regarde un jeu qu'on ne comprend pas. Elle s'arrête au deuxième rang.",
       "Les deux se regardent. Neuf ans, onze ans. L'une a les genoux sales, l'autre la tête rasée. Elles ont le même épi.",
       "La petite tend la main, et touche la joue de la grande, exactement comme on vérifie qu'une page est sèche.",
-      "Tout est noir et silencieux. Il y a, une seconde après, une seule fille au deuxième rang, de onze ans, avec un bonnet de laine de travers sur une tête rasée, qui regarde ses mains pleines d'encre, et qui se met à rire, d'un rire qui fait se retourner cent pages.",
+      "Tout est noir et silencieux. Il y a, un instant après, une seule fille au deuxième rang, de onze ans, avec un bonnet de laine de travers sur une tête rasée, qui regarde ses mains pleines d'encre, et qui se met à rire, d'un rire qui fait se retourner cent pages.",
       { with: "pie", text: "« Pie, dit-elle. Pie, tu as vu ? J'ai écrit toute la nuit. Je sais écrire ! »" },
       { without: "pie", after: "pal:pie_indice", text: "« Pie, dit-elle. Pie, tu as vu ? J'ai écrit toute la nuit. Je sais écrire ! »" },
       { without: "pie", before: "pal:pie_indice", text: "Elle lève la tête vers toi. « Tu as vu ? J'ai écrit toute la nuit. Je sais écrire ! »" },

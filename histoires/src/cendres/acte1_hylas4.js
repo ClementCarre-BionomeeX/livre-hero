@@ -25,7 +25,7 @@ module.exports = {
       "Tu t'assieds sur un lit vide, au bout de l'allée, sans bruit. Tu écoutes. Ça dure une heure. Les noms passent d'un lit à l'autre, de rang en rang, comme une chandelle qu'on se passe. Parfois quelqu'un hésite. Un autre lui souffle. Ici, la nuit, chacun se souvient de tous.",
       "Au deuxième rang, onzième lit, une petite fille se tait. Elle écoute, comme toi. Quand vient son tour, il y a un silence.",
       { before: "linette:nom_dit", text: "Elle se tait, et les autres se taisent pour elle. La ronde passe au lit suivant, comme on enjambe une flaque. Toi, tu sais ce qu'il y a dans la flaque. Tu as tenu le registre gris." },
-      { after: "linette:nom_dit", text: "Puis une voix qui n'en a pas l'habitude, à peine un souffle : *Linette.* La ronde hésite, une seconde, et passe au lit suivant." },
+      { after: "linette:nom_dit", text: "Puis une voix qui n'en a pas l'habitude, à peine un souffle : *Linette.* La ronde hésite, un instant, et passe au lit suivant." },
       "Tu restes jusqu'à ce que le dernier se taise. Puis tu redescends, avec cent noms dans la tête, et le sentiment d'avoir volé quelque chose de très précieux, ou de l'avoir reçu.",
     ],
     choices: BACK }),

@@ -46,7 +46,7 @@ module.exports = {
       { label: "Regarder le petit, et ne rien dire", to: "II_S3_enfants_masque" },
     ] }),
   II_S3_enfants_la: P({ title: "Il est là",
-    text: ["« Il est là », dis-tu, en montrant le petit au masque. Les enfants le regardent. Ils le voient. Ils rient. « Ah oui ! » Le petit enlève son masque, tout content d'avoir été trouvé, et ils reprennent le jeu. Cinq minutes plus tard, tu entends de nouveau, de loin : « Il manque quelqu'un, non ? » Le petit a remis son masque. Il aime ça, être cherché. Tu le comprends, et tu te demandes si tu devrais."],
+    text: ["« Il est là », dis-tu, en montrant le petit au masque. Les enfants le regardent. Ils le voient. Ils rient. « Ah oui ! » Le petit enlève son masque, tout content d'avoir été trouvé, et ils reprennent le jeu. Un peu plus tard, tu entends de nouveau, de loin : « Il manque quelqu'un, non ? » Le petit a remis son masque. Il aime ça, être cherché. Tu le comprends, et tu te demandes si tu devrais."],
     choices: BACK }),
   II_S3_enfants_masque: P({ title: "Le masque de papier",
     text: ["Tu te tais. Le petit au masque blanc s'assied à l'écart, sur une caisse, et regarde jouer les autres, qui l'ont oublié. Il a les yeux secs. Il a l'habitude, on dirait. Au bout d'un moment, il enlève son masque, le plie en quatre, le met dans sa poche, et va rejoindre les autres, à visage nu. Ils lui font une place sans discuter. À visage nu, on se souvient de lui. C'était ça, le jeu."],

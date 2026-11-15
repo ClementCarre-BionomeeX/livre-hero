@@ -60,7 +60,7 @@ var C = {
     ] }),
   III_K_apprentie_bief: P({ title: "Les vraies couleurs", place: "valcendre",
     text: [
-      "Tu lui décris le bief. L'eau verte qui devient brune sous la roue. Les saules. La mousse sur les pierres du canal, et le martin-pêcheur, une seconde de bleu, toujours trop rapide pour qu'on en jure.",
+      "Tu lui décris le bief. L'eau verte qui devient brune sous la roue. Les saules. La mousse sur les pierres du canal, et le martin-pêcheur, un éclair de bleu, toujours trop rapide pour qu'on en jure.",
       "Elle dessine. Elle n'a que du noir et de l'ocre. Elle fait le martin-pêcheur avec un point de rien, un trou dans le vélin, qui laisse passer la lumière de la fenêtre. « Comme ça ? » demande-t-elle. C'est exactement comme ça.",
     ],
     choices: BACK }),

@@ -479,7 +479,7 @@ module.exports = {
   YS_boite_rate: { act: "I", title: "Le souffle blanc", place: null,
     text: [
       "Il a la vivacité d'un furet, et tu l'as jugé sur sa maigreur. Il recule, la boîte contre lui, et l'entrouvre face à toi. Le souffle blanc te passe sur le visage. « Asseyez-vous, capitaine. »",
-      "Tu t'assieds. Pourquoi t'étais-tu levée ? Tu l'as oublié. Il y a un vieil homme, en face, qui sourit aux étoiles, et ça te paraît normal. Tout te paraît normal. Ce n'est qu'au matin, en te réveillant, que tu sens le froid sur tes joues, et que tu comprends que tu as perdu quelque chose. Une minute. Tu ne sais pas laquelle.",
+      "Tu t'assieds. Pourquoi t'étais-tu levée ? Tu l'as oublié. Il y a un vieil homme, en face, qui sourit aux étoiles, et ça te paraît normal. Tout te paraît normal. Ce n'est qu'au matin, en te réveillant, que tu sens le froid sur tes joues, et que tu comprends que tu as perdu quelque chose. Un moment de ta vie. Lequel, tu l'ignores.",
     ],
     choices: [{ label: "Continuer", to: "@route" }] },
 

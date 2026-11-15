@@ -27,7 +27,7 @@ module.exports = {
     text: [
       "Au milieu du blanc, toute seule, une cloche posée par terre, sur sa lèvre, comme un chapeau oublié. Une petite cloche de chapelle, verte de vert-de-gris, de la taille d'un seau.",
       "Quand tu passes à côté, elle sonne. Un coup. Seule.",
-      "Quelque part, là-haut, quelqu'un vient de penser à un endroit. Une seconde. Puis il est passé à autre chose. La cloche se tait.",
+      "Quelque part, là-haut, quelqu'un vient de penser à un endroit. Un instant. Puis il est passé à autre chose. La cloche se tait.",
     ],
     choices: [{ label: "Continuer vers les clochers", to: "@route" }] }),
 
