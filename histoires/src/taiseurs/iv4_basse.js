@@ -194,9 +194,9 @@ Object.assign(P, {
   IVM_pilote: { act: "IV", title: "Le ponton de Gwenaël Lannec", place: "salveze", backName: "le ponton du vieux pilote",
     text: [
       { first: true, text: "Gwenaël Lannec habite une gabare désarmée au bout du port aux Sauniers, amarrée à un ponton qui penche. Le mât a été scié à hauteur d'homme et sert de cheminée. Il a quatre-vingts ans, des mains comme des racines de saule, et il raccommode un filet assis sur un seau retourné, les pieds dans des sabots pleins de paille." },
-      { first: true, text: "« Sorne », dit-il, quand tu prononces le mot. Il ne lève pas la tête. « Tout le monde veut aller à Sorne cette année. Les gens de la Banque sont passés hier, avec un homme qui portait des gants gris sur le port comme à un bal. » Il tire sur sa navette. « {{oreille#ivm_lannec_gris|Je leur ai dit que j'étais trop vieux|Je leur ai dit que j'étais trop vieux, et il a souri comme s'il m'avait entendu penser à mon fils}}. »" },
+      { first: true, text: "« Sorne », dit-il, quand tu prononces le mot. Il garde la tête baissée. « Tout le monde veut aller à Sorne cette année. Les gens de la Banque sont passés hier, avec un homme qui portait des gants gris sur le port comme à un bal. » Il tire sur sa navette. « {{oreille#ivm_lannec_gris|Je leur ai dit que j'étais trop vieux|Je leur ai dit que j'étais trop vieux, et il a souri comme s'il m'avait entendu penser à mon fils}}. »" },
       { again: true, text: "Le ponton de Lannec, le filet, le seau, la fumée qui sort du mât scié. Le vieil homme lève une main sans lâcher sa navette." },
-      { after: "ivm:yannick_libre", text: "Sur le pont de la gabare, un homme jeune ravaude une voile à côté du vieux. Ils ne se parlent pas. Ils se passent le fil." },
+      { after: "ivm:yannick_libre", text: "Sur le pont de la gabare, un homme jeune ravaude une voile à côté du vieux. Ils se passent le fil sans un mot." },
     ],
     choices: [
       { label: "Lui demander ce qu'il a vu, enfant", hide: { seen: "IVM_pilote_sorne" }, to: "IVM_pilote_sorne" },
@@ -216,7 +216,7 @@ Object.assign(P, {
 
   IVM_pilote_accord: { act: "IV", title: "Le prix de l'astrolabe", place: "salveze",
     text: [
-      "Lannec descend dans la cale de la gabare et remonte avec un paquet de toile cirée, ficelé de ligne à maquereau. Il ne le défait pas. Il le garde sur ses genoux, les deux mains dessus.",
+      "Lannec descend dans la cale de la gabare et remonte avec un paquet de toile cirée, ficelé de ligne à maquereau. Il le garde ficelé sur ses genoux, les deux mains dessus.",
       "« Trente ducats, dit-il. {{oreille#ivm_lannec_trente|C'est le prix, je ne marchande pas|C'est ce que mon fils doit à la Banque, au liard près, et avec les intérêts de la semaine prochaine il en devra trente-cinq}}. »",
       { after: "ivm:yannick_libre", text: "Puis il secoue la tête et te met le paquet dans les mains. « Non. Mon fils est dehors. Prends-le. Ramène-le, si tu peux. Et si tu vois la porte de la tour, dis-lui bonjour de la part du petit Gwenaël. »" },
       { with: "salome", text: "« Et si vous veniez avec nous ? dit Salomé. Il me faut un pilote qui a vu le fond. » Le vieux rit, un rire qui finit en toux. « {{oreille|Je suis trop vieux pour la mer|Je viendrais, si mes jambes voulaient, et je mourrais content sur le sable}}. »" },
@@ -509,7 +509,7 @@ Object.assign(P, {
   IVM_taiseurs: { act: "IV", title: "Ceux qui gardent la porte", place: "salveze",
     text: [
       "Sorne a été fermée par les Taiseurs, il y a trois siècles, et ce sont eux qui savent la rouvrir. Leurs barques connaissent les passes des hauts-fonds ; leur doyenne connaît la parole de la porte. Sans eux, tu iras jusqu'à la tour noyée, et tu frapperas.",
-      { if: { any: [{ has: "taiseurs:serment" }, { has: "lison:loyale" }] }, text: "Au matin du premier jour, un gamin des marais pose un brin de jonc tressé sur le rebord de ta fenêtre et repart en courant. Trois nœuds, un tour, trois nœuds : aux Joncs-Bas, cela veut dire *ce soir, au port*.", else: "Les Taiseurs ne t'ont rien fait dire. Ils savent où tu es ; ils savent tout ce qui se passe à Salvèze, par les dentellières, les bateliers, les marchandes d'anguilles. Ils attendent de voir ce que tu feras sans eux." },
+      { if: { any: [{ has: "taiseurs:serment" }, { has: "lison:loyale" }] }, text: "Au matin du premier jour, un gamin des marais pose un brin de jonc tressé sur le rebord de ta fenêtre et repart en courant. Trois nœuds, un tour, trois nœuds : aux Joncs-Bas, cela veut dire *ce soir, au port*.", else: "Les Taiseurs gardent le silence. Ils savent où tu es ; ils savent tout ce qui se passe à Salvèze, par les dentellières, les bateliers, les marchandes d'anguilles. Ils attendent de voir ce que tu feras sans eux." },
       { if: { has: "joncs:brules" }, text: "Depuis l'incendie des pilotis, les Joncs-Bas vivent sous des abris de roseaux. Les barques qui restent, on les compte sur les doigts." },
       { with: "lison", if: { not: { has: "lison:loyale" } }, text: "Lison regarde ses mains. « {{oreille#ivm_lison_grandmere|Ma grand-mère fera ce qu'elle voudra|Ma grand-mère attend que je lui dise de qui je suis, et je ne le sais pas encore}}. »" },
     ],
@@ -563,7 +563,7 @@ Object.assign(P, {
 
   IVM_taiseurs_refus: { act: "IV", title: "Le pont des Muets", place: "salveze",
     text: [
-      "La vendeuse te rend ta monnaie, plie sa dentelle, replie son pliant, et s'en va sans hâte vers le port. Le lendemain, elle n'est plus sur le pont. Un autre jour, une autre femme y vend des oignons.",
+      "La vendeuse te rend ta monnaie, plie sa dentelle, replie son pliant, et s'en va sans hâte vers le port. Le lendemain, sa place sur le pont est vide. Un autre jour, une autre femme y vend des oignons.",
       "Les Taiseurs resteront dans leurs roseaux. Tu iras à Sorne avec tes seules coques, et tu frapperas à la porte de la tour avec ce que tu as : le cornet, les feuillets, ce que tu as entendu en route.",
     ],
     fx: { flag: "ivm:taiseurs_non" },
@@ -622,7 +622,7 @@ Object.assign(P, {
   IVM_registre: { act: "IV", title: "Le Registre de la Muette", place: "salveze",
     text: [
       "Les feuillets sont écrits dans une langue morte depuis trois siècles : celle des signes de la reine, notés par ses secrétaires en petits dessins à l'encre brune, mains, doigts, bouches fermées, et en vieux salvézan entre les lignes. Pour lire le témoignage d'Ysaure, il faut quelqu'un qui connaisse les deux, et il faut assez de feuillets pour que la phrase tienne d'un bord à l'autre.",
-      { if: { relics: { min: 3 } }, text: "Tu en as assez. La phrase tient.", else: "Il t'en manque. Tant que tu n'as pas trois feuillets, les signes ne font que des morceaux de phrases." },
+      { if: { relics: { min: 3 } }, text: "Tu en as assez. La phrase tient.", else: "Il t'en manque. Tant que tu as moins de trois feuillets, les signes ne font que des morceaux de phrases." },
     ],
     choices: [
       { label: "Le porter à Mère Ancolie, sous l'auvent du hangar à sel", if: { relics: { min: 3 } }, why: "Il faut au moins trois feuillets.", hide: { not: { seen: "IVM_ancolie" } }, to: "IVM_registre_ancolie" },
@@ -642,7 +642,7 @@ Object.assign(P, {
 
   IVM_registre_vauquelin: { act: "IV", title: "Sur le pupitre de Vauquelin", place: "salveze",
     text: [
-      "Vauquelin ferme la porte des Archives à clé, met ses lunettes sur son nez pour une fois, et allume trois chandelles. Quand tu poses les feuillets sur son pupitre, il ne les touche pas. Il les regarde comme on regarde un enfant qui dort.",
+      "Vauquelin ferme la porte des Archives à clé, met ses lunettes sur son nez pour une fois, et allume trois chandelles. Quand tu poses les feuillets sur son pupitre, il les regarde sans y toucher, comme on regarde un enfant qui dort.",
       "Il sort d'un tiroir un vieux cahier relié de vert : un lexique des signes de la cour, compilé par un de ses prédécesseurs. « Il dort dans ce tiroir depuis cent ans, dit-il. {{oreille#ivm_vauq_lexique|Je l'ai trouvé par hasard, en classant|Je le lis tous les soirs depuis trente ans, pour le jour où quelqu'un m'apporterait cela}}. »",
       "Il lit lentement, le doigt sur le lexique, l'autre main au-dessus du vélin, sans le toucher.",
     ],
@@ -836,7 +836,7 @@ Object.assign(P, {
 
   IVM_lothaire_allie: { act: "IV", title: "L'entrepôt de laine", place: "salveze",
     text: [
-      "Il est assis sur une balle de laine brute, en manches de chemise, les gants gris posés à côté de lui. Ses mains nues sont blanches, fines, avec une cicatrice de corde en travers de la paume droite. Il ne se lève pas.",
+      "Il est assis sur une balle de laine brute, en manches de chemise, les gants gris posés à côté de lui. Ses mains nues sont blanches, fines, avec une cicatrice de corde en travers de la paume droite. Il reste assis.",
       "« La Banque part avec trois bateaux, dit-il. *La Constance*, deux chaloupes, quarante hommes, six plongeurs. Ils partiront une heure avant vous, par la passe du sud. » Il te regarde. « Vous pensez que je pourrais vous mentir. Vous avez raison. {{oreille#ivm_lot_vrai|Mais ce soir, non|Mais ce soir, non, parce que si la Banque trouve l'or sans moi, je suis un homme mort, et vous êtes la seule coque où je puisse monter}}. »",
       { with: "salome", if: { has: "salome:maiwenn" }, text: "Salomé est restée sur le seuil. Elle regarde la cicatrice dans la paume de Lothaire, et Lothaire referme la main. Le nom de Maïwenn reste dans les gorges. Il est dans l'entrepôt avec eux, aussi présent que la laine." },
       { if: { has: "taiseurs:serment" }, text: "« Vous pensez en deux couches, maintenant, dit-il avec une sorte d'admiration. J'entends celle du dessus. C'est fatigant. »" },
@@ -868,7 +868,7 @@ Object.assign(P, {
 
   IVM_lothaire_rival: { act: "IV", title: "Le pont des Muets", place: "salveze", takes: "night",
     text: [
-      "La cloche du couvre-feu finit de sonner quand il apparaît au milieu du pont, en manteau gris, les mains gantées sur le parapet. Il n'y a personne d'autre. L'eau du canal passe dessous, noire, avec des reflets de lanternes de garde.",
+      "La cloche du couvre-feu finit de sonner quand il apparaît au milieu du pont, en manteau gris, les mains gantées sur le parapet. Le pont est désert. L'eau du canal passe dessous, noire, avec des reflets de lanternes de garde.",
       "« La Banque part avant vous, dit-il. Avec plus de monde. Je pourrais vous dire de rester chez vous. » Il penche la tête. « Vous pensez : pourquoi me le dit-il ? Parce que vous m'intéressez. Parce que vous entendez, comme moi, et que nous sommes deux dans cette ville. » Il se tourne vers l'eau. « {{oreille#ivm_lot_rival|Je vous retrouverai sur le sable|Corisande veut le Registre au feu, et moi je veux voir la reine ; nous ne voulons pas la même chose, elle et moi, depuis longtemps}}. »",
       { if: { has: "ivb:lothaire_libre" }, text: "« La dernière fois, ajoute-t-il, je vous ai laissé{e} dans mon cabinet, la clé tournée de mon côté. Vous en êtes sorti{e}. Je l'ai noté dans mon carnet, à l'encre violette. »" },
       { if: { has: "taiseurs:serment" }, text: "Il fronce les sourcils, agacé : il n'entend de toi que la couche du dessus, et il sait qu'il y en a une autre." },
@@ -908,7 +908,7 @@ Object.assign(P, {
 
   IVM_lison_aube: { act: "IV", title: "Sous le pont des Vanniers", place: "salveze", with: "lison",
     text: [
-      { if: { not: { has: "ivm:lison_distance" } }, tendre: true, text: "Elle se tait. Elle pose son front contre le tien, et vous restez comme ça sous le pont, dans l'odeur d'eau froide et de pierre, jusqu'à ce que la barque touche la berge d'elle-même. Elle t'embrasse une fois, vite, comme on vole quelque chose, puis elle rit de toi parce que tu ne bouges plus.", else: "Elle hoche la tête et reprend l'aviron. Vous restez sous le pont un moment encore, sans parler, à écouter l'eau. Quand elle se remet à ramer, elle sifflote." },
+      { if: { not: { has: "ivm:lison_distance" } }, tendre: true, text: "Elle se tait. Elle pose son front contre le tien, et vous restez comme ça sous le pont, dans l'odeur d'eau froide et de pierre, jusqu'à ce que la barque touche la berge d'elle-même. Elle t'embrasse une fois, vite, comme on vole quelque chose, puis elle rit de toi parce que tu restes figé{e}.", else: "Elle hoche la tête et reprend l'aviron. Vous restez sous le pont un moment encore, sans parler, à écouter l'eau. Quand elle se remet à ramer, elle sifflote." },
       { if: { has: "ivm:lison_distance" }, text: "« Oui, dit-elle. Il faut rentrer. » Elle reprend l'aviron, rame un peu trop fort, et te mouille exprès en tournant au pont suivant." },
       "Vous rentrez à l'aube par le canal des Lanternes, devant la boutique d'Odeline. Lison regarde les trois marches propres. « C'est moi qui les balaie, dit-elle. Depuis l'automne. {{oreille#ivm_lison_marches|Ça m'occupe|Odeline m'avait gardée à dîner un soir, quand j'avais douze ans et que je m'étais perdue en ville}}. »",
     ],
@@ -920,7 +920,7 @@ Object.assign(P, {
       "Tibère a mis son pourpoint du Guet, brossé, avec les boutons qui restent. Il s'est rasé. Il a coupé sa moustache, puis l'a regretté, et ça se voit. Dans la rue des Dames, devant l'atelier de couture, il s'arrête au milieu du pavé, planté là.",
       "« Elle ne voudra pas, dit-il. La dernière fois, elle m'a fermé la porte sur les doigts. » Il te montre son petit doigt, tordu. « {{oreille#ivm_tibere_doigt|C'était il y a longtemps|C'était le jour où j'ai mis en gage la machine à coudre de sa mère pour une partie de dés, et je l'ai perdue}}. »",
       { if: { has: "tibere:aveu" }, text: "Il a avoué ce qu'il faisait pour Lothaire Brunel, à l'acte des aveux, et ça ne lui a rien coûté de plus que ce qu'il avait déjà perdu. Ce qu'il va faire maintenant lui coûte davantage." },
-      { if: { has: "ivb:tibere_rosalie" }, text: "« Elle m'a parlé, chez la Lesueur, dit-il. Trois phrases. Je les ai apprises par cœur, comme un mot de passe. » Il ne te dit pas lesquelles." },
+      { if: { has: "ivb:tibere_rosalie" }, text: "« Elle m'a parlé, chez la Lesueur, dit-il. Trois phrases. Je les ai apprises par cœur, comme un mot de passe. » Il les garde pour lui." },
     ],
     choices: [
       { label: "Frapper à sa place", to: "IVM_tibere_rosalie" },
@@ -943,7 +943,7 @@ Object.assign(P, {
   IVM_rosalie_seul: { act: "IV", title: "L'atelier de la rue des Dames", place: "salveze", without: "tibere",
     text: [
       "Tu trouves Rosalie Gaucelm à l'atelier de la rue des Dames, penchée sur un ourlet sous une lampe. Elle a les cheveux de son père, la mâchoire aussi. Quand tu dis son nom à lui, elle pique son aiguille dans la pelote et attend.",
-      { if: { any: [{ has: "tibere:vendu" }, { has: "tibere:parti" }] }, text: "Tu lui dis ce que tu peux de son père : qu'il a fait des choses bonnes et des choses mauvaises, et que les dernières ne sont pas les plus nombreuses. Tu espères que c'est vrai.", else: "Tu lui dis que son père a été un compagnon fidèle, à sa façon, et qu'il parlait d'elle." },
+      { if: { any: [{ has: "tibere:vendu" }, { has: "tibere:parti" }] }, text: "Tu lui dis ce que tu peux de son père : qu'il a fait des choses bonnes et des choses mauvaises, et que les bonnes l'emportent en nombre. Tu espères que c'est vrai.", else: "Tu lui dis que son père a été un compagnon fidèle, à sa façon, et qu'il parlait d'elle." },
       { if: { has: "iv:rosalie_sauvee" }, text: "Elle dort toujours à la pension de Clarmonde Pujol, et elle coud ici le jour. Plus personne ne garde le seuil." },
       { if: { has: "iv:rosalie_message" }, text: "« La dernière fois, vous m'avez dit qu'il pensait à moi tous les jours, dit-elle. J'y ai pensé tous les jours, moi aussi. »" },
       "« {{oreille#ivm_rosalie_seule|Il parle de tout le monde quand il a bu|Il parlait de moi, vraiment, et j'aurais voulu l'entendre une fois}} », dit-elle. Elle reprend son aiguille. « Merci d'être passé{e}. »",
@@ -987,7 +987,7 @@ Object.assign(P, {
       "Fauvette t'emmène sur le toit le plus haut des Gouttières, une terrasse de plomb entre quatre cheminées, d'où l'on voit toute la ville : le Beffroi, l'île des Changeurs, le port, et la mer au bout, une ligne grise sous un ciel rose. Elle s'assied au bord, les pieds dans le vide. Toi, un peu en retrait.",
       "« Je n'ai jamais vu la mer de près, dit-elle. Ni le large. » Elle lance un caillou, qui tombe longtemps. « {{oreille#ivm_fauvette_mer|Ça ne doit pas être grand-chose|J'ai peur de l'eau, et je n'ai jamais osé le dire à personne parce qu'on ne prend pas les peureux}}. »",
       "Puis, sans transition, elle sort de sa veste un morceau d'ardoise et un bout de craie. « Écris mon nom. » Tu l'écris : *FAUVETTE*. Elle le regarde longtemps, en bougeant les lèvres. « Et l'autre. Celui d'avant. Celui que je ne connais pas. » Tu la regardes. Elle hausse les épaules. « Écris *Fauvette*, alors. Deux fois. Pour quand je saurai lire. »",
-      { if: { has: "fauvette:temoin" }, text: "Elle a dit ce qu'elle a vu la nuit des Lanternes : un moine sortant de la boutique à minuit. Elle ne t'en parle plus. Ce soir, elle regarde le Beffroi en tenant l'ardoise contre elle." },
+      { if: { has: "fauvette:temoin" }, text: "Elle a dit ce qu'elle a vu la nuit des Lanternes : un moine sortant de la boutique à minuit. Elle a cessé d'en parler. Ce soir, elle regarde le Beffroi en tenant l'ardoise contre elle." },
     ],
     fx: { conf: { fauvette: 10 } },
     choices: [
@@ -1047,7 +1047,7 @@ Object.assign(P, {
     text: [
       "La veille de la Grande Basse, tu fais dresser une table dans la salle basse avec tout ce que trois jours de faim ont laissé dans la ville : un pain de seigle, un fromage de chèvre, des anguilles fumées que quelqu'un a apportées des marais, un pot de lentilles au lard, et deux bouteilles de vin de l'Orle qui ont fait le chemin depuis les Combes dans le fond de ton sac.",
       { with: "tibere", text: "Tibère coupe le pain, parce qu'il a toujours coupé le pain, au Guet, pour les hommes de sa ronde. Il fait les parts égales, à la mie près." },
-      { with: "lison", text: "Lison s'assied à côté de toi, et pose sa jambe contre la tienne sous la table, comme par hasard, et ne la retire pas." },
+      { with: "lison", text: "Lison s'assied à côté de toi, et pose sa jambe contre la tienne sous la table, comme par hasard, et l'y laisse." },
       { with: "salome", text: "Salomé boit son vin à petites gorgées, les coudes sur la table. Elle raconte une histoire de tempête au large des Écueils, et tout le monde rit au mauvais moment, et elle aussi." },
       { with: "fauvette", text: "Fauvette mange comme on mange quand on a eu faim toute sa vie : vite, en surveillant le plat. Puis, au deuxième morceau de fromage, plus lentement." },
       { with: "gildas", text: "Frère Gildas bénit le pain en silence, du bout des doigts, et mange peu. Il écoute. Une fois, il sourit." },
@@ -1092,7 +1092,7 @@ Object.assign(P, {
 
   IVM_q_pilote_nuit: { act: "IV", title: "Le toit de la Tour aux Dettes", place: "salveze", takes: "night",
     text: [
-      "La Tour aux Dettes n'a pas de fenêtres, mais elle a un toit, et ce toit a une trappe pour les ramoneurs. Les débiteurs restent : ils n'ont nulle part où aller. La trappe est sans garde.",
+      "La Tour aux Dettes est aveugle, mais elle a un toit, et ce toit a une trappe pour les ramoneurs. Les débiteurs restent : ils n'ont nulle part où aller. La trappe est sans garde.",
       { with: "fauvette", text: "Fauvette ouvre la trappe en dix battements de cœur, avec une épingle à cheveux et un juron." },
       "En bas, dans le noir, une salle pleine de paillasses et de souffles. Yannick dort près du mur, roulé dans une couverture. Il faut le réveiller sans réveiller les autres, le hisser jusqu'à la trappe, et repartir par les toits.",
     ],
@@ -1104,7 +1104,7 @@ Object.assign(P, {
 
   IVM_q_pilote_fin: { act: "IV", title: "Le père et le fils", place: "salveze",
     text: [
-      { if: { has: "ivm:yannick_libre" }, text: "Tu ramènes Yannick au ponton de son père à l'aube. Le vieux Gwenaël est assis sur son seau, son filet sur les genoux. Il voit son fils, pose la navette, et ne se lève pas : il tend seulement la main, paume ouverte, et Yannick la prend. Ils restent comme ça, le père assis, le fils debout, en silence, pendant que le soleil se lève sur le port." },
+      { if: { has: "ivm:yannick_libre" }, text: "Tu ramènes Yannick au ponton de son père à l'aube. Le vieux Gwenaël est assis sur son seau, son filet sur les genoux. Il voit son fils, pose la navette, et reste assis : il tend seulement la main, paume ouverte, et Yannick la prend. Ils restent comme ça, le père assis, le fils debout, en silence, pendant que le soleil se lève sur le port." },
       { if: { has: "ivm:yannick_reste" }, text: "Une paillasse craque, quelqu'un crie, une lanterne s'allume dans l'escalier. Tu remontes par la trappe sans Yannick, les mains écorchées. Le lendemain, tu vas dire au vieux Gwenaël que tu as essayé. Il hoche la tête. « Tu as essayé. C'est plus que les autres. » Il te donne quand même de quoi manger, du pain et une sole grillée sur une tôle." },
       { if: { has: "ivm:yannick_libre" }, text: "Plus tard, Gwenaël tire de son gilet une bague de laiton épaisse, gravée d'une rose des vents usée. « La bague des pilotes du port. On me l'a donnée à vingt ans. » Il la pose dans ta paume. « {{oreille|Pour la peine|Pour que la mer te reconnaisse, là-bas, et te laisse revenir}}. »" },
     ],
@@ -1119,7 +1119,7 @@ Object.assign(P, {
 Object.assign(P, {
   IVM_q_grenier: { act: "IV", title: "La rumeur du grain", place: "salveze",
     text: [
-      "Sur le quai, les femmes font la queue depuis l'aube devant la boulangerie municipale qui n'ouvre pas. Une rumeur court d'une femme à l'autre, à voix basse, comme toutes les rumeurs de faim : la maison Fourcaud aurait du grain. Beaucoup de grain. Caché dans son entrepôt du canal des Tanneurs, qui est vide, tout le monde l'a vu, on y a mené les échevins.",
+      "Sur le quai, les femmes font la queue depuis l'aube devant la boulangerie municipale, qui reste fermée. Une rumeur court d'une femme à l'autre, à voix basse, comme toutes les rumeurs de faim : la maison Fourcaud aurait du grain. Beaucoup de grain. Caché dans son entrepôt du canal des Tanneurs, qui est vide, tout le monde l'a vu, on y a mené les échevins.",
       "Une laveuse aux mains rouges te prend par la manche. « Toi, tu trouves les choses. Trouve ça. » Elle te lâche. « {{oreille#ivm_laveuse|On n'a pas de quoi te payer|On n'a pas de quoi te payer, et j'ai trois enfants qui mangent de la colle de relieur bouillie}}. »",
     ],
     choices: [
@@ -1225,12 +1225,12 @@ Object.assign(P, {
       { if: { has: "ivm:lothaire_enchaine" }, text: "Lothaire Brunel est assis à l'avant, une chaîne de geôle aux poignets, ses gants gris enfilés par-dessus. À chaque vague, un maillon cogne le bordage." },
       { if: { has: "ivm:lothaire_cachot" }, text: "Le bateau passe sous la Tour Ronde. À l'un des soupiraux, au ras de l'eau, une main nue se pose sur le barreau, et reste là jusqu'à ce que tu aies passé." },
       { if: { has: "ivm:riwal_banque" }, text: "Au fond du port, les deux barques de Riwal ont quitté leur poste avant toi. Tu les retrouves au large, dans le sillage des fanaux de la Banque." },
-      { if: { all: [{ has: "ivm:promesse_lothaire" }, { has: "ivm:lothaire_bord" }] }, text: "Dans le gréement, le grand Pivert ne quitte pas des yeux l'homme assis à l'avant. La Reine des Gouttières lui a dit quel homme chercher, et il l'a trouvé avant le sable." },
-      { if: { all: [{ has: "ivm:promesse_lothaire" }, { not: { has: "ivm:lothaire_bord" } }] }, text: "Dans le gréement, le grand Pivert ne quitte pas des yeux les lumières qui vous précèdent au large. La Reine lui a dit quel homme chercher sur le sable." },
+      { if: { all: [{ has: "ivm:promesse_lothaire" }, { has: "ivm:lothaire_bord" }] }, text: "Dans le gréement, le grand Pivert garde les yeux sur l'homme assis à l'avant. La Reine des Gouttières lui a dit quel homme chercher, et il l'a trouvé avant le sable." },
+      { if: { all: [{ has: "ivm:promesse_lothaire" }, { not: { has: "ivm:lothaire_bord" } }] }, text: "Dans le gréement, le grand Pivert garde les yeux sur les lumières qui vous précèdent au large. La Reine lui a dit quel homme chercher sur le sable." },
       { if: { has: "prevot:dejoue" }, text: "Derrière toi, la ville s'éloigne. Sur les remparts du nord, des torches veillent, et la porte des Sauniers reste close.", else: "Derrière toi, la ville s'éloigne. Sur les remparts du nord, il n'y a plus de torches. Tu regardes cet endroit noir jusqu'à ce que le Beffroi le cache." },
       { if: { has: "ivm:table_approx" }, text: "Salomé a dit entre minuit et la troisième heure. Tu as fait larguer une heure plus tôt que prévu, pour avoir de la marge, et tu tiens le sablier sur tes genoux." },
       { if: { has: "ivm:repas" }, text: "Tu as encore dans la bouche le goût du vin de l'Orle d'hier soir, et sur la main la marque d'un verre qu'on a cogné trop fort." },
-      { if: { has: "ivm:alerte" }, text: "Tu penses aux trois billets. Tu ne sauras qu'au retour s'ils ont été lus." },
+      { if: { has: "ivm:alerte" }, text: "Tu penses aux trois billets. Tu sauras au retour s'ils ont été lus." },
       { with: "lison", text: "Lison est à la barre ou à l'aviron, partout à la fois. En passant, elle te touche l'épaule, sans s'arrêter." },
       { with: "salome", text: "Salomé, à la poupe, regarde le ciel, puis l'eau, puis l'astrolabe, puis le ciel. « Vent de terre, dit-elle. Ça ira. »" },
       { with: "tibere", text: "Tibère a posé sa masse contre le mât et s'est assis dessus, les bras croisés, l'œil sur l'arrière. Ses dés sont restés à terre. Il compte les lumières qui vous suivent." },
