@@ -54,7 +54,7 @@ module.exports = {
     text: [
       "Ninon t'attend sur ta marche. Tu lui donnes la fiole. Elle la regarde, déçue. « C'est tout ? C'est petit. » Elle monte chez elle en courant. Tu la suis, de loin, par curiosité, ce qui n'est pas ton genre.",
       "Par la porte entrouverte, tu vois un vieil homme dans un fauteuil, et Ninon qui débouche la fiole sous son nez, comme un flacon de sels. Il respire. Il ferme les yeux. Et il pleure. Il pleure comme un enfant, à gros sanglots, la bouche ouverte, avec un nom dedans. *Clotilde.*",
-      "Ninon te regarde, par-dessus son épaule, furieuse. « Tu l'as fait pleurer ! » Puis le vieil homme l'attire contre lui, et l'appelle Ninon, et elle ne dit plus rien.",
+      "Ninon te regarde, par-dessus son épaule, furieuse. « Tu l'as fait pleurer ! » Puis le vieil homme l'attire contre lui, et l'appelle Ninon, et elle se tait.",
     ],
     choices: [{ label: "Redescendre l'escalier", fx: { quest: "PI_Q_fiole" }, back: "PI_ville" }] }),
 

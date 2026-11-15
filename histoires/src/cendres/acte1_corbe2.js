@@ -29,7 +29,7 @@ module.exports = {
       { back: "CO_V_ville" },
     ] }),
   CO_V_cle: P({ title: "Chez la clé",
-    text: ["Un vieil homme, des besicles au bout du nez, lime une clé dans un étau. Il lève les yeux. Il voit tes peintures, tes pieds nus, ton couteau. Il ne s'affole pas. « Une serrure à ouvrir ? » Tu secoues la tête. Tu montres l'enseigne, dehors, puis lui. Il comprend. Il rit. « C'est mon grand-père qui l'a peinte. Il ne savait pas lire non plus. » Il te donne une clé tordue, ratée, de son panier de rebuts. « Tiens. Elle n'ouvre rien. Mais c'est une clé. »"],
+    text: ["Un vieil homme, des besicles au bout du nez, lime une clé dans un étau. Il lève les yeux. Il voit tes peintures, tes pieds nus, ton couteau. Il garde son calme. « Une serrure à ouvrir ? » Tu secoues la tête. Tu montres l'enseigne, dehors, puis lui. Il comprend. Il rit. « C'est mon grand-père qui l'a peinte. Il ne savait pas lire non plus. » Il te donne une clé tordue, ratée, de son panier de rebuts. « Tiens. Elle n'ouvre rien. Mais c'est une clé. »"],
     choices: BACK }),
   CO_V_marche: P({ title: "Le marché aux bêtes",
     text: [
@@ -63,6 +63,6 @@ module.exports = {
     text: ["Tu dictes. Les mots te manquent, d'abord. Puis tu dis : la ville, les signes, la rivière, le renne dans l'enclos, le garde en noir. Il écrit tout. À la fin, il te relit. Tu écoutes tes propres mots dans sa bouche, et ils sont devenus autres, plus droits, plus sûrs que toi. « Elle sait lire, votre mère ? » Non. « Alors il faudra que quelqu'un la lui lise. » Il plie la feuille. Tu la ranges contre ta peau. Tu ne sais pas qui la lui lira. Tu la garderas en attendant."],
     choices: BACK }),
   CO_V_ecrivain_nom: P({ title: "Ton nom",
-    text: ["Il te demande comment ça s'écrit. Tu ne sais pas. Il réfléchit, il essaie, il dit les lettres à voix haute en les traçant. *C. O. R. B. E.* Il te tend la feuille. Cinq signes noirs, au milieu de tout ce blanc. C'est toi. Tu le regardes longtemps. Tu ne le reconnais pas. Tu le plies en quatre, puis en huit. Tu le glisses dans ta ceinture. Tu sais que tu ne le perdras pas."],
+    text: ["Il te demande comment ça s'écrit. Tu l'ignores. Il réfléchit, il essaie, il dit les lettres à voix haute en les traçant. *C. O. R. B. E.* Il te tend la feuille. Cinq signes noirs, au milieu de tout ce blanc. C'est toi. Tu le regardes longtemps. Tu ne le reconnais pas. Tu le plies en quatre, puis en huit. Tu le glisses dans ta ceinture. Tu sais que tu ne le perdras pas."],
     choices: BACK }),
 };

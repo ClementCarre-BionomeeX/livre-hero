@@ -20,11 +20,11 @@ module.exports = {
   EN_village: { act: "I", title: "Sauvelune sous la neige", place: "sauvelune", hub: true,
     fx: { questSeen: "EN_coffre" },
     text: [
-      { first: true, text: "Le village s'est réveillé étranger à lui-même. Les gens sortent sur le pas de leur porte et s'observent avec la politesse prudente qu'on réserve aux voyageurs, sourire compris. Un homme demande à une femme qui elle est, et elle ne sait pas répondre. Les linteaux sont blancs. Tu fais le tour de la rue du moulin et tu comptes : quarante-deux portes, et sur aucune un nom." },
+      { first: true, text: "Le village s'est réveillé étranger à lui-même. Les gens sortent sur le pas de leur porte et s'observent avec la politesse prudente qu'on réserve aux voyageurs, sourire compris. Un homme demande à une femme qui elle est, et elle reste sans réponse. Les linteaux sont blancs. Tu fais le tour de la rue du moulin et tu comptes : quarante-deux portes, et sur aucune un nom." },
       { if: { clock: "EN", max: 1 }, text: "Les enfants se souviennent mieux que les adultes ; ils courent de maison en maison, tirent les manches, crient des prénoms, et les adultes les regardent comme on regarde des petits fous." },
       { first: true, text: "Tu te souviens de tout. De chaque visage, de chaque nom, de chaque querelle de bornage, y compris celle des Roux-Lavallée, qui dure depuis trois générations pour une haie de six pas. La neige a glissé sur toi sans rien prendre." },
-      { if: { clock: "EN", min: 2, max: 3 }, text: "Le soleil monte, et l'oubli avec lui. On ne voit plus d'enfants courir : ils se sont assis, eux aussi, sur les seuils, l'air perdu." },
-      { if: { clock: "EN", min: 4 }, text: "Il est tard. La moitié du village ne sait plus son propre nom. Les autres ne savent plus celui de leurs voisins. La neige, elle, n'a pas fondu d'un pouce." },
+      { if: { clock: "EN", min: 2, max: 3 }, text: "Le soleil monte, et l'oubli avec lui. Les enfants ont cessé de courir : ils se sont assis, eux aussi, sur les seuils, l'air perdu." },
+      { if: { clock: "EN", min: 4 }, text: "Il est tard. La moitié du village a perdu son propre nom. L'autre moitié, celui des voisins. La neige, elle, n'a pas fondu d'un pouce." },
       { if: { clues: "N", max: 1 }, text: "Tu ne comprends encore rien à ce qui arrive. Mais quelqu'un, quelque part, doit savoir." },
       { if: { clues: "N", min: 2 }, text: "Tu commences à comprendre. La chose reviendra ce soir, et ce soir elle entrera au temple. Il faudra être là." },
     ],
@@ -45,7 +45,7 @@ module.exports = {
     fx: { flag: "EN:cloche" },
     text: [
       "Tu lèves les yeux vers le clocher carré du temple. Là-haut, entre les abat-son, tu vois le vieux Baptiste, le sonneur, la corde à la main. Il la regarde comme on regarde un serpent : l'usage de la corde lui est sorti de la tête.",
-      "C'est la première fois en trois cents ans que midi ne sonne pas à Sauvelune. Tu le sais parce que c'est gravé sur la cloche : *Je sonne depuis l'an de la fondation et je sonnerai jusqu'à la fin.* Personne ne pourra plus lire ça, à part toi.",
+      "C'est la première fois en trois cents ans que midi ne sonne pas à Sauvelune. Tu le sais parce que c'est gravé sur la cloche : *Je sonne depuis l'an de la fondation et je sonnerai jusqu'à la fin.* Tu es désormais le seul à pouvoir lire ça.",
     ],
     choices: [{ label: "Continuer", to: "EN_village" }] },
 
@@ -93,10 +93,10 @@ module.exports = {
 
   EN_pim_souvenir: { act: "I", title: "La Sauve, un jour d'août", place: "sauvelune",
     text: [
-      "Tu prends les mains d'Agathe dans les tiennes. Tu ne sais pas comment on fait. Tu le fais quand même : tu penses très fort à ce jour d'août, à la Sauve, à l'eau verte, à Pim qui crache et qui rit de terreur dans tes bras, à son poids, à sa peau froide, au soleil sur la rivière. Et tu le pousses vers elle, comme on pousse une barque.",
+      "Tu prends les mains d'Agathe dans les tiennes. Tu ignores comment on fait. Tu le fais quand même : tu penses très fort à ce jour d'août, à la Sauve, à l'eau verte, à Pim qui crache et qui rit de terreur dans tes bras, à son poids, à sa peau froide, au soleil sur la rivière. Et tu le pousses vers elle, comme on pousse une barque.",
       "Quelque chose passe. Tu le sens partir, comme une dent qui tombe. Et après, il y a un trou, un trou propre, sans douleur, là où il y avait la rivière.",
       "Agathe pousse un cri. Elle regarde Pim, et elle le reconnaît, et elle dit : « La Sauve. Tu as failli te noyer dans la Sauve. » Elle se souvient du jour d'août. Elle s'en souvient comme si elle y avait été. Elle s'en souvient avec tes yeux.",
-      "Toi, tu ne sais plus. Tu sais que Pim sait nager. Tu ne sais plus qui le lui a appris.",
+      "Toi, il te reste un fait sec : Pim sait nager. Qui le lui a appris, c'est parti.",
     ],
     choices: [{ label: "Sortir, avec ce trou en toi", back: "EN_village" }] },
 
@@ -150,7 +150,7 @@ module.exports = {
   EN_forge: { act: "I", title: "La forge des Ferrand", place: "sauvelune", shop: "ferrand",
     fx: { flag: "EN:forge" },
     text: [
-      "La forge sonne. C'est le seul bruit vivant de tout Sauvelune ce matin : un marteau sur une enclume, quarante coups à la minute, réguliers et furieux. Tess est devant le foyer, en tablier de cuir, et elle forge un fer à cheval dont personne n'a besoin, parce que c'est la seule chose qu'elle sache faire de ses mains pour qu'elles ne tremblent pas.",
+      "La forge sonne. C'est le seul bruit vivant de tout Sauvelune ce matin : un marteau sur une enclume, un coup tous les deux battements de cœur, réguliers et furieux. Tess est devant le foyer, en tablier de cuir, et elle forge un fer à cheval dont personne n'a besoin, parce que c'est la seule chose qu'elle sache faire de ses mains pour qu'elles ne tremblent pas.",
       "Son père est assis sur un tonneau dans un coin, et il la regarde travailler avec l'admiration polie d'un client qui attend sa commande. Sa propre fille est devenue pour lui une artisane habile et inconnue. Corentin est parti dans la montagne à l'aube, sans raison donnée ; la raison lui avait échappé.",
       { if: { has: "tess:chene" }, text: "Tess lève les yeux quand tu entres. Elle sait. « Le chêne, dit-elle seulement. Je suis montée voir ce matin. Les noms ont disparu de l'écorce, tous, ceux des vieux, ceux de tout le monde. Il ne reste que les nôtres. »" },
       { if: { not: { has: "tess:chene" } }, text: "Tess lève les yeux quand tu entres. Il y a un moment, un très court moment, où elle hésite. Puis elle dit ton prénom. Elle le dit lentement, comme on remonte un seau d'un puits profond." },
@@ -173,7 +173,7 @@ module.exports = {
     text: [
       "Elle te regarde longtemps, le fer rouge au bout de la pince. « Tu me demandes de rester derrière. »",
       "« Je te demande de garder quelqu'un. »",
-      "Elle trempe le fer. Elle dit oui. Elle dit aussi d'autres choses, qu'on ne répète pas dans un livre, et puis elle te serre contre elle si fort que tu sens le tablier de cuir te marquer la poitrine. « Reviens », dit-elle. Ce n'est pas une prière. C'est un ordre.",
+      "Elle trempe le fer. Elle dit oui. Elle dit aussi d'autres choses, qu'on ne répète pas dans un livre, et puis elle te serre contre elle si fort que tu sens le tablier de cuir te marquer la poitrine. « Reviens », dit-elle. Moins une prière qu'un ordre.",
     ],
     choices: [{ back: "EN_village" }] },
 
@@ -204,7 +204,7 @@ module.exports = {
 
   EN_ruches2_ko: { act: "I", title: "Les jolies boîtes", place: "sauvelune",
     text: [
-      "La fumée monte, les abeilles ne bougent pas. Mathurin te regarde faire avec bienveillance, comme on regarde un jeune homme faire une chose étrange dont il a sûrement de bonnes raisons.",
+      "La fumée monte, les abeilles restent immobiles. Mathurin te regarde faire avec bienveillance, comme on regarde un jeune homme faire une chose étrange dont il a sûrement de bonnes raisons.",
       "Quand tu repars, il te fait au revoir de la main. Il a perdu ton nom, et le sien. Il a l'air, curieusement, en paix.",
     ],
     choices: [{ back: "EN_village" }] },
@@ -214,7 +214,7 @@ module.exports = {
     fx: { flag: "EN:grenier", questSeen: "EN_coffre" },
     text: [
       "Le grenier du moulin sent le grain, la souris et le temps. Sous la lucarne, entre deux sacs de son, il y a le coffre de Joris : trois pieds de mélèze cerclé de fer, une serrure de la taille d'une paume, et vingt ans de poussière sur le couvercle, qui t'apprennent qu'on l'ouvre rarement. Quand tu étais petit, tu demandais ce qu'il y avait dedans. Agathe répondait *des choses de ton père.* Joris ne répondait pas.",
-      "Joris est en bas, dans la salle de la meule. Il ne sait plus à quoi sert la meule. Il ne t'empêchera pas.",
+      "Joris est en bas, dans la salle de la meule. La meule est devenue pour lui une énigme. Il te laissera faire.",
     ],
     choices: [
       { label: "Forcer la serrure avec la pointe de ton couteau", test: { dom: "discretion", label: "Serrure" },
@@ -234,7 +234,7 @@ module.exports = {
 
   EN_grenier_joris: { act: "I", title: "La clé", place: "sauvelune",
     text: [
-      "Joris est debout devant la meule, les bras ballants. Il te regarde arriver avec une politesse lointaine. Tu lui demandes la clé du coffre. Il ne sait pas de quel coffre tu parles.",
+      "Joris est debout devant la meule, les bras ballants. Il te regarde arriver avec une politesse lointaine. Tu lui demandes la clé du coffre. Il te regarde comme si le mot coffre venait d'une langue étrangère.",
       "Mais quand tu tends la main, il met la sienne dans la poche de son gilet, sans y penser, comme on fait un geste mille fois répété, et il en sort une petite clé de fer, toute polie. Il la regarde avec étonnement. Il te la donne.",
       "« Elle te revient, dit-il. Je crois. »",
     ],
@@ -298,8 +298,8 @@ module.exports = {
       "Au milieu de son front, la tache noire. Cette fois, tu vois ce que c'est : un sceau. Un sceau de cire noire, gros comme une paume, imprimé à même la neige, comme on scelle une lettre.",
       { if: { has: "EN:embuscade" }, text: "De la tribune, tu la vois de haut. Elle ne t'a pas vu. Elle va droit au Père Anselme et au registre, sans regarder ailleurs." },
       { if: { has: "EN:surpris" }, text: "La tribune grince sous ton pied. Elle lève la tête vers toi. Le creux de son visage te trouve tout de suite." },
-      { if: { has: "EN:chandelles" }, text: "Elle s'arrête devant le cercle de chandelles. Chacune porte un nom gravé à la pointe du couteau : *Agathe. Joris. Pim. Tess. Mathurin.* Elle n'avance plus. Elle tourne autour, lentement, comme un loup autour d'un feu." },
-      "Et puis elle parle. Ce n'est pas une voix. C'est cent voix, mille, toutes celles qu'elle a mangées, qui disent la même chose en même temps, chacune avec son accent de Sauvelune.",
+      { if: { has: "EN:chandelles" }, text: "Elle s'arrête devant le cercle de chandelles. Chacune porte un nom gravé à la pointe du couteau : *Agathe. Joris. Pim. Tess. Mathurin.* Elle reste à distance. Elle tourne autour, lentement, comme un loup autour d'un feu." },
+      "Et puis elle parle. Sa voix est faite de cent voix, de mille, toutes celles qu'elle a mangées, qui disent la même chose en même temps, chacune avec son accent de Sauvelune.",
       "*Tu es celui qui ne s'efface pas.*",
     ],
     choices: [
@@ -341,7 +341,7 @@ module.exports = {
     text: [
       "Elle se penche sur toi, et cette fois, quand elle souffle, quelque chose part.",
       { if: { has: "sauve:pim" }, text: "Agathe. Tu sais qu'elle existe. Tu sais qu'elle est ta mère, qu'elle fait le pain, qu'elle chante faux. Tu ne vois plus son visage. Il y a, là où il était, une lumière douce, sans traits, comme une fenêtre éclairée vue de loin dans la nuit. Et à la place, en échange, une certitude qui te tient chaud : Pim ne sera plus jamais oublié. Par personne." },
-      { if: { has: "sauve:tess" }, text: "Le chêne. Tu sais qu'il y a un chêne, au bord du pré, et que tu y es allé avec Tess. Tu ne sais plus ce que vous y avez fait. Il y a le goût d'une mûre, très loin, comme un mot sur le bout de la langue. Et en échange, une certitude : Tess ne sera plus jamais oubliée. Ni par son père, ni par son frère, ni par toi." },
+      { if: { has: "sauve:tess" }, text: "Le chêne. Tu sais qu'il y a un chêne, au bord du pré, et que tu y es allé avec Tess. Ce que vous y avez fait s'est effacé. Il y a le goût d'une mûre, très loin, comme un mot sur le bout de la langue. Et en échange, une certitude : Tess ne sera plus jamais oubliée. Ni par son père, ni par son frère, ni par toi." },
       { if: { has: "sauve:registre" }, text: "La plaine blanche s'en va. La voix qui chantait, le froid qui ne mordait pas, ce nom qui n'était pas le tien. Tu y tenais plus que tu ne croyais. Maintenant, quand tu fermes les yeux, tu trouves du noir, et ce noir te fait peur. Et sur les genoux du Père Anselme, le registre se remplit : les noms remontent dans les pages, toutes les pages, jusqu'à la fondation." },
       "La chose se redresse. Elle te regarde. Puis elle sort du temple, et la porte se referme sur la nuit.",
       "*Elle a tenu parole*, dit une petite voix en toi. Soulagement ou deuil, tu hésites.",
@@ -393,7 +393,7 @@ module.exports = {
     text: [
       "Le soleil se lève sur un village qui n'existe plus. La neige a fondu dans la nuit, toute, d'un coup, sans laisser une flaque, et l'herbe dessous est verte et sèche, comme après une nuit ordinaire. Les linteaux sont nus. Les gens sortent de chez eux et se disent bonjour poliment, comme des voyageurs qui ont dormi dans la même auberge.",
       { if: { has: "EN:glaneur_vaincu" }, text: "Mais certains se souviennent. Par morceaux : des visages, des prénoms qui reviennent comme des oiseaux sur un toit. Le registre est entier. Le Père Anselme le lit à voix haute sur les marches du temple, nom après nom, et à chaque nom, quelqu'un dans la foule lève la tête." },
-      { if: { has: "choix:registre=donne" }, text: "Personne ne se souvient. Il n'y a plus rien d'écrit. Sauvelune est un pré avec des maisons dessus, et des gens dedans qui s'appellent comme ils veulent, maintenant, ou comme on les appelle." },
+      { if: { has: "choix:registre=donne" }, text: "Le village a tout oublié. Les pages sont vides. Sauvelune est un pré avec des maisons dessus, et des gens dedans qui s'appellent comme ils veulent, maintenant, ou comme on les appelle." },
       { before: "EN:glaneur_vaincu", if: { has: "registre:entier" }, text: "Le registre est entier sur les genoux du prêtre, et c'est peut-être tout ce qui reste de Sauvelune. Mais c'est quelque chose." },
       { if: { has: "pim:nom" }, text: "Au moulin, Agathe fait le pain, et Pim l'aide en mangeant la pâte. Elle sait qui il est. Elle le sait si fort qu'elle se retourne sans cesse pour vérifier." },
       { if: { not: { has: "pim:nom" } }, text: "Au moulin, Agathe fait le pain, et Pim est assis au bout de la table. Elle lui donne une tartine. Elle a décidé, sans savoir pourquoi, de garder ce petit garçon que personne ne vient chercher." },
@@ -413,7 +413,7 @@ module.exports = {
       { if: { not: { has: "pim:nom" } }, text: "Pim te regarde partir depuis le seuil. Lui se souvient. Il est le seul. Il ne pleure pas. Il lève la main, et il la garde levée jusqu'à ce que tu tournes au coin de la rue." },
       { if: { has: "tess:viens" }, text: "Tess t'attend au bout de la rue, avec ton nom écrit sur le bras. Elle te laisse partir, et elle reste. Elle te dit : « Va. Et reviens. » Et elle t'embrasse comme on frappe sur une enclume." },
       { if: { has: "tess:pim" }, text: "Tess est au moulin, avec Pim. Elle a promis de veiller sur lui. Elle te regarde partir depuis la fenêtre, les mains serrées sur l'appui : un seul geste, et elle courrait après toi." },
-      { if: { all: [{ not: { has: "tess:viens" } }, { not: { has: "tess:pim" } }] }, text: "Tess n'est pas venue. Tu passes devant la forge. Le marteau ne sonne pas." },
+      { if: { all: [{ not: { has: "tess:viens" } }, { not: { has: "tess:pim" } }] }, text: "Tess manque au rendez-vous. Tu passes devant la forge. Le marteau se tait." },
       "Deux chemins partent de Sauvelune. La route de la vallée descend vers Pont-de-Saule, où elle rejoint la grande route des Cloches jusqu'à Pallanche : le plus court, le plus sûr. Ou bien le sentier monte vers la Combe-aux-Grives, puis les crêtes, au bord des Hautes-Combes, d'où la neige est venue. C'est plus long, et plus froid. Mais c'est le chemin de la chose.",
     ],
     choices: [
@@ -432,7 +432,7 @@ module.exports = {
   EN_grives: { act: "I", title: "La Combe-aux-Grives", place: "grives", routes: true,
     text: [
       "La Combe-aux-Grives est un hameau d'estive, huit chalets de mélèze noirci accrochés à la pente, à une heure de marche au-dessus des derniers arbres. Les bergers de Sauvelune y montent les bêtes en juin. Aujourd'hui, le hameau est vide. Les portes battent, les bêtes errent dans les prés, une vache traîne encore sa longe, et la neige blanche, ici, n'a pas fondu.",
-      "Au-dessus du hameau, au bord du pré, il y a les Pierres : un cercle de sept pierres levées, plus vieilles que Sauvelune, plus vieilles que tout. Les bergers y laissent du lait les soirs d'orage. Personne ne sait qui les a dressées.",
+      "Au-dessus du hameau, au bord du pré, il y a les Pierres : un cercle de sept pierres levées, plus vieilles que Sauvelune, plus vieilles que tout. Les bergers y laissent du lait les soirs d'orage. Leurs bâtisseurs ont emporté leur nom avec eux.",
       "Des traces partent vers le nord, dans la neige. De grands pas qui ne s'enfoncent pas.",
     ],
     choices: [
@@ -443,7 +443,7 @@ module.exports = {
     fx: { ep: ["perso", 600] },
     text: [
       "Les Pierres sont couvertes de signes. Tu les as vues cent fois, enfant, en gardant les chèvres, et tu les as toujours prises pour du lichen. Aujourd'hui, de près et à jeun, tu reconnais des lettres. Une écriture que tu n'as jamais apprise, faite de traits droits et de petits cercles, qui court en spirale autour de chaque pierre.",
-      { if: { souv: "enfant:reve" }, text: "Et tu la lis. Pas tout. Un mot, un seul, gravé sept fois, une fois sur chaque pierre, et qui te revient du fond de ton rêve blanc, avec la voix qui chantait : *Reviens.* Tu ne sais pas comment tu le sais. Tu le sais comme on sait son nom." },
+      { if: { souv: "enfant:reve" }, text: "Et tu la lis. Pas tout. Un mot, un seul, gravé sept fois, une fois sur chaque pierre, et qui te revient du fond de ton rêve blanc, avec la voix qui chantait : *Reviens.* Comment, tu l'ignores. Tu le sais comme on sait son nom." },
       { if: { not: { souv: "enfant:reve" } }, text: "Tu passes les doigts sur les signes. Ils sont froids. Tu as l'impression, très forte, que tu devrais les comprendre, qu'ils te concernent, qu'ils t'attendaient. Il y a un trou en toi, là où il faudrait les lire." },
     ],
     choices: [{ back: "EN_grives" }] },
@@ -493,7 +493,7 @@ module.exports = {
 
   EN_four_apres: { act: "I", title: "Le four froid", place: null,
     text: [
-      { if: { has: "gaspard:tue" }, text: "Il se défait en poudre devant son four. Dans la poudre, un murmure s'envole, un seul nom, que le vent emporte avant que tu l'entendes. Tu as l'impression d'avoir tué quelqu'un. Tu ne sais pas qui." },
+      { if: { has: "gaspard:tue" }, text: "Il se défait en poudre devant son four. Dans la poudre, un murmure s'envole, un seul nom, que le vent emporte avant que tu l'entendes. Tu as l'impression d'avoir tué quelqu'un. Qui, tu l'ignores." },
       { if: { not: { has: "gaspard:tue" } }, text: "Tu te réveilles dans la neige, transi. Le Glaneur est retourné s'accroupir devant son four. Il ne te regarde plus. Tu ne l'intéresses pas : tu n'as pas de nom à prendre." },
     ],
     choices: [{ back: "@route" }] },
@@ -542,7 +542,7 @@ module.exports = {
       { if: { has: "hautvent:parole" }, text: "Les prisonniers marchent sans coups ni bandages. Certains portent sur le dos des ballots de laine et des navettes de tisserand qu'on les a laissés emporter. Ils ont l'air de gens qui ont choisi de suivre, faute de mieux." },
       { if: { has: "rodric:vaincu" }, text: "Le géant boite. Sa chemise est raide de sang séché au flanc, et on lui a lié les poignets plus serré qu'aux autres." },
       { if: { has: "rodric:vainqueur" }, text: "La chevalière a une ecchymose violette sur la pommette, et ses hommes jettent au géant des regards où il y a autant de respect que de haine." },
-      { if: { has: "thibaut:sort=repris" }, text: "Un des soldats chevauche sur le flanc, à hauteur d'une prisonnière qui porte un enfant. Il ne lui parle pas. Les autres soldats ne lui parlent pas non plus." },
+      { if: { has: "thibaut:sort=repris" }, text: "Un des soldats chevauche sur le flanc, à hauteur d'une prisonnière qui porte un enfant. Il garde le silence. Les autres soldats aussi." },
       { if: { has: "thibaut:sort=livre" }, text: "Dans la file des prisonniers marche un homme qui a encore les bottes d'un soldat de la reine. Il tient la main d'une femme et d'un enfant." },
     ],
     choices: [
@@ -561,7 +561,7 @@ module.exports = {
 
   EN_colonne_ysolde: { act: "I", title: "La chevalière", place: null,
     text: [
-      "Tu cours à côté de la jument grise. La chevalière baisse les yeux vers toi. Elle a la trentaine, un visage dur, une cicatrice blanche qui lui coupe le menton en deux moitiés presque égales. Elle t'écoute parler de la neige, du village effacé, de la chose au sceau noir. Elle ne t'interrompt pas.",
+      "Tu cours à côté de la jument grise. La chevalière baisse les yeux vers toi. Elle a la trentaine, un visage dur, une cicatrice blanche qui lui coupe le menton en deux moitiés presque égales. Elle t'écoute parler de la neige, du village effacé, de la chose au sceau noir. Elle te laisse aller au bout.",
       "Quand tu as fini, elle reste un moment silencieuse. « Une plume et une clé croisées, dit-elle enfin. Sur le front. »",
       { after: "EN:glaneur_vaincu", text: "« Oui. »" },
       { before: "EN:glaneur_vaincu", text: "« Un sceau noir, oui. Je n'ai pas vu ce qu'il portait. »" },
@@ -600,7 +600,7 @@ module.exports = {
     text: ["Deux loups gris sortent des mélèzes, en silence, la tête basse. Ils ont maigri. L'été a été chaud, et quelque chose, dans les Hautes-Combes, a fait fuir le gibier."] },
 
   E_loups_perdu: { act: "I", title: "Les loups", place: null,
-    text: ["Tu te réveilles adossé à un rocher, l'avant-bras en sang. Les loups sont partis avec ton sac de vivres, ou ce qu'il en restait. Ils s'intéressaient au fromage d'Agathe bien plus qu'à toi, et tu ne sais pas si tu dois t'en réjouir."],
+    text: ["Tu te réveilles adossé à un rocher, l'avant-bras en sang. Les loups sont partis avec ton sac de vivres, ou ce qu'il en restait. Ils s'intéressaient au fromage d'Agathe bien plus qu'à toi, et tu hésites à t'en réjouir."],
     choices: [{ back: "@route" }] },
 
   E_berger: { act: "I", title: "Le berger", place: null,

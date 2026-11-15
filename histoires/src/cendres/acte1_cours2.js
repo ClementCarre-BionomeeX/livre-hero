@@ -22,7 +22,7 @@ module.exports = {
     ],
     choices: [{ back: "LI_cour" }] }),
   LI_k_repetition_rate: LI({ title: "La galerie",
-    text: ["Tu chantes une fin. Ce n'est pas la bonne. Grégoire secoue la tête, poliment. Tu en essaies une autre. Les musiciens se regardent. Au bout d'une heure, ils décident de finir chaque morceau par un accord, n'importe lequel, très fort, pour qu'on applaudisse. Ça marchera. On applaudit toujours après un accord très fort."],
+    text: ["Tu chantes une fin. La mauvaise. Grégoire secoue la tête, poliment. Tu en essaies une autre. Les musiciens se regardent. Au bout d'une heure, ils décident de finir chaque morceau par un accord, n'importe lequel, très fort, pour qu'on applaudisse. Ça marchera. On applaudit toujours après un accord très fort."],
     choices: [{ back: "LI_cour" }] }),
 
   YS_k_maitre: YS({ title: "Le maître d'armes",
@@ -57,7 +57,7 @@ module.exports = {
     ] }),
   III_p_tour_guet_descendre: T3({ title: "La trompe",
     text: [
-      "Il se retourne. Il te regarde, et il te voit, et il fronce les sourcils, comme devant une chose qu'il ne comprend pas. « Tu as leurs yeux, dit-il. Les Orsans. » Il ne lève pas sa trompe. Il te regarde encore. « Ils ont des yeux d'enfant, alors. On ne m'avait pas dit. »",
+      "Il se retourne. Il te regarde, et il te voit, et il fronce les sourcils, comme devant une chose qu'il ne comprend pas. « Tu as leurs yeux, dit-il. Les Orsans. » Sa trompe reste à sa ceinture. Il te regarde encore. « Ils ont des yeux d'enfant, alors. On ne m'avait pas dit. »",
       "Il descend. Lentement, marche après marche. En bas, il pose sa trompe contre le mur de la tour, et il part, à pied, vers les tours blanches, sans se retourner. C'est la première fois depuis trois cents ans qu'il tourne le dos au nord.",
     ],
     choices: [{ back: "III_plaine" }] }),
