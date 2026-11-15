@@ -24,12 +24,12 @@ module.exports = { rumors: {
   T_valerien: {
     title: "Valérien de Vaucombe", back: true, montrer: "valerien",
     text: [
-      { first: true, text: "Valérien referme son livre sur un doigt et te regarde de bas en haut, comme on regarde une bête au marché. « Le berger. Tu t'es perdu ? Les moutons sont en bas, vers le port. »" },
+      { first: true, text: "Valérien referme son livre sur un doigt et te regarde de bas en haut, comme on regarde une bête au marché. « Le mouton. Tu t'es égaré du troupeau ? Les autres sont en bas, vers le port. »" },
       { again: true, before: "A_defi", text: "Valérien garde son livre ouvert. « Encore toi. Tu as quelque chose à me dire, ou tu aimes mon profil ? »" },
       { after: "val:battu", before: "B_duel", text: "Valérien te regarde venir avec une haine tranquille. « Une fois, dit-il. Une fois, avec de la chance et une baguette de village. »" },
       { after: "A_duel_perdu", before: "B_duel", text: "Valérien sourit en te voyant. « Tu viens prendre une autre leçon ? Je suis bon prince : je ne fais pas payer. »" },
       { after: "B_duel", before: "C_valerien", text: "Valérien lève les yeux de son livre, et pour une fois, il garde ses méchancetés pour lui. Il a l'air fatigué. « Qu'est-ce que tu veux ? »" },
-      { again: true, after: "A_refus", before: "B_duel", text: "Valérien te regarde passer comme on regarde un meuble qu'on a déjà vu. « Tiens. Le berger prudent. »" },
+      { again: true, after: "A_refus", before: "B_duel", text: "Valérien te regarde passer comme on regarde un meuble qu'on a déjà vu. « Tiens. Le mouton prudent. »" },
       { after: "C_valerien", if: { not: { has: "valerien:allie" } }, text: "Valérien ferme son livre quand tu approches. « On a tout dit, toi et moi, dit-il. Le reste se dira sur la digue. »" },
       { if: { has: "valerien:allie" }, text: "Valérien te fait de la place sur le banc du puits. Il parle peu, ces soirs-là. Il regarde la fenêtre éclairée du logis de son oncle, et parfois, il te demande de lui lire une page du cahier de Solène." },
       { after: "B_duel_neveu", before: "C_valerien", once: true, text: "Il ajoute, sans te regarder : « Ce que tu as vu, après le duel. Tu le gardes pour toi. »" },
@@ -42,7 +42,7 @@ module.exports = { rumors: {
   K_val_provoque: {
     title: "Valérien de Vaucombe", back: true,
     text: [
-      "Valérien pose son livre sur le rebord de la fenêtre, très lentement. « Me battre ? » Il rit, d'un rire bref et sans gaieté. « Le berger me lance un défi. Ce collège tombe vraiment bien bas. »",
+      "Valérien pose son livre sur le rebord de la fenêtre, très lentement. « Me battre ? » Il rit, d'un rire bref et sans gaieté. « Le mouton me lance un défi. Ce collège tombe vraiment bien bas. »",
       "Tout le couloir s'est tu. Il se penche vers toi et parle plus bas, pour toi seul{e}. « Garde ta langue pour le jour où tu sauras t'en servir. Ce jour-là, je serai là. »",
     ],
     fx: { regard: { valerien: "hostile" } },
@@ -52,18 +52,18 @@ module.exports = { rumors: {
     text: [
       "Tu lui demandes, simplement, ce que c'est d'être le neveu du Recteur.",
       "Valérien te regarde longtemps. « Mon père est mort quand j'avais six ans. Mon oncle m'a élevé. Il m'a appris à lire dans le livre de la digue. Il m'a appris le Verre, l'escrime, le latin, et à ne jamais montrer qu'on a peur. » Il tourne une page de son livre sans la lire. « Tout le monde ici l'aime. Moi aussi, je l'aime. C'est un grand homme. »",
-      "Il le dit comme une leçon apprise par cœur, très vite, et il retourne à sa lecture.",
+      "Il le dit très vite, comme une leçon apprise par cœur, et il retourne à sa lecture.",
     ],
     fx: { regard: { valerien: "neutre" } },
   },
   K_valerien_verite: {
     title: "Ce que lit Valérien", back: true,
     text: [
-      "Valérien prend le document du bout des doigts, prêt à rire. Il lit. Il ne rit plus.",
-      { if: { item: "cahier" }, text: "Il tourne les pages du cahier une à une, lentement, d'abord avec méfiance, puis avec une sorte d'avidité. Il connaît ces signes : il les a appris enfant, sur les genoux de son oncle, dans le grand livre de la digue. Ici, ils sont tracés d'une autre main, avec des ratures, des essais manqués, des notes en marge. Des brouillons. Les brouillons de quelqu'un d'autre." },
+      "Valérien prend le document du bout des doigts, prêt à rire. Il lit, et son rire s'arrête avant d'avoir commencé.",
+      { if: { item: "cahier" }, text: "Il tourne les pages du cahier une à une, lentement, d'abord avec méfiance, puis avec une sorte d'avidité. Il connaît ces signes : il les a appris enfant, sur les genoux de son oncle, dans le grand livre de la digue. Ici, ils sont tracés d'une autre main, avec des ratures, des essais manqués, des notes en marge : les brouillons de quelqu'un d'autre." },
       { if: { item: "page" }, text: "Il lit la page recollée trois fois. Son doigt s'arrête sur la dernière ligne, sur le nom de son oncle, écrit là comme témoin, en petit, sous celui d'une élève de quatrième année." },
-      "Il te rend le document. Ses mains tremblent. « Il me racontait la nuit de la première épreuve, dit-il. La tempête, le chant, les pierres qui s'éveillent. Je la connais par cœur, cette histoire. Il ne m'a jamais parlé d'une fille. »",
-      "Il se lève. Il marche jusqu'à la fenêtre, revient. « Qu'est-ce que tu veux faire de ça ? » Tu le lui dis. Il hoche la tête plusieurs fois, comme quelqu'un qui accepte un coup.",
+      "Il te rend le document, les mains tremblantes. « Il me racontait la nuit de la première épreuve, dit-il. La tempête, le chant, les pierres qui s'éveillent. Je la connais par cœur, cette histoire. Il ne m'a jamais parlé d'une fille. »",
+      "Il se lève, marche jusqu'à la fenêtre, et revient. « Qu'est-ce que tu veux faire de ça ? » Tu le lui dis. Il hoche la tête plusieurs fois, comme quelqu'un qui encaisse un coup.",
       "« Alors je serai à côté de toi, dit-il. Mon oncle doit l'apprendre de ma bouche autant que de la tienne. »",
     ],
     fx: { flag: "valerien:allie", regard: { valerien: "allie" }, quest: "III_valerien", ep: ["histoire", 800] },
@@ -71,7 +71,7 @@ module.exports = { rumors: {
   K_valerien_doute: {
     title: "Valérien de Vaucombe", back: true,
     text: [
-      "Valérien lit la ligne déchiffrée, puis te regarde. « Le cabinet scellé. C'est tout ? Un vieux maître qui perd la tête écrit deux mots dans un carnet, et toi, tu en fais une histoire. » Il te rend le papier. « Va dormir, berger. »",
+      "Valérien lit la ligne déchiffrée, puis te regarde. « Le cabinet scellé. C'est tout ? Un vieux maître qui perd la tête écrit deux mots dans un carnet, et toi, tu en fais une histoire. » Il te rend le papier. « Va dormir, mouton. »",
     ],
   },
 
@@ -79,11 +79,11 @@ module.exports = { rumors: {
   T_salvanhac: {
     title: "Maître Salvanhac", back: true, montrer: "salvanhac",
     text: [
-      { first: true, text: "Maître Salvanhac est assis à son bureau, au fond de la salle de l'Encre, une plume à la main au-dessus d'une feuille blanche. Le merle est perché sur l'encrier. Le vieux maître lève vers toi des yeux d'un bleu très pâle, très doux. « Entrez, entrez. Vous êtes de quelle année ? Pardonnez-moi, j'ai si mauvaise mémoire des visages. »" },
-      { first: true, text: "Il t'écoute avec une attention extrême, la tête un peu penchée, comme s'il voulait garder chacun de tes mots. Puis il parle de l'Encre, longtemps, et tu ne vois pas passer l'heure. Quand tu pars, il te demande ton nom pour la troisième fois." },
+      { first: true, text: "Maître Salvanhac est assis à son bureau, au fond de la salle de l'Encre, une plume à la main au-dessus d'une feuille blanche, et le merle est perché sur l'encrier. Le vieux maître lève vers toi des yeux d'un bleu très pâle et très doux. « Entrez, entrez. Vous êtes de quelle année ? Pardonnez-moi, j'ai si mauvaise mémoire des visages. »" },
+      { first: true, text: "Il t'écoute avec une attention extrême, la tête un peu penchée, comme s'il voulait garder chacun de tes mots. Puis il parle longtemps de l'Encre, et l'heure passe sans que tu la voies. Quand tu pars, il te demande ton nom pour la troisième fois." },
       { again: true, before: "B_hiver", text: "Le vieux maître te reconnaît, ou fait semblant. « Ah, vous voilà. Asseyez-vous. Le merle vous aime bien : regardez, il ne s'envole pas. »" },
       { again: true, after: "B_hiver", before: "salvanhac:protege", text: "Maître Salvanhac te regarde entrer avec une politesse inquiète. Il a sur la table trois feuilles couvertes du même début de phrase. « Je cherchais quelque chose, dit-il. Vous ne savez pas quoi, par hasard ? »" },
-      { again: true, after: "salvanhac:protege", text: "Maître Salvanhac te reconnaît dès la porte. Il a meilleure mine. « Je dors mieux, dit-il. Et je me souviens de mes rêves, ce qui ne m'était pas arrivé depuis longtemps. »" },
+      { again: true, after: "salvanhac:protege", text: "Maître Salvanhac te reconnaît dès la porte, et il a meilleure mine. « Je dors mieux, dit-il. Et je me souviens de mes rêves, ce qui ne m'était pas arrivé depuis longtemps. »" },
     ],
     choices: [
       { label: "Lui proposer de porter ses livres jusqu'à sa chambre", hide: { seen: "K_chambre_salvanhac" }, takes: 1, to: "K_chambre_salvanhac" },
@@ -92,9 +92,9 @@ module.exports = { rumors: {
   K_chambre_salvanhac: {
     title: "La chambre du maître", place: "salles", back: true,
     text: [
-      "La chambre de Maître Salvanhac est au dernier étage de l'escalier des maîtres, une pièce mansardée encombrée de livres, de papiers et de cages ouvertes. Une seule fenêtre donne sur la mer et, tout en bas, sur la digue entière, de la ville jusqu'à la Tête.",
+      "La chambre de Maître Salvanhac est au dernier étage de l'escalier des maîtres : une pièce mansardée, encombrée de livres, de papiers et de cages ouvertes. Une seule fenêtre donne sur la mer et, tout en bas, sur la digue entière, de la ville jusqu'à la Tête.",
       "Aux murs, des dizaines de p{{or:s2|o}}rtraits au fusain, des visages de jeunes gens et de jeunes filles, chacun avec une date dans un coin. « Mes élèves, dit le vieux maître. Les meilleurs. Je les dessine le jour où ils me dépassent. » Il en touche un, puis un autre. « Celui-ci est maître à Valcourt. Celle-ci… » Il s'arrête, le doigt levé. « Celle-ci, je ne sais plus. »",
-      "C'est une jeune fille aux cheveux tirés, au visage mince, qui sourit à moitié comme quelqu'un qui va dire une insolence. Pas de nom. Une date : l'an trente du collège.",
+      "C'est une jeune fille aux cheveux tirés, au visage mince, qui sourit à moitié, comme quelqu'un qui va dire une insolence. Le portrait est sans nom, avec une date : l'an trente du collège.",
       "Le merle se pose sur le cadre, penche la tête, et siffle deux notes claires, toujours les mêmes, qui ressemblent à un nom : « So-lè. So-lè. » Le vieux maître le regarde avec tendresse. « Il siffle ça depuis toujours. Je ne sais pas où il l'a appris. »",
     ],
     fx: { clue: "o_merle", regard: { salvanhac: "cordial" } },
@@ -110,8 +110,8 @@ module.exports = { rumors: {
   K_salvanhac_main: {
     title: "Maître Salvanhac et le traité", back: true,
     text: [
-      "Tu lis au vieux maître la page que tu as recopiée. Il écoute, poliment, en hochant la tête aux bons endroits.",
-      "Quand tu as fini, il regarde le dos de sa main gauche, longuement, la peau fine et tachée, les veines bleues. Il le frotte avec le pouce. « Le Recteur est mon ami, dit-il. Mon plus vieux ami. Il me sert le thé lui-même, chaque jeudi. » Il frotte encore. « J'ai écrit quelque chose, un jour, à propos du thé. Je ne sais plus quoi. »",
+      "Tu lis au vieux maître la page que tu as recopiée. Il écoute poliment, en hochant la tête aux bons endroits.",
+      "Quand tu as fini, il regarde longuement le dos de sa main gauche, la peau fine et tachée, les veines bleues, et il la frotte avec le pouce. « Le Recteur est mon ami, dit-il. Mon plus vieux ami. Il me sert le thé lui-même, chaque jeudi. » Il frotte encore. « J'ai écrit quelque chose, un jour, à propos du thé. Je ne sais plus quoi. »",
     ],
   },
 
@@ -119,9 +119,9 @@ module.exports = { rumors: {
   T_castagnet: {
     title: "Dame Castagnet", back: true, montrer: "castagnet",
     text: [
-      { first: true, text: "Dame Castagnet te reçoit dans son bureau, une pièce nue avec une table, deux chaises et un diapason d'argent posé sur un coussin. Elle te laisse debout. Elle écoute ce que tu as à dire, les mains croisées, les yeux dans les tiens." },
+      { first: true, text: "Dame Castagnet te reçoit dans son bureau, une pièce nue avec une table, deux chaises, et un diapason d'argent posé sur un coussin. Elle te laisse debout, et écoute ce que tu as à dire, les mains croisées, les yeux dans les tiens." },
       { first: true, text: "« Bien, dit-elle quand tu as fini. Vous êtes ici grâce à votre bourse, donc grâce à la ville, donc grâce à la digue. Souvenez-vous-en. Travaillez. Ne vous faites pas remarquer. Ce sera tout. »" },
-      { again: true, before: "B_tempete", text: "Dame Castagnet lève les yeux de son registre et attend. Elle a toujours l'air d'attendre." },
+      { again: true, before: "B_tempete", text: "Dame Castagnet lève les yeux de son registre et attend, comme toujours." },
       { again: true, after: "B_tempete", text: "Dame Castagnet a encore la voix voilée depuis la nuit de la tempête. Elle te fait signe d'entrer, et pour la première fois, elle te désigne une chaise." },
       { after: "marche:the3", once: true, text: "« Maître Salvanhac m'a demandé ce matin où était sa mère, dit-elle d'une voix sans expression. Sa mère est morte il y a cinquante ans. J'ai repris ses cours. Personne ne le remplacera. »" },
     ],
@@ -142,7 +142,7 @@ module.exports = { rumors: {
   T_vilmorin: {
     title: "Maître Vilmorin", back: true, montrer: "vilmorin",
     text: [
-      { first: true, text: "Maître Vilmorin t'accueille comme un vieil ami. Il fait asseoir tout le monde, offre des dragées d'un cornet froissé, raconte trois histoires de cour qui font rire même ceux qui ne les comprennent pas. « Le Verre, dit-il, c'est l'art de montrer aux gens ce qu'ils veulent voir. Le plus difficile, c'est de savoir ce qu'ils veulent. »" },
+      { first: true, text: "Maître Vilmorin t'accueille comme un vieil ami. Il fait asseoir tout le monde, offre des dragées d'un cornet froissé, et raconte trois histoires de cour qui font rire même ceux qui ne les comprennent pas. « Le Verre, dit-il, c'est l'art de montrer aux gens ce qu'ils veulent voir. Le plus difficile, c'est de savoir ce qu'ils veulent. »" },
       { again: true, text: "Maître Vilmorin te salue d'un reflet : ton propre visage apparaît une seconde dans la vitre derrière lui, et te fait un clin d'œil." },
       { after: "B_duel", once: true, text: "« Ton duel contre le jeune Vaucombe, dit-il. Je l'ai regardé deux fois en pensée. Tu sais ce qui m'a frappé ? Il ne joue plus contre toi. Il joue contre ce que tu as fait la fois d'avant. Un jour, il faudra que tu le surprennes. »" },
     ],
@@ -150,7 +150,7 @@ module.exports = { rumors: {
   K_vilmorin_cahier: {
     title: "Maître Vilmorin", back: true,
     text: [
-      "Vilmorin feuillette le document en sifflotant, puis il s'arrête de siffler. Il te regarde par-dessus, et pour une fois, il a le visage grave.",
+      "Vilmorin feuillette le document en sifflotant, puis il cesse de siffler. Il te regarde par-dessus, et pour une fois, il a le visage grave.",
       "« Je suis arrivé au collège il y a dix ans, dit-il. Je ne sais rien de ce qui s'est passé ici avant moi. Je sais seulement une chose : notre Recteur, le jour où un signe de la digue a cédé, est resté planté devant comme un illettré devant une affiche. » Il te rend le document. « Je dois de l'argent à tout le monde. Je n'ai pas le courage d'un lion. Mais pour l'examen, je peux t'apprendre à voir la lumière dans la pierre. Viens après les cours. Le reste, tu le feras seul{e}. »",
     ],
     fx: { flag: "vilmorin:aide", pratique: { magie: 2 } },
@@ -160,7 +160,7 @@ module.exports = { rumors: {
   T_melisande: {
     title: "Sœur Mélisande", back: true, montrer: "melisande",
     text: [
-      { first: true, text: "Sœur Mélisande tourne vers toi son oreille droite, celle qui entend. Elle est petite, voûtée, vêtue de gris, et ses mains de colleuse sentent la colle de peau. « Qu'est-ce que vous cherchez ? Personne ne vient ici sans chercher quelque chose. Les uns le savent, les autres pas. »" },
+      { first: true, text: "Sœur Mélisande tourne vers toi son oreille droite, celle qui entend. Elle est petite et voûtée, vêtue de gris, et ses mains de colleuse sentent la colle de peau. « Qu'est-ce que vous cherchez ? Personne ne vient ici sans chercher quelque chose. Les uns le savent, les autres pas. »" },
       { again: true, text: "Sœur Mélisande lève la tête de sa reliure. « Vous, dit-elle. Le rayon des vents, troisième galerie. Ou autre chose, aujourd'hui ? »" },
       { after: "A_the", once: true, text: "« Les encres défendues ? dit-elle, quand tu poses la question l'air de rien. Le cabinet scellé, mon enfant. Les maîtres en ont la clé, ou le chiffre. Moi, je garde la porte. » Elle ajoute, en se penchant de nouveau sur sa reliure : « Bien sûr, les livres voyagent, dans une bibliothèque. Ils ne restent pas toujours où on les range. »" },
       { after: "Z_frag_1", before: "Z_frag_3", once: true, text: "« L'Herbier de Maître Ancel ? Il est rangé aux sciences naturelles, deuxième étage. Ou alors on l'a encore mis à côté des herbiers de cuisine, au fond. Les élèves confondent tout. »" },
@@ -169,7 +169,7 @@ module.exports = { rumors: {
   K_melisande_page: {
     title: "Sœur Mélisande", back: true,
     text: [
-      "Sœur Mélisande prend le document, le porte sous la lampe, le tourne, le gratte de l'ongle. « Papier du collège, dit-elle. De l'ancien moulin, celui qui a brûlé. Trente ans, au moins. »",
+      "Sœur Mélisande prend le document, le porte sous la lampe, le tourne, et le gratte de l'ongle. « Papier du collège, dit-elle. De l'ancien moulin, celui qui a brûlé. Trente ans, au moins. »",
       "Elle lit, et son visage change. « Arlaud. » Elle répète le nom de son oreille sourde à son oreille qui entend, en tournant la tête. « Elle lisait debout entre les rayons, cette petite. Elle ne s'asseyait jamais. Elle disait qu'on pense mieux debout. » Elle te rend le document avec précaution. « Si on me demande, je dirai que ce papier est du collège, et que cette écriture est celle de la petite Arlaud. J'ai vu ses fiches de prêt pendant quatre ans. »",
     ],
     fx: { flag: "melisande:temoin" },
@@ -179,10 +179,10 @@ module.exports = { rumors: {
   T_nanon: {
     title: "La loge de Nanon", back: true,
     text: [
-      { first: true, text: "La loge de la portière est une petite pièce surchauffée, avec un poêle, un fauteuil, un tableau des clés, un registre des sorties ouvert sur la table, et des pots de confiture alignés sur une étagère. Nanon t'y fait entrer, t'installe sur un tabouret et te regarde avec ses petits yeux vifs. « Toi, tu as la tête de quelqu'un qui n'a pas mangé assez. Tiens. »" },
+      { first: true, text: "La loge de la portière est une petite pièce surchauffée, qui contient un poêle, un fauteuil, un tableau des clés, un registre des sorties ouvert sur la table, et des pots de confiture alignés sur une étagère. Nanon t'y fait entrer, t'installe sur un tabouret et te regarde de ses petits yeux vifs. « Toi, tu as la tête de quelqu'un qui n'a pas mangé assez. Tiens. »" },
       { again: true, text: "Nanon lève le nez de son tricot. « Entre, entre. Ferme la porte, tu fais partir le chaud. »" },
       { after: "K_stele", once: true, text: "Tu lui parles de la petite stèle, au pied de la digue. Nanon pose son tricot. « J'avais vingt ans, cette nuit-là. Je gardais déjà le portail. Le chœur était sur la digue, tous les élèves aussi, avec des lanternes. Vers minuit, deux élèves de la Tête sont revenus au collège avant les autres, en courant sous la pluie. Deux. » Elle reprend son tricot. « Un seul a passé le portail. L'autre, on l'a trouvée le lendemain, sur la grève. »" },
-      { after: "avertissement", once: true, text: "« On m'a dit qu'on t'avait pris{e} dehors la nuit, dit Nanon sans lever les yeux. Fais attention, petit. La seconde fois, c'est le portail, et le portail, je le ferme derrière toi. »" },
+      { after: "avertissement", once: true, text: "« On m'a dit qu'on t'avait pris{e} dehors la nuit, dit Nanon sans lever les yeux. Fais attention, mon agneau. La seconde fois, c'est le portail, et le portail, je le ferme derrière toi. »" },
     ],
     choices: [
       { label: "Accepter le pot de confiture de coings", hide: { any: [{ seen: "K_confiture" }] }, fx: { item: "confiture" }, to: "K_confiture" },
@@ -199,9 +199,9 @@ module.exports = { rumors: {
   T_maud: {
     title: "L'étal de Maud", back: true, montrer: "maud",
     text: [
-      { first: true, text: "L'étal de Maud Arlaud est le plus beau de la halle : des soles, des rougets, des seiches, des langoustines encore vivantes sur un lit d'algues. La poissonnière est une grande femme carrée, les mains rouges de froid et d'eau salée, avec une tache de vin sur la joue et une voix qui couvre celle de ses voisines." },
+      { first: true, text: "L'étal de Maud Arlaud est le plus beau de la halle : des soles, des rougets, des seiches, et des langoustines encore vivantes sur un lit d'algues. La poissonnière est une grande femme carrée, les mains rouges de froid et d'eau salée, avec une tache de vin sur la joue et une voix qui couvre celle de ses voisines." },
       { first: true, text: "Elle te toise. « Une robe du collège. Vous n'achetez jamais rien, vous autres. Vous regardez. » Elle te tend quand même une crevette grise à goûter, sans sourire." },
-      { again: true, text: "Maud te reconnaît d'un coup de menton et continue de vider un maquereau." },
+      { again: true, text: "Maud te reconnaît d'un coup de menton, et continue de vider un maquereau." },
     ],
     choices: [
       { label: "Lui parler de Maître Salvanhac", after: "B_perdu", hide: { seen: "K_maud_soeur" }, takes: 1, to: "K_maud_soeur" },
@@ -210,7 +210,7 @@ module.exports = { rumors: {
   K_maud_soeur: {
     title: "La sœur", back: true,
     text: [
-      "Maud fait signe à sa voisine de garder l'étal, et t'emmène derrière la halle, sur un banc qui sent la marée. Elle s'essuie les mains longtemps avant de parler.",
+      "Maud fait signe à sa voisine de garder l'étal, et t'emmène derrière la halle, sur un banc qui sent la marée. Elle s'essuie longtemps les mains avant de parler.",
       "« Il venait ici, avant, dit-elle. Le vieux maître. Il venait chercher ma sœur, le dimanche, pour l'emmener travailler sur la digue. Ma sœur, Solène. Elle était au collège, comme toi. Boursière, comme toi. Elle dessinait des signes pour la mer depuis l'âge de quinze ans, sur tout ce qu'elle trouvait, sur les murs, sur la table, sur le dos de mes mains. »",
       "« Elle s'est noyée la nuit où la digue a chanté pour la première fois. Elle avait dix-sept ans. » Maud regarde la mer. « Trois jours après, un garçon du collège est venu à la maison. Un camarade de Solène, poli, bien habillé. Il a dit qu'il venait chercher ses cahiers, pour les rendre au collège. Ma mère les lui a donnés. Je ne les ai jamais revus. Je n'ai jamais rien eu d'elle, à part une couronne de fleurs, et un nom sur une pierre que la mer mange un peu plus chaque hiver. »",
     ],
@@ -220,7 +220,7 @@ module.exports = { rumors: {
     title: "Le cahier de Solène", back: true,
     text: [
       "Tu poses le document sur l'étal, entre les soles et les rougets. Maud le regarde sans comprendre, puis elle comprend. Elle essuie ses mains sur son tablier, très lentement, avant d'y toucher.",
-      "Elle tourne les pages. Elle reconnaît l'écriture tout de suite, tu le vois à sa bouche. Elle ne pleure pas. Elle reste debout derrière son étal, au milieu des cris de la halle, le cahier contre la poitrine, les yeux fermés.",
+      "Elle tourne les pages. Elle reconnaît l'écriture tout de suite, tu le vois à sa bouche. Elle garde les yeux secs. Elle reste debout derrière son étal, au milieu des cris de la halle, le cahier contre la poitrine, les yeux fermés.",
       "« Le jour de votre examen, dit-elle enfin, sans ouvrir les yeux. Sur la digue. Je serai là. Et cette fois, ils m'entendront. »",
     ],
     fx: { flag: "maud:viendra", quest: "III_maud", ep: ["histoire", 600] },
@@ -231,17 +231,17 @@ module.exports = { rumors: {
     title: "La fenêtre du Recteur", place: "cour", back: true,
     text: [
       "Le logis du Recteur occupe l'angle de l'aile nord, au-dessus du réfectoire. Tu te glisses le long du mur jusqu'à la gouttière, puis jusqu'au rebord de la fenêtre éclairée, et tu regardes entre les rideaux mal tirés.",
-      "Le Recteur est assis à son bureau, en robe de chambre, sous une lampe. Devant lui, le grand livre de la digue est ouvert au signe de la Tête. Il essaie de le recopier. Tu le vois tracer une courbe, s'arrêter, froisser la feuille. Recommencer. Froisser. À ses pieds, la corbeille déborde de boules de papier.",
-      "Sur un coin du bureau, à côté de la théière de porcelaine, un petit godet d'argent fermé d'un couvercle.",
-      "Au bout d'un moment, le Recteur pose sa plume, ôte ses lunettes et se prend le visage dans les mains. Il reste ainsi longtemps. Tu redescends sans bruit.",
+      "Le Recteur est assis à son bureau, en robe de chambre, sous une lampe. Devant lui, le grand livre de la digue est ouvert au signe de la Tête, et il essaie de le recopier. Tu le vois tracer une courbe, s'arrêter, froisser la feuille, recommencer, et froisser encore. À ses pieds, la corbeille déborde de boules de papier.",
+      "Sur un coin du bureau, à côté de la théière de porcelaine, est posé un petit godet d'argent fermé d'un couvercle.",
+      "Au bout d'un moment, le Recteur pose sa plume, ôte ses lunettes et se prend le visage dans les mains. Il reste ainsi longtemps, et tu redescends sans bruit.",
     ],
     fx: { flag: "logis:vu" },
   },
   S_pris_logis: {
     title: "Pris{e}", place: "cour",
     text: [
-      "Ton pied glisse sur l'ardoise mouillée. Une tuile part et éclate sur les pavés. Une fenêtre s'ouvre au premier étage, puis une autre. Quand tu touches le sol, Dame Castagnet est sur le seuil du réfectoire, une lanterne à la main, en robe de nuit et châle noir.",
-      "Elle ne te demande pas ce que tu faisais. Elle te regarde, puis elle regarde la fenêtre du Recteur. « Au dortoir, dit-elle. Demain, votre nom sera au registre. C'est un avertissement. Il n'y en aura pas d'autre. »",
+      "Ton pied glisse sur l'ardoise mouillée, et une tuile part et éclate sur les pavés. Une fenêtre s'ouvre au premier étage, puis une autre. Quand tu touches le sol, Dame Castagnet est sur le seuil du réfectoire, une lanterne à la main, en robe de nuit et châle noir.",
+      "Elle se passe de te demander ce que tu faisais. Elle te regarde, puis elle regarde la fenêtre du Recteur. « Au dortoir, dit-elle. Demain, votre nom sera au registre. C'est un avertissement. Il n'y en aura pas d'autre. »",
     ],
     fx: { flag: "avertissement", trait: { audace: 1 } },
     choices: [{ back: "H_dortoir" }],
@@ -249,8 +249,8 @@ module.exports = { rumors: {
   S_pris: {
     title: "Pris{e}", place: "bibliotheque",
     text: [
-      "Une lumière s'allume au fond de la bibliothèque. Sœur Mélisande, en bonnet de nuit, une chandelle à la main, avance entre les tables. Derrière elle, Dame Castagnet, qu'elle a fait réveiller.",
-      "« Un élève de première année, dit la vice-rectrice, dans la bibliothèque, la nuit, près du cabinet des maîtres. » Elle te regarde comme on regarde une phrase mal construite. « Votre nom sera au registre demain matin. C'est un avertissement. La prochaine fois, vous rentrez à votre village par la première diligence. »",
+      "Une lumière s'allume au fond de la bibliothèque. Sœur Mélisande, en bonnet de nuit, une chandelle à la main, avance entre les tables, suivie de Dame Castagnet, qu'elle a fait réveiller.",
+      "« Une première année, dit la vice-rectrice, dans la bibliothèque, la nuit, près du cabinet des maîtres. » Elle te regarde comme on regarde une phrase mal construite. « Votre nom sera au registre demain matin. C'est un avertissement. La prochaine fois, vous rentrez à votre village par la première diligence. »",
       "Sœur Mélisande tourne vers toi son oreille droite, en silence.",
     ],
     fx: { flag: "avertissement", trait: { audace: 1 } },
@@ -259,7 +259,7 @@ module.exports = { rumors: {
   S_renvoi: {
     title: "La seconde fois", place: "cour",
     text: [
-      "Cette fois, c'est Nanon qui te trouve, sa lanterne à la main, son châle sur la tête. Elle te regarde en silence, avec une grande tristesse, et elle va chercher Dame Castagnet.",
+      "Cette fois, c'est Nanon qui te trouve, sa lanterne à la main, son châle sur la tête. Elle te regarde en silence, avec une grande tristesse, puis elle va chercher Dame Castagnet.",
       "La vice-rectrice ne dit qu'une phrase : « Je vous avais prévenu{e}. »",
     ],
     choices: [{ label: "Faire ta malle", to: "F_renvoi" }],

@@ -1967,21 +1967,21 @@
     {
      "again": true,
      "saison": "automne",
-     "text": "La cour, les tilleuls qui jaunissent, les feuilles que le vent pousse contre le puits. Des élèves traversent en courant, leurs livres serrés contre la poitrine."
+     "text": "Les tilleuls de la cour jaunissent, et le vent pousse les feuilles contre le puits. Des élèves traversent en courant, leurs livres serrés contre la poitrine."
     },
     {
      "again": true,
      "saison": "hiver",
-     "text": "La cour sous le froid. La neige tient sur les branches des tilleuls et fond sur les pavés. Le puits fume un peu, le matin."
+     "text": "Le froid tient la cour. La neige reste sur les branches des tilleuls et fond sur les pavés, et le puits fume un peu, le matin."
     },
     {
      "again": true,
      "saison": "printemps",
-     "text": "La cour au printemps. Les tilleuls ont des feuilles tendres, presque jaunes, et les élèves de quatrième année révisent assis par terre, adossés aux troncs."
+     "text": "Le printemps est venu dans la cour. Les tilleuls ont des feuilles tendres, presque jaunes, et les élèves de quatrième année révisent assis par terre, adossés aux troncs."
     },
     {
      "when": "night",
-     "text": "La nuit, une seule lanterne brûle au-dessus de la porte du réfectoire. Les fenêtres des maîtres s'éteignent l'une après l'autre. Celle du Recteur reste allumée tard."
+     "text": "La nuit, une seule lanterne brûle au-dessus de la porte du réfectoire. Les fenêtres des maîtres s'éteignent l'une après l'autre ; celle du Recteur reste allumée tard."
     },
     {
      "after": "B_tempete",
@@ -2133,12 +2133,12 @@
     },
     {
      "again": true,
-     "text": "Tu prends ta place au bout de la table des premières années. Une soupe épaisse, du pain gris, un morceau de fromage."
+     "text": "Tu prends ta place au bout de la table des premières années, devant une soupe épaisse, du pain gris et un morceau de fromage."
     },
     {
      "with": "jodoc",
      "once": true,
-     "text": "Jodoc mange pour trois et parle pour deux. Il connaît toutes les histoires du collège : il a eu le temps de les entendre."
+     "text": "Jodoc mange pour trois et parle pour deux. Il connaît toutes les histoires du collège : il a eu trois ans pour les entendre."
     }
    ]
   },
@@ -2157,7 +2157,7 @@
     },
     {
      "without": "jodoc",
-     "text": "Un élève de deuxième année accepte de croiser la baguette avec toi, en bâillant. Au bout d'une heure, il ne bâille plus."
+     "text": "Un élève de deuxième année accepte de croiser la baguette avec toi, en bâillant. Au bout d'une heure, il a cessé de bâiller."
     },
     "Tu apprends à lire une épaule, un pied qui avance, un regard qui part trop tôt. Attaque, parade, feinte : la parade arrête l'attaque, l'attaque perce la feinte, la feinte trompe la parade. Le reste est affaire de nerfs."
    ]
@@ -2170,17 +2170,17 @@
    "text": [
     {
      "first": true,
-     "text": "L'aile des salles est un long couloir dallé de noir et de blanc, éclairé par de hautes fenêtres sur la cour. Quatre portes s'y ouvrent, chacune peinte du signe de son Art : une plume pour l'Encre, une bouche ouverte pour le Chant, un œil pour le Verre, une main pour la Main. Au bout du couloir, la salle d'étude, et l'escalier qui monte chez les maîtres."
+     "text": "L'aile des salles est un long couloir dallé de noir et de blanc, éclairé par de hautes fenêtres sur la cour. Quatre portes s'y ouvrent, chacune peinte du signe de son Art : une plume pour l'Encre, une bouche ouverte pour le Chant, un œil pour le Verre, une main pour la Main. Au bout du couloir se trouvent la salle d'étude, et l'escalier qui monte chez les maîtres."
     },
     {
      "again": true,
      "when": "day",
-     "text": "Le couloir des salles, ses dalles noires et blanches, le murmure des cours derrière les portes, et parfois une note longue qui fait vibrer les vitres."
+     "text": "Le couloir des salles aligne ses dalles noires et blanches ; derrière les portes murmurent les cours, et parfois une note longue fait vibrer les vitres."
     },
     {
      "again": true,
      "when": "night",
-     "text": "Le couloir est vide et froid. Sous la porte de la salle de l'Encre, un rai de lumière."
+     "text": "Le couloir est vide et froid. Un rai de lumière passe sous la porte de la salle de l'Encre."
     },
     {
      "after": "marche:the3",
@@ -2431,7 +2431,7 @@
     },
     {
      "again": true,
-     "text": "Tu reprends ta place à la table près de la fenêtre et tu travailles."
+     "text": "Tu reprends ta place à la table près de la fenêtre, et tu travailles."
     },
     {
      "saison": "printemps",
@@ -2451,17 +2451,17 @@
     {
      "before": "marche:the3",
      "saison": "automne",
-     "text": "Maître Salvanhac enseigne debout, très droit, avec une voix étonnamment jeune. Il fait tracer des signes simples, des signes qui retiennent : le nœud, la cale, l'ancre. Quand un trait est juste, le papier se raidit un peu sous la plume. Il passe dans les rangs et corrige les mains une à une, en les prenant dans les siennes."
+     "text": "Maître Salvanhac enseigne debout, très droit, d'une voix étonnamment jeune. Il fait tracer des signes simples, des signes qui retiennent : le nœud, la cale, l'ancre. Quand un trait est juste, le papier se raidit un peu sous la plume. Il passe dans les rangs et corrige les mains une à une, en les prenant dans les siennes."
     },
     {
      "before": "marche:the3",
      "saison": "hiver",
-     "text": "Maître Salvanhac commence son cours deux fois, parce qu'il a oublié qu'il l'avait commencé. Les élèves de devant se regardent. Puis il prend la craie, et pendant une heure, il trace au tableau des signes d'une beauté qui fait taire tout le monde."
+     "text": "Maître Salvanhac commence son cours deux fois, parce qu'il a oublié qu'il l'avait commencé, et les élèves de devant se regardent. Puis il prend la craie, et pendant une heure, il trace au tableau des signes d'une beauté qui fait taire tout le monde."
     },
     {
      "before": "marche:the3",
      "saison": "printemps",
-     "text": "Maître Salvanhac appelle chaque élève par un nom qui n'est pas le sien. Plus personne ne le corrige. Sa main, elle, se souvient de tout : elle trace encore d'un trait ferme."
+     "text": "Maître Salvanhac appelle chaque élève par un nom qui n'est pas le sien, et plus personne ne le corrige. Sa main, elle, se souvient de tout : elle trace encore d'un trait ferme."
     },
     {
      "after": "marche:the3",
@@ -2484,7 +2484,7 @@
    "text": [
     {
      "first": true,
-     "text": "La salle du Chant est ronde, nue, sans un meuble, avec une voûte de pierre si parfaite qu'un murmure au centre s'entend contre les murs. Dame Castagnet fait mettre les élèves en cercle et leur apprend d'abord à respirer, longtemps, avant de leur permettre un seul son."
+     "text": "La salle du Chant est ronde et nue, sans un meuble, sous une voûte de pierre si parfaite qu'un murmure au centre s'entend contre les murs. Dame Castagnet fait mettre les élèves en cercle et leur apprend d'abord à respirer, longtemps, avant de leur permettre un seul son."
     },
     {
      "again": true,
@@ -2492,7 +2492,7 @@
     },
     {
      "saison": "hiver",
-     "text": "Elle fait chanter les signes de la digue sur des pierres d'essai. Une pierre bien chantée bourdonne longtemps dans la main. Une pierre mal chantée se fendille."
+     "text": "Elle fait chanter les signes de la digue sur des pierres d'essai. Une pierre bien chantée bourdonne longtemps dans la main ; une pierre mal chantée se fendille."
     },
     {
      "if": {
@@ -2524,7 +2524,7 @@
     {
      "with": "yse",
      "once": true,
-     "text": "Ysé réussit du premier coup à mettre un reflet de sa plume sur le pupitre voisin. Vilmorin applaudit. Elle rougit jusqu'aux oreilles."
+     "text": "Ysé réussit du premier coup à poser un reflet de sa plume sur le pupitre voisin. Vilmorin applaudit, et elle rougit jusqu'aux oreilles."
     },
     {
      "if": {
@@ -2547,7 +2547,7 @@
     },
     {
      "again": true,
-     "text": "Mère Fage passe derrière chaque établi, regarde, grogne ou se tait. Son silence est un compliment."
+     "text": "Mère Fage passe derrière chaque établi, regarde, grogne ou se tait, et son silence vaut un compliment."
     },
     {
      "with": "jodoc",
@@ -2571,16 +2571,16 @@
    "text": [
     {
      "first": true,
-     "text": "La bibliothèque occupe toute l'aile ouest, sur trois étages reliés par des escaliers de fer. La voûte est peinte d'un ciel d'étoiles, et des galeries courent le long des rayonnages, si hauts qu'on y monte par des échelles à roulettes. Des lampes à abat-jour vert éclairent les tables de lecture. Tout au fond, derrière une grille, une armoire de chêne noir ferrée de fer : le cabinet scellé, où les maîtres rangent les livres défendus."
+     "text": "La bibliothèque occupe toute l'aile ouest, sur trois étages reliés par des escaliers de fer. La voûte est peinte d'un ciel d'étoiles, et des galeries courent le long des rayonnages, si hauts qu'on y monte par des échelles à roulettes. Des lampes à abat-jour vert éclairent les tables de lecture. Tout au fond, derrière une grille, se dresse une armoire de chêne noir ferrée de fer : le cabinet scellé, où les maîtres rangent les livres défendus."
     },
     {
      "again": true,
      "when": "day",
-     "text": "La bibliothèque, ses lampes vertes, son silence plein de petits bruits : une échelle qui roule, une page, une toux étouffée."
+     "text": "La bibliothèque luit sous ses lampes vertes, dans un silence plein de petits bruits : une échelle qui roule, une page, une toux étouffée."
     },
     {
      "when": "night",
-     "text": "La nuit, la bibliothèque est noire. Seule la lune entre par les fenêtres hautes et pose des carrés pâles sur les tables."
+     "text": "La nuit, la bibliothèque est noire. La lune entre seule par les fenêtres hautes et pose des carrés pâles sur les tables."
     },
     {
      "after": "cabinet:bloque",
@@ -2913,8 +2913,8 @@
    "place": "bibliotheque",
    "back": true,
    "text": [
-    "Le traité manque au catalogue. Tu le trouves par hasard, ou presque : relié en veau noir, rangé à l'envers entre deux herbiers, au plus haut rayon de la troisième galerie. Quelqu'un l'a oublié là, ou l'a caché là, il y a longtemps.",
-    "Les pages décrivent des encres que tous les collèges ont défendues : l'encre de fièvre, l'encre qui fait mentir, l'encre de sommeil. Au milieu, une page cornée. Tu la recopies à la lueur de la lampe, mot pour mot, et tu remets le livre où tu l'as trouvé."
+    "Le traité manque au catalogue. Tu le trouves par hasard, ou presque : relié en veau noir, rangé à l'envers entre deux herbiers, au plus haut rayon de la troisième galerie. Quelqu'un l'a oublié là, ou caché là, il y a longtemps.",
+    "Les pages décrivent des encres que tous les collèges ont défendues : l'encre de fièvre, l'encre qui fait mentir, l'encre de sommeil. Au milieu se trouve une page cornée. Tu la recopies mot pour mot à la lueur de la lampe, et tu remets le livre où tu l'as trouvé."
    ],
    "fx": {
     "item": "traite",
@@ -2930,7 +2930,7 @@
    "place": "bibliotheque",
    "back": true,
    "text": [
-    "Tu passes deux heures à chercher dans les galeries, d'échelle en échelle. Les traités d'encres sont nombreux, ceux des encres défendues introuvables. Sœur Mélisande te regarde descendre la dernière échelle les mains vides, et retourne à sa reliure."
+    "Tu passes deux heures à chercher dans les galeries, d'échelle en échelle. Les traités d'encres abondent, mais ceux des encres défendues restent introuvables. Sœur Mélisande te regarde descendre la dernière échelle les mains vides, et retourne à sa reliure."
    ]
   },
   "K_herbier_rate": {
@@ -2938,7 +2938,7 @@
    "place": "bibliotheque",
    "back": true,
    "text": [
-    "L'Herbier de Maître Ancel devrait être aux sciences naturelles, au deuxième étage. Sa place est vide. Tu cherches sur les rayons voisins, puis sur les chariots de retour, puis sous les tables. Il faudra revenir, ou demander."
+    "L'Herbier de Maître Ancel devrait être aux sciences naturelles, au deuxième étage, mais sa place est vide. Tu cherches sur les rayons voisins, puis sur les chariots de retour, puis sous les tables. Il faudra revenir, ou demander."
    ]
   },
   "H_atelier": {
@@ -2950,15 +2950,15 @@
    "text": [
     {
      "first": true,
-     "text": "L'atelier de la Main est une ancienne grange voûtée, au bas du collège, avec une forge, deux fours à verre, des établis couverts d'outils et une odeur de charbon, de copeaux et de métal chaud. Des pièces d'élèves pendent au mur par centaines : des clés, des poignées, des plaques gravées, des bols de verre soufflé, chacune avec une étiquette et une date."
+     "text": "L'atelier de la Main est une ancienne grange voûtée, au bas du collège, avec une forge, deux fours à verre, des établis couverts d'outils, et une odeur de charbon, de copeaux et de métal chaud. Des pièces d'élèves pendent au mur par centaines, chacune avec une étiquette et une date : des clés, des poignées, des plaques gravées, des bols de verre soufflé."
     },
     {
      "again": true,
-     "text": "L'atelier, la forge qui ronfle, les marteaux, et Mère Fage qui jure contre un soufflet."
+     "text": "La forge ronfle, les marteaux sonnent, et Mère Fage jure contre un soufflet."
     },
     {
      "saison": "hiver",
-     "text": "En hiver, l'atelier est l'endroit le plus chaud du collège. Les élèves de tous les Arts trouvent des raisons d'y passer."
+     "text": "En hiver, l'atelier est l'endroit le plus chaud du collège, et les élèves de tous les Arts se trouvent des raisons d'y passer."
     }
    ],
    "choices": [
@@ -3065,7 +3065,7 @@
     },
     {
      "again": true,
-     "text": "Tu reprends ton établi. Le ciseau, le maillet, la sciure, et le bois qui finit, parfois, par se raidir sous la main."
+     "text": "Tu reprends ton établi : le ciseau, le maillet, la sciure, et le bois qui finit parfois par se raidir sous la main."
     },
     {
      "if": {
@@ -3115,7 +3115,7 @@
        }
       ]
      },
-     "text": "Vous recommencez jusqu'au soir. Tu lui parles pendant qu'il grave, de tout, de rien, de Brèches, des moutons. Vers la fin, il réussit une plaque en riant à une de tes histoires."
+     "text": "Vous recommencez jusqu'au soir. Tu lui parles pendant qu'il grave, de tout et de rien, de Brèches, des moutons. Vers la fin, il réussit une plaque en riant de l'une de tes histoires."
     }
    ]
   },
@@ -3127,21 +3127,21 @@
    "text": [
     {
      "first": true,
-     "text": "Le dortoir des premières années est une longue salle sous les combles, avec quarante lits de fer alignés de part et d'autre d'une allée centrale, un coffre au pied de chacun, et au milieu, un gros poêle de faïence que les élèves se disputent l'hiver. Les lucarnes donnent sur le port et sur la mer."
+     "text": "Le dortoir des premières années est une longue salle sous les combles : quarante lits de fer alignés de part et d'autre d'une allée centrale, un coffre au pied de chacun, et au milieu, un gros poêle de faïence que les élèves se disputent l'hiver. Les lucarnes donnent sur le port et sur la mer."
     },
     {
      "again": true,
      "when": "day",
-     "text": "Le dortoir désert, les lits faits au carré, la lumière qui tombe des lucarnes."
+     "text": "Le dortoir est désert, les lits faits au carré, et la lumière tombe des lucarnes."
     },
     {
      "again": true,
      "when": "night",
-     "text": "Le dortoir de nuit : quarante souffles, un ronflement, une lucarne où passe la lune, et le poêle qui craque en refroidissant."
+     "text": "La nuit, le dortoir respire de quarante souffles ; quelqu'un ronfle, la lune passe dans une lucarne, et le poêle craque en refroidissant."
     },
     {
      "saison": "hiver",
-     "text": "Le vent de mer siffle sous les ardoises. On dort avec ses bas et sa robe sur la couverture."
+     "text": "Le vent de mer siffle sous les ardoises, et l'on dort avec ses bas, sa robe étalée sur la couverture."
     }
    ],
    "choices": [
@@ -3258,7 +3258,7 @@
    "place": "dortoir",
    "text": [
     "Tu écris sur ton genou, assis{e} sur ton lit, la plume grinçante. L'institutrice voudra tout savoir : le collège, les maîtres, ce qu'on mange, si tu as des amis, si tu travailles bien.",
-    "La vérité tient en peu de mots. Le collège est immense et froid, les maîtres savants et lointains, et un neveu de Recteur te traite de berger devant tout le réfectoire."
+    "La vérité tient en peu de mots. Le collège est immense et froid, les maîtres savants et lointains, et un neveu de Recteur te traite de mouton devant tout le réfectoire."
    ],
    "fx": {
     "flag": "lettre:1"
@@ -3289,7 +3289,7 @@
    "place": "dortoir",
    "text": [
     "La réponse de l'institutrice est arrivée en décembre, couverte de son écriture ronde : tout le village a lu ta lettre, le curé l'a lue en chaire, ton oncle a acheté un mouton de plus pour fêter ça.",
-    "Il faut répondre. Depuis l'automne, tu as appris des choses que tu ne sais à qui dire : un vieux maître qui perd la mémoire, un thé qui te met mal à l'aise, une digue qui chante faux."
+    "Il faut répondre. Depuis l'automne, tu as appris des choses que tu ne sais à qui confier : un vieux maître qui perd la mémoire, un thé qui te met mal à l'aise, une digue qui chante faux."
    ],
    "fx": {
     "flag": "lettre:2"
@@ -3321,10 +3321,10 @@
    "reveil": true,
    "backName": "le dortoir",
    "text": [
-    "La cloche du collège sonne six heures. Autour de toi, quarante élèves se lèvent en grognant, cherchent leurs bas, se bousculent au broc d'eau froide.",
+    "La cloche du collège sonne six heures. Autour de toi, quarante élèves se lèvent en grognant, cherchent leurs bas, et se bousculent au broc d'eau froide.",
     {
      "saison": "automne",
-     "text": "Par la lucarne, le port dans la brume du matin, et les voiles des pêcheurs qui rentrent."
+     "text": "Par la lucarne, tu vois le port dans la brume du matin, et les voiles des pêcheurs qui rentrent."
     },
     {
      "saison": "hiver",
@@ -3332,13 +3332,13 @@
     },
     {
      "saison": "printemps",
-     "text": "Par la lucarne, le soleil se lève sur la mer. Des martinets crient autour du clocher."
+     "text": "Par la lucarne, le soleil se lève sur la mer, et des martinets crient autour du clocher."
     },
     {
      "after": "B_tempete",
      "before": "X_examen",
      "once": true,
-     "text": "Tu as encore dans l'oreille la note fausse de la digue. Peut-être l'as-tu entendue cette nuit, peut-être l'as-tu rêvée."
+     "text": "Tu as encore dans l'oreille la note fausse de la digue. Tu l'as peut-être entendue cette nuit, ou peut-être rêvée."
     }
    ],
    "fxEvery": {
@@ -3359,11 +3359,11 @@
    "text": [
     {
      "first": true,
-     "text": "Le collège descend vers la ville par une rue en escalier, et la ville descend vers le port. Les quais de Hautsignes sont étroits, encombrés de filets et de casiers, bordés de maisons hautes aux pignons de bois. La halle aux poissons fume et crie sous son toit d'ardoise. Derrière, la rue des Drapiers aligne ses boutiques. Au bout des quais commence la digue."
+     "text": "Le collège descend vers la ville par une rue en escalier, et la ville descend vers le port. Les quais de Hautsignes sont étroits, encombrés de filets et de casiers, bordés de maisons hautes aux pignons de bois. La halle aux poissons fume et crie sous son toit d'ardoise. Derrière, la rue des Drapiers aligne ses boutiques, et au bout des quais commence la digue."
     },
     {
      "again": true,
-     "text": "Le port, les mouettes, les cris de la halle, l'odeur de marée et de goudron."
+     "text": "Le port s'agite sous les mouettes ; la halle crie, et l'air sent la marée et le goudron."
     },
     {
      "saison": "hiver",
@@ -3403,7 +3403,7 @@
    "text": [
     {
      "first": true,
-     "text": "La rue des Drapiers vend de tout sauf du drap : les élèves du collège y achètent leurs plumes, leur papier, leurs chandelles, et les ingrédients des encres chez un droguiste aux doigts teints en bleu, qui pèse chaque chose sur une balance de cuivre."
+     "text": "La rue des Drapiers vend de tout sauf du drap. Les élèves du collège y achètent leurs plumes, leur papier, leurs chandelles, et les ingrédients des encres chez un droguiste aux doigts teints en bleu, qui pèse chaque chose sur une balance de cuivre."
     },
     {
      "again": true,
@@ -3426,11 +3426,11 @@
    "text": [
     {
      "first": true,
-     "text": "Tu marches le long des quais, entre les casiers et les filets qui sèchent. Les pêcheurs ravaudent assis sur des bornes, et parlent de la mer comme d'une voisine difficile."
+     "text": "Tu marches le long des quais, entre les casiers et les filets qui sèchent. Les pêcheurs ravaudent, assis sur des bornes, et parlent de la mer comme d'une voisine difficile."
     },
     {
      "again": true,
-     "text": "Les quais, les pêcheurs, les filets. On commence à te reconnaître : l'élève du collège qui écoute."
+     "text": "Tu retrouves les quais, les pêcheurs et les filets. On commence à te reconnaître : l'élève du collège qui écoute."
     }
    ]
   },
@@ -3442,19 +3442,19 @@
    "text": [
     {
      "first": true,
-     "text": "La digue part du bout des quais et s'en va en ligne droite vers la mer, une demi-lieue de blocs de granit gris assemblés sans mortier, assez large pour que deux charrettes s'y croisent. Côté ville, une eau calme et verte. Côté mer, les vagues qui viennent mourir sur les blocs."
+     "text": "La digue part du bout des quais et s'en va en ligne droite vers la mer : une demi-lieue de blocs de granit gris assemblés sans mortier, assez large pour que deux charrettes s'y croisent. Côté ville, l'eau est calme et verte ; côté mer, les vagues viennent mourir sur les blocs."
     },
     {
      "first": true,
-     "text": "Les signes sont partout : gravés dans chaque bloc, profonds comme un doigt, polis par trente ans d'embruns. Certains sont grands comme une porte. Quand le vent souffle, la digue tout entière bourdonne, d'un son si grave qu'on le sent dans les genoux plus qu'on ne l'entend."
+     "text": "Les signes sont partout : gravés dans chaque bloc, profonds comme un doigt, polis par trente ans d'embruns, et certains grands comme une porte. Quand le vent souffle, la digue tout entière bourdonne, d'un son si grave qu'on le sent dans les genoux plus qu'on ne l'entend."
     },
     {
      "again": true,
-     "text": "La digue, le granit gris, les signes, le bourdonnement grave sous les pieds."
+     "text": "Tu retrouves le granit gris de la digue, ses signes, et le bourdonnement grave sous tes pieds."
     },
     {
      "after": "B_tempete",
-     "text": "Au bout de la digue, à la Tête, un des grands signes est fendu de haut en bas. Des maçons ont posé un étai de bois en travers. Le bourdonnement de la digue a pris une note fausse, qui grince par moments."
+     "text": "Au bout de la digue, à la Tête, un des grands signes est fendu de haut en bas, et des maçons ont posé un étai de bois en travers. Le bourdonnement de la digue a pris une note fausse, qui grince par moments."
     }
    ],
    "choices": [
@@ -3522,9 +3522,9 @@
    "place": "digue",
    "back": true,
    "text": [
-    "Des marches glissantes descendent le long du granit jusqu'à une petite grève de galets, côté mer, que la marée découvre deux fois par jour. Il y fait sombre et froid. Les vagues claquent contre les blocs, et l'écume te mouille le visage.",
+    "Des marches glissantes descendent le long du granit jusqu'à une petite grève de galets, côté mer, que la marée découvre deux fois par jour. Il y fait sombre et froid ; les vagues claquent contre les blocs, et l'écume te mouille le visage.",
     "Contre la digue, presque cachée par les algues, une petite {{or:s1|s}}tèle de pierre tendre, à demi rongée par le sel. Quelqu'un a gratté les algues autour de l'inscription, il y a peu de temps.",
-    "Sur la stèle, une couronne de fleurs séchées, et un coquillage posé à plat."
+    "Sur la stèle reposent une couronne de fleurs séchées et un coquillage posé à plat."
    ],
    "fx": {
     "clue": "s_stele"
@@ -3554,9 +3554,9 @@
    "place": "digue",
    "back": true,
    "text": [
-    "Tu passes deux heures au bout de la digue, assis{e} sur l'étai, à recopier le signe fendu dans ton cahier de cours. Il est plus grand que toi, et plus compliqué qu'aucun signe que tu aies vu au collège : des courbes imbriquées les unes dans les autres, qui reviennent toutes au même point, comme les fils d'une toile.",
+    "Tu passes deux heures au bout de la digue, assis{e} sur l'étai, à recopier le signe fendu dans ton cahier de cours. Il est plus grand que toi, et plus compliqué qu'aucun des signes du collège : des courbes imbriquées les unes dans les autres, qui reviennent toutes au même point, comme les fils d'une toile.",
     "La fente passe au milieu de la plus belle courbe. Le granit, de part et d'autre, ne vibre plus.",
-    "À force de suivre les traits du doigt, tu sens la logique du signe : chaque courbe reçoit la vague, la passe à la suivante, et la dernière la rend à la mer. Ce que tu ne comprends pas, c'est quelle note faisait vibrer l'ensemble. Elle n'est écrite nulle part sur la pierre."
+    "À force de suivre les traits du doigt, tu sens la logique du signe : chaque courbe reçoit la vague et la passe à la suivante, et la dernière la rend à la mer. Il te manque la note qui faisait vibrer l'ensemble, et la pierre, elle, la garde pour elle."
    ]
   },
   "T_valerien": {
@@ -3566,7 +3566,7 @@
    "text": [
     {
      "first": true,
-     "text": "Valérien referme son livre sur un doigt et te regarde de bas en haut, comme on regarde une bête au marché. « Le berger. Tu t'es perdu ? Les moutons sont en bas, vers le port. »"
+     "text": "Valérien referme son livre sur un doigt et te regarde de bas en haut, comme on regarde une bête au marché. « Le mouton. Tu t'es égaré du troupeau ? Les autres sont en bas, vers le port. »"
     },
     {
      "again": true,
@@ -3592,7 +3592,7 @@
      "again": true,
      "after": "A_refus",
      "before": "B_duel",
-     "text": "Valérien te regarde passer comme on regarde un meuble qu'on a déjà vu. « Tiens. Le berger prudent. »"
+     "text": "Valérien te regarde passer comme on regarde un meuble qu'on a déjà vu. « Tiens. Le mouton prudent. »"
     },
     {
      "after": "C_valerien",
@@ -3661,7 +3661,7 @@
    "title": "Valérien de Vaucombe",
    "back": true,
    "text": [
-    "Valérien pose son livre sur le rebord de la fenêtre, très lentement. « Me battre ? » Il rit, d'un rire bref et sans gaieté. « Le berger me lance un défi. Ce collège tombe vraiment bien bas. »",
+    "Valérien pose son livre sur le rebord de la fenêtre, très lentement. « Me battre ? » Il rit, d'un rire bref et sans gaieté. « Le mouton me lance un défi. Ce collège tombe vraiment bien bas. »",
     "Tout le couloir s'est tu. Il se penche vers toi et parle plus bas, pour toi seul{e}. « Garde ta langue pour le jour où tu sauras t'en servir. Ce jour-là, je serai là. »"
    ],
    "fx": {
@@ -3676,7 +3676,7 @@
    "text": [
     "Tu lui demandes, simplement, ce que c'est d'être le neveu du Recteur.",
     "Valérien te regarde longtemps. « Mon père est mort quand j'avais six ans. Mon oncle m'a élevé. Il m'a appris à lire dans le livre de la digue. Il m'a appris le Verre, l'escrime, le latin, et à ne jamais montrer qu'on a peur. » Il tourne une page de son livre sans la lire. « Tout le monde ici l'aime. Moi aussi, je l'aime. C'est un grand homme. »",
-    "Il le dit comme une leçon apprise par cœur, très vite, et il retourne à sa lecture."
+    "Il le dit très vite, comme une leçon apprise par cœur, et il retourne à sa lecture."
    ],
    "fx": {
     "regard": {
@@ -3688,12 +3688,12 @@
    "title": "Ce que lit Valérien",
    "back": true,
    "text": [
-    "Valérien prend le document du bout des doigts, prêt à rire. Il lit. Il ne rit plus.",
+    "Valérien prend le document du bout des doigts, prêt à rire. Il lit, et son rire s'arrête avant d'avoir commencé.",
     {
      "if": {
       "item": "cahier"
      },
-     "text": "Il tourne les pages du cahier une à une, lentement, d'abord avec méfiance, puis avec une sorte d'avidité. Il connaît ces signes : il les a appris enfant, sur les genoux de son oncle, dans le grand livre de la digue. Ici, ils sont tracés d'une autre main, avec des ratures, des essais manqués, des notes en marge. Des brouillons. Les brouillons de quelqu'un d'autre."
+     "text": "Il tourne les pages du cahier une à une, lentement, d'abord avec méfiance, puis avec une sorte d'avidité. Il connaît ces signes : il les a appris enfant, sur les genoux de son oncle, dans le grand livre de la digue. Ici, ils sont tracés d'une autre main, avec des ratures, des essais manqués, des notes en marge : les brouillons de quelqu'un d'autre."
     },
     {
      "if": {
@@ -3701,8 +3701,8 @@
      },
      "text": "Il lit la page recollée trois fois. Son doigt s'arrête sur la dernière ligne, sur le nom de son oncle, écrit là comme témoin, en petit, sous celui d'une élève de quatrième année."
     },
-    "Il te rend le document. Ses mains tremblent. « Il me racontait la nuit de la première épreuve, dit-il. La tempête, le chant, les pierres qui s'éveillent. Je la connais par cœur, cette histoire. Il ne m'a jamais parlé d'une fille. »",
-    "Il se lève. Il marche jusqu'à la fenêtre, revient. « Qu'est-ce que tu veux faire de ça ? » Tu le lui dis. Il hoche la tête plusieurs fois, comme quelqu'un qui accepte un coup.",
+    "Il te rend le document, les mains tremblantes. « Il me racontait la nuit de la première épreuve, dit-il. La tempête, le chant, les pierres qui s'éveillent. Je la connais par cœur, cette histoire. Il ne m'a jamais parlé d'une fille. »",
+    "Il se lève, marche jusqu'à la fenêtre, et revient. « Qu'est-ce que tu veux faire de ça ? » Tu le lui dis. Il hoche la tête plusieurs fois, comme quelqu'un qui encaisse un coup.",
     "« Alors je serai à côté de toi, dit-il. Mon oncle doit l'apprendre de ma bouche autant que de la tienne. »"
    ],
    "fx": {
@@ -3721,7 +3721,7 @@
    "title": "Valérien de Vaucombe",
    "back": true,
    "text": [
-    "Valérien lit la ligne déchiffrée, puis te regarde. « Le cabinet scellé. C'est tout ? Un vieux maître qui perd la tête écrit deux mots dans un carnet, et toi, tu en fais une histoire. » Il te rend le papier. « Va dormir, berger. »"
+    "Valérien lit la ligne déchiffrée, puis te regarde. « Le cabinet scellé. C'est tout ? Un vieux maître qui perd la tête écrit deux mots dans un carnet, et toi, tu en fais une histoire. » Il te rend le papier. « Va dormir, mouton. »"
    ]
   },
   "T_salvanhac": {
@@ -3731,11 +3731,11 @@
    "text": [
     {
      "first": true,
-     "text": "Maître Salvanhac est assis à son bureau, au fond de la salle de l'Encre, une plume à la main au-dessus d'une feuille blanche. Le merle est perché sur l'encrier. Le vieux maître lève vers toi des yeux d'un bleu très pâle, très doux. « Entrez, entrez. Vous êtes de quelle année ? Pardonnez-moi, j'ai si mauvaise mémoire des visages. »"
+     "text": "Maître Salvanhac est assis à son bureau, au fond de la salle de l'Encre, une plume à la main au-dessus d'une feuille blanche, et le merle est perché sur l'encrier. Le vieux maître lève vers toi des yeux d'un bleu très pâle et très doux. « Entrez, entrez. Vous êtes de quelle année ? Pardonnez-moi, j'ai si mauvaise mémoire des visages. »"
     },
     {
      "first": true,
-     "text": "Il t'écoute avec une attention extrême, la tête un peu penchée, comme s'il voulait garder chacun de tes mots. Puis il parle de l'Encre, longtemps, et tu ne vois pas passer l'heure. Quand tu pars, il te demande ton nom pour la troisième fois."
+     "text": "Il t'écoute avec une attention extrême, la tête un peu penchée, comme s'il voulait garder chacun de tes mots. Puis il parle longtemps de l'Encre, et l'heure passe sans que tu la voies. Quand tu pars, il te demande ton nom pour la troisième fois."
     },
     {
      "again": true,
@@ -3751,7 +3751,7 @@
     {
      "again": true,
      "after": "salvanhac:protege",
-     "text": "Maître Salvanhac te reconnaît dès la porte. Il a meilleure mine. « Je dors mieux, dit-il. Et je me souviens de mes rêves, ce qui ne m'était pas arrivé depuis longtemps. »"
+     "text": "Maître Salvanhac te reconnaît dès la porte, et il a meilleure mine. « Je dors mieux, dit-il. Et je me souviens de mes rêves, ce qui ne m'était pas arrivé depuis longtemps. »"
     }
    ],
    "choices": [
@@ -3770,9 +3770,9 @@
    "place": "salles",
    "back": true,
    "text": [
-    "La chambre de Maître Salvanhac est au dernier étage de l'escalier des maîtres, une pièce mansardée encombrée de livres, de papiers et de cages ouvertes. Une seule fenêtre donne sur la mer et, tout en bas, sur la digue entière, de la ville jusqu'à la Tête.",
+    "La chambre de Maître Salvanhac est au dernier étage de l'escalier des maîtres : une pièce mansardée, encombrée de livres, de papiers et de cages ouvertes. Une seule fenêtre donne sur la mer et, tout en bas, sur la digue entière, de la ville jusqu'à la Tête.",
     "Aux murs, des dizaines de p{{or:s2|o}}rtraits au fusain, des visages de jeunes gens et de jeunes filles, chacun avec une date dans un coin. « Mes élèves, dit le vieux maître. Les meilleurs. Je les dessine le jour où ils me dépassent. » Il en touche un, puis un autre. « Celui-ci est maître à Valcourt. Celle-ci… » Il s'arrête, le doigt levé. « Celle-ci, je ne sais plus. »",
-    "C'est une jeune fille aux cheveux tirés, au visage mince, qui sourit à moitié comme quelqu'un qui va dire une insolence. Pas de nom. Une date : l'an trente du collège.",
+    "C'est une jeune fille aux cheveux tirés, au visage mince, qui sourit à moitié, comme quelqu'un qui va dire une insolence. Le portrait est sans nom, avec une date : l'an trente du collège.",
     "Le merle se pose sur le cadre, penche la tête, et siffle deux notes claires, toujours les mêmes, qui ressemblent à un nom : « So-lè. So-lè. » Le vieux maître le regarde avec tendresse. « Il siffle ça depuis toujours. Je ne sais pas où il l'a appris. »"
    ],
    "fx": {
@@ -3807,8 +3807,8 @@
    "title": "Maître Salvanhac et le traité",
    "back": true,
    "text": [
-    "Tu lis au vieux maître la page que tu as recopiée. Il écoute, poliment, en hochant la tête aux bons endroits.",
-    "Quand tu as fini, il regarde le dos de sa main gauche, longuement, la peau fine et tachée, les veines bleues. Il le frotte avec le pouce. « Le Recteur est mon ami, dit-il. Mon plus vieux ami. Il me sert le thé lui-même, chaque jeudi. » Il frotte encore. « J'ai écrit quelque chose, un jour, à propos du thé. Je ne sais plus quoi. »"
+    "Tu lis au vieux maître la page que tu as recopiée. Il écoute poliment, en hochant la tête aux bons endroits.",
+    "Quand tu as fini, il regarde longuement le dos de sa main gauche, la peau fine et tachée, les veines bleues, et il la frotte avec le pouce. « Le Recteur est mon ami, dit-il. Mon plus vieux ami. Il me sert le thé lui-même, chaque jeudi. » Il frotte encore. « J'ai écrit quelque chose, un jour, à propos du thé. Je ne sais plus quoi. »"
    ]
   },
   "T_castagnet": {
@@ -3818,7 +3818,7 @@
    "text": [
     {
      "first": true,
-     "text": "Dame Castagnet te reçoit dans son bureau, une pièce nue avec une table, deux chaises et un diapason d'argent posé sur un coussin. Elle te laisse debout. Elle écoute ce que tu as à dire, les mains croisées, les yeux dans les tiens."
+     "text": "Dame Castagnet te reçoit dans son bureau, une pièce nue avec une table, deux chaises, et un diapason d'argent posé sur un coussin. Elle te laisse debout, et écoute ce que tu as à dire, les mains croisées, les yeux dans les tiens."
     },
     {
      "first": true,
@@ -3827,7 +3827,7 @@
     {
      "again": true,
      "before": "B_tempete",
-     "text": "Dame Castagnet lève les yeux de son registre et attend. Elle a toujours l'air d'attendre."
+     "text": "Dame Castagnet lève les yeux de son registre et attend, comme toujours."
     },
     {
      "again": true,
@@ -3917,7 +3917,7 @@
    "text": [
     {
      "first": true,
-     "text": "Maître Vilmorin t'accueille comme un vieil ami. Il fait asseoir tout le monde, offre des dragées d'un cornet froissé, raconte trois histoires de cour qui font rire même ceux qui ne les comprennent pas. « Le Verre, dit-il, c'est l'art de montrer aux gens ce qu'ils veulent voir. Le plus difficile, c'est de savoir ce qu'ils veulent. »"
+     "text": "Maître Vilmorin t'accueille comme un vieil ami. Il fait asseoir tout le monde, offre des dragées d'un cornet froissé, et raconte trois histoires de cour qui font rire même ceux qui ne les comprennent pas. « Le Verre, dit-il, c'est l'art de montrer aux gens ce qu'ils veulent voir. Le plus difficile, c'est de savoir ce qu'ils veulent. »"
     },
     {
      "again": true,
@@ -3934,7 +3934,7 @@
    "title": "Maître Vilmorin",
    "back": true,
    "text": [
-    "Vilmorin feuillette le document en sifflotant, puis il s'arrête de siffler. Il te regarde par-dessus, et pour une fois, il a le visage grave.",
+    "Vilmorin feuillette le document en sifflotant, puis il cesse de siffler. Il te regarde par-dessus, et pour une fois, il a le visage grave.",
     "« Je suis arrivé au collège il y a dix ans, dit-il. Je ne sais rien de ce qui s'est passé ici avant moi. Je sais seulement une chose : notre Recteur, le jour où un signe de la digue a cédé, est resté planté devant comme un illettré devant une affiche. » Il te rend le document. « Je dois de l'argent à tout le monde. Je n'ai pas le courage d'un lion. Mais pour l'examen, je peux t'apprendre à voir la lumière dans la pierre. Viens après les cours. Le reste, tu le feras seul{e}. »"
    ],
    "fx": {
@@ -3951,7 +3951,7 @@
    "text": [
     {
      "first": true,
-     "text": "Sœur Mélisande tourne vers toi son oreille droite, celle qui entend. Elle est petite, voûtée, vêtue de gris, et ses mains de colleuse sentent la colle de peau. « Qu'est-ce que vous cherchez ? Personne ne vient ici sans chercher quelque chose. Les uns le savent, les autres pas. »"
+     "text": "Sœur Mélisande tourne vers toi son oreille droite, celle qui entend. Elle est petite et voûtée, vêtue de gris, et ses mains de colleuse sentent la colle de peau. « Qu'est-ce que vous cherchez ? Personne ne vient ici sans chercher quelque chose. Les uns le savent, les autres pas. »"
     },
     {
      "again": true,
@@ -3974,7 +3974,7 @@
    "title": "Sœur Mélisande",
    "back": true,
    "text": [
-    "Sœur Mélisande prend le document, le porte sous la lampe, le tourne, le gratte de l'ongle. « Papier du collège, dit-elle. De l'ancien moulin, celui qui a brûlé. Trente ans, au moins. »",
+    "Sœur Mélisande prend le document, le porte sous la lampe, le tourne, et le gratte de l'ongle. « Papier du collège, dit-elle. De l'ancien moulin, celui qui a brûlé. Trente ans, au moins. »",
     "Elle lit, et son visage change. « Arlaud. » Elle répète le nom de son oreille sourde à son oreille qui entend, en tournant la tête. « Elle lisait debout entre les rayons, cette petite. Elle ne s'asseyait jamais. Elle disait qu'on pense mieux debout. » Elle te rend le document avec précaution. « Si on me demande, je dirai que ce papier est du collège, et que cette écriture est celle de la petite Arlaud. J'ai vu ses fiches de prêt pendant quatre ans. »"
    ],
    "fx": {
@@ -3987,7 +3987,7 @@
    "text": [
     {
      "first": true,
-     "text": "La loge de la portière est une petite pièce surchauffée, avec un poêle, un fauteuil, un tableau des clés, un registre des sorties ouvert sur la table, et des pots de confiture alignés sur une étagère. Nanon t'y fait entrer, t'installe sur un tabouret et te regarde avec ses petits yeux vifs. « Toi, tu as la tête de quelqu'un qui n'a pas mangé assez. Tiens. »"
+     "text": "La loge de la portière est une petite pièce surchauffée, qui contient un poêle, un fauteuil, un tableau des clés, un registre des sorties ouvert sur la table, et des pots de confiture alignés sur une étagère. Nanon t'y fait entrer, t'installe sur un tabouret et te regarde de ses petits yeux vifs. « Toi, tu as la tête de quelqu'un qui n'a pas mangé assez. Tiens. »"
     },
     {
      "again": true,
@@ -4001,7 +4001,7 @@
     {
      "after": "avertissement",
      "once": true,
-     "text": "« On m'a dit qu'on t'avait pris{e} dehors la nuit, dit Nanon sans lever les yeux. Fais attention, petit. La seconde fois, c'est le portail, et le portail, je le ferme derrière toi. »"
+     "text": "« On m'a dit qu'on t'avait pris{e} dehors la nuit, dit Nanon sans lever les yeux. Fais attention, mon agneau. La seconde fois, c'est le portail, et le portail, je le ferme derrière toi. »"
     }
    ],
    "choices": [
@@ -4035,7 +4035,7 @@
    "text": [
     {
      "first": true,
-     "text": "L'étal de Maud Arlaud est le plus beau de la halle : des soles, des rougets, des seiches, des langoustines encore vivantes sur un lit d'algues. La poissonnière est une grande femme carrée, les mains rouges de froid et d'eau salée, avec une tache de vin sur la joue et une voix qui couvre celle de ses voisines."
+     "text": "L'étal de Maud Arlaud est le plus beau de la halle : des soles, des rougets, des seiches, et des langoustines encore vivantes sur un lit d'algues. La poissonnière est une grande femme carrée, les mains rouges de froid et d'eau salée, avec une tache de vin sur la joue et une voix qui couvre celle de ses voisines."
     },
     {
      "first": true,
@@ -4043,7 +4043,7 @@
     },
     {
      "again": true,
-     "text": "Maud te reconnaît d'un coup de menton et continue de vider un maquereau."
+     "text": "Maud te reconnaît d'un coup de menton, et continue de vider un maquereau."
     }
    ],
    "choices": [
@@ -4062,7 +4062,7 @@
    "title": "La sœur",
    "back": true,
    "text": [
-    "Maud fait signe à sa voisine de garder l'étal, et t'emmène derrière la halle, sur un banc qui sent la marée. Elle s'essuie les mains longtemps avant de parler.",
+    "Maud fait signe à sa voisine de garder l'étal, et t'emmène derrière la halle, sur un banc qui sent la marée. Elle s'essuie longtemps les mains avant de parler.",
     "« Il venait ici, avant, dit-elle. Le vieux maître. Il venait chercher ma sœur, le dimanche, pour l'emmener travailler sur la digue. Ma sœur, Solène. Elle était au collège, comme toi. Boursière, comme toi. Elle dessinait des signes pour la mer depuis l'âge de quinze ans, sur tout ce qu'elle trouvait, sur les murs, sur la table, sur le dos de mes mains. »",
     "« Elle s'est noyée la nuit où la digue a chanté pour la première fois. Elle avait dix-sept ans. » Maud regarde la mer. « Trois jours après, un garçon du collège est venu à la maison. Un camarade de Solène, poli, bien habillé. Il a dit qu'il venait chercher ses cahiers, pour les rendre au collège. Ma mère les lui a donnés. Je ne les ai jamais revus. Je n'ai jamais rien eu d'elle, à part une couronne de fleurs, et un nom sur une pierre que la mer mange un peu plus chaque hiver. »"
    ],
@@ -4076,7 +4076,7 @@
    "back": true,
    "text": [
     "Tu poses le document sur l'étal, entre les soles et les rougets. Maud le regarde sans comprendre, puis elle comprend. Elle essuie ses mains sur son tablier, très lentement, avant d'y toucher.",
-    "Elle tourne les pages. Elle reconnaît l'écriture tout de suite, tu le vois à sa bouche. Elle ne pleure pas. Elle reste debout derrière son étal, au milieu des cris de la halle, le cahier contre la poitrine, les yeux fermés.",
+    "Elle tourne les pages. Elle reconnaît l'écriture tout de suite, tu le vois à sa bouche. Elle garde les yeux secs. Elle reste debout derrière son étal, au milieu des cris de la halle, le cahier contre la poitrine, les yeux fermés.",
     "« Le jour de votre examen, dit-elle enfin, sans ouvrir les yeux. Sur la digue. Je serai là. Et cette fois, ils m'entendront. »"
    ],
    "fx": {
@@ -4094,9 +4094,9 @@
    "back": true,
    "text": [
     "Le logis du Recteur occupe l'angle de l'aile nord, au-dessus du réfectoire. Tu te glisses le long du mur jusqu'à la gouttière, puis jusqu'au rebord de la fenêtre éclairée, et tu regardes entre les rideaux mal tirés.",
-    "Le Recteur est assis à son bureau, en robe de chambre, sous une lampe. Devant lui, le grand livre de la digue est ouvert au signe de la Tête. Il essaie de le recopier. Tu le vois tracer une courbe, s'arrêter, froisser la feuille. Recommencer. Froisser. À ses pieds, la corbeille déborde de boules de papier.",
-    "Sur un coin du bureau, à côté de la théière de porcelaine, un petit godet d'argent fermé d'un couvercle.",
-    "Au bout d'un moment, le Recteur pose sa plume, ôte ses lunettes et se prend le visage dans les mains. Il reste ainsi longtemps. Tu redescends sans bruit."
+    "Le Recteur est assis à son bureau, en robe de chambre, sous une lampe. Devant lui, le grand livre de la digue est ouvert au signe de la Tête, et il essaie de le recopier. Tu le vois tracer une courbe, s'arrêter, froisser la feuille, recommencer, et froisser encore. À ses pieds, la corbeille déborde de boules de papier.",
+    "Sur un coin du bureau, à côté de la théière de porcelaine, est posé un petit godet d'argent fermé d'un couvercle.",
+    "Au bout d'un moment, le Recteur pose sa plume, ôte ses lunettes et se prend le visage dans les mains. Il reste ainsi longtemps, et tu redescends sans bruit."
    ],
    "fx": {
     "flag": "logis:vu"
@@ -4106,8 +4106,8 @@
    "title": "Pris{e}",
    "place": "cour",
    "text": [
-    "Ton pied glisse sur l'ardoise mouillée. Une tuile part et éclate sur les pavés. Une fenêtre s'ouvre au premier étage, puis une autre. Quand tu touches le sol, Dame Castagnet est sur le seuil du réfectoire, une lanterne à la main, en robe de nuit et châle noir.",
-    "Elle ne te demande pas ce que tu faisais. Elle te regarde, puis elle regarde la fenêtre du Recteur. « Au dortoir, dit-elle. Demain, votre nom sera au registre. C'est un avertissement. Il n'y en aura pas d'autre. »"
+    "Ton pied glisse sur l'ardoise mouillée, et une tuile part et éclate sur les pavés. Une fenêtre s'ouvre au premier étage, puis une autre. Quand tu touches le sol, Dame Castagnet est sur le seuil du réfectoire, une lanterne à la main, en robe de nuit et châle noir.",
+    "Elle se passe de te demander ce que tu faisais. Elle te regarde, puis elle regarde la fenêtre du Recteur. « Au dortoir, dit-elle. Demain, votre nom sera au registre. C'est un avertissement. Il n'y en aura pas d'autre. »"
    ],
    "fx": {
     "flag": "avertissement",
@@ -4125,8 +4125,8 @@
    "title": "Pris{e}",
    "place": "bibliotheque",
    "text": [
-    "Une lumière s'allume au fond de la bibliothèque. Sœur Mélisande, en bonnet de nuit, une chandelle à la main, avance entre les tables. Derrière elle, Dame Castagnet, qu'elle a fait réveiller.",
-    "« Un élève de première année, dit la vice-rectrice, dans la bibliothèque, la nuit, près du cabinet des maîtres. » Elle te regarde comme on regarde une phrase mal construite. « Votre nom sera au registre demain matin. C'est un avertissement. La prochaine fois, vous rentrez à votre village par la première diligence. »",
+    "Une lumière s'allume au fond de la bibliothèque. Sœur Mélisande, en bonnet de nuit, une chandelle à la main, avance entre les tables, suivie de Dame Castagnet, qu'elle a fait réveiller.",
+    "« Une première année, dit la vice-rectrice, dans la bibliothèque, la nuit, près du cabinet des maîtres. » Elle te regarde comme on regarde une phrase mal construite. « Votre nom sera au registre demain matin. C'est un avertissement. La prochaine fois, vous rentrez à votre village par la première diligence. »",
     "Sœur Mélisande tourne vers toi son oreille droite, en silence."
    ],
    "fx": {
@@ -4145,7 +4145,7 @@
    "title": "La seconde fois",
    "place": "cour",
    "text": [
-    "Cette fois, c'est Nanon qui te trouve, sa lanterne à la main, son châle sur la tête. Elle te regarde en silence, avec une grande tristesse, et elle va chercher Dame Castagnet.",
+    "Cette fois, c'est Nanon qui te trouve, sa lanterne à la main, son châle sur la tête. Elle te regarde en silence, avec une grande tristesse, puis elle va chercher Dame Castagnet.",
     "La vice-rectrice ne dit qu'une phrase : « Je vous avais prévenu{e}. »"
    ],
    "choices": [
@@ -4160,9 +4160,9 @@
    "title": "Le portail",
    "place": "cour",
    "text": [
-    "La diligence te dépose au pied de la colline, et tu montes la rue en escalier avec ta malle sur l'épaule, entre des maisons de pierre grise qui sentent la soupe et le varech. En haut, un grand portail de chêne clouté, ouvert à deux battants, et au-dessus, gravés dans la pierre, quatre signes : une plume, une bouche, un œil, une main.",
-    "Une petite femme ronde sort de la loge à côté du portail, un tricot à la main. « Toi, tu es la bourse de Brèches. Je suis Nanon. Je tiens la porte. Tout ce qui entre et tout ce qui sort, je le note, alors ne fais pas l'idiot. » Elle trempe une plume, écrit ton nom dans un gros registre, et souffle sur l'encre. « Bienvenue au collège. »",
-    "La cour est pleine d'élèves en robe noire, de malles, de parents qui s'embrassent sur le seuil. Au milieu, debout sur la margelle du puits pour qu'on la voie, une femme grise et droite tient une liste. Elle appelle les noms d'une voix qui ne force jamais et qu'on entend partout. Quand vient le tien, elle te fait signe d'approcher, te regarde un instant par-dessus ses lunettes, et dit : « Dame Castagnet, vice-rectrice. Au collège, chaque élève de première année choisit l'Art qu'il suivra en premier. Les autres, il les apprendra aussi, mais celui-là sera le sien. Lequel ? »",
+    "La diligence te dépose au pied de la colline, et tu montes la rue en escalier, ta malle sur l'épaule, entre des maisons de pierre grise qui sentent la soupe et le varech. En haut se dresse un grand portail de chêne clouté, ouvert à deux battants, et au-dessus, gravés dans la pierre, quatre signes : une plume, une bouche, un œil, une main.",
+    "Une petite femme ronde sort de la loge à côté du portail, un tricot à la main. « Toi, tu es la bourse de Brèches. Je suis Nanon. Je tiens la porte. Tout ce qui entre et tout ce qui sort, je le note, alors ne fais pas la bête. » Elle trempe une plume, écrit ton nom dans un gros registre, et souffle sur l'encre. « Bienvenue au collège. »",
+    "La cour est pleine d'élèves en robe noire, de malles, et de parents qui s'embrassent sur le seuil. Au milieu, debout sur la margelle du puits pour qu'on la voie, une femme grise et droite tient une liste. Elle appelle les noms d'une voix qu'elle ne force jamais et qu'on entend partout. Quand vient le tien, elle te fait signe d'approcher, te regarde un instant par-dessus ses lunettes, et dit : « Dame Castagnet, vice-rectrice. Au collège, chaque élève de première année choisit l'Art qu'il suivra en premier. Les autres, il les apprendra aussi, mais celui-là sera le sien. Lequel ? »",
     {
      "if": {
       "has": "passe:berger"
@@ -4294,8 +4294,8 @@
    "title": "Le lit d'à côté",
    "place": "dortoir",
    "text": [
-    "Le dortoir est une longue salle sous les toits, avec quarante lits de fer. Le tien est au fond, sous une lucarne. Sur le lit voisin, une fille en robe noire est assise en tailleur au milieu d'un désordre de papiers, de plumes, de petits caractères de plomb qu'elle range dans une boîte à compartiments. Elle a la peau brune, des tresses serrées, de l'encre jusqu'aux poignets.",
-    "« Ne marche pas sur le E, dit-elle sans lever la tête. Il a roulé sous ton lit. C'est le dernier E de mon père. » Tu ramasses une petite lettre de plomb sous le sommier et tu la lui tends. Elle la prend, la regarde, et te regarde enfin. Elle a un sourire immense et soudain, de travers.",
+    "Le dortoir est une longue salle sous les toits, qui aligne quarante lits de fer ; le tien est au fond, sous une lucarne. Sur le lit voisin, une fille en robe noire est assise en tailleur au milieu d'un désordre de papiers, de plumes et de petits caractères de plomb qu'elle range dans une boîte à compartiments. Elle a la peau brune, des tresses serrées, et de l'encre jusqu'aux poignets.",
+    "« Ne marche pas sur le E, dit-elle sans lever la tête. Il a roulé sous ton lit. C'est le dernier E de mon père. » Tu ramasses une petite lettre de plomb sous le sommier et tu la lui tends. Elle la prend, la regarde, et te regarde enfin, avec un sourire immense, soudain, et de travers.",
     "« Ysé Lorne. Encre. Fille d'imprimeur, imprimeur en prison, imprimerie fermée. » Elle dit ça très vite, comme pour s'en débarrasser. « Tu es la bourse de Brèches. Tout le monde le sait déjà. Ici, tout le monde sait tout. C'est ce qui me plaît. »"
    ],
    "fx": {
@@ -4328,8 +4328,8 @@
    "title": "Le lit d'à côté",
    "place": "dortoir",
    "text": [
-    "Ysé hausse les épaules et retourne à ses lettres de plomb. Tu ranges tes trois chemises dans le coffre, ta robe neuve sur le lit, la lettre du collège sous l'oreiller. Quand tu relèves la tête, elle est partie, et sur ton oreiller, il y a un petit E de plomb.",
-    "Tu le gardes dans ta poche. Il faudra le lui rendre."
+    "Ysé hausse les épaules et retourne à ses lettres de plomb. Tu ranges tes trois chemises dans le coffre, ta robe neuve sur le lit, et la lettre du collège sous l'oreiller. Quand tu relèves la tête, elle est partie, et il y a sur ton oreiller un petit E de plomb.",
+    "Tu le glisses dans ta poche. Il faudra le lui rendre."
    ],
    "choices": [
     {
@@ -4353,9 +4353,9 @@
    "title": "Le premier dîner",
    "place": "cour",
    "text": [
-    "Au premier dîner, les deux cents élèves se lèvent quand les maîtres entrent, et se rassoient dans un grand bruit de bancs. Le Recteur dit le bénédicité, puis quelques mots de bienvenue. C'est un homme rond et doux, à barbe grise, qui parle aux élèves de première année comme à des invités de marque. Il les appelle « ma jeune garde ». Il parle de la digue, qu'il a dessinée à dix-neuf ans, et de la ville, qui leur paie à tous leur place ici.",
+    "Au premier dîner, les deux cents élèves se lèvent à l'entrée des maîtres, et se rassoient dans un grand bruit de bancs. Le Recteur dit le bénédicité, puis quelques mots de bienvenue. C'est un homme rond et doux, à barbe grise, qui parle aux élèves de première année comme à des invités de marque et les appelle « ma jeune garde ». Il parle de la digue, qu'il a dessinée à dix-neuf ans, et de la ville, qui leur paie à tous leur place ici.",
     "À la table des premières années, un garçon blond, mince, dans une robe de meilleure coupe que les autres, mange du bout des lèvres. Quand tu t'assois en face de lui, il lève les yeux, renifle, et dit assez fort pour que toute la table entende : « On a fait monter les bergers, cette année. Je sens le mouton depuis la soupe. »",
-    "Des rires. Quelqu'un te souffle à l'oreille : « Valérien de Vaucombe. Le neveu du Recteur. »",
+    "On rit. Quelqu'un te souffle à l'oreille : « Valérien de Vaucombe. Le neveu du Recteur. »",
     {
      "with": "yse",
      "text": "Ysé, à côté de toi, pose sa cuillère et attend de voir ce que tu vas faire."
@@ -4412,19 +4412,19 @@
      "if": {
       "has": "rep:franche"
      },
-     "text": "Un silence, puis un éclat de rire à l'autre bout de la table. Valérien rougit du cou jusqu'aux oreilles. Il te fixe avec une attention nouvelle, presque contente, comme quelqu'un qui vient de trouver un adversaire à sa taille."
+     "text": "Un silence, puis un éclat de rire à l'autre bout de la table. Valérien rougit du cou jusqu'aux oreilles. Il te fixe avec une attention nouvelle, presque contente, comme quelqu'un qui vient de se trouver un adversaire à sa taille."
     },
     {
      "if": {
       "has": "rep:rusee"
      },
-     "text": "Il faut une seconde à la table pour comprendre, et une autre pour oser rire. Valérien, lui, pose sa cuillère, très droit, et te regarde comme on regarde une guêpe qui s'est posée sur la nappe."
+     "text": "Il faut une seconde à la table pour comprendre, et une autre pour oser rire. Valérien, lui, pose sa cuillère, se tient très droit, et te regarde comme on regarde une guêpe posée sur la nappe."
     },
     {
      "if": {
       "has": "rep:silence"
      },
-     "text": "Valérien attend une réponse qui ne vient pas, puis il se désintéresse de toi et raconte à ses voisins une histoire de la capitale. Tu manges ta soupe. Elle est bonne, et elle te reste en travers de la gorge."
+     "text": "Valérien attend une réponse que tu gardes pour toi, puis il se désintéresse de toi et raconte à ses voisins une histoire de la capitale. Tu manges ta soupe. Elle est bonne, et elle te reste en travers de la gorge."
     },
     {
      "with": "yse",
@@ -4449,8 +4449,8 @@
    "place": "atelier",
    "text": [
     "Devant la forge, un garçon immense, roux, couvert de taches de son et de suie, tient une plaque de fer rouge au bout d'une pince et la regarde avec désespoir. Il a dû la graver trop tôt, ou trop tard : le signe qu'il y a tracé s'est déformé en refroidissant, et le métal fume.",
-    "Derrière lui, Mère Fage, petite, large, un foulard sur la tête et des brûlures plein les avant-bras, crie sans reprendre son souffle : « Trois ans ! Trois ans que tu es là, Marchal, et tu me rates encore un nœud de tenue ! Tu le réussis cent fois quand je ne regarde pas ! Cent fois ! Je t'ai vu ! »",
-    "Elle s'en va en claquant la porte de la réserve. Le garçon pose la plaque dans le bac d'eau. Elle siffle. Il soupire. « Jodoc Marchal. Troisième première année. Tu peux rire, tout le monde rit. »"
+    "Derrière lui, Mère Fage, petite et large, un foulard sur la tête et des brûlures plein les avant-bras, crie sans reprendre son souffle : « Trois ans ! Trois ans que tu es là, Marchal, et tu me rates encore un nœud de tenue ! Tu le réussis cent fois quand je ne regarde pas ! Cent fois ! Je t'ai vu ! »",
+    "Elle s'en va en claquant la porte de la réserve. Le garçon pose la plaque dans le bac d'eau, qui siffle, et il soupire. « Jodoc Marchal. Troisième première année. Tu peux rire, tout le monde rit. »"
    ],
    "fx": {
     "met": "jodoc",
@@ -4481,9 +4481,9 @@
    "title": "Quand personne ne regarde",
    "place": "atelier",
    "text": [
-    "Jodoc te regarde d'abord comme s'il soupçonnait une moquerie. Puis il prend une plaque froide, un ciseau, un maillet, et se tourne vers le mur pour que tu ne voies pas ses mains.",
-    "Trois coups. Il te montre la plaque : un nœud de tenue parfait, net, profond, et quand tu poses le doigt dessus, le métal est raide comme une barre. « Tu vois, dit-il. Facile. » Il retourne la plaque, la regarde, et ajoute à voix basse : « Au printemps, s'il y a les maîtres devant, je ne pourrai même pas tenir le ciseau. Et s'il faut redoubler une quatrième fois, mon père viendra me chercher. »",
-    "Il dit ça en riant. Ses mains, elles, ne rient pas."
+    "Jodoc te regarde d'abord comme s'il soupçonnait une moquerie. Puis il prend une plaque froide, un ciseau et un maillet, et se tourne vers le mur pour te cacher ses mains.",
+    "Trois coups. Il te montre la plaque : un nœud de tenue parfait, net et profond, et quand tu poses le doigt dessus, le métal est raide comme une barre. « Tu vois, dit-il. Facile. » Il retourne la plaque, la regarde, et ajoute à voix basse : « Au printemps, s'il y a les maîtres devant, je ne pourrai même pas tenir le ciseau. Et s'il faut redoubler une quatrième fois, mon père viendra me chercher. »",
+    "Il le dit en riant, mais ses mains, elles, gardent leur sérieux."
    ],
    "choices": [
     {
@@ -4496,11 +4496,11 @@
    "title": "Le premier cours d'Encre",
    "place": "salles",
    "text": [
-    "Le premier jour de cours, toutes les premières années, quel que soit leur Art, commencent par l'Encre, comme le veut l'usage depuis la fondation du collège. Quarante élèves s'entassent dans la salle aux pupitres tachés. Au premier rang, Valérien. Au fond, Jodoc, qui suit ce cours pour la troisième fois et dort les yeux ouverts.",
-    "Maître Salvanhac entre avec un merle sur l'épaule. Il est grand, très vieux, très maigre, avec une longue barbe blanche et des yeux d'un bleu presque blanc. Il pose le merle sur l'encrier, salue la classe, et commence sans notes, d'une voix étonnamment jeune.",
+    "Le premier jour de cours, toutes les premières années, quel que soit leur Art, commencent par l'Encre, comme le veut l'usage depuis la fondation du collège. Quarante élèves s'entassent dans la salle aux pupitres tachés. Valérien a pris le premier rang ; au fond, Jodoc, qui suit ce cours pour la troisième fois, dort les yeux ouverts.",
+    "Maître Salvanhac entre avec un merle sur l'épaule. Il est grand, très vieux et très maigre, avec une longue barbe blanche et des yeux d'un bleu presque blanc. Il pose le merle sur l'encrier, salue la classe, et commence sans notes, d'une voix étonnamment jeune.",
     "« L'Encre est le plus lent des quatre Arts, et le plus durable. Une voix s'éteint, un reflet s'efface, un outil s'use. Un signe bien tracé tient aussi longtemps que ce qui le porte. Avant d'apprendre à tracer, vous apprendrez à lire, et avant de lire, à cacher. Un signe se garde comme un secret. »",
     "Il trace au tableau un alphabet, puis un second, décalé sous le premier. « Le chiffre des écoliers. Mes élèves les plus doués l'appelaient le chiffre du merle, parce que le merle répète ce qu'il entend, mais un peu plus loin. On choisit une clé, un mot. On compte ses lettres. Puis on avance chaque lettre de son message d'autant de rangs. Pour lire, on recule d'autant. » Il écrit MERLE au tableau, compte cinq sur ses doigts, et transforme ENCRE en JSHWJ. La classe recopie.",
-    "Au milieu d'une phrase, il s'arrête. Il regarde le tableau, la craie dans sa main, les élèves. Le silence dure. Le merle saute sur son épaule, et le vieux maître sourit, reprend la phrase là où il l'avait laissée, comme si de rien n'était."
+    "Au milieu d'une phrase, il s'arrête. Il regarde le tableau, la craie dans sa main, puis les élèves, et le silence dure. Le merle saute sur son épaule ; le vieux maître sourit, et reprend la phrase là où il l'avait laissée, comme si de rien n'était."
    ],
    "fx": {
     "meet": "salvanhac",
@@ -4537,8 +4537,8 @@
    "title": "Le premier cours d'Encre",
    "place": "salles",
    "text": [
-    "À la fin de l'heure, le vieux maître ramasse les cahiers, les feuillette, et s'arrête sur le tien. Il le regarde longtemps, la tête penchée, comme le merle. « Vous avez une bonne main, dit-il. Une main qui écoute. » Il te rend le cahier. « Comment vous appelez-vous, déjà ? »",
-    "Tu le lui dis. Il répète ton nom deux fois, pour le retenir. Dans le couloir, Valérien te dépasse en haussant les épaules : « Il dit ça à tout le monde. Demain, il aura oublié ta tête. »"
+    "À la fin de l'heure, le vieux maître ramasse les cahiers, les feuillette, et s'arrête sur le tien. Il le regarde longtemps, la tête penchée à la manière du merle. « Vous avez une bonne main, dit-il. Une main qui écoute. » Il te rend le cahier. « Comment vous appelez-vous, déjà ? »",
+    "Tu le lui dis, et il répète ton nom deux fois, pour le retenir. Dans le couloir, Valérien te dépasse en haussant les épaules : « Il dit ça à tout le monde. Demain, il aura oublié ta tête. »"
    ],
    "choices": [
     {
@@ -4552,8 +4552,8 @@
    "place": "cour",
    "text": [
     "Les élèves boursiers servent à tour de rôle au collège, une demi-journée par semaine : à la bibliothèque, au réfectoire, à la loge. Ce jeudi, Nanon t'envoie au logis du Recteur, avec un tablier blanc et l'ordre de te taire. « Le thé des vieux maîtres. Tu sers, tu ressers, tu gardes le plateau droit, et tu oublies ce que tu entends. »",
-    "Le salon du Recteur est une belle pièce chaude, aux murs couverts de dessins de la digue encadrés. Autour d'une table ronde, quatre maîtres : le Recteur Daubrac, Dame Castagnet, Maître Vilmorin, et Maître Salvanhac, son merle sur l'épaule. Le Recteur verse lui-même le thé, une théière de porcelaine dans chaque main. Il parle de tout avec esprit, de la ville, des élèves, de la marée d'équinoxe, et tout le monde rit, même Dame Castagnet.",
-    "Maître Salvanhac raconte une histoire : une élève qu'il avait, il y a très longtemps, qui travaillait debout parce qu'elle disait qu'on pense mieux debout. Il rit. Il cherche son nom. Il ne le trouve pas. Le Recteur pose doucement la main sur la sienne, sur la table. « Mon vieil ami, dit-il. Tu nous l'as déjà racontée. »"
+    "Le salon du Recteur est une belle pièce chaude, aux murs couverts de dessins encadrés de la digue. Quatre maîtres sont assis autour d'une table ronde : le Recteur Daubrac, Dame Castagnet, Maître Vilmorin, et Maître Salvanhac, son merle sur l'épaule. Le Recteur verse lui-même le thé, une théière de porcelaine dans chaque main. Il parle de tout avec esprit, de la ville, des élèves, de la marée d'équinoxe, et tout le monde rit, même Dame Castagnet.",
+    "Maître Salvanhac raconte une histoire : celle d'une élève qu'il avait il y a très longtemps, et qui travaillait debout, parce qu'on pense mieux debout, disait-elle. Il rit, puis cherche son nom, et le nom lui échappe. Le Recteur pose doucement la main sur la sienne, sur la table. « Mon vieil ami, dit-il. Tu nous l'as déjà racontée. »"
    ],
    "fx": {
     "meet": [
@@ -4591,7 +4591,7 @@
    "text": [
     "La main du Recteur reste posée sur celle du vieux maître. De l'autre main, sous la table, il a ouvert un petit godet d'argent, gros comme un dé à coudre. Il y trempe l'index, très naturellement, comme on ramasse une miette. Puis il remonte la main, et pendant qu'il parle, en riant, il trace du bout du doigt, sur le dos de la main de son ami, un petit signe rapide. Le doigt laisse une trace brune, à peine visible, de la couleur du thé. Maître Salvanhac continue de parler et ne remarque rien.",
     "Le Recteur lève les yeux. Tu baisses les tiens sur ton plateau, juste à temps, et tu ressers Dame Castagnet d'une main qui tremble un peu.",
-    "Le thé dure encore une heure. Quand tu ressors, avec ton plateau de tasses sales, tu as l'impression d'avoir avalé quelque chose de froid."
+    "Le thé dure encore une heure. Quand tu ressors avec ton plateau de tasses sales, tu as l'impression d'avoir avalé quelque chose de froid."
    ],
    "fx": {
     "clue": "o_main",
@@ -4612,8 +4612,8 @@
    "title": "Le thé du jeudi",
    "place": "cour",
    "text": [
-    "Tu sers, tu ressers, le plateau bien droit. Le thé sent la bergamote et la violette. Le Recteur te remercie chaque fois, en t'appelant par ton nom : il l'a retenu. À la fin, il te glisse une pièce dans la main, pour ta peine. « Revenez jeudi prochain, dit-il. Vous avez la main sûre. »",
-    "Dans l'escalier, Maître Salvanhac te croise, son merle sur l'épaule, et te demande poliment si tu sais où se trouve le logis du Recteur. Il vient d'en sortir."
+    "Tu sers et tu ressers, le plateau bien droit. Le thé sent la bergamote et la violette. Le Recteur te remercie chaque fois en t'appelant par ton nom : il l'a retenu. À la fin, il te glisse une pièce dans la main, pour ta peine. « Revenez jeudi prochain, dit-il. Vous avez la main sûre. »",
+    "Dans l'escalier, Maître Salvanhac te croise, son merle sur l'épaule, et te demande poliment si tu sais où se trouve le logis du Recteur. Il en sort à l'instant."
    ],
    "fx": {
     "gold": 5
@@ -4632,12 +4632,12 @@
    "duel": "d_automne",
    "duelLabel": "Saluer Valérien et prendre ta garde",
    "text": [
-    "Le cinquième jour, à la récréation du matin, Valérien de Vaucombe traverse la cour des tilleuls, une baguette de buis à la main, suivi de trois garçons de sa table. Il s'arrête devant toi, salue avec une politesse exagérée, et dit, assez fort pour toute la cour :",
+    "Le cinquième jour, à la récréation du matin, Valérien de Vaucombe traverse la cour des tilleuls, une baguette de buis à la main, suivi de trois garçons de sa table. Il s'arrête devant toi, te salue avec une politesse exagérée, et dit, assez fort pour toute la cour :",
     {
      "if": {
       "has": "rep:franche"
      },
-     "text": "« Le berger a de l'esprit. Voyons s'il a autre chose. »"
+     "text": "« Le mouton a de l'esprit. Voyons s'il a autre chose. »"
     },
     {
      "if": {
@@ -4649,10 +4649,10 @@
      "if": {
       "has": "rep:silence"
      },
-     "text": "« Le berger ne parle pas. Peut-être qu'il se bat. Ou peut-être qu'il ne fait rien du tout. »"
+     "text": "« Le mouton ne parle pas. Peut-être qu'il se bat. Ou peut-être qu'il ne fait rien du tout. »"
     },
     "« Premier sang, à la baguette. Trois touches. Celui qui fait couler le sang a perdu. C'est la règle du collège, et Dame Castagnet ferme les yeux. »",
-    "Les élèves font cercle. Personne ne va chercher un maître.",
+    "Les élèves font cercle, et personne ne va chercher un maître.",
     {
      "with": "jodoc",
      "text": "Jodoc se place derrière toi, les bras croisés, comme un mur."
@@ -4680,7 +4680,7 @@
    "place": "cour",
    "text": [
     "La troisième touche claque sur l'épaule de Valérien. Le cercle hurle. Valérien reste un moment immobile, la baguette baissée, puis il te salue, correctement cette fois, sans exagération. « Bien », dit-il seulement.",
-    "Il s'en va, droit, ses trois amis derrière lui. Avant de passer la porte du réfectoire, il se retourne et te regarde, et dans ce regard, il y a autre chose que de la haine. De l'intérêt.",
+    "Il s'en va, droit, ses trois amis derrière lui. Avant de passer la porte du réfectoire, il se retourne et te regarde, et il y a dans ce regard autre chose que de la haine : de l'intérêt.",
     {
      "with": "jodoc",
      "text": "Jodoc te soulève de terre et te repose. « Le neveu du Recteur ! dit-il. Devant tout le monde ! »"
@@ -4704,8 +4704,8 @@
    "title": "Le premier sang",
    "place": "cour",
    "text": [
-    "La troisième touche de Valérien te cueille au poignet, sèche, précise. Le cercle applaudit. Valérien baisse sa baguette et te regarde, un peu essoufflé. « Pas mal, pour un berger, dit-il. Pas assez. »",
-    "Il s'en va avec ses amis. La cour se vide. Ton poignet te brûle. Tu as appris quelque chose, et tu le comprendras plus tard.",
+    "La troisième touche de Valérien te cueille au poignet, sèche et précise, et le cercle applaudit. Valérien baisse sa baguette et te regarde, un peu essoufflé. « Pas mal, pour un mouton, dit-il. Pas assez. »",
+    "Il s'en va avec ses amis, et la cour se vide. Ton poignet te brûle. Tu as appris quelque chose, que tu comprendras plus tard.",
     {
      "with": "yse",
      "text": "Ysé ramasse ta baguette et te la rend. « La prochaine fois, dit-elle. Il y a toujours une prochaine fois, avec ce genre-là. »"
@@ -4727,9 +4727,9 @@
    "title": "Le refus",
    "place": "cour",
    "text": [
-    "Tu dis non. Simplement. Tu ne te battras pas pour amuser la cour.",
-    "Valérien te regarde, surpris, puis il éclate de rire, et ses amis avec lui. « Le berger a peur pour sa laine. » Le cercle se défait, en riant. On te bouscule un peu en passant.",
-    "Le soir, au réfectoire, on bêle quand tu t'assois. Le lendemain, on bêle encore, un peu moins. Au troisième jour, on a trouvé autre chose. Valérien, lui, ne t'adresse plus la parole. Il a l'air presque déçu."
+    "Tu dis non, simplement : tu refuses de te battre pour amuser la cour.",
+    "Valérien te regarde, surpris, puis il éclate de rire, et ses amis avec lui. « Le mouton a peur pour sa laine. » Le cercle se défait en riant, et l'on te bouscule un peu en passant.",
+    "Le soir, au réfectoire, on bêle quand tu t'assois. Le lendemain, on bêle encore, un peu moins, et au troisième jour, on a trouvé autre chose. Valérien, lui, a cessé de t'adresser la parole, et il a l'air presque déçu."
    ],
    "fx": {
     "regard": {
@@ -4748,7 +4748,7 @@
    "place": "atelier",
    "text": [
     "L'après-midi du sixième jour, Mère Fage réunit toutes les premières années à l'atelier pour l'épreuve d'automne. Cette épreuve reste hors du grand examen, dit-elle : elle compte pour elle seule. Chacun doit graver un nœud de tenue dans une plaque de fer, devant elle, avant que le sablier ne se vide. Le métal doit se raidir.",
-    "Les élèves passent un à un. Certains réussissent, beaucoup ratent, Valérien réussit sans y penser. Quand vient le tour de Jodoc, l'atelier se tait, parce que tout le monde connaît l'histoire."
+    "Les élèves passent un à un. Certains réussissent, beaucoup ratent, et Valérien réussit sans y penser. Quand vient le tour de Jodoc, l'atelier se tait, parce que tout le monde connaît l'histoire."
    ],
    "choices": [
     {
@@ -4782,8 +4782,8 @@
    "title": "L'épreuve d'automne",
    "place": "atelier",
    "text": [
-    "Jodoc prend le ciseau. Ses mains tremblent. Il te cherche des yeux dans la foule des élèves, et tu lui fais un signe. Il se met à graver. Tu vois ses lèvres bouger : il se raconte tout bas une de tes histoires de moutons.",
-    "Trois coups. Il pose le ciseau. Mère Fage passe le doigt sur la plaque, longuement, en silence. Elle fait un trait sur sa liste, et elle passe à l'élève suivant. Jodoc reste planté là, la plaque à la main, comme quelqu'un qui vient de recevoir un coup de soleil.",
+    "Jodoc prend le ciseau, et ses mains tremblent. Il te cherche des yeux dans la foule des élèves, et tu lui fais un signe. Il se met à graver. Tu vois ses lèvres bouger : il se raconte tout bas une de tes histoires de moutons.",
+    "Trois coups, et il pose le ciseau. Mère Fage passe le doigt sur la plaque, longuement, en silence, fait un trait sur sa liste, et passe à l'élève suivant. Jodoc reste planté là, la plaque à la main, comme quelqu'un qui vient de prendre un coup de soleil.",
     "Dans le dos de Mère Fage, l'atelier entier applaudit."
    ],
    "fx": {
@@ -4831,7 +4831,7 @@
    "title": "L'épreuve d'automne",
    "place": "atelier",
    "text": [
-    "Jodoc prend le ciseau. Ses mains tremblent. Le premier coup glisse. Le deuxième entame à peine le fer. Au troisième, la plaque saute de l'établi et tombe dans la sciure. Mère Fage la ramasse, la regarde, et fait un trait sur sa liste, les lèvres serrées.",
+    "Jodoc prend le ciseau, et ses mains tremblent. Le premier coup glisse, et le deuxième entame à peine le fer. Au troisième, la plaque saute de l'établi et tombe dans la sciure. Mère Fage la ramasse, la regarde, et fait un trait sur sa liste, les lèvres serrées.",
     "Jodoc retourne au fond de l'atelier, le visage écarlate, et s'assoit sur un tas de charbon. Quand on ne le regarde plus, il prend une plaque froide dans le tas, et grave un nœud parfait en trois coups, pour personne."
    ],
    "choices": [
@@ -4872,7 +4872,7 @@
    "title": "L'épreuve d'automne",
    "place": "atelier",
    "text": [
-    "Le fer résiste, puis cède sous le ciseau, et quand tu poses le doigt sur le nœud, il est raide et chaud. Mère Fage passe derrière toi, grogne, et fait un trait sur sa liste. Un grognement de Mère Fage, au collège, vaut une médaille."
+    "Le fer résiste, puis cède sous le ciseau, et quand tu poses le doigt sur le nœud, il est raide et chaud. Mère Fage passe derrière toi, grogne, et fait un trait sur sa liste. Au collège, un grognement de Mère Fage vaut une médaille."
    ],
    "fx": {
     "flag": "epreuve:ok",
@@ -4910,12 +4910,12 @@
    "place": "digue",
    "text": [
     "Une fois l'an, le soir du sixième jour de l'automne, Hautsignes pose des lanternes sur la digue. C'est la nuit des noyés : chaque famille en allume une pour ceux que la mer a pris, et le collège descend tout entier en procession, en robe noire, une lanterne de papier à la main.",
-    "La digue est couverte de {{fx:lueur|petites lumières tremblantes}}, de la ville jusqu'à la Tête. Il y en a des centaines. La mer est calme, et les lanternes s'y reflètent comme une seconde digue, à l'envers.",
+    "La digue est couverte de {{fx:lueur|petites lumières tremblantes}}, de la ville jusqu'à la Tête, par centaines. La mer est calme, et les lanternes s'y reflètent comme une seconde digue, à l'envers.",
     "Au milieu, devant la grande plaque de bronze, le Recteur fait un discours. Il parle de la nuit de la première épreuve, de la tempête, des pierres qui se sont mises à chanter pour la première fois, du jeune homme de dix-neuf ans qu'il était. Sa voix tremble un peu, et la foule l'écoute avec amour.",
-    "À l'écart, au bout de la digue, Maître Salvanhac regarde la mer, seul, sans lanterne. Le merle n'est pas sur son épaule.",
+    "À l'écart, au bout de la digue, Maître Salvanhac regarde la mer, seul et sans lanterne. Le merle a quitté son épaule.",
     {
      "with": "jodoc",
-     "text": "Jodoc a allumé trois lanternes : une pour sa grand-mère, deux pour des cousins pêcheurs. Il les pose avec un soin infini."
+     "text": "Jodoc a allumé trois lanternes, une pour sa grand-mère et deux pour des cousins pêcheurs, et il les pose avec un soin infini."
     },
     {
      "with": "yse",
@@ -4960,7 +4960,7 @@
    "place": "digue",
    "text": [
     "Tu poses ta lanterne au pied de la plaque, parmi celles du collège. Le Recteur, qui descend de l'estrade, s'arrête près de toi et pose la main sur ton épaule. « Notre bourse de Brèches. Vous ne connaissez aucun noyé, ici. C'est bien de penser à eux quand même. »",
-    "Il garde la main sur ton épaule un instant de trop, en regardant les lanternes. Puis il s'en va saluer les notables."
+    "Il garde la main sur ton épaule un instant de trop, en regardant les lanternes, puis il s'en va saluer les notables."
    ],
    "choices": [
     {
@@ -4975,8 +4975,8 @@
    "place": "digue",
    "text": [
     "Tu descends les marches glissantes jusqu'à la petite grève, au pied de la digue, côté mer. Il fait noir, et les vagues claquent contre les blocs. Une seule lanterne brûle déjà là, posée sur une pierre plate contre le granit.",
-    "Une femme est assise sur les galets, à côté, emmitouflée dans un châle, une grande femme aux mains rouges. Elle lève la tête quand tu poses ta lanterne près de la sienne. « Tu es perdu{e}, petit ? Le collège est là-haut. »",
-    "Tu lui réponds que tu voulais poser ta lumière là où il n'y en avait pas. Elle te regarde longtemps, puis elle hoche la tête. « Il y en a une, maintenant. Deux. C'est bien. » Ce sont ses derniers mots. Vous restez assis{e} là un moment, tous les deux, à regarder les lanternes trembler."
+    "À côté, une femme est assise sur les galets, emmitouflée dans un châle : une grande femme aux mains rouges. Elle lève la tête quand tu poses ta lanterne près de la sienne. « Tu t'es perdu{e} ? Le collège est là-haut. »",
+    "Tu lui réponds que tu voulais poser ta lumière là où il en manquait. Elle te regarde longtemps, puis elle hoche la tête. « Il y en a une, maintenant. Deux. C'est bien. » Ce sont ses derniers mots. Vous restez là un moment, côte à côte, à regarder les lanternes trembler."
    ],
    "fx": {
     "meet": "maud"
@@ -4994,7 +4994,7 @@
    "place": "digue",
    "text": [
     "Tu marches jusqu'au bout de la digue, jusqu'à la Tête, où le grand signe bourdonne sous les pieds. Maître Salvanhac est là, les mains derrière le dos, face au large.",
-    "Tu lui tends ta lanterne. Il la prend, la regarde, te regarde. « Pour qui ? » demande-t-il. Tu lui dis : pour qui il voudra. Il réfléchit, longuement, en fronçant ses sourcils blancs. Puis il pose la lanterne sur le grand signe, à ses pieds, et reste à la regarder.",
+    "Tu lui tends ta lanterne. Il la prend, la regarde, puis te regarde. « Pour qui ? » demande-t-il. Tu lui réponds : pour qui il voudra. Il réfléchit longuement, en fronçant ses sourcils blancs. Puis il pose la lanterne sur le grand signe, à ses pieds, et reste à la regarder.",
     "« Il y avait quelqu'un, dit-il enfin. Ici. Il y a très longtemps. » Il secoue la tête. « Je ne sais plus. C'est une chose terrible, mon enfant, de savoir qu'on a oublié quelqu'un, et de ne pas savoir qui. »"
    ],
    "fx": {
@@ -5034,10 +5034,10 @@
    "text": [
     "L'hiver arrive en une nuit. Au matin du septième jour, les tilleuls sont blancs, le puits fume, et la cloche appelle tout le collège dans la grande salle des actes, sous les portraits des recteurs, pour l'annonce du sujet de l'examen.",
     "Le Recteur monte à la tribune. Il parle d'abord de la digue, avec émotion : trente ans qu'elle tient, trente ans que la ville dort tranquille. Puis il baisse la voix. « Mais la pierre s'use, mes enfants. Les signes s'effacent sous le sel. Il faut que le collège apprenne à les refaire, et le collège, c'est vous. » Un murmure parcourt la salle. « Cette année, chaque élève, de la première à la quatrième année, présentera au grand examen de printemps une reprise d'un signe de la digue, devant la ville, sur la pierre même. »",
-    "Dame Castagnet, assise au premier rang des maîtres, reste de pierre. Maître Vilmorin se gratte la moustache. Maître Salvanhac regarde ses mains.",
+    "Dame Castagnet, assise au premier rang des maîtres, reste de pierre ; Maître Vilmorin se gratte la moustache ; Maître Salvanhac regarde ses mains.",
     "On distribue les signes par tirage au sort, année par année. Les premières années reçoivent les petits signes du parapet, les plus simples. Quand vient ton tour, le Recteur lève la main avant que tu plonges la tienne dans l'urne. « Pour notre bourse de Brèches, dit-il en souriant, je voudrais quelque chose de plus beau. J'ai vu sa main au thé du jeudi. » Il écrit lui-même sur un billet, le plie, et te le tend.",
     "Sur le billet : « La Tête. »",
-    "Un silence, puis des chuchotements dans toute la salle. La Tête est le plus grand signe de la digue, celui qui reçoit la mer le premier. On ne le donne même pas aux quatrièmes années."
+    "Un silence, puis des chuchotements dans toute la salle. La Tête est le plus grand signe de la digue, celui qui reçoit la mer le premier, et on le refuse même aux quatrièmes années."
    ],
    "fx": {
     "meet": "daubrac",
@@ -5076,8 +5076,8 @@
    "title": "L'annonce",
    "place": "cour",
    "text": [
-    "Ta voix résonne dans la grande salle, plus fort que tu ne l'aurais voulu. Deux cents têtes se tournent vers toi.",
-    "Le Recteur, loin de se fâcher, sourit plus largement. « Parce que la digue a été dessinée par un élève de troisième année, mon enfant, et qu'on m'a dit qu'il était fou. Il faut toujours donner sa chance à un fou. » La salle rit. Il te tend le billet. Tu le prends."
+    "Ta voix résonne dans la grande salle, plus fort que tu ne l'aurais voulu, et deux cents têtes se tournent vers toi.",
+    "Le Recteur, loin de se fâcher, sourit plus largement. « Parce que la digue a été dessinée par un élève de troisième année, mon enfant, et qu'on m'a dit qu'il était fou. Il faut toujours donner sa chance à un fou. » La salle rit. Il te tend le billet, et tu le prends."
    ],
    "choices": [
     {
@@ -5098,9 +5098,9 @@
     },
     {
      "with": "jodoc",
-     "text": "Jodoc a tiré un petit signe de parapet, un nœud de tenue. Le même que l'épreuve d'automne. Il le regarde comme on regarde une condamnation."
+     "text": "Jodoc a tiré un petit signe de parapet, un nœud de tenue : le même qu'à l'épreuve d'automne. Il le regarde comme on regarde une condamnation."
     },
-    "Valérien passe près de toi sans s'arrêter. Il a tiré un signe de troisième année, l'Œil, et il garde cela pour lui. Il te regarde, puis il regarde son oncle, qui sort de la salle au bras de Dame Castagnet en riant."
+    "Valérien passe près de toi sans s'arrêter. Il a tiré un signe de troisième année, l'Œil, et il garde la nouvelle pour lui. Il te regarde, puis il regarde son oncle, qui sort de la salle au bras de Dame Castagnet, en riant."
    ],
    "choices": [
     {
@@ -5114,8 +5114,8 @@
    "place": "port",
    "text": [
     "Le huitième jour, au milieu de l'après-midi, Nanon sort de sa loge en courant, son tricot à la main, et t'attrape par la manche. « Maître Salvanhac est sorti ce matin par le portail et il n'est pas rentré. Il n'a pas son manteau. Dame Castagnet est au conseil. Va voir en ville, toi, tu as de bonnes jambes. Commence par le port. »",
-    "Tu descends la rue en escalier en courant, puis les quais, en demandant aux pêcheurs. On l'a vu. Un vieux en robe noire, sans manteau, qui parlait à un oiseau. Il allait vers la halle.",
-    "Tu le trouves au milieu de la halle aux poissons, debout devant un étal, très droit, les mains derrière le dos, le merle sur l'épaule, au milieu des cris et des écailles. Il parle à la poissonnière, une grande femme aux mains rouges, qui le regarde, figée, un maquereau à la main.",
+    "Tu descends la rue en escalier en courant, puis les quais, en interrogeant les pêcheurs. On l'a vu : un vieux en robe noire, sans manteau, qui parlait à un oiseau, et qui allait vers la halle.",
+    "Tu le trouves au milieu de la halle aux poissons, parmi les cris et les écailles, debout devant un étal, très droit, les mains derrière le dos, le merle sur l'épaule. Il parle à la poissonnière, une grande femme aux mains rouges, qui le regarde, figée, un maquereau à la main.",
     "« Vous êtes en retard, Mademoiselle Arlaud, dit-il d'une voix douce et sévère. L'épreuve est ce soir. Nous avons encore le signe de la Tête à vérifier. Le poisson attendra. »",
     "La poissonnière lâche le maquereau."
    ],
@@ -5134,10 +5134,10 @@
    "title": "Le carnet",
    "place": "port",
    "text": [
-    "Tu poses la main sur le bras de Maître Salvanhac. Il se tourne vers toi, te regarde, et ses yeux pâles reviennent lentement de très loin. Il voit la halle, les poissons, ses pieds trempés, la femme devant lui. Il se demande ce qu'il fait là.",
+    "Tu poses la main sur le bras de Maître Salvanhac. Il se tourne vers toi, et ses yeux pâles reviennent lentement de très loin. Il voit la halle, les poissons, ses pieds trempés, la femme devant lui, et il se demande ce qu'il fait là.",
     "« Pardonnez-moi, Madame, dit-il à la poissonnière. Je vous ai prise pour quelqu'un. » Elle le regarde comme on regarde un fantôme.",
     "Sur le chemin du collège, il marche lentement, appuyé sur ton bras, et grelotte dans sa robe. Au pied de la rue en escalier, il s'arrête, fouille dans sa poche et en sort un carnet de cuir noir, gonflé de feuilles volantes. « Gardez-le, dit-il. Je ne sais plus à qui il est. Je l'ai sur moi depuis des années, et chaque fois que je l'ouvre, {{fx:efface|je ne comprends plus mon écriture}}. Vous avez une main qui écoute. Peut-être qu'il vous parlera. »",
-    "Il te met le carnet dans les mains, et il reprend la montée, et il te demande ton nom."
+    "Il te met le carnet dans les mains, reprend la montée, et te demande ton nom."
    ],
    "fx": {
     "item": "carnet",
@@ -5159,7 +5159,7 @@
    "place": "cour",
    "text": [
     "Nanon vous attend au portail avec une couverture. Dame Castagnet sort du conseil en courant, ce que personne au collège ne l'a jamais vue faire. Elle prend Maître Salvanhac par les épaules, l'enveloppe dans la couverture, et l'emmène vers l'escalier des maîtres.",
-    "Sur le seuil, elle se retourne vers toi. « Merci », dit-elle. Un seul mot, mais de sa part, c'est un discours."
+    "Sur le seuil, elle se retourne vers toi. « Merci », dit-elle. Le mot est seul, mais de sa part, c'est un discours."
    ],
    "fx": {
     "regard": {
@@ -5178,9 +5178,9 @@
    "place": "digue",
    "text": [
     "Le neuvième jour, à la tombée de la nuit, le vent tourne au sud-ouest et se met à hurler. À huit heures, la cloche du collège sonne le tocsin, un coup toutes les cinq secondes, et Dame Castagnet traverse le dortoir avec une lanterne : « Tout le monde à la digue. Robes, manteaux, lanternes. Les premières années portent la lumière, les autres chantent. Vite. »",
-    "La digue, sous la tempête, n'a plus rien de la promenade d'automne. Les vagues montent à l'assaut des blocs, plus hautes que les maisons du port, et retombent en grondant sur le parapet. Tout le collège est là, en ligne, sur toute la longueur, des lanternes à la main, et les élèves de Chant, épaule contre épaule, chantent. Leur chant passe dans la pierre, et la pierre gronde, et la vague recule.",
-    "Puis, au bout de la digue, à la Tête, quelque chose craque. Un bruit énorme, sec, comme un arbre qui se fend. Le grondement de la digue se brise, devient une note fausse, déchirante, et la vague suivante passe par-dessus le parapet et balaie la chaussée.",
-    "On court vers la Tête. Le grand signe est fendu de haut en bas, et l'eau entre par la fente. Le Recteur est déjà là, devant, les deux mains ouvertes vers la pierre. Dame Castagnet arrive, et derrière elle tout le chœur, en courant."
+    "La digue, sous la tempête, a perdu tout l'air de la promenade d'automne. Les vagues montent à l'assaut des blocs, plus hautes que les maisons du port, et retombent en grondant sur le parapet. Tout le collège est là, en ligne sur toute la longueur, des lanternes à la main, et les élèves de Chant, épaule contre épaule, chantent. Leur chant passe dans la pierre ; la pierre gronde, et la vague recule.",
+    "Puis, au bout de la digue, à la Tête, quelque chose craque, d'un bruit énorme et sec, comme un arbre qui se fend. Le grondement de la digue se brise en une note fausse, déchirante, et la vague suivante passe par-dessus le parapet et balaie la chaussée.",
+    "On court vers la Tête. Le grand signe est fendu de haut en bas, et l'eau entre par la fente. Le Recteur est déjà là, devant, les deux mains ouvertes vers la pierre. Dame Castagnet arrive, et derrière elle tout le chœur, au pas de course."
    ],
    "fx": {
     "ep": [
@@ -5254,9 +5254,9 @@
    "title": "La tempête",
    "place": "digue",
    "text": [
-    "Tu te glisses dans le chœur, entre deux élèves de quatrième année, et tu cherches la note. Dame Castagnet chante, la tête renversée, une note grave et immense qui semble sortir de la pierre elle-même. Tu la trouves. Tu la tiens. Ta poitrine vibre, tes dents vibrent, le granit vibre sous tes pieds.",
-    "La fente du grand signe se resserre, lentement, sans se fermer tout à fait. La vague suivante frappe la Tête, et recule. La suivante aussi. Le chœur chante toute la nuit, par relais. À l'aube, le vent tombe. La digue tient, fendue, avec une voix fausse.",
-    "En redescendant, Dame Castagnet passe près de toi, la voix brisée, et te touche l'épaule, une seconde."
+    "Tu te glisses dans le chœur, entre deux élèves de quatrième année, et tu cherches la note. Dame Castagnet chante, la tête renversée, une note grave et immense qui semble sortir de la pierre elle-même. Tu la trouves, et tu la tiens. Ta poitrine vibre, tes dents vibrent, et le granit vibre sous tes pieds.",
+    "La fente du grand signe se resserre lentement, sans se fermer tout à fait. La vague suivante frappe la Tête, et recule ; la suivante aussi. Le chœur chante toute la nuit, par relais. À l'aube, le vent tombe. La digue tient, fendue, avec une voix fausse.",
+    "En redescendant, Dame Castagnet passe près de toi, la voix brisée, et te touche l'épaule, le temps d'une seconde."
    ],
    "fx": {
     "pratique": {
@@ -5279,7 +5279,7 @@
    "title": "La tempête",
    "place": "digue",
    "text": [
-    "Tu te glisses dans le chœur et tu cherches la note. Elle est trop grave pour toi. Ta voix se brise, repart, se brise encore. Un élève de quatrième année te pousse doucement hors du rang. « Tiens la lumière. On a besoin de lumière aussi. »",
+    "Tu te glisses dans le chœur et tu cherches la note, mais elle est trop grave pour toi. Ta voix se brise, repart, et se brise encore. Un élève de quatrième année te pousse doucement hors du rang. « Tiens la lumière. On a besoin de lumière aussi. »",
     "Tu tiens la lumière. Toute la nuit, ta lanterne au bout du bras, tu regardes le chœur tenir la mer par la voix, relais après relais. À l'aube, le vent tombe. La digue tient, fendue, avec une voix fausse."
    ],
    "fx": {
@@ -5302,13 +5302,13 @@
     "Un pêcheur venu aider a été jeté par la vague au pied du parapet, côté ville, et se débat dans l'eau noire du port, accroché à un anneau d'amarrage. Tu te jettes à plat ventre sur la pierre trempée et tu lui tends ta baguette, puis ta main.",
     {
      "with": "jodoc",
-     "text": "Jodoc s'allonge sur tes jambes pour que tu ne glisses pas, et quand le pêcheur saisit ta main, il tire, et vous tirez tous les deux, et l'homme sort de l'eau comme un poisson."
+     "text": "Jodoc s'allonge sur tes jambes pour t'empêcher de glisser. Quand le pêcheur saisit ta main, Jodoc tire, et tu tires avec lui, et l'homme sort de l'eau comme un poisson."
     },
     {
      "without": "jodoc",
-     "text": "Le pêcheur saisit ta main. Il est lourd, l'eau le tire. Tu cales tes pieds contre une borne et tu tires, de toutes tes forces, jusqu'à ce qu'il retrouve l'anneau, puis la pierre, puis le parapet."
+     "text": "Le pêcheur saisit ta main. Il est lourd, et l'eau le tire. Tu cales tes pieds contre une borne et tu tires de toutes tes forces, jusqu'à ce qu'il retrouve l'anneau, puis la pierre, puis le parapet."
     },
-    "Il reste assis contre le mur, à cracher de l'eau de mer. C'est un homme d'une cinquantaine d'années, à la barbe grise. Il te serre la main, très fort, en silence.",
+    "Il reste assis contre le mur, à cracher de l'eau de mer : un homme d'une cinquantaine d'années, à la barbe grise. Il te serre la main, très fort, en silence.",
     "Avant de partir, il fouille dans sa vareuse et te met dans la paume un galet de la digue, poli par la mer, gravé d'un petit signe. « Ma femme me l'a donné le jour de nos noces, dit-il. Il chante, quand on le serre. Il chante juste. »"
    ],
    "fx": {
@@ -5334,7 +5334,7 @@
    "title": "La tempête",
    "place": "digue",
    "text": [
-    "Tu cours vers le pêcheur, mais la vague suivante te jette contre le parapet. Tu te relèves, sonné{e}, les genoux en sang. Quand tu arrives, deux élèves de quatrième année l'ont déjà sorti de l'eau avec une gaffe. Il est vivant.",
+    "Tu cours vers le pêcheur, mais la vague suivante te jette contre le parapet. Tu te relèves, sonné{e}, les genoux en sang. Quand tu arrives, deux élèves de quatrième année l'ont déjà sorti de l'eau avec une gaffe, vivant.",
     "Tu passes le reste de la nuit à tenir ta lanterne en boitant, et à regarder le chœur tenir la mer."
    ],
    "fx": {
@@ -5355,9 +5355,9 @@
    "place": "digue",
    "text": [
     "Tu lèves ta lanterne aussi haut que tu peux, pour éclairer la Tête, et tu regardes le Recteur.",
-    "Il est debout devant le signe fendu, les mains ouvertes, tendues vers la pierre. Il devrait tracer. Tout le monde, derrière lui, attend qu'il trace : c'est lui qui a dessiné la digue. Ses mains restent ouvertes, et ses lèvres bougent, et il ne trace rien. Une vague passe et le trempe jusqu'à la taille. Il recule d'un pas.",
-    "C'est Dame Castagnet qui l'écarte, d'une main, sans le regarder, et qui se met à chanter. Le chœur la suit. La fente se resserre un peu. La vague recule.",
-    "Le Recteur reste derrière elle, trempé, les bras le long du corps. Il te voit, toi et ta lanterne. Pendant une seconde, sur son visage, il y a une expression que tu ne lui connais pas."
+    "Il est debout devant le signe fendu, les mains ouvertes, tendues vers la pierre. Il devrait tracer, et tout le monde, derrière lui, attend qu'il trace : c'est lui qui a dessiné la digue. Ses mains restent ouvertes, ses lèvres bougent, et il ne trace rien. Une vague passe et le trempe jusqu'à la taille, et il recule d'un pas.",
+    "C'est Dame Castagnet qui l'écarte d'une main, sans le regarder, et qui se met à chanter. Le chœur la suit, la fente se resserre un peu, et la vague recule.",
+    "Le Recteur reste derrière elle, trempé, les bras le long du corps. Il te voit, toi et ta lanterne, et pendant une seconde, son visage prend une expression que tu ne lui connais pas."
    ],
    "fx": {
     "clue": "s_tempete"
@@ -5374,7 +5374,7 @@
    "title": "Le matin d'après",
    "place": "dortoir",
    "text": [
-    "Le collège remonte la colline au petit jour, trempé, épuisé, en silence. Au dortoir, personne ne dort. On s'assoit sur les lits, on se frotte les mains devant le poêle, on écoute.",
+    "Le collège remonte la colline au petit jour, trempé, épuisé et silencieux. Au dortoir, personne ne dort. On s'assoit sur les lits, on se frotte les mains devant le poêle, et l'on écoute.",
     "Depuis la digue, malgré le vent tombé, un son monte jusqu'aux lucarnes : un bourdonnement grave et faux, qui ne s'arrête plus."
    ],
    "choices": [
@@ -5397,19 +5397,19 @@
      "if": {
       "has": "val:battu"
      },
-     "text": "Valérien se lève en silence. Il se souvient de la cour des tilleuls. Il te regarde sans colère, avec attention, comme on regarde un problème."
+     "text": "Valérien se lève en silence. Il se souvient de la cour des tilleuls, et il te regarde sans colère, avec attention, comme on regarde un problème."
     },
     {
      "if": {
       "seen": "A_duel_perdu"
      },
-     "text": "Valérien se lève en souriant. « Une deuxième leçon. Avec plaisir. » Mais il ne sourit qu'un instant. Il te regarde avec attention, comme on regarde un problème."
+     "text": "Valérien se lève en souriant. « Une deuxième leçon. Avec plaisir. » Le sourire dure un instant, puis il te regarde avec attention, comme on regarde un problème."
     },
     {
      "if": {
       "seen": "A_refus"
      },
-     "text": "Valérien se lève avec un soupir. « Le berger qui ne se bat pas. On va voir s'il se cache bien. »"
+     "text": "Valérien se lève avec un soupir. « Le mouton qui ne se bat pas. On va voir s'il se cache bien. »"
     },
     {
      "with": "yse",
@@ -5437,7 +5437,7 @@
    "title": "Le duel de Verre",
    "place": "salles",
    "text": [
-    "Ta troisième touche est la bonne : un reflet de toi, posé à sa gauche, sur lequel Valérien lance tout ce qu'il a, pendant que tu es à sa droite. La bougie s'éteint. Maître Vilmorin rouvre les volets en applaudissant.",
+    "Ta troisième touche est la bonne : un reflet de toi, posé à sa gauche, sur lequel Valérien lance tout ce qu'il a, pendant que tu es à sa droite. La bougie s'éteint, et Maître Vilmorin rouvre les volets en applaudissant.",
     "Valérien reste au milieu de la salle, les mains encore levées, puis il les baisse, ramasse sa robe et sort."
    ],
    "fx": {
@@ -5461,9 +5461,9 @@
    "title": "Le neveu",
    "place": "salles",
    "text": [
-    "Au bout du couloir, au pied de l'escalier des maîtres, le Recteur attend son neveu. Tu t'arrêtes derrière une colonne. Le Recteur parle bas, d'une voix très douce, que tu entends à moitié.",
-    "« … devant un boursier. Devant Vilmorin, qui le racontera à tout le collège avant ce soir. Je t'ai élevé et je t'ai donné mon nom pour mieux que ça, Valérien. » Valérien se tient très droit, les yeux fixes. « Oui, mon oncle. » « Tu sais ce qu'on dit de moi, en ville. Tu sais ce que j'ai fait à dix-neuf ans. » « Oui, mon oncle. »",
-    "Le Recteur lui caresse la joue, tendrement, et remonte l'escalier. Valérien reste seul au pied des marches. Il reste immobile un long moment, les yeux secs, puis il se tourne, et il te voit derrière ta colonne.",
+    "Au bout du couloir, au pied de l'escalier des maîtres, le Recteur attend son neveu. Tu t'arrêtes derrière une colonne. Le Recteur parle bas, d'une voix très douce, dont tu saisis la moitié.",
+    "« … devant notre bourse de Brèches. Devant Vilmorin, qui le racontera à tout le collège avant ce soir. Je t'ai élevé et je t'ai donné mon nom pour mieux que ça, Valérien. » Valérien se tient très droit, les yeux fixes. « Oui, mon oncle. » « Tu sais ce qu'on dit de moi, en ville. Tu sais ce que j'ai fait à dix-neuf ans. » « Oui, mon oncle. »",
+    "Le Recteur lui caresse tendrement la joue, et remonte l'escalier. Valérien reste seul au pied des marches, immobile un long moment, les yeux secs. Puis il se tourne, et il te voit derrière ta colonne.",
     "Il passe devant toi, les lèvres serrées, et s'éloigne."
    ],
    "fx": {
@@ -5480,9 +5480,9 @@
    "title": "Le duel de Verre",
    "place": "salles",
    "text": [
-    "La troisième touche est pour lui : tu lances ton reflet sur un des siens, et le vrai Valérien est derrière toi, la main sur ton épaule. Maître Vilmorin rouvre les volets. Les élèves applaudissent Valérien, qui salue à peine.",
+    "La troisième touche est pour lui : tu lances ton reflet sur l'un des siens, et le vrai Valérien est derrière toi, la main sur ton épaule. Maître Vilmorin rouvre les volets, et les élèves applaudissent Valérien, qui salue à peine.",
     "Plus tard, dans le couloir, il te rattrape. « Tu attaques mes reflets les plus proches, dit-il sans préambule. Toujours. Tu le faisais déjà à la baguette, en automne. » Il hésite. « Je te dis ça parce que la prochaine fois, je veux gagner contre quelqu'un qui ne se laisse pas lire comme un livre de première année. »",
-    "Il s'en va avant que tu répondes."
+    "Il s'en va avant ta réponse."
    ],
    "fx": {
     "regard": {
@@ -5501,7 +5501,7 @@
    "place": "salles",
    "text": [
     "Maître Vilmorin te regarde, étonné, puis il hausse les épaules avec bonne humeur. « Comme tu voudras. Regarder, c'est déjà du Verre. » Il appelle un autre élève.",
-    "Valérien se bat contre un garçon de deuxième année et gagne en trois passes. Il ne te regarde pas une fois."
+    "Valérien se bat contre un garçon de deuxième année et gagne en trois passes, sans un regard pour toi."
    ],
    "choices": [
     {
@@ -5515,8 +5515,8 @@
    "place": "cour",
    "text": [
     "Le onzième jour est un jeudi, et ton tour de service revient. Nanon te tend le tablier blanc en silence.",
-    "Le salon du Recteur, la table ronde, les quatre maîtres. Maître Salvanhac est assis le dos très droit, les mains à plat sur la nappe. Il regarde la théière comme on regarde un visage qu'on devrait connaître. Le Recteur parle avec gravité de la tempête, de la Tête qu'il faudra refaire, des élèves qui ont tenu toute la nuit. Dame Castagnet garde le silence.",
-    "Sur la desserte, derrière le fauteuil du Recteur, à côté du sucrier, le petit godet d'argent fermé de son couvercle."
+    "Tu retrouves le salon du Recteur, la table ronde et les quatre maîtres. Maître Salvanhac est assis le dos très droit, les mains à plat sur la nappe, et il regarde la théière comme on regarde un visage qu'on devrait connaître. Le Recteur parle avec gravité de la tempête, de la Tête qu'il faudra refaire, des élèves qui ont tenu toute la nuit. Dame Castagnet garde le silence.",
+    "Sur la desserte, derrière le fauteuil du Recteur, à côté du sucrier, attend le petit godet d'argent, fermé de son couvercle."
    ],
    "choices": [
     {
@@ -5576,9 +5576,9 @@
    "title": "Le thé du jeudi",
    "place": "cour",
    "text": [
-    "Tu ressers Maître Vilmorin, puis tu passes derrière le fauteuil du Recteur avec ton plateau, pour gagner la desserte. Ton dos cache tes mains. Le couvercle du godet. Le flacon de Jodoc, débouché dans ta manche. Tu verses le contenu du godet dans le sucrier vide, tu remplis le godet de ton encre, tu refermes. Trois secondes. Une odeur de violette te monte au nez.",
+    "Tu ressers Maître Vilmorin, puis tu passes derrière le fauteuil du Recteur avec ton plateau, pour gagner la desserte. Ton dos cache tes mains : le couvercle du godet, le flacon de Jodoc débouché dans ta manche. Tu verses le contenu du godet dans le sucrier vide, tu remplis le godet de ton encre, et tu refermes. Il t'a fallu trois secondes, et une odeur de violette te monte au nez.",
     "Quand tu te retournes avec la théière, personne ne te regarde, sauf le merle.",
-    "Une heure plus tard, le Recteur pose sa main sur celle de son vieil ami, trempe son index sous la table, et trace son petit signe, en riant d'une plaisanterie de Vilmorin. Le doigt laisse une trace brune. Une trace d'encre ordinaire, qui ne retient rien.",
+    "Une heure plus tard, le Recteur pose sa main sur celle de son vieil ami, trempe son index sous la table, et trace son petit signe en riant d'une plaisanterie de Vilmorin. Le doigt laisse une trace brune : une trace d'encre ordinaire, qui ne retient rien.",
     "Tu emportes le sucrier à la cuisine, et tu le laves trois fois."
    ],
    "fx": {
@@ -5602,8 +5602,8 @@
    "title": "Le thé du jeudi",
    "place": "cour",
    "text": [
-    "Tu passes derrière le fauteuil du Recteur, tu poses le plateau, tu tends la main vers le godet d'argent. Le Recteur se retourne. Il te regarde, puis il regarde ta main, à un pouce du couvercle.",
-    "« Le sucre est à gauche, mon enfant », dit-il avec douceur. Il prend lui-même le godet, le glisse dans la poche de sa robe, et revient à la conversation. Il t'ignore jusqu'à la fin du thé.",
+    "Tu passes derrière le fauteuil du Recteur, tu poses le plateau, et tu tends la main vers le godet d'argent. Le Recteur se retourne. Il te regarde, puis il regarde ta main, à un pouce du couvercle.",
+    "« Le sucre est à gauche, mon enfant », dit-il avec douceur. Il prend lui-même le godet, le glisse dans la poche de sa robe, et revient à la conversation. Jusqu'à la fin du thé, il fait comme si tu étais un meuble.",
     "En partant, tu sens son regard dans ton dos jusqu'au bout du couloir."
    ],
    "fx": {
@@ -5624,7 +5624,7 @@
    "title": "Le thé du jeudi",
    "place": "cour",
    "text": [
-    "Tu ressers, et tu regardes. Au milieu d'une phrase, le Recteur tend la main derrière lui vers la desserte, ouvre le godet d'argent, y trempe l'index, très naturellement. Puis il pose sa main sur celle de Maître Salvanhac, sur la nappe, et du bout du doigt, il trace un petit signe rapide sur le dos de la main du vieux maître. Une trace brune, à peine visible, couleur de thé. Maître Salvanhac ne remarque rien.",
+    "Tu ressers, et tu regardes. Au milieu d'une phrase, le Recteur tend la main derrière lui vers la desserte, ouvre le godet d'argent et y trempe l'index, très naturellement. Puis il pose sa main sur celle de Maître Salvanhac, sur la nappe, et du bout du doigt, il trace un petit signe rapide sur le dos de la main du vieux maître : une trace brune, à peine visible, couleur de thé. Maître Salvanhac ne remarque rien.",
     "Le Recteur referme le godet. Tu as déjà détourné les yeux."
    ],
    "fx": {
@@ -5642,7 +5642,7 @@
    "title": "Le thé du jeudi",
    "place": "cour",
    "text": [
-    "Tu sers et tu ressers, les yeux sur ta théière. La conversation passe au-dessus de toi. Une fois, du coin de l'œil, tu vois la main du Recteur posée sur celle de Maître Salvanhac, amicalement. Le vieux maître sourit, d'un sourire un peu vide.",
+    "Tu sers et tu ressers, les yeux sur ta théière, et la conversation passe au-dessus de toi. Une fois, du coin de l'œil, tu vois la main du Recteur posée sur celle de Maître Salvanhac, amicalement. Le vieux maître sourit, d'un sourire un peu vide.",
     "Quand tu ressors, il te demande, dans l'escalier, si tu sais où il habite."
    ],
    "choices": [
@@ -5657,10 +5657,10 @@
    "title": "Le concert d'hiver",
    "place": "salles",
    "text": [
-    "Le douzième soir, le plus long de l'année, le collège donne son concert d'hiver dans la salle ronde du Chant, comme chaque année. Les notables de la ville sont là, en manteaux de fourrure, assis sur des bancs qu'on a montés de la chapelle. Le Recteur, au premier rang, salue tout le monde.",
-    "Le chœur de Dame Castagnet chante les chants d'hiver, puis, comme le veut la tradition, le chant de la digue : celui qui fait vibrer la pierre les nuits de tempête. La voûte parfaite renvoie chaque note. C'est très beau.",
-    "Et à la dernière mesure, de très loin, par les fenêtres fermées, la digue répond. Une note grave, et fausse, qui traverse la ville et monte jusqu'au collège et se mêle au chœur, et le chœur, une seconde, hésite.",
-    "Dame Castagnet fait tenir la note jusqu'au bout, sans ciller. Les applaudissements viennent tard, et un peu mal à l'aise.",
+    "Le douzième soir, le plus long de l'année, le collège donne comme chaque année son concert d'hiver dans la salle ronde du Chant. Les notables de la ville sont là, en manteaux de fourrure, assis sur des bancs qu'on a montés de la chapelle. Le Recteur, au premier rang, salue tout le monde.",
+    "Le chœur de Dame Castagnet chante les chants d'hiver, puis, comme le veut la tradition, le chant de la digue : celui qui fait vibrer la pierre les nuits de tempête. La voûte parfaite renvoie chaque note, et c'est très beau.",
+    "À la dernière mesure, de très loin, par les fenêtres fermées, la digue répond. Une note grave et fausse traverse la ville, monte jusqu'au collège et se mêle au chœur, qui hésite une seconde.",
+    "Dame Castagnet fait tenir la note jusqu'au bout, sans ciller. Les applaudissements viennent tard, et un peu gênés.",
     {
      "with": "yse",
      "text": "Ysé se penche vers toi. « Tu as entendu ? » Tu fais oui de la tête. « Tout le monde a entendu. Tout le monde fait semblant. »"
@@ -5671,7 +5671,7 @@
      },
      "text": "Au troisième rang, Valérien a fermé les yeux."
     },
-    "Après le concert, en sortant, tu vois le Recteur seul sur le seuil de la salle, qui regarde vers la mer."
+    "Après le concert, en sortant, tu vois le Recteur seul sur le seuil de la salle, le regard tourné vers la mer."
    ],
    "fx": {
     "ep": [
@@ -5692,7 +5692,7 @@
    "puzzle": "p_chiffre",
    "back": true,
    "text": [
-    "Tu t'assois sur ton lit, sous la lucarne, et tu ouvres le carnet de Maître Salvanhac. Les premières pages sont d'une écriture ample et sûre, les dernières d'une main qui tremble et qui se répète. Entre les deux, trente ans de notes, de signes, de listes.",
+    "Tu t'assois sur ton lit, sous la lucarne, et tu ouvres le carnet de Maître Salvanhac. Les premières pages sont d'une écriture ample et sûre, les dernières d'une main qui tremble et se répète. Entre les deux s'étendent trente ans de notes, de signes et de listes.",
     {
      "with": "yse",
      "text": "Ysé s'assoit à côté de toi et lit par-dessus ton épaule, les genoux sous le menton."
@@ -5735,7 +5735,7 @@
    "place": "bibliotheque",
    "back": true,
    "text": [
-    "Le Traité des marées, tome II, est un gros volume poussiéreux, rangé à sa place aux sciences de la mer. Tu le feuillettes une page à la fois. Au milieu du chapitre des marées d'équinoxe, entre deux pages, une bande de papier jauni, longue comme la main, couverte d'une belle écriture.",
+    "Le Traité des marées, tome II, est un gros volume poussiéreux, rangé à sa place aux sciences de la mer. Tu le feuillettes une page à la fois. Au milieu du chapitre des marées d'équinoxe, entre deux pages, tu trouves une bande de papier jauni, longue comme la main, couverte d'une belle écriture.",
     "Tu la glisses dans ton carnet."
    ],
    "fx": {
@@ -5751,7 +5751,7 @@
    "back": true,
    "text": [
     "Les Psaumes de la côte sont un petit livre de prières de pêcheurs, relié en peau de phoque. Sœur Mélisande te le donne elle-même, en t'observant de son oreille droite. Tu le feuillettes à la table la plus éloignée de son bureau.",
-    "Glissée sous la garde de la reliure, contre le carton, une bande de papier jauni. La même écriture."
+    "Sous la garde de la reliure, contre le carton, une bande de papier jauni est glissée, de la même écriture."
    ],
    "fx": {
     "flag": "frag:2",
@@ -5765,8 +5765,8 @@
    "place": "bibliotheque",
    "back": true,
    "text": [
-    "L'Herbier de Maître Ancel n'est pas à sa place, aux sciences naturelles. Tu finis par le trouver au fond du deuxième étage, coincé entre deux herbiers de cuisine. Il est plein de plantes séchées, fines comme du papier de soie.",
-    "Entre une salicorne et une criste-marine, une bande de papier jauni, pressée à plat comme une fleur."
+    "L'Herbier de Maître Ancel manque à sa place, aux sciences naturelles. Tu finis par le trouver au fond du deuxième étage, coincé entre deux herbiers de cuisine. Il est plein de plantes séchées, fines comme du papier de soie.",
+    "Entre une salicorne et une criste-marine repose une bande de papier jauni, pressée à plat comme une fleur."
    ],
    "fx": {
     "flag": "frag:3",
@@ -5780,8 +5780,8 @@
    "place": "bibliotheque",
    "back": true,
    "text": [
-    "La Grammaire des signes anciens est rangée tout en haut de la troisième galerie, si haut que l'échelle à roulettes ne suffit pas : il faut monter sur le dernier barreau et se hisser sur la pointe des pieds. L'échelle oscille. En bas, Sœur Mélisande lève la tête, et la baisse.",
-    "Le livre est énorme. À la page des signes de tenue, une bande de papier jauni, pliée en deux."
+    "La Grammaire des signes anciens est rangée tout en haut de la troisième galerie, si haut que l'échelle à roulettes ne suffit pas : il faut monter sur le dernier barreau et se hisser sur la pointe des pieds. L'échelle oscille. En bas, Sœur Mélisande lève la tête, puis la baisse.",
+    "Le livre est énorme. À la page des signes de tenue, tu trouves une bande de papier jauni, pliée en deux."
    ],
    "fx": {
     "flag": "frag:4",
@@ -5804,7 +5804,7 @@
    "title": "La page",
    "place": "bibliotheque",
    "text": [
-    "Les déchirures se rejoignent. Tu colles les quatre bandes au dos sur une feuille de papier de soie, avec la colle de peau que Sœur Mélisande laisse sur les tables, et tu laisses sécher sous un dictionnaire.",
+    "Les déchirures se rejoignent. Tu colles les quatre bandes, par le dos, sur une feuille de papier de soie, avec la colle de peau que Sœur Mélisande laisse sur les tables, et tu laisses sécher sous un dictionnaire.",
     "Une heure plus tard, tu tiens une page entière : une page de titre, calligraphiée avec soin, à l'encre brune."
    ],
    "fx": {
@@ -5829,10 +5829,10 @@
    "place": "bibliotheque",
    "puzzle": "p_cabinet",
    "text": [
-    "Minuit sonne au clocher. Tu as attendu que la lampe de Sœur Mélisande s'éteigne, et tu es entré{e} par la petite porte de l'escalier de service, qu'on ne ferme jamais. La bibliothèque est noire et immense. Tes pas résonnent sur les dalles. Au fond, derrière la grille entrouverte, le cabinet des maîtres.",
+    "Minuit sonne au clocher. Tu as attendu que la lampe de Sœur Mélisande s'éteigne, et tu es entré{e} par la petite porte de l'escalier de service, qu'on laisse toujours ouverte. La bibliothèque est noire et immense, et tes pas résonnent sur les dalles. Au fond, derrière la grille entrouverte, se trouve le cabinet des maîtres.",
     {
      "with": "yse",
-     "text": "Ysé tient la chandelle, en cachant la flamme de sa main. Elle respire très vite."
+     "text": "Ysé tient la chandelle en cachant la flamme de sa main, et elle respire très vite."
     },
     {
      "with": "jodoc",
@@ -5850,7 +5850,7 @@
    "title": "Le cabinet ouvert",
    "place": "bibliotheque",
    "text": [
-    "Le cadenas s'ouvre avec un déclic qui te paraît assez fort pour réveiller le collège. Tu défais la chaîne, maillon par maillon, et tu ouvres les deux battants.",
+    "Le cadenas s'ouvre avec un déclic qui te paraît assez fort pour réveiller le collège. Tu défais la chaîne maillon par maillon, et tu ouvres les deux battants.",
     "Dedans, des livres reliés de noir, des fioles, des rouleaux cachetés, l'odeur douce et pourrie des vieux papiers. Et sur l'étagère du bas, posé à plat, seul, un cahier relié de toil{{or:s6|e}} bleue, gondolé par l'eau, aux coins rongés.",
     "Tu l'ouvres. Des signes. Des pages et des pages de signes, à l'encre brune, d'une main fine et sûre. Tu les reconnais. Ce sont les signes de la digue, un par un, avec des flèches, des calculs, des {{fx:rature|ratures}}, des essais manqués, des notes. Tu tournes les pages jusqu'à la Tête. Elle est là, dessinée trois fois, avec dans la marge une ligne de musique.",
     "Tu refermes le cabinet, tu remets la chaîne, tu refermes le cadenas, et tu brouilles les molettes. Le cahier est sous ta robe, contre ta peau."
@@ -5880,8 +5880,8 @@
    "title": "Le cadenas bloqué",
    "place": "bibliotheque",
    "text": [
-    "À la troisième erreur, quelque chose claque à l'intérieur du cadenas. Les molettes se bloquent. Tu as beau tirer, tourner, secouer, plus rien ne bouge : le mécanisme s'est fermé pour de bon, comme un poing.",
-    "Il faudrait démonter l'armoire elle-même, ou ses gonds : un travail pour un ouvrier, avec des outils. Tu repars dans le noir."
+    "À la troisième erreur, quelque chose claque à l'intérieur du cadenas, et les molettes se bloquent. Tu as beau tirer, tourner et secouer : le mécanisme s'est fermé pour de bon, comme un poing.",
+    "Il faudrait démonter l'armoire elle-même, ou ses gonds : c'est un travail d'ouvrier, avec des outils. Tu repars dans le noir."
    ],
    "choices": [
     {
@@ -5894,8 +5894,8 @@
    "title": "Les gonds",
    "place": "bibliotheque",
    "text": [
-    "Jodoc examine les gonds du cabinet à la lueur de ta chandelle, longuement, comme un médecin. « Du travail de Valcourt, chuchote-t-il. Vieux. Bien fait. Les goupilles sont serties à froid. » Il sort de sa poche un chasse-goupille, un petit maillet enveloppé de chiffon, et se met au travail en silence.",
-    "Au bout d'une heure, le battant gauche se décolle de l'armoire. Vous le soulevez à deux, très doucement, de quoi passer un bras. Ta main trouve, sur l'étagère du bas, un cahier de toile bleue.",
+    "Jodoc examine longuement les gonds du cabinet à la lueur de ta chandelle, comme un médecin. « Du travail de Valcourt, chuchote-t-il. Vieux. Bien fait. Les goupilles sont serties à froid. » Il sort de sa poche un chasse-goupille et un petit maillet enveloppé de chiffon, et se met au travail en silence.",
+    "Au bout d'une heure, le battant gauche se décolle de l'armoire. Vous le soulevez à deux, très doucement, juste de quoi passer un bras, et ta main trouve sur l'étagère du bas un cahier de toile bleue.",
     "Jodoc remet les goupilles, une à une. « Personne ne verra rien, dit-il. C'est la première fois que je fais un travail difficile devant quelqu'un sans trembler. » Il réfléchit. « Il faut dire que je ne voyais pas tes yeux. »"
    ],
    "fx": {
@@ -5926,7 +5926,7 @@
    "title": "Les gonds",
    "place": "bibliotheque",
    "text": [
-    "Jodoc travaille une heure sur les goupilles. Elles refusent de bouger. Quand il force, le maillet glisse et frappe le fer, et le coup résonne dans toute la bibliothèque. Vous soufflez la chandelle et restez accroupis dans le noir, le cœur battant. Personne ne vient.",
+    "Jodoc travaille une heure sur les goupilles, qui refusent de bouger. Quand il force, le maillet glisse et frappe le fer, et le coup résonne dans toute la bibliothèque. Vous soufflez la chandelle et restez accroupis dans le noir, le cœur battant, mais personne ne vient.",
     "« Demain, chuchote Jodoc. J'apporterai de l'huile. »"
    ],
    "choices": [
@@ -5951,8 +5951,8 @@
    "place": "dortoir",
    "back": true,
    "text": [
-    "Tu marches sur la digue, seul{e}, par une nuit sans vent. La mer est plate comme une table. Sous tes pieds, la digue chante, et elle chante faux, une note qui grince, qui monte, qui se casse.",
-    "Tu t'agenouilles et tu poses l'oreille sur le granit. La note se défait en voix, des centaines, qui chantent chacune un peu à côté des autres. Tout au bout, à la Tête, une voix plus claire essaie de les ramener, encore et encore, et n'y arrive pas seule.",
+    "Tu marches seul{e} sur la digue, par une nuit sans vent, et la mer est plate comme une table. Sous tes pieds, la digue chante, et elle chante faux : une note qui grince, qui monte, et qui se casse.",
+    "Tu t'agenouilles et tu poses l'oreille sur le granit. La note se défait en voix, des centaines, qui chantent chacune un peu à côté des autres. Tout au bout, à la Tête, une voix plus claire essaie de les ramener, encore et encore, sans y parvenir seule.",
     "Tu veux chanter avec elle. Tu ouvres la bouche, et tu te réveilles."
    ]
   },
@@ -5961,9 +5961,9 @@
    "place": "dortoir",
    "back": true,
    "text": [
-    "Le merle de Maître Salvanhac est perché au pied de ton lit, dans le dortoir désert. Il te regarde d'un œil, puis de l'autre.",
+    "Le merle de Maître Salvanhac est perché au pied de ton lit, dans le dortoir désert, et il te regarde d'un œil, puis de l'autre.",
     "« Il a oublié pour que tu te souviennes, dit le merle, d'une voix de vieil homme. C'est un marché. Il ne l'a pas choisi. »",
-    "Il saute sur ton coffre, picore la serrure, et s'envole par la lucarne vers la mer. Sur le coffre, il a laissé une plume noire, et la plume est encore là quand tu te réveilles. Puis elle n'y est plus."
+    "Il saute sur ton coffre, picore la serrure, et s'envole par la lucarne vers la mer. Il a laissé sur le coffre une plume noire, qui est encore là quand tu te réveilles. Puis elle disparaît."
    ]
   },
   "R_examen": {
@@ -5971,8 +5971,8 @@
    "place": "dortoir",
    "back": true,
    "text": [
-    "Le grand examen. Toute la ville est sur la digue, mais les visages sont flous, comme dans un reflet de Vilmorin. Tu marches vers la Tête, et la digue s'allonge sous tes pas, une lieue, deux lieues, dix.",
-    "Quand tu arrives enfin, quelqu'un est déjà agenouillé devant le grand signe, de dos, et le trace. Tu ne vois que ses mains, fines, sûres, couvertes d'encre brune. La personne se retourne. C'est toi, avec dix ans de plus.",
+    "C'est le grand examen. Toute la ville est sur la digue, mais les visages sont flous, comme dans un reflet de Vilmorin. Tu marches vers la Tête, et la digue s'allonge sous tes pas, une lieue, deux lieues, dix.",
+    "Quand tu arrives enfin, quelqu'un est déjà agenouillé devant le grand signe, de dos, et le trace. Tu vois seulement ses mains, fines et sûres, couvertes d'encre brune. La personne se retourne : c'est toi, avec dix ans de plus.",
     "Tu te réveilles avant de savoir si la Tête a tenu."
    ]
   },
@@ -5981,7 +5981,7 @@
    "place": "cour",
    "back": true,
    "text": [
-    "Ysé t'attend sur le banc du puits, enroulée dans sa robe, les genoux sous le menton. La cour est noire. Une seule fenêtre brille, au logis du Recteur.",
+    "Ysé t'attend sur le banc du puits, enroulée dans sa robe, les genoux sous le menton. La cour est noire, et une seule fenêtre brille, au logis du Recteur.",
     "« Mon père imprimait des almanachs, dit-elle, sans que tu aies rien demandé. Des almanachs, des catéchismes, des affiches de foire. Et une fois, une seule, une feuille de quatre pages qui racontait comment le gouverneur avait vendu le blé des greniers pendant la disette. Tout était vrai. Il a pris six ans. » Elle se tait. « Ce qui est vrai, il faut l'imprimer quand même. Sinon, à quoi ça sert, de savoir lire ? »",
     "Elle fouille dans sa poche et te tend une petite lettre de plomb : un A. « Pour commencer ta casse. Il en faut beaucoup, des A. »"
    ],
@@ -5996,7 +5996,7 @@
    "place": "cour",
    "back": true,
    "text": [
-    "Ysé est déjà sur le banc du puits. Il fait froid. Vous partagez sa couverture.",
+    "Ysé est déjà sur le banc du puits. Il fait froid, et vous partagez sa couverture.",
     "« Je voudrais faire une gazette, dit-elle. Une vraie. Imprimée. Pour le collège, et pour la ville. Le droguiste de la rue des Drapiers a une vieille presse à bras dans son arrière-boutique. Il veut bien me la prêter le dimanche. » Elle te regarde de côté. « Il me manque une histoire. Une grande. Quelque chose que tout le monde voudra lire. »",
     {
      "if": {
@@ -6017,7 +6017,7 @@
    "place": "cour",
    "back": true,
    "text": [
-    "Jodoc est assis sur la margelle du puits, ses grandes jambes repliées, un bout de bois et un couteau dans les mains. Il taille. Les copeaux tombent dans le puits avec un bruit minuscule.",
+    "Jodoc est assis sur la margelle du puits, ses grandes jambes repliées, un bout de bois et un couteau dans les mains. Il taille, et les copeaux tombent dans le puits avec un bruit minuscule.",
     "« Mon père est charron, dit-il. Il fait des roues. Une roue, c'est simple : un moyeu, des rayons, une jante, et tout doit tenir ensemble ou rien ne tient. Il voulait que je fasse des roues. Moi, je voulais faire ça. » Il te montre le bout de bois : un petit mouton, parfait, avec une toison qu'on dirait vraie. Il le pose dans ta main.",
     "« Si je rate encore, je rentre faire des roues. C'est un bon métier, les roues. Seulement, mes mains veulent autre chose. »"
    ],
@@ -6032,7 +6032,7 @@
    "place": "cour",
    "back": true,
    "text": [
-    "Jodoc ne taille rien, ce soir. Il regarde le ciel, les mains entre les genoux.",
+    "Ce soir, Jodoc laisse son couteau dans sa poche. Il regarde le ciel, les mains entre les genoux.",
     "« Tu sais ce que j'ai compris ? dit-il. Les regards me gênent moins que ce que j'imagine derrière. Quand tu me parles pendant que je grave, je pense à ce que tu dis, et mes mains font leur travail. » Il réfléchit, longtemps, comme il fait tout. « Le jour de l'examen, il faudrait que tu me parles. De loin. »",
     "Vous convenez d'un signe : trois doigts levés. Trois coups, trois moutons."
    ],
@@ -6047,7 +6047,7 @@
    "title": "La gazette",
    "place": "dortoir",
    "text": [
-    "Ysé étale sur son lit des feuilles couvertes de colonnes, de titres, de dessins. Une gazette du collège, avec les résultats des duels, les menus du réfectoire, une charade, et une rubrique « On dit » pleine de méchancetés anonymes.",
+    "Ysé étale sur son lit des feuilles couvertes de colonnes, de titres et de dessins : une gazette du collège, avec les résultats des duels, les menus du réfectoire, une charade, et une rubrique « On dit » pleine de méchancetés anonymes.",
     "« C'est bien, dit-elle en regardant son travail d'un œil critique. C'est amusant. Ça ne sert à rien. » Elle te regarde. « Si un jour tu as quelque chose qui sert, quelque chose de vrai et que les gens doivent savoir, tu me le donnes. Je l'imprime. Même si ça coûte. »"
    ],
    "fx": {
@@ -6063,8 +6063,8 @@
    "title": "La gazette",
    "place": "dortoir",
    "text": [
-    "Tu poses sur le lit d'Ysé le cahier de toile bleue et la page recollée. Tu lui racontes tout, à voix basse, pendant que le dortoir dort.",
-    "Ysé t'écoute jusqu'au bout. Quand tu as fini, elle reste longtemps silencieuse, la page sur les genoux. Puis elle prend une feuille blanche et une plume, et elle écrit un titre, en capitales, et elle le barre, et elle en écrit un autre, plus simple : « LE NOM DE SOLÈNE ARLAUD ».",
+    "Tu poses sur le lit d'Ysé le cahier de toile bleue et la page recollée, et tu lui racontes tout, à voix basse, pendant que le dortoir dort.",
+    "Ysé t'écoute jusqu'au bout. Quand tu as fini, elle reste longtemps silencieuse, la page sur les genoux. Puis elle prend une feuille blanche et une plume, écrit un titre en capitales, le barre, et en écrit un autre, plus simple : « LE NOM DE SOLÈNE ARLAUD ».",
     "« Je la compose cette semaine, dit-elle. Mille feuilles, chez le droguiste. Je ne la distribue que le jour où tu parles, et seulement si tu parles. C'est toi qui décides. » Elle sourit, de son sourire immense et de travers. « Mon père va être fier. Il va me tuer, mais il va être fier. »"
    ],
    "fx": {
@@ -6089,12 +6089,12 @@
    "title": "Le printemps",
    "place": "cour",
    "text": [
-    "Le printemps vient d'un coup, comme l'hiver. Un matin, les tilleuls ont des feuilles, la neige a fondu dans les gouttières, et les martinets tournent autour du clocher en criant. Le grand examen est dans six jours. Les quatrièmes années passent leurs nuits à réviser. Les premières années font les braves.",
+    "Le printemps vient d'un coup, comme l'hiver. Un matin, les tilleuls ont des feuilles, la neige a fondu dans les gouttières, et les martinets tournent autour du clocher en criant. Le grand examen est dans six jours. Les quatrièmes années passent leurs nuits à réviser, et les premières années font les braves.",
     {
      "if": {
       "has": "salvanhac:protege"
      },
-     "text": "Maître Salvanhac a repris ses cours. Il appelle encore certains élèves par un autre nom, mais de moins en moins. Il a l'air de quelqu'un qui revient d'un long voyage et qui retrouve sa maison, pièce par pièce."
+     "text": "Maître Salvanhac a repris ses cours. Il appelle encore certains élèves par un autre nom, de moins en moins souvent, et il a l'air de quelqu'un qui revient d'un long voyage et retrouve sa maison pièce par pièce."
     },
     {
      "if": {
@@ -6102,9 +6102,9 @@
        "has": "salvanhac:protege"
       }
      },
-     "text": "Maître Salvanhac ne descend plus de sa chambre que pour le thé du jeudi. On le voit parfois à sa fenêtre, au dernier étage, qui regarde la digue pendant des heures."
+     "text": "Maître Salvanhac descend de sa chambre pour le seul thé du jeudi. On le voit parfois à sa fenêtre, au dernier étage, qui regarde la digue pendant des heures."
     },
-    "Dans la cour, le Recteur t'arrête, la main sur ton épaule, tout sourire. « Alors, notre Tête ? Vous y arrivez ? » Il te regarde avec une grande bonté, et il attend la réponse.",
+    "Dans la cour, le Recteur t'arrête, la main sur ton épaule, tout sourire. « Alors, notre Tête ? Vous y arrivez ? » Il te regarde avec une grande bonté, et attend la réponse.",
     {
      "if": {
       "has": "recteur:soupconne"
@@ -6161,7 +6161,7 @@
    "title": "La cour",
    "place": "cour",
    "text": [
-    "« À la bonne heure, dit le Recteur. Vous ferez honneur au collège. » Il te regarde une seconde de plus qu'il ne faudrait, puis il s'éloigne vers le réfectoire, les mains dans le dos."
+    "« À la bonne heure, dit le Recteur. Vous ferez honneur au collège. » Il te regarde une seconde de trop, puis s'éloigne vers le réfectoire, les mains dans le dos."
    ],
    "choices": [
     {
@@ -6175,12 +6175,12 @@
    "place": "dortoir",
    "montrer": "valerien",
    "text": [
-    "Le quatorzième soir, Valérien de Vaucombe entre dans le dortoir des premières années, où personne ne l'a jamais vu. Les conversations s'arrêtent. Il traverse l'allée centrale entre les lits, s'arrête devant le tien, et s'assoit sur ton coffre sans demander.",
+    "Le quatorzième soir, Valérien de Vaucombe entre dans le dortoir des premières années, où personne ne l'a jamais vu, et les conversations s'arrêtent. Il remonte l'allée centrale entre les lits, s'arrête devant le tien, et s'assoit sur ton coffre sans demander.",
     {
      "if": {
       "has": "val:vu_oncle"
      },
-     "text": "Ce que tu as vu au pied de l'escalier des maîtres, il le tait. Tout est dans sa façon de regarder ailleurs."
+     "text": "Ce que tu as vu au pied de l'escalier des maîtres, il le tait ; tout est dans sa façon de regarder ailleurs."
     },
     "« Mon oncle m'a demandé de te surveiller, dit-il à voix basse. Il dit que tu fouilles. Que tu poses des questions à la vieille Mélisande, à Nanon, aux poissonnières. Il dit que tu veux salir la digue. » Il te regarde enfin. « Il ne m'a jamais rien demandé de toute ma vie. Alors je voudrais savoir ce que tu cherches. »"
    ],
@@ -6242,9 +6242,9 @@
    "title": "La visite",
    "place": "dortoir",
    "text": [
-    "Tu lui dis ce que tu crois. Une élève, il y a trente ans. Une noyade. Des cahiers disparus. Un vieux maître qui oublie. Une encre, un thé, un godet d'argent.",
+    "Tu lui dis ce que tu crois : une élève, il y a trente ans ; une noyade ; des cahiers disparus ; un vieux maître qui oublie ; une encre, un thé, un godet d'argent.",
     "Valérien t'écoute jusqu'au bout, de plus en plus pâle. Puis il se lève. « Tu n'as rien, dit-il. Rien que des histoires de bonnes femmes et un vieux fou. Mon oncle a tenu cette ville au-dessus de l'eau pendant trente ans. » Sa voix tremble. « Après-demain, dans la cour, devant témoins. Duel d'honneur. Et tu retireras chaque mot. »",
-    "Il s'en va à grands pas. Tout le dortoir a entendu."
+    "Il s'en va à grands pas, et tout le dortoir a entendu."
    ],
    "fx": {
     "flag": "val:defi"
@@ -6260,8 +6260,8 @@
    "title": "La visite",
    "place": "dortoir",
    "text": [
-    "Tu lui dis que tu cherches dans les vieux livres de quoi comprendre la Tête, rien de plus. Que la bibliothèque, la nuit, c'est pour être tranquille.",
-    "Valérien te regarde longtemps. Il sait que tu mens, ou il le devine, et il te sait gré de mentir, peut-être. « Bien, dit-il. Je lui dirai ça. » Il se lève. « Mais en ville, on dit que tu traites mon oncle de voleur. Ça, je ne peux pas le laisser dire. Après-demain, dans la cour, devant témoins. Pour la forme. »"
+    "Tu lui dis que tu cherches dans les vieux livres de quoi comprendre la Tête, rien de plus, et que tu vas à la bibliothèque la nuit pour être tranquille.",
+    "Valérien te regarde longtemps. Il sait que tu mens, ou il le devine, et il t'en sait gré, peut-être. « Bien, dit-il. Je lui dirai ça. » Il se lève. « Mais en ville, on dit que tu traites mon oncle de voleur. Ça, je ne peux pas le laisser dire. Après-demain, dans la cour, devant témoins. Pour la forme. »"
    ],
    "fx": {
     "flag": "val:defi"
@@ -6277,7 +6277,7 @@
    "title": "Le matin clair",
    "place": "salles",
    "text": [
-    "Le quinzième jour, à dix heures, Maître Salvanhac te fait appeler dans sa chambre, au dernier étage. Il est debout à la fenêtre, rasé de près, en robe propre, le merle sur l'épaule. Il se retourne quand tu entres, et il dit ton nom, ton vrai nom, du premier coup.",
+    "Le quinzième jour, à dix heures, Maître Salvanhac te fait appeler dans sa chambre, au dernier étage. Il est debout à la fenêtre, rasé de près, en robe propre, le merle sur l'épaule. Il se retourne à ton entrée, et il dit ton nom, ton vrai nom, du premier coup.",
     "« Je dors mieux depuis quelque temps, dit-il. Je me souviens de choses. Elles reviennent dans le désordre, comme des oiseaux qui rentrent le soir. Hier, il en est revenu une très grande. » Il montre le portrait au fusain de la jeune fille sans nom. « Solène Arlaud. Ma meilleure élève. La meilleure de toute ma vie. »",
     "Il te raconte. La fille du port, boursière comme toi. Les deux ans passés à dessiner la digue, signe par signe, sur tout ce qu'elle trouvait. Le garçon de troisième année qui l'aidait à porter les pierres d'essai. La nuit de la première épreuve, la tempête, la Tête qu'elle voulait vérifier, seule. Le corps sur la grève, au matin. Et deux jours plus tard, Évariste devant le conseil, avec le cahier, et tout le monde qui applaudissait.",
     "« Je n'ai rien dit, dit le vieux maître. Évariste pleurait. La ville avait besoin d'un héros vivant. Je me suis dit qu'elle s'en moquerait, elle, de son nom. J'ai eu tort pendant trente ans. Il y a trois ans, j'ai voulu parler. Je l'ai dit à Évariste, en ami. Le jeudi suivant, il m'a servi le thé. »",
@@ -6313,19 +6313,19 @@
    "duel": "d_printemps",
    "duelLabel": "Saluer, et entrer dans le cercle",
    "text": [
-    "Le seizième jour, à dix heures, la cour des tilleuls est pleine. Le collège entier est là, aux fenêtres, sur les marches, assis sur la margelle du puits. Un duel d'honneur, avec les Arts, entre le neveu du Recteur et la bourse de Brèches : on n'en a pas vu depuis dix ans.",
+    "Le seizième jour, à dix heures, la cour des tilleuls est pleine. Le collège entier est là, aux fenêtres, sur les marches, assis sur la margelle du puits : un duel d'honneur, avec les Arts, entre le neveu du Recteur et la bourse de Brèches, on n'en a pas vu depuis dix ans.",
     {
      "if": {
       "not": {
        "has": "val:defi"
       }
      },
-     "text": "Valérien t'a fait porter son défi la veille, par un de ses amis, sur un papier plié : on dit en ville que tu traites son oncle de voleur. Il demande réparation."
+     "text": "Valérien t'a fait porter son défi la veille, par l'un de ses amis, sur un papier plié : on dit en ville que tu traites son oncle de voleur, et il demande réparation."
     },
-    "Valérien t'attend sous le grand tilleul. Il a perdu ses airs de fanfaron. Il a l'air de quelqu'un qui fait une chose qu'on a choisie pour lui.",
+    "Valérien t'attend sous le grand tilleul. Il a perdu ses airs de fanfaron, et il a l'air de quelqu'un qui fait une chose qu'on a choisie pour lui.",
     {
      "with": "jodoc",
-     "text": "Jodoc te tient ta robe, en silence, ce qui chez lui est rare."
+     "text": "Jodoc te tient ta robe en silence, ce qui, chez lui, est rare."
     },
     {
      "with": "yse",
@@ -6349,7 +6349,7 @@
    "title": "Le duel d'honneur",
    "place": "cour",
    "text": [
-    "Ta dernière touche le jette à genoux dans le gravier, sous le tilleul. Le collège retient son souffle. Valérien se relève lentement, époussette sa chemise, et te salue, très bas, avec une correction parfaite.",
+    "Ta dernière touche le jette à genoux dans le gravier, sous le tilleul, et le collège retient son souffle. Valérien se relève lentement, époussette sa chemise, et te salue très bas, avec une correction parfaite.",
     "« Je retire ce que j'ai dit, dit-il à voix haute, pour toute la cour. » Puis, plus bas, pour toi : « Maintenant, dis-moi ce que tu sais. Pour de vrai. »"
    ],
    "fx": {
@@ -6400,7 +6400,7 @@
    "title": "Le duel d'honneur",
    "place": "cour",
    "text": [
-    "Sa troisième touche te fait tomber assis{e} dans le gravier. Le collège applaudit, sans beaucoup de joie. Valérien se tient au-dessus de toi, essoufflé, et il ne savoure rien. « La règle, dit-il. Tu retires. »",
+    "Sa troisième touche te fait tomber assis{e} dans le gravier. Le collège applaudit, sans beaucoup de joie. Valérien se tient au-dessus de toi, essoufflé, et ne savoure rien. « La règle, dit-il. Tu retires. »",
     "Toute la cour attend."
    ],
    "choices": [
@@ -6430,7 +6430,7 @@
    "title": "Le duel d'honneur",
    "place": "cour",
    "text": [
-    "Tu te relèves, tu époussettes ta robe, et tu dis, assez fort pour la cour : « Je n'ai jamais traité le Recteur de voleur. » C'est vrai. Valérien hoche la tête, le visage fermé. La cour se disperse.",
+    "Tu te relèves, tu époussettes ta robe, et tu dis, assez fort pour la cour : « Je n'ai jamais traité le Recteur de voleur. » C'est vrai. Valérien hoche la tête, le visage fermé, et la cour se disperse.",
     "Au premier étage, derrière la fenêtre du logis, le Recteur laisse retomber le rideau."
    ],
    "choices": [
@@ -6445,7 +6445,7 @@
    "place": "cour",
    "text": [
     "Tu te relèves, et tu maintiens chaque mot. Un murmure parcourt la cour. Valérien te regarde, désemparé : la règle n'a rien prévu pour ce cas. Dame Castagnet ouvre sa fenêtre. « Ce duel est terminé, dit-elle, de sa voix qui ne force jamais. Tout le monde en classe. »",
-    "Valérien ramasse sa robe. En passant près de toi, il dit très vite : « Tu es complètement fou. » Il n'a pas l'air fâché."
+    "Valérien ramasse sa robe. En passant près de toi, il dit très vite : « Tu as perdu la tête. » Il n'a pas l'air fâché."
    ],
    "fx": {
     "regard": {
@@ -6477,13 +6477,13 @@
    "title": "La veille",
    "place": "dortoir",
    "text": [
-    "La veille de l'examen, le dortoir ne dort pas. On révise à la chandelle, on se fait réciter les signes, on se rassure, on se dispute. Quelqu'un pleure doucement sous sa couverture.",
+    "La veille de l'examen, le dortoir veille. On révise à la chandelle, on se fait réciter les signes, on se rassure, on se dispute, et quelqu'un pleure doucement sous sa couverture.",
     {
      "with": "jodoc",
      "if": {
       "has": "jodoc:entraine2"
      },
-     "text": "Jodoc est assis sur son lit, une plaque de fer sur les genoux. Il y grave des nœuds de tenue, un après l'autre, en se racontant tes histoires de moutons. Ses mains sont sûres."
+     "text": "Jodoc est assis sur son lit, une plaque de fer sur les genoux. Il y grave des nœuds de tenue, l'un après l'autre, en se racontant tes histoires de moutons, et ses mains sont sûres."
     },
     {
      "with": "jodoc",
@@ -6492,7 +6492,7 @@
        "has": "jodoc:entraine2"
       }
      },
-     "text": "Jodoc est couché tout habillé, les yeux ouverts, et il regarde le plafond. Quand tu lui parles, il te répond par des oui et des non."
+     "text": "Jodoc est couché tout habillé, les yeux ouverts sur le plafond. Quand tu lui parles, il te répond par oui ou par non."
     },
     {
      "with": "yse",
@@ -6514,9 +6514,9 @@
      "if": {
       "has": "maud:viendra"
      },
-     "text": "Par la lucarne, en bas, tu vois une lanterne bouger au pied de la digue, côté mer. Maud."
+     "text": "Par la lucarne, en bas, tu vois une lanterne bouger au pied de la digue, côté mer : Maud."
     },
-    "Vers dix heures, Nanon monte au dortoir, essoufflée par l'escalier, et te glisse un billet. L'écriture ronde et soignée du Recteur : « Demain, après votre épreuve, je vous attendrai au pavillon de la digue. Nous aurons à parler de votre avenir. É. D. »"
+    "Vers dix heures, Nanon monte au dortoir, essoufflée par l'escalier, et te glisse un billet, de l'écriture ronde et soignée du Recteur : « Demain, après votre épreuve, je vous attendrai au pavillon de la digue. Nous aurons à parler de votre avenir. É. D. »"
    ],
    "choices": [
     {
@@ -6531,13 +6531,13 @@
    "title": "Le grand examen",
    "place": "digue",
    "text": [
-    "Le dix-huitième jour, à neuf heures, toute la ville de Hautsignes est sur la digue. Les pêcheurs ont tiré leurs barques au sec. Les marchands ont fermé leurs boutiques. On s'est mis en habits du dimanche, on a apporté des pliants, des paniers, des enfants sur les épaules. Sur une estrade tendue de bleu, devant la grande plaque de bronze, les maîtres sont assis en robe d'apparat, le Recteur au milieu.",
-    "Les élèves passent par années, chacun devant son signe, sur la pierre même. Un élève de première année reprend un petit signe du parapet en une demi-heure, sous les applaudissements de sa famille. Un autre rate, et sa pierre se fendille, et il pleure. Les maîtres notent.",
+    "Le dix-huitième jour, à neuf heures, toute la ville de Hautsignes est sur la digue. Les pêcheurs ont tiré leurs barques au sec, et les marchands ont fermé leurs boutiques. On s'est mis en habits du dimanche, on a apporté des pliants, des paniers, et des enfants sur les épaules. Sur une estrade tendue de bleu, devant la grande plaque de bronze, les maîtres sont assis en robe d'apparat, le Recteur au milieu.",
+    "Les élèves passent par années, chacun devant son signe, sur la pierre même. Un élève de première année reprend un petit signe du parapet en une demi-heure, sous les applaudissements de sa famille. Un autre rate ; sa pierre se fendille, et il pleure. Les maîtres notent.",
     {
      "if": {
       "has": "salvanhac:temoin"
      },
-     "text": "Sur l'estrade, Maître Salvanhac est assis tout au bout, droit, rasé, les mains sur les genoux. Il te cherche des yeux et te fait un petit signe de tête."
+     "text": "Sur l'estrade, Maître Salvanhac est assis tout au bout, droit et rasé, les mains sur les genoux. Il te cherche des yeux et te fait un petit signe de tête."
     },
     {
      "if": {
@@ -6549,7 +6549,7 @@
      "if": {
       "has": "valerien:allie"
      },
-     "text": "Valérien passe devant toi avant son tour. Il te serre la main, brièvement, sous les yeux de son oncle."
+     "text": "Valérien passe devant toi avant son tour, et il te serre brièvement la main, sous les yeux de son oncle."
     },
     "Vient le tour de Jodoc, au parapet."
    ],
@@ -6591,14 +6591,14 @@
    "title": "Le grand examen",
    "place": "digue",
    "text": [
-    "Jodoc s'agenouille devant son petit signe, un ciseau dans une main, un maillet dans l'autre. Toute la ville le regarde. Il te cherche dans la foule, te trouve, et tu lui souris.",
+    "Jodoc s'agenouille devant son petit signe, un ciseau dans une main, un maillet dans l'autre, et toute la ville le regarde. Il te cherche dans la foule, te trouve, et tu lui souris.",
     {
      "if": {
       "has": "jodoc:signe"
      },
      "text": "Tu lèves trois doigts, le signe dont vous êtes convenus : trois coups, trois moutons. Jodoc rit tout seul, devant toute la ville."
     },
-    "Il grave. Trois coups. Le petit signe du parapet se met à bourdonner, juste et clair, et le bourdonnement court le long de la pierre. Mère Fage, sur l'estrade, se lève à moitié de sa chaise, puis se rassoit, et on la voit s'essuyer les yeux avec le coin de son foulard.",
+    "Il grave : trois coups. Le petit signe du parapet se met à bourdonner, juste et clair, et le bourdonnement court le long de la pierre. Mère Fage, sur l'estrade, se lève à moitié de sa chaise, puis se rassoit, et on la voit s'essuyer les yeux avec le coin de son foulard.",
     "Jodoc se relève, immense, rouge comme un coquelicot, et salue la foule comme un acteur."
    ],
    "fx": {
@@ -6619,7 +6619,7 @@
    "title": "Le grand examen",
    "place": "digue",
    "text": [
-    "Jodoc s'agenouille devant son petit signe. Toute la ville le regarde. Ses mains tremblent si fort que le ciseau cliquette contre la pierre. Le premier coup glisse. Le deuxième écaille le granit. Il s'arrête, le maillet levé, et reste ainsi, figé, pendant que le sablier se vide.",
+    "Jodoc s'agenouille devant son petit signe, et toute la ville le regarde. Ses mains tremblent si fort que le ciseau cliquette contre la pierre. Le premier coup glisse, et le deuxième écaille le granit. Il s'arrête, le maillet levé, et reste ainsi, figé, pendant que le sablier se vide.",
     "Mère Fage fait un trait sur sa liste. Jodoc se relève lentement, sans regarder personne, et va s'asseoir au bout de la digue, les pieds au-dessus de l'eau."
    ],
    "choices": [
@@ -6634,13 +6634,13 @@
    "title": "La Tête",
    "place": "digue",
    "text": [
-    "On appelle ton nom. La foule s'écarte. Tu marches jusqu'au bout de la digue, jusqu'à la Tête, avec l'impression que la demi-lieue de granit n'en finit pas. Derrière toi, la ville entière. Devant toi, le grand signe fendu, l'étai de bois, et la mer.",
-    "Le Recteur s'est levé sur l'estrade. Il te regarde, les mains jointes.",
+    "On appelle ton nom, et la foule s'écarte. Tu marches jusqu'au bout de la digue, jusqu'à la Tête, avec l'impression que la demi-lieue de granit n'en finit pas. Derrière toi se tient la ville entière ; devant toi, le grand signe fendu, l'étai de bois, et la mer.",
+    "Le Recteur s'est levé sur l'estrade, et il te regarde, les mains jointes.",
     {
      "if": {
       "item": "cahier"
      },
-     "text": "Sous ta robe, contre ta peau, le cahier de toile bleue."
+     "text": "Le cahier de toile bleue est sous ta robe, contre ta peau."
     },
     {
      "if": {
@@ -6739,8 +6739,8 @@
      },
      "text": "Tu traces le signe tel que tu l'as appris de la pierre elle-même, courbe après courbe, et tu cherches la note dans la vibration du granit, jusqu'à la trouver."
     },
-    "La fente se referme. Lentement, comme une plaie qui cicatrise sous les yeux. Le granit se met à vibrer, juste, profond, et la vibration part de la Tête et court tout le long de la digue, de bloc en bloc, de signe en signe, jusqu'à la ville. La note fausse s'éteint. Pour la première fois depuis la tempête, la digue chante juste.",
-    "Il y a un silence immense. Puis la ville crie. Les pêcheurs lancent leurs bonnets, les enfants hurlent, les élèves t'entourent. Sur l'estrade, Dame Castagnet est debout. Maître Vilmorin applaudit au-dessus de sa tête. Mère Fage tape du pied.",
+    "La fente se referme lentement, comme une plaie qui cicatrise sous les yeux. Le granit se met à vibrer, juste et profond, et la vibration part de la Tête et court tout le long de la digue, de bloc en bloc, de signe en signe, jusqu'à la ville. La note fausse s'éteint. Pour la première fois depuis la tempête, la digue chante juste.",
+    "Il y a un silence immense, puis la ville crie. Les pêcheurs lancent leurs bonnets, les enfants hurlent, les élèves t'entourent. Sur l'estrade, Dame Castagnet est debout, Maître Vilmorin applaudit au-dessus de sa tête, et Mère Fage tape du pied.",
     "Le Recteur descend de l'estrade, fend la foule, et te serre dans ses bras devant toute la ville. Il sent la violette. À ton oreille, très bas, il dit : « Le pavillon. Tout de suite. »"
    ],
    "fx": {
@@ -6771,7 +6771,7 @@
    "title": "Le pavillon",
    "place": "digue",
    "text": [
-    "Le pavillon de la digue est une petite maison de pierre à mi-longueur, où les gardiens rangent leurs outils. Le Recteur ferme la porte derrière vous. Le bruit de la foule n'arrive plus qu'étouffé. Il s'assoit sur un banc, lourdement. Il a l'air vieux, soudain.",
+    "Le pavillon de la digue est une petite maison de pierre à mi-longueur, où les gardiens rangent leurs outils. Le Recteur ferme la porte derrière vous, et le bruit de la foule n'arrive plus qu'étouffé. Il s'assoit lourdement sur un banc. Il a l'air vieux, soudain.",
     {
      "if": {
       "item": "cahier"
@@ -6856,7 +6856,7 @@
     ]
    },
    "text": [
-    "Tu remontes sur l'estrade. La foule se tait peu à peu, intriguée. Les maîtres te regardent. Le Recteur, derrière toi, reste immobile.",
+    "Tu remontes sur l'estrade. La foule se tait peu à peu, intriguée, et les maîtres te regardent. Le Recteur, derrière toi, reste immobile.",
     {
      "if": {
       "has": "castagnet:allie"
@@ -6867,7 +6867,7 @@
      "if": {
       "has": "valerien:allie"
      },
-     "text": "Valérien sort du rang des élèves et monte les marches de l'estrade, et se tient de l'autre côté. Son oncle le regarde. Valérien soutient ce regard."
+     "text": "Valérien sort du rang des élèves, monte les marches de l'estrade, et se tient de l'autre côté. Son oncle le regarde, et Valérien soutient ce regard."
     },
     {
      "if": {
@@ -6913,10 +6913,10 @@
        }
       ]
      },
-     "text": "Tu chantes la Tête en *sol*, haut et fort, comme le Recteur te l'a appris. La pierre se raidit, refuse, grince."
+     "text": "Tu chantes la Tête en *sol*, haut et fort, comme le Recteur te l'a appris. La pierre se raidit, refuse, et grince."
     },
-    "Tu traces, tu cherches la note, tu la perds. Le granit vibre, puis se cabre sous tes mains, et la fente s'élargit d'un doigt avec un craquement sec. Une vague passe par-dessus le parapet et te trempe jusqu'aux épaules. La foule gémit.",
-    "Dame Castagnet descend de l'estrade, sans se presser, vient se placer à côté de toi et chante. La fente se referme d'un doigt. Pas plus. La Tête garde sa voix fausse.",
+    "Tu traces, tu cherches la note, et tu la perds. Le granit vibre, puis se cabre sous tes mains, et la fente s'élargit d'un doigt avec un craquement sec. Une vague passe par-dessus le parapet et te trempe jusqu'aux épaules, et la foule gémit.",
+    "Dame Castagnet descend de l'estrade sans se presser, vient se placer à côté de toi, et chante. La fente se referme d'un doigt, sans plus, et la Tête garde sa voix fausse.",
     "Sur l'estrade, le Recteur se lève et lève les mains. « Ce signe est le plus difficile de la digue, dit-il à la foule, d'une voix chaude. Il fallait du courage pour l'affronter en première année. Le collège est fier. L'an prochain, nous y reviendrons ensemble. » On applaudit, poliment. Il te sourit avec une immense bonté."
    ],
    "choices": [
@@ -6967,7 +6967,7 @@
     ]
    },
    "text": [
-    "Tu montes sur l'estrade, trempé{e}, les mains écorchées par le granit. Un murmure court dans la foule : l'élève qui a raté veut parler. Le Recteur fait un geste aimable, pour qu'on te laisse.",
+    "Tu montes sur l'estrade, trempé{e}, les mains écorchées par le granit. Un murmure court dans la foule : l'élève qui a raté veut parler. Le Recteur fait un geste aimable, pour qu'on te laisse faire.",
     {
      "if": {
       "has": "castagnet:allie"
@@ -7020,7 +7020,7 @@
     "quest": "III_examen"
    },
    "text": [
-    "Tu parles. Tu racontes une élève de quatrième année, boursière, fille du port, qui dessinait des signes pour la mer sur tout ce qu'elle trouvait. Tu lèves le cahier de toile bleue, la page recollée. Tu dis son nom, Solène Arlaud, devant la grande plaque de bronze, et la digue qui chante juste sous vos pieds le prend dans sa vibration.",
+    "Tu parles. Tu racontes une élève de quatrième année, boursière, fille du port, qui dessinait des signes pour la mer sur tout ce qu'elle trouvait. Tu lèves le cahier de toile bleue et la page recollée. Tu dis son nom, Solène Arlaud, devant la grande plaque de bronze, et la digue, qui chante juste sous vos pieds, le prend dans sa vibration.",
     {
      "if": {
       "has": "melisande:temoin"
@@ -7119,7 +7119,7 @@
        "accuse-S-qui": "daubrac"
       }
      },
-     "text": "Tu accuses le Recteur. Mais tes mots tombent sur la digue comme de la pluie sur la mer. La foule écoute, puis murmure, puis rit, un peu, de gêne. Le Recteur se lève, très calme, et pose une main paternelle sur ton épaule. « Cet enfant est épuisé, dit-il. L'examen, la Tête, la tempête. Ramenez-le au collège. »"
+     "text": "Tu accuses le Recteur, mais tes mots tombent sur la digue comme de la pluie sur la mer. La foule écoute, puis murmure, puis rit un peu, de gêne. Le Recteur se lève, très calme, et pose une main paternelle sur ton épaule. « Notre bourse de Brèches est à bout de forces, dit-il. L'examen, la Tête, la tempête. Qu'on la raccompagne au collège. »"
     },
     {
      "if": {
@@ -7182,7 +7182,7 @@
     "quest": "III_examen"
    },
    "text": [
-    "Tu parles. Trempé{e}, les mains en sang, ta Tête ratée derrière toi, tu racontes Solène Arlaud. Et tu lèves les pièces, et la ville se tait.",
+    "Tu parles. Trempé{e}, les mains en sang, ta Tête ratée derrière toi, tu racontes Solène Arlaud. Tu lèves les pièces, et la ville se tait.",
     {
      "if": {
       "has": "salvanhac:temoin"
@@ -7220,13 +7220,13 @@
     ]
    },
    "text": [
-    "Tu redescends de la digue en silence, trempé{e}, les mains écorchées. La foule t'applaudit poliment, comme on applaudit un vaincu courageux. Le Recteur t'a souri. Il a eu raison de sourire.",
+    "Tu redescends de la digue en silence, trempé{e}, les mains écorchées. La foule t'applaudit poliment, comme on applaudit le courage des vaincus. Le Recteur t'a souri, et il a eu raison de sourire.",
     "Le conseil se réunit le soir. Tu redoubles ta première année.",
     {
      "if": {
       "has": "jodoc:examen"
      },
-     "text": "Jodoc, lui, passe en deuxième année. Il vient te voir au dortoir avec un pot de cidre et deux gobelets. Il a l'air gêné d'être heureux. Tu lui dis d'être heureux. Il essaie."
+     "text": "Jodoc, lui, passe en deuxième année. Il vient te voir au dortoir avec un pot de cidre et deux gobelets, l'air gêné d'être heureux. Tu lui dis d'être heureux, et il essaie."
     },
     {
      "if": {

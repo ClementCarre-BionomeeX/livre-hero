@@ -17,10 +17,10 @@ module.exports = { passages: {
   C_printemps: {
     act: "III", title: "Le printemps", place: "cour",
     text: [
-      "Le printemps vient d'un coup, comme l'hiver. Un matin, les tilleuls ont des feuilles, la neige a fondu dans les gouttières, et les martinets tournent autour du clocher en criant. Le grand examen est dans six jours. Les quatrièmes années passent leurs nuits à réviser. Les premières années font les braves.",
-      { if: { has: "salvanhac:protege" }, text: "Maître Salvanhac a repris ses cours. Il appelle encore certains élèves par un autre nom, mais de moins en moins. Il a l'air de quelqu'un qui revient d'un long voyage et qui retrouve sa maison, pièce par pièce." },
-      { if: { not: { has: "salvanhac:protege" } }, text: "Maître Salvanhac ne descend plus de sa chambre que pour le thé du jeudi. On le voit parfois à sa fenêtre, au dernier étage, qui regarde la digue pendant des heures." },
-      "Dans la cour, le Recteur t'arrête, la main sur ton épaule, tout sourire. « Alors, notre Tête ? Vous y arrivez ? » Il te regarde avec une grande bonté, et il attend la réponse.",
+      "Le printemps vient d'un coup, comme l'hiver. Un matin, les tilleuls ont des feuilles, la neige a fondu dans les gouttières, et les martinets tournent autour du clocher en criant. Le grand examen est dans six jours. Les quatrièmes années passent leurs nuits à réviser, et les premières années font les braves.",
+      { if: { has: "salvanhac:protege" }, text: "Maître Salvanhac a repris ses cours. Il appelle encore certains élèves par un autre nom, de moins en moins souvent, et il a l'air de quelqu'un qui revient d'un long voyage et retrouve sa maison pièce par pièce." },
+      { if: { not: { has: "salvanhac:protege" } }, text: "Maître Salvanhac descend de sa chambre pour le seul thé du jeudi. On le voit parfois à sa fenêtre, au dernier étage, qui regarde la digue pendant des heures." },
+      "Dans la cour, le Recteur t'arrête, la main sur ton épaule, tout sourire. « Alors, notre Tête ? Vous y arrivez ? » Il te regarde avec une grande bonté, et attend la réponse.",
       { if: { has: "recteur:soupconne" }, text: "Il ajoute, sans cesser de sourire : « On me dit que vous aimez la bibliothèque, la nuit. C'est bien, d'aimer les livres. Il faut seulement savoir lesquels. »" },
     ],
     fx: { ep: ["seance", 300] },
@@ -41,15 +41,15 @@ module.exports = { passages: {
   C_recteur_bien: {
     act: "III", title: "La cour", place: "cour",
     text: [
-      "« À la bonne heure, dit le Recteur. Vous ferez honneur au collège. » Il te regarde une seconde de plus qu'il ne faudrait, puis il s'éloigne vers le réfectoire, les mains dans le dos.",
+      "« À la bonne heure, dit le Recteur. Vous ferez honneur au collège. » Il te regarde une seconde de trop, puis s'éloigne vers le réfectoire, les mains dans le dos.",
     ],
     choices: [{ back: "H_cour" }],
   },
   C_valerien: {
     act: "III", title: "La visite", place: "dortoir", montrer: "valerien",
     text: [
-      "Le quatorzième soir, Valérien de Vaucombe entre dans le dortoir des premières années, où personne ne l'a jamais vu. Les conversations s'arrêtent. Il traverse l'allée centrale entre les lits, s'arrête devant le tien, et s'assoit sur ton coffre sans demander.",
-      { if: { has: "val:vu_oncle" }, text: "Ce que tu as vu au pied de l'escalier des maîtres, il le tait. Tout est dans sa façon de regarder ailleurs." },
+      "Le quatorzième soir, Valérien de Vaucombe entre dans le dortoir des premières années, où personne ne l'a jamais vu, et les conversations s'arrêtent. Il remonte l'allée centrale entre les lits, s'arrête devant le tien, et s'assoit sur ton coffre sans demander.",
+      { if: { has: "val:vu_oncle" }, text: "Ce que tu as vu au pied de l'escalier des maîtres, il le tait ; tout est dans sa façon de regarder ailleurs." },
       "« Mon oncle m'a demandé de te surveiller, dit-il à voix basse. Il dit que tu fouilles. Que tu poses des questions à la vieille Mélisande, à Nanon, aux poissonnières. Il dit que tu veux salir la digue. » Il te regarde enfin. « Il ne m'a jamais rien demandé de toute ma vie. Alors je voudrais savoir ce que tu cherches. »",
     ],
     choices: [
@@ -62,9 +62,9 @@ module.exports = { passages: {
   C_valerien_doute: {
     act: "III", title: "La visite", place: "dortoir",
     text: [
-      "Tu lui dis ce que tu crois. Une élève, il y a trente ans. Une noyade. Des cahiers disparus. Un vieux maître qui oublie. Une encre, un thé, un godet d'argent.",
+      "Tu lui dis ce que tu crois : une élève, il y a trente ans ; une noyade ; des cahiers disparus ; un vieux maître qui oublie ; une encre, un thé, un godet d'argent.",
       "Valérien t'écoute jusqu'au bout, de plus en plus pâle. Puis il se lève. « Tu n'as rien, dit-il. Rien que des histoires de bonnes femmes et un vieux fou. Mon oncle a tenu cette ville au-dessus de l'eau pendant trente ans. » Sa voix tremble. « Après-demain, dans la cour, devant témoins. Duel d'honneur. Et tu retireras chaque mot. »",
-      "Il s'en va à grands pas. Tout le dortoir a entendu.",
+      "Il s'en va à grands pas, et tout le dortoir a entendu.",
     ],
     fx: { flag: "val:defi" },
     choices: [{ back: "H_dortoir" }],
@@ -72,8 +72,8 @@ module.exports = { passages: {
   C_valerien_mensonge: {
     act: "III", title: "La visite", place: "dortoir",
     text: [
-      "Tu lui dis que tu cherches dans les vieux livres de quoi comprendre la Tête, rien de plus. Que la bibliothèque, la nuit, c'est pour être tranquille.",
-      "Valérien te regarde longtemps. Il sait que tu mens, ou il le devine, et il te sait gré de mentir, peut-être. « Bien, dit-il. Je lui dirai ça. » Il se lève. « Mais en ville, on dit que tu traites mon oncle de voleur. Ça, je ne peux pas le laisser dire. Après-demain, dans la cour, devant témoins. Pour la forme. »",
+      "Tu lui dis que tu cherches dans les vieux livres de quoi comprendre la Tête, rien de plus, et que tu vas à la bibliothèque la nuit pour être tranquille.",
+      "Valérien te regarde longtemps. Il sait que tu mens, ou il le devine, et il t'en sait gré, peut-être. « Bien, dit-il. Je lui dirai ça. » Il se lève. « Mais en ville, on dit que tu traites mon oncle de voleur. Ça, je ne peux pas le laisser dire. Après-demain, dans la cour, devant témoins. Pour la forme. »",
     ],
     fx: { flag: "val:defi" },
     choices: [{ back: "H_dortoir" }],
@@ -81,7 +81,7 @@ module.exports = { passages: {
   C_lucide: {
     act: "III", title: "Le matin clair", place: "salles",
     text: [
-      "Le quinzième jour, à dix heures, Maître Salvanhac te fait appeler dans sa chambre, au dernier étage. Il est debout à la fenêtre, rasé de près, en robe propre, le merle sur l'épaule. Il se retourne quand tu entres, et il dit ton nom, ton vrai nom, du premier coup.",
+      "Le quinzième jour, à dix heures, Maître Salvanhac te fait appeler dans sa chambre, au dernier étage. Il est debout à la fenêtre, rasé de près, en robe propre, le merle sur l'épaule. Il se retourne à ton entrée, et il dit ton nom, ton vrai nom, du premier coup.",
       "« Je dors mieux depuis quelque temps, dit-il. Je me souviens de choses. Elles reviennent dans le désordre, comme des oiseaux qui rentrent le soir. Hier, il en est revenu une très grande. » Il montre le portrait au fusain de la jeune fille sans nom. « Solène Arlaud. Ma meilleure élève. La meilleure de toute ma vie. »",
       "Il te raconte. La fille du port, boursière comme toi. Les deux ans passés à dessiner la digue, signe par signe, sur tout ce qu'elle trouvait. Le garçon de troisième année qui l'aidait à porter les pierres d'essai. La nuit de la première épreuve, la tempête, la Tête qu'elle voulait vérifier, seule. Le corps sur la grève, au matin. Et deux jours plus tard, Évariste devant le conseil, avec le cahier, et tout le monde qui applaudissait.",
       "« Je n'ai rien dit, dit le vieux maître. Évariste pleurait. La ville avait besoin d'un héros vivant. Je me suis dit qu'elle s'en moquerait, elle, de son nom. J'ai eu tort pendant trente ans. Il y a trois ans, j'ai voulu parler. Je l'ai dit à Évariste, en ami. Le jeudi suivant, il m'a servi le thé. »",
@@ -93,10 +93,10 @@ module.exports = { passages: {
   C_duel: {
     act: "III", title: "Le duel d'honneur", place: "cour", duel: "d_printemps", duelLabel: "Saluer, et entrer dans le cercle",
     text: [
-      "Le seizième jour, à dix heures, la cour des tilleuls est pleine. Le collège entier est là, aux fenêtres, sur les marches, assis sur la margelle du puits. Un duel d'honneur, avec les Arts, entre le neveu du Recteur et la bourse de Brèches : on n'en a pas vu depuis dix ans.",
-      { if: { not: { has: "val:defi" } }, text: "Valérien t'a fait porter son défi la veille, par un de ses amis, sur un papier plié : on dit en ville que tu traites son oncle de voleur. Il demande réparation." },
-      "Valérien t'attend sous le grand tilleul. Il a perdu ses airs de fanfaron. Il a l'air de quelqu'un qui fait une chose qu'on a choisie pour lui.",
-      { with: "jodoc", text: "Jodoc te tient ta robe, en silence, ce qui chez lui est rare." },
+      "Le seizième jour, à dix heures, la cour des tilleuls est pleine. Le collège entier est là, aux fenêtres, sur les marches, assis sur la margelle du puits : un duel d'honneur, avec les Arts, entre le neveu du Recteur et la bourse de Brèches, on n'en a pas vu depuis dix ans.",
+      { if: { not: { has: "val:defi" } }, text: "Valérien t'a fait porter son défi la veille, par l'un de ses amis, sur un papier plié : on dit en ville que tu traites son oncle de voleur, et il demande réparation." },
+      "Valérien t'attend sous le grand tilleul. Il a perdu ses airs de fanfaron, et il a l'air de quelqu'un qui fait une chose qu'on a choisie pour lui.",
+      { with: "jodoc", text: "Jodoc te tient ta robe en silence, ce qui, chez lui, est rare." },
       { with: "yse", text: "Ysé te souffle : « Il ne va pas attaquer. Il va t'attendre. Il a tout appris de toi, cet hiver. »" },
     ],
     choices: [
@@ -106,7 +106,7 @@ module.exports = { passages: {
   C_duel_gagne: {
     act: "III", title: "Le duel d'honneur", place: "cour",
     text: [
-      "Ta dernière touche le jette à genoux dans le gravier, sous le tilleul. Le collège retient son souffle. Valérien se relève lentement, époussette sa chemise, et te salue, très bas, avec une correction parfaite.",
+      "Ta dernière touche le jette à genoux dans le gravier, sous le tilleul, et le collège retient son souffle. Valérien se relève lentement, époussette sa chemise, et te salue très bas, avec une correction parfaite.",
       "« Je retire ce que j'ai dit, dit-il à voix haute, pour toute la cour. » Puis, plus bas, pour toi : « Maintenant, dis-moi ce que tu sais. Pour de vrai. »",
     ],
     fx: { regard: { valerien: "curieux" } },
@@ -119,7 +119,7 @@ module.exports = { passages: {
   C_duel_perdu: {
     act: "III", title: "Le duel d'honneur", place: "cour",
     text: [
-      "Sa troisième touche te fait tomber assis{e} dans le gravier. Le collège applaudit, sans beaucoup de joie. Valérien se tient au-dessus de toi, essoufflé, et il ne savoure rien. « La règle, dit-il. Tu retires. »",
+      "Sa troisième touche te fait tomber assis{e} dans le gravier. Le collège applaudit, sans beaucoup de joie. Valérien se tient au-dessus de toi, essoufflé, et ne savoure rien. « La règle, dit-il. Tu retires. »",
       "Toute la cour attend.",
     ],
     choices: [
@@ -130,7 +130,7 @@ module.exports = { passages: {
   C_retire: {
     act: "III", title: "Le duel d'honneur", place: "cour",
     text: [
-      "Tu te relèves, tu époussettes ta robe, et tu dis, assez fort pour la cour : « Je n'ai jamais traité le Recteur de voleur. » C'est vrai. Valérien hoche la tête, le visage fermé. La cour se disperse.",
+      "Tu te relèves, tu époussettes ta robe, et tu dis, assez fort pour la cour : « Je n'ai jamais traité le Recteur de voleur. » C'est vrai. Valérien hoche la tête, le visage fermé, et la cour se disperse.",
       "Au premier étage, derrière la fenêtre du logis, le Recteur laisse retomber le rideau.",
     ],
     choices: [{ back: "H_cour" }],
@@ -139,7 +139,7 @@ module.exports = { passages: {
     act: "III", title: "Le duel d'honneur", place: "cour",
     text: [
       "Tu te relèves, et tu maintiens chaque mot. Un murmure parcourt la cour. Valérien te regarde, désemparé : la règle n'a rien prévu pour ce cas. Dame Castagnet ouvre sa fenêtre. « Ce duel est terminé, dit-elle, de sa voix qui ne force jamais. Tout le monde en classe. »",
-      "Valérien ramasse sa robe. En passant près de toi, il dit très vite : « Tu es complètement fou. » Il n'a pas l'air fâché.",
+      "Valérien ramasse sa robe. En passant près de toi, il dit très vite : « Tu as perdu la tête. » Il n'a pas l'air fâché.",
     ],
     fx: { regard: { valerien: "curieux" } },
     choices: [{ back: "H_cour" }],
@@ -155,13 +155,13 @@ module.exports = { passages: {
   C_veille: {
     act: "III", title: "La veille", place: "dortoir",
     text: [
-      "La veille de l'examen, le dortoir ne dort pas. On révise à la chandelle, on se fait réciter les signes, on se rassure, on se dispute. Quelqu'un pleure doucement sous sa couverture.",
-      { with: "jodoc", if: { has: "jodoc:entraine2" }, text: "Jodoc est assis sur son lit, une plaque de fer sur les genoux. Il y grave des nœuds de tenue, un après l'autre, en se racontant tes histoires de moutons. Ses mains sont sûres." },
-      { with: "jodoc", if: { not: { has: "jodoc:entraine2" } }, text: "Jodoc est couché tout habillé, les yeux ouverts, et il regarde le plafond. Quand tu lui parles, il te répond par des oui et des non." },
+      "La veille de l'examen, le dortoir veille. On révise à la chandelle, on se fait réciter les signes, on se rassure, on se dispute, et quelqu'un pleure doucement sous sa couverture.",
+      { with: "jodoc", if: { has: "jodoc:entraine2" }, text: "Jodoc est assis sur son lit, une plaque de fer sur les genoux. Il y grave des nœuds de tenue, l'un après l'autre, en se racontant tes histoires de moutons, et ses mains sont sûres." },
+      { with: "jodoc", if: { not: { has: "jodoc:entraine2" } }, text: "Jodoc est couché tout habillé, les yeux ouverts sur le plafond. Quand tu lui parles, il te répond par oui ou par non." },
       { with: "yse", if: { has: "gazette:prete" }, text: "Ysé rentre tard, couverte d'encre jusqu'aux coudes. Elle a passé la soirée chez l'imprimeur de la rue des Drapiers. « Mille feuilles, te souffle-t-elle. Sous une bâche, dans la boutique. Il n'attend qu'un signe pour les distribuer sur la digue. »" },
       { with: "yse", if: { not: { has: "gazette:prete" } }, text: "Ysé révise ses signes à voix basse, en tapotant le rythme sur ton bras." },
-      { if: { has: "maud:viendra" }, text: "Par la lucarne, en bas, tu vois une lanterne bouger au pied de la digue, côté mer. Maud." },
-      "Vers dix heures, Nanon monte au dortoir, essoufflée par l'escalier, et te glisse un billet. L'écriture ronde et soignée du Recteur : « Demain, après votre épreuve, je vous attendrai au pavillon de la digue. Nous aurons à parler de votre avenir. É. D. »",
+      { if: { has: "maud:viendra" }, text: "Par la lucarne, en bas, tu vois une lanterne bouger au pied de la digue, côté mer : Maud." },
+      "Vers dix heures, Nanon monte au dortoir, essoufflée par l'escalier, et te glisse un billet, de l'écriture ronde et soignée du Recteur : « Demain, après votre épreuve, je vous attendrai au pavillon de la digue. Nous aurons à parler de votre avenir. É. D. »",
     ],
     choices: [{ label: "Souffler ta chandelle, et essayer de dormir", takes: "morning", to: "N_matin" }],
   },
@@ -170,11 +170,11 @@ module.exports = { passages: {
   X_examen: {
     act: "III", title: "Le grand examen", place: "digue",
     text: [
-      "Le dix-huitième jour, à neuf heures, toute la ville de Hautsignes est sur la digue. Les pêcheurs ont tiré leurs barques au sec. Les marchands ont fermé leurs boutiques. On s'est mis en habits du dimanche, on a apporté des pliants, des paniers, des enfants sur les épaules. Sur une estrade tendue de bleu, devant la grande plaque de bronze, les maîtres sont assis en robe d'apparat, le Recteur au milieu.",
-      "Les élèves passent par années, chacun devant son signe, sur la pierre même. Un élève de première année reprend un petit signe du parapet en une demi-heure, sous les applaudissements de sa famille. Un autre rate, et sa pierre se fendille, et il pleure. Les maîtres notent.",
-      { if: { has: "salvanhac:temoin" }, text: "Sur l'estrade, Maître Salvanhac est assis tout au bout, droit, rasé, les mains sur les genoux. Il te cherche des yeux et te fait un petit signe de tête." },
+      "Le dix-huitième jour, à neuf heures, toute la ville de Hautsignes est sur la digue. Les pêcheurs ont tiré leurs barques au sec, et les marchands ont fermé leurs boutiques. On s'est mis en habits du dimanche, on a apporté des pliants, des paniers, et des enfants sur les épaules. Sur une estrade tendue de bleu, devant la grande plaque de bronze, les maîtres sont assis en robe d'apparat, le Recteur au milieu.",
+      "Les élèves passent par années, chacun devant son signe, sur la pierre même. Un élève de première année reprend un petit signe du parapet en une demi-heure, sous les applaudissements de sa famille. Un autre rate ; sa pierre se fendille, et il pleure. Les maîtres notent.",
+      { if: { has: "salvanhac:temoin" }, text: "Sur l'estrade, Maître Salvanhac est assis tout au bout, droit et rasé, les mains sur les genoux. Il te cherche des yeux et te fait un petit signe de tête." },
       { if: { has: "maud:viendra" }, text: "Au premier rang de la foule, une grande femme aux mains rouges se tient debout, les bras croisés, un cahier de toile bleue serré contre elle dans son châle. Elle a refusé la chaise qu'on lui offrait." },
-      { if: { has: "valerien:allie" }, text: "Valérien passe devant toi avant son tour. Il te serre la main, brièvement, sous les yeux de son oncle." },
+      { if: { has: "valerien:allie" }, text: "Valérien passe devant toi avant son tour, et il te serre brièvement la main, sous les yeux de son oncle." },
       "Vient le tour de Jodoc, au parapet.",
     ],
     fx: { ep: ["seance", 500] },
@@ -186,9 +186,9 @@ module.exports = { passages: {
   X_jodoc_ok: {
     act: "III", title: "Le grand examen", place: "digue",
     text: [
-      "Jodoc s'agenouille devant son petit signe, un ciseau dans une main, un maillet dans l'autre. Toute la ville le regarde. Il te cherche dans la foule, te trouve, et tu lui souris.",
+      "Jodoc s'agenouille devant son petit signe, un ciseau dans une main, un maillet dans l'autre, et toute la ville le regarde. Il te cherche dans la foule, te trouve, et tu lui souris.",
       { if: { has: "jodoc:signe" }, text: "Tu lèves trois doigts, le signe dont vous êtes convenus : trois coups, trois moutons. Jodoc rit tout seul, devant toute la ville." },
-      "Il grave. Trois coups. Le petit signe du parapet se met à bourdonner, juste et clair, et le bourdonnement court le long de la pierre. Mère Fage, sur l'estrade, se lève à moitié de sa chaise, puis se rassoit, et on la voit s'essuyer les yeux avec le coin de son foulard.",
+      "Il grave : trois coups. Le petit signe du parapet se met à bourdonner, juste et clair, et le bourdonnement court le long de la pierre. Mère Fage, sur l'estrade, se lève à moitié de sa chaise, puis se rassoit, et on la voit s'essuyer les yeux avec le coin de son foulard.",
       "Jodoc se relève, immense, rouge comme un coquelicot, et salue la foule comme un acteur.",
     ],
     fx: { flag: "jodoc:examen", conf: { jodoc: 20 } },
@@ -197,7 +197,7 @@ module.exports = { passages: {
   X_jodoc_ko: {
     act: "III", title: "Le grand examen", place: "digue",
     text: [
-      "Jodoc s'agenouille devant son petit signe. Toute la ville le regarde. Ses mains tremblent si fort que le ciseau cliquette contre la pierre. Le premier coup glisse. Le deuxième écaille le granit. Il s'arrête, le maillet levé, et reste ainsi, figé, pendant que le sablier se vide.",
+      "Jodoc s'agenouille devant son petit signe, et toute la ville le regarde. Ses mains tremblent si fort que le ciseau cliquette contre la pierre. Le premier coup glisse, et le deuxième écaille le granit. Il s'arrête, le maillet levé, et reste ainsi, figé, pendant que le sablier se vide.",
       "Mère Fage fait un trait sur sa liste. Jodoc se relève lentement, sans regarder personne, et va s'asseoir au bout de la digue, les pieds au-dessus de l'eau.",
     ],
     choices: [{ label: "Marcher jusqu'à la Tête quand on appelle ton nom", to: "X_tour" }],
@@ -205,9 +205,9 @@ module.exports = { passages: {
   X_tour: {
     act: "III", title: "La Tête", place: "digue",
     text: [
-      "On appelle ton nom. La foule s'écarte. Tu marches jusqu'au bout de la digue, jusqu'à la Tête, avec l'impression que la demi-lieue de granit n'en finit pas. Derrière toi, la ville entière. Devant toi, le grand signe fendu, l'étai de bois, et la mer.",
-      "Le Recteur s'est levé sur l'estrade. Il te regarde, les mains jointes.",
-      { if: { item: "cahier" }, text: "Sous ta robe, contre ta peau, le cahier de toile bleue." },
+      "On appelle ton nom, et la foule s'écarte. Tu marches jusqu'au bout de la digue, jusqu'à la Tête, avec l'impression que la demi-lieue de granit n'en finit pas. Derrière toi se tient la ville entière ; devant toi, le grand signe fendu, l'étai de bois, et la mer.",
+      "Le Recteur s'est levé sur l'estrade, et il te regarde, les mains jointes.",
+      { if: { item: "cahier" }, text: "Le cahier de toile bleue est sous ta robe, contre ta peau." },
       { if: { has: "salvanhac:lecon" }, text: "Dans ta paume, tu sens encore le geste que le vieux maître y a tracé." },
       "Tu poses les mains sur la pierre. Elle est froide, et sa voix fausse grince sous tes doigts.",
     ],
@@ -220,8 +220,8 @@ module.exports = { passages: {
     text: [
       { if: { item: "cahier" }, text: "Tu traces le signe tel qu'il est dans le cahier, courbe après courbe, chacune passant la vague à la suivante, et tu chantes la note de la marge, en *ré*, bas, doucement." },
       { if: { not: { item: "cahier" } }, text: "Tu traces le signe tel que tu l'as appris de la pierre elle-même, courbe après courbe, et tu cherches la note dans la vibration du granit, jusqu'à la trouver." },
-      "La fente se referme. Lentement, comme une plaie qui cicatrise sous les yeux. Le granit se met à vibrer, juste, profond, et la vibration part de la Tête et court tout le long de la digue, de bloc en bloc, de signe en signe, jusqu'à la ville. La note fausse s'éteint. Pour la première fois depuis la tempête, la digue chante juste.",
-      "Il y a un silence immense. Puis la ville crie. Les pêcheurs lancent leurs bonnets, les enfants hurlent, les élèves t'entourent. Sur l'estrade, Dame Castagnet est debout. Maître Vilmorin applaudit au-dessus de sa tête. Mère Fage tape du pied.",
+      "La fente se referme lentement, comme une plaie qui cicatrise sous les yeux. Le granit se met à vibrer, juste et profond, et la vibration part de la Tête et court tout le long de la digue, de bloc en bloc, de signe en signe, jusqu'à la ville. La note fausse s'éteint. Pour la première fois depuis la tempête, la digue chante juste.",
+      "Il y a un silence immense, puis la ville crie. Les pêcheurs lancent leurs bonnets, les enfants hurlent, les élèves t'entourent. Sur l'estrade, Dame Castagnet est debout, Maître Vilmorin applaudit au-dessus de sa tête, et Mère Fage tape du pied.",
       "Le Recteur descend de l'estrade, fend la foule, et te serre dans ses bras devant toute la ville. Il sent la violette. À ton oreille, très bas, il dit : « Le pavillon. Tout de suite. »",
     ],
     fx: { quest: "III_examen", ep: ["histoire", 2000] },
@@ -233,7 +233,7 @@ module.exports = { passages: {
   X_offre: {
     act: "III", title: "Le pavillon", place: "digue",
     text: [
-      "Le pavillon de la digue est une petite maison de pierre à mi-longueur, où les gardiens rangent leurs outils. Le Recteur ferme la porte derrière vous. Le bruit de la foule n'arrive plus qu'étouffé. Il s'assoit sur un banc, lourdement. Il a l'air vieux, soudain.",
+      "Le pavillon de la digue est une petite maison de pierre à mi-longueur, où les gardiens rangent leurs outils. Le Recteur ferme la porte derrière vous, et le bruit de la foule n'arrive plus qu'étouffé. Il s'assoit lourdement sur un banc. Il a l'air vieux, soudain.",
       { if: { item: "cahier" }, text: "« Tu as trouvé son cahier, dit-il. Je le sais depuis la première ligne de ton tracé. Personne au monde ne trace la Tête comme ça, à part elle. Je l'ai cherché trente ans, ce cahier. Orbéric l'avait caché. »" },
       { if: { not: { item: "cahier" } }, text: "« Tu as sa main, dit-il. La même. Je l'ai vu au thé, la première fois, à ta façon de tenir la théière. Je me suis dit : celui-là, ou celle-là, saura refaire la Tête. Moi, je n'ai jamais su. »" },
       "« J'avais dix-neuf ans, dit-il. Elle était morte. La ville avait peur. Le conseil voulait un nom, un vivant, quelqu'un à applaudir. J'étais là, avec son cahier dans les mains. Je n'avais rien préparé. Il a suffi d'une seconde, et après cette seconde, il y a eu trente ans. »",
@@ -254,9 +254,9 @@ module.exports = { passages: {
         { to: "F_renvoi" },
       ] },
     text: [
-      "Tu remontes sur l'estrade. La foule se tait peu à peu, intriguée. Les maîtres te regardent. Le Recteur, derrière toi, reste immobile.",
+      "Tu remontes sur l'estrade. La foule se tait peu à peu, intriguée, et les maîtres te regardent. Le Recteur, derrière toi, reste immobile.",
       { if: { has: "castagnet:allie" }, text: "Dame Castagnet se lève et vient se placer à côté de toi, les mains croisées. Personne n'osera te couper la parole." },
-      { if: { has: "valerien:allie" }, text: "Valérien sort du rang des élèves et monte les marches de l'estrade, et se tient de l'autre côté. Son oncle le regarde. Valérien soutient ce regard." },
+      { if: { has: "valerien:allie" }, text: "Valérien sort du rang des élèves, monte les marches de l'estrade, et se tient de l'autre côté. Son oncle le regarde, et Valérien soutient ce regard." },
       { if: { has: "salvanhac:temoin" }, text: "Au bout de l'estrade, Maître Salvanhac s'est levé, appuyé sur sa canne." },
       { if: { has: "maud:viendra" }, text: "Au premier rang, Maud Arlaud s'avance jusqu'au pied de l'estrade." },
     ],
@@ -265,9 +265,9 @@ module.exports = { passages: {
   X_rate: {
     act: "III", title: "La Tête", place: "digue",
     text: [
-      { if: { all: [{ has: "recteur:note" }, { not: { item: "cahier" } }] }, text: "Tu chantes la Tête en *sol*, haut et fort, comme le Recteur te l'a appris. La pierre se raidit, refuse, grince." },
-      "Tu traces, tu cherches la note, tu la perds. Le granit vibre, puis se cabre sous tes mains, et la fente s'élargit d'un doigt avec un craquement sec. Une vague passe par-dessus le parapet et te trempe jusqu'aux épaules. La foule gémit.",
-      "Dame Castagnet descend de l'estrade, sans se presser, vient se placer à côté de toi et chante. La fente se referme d'un doigt. Pas plus. La Tête garde sa voix fausse.",
+      { if: { all: [{ has: "recteur:note" }, { not: { item: "cahier" } }] }, text: "Tu chantes la Tête en *sol*, haut et fort, comme le Recteur te l'a appris. La pierre se raidit, refuse, et grince." },
+      "Tu traces, tu cherches la note, et tu la perds. Le granit vibre, puis se cabre sous tes mains, et la fente s'élargit d'un doigt avec un craquement sec. Une vague passe par-dessus le parapet et te trempe jusqu'aux épaules, et la foule gémit.",
+      "Dame Castagnet descend de l'estrade sans se presser, vient se placer à côté de toi, et chante. La fente se referme d'un doigt, sans plus, et la Tête garde sa voix fausse.",
       "Sur l'estrade, le Recteur se lève et lève les mains. « Ce signe est le plus difficile de la digue, dit-il à la foule, d'une voix chaude. Il fallait du courage pour l'affronter en première année. Le collège est fier. L'an prochain, nous y reviendrons ensemble. » On applaudit, poliment. Il te sourit avec une immense bonté.",
     ],
     choices: [
@@ -283,7 +283,7 @@ module.exports = { passages: {
         { to: "F_renvoi" },
       ] },
     text: [
-      "Tu montes sur l'estrade, trempé{e}, les mains écorchées par le granit. Un murmure court dans la foule : l'élève qui a raté veut parler. Le Recteur fait un geste aimable, pour qu'on te laisse.",
+      "Tu montes sur l'estrade, trempé{e}, les mains écorchées par le granit. Un murmure court dans la foule : l'élève qui a raté veut parler. Le Recteur fait un geste aimable, pour qu'on te laisse faire.",
       { if: { has: "castagnet:allie" }, text: "Dame Castagnet remonte derrière toi et se place à ta droite, les mains croisées." },
       { if: { has: "valerien:allie" }, text: "Valérien monte les marches et se place à ta gauche." },
       { if: { has: "salvanhac:temoin" }, text: "Maître Salvanhac s'est levé, appuyé sur sa canne." },
@@ -296,7 +296,7 @@ module.exports = { passages: {
   F_maitrise: {
     act: "III", title: "Le nom sur la digue", place: "digue", end: true, epilogue: true, fx: endFx("maitrise", { quest: "III_examen" }),
     text: [
-      "Tu parles. Tu racontes une élève de quatrième année, boursière, fille du port, qui dessinait des signes pour la mer sur tout ce qu'elle trouvait. Tu lèves le cahier de toile bleue, la page recollée. Tu dis son nom, Solène Arlaud, devant la grande plaque de bronze, et la digue qui chante juste sous vos pieds le prend dans sa vibration.",
+      "Tu parles. Tu racontes une élève de quatrième année, boursière, fille du port, qui dessinait des signes pour la mer sur tout ce qu'elle trouvait. Tu lèves le cahier de toile bleue et la page recollée. Tu dis son nom, Solène Arlaud, devant la grande plaque de bronze, et la digue, qui chante juste sous vos pieds, le prend dans sa vibration.",
       { if: { has: "melisande:temoin" }, text: "Sœur Mélisande, au troisième rang, dit d'une voix claire que le papier est du collège et l'écriture celle de la petite Arlaud. Elle a vu ses fiches de prêt quatre ans durant." },
       { if: { has: "salvanhac:temoin" }, text: "Maître Salvanhac parle après toi, lentement, d'une voix qui porte jusqu'au bout de la digue. Il dit tout : le cahier, la nuit de l'épreuve, trente ans de silence, et le thé du jeudi. Il montre sa main." },
       { if: { has: "maud:viendra" }, text: "Maud Arlaud monte les marches de l'estrade, va jusqu'à la grande plaque de bronze, et pose la main dessus, sur le nom gravé. Son geste suffit." },
@@ -320,7 +320,7 @@ module.exports = { passages: {
   F_renvoi: {
     act: "III", title: "La diligence", end: true, epilogue: true, fx: endFx("renvoi"),
     text: [
-      { if: { is: { "accuse-S-qui": "daubrac" } }, text: "Tu accuses le Recteur. Mais tes mots tombent sur la digue comme de la pluie sur la mer. La foule écoute, puis murmure, puis rit, un peu, de gêne. Le Recteur se lève, très calme, et pose une main paternelle sur ton épaule. « Cet enfant est épuisé, dit-il. L'examen, la Tête, la tempête. Ramenez-le au collège. »" },
+      { if: { is: { "accuse-S-qui": "daubrac" } }, text: "Tu accuses le Recteur, mais tes mots tombent sur la digue comme de la pluie sur la mer. La foule écoute, puis murmure, puis rit un peu, de gêne. Le Recteur se lève, très calme, et pose une main paternelle sur ton épaule. « Notre bourse de Brèches est à bout de forces, dit-il. L'examen, la Tête, la tempête. Qu'on la raccompagne au collège. »" },
       { if: { all: [{ not: { is: { "accuse-S-qui": "daubrac" } } }, { is: { "accuse-S-qui": ["salvanhac", "castagnet", "vilmorin"] } }] }, text: "Tu nommes quelqu'un, devant toute la ville, et ce nom n'est pas le bon. Tu le sais à la seconde où il sort de ta bouche, au visage de celui que tu viens de désigner. Le Recteur, derrière toi, laisse le silence durer, puis il fait signe qu'on te raccompagne." },
       { if: { not: { is: { "accuse-S-qui": ["daubrac", "salvanhac", "castagnet", "vilmorin"] } } }, text: "Le registre de Nanon porte ton nom deux fois. La seconde, il n'y a plus rien à discuter." },
       "Le conseil du collège se réunit le soir même. Le lendemain matin, Nanon t'aide à porter ta malle jusqu'au portail. Elle a glissé dedans, en douce, un pot de confiture de coings.",
@@ -331,7 +331,7 @@ module.exports = { passages: {
   F_digue: {
     act: "III", title: "Le nom rendu", place: "digue", end: true, epilogue: true, fx: endFx("digue", { quest: "III_examen" }),
     text: [
-      "Tu parles. Trempé{e}, les mains en sang, ta Tête ratée derrière toi, tu racontes Solène Arlaud. Et tu lèves les pièces, et la ville se tait.",
+      "Tu parles. Trempé{e}, les mains en sang, ta Tête ratée derrière toi, tu racontes Solène Arlaud. Tu lèves les pièces, et la ville se tait.",
       { if: { has: "salvanhac:temoin" }, text: "Maître Salvanhac parle après toi. Il dit tout, de sa voix jeune dans son corps de vieillard, et il montre sa main." },
       { if: { has: "maud:viendra" }, text: "Maud Arlaud monte sur l'estrade et pose la main sur la plaque de bronze. La foule s'écarte autour d'elle." },
       { if: { has: "gazette:prete" }, text: "Le soir, la gazette d'Ysé est sur toutes les tables de Hautsignes." },
@@ -343,9 +343,9 @@ module.exports = { passages: {
   F_redouble: {
     act: "III", title: "Une seconde première année", place: "dortoir", end: true, epilogue: true, fx: endFx("redouble"),
     text: [
-      "Tu redescends de la digue en silence, trempé{e}, les mains écorchées. La foule t'applaudit poliment, comme on applaudit un vaincu courageux. Le Recteur t'a souri. Il a eu raison de sourire.",
+      "Tu redescends de la digue en silence, trempé{e}, les mains écorchées. La foule t'applaudit poliment, comme on applaudit le courage des vaincus. Le Recteur t'a souri, et il a eu raison de sourire.",
       "Le conseil se réunit le soir. Tu redoubles ta première année.",
-      { if: { has: "jodoc:examen" }, text: "Jodoc, lui, passe en deuxième année. Il vient te voir au dortoir avec un pot de cidre et deux gobelets. Il a l'air gêné d'être heureux. Tu lui dis d'être heureux. Il essaie." },
+      { if: { has: "jodoc:examen" }, text: "Jodoc, lui, passe en deuxième année. Il vient te voir au dortoir avec un pot de cidre et deux gobelets, l'air gêné d'être heureux. Tu lui dis d'être heureux, et il essaie." },
       { if: { not: { has: "jodoc:examen" } }, text: "Jodoc redouble aussi. Une quatrième fois. Son père est venu le chercher, puis il est reparti seul. Jodoc avait supplié Dame Castagnet de lui laisser une dernière chance, et la vice-rectrice avait dit oui. Il est sur le lit voisin du tien, à la place d'Ysé. « Toi et moi, dit-il. L'année prochaine. Je te ferai répéter. »" },
       { if: { item: "cahier" }, text: "Le cahier de toile bleue est au fond de ta malle, sous tes chemises. Tu ne l'as montré à personne. Certains soirs, tu l'ouvres, et tu regardes la Tête, dessinée trois fois, avec la ligne de musique dans la marge." },
       "Par la lucarne, la digue chante faux, toutes les nuits, d'une voix de plus en plus basse. Tu l'écoutes en t'endormant. Tu as un an.",
