@@ -989,7 +989,7 @@
             var mark = function (k) { if (seen[k] || !P[k]) return; seen[k] = 1; found++; if (paid) richOnly.push(k); };
             for (var step = 0; step < 300; step++) {
               var v; fixed = null;
-              try { v = tryVeils(s, wi % 4 === 3 ? 0 : 1, rnd) || M.view(story, s); } catch (e) { break; } // one walk in four leaves the words untouched, as a reader may
+              try { v = tryVeils(s, [1, 1, 0.5, 0][wi % 4], rnd) || M.view(story, s); } catch (e) { break; } // one walk in four leaves the words untouched, one lifts half of them, as a reader may
               if (P[s.node]) { mark(s.node); keepSnap(s); }
               if (s.seen && s.seen[target]) mark(target); // the whole walk is marked once it ends (below): cheaper
               if (seen[target] || v.kind === "end") { if (v.kind === "end" && P[s.node]) endings[s.node] = (endings[s.node] || 0) + 1; break; }
@@ -1041,6 +1041,7 @@
     }
     function play(mode, seed, toutJouer, second) {
       var rnd = seededRng(seed), s = null, fixed = mode === "win" ? 0.94 : mode === "lose" ? 0.02 : null;
+      var shy = seed % 7 === 3; // one game in seven barely touches the hidden words, as a reader who rarely taps may
       // Fixed dice only on tests: a fight always uses real dice, or two sides that always miss would never end.
       M.setRng(fixed == null ? rnd : function () { return s && s.node === "@combat" ? rnd() : fixed; });
       s = M.freshState(story, { toutJouer: toutJouer });
@@ -1061,7 +1062,7 @@
         keepSnap(s);
         if (P[s.node]) { var am = actMax[P[s.node].act] = actMax[P[s.node].act] || { gold: 0, food: 0 }; am.gold = Math.max(am.gold, s.gold || 0); am.food = Math.max(am.food, s.food || 0); }
         try {
-          v = tryVeils(s, mode === "explore" ? 1 : mode === "lose" ? 0.2 : 0.6, rnd) || M.view(story, s);
+          v = tryVeils(s, shy ? 0.1 : mode === "explore" ? 1 : mode === "lose" ? 0.2 : 0.6, rnd) || M.view(story, s);
           v.text.forEach(function (t) { if (/undefined|NaN|\[object|\{[a-z]+\}|\{autre:/.test(t)) throw new Error("texte suspect : " + t.slice(0, 80)); });
           // 8.6: a reader taps a hidden find, often; and nothing of a mark ever reaches the plain text.
           (v.marked || []).forEach(function (t) { M.marksOf(t).forEach(function (m) { if (m.kind === "or" && rnd() < 0.5) { try { M.trouve(story, s, m.arg); } catch (e) { errs["trouvaille " + m.arg + " : " + e.message] = 1; } } }); });
