@@ -20,4 +20,12 @@ module.exports = {
     desc: "La ville au cœur de l'Amazonie, et la fazenda Saint-Ignace de M. Shortman, sa véranda, son jardin de cactus et de colibris." },
   village_indien: { ambiance: "foret", name: "Le village de l'affluent", map: "amerique", x: 30, y: 26, region: "Amazonie", arrive: "VII_5",
     desc: "Un village indien au bord d'un affluent, où l'expédition quitte l'*Esmeralda* pour des canoës de peaux et de bambou." },
+  riviere: { ambiance: "eau", name: "L'affluent", map: "amerique", x: 26, y: 20, region: "Amazonie", arrive: "VIII_2",
+    desc: "Une rivière sombre et transparente sous la forêt primitive, avec ses rapides et ses tambours de guerre." },
+  tunnel_vert: { ambiance: "eau", name: "Le tunnel vert", map: "amerique", x: 22, y: 14, region: "Amazonie", arrive: "VIII_4",
+    desc: "Le ruisseau secret, caché derrière un rideau de joncs vert clair : une voûte de feuillage sur une eau verte et immobile comme du verre." },
+  bambous: { ambiance: "foret", name: "Le fourré de bambous", map: "amerique", x: 18, y: 9, region: "Amazonie", arrive: "VIII_5",
+    desc: "Une immense étendue de bambous serrés, où l'on avance à la machette sans voir à plus de dix mètres." },
+  falaises: { ambiance: "montagne", name: "Les falaises rouges", map: "amerique", x: 14, y: 4, region: "Le plateau", arrive: "VIII_6",
+    desc: "La longue ligne de hautes falaises rouges, côtelées, du dessin de Maple White. Au-dessus, le plateau." },
 };
