@@ -102,6 +102,55 @@ module.exports = {
     ancille: { name: "Sœur Ancille", desc: "Archiviste du Temple. Elle a appris à lire à Livia." },
     gris: { name: "Le Gris", desc: "Un spadassin, payé pour te tuer." },
   },
+  // The siege's tools (piste 9, 15/11): the Council of the Five Benches votes, a promise made at the funeral, who is
+  // with whom, and a city that moves on while the hero is elsewhere.
+  councils: {
+    bancs: {
+      title: "Le Conseil des Cinq Bancs", hero: true, order: ["orsanne", "ghislain", "ysaure", "nello"],
+      members: { orsanne: {}, ghislain: {}, ysaure: {}, nello: {} },
+    },
+  },
+  motions: {
+    pain_taxe: {
+      council: "bancs", title: "Le pain taxé", shown: { seen: "Q_conseil_pain" },
+      text: "Nello Brisse dépose la motion, et le greffier la lit : « Que le pain soit vendu aux Canaux au prix de la veille du Deuil, jusqu'aux funérailles du prince. »",
+      lean: { orsanne: "contre", ghislain: "indecis", ysaure: "indecis", nello: "pour" },
+      say: {
+        orsanne: { contre: "Taxez le pain, et les boulangers cuiront pour la terre ferme. Le Banc du Sel vote contre.", pour: "Huit jours. Le Sel peut perdre huit jours." },
+        ghislain: { pour: "Mes marins ont des femmes aux Canaux. La Mer vote pour.", contre: "La flotte a d'autres soucis que le prix des miches. Contre." },
+        ysaure: { pour: "On ne marchande pas le pain d'un deuil. Les Eaux votent pour.", contre: "Le Temple nourrira ses pauvres lui-même, comme toujours. Contre." },
+        nello: { pour: "Les Rames votent pour. Vous vous en doutiez." },
+      },
+      fx: { adopte: { fac: { rames: 10, sel: -10 } }, rejete: { fac: { rames: -5 } } },
+    },
+  },
+  promises: {
+    pain: { to: "nello", text: "Que personne n'aura faim dans Sarvelle pendant le Deuil",
+      keeps: { any: [{ has: "salines:grain" }, { has: "salines:chantage" }] }, breaks: { has: "salines:laisse" }, kept: "redevable", broken: "trahi" },
+  },
+  ties: [
+    { id: "oncle", a: "ghislain", b: "iselda", kind: "famille", label: "L'amiral Ghislain est le frère du prince, et l'oncle d'Iselda." },
+    { id: "mere", a: "liane", b: "iselda", kind: "famille", label: "La princesse Liane est la mère d'Iselda. Elle est née à la cour de Thérance." },
+    { id: "marraine", a: "ysaure", b: "iselda", kind: "allie", label: "Mère Ysaure est la marraine d'Iselda.", if: { seen: "Q_conseil_garde" } },
+    { id: "gouvernante", a: "ortensia", b: "iselda", kind: "sert", label: "Dame Ortensia est la gouvernante d'Iselda. Elle a élevé le prince avant elle.", if: { person: "ortensia" } },
+    { id: "cuisinier", a: "bertin", b: "corradin", kind: "sert", label: "Bertin a cuisiné pour le prince pendant vingt ans.", if: { person: "bertin" } },
+    { id: "tribun", a: "tessa", b: "nello", kind: "famille", label: "Tessa est la sœur de Nello Brisse. Elle tient les distributions de pain aux Canaux.", if: { person: "tessa" } },
+    { id: "secretaire", a: "odile", b: "merande", kind: "sert", label: "Odile Varn est la secrétaire du comte Mérande.", if: { person: "odile" } },
+    { id: "commis", a: "grizzo", b: "orsanne", kind: "sert", label: "Grizzo est commis à la Hanse du Sel, sous Ser Orsanne.", if: { person: "grizzo" } },
+    { id: "grain_cache", a: "orsanne", b: "nello", kind: "ennemi", label: "Ser Orsanne gardait quatre mille sacs de blé aux salines, à vendre après le trentième jour.", if: { seen: "C_sal_grain" } },
+  ],
+  march: [
+    { id: "pain_affiche", acts: ["I"], if: { vote: "pain_taxe", is: "adopte" },
+      say: "Aux Canaux, les boulangers ont écrit à la craie, sur leurs volets, le prix de la veille du Deuil. Ils ouvrent à l'aube, et ferment à midi, faute de farine." },
+    { id: "pain_monte", acts: ["I"], if: { vote: "pain_taxe", is: "rejete" },
+      say: "Aux Canaux, le pain a encore pris deux deniers dans la nuit. Les boulangers effacent le vieux prix d'un revers de manche, et écrivent le nouveau à la craie." },
+    { id: "trois_morts", acts: ["II"], if: { has: "emeute:sang" },
+      say: "On enterre les trois morts du quai à l'Île des Morts, sans cloches. Les gondoles des Canaux suivent le cortège, en file, rames levées." },
+    { id: "barges", acts: ["II", "III"], if: { has: "salines:grain" },
+      say: "Le pain est revenu à son prix aux Canaux. Sur les volets des boulangers, quelqu'un a dessiné à la craie une barge chargée jusqu'au bord." },
+    { id: "sceau_barre", acts: ["II", "III"], if: { clock: "emprise", min: 4 },
+      say: "Sur le mur du port, au-dessus des quais, quelqu'un a peint pendant la nuit un grand sceau rouge, barré d'un trait noir." },
+  ],
   items: {
     dague: { name: "Dague", kind: "arme", dmg: 4, att: 5, price: 8, desc: "Une lame courte de Sarvelle, avec un lion ailé sur le pommeau, comme toutes les autres." },
     rapiere: { name: "Rapière", kind: "arme", dmg: 6, att: 5, price: 30, desc: "Une lame de duel, fine et longue. À Sarvelle, les gens de bien la portent ; les gens de mal aussi." },

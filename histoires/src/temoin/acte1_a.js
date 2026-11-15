@@ -173,6 +173,7 @@ module.exports = {
       "Puis la cuisine s'éteint comme une chandelle soufflée, et tu ouvres les yeux sur la cellule du docteur, la bouche sèche, en sueur. Il écrit.",
       "« Bien, dit-il. Très bien. C'est un début. »",
     ],
+    fx: { recit: "v_hero_dispute" },
     choices: [
       { label: "Garder ce souvenir", fx: { flag: "garde:dispute" }, to: "H_seance1_fin" },
       { label: "Ne pas y croire", fx: { flag: "doute:dispute" }, to: "H_seance1_fin" },
@@ -279,7 +280,7 @@ module.exports = {
     ],
     choices: [{ back: "H_abel" }] },
   H_abel_vu: { act: "I", title: "Par la fenêtre", place: "hospice",
-    fx: { clue: "h_fille", ep: ["perso", 600] },
+    fx: { clue: "h_fille", recit: "v_abel_fille", ep: ["perso", 600] },
     text: [
       "Abel pose une carte. « Le jour où le chien vous a trouvé, il y a eu deux arrivées. Vous, à l'aube, sur le dos de Sœur Odeline et du frère convers, plus mort que vif. Et une heure avant vous, une autre, dont personne ne parle. »",
       "Il pose une autre carte. « Le soir même, le frère du fermier est monté, avant que la neige ne ferme le col. Le mineur, Matthias. Il a demandé à la Mère si on avait trouvé quelqu'un dans la neige. Il a dit : une fille. Pas un homme. Une fille. Moi j'étais là, dans le couloir, avec ma jambe, personne ne fait attention à un vieux. »",

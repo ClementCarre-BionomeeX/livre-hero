@@ -78,7 +78,7 @@ module.exports = {
       "« Ils les ont mis dans l'église, dit-il. Les quatre. Le curé les a lavés. Il ne m'a pas laissé voir le petit. » Sa voix est très calme, très basse. « Ma nièce, Lise, on ne l'a pas trouvée. Le curé dit que le feu l'a prise toute entière, qu'elle dormait près du four. Quatorze ans. Elle voulait apprendre à lire les cartes. Elle me l'avait dit, à Noël. » Il te regarde. « Des cartes. Comme les vôtres. »",
       "Il reprend sa cuillère. « Je ne vous accuse de rien. Le prévôt fera son travail. Mais si c'est vous, je le saurai. Et ce jour-là, il n'y aura pas de prévôt. »",
     ],
-    fx: { flag: "matthias:lise", ep: ["perso", 400] },
+    fx: { flag: "matthias:lise", recit: "v_matthias_lise", ep: ["perso", 400] },
     choices: [
       { label: "Le regarder, et chercher ce qu'il tait", test: { dom: "social", label: "Social", help: [{ if: { clue: "h_fille" }, v: 15 }] },
         win: { fx: { flag: "matthias:lu", ep: ["perso", 500] }, to: "H_matthias_lu" }, lose: { to: "H_matthias_rien" } },
@@ -107,6 +107,7 @@ module.exports = {
       "Puis la neige s'éteint, et tu es assis dans la cellule du docteur, en sueur, la bouche pleine d'un goût de cuivre.",
       "« Bien, dit le docteur Corvin en écrivant. Nous approchons. »",
     ],
+    fx: { recit: "v_hero_lanterne" },
     choices: [
       { label: "Garder ce souvenir", fx: { flag: "garde:lanterne" }, to: "H_seance2_fin" },
       { label: "Ne pas y croire", fx: { flag: "doute:lanterne" }, to: "H_seance2_fin" },
