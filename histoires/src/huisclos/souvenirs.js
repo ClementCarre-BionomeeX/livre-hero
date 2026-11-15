@@ -8,7 +8,7 @@ module.exports = {
     text: [
       "Le soir du quatorze janvier. Tu as dix-sept ans, et tu laces tes souliers sur la dernière marche de l'escalier, en faisant le moins de bruit possible. Lucien est assis deux marches plus haut, en chemise de nuit, ses patins neufs sur les genoux. Il les a graissés lui-même. Il en a mis partout.",
       "« Emmène-moi, chuchote-t-il. La glace est prise jusqu'à la source, Baptiste l'a dit. Juste une fois. La nuit, avec la lune. Tu avais promis à Noël. »",
-      "Tu as promis à Noël. Tu avais oublié. Ce soir, quelqu'un t'attend à la cabane, et tu as mis le manteau de ton père pour avoir l'air d'un homme.",
+      "Tu as promis à Noël. Tu avais oublié. Ce soir, quelqu'un t'attend à la cabane, et tu as mis le manteau de ton père pour avoir l'air d'une grande personne.",
     ],
     choices: [
       { label: "Lui promettre « demain », en lui ébouriffant les cheveux", fx: { set: { promesse: "tendre" } }, to: "S1_demain" },

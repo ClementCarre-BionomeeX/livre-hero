@@ -132,17 +132,17 @@ module.exports = {
     text: [
       "Tu lui dis que tu penses à Lucien depuis que tu es descendu{e} de la diligence. Tu dis son prénom à voix haute, dans cette maison, pour la première fois depuis douze ans.",
       "Odile ne répond pas tout de suite. « C'est moi qui fais sa chambre, dit-elle. Tous les jours. La poussière, les soldats, les draps une fois par mois. Personne d'autre n'y entre. Maman n'y est jamais entrée. Elle disait que ça lui faisait mal aux jambes, l'escalier. »",
-      "Elle sourit, d'un sourire qui ne lui ressemble pas. « Il disait que tu étais le plus fort du monde, tu te souviens ? Il le disait à tout le monde. Même au curé. »",
+      "Elle sourit, d'un sourire qui ne lui ressemble pas. « Il disait que tu étais plus fort{e} que tout le monde, tu te souviens ? Il le disait à tout le monde. Même au curé. »",
     ],
   },
   V_odile: {
     title: "La dernière veille", place: "chambre", devant: "odile", takes: "morning", fx: { attache: { odile: 1 } },
     text: [
       "Tu tires une chaise près de celle d'Odile. Elle te fait de la place sur le châle, sans un mot. C'est la troisième nuit, la dernière. Demain, on viendra chercher ta mère.",
-      { if: { has: "odile:aveu" }, text: "Vous parlez à voix basse, comme lorsque vous étiez petits et que la mère dormait de l'autre côté de la cloison. Vous parlez de Lucien. Tu racontes la luge, et elle raconte le jour où il a mis le chat dans le pétrin. Vous riez, une fois, très bas, et vous vous arrêtez, effrayés, en regardant le lit." },
+      { if: { has: "odile:aveu" }, text: "Vous parlez à voix basse, comme lorsque vous étiez enfants et que la mère dormait de l'autre côté de la cloison. Vous parlez de Lucien. Tu racontes la luge, et elle raconte le jour où il a mis le chat dans le pétrin. Vous riez, une fois, très bas, et vous vous arrêtez net, avec un regard effrayé vers le lit." },
       { if: { not: { has: "odile:aveu" } }, text: "Vous gardez le silence. Odile égrène un chapelet du bout des doigts, sans remuer les lèvres, et toi tu regardes les cierges baisser. Une fois, elle ouvre la bouche, et la referme. Tu fais semblant de n'avoir rien vu." },
       { if: { has: "odile:lettre" }, text: "Elle parle de la lettre, une fois. « Elle a écrit “la plus laide”, dit-elle. Elle a toujours su choisir ses mots, même pour se faire mal. »" },
-      { if: { attache: "odile", min: 3 }, text: "Vers trois heures, elle s'endort contre ton épaule. Tu ne bouges pas jusqu'au jour." },
+      { if: { attache: "odile", min: 3 }, text: "Vers trois heures, elle s'endort contre ton épaule, et tu restes immobile jusqu'au jour." },
       "Au matin, la neige a cessé tout à fait. Le soleil se lève derrière la forêt des Fayards, rouge, et touche d'abord la cime des hêtres.",
     ],
     choices: [
@@ -156,7 +156,7 @@ module.exports = {
   T_germain: {
     title: "Germain Rouvière", back: true, devant: "germain", montrer: "germain", silence: hush("germain"),
     text: [
-      { first: true, text: "Germain te serre la main entre les deux siennes, longtemps, à la manière des marchands de bestiaux. « Ah ! Le Varennois. Tu as bonne mine, malgré tout. La ville réussit aux gens. » Il a des bottes de cuir fauve, cirées de frais, qu'il a dû apporter de Saint-Amans exprès pour l'enterrement." },
+      { first: true, text: "Germain te serre la main entre les deux siennes, longtemps, à la manière des marchands de bestiaux. « Ah ! Voilà Varenne qui nous revient. Tu as bonne mine, malgré tout. La ville réussit aux gens. » Il a des bottes de cuir fauve, cirées de frais, qu'il a dû apporter de Saint-Amans exprès pour l'enterrement." },
       { again: true, text: "Germain t'accueille avec un sourire, comme un hôte. C'est sa maison, maintenant, ou il fait comme si." },
       { after: "germain:monte", text: "Germain te regarde venir avec prudence. Depuis que tu sais qu'il est monté chez ta mère ce soir-là, il sourit moins." },
       { after: "vente:signee", text: "Germain te tape sur l'épaule. Il est d'excellente humeur. Il a déjà écrit à Vernet." },
@@ -250,7 +250,7 @@ module.exports = {
     title: "Le bois des Fayards", back: true,
     text: [
       "Germain replie l'acte lentement, en suivant les plis. « Tu as tort, dit-il sans hausser le ton. Tu repartiras dans quatre jours, et nous, on restera ici avec Vernet. Tu ne sais pas ce que tu fais. »",
-      "Il range l'acte. Il a encore la politesse de te sourire en sortant.",
+      "Il range l'acte, et il a encore la politesse de te sourire en sortant.",
     ],
   },
   K_germain_odile: {
@@ -321,7 +321,7 @@ module.exports = {
     title: "La soupe", back: true, seul: true,
     text: [
       "Une soupe de pain, de lard et de chou, épaisse à y planter la cuiller, comme elle la faisait les jours de battage. Mariette s'assoit en face de toi pour te regarder manger, les mains croisées sur la table.",
-      "Tu manges tout. Elle remplit le bol une seconde fois. Tu manges encore. Pendant tout ce temps, vous vous taisez tous les deux, et pour la première fois depuis ton arrivée ta gorge se desserre.",
+      "Tu manges tout ; elle remplit le bol une seconde fois, et tu manges encore. Pendant tout ce temps, vous gardez le silence, elle et toi, et pour la première fois depuis ton arrivée ta gorge se desserre.",
     ],
   },
   M_mariette_bras: {
@@ -448,7 +448,7 @@ module.exports = {
   T_jeanne: {
     title: "Jeanne", back: true, devant: "jeanne", montrer: "jeanne", silence: hush("jeanne"),
     text: [
-      { first: true, text: "Jeanne pose son ouvrage. Elle a toujours les mêmes taches de rousseur, plus pâles, et une ride entre les sourcils qui n'y était pas. Elle te regarde comme on regarde une maison où l'on a habité. « Bonjour », dit-elle. Rien d'autre. Vous aviez des mots à vous, autrefois. Ils sont restés à la cabane." },
+      { first: true, text: "Jeanne pose son ouvrage. Elle a toujours les mêmes taches de rousseur, plus pâles, et une ride entre les sourcils qui n'y était pas. Elle te regarde comme on regarde une maison où l'on a habité. « Bonjour », dit-elle, et rien d'autre. Vous aviez des mots à vous, autrefois ; ils sont restés à la cabane." },
       { again: true, before: "jeanne:aveu", text: "Jeanne te sourit avec prudence, comme si tu pouvais la blesser rien qu'en parlant." },
       { after: "jeanne:aveu", text: "Jeanne te regarde en face, depuis qu'elle t'a parlé. Elle n'a plus rien à te cacher, et cela lui donne l'air plus jeune." },
       { when: "night", text: "Les cierges lui font des ombres sous les yeux. Elle a posé son châle sur ses genoux et tient la main de ta mère, sur le drap, comme on tient celle d'une enfant." },
@@ -599,9 +599,9 @@ module.exports = {
   M_lettre_lue: {
     title: "Ce qu'elle t'a écrit", place: "etage", back: true, seul: true, fx: { flag: ["etang:verite", "lettre:lue"], quest: "III_lettre", angoisse: -2 },
     text: [
-      "Tu lis la lettre une fois, très vite, comme on avale un remède. Puis une deuxième fois, lentement. Puis tu la poses sur tes genoux et tu regardes le mur.",
+      "Tu lis la lettre une fois, très vite, comme on avale un remède, puis une deuxième fois, lentement ; après quoi tu la poses sur tes genoux et tu regardes le mur.",
       "« Je t'ai tendu{e} la gaffe parce que tu étais le plus près. » « Tu n'as rien tenu, tu étais à moitié mort{e}. » « Je t'ai envoyé{e} chez Firmin pour ces deux raisons, et la première est la plus laide. »",
-      "Douze ans, tu as cru qu'elle t'avait chassé{e} pour l'avoir tué. Elle t'a éloigné{e} parce qu'elle t'avait choisi{e}, et qu'elle ne le supportait pas. Ce n'est pas plus doux. C'est vrai, et cela suffit à changer le poids de tout le reste.",
+      "Douze ans, tu as cru qu'elle t'avait chassé{e} pour l'avoir tué. Elle t'a éloigné{e} parce qu'elle t'avait choisi{e}, et qu'elle ne le supportait pas. C'est aussi dur à porter, et c'est vrai ; cela suffit à changer le poids de tout le reste.",
       "Tu replies la lettre. Dans la maison, quelqu'un met une bûche dans le fourneau, et le bruit monte par l'escalier comme n'importe quel autre jour.",
     ],
   },

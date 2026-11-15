@@ -1593,7 +1593,7 @@
     "item": "acte_vente"
    },
    "text": [
-    "Un manteau de drap fin, trop fin pour la montagne, avec un col de loutre. Tu passes la main dans les poches pendant que la salle est vide. Un mouchoir, un briquet d'amadou, de la menue monnaie.",
+    "Un manteau de drap fin, trop fin pour la montagne, avec un col de loutre. Tu passes la main dans les poches pendant que la salle est vide, et tu y trouves un mouchoir, un briquet d'amadou, de la menue monnaie.",
     "Dans la poche intérieure, un papier plié en quatre, d'un beau papier de notaire."
    ]
   },
@@ -1608,7 +1608,7 @@
    },
    "text": [
     "Ta main est dans la poche du manteau quand la porte s'ouvre. Germain secoue la neige de ses bottes, te voit, et sourit.",
-    "« Il fait froid, hein ? dit-il. Tu cherchais tes gants ? Les tiens sont sur le banc. » Il reprend son manteau, l'enfile, et ressort sans se presser. Il n'a rien dit d'autre. Il n'en avait pas besoin."
+    "« Il fait froid, hein ? dit-il. Tu cherchais tes gants ? Les tiens sont sur le banc. » Il reprend son manteau, l'enfile, et ressort sans se presser. Ces quelques mots lui ont suffi."
    ]
   },
   "M_cheminee": {
@@ -1982,7 +1982,7 @@
    "place": "bureau",
    "back": true,
    "text": [
-    "Des colonnes de chiffres, des noms de marchands, des stères et des toises. Tu tournes les pages pendant une heure. Les chiffres se brouillent. Tu refermes le registre sans avoir rien appris d'autre que le prix du sapin."
+    "Des colonnes de chiffres, des noms de marchands, des stères et des toises. Tu tournes les pages pendant une heure, jusqu'à ce que les chiffres se brouillent, et tu refermes le registre en ayant appris le prix du sapin, et rien d'autre."
    ]
   },
   "H_etage": {
@@ -2361,7 +2361,7 @@
    },
    "text": [
     "Tu as la main sur le tiroir d'Odile quand le plancher craque derrière toi. Odile est dans l'encadrement de la porte.",
-    "« Ferme ce tiroir », dit-elle. Tu le fermes. Elle reste immobile et muette. Elle attend que tu sois sorti{e}, et quand tu passes près d'elle, elle tourne la tête pour ne pas te voir passer."
+    "« Ferme ce tiroir », dit-elle. Tu le fermes. Elle attend, immobile et muette, que tu sois sorti{e}, et quand tu passes près d'elle, elle tourne la tête pour ne pas te voir."
    ]
   },
   "K_amis": {
@@ -2441,7 +2441,7 @@
     "clue": "e_firmin"
    },
    "text": [
-    "La première malle contient des robes d'avant ta naissance. La deuxième, des draps. La troisième, du papier : des liasses de lettres classées par années, chacune nouée d'une ficelle.",
+    "La première malle contient des robes d'avant ta naissance ; la deuxième, des draps ; la troisième, du papier : des liasses de lettres classées par années, chacune nouée d'une ficelle.",
     "Ce sont les lettres de ton oncle Firmin, de Varenne. Une par mois, pendant douze ans. Tu en ouvres une au hasard, puis une autre, puis dix.",
     "« Tu me demandes encore comment il va. Il va. Il a eu sa place chez le notaire. » « Tu me demandes encore comment il va. Il a été malade en mars, rien de grave. » « Tu me demandes encore comment il va. Il ne parle jamais de toi. Je ne sais pas si c'est bon signe. »",
     "Firmin écrivait « il » dans toutes les lettres, quel que fût le sujet, à la manière des vieux. Cela n'a pas d'importance. Ce qui en a, c'est qu'elle demandait. Cent quarante-quatre fois."
@@ -2545,7 +2545,7 @@
    "place": "cour",
    "back": true,
    "text": [
-    "Le bûcher, sous son auvent, est plein jusqu'au toit : des stères de hêtre fendu, rangés comme un mur. Contre la paroi du fond, des outils pendus à des clous. Une hache, des scies, une fourche.",
+    "Le bûcher, sous son auvent, est plein jusqu'au toit : des stères de hêtre fendu, rangés comme un mur. Contre la paroi du fond pendent les outils, chacun à son clou : une hache, des scies, une fourche.",
     "Et une gaffe : une longue perche de frêne terminée par un crochet de fer, comme en ont les bateliers. Elle n'a rien à faire ici, à trois cents pas de toute barque.",
     {
      "calme": true,
@@ -2655,7 +2655,7 @@
    "title": "La poutre",
    "place": "etang",
    "text": [
-    "Tu la cherchais sans le savoir. La poutre maîtresse, au-dessus du banc, à hauteur de main. Gravées au couteau, profondément, deux initiales : la tienne et un J. Et sous elles, une date. L'hiver de tes dix-sept ans. Le mois de janvier.",
+    "Tu la cherchais sans le savoir. La poutre maîtresse, au-dessus du banc, à hauteur de main, porte deux initiales gravées au couteau, profondément : la tienne et un J ; et sous elles, une date : le mois de janvier, l'hiver de tes dix-sept ans.",
     "Tu poses la main dessus. Le bois est froid, et sous ta paume les lettres sont nettes comme au premier jour."
    ],
    "fx": {
@@ -3284,7 +3284,7 @@
    "text": [
     "Tu lui dis que tu penses à Lucien depuis que tu es descendu{e} de la diligence. Tu dis son prénom à voix haute, dans cette maison, pour la première fois depuis douze ans.",
     "Odile ne répond pas tout de suite. « C'est moi qui fais sa chambre, dit-elle. Tous les jours. La poussière, les soldats, les draps une fois par mois. Personne d'autre n'y entre. Maman n'y est jamais entrée. Elle disait que ça lui faisait mal aux jambes, l'escalier. »",
-    "Elle sourit, d'un sourire qui ne lui ressemble pas. « Il disait que tu étais le plus fort du monde, tu te souviens ? Il le disait à tout le monde. Même au curé. »"
+    "Elle sourit, d'un sourire qui ne lui ressemble pas. « Il disait que tu étais plus fort{e} que tout le monde, tu te souviens ? Il le disait à tout le monde. Même au curé. »"
    ]
   },
   "V_odile": {
@@ -3303,7 +3303,7 @@
      "if": {
       "has": "odile:aveu"
      },
-     "text": "Vous parlez à voix basse, comme lorsque vous étiez petits et que la mère dormait de l'autre côté de la cloison. Vous parlez de Lucien. Tu racontes la luge, et elle raconte le jour où il a mis le chat dans le pétrin. Vous riez, une fois, très bas, et vous vous arrêtez, effrayés, en regardant le lit."
+     "text": "Vous parlez à voix basse, comme lorsque vous étiez enfants et que la mère dormait de l'autre côté de la cloison. Vous parlez de Lucien. Tu racontes la luge, et elle raconte le jour où il a mis le chat dans le pétrin. Vous riez, une fois, très bas, et vous vous arrêtez net, avec un regard effrayé vers le lit."
     },
     {
      "if": {
@@ -3324,7 +3324,7 @@
       "attache": "odile",
       "min": 3
      },
-     "text": "Vers trois heures, elle s'endort contre ton épaule. Tu ne bouges pas jusqu'au jour."
+     "text": "Vers trois heures, elle s'endort contre ton épaule, et tu restes immobile jusqu'au jour."
     },
     "Au matin, la neige a cessé tout à fait. Le soleil se lève derrière la forêt des Fayards, rouge, et touche d'abord la cime des hêtres."
    ],
@@ -3385,7 +3385,7 @@
    "text": [
     {
      "first": true,
-     "text": "Germain te serre la main entre les deux siennes, longtemps, à la manière des marchands de bestiaux. « Ah ! Le Varennois. Tu as bonne mine, malgré tout. La ville réussit aux gens. » Il a des bottes de cuir fauve, cirées de frais, qu'il a dû apporter de Saint-Amans exprès pour l'enterrement."
+     "text": "Germain te serre la main entre les deux siennes, longtemps, à la manière des marchands de bestiaux. « Ah ! Voilà Varenne qui nous revient. Tu as bonne mine, malgré tout. La ville réussit aux gens. » Il a des bottes de cuir fauve, cirées de frais, qu'il a dû apporter de Saint-Amans exprès pour l'enterrement."
     },
     {
      "again": true,
@@ -3655,7 +3655,7 @@
    "back": true,
    "text": [
     "Germain replie l'acte lentement, en suivant les plis. « Tu as tort, dit-il sans hausser le ton. Tu repartiras dans quatre jours, et nous, on restera ici avec Vernet. Tu ne sais pas ce que tu fais. »",
-    "Il range l'acte. Il a encore la politesse de te sourire en sortant."
+    "Il range l'acte, et il a encore la politesse de te sourire en sortant."
    ]
   },
   "K_germain_odile": {
@@ -3842,7 +3842,7 @@
    "seul": true,
    "text": [
     "Une soupe de pain, de lard et de chou, épaisse à y planter la cuiller, comme elle la faisait les jours de battage. Mariette s'assoit en face de toi pour te regarder manger, les mains croisées sur la table.",
-    "Tu manges tout. Elle remplit le bol une seconde fois. Tu manges encore. Pendant tout ce temps, vous vous taisez tous les deux, et pour la première fois depuis ton arrivée ta gorge se desserre."
+    "Tu manges tout ; elle remplit le bol une seconde fois, et tu manges encore. Pendant tout ce temps, vous gardez le silence, elle et toi, et pour la première fois depuis ton arrivée ta gorge se desserre."
    ]
   },
   "M_mariette_bras": {
@@ -4176,7 +4176,7 @@
    "text": [
     {
      "first": true,
-     "text": "Jeanne pose son ouvrage. Elle a toujours les mêmes taches de rousseur, plus pâles, et une ride entre les sourcils qui n'y était pas. Elle te regarde comme on regarde une maison où l'on a habité. « Bonjour », dit-elle. Rien d'autre. Vous aviez des mots à vous, autrefois. Ils sont restés à la cabane."
+     "text": "Jeanne pose son ouvrage. Elle a toujours les mêmes taches de rousseur, plus pâles, et une ride entre les sourcils qui n'y était pas. Elle te regarde comme on regarde une maison où l'on a habité. « Bonjour », dit-elle, et rien d'autre. Vous aviez des mots à vous, autrefois ; ils sont restés à la cabane."
     },
     {
      "again": true,
@@ -4622,9 +4622,9 @@
     "angoisse": -2
    },
    "text": [
-    "Tu lis la lettre une fois, très vite, comme on avale un remède. Puis une deuxième fois, lentement. Puis tu la poses sur tes genoux et tu regardes le mur.",
+    "Tu lis la lettre une fois, très vite, comme on avale un remède, puis une deuxième fois, lentement ; après quoi tu la poses sur tes genoux et tu regardes le mur.",
     "« Je t'ai tendu{e} la gaffe parce que tu étais le plus près. » « Tu n'as rien tenu, tu étais à moitié mort{e}. » « Je t'ai envoyé{e} chez Firmin pour ces deux raisons, et la première est la plus laide. »",
-    "Douze ans, tu as cru qu'elle t'avait chassé{e} pour l'avoir tué. Elle t'a éloigné{e} parce qu'elle t'avait choisi{e}, et qu'elle ne le supportait pas. Ce n'est pas plus doux. C'est vrai, et cela suffit à changer le poids de tout le reste.",
+    "Douze ans, tu as cru qu'elle t'avait chassé{e} pour l'avoir tué. Elle t'a éloigné{e} parce qu'elle t'avait choisi{e}, et qu'elle ne le supportait pas. C'est aussi dur à porter, et c'est vrai ; cela suffit à changer le poids de tout le reste.",
     "Tu replies la lettre. Dans la maison, quelqu'un met une bûche dans le fourneau, et le bruit monte par l'escalier comme n'importe quel autre jour."
    ]
   },
@@ -4634,7 +4634,7 @@
    "text": [
     "Le soir du quatorze janvier. Tu as dix-sept ans, et tu laces tes souliers sur la dernière marche de l'escalier, en faisant le moins de bruit possible. Lucien est assis deux marches plus haut, en chemise de nuit, ses patins neufs sur les genoux. Il les a graissés lui-même. Il en a mis partout.",
     "« Emmène-moi, chuchote-t-il. La glace est prise jusqu'à la source, Baptiste l'a dit. Juste une fois. La nuit, avec la lune. Tu avais promis à Noël. »",
-    "Tu as promis à Noël. Tu avais oublié. Ce soir, quelqu'un t'attend à la cabane, et tu as mis le manteau de ton père pour avoir l'air d'un homme."
+    "Tu as promis à Noël. Tu avais oublié. Ce soir, quelqu'un t'attend à la cabane, et tu as mis le manteau de ton père pour avoir l'air d'une grande personne."
    ],
    "choices": [
     {
@@ -4933,8 +4933,8 @@
    },
    "text": [
     "Le cocher de Saint-Amans t'a laissé{e} au pied de la côte, avec ta malle, parce que ses chevaux refusaient la neige. Tu as monté le dernier quart de lieue à pied, la malle sur l'épaule, et la neige est tombée tout le long, de plus en plus épaisse, comme un rideau qu'on tire derrière toi.",
-    "Maintenant tu es dans la cour. La maison est là, plus petite que dans ta mémoire et plus haute à la fois. Toutes les fenêtres du rez-de-chaussée sont éclairées. À l'étage, une seule : celle de la chambre de ta mère, où la lumière tremble, jaune, comme celle des cierges.",
-    "Un homme sort de la grange avec une lanterne. Il est grand, large d'épaules, en manteau de drap fin. Il lève sa lanterne vers ton visage. « Ah, dit-il. Te voilà. Germain Rouvière. Le mari d'Odile. » Il tend la main vers ta malle. « Tu arrives un jour trop tard, je suis désolé de te le dire comme ça. Elle est morte avant-hier dans la nuit. »",
+    "Te voici dans la cour. La maison est là, plus petite que dans ta mémoire, et plus haute à la fois. Toutes les fenêtres du rez-de-chaussée sont éclairées ; à l'étage, une seule brille, celle de la chambre de ta mère, où la lumière tremble, jaune, comme celle des cierges.",
+    "Un homme sort de la grange avec une lanterne : grand, large d'épaules, en manteau de drap fin. Il lève sa lanterne vers ton visage. « Ah, dit-il. Te voilà. Germain Rouvière. Le mari d'Odile. » Il tend la main vers ta malle. « Tu arrives un jour trop tard, je suis désolé de te le dire comme ça. Elle est morte avant-hier dans la nuit. »",
     "Derrière vous, au bas de la côte, tu entends le cocher qui fait tourner ses chevaux, et le bruit des grelots qui s'éloigne vers Saint-Amans. Demain, la route sera fermée."
    ],
    "choices": [
@@ -4967,9 +4967,9 @@
     "meet": "odile"
    },
    "text": [
-    "La porte de la cuisine s'ouvre avant que tu aies frappé. Odile est dans l'encadrement, en robe noire, un tablier blanc par-dessus, les manches retroussées. Elle a trente-quatre ans. Tu lui en donnerais quarante. Elle te regarde comme on regarde une lettre arrivée en retard.",
+    "La porte de la cuisine s'ouvre avant que tu aies frappé. Odile se tient dans l'encadrement, en robe noire, un tablier blanc par-dessus, les manches retroussées. Elle a trente-quatre ans ; tu lui en donnerais quarante. Elle te regarde comme on regarde une lettre arrivée en retard.",
     "« Tu arrives tard », dit-elle.",
-    "Derrière elle, la cuisine, le fourneau, et une vieille femme qui ne se retourne pas."
+    "Derrière elle, tu vois la cuisine, le fourneau, et une vieille femme qui reste tournée vers lui."
    ],
    "choices": [
     {
@@ -5005,7 +5005,7 @@
    "title": "Le seuil",
    "place": "cour",
    "text": [
-    "Tu la prends dans tes bras sur le seuil, dans la neige. Elle se raidit comme un piquet. Elle ne te repousse pas. Elle attend que tu aies fini, les bras le long du corps, et quand tu la lâches, elle a les yeux humides et la bouche dure.",
+    "Tu la prends dans tes bras sur le seuil, dans la neige. Elle se raidit comme un piquet, mais te laisse faire. Elle attend que tu aies fini, les bras le long du corps, et quand tu la lâches, elle a les yeux humides et la bouche dure.",
     "« Entre, dit-elle. Tu fais entrer le froid. »"
    ],
    "choices": [
@@ -5032,7 +5032,7 @@
      "via": "silence",
      "text": "Tu ne réponds pas. Odile hoche la tête, comme si c'était la réponse qu'elle attendait, et s'efface pour te laisser passer."
     },
-    "Dans la cuisine, Mariette se retourne enfin, une louche à la main. Elle te regarde. Elle pose la louche. Elle vient vers toi, elle te prend le visage entre ses deux mains rêches, très fort, une seconde, et elle retourne à son fourneau sans un mot.",
+    "Dans la cuisine, Mariette se retourne enfin, une louche à la main. Elle te regarde, et pose la louche. Elle vient vers toi, te prend le visage entre ses deux mains rêches, très fort, une seconde, et retourne à son fourneau sans un mot.",
     "Dans la grande salle, un homme âgé, en gilet noir, se lève d'un fauteuil près du feu avec un verre à la main : le docteur Fabre, de Saint-Amans. « Mes condoléances, dit-il. Je suis monté constater, et la neige m'a gardé. Le cœur, ajoute-t-il, sans que personne ait rien demandé. Il était usé depuis deux ans. Elle s'est endormie vers minuit et ne s'est pas réveillée. C'est une belle mort. »",
     "Près de la fenêtre, une jeune femme pose l'ouvrage qu'elle cousait. Tu la reconnais avant de la reconnaître : la façon de pencher la tête, les taches de rousseur. Jeanne Pradel. Elle était à la cabane, autrefois, chaque soir de cet hiver-là.",
     {
@@ -5065,10 +5065,10 @@
     "clue": "e_engelures"
    },
    "text": [
-    "Tu montes l'escalier, la troisième latte craque comme avant. La chambre de ta mère est au fond du couloir. Quatre cierges. Les volets clos. Le froid exprès.",
+    "Tu montes l'escalier, et la troisième latte craque comme avant. La chambre de ta mère est au fond du couloir : quatre cierges, les volets clos, le froid voulu.",
     "Ta mère est couchée sur le lit, en robe noire, les mains jointes sur un chapelet. Elle est petite. Elle n'a jamais été petite. Ses cheveux, presque blancs, sont nattés et roulés autour de sa tête comme une couronne. Quelqu'un les a nattés avec beaucoup de soin.",
     "Jeanne a laissé, sur la chaise, une manche de dentelle qu'elle allait coudre au poignet de la robe. Le poignet est nu. Tu vois l'avant-bras de ta mère, jusqu'au coude : la peau est couverte de cicatrices blanches, lisses, brillantes, des poignets jusqu'aux coudes, comme une brûlure très ancienne. Tu ne les as jamais vues. Elle portait des manches longues.",
-    "Tu restes debout près du lit. Tu attends quelque chose : de la peine, de la colère, une prière. Rien ne vient, sinon une grande fatigue, et l'envie absurde de lui dire bonsoir."
+    "Tu restes debout près du lit. Tu attends quelque chose : de la peine, de la colère, une prière. Il vient seulement une grande fatigue, et l'envie absurde de lui dire bonsoir."
    ],
    "choices": [
     {
@@ -5130,8 +5130,8 @@
     "germain"
    ],
    "text": [
-    "À sept heures, Mariette sonne la cloche du souper, comme toujours, et tout le monde descend, comme toujours. On mange dans la grande salle, à un bout de la longue table, sous la pendule arrêtée. Une soupe, du lard, des pommes de terre. Personne n'a faim. Tout le monde mange.",
-    "Germain parle pour tous. De la neige, de la route, du curé qui montera dès qu'on pourra passer, du prix du sapin à Saint-Amans. Le docteur boit. Jeanne coupe son pain en petits carrés qu'elle ne mange pas. Mariette fait le service debout, malgré Odile qui lui demande deux fois de s'asseoir.",
+    "À sept heures, Mariette sonne la cloche du souper, comme toujours, et tout le monde descend, comme toujours. On mange dans la grande salle, à un bout de la longue table, sous la pendule arrêtée : une soupe, du lard, des pommes de terre. Personne n'a faim, et tout le monde mange.",
+    "Germain parle pour tous : de la neige, de la route, du curé qui montera dès qu'on pourra passer, du prix du sapin à Saint-Amans. Le docteur boit. Jeanne coupe son pain en petits carrés qu'elle laisse sur l'assiette. Mariette fait le service debout, malgré Odile qui lui demande deux fois de s'asseoir.",
     {
      "calme": true,
      "text": "Odile, en face de toi, tend la main vers le sel. Sur le bord de sa manche gauche, une tache ronde, raide, brun-jaune, que le savon n'a pas enlevée."
@@ -5141,7 +5141,7 @@
      "text": "Odile, en face de toi, tend la main vers le sel. Sur le bord de sa manche gauche, une tache sombre, presque noire. Du sang, penses-tu, et ton cœur bondit. Tu regardes de nouveau : la tache est toujours là, et tu ne sais plus de quelle couleur elle est."
     },
     "Au dessert, Germain se tourne vers toi, très aimable. « Et tu restes jusqu'à quand, alors ? Après l'enterrement, il faudra parler un peu des affaires. Rien de pressé. Le bois, la scierie, les papiers. »",
-    "Toute la table attend ta réponse. Même Mariette, debout près du buffet, la cruche à la main."
+    "Toute la table attend ta réponse, et même Mariette, debout près du buffet, la cruche à la main."
    ],
    "choices": [
     {
@@ -5194,7 +5194,7 @@
    "title": "Le souper",
    "place": "salle",
    "text": [
-    "Le prénom tombe sur la table comme un verre qu'on casse. Le docteur s'arrête de boire. Jeanne baisse les yeux. Germain ouvre la bouche, et la referme.",
+    "Le prénom tombe sur la table comme un verre qu'on casse. Le docteur s'arrête de boire, Jeanne baisse les yeux, et Germain ouvre la bouche, puis la referme.",
     "Odile pose sa cuiller. « On ne parle pas de Lucien, dit-elle, parce que maman ne voulait pas qu'on en parle. Pendant douze ans. Tu étais parti{e}, toi, tu ne pouvais pas savoir. » Elle se lève. « Elle est encore là-haut. Ce n'est pas le soir pour lui désobéir. »",
     "Elle sort. Mariette la suit des yeux, puis te regarde, toi, et c'est un regard que tu n'arrives pas à lire."
    ],
@@ -5234,7 +5234,7 @@
      },
      "text": "Tu ne réponds pas. Germain attend, puis il rit, un peu trop fort, et parle d'autre chose. Odile t'a regardé{e} pendant tout ce temps."
     },
-    "On débarrasse. Mariette couvre le feu de la cuisine et monte prendre la première veille, avec son chapelet et sa chaufferette. Le docteur ressert un verre. Germain sort fumer dans la cour. Jeanne monte se coucher dans la chambre de couture, sans dire bonsoir à personne.",
+    "On débarrasse. Mariette couvre le feu de la cuisine et monte prendre la première veille, avec son chapelet et sa chaufferette. Le docteur se ressert un verre. Germain sort fumer dans la cour. Jeanne monte se coucher dans la chambre de couture, sans souhaiter le bonsoir à personne.",
     "La maison est à toi, pour la nuit, si tu la veux."
    ],
    "choices": [
@@ -5250,10 +5250,10 @@
    "place": "cuisine",
    "devant": "mariette",
    "text": [
-    "Le deuxième jour commence dans un vent qui fait gémir toute la maison. Il neige à l'horizontale. De la fenêtre de la cuisine, on ne voit plus la grange. On ne voit plus rien.",
-    "Mariette te sert ton café et reste debout à côté de toi, la cafetière à la main, plus longtemps qu'il ne faut. Puis elle parle bas, vite, en regardant la porte.",
+    "Le deuxième jour commence dans un vent qui fait gémir toute la maison. Il neige à l'horizontale, et de la fenêtre de la cuisine, la grange elle-même a disparu dans le blanc.",
+    "Mariette te sert ton café et reste debout à côté de toi, la cafetière à la main, plus longtemps qu'il ne faut. Puis elle parle bas et vite, en regardant la porte.",
     "« Ta mère t'avait écrit. L'après-midi d'avant, en quatre heures, avec la plume attachée à la main. C'est moi qui ai posé la lettre sur le bureau, sous l'encrier, à ton nom. Hier matin, elle n'y était plus. » Elle repose la cafetière sur le fourneau. « Je n'ai rien vu. Je te le dis parce qu'elle était à toi. »",
-    "Elle retourne à son évier. Elle a dit tout ce qu'elle dira."
+    "Elle retourne à son évier : elle a dit tout ce qu'elle dira."
    ],
    "choices": [
     {
@@ -5294,7 +5294,7 @@
      "if": "passe:theatre",
      "text": "Tu as joué cette scène sur des tréteaux, la femme qu'on accuse et qui beurre sa tartine. Odile la joue mieux que toutes les actrices de ta troupe."
     },
-    "Germain lève les sourcils, sincèrement surpris. Le docteur regarde son café. Odile beurre sa tartine jusqu'au bord, très soigneusement.",
+    "Germain lève les sourcils, sincèrement surpris. Le docteur regarde son café. Odile beurre sa tartine jusqu'au bord, avec un soin extrême.",
     "« Maman n'écrivait plus, dit-elle. Elle ne pouvait plus tenir une plume. Quelqu'un t'a raconté des histoires. » Elle mord dans sa tartine. Elle n'a pas regardé du côté de la cuisine. Elle sait très bien qui raconte des histoires dans cette maison."
    ],
    "choices": [
@@ -5314,10 +5314,10 @@
    "place": "bureau",
    "devant": "germain",
    "text": [
-    "Germain t'attend dans le bureau, au secrétaire de ta mère, assis dans son fauteuil à coussin. Il se lève quand tu entres, et t'offre le fauteuil. Tu restes debout. Il s'y rassoit.",
+    "Germain t'attend dans le bureau, au secrétaire de ta mère, assis dans son fauteuil à coussin. Il se lève à ton entrée et t'offre le fauteuil. Tu restes debout, et il s'y rassoit.",
     "« Je vais te parler franchement, dit-il, parce que tu es de la famille et que tu es quelqu'un d'intelligent. Ta mère t'a laissé le bois des Fayards. C'est dans son testament, chez Combaz, au bourg. Quarante arpents. »",
     "« Il y a un acheteur, Vernet, le marchand de Saint-Amans. Neuf cents livres, comptant, pour la coupe. C'est une fortune. La scierie en a besoin, je ne te le cache pas : les affaires ont été dures, cette année, avec ta mère malade. Ta mère allait signer. Elle était d'accord. » Il sourit. « Il ne manque que ta signature, maintenant. Tu n'as rien à faire. Tu signes, tu repars, l'argent te suit à Varenne. »",
-    "Il attend. Il a l'air de quelqu'un qui a l'habitude qu'on lui dise oui."
+    "Il attend, avec l'air de quelqu'un qui a l'habitude qu'on lui dise oui."
    ],
    "choices": [
     {
@@ -5368,7 +5368,7 @@
    "place": "bureau",
    "devant": "germain",
    "text": [
-    "Germain sort de sa poche intérieure un papier plié en quatre et te le tend, de bonne grâce. Un bel acte de notaire, d'une écriture de clerc. La coupe des Fayards, neuf cents livres, au sieur Vernet.",
+    "Germain sort de sa poche intérieure un papier plié en quatre et te le tend de bonne grâce : un bel acte de notaire, d'une écriture de clerc. La coupe des Fayards, neuf cents livres, au sieur Vernet.",
     "Il est daté du six décembre. La ligne de la signature est vide, et juste au-dessus, une grosse tache d'encre a coulé et séché, comme d'une plume qu'on aurait jetée sur la feuille.",
     "« Tu peux le garder pour le lire tranquillement, dit Germain. J'en ai un double. »"
    ],
@@ -5440,7 +5440,7 @@
      },
      "text": "Tu te tais. Germain prend ton silence pour ce qu'il veut qu'il soit. « Bon. On en reparlera après l'enterrement, mais je vois qu'on est d'accord. » Il te tape sur l'épaule. Tu n'as rien promis. Il est persuadé du contraire."
     },
-    "Par la fenêtre du bureau, à travers la neige qui file, on devine à peine le versant des Fayards, une masse plus sombre dans le blanc."
+    "Par la fenêtre du bureau, à travers la neige qui file, on devine à peine le versant des Fayards : une masse plus sombre dans le blanc."
    ],
    "choices": [
     {
@@ -5460,8 +5460,8 @@
     ]
    },
    "text": [
-    "Vers cinq heures, des éclats de voix montent du bureau. La voix de Germain, puis celle d'Odile, plus haute que tu ne l'as jamais entendue.",
-    "Tu t'approches. La porte est entrouverte. Odile tient une feuille à la main, une feuille raturée, et Germain est debout devant le secrétaire grand ouvert, les tiroirs tirés.",
+    "Vers cinq heures, des éclats de voix montent du bureau : la voix de Germain, puis celle d'Odile, plus haute que tu ne l'as jamais entendue.",
+    "Tu t'approches. La porte est entrouverte. Odile tient à la main une feuille raturée, et Germain est debout devant le secrétaire grand ouvert, les tiroirs tirés.",
     "« La maison à moi, “qui l'a gagnée”, lit Odile. Et les Fayards à l'autre, “pour qu'il y ait encore quelque chose de son père qui pousse”. » Elle rit, d'un rire affreux. « Qui pousse. Elle savait très bien que tu voulais les couper, et elle le lui donne pour que ça pousse. »",
     "« C'est un brouillon, dit Germain. Ça ne vaut rien. Combaz a le vrai. »",
     "« Le vrai dit la même chose, tu le sais bien, puisque tu es allé le lire en cachette chez Combaz en novembre. » Odile pose la feuille sur le secrétaire, très doucement. Puis elle sort du bureau, passe devant toi sans te voir, et monte l'escalier."
@@ -5503,7 +5503,7 @@
    "place": "bureau",
    "devant": "germain",
    "text": [
-    "Germain referme les tiroirs du secrétaire un par un, du plat de la main. Il ne cherche pas à cacher ce qu'il faisait.",
+    "Germain referme les tiroirs du secrétaire un par un, du plat de la main, sans chercher à cacher ce qu'il faisait.",
     "« Tu vois bien, dit-il. La maison à elle, les Fayards à toi, la scierie à moitié, et moi au milieu avec Vernet sur le dos. Ta mère a fait ça pour nous diviser. Elle a toujours aimé ça, diviser. » Il te regarde. « Il faut vendre, crois-moi. Après, chacun reprend ses billes, et on ne se doit plus rien. »"
    ],
    "choices": [
@@ -5525,15 +5525,15 @@
     "angoisse": 2
    },
    "text": [
-    "À neuf heures, on est tous dans la grande salle, parce que c'est la seule pièce où le feu tient tête au vent. Germain fait une réussite. Jeanne coud. Odile raccommode. Le docteur boit. Mariette tricote près de la porte de la cuisine, une oreille vers l'étage.",
-    "Une rafale plus forte que les autres secoue les volets, la porte de la cour s'ouvre d'un coup, et un tourbillon de neige entre, et la lampe s'éteint. Le feu se couche sous le vent. Pendant quelques secondes, il n'y a plus rien que le noir et le hurlement de la tempête dans la cheminée.",
+    "À neuf heures, tout le monde est dans la grande salle, la seule pièce où le feu tient tête au vent. Germain fait une réussite, Jeanne coud, Odile raccommode, et le docteur boit. Mariette tricote près de la porte de la cuisine, une oreille tournée vers l'étage.",
+    "Une rafale plus forte que les autres secoue les volets ; la porte de la cour s'ouvre d'un coup, un tourbillon de neige entre, et la lampe s'éteint. Le feu se couche sous le vent. Pendant quelques secondes, il reste seulement le noir et le hurlement de la tempête dans la cheminée.",
     {
      "trouble": true,
      "text": "Dans le noir, quelqu'un respire tout près de toi. Tu sens un souffle froid sur ta nuque, comme d'une bouche mouillée. Tu restes immobile. Tu n'oses pas bouger."
     },
     {
      "calme": true,
-     "text": "Dans le noir, tu entends Germain qui jure, Mariette qui se lève pour aller fermer la porte, le docteur qui rit tout seul."
+     "text": "Dans le noir, tu entends Germain jurer, Mariette se lever pour aller fermer la porte, et le docteur rire tout seul."
     },
     {
      "tendre": true,
@@ -5572,7 +5572,7 @@
    "title": "Le troisième matin",
    "place": "salle",
    "text": [
-    "Le vent est tombé dans la nuit. Le troisième matin, le ciel est d'un bleu dur, sans un nuage, et la neige étincelle à faire mal aux yeux. On entend, très loin dans la vallée, le bruit des pelles : les hommes de Saint-Amans ouvrent la route.",
+    "Le vent est tombé dans la nuit, et le troisième matin se lève sur un ciel d'un bleu dur, sans un nuage ; la neige étincelle à faire mal aux yeux. Très loin dans la vallée monte le bruit des pelles : les hommes de Saint-Amans ouvrent la route.",
     "Au café, Germain annonce que le curé montera demain matin, avec les porteurs, et qu'on enterrera à dix heures. Il le dit avec soulagement. Personne ne lui en veut.",
     "Odile pose sa tasse. « Ce soir, c'est la dernière veillée, dit-elle. On fera comme on a toujours fait. Chacun dira une chose vraie sur elle. Une seule. » Elle regarde la table, un visage après l'autre, et s'arrête sur le tien. « Une chose vraie. Ce n'est pas difficile. »",
     "« Et demain, au cimetière, ajoute-t-elle, c'est l'aîné qui dit la parole. C'est moi. » Elle reprend sa tasse. « On verra. »"
@@ -5918,8 +5918,8 @@
     "quest": "III_parole"
    },
    "text": [
-    "Le curé est monté à neuf heures, avec quatre porteurs du bourg et un traîneau. On a remis la pendule en marche. On a ôté le drap du miroir. On a cloué le cercueil. Le bruit des clous a résonné dans toute la maison, et Mariette est allée s'asseoir dans la cuisine pendant ce temps-là.",
-    "On porte ta mère à travers la neige jusqu'à l'enclos des Sorlin, derrière la chapelle des Lisières. La fosse a été creusée hier par les hommes de la vallée, au pic, dans la terre gelée, à côté de ton père et de Lucien. Le ciel est bleu. Il fait un froid à fendre les pierres.",
+    "Le curé est monté à neuf heures, avec quatre porteurs du bourg et un traîneau. On a remis la pendule en marche, ôté le drap du miroir, cloué le cercueil ; le bruit des clous a résonné dans toute la maison, et Mariette est allée s'asseoir dans la cuisine pendant ce temps-là.",
+    "On porte ta mère à travers la neige jusqu'à l'enclos des Sorlin, derrière la chapelle des Lisières. La fosse a été creusée hier par les hommes de la vallée, au pic, dans la terre gelée, à côté de ton père et de Lucien. Le ciel est bleu, et il fait un froid à fendre les pierres.",
     "Le curé dit ses prières. Puis il se tourne vers la famille. C'est le moment de la parole.",
     {
      "if": {
@@ -6039,8 +6039,8 @@
    "title": "La parole",
    "place": "cour",
    "text": [
-    "Tu t'avances au bord de la fosse. Tu dis tout, d'une voix qui te surprend par son calme. La cabane et Jeanne. Lucien dans tes traces. La glace. La gaffe. Le choix de ta mère, qui n'en était pas un. L'oncle Firmin, et les lettres de chaque mois.",
-    "Le curé a ouvert la bouche pour t'arrêter, puis il l'a refermée. Les porteurs regardent leurs souliers. Jeanne pleure sans bruit. Mariette te regarde comme on regarde quelqu'un qui marche sur un toit.",
+    "Tu t'avances au bord de la fosse et tu dis tout, d'une voix qui te surprend par son calme : la cabane et Jeanne ; Lucien dans tes traces ; la glace, la gaffe ; le choix de ta mère, qui n'en était pas un ; l'oncle Firmin, enfin, et les lettres de chaque mois.",
+    "Le curé a ouvert la bouche pour t'arrêter, puis il l'a refermée. Les porteurs regardent leurs souliers, Jeanne pleure sans bruit, et Mariette te regarde comme on regarde quelqu'un qui marche sur un toit.",
     {
      "if": {
       "has": "odile:fenetre"
@@ -6323,7 +6323,7 @@
      "text": "La lettre de ta mère est quelque part dans la maison, dans une poche ou dans une boîte. Tu es reparti{e} sans elle."
     },
     "Au tournant de la chapelle, tu te retournes une fois. La maison est là, grise sur la neige. À la fenêtre de l'étage, derrière la vitre, il y a un visage pâle. Douze ans plus tôt, c'était le même.",
-    "La diligence passe à midi. Tu montes. Le cocher fait claquer son fouet, et les Lisières disparaissent derrière la forêt des Fayards."
+    "La diligence passe à midi, et tu y montes. Le cocher fait claquer son fouet, et les Lisières disparaissent derrière la forêt des Fayards."
    ]
   },
   "F_soeurs": {
@@ -6343,7 +6343,7 @@
    "text": [
     "Le soir, chez maître Combaz, qui est monté avec le curé, tu signes une donation. Les Fayards, quarante arpents de hêtres et de sapins, à Odile Rouvière, née Sorlin. Germain, à côté, devient rouge, puis blanc, puis rien du tout.",
     "« Ils ne seront pas coupés, dit Odile, sans le regarder. Pas de mon vivant. » C'est la phrase de ta mère. Elle s'en rend compte en la disant, et elle sourit, pour la première fois depuis ton arrivée, d'un vrai sourire.",
-    "Tu ne dis rien de la fiole. À personne. Ni au curé, ni à Combaz, ni à Germain. Le docteur, en partant, te serre la main un peu plus longtemps qu'il ne faudrait. Il sait ce que tu as choisi de garder.",
+    "Tu gardes la fiole pour toi, sans un mot au curé, à Combaz ou à Germain. Le docteur, en partant, te serre la main un peu plus longtemps qu'il ne faudrait. Il sait ce que tu as choisi de garder.",
     "Le lendemain, à la diligence, Odile t'accompagne jusqu'au bas de la côte. Elle porte ta malle, toute seule, et refuse que tu l'aides. « Tu écriras, dit-elle. Pas quatre fois en douze ans. Tous les mois. » Ce n'est pas une prière. C'est un ordre, et tu sais que tu y obéiras."
    ]
   },
@@ -6386,7 +6386,7 @@
        "denonce": "odile"
       }
      },
-     "text": "On emmène Odile le soir même, dans le traîneau du brigadier, sous une couverture. Elle ne résiste pas. Sur le seuil, elle se retourne vers toi et dit seulement : « Elle aussi, elle a choisi. » Le procès a lieu à Saint-Amans au printemps. Le docteur témoigne. Le jury l'acquitte en une heure. Elle ne revient jamais aux Lisières."
+     "text": "On emmène Odile le soir même, dans le traîneau du brigadier, sous une couverture. Elle ne résiste pas. Sur le seuil, elle se retourne vers toi et dit seulement : « Elle aussi, elle a choisi. » Le procès a lieu à Saint-Amans au printemps ; le docteur témoigne, et le jury l'acquitte en une heure. Elle ne revient jamais aux Lisières."
     },
     {
      "if": {
@@ -6417,7 +6417,7 @@
        "denonce": "germain"
       }
      },
-     "text": "On l'emmène à Saint-Amans. On ouvre une enquête. Le docteur, interrogé, maintient : le cœur. On relâche Germain au bout d'un mois, faute de preuve, et ruiné : Vernet a eu sa coupe autrement, par le tribunal. Il ne t'adresse plus jamais la parole. Odile non plus. Elle seule sait que tu as accusé le mauvais, et pourquoi elle ne le dira pas."
+     "text": "On l'emmène à Saint-Amans, où l'on ouvre une enquête. Le docteur, interrogé, maintient : le cœur. On relâche Germain au bout d'un mois, faute de preuve, et ruiné : Vernet a eu sa coupe autrement, par le tribunal. Il ne t'adresse plus jamais la parole. Odile non plus. Elle seule sait que tu as accusé le mauvais, et pourquoi elle ne le dira pas."
     },
     "Tu reprends la diligence trois jours plus tard. La neige fond déjà sur les bords de la route. Tu as fait ce que tu croyais juste. Pendant tout le trajet jusqu'à Varenne, tu essaies de retrouver ce que tu croyais exactement."
    ]

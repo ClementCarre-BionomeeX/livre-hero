@@ -6,7 +6,7 @@ module.exports = { passages: {
   C_matin: {
     act: "III", title: "Le troisième matin", place: "salle",
     text: [
-      "Le vent est tombé dans la nuit. Le troisième matin, le ciel est d'un bleu dur, sans un nuage, et la neige étincelle à faire mal aux yeux. On entend, très loin dans la vallée, le bruit des pelles : les hommes de Saint-Amans ouvrent la route.",
+      "Le vent est tombé dans la nuit, et le troisième matin se lève sur un ciel d'un bleu dur, sans un nuage ; la neige étincelle à faire mal aux yeux. Très loin dans la vallée monte le bruit des pelles : les hommes de Saint-Amans ouvrent la route.",
       "Au café, Germain annonce que le curé montera demain matin, avec les porteurs, et qu'on enterrera à dix heures. Il le dit avec soulagement. Personne ne lui en veut.",
       "Odile pose sa tasse. « Ce soir, c'est la dernière veillée, dit-elle. On fera comme on a toujours fait. Chacun dira une chose vraie sur elle. Une seule. » Elle regarde la table, un visage après l'autre, et s'arrête sur le tien. « Une chose vraie. Ce n'est pas difficile. »",
       "« Et demain, au cimetière, ajoute-t-elle, c'est l'aîné qui dit la parole. C'est moi. » Elle reprend sa tasse. « On verra. »",
@@ -83,8 +83,8 @@ module.exports = { passages: {
   X_enterrement: {
     act: "III", title: "L'enterrement", place: "cour", ambiance: "neige", fx: { quest: "III_parole" },
     text: [
-      "Le curé est monté à neuf heures, avec quatre porteurs du bourg et un traîneau. On a remis la pendule en marche. On a ôté le drap du miroir. On a cloué le cercueil. Le bruit des clous a résonné dans toute la maison, et Mariette est allée s'asseoir dans la cuisine pendant ce temps-là.",
-      "On porte ta mère à travers la neige jusqu'à l'enclos des Sorlin, derrière la chapelle des Lisières. La fosse a été creusée hier par les hommes de la vallée, au pic, dans la terre gelée, à côté de ton père et de Lucien. Le ciel est bleu. Il fait un froid à fendre les pierres.",
+      "Le curé est monté à neuf heures, avec quatre porteurs du bourg et un traîneau. On a remis la pendule en marche, ôté le drap du miroir, cloué le cercueil ; le bruit des clous a résonné dans toute la maison, et Mariette est allée s'asseoir dans la cuisine pendant ce temps-là.",
+      "On porte ta mère à travers la neige jusqu'à l'enclos des Sorlin, derrière la chapelle des Lisières. La fosse a été creusée hier par les hommes de la vallée, au pic, dans la terre gelée, à côté de ton père et de Lucien. Le ciel est bleu, et il fait un froid à fendre les pierres.",
       "Le curé dit ses prières. Puis il se tourne vers la famille. C'est le moment de la parole.",
       { if: { any: [{ has: "odile:aveu" }, { attache: "odile", min: 2 }] }, text: "Odile fait un pas en arrière. Elle te regarde, et d'un signe de tête, elle te cède la place. « Toi, dit-elle. C'est toi qu'elle attendait. »", else: "Odile fait un pas en avant, comme c'est son droit. Elle a préparé ce qu'elle va dire, tu le vois à ses lèvres qui bougent." },
     ],
@@ -98,8 +98,8 @@ module.exports = { passages: {
   X_parole: {
     act: "III", title: "La parole", place: "cour",
     text: [
-      "Tu t'avances au bord de la fosse. Tu dis tout, d'une voix qui te surprend par son calme. La cabane et Jeanne. Lucien dans tes traces. La glace. La gaffe. Le choix de ta mère, qui n'en était pas un. L'oncle Firmin, et les lettres de chaque mois.",
-      "Le curé a ouvert la bouche pour t'arrêter, puis il l'a refermée. Les porteurs regardent leurs souliers. Jeanne pleure sans bruit. Mariette te regarde comme on regarde quelqu'un qui marche sur un toit.",
+      "Tu t'avances au bord de la fosse et tu dis tout, d'une voix qui te surprend par son calme : la cabane et Jeanne ; Lucien dans tes traces ; la glace, la gaffe ; le choix de ta mère, qui n'en était pas un ; l'oncle Firmin, enfin, et les lettres de chaque mois.",
+      "Le curé a ouvert la bouche pour t'arrêter, puis il l'a refermée. Les porteurs regardent leurs souliers, Jeanne pleure sans bruit, et Mariette te regarde comme on regarde quelqu'un qui marche sur un toit.",
       { if: { has: "odile:fenetre" }, text: "Odile sait que tu sais pour la fenêtre. Elle te l'a dit elle-même." },
       "Il reste une chose à dire, ou à garder. Odile est à côté de toi, et elle attend, elle aussi.",
     ],
@@ -145,7 +145,7 @@ module.exports = { passages: {
       { if: { has: "lettre:brulee" }, text: "La lettre de ta mère est en cendres dans la cheminée de la grande salle. Ce qu'elle disait, il n'y a plus que toi pour le savoir, et tu as décidé de ne pas le savoir." },
       { if: { not: { any: [{ item: "lettre" }, "lettre:brulee"] } }, text: "La lettre de ta mère est quelque part dans la maison, dans une poche ou dans une boîte. Tu es reparti{e} sans elle." },
       "Au tournant de la chapelle, tu te retournes une fois. La maison est là, grise sur la neige. À la fenêtre de l'étage, derrière la vitre, il y a un visage pâle. Douze ans plus tôt, c'était le même.",
-      "La diligence passe à midi. Tu montes. Le cocher fait claquer son fouet, et les Lisières disparaissent derrière la forêt des Fayards.",
+      "La diligence passe à midi, et tu y montes. Le cocher fait claquer son fouet, et les Lisières disparaissent derrière la forêt des Fayards.",
     ],
   },
   F_soeurs: {
@@ -153,7 +153,7 @@ module.exports = { passages: {
     text: [
       "Le soir, chez maître Combaz, qui est monté avec le curé, tu signes une donation. Les Fayards, quarante arpents de hêtres et de sapins, à Odile Rouvière, née Sorlin. Germain, à côté, devient rouge, puis blanc, puis rien du tout.",
       "« Ils ne seront pas coupés, dit Odile, sans le regarder. Pas de mon vivant. » C'est la phrase de ta mère. Elle s'en rend compte en la disant, et elle sourit, pour la première fois depuis ton arrivée, d'un vrai sourire.",
-      "Tu ne dis rien de la fiole. À personne. Ni au curé, ni à Combaz, ni à Germain. Le docteur, en partant, te serre la main un peu plus longtemps qu'il ne faudrait. Il sait ce que tu as choisi de garder.",
+      "Tu gardes la fiole pour toi, sans un mot au curé, à Combaz ou à Germain. Le docteur, en partant, te serre la main un peu plus longtemps qu'il ne faudrait. Il sait ce que tu as choisi de garder.",
       "Le lendemain, à la diligence, Odile t'accompagne jusqu'au bas de la côte. Elle porte ta malle, toute seule, et refuse que tu l'aides. « Tu écriras, dit-elle. Pas quatre fois en douze ans. Tous les mois. » Ce n'est pas une prière. C'est un ordre, et tu sais que tu y obéiras.",
     ],
   },
@@ -162,10 +162,10 @@ module.exports = { passages: {
     text: [
       { if: { is: { denonce: "odile" } }, text: "Tu dis tout au curé et au brigadier, dans le bureau, porte fermée : la fiole sous le lit, la cuiller, le mot de ta mère, et la main de ta sœur qui a versé. Le brigadier écrit lentement, en tirant la langue. Le curé écoute en silence. À la fin, il te demande si tu es bien sûr{e} que c'est ce que ta mère aurait voulu. Tu laisses la question sans réponse." },
       { if: { all: [{ is: { denonce: "odile" } }, { has: "secret:promis" }] }, text: "Tu lui avais promis, la dernière nuit, que cela resterait entre vous. Tu le sais pendant tout le temps où tu parles." },
-      { if: { is: { denonce: "odile" } }, text: "On emmène Odile le soir même, dans le traîneau du brigadier, sous une couverture. Elle ne résiste pas. Sur le seuil, elle se retourne vers toi et dit seulement : « Elle aussi, elle a choisi. » Le procès a lieu à Saint-Amans au printemps. Le docteur témoigne. Le jury l'acquitte en une heure. Elle ne revient jamais aux Lisières." },
+      { if: { is: { denonce: "odile" } }, text: "On emmène Odile le soir même, dans le traîneau du brigadier, sous une couverture. Elle ne résiste pas. Sur le seuil, elle se retourne vers toi et dit seulement : « Elle aussi, elle a choisi. » Le procès a lieu à Saint-Amans au printemps ; le docteur témoigne, et le jury l'acquitte en une heure. Elle ne revient jamais aux Lisières." },
       { if: { is: { denonce: "germain" } }, text: "Tu dis au curé et au brigadier que Germain est monté chez ta mère à onze heures, avec un acte de vente, qu'elle a refusé, et qu'il a menti sur sa soirée. Le brigadier écrit. Germain jure, nie, puis avoue qu'il est monté, puis jure encore qu'elle était vivante quand il est redescendu." },
       { if: { all: [{ is: { denonce: "germain" } }, { has: "germain:soupcon" }] }, text: "Il te regarde pendant tout ce temps sans surprise : depuis le soir où tu lui as parlé du brigadier, il t'attendait." },
-      { if: { is: { denonce: "germain" } }, text: "On l'emmène à Saint-Amans. On ouvre une enquête. Le docteur, interrogé, maintient : le cœur. On relâche Germain au bout d'un mois, faute de preuve, et ruiné : Vernet a eu sa coupe autrement, par le tribunal. Il ne t'adresse plus jamais la parole. Odile non plus. Elle seule sait que tu as accusé le mauvais, et pourquoi elle ne le dira pas." },
+      { if: { is: { denonce: "germain" } }, text: "On l'emmène à Saint-Amans, où l'on ouvre une enquête. Le docteur, interrogé, maintient : le cœur. On relâche Germain au bout d'un mois, faute de preuve, et ruiné : Vernet a eu sa coupe autrement, par le tribunal. Il ne t'adresse plus jamais la parole. Odile non plus. Elle seule sait que tu as accusé le mauvais, et pourquoi elle ne le dira pas." },
       "Tu reprends la diligence trois jours plus tard. La neige fond déjà sur les bords de la route. Tu as fait ce que tu croyais juste. Pendant tout le trajet jusqu'à Varenne, tu essaies de retrouver ce que tu croyais exactement.",
     ],
   },
