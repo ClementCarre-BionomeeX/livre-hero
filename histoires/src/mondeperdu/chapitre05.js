@@ -12,7 +12,7 @@ module.exports = {
       "« Je ne ferais pas cela, monsieur. »",
       "« Pourquoi pas ? »",
       "« Parce que ce n'est pas du tout un escroc. »",
-      "« Quoi ! rugit McArdle. Vous n'allez pas me dire que vous croyez vraiment à ses histoires de mammouths, de mastodontes et de grands sairpents de mer ? »",
+      "« Quoi ! rugit McArdle. Vous n'allez pas me dire que vous croyez vraiment à ses histoires de mammouths, de mastodontes et de grands serpents de mer ? »",
       "« Eh bien, je ne sais pas pour cela. Je ne crois pas qu'il prétende rien de ce genre. Mais je crois vraiment qu'il a trouvé quelque chose de nouveau. »",
       "« Alors, pour l'amour du Ciel, mon garçon, écrivez-le ! »",
       "« J'en meurs d'envie, mais tout ce que je sais, il me l'a dit en confidence et à condition que je n'en fasse rien. » Je résumai en quelques phrases le récit du professeur. « Voilà où en sont les choses. »",
