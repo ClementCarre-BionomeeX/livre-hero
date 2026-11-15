@@ -8,8 +8,8 @@ var BACK = [{ label: "Reprendre le couloir", to: "II_S2_palais" }];
 module.exports = {
   II_S2_cuisines: P({ title: "Les cuisines de nuit",
     text: [
-      "Les cuisines du palais veillent. Elles ont toujours eu le sommeil léger, mais d'habitude, la nuit, on y trouve seulement les marmitons qui ronflent sur les sacs et un feu couvert. Cette nuit, les broches tournent. On plume, on découpe, on pétrit. Un banquet pour trois cents, que personne n'a commandé, et que personne ne mangera.",
-      "Au fond, près de la cheminée, un vieux cuisinier ne fait pas le banquet. Il surveille une petite marmite, toute seule sur un trépied. Maître Guérin. Il te laissait voler des beignets, quand tu avais douze ans et que tu attendais, à la porte des cuisines, qu'on t'appelle pour chanter. Il lève les yeux. Il ne te reconnaît pas. Il sourit quand même, à tout hasard.",
+      "Les cuisines du palais veillent : quatre cheminées, six broches, une table de marbre longue de vingt pieds. Elles ont toujours eu le sommeil léger, mais d'habitude, la nuit, on y trouve seulement les marmitons qui ronflent sur les sacs et un feu couvert. Cette nuit, les broches tournent. On plume, on découpe, on pétrit. Un banquet pour trois cents, sans commanditaire, et sans convives.",
+      "Au fond, près de la cheminée, un vieux cuisinier ne fait pas le banquet. Il surveille une petite marmite, toute seule sur un trépied. Maître Guérin. Il te laissait voler des beignets, quand tu avais douze ans et que tu attendais, à la porte des cuisines, qu'on t'appelle pour chanter. Il lève les yeux, te regarde en étrangère, et sourit quand même, à tout hasard.",
     ],
     choices: [
       { label: "Lui demander ce qu'il fait cuire", fx: { flag: "sud2:soupe", ep: ["perso", 300] }, to: "II_S2_cuisines_soupe" },
@@ -22,11 +22,11 @@ module.exports = {
     ],
     choices: BACK }),
   II_S2_cuisines_banquet: P({ title: "Le banquet",
-    text: ["« Pour la fête, dit-il. » Quelle fête ? Il réfléchit. Il ne sait pas. Personne ne sait. L'ordre est arrivé ce matin, écrit, signé, scellé, et l'ordre ne disait pas pourquoi. Il hausse les épaules. « On a toujours fait des banquets, ici. Les gens aiment bien qu'il y ait un banquet. Même s'ils ne viennent pas. » Derrière lui, un marmiton s'est endormi debout, la cuillère à la main, devant une sauce qui attache. Personne ne le réveille."],
+    text: ["« Pour la fête, dit-il. » Quelle fête ? Il réfléchit. La réponse lui échappe, comme à tout le monde ici. L'ordre est arrivé ce matin, écrit, signé, scellé, et l'ordre ne disait pas pourquoi. Il hausse les épaules. « On a toujours fait des banquets, ici. Les gens aiment bien qu'il y ait un banquet. Même s'ils ne viennent pas. » Derrière lui, un marmiton s'est endormi debout, la cuillère à la main, devant une sauce qui attache. On le laisse dormir."],
     choices: BACK }),
   II_S2_tribune: P({ title: "La tribune des musiciens",
     text: [
-      "La grande salle de bal est vide, éclairée comme en plein jour, les parquets cirés comme pour une noce. Au-dessus, dans la tribune des musiciens, un seul homme joue. Un vieillard, à la harpe, les yeux fermés. Maître Grégoire, qui t'a appris tes premiers accords, et qui dirige les musiciens de la cour depuis trente ans.",
+      "La grande salle de bal est vide, éclairée comme en plein jour par trois lustres de cent bougies chacun, les parquets cirés comme pour une noce. Au-dessus, dans la tribune des musiciens, un seul homme joue. Un vieillard, à la harpe, les yeux fermés. Maître Grégoire, qui t'a appris tes premiers accords, et qui dirige les musiciens de la cour depuis trente ans.",
       "Il joue une pavane, lentement, pour personne. Ou pour quelqu'un : la chambre bleue est juste au-dessus, et le son monte par les conduits de la cheminée. Ton pupitre est encore là, à sa droite, avec ton nom peint dessus, à demi effacé. Le sien, à côté, n'a plus de nom du tout.",
       { if: { not: { has: "lisandre:fins" } }, text: "Deux mesures avant la fin, il s'arrête, les mains en l'air, et il reprend au début. Il ne sait toujours pas les fins." },
       { if: { has: "lisandre:fins" }, text: "Il va jusqu'au bout. Les fins que tu as chantées aux musiciens, dans la galerie, quatre jours avant la Fête, sont restées. Il ne sait plus qui les lui a rendues." },
@@ -38,8 +38,8 @@ module.exports = {
     ] }),
   II_S2_tribune_jouer: P({ title: "La pavane à deux",
     text: [
-      "Tu t'assieds à ton pupitre. Tu accordes, très bas. Tu entres dans la pavane à la reprise, comme il te l'a appris : on n'entre jamais au début, on entre quand l'autre a besoin de toi. Il ne rouvre pas les yeux. Mais sa harpe ralentit, pour t'attendre, et repart avec toi. Vous allez jusqu'au bout ensemble, comme autrefois.",
-      "À la fin, il pose les mains à plat sur les cordes. Il te regarde. « Vous jouez comme une de mes élèves, dit-il. La petite Lisandre. Elle entrait toujours un temps trop tôt. » Tu es entrée un temps trop tôt. Tu ne t'en étais pas rendu compte. Il ne sait pas que c'est toi. Il sait comment tu joues. C'est une autre façon de savoir.",
+      "Tu t'assieds à ton pupitre. Tu accordes, très bas. Tu entres dans la pavane à la reprise, comme il te l'a appris : on n'entre jamais au début, on entre quand l'autre a besoin de toi. Il garde les yeux fermés. Sa harpe ralentit, pour t'attendre, et repart avec toi. Vous allez jusqu'au bout ensemble, comme autrefois.",
+      "À la fin, il pose les mains à plat sur les cordes. Il te regarde. « Vous jouez comme une de mes élèves, dit-il. La petite Lisandre. Elle entrait toujours un temps trop tôt. » Tu es entrée un temps trop tôt. Tu l'apprends à l'instant. Il ignore que c'est toi. Il sait comment tu joues. C'est une autre façon de savoir.",
     ],
     choices: BACK }),
   II_S2_tribune_ecouter: P({ title: "Pour personne",
