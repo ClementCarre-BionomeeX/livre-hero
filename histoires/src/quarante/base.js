@@ -138,11 +138,17 @@ module.exports = {
     temple: { name: "L'apothicairerie du Temple", sells: [{ item: "onguent", price: 6 }] },
     ansel: { name: "La pharmacie d'Ansel", sells: [{ item: "cordial", price: 10 }, { item: "onguent", price: 6 }] },
   },
+  // The hero's callings (8.5): the trade the past question names, played like one of the six classes.
+  voies: {
+    ardre: {"label": "Lettré des montagnes", "labelF": "Lettrée des montagnes", "tip": "Lire au feu de berger, marcher, tenir.", "like": "rodeur", "bonus": {"nature": 30, "savoir": 25, "social": 15, "combat": 15, "discretion": 10, "magie": 0}, "kit": ["arc_court"]},
+    therance: {"label": "Noble sans fortune", "tip": "Un nom, une rapière et des manières.", "like": "barde", "bonus": {"social": 35, "combat": 20, "savoir": 20, "discretion": 10, "nature": 0, "magie": 0}, "kit": []},
+    marin: {"label": "Ancien second", "labelF": "Ancienne seconde", "tip": "Commander des hommes et lire la mer.", "like": "rodeur", "bonus": {"nature": 25, "combat": 20, "social": 20, "discretion": 10, "savoir": 10, "magie": 0}, "kit": ["dague_jet"]},
+  },
   past: [
     { q: "D'où viens-tu ?", answers: [
-      { label: "Des montagnes de l'Ardre. Un berger t'a appris à lire à la lueur du feu, et tu es descendu vers la mer avec un livre et une paire de souliers.", fx: { flag: "passe:ardre", food: 2 } },
-      { label: "De Thérance même, d'une vieille famille ruinée dont il ne reste que le nom et un procès.", fx: { flag: "passe:therance", item: "rapiere" } },
-      { label: "De la mer. Tu as été second sur un navire marchand, jusqu'au naufrage, dont tu es sorti vivant.", fx: { flag: "passe:marin", gold: 30 } },
+      { label: "Des montagnes de l'Ardre. Un berger t'a appris à lire à la lueur du feu, et tu es descendu vers la mer avec un livre et une paire de souliers.", fx: { voie: "ardre", flag: "passe:ardre", food: 2 } },
+      { label: "De Thérance même, d'une vieille famille ruinée dont il ne reste que le nom et un procès.", fx: { voie: "therance", flag: "passe:therance", item: "rapiere" } },
+      { label: "De la mer. Tu as été second sur un navire marchand, jusqu'au naufrage, dont tu es sorti vivant.", fx: { voie: "marin", flag: "passe:marin", gold: 30 } },
     ] },
     { q: "Pourquoi le prince t'a-t-il choisi ?", answers: [
       { label: "Tu lui as sauvé la vie, une nuit de chasse au marais. Il t'a demandé ton nom, puis ton avis, puis ton aide.", fx: { flag: "passe:chasse" } },

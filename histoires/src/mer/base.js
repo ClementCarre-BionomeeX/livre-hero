@@ -63,13 +63,19 @@ module.exports = {
   ],
   factions: {},
   relics: {},
+  // The hero's callings (8.5): the trade the past question names, played like one of the six classes.
+  voies: {
+    marin: {"label": "Matelot", "labelF": "Matelote", "tip": "Les cordages, les quarts et les colères du ciel.", "like": "rodeur", "bonus": {"nature": 35, "combat": 15, "discretion": 10, "social": 10, "savoir": 5, "magie": 0}, "kit": ["couteau"]},
+    commis: {"label": "Commis aux écritures", "tip": "Les manifestes, les chiffres et ce qu'ils cachent.", "like": "barde", "bonus": {"savoir": 35, "social": 25, "discretion": 10, "combat": 5, "nature": 5, "magie": 0}, "kit": ["couteau"]},
+    garde: {"label": "Garde de convoi", "tip": "Se battre, et savoir quand il vaut mieux s'abstenir.", "like": "guerrier", "bonus": {"combat": 35, "nature": 15, "social": 10, "discretion": 10, "savoir": 5, "magie": 0}, "kit": ["sabre"]},
+  },
   past: [
     {
       q: "Qu'as-tu fait avant d'arriver à Port-Aubier ?",
       answers: [
-        { label: "Tu as navigué six ans comme matelot sur les caboteurs du nord. Tu connais les cordages, les quarts et les colères de la mer.", fx: { flag: "passe:marin" } },
-        { label: "Tu as tenu les livres d'une maison de commerce. Tu sais lire un manifeste, et tu sais ce qu'un chiffre peut cacher.", fx: { flag: "passe:commis", gold: 100 } },
-        { label: "Tu as servi comme garde sur les convois du sud. Tu sais te battre, et tu sais quand il vaut mieux ne pas le faire.", fx: { flag: "passe:garde" } },
+        { label: "Tu as navigué six ans comme matelot sur les caboteurs du nord. Tu connais les cordages, les quarts et les colères de la mer.", fx: { voie: "marin", flag: "passe:marin" } },
+        { label: "Tu as tenu les livres d'une maison de commerce. Tu sais lire un manifeste, et tu sais ce qu'un chiffre peut cacher.", fx: { voie: "commis", flag: "passe:commis", gold: 100 } },
+        { label: "Tu as servi comme garde sur les convois du sud. Tu sais te battre, et tu sais quand il vaut mieux ne pas le faire.", fx: { voie: "garde", flag: "passe:garde" } },
       ],
     },
   ],

@@ -907,6 +907,23 @@
    ]
   }
  },
+ "voies": {
+  "arpenteur": {
+   "label": "Arpenteur",
+   "labelF": "Arpenteuse",
+   "tip": "Relever les terres des autres.",
+   "like": "rodeur",
+   "bonus": {
+    "nature": 30,
+    "savoir": 30,
+    "discretion": 15,
+    "social": 10,
+    "combat": 10,
+    "magie": 0
+   }
+  }
+ },
+ "voie": "arpenteur",
  "past": [
   {
    "q": "Pourquoi arpentes-tu les terres des autres ?",

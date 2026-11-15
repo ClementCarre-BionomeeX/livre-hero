@@ -6,7 +6,7 @@
 (function (root) {
   var M = typeof module !== "undefined" && module.exports ? require("./moteur.js") : root.Moteur;
 
-  var COND_KEYS = ["is", "count", "has", "not", "all", "any", "clues", "clue", "mark", "present", "loyal", "met", "gone", "conf", "fear", "relics", "relic",
+  var COND_KEYS = ["voie", "is", "count", "has", "not", "all", "any", "clues", "clue", "mark", "present", "loyal", "met", "gone", "conf", "fear", "relics", "relic",
     "given", "item", "gold", "food", "pv", "clock", "fac", "level", "day", "since", "night", "seen", "arch", "quest", "place", "known", "person", "party",
     "lead", "away", "team", "souv", "souvenirs", "heroLevel", "second", "via", "regard", "fresh", "stock", "days", "promise", "vote", "lean", "battle", "camp", "missed",
     "temps", "saison", "blessure", "cicatrice", "fatigue", "trait", "duel",
@@ -14,7 +14,7 @@
     "secret", "confie", "garde"];
   // The siege's conditions (8.0) carry a second key (is, member, hero, losses): they are read by their first key.
   var SIEGE_KEYS = ["stock", "days", "promise", "vote", "lean", "battle", "camp", "missed", "fatigue", "trait", "duel"];
-  var FX_KEYS = ["regard", "resume", "set", "flag", "flags", "unflag", "clue", "mark", "ep", "catchup", "catchupWhy", "join", "met", "leave", "conf", "fear", "fac", "relic",
+  var FX_KEYS = ["voie", "regard", "resume", "set", "flag", "flags", "unflag", "clue", "mark", "ep", "catchup", "catchupWhy", "join", "met", "leave", "conf", "fear", "fac", "relic",
     "give", "relicLose", "item", "drop", "gold", "food", "pv", "rest", "time", "until", "stamp", "reveal", "meet", "clock", "quest", "questSeen", "note", "noteCls",
     "assign", "team", "regroup", "away", "lead", "leadQuiet", "souv", "souvBack", "catchupAll", "awayUnless",
     "stock", "promise", "keep", "break", "forgive", "sway", "sound", "camp", "tie",
@@ -101,6 +101,21 @@
       if (!H.player && !M.ARCHS[H.arch]) E("Héros « " + k + " » : classe « " + H.arch + " » inconnue.");
       Object.keys(H.souvenirs || {}).forEach(function (id) { if (!H.souvenirs[id].label) E("Héros « " + k + " » : souvenir « " + id + " » sans libellé."); });
     });
+    // A story's own callings (8.5): each plays like one of the six classes; the hero must get one, by a past answer
+    // (fx.voie on every answer of one question) or by story.voie.
+    Object.keys(story.voies || {}).forEach(function (k) {
+      var V = story.voies[k];
+      if (!V.label) E("Voie « " + k + " » : il lui faut un libellé.");
+      if (!M.ARCHS[V.like]) E("Voie « " + k + " » : « like » doit nommer une classe (" + Object.keys(M.ARCHS).join(", ") + ").");
+      Object.keys(V.bonus || {}).forEach(function (d) { if (!M.DOMAINS[d]) E("Voie « " + k + " » : domaine « " + d + " » inconnu."); });
+      (V.kit || []).forEach(function (id) { if (!story.items[id]) E("Voie « " + k + " » : objet « " + id + " » inconnu."); });
+    });
+    if (story.voies && Object.keys(story.voies).length) {
+      if (story.voie && !story.voies[story.voie]) E("Voie de départ « " + story.voie + " » inconnue.");
+      var vq = (story.past || []).filter(function (q) { return (q.answers || []).every(function (a) { return a.fx && a.fx.voie; }); });
+      if (!story.voie && !vq.length) E("L'histoire déclare des voies : une question du passé doit en donner une à chaque réponse (fx.voie), ou story.voie en fixer une.");
+      (story.past || []).forEach(function (q, i) { var n = (q.answers || []).filter(function (a) { return a.fx && a.fx.voie; }).length; if (n && n < q.answers.length) E("Ton passé " + (i + 1) + " : chaque réponse doit donner une voie, ou aucune."); });
+    }
     if (story.heroes && story.leadStart && !story.heroes[story.leadStart]) E("Héros de départ « " + story.leadStart + " » inconnu.");
     Object.keys(story.teams || {}).forEach(function (k) { var t = story.teams[k]; if (t.start && !P[t.start]) E("Équipe « " + k + " » : passage de départ « " + t.start + " » inconnu."); });
     var qids = {};
@@ -154,6 +169,7 @@
       if (k === "seen" && !P[c.seen]) E(where + " : passage « " + c.seen + " » inconnu.");
       if (k === "quest" && !qids[c.quest]) E(where + " : quête « " + c.quest + " » inconnue.");
       if (k === "arch" && !M.ARCHS[c.arch]) E(where + " : archétype « " + c.arch + " » inconnu.");
+      if (k === "voie" && !(story.voies || {})[c.voie]) E(where + " : voie « " + c.voie + " » inconnue.");
       if (k === "item" && !items[c.item]) E(where + " : objet « " + c.item + " » inconnu.");
       if ((k === "place" || k === "known") && !places[c[k]]) E(where + " : lieu « " + c[k] + " » inconnu.");
       if (k === "person" && !people[c.person]) E(where + " : personnage « " + c.person + " » inconnu.");
@@ -201,6 +217,7 @@
       if (typeof fx !== "object" || Array.isArray(fx)) { E(where + " : effets mal formés."); return; }
       Object.keys(fx).forEach(function (k) { if (FX_KEYS.indexOf(k) < 0) E(where + " : effet inconnu « " + k + " »."); });
       [].concat(fx.clue || []).forEach(function (x) { if (!story.clues[x]) E(where + " : indice « " + x + " » inconnu."); });
+      if (fx.voie && !(story.voies || {})[fx.voie]) E(where + " : voie « " + fx.voie + " » inconnue.");
       [].concat(fx.join || [], fx.met || [], fx.leave || []).concat(Object.keys(fx.conf || {}), Object.keys(fx.fear || {}))
         .forEach(function (x) { if (!story.companions[x]) E(where + " : compagnon « " + x + " » inconnu."); });
       Object.keys(fx.fac || {}).forEach(function (x) { if (!story.factions[x]) E(where + " : faction « " + x + " » inconnue."); });

@@ -39,13 +39,19 @@ module.exports = {
   ],
   factions: {},
   relics: {},
+  // The hero's callings (8.5): the trade the past question names, played like one of the six classes.
+  voies: {
+    copiste: {"label": "Copiste", "tip": "Les actes, les comptes et ce qu'on écrit dans les marges.", "like": "voleur", "bonus": {"savoir": 35, "discretion": 20, "social": 15, "combat": 5, "nature": 5, "magie": 0}},
+    guet: {"label": "Garde du guet", "tip": "Voir qui ment, et se tenir prêt.", "like": "guerrier", "bonus": {"combat": 25, "discretion": 25, "social": 15, "savoir": 10, "nature": 10, "magie": 0}},
+    theatre: {"label": "Comédien", "labelF": "Comédienne", "tip": "Faire parler les gens, et se taire au bon moment.", "like": "barde", "bonus": {"social": 35, "discretion": 25, "savoir": 15, "combat": 5, "nature": 5, "magie": 0}},
+  },
   past: [
     {
       q: "Qu'es-tu devenu{e} à Varenne, pendant ces douze ans ?",
       answers: [
-        { label: "Copiste chez maître Aubertin, notaire. Tu lis vite les actes, les testaments, et ce que les gens cachent dans les marges.", fx: { flag: "passe:copiste" } },
-        { label: "Tu es entré{e} au guet de la ville. Tu as appris à voir quand quelqu'un ment, et à te tenir prêt{e} quand ça tourne mal.", fx: { flag: "passe:guet" } },
-        { label: "Tu joues la comédie dans une troupe qui tourne de ville en ville. Tu sais faire parler les gens, et te taire au bon moment.", fx: { flag: "passe:theatre" } },
+        { label: "Copiste chez maître Aubertin, notaire. Tu lis vite les actes, les testaments, et ce que les gens cachent dans les marges.", fx: { voie: "copiste", flag: "passe:copiste" } },
+        { label: "Tu es entré{e} au guet de la ville. Tu as appris à voir quand quelqu'un ment, et à te tenir prêt{e} quand ça tourne mal.", fx: { voie: "guet", flag: "passe:guet" } },
+        { label: "Tu joues la comédie dans une troupe qui tourne de ville en ville. Tu sais faire parler les gens, et te taire au bon moment.", fx: { voie: "theatre", flag: "passe:theatre" } },
       ],
     },
   ],

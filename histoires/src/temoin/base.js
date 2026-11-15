@@ -122,6 +122,11 @@ module.exports = {
     forge: { name: "La forge de Vaugrenat", sells: [{ item: "baton", price: 4 }, { item: "hachette", price: 8 }, { item: "epee", price: 20 }, { item: "cuir", price: 20 }, { item: "peau", price: 8 }] },
     chamois: { name: "L'auberge du Chamois", sells: [{ item: "eau_de_vie", price: 3 }, { item: "onguent", price: 5 }] },
   },
+  // The hero's callings (8.5): the trade the past question names, played like one of the six classes.
+  voies: {
+    arpenteur: {"label": "Arpenteur", "labelF": "Arpenteuse", "tip": "Relever les terres des autres.", "like": "rodeur", "bonus": {"nature": 30, "savoir": 30, "discretion": 15, "social": 10, "combat": 10, "magie": 0}},
+  },
+  voie: "arpenteur",
   past: [
     { q: "Pourquoi arpentes-tu les terres des autres ?", answers: [
       { label: "Depuis l'enfance, tu aimes les cartes plus que les gens. Une carte ne ment pas : elle se trompe, c'est tout.", fx: { flag: "passe:cartes" } },

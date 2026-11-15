@@ -737,3 +737,16 @@ ul.vote-res { list-style: none; padding: 0; margin: 0 0 12px; display: grid; gap
 .account .truth.true { color: #2f7a4b; }
 .shaky { font-style: italic; margin-left: 6px; }
 .attach { letter-spacing: .1em; margin-left: 6px; color: #a0465a; }
+/* 8.5: the notebook's groups (Toi, L'enquête, Le monde, Le livre), above the tabs of the chosen group. */
+.tab-groups { display: flex; flex-shrink: 0; flex-wrap: wrap; gap: 6px; padding: 8px 10px 2px; }
+.tab-groups .chip { font: inherit; font-size: 13px; font-weight: 600; border: 1px solid var(--line); background: var(--paper); color: var(--ink); border-radius: 999px; padding: 3px 12px; cursor: pointer; }
+.tab-groups .chip.on { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.answer .voie-line { display: block; margin-top: 4px; color: var(--muted); font-size: 13px; }
+/* 8.5: the library's shelves and each book's « En savoir plus ». */
+.shelf-chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 4px 0 12px; }
+.shelf-chips .chip { font: inherit; font-size: 14px; font-weight: 600; border: 1px solid var(--line); background: var(--paper); color: var(--ink); border-radius: 999px; padding: 4px 13px; cursor: pointer; }
+.shelf-chips .chip.on { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.shelf-h { font: 600 22px/1.2 var(--title); margin: 18px 0 8px; }
+.shelf-h .small { font-family: var(--sans, inherit); font-weight: 400; }
+.about-book { margin-top: 6px; }
+.first-use b { color: var(--accent); }

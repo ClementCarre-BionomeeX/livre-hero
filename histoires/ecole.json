@@ -285,6 +285,49 @@
  ],
  "factions": {},
  "relics": {},
+ "voies": {
+  "berger": {
+   "label": "Berger",
+   "labelF": "Bergère",
+   "tip": "Le ciel, la marche et le silence.",
+   "like": "rodeur",
+   "bonus": {
+    "nature": 35,
+    "discretion": 20,
+    "magie": 10,
+    "social": 10,
+    "savoir": 10,
+    "combat": 5
+   }
+  },
+  "ecole": {
+   "label": "Aide de l'institutrice",
+   "tip": "Les livres, les lettres et les petits.",
+   "like": "mage",
+   "bonus": {
+    "savoir": 35,
+    "magie": 20,
+    "social": 15,
+    "discretion": 5,
+    "nature": 5,
+    "combat": 0
+   }
+  },
+  "forge": {
+   "label": "Apprenti forgeron",
+   "labelF": "Apprentie forgeronne",
+   "tip": "Le feu, le fer et l'outil.",
+   "like": "guerrier",
+   "bonus": {
+    "nature": 30,
+    "combat": 20,
+    "magie": 10,
+    "social": 10,
+    "savoir": 5,
+    "discretion": 5
+   }
+  }
+ },
  "past": [
   {
    "q": "Que faisais-tu à Brèches avant la lettre du collège ?",
@@ -292,18 +335,21 @@
     {
      "label": "Tu gardais les moutons de ton oncle sur le plateau. Tu sais lire le ciel, marcher longtemps et te taire quand il faut.",
      "fx": {
+      "voie": "berger",
       "flag": "passe:berger"
      }
     },
     {
      "label": "Tu aidais l'institutrice à tenir la classe des petits. Tu as lu tous ses livres, deux fois.",
      "fx": {
+      "voie": "ecole",
       "flag": "passe:ecole"
      }
     },
     {
      "label": "Tu travaillais à la forge de ton père. Tu as des mains qui savent tenir un outil, et des bras pour le lever.",
      "fx": {
+      "voie": "forge",
       "flag": "passe:forge"
      }
     }

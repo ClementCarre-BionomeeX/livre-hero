@@ -319,3 +319,24 @@ Onglet du carnet « Secrets » (seulement si l'histoire en déclare) : ce que tu
 Le validateur joue une histoire à plusieurs en solo avec un **partenaire fantôme** : à chaque rendez-vous (nouvel acte, passage `charniere`), il pose au hasard des marques `monde:` que le scénario sait poser ailleurs que dans un choix du monde, et dit certains secrets, comme l'autre joueur aurait pu le faire. `node tests/multi-test.js` joue l'histoire à deux pour de vrai.
 
 Pièges : une scène d'aveu ou un interlude qui porterait `act` changerait l'acte du joueur et déclencherait un rendez-vous ; le validateur le refuse. Ce qu'un joueur fait n'arrive chez l'autre qu'au rendez-vous suivant : écrire les réactions de l'autre après une `charniere` ou un début d'acte. Ce qui ne regarde qu'un héros (« j'ai pris l'argent ») gagne à porter aussi une marque sans `monde:`, que le partenaire fantôme ne touche pas.
+
+## La fiche suit l'histoire (15/11, 8.5) : voies, ce que l'histoire utilise, carnet rangé
+
+Le héros d'une histoire n'est pas toujours guerrier ou mage. Une histoire peut nommer ses propres **voies** : le métier ou l'origine que le joueur choisit dans « Ton passé ». Le moteur garde les six classes en dessous pour les règles (techniques de combat, sorts, points de vie).
+
+| Où | Clé | Sens |
+|---|---|---|
+| `story.voies` | `{ <id>: { label, labelF, tip, like, bonus, kit } }` | `label` (et `labelF` au féminin) : le nom montré partout (fiche, carnet, récit). `like` : la classe dont la voie suit les règles (`guerrier`, `rodeur`, `voleur`, `mage`, `pretre`, `barde`). `bonus` : les bonus de domaine de la voie (les domaines absents gardent ceux de la classe). `kit` : les objets de départ (sinon le kit de la classe ; `[]` pour aucun). |
+| réponse du passé | `fx: { voie: "<id>" }` | Le héros prend cette voie. Toutes les réponses d'une même question en donnent une, ou aucune. |
+| `story.voie` | `"<id>"` | Une seule voie possible (Le Témoin : arpenteur). Aucune question n'est nécessaire. |
+| condition | `{ voie: "<id>" }` | Le héros a cette voie. `{ arch: … }` lit toujours la classe en dessous. |
+
+Quand l'histoire déclare des voies, la création du héros ne montre plus « Ta voie : Guerrier, Rôdeur… » : chaque réponse de la question du passé affiche la voie et ses deux meilleurs domaines. Le validateur refuse une voie sans libellé, un `like` inconnu, un domaine inconnu, une question dont une partie des réponses seulement donnent une voie, et une histoire à voies où rien ne donne de voie.
+
+**Ce que l'histoire utilise** (`M.usesOf(story)`, lu une fois dans les tags) : combat (un passage `combat` ou un choix `fight`), points de vie (combat, effets `pv` ou `heal`), bourse (boutiques ou effets `gold`), vivres (effets `food`, routes, bivouac ; `world.noFood` les coupe), fatigue (routes, effets `fatigue`, blessures). La barre du haut, l'onglet Héros et la fiche à imprimer ne montrent que cela. Une valeur touchée malgré tout (des points de vie perdus) réapparaît d'elle-même.
+
+**Carnet** : un onglet n'apparaît que si l'histoire a de quoi le remplir (quêtes, indices, mystères pour Soupçons et Tableau, compagnons, gens, plus d'un lieu pour la carte, ennemis ou lieux pour le Bestiaire). Au-delà de neuf onglets, ils sont rangés en quatre parties (Toi, L'enquête, Le monde, Le livre ; `TAB_GROUPS` dans app.js) : un nouvel onglet doit y être ajouté, sinon il tombe dans « Toi ».
+
+**Première fois** : la première fois qu'un lecteur rencontre un combat, un duel, une bataille, un conseil, une énigme, un aparté, un souvenir, un interlude, « Montrer », l'accusation, « Te taire » ou l'établi, quelques lignes expliquent le geste (`FIRST_USE` dans app.js), une seule fois par lecteur (`profil.helpSeen`).
+
+**Bibliothèque** : rangée par la taille du livre (moins de 100 passages : histoires courtes ; moins de 1 000 : romans ; au-delà : grands romans ; à plusieurs à part), filtre « Pour tous » / « Thèmes adultes », et « En savoir plus » sur chaque livre (durée, actes, fins, ce qu'on y fait, d'après les tags, sans rien de l'intrigue). Le temps de lecture d'une partie vaut au moins la moitié des mots du livre : le plus court chemin sous-estimait les histoires à carrefours.

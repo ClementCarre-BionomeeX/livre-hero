@@ -45,13 +45,19 @@ module.exports = {
   companions: {},
   factions: {},
   relics: {},
+  // The hero's callings (8.5): the trade the past question names, played like one of the six classes.
+  voies: {
+    escorte: {"label": "Escorte de convoi", "tip": "Les routes, les bêtes et les marchands.", "like": "guerrier", "bonus": {"combat": 30, "nature": 20, "social": 10, "discretion": 10, "savoir": 5, "magie": 0}, "kit": ["epee"]},
+    commis: {"label": "Commis aux écritures", "tip": "Les livres de comptes et ce qu'ils cachent.", "like": "barde", "bonus": {"savoir": 35, "social": 25, "discretion": 10, "combat": 5, "nature": 5, "magie": 0}, "kit": ["dague"]},
+    soldat: {"label": "Soldat", "tip": "Tenir un mur, obéir et faire obéir.", "like": "guerrier", "bonus": {"combat": 35, "nature": 10, "social": 10, "discretion": 10, "savoir": 5, "magie": 0}, "kit": ["epee"]},
+  },
   past: [
     {
       q: "Qu'est-ce qui t'a amené{e} à Sarance, trois semaines avant le siège ?",
       answers: [
-        { label: "Tu escortais un convoi de vin pour un marchand du sud. Le marchand est reparti sans toi, et sans te payer la fin du voyage.", fx: { flag: "passe:escorte", gold: 60 } },
-        { label: "Tu tenais les livres d'une maison de commerce. Tu es venu{e} régler une affaire de grain, et l'affaire t'a retenu{e}.", fx: { flag: "passe:commis" } },
-        { label: "Tu as servi dans les compagnies du Roi. Tu rentrais chez toi par le chemin le plus long.", fx: { flag: "passe:soldat" } },
+        { label: "Tu escortais un convoi de vin pour un marchand du sud. Le marchand est reparti sans toi, et sans te payer la fin du voyage.", fx: { voie: "escorte", flag: "passe:escorte", gold: 60 } },
+        { label: "Tu tenais les livres d'une maison de commerce. Tu es venu{e} régler une affaire de grain, et l'affaire t'a retenu{e}.", fx: { voie: "commis", flag: "passe:commis" } },
+        { label: "Tu as servi dans les compagnies du Roi. Tu rentrais chez toi par le chemin le plus long.", fx: { voie: "soldat", flag: "passe:soldat" } },
       ],
     },
   ],

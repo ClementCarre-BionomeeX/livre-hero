@@ -146,7 +146,36 @@
       stocks: (function () { var o = {}; Object.keys(story.stocks || {}).forEach(function (k) { o[k] = story.stocks[k].start || 0; }); return o; })(), camp: null,
       // A closed room (8.3): the hero's dread starts where the story says.
       angoisse: story.dread ? (story.dread.start || 0) : 0,
+      // A story's own callings (8.5): a single declared voie is the hero's from the start.
+      voie: story.voie && (story.voies || {})[story.voie] ? story.voie : "", arch: story.voie && (story.voies || {})[story.voie] ? story.voies[story.voie].like : "",
     };
+  }
+  // Intent: usesOf(Story) -> { combat, pv, gold, food, fatigue } = what of the hero's sheet the story ever touches,
+  // read once from its tags. The page shows only that. Why: Clément, 15/11 — a funeral vigil showed hit points, a
+  // purse and provisions it never used.
+  function usesOf(story) {
+    if (story.__uses) return story.__uses;
+    var w = story.world || {}, rest = {};
+    Object.keys(story).forEach(function (k) { if (k !== "world" && k !== "glossary" && k !== "items" && k !== "__uses") rest[k] = story[k]; });
+    var j = JSON.stringify(rest) + JSON.stringify(w.routes || []) + JSON.stringify(w.events || {}) + JSON.stringify(w.regions || {});
+    var combat = /"combat":\{|"fight":/.test(j);
+    var u = {
+      combat: combat,
+      pv: combat || /"pv":(-?\d|"max")|"heal":/.test(j) || /"heal":/.test(JSON.stringify(story.items || {})),
+      gold: Object.keys(story.shops || {}).length > 0 || /"gold":/.test(j),
+      food: !w.noFood && (/"food":/.test(j) || (w.routes || []).length > 0 || /"@camp"/.test(j)),
+      fatigue: (w.routes || []).length > 0 || /"fatigue":/.test(j) || !!story.wounds,
+    };
+    try { Object.defineProperty(story, "__uses", { value: u, enumerable: false, configurable: true }); } catch (e) { /* frozen story: computed each time */ }
+    return u;
+  }
+  // Intent: archOf(Story, State) -> { label, tip, pv, bonus } = the hero's calling: the story's own voie (story.voies,
+  // 8.5) laid over the class it plays like, or the class alone. Why: Clément, 15/11 — a funeral vigil has no
+  // warriors; the story names the hero's trade, the engine keeps the six classes underneath for rules.
+  function archOf(story, s) {
+    var base = ARCHS[s.arch] || ARCHS.guerrier, v = s.voie && story && (story.voies || {})[s.voie];
+    if (!v) return base;
+    return { label: (s.fem && v.labelF) || v.label, tip: v.tip || base.tip, pv: base.pv, bonus: Object.assign({}, base.bonus, v.bonus || {}), like: s.arch, voie: s.voie };
   }
   function levelOfEp(ep) { return Math.min(MAX_LEVEL, Math.max(1, Math.floor(ep / EP_PER_LEVEL))); }
   function level(s) { return levelOfEp(s.ep); }
@@ -181,7 +210,7 @@
   // plus what carried items add (an item's `bonus` by domain).
   function bonus(story, s, dom, who) {
     var hs = who && isHero(story, who) ? heroSheet(s, who) : null;
-    var base = hs ? ((ARCHS[hs.arch] || ARCHS.guerrier).bonus[dom] || 0) : who ? (((story.companions || {})[who] || {}).bonus || {})[dom] || 0 : ((ARCHS[s.arch] || ARCHS.guerrier).bonus[dom] || 0);
+    var base = hs ? ((ARCHS[hs.arch] || ARCHS.guerrier).bonus[dom] || 0) : who ? (((story.companions || {})[who] || {}).bonus || {})[dom] || 0 : (archOf(story, s).bonus[dom] || 0);
     var b = base + (base >= 20 ? 3 : 1) * ((hs ? levelOfEp(hs.ep) : level(s)) - 1);
     if (!who) {
       var seenKinds = {};
@@ -299,6 +328,7 @@
     // ({ not: { seen: <itself> } }) would otherwise never show, since entering a passage marks it seen.
     if ("seen" in c) return c.seen === s.node ? s.seen[c.seen] > 1 : !!s.seen[c.seen];
     if ("arch" in c) return s.arch === c.arch;
+    if ("voie" in c) return s.voie === c.voie;
     if ("quest" in c) return !!s.flags["quete:" + c.quest];
     // is: { key: value | [values] | null } reads a state set by fx.set (null: no value yet).
     if ("is" in c) return Object.keys(c.is).every(function (k) { var v = stateOf(s, k); return c.is[k] === null ? v == null : [].concat(c.is[k]).indexOf(v) >= 0; });
@@ -567,6 +597,8 @@
     if (!fx) return;
     var k;
     [].concat(fx.flag || [], fx.flags || []).forEach(function (f) { s.flags[f] = true; });
+    // voie (8.5): the hero's calling, from a past answer; the class it plays like follows.
+    if (fx.voie && (story.voies || {})[fx.voie]) { s.voie = fx.voie; s.arch = story.voies[fx.voie].like; }
     // set: { key: value }, a state with one value at a time (written as the flag "key=value", read by has or is).
     if (fx.set) Object.keys(fx.set).forEach(function (k) {
       Object.keys(s.flags).forEach(function (f) { if (f.indexOf(k + "=") === 0) delete s.flags[f]; });
@@ -3019,14 +3051,15 @@
     if (s.tickDay == null) s.tickDay = day(s);
     if (story.heroes) { initHeroes(story, s); enter(story, s, story.start); return; }
     if (s.pv == null) s.pv = pvMax(s);
-    var kit = ((W(story).start || {}).kits || {})[s.arch] || [];
+    // A voie's own kit (8.5) wins over its class's: the copiste has a pen case, not a lute.
+    var kits = (W(story).start || {}).kits || {}, kit = (s.voie && ((story.voies || {})[s.voie] || {}).kit) || kits[s.arch] || [];
     kit.forEach(function (id) { s.items.push(id); if (item(story, id).ammo) s.arrows = (s.arrows || 0) + BOW_ARROWS; });
     enter(story, s, story.start);
   }
 
   var API = {
     FACE: FACE, FACE_KEYS: FACE_KEYS, faceErrors: faceErrors, REGARDS: REGARDS, mysterySolved: mysterySolved, happened: happened, TAVERN_GAMES_PER_DAY: TAVERN_GAMES_PER_DAY,
-    ARCHS: ARCHS, TECHS: TECHS, techsOf: techsOf, partyView: partyView, cpv: cpv, cpvMax: cpvMax, FRONT: FRONT, DOMAINS: DOMAINS, EP: EP, EP_PER_LEVEL: EP_PER_LEVEL, MAX_LEVEL: MAX_LEVEL, DIFFS: DIFFS, LOYAL_AT: LOYAL_AT, SUCCESS: SUCCESS, STEP_HOURS: STEP_HOURS,
+    ARCHS: ARCHS, archOf: archOf, usesOf: usesOf, TECHS: TECHS, techsOf: techsOf, partyView: partyView, cpv: cpv, cpvMax: cpvMax, FRONT: FRONT, DOMAINS: DOMAINS, EP: EP, EP_PER_LEVEL: EP_PER_LEVEL, MAX_LEVEL: MAX_LEVEL, DIFFS: DIFFS, LOYAL_AT: LOYAL_AT, SUCCESS: SUCCESS, STEP_HOURS: STEP_HOURS,
     setRng: setRng, setDice: setDice, nudgeOf: nudgeOf, ambianceOf: ambianceOf, AMBIANCES: AMBIANCES, isNightNow: function (s) { var h = s.time % 24; return h >= NIGHT_FROM || h < NIGHT_TO; }, DIFFICULTY: DIFFICULTY, featsOf: featsOf, endingsOf: endingsOf, endingOf: endingOf, freshState: freshState, level: level, pvMax: pvMax, bonus: bonus, chance: chance, rollTest: rollTest,
     evalCond: evalCond, describeCond: describeCond, textList: textList, view: view, allowed: allowed, target: target,
     apply: apply, enter: enter, choose: choose, start: start, present: present, loyal: loyal, clueCount: clueCount,

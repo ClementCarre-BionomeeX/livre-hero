@@ -288,11 +288,17 @@ module.exports = {
     vieil_homme: { name: "Homme aux abois", look: "humain", pv: 7, att: 10, def: -10, dmg: 3, desc: "Un homme de cinquante-cinq ans, un couteau à la main, qui n'a plus rien à perdre." },
   },
   shops: {},
+  // The hero's callings (8.5): the trade the past question names, played like one of the six classes.
+  voies: {
+    escorte: {"label": "Escorte de convoi", "tip": "Les routes, les contrats et les rixes.", "like": "guerrier", "bonus": {"combat": 30, "nature": 20, "social": 10, "discretion": 10, "savoir": 5, "magie": 0}, "kit": ["epee"]},
+    guet: {"label": "Ancien garde du guet", "labelF": "Ancienne garde du guet", "tip": "Les témoins, les alibis et les mensonges.", "like": "voleur", "bonus": {"discretion": 30, "social": 20, "combat": 20, "savoir": 15, "nature": 5, "magie": 0}, "kit": ["dague"]},
+    fleuve: {"label": "Batelier", "labelF": "Batelière", "tip": "Le fleuve, les barges et ceux qui y vivent.", "like": "rodeur", "bonus": {"nature": 35, "combat": 15, "social": 15, "discretion": 15, "savoir": 5, "magie": 0}, "kit": ["dague"]},
+  },
   past: [
     { q: "Qu'est-ce qui t'a amené{e} à Orbeval pour la Fête des Lanternes ?", answers: [
-      { label: "Tu escortais un convoi de draps depuis le sud. On t'a payé{e} hier soir, et tu cherches un autre contrat.", fx: { flag: "passe:escorte", gold: 40 } },
-      { label: "Tu as servi trois ans dans le guet d'une autre ville. Tu viens voir si celui d'Orbeval engage.", fx: { flag: "passe:guet", regard: { hallard: "cordial" } } },
-      { label: "Tu as grandi sur les barges de l'Aune. Tu reviens voir le fleuve, et ceux qui y travaillent encore.", fx: { flag: "passe:fleuve" } },
+      { label: "Tu escortais un convoi de draps depuis le sud. On t'a payé{e} hier soir, et tu cherches un autre contrat.", fx: { voie: "escorte", flag: "passe:escorte", gold: 40 } },
+      { label: "Tu as servi trois ans dans le guet d'une autre ville. Tu viens voir si celui d'Orbeval engage.", fx: { voie: "guet", flag: "passe:guet", regard: { hallard: "cordial" } } },
+      { label: "Tu as grandi sur les barges de l'Aune. Tu reviens voir le fleuve, et ceux qui y travaillent encore.", fx: { voie: "fleuve", flag: "passe:fleuve" } },
     ] },
     { q: "Pourquoi Gervaise Maupas vient-elle frapper à ta porte, à toi ?", answers: [
       { label: "Hier soir, à la Lanterne Sourde, tu as séparé deux hommes qui se battaient au couteau. Tout le quartier en parle.", fx: { flag: "passe:rixe" } },
