@@ -8,13 +8,19 @@
 
   var COND_KEYS = ["is", "count", "has", "not", "all", "any", "clues", "clue", "mark", "present", "loyal", "met", "gone", "conf", "fear", "relics", "relic",
     "given", "item", "gold", "food", "pv", "clock", "fac", "level", "day", "since", "night", "seen", "arch", "quest", "place", "known", "person", "party",
-    "lead", "away", "team", "souv", "souvenirs", "heroLevel", "second", "via", "regard", "fresh", "stock", "days", "promise", "vote", "lean", "battle", "camp", "missed"];
+    "lead", "away", "team", "souv", "souvenirs", "heroLevel", "second", "via", "regard", "fresh", "stock", "days", "promise", "vote", "lean", "battle", "camp", "missed",
+    "temps", "saison", "blessure", "cicatrice", "fatigue", "trait", "duel",
+    "recit", "doute", "dementi", "silences", "geste", "poids", "angoisse", "attache",
+    "secret", "confie", "garde"];
   // The siege's conditions (8.0) carry a second key (is, member, hero, losses): they are read by their first key.
-  var SIEGE_KEYS = ["stock", "days", "promise", "vote", "lean", "battle", "camp", "missed"];
+  var SIEGE_KEYS = ["stock", "days", "promise", "vote", "lean", "battle", "camp", "missed", "fatigue", "trait", "duel"];
   var FX_KEYS = ["regard", "resume", "set", "flag", "flags", "unflag", "clue", "mark", "ep", "catchup", "catchupWhy", "join", "met", "leave", "conf", "fear", "fac", "relic",
     "give", "relicLose", "item", "drop", "gold", "food", "pv", "rest", "time", "until", "stamp", "reveal", "meet", "clock", "quest", "questSeen", "note", "noteCls",
     "assign", "team", "regroup", "away", "lead", "leadQuiet", "souv", "souvBack", "catchupAll", "awayUnless",
-    "stock", "promise", "keep", "break", "forgive", "sway", "sound", "camp", "tie"];
+    "stock", "promise", "keep", "break", "forgive", "sway", "sound", "camp", "tie",
+    "meteo", "blessure", "soigner", "guerir", "fatigue", "trait", "pratique",
+    "recit", "geste", "angoisse", "attache",
+    "secret", "surprend", "confier"];
   var DOM_KEYS = Object.keys(M.DOMAINS);
 
   // Collects every tag a condition reads (for the echo check).
@@ -167,7 +173,22 @@
       if (k === "battle" && c.is != null && c.is !== "win" && c.is !== "lose") E(where + " : bataille, « " + c.is + " » (attendu : win ou lose).");
       if (k === "camp" && c.camp != null && c.camp !== "none" && !(story.camps || {})[c.camp]) E(where + " : camp « " + c.camp + " » inconnu.");
       if (k === "missed" && !qids[c.missed]) E(where + " : quête « " + c.missed + " » inconnue.");
+      // At sea (8.1).
+      if (k === "temps") checkSea("temps", c.temps, where);
+      if (k === "saison") checkSea("saison", c.saison, where);
+      if (k === "blessure" && typeof c.blessure !== "boolean") checkSea("blessure", c.blessure, where);
+      if (k === "cicatrice") checkSea("cicatrice", c.cicatrice, where);
+      // At school (8.2).
+      if (k === "trait" && !(story.traits || {})[c.trait]) E(where + " : trait « " + c.trait + " » inconnu.");
+      if (k === "duel" && !(story.duels || {})[c.duel]) E(where + " : duel « " + c.duel + " » inconnu.");
+      if (k === "duel" && c.is != null && c.is !== "win" && c.is !== "lose") E(where + " : duel, « " + c.is + " » (attendu : win ou lose).");
       if (k === "souvenirs" && c.souvenirs !== "lead" && !(story.heroes || {})[c.souvenirs]) E(where + " : héros « " + c.souvenirs + " » inconnu.");
+      // A closed room (8.3).
+      if ((k === "recit" || k === "doute" || k === "dementi") && !(story.accounts || {})[c[k]]) E(where + " : version « " + c[k] + " » inconnue (accounts).");
+      if (k === "silences" && c.silences !== "*" && c.silences !== true && !people[c.silences] && !story.companions[c.silences]) E(where + " : silences, personnage « " + c.silences + " » inconnu (ou \"*\" pour tous).");
+      if (k === "geste" && !(story.gestes || {})[c.geste]) E(where + " : geste « " + c.geste + " » inconnu (gestes).");
+      if (k === "angoisse" && !story.dread) E(where + " : condition angoisse sans story.dread.");
+      if (k === "attache" && !(story.attachments || {})[c.attache]) E(where + " : attachement « " + c.attache + " » inconnu (attachments).");
     }
     // A souvenir "id" belongs to whoever leads: it must exist for at least one hero; "hero:id" for that hero.
     function checkSouv(ref, where) {
@@ -212,6 +233,21 @@
       }); });
       if (fx.camp != null && !(story.camps || {})[fx.camp]) E(where + " : camp « " + fx.camp + " » inconnu.");
       [].concat(fx.tie || []).forEach(function (x) { if (!(story.ties || []).some(function (t) { return t.id === x; })) E(where + " : lien « " + x + " » inconnu."); });
+      // At sea (8.1).
+      if (fx.meteo != null) checkSea("temps", typeof fx.meteo === "object" ? fx.meteo.is : fx.meteo, where + " (meteo)");
+      [].concat(fx.blessure || [], fx.soigner || [], fx.guerir || []).forEach(function (x) { checkSea("blessure", x, where); });
+      if (fx.fatigue != null && typeof fx.fatigue !== "number") E(where + " : fatigue, un nombre (positif ou négatif).");
+      // A closed room (8.3).
+      [].concat(fx.recit || []).forEach(function (x) { if (!(story.accounts || {})[x]) E(where + " : version « " + x + " » inconnue (accounts)."); });
+      [].concat(fx.secret || [], fx.surprend || [], fx.confier || []).forEach(function (x) { if (!(story.secrets || {})[x]) E(where + " : secret « " + x + " » inconnu (secrets)."); });
+      [].concat(fx.geste || []).forEach(function (x) { if (!(story.gestes || {})[x]) E(where + " : geste « " + x + " » inconnu (gestes)."); });
+      if (fx.angoisse != null && (typeof fx.angoisse !== "number" || !story.dread)) E(where + " : angoisse, un nombre, et story.dread déclaré.");
+      Object.keys(fx.attache || {}).forEach(function (x) { if (!(story.attachments || {})[x]) E(where + " : attachement « " + x + " » inconnu."); else if (typeof fx.attache[x] !== "number") E(where + " : attache, un nombre."); });
+    }
+    // Intent: checkSea(Kind, Ids, Where) ! errors = a sky, a season or a wound the story does not declare (8.1)
+    function checkSea(kind, ids, where) {
+      var known = kind === "temps" ? ((story.weather || {}).kinds || {}) : kind === "saison" ? (story.seasons || []).reduce(function (o, x) { o[x.id] = 1; return o; }, {}) : (story.wounds || {});
+      [].concat(ids).forEach(function (x) { if (!known[x]) E(where + " : " + kind + " « " + x + " » inconnu" + (kind === "saison" ? "e" : "") + " de l'histoire."); });
     }
     // « Enquête en ville » (7.9): schedules, witnesses, rumours, contradictions, fading clues, accusation, deadline.
     var PERIODS = Object.keys(M.PERIODS);
@@ -301,6 +337,75 @@
       if (P[id].combat) ["win", "lose", "flee", "calm"].forEach(function (o) { var b = P[id].combat[o]; if (b && b.via) viaTags[b.via] = 1; });
     });
     M.endingsOf(story).forEach(function (e) { endIds[e.id] = 1; });
+    // At sea (8.1): the sky, the seasons, the wounds, the encounters, the things put together, the vigils, the charts.
+    if (story.weather) {
+      var WK = story.weather.kinds || {};
+      if (!Object.keys(WK).length) E("Météo : aucun temps déclaré (kinds).");
+      if (story.weather.start && !WK[story.weather.start]) E("Météo : temps de départ « " + story.weather.start + " » inconnu.");
+      Object.keys(WK).forEach(function (k) { Object.keys(WK[k].mod || {}).forEach(function (d) { if (DOM_KEYS.indexOf(d) < 0) E("Météo « " + k + " » : domaine « " + d + " » inconnu."); }); if (!WK[k].name) E("Météo « " + k + " » : sans nom."); });
+      Object.keys(story.weather.regions || {}).forEach(function (r) { Object.keys(story.weather.regions[r]).forEach(function (k) { if (!WK[k]) E("Météo, région « " + r + " » : temps « " + k + " » inconnu."); }); });
+      Object.keys(story.weather.seasons || {}).forEach(function (r) { if (!(story.seasons || []).some(function (x) { return x.id === r; })) E("Météo : saison « " + r + " » inconnue."); Object.keys(story.weather.seasons[r]).forEach(function (k) { if (!WK[k]) E("Météo, saison « " + r + " » : temps « " + k + " » inconnu."); }); });
+    }
+    (story.seasons || []).forEach(function (x, i) { if (!x.id || !x.name) E("Saison " + (i + 1) + " : il faut un id et un nom."); moment(x.from, "Saison « " + x.id + " »"); });
+    Object.keys(story.wounds || {}).forEach(function (k) {
+      var D = story.wounds[k], w = "Blessure « " + k + " »";
+      if (!D.name) E(w + " : sans nom.");
+      Object.keys(D.mod || {}).forEach(function (d) { if (DOM_KEYS.indexOf(d) < 0) E(w + " : domaine « " + d + " » inconnu."); });
+      if (D.mark && !(M.FACE.marks || {})[D.mark]) E(w + " : marque « " + D.mark + " » inconnue (" + Object.keys(M.FACE.marks || {}).join(", ") + ").");
+      if (D.mark && !D.scar) E(w + " : une marque sur le visage demande une cicatrice (scar).");
+    });
+    if (story.encounters) (story.encounters.list || []).forEach(function (e, i) {
+      var w = "Rencontre " + (i + 1) + " (" + e.to + ")";
+      if (!P[e.to]) E(w + " : passage inconnu."); else if (!P[e.to].back && !(P[e.to].choices || []).length && !P[e.to].combat) E(w + " : la scène ne ramène nulle part (back: true).");
+      if (e.saison != null) checkSea("saison", e.saison, w); if (e.temps != null) checkSea("temps", e.temps, w); checkCond(e.if, w);
+    });
+    Object.keys(story.recipes || {}).forEach(function (k) {
+      var R = story.recipes[k], w = "Assemblage « " + k + " »";
+      if (!items[R.make]) E(w + " : objet fabriqué « " + R.make + " » inconnu.");
+      if (!(R.of || []).length) E(w + " : aucune pièce (of).");
+      (R.of || []).concat(R.keep || []).forEach(function (x) { if (!items[x]) E(w + " : pièce « " + x + " » inconnue."); });
+      [].concat(R.with || []).forEach(function (x) { if (!story.companions[x]) E(w + " : compagnon « " + x + " » inconnu."); });
+      checkCond(R.if, w); checkFx(R.fx, w);
+      if (!Object.keys(P).some(function (id) { return P[id].atelier || (R.anywhere && P[id].hub); })) E(w + " : aucun passage atelier où l'assembler.");
+    });
+    (story.vigils || []).forEach(function (v, i) {
+      var w = "Veillée " + (i + 1) + " (" + v.to + ")";
+      if (!P[v.to]) E(w + " : passage inconnu.");
+      [].concat(v.with || []).forEach(function (x) { if (!story.companions[x]) E(w + " : compagnon « " + x + " » inconnu."); });
+      checkCond(v.if, w);
+      if (!Object.keys(P).some(function (id) { return P[id].veillee; })) E(w + " : aucun passage marqué veillee.");
+    });
+    // At school (8.2): practice, traits, duels, puzzles, dreams.
+    if (story.practice) (story.practice.doms || []).forEach(function (d) { if (DOM_KEYS.indexOf(d) < 0) E("Pratique : domaine « " + d + " » inconnu."); });
+    Object.keys(story.traits || {}).forEach(function (k) { var T = story.traits[k]; if (!T.name || !T.low || !T.high) E("Trait « " + k + " » : il faut name, low et high."); });
+    Object.keys(story.duels || {}).forEach(function (k) {
+      var D = story.duels[k], w = "Duel « " + k + " »";
+      if (!people[D.foe] && !D.foeName) E(w + " : adversaire « " + D.foe + " » inconnu (people) et sans foeName.");
+      if (D.dom && DOM_KEYS.indexOf(D.dom) < 0) E(w + " : domaine « " + D.dom + " » inconnu.");
+      ["win", "lose"].forEach(function (o) { var b = D[o]; if (!b || !P[b.to]) E(w + " : issue « " + o + " » sans passage connu."); else checkFx(b.fx, w); });
+      Object.keys(D.style || {}).concat(Object.keys(D.tells || {}), Object.keys(D.labels || {})).forEach(function (m) { if (!M.DUEL_MOVES[m]) E(w + " : geste « " + m + " » inconnu (" + Object.keys(M.DUEL_MOVES).join(", ") + ")."); });
+      if (!Object.keys(P).some(function (id) { return P[id].duel === k; })) E(w + " : aucun passage ne l'ouvre (duel: \"" + k + "\").");
+    });
+    Object.keys(story.puzzles || {}).forEach(function (k) {
+      var Z = story.puzzles[k], w = "Énigme « " + k + " »";
+      if (["molettes", "chiffre", "ordre"].indexOf(Z.kind) < 0) E(w + " : sorte « " + Z.kind + " » inconnue (molettes, chiffre, ordre).");
+      if (!Z.title || !Z.text) E(w + " : il faut title et text.");
+      if (Z.kind === "molettes") { if (!Array.isArray(Z.wheels) || !Array.isArray(Z.answer) || Z.wheels.length !== Z.answer.length) E(w + " : autant de molettes que de symboles dans answer."); else Z.answer.forEach(function (a, i) { if (Z.wheels[i].indexOf(a) < 0) E(w + " : le symbole « " + a + " » manque sur la molette " + (i + 1) + "."); }); }
+      if (Z.kind === "ordre") { var n = (Z.pieces || []).length, ok = Array.isArray(Z.answer) && Z.answer.length === n && Z.answer.slice().sort().every(function (x, i) { return x === i; }); if (!ok) E(w + " : answer doit ranger chaque morceau une fois (indices de 0 à " + (n - 1) + ")."); }
+      if (Z.kind === "chiffre" && !Z.answer) E(w + " : il faut la réponse (answer).");
+      if (!Z.win || !P[Z.win.to]) E(w + " : issue win sans passage connu."); else checkFx(Z.win.fx, w);
+      if (Z.lose && Z.lose.to && !P[Z.lose.to]) E(w + " : issue lose vers un passage inconnu.");
+      if (Z.force && DOM_KEYS.indexOf(Z.force.dom) < 0) E(w + " : force, domaine « " + Z.force.dom + " » inconnu.");
+      (Z.hint || []).forEach(function (h) { checkCond(h.if, w); });
+      if (!Object.keys(P).some(function (id) { return P[id].puzzle === k; })) E(w + " : aucun passage ne l'ouvre (puzzle: \"" + k + "\").");
+    });
+    (story.dreams || []).forEach(function (d, i) {
+      var w = "Rêve " + (i + 1) + " (" + d.to + ")";
+      if (!P[d.to]) E(w + " : passage inconnu."); else if (!P[d.to].back && !(P[d.to].choices || []).length) E(w + " : le rêve ne ramène nulle part (back: true).");
+      checkCond(d.if, w);
+      if (!Object.keys(P).some(function (id) { return P[id].reveil; })) E(w + " : aucun passage marqué reveil.");
+    });
+    Object.keys(items).forEach(function (k) { [].concat(items[k].reveals || []).forEach(function (x) { if (!places[x]) E("Objet « " + k + " » : reveals, lieu « " + x + " » inconnu."); }); });
     // A siege (8.0): stocks, the world that moves on, promises, councils and motions, camps, ties, battles, markets.
     var S0 = story.stocks || {}, LEANS = ["pour", "contre", "abstention", "indecis"];
     Object.keys(S0).forEach(function (k) {
@@ -382,6 +487,61 @@
       (sh.sells || []).forEach(function (x) { checkCond(x.if, w); });
     });
     (story.epilogue || []).forEach(function (e, i) { if (!e.text) E("Épilogue " + (i + 1) + " : sans texte."); checkCond(e.if, "Épilogue " + (i + 1)); });
+    // A closed room (8.3): accounts and their topics, what the hero does and what it weighs, dread, attachments.
+    Object.keys(story.topics || {}).forEach(function (k) { var T = story.topics[k]; if (!T.title) E("Sujet « " + k + " » : sans titre."); if (T.solved != null && typeof T.solved !== "string") E("Sujet « " + k + " » : solved est un drapeau ou un passage."); });
+    Object.keys(story.accounts || {}).forEach(function (k) {
+      var A = story.accounts[k], w = "Version « " + k + " »";
+      if (A.by !== "hero" && !people[A.by] && !story.companions[A.by]) E(w + " : « by » est un personnage (people, companions) ou \"hero\".");
+      if (!(story.topics || {})[A.topic]) E(w + " : sujet « " + A.topic + " » inconnu (topics).");
+      if (!A.text) E(w + " : sans texte.");
+      if (A.true !== true && A.true !== false && A.true !== "partiel") E(w + " : dire si elle est vraie (true: true, false ou \"partiel\"), pour le lecteur qui relira.");
+      if (A.belie != null && !P[A.belie]) E(w + " : belie, passage « " + A.belie + " » inconnu.");
+      if (A.belie != null && A.by !== "hero" && !Object.keys(P).some(function (id) { return [].concat(P[id].devant || []).indexOf(A.by) >= 0; })) E(w + " : belie, mais aucun passage devant: \"" + A.by + "\" où la mettre en doute.");
+      if (A.belie != null && A.by === "hero" && !Object.keys(P).some(function (id) { return P[id].seul; })) E(w + " : belie, mais aucun passage seul: true où revenir sur sa version.");
+    });
+    // Two players (8.4): secrets and their confessions, interludes from another point of view.
+    Object.keys(story.secrets || {}).forEach(function (k) {
+      var S = story.secrets[k], w = "Secret « " + k + " »";
+      if (!S.title || !S.text) E(w + " : il faut un titre et un texte.");
+      if (S.aveu != null) {
+        if (!P[S.aveu]) E(w + " : aveu, passage « " + S.aveu + " » inconnu.");
+        else if (!P[S.aveu].back && !(P[S.aveu].choices || []).length) E(w + " : la scène d'aveu doit finir (back: true ou des choix).");
+        if (!Object.keys(P).some(function (id) { return P[id].aparte; })) E(w + " : aveu, mais aucun passage aparte: true où le dire.");
+      }
+      checkCond(S.if, w);
+    });
+    (story.interludes || []).forEach(function (x, i) {
+      var w = "Interlude " + (i + 1);
+      if (!P[x.to]) { E(w + " : passage « " + x.to + " » inconnu."); return; }
+      if (!acts[x.act]) E(w + " : acte « " + x.act + " » inconnu.");
+      else if (story.acts[0] && story.acts[0].id === x.act) E(w + " : le premier acte n'a pas d'entrée d'acte où le jouer.");
+      if (!P[x.to].interlude) E(w + " : le passage « " + x.to + " » doit porter interlude: { who, where }.");
+      checkCond(x.if, w);
+    });
+    Object.keys(P).forEach(function (id) {
+      var p = P[id]; if (!p.interlude) return;
+      var w = "§ " + id;
+      if (p.hub || p.routes || p.place || p.act || p.end) E(w + " : un interlude n'est ni un carrefour, ni un lieu, ni une fin, et n'a pas d'acte (pas de hub, routes, place, act, end).");
+      if (!p.back && !(p.choices || []).length) E(w + " : un interlude finit par back: true (« Revenir à … »).");
+      var who = typeof p.interlude === "string" ? p.interlude : p.interlude.who;
+      if (!who) E(w + " : interlude sans « who » (le point de vue).");
+    });
+    Object.keys(story.gestes || {}).forEach(function (k) { var G = story.gestes[k]; if (!G.name) E("Geste « " + k + " » : sans nom."); (G.echoes || []).forEach(function (e) { if (typeof e !== "string") { if (!e.text) E("Geste « " + k + " » : écho sans texte."); checkCond(e.if, "Geste « " + k + " »"); } }); });
+    if (story.dread) {
+      var DR = story.dread;
+      if (DR.max != null && !(DR.max >= 2)) E("Angoisse : max, un nombre d'au moins 2.");
+      if (DR.panic && !P[DR.panic.to]) E("Angoisse : panic.to, passage « " + DR.panic.to + " » inconnu.");
+      (DR.panic && DR.panic.acts || []).forEach(function (a) { if (!acts[a]) E("Angoisse : panic.acts, acte « " + a + " » inconnu."); });
+    }
+    Object.keys(P).forEach(function (id) {
+      var p = P[id], where = "§ " + id;
+      [].concat(p.devant || []).forEach(function (x) { if (!people[x] && !story.companions[x]) E(where + " : devant, personnage « " + x + " » inconnu."); });
+      if (p.silence) { if (!p.silence.to && !p.silence.back) E(where + " : silence sans « to » (où mène le silence)."); [].concat(p.silence.who === true || p.silence.who == null ? [] : p.silence.who).forEach(function (x) { if (!people[x] && !story.companions[x]) E(where + " : silence, personnage « " + x + " » inconnu."); }); }
+      if (p.souvenir != null && (p.hub || p.routes || p.place)) E(where + " : un souvenir n'est ni un carrefour ni un lieu (pas de hub, routes, place).");
+      [p].concat((p.text || []).filter(function (t) { return t && typeof t === "object"; }), p.choices || []).forEach(function (t) {
+        if ((t.trouble != null || t.calme != null) && !story.dread) E(where + " : tag trouble ou calme sans story.dread.");
+      });
+    });
     Object.keys(P).forEach(function (id) {
       var p = P[id], where = "§ " + id;
       if (p.council) {
@@ -390,6 +550,8 @@
         (Array.isArray(p.council.to) ? p.council.to : [{ to: p.council.to }]).forEach(function (x) { checkCond(x.if, where); if (!P[x.to]) E(where + " : après le vote, « " + x.to + " » n'existe pas."); });
       }
       if (p.battle && !(story.battles || {})[p.battle]) E(where + " : bataille « " + p.battle + " » inconnue.");
+      if (p.duel && !(story.duels || {})[p.duel]) E(where + " : duel « " + p.duel + " » inconnu.");
+      if (p.puzzle && !(story.puzzles || {})[p.puzzle]) E(where + " : énigme « " + p.puzzle + " » inconnue.");
       if (p.epilogue && !p.end) E(where + " : epilogue sur un passage qui n'est pas une fin.");
       [p].concat((p.text || []).filter(function (t) { return t && typeof t === "object"; }), p.choices || []).forEach(function (t) { [].concat(t.camp || []).forEach(function (x) { if (!(story.camps || {})[x]) E(where + " : tag camp, « " + x + " » inconnu."); }); });
       [].concat(p.creditor || []).forEach(function (x) { if (!people[x]) E(where + " : creditor, « " + x + " » inconnu."); });
@@ -401,7 +563,7 @@
       if (p.end) { ends++; return; }
       if (p.combat) { checkFight(p.combat, where); eachFx(p, function (fx) { checkFx(fx, where); }); return; }
       // back: true on the passage: the engine adds the way back to the crossroads the reader came from (7.9).
-      if ((!Array.isArray(p.choices) || !p.choices.length) && !p.routes && !p.shop && !p.back && !p.council && !p.battle) { E(where + " : aucun choix (seules les fins n'en ont pas)."); return; }
+      if ((!Array.isArray(p.choices) || !p.choices.length) && !p.routes && !p.shop && !p.back && !p.council && !p.battle && !p.duel && !p.puzzle) { E(where + " : aucun choix (seules les fins n'en ont pas)."); return; }
       if (p.place && !places[p.place]) E(where + " : lieu « " + p.place + " » inconnu.");
       if (p.shop && !(story.shops || {})[p.shop]) E(where + " : boutique « " + p.shop + " » inconnue.");
       if (p.urgent != null && !(typeof p.urgent === "number" && p.urgent >= 5 && p.urgent <= 120)) E(where + " : tag urgent, un nombre de secondes entre 5 et 120.");
@@ -434,6 +596,10 @@
         [].concat(t.via || []).forEach(function (k) { if (!viaTags[k] && !P[k]) E(where + " : tag via, « " + k + " » n'est le via d'aucun choix ni le nom d'un passage."); });
         if (t.second != null && t.second !== true && t.second !== false) [].concat(t.second).forEach(function (k) { if (!endIds[k] && !endIds["fin:" + k]) E(where + " : tag second, « " + k + " » n'est pas une fin de l'histoire."); });
         [].concat(t.outcome || []).forEach(function (o) { if (["win", "lose", "flee", "calm"].indexOf(o) < 0) E(where + " : tag outcome, « " + o + " » inconnu."); });
+        if (t.temps != null) checkSea("temps", t.temps, where + ", tag temps");
+        if (t.saison != null) checkSea("saison", t.saison, where + ", tag saison");
+        if (t.blessure != null && typeof t.blessure !== "boolean") checkSea("blessure", t.blessure, where + ", tag blessure");
+        if (t.cicatrice != null) checkSea("cicatrice", t.cicatrice, where + ", tag cicatrice");
       });
       eachCond(p, function (c) { checkCond(c, where); });
       eachFx(p, function (fx) { checkFx(fx, where); });
@@ -488,6 +654,8 @@
     walk(story, "", "");
     // Shops sell items (sells: [{ item }]) and kits are { arch: [items] }: both are ways to get a thing.
     Object.keys(story.shops || {}).forEach(function (k) { (story.shops[k].sells || []).forEach(function (x) { gotItems[x.item] = 1; }); });
+    // Things put together at the workbench (8.1) are given by their recipe.
+    Object.keys(story.recipes || {}).forEach(function (k) { [].concat(story.recipes[k].make || []).forEach(function (x) { gotItems[x] = 1; }); });
     var kits = ((story.world || {}).start || {}).kits || {}; Object.keys(kits).forEach(function (a) { [].concat(kits[a]).forEach(function (x) { gotItems[x] = 1; }); });
     Object.keys(story.heroes || {}).forEach(function (h) { [].concat(story.heroes[h].items || []).forEach(function (x) { gotItems[x] = 1; }); });
     var ENGINE_READS = /^(fin:|quete|calme:)/;
@@ -565,6 +733,10 @@
         if (rnd() < chance && !(x.clue && s.clues[x.clue])) { try { M.contradict(story, s, x.a, x.b); } catch (e) { errs["contradiction " + x.a + " / " + x.b + " : " + e.message] = 1; } }
       });
     }
+    // 8.3: a reader may doubt what they were told (the notebook's « J'en doute »). The games do it too, often.
+    function tryDoubt(s, chance, rnd) {
+      Object.keys(s.accounts || {}).forEach(function (k) { if (!(s.doubts || {})[k] && rnd() < chance) M.doubt(story, s, k, true); });
+    }
     // At the accusation, the walk tries every who / why / proof and keeps the one that brings the target nearest.
     function accuseSearch(s, d) {
       var best = null, bestD = Infinity, v0 = M.view(story, s);
@@ -599,9 +771,23 @@
       if (p.battle && (story.battles || {})[p.battle]) { add(story.battles[p.battle].win.to); add(story.battles[p.battle].lose.to); }
       (story.march || []).forEach(function (e) { if (e.to && (!e.acts || e.acts.indexOf(p.act) >= 0)) add(e.to); });
       Object.keys(story.promises || {}).forEach(function (k) { if (story.promises[k].collect) add(story.promises[k].collect); });
+      // 8.1: the encounters at sea come on any crossroads; the vigils, on a passage marked veillee.
+      if (p.hub && story.encounters) (story.encounters.list || []).forEach(function (e) { add(e.to); });
+      if (p.veillee) (story.vigils || []).forEach(function (v) { add(v.to); });
+      // 8.2: after a duel or a puzzle, and the dreams on waking.
+      if (p.duel && (story.duels || {})[p.duel]) { add(story.duels[p.duel].win.to); add(story.duels[p.duel].lose.to); }
+      if (p.puzzle && (story.puzzles || {})[p.puzzle]) { var ZZ = story.puzzles[p.puzzle]; add(ZZ.win.to); if (ZZ.lose && ZZ.lose.to) add(ZZ.lose.to); }
+      if (p.reveil) (story.dreams || []).forEach(function (d) { add(d.to); });
+      // 8.3: an account put in doubt before the one who gave it (or alone, for one's own), and panic from any page.
+      Object.keys(story.accounts || {}).forEach(function (k) { var A = story.accounts[k]; if (A.belie && (A.by === "hero" ? p.seul : [].concat(p.devant || []).indexOf(A.by) >= 0)) add(A.belie); });
+      // 8.4: confessions told on an aparte; the interludes played before an act's first page.
+      if (p.aparte) Object.keys(story.secrets || {}).forEach(function (k) { if (story.secrets[k].aveu) add(story.secrets[k].aveu); });
+      (story.interludes || []).forEach(function (x) { var A = acts0[x.act]; if (A && A.start === id) add(x.to); });
+      if (p.interlude) story.acts.forEach(function (a) { if ((story.interludes || []).some(function (x) { return x.to === id && x.act === a.id; })) add(a.start); });
+      if (story.dread && story.dread.panic && !p.end && !p.souvenir && (!story.dread.panic.acts || story.dread.panic.acts.indexOf(p.act) >= 0)) add(story.dread.panic.to);
       return out;
     }
-    var arrivals = [];
+    var arrivals = [], acts0 = {}; story.acts.forEach(function (a) { acts0[a.id] = a; });
     Object.keys(((story.world || {}).places) || {}).forEach(function (k) { var pl = story.world.places[k]; if (P[pl.arrive]) arrivals.push(pl.arrive); (pl.arriveIf || []).forEach(function (a) { if (P[a.passage]) arrivals.push(a.passage); }); });
     // Intent: reachMissing() ! random — for each passage no random game reached, walk from the kept states of the
     // passages nearest to it in the graph, always taking the choice (and the test outcome) that brings it closer.
@@ -626,6 +812,11 @@
         if (c.sys === "montrer") { var cf = (story.people[c.who] || {}).confront || {}; cand(Object.keys(cf).map(function (k) { return cf[k]; }), null); return { d: best, fixed: null }; }
         if (c.sys === "accuse" && P[cur] && P[cur].accuse) { cand(P[cur].accuse.to, null); return { d: best, fixed: null }; }
         if (c.sys === "council" && P[cur] && P[cur].council) { cand(P[cur].council.to, null); return { d: best, fixed: null }; }
+        if (c.sys === "vigil") { cand(c.to, null); return { d: best, fixed: null }; }
+        if (c.sys === "belie") { cand(((story.accounts || {})[c.account] || {}).belie, null); return { d: best, fixed: null }; }
+        if (c.sys === "duel" && P[cur] && P[cur].duel) { var DD = story.duels[P[cur].duel]; cand(DD.win.to, null); cand(DD.lose.to, null); return { d: best, fixed: null }; }
+        if (c.sys === "puzzle" && P[cur] && P[cur].puzzle) { var PZ0 = story.puzzles[P[cur].puzzle]; cand(PZ0.win.to, null); if (PZ0.lose && PZ0.lose.to) cand(PZ0.lose.to, null); return { d: best, fixed: null }; }
+        if (c.sys === "puzzleTry" && P[cur] && P[cur].puzzle) { var PZ = story.puzzles[P[cur].puzzle]; cand(PZ.win.to || cur, 0.94); if (PZ.lose && PZ.lose.to) cand(PZ.lose.to, 0.02); return { d: best, fixed: out }; }
         if (c.sys === "battle" && P[cur] && P[cur].battle) { var BB = story.battles[P[cur].battle]; cand(BB.win.to, null); cand(BB.lose.to, null); return { d: best, fixed: null }; }
         if (c.sys) return { d: Infinity, fixed: null };
         var raw = c;
@@ -665,7 +856,7 @@
               Object.keys(s.seen).forEach(mark);
               if (seen[target] || v.kind === "end") { if (v.kind === "end" && P[s.node]) endings[s.node] = (endings[s.node] || 0) + 1; break; }
               if (s.node === "@accuse" && s.acc && s.acc.step === "qui" && rnd() > wander) { var sa = accuseSearch(s, d); if (sa) { s = sa; continue; } }
-              tryContra(s, 1, rnd);
+              tryContra(s, 1, rnd); tryDoubt(s, 1, rnd);
               var cs = v.choices.filter(function (c) { if (c.ok && !c.sys) allowedCount[s.node + " | " + c.label] = 1; return c.ok && !c.restart; });
               if (!cs.length) break;
               var scored = cs.map(function (c) { return { c: c, sc: score(c, d, s.node) }; });
@@ -675,7 +866,7 @@
               if (s._extra && MONEY.test(JSON.stringify(pick.c.if || null))) paid = s._paid = true;
               fixed = pick.sc.fixed; calls = 0;
               if (!pick.c.sys) taken[s.node + " | " + pick.c.label] = 1;
-              try { M.choose(story, s, pick.c); } catch (e) { break; }
+              try { M.choose(story, s, answered(pick.c, s, rnd, fixed == null ? 0.7 : fixed > 0.5 ? 1 : 0)); } catch (e) { break; }
               // Spending into the added money: what follows was paid with savings the games did not have.
               if (s._extra && ((s.gold || 0) < extra.gold || (s.food || 0) < extra.food)) paid = s._paid = true;
             }
@@ -683,6 +874,31 @@
         });
         return false;
       });
+    }
+    // The games read like a reader: on a puzzle, they type the right answer most of the time, a wrong one otherwise.
+    // pr: the chance of typing the right answer (a lost game errs more; a targeted search answers as its target needs).
+    function answered(c, s, rnd, pr) {
+      if (c.sys !== "puzzleTry" || !s.puzzle) return c;
+      var Z = (story.puzzles || {})[s.puzzle.id] || {}, right = [].concat(Z.answer)[0];
+      if (Z.kind === "molettes" || Z.kind === "ordre") right = Z.answer;
+      var wrong = Z.kind === "molettes" ? (Z.wheels || []).map(function (w) { return w[0]; }) : Z.kind === "ordre" ? (Z.pieces || []).map(function (x, i) { return i; }) : "?";
+      return Object.assign({}, c, { answer: rnd() < (pr == null ? 0.7 : pr) ? right : wrong });
+    }
+    // 8.4: a story for several players is played alone here; a ghost partner stands for the others. At each rendezvous
+    // (a new act, a passage charniere), it sets at random some of the world marks the story can set (monde:…) and tells
+    // some of the secrets that have a confession, as the other player might have done meanwhile.
+    var GHOST = [];
+    if (story.multi) {
+      // A world choice (monde: key) is taken by every player alike: its marks are the player's own, never the ghost's.
+      (function scan(o, key) { if (o == null) return; if (typeof o === "string") { if ((key === "flag" || key === "flags") && o.indexOf("monde:") === 0 && GHOST.indexOf(o) < 0) GHOST.push(o); return; } if (Array.isArray(o)) { o.forEach(function (x) { scan(x, key); }); return; } if (typeof o === "object" && !o.monde) Object.keys(o).forEach(function (k) { scan(o[k], k); }); })(story.passages, "");
+      Object.keys(story.secrets || {}).forEach(function (k) { if (story.secrets[k].aveu) GHOST.push("monde:confie:" + k); });
+    }
+    function ghost(s, rnd, at) {
+      if (!GHOST.length || !P[s.node]) return;
+      var p = P[s.node], key = p.charniere ? "c:" + s.node : "a:" + s.lastAct;
+      s._ghost = s._ghost || {}; if (s._ghost[key] || (!p.charniere && at === s.lastAct)) return;
+      s._ghost[key] = 1;
+      GHOST.forEach(function (f) { if (f.indexOf("monde:confie:") === 0 && (s.secrets || {})[f.slice(13)]) return; if (!s.flags[f] && rnd() < 0.3) s.flags[f] = true; });
     }
     function play(mode, seed, toutJouer, second) {
       var rnd = seededRng(seed), s = null, fixed = mode === "win" ? 0.94 : mode === "lose" ? 0.02 : null;
@@ -692,16 +908,20 @@
       s.arch = archs[Math.floor(rnd() * archs.length)]; s.name = "Test";
       // Two games in five are a second reading: the reader has reached every ending before (tag second).
       if (second) { s.second = {}; M.endingsOf(story).forEach(function (e) { s.second[e.id] = 1; }); }
+      // 8.3: one game in four, the reader has masked the tender lines.
+      if (seed % 4 === 1) s.tendre = "masquer";
       (story.past || []).forEach(function (q) { var a = q.answers[Math.floor(rnd() * q.answers.length)]; try { M.apply(story, s, a.fx); } catch (e) { errs["Ton passé : " + e.message] = 1; } });
       try { M.start(story, s); } catch (e) { errs["départ : " + e.message] = 1; return; }
+      var actWas = s.lastAct;
       for (var step = 0; step < maxSteps; step++) {
         var v;
+        ghost(s, rnd, actWas); actWas = s.lastAct;
         seen[s.node] = (seen[s.node] || 0) + 1;
         keepSnap(s);
         if (P[s.node]) { var am = actMax[P[s.node].act] = actMax[P[s.node].act] || { gold: 0, food: 0 }; am.gold = Math.max(am.gold, s.gold || 0); am.food = Math.max(am.food, s.food || 0); }
         try {
           v = M.view(story, s);
-          v.text.forEach(function (t) { if (/undefined|NaN|\[object|\{[a-z]+\}/.test(t)) throw new Error("texte suspect : " + t.slice(0, 80)); });
+          v.text.forEach(function (t) { if (/undefined|NaN|\[object|\{[a-z]+\}|\{autre:/.test(t)) throw new Error("texte suspect : " + t.slice(0, 80)); });
         } catch (e) { errs["§ " + s.node + " : " + e.message] = 1; return; }
         Object.keys(s.seen).forEach(function (k) { if (!seen[k]) seen[k] = 1; });
         Object.keys(s.guards || {}).forEach(function (k) { guards[k] = 1; });
@@ -732,8 +952,8 @@
           c = pool[Math.floor(rnd() * pool.length)];
         } else c = cs[Math.floor(rnd() * cs.length)];
         if (!c.sys) taken[s.node + " | " + c.label] = 1;
-        try { M.choose(story, s, c); } catch (e) { errs["§ " + s.node + " / « " + String(c.label).slice(0, 40) + " » : " + e.message] = 1; return; }
-        tryContra(s, mode === "lose" ? 0.1 : 0.4, rnd);
+        try { M.choose(story, s, answered(c, s, rnd, mode === "lose" ? 0.2 : 0.7)); } catch (e) { errs["§ " + s.node + " / « " + String(c.label).slice(0, 40) + " » : " + e.message] = 1; return; }
+        tryContra(s, mode === "lose" ? 0.1 : 0.4, rnd); tryDoubt(s, mode === "lose" ? 0.1 : 0.3, rnd);
         s.events.forEach(function (e) { if (/undefined|NaN/.test(e.text)) errs["§ " + s.node + " effet : " + e.text.slice(0, 80)] = 1; });
       }
       loops[s.node] = (loops[s.node] || 0) + 1;
@@ -748,7 +968,7 @@
     M.setRng(null);
     var unreached = ids.filter(function (id) { return !seen[id]; });
     var neverTaken = [];
-    ids.forEach(function (id) { var p = P[id]; (p.choices || []).forEach(function (c) { if (c.restart) return; var k = id + " | " + String(c.label).replace(/\{e\}/g, ""); if (!taken[k]) neverTaken.push("§ " + id + " : « " + String(c.label).slice(0, 60) + " »" + (allowedCount[k] ? " (possible, jamais pris)" : " (jamais possible)")); }); });
+    ids.forEach(function (id) { var p = P[id]; (p.choices || []).forEach(function (c) { if (c.restart) return; var k = id + " | " + String(c.label).replace(/\{e\}/g, "").replace(/\{autre:(e|il|Il|le|lui)\}/g, function (m, x) { return M.autreForm({}, x); }).replace(/\{autre\}/g, "l'autre"); if (!taken[k]) neverTaken.push("§ " + id + " : « " + String(c.label).slice(0, 60) + " »" + (allowedCount[k] ? " (possible, jamais pris)" : " (jamais possible)")); }); });
     return {
       games: n, passages: ids.length, guards: Object.keys(guards), errors: Object.keys(errs), deadEnds: dead, loops: loops, unreached: unreached, endings: endings,
       neverTaken: neverTaken, questDone: questDone, levelAtEnd: levelAtEnd, richOnly: richOnly,

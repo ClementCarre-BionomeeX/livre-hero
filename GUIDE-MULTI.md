@@ -42,7 +42,11 @@ Quand tout le monde attend, les parties se synchronisent et l'histoire reprend.
 
 ## Nommer les autres
 
-`{autre}` dans un texte (pas dans un libellé de choix) donne le nom du ou des héros des autres joueurs (« Mila », « Mila et Tom »). En solo, il vaut « l'autre ». Ne pas accorder en genre autour de `{autre}` : on ne sait pas qui le joueur a créé.
+`{autre}` dans un texte donne le nom du ou des héros des autres joueurs (« Mila », « Mila et Tom »). En solo, il vaut « l'autre ». Depuis la 8.4, on accorde avec le héros de l'autre joueur : `{autre:e}`, `{autre:il}`, `{autre:Il}`, `{autre:le}`, `{autre:lui}` (« {autre} est assis{autre:e} »). Pour « vous » au pluriel, préférer une tournure sans participe accordé (« vous avez pris », plutôt que « vous êtes assis »).
+
+## Secrets, apartés, interludes (8.4)
+
+Une histoire à deux peut donner à chaque héros des secrets (`story.secrets`), les faire dire sur les passages `aparte: true`, et jouer en début d'acte un interlude différent pour chaque rôle (`story.interludes`). Voir GUIDE-TAGS.md, section « À deux ». Exemple : `adeux` (« Le Pli de Brumefond »).
 
 ## Garder le scénario jouable
 

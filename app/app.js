@@ -1509,6 +1509,7 @@
   // Intent: once per new version, a short note of what changed (NEWS, newest first), only the versions the reader has
   // not seen on this device. Why: Clément, 13/11 (piste 33).
   var NEWS = [
+    { v: "8.4", items: ["Nouvelle histoire à deux : « Le Pli de Brumefond ». L'un porte le pli, l'autre connaît la route, et chacun garde ses secrets.", "Nouvel onglet du carnet, dans les histoires à deux : Secrets (ce que tu caches, ce qu'on t'a confié, ce que tu as surpris).", "Interludes : au début d'un acte, une courte scène vue par quelqu'un d'autre, différente pour chaque joueur.", "Le texte s'accorde maintenant avec le héros de l'autre joueur."] },
     { v: "8.0", items: ["Nouvelle histoire : « Le Pain de Sarance », une ville assiégée dont tu tiens les greniers : chaque jour mange le blé, le monde avance sans toi, et le Conseil vote.", "Nouveaux onglets du carnet, quand l'histoire en a : La ville (les réserves, ce qui a changé), Conseil (qui vote quoi), Dettes et promesses, Qui est avec qui.", "Batailles rangées : tu places tes troupes sur les postes, puis tu donnes un ordre à chaque vague."] },
     { v: "7.9", items: ["Nouvelle histoire : « L'Écluse des Tanneurs », une enquête de trois jours dans une ville qui vit : chacun a ses heures et ses lieux, et le temps presse jusqu'à la cloche du soir.", "On peut montrer un indice ou un document à un témoin, et relier deux déclarations qui se contredisent, dans le carnet ou sur le tableau.", "L'accusation se fait en trois temps : qui, pourquoi, et la preuve.", "Nouveaux onglets du carnet, quand l'histoire en a : Documents (les lettres et registres trouvés, à relire) et Reconstitution (qui était où, heure par heure)."] },
     { v: "7.8", items: ["Nouvelle histoire : « La Veillée des Aubiers », une soirée d'une demi-heure, à finir avant le coucher, et à relire.", "Une page peut s'ouvrir autrement selon le chemin par lequel on y arrive.", "Seconde lecture : une fois une fin trouvée, une histoire peut montrer en la relisant des passages nouveaux, marqués d'un ✧ dans la marge.", "Les boutons s'accordent au masculin ou au féminin, comme le texte."] },
@@ -1881,7 +1882,10 @@
   }
 
   function renderGame() {
-    var G = A.game, st = G.story, s = G.s, v = G.multi ? multiView() : M.view(st, s);
+    var G = A.game, st = G.story, s = G.s;
+    // A closed room (8.3): the reader says how much tenderness the book may show (Réglages), the engine reads it.
+    if (st.attachments) s.tendre = pref("attachements");
+    var v = G.multi ? multiView() : M.view(st, s);
     var pvMax = M.pvMax(s);
     app.appendChild(topBar([
       h("button", { class: "btn ghost sm", onclick: function () { stopSpeaking(); leaveGame(); } }, "← Bibliothèque"),
@@ -1891,6 +1895,8 @@
       h("span", { class: "pill gold", title: "Bourse : " + M.money(st, s.gold) }, M.money(st, s.gold, true)),
       (st.world || {}).noFood ? null : h("span", { class: "pill", title: "Jours de vivres", "aria-label": "Vivres : " + s.food + " jour" + (s.food > 1 ? "s" : "") }, "Vivres " + s.food),
       stockPills(st, s),
+      skyPill(st, s),
+      dreadPill(st, s),
       s.mark ? h("span", { class: "pill mark", title: "La Marque" }, "Marque " + s.mark) : null,
       h("span", { class: "pill small" }, M.timeLabel(s)),
       s.ironman ? h("span", { class: "pill small", title: "Sans retour : chaque choix est définitif. Jetons de destin restants dans cet acte : " + fateLeft(s), "aria-label": "Sans retour, " + fateLeft(s) + " jetons de destin" }, "⚔ 🎲" + fateLeft(s)) : null,
@@ -1901,7 +1907,8 @@
     var actMin = cur >= 0 ? actMinutes(st, acts[cur].id) : 0;
     w.appendChild(h("div", { class: "acts", role: "img", "aria-label": cur >= 0 ? acts[cur].title + ", acte " + (cur + 1) + " sur " + acts.length : "", title: cur >= 0 ? acts[cur].title + (actMin ? " · environ " + minutesLabel(actMin) + " de lecture" : "") : "" }, acts.map(function (a, i) { return h("span", { class: i < cur ? "done" : i === cur ? "on" : "" }); })));
     var turnIn = A.turned && pref("pageTurn") && !REDUCED; A.turned = false;
-    var page = h("article", { class: "page read" + (turnIn ? " turn-in" : ""), "aria-labelledby": "page-title" });
+    // A remembrance is set apart (8.3); dread past its threshold troubles the page, unless the reader declined it.
+    var page = h("article", { class: "page read" + (turnIn ? " turn-in" : "") + (v.souvenir ? " souvenir" : "") + (v.interlude ? " interlude" : "") + (v.trouble && pref("trouble") && !REDUCED ? " trouble" : ""), "aria-labelledby": "page-title" });
     if (pref("swipe") && !G.multi) swipeOn(page, v, G);
     var num = v.passage ? paraNum(st, s.node) : null;
     var actFirst = cur >= 0 && acts[cur].start === s.node && !G.multi;
@@ -1911,7 +1918,7 @@
     if (rc) { if (nr) rc.appendChild(nr); page.appendChild(rc); }
     else if (nr) page.appendChild(h("aside", { class: "recap" }, h("div", { class: "row" }, h("span", { class: "grow" }), h("button", { class: "btn ghost sm", onclick: function () { A.recap = false; render(); } }, "Fermer")), nr));
     var actStart = cur >= 0 && acts[cur].start === s.node && actMin;
-    page.appendChild(h("div", { class: "page-head" }, h("div", null, h("h2", { id: "page-title", tabindex: "-1" }, v.title || ""), h("div", { class: "where" }, [cur >= 0 ? acts[cur].title : null, where(st, s), actStart ? "environ " + minutesLabel(actMin) + " de lecture" : null].filter(Boolean).join(" · "))), num ? h("span", { class: "para-num", title: "Numéro du paragraphe" }, "§ " + num) : null));
+    page.appendChild(h("div", { class: "page-head" }, h("div", null, h("h2", { id: "page-title", tabindex: "-1" }, v.title || ""), h("div", { class: "where" }, [v.souvenir ? "Souvenir · " + v.souvenir : null, v.interlude ? "Interlude · " + v.interlude.who + (v.interlude.where ? " · " + v.interlude.where : "") : null, cur >= 0 && !v.souvenir && !v.interlude ? acts[cur].title : null, v.souvenir || v.interlude ? null : where(st, s), actStart ? "environ " + minutesLabel(actMin) + " de lecture" : null].filter(Boolean).join(" · "))), num ? h("span", { class: "para-num", title: "Numéro du paragraphe" }, "§ " + num) : null));
     var gb = groupBanner(G, s); if (gb) page.appendChild(gb);
     if (A.notice) page.appendChild(h("div", { class: "notice" }, A.notice));
     if (A.bedWarn && !G.multi) page.appendChild(h("div", { class: "notice soft" }, "🌙 Bientôt l'heure de refermer le livre : le récit te proposera de t'arrêter à une page calme."));
@@ -1937,6 +1944,7 @@
     if (v.kind === "combat") page.appendChild(renderFight(s));
     if (v.battle) page.appendChild(renderBattle(v.battle));
     if (v.council) page.appendChild(renderCouncil(st, v.council));
+    if (v.puzzle) page.appendChild(renderPuzzle(v));
     if (G.multi && v.wait) page.appendChild(renderWait(v));
     else {
       if (v.urgent && !G.multi && !G.ephemeral && !folded) page.appendChild(urgentBar(G, v));
@@ -2272,7 +2280,7 @@
     }
     return box;
   }
-  var GROUPS = { conseil: "Le vote", bataille: "Tes ordres", dette: "Ce que tu dois", jeu: "À la table", route: "Prendre la route", shop: "Acheter et vendre", fight: "Que fais-tu ?", order: "Ce tour, tes compagnons · un ordre gratuit chacun ; sans ordre, ils agissent à leur guise", lead: "Qui mène ? · changer de héros ne coûte rien" };
+  var GROUPS = { doute: "Ce que tu ne crois pas", duel: "Ta lame", enigme: "L'énigme", conseil: "Le vote", bataille: "Tes ordres", dette: "Ce que tu dois", jeu: "À la table", route: "Prendre la route", shop: "Acheter et vendre", fight: "Que fais-tu ?", order: "Ce tour, tes compagnons · un ordre gratuit chacun ; sans ordre, ils agissent à leur guise", lead: "Qui mène ? · changer de héros ne coûte rien" };
   // The « coup de pouce » (option for young readers, Clément, 12/11): NUDGES_PER_ACT per act, kept in the game.
   var NUDGES_PER_ACT = 2;
   function nudgesLeft(G) { var used = (G.s.nudges || {})[G.s.lastAct || "_"] || 0; return Math.max(0, NUDGES_PER_ACT - used); }
@@ -2319,7 +2327,7 @@
     if (nd) box.appendChild(h("div", { class: "notice soft nudge-note", role: "status" }, "💡 " + nd.text));
     var nth = 0;
     v.choices.forEach(function (c) {
-      if (c.restart) return;
+      if (c.restart || c.ui) return;   // a choice the page draws itself (a puzzle's « Essayer »)
       nth++;
       var g = c.group || null;
       if (g !== lastGroup && GROUPS[g]) box.appendChild(h("div", { class: "label group-label" }, GROUPS[g]));
@@ -2332,7 +2340,7 @@
       else if (c.hint) meta = h("span", { class: "meta" }, c.hint);
       else if (c.exit) meta = h("span", { class: "meta" }, "fin de l'acte");
       else if (c.big) meta = h("span", { class: "meta" }, "choix lourd");
-      box.appendChild(h("button", { class: "choice" + (c.sys ? " sys" : "") + (c.big ? " big" : "") + (g === "order" ? " order" : ""), disabled: !c.ok, onclick: function () { pick(c); } },
+      box.appendChild(h("button", { class: "choice" + (c.sys ? " sys" : "") + (c.big ? " big" : "") + (g === "order" ? " order" : "") + (c.silence ? " silence" : ""), disabled: !c.ok, onclick: function () { pick(c); } },
         h("span", null, A.kbd && nth <= KEY_CHOICES ? h("kbd", { class: "choice-key", "aria-hidden": "true" }, String(nth % 10)) : null, nd && nd.choices.indexOf(c.label) >= 0 ? h("span", { class: "nudge-star", "aria-label": "piste nouvelle" }, "✦ ") : null, c.label, c.goes && String(c.label || "").toLowerCase().indexOf(String(c.goes).toLowerCase()) < 0 ? h("span", { class: "goes" }, " → " + c.goes) : null, c.note ? h("span", { class: "note" }, " · " + c.note) : null), meta, !c.ok && c.why ? h("span", { class: "why" }, c.why) : null));
     });
     return box;
@@ -3366,14 +3374,16 @@
   })();
 
   // ------------------------------------------------------------------ the notebook
-  var TABS = [["heros", "Héros"], ["sac", "Sac"], ["quetes", "Quêtes"], ["indices", "Indices"], ["notes", "Notes"], ["soupcons", "Soupçons"], ["tableau", "Tableau d'enquête"], ["documents", "Documents"], ["reconst", "Reconstitution"], ["ville", "La ville"], ["conseil", "Conseil"], ["dettes", "Dettes et promesses"], ["liens", "Qui est avec qui"], ["compagnons", "Compagnons"], ["carte", "Carte"], ["gens", "Gens"], ["frise", "Frise"], ["marques", "Marque-pages"], ["exploits", "Hauts faits"], ["codex", "Bestiaire et atlas"], ["mots", "Mots"], ["journal", "Journal"], ["coulisses", "Coulisses"]];
+  var TABS = [["heros", "Héros"], ["sac", "Sac"], ["quetes", "Quêtes"], ["indices", "Indices"], ["notes", "Notes"], ["soupcons", "Soupçons"], ["tableau", "Tableau d'enquête"], ["documents", "Documents"], ["reconst", "Reconstitution"], ["ville", "La ville"], ["conseil", "Conseil"], ["dettes", "Dettes et promesses"], ["liens", "Qui est avec qui"], ["versions", "Versions"], ["secrets", "Secrets"], ["compagnons", "Compagnons"], ["carte", "Carte"], ["gens", "Gens"], ["frise", "Frise"], ["marques", "Marque-pages"], ["exploits", "Hauts faits"], ["codex", "Bestiaire et atlas"], ["mots", "Mots"], ["journal", "Journal"], ["coulisses", "Coulisses"]];
   // Documents and Reconstitution only show in a story that has them (7.9).
   function tabsOf(st) {
     var docs = Object.keys(st.items || {}).some(function (k) { return st.items[k].kind === "document" && st.items[k].text; });
     var plan = Object.keys(st.mysteries || {}).some(function (k) { return st.mysteries[k].plan; });
     // A siege (8.0): the city's stocks, the council, debts and promises, who is with whom, when the story has them.
-    var has = { ville: !!(st.stocks || st.march), conseil: !!st.councils, dettes: !!st.promises, liens: !!st.ties };
-    return TABS.filter(function (t) { return (t[0] !== "documents" || docs) && (t[0] !== "reconst" || plan) && (has[t[0]] == null || has[t[0]]); });
+    var has = { ville: !!(st.stocks || st.march), conseil: !!st.councils, dettes: !!st.promises, liens: !!st.ties, versions: !!st.accounts, secrets: !!st.secrets };
+    // A story names its stocks' tab (8.1: « Le navire »).
+    return TABS.filter(function (t) { return (t[0] !== "documents" || docs) && (t[0] !== "reconst" || plan) && (has[t[0]] == null || has[t[0]]); })
+      .map(function (t) { return t[0] === "ville" && st.stocksTab ? [t[0], st.stocksTab] : t; });
   }
   function renderCarnet() {
     var G = A.game; if (!G) { A.carnet = null; return; }
@@ -3396,7 +3406,7 @@
     var fill = function () {
       body.textContent = "";
       if ((A.carnetQ || "").trim().length >= SEARCH_MIN) { searchCarnet(body, G.story, G.s, A.carnetQ.trim()); return; }
-      ({ heros: tabHero, sac: tabBag, quetes: tabQuests, indices: tabClues, notes: tabNotes, soupcons: tabSuspects, tableau: tabBoard, documents: tabDocs, reconst: tabRecon, ville: tabCity, conseil: tabCouncil, dettes: tabDebts, liens: tabTies, compagnons: tabCompanions, carte: tabMap, gens: tabPeople, frise: tabFrise, marques: tabMarks, exploits: tabFeats, codex: tabCodex, mots: tabWords, journal: tabLog, coulisses: tabBackstage })[A.carnetTab](body, G.story, G.s);
+      ({ heros: tabHero, sac: tabBag, quetes: tabQuests, indices: tabClues, notes: tabNotes, soupcons: tabSuspects, tableau: tabBoard, documents: tabDocs, reconst: tabRecon, ville: tabCity, conseil: tabCouncil, dettes: tabDebts, liens: tabTies, versions: tabVersions, secrets: tabSecrets, compagnons: tabCompanions, carte: tabMap, gens: tabPeople, frise: tabFrise, marques: tabMarks, exploits: tabFeats, codex: tabCodex, mots: tabWords, journal: tabLog, coulisses: tabBackstage })[A.carnetTab](body, G.story, G.s);
     };
     fill();
     q.addEventListener("input", function () { A.carnetQ = q.value; fill(); });
@@ -3419,12 +3429,15 @@
     b.appendChild(h("div", { class: "kv" },
       h("span", null, "Points de vie"), bar("pv", s.pv, M.pvMax(s)), h("span", { class: "num" }, s.pv + "/" + M.pvMax(s)),
       h("span", null, "Expérience"), bar("", into, M.EP_PER_LEVEL), h("span", { class: "num" }, s.ep.toLocaleString("fr-FR") + " EP"),
-      h("span", null, "Fatigue"), bar("fear", s.fatigue, 5), h("span", { class: "num" }, s.fatigue ? "−" + s.fatigue * 5 : "aucune"),
+      h("span", null, "Fatigue"), bar("fear", s.fatigue, M.FATIGUE_MAX || 5), h("span", { class: "num" }, s.fatigue ? "−" + s.fatigue * 5 : "aucune"),
       h("span", null, "Bourse"), h("span"), h("span", { class: "num" }, M.money(st, s.gold)),
       h("span", null, "Vivres"), h("span"), h("span", { class: "num" }, s.food + " j"),
       s.mark ? [h("span", null, "Marque"), h("span"), h("span", { class: "num" }, s.mark)] : null));
     b.appendChild(h("div", { class: "label" }, "Domaines (jet : d100 ouvert + bonus, il faut 101)"));
     b.appendChild(h("div", { class: "kv" }, Object.keys(M.DOMAINS).map(function (k) { var v = M.bonus(st, s, k); return [h("span", null, M.DOMAINS[k]), bar("conf", v, 80), h("span", { class: "num" }, (v >= 0 ? "+" : "") + v)]; })));
+    woundRows(b, st, s);
+    schoolRows(b, st, s);
+    closedRows(b, st, s);
     var w = M.weapon(st, s), ar = M.armor(st, s);
     if (!A.game.multi) b.appendChild(h("button", { class: "btn sm", onclick: function () { A.carnet = null; A.screen = "fiche"; render(); window.scrollTo(0, 0); } }, "🖨 Fiche du héros à imprimer"));
     if (st.heroes) tabHeroes(b, st, s);
@@ -3491,6 +3504,8 @@
         var row = clueRow(st, k);
         // A decoy shows as such once the book has given the answer (7.9).
         if (solvedM && st.clues[k].leurre) row.appendChild(h("span", { class: "small muted decoy" }, "fausse piste"));
+        // Noted in the grip of dread (8.3): the reader may weigh it.
+        if ((s.shaky || {})[k]) row.appendChild(h("span", { class: "small muted shaky", title: "Tu l'as noté alors que la peur te tenait." }, "noté dans le trouble"));
         if (contra) row.appendChild(h("button", { class: "btn ghost sm", title: "Ça ne colle pas avec un autre indice", "aria-label": "Ça ne colle pas avec un autre indice", "aria-pressed": A.contraOpen === k ? "true" : "false", onclick: function () { A.contraOpen = A.contraOpen === k ? null : k; A.contraMsg = null; render(); } }, "⚡"));
         b.appendChild(row);
         if (A.contraOpen === k) b.appendChild(contraPicker(st, s, k));
@@ -3883,6 +3898,86 @@
   };
   // Relations (6th series): how each one sees you, in the author's word (fx.regard); an option of the reader.
   function regardTag(s, k) { var w = pref("relations") && (s.regard || {})[k]; return w && M.REGARDS[w] ? h("span", { class: "regard small " + w, title: "Ce qu'on pense de toi" }, M.REGARDS[w]) : h("span"); }
+  // ------------------------------------------------------------------ at sea (8.1)
+  // The sky and the season in the top bar (« Équinoxe · grain »), with what the weather does to the rolls.
+  function skyPill(st, s) {
+    var w = M.weatherKind(st, s), se = M.seasonOf(st, s); if (!w && !se) return null;
+    var mods = w && w.mod ? Object.keys(w.mod).filter(function (d) { return w.mod[d]; }).map(function (d) { return (w.mod[d] > 0 ? "+" : "−") + Math.abs(w.mod[d]) + " " + M.DOMAINS[d]; }) : [];
+    var label = [se ? se.name : null, w ? w.name : null].filter(Boolean).join(" · ");
+    return h("span", { class: "pill small sky", title: (w && w.desc ? w.desc + " " : "") + (mods.length ? "Effet sur tes jets : " + mods.join(", ") + "." : ""), "aria-label": "Temps : " + label }, "☁ " + label);
+  }
+  // The wounds still open and the scars, in the hero's tab.
+  function woundRows(b, st, s) {
+    var open = M.woundsOpen(st, s), scars = Object.keys(s.wounds || {}).filter(function (k) { return s.wounds[k].healed && (st.wounds[k] || {}).scar; });
+    if (!open.length && !scars.length) return;
+    b.appendChild(h("div", { class: "label" }, "Blessures"));
+    open.forEach(function (k) {
+      var D = M.woundDef(st, k), W0 = s.wounds[k], left = Math.max(0, Math.ceil((W0.at + 24 * M.woundDays(D, W0) - s.time) / 24));
+      var mods = Object.keys(D.mod || {}).map(function (d) { return (D.mod[d] > 0 ? "+" : "−") + Math.abs(D.mod[d]) + " " + M.DOMAINS[d]; });
+      b.appendChild(h("div", { class: "itemrow wound" }, h("b", null, D.name), h("span", { class: "num" }, mods.join(", ")),
+        h("div", { class: "desc" }, (D.desc ? M.interp(s, D.desc) + " " : "") + (W0.tended ? "Pansée. " : "") + "Se refermera d'ici " + (left <= 1 ? "un jour" : left + " jours") + ".")));
+    });
+    scars.forEach(function (k) { var D = st.wounds[k]; b.appendChild(h("div", { class: "itemrow scar" }, h("b", null, "Cicatrice"), h("span"), h("div", { class: "desc" }, M.interp(s, D.scar)))); });
+  }
+  // A closed room (8.3): the hero's dread, in the hero's tab; and the pill at the top of the page.
+  function closedRows(b, st, s) {
+    if (!st.dread) return;
+    var D = st.dread, mx = M.dreadMax(st), a = M.dreadOf(s);
+    b.appendChild(h("div", { class: "label" }, M.interp(s, D.name || "Angoisse")));
+    b.appendChild(h("div", { class: "kv" }, h("span", null, M.dreadWord(st, s)), bar("fear", a, mx), h("span", { class: "num" }, a + "/" + mx)));
+    var from = (D.mod || {}).from == null ? 5 : D.mod.from;
+    b.appendChild(h("div", { class: "small muted" }, "Au-delà de " + from + ", chaque point pèse sur tes jets. Le sommeil, la chaleur, une vérité dite l'apaisent." + (M.dreadTrouble(st, s) ? " En ce moment, ce que tu vois et ce que tu notes peut te tromper." : "")));
+  }
+  function dreadPill(st, s) {
+    if (!st.dread) return null;
+    var a = M.dreadOf(s), mx = M.dreadMax(st);
+    return h("span", { class: "pill dread" + (M.dreadTrouble(st, s) ? " high" : ""), title: M.interp(s, st.dread.name || "Angoisse") + " : " + a + "/" + mx, "aria-label": M.interp(s, st.dread.name || "Angoisse") + " : " + M.dreadWord(st, s) }, M.dreadWord(st, s));
+  }
+  // At school (8.2): the traits of character and what practice has added, in the hero's tab.
+  function schoolRows(b, st, s) {
+    var ts = Object.keys(st.traits || {});
+    if (ts.length) {
+      b.appendChild(h("div", { class: "label" }, "Caractère"));
+      ts.forEach(function (k) {
+        var T = st.traits[k], v = M.traitOf(s, k), pos = Math.round((v + M.TRAIT_MAX) / (2 * M.TRAIT_MAX) * 100);
+        b.appendChild(h("div", { class: "itemrow trait" }, h("b", null, M.interp(s, T.name)), h("span", { class: "num" }, M.traitWord(st, s, k)),
+          h("div", { class: "trait-axis", role: "img", "aria-label": M.interp(s, T.low) + " ou " + M.interp(s, T.high) + " : " + M.traitWord(st, s, k) },
+            h("span", { class: "small muted" }, M.interp(s, T.low)), h("span", { class: "axis" }, h("i", { style: "left:" + pos + "%" })), h("span", { class: "small muted" }, M.interp(s, T.high)))));
+      });
+    }
+    var ps = Object.keys(s.prac || {}).filter(function (d) { return s.prac[d]; });
+    if (st.practice && ps.length) b.appendChild(h("div", { class: "small muted" }, "Gagné par la pratique : " + ps.map(function (d) { return M.DOMAINS[d] + " +" + s.prac[d]; }).join(", ") + "."));
+  }
+  // A puzzle to handle on the page (8.2): wheels to turn, a word to type, pieces to put back in order. The answer goes
+  // with the choice « Essayer »; the engine checks it.
+  function renderPuzzle(v) {
+    var z = v.puzzle, tryC = v.choices.filter(function (c) { return c.sys === "puzzleTry"; })[0], box = h("div", { class: "puzzle puzzle-" + z.kind, role: "group", "aria-label": v.title });
+    A.puz = A.puz && A.puz.id === z.id ? A.puz : { id: z.id, wheels: (z.wheels || []).map(function () { return 0; }), order: (z.pieces || []).map(function (x, i) { return i; }), text: "" };
+    var P = A.puz, answer;
+    if (z.kind === "molettes") {
+      box.appendChild(h("div", { class: "wheels" }, z.wheels.map(function (w, i) {
+        var turn = function (d) { P.wheels[i] = (P.wheels[i] + d + w.length) % w.length; render(); };
+        return h("div", { class: "wheel" }, h("button", { class: "btn ghost sm", "aria-label": "Molette " + (i + 1) + " : symbole précédent", onclick: function () { turn(-1); } }, "▲"),
+          h("div", { class: "wheel-face", "aria-live": "polite" }, w[P.wheels[i]]), h("button", { class: "btn ghost sm", "aria-label": "Molette " + (i + 1) + " : symbole suivant", onclick: function () { turn(1); } }, "▼"));
+      })));
+      answer = function () { return P.wheels.map(function (k, i) { return z.wheels[i][k]; }); };
+    } else if (z.kind === "ordre") {
+      box.appendChild(h("ol", { class: "pieces" }, P.order.map(function (pi, at) {
+        var mv = function (d) { var j = at + d; if (j < 0 || j >= P.order.length) return; var t = P.order[j]; P.order[j] = P.order[at]; P.order[at] = t; render(); };
+        return h("li", { class: "piece" }, h("span", { class: "piece-text", html: md(z.pieces[pi]) }),
+          h("span", { class: "piece-moves" }, h("button", { class: "btn ghost sm", "aria-label": "Monter ce morceau", disabled: at === 0 ? "disabled" : null, onclick: function () { mv(-1); } }, "↑"),
+            h("button", { class: "btn ghost sm", "aria-label": "Descendre ce morceau", disabled: at === P.order.length - 1 ? "disabled" : null, onclick: function () { mv(1); } }, "↓")));
+      })));
+      answer = function () { return P.order.slice(); };
+    } else {
+      var inp = h("input", { type: "text", class: "puzzle-input", "aria-label": "Ta réponse", value: P.text, autocomplete: "off", oninput: function (e) { P.text = e.target.value; },
+        onkeydown: function (e) { if (e.key === "Enter" && tryC) { e.preventDefault(); pick(Object.assign({}, tryC, { answer: P.text })); } } });
+      box.appendChild(inp);
+      answer = function () { return P.text; };
+    }
+    if (tryC) box.appendChild(h("button", { class: "btn primary", onclick: function () { pick(Object.assign({}, tryC, { answer: answer() })); } }, tryC.label));
+    return box;
+  }
   // ------------------------------------------------------------------ a siege (8.0)
   // The pills of the stocks a story marks `pill: true` (« Blé 612 · 14 j »).
   function stockPills(st, s) {
@@ -3899,7 +3994,7 @@
   }
   function tabCity(b, st, s) {
     var ids = Object.keys(st.stocks || {});
-    if (ids.length) b.appendChild(h("div", { class: "label" }, "Les réserves de la ville"));
+    if (ids.length) b.appendChild(h("div", { class: "label" }, st.stocksLabel || "Les réserves de la ville"));
     ids.forEach(function (k) {
       var D = st.stocks[k], v = M.stockNow(st, s, k), use = M.dailyUse(st, s, k), dl = M.daysLeft(st, s, k), max = D.max != null ? D.max : Math.max(D.start || 1, v);
       var by = D.by ? (Object.keys(s.flags).filter(function (f) { return f.indexOf(D.by + "=") === 0; })[0] || "").slice(D.by.length + 1) : "";
@@ -3916,7 +4011,7 @@
     }
     var bs = Object.keys(s.battles || {});
     if (bs.length) {
-      b.appendChild(h("div", { class: "label" }, "Les combats sur les murs"));
+      b.appendChild(h("div", { class: "label" }, st.battlesLabel || "Les combats sur les murs"));
       bs.forEach(function (k) { var R = s.battles[k], B = (st.battles || {})[k] || {}; b.appendChild(h("div", { class: "quest " + (R.out === "win" ? "faite" : "manque") }, h("div", null, M.interp(s, B.title || k), " ", h("span", { class: "state" }, "· " + (R.out === "win" ? "la ligne a tenu" : "la ligne a cédé") + " · pertes " + (R.losses < 15 ? "légères" : R.losses < 35 ? "lourdes" : "terribles"))))); });
     }
   }
@@ -3994,10 +4089,52 @@
   function renderCouncil(st, c) {
     return h("div", { class: "council-tally vote-chips" }, c.rows.map(function (r) { return h("span", { class: "vote-chip " + (r.vote || "unknown") }, r.id !== "hero" ? h("span", { html: personFace(st, r.id, 22) }) : null, r.name + (r.vote ? " · " + M.VOTES[r.vote].toLowerCase() : " · absent")); }));
   }
+  // Attachments (8.3): shown beside the person only when the reader asked to see them.
+  function attachTag(st, s, k) {
+    if (!(st.attachments || {})[k] || pref("attachements") !== "montrer") return null;
+    var n = M.attachOf(s, k); if (!n) return null;
+    return h("span", { class: "attach small", title: "Ce qui te lie à cette personne", "aria-label": "Lien : " + n + " sur " + M.ATTACH_MAX }, "♥".repeat(n) + "♡".repeat(M.ATTACH_MAX - n));
+  }
+  // Accounts (8.3): what each one said, word for word, by subject; « J'en doute » marks it, and once the book has told
+  // what happened, each account says whether it was true.
+  function tabVersions(b, st, s) {
+    var heard = Object.keys(s.accounts || {}).filter(function (k) { return (st.accounts || {})[k]; });
+    if (!heard.length) { b.appendChild(h("div", { class: "notice" }, "Personne ne t'a encore raconté sa version des faits.")); return; }
+    var ended = !!(st.passages[s.node] || {}).end, ro = A.game.multi || A.game.ephemeral;
+    b.appendChild(h("p", { class: "small muted" }, "Chacun raconte à sa façon. Le carnet garde les mots tels qu'on te les a dits. « J'en doute » : la prochaine fois que tu seras devant la personne, tu pourras le lui dire."));
+    Object.keys(st.topics || {}).forEach(function (t) {
+      var list = heard.filter(function (k) { return st.accounts[k].topic === t; }); if (!list.length) return;
+      var solved = ended || M.topicSolved(st, s, t);
+      b.appendChild(h("div", { class: "label" }, M.interp(s, st.topics[t].title)));
+      list.forEach(function (k) {
+        var Ac = st.accounts[k], dbt = !!(s.doubts || {})[k], bel = !!(s.belied || {})[k];
+        var truth = solved ? (Ac.true === true ? ["vraie", "true"] : Ac.true === false ? ["fausse", "false"] : ["en partie vraie", "partial"]) : null;
+        b.appendChild(h("div", { class: "account" + (dbt ? " doubted" : "") },
+          h("div", { class: "row" }, h("b", { class: "grow" }, Ac.by === "hero" ? "Ta version" : M.accountBy(st, Ac)), h("span", { class: "small muted" }, s.accounts[k]),
+            truth ? h("span", { class: "small truth " + truth[1] }, truth[0]) : null,
+            ro || bel ? (bel ? h("span", { class: "small muted" }, "mise en doute") : null) : h("button", { class: "btn ghost sm", "aria-pressed": dbt ? "true" : "false", onclick: function () { M.doubt(st, s, k, !dbt); persist(); render(); } }, dbt ? "Tu en doutes" : "J'en doute")),
+          h("blockquote", { class: "said", html: md("« " + M.interp(s, Ac.text) + " »") })));
+      });
+    });
+  }
+  // Two players (8.4): what the hero hides, what the other told, what was overheard. The other player never sees this tab.
+  function tabSecrets(b, st, s) {
+    var list = M.secretsOf(st, s);
+    if (!list.length) { b.appendChild(h("div", { class: "notice" }, "Rien encore. Ce que tu caches, et ce qu'on te confiera, s'inscrira ici.")); return; }
+    b.appendChild(h("p", { class: "small muted" }, "Cet onglet n'appartient qu'à toi. Un secret se dit à l'autre quand vous êtes seuls tous les deux ; on l'apprend au rendez-vous suivant."));
+    [["own", "Ce que tu caches"], ["confie", "Ce qu'on t'a confié"], ["surpris", "Ce que tu as surpris"]].forEach(function (g) {
+      var xs = list.filter(function (x) { return x.how === g[0]; }); if (!xs.length) return;
+      b.appendChild(h("div", { class: "label" }, g[1]));
+      xs.forEach(function (x) {
+        b.appendChild(h("div", { class: "itemrow" }, h("b", null, x.title), g[0] === "own" ? h("span", { class: "small muted" }, x.told ? "dit à " + M.interp(s, "{autre}") : "gardé") : null,
+          h("div", { class: "desc", html: md(x.text) })));
+      });
+    });
+  }
   function tabPeople(b, st, s) {
     var ks = Object.keys(s.people || {});
     if (!ks.length) b.appendChild(h("div", { class: "notice" }, "Personne encore."));
-    ks.forEach(function (k) { var p = st.people[k]; if (p) b.appendChild(h("div", { class: "itemrow" }, h("b", { class: "with-portrait" }, h("span", { html: personFace(st, k, 36) }), p.name), regardTag(s, k), h("div", { class: "desc" }, p.desc || ""))); });
+    ks.forEach(function (k) { var p = st.people[k]; if (p) b.appendChild(h("div", { class: "itemrow" }, h("b", { class: "with-portrait" }, h("span", { html: personFace(st, k, 36) }), p.name), h("span", null, regardTag(s, k), attachTag(st, s, k)), h("div", { class: "desc" }, p.desc || ""))); });
     var fs = Object.keys(st.factions || {}).filter(function (k) { return s.fac && s.fac[k] != null; });
     if (!fs.length) return;
     b.appendChild(h("div", { class: "label" }, "Factions"));
@@ -4032,7 +4169,7 @@
   // ------------------------------------------------------------------ reading preferences (per reader)
   // Intent: pref(Key) -> Value = the reader's own setting, else the default
   // Why: Clément (12/11): text size, spacing, theme, voice, real dice, sound… follow the reader, not the device.
-  var PREFS = { skin: "histoire", size: "m", spacing: "normal", theme: "auto", font: "livre", lettrine: true, voice: "", highlight: true, ruler: false, dialogue: false, glossary: true, nudge: false, syllables: false, voiceChoice: false, autoListen: true, battlePlan: true, relations: true, urgent: true, sfx: true, shakeDice: false, fog: true, rate: 1, autoRead: false, dice: "ecran", ambiance: false, music: false, volume: 0.6, spread: "auto", pageTurn: true, swipe: false, contrast: false, cvd: false, quietFx: false, dice3d: true };
+  var PREFS = { skin: "histoire", size: "m", spacing: "normal", theme: "auto", font: "livre", lettrine: true, voice: "", highlight: true, ruler: false, dialogue: false, glossary: true, nudge: false, syllables: false, voiceChoice: false, autoListen: true, battlePlan: true, relations: true, urgent: true, sfx: true, shakeDice: false, fog: true, rate: 1, autoRead: false, dice: "ecran", ambiance: false, music: false, volume: 0.6, spread: "auto", pageTurn: true, swipe: false, contrast: false, cvd: false, quietFx: false, dice3d: true, attachements: "discret", trouble: true };
   var SIZES = { s: ["Petit", 16], m: ["Normal", 18], l: ["Grand", 21], xl: ["Très grand", 24] };
   var SPACINGS = { serre: ["Serré", 1.5], normal: ["Normal", 1.72], aere: ["Aéré", 2] };
   var THEMES = { auto: "Comme l'appareil", light: "Clair", sepia: "Sépia", dark: "Sombre", soir: "Lumière du soir" };
@@ -4149,6 +4286,9 @@
     b.appendChild(prefToggle("syllables", "Syllabes en couleurs", "Une syllabe sur deux change de couleur, comme dans les méthodes de lecture."));
     b.appendChild(prefToggle("fog", "Carte sous le brouillard", "La carte du carnet se dévoile autour des lieux atteints et le long des routes parcourues."));
     b.appendChild(prefToggle("relations", "Relations dans l'onglet Gens", "À côté de chaque personne, ce qu'elle pense de toi (méfiante, alliée, redevable…), quand l'histoire le dit."));
+    b.appendChild(seg({ montrer: "Montrés", discret: "Discrets", masquer: "Masqués" }, "attachements", "Liens affectifs (histoires pour adultes)"));
+    b.appendChild(h("p", { class: "small muted" }, "Discrets : les scènes tendres restent, sans jauge. Montrés : l'onglet Gens dit aussi ce qui te lie à chacun. Masqués : l'histoire passe ces scènes et garde son fil."));
+    b.appendChild(prefToggle("trouble", "Page troublée par la peur", "Quand l'angoisse du héros est forte, le texte se trouble légèrement. À couper s'il gêne la lecture."));
     b.appendChild(prefToggle("quietFx", "Conséquences muettes", "L'histoire ne dit plus quand la confiance ou la crainte d'un compagnon change : tu le découvres à sa façon d'agir."));
     b.appendChild(prefToggle("urgent", "Choix sous pression", "Dans certaines scènes, un compte à rebours presse le choix ; quand il est écoulé, l'histoire choisit pour toi. Décoche pour lire ces scènes sans minuteur."));
     b.appendChild(prefToggle("battlePlan", "Plan de bataille", "Pendant un combat, un petit plan montre les rangs, les adversaires et les coups de la dernière passe."));

@@ -235,3 +235,87 @@ recherche des passages jamais atteints sait montrer, relier et accuser.
 | passage | `epilogue: true` + `story.epilogue: [{ if, text }]`, `epilogueTitle` | Sur une fin, le moteur ajoute les lignes d'épilogue qui tiennent : ce que sont devenus les choix du lecteur. Le validateur compte ces lignes comme l'écho des quêtes. |
 | `world` | `noFood: true` | Pas de jauge de vivres personnelle : c'est la ville qui mange. |
 | passage | `creditor: "<personne>"` | Le créancier est là : le choix « Rembourser » s'ajoute. |
+
+## En mer (14/11, 8.1) : météo, saisons, blessures, rencontres, établi, veillées
+
+| Où | Clé | Sens |
+|---|---|---|
+| `story.seasons` | `[{ id, name, from }]` | Les saisons, chacune à partir du jour `from`. Condition et tag `saison: "<id>"`. |
+| `story.weather` | `{ by, every, start, kinds: { <id>: { name, desc, mod, say } }, regions: { <état>: { <temps>: poids } }, seasons: { <saison>: { <temps>: +poids } } }` | Le temps qu'il fait. Toutes les `every` heures, le moteur tire un temps selon la région (la valeur de l'état `by`) et la saison. `mod` : bonus ou malus des tests du héros ; `say` s'écrit dans le fil au changement. L'en-tête montre la saison et le ciel. |
+| fx | `meteo: "<temps>"` ou `{ is, hours }` | Impose un temps (pour `hours` heures). |
+| tag, condition | `temps: "<id>"` ou liste | Le paragraphe ou le choix ne vaut que par ce temps. |
+| `story.wounds` | `{ <id>: { name, desc, mod, days, tended, scar, mark } }` | Les blessures : malus `mod` aux tests pendant `days` jours (`tended` jours une fois soignée). `scar` : une cicatrice reste, qui ajoute la marque `mark` au portrait et pose `cicatrice:<id>`. |
+| fx | `blessure: "<id>"`, `soigner: "<id>" \| true`, `guerir: "<id>" \| true` | Blesser, soigner (la guérison va plus vite), guérir tout de suite. |
+| condition | `blessure: true \| false \| "<id>"`, `cicatrice: "<id>"`, `fatigue: { min, max }` | |
+| fx | `fatigue: n` | La fatigue du héros (0 à 5) : une nuit de sommeil la remet à zéro. |
+| `story.encounters` | `{ by, every, chance, list: [{ to, region, saison, temps, if, weight, once }] }` | En revenant à un carrefour, après `every` heures au moins, le moteur peut jouer une rencontre de la région, de la saison et du temps qu'il fait. La scène finit par `back: true`. |
+| `story.recipes` | `{ <id>: { make, of, keep, label, say, with, if, fx, anywhere } }` | Ce qu'on assemble : sur un passage `atelier: true`, le choix « Assembler : … » paraît dès qu'on a une pièce, grisé avec ce qui manque. Pose `fait:<id>`. |
+| `story.vigils` | `[{ to, with, label, if }]` | Sur un passage `veillee: true`, la nuit, veiller avec un compagnon présent : une veillée par nuit, chaque scène une fois. |
+| objet | `reveals: [lieux]` | Une carte : l'avoir fait paraître ces lieux sur la carte. |
+| `story` | `stocksTab`, `stocksLabel`, `battlesLabel` | Le nom de l'onglet des réserves et de ses rubriques (« Le navire » au lieu de « La ville »). |
+
+## L'école (15/11, 8.2) : pratique, traits de caractère, duels réglés, énigmes, rêves
+
+| Où | Clé | Sens |
+|---|---|---|
+| `story.practice` | `{ every, step, max, doms, say }` | Progresser par l'usage : chaque jet du héros compte un usage de son domaine ; tous les `every` usages (3 par défaut), le domaine gagne `step` (5) jusqu'à `max` (15). `doms` restreint les domaines, `say` s'écrit dans le fil (`{dom}`, `{n}`). |
+| fx | `pratique: { <dom>: n }` | Compte `n` usages d'un coup (une leçon, une nuit de travail). |
+| `story.traits` | `{ <id>: { name, low, high, mid } }` | Les traits de caractère : un axe de −5 à +5. `low` / `high` / `mid` nomment le héros selon son côté ; `{e}` s'accorde. Le portrait les montre. |
+| fx | `trait: { <id>: ±n }` | Déplace le héros sur l'axe. Quand il change de côté, le fil le dit. |
+| condition | `{ trait, min, max }` | Un choix grisé hors de ce caractère (« Ce n'est pas dans ton caractère »), un paragraphe qui ne paraît que pour ce caractère. |
+| `story.duels` | `{ <id>: { title, foe, foeName, rule, touches, dom, skill, intro, style, tells, say, labels, adapt, adaptWeight, winText, loseText, win, lose } }` | Un duel réglé contre un personnage de `people`. Attaque, parade, feinte : la parade arrête l'attaque, l'attaque perce la feinte, la feinte trompe la parade ; deux coups pareils se jouent au jet (`dom`, `skill`). `style` : les poids des coups de l'adversaire. `tells` : ce qui le trahit avant son coup (vu plus souvent avec un bon bonus). L'adversaire retient l'habitude du héros d'un duel à l'autre et joue ce qui la bat (`adapt: false` pour l'en empêcher). `win` / `lose` : `{ to, fx }`. |
+| passage | `duel: "<id>"`, `duelLabel` | Le passage ouvre le duel (choix « Saluer, et prendre ta garde »). Le duel fini pose `duel:<id>` et l'état `duel-<id>` (`gagne` ou `perdu`). |
+| condition | `{ duel: "<id>", is: "win" \| "lose" }` | |
+| `story.puzzles` | `{ <id>: { kind, title, text, answer, tries, wrongText, tryLabel, label, leave, hint, force, win, lose } }` | Une énigme qu'on manipule sur la page. `kind: "molettes"` (`wheels`: une liste de symboles par molette, `answer`: un symbole par molette), `"chiffre"` (`cipher`: le texte chiffré ; `answer`: une réponse ou une liste, sans compter accents, majuscules ni espaces), `"ordre"` (`pieces`: les morceaux, `answer`: leurs numéros dans le bon ordre). `tries` : les essais avant l'échec (`lose`). `hint: [{ if, text }]` : un indice qui paraît quand sa condition tient. `force: { dom, diff, takes, label, fail }` : un jet à la place, une fois par visite. Hésiter (rien proposé) ne coûte rien ; partir laisse l'énigme ouverte. Résolue, elle pose `enigme:<id>`. |
+| passage | `puzzle: "<id>"`, `puzzleLabel` | Le passage ouvre l'énigme. |
+| `story.dreams` | `[{ to, if, weight }]`, `story.dreamChance` | En arrivant sur un passage `reveil: true` (le matin), le moteur joue d'abord un rêve dont la condition tient, une fois chacun, un par nuit. Le rêve finit par `back: true`. |
+
+Pièges : un choix `test` sur une énigme compte aussi un usage pour la pratique ; une condition `after` lit un drapeau ou un passage vu, pas un indice (écrire `after: "enigme:<id>"` plutôt que l'id de l'indice). Les parties d'essai du validateur tapent la bonne réponse d'une énigme sept fois sur dix.
+
+## Le huis clos (15/11, 8.3) : versions, souvenirs, se taire, conscience, angoisse, attachements
+
+| Où | Clé | Sens |
+|---|---|---|
+| `story.topics` | `{ <id>: { title, solved } }` | Les sujets sur lesquels chacun donne sa version (« La nuit de l'étang »). `solved` : le drapeau qui dit la vérité connue ; l'onglet Versions montre alors, pour chaque version, si elle était vraie. |
+| `story.accounts` | `{ <id>: { by, topic, text, short, true, belie } }` | Une version, gardée mot pour mot dans l'onglet Versions. `by` : une personne de `people`, ou `"hero"` (ce dont le héros croit se souvenir). `true` : `true`, `false` ou `"partiel"`. `belie` : le passage joué quand on la met en doute devant celui qui l'a donnée. |
+| fx | `recit: "<version>"` | Le héros entend cette version (une ligne dans le fil : « La version d'Odile · … »). |
+| passage | `devant: "<personne>"` (ou liste) | Cette personne est en face du héros : pour chaque version d'elle que le lecteur a marquée « J'en doute » dans l'onglet Versions, le choix « Mettre en doute sa version : « … » » s'ajoute, une fois. |
+| passage | `seul: true` | Le héros est seul : il peut revenir sur sa propre version (si le lecteur en doute), et ce qu'il a fait lui revient (voir `gestes`). |
+| condition | `recit`, `doute`, `dementi` : `"<version>"` | Version entendue, marquée « J'en doute », mise en doute devant la personne. Le passage `belie` est joué avec le chemin `via: "doute"`. |
+| passage | `souvenir: "Il y a douze ans"` | Une scène du passé jouée au présent. L'horloge s'arrête (rien ne passe : ni temps, ni monde en marche, ni échéance, ni panique) ; `back: true` y devient « Revenir au présent », qui ramène à la page et à l'heure qu'on avait quittées. Ce qu'on choisit dans le souvenir reste (`set`, `trait`). Pas de `hub`, `routes` ni `place`. |
+| passage | `silence: { who, to \| back, label, fx, if, hide, via, takes }` | Quelqu'un attend une réponse : le choix « Te taire » s'ajoute (libellé `label`), en italique. Dans une scène `urgent` sans `timeout`, c'est lui qui est pris quand le temps est écoulé. |
+| condition | `{ silences: "<personne>" \| "*", min, max }` | Le nombre de silences gardés devant cette personne, ou en tout. |
+| `story.gestes` | `{ <id>: { name, poids, echoes: ["…" \| { text, if, tendre, else }] } }` | Ce que le héros a fait et qui lui pèse (fouiller, mentir, signer, brûler). Rien ne s'affiche sur le moment ; ensuite, sur un passage `seul` ou `reveil`, ou juste après un silence, une ligne d'écho revient en italique, chacune une fois, pas plus d'une tous les deux choix. |
+| fx | `geste: "<id>"` | Le héros l'a fait : `poids` s'ajoute au poids qu'il porte. |
+| condition | `{ geste: "<id>" }`, `{ poids: { min, max } }` | |
+| choix | `labels: [{ if, label }]` | Le même choix, dit autrement selon ce qui tient (par exemple selon le poids porté). |
+| `story.dread` | `{ name, start, max, trouble, sleep, mod: { from, per }, panic: { to, acts }, levels: [{ min, word }], say: { trouble, calm } }` | L'angoisse (0 à `max`). Au-delà de `trouble`, la page se trouble (les paragraphes `trouble` remplacent les `calme`, l'appli brouille légèrement le texte si le lecteur le veut), et un indice trouvé alors est marqué « noté dans le trouble ». À partir de `mod.from`, chaque point compte `per` aux jets. Le sommeil retire `sleep`. À `max`, la page suivante est `panic.to`. |
+| fx, condition | `angoisse: ±n` · `{ angoisse: { min, max } }` | |
+| paragraphe, choix | `trouble: true`, `calme: true` | Seulement quand le héros est troublé, ou calme. Les deux ensemble disent la même chose vue de deux façons. |
+| `story.attachments` | `{ <personne>: { tendre } }` | Les liens du héros (0 à 5), muets : jamais affichés comme un chiffre. `tendre: true` : ce lien peut devenir tendre. |
+| fx, condition | `attache: { <personne>: ±n }` · `{ attache: "<personne>", min, max }` | |
+| paragraphe, choix, passage | `tendre: true` (avec `else`) | Une ligne ou une scène tendre. Le lecteur choisit dans ses réglages de les montrer, de les rendre discrètes, ou de les masquer (alors `else` est dit à la place, et un choix tendre disparaît). |
+
+Pièges : une version n'est mise en doute qu'une fois ; le passage `belie` finit en général par `back: true`. Un souvenir ouvert depuis une page qui n'a qu'un seul choix y ramène : donner à cette page un retour (`back: true`) et cacher l'entrée du souvenir une fois vu. Les silences dans un souvenir comptent aussi.
+
+## À deux (15/11, 8.4) : secrets, apartés, interludes, accords avec l'autre joueur
+
+Pour une histoire à deux joueurs, un héros chacun (`multi`, voir GUIDE-MULTI.md). Le scénario déclare ; le moteur range les secrets, offre les aveux, joue les interludes et les fait passer d'un joueur à l'autre aux rendez-vous.
+
+| Où | Clé | Sens |
+|---|---|---|
+| `story.secrets` | `{ <id>: { title, text, aveu, say, if } }` | Ce qu'un héros cache à l'autre. `aveu` : la scène où il le dit (un passage sans acte ni lieu, qui finit par `back: true`). `say` : le libellé du choix (« Lui dire : <title> » sans lui). `if` : quand on peut le dire. |
+| fx | `secret: "<id>"` | Le héros porte ce secret (« Ce que tu caches »). |
+| fx | `surprend: "<id>"` | Le héros apprend le secret de l'autre dans son dos (« Ce que tu as surpris »). L'autre n'en sait rien, sauf si le scénario pose aussi une marque `monde:`. |
+| fx | `confier: "<id>"` | Le héros le dit à l'autre : la marque `monde:confie:<id>`, que l'autre joueur reçoit au rendez-vous suivant, avec une ligne « X t'a confié : … ». |
+| passage | `aparte: true` | Les deux héros sont seuls ensemble (une chambre, un refuge, un bac). Pour chaque secret que le héros garde encore et dont la scène d'aveu existe, le choix « Lui dire : … » s'ajoute ; la scène d'aveu revient à l'aparté. |
+| condition | `{ secret: "<id>" }` · `{ confie: "<id>" }` · `{ garde: "<id>" }` | Le héros le sait (le sien, surpris, ou confié par l'autre) · il a été dit · le héros le porte et ne l'a pas encore dit. |
+| `story.interludes` | `[{ act, to, if }]` | En entrant dans l'acte `act`, avant sa première page, le moteur joue le premier interlude dont la condition tient, une fois. Avec `if: { has: "role:…" }`, chaque joueur lit le sien. |
+| passage | `interlude: { who, where }` (ou `"Nom"`) | Une scène racontée du point de vue de quelqu'un d'autre (`who` : une personne de `people`, ou un nom). L'horloge s'arrête comme dans un souvenir ; `back: true` devient « Revenir à <héros> » et ramène à la première page de l'acte. Pas d'`act`, de `place`, de `hub` ni de fin. |
+| texte | `{autre:e}`, `{autre:il}`, `{autre:Il}`, `{autre:le}`, `{autre:lui}` | S'accordent avec le héros de l'autre joueur (« {autre} est assis{autre:e} »). À plusieurs autres : le pluriel ; seul : le masculin. |
+
+Onglet du carnet « Secrets » (seulement si l'histoire en déclare) : ce que tu caches (gardé ou dit), ce qu'on t'a confié, ce que tu as surpris. L'autre joueur ne le voit jamais.
+
+Le validateur joue une histoire à plusieurs en solo avec un **partenaire fantôme** : à chaque rendez-vous (nouvel acte, passage `charniere`), il pose au hasard des marques `monde:` que le scénario sait poser ailleurs que dans un choix du monde, et dit certains secrets, comme l'autre joueur aurait pu le faire. `node tests/multi-test.js` joue l'histoire à deux pour de vrai.
+
+Pièges : une scène d'aveu ou un interlude qui porterait `act` changerait l'acte du joueur et déclencherait un rendez-vous ; le validateur le refuse. Ce qu'un joueur fait n'arrive chez l'autre qu'au rendez-vous suivant : écrire les réactions de l'autre après une `charniere` ou un début d'acte. Ce qui ne regarde qu'un héros (« j'ai pris l'argent ») gagne à porter aussi une marque sans `monde:`, que le partenaire fantôme ne touche pas.
