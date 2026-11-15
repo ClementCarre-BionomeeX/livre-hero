@@ -564,6 +564,8 @@
     // Hidden words (8.5): the lenses, the veils written in the text, what the story says of them.
     Object.keys(story.lenses || {}).forEach(function (k) {
       var L = story.lenses[k], w = "Lentille « " + k + " »";
+      // The marks of 8.6 ({{fx:…}}, {{cle:…}}…) and the hidden words share the braces: a lens never takes their names.
+      if ((M.MARK_KINDS || {})[k]) E(w + " : ce nom est celui d'une balise de mots à effets ({{" + k + ":…}}) ; choisir un autre nom.");
       if (!L.name) E(w + " : il faut un nom (name).");
       if (!L.item && L.if == null) E(w + " : il faut un objet (item) ou une condition (if).");
       if (L.item && !items[L.item]) E(w + " : objet « " + L.item + " » inconnu.");
@@ -831,7 +833,7 @@
     // Returns the view when nothing was revealed (the caller reuses it: a view costs much on a long story), else null.
     function tryVeils(s, chance, rnd) {
       if (!story.lenses || !P[s.node]) return null;
-      var any = false, v0 = M.view(story, s), texts = v0.text.slice();
+      var any = false, v0 = M.view(story, s), texts = (v0.marked || v0.text).slice();
       (s.items || []).forEach(function (k) { var it = (story.items || {})[k]; if (it && it.text) texts.push(M.veilMark(story, s, it.text)); });
       M.veilsIn(texts).forEach(function (x) { if (x.state === "cache" && rnd() < chance && M.reveal(story, s, x.id)) any = true; });
       return any ? null : v0;

@@ -3704,7 +3704,7 @@
       .map(function (t) { return t[0] === "ville" && st.stocksTab ? [t[0], st.stocksTab] : t; });
   }
   // The notebook's tabs in four groups (8.5): past nine tabs, the group is chosen first, then the tab.
-  var TAB_GROUPS = [["toi", "Toi", ["heros", "sac", "quetes", "compagnons", "secrets"]], ["enquete", "L'enquête", ["indices", "soupcons", "tableau", "documents", "reconst", "versions"]],
+  var TAB_GROUPS = [["toi", "Toi", ["heros", "sac", "quetes", "compagnons", "secrets"]], ["enquete", "L'enquête", ["indices", "soupcons", "tableau", "documents", "voiles", "reconst", "versions"]],
     ["monde", "Le monde", ["gens", "carte", "ville", "conseil", "dettes", "liens", "codex", "mots"]], ["livre", "Le livre", ["journal", "frise", "marques", "notes", "exploits", "coulisses"]]];
   var TABS_FLAT = 9;
   function tabGroupOf(tab) { return (TAB_GROUPS.filter(function (g) { return g[2].indexOf(tab) >= 0; })[0] || TAB_GROUPS[0])[0]; }

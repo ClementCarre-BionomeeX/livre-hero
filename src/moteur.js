@@ -2913,7 +2913,7 @@
     }
     // Words with effects (8.6): the page draws v.marked; everything that reads (voice, search, the tale, the
     // validator) gets v.text without the marks. The hero's state may colour the page too (v.mood).
-    v.marked = v.text; v.text = v.text.map(function (t) { return plainOf(story, s, t); });
+    v.marked = v.text; v.text = v.text.map(function (t) { return unveil(plainOf(story, s, t)); }); // hidden words (9.0): as shown, without their marks
     var md0 = moodOf(story, s); if (md0) v.mood = md0;
     return v;
   }
