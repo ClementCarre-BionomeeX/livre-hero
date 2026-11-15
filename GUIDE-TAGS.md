@@ -388,3 +388,17 @@ Clément (15/11) : toutes les histoires démarrent dans l'action, et le lecteur 
 | `story.lore` | `names: { "Nom\|Variante": "phrase" }` | Les noms du monde (lieux, fêtes, ordres, monnaies, dieux). Le premier de chaque page est souligné en or et s'ouvre d'un toucher. La casse compte : « Rive » est un nom, « rive » reste un mot. La liste complète s'affiche sous la page dans le carnet. Réglage « Fiches du monde ». |
 
 Les noms suivent le glossaire : une seule fois par page, jamais dans un bouton, ni dans ce que lit la voix. Le validateur refuse une page sans titre ou sans texte et un nom sans sa phrase. Exemple : `tests/monde-test.js`.
+
+## Un livre à lire (15/11, 8.7) : `lecture`, `narrator`, `notice`
+
+Pour mettre dans l'appli un roman tel qu'il est écrit, sans choix (Clément, 15/11 : « Le Monde perdu » de Doyle). Le moteur enchaîne les passages dans l'ordre de leur déclaration : chaque passage sans choix reçoit un bouton « Suivant », ou le titre du chapitre suivant quand l'acte change ; le dernier passage finit le livre.
+
+| Où | Clé | Sens |
+|---|---|---|
+| `story` | `lecture: true` | Livre à lire. Pas de création de héros (le lecteur est le narrateur), pas de quêtes, de temps, de bourse, d'« À plusieurs ». « ← Page précédente » remplace « Choix précédent ». |
+| `story` | `narrator: "<personne>"` | Le narrateur, pris dans `people` : son nom et son genre servent au héros. |
+| `story` | `notice: { title, reminder, text: [...] }` | Notice de contexte, affichée en entier à l'ouverture et dans « À propos ». |
+| acte | `notice: true` | Le chapitre commence par le rappel court de la notice (`reminder`), avec « Relire la notice ». |
+| acte | `recap: "…"` | Résumé du chapitre, montré par « Où en étais-je ? » une fois le chapitre lu, et à la fin du chapitre. |
+
+Les tags habituels restent valables : `place` (la carte se remplit), `fx.meet` (noms touchables, portrait, allure et vêtements dans `people[].aspect`), `fx.item` (documents gardés), glossaire. Exemple en place : « Le Monde perdu » (`histoires/src/mondeperdu/`).
