@@ -121,7 +121,7 @@ Object.assign(P, {
     takes: "morning",
     text: [
       "Tu fais le tour des remparts par les jardins maraîchers, puis par les vasières, pieds nus, les bottes autour du cou. À l'aube, au port aux Sauniers, les gabares de Grisemotte attendent la marée devant la jetée : des coques larges, basses sur l'eau, chargées de sel gris jusqu'au plat-bord.",
-      "Le patron de *La Grise* est un homme sec à la peau tannée par le sel, qui s'appelle Ambrun et qui ne lève pas les yeux de sa corde. « Le sel entre, dit-il. Les gens, non. {{oreille#iv_ambrun|Le Guet fouille tout, ces jours-ci|Le Guet fouille ce que je lui montre, et le reste, il le paie à la Banque à moitié prix}}. »",
+      "Le patron de *La Grise* est un homme sec à la peau tannée par le sel, qui s'appelle Ambrun les yeux fixés sur sa corde. « Le sel entre, dit-il. Les gens, non. {{oreille#iv_ambrun|Le Guet fouille tout, ces jours-ci|Le Guet fouille ce que je lui montre, et le reste, il le paie à la Banque à moitié prix}}. »",
       "Sous la bâche de proue, les sacs du fond {{pie#iv_sel|sont du gros sel gris des bassins|cachent sous une couche de sel des sacs de blé de l'Orle, entrés sans octroi, qu'il vendra ce soir dix fois leur prix}}.",
       { with: "salome", text: "Salomé s'accroupit sur le quai à hauteur du patron et lui parle de marée, de vent et de fond de cale, sans hâte, comme une capitaine parle à un autre. Ambrun finit par lever les yeux." },
     ],
@@ -201,7 +201,7 @@ Object.assign(P, {
   IV_evasion_toits: { act: "IV", title: "Par le soupirail", place: "salveze",
     fx: { join: "fauvette", flag: "iv:fauvette_revenue", ep: ["seance", 1200] },
     text: [
-      { with: "fauvette", text: "Le soupirail a deux barreaux. Il n'en reste qu'un au bout d'un quart d'heure de lime, et Fauvette tire sur tes poignets comme on tire un seau d'un puits. Tu passes en t'écorchant les épaules. Dehors, la nuit, une gouttière, une corniche, un toit d'ardoise, puis un autre. Elle court devant toi sans se retourner." },
+      { with: "fauvette", text: "Le soupirail a deux barreaux. Au bout d'un quart d'heure de lime, il en reste un, et Fauvette tire sur tes poignets comme on tire un seau d'un puits. Tu passes en t'écorchant les épaules. Dehors, la nuit, une gouttière, une corniche, un toit d'ardoise, puis un autre. Elle court devant toi sans se retourner." },
       { with: "fauvette", text: "Sur un faîtage, au-dessus de la place, Fauvette s'arrête enfin, accroupie, et te regarde. Elle a maigri. Elle porte un brassard de chiffon rouge au bras. « Toute la ville parle de toi, dit-elle. {{oreille#iv_fauvette_ville|Ça m'a fait rire|J'ai eu peur pour toi tous les soirs, et je déteste avoir peur pour quelqu'un}}. »" },
       { with: "fauvette", if: { has: "fauvette:amie" }, text: "Elle te tape sur l'épaule, fort, pour ne pas avoir à faire autre chose. « Je viens avec toi. Les toits se débrouilleront sans moi un moment. »", else: "« Je viens avec toi, dit-elle. Tu me dois encore une part, de la dernière fois. »" },
       "Plus bas, devant le poste, les gardes découvrent le soupirail et crient, les yeux sur la rue. À Salvèze, on regarde la rue. Les toits appartiennent à ceux qui y montent.",
@@ -471,7 +471,7 @@ Object.assign(P, {
       { again: true, when: "night", text: "Le quai des Lanternes, la nuit. Personne pour allumer les lanternes. Une seule lumière, celle du Lumignon. Dans le canal vide, des lueurs de chandelles se déplacent au ras de la vase : les fouilleurs travaillent aussi la nuit." },
       { if: RECHERCHE, text: "Prosper Galabru te reconnaît. Il s'arrête de balayer un instant, regarde à droite, à gauche, et reprend son balai, plus lentement. « On a tout pris, dit-il à son balai. {{oreille#iv_prosper|Les pillards, les gens des Gouttières, je ne sais pas qui|Les gants gris de la Banque, qui cherchaient chez moi ce qu'Odeline aurait pu me confier, et qui ont cassé le reste pour qu'on croie à des pillards}}. »" },
       { if: { has: "mandat:leve" }, text: "Prosper Galabru te fait un signe de tête au passage, comme autrefois. Maître Lagrue soulève son chapeau." },
-      { after: "ivv:apolline_vivante", text: "Au pied de l'escalier d'eau, le vieux Fortuné ne fouille plus. Il est assis sur la dernière marche, ses jambes noires de vase au soleil, et il dicte une lettre à Maître Lagrue, qui a descendu sa table jusqu'à lui. Sur l'adresse, un seul mot : *Aveline*." },
+      { after: "ivv:apolline_vivante", text: "Au pied de l'escalier d'eau, le vieux Fortuné a cessé de fouiller. Il est assis sur la dernière marche, ses jambes noires de vase au soleil, et il dicte une lettre à Maître Lagrue, qui a descendu sa table jusqu'à lui. Sur l'adresse, un seul mot : *Aveline*." },
     ],
     choices: [
       { label: "La boutique d'Odeline, sous ses scellés", to: "IV_scelles" },
@@ -587,7 +587,7 @@ Object.assign(P, {
       { with: "lison", text: "Lison s'assied deux marches au-dessus de toi. « Le Gardien, dit-elle. Ma grand-mère savait qu'il était descendu en ville, cet hiver-là. » Elle serre les poings sur ses genoux. « Elle me l'a dit après. Après. »" },
       { with: "tibere", text: "Tibère, en haut, dit d'une voix enrouée : « J'ai écrit *accident* dans mon rapport. J'ai écrit *accident*, et j'ai pris l'argent de la Banque le même jour. »" },
       { with: "fauvette", text: "Fauvette, accroupie sur la marche du haut, a les yeux très ouverts. « Un moine, dit-elle tout bas. J'ai vu un moine sortir. C'était lui. »" },
-      { with: "salome", text: "Salomé descend trois marches et pose une main sur ton épaule, lourde, et l'y laisse. Elle connaît ce genre de nouvelle. Elle sait qu'il n'y a rien à dire dessus." },
+      { with: "salome", text: "Salomé descend trois marches et pose une main sur ton épaule, lourde, et l'y laisse. Elle connaît ce genre de nouvelle. Elle sait que les mots, là-dessus, ne servent à rien." },
       "Tu {{miroir#iv_apprend|as enfin le nom que tu cherchais|as enfin un coupable, et tu sens, honteusement, que ta phrase de dix heures pèse un peu moins lourd}}.",
     ],
     choices: [{ label: "Remonter dans la boutique", back: "IV_boutique" }] },
@@ -703,7 +703,7 @@ Object.assign(P, {
 
   IV_pujol: { act: "IV", title: "La pension Pujol", place: "salveze", backName: "la pension Pujol",
     text: [
-      { first: true, text: "La pension de Clarmonde Pujol est la maison collée à la boutique d'Odeline : trois étages de chambres à la semaine pour bateliers et commis. La porte est ouverte. Dans la salle du bas, Clarmonde fait cuire une soupe d'orties et de pain sec pour ses pensionnaires, une cuillère de bois dans une main et un chapelet dans l'autre. Elle te voit, lâche la cuillère, et ne la ramasse pas." },
+      { first: true, text: "La pension de Clarmonde Pujol est la maison collée à la boutique d'Odeline : trois étages de chambres à la semaine pour bateliers et commis. La porte est ouverte. Dans la salle du bas, Clarmonde fait cuire une soupe d'orties et de pain sec pour ses pensionnaires, une cuillère de bois dans une main et un chapelet dans l'autre. Elle te voit, lâche la cuillère, et la laisse par terre." },
       { again: true, text: "La salle basse de la pension Pujol, la soupe d'orties, le chapelet. Clarmonde te regarde entrer avec une sorte de soulagement fatigué." },
       { text: "« Je n'ai dit que ce que j'avais entendu, dit-elle tout de suite. La dispute. Dix heures. Toi qui criais, elle qui criait, et la porte. Tout le quai vous a entendus. » Elle s'essuie les mains sur son tablier, plusieurs fois. « Ensuite j'ai dormi. J'ai dit ça au Guet, {{oreille#iv_pujol_heure|et c'est tout ce qu'il y avait à dire|et j'ai tu la voix d'homme de minuit, à travers le mur, parce que le monsieur aux gants gris m'a dit que ça compliquerait tout, et m'a payé mon terme}}. »" },
       { after: "iv:pujol_aide", text: "Ça sent le lard, dans la soupe d'orties. Clarmonde t'en sert une écuelle d'office et reste debout à te regarder la manger, comme Odeline le faisait." },
@@ -785,7 +785,7 @@ Object.assign(P, {
     text: [
       { outcome: "lose", text: "Tu le suis trop près. Dans la cour du Lumignon, il se retourne, te reconnaît, pousse un cri de chat et s'enfuit par la ruelle. Tu montes quand même l'escalier de bois jusqu'à sa porte, qui ferme mal." },
       "La soupente au-dessus du Lumignon est une pente de toit sous laquelle on tient assis. Des perches d'allumeur, des mèches, un bidon d'huile, une chandelle. Une paillasse neuve, bourrée de paille fraîche, avec une couverture de laine qui sent encore le marchand. Un allumeur, une paillasse neuve.",
-      { if: { all: [{ not: { has: "iv:sauzet_fui" } }, { not: { seen: "IV_sauzet_spadassins" } }] }, text: "Sauzet ronfle dessus, tout habillé, ses bottes aux pieds. Il ne se réveille pas quand tu glisses la main dans la paille, sous sa tête.", else: "La soupente est vide. Quelqu'un l'a fouillée avant toi, sans soin, mais pas la paillasse : elle est neuve, et personne ne pense à fouiller ce qui est neuf." },
+      { if: { all: [{ not: { has: "iv:sauzet_fui" } }, { not: { seen: "IV_sauzet_spadassins" } }] }, text: "Sauzet ronfle dessus, tout habillé, ses bottes aux pieds. Il dort toujours quand tu glisses la main dans la paille, sous sa tête.", else: "La soupente est vide. Quelqu'un l'a fouillée avant toi, sans soin, mais pas la paillasse : elle est neuve, et personne ne pense à fouiller ce qui est neuf." },
       "Dans la paille, une feuille pliée en huit. Une quittance du comptoir du quai de la Banque Marrel. *Reçu de Théodore Sauzet, allumeur, la somme de trente ducats, qui solde sa dette de jeu envers la maison.* {{loupe#iv_quittance|Pour acquit, le commis du quai|Dette remise sans paiement, pour la déposition faite au Guet le troisième jour après les Lanternes, telle qu'elle lui a été dictée. Ne pas inscrire au grand livre. — L. B.}}",
     ],
     choices: [{ label: "Prendre la quittance et redescendre", hide: { item: "iv_quittance" }, fx: { item: "iv_quittance", ep: ["perso", 500] }, back: "IV_quai" }, { label: "Redescendre sans rien toucher", back: "IV_quai" }] },
@@ -1012,7 +1012,7 @@ Object.assign(P, {
   IVV_toits_mouchard: { act: "IV", title: "Pique-Prune", place: "salveze",
     fx: { flag: "ivv:mouchard", fac: { banque: -3 } },
     text: [
-      "Tu le dis à la Reine, à voix basse. Elle regarde Pique-Prune, qui porte toujours ses écuelles en souriant, et elle n'a pas besoin d'autre chose. Elle a pesé des voleurs toute sa vie. Elle fait un signe. Deux hommes prennent Pique-Prune sous les bras, gentiment, et l'emmènent dans la fabrique. Il continue de sourire, un moment, puis il arrête.",
+      "Tu le dis à la Reine, à voix basse. Elle regarde Pique-Prune, qui porte toujours ses écuelles en souriant, et cela lui suffit. Elle a pesé des voleurs toute sa vie. Elle fait un signe. Deux hommes prennent Pique-Prune sous les bras, gentiment, et l'emmènent dans la fabrique. Il continue de sourire, un moment, puis il arrête.",
       "Une heure plus tard, la Reine revient, et s'essuie les mains. « Dix ducats, dit-elle. L'heure de la relève, les passerelles du nord, la trappe du lavoir. Ils devaient passer par le lavoir. » Elle crache dans la soupe, puis se ravise et remue. « Il est vivant. Il a le nez de travers. Il ira vendre ailleurs. »",
       "« L'assaut viendra par le lavoir, dit-elle. Et nous, on y sera. Ou alors on n'y sera pas, et ils trouveront des pelles. »",
     ],
@@ -1069,7 +1069,7 @@ Object.assign(P, {
 
   IVV_toits_tenus: { act: "IV", title: "Les toits tenus", place: "salveze",
     text: [
-      "Les gants gris refluent par les escaliers, en portant leurs blessés. Le Guet, en bas, n'est même pas monté : les hallebardiers sont restés au pied des maisons, à regarder les tuiles tomber, et on dit qu'aucun n'a levé son arme. À midi, les tambours repartent. Les Gouttières tiennent.",
+      "Les gants gris refluent par les escaliers, en portant leurs blessés. Le Guet est resté en bas : les hallebardiers ont passé la matinée au pied des maisons, à regarder les tuiles tomber, et on dit qu'aucun n'a levé son arme. À midi, les tambours repartent. Les Gouttières tiennent.",
       "La Reine monte sur le toit de la fabrique, en robe de velours, et regarde la ville. « Ils reviendront, dit-elle. Mais ils ont appris le chemin du lavoir. Le prochain, on le changera. »",
       "Elle te met dans les mains un calice de vermeil enveloppé dans un torchon. « Volé à Saint-Rémoud pendant le feu des Halles. Je l'ai payé. Prends-le. Les Gouttières paient leurs dettes. » Le calice {{pie#iv_calice|est doré sur du cuivre, comme tout ce qu'on vole dans les chapelles|est de vermeil massif, et le pied porte gravé le nom de la donatrice, en lettres anciennes : Ysaure}}.",
       { if: { not: { present: "fauvette" } }, text: "Fauvette saute du toit d'en face, en sang au coude et radieuse. « Marché tenu, dit-elle. Je viens. »" },
@@ -1196,7 +1196,7 @@ Object.assign(P, {
   IVV_bannieres_rosalie: { act: "IV", title: "Rosalie", place: "salveze",
     fx: { meet: "rosalie" },
     text: [
-      "Rosalie ne lève pas les yeux de sa couture. Elle a des doigts rouges de piqûres, et le dé de fer lui fait une bague. « Je sais qui vous êtes, dit-elle. Votre tête est sur la porte du Beffroi. Mon père travaillait pour vous, à ce qu'on dit. » Elle tire son fil. « {{oreille#iv_rosalie_pere|Je ne lui parle plus, ça ne me regarde pas|Je demande de ses nouvelles à tous les gens d'Orle qui passent, et je fais semblant que c'est pour savoir s'il est mort}}. »",
+      "Rosalie garde les yeux sur sa couture. Elle a des doigts rouges de piqûres, et le dé de fer lui fait une bague. « Je sais qui vous êtes, dit-elle. Votre tête est sur la porte du Beffroi. Mon père travaillait pour vous, à ce qu'on dit. » Elle tire son fil. « {{oreille#iv_rosalie_pere|Je ne lui parle plus, ça ne me regarde pas|Je demande de ses nouvelles à tous les gens d'Orle qui passent, et je fais semblant que c'est pour savoir s'il est mort}}. »",
       "« La Banque me loge et me nourrit, dit-elle encore. Il y a des filles des Teinturiers qui mangent de l'herbe. Moi, j'ai du pain blanc, et un lit dans les combles de l'hôtel Marrel, avec trois autres. On {{oreille#iv_rosalie_marrel|est bien traitées, il faut le dire|ferme la porte des combles à clé le soir, de l'extérieur, et le garde du seuil dort devant}}. »",
       { with: "tibere", text: "Tibère s'est approché, à trois pas. Rosalie l'a vu entrer. Elle coud plus vite. « Bonjour, papa », dit-elle sans lever les yeux, d'une voix plate. Tibère ouvre la bouche, la referme, et tourne son chapeau entre ses mains." },
       { with: "tibere", text: "« Tu manges bien ? » dit-il enfin. Rosalie pose son aiguille. Elle le regarde, pour la première fois. « Mieux que toi, à ce que je vois. » Puis elle reprend son aiguille, et ses yeux sont mouillés, et elle coud quand même, droit." },
