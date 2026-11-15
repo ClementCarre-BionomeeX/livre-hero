@@ -24,7 +24,7 @@ module.exports = {
     text: [
       "Tu ranges la lettre du vieux dans ton gilet. Le vieux Vellard se trompe peut-être sur la digue. Il a peut-être raison. Dans les deux cas, ta laine est au bord de la Sorge, dans trois entrepôts de briques, et elle vaut quarante mille écus.",
       "« Pernelle. Envoyez le valet réveiller Gervais, aux Foulons. Qu'il prenne ses hommes, toutes les charrettes de la fabrique, et qu'il monte la laine dans les greniers de la Côte. Cette nuit. »",
-      "Pernelle Daguet écrit l'ordre sans lever les yeux. Puis elle demande : « Et la clé, Monsieur ? »",
+      "Pernelle Daguet écrit l'ordre, les yeux sur la feuille. Puis elle demande : « Et la clé, Monsieur ? »",
     ],
     choices: [
       { label: "La ranger au coffre, et descendre surveiller le chargement", to: "C_gervais", fx: { time: 1.25 } },
@@ -56,11 +56,11 @@ module.exports = {
       "Gervais monte la Côte à huit heures, couvert de boue. Il a sauvé sa femme et un petit-fils par la fenêtre du grenier. Les trois autres, il les cherche encore.",
       "Il s'arrête devant toi. Il regarde les greniers. Il compte, lui aussi : douze charrettes, trente hommes, une nuit entière, à un quart d'heure de la rue du Lavoir.",
       "« Lyon », dit-il.",
-      "Il s'en va. Toute la ville connaîtra l'histoire avant midi : le premier drapier a sauvé sa laine cette nuit, en sachant, et il a laissé dormir les gens. Le Conseil se réunit dans une ville qui compte ses morts. Personne ne prononce ton nom pour la Charge des Vannes. Ta laine se vend très bien cet hiver-là, à cause de la disette.",
+      "Il s'en va. Toute la ville connaîtra l'histoire avant midi : le premier drapier a sauvé sa laine cette nuit, en sachant, et il a laissé dormir les gens. Le Conseil se réunit dans une ville qui compte ses morts. Pour la Charge des Vannes, ton nom reste dans les gorges. Ta laine se vend très bien cet hiver-là, à cause de la disette.",
     ] },
   C_gervais_verite: { act: A, title: "À voix basse", place: "foulons", fx: { time: 0.25 },
     text: [
-      "Tu le prends par le bras, à l'écart, sous l'auvent. Tu lui dis la digue, la fissure, le vieux Vellard, l'orage. Tu lui dis que tu ne sais pas si c'est vrai.",
+      "Tu le prends par le bras, à l'écart, sous l'auvent. Tu lui dis la digue, la fissure, le vieux Vellard, l'orage. Tu lui dis que tu ignores si c'est vrai.",
       "Gervais écoute sans t'interrompre. Puis il lève les yeux vers les fenêtres où les femmes regardent.",
       "« Douze charrettes, Monsieur. Elles portent quarante balles chacune. Ou bien vingt personnes, avec les vieux et les petits. » Il attend. « Je vous demande lesquelles. Je vous demande pas pourquoi. »",
     ],
@@ -75,7 +75,7 @@ module.exports = {
       "Le quartier est vivant. Il a tout perdu, et toi aussi : la saison entière, quarante mille écus.",
       "À huit heures, au Conseil, Dame Hesdin te regarde entrer. Tu as de la boue jusqu'aux genoux.",
       "« On dit que vous avez vidé les Foulons cette nuit, Corlay. Avec vos charrettes. » Elle croise les mains. « Et la clé des vannes ? Elle était où, pendant ce temps ? »",
-      "Elle était dans ton coffre. Toute la nuit. Tu as sauvé les gens et laissé partir la digue. La ville te remerciera pour les uns. Elle te demandera des comptes pour l'autre, et tu n'as pas fini de répondre.",
+      "Elle était dans ton coffre. Toute la nuit. Tu as sauvé les gens et laissé partir la digue. La ville te remerciera pour les uns. Elle te demandera des comptes pour l'autre, et tu en as pour longtemps à répondre.",
     ] },
   C_gervais_digue: { act: A, title: "Le contremaître et la clé", place: "berge", fx: { flag: "foulons:leves", time: 1.5 },
     text: [
@@ -87,9 +87,9 @@ module.exports = {
     choices: [{ label: "Attendre le jour avec le quartier, sur le parvis", to: "C_fouleur", fx: { time: 2 } }] },
   C_fouleur: { act: A, title: "Ce que dit le quartier", place: "hauteville", end: true, fx: { time: 2.5 },
     text: [
-      "Au jour, il pleut à verse. La Sorge monte d'un mètre et demi. Les Foulons ont de l'eau jusqu'aux fenêtres basses, et personne dedans. La digue tient.",
+      "Au jour, il pleut à verse. La Sorge monte d'un mètre et demi. Les Foulons ont de l'eau jusqu'aux fenêtres basses, et les maisons sont vides. La digue tient.",
       "Gervais remonte à huit heures, les mains en sang, avec son fils. Le garde-vannes a tourné la clé. La rousse, Matthieu et lui ont tourné la roue. Quarante tours.",
-      "Au Conseil, on te fait un triomphe. Le premier drapier a vidé ses entrepôts pour monter les gens, il a envoyé ses propres hommes à la vanne, il a perdu sa laine. Tu ne démens rien. On vote. Six voix pour toi, et Dame Hesdin aussi.",
+      "Au Conseil, on te fait un triomphe. Le premier drapier a vidé ses entrepôts pour monter les gens, il a envoyé ses propres hommes à la vanne, il a perdu sa laine. Tu laisses dire. On vote. Six voix pour toi, et Dame Hesdin aussi.",
       "Le soir, Gervais vient au cabinet chercher la paie de ses hommes pour la nuit. Il la compte devant toi.",
       "« Vous avez eu la clé dans la poche depuis dix heures, Monsieur. » Il range l'argent. « Moi je le sais. Vous, vous le savez. Ça fait deux. On verra combien ça fait dans vingt ans. »",
     ] },
@@ -106,8 +106,8 @@ module.exports = {
     choices: [{ label: "Partir par le plateau", to: "C_carriers" }] },
   C_carriers: { act: A, title: "Le chemin des carriers", place: "lac", fx: { time: 1.25 },
     text: [
-      "Le chemin des carriers longe le lac par le haut, dans les sapins. La voiture cahote dans les ornières. Le vent se lève vers une heure, et il fait claquer la capote.",
-      "Tassin parle tout le long de la route. Il parle de ses calculs, des plans de Ferréol, des coefficients de la pierre. Il parle de sa mère, qui l'empêchait d'aller à la rivière quand il était petit. Puis il se tait, et il regarde le lac en contrebas, noir, immense, plus haut que tu ne l'as jamais vu.",
+      "Le chemin des carriers longe le lac par le haut, dans les sapins. La voiture cahote dans les ornières. Le vent se lève vers une heure et fait claquer la capote.",
+      "Tassin parle tout le long de la route. Il parle de ses calculs, des plans de Ferréol, des coefficients de la pierre. Il parle de sa mère, qui l'empêchait d'aller à la rivière quand il était petit. Puis il se tait, et il regarde le lac en contrebas, noir, immense, plus haut que tu l'aies jamais vu.",
       "Pernelle Daguet écrit à la lueur de la lanterne. Tu te demandes comment elle fait, avec les cahots.",
       "Au bout du chemin, la digue, et à son bout la Maison des Vannes. Une seule lanterne à la fenêtre.",
     ],
@@ -118,7 +118,7 @@ module.exports = {
       "« Maître Tassin. Vous venez enfin voir mes suintements. »",
       "L'escalier de service descend en colimaçon dans la pierre, si étroit que tes épaules frottent. En bas, la galerie est noyée jusqu'à la taille. L'eau est glacée. Le vieux marche devant avec la lanterne. Tassin te suit, puis Pernelle, la robe relevée dans une main et l'écritoire dans l'autre.",
       "À l'endroit des plâtres, le vieux lève la lanterne. La pierre pleure par une fente longue comme un homme couché. On entend l'eau passer derrière, un bruit sourd, continu.",
-      "Tassin ne bouge plus. L'eau lui arrive à la poitrine. Ses gants de chevreau flottent devant lui.",
+      "Tassin reste figé. L'eau lui arrive à la poitrine. Ses gants de chevreau flottent devant lui.",
     ],
     choices: [
       { label: "Lui prendre la main, et la poser sur la pierre", test: { dom: "social", diff: 0, label: "Le tenir debout" }, win: { to: "C_tassin_main" }, lose: { to: "C_tassin_fuit" } },
@@ -141,7 +141,7 @@ module.exports = {
     text: [
       "La chambre de la vanne. La roue de fer à douze rayons. Le vieux tourne la clé dans le moyeu, et il prend un rayon lui-même, ses mains maigres posées bien à plat.",
       { if: { has: "corlay:tassin_vu" }, text: "Tassin prend le rayon d'en face. Il a ôté ses gants. Ses mains sont blanches et molles, des mains de bureau, et elles saignent au cinquième tour." },
-      { if: { has: "corlay:tassin_fui" }, text: "Pernelle prend le rayon d'en face. Elle pèse cinquante kilos. Elle pousse avec tout son corps, les dents serrées, et elle ne dit rien." },
+      { if: { has: "corlay:tassin_fui" }, text: "Pernelle prend le rayon d'en face. Elle pèse cinquante kilos. Elle pousse avec tout son corps, les dents serrées, sans un mot." },
       "Tu pousses le troisième rayon. La roue avance d'un pouce, puis d'un autre. Au quinzième tour, la digue rugit sous vos pieds et l'eau se met à hurler dans le conduit de fond.",
       "Au quarantième, il est quatre heures et demie. Il pleut au-dehors. Le lac commence à descendre.",
       { if: { has: "corlay:tassin_fui" }, text: "En remontant l'escalier, tu trouves Tassin assis sur la dernière marche, trempé, les gants à la main. Il s'est arrêté là. Il te regarde passer sans un mot." },
@@ -162,7 +162,7 @@ module.exports = {
     ] },
   C_ingenieur: { act: A, title: "Deux rapports sur la table", place: "hauteville", end: true, fx: { time: 2 },
     text: [
-      "À huit heures, maître Tassin se lève devant le Conseil des Sept Maisons. Il a les mains bandées. Il pose ses deux rapports sur la table ovale, le premier à gauche, le second à droite, et il les lit l'un après l'autre de la même voix.",
+      "À huit heures, maître Tassin se lève devant le Conseil des Sept Maisons. Il a les mains bandées. Il pose ses deux rapports sur la table ovale, le premier à gauche, le second à droite, et il les lit l'un après l'autre, de la même voix.",
       "Le second dit qui a demandé le premier, et quand. Il dit ton nom.",
       "Tu restes assis. Tu sens les six autres se tourner vers toi. Tu reconnais tout. Tu dis seulement : « J'ai demandé un rapport avant le vote. J'ai eu celui que je voulais. Cette nuit, je suis allé voir. »",
       "Dame Hesdin te regarde longtemps. Puis elle dit : « C'est la première fois que vous allez voir, Corlay. Il est encore temps pour une première fois. Pour vingt ans, il en faut davantage. »",
@@ -174,7 +174,7 @@ module.exports = {
       "À huit heures, au Conseil, tu racontes la nuit : le mur, la roue, le lac qui descend. Tu dis que ton ingénieur s'était trompé, que tu as eu des doutes, que tu es allé voir. Tassin est assis au fond de la salle. Il hoche la tête quand tu le nommes.",
       "On vote. Cinq voix pour toi. Dame Hesdin et le vieux Rouvray contre.",
       "Le soir, Tassin vient te voir au cabinet. Il reste debout. Il demande la feuille. Tu lui réponds qu'elle est dans ton coffre, avec d'autres papiers, et qu'elle y est bien.",
-      "Il comprend. Il travaillera pour la Charge des Vannes vingt ans. Il descendra dans la galerie chaque mois, maintenant, et il signera ce que tu lui diras de signer. Toi, tu as la Charge, et un ingénieur qui ne pourra jamais te dire non. Pernelle Daguet range la copie qu'elle a faite de la feuille, ce matin-là, dans son propre pupitre.",
+      "Il comprend. Il travaillera pour la Charge des Vannes vingt ans. Il descendra dans la galerie chaque mois, désormais, et il signera ce que tu lui diras de signer. Toi, tu as la Charge, et un ingénieur qui ne pourra jamais te dire non. Pernelle Daguet range dans son propre pupitre la copie qu'elle a faite de la feuille, ce matin-là.",
     ] },
 
   // ------------------------------------------------------------------ the key handed to Pernelle
@@ -198,7 +198,7 @@ module.exports = {
     choices: [{ label: "Te lever, au jour", to: "C_secretaire" }] },
   C_secretaire: { act: A, title: "Le pupitre vide", place: "hauteville", end: true, fx: { time: 2 },
     text: [
-      "Au jour, le lac est plus bas d'un mètre. On le voit du salon : une bande de vase claire tout autour, comme un cerne.",
+      "Au jour, le lac a baissé d'un mètre. On le voit du salon : une bande de vase claire tout autour, comme un cerne.",
       "Pernelle Daguet rentre à sept heures, trempée, les mains écorchées. Elle pose la clé sur ton bureau. Elle s'assoit à son pupitre et elle ouvre son registre.",
       "« La passeuse, le garde-vannes et moi, Monsieur. Quarante tours. J'ai inscrit la nuit au compte de la maison, à la ligne des frais extraordinaires. »",
       "À huit heures, au Conseil, tu poses la clé sur la table ovale. Tu dis qu'elle a été saisie sur le pont, sur ton ordre, et rendue cette nuit, sur ton ordre aussi. On te demande pourquoi tu as changé d'avis. Tu réponds que ta secrétaire t'a montré tes comptes.",
@@ -208,7 +208,7 @@ module.exports = {
   // ------------------------------------------------------------------ the garden door, from the stairs
   C_escalier: { act: A, title: "La lumière du cabinet", place: "hauteville", fx: { time: 0.25 },
     text: [
-      "Tu ne dors pas. Une lumière passe sous la porte de la chambre, dans le couloir, puis descend. Tu te lèves sans réveiller Aude.",
+      "Le sommeil te fuit. Une lumière passe sous la porte de la chambre, dans le couloir, puis descend. Tu te lèves sans réveiller Aude.",
       "Du palier, tu vois le cabinet ouvert. La carte de la vallée est poussée sur le côté. Le coffre est ouvert. Pernelle Daguet en sort la toile cirée, avec des gestes précis, sans hâte, comme elle range un dossier.",
       "Elle descend l'escalier de service. Tu la suis jusqu'à la fenêtre du palier. En bas, dans la rue, sous une lanterne, il y a un homme large d'épaules avec une manche de sergent. Pernelle ouvre la porte du jardin. Elle lui met le paquet dans les bras.",
     ],
@@ -222,11 +222,11 @@ module.exports = {
       "Rambert arrive à une heure avec six hommes. Il cherche le sergent dans toute la Haute-Ville. À deux heures, on lui dit qu'un cheval du guet est sorti par la poterne. Rambert envoie deux cavaliers derrière.",
       "Tu attends au salon, à la fenêtre, toute la nuit. À trois heures et demie, au bout de la vallée, la lumière de la Maison des Vannes devient deux lumières, puis trois.",
       "À quatre heures, la pluie. À cinq heures, l'eau monte dans la Sorge, haute et brune. Les Foulons sont noyés jusqu'aux fenêtres basses. La digue tient.",
-      "Au Conseil, à huit heures, tu dis qu'on t'a volé la clé des vannes cette nuit, chez toi, par ta propre secrétaire, avec la complicité d'un sergent du guet. Dame Hesdin te demande ce que la clé faisait dans ton coffre. Tu gardes pour toi la seule réponse vraie. Pernelle Daguet est en prison jusqu'au procès. Au procès, elle apporte ses registres.",
+      "Au Conseil, à huit heures, tu dis qu'on t'a volé la clé des vannes cette nuit, chez toi, par ta propre secrétaire, avec la complicité d'un sergent du guet. Dame Hesdin te demande ce que la clé faisait dans ton coffre. Tu gardes pour toi la seule réponse vraie. Pernelle Daguet reste en prison jusqu'au procès. Au procès, elle apporte ses registres.",
     ] },
   C_silence: { act: A, title: "Ce que tu n'as pas vu", place: "hauteville", end: true, fx: { time: 6.5 },
     text: [
-      "Tu remontes l'escalier, une marche après l'autre, en évitant la septième, qui grince. Tu te recouches. Aude dort sur le côté, le visage vers le mur.",
+      "Tu remontes l'escalier, une marche après l'autre, en enjambant la septième, qui grince. Tu te recouches. Aude dort sur le côté, le visage vers le mur.",
       "Tu entends la porte du jardin se refermer, très doucement. Puis, longtemps après, le galop d'un cheval sur les pavés de la rue Haute.",
       "À quatre heures, la pluie. Au jour, le lac a baissé d'un mètre. Tu le vois du salon, en buvant ton café.",
       "Au cabinet, la carte est remise droite sur le mur. Pernelle est à son pupitre. Elle te dit bonjour. Tu lui dis bonjour. Le coffre est fermé.",
@@ -239,14 +239,14 @@ module.exports = {
     text: [
       "Tu prends la clé au coffre. Aude prend ton bras. Vous remontez à pied la rue Haute, sous une seule lanterne, jusqu'à la maison à l'enclume.",
       "Dame Hesdin vous reçoit en robe de chambre, une canne à la main, furieuse d'être réveillée. Elle voit Aude. Elle se calme un peu. Elle voit la clé. Elle s'assoit.",
-      "Tu parles. Cette fois, tu dis tout, dans l'ordre, la séance d'il y a trois ans, le rapport, le pont. Aude se tient derrière toi. Tu sens sa main entre tes omoplates, à plat, comme pour t'empêcher de reculer.",
+      "Tu parles. Cette fois, tu dis tout, dans l'ordre : la séance d'il y a trois ans, le rapport, le pont. Aude se tient derrière toi. Tu sens sa main entre tes omoplates, à plat, comme pour t'empêcher de reculer.",
       "Quand tu as fini, Dame Hesdin se tourne vers Aude. « Vous l'avez amené. » Puis vers toi. « Vous voulez que je fasse quoi, à une heure du matin, avec une clé et soixante-dix ans ? »",
     ],
     choices: [{ label: "« Vous avez quarante forgerons. Moi, j'ai des fouleurs qui dorment aux Foulons. »", to: "C_forgerons" }] },
   C_forgerons: { act: A, title: "Les forges", place: "berge", fx: { flag: "foulons:leves", time: 3 },
     text: [
       "Dame Hesdin fait sonner la cloche des forges. À une heure et demie, quarante hommes en tablier de cuir sont dans sa cour, avec des torches. Elle donne la clé à son maître fondeur, un colosse qui s'appelle Barthélemy, et six hommes avec lui pour la berge. Les autres descendent aux Foulons, frapper aux portes.",
-      "Tu descends avec eux. Personne ne te le demande. Tu frappes aux portes de la rue des Teinturiers avec les forgerons, en habit de soirée. Des gens qui ne t'ont jamais vu que de loin, sur ton cheval, t'ouvrent en chemise et te reconnaissent.",
+      "Tu descends avec eux, sans qu'on te le demande. Tu frappes aux portes de la rue des Teinturiers avec les forgerons, en habit de soirée. Des gens qui t'ont toujours vu de loin, sur ton cheval, t'ouvrent en chemise et te reconnaissent.",
       "À trois heures et quart, au bout de la vallée, trois lanternes. À quatre heures, la pluie. À cinq heures, la Sorge monte, brune, jusqu'aux fenêtres basses. Les Foulons sont vides. La digue tient.",
     ],
     choices: [{ label: "Monter au Conseil, à huit heures", to: "C_forges" }] },
@@ -256,6 +256,6 @@ module.exports = {
       "Dame Hesdin parle la première, et la dernière. Elle dit la nuit. Elle dit la séance d'il y a trois ans, et elle dit qu'elle s'est tue, elle aussi, après avoir voté contre. Elle dit que le président du Conseil est venu chez elle à une heure du matin avec la clé et sa femme, et qu'il a tout dit.",
       "Puis elle propose que la Charge des Vannes aille aux forges Hesdin pour cinq ans, le temps de vider le lac et de refaire la digue, et qu'on la rende ensuite à qui saura la tenir.",
       "On vote. Tu lèves la main pour elle. Aubrac et Malzieu te regardent, stupéfaits, et ils lèvent la main à leur tour, parce qu'ils ont toujours voté comme toi.",
-      "En sortant, Aude te prend le bras sur les marches de l'Hôtel. Tu as perdu la Charge, la laine de tes entrepôts, et sans doute la présidence au printemps. Tu marches à côté d'elle sous la pluie. Tu te sens léger, pour la première fois depuis trois ans, et tu ne sais pas encore quoi faire de cette légèreté.",
+      "En sortant, Aude te prend le bras sur les marches de l'Hôtel. Tu as perdu la Charge, la laine de tes entrepôts, et sans doute la présidence au printemps. Tu marches à côté d'elle sous la pluie. Tu te sens léger, pour la première fois depuis trois ans, et tu cherches encore quoi faire de cette légèreté.",
     ] },
 };
