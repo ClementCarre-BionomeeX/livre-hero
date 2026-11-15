@@ -23,7 +23,7 @@ module.exports = {
       "Tu te forces. Tu fixes le pont comme on fixe un adversaire dans un duel, sans ciller.",
       "Rien ne vient. Pas une image. Tu sais qu'il y a eu une bataille au pont de Lisse, la dernière de la guerre, le quatorze brumaire, il y a deux ans et demi. Tu sais que tu y étais, parce que c'est écrit dans tes états de service, et que tu as reçu pour ça la croix d'argent que tu ne portes jamais. Tu sais tout ce qu'on peut savoir de l'extérieur, comme un greffier connaît une affaire par le dossier. Au-dedans, tu trouves un trou propre, aux bords nets, comme taillé au couteau.",
       "La douleur monte, monte, et tu dois t'appuyer au créneau.",
-      "Gautier détourne les yeux. Il fait ça chaque fois que tu regardes le pont. Tu ne l'avais jamais remarqué.",
+      "Gautier détourne les yeux. Il fait ça chaque fois que tu regardes le pont. Tu le remarques pour la première fois.",
     ],
     choices: [{ label: "Descendre accueillir le cavalier", to: "YS_ordre" }] },
 
@@ -100,7 +100,7 @@ module.exports = {
   YS_gautier: { act: "I", title: "Gautier", place: "brenne",
     fx: { meet: "thibaut" },
     text: [
-      "Gautier panse la jambe d'un cheval dans la pénombre de l'écurie, accroupi, sa propre jambe raide tendue de côté, de sorte qu'on ne sait plus très bien lequel des deux il soigne. Il ne lève pas la tête quand tu entres.",
+      "Gautier panse la jambe d'un cheval dans la pénombre de l'écurie, accroupi, sa propre jambe raide tendue de côté, de sorte qu'on ne sait plus très bien lequel des deux il soigne. Il garde la tête baissée quand tu entres.",
       "« Hautvent, dit-il. Le petit Thibaut y est. Celui qu'on a porté déserteur le mois dernier. Il a une femme là-bas, une tisserande. Un enfant, je crois. » Il serre la bande. « Je vous le dis pour que vous ne soyez pas surprise. Moi, je n'aime pas qu'on me surprenne. »",
       "Tu t'appuies au montant de la stalle. « Gautier. Le pont de Lisse. »",
       "Ses mains s'arrêtent.",
@@ -195,7 +195,7 @@ module.exports = {
     fx: { clue: "n_boite" },
     text: [
       "Tu n'as pas entendu la porte. Il est là, sur le seuil, les mains dans les manches. Il reste calme, presque aimable. Il soupire.",
-      "« Capitaine. » Il entre, prend la boîte de plomb sous le linge noir, sans hâte, et l'entrouvre d'un doigt, juste un doigt, face à toi. Il en sort un froid, un souffle blanc. « Oubliez cette dernière minute. »",
+      "« Capitaine. » Il entre, prend la boîte de plomb sous le linge noir, sans hâte, et l'entrouvre d'un doigt, juste un doigt, face à toi. Il en sort un froid, un souffle blanc. « Oubliez ce dernier instant. »",
       "Tu es dans la cour. Tu as oublié pourquoi. Tu as froid aux mains, en plein juillet. Tu as l'impression d'avoir monté un escalier, quelque part, et de l'avoir descendu. Au-dessus de la porte, à la fenêtre de la chambre des hôtes, Frère Sévrin te regarde et te salue de la tête, poliment.",
       "Tu sais une chose, sans savoir comment tu la sais : il porte la neige dans une boîte.",
     ],
@@ -206,7 +206,7 @@ module.exports = {
     text: [
       "La chapelle de Brenne est petite et basse, douze pas sur six, avec un loup sculpté sur chaque chapiteau, huit loups en tout, dont un seul garde encore ses deux oreilles. Ton père est sous la troisième dalle, avec sa propre épée de bois sur la poitrine, comme il l'avait demandé : il disait que la vraie, celle de fer, devait servir encore.",
       { if: { souv: "ysolde:pere" }, text: "Tu la portes à ton côté. *Elle est lourde, pour que tu n'oublies jamais ce qu'elle coûte.* Tu avais huit ans. Tu pouvais à peine la soulever." },
-      { if: { not: { souv: "ysolde:pere" } }, text: "Tu portes son épée. Tu ne sais plus le jour où il te l'a mise en main. Tu sais seulement qu'elle est lourde." },
+      { if: { not: { souv: "ysolde:pere" } }, text: "Tu portes son épée. Le jour où il te l'a mise en main s'est effacé. Tu sais seulement qu'elle est lourde." },
       "Tu t'agenouilles. Prier, tu as toujours ignoré comment on fait. Tu parles. « Ils veulent que j'emmène un village entier à Pallanche, pour qu'on lui vide la tête. Les enfants aussi. Et la reine a signé. » Tu attends. « Tu aurais fait quoi, toi ? »",
       "Ton père se tait, comme il s'est toujours tu devant tes vraies questions. Il disait : *c'est toi qui commandes.*",
     ],
@@ -266,7 +266,7 @@ module.exports = {
       talk: { label: "« Rends-toi, et je te jure que ta sœur ne sera pas séparée de ses enfants. »", diff: -20, win: { fx: { conf: { rodric: 5 }, ep: ["perso", 800] }, to: "YS_rodric_rendu" } },
       win: { fx: { flag: "rodric:vaincu", ep: ["seance", 1500] }, to: "YS_rodric_vaincu" },
       lose: { fx: { flag: "rodric:vainqueur" }, to: "YS_rodric_vainqueur" } },
-    text: ["Il ne charge pas. Il attend, la hache basse, que tu viennes. Les trois cloches tintent à chaque respiration."] },
+    text: ["Au lieu de charger, il attend, la hache basse, que tu viennes. Les trois cloches tintent à chaque respiration."] },
 
   YS_rodric_rendu: { act: "I", title: "La hache dans l'herbe", place: "hautvent",
     text: [
@@ -329,7 +329,7 @@ module.exports = {
 
   YS_thibaut_rate: { act: "I", title: "La barque", place: "hautvent",
     text: [
-      "Ils sont à mi-chemin de la berge quand Sévrin lève la tête. Il ne crie pas. Il fait un signe, et deux gardes en noir, que tu n'avais pas vus arriver, sortent de derrière l'église et ramènent Thibaut et sa femme par le bras.",
+      "Ils sont à mi-chemin de la berge quand Sévrin lève la tête. Pas un cri : il fait un signe, et deux gardes en noir, que tu n'avais pas vus arriver, sortent de derrière l'église et ramènent Thibaut et sa femme par le bras.",
       "Sévrin ajoute un nom à sa liste. Puis il te regarde, longuement, et il écrit autre chose, au dos de la feuille. Tu sais que c'est ton nom.",
     ],
     choices: [{ label: "Former la colonne", fx: { flag: "ch:ysolde:1", resume: "YS_colonne" }, to: "C_carrefour" }] },
@@ -416,7 +416,7 @@ module.exports = {
 
   YS_ilse_faible: { act: "I", title: "Toute la nuit", place: null,
     text: [
-      "Tu la portes devant toi toute la journée, enroulée dans ton manteau. La fièvre ne tombe pas. Au soir, elle délire en corvannais, elle appelle son père, et Maëlle marche à côté de ta jument, la main sur la jambe de sa fille, sans dire un mot.",
+      "Tu la portes devant toi toute la journée, enroulée dans ton manteau. La fièvre tient bon. Au soir, elle délire en corvannais, elle appelle son père, et Maëlle marche à côté de ta jument, la main sur la jambe de sa fille, sans dire un mot.",
       "Au matin, Ilse vit. Elle pèse dans tes bras le poids d'un lièvre, et elle est faible comme un oiseau tombé du nid. Elle vivra, peut-être. Si on la laisse vivre, là où vous l'emmenez.",
     ],
     choices: [{ back: "@route" }] },
@@ -539,7 +539,7 @@ module.exports = {
       "Rodric passe à côté de ta jument. Il ne te regarde pas. Les trois cloches tintent. Maëlle passe, Ilse sur sa hanche. Ilse te fait un petit signe de la main.",
       "À la grille de la tour noire, des gardes en noir prennent la corde des mains de tes hommes. Les prisonniers entrent dans la cour, un par un. La grille se referme. Sévrin se retourne, te salue, et entre à son tour.",
       "On te loge au palais du gouverneur, en chambre d'honneur. On te fait savoir que la reine elle-même sera à Pallanche pour la Nuit des Cloches, et qu'elle souhaite te voir. Tu dînes seule devant six plats, et tu les renvoies intacts.",
-      "Ton devoir est fait. C'est la chose la plus facile que tu aies jamais faite, et tu ne dors pas de la nuit.",
+      "Ton devoir est fait. C'est la chose la plus facile que tu aies jamais faite, et la nuit entière passe sans sommeil.",
     ],
     choices: [{ label: "Attendre la Nuit des Cloches", to: "YS_fin" }] },
 
@@ -556,8 +556,8 @@ module.exports = {
 
   YS_deserte_suivent: { act: "I", title: "Les quarante", place: "pallanche",
     text: [
-      "Tu ne fais pas de discours. Tu dis seulement : « Je ne livre pas des enfants à une boîte. Ceux qui veulent rentrer à Brenne, rentrez, je ne vous en voudrai pas. Ceux qui veulent rester, restez. »",
-      "Personne ne rentre. Gautier le premier descend de cheval et se met à couper des cordes. Puis tous, l'un après l'autre.",
+      "Tu fais court. Tu dis seulement : « Je ne livre pas des enfants à une boîte. Ceux qui veulent rentrer à Brenne, rentrez, je ne vous en voudrai pas. Ceux qui veulent rester, restez. »",
+      "Tous restent. Gautier le premier descend de cheval et se met à couper des cordes. Puis tous, l'un après l'autre.",
       "Vous laissez Sévrin attaché à sa propre mule, bâillonné, à la porte de l'Est, avec sa liste sur les genoux. Les gens de Hautvent se dispersent dans les faubourgs, dans les champs, sur les routes du nord et de l'est. Rodric reste. Il te tend la main, et tu la prends.",
       "« Maintenant, dit-il, tu es une traîtresse, chevalière. Bienvenue chez nous. »",
       "Tu te caches dans Pallanche, dans une auberge de rouliers près des abattoirs, avec Gautier et une poignée d'hommes. Les autres se fondent dans la ville en fête. Tu as une seule idée : la reine sera là pour la Nuit des Cloches. Et tu veux la regarder en face.",
@@ -567,7 +567,7 @@ module.exports = {
   YS_deserte_divises: { act: "I", title: "Les quarante, moins vingt", place: "pallanche",
     text: [
       "La moitié de tes hommes te suit. L'autre moitié recule, fait tourner ses chevaux, et passe la porte de l'Est au galop. Ils vont donner l'alerte. Tu leur pardonnes d'avance. Ils ont des femmes, des enfants, des dettes de jeu. Tu connais leurs noms.",
-      "Vous avez le temps de couper les cordes et de disperser la colonne dans les faubourgs avant que les gardes noirs n'arrivent. Pas tous. Une trentaine de gens de Hautvent sont repris, là, sous tes yeux, et emmenés vers la tour. Tu ne peux rien faire.",
+      "Vous avez le temps de couper les cordes et de disperser la colonne dans les faubourgs avant que les gardes noirs n'arrivent. Pas tous. Une trentaine de gens de Hautvent sont repris, là, sous tes yeux, et emmenés vers la tour. Tu restes impuissante.",
       "Rodric, Maëlle et ses enfants sont avec toi, dans une auberge de rouliers près des abattoirs, avec Gautier. Rodric te regarde. « La moitié, dit-il. C'est déjà beaucoup plus que la dernière fois. »",
     ],
     choices: [{ label: "Attendre la Nuit des Cloches", fx: { join: "rodric" }, to: "YS_fin" }] },

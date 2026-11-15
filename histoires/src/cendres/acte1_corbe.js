@@ -14,7 +14,7 @@ module.exports = {
       "Tu te réveilles parce que les corbeaux se taisent. Ils crient toute la nuit, d'habitude, dans les pins au-dessus du camp, et ils se taisent seulement quand quelque chose de grand passe. Un ours. Un orage. Un mort.",
       "Tu sors de la tente en peau de renne. Il fait froid, d'un froid de mars, alors que juillet sur les Combes fait suer les rennes sous leur poil d'été. Et sur l'alpage, sur les tentes, sur les claies à viande, sur le dos des rennes qui ne bougent pas, il y a de la neige. Une neige fine, blanche, sèche, qui crisse sous le pied nu comme du sel.",
       "Elle ne fond pas. Le soleil se lève sur elle et elle ne fond pas.",
-      "Autour de toi, les tentes s'ouvrent, une à une. Personne ne crie. Les gens du Corbeau sortent, regardent, et tombent à genoux dans la neige. Hrodna, la cheffe, a déjà le visage peint. Elle te regarde, au-dessus de tout le clan agenouillé, et elle sourit pour la première fois depuis que tu la connais.",
+      "Autour de toi, les tentes s'ouvrent, une à une. Le camp reste silencieux. Les gens du Corbeau sortent, regardent, et tombent à genoux dans la neige. Hrodna, la cheffe, a déjà le visage peint. Elle te regarde, au-dessus de tout le clan agenouillé, et elle sourit pour la première fois depuis que tu la connais.",
       "« Elle vient, dit-elle. La Mère Blanche. Comme l'aïeule l'avait chanté. Et c'est toi qu'elle a choisie, Corbe. Dans trois jours, au col de l'Ourse. »",
     ],
     choices: [{ label: "Te mettre à genoux avec les autres", to: "CO_camp" }] }),
@@ -23,7 +23,7 @@ module.exports = {
     text: [
       "Le camp chante depuis l'aube. On a sorti les sept tambours, on a égorgé deux rennes, on brûle de la graisse et des genévriers, et la fumée monte droit : l'air est sans un souffle. Les enfants se roulent dans la neige. Les vieux pleurent. On te touche quand tu passes, les épaules, les cheveux, comme on touche une pierre sacrée.",
       { if: { has: "corbe:glaneur_vu" }, text: "Devant la tente de Hrodna, sur une peau de renne, des offrandes : des colliers, des couteaux, un tambour d'enfant. Et des bandes d'écorce où sont peints des signes. Des noms." },
-      "Ta mère, Askel, ne sort pas de sa tente.",
+      "Ta mère, Askel, reste dans sa tente.",
     ],
     choices: [
       { label: "Aller voir ta mère", to: "CO_askel", hide: { seen: "CO_askel" } },
@@ -62,7 +62,7 @@ module.exports = {
     fx: { meet: "ylva", questSeen: "CO_ylva" },
     text: [
       "Une femme crie, au bord de l'alpage, là où commence la neige épaisse qui monte vers le col. Sa fille, Ylva, sept ans, est partie dans la neige ce matin. Pour voir la Mère. On voit ses traces : des petits pieds nus qui montent tout droit. Tu t'accroupis et compares les premières aux suivantes : un pouce de profondeur au départ, la moitié cent pas plus haut, presque rien au bout. L'enfant s'allège en marchant.",
-      "Personne ne la suit. On dit que la Mère l'a prise. On dit que c'est un honneur.",
+      "Le clan la laisse aller. On dit que la Mère l'a prise. On dit que c'est un honneur.",
     ],
     choices: [
       { label: "Suivre les traces dans la neige", test: { dom: "nature", label: "Pistage" },
@@ -121,7 +121,7 @@ module.exports = {
     choices: [{ label: "Garder la lettre contre ta peau", to: "CO_camp" }] }),
 
   CO_lettre_feu: P({ title: "La cire jaune",
-    text: ["La cire fond, le vélin se tord et noircit, et pendant une seconde, avant de devenir cendre, des signes apparaissent en rouge dans les flammes. Tu ne sais pas les lire. Tu les regardes jusqu'au bout."],
+    text: ["La cire fond, le vélin se tord et noircit, et le temps d'un battement de cœur, avant de devenir cendre, des signes apparaissent en rouge dans les flammes. Tu ne sais pas les lire. Tu les regardes jusqu'au bout."],
     choices: [{ back: "CO_camp" }] }),
 
   // the night of the offerings: a Glaneur fed with names
@@ -163,7 +163,7 @@ module.exports = {
     text: [
       "La main se pose sur ton front. Tu penses à la neige de ton enfance, la vraie, celle qui mord, qui sent le fer, qui fond dans la bouche. Tu la tends, comme on tend un morceau de viande à un chien qu'on ne connaît pas.",
       "La main se retire. La chose te regarde. Puis elle passe à la suivante.",
-      "Tu ne sais plus ce que c'est, de la neige qui fond. Tu as beau chercher, tu ne trouves que celle-ci, blanche, sèche, qui crisse comme du sel. Il te semble que la neige a toujours été comme ça.",
+      "La neige qui fond a quitté ta mémoire. Tu as beau chercher, tu trouves seulement celle-ci, blanche, sèche, qui crisse comme du sel. Il te semble que la neige a toujours été comme ça.",
     ],
     choices: [{ back: "CO_camp" }] }),
 
@@ -219,8 +219,8 @@ module.exports = {
     text: [
       { before: "corbe:tire", text: "Au premier soir, tu rattrapes la chose. Elle est debout au milieu de la crête, immobile, face au sud. Tu bandes ton arc. Peut-être pour rien. Tu tires." },
       { after: "corbe:tire", text: "Au premier soir, tu rattrapes la chose. Elle est debout au milieu de la crête, immobile, face au sud. Tu bandes ton arc. Tu sais, depuis la veillée, que ça ne sert à rien. Tu tires quand même." },
-      "La flèche passe au travers et se plante dans la neige, un peu plus loin. La chose ne se retourne pas. Elle repart. Tu n'as pas le temps d'aller chercher ta flèche.",
-      { if: { has: "croise:fleche_corbe" }, text: "Le lendemain, quand tu reviens la chercher, elle n'est plus là. À sa place, des traces de chaussures de montagne, usées, qui suivent la chose, comme toi." },
+      "La flèche passe au travers et se plante dans la neige, un peu plus loin. La chose ne se retourne pas. Elle repart. Le temps te manque pour aller chercher ta flèche.",
+      { if: { has: "croise:fleche_corbe" }, text: "Le lendemain, quand tu reviens la chercher, elle a disparu. À sa place, des traces de chaussures de montagne, usées, qui suivent la chose, comme toi." },
       { if: { has: "croise:fleche_laissee" }, text: "Le lendemain, quand tu reviens la chercher, elle est toujours plantée là, droite. Mais quelqu'un est passé à côté, a fait le tour, et ne l'a pas touchée. Des chaussures de montagne, usées. Tu reprends ta flèche." },
     ],
     choices: [{ back: "@route" }] }),
@@ -249,7 +249,7 @@ module.exports = {
     choices: [{ back: "@route" }] }),
 
   CO_four_rate: R({ title: "Le levain",
-    text: ["Tu chantes. Il n'écoute pas. Il parle de levain, de pâte, d'enfourner avant l'aube. Tu repars, et sa voix te suit longtemps dans le vent, plus loin que tu ne l'aurais cru."],
+    text: ["Tu chantes. Il reste sourd. Il parle de levain, de pâte, d'enfourner avant l'aube. Tu repars, et sa voix te suit longtemps dans le vent, plus loin que tu ne l'aurais cru."],
     choices: [{ back: "@route" }] }),
 
   CO_bergers: R({ title: "Les bergers de la Sauve",
@@ -295,7 +295,7 @@ module.exports = {
 
   CO_bran_souvenir: P({ title: "Ce que tu lui donnes", place: "pallanche",
     text: [
-      "Tu ne sais pas comment on fait. Tu fais comme la chose, sur l'alpage : tu poses la main sur son front, au milieu de la foule, et tu penses à lui. Le grand frère qui portait les agneaux sur ses épaules. Le garçon qui riait des chants de l'aïeule. Celui qui est parti un matin d'automne sans dire au revoir, et dont tu as brûlé le nom, toi aussi, avec les autres, en chantant.",
+      "Tu ignores comment on fait. Tu fais comme la chose, sur l'alpage : tu poses la main sur son front, au milieu de la foule, et tu penses à lui. Le grand frère qui portait les agneaux sur ses épaules. Le garçon qui riait des chants de l'aïeule. Celui qui est parti un matin d'automne sans dire au revoir, et dont tu as brûlé le nom, toi aussi, avec les autres, en chantant.",
       "Tu le lui donnes. Tout.",
       "Il recule d'un pas. Il te regarde. Il dit : « Corbe. » Et il se met à pleurer, là, devant la porte du Nord, sa hallebarde à la main, devant les autres gardes qui ne savent pas où se mettre.",
       "Toi, tu regardes ce grand garde roux qui pleure. Il pleure, et la raison t'échappe. Tu sais que c'est à cause de toi.",
@@ -312,7 +312,7 @@ module.exports = {
     fx: { quest: "CO_rite", catchup: 4, catchupWhy: "la route des crêtes" },
     text: [
       "Tu dors cette nuit-là dans une écurie, près de la porte du Nord, parce que c'est l'endroit de la ville dont l'odeur rappelle le plus les Combes. Les cloches sonnent toutes les heures. Tu te réveilles à chaque fois, la main sur le couteau : onze fois avant l'aube, tu les as comptées.",
-      { if: { has: "corbe:voie_bran=oui" }, text: "Bran est venu, à la relève, s'asseoir à côté de toi dans la paille. Il n'a rien dit. Il est resté. Il ne sait pas pourquoi." },
+      { if: { has: "corbe:voie_bran=oui" }, text: "Bran est venu, à la relève, s'asseoir à côté de toi dans la paille. Il s'est tu. Il est resté. Pourquoi, il l'ignore." },
       { if: { has: "corbe:voie_bran=donne" }, text: "Bran dort à côté de toi, dans la paille, en uniforme noir, ta main dans la sienne. Tu ne sais pas qui il est. Tu sais qu'il ne faut pas la lâcher." },
       { if: { has: "corbe:voie_bran=non" }, text: "À la relève, le garde roux est passé devant l'écurie. Il a ralenti. Il a regardé la paille. Il est reparti." },
       { if: { has: "corbe:a_donne" }, text: "Il neige sur Pallanche, une neige sèche, qui crisse comme du sel. Tu ne connais que celle-là." },

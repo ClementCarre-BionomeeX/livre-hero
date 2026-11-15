@@ -47,7 +47,7 @@ module.exports = {
   II_G_pont: P({ title: "Le pont de la galère", place: "vasselin", hub: true,
     text: [
       { first: true, if: { has: "galere:entree=chant" }, text: "On te fait monter. On te montre la cabine, à la poupe : le capitaine t'attend pour le dessert. Tu dis que tu dois accorder ton luth, au calme. On te laisse sur le pont." },
-      { first: true, if: { has: "galere:entree=ancre" }, text: "Tu passes la lisse, ruisselante, et tu te glisses entre deux rouleaux de cordage. Personne ne t'a vue." },
+      { first: true, if: { has: "galere:entree=ancre" }, text: "Tu passes la lisse, ruisselante, et tu te glisses entre deux rouleaux de cordage. Ton passage est resté inaperçu." },
       { first: true, if: { has: "galere:entree=pie" }, text: "La trappe du gaillard s'ouvre. Pie te fait signe, un doigt sur les lèvres. Vous êtes dedans." },
       { if: { has: "galere:alerte" }, text: "L'alerte est donnée. Des pas, sous le pont. Il n'y a pas beaucoup de temps." },
       "Le pont est long et étroit. De chaque côté, les bancs, trente par bord, trois hommes par banc, et sur les bancs, les rameurs, enchaînés par la cheville, qui dorment assis, la tête sur la rame. Au milieu, la coursive, où marche le comite avec son fouet. À la poupe, la cabine. Sous tes pieds, la cale.",
