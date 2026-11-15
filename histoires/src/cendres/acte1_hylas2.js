@@ -64,7 +64,7 @@ module.exports = {
       "Un petit, au bout, plus petit que les autres, a une ligne sans hameçon. Tu lui demandes ce qu'il pêche. « Le nom de ma sœur, dit-il, sérieux. Elle l'a donné à la baraque grise, pour la taille. Le clerc a dit qu'il descendait la rivière jusqu'à Pallanche. Alors je le pêche quand il passe. »",
     ],
     choices: [
-      { label: "T'asseoir à côté de lui et pêcher aussi", fx: { ep: ["perso", 400], flag: "iv:ps_peche" }, to: "IV_ps_pont_peche" },
+      { label: "T'asseoir à côté de lui et pêcher aussi", fx: { ep: ["perso", 400] }, to: "IV_ps_pont_peche" },
       { label: "Lui dire que les noms ne descendent pas la rivière", to: "IV_ps_pont_verite" },
     ] }),
   IV_ps_pont_peche: P4({ title: "Une ligne sans hameçon", place: "pontsaule",

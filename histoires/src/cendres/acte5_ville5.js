@@ -15,7 +15,7 @@ module.exports = {
     ],
     choices: [
       { label: "Lire la lettre gardée, à voix haute, pour lui et pour toi", hide: { not: { has: "iv:lettre_gardee" } }, fx: { flag: "v:lettre_lue", ep: ["perso", 1000] }, to: "V_v_ecrivain_lire" },
-      { label: "Ouvrir la lettre d'Agathe", hide: { any: [{ not: { has: "iv:lettre_moulin" } }, { has: "iv:lettre_gardee" }] }, fx: { flag: "v:lettre_agathe", ep: ["perso", 1000] }, to: "V_v_ecrivain_agathe" },
+      { label: "Ouvrir la lettre d'Agathe", hide: { any: [{ not: { has: "iv:lettre_moulin" } }, { has: "iv:lettre_gardee" }] }, fx: { ep: ["perso", 1000] }, to: "V_v_ecrivain_agathe" },
       { label: "Lui dicter les noms de la queue que tu connais, pour qu'il les écrive", test: { dom: "savoir", label: "Les noms de la queue", help: [{ if: { seen: "V_q_bout" }, v: 15 }, { if: { has: "v:queue=vide" }, v: 10 }] },
         win: { fx: { flag: "v:ecrivain", ep: ["perso", 800] }, to: "V_v_ecrivain_noms" }, lose: { to: "V_v_ecrivain_blanc" } },
     ] }),

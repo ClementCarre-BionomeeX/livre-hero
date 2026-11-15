@@ -13,8 +13,8 @@ module.exports = {
       "« Sa Majesté l'a fait fermer, dit la vieille. Il y a deux ans. Ses visites ont cessé, ses questions aussi. Moi, je viens. Tous les matins. » Elle passe le plumeau sur le cheval de bois. « Il faut bien que quelqu'un vienne. »",
     ],
     choices: [
-      { label: "Demander à qui était la chambre", fx: { flag: "lisandre:nursery", ep: ["perso", 300] }, to: "LI_k_nursery_qui" },
-      { label: "Prendre le cheval de bois, et le faire basculer, une fois", fx: { flag: "lisandre:nursery", ep: ["perso", 300] }, to: "LI_k_nursery_cheval" },
+      { label: "Demander à qui était la chambre", fx: { ep: ["perso", 300] }, to: "LI_k_nursery_qui" },
+      { label: "Prendre le cheval de bois, et le faire basculer, une fois", fx: { ep: ["perso", 300] }, to: "LI_k_nursery_cheval" },
       { label: "Refermer doucement la porte, et la laisser à son ménage", to: "LI_cour" },
     ] }),
   LI_k_nursery_qui: P({ title: "La gouvernante",

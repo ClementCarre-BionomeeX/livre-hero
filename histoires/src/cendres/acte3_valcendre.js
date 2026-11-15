@@ -48,7 +48,6 @@ module.exports = {
     choices: [{ fx: { pv: 4, flag: "iii:pomme" }, back: "III_v_porte" }] }),
 
   III_v_statues: P({ title: "Les cinq", place: "valcendre",
-    fx: { flag: "iii:statues" },
     text: [
       "Au milieu de la grand-place, sur un socle de pierre noire, cinq statues de glace. Cinq personnes, grandeur nature, debout, dos à dos, comme pour se défendre.",
       "Un homme en armure, avec une tour sur le plastron. Une femme corpulente, avec une gerbe brodée sur la manche. Un homme maigre, en manteau de marin, avec une barque au pommeau de son poignard. Un chevalier jeune, avec un cerf sur l'écu. Et un homme en robe longue, tenant une plume et une clé.",
@@ -73,7 +72,7 @@ module.exports = {
       "« Les murs ne servaient à rien, dit-il dans sa langue, et tu traduis. Ils sont venus par la rivière, de nuit, avec le feu. Le chevalier au cerf est entré le premier. » Il regarde Ysolde. « Il te ressemble. »",
       "Ysolde lui rend son salut, la main ouverte sur le cœur. Elle se tait.",
     ],
-    choices: [{ fx: { flag: "iii:ysolde_remparts", conf: { ysolde: 5 } }, back: "III_v_porte" }] }),
+    choices: [{ fx: { conf: { ysolde: 5 } }, back: "III_v_porte" }] }),
 
   III_v_lisandre: P({ title: "Les chœurs", place: "valcendre",
     text: [
@@ -82,7 +81,7 @@ module.exports = {
       { if: { souv: "lisandre:voix" }, text: "Elle chante avec sa vraie voix. Rauque, trop grave. Ici, c'est la voix qui va." },
       { if: { not: { souv: "lisandre:voix" } }, text: "Elle chante juste, et beau, comme à la cour. La vieille femme l'écoute, et secoue la tête, doucement, avec tristesse : il manque quelque chose. Lisandre le sait." },
     ],
-    choices: [{ fx: { flag: "iii:lisandre_choeur", conf: { lisandre: 5 } }, back: "III_v_porte" }] }),
+    choices: [{ fx: { conf: { lisandre: 5 } }, back: "III_v_porte" }] }),
 
   III_v_corbe: P({ title: "Celle qui cherche", place: "valcendre",
     text: [
@@ -110,7 +109,7 @@ module.exports = {
     choices: [{ label: "Attendre", to: "III_v_ardael" }] }),
 
   III_v_ardael: P({ title: "Ardaël", place: "valcendre",
-    fx: { meet: "ardael", flag: "iii:ardael" },
+    fx: { meet: "ardael" },
     text: [
       "« Je t'ai donné à ta mère, dit-il, et ta mère t'a donné au monde. Je lui en ai voulu. Je lui en veux encore. » Sa voix est grave, très douce, et elle fait trembler les colonnes. « Tu étais le premier. Le premier de nous à naître ici en trois cents ans. Elle disait que tu méritais le soleil. »",
       "Il lève la main, et il la pose sur ta tête, comme on bénit.",
@@ -121,7 +120,7 @@ module.exports = {
     ],
     choices: [
       { label: "« Pourquoi la neige ? Pourquoi Sauvelune ? »", to: "III_v_pourquoi" },
-      { label: "« Je ne suis pas d'ici. Je suis de Sauvelune. »", fx: { flag: "aelan:sauvelune" }, to: "III_v_pourquoi" },
+      { label: "« Je ne suis pas d'ici. Je suis de Sauvelune. »", to: "III_v_pourquoi" },
     ] }),
 
   III_v_pourquoi: P({ title: "Pourquoi", place: "valcendre",
@@ -142,7 +141,7 @@ module.exports = {
       { with: "hylas", text: "Hylas fait un pas en avant. « Laisse-moi faire celui à la plume, dit-il. C'est mon ordre. C'est ma faute aussi. » Ardaël le regarde longtemps. « Le greffier à la lanterne. Non. Tu regarderas. Il faut que ce soit lui. »" },
     ],
     choices: [
-      { label: "« J'irai. »", fx: { flag: "proces:accepte", ep: ["perso", 1500] }, to: "III_p_place" },
-      { label: "« J'irai. Mais je dirai ce que je verrai, pas ce que tu veux entendre. »", fx: { flag: ["proces:accepte", "aelan:libre"], conf: { sansnom: 5 }, ep: ["perso", 2000] }, to: "III_p_place" },
+      { label: "« J'irai. »", fx: { ep: ["perso", 1500] }, to: "III_p_place" },
+      { label: "« J'irai. Mais je dirai ce que je verrai, pas ce que tu veux entendre. »", fx: { conf: { sansnom: 5 }, ep: ["perso", 2000] }, to: "III_p_place" },
     ] }),
 };

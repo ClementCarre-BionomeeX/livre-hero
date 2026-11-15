@@ -34,9 +34,9 @@ module.exports = {
       "« Trois cents ans, dit-il, quand tu t'approches. Trois cents ans qu'on peut réclamer un souvenir cédé. C'est le règlement de la fondation, article neuf. Personne ne l'a jamais lu. Personne n'est jamais venu. » Il trempe sa plume. « Vous êtes le premier. Que réclamez-vous ? Et pour qui ? »",
     ],
     choices: [
-      { label: "« Pour Sauvelune. Tout ce qu'on lui a pris. »", fx: { flag: ["v:reclamation", "v:reclamation=sauvelune"], ep: ["perso", 1000] }, to: "V_e_reclamations_depot" },
-      { label: "« Pour Linette. Page Onze. »", hide: { not: { any: [{ present: "linette" }, { present: "pie" }] } }, fx: { flag: ["v:reclamation", "v:reclamation=linette"], ep: ["perso", 1000] }, to: "V_e_reclamations_depot" },
-      { label: "« Pour moi. Ce qu'on m'a pris, quand j'avais deux ans. »", fx: { flag: ["v:reclamation", "v:reclamation=moi"], ep: ["perso", 1000] }, to: "V_e_reclamations_depot" },
+      { label: "« Pour Sauvelune. Tout ce qu'on lui a pris. »", fx: { flag: "v:reclamation", ep: ["perso", 1000] }, to: "V_e_reclamations_depot" },
+      { label: "« Pour Linette. Page Onze. »", hide: { not: { any: [{ present: "linette" }, { present: "pie" }] } }, fx: { flag: "v:reclamation", ep: ["perso", 1000] }, to: "V_e_reclamations_depot" },
+      { label: "« Pour moi. Ce qu'on m'a pris, quand j'avais deux ans. »", fx: { flag: "v:reclamation", ep: ["perso", 1000] }, to: "V_e_reclamations_depot" },
     ] }),
   V_e_reclamations_depot: V({ title: "Article neuf",
     text: [

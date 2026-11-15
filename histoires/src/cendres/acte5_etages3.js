@@ -12,7 +12,7 @@ module.exports = {
       { with: "linette", text: "Linette va droit au onzième lit du deuxième rang. Elle s'accroupit. Elle ne te montre pas ce qu'il y a dessous. Elle le touche du bout des doigts, et elle se relève, et elle dit : « Il y est encore. » C'est tout." },
     ],
     choices: [
-      { label: "Graver quelque chose, toi aussi, sous un lit vide", fx: { ep: ["perso", 400], flag: "v:dortoir" }, to: "V_e_dortoir_grave" },
+      { label: "Graver quelque chose, toi aussi, sous un lit vide", fx: { ep: ["perso", 400] }, to: "V_e_dortoir_grave" },
       { back: "V_t_cessions" },
     ] }),
   V_e_dortoir_grave: P({ title: "Sous le lit",
@@ -34,7 +34,7 @@ module.exports = {
       "Hylas décroche son sceau de sa ceinture. Le sceau d'argent qu'il porte depuis l'âge de quatorze ans, qui a scellé des milliers de cessions. Il le soupèse. Il le pose sur la table, au milieu de la salle.",
       "Puis il prend un autre sceau, au hasard, un vieux, tout noir, dans un casier, et il frappe. Une fois. Le sien se fend en deux, net, comme une noix. Il ramasse les deux moitiés. Il les met dans le casier vide, sous son étiquette. « Voilà, dit-il. La place est prise. Ils ne pourront plus m'y mettre. »",
     ],
-    choices: [{ fx: { flag: "v:sceau_hylas", conf: { hylas: 10 }, ep: ["perso", 800] }, back: "V_t_cessions" }] }),
+    choices: [{ fx: { conf: { hylas: 10 }, ep: ["perso", 800] }, back: "V_t_cessions" }] }),
   V_e_sceaux_mordace: P({ title: "Le casier de Mordace",
     text: ["Il n'y en a pas. Le Greffier-Majeur n'est pas mort, son sceau est là-haut, à sa ceinture. Mais au bout du dernier rang, un casier est déjà étiqueté à son nom, comme celui des autres. Dedans, on a déjà mis quelque chose. Un petit sceau, de bois, taillé au couteau, maladroitement : un chien, gravé à l'envers. Un sceau d'enfant. Il l'a rangé là lui-même, à onze ans, peut-être, le jour où on lui a donné le vrai. Tu le laisses où il est."],
     choices: BUREAU }),
@@ -45,7 +45,7 @@ module.exports = {
     ],
     choices: [
       { label: "Les nourrir, registre après registre, en reculant vers l'escalier", test: { dom: "magie", label: "Les Glaneurs", help: [{ if: { present: "gaspard" }, v: 20 }, { if: { present: "givre" }, v: 10 }, { if: { has: "glaneur_petit:nourri" }, v: 10 }] },
-        win: { fx: { flag: "v:glaneurs_nourris", ep: ["perso", 3000] }, to: "V_t_nourris" }, lose: { to: "V_t_glaneurs" } },
+        win: { fx: { ep: ["perso", 3000] }, to: "V_t_nourris" }, lose: { to: "V_t_glaneurs" } },
     ] }),
   V_t_nourris: P({ title: "Six étages de comptes",
     text: [

@@ -25,7 +25,7 @@ module.exports = {
       { label: "Soulever la pierre", test: { dom: "combat", label: "Force", help: [{ if: { present: "rodric" }, v: 20 }, { if: { present: "ysolde" }, v: 10 }] },
         win: { fx: { flag: "nord:glaneur_libre", ep: ["perso", 700] }, to: "II_N2_eboulis_libre" },
         lose: { to: "II_N2_eboulis_combat" } },
-      { label: "L'achever avant qu'il ne se libère", fx: { flag: "nord:glaneur_tue" }, to: "II_N2_eboulis_combat" },
+      { label: "L'achever avant qu'il ne se libère", to: "II_N2_eboulis_combat" },
       { label: "Passer au large, en silence", to: "@route" },
     ] }),
 
@@ -104,7 +104,7 @@ module.exports = {
     choices: [
       { label: "Te faire lire la liste", test: { dom: "savoir", label: "Lecture", help: [{ if: { present: "hylas" }, v: 25 }, { if: { present: "linette" }, v: 15 }, { if: { present: "pie" }, v: 5 }] },
         win: { fx: { flag: "nord:chant_lu", clue: "n_chant_noms", ep: ["perso", 1200] }, to: "II_N2_mur_chant_lu" },
-        lose: { fx: { flag: "nord:chant_moitie" }, to: "II_N2_mur_chant_moitie" } },
+        lose: { to: "II_N2_mur_chant_moitie" } },
     ] }),
 
   II_N2_mur_chant_lu: P({ title: "La liste", place: "lacnoir",
@@ -155,10 +155,10 @@ module.exports = {
     ],
     choices: [
       { label: "Chanter avec elle, pour elle, le chant des morts, tout ce que tu en sais", test: { dom: "magie", label: "Chant", help: [{ if: { souv: "corbe:aieule" }, v: 15 }, { if: { has: "nord:chant_lu" }, v: 15 }, { if: { item: "tambour" }, v: 5 }, { if: { has: "nord:lac_bu" }, v: 10 }] },
-        win: { fx: { flag: "nord:aieule_chant", ep: ["perso", 1500] }, to: "II_N2_fond_chant" },
+        win: { fx: { ep: ["perso", 1500] }, to: "II_N2_fond_chant" },
         lose: { fx: { flag: "nord:aieule_glace" }, to: "II_N2_fond_rate" } },
       { label: "Donner un souvenir à la glace, pour qu'elle tienne encore un peu", tag: "Souvenir donné", stain: true, if: { souv: "corbe:col" }, why: "Tu n'as plus rien de ce col à donner.",
-        fx: { souv: "corbe:col", flag: ["nord:aieule_chant", "corbe:col_donne"], ep: ["perso", 1500] }, to: "II_N2_fond_don" },
+        fx: { souv: "corbe:col", flag: "corbe:col_donne", ep: ["perso", 1500] }, to: "II_N2_fond_don" },
       { label: "Remonter. Ce n'est pas ton chant à tenir", fx: { flag: "nord:aieule_glace" }, to: "II_N2_fond_rate" },
     ] }),
 
@@ -245,5 +245,5 @@ module.exports = {
       "Puis elle repart, vers l'est. Vers la combe où, depuis trois cents ans, les Veilleurs gardent le col dans leur moutier de pierre.",
       "Askel, à côté de toi, chuchote : « Elle va chez les moines. »",
     ],
-    choices: [{ label: "Attendre le jour", fx: { flag: ["ch2:nord:2", "nord:geant_vu"], resume: "II_N3_depart", catchup: 6, catchupAll: true, catchupWhy: "la grotte des Corbeaux" }, to: "C2_carrefour", big: true }] }),
+    choices: [{ label: "Attendre le jour", fx: { flag: "ch2:nord:2", resume: "II_N3_depart", catchup: 6, catchupAll: true, catchupWhy: "la grotte des Corbeaux" }, to: "C2_carrefour", big: true }] }),
 };

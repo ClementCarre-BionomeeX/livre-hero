@@ -30,7 +30,7 @@ module.exports = {
       "Sur le seuil, il a posé une écuelle de bouillie, et à côté, une ardoise, avec une craie. Sur l'ardoise, de son écriture : *Vos noms. Je prierai pour eux.*",
     ],
     choices: [
-      { label: "Écrire vos noms sur l'ardoise", fx: { food: 1, ep: ["perso", 300], flag: "nord:ermite" }, to: "E2_ermite_noms" },
+      { label: "Écrire vos noms sur l'ardoise", fx: { food: 1, ep: ["perso", 300] }, to: "E2_ermite_noms" },
       { label: "Prendre la bouillie et repartir", fx: { food: 1 }, to: "@route" },
     ] }),
   E2_ermite_noms: P2({ title: "L'ardoise",
@@ -48,7 +48,7 @@ module.exports = {
     ],
     choices: [
       { label: "Leur apprendre des chansons", test: { dom: "social", label: "Les airs", help: [{ if: { item: "luth" }, v: 15 }, { if: { has: "sud:luthier" }, v: 10 }] },
-        win: { fx: { flag: "sud:menestrels", ep: ["perso", 700] }, to: "E2_menestrels_ok" }, lose: { to: "E2_menestrels_rate" } },
+        win: { fx: { ep: ["perso", 700] }, to: "E2_menestrels_ok" }, lose: { to: "E2_menestrels_rate" } },
       { label: "Leur souhaiter bonne route", to: "@route" },
     ] }),
   E2_menestrels_ok: P2({ title: "Une chanson de route",
@@ -81,7 +81,7 @@ module.exports = {
       "Il te regarde. Il s'arrête. Il attend, comme un cheval qui attend qu'on monte.",
     ],
     choices: [
-      { label: "Monter", fx: { pv: 4, ep: ["perso", 400], flag: "iii:cheval" }, to: "E3_cheval_monte" },
+      { label: "Monter", fx: { pv: 4, ep: ["perso", 400] }, to: "E3_cheval_monte" },
       { label: "Le laisser à sa file", to: "@route" },
     ] }),
   E3_cheval_monte: P3({ title: "En selle",
@@ -113,7 +113,7 @@ module.exports = {
       "« Ceux de mon village, dit-il sans s'arrêter. L'année blanche les a pris. Pas morts. Partis. On ne sait pas où. » Il grave. « Les arbres vivent trois cents ans. Ça laisse le temps de revenir. »",
     ],
     choices: [
-      { label: "Lui demander une hachette, et graver un nom aussi", fx: { ep: ["perso", 400], flag: "iv:bucheron" }, to: "E4_bucheron_grave" },
+      { label: "Lui demander une hachette, et graver un nom aussi", fx: { ep: ["perso", 400] }, to: "E4_bucheron_grave" },
       { label: "Le laisser à son bois", to: "@route" },
     ] }),
   E4_bucheron_grave: P4({ title: "Un nom sur l'écorce",
@@ -141,7 +141,7 @@ module.exports = {
       "« Il a payé la taille avec leurs fiançailles, dit une vieille, à côté de toi. Il ne savait pas. Il croyait céder un petit souvenir. Il l'a rencontrée ce matin, à l'église. Il trouve qu'elle est jolie. Il a dit oui quand même. » Elle soupire. « Elle, elle se souvient de tout. »",
     ],
     choices: [
-      { label: "Inviter la mariée à danser", fx: { ep: ["perso", 500], flag: "iv:noce" }, to: "E4_noce_danse" },
+      { label: "Inviter la mariée à danser", fx: { ep: ["perso", 500] }, to: "E4_noce_danse" },
       { label: "Repartir avant la fin", back: "@route" },
     ] }),
   E4_noce_danse: P4({ title: "La danse",
@@ -156,7 +156,7 @@ module.exports = {
       "« Ne dites pas que vous m'avez vu, dit-il. Je suis parti. Je ne veux plus. » Il serre sa sacoche. « J'ai recopié les cessions de mon propre village, la semaine dernière. Ma mère. Elle a cédé mon nom pour payer la taille. Je l'ai recopié moi-même. Je ne savais pas que c'était le mien avant d'avoir fini la ligne. »",
     ],
     choices: [
-      { label: "Lui donner à manger et lui indiquer le moutier des Veilleurs", fx: { food: -1, ep: ["perso", 600], flag: "iv:greffier_fuite" }, to: "E4_greffier_fuite_ok" },
+      { label: "Lui donner à manger et lui indiquer le moutier des Veilleurs", fx: { food: -1, ep: ["perso", 600] }, to: "E4_greffier_fuite_ok" },
       { label: "Le laisser courir", to: "@route" },
     ] }),
   E4_greffier_fuite_ok: P4({ title: "Le moutier",

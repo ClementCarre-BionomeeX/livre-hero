@@ -7,7 +7,7 @@ var A = { act: "V", noLead: true };
 function P(o) { return Object.assign({}, A, o); }
 module.exports = {
   V_route: P({ title: "La neige", place: null,
-    fx: { flag: "acte5:debut", catchup: 17, catchupAll: true, catchupWhy: "la Lisse" },
+    fx: { catchup: 17, catchupAll: true, catchupWhy: "la Lisse" },
     text: [
       "Vous marchez vers l'ouest toute la nuit, dans la neige blanche. Elle tombe à gros flocons, lents, sans vent. Elle reste sèche et entière. Elle se pose.",
       "Sur la route, des gens arrêtés. Un charretier sur son siège, les rênes à la main, qui regarde devant lui. Une femme assise sur une borne, avec un panier. Un enfant qui tient un cerceau. Ils ne dorment pas. Ils sourient. Ils ont l'air de gens à qui on a enlevé un poids, et qui ne savent plus quoi faire de leurs mains.",
@@ -115,8 +115,8 @@ module.exports = {
       "Et, tout en bas d'un rayonnage, à hauteur d'enfant : *Mordace, onze ans : la maison.* Le bocal est fermé par trois cachets de cire. La lueur, dedans, est orange. Elle bouge comme un feu.",
     ],
     choices: [
-      { label: "Laisser Ysolde ouvrir le sien", hide: { not: { present: "ysolde" } }, fx: { flag: "ysolde:lisse_rendu", conf: { ysolde: 10 } }, to: "V_t_ysolde_bocal" },
-      { label: "Prendre le bocal de Mordace", fx: { item: "bocal_mordace", flag: "v:bocal_mordace" }, to: "V_t_cessions" },
+      { label: "Laisser Ysolde ouvrir le sien", hide: { not: { present: "ysolde" } }, fx: { conf: { ysolde: 10 } }, to: "V_t_ysolde_bocal" },
+      { label: "Prendre le bocal de Mordace", fx: { item: "bocal_mordace" }, to: "V_t_cessions" },
       { back: "V_t_cessions" },
     ] }),
 
@@ -155,11 +155,11 @@ module.exports = {
       "« Je m'appelle Linette, dit-elle. Avant, j'étais Page Onze. Vous aussi, vous avez un nom. Il est dans le registre gris, en bas, au deuxième. Je l'ai lu. Je les ai tous lus. » Elle saute du pupitre. Elle va de page en page, et à chacune, elle dit un nom, à l'oreille.",
       "Il y en a cent. Elle les sait tous. Les plumes s'arrêtent, une à une.",
     ],
-    choices: [{ label: "Monter aux archives", fx: { flag: "v:pages_nommees", conf: { linette: 15, pie: 10 }, ep: ["perso", 2500] }, to: "V_t_archives" }] }),
+    choices: [{ label: "Monter aux archives", fx: { conf: { linette: 15, pie: 10 }, ep: ["perso", 2500] }, to: "V_t_archives" }] }),
 
   V_t_encre: P({ title: "L'encre", place: "pallanche",
     text: [{ if: { has: "v:pages_rate" }, text: "Tu lis. Tu butes. Les noms sortent de ta bouche déformés, cassés ; ce ne sont plus les leurs, ce sont des bruits. Au vingtième, tu t'arrêtes. Tu refermes le registre et tu le gardes. Quelqu'un, plus tard, saura les lire mieux que toi. En attendant, il reste l'encre." }, "Vous renversez les encriers, un par un. Les pages s'arrêtent, regardent leurs feuilles noyées, et attendent. Un greffier, au fond, se lève et va chercher de l'encre neuve, sans hâte. Il en reviendra avec un seau. Ça ne fera gagner qu'une heure. Une heure, c'est quelque chose."],
-    choices: [{ label: "Monter aux archives", fx: { flag: "v:encre" }, to: "V_t_archives" }] }),
+    choices: [{ label: "Monter aux archives", to: "V_t_archives" }] }),
 
   V_t_archives: P({ title: "Les archives", place: "pallanche",
     text: [

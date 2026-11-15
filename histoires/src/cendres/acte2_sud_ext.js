@@ -23,7 +23,7 @@ module.exports = {
     ],
     choices: [
       { label: "« J'espère que oui. »", fx: { conf: { linette: 5 } }, to: "II_S2_nuit_linette_oui" },
-      { label: "« Non. Et un jour, ça servira. »", fx: { conf: { linette: 10 }, flag: "sud2:linette_memoire" }, to: "II_S2_nuit_linette_non" },
+      { label: "« Non. Et un jour, ça servira. »", fx: { conf: { linette: 10 } }, to: "II_S2_nuit_linette_non" },
     ] }),
   II_S2_nuit_linette_oui: P({ title: "Oublier", place: "vasselin",
     text: ["Elle hoche la tête. Elle continue de recopier. « Moi aussi, j'espère », dit-elle. Mais elle ne s'arrête pas d'écrire, et la colonne descend, droite, régulière, jusqu'en bas de l'affiche."],
@@ -59,7 +59,7 @@ module.exports = {
     ],
     choices: [
       { label: "Aller parler à Messire Gondebaud", test: { dom: "social", label: "Le chevalier", help: [{ if: { present: "ysolde" }, v: 20 }, { if: { item: "luth" }, v: 5 }] },
-        win: { fx: { flag: "sud3:ecuyer", ep: ["perso", 800] }, to: "II_S3_ecuyer_ok" }, lose: { to: "II_S3_ecuyer_rate" } },
+        win: { fx: { ep: ["perso", 800] }, to: "II_S3_ecuyer_ok" }, lose: { to: "II_S3_ecuyer_rate" } },
       { label: "Le prendre au service de la compagnie", fx: { flag: "sud3:ecuyer_pris", ep: ["perso", 500] }, to: "II_S3_ecuyer_pris" },
     ] }),
   II_S3_ecuyer_ok: P({ title: "Messire Gondebaud", place: "vasselin",

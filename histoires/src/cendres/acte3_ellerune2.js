@@ -12,7 +12,7 @@ module.exports = {
       "Tu lui demandes ce qu'il guette. « Le petit de Maëra, dit-il, sans quitter le sentier des yeux. On l'a emmené par là, ce matin. Un homme des villes, avec une lanterne, l'a pris dans ses bras. Je suis monté ici pour le voir revenir. Quand il reviendra, je sonnerai la corne. » Il a dix ans. Pour lui, c'était ce matin. Là-haut, ce matin dure depuis vingt ans. Il guette un enfant de deux ans dans les bras d'un homme.",
     ],
     choices: [
-      { label: "« C'est moi. Le petit de Maëra. »", fx: { flag: "iii:guetteur", ep: ["perso", 800] }, to: "III_el_guetteur_moi" },
+      { label: "« C'est moi. Le petit de Maëra. »", fx: { ep: ["perso", 800] }, to: "III_el_guetteur_moi" },
       { label: "Le laisser guetter", to: "III_el_guetteur_laisser" },
     ] }),
   III_el_guetteur_moi: P({ title: "La corne",

@@ -3,7 +3,7 @@
 // A year has passed up there. The child leads ("tu").
 var A = { act: "III", noLead: true };
 function P(o) { return Object.assign({}, A, o); }
-function ame(id) { return { flag: ["ame:" + id, "ame:choisie"], ep: ["perso", 2000] }; }
+function ame(id) { return { flag: "ame:" + id, ep: ["perso", 2000] }; }
 module.exports = {
   III_a_nuit: P({ backName: "la maison au pied du palais", title: "La dernière nuit", place: "valcendre", hub: true,
     text: [
@@ -43,7 +43,7 @@ module.exports = {
       "« Qu'une femme, quelque part, se retourne dans la rue et dise : tiens, c'est lui. Pas parce qu'il est écrit. Parce qu'elle s'en souvient. »",
       { if: { has: "sansnom:ancre_lisandre" }, text: "Laquelle, chacun le comprend." },
     ],
-    choices: [{ fx: { conf: { sansnom: 10 }, flag: "sansnom:veut" }, back: "III_a_nuit" }] }),
+    choices: [{ fx: { conf: { sansnom: 10 } }, back: "III_a_nuit" }] }),
 
   III_a_veille: P({ title: "La veille", place: "valcendre",
     text: [
@@ -76,7 +76,7 @@ module.exports = {
       { label: "La petite fille de Bourdonne, Linette d'avant", if: { has: "linette_avant:vue" }, why: "Tu ne l'as pas rencontrée.", fx: ame("linette"), to: "III_a_linette" },
       { label: "Askel, qui tient la porte en chantant", if: { has: "askel:rite" }, why: "Personne ne tient la porte pour toi.", fx: ame("askel"), to: "III_a_askel" },
       { label: "Ton frère. Qu'on se souvienne de lui, là-haut", fx: ame("sansnom"), to: "III_a_sansnom" },
-      { label: "Personne. Garder le présent pour plus tard", fx: { flag: ["ame:gardee"], ep: ["perso", 1000] }, to: "III_a_personne" },
+      { label: "Personne. Garder le présent pour plus tard", fx: { ep: ["perso", 1000] }, to: "III_a_personne" },
     ] }),
 
   III_a_maera: P({ title: "Maëra", place: "valcendre",
@@ -126,7 +126,7 @@ module.exports = {
       "Ardaël te regarde longtemps. « Tu me prends mes deux fils le même jour », dit-il. Il n'y a pas de reproche. Il y a quelque chose comme de la fierté, très bien cachée.",
       "Le Sans-Nom a entendu. Il se tait. Il remet son masque. Puis il l'enlève, et il le pose sur les marches du palais, et il ne le reprend pas.",
     ],
-    choices: [{ label: "Partir", fx: { conf: { sansnom: 25 }, flag: "sansnom:sans_masque" }, to: "III_a_route" }] }),
+    choices: [{ label: "Partir", fx: { conf: { sansnom: 25 } }, to: "III_a_route" }] }),
 
   III_a_personne: P({ title: "Personne", place: "valcendre",
     text: [
@@ -153,13 +153,13 @@ module.exports = {
     choices: [
       { label: "Le frapper avant qu'il appelle", to: "III_a_combat", big: true },
       { label: "Passer sans être vu, au milieu des marcheurs", test: { dom: "discretion", label: "Dans la foule", help: [{ if: { present: "pie" }, v: 15 }, { if: { present: "givre" }, v: 15 }] },
-        win: { fx: { flag: "porte:inapercu", ep: ["perso", 1500] }, to: "III_a_porte" },
+        win: { fx: { ep: ["perso", 1500] }, to: "III_a_porte" },
         lose: { to: "III_a_combat" } },
     ] }),
 
   III_a_combat: P({ title: "Au pied de la porte",
     combat: { title: "Les Glaneurs au sceau noir", enemies: ["glaneur", "glaneur_petit", "glaneur_petit"], terrain: "nature", range: "contact",
-      win: { fx: { flag: "porte:glaneurs_tues", ep: ["seance", 2500] }, to: "III_a_porte_libres" },
+      win: { fx: { ep: ["seance", 2500] }, to: "III_a_porte_libres" },
       lose: { fx: { pv: -5, flag: "porte:mordace_prevenu" }, to: "III_a_porte" } },
     text: ["Ils se retournent tous en même temps, comme des chiens au même sifflet. Les marcheurs s'écartent. Le Sans-Nom tire son épée, et dans le gris, elle brille."],
     choices: [] }),
@@ -185,7 +185,7 @@ module.exports = {
     choices: [{ label: "Passer", to: "III_a_passage", big: true }] }),
 
   III_a_passage: P({ title: "La fente", place: "valcendre",
-    fx: { flag: "acte3:fin", ep: ["histoire", 5000] },
+    fx: { ep: ["histoire", 5000] },
     text: [
       "Tu passes le premier. La pierre est tiède. Pendant un instant, tu es entre les deux : d'un côté le blanc, de l'autre le soleil, et tu entends en même temps la musique des chœurs de Valcendre et le vent dans un pré.",
       "Puis il n'y a plus que le vent.",

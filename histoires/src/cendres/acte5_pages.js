@@ -19,7 +19,7 @@ module.exports = {
     ],
     choices: [
       { label: "Les lire, à voix haute, un par un", test: { dom: "savoir", label: "Les noms", diff: -10, help: [{ if: { present: "linette" }, v: 30 }, { if: { present: "hylas" }, v: 20 }, { if: { present: "pie" }, v: 10 }, { if: { present: "lisandre" }, v: 10 }, { if: { has: "v:archives=rendues" }, v: 10 }, { if: { has: "hy:page=nom" }, v: 10 }] },
-        win: { fx: { flag: "v:pages_nommees", ep: ["perso", 2000], drop: "registre_gris" }, to: "V_t_gris_noms" },
+        win: { fx: { ep: ["perso", 2000], drop: "registre_gris" }, to: "V_t_gris_noms" },
         lose: { fx: { flag: "v:pages_rate" }, to: "V_t_encre" } },
     ] }),
   V_t_gris_noms: P({ title: "Un par un", place: "pallanche",

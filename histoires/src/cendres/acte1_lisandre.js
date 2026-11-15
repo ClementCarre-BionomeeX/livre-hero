@@ -56,7 +56,7 @@ module.exports = {
     ],
     choices: [
       { label: "« Et si les faits sont faux ? »", test: { dom: "social", label: "Lecture des gens" },
-        win: { fx: { flag: "orlan:trouble", ep: ["perso", 600] }, to: "LI_orlan_trouble" }, lose: { to: "LI_orlan_froid" } },
+        win: { fx: { ep: ["perso", 600] }, to: "LI_orlan_trouble" }, lose: { to: "LI_orlan_froid" } },
       { label: "Prendre le cahier, remercier, sortir", to: "LI_cour" },
     ] }),
 
@@ -82,7 +82,7 @@ module.exports = {
     ],
     choices: [
       { label: "Aller aux écuries, le soir", to: "LI_ecuries" },
-      { label: "Ne pas y aller. Tu es l'espionne de la reine", fx: { flag: "ilan:evite", quest: "LI_ilan" }, to: "LI_cour" },
+      { label: "Ne pas y aller. Tu es l'espionne de la reine", fx: { quest: "LI_ilan" }, to: "LI_cour" },
     ] }),
 
   LI_ecuries: P({ title: "Les écuries",
@@ -91,9 +91,9 @@ module.exports = {
       "Tu sais qu'on t'a commandé une ballade. Tu sais ce qu'il y a dans le cahier d'Orlan.",
     ],
     choices: [
-      { label: "Lui dire ce que tu sais. Tout", fx: { flag: ["lisandre:ilan_dit", "corvanne:sait"], quest: "LI_ilan", ep: ["perso", 1000] }, to: "LI_ecuries_dit" },
+      { label: "Lui dire ce que tu sais. Tout", fx: { flag: "lisandre:ilan_dit", quest: "LI_ilan", ep: ["perso", 1000] }, to: "LI_ecuries_dit" },
       { label: "Lui mentir. « Rien. On ne me dit rien. »", fx: { flag: "lisandre:ilan_ment", quest: "LI_ilan", ep: ["perso", 400] }, to: "LI_ecuries_ment" },
-      { label: "Rapporter cette conversation à la reine", fx: { flag: ["lisandre:ilan_livre", "ilan:arrete"], quest: "LI_ilan", ep: ["perso", 400] }, to: "LI_ecuries_livre" },
+      { label: "Rapporter cette conversation à la reine", fx: { flag: "lisandre:ilan_livre", quest: "LI_ilan", ep: ["perso", 400] }, to: "LI_ecuries_livre" },
     ] }),
 
   LI_ecuries_dit: P({ title: "La ballade de Hautvent",
@@ -128,7 +128,7 @@ module.exports = {
         lose: { fx: { quest: "LI_aubrac" }, to: "LI_aubrac_perdu" } },
       { label: "Chanter une chanson de port, de ton enfance, avec ta vraie voix", if: { souv: "lisandre:voix" }, why: "Tu ne sais plus où elle est.",
         test: { dom: "magie", label: "Voix", help: [{ if: { souv: "lisandre:port" }, v: 15 }] },
-        win: { fx: { flag: ["aubrac:battu", "lisandre:vraie_voix"], quest: "LI_aubrac", ep: ["perso", 1200] }, to: "LI_aubrac_voix" },
+        win: { fx: { flag: "aubrac:battu", quest: "LI_aubrac", ep: ["perso", 1200] }, to: "LI_aubrac_voix" },
         lose: { fx: { quest: "LI_aubrac" }, to: "LI_aubrac_perdu" } },
       { label: "Décliner en riant. On ne répond pas à un rossignol", fx: { quest: "LI_aubrac" }, to: "LI_cour" },
     ] }),
@@ -178,7 +178,7 @@ module.exports = {
     text: [
       "Une main se pose sur ton épaule. Ermengarde, en chemise de nuit, une bougie à la main. Elle regarde l'écritoire, puis toi. Elle se tait longtemps. Puis : « Va te coucher. Je n'ai rien vu. » Et, au moment où tu passes la porte : « Moi aussi, je les ai lues. »",
     ],
-    choices: [{ fx: { flag: "ermengarde:sait" }, back: "LI_cour" }] }),
+    choices: [{ back: "LI_cour" }] }),
 
   // end of chapter 1
   LI_ecrire: P({ takes: "morning", title: "La ballade",
@@ -225,7 +225,7 @@ module.exports = {
       "Elle est seule, dans une chambre d'auberge trop petite pour elle, en chemise, les cheveux défaits. Elle a cinquante ans et l'air d'en avoir soixante. « La chanson de soldat, dit-elle. Celle que je t'ai apprise. Je ne m'en souviens plus. Je sais que je te l'ai apprise. Chante-la. »",
     ],
     choices: [
-      { label: "La lui chanter", if: { souv: "lisandre:isaure" }, why: "Tu ne t'en souviens plus, toi non plus.", fx: { flag: "isaure:chanson", ep: ["perso", 800] }, to: "LI_reine_chanson" },
+      { label: "La lui chanter", if: { souv: "lisandre:isaure" }, why: "Tu ne t'en souviens plus, toi non plus.", fx: { ep: ["perso", 800] }, to: "LI_reine_chanson" },
       { label: "Lui demander ce qu'elle a cédé au printemps", hide: { not: { has: "lisandre:lettre" } }, to: "LI_reine_question" },
       { label: "Lui dire que tu ne t'en souviens pas non plus", to: "LI_reine_non" },
     ] }),
@@ -273,7 +273,7 @@ module.exports = {
     ],
     choices: [
       { label: "« Pourquoi exactement quand les cloches commencent ? »", test: { dom: "social", label: "Aplomb" },
-        win: { fx: { ep: ["perso", 800], flag: "mordace:repond" }, to: "LI_mordace_repond" }, lose: { to: "LI_mordace_sourit" } },
+        win: { fx: { ep: ["perso", 800] }, to: "LI_mordace_repond" }, lose: { to: "LI_mordace_sourit" } },
       { label: "Répéter, et te taire", to: "LI_fin" },
     ] }),
 
@@ -288,7 +288,7 @@ module.exports = {
     choices: [{ label: "Répéter", to: "LI_fin" }] }),
 
   LI_fin: P({ title: "Lisandre, la veille", place: "pallanche",
-    fx: { flag: "prologue:lisandre", quest: "LI_ballade", catchup: 4, catchupWhy: "la route de la cour", ep: ["histoire", 4000] },
+    fx: { quest: "LI_ballade", catchup: 4, catchupWhy: "la route de la cour", ep: ["histoire", 4000] },
     text: [
       "On t'a logée au palais de la Couronne, de l'autre côté de la place aux Clercs, dans une chambre qui donne sur la tour noire. Tu ne fermes pas les rideaux.",
       { if: { has: "lisandre:ballade=commandee" }, text: "La ballade de Hautvent est sur ta table, propre, sans un pli. Tu la sais par cœur. Tu ne l'as jamais sue aussi bien." },

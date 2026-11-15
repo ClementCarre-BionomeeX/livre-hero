@@ -59,7 +59,7 @@ module.exports = {
   V_v_glaneurs_combat: P({ title: "La rue des Bassins", place: "pallanche",
     combat: { title: "Les Glaneurs de la queue", enemies: ["glaneur", "glaneur_petit", "glaneur_petit"], terrain: "ville", range: "contact",
       flee: { dom: "discretion", label: "Reculer dans la foule immobile", to: "V_ville" },
-      win: { fx: { flag: "v:queue_defendue", ep: ["seance", 2500] }, to: "V_v_glaneurs_apres" }, lose: { fx: { pv: -4 }, to: "V_ville" } },
+      win: { fx: { ep: ["seance", 2500] }, to: "V_v_glaneurs_apres" }, lose: { fx: { pv: -4 }, to: "V_ville" } },
     text: [
       "Ils se retournent ensemble. Le plus gros a, au front, un sceau de cire noire tout neuf.",
       { with: "givre", text: "Givre se met en boule entre tes jambes et gronde, un petit grondement aigu, absurde, qui ne fait peur à personne et qu'il tient quand même jusqu'au bout." },

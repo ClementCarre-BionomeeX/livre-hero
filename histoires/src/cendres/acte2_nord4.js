@@ -22,7 +22,7 @@ module.exports = {
       "Un nom. Personne ne saura lequel.",
     ],
     choices: [
-      { label: "Ramasser ce qui reste dans la neige", fx: { flag: "nord:braise" }, to: "II_N4_braise" },
+      { label: "Ramasser ce qui reste dans la neige", to: "II_N4_braise" },
       { label: "Les laisser passer, et suivre", to: "@route" },
     ] }),
 
@@ -45,7 +45,7 @@ module.exports = {
     ],
     choices: [
       { label: "« Viens avec nous, Gaspard. »", hide: { not: GASPARD }, fx: { join: "gaspard", flag: "nord:gaspard", ep: ["perso", 1000] }, to: "II_N4_gaspard" },
-      { label: "Suivre la chose de l'éboulis", hide: { any: [GASPARD, { not: { has: "nord:glaneur_libre" } }] }, fx: { flag: "nord:odile_guide" }, to: "@route" },
+      { label: "Suivre la chose de l'éboulis", hide: { any: [GASPARD, { not: { has: "nord:glaneur_libre" } }] }, to: "@route" },
       { label: "Chercher le chemin à l'instinct, le nez au vent", hide: { any: [GASPARD, { has: "nord:glaneur_libre" }] }, test: { dom: "nature", label: "Piste", help: [{ if: { item: "caillou_blanc" }, v: 15 }] },
         win: { to: "@route" }, lose: { fx: { time: 6, food: -1 }, to: "II_N4_perdus" } },
     ] }),
@@ -88,7 +88,7 @@ module.exports = {
       "« Des noms, dit-elle enfin. Des milliers. Mais il ne les mange pas. Il les dit. Il les dit tout le temps, tous, pour ne pas en perdre un. » Elle ouvre les yeux. « Il ne fait pas de mal. Il garde. C'est un Veilleur, lui aussi. Il a juste beaucoup trop à garder. »",
       "« Il souffre, ajoute-t-elle. Comme mes mourants. Exactement pareil. »",
     ],
-    choices: [{ fx: { flag: "nord:geant_souffre" }, back: "II_N4_cirque" }] }),
+    choices: [{ back: "II_N4_cirque" }] }),
 
   II_N4_sauvelune: P({ title: "Sauvelune", place: "cirque",
     text: [
@@ -102,8 +102,8 @@ module.exports = {
     text: ["Pie regarde le géant, puis les files de petits Glaneurs, puis toi. « Ils lui apportent ce qu'il mange, dit-il. Il ne regarde pas ce qu'ils apportent. Un voleur peut se mettre dans la file. »"],
     choices: [
       { label: "Le laisser se glisser dans la procession, couvert de neige", test: { dom: "discretion", label: "File", help: [{ if: { present: "gaspard" }, v: 20 }] },
-        win: { fx: { flag: "nord:pie_vole", item: "nom_vole", ep: ["perso", 1200] }, to: "II_N4_pie_ok" },
-        lose: { fx: { flag: "nord:pie_repere" }, to: "II_N4_pie_rate" } },
+        win: { fx: { item: "nom_vole", ep: ["perso", 1200] }, to: "II_N4_pie_ok" },
+        lose: { to: "II_N4_pie_rate" } },
       { label: "« Non. »", fx: { conf: { pie: -5 } }, to: "II_N4_cirque" },
     ] }),
 
@@ -151,7 +151,7 @@ module.exports = {
     choices: [
       { label: "L'attaquer, tous ensemble", to: "II_N4_combat" },
       { label: "Lui chanter. Le chant des morts, et un seul nom au bout", test: { dom: "magie", label: "Chant", help: [{ if: { has: "nord:chant_lu" }, v: 15 }, { if: { has: "nord:falaise" }, v: 5 }, { if: { has: "nord:geant_chant" }, v: 15 }, { if: { has: "nord:gaspard_sait" }, v: 10 }, { if: { present: "gaspard" }, v: 10 }] },
-        win: { fx: { flag: "nord:geant_ecoute", ep: ["perso", 1500] }, to: "II_N4_un_nom" },
+        win: { fx: { ep: ["perso", 1500] }, to: "II_N4_un_nom" },
         lose: { to: "II_N4_combat" } },
       { label: "Laisser Ombeline aller à lui", hide: { not: { present: "ombeline" } }, to: "II_N4_ombeline" },
     ] }),
@@ -183,7 +183,7 @@ module.exports = {
   II_N4_un_nom: P({ title: "Un seul nom", place: "cirque",
     text: [
       "Tu chantes. La liste, tout ce que tu en sais, et il se penche pour écouter, de plus en plus bas, jusqu'à ce que sa bouche soit au-dessus de toi comme une voûte.",
-      { if: { has: "nord:gaspard_sait" }, text: "Un seul nom. Gaspard l'a dit : il ne sait en donner qu'un." },
+      { if: { has: "nord:gaspard_sait" }, text: "Un seul nom. Tu te rappelles les mots de Gaspard : il ne sait en donner qu'un." },
       { if: { not: { has: "nord:gaspard_sait" } }, text: "Un seul nom. Personne ne te l'a dit, et tu le sais : il n'en rendra qu'un." },
       "Si tu chantes le nom d'une personne, il rendra une personne. Si tu chantes le nom d'un village, il rendra peut-être un village. Tu ne sais pas. Tu as le temps d'un souffle.",
     ],
@@ -276,5 +276,5 @@ module.exports = {
       { if: { has: "nord:gaspard_sait" }, text: "Hylas te demande ce qu'a dit Gaspard, sur la grande ville qui a brûlé. Tu le lui répètes. Il se tait longtemps. Puis : « Le registre noir dit trois cent douze ans. Gaspard dit il y a très longtemps. Le géant ramassait ceux qui brûlaient. » Il serre son bâton. « Ce n'était pas une ville. C'était un peuple. »" },
       { if: { not: { has: "nord:gaspard_sait" } }, text: "Hylas n'a pas cessé de compter, depuis le cirque. Il se tait longtemps. Puis : « Des milliers de noms. Le registre noir dit trois cent douze ans. Les serments disent : une vallée. » Il serre son bâton. « Une vallée n'a pas tant de noms. Ce n'était pas une vallée. C'était un peuple. »" },
     ],
-    choices: [{ fx: { conf: { hylas: 5 }, flag: "hylas:peuple" }, back: "II_N4_soir" }] }),
+    choices: [{ fx: { conf: { hylas: 5 } }, back: "II_N4_soir" }] }),
 };

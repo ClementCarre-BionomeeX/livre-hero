@@ -22,7 +22,7 @@ module.exports = {
     ],
     choices: [
       { label: "Lui dire ce que tu as vu dans la glace", hide: { has: "proces:cerf=rendu" }, fx: { flag: "ysolde:sait_cerf", conf: { ysolde: 10 }, ep: ["perso", 1500] }, to: "IV_C_ysolde_dit" },
-      { label: "Ne rien dire", hide: { has: "proces:cerf=rendu" }, fx: { flag: "ysolde:cerf_tu" }, to: "IV_C_ysolde_choix" },
+      { label: "Ne rien dire", hide: { has: "proces:cerf=rendu" }, to: "IV_C_ysolde_choix" },
       { label: "Attendre qu'elle décide", hide: { not: { has: "proces:cerf=rendu" } }, to: "IV_C_ysolde_choix" },
     ] }),
 
@@ -33,9 +33,9 @@ module.exports = {
   IV_C_ysolde_choix: P({ title: "Les armes", place: "brenne",
     text: ["Ysolde tire de sa ceinture la dague de son père. Elle regarde le loup sur le pommeau, puis l'écu lisse."],
     choices: [
-      { label: "Elle regrave le cerf sur l'écu de Raoul", fx: { flag: ["ysolde:armes=cerf", "brenne:cerf"], quest: "IV_C_ysolde", ep: ["perso", 1500] }, to: "IV_C_ysolde_cerf" },
-      { label: "Elle grave le cerf sous le loup, sur son propre écu", fx: { flag: ["ysolde:armes=deux", "brenne:cerf"], quest: "IV_C_ysolde", conf: { ysolde: 5 }, ep: ["perso", 1500] }, to: "IV_C_ysolde_deux" },
-      { label: "Elle laisse l'écu lisse", fx: { flag: "ysolde:armes=loup", quest: "IV_C_ysolde" }, to: "IV_C_ysolde_lisse" },
+      { label: "Elle regrave le cerf sur l'écu de Raoul", fx: { flag: "brenne:cerf", quest: "IV_C_ysolde", ep: ["perso", 1500] }, to: "IV_C_ysolde_cerf" },
+      { label: "Elle grave le cerf sous le loup, sur son propre écu", fx: { flag: "brenne:cerf", quest: "IV_C_ysolde", conf: { ysolde: 5 }, ep: ["perso", 1500] }, to: "IV_C_ysolde_deux" },
+      { label: "Elle laisse l'écu lisse", fx: { quest: "IV_C_ysolde" }, to: "IV_C_ysolde_lisse" },
     ] }),
 
   IV_C_ysolde_cerf: P({ title: "Le cerf", place: "brenne",

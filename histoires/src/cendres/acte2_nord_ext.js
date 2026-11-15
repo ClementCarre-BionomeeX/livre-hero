@@ -64,7 +64,7 @@ module.exports = {
       { if: { not: { has: "nord:lignee" } }, text: "Tu ressors. Tu ne sais pas lire. Mais tu sais, maintenant, un nom que Torgal cherche depuis des années, et tu le tiens dans la bouche comme un caillou chaud." },
       { if: { has: "nord:lignee" }, text: "Tu ressors. Le nom, tu le savais déjà, par le vieux corbeau de l'aire. Mais tu ne savais pas que d'autres l'avaient chanté avant Torgal, si longtemps, et si nombreux." },
     ],
-    choices: [{ fx: { quest: "II_Q_echo", flag: "nord:sigrun_entendu", conf: { corbe: 10 } }, back: "II_N2_grotte" }] }),
+    choices: [{ fx: { quest: "II_Q_echo", conf: { corbe: 10 } }, back: "II_N2_grotte" }] }),
   II_Q_echo_froid: P({ title: "Le froid", place: "lacnoir",
     text: [
       "Tu bats. La salle reprend le rythme, une fois, deux fois. Puis elle se tait. Un froid descend de la voûte, un froid de glacière, et ta torche baisse. Une voix, tout près de ton oreille, très douce, dit : *Pas toi. Pas encore.*",
@@ -125,7 +125,7 @@ module.exports = {
     ],
     choices: [
       { label: "Lui demander un pain", fx: { food: 2, ep: ["perso", 300] }, to: "III_a_boulanger_pain" },
-      { label: "L'aider à enfourner", fx: { ep: ["perso", 500], flag: "iii:fournil" }, to: "III_a_boulanger_aide" },
+      { label: "L'aider à enfourner", fx: { ep: ["perso", 500] }, to: "III_a_boulanger_aide" },
     ] }),
   III_a_boulanger_pain: P3({ title: "Un pain de Valcendre", place: "valcendre",
     text: ["Il te regarde, étonné, comme devant une question oubliée depuis très longtemps. Puis il te donne le plus beau, celui du dessus. « Pour la route, dit-il. Là-haut, ils ont faim, je crois. » Le pain est chaud. Il le restera, tu le sais déjà, jusqu'au bout du blanc."],

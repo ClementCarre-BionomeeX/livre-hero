@@ -29,9 +29,9 @@ module.exports = {
     ],
     choices: [
       { label: "Descendre par la lucarne, en silence", test: { dom: "discretion", label: "Discrétion" },
-        win: { fx: { ep: ["perso", 500] }, to: "PI_bureau_maison" }, lose: { fx: { flag: "pie:bruit" }, to: "PI_ardoise" } },
+        win: { fx: { ep: ["perso", 500] }, to: "PI_bureau_maison" }, lose: { to: "PI_ardoise" } },
       { label: "Jeter une tuile à l'autre bout de la rue pour éloigner le garde avant de descendre", test: { dom: "social", label: "Ruse", diff: -10 },
-        win: { fx: { ep: ["perso", 500] }, to: "PI_bureau_maison" }, lose: { fx: { flag: "pie:bruit" }, to: "PI_ardoise" } },
+        win: { fx: { ep: ["perso", 500] }, to: "PI_bureau_maison" }, lose: { to: "PI_ardoise" } },
     ] }),
 
   PI_ardoise: P({ title: "Une ardoise",
@@ -46,9 +46,9 @@ module.exports = {
 
   PI_garde_maison: P({ title: "Le garde noir",
     combat: { title: "Le garde de la Chancellerie", enemies: ["garde_noir"], terrain: "bati", range: "contact",
-      flee: { dom: "discretion", label: "Sauter par la lucarne sur le toit d'en face", fx: { flag: "pie:fui_scelleurs" }, to: "PI_veuve_mains_vides" },
-      win: { fx: { ep: ["seance", 800], flag: "pie:garde_assomme" }, to: "PI_bureau_maison" },
-      lose: { fx: { flag: "pie:fui_scelleurs" }, to: "PI_veuve_mains_vides" } },
+      flee: { dom: "discretion", label: "Sauter par la lucarne sur le toit d'en face", to: "PI_veuve_mains_vides" },
+      win: { fx: { ep: ["seance", 800] }, to: "PI_bureau_maison" },
+      lose: { to: "PI_veuve_mains_vides" } },
     text: [
       "Il arrive sur le palier avec sa lanterne. Il est grand, jeune, il a peur, et la peur le rend rapide. Sa hallebarde balaie l'espace entre vous. Dans le couloir étroit, c'est elle qui a l'avantage. Dans le noir, c'est toi.",
     ],
@@ -77,7 +77,7 @@ module.exports = {
       "*Page Onze. Linette, neuf ans, des Teinturiers. Vendue par M. Corneille, faussaire, quatre écus. Cession complète : le trois juillet de l'an dernier.*",
       "Quatre écus. Tu restes longtemps assis par terre, le registre sur les genoux, dans l'odeur de cire. Quand tu te relèves, tu as arraché la page. Tu ne te souviens pas de l'avoir fait.",
     ],
-    choices: [{ label: "Partir, le coffret sous le bras et la page contre ta peau", fx: { item: "page_pages", flag: "pie:sait_page" }, to: "PI_veuve" }] }),
+    choices: [{ label: "Partir, le coffret sous le bras et la page contre ta peau", fx: { item: "page_pages" }, to: "PI_veuve" }] }),
 
   PI_veuve_mains_vides: P({ title: "Les mains vides",
     text: [
@@ -98,8 +98,8 @@ module.exports = {
     ],
     choices: [
       { label: "Accepter le marché de la Veuve : un faux sceau contre une chose de la tour", hide: { has: "pie:plan_sceau" }, fx: { flag: "pie:plan_sceau", item: "faux_sceau_brut" }, to: "PI_ville" },
-      { label: "Lui vendre le coffret des reçus pour réduire ta dette", hide: { not: { item: "coffret_cessions" } }, fx: { drop: "coffret_cessions", gold: 15, flag: "pie:coffret_vendu" }, to: "PI_ville" },
-      { label: "Garder le coffret. Ces reçus appartiennent à ceux qui ont vendu", hide: { not: { item: "coffret_cessions" } }, fx: { flag: "pie:coffret_garde" }, to: "PI_ville" },
+      { label: "Lui vendre le coffret des reçus pour réduire ta dette", hide: { not: { item: "coffret_cessions" } }, fx: { drop: "coffret_cessions", gold: 15 }, to: "PI_ville" },
+      { label: "Garder le coffret. Ces reçus appartiennent à ceux qui ont vendu", hide: { not: { item: "coffret_cessions" } }, to: "PI_ville" },
       { back: "PI_ville" },
     ] }),
 
@@ -179,7 +179,7 @@ module.exports = {
     ],
     choices: [
       { label: "Le lâcher", fx: { flag: ["pie:plan_linge", "corneille:laisse"], quest: "PI_corneille" }, to: "PI_corneille_fin" },
-      { label: "Le maintenir sous l'eau", tag: "Irréversible", stain: true, fx: { flag: ["pie:plan_linge", "corneille:noye", "pie:sang"], quest: "PI_corneille" }, to: "PI_corneille_noye" },
+      { label: "Le maintenir sous l'eau", tag: "Irréversible", stain: true, fx: { flag: ["pie:plan_linge", "corneille:noye"], quest: "PI_corneille" }, to: "PI_corneille_noye" },
     ] }),
 
   PI_corneille_noye: P({ title: "La Pallante",
@@ -202,7 +202,7 @@ module.exports = {
       { label: "Vendre un souvenir. Juste un. Pour le jeton, et pour la porte", tag: "Souvenir", to: "PI_bureau_vendre" },
       { label: "Observer, et voler un jeton dans la file", test: { dom: "discretion", label: "Larcin", diff: -10 },
         win: { fx: { flag: "pie:plan_cession", item: "jeton_bureau", ep: ["perso", 600], quest: "PI_bureau" }, to: "PI_bureau_jeton" },
-        lose: { fx: { flag: "pie:repere_bureau" }, to: "PI_bureau_rate" } },
+        lose: { to: "PI_bureau_rate" } },
       { label: "Repartir, avec la nausée", back: "PI_ville" },
     ] }),
 
@@ -253,7 +253,7 @@ module.exports = {
     choices: [
       { label: "Retrouver avec lui le nom de chaque cloche", test: { dom: "savoir", label: "Mémoire", help: [{ if: { souv: "pie:toits" }, v: 15 }] },
         win: { fx: { flag: ["pie:plan_clocher", "anseau:cloches"], quest: "PI_sonneur", ep: ["perso", 900] }, to: "PI_sonneur_noms" },
-        lose: { fx: { flag: "anseau:perdu" }, to: "PI_sonneur_rate" } },
+        lose: { to: "PI_sonneur_rate" } },
       { label: "Regarder d'où vient la poussière blanche", once: true, test: { dom: "nature", label: "Observation" },
         win: { fx: { clue: "n_poudre", ep: ["perso", 500] }, to: "PI_sonneur_poudre" }, lose: { to: "PI_sonneur_poudre_rate" } },
     ] }),
@@ -292,14 +292,14 @@ module.exports = {
     ],
     choices: [
       { label: "Prendre l'empreinte du sceau dans un morceau de cire, pendant qu'il écrit", hide: { not: { has: "pie:plan_sceau" } }, test: { dom: "discretion", label: "Larcin" },
-        win: { fx: { flag: "pie:modele_sceau", ep: ["perso", 600] }, to: "PI_empreinte" }, lose: { fx: { flag: "pie:repere_clercs" }, to: "PI_empreinte_rate" } },
-      { label: "Faire inscrire le nom de Linette dans le Grand Livre", fx: { flag: "pie:linette_inscrite" }, to: "PI_inscrire" },
+        win: { fx: { flag: "pie:modele_sceau", ep: ["perso", 600] }, to: "PI_empreinte" }, lose: { to: "PI_empreinte_rate" } },
+      { label: "Faire inscrire le nom de Linette dans le Grand Livre", to: "PI_inscrire" },
       { back: "PI_ville" },
     ] }),
 
   PI_empreinte: P({ title: "L'empreinte",
     text: ["Tu demandes au greffier d'inscrire ta mère. *Jeanne, blanchisseuse.* Pendant qu'il écrit, ta main traîne sur le pupitre, le pouce sur le sceau, la cire tiède dans ta paume. Quand tu repars, tu as dans ta poche une plume et une clé, à l'envers, nettes comme une gravure."],
-    choices: [{ fx: { flag: "pie:mere_inscrite" }, back: "PI_ville" }] }),
+    choices: [{ back: "PI_ville" }] }),
 
   PI_empreinte_rate: P({ title: "Le regard",
     text: ["Le greffier lève les yeux au moment où ton pouce touche le sceau. Il se tait. Il pose la main dessus, et il te regarde jusqu'à ce que tu partes. Ton modèle, ce n'est pas ici que tu le prendras."],
@@ -374,7 +374,7 @@ module.exports = {
     choices: [
       { label: "Monter, en sautant la troisième marche", hide: { not: { has: "pie:marche" } }, fx: { ep: ["perso", 400] }, to: "PI_scriptorium" },
       { label: "Monter en silence", hide: { has: "pie:marche" }, test: { dom: "discretion", label: "Discrétion" },
-        win: { to: "PI_scriptorium" }, lose: { fx: { flag: "pie:alerte" }, to: "PI_garde_escalier" } },
+        win: { to: "PI_scriptorium" }, lose: { to: "PI_garde_escalier" } },
     ] }),
 
   PI_cession: P({ title: "L'étage des Cessions",
@@ -386,7 +386,7 @@ module.exports = {
     ],
     choices: [
       { label: "Traverser la salle comme si on t'avait appelé, et passer la porte", test: { dom: "social", label: "Aplomb", help: [{ if: { has: "pie:a_vendu" }, v: 10 }] },
-        win: { to: "PI_scriptorium" }, lose: { fx: { flag: "pie:alerte" }, to: "PI_garde_escalier" } },
+        win: { to: "PI_scriptorium" }, lose: { to: "PI_garde_escalier" } },
     ] }),
 
   PI_corde: P({ title: "La corde de la Grosse",
@@ -396,7 +396,7 @@ module.exports = {
     ],
     choices: [
       { label: "Traverser, à la force des bras", test: { dom: "nature", label: "Escalade", help: [{ if: { souv: "pie:toits" }, v: 15 }] },
-        win: { fx: { ep: ["perso", 600] }, to: "PI_scriptorium" }, lose: { fx: { flag: "pie:blesse", pv: -4 }, to: "PI_corde_chute" } },
+        win: { fx: { ep: ["perso", 600] }, to: "PI_scriptorium" }, lose: { fx: { pv: -4 }, to: "PI_corde_chute" } },
     ] }),
 
   PI_corde_chute: P({ title: "Les mains ouvertes",
@@ -411,14 +411,14 @@ module.exports = {
     ],
     choices: [
       { label: "Passer", test: { dom: "social", label: "Aplomb", diff: -10 },
-        win: { fx: { ep: ["perso", 600] }, to: "PI_scriptorium" }, lose: { fx: { flag: "pie:alerte" }, to: "PI_garde_escalier" } },
+        win: { fx: { ep: ["perso", 600] }, to: "PI_scriptorium" }, lose: { to: "PI_garde_escalier" } },
     ] }),
 
   PI_garde_escalier: P({ title: "Qui va là ?",
     combat: { title: "Le garde noir", enemies: ["garde_noir"], terrain: "bati", range: "contact",
       talk: { label: "« Frère Baudoin m'a fait monter. Va le lui demander, si tu ne me crois pas. »", diff: -20, win: { fx: { ep: ["perso", 500] }, to: "PI_scriptorium" } },
-      win: { fx: { ep: ["seance", 1000], flag: "pie:garde_tue" }, to: "PI_scriptorium" },
-      lose: { fx: { flag: "pie:pris" }, to: "PI_cachot" } },
+      win: { fx: { ep: ["seance", 1000] }, to: "PI_scriptorium" },
+      lose: { to: "PI_cachot" } },
     text: ["Un garde noir te barre le chemin, la main sur la poignée de son épée. Il te regarde de la tête aux pieds. « Toi, dit-il. Tu n'as rien à faire ici. »"],
     choices: [] }),
 
@@ -487,9 +487,9 @@ module.exports = {
       "Au loin, dans les couloirs, des pas, et le tintement d'un trousseau de clés.",
     ],
     choices: [
-      { label: "La boîte de plomb : ses souvenirs. Tu reviendras pour elle", fx: { item: "boite_linette", flag: ["pie:choix=boite", "pie:hylas"], quest: "PI_linette", ep: ["histoire", 3000] }, to: "PI_fuite" },
-      { label: "La page du registre : que Pallanche sache ce qui l'attend", fx: { item: "liste_nuit", clue: "n_nuit", flag: ["pie:choix=liste", "pie:hylas"], quest: "PI_linette", ep: ["histoire", 3000] }, to: "PI_fuite" },
-      { label: "Linette elle-même. Elle se souviendra plus tard. Ou jamais", fx: { join: "linette", flag: ["pie:choix=linette", "pie:hylas"], quest: "PI_linette", ep: ["histoire", 3000] }, to: "PI_fuite" },
+      { label: "La boîte de plomb : ses souvenirs. Tu reviendras pour elle", fx: { item: "boite_linette", flag: "pie:choix=boite", quest: "PI_linette", ep: ["histoire", 3000] }, to: "PI_fuite" },
+      { label: "La page du registre : que Pallanche sache ce qui l'attend", fx: { item: "liste_nuit", clue: "n_nuit", flag: "pie:choix=liste", quest: "PI_linette", ep: ["histoire", 3000] }, to: "PI_fuite" },
+      { label: "Linette elle-même. Elle se souviendra plus tard. Ou jamais", fx: { join: "linette", flag: "pie:choix=linette", quest: "PI_linette", ep: ["histoire", 3000] }, to: "PI_fuite" },
     ] }),
 
   PI_fuite: P({ title: "L'alarme",
@@ -505,9 +505,9 @@ module.exports = {
     ],
     choices: [
       { label: "Te battre pour passer", fight: { title: "Les gardes de la tour", enemies: [{ id: "garde_noir", n: 2 }], terrain: "bati",
-        win: { fx: { ep: ["seance", 1500] }, to: "PI_fenetre" }, lose: { fx: { flag: "pie:blesse" }, to: "PI_fenetre_blesse" } } },
+        win: { fx: { ep: ["seance", 1500] }, to: "PI_fenetre" }, lose: { to: "PI_fenetre_blesse" } } },
       { label: "Prendre l'autre couloir, au hasard, et courir plus vite qu'eux", test: { dom: "discretion", label: "Fuite", help: [{ if: { has: "pie:choix=linette" }, v: -10 }] },
-        win: { fx: { ep: ["perso", 800] }, to: "PI_fenetre" }, lose: { fx: { flag: "pie:blesse" }, to: "PI_fenetre_blesse" } },
+        win: { fx: { ep: ["perso", 800] }, to: "PI_fenetre" }, lose: { to: "PI_fenetre_blesse" } },
     ] }),
 
   PI_fenetre_blesse: P({ title: "Une lame dans le dos",
@@ -523,7 +523,7 @@ module.exports = {
     choices: [{ label: "Rentrer au grenier", to: "PI_fin" }] }),
 
   PI_fin: P({ title: "Pie, à l'aube de la Fête",
-    fx: { flag: "prologue:pie", catchup: 4, catchupWhy: "les toits de Pallanche", ep: ["histoire", 4000] },
+    fx: { catchup: 4, catchupWhy: "les toits de Pallanche", ep: ["histoire", 4000] },
     text: [
       "L'aube se lève sur Pallanche, le jour de la Fête des Noms. De ton grenier, tu vois la tour noire, et sur la place aux Clercs, déjà, les files d'attente devant les pupitres.",
       { if: { has: "pie:choix=boite" }, text: "La boîte de plomb est sur le plancher, entre tes genoux. Elle rit, parfois, très bas. Tu ignores comment l'ouvrir, et si tu en as le droit. Linette est restée là-bas. Tu y retourneras. Tu l'as promis à une boîte." },

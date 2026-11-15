@@ -106,7 +106,7 @@ module.exports = {
       "Elle te tend un papier. Un brevet de soldat, plié en huit, avec le sceau du loup. Pierre Aubin. La signature, en bas, est celle de ton père.",
     ],
     choices: [
-      { label: "Lui écrire un ordre de pension, de ta main, sous ton sceau", fx: { flag: "ys:aubin", gold: -2, ep: ["perso", 600] }, to: "E_veuve_soldat_ordre" },
+      { label: "Lui écrire un ordre de pension, de ta main, sous ton sceau", fx: { gold: -2, ep: ["perso", 600] }, to: "E_veuve_soldat_ordre" },
       { label: "Lui dire que tu verras au retour", to: "@route" },
     ] }),
   E_veuve_soldat_ordre: P({ title: "Ton sceau",

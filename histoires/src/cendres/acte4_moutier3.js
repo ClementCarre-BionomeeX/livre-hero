@@ -13,7 +13,7 @@ module.exports = {
     choices: [
       { label: "Dire le nom de Pim", fx: { ep: ["perso", 300] }, to: "IV_m_refectoire_pim" },
       { label: "Dire le nom de ta mère, celle qui chante", if: { has: "maera:sait" }, why: "Tu ne sais pas encore son nom.", fx: { ep: ["perso", 400] }, to: "IV_m_refectoire_maera" },
-      { label: "Dire un nom que personne ne connaît, celui d'un marcheur de la plaine", fx: { ep: ["perso", 400], flag: "iv:refectoire_inconnu" }, to: "IV_m_refectoire_inconnu" },
+      { label: "Dire un nom que personne ne connaît, celui d'un marcheur de la plaine", fx: { ep: ["perso", 400] }, to: "IV_m_refectoire_inconnu" },
     ] }),
   IV_m_refectoire_pim: P({ title: "Pim",
     text: ["« Pim. » Tu le dis, et tu te rassieds. À la table d'en face, un frère que tu ne connais pas répète, à mi-voix, « Pim », comme on goûte un plat. Puis il mange. Tu n'as jamais pensé que le nom de ton frère pouvait être dit par un inconnu, dans une salle de pierre, à cent lieues du moulin. Il tient. Il tient même là."],
@@ -31,7 +31,7 @@ module.exports = {
     ],
     choices: [
       { label: "Te laisser attraper", fx: { ep: ["perso", 300] }, to: "IV_m_jeu_pris" },
-      { label: "Prendre le bandeau, pour que le petit puisse sortir", fx: { ep: ["perso", 300], flag: "iv:jeu_glaneur" }, to: "IV_m_jeu_bandeau" },
+      { label: "Prendre le bandeau, pour que le petit puisse sortir", fx: { ep: ["perso", 300] }, to: "IV_m_jeu_bandeau" },
       { label: "Les regarder jouer, assis sur le muret", to: "IV_m_jeu_regarde" },
     ] }),
   IV_m_jeu_pris: P({ title: "Attrapé",
@@ -53,7 +53,7 @@ module.exports = {
     ],
     choices: [
       { label: "« De très loin. »", to: "IV_m_portier_oui" },
-      { label: "Lui proposer de garder la porte, une heure, pendant qu'il dort", fx: { ep: ["perso", 400], flag: "iv:portier" }, to: "IV_m_portier_garde" },
+      { label: "Lui proposer de garder la porte, une heure, pendant qu'il dort", fx: { ep: ["perso", 400] }, to: "IV_m_portier_garde" },
     ] }),
   IV_m_portier_oui: P({ title: "La lanterne",
     text: ["Il hoche la tête, sans demander d'où. Il remonte la mèche de sa lanterne. « Je me souviens de tous ceux qui sont passés par cette porte, dit-il. Pas de leurs noms. De leurs pieds. Ceux qui arrivent pieds nus, ceux qui ont des sabots, ceux qui traînent la jambe. » Il regarde les tiens. « Toi, tu marches comme quelqu'un qui a marché longtemps sur quelque chose de mou. De la neige. Ou pire. » Il ne demande pas ce qui est pire. Il te laisse repartir vers le cloître."],

@@ -61,7 +61,7 @@ module.exports = {
       { if: { item: "ours_bois" }, text: "Tu sors de ta poche l'ours de bois du ruisseau, et tu le tiens un moment contre le chevet." },
       "Le berceau est vide. Dans le creux du petit matelas de laine, il y a encore la forme d'un enfant. Elle n'a pas bougé depuis vingt ans.",
     ],
-    choices: [{ fx: { flag: "enfant:berceau" }, back: "III_e_hameau" }] }),
+    choices: [{ back: "III_e_hameau" }] }),
 
   III_e_mere: P({ title: "Maëra", place: "enfance",
     fx: { meet: "maera" },
@@ -74,7 +74,7 @@ module.exports = {
     ],
     choices: [
       { label: "« C'est moi. »", fx: { flag: "maera:sait", ep: ["perso", 2500] }, to: "III_e_mere_dit" },
-      { label: "Ne rien dire. Lui demander seulement de chanter encore", fx: { flag: "maera:chante", ep: ["perso", 1500] }, to: "III_e_mere_chante" },
+      { label: "Ne rien dire. Lui demander seulement de chanter encore", fx: { ep: ["perso", 1500] }, to: "III_e_mere_chante" },
     ] }),
 
   III_e_mere_dit: P({ title: "C'est moi", place: "enfance",
@@ -93,7 +93,7 @@ module.exports = {
       "Tu t'endors. Tu ne t'étais pas endormi depuis la chute. Tu dors une heure, ou un jour. Quand tu te réveilles, elle a posé une couverture sur toi.",
       "Elle ne t'a rien demandé. Elle sait. Elle a décidé de ne pas te le faire dire.",
     ],
-    choices: [{ fx: { flag: "enfant:berceuse" }, back: "III_e_hameau" }] }),
+    choices: [{ back: "III_e_hameau" }] }),
 
   III_e_hylas: P({ title: "La lanterne", place: "enfance",
     text: [
@@ -104,8 +104,8 @@ module.exports = {
       "« Je cherchais le registre noir, dans le Nord. Je suis passé par le col. Je suis entré. Elle m'a donné un enfant de deux ans, endormi, et elle m'a dit : emporte-le. Je l'ai porté trois jours. Le blanc m'a pris les yeux, en sortant. Je ne les ai pas regrettés. » Il tourne la tête vers toi. « Je t'ai laissé à un meunier de Sauvelune parce qu'il avait l'air bon, et que sa femme avait perdu un enfant au printemps. Je suis revenu te voir, de loin, chaque année. Et je ne t'ai jamais rien dit. »",
     ],
     choices: [
-      { label: "« Merci. »", fx: { flag: ["hylas:avoue", "enfant:pardonne_hylas"], conf: { hylas: 15 }, ep: ["perso", 2000] }, to: "III_e_hylas_merci" },
-      { label: "« Tu aurais dû me le dire. »", fx: { flag: ["hylas:avoue", "enfant:reproche_hylas"], conf: { hylas: -5 }, ep: ["perso", 2000] }, to: "III_e_hylas_reproche" },
+      { label: "« Merci. »", fx: { flag: "enfant:pardonne_hylas", conf: { hylas: 15 }, ep: ["perso", 2000] }, to: "III_e_hylas_merci" },
+      { label: "« Tu aurais dû me le dire. »", fx: { conf: { hylas: -5 }, ep: ["perso", 2000] }, to: "III_e_hylas_reproche" },
     ] }),
 
   III_e_hylas_merci: P({ title: "Merci", place: "enfance",

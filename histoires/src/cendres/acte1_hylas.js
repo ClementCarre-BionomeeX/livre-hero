@@ -47,7 +47,7 @@ module.exports = {
     ],
     choices: [
       { label: "« Linette. Tu t'appelais Linette. Ne le dis à personne. »", fx: { flag: "linette:nom_dit", quest: "HY_page", ep: ["perso", 800] }, to: "HY_linette_nom" },
-      { label: "« Je ne sais pas, petite. » C'est plus sûr, pour elle", fx: { flag: "linette:nom_tu", quest: "HY_page", ep: ["perso", 300] }, to: "HY_linette_tu" },
+      { label: "« Je ne sais pas, petite. » C'est plus sûr, pour elle", fx: { quest: "HY_page", ep: ["perso", 300] }, to: "HY_linette_tu" },
     ] }),
 
   HY_linette_nom: P({ title: "Linette",
@@ -106,7 +106,7 @@ module.exports = {
     ],
     choices: [
       { label: "Ouvrir la serrure par un sortilège", test: { dom: "magie", label: "Sortilège" },
-        win: { fx: { ep: ["perso", 600] }, to: "HY_salle_noire" }, lose: { fx: { flag: "hylas:bruit" }, to: "HY_gardien" } },
+        win: { fx: { ep: ["perso", 600] }, to: "HY_salle_noire" }, lose: { to: "HY_gardien" } },
       { label: "Demander la clé à l'archiviste, en lui mentant", test: { dom: "social", label: "Mensonge", diff: -10 },
         win: { fx: { ep: ["perso", 600] }, to: "HY_salle_noire" }, lose: { fx: { flag: "mordace:soupcon" }, to: "HY_caveau_refus" } },
       { label: "Remonter. Pas aujourd'hui", back: "HY_tour" },
@@ -118,9 +118,9 @@ module.exports = {
 
   HY_gardien: P({ title: "Ce qui garde la porte",
     combat: { title: "Le gardien du caveau", enemies: ["glaneur_petit"], terrain: "bati", range: "contact",
-      flee: { dom: "magie", label: "Remonter l'escalier à reculons, en traçant un signe de feu sur chaque marche", fx: { flag: "hylas:fui_caveau" }, to: "HY_tour" },
+      flee: { dom: "magie", label: "Remonter l'escalier à reculons, en traçant un signe de feu sur chaque marche", to: "HY_tour" },
       win: { fx: { ep: ["seance", 1200], flag: "hylas:gardien_brise" }, to: "HY_salle_noire" },
-      lose: { fx: { flag: "hylas:fui_caveau", pv: -1 }, to: "HY_tour" } },
+      lose: { fx: { pv: -1 }, to: "HY_tour" } },
     text: [
       "Le froid monte d'un coup, comme une eau. Quelque chose se lève dans le coin de l'escalier, quelque chose qui ne respire pas et qui craque comme de la neige tassée sous un pas. Tes oreilles te suffisent.",
     ],
@@ -151,8 +151,8 @@ module.exports = {
     ],
     choices: [
       { label: "Mentir. « J'étais seul. J'ai failli mourir seul. »", test: { dom: "social", label: "Mensonge", diff: -15, help: [{ if: { not: { has: "mordace:soupcon" } }, v: 15 }] },
-        win: { fx: { flag: "hylas:ment", ep: ["perso", 1000] }, to: "HY_mordace_mensonge" },
-        lose: { fx: { flag: ["hylas:ment", "mordace:sait_mensonge"] }, to: "HY_mordace_mensonge_rate" } },
+        win: { fx: { ep: ["perso", 1000] }, to: "HY_mordace_mensonge" },
+        lose: { to: "HY_mordace_mensonge_rate" } },
       { label: "Lui demander d'abord ce que veut dire la dernière ligne du registre noir", hide: { not: { seen: "HY_salle_noire" } }, to: "HY_mordace_registre" },
       { label: "Te taire. Et cette nuit, donner ce souvenir à la neige, pour qu'il ne puisse jamais le prendre", tag: "Souvenir donné", stain: true, if: { souv: "hylas:enfant" }, why: "Tu ne l'as plus.",
         fx: { souv: "hylas:enfant", flag: "hylas:oublie_enfant", ep: ["perso", 1500] }, to: "HY_mordace_silence" },
@@ -167,8 +167,8 @@ module.exports = {
     ],
     choices: [
       { label: "Mentir", test: { dom: "social", label: "Mensonge", diff: -25 },
-        win: { fx: { flag: "hylas:ment", ep: ["perso", 1000] }, to: "HY_mordace_mensonge" },
-        lose: { fx: { flag: ["hylas:ment", "mordace:sait_mensonge"] }, to: "HY_mordace_mensonge_rate" } },
+        win: { fx: { ep: ["perso", 1000] }, to: "HY_mordace_mensonge" },
+        lose: { to: "HY_mordace_mensonge_rate" } },
       { label: "Te taire, et cette nuit, donner ce souvenir à la neige", tag: "Souvenir donné", stain: true, if: { souv: "hylas:enfant" }, why: "Tu ne l'as plus.",
         fx: { souv: "hylas:enfant", flag: "hylas:oublie_enfant", ep: ["perso", 1500] }, to: "HY_mordace_silence" },
     ] }),
@@ -213,9 +213,9 @@ module.exports = {
       "« Le Greffier-Majeur demande que vous certifiiez la livraison, maître. Votre sceau, ici. »",
     ],
     choices: [
-      { label: "Poser ton sceau. Il est trop tôt pour te perdre", fx: { flag: "hylas:certifie" }, to: "HY_baudoin" },
-      { label: "Refuser. « Je ne certifie pas ce que je n'ai pas lu. »", fx: { flag: ["hylas:refuse", "mordace:soupcon"], ep: ["perso", 800] }, to: "HY_baudoin" },
-      { label: "Demander qu'on te lise chaque nom, un par un, avant de signer", fx: { flag: "hylas:noms_lus", time: 4, ep: ["perso", 1200] }, to: "HY_noms" },
+      { label: "Poser ton sceau. Il est trop tôt pour te perdre", to: "HY_baudoin" },
+      { label: "Refuser. « Je ne certifie pas ce que je n'ai pas lu. »", fx: { flag: "mordace:soupcon", ep: ["perso", 800] }, to: "HY_baudoin" },
+      { label: "Demander qu'on te lise chaque nom, un par un, avant de signer", fx: { time: 4, ep: ["perso", 1200] }, to: "HY_noms" },
     ] }),
 
   HY_noms: P({ title: "Un par un",
@@ -234,8 +234,8 @@ module.exports = {
     ],
     choices: [
       { label: "Lui dire ce que tu sais, et ce que tu crois", fx: { flag: "baudoin:sait", quest: "HY_baudoin", ep: ["perso", 1000] }, to: "HY_baudoin_sait" },
-      { label: "Lui dire d'arrêter. De partir de Pallanche ce soir, en silence", fx: { flag: "baudoin:parti", quest: "HY_baudoin", ep: ["perso", 800] }, to: "HY_baudoin_part" },
-      { label: "Lui dire de continuer, et de t'apporter, chaque soir, un reçu du jour", fx: { flag: "baudoin:espion", quest: "HY_baudoin", ep: ["perso", 800] }, to: "HY_baudoin_espion" },
+      { label: "Lui dire d'arrêter. De partir de Pallanche ce soir, en silence", fx: { quest: "HY_baudoin", ep: ["perso", 800] }, to: "HY_baudoin_part" },
+      { label: "Lui dire de continuer, et de t'apporter, chaque soir, un reçu du jour", fx: { quest: "HY_baudoin", ep: ["perso", 800] }, to: "HY_baudoin_espion" },
     ] }),
 
   HY_baudoin_sait: P({ title: "Ce que tu crois",
@@ -281,7 +281,7 @@ module.exports = {
     ] }),
 
   HY_fin: P({ title: "Maître Hylas, la veille",
-    fx: { flag: "prologue:hylas", quest: "HY_mordace", catchup: 5, catchupWhy: "la Chancellerie des Noms" },
+    fx: { quest: "HY_mordace", catchup: 5, catchupWhy: "la Chancellerie des Noms" },
     text: [
       { if: { has: "hylas:voie=attendre" }, text: "Tu restes. La mère Tissot ferme les volets autour de toi et te laisse la clé, comme elle le fait parfois. Tu as tout ton temps. Tu en as eu vingt ans." },
       { if: { all: [{ has: "hylas:voie=attendre" }, { has: "croise:pie_enfant" }] }, text: "À la table du fond, le papier se froisse encore." },

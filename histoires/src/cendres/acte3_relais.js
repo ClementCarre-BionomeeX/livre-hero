@@ -32,7 +32,7 @@ module.exports = {
       "Il te tend la plume. Tu hésites. Quel nom ? Celui de Sauvelune, que le Père Anselme a écrit au temple, est le seul que tu connaisses. Mais depuis que tu marches dans ce blanc où il te semble être déjà venu, tu n'es plus sûr de n'en avoir qu'un. Anthelme attend. Il a l'habitude des gens qui hésitent, ici.",
     ],
     choices: [
-      { label: "Écrire ton nom et, dessous, une croix pour celui que tu ne connais pas", fx: { flag: "iii:relais_nom", ep: ["perso", 600] }, to: "III_r_signer_deux" },
+      { label: "Écrire ton nom et, dessous, une croix pour celui que tu ne connais pas", fx: { ep: ["perso", 600] }, to: "III_r_signer_deux" },
       { label: "Écrire seulement celui de Sauvelune", fx: { ep: ["perso", 400] }, to: "III_r_signer_un" },
     ] }),
   III_r_signer_deux: P({ title: "Deux lignes",

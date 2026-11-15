@@ -42,7 +42,6 @@ module.exports = {
     choices: [{ label: "Sortir de l'eau en grelottant", to: "EN_joris" }] },
 
   EN_joris: { act: "I", title: "Ce que Joris tait", place: "sauvelune",
-    fx: { flag: "joris:confidence" },
     text: [
       "Vous vous asseyez tous les deux sur le muret du bief pour sécher au soleil. Joris bourre sa pipe sans l'allumer ; il ne l'allume jamais avant midi, c'est une règle qu'il tient de son père et dont personne ne connaît la raison.",
       "« Il faisait froid comme ça, la nuit où on t'a trouvé », dit-il soudain.",
@@ -75,8 +74,8 @@ module.exports = {
     ],
     choices: [
       { label: "Lui tailler son sifflet, là, tout de suite", test: { dom: "nature", label: "Adresse" },
-        win: { fx: { item: "sifflet_pim", flag: "pim:sifflet", ep: ["perso", 200] }, to: "EN_pim_sifflet" },
-        lose: { fx: { flag: "pim:sifflet_rate" }, to: "EN_pim_rate" } },
+        win: { fx: { item: "sifflet_pim", ep: ["perso", 200] }, to: "EN_pim_sifflet" },
+        lose: { to: "EN_pim_rate" } },
       { label: "« Pour le jour où quelqu'un l'oubliera. » Lui faire répéter son nom jusqu'à ce qu'il le chante", fx: { flag: "pim:chanson", ep: ["perso", 200] }, to: "EN_pim_nom" },
     ] },
 
@@ -117,7 +116,7 @@ module.exports = {
     choices: [
       { label: "Graver vos deux noms dans l'écorce, l'un dans l'autre", fx: { flag: "tess:chene", ep: ["perso", 300] }, to: "EN_tess_grave" },
       { label: "« Ce soir, à la ronde, je danserai avec toi. Devant tout le monde. »", fx: { flag: "tess:ronde", ep: ["perso", 200] }, to: "EN_tess_ronde" },
-      { label: "Lui dire que tu as rêvé de la plaine blanche, encore", fx: { flag: "tess:reve" }, to: "EN_tess_reve" },
+      { label: "Lui dire que tu as rêvé de la plaine blanche, encore", to: "EN_tess_reve" },
     ] },
 
   EN_tess_grave: { act: "I", title: "Deux noms", place: "sauvelune",
@@ -146,7 +145,7 @@ module.exports = {
       "Tess t'écoute sans rire. Elle t'écoute toujours sans rire, c'est pour ça que tu lui dis les choses.",
       "« Ma mère disait que les enfants trouvés rêvent de là d'où ils viennent, dit-elle enfin. Elle disait aussi que les crapauds portent des pierres précieuses dans la tête, alors. » Elle hausse les épaules. Puis elle détache le ruban rouge de ses cheveux et te le noue au poignet, deux fois. « Si tu repars là-bas, dans ta plaine, tu me le rapportes. »",
     ],
-    choices: [{ label: "Le lui promettre", fx: { item: "ruban", flag: "tess:promesse" }, to: "EN_matin_suite" }] },
+    choices: [{ label: "Le lui promettre", fx: { item: "ruban" }, to: "EN_matin_suite" }] },
 
   // ---------------------------------------------------------------- the festival
   EN_place: { act: "I", title: "La fête des foins", place: "sauvelune", hub: true, shop: "fete",
@@ -184,11 +183,11 @@ module.exports = {
     choices: [
       { label: "Entrer dans le cercle et le jeter dans la sciure", test: { dom: "combat", label: "Lutte", diff: -10, help: [{ if: { has: "passe:moulin" }, v: 10 }, { if: { has: "passe:bagarre" }, v: 10 }] },
         win: { fx: { ep: ["perso", 500], gold: 3, item: "jambon", flag: "EN:lutte_gagnee" }, to: "EN_lutte_gagne" },
-        lose: { fx: { pv: -3, ep: ["perso", 100], flag: "EN:lutte_perdue" }, to: "EN_lutte_perdu" } },
+        lose: { fx: { pv: -3, ep: ["perso", 100] }, to: "EN_lutte_perdu" } },
       { label: "Entrer dans le cercle, et le faire tomber par la ruse plutôt que par la force", test: { dom: "discretion", label: "Ruse", diff: -10 },
         win: { fx: { ep: ["perso", 500], gold: 3, item: "jambon", flag: "EN:lutte_gagnee" }, to: "EN_lutte_gagne" },
-        lose: { fx: { pv: -3, ep: ["perso", 100], flag: "EN:lutte_perdue" }, to: "EN_lutte_perdu" } },
-      { label: "Décliner en riant, et lui dire que tu préfères garder ton nez pour la ronde", fx: { flag: "EN:lutte_refusee" }, to: "EN_place" },
+        lose: { fx: { pv: -3, ep: ["perso", 100] }, to: "EN_lutte_perdu" } },
+      { label: "Décliner en riant, et lui dire que tu préfères garder ton nez pour la ronde", to: "EN_place" },
     ] },
 
   EN_lutte_gagne: { act: "I", title: "Dans la sciure", place: "sauvelune",
@@ -213,9 +212,9 @@ module.exports = {
     ],
     choices: [
       { label: "Tirer", test: { dom: "combat", label: "Tir", help: [{ if: { arch: "rodeur" }, v: 20 }, { if: { has: "passe:alpage" }, v: 10 }] },
-        win: { fx: { ep: ["perso", 400], gold: 2, flag: "EN:tir_gagne" }, to: "EN_tir_gagne" },
+        win: { fx: { ep: ["perso", 400], gold: 2 }, to: "EN_tir_gagne" },
         lose: { fx: { ep: ["perso", 100] }, to: "EN_tir_rate" } },
-      { label: "Laisser ta place à un gamin qui piétine d'impatience", fx: { flag: "EN:tir_laisse", ep: ["perso", 100] }, to: "EN_place" },
+      { label: "Laisser ta place à un gamin qui piétine d'impatience", fx: { ep: ["perso", 100] }, to: "EN_place" },
     ] },
 
   EN_tir_gagne: { act: "I", title: "Au cœur", place: "sauvelune",
@@ -246,7 +245,7 @@ module.exports = {
     ],
     choices: [
       { label: "Monter avec lui voir les ruches", to: "EN_ruches" },
-      { label: "Lui promettre d'y passer plus tard", fx: { flag: "mathurin:promis" }, to: "EN_place" },
+      { label: "Lui promettre d'y passer plus tard", to: "EN_place" },
     ] },
 
   EN_ruches: { act: "I", title: "Le rucher", place: "sauvelune",
@@ -258,10 +257,10 @@ module.exports = {
     choices: [
       { label: "Enfumer les ruches à la bruyère sèche, doucement, comme il te l'a appris un jour", test: { dom: "nature", label: "Apiculture" },
         win: { fx: { flag: "mathurin:ruches", quest: "EN_ruches", ep: ["perso", 500], item: "miel" }, to: "EN_ruches_ok" },
-        lose: { fx: { flag: "mathurin:echec" }, to: "EN_ruches_ko" } },
+        lose: { to: "EN_ruches_ko" } },
       { label: "Chanter pour elles. Mathurin dit que les abeilles aiment la chanson des foins", test: { dom: "social", label: "Chant", help: [{ if: { arch: "barde" }, v: 20 }] },
         win: { fx: { flag: "mathurin:ruches", quest: "EN_ruches", ep: ["perso", 500], item: "miel" }, to: "EN_ruches_ok" },
-        lose: { fx: { flag: "mathurin:echec" }, to: "EN_ruches_ko" } },
+        lose: { to: "EN_ruches_ko" } },
     ] },
 
   EN_ruches_ok: { act: "I", title: "Le bourdonnement", place: "sauvelune",
@@ -288,7 +287,7 @@ module.exports = {
       "Il te regarde un moment par-dessus ses lunettes, et tu as l'impression qu'il va dire quelque chose d'autre. Puis une femme lui tend un bébé à bénir, et le moment passe.",
     ],
     choices: [
-      { label: "Lui demander ce qui est écrit, dans le registre, à la page de ton arrivée", fx: { flag: "anselme:question" }, to: "EN_anselme_page" },
+      { label: "Lui demander ce qui est écrit, dans le registre, à la page de ton arrivée", to: "EN_anselme_page" },
       { label: "Le laisser à ses gerbes", to: "EN_place" },
     ] },
 
@@ -316,7 +315,7 @@ module.exports = {
     choices: [
       { label: "Attraper un flocon dans ta main et le regarder de près", to: "EN_flocon" },
       { label: "Prendre Pim par la main et le ramener au moulin", fx: { flag: "EN:pim_ramene" }, to: "EN_nuit" },
-      { label: "Embrasser Tess, là, sous la neige, devant tout le village qui regarde ailleurs", fx: { flag: "tess:baiser", ep: ["perso", 200] }, to: "EN_baiser" },
+      { label: "Embrasser Tess, là, sous la neige, devant tout le village qui regarde ailleurs", fx: { ep: ["perso", 200] }, to: "EN_baiser" },
       { label: "Courir au temple, où le Père Anselme vient de s'engouffrer", to: "EN_temple_soir" },
     ] },
 
@@ -348,7 +347,7 @@ module.exports = {
       "« Tu as vu ? dit-elle tout bas. Tu as vu ce que ça fait ? »",
     ],
     choices: [
-      { label: "« Je ne sais pas ce que c'est. Rentre chez toi, Tess. Ferme la porte. »", fx: { flag: "tess:rentree" }, to: "EN_nuit" },
+      { label: "« Je ne sais pas ce que c'est. Rentre chez toi, Tess. Ferme la porte. »", to: "EN_nuit" },
       { label: "Courir au temple avec elle", fx: { flag: "tess:temple" }, to: "EN_temple_soir" },
     ] },
 
@@ -375,7 +374,7 @@ module.exports = {
     ],
     choices: [
       { label: "Descendre sans bruit et regarder par la porte entrouverte", to: "EN_nuit_dehors" },
-      { label: "Rester près de Pim, la main sur la poignée de ton couteau, jusqu'au matin", fx: { flag: "EN:veille_pim" }, to: "EN_nuit_veille" },
+      { label: "Rester près de Pim, la main sur la poignée de ton couteau, jusqu'au matin", to: "EN_nuit_veille" },
     ] },
 
   EN_nuit_dehors: { act: "I", title: "Ce qui marche dans la neige", place: "sauvelune",
@@ -387,8 +386,8 @@ module.exports = {
     ],
     choices: [
       { label: "Te glisser dehors, dans l'ombre du mur, et la suivre quand elle repart", test: { dom: "discretion", label: "Discrétion" },
-        win: { fx: { ep: ["perso", 600], flag: "EN:suivi" }, to: "EN_nuit_suivre" },
-        lose: { fx: { flag: "EN:vu" }, to: "EN_nuit_vu" } },
+        win: { fx: { ep: ["perso", 600] }, to: "EN_nuit_suivre" },
+        lose: { to: "EN_nuit_vu" } },
       { label: "Ouvrir la porte en grand et crier ton nom, et celui de chacun de la maison", fx: { flag: "EN:crie", ep: ["perso", 400] }, to: "EN_nuit_cri" },
       { label: "Rester immobile, retenir ton souffle, et la regarder faire", to: "EN_nuit_vu" },
     ] },
@@ -403,7 +402,7 @@ module.exports = {
     choices: [{ label: "Rentrer au moulin avant l'aube", to: "EN_aube" }] },
 
   EN_nuit_vu: { act: "I", title: "Les yeux de neige", place: "sauvelune",
-    fx: { clue: "n_immune", flag: "EN:vu" },
+    fx: { clue: "n_immune" },
     text: [
       "Elle tourne la tête vers toi. Tu le sais parce que le froid change de place. Il n'y a pas d'yeux dans ce visage de neige, rien qu'un creux plus pâle, et ce creux est tourné vers le seuil du moulin, vers toi.",
       "Tu es cloué sur place. Elle se penche, lentement, jusqu'à ce que son visage soit à hauteur du tien, si près que tu devrais sentir son souffle. Tu ne sens rien. Elle souffle. La neige passe sur toi, à travers toi, et ne prend rien.",

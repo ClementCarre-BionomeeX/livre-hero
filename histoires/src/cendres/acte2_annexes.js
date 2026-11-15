@@ -35,12 +35,12 @@ module.exports = {
     choices: [
       { label: "Chasser le Glaneur", to: "II_Q_aire_combat" },
       { label: "Ne pas bouger, et chanter à Grand-Bec les générations que tu connais", test: { dom: "magie", label: "Le chant", help: [{ if: { has: "corbe:corbeau_soigne" }, v: 10 }, { if: { present: "hylas" }, v: 10 }] },
-        win: { fx: { flag: "nord:lignee=chant", ep: ["perso", 1200] }, to: "II_Q_aire_chant" }, lose: { to: "II_Q_aire_combat" } },
+        win: { fx: { ep: ["perso", 1200] }, to: "II_Q_aire_chant" }, lose: { to: "II_Q_aire_combat" } },
     ] }),
   II_Q_aire_combat: P({ title: "Le rebord", place: "corbeau",
     combat: { title: "Le Glaneur de l'aire", enemies: ["glaneur_petit", "glaneur_petit"], terrain: "nature", range: "contact",
       flee: { dom: "nature", label: "Redescendre, et laisser le vieux corbeau à son sort", to: "II_Q_aire_fuite" },
-      win: { fx: { flag: "nord:lignee=combat", ep: ["seance", 900] }, to: "II_Q_aire_nom" }, lose: { fx: { pv: -3 }, to: "II_Q_aire_fuite" } },
+      win: { fx: { ep: ["seance", 900] }, to: "II_Q_aire_nom" }, lose: { fx: { pv: -3 }, to: "II_Q_aire_fuite" } },
     text: ["Tu te lèves. Le Glaneur se lève aussi, et un deuxième sort de sous les branches, où il était couché. Grand-Bec reste immobile. Il a vu pire."],
     choices: [] }),
   II_Q_aire_chant: P({ title: "Les générations", place: "corbeau",
@@ -135,7 +135,7 @@ module.exports = {
     ],
     choices: [{ label: "Jouer le quatrième acte", test: { dom: "social", label: "La scène", help: [{ if: { not: { has: "lisandre:disgrace" } }, v: 5 }, { if: { has: "sud:vendange" }, v: 10 }, { if: { present: "hylas" }, v: 5 }] },
       win: { fx: { flag: "sud:theatre=joue", gold: 8, ep: ["perso", 1200] }, to: "II_Q_troupe_ok" },
-      lose: { fx: { flag: "sud:theatre=rate", gold: 3, ep: ["perso", 400] }, to: "II_Q_troupe_rate" } }] }),
+      lose: { fx: { gold: 3, ep: ["perso", 400] }, to: "II_Q_troupe_rate" } }] }),
   II_Q_troupe_ok: P({ title: "Le quatrième acte", place: "vasselin",
     text: [
       "Tu ne joues pas la Reine. Tu joues dame Orane, que tu as regardée toute la journée, ses mains à plat sur le texte. La place se tait. Quelque part, une femme sanglote. Quand le rideau tombe, personne n'applaudit d'abord, puis tout le monde à la fois.",
@@ -164,7 +164,7 @@ module.exports = {
       "Le mal ne vient pas de lui. Tu le comprends en regardant par la fenêtre de la lanterne : sur la grève, en bas, des hommes avec des falots attendent, et regardent le phare s'éteindre.",
     ],
     choices: [
-      { label: "Rester en haut toute la nuit pour garder la lanterne allumée", fx: { flag: "sud:phare=veille" }, to: "II_Q_phare_naufrageurs" },
+      { label: "Rester en haut toute la nuit pour garder la lanterne allumée", to: "II_Q_phare_naufrageurs" },
       { label: "Descendre à la grève parler aux hommes aux falots", to: "II_Q_phare_greve" },
     ] }),
   II_Q_phare_greve: P({ title: "Les falots", place: "vasselin",
@@ -231,7 +231,7 @@ module.exports = {
     choices: [] }),
   II_Q_fioles_fuite: P({ takes: "morning", title: "Les ruelles", place: "vasselin",
     text: ["Tu t'enfuis par les ruelles du port, et quand tu reviens, le lendemain, la boutique est fermée, les volets cloués. Sur la porte, un écriteau : À LOUER. Le verrier est parti. La cave aussi, avec ce qu'il y avait dedans."],
-    choices: [{ fx: { quest: "II_Q_fioles", flag: "sud:fioles=parties" }, back: "II_S_vasselin" }] }),
+    choices: [{ fx: { quest: "II_Q_fioles" }, back: "II_S_vasselin" }] }),
   II_Q_fioles_cave: P({ title: "La greffière", place: "vasselin",
     text: [
       "La cave est basse, chaude, propre. Une table, une lampe, un lutrin. Une femme de quarante ans, en robe grise de greffière, la plume à la main, écrit dans un petit livre noir. À côté d'elle, une file de fioles pleines : on dirait de l'eau, et ça ne reflète pas la lampe.",
@@ -241,7 +241,7 @@ module.exports = {
     choices: [
       { label: "Briser les fioles", fx: { flag: "sud:fioles=brisees", ep: ["perso", 1200] }, to: "II_Q_fioles_brisees" },
       { label: "Lui demander de rendre ce qu'elle a pris à dame Orane", hide: { not: { seen: "II_Q_troupe_orane" } }, test: { dom: "social", label: "Bertrade", help: [{ if: { has: "sud:theatre=joue" }, v: 15 }, { if: { present: "hylas" }, v: 15 }] },
-        win: { fx: { flag: ["sud:fioles=rendu", "sud:orane_rendue"], ep: ["perso", 1500] }, to: "II_Q_fioles_rendu" }, lose: { to: "II_Q_fioles_non" } },
+        win: { fx: { flag: "sud:fioles=rendu", ep: ["perso", 1500] }, to: "II_Q_fioles_rendu" }, lose: { to: "II_Q_fioles_non" } },
       { label: "La laisser à son commerce, et prendre son livre noir", test: { dom: "discretion", label: "Le livre", help: [{ if: { present: "pie" }, v: 20 }] },
         win: { fx: { flag: "sud:fioles=livre", clue: "n_bertrade", ep: ["perso", 900] }, to: "II_Q_fioles_livre" }, lose: { to: "II_Q_fioles_non" } },
     ] }),
@@ -267,7 +267,7 @@ module.exports = {
     choices: [{ fx: { quest: "II_Q_fioles" }, back: "II_S_vasselin" }] }),
   II_Q_fioles_non: P({ title: "Remontez", place: "vasselin",
     text: ["Bertrade secoue la tête. « Remontez, madame. Revenez quand vous aurez besoin de moi. Tout le monde revient. » Tu remontes. Le verrier, au-dessus, souffle une bulle sans te regarder. Le lendemain, la boutique est ouverte comme d'habitude."],
-    choices: [{ fx: { quest: "II_Q_fioles", flag: "sud:fioles=laissees" }, back: "II_S_vasselin" }] }),
+    choices: [{ fx: { quest: "II_Q_fioles" }, back: "II_S_vasselin" }] }),
 
   // ------------------------------------------------------------ nord · la pêche au lac noir
   II_Q_peche: P({ title: "Le lac qui ne gèle pas", place: "lacnoir",

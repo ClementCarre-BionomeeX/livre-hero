@@ -31,7 +31,7 @@ module.exports = {
       "Une vieille femme en noir, assise sur le banc du fond, regarde un tableau, toujours le même. Les lettres, en bas, ont pâli jusqu'à disparaître. On voit encore le bateau. On ne sait plus qui a été sauvé. « C'était mon mari, dit-elle. Il est revenu. Il est mort dans son lit, trente ans après. Je ne sais plus son nom. Je sais qu'il est revenu. C'est ce qu'il y avait d'écrit. »",
     ],
     choices: [
-      { label: "Lui demander de te raconter le naufrage, et repeindre le nom", fx: { flag: "sud:exvoto", ep: ["perso", 700] }, to: "II_S_exvoto_nom" },
+      { label: "Lui demander de te raconter le naufrage, et repeindre le nom", fx: { ep: ["perso", 700] }, to: "II_S_exvoto_nom" },
       { label: "T'asseoir à côté d'elle, et regarder le bateau", fx: { ep: ["perso", 300] }, to: "II_S_exvoto_banc" },
     ] }),
   II_S_exvoto_nom: P({ title: "La Marie-Joseph",

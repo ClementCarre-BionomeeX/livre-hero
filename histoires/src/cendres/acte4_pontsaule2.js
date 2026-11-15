@@ -46,7 +46,7 @@ module.exports = {
     ],
     choices: [
       { label: "Écrire ton nom, appuyé, en repassant chaque lettre trois fois", fx: { ep: ["perso", 300] }, to: "IV_ps_livre_nom" },
-      { label: "Lui proposer d'écrire au crayon, à la place de l'encre", fx: { ep: ["perso", 400], flag: "iv:livre_crayon" }, to: "IV_ps_livre_crayon" },
+      { label: "Lui proposer d'écrire au crayon, à la place de l'encre", fx: { ep: ["perso", 400] }, to: "IV_ps_livre_crayon" },
     ] }),
   IV_ps_livre_nom: P({ title: "Trois fois",
     text: ["Tu écris ton nom. Tu repasses chaque lettre, trois fois, en appuyant si fort que la plume crisse et que le papier se creuse. L'aubergiste te regarde faire, en silence. Demain, l'encre sera partie. Mais il restera le creux, dans le papier, et en passant le doigt dessus, on pourra lire, comme un aveugle lit. L'aubergiste passe le doigt, déjà, pour essayer. Il hoche la tête."],

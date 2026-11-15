@@ -22,7 +22,7 @@ module.exports = {
       "Askel est là, au milieu des femmes, en robe blanche. Elle est descendue de la grotte. Elle ne te regarde pas.",
       { with: "gaspard", text: "Les enfants du clan regardent Gaspard avec effroi, puis avec curiosité. Une fillette lui tend un morceau de galette. Il le prend avec une délicatesse infinie." },
     ],
-    choices: [{ label: "Monter au col", fx: { flag: "nord:clan_col" }, to: "@route" }] }),
+    choices: [{ label: "Monter au col", to: "@route" }] }),
 
   II_N5_bord: P({ title: "Le bord", place: null,
     text: [
@@ -62,7 +62,7 @@ module.exports = {
       "Et devant la ville, debout, seul, quelqu'un de très grand, avec sur la tête quelque chose qui brille comme du givre. Il ne marche pas. Il regarde. Il te regarde.",
       { with: "enfant", text: "L'enfant de Sauvelune est venu à côté de toi sans que tu l'entendes. Il regarde la silhouette couronnée. Il dit, très bas, sans savoir pourquoi : « Il m'attend. »" },
     ],
-    choices: [{ label: "Reculer", fx: { flag: "nord:ardael_vu", clue: "n_outreblanc" }, to: "II_N5_col" }] }),
+    choices: [{ label: "Reculer", fx: { clue: "n_outreblanc" }, to: "II_N5_col" }] }),
 
   II_N5_rite: P({ title: "Ce que le rite demande", place: "col",
     fx: { questSeen: "II_N_rite" },
@@ -117,7 +117,7 @@ module.exports = {
 
   II_N5_feu_ysolde: P({ title: "Les gens qui marchent", place: "col",
     text: ["Ysolde a regardé dans la déchirure, elle aussi. « Ils ont des enfants dans les bras, dit-elle. Comme sur le pont. » Quel pont, tu le sais désormais. « S'ils arrivent jusqu'ici, Corbe, je ne les arrêterai pas. Je veux que tu le saches avant. »"],
-    choices: [{ fx: { conf: { ysolde: 5 }, flag: "ysolde:ne_tiendra_pas" }, back: "II_N5_feu" }] }),
+    choices: [{ fx: { conf: { ysolde: 5 } }, back: "II_N5_feu" }] }),
 
   II_N5_feu_pie: P({ title: "Les lettres", place: "col",
     text: [

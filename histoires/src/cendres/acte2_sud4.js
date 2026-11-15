@@ -20,7 +20,7 @@ module.exports = {
     choices: [
       { label: "Tenir le pré jusqu'au bout", hide: { not: FIGHTER }, test: { dom: "combat", label: "Mêlée", help: JOUTE.concat([{ if: { has: "rodric:oublie_champion" }, v: -10 }, { if: { has: "sud3:j2" }, v: 5 }, { if: { has: "sud3:ecuries" }, v: 5 }, { if: { has: "sud3:ecuyer_pris" }, v: 5 }, { if: { has: "sud3:conseil" }, v: 5 }]) },
         win: { fx: { flag: "sud4:melee", ep: ["perso", 1500] }, to: "II_S4_melee_ok" },
-        lose: { fx: { flag: "sud4:melee_perdue" }, to: "II_S4_melee_rate" } },
+        lose: { to: "II_S4_melee_rate" } },
       { label: "Regarder", hide: FIGHTER, to: "II_S4_melee_vue" },
     ] }),
 
@@ -99,7 +99,7 @@ module.exports = {
       "Le pré se tait. Les Corvannais ne sourient pas. Les Esquarrois non plus. Ils se regardent. C'est très inconfortable, très long, très silencieux, et c'est la vérité.",
       "Dans la loge, Mordace a cessé d'écrire. Il te regarde, sans colère. Avec une sorte de tristesse.",
     ],
-    choices: [{ label: "La proclamation", fx: { flag: "lisandre:hautvent_chante", conf: { lisandre: 10 } }, to: "II_S4_proclamation" }] }),
+    choices: [{ label: "La proclamation", fx: { conf: { lisandre: 10 } }, to: "II_S4_proclamation" }] }),
 
   II_S4_paix_interrompue: P({ title: "Aubrac", place: "vasselin",
     text: [
@@ -145,8 +145,8 @@ module.exports = {
       { if: { not: FIGHTER }, text: "Vous en avez parlé toute la nuit, à l'Ancre. Vous n'êtes pas tombés d'accord. C'est à toi de le dire, maintenant. Une seule chose." },
     ],
     choices: [
-      { label: "« Ouvrez le coffre, Majesté. Devant nous. »", fx: { flag: "sud4:demande=coffre", ep: ["perso", 1500] }, to: "II_S4_coffre" },
-      { label: "« Qu'on rende à Votre Majesté le nom de son fils. »", fx: { flag: "sud4:demande=aymeric", ep: ["perso", 1500] }, to: "II_S4_aymeric" },
+      { label: "« Ouvrez le coffre, Majesté. Devant nous. »", fx: { ep: ["perso", 1500] }, to: "II_S4_coffre" },
+      { label: "« Qu'on rende à Votre Majesté le nom de son fils. »", fx: { ep: ["perso", 1500] }, to: "II_S4_aymeric" },
       { label: "« Libérez les gens de Hautvent, et ceux de Corvanne, dans les caves de Pallanche. »", fx: { flag: "sud4:demande=hautvent", ep: ["perso", 1500] }, to: "II_S4_hautvent" },
       { label: "« Faites venir les registres du pont de Lisse, et lisez-les à voix haute. »", hide: { not: { present: "ysolde" } }, fx: { flag: "sud4:demande=lisse", ep: ["perso", 1500] }, to: "II_S4_lisse" },
     ] }),
@@ -178,7 +178,7 @@ module.exports = {
       "Mordace écrit l'ordre, de sa main, et le lui fait signer. Il le tend avec une courtoisie parfaite.",
       "« Ils sont libres, dit-il. Ils ne se souviennent plus d'où ils viennent. Mais ils sont libres. »",
     ],
-    choices: [{ label: "Prendre l'ordre", fx: { flag: "hautvent:libres", item: "ordre_hautvent" }, to: "II_S4_tumulte" }] }),
+    choices: [{ label: "Prendre l'ordre", fx: { item: "ordre_hautvent" }, to: "II_S4_tumulte" }] }),
 
   II_S4_lisse: P({ title: "Le pont de Lisse", place: "vasselin",
     text: [

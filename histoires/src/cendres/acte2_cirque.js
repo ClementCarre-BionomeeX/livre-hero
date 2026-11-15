@@ -73,7 +73,7 @@ module.exports = {
       "Au bord du camp, devant une tente, une femme du clan trace des signes dans la cendre avec un bâton. Autour d'elle, une dizaine d'enfants, accroupis, recopient avec des bâtons à eux. Des lettres. Le clan du Corbeau, qui n'a jamais rien écrit en quarante générations, apprend à écrire.",
       "« Les noms qu'on chante, on peut les perdre, dit la femme. On l'a vu cette année. Ceux qu'on écrit aussi. Mais pas les deux en même temps. » Elle te tend un bâton. « Écris le tien. Les enfants veulent voir comment ça fait, un nom de quelqu'un d'en bas. »",
     ],
-    choices: [{ label: "Écrire tes deux noms dans la cendre", fx: { flag: "iv:clan_lettres", ep: ["perso", 600] }, to: "IV_k_lettres_fin" }] }),
+    choices: [{ label: "Écrire tes deux noms dans la cendre", fx: { ep: ["perso", 600] }, to: "IV_k_lettres_fin" }] }),
   IV_k_lettres_fin: P4({ title: "Dans la cendre", place: "corbeau",
     text: ["Tu écris. Ton nom de Sauvelune, et l'autre. Les enfants recopient, en tirant la langue. Le plus petit fait une faute à l'autre nom, et la femme ne la corrige pas. « Il s'en souviendra mieux comme ça », dit-elle."],
     choices: [{ back: "IV_clan_fin" }] }),

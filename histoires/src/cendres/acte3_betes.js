@@ -84,7 +84,7 @@ module.exports = {
     ],
     choices: [
       { label: "Y penser de toutes tes forces", test: { dom: "magie", label: "Le pré", help: [{ if: { has: "iii:chien_jaune" }, v: 5 }, { if: { has: "iii:ours" }, v: 5 }, { if: { present: "givre" }, v: 10 }, { if: { present: "corbe" }, v: 10 }, { if: { has: "iii:pomme" }, v: 5 }] },
-        win: { fx: { flag: ["iii:betes", "iii:betes=pre"], quest: "III_Q_betes", ep: ["perso", 1500] }, to: "III_B_pre_vert" },
+        win: { fx: { flag: "iii:betes=pre", quest: "III_Q_betes", ep: ["perso", 1500] }, to: "III_B_pre_vert" },
         lose: { to: "III_B_pre_rate" } },
     ] }),
   III_B_pre_vert: P({ title: "L'herbe", place: "plaine",
@@ -101,7 +101,7 @@ module.exports = {
       { label: "Les laisser continuer sans toi", to: "III_B_quitter" },
     ] }),
   III_B_quitter: P({ title: "Les clochettes", place: "plaine",
-    fx: { flag: "iii:betes", quest: "III_Q_betes" },
+    fx: { quest: "III_Q_betes" },
     text: ["Le troupeau s'éloigne, avec ses clochettes, vers l'endroit où vont les marcheurs. La bergère ne se retourne pas. Le chien jaune, si. Une seule fois. Puis le blanc les reprend, et longtemps après tu entends encore un grelot, un seul, de plus en plus loin."],
     choices: [{ back: "III_plaine" }] }),
 };

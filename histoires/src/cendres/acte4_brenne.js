@@ -70,9 +70,9 @@ module.exports = {
     ],
     choices: [
       { label: "« Viens avec nous, cette nuit. On passe la Lisse, on va parler à Corvanne. »", hide: YS_AVEC, test: { dom: "social", label: "Ysolde", help: [{ if: { conf: "ysolde", min: 40 }, v: 20 }, { if: { has: "ysolde:sait_cerf" }, v: 10 }, { if: { has: "ame:lisse" }, v: 15 }] },
-        win: { fx: { join: "ysolde", flag: "ysolde:iv=vient", conf: { ysolde: 10 }, ep: ["perso", 2000] }, to: "IV_br_ysolde_vient" },
-        lose: { fx: { flag: "ysolde:iv=pont" }, to: "IV_br_ysolde_reste" } },
-      { label: "La laisser à son pont", hide: YS_AVEC, fx: { flag: "ysolde:iv=pont" }, to: "IV_br_ysolde_reste" },
+        win: { fx: { join: "ysolde", conf: { ysolde: 10 }, ep: ["perso", 2000] }, to: "IV_br_ysolde_vient" },
+        lose: { to: "IV_br_ysolde_reste" } },
+      { label: "La laisser à son pont", hide: YS_AVEC, to: "IV_br_ysolde_reste" },
       { label: "Laisser Ysolde reprendre sa compagnie", hide: { not: YS_AVEC }, to: "IV_br_ysolde_compagnie" },
     ] }),
 
@@ -82,7 +82,7 @@ module.exports = {
       { if: { has: "ame:lisse" }, text: "Le soir, elle descend à la rivière, là où les trois cents de Lisse se sont assis dans l'herbe, en rang. Elle s'assied avec eux. Elle se tait. Eux non plus." },
       "« Je reste avec vous, te dit-elle ensuite. Mais demain, je prendrai le pont. Personne d'autre ne le tiendra comme il faut. »",
     ],
-    choices: [{ fx: { flag: ["ysolde:iv=compagnie", "ysolde:pont"], conf: { ysolde: 5 } }, back: "IV_br" }] }),
+    choices: [{ fx: { flag: "ysolde:pont", conf: { ysolde: 5 } }, back: "IV_br" }] }),
 
   IV_br_ysolde_vient: P({ title: "Ce soir", place: "brenne",
     text: ["Elle regarde le pont encore un moment. Puis elle décroche son manteau. « Une nuit, dit-elle. Je serai revenue avant l'aube. Gautier tiendra. Gautier tient toujours. » Elle descend l'escalier devant toi, deux marches à la fois."],
@@ -130,7 +130,7 @@ module.exports = {
       "Maëlle dit, sans se retourner : « Il ramenait les gens de Lisse vers Corvanne, cette nuit-là. Avec la barque. Il a fait onze voyages. Au douzième, il est monté sur le pont, pour aider une vieille avec sa chèvre. »",
       "Rodric se lève. « Je vous passe. Et je reste avec vous. J'ai dit à ma sœur que je ne reviendrais à Hautvent que quand il n'y aura plus d'armée de chaque côté. » Il regarde Maëlle. « Elle a dit : alors ne reviens pas. Elle plaisante. Je crois. »",
     ],
-    choices: [{ label: "Convenir de se retrouver au saule, à la nuit", fx: { join: "rodric", flag: "rodric:iv", ep: ["perso", 1000] }, to: "IV_br" }] }),
+    choices: [{ label: "Convenir de se retrouver au saule, à la nuit", fx: { join: "rodric", ep: ["perso", 1000] }, to: "IV_br" }] }),
 
   // ---- The Corvanne camp
   IV_cv_rive: P({ title: "La traversée", place: "brenne",
@@ -154,14 +154,14 @@ module.exports = {
       { if: { not: { any: [{ has: "lisandre:ilan_dit" }, { has: "lisandre:ilan_ment" }, { has: "lisandre:ilan_livre" }] } }, text: "« Je cherchais un garçon que j'ai évité, il y a deux ans, dans une galerie de cartes, dit-elle. Je ne sais même pas pourquoi. Je l'ai trouvé. Il ne m'a jamais vue. C'est peut-être mieux. Il est le chancelier de la margrave. »" },
       { if: { souv: "lisandre:voix" }, text: "Elle chante pour les soldats de Corvanne, le soir. Avec sa vraie voix, rauque, trop grave. Ils ne savent pas que c'est la voix d'une traîtresse. Ils trouvent que c'est la voix d'une femme qui a perdu quelqu'un. Ils ont raison aussi." },
     ],
-    choices: [{ label: "« Mène-nous à la margrave. »", fx: { join: "lisandre", flag: "lisandre:iv=corvanne", conf: { lisandre: 10 }, ep: ["perso", 1500] }, to: "IV_cv_margrave" }] }),
+    choices: [{ label: "« Mène-nous à la margrave. »", fx: { join: "lisandre", conf: { lisandre: 10 }, ep: ["perso", 1500] }, to: "IV_cv_margrave" }] }),
 
   IV_cv_lisandre_cherche: P({ title: "Ilan", place: "brenne",
     text: [
       "Elle demande aux sentinelles, en corvannais, avec l'accent de la cour. Elles la regardent. L'une d'elles finit par montrer la grande tente bleue, au milieu du camp. « Le chancelier », dit-elle.",
       "Lisandre s'arrête. « Il est chancelier, dit-elle. Il était secrétaire. Il avait de l'encre sur les doigts et il riait trop fort. » Elle respire. « Un an. Il a pu se passer beaucoup de choses en un an. »",
     ],
-    choices: [{ label: "Aller à la tente bleue", fx: { flag: "lisandre:iv=avec" }, to: "IV_cv_margrave" }] }),
+    choices: [{ label: "Aller à la tente bleue", to: "IV_cv_margrave" }] }),
 
   IV_cv_margrave: P({ title: "La margrave", place: "brenne",
     text: [
@@ -172,9 +172,9 @@ module.exports = {
     ],
     choices: [
       { label: "Lui dire la vérité : Mordace, les fondateurs, la digue, l'Outre-Blanc", test: { dom: "social", label: "La vérité", help: [{ if: { present: "lisandre" }, v: 15 }, { if: { item: "registre_anselin" }, v: 15 }, { if: { has: "aelan:dit_les_noms" }, v: 10 }, { if: { present: "sansnom" }, v: 10 }] },
-        win: { fx: { flag: ["corvanne:iv=ecoute", "corvanne:sait_mordace"], ep: ["perso", 2500] }, to: "IV_cv_ecoute" },
+        win: { fx: { flag: "corvanne:iv=ecoute", ep: ["perso", 2500] }, to: "IV_cv_ecoute" },
         lose: { fx: { flag: "corvanne:iv=doute" }, to: "IV_cv_doute" } },
-      { label: "Lui dire ce que Mordace propose à la reine : céder Corvanne", fx: { flag: ["corvanne:iv=menace", "corvanne:sait_cession"], ep: ["perso", 1500] }, to: "IV_cv_menace" },
+      { label: "Lui dire ce que Mordace propose à la reine : céder Corvanne", fx: { flag: "corvanne:iv=menace", ep: ["perso", 1500] }, to: "IV_cv_menace" },
     ] }),
 
   IV_cv_ecoute: P({ title: "La margrave écoute", place: "brenne",
@@ -220,5 +220,5 @@ module.exports = {
       "Tu ne dors pas. Tu regardes le pont, blanc comme un os, au milieu de la rivière.",
       "Demain, quelqu'un va devoir s'avancer dessus.",
     ],
-    choices: [{ label: "Attendre l'aube", fx: { flag: "iv:veille", ep: ["histoire", 3000] }, to: "IV_l_aube", big: true }] }),
+    choices: [{ label: "Attendre l'aube", fx: { ep: ["histoire", 3000] }, to: "IV_l_aube", big: true }] }),
 };

@@ -18,7 +18,7 @@ function hands(step) {
 }
 module.exports = {
   II_R_col: P({ title: "Les retrouvailles", place: "col",
-    fx: { regroup: true, lead: "corbe", leadQuiet: true, flag: "rupture:col" },
+    fx: { regroup: true, lead: "corbe", leadQuiet: true },
     text: [
       "À l'aube, un feu sur la crête du sud. Puis des silhouettes qui descendent, à pied, en tirant des chevaux fourbus.",
       { if: { has: "sud5:fuite=bateau" }, text: "Ils sont venus par la rivière, puis par les crêtes, sans dormir. Ils sentent le poisson et la sueur de cheval." },
@@ -42,10 +42,10 @@ module.exports = {
       "Tout le monde te regarde. C'est toi, la Bouche.",
     ],
     choices: [
-      { label: "Monter sur la pierre, chanter les trois vers, et entrer", fx: { flag: ["corbe:rite_ii", "corbe:voie_ii=rite"], quest: "II_N_rite", ep: ["perso", 4000] }, to: "II_R_rite" },
+      { label: "Monter sur la pierre, chanter les trois vers, et entrer", fx: { flag: "corbe:rite_ii", quest: "II_N_rite", ep: ["perso", 4000] }, to: "II_R_rite" },
       { label: "Laisser Askel y aller à ta place", hide: { not: { has: "nord:askel_robe" } }, fx: { flag: ["askel:rite", "corbe:voie_ii=askel"], quest: "II_N_rite", ep: ["perso", 2500] }, to: "II_R_askel" },
       { label: "Ouvrir le registre devant la déchirure, et chanter tous les noms", hide: { not: { all: [{ has: "registre:clans" }, { has: "nord:chant_lu" }] } }, fx: { flag: ["corbe:ouvre", "corbe:voie_ii=ouvre"], quest: "II_N_rite", ep: ["perso", 4000] }, to: "II_R_ouvre" },
-      { label: "Refuser. Personne n'entrera", fx: { flag: ["corbe:refuse_ii", "corbe:voie_ii=refus"], quest: "II_N_rite", ep: ["perso", 2000] }, to: "II_R_refus" },
+      { label: "Refuser. Personne n'entrera", fx: { flag: "corbe:voie_ii=refus", quest: "II_N_rite", ep: ["perso", 2000] }, to: "II_R_refus" },
     ] }),
 
   II_R_rite: P({ title: "La Bouche", place: "col",
@@ -76,7 +76,7 @@ module.exports = {
       "De l'autre côté, les gens qui marchent s'arrêtent. Ils écoutent leurs noms. Certains tombent à genoux. Et la déchirure, au lieu de s'agrandir, s'ouvre. Comme une porte. Avec un seuil.",
       "Le premier d'entre eux le franchit. Une vieille femme, avec un enfant dans les bras. Elle pose le pied sur l'herbe du col. Elle respire.",
     ],
-    choices: [{ label: "Puis le monde craque", fx: { flag: "orsans:premiers" }, to: "II_R_rupture" }] }),
+    choices: [{ label: "Puis le monde craque", to: "II_R_rupture" }] }),
 
   II_R_refus: P({ title: "Personne", place: "col",
     text: [
@@ -87,7 +87,6 @@ module.exports = {
     choices: [{ label: "Puis le monde craque", to: "II_R_rupture" }] }),
 
   II_R_rupture: P({ title: "La Rupture", place: "col",
-    fx: { flag: "acte2:rupture" },
     text: [
       "Le bruit vient de partout à la fois, et de très loin. Un craquement de glace qui cède, sous tout le royaume. Comme si le monde était un lac gelé, et que quelqu'un venait de marcher au milieu.",
       { if: { has: "corbe:rite_ii" }, text: "La déchirure s'est refermée. Ça ne sert à rien. Le col tient, et le reste lâche. Au sud, très loin, sur toutes les crêtes, des lueurs blanches s'allument, l'une après l'autre, comme des feux de signal." },
@@ -122,5 +121,5 @@ module.exports = {
       "Puis plus rien. Ni froid, ni bruit, ni toi.",
       "Quelque part, très loin, quelqu'un dit ton nom. Pas celui de Sauvelune. Un autre. Un nom que tu n'as jamais entendu, et que tu reconnais.",
     ],
-    choices: [{ label: "Fin de l'Acte II", fx: { flag: "acte2:fin", ep: ["histoire", 8000] }, to: "Z2_suite", big: true }] }),
+    choices: [{ label: "Fin de l'Acte II", fx: { ep: ["histoire", 8000] }, to: "Z2_suite", big: true }] }),
 };

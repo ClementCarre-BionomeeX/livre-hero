@@ -34,8 +34,8 @@ module.exports = {
       "Ils sont là. Assis devant leurs tentes, les femmes, les hommes, les vieux, les enfants. Ils te regardent arriver. Ils ne se lèvent pas. Les signes peints sur leurs tentes ont pâli jusqu'au blanc. Une femme te demande, dans la langue des clans, très poliment, si tu sais qui ils sont. Le géant a mangé leur nom. Tout entier. Il ne leur reste que les tentes.",
     ],
     choices: [
-      { label: "Peindre sur leurs tentes le corbeau avec un trait : le signe du clan", fx: { flag: ["nord:lievre", "nord:lievre=adoptes"], ep: ["perso", 800] }, to: "II_c_lievre_corbeau" },
-      { label: "Peindre la spirale : le vent, et le chemin", fx: { flag: ["nord:lievre", "nord:lievre=vent"], ep: ["perso", 600] }, to: "II_c_lievre_vent" },
+      { label: "Peindre sur leurs tentes le corbeau avec un trait : le signe du clan", fx: { flag: "nord:lievre=adoptes", ep: ["perso", 800] }, to: "II_c_lievre_corbeau" },
+      { label: "Peindre la spirale : le vent, et le chemin", fx: { flag: "nord:lievre=vent", ep: ["perso", 600] }, to: "II_c_lievre_vent" },
       { label: "Leur dire leur nom, simplement, et partir", fx: { ep: ["perso", 400] }, to: "II_c_lievre_nom" },
     ] }),
   II_c_lievre_corbeau: P({ title: "Le corbeau avec un trait",

@@ -27,8 +27,8 @@ module.exports = {
     ],
     choices: [
       { label: "Les amener l'un devant l'autre", test: { dom: "savoir", label: "Les listes", help: [{ if: { present: "hylas" }, v: 15 }, { if: { present: "ombeline" }, v: 10 }] },
-        win: { fx: { flag: "odon:bonne", ep: ["perso", 1000] }, to: "IV_Q_bonne_ok" },
-        lose: { fx: { flag: "odon:bonne", ep: ["perso", 600] }, to: "IV_Q_bonne_lent" } },
+        win: { fx: { ep: ["perso", 1000] }, to: "IV_Q_bonne_ok" },
+        lose: { fx: { ep: ["perso", 600] }, to: "IV_Q_bonne_lent" } },
     ] }),
 
   IV_Q_bonne_ok: P({ title: "Les mains bleues", place: "moutier",
@@ -46,12 +46,12 @@ module.exports = {
       { with: "givre", text: "Givre vient renifler ses chaussures. Le garçon se fige. Puis il tend la main, très lentement, et Givre lui lèche les doigts. Il y a, au bout de ses doigts, une miette. Une toute petite. Givre ne la mange pas. Il la regarde, puis il te regarde." },
     ],
     choices: [
-      { label: "Laisser Givre lui rendre la miette", hide: { not: { present: "givre" } }, fx: { flag: "fevrier:nom", conf: { givre: 10 }, ep: ["perso", 1500] }, to: "IV_Q_fevrier_nom" },
-      { label: "Lui donner un nom, un vrai, que tu choisis", fx: { flag: "fevrier:nomme", ep: ["perso", 800] }, to: "IV_Q_fevrier_nomme" },
-      { label: "Lui dire que Février, c'est un beau nom", fx: { flag: "fevrier:garde", ep: ["perso", 500] }, to: "IV_Q_fevrier_garde" },
+      { label: "Laisser Givre lui rendre la miette", hide: { not: { present: "givre" } }, fx: { conf: { givre: 10 }, ep: ["perso", 1500] }, to: "IV_Q_fevrier_nom" },
+      { label: "Lui donner un nom, un vrai, que tu choisis", fx: { ep: ["perso", 800] }, to: "IV_Q_fevrier_nomme" },
+      { label: "Lui dire que Février, c'est un beau nom", fx: { ep: ["perso", 500] }, to: "IV_Q_fevrier_garde" },
     ] }),
 
-  IV_Q_fevrier_nom: P({ title: "Le chien jaune", place: "moutier",
+  IV_Q_fevrier_nom: P({ title: "Le chien jaune", place: "moutier", with: "givre",
     text: [
       "Givre souffle sur les doigts du garçon, très doucement, comme on souffle sur une braise. La miette brille un instant et disparaît dans la main.",
       "Le garçon regarde sa main. « Pataud, dit-il. Le chien s'appelait Pataud. » Puis, sans transition, très vite, comme s'il avait peur que ça reparte : « Et moi, Colin. Colin Margerie. De la Varenne. Mon père a la forge. » Il se met à pleurer et à rire, et il court dire à Odon de corriger son livre.",
@@ -125,8 +125,8 @@ module.exports = {
       "Le miel est blanc comme la neige blanche. Il ne coule pas. Il brille un peu.",
     ],
     choices: [
-      { label: "Le goûter", fx: { flag: "ruches:goute" }, to: "IV_Q_ruches_gout" },
-      { label: "Enfumer les ruches et prendre les rayons, pour les brûler", fx: { flag: "ruches:brule", ep: ["perso", 600] }, to: "IV_Q_ruches_feu" },
+      { label: "Le goûter", to: "IV_Q_ruches_gout" },
+      { label: "Enfumer les ruches et prendre les rayons, pour les brûler", fx: { ep: ["perso", 600] }, to: "IV_Q_ruches_feu" },
     ] }),
 
   IV_Q_ruches_gout: P({ title: "Le miel blanc", place: "sauvelune",
@@ -186,9 +186,9 @@ module.exports = {
     choices: [
       { label: "Couper les cordes, et se battre", to: "IV_Q_potence_combat" },
       { label: "Lire la liste, toi, à voix haute, plus fort que la sentence", hide: { not: { item: "liste_cochee" } }, test: { dom: "social", label: "La liste", help: [{ if: { present: "lisandre" }, v: 15 }, { if: { present: "linette" }, v: 10 }] },
-        win: { fx: { flag: ["liseurs:sauves", "potence:lue"], ep: ["perso", 2000] }, to: "IV_Q_potence_lue" },
+        win: { fx: { flag: "liseurs:sauves", ep: ["perso", 2000] }, to: "IV_Q_potence_lue" },
         lose: { to: "IV_Q_potence_combat" } },
-      { label: "Ne rien faire. Pas maintenant. La tour d'abord", fx: { flag: "liseurs:pendus", quest: "IV_Q_potence" }, to: "IV_Q_potence_rien" },
+      { label: "Ne rien faire. Pas maintenant. La tour d'abord", fx: { quest: "IV_Q_potence" }, to: "IV_Q_potence_rien" },
     ] }),
 
   IV_Q_potence_combat: P({ title: "Midi",
@@ -268,7 +268,7 @@ module.exports = {
     ],
     choices: [
       { label: "Graver les autres", hide: { not: { has: "iii:lisse_noms" } }, fx: { flag: "lisse:noms_graves", ep: ["perso", 2500] }, to: "IV_Q_lisse_noms" },
-      { label: "Graver ce que tu sais : la date, et trois cents", hide: { has: "iii:lisse_noms" }, fx: { flag: "lisse:date_gravee", ep: ["perso", 1000] }, to: "IV_Q_lisse_date" },
+      { label: "Graver ce que tu sais : la date, et trois cents", hide: { has: "iii:lisse_noms" }, fx: { ep: ["perso", 1000] }, to: "IV_Q_lisse_date" },
     ] }),
 
   IV_Q_lisse_noms: P({ takes: "morning", title: "Trois cents", place: "brenne",

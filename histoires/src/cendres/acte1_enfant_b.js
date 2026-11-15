@@ -62,14 +62,14 @@ module.exports = {
       { label: "Lui faire chanter son nom devant Agathe, comme tu le lui as appris", if: { has: "pim:chanson" }, why: "Il faudrait qu'il connaisse une chanson à lui.",
         test: { dom: "social", label: "Chanson", help: [{ if: { clue: "n_fondre" }, v: 20 }, { if: { has: "pim:veille" }, v: 10 }] },
         win: { fx: { flag: "pim:nom", quest: "EN_pim", ep: ["perso", 800] }, to: "EN_pim_chante" },
-        lose: { fx: { flag: "pim:nom_rate" }, to: "EN_pim_echec" } },
+        lose: { to: "EN_pim_echec" } },
       { label: "Siffler la note fausse du sifflet de saule, celle qui faisait fuir les poules", if: { item: "sifflet_pim" }, why: "Il te faudrait un bruit qu'Agathe ne peut pas avoir oublié.",
         fx: { flag: "pim:nom", quest: "EN_pim", ep: ["perso", 800] }, to: "EN_pim_siffle" },
       { label: "Donner à Agathe ton propre souvenir de Pim, celui où il apprend à nager", tag: "Souvenir donné", stain: true, if: { souv: "enfant:pim" }, why: "Tu ne l'as plus.",
-        fx: { souv: "enfant:pim", flag: ["pim:nom", "pim:souvenir_donne"], quest: "EN_pim", ep: ["perso", 1000] }, to: "EN_pim_souvenir" },
+        fx: { souv: "enfant:pim", flag: "pim:nom", quest: "EN_pim", ep: ["perso", 1000] }, to: "EN_pim_souvenir" },
       { label: "Dire son nom à Agathe, simplement, en la regardant dans les yeux", test: { dom: "social", label: "Persuasion", diff: -20, help: [{ if: { clue: "n_fondre" }, v: 20 }] },
         win: { fx: { flag: "pim:nom", quest: "EN_pim", ep: ["perso", 800] }, to: "EN_pim_chante" },
-        lose: { fx: { flag: "pim:nom_rate" }, to: "EN_pim_echec" } },
+        lose: { to: "EN_pim_echec" } },
     ] },
 
   EN_pim_chante: { act: "I", title: "Pim, fils de Joris et d'Agathe", place: "sauvelune",
@@ -106,7 +106,7 @@ module.exports = {
       "Pim mange la tartine. Il ne pleure pas. C'est pire.",
       "Tu te promets de revenir. Tu te promets de trouver ce qui fait ça, et de le défaire.",
     ],
-    choices: [{ fx: { flag: "pim:promesse" }, back: "EN_village" }] },
+    choices: [{ back: "EN_village" }] },
 
   // ---------------------------------------------------------------- the temple and the register
   EN_temple: { act: "I", title: "Le registre", place: "sauvelune",
@@ -118,9 +118,9 @@ module.exports = {
     ],
     choices: [
       { label: "T'asseoir à côté de lui et recopier les noms avec lui, aussi vite que tu peux", test: { dom: "savoir", label: "Copie", help: [{ if: { has: "passe:temple" }, v: 20 }] },
-        win: { fx: { item: "registre_page", flag: "registre:copie", ep: ["perso", 800] }, to: "EN_temple_copie" },
-        lose: { fx: { flag: "registre:rate" }, to: "EN_temple_rate" } },
-      { label: "Arracher une page encore lisible et la mettre à l'abri sur toi, où la neige ne prend rien", fx: { item: "registre_page", flag: "registre:arrache", ep: ["perso", 500] }, to: "EN_temple_arrache" },
+        win: { fx: { item: "registre_page", ep: ["perso", 800] }, to: "EN_temple_copie" },
+        lose: { to: "EN_temple_rate" } },
+      { label: "Arracher une page encore lisible et la mettre à l'abri sur toi, où la neige ne prend rien", fx: { item: "registre_page", ep: ["perso", 500] }, to: "EN_temple_arrache" },
     ] },
 
   EN_temple_copie: { act: "I", title: "Plume contre neige", place: "sauvelune",
@@ -187,7 +187,7 @@ module.exports = {
     choices: [
       { label: "Enfumer les ruches à la bruyère sèche", test: { dom: "nature", label: "Apiculture", diff: -10 },
         win: { fx: { flag: "mathurin:ruches", quest: "EN_ruches", ep: ["perso", 600], item: "miel" }, to: "EN_ruches2_ok" },
-        lose: { fx: { flag: "mathurin:perdu", quest: "EN_ruches" }, to: "EN_ruches2_ko" } },
+        lose: { fx: { quest: "EN_ruches" }, to: "EN_ruches2_ko" } },
       { label: "Dire à voix haute le nom de Mathurin, puis celui de chacune de ses ruches, qu'il t'a appris quand tu étais petit", if: { clue: "n_fondre" }, why: "Il faudrait savoir ce qui défait cette poussière blanche.",
         fx: { flag: "mathurin:ruches", quest: "EN_ruches", ep: ["perso", 900], item: "miel" }, to: "EN_ruches2_ok" },
     ] },
@@ -238,7 +238,7 @@ module.exports = {
       "Mais quand tu tends la main, il met la sienne dans la poche de son gilet, sans y penser, comme on fait un geste mille fois répété, et il en sort une petite clé de fer, toute polie. Il la regarde avec étonnement. Il te la donne.",
       "« Elle te revient, dit-il. Je crois. »",
     ],
-    choices: [{ label: "Remonter au grenier", fx: { flag: "joris:cle" }, to: "EN_grenier_ouvert" }] },
+    choices: [{ label: "Remonter au grenier", to: "EN_grenier_ouvert" }] },
 
   EN_grenier_ouvert: { backName: "le grenier", act: "I", title: "Ce qu'il y avait dans le coffre", place: "sauvelune",
     fx: { clue: "n_lettre", item: "lettre_hylas", flag: "enfant:lettre", quest: "EN_coffre", ep: ["perso", 800] },
@@ -270,7 +270,7 @@ module.exports = {
       "« De la neige ? En juillet ? » Elle rit, puis elle s'arrête de rire. « À Pont-de-Saule, on dit qu'il a neigé sur le col de l'Ourse, là-haut, chez les sauvages des Combes. Et à Pallanche, on dit des choses… » Elle baisse la voix. « On dit que la Chancellerie paie cher pour les noms. Les vieux noms, les noms des morts, les noms qu'on ne veut plus. Qu'on peut aller là-bas, payer, et oublier ce qu'on veut. Qu'un homme en noir, là-bas, vous l'enlève de la tête comme on arrache une dent. »",
       "Elle hausse les épaules, rajuste sa hotte. « Moi, ce que j'en dis. Les gens racontent n'importe quoi, pour la Fête des Noms. Tu y vas, toi, à la fête ? Tout le monde y va, cette année. »",
     ],
-    choices: [{ label: "La remercier", fx: { flag: "EN:rumeur_chancellerie" }, to: "EN_village" }] },
+    choices: [{ label: "La remercier", to: "EN_village" }] },
 
   // ---------------------------------------------------------------- the second night: the Gleaner
   EN_soir2: { act: "I", title: "La veillée au temple", place: "sauvelune",
@@ -286,7 +286,7 @@ module.exports = {
       { label: "Te cacher dans la tribune, au-dessus de la porte, pour la voir entrer avant qu'elle te voie", test: { dom: "discretion", label: "Embuscade" },
         win: { fx: { flag: "EN:embuscade", ep: ["perso", 500] }, to: "EN_temple_nuit" },
         lose: { fx: { flag: "EN:surpris" }, to: "EN_temple_nuit" } },
-      { label: "L'attendre debout au milieu de la nef, ton arme à la main", fx: { flag: "EN:debout" }, to: "EN_temple_nuit" },
+      { label: "L'attendre debout au milieu de la nef, ton arme à la main", to: "EN_temple_nuit" },
       { label: "Préparer une ronde de chandelles autour du registre, et graver sur chacune le nom d'un habitant", if: { clue: "n_fondre" }, why: "Il faudrait savoir ce que la neige craint.",
         fx: { flag: "EN:chandelles", ep: ["perso", 700] }, to: "EN_temple_nuit" },
     ] },
@@ -318,7 +318,7 @@ module.exports = {
     ],
     choices: [
       { label: "Lui donner le registre : qu'elle parte, et que plus personne ici ne soit en danger", big: true, tag: "Sauvelune effacée des livres",
-        fx: { flag: ["choix:registre=donne", "EN:glaneur_parti"], ep: ["histoire", 3000], fac: { greffiers: 5 } }, to: "EN_glaneur_registre" },
+        fx: { flag: "choix:registre=donne", ep: ["histoire", 3000], fac: { greffiers: 5 } }, to: "EN_glaneur_registre" },
       { label: "Lui donner un souvenir à toi, pour sauver quelqu'un", big: true, tag: "Souvenir donné", stain: true, to: "EN_glaneur_souvenir" },
       { label: "Refuser, et te battre pour chaque nom de ce livre", big: true, fx: { flag: "choix:registre=defendu" }, to: "EN_glaneur_combat" },
     ] },
@@ -338,7 +338,6 @@ module.exports = {
     ] },
 
   EN_souvenir_donne: { act: "I", title: "Le prix", place: "sauvelune",
-    fx: { flag: "EN:glaneur_parti" },
     text: [
       "Elle se penche sur toi, et cette fois, quand elle souffle, quelque chose part.",
       { if: { has: "sauve:pim" }, text: "Agathe. Tu sais qu'elle existe. Tu sais qu'elle est ta mère, qu'elle fait le pain, qu'elle chante faux. Tu ne vois plus son visage. Il y a, là où il était, une lumière douce, sans traits, comme une fenêtre éclairée vue de loin dans la nuit. Et à la place, en échange, une certitude qui te tient chaud : Pim ne sera plus jamais oublié. Par personne." },
@@ -363,7 +362,7 @@ module.exports = {
     combat: { title: "Le Glaneur au sceau noir", enemies: ["glaneur"], terrain: "bati",
       pretrap: { if: { has: "EN:chandelles" }, n: 1, text: "Le cercle de chandelles la retient : {foe} hésite, piégée par les noms." },
       win: { fx: { flag: ["EN:glaneur_vaincu", "registre:entier"], ep: ["histoire", 4000], item: "cire_noire", clue: "n_sceau" }, to: "EN_glaneur_gagne" },
-      lose: { fx: { flag: "EN:glaneur_perdu", ep: ["seance", 1000] }, to: "EN_glaneur_perdu" } },
+      lose: { fx: { ep: ["seance", 1000] }, to: "EN_glaneur_perdu" } },
     text: [
       "La chose se dresse au-dessus de toi, et le froid tombe dans la nef comme un couperet.",
       { if: { has: "tess:viens" }, text: "Tess se lève avec un cri, son marteau à deux mains. Tu entends ton nom dans sa bouche, crié comme un ordre." },
@@ -380,7 +379,6 @@ module.exports = {
     choices: [{ label: "Sortir sur la place", to: "EN_aube3" }] },
 
   EN_glaneur_perdu: { act: "I", title: "La nuit froide", place: "sauvelune",
-    fx: { flag: "registre:perdu" },
     text: [
       "Le froid te prend les jambes, puis les bras, puis la poitrine. Tu tombes sur les dalles. Tu entends, très loin, le bruit des pages qu'on tourne, et quelqu'un qui souffle, longuement, patiemment, comme sur une soupe.",
       "Quand tu rouvres les yeux, c'est l'aube. Tu es allongé dans la nef, une couverture sur toi. Le Père Anselme est assis à côté, qui te regarde, les mains vides. Le registre a disparu.",
@@ -448,7 +446,7 @@ module.exports = {
       { if: { souv: "enfant:reve" }, text: "Et tu la lis. Pas tout. Un mot, un seul, gravé sept fois, une fois sur chaque pierre, et qui te revient du fond de ton rêve blanc, avec la voix qui chantait : *Reviens.* Tu ne sais pas comment tu le sais. Tu le sais comme on sait son nom." },
       { if: { not: { souv: "enfant:reve" } }, text: "Tu passes les doigts sur les signes. Ils sont froids. Tu as l'impression, très forte, que tu devrais les comprendre, qu'ils te concernent, qu'ils t'attendaient. Il y a un trou en toi, là où il faudrait les lire." },
     ],
-    choices: [{ fx: { flag: "enfant:pierres" }, back: "EN_grives" }] },
+    choices: [{ back: "EN_grives" }] },
 
   EN_traces: { act: "I", title: "Deux pistes", place: null,
     text: [
@@ -472,7 +470,7 @@ module.exports = {
       { label: "Passer ton chemin sans bruit", test: { dom: "discretion", label: "Discrétion" },
         win: { fx: { ep: ["perso", 300] }, to: "@route" },
         lose: { to: "EN_four_combat" } },
-      { label: "L'attaquer avant qu'il se lève", fx: { flag: "gaspard:frappe" }, to: "EN_four_combat" },
+      { label: "L'attaquer avant qu'il se lève", to: "EN_four_combat" },
     ] },
 
   EN_four_pain: { act: "I", title: "Gaspard", place: null,
@@ -581,7 +579,7 @@ module.exports = {
     choices: [{ label: "Entrer dans la ville", to: "@route" }] },
 
   EN_pallanche: { act: "I", title: "La ville aux cent cloches", place: "pallanche",
-    fx: { ep: ["histoire", 6000], flag: "prologue:enfant", catchup: 3, catchupWhy: "la route de Sauvelune à Pallanche" },
+    fx: { ep: ["histoire", 6000], catchup: 3, catchupWhy: "la route de Sauvelune à Pallanche" },
     text: [
       "Pallanche, la veille de la Fête des Noms, c'est cent mille personnes et cent clochers qui sonnent. Les rues sont tendues de bannières, chaque maison a peint son nom en lettres d'or au-dessus de sa porte, et sur les places, des greffiers en robe noire, assis à des pupitres, inscrivent gratuitement le nom de qui le demande dans le Grand Livre de la Fête. Les files d'attente font le tour des places.",
       { after: "enfant:lettre", text: "Tu vas droit à la Chancellerie. La tour noire est entourée d'un mur, et le mur d'une grille, et devant la grille, des gardes en noir qui t'entendent demander Maître Hylas sans t'écouter. « Fermé pour la Fête. Revenez après la Nuit des Cloches. »" },
@@ -624,7 +622,7 @@ module.exports = {
         win: { fx: { ep: ["seance", 800], gold: 4 }, to: "@route" },
         lose: { fx: { gold: -5 }, to: "@route" } } },
       { label: "Leur donner ta bourse", if: { gold: { min: 1 } }, why: "Tu n'as rien à leur donner.", fx: { gold: -4, ep: ["perso", 100] }, to: "@route" },
-      { label: "Leur offrir à manger plutôt que ta bourse", if: { food: { min: 1 } }, why: "Tu n'as pas de vivres.", fx: { food: -1, ep: ["perso", 400], flag: "EN:brigands_nourris" }, to: "E_brigands_pain" },
+      { label: "Leur offrir à manger plutôt que ta bourse", if: { food: { min: 1 } }, why: "Tu n'as pas de vivres.", fx: { food: -1, ep: ["perso", 400] }, to: "E_brigands_pain" },
     ] },
 
   E_brigands_pain: { act: "I", title: "Le pain partagé", place: null,
@@ -656,11 +654,11 @@ module.exports = {
 
   E_puits: { act: "I", title: "Le puits", place: null,
     text: ["Un puits au bord de la route, avec un seau et une chaîne. Sur la margelle, quelqu'un a gravé une liste de noms, des dizaines, serrés les uns contre les autres, et au-dessus : *NOUS ÉTIONS DE CHAUMONT. SOUVENEZ-VOUS.* Tu ne connais pas de Chaumont. Il n'y en a sur aucune carte que tu aies vue."],
-    choices: [{ label: "Lire les noms à voix haute, un par un", fx: { ep: ["perso", 400], flag: "EN:chaumont" }, to: "@route" }, { label: "Boire et repartir", to: "@route" }] },
+    choices: [{ label: "Lire les noms à voix haute, un par un", fx: { ep: ["perso", 400] }, to: "@route" }, { label: "Boire et repartir", to: "@route" }] },
 
   E_corbeaux: { act: "I", title: "Les corbeaux", place: null,
     text: ["Une volée de corbeaux tourne au-dessus de la crête, en criant, puis se pose autour de toi sur les rochers, à distance. Ils te regardent. Un, plus gros que les autres, sautille vers toi, penche la tête, et dépose à tes pieds une bague de cuivre. Puis ils s'envolent tous ensemble, vers le nord."],
-    choices: [{ label: "Ramasser la bague", fx: { gold: 2, flag: "EN:bague_corbeau", ep: ["perso", 200] }, to: "@route" }] },
+    choices: [{ label: "Ramasser la bague", fx: { gold: 2, ep: ["perso", 200] }, to: "@route" }] },
 
   E_glaneur_errant: { act: "I", title: "Un Glaneur", place: null,
     text: ["Dans un vallon enneigé, un Glaneur erre, sans but, la tête penchée, comme un chien qui a perdu une piste. Il ne t'a pas encore vu."],
@@ -678,7 +676,7 @@ module.exports = {
   E_cairn: { act: "I", title: "Le cairn", place: null,
     text: ["Au sommet d'un col, un cairn de pierres, comme les bergers en dressent pour marquer les passages. Mais celui-ci est couvert de petits objets : un peigne, une poupée de chiffon, un sabot d'enfant, une lettre pliée. Des offrandes. Sur une pierre, on a gravé, maladroitement, une spirale de signes, des traits droits et de petits cercles."],
     choices: [
-      { label: "Ajouter quelque chose au cairn", fx: { ep: ["perso", 300], flag: "EN:cairn" }, to: "@route" },
+      { label: "Ajouter quelque chose au cairn", fx: { ep: ["perso", 300] }, to: "@route" },
       { label: "Passer", to: "@route" },
     ] },
 };

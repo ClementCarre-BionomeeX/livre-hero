@@ -12,7 +12,7 @@ module.exports = {
       "*De sable au...* Il s'arrête encore. Il se tourne vers toi, désemparé. « Le vingt-troisième, dit-il. Je le savais ce matin. Je le sais depuis vingt ans, c'est un vieux de la mêlée. Je vois le bouclier. Je ne vois plus ce qu'il y a dessus. »",
     ],
     choices: [
-      { label: "Aller voir le bouclier du vingt-troisième, devant sa tente", fx: { ep: ["perso", 300], flag: "sud3:heraut" }, to: "II_S3_heraut_bouclier" },
+      { label: "Aller voir le bouclier du vingt-troisième, devant sa tente", fx: { ep: ["perso", 300] }, to: "II_S3_heraut_bouclier" },
       { label: "Lui dire d'inventer", to: "II_S3_heraut_invente" },
     ] }),
   II_S3_heraut_bouclier: P({ title: "Le bouclier",
@@ -42,7 +42,7 @@ module.exports = {
       "Il en reste un, le plus petit, qui n'a pas de nom. Il porte un masque de papier blanc. « Et toi, tu es qui ? » demandent les autres. « Le chevalier masqué. » Ils jouent. Au bout d'un moment, ils s'arrêtent. « Il manque quelqu'un, non ? » Ils comptent. Ils regardent le petit au masque blanc, au milieu d'eux. Ils ne le voient pas. Ils recommencent à compter.",
     ],
     choices: [
-      { label: "Dire aux autres qu'il est là", fx: { ep: ["perso", 300], flag: "sud3:enfants" }, to: "II_S3_enfants_la" },
+      { label: "Dire aux autres qu'il est là", fx: { ep: ["perso", 300] }, to: "II_S3_enfants_la" },
       { label: "Regarder le petit, et ne rien dire", to: "II_S3_enfants_masque" },
     ] }),
   II_S3_enfants_la: P({ title: "Il est là",

@@ -39,7 +39,7 @@ module.exports = {
       "Sur chaque bateau, un nom écrit à l'encre. Ils les lancent, ils les regardent faire le tour du bassin, et quand un bateau coule, ils applaudissent. « Ça veut dire que quelqu'un, en haut, a pensé à lui, dit une fillette. Le nom repart. Il est content. »",
     ],
     choices: [
-      { label: "Faire un bateau, toi aussi", fx: { ep: ["perso", 400], flag: "iii:bateau" }, to: "III_v_fontaine_bateau" },
+      { label: "Faire un bateau, toi aussi", fx: { ep: ["perso", 400] }, to: "III_v_fontaine_bateau" },
       { back: "III_v_porte" },
     ] }),
   III_v_fontaine_bateau: P3({ title: "Un bateau de papier", place: "valcendre",

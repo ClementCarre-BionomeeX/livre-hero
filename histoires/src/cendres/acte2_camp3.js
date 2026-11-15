@@ -13,11 +13,11 @@ module.exports = {
     choices: [
       { label: "Laisser Rodric entrer dans le cercle", to: "II_N_lutte_rodric" },
       { label: "Entrer dans le cercle toi-même", test: { dom: "combat", label: "La lutte", help: [{ if: { has: "corbe:loup=nomme" }, v: 10 }] },
-        win: { fx: { ep: ["perso", 500], flag: "nord:lutte" }, to: "II_N_lutte_corbe" }, lose: { fx: { pv: -2 }, to: "II_N_lutte_terre" } },
+        win: { fx: { ep: ["perso", 500] }, to: "II_N_lutte_corbe" }, lose: { fx: { pv: -2 }, to: "II_N_lutte_terre" } },
     ] }),
   II_N_lutte_rodric: P({ title: "Rodric dans le cercle",
     text: ["Rodric enlève son manteau, lentement, le plie, te le confie. Il entre dans le cercle. Bjarki se jette sur lui. Rodric reste planté là. Bjarki rebondit. Il recommence. Rodric le prend sous les bras, le soulève comme on soulève un sac de grain, le regarde un moment, à hauteur des yeux, et le repose, debout, hors du cercle. Il y a un silence. Puis tout le clan hurle de rire, Bjarki le premier. Le soir, Bjarki lui apporte une corne de bière. Ils ne se comprennent pas. Ils boivent ensemble jusqu'à minuit."],
-    choices: [{ fx: { conf: { rodric: 5 }, flag: "nord:lutte" }, back: "II_N_camp" }] }),
+    choices: [{ fx: { conf: { rodric: 5 } }, back: "II_N_camp" }] }),
   II_N_lutte_corbe: P({ title: "Dans le cercle",
     text: ["Tu entres. Bjarki rit. Il ne rit pas longtemps. Tu es petite, tu es vive, tu sais où sont les genoux d'un homme et ce qu'ils deviennent quand on passe derrière. Il tombe dans la neige, de tout son long, et tu es assise sur son dos avant qu'il ait compris. Le clan hurle. Bjarki, le nez dans la neige, rit aussi. « La fille d'Askel, dit-il. J'aurais dû me méfier. »"],
     choices: BACK }),

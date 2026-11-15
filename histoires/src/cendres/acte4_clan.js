@@ -118,7 +118,6 @@ module.exports = {
     ] }),
 
   IV_clan_fin: P({ title: "Le clan du Corbeau", place: "corbeau",
-    fx: { flag: "iv:clan_vu" },
     text: [
       { if: { all: [{ not: { seen: "IV_clan_fin" } }, { has: "corbe:iv=clan" }] }, text: "Le lendemain, le clan plie les tentes. Corbe marchera en tête, à côté de Hrodna, le tambour sur le dos : ils prennent le sentier de l'est, vers la Lisse. Avant de rejoindre la colonne, elle se retourne et lève la main. Tu lèves la tienne. Toi, tu redescendras vers le moutier." },
       { if: { all: [{ not: { seen: "IV_clan_fin" } }, { not: { has: "corbe:iv=clan" } }, { not: { has: "corbe:iv=sans_nom" } }] }, text: "Le lendemain, vous vous préparez à redescendre vers le moutier. Le clan vous regarde faire depuis le bord du camp. Hrodna fait un geste que tu ne connais pas, la main ouverte, puis fermée. Corbe te dit que ça veut dire : on se retrouvera là où il y aura des morts." },

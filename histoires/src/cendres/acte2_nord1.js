@@ -22,12 +22,12 @@ module.exports = {
       "La pâture est blanche, d'un bout à l'autre. La cabane est ouverte. Il y a du lait tourné dans un seau, un fromage sous un linge, un manteau sur un clou, un couteau sur la table. Les chiens sont là, maigres, qui gardent un troupeau qui n'a plus de berger. Ils grognent quand vous approchez, puis ils vous suivent.",
     ],
     choices: [
-      { label: "Ouvrir l'enclos et laisser les bêtes descendre vers la vallée", fx: { flag: "nord:betes_libres", ep: ["perso", 400] }, to: "@route" },
+      { label: "Ouvrir l'enclos et laisser les bêtes descendre vers la vallée", fx: { ep: ["perso", 400] }, to: "@route" },
       { label: "Prendre le fromage et le manteau, et repartir", fx: { food: 2 }, to: "@route" },
     ] }),
 
   II_N_traces: P({ title: "Les grandes traces", place: null,
-    fx: { flag: "nord:grandes_traces", questSeen: "II_N_geant" },
+    fx: { questSeen: "II_N_geant" },
     text: [
       "À mi-chemin, sur le fil de la crête, il y a des traces dans la neige. Des pas. Tu connais les pas des Glaneurs : longs, plats, qui ne s'enfoncent pas. Ceux-là s'enfoncent. Chacun est grand comme une barque. Entre deux pas, il y a la longueur de quatre hommes couchés.",
       "Ils viennent du col de l'Ourse et y retournent. Ils sont passés plusieurs fois.",
@@ -78,7 +78,7 @@ module.exports = {
       "« Le col de l'Ourse s'ouvre, Corbe. Chaque nuit un peu plus. Ce qui passe par là devient plus grand. Ou tu vas au col avec ton nom, et tu le fermes, ou tu l'ouvres. Mais tu ne peux plus rester entre les deux. »",
     ],
     choices: [
-      { label: "« Je n'irai pas au col. Pas comme ça. »", fx: { flag: "nord:refuse_hrodna", ep: ["perso", 500] }, to: "II_N_camp" },
+      { label: "« Je n'irai pas au col. Pas comme ça. »", fx: { ep: ["perso", 500] }, to: "II_N_camp" },
       { label: "« J'irai. Quand je saurai ce que je ferme, ou ce que j'ouvre. »", fx: { flag: "nord:promet_hrodna", conf: { corbe: 5 }, ep: ["perso", 500] }, to: "II_N_camp" },
     ] }),
 
@@ -121,7 +121,7 @@ module.exports = {
     ],
     choices: [
       { label: "Dire au clan qu'elle est sous ta tente, et donc sous ta protection", test: { dom: "social", label: "Autorité", help: [{ if: { has: "nord:promet_hrodna" }, v: 15 }, { if: { has: "clan:colere" }, v: -15 }] },
-        win: { fx: { flag: "nord:ysolde_protegee", conf: { ysolde: 10 }, ep: ["perso", 600] }, to: "II_N_guerriers_ok" },
+        win: { fx: { conf: { ysolde: 10 }, ep: ["perso", 600] }, to: "II_N_guerriers_ok" },
         lose: { to: "II_N_guerriers_duel" } },
       { label: "Laisser Ysolde régler ça elle-même", to: "II_N_guerriers_duel" },
     ] }),
@@ -135,7 +135,7 @@ module.exports = {
       "Ysolde ôte son baudrier, pose l'épée dans la neige, et ouvre les mains. Haskel se jette sur elle. Elle le reçoit, le fait passer par-dessus sa hanche, et il se retrouve sur le dos, dans la neige, la main de la chevalière posée à plat sur sa poitrine. Elle ne serre pas. Elle attend.",
       "Le cercle se défait en riant. Haskel aussi finit par rire. Le soir, il lui apporte de la viande.",
     ],
-    choices: [{ fx: { flag: "nord:ysolde_respectee", conf: { ysolde: 5 } }, back: "II_N_camp" }] }),
+    choices: [{ fx: { conf: { ysolde: 5 } }, back: "II_N_camp" }] }),
 
   II_N_enfants: P({ title: "Le feu des enfants", place: "corbeau",
     text: [
@@ -153,7 +153,7 @@ module.exports = {
     choices: [
       { label: "Dire à Hylas de la donner. On ne discute pas avec le feu, ici", fx: { flag: "nord:canne_brulee", drop: "canne" }, to: "II_N_canne_feu" },
       { label: "Expliquer au vieux que c'est la canne d'un aveugle, et rien d'autre", test: { dom: "social", label: "Parole" },
-        win: { fx: { flag: "nord:canne_gardee", ep: ["perso", 500] }, to: "II_N_camp" }, lose: { fx: { flag: "nord:canne_brulee", drop: "canne" }, to: "II_N_canne_feu" } },
+        win: { fx: { ep: ["perso", 500] }, to: "II_N_camp" }, lose: { fx: { flag: "nord:canne_brulee", drop: "canne" }, to: "II_N_canne_feu" } },
     ] }),
 
   II_N_canne_feu: P({ title: "Le feu", place: "corbeau",

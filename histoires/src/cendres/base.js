@@ -421,9 +421,9 @@ module.exports = {
       ] },
     { q: "Qu'est-ce que tu as mis dans ta poche ce matin ?",
       answers: [
-        { label: "Les six pièces que tu économises pour un couteau de chez Ferrand.", fx: { flag: "passe:pieces", gold: 6 } },
+        { label: "Les six pièces que tu économises pour un couteau de chez Ferrand.", fx: { gold: 6 } },
         { label: "Un caillou blanc, très lisse, que tu gardes depuis toujours. Il est froid, même en été.", fx: { flag: "passe:caillou" } },
-        { label: "Le ruban rouge que Tess a oublié chez toi. Tu comptes le lui rendre. Peut-être.", fx: { flag: "passe:ruban", item: "ruban" } },
+        { label: "Le ruban rouge que Tess a oublié chez toi. Tu comptes le lui rendre. Peut-être.", fx: { item: "ruban" } },
       ] },
   ],
   // The road takes its toll (piste 10, 15/11): the winter sky follows the roads, long roads tire, ice and cold wound.

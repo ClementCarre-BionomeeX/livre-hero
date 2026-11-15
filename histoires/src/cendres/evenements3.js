@@ -37,7 +37,7 @@ module.exports = {
       "Chacun danse avec quelqu'un qui n'est pas là. Une femme tourne, les bras levés sur une épaule absente. Un vieux s'incline devant personne, et attend qu'on lui rende sa révérence. Ils ont oublié avec qui ils dansaient. Pas comment.",
     ],
     choices: [
-      { label: "Inviter le vieux qui s'incline", fx: { ep: ["perso", 400], flag: "iii:bal" }, to: "E3_danseurs_vieux" },
+      { label: "Inviter le vieux qui s'incline", fx: { ep: ["perso", 400] }, to: "E3_danseurs_vieux" },
       { label: "Passer au large", to: "@route" },
     ] }),
   E3_danseurs_vieux: P({ title: "Une bourrée",

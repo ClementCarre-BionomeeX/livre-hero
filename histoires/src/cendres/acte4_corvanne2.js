@@ -32,8 +32,8 @@ module.exports = {
     ],
     choices: [
       { label: "Demander à l'officier de garde qu'on le rende, cette nuit, sur parole", test: { dom: "social", label: "L'officier de garde", help: [{ if: { present: "ysolde" }, v: 15 }, { if: { has: "ilan:iv" }, v: 10 }, { if: { present: "rodric" }, v: 10 }] },
-        win: { fx: { flag: ["iv:prisonnier", "iv:prisonnier=rendu"], ep: ["perso", 1200] }, to: "IV_cv_prisonniers_rendu" }, lose: { fx: { flag: ["iv:prisonnier", "iv:prisonnier=reste"] }, to: "IV_cv_prisonniers_reste" } },
-      { label: "Lui promettre de dire à Brenne qu'il est vivant", fx: { flag: ["iv:prisonnier", "iv:prisonnier=reste"], ep: ["perso", 500] }, to: "IV_cv_prisonniers_reste" },
+        win: { fx: { flag: "iv:prisonnier=rendu", ep: ["perso", 1200] }, to: "IV_cv_prisonniers_rendu" }, lose: { fx: { flag: "iv:prisonnier=reste" }, to: "IV_cv_prisonniers_reste" } },
+      { label: "Lui promettre de dire à Brenne qu'il est vivant", fx: { flag: "iv:prisonnier=reste", ep: ["perso", 500] }, to: "IV_cv_prisonniers_reste" },
     ] }),
   IV_cv_prisonniers_rendu: P({ title: "Sur parole",
     text: ["L'officier de garde est un vieux capitaine corvannais qui a perdu un fils au pont. Il t'écoute. Il regarde Gilles. Il dit quelque chose en corvannais à la sentinelle, qui coupe la corde. « Sur parole, dit-il. Qu'il ne porte pas d'arme demain. Je ne veux pas le tuer deux fois. » Gilles se lève. Il frotte ses poignets. Il ne remercie personne. Il sort de la tente, et il regarde vers la Lisse, vers les feux de Brenne, de l'autre côté de l'eau, comme on regarde une maison où l'on n'est pas sûr d'être encore attendu."],
