@@ -6,8 +6,8 @@ function P(o) { return Object.assign({}, PI, o); }
 module.exports = {
   PI_k_brocante: P({ title: "La brocante des Cédants",
     text: [
-      "Au pied de la tour, contre le mur du Bureau, une vieille femme a étalé une couverture par terre. Dessus, des objets rangés avec le soin d'un inventaire de notaire. Une bague de cuivre. Une mèche de cheveux nouée d'un fil rouge. Des lettres, liées par paquets. Une poupée sans bras. Un dé à coudre. Une pipe.",
-      "« Ce qu'ils laissent en sortant, dit-elle. Ils vendent le souvenir, au guichet, et en ressortant, l'objet ne leur dit plus rien. Alors ils le posent là, sur le rebord, et ils s'en vont. Moi, je ramasse. Je revends. Un sou pièce. Les objets, ça ne s'oublie pas, ça. Ça attend. »",
+      "Au pied de la tour, contre le mur du Bureau, une vieille femme a étalé une couverture par terre, de six pieds sur quatre, bordée de pierres pour le vent. Dessus, des objets rangés avec le soin d'un inventaire de notaire. Une bague de cuivre. Une mèche de cheveux nouée d'un fil rouge. Des lettres, liées par paquets. Une poupée sans bras. Un dé à coudre. Une pipe.",
+      "« Ce qu'ils laissent en sortant, dit-elle. Ils vendent le souvenir, au guichet, et en ressortant, l'objet ne leur dit plus rien. Alors ils le posent là, sur le rebord, et ils s'en vont. Moi, je ramasse. Je revends. Un sou pièce. Les objets, ça se souvient tout seul. Ça attend. »",
       "Au bord de la couverture, entre un sabot d'enfant et un chapelet, un sifflet de saule. Taillé au couteau, maladroitement, avec une encoche de travers. Tu l'as taillé toi-même, il y a trois ans, sous le pont des Teinturiers, pour une petite fille qui avait peur du noir.",
     ],
     choices: [
@@ -18,7 +18,7 @@ module.exports = {
     ] }),
   PI_k_brocante_qui: P({ title: "Qui l'a laissé",
     text: [
-      "La vieille prend le sifflet, le tourne dans ses doigts. « Ça ? Ce n'est pas un cédant. C'est un greffier qui l'a jeté là, l'été dernier. Il l'avait trouvé dans la poche d'une petite, en la rasant, pour le scriptorium. Elles n'ont rien le droit de garder, les petites. » Elle te regarde. « Tu la connais ? »",
+      "La vieille prend le sifflet, le tourne dans ses doigts. « Ça ? Celui-là vient d'ailleurs. C'est un greffier qui l'a jeté là, l'été dernier. Il l'avait trouvé dans la poche d'une petite, en la rasant, pour le scriptorium. Les petites doivent tout laisser. » Elle te regarde. « Tu la connais ? »",
       "Tu te tais, et elle te laisse ton silence. Elle a vu beaucoup de gens regarder des objets sur sa couverture, et elle sait ce que veut dire ce silence-là.",
     ],
     choices: [
@@ -26,20 +26,20 @@ module.exports = {
       { label: "Repartir les mains vides", back: "PI_ville" },
     ] }),
   PI_k_brocante_achat: P({ title: "Deux liards",
-    text: ["Tu paies. Elle te tend le sifflet, et en plus, en silence, la mèche de cheveux au fil rouge, qu'elle te glisse dans la main. Tu la regardes. « Personne ne la prendra, dit-elle. Et toi, tu as une tête à garder les choses. » Ce ne sont pas les cheveux de Linette. Ce sont ceux de quelqu'un. Tu les gardes quand même. Tu verras bien quoi en faire."],
+    text: ["Tu paies. Elle te tend le sifflet, et en plus, en silence, la mèche de cheveux au fil rouge, qu'elle te glisse dans la main. Tu la regardes. « Elle restera là jusqu'à la Saint-Glinglin, dit-elle. Et toi, tu as une tête à garder les choses. » Ces cheveux-là sont trop clairs pour être ceux de Linette. Ils sont à quelqu'un, pourtant. Tu les gardes quand même. Tu verras bien quoi en faire."],
     choices: [{ back: "PI_ville" }] }),
   PI_k_brocante_vol: P({ title: "Le sifflet",
-    text: ["Ta main passe au ras de la couverture, et le sifflet n'est plus là. La vieille n'a rien vu. Ou si : elle lève les yeux, au moment où tu te relèves, et elle te fait un petit signe de tête, à peine, comme on salue un confrère. Elle savait. Elle a laissé faire. Tu ne sauras jamais pourquoi."],
+    text: ["Ta main passe au ras de la couverture, et le sifflet n'est plus là. La vieille a l'air de regarder ailleurs. Ou presque : elle lève les yeux, au moment où tu te relèves, et elle te fait un petit signe de tête, à peine, comme on salue un confrère. Elle savait. Elle a laissé faire. Pourquoi, le mystère restera entier."],
     choices: [{ back: "PI_ville" }] }),
   PI_k_brocante_prise: P({ title: "Une main sèche",
-    text: ["Une main sèche se referme sur ton poignet, le sifflet encore dans ta paume. « Un sou, dit la vieille, calmement. Pas un de moins. Les objets d'ici ont déjà été volés une fois, petit. » Elle ne te lâche pas. Elle attend. Tu as honte, tout à coup, et d'autre chose que d'avoir été pris."],
+    text: ["Une main sèche se referme sur ton poignet, le sifflet encore dans ta paume. « Un sou, dit la vieille, calmement. Pas un de moins. Les objets d'ici ont déjà été volés une fois, petit. » Sa main tient bon. Elle attend. Tu as honte, tout à coup, et d'autre chose que d'avoir été pris."],
     choices: [
       { label: "Payer", fx: { gold: -1, item: "sifflet_linette" }, to: "PI_k_brocante_achat" },
       { label: "Reposer le sifflet, et partir", to: "PI_ville" },
     ] }),
   PI_linette_sifflet: P({ title: "Le sifflet de saule",
     text: [
-      "Tu sors le sifflet de ta poche. Tu le poses sur son pupitre, à côté de l'encrier. Elle le regarde. Elle ne le prend pas. On n'a pas le droit.",
+      "Tu sors le sifflet de ta poche. Tu le poses sur son pupitre, à côté de l'encrier. Elle le regarde, les mains à plat sur la feuille. C'est interdit.",
       "Puis sa main gauche, celle qui n'écrit pas, glisse sur le bois, toute seule, et le prend, et le porte à sa bouche. Elle souffle. Un son aigre, faux, à cause de l'encoche de travers. Dans tout le scriptorium, quarante plumes s'arrêtent. Quarante têtes rasées se lèvent.",
       "Linette regarde le sifflet dans sa main comme s'il venait d'y tomber du ciel. « Il siffle faux », dit-elle. Puis, plus bas : « Il a toujours sifflé faux. »",
     ],
