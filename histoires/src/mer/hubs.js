@@ -16,19 +16,19 @@ module.exports = { moves: moves, SLEEP: SLEEP, passages: {
     fxEvery: { set: { terre: null } },
     title: "Le pont de la Sterne", place: "pont", hub: true, veillee: true, backName: "le pont",
     text: [
-      { if: { is: { escale: "aubier" } }, text: "Le pont est encombré de cordages, de cages à poules et de caisses pas encore descendues. Des portefaix vont et viennent sur la planche. Au-dessus de vous, les gabiers envergent les voiles en s'interpellant d'un mât à l'autre." },
+      { if: { is: { escale: "aubier" } }, text: "Le pont est encombré de cordages, de cages à poules et de caisses en attente d'être descendues. Des portefaix vont et viennent sur la planche. Au-dessus de vous, les gabiers envergent les voiles en s'interpellant d'un mât à l'autre." },
       { if: { is: { escale: "gavre" } }, text: "La Sterne est amarrée au môle de Gavre, ses voiles serrées sur les vergues. Des enfants de pêcheurs la regardent du quai en se poussant du coude." },
       { if: { is: { escale: "ronce" } }, text: "La Sterne est mouillée dans l'anse de Ronce, sur une eau verte et calme. La chaloupe fait la navette avec la plage." },
-      { if: AT_SEA, when: "day", again: true, text: "Le pont, le grand mât qui craque, les hommes au travail, et la mer de tous les côtés." },
-      { if: AT_SEA, when: "night", text: "La nuit, le pont n'est éclairé que par le fanal de poupe et la lampe de l'habitacle, où Kerlo surveille le compas. Les hommes de quart parlent bas." },
-      { if: AT_SEA, temps: "calme", text: "Les voiles pendent sans un souffle. Le navire roule mollement sur une houle longue, et le bois grince à chaque roulis." },
+      { if: AT_SEA, when: "day", again: true, text: "Le pont, le grand mât qui craque, les hommes au travail, et la mer de tous côtés." },
+      { if: AT_SEA, when: "night", text: "La nuit, le pont reçoit pour toute lumière celle du fanal de poupe et de la lampe de l'habitacle, où Kerlo surveille le compas. Les hommes de quart parlent bas." },
+      { if: AT_SEA, temps: "calme", text: "Les voiles pendent, sans un souffle pour les gonfler. Le navire roule mollement sur une houle longue, et le bois grince à chaque roulis." },
       { if: AT_SEA, temps: "brise", text: "La brise tient les voiles bien gonflées. La Sterne file, couchée juste ce qu'il faut, et l'étrave chante dans l'eau." },
       { if: AT_SEA, temps: "frais", text: "Le vent est fort. Les embruns passent par-dessus l'étrave et mouillent le pont jusqu'au grand mât ; les hommes marchent les jambes écartées." },
       { if: AT_SEA, temps: "grain", text: "La pluie tombe en paquets froids. Les hommes ont passé leurs cirés, et Guénolé fait réduire la toile en criant contre le vent." },
       { if: AT_SEA, temps: "brume", text: "La brume enveloppe tout. Du pied du grand mât, la proue et la poupe se perdent dans le blanc. La cloche du bord sonne toutes les deux minutes." },
       { if: AT_SEA, temps: "tempete", text: "Le pont est un champ de bataille : des lignes de vie tendues de l'avant à l'arrière, des hommes accrochés, de l'eau partout." },
       { after: "R_depart", before: ["chaloupe:videe", "morvan:fers"], once: true, if: AT_SEA, text: "La chaloupe est saisie à sa place, entre le grand mât et l'artimon, sous sa bâche goudronnée. Elle te paraît plus basse sur ses cales qu'à Port-Aubier." },
-      { after: "morvan:fers", text: "Morvan Le Hir est aux fers au pied du grand mât, une chaîne à la cheville. Les hommes passent devant lui sans le regarder." },
+      { after: "morvan:fers", text: "Morvan Le Hir est aux fers au pied du grand mât, une chaîne à la cheville. Les hommes passent devant lui les yeux ailleurs." },
     ],
     choices: [
       { label: "Monter à la hune avec le mousse", if: AT_SEA, hide: { any: [{ seen: "P_hune" }, { not: AT_SEA }] }, when: "day", takes: 1, to: "P_hune" },
@@ -47,8 +47,8 @@ module.exports = { moves: moves, SLEEP: SLEEP, passages: {
     text: [
       { without: "pierrick", text: "Pierrick, le mousse, te regarde poser le pied sur les enfléchures avec un sourire en coin. « Pas comme ça. Les mains sur les haubans, jamais sur les enfléchures : un échelon peut casser, un hauban jamais. » Il grimpe devant toi comme on monte un escalier." },
       { with: "pierrick", text: "Pierrick grimpe devant toi comme on monte un escalier, et se retourne tous les trois échelons pour voir où tu en es." },
-      "La hune est une plate-forme de planches grande comme une table, à mi-hauteur du grand mât. Le roulis, en bas à peine sensible, y devient un balancement de vingt pieds d'un bord à l'autre. Tu t'accroches au mât, puis tu oses regarder.",
-      "La mer s'étend jusqu'au bord du ciel, rayée d'écume. La Sterne, vue d'en haut, est étroite comme une cosse de pois. Sur le pont, les hommes sont des chapeaux.",
+      "La hune est une plate-forme de planches grande comme une table, à mi-hauteur du grand mât. Le roulis, à peine sensible en bas, y devient un balancement de vingt pieds d'un bord à l'autre. Tu t'accroches au mât, puis tu te risques à regarder.",
+      "La mer s'étend jusqu'au bord du ciel, rayée d'écume. Vue d'en haut, la Sterne est étroite comme une cosse de pois, et sur le pont, les hommes se réduisent à des chapeaux.",
       { without: "pierrick", text: "« Je m'appelle Pierrick, dit le mousse. Personne ne monte ici, à part la vigie et moi. Les autres ont le vertige ou la flemme. » Il te regarde. « Toi, t'as pas vomi. C'est bien. Si tu veux, je te montre le navire. Je connais les cachettes. »" },
       { with: "pierrick", text: "« Tu vois, dit Pierrick, d'ici on voit tout. Qui va où, qui parle à qui. Personne ne lève jamais la tête. »" },
     ],
@@ -63,12 +63,12 @@ module.exports = { moves: moves, SLEEP: SLEEP, passages: {
     fxEvery: { set: { terre: null } },
     title: "Le gaillard d'avant", place: "gaillard", hub: true, backName: "le gaillard d'avant",
     text: [
-      { first: true, text: "Le gaillard d'avant est le domaine de l'équipage : un entrepont bas où l'on ne tient debout qu'en courbant la tête, trente hamacs accrochés aux barrots, des coffres de mer alignés le long de la coque, et une odeur de laine mouillée, de goudron et de pieds. Au fond, derrière une cloison, la cambuse de Rozenn, et son fourneau de briques posé sur un lit de sable." },
+      { first: true, text: "Le gaillard d'avant est le domaine de l'équipage : un entrepont si bas qu'on y tient debout en courbant la tête, trente hamacs accrochés aux barrots, des coffres de mer alignés le long de la coque, et une odeur de laine mouillée, de goudron et de pieds. Au fond, derrière une cloison, se trouvent la cambuse de Rozenn et son fourneau de briques posé sur un lit de sable." },
       { again: true, when: "day", text: "Le gaillard, ses hamacs roulés pour la journée, et le fumet de la soupe qui vient de la cambuse." },
       { again: true, when: "night", text: "Le gaillard de nuit : les hamacs pleins qui se balancent tous ensemble au roulis, les ronflements, une lanterne qui fume." },
-      { after: "marche:sabotage", before: "eau:coupable", if: { stock: "equipage", max: 45 }, text: "Les hommes se taisent quand tu entres, et reprennent leur conversation quand tu es passé{e}." },
+      { after: "marche:sabotage", before: "eau:coupable", if: { stock: "equipage", max: 45 }, text: "Les conversations s'arrêtent quand tu entres, et reprennent derrière toi." },
       { if: { stock: "equipage", min: 75 }, text: "Quelqu'un siffle une gigue en ravaudant une voile. Un autre t'offre une chique, que tu peux refuser sans vexer personne." },
-      { if: { is: { rations: "demi" } }, text: "Depuis qu'on rationne l'eau, chaque homme garde son quart de pinte sous sa chemise, et le surveille." },
+      { if: { is: { rations: "demi" } }, text: "Depuis qu'on rationne l'eau, chaque homme garde son quart de pinte sous sa chemise, et le surveille comme on surveille une bourse." },
     ],
     choices: [
       { label: "Te mêler aux matelots", takes: 1, to: "K_gaillard" },
@@ -80,7 +80,7 @@ module.exports = { moves: moves, SLEEP: SLEEP, passages: {
   K_gaillard: {
     title: "Avec les matelots", place: "gaillard", back: true, rumeur: "gaillard", taverne: { mise: 2, adversaire: "un gabier aux dents gâtées" },
     text: [
-      { first: true, text: "Tu t'assois sur un coffre, entre deux matelots qui épissent un cordage. Ils se poussent pour te faire de la place, sans enthousiasme. Un subrécargue, pour eux, c'est l'homme qui compte la solde, et qui la compte toujours trop juste." },
+      { first: true, text: "Tu t'assois sur un coffre, entre deux matelots qui épissent un cordage. Ils se poussent pour te faire de la place, sans enthousiasme. Un subrécargue, pour eux, c'est celui qui compte la solde, et qui la compte toujours trop juste." },
       { again: true, text: "Tu retrouves ton coffre, entre les épisseurs. On te fait de la place." },
     ],
   },
@@ -90,10 +90,10 @@ module.exports = { moves: moves, SLEEP: SLEEP, passages: {
     fxEvery: { set: { terre: null } },
     title: "La cale", place: "cale", hub: true, atelier: true, backName: "la cale",
     text: [
-      { first: true, text: "La cale de la Sterne est une longue caverne de bois, éclairée par des fanaux pendus aux barrots. Les caisses de la cargaison y sont arrimées en piles serrées, calées de coins et de cordages. Plus loin, les tonneaux d'eau, couchés sur trois rangs. Au pied du grand mât, les deux pompes, et contre la cloison avant, l'établi d'Armelle, ses outils pendus au mur dans un ordre parfait." },
+      { first: true, text: "La cale de la Sterne est une longue caverne de bois, éclairée par des fanaux pendus aux barrots. Les caisses de la cargaison y sont arrimées en piles serrées, calées de coins et de cordages. Plus loin, les tonneaux d'eau sont couchés sur trois rangs. Au pied du grand mât se dressent les deux pompes, et contre la cloison avant, l'établi d'Armelle, avec ses outils pendus au mur dans un ordre parfait." },
       { again: true, text: "La cale, les caisses arrimées, les tonneaux couchés, l'odeur de bois, de goudron et d'eau croupie." },
       { if: AT_SEA, temps: ["frais", "grain", "tempete"], text: "Chaque coup de mer fait gémir la membrure. Les piles de caisses tirent sur leurs cordages." },
-      { after: "voie:ouverte", before: "voie:bouchee", text: "L'eau gargouille entre les varangues. On l'entend monter, un doigt par heure, et les hommes de pompe se relaient sans arrêt." },
+      { after: "voie:ouverte", before: "voie:bouchee", text: "L'eau gargouille entre les varangues. On l'entend monter, d'un doigt par heure, et les hommes de pompe se relaient sans arrêt." },
       { after: "voie:bouchee", text: "Un emplâtre de planches et d'étoupe couvre la voie d'eau, à tribord, sous la ligne de flottaison. Il suinte à peine." },
       { after: "marche:sabotage", text: "Sur le rang du bas, quatorze tonneaux sonnent creux sous la main." },
     ],
@@ -112,15 +112,15 @@ module.exports = { moves: moves, SLEEP: SLEEP, passages: {
   K_rations: {
     title: "L'eau", place: "cale", back: true,
     text: [
-      { if: { is: { rations: "demi" } }, text: "Guénolé fait mettre un cadenas sur la manche à eau et en garde la clé autour du cou. Désormais, chaque homme reçoit sa ration au gobelet, matin et soir, sous ses yeux. Les matelots regardent le cadenas comme on regarde un mauvais présage." },
-      { if: { is: { rations: "pleine" } }, text: "Guénolé ôte le cadenas de la manche à eau. Les hommes boivent à la tasse, longuement, en te regardant par-dessus le bord. Personne ne te remercie, mais l'air du gaillard est moins lourd ce soir." },
+      { if: { is: { rations: "demi" } }, text: "Guénolé fait mettre un cadenas sur la manche à eau et en garde la clé autour du cou. Désormais, chaque homme reçoit sa ration au gobelet, matin et soir, sous ses yeux. Les matelots regardent le cadenas comme un mauvais présage." },
+      { if: { is: { rations: "pleine" } }, text: "Guénolé ôte le cadenas de la manche à eau. Les hommes boivent à la tasse, longuement, en te regardant par-dessus le bord. Pas un merci, mais l'air du gaillard est plus léger ce soir." },
     ],
   },
   K_pompes: {
     title: "Aux pompes", place: "cale", back: true,
     text: [
-      "Tu prends le bringuebale avec un matelot en face de toi, et vous pompez au rythme d'une chanson que tout le monde connaît sauf toi. Au bout d'une heure, tu ne sens plus tes épaules ; au bout de deux, tu les sens trop. L'eau claque dans la dalle et s'en va par-dessus bord.",
-      { after: "fait:pompe", text: "La grande pompe, avec ses cuirs neufs, tire à chaque coup un plein seau. Les hommes disent du bien d'Armelle, ce qui est rare." },
+      "Tu prends le bringuebale avec un matelot en face de toi, et vous pompez au rythme d'une chanson que tout le monde connaît, sauf toi. Au bout d'une heure, tes épaules ont cessé de se plaindre ; au bout de deux, elles reprennent de plus belle. L'eau claque dans la dalle et s'en va par-dessus bord.",
+      { after: "fait:pompe", text: "La grande pompe, avec ses cuirs neufs, tire un plein seau à chaque coup. Les hommes disent du bien d'Armelle, ce qui arrive rarement." },
       { before: "fait:pompe", text: "Les cuirs usés de la grande pompe laissent filer la moitié de l'eau qu'ils aspirent. Il faut deux coups pour en faire un." },
     ],
   },
@@ -130,10 +130,10 @@ module.exports = { moves: moves, SLEEP: SLEEP, passages: {
     fxEvery: { set: { terre: null } },
     title: "Le château arrière", place: "arriere", hub: true, backName: "le château arrière",
     text: [
-      { first: true, text: "Sous la dunette, une coursive étroite dessert les chambres de l'arrière : celle du capitaine, au fond, avec ses fenêtres sur le sillage ; le carré où l'on mange ; la chambre du second ; l'infirmerie de Maître Daoulas ; la cabine de Gabin, et la tienne, un placard avec une couchette et une tablette où tu poses le coffre de bord." },
+      { first: true, text: "Sous la dunette, une coursive étroite dessert les chambres de l'arrière : au fond, celle du capitaine, avec ses fenêtres sur le sillage ; le carré où l'on mange ; la chambre du second ; l'infirmerie de Maître Daoulas ; la cabine de Gabin ; et la tienne, un placard muni d'une couchette et d'une tablette où tu poses le coffre de bord." },
       { again: true, text: "La coursive de l'arrière, ses portes basses, la lampe de cuivre qui balance au plafond." },
       { after: "marche:malade", before: ["cap:soigne", "cap:mort"], text: "Une odeur de vomi et de vinaigre vient de la chambre du capitaine." },
-      { after: "cap:mort", text: "La porte de la chambre du capitaine est fermée. On a mis son chapeau dessus, accroché au loquet." },
+      { after: "cap:mort", text: "La porte de la chambre du capitaine est fermée. On a accroché son chapeau au loquet." },
     ],
     choices: [
       { label: "Ouvrir le coffre de bord et payer une avance sur solde à l'équipage", after: "A_appareillage", hide: { has: "coffre:avance" }, to: "K_coffre" },
@@ -147,7 +147,7 @@ module.exports = { moves: moves, SLEEP: SLEEP, passages: {
   K_coffre: {
     title: "Le coffre de bord", place: "arriere",
     text: [
-      "Tu ouvres le coffre de bord sur ta couchette. Il contient l'argent du voyage, en écus, en piles de dix roulées dans du papier : de quoi payer les droits de port de Marbecq, les escales et l'imprévu. Une avance de solde sur cet argent, c'est l'armateur qui la paie, et c'est à toi qu'il la reprochera.",
+      "Tu ouvres le coffre de bord sur ta couchette. Il contient l'argent du voyage, en écus, en piles de dix roulées dans du papier : de quoi payer les droits de port de Marbecq, les escales et l'imprévu. Une avance de solde prise sur cet argent, c'est l'armateur qui la paie, et c'est à toi qu'il la reprochera.",
       { after: "rumeur:coffre", text: "Depuis ce matin, au gaillard, on dit que tu gardes la solde des hommes là-dedans. Une avance fera taire la rumeur, ou lui donnera raison." },
     ],
     choices: [
@@ -169,12 +169,12 @@ module.exports = { moves: moves, SLEEP: SLEEP, passages: {
   N_matin: {
     title: "Le matin", place: "arriere", backName: "ta cabine",
     text: [
-      "Tu te réveilles dans ta couchette, au son de la cloche qui pique le changement de quart. Par le hublot de ta cabine, la mer.",
-      { if: { day: { min: 2, max: 2 } }, text: "La côte est encore en vue, une ligne bleue sur bâbord. Au réveil, ton estomac a mis un moment à comprendre où il était." },
-      { if: { day: { min: 4, max: 4 } }, text: "Plus de terre en vue, dans aucune direction. Pierrick prétend qu'on la sent encore, à l'odeur, par vent d'est." },
-      { after: "marche:brumes", before: "R_arrivee", text: "Le hublot est blanc de brume. Tu entends la cloche du bord, et celle-là seulement." },
+      "Tu te réveilles dans ta couchette, au son de la cloche qui pique le changement de quart. Par le hublot de ta cabine, il y a la mer, et rien d'autre.",
+      { if: { day: { min: 2, max: 2 } }, text: "La côte est encore en vue, une ligne bleue sur bâbord. Au réveil, ton estomac a mis un moment à comprendre où il se trouvait." },
+      { if: { day: { min: 4, max: 4 } }, text: "La terre a disparu dans toutes les directions. Pierrick prétend qu'on la sent encore à l'odeur, par vent d'est." },
+      { after: "marche:brumes", before: "R_arrivee", text: "Le hublot est blanc de brume. La cloche du bord est le seul bruit qui te parvienne." },
       { after: "voie:ouverte", before: "voie:bouchee", text: "En bas, les pompes ont battu toute la nuit." },
-      { after: "R_depart", before: "C_assemblee", text: "Quelqu'un a gratté sur la porte de ta cabine, au couteau, le dessin d'un cercueil. Tu le regardes longtemps, puis tu t'habilles." },
+      { after: "R_depart", before: "C_assemblee", text: "Quelqu'un a gravé au couteau, sur la porte de ta cabine, le dessin d'un cercueil. Tu le regardes longtemps, puis tu t'habilles." },
       { after: "cap:mort", text: "Sur le pont, l'équipage est rassemblé tête nue. Le capitaine Coët est mort cette nuit." },
     ],
     fxEvery: { rest: true },
@@ -186,10 +186,10 @@ module.exports = { moves: moves, SLEEP: SLEEP, passages: {
     fxEvery: { set: { terre: "oui" } },
     title: "Le quai des Morutiers", place: "aubier_quai", hub: true, backName: "le quai de la Sterne",
     text: [
-      { first: true, text: "La Sterne est amarrée bord à quai, sa planche posée sur les pavés. C'est un trois-mâts de belle taille, noir de coque avec une bande jaune à la hauteur des sabords, et une figure de proue en forme d'oiseau aux ailes repliées. Le bois de la coque a été repeint de frais ; les voiles, elles, ont vu beaucoup de mers." },
-      { first: true, text: "Sur le quai, une file de portefaix monte les dernières caisses de la cargaison à bord. Un homme en habit de drap bleu, debout près de la planche, coche chaque caisse sur une liste." },
+      { first: true, text: "La Sterne est amarrée bord à quai, sa planche posée sur les pavés. C'est un trois-mâts de belle taille, d'une centaine de pieds de long : coque noire, bande jaune à la hauteur des sabords, et une figure de proue en forme d'oiseau aux ailes repliées. La coque a été repeinte de frais ; les voiles, elles, ont vu beaucoup de mers, et leurs reprises se comptent à vingt pas." },
+      { first: true, text: "Sur le quai, une file de portefaix monte à bord les dernières caisses de la cargaison. Un homme en habit de drap bleu, debout près de la planche, coche chaque caisse sur une liste." },
       { again: true, text: "Le quai des Morutiers, les portefaix, les mouettes, et la Sterne qui tire sur ses amarres." },
-      { after: "A_signer", text: "La file des portefaix a disparu. Il ne reste sur le quai que des brins de paille et des cordages coupés." },
+      { after: "A_signer", text: "La file des portefaix a disparu. Sur le quai restent seulement des brins de paille et des cordages coupés." },
     ],
     choices: [
       { label: "Monter à bord de la Sterne", hide: { seen: "A_bord" }, to: "A_bord" },
@@ -203,8 +203,8 @@ module.exports = { moves: moves, SLEEP: SLEEP, passages: {
     fxEvery: { set: { terre: "oui" } },
     title: "La ville basse", place: "aubier_ville", hub: true, backName: "la ville basse",
     text: [
-      { first: true, text: "La ville basse de Port-Aubier grimpe en escaliers de granit depuis les quais. Tout ce qui sert à la mer s'y vend : poulies, cordages, biscuit, instruments, assurances et prières. La Chambre des Assurances occupe un bel hôtel à colonnes sur la place du Change ; plus bas, l'apothicairerie de Maître Haudry fait l'angle de la rue des Cordiers, et l'accastilleur étale ses marchandises jusque sur le trottoir." },
-      { first: true, text: "Thibaut Lerac, l'ancien subrécargue de la maison Corbière, habite à deux rues, au-dessus d'une boutique de chandelles. Corbière te l'a dit, en ajoutant qu'il ne fallait pas le déranger." },
+      { first: true, text: "La ville basse de Port-Aubier grimpe en escaliers de granit depuis les quais. Tout ce qui sert à la mer s'y vend : poulies, cordages, biscuit, instruments, assurances et prières. La Chambre des Assurances occupe un bel hôtel à colonnes sur la place du Change ; plus bas, l'apothicairerie de Maître Haudry fait l'angle de la rue des Cordiers, et l'accastilleur étale ses marchandises jusque sur le pavé." },
+      { first: true, text: "Thibaut Lerac, l'ancien subrécargue de la maison Corbière, habite à deux rues de là, au-dessus d'une boutique de chandelles. Corbière te l'a dit, en ajoutant qu'il valait mieux le laisser tranquille." },
       { again: true, text: "La ville basse, ses escaliers, ses enseignes de fer qui grincent au vent de mer." },
     ],
     choices: [
@@ -218,7 +218,7 @@ module.exports = { moves: moves, SLEEP: SLEEP, passages: {
   V_accastilleur: {
     title: "Chez l'accastilleur", place: "aubier_ville", back: true, shop: "accastilleur",
     text: [
-      { first: true, text: "La boutique de l'accastilleur est un capharnaüm qui sent le chanvre et le suif : des poulies pendues au plafond en grappes, des rouleaux de filin, des barils de clous, des lanternes, des compas dans leur boîte, et derrière le comptoir un vieux qui grave une carte au burin, des lunettes au bout du nez." },
+      { first: true, text: "La boutique de l'accastilleur est un capharnaüm qui sent le chanvre et le suif : des poulies pendues au plafond en grappes, des rouleaux de filin, des barils de clous, des lanternes, des compas dans leur boîte. Derrière le comptoir, un vieux grave une carte au burin, les lunettes au bout du nez." },
       { again: true, text: "L'accastilleur lève les yeux de sa gravure, te reconnaît, et reprend son burin." },
       { with: "armelle", once: true, text: "Armelle va droit aux cuirs de pompe, en prend une rondelle, la plie, la sent, et la repose. « Celles du fond. Celles-là sont de l'an dernier. »" },
     ],
@@ -246,7 +246,7 @@ module.exports = { moves: moves, SLEEP: SLEEP, passages: {
     fxEvery: { set: { terre: "oui" } },
     title: "La plage de Ronce", place: "ronce", hub: true, backName: "la plage de Ronce",
     text: [
-      { first: true, text: "L'île Ronce est un dos de rocher couvert d'ajoncs, long d'une demi-lieue, posé seul au milieu de la mer des Brumes. La chaloupe vous dépose sur une plage de galets ronds, au fond d'une anse. Un sentier monte vers le phare, une tour trapue blanchie à la chaux, et un autre longe un ruisseau jusqu'à la source." },
+      { first: true, text: "L'île Ronce est un dos de rocher couvert d'ajoncs, long d'une demi-lieue, posé seul au milieu de la mer des Brumes. La chaloupe vous dépose sur une plage de galets ronds, au fond d'une anse. Un sentier monte vers le phare, une tour trapue blanchie à la chaux ; un autre longe un ruisseau jusqu'à la source." },
       { again: true, text: "La plage de galets, la chaloupe tirée au sec, le phare blanc en haut de l'île." },
     ],
     choices: [

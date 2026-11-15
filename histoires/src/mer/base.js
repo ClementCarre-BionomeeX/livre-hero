@@ -75,7 +75,7 @@ module.exports = {
       answers: [
         { label: "Tu as navigué six ans comme matelot sur les caboteurs du nord. Tu connais les cordages, les quarts et les colères de la mer.", fx: { voie: "marin", flag: "passe:marin" } },
         { label: "Tu as tenu les livres d'une maison de commerce. Tu sais lire un manifeste, et tu sais ce qu'un chiffre peut cacher.", fx: { voie: "commis", flag: "passe:commis", gold: 100 } },
-        { label: "Tu as servi comme garde sur les convois du sud. Tu sais te battre, et tu sais quand il vaut mieux ne pas le faire.", fx: { voie: "garde", flag: "passe:garde" } },
+        { label: "Tu as servi comme garde sur les convois du sud. Tu sais te battre, et tu sais quand il vaut mieux t'en abstenir.", fx: { voie: "garde", flag: "passe:garde" } },
       ],
     },
   ],
