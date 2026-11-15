@@ -16,7 +16,7 @@ module.exports = {
   S2V: { act: "II", title: "Il y a dix-neuf ans", souvenir: "Il y a dix-neuf ans",
     text: [
       "C'est un hiver de grande passe, le plus froid depuis trente ans. La lagune a gelé sur les bords, et les barques restent à quai. On t'a fait venir de nuit, par la porte du jardin, dans une maison du quai des Saules que la Doyenne loue sous un autre nom.",
-      "Ermesinde Valcor a quarante-trois ans. Elle est couchée dans un lit de location, sous des draps qui ne sont pas les siens, et elle serre les dents depuis six heures. Elle ne crie pas. Elle t'a fait jurer, en arrivant, de ne rien dire à personne, et elle se l'applique d'abord à elle-même.",
+      "Ermesinde Valcor a quarante-trois ans. Elle est couchée dans un lit de location, sous des draps d'emprunt, et elle serre les dents depuis six heures. Elle t'a fait jurer le silence en arrivant, et elle se l'applique d'abord à elle-même.",
       "À l'aube, l'enfant vient. Une fille, petite, bleue, qui ne respire pas. Tu la frottes, tu la retournes, tu lui souffles dans la bouche. Elle crache, elle hurle. Ermesinde rit en pleurant, une seule fois, puis elle tend les bras.",
       "Elle garde l'enfant contre elle une heure. Puis elle te la rend. « Les Ferrant viennent la prendre à midi. Ils ont perdu une petite fille le mois dernier. Ils l'appelleront comme ils voudront. » Elle te regarde. « Toi, tu sais. Jure-moi que tu ne diras rien. »",
     ],
@@ -211,7 +211,7 @@ module.exports = {
     fx: { until: 11 },
     text: [
       "Tu comptes les gouttes. À la dernière, ta main tremble, et il en tombe deux.",
-      "Anatole boit. Il soupire. Ses épaules se détendent, puis son visage, puis tout. Il s'endort, et il ne se réveille pas. C'est doux, et ce n'était pas ce que tu voulais.",
+      "Anatole boit. Il soupire. Ses épaules se détendent, puis son visage, puis tout. Il s'endort pour de bon. C'est doux, et tu voulais autre chose.",
       "Tu restes longtemps penché sur lui. Tu as voulu être juste. Ta main a choisi autrement, comme l'autre nuit, et tu ne sais pas si elle avait tort.",
     ],
     choices: [{ label: "Fermer ses yeux", to: "S3V_apres" }] },
@@ -221,7 +221,7 @@ module.exports = {
       "« Non, Anatole. Pas ça. Mais je reste. »",
       "Il te maudit. Il te supplie. Il appelle sa femme morte et sa mère. Tu lui tiens la main. Tu lui essuies la bouche. Tu lui racontes n'importe quoi : la marée, le prix du poisson, les ragots de l'hospice. Il t'écoute par moments.",
       "Il meurt à une heure de l'après-midi, au plus haut de la marée, avec un bruit de vague qui se retire. Il a souffert jusqu'au bout. Tu étais là jusqu'au bout.",
-      "Tu ne sais pas lequel de vous deux a eu raison. Tu sais seulement que tu n'as pas fui la chambre.",
+      "Tu ignores lequel de vous deux a eu raison. Tu sais seulement que tu es resté dans la chambre.",
     ],
     choices: [{ label: "Lui fermer les yeux", to: "S3V_apres" }] },
   S3V_apres: { act: "III", title: "L'après-midi",
@@ -262,7 +262,7 @@ module.exports = {
     text: [
       "Tu brûles tes notes une à une. Les ongles. Le sel. La salière. Les noms. Le papier se tord dans la flamme, et l'encre devient brune avant de devenir noire.",
       "À la fin, il ne reste que ce que tu as dans la tête. Personne ne peut le voler. Personne ne peut le lire sans toi.",
-      "Tu te sens plus léger, et tu ne sais pas si c'est de la sagesse ou de la lâcheté.",
+      "Tu te sens plus léger, et tu ignores si c'est de la sagesse ou de la lâcheté.",
     ],
     choices: [{ label: "Attendre le soir", to: "S3" }] },
 
@@ -328,7 +328,7 @@ module.exports = {
   J3V_coffre: { act: "III", title: "Le registre", place: "basport", ambiance: "eau",
     fx: { flag: "jasse:registre" },
     text: [
-      "Dans le coffre, enveloppé de toile cirée, il y a le registre de ton père. Pas celui des passes : un autre, petit, relié de cuir. Une page par an, depuis dix-neuf ans. Une somme, chaque hiver, la même. *Reçu pour l'enfant.* Et au bas de la première page, d'une écriture que tu as vue sur les ordonnances du palais, une signature : *E. V.*",
+      "Dans le coffre, enveloppé de toile cirée, il y a le registre de ton père. Un autre que celui des passes, petit, relié de cuir. Une page par an, depuis dix-neuf ans. Une somme, chaque hiver, la même. *Reçu pour l'enfant.* Et au bas de la première page, d'une écriture que tu as vue sur les ordonnances du palais, une signature : *E. V.*",
       "En dessous, ton père a ajouté, de sa grosse écriture de passeur : *La petite est née le jour de la grande passe. On l'a appelée Nella, comme la nôtre.*",
       "Tu refermes le registre. Tes mains sont froides. Ce n'est pas l'eau.",
     ],
@@ -344,8 +344,8 @@ module.exports = {
     text: [
       "Le cimetière des Noyés est une île basse, plantée de cyprès, où l'on enterre ceux que la lagune a pris. Ce matin, la marée couvre les tombes ; seules dépassent les croix, et les gens viennent en barque prier au-dessus de l'eau.",
       "La croix de ta mère est au bout de l'île, près du mur. Il y a déjà une barque amarrée à côté. Dedans, la Mère Gouge, seule, un bouquet de chardons bleus sur les genoux.",
-      { if: { has: "gouge:sait_nella" }, text: "Elle ne prie pas ta mère. Elle prie la croix d'à côté, une vieille croix de bois sans nom, à demi pourrie. Elle te voit. « Tomas. Mon fils. Ils l'ont mis là, à côté de ta mère, l'hiver où il s'est noyé. Elle venait le voir, elle aussi. Je n'avais jamais compris pourquoi. »" },
-      { if: { not: { has: "gouge:sait_nella" } }, text: "Elle ne prie pas ta mère. Elle prie la croix d'à côté, une vieille croix de bois sans nom. « Mon fils, dit-elle sans se retourner. Tomas. Ta mère venait le voir, chaque hiver. Elle disait qu'elle lui devait une visite. Je n'ai jamais su pourquoi. »" },
+      { if: { has: "gouge:sait_nella" }, text: "Sa prière va à la croix d'à côté, une vieille croix de bois sans nom, à demi pourrie. Elle te voit. « Tomas. Mon fils. Ils l'ont mis là, à côté de ta mère, l'hiver où il s'est noyé. Elle venait le voir, elle aussi. Je n'avais jamais compris pourquoi. »" },
+      { if: { not: { has: "gouge:sait_nella" } }, text: "Sa prière va à la croix d'à côté, une vieille croix de bois sans nom. « Mon fils, dit-elle sans se retourner. Tomas. Ta mère venait le voir, chaque hiver. Elle disait qu'elle lui devait une visite. Je n'ai jamais su pourquoi. »" },
     ],
     choices: [
       { label: "Lui dire ce que tu sais de Nella", if: { clue: "eau" }, why: "Tu ne sais rien qui la concerne.", fx: { set: { gouge: "allie" }, flag: "gouge:sait_nella", regard: { gouge: "allie" } }, to: "J3V_tombe_dit", big: true },
