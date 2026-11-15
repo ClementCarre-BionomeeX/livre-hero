@@ -73,7 +73,7 @@ module.exports = { passages: {
       { if: { is: { veillee: "printemps" } }, text: "« Elle ne voulait pas du printemps. » Tu le dis doucement. Odile devient très blanche, puis elle te regarde, et elle comprend ce que tu viens de faire : dire la chose, et la garder. Le docteur, lui, boit d'un trait." },
       { if: { is: { veillee: "mains" } }, text: "« Elle avait les mains les plus fortes de la vallée. » C'est vrai, et c'était vrai avant. Tout le monde regarde, malgré soi, les mains nouées sur le chapelet." },
       { if: { is: { veillee: "faux" } }, text: "« Elle m'aimait. » Tu le dis bien, comme on te l'a appris sur les planches ou devant les juges. Mariette baisse les yeux. Odile te regarde avec une sorte de pitié. Ce n'est pas une chose vraie, c'est une chose qu'on voudrait vraie, et dans cette chambre, tout le monde connaît la différence." },
-      { if: { is: { veillee: "tu" } }, text: "Tu ne dis rien. La coutume ne prévoit pas ça. On attend. Puis Odile souffle sa bougie, et les autres font comme elle, un par un, et la veillée est finie." },
+      { if: { is: { veillee: "tu" } }, text: "Tu gardes le silence. La coutume n'a rien prévu pour ça. On attend. Puis Odile souffle sa bougie, et les autres font comme elle, un par un, et la veillée est finie." },
       "On redescend. Dans l'escalier, quelqu'un pose la main sur ton épaule, une seconde, et la retire. Tu ne sais pas qui.",
     ],
     choices: [{ label: "Descendre avec les autres", to: "H_salle" }],
@@ -160,7 +160,7 @@ module.exports = { passages: {
   F_denonce: {
     act: "III", title: "La lettre au curé", place: "cour", end: true, epilogue: true, fx: endFx("denonce"),
     text: [
-      { if: { is: { denonce: "odile" } }, text: "Tu dis tout au curé et au brigadier, dans le bureau, porte fermée : la fiole sous le lit, la cuiller, le mot de ta mère, et la main de ta sœur qui a versé. Le brigadier écrit lentement, en tirant la langue. Le curé ne dit rien. À la fin, il te demande si tu es bien sûr{e} que c'est ce que ta mère aurait voulu. Tu ne réponds pas." },
+      { if: { is: { denonce: "odile" } }, text: "Tu dis tout au curé et au brigadier, dans le bureau, porte fermée : la fiole sous le lit, la cuiller, le mot de ta mère, et la main de ta sœur qui a versé. Le brigadier écrit lentement, en tirant la langue. Le curé écoute en silence. À la fin, il te demande si tu es bien sûr{e} que c'est ce que ta mère aurait voulu. Tu laisses la question sans réponse." },
       { if: { all: [{ is: { denonce: "odile" } }, { has: "secret:promis" }] }, text: "Tu lui avais promis, la dernière nuit, que cela resterait entre vous. Tu le sais pendant tout le temps où tu parles." },
       { if: { is: { denonce: "odile" } }, text: "On emmène Odile le soir même, dans le traîneau du brigadier, sous une couverture. Elle ne résiste pas. Sur le seuil, elle se retourne vers toi et dit seulement : « Elle aussi, elle a choisi. » Le procès a lieu à Saint-Amans au printemps. Le docteur témoigne. Le jury l'acquitte en une heure. Elle ne revient jamais aux Lisières." },
       { if: { is: { denonce: "germain" } }, text: "Tu dis au curé et au brigadier que Germain est monté chez ta mère à onze heures, avec un acte de vente, qu'elle a refusé, et qu'il a menti sur sa soirée. Le brigadier écrit. Germain jure, nie, puis avoue qu'il est monté, puis jure encore qu'elle était vivante quand il est redescendu." },

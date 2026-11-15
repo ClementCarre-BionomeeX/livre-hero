@@ -7,7 +7,7 @@ module.exports = {
       "On frappe à la porte de ta chambre, sous le toit du Chat-Huant, alors que le jour se lève à peine. Tu ouvres sur un sergent en cotte de mailles, le casque sous le bras, qui sent la pluie et le feu de garde.",
       "« C'est toi, l'étranger{e} du convoi ? C'est toi qui tiens les comptes ? » Il n'attend pas la réponse. « Le Conseil te demande. Tout de suite. »",
       { if: { has: "passe:commis" }, text: "Tu as tenu les livres d'une maison de commerce pendant six ans. Le mot « comptes », dans la bouche d'un soldat, te fait l'effet d'une main sur l'épaule." },
-      { if: { has: "passe:soldat" }, text: "Tu reconnais l'allure du sergent : la sienne était la tienne, il n'y a pas si longtemps. Tu boucles ton ceinturon sans réfléchir." },
+      { if: { has: "passe:soldat" }, text: "Tu reconnais l'allure du sergent : tu as porté la même, il n'y a pas si longtemps. Tu boucles ton ceinturon sans réfléchir." },
       { if: { has: "passe:escorte" }, text: "Le marchand qui t'a laissé{e} ici t'a au moins appris une chose : quand un soldat frappe chez toi avant l'aube, on le suit, et on discute après." },
       "Par la lucarne, tu vois les fumées du camp du Margrave, au nord, de l'autre côté des murs. Il y en a davantage que la veille.",
     ],
@@ -44,7 +44,7 @@ module.exports = {
     title: "Le compte", place: "halle",
     text: [
       "Il te faut l'après-midi entier. Les commis portent la lanterne, tu tiens la craie. À la fin, tu as un chiffre, et tu le vérifies deux fois : sept cent quatre-vingts setiers.",
-      "Tu ouvres le registre de Bréhal sur un sac. Au soir du dixième jour du siège, sa main a écrit mille quatre-vingts. Il est mort le soir même.",
+      "Tu ouvres le registre de Bréhal sur un sac retourné, en guise de pupitre. Au soir du dixième jour du siège, sa main a écrit mille quatre-vingts. Il est mort le soir même.",
       "Trois cents setiers. Il en faut quatre cents pour remplir une grange de village. On ne les perd pas comme on perd une clé.",
     ],
     fx: { clue: "g_compte", ep: ["seance", 300] },

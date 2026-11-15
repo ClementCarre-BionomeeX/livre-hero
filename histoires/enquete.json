@@ -6056,7 +6056,7 @@
      "if": {
       "has": "r:aveu"
      },
-     "text": "Évrard Malestroit n'est pas réélu. Il n'est pas poursuivi non plus : il a seulement su, et s'est tu, et cela, à Orbeval, n'est pas un crime. Il vit encore longtemps, dans son hôtel de la Haute-Ville, et ne sort plus beaucoup."
+     "text": "Évrard Malestroit perd son siège aux élections suivantes. La justice le laisse en paix : il a seulement su, et s'est tu, et à Orbeval le silence est permis. Il vit encore longtemps, dans son hôtel de la Haute-Ville, et en sort de moins en moins."
     },
     {
      "if": {
@@ -6119,7 +6119,7 @@
    },
    "text": [
     "La Vouivre descend l'Aune, passe les rapides avec la crue, et arrive à Basse-Aune trois jours plus tard, où un homme grand et voûté, rasé de près, débarque avec trois tonneaux d'indigo et disparaît dans le port. On ne le reverra jamais.",
-    "Hugon Maupas n'est pas pendu. Le conseil, ébranlé par ce que tu as dit, et peut-être par ce que la ville commence à murmurer, n'ose plus le juger pour meurtre. Il le garde trois mois en cellule pour le vol de la bague, puis le relâche un matin, sans explication.",
+    "Hugon Maupas échappe à la corde. Le conseil, ébranlé par ce que tu as dit, et peut-être par ce que la ville commence à murmurer, renonce à le juger pour meurtre. Il le garde trois mois en cellule pour le vol de la bague, puis le relâche un matin, sans explication.",
     "On ne rouvre pas la tombe de l'essayeur. Sous le nom de Gaspard Ombreuil, Théophane Lescot dort dans le caveau d'une famille qui n'était pas la sienne, et à Orbeval on continue à dire que le second de l'essayeur était un voleur qui a filé avec l'argent de la Monnaie.",
     {
      "if": {
