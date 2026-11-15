@@ -25,4 +25,6 @@ module.exports = {
     desc: "Une corde d'escalade de quarante-cinq mètres, pas plus grosse qu'une corde à linge mais très solide. Zambo l'a renvoyée de l'autre côté du gouffre." },
   carte_plateau: { name: "La carte du plateau", kind: "document", keep: true,
     desc: "La première carte du monde perdu, dessinée depuis le sommet du ginkgo : un entonnoir ovale, un lac au centre (le lac Gladys), la clairière des iguanodons, le marais des ptérodactyles, et en face une falaise percée de grottes." },
+  plan_grottes: { name: "Le rouleau d'écorce de Maretas", kind: "document", keep: true,
+    desc: "Un carré d'écorce blanche couvert de dix-huit traits au charbon, de longueurs diverses : les dix-huit grottes de la falaise. L'une, marquée d'une croix, est bien plus profonde que les autres." },
 };

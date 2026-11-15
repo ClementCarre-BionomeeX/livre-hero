@@ -44,4 +44,8 @@ module.exports = {
     desc: "Un piège creusé en travers d'une coulée de bêtes : des parois en pente, un pieu pointu au centre, une odeur de chair pourrie." },
   ville_singes: { ambiance: "foret", name: "La ville des hommes-singes", map: "plateau", x: 24, y: 80, region: "Terre de Maple White", arrive: "XIII_4",
     desc: "Un millier de huttes de feuillage empilées dans les branches d'un grand bosquet, au bord de la falaise. Devant, une place dégagée d'où l'on jette les prisonniers sur les bambous." },
+  grottes: { ambiance: "montagne", name: "Les grottes des Accalas", map: "plateau", x: 70, y: 22, region: "Terre de Maple White", arrive: "XV_1",
+    desc: "Dix-huit grottes creusées dans la falaise rouge, de l'autre côté du lac, à vingt-cinq mètres du sol, desservies par des escaliers de pierre étroits et raides. Les murs sont couverts de dessins d'animaux au charbon." },
+  geyser: { ambiance: "foret", name: "L'atelier de Challenger", map: "plateau", x: 64, y: 34, region: "Terre de Maple White", arrive: "XV_6",
+    desc: "Une petite clairière dans un bosquet de palmiers, autour d'un geyser de boue d'où monte un gaz plus léger que l'air." },
 };
