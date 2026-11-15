@@ -800,3 +800,9 @@ button.kw { font: inherit; color: var(--accent); font-weight: 600; background: n
   .tx-tremble .l, .tx-ondule .l, .tx-irise, .tx-efface, .tx-lueur, .tx-or.just, .tx-encre, .page.mood-ivre .prose, .page.mood-fievre .prose, .mw.shiver { animation: none !important; }
   .tx-ecrit .l { opacity: 1; animation: none; }
 }
+
+/* 8.9: a path an earlier game unveiled; a shortcut over a known scene */
+.choice .unveiled { color: var(--accent, #b07d2a); }
+.choice .skip-mark { opacity: .7; }
+.plot-lore li, .plot-leads li { margin: .35em 0; }
+.locked-ways { text-align: center; margin-top: .4em; }

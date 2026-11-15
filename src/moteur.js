@@ -117,6 +117,24 @@
         if (P0.urgent && !(P0.choices || []).some(function (c) { return c.timeout; })) sc.timeout = true;
         P0.choices = (P0.choices || []).concat([sc]);
       }
+      // Paths that unveil (8.9): `leads: true` on a passage lists the story's characters (story.leads) as choices, the
+      // locked ones greyed with their hint; `skip: { to, label, fx }` offers a shortcut over a scene the reader already
+      // read in an earlier game. Why: Clément (15/11) wants a book where each game opens new ways and one seldom walks
+      // the same road twice; the story declares, the engine writes the buttons.
+      if (P0.leads && story.leads && !(P0.choices || []).some(function (c) { return c.leadPick; })) {
+        P0.choices = (P0.choices || []).concat(Object.keys(story.leads).map(function (k) {
+          // A closed one shows only its hint, never its name (the reader meets it when an ending opens it).
+          var L = story.leads[k], open = (L.label || "Suivre " + (L.name || k)) + (L.desc ? " · " + L.desc : "");
+          var c = { label: open, to: L.start, fx: Object.assign({ lead: k, leadQuiet: true }, L.fx || {}), leadPick: k };
+          if (L.if != null) { c.if = L.if; c.label = "🔒 " + (L.hint || "Une autre personne"); c.labels = [{ if: L.if, label: open }]; c.why = "Une autre partie ouvrira ce chemin."; }
+          return c;
+        }));
+      }
+      if (P0.skip && !(P0.choices || []).some(function (c) { return c.skip; })) {
+        var K0 = P0.skip, kc = { label: K0.label || "Tu connais la suite : passer", to: K0.to, skip: true, hide: { not: { lu: id } } };
+        if (K0.fx) kc.fx = K0.fx;
+        P0.choices = (P0.choices || []).concat([kc]);
+      }
       (P0.choices || []).forEach(function (c) { branches.push(c.win, c.lose); if (c.fight) branches.push(c.fight.win, c.fight.lose, c.fight.flee, c.fight.calm); });
       if (P0.combat) branches.push(P0.combat.win, P0.combat.lose, P0.combat.flee, P0.combat.calm);
       branches.forEach(function (b) { if (b && b.to == null && typeof b.back === "string") b.to = b.back; });
@@ -335,6 +353,9 @@
     // is: { key: value | [values] | null } reads a state set by fx.set (null: no value yet).
     if ("is" in c) return Object.keys(c.is).every(function (k) { var v = stateOf(s, k); return c.is[k] === null ? v == null : [].concat(c.is[k]).indexOf(v) >= 0; });
     if ("second" in c) return secondOk(s, c.second);
+    // What this reader has kept from earlier games (8.9): a thing learned (fx.learn), a page already read.
+    if ("lore" in c) return [].concat(c.lore).every(function (k) { return !!(s.lore || {})[k]; });
+    if ("lu" in c) return !!(s.lu || {})[c.lu];
     if ("via" in c) return [].concat(c.via).some(function (k) { return k === s.via || k === s.from; });
     if ("regard" in c) return regardOk(s, c.regard);
     if ("fresh" in c) return [].concat(c.fresh).every(function (k) { return !faded(story, s, k); });
@@ -414,6 +435,7 @@
     if ("quest" in c) return "Il faut d'abord finir « " + questTitle(story, c.quest) + " ».";
     if ("fac" in c) return "Il faut la confiance de " + ((story.factions || {})[c.fac] || c.fac) + ".";
     if ("known" in c) return "Tu ne connais pas encore ce lieu.";
+    if ("lore" in c || "lu" in c || "second" in c) return "Une autre partie ouvrira ce chemin.";
     if ("lead" in c) return "Il faut que " + nameOf(story, c.lead) + " mène le groupe.";
     if ("souv" in c) return "Ce souvenir n'est plus à toi.";
     if ("souvenirs" in c) return c.min != null ? "Il faut avoir gardé au moins " + c.min + " souvenirs." : "Il faut avoir donné plus de souvenirs.";
@@ -741,6 +763,13 @@
     if (fx.team) switchTeam(story, s, fx.team, fx.resume);
     if (fx.regroup) regroup(story, s);
     if (fx.lead) setLead(story, s, fx.lead, fx.leadQuiet);
+    // learn (8.9): a thing the reader keeps for every later game of this story (story.lore: { id: { title, text } }).
+    [].concat(fx.learn || []).forEach(function (k) {
+      if (!(story.lore || {})[k]) throw new Error("savoir inconnu " + k);
+      s.lore = s.lore || {}; if (s.lore[k]) return;
+      s.lore[k] = 1; (s.loreNew = s.loreNew || {})[k] = 1;
+      ev(s, "Tu gardes pour les parties suivantes : " + story.lore[k].title + ".", "good lore");
+    });
     [].concat(fx.away || []).forEach(function (c3) { if (!story.companions[c3]) throw new Error("compagnon inconnu " + c3); if (c3 !== s.lead && s.met[c3] === "party") { s.met[c3] = "away"; if (!fx.leadQuiet) ev(s, nameOf(story, c3) + " n'est plus avec toi.", "bad"); } });
     // "awayUnless" {companion: condition}: sends each companion away unless its condition holds (e.g. who fell with the lead)
     Object.keys(fx.awayUnless || {}).forEach(function (c3) { if (!story.companions[c3]) throw new Error("compagnon inconnu " + c3); if (c3 !== s.lead && s.met[c3] === "party" && !evalCond(story, s, fx.awayUnless[c3])) { s.met[c3] = "away"; if (!fx.leadQuiet) ev(s, nameOf(story, c3) + " n'est plus avec toi.", "bad"); } });
@@ -2775,7 +2804,12 @@
       }
       // Guarantee: a button agrees with the hero too ({e}, {hero}), like the text.
       if (/\{[a-z]+\}/.test(c.label)) c = Object.assign({}, c, { label: interp(s, c.label) });
-      var a = allowed(story, s, p, c); return Object.assign({}, c, { ok: a.ok, why: a.why, goes: backGoes(story, s, c) || goesTo(story, s, p, c), note: c.refuse ? "refus définitif" : c.fx && c.fx.camp && c.fx.camp !== s.camp ? "choix de camp : d'autres portes se fermeront" : aheadOf(story, s, c) || c.note, chance: c.test ? chance(story, s, c.test, c.who) : null }); });
+      var a = allowed(story, s, p, c); return Object.assign({}, c, { ok: a.ok, why: a.why, unveiled: a.ok && unveils(c), goes: backGoes(story, s, c) || goesTo(story, s, p, c), note: c.refuse ? "refus définitif" : c.fx && c.fx.camp && c.fx.camp !== s.camp ? "choix de camp : d'autres portes se fermeront" : aheadOf(story, s, c) || c.note, chance: c.test ? chance(story, s, c.test, c.who) : null }); });
+    // Paths that unveil (8.9): a way closed until another game opens it is not shown by its words, which would tell
+    // too much; the page only counts the closed ways (v.locked). The people of a `leads` page keep their hint.
+    var lockedN = 0;
+    v.choices = v.choices.filter(function (c) { if (!c.ok && !c.leadPick && unveilsIf(c.if)) { lockedN++; return false; } return true; });
+    if (lockedN) v.locked = lockedN;
     if (p) {
       // Guarantee: no twin buttons. Of several choices with the same words, the one that can be taken stays.
       var byLabel = {};
@@ -2916,6 +2950,16 @@
     if (c.travel) { var r = routeById(story, c.travel); if (r) list = [c.dest || otherEnd(r, s.place)]; }
     if (!list.length || list.some(function (x) { return x !== list[0]; }) || !list[0] || list[0] === s.place || !places[list[0]]) return null;
     return places[list[0]].name;
+  }
+  // Intent: unveils(Choice) -> bool = the choice is open only thanks to an earlier game (lore, lu, second): a path unveiled.
+  function unveils(c) {
+    if (c.skip || c.second != null) return !c.skip && c.second !== false;
+    return unveilsIf(c.if);
+  }
+  function unveilsIf(cond) {
+    var hit = false;
+    (function walk(x) { if (!x || typeof x !== "object" || hit) return; if (Array.isArray(x)) return x.forEach(walk); if ("not" in x) return; if ("lore" in x || "lu" in x || ("second" in x && x.second !== false)) { hit = true; return; } ["all", "any", "count"].forEach(function (k) { if (x[k]) walk(x[k]); }); })(cond);
+    return hit;
   }
   function allowed(story, s, p, c) {
     if (c.if && !evalCond(story, s, c.if)) return { ok: false, why: c.why || describeCond(story, c.if) };
