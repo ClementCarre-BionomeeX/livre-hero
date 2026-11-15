@@ -4,18 +4,18 @@ module.exports = {
   T_aube: { act: "III", title: "Le trente et unième jour", place: "palais",
     fx: { questSeen: ["T_conseil", "T_brume", "T_joris"], catchup: 5, catchupWhy: "les jours de la crise" },
     text: [
-      "On a arraché les placards. On en a recloué d'autres pendant la nuit, et d'autres encore, avec des mots plus crus. Sur les ponts, on ne parle que de ça. Dans les tavernes des Canaux, on chante une chanson sur un amiral qui confond les chambres. À la Loge, on fait des comptes. Au Temple, on prie. Dans la salle des Pas-Perdus, le nom d'Iselda se dit tout bas, et il est dans toutes les têtes.",
+      "On a arraché les placards. Pendant la nuit, on en a recloué d'autres, et d'autres encore, avec des mots plus crus. Sur les ponts, on parle de cela et de rien d'autre. Dans les tavernes des Canaux, on chante une chanson sur un amiral qui confond les chambres. À la Loge, on fait des comptes. Au Temple, on prie. Dans la salle des Pas-Perdus, le nom d'Iselda se dit tout bas, et il occupe toutes les têtes.",
       { after: "odile:retournee", text: "Un billet d'Odile Varn, glissé sous ta porte, d'une écriture penchée : *Les placards viennent de Castel-Brume. Le duc veut que la ville se déchire avant le quarantième jour. Ses épées noires entreront dans le palais la nuit du trente-neuvième, par la porte d'eau, quand tout le monde regardera la salle du Conseil. Je vous dirai l'heure.*" },
-      { after: "odile:renvoyee", text: "Une lettre du comte Mérande, arrivée par courrier de Thérance : le roi a reçu sa lettre, et celle de la reine. Il a écrit à son frère. Pour toute réponse, le duc a fait doubler les feux de Castel-Brume." },
-      "Il reste neuf jours. Au quarantième, les Cinq Bancs voteront. Chacun a son candidat. Il faut que tu saches, avant d'entrer dans la salle, qui votera pour qui, et pourquoi.",
-      { with: "livia", text: "Livia a dressé un tableau : cinq colonnes, une par Banc, et dans chaque colonne un nom, au crayon, qu'elle efface et réécrit à mesure que les jours passent." },
+      { after: "odile:renvoyee", text: "Une lettre du comte Mérande arrive par courrier de Thérance : le roi a reçu sa lettre, et celle de la reine. Il a écrit à son frère. Pour toute réponse, le duc a fait doubler les feux de Castel-Brume." },
+      "Il reste neuf jours. Au quarantième, les Cinq Bancs voteront. Chacun a son candidat. Avant d'entrer dans la salle, il te faut savoir qui votera pour qui, et pourquoi.",
+      { with: "livia", text: "Livia a dressé un tableau : cinq colonnes, une par Banc, et dans chaque colonne un nom, au crayon, qu'elle efface et réécrit à mesure que les jours passent. Le papier, à force, s'est aminci à l'endroit des noms jusqu'à laisser passer le jour." },
     ],
     choices: [{ label: "Se mettre au travail", to: "T_cabinet" }] },
 
   T_cabinet: { act: "III", title: "Le cabinet du Sceau", backName: "le cabinet du Sceau", place: "palais", hub: true, routes: true,
     text: [
       { first: true, text: "Sur ta table, le tableau de Livia. *Banc de la Mer : l'amiral. Banc du Sel : l'amiral (dettes). Banc des Eaux : la tutelle du Temple. Banc des Rames : personne (Nello refuse tout régent). Banc du Prince : ?*" },
-      { again: true, text: "Le tableau de Livia a changé. Des noms ont été rayés, d'autres ajoutés. Au bas de la colonne du Prince, il y a toujours un point d'interrogation." },
+      { again: true, text: "Le tableau de Livia a changé. Des noms ont été rayés, d'autres ajoutés. Au bas de la colonne du Prince, le point d'interrogation tient bon." },
       { after: "appui:mer:conseil", text: "Sous *Banc de la Mer*, Livia a rayé *l'amiral* et écrit *le conseil*. Elle a souligné deux fois." },
       { after: "brume:retrait", text: "Les feux de Castel-Brume se sont éteints. Les péniches recommencent à descendre le fleuve." },
     ],
@@ -31,7 +31,7 @@ module.exports = {
       { label: "La nuit du trente-neuvième jour", big: true, exit: true, to: "T_nuit" },
     ] },
   T_voiles: { act: "III", title: "Le marché aux Voiles", place: "canaux", shop: "voiles",
-    text: ["L'armurier de Corne vend ses dernières lames de duel et ses dernières jaques de mailles. Le reste de l'étal est vide. La ville s'arme, en silence, maison par maison."],
+    text: ["L'armurier de Corne vend ses dernières lames de duel et ses dernières jaques de mailles. Le reste de l'étal est vide. La ville s'arme en silence, maison par maison."],
     choices: [{ back: "T_cabinet" }] },
 
   // ------------------------------------------------------------------ the Sea Bench
@@ -49,7 +49,7 @@ module.exports = {
     ] },
   T_mer_iselda: { act: "III", title: "Un père", place: "arsenal",
     text: [
-      "L'amiral te regarde longtemps. Puis il s'assied, pour la première fois, sur un coffre de cartes, comme un homme dont les jambes lâchent.",
+      "L'amiral te regarde longtemps. Puis il s'assied, pour la première fois, sur un coffre de cartes, comme un homme dont les jambes lâchent. Dans cette pièce sans siège, le geste vaut un aveu.",
       "« Il l'a compris avant moi, dit-il. Il comprenait tout avant tout le monde. Il savait que, régent, je me conduirais en père. Qu'un jour quelqu'un le verrait, et que ce jour-là Iselda perdrait tout. » Il se frotte le visage. « Il m'a protégé de moi-même. Même mort. »",
       "« Je voterai le conseil. Pour elle. Et pour mon frère, qui avait raison. »",
     ],
@@ -68,7 +68,7 @@ module.exports = {
   // ------------------------------------------------------------------ the Salt Bench
   T_sel: { act: "III", title: "Ser Orsanne", place: "loge", backName: "la Loge du Sel",
     text: [
-      { after: "loge:brulee", text: "Orsanne te reçoit dans une salle de la Monnaie, entre deux presses à frapper. Il mange des olives dans un cornet de papier. « Ma table a brûlé, dit-il. Mon appétit est sauf. »", else: "Orsanne est à table. Il te fait servir un poisson entier, et il attend que tu en aies mangé la moitié." },
+      { after: "loge:brulee", text: "Orsanne te reçoit dans une salle de la Monnaie, entre deux presses à frapper. Il mange des olives dans un cornet de papier et crache les noyaux dans un seau à rognures de métal. « Ma table a brûlé, dit-il. Mon appétit est sauf. »", else: "Orsanne est à table. Il te fait servir un poisson entier, et il attend que tu en aies mangé la moitié." },
       "« Je voterai pour l'amiral, dit-il, parce qu'il me doit quarante mille besants et qu'un régent endetté est un régent raisonnable. Sauf meilleure offre. Je suis ouvert à tout. C'est ma seule vertu. »",
     ],
     choices: [
@@ -85,9 +85,9 @@ module.exports = {
     choices: [{ label: "Sceller", fx: { flag: ["appui:sel:conseil", "testament:sans_dettes"], fac: { sel: 15, rames: -10 }, conf: { livia: -5 }, ep: ["histoire", 2000] }, back: "T_cabinet" }] },
   T_sel_cahier: { act: "III", title: "Le cahier", place: "loge",
     text: [
-      "Tu poses le cahier de Morte-Eau sur la nappe, à côté du poisson. Orsanne le regarde comme on regarde un serpent sur une table de jeu.",
+      "Tu poses le cahier de Morte-Eau sur la nappe, à côté du poisson. Orsanne le regarde comme un serpent posé sur une table de jeu.",
       "« Quatre mille sacs de grain cachés pendant une disette, dis-tu. Trois morts sur le port. Si ce cahier est lu au Conseil, la Hanse perd son Banc, et vous la tête. »",
-      "Orsanne s'essuie les doigts. « Que voulez-vous ? »",
+      "Orsanne s'essuie les doigts, un par un. « Que voulez-vous ? »",
     ],
     choices: [
       { label: "« Votre voix pour le conseil de régence. »", fx: { flag: "appui:sel:conseil", clock: { emprise: 1 }, ep: ["histoire", 2000] }, to: "T_sel_cede" },
@@ -100,7 +100,7 @@ module.exports = {
     choices: [{ back: "T_cabinet" }] },
   T_sel_republique: { act: "III", title: "La république", place: "loge",
     text: [
-      "Orsanne te regarde comme si tu venais de lui offrir un royaume. Ce qui est, en somme, le cas.",
+      "Orsanne te regarde comme si tu venais de lui offrir un royaume. C'est, en somme, le cas.",
       "« Plus de prince, plus de régent, plus de taxe du sel, dit-il lentement. Un conseil élu par les guildes et les quartiers. La Hanse y siégerait, évidemment. Les rameurs aussi, je suppose. » Il rit. « Corne a essayé, il y a deux siècles. Ça a duré trente ans, et ce sont les trente meilleures années de Corne. Je voterai. Et je vous préviens : ce sera moi, le premier consul. »",
     ],
     choices: [{ label: "Sceller", fx: { flag: "appui:sel:republique", fac: { sel: 20 }, ep: ["histoire", 2000] }, back: "T_cabinet" }] },
@@ -132,16 +132,16 @@ module.exports = {
   T_eaux_exige: { act: "III", title: "Ce qu'on exige", place: "temple",
     text: [
       "Mère Ysaure incline la tête, une seule fois. « Comme vous voudrez. » Elle s'en tient là. Quand tu sors, elle reste assise, pour la première fois.",
-      { with: "livia", text: "Livia t'attend dans la barque. Elle est restée dehors tout le temps de l'entretien." },
+      { with: "livia", text: "Livia t'attend dans la barque. Elle est restée dehors pendant tout l'entretien." },
     ],
     choices: [{ back: "T_cabinet" }] },
 
   // ------------------------------------------------------------------ the Oar Bench
   T_rames: { act: "III", title: "Nello Brisse", place: "canaux", backName: "les Canaux",
     text: [
-      { after: "tessa:arretee", text: "Nello te reçoit dans la cuisine de sa mère, une pièce basse au-dessus d'un canal. « Ma sœur est dans votre prison, dit-il. Je vous dis où elle est. Voilà tout. »" },
+      { after: "tessa:arretee", text: "Nello te reçoit dans la cuisine de sa mère, une pièce basse au-dessus d'un canal, où l'humidité dessine des cartes sur les murs. « Ma sœur est dans votre prison, dit-il. Je vous dis où elle est. Voilà tout. »" },
       { after: "tessa:prise", text: "Nello te parle sur le seuil, la porte tirée derrière lui. « Ma sœur boite, dit-il. Deux de ses amis sont morts. C'est vous qui avez prévenu la Hanse. Tout le monde le sait. »" },
-      { if: { not: { any: [{ has: "tessa:arretee" }, { has: "tessa:prise" }] } }, text: "Nello te reçoit sur son ponton, au bout du canal. Il te tend une bière tiède." },
+      { if: { not: { any: [{ has: "tessa:arretee" }, { has: "tessa:prise" }] } }, text: "Nello te reçoit sur son ponton, au bout du canal. Il te tend une bière tiède, de la température exacte du canal." },
       "« Le Banc des Rames s'abstiendra, dit-il. Choisir qui commandera aux autres, c'est l'affaire des autres. »",
     ],
     choices: [
@@ -155,7 +155,7 @@ module.exports = {
     text: [
       "Tu sors les quatre feuilles. Tu lis la troisième et la quatrième, et tu gardes la première pliée. Nello écoute, immobile.",
       { after: "testament:sans_dettes", text: "Tu as promis à Orsanne de retirer la remise des dettes. Nello le comprend à ta façon de lire la dernière phrase, et il te regarde longuement. « Vous avez vendu nos dettes, dit-il. Pour une voix. » Il réfléchit. « C'est quand même la meilleure offre que les Canaux aient reçue. »" },
-      { before: "testament:sans_dettes", text: "« Les dettes du pain, répète-t-il. Toutes ? » Toutes. Il se détourne vers le canal. Il a les épaules qui tremblent. Quand il se retourne, il a l'air d'avoir dix ans de moins." },
+      { before: "testament:sans_dettes", text: "« Les dettes du pain, répète-t-il. Toutes ? » Toutes. Il se détourne vers le canal. Ses épaules tremblent. Quand il se retourne, il a l'air d'avoir dix ans de moins." },
     ],
     choices: [
       { label: "Lui demander sa voix pour le conseil", if: { not: { any: [{ has: "tessa:prise" }, { all: [{ has: "emeute:sang" }, { has: "tessa:arretee" }] }] } }, why: "Après ce qui est arrivé à sa sœur, Nello votera contre tout ce que tu proposes.",
@@ -174,19 +174,19 @@ module.exports = {
     choices: [{ back: "T_cabinet" }] },
   T_rames_republique: { act: "III", title: "Pas de prince", place: "canaux",
     text: [
-      "Nello se tait si longtemps que tu te prépares à répéter. Puis il se met à rire, d'un grand rire de gondolier qui fait se retourner les gens sur le quai d'en face. « Mon père est mort pour un banc, dit-il. Vous m'offrez la salle. » Il te serre la main à te briser les doigts.",
+      "Nello garde le silence si longtemps que tu te prépares à répéter. Puis il se met à rire, d'un grand rire de gondolier qui fait se retourner les gens sur le quai d'en face. « Mon père est mort pour un banc, dit-il. Vous m'offrez la salle. » Il te serre la main à te briser les doigts.",
     ],
     choices: [{ back: "T_cabinet" }] },
   T_rames_tessa: { act: "III", title: "Tessa", place: "canaux",
     text: [
-      "Tessa sort de la prison du palais avec la même tête qu'elle y est entrée. Elle te regarde. « Vous croyez que ça change quelque chose ? » Tu te tais. Elle hausse les épaules et s'en va rejoindre son frère. Sur le pont, elle se retourne une fois.",
+      "Tessa sort de la prison du palais avec la même tête qu'à l'entrée. Elle te regarde. « Vous croyez que ça change quelque chose ? » Tu gardes le silence. Elle hausse les épaules et s'en va rejoindre son frère. Sur le pont, elle se retourne une fois.",
     ],
     choices: [{ back: "T_rames" }] },
 
   // ------------------------------------------------------------------ Thérance
   T_therance: { act: "III", title: "Le comte Mérande", place: "ambassade", backName: "l'ambassade de Thérance",
     text: [
-      "Le comte te reçoit dans sa bibliothèque. La partie d'échecs est finie : les pièces sont rangées dans leur boîte.",
+      "Le comte te reçoit dans sa bibliothèque. La partie d'échecs est finie : les pièces sont rangées dans leur boîte. Tu ignores qui a gagné ; le comte aussi, peut-être.",
       "« La princesse Liane sera candidate, dit-il. C'est le roi qui le veut, contre son gré à elle. Ce sera la paix : un traité de commerce, des quais pour nos marchands, et les épées noires du duc renvoyées chez elles. Ce sera aussi la fin de Sarvelle comme vous la connaissez. Je vous dois la vérité, comme toujours. »",
     ],
     choices: [
@@ -209,7 +209,7 @@ module.exports = {
   // ------------------------------------------------------------------ Iselda
   T_iselda: { act: "III", title: "Iselda", place: "palais", backName: "la chambre d'Iselda",
     text: [
-      "Iselda est assise à la fenêtre. Elle a ressorti ses coquillages, et elle les a disposés en cercle.",
+      "Iselda est assise à la fenêtre. Elle a ressorti ses coquillages et les a disposés en cercle.",
       { after: "iselda:sait", text: "Elle a demandé à Ortensia de lui apprendre à nager. Ortensia a refusé. Iselda a demandé à l'amiral, et l'amiral a dit oui." },
       { after: "iselda:mensonge", text: "Elle te dit bonjour, poliment. Elle te dit qu'elle va bien. Elle dit à tout le monde qu'elle va bien." },
     ],
@@ -229,7 +229,7 @@ module.exports = {
     ] },
   T_iselda_renonce: { act: "III", title: "Non", place: "palais",
     text: [
-      "Iselda hoche la tête, très sérieusement. Puis elle prend un coquillage dans le cercle, le plus petit, la spirale blanche du premier jour, et te le met dans la main.",
+      "Iselda hoche la tête, très sérieusement. Puis elle prend dans le cercle le plus petit coquillage, la spirale blanche du premier jour, et te le met dans la main.",
       "« Celui-là, tu peux le garder, dit-elle. Pour de bon. »",
     ],
     choices: [{ back: "T_iselda" }] },
@@ -243,7 +243,7 @@ module.exports = {
   // ------------------------------------------------------------------ Joris
   T_joris: { act: "III", title: "Joris", place: "palais",
     text: [
-      "Joris entre dans le cabinet, ferme la porte, et pose sur la table un billet ouvert. Il est sobre, d'une sobriété de jour de bataille.",
+      "Joris entre dans le cabinet, ferme la porte et pose sur la table un billet ouvert. Il est sobre, d'une sobriété de jour de bataille.",
       "« L'amiral m'a écrit, dit-il. Il me demande, au nom de vingt ans de service, de lui ouvrir la porte d'eau la nuit du trente-neuvième, s'il me fait signe. Pour protéger la petite, dit-il, si les choses tournent mal. » Il te regarde. « J'aurais pu me taire. Je vous le dis. Maintenant c'est à vous. »",
       { if: { conf: "joris", max: 20 }, text: "Il ajoute, plus bas : « J'hésite encore. C'est pour ça que je suis venu. »" },
     ],
@@ -254,13 +254,13 @@ module.exports = {
     ] },
   T_joris_libre: { act: "III", title: "Le choix de Joris", place: "palais",
     text: [
-      "Joris te regarde longtemps. Puis il reprend le billet, le froisse, et le jette dans le poêle.",
+      "Joris te regarde longtemps. Puis il reprend le billet, le froisse et le jette dans le poêle.",
       "« Toute ma vie, on a choisi pour moi, dit-il. Mon père, la marine, l'amiral. Je vais vous décevoir : c'est très désagréable. » Il se lève. « Je serai à la porte d'eau, la nuit du trente-neuvième. De votre côté. »",
     ],
     choices: [{ label: "Le laisser", fx: { flag: "joris:fidele" }, back: "T_cabinet" }] },
   T_joris_ordre: { act: "III", title: "Un ordre", place: "palais",
     text: [
-      "Joris se met au garde-à-vous. « À vos ordres. » Il sort. Il a l'air soulagé, soulagé d'être délivré du choix, ou d'avoir reçu une excuse.",
+      "Joris se met au garde-à-vous. « À vos ordres. » Il sort. Il a l'air soulagé : délivré du choix, ou pourvu d'une excuse.",
     ],
     choices: [{ label: "Le laisser", back: "T_cabinet" }] },
   T_joris_releve: { act: "III", title: "Relevé", place: "palais",
@@ -272,8 +272,8 @@ module.exports = {
   // ------------------------------------------------------------------ Castel-Brume
   T_brume_arrivee: { act: "III", title: "Castel-Brume", place: "brume", backName: "Castel-Brume", routes: true,
     text: [
-      { first: true, text: "Castel-Brume est une forteresse grise posée sur un éperon, là où le fleuve sort des marais et commence à ressembler à un fleuve. Autour, dans les prés, trois mille hommes campent sous des tentes noires. On a tendu une chaîne en travers du fleuve. Des péniches sont amarrées en amont, par dizaines, chargées de grain, et attendent." },
-      { first: true, text: "On te fait attendre une heure dans une cour, sous la pluie, puis on te fait monter dans une salle où un homme de quarante ans, en cuirasse noire, mange du pain et du lard, debout : le capitaine Sorrède, qui commande les épées noires en l'absence du duc. Le duc est à la chasse. Le duc est toujours à la chasse quand on vient le voir." },
+      { first: true, text: "Castel-Brume est une forteresse grise posée sur un éperon, à l'endroit où le fleuve sort des marais et commence à ressembler à un fleuve. Autour, dans les prés, trois mille hommes campent sous des tentes noires ; tu comptes les tentes par rangées de vingt, et tu arrives à cent cinquante avant que la pluie brouille les dernières. Une chaîne barre le fleuve. En amont, des péniches chargées de grain attendent, amarrées par dizaines." },
+      { first: true, text: "On te fait attendre une heure dans une cour, sous la pluie, puis monter dans une salle où un homme de quarante ans, en cuirasse noire, mange du pain et du lard, debout : le capitaine Sorrède, qui commande les épées noires en l'absence du duc. Il a une cicatrice qui lui fend le sourcil gauche, et l'œil, dessous, a l'air de s'en amuser. Le duc est à la chasse. Le duc est toujours à la chasse quand on vient le voir." },
       { again: true, text: "Les tentes noires sont toujours là. Le capitaine Sorrède aussi." },
     ],
     choices: [
@@ -287,15 +287,15 @@ module.exports = {
   T_brume_lettre: { act: "III", title: "La lettre du roi", place: "brume",
     fx: { quest: "T_brume", flag: ["brume:retrait", "brume:sort"], fac: { therance: 10 }, ep: ["histoire", 4000] },
     text: [
-      "Tu demandes que les capitaines soient présents. Sorrède hausse les épaules, puis les fait venir : six hommes en cuirasse noire, qui te regardent comme on regarde un cerf qui entre dans une auberge.",
-      "Tu brises le cachet devant eux, tu tends la lettre à Sorrède. Il la lit. Il la relit. Ses capitaines regardent son visage.",
+      "Tu demandes que les capitaines soient présents. Sorrède hausse les épaules, puis les fait venir : six hommes en cuirasse noire, qui te regardent comme on regarde un cerf entré dans une auberge.",
+      "Tu brises le cachet devant eux et tu tends la lettre à Sorrède. Il la lit, puis la relit. Ses capitaines surveillent son visage.",
       "« Le roi ordonne à son frère de rentrer, dit-il enfin, à voix haute, sous les yeux de ses six capitaines. Et à la compagnie de lever le camp. » Il replie la lettre. « Le duc sera furieux. » Il te regarde. « Moi, ça m'est égal. Je suis payé par le roi. Le duc paie mieux, mais le roi paie plus longtemps. »",
       "Le lendemain, on détache la chaîne. Les péniches de grain descendent le fleuve vers Sarvelle.",
     ],
     choices: [{ label: "Repartir", back: "T_cabinet" }] },
   T_brume_copies: { act: "III", title: "Les copies", place: "brume",
     text: [
-      "Sorrède mâche son lard. « Les lettres de Corne ? » Il ouvre un coffre de campagne, en sort une liasse, et la soupèse. « Le duc me les a confiées pour qu'on les lise au Conseil le quarantième jour, si vous votiez mal. » Il te regarde. « Qu'est-ce que vous me donnez ? »",
+      "Sorrède mâche son lard. « Les lettres de Corne ? » Il ouvre un coffre de campagne, en sort une liasse et la soupèse. « Le duc me les a confiées pour qu'on les lise au Conseil le quarantième jour, si vous votiez mal. » Il te regarde. « Qu'est-ce que vous me donnez ? »",
     ],
     choices: [
       { label: "Une franchise de péage du Sceau pour les péniches de sa famille, sur la lagune, pour dix ans", fx: { flag: "lettres:reprises", clock: { emprise: 1 }, ep: ["perso", 500] }, to: "T_brume_copies_ok" },
@@ -310,18 +310,18 @@ module.exports = {
     choices: [{ back: "T_brume_arrivee" }] },
   T_brume_copies_non: { act: "III", title: "Non", place: "brume",
     text: [
-      "Sorrède sourit. Il remet la liasse dans le coffre, et il ferme le coffre à clé. « Votez bien », dit-il.",
+      "Sorrède sourit. Il remet la liasse dans le coffre et ferme le coffre à clé. « Votez bien », dit-il.",
     ],
     choices: [{ back: "T_brume_arrivee" }] },
   T_brume_plan: { act: "III", title: "Ce qu'ils préparent", place: "brume",
     text: [
-      "Pendant qu'on te fait attendre, tu marches dans la cour comme quelqu'un qui s'ennuie. Derrière un hangar, des charpentiers construisent des échelles courtes, faites pour monter d'une barque sur un quai. Dans la forge, on noircit des lames. Sur une table, sous un auvent, un plan du palais de Sarvelle, avec la porte d'eau entourée d'un trait rouge, et une date : *trente-neuvième, deuxième heure*.",
+      "Pendant qu'on te fait attendre, tu arpentes la cour en homme qui s'ennuie. Tu relèves trois choses. Derrière un hangar, des charpentiers construisent des échelles courtes, de la hauteur exacte qui sépare une barque d'un quai. Dans la forge, on noircit des lames : une lame noircie reste sombre sous la lune. Sur une table, sous un auvent, un plan du palais de Sarvelle, la porte d'eau entourée d'un trait rouge, et une date : *trente-neuvième, deuxième heure*.",
       "Tu reprends ton air d'ennui. Tu remontes voir Sorrède, tu parles de péages et de péniches, et tu repars.",
     ],
     choices: [{ label: "Repartir", back: "T_cabinet" }] },
   T_brume_vu: { act: "III", title: "Surpris", place: "brume",
     text: [
-      "Un garde te trouve derrière le hangar des charpentiers. Il te ramène à Sorrède, très poliment, la main sur l'épaule. Sorrède rit. « Le Sceau visite, dit-il. Vous avez vu des échelles. Tout le monde a des échelles. » Il te laisse repartir. Mais il a compris que tu sais quelque chose, et il changera ses plans en conséquence.",
+      "Un garde te trouve derrière le hangar des charpentiers. Il te ramène à Sorrède, très poliment, la main sur ton épaule. Sorrède rit. « Le Sceau visite, dit-il. Vous avez vu des échelles. Tout le monde a des échelles. » Il te laisse repartir. Mais il a compris que tu sais quelque chose, et il changera ses plans en conséquence.",
     ],
     choices: [{ label: "Repartir", fx: { quest: "T_brume", flag: "brume:sort" }, back: "T_cabinet" }] },
   T_brume_duel: { act: "III", title: "Le défi", place: "brume",
@@ -329,13 +329,13 @@ module.exports = {
       win: { fx: { quest: "T_brume", flag: ["brume:duel", "brume:sort", "coup:affaibli"], ep: ["histoire", 4000] }, to: "T_brume_duel_gagne" },
       lose: { fx: { quest: "T_brume", flag: ["brume:sort"], pv: -4 }, to: "T_brume_duel_perdu" } },
     text: [
-      "Tu le dis devant ses hommes : le Garde du Sceau de Sarvelle défie le capitaine des épées noires, ici, maintenant, au premier sang, et si tu gagnes, la chaîne sera détachée du fleuve.",
-      "Sorrède te regarde, amusé, puis il voit ses hommes qui le regardent, et son sourire s'efface. Il pose son pain. Il dégaine.",
+      "Tu le dis devant ses hommes : le Garde du Sceau de Sarvelle défie le capitaine des épées noires, ici, maintenant, au premier sang ; si tu gagnes, la chaîne sera détachée du fleuve.",
+      "Sorrède te regarde, amusé. Puis il voit ses hommes qui le regardent, et son sourire s'efface. Il pose son pain et dégaine.",
     ] },
   T_brume_duel_gagne: { act: "III", title: "Le premier sang", place: "brume",
     text: [
       "Sorrède regarde le sang sur son bras, puis toi. Ses hommes se taisent. « Détachez la chaîne », dit-il. Il te salue de l'épée. « Le duc va me pendre. Ou me promouvoir. Avec lui, c'est souvent la même chose. »",
-      "Les péniches de grain descendent vers Sarvelle le lendemain. Les épées noires restent dans leurs tentes, mais ils ont vu leur capitaine saigner devant un homme de la ville.",
+      "Les péniches de grain descendent vers Sarvelle le lendemain. Les épées noires restent sous leurs tentes, mais elles ont vu leur capitaine saigner devant un homme de la ville.",
     ],
     choices: [{ label: "Repartir", back: "T_cabinet" }] },
   T_brume_duel_perdu: { act: "III", title: "À terre", place: "brume",
