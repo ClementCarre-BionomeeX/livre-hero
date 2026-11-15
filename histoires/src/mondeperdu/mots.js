@@ -240,4 +240,13 @@ module.exports = {
   "freux": "Corbeaux qui nichent en colonies bruyantes au sommet des arbres.",
   "Embankment": "Le grand quai de la Tamise, à Londres.",
   "pair": "Membre de la noblesse qui siège à la Chambre des lords.",
+  "Accala|Accalas": "Le nom que se donnent les Indiens des grottes du plateau.",
+  "Doda": "Le nom que les Accalas donnent aux hommes-singes.",
+  "angle facial": "Une mesure du visage que les savants de l'époque utilisaient pour classer les « races » humaines, aujourd'hui abandonnée et reconnue comme fausse.",
+  "ganoïdes": "Poissons primitifs couverts d'écailles dures et brillantes.",
+  "hydrogène": "Le gaz le plus léger qui soit, et très inflammable.",
+  "plésiosaure": "Grand reptile marin préhistorique, au long cou de serpent et aux nageoires en forme de pagaies.",
+  "Strand": "Grande rue commerçante de Londres.",
+  "aloès": "Plante grasse aux feuilles épaisses et pointues.",
+  "Surrey": "Un comté rural au sud de Londres.",
 };

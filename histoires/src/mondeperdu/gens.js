@@ -105,4 +105,12 @@ module.exports = {
     face: { age: "adulte", skin: "cuivre", hair: "noir" },
     qui: "Les hommes qui vivent dans les grottes, de l'autre côté du lac. Ils sont en guerre contre les hommes-singes. Quatre d'entre eux, sauvés de la falaise, se réfugient auprès des voyageurs.",
     aspect: { allure: "petits, bien découplés, la peau rouge comme du bronze poli" } },
+  maretas: { name: "Maretas", aka: ["Maretas"],
+    face: { age: "jeune", skin: "cuivre", hair: "noir" },
+    qui: "Le jeune chef sauvé de la falaise, fils du vieux chef des Accalas. Il est fier et n'aime pas qu'on le touche.",
+    aspect: { allure: "le plus jeune et le plus fier du groupe", visage: "le devant de la tête rasé, les yeux sombres et vifs", tenue: "un pagne de cuir, les cheveux noués par une lanière" } },
+  vieux_chef: { name: "Le vieux chef des Accalas", aka: ["vieux chef"],
+    face: { age: "ancien", skin: "cuivre", hair: "gris" },
+    qui: "Le chef du peuple des grottes, père de Maretas.",
+    aspect: { tenue: "un collier et un bracelet de grosses perles de verre brillantes, une peau tachetée couleur d'ambre sur les épaules" } },
 };
