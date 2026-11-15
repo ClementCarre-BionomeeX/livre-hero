@@ -8,7 +8,7 @@ module.exports = {
   YS_Q_forge: YS({ title: "La forge",
     fx: { questSeen: "YS_Q_forge" },
     text: [
-      "La forge est adossée au mur nord, sous la tour du Loup. Hugues y travaille depuis le temps de ton père : un homme large comme une porte, avec un tablier de cuir brûlé et des avant-bras sans un poil. Aujourd'hui, il ne ferre pas de chevaux.",
+      "La forge est adossée au mur nord, sous la tour du Loup. Hugues y travaille depuis le temps de ton père : un homme large comme une porte, avec un tablier de cuir brûlé et des avant-bras sans un poil. Aujourd'hui, les chevaux attendent leurs fers.",
       "Sur l'enclume, et par terre autour, des fers. Des anneaux, des chaînes courtes, des menottes, une pile qui monte jusqu'au genou. Tu l'estimes d'un œil d'intendante : soixante paires, la moitié de l'ouvrage. Il en forge une paire pendant que tu regardes, sans lever la tête, et la jette sur la pile.",
       "« Ordre du frère Sévrin, dit-il. Cent vingt paires. Pour Hautvent. Il a dit que c'était votre ordre, capitaine. » Il trempe une menotte. La vapeur monte. « J'ai dit que je voulais l'entendre de vous. »",
     ],
@@ -20,24 +20,24 @@ module.exports = {
     ] }),
   YS_Q_forge_oui: YS({ title: "Cent vingt paires",
     text: [
-      "Hugues hoche la tête. Il reprend son marteau. Il se tait, les yeux sur son enclume. Le bruit du marteau te suit dans la cour, régulier, jusqu'au soir, et le soir encore, quand tu essaies de dormir.",
-      "Tu as donné des ordres plus durs. Tu en as donné, sur la Lisse, que tu ne te rappelles plus. Celui-là, tu te le rappelleras. Tu le sais en sortant de la forge.",
+      "Hugues hoche la tête. Il reprend son marteau, muet, les yeux sur son enclume. Le bruit du marteau te suit dans la cour, régulier, jusqu'au soir, et le soir encore, quand tu essaies de dormir.",
+      "Tu as donné des ordres plus durs. Tu en as donné, sur la Lisse, qui ont quitté ta mémoire. Celui-là, tu te le rappelleras. Tu le sais en sortant de la forge.",
     ],
     choices: [{ fx: { quest: "YS_Q_forge" }, back: "YS_cour" }] }),
   YS_Q_forge_corde: YS({ title: "La corde",
     text: [
       "Hugues pose son marteau. Il regarde la pile de fers. Puis il prend la pile à bras-le-corps, et il la verse dans le bac à charbon, d'un coup, avec un bruit de cloche qui tombe.",
-      "« Une corde, dit-il. C'est plus long à défaire, une corde. Mais ça ne marque pas les poignets. » Il s'essuie les mains. « Votre père aurait dit pareil. » Vrai ou faux, tu lui laisses son histoire.",
+      "« Une corde, dit-il. C'est plus long à défaire, une corde. Mais les poignets restent nets. » Il s'essuie les mains. « Votre père aurait dit pareil. » Vrai ou faux, tu lui laisses son histoire.",
     ],
     choices: [{ fx: { quest: "YS_Q_forge" }, back: "YS_cour" }] }),
   YS_Q_forge_mauvais: YS({ title: "Le fer aigre",
     text: [
-      "Hugues te regarde, longtemps. Puis il sourit, pour la première fois depuis que tu es entrée, un sourire de travers dans la barbe noire. « Du fer aigre, dit-il. Trempé trop vite. Ça a l'air de tenir. Ça casse au premier coup de pierre. » Il reprend son marteau. « Je ne sais pas faire de mauvais fers, capitaine. Mais pour vous, je vais apprendre. »",
+      "Hugues te regarde, longtemps. Puis il sourit, pour la première fois depuis que tu es entrée, un sourire de travers dans la barbe noire. « Du fer aigre, dit-il. Trempé trop vite. Ça a l'air de tenir. Ça casse au premier coup de pierre. » Il reprend son marteau. « Les mauvais fers, ce n'est pas mon métier, capitaine. Mais pour vous, je vais apprendre. »",
       "Le soir, il en dépose une paire sur ta table, en silence. Tu la prends. Tu la frappes sur le bord de la table. Elle se brise net, en deux, comme du sucre.",
     ],
     choices: [{ fx: { quest: "YS_Q_forge" }, back: "YS_cour" }] }),
   YS_Q_forge_refus: YS({ title: "Le métier",
-    text: ["« Non, dit Hugues. Un mauvais fer, c'est un fer qui casse au mauvais moment. Sur un cheval, sur une herse. Je ne fais pas ça. Pas même pour vous. » Il te regarde. « Si vous ne voulez pas de fers, dites-le. Mais dites-le, capitaine. Ne me demandez pas de mentir à votre place. » Il attend. Tu te tais. Il reprend son marteau."],
+    text: ["« Non, dit Hugues. Un mauvais fer, c'est un fer qui casse au mauvais moment. Sur un cheval, sur une herse. Je ne fais pas ça. Pas même pour vous. » Il te regarde. « Si vous ne voulez pas de fers, dites-le. Mais dites-le, capitaine. Ne me demandez pas de mentir à votre place. » Il attend. Tu gardes le silence. Il reprend son marteau."],
     choices: [{ fx: { quest: "YS_Q_forge", flag: "ysolde:fers=faits" }, back: "YS_cour" }] }),
 
   // ---------------------------------------------------------------- Vasselin : la couturière
@@ -46,7 +46,7 @@ module.exports = {
     text: [
       "Dans la lingerie du palais, sous les toits, Dame Héloïse coud ta robe pour la Fête. Une robe de soie grise et argent, choisie par la reine elle-même, avec des manches qui traînent d'un bon pied, pour qu'on voie de loin qui peut se permettre de gaspiller de l'étoffe. Elle te la fait essayer, piquée d'épingles, et tourne autour de toi en marmonnant.",
       "Puis elle s'agenouille, retourne l'ourlet, et sort une aiguille plus fine, avec un fil rouge. « Le nom, dit-elle. Quel nom je couds ? »",
-      "Tu ne comprends pas. Elle soupire, comme devant une enfant. « Au palais, on coud un nom dans l'ourlet de chaque robe de fête. Celui de quelqu'un qu'on aime. Pour qu'il danse avec vous, même s'il n'est pas là. Ça se fait depuis la vieille reine. Vous ne saviez pas ? »",
+      "Ton visage reste vide. Elle soupire, comme devant une enfant. « Au palais, on coud un nom dans l'ourlet de chaque robe de fête. Celui de quelqu'un qu'on aime. Pour qu'il danse avec vous, même absent. Ça se fait depuis la vieille reine. On ne vous l'a jamais dit ? »",
     ],
     choices: [
       { label: "« Le mien. »", fx: { flag: "lisandre:ourlet=sien" }, to: "LI_Q_ourlet_sien" },
@@ -55,19 +55,19 @@ module.exports = {
     ] }),
   LI_Q_ourlet_sien: LI({ title: "Lisandre",
     text: [
-      "Elle lève les yeux. « Le vôtre ? Ça ne se fait pas. » Puis elle réfléchit, l'aiguille en l'air. « Mais vous êtes chanteuse. Une chanteuse, ça a besoin de se rappeler qui chante. » Elle coud. Huit lettres, en rouge, à l'envers de la soie, là où personne ne les verra.",
-      "Tu les sens, après, quand tu marches. Un petit relief contre ta cheville. Tu n'y penses pas. Tu y penseras.",
+      "Elle lève les yeux. « Le vôtre ? C'est contraire à l'usage. » Puis elle réfléchit, l'aiguille en l'air. « Mais vous êtes chanteuse. Une chanteuse, ça a besoin de se rappeler qui chante. » Elle coud. Huit lettres, en rouge, à l'envers de la soie, là où nul œil ne les verra.",
+      "Tu les sens, après, quand tu marches. Un petit relief contre ta cheville. Sur le moment, ta pensée est ailleurs. Elle y reviendra.",
     ],
     choices: [{ fx: { quest: "LI_Q_ourlet" }, back: "LI_cour" }] }),
   LI_Q_ourlet_ilan: LI({ title: "Ilan",
     text: [
-      "Elle ne demande pas qui c'est. Elle coud. Quatre lettres. Elle fait un nœud, coupe le fil avec les dents, et dit, sans te regarder : « C'est un nom de Corvanne. » Tu te tais. Elle lisse l'ourlet. « Je ne l'ai pas cousu. Je n'ai rien vu. Mais il est là. »",
+      "Elle garde ses questions. Elle coud. Quatre lettres. Elle fait un nœud, coupe le fil avec les dents, et dit, sans te regarder : « C'est un nom de Corvanne. » Tu gardes le silence. Elle lisse l'ourlet. « Je l'ai cousu sans le voir. Je n'ai rien vu. Mais il est là. »",
     ],
     choices: [{ fx: { quest: "LI_Q_ourlet" }, back: "LI_cour" }] }),
   LI_Q_ourlet_heloise: LI({ title: "Héloïse",
     text: [
-      "Elle s'arrête. Personne ne lui a jamais demandé ça. Elle a cousu des milliers de noms dans des milliers d'ourlets, depuis quarante ans, des noms d'amants, d'enfants morts, de rois, et jamais le sien.",
-      "Elle coud. Lentement. *Héloïse.* Puis elle reste agenouillée, l'aiguille à la main, à regarder les lettres rouges, et elle dit : « Je ne savais pas que c'était si joli, écrit. »",
+      "Elle s'arrête. La question est une première. Elle a cousu des milliers de noms dans des milliers d'ourlets, depuis quarante ans, des noms d'amants, d'enfants morts, de rois, et jamais le sien.",
+      "Elle coud. Lentement. *Héloïse.* Puis elle reste agenouillée, l'aiguille à la main, à regarder les lettres rouges, et elle dit : « Écrit, c'est joli. Je l'ignorais. »",
       "Quand tu pars, elle t'appelle depuis la porte. « Mademoiselle ! Si vous dansez, à la Fête, dansez bien. Je serai là. »",
     ],
     choices: [{ fx: { quest: "LI_Q_ourlet" }, back: "LI_cour" }] }),
@@ -76,7 +76,7 @@ module.exports = {
   CO_k_couleurs: CO({ title: "Les couleurs du rite",
     text: [
       "Derrière la tente des anciennes, trois vieilles femmes broient les couleurs pour le rite. L'ocre, sur une pierre plate, avec une pierre ronde. La suie, mêlée de graisse de renne, dans un crâne de bouquetin. Et le blanc, la craie du lac, qu'on ne sort que pour la Bouche.",
-      "« Assieds-toi, dit la plus vieille, sans lever la tête. C'est ta figure qu'on va peindre. Autant que tu saches avec quoi. » Elle te tend la pierre ronde. Tu broies. C'est long. Ça fait mal aux poignets. Elles chantent en broyant, une chanson à trois notes qui n'a pas de paroles.",
+      "« Assieds-toi, dit la plus vieille, sans lever la tête. C'est ta figure qu'on va peindre. Autant que tu saches avec quoi. » Elle te tend la pierre ronde. Tu broies. C'est long : une heure pour un godet d'ocre. Ça fait mal aux poignets. Elles chantent en broyant, une chanson à trois notes, sans paroles.",
     ],
     choices: [
       { label: "Leur demander ce que veut dire le blanc", fx: { flag: "corbe:blanc", ep: ["perso", 500] }, to: "CO_k_couleurs_blanc" },
@@ -85,8 +85,8 @@ module.exports = {
   CO_k_couleurs_blanc: CO({ title: "Le blanc",
     text: [
       "Les trois vieilles se regardent. La plus vieille arrête de broyer. « Le blanc, c'est pour ce qu'on n'a pas encore dit, dit-elle. On peint ton nom en ocre et en suie. Et autour, le blanc. Tout ce qui reste. »",
-      "« Quand une Bouche mange un nom, dit la deuxième, elle le mange avec du blanc autour. Sinon il ne passe pas. » Elle rit, sans dents. « Personne ne sait plus pourquoi. On le fait, c'est tout. »",
-      "La troisième, qui n'avait rien dit, ajoute, très bas, en regardant le nord : « Ma grand-mère disait que le blanc, ce n'était pas une couleur. C'était un pays. »",
+      "« Quand une Bouche mange un nom, dit la deuxième, elle le mange avec du blanc autour. Sinon il ne passe pas. » Elle rit, sans dents. « Pourquoi, c'est oublié. On le fait, c'est tout. »",
+      "La troisième, muette jusque-là, ajoute, très bas, en regardant le nord : « Ma grand-mère disait que le blanc, ce n'était pas une couleur. C'était un pays. »",
     ],
     choices: [{ back: "CO_camp" }] }),
 };

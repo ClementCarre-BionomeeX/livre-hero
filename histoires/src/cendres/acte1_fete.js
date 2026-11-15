@@ -5,7 +5,7 @@ function P(o) { return Object.assign({ act: "I", place: "sauvelune", noLead: tru
 module.exports = {
   EN_k_ours: P({ title: "Le montreur d'ours",
     text: [
-      "Au coin de l'auberge, un cercle d'enfants autour d'un homme maigre, à l'accent du sud, qui tient au bout d'une chaîne un ours. Un petit ours. Pas plus haut qu'un chien de berger, brun, pelé aux coudes, avec un collier de cuir rouge et des yeux très doux.",
+      "Au coin de l'auberge, un cercle d'enfants autour d'un homme maigre, à l'accent du sud, qui tient au bout d'une chaîne un ours. Un petit ours, de la taille d'un chien de berger, brun, pelé aux coudes, avec un collier de cuir rouge et des yeux très doux.",
       "« Bertrand ! annonce l'homme. L'ours le plus savant des trois royaumes ! Bertrand, salue ! » L'ours se dresse sur ses pattes de derrière et fait une révérence. Les enfants hurlent. Pim, au premier rang, en pleure de joie.",
       "Puis l'homme fait la quête. Il passe devant toi avec son chapeau. De près, tu vois que l'ours a une cicatrice au museau, ancienne, en forme de croix.",
     ],
@@ -18,15 +18,15 @@ module.exports = {
     choices: [{ back: "EN_place" }] }),
   EN_k_ours_histoire: P({ title: "D'où vient l'ours",
     text: [
-      "« Du nord, dit l'homme, plus bas, quand les enfants sont partis. Des gens du Corbeau me l'ont vendu, ourson, il y a six ans. Sa mère était morte dans une avalanche. Ils m'ont dit qu'il avait un nom, chez eux, mais qu'ils ne pouvaient pas me le dire. Un nom, là-haut, ça ne se donne pas. Alors je l'ai appelé Bertrand. »",
+      "« Du nord, dit l'homme, plus bas, quand les enfants sont partis. Des gens du Corbeau me l'ont vendu, ourson, il y a six ans. Sa mère était morte dans une avalanche. Ils m'ont dit qu'il avait un nom, chez eux, et qu'il devait rester chez eux. Un nom, là-haut, ça se garde. Alors je l'ai appelé Bertrand. »",
       "Il gratte l'ours entre les oreilles. « Il répond à Bertrand. Mais quand il dort, il grogne autre chose. Toujours la même chose. Deux syllabes. Je crois que c'est son vrai nom. Je crois qu'il s'en souvient. »",
     ],
     choices: [{ fx: { ep: ["perso", 200] }, back: "EN_place" }] }),
 
   EN_k_bal: P({ title: "Les violons",
     text: [
-      "Les violons de Pont-de-Saule jouent sur le perron de l'auberge. Trois violons, une vielle, un tambourin, et un quatrième violon qui suit les autres à une demi-mesure, par principe. Ils jouent une bourrée, puis une autre. On danse sur la place, les vieux avec les vieilles, les filles entre elles, les garçons qui n'osent pas.",
-      "Tess est là, au bord de la danse, les bras croisés, son tablier de forge encore noué. Elle fait semblant de ne pas regarder. Elle regarde.",
+      "Les violons de Pont-de-Saule jouent sur le perron de l'auberge. Trois violons, une vielle, un tambourin, et un quatrième violon qui suit les autres à une demi-mesure, par principe. Ils jouent une bourrée, puis une autre. On danse sur la place, les vieux avec les vieilles, les filles entre elles, les garçons adossés au mur, qui rassemblent leur courage.",
+      "Tess est là, au bord de la danse, les bras croisés, son tablier de forge encore noué. Elle fait semblant de regarder ailleurs. Elle regarde.",
     ],
     choices: [
       { label: "Inviter Tess", fx: { flag: "tess:bal", ep: ["perso", 300] }, to: "EN_k_bal_tess" },
@@ -46,7 +46,7 @@ module.exports = {
   EN_k_tartes: P({ title: "Le concours de tartes",
     text: [
       "Sur une table à tréteaux, sous le tilleul, les tartes du concours. Douze, dont dix pour la figuration. Le Père Anselme est juge, comme tous les ans, assis devant, une fourchette dans chaque main, l'air grave d'un évêque.",
-      "Depuis vingt ans, c'est entre Agathe et la grand-tante Ferrand, la tante du maréchal, qui tient sa maison depuis que la mère de Tess est morte. Tarte aux myrtilles contre tarte aux pommes. Vingt ans, dix victoires chacune. Les deux femmes se tiennent de part et d'autre de la table, chacune derrière sa tarte, sans se regarder.",
+      "Depuis vingt ans, c'est entre Agathe et la grand-tante Ferrand, la tante du maréchal, qui tient sa maison depuis que la mère de Tess est morte. Tarte aux myrtilles contre tarte aux pommes. Vingt ans, dix victoires chacune. Les deux femmes se tiennent de part et d'autre de la table, chacune derrière sa tarte, les yeux fixés sur le juge.",
     ],
     choices: [
       { label: "Goûter les deux, en douce, avant le jugement", test: { dom: "discretion", label: "La fourchette", help: [{ if: { seen: "EN_tess" }, v: 10 }] },
@@ -54,7 +54,7 @@ module.exports = {
       { label: "Attendre le jugement", to: "EN_k_tartes_jugement" },
     ] }),
   EN_k_tartes_gout: P({ title: "Deux bouchées",
-    text: ["Tu passes derrière le tilleul, tu tends la main, deux fois. Myrtilles : sucrée, épaisse, avec un goût de bois. Pommes : acide, fine, la pâte qui se casse. Tu ne saurais pas choisir. Tu crois comprendre pourquoi Anselme met chaque année si longtemps à se décider."],
+    text: ["Tu passes derrière le tilleul, tu tends la main, deux fois. Myrtilles : sucrée, épaisse, avec un goût de bois. Pommes : acide, fine, la pâte qui se casse. Le choix te dépasse. Tu crois comprendre pourquoi Anselme met chaque année si longtemps à se décider."],
     choices: [{ label: "Attendre le jugement", to: "EN_k_tartes_jugement" }] }),
   EN_k_tartes_pris: P({ title: "La main dans la tarte",
     text: ["La tante Ferrand t'attrape le poignet au-dessus de sa tarte, sans se retourner. « Toi, dit-elle. Je te vois faire depuis que tu as six ans. » Elle te lâche. Agathe, de l'autre côté, te foudroie du regard. Tout le monde rit. Tu es rouge jusqu'aux oreilles."],
