@@ -11,9 +11,9 @@ var WIN = { any: [{ all: [{ has: "sud4:melee" }, { any: [{ has: "sud3:j1" }, { h
 module.exports = {
   II_S4_melee: P({ title: "La mêlée", place: "vasselin",
     text: [
-      "Midi. Trente chevaliers dans le pré, à pied, en deux camps, épées émoussées, masses de bois cerclées de cuir. On frappe jusqu'à ce qu'il n'en reste qu'un debout. Le règlement interdit de tuer. Le règlement ne dit rien des os.",
-      { if: champ("lisandre"), text: "Tu n'y es pas. Tu regardes depuis la barrière, avec les autres, et tu cherches le masque." },
-      { if: { has: "rodric:oublie_champion" }, text: "Rodric s'avance dans le pré avec sa hache de bois, parce qu'on lui a dit de le faire. Il ne sait plus pourquoi il se bat. Il se bat quand même. C'est la seule chose qu'il n'a pas oubliée." },
+      "Midi. Trente chevaliers dans le pré, à pied, en deux camps, épées émoussées, masses de bois cerclées de cuir. On frappe jusqu'à ce qu'il n'en reste qu'un debout. Le règlement interdit de tuer. Sur les os, il est muet.",
+      { if: champ("lisandre"), text: "Tu restes hors du pré. Tu regardes depuis la barrière, avec les autres, et tu cherches le masque." },
+      { if: { has: "rodric:oublie_champion" }, text: "Rodric s'avance dans le pré avec sa hache de bois, parce qu'on lui a dit de le faire. La raison du combat lui échappe. Il se bat quand même. Le geste, lui, est resté." },
       { if: FIGHTER, text: "Le masque est dans l'autre camp. Personne ne le voit. Les chevaliers qui tombent autour de lui ne savent pas qui les a frappés." },
       { if: { not: FIGHTER }, text: "Le masque est dans le pré. Personne ne le voit. Les chevaliers qui tombent autour de lui ne savent pas qui les a frappés." },
     ],
@@ -33,7 +33,7 @@ module.exports = {
 
   II_S4_melee_rate: P({ title: "Dans la boue", place: "vasselin",
     text: [
-      "Un coup de masse, de dos, que personne n'a vu venir, et ton champion est dans la boue. Il se relève sur un coude pour voir la fin. À la fin, il n'y a plus qu'une silhouette debout dans le pré. La foule applaudit. Elle ne sait pas qui.",
+      "Un coup de masse, de dos, que personne n'a vu venir, et ton champion est dans la boue. Il se relève sur un coude pour voir la fin. À la fin, il n'y a plus qu'une silhouette debout dans le pré. La foule applaudit, sans savoir qui.",
     ],
     choices: [{ label: "L'épreuve libre", to: "II_S4_libre" }] }),
 
@@ -44,9 +44,9 @@ module.exports = {
   II_S4_libre: P({ title: "L'épreuve libre", place: "vasselin",
     text: [
       "L'après-midi, l'épreuve libre. Sur une estrade devant la loge, chacun montre ce qu'il sait faire : un jongleur à sept balles, un archer qui coupe une pomme sur la tête de son fils, sous le regard très attentif de la mère, un poète, deux chanteurs. Messire Aubrac, en velours, avec sa voix superbe.",
-      { if: { has: "aubrac:battu" }, text: "Il te voit dans la foule. Il se souvient de la grande salle du palais, et de ta réponse. Il chante moins fort que d'habitude." },
+      { if: { has: "aubrac:battu" }, text: "Il te voit dans la foule. Il se souvient de la grande salle du palais, et de ta réponse. Il chante d'un demi-ton moins fort que d'habitude." },
       { if: champ("lisandre"), text: "Puis c'est à toi. D'azur à la mouette d'argent. Le héraut lit le nom inventé. Tu montes." },
-      { if: { not: champ("lisandre") }, text: "Le masque monte sur l'estrade le dernier. Il ne fait rien. Il reste debout, immobile, une minute entière. Puis il redescend. Personne ne se souvient de l'avoir vu. Les juges lui donnent la meilleure note, sans savoir pourquoi." },
+      { if: { not: champ("lisandre") }, text: "Le masque monte sur l'estrade le dernier. Il reste debout, immobile, le temps de compter jusqu'à soixante, les bras le long du corps. Puis il redescend. Le souvenir de son passage s'efface aussitôt de toutes les têtes. Les juges lui donnent la meilleure note, sans savoir pourquoi." },
     ],
     choices: [
       { label: "Chanter avec ta vraie voix", hide: { not: champ("lisandre") }, if: { souv: "lisandre:voix" }, why: "Tu ne sais plus où elle est.", test: { dom: "magie", label: "Voix", help: [{ if: { souv: "lisandre:port" }, v: 15 }, { if: { has: "sud:port_ami" }, v: 10 }] },
@@ -66,7 +66,7 @@ module.exports = {
     choices: [{ label: "La cérémonie", to: "II_S4_ceremonie" }] }),
 
   II_S4_libre_rate: P({ title: "Une belle chanson", place: "vasselin",
-    text: ["Tu chantes bien. Tu chantes toujours bien. Les juges hochent la tête, poliment. La foule applaudit, poliment. Après toi monte le masque, qui ne fait rien, une minute entière, et que personne ne se rappelle avoir vu. Les juges lui donnent la meilleure note."],
+    text: ["Tu chantes bien. Tu chantes toujours bien. Les juges hochent la tête, poliment. La foule applaudit, poliment. Après toi monte le masque, qui reste immobile le temps de compter jusqu'à soixante, et dont le passage s'efface aussitôt des mémoires. Les juges lui donnent la meilleure note."],
     choices: [{ label: "La cérémonie", to: "II_S4_ceremonie" }] }),
 
   II_S4_ceremonie: P({ title: "La chanson de la paix", place: "vasselin",
@@ -87,7 +87,7 @@ module.exports = {
   II_S4_paix_chantee: P({ title: "Les beaux vers", place: "vasselin",
     text: [
       "Tu chantes. Tu chantes très bien. La musique que tu as mise sur ses mots est la plus belle que tu aies jamais écrite, et c'est pour ça que ça marche.",
-      "Au troisième couplet, le pré entier sourit. Les Corvannais et les Esquarrois se serrent la main, au bas des tribunes, et se demandent, sans gêne, pourquoi ils se sont fait la guerre. Personne ne sait plus. Ils ont l'air heureux.",
+      "Au troisième couplet, le pré entier sourit. Les Corvannais et les Esquarrois se serrent la main, au bas des tribunes, et se demandent, sans gêne, pourquoi ils se sont fait la guerre. La raison est partie. Ils ont l'air heureux.",
       { if: { any: [{ has: "lisandre:ilan_dit" }, { has: "lisandre:ilan_ment" }] }, text: "Ilan, au premier rang, te regarde. Il sourit, comme les autres. Puis son sourire s'efface. Il est le seul. Il secoue la tête, lentement, et s'en va." },
       "Dans la loge, Mordace écrit.",
     ],
@@ -96,7 +96,7 @@ module.exports = {
   II_S4_paix_hautvent: P({ title: "Hautvent", place: "vasselin",
     text: [
       "Tu ouvres la bouche pour chanter ses vers, et tu chantes autre chose. Hautvent. Le village de tisserands, moitié esquarrois, moitié corvannais, et ce qu'on en a fait, il y a trois semaines, sur ordre. Les faits du Frère Orlan, que tu connais par cœur. Les noms.",
-      "Le pré se tait. Les Corvannais ne sourient pas. Les Esquarrois non plus. Ils se regardent. C'est très inconfortable, très long, très silencieux, et c'est la vérité.",
+      "Le pré se tait. Les Corvannais gardent un visage de pierre. Les Esquarrois aussi. Ils se regardent. C'est très inconfortable, très long, très silencieux, et c'est la vérité.",
       "Dans la loge, Mordace a cessé d'écrire. Il te regarde, sans colère. Avec une sorte de tristesse.",
     ],
     choices: [{ label: "La proclamation", fx: { conf: { lisandre: 10 } }, to: "II_S4_proclamation" }] }),
@@ -127,8 +127,8 @@ module.exports = {
 
   II_S4_tour: P({ title: "La Tour des Archives", place: "vasselin",
     text: [
-      "On monte à pied. Deux cents marches, dans une tour carrée, entre des étagères qui montent jusqu'aux voûtes, chargées de registres, la plupart reliés de veau fauve et datés au dos, siècle après siècle. Il fait de plus en plus froid. Aux paliers, les deux archivistes que Mordace a gardés, assis à leurs pupitres, écrivent sans lever la tête.",
-      { if: { item: "plan_tour" }, text: "Tu reconnais tout : le palier de la serrure à trois pênes, le palier du chien, le palier où les Mouettes ont écrit *ne pas*. Le chien n'est pas là. Sa niche est pleine de neige." },
+      "On monte à pied. Deux cents marches, dans une tour carrée de trente pieds de côté, entre des étagères qui montent jusqu'aux voûtes, chargées de registres, la plupart reliés de veau fauve et datés au dos, siècle après siècle. Il fait de plus en plus froid. Aux paliers, les deux archivistes que Mordace a gardés, assis à leurs pupitres, écrivent sans lever la tête.",
+      { if: { item: "plan_tour" }, text: "Tu reconnais tout : le palier de la serrure à trois pênes, le palier du chien, le palier où les Mouettes ont écrit *ne pas*. Le chien a disparu. Sa niche est pleine de neige." },
       "La grande salle est au sommet. Ronde, sous une coupole de verre. Au centre, sur une estrade, le coffre de fer noir, cerclé, couvert de givre. Autour, sur le dallage, un cercle de neige qui ne fond pas.",
       "La reine s'assied sur un trône qu'on a monté pour elle. Mordace se tient à côté du coffre, la main posée dessus.",
     ],
@@ -153,7 +153,7 @@ module.exports = {
 
   II_S4_coffre: P({ title: "Le coffre", place: "vasselin",
     text: [
-      "La reine se tourne vers Mordace. Mordace reste immobile. « Majesté, dit-il doucement, ce coffre contient les cessions que vous m'avez confiées. Les ouvrir, c'est vous les rendre. Toutes. Ce soir. »",
+      "La reine se tourne vers Mordace. Mordace reste immobile, la main à plat sur le fer. « Majesté, dit-il doucement, ce coffre contient les cessions que vous m'avez confiées. Les ouvrir, c'est vous les rendre. Toutes. Ce soir. »",
       "La reine hésite. Elle a l'air d'avoir peur. Puis elle dit, d'une voix de petite fille : « J'ai donné ma parole. »",
       "Mordace sort ses trois clés, et ouvre les trois serrures, une à une. Le couvercle se soulève. Un souffle froid remplit la salle, et le givre sur le coffre fond d'un coup.",
       "Dedans, un seul livre. Immense, relié de noir, épais comme une poutre, et si lourd que la tablette de fer qui le porte a ployé en son milieu. Le Grand Registre. Mordace l'ouvre au hasard, pour montrer qu'il obéit.",
@@ -164,26 +164,26 @@ module.exports = {
 
   II_S4_aymeric: P({ title: "Aymeric", place: "vasselin",
     text: [
-      "La reine ne comprend pas. « Mon fils ? » Elle se tourne vers Mordace. « J'ai un fils ? »",
+      "Le visage de la reine reste vide. « Mon fils ? » Elle se tourne vers Mordace. « J'ai un fils ? »",
       "Mordace est devenu très pâle. Il ouvre le coffre, une serrure, deux, trois. Il sort du Grand Registre une feuille volante, glissée entre les pages, et la tient au-dessus de la flamme d'une chandelle, sans la brûler.",
       "« Majesté, dit-il, c'est vous qui me l'avez donné. Il vous faisait mal. Il vous faisait si mal que vous ne pouviez plus régner. Si je vous le rends, vous ne régnerez plus. » Il regarde, par les vitres de la coupole, la ville en bas, le pré, la paix toute neuve. « Vous voulez ça ? »",
       "La reine regarde la feuille. Elle tend la main.",
-      "Mordace la lui donne. Elle la lit. Elle pousse un cri, un seul, que tu n'oublieras pas, et elle se plie en deux sur son trône, la feuille contre la poitrine.",
+      "Mordace la lui donne. Elle la lit. Elle pousse un cri, un seul, qui te restera dans l'oreille toute ta vie, et elle se plie en deux sur son trône, la feuille contre la poitrine.",
     ],
     choices: [{ label: "Aller à elle", fx: { flag: ["isaure:aymeric_rendu", "isaure:brisee"] }, to: "II_S4_tumulte" }] }),
 
   II_S4_hautvent: P({ title: "Hautvent", place: "vasselin",
     text: [
-      "La reine fronce les sourcils. « Hautvent ? » Mordace se penche et lui parle à l'oreille, longtemps. Elle écoute. Puis elle dit : « Accordé. » Et elle ajoute, plus bas, pour elle-même : « Je ne savais pas que j'avais des prisonniers. »",
+      "La reine fronce les sourcils. « Hautvent ? » Mordace se penche et lui parle à l'oreille, longtemps. Elle écoute. Puis elle dit : « Accordé. » Et elle ajoute, plus bas, pour elle-même : « J'ignorais avoir des prisonniers. »",
       "Mordace écrit l'ordre, de sa main, et le lui fait signer. Il le tend avec une courtoisie parfaite.",
-      "« Ils sont libres, dit-il. Ils ne se souviennent plus d'où ils viennent. Mais ils sont libres. »",
+      "« Ils sont libres, dit-il. D'où ils viennent, ils l'ont oublié. Mais ils sont libres. »",
     ],
     choices: [{ label: "Prendre l'ordre", fx: { item: "ordre_hautvent" }, to: "II_S4_tumulte" }] }),
 
   II_S4_lisse: P({ title: "Le pont de Lisse", place: "vasselin",
     text: [
       "Mordace sourit. « Mais bien sûr. » Il ouvre le coffre lui-même, les trois serrures, et sort du Grand Registre trois feuilles cousues ensemble. Il les tend à la reine. « Ce n'est pas long. »",
-      "La reine lit à voix haute, de sa voix égale, sans comprendre ce qu'elle lit.",
+      "La reine lit à voix haute, de sa voix égale, sans saisir ce qu'elle lit.",
       "*Le pont de Lisse, la nuit du quatorze brumaire, dernière nuit de la guerre. Les gens du village de Lisse-en-Corvanne, trois cents, femmes, vieillards, enfants, réfugiés sur le pont devant l'avance d'Esquarre. La capitaine Ysolde de Brenne, ayant reçu ordre de tenir le pont coûte que coûte, ordonne de le faire sauter. Elle est sur la rive. Elle regarde.*",
       { if: FIGHTER, text: "La reine lève les yeux. « C'est vous ? » demande-t-elle, poliment, à ton champion." },
       { if: { not: FIGHTER }, text: "La reine lève les yeux. « C'est vous ? » te demande-t-elle, poliment." },
@@ -194,11 +194,11 @@ module.exports = {
 
   II_S4_grace_masque: P({ title: "Le masque", place: "vasselin",
     text: [
-      "Le chevalier au masque s'agenouille devant la reine. Elle le regarde sans le voir. « Demandez », dit-elle, à quelqu'un, vaguement.",
+      "Le chevalier au masque s'agenouille devant la reine. Ses yeux passent sur lui comme sur un rideau. « Demandez », dit-elle, à quelqu'un, vaguement.",
       "« Le nom de mon père, dit-il. Il est dans ce coffre. »",
       "Mordace s'est figé. Pour la première fois, il a l'air de voir le chevalier. Il pâlit. « Vous », dit-il.",
-      "La reine dit : « Accordé. » Elle ne sait pas à qui. Mordace hésite. Puis il ouvre le coffre, très lentement, les trois serrures. Il sort du Grand Registre une page, une seule, très vieille, presque noire.",
-      "Le chevalier la prend. Il l'approche de son masque. Il lit. Et pendant une seconde, toute la salle se souvient de lui. Tu le vois, et tout le monde le voit : un garçon de vingt ans, très pâle, avec des yeux gris presque blancs, en larmes.",
+      "La reine dit : « Accordé. » À qui, elle l'ignore. Mordace hésite. Puis il ouvre le coffre, très lentement, les trois serrures. Il sort du Grand Registre une page, une seule, très vieille, presque noire.",
+      "Le chevalier la prend. Il l'approche de son masque. Il lit. Et le temps d'un souffle, toute la salle se souvient de lui. Tu le vois, et tout le monde le voit : un garçon de vingt ans, très pâle, avec des yeux gris presque blancs, en larmes.",
       { if: { has: "sansnom:ancre_lisandre" }, text: "Il te cherche des yeux dans la foule. Il te trouve. Il fait de l'ombre." },
       "Puis la coupole de verre éclate.",
     ],
@@ -206,14 +206,14 @@ module.exports = {
 
   II_S4_tumulte: P({ title: "La coupole", place: "vasselin",
     text: [
-      { if: { has: "sansnom:page" }, text: "Par la coupole brisée tombent des éclats de verre et de la neige, et avec la neige, des Glaneurs, cinq, six, qui se laissent tomber dans la salle comme des draps. Le chevalier au masque n'est plus là. Personne ne se souvient qu'il y était. Les Glaneurs cherchent quelque chose. Ils ne trouvent pas." },
+      { if: { has: "sansnom:page" }, text: "Par la coupole brisée tombent des éclats de verre et de la neige, et avec la neige, des Glaneurs, cinq, six, qui se laissent tomber dans la salle comme des draps. Le chevalier au masque a disparu, et sa présence s'efface des mémoires avec lui. Les Glaneurs cherchent quelque chose, en vain." },
       { if: { all: [{ not: { has: "sansnom:page" } }, { not: { has: "sud4:demande=hautvent" } }] }, text: "Mordace a refermé le coffre. Mais la salle n'est plus calme. La neige, autour du coffre, s'est mise à monter, lentement, comme une marée. Les gardes noirs se sont rapprochés. Mordace fait un geste, et ils se tournent vers vous." },
       { if: { has: "sud4:demande=hautvent" }, text: "Mordace n'a pas touché au coffre. Mais la salle n'est plus calme. La neige, autour du coffre, s'est mise à monter, lentement, comme une marée. Les gardes noirs se sont rapprochés. Mordace fait un geste, et ils se tournent vers vous." },
       "« Sortez-les », dit Mordace. Il parle bas, et on l'entend.",
-      { if: { has: "isaure:brisee" }, text: "La reine pleure sur son trône, la feuille contre elle. Personne ne la regarde. Mordace, un instant, pose la main sur son épaule." },
+      { if: { has: "isaure:brisee" }, text: "La reine pleure sur son trône, la feuille contre elle, seule au milieu de la salle. Mordace, un instant, pose la main sur son épaule." },
       "On vous pousse dans l'escalier. Deux cents marches. Dehors, il fait nuit. La porte de la Tour se referme derrière vous.",
-      { before: "sud4:demande=hautvent", text: "Il n'y a plus de tournoi. Il n'y a plus de grâce. Il reste un coffre, en haut d'une tour, et tu sais maintenant ce qu'il y a dedans." },
-      { after: "sud4:demande=hautvent", text: "Il n'y a plus de tournoi. Il n'y a plus de grâce. Il reste un coffre, en haut d'une tour, et tu n'as toujours pas vu ce qu'il y a dedans." },
+      { before: "sud4:demande=hautvent", text: "Le tournoi est fini. La grâce aussi. Il reste un coffre, en haut d'une tour, et tu sais maintenant ce qu'il y a dedans." },
+      { after: "sud4:demande=hautvent", text: "Le tournoi est fini. La grâce aussi. Il reste un coffre, en haut d'une tour, et son contenu t'est encore caché." },
     ],
     choices: [{ label: "Cette nuit, on revient", fx: { flag: "ch2:sud:4", resume: "II_S5_nuit", catchup: 8, catchupAll: true, catchupWhy: "la grâce de la reine" }, to: "C2_carrefour", big: true }] }),
 };
