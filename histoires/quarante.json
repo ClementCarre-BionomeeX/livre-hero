@@ -683,6 +683,234 @@
    "desc": "Un spadassin, payé pour te tuer."
   }
  },
+ "councils": {
+  "bancs": {
+   "title": "Le Conseil des Cinq Bancs",
+   "hero": true,
+   "order": [
+    "orsanne",
+    "ghislain",
+    "ysaure",
+    "nello"
+   ],
+   "members": {
+    "orsanne": {},
+    "ghislain": {},
+    "ysaure": {},
+    "nello": {}
+   }
+  }
+ },
+ "motions": {
+  "pain_taxe": {
+   "council": "bancs",
+   "title": "Le pain taxé",
+   "shown": {
+    "seen": "Q_conseil_pain"
+   },
+   "text": "Nello Brisse dépose la motion, et le greffier la lit : « Que le pain soit vendu aux Canaux au prix de la veille du Deuil, jusqu'aux funérailles du prince. »",
+   "lean": {
+    "orsanne": "contre",
+    "ghislain": "indecis",
+    "ysaure": "indecis",
+    "nello": "pour"
+   },
+   "say": {
+    "orsanne": {
+     "contre": "Taxez le pain, et les boulangers cuiront pour la terre ferme. Le Banc du Sel vote contre.",
+     "pour": "Huit jours. Le Sel peut perdre huit jours."
+    },
+    "ghislain": {
+     "pour": "Mes marins ont des femmes aux Canaux. La Mer vote pour.",
+     "contre": "La flotte a d'autres soucis que le prix des miches. Contre."
+    },
+    "ysaure": {
+     "pour": "On ne marchande pas le pain d'un deuil. Les Eaux votent pour.",
+     "contre": "Le Temple nourrira ses pauvres lui-même, comme toujours. Contre."
+    },
+    "nello": {
+     "pour": "Les Rames votent pour. Vous vous en doutiez."
+    }
+   },
+   "fx": {
+    "adopte": {
+     "fac": {
+      "rames": 10,
+      "sel": -10
+     }
+    },
+    "rejete": {
+     "fac": {
+      "rames": -5
+     }
+    }
+   }
+  }
+ },
+ "promises": {
+  "pain": {
+   "to": "nello",
+   "text": "Que personne n'aura faim dans Sarvelle pendant le Deuil",
+   "keeps": {
+    "any": [
+     {
+      "has": "salines:grain"
+     },
+     {
+      "has": "salines:chantage"
+     }
+    ]
+   },
+   "breaks": {
+    "has": "salines:laisse"
+   },
+   "kept": "redevable",
+   "broken": "trahi"
+  }
+ },
+ "ties": [
+  {
+   "id": "oncle",
+   "a": "ghislain",
+   "b": "iselda",
+   "kind": "famille",
+   "label": "L'amiral Ghislain est le frère du prince, et l'oncle d'Iselda."
+  },
+  {
+   "id": "mere",
+   "a": "liane",
+   "b": "iselda",
+   "kind": "famille",
+   "label": "La princesse Liane est la mère d'Iselda. Elle est née à la cour de Thérance."
+  },
+  {
+   "id": "marraine",
+   "a": "ysaure",
+   "b": "iselda",
+   "kind": "allie",
+   "label": "Mère Ysaure est la marraine d'Iselda.",
+   "if": {
+    "seen": "Q_conseil_garde"
+   }
+  },
+  {
+   "id": "gouvernante",
+   "a": "ortensia",
+   "b": "iselda",
+   "kind": "sert",
+   "label": "Dame Ortensia est la gouvernante d'Iselda. Elle a élevé le prince avant elle.",
+   "if": {
+    "person": "ortensia"
+   }
+  },
+  {
+   "id": "cuisinier",
+   "a": "bertin",
+   "b": "corradin",
+   "kind": "sert",
+   "label": "Bertin a cuisiné pour le prince pendant vingt ans.",
+   "if": {
+    "person": "bertin"
+   }
+  },
+  {
+   "id": "tribun",
+   "a": "tessa",
+   "b": "nello",
+   "kind": "famille",
+   "label": "Tessa est la sœur de Nello Brisse. Elle tient les distributions de pain aux Canaux.",
+   "if": {
+    "person": "tessa"
+   }
+  },
+  {
+   "id": "secretaire",
+   "a": "odile",
+   "b": "merande",
+   "kind": "sert",
+   "label": "Odile Varn est la secrétaire du comte Mérande.",
+   "if": {
+    "person": "odile"
+   }
+  },
+  {
+   "id": "commis",
+   "a": "grizzo",
+   "b": "orsanne",
+   "kind": "sert",
+   "label": "Grizzo est commis à la Hanse du Sel, sous Ser Orsanne.",
+   "if": {
+    "person": "grizzo"
+   }
+  },
+  {
+   "id": "grain_cache",
+   "a": "orsanne",
+   "b": "nello",
+   "kind": "ennemi",
+   "label": "Ser Orsanne gardait quatre mille sacs de blé aux salines, à vendre après le trentième jour.",
+   "if": {
+    "seen": "C_sal_grain"
+   }
+  }
+ ],
+ "march": [
+  {
+   "id": "pain_affiche",
+   "acts": [
+    "I"
+   ],
+   "if": {
+    "vote": "pain_taxe",
+    "is": "adopte"
+   },
+   "say": "Aux Canaux, les boulangers ont écrit à la craie, sur leurs volets, le prix de la veille du Deuil. Ils ouvrent à l'aube, et ferment à midi, faute de farine."
+  },
+  {
+   "id": "pain_monte",
+   "acts": [
+    "I"
+   ],
+   "if": {
+    "vote": "pain_taxe",
+    "is": "rejete"
+   },
+   "say": "Aux Canaux, le pain a encore pris deux deniers dans la nuit. Les boulangers effacent le vieux prix d'un revers de manche, et écrivent le nouveau à la craie."
+  },
+  {
+   "id": "trois_morts",
+   "acts": [
+    "II"
+   ],
+   "if": {
+    "has": "emeute:sang"
+   },
+   "say": "On enterre les trois morts du quai à l'Île des Morts, sans cloches. Les gondoles des Canaux suivent le cortège, en file, rames levées."
+  },
+  {
+   "id": "barges",
+   "acts": [
+    "II",
+    "III"
+   ],
+   "if": {
+    "has": "salines:grain"
+   },
+   "say": "Le pain est revenu à son prix aux Canaux. Sur les volets des boulangers, quelqu'un a dessiné à la craie une barge chargée jusqu'au bord."
+  },
+  {
+   "id": "sceau_barre",
+   "acts": [
+    "II",
+    "III"
+   ],
+   "if": {
+    "clock": "emprise",
+    "min": 4
+   },
+   "say": "Sur le mur du port, au-dessus des quais, quelqu'un a peint pendant la nuit un grand sceau rouge, barré d'un trait noir."
+  }
+ ],
  "items": {
   "dague": {
    "name": "Dague",
@@ -2080,6 +2308,11 @@
       "fac": {
        "eaux": 20,
        "mer": -15
+      },
+      "sway": {
+       "pain_taxe": {
+        "ysaure": "pour"
+       }
       }
      },
      "to": "Q_conseil_garde_suite"
@@ -2092,6 +2325,11 @@
        "mer": 15,
        "eaux": -10,
        "therance": -5
+      },
+      "sway": {
+       "pain_taxe": {
+        "ghislain": "pour"
+       }
       }
      },
      "to": "Q_conseil_garde_suite"
@@ -2155,7 +2393,33 @@
     "Nello Brisse se lève tout à fait, cette fois. Il a les mains vides. Il parle comme on parle sur un pont, à des gens qui passent et qu'il faut retenir.",
     "« Depuis ce matin, le pain a pris deux deniers aux Canaux. Deux deniers en une matinée, parce qu'un prince est mort et que les boulangers ont peur. Demain, ce sera quatre. Dans une semaine, mes gens mangeront de la colle. Je ne demande rien au Sceau. Je le préviens. Quand les Canaux ont faim, il y a trente ans, ils ont pris ce banc où je suis assis. Je n'ai pas envie de le défendre contre eux. »",
     "Orsanne lève une main lourde de bagues. « Le prix du pain est libre, dit-il doucement. C'est ce qui fait qu'il y en a. »",
-    "On passe sans voter. Cette affaire-là se réglera dans la rue, et chacun le sait."
+    "« Je demande qu'on vote, dit Nello. Que chacun dise devant la ville ce que vaut le pain des Canaux. »"
+   ],
+   "council": {
+    "motion": "pain_taxe",
+    "to": "Q_conseil_pain_vote",
+    "label": "Passer au vote"
+   }
+  },
+  "Q_conseil_pain_vote": {
+   "act": "I",
+   "title": "Le vote",
+   "place": "palais",
+   "text": [
+    {
+     "if": {
+      "vote": "pain_taxe",
+      "is": "adopte"
+     },
+     "text": "Le pain est taxé jusqu'aux funérailles. Nello se rassied sans un mot. Orsanne tapote ses bagues contre le bois du banc. « Une taxe fixe le prix, dit-il à mi-voix. Elle remplit mal les fours. Vous verrez. »"
+    },
+    {
+     "if": {
+      "vote": "pain_taxe",
+      "is": "rejete"
+     },
+     "text": "La motion est rejetée. Nello reste debout un moment, les mains vides, à regarder les Bancs l'un après l'autre. « Bien, dit-il. Ça se réglera dans la rue, alors. » Il se rassied."
+    }
    ],
    "choices": [
     {
@@ -4043,6 +4307,22 @@
      "text": "Au marché au pain, la file est toujours là. Tessa distribue. Nello parle à quelqu'un, puis à quelqu'un d'autre. Un gamin pieds nus, Pippo, court entre les gens avec des messages, deux deniers la course."
     },
     {
+     "if": {
+      "all": [
+       {
+        "vote": "pain_taxe",
+        "is": "adopte"
+       },
+       {
+        "not": {
+         "has": "pain:sort"
+        }
+       }
+      ]
+     },
+     "text": "Le Conseil a taxé le pain au prix de la veille. Sur les volets des boulangers, le prix est écrit à la craie ; derrière les volets, les étagères sont vides avant midi."
+    },
+    {
      "after": "pain:accord",
      "text": "Le pain est redescendu. Les visages restent fermés, mais la file est plus courte, et on y parle d'autre chose que de pain."
     },
@@ -4883,6 +5163,7 @@
        "oraison:pain",
        "promesse:pain"
       ],
+      "promise": "pain",
       "fac": {
        "rames": 15,
        "sel": -5

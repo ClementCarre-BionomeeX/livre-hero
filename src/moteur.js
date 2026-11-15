@@ -2668,7 +2668,13 @@
       var ts = [];
       (function add(to) { if (Array.isArray(to)) to.forEach(function (x) { add(x.to); }); else if (to != null) ts.push(to); })([{ to: c.to }, { to: c.win && c.win.to }, { to: c.lose && c.lose.to }]);
       var scenes = ts.map(function (t) { return story.passages[t]; });
-      if (scenes.length && scenes.every(function (tp) { return tp && !sceneOk(story, s, tp); })) return false;
+      // The cast is read as it will be once the choice is made: a companion the choice makes join (or leave) counts.
+      var fxs = [c.fx, c.win && c.win.fx, c.lose && c.lose.fx].filter(Boolean), sc = s;
+      if (fxs.some(function (f) { return f.join || f.leave; })) {
+        sc = Object.assign({}, s, { met: Object.assign({}, s.met) });
+        fxs.forEach(function (f) { [].concat(f.join || []).forEach(function (k) { sc.met[k] = "party"; }); [].concat(f.leave || []).forEach(function (k) { if (sc.met[k] === "party") sc.met[k] = "gone"; }); });
+      }
+      if (scenes.length && scenes.every(function (tp) { return tp && !sceneOk(story, sc, tp); })) return false;
       return true;
     });
   }

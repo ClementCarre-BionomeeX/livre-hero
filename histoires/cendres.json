@@ -3480,7 +3480,6 @@
     {
      "label": "Les six pièces que tu économises pour un couteau de chez Ferrand.",
      "fx": {
-      "flag": "passe:pieces",
       "gold": 6
      }
     },
@@ -3493,7 +3492,6 @@
     {
      "label": "Le ruban rouge que Tess a oublié chez toi. Tu comptes le lui rendre. Peut-être.",
      "fx": {
-      "flag": "passe:ruban",
       "item": "ruban"
      }
     }
@@ -5876,9 +5874,6 @@
    "act": "I",
    "title": "Ce que Joris tait",
    "place": "sauvelune",
-   "fx": {
-    "flag": "joris:confidence"
-   },
    "text": [
     "Vous vous asseyez tous les deux sur le muret du bief pour sécher au soleil. Joris bourre sa pipe sans l'allumer ; il ne l'allume jamais avant midi, c'est une règle qu'il tient de son père et dont personne ne connaît la raison.",
     "« Il faisait froid comme ça, la nuit où on t'a trouvé », dit-il soudain.",
@@ -5953,7 +5948,6 @@
      "win": {
       "fx": {
        "item": "sifflet_pim",
-       "flag": "pim:sifflet",
        "ep": [
         "perso",
         200
@@ -5962,9 +5956,6 @@
       "to": "EN_pim_sifflet"
      },
      "lose": {
-      "fx": {
-       "flag": "pim:sifflet_rate"
-      },
       "to": "EN_pim_rate"
      }
     },
@@ -6074,9 +6065,6 @@
     },
     {
      "label": "Lui dire que tu as rêvé de la plaine blanche, encore",
-     "fx": {
-      "flag": "tess:reve"
-     },
      "to": "EN_tess_reve"
     }
    ]
@@ -6142,8 +6130,7 @@
     {
      "label": "Le lui promettre",
      "fx": {
-      "item": "ruban",
-      "flag": "tess:promesse"
+      "item": "ruban"
      },
      "to": "EN_matin_suite"
     }
@@ -6358,8 +6345,7 @@
        "ep": [
         "perso",
         100
-       ],
-       "flag": "EN:lutte_perdue"
+       ]
       },
       "to": "EN_lutte_perdu"
      }
@@ -6389,17 +6375,13 @@
        "ep": [
         "perso",
         100
-       ],
-       "flag": "EN:lutte_perdue"
+       ]
       },
       "to": "EN_lutte_perdu"
      }
     },
     {
      "label": "Décliner en riant, et lui dire que tu préfères garder ton nez pour la ronde",
-     "fx": {
-      "flag": "EN:lutte_refusee"
-     },
      "to": "EN_place"
     }
    ]
@@ -6470,8 +6452,7 @@
         "perso",
         400
        ],
-       "gold": 2,
-       "flag": "EN:tir_gagne"
+       "gold": 2
       },
       "to": "EN_tir_gagne"
      },
@@ -6488,7 +6469,6 @@
     {
      "label": "Laisser ta place à un gamin qui piétine d'impatience",
      "fx": {
-      "flag": "EN:tir_laisse",
       "ep": [
        "perso",
        100
@@ -6550,9 +6530,6 @@
     },
     {
      "label": "Lui promettre d'y passer plus tard",
-     "fx": {
-      "flag": "mathurin:promis"
-     },
      "to": "EN_place"
     }
    ]
@@ -6586,9 +6563,6 @@
       "to": "EN_ruches_ok"
      },
      "lose": {
-      "fx": {
-       "flag": "mathurin:echec"
-      },
       "to": "EN_ruches_ko"
      }
     },
@@ -6619,9 +6593,6 @@
       "to": "EN_ruches_ok"
      },
      "lose": {
-      "fx": {
-       "flag": "mathurin:echec"
-      },
       "to": "EN_ruches_ko"
      }
     }
@@ -6682,9 +6653,6 @@
    "choices": [
     {
      "label": "Lui demander ce qui est écrit, dans le registre, à la page de ton arrivée",
-     "fx": {
-      "flag": "anselme:question"
-     },
      "to": "EN_anselme_page"
     },
     {
@@ -6761,7 +6729,6 @@
     {
      "label": "Embrasser Tess, là, sous la neige, devant tout le village qui regarde ailleurs",
      "fx": {
-      "flag": "tess:baiser",
       "ep": [
        "perso",
        200
@@ -6833,9 +6800,6 @@
    "choices": [
     {
      "label": "« Je ne sais pas ce que c'est. Rentre chez toi, Tess. Ferme la porte. »",
-     "fx": {
-      "flag": "tess:rentree"
-     },
      "to": "EN_nuit"
     },
     {
@@ -6903,9 +6867,6 @@
     },
     {
      "label": "Rester près de Pim, la main sur la poignée de ton couteau, jusqu'au matin",
-     "fx": {
-      "flag": "EN:veille_pim"
-     },
      "to": "EN_nuit_veille"
     }
    ]
@@ -6932,15 +6893,11 @@
        "ep": [
         "perso",
         600
-       ],
-       "flag": "EN:suivi"
+       ]
       },
       "to": "EN_nuit_suivre"
      },
      "lose": {
-      "fx": {
-       "flag": "EN:vu"
-      },
       "to": "EN_nuit_vu"
      }
     },
@@ -6985,8 +6942,7 @@
    "title": "Les yeux de neige",
    "place": "sauvelune",
    "fx": {
-    "clue": "n_immune",
-    "flag": "EN:vu"
+    "clue": "n_immune"
    },
    "text": [
     "Elle tourne la tête vers toi. Tu le sais parce que le froid change de place. Il n'y a pas d'yeux dans ce visage de neige, rien qu'un creux plus pâle, et ce creux est tourné vers le seuil du moulin, vers toi.",
@@ -7315,9 +7271,6 @@
       "to": "EN_pim_chante"
      },
      "lose": {
-      "fx": {
-       "flag": "pim:nom_rate"
-      },
       "to": "EN_pim_echec"
      }
     },
@@ -7347,10 +7300,7 @@
      "why": "Tu ne l'as plus.",
      "fx": {
       "souv": "enfant:pim",
-      "flag": [
-       "pim:nom",
-       "pim:souvenir_donne"
-      ],
+      "flag": "pim:nom",
       "quest": "EN_pim",
       "ep": [
        "perso",
@@ -7386,9 +7336,6 @@
       "to": "EN_pim_chante"
      },
      "lose": {
-      "fx": {
-       "flag": "pim:nom_rate"
-      },
       "to": "EN_pim_echec"
      }
     }
@@ -7469,9 +7416,6 @@
    ],
    "choices": [
     {
-     "fx": {
-      "flag": "pim:promesse"
-     },
      "back": "EN_village"
     }
    ]
@@ -7507,7 +7451,6 @@
      "win": {
       "fx": {
        "item": "registre_page",
-       "flag": "registre:copie",
        "ep": [
         "perso",
         800
@@ -7516,9 +7459,6 @@
       "to": "EN_temple_copie"
      },
      "lose": {
-      "fx": {
-       "flag": "registre:rate"
-      },
       "to": "EN_temple_rate"
      }
     },
@@ -7526,7 +7466,6 @@
      "label": "Arracher une page encore lisible et la mettre à l'abri sur toi, où la neige ne prend rien",
      "fx": {
       "item": "registre_page",
-      "flag": "registre:arrache",
       "ep": [
        "perso",
        500
@@ -7701,7 +7640,6 @@
      },
      "lose": {
       "fx": {
-       "flag": "mathurin:perdu",
        "quest": "EN_ruches"
       },
       "to": "EN_ruches2_ko"
@@ -7870,9 +7808,6 @@
    "choices": [
     {
      "label": "Remonter au grenier",
-     "fx": {
-      "flag": "joris:cle"
-     },
      "to": "EN_grenier_ouvert"
     }
    ]
@@ -7950,9 +7885,6 @@
    "choices": [
     {
      "label": "La remercier",
-     "fx": {
-      "flag": "EN:rumeur_chancellerie"
-     },
      "to": "EN_village"
     }
    ]
@@ -8011,9 +7943,6 @@
     },
     {
      "label": "L'attendre debout au milieu de la nef, ton arme à la main",
-     "fx": {
-      "flag": "EN:debout"
-     },
      "to": "EN_temple_nuit"
     },
     {
@@ -8093,10 +8022,7 @@
      "big": true,
      "tag": "Sauvelune effacée des livres",
      "fx": {
-      "flag": [
-       "choix:registre=donne",
-       "EN:glaneur_parti"
-      ],
+      "flag": "choix:registre=donne",
       "ep": [
        "histoire",
        3000
@@ -8210,9 +8136,6 @@
    "act": "I",
    "title": "Le prix",
    "place": "sauvelune",
-   "fx": {
-    "flag": "EN:glaneur_parti"
-   },
    "text": [
     "Elle se penche sur toi, et cette fois, quand elle souffle, quelque chose part.",
     {
@@ -8300,7 +8223,6 @@
     },
     "lose": {
      "fx": {
-      "flag": "EN:glaneur_perdu",
       "ep": [
        "seance",
        1000
@@ -8346,9 +8268,6 @@
    "act": "I",
    "title": "La nuit froide",
    "place": "sauvelune",
-   "fx": {
-    "flag": "registre:perdu"
-   },
    "text": [
     "Le froid te prend les jambes, puis les bras, puis la poitrine. Tu tombes sur les dalles. Tu entends, très loin, le bruit des pages qu'on tourne, et quelqu'un qui souffle, longuement, patiemment, comme sur une soupe.",
     "Quand tu rouvres les yeux, c'est l'aube. Tu es allongé dans la nef, une couverture sur toi. Le Père Anselme est assis à côté, qui te regarde, les mains vides. Le registre a disparu.",
@@ -8583,9 +8502,6 @@
    ],
    "choices": [
     {
-     "fx": {
-      "flag": "enfant:pierres"
-     },
      "back": "EN_grives"
     }
    ]
@@ -8678,9 +8594,6 @@
     },
     {
      "label": "L'attaquer avant qu'il se lève",
-     "fx": {
-      "flag": "gaspard:frappe"
-     },
      "to": "EN_four_combat"
     }
    ]
@@ -8989,7 +8902,6 @@
      "histoire",
      6000
     ],
-    "flag": "prologue:enfant",
     "catchup": 3,
     "catchupWhy": "la route de Sauvelune à Pallanche"
    },
@@ -9187,8 +9099,7 @@
       "ep": [
        "perso",
        400
-      ],
-      "flag": "EN:brigands_nourris"
+      ]
      },
      "to": "E_brigands_pain"
     }
@@ -9297,8 +9208,7 @@
       "ep": [
        "perso",
        400
-      ],
-      "flag": "EN:chaumont"
+      ]
      },
      "to": "@route"
     },
@@ -9320,7 +9230,6 @@
      "label": "Ramasser la bague",
      "fx": {
       "gold": 2,
-      "flag": "EN:bague_corbeau",
       "ep": [
        "perso",
        200
@@ -9404,8 +9313,7 @@
       "ep": [
        "perso",
        300
-      ],
-      "flag": "EN:cairn"
+      ]
      },
      "to": "@route"
     },
@@ -9445,7 +9353,6 @@
    "title": "Le pont de Lisse",
    "place": "brenne",
    "fx": {
-    "flag": "ysolde:pont_regarde",
     "ep": [
      "perso",
      300
@@ -9540,9 +9447,6 @@
     },
     {
      "label": "Le laisser parler, et retenir chacun de ses mots",
-     "fx": {
-      "flag": "sevrin:ecoute"
-     },
      "to": "YS_cour"
     }
    ]
@@ -9773,9 +9677,6 @@
     },
     {
      "label": "Le laisser à son cheval",
-     "fx": {
-      "flag": "gautier:respecte"
-     },
      "to": "YS_cour"
     }
    ]
@@ -10099,17 +10000,11 @@
       "to": "YS_hautvent_parole"
      },
      "lose": {
-      "fx": {
-       "flag": "hautvent:refus"
-      },
       "to": "YS_hautvent_force"
      }
     },
     {
      "label": "Donner le signal. On fait sortir tout le monde, maison par maison",
-     "fx": {
-      "flag": "hautvent:force"
-     },
      "to": "YS_hautvent_force"
     }
    ]
@@ -10168,9 +10063,6 @@
      "to": "YS_rodric_rencontre"
     },
     "lose": {
-     "fx": {
-      "flag": "hautvent:humiliee"
-     },
      "to": "YS_rodric_rencontre"
     }
    },
@@ -10213,7 +10105,6 @@
      },
      "win": {
       "fx": {
-       "flag": "rodric:rendu",
        "conf": {
         "rodric": 10
        },
@@ -10245,7 +10136,6 @@
      "diff": -20,
      "win": {
       "fx": {
-       "flag": "rodric:rendu",
        "conf": {
         "rodric": 5
        },
@@ -10327,9 +10217,6 @@
    "act": "I",
    "title": "Le déserteur",
    "place": "hautvent",
-   "fx": {
-    "flag": "YS:hautvent_pris"
-   },
    "text": [
     "On rassemble les gens sur le pré, devant l'église. Sévrin passe dans les rangs avec sa liste, et demande à chacun son nom, et le coche. Les enfants pleurent. Les vieux se taisent. Un homme vomit.",
     "Et au bout du rang, il y a Thibaut. Dix-neuf ans, toujours le même visage d'enfant trop vite grandi, en chemise de tisserand, avec à côté de lui une fille blonde qui tient un nouveau-né contre sa poitrine. Il te regarde. Il soutient ton regard, les mains vides.",
@@ -10555,7 +10442,6 @@
    "title": "Ce que sait Maëlle",
    "place": null,
    "fx": {
-    "flag": "maelle:lisse",
     "ep": [
      "perso",
      400
@@ -10590,7 +10476,6 @@
     {
      "label": "Faire le détour par l'Hospice, malgré Sévrin",
      "fx": {
-      "flag": "ilse:hospice",
       "time": 6,
       "ep": [
        "perso",
@@ -10621,10 +10506,7 @@
      },
      "win": {
       "fx": {
-       "flag": [
-        "ilse:sauvee",
-        "ilse:selle"
-       ],
+       "flag": "ilse:sauvee",
        "quest": "YS_ilse",
        "ep": [
         "perso",
@@ -10636,7 +10518,6 @@
      },
      "lose": {
       "fx": {
-       "flag": "ilse:faible",
        "quest": "YS_ilse"
       },
       "to": "YS_ilse_faible"
@@ -10645,7 +10526,6 @@
     {
      "label": "« On ne s'arrête pas. » Et faire porter la petite par sa mère",
      "fx": {
-      "flag": "ilse:portee",
       "quest": "YS_ilse"
      },
      "to": "YS_ilse_portee"
@@ -10682,7 +10562,6 @@
     {
      "label": "Lui demander ce qu'on fait des gens, à la Chancellerie",
      "fx": {
-      "flag": "ombeline:chancellerie",
       "ep": [
        "perso",
        400
@@ -10822,10 +10701,7 @@
       }
      },
      "fx": {
-      "flag": [
-       "ysolde:sait_neige",
-       "sevrin:mefiant"
-      ]
+      "flag": "sevrin:mefiant"
      },
      "back": "@route"
     },
@@ -10863,10 +10739,7 @@
      },
      "win": {
       "fx": {
-       "flag": [
-        "sevrin:affronte",
-        "ysolde:boite_prise"
-       ],
+       "flag": "ysolde:boite_prise",
        "ep": [
         "perso",
         800
@@ -10879,10 +10752,7 @@
      },
      "lose": {
       "fx": {
-       "flag": [
-        "sevrin:affronte",
-        "sevrin:mefiant"
-       ]
+       "flag": "sevrin:mefiant"
       },
       "to": "YS_boite_rate"
      }
@@ -10927,7 +10797,6 @@
     {
      "label": "Ne rien dire. Ce n'est pas ton affaire, c'est celle de la Chancellerie",
      "fx": {
-      "flag": "ysolde:silence",
       "fac": {
        "greffiers": 5
       }
@@ -11007,7 +10876,6 @@
    "title": "La dernière nuit",
    "place": null,
    "fx": {
-    "flag": "rodric:lisse",
     "ep": [
      "seance",
      1000
@@ -11205,7 +11073,6 @@
      },
      "win": {
       "fx": {
-       "flag": "ysolde:hommes=suivent",
        "ep": [
         "perso",
         1000
@@ -11214,9 +11081,6 @@
       "to": "YS_deserte_suivent"
      },
      "lose": {
-      "fx": {
-       "flag": "ysolde:hommes=divises"
-      },
       "to": "YS_deserte_divises"
      }
     }
@@ -11256,8 +11120,7 @@
     {
      "label": "Attendre la Nuit des Cloches",
      "fx": {
-      "join": "rodric",
-      "flag": "hautvent:trente_repris"
+      "join": "rodric"
      },
      "to": "YS_fin"
     }
@@ -11278,8 +11141,7 @@
     {
      "label": "Attendre la Nuit des Cloches",
      "fx": {
-      "met": "rodric",
-      "flag": "rodric:cache"
+      "met": "rodric"
      },
      "to": "YS_fin"
     }
@@ -11290,7 +11152,6 @@
    "title": "Ysolde, à Pallanche",
    "place": "pallanche",
    "fx": {
-    "flag": "prologue:ysolde",
     "catchup": 4,
     "catchupWhy": "la route de Brenne à Pallanche",
     "ep": [
@@ -11376,7 +11237,6 @@
      },
      "lose": {
       "fx": {
-       "flag": "corvanne:incident",
        "ep": [
         "perso",
         200
@@ -11455,9 +11315,6 @@
       "to": "PI_bureau_maison"
      },
      "lose": {
-      "fx": {
-       "flag": "pie:bruit"
-      },
       "to": "PI_ardoise"
      }
     },
@@ -11478,9 +11335,6 @@
       "to": "PI_bureau_maison"
      },
      "lose": {
-      "fx": {
-       "flag": "pie:bruit"
-      },
       "to": "PI_ardoise"
      }
     }
@@ -11533,9 +11387,6 @@
     "flee": {
      "dom": "discretion",
      "label": "Sauter par la lucarne sur le toit d'en face",
-     "fx": {
-      "flag": "pie:fui_scelleurs"
-     },
      "to": "PI_veuve_mains_vides"
     },
     "win": {
@@ -11543,15 +11394,11 @@
       "ep": [
        "seance",
        800
-      ],
-      "flag": "pie:garde_assomme"
+      ]
      },
      "to": "PI_bureau_maison"
     },
     "lose": {
-     "fx": {
-      "flag": "pie:fui_scelleurs"
-     },
      "to": "PI_veuve_mains_vides"
     }
    },
@@ -11625,8 +11472,7 @@
     {
      "label": "Partir, le coffret sous le bras et la page contre ta peau",
      "fx": {
-      "item": "page_pages",
-      "flag": "pie:sait_page"
+      "item": "page_pages"
      },
      "to": "PI_veuve"
     }
@@ -11699,8 +11545,7 @@
      },
      "fx": {
       "drop": "coffret_cessions",
-      "gold": 15,
-      "flag": "pie:coffret_vendu"
+      "gold": 15
      },
      "to": "PI_ville"
     },
@@ -11710,9 +11555,6 @@
       "not": {
        "item": "coffret_cessions"
       }
-     },
-     "fx": {
-      "flag": "pie:coffret_garde"
      },
      "to": "PI_ville"
     },
@@ -12039,8 +11881,7 @@
      "fx": {
       "flag": [
        "pie:plan_linge",
-       "corneille:noye",
-       "pie:sang"
+       "corneille:noye"
       ],
       "quest": "PI_corneille"
      },
@@ -12107,9 +11948,6 @@
       "to": "PI_bureau_jeton"
      },
      "lose": {
-      "fx": {
-       "flag": "pie:repere_bureau"
-      },
       "to": "PI_bureau_rate"
      }
     },
@@ -12310,9 +12148,6 @@
       "to": "PI_sonneur_noms"
      },
      "lose": {
-      "fx": {
-       "flag": "anseau:perdu"
-      },
       "to": "PI_sonneur_rate"
      }
     },
@@ -12434,17 +12269,11 @@
       "to": "PI_empreinte"
      },
      "lose": {
-      "fx": {
-       "flag": "pie:repere_clercs"
-      },
       "to": "PI_empreinte_rate"
      }
     },
     {
      "label": "Faire inscrire le nom de Linette dans le Grand Livre",
-     "fx": {
-      "flag": "pie:linette_inscrite"
-     },
      "to": "PI_inscrire"
     },
     {
@@ -12462,9 +12291,6 @@
    ],
    "choices": [
     {
-     "fx": {
-      "flag": "pie:mere_inscrite"
-     },
      "back": "PI_ville"
     }
    ]
@@ -12738,9 +12564,6 @@
       "to": "PI_scriptorium"
      },
      "lose": {
-      "fx": {
-       "flag": "pie:alerte"
-      },
       "to": "PI_garde_escalier"
      }
     }
@@ -12781,9 +12604,6 @@
       "to": "PI_scriptorium"
      },
      "lose": {
-      "fx": {
-       "flag": "pie:alerte"
-      },
       "to": "PI_garde_escalier"
      }
     }
@@ -12824,7 +12644,6 @@
      },
      "lose": {
       "fx": {
-       "flag": "pie:blesse",
        "pv": -4
       },
       "to": "PI_corde_chute"
@@ -12873,9 +12692,6 @@
       "to": "PI_scriptorium"
      },
      "lose": {
-      "fx": {
-       "flag": "pie:alerte"
-      },
       "to": "PI_garde_escalier"
      }
     }
@@ -12911,15 +12727,11 @@
       "ep": [
        "seance",
        1000
-      ],
-      "flag": "pie:garde_tue"
+      ]
      },
      "to": "PI_scriptorium"
     },
     "lose": {
-     "fx": {
-      "flag": "pie:pris"
-     },
      "to": "PI_cachot"
     }
    },
@@ -13143,10 +12955,7 @@
      "label": "La boîte de plomb : ses souvenirs. Tu reviendras pour elle",
      "fx": {
       "item": "boite_linette",
-      "flag": [
-       "pie:choix=boite",
-       "pie:hylas"
-      ],
+      "flag": "pie:choix=boite",
       "quest": "PI_linette",
       "ep": [
        "histoire",
@@ -13160,10 +12969,7 @@
      "fx": {
       "item": "liste_nuit",
       "clue": "n_nuit",
-      "flag": [
-       "pie:choix=liste",
-       "pie:hylas"
-      ],
+      "flag": "pie:choix=liste",
       "quest": "PI_linette",
       "ep": [
        "histoire",
@@ -13176,10 +12982,7 @@
      "label": "Linette elle-même. Elle se souviendra plus tard. Ou jamais",
      "fx": {
       "join": "linette",
-      "flag": [
-       "pie:choix=linette",
-       "pie:hylas"
-      ],
+      "flag": "pie:choix=linette",
       "quest": "PI_linette",
       "ep": [
        "histoire",
@@ -13263,9 +13066,6 @@
        "to": "PI_fenetre"
       },
       "lose": {
-       "fx": {
-        "flag": "pie:blesse"
-       },
        "to": "PI_fenetre_blesse"
       }
      }
@@ -13294,9 +13094,6 @@
       "to": "PI_fenetre"
      },
      "lose": {
-      "fx": {
-       "flag": "pie:blesse"
-      },
       "to": "PI_fenetre_blesse"
      }
     }
@@ -13347,7 +13144,6 @@
    "noLead": true,
    "title": "Pie, à l'aube de la Fête",
    "fx": {
-    "flag": "prologue:pie",
     "catchup": 4,
     "catchupWhy": "les toits de Pallanche",
     "ep": [
@@ -13571,7 +13367,6 @@
     {
      "label": "« Je ne sais pas, petite. » C'est plus sûr, pour elle",
      "fx": {
-      "flag": "linette:nom_tu",
       "quest": "HY_page",
       "ep": [
        "perso",
@@ -13747,9 +13542,6 @@
       "to": "HY_salle_noire"
      },
      "lose": {
-      "fx": {
-       "flag": "hylas:bruit"
-      },
       "to": "HY_gardien"
      }
     },
@@ -13811,9 +13603,6 @@
     "flee": {
      "dom": "magie",
      "label": "Remonter l'escalier à reculons, en traçant un signe de feu sur chaque marche",
-     "fx": {
-      "flag": "hylas:fui_caveau"
-     },
      "to": "HY_tour"
     },
     "win": {
@@ -13828,7 +13617,6 @@
     },
     "lose": {
      "fx": {
-      "flag": "hylas:fui_caveau",
       "pv": -1
      },
      "to": "HY_tour"
@@ -13935,7 +13723,6 @@
      },
      "win": {
       "fx": {
-       "flag": "hylas:ment",
        "ep": [
         "perso",
         1000
@@ -13944,12 +13731,6 @@
       "to": "HY_mordace_mensonge"
      },
      "lose": {
-      "fx": {
-       "flag": [
-        "hylas:ment",
-        "mordace:sait_mensonge"
-       ]
-      },
       "to": "HY_mordace_mensonge_rate"
      }
     },
@@ -14003,7 +13784,6 @@
      },
      "win": {
       "fx": {
-       "flag": "hylas:ment",
        "ep": [
         "perso",
         1000
@@ -14012,12 +13792,6 @@
       "to": "HY_mordace_mensonge"
      },
      "lose": {
-      "fx": {
-       "flag": [
-        "hylas:ment",
-        "mordace:sait_mensonge"
-       ]
-      },
       "to": "HY_mordace_mensonge_rate"
      }
     },
@@ -14150,18 +13924,12 @@
    "choices": [
     {
      "label": "Poser ton sceau. Il est trop tôt pour te perdre",
-     "fx": {
-      "flag": "hylas:certifie"
-     },
      "to": "HY_baudoin"
     },
     {
      "label": "Refuser. « Je ne certifie pas ce que je n'ai pas lu. »",
      "fx": {
-      "flag": [
-       "hylas:refuse",
-       "mordace:soupcon"
-      ],
+      "flag": "mordace:soupcon",
       "ep": [
        "perso",
        800
@@ -14172,7 +13940,6 @@
     {
      "label": "Demander qu'on te lise chaque nom, un par un, avant de signer",
      "fx": {
-      "flag": "hylas:noms_lus",
       "time": 4,
       "ep": [
        "perso",
@@ -14240,7 +14007,6 @@
     {
      "label": "Lui dire d'arrêter. De partir de Pallanche ce soir, en silence",
      "fx": {
-      "flag": "baudoin:parti",
       "quest": "HY_baudoin",
       "ep": [
        "perso",
@@ -14252,7 +14018,6 @@
     {
      "label": "Lui dire de continuer, et de t'apporter, chaque soir, un reçu du jour",
      "fx": {
-      "flag": "baudoin:espion",
       "quest": "HY_baudoin",
       "ep": [
        "perso",
@@ -14448,7 +14213,6 @@
    "noLead": true,
    "title": "Maître Hylas, la veille",
    "fx": {
-    "flag": "prologue:hylas",
     "quest": "HY_mordace",
     "catchup": 5,
     "catchupWhy": "la Chancellerie des Noms"
@@ -15122,6 +14886,18 @@
       "has": "corbe:voie=bran"
      },
      "text": "La lettre gratte contre ta peau à chaque pas."
+    },
+    {
+     "if": {
+      "has": "corbe:rite_vide"
+     },
+     "text": "Ton nom est toujours à toi. Le blanc l'a écouté toute une journée, et il l'a laissé."
+    },
+    {
+     "if": {
+      "has": "corbe:voie=suivre"
+     },
+     "text": "Tu es partie avant le rite, seule, pour savoir si la chose est la Mère. Ses traces t'attendent sur le fil de la crête."
     }
    ],
    "choices": [
@@ -15161,9 +14937,6 @@
    ],
    "choices": [
     {
-     "fx": {
-      "flag": "corbe:fleche"
-     },
      "back": "@route"
     }
    ]
@@ -15473,7 +15246,6 @@
    "noLead": true,
    "title": "Corbe, à Pallanche",
    "fx": {
-    "flag": "prologue:corbe",
     "quest": "CO_rite",
     "catchup": 4,
     "catchupWhy": "la route des crêtes"
@@ -15497,6 +15269,55 @@
       "has": "corbe:voie_bran=non"
      },
      "text": "À la relève, le garde roux est passé devant l'écurie. Il a ralenti. Il a regardé la paille. Il est reparti."
+    },
+    {
+     "if": {
+      "has": "corbe:a_donne"
+     },
+     "text": "Il neige sur Pallanche, une neige sèche, qui crisse comme du sel. Tu ne connais que celle-là."
+    },
+    {
+     "if": {
+      "has": "corbe:bran_dit"
+     },
+     "text": "*Une neige de ville.* Tu as dit le nom de Bran sous la tente de ta mère, et elle t'a répondu. Tu y penses en regardant la neige tomber sur les toits."
+    },
+    {
+     "if": {
+      "all": [
+       {
+        "has": "corbe:bran_tu"
+       },
+       {
+        "has": "corbe:voie_bran=tu"
+       }
+      ]
+     },
+     "text": "Le jeton de bois de la porte du Nord est dans ta poche. Ton arc est resté au râtelier, et ton frère à la herse."
+    },
+    {
+     "if": {
+      "has": "corbe:frere_donne"
+     },
+     "text": "Tu as donné à Bran ton souvenir de lui. Tu sais que tu l'as fait. Ce que tu lui as donné, tu le cherches, et tu trouves une place vide, chaude encore."
+    },
+    {
+     "if": {
+      "has": "corbe:lettre_brulee"
+     },
+     "text": "Quand tu fermes les yeux, tu revois les signes rouges de la lettre, dans les flammes. Tu ne sais toujours pas les lire."
+    },
+    {
+     "if": {
+      "has": "corbe:lettre_gardee"
+     },
+     "text": "La lettre est toujours cachetée, contre ta peau."
+    },
+    {
+     "if": {
+      "has": "corbe:regarde"
+     },
+     "text": "Treize sont revenus de la veillée en souriant, en demandant où ils étaient. Tu les as comptés. La nuit, tu les comptes encore."
     },
     "Demain soir, la Nuit des Cloches. Les gens de la ville en parlent comme d'une fête."
    ],
@@ -15680,7 +15501,6 @@
      },
      "win": {
       "fx": {
-       "flag": "orlan:trouble",
        "ep": [
         "perso",
         600
@@ -15762,7 +15582,6 @@
     {
      "label": "Ne pas y aller. Tu es l'espionne de la reine",
      "fx": {
-      "flag": "ilan:evite",
       "quest": "LI_ilan"
      },
      "to": "LI_cour"
@@ -15782,10 +15601,7 @@
     {
      "label": "Lui dire ce que tu sais. Tout",
      "fx": {
-      "flag": [
-       "lisandre:ilan_dit",
-       "corvanne:sait"
-      ],
+      "flag": "lisandre:ilan_dit",
       "quest": "LI_ilan",
       "ep": [
        "perso",
@@ -15809,10 +15625,7 @@
     {
      "label": "Rapporter cette conversation à la reine",
      "fx": {
-      "flag": [
-       "lisandre:ilan_livre",
-       "ilan:arrete"
-      ],
+      "flag": "lisandre:ilan_livre",
       "quest": "LI_ilan",
       "ep": [
        "perso",
@@ -15943,10 +15756,7 @@
      },
      "win": {
       "fx": {
-       "flag": [
-        "aubrac:battu",
-        "lisandre:vraie_voix"
-       ],
+       "flag": "aubrac:battu",
        "quest": "LI_aubrac",
        "ep": [
         "perso",
@@ -16083,9 +15893,6 @@
    ],
    "choices": [
     {
-     "fx": {
-      "flag": "ermengarde:sait"
-     },
      "back": "LI_cour"
     }
    ]
@@ -16257,7 +16064,6 @@
      },
      "why": "Tu ne t'en souviens plus, toi non plus.",
      "fx": {
-      "flag": "isaure:chanson",
       "ep": [
        "perso",
        800
@@ -16413,8 +16219,7 @@
        "ep": [
         "perso",
         800
-       ],
-       "flag": "mordace:repond"
+       ]
       },
       "to": "LI_mordace_repond"
      },
@@ -16464,7 +16269,6 @@
    "noLead": true,
    "title": "Lisandre, la veille",
    "fx": {
-    "flag": "prologue:lisandre",
     "quest": "LI_ballade",
     "catchup": 4,
     "catchupWhy": "la route de la cour",
@@ -16656,9 +16460,6 @@
    "choices": [
     {
      "label": "Attendre minuit",
-     "fx": {
-      "flag": "nuit:enfant_salle"
-     },
      "to": "N_garde"
     }
    ]
@@ -16784,7 +16585,6 @@
      },
      "win": {
       "fx": {
-       "flag": "hautvent:sortis",
        "ep": [
         "histoire",
         2000
@@ -16793,9 +16593,6 @@
       "to": "N_chant"
      },
      "lose": {
-      "fx": {
-       "flag": "hautvent:quelques_uns"
-      },
       "to": "N_chant"
      }
     }
@@ -16977,9 +16774,6 @@
    "choices": [
     {
      "label": "Minuit",
-     "fx": {
-      "flag": "isaure:revenue"
-     },
      "to": "N_cloches"
     }
    ]
@@ -17075,9 +16869,6 @@
       "to": "N_cordes"
      },
      "lose": {
-      "fx": {
-       "flag": "nuit:cordes=quelques"
-      },
       "to": "N_cordes_rate"
      }
     },
@@ -17099,9 +16890,6 @@
       "to": "N_roue"
      },
      "lose": {
-      "fx": {
-       "flag": "nuit:cordes=quelques"
-      },
       "to": "N_cordes_rate"
      }
     }
@@ -17238,7 +17026,6 @@
      },
      "win": {
       "fx": {
-       "flag": "nuit:herse=fermee",
        "ep": [
         "histoire",
         1500
@@ -17247,9 +17034,6 @@
       "to": "N_herse"
      },
      "lose": {
-      "fx": {
-       "flag": "nuit:herse=ouverte"
-      },
       "to": "N_herse_ouverte"
      }
     },
@@ -17279,7 +17063,6 @@
      },
      "win": {
       "fx": {
-       "flag": "nuit:chant_corbe",
        "ep": [
         "histoire",
         1500
@@ -17288,9 +17071,6 @@
       "to": "N_chant_corbe"
      },
      "lose": {
-      "fx": {
-       "flag": "nuit:herse=ouverte"
-      },
       "to": "N_herse_ouverte"
      }
     }
@@ -17349,8 +17129,7 @@
    "title": "La place aux Clercs",
    "fx": {
     "regroup": true,
-    "lead": "enfant",
-    "flag": "nuit:reunis"
+    "lead": "enfant"
    },
    "text": [
     "La place aux Clercs, au pied de la tour, est blanche. Les pupitres des greffiers sont renversés. Des gens errent, au milieu de la neige, en se tenant les coudes, et se demandent les uns aux autres où ils sont.",
@@ -17397,9 +17176,6 @@
     "flee": {
      "dom": "discretion",
      "label": "Suivre le jeune homme couvert de suie par les toits",
-     "fx": {
-      "flag": "nuit:fuite_toits"
-     },
      "to": "N_aube"
     },
     "win": {
@@ -17407,15 +17183,11 @@
       "ep": [
        "seance",
        3000
-      ],
-      "flag": "nuit:glaneurs_battus"
+      ]
      },
      "to": "N_aube"
     },
     "lose": {
-     "fx": {
-      "flag": "nuit:fuite_dure"
-     },
      "to": "N_aube"
     }
    },
@@ -17431,7 +17203,6 @@
    "noLead": true,
    "title": "L'aube sur Pallanche",
    "fx": {
-    "flag": "acte1:fin",
     "ep": [
      "histoire",
      5000
@@ -18953,7 +18724,6 @@
     {
      "label": "Lui écrire un ordre de pension, de ta main, sous ton sceau",
      "fx": {
-      "flag": "ys:aubin",
       "gold": -2,
       "ep": [
        "perso",
@@ -19735,7 +19505,6 @@
     {
      "label": "Ouvrir l'enclos et laisser les bêtes descendre vers la vallée",
      "fx": {
-      "flag": "nord:betes_libres",
       "ep": [
        "perso",
        400
@@ -19758,7 +19527,6 @@
    "title": "Les grandes traces",
    "place": null,
    "fx": {
-    "flag": "nord:grandes_traces",
     "questSeen": "II_N_geant"
    },
    "text": [
@@ -20063,7 +19831,6 @@
     {
      "label": "« Je n'irai pas au col. Pas comme ça. »",
      "fx": {
-      "flag": "nord:refuse_hrodna",
       "ep": [
        "perso",
        500
@@ -20209,7 +19976,6 @@
      },
      "win": {
       "fx": {
-       "flag": "nord:ysolde_protegee",
        "conf": {
         "ysolde": 10
        },
@@ -20256,7 +20022,6 @@
    "choices": [
     {
      "fx": {
-      "flag": "nord:ysolde_respectee",
       "conf": {
        "ysolde": 5
       }
@@ -20313,7 +20078,6 @@
      },
      "win": {
       "fx": {
-       "flag": "nord:canne_gardee",
        "ep": [
         "perso",
         500
@@ -20549,9 +20313,6 @@
    "noLead": true,
    "title": "L'enseigne blanche",
    "place": null,
-   "fx": {
-    "flag": "sud:village_blanc"
-   },
    "text": [
     "Le premier village s'appelait quelque chose. Tu y es passée avec la cour, il y a huit jours ; les gens sont sortis sur le pas de leur porte pour voir passer la reine, et un enfant a lancé des fleurs dans ta voiture.",
     "L'enseigne de l'auberge est peinte en blanc. Pas repeinte : blanchie, comme si le nom avait coulé. La borne, à l'entrée, aussi. Sur le fronton du temple, les lettres gravées sont toujours là, mais elles sont pleines de neige, en juillet, et la neige ne fond pas.",
@@ -20580,7 +20341,6 @@
      },
      "win": {
       "fx": {
-       "flag": "sud:village_nomme",
        "ep": [
         "perso",
         600
@@ -20595,7 +20355,6 @@
     {
      "label": "Leur en donner un. N'importe lequel. Un village ne peut pas rester sans nom",
      "fx": {
-      "flag": "sud:village_rebaptise",
       "ep": [
        "perso",
        300
@@ -20712,7 +20471,6 @@
      },
      "win": {
       "fx": {
-       "flag": "sud:coffre_vu",
        "clue": "n_coffre_fer",
        "ep": [
         "perso",
@@ -20722,9 +20480,6 @@
       "to": "II_S_coffre"
      },
      "lose": {
-      "fx": {
-       "flag": "sud:repere"
-      },
       "to": "II_S_repere"
      }
     },
@@ -20891,7 +20646,6 @@
      },
      "win": {
       "fx": {
-       "flag": "sud:faux_passe",
        "ep": [
         "perso",
         400
@@ -20934,9 +20688,6 @@
    "choices": [
     {
      "label": "Entrer dans Vasselin",
-     "fx": {
-      "flag": "sud:entree_greve"
-     },
      "to": "@route"
     }
    ]
@@ -21321,7 +21072,6 @@
      },
      "win": {
       "fx": {
-       "flag": "sud:cessions_reine",
        "clue": "n_cessions_reine",
        "ep": [
         "perso",
@@ -21692,7 +21442,6 @@
     {
      "label": "« On ira le chercher. »",
      "fx": {
-      "flag": "sud:lisse_promis",
       "conf": {
        "ysolde": 5
       }
@@ -21701,9 +21450,6 @@
     },
     {
      "label": "« Tu l'as payé. Peut-être que tu avais raison. »",
-     "fx": {
-      "flag": "sud:lisse_doute"
-     },
      "to": "II_S_vasselin"
     }
    ]
@@ -21722,7 +21468,6 @@
     {
      "label": "Le ramener à l'Ancre",
      "fx": {
-      "flag": "sud:hylas_tour",
       "conf": {
        "hylas": 5
       }
@@ -21745,7 +21490,6 @@
     {
      "label": "Aller t'asseoir à côté de lui",
      "fx": {
-      "flag": "sud:quai",
       "conf": {
        "enfant": 5,
        "lisandre": 5
@@ -22018,9 +21762,6 @@
     },
     {
      "label": "L'achever avant qu'il ne se libère",
-     "fx": {
-      "flag": "nord:glaneur_tue"
-     },
      "to": "II_N2_eboulis_combat"
     },
     {
@@ -22337,9 +22078,6 @@
       "to": "II_N2_mur_chant_lu"
      },
      "lose": {
-      "fx": {
-       "flag": "nord:chant_moitie"
-      },
       "to": "II_N2_mur_chant_moitie"
      }
     }
@@ -22538,7 +22276,6 @@
      },
      "win": {
       "fx": {
-       "flag": "nord:aieule_chant",
        "ep": [
         "perso",
         1500
@@ -22563,10 +22300,7 @@
      "why": "Tu n'as plus rien de ce col à donner.",
      "fx": {
       "souv": "corbe:col",
-      "flag": [
-       "nord:aieule_chant",
-       "corbe:col_donne"
-      ],
+      "flag": "corbe:col_donne",
       "ep": [
        "perso",
        1500
@@ -22838,10 +22572,7 @@
     {
      "label": "Attendre le jour",
      "fx": {
-      "flag": [
-       "ch2:nord:2",
-       "nord:geant_vu"
-      ],
+      "flag": "ch2:nord:2",
       "resume": "II_N3_depart",
       "catchup": 6,
       "catchupAll": true,
@@ -23104,9 +22835,6 @@
        "item": "lettre_mordace"
       }
      },
-     "fx": {
-      "flag": "sud2:lettre_montree"
-     },
      "to": "II_S2_isaure_lettre"
     },
     {
@@ -23115,9 +22843,6 @@
       "not": {
        "item": "copie_cession"
       }
-     },
-     "fx": {
-      "flag": "sud2:copie_montree"
      },
      "to": "II_S2_isaure_copie"
     },
@@ -23183,9 +22908,6 @@
    "choices": [
     {
      "label": "Reprendre la lettre",
-     "fx": {
-      "flag": "isaure:lettre_lue"
-     },
      "to": "II_S2_mordace"
     }
    ]
@@ -23202,9 +22924,6 @@
    "choices": [
     {
      "label": "Reprendre la copie",
-     "fx": {
-      "flag": "isaure:sarlat"
-     },
      "to": "II_S2_mordace"
     }
    ]
@@ -23282,7 +23001,6 @@
     {
      "label": "« Non. »",
      "fx": {
-      "flag": "sud2:mordace=non",
       "conf": {
        "lisandre": 5
       },
@@ -23315,10 +23033,7 @@
      },
      "win": {
       "fx": {
-       "flag": [
-        "sud2:mordace=feinte",
-        "sud2:confidence"
-       ],
+       "flag": "sud2:confidence",
        "clue": "n_mordace_veut",
        "ep": [
         "perso",
@@ -23328,9 +23043,6 @@
       "to": "II_S2_offre_feinte"
      },
      "lose": {
-      "fx": {
-       "flag": "sud2:mordace=demasquee"
-      },
       "to": "II_S2_offre_rate"
      }
     }
@@ -23502,7 +23214,6 @@
      },
      "win": {
       "fx": {
-       "flag": "sud:empreinte_cles",
        "item": "cire_cles",
        "ep": [
         "perso",
@@ -23512,9 +23223,6 @@
       "to": "II_S2_pie_ok"
      },
      "lose": {
-      "fx": {
-       "flag": "sud:pie_vu"
-      },
       "to": "II_S2_pie_rate"
      }
     }
@@ -23582,9 +23290,6 @@
    "choices": [
     {
      "label": "Laisser l'enfant répondre",
-     "fx": {
-      "flag": "sud:mordace_enfant_nom"
-     },
      "to": "II_S2_enfant_nom"
     },
     {
@@ -23597,9 +23302,6 @@
       "to": "II_S2_enfant_muet"
      },
      "lose": {
-      "fx": {
-       "flag": "sud:mordace_enfant_nom"
-      },
       "to": "II_S2_enfant_nom"
      }
     }
@@ -23647,9 +23349,6 @@
    "choices": [
     {
      "label": "Quitter le palais",
-     "fx": {
-      "flag": "sud:rodric_mordace"
-     },
      "to": "II_S2_aube"
     }
    ]
@@ -24355,7 +24054,6 @@
     {
      "label": "Lui donner à manger et le laisser garder le feu",
      "fx": {
-      "flag": "nord:tiennot",
       "food": -1
      },
      "to": "II_N3_cloitre"
@@ -24377,9 +24075,6 @@
    ],
    "choices": [
     {
-     "fx": {
-      "flag": "nord:tiennot"
-     },
      "back": "II_N3_cloitre"
     }
    ]
@@ -24415,8 +24110,7 @@
    "title": "Le serment",
    "place": "moutier",
    "fx": {
-    "clue": "n_veilleurs",
-    "flag": "nord:serment_lu"
+    "clue": "n_veilleurs"
    },
    "text": [
     "Il lit, à voix haute, sans regarder la page. Il la sait par cœur.",
@@ -24562,7 +24256,6 @@
       }
      },
      "fx": {
-      "flag": "nord:moines_gardent",
       "conf": {
        "ombeline": -5
       }
@@ -24572,7 +24265,6 @@
     {
      "label": "Leur chanter le chant des morts",
      "fx": {
-      "flag": "nord:moines_chant",
       "ep": [
        "perso",
        600
@@ -24609,9 +24301,6 @@
    "choices": [
     {
      "label": "Faire fondre la glace, à la torche, doucement",
-     "fx": {
-      "flag": "nord:frere_degage"
-     },
      "to": "II_N3_glace_fond"
     },
     {
@@ -24870,8 +24559,7 @@
      "fx": {
       "conf": {
        "hylas": 5
-      },
-      "flag": "hylas:arnoul"
+      }
      },
      "back": "II_N3_soir"
     }
@@ -24985,7 +24673,6 @@
     {
      "label": "Redescendre",
      "fx": {
-      "flag": "nord:geant_cloche",
       "ep": [
        "perso",
        1500
@@ -25050,15 +24737,11 @@
       "ep": [
        "seance",
        1500
-      ],
-      "flag": "nord:geant_blesse"
+      ]
      },
      "to": "II_N3_main"
     },
     "lose": {
-     "fx": {
-      "flag": "nord:geant_fuite"
-     },
      "to": "II_N3_main"
     }
    },
@@ -25580,9 +25263,6 @@
       "to": "II_S3_joute2_ok"
      },
      "lose": {
-      "fx": {
-       "flag": "sud3:j2_perdu"
-      },
       "to": "II_S3_joute2_rate"
      }
     }
@@ -25719,9 +25399,6 @@
    "noLead": true,
    "title": "Ce qu'il veut",
    "place": "vasselin",
-   "fx": {
-    "flag": "sud3:masque_parle"
-   },
    "text": [
     "« Il a quelque chose à mon père, dit-il. Dans son coffre. Un nom. Le seul que mon père n'a pas pu garder. » Il remet son masque. « Le vainqueur entre dans la grande salle des Archives, devant le coffre. Je compte gagner. »",
     "Puis, par-dessus son épaule, en s'en allant : « Si tu gagnes avant moi, ouvre-le. Tu verras. »"
@@ -25930,9 +25607,6 @@
      "to": "II_S3_nuit"
     },
     "lose": {
-     "fx": {
-      "flag": "sud3:glaneur_passe"
-     },
      "to": "II_S3_nuit"
     }
    },
@@ -25997,8 +25671,7 @@
     {
      "label": "Prendre la copie",
      "fx": {
-      "item": "liste_champions",
-      "flag": "sud3:clerc_ami"
+      "item": "liste_champions"
      },
      "to": "II_S3_nuit"
     }
@@ -26195,9 +25868,6 @@
    "choices": [
     {
      "label": "Ramasser ce qui reste dans la neige",
-     "fx": {
-      "flag": "nord:braise"
-     },
      "to": "II_N4_braise"
     },
     {
@@ -26395,9 +26065,6 @@
         }
        }
       ]
-     },
-     "fx": {
-      "flag": "nord:odile_guide"
      },
      "to": "@route"
     },
@@ -26638,9 +26305,6 @@
    ],
    "choices": [
     {
-     "fx": {
-      "flag": "nord:geant_souffre"
-     },
      "back": "II_N4_cirque"
     }
    ]
@@ -26693,7 +26357,6 @@
      },
      "win": {
       "fx": {
-       "flag": "nord:pie_vole",
        "item": "nom_vole",
        "ep": [
         "perso",
@@ -26703,9 +26366,6 @@
       "to": "II_N4_pie_ok"
      },
      "lose": {
-      "fx": {
-       "flag": "nord:pie_repere"
-      },
       "to": "II_N4_pie_rate"
      }
     },
@@ -26868,7 +26528,6 @@
      },
      "win": {
       "fx": {
-       "flag": "nord:geant_ecoute",
        "ep": [
         "perso",
         1500
@@ -26997,7 +26656,7 @@
      "if": {
       "has": "nord:gaspard_sait"
      },
-     "text": "Un seul nom. Gaspard l'a dit : il ne sait en donner qu'un."
+     "text": "Un seul nom. Tu te rappelles les mots de Gaspard : il ne sait en donner qu'un."
     },
     {
      "if": {
@@ -27473,8 +27132,7 @@
      "fx": {
       "conf": {
        "hylas": 5
-      },
-      "flag": "hylas:peuple"
+      }
      },
      "back": "II_N4_soir"
     }
@@ -27617,9 +27275,6 @@
       "to": "II_S4_melee_ok"
      },
      "lose": {
-      "fx": {
-       "flag": "sud4:melee_perdue"
-      },
       "to": "II_S4_melee_rate"
      }
     },
@@ -27967,7 +27622,6 @@
     {
      "label": "La proclamation",
      "fx": {
-      "flag": "lisandre:hautvent_chante",
       "conf": {
        "lisandre": 10
       }
@@ -28408,7 +28062,6 @@
     {
      "label": "« Ouvrez le coffre, Majesté. Devant nous. »",
      "fx": {
-      "flag": "sud4:demande=coffre",
       "ep": [
        "perso",
        1500
@@ -28419,7 +28072,6 @@
     {
      "label": "« Qu'on rende à Votre Majesté le nom de son fils. »",
      "fx": {
-      "flag": "sud4:demande=aymeric",
       "ep": [
        "perso",
        1500
@@ -28519,7 +28171,6 @@
     {
      "label": "Prendre l'ordre",
      "fx": {
-      "flag": "hautvent:libres",
       "item": "ordre_hautvent"
      },
      "to": "II_S4_tumulte"
@@ -28759,9 +28410,6 @@
    "choices": [
     {
      "label": "Monter au col",
-     "fx": {
-      "flag": "nord:clan_col"
-     },
      "to": "@route"
     }
    ]
@@ -28970,7 +28618,6 @@
     {
      "label": "Reculer",
      "fx": {
-      "flag": "nord:ardael_vu",
       "clue": "n_outreblanc"
      },
      "to": "II_N5_col"
@@ -29234,8 +28881,7 @@
      "fx": {
       "conf": {
        "ysolde": 5
-      },
-      "flag": "ysolde:ne_tiendra_pas"
+      }
      },
      "back": "II_N5_feu"
     }
@@ -29412,7 +29058,6 @@
       }
      },
      "fx": {
-      "flag": "sud5:cles",
       "item": "trois_cles"
      },
      "to": "II_S5_serrurier"
@@ -29424,9 +29069,6 @@
        "has": "sud3:chemin_glaneur"
       }
      },
-     "fx": {
-      "flag": "sud5:entree=grille"
-     },
      "to": "II_S5_egouts"
     },
     {
@@ -29435,9 +29077,6 @@
       "not": {
        "has": "sud3:chemin_garde"
       }
-     },
-     "fx": {
-      "flag": "sud5:entree=jardin"
      },
      "to": "II_S5_jardin"
     },
@@ -29455,16 +29094,10 @@
        ]
       }
      },
-     "fx": {
-      "flag": "sud5:entree=linette"
-     },
      "to": "II_S5_linette"
     },
     {
      "label": "Escalader la Tour par la face nord, jusqu'à la coupole",
-     "fx": {
-      "flag": "sud5:entree=coupole"
-     },
      "to": "II_S5_escalade"
     }
    ]
@@ -29492,9 +29125,6 @@
        "has": "sud3:chemin_glaneur"
       }
      },
-     "fx": {
-      "flag": "sud5:entree=grille"
-     },
      "to": "II_S5_egouts"
     },
     {
@@ -29504,16 +29134,10 @@
        "has": "sud3:chemin_garde"
       }
      },
-     "fx": {
-      "flag": "sud5:entree=jardin"
-     },
      "to": "II_S5_jardin"
     },
     {
      "label": "Escalader la face nord",
-     "fx": {
-      "flag": "sud5:entree=coupole"
-     },
      "to": "II_S5_escalade"
     }
    ]
@@ -29585,9 +29209,6 @@
       ]
      },
      "win": {
-      "fx": {
-       "flag": "sud5:garde_dupe"
-      },
       "to": "II_S5_paliers"
      },
      "lose": {
@@ -29812,9 +29433,6 @@
       ]
      },
      "win": {
-      "fx": {
-       "flag": "sud5:chien_calme"
-      },
       "to": "II_S5_salle"
      },
      "lose": {
@@ -29994,9 +29612,6 @@
    "choices": [
     {
      "label": "Soulever le couvercle",
-     "fx": {
-      "flag": "sud5:coffre_force"
-     },
      "to": "II_S5_coffre"
     }
    ]
@@ -30023,7 +29638,6 @@
      "label": "Prendre le registre",
      "fx": {
       "item": "registre_noir",
-      "flag": "sud5:registre",
       "quest": "II_S_archives",
       "ep": [
        "perso",
@@ -30041,10 +29655,6 @@
       "item": [
        "registre_noir",
        "feuilles_lisse"
-      ],
-      "flag": [
-       "sud5:registre",
-       "sud5:lisse_pris"
       ],
       "quest": [
        "II_S_archives",
@@ -30279,8 +29889,7 @@
     {
      "label": "Partir vers le nord",
      "fx": {
-      "drop": "registre_noir",
-      "flag": "orlan:registre"
+      "drop": "registre_noir"
      },
      "to": "II_S5_depart"
     }
@@ -30350,8 +29959,7 @@
    "fx": {
     "regroup": true,
     "lead": "corbe",
-    "leadQuiet": true,
-    "flag": "rupture:col"
+    "leadQuiet": true
    },
    "text": [
     "À l'aube, un feu sur la crête du sud. Puis des silhouettes qui descendent, à pied, en tirant des chevaux fourbus.",
@@ -30459,10 +30067,7 @@
     {
      "label": "Monter sur la pierre, chanter les trois vers, et entrer",
      "fx": {
-      "flag": [
-       "corbe:rite_ii",
-       "corbe:voie_ii=rite"
-      ],
+      "flag": "corbe:rite_ii",
       "quest": "II_N_rite",
       "ep": [
        "perso",
@@ -30521,10 +30126,7 @@
     {
      "label": "Refuser. Personne n'entrera",
      "fx": {
-      "flag": [
-       "corbe:refuse_ii",
-       "corbe:voie_ii=refus"
-      ],
+      "flag": "corbe:voie_ii=refus",
       "quest": "II_N_rite",
       "ep": [
        "perso",
@@ -30593,9 +30195,6 @@
    "choices": [
     {
      "label": "Puis le monde craque",
-     "fx": {
-      "flag": "orsans:premiers"
-     },
      "to": "II_R_rupture"
     }
    ]
@@ -30622,9 +30221,6 @@
    "noLead": true,
    "title": "La Rupture",
    "place": "col",
-   "fx": {
-    "flag": "acte2:rupture"
-   },
    "text": [
     "Le bruit vient de partout à la fois, et de très loin. Un craquement de glace qui cède, sous tout le royaume. Comme si le monde était un lac gelé, et que quelqu'un venait de marcher au milieu.",
     {
@@ -30932,7 +30528,6 @@
     {
      "label": "Fin de l'Acte II",
      "fx": {
-      "flag": "acte2:fin",
       "ep": [
        "histoire",
        8000
@@ -31082,7 +30677,6 @@
      },
      "win": {
       "fx": {
-       "flag": "nord:bergere_maison",
        "ep": [
         "perso",
         600
@@ -31138,7 +30732,6 @@
      },
      "win": {
       "fx": {
-       "flag": "nord:bergere_maison",
        "ep": [
         "perso",
         600
@@ -31268,7 +30861,6 @@
     },
     "win": {
      "fx": {
-      "flag": "nord:berceau",
       "ep": [
        "seance",
        900
@@ -31320,7 +30912,6 @@
     {
      "label": "Écrire vos noms, à l'encre et au couteau, dans le bois de l'étagère",
      "fx": {
-      "flag": "nord:refuge_noms",
       "ep": [
        "perso",
        400
@@ -31753,7 +31344,6 @@
      },
      "win": {
       "fx": {
-       "flag": "sud:liste_rayes",
        "ep": [
         "perso",
         600
@@ -31926,9 +31516,6 @@
     },
     {
      "label": "La laisser où elle est",
-     "fx": {
-      "flag": "iii:toupie_laissee"
-     },
      "to": "@route"
     }
    ]
@@ -31964,9 +31551,6 @@
     },
     {
      "label": "Lui donner un mot de passe, n'importe lequel",
-     "fx": {
-      "flag": "iii:soldat_passe"
-     },
      "to": "E3_soldat_passe"
     }
    ]
@@ -32087,7 +31671,6 @@
      },
      "win": {
       "fx": {
-       "flag": "iii:puits_joris",
        "ep": [
         "perso",
         900
@@ -32101,9 +31684,6 @@
     },
     {
      "label": "Crier ton nom dans le puits",
-     "fx": {
-      "flag": "iii:puits_crie"
-     },
      "to": "E3_puits_crie"
     }
    ]
@@ -32286,7 +31866,6 @@
      },
      "win": {
       "fx": {
-       "flag": "nord:lignee=chant",
        "ep": [
         "perso",
         1200
@@ -32320,7 +31899,6 @@
     },
     "win": {
      "fx": {
-      "flag": "nord:lignee=combat",
       "ep": [
        "seance",
        900
@@ -32662,7 +32240,6 @@
      },
      "lose": {
       "fx": {
-       "flag": "sud:theatre=rate",
        "gold": 3,
        "ep": [
         "perso",
@@ -32750,9 +32327,6 @@
    "choices": [
     {
      "label": "Rester en haut toute la nuit pour garder la lanterne allumée",
-     "fx": {
-      "flag": "sud:phare=veille"
-     },
      "to": "II_Q_phare_naufrageurs"
     },
     {
@@ -33025,8 +32599,7 @@
    "choices": [
     {
      "fx": {
-      "quest": "II_Q_fioles",
-      "flag": "sud:fioles=parties"
+      "quest": "II_Q_fioles"
      },
      "back": "II_S_vasselin"
     }
@@ -33081,10 +32654,7 @@
      },
      "win": {
       "fx": {
-       "flag": [
-        "sud:fioles=rendu",
-        "sud:orane_rendue"
-       ],
+       "flag": "sud:fioles=rendu",
        "ep": [
         "perso",
         1500
@@ -33198,8 +32768,7 @@
    "choices": [
     {
      "fx": {
-      "quest": "II_Q_fioles",
-      "flag": "sud:fioles=laissees"
+      "quest": "II_Q_fioles"
      },
      "back": "II_S_vasselin"
     }
@@ -33477,9 +33046,6 @@
    "takes": "night",
    "title": "Le garçon des foins",
    "place": "moutier",
-   "fx": {
-    "flag": "veillee2:enfant"
-   },
    "text": [
     "L'enfant de Sauvelune ne dort pas. Il est assis sous les arcades du cloître, face au col, et il regarde la lumière blanche qui monte de la déchirure. Tu t'assieds à côté de lui en silence. Au clan, on ne parle pas à quelqu'un qui regarde.",
     "Au bout d'un long moment, c'est lui qui parle. « Tu as déjà eu l'impression qu'un endroit t'appelait par ton nom ? Pas celui qu'on t'a donné. Un autre. »"
@@ -33543,9 +33109,6 @@
    "takes": "night",
    "title": "La chevalière et la sauvage",
    "place": "moutier",
-   "fx": {
-    "flag": "veillee2:ysolde"
-   },
    "text": [
     "Ysolde nettoie son épée dans la salle capitulaire, à la lueur d'une chandelle, comme si elle allait se battre demain. Elle ne te regarde pas quand tu entres. Depuis le départ, elle te parle peu. Tu sais ce qu'on dit des gens du Corbeau, à Brenne : qu'ils mangent leurs morts.",
     "« Vous mangez vos morts ? » demande-t-elle, sans lever les yeux. Au moins, elle a le courage de demander."
@@ -33609,9 +33172,6 @@
    "takes": "night",
    "title": "Le voleur et le tambour",
    "place": "moutier",
-   "fx": {
-    "flag": "veillee2:pie"
-   },
    "text": [
     "Pie a trouvé ton tambour dans ton sac et le regarde sous toutes les coutures, à la chandelle, avec un intérêt de professionnel. Il l'a emprunté, dit-il, et il tient à la nuance.",
     "« Les signes, là, sur la peau. C'est de l'écriture ? » Il passe le doigt sur les traits d'ocre. « Je croyais que vous ne saviez pas écrire, là-haut. »"
@@ -33675,9 +33235,6 @@
    "takes": "night",
    "title": "Le greffier et la Bouche",
    "place": "moutier",
-   "fx": {
-    "flag": "veillee2:hylas"
-   },
    "text": [
     "Hylas est dans la bibliothèque du moutier. Il tient le livre fermé : ses yeux sont morts. Il est assis au milieu des livres, et il les sent, il les écoute, la tête penchée, comme on écoute une foule.",
     "« On m'a dit que vous n'écriviez rien, au clan, dit-il quand tu entres. Que vous gardiez tout dans la voix. » Il sourit. « J'ai passé ma vie à faire le contraire. Je me demande lequel de nous deux a tort. »"
@@ -33741,9 +33298,6 @@
    "takes": "night",
    "title": "L'ennemi au coin du feu",
    "place": "moutier",
-   "fx": {
-    "flag": "veillee2:rodric"
-   },
    "text": [
     "Rodric s'est installé dans les cuisines, près du seul feu qui marche, et il fait griller du lard sur la pointe de sa dague. Il t'en tend un morceau sans te regarder. Il parle l'esquarrois comme on mâche du cuir, et toi, tu parles la langue du clan, que personne ne parle en bas. Vous avez fait la route en vous montrant les choses du doigt.",
     "Il montre le col, par la fenêtre. Puis il montre ton tambour. Puis il fait un geste de question, les sourcils levés."
@@ -33807,9 +33361,6 @@
    "takes": "night",
    "title": "La page blanche",
    "place": "moutier",
-   "fx": {
-    "flag": "veillee2:linette"
-   },
    "text": [
     "Linette lit, comme toujours, un livre pris au hasard. Elle lit les lettres une par une, à voix basse, en les épelant, comme un enfant. Elle a dix ans. On lui a tout repris sauf ça.",
     "Elle lève les yeux vers toi. « Toi, tu ne sais pas lire, dit-elle. Et tu sais plein de choses. Comment tu fais pour te rappeler ? »"
@@ -33873,9 +33424,6 @@
    "takes": "night",
    "title": "Le petit montagnard",
    "place": "vasselin",
-   "fx": {
-    "flag": "veillee2:enfant"
-   },
    "text": [
     "L'enfant de Sauvelune est à la fenêtre de l'Ancre, et il regarde la mer. Il l'a vue pour la première fois avant-hier, et il la regarde encore. Il est minuit, il fait noir, on ne voit que les feux des navires, et il regarde quand même.",
     "« Elle ne s'arrête jamais, dit-il. Elle fait le même bruit depuis toujours. Elle ne doit rien oublier, elle. »"
@@ -33939,9 +33487,6 @@
    "takes": "night",
    "title": "La garde et la chanteuse",
    "place": "vasselin",
-   "fx": {
-    "flag": "veillee2:ysolde"
-   },
    "text": [
     "Ysolde ne supporte pas Vasselin. Trop de monde, trop de bruit, trop de soie. Elle est assise sur son lit, à l'Ancre, en chemise, et elle recoud elle-même la doublure de son gambison, avec une aiguille de sellier et une colère méthodique.",
     "« Vous, les gens de cour, dit-elle sans lever les yeux, vous dites toujours le contraire de ce que vous pensez. Comment on fait, pour savoir ? »"
@@ -34005,9 +33550,6 @@
    "takes": "night",
    "title": "Deux menteurs",
    "place": "vasselin",
-   "fx": {
-    "flag": "veillee2:pie"
-   },
    "text": [
     "Pie joue aux dés avec lui-même, sur la table de la salle commune, et il triche. Contre lui-même. Avec beaucoup d'application. Tu t'assieds en face.",
     "« Tu mens pour la reine, dit-il en lançant les dés. Moi, je mens pour moi. Lequel est le plus honnête, à ton avis ? »"
@@ -34071,9 +33613,6 @@
    "takes": "night",
    "title": "Le vieux maître",
    "place": "vasselin",
-   "fx": {
-    "flag": "veillee2:hylas"
-   },
    "text": [
     "Hylas t'a demandé de lui lire quelque chose. N'importe quoi. Tu lui lis l'almanach de l'Ancre, le seul livre de l'auberge : les marées, les foires, les saints du mois. Il écoute avec une attention extraordinaire.",
     "« Vous lisez bien, dit-il. Vous lisez comme on chante. On ne vous a jamais appris à lire sans chanter ? »"
@@ -34137,9 +33676,6 @@
    "takes": "night",
    "title": "Le capitaine de Corvanne",
    "place": "vasselin",
-   "fx": {
-    "flag": "veillee2:rodric"
-   },
    "text": [
     "Rodric a trouvé, dans le port, une taverne de marins corvannais, et il t'y emmène, parce que tu parles corvannais et que personne d'autre ne le parle. On y boit un vin épais, on y chante, on y joue au couteau. Personne n'y sait qu'un capitaine ennemi boit à côté d'une chanteuse de la reine d'Esquarre.",
     {
@@ -34218,9 +33754,6 @@
    "takes": "night",
    "title": "La petite scribe",
    "place": "vasselin",
-   "fx": {
-    "flag": "veillee2:linette"
-   },
    "text": [
     "Linette a trouvé ton cahier de chansons, celui où tu écris les brouillons avant de les mettre au propre pour la cour. Elle le lit. Elle lit les ratures. Surtout les ratures.",
     "« Pourquoi tu as barré celle-là ? » Elle te montre une strophe. Une strophe sur un garçon de Corvanne, écrite il y a deux ans, et barrée le lendemain."
@@ -34572,7 +34105,6 @@
     {
      "label": "Écrire tes deux noms dans la cendre",
      "fx": {
-      "flag": "iv:clan_lettres",
       "ep": [
        "perso",
        600
@@ -34760,7 +34292,6 @@
       "conf": {
        "givre": 30
       },
-      "flag": "givre:moulin",
       "ep": [
        "perso",
        1500
@@ -35200,9 +34731,6 @@
    ],
    "choices": [
     {
-     "fx": {
-      "flag": "acte3:marcheurs"
-     },
      "back": "III_plaine"
     }
    ]
@@ -35279,16 +34807,12 @@
      },
      "why": "Tu n'as rien.",
      "fx": {
-      "gold": -1,
-      "flag": "iii:dieu_prie"
+      "gold": -1
      },
      "to": "III_c_dieu_prie"
     },
     {
      "label": "Lui dire une prière, n'importe laquelle",
-     "fx": {
-      "flag": "iii:dieu_prie"
-     },
      "to": "III_c_dieu_prie"
     },
     {
@@ -35600,9 +35124,6 @@
    "choices": [
     {
      "label": "Ne pas insister, pour l'instant",
-     "fx": {
-      "flag": "iii:hylas_soupcon"
-     },
      "to": "III_c_ville"
     }
    ]
@@ -35645,7 +35166,6 @@
       }
      },
      "fx": {
-      "flag": "iii:sauvelune_partie",
       "ep": [
        "perso",
        1000
@@ -35828,9 +35348,6 @@
    "noLead": true,
    "title": "La capitaine",
    "place": "cloches",
-   "fx": {
-    "flag": "iii:lisse_ysolde"
-   },
    "text": [
     "Ysolde avance. Les gens se lèvent. Ils ne s'écartent pas. Ils l'entourent.",
     "Une femme dit son nom. Puis celui de son fils, qu'elle tient par la main, huit ans. Puis un vieux dit le sien. Puis tous, l'un après l'autre, lentement, calmement, en la regardant dans les yeux. Ça dure longtemps. Ysolde reste debout. Elle les écoute tous.",
@@ -35965,8 +35482,7 @@
    "place": "cloches",
    "fx": {
     "flag": [
-     "linette_avant:vue",
-     "linette_avant:pie"
+     "linette_avant:vue"
     ]
    },
    "text": [
@@ -36017,9 +35533,6 @@
    "choices": [
     {
      "label": "Le regarder repartir en courant",
-     "fx": {
-      "flag": "aymeric:vu"
-     },
      "to": "III_c_ville"
     }
    ]
@@ -36048,8 +35561,7 @@
    "place": "cloches",
    "fx": {
     "flag": [
-     "acte3:cloches_fini",
-     "enfant:bourdon"
+     "acte3:cloches_fini"
     ],
     "ep": [
      "histoire",
@@ -36235,7 +35747,6 @@
      },
      "win": {
       "fx": {
-       "flag": "iii:ecole",
        "ep": [
         "perso",
         900
@@ -36295,7 +35806,6 @@
     {
      "label": "« C'est la Saint-Martin. Tu peux rentrer. »",
      "fx": {
-      "flag": "iii:navire=rentre",
       "ep": [
        "perso",
        500
@@ -36305,9 +35815,6 @@
     },
     {
      "label": "« Je ne sais pas. Ici, il n'y a pas de jours. »",
-     "fx": {
-      "flag": "iii:navire=verite"
-     },
      "to": "III_b_navire_verite"
     }
    ]
@@ -36674,9 +36181,6 @@
    ],
    "choices": [
     {
-     "fx": {
-      "flag": "enfant:berceau"
-     },
      "back": "III_e_hameau"
     }
    ]
@@ -36723,7 +36227,6 @@
     {
      "label": "Ne rien dire. Lui demander seulement de chanter encore",
      "fx": {
-      "flag": "maera:chante",
       "ep": [
        "perso",
        1500
@@ -36781,9 +36284,6 @@
    ],
    "choices": [
     {
-     "fx": {
-      "flag": "enfant:berceuse"
-     },
      "back": "III_e_hameau"
     }
    ]
@@ -36816,10 +36316,7 @@
     {
      "label": "« Merci. »",
      "fx": {
-      "flag": [
-       "hylas:avoue",
-       "enfant:pardonne_hylas"
-      ],
+      "flag": "enfant:pardonne_hylas",
       "conf": {
        "hylas": 15
       },
@@ -36833,10 +36330,6 @@
     {
      "label": "« Tu aurais dû me le dire. »",
      "fx": {
-      "flag": [
-       "hylas:avoue",
-       "enfant:reproche_hylas"
-      ],
       "conf": {
        "hylas": -5
       },
@@ -36949,7 +36442,6 @@
      },
      "win": {
       "fx": {
-       "flag": "iii:buche",
        "ep": [
         "perso",
         800
@@ -37010,7 +36502,6 @@
     {
      "label": "« Oui. J'ai froid. »",
      "fx": {
-      "flag": "iii:fil",
       "item": "fil_ellerune",
       "ep": [
        "perso",
@@ -37073,9 +36564,6 @@
    "choices": [
     {
      "label": "Dire « Sauvelune »",
-     "fx": {
-      "flag": "iii:puits_jeu=sauvelune"
-     },
      "to": "III_el_puits_sauvelune"
     },
     {
@@ -37086,7 +36574,6 @@
       }
      },
      "fx": {
-      "flag": "iii:puits_jeu=maera",
       "ep": [
        "perso",
        800
@@ -37132,9 +36619,6 @@
    "noLead": true,
    "title": "Marcher avec Ysolde",
    "place": "plaine",
-   "fx": {
-    "flag": "iii:marche=ysolde"
-   },
    "text": [
     "Ysolde marche au pas, exactement, même ici, où le sol ne garde pas les traces. Tu marches à côté d'elle. Au bout d'un moment, elle dit : « Il n'y a pas d'ordres, ici. Personne à commander. Personne qui me commande. » Elle se tait. « Je ne sais pas marcher sans ordres. Je viens de m'en rendre compte. »"
    ],
@@ -37192,9 +36676,6 @@
    "noLead": true,
    "title": "Marcher avec Pie",
    "place": "plaine",
-   "fx": {
-    "flag": "iii:marche=pie"
-   },
    "text": [
     "Pie marche les mains dans les poches, et il siffle, et le blanc avale le sifflement. Il siffle quand même. « Linette, dit-il tout à coup. Si elle est ici, quelque part. Si elle est tombée aussi. » Il ne finit pas."
    ],
@@ -37252,9 +36733,6 @@
    "noLead": true,
    "title": "Marcher avec Hylas",
    "place": "plaine",
-   "fx": {
-    "flag": "iii:marche=hylas"
-   },
    "text": [
     "Hylas voit, ici. Il regarde tout. Le blanc, tes mains, les marcheurs au loin, ses propres pieds. Il s'arrête souvent. « Je n'avais pas vu de couleur depuis trente ans, dit-il. Et il n'y en a pas ici. C'est presque drôle. »",
     "Il te regarde, longtemps, ton visage, comme il le lisait avec les doigts. « Tu ressembles à ta mère », dit-il. Puis il se mord la lèvre, comme quelqu'un qui en a trop dit."
@@ -37313,9 +36791,6 @@
    "noLead": true,
    "title": "Marcher avec Corbe",
    "place": "plaine",
-   "fx": {
-    "flag": "iii:marche=corbe"
-   },
    "text": [
     "Corbe marche pieds nus. Elle a ôté ses bottes, et elle les porte à la main. « Je veux sentir, dit-elle. Ce qu'elle sent, elle. La Mère. Ce qu'elle a sous les pieds. »",
     "Elle s'arrête. « Rien. C'est ça, le pire. C'est tiède, sans saison. Ce n'est rien. Elle vit dans rien. »"
@@ -37374,9 +36849,6 @@
    "noLead": true,
    "title": "Marcher avec Lisandre",
    "place": "plaine",
-   "fx": {
-    "flag": "iii:marche=lisandre"
-   },
    "text": [
     "Lisandre ne chante plus. Elle a essayé, au réveil, et le blanc a avalé la note. Elle marche les bras croisés, comme si elle avait froid. Elle n'a pas froid. « Une chanteuse qui ne peut pas chanter, dit-elle. Tu sais ce que c'est ? Rien. Une femme en robe déchirée, dans le blanc. »"
    ],
@@ -37434,9 +36906,6 @@
    "noLead": true,
    "title": "Marcher avec Givre",
    "place": "plaine",
-   "fx": {
-    "flag": "iii:marche=givre"
-   },
    "text": [
     "Givre trotte devant toi sur la plaine, puis revient, puis repart. Ici, il est chez lui. Il grandit un peu, à chaque pas, comme s'il se nourrissait de l'air. Il rapporte des choses, de temps en temps, et les pose à tes pieds : un bouton, une clé, une dent de lait."
    ],
@@ -37717,9 +37186,6 @@
    "noLead": true,
    "title": "Les cinq",
    "place": "valcendre",
-   "fx": {
-    "flag": "iii:statues"
-   },
    "text": [
     "Au milieu de la grand-place, sur un socle de pierre noire, cinq statues de glace. Cinq personnes, grandeur nature, debout, dos à dos, comme pour se défendre.",
     "Un homme en armure, avec une tour sur le plastron. Une femme corpulente, avec une gerbe brodée sur la manche. Un homme maigre, en manteau de marin, avec une barque au pommeau de son poignard. Un chevalier jeune, avec un cerf sur l'écu. Et un homme en robe longue, tenant une plume et une clé.",
@@ -37777,7 +37243,6 @@
    "choices": [
     {
      "fx": {
-      "flag": "iii:ysolde_remparts",
       "conf": {
        "ysolde": 5
       }
@@ -37812,7 +37277,6 @@
    "choices": [
     {
      "fx": {
-      "flag": "iii:lisandre_choeur",
       "conf": {
        "lisandre": 5
       }
@@ -37899,8 +37363,7 @@
    "title": "Ardaël",
    "place": "valcendre",
    "fx": {
-    "meet": "ardael",
-    "flag": "iii:ardael"
+    "meet": "ardael"
    },
    "text": [
     "« Je t'ai donné à ta mère, dit-il, et ta mère t'a donné au monde. Je lui en ai voulu. Je lui en veux encore. » Sa voix est grave, très douce, et elle fait trembler les colonnes. « Tu étais le premier. Le premier de nous à naître ici en trois cents ans. Elle disait que tu méritais le soleil. »",
@@ -37922,9 +37385,6 @@
     },
     {
      "label": "« Je ne suis pas d'ici. Je suis de Sauvelune. »",
-     "fx": {
-      "flag": "aelan:sauvelune"
-     },
      "to": "III_v_pourquoi"
     }
    ]
@@ -37968,7 +37428,6 @@
     {
      "label": "« J'irai. »",
      "fx": {
-      "flag": "proces:accepte",
       "ep": [
        "perso",
        1500
@@ -37979,10 +37438,6 @@
     {
      "label": "« J'irai. Mais je dirai ce que je verrai, pas ce que tu veux entendre. »",
      "fx": {
-      "flag": [
-       "proces:accepte",
-       "aelan:libre"
-      ],
       "conf": {
        "sansnom": 5
       },
@@ -38232,10 +37687,7 @@
     {
      "label": "Le garder ici, dans sa glace. Que le monde ne sache jamais",
      "fx": {
-      "flag": [
-       "proces:tour",
-       "proces:tour=garde"
-      ],
+      "flag": "proces:tour",
       "ep": [
        "perso",
        800
@@ -38341,10 +37793,7 @@
     {
      "label": "Le garder ici, dans sa glace. Que le monde ne sache jamais",
      "fx": {
-      "flag": [
-       "proces:gerbe",
-       "proces:gerbe=garde"
-      ],
+      "flag": "proces:gerbe",
       "ep": [
        "perso",
        800
@@ -38448,10 +37897,7 @@
     {
      "label": "Le garder ici, dans sa glace. Que le monde ne sache jamais",
      "fx": {
-      "flag": [
-       "proces:barque",
-       "proces:barque=garde"
-      ],
+      "flag": "proces:barque",
       "ep": [
        "perso",
        800
@@ -38499,9 +37945,6 @@
    ],
    "choices": [
     {
-     "fx": {
-      "flag": "iii:iselde"
-     },
      "back": "III_p_place"
     }
    ]
@@ -38567,10 +38010,7 @@
     {
      "label": "Le garder ici, dans sa glace. Que le monde ne sache jamais",
      "fx": {
-      "flag": [
-       "proces:cerf",
-       "proces:cerf=garde"
-      ],
+      "flag": "proces:cerf",
       "ep": [
        "perso",
        800
@@ -38700,10 +38140,7 @@
     {
      "label": "Le garder ici, dans sa glace. Que le monde ne sache jamais",
      "fx": {
-      "flag": [
-       "proces:plume",
-       "proces:plume=garde"
-      ],
+      "flag": "proces:plume",
       "ep": [
        "perso",
        800
@@ -38899,10 +38336,7 @@
      },
      "win": {
       "fx": {
-       "flag": [
-        "parole:noms",
-        "aelan:dit_les_noms"
-       ],
+       "flag": "aelan:dit_les_noms",
        "ep": [
         "perso",
         3000
@@ -38911,9 +38345,6 @@
       "to": "III_p_parole_noms"
      },
      "lose": {
-      "fx": {
-       "flag": "parole:noms_rate"
-      },
       "to": "III_p_parole_rate"
      }
     }
@@ -39025,7 +38456,6 @@
     {
      "label": "Passer la nuit à Valcendre",
      "fx": {
-      "flag": "iii:revelation",
       "ep": [
        "perso",
        2000
@@ -39290,8 +38720,7 @@
      "fx": {
       "conf": {
        "sansnom": 10
-      },
-      "flag": "sansnom:veut"
+      }
      },
      "back": "III_a_nuit"
     }
@@ -39393,10 +38822,7 @@
      },
      "why": "Tu ne lui as pas dit qui tu étais.",
      "fx": {
-      "flag": [
-       "ame:maera",
-       "ame:choisie"
-      ],
+      "flag": "ame:maera",
       "ep": [
        "perso",
        2000
@@ -39410,10 +38836,7 @@
       "has": "nord:rendu=sauvelune"
      },
      "fx": {
-      "flag": [
-       "ame:moulin",
-       "ame:choisie"
-      ],
+      "flag": "ame:moulin",
       "ep": [
        "perso",
        2000
@@ -39428,10 +38851,7 @@
      },
      "why": "Ils ne t'ont rien demandé.",
      "fx": {
-      "flag": [
-       "ame:lisse",
-       "ame:choisie"
-      ],
+      "flag": "ame:lisse",
       "ep": [
        "perso",
        2000
@@ -39446,10 +38866,7 @@
      },
      "why": "Tu ne l'as pas rencontrée.",
      "fx": {
-      "flag": [
-       "ame:linette",
-       "ame:choisie"
-      ],
+      "flag": "ame:linette",
       "ep": [
        "perso",
        2000
@@ -39464,10 +38881,7 @@
      },
      "why": "Personne ne tient la porte pour toi.",
      "fx": {
-      "flag": [
-       "ame:askel",
-       "ame:choisie"
-      ],
+      "flag": "ame:askel",
       "ep": [
        "perso",
        2000
@@ -39478,10 +38892,7 @@
     {
      "label": "Ton frère. Qu'on se souvienne de lui, là-haut",
      "fx": {
-      "flag": [
-       "ame:sansnom",
-       "ame:choisie"
-      ],
+      "flag": "ame:sansnom",
       "ep": [
        "perso",
        2000
@@ -39492,9 +38903,6 @@
     {
      "label": "Personne. Garder le présent pour plus tard",
      "fx": {
-      "flag": [
-       "ame:gardee"
-      ],
       "ep": [
        "perso",
        1000
@@ -39647,8 +39055,7 @@
      "fx": {
       "conf": {
        "sansnom": 25
-      },
-      "flag": "sansnom:sans_masque"
+      }
      },
      "to": "III_a_route"
     }
@@ -39726,7 +39133,6 @@
      },
      "win": {
       "fx": {
-       "flag": "porte:inapercu",
        "ep": [
         "perso",
         1500
@@ -39755,7 +39161,6 @@
     "range": "contact",
     "win": {
      "fx": {
-      "flag": "porte:glaneurs_tues",
       "ep": [
        "seance",
        2500
@@ -39881,7 +39286,6 @@
    "title": "La fente",
    "place": "valcendre",
    "fx": {
-    "flag": "acte3:fin",
     "ep": [
      "histoire",
      5000
@@ -40000,9 +39404,6 @@
     },
     {
      "label": "« Vous. »",
-     "fx": {
-      "flag": "iii:gue_mensonge"
-     },
      "to": "III_Q_gue_mensonge"
     }
    ]
@@ -40213,9 +39614,6 @@
     },
     {
      "label": "Te relever avant de vouloir y retourner",
-     "fx": {
-      "flag": "iii:lac_quitte"
-     },
      "to": "III_Q_lac_fin"
     }
    ]
@@ -40378,7 +39776,6 @@
     {
      "label": "L'appeler",
      "fx": {
-      "flag": "givre:choisi",
       "conf": {
        "givre": 20
       },
@@ -40601,8 +39998,7 @@
       "join": "ombeline",
       "conf": {
        "ombeline": 10
-      },
-      "flag": "iv:ombeline"
+      }
      },
      "to": "IV_moutier"
     },
@@ -40617,11 +40013,7 @@
       "join": "ombeline",
       "conf": {
        "ombeline": 15
-      },
-      "flag": [
-       "iv:ombeline",
-       "ombeline:faim_suit"
-      ]
+      }
      },
      "to": "IV_ombeline_faim"
     },
@@ -40676,10 +40068,6 @@
      "why": "Il faudrait quelque chose de solide à quoi t'accrocher, et tu l'as déjà donné.",
      "fx": {
       "souv": "enfant:serment",
-      "flag": [
-       "ombeline:faim_partagee",
-       "enfant:faim"
-      ],
       "join": "ombeline",
       "conf": {
        "ombeline": 30
@@ -40912,9 +40300,6 @@
    ],
    "choices": [
     {
-     "fx": {
-      "flag": "iv:chronique"
-     },
      "back": "IV_moutier"
     }
    ]
@@ -40943,7 +40328,6 @@
    "choices": [
     {
      "fx": {
-      "flag": "iv:arnoul",
       "clue": "n_caveau"
      },
      "back": "IV_moutier"
@@ -41504,9 +40888,6 @@
    "noLead": true,
    "title": "Le clan du Corbeau",
    "place": "corbeau",
-   "fx": {
-    "flag": "iv:clan_vu"
-   },
    "text": [
     {
      "if": {
@@ -41870,7 +41251,6 @@
     {
      "label": "Leur dire. Valcendre, Maëra, Ardaël. Ton nom",
      "fx": {
-      "flag": "famille:sait",
       "ep": [
        "perso",
        2000
@@ -41880,9 +41260,6 @@
     },
     {
      "label": "Ne rien dire. Tu es leur fils. C'est tout ce qui compte ce soir",
-     "fx": {
-      "flag": "famille:tu"
-     },
      "to": "IV_sv_taire"
     }
    ]
@@ -42005,7 +41382,6 @@
      "label": "« Viens avec nous, Gaspard. »",
      "fx": {
       "join": "gaspard",
-      "flag": "iv:gaspard",
       "conf": {
        "gaspard": 15
       },
@@ -42031,7 +41407,6 @@
       }
      },
      "fx": {
-      "flag": "gaspard:four",
       "ep": [
        "perso",
        1000
@@ -42132,7 +41507,6 @@
       "has": "nord:rendu=sauvelune"
      },
      "fx": {
-      "flag": "chene:deux_noms",
       "ep": [
        "perso",
        800
@@ -42351,9 +41725,6 @@
     },
     {
      "label": "Repartir vers le moutier",
-     "fx": {
-      "flag": "iv:sauvelune_vu"
-     },
      "travel": "r_iv_sauvelune"
     }
    ]
@@ -42469,7 +41840,6 @@
      },
      "win": {
       "fx": {
-       "flag": "pal:entree=faux_nom",
        "ep": [
         "perso",
         1000
@@ -42478,12 +41848,6 @@
       "to": "IV_pal_entree"
      },
      "lose": {
-      "fx": {
-       "flag": [
-        "pal:entree=reperes",
-        "pal:alerte"
-       ]
-      },
       "to": "IV_pal_repere"
      }
     },
@@ -42495,7 +41859,6 @@
       }
      },
      "fx": {
-      "flag": "pal:entree=teinturiers",
       "ep": [
        "perso",
        800
@@ -42551,10 +41914,7 @@
      "lose": {
       "fx": {
        "pv": -3,
-       "flag": [
-        "pal:entree=rempart",
-        "pal:alerte"
-       ]
+       "flag": "pal:entree=rempart"
       },
       "to": "IV_pal_repere"
      }
@@ -42591,10 +41951,7 @@
     {
      "label": "Entrer dans la ville par les caves",
      "fx": {
-      "flag": [
-       "pal:entree=liseurs",
-       "pal:orlan"
-      ],
+      "flag": "pal:orlan",
       "ep": [
        "perso",
        1000
@@ -43078,9 +42435,6 @@
    "choices": [
     {
      "label": "Remercier la Veuve",
-     "fx": {
-      "flag": "pal:veuve"
-     },
      "to": "IV_pal"
     }
    ]
@@ -43140,9 +42494,6 @@
    ],
    "choices": [
     {
-     "fx": {
-      "flag": "pal:queue"
-     },
      "back": "IV_pal"
     }
    ]
@@ -43217,10 +42568,7 @@
      },
      "win": {
       "fx": {
-       "flag": [
-        "pie:iv=aide",
-        "pal:pie_dedans"
-       ],
+       "flag": "pal:pie_dedans",
        "conf": {
         "pie": 10
        },
@@ -43232,9 +42580,6 @@
       "to": "IV_pal_pie_oui"
      },
      "lose": {
-      "fx": {
-       "flag": "pie:iv=refus"
-      },
       "to": "IV_pal_pie_non"
      }
     },
@@ -43247,7 +42592,6 @@
      },
      "fx": {
       "flag": [
-       "pie:iv=aide",
        "pal:pie_dedans",
        "pie:voit_linette_avant"
       ],
@@ -43399,9 +42743,6 @@
        "has": "pal:pie_dedans"
       }
      },
-     "fx": {
-      "flag": "tour:entree=pie"
-     },
      "to": "IV_tour_escalier"
     },
     {
@@ -43412,8 +42753,7 @@
       }
      },
      "fx": {
-      "drop": "vin_corvanne",
-      "flag": "tour:entree=vin"
+      "drop": "vin_corvanne"
      },
      "to": "IV_tour_portier"
     },
@@ -43424,9 +42764,6 @@
        "has": "pal:anseau"
       }
      },
-     "fx": {
-      "flag": "tour:entree=cloche"
-     },
      "to": "IV_tour_cloche"
     },
     {
@@ -43435,9 +42772,6 @@
       "not": {
        "has": "pal:baudoin"
       }
-     },
-     "fx": {
-      "flag": "tour:entree=baudoin"
      },
      "to": "IV_tour_escalier"
     },
@@ -43448,16 +42782,10 @@
        "has": "pal:lingerie"
       }
      },
-     "fx": {
-      "flag": "tour:entree=lingerie"
-     },
      "to": "IV_tour_lingerie"
     },
     {
      "label": "Forcer la porte de service",
-     "fx": {
-      "flag": "tour:entree=force"
-     },
      "to": "IV_tour_force"
     }
    ]
@@ -43679,10 +43007,7 @@
      "label": "Redescendre avec elle",
      "fx": {
       "join": "linette",
-      "flag": [
-       "linette:iv=libre",
-       "tour:linette"
-      ],
+      "flag": "linette:iv=libre",
       "ep": [
        "perso",
        2000
@@ -43722,11 +43047,7 @@
      "label": "Redescendre avec elle",
      "fx": {
       "join": "linette",
-      "flag": [
-       "linette:iv=libre",
-       "linette:une",
-       "tour:linette"
-      ],
+      "flag": "linette:iv=libre",
       "ep": [
        "perso",
        3000
@@ -43812,9 +43133,6 @@
      "hide": {
       "has": "rupture:avec:hylas"
      },
-     "fx": {
-      "flag": "tour:anselin_laisse"
-     },
      "to": "IV_tour_caveau_hylas"
     },
     {
@@ -43823,9 +43141,6 @@
       "not": {
        "has": "rupture:avec:hylas"
       }
-     },
-     "fx": {
-      "flag": "tour:anselin_laisse"
      },
      "to": "IV_tour_escalier"
     }
@@ -43870,8 +43185,7 @@
    "choices": [
     {
      "fx": {
-      "join": "hylas",
-      "flag": "hylas:iv=libre"
+      "join": "hylas"
      },
      "back": "IV_tour_escalier"
     }
@@ -43916,23 +43230,14 @@
    "choices": [
     {
      "label": "« Jamais. »",
-     "fx": {
-      "flag": "mordace:iv=jamais"
-     },
      "to": "IV_tour_mordace3"
     },
     {
      "label": "Ne rien répondre",
-     "fx": {
-      "flag": "mordace:iv=silence"
-     },
      "to": "IV_tour_mordace3"
     },
     {
      "label": "« Et Sauvelune ? Tu l'as cédée aussi, pour la paix ? »",
-     "fx": {
-      "flag": "mordace:iv=sauvelune"
-     },
      "to": "IV_tour_mordace_sv"
     }
    ]
@@ -43949,9 +43254,6 @@
    "choices": [
     {
      "label": "Passer devant lui",
-     "fx": {
-      "flag": "enfant:sait_sauvelune"
-     },
      "to": "IV_tour_mordace3"
     }
    ]
@@ -44598,7 +43900,6 @@
      "win": {
       "fx": {
        "join": "ysolde",
-       "flag": "ysolde:iv=vient",
        "conf": {
         "ysolde": 10
        },
@@ -44610,9 +43911,6 @@
       "to": "IV_br_ysolde_vient"
      },
      "lose": {
-      "fx": {
-       "flag": "ysolde:iv=pont"
-      },
       "to": "IV_br_ysolde_reste"
      }
     },
@@ -44620,9 +43918,6 @@
      "label": "La laisser à son pont",
      "hide": {
       "has": "rupture:avec:ysolde"
-     },
-     "fx": {
-      "flag": "ysolde:iv=pont"
      },
      "to": "IV_br_ysolde_reste"
     },
@@ -44655,10 +43950,7 @@
    "choices": [
     {
      "fx": {
-      "flag": [
-       "ysolde:iv=compagnie",
-       "ysolde:pont"
-      ],
+      "flag": "ysolde:pont",
       "conf": {
        "ysolde": 5
       }
@@ -44818,7 +44110,6 @@
      "label": "Convenir de se retrouver au saule, à la nuit",
      "fx": {
       "join": "rodric",
-      "flag": "rodric:iv",
       "ep": [
        "perso",
        1000
@@ -44927,7 +44218,6 @@
      "label": "« Mène-nous à la margrave. »",
      "fx": {
       "join": "lisandre",
-      "flag": "lisandre:iv=corvanne",
       "conf": {
        "lisandre": 10
       },
@@ -44952,9 +44242,6 @@
    "choices": [
     {
      "label": "Aller à la tente bleue",
-     "fx": {
-      "flag": "lisandre:iv=avec"
-     },
      "to": "IV_cv_margrave"
     }
    ]
@@ -45005,10 +44292,7 @@
      },
      "win": {
       "fx": {
-       "flag": [
-        "corvanne:iv=ecoute",
-        "corvanne:sait_mordace"
-       ],
+       "flag": "corvanne:iv=ecoute",
        "ep": [
         "perso",
         2500
@@ -45026,10 +44310,7 @@
     {
      "label": "Lui dire ce que Mordace propose à la reine : céder Corvanne",
      "fx": {
-      "flag": [
-       "corvanne:iv=menace",
-       "corvanne:sait_cession"
-      ],
+      "flag": "corvanne:iv=menace",
       "ep": [
        "perso",
        1500
@@ -45164,7 +44445,6 @@
     {
      "label": "Attendre l'aube",
      "fx": {
-      "flag": "iv:veille",
       "ep": [
        "histoire",
        3000
@@ -45254,7 +44534,6 @@
      },
      "win": {
       "fx": {
-       "flag": "odon:bonne",
        "ep": [
         "perso",
         1000
@@ -45264,7 +44543,6 @@
      },
      "lose": {
       "fx": {
-       "flag": "odon:bonne",
        "ep": [
         "perso",
         600
@@ -45330,7 +44608,6 @@
       }
      },
      "fx": {
-      "flag": "fevrier:nom",
       "conf": {
        "givre": 10
       },
@@ -45344,7 +44621,6 @@
     {
      "label": "Lui donner un nom, un vrai, que tu choisis",
      "fx": {
-      "flag": "fevrier:nomme",
       "ep": [
        "perso",
        800
@@ -45355,7 +44631,6 @@
     {
      "label": "Lui dire que Février, c'est un beau nom",
      "fx": {
-      "flag": "fevrier:garde",
       "ep": [
        "perso",
        500
@@ -45370,6 +44645,7 @@
    "noLead": true,
    "title": "Le chien jaune",
    "place": "moutier",
+   "with": "givre",
    "text": [
     "Givre souffle sur les doigts du garçon, très doucement, comme on souffle sur une braise. La miette brille un instant et disparaît dans la main.",
     "Le garçon regarde sa main. « Pataud, dit-il. Le chien s'appelait Pataud. » Puis, sans transition, très vite, comme s'il avait peur que ça reparte : « Et moi, Colin. Colin Margerie. De la Varenne. Mon père a la forge. » Il se met à pleurer et à rire, et il court dire à Odon de corriger son livre."
@@ -45642,15 +44918,11 @@
    "choices": [
     {
      "label": "Le goûter",
-     "fx": {
-      "flag": "ruches:goute"
-     },
      "to": "IV_Q_ruches_gout"
     },
     {
      "label": "Enfumer les ruches et prendre les rayons, pour les brûler",
      "fx": {
-      "flag": "ruches:brule",
       "ep": [
        "perso",
        600
@@ -45891,10 +45163,7 @@
      },
      "win": {
       "fx": {
-       "flag": [
-        "liseurs:sauves",
-        "potence:lue"
-       ],
+       "flag": "liseurs:sauves",
        "ep": [
         "perso",
         2000
@@ -45909,7 +45178,6 @@
     {
      "label": "Ne rien faire. Pas maintenant. La tour d'abord",
      "fx": {
-      "flag": "liseurs:pendus",
       "quest": "IV_Q_potence"
      },
      "to": "IV_Q_potence_rien"
@@ -46305,7 +45573,6 @@
       "has": "iii:lisse_noms"
      },
      "fx": {
-      "flag": "lisse:date_gravee",
       "ep": [
        "perso",
        1000
@@ -46373,8 +45640,7 @@
     {
      "label": "Lui acheter des nouvelles, pour deux sous",
      "fx": {
-      "gold": -2,
-      "flag": "fanchon:iv"
+      "gold": -2
      },
      "to": "E4_fanchon_nouvelles"
     },
@@ -46438,7 +45704,6 @@
     {
      "label": "Graver le nom de Sauvelune",
      "fx": {
-      "flag": "cairn:sauvelune",
       "ep": [
        "perso",
        400
@@ -46449,7 +45714,6 @@
     {
      "label": "Graver ton autre nom, celui de Valcendre",
      "fx": {
-      "flag": "cairn:aelan",
       "ep": [
        "perso",
        400
@@ -46601,7 +45865,6 @@
      },
      "win": {
       "fx": {
-       "flag": "faux_jetons:demasques",
        "ep": [
         "perso",
         800
@@ -46615,9 +45878,6 @@
     },
     {
      "label": "Les laisser. Un faux jeton protège autant qu'un vrai",
-     "fx": {
-      "flag": "faux_jetons:laisses"
-     },
      "to": "E4_faux_jetons_laisse"
     }
    ]
@@ -46791,9 +46051,6 @@
     "flee": {
      "dom": "nature",
      "label": "Sauter dans le ruisseau et descendre le courant",
-     "fx": {
-      "flag": "gris:vu"
-     },
      "to": "@route"
     },
     "win": {
@@ -46801,15 +46058,13 @@
       "ep": [
        "seance",
        1200
-      ],
-      "flag": "gris:vu"
+      ]
      },
      "to": "@route"
     },
     "lose": {
      "fx": {
-      "pv": -3,
-      "flag": "gris:vu"
+      "pv": -3
      },
      "to": "@route"
     }
@@ -46838,7 +46093,6 @@
      },
      "fx": {
       "drop": "miel_blanc",
-      "flag": "famille_route:miel",
       "ep": [
        "perso",
        1200
@@ -47012,7 +46266,6 @@
     {
      "label": "Lire la lettre",
      "fx": {
-      "flag": "messager:lu",
       "clue": "n_lettre_reine_iv",
       "ep": [
        "perso",
@@ -47023,9 +46276,6 @@
     },
     {
      "label": "Remettre la lettre au messager, et lui dire où il allait",
-     "fx": {
-      "flag": "messager:aide"
-     },
      "to": "E4_messager_aide"
     }
    ]
@@ -47041,9 +46291,6 @@
    "choices": [
     {
      "label": "Remettre la lettre au messager",
-     "fx": {
-      "flag": "messager:aide"
-     },
      "to": "E4_messager_aide"
     }
    ]
@@ -47127,9 +46374,6 @@
      "hide": {
       "has": "proces:cerf=rendu"
      },
-     "fx": {
-      "flag": "ysolde:cerf_tu"
-     },
      "to": "IV_C_ysolde_choix"
     },
     {
@@ -47170,10 +46414,7 @@
     {
      "label": "Elle regrave le cerf sur l'écu de Raoul",
      "fx": {
-      "flag": [
-       "ysolde:armes=cerf",
-       "brenne:cerf"
-      ],
+      "flag": "brenne:cerf",
       "quest": "IV_C_ysolde",
       "ep": [
        "perso",
@@ -47185,10 +46426,7 @@
     {
      "label": "Elle grave le cerf sous le loup, sur son propre écu",
      "fx": {
-      "flag": [
-       "ysolde:armes=deux",
-       "brenne:cerf"
-      ],
+      "flag": "brenne:cerf",
       "quest": "IV_C_ysolde",
       "conf": {
        "ysolde": 5
@@ -47203,7 +46441,6 @@
     {
      "label": "Elle laisse l'écu lisse",
      "fx": {
-      "flag": "ysolde:armes=loup",
       "quest": "IV_C_ysolde"
      },
      "to": "IV_C_ysolde_lisse"
@@ -48112,7 +47349,6 @@
      },
      "win": {
       "fx": {
-       "flag": "iv:nid_noms",
        "ep": [
         "perso",
         2000
@@ -48258,7 +47494,6 @@
      "label": "Prendre l'épée, lui fermer les yeux, et repasser le pont",
      "fx": {
       "item": "lame_nid",
-      "flag": "iv:nid_greffier",
       "ep": [
        "perso",
        1000
@@ -48399,10 +47634,7 @@
     {
      "label": "Remonter",
      "fx": {
-      "flag": [
-       "iv:nid=pacte",
-       "gaspard:nid"
-      ],
+      "flag": "iv:nid=pacte",
       "conf": {
        "gaspard": 15
       },
@@ -49116,9 +48348,6 @@
    "choices": [
     {
      "label": "Lui parler de la baraque grise",
-     "fx": {
-      "flag": "iv:sergent_allie"
-     },
      "to": "IV_ps_sergent_taille"
     },
     {
@@ -49696,8 +48925,7 @@
    "choices": [
     {
      "fx": {
-      "quest": "IV_Q_jetons",
-      "flag": "iv:jetons=pris"
+      "quest": "IV_Q_jetons"
      },
      "back": "IV_pal"
     }
@@ -50589,7 +49817,6 @@
     {
      "fx": {
       "quest": "II_Q_echo",
-      "flag": "nord:sigrun_entendu",
       "conf": {
        "corbe": 10
       }
@@ -50863,8 +50090,7 @@
       "ep": [
        "perso",
        500
-      ],
-      "flag": "iii:fournil"
+      ]
      },
      "to": "III_a_boulanger_aide"
     }
@@ -51178,8 +50404,7 @@
       "ep": [
        "perso",
        400
-      ],
-      "flag": "iv:ps_peche"
+      ]
      },
      "to": "IV_ps_pont_peche"
     },
@@ -51970,8 +51195,7 @@
       "ep": [
        "perso",
        600
-      ],
-      "flag": "v:aude"
+      ]
      },
      "to": "V_ville"
     }
@@ -51994,8 +51218,7 @@
       "ep": [
        "perso",
        800
-      ],
-      "flag": "v:jetons"
+      ]
      },
      "to": "V_ville"
     }
@@ -52017,8 +51240,7 @@
       "ep": [
        "perso",
        500
-      ],
-      "flag": "v:bleu"
+      ]
      },
      "to": "V_ville"
     }
@@ -52066,7 +51288,6 @@
      },
      "win": {
       "fx": {
-       "flag": "v:fillette=mere",
        "ep": [
         "perso",
         1200
@@ -52107,7 +51328,6 @@
    "choices": [
     {
      "fx": {
-      "flag": "v:fillette=porche",
       "ep": [
        "perso",
        500
@@ -52133,8 +51353,7 @@
       "ep": [
        "perso",
        500
-      ],
-      "flag": "iv:lavoir"
+      ]
      },
      "to": "IV_ps_lavoir_parler"
     },
@@ -52286,15 +51505,11 @@
    "choices": [
     {
      "label": "Prendre ses trois liards",
-     "fx": {
-      "flag": "pie:ninon"
-     },
      "to": "PI_Q_fiole_borgne"
     },
     {
      "label": "Refuser ses liards, et y aller quand même",
      "fx": {
-      "flag": "pie:ninon",
       "ep": [
        "perso",
        300
@@ -52481,7 +51696,6 @@
      },
      "win": {
       "fx": {
-       "flag": "pie:rumeur",
        "ep": [
         "perso",
         600
@@ -52570,9 +51784,6 @@
    ],
    "choices": [
     {
-     "fx": {
-      "flag": "iii:masque_mere"
-     },
      "back": "III_v_porte"
     }
    ]
@@ -52590,8 +51801,7 @@
     {
      "label": "Entrer dans le bassin",
      "fx": {
-      "pv": 10,
-      "flag": "iii:bains"
+      "pv": 10
      },
      "to": "III_v_bains_eau"
     },
@@ -52870,8 +52080,7 @@
       "ep": [
        "perso",
        400
-      ],
-      "flag": "iii:pain_cendres"
+      ]
      },
      "to": "III_el_four_manger"
     },
@@ -53003,8 +52212,7 @@
      "fx": {
       "conf": {
        "linette": 10
-      },
-      "flag": "sud2:linette_memoire"
+      }
      },
      "to": "II_S2_nuit_linette_non"
     }
@@ -53128,7 +52336,6 @@
      },
      "win": {
       "fx": {
-       "flag": "sud3:ecuyer",
        "ep": [
         "perso",
         800
@@ -53262,8 +52469,7 @@
       "ep": [
        "perso",
        300
-      ],
-      "flag": "nord:ermite"
+      ]
      },
      "to": "E2_ermite_noms"
     },
@@ -53323,7 +52529,6 @@
      },
      "win": {
       "fx": {
-       "flag": "sud:menestrels",
        "ep": [
         "perso",
         700
@@ -53451,8 +52656,7 @@
       "ep": [
        "perso",
        400
-      ],
-      "flag": "iii:cheval"
+      ]
      },
      "to": "E3_cheval_monte"
     },
@@ -53540,8 +52744,7 @@
       "ep": [
        "perso",
        400
-      ],
-      "flag": "iv:bucheron"
+      ]
      },
      "to": "E4_bucheron_grave"
     },
@@ -53657,8 +52860,7 @@
       "ep": [
        "perso",
        500
-      ],
-      "flag": "iv:noce"
+      ]
      },
      "to": "E4_noce_danse"
     },
@@ -53700,8 +52902,7 @@
       "ep": [
        "perso",
        600
-      ],
-      "flag": "iv:greffier_fuite"
+      ]
      },
      "to": "E4_greffier_fuite_ok"
     },
@@ -54664,8 +53865,7 @@
       "ep": [
        "perso",
        500
-      ],
-      "flag": "iii:village"
+      ]
      },
      "to": "III_p_village_cloche"
     }
@@ -55081,8 +54281,7 @@
    "choices": [
     {
      "fx": {
-      "quest": "II_Q_galere",
-      "flag": "sud:galere=rien"
+      "quest": "II_Q_galere"
      },
      "back": "II_S_vasselin"
     }
@@ -55099,8 +54298,7 @@
    "choices": [
     {
      "fx": {
-      "quest": "II_Q_galere",
-      "flag": "sud:galere=rien"
+      "quest": "II_Q_galere"
      },
      "back": "II_S_vasselin"
     }
@@ -56000,9 +55198,6 @@
    ],
    "choices": [
     {
-     "fx": {
-      "flag": "iv:tap_esq_peu"
-     },
      "back": "IV_br"
     }
    ]
@@ -56303,7 +55498,6 @@
     {
      "label": "« Montre-moi les pages de la Lisse. »",
      "fx": {
-      "flag": "ysolde:gerbold",
       "ep": [
        "perso",
        600
@@ -56359,8 +55553,7 @@
       "ep": [
        "perso",
        500
-      ],
-      "flag": "iii:guetteur"
+      ]
      },
      "to": "III_p_tour_guet_descendre"
     },
@@ -56486,7 +55679,6 @@
     {
      "label": "Prendre le pinceau, et repeindre les noms effacés",
      "fx": {
-      "flag": "iv:ossuaire_pinceau",
       "ep": [
        "perso",
        600
@@ -57509,8 +56701,7 @@
       "ep": [
        "perso",
        400
-      ],
-      "flag": "iii:bateau"
+      ]
      },
      "to": "III_v_fontaine_bateau"
     },
@@ -57682,7 +56873,6 @@
      },
      "win": {
       "fx": {
-       "flag": "iv:cloche_moutier",
        "ep": [
         "perso",
         800
@@ -57749,8 +56939,7 @@
       "ep": [
        "perso",
        400
-      ],
-      "flag": "iii:remparts"
+      ]
      },
      "to": "III_a_nuit"
     },
@@ -57776,8 +56965,7 @@
       "ep": [
        "perso",
        400
-      ],
-      "flag": "iii:remparts"
+      ]
      },
      "to": "III_a_nuit"
     }
@@ -59141,10 +58329,7 @@
      },
      "win": {
       "fx": {
-       "flag": [
-        "iii:betes",
-        "iii:betes=pre"
-       ],
+       "flag": "iii:betes=pre",
        "quest": "III_Q_betes",
        "ep": [
         "perso",
@@ -59200,7 +58385,6 @@
    "title": "Les clochettes",
    "place": "plaine",
    "fx": {
-    "flag": "iii:betes",
     "quest": "III_Q_betes"
    },
    "text": [
@@ -59816,7 +59000,6 @@
       ]
      },
      "fx": {
-      "flag": "v:queue",
       "quest": "V_Q_queue",
       "ep": [
        "perso",
@@ -59886,10 +59069,7 @@
       }
      },
      "fx": {
-      "flag": [
-       "v:queue",
-       "v:queue=vide"
-      ],
+      "flag": "v:queue=vide",
       "quest": "V_Q_queue",
       "ep": [
        "perso",
@@ -60286,10 +59466,7 @@
      },
      "win": {
       "fx": {
-       "flag": [
-        "iii:braise",
-        "iii:braise=eteinte"
-       ],
+       "flag": "iii:braise=eteinte",
        "quest": "III_Q_foret",
        "ep": [
         "perso",
@@ -60305,10 +59482,7 @@
     {
      "label": "« Donne-la-moi. Je l'emporte là-haut. Ils en ont besoin plus que toi. »",
      "fx": {
-      "flag": [
-       "iii:braise",
-       "iii:braise=emportee"
-      ],
+      "flag": "iii:braise=emportee",
       "quest": "III_Q_foret",
       "ep": [
        "perso",
@@ -60333,10 +59507,7 @@
     {
      "label": "« Donne-la-moi. Je l'emporte là-haut. »",
      "fx": {
-      "flag": [
-       "iii:braise",
-       "iii:braise=emportee"
-      ],
+      "flag": "iii:braise=emportee",
       "quest": "III_Q_foret",
       "ep": [
        "perso",
@@ -60349,10 +59520,7 @@
     {
      "label": "Le laisser à sa braise",
      "fx": {
-      "flag": [
-       "iii:braise",
-       "iii:braise=gardee"
-      ],
+      "flag": "iii:braise=gardee",
       "quest": "III_Q_foret"
      },
      "to": "III_F_gardee"
@@ -60814,8 +59982,7 @@
       "ep": [
        "perso",
        400
-      ],
-      "flag": "v:relais"
+      ]
      },
      "to": "V_r_relais_craie"
     },
@@ -60955,8 +60122,7 @@
       "ep": [
        "perso",
        400
-      ],
-      "flag": "v:oratoire"
+      ]
      },
      "to": "V_r_oratoire_priere"
     },
@@ -61082,8 +60248,7 @@
       "ep": [
        "perso",
        300
-      ],
-      "flag": "iv:onze_villages"
+      ]
      },
      "to": "IV_cv_villages_main"
     }
@@ -61136,8 +60301,7 @@
       "ep": [
        "perso",
        400
-      ],
-      "flag": "iv:cantiniere"
+      ]
      },
      "to": "IV_cv_cantiniere_nom"
     },
@@ -61206,8 +60370,7 @@
       "ep": [
        "perso",
        600
-      ],
-      "flag": "iv:rodric_pays"
+      ]
      },
      "back": "IV_cv_camp"
     }
@@ -61289,7 +60452,6 @@
      },
      "win": {
       "fx": {
-       "flag": "v:pages_nommees",
        "ep": [
         "perso",
         2000
@@ -61793,8 +60955,7 @@
       "ep": [
        "perso",
        400
-      ],
-      "flag": "lisandre:orsolle"
+      ]
      },
      "to": "E_c_harpe_corde"
     },
@@ -61854,8 +61015,7 @@
       "ep": [
        "perso",
        400
-      ],
-      "flag": "lisandre:enfants"
+      ]
      },
      "to": "E_c_village_arret"
     },
@@ -61955,8 +61115,7 @@
       "ep": [
        "perso",
        400
-      ],
-      "flag": "lisandre:cavalier"
+      ]
      },
      "to": "E_c_escorte_nom"
     },
@@ -62236,8 +61395,7 @@
       "ep": [
        "perso",
        300
-      ],
-      "flag": "sud3:heraut"
+      ]
      },
      "to": "II_S3_heraut_bouclier"
     },
@@ -62335,8 +61493,7 @@
       "ep": [
        "perso",
        300
-      ],
-      "flag": "sud3:enfants"
+      ]
      },
      "to": "II_S3_enfants_la"
     },
@@ -62497,8 +61654,7 @@
       "ep": [
        "perso",
        400
-      ],
-      "flag": "iii:bal"
+      ]
      },
      "to": "E3_danseurs_vieux"
     },
@@ -62819,7 +61975,6 @@
    "choices": [
     {
      "fx": {
-      "flag": "v:berengere",
       "conf": {
        "hylas": 10
       },
@@ -62872,9 +62027,6 @@
    ],
    "choices": [
     {
-     "fx": {
-      "flag": "v:orgue"
-     },
      "back": "V_ville"
     }
    ]
@@ -63146,8 +62298,7 @@
       "ep": [
        "perso",
        400
-      ],
-      "flag": "iv:livre_crayon"
+      ]
      },
      "to": "IV_ps_livre_crayon"
     }
@@ -63221,8 +62372,7 @@
       "ep": [
        "perso",
        400
-      ],
-      "flag": "iv:refectoire_inconnu"
+      ]
      },
      "to": "IV_m_refectoire_inconnu"
     }
@@ -63299,8 +62449,7 @@
       "ep": [
        "perso",
        300
-      ],
-      "flag": "iv:jeu_glaneur"
+      ]
      },
      "to": "IV_m_jeu_bandeau"
     },
@@ -63377,8 +62526,7 @@
       "ep": [
        "perso",
        400
-      ],
-      "flag": "iv:portier"
+      ]
      },
      "to": "IV_m_portier_garde"
     }
@@ -63735,8 +62883,7 @@
       "ep": [
        "perso",
        400
-      ],
-      "flag": "v:dortoir"
+      ]
      },
      "to": "V_e_dortoir_grave"
     },
@@ -63803,7 +62950,6 @@
    "choices": [
     {
      "fx": {
-      "flag": "v:sceau_hylas",
       "conf": {
        "hylas": 10
       },
@@ -63868,7 +63014,6 @@
      },
      "win": {
       "fx": {
-       "flag": "v:glaneurs_nourris",
        "ep": [
         "perso",
         3000
@@ -63931,8 +63076,7 @@
        "ep": [
         "perso",
         500
-       ],
-       "flag": "nord:lutte"
+       ]
       },
       "to": "II_N_lutte_corbe"
      },
@@ -63958,8 +63102,7 @@
      "fx": {
       "conf": {
        "rodric": 5
-      },
-      "flag": "nord:lutte"
+      }
      },
      "back": "II_N_camp"
     }
@@ -64678,7 +63821,6 @@
       ]
      },
      "fx": {
-      "flag": "v:lettre_agathe",
       "ep": [
        "perso",
        1000
@@ -65013,7 +64155,6 @@
     {
      "label": "Prendre sa lance, et lui dire d'aller dormir : tu es la relève",
      "fx": {
-      "flag": "iii:releve",
       "ep": [
        "perso",
        800
@@ -65069,7 +64210,6 @@
     {
      "label": "Lui donner le nom de la rivière que tu connais le mieux : la Sauve",
      "fx": {
-      "flag": "iii:passeur",
       "ep": [
        "perso",
        600
@@ -65145,7 +64285,6 @@
       }
      },
      "fx": {
-      "flag": "iii:courrier_cheval",
       "ep": [
        "perso",
        600
@@ -65175,7 +64314,6 @@
      },
      "win": {
       "fx": {
-       "flag": "iii:courrier_tri",
        "ep": [
         "perso",
         800
@@ -65273,10 +64411,7 @@
      },
      "win": {
       "fx": {
-       "flag": [
-        "iv:tilleul",
-        "iv:tilleul=sauve"
-       ],
+       "flag": "iv:tilleul=sauve",
        "ep": [
         "perso",
         800
@@ -65289,10 +64424,7 @@
      },
      "lose": {
       "fx": {
-       "flag": [
-        "iv:tilleul",
-        "iv:tilleul=abattu"
-       ]
+       "flag": "iv:tilleul=abattu"
       },
       "to": "IV_br_tilleul_abattu"
      }
@@ -65300,10 +64432,7 @@
     {
      "label": "Regarder Ysolde, et la laisser décider",
      "fx": {
-      "flag": [
-       "iv:tilleul",
-       "iv:tilleul=abattu"
-      ],
+      "flag": "iv:tilleul=abattu",
       "ep": [
        "perso",
        400
@@ -65432,10 +64561,7 @@
     {
      "label": "Toussoter, pour qu'ils sachent qu'on est là, et repartir en silence",
      "fx": {
-      "flag": [
-       "hylas:dortoir",
-       "hylas:dortoir=tu"
-      ],
+      "flag": "hylas:dortoir=tu",
       "ep": [
        "perso",
        500
@@ -65446,10 +64572,7 @@
     {
      "label": "Rester, et écouter jusqu'au bout",
      "fx": {
-      "flag": [
-       "hylas:dortoir",
-       "hylas:dortoir=tu"
-      ],
+      "flag": "hylas:dortoir=tu",
       "ep": [
        "perso",
        300
@@ -65460,10 +64583,7 @@
     {
      "label": "Faire ce que dit le règlement",
      "fx": {
-      "flag": [
-       "hylas:dortoir",
-       "hylas:dortoir=signale"
-      ]
+      "flag": "hylas:dortoir=signale"
      },
      "to": "HY_k_dortoir_regle"
     }
@@ -65533,15 +64653,11 @@
    "choices": [
     {
      "label": "Appliquer la règle",
-     "fx": {
-      "flag": "hylas:examen=regle"
-     },
      "to": "HY_k_examen_regle"
     },
     {
      "label": "Dire que c'est parfait",
      "fx": {
-      "flag": "hylas:examen=passe",
       "ep": [
        "perso",
        300
@@ -65571,7 +64687,6 @@
      },
      "win": {
       "fx": {
-       "flag": "hylas:examen=relu",
        "ep": [
         "perso",
         600
@@ -65580,9 +64695,6 @@
       "to": "HY_k_examen_relu"
      },
      "lose": {
-      "fx": {
-       "flag": "hylas:examen=regle"
-      },
       "to": "HY_k_examen_regle"
      }
     }
@@ -65645,7 +64757,6 @@
     {
      "label": "Demander à qui était la chambre",
      "fx": {
-      "flag": "lisandre:nursery",
       "ep": [
        "perso",
        300
@@ -65656,7 +64767,6 @@
     {
      "label": "Prendre le cheval de bois, et le faire basculer, une fois",
      "fx": {
-      "flag": "lisandre:nursery",
       "ep": [
        "perso",
        300
@@ -66332,10 +65442,7 @@
      },
      "win": {
       "fx": {
-       "flag": [
-        "iv:complainte",
-        "iv:complainte=vraie"
-       ],
+       "flag": "iv:complainte=vraie",
        "ep": [
         "perso",
         1000
@@ -66350,10 +65457,7 @@
     {
      "label": "Acheter une feuille, pour la garder",
      "fx": {
-      "flag": [
-       "iv:complainte",
-       "iv:complainte=achetee"
-      ],
+      "flag": "iv:complainte=achetee",
       "gold": -1
      },
      "to": "IV_ps_complainte_feuille"
@@ -66512,10 +65616,7 @@
     {
      "label": "Peindre sur leurs tentes le corbeau avec un trait : le signe du clan",
      "fx": {
-      "flag": [
-       "nord:lievre",
-       "nord:lievre=adoptes"
-      ],
+      "flag": "nord:lievre=adoptes",
       "ep": [
        "perso",
        800
@@ -66526,10 +65627,7 @@
     {
      "label": "Peindre la spirale : le vent, et le chemin",
      "fx": {
-      "flag": [
-       "nord:lievre",
-       "nord:lievre=vent"
-      ],
+      "flag": "nord:lievre=vent",
       "ep": [
        "perso",
        600
@@ -66604,7 +65702,6 @@
     {
      "label": "Prendre un sac, et compter avec lui",
      "fx": {
-      "flag": "v:moulin_vent",
       "ep": [
        "perso",
        800
@@ -66660,7 +65757,6 @@
     {
      "label": "Chercher le nom du chien, sur son collier",
      "fx": {
-      "flag": "v:berger",
       "ep": [
        "perso",
        800
@@ -66794,7 +65890,6 @@
       }
      },
      "fx": {
-      "flag": "en:linteaux_neige",
       "ep": [
        "perso",
        600
@@ -66939,7 +66034,6 @@
     {
      "label": "Écrire ton nom et, dessous, une croix pour celui que tu ne connais pas",
      "fx": {
-      "flag": "iii:relais_nom",
       "ep": [
        "perso",
        600
@@ -67542,10 +66636,7 @@
      },
      "win": {
       "fx": {
-       "flag": [
-        "iv:prisonnier",
-        "iv:prisonnier=rendu"
-       ],
+       "flag": "iv:prisonnier=rendu",
        "ep": [
         "perso",
         1200
@@ -67555,10 +66646,7 @@
      },
      "lose": {
       "fx": {
-       "flag": [
-        "iv:prisonnier",
-        "iv:prisonnier=reste"
-       ]
+       "flag": "iv:prisonnier=reste"
       },
       "to": "IV_cv_prisonniers_reste"
      }
@@ -67566,10 +66654,7 @@
     {
      "label": "Lui promettre de dire à Brenne qu'il est vivant",
      "fx": {
-      "flag": [
-       "iv:prisonnier",
-       "iv:prisonnier=reste"
-      ],
+      "flag": "iv:prisonnier=reste",
       "ep": [
        "perso",
        500
@@ -67775,7 +66860,6 @@
     {
      "label": "« C'est moi. Le petit de Maëra. »",
      "fx": {
-      "flag": "iii:guetteur",
       "ep": [
        "perso",
        800
@@ -67964,10 +67048,7 @@
     {
      "label": "« Pour Sauvelune. Tout ce qu'on lui a pris. »",
      "fx": {
-      "flag": [
-       "v:reclamation",
-       "v:reclamation=sauvelune"
-      ],
+      "flag": "v:reclamation",
       "ep": [
        "perso",
        1000
@@ -67990,10 +67071,7 @@
       }
      },
      "fx": {
-      "flag": [
-       "v:reclamation",
-       "v:reclamation=linette"
-      ],
+      "flag": "v:reclamation",
       "ep": [
        "perso",
        1000
@@ -68004,10 +67082,7 @@
     {
      "label": "« Pour moi. Ce qu'on m'a pris, quand j'avais deux ans. »",
      "fx": {
-      "flag": [
-       "v:reclamation",
-       "v:reclamation=moi"
-      ],
+      "flag": "v:reclamation",
       "ep": [
        "perso",
        1000
@@ -68124,7 +67199,6 @@
     {
      "label": "Lui demander de te raconter le naufrage, et repeindre le nom",
      "fx": {
-      "flag": "sud:exvoto",
       "ep": [
        "perso",
        700
@@ -68210,10 +67284,7 @@
      },
      "win": {
       "fx": {
-       "flag": [
-        "v:bal",
-        "v:bal=danse"
-       ],
+       "flag": "v:bal",
        "ep": [
         "perso",
         1000
@@ -68228,10 +67299,7 @@
     {
      "label": "Leur dire ce qui se passe dehors",
      "fx": {
-      "flag": [
-       "v:bal",
-       "v:bal=masques"
-      ],
+      "flag": "v:bal",
       "ep": [
        "perso",
        600
@@ -68289,9 +67357,6 @@
    "takes": "night",
    "title": "La lampe de l'Hospice",
    "place": "moutier",
-   "fx": {
-    "flag": "veillee:ombeline"
-   },
    "text": [
     "Ombeline veille. Elle dort peu, depuis l'année blanche. Elle est assise dans la chapelle du moutier, une lampe à ses pieds, et elle égrène quelque chose entre ses doigts. Pas un chapelet. Une ficelle à nœuds, longue de plusieurs aunes.",
     "« Un nœud par mourant, dit-elle sans lever les yeux. Ceux à qui j'ai pris le pire, pour qu'ils partent légers. Je les porte. C'est mon métier. » Elle arrive au bout de la ficelle. « Cette année, il y en a eu beaucoup. Je ne sais plus si c'est encore de la miséricorde, ce que je fais, ou si je fais comme lui, en plus petit. »"
@@ -68355,9 +67420,6 @@
    "takes": "night",
    "title": "Le tambour éteint",
    "place": "moutier",
-   "fx": {
-    "flag": "veillee:corbe"
-   },
    "text": [
     "Corbe s'est installée sur le toit du cloître, parce qu'elle ne supporte pas de dormir sous un plafond. Tu la rejoins par l'échelle du guet. Elle a son tambour sur les genoux. Elle n'en joue pas.",
     "« Au clan, dit-elle, on dit que la Bouche ne doit pas avoir d'amis. Parce qu'un jour, elle devra choisir entre eux et la Mère. » Elle tapote le tambour, une fois, du bout de l'ongle. « Je crois que j'ai raté ça aussi. »"
@@ -68421,9 +67483,6 @@
    "takes": "night",
    "title": "Le renard et le feu",
    "place": "moutier",
-   "fx": {
-    "flag": "veillee:givre"
-   },
    "text": [
     "Givre ne s'approche jamais du feu. Ce soir, il est couché à trois pas, juste à la limite, là où la chaleur commence. Il te regarde. Il a quelque chose dans la gueule, qu'il dépose devant toi : une miette. Un souvenir à toi, minuscule, qu'il a dû ramasser quelque part, un jour où tu l'avais perdu. La couleur d'un ruban.",
     "Il attend."
@@ -68487,9 +67546,6 @@
    "takes": "night",
    "title": "Les mots de Linette",
    "place": "brenne",
-   "fx": {
-    "flag": "veillee:linette"
-   },
    "text": [
     "Linette a trouvé les archives du fort de Brenne et n'en sort plus. Tu la trouves à minuit, une chandelle à la main, en train de tout lire, n'importe quoi : un traité d'apiculture, un livre de comptes, un psautier. Elle lit à voix basse, très vite.",
     "« J'ai neuf ans de mots à rattraper, dit-elle sans lever les yeux. Ceux d'avant. Je ne les retrouverai jamais. Alors j'en prends d'autres. » Elle tourne une page. « Tu crois que c'est pareil ? »"
@@ -68554,9 +67610,6 @@
    "takes": "night",
    "title": "Les toits",
    "place": "pallanche",
-   "fx": {
-    "flag": "veillee:pie"
-   },
    "text": [
     "Pie t'emmène sur les toits de la Veuve, puis sur ceux d'à côté, puis plus loin, jusqu'au faîte d'une église d'où l'on voit tout Pallanche. La tour noire, au milieu. Les cent clochers. La queue sur la place aux Clercs, éclairée de lanternes, qui ne dort jamais.",
     "« J'ai grandi là-dessus, dit-il. J'ai volé toute cette ville, un bout après l'autre. » Il s'assied sur les tuiles. « Et je ne l'ai jamais aimée. C'est drôle. Je crois que je l'aime ce soir, parce qu'elle va peut-être disparaître. »"
@@ -68620,9 +67673,6 @@
    "takes": "night",
    "title": "Ce qu'on doit",
    "place": "pallanche",
-   "fx": {
-    "flag": "veillee:hylas"
-   },
    "text": [
     "Hylas est assis dans l'arrière-boutique de la Veuve, les mains croisées sur sa canne. Il t'attendait. Il reconnaît ton pas à cent marches, comme il disait.",
     "« J'ai quelque chose à te dire, et je ne sais pas le dire, dit-il. Alors je vais le dire mal. » Il se tait. « Je t'ai porté hors de l'Outre-Blanc, il y a vingt ans. Je ne te l'ai pas dit. Pendant vingt ans. J'avais mes raisons. Elles étaient toutes mauvaises. » Il lève vers toi ses yeux blancs. « Je ne te demande pas pardon. Je voulais seulement que tu l'entendes de moi, une fois, dans une pièce chaude, et pas dans une tour. »"
@@ -68686,9 +67736,6 @@
    "takes": "night",
    "title": "La chanson commandée",
    "place": "pallanche",
-   "fx": {
-    "flag": "veillee:lisandre"
-   },
    "text": [
     "Lisandre accorde son luth dans un coin de l'arrière-boutique. Elle n'arrive pas à l'accorder. Elle recommence, et recommence.",
     "« Pendant douze ans, dit-elle, j'ai chanté ce qu'on me commandait. Des victoires. Des mariages. Des deuils qui n'étaient pas les miens. Je les chantais très bien. » Elle pince une corde, fausse. « Maintenant que personne ne me commande rien, je ne sais plus quoi chanter. C'est ridicule. »"
@@ -68752,9 +67799,6 @@
    "takes": "night",
    "title": "Le vin de l'ennemi",
    "place": "brenne",
-   "fx": {
-    "flag": "veillee:rodric"
-   },
    "text": [
     "Rodric a trouvé du vin de Corvanne dans le camp d'Esquarre, Dieu sait comment. Il en verse deux gobelets, sans te demander. « Bois. C'est le meilleur vin du monde, et il pousse sur la rive d'en face. Les Esquarrois ne l'ont jamais su. »",
     "Il boit. « Mes fils l'aimaient. Les trois. » Il fait tourner son gobelet. « Ils sont morts sur la Lisse, sous des flèches d'Esquarre. Et me voilà dans un camp d'Esquarre, à boire avec un enfant d'Esquarre, pour sauver Esquarre. » Il rit, sans joie. « Mes fils me cracheraient dessus. »"
@@ -68818,9 +67862,6 @@
    "takes": "night",
    "title": "Le chemin de ronde",
    "place": "brenne",
-   "fx": {
-    "flag": "veillee:ysolde"
-   },
    "text": [
     "Ysolde fait le tour du chemin de ronde de Brenne, la nuit, comme elle le faisait avant. Tu marches avec elle. Elle connaît chaque pierre, chaque sentinelle, chaque créneau ébréché.",
     "« Ce fort était à moi, dit-elle. J'étais née pour le tenir. Et la seule chose que je me rappelle avoir vraiment faite, en le tenant, c'est ce que j'ai payé pour oublier. » Elle s'arrête au-dessus de la Lisse. On voit le pont. « Je ne sais pas si je veux le reprendre, ce fort. Je ne sais pas si j'en ai le droit. »"
@@ -68884,9 +67925,6 @@
    "takes": "night",
    "title": "Ton frère",
    "place": "brenne",
-   "fx": {
-    "flag": "veillee:sansnom"
-   },
    "text": [
     "Ton frère est assis à l'écart, au bord du camp, son masque de givre posé à côté de lui sur l'herbe. Hors de l'Outre-Blanc, le monde l'oublie dès qu'il détourne les yeux. Les sentinelles passent devant lui sans le voir. Toi, tu le vois.",
     "« Tu te souviens de moi, dit-il. Entre deux fois. » Ce n'est pas une question. « Comment tu fais ? »"
@@ -68950,9 +67988,6 @@
    "takes": "night",
    "title": "Le levain",
    "place": "brenne",
-   "fx": {
-    "flag": "veillee:gaspard"
-   },
    "text": [
     "Gaspard a gardé un peu de levain, dans un pot de grès, qu'il nourrit chaque soir avec de la farine et de l'eau, comme on nourrit une bête. Il te le montre. « Trois cents ans, dit-il. Celui de mon four, à Sauvelune. J'en avais gardé un bout, dans ma poche, quand je suis devenu une chose blanche. Je ne m'en souvenais plus. Je l'ai retrouvé l'an dernier. »",
     "Il remue le levain du bout du doigt. « Un levain, ça ne meurt pas, si on le nourrit. Un village non plus. Je me demande. »"
@@ -69015,9 +68050,6 @@
    "noLead": true,
    "title": "L'aube",
    "place": "brenne",
-   "fx": {
-    "flag": "lisse:aube"
-   },
    "text": [
     "La brume monte de la Lisse comme tous les matins d'été, épaisse, blanche, et noie la vallée. Quand elle se lève, les deux armées sont là, rangées, sur les deux rives, à trois cents pas du pont. Personne n'a dormi.",
     {
@@ -69141,10 +68173,7 @@
      "tag": "Corvanne cédée",
      "stain": true,
      "fx": {
-      "flag": [
-       "lisse:cession",
-       "aelan:passeur"
-      ],
+      "flag": "lisse:cession",
       "conf": {
        "lisandre": -40,
        "ysolde": -20,
@@ -69737,7 +68766,6 @@
       "has": "ysolde:pont"
      },
      "fx": {
-      "flag": "lisse:blesses",
       "ep": [
        "perso",
        1500
@@ -69762,10 +68790,6 @@
     {
      "label": "Le soir",
      "fx": {
-      "flag": [
-       "lisse:pont_debout",
-       "ysolde:torche_jetee"
-      ],
       "conf": {
        "ysolde": 15
       },
@@ -69825,7 +68849,6 @@
     {
      "label": "Tourner le dos à la Lisse, vers l'ouest",
      "fx": {
-      "flag": "acte4:fin",
       "ep": [
        "histoire",
        8000
@@ -69870,7 +68893,6 @@
    "title": "La neige",
    "place": null,
    "fx": {
-    "flag": "acte5:debut",
     "catchup": 17,
     "catchupAll": true,
     "catchupWhy": "la Lisse"
@@ -70440,7 +69462,6 @@
       }
      },
      "fx": {
-      "flag": "ysolde:lisse_rendu",
       "conf": {
        "ysolde": 10
       }
@@ -70450,8 +69471,7 @@
     {
      "label": "Prendre le bocal de Mordace",
      "fx": {
-      "item": "bocal_mordace",
-      "flag": "v:bocal_mordace"
+      "item": "bocal_mordace"
      },
      "to": "V_t_cessions"
     },
@@ -70544,7 +69564,6 @@
     {
      "label": "Monter aux archives",
      "fx": {
-      "flag": "v:pages_nommees",
       "conf": {
        "linette": 15,
        "pie": 10
@@ -70575,9 +69594,6 @@
    "choices": [
     {
      "label": "Monter aux archives",
-     "fx": {
-      "flag": "v:encre"
-     },
      "to": "V_t_archives"
     }
    ]
@@ -71325,7 +70341,6 @@
     },
     "win": {
      "fx": {
-      "flag": "v:queue_defendue",
       "ep": [
        "seance",
        2500
@@ -72262,9 +71277,6 @@
    "choices": [
     {
      "label": "Chercher ton propre nom",
-     "fx": {
-      "flag": "v:chapelle"
-     },
      "to": "V_e_chapelle_nom"
     },
     {
@@ -72500,8 +71512,7 @@
    "place": "pallanche",
    "fx": {
     "flag": [
-     "fin:porte",
-     "acte5:fin"
+     "fin:porte"
     ],
     "ep": [
      "histoire",
@@ -72544,8 +71555,7 @@
    "place": "pallanche",
    "fx": {
     "flag": [
-     "fin:roi",
-     "acte5:fin"
+     "fin:roi"
     ],
     "ep": [
      "histoire",
@@ -72578,8 +71588,7 @@
    "place": "pallanche",
    "fx": {
     "flag": [
-     "fin:frere",
-     "acte5:fin"
+     "fin:frere"
     ],
     "ep": [
      "histoire",
@@ -72619,8 +71628,7 @@
    "place": "pallanche",
    "fx": {
     "flag": [
-     "fin:degel",
-     "acte5:fin"
+     "fin:degel"
     ],
     "ep": [
      "histoire",
@@ -72662,8 +71670,7 @@
    "place": "pallanche",
    "fx": {
     "flag": [
-     "fin:cendres",
-     "acte5:fin"
+     "fin:cendres"
     ],
     "drop": "registre_anselin",
     "ep": [
@@ -72693,8 +71700,7 @@
    "place": "pallanche",
    "fx": {
     "flag": [
-     "fin:gardien",
-     "acte5:fin"
+     "fin:gardien"
     ],
     "ep": [
      "histoire",
@@ -72737,8 +71743,7 @@
    "place": "pallanche",
    "fx": {
     "flag": [
-     "fin:cession",
-     "acte5:fin"
+     "fin:cession"
     ],
     "ep": [
      "histoire",
@@ -73032,6 +72037,75 @@
       "seen": "V_a_rodric_a"
      },
      "text": "Tu as gardé la petite cloche qu'il appelait Hautvent. Elle a un joli son. Pas trop fort."
+    },
+    {
+     "if": {
+      "has": "v:dernier=ysolde"
+     },
+     "text": "Tu sais toujours par cœur les quarante noms du bras d'Ysolde, dans l'ordre. Tu les dis parfois à voix basse, en marchant, pour n'en perdre aucun."
+    },
+    {
+     "if": {
+      "has": "v:dernier=pie"
+     },
+     "text": "Il t'arrive de faire tourner un jeton entre tes doigts, comme Pie sous l'arche, la dernière nuit. Tu n'as jamais appris le tour. Tu le fais tourner quand même."
+    },
+    {
+     "if": {
+      "has": "v:dernier=hylas"
+     },
+     "text": "Tu revois souvent Hylas sous l'arche, la dernière nuit, les mains croisées sur sa canne. Il t'avait entendu venir, comme toujours."
+    },
+    {
+     "if": {
+      "has": "v:dernier=corbe"
+     },
+     "text": "Les jours de pluie, tu crois entendre un tambour très bas, frappé du bout des doigts. C'est celui de Corbe, sous l'arche, la dernière nuit, qui te revient."
+    },
+    {
+     "if": {
+      "has": "v:dernier=lisandre"
+     },
+     "text": "Personne n'a jamais chanté en entier la chanson de cette nuit-là. Lisandre en a décidé ainsi sous l'arche, avant d'entrer dans la ville."
+    },
+    {
+     "if": {
+      "has": "v:dernier=sansnom"
+     },
+     "text": "Les jours de neige, tu lèves les yeux pour voir si les flocons tombent à l'envers. Ton frère te l'a montré, sous l'arche, la dernière nuit."
+    },
+    {
+     "if": {
+      "has": "v:dernier=linette"
+     },
+     "text": "Tu sais encore deux ou trois enseignes de Pallanche par cœur, dans l'ordre : celles que Linette récitait à voix basse sous l'arche, la dernière nuit."
+    },
+    {
+     "if": {
+      "has": "v:dernier=ombeline"
+     },
+     "text": "Tu as pris l'habitude d'Ombeline : compter un par un. Les blessés, les noms, les jours. Sous l'arche, elle comptait mille quarante-trois nœuds."
+    },
+    {
+     "if": {
+      "has": "v:dernier=givre"
+     },
+     "text": "Sous l'arche, la dernière nuit, Givre avait faim, et il ne restait plus rien de petit à manger. Depuis, tu gardes dans tes poches de petites choses à donner : un bouton, une miette, le nom d'un jour sans importance."
+    },
+    {
+     "if": {
+      "all": [
+       {
+        "has": "v:dernier=rodric"
+       },
+       {
+        "not": {
+         "seen": "V_a_rodric_a"
+        }
+       }
+      ]
+     },
+     "text": "Rodric t'a dit, sous l'arche, que la veille tout le monde promet, et que le lendemain tout le monde a tort, sauf ceux qui ont raison. Tu y penses chaque fois qu'on te promet quelque chose."
     },
     {
      "if": {
@@ -74006,6 +73080,324 @@
       "has": "baudoin:iv=dedans"
      },
      "text": "Frère Baudoin est resté à la Chancellerie. On dit qu'il a l'écriture la plus lisible de la tour, et qu'il refuse d'écrire certaines choses."
+    },
+    {
+     "if": {
+      "has": "co:renne=laissee"
+     },
+     "text": "Brindille, la renne que Corbe a laissée partir vers le col, n'est pas revenue au troupeau. Au printemps, Arnald la cherche encore des yeux sur les crêtes."
+    },
+    {
+     "if": {
+      "has": "co:renne=partie"
+     },
+     "text": "Brindille a cessé de tirer vers le nord la nuit où Corbe l'a veillée, adossée à son flanc. Elle est partie plus tard, la première de toutes. Arnald a gardé la longe."
+    },
+    {
+     "if": {
+      "has": "co:renne=tuee"
+     },
+     "text": "Au camp du Corbeau, une ceinture de cuir à moitié mâchée pend au-dessus de la tente de Corbe. Le soir où la viande de Brindille a séché sur les claies, tout le camp a mangé, sauf elle."
+    },
+    {
+     "if": {
+      "has": "co:tambour=neuf"
+     },
+     "text": "Le tambour de Corbe est tendu d'une peau de renne blanc, celle qu'Arnald gardait pour son linceul. Arnald dit qu'une couverture ordinaire lui ira très bien."
+    },
+    {
+     "if": {
+      "has": "corbe:loup=perdue"
+     },
+     "text": "Les bergers du Corbeau comptent leurs rennes deux fois chaque soir. Une louve blanche les suit de loin, sur les crêtes. On l'aperçoit, on la perd, on la recompte avec les rennes."
+    },
+    {
+     "if": {
+      "has": "corbe:loup=tue"
+     },
+     "text": "Au camp du Corbeau, on parle peu de la louve blanche et de ses petits. Les rennes ont été sauvés. Bjarki, quand on lui en parle, se lève et sort de la tente."
+    },
+    {
+     "if": {
+      "has": "corbe:iv=nommee"
+     },
+     "text": "Corbe refait toujours son R de travers, exprès. Elle dit que c'est sa façon de signer."
+    },
+    {
+     "if": {
+      "has": "corbe:iv=nous"
+     },
+     "text": "Corbe a choisi, une nuit, au camp du Corbeau, de marcher avec vous. Elle en parle comme du jour où elle a appris à dire « nous »."
+    },
+    {
+     "if": {
+      "has": "corbe:revenue"
+     },
+     "text": "Le clan du Corbeau a retrouvé sa Bouche. Hrodna la fait parler la première, à chaque feu, et le clan l'écoute en silence."
+    },
+    {
+     "if": {
+      "has": "corbe:col_donne"
+     },
+     "text": "Corbe a donné à la glace le col de l'Ourse en été, pour qu'elle tienne un peu. Askel s'en souvient pour elle, et le lui raconte, par petits morceaux."
+    },
+    {
+     "if": {
+      "has": "baudoin:iv=parti"
+     },
+     "text": "À Pont-de-Saule, une vieille femme raconte à tout le monde que son fils est quelqu'un d'important à Pallanche. Il vit chez elle depuis un an. Il la laisse dire."
+    },
+    {
+     "if": {
+      "has": "choix:registre=defendu"
+     },
+     "text": "Le registre de Sauvelune a gardé chacun de ses noms. Une nuit, dans la nef, tu t'es battu{e} pour eux, avec Tess et son marteau."
+    },
+    {
+     "if": {
+      "has": "choix:registre=souvenir"
+     },
+     "text": "Une nuit, dans la nef de Sauvelune, tu as donné un souvenir pour en sauver un autre. Tu sais ce que tu as obtenu en échange. Ce que tu as donné, tu le cherches parfois, au réveil."
+    },
+    {
+     "if": {
+      "has": "corvanne:iv=doute"
+     },
+     "text": "La margrave de Corvanne dit qu'elle a douté de tout, le soir où on lui a lu une page de noms barrés. Elle dit que ce doute a été son premier acte de gouvernement."
+    },
+    {
+     "if": {
+      "has": "enfant:voie=sud"
+     },
+     "text": "À Pont-de-Saule, on se souvient d'un enfant de Sauvelune descendu en courant par la route des Cloches, un soir d'été, pour prévenir la ville."
+    },
+    {
+     "if": {
+      "has": "galere:comite=battu"
+     },
+     "text": "Sur les quais de Vasselin, un ancien comite de galère change de trottoir quand passe une chanteuse. Il a ses raisons."
+    },
+    {
+     "if": {
+      "has": "hy:mur=tu"
+     },
+     "text": "Hylas a gardé pour lui ce qu'il avait lu sur le mur de la chapelle. Il l'a porté seul, longtemps, comme on porte une pierre dans sa poche."
+    },
+    {
+     "if": {
+      "has": "hy:page=tu"
+     },
+     "text": "La petite page qui lisait trop bien, à la tour, a grandi. Elle se souvient d'un vieux greffier qui lui avait répondu : « Je ne sais pas. » Elle a compris plus tard qu'il savait."
+    },
+    {
+     "if": {
+      "has": "hylas:berengere=fui"
+     },
+     "text": "Rue des Teinturiers, une marchande de rubans roule toujours les r. Un vieil homme à canne a fait demi-tour devant sa boutique, un jour. Elle a continué de servir ses clientes."
+    },
+    {
+     "if": {
+      "has": "hylas:berengere=tu"
+     },
+     "text": "Hylas garde dans sa poche un ruban de la boutique des Teinturiers. La marchande lui avait rendu trop de monnaie. Il a gardé la monnaie aussi."
+    },
+    {
+     "if": {
+      "has": "hylas:dortoir=signale"
+     },
+     "text": "Certaines nuits, Hylas entend encore, à travers trois étages, les lits qu'on tirait dans le dortoir des pages, et une règle sur une main. Il avait suivi le règlement."
+    },
+    {
+     "if": {
+      "has": "iii:braise=gardee"
+     },
+     "text": "Dans la forêt noire d'Ellerune, une lueur rouge va et vient encore, comme une respiration. À la lisière du hameau, une porte reste ouverte, au cas où."
+    },
+    {
+     "if": {
+      "has": "iv:complainte=achetee"
+     },
+     "text": "Tu as gardé la feuille de la complainte, pliée en quatre. Tout y est faux, sauf un nom, en grosses lettres : *SAUVELUNE, qui fut*."
+    },
+    {
+     "if": {
+      "has": "iv:jetons=caches"
+     },
+     "text": "Dans les caves de la rue des Tonneliers, les enfants connaissent toujours les passages d'une cave à l'autre. Ils y ont caché des gens, une nuit. Ils s'en vantent."
+    },
+    {
+     "if": {
+      "has": "iv:nid=detruit"
+     },
+     "text": "Sous le col, il ne reste rien du nid. Une nuit, trois lueurs sont rentrées chez elles, dans ta main fermée."
+    },
+    {
+     "if": {
+      "has": "iv:patrouille=colin"
+     },
+     "text": "À Brenne, Colin sert toujours dans les éclaireurs. Le lieutenant Herbelot l'appelle « mon garçon ». Colin répond poliment, et il parle souvent de pêche."
+    },
+    {
+     "if": {
+      "has": "iv:patrouille=ile"
+     },
+     "text": "Sur une île de la Lisse, deux hommes sans nom pêchent l'anguille ensemble, et se font le petit signe des voisins."
+    },
+    {
+     "if": {
+      "has": "iv:prisonnier=reste"
+     },
+     "text": "Tu as porté à Brenne le message de Gilles : il doit trois sous au vieux Gautier, et il compte bien les lui rendre."
+    },
+    {
+     "if": {
+      "has": "iv:registre=vide"
+     },
+     "text": "Dans le registre du temple de Sauvelune, à côté de *sans nom*, la marge est toujours blanche. Le Père Anselme a dit qu'il attendrait. Il attend."
+    },
+    {
+     "if": {
+      "has": "li:clemence=lettre"
+     },
+     "text": "À Brenne, un sergent garde dans sa tunique une très belle lettre signée Clémence. Lisandre l'a écrite en une heure, avec Clémence qui rougissait par-dessus son épaule."
+    },
+    {
+     "if": {
+      "has": "li:perroquet=retenu"
+     },
+     "text": "Lisandre se souvient d'une voix d'homme, grave, avec un accent du nord, dans la bouche d'un perroquet. Elle l'a rangée avec les choses qui pourront servir."
+    },
+    {
+     "if": {
+      "has": "lisandre:ourlet=ilan"
+     },
+     "text": "Dans l'ourlet d'une robe de cour, quatre lettres sont cousues : un nom de Corvanne. Dame Héloïse dit qu'elle n'a rien vu."
+    },
+    {
+     "if": {
+      "has": "lisandre:ourlet=sien"
+     },
+     "text": "Lisandre a toujours son nom cousu en rouge à l'envers de sa robe de cour : huit lettres que personne ne voit. Elle les sent quand elle marche."
+    },
+    {
+     "if": {
+      "has": "mordace:fin=rechauffe"
+     },
+     "text": "Mordace parle quelquefois d'un figuier, dans une cour dont il a perdu le nom. Il a toujours chaud, maintenant, et il pleure facilement."
+    },
+    {
+     "if": {
+      "has": "mordace:fin=tue"
+     },
+     "text": "Mordace est tombé à côté de son lutrin, sans presque saigner. De lui, tu revois surtout le col de fourrure qu'il a remonté jusqu'au menton."
+    },
+    {
+     "if": {
+      "has": "nord:bouches=laisse"
+     },
+     "text": "Au col de l'Ourse, les vingt-trois cairns des Bouches sont restés sans nom, comme le clan les a voulus."
+    },
+    {
+     "if": {
+      "has": "nord:geant=fui"
+     },
+     "text": "Tu rêves parfois du cirque, et des files de petits Glaneurs qui descendaient vers le grand mangeur. Tu t'éveilles en courant."
+    },
+    {
+     "if": {
+      "has": "nord:livre=brule"
+     },
+     "text": "Le Livre des Veilles a brûlé dans la cheminée du moutier, avec ses cinq signatures. Frère Arnoul a dit : « Trois cents ans. » Ce qu'il en pense, il le garde pour lui."
+    },
+    {
+     "if": {
+      "has": "nord:livre=pris"
+     },
+     "text": "Le Livre des Veilles a quitté le moutier dans un sac, une nuit d'hiver. Il a pesé lourd, tout le reste du voyage."
+    },
+    {
+     "if": {
+      "has": "nord:offrande=laissee"
+     },
+     "text": "Au fond d'une grotte du nord, sur une baguette, une mèche de cheveux attend, posée là où personne ne la verra."
+    },
+    {
+     "if": {
+      "has": "nuit:chant=ballade"
+     },
+     "text": "La ballade de Hautvent se chante à Pallanche depuis la Nuit des Cloches, avec les noms des traîtres. Les gens la chantent juste."
+    },
+    {
+     "if": {
+      "has": "nuit:chant=soldat"
+     },
+     "text": "La reine d'Esquarre chante encore, faux, avec l'accent de Corvanne, la chanson de soldat de la Nuit des Cloches. Elle l'a chantée debout, devant toute la cour."
+    },
+    {
+     "if": {
+      "has": "pi:mouche=rien"
+     },
+     "text": "Mouche a toujours peur des chiens. Pie lui a dit, un soir, que ça passerait. Elle l'a cru, parce que c'était Pie."
+    },
+    {
+     "if": {
+      "has": "sud4:paix=chantee"
+     },
+     "text": "La chanson de paix du tournoi de Vasselin se chante encore aux mariages, sur les deux rives. La musique est de Lisandre. Les paroles sont de Mordace, et elle le sait."
+    },
+    {
+     "if": {
+      "has": "sud4:paix=hautvent"
+     },
+     "text": "Au pré du tournoi, Lisandre a chanté Hautvent à la place de la paix. Les Corvannais s'en souviennent. Les Esquarrois aussi, autrement."
+    },
+    {
+     "if": {
+      "has": "sud4:paix=interrompue"
+     },
+     "text": "Messire Aubrac raconte qu'une chanteuse l'a interrompu un jour en posant la main à plat sur ses cordes. Il en rit, maintenant."
+    },
+    {
+     "if": {
+      "has": "sud:bassin=lettre"
+     },
+     "text": "Tu te souviens d'un papier détrempé, trouvé dans la poche d'une femme au bassin de Vasselin, et d'un nom de couvent, sur la colline."
+    },
+    {
+     "if": {
+      "has": "sud:fioles=livre"
+     },
+     "text": "Le petit livre noir du quai des Cordiers est resté dans tes affaires : des noms, des choses vendues, des prix, et une dernière page d'une autre main."
+    },
+    {
+     "if": {
+      "has": "sud:galere=ouverte"
+     },
+     "text": "Dans le port de Vasselin, la galère grise reste à quai. Quelques anciens rameurs y montent chaque matin, de leur plein gré, et s'assoient à leur banc."
+    },
+    {
+     "if": {
+      "has": "ylva:iv=attente"
+     },
+     "text": "Au clan du Corbeau, une petite fille s'assied encore sur la pierre, le soir, face au col. Quelqu'un s'est assis à côté d'elle, une fois, et a attendu avec elle."
+    },
+    {
+     "if": {
+      "has": "ylva:iv=verite"
+     },
+     "text": "Au clan du Corbeau, une petite fille sait que sa mère marche, quelque part sur la plaine blanche, très lentement. Elle lui parle, le soir, en regardant le col."
+    },
+    {
+     "if": {
+      "has": "ys:cheval=abattu"
+     },
+     "text": "Ysolde a abattu Sombrevent elle-même, d'un seul coup, à Brenne. Ce qu'elle lui a dit à l'oreille, elle le garde pour elle."
+    },
+    {
+     "if": {
+      "has": "ysolde:fers=corde"
+     },
+     "text": "À Brenne, Hugues le forgeron a versé un jour toute une pile de fers dans le bac à charbon, parce qu'une corde suffisait. Il dit qu'une corde ne marque pas les poignets."
     },
     "Ici s'achèvent Les Cendres de l'Hiver."
    ],
