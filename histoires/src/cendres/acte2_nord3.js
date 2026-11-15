@@ -8,7 +8,7 @@ module.exports = {
   II_N3_depart: P({ title: "Les traces vers l'est", place: "lacnoir",
     text: [
       "Au matin, les traces du géant traversent la neige de l'autre rive, droit vers l'est, chacune grande comme une barque. Il marche à découvert, comme il l'a toujours fait.",
-      "Askel ne vient pas. Elle redescend dans le boyau, s'assied devant le mur de glace, et te fait signe de partir. « Quelqu'un doit chanter, dit-elle. Je ne sais rien faire d'autre, de toute façon. »",
+      "Askel refuse de vous suivre. Elle redescend dans le boyau, s'assied devant le mur de glace, et te fait signe de partir. « Quelqu'un doit chanter, dit-elle. Je ne sais rien faire d'autre, de toute façon. »",
       { if: { has: "nord:aieule_glace" }, text: "Sa voix est encore cassée de la veille. Elle chantera quand même." },
     ],
     choices: [{ label: "Suivre les traces vers le moutier des Veilleurs", travel: "r_ii_moutier" }] }),
@@ -53,7 +53,7 @@ module.exports = {
 
   II_N3_porte_ombeline: P({ title: "La porte des morts", place: null,
     text: [
-      "Il y a une porte basse, au pied du mur nord, à moitié enterrée, par où les moines sortent leurs morts vers le cimetière. Personne ne la regarde. La glace l'a épargnée, comme une ombre.",
+      "Il y a une porte basse, au pied du mur nord, à moitié enterrée, par où les moines sortent leurs morts vers le cimetière. Elle échappe à tous les regards. La glace l'a épargnée, comme une ombre.",
       { with: "ombeline", text: "Ombeline la connaît. Elle l'a déjà franchie, dans l'autre sens, derrière des cercueils." },
     ],
     choices: [{ label: "Entrer par la porte des morts", to: "@route" }] }),
@@ -147,8 +147,8 @@ module.exports = {
 
   II_N3_livre_feu: P({ title: "Le feu", place: "moutier",
     text: [
-      "Le bois de la reliure prend mal, puis d'un coup. Le parchemin se tord, noircit, et les cinq signatures, en bas de la première page, brillent une seconde en rouge avant de disparaître.",
-      "Arnoul regarde le feu. « Trois cents ans », dit-il. Il ne dit pas si c'est bien.",
+      "Le bois de la reliure prend mal, puis d'un coup. Le parchemin se tord, noircit, et les cinq signatures, en bas de la première page, brillent un instant en rouge avant de disparaître.",
+      "Arnoul regarde le feu. « Trois cents ans », dit-il. Si c'est un bien, il le garde pour lui.",
       { with: "hylas", text: "Hylas, à la porte, a l'air d'un homme qu'on frappe. Il t'a laissé faire en silence, et ce silence durera." },
     ],
     choices: [{ back: "II_N3_cloitre" }] }),
@@ -157,7 +157,7 @@ module.exports = {
     text: [
       "Les moines de la chapelle sont pris à genoux, en deux rangées, face à l'autel. La glace est moins épaisse ici. On voit leurs visages. Certains ont les yeux ouverts. Un, au bout de la rangée, bouge les lèvres. Très lentement.",
       { with: "ombeline", text: "Ombeline s'est arrêtée sur le seuil. Elle regarde le moine qui bouge les lèvres. « Ils ne sont pas morts, dit-elle. Ils meurent. C'est long. » Elle s'avance, pose la main sur la glace, en face du visage. « Je peux leur prendre ce qui leur fait le plus mal. Pour qu'ils partent tranquilles. Si tu veux bien. »" },
-      { without: "ombeline", text: "Tu poses la main sur la glace, en face du visage. Elle n'est pas froide. Elle est tiède comme une joue." },
+      { without: "ombeline", text: "Tu poses la main sur la glace, en face du visage. Contre toute attente, elle est tiède comme une joue." },
     ],
     choices: [
       { label: "« Fais-le. »", hide: { not: { present: "ombeline" } }, fx: { flag: "nord:ombeline_moines", conf: { ombeline: 10 }, ep: ["perso", 800] }, to: "II_N3_chapelle_ombeline" },
@@ -191,9 +191,9 @@ module.exports = {
   II_N3_tour: P({ title: "La tour du guet", place: "moutier",
     text: [
       "Cent vingt marches, tu les comptes. En haut, une salle carrée ouverte aux quatre vents, une cloche de bronze large comme un tonneau, et la corde, gelée raide. Un moine, pris dans la glace, a la main sur la corde. Il allait sonner.",
-      "Le col de l'Ourse est là, à une demi-journée. La lumière blanche n'est pas une lumière. C'est une déchirure. Comme un drap qu'on a fendu au couteau, et derrière, du blanc.",
+      "Le col de l'Ourse est là, à une demi-journée. La lumière blanche, vue d'ici, a une forme : une déchirure. Comme un drap qu'on a fendu au couteau, et derrière, du blanc.",
       { if: { souv: "corbe:col" }, text: "La grande pierre plate, au milieu du col, où la Mère Blanche s'est assise un jour, est juste devant la déchirure. Elle a l'air minuscule." },
-      { if: { not: { souv: "corbe:col" } }, text: "Il y a une pierre plate au milieu du col, juste devant la déchirure. Tu ne sais pas pourquoi tu la regardes." },
+      { if: { not: { souv: "corbe:col" } }, text: "Il y a une pierre plate au milieu du col, juste devant la déchirure. Ton regard y revient sans raison." },
       "Tout autour, dans la neige, des traces. Des centaines de traces de Glaneurs, qui vont et viennent entre la déchirure et le monde. Et, au milieu, les grandes.",
     ],
     choices: [
@@ -204,7 +204,7 @@ module.exports = {
 
   II_N3_soir: P({ backName: "les cuisines du moutier", title: "Le soir", place: "moutier",
     text: [
-      "Vous mangez dans les cuisines, autour du four, avec Tiennot, qui ne parle pas. La nuit tombe vite, dans la combe.",
+      "Vous mangez dans les cuisines, autour du four, avec Tiennot, qui garde le silence. La nuit tombe vite, dans la combe.",
       { with: "ombeline", text: "Ombeline s'est assise près du feu et murmure ses noms." },
       { with: "ombeline", if: { has: "nord:ombeline_moines" }, text: "Il y en a douze de plus." },
       "Vers la troisième heure, l'heure où les Veilleurs lisaient le serment, la glace des murs se met à chanter. Un son très haut, très fin, comme un doigt mouillé sur le bord d'un verre.",
@@ -304,7 +304,7 @@ module.exports = {
       { if: { not: { has: "nord:arnoul_pris" } }, text: "Le prieur Arnoul est mort dans la nuit, dans son fauteuil, d'avoir vécu quatre-vingt-dix ans. La glace ne l'a pas pris. Il a gardé son nom." },
       { with: "enfant", text: "L'enfant de Sauvelune regarde les traces. Il se tait. Il a pris son sac, et il attend." },
       "Tiennot sort du four. Il demande s'il peut venir. Il n'a nulle part ailleurs.",
-      "Tu sais ce qu'il faut faire. Tu le sais depuis que tu as vu la chose sur le lac. On ne ferme pas un col tant qu'un monstre pareil passe dessus quand il veut. Il faut le chasser.",
+      "Tu sais ce qu'il faut faire. Tu le sais depuis que tu as vu la chose sur le lac. Fermer le col est vain tant qu'un monstre pareil y passe à sa guise. Il faut le chasser.",
     ],
     choices: [
       { label: "Emmener Tiennot, et partir sur les traces", fx: { flag: ["ch2:nord:3", "tiennot:suit"], resume: "II_N4_depart", catchup: 7, catchupAll: true, catchupWhy: "le moutier des Veilleurs" }, to: "C2_carrefour", big: true },

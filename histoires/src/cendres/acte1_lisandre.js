@@ -20,9 +20,9 @@ module.exports = {
   LI_reine: P({ title: "Le jardin des citronniers",
     fx: { meet: "isaure" },
     text: [
-      "Isaure d'Esquarre a cinquante ans et l'air d'en avoir quarante, sauf aux mains, qui tiennent le compte exact. Elle est assise à l'ombre, avec ses dames, un livre fermé sur les genoux, un doigt glissé entre deux pages pour marquer un endroit qu'elle ne rouvrira pas. Elle te tend la main à baiser sans te regarder, puis te regarde, et te sourit, et pendant une seconde, tu vois qu'elle cherche ton nom.",
+      "Isaure d'Esquarre a cinquante ans et l'air d'en avoir quarante, sauf aux mains, qui tiennent le compte exact. Elle est assise à l'ombre, avec ses dames, un livre fermé sur les genoux, un doigt glissé entre deux pages pour marquer un endroit qu'elle ne rouvrira pas. Elle te tend la main à baiser sans te regarder, puis te regarde, et te sourit, et le temps d'un battement de cœur, tu vois qu'elle cherche ton nom.",
       "« Lisandre. » Elle l'a trouvé. « Je veux une ballade pour la Fête des Noms. Tu la chanteras à Pallanche, la Nuit des Cloches, dans la grande salle de la Chancellerie, devant le Grand Livre. Une ballade sur Hautvent. »",
-      "Tu ne sais pas ce qu'est Hautvent. Elle le voit. « Un village de la frontière. Des tisserands qui ont vendu le royaume à Corvanne pour du sel et de la laine. Ils seront jugés à la Fête. Le royaume doit savoir pourquoi. Le Frère Orlan te donnera les faits. »",
+      "Hautvent, ce nom t'est inconnu. Elle le voit. « Un village de la frontière. Des tisserands qui ont vendu le royaume à Corvanne pour du sel et de la laine. Ils seront jugés à la Fête. Le royaume doit savoir pourquoi. Le Frère Orlan te donnera les faits. »",
       "Elle rouvre son livre. L'audience est finie. Une de ses dames, Ermengarde, te raccompagne jusqu'à l'allée. Elle te dit très bas : « Elle a oublié le nom de son fils, hier, au souper. Le prince Aymeric. Il est mort depuis dix ans. Elle a demandé qui c'était, sur le portrait. »",
     ],
     choices: [{ label: "Saluer, et sortir du jardin", to: "LI_cour" }] }),
@@ -30,7 +30,7 @@ module.exports = {
   LI_cour: P({ title: "La cour", hub: true,
     text: [
       "Le palais de Vasselin, quatre jours avant la Fête. La cour fait ses malles pour Pallanche. On plie les tapisseries, on emballe l'argenterie, on se dispute les places dans les voitures avec plus d'acharnement qu'aux pourparlers de paix. Dans les galeries, des envoyés de Corvanne en manteaux bleus marchent deux par deux, très droits, comme des hommes qui s'attendent à recevoir un coup.",
-      { if: { has: "lisandre:faits" }, text: "Les faits du Frère Orlan sont sur ta table, à côté de ton luth. Tu n'as pas encore écrit un vers." },
+      { if: { has: "lisandre:faits" }, text: "Les faits du Frère Orlan sont sur ta table, à côté de ton luth. La page des vers est encore blanche." },
     ],
     choices: [
       { label: "Le Frère Orlan, à la bibliothèque", to: "LI_orlan", hide: { seen: "LI_orlan" } },
@@ -76,7 +76,7 @@ module.exports = {
     text: [
       "La galerie des cartes est pleine d'envoyés de Corvanne qui regardent, sur les murs, des cartes où leur pays est peint en gris et appelé *Marches de l'Est*. Ils sont polis, et leurs mâchoires sont furieuses.",
       "Le secrétaire du chef de l'ambassade prend des notes, à l'écart. Il est grand, brun, avec une cicatrice au menton. Il lève les yeux de son carnet. Il te voit.",
-      { if: { souv: "lisandre:marin" }, text: "Ilan. Trois jours de trêve, sur le port de Brésille, il y a deux ans. Une chambre au-dessus d'une taverne, une fenêtre sur la mer, et un prénom. Tu ne savais rien d'autre. Il n'avait pas cette cicatrice au menton. Tu sais maintenant qu'il sait écrire." },
+      { if: { souv: "lisandre:marin" }, text: "Ilan. Trois jours de trêve, sur le port de Brésille, il y a deux ans. Une chambre au-dessus d'une taverne, une fenêtre sur la mer, et un prénom. C'était tout ce que tu savais de lui. Il n'avait pas cette cicatrice au menton. Tu sais maintenant qu'il sait écrire." },
       { if: { not: { souv: "lisandre:marin" } }, text: "Il te regarde comme on regarde quelqu'un qu'on connaît. Tu ne le connais pas. Il vient vers toi." },
       "« Lisandre, dit-il, très bas, en passant près de toi. Ce soir, aux écuries. S'il te plaît. »",
     ],
@@ -87,7 +87,7 @@ module.exports = {
 
   LI_ecuries: P({ title: "Les écuries",
     text: [
-      "Il est là, dans la pénombre, entre deux stalles, et il ne te touche pas. « On a appris quelque chose, à l'ambassade. Ta reine a ordonné qu'on arrête tout un village de la frontière. Hautvent. Des gens qui ont de la famille chez nous, des deux côtés de la rivière. On dit qu'ils seront jugés à la Fête. » Il hésite. « On dit aussi que personne n'est jamais ressorti d'un jugement à la Fête. Que personne ne se souvient de ce qui leur est arrivé. Tu chantes pour elle. Tu sais quelque chose ? »",
+      "Il est là, dans la pénombre, entre deux stalles, et il garde ses mains pour lui. « On a appris quelque chose, à l'ambassade. Ta reine a ordonné qu'on arrête tout un village de la frontière. Hautvent. Des gens qui ont de la famille chez nous, des deux côtés de la rivière. On dit qu'ils seront jugés à la Fête. » Il hésite. « On dit aussi que personne n'est jamais ressorti d'un jugement à la Fête. Que personne ne se souvient de ce qui leur est arrivé. Tu chantes pour elle. Tu sais quelque chose ? »",
       "Tu sais qu'on t'a commandé une ballade. Tu sais ce qu'il y a dans le cahier d'Orlan.",
     ],
     choices: [
@@ -142,7 +142,7 @@ module.exports = {
 
   LI_aubrac_voix: P({ title: "Ta vraie voix",
     text: [
-      "Tu poses ton luth. Tu chantes sans lui, comme sur le port, comme ta mère qui vendait du poisson, avec ta voix d'avant, celle qu'on t'a appris à cacher : rauque, trop grave, fausse. La salle se tait d'un coup. Personne ne t'a jamais entendue comme ça. Toi non plus, depuis quatorze ans.",
+      "Tu poses ton luth. Tu chantes sans lui, comme sur le port, comme ta mère qui vendait du poisson, avec ta voix d'avant, celle qu'on t'a appris à cacher : rauque, trop grave, fausse. La salle se tait d'un coup. Cette voix-là, la cour l'entend pour la première fois. Toi, pour la première fois depuis quatorze ans.",
       "Quand tu as fini, personne n'applaudit. Puis tout le monde. Aubrac ne lève plus son verre.",
     ],
     choices: [{ label: "Saluer", to: "LI_cour" }] }),
@@ -201,7 +201,7 @@ module.exports = {
 
   LI_refus: P({ title: "Une voix de moins",
     text: [
-      "La reine t'écoute, dans sa voiture, au moment du départ. Elle ne se fâche pas. Elle a l'air fatiguée. « Tu viens quand même à Pallanche, dit-elle. Tu chanteras ce qu'Orlan t'aura écrit. Ou tu ne chanteras plus jamais nulle part, Lisandre. »",
+      "La reine t'écoute, dans sa voiture, au moment du départ. Elle reste calme. Elle a l'air fatiguée. « Tu viens quand même à Pallanche, dit-elle. Tu chanteras ce qu'Orlan t'aura écrit. Ou tu ne chanteras plus jamais nulle part, Lisandre. »",
     ],
     choices: [{ label: "Monter dans la dernière voiture", to: "LI_depart" }] }),
 
@@ -290,10 +290,10 @@ module.exports = {
   LI_fin: P({ title: "Lisandre, la veille", place: "pallanche",
     fx: { quest: "LI_ballade", catchup: 4, catchupWhy: "la route de la cour", ep: ["histoire", 4000] },
     text: [
-      "On t'a logée au palais de la Couronne, de l'autre côté de la place aux Clercs, dans une chambre qui donne sur la tour noire. Tu ne fermes pas les rideaux.",
+      "On t'a logée au palais de la Couronne, de l'autre côté de la place aux Clercs, dans une chambre qui donne sur la tour noire. Tu laisses les rideaux ouverts.",
       { if: { has: "lisandre:ballade=commandee" }, text: "La ballade de Hautvent est sur ta table, propre, sans un pli. Tu la sais par cœur. Tu ne l'as jamais sue aussi bien." },
-      { if: { has: "lisandre:ballade=double" }, text: "La ballade de Hautvent est sur ta table, avec ce que tu as caché dedans. Tu ne sais pas qui l'entendra." },
-      { if: { has: "lisandre:ballade=refus" }, text: "Orlan t'a fait porter une ballade, écrite de sa main, avec des rimes en marge. Tu ne l'as pas lue." },
+      { if: { has: "lisandre:ballade=double" }, text: "La ballade de Hautvent est sur ta table, avec ce que tu as caché dedans. Reste à savoir qui l'entendra." },
+      { if: { has: "lisandre:ballade=refus" }, text: "Orlan t'a fait porter une ballade, écrite de sa main, avec des rimes en marge. Tu l'as laissée pliée." },
       "Demain, à minuit moins le quart.",
     ],
     choices: [
