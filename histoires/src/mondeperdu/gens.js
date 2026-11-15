@@ -93,4 +93,8 @@ module.exports = {
     face: { age: "adulte", skin: "clair" },
     qui: "Un Américain, ami et compagnon de voyage de Maple White. Il est resté dans le bateau à Rosario.",
     aspect: { signe: "on ne connaît de lui que son nom" } },
+  homme_singe: { name: "L'homme-singe", aka: ["homme-singe", "hommes-singes"],
+    face: { age: "adulte", skin: "clair", hair: "roux", beard: "barbe", shape: "allonge" },
+    qui: "Une créature des arbres du plateau, entre le singe et l'homme. Elle observe le camp depuis le début.",
+    aspect: { allure: "un corps velu, roussâtre, très agile dans les branches", visage: "long, blanchâtre, couvert de boutons, le nez aplati, la mâchoire en avant", signe: "des canines recourbées et pointues" } },
 };

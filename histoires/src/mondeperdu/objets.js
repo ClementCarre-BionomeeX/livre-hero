@@ -23,4 +23,6 @@ module.exports = {
     desc: "Les instructions du professeur pour trouver le plateau. À n'ouvrir qu'à Manaus, à la date et à l'heure inscrites dessus." },
   corde: { name: "La corde de Challenger", kind: "document", keep: true,
     desc: "Une corde d'escalade de quarante-cinq mètres, pas plus grosse qu'une corde à linge mais très solide. Zambo l'a renvoyée de l'autre côté du gouffre." },
+  carte_plateau: { name: "La carte du plateau", kind: "document", keep: true,
+    desc: "La première carte du monde perdu, dessinée depuis le sommet du ginkgo : un entonnoir ovale, un lac au centre (le lac Gladys), la clairière des iguanodons, le marais des ptérodactyles, et en face une falaise percée de grottes." },
 };
