@@ -63,6 +63,7 @@ Object.assign(P, {
       { with: "lison", text: "Lison ouvre un œil, te regarde faire, et le referme. Elle a vu où tu as mis la page. Elle gardera ça pour elle." },
     ],
     choices: [
+      { label: "Glisser aussi la seconde page sous ta chemise, et rouler tes notes dans la toile à sa place", fx: { flag: "iit:leurre" }, to: "IIT_alerte" },
       { label: "Attendre la nuit, en écoutant les fuseaux", big: true, to: "IIT_alerte" },
     ] },
 
@@ -103,6 +104,7 @@ Object.assign(P, {
 Object.assign(P, {
   IIT_alerte: { act: "II", title: "Minuit aux Joncs", place: "joncs", urgent: 25,
     text: [
+      { after: "iit:leurre", text: "Les deux pages sont à plat contre tes côtes, sous ta ceinture serrée. Dans la toile huilée, au fond du sac, tes notes, tes relevés et le brouillon de tes déchiffrements tiennent leur place, roulés au même format. Le sac garde son poids et sa forme." },
       "Un chien aboie au sud, puis tous les chiens des Joncs. Tu es à la fenêtre avant d'avoir décidé de te lever. Une ligne de feu monte du côté des roseaux, se courbe dans la pluie, et se plante dans les pilotis de la maison commune. Une deuxième. Une troisième. Les flèches sont enveloppées d'étoupe et de poix ; la pluie les fait fumer sans les éteindre.",
       "Sur l'eau, des lanternes bougent : des barques plates, longues, chargées d'hommes. Tu reconnais les manteaux sombres des douaniers de la tour, leurs casques ronds, et, devant eux, d'autres hommes plus légers, sans casque, qui sautent déjà sur les passerelles. Ils ont des gants gris.",
       { after: "iis:machefer_enfui", text: "Sur la première barque, un grand homme à la barbe noire, une balafre blanche en travers du nez, tient la lanterne. Mâchefer a trouvé un autre payeur." },
@@ -254,7 +256,7 @@ Object.assign(P, {
       { if: { has: "iie:lothaire_blesse" }, text: "Le gant de sa main gauche est recousu au dos, d'un fil gris, là où le coutelas de Salomé l'a fendu aux Écueils." },
       "« Madame Marrel, ajoute-t-il, {{oreille#iit_lothaire_ordre|ne vous veut aucun mal, croyez-le|m'a dit de brûler les pages qui parlent des titres, et de lui porter celles qui parlent du chemin}}. »",
       { after: "iis:tibere_rapport_faux", text: "« Votre sergent m'a écrit de la Saline que vous cherchiez en vain du côté des Joncs, dit-il encore. J'ai cru la moitié de sa lettre. Celle qui parlait des Joncs. »" },
-      { if: { has: "iit:sur_soi" }, text: "Il penche la tête. « Une seule page dans le sac. Vous avez gardé l'autre contre vous, je l'entends crisser quand vous respirez. Gardez-la. Une page par nuit, c'est un bon rythme. »" },
+      { if: { all: [{ has: "iit:sur_soi" }, { not: { has: "iit:leurre" } }] }, text: "Il penche la tête. « Une seule page dans le sac. Vous avez gardé l'autre contre vous, je l'entends crisser quand vous respirez. Gardez-la. Une page par nuit, c'est un bon rythme. »" },
       { with: "salome", if: { not: { has: "salome:maiwenn" } }, text: "Ses yeux passent sur Salomé, et s'arrêtent. « Capitaine Brac. {{oreille#iit_corde|Je suis navré, pour votre femme|J'ai coupé la corde de votre femme avec ce couteau-ci, sur l'écueil des Sourds, pour un coffret qui tenait dans la main}}. » Salomé reste immobile. Elle a entendu les mots du dessus : des regrets polis." },
       { with: "salome", if: { has: "salome:maiwenn" }, text: "Salomé est à côté de toi. Elle regarde Lothaire, et Lothaire la regarde. Elle sait pour la corde, et il entend qu'elle le sait. Pour la première fois, la voix douce de Lothaire Brunel hésite. « Capitaine Brac », dit-il seulement." },
     ],
@@ -319,10 +321,14 @@ Object.assign(P, {
     ] },
 });
 // ==================================================================== the choice: the house or the leaf
+// What Lothaire's men took: the whole bundle (the Écueils leaf); the Saline leaf alone when the other was kept against
+// the skin (iit:sur_soi); only the notes when both leaves were under the shirt (iit:leurre).
+var PERTE_ECUEILS = { all: [{ relic: "f_ecueils" }, { not: { has: "iit:sur_soi" } }] };
+var PERTE_SALINE = { all: [{ relic: "f_saline" }, { has: "iit:sur_soi" }, { not: { has: "iit:leurre" } }] };
 var PERTE = [
-  { label: "Compter ce qui te reste", big: true, hide: { not: { relic: "f_ecueils" } }, to: "IIT_perte_ecueils" },
-  { label: "Compter ce qui te reste", big: true, hide: { any: [{ relic: "f_ecueils" }, { not: { relic: "f_saline" } }] }, to: "IIT_perte_saline" },
-  { label: "Compter ce qui te reste", big: true, hide: { any: [{ relic: "f_ecueils" }, { relic: "f_saline" }] }, to: "IIT_perte_rien" },
+  { label: "Compter ce qui te reste", big: true, hide: { not: PERTE_ECUEILS }, to: "IIT_perte_ecueils" },
+  { label: "Compter ce qui te reste", big: true, hide: { not: PERTE_SALINE }, to: "IIT_perte_saline" },
+  { label: "Compter ce qui te reste", big: true, hide: { any: [PERTE_ECUEILS, PERTE_SALINE] }, to: "IIT_perte_rien" },
 ];
 Object.assign(P, {
   IIT_dechirant: { act: "II", title: "La maison ou le feuillet", place: "joncs",
@@ -488,7 +494,7 @@ Object.assign(P, {
   IIT_perte_rien: { act: "II", title: "La toile vide", place: "joncs",
     fx: { flag: "iit:feuillet_garde" },
     text: [
-      "Tu te mets à rire, tout seul, au milieu des cendres. La toile huilée que Lothaire a jetée à Quesnel ne contenait que tes notes, tes relevés, et le brouillon de tes déchiffrements. Les feuillets eux-mêmes sont ailleurs, là où tu les as mis à l'abri avant de revenir aux Joncs.",
+      "Tu te mets à rire, tout seul, au milieu des cendres. La toile huilée que Lothaire a jetée à Quesnel ne contenait que tes notes, tes relevés, et le brouillon de tes déchiffrements. Les feuillets eux-mêmes sont sous ta chemise, à plat contre tes côtes, là où tu les as glissés chez Mère Ancolie.",
       "Lothaire Brunel a fait brûler un village pour ton écriture. Quand il dépliera la toile, il saura, lui aussi, ce que tu penses de lui.",
     ],
     choices: [{ label: "Attendre l'aube", big: true, to: "IIT_aube" }] },
@@ -629,6 +635,18 @@ Object.assign(P, {
     choices: [
       { label: "« Viens avec moi, Lison. »", if: { any: [{ conf: "lison", min: 40 }, { voile: "iit_lison_choix" }] }, why: "Lison ne te fait pas encore assez confiance pour désobéir à sa grand-mère.", fx: { flag: "lison:loyale", conf: { lison: 15 }, fac: { taiseurs: -5 } }, to: "IIT_lison_vient" },
       { label: "« Reste. Ils ont besoin de toi plus que moi. »", fx: { flag: "lison:partie" }, to: "IIT_lison_reste" },
+      { label: "« Mère Ancolie, envoyez-la avec moi. Elle gardera le cornet de près. »", fx: { conf: { lison: -3 } }, to: "IIT_lison_envoyee" },
+    ] },
+
+  IIT_lison_envoyee: { act: "II", title: "Les yeux de la Mère", place: "joncs",
+    text: [
+      "Mère Ancolie tourne vers toi ses yeux blancs. Ses doigts tapotent le bras de Lison, deux fois, comme on compte des mailles. « Tu demandes à la grand-mère, dit Mère Ancolie. Tu as appris quelque chose chez nous. »",
+      { with: "lison", text: "Mère Ancolie lâche le bras de Lison. « Lison, tu suis le cornet. Tu me le gardes, et tu me le ramènes le jour où je te le ferai dire. » Lison ramasse sa gaffe ferrée contre le mur et la met sur son épaule. « {{oreille#iit_lison_envoyee|Oui, grand-mère|Oui, grand-mère. Et toi, la prochaine fois, c'est à moi que tu le demandes}} », dit Lison." },
+      { with: "lison", text: "Lison passe devant toi, le menton haut, les yeux sur le ponton. Elle obéit à sa grand-mère, et son dos raide le dit à tout le village." },
+      "Un vieux pêcheur hoche la tête. Aux Joncs, une petite-fille qui part sur l'ordre de la Mère, c'est une affaire réglée.",
+    ],
+    choices: [
+      { label: "Descendre au ponton, où attend une gabare de sel", big: true, to: "IIT_depart" },
     ] },
 
   IIT_lison_vient: { act: "II", title: "Contre l'ordre", place: "joncs", with: "lison",

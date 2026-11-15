@@ -261,7 +261,7 @@ Object.assign(P, {
       { label: "Attendre l'étale et écouter chaque tour", hide: { any: [{ has: "iie:tour" }, { has: "ecueils:ouverte" }] }, to: "IIE_oreille_etale" },
       { label: "Laisse-moi faire", who: "lison", hide: { any: [{ has: "iie:tour" }, { has: "ecueils:ouverte" }] }, test: { dom: "savoir", diff: 0, label: "Lison retrouve la comptine des Joncs" },
         win: { fx: { flag: "iie:tour", conf: { lison: 3 } }, to: "IIE_oreille_lison" }, lose: { to: "IIE_piege" } },
-      { label: "Laisse-moi faire", who: "gildas", hide: { any: [{ has: "iie:tour" }, { has: "ecueils:ouverte" }] }, to: "IIE_oreille_gildas" },
+      { label: "Laisse-moi faire", who: "gildas", hide: { any: [{ has: "ecueils:ouverte" }, { seen: "IIE_oreille_gildas" }] }, to: "IIE_oreille_gildas" },
       { label: "Forcer les plaques au couteau, une par une", hide: { any: [{ has: "iie:tour" }, { has: "ecueils:ouverte" }] }, to: "IIE_piege" },
       { label: "Ressortir de la spirale", back: "IIE_escalier" },
     ] },

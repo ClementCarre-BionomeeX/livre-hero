@@ -919,6 +919,7 @@ Object.assign(P, {
       { label: "La galerie du fond, où dorment les doubles des dépôts", hide: { any: [{ not: { seen: "IC_coffre_nicole" } }, { has: "ic:coffre_numero" }, { has: "ic:coffre" }] }, to: "IC_registre_depots" },
       { label: "L'escalier qui descend aux archives mortes", hide: { seen: "IC_archives_cave" }, to: "IC_archives_cave" },
       { back: "IC_archives" },
+      { label: "Sortir par la porte de service, sur le pont : la nuit est tombée", when: "night", back: "IC_pont" },
     ] },
 
   IC_titres_ferme: { act: "I", title: "L'armoire grillée", place: "changeurs",

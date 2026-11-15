@@ -1077,7 +1077,8 @@ Object.assign(P, {
     ],
     choices: [
       { label: "Frapper", fight: { title: "Frère Gildas", enemies: [{ id: "iiir_gildas", n: 1 }], spare: true,
-        win: { to: "IIIR_combat_fin" }, lose: { to: "IIIR_combat_lose" }, calm: { to: "IIIR_combat_fin" } } },
+        win: { to: "IIIR_combat_fin" }, lose: { to: "IIIR_combat_lose" }, calm: { to: "IIIR_combat_fin" },
+        flee: { label: "Laisser retomber tes bras, à bout de souffle", dom: "combat", diff: 10, to: "IIIR_combat_lose" } } },
       { label: "Baisser les poings", back: "IIIR_verdict" },
     ] },
 
@@ -1212,7 +1213,7 @@ Object.assign(P, {
       { label: "Le laisser à sa cire", back: "IIIR_autel" },
     ] },
 
-  IIIR_autel_rappel: { act: "III", title: "Le rappel", place: "mont", with: "gildas",
+  IIIR_autel_rappel: { act: "III", title: "Le rappel", place: "mont",
     text: [
       "Frère Gildas se lève. Il souffle la chandelle entre deux doigts. Il prend son bâton contre l'autel.",
       "« Pour le Registre, dit-il. Pour Sorne. Pas pour moi. Tu ne m'as pas pardonné, et tu as raison de ne pas le faire en passant, dans une chapelle, parce qu'il te manque un homme qui lit le latin. »",

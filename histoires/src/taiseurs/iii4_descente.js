@@ -593,7 +593,7 @@ Object.assign(P, {
       { if: { relics: { min: 3 } }, text: "« Tu as maintenant assez de feuillets pour que le Registre parle, ajoute-t-il. Si tu veux, je le lirai. C'est mon métier, et c'est peut-être pour cela qu'on m'a gardé en vie. »" },
     ],
     choices: [
-      { label: "Lui demander, enfin, d'où vient la cicatrice qu'il cache sous sa capuche", hide: { any: [G_SAIT, { not: { all: [{ has: "gildas:cicatrice" }, { has: "fauvette:temoin" }] } }] }, to: "IIID_gildas_aveu" },
+      { label: "Lui demander, enfin, d'où vient la cicatrice qu'il cache sous sa capuche", hide: { any: [G_SAIT, { not: { has: "gildas:cicatrice" } }] }, to: "IIID_gildas_aveu" },
       { label: "Décider de ce que tu fais de lui", hide: { any: [{ not: G_SAIT }, { has: "gildas:pardonne" }, { seen: "IIID_gildas_decide" }] }, to: "IIID_gildas_decide" },
       { label: "Lui demander de lire le Registre", if: { relics: { min: 3 } }, why: "Il faut au moins trois feuillets pour que le Registre se lise.", hide: { any: [{ seen: "IIID_registre" }, { all: [G_SAIT, { not: { has: "gildas:pardonne" } }] }] }, to: "IIID_registre" },
       { label: "Le laisser à sa prière", back: "IIID_nouvelles" },
@@ -762,7 +762,8 @@ var LIT_GILDAS = { all: [{ present: "gildas" }, { has: "gildas:pardonne" }] };
 Object.assign(P, {
   IIID_registre: { act: "III", title: "Les feuillets sur la table", place: "orle", backName: "la salle haute du Pressoir", takes: "night",
     text: [
-      "Tu demandes la salle haute du Pressoir pour la nuit, deux chandelles de cire et une nappe propre. Tu sors les feuillets de leur toile cirée et tu les poses côte à côte, sans les toucher plus qu'il ne faut. Ils sont faits d'un vélin épais, jauni sur les bords, et d'une même main : de petits dessins serrés, des mains ouvertes, fermées, posées, croisées, et entre eux quelques mots de liaison.",
+      { first: true, text: "Tu demandes la salle haute du Pressoir pour la nuit, deux chandelles de cire et une nappe propre. Tu sors les feuillets de leur toile cirée et tu les poses côte à côte, sans les toucher plus qu'il ne faut. Ils sont faits d'un vélin épais, jauni sur les bords, et d'une même main : de petits dessins serrés, des mains ouvertes, fermées, posées, croisées, et entre eux quelques mots de liaison." },
+      { again: true, text: "Les feuillets attendent sur la nappe, entre deux chandelles neuves. Tu les reprends un à un, plus lentement que la première fois." },
       { if: { relic: "f_beffroi" }, text: "Le feuillet du Beffroi, le premier, porte en marge une couronne de sel dessinée à la plume, que tu as regardée cent fois sans la comprendre." },
       { if: { relic: "f_saline" }, text: "Le feuillet de la Saline sent encore la saumure. Le sel a mangé un coin, mais pas l'encre." },
       { if: { relic: "f_ecueils" }, text: "Le feuillet des Écueils est taché de cire d'ambre, celle du phare de l'Ouïe, en trois gouttes alignées." },
@@ -776,7 +777,7 @@ Object.assign(P, {
       { label: "Laisser Gildas lire", if: { relics: { min: 3 } }, why: "Il faut au moins trois feuillets pour que le Registre se lise.", hide: { not: LIT_GILDAS }, fx: { set: { iiid_lecteur: "gildas" } }, to: "IIID_registre_charte" },
       { label: "Laisser Frère Romaric lire", if: { relics: { min: 3 } }, why: "Il faut au moins trois feuillets pour que le Registre se lise.", hide: { any: [LIT_GILDAS, { not: { seen: "IIID_moines" } }] }, fx: { set: { iiid_lecteur: "prosper" } }, to: "IIID_registre_charte" },
       { label: "Faire descendre Frère Romaric du Mont pour qu'il lise", if: { relics: { min: 3 } }, why: "Il faut au moins trois feuillets pour que le Registre se lise.", hide: { any: [LIT_GILDAS, { seen: "IIID_moines" }] }, fx: { set: { iiid_lecteur: "prosper" }, gold: -1 }, to: "IIID_registre_charte" },
-      { label: "Essayer de lire toi-même ce que disent les feuillets", hide: { relics: { min: 3 } }, to: "IIID_registre_partiel" },
+      { label: "Essayer de lire toi-même ce que disent les feuillets", hide: { seen: "IIID_registre_partiel" }, to: "IIID_registre_partiel" },
       { label: "Remettre les feuillets dans leur toile", back: "IIID_nouvelles" },
     ] },
 
@@ -829,7 +830,10 @@ Object.assign(P, {
       "Au matin, tu en sais un peu plus qu'hier, et beaucoup moins qu'il ne faudrait. Il faudra d'autres feuillets, et une meilleure lectrice ou un meilleur lecteur que toi.",
     ],
     fx: { flag: "iiid:registre_partiel", ep: ["seance", 800] },
-    choices: [{ back: "IIID_nouvelles" }] },
+    choices: [
+      { label: "Revenir à la table, et chercher qui saura lire", hide: { relics: { max: 2 } }, back: "IIID_registre" },
+      { back: "IIID_nouvelles" },
+    ] },
 });
 
 Object.assign(X.clues, {

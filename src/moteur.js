@@ -2778,11 +2778,12 @@
       var ts = [];
       (function add(to) { if (Array.isArray(to)) to.forEach(function (x) { add(x.to); }); else if (to != null) ts.push(to); })([{ to: c.to }, { to: c.win && c.win.to }, { to: c.lose && c.lose.to }]);
       var scenes = ts.map(function (t) { return story.passages[t]; });
-      // The cast is read as it will be once the choice is made: a companion the choice makes join (or leave) counts.
+      // The cast is read as it will be once the choice is made: a companion the choice makes join counts. A leave does
+      // not: the one sent away is still there for the scene of the parting (« Va-t'en » → the scene where they go).
       var fxs = [c.fx, c.win && c.win.fx, c.lose && c.lose.fx].filter(Boolean), sc = s;
-      if (fxs.some(function (f) { return f.join || f.leave; })) {
+      if (fxs.some(function (f) { return f.join; })) {
         sc = Object.assign({}, s, { met: Object.assign({}, s.met) });
-        fxs.forEach(function (f) { [].concat(f.join || []).forEach(function (k) { sc.met[k] = "party"; }); [].concat(f.leave || []).forEach(function (k) { if (sc.met[k] === "party") sc.met[k] = "gone"; }); });
+        fxs.forEach(function (f) { [].concat(f.join || []).forEach(function (k) { sc.met[k] = "party"; }); });
       }
       if (scenes.length && scenes.every(function (tp) { return tp && !sceneOk(story, sc, tp); })) return false;
       return true;
@@ -2890,9 +2891,11 @@
       // Guarantee: no dead end. When nothing can be taken, the first choice opens rather than leaving the reader stuck.
       // In « tout jouer », an act's exit waits for the other quests: a passage that only leads out sends the reader back
       // to the last crossroads, where they are, instead of opening the exit.
+      // Both stay offered: the exit too, opened, so that a quest left out of reach never locks the reader in a loop.
       if (!story.multi && s.toutJouer && v.kind !== "end" && v.choices.length && !v.choices.some(function (c) { return c.ok && !c.restart; })
         && v.choices.some(function (c) { return c.exit; }) && s.hubLast && s.hubLast !== s.node && story.passages[s.hubLast]) {
         var hb2 = story.passages[s.hubLast];
+        v.choices.forEach(function (c) { if (c.exit) { c.ok = true; c.note = c.why; c.why = ""; } });
         v.choices.push({ label: "Revenir : " + cap(interp(s, String(hb2.backName || hb2.title || "").replace(/\*/g, ""))), to: s.hubLast, back: s.hubLast, autoBack: true, ok: true, why: "" });
       }
       if (!story.multi && v.kind !== "end" && v.choices.length && !v.choices.some(function (c) { return c.ok && !c.restart; })) {

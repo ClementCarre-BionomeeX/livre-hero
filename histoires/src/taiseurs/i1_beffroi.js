@@ -486,7 +486,7 @@ Object.assign(P, {
       { label: "« Qui veut des nouvelles, Tibère ? »", hide: { not: { voile: "ib_tibere_battant" } }, fx: { join: "tibere", unflag: ["tibere:refuse", "ib:tibere_battant"], flag: "ib:tibere_su", fear: { tibere: 10 } }, to: "IB_tibere_aveu" },
     ] },
 
-  IB_tibere_aveu: { act: "I", title: "Le pichet vide", place: "beffroi", backName: "la taverne du Battant", with: "tibere",
+  IB_tibere_aveu: { act: "I", title: "Le pichet vide", place: "beffroi", backName: "la taverne du Battant",
     text: [
       { with: "tibere", text: "Tibère regarde le fond de son pichet. Il le tourne, le retourne. « Je ne sais pas de quoi tu parles », dit-il, et il le dit si mal que lui-même en a honte. Il repose le pichet. « Un homme poli. Il me donne cinq ducats la semaine pour savoir où tu vas. Je lui dis où tu vas. Ce n'est pas grand-chose, où tu vas. Tout le monde le voit. »" },
       { with: "tibere", text: "« Je ne lui dis pas ce que tu fais, ajoute-t-il très vite. Ce que tu dis, ce que tu trouves. {{oreille#ib_tibere_rosalie|Je ne suis pas un mouchard|Je lui dirais tout pour vingt ducats, et Rosalie pourrait ouvrir sa boutique}}. » Il se lève. « Je viens quand même. Si tu veux. Tu me surveilleras. Ce sera nouveau. »" },

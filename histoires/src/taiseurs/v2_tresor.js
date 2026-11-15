@@ -423,7 +423,7 @@ Object.assign(P, {
     choices: [
       { label: "Frapper le diapason contre le trône", big: true, hide: { any: [{ not: { item: "diapason" } }, { has: "ivm:parole" }] }, fx: { recharge: { echo: 5 }, clock: { maree: 1 } }, to: "VT_voix" },
       { label: "Dire à la pierre « je rends ce qui fut pris », puis frapper trois fois le diapason sur l'accoudoir", big: true, hide: { any: [{ not: { item: "diapason" } }, { not: { has: "ivm:parole" } }] }, fx: { recharge: { echo: 5 }, ep: ["perso", 1500] }, to: "VT_voix" },
-      { label: "Poser les mains à plat sur la pierre, et écouter", hide: { item: "diapason" }, fx: { clock: { maree: 1 } }, to: "VT_voix_muette" },
+      { label: "Poser les mains à plat sur la pierre, et écouter", hide: { seen: "VT_voix_muette" }, fx: { clock: { maree: 1 } }, to: "VT_voix_muette" },
       { back: "VT_salle" },
     ] },
 
@@ -485,9 +485,13 @@ Object.assign(P, {
       { with: "gildas", text: "Frère Gildas chante la note des vêpres. La pierre lui répond par un murmure, si bas qu'on croirait le vent. Tu crois entendre, dedans, une voix de femme qui rit. Puis plus rien." },
       { without: "any", text: "Tu restes longtemps les mains sur la pierre. Il te semble, à la fin, entendre un rire de femme, très loin. C'est peut-être le sang dans tes oreilles." },
       { if: { has: "ivm:parole" }, text: "Tu dis à la pierre, très bas, la phrase de Mère Ancolie : *je rends ce qui fut pris*. Tu frappes trois fois l'accoudoir du plat de la main. Les cinq encoches s'allument d'un ambre pâle, l'une après l'autre, et s'éteignent. Sous tes paumes, le rire de femme passe, net, une seule fois." },
-      "Le trône garde ce qu'il sait. Il faudrait l'instrument de Sorne pour le lui faire rendre.",
+      { if: { not: { item: "diapason" } }, text: "Le trône garde ce qu'il sait. Il faudrait l'instrument de Sorne pour le lui faire rendre." },
+      { if: { item: "diapason" }, text: "Le trône garde ce qu'il sait. Dans ta poche, le diapason vibre sur la même note que la pierre." },
     ],
-    choices: [{ back: "VT_salle" }] },
+    choices: [
+      { label: "Sortir le diapason de ta poche", hide: { not: { item: "diapason" } }, back: "VT_trone" },
+      { back: "VT_salle" },
+    ] },
 });
 
 // ==================================================================== those who come down: the sequence, Lothaire
@@ -750,8 +754,7 @@ Object.assign(P, {
       "Léandre Escoffe regarde ses hommes partir avec leur paie. Il reste seul au pied de l'escalier. « La faute est à moi, dit-il enfin, d'une voix fatiguée. J'aurais dû les payer de ma poche. » Il remonte derrière eux, sans se retourner.",
     ],
     choices: [
-      { label: "Les laisser partir", hide: { not: { is: { or: "remonte" } } }, fx: { set: { or: "partie" } }, back: "VT_arrivee" },
-      { label: "Les laisser partir", hide: { is: { or: "remonte" } }, back: "VT_arrivee" },
+      { label: "Les laisser partir", back: "VT_arrivee" },
     ] },
 
   VT_be_tibere: { act: "V", title: "Les anciens du Guet", place: "sorne",

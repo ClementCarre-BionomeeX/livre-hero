@@ -272,6 +272,7 @@ Object.assign(P, {
       { label: "Rester aux Complies, avant le grand silence", hide: { not: { seen: "IIIM_vepres" } }, to: "IIIM_complies" },
       { label: "Assister aux Laudes, à l'aube", to: "IIIM_laudes" },
       { label: "La grille du trésor et ses châsses", to: "IIIM_reliquaire" },
+      { label: "La porte basse derrière le chœur, et l'escalier de la crypte", to: "IIIM_voix_descente" },
       { back: "IIIM_porte" },
     ] },
 

@@ -29,6 +29,8 @@
     if (typeof c === "string") { out.push(c); return out; }
     if (Array.isArray(c)) { c.forEach(function (x) { readTags(x, out); }); return out; }
     if ("has" in c) out.push(c.has);
+    // { is: { key: "value" } } reads the state set by set: { key: "value" }, which also stands as the tag "key=value".
+    if (c.is && typeof c.is === "object") Object.keys(c.is).forEach(function (k) { [].concat(c.is[k]).forEach(function (v) { out.push(k + "=" + v); }); });
     if ("quest" in c) out.push("quete:" + c.quest);
     if ("not" in c) readTags(c.not, out);
     if ("all" in c) readTags(c.all, out);

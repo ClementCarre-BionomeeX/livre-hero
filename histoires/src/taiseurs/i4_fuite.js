@@ -179,12 +179,12 @@ Object.assign(P, {
     text: [
       { first: true, text: "La cave d'Odeline est plus grande que la boutique : une voûte de brique basse, des rayonnages jusqu'au fond, des tonneaux vides qui servent de tables, des malles empilées, et l'établi sous le soupirail, avec ses étaux et ses tiroirs à outils. Une lumière verte entre par la grille du canal et bouge au plafond avec l'eau. C'est ici qu'elle démontait les serrures et recousait les doublures, ici que tu as trouvé la boîte au cornet." },
       { again: true, text: "La voûte de brique, l'établi sous le soupirail, la lumière verte qui bouge au plafond." },
-      "Les tiroirs de l'établi {{echo#iq_echo_cave|sont fermés et rangés comme Odeline les rangeait, chaque outil à son clou|claquent l'un après l'autre sous une main pressée, et une voix d'homme prie entre ses dents en cherchant : « Où l'as-tu mis. Où l'as-tu mis, Odeline »}}. Le mur du fond {{echo#iq_echo_grenats|suinte un peu, comme tous les murs du quai, autour d'un crochet à lanterne|garde la voix d'Odeline, un soir d'hiver, qui parle toute seule en grattant la brique : « La troisième sous le crochet. Pour quand je n'y serai plus »}}.",
+      "Les tiroirs de l'établi {{echo#iq_echo_cave|sont fermés et rangés comme Odeline les rangeait, chaque outil à son clou|claquent l'un après l'autre sous une main pressée, et une voix d'homme prie entre ses dents en cherchant : « Où l'as-tu mis. Où l'as-tu mis, Odeline »}}. Le mur du fond {{pie#iq_pie_grenats|suinte un peu, comme tous les murs du quai, autour d'un crochet à lanterne|suinte comme tous les murs du quai, sauf la troisième brique sous le crochet à lanterne : elle est sèche, posée sans mortier, et creuse derrière}}.",
       "Sur l'établi, la boîte à double fond est restée ouverte, vide, telle que tu l'as laissée. À côté, un bougeoir de cuivre {{pie#iq_bougeoir|propre et droit, posé à sa place habituelle|propre et droit, mais son pied est faussé d'un côté, comme après un choc, et on l'a calé pour qu'il tienne}}.",
       { with: "lison", text: "Lison passe le doigt sur la boîte vide, puis sur ses lèvres, d'un geste que tu ne lui connais pas. « Chez nous, dit-elle, on garde les choses de cette façon-là. Le fond sous le fond. » Elle s'essuie la main à sa jupe." },
     ],
     choices: [
-      { label: "Desceller la troisième brique sous le crochet", once: true, hide: { not: { voile: "iq_echo_grenats" } }, fx: { item: "iq_tr_grenats", clock: { tresors: 1 }, flag: "tresor:iq_grenats", ep: ["perso", 400] }, to: "IQ_grenats" },
+      { label: "Desceller la troisième brique sous le crochet", once: true, hide: { not: { voile: "iq_pie_grenats" } }, fx: { item: "iq_tr_grenats", clock: { tresors: 1 }, flag: "tresor:iq_grenats", ep: ["perso", 400] }, to: "IQ_grenats" },
       { back: "IQ_escalier" },
       { label: "Ressortir par le soupirail, sur le canal", hide: { not: { seen: "IQ_soupirail" } }, back: "IQ_boutique" },
     ] },
@@ -1002,7 +1002,7 @@ Object.assign(P, {
     choices: [
       { label: "Une silhouette lourde descend l'escalier d'eau, en boitant : Tibère", hide: { any: [{ not: { has: "i4:tibere_trahi" } }, { seen: "IF_tibere_retour" }] }, to: "IF_tibere_retour" },
       { label: "Fauvette est assise sur le parapet, les jambes dans le vide", hide: { any: [{ seen: "IF_fauvette_adieu" }, { not: { any: [{ present: "fauvette" }, { has: "fauvette:amie" }] } }] }, to: "IF_fauvette_adieu" },
-      { label: "Un sifflement descend du parapet : un gamin des Gouttières se laisse glisser le long d'une corde", hide: { any: [{ item: "oeil_pie" }, { has: "fauvette:amie" }, { seen: "IF_oeil_gamin" }] }, to: "IF_oeil_gamin" },
+      { label: "Un sifflement descend du parapet : un gamin des Gouttières se laisse glisser le long d'une corde", hide: { any: [{ item: "oeil_pie" }, { seen: "IF_oeil_gamin" }, { all: [{ has: "fauvette:amie" }, { not: { seen: "IF_fauvette_adieu" } }] }] }, to: "IF_oeil_gamin" },
       { label: "Frère Gildas s'est arrêté sur la dernière marche, et il ne monte pas", hide: { any: [{ not: { present: "gildas" } }, { seen: "IF_gildas_choix" }] }, to: "IF_gildas_choix" },
       { label: "Descendre dans la barque, et passer sous la grille", big: true, hide: ATTENTE_BARQUE, to: "IF_egouts" },
     ] },
