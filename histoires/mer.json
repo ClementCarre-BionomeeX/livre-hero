@@ -378,7 +378,7 @@
      }
     },
     {
-     "label": "Tu as servi comme garde sur les convois du sud. Tu sais te battre, et tu sais quand il vaut mieux ne pas le faire.",
+     "label": "Tu as servi comme garde sur les convois du sud. Tu sais te battre, et tu sais quand il vaut mieux t'en abstenir.",
      "fx": {
       "voie": "garde",
       "flag": "passe:garde"
@@ -2794,7 +2794,7 @@
        "escale": "aubier"
       }
      },
-     "text": "Le pont est encombré de cordages, de cages à poules et de caisses pas encore descendues. Des portefaix vont et viennent sur la planche. Au-dessus de vous, les gabiers envergent les voiles en s'interpellant d'un mât à l'autre."
+     "text": "Le pont est encombré de cordages, de cages à poules et de caisses en attente d'être descendues. Des portefaix vont et viennent sur la planche. Au-dessus de vous, les gabiers envergent les voiles en s'interpellant d'un mât à l'autre."
     },
     {
      "if": {
@@ -2820,7 +2820,7 @@
      },
      "when": "day",
      "again": true,
-     "text": "Le pont, le grand mât qui craque, les hommes au travail, et la mer de tous les côtés."
+     "text": "Le pont, le grand mât qui craque, les hommes au travail, et la mer de tous côtés."
     },
     {
      "if": {
@@ -2829,7 +2829,7 @@
       }
      },
      "when": "night",
-     "text": "La nuit, le pont n'est éclairé que par le fanal de poupe et la lampe de l'habitacle, où Kerlo surveille le compas. Les hommes de quart parlent bas."
+     "text": "La nuit, le pont reçoit pour toute lumière celle du fanal de poupe et de la lampe de l'habitacle, où Kerlo surveille le compas. Les hommes de quart parlent bas."
     },
     {
      "if": {
@@ -2838,7 +2838,7 @@
       }
      },
      "temps": "calme",
-     "text": "Les voiles pendent sans un souffle. Le navire roule mollement sur une houle longue, et le bois grince à chaque roulis."
+     "text": "Les voiles pendent, sans un souffle pour les gonfler. Le navire roule mollement sur une houle longue, et le bois grince à chaque roulis."
     },
     {
      "if": {
@@ -2901,7 +2901,7 @@
     },
     {
      "after": "morvan:fers",
-     "text": "Morvan Le Hir est aux fers au pied du grand mât, une chaîne à la cheville. Les hommes passent devant lui sans le regarder."
+     "text": "Morvan Le Hir est aux fers au pied du grand mât, une chaîne à la cheville. Les hommes passent devant lui les yeux ailleurs."
     }
    ],
    "choices": [
@@ -3088,8 +3088,8 @@
      "with": "pierrick",
      "text": "Pierrick grimpe devant toi comme on monte un escalier, et se retourne tous les trois échelons pour voir où tu en es."
     },
-    "La hune est une plate-forme de planches grande comme une table, à mi-hauteur du grand mât. Le roulis, en bas à peine sensible, y devient un balancement de vingt pieds d'un bord à l'autre. Tu t'accroches au mât, puis tu oses regarder.",
-    "La mer s'étend jusqu'au bord du ciel, rayée d'écume. La Sterne, vue d'en haut, est étroite comme une cosse de pois. Sur le pont, les hommes sont des chapeaux.",
+    "La hune est une plate-forme de planches grande comme une table, à mi-hauteur du grand mât. Le roulis, à peine sensible en bas, y devient un balancement de vingt pieds d'un bord à l'autre. Tu t'accroches au mât, puis tu te risques à regarder.",
+    "La mer s'étend jusqu'au bord du ciel, rayée d'écume. Vue d'en haut, la Sterne est étroite comme une cosse de pois, et sur le pont, les hommes se réduisent à des chapeaux.",
     {
      "without": "pierrick",
      "text": "« Je m'appelle Pierrick, dit le mousse. Personne ne monte ici, à part la vigie et moi. Les autres ont le vertige ou la flemme. » Il te regarde. « Toi, t'as pas vomi. C'est bien. Si tu veux, je te montre le navire. Je connais les cachettes. »"
@@ -3134,7 +3134,7 @@
    "text": [
     {
      "first": true,
-     "text": "Le gaillard d'avant est le domaine de l'équipage : un entrepont bas où l'on ne tient debout qu'en courbant la tête, trente hamacs accrochés aux barrots, des coffres de mer alignés le long de la coque, et une odeur de laine mouillée, de goudron et de pieds. Au fond, derrière une cloison, la cambuse de Rozenn, et son fourneau de briques posé sur un lit de sable."
+     "text": "Le gaillard d'avant est le domaine de l'équipage : un entrepont si bas qu'on y tient debout en courbant la tête, trente hamacs accrochés aux barrots, des coffres de mer alignés le long de la coque, et une odeur de laine mouillée, de goudron et de pieds. Au fond, derrière une cloison, se trouvent la cambuse de Rozenn et son fourneau de briques posé sur un lit de sable."
     },
     {
      "again": true,
@@ -3153,7 +3153,7 @@
       "stock": "equipage",
       "max": 45
      },
-     "text": "Les hommes se taisent quand tu entres, et reprennent leur conversation quand tu es passé{e}."
+     "text": "Les conversations s'arrêtent quand tu entres, et reprennent derrière toi."
     },
     {
      "if": {
@@ -3168,7 +3168,7 @@
        "rations": "demi"
       }
      },
-     "text": "Depuis qu'on rationne l'eau, chaque homme garde son quart de pinte sous sa chemise, et le surveille."
+     "text": "Depuis qu'on rationne l'eau, chaque homme garde son quart de pinte sous sa chemise, et le surveille comme on surveille une bourse."
     }
    ],
    "choices": [
@@ -3242,7 +3242,7 @@
    "text": [
     {
      "first": true,
-     "text": "Tu t'assois sur un coffre, entre deux matelots qui épissent un cordage. Ils se poussent pour te faire de la place, sans enthousiasme. Un subrécargue, pour eux, c'est l'homme qui compte la solde, et qui la compte toujours trop juste."
+     "text": "Tu t'assois sur un coffre, entre deux matelots qui épissent un cordage. Ils se poussent pour te faire de la place, sans enthousiasme. Un subrécargue, pour eux, c'est celui qui compte la solde, et qui la compte toujours trop juste."
     },
     {
      "again": true,
@@ -3264,7 +3264,7 @@
    "text": [
     {
      "first": true,
-     "text": "La cale de la Sterne est une longue caverne de bois, éclairée par des fanaux pendus aux barrots. Les caisses de la cargaison y sont arrimées en piles serrées, calées de coins et de cordages. Plus loin, les tonneaux d'eau, couchés sur trois rangs. Au pied du grand mât, les deux pompes, et contre la cloison avant, l'établi d'Armelle, ses outils pendus au mur dans un ordre parfait."
+     "text": "La cale de la Sterne est une longue caverne de bois, éclairée par des fanaux pendus aux barrots. Les caisses de la cargaison y sont arrimées en piles serrées, calées de coins et de cordages. Plus loin, les tonneaux d'eau sont couchés sur trois rangs. Au pied du grand mât se dressent les deux pompes, et contre la cloison avant, l'établi d'Armelle, avec ses outils pendus au mur dans un ordre parfait."
     },
     {
      "again": true,
@@ -3286,7 +3286,7 @@
     {
      "after": "voie:ouverte",
      "before": "voie:bouchee",
-     "text": "L'eau gargouille entre les varangues. On l'entend monter, un doigt par heure, et les hommes de pompe se relaient sans arrêt."
+     "text": "L'eau gargouille entre les varangues. On l'entend monter, d'un doigt par heure, et les hommes de pompe se relaient sans arrêt."
     },
     {
      "after": "voie:bouchee",
@@ -3444,7 +3444,7 @@
        "rations": "demi"
       }
      },
-     "text": "Guénolé fait mettre un cadenas sur la manche à eau et en garde la clé autour du cou. Désormais, chaque homme reçoit sa ration au gobelet, matin et soir, sous ses yeux. Les matelots regardent le cadenas comme on regarde un mauvais présage."
+     "text": "Guénolé fait mettre un cadenas sur la manche à eau et en garde la clé autour du cou. Désormais, chaque homme reçoit sa ration au gobelet, matin et soir, sous ses yeux. Les matelots regardent le cadenas comme un mauvais présage."
     },
     {
      "if": {
@@ -3452,7 +3452,7 @@
        "rations": "pleine"
       }
      },
-     "text": "Guénolé ôte le cadenas de la manche à eau. Les hommes boivent à la tasse, longuement, en te regardant par-dessus le bord. Personne ne te remercie, mais l'air du gaillard est moins lourd ce soir."
+     "text": "Guénolé ôte le cadenas de la manche à eau. Les hommes boivent à la tasse, longuement, en te regardant par-dessus le bord. Pas un merci, mais l'air du gaillard est plus léger ce soir."
     }
    ]
   },
@@ -3461,10 +3461,10 @@
    "place": "cale",
    "back": true,
    "text": [
-    "Tu prends le bringuebale avec un matelot en face de toi, et vous pompez au rythme d'une chanson que tout le monde connaît sauf toi. Au bout d'une heure, tu ne sens plus tes épaules ; au bout de deux, tu les sens trop. L'eau claque dans la dalle et s'en va par-dessus bord.",
+    "Tu prends le bringuebale avec un matelot en face de toi, et vous pompez au rythme d'une chanson que tout le monde connaît, sauf toi. Au bout d'une heure, tes épaules ont cessé de se plaindre ; au bout de deux, elles reprennent de plus belle. L'eau claque dans la dalle et s'en va par-dessus bord.",
     {
      "after": "fait:pompe",
-     "text": "La grande pompe, avec ses cuirs neufs, tire à chaque coup un plein seau. Les hommes disent du bien d'Armelle, ce qui est rare."
+     "text": "La grande pompe, avec ses cuirs neufs, tire un plein seau à chaque coup. Les hommes disent du bien d'Armelle, ce qui arrive rarement."
     },
     {
      "before": "fait:pompe",
@@ -3485,7 +3485,7 @@
    "text": [
     {
      "first": true,
-     "text": "Sous la dunette, une coursive étroite dessert les chambres de l'arrière : celle du capitaine, au fond, avec ses fenêtres sur le sillage ; le carré où l'on mange ; la chambre du second ; l'infirmerie de Maître Daoulas ; la cabine de Gabin, et la tienne, un placard avec une couchette et une tablette où tu poses le coffre de bord."
+     "text": "Sous la dunette, une coursive étroite dessert les chambres de l'arrière : au fond, celle du capitaine, avec ses fenêtres sur le sillage ; le carré où l'on mange ; la chambre du second ; l'infirmerie de Maître Daoulas ; la cabine de Gabin ; et la tienne, un placard muni d'une couchette et d'une tablette où tu poses le coffre de bord."
     },
     {
      "again": true,
@@ -3501,7 +3501,7 @@
     },
     {
      "after": "cap:mort",
-     "text": "La porte de la chambre du capitaine est fermée. On a mis son chapeau dessus, accroché au loquet."
+     "text": "La porte de la chambre du capitaine est fermée. On a accroché son chapeau au loquet."
     }
    ],
    "choices": [
@@ -3621,7 +3621,7 @@
    "title": "Le coffre de bord",
    "place": "arriere",
    "text": [
-    "Tu ouvres le coffre de bord sur ta couchette. Il contient l'argent du voyage, en écus, en piles de dix roulées dans du papier : de quoi payer les droits de port de Marbecq, les escales et l'imprévu. Une avance de solde sur cet argent, c'est l'armateur qui la paie, et c'est à toi qu'il la reprochera.",
+    "Tu ouvres le coffre de bord sur ta couchette. Il contient l'argent du voyage, en écus, en piles de dix roulées dans du papier : de quoi payer les droits de port de Marbecq, les escales et l'imprévu. Une avance de solde prise sur cet argent, c'est l'armateur qui la paie, et c'est à toi qu'il la reprochera.",
     {
      "after": "rumeur:coffre",
      "text": "Depuis ce matin, au gaillard, on dit que tu gardes la solde des hommes là-dedans. Une avance fera taire la rumeur, ou lui donnera raison."
@@ -3677,7 +3677,7 @@
    "place": "arriere",
    "backName": "ta cabine",
    "text": [
-    "Tu te réveilles dans ta couchette, au son de la cloche qui pique le changement de quart. Par le hublot de ta cabine, la mer.",
+    "Tu te réveilles dans ta couchette, au son de la cloche qui pique le changement de quart. Par le hublot de ta cabine, il y a la mer, et rien d'autre.",
     {
      "if": {
       "day": {
@@ -3685,7 +3685,7 @@
        "max": 2
       }
      },
-     "text": "La côte est encore en vue, une ligne bleue sur bâbord. Au réveil, ton estomac a mis un moment à comprendre où il était."
+     "text": "La côte est encore en vue, une ligne bleue sur bâbord. Au réveil, ton estomac a mis un moment à comprendre où il se trouvait."
     },
     {
      "if": {
@@ -3694,12 +3694,12 @@
        "max": 4
       }
      },
-     "text": "Plus de terre en vue, dans aucune direction. Pierrick prétend qu'on la sent encore, à l'odeur, par vent d'est."
+     "text": "La terre a disparu dans toutes les directions. Pierrick prétend qu'on la sent encore à l'odeur, par vent d'est."
     },
     {
      "after": "marche:brumes",
      "before": "R_arrivee",
-     "text": "Le hublot est blanc de brume. Tu entends la cloche du bord, et celle-là seulement."
+     "text": "Le hublot est blanc de brume. La cloche du bord est le seul bruit qui te parvienne."
     },
     {
      "after": "voie:ouverte",
@@ -3709,7 +3709,7 @@
     {
      "after": "R_depart",
      "before": "C_assemblee",
-     "text": "Quelqu'un a gratté sur la porte de ta cabine, au couteau, le dessin d'un cercueil. Tu le regardes longtemps, puis tu t'habilles."
+     "text": "Quelqu'un a gravé au couteau, sur la porte de ta cabine, le dessin d'un cercueil. Tu le regardes longtemps, puis tu t'habilles."
     },
     {
      "after": "cap:mort",
@@ -3739,11 +3739,11 @@
    "text": [
     {
      "first": true,
-     "text": "La Sterne est amarrée bord à quai, sa planche posée sur les pavés. C'est un trois-mâts de belle taille, noir de coque avec une bande jaune à la hauteur des sabords, et une figure de proue en forme d'oiseau aux ailes repliées. Le bois de la coque a été repeint de frais ; les voiles, elles, ont vu beaucoup de mers."
+     "text": "La Sterne est amarrée bord à quai, sa planche posée sur les pavés. C'est un trois-mâts de belle taille, d'une centaine de pieds de long : coque noire, bande jaune à la hauteur des sabords, et une figure de proue en forme d'oiseau aux ailes repliées. La coque a été repeinte de frais ; les voiles, elles, ont vu beaucoup de mers, et leurs reprises se comptent à vingt pas."
     },
     {
      "first": true,
-     "text": "Sur le quai, une file de portefaix monte les dernières caisses de la cargaison à bord. Un homme en habit de drap bleu, debout près de la planche, coche chaque caisse sur une liste."
+     "text": "Sur le quai, une file de portefaix monte à bord les dernières caisses de la cargaison. Un homme en habit de drap bleu, debout près de la planche, coche chaque caisse sur une liste."
     },
     {
      "again": true,
@@ -3751,7 +3751,7 @@
     },
     {
      "after": "A_signer",
-     "text": "La file des portefaix a disparu. Il ne reste sur le quai que des brins de paille et des cordages coupés."
+     "text": "La file des portefaix a disparu. Sur le quai restent seulement des brins de paille et des cordages coupés."
     }
    ],
    "choices": [
@@ -3818,11 +3818,11 @@
    "text": [
     {
      "first": true,
-     "text": "La ville basse de Port-Aubier grimpe en escaliers de granit depuis les quais. Tout ce qui sert à la mer s'y vend : poulies, cordages, biscuit, instruments, assurances et prières. La Chambre des Assurances occupe un bel hôtel à colonnes sur la place du Change ; plus bas, l'apothicairerie de Maître Haudry fait l'angle de la rue des Cordiers, et l'accastilleur étale ses marchandises jusque sur le trottoir."
+     "text": "La ville basse de Port-Aubier grimpe en escaliers de granit depuis les quais. Tout ce qui sert à la mer s'y vend : poulies, cordages, biscuit, instruments, assurances et prières. La Chambre des Assurances occupe un bel hôtel à colonnes sur la place du Change ; plus bas, l'apothicairerie de Maître Haudry fait l'angle de la rue des Cordiers, et l'accastilleur étale ses marchandises jusque sur le pavé."
     },
     {
      "first": true,
-     "text": "Thibaut Lerac, l'ancien subrécargue de la maison Corbière, habite à deux rues, au-dessus d'une boutique de chandelles. Corbière te l'a dit, en ajoutant qu'il ne fallait pas le déranger."
+     "text": "Thibaut Lerac, l'ancien subrécargue de la maison Corbière, habite à deux rues de là, au-dessus d'une boutique de chandelles. Corbière te l'a dit, en ajoutant qu'il valait mieux le laisser tranquille."
     },
     {
      "again": true,
@@ -3869,7 +3869,7 @@
    "text": [
     {
      "first": true,
-     "text": "La boutique de l'accastilleur est un capharnaüm qui sent le chanvre et le suif : des poulies pendues au plafond en grappes, des rouleaux de filin, des barils de clous, des lanternes, des compas dans leur boîte, et derrière le comptoir un vieux qui grave une carte au burin, des lunettes au bout du nez."
+     "text": "La boutique de l'accastilleur est un capharnaüm qui sent le chanvre et le suif : des poulies pendues au plafond en grappes, des rouleaux de filin, des barils de clous, des lanternes, des compas dans leur boîte. Derrière le comptoir, un vieux grave une carte au burin, les lunettes au bout du nez."
     },
     {
      "again": true,
@@ -3942,7 +3942,7 @@
    "text": [
     {
      "first": true,
-     "text": "L'île Ronce est un dos de rocher couvert d'ajoncs, long d'une demi-lieue, posé seul au milieu de la mer des Brumes. La chaloupe vous dépose sur une plage de galets ronds, au fond d'une anse. Un sentier monte vers le phare, une tour trapue blanchie à la chaux, et un autre longe un ruisseau jusqu'à la source."
+     "text": "L'île Ronce est un dos de rocher couvert d'ajoncs, long d'une demi-lieue, posé seul au milieu de la mer des Brumes. La chaloupe vous dépose sur une plage de galets ronds, au fond d'une anse. Un sentier monte vers le phare, une tour trapue blanchie à la chaux ; un autre longe un ruisseau jusqu'à la source."
     },
     {
      "again": true,
@@ -3994,7 +3994,7 @@
     },
     {
      "again": true,
-     "text": "Le capitaine Coët t'écoute en regardant ailleurs, te répond en trois mots, et retourne à sa voilure."
+     "text": "Le capitaine Coët t'écoute en regardant ailleurs, te répond en trois mots, et retourne à sa voilure, qui a visiblement plus de conversation que toi."
     },
     {
      "with": "gabin",
@@ -4011,7 +4011,7 @@
    "text": [
     {
      "first": true,
-     "text": "La chambre du capitaine sent le vinaigre et le vomi. Le vieil homme est couché tout habillé sur sa couchette, une cuvette à portée de main. Il a le teint jaune, les lèvres grises, et il respire lentement, comme s'il comptait."
+     "text": "La chambre du capitaine sent le vinaigre et le vomi. Le vieil homme est couché tout habillé sur sa couchette, une cuvette à portée de main. Il a le teint jaune, les lèvres grises, et il respire lentement, comme s'il comptait chaque souffle avant de le dépenser."
     },
     {
      "first": true,
@@ -4027,12 +4027,12 @@
       "cap:soigne",
       "cap:mort"
      ],
-     "text": "Le capitaine est plus jaune que la veille. Il ouvre les yeux quand tu entres, te reconnaît, les referme."
+     "text": "Le capitaine est plus jaune que la veille. Il ouvre les yeux quand tu entres, te reconnaît, et les referme."
     },
     {
      "again": true,
      "after": "cap:soigne",
-     "text": "Le capitaine est assis contre ses oreillers, un bol de bouillon sur les genoux. Il a encore le teint jaune, mais ses yeux suivent tout. « Les halos s'en vont, dit-il. Ce matin, la lampe n'avait plus qu'une couronne. Ce soir, elle n'en aura plus. »"
+     "text": "Le capitaine est assis contre ses oreillers, un bol de bouillon sur les genoux. Il a encore le teint jaune, mais ses yeux suivent tout ce qui bouge. « Les halos s'en vont, dit-il. Ce matin, la lampe n'avait plus qu'une couronne. Ce soir, elle n'en aura plus. »"
     },
     "Sur la tablette, à côté de la couchette, une chandelle brûle dans un bougeoir de cuivre."
    ],
@@ -4065,7 +4065,7 @@
    "text": [
     {
      "first": true,
-     "text": "L'infirmerie est un réduit éclairé par un hublot, où tiennent une couchette, un coffre de chirurgien ouvert comme une boîte à couture, et une étagère de fioles calées dans de la paille. Maître Daoulas, en manches de chemise, verse quelques gouttes d'un flacon dans un verre d'eau, et le boit."
+     "text": "L'infirmerie est un réduit éclairé par un hublot. Il y tient une couchette, un coffre de chirurgien ouvert comme une boîte à couture, et une étagère de fioles calées dans de la paille. Maître Daoulas, en manches de chemise, verse quelques gouttes d'un flacon dans un verre d'eau, et le boit."
     },
     {
      "first": true,
@@ -4077,7 +4077,7 @@
     },
     {
      "blessure": true,
-     "text": "Il regarde ta blessure par-dessus ses lunettes, claque la langue, et sort de quoi la nettoyer et la panser. « Ne bougez pas. Ça va piquer, et ensuite ça ira mieux. »"
+     "text": "Il examine ta blessure par-dessus ses lunettes, claque la langue, et sort de quoi la nettoyer et la panser. « Ne bougez pas. Ça va piquer, et ensuite ça ira mieux. »"
     },
     {
      "after": "marche:malade",
@@ -4085,7 +4085,7 @@
       "c:verite",
       "cap:mort"
      ],
-     "text": "« Le capitaine ? Le cœur. Il est vieux, il a trop bu, trop crié, trop vécu. Je lui donne de la saignée et du repos. Le reste est entre les mains de Dieu. » Il n'a pas l'air d'y croire beaucoup."
+     "text": "« Le capitaine ? Le cœur. Il est vieux, il a trop bu, trop crié, trop vécu. Je lui donne de la saignée et du repos. Le reste est entre les mains de Dieu. » Il le dit sur le ton d'un homme qui compte assez peu sur ces mains-là."
     }
    ],
    "choices": [
@@ -4110,7 +4110,7 @@
    "back": true,
    "montrer": "daoulas",
    "text": [
-    "Daoulas écoute, sans t'interrompre, en tournant ses lunettes entre ses doigts.",
+    "Daoulas écoute sans t'interrompre, en tournant ses lunettes entre ses doigts.",
     {
      "if": {
       "clue": "c_digitale"
@@ -4172,7 +4172,7 @@
    "title": "La digitale",
    "place": "arriere",
    "text": [
-    "Daoulas parle très bas, comme si la cloison avait des oreilles. Elle en a peut-être.",
+    "Daoulas parle très bas, comme si la cloison avait des oreilles. Sur ce navire, la chose est possible.",
     "« La digitale, à petite dose, fait battre plus fort un cœur fatigué. À forte dose, elle le ralentit jusqu'à l'arrêter. Les halos jaunes, c'est sa signature. Quelqu'un en donne au capitaine, et pas une pincée. Assez pour qu'il meure en quelques jours d'un mal de cœur, à son âge, sans que personne s'en étonne. Moi le premier. »",
     "Il retire ses lunettes et se frotte les yeux. « S'il n'en reçoit plus, il peut s'en remettre. Une semaine, dix jours. Mais il faut que plus rien n'entre dans sa bouche qui ne soit passé par nos mains. Rien. Ni l'eau, ni le bouillon, ni ce maudit grog du soir. »",
     {
@@ -4212,22 +4212,22 @@
     },
     {
      "first": true,
-     "text": "Il te pose aussi des questions, l'air de rien. D'où tu viens. Qui tu connais à Port-Aubier. Si quelqu'un t'attend quelque part. Il écoute tes réponses avec beaucoup d'attention."
+     "text": "Il te pose aussi des questions, l'air de rien : d'où tu viens, qui tu connais à Port-Aubier, si quelqu'un t'attend quelque part. Il écoute tes réponses avec une attention que la conversation ne réclame pas."
     },
     {
      "again": true,
      "before": "morvan:alerte",
-     "text": "Morvan te sourit, te parle du vent, du temps, de la route. Il a toujours un mot gentil, et il sait toujours où tu étais une heure plus tôt."
+     "text": "Morvan te sourit, te parle du vent, du temps, de la route. Il a toujours un mot gentil, et il sait toujours où tu te trouvais une heure plus tôt."
     },
     {
      "again": true,
      "after": "morvan:alerte",
-     "text": "Morvan te sourit toujours. Mais il ne te tourne plus le dos, et il garde une main près de sa ceinture."
+     "text": "Morvan te sourit toujours. Mais il évite désormais de te tourner le dos, et sa main reste près de sa ceinture."
     },
     {
      "with": "gabin",
      "once": true,
-     "text": "Gabin écoute le second les yeux brillants. Morvan lui raconte une tempête, du temps où son père naviguait avec lui ; Gabin rit pour la première fois depuis Port-Aubier."
+     "text": "Gabin écoute le second, les yeux brillants. Morvan lui raconte une tempête du temps où son père naviguait avec lui, et Gabin rit pour la première fois depuis Port-Aubier."
     }
    ]
   },
@@ -4245,7 +4245,7 @@
     "Tu parles de la plaque de la chapelle de Gavre. Le visage du second se ferme, et ses yeux se mouillent. « La Bergeronnette. On a touché la Mâchoire à minuit, par grosse mer. Elle s'est ouverte en deux. J'ai mis la chaloupe à l'eau avec quatre hommes, j'ai cherché les autres jusqu'au jour. » Il serre les poings. « Hervé Corbière était à l'arrière. Je l'ai vu sauter. Je n'ai pas pu l'atteindre. »",
     {
      "with": "gabin",
-     "text": "Gabin baisse la tête. Morvan lui met la main sur l'épaule, et le garçon la laisse là."
+     "text": "Gabin baisse la tête. Morvan lui pose la main sur l'épaule, et le garçon la laisse là."
     }
    ]
   },
@@ -4253,7 +4253,7 @@
    "title": "Morvan Le Hir",
    "back": true,
    "text": [
-    "Tu parles des caisses de la cale. Le second ne sourit plus. Il te regarde longtemps, la tête un peu penchée, comme on regarde un cheval qui vient de boiter.",
+    "Tu parles des caisses de la cale. Le sourire du second s'efface. Il te regarde longtemps, la tête un peu penchée, comme on regarde un cheval qui vient de boiter.",
     "« Tu n'aurais pas dû ouvrir ces caisses, dit-il enfin, très doucement. Ce n'est pas ton argent, ce n'est pas ton navire, ce n'est pas ta vie. Pense à ça, la nuit, quand tu dors dans ta cabine. Moi, j'y pense pour toi. »"
    ],
    "fx": {
@@ -4267,7 +4267,7 @@
    "title": "Morvan Le Hir",
    "back": true,
    "text": [
-    "Tu lui montres la lettre au cachet vert. Il la reconnaît avant même que tu la déplies. Il te la laisse.",
+    "Tu lui montres la lettre au cachet vert. Il la reconnaît avant même que tu la déplies, et il te la laisse.",
     "« Tu as fouillé ma chambre. » Il rit, tout bas. « Tu vois, c'est pour ça que Corbière t'a choisi{e}. Un étranger, qui ne connaît personne, qui ne sait rien. Il s'est trompé sur le dernier point. »",
     "Il se penche vers toi. « Écoute bien, parce que je ne le dirai qu'une fois. Ce navire va finir sur les Dents, avec ou sans toi. Mille écus, c'est beaucoup d'argent. Il y a de la place dans la chaloupe. Réfléchis jusqu'aux Dents. »"
    ],
@@ -4308,7 +4308,7 @@
     },
     {
      "again": true,
-     "text": "Guénolé te fait un signe de tête, sans retirer sa pipe de sa bouche."
+     "text": "Guénolé te salue d'un signe de tête, la pipe toujours plantée entre les dents."
     },
     {
      "after": "marche:sabotage",
@@ -4321,7 +4321,7 @@
    "title": "Guénolé Le Bihan",
    "back": true,
    "text": [
-    "Tu dis au maître d'équipage ce que tu as trouvé. Il t'écoute, sa pipe à la main. Quand tu as fini, il la remet dans sa poche, avec soin, comme on range une chose précieuse.",
+    "Tu dis au maître d'équipage ce que tu as trouvé. Il t'écoute, sa pipe à la main. Quand tu as fini, il la range dans sa poche avec soin, comme une chose précieuse.",
     "« Vingt-deux ans pour Corbière », dit-il. Il regarde les matelots sur le pont, un par un. « Il y a trente hommes sur ce navire. Trente familles à terre. » Il se tourne vers toi. « Quand tu auras besoin de bras, viens me chercher. Pas avant. Si le second se doute de quelque chose avant, on est tous morts. »"
    ],
    "fx": {
@@ -4348,11 +4348,11 @@
    "text": [
     {
      "first": true,
-     "text": "Le timonier garde la tête droite. Il a les deux mains sur les poignées de la roue, et ses yeux vont du compas à la voile, de la voile au compas. « On peut causer, dit-il. Mais pas me faire rire. Je ris, je lâche la barre. »"
+     "text": "Le timonier garde la tête droite, les deux mains sur les poignées de la roue, et ses yeux vont du compas à la voile, puis de la voile au compas. « On peut causer, dit-il. Mais pas me faire rire. Je ris, je lâche la barre. »"
     },
     {
      "again": true,
-     "text": "Kerlo te fait un signe de tête, et garde les yeux sur son compas."
+     "text": "Kerlo te fait un signe de tête et garde les yeux sur son compas."
     },
     {
      "temps": "brume",
@@ -4363,7 +4363,7 @@
       "grain",
       "tempete"
      ],
-     "text": "Il est trempé jusqu'aux os, et il chante quelque chose entre ses dents pour garder le rythme des coups de barre."
+     "text": "Il est trempé jusqu'aux os, et il chante entre ses dents pour garder le rythme des coups de barre."
     }
    ]
   },
@@ -4372,7 +4372,7 @@
    "place": "pont",
    "back": true,
    "text": [
-    "Tu montres au timonier ce que tu as. Il lit, lentement, en remuant les lèvres, sans lâcher la barre. Puis il regarde le compas, longtemps.",
+    "Tu montres au timonier ce que tu as. Il lit lentement, en remuant les lèvres, sans lâcher la barre. Puis il regarde le compas, longtemps.",
     "« Le second me donne la route à la relève de minuit. Le capitaine me la donnait à midi. » Il crache. « J'aurais dû me poser la question. Je me pose jamais de questions, c'est pour ça qu'on me met à la barre. » Il tourne la roue d'un rayon, puis d'un autre. « À partir de maintenant, je tiens la route du capitaine. Celle de la carte. Le second dira ce qu'il voudra. »"
    ],
    "fx": {
@@ -4408,7 +4408,7 @@
     },
     {
      "again": true,
-     "text": "Rozenn te tend une écuelle de soupe sans te demander ton avis, et attend que tu l'aies finie pour t'écouter."
+     "text": "Rozenn te tend une écuelle de soupe sans te demander ton avis, et attend que tu l'aies vidée pour t'écouter."
     },
     {
      "after": "marche:malade",
@@ -4453,11 +4453,11 @@
    "text": [
     {
      "first": true,
-     "text": "Erwan est un garçon nerveux qui rit avant la fin de ses phrases. Il te propose une partie de dés, puis deux, puis te raconte qu'il a gagné cent écus en une nuit à Port-Aubier, puis qu'il les a perdus la nuit d'après. Il rit encore."
+     "text": "Erwan est un garçon nerveux qui rit avant la fin de ses phrases. Il te propose une partie de dés, puis deux. Il te raconte qu'il a gagné cent écus en une nuit à Port-Aubier, puis qu'il les a perdus la nuit suivante, et il rit encore, comme si la seconde nuit était la meilleure de l'histoire."
     },
     {
      "again": true,
-     "text": "Erwan te salue d'un grand geste, et retourne à ses dés."
+     "text": "Erwan te salue d'un grand geste et retourne à ses dés."
     },
     {
      "after": "marche:sabotage",
@@ -4470,7 +4470,7 @@
    "title": "Erwan Le Goff",
    "place": "gaillard",
    "text": [
-    "Tu poses devant lui ce que tu as trouvé dans son hamac. Erwan regarde la vrille, puis toi, et son rire meurt dans sa gorge. Il est très jeune, tout à coup.",
+    "Tu poses devant lui ce que tu as trouvé dans son hamac. Erwan regarde la vrille, puis toi, et son rire meurt dans sa gorge. Tout à coup, il paraît très jeune.",
     "« J'avais perdu aux dés, à Port-Aubier. Plus que ma solde de l'année. Le type m'aurait fait casser les deux mains. » Il parle très vite, très bas. « Quelqu'un du bord a tout racheté. Il m'a dit que je lui devais un service, un seul, et qu'on serait quittes. Percer les tonneaux du rang du bas, la quatrième nuit. Avec la vrille de la charpentière, pour qu'on l'accuse elle. »",
     "« Qui ? » Il secoue la tête. « Il me tuera. Il me l'a dit, et il le fera. Il a déjà… » Il s'arrête. Il tremble."
    ],
@@ -4536,12 +4536,12 @@
    "title": "Les fers",
    "place": "gaillard",
    "text": [
-    "Guénolé met lui-même les fers à Erwan, au pied du mât de misaine, devant tout l'équipage. Il explique ce qu'il a fait, d'une voix qui porte jusqu'à la poupe. Les hommes crachent par terre en passant.",
+    "Guénolé met lui-même les fers à Erwan, au pied du mât de misaine, devant tout l'équipage. Il explique ce que le garçon a fait, d'une voix qui porte jusqu'à la poupe. Les hommes crachent par terre en passant.",
     {
      "with": "armelle",
      "text": "Armelle regarde Erwan, la mâchoire serrée. « Avec ma vrille », dit-elle seulement."
     },
-    "Le second arrive, écoute, approuve d'un hochement de tête grave. « Bonne justice. On le remettra au prévôt de Marbecq. » En passant près d'Erwan, il ne le regarde pas. Erwan, lui, le suit des yeux jusqu'à ce qu'il ait disparu."
+    "Le second arrive, écoute, et approuve d'un hochement de tête grave. « Bonne justice. On le remettra au prévôt de Marbecq. » En passant près d'Erwan, il garde les yeux devant lui. Erwan, lui, le suit du regard jusqu'à ce qu'il ait disparu."
    ],
    "fx": {
     "conf": {
@@ -4559,7 +4559,7 @@
    "place": "gaillard",
    "text": [
     "Erwan te regarde longtemps, puis il crache dans sa main et te la tend, comme on fait sur les marchés. « Le moment venu. Pas avant. » Il remet la vrille dans ta main. « Garde-la. Et dis à la charpentière que je lui demande pardon. Plus tard. »",
-    "Ce soir-là, au gaillard, tu fais savoir que l'affaire des tonneaux est réglée, et que le coupable paiera à Marbecq. Les hommes ne savent pas qui, mais ils te croient. L'air du gaillard est moins lourd."
+    "Ce soir-là, au gaillard, tu fais savoir que l'affaire des tonneaux est réglée, et que le coupable paiera à Marbecq. Les hommes ignorent qui, mais ils te croient. L'air du gaillard s'allège."
    ],
    "fx": {
     "stock": {
@@ -4577,8 +4577,8 @@
    "title": "Le comptoir Corbière",
    "place": "aubier_comptoir",
    "text": [
-    "Le comptoir de la maison Corbière occupe le rez-de-chaussée d'une haute maison de la ville haute. Des commis y écrivent debout à des pupitres, sous des maquettes de navires posées sur des consoles. On te fait traverser la salle, puis monter un escalier, et l'on te laisse devant une porte capitonnée de cuir vert.",
-    "Maître Anselme Corbière est un homme rond, en habit de drap gris, qui parle doucement en regardant ses mains posées à plat sur son bureau. Derrière lui, par la fenêtre, on voit toute la rade, et tout au bout du quai des Morutiers, un trois-mâts noir à bande jaune.",
+    "Le comptoir de la maison Corbière occupe tout le rez-de-chaussée d'une haute maison de la ville haute. Une douzaine de commis y écrivent debout à des pupitres, sous des maquettes de navires alignées sur des consoles comme des bibelots de famille. On te fait traverser la salle, puis monter un escalier, et l'on te laisse devant une porte capitonnée de cuir vert, où l'on entend seulement le grattement d'une plume.",
+    "Maître Anselme Corbière est un homme rond, en habit de drap gris, qui parle doucement en regardant ses mains posées à plat sur son bureau, comme s'il les consultait. Derrière lui, la fenêtre embrasse toute la rade, et tout au bout du quai des Morutiers, un trois-mâts noir à bande jaune.",
     "« La Sterne, dit-il sans se retourner. Elle part ce soir, à la marée de sept heures, pour Marbecq. Mon subrécargue, Lerac, s'est cassé la jambe avant-hier dans l'escalier de mon entrepôt. À son âge, ces choses arrivent. Il me faut quelqu'un pour répondre de la cargaison, signer le manifeste, tenir le coffre de bord et me rendre des comptes au retour. On m'a dit que tu savais compter et que tu n'avais pas d'attaches ici. »",
     {
      "if": {
@@ -4599,8 +4599,8 @@
      "text": "Il ajoute, sans lever les yeux : « Et que tu as escorté des convois. Un coffre de bord, c'est un convoi qui flotte. »"
     },
     "Il pousse vers toi un manifeste de trois feuilles et une clé de fer au bout d'un lacet. « Deux écus par jour de mer, payés à Marbecq par mon comptoir, et une prime si la cargaison arrive entière. »",
-    "On frappe. Un garçon de quinze ans entre sans attendre la réponse : maigre, des cheveux trop longs, un livre sous le bras et un manteau de voyage déjà boutonné. Corbière ne se lève pas. « Mon neveu, Gabin. Il embarque aussi. Il va apprendre le métier au comptoir de Marbecq. Tu veilleras sur lui. »",
-    "Gabin te salue d'un signe de tête poli, et regarde la rade par la fenêtre, comme son oncle."
+    "On frappe. Un garçon de quinze ans entre avant d'y être invité : maigre, des cheveux trop longs, un livre sous le bras et un manteau de voyage déjà boutonné jusqu'au menton. Corbière reste assis. « Mon neveu, Gabin. Il embarque aussi. Il va apprendre le métier au comptoir de Marbecq. Tu veilleras sur lui. »",
+    "Gabin te salue d'un signe de tête poli, puis se tourne vers la fenêtre et regarde la rade, exactement comme son oncle. Tu notes que c'est le seul trait qu'ils semblent avoir en commun."
    ],
    "fx": {
     "meet": "corbiere",
@@ -4654,7 +4654,7 @@
    "title": "L'avance",
    "place": "aubier_comptoir",
    "text": [
-    "Corbière lève enfin les yeux sur toi. Il a des yeux gris pâle, sans cils. Il ouvre un tiroir, compte dix écus en piles de deux et les pousse vers toi du bout des doigts. « On ne part pas en mer les poches vides. C'est juste. »",
+    "Corbière lève enfin les yeux sur toi. Ils sont gris pâle, sans cils, et ils te pèsent comme on pèse une marchandise. Il ouvre un tiroir, compte dix écus en cinq piles de deux et les pousse vers toi du bout des doigts. « On ne part pas en mer les poches vides. C'est juste. »",
     "Dans l'escalier, Gabin te dit à voix basse : « Il ne m'a jamais donné dix écus. »"
    ],
    "fx": {
@@ -4672,7 +4672,7 @@
    "place": "aubier_comptoir",
    "text": [
     "Corbière sourit sans desserrer les lèvres. « Mon comptoir de Marbecq paie à l'arrivée. C'est l'usage de la maison, et c'est une bonne raison d'arriver. »",
-    "Il a déjà repris sa plume."
+    "Il a déjà repris sa plume, et la plume reprend son grattement."
    ],
    "fx": {
     "regard": {
@@ -4691,14 +4691,14 @@
    "title": "À bord",
    "place": "pont",
    "text": [
-    "Tu montes la planche avec le manifeste sous le bras. Sur le pont, tout le monde travaille et personne ne te regarde, sauf un homme debout près de la barre : soixante ans passés, barbe blanche taillée court, une tache de vin sur la tempe, un chapeau noir enfoncé jusqu'aux sourcils. Le capitaine Ysembart Coët te détaille de la tête aux pieds, puis te tourne le dos.",
+    "Tu montes la planche avec le manifeste sous le bras. Sur le pont, tout le monde travaille et personne ne lève la tête, à une exception près : un homme debout près de la barre, soixante ans passés, barbe blanche taillée court, une tache de vin sur la tempe, un chapeau noir enfoncé jusqu'aux sourcils. Le capitaine Ysembart Coët te détaille de la tête aux pieds, avec le soin qu'on met à vérifier un cordage douteux, puis te tourne le dos.",
     "« Le subrécargue, dit-il au vent. Vous logerez à l'arrière. Vous ne touchez pas aux manœuvres, vous ne parlez pas aux hommes de quart, et vous ne descendez pas dans ma cale sans me prévenir. »",
-    "Un autre homme vient à toi la main tendue : trente-huit ans, beau, une fine cicatrice au menton, des yeux très bleus, une veste de drap bleu à boutons de corne. « Morvan Le Hir, le second. Ne fais pas attention au capitaine, il est comme ça avec tout le monde. Avec moi aussi, depuis douze ans. » Il rit, et les matelots autour de lui sourient.",
+    "Un autre homme vient à toi, la main tendue : trente-huit ans, beau, une fine cicatrice au menton, des yeux très bleus, une veste de drap bleu à boutons de corne. « Morvan Le Hir, le second. Ne fais pas attention au capitaine, il est comme ça avec tout le monde. Avec moi aussi, depuis douze ans. » Il rit, et les matelots autour de lui sourient avec lui, d'un même mouvement.",
     {
      "with": "gabin",
-     "text": "Le second aperçoit Gabin derrière toi, et son visage change. Il le prend aux épaules. « Le fils d'Hervé. Tu as grandi. » Gabin rougit, et ne trouve rien à répondre. Plus tard, il te dira que Morvan Le Hir était le second de son père, et qu'il a été le dernier à le voir vivant."
+     "text": "Le second aperçoit Gabin derrière toi, et son visage change. Il le prend aux épaules. « Le fils d'Hervé. Tu as grandi. » Gabin rougit et cherche une réponse qui ne vient pas. Plus tard, il te dira que Morvan Le Hir était le second de son père, et le dernier à l'avoir vu vivant."
     },
-    "Morvan te présente l'équipage comme on présente sa famille : Guénolé Le Bihan, le maître d'équipage, les bras couverts d'ancres tatouées ; Yves Kerlo, le timonier, qui touche son bonnet en silence ; Rozenn Le Dû, la cuisinière, qui passe la tête par l'écoutille de la cambuse et la retire aussitôt ; Maître Daoulas, le chirurgien, des lunettes cerclées de fer, qui te serre la main d'une main moite. En haut des haubans, un gamin roux vous regarde, assis sur une vergue, les jambes dans le vide.",
+    "Morvan te présente l'équipage comme on présente sa famille. Guénolé Le Bihan, le maître d'équipage, les bras couverts d'ancres tatouées ; Yves Kerlo, le timonier, qui touche son bonnet en silence ; Rozenn Le Dû, la cuisinière, qui passe la tête par l'écoutille de la cambuse et la retire aussitôt ; Maître Daoulas, le chirurgien, des lunettes cerclées de fer et une main moite qu'il te tend comme un objet prêté. En haut des haubans, un gamin roux vous regarde, assis sur une vergue, les jambes dans le vide.",
     "« Et la charpentière, Armelle, est en bas, dit le second. Elle se dispute avec une pompe. Ne la dérange pas. »"
    ],
    "fx": {
@@ -4726,12 +4726,12 @@
    "title": "Les portefaix",
    "place": "aubier_quai",
    "text": [
-    "Les portefaix montent la planche deux par deux, une caisse sur les épaules, en soufflant. Les caisses sont toutes pareilles : du sapin blanc, cerclé de fer, avec au pochoir le sceau de la maison Corbière et le mot DRAPS.",
-    "Tu regardes passer la dixième, la vingtième. Les porteurs plient les genoux sous chacune, le cou gonflé. L'un d'eux pose la sienne sur le quai pour souffler, et tu aides à la relever : il faut s'y mettre à deux, et encore.",
+    "Les portefaix montent la planche deux par deux, une caisse sur les épaules, en soufflant. Les caisses sont toutes pareilles : sapin blanc, cerclage de fer, et au pochoir le sceau de la maison Corbière avec le mot DRAPS.",
+    "Tu regardes passer la dixième, puis la vingtième. À chacune, les porteurs plient les genoux et le cou leur gonfle. L'un d'eux pose la sienne sur le quai pour souffler, et tu aides à la relever : il faut s'y mettre à deux, et encore.",
     "« Des draps, dit le portefaix en crachant dans ses mains. Ils doivent être tissés en plomb, à Flandre. »",
     {
      "with": "armelle",
-     "text": "Armelle regarde la caisse, puis les mains du portefaix, puis toi. Elle se tait."
+     "text": "Armelle regarde la caisse, puis les mains du portefaix, puis toi. Elle garde pour elle ce qu'elle en pense."
     }
    ],
    "fx": {
@@ -4748,7 +4748,7 @@
    "title": "La charpentière",
    "place": "cale",
    "text": [
-    "Au pied du grand mât, une femme d'une quarantaine d'années, les manches roulées sur des avant-bras de forgeron, a démonté le piston de la grande pompe sur un sac étalé par terre. Elle tient entre deux doigts une rondelle de cuir qui s'effrite comme du pain sec.",
+    "Au pied du grand mât, une femme d'une quarantaine d'années, les manches roulées sur des avant-bras de forgeron, a démonté le piston de la grande pompe sur un sac étalé par terre. Elle tient entre deux doigts une rondelle de cuir qui s'effrite comme une croûte de pain sec.",
     "« Armelle Kerbrat, charpentière. C'est toi qui remplaces Lerac ? » Elle te tend la rondelle. « Regarde-moi ça. J'ai regarni ces pompes moi-même au retour du dernier voyage, avec du cuir de Morlaix, le meilleur. Ce matin, je trouve ça à la place. Du cuir de savetier, brûlé à la chaux. Ça tiendra trois jours de pompage, et le quatrième on se noie. »",
     "Elle jette la rondelle dans le sac. « J'ai demandé au second l'argent pour en racheter. Il dit que l'armateur ne paiera pas deux fois la même chose, et qu'il n'a pas le temps. Et il m'interdit de descendre à terre avant le départ. »",
     "Elle te regarde. « Toi, tu tiens le coffre. Et toi, tu peux descendre à terre. »"
@@ -4784,7 +4784,7 @@
    "title": "Le manifeste",
    "place": "aubier_quai",
    "text": [
-    "Le second t'attend au pied de la planche avec une écritoire portative, un encrier de corne et une plume déjà taillée. La dernière caisse vient de passer. Il te tend le manifeste ouvert sur la dernière feuille, là où manque ta signature.",
+    "Le second t'attend au pied de la planche avec une écritoire portative, un encrier de corne et une plume déjà taillée. La dernière caisse vient de passer. Il te tend le manifeste ouvert sur la dernière feuille, à l'endroit précis où manque ta signature.",
     "« Quatre-vingt-dix caisses de draps, soixante d'outils, quarante barriques, douze balles de toile, vingt sacs de clous. J'ai tout coché moi-même. » Il sourit. « Une formalité. Lerac signait les yeux fermés. »",
     {
      "with": "gabin",
@@ -4838,7 +4838,7 @@
    "title": "Le manifeste",
    "place": "aubier_quai",
    "text": [
-    "Tu signes. Le second souffle sur l'encre, plie les feuilles, et les glisse dans sa veste. « Je le garde avec le livre de bord. Tu le reverras à Marbecq. » Il te tape sur l'épaule. « Bienvenue sur la Sterne. »"
+    "Tu signes. Le second souffle sur l'encre, plie les feuilles et les glisse dans sa veste. « Je le garde avec le livre de bord. Tu le reverras à Marbecq. » Il te tape sur l'épaule. « Bienvenue sur la Sterne. »"
    ],
    "choices": [
     {
@@ -4850,7 +4850,7 @@
    "title": "Le manifeste",
    "place": "aubier_quai",
    "text": [
-    "Tu écris ta réserve en petites lettres serrées sous ta signature. Le second la lit, et son sourire reste exactement le même. « Prudent. C'est bien. » Il souffle sur l'encre, plie les feuilles et les glisse dans sa veste."
+    "Tu écris ta réserve en petites lettres serrées sous ta signature. Le second la lit, et son sourire garde exactement la même largeur. « Prudent. C'est bien. » Il souffle sur l'encre, plie les feuilles et les glisse dans sa veste."
    ],
    "choices": [
     {
@@ -4863,7 +4863,7 @@
    "place": "aubier_quai",
    "text": [
     "Tu commences à écrire ta réserve. Le second pose deux doigts sur la feuille. « Une réserve sur un manifeste, à Port-Aubier, ça veut dire qu'on accuse l'armateur de mentir. Tu veux commencer ta carrière comme ça ? Signe, et vérifie à Marbecq tant que tu voudras. »",
-    "Tu signes sans rien ajouter. Il souffle sur l'encre et range les feuilles dans sa veste."
+    "Tu signes, et rien de plus. Il souffle sur l'encre et range les feuilles dans sa veste."
    ],
    "choices": [
     {
@@ -4876,7 +4876,7 @@
    "place": "aubier_quai",
    "text": [
     "Le second hausse les épaules avec bonne grâce. « Comme tu voudras. » Il siffle un portefaix, qui redescend la planche avec la caisse du haut de la dernière pile, et fait sauter le couvercle à la pince.",
-    "Dedans, des pièces de drap de Flandre, gris et bleu, pliées serré, qui sentent le suint et la teinture. Tu en soulèves une : c'est du beau drap, épais et doux.",
+    "Dedans, des pièces de drap de Flandre, gris et bleu, pliées serré, qui sentent le suint et la teinture. Tu en soulèves une : c'est du beau drap, épais et doux, comme le promet le pochoir.",
     "« Satisfait{e} ? » Le second fait refermer la caisse. Derrière lui, sur la dunette, le capitaine Coët vous regarde, les mains dans le dos. « La marée n'attend pas les comptables », dit-il assez fort pour qu'on l'entende sur le quai."
    ],
    "choices": [
@@ -4925,8 +4925,8 @@
    "title": "La seconde caisse",
    "place": "cale",
    "text": [
-    "Tu descends dans la cale avec le second et un portefaix. Tu montres une caisse du rang du bas, au milieu d'une pile. Il faut défaire deux cordages et déplacer trois caisses pour l'atteindre. Le second se tait. Il tient la lanterne.",
-    "Le couvercle saute. Du drap, gris et bleu, plié serré. Tu enfonces la main entre deux pièces, jusqu'au poignet. C'est dur, sous le drap, et froid.",
+    "Tu descends dans la cale avec le second et un portefaix, et tu désignes une caisse du rang du bas, au milieu d'une pile. Pour l'atteindre, il faut défaire deux cordages et déplacer trois caisses. Le second se tait et tient la lanterne.",
+    "Le couvercle saute. Du drap, gris et bleu, plié serré. Tu enfonces la main entre deux pièces, jusqu'au poignet. Sous le drap, tes doigts rencontrent quelque chose de dur, et de froid.",
     "« Attention, tu vas tout froisser. » Le second a rabattu le couvercle du bout de la botte, sans brusquerie. « Tu as vu du drap. On a perdu une heure. On signe ? »"
    ],
    "choices": [
@@ -4956,7 +4956,7 @@
    "place": "aubier_quai",
    "text": [
     "« Non », dit le capitaine depuis la dunette. Il descend sur le quai, lentement. « Une cargaison arrimée ne se désarrime pas pour les beaux yeux d'un subrécargue. Vous signez, ou vous ne signez pas, et dans ce cas vous restez à terre et j'en trouve un autre au cabaret. »",
-    "Le second écarte les mains, désolé, comme s'il n'y était pour rien."
+    "Le second écarte les mains, désolé, en homme qui n'y peut rien."
    ],
    "choices": [
     {
@@ -4985,8 +4985,8 @@
    "title": "Le manifeste",
    "place": "aubier_quai",
    "text": [
-    "Le second referme l'écritoire. Son sourire a disparu, mais sa voix reste aimable. « Maître Corbière ne va pas aimer ça. Un navire qui part sans manifeste signé, la Chambre des Assurances ne le couvre qu'à moitié. »",
-    "« Alors elle le couvrira à moitié », dit le capitaine Coët, qui passe à côté de vous sans s'arrêter. C'est la première fois que tu l'entends presque rire."
+    "Le second referme l'écritoire. Son sourire est parti, mais sa voix reste aimable. « Maître Corbière ne va pas aimer ça. Un navire qui part sans manifeste signé, la Chambre des Assurances ne le couvre qu'à moitié. »",
+    "« Alors elle le couvrira à moitié », dit le capitaine Coët, qui passe à côté de vous sans s'arrêter. C'est la première fois que tu l'entends presque rire, et le presque compte."
    ],
    "fx": {
     "ep": [
@@ -5005,9 +5005,9 @@
    "title": "La Chambre des Assurances",
    "place": "aubier_ville",
    "text": [
-    "La Chambre des Assurances de Port-Aubier tient dans une grande salle dallée de noir et de blanc, où des messieurs en perruque discutent à voix basse devant un tableau noir couvert de noms de navires et de chiffres. Sur un mur, une cloche de bronze, qu'on sonne une fois quand un navire est perdu.",
-    "Derrière un grillage de cuivre, une greffière d'une trentaine d'années, lunettes et manchettes de lustrine, recopie un registre. Une plaque de bois porte son nom : P. Dornac.",
-    "Tu te présentes : le subrécargue de la Sterne. Elle lève les yeux. « La Sterne, de la maison Corbière. » Elle répond sans même ouvrir son registre."
+    "La Chambre des Assurances de Port-Aubier tient dans une grande salle dallée de noir et de blanc, où des messieurs en perruque parlent à voix basse devant un tableau noir couvert de noms de navires et de chiffres. Au mur pend une cloche de bronze. On la sonne une fois, une seule, quand un navire est perdu, et sa corde est usée à hauteur de main.",
+    "Derrière un grillage de cuivre, une greffière d'une trentaine d'années, lunettes et manchettes de lustrine, recopie un registre d'une écriture si régulière qu'on la croirait imprimée. Une plaque de bois porte son nom : P. Dornac.",
+    "Tu te présentes : le subrécargue de la Sterne. Elle lève les yeux. « La Sterne, de la maison Corbière. » Elle le dit de mémoire, son registre fermé."
    ],
    "fx": {
     "meet": "dornac"
@@ -5052,7 +5052,7 @@
    "title": "La police",
    "place": "aubier_ville",
    "text": [
-    "La greffière hésite, puis tire un registre de dessous le grillage et l'ouvre à une page cornée. Elle te montre une ligne du doigt, sans la lire à voix haute.",
+    "La greffière hésite, puis tire un registre de dessous le grillage et l'ouvre à une page cornée. Elle pose le doigt sur une ligne, et la laisse lire à tes yeux plutôt qu'à sa voix.",
     "Quarante mille écus. Le corps du navire pour douze mille, la cargaison pour vingt-huit mille, selon le manifeste signé du subrécargue.",
     "« La Sterne a vingt-deux ans, dit Pélagie Dornac à voix très basse. On me l'aurait proposée à vendre la semaine dernière, je n'en aurais pas donné dix mille. Mais ce ne sont pas mes affaires. » Elle recopie la police d'une écriture rapide, la sable, la signe, et te la glisse sous le grillage. « Ni les vôtres, sans doute. »",
     {
@@ -5079,7 +5079,7 @@
    "title": "La Chambre des Assurances",
    "place": "aubier_ville",
    "text": [
-    "« Les polices sont l'affaire de l'assuré et de la Chambre, dit la greffière. Si Maître Corbière veut vous en parler, il vous en parlera. » Elle reprend sa plume. Derrière toi, un des messieurs en perruque te regarde avec curiosité."
+    "« Les polices sont l'affaire de l'assuré et de la Chambre, dit la greffière. Si Maître Corbière veut vous en parler, il vous en parlera. » Elle reprend sa plume. Derrière toi, un des messieurs en perruque te regarde avec la curiosité qu'on accorde aux gens qui posent des questions dans les endroits calmes."
    ],
    "choices": [
     {
@@ -5097,7 +5097,7 @@
    "text": [
     {
      "first": true,
-     "text": "L'apothicairerie de Maître Haudry est une boutique tapissée de bocaux de faïence bleue, de pots de grès et de tiroirs étiquetés en latin. Ça sent le camphre, la cire et la réglisse. Maître Haudry, gros et barbu, broie quelque chose dans un mortier en chantonnant."
+     "text": "L'apothicairerie de Maître Haudry est une boutique tapissée de bocaux de faïence bleue, de pots de grès et de tiroirs étiquetés en latin. Ça sent le camphre, la cire et la réglisse. Maître Haudry, gros et barbu, broie quelque chose dans un mortier en chantonnant faux."
     },
     {
      "first": true,
@@ -5120,15 +5120,15 @@
    "text": [
     {
      "first": true,
-     "text": "Thibaut Lerac habite deux pièces au-dessus d'une boutique de chandelles. Il t'ouvre lui-même, en sautillant sur une béquille, la jambe droite prise dans une attelle de planchettes. C'est un vieil homme maigre au crâne chauve, aux lunettes rondes, qui sent le tabac froid."
+     "text": "Thibaut Lerac habite deux pièces au-dessus d'une boutique de chandelles. Il t'ouvre lui-même, en sautillant sur une béquille, la jambe droite prise dans une attelle de planchettes. C'est un vieil homme maigre, au crâne chauve et aux lunettes rondes, qui sent le tabac froid et la cire du rez-de-chaussée."
     },
     {
      "first": true,
-     "text": "Quand tu lui dis qui tu es, il te laisse sur le seuil. Il reste dans l'embrasure, la main sur la porte. « C'est donc vous qui me remplacez sur la Sterne. Eh bien. Bon voyage. »"
+     "text": "Quand tu lui dis qui tu es, il te laisse sur le seuil et reste planté dans l'embrasure, la main sur la porte. « C'est donc vous qui me remplacez sur la Sterne. Eh bien. Bon voyage. »"
     },
     {
      "again": true,
-     "text": "Lerac t'ouvre de nouveau, toujours sur sa béquille. Il soupire en te voyant, mais il ne referme pas la porte."
+     "text": "Lerac t'ouvre de nouveau, toujours sur sa béquille. Il soupire en te voyant, mais il garde la porte ouverte."
     }
    ],
    "fx": {
@@ -5172,7 +5172,7 @@
    "title": "Chez Thibaut Lerac",
    "place": "aubier_ville",
    "text": [
-    "Lerac regarde longuement dans l'escalier, en bas, puis te fait entrer. Il s'assoit dans un fauteuil percé, la jambe allongée sur un tabouret, et prend le manifeste. Il le lit deux fois, en remuant ses lèvres sèches.",
+    "Lerac regarde longuement l'escalier, jusqu'en bas, puis te fait entrer. Il s'assoit dans un fauteuil percé, la jambe allongée sur un tabouret, et prend le manifeste. Il le lit deux fois, en remuant ses lèvres sèches.",
     "« Quatre-vingt-dix caisses de draps de Flandre, pour une colonie de pêcheurs qui s'habille en toile à voile. » Il te rend les feuilles. « Corbière m'a demandé de signer ça il y a trois jours. J'ai dit que je signerais quand j'aurais ouvert les caisses, toutes, une par une. Il a dit : comme vous voudrez, Lerac, vous avez toujours été un homme soigneux. »",
     "Il tapote son attelle. « Le lendemain matin, je suis descendu à l'entrepôt avant le jour, pour commencer. Dans l'escalier, quelqu'un est passé derrière moi. Je n'ai rien vu. Je me suis réveillé en bas, avec la jambe dans le mauvais sens. »",
     "Il te regarde par-dessus ses lunettes. « Je ne dis pas qu'on m'a poussé. Je dis que je suis tombé au bon moment. »",
@@ -5204,7 +5204,7 @@
    "title": "Chez Thibaut Lerac",
    "place": "aubier_ville",
    "text": [
-    "« Dans un escalier, dit Lerac. Comme tout le monde. » Il te ferme la porte au nez, doucement, comme on ferme une porte sur un malade. Tu l'entends tirer le verrou."
+    "« Dans un escalier, dit Lerac. Comme tout le monde. » Il te ferme la porte au nez, doucement, comme on ferme une porte sur un malade. Tu l'entends tirer le verrou, puis un second."
    ],
    "choices": [
     {
@@ -5225,12 +5225,12 @@
      },
      "text": "Pierrick, le mousse, vient te chercher en courant : « La marée ! Le capitaine fait rentrer la planche ! » Tu le suis à bord au moment où deux matelots la tirent sur le pont."
     },
-    "Sept heures. La marée est haute, étale, brillante comme une plaque de cuivre sous le soleil bas. On largue les amarres. Deux canots à rames prennent la Sterne en remorque et la tirent, lentement, au milieu de la rade.",
-    "Puis tout se passe très vite. Guénolé siffle. Les gabiers, sur les vergues, lâchent les voiles qui tombent d'un coup, claquent, se gonflent. Le navire s'incline et prend de la vitesse. Les canots larguent la remorque. Kerlo met la barre dessous, et la Sterne passe entre les deux tours du port, si près de la tour du nord que tu pourrais toucher ses pierres avec une gaffe.",
-    "Sur le quai des Morutiers, un homme en habit gris regarde partir le navire, son chapeau à la main. Il ne fait pas de signe.",
+    "Sept heures. La marée est haute et étale, brillante comme une plaque de cuivre sous le soleil bas. On largue les amarres. Deux canots à rames prennent la Sterne en remorque et la tirent, lentement, au milieu de la rade.",
+    "Puis tout va très vite. Guénolé siffle. Sur les vergues, les gabiers lâchent les voiles, qui tombent d'un coup, claquent et se gonflent. Le navire s'incline et prend de la vitesse. Les canots larguent la remorque. Kerlo met la barre dessous, et la Sterne passe entre les deux tours du port, si près de celle du nord que tu pourrais toucher ses pierres du bout d'une gaffe.",
+    "Sur le quai des Morutiers, un homme en habit gris regarde partir le navire, son chapeau à la main. Il garde la main immobile, sans un signe.",
     {
      "with": "gabin",
-     "text": "Gabin, accoudé au bastingage, regarde son oncle devenir un point gris, puis plus rien. Il a gardé son livre sous le bras."
+     "text": "Gabin, accoudé au bastingage, regarde son oncle devenir un point gris, puis disparaître tout à fait. Il a gardé son livre sous le bras."
     },
     {
      "if": {
@@ -5346,7 +5346,7 @@
    "title": "Gavre",
    "place": "pont",
    "text": [
-    "Le troisième jour au matin, la vigie annonce un clocher blanc sur une pointe noire. La Sterne entre au port de Gavre à neuf heures, toutes voiles serrées sauf le petit hunier, et vient s'amarrer au môle sous les yeux de la moitié du village.",
+    "Le troisième jour au matin, la vigie annonce un clocher blanc sur une pointe noire. La Sterne entre au port de Gavre à neuf heures, toutes voiles serrées sauf le petit hunier, et vient s'amarrer au môle sous les yeux de la moitié du village, qui n'a visiblement rien de mieux à regarder.",
     "Le capitaine Coët rassemble l'équipage sur le pont. « On remplit six tonneaux à la fontaine du môle. On embarque le pilote Tréguer pour les Dents. On repart à six heures, à la marée du soir. Celui qui n'est pas à bord à six heures restera à Gavre jusqu'au prochain navire, et le prochain navire passe au printemps. »",
     "Le second descend le premier sur le môle. « Je vais chercher le pilote, capitaine. Je sais où il loge. »"
    ],
@@ -5388,11 +5388,11 @@
    "text": [
     {
      "first": true,
-     "text": "Le Cormoran est une salle basse au plafond noirci, où des pêcheurs en vareuse boivent du cidre chaud autour d'une cheminée qui fume. Derrière le comptoir, une grande femme aux cheveux gris tressés, Mère Ozanne, essuie des bols sans les regarder."
+     "text": "Le Cormoran est une salle basse au plafond noirci, où des pêcheurs en vareuse boivent du cidre chaud autour d'une cheminée qui fume dans la pièce plus que dans le conduit. Derrière le comptoir, une grande femme aux cheveux gris tressés, Mère Ozanne, essuie des bols sans les regarder."
     },
     {
      "again": true,
-     "text": "Le Cormoran, sa fumée, ses pêcheurs, Mère Ozanne à son comptoir."
+     "text": "Le Cormoran, sa fumée, ses pêcheurs, et Mère Ozanne à son comptoir."
     }
    ],
    "choices": [
@@ -5410,7 +5410,7 @@
    "title": "Le pilote",
    "place": "gavre",
    "text": [
-    "Mère Ozanne te montre le fond de la salle, d'un coup de menton. Sur un banc, contre le mur, un vieil homme dort la bouche ouverte, une jambe par terre, la barbe blanche tachée de vin. Un de ses yeux, mi-clos, est voilé de blanc.",
+    "Mère Ozanne te désigne le fond de la salle d'un coup de menton. Sur un banc, contre le mur, un vieil homme dort la bouche ouverte, une jambe par terre, la barbe blanche tachée de vin. Un de ses yeux, mi-clos, est voilé de blanc.",
     "« Joachim Tréguer, dit-elle. Le meilleur pilote des Dents. Ça fait dix ans qu'il ne boit plus que le dimanche. Hier soir, un homme de votre navire lui a payé à boire jusqu'au matin, une bouteille après l'autre. Un bel homme, en veste bleue. Il m'a donné un écu pour que je continue à servir. » Elle repose un bol. « Ce matin, le même est revenu, il l'a regardé dormir, et il est reparti en riant. »"
    ],
    "fx": {
@@ -5455,7 +5455,7 @@
    "title": "Le pilote",
    "place": "gavre",
    "text": [
-    "Il faut deux seaux d'eau du puits, un pot de café noir, et une heure de marche sur le môle, Tréguer pendu à ton épaule. Il vomit deux fois dans le port. Puis il s'arrête, regarde la Sterne, et dit d'une voix enrouée : « C'est le navire de Corbière, ça. Le jaune. »",
+    "Il faut deux seaux d'eau du puits, un pot de café noir et une heure de marche sur le môle, Tréguer pendu à ton épaule. Il vomit deux fois dans le port. Puis il s'arrête, regarde la Sterne, et dit d'une voix enrouée : « C'est le navire de Corbière, ça. Le jaune. »",
     "Il se tait longtemps. « Mon fils était gabier sur la Bergeronnette. » Il crache. « Je viens. Je passerai ta Sterne entre les Dents, et je la poserai à Marbecq comme un œuf dans un panier. Et je veux voir la tête de ton second quand je monterai la planche. »"
    ],
    "fx": {
@@ -5483,8 +5483,8 @@
    "title": "La planche",
    "place": "pont",
    "text": [
-    "Tréguer monte la planche en s'aidant des deux mains, et se plante sur le pont, les jambes écartées. Le capitaine Coët vient à lui et lui serre la main en silence.",
-    "Le second arrive de l'arrière. Il voit le pilote. Pendant un instant, son visage reste figé, le sourire et les yeux avec. Puis il ouvre les bras. « Joachim ! On m'avait dit que tu refusais de rembarquer. Je suis content de m'être trompé. »",
+    "Tréguer monte la planche en s'aidant des deux mains et se plante sur le pont, les jambes écartées, comme pour reprendre possession d'un sol qu'il connaît. Le capitaine Coët vient à lui et lui serre la main en silence.",
+    "Le second arrive de l'arrière. Il voit le pilote. Pendant un instant, son visage se fige tout entier, le sourire et les yeux avec. Puis il ouvre les bras. « Joachim ! On m'avait dit que tu refusais de rembarquer. Je suis content de m'être trompé. »",
     "« Tu t'es trompé de beaucoup de choses », dit Tréguer, et il va s'asseoir près de la barre."
    ],
    "fx": {
@@ -5521,7 +5521,7 @@
    "text": [
     {
      "first": true,
-     "text": "La boutique de Nolwenn Guivarc'h est tapissée de cartes marines, du sol au plafond. Sur les tables, des compas, des sextants, des sabliers, des sondes, et partout des rouleaux de papier. Nolwenn elle-même, rousse et grave, nettoie une lunette de vue avec un chiffon de soie."
+     "text": "La boutique de Nolwenn Guivarc'h est tapissée de cartes marines du sol au plafond. Sur les tables s'entassent des compas, des sextants, des sabliers, des sondes, et partout des rouleaux de papier. Nolwenn elle-même, rousse et grave, nettoie une lunette de vue avec un chiffon de soie, du geste lent qu'on réserve aux objets qui coûtent cher."
     },
     {
      "first": true,
@@ -5595,7 +5595,7 @@
    "title": "Le routier",
    "place": "gavre",
    "text": [
-    "Nolwenn te tend le carnet. Il est lourd, gondolé, et sent le sel. Les pages sont couvertes de croquis de côtes, de flèches, de chiffres serrés, d'une écriture penchée qui va jusqu'au bord.",
+    "Nolwenn te tend le carnet. Il est lourd, gondolé, et sent le sel. Les pages sont couvertes de croquis de côtes, de flèches, de chiffres serrés, d'une écriture penchée qui court jusqu'au bord et parfois au-delà, sur la marge de la page suivante.",
     "« Les Dents, dit-elle, il y a une seule passe, la Passe des Veuves. Tout est là-dedans. Il faut savoir le lire, et il faut un ciel clair, ou de la chance. » Elle te regarde. « Joachim viendra le reprendre un jour. Vous le lui rendrez, s'il est encore en vie. »"
    ],
    "fx": {
@@ -5615,8 +5615,8 @@
    "title": "La chapelle des noyés",
    "place": "gavre",
    "text": [
-    "La chapelle est une nef basse blanchie à la chaux, sans autre ornement que ses ex-voto : des maquettes de navires pendues à la voûte par des fils, des tableaux naïfs de tempêtes, des béquilles, une ancre rouillée. Le long des murs, des plaques de bois peint portent des listes de noms, navire par navire.",
-    "Une plaque récente, encore claire, attire ton regard. *La Bergeronnette, trois-mâts de la maison Corbière, perdue corps et biens sur les Dents de Morgue, la nuit du 3e jour de l'équinoxe, il y a deux ans.* Vingt-six noms de noyés.",
+    "La chapelle est une nef basse blanchie à la chaux, dont les seuls ornements sont ses ex-voto : des maquettes de navires pendues à la voûte par des fils, des tableaux naïfs de tempêtes, des béquilles, une ancre rouillée. Le long des murs, des plaques de bois peint portent des listes de noms, navire par navire, comme les pages d'un registre qu'on aurait clouées.",
+    "Une plaque récente, encore claire, attire ton regard. *La Bergeronnette, trois-mâts de la maison Corbière, perdue corps et biens sur les Dents de Morgue, la nuit du 3e jour de l'équinoxe, il y a deux ans.* Tu comptes les noms des noyés : vingt-six.",
     "En dessous, plus petit : *Rescapés, arrivés à Marbecq en chaloupe le 6e jour.* Cinq noms. Le premier est *M. Le Hir, second*.",
     {
      "with": "gabin",
@@ -5658,14 +5658,14 @@
        "terre": "oui"
       }
      },
-     "text": "Le coup de canon du départ te rappelle à bord. Tu montes la planche en courant, et on la tire derrière toi."
+     "text": "Le coup de canon du départ te rappelle à bord. Tu montes la planche en courant, et on la tire derrière tes talons."
     },
-    "À six heures, la Sterne quitte Gavre. La chapelle blanche reste longtemps en vue sur sa pointe, puis la nuit l'efface. Devant, il n'y a plus que le large, et au bout du large, la mer des Brumes.",
+    "À six heures, la Sterne quitte Gavre. La chapelle blanche reste longtemps en vue sur sa pointe, puis la nuit l'efface. Devant, il reste le large, et au bout du large, la mer des Brumes.",
     {
      "if": {
       "has": "treguer:abord"
      },
-     "text": "Tréguer s'est installé sur un rouleau de cordage près de la barre, et ne quittera plus cette place. Il regarde les étoiles sortir une à une, et les nomme à mi-voix."
+     "text": "Tréguer s'est installé sur un rouleau de cordage près de la barre, et cette place sera désormais la sienne. Il regarde les étoiles sortir une à une, et les nomme à mi-voix, comme on fait l'appel."
     },
     {
      "if": {
@@ -5673,7 +5673,7 @@
        "has": "treguer:abord"
       }
      },
-     "text": "Le capitaine Coët fait le tour du pont, la mâchoire serrée. Le pilote n'est pas à bord. Le second a dit qu'il refusait de rembarquer, et qu'il connaissait la passe aussi bien que lui."
+     "text": "Le capitaine Coët fait le tour du pont, la mâchoire serrée. Le pilote manque à bord. Selon le second, Tréguer refuse de rembarquer, et lui-même connaît la passe aussi bien que le vieux pilote."
     }
    ],
    "fx": {
@@ -5699,14 +5699,14 @@
    "title": "Le large",
    "place": "pont",
    "text": [
-    "La première nuit au large, la Sterne trouve son allure : un balancement long, régulier, qui monte du ventre du navire et qu'on finit par ne plus sentir. On allume le fanal de poupe. Les hommes de la bordée de repos descendent au gaillard, ceux du quart s'installent à l'abri du gaillard d'avant, et l'on n'entend plus que l'eau le long de la coque.",
+    "La première nuit au large, la Sterne trouve son allure : un balancement long et régulier, qui monte du ventre du navire et que le corps finit par oublier. On allume le fanal de poupe. Les hommes de la bordée de repos descendent au gaillard, ceux du quart s'installent à l'abri du gaillard d'avant, et il reste pour tout bruit celui de l'eau le long de la coque.",
     {
      "with": "gabin",
      "text": "Gabin est resté sur le pont. Il a sorti de sa poche une petite boussole de cuivre et la regarde trembler sur sa paume. « C'était à mon père, dit-il. Il disait qu'une boussole ne ment jamais, que ce sont les hommes qui lisent mal. »"
     },
     {
      "with": "armelle",
-     "text": "Armelle passe, une lanterne à la main, pour sa ronde du soir dans la cale. Elle frappe la coque du plat de la main, à chaque membrure, et écoute, comme un médecin."
+     "text": "Armelle passe, une lanterne à la main, pour sa ronde du soir dans la cale. À chaque membrure, elle frappe la coque du plat de la main et tend l'oreille, comme un médecin qui ausculte une poitrine."
     }
    ],
    "choices": [
@@ -5722,10 +5722,10 @@
    "place": "cale",
    "text": [
     "Guénolé te secoue dans ta couchette avant le jour. « Viens voir. Viens voir ce qu'ils ont fait. »",
-    "Dans la cale, à la lueur de trois lanternes, l'eau clapote entre les varangues, plus haut qu'elle ne devrait. Sur le rang du bas, quatorze tonneaux sonnent creux. Les hommes de la bordée sont là, en chemise, pieds nus dans l'eau douce perdue, et personne ne parle.",
-    "Puis quelqu'un parle. Un gabier sort de derrière l'établi de la charpentière avec le coffre à outils d'Armelle ouvert dans les bras. « Sa grosse vrille. Elle est plus là. » Et tout le monde se tourne vers Armelle, qui descend l'échelle à cet instant, sa lanterne à la main.",
-    "Le second arrive derrière elle. Il regarde les tonneaux, les hommes, Armelle, et il dit d'une voix très calme : « Personne ne touche à personne. Kerbrat, tu vas rester dans ta cale jusqu'à ce qu'on y voie clair. Pour ta sécurité. »",
-    "Armelle te regarde. Les hommes aussi."
+    "Dans la cale, à la lueur de trois lanternes, l'eau clapote entre les varangues, plus haut qu'elle ne devrait. Sur le rang du bas, quatorze tonneaux sonnent creux. Les hommes de la bordée sont là, en chemise, pieds nus dans l'eau douce perdue, et le silence est complet.",
+    "Puis une voix le rompt. Un gabier sort de derrière l'établi de la charpentière avec le coffre à outils d'Armelle ouvert dans les bras. « Sa grosse vrille. Elle est plus là. » Toutes les têtes se tournent vers Armelle, qui descend l'échelle à cet instant, sa lanterne à la main.",
+    "Le second arrive derrière elle. Il regarde les tonneaux, puis les hommes, puis Armelle, et il dit d'une voix très calme : « Personne ne touche à personne. Kerbrat, tu vas rester dans ta cale jusqu'à ce qu'on y voie clair. Pour ta sécurité. »",
+    "Armelle te regarde. Les hommes aussi, et leur regard attend quelque chose de toi."
    ],
    "fx": {
     "clue": "e_armelle",
@@ -5790,11 +5790,11 @@
    "title": "Les tonneaux",
    "place": "cale",
    "text": [
-    "Tu te mets entre Armelle et les hommes. Tu leur demandes qui, ici, a jamais vu Armelle Kerbrat abîmer un outil, gâcher une planche, ou laisser un homme manquer de quelque chose à bord. Tu leur demandes si une charpentière qui voudrait percer des tonneaux se servirait de sa propre vrille et laisserait son coffre ouvert pour qu'on s'en aperçoive.",
-    "Un silence. Puis Guénolé crache dans l'eau. « C'est vrai, ça. » Les hommes remontent l'échelle un par un, en grognant. Le second sourit, comme quelqu'un qui a perdu une partie de cartes sans importance.",
+    "Tu te mets entre Armelle et les hommes. Tu leur demandes qui, ici, a déjà vu Armelle Kerbrat abîmer un outil, gâcher une planche ou laisser un homme manquer de quoi que ce soit à bord. Tu leur demandes aussi si une charpentière qui voudrait percer des tonneaux prendrait sa propre vrille, et laisserait ensuite son coffre ouvert pour qu'on remarque l'absence.",
+    "Un silence. Puis Guénolé crache dans l'eau. « C'est vrai, ça. » Les hommes remontent l'échelle un par un, en grognant. Le second sourit, du sourire d'un joueur qui perd une partie de cartes sans enjeu.",
     {
      "with": "armelle",
-     "text": "Armelle ne te remercie pas. Elle ramasse son coffre à outils, le referme, et te dit seulement : « Je trouverai qui. Et toi, tu m'aideras. »"
+     "text": "Armelle garde ses remerciements. Elle ramasse son coffre à outils, le referme, et te dit seulement : « Je trouverai qui. Et toi, tu m'aideras. »"
     }
    ],
    "choices": [
@@ -5808,7 +5808,7 @@
    "title": "Les tonneaux",
    "place": "cale",
    "text": [
-    "Tu parles, mais l'eau perdue parle plus fort. Les hommes grondent. Le second lève la main, et ils se taisent. « Le subrécargue a raison de défendre les gens du bord. Mais moi, je dois défendre le bord. Kerbrat reste à sa cale. »",
+    "Tu parles, mais l'eau perdue parle plus fort que toi. Les hommes grondent. Le second lève la main, et ils se taisent. « Le subrécargue a raison de défendre les gens du bord. Mais moi, je dois défendre le bord. Kerbrat reste à sa cale. »",
     {
      "with": "armelle",
      "text": "Armelle hausse les épaules. « J'y vis déjà, dans ma cale. » Elle te regarde. « Merci d'avoir essayé. »"
@@ -5825,7 +5825,7 @@
    "title": "Les tonneaux",
    "place": "cale",
    "text": [
-    "Tu te tais. Le second hoche la tête, satisfait, et fait signe aux hommes de remonter. Armelle te regarde passer, sa lanterne à la main. Ses yeux disent ce qu'elle pense de toi."
+    "Tu te tais. Le second hoche la tête, satisfait, et fait signe aux hommes de remonter. Armelle te regarde passer, sa lanterne à la main, et ses yeux te disent clairement ce qu'elle pense de toi."
    ],
    "choices": [
     {
@@ -5839,7 +5839,7 @@
    "place": "cale",
    "back": true,
    "text": [
-    "Tu fais rouler les tonneaux vides un par un, à la lanterne. Tous ont été percés de la même façon : un trou net, rond, de la grosseur d'un petit doigt, au ras du fond, du côté de la coque, là où on ne le voit pas en passant. Pas une écharde. Le travail d'un outil bien affûté, et d'une main qui savait s'en servir.",
+    "Tu fais rouler les tonneaux vides un par un, à la lanterne, et tu les examines comme on examine des blessés. Tous ont été percés de la même façon : un trou net et rond, de la grosseur d'un petit doigt, au ras du fond, du côté de la coque, là où l'œil d'un passant ne va jamais. Pas une écharde autour. Il a fallu un outil bien affûté, et une main habituée à s'en servir.",
     {
      "with": "armelle",
      "text": "Armelle s'accroupit à côté de toi et passe le doigt dans un trou. « Une vrille de charpentier. De la grosseur de la mienne. » Elle se relève. « Qui que ce soit, il a dû la cacher quelque part. Une vrille comme ça, ça ne se jette pas : ça vaut deux jours de solde. »"
@@ -5853,12 +5853,12 @@
    "title": "Le hamac d'Erwan",
    "place": "gaillard",
    "text": [
-    "La bordée est sur le pont à virer de bord. Le gaillard est vide, à part un homme qui ronfle dans un hamac du fond. Tu passes de hamac en hamac sans te presser, comme quelqu'un qui cherche sa pipe.",
+    "La bordée est sur le pont à virer de bord, et le gaillard est vide, à l'exception d'un homme qui ronfle dans un hamac du fond. Tu passes de hamac en hamac sans te presser, avec l'air de quelqu'un qui cherche sa pipe.",
     {
      "with": "pierrick",
-     "text": "Pierrick fait le guet au pied de l'échelle, en sifflotant faux."
+     "text": "Pierrick fait le guet au pied de l'échelle, en sifflotant faux avec un parfait naturel."
     },
-    "Le hamac d'Erwan Le Goff est roulé serré autour de son sac. Dedans, roulée dans une chemise sale, il y a une vrille de charpentier, longue comme l'avant-bras. Sa mèche est encore collée de sciure de chêne humide."
+    "Le hamac d'Erwan Le Goff est roulé serré autour de son sac. Dedans, enveloppée dans une chemise sale, il y a une vrille de charpentier, longue comme l'avant-bras. Sa mèche est encore collée de sciure de chêne humide."
    ],
    "fx": {
     "clue": "e_sciure"
@@ -5874,7 +5874,7 @@
    "title": "Le gaillard",
    "place": "gaillard",
    "text": [
-    "Tu as à peine touché le premier hamac qu'une voix t'arrête. « Tu cherches quelque chose ? » Rozenn est sur le seuil de sa cambuse, sa louche à la main. Tu marmonnes une histoire de pipe perdue. Elle hausse un sourcil et retourne à son chaudron. Il faudra revenir à un autre moment."
+    "Tu as à peine touché le premier hamac qu'une voix t'arrête. « Tu cherches quelque chose ? » Rozenn est sur le seuil de sa cambuse, sa louche à la main. Tu marmonnes une histoire de pipe perdue. Elle hausse un sourcil, d'une façon qui t'apprend le peu de cas qu'elle fait de ta pipe, et retourne à son chaudron. Il faudra revenir à un autre moment."
    ],
    "choices": [
     {
@@ -5886,7 +5886,7 @@
    "title": "L'escalier de la dunette",
    "place": "arriere",
    "text": [
-    "Tu t'assieds dans le noir, sous l'escalier de la dunette, là où la coursive fait un coude. D'ici, on voit la porte du capitaine et le bas des marches. Le navire craque. Au-dessus, sur la dunette, les pas de l'homme de quart vont et viennent.",
+    "Tu t'assieds dans le noir, sous l'escalier de la dunette, à l'endroit où la coursive fait un coude. De là, tu tiens sous ton regard la porte du capitaine et le bas des marches. Le navire craque. Au-dessus de toi, sur la dunette, les pas de l'homme de quart vont et viennent, six dans un sens, six dans l'autre.",
     {
      "temps": [
       "grain",
@@ -5894,7 +5894,7 @@
      ],
      "text": "La pluie tambourine sur le pont, au-dessus de ta tête. Elle couvre tous les bruits, les tiens comme ceux des autres."
     },
-    "À huit heures, quelqu'un descend l'escalier, un pot de grès fumant à la main. Une veste bleue, à boutons de corne. Le second s'arrête devant la porte du capitaine, regarde à droite et à gauche, et pose le pot sur une marche."
+    "À huit heures, quelqu'un descend l'escalier, un pot de grès fumant à la main. Une veste bleue, à boutons de corne. Le second s'arrête devant la porte du capitaine, regarde à droite, puis à gauche, et pose le pot sur une marche."
    ],
    "choices": [
     {
@@ -5923,9 +5923,9 @@
    "title": "L'escalier de la dunette",
    "place": "arriere",
    "text": [
-    "Tu avances à quatre pattes jusqu'au coin de la coursive. Le second sort de sa poche un petit cornet de papier, l'ouvre, et en verse le contenu dans le pot. Une poudre verte, en pluie fine. Il remue avec son doigt, le lèche, fait la grimace, et s'essuie sur sa veste.",
+    "Tu avances à quatre pattes jusqu'au coin de la coursive. Le second sort de sa poche un petit cornet de papier, l'ouvre et en verse le contenu dans le pot : une poudre verte, en pluie fine. Il remue du doigt, se lèche le doigt, fait la grimace et l'essuie sur sa veste.",
     "Puis il frappe, entre, et tu l'entends dire d'une voix chaleureuse : « Votre grog, capitaine. Bien chaud, comme vous l'aimez. »",
-    "Tu attends qu'il ressorte et qu'il remonte. Tu attends encore. Quand le capitaine ronfle, tu entres dans la chambre, et tu prends le pot vide sur la table de chevet. Au fond, sous un fond de rhum, une pâte verte de feuilles écrasées. Tu y trempes le bout de la langue. C'est amer comme le fiel."
+    "Tu attends qu'il ressorte et qu'il remonte. Tu attends encore. Quand le capitaine ronfle, tu entres dans la chambre et tu prends le pot vide sur la table de chevet. Au fond, sous un reste de rhum, il y a une pâte verte de feuilles écrasées. Tu y trempes le bout de la langue : c'est amer comme le fiel."
    ],
    "fx": {
     "clue": "c_feuilles",
@@ -5961,10 +5961,10 @@
    "title": "Le grog du soir",
    "place": "gaillard",
    "text": [
-    "À huit heures moins le quart, tu es dans la cambuse de Rozenn. Tu lui dis seulement que, désormais, c'est toi qui monteras le grog du capitaine, et que personne d'autre ne doit le toucher. Elle te regarde, puis elle te tend le pot sans poser de question.",
-    "Au pied de l'escalier de la dunette, le second t'attend. Il voit le pot dans tes mains, et quelque chose passe sur son visage, très vite. « Tu as pris mon travail ? »",
+    "À huit heures moins le quart, tu es dans la cambuse de Rozenn. Tu lui annonces seulement que, désormais, tu monteras toi-même le grog du capitaine, et que le pot passera de ses mains aux tiennes, sans escale. Elle te regarde un moment, puis te tend le pot sans poser de question.",
+    "Au pied de l'escalier de la dunette, le second t'attend. Il voit le pot dans tes mains, et quelque chose traverse son visage, très vite. « Tu as pris mon travail ? »",
     "« Le capitaine m'a fait demander », dis-tu. Il s'efface pour te laisser passer, avec une petite révérence. « Prends-en bien soin, alors. »",
-    "Pendant les jours suivants, Daoulas purge le capitaine, le fait boire de l'eau, rien que de l'eau qu'il tire lui-même du tonneau. Le troisième jour, le vieil homme demande de la soupe."
+    "Les jours suivants, Daoulas purge le capitaine et le fait boire de l'eau, rien que de l'eau, qu'il tire lui-même du tonneau. Le troisième jour, le vieil homme réclame de la soupe, et le ton sur lequel il la réclame est déjà un bon signe."
    ],
    "fx": {
     "flag": "cap:soigne",
@@ -5988,7 +5988,7 @@
    "title": "La cale, la nuit",
    "place": "cale",
    "text": [
-    "La cale, la nuit, est une autre cale. Les fanaux sont éteints, sauf un, au pied de l'échelle. Les caisses font des murs noirs. On entend l'eau contre la coque, et les rats.",
+    "La nuit, la cale devient un autre lieu. Les fanaux sont éteints, sauf un, au pied de l'échelle. Les caisses font des murs noirs. On entend l'eau contre la coque, et les rats, qui ont la nuit pour eux.",
     {
      "with": "armelle",
      "text": "Armelle a apporté son pied-de-biche, enveloppé dans un chiffon pour qu'il ne sonne pas contre le bois. « Si on nous prend, dit-elle, c'est moi qui ai eu l'idée. Moi, ils me pendront pas, ils ont besoin d'une charpentière. »"
@@ -5997,7 +5997,7 @@
      "without": "armelle",
      "text": "Sur l'établi d'Armelle, tu prends un pied-de-biche. Il est lourd et froid."
     },
-    "Il faut défaire des cordages, déplacer des caisses sans bruit, et soulever les couvercles sans faire crier les clous."
+    "Il faut défaire des cordages, déplacer des caisses en silence, et soulever les couvercles sans faire crier les clous."
    ],
    "choices": [
     {
@@ -6034,17 +6034,17 @@
    "title": "Les caisses",
    "place": "cale",
    "text": [
-    "Le couvercle cède avec un soupir de clous. Dessus, du drap de Flandre, gris et bleu, plié serré. Tu soulèves la première pièce, la deuxième. Dessous, il n'y a plus de drap. Il y a du sable gris, tassé, et des galets ronds de la taille d'un poing, des galets de grève, encore couverts de sel.",
-    "Tu ouvres une deuxième caisse, plus loin. Une couche de drap, puis du sable. Une caisse d'outils : trois haches sur le dessus, puis des briques. Tu débouches une barrique de vin avec la pointe du couteau, et tu goûtes : de l'eau de mer.",
+    "Le couvercle cède avec un soupir de clous. Dessus, du drap de Flandre, gris et bleu, plié serré. Tu soulèves la première pièce, puis la deuxième. Dessous, le drap s'arrête. Le reste de la caisse est plein de sable gris, tassé, et de galets ronds de la taille d'un poing : des galets de grève, encore couverts de sel.",
+    "Tu ouvres une deuxième caisse, plus loin : une couche de drap, puis du sable. Une caisse d'outils : trois haches sur le dessus, puis des briques. Tu débouches une barrique de vin avec la pointe du couteau et tu goûtes. C'est de l'eau de mer.",
     {
      "with": "armelle",
      "text": "Armelle a posé le pied-de-biche. Elle prend une poignée de sable et la laisse couler entre ses doigts. « Quatre-vingt-dix caisses de draps, dit-elle très bas. Et nous trente dessus. »"
     },
     {
      "with": "gabin",
-     "text": "Gabin est descendu derrière vous sans bruit. Il regarde le sable. Il comprend plus vite que tu ne l'aurais voulu. « Mon oncle a assuré ça », dit-il, et ce n'est pas une question."
+     "text": "Gabin est descendu derrière vous sans bruit. Il regarde le sable, et il comprend plus vite que tu ne l'aurais voulu. « Mon oncle a assuré ça », dit-il. Il le dit comme on constate."
     },
-    "Tu refermes tout comme c'était, en remettant chaque clou dans son trou."
+    "Tu refermes tout dans l'état où tu l'as trouvé, en remettant chaque clou dans son trou."
    ],
    "fx": {
     "clue": "m_sable",
@@ -6065,8 +6065,8 @@
    "title": "La cale, la nuit",
    "place": "cale",
    "text": [
-    "Une caisse glisse, en cogne une autre. Le bruit roule dans toute la cale. Une lanterne apparaît en haut de l'échelle : l'homme de quart, qui descend deux échelons et lève sa lumière. Tu te tiens immobile derrière une pile. Il regarde longtemps, puis il remonte en grommelant contre les rats.",
-    "Il vaut mieux ne pas recommencer cette nuit."
+    "Une caisse glisse et en cogne une autre. Le bruit roule dans toute la cale. Une lanterne apparaît en haut de l'échelle : l'homme de quart descend deux échelons et lève sa lumière. Tu restes immobile derrière une pile. Il regarde longtemps, puis il remonte en grommelant contre les rats, qui ont bon dos.",
+    "Il vaut mieux en rester là pour cette nuit."
    ],
    "choices": [
     {
@@ -6079,13 +6079,13 @@
    "title": "La tempête",
    "place": "pont",
    "text": [
-    "Depuis l'aube, le ciel a pris une couleur de plomb fondu, et la houle arrive du sud-ouest en collines lentes. À dix heures, le vent tombe d'un coup, et Guénolé dit à voix basse : « Ça y est. » Puis il hurle de toutes ses forces : « Tout le monde sur le pont ! »",
-    "Le vent revient en un mur. La Sterne se couche, ses vergues touchent presque la mer, puis elle se relève en grondant. La pluie arrive à l'horizontale, chargée de sel. Les lames grandissent à vue d'œil. En une heure, elles sont plus hautes que le grand hunier.",
+    "Depuis l'aube, le ciel a pris une couleur de plomb fondu, et la houle arrive du sud-ouest en collines lentes. À dix heures, le vent tombe d'un coup. Guénolé dit à voix basse : « Ça y est. » Puis il hurle de toutes ses forces : « Tout le monde sur le pont ! »",
+    "Le vent revient d'un bloc, comme un mur. La Sterne se couche, ses vergues effleurent la mer, puis elle se relève en grondant. La pluie arrive à l'horizontale, chargée de sel. Les lames grandissent à vue d'œil ; en une heure, elles dépassent le grand hunier.",
     {
      "if": {
       "has": "cap:soigne"
      },
-     "text": "Le capitaine Coët est monté sur le pont, soutenu par Daoulas. Il s'est fait attacher à la rambarde de la dunette, et il donne ses ordres d'une voix éraillée que le vent emporte à moitié."
+     "text": "Le capitaine Coët est monté sur le pont, soutenu par Daoulas. Il s'est fait attacher à la rambarde de la dunette, et il donne ses ordres d'une voix éraillée, dont le vent emporte la moitié."
     },
     {
      "if": {
@@ -6093,9 +6093,9 @@
        "has": "cap:soigne"
       }
      },
-     "text": "Le capitaine est resté en bas. C'est le second qui commande, accroché à la barre avec Kerlo, et qui commande bien : ses ordres tombent juste, au bon moment, d'une voix claire."
+     "text": "Le capitaine est resté en bas. C'est le second qui commande, accroché à la barre avec Kerlo, et il commande bien : ses ordres tombent juste, au bon moment, d'une voix claire."
     },
-    "On tend des lignes de vie de l'avant à l'arrière. Chacun a sa tâche. On te crie la tienne."
+    "On tend des lignes de vie de l'avant à l'arrière. Chacun reçoit sa tâche. On te crie la tienne."
    ],
    "fx": {
     "meteo": {
@@ -6186,8 +6186,8 @@
    "title": "Dans la mâture",
    "place": "pont",
    "text": [
-    "Tu grimpes dans les haubans derrière un gabier, la pluie dans les yeux. En haut, la vergue du hunier fouette l'air comme un fléau. Tu t'allonges dessus, les pieds sur le marchepied, et tu tires sur la toile mouillée avec les autres, à pleins bras, jusqu'à ce qu'elle cède et qu'on puisse la saisir.",
-    "Quand tu redescends, les jambes en coton, Guénolé te tape dans le dos à te faire tomber. Les hommes qui étaient là-haut avec toi te regardent autrement."
+    "Tu grimpes dans les haubans derrière un gabier, la pluie dans les yeux. En haut, la vergue du hunier fouette l'air comme un fléau à battre le blé. Tu t'allonges dessus, les pieds sur le marchepied, et tu tires sur la toile mouillée avec les autres, à pleins bras, jusqu'à ce qu'elle cède et qu'on puisse la saisir.",
+    "Quand tu redescends, les jambes en coton, Guénolé te tape dans le dos à te faire tomber. Les hommes qui étaient là-haut avec toi te regardent avec une considération nouvelle."
    ],
    "choices": [
     {
@@ -6200,8 +6200,8 @@
    "title": "Dans la mâture",
    "place": "pont",
    "text": [
-    "Tu grimpes dans les haubans derrière un gabier. Une rafale te décroche un pied ; tu te rattrapes à un cordage qui file entre tes doigts sur une brasse, en t'arrachant la peau de la paume. Tu tiens. Tu remontes. Tu aides à serrer la toile avec une main qui brûle comme si tu l'avais posée sur un fourneau.",
-    "En bas, tu regardes ta paume : une bande rouge et luisante, de part en part."
+    "Tu grimpes dans les haubans derrière un gabier. Une rafale te décroche un pied ; tu te rattrapes à un cordage qui file entre tes doigts sur une brasse et t'arrache la peau de la paume. Tu tiens. Tu remontes. Tu aides à serrer la toile avec une main qui brûle comme si tu l'avais posée sur un fourneau.",
+    "En bas, tu examines ta paume : une bande rouge et luisante la traverse de part en part."
    ],
    "choices": [
     {
@@ -6214,16 +6214,16 @@
    "title": "Aux pompes",
    "place": "cale",
    "text": [
-    "Dans la cale, l'eau monte. Elle entre partout, par les écoutilles, par les sabords, par les coutures de la coque qui travaillent à chaque lame. Six hommes pompent à la grande pompe, six à la petite, et tu prends ta place au bringuebale.",
+    "Dans la cale, l'eau monte. Elle entre par les écoutilles, par les sabords, par les coutures de la coque qui travaillent à chaque lame. Six hommes pompent à la grande pompe, six à la petite, et tu prends ta place au bringuebale.",
     {
      "after": "fait:pompe",
      "text": "La grande pompe, avec ses cuirs neufs, crache un plein seau à chaque coup. Un vieux matelot crie, entre deux souffles : « Bénie soit la Kerbrat ! »"
     },
     {
      "before": "fait:pompe",
-     "text": "La grande pompe aspire mal. Ses cuirs fuient, et il faut deux coups de bras pour un seau. L'eau gagne, lentement."
+     "text": "La grande pompe aspire mal. Ses cuirs fuient, et il faut deux coups de bras pour un seau. L'eau gagne, lentement, d'un pouce par heure."
     },
-    "Tu pompes pendant quatre heures, jusqu'à ne plus savoir si tes bras sont encore à toi."
+    "Tu pompes pendant quatre heures, jusqu'à douter que tes bras t'appartiennent encore."
    ],
    "choices": [
     {
@@ -6236,10 +6236,10 @@
    "title": "Dans la cale",
    "place": "cale",
    "text": [
-    "Dans la cale, une pile de caisses s'est rompue. Elles glissent d'un bord à l'autre à chaque roulis, comme des béliers, et cognent la coque. Tu attrapes un cordage, un matelot en attrape un autre, et vous les coincez une à une contre les varangues, en sautant de côté quand le navire repart dans l'autre sens.",
+    "Dans la cale, une pile de caisses s'est rompue. À chaque roulis, elles glissent d'un bord à l'autre comme des béliers et cognent la coque. Tu attrapes un cordage, un matelot en attrape un autre, et vous les coincez une à une contre les varangues, en sautant de côté chaque fois que le navire repart dans l'autre sens.",
     {
      "with": "armelle",
-     "text": "Armelle cloue des taquets dans le plancher à grands coups de masse, entre deux roulis, sans jamais rater son coup."
+     "text": "Armelle cloue des taquets dans le plancher à grands coups de masse, entre deux roulis, et chaque coup tombe juste."
     },
     "Quand la dernière est saisie, tu t'aperçois que l'une d'elles s'est fendue en route. Il en coule du sable gris."
    ],
@@ -6254,7 +6254,7 @@
    "title": "Dans la cale",
    "place": "cale",
    "text": [
-    "Une caisse arrive sur toi au roulis, plus vite que tu ne l'avais prévu, et te plaque contre une varangue. Tu entends quelque chose craquer dans ton flanc. Tu restes un moment sans pouvoir respirer, puis tu respires, et chaque inspiration est un couteau.",
+    "Une caisse arrive sur toi au roulis, plus vite que tu ne l'avais prévu, et te plaque contre une varangue. Quelque chose craque dans ton flanc. Tu restes un moment le souffle coupé, puis tu respires, et chaque inspiration est un couteau.",
     "Les hommes finissent de saisir les caisses sans toi. L'une d'elles, fendue, laisse couler un filet de sable gris sur le plancher."
    ],
    "choices": [
@@ -6269,14 +6269,14 @@
    "place": "pont",
    "urgent": 20,
    "text": [
-    "Une lame plus haute que les autres monte à bâbord, verte et noire, avec une crête blanche qui fume. Quelqu'un crie. La lame tombe sur le pont de tout son poids, balaie tout de l'avant à l'arrière, et repart par-dessus le bastingage de tribord.",
+    "Une lame plus haute que les autres monte à bâbord, verte et noire, sous une crête blanche qui fume. Quelqu'un crie. La lame tombe sur le pont de tout son poids, balaie tout de l'avant à l'arrière, et repart par-dessus le bastingage de tribord.",
     {
      "with": "pierrick",
-     "text": "Quand l'eau s'est retirée, Pierrick n'est plus là. Tu le vois dans l'écume, à vingt brasses, une petite tête rousse qui monte et descend, et un bras levé."
+     "text": "Quand l'eau s'est retirée, la place de Pierrick est vide. Tu le vois dans l'écume, à vingt brasses : une petite tête rousse qui monte et descend, et un bras levé."
     },
     {
      "without": "pierrick",
-     "text": "Quand l'eau s'est retirée, un jeune gabier, Loïc, n'est plus là. Tu le vois dans l'écume, à vingt brasses, une tête qui monte et descend, et un bras levé."
+     "text": "Quand l'eau s'est retirée, un jeune gabier, Loïc, a disparu. Tu le vois dans l'écume, à vingt brasses : une tête qui monte et descend, et un bras levé."
     }
    ],
    "choices": [
@@ -6331,7 +6331,7 @@
    "title": "La bouée",
    "place": "pont",
    "text": [
-    "Tu décroches la couronne de liège et tu la lances de toutes tes forces, en gardant la ligne dans l'autre main. Elle tombe à deux brasses de la tête qui se débat. Une lame l'emporte, la rapproche. Une main l'attrape.",
+    "Tu décroches la couronne de liège et tu la lances de toutes tes forces, en gardant la ligne dans l'autre main. Elle tombe à deux brasses de la tête qui se débat. Une lame l'emporte, puis la rapproche. Une main l'attrape.",
     "Quatre hommes tirent sur la ligne avec toi. Quand on hisse le naufragé sur le pont, il crache de l'eau de mer, tousse, pleure, et rit.",
     {
      "with": "pierrick",
@@ -6362,8 +6362,8 @@
    "title": "À la mer",
    "place": "pont",
    "text": [
-    "Tu fais un nœud de chaise autour de ta taille, tu jettes l'autre bout à Guénolé, et tu sautes. L'eau est un poing glacé qui t'écrase la poitrine. Tu nages vers la tête, tu la perds, tu la retrouves au sommet d'une lame. Tu attrapes une poignée de chemise. Tu ne la lâches plus.",
-    "Sur le pont, ils sont six à tirer. Quand on vous hisse tous les deux, tu ne sens plus tes jambes.",
+    "Tu fais un nœud de chaise autour de ta taille, tu jettes l'autre bout à Guénolé, et tu sautes. L'eau est un poing glacé qui t'écrase la poitrine. Tu nages vers la tête, tu la perds, tu la retrouves au sommet d'une lame. Tu attrapes une poignée de chemise, et tes doigts se referment dessus pour de bon.",
+    "Sur le pont, ils sont six à tirer. Quand on vous hisse tous les deux, tes jambes ont cessé de t'appartenir.",
     {
      "with": "pierrick",
      "text": "Pierrick te serre si fort qu'il te fait mal. Il tremble de la tête aux pieds."
@@ -6394,8 +6394,8 @@
    "title": "À la mer",
    "place": "pont",
    "text": [
-    "Avant que quiconque ait bougé, quelqu'un passe en courant devant toi, un bout de filin noué autour de la taille, et plonge par-dessus le bastingage. Une veste bleue, à boutons de corne.",
-    "Le second nage comme un phoque. Il disparaît derrière une lame, reparaît, disparaît encore. Puis la ligne se tend, et on hale, à six, à dix. Morvan Le Hir remonte sur le pont, ruisselant, un bras passé sous celui du naufragé.",
+    "Avant que tu aies bougé, quelqu'un passe en courant devant toi, un bout de filin noué autour de la taille, et plonge par-dessus le bastingage. Une veste bleue, à boutons de corne.",
+    "Le second nage comme un phoque. Il disparaît derrière une lame, reparaît, disparaît encore. Puis la ligne se tend, et on hale, à six, puis à dix. Morvan Le Hir remonte sur le pont, ruisselant, un bras passé sous celui du naufragé.",
     {
      "with": "pierrick",
      "text": "Pierrick s'accroche au cou du second en hoquetant. Morvan rit, lui frotte la tête, et le pousse vers la cambuse. « File te sécher, moussaillon. Tu me dois une chandelle. »"
@@ -6428,7 +6428,7 @@
    "title": "Après la tempête",
    "place": "pont",
    "text": [
-    "La tempête souffle jusqu'au soir, puis s'essouffle d'un coup, comme une bête fatiguée. La nuit tombe sur une mer encore haute mais sans colère. On compte les hommes : tout le monde est là. On compte les dégâts : un hunier en lambeaux, le bout-dehors brisé, et dans la cale, à tribord, une couture qui s'est ouverte sous la ligne de flottaison. L'eau y entre à gros bouillons.",
+    "La tempête souffle jusqu'au soir, puis s'essouffle d'un coup, comme une bête fatiguée. La nuit tombe sur une mer encore haute, mais apaisée. On compte les hommes : tout le monde est là. On compte les dégâts : un hunier en lambeaux, le bout-dehors brisé, et dans la cale, à tribord, une couture ouverte sous la ligne de flottaison, par où l'eau entre à gros bouillons.",
     {
      "after": "fait:pompe",
      "text": "Les pompes tiennent l'eau à distance. Armelle dit qu'avec ses cuirs neufs, on pourrait pomper jusqu'à Marbecq. Mais elle aimerait autant boucher la voie."
@@ -6437,7 +6437,7 @@
      "before": "fait:pompe",
      "text": "Les pompes ont du mal à suivre. Armelle dit qu'il faut boucher la voie au plus vite, et que d'ici là il faudra pomper jour et nuit."
     },
-    "Ce soir-là, au gaillard, les hommes ne parlent plus de l'équinoxe comme d'un mot de calendrier."
+    "Ce soir-là, au gaillard, les hommes parlent de l'équinoxe sur un autre ton que celui du calendrier."
    ],
    "fx": {
     "flag": "voie:ouverte",
@@ -6457,9 +6457,9 @@
    "title": "La voie d'eau",
    "place": "cale",
    "text": [
-    "Armelle travaille à la lueur de deux fanaux, dans l'eau jusqu'aux genoux. Tu lui passes les outils, les planches, l'étoupe, le brai chaud dans son pot. Elle enfonce l'étoupe dans la couture ouverte à coups de maillet et de ciseau, couche après couche, puis cloue par-dessus un emplâtre de planches doublées de toile goudronnée.",
+    "Armelle travaille à la lueur de deux fanaux, dans l'eau jusqu'aux genoux. Tu lui passes les outils, les planches, l'étoupe et le brai chaud dans son pot. Elle enfonce l'étoupe dans la couture ouverte à coups de maillet et de ciseau, couche après couche, puis cloue par-dessus un emplâtre de planches doublées de toile goudronnée.",
     "« Une coque, dit-elle sans s'arrêter, c'est comme une famille. Ça tient tant que chaque planche tient à sa voisine. Une qui lâche, et toutes boivent. »",
-    "Au bout de quatre heures, l'eau ne fait plus que suinter."
+    "Au bout de quatre heures, l'eau se contente de suinter."
    ],
    "fx": {
     "flag": "voie:bouchee",
@@ -6485,7 +6485,7 @@
    "title": "La voie d'eau",
    "place": "cale",
    "text": [
-    "Guénolé met trois hommes au travail. Ils bouchent la voie comme ils peuvent, avec de l'étoupe, des coins et une voile pliée, pendant que les autres pompent. C'est un travail de matelots, grossier et mouillé, mais l'eau entre moins vite."
+    "Guénolé met trois hommes au travail. Ils bouchent la voie avec ce qu'ils ont : de l'étoupe, des coins et une voile pliée, pendant que les autres pompent. C'est un travail de matelots, grossier et mouillé, mais l'eau entre moins vite."
    ],
    "fx": {
     "flag": "voie:bouchee",
@@ -6505,7 +6505,7 @@
    "title": "L'île Ronce",
    "place": "pont",
    "text": [
-    "Le septième jour, la brume se déchire sur une île : un dos de rocher couvert d'ajoncs jaunes, et en haut, un phare blanc. La Sterne mouille dans une anse, sur une eau verte et calme, à un jet de pierre d'une plage de galets.",
+    "Le septième jour, la brume se déchire sur une île : un dos de rocher couvert d'ajoncs jaunes, et tout en haut, un phare blanc. La Sterne mouille dans une anse, sur une eau verte et calme, à un jet de pierre d'une plage de galets.",
     {
      "if": {
       "has": "cap:soigne"
@@ -6543,7 +6543,7 @@
    "title": "La source",
    "place": "ronce",
    "text": [
-    "Le ruisseau descend entre deux pentes d'ajoncs jusqu'à une vasque de pierre où l'eau sort de la roche, froide, claire, avec un goût de fer. Il faudrait des hommes, des barriques vides, des perches, et plusieurs voyages pour remplir ce qui manque à la Sterne."
+    "Le ruisseau descend entre deux pentes d'ajoncs jusqu'à une vasque de pierre, où l'eau sort de la roche froide et claire, avec un goût de fer. Pour remplir ce qui manque à la Sterne, il faudrait des hommes, des barriques vides, des perches, et plusieurs voyages."
    ],
    "choices": [
     {
@@ -6592,7 +6592,7 @@
    "title": "La source",
    "place": "ronce",
    "text": [
-    "Une douzaine d'hommes descendent de la chaloupe avec des barriques vides et des perches. Toute la journée, la noria monte et descend le sentier, deux hommes par barrique, en chantant. À quatre heures, quatorze tonneaux pleins sont arrimés dans la cale de la Sterne.",
+    "Une douzaine d'hommes descendent de la chaloupe avec des barriques vides et des perches. Toute la journée, la noria monte et descend le sentier, deux hommes par barrique, en chantant. À quatre heures, quatorze tonneaux pleins sont arrimés dans la cale de la Sterne, autant qu'on en a perdu.",
     "Le soir, au gaillard, on boit l'eau de Ronce à la tasse en disant qu'elle a le goût de la terre, et c'est un compliment."
    ],
    "fx": {
@@ -6617,7 +6617,7 @@
    "title": "La source",
    "place": "ronce",
    "text": [
-    "Vous faites ce que vous pouvez : quatre barriques, portées à deux sur un sentier de chèvres, en glissant sur les galets. Le soir, tu as les épaules en sang. Quatre tonneaux, c'est peu. C'est toujours ça."
+    "Vous faites ce que vous pouvez : quatre barriques, portées à deux sur un sentier de chèvres, en glissant sur les galets. Le soir, tu as les épaules en sang. Quatre tonneaux, c'est peu, et c'est toujours ça."
    ],
    "choices": [
     {
@@ -6629,8 +6629,8 @@
    "title": "Le phare",
    "place": "ronce",
    "text": [
-    "Le phare est une tour ronde, trapue, blanchie à la chaux, avec une maison basse collée contre son pied. Trois chèvres broutent devant la porte. Une vieille femme en foulard, le visage tanné comme une selle, te regarde monter le sentier sans bouger, les mains sur un bâton.",
-    "Soizic te fait asseoir sur un banc, contre le mur chaud, et te sert un bol de lait de chèvre. Elle parle peu, et lentement, avec de longs silences entre les phrases.",
+    "Le phare est une tour ronde et trapue, blanchie à la chaux, avec une maison basse collée contre son pied. Trois chèvres broutent devant la porte. Une vieille femme en foulard, le visage tanné comme une selle, te regarde monter le sentier, immobile, les mains sur un bâton.",
+    "Soizic te fait asseoir sur un banc, contre le mur chaud, et te sert un bol de lait de chèvre. Elle parle peu et lentement, avec de longs silences entre les phrases, comme si chacune devait traverser la lande avant d'arriver.",
     "« La Sterne. De chez Corbière. » Elle regarde le navire, en bas, dans l'anse. « Il y a deux ans, j'ai vu passer une chaloupe d'un autre navire de chez Corbière. La Bergeronnette. Cinq hommes dedans. Ils sont venus faire de l'eau ici, avant de repartir sur Marbecq. »",
     "Elle boit une gorgée de lait. « Ils avaient des barils pleins, du biscuit dans des sacs secs, une boussole, une voile toute neuve. Ils avaient le ventre plein et des vestes sèches. Ils avaient les yeux secs aussi. J'en ai vu, des naufragés, depuis trente ans. Ceux-là ramaient comme des pêcheurs qui rentrent au port. »",
     {
@@ -6674,11 +6674,11 @@
    "title": "La grève",
    "place": "ronce",
    "text": [
-    "Tu longes la grève vers l'ouest, sur les galets qui roulent sous tes pieds. La marée a laissé une laisse de varech, de bois flotté, de bouts de cordage blanchis. Plus loin, un vieux filet de pêche, à moitié enterré dans le sable, porte encore ses flotteurs de liège.",
-    "Au bout de l'anse, couchée contre un rocher, une figure de proue en bois peint, rongée par le sel : un oiseau aux ailes repliées, la queue relevée. La peinture a presque partout disparu. Il reste un peu de jaune sur la gorge.",
+    "Tu longes la grève vers l'ouest, sur des galets qui roulent sous tes pieds. La marée a laissé une laisse de varech, de bois flotté et de bouts de cordage blanchis. Plus loin, un vieux filet de pêche, à moitié enterré dans le sable, porte encore ses flotteurs de liège.",
+    "Au bout de l'anse, couchée contre un rocher, une figure de proue en bois peint, rongée par le sel : un oiseau aux ailes repliées, la queue relevée. Presque toute la peinture est partie. Il reste un peu de jaune sur la gorge.",
     {
      "with": "gabin",
-     "text": "Gabin s'arrête devant la figure de proue. « Une bergeronnette, dit-il. Elle a la queue qui bouge, comme ça, tout le temps. Mon père disait que c'était l'oiseau le plus gai du monde. » Il s'accroupit, touche le bois, puis se relève et s'en va sans se retourner."
+     "text": "Gabin s'arrête devant la figure de proue. « Une bergeronnette, dit-il. Elle a la queue qui bouge, comme ça, tout le temps. Mon père disait que c'était l'oiseau le plus gai du monde. » Il s'accroupit, touche le bois, puis se relève et s'éloigne, le dos tourné à la plage."
     },
     {
      "with": "pierrick",
@@ -6721,8 +6721,8 @@
      },
      "text": "La cloche du bord sonne le rappel. Tu redescends à la plage, et la chaloupe te ramène au navire avec les derniers hommes."
     },
-    "À cinq heures, on vire l'ancre. Deux matelots remontent de la plage les derniers barils pleins, et les déposent dans la chaloupe, sur l'ordre du second, au lieu de les descendre dans la cale. Puis on hisse la chaloupe à sa place, entre les mâts, et on la couvre de sa bâche.",
-    "La Sterne sort de l'anse au moment où Soizic allume son feu, là-haut. La brume se referme derrière vous, et le phare n'est plus qu'une tache rouge, puis plus rien."
+    "À cinq heures, on vire l'ancre. Deux matelots remontent de la plage les derniers barils pleins et, sur l'ordre du second, les déposent dans la chaloupe au lieu de les descendre dans la cale. Puis on hisse la chaloupe à sa place, entre les mâts, et on la couvre de sa bâche.",
+    "La Sterne sort de l'anse au moment où Soizic allume son feu, là-haut. La brume se referme derrière vous, et le phare devient une tache rouge, puis se perd."
    ],
    "fx": {
     "set": {
@@ -6742,7 +6742,7 @@
    "place": "pont",
    "back": true,
    "text": [
-    "Tu prends le quart avec la bordée de Kerlo, de minuit à quatre heures. Le timonier parle à peine. Il regarde le compas, la voile, le compas. Tu tiens la lanterne de l'habitacle, et tu apprends à lire la rose des vents qui tremble dans son bol de cuivre.",
+    "Tu prends le quart avec la bordée de Kerlo, de minuit à quatre heures. Le timonier parle à peine. Ses yeux vont du compas à la voile, et de la voile au compas. Tu tiens la lanterne de l'habitacle, et tu apprends à lire la rose des vents qui tremble dans son bol de cuivre.",
     {
      "temps": "brume",
      "text": "La brume colle à tout. On sonne la cloche toutes les deux minutes, et on écoute. Une fois, très loin, une autre cloche répond, et Kerlo met un rayon de barre."
@@ -6760,19 +6760,19 @@
       "grain",
       "tempete"
      ],
-     "text": "Le vent fouette la pluie sur la dunette. Kerlo tient la barre à deux mains, les jambes écartées. Chaque lame arrive par le travers avec un bruit de mur qui s'effondre."
+     "text": "Le vent fouette la pluie sur la dunette. Kerlo tient la barre à deux mains, les jambes écartées. Chaque lame arrive par le travers avec le bruit d'un mur qui s'effondre."
     },
     {
      "after": "R_depart",
      "once": true,
-     "text": "À minuit, le second monte sur la dunette pour la relève. Il se penche sur le compas, puis dit à Kerlo, à mi-voix : « Sud-sud-ouest, un quart sud. Le courant nous drosse. » Kerlo tourne la roue en silence. Tu as regardé la carte du capitaine, cet après-midi, dans le carré : la route portée au crayon passe un quart plus au nord."
+     "text": "À minuit, le second monte sur la dunette pour la relève. Il se penche sur le compas, puis dit à Kerlo, à mi-voix : « Sud-sud-ouest, un quart sud. Le courant nous drosse. » Kerlo tourne la roue en silence. Cet après-midi, dans le carré, tu as regardé la carte du capitaine : la route portée au crayon passe un quart plus au nord."
     },
     {
      "before": "R_depart",
      "once": true,
      "text": "Vers trois heures, Kerlo dit tout à coup, sans quitter le compas des yeux : « Les Dents, j'y suis passé quatre fois. Trois fois avec Tréguer, une fois sans. La fois sans, on a touché. Une heure à se dégager sur le flot. Depuis, je dors mal en mer des Brumes. »"
     },
-    "À quatre heures, la relève monte. Tu descends dormir, avec le compas qui tremble encore derrière tes paupières."
+    "À quatre heures, la relève monte. Tu descends dormir, et le compas continue de trembler derrière tes paupières."
    ],
    "fx": {
     "fatigue": 1,
@@ -6809,15 +6809,15 @@
    "title": "La chaloupe",
    "place": "pont",
    "text": [
-    "Tu attends que l'homme de quart soit à l'avant pour te glisser sous la bâche de la chaloupe. Il fait noir comme dans un four, et ça sent le goudron.",
+    "Tu attends que l'homme de quart soit à l'avant pour te glisser sous la bâche de la chaloupe. Il y fait noir comme dans un four, et ça sent le goudron.",
     {
      "item": "lanterne_sourde",
      "if": {
       "item": "lanterne_sourde"
      },
-     "text": "Tu ouvres à peine le volet de ta lanterne sourde. Un trait de lumière mince comme une lame se pose sur ce qu'il y a là."
+     "text": "Tu entrouvres le volet de ta lanterne sourde. Un trait de lumière, mince comme une lame, se pose sur ce qui se trouve là."
     },
-    "À tâtons, tu trouves deux barils pleins, bien calés sous les bancs, un sac de biscuit dans une toile cirée, une voile roulée toute neuve, un compas de route dans sa boîte, et un coffre de mer fermé à clé. Sur le couvercle, des initiales gravées au fer : M. L. H."
+    "À tâtons, tu dresses l'inventaire : deux barils pleins, bien calés sous les bancs ; un sac de biscuit dans une toile cirée ; une voile roulée, toute neuve ; un compas de route dans sa boîte ; un coffre de mer fermé à clé. Sur le couvercle, des initiales gravées au fer : M. L. H."
    ],
    "fx": {
     "clue": "m_chaloupe",
@@ -6868,7 +6868,7 @@
    "title": "La chaloupe",
    "place": "pont",
    "text": [
-    "Tu enfonces la pointe de ton couteau au ras du fond de chaque baril, et l'eau s'écoule sans bruit dans les fonds de la chaloupe, puis par le trou du nable. Le compas, tu le glisses sous ta chemise, et tu le laisses tomber par-dessus bord à l'arrière, dans le remous du sillage.",
+    "Tu enfonces la pointe de ton couteau au ras du fond de chaque baril, et l'eau s'écoule sans bruit dans les fonds de la chaloupe, puis par le trou du nable. Tu glisses le compas sous ta chemise, et à l'arrière tu le laisses tomber par-dessus bord, dans le remous du sillage.",
     "Celui qui comptait sur cette chaloupe pour atteindre Marbecq devra boire la mer et lire les étoiles."
    ],
    "choices": [
@@ -6882,7 +6882,7 @@
    "title": "La chaloupe",
    "place": "pont",
    "text": [
-    "Tu as percé un baril quand la bâche se soulève. Une lanterne. Le second, en chemise, te regarde.",
+    "Tu viens de percer un baril quand la bâche se soulève. Une lanterne. Le second, en chemise, te regarde.",
     "« Tu cherches un endroit tranquille pour dormir ? » Il ne sourit pas. Il te tend la main pour t'aider à sortir, et sa main est très forte. « La chaloupe, c'est ce qui reste quand il ne reste rien. On n'y touche pas. Personne. » Il rabat la bâche derrière toi."
    ],
    "choices": [
@@ -6897,7 +6897,7 @@
    "place": "arriere",
    "text": [
     "Le second est sur la dunette avec Kerlo. Tu entres dans sa chambre comme on entre chez soi, et tu refermes la porte. C'est une chambre bien tenue : une couchette au carré, un portemanteau, une tablette avec le livre de bord, une rangée de livres, un rasoir et un miroir.",
-    "Sous la couchette, son second coffre, celui des affaires de tous les jours, n'est pas fermé. Sous les chemises pliées, un portefeuille de cuir. Dans le portefeuille, une lettre pliée en quatre, au cachet de cire verte de la maison Corbière."
+    "Sous la couchette, son second coffre, celui des affaires de tous les jours, s'ouvre sans clé. Sous les chemises pliées, il y a un portefeuille de cuir, et dans le portefeuille, une lettre pliée en quatre, au cachet de cire verte de la maison Corbière."
    ],
    "fx": {
     "item": "lettre_corbiere",
@@ -6921,7 +6921,7 @@
    "place": "arriere",
    "text": [
     "Tu as la main sur le loquet quand la porte s'ouvre de l'intérieur. Le second, en manches de chemise, une plume derrière l'oreille. « Tu me cherchais ? »",
-    "Tu inventes une question sur le coffre de bord. Il y répond très aimablement, sans bouger de l'embrasure. Quand tu t'en vas, tu sens son regard dans ton dos jusqu'au bout de la coursive."
+    "Tu inventes une question sur le coffre de bord. Il y répond très aimablement, planté dans l'embrasure. Quand tu t'en vas, tu sens son regard dans ton dos jusqu'au bout de la coursive."
    ],
    "fx": {
     "flag": "morvan:alerte"
@@ -6937,9 +6937,9 @@
    "title": "La mutinerie",
    "place": "pont",
    "text": [
-    "On frappe à ta porte à coups de poing. Quand tu sors, la coursive est pleine d'hommes. Ils ont des barres d'anspect, des coutelas, un mousquet. Guénolé est à leur tête, et il a l'air plus malheureux que menaçant.",
+    "On frappe à ta porte à coups de poing. Quand tu sors, la coursive est pleine d'hommes armés de barres d'anspect, de coutelas, et d'un mousquet. Guénolé est à leur tête, et il a l'air plus malheureux que menaçant.",
     "« On veut de l'eau, dit-il. De l'eau à volonté, et notre solde, et qu'on fasse demi-tour sur Gavre. On a soif, on a peur, et on ne veut pas finir comme la Bergeronnette. » Derrière lui, les hommes grondent. On a enfermé le capitaine dans sa chambre. Daoulas est assis par terre devant la porte, les mains sur les genoux.",
-    "Le second fend la foule. Il lève les deux mains. « Les gars. Les gars. Personne ne va pendre personne. » Il se tourne vers Guénolé. « Je prends le commandement, puisque le capitaine ne peut plus. Vous aurez votre eau ce soir. Pour le reste, on en parlera. » Les hommes se regardent. Ils baissent leurs armes, un peu. Ils l'aiment bien, le second.",
+    "Le second fend la foule et lève les deux mains. « Les gars. Les gars. Personne ne va pendre personne. » Il se tourne vers Guénolé. « Je prends le commandement, puisque le capitaine ne peut plus. Vous aurez votre eau ce soir. Pour le reste, on en parlera. » Les hommes se regardent et baissent leurs armes, un peu. Ils l'aiment bien, le second.",
     "Puis tous les yeux se tournent vers toi, et vers la clé du coffre de bord pendue à ton cou."
    ],
    "fx": {
@@ -7032,7 +7032,7 @@
    "place": "pont",
    "text": [
     "Tu ôtes la clé du coffre de ton cou et tu la tends à Guénolé. « Votre solde est là-dedans. Comptez-la vous-mêmes. » Le maître d'équipage regarde la clé, puis toi, et il la refuse d'un geste. « Garde-la. Mais paie-nous. »",
-    "On paie la solde le soir même, au pied du grand mât. On rend l'eau à volonté. Le second commande la Sterne, et il ne parle plus de faire demi-tour. Personne n'ose lui en reparler."
+    "On paie la solde le soir même, au pied du grand mât, et on rend l'eau à volonté. Le second commande la Sterne, et il ne parle plus de faire demi-tour. Personne n'ose lui en reparler."
    ],
    "fx": {
     "stock": {
@@ -7053,9 +7053,9 @@
    "title": "La mutinerie",
    "place": "pont",
    "text": [
-    "Tu montes sur un tonneau. Tu parles de l'eau d'abord, parce que c'est ce qu'ils ont en tête : combien il en reste, combien de jours jusqu'à Marbecq, et comment on la partagera. Puis tu parles de la solde, et tu promets de la payer ce soir. Puis, parce qu'ils t'écoutent, tu leur dis que quelqu'un, à bord, veut que la Sterne n'arrive jamais, et que ce n'est ni toi, ni le capitaine.",
+    "Tu montes sur un tonneau. Tu parles de l'eau d'abord, parce que c'est ce qu'ils ont en tête : combien il en reste, combien de jours jusqu'à Marbecq, et comment on la partagera. Puis tu parles de la solde, et tu promets de la payer ce soir. Enfin, parce qu'ils t'écoutent, tu leur dis que quelqu'un, à bord, veut empêcher la Sterne d'arriver, et que ce n'est ni le capitaine ni toi.",
     "Les hommes se regardent. Guénolé a posé sa barre d'anspect. « Qui ? » demande quelqu'un. « Je vous le dirai devant tout le monde, quand j'aurai de quoi le prouver », réponds-tu.",
-    "Le second te regarde par-dessus les têtes. Il ne sourit plus."
+    "Le second te regarde par-dessus les têtes. Son sourire a disparu."
    ],
    "fx": {
     "stock": {
@@ -7096,10 +7096,10 @@
    "title": "La mutinerie",
    "place": "pont",
    "text": [
-    "Tu tires ton arme et tu te mets devant la porte du capitaine, à côté de Daoulas. Le premier qui avance prend un coup de plat de lame sur l'épaule ; le deuxième te frappe au visage avec le manche d'un coutelas, et le sang te coule dans l'œil. Mais tu tiens.",
+    "Tu tires ton arme et tu te places devant la porte du capitaine, à côté de Daoulas. Le premier qui avance prend un coup de plat de lame sur l'épaule ; le deuxième te frappe au visage avec le manche d'un coutelas, et le sang te coule dans l'œil. Mais tu tiens.",
     {
      "with": "armelle",
-     "text": "Armelle est à côté de toi, sa hache à deux mains, et personne n'a envie d'aller voir de plus près."
+     "text": "Armelle est à côté de toi, sa hache à deux mains, et l'envie d'aller voir de plus près quitte tout le monde."
     },
     "Les hommes reculent. Guénolé baisse la tête le premier. Le second lève les mains, en riant presque. « Bon. Le subrécargue a parlé. » La mutinerie meurt là, dans la coursive, sans un mort. Le soir, on rend quand même l'eau à volonté."
    ],
@@ -7130,7 +7130,7 @@
    "back": true,
    "text": [
     "« À l'étrave ! » crie la vigie, et tout le pont court à l'avant.",
-    "Une bande de dauphins joue dans la vague que pousse la Sterne. Ils sont une douzaine, gris sur le dessus et blancs au ventre. Ils sautent par deux, retombent en même temps, filent sous l'étrave et ressortent de l'autre bord. L'un d'eux nage sur le flanc et regarde le navire d'un œil rond.",
+    "Une bande de dauphins joue dans la vague que pousse la Sterne. Tu en comptes une douzaine, gris sur le dessus et blancs au ventre. Ils sautent par deux, retombent ensemble, filent sous l'étrave et ressortent de l'autre bord. L'un d'eux nage sur le flanc et examine le navire d'un œil rond, avec la curiosité polie d'un inspecteur des douanes.",
     {
      "with": "pierrick",
      "text": "Pierrick s'est couché à plat ventre sur le beaupré, les bras pendus au-dessus de l'eau. « Ils nous accompagnent, dit-il. Les vieux disent que tant qu'ils sont là, le navire arrive. »"
@@ -7139,7 +7139,7 @@
      "with": "gabin",
      "text": "Gabin les compte à mi-voix, perd le compte, recommence. Pour la première fois depuis Port-Aubier, il rit."
     },
-    "Au bout d'une demi-heure, les dauphins s'en vont tous ensemble vers le large, comme sur un signal."
+    "Au bout d'une demi-heure, les dauphins s'en vont tous ensemble vers le large, comme à un signal convenu."
    ],
    "fx": {
     "stock": {
@@ -7155,7 +7155,7 @@
    "title": "Les pêcheurs",
    "back": true,
    "text": [
-    "Une barque de pêche à voile rousse vient se ranger le long du bord, à portée de voix. Deux hommes et un garçon, tous trois en vareuse brune. Le plus vieux lève un panier plein de soles et de grondins encore vivants.",
+    "Une barque de pêche à voile rousse vient se ranger le long du bord, à portée de voix : deux hommes et un garçon, tous trois en vareuse brune. Le plus vieux brandit un panier plein de soles et de grondins encore vivants.",
     "« Du poisson pour du tabac ! » crie-t-il. Les matelots se penchent à la lisse et marchandent à grands cris.",
     {
      "temps": "brume",
@@ -7187,8 +7187,8 @@
    "title": "Les pêcheurs",
    "back": true,
    "text": [
-    "Tu paies le pêcheur, qui empoche les pièces avec un clin d'œil et lance le panier par-dessus la lisse. Rozenn arrive aussitôt, son couteau à la main, et emporte le poisson vers sa cambuse.",
-    "Le soir, l'équipage mange des soles grillées sur le pont. Les hommes saluent ton passage d'un signe de tête, la bouche pleine."
+    "Tu paies le pêcheur, qui empoche les pièces avec un clin d'œil et lance le panier par-dessus la lisse. Rozenn arrive aussitôt, son couteau à la main, et emporte le poisson vers sa cambuse avant que quiconque ait eu le temps de le compter.",
+    "Le soir, l'équipage mange des soles grillées sur le pont. Les hommes saluent ton passage d'un signe de tête, la bouche pleine, ce qui est chez eux la forme la plus haute du remerciement."
    ]
   },
   "E_baleine": {
@@ -7196,8 +7196,8 @@
    "back": true,
    "text": [
     "Un souffle, à tribord. Un jet de vapeur monte de la mer, haut comme le grand mât, et retombe en pluie fine que le vent rabat sur le pont.",
-    "La baleine fait surface à cent brasses du navire. Son dos est long comme la Sterne, gris et couvert de coquillages. Elle souffle encore, deux fois, puis elle sonde : sa queue se dresse hors de l'eau, noire et luisante, et glisse lentement sous la surface.",
-    "Le pont reste silencieux un long moment. Puis Guénolé ôte sa pipe de sa bouche. « Trente ans de mer, dit-il. J'en ai vu quatre. »",
+    "La baleine fait surface à cent brasses du navire. Son dos est long comme la Sterne, gris, couvert de coquillages. Elle souffle encore deux fois, puis elle sonde : sa queue se dresse hors de l'eau, noire et luisante, large comme une vergue, et glisse lentement sous la surface.",
+    "Le pont reste silencieux un long moment. Puis Guénolé ôte la pipe de sa bouche. « Trente ans de mer, dit-il. J'en ai vu quatre. »",
     {
      "with": "armelle",
      "text": "Armelle regarde encore l'endroit où la baleine a disparu. « Mon mari en a vu une, la semaine où il s'est noyé, dit-elle. Ça ne veut rien dire. Les bêtes vont où elles vont. »"
@@ -7208,14 +7208,14 @@
    "title": "L'hirondelle",
    "back": true,
    "text": [
-    "Une hirondelle tombe sur le pont, aux pieds de l'homme de barre. Elle a dû se perdre dans le vent de l'équinoxe, loin de toute terre. Elle reste là, les ailes ouvertes, le bec entrouvert, et son cœur bat si vite qu'on voit trembler ses plumes.",
+    "Une hirondelle tombe sur le pont, aux pieds de l'homme de barre. Le vent de l'équinoxe a dû l'égarer loin de toute terre. Elle reste là, les ailes ouvertes, le bec entrouvert, et son cœur bat si vite qu'on voit trembler ses plumes.",
     {
      "with": "gabin",
-     "text": "Gabin s'agenouille et la prend dans ses deux mains, comme on prend de l'eau. Il la porte à l'abri de la dunette et lui donne à boire au bout de son doigt."
+     "text": "Gabin s'agenouille et la prend dans ses deux mains, comme on puise de l'eau. Il la porte à l'abri de la dunette et lui donne à boire au bout de son doigt."
     },
     {
      "without": "gabin",
-     "text": "Pierrick la ramasse et la met dans son bonnet, au chaud. Il lui donne des miettes de biscuit qu'elle ignore et de l'eau qu'elle boit."
+     "text": "Pierrick la ramasse et la met au chaud dans son bonnet. Il lui offre des miettes de biscuit, qu'elle dédaigne, et de l'eau, qu'elle boit."
     }
    ],
    "choices": [
@@ -7240,7 +7240,7 @@
    "title": "L'hirondelle",
    "back": true,
    "text": [
-    "Deux heures plus tard, l'hirondelle se dresse sur ses pattes. Elle secoue ses plumes, fait trois pas sur la paume qui la tient, et s'envole d'un coup. Elle tourne une fois autour du grand mât, puis elle file vers le sud, au ras des vagues.",
+    "Deux heures plus tard, l'hirondelle se dresse sur ses pattes. Elle secoue ses plumes, fait trois pas sur la paume qui la tient, et s'envole d'un coup. Elle fait une fois le tour du grand mât, puis elle file vers le sud, au ras des vagues.",
     "« Elle va aux Îles, dit Guénolé. Elle sera arrivée avant nous. »"
    ]
   },
@@ -7248,7 +7248,7 @@
    "title": "Le tonneau à la dérive",
    "back": true,
    "text": [
-    "La vigie signale une épave à bâbord : un tonneau, qui roule mollement dans la houle, cerclé de fer, et couvert d'algues sur un côté.",
+    "La vigie signale une épave à bâbord : un tonneau cerclé de fer, couvert d'algues sur un côté, qui roule mollement dans la houle.",
     "Guénolé le regarde longtemps à la longue-vue. « Il flotte haut. Il est à moitié plein, ou à moitié vide. » Il crache. « Avec ce qu'on a perdu dans la cale, je le prendrais bien, moi. »"
    ],
    "choices": [
@@ -7297,22 +7297,22 @@
    "title": "Le tonneau à la dérive",
    "back": true,
    "text": [
-    "Le canot va et vient deux fois dans la houle avant que les hommes passent une élingue autour du tonneau. On le hisse à bord, ruisselant. Armelle fait sauter la bonde d'un coup de maillet.",
-    "C'est de l'eau de pluie, verte et tiède, avec un goût de bois. Daoulas y trempe un doigt, la goûte, et déclare qu'on la boira bouillie. Les hommes la boiront comme du vin."
+    "Le canot fait deux allers et retours dans la houle avant que les hommes parviennent à passer une élingue autour du tonneau. On le hisse à bord, ruisselant. Armelle fait sauter la bonde d'un coup de maillet.",
+    "C'est de l'eau de pluie, verte et tiède, avec un goût de bois. Daoulas y trempe un doigt, la goûte, et décrète qu'on la boira bouillie. Les hommes la boiront comme du vin."
    ]
   },
   "E_tonneau_rate": {
    "title": "Le tonneau à la dérive",
    "back": true,
    "text": [
-    "Le canot met trop longtemps à descendre. Quand les hommes arrivent sur le tonneau, une lame le soulève et le jette contre le bordé. Les douves éclatent, et l'eau qu'il contenait se mêle à la mer. Les rameurs remontent à bord trempés et de mauvaise humeur."
+    "Le canot met trop longtemps à descendre. Quand les hommes arrivent sur le tonneau, une lame le soulève et le jette contre le bordé. Les douves éclatent, et l'eau rejoint la mer. Les rameurs remontent à bord trempés et d'une humeur assortie."
    ]
   },
   "E_cloche": {
    "title": "La cloche dans la brume",
    "back": true,
    "text": [
-    "La brume a tout avalé : la mer, les mâts, le bout du beaupré. On entend seulement le grincement des poulies et l'eau sur la coque.",
+    "La brume a tout avalé : la mer, les mâts, le bout du beaupré. Il reste pour seuls bruits le grincement des poulies et l'eau contre la coque.",
     "Puis une cloche sonne, quelque part à bâbord. Un coup, lent et grave. Un silence. Un autre coup.",
     "Sur le pont, les hommes se signent. Un vieux gabier murmure qu'on entend parfois sonner, par brume, la cloche des navires perdus. Guénolé le fait taire d'un regard.",
     {
@@ -7349,7 +7349,7 @@
    "title": "Les feux sur les mâts",
    "back": true,
    "text": [
-    "Dans le noir du grain, une lueur bleue s'allume au bout du grand mât. Une autre au bout de la vergue de misaine. Puis toutes les pointes du gréement brillent d'une petite flamme pâle et froide qui siffle doucement.",
+    "Dans le noir du grain, une lueur bleue s'allume au bout du grand mât, puis une autre au bout de la vergue de misaine. Bientôt, toutes les pointes du gréement portent une petite flamme pâle et froide, qui siffle doucement.",
     "Les hommes lèvent la tête, la pluie dans les yeux. Guénolé ôte son bonnet. « Les feux de Saint-Elme, dit-il. Ça veut dire que le pire du grain est passé. »",
     {
      "with": "gabin",
@@ -7367,13 +7367,13 @@
    "title": "Les maquereaux",
    "back": true,
    "text": [
-    "La mer bouillonne à tribord, sur une grande tache sombre : un banc de maquereaux, qui saute sous un nuage de mouettes.",
-    "Guénolé siffle. En deux minutes, toutes les lignes du bord sont à l'eau, des plumes de poule attachées aux hameçons en guise d'appât. Les maquereaux mordent dès que la ligne touche l'eau. Ils arrivent sur le pont par grappes, bleus et verts, rayés de noir, et frappent les planches de la queue.",
+    "À tribord, la mer bouillonne sur une grande tache sombre : un banc de maquereaux qui saute sous un nuage de mouettes.",
+    "Guénolé siffle. En deux minutes, toutes les lignes du bord sont à l'eau, avec des plumes de poule attachées aux hameçons en guise d'appât. Les maquereaux mordent dès que la ligne touche l'eau. Ils arrivent sur le pont par grappes, bleus et verts, rayés de noir, et battent les planches de la queue.",
     {
      "with": "pierrick",
-     "text": "Pierrick en sort onze à lui seul et les aligne sur le pont pour qu'on les compte."
+     "text": "Pierrick en sort onze à lui seul et les aligne sur le pont pour qu'on les compte, puis les recompte lui-même, au cas où."
     },
-    "Rozenn les fait griller le soir même avec du sel et un filet de vinaigre. On les mange avec les doigts sur le panneau de la grande écoutille."
+    "Rozenn les fait griller le soir même, avec du sel et un filet de vinaigre. On les mange avec les doigts sur le panneau de la grande écoutille."
    ],
    "fx": {
     "stock": {
@@ -7387,7 +7387,7 @@
    "text": [
     "« Voile ! » crie la vigie. « Une voile au vent, par le travers ! »",
     "Le second monte à la hune avec la longue-vue. Quand il redescend, il a le visage fermé. « Un lougre. Pas de pavillon. Il vient sur nous. »",
-    "Le lougre approche vite, couché sous sa toile brune. On voit bientôt des hommes sur son pont, et la gueule noire d'une petite pièce sur l'avant. Guénolé fait ouvrir le coffre d'armes. Les matelots prennent des coutelas, des barres d'anspect, et regardent vers la dunette."
+    "Le lougre approche vite, couché sous sa toile brune. Bientôt, on distingue des hommes sur son pont, et la gueule noire d'une petite pièce sur l'avant. Guénolé fait ouvrir le coffre d'armes. Les matelots prennent des coutelas et des barres d'anspect, et regardent vers la dunette."
    ],
    "choices": [
     {
@@ -7460,8 +7460,8 @@
    "title": "Une voile",
    "back": true,
    "text": [
-    "On largue les huniers, puis les cacatois, puis les bonnettes. La Sterne se couche et se met à courir, toutes ses voiles pleines, le sillage blanc derrière elle. Le lougre gagne un moment, puis il reste à la même distance, puis il recule.",
-    "Au coucher du soleil, sa voile brune a disparu. Les hommes rangent les armes en riant trop fort."
+    "On largue les huniers, puis les cacatois, puis les bonnettes. La Sterne se couche et se met à courir, toutes voiles pleines, un sillage blanc derrière elle. Le lougre gagne un moment, puis se maintient à la même distance, puis recule.",
+    "Au coucher du soleil, sa voile brune a disparu. Les hommes rangent les armes en riant un peu trop fort."
    ],
    "fx": {
     "fatigue": 1
@@ -7471,15 +7471,15 @@
    "title": "Une voile",
    "back": true,
    "text": [
-    "Tu fais monter tout le monde : la bordée de repos, la cambuse, le chirurgien, les mousses. Trente silhouettes armées s'alignent le long de la lisse, en plein soleil. Guénolé fait tirer un coup de mousquet en l'air.",
-    "Sur le lougre, on discute. Puis sa voile brune faseye, se regonfle, et il vire de bord pour s'éloigner. Quelqu'un, sur la Sterne, lui crie une insulte de port, et tout l'équipage éclate de rire."
+    "Tu fais monter tout le monde : la bordée de repos, la cambuse, le chirurgien, les mousses. Trente silhouettes armées s'alignent le long de la lisse, en plein soleil, dont une bonne moitié tiendrait mal un coutelas. Guénolé fait tirer un coup de mousquet en l'air.",
+    "Sur le lougre, on délibère. Puis sa voile brune faseye, se regonfle, et il vire de bord pour s'éloigner. Quelqu'un, sur la Sterne, lui crie une insulte de port, et tout l'équipage éclate de rire."
    ]
   },
   "E_voile_abordage": {
    "title": "L'abordage",
    "text": [
-    "Le lougre arrive bord à bord avec un choc qui fait trembler le mât de misaine. Des grappins volent, s'accrochent à la lisse. Une dizaine d'hommes sautent sur le pont de la Sterne, des coutelas entre les dents.",
-    "Partout on se bat. Deux corsaires foncent droit sur toi."
+    "Le lougre arrive bord à bord avec un choc qui fait trembler le mât de misaine. Des grappins volent et s'accrochent à la lisse. Une dizaine d'hommes sautent sur le pont de la Sterne, des coutelas entre les dents.",
+    "On se bat partout. Deux corsaires foncent droit sur toi."
    ],
    "choices": [
     {
@@ -7523,27 +7523,27 @@
    "title": "L'abordage",
    "back": true,
    "text": [
-    "Le premier corsaire tombe à genoux. Le second recule jusqu'à la lisse et saute dans son bord. Autour de toi, les autres reculent aussi : Guénolé et la bordée les ont chassés à coups de barre d'anspect. On tranche les grappins. Le lougre s'écarte et s'en va, emportant ses blessés.",
-    "Les hommes te regardent autrement, ce soir-là."
+    "Le premier corsaire tombe à genoux. Le second recule jusqu'à la lisse et saute dans son bord. Autour de toi, les autres reculent aussi, chassés à coups de barre d'anspect par Guénolé et la bordée. On tranche les grappins. Le lougre s'écarte et s'en va, emportant ses blessés.",
+    "Ce soir-là, les hommes te regardent avec une considération nouvelle."
    ]
   },
   "E_voile_pille": {
    "title": "L'abordage",
    "back": true,
    "text": [
-    "Un coup de crosse dans le flanc te jette contre le cabestan. Le souffle te manque. Quand tu te relèves, les corsaires repassent déjà dans leur bord avec deux sacs de biscuit, un baril de rhum et la cassette des droits de port qu'ils ont trouvée dans le carré.",
-    "Le lougre s'éloigne. Daoulas te bande les côtes serré, et te dit de respirer doucement pendant une semaine."
+    "Un coup de crosse dans le flanc te jette contre le cabestan, et le souffle te manque. Quand tu te relèves, les corsaires repassent déjà dans leur bord, chargés de deux sacs de biscuit, d'un baril de rhum et de la cassette des droits de port trouvée dans le carré.",
+    "Le lougre s'éloigne. Daoulas te bande les côtes serré et te prescrit de respirer doucement pendant une semaine, comme si la chose dépendait de toi."
    ]
   },
   "E_sucre": {
    "title": "Le pain de sucre",
    "back": true,
    "text": [
-    "Une odeur de beurre chaud et de caramel monte de la cambuse et se répand jusqu'au gaillard d'avant. Les hommes lèvent le nez l'un après l'autre.",
+    "Une odeur de beurre chaud et de caramel monte de la cambuse et se répand jusqu'au gaillard d'avant. Les hommes lèvent le nez l'un après l'autre, comme des chiens à l'arrêt.",
     "Rozenn a cassé le dernier pain de sucre du bord. Elle en a fait un far, dans le grand plat de fer, avec la farine qui restait et des pruneaux trempés dans le rhum. Elle le découpe sur le cabestan en trente-deux parts égales, au couteau, et donne la première au plus jeune mousse.",
     {
      "with": "pierrick",
-     "text": "Pierrick reçoit sa part comme un sacrement. Il la mange en tout petits morceaux, pour qu'elle dure."
+     "text": "Pierrick reçoit sa part comme un sacrement. Il la mange par tout petits morceaux, pour qu'elle dure."
     },
     "« Il y a quinze ans que je fais ça une fois par voyage, dit Rozenn. Au jour où les hommes en ont le plus besoin. Je le choisis au nez. »"
    ],
@@ -7558,7 +7558,7 @@
    "back": true,
    "text": [
     "Le soir tombe, doux et clair. Un matelot a sorti une vielle de son sac. Il s'assoit sur le panneau de l'écoutille et accorde l'instrument en tournant la manivelle.",
-    "Guénolé chante le premier, d'une voix de basse qui surprend tout le monde : une chanson de Port-Aubier, sur une fille qui attend son marin sur la jetée et qui finit par épouser le boulanger. Au refrain, tout l'équipage reprend en tapant du pied sur le pont.",
+    "Guénolé chante le premier, d'une voix de basse qui surprend tout le monde : une chanson de Port-Aubier, sur une fille qui attend son marin sur la jetée et finit par épouser le boulanger. Au refrain, tout l'équipage reprend en tapant du pied sur le pont, et la morale de l'histoire semble satisfaire chacun.",
     {
      "with": "armelle",
      "text": "Armelle connaît toutes les paroles. Elle chante sans lever les yeux de la poulie qu'elle répare."
@@ -7577,7 +7577,7 @@
   "E_lame": {
    "title": "La lame",
    "text": [
-    "Tu traverses le pont quand la vigie hurle. Une lame plus haute que les autres arrive par le travers, grise et lisse, avec une crête qui se brise déjà.",
+    "Tu traverses le pont quand la vigie hurle. Une lame plus haute que les autres arrive par le travers, grise et lisse, sous une crête qui se brise déjà.",
     "Elle couvre le pont d'un bord à l'autre. L'eau te prend aux jambes, puis à la taille, et t'emporte vers la lisse sous le vent."
    ],
    "choices": [
@@ -7621,8 +7621,8 @@
    "title": "La lame",
    "back": true,
    "text": [
-    "La lame te roule contre la lisse. Ton pied se prend entre deux montants, et le reste de ton corps continue sa route. Tu entends ta cheville craquer.",
-    "Deux matelots te ramassent quand l'eau se retire et te portent chez Daoulas, qui serre la cheville dans des attelles. « Rien de cassé, dit-il. Tu boiteras quelques jours. »"
+    "La lame te roule contre la lisse. Ton pied se prend entre deux montants, et le reste de ton corps poursuit sa route. Tu entends ta cheville craquer.",
+    "Quand l'eau se retire, deux matelots te ramassent et te portent chez Daoulas, qui serre la cheville dans des attelles. « Rien de cassé, dit-il. Tu boiteras quelques jours. »"
    ]
   },
   "V_armelle": {
@@ -7631,7 +7631,7 @@
    "text": [
     "Armelle s'est assise sur un rouleau de cordage, au pied du mât de misaine, avec un bout de bois et son couteau. Elle taille quelque chose de petit à la lueur du fanal.",
     "« Un cheval, dit-elle, sans que tu aies rien demandé. Pour la petite. Elle en a déjà onze, rangés sur la cheminée, un par voyage. »",
-    "Elle parle de ses filles. L'aînée, Maïwenn, quinze ans, veut être charpentière comme sa mère et taille déjà mieux que les apprentis du chantier. La petite, Annaïg, a peur de la mer et dort avec la fenêtre fermée quand le vent souffle. Le beau-père d'Armelle les garde quand elle est en mer. Il a soixante-dix ans et des mains qui tremblent.",
+    "Elle parle de ses filles. L'aînée, Maïwenn, quinze ans, veut être charpentière comme sa mère et taille déjà mieux que les apprentis du chantier. La petite, Annaïg, a peur de la mer et dort la fenêtre fermée quand le vent souffle. Le beau-père d'Armelle les garde pendant ses voyages : soixante-dix ans, et des mains qui tremblent.",
     {
      "temps": [
       "calme",
@@ -7663,8 +7663,8 @@
    "title": "La veillée d'Armelle",
    "back": true,
    "text": [
-    "Armelle t'attend au même endroit, au pied du mât de misaine. Le petit cheval de bois est fini. Il a une crinière taillée brin à brin.",
-    "Ce soir, c'est elle qui pose les questions. D'où tu viens. Ce que tu feras à Marbecq. Si tu as quelqu'un qui t'attend quelque part. Elle écoute les réponses avec attention, comme elle écoute une coque.",
+    "Armelle t'attend au même endroit, au pied du mât de misaine. Le petit cheval de bois est fini, avec une crinière taillée brin à brin.",
+    "Ce soir, c'est elle qui pose les questions : d'où tu viens, ce que tu feras à Marbecq, si quelqu'un t'attend quelque part. Elle écoute tes réponses avec attention, comme elle écoute une coque.",
     {
      "if": {
       "has": "manifeste:signe"
@@ -7697,7 +7697,7 @@
    "title": "La veillée de Pierrick",
    "back": true,
    "text": [
-    "Pierrick est assis au pied du grand mât, les genoux sous le menton, enroulé dans une couverture trop grande pour lui. Il fait semblant de dormir et ouvre un œil quand tu t'assieds.",
+    "Pierrick est assis au pied du grand mât, les genoux sous le menton, enroulé dans une couverture trop grande pour lui. Il fait semblant de dormir, et ouvre un œil quand tu t'assieds.",
     "Il parle de l'hospice de Port-Aubier : les dortoirs de quarante lits, la soupe du soir, la sœur Marie-Joseph qui tapait sur les doigts avec une règle de fer. Il parle des sabots qu'on lui a donnés pour s'engager, les premiers qu'il ait eus à sa taille.",
     {
      "temps": [
@@ -7727,12 +7727,12 @@
    "title": "La veillée de Gabin",
    "back": true,
    "text": [
-    "Gabin se tient à la poupe, accoudé au couronnement, et regarde le sillage qui s'allonge, phosphorescent, derrière le navire. Il a sa boussole de cuivre dans la main.",
-    "Il parle de son père, tout de suite, comme s'il attendait depuis longtemps qu'on le lui demande. Hervé Corbière aimait les cartes plus que les comptes. Il emmenait son fils au port le dimanche pour lui nommer les navires à leur gréement. Il avait la moitié de la maison, et il partait lui-même sur ses navires, ce que son frère trouvait ridicule.",
+    "Gabin se tient à la poupe, accoudé au couronnement, et regarde le sillage s'allonger, phosphorescent, derrière le navire. Il serre sa boussole de cuivre dans la main.",
+    "Il parle de son père aussitôt, comme s'il attendait depuis longtemps qu'on le lui demande. Hervé Corbière aimait les cartes plus que les comptes. Il emmenait son fils au port le dimanche pour lui apprendre à reconnaître les navires à leur gréement. Il possédait la moitié de la maison, et il partait lui-même sur ses navires, ce que son frère trouvait ridicule.",
     "« La veille du départ de la Bergeronnette, ils se sont disputés dans le bureau, mon oncle et lui. J'étais dans l'escalier. Je n'ai entendu que les voix. » Gabin referme sa main sur la boussole. « Le lendemain, mon père m'a embrassé sur le quai, et il m'a dit qu'à son retour, on parlerait de mon avenir. »",
     {
      "temps": "brume",
-     "text": "Le sillage se perd dans la brume à dix brasses de la poupe. On dirait que le navire sort de rien."
+     "text": "Le sillage se perd dans la brume à dix brasses de la poupe, et le navire semble sortir de rien."
     }
    ],
    "fx": {
@@ -7753,7 +7753,7 @@
    "title": "La veillée de Gabin",
    "back": true,
    "text": [
-    "Gabin est encore à la poupe. Il a vieilli de quelques années en quelques jours, ou c'est la lumière du fanal.",
+    "Gabin est encore à la poupe. Il a pris quelques années en quelques jours, à moins que ce soit la lumière du fanal.",
     "« Je me demande s'il a eu peur, dit-il. Mon père. Si c'est allé vite. Si quelqu'un était avec lui. » Il parle d'une voix égale et pose les questions une à une, comme on pose des pierres.",
     {
      "if": {
@@ -7793,12 +7793,12 @@
    "title": "L'assemblée",
    "place": "pont",
    "text": [
-    "Le neuvième jour, à neuf heures, Guénolé fait siffler l'équipage au pied du grand mât. Il ne reste en bas que l'homme de barre et le mousse de la cambuse. Les autres sont là, trente visages tannés, debout sur le pont qui roule.",
+    "Le neuvième jour, à neuf heures, Guénolé fait siffler l'équipage au pied du grand mât. En bas restent seulement l'homme de barre et le mousse de la cambuse. Les autres sont là, trente visages tannés, debout sur un pont qui roule.",
     {
      "if": {
       "has": "cap:soigne"
      },
-     "text": "Le capitaine Coët est vivant. Il a repris des couleurs, mais Daoulas lui interdit de se lever avant trois jours : son cœur bat encore trop lentement. Il a fait dire à l'équipage qu'il acceptait ce que l'assemblée déciderait pour ces trois jours."
+     "text": "Le capitaine Coët est vivant. Il a repris des couleurs, mais Daoulas lui interdit de se lever avant trois jours : son cœur bat encore trop lentement. Il a fait dire à l'équipage qu'il acceptait par avance ce que l'assemblée déciderait pour ces trois jours."
     },
     {
      "if": {
@@ -7813,7 +7813,7 @@
        }
       ]
      },
-     "text": "Le capitaine Coët ne reconnaît plus personne depuis la nuit dernière. Daoulas sort de sa chambre pour l'assemblée, les yeux rouges, et reste debout près de l'escalier de la dunette."
+     "text": "Depuis la nuit dernière, le capitaine Coët regarde les visages sans les reconnaître. Daoulas sort de sa chambre pour l'assemblée, les yeux rouges, et reste debout près de l'escalier de la dunette."
     },
     {
      "if": {
@@ -7821,7 +7821,7 @@
      },
      "text": "Depuis la mutinerie, le second commande. L'assemblée doit dire si l'équipage le garde."
     },
-    "Le second monte sur le cabestan, à côté de Guénolé. Il parle bien, comme toujours. Il parle du capitaine, qu'il respecte ; des Dents, qu'il connaît ; de Marbecq, qui n'est plus qu'à deux jours. Il appelle les hommes par leur prénom. Quand il descend, plusieurs lui tapent sur l'épaule.",
+    "Le second monte sur le cabestan, à côté de Guénolé. Il parle bien, comme toujours. Il parle du capitaine, qu'il respecte ; des Dents, qu'il connaît ; de Marbecq, à deux jours à peine. Il appelle chaque homme par son prénom, et il n'en oublie aucun. Quand il descend, plusieurs lui tapent sur l'épaule.",
     "Guénolé se tourne vers toi. « Le subrécargue a une voix, lui aussi. C'est l'usage. »"
    ],
    "fx": {
@@ -7852,7 +7852,7 @@
       "vote": "commandement",
       "is": "rejete"
      },
-     "text": "La proposition est rejetée. Un murmure court dans l'équipage. Guénolé annonce que la Sterne sera conduite jusqu'à Marbecq par le maître d'équipage, le timonier, le chirurgien et le subrécargue, ensemble, au nom du capitaine. Le second s'incline avec un sourire, et retourne à sa chambre."
+     "text": "La proposition est rejetée. Un murmure court dans l'équipage. Guénolé annonce que la Sterne sera conduite jusqu'à Marbecq, au nom du capitaine, par quatre personnes ensemble : le maître d'équipage, le timonier, le chirurgien et le subrécargue. Le second s'incline avec un sourire et retourne à sa chambre."
     },
     {
      "if": {
@@ -7866,7 +7866,7 @@
        }
       ]
      },
-     "text": "Kerlo répète la route à voix haute, sans la discuter. Tu le vois ensuite jeter un coup d'œil à la carte du capitaine, épinglée dans l'habitacle, et sa main reste sur la roue."
+     "text": "Kerlo répète la route à voix haute, sans la discuter. Tu le vois ensuite jeter un coup d'œil à la carte du capitaine, épinglée dans l'habitacle, et sa main s'attarde sur la roue."
     },
     "On sonne la soupe. Les hommes se dispersent. Il reste un jour et demi avant les Dents de Morgue."
    ],
@@ -7909,14 +7909,14 @@
     ]
    },
    "text": [
-    "Guénolé siffle l'équipage une seconde fois. Les hommes viennent de mauvaise grâce, en s'essuyant les mains. Le second s'adosse au grand mât, les bras croisés, et attend comme tout le monde.",
+    "Guénolé siffle l'équipage une seconde fois. Les hommes viennent de mauvaise grâce, en s'essuyant les mains sur leurs culottes. Le second s'adosse au grand mât, les bras croisés, et attend comme tout le monde.",
     {
      "if": {
       "has": "guenole:allie"
      },
      "text": "Guénolé se place derrière toi, avec six hommes de sa bordée. Ils ont tous une barre d'anspect à la main."
     },
-    "Tu montes sur le panneau de la grande écoutille. Trente paires d'yeux te regardent."
+    "Tu montes sur le panneau de la grande écoutille. Trente paires d'yeux se lèvent vers toi."
    ],
    "choices": [
     {
@@ -7935,12 +7935,12 @@
    "title": "Devant l'équipage",
    "place": "pont",
    "text": [
-    "Tu dis le nom de Morvan Le Hir. Puis tu poses les choses une à une sur le panneau, devant tout le monde, et tu laisses les hommes les toucher.",
+    "Tu dis le nom de Morvan Le Hir. Puis tu poses les choses une à une sur le panneau, devant tout le monde, et tu laisses les hommes les toucher, les soupeser, se les passer de main en main.",
     {
      "if": {
       "has": "accuse:M:mobile"
      },
-     "text": "Tu leur dis pourquoi : quarante mille écus d'assurance sur un navire et une cargaison qui en valent dix. Tu leur dis ce que vaut, pour un armateur ruiné, un navire qui coule avec trente hommes. Les visages se ferment un par un."
+     "text": "Tu leur dis pourquoi : quarante mille écus d'assurance sur un navire et une cargaison qui en valent dix. Tu leur dis ce que vaut, pour un armateur ruiné, un navire qui coule avec trente hommes à bord. Les visages se ferment un par un."
     },
     {
      "if": {
@@ -7948,11 +7948,11 @@
        "has": "accuse:M:mobile"
       }
      },
-     "text": "Tu as du mal à dire pourquoi. Guénolé le dit pour toi, d'une voix sourde : « Un navire perdu, ça se paie. Quelqu'un touche. »"
+     "text": "Les mots te manquent pour dire pourquoi. Guénolé les trouve pour toi, d'une voix sourde : « Un navire perdu, ça se paie. Quelqu'un touche. »"
     },
-    "Le second décroise les bras. Il cherche des yeux un homme, puis un autre, ceux qui lui tapaient sur l'épaule l'avant-veille. Ils regardent leurs pieds.",
+    "Le second décroise les bras. Il cherche des yeux un homme, puis un autre, ceux qui lui tapaient sur l'épaule l'avant-veille. Tous regardent leurs pieds.",
     "Guénolé s'avance avec les fers. Le second tend lui-même les poignets, et il sourit encore. « Tu as fait du bon travail, dit-il en passant devant toi. Corbière s'est trompé de subrécargue. »",
-    "On l'enferme dans la soute aux voiles, sous le gaillard, avec une sentinelle devant la porte. Ses trois hommes de confiance rendent leurs coutelas sans se battre."
+    "On l'enferme dans la soute aux voiles, sous le gaillard, avec une sentinelle devant la porte. Ses trois hommes de confiance rendent leurs coutelas sans combattre."
    ],
    "fx": {
     "flag": [
@@ -7987,7 +7987,7 @@
    "text": [
     "Tu dis le nom de Morvan Le Hir. Un silence. Puis le second rit, de bon cœur, et quelques hommes rient avec lui.",
     "« Le subrécargue a de l'imagination, dit-il. Il faut dire qu'il a eu peur, depuis Gavre. On le comprend. » Il te pose la main sur l'épaule, très doucement, devant tout le monde. « Qu'on lui donne une ration de rhum, et qu'il aille dormir. »",
-    "Les hommes retournent au travail. Ce que tu as posé sur le panneau ne suffit pas. À la dunette, le second te suit des yeux."
+    "Les hommes retournent au travail : ce que tu as posé sur le panneau ne suffit pas à les convaincre. De la dunette, le second te suit des yeux."
    ],
    "fx": {
     "flag": "morvan:alerte",
@@ -8016,7 +8016,7 @@
        "accuse-M-qui": "guenole"
       }
      },
-     "text": "Tu dis le nom de Guénolé Le Bihan. Le maître d'équipage devient très pâle sous son hâle. Il te regarde longtemps. Puis il s'en va à l'avant, le dos raide."
+     "text": "Tu dis le nom de Guénolé Le Bihan. Le maître d'équipage pâlit sous son hâle. Il te regarde longtemps, puis il s'en va à l'avant, le dos raide."
     },
     {
      "if": {
@@ -8071,12 +8071,12 @@
    "place": "pont",
    "text": [
     "Tu vas trouver Guénolé à l'avant et tu lui demandes une seconde assemblée. Il fronce les sourcils. « Pour quoi faire ? » Tu le lui dis. Il réfléchit longtemps, sa pipe froide entre les dents, puis il porte son sifflet à sa bouche.",
-    "Devant l'équipage, tu ne nommes personne. Tu dis seulement ce que tu as vu, à Port-Aubier, à Gavre, à bord. Tu dis qu'à Marbecq, personne n'écoutera trente matelots contre la maison Corbière, et qu'à Port-Aubier, la Chambre des Assurances écoutera, parce que c'est elle qui paiera.",
+    "Devant l'équipage, tu gardes les noms pour toi. Tu dis seulement ce que tu as vu, à Port-Aubier, à Gavre, à bord. Tu dis qu'à Marbecq, trente matelots pèseront peu contre la maison Corbière, et qu'à Port-Aubier, la Chambre des Assurances écoutera, parce que c'est elle qui paiera.",
     {
      "if": {
       "has": "morvan:fers"
      },
-     "text": "Le second, aux fers dans la soute aux voiles, entend tout à travers la cloison. On l'entend rire une fois."
+     "text": "Le second, aux fers dans la soute aux voiles, entend tout à travers la cloison. On l'entend rire, une fois."
     },
     {
      "if": {
@@ -8084,7 +8084,7 @@
        "has": "morvan:fers"
       }
      },
-     "text": "Le second écoute sans t'interrompre, appuyé à la lisse. Il a l'air d'un homme qui regarde jouer des enfants."
+     "text": "Le second écoute sans t'interrompre, appuyé à la lisse, avec l'air d'un homme qui regarde jouer des enfants."
     }
    ],
    "council": {
@@ -8103,7 +8103,7 @@
       "vote": "retour",
       "is": "adopte"
      },
-     "text": "Le retour est adopté. Il y a un moment de flottement, puis Guénolé siffle la manœuvre. Les hommes courent aux bras de vergue."
+     "text": "Le retour est adopté. Il y a un moment de flottement, puis Guénolé siffle la manœuvre, et les hommes courent aux bras de vergue."
     },
     {
      "if": {
@@ -8149,7 +8149,7 @@
    "place": "pont",
    "text": [
     "Le dixième jour, à neuf heures du soir, la vigie annonce les Dents.",
-    "On les entend avant de les voir. Un grondement sourd, à l'avant, qui monte et retombe avec la houle. Puis, dans le noir, une longue ligne blanche apparaît d'un bord à l'autre de l'horizon : la mer qui se brise sur six lieues de rochers.",
+    "On les entend avant de les voir : un grondement sourd, à l'avant, qui monte et retombe avec la houle. Puis, dans le noir, une longue ligne blanche se dessine d'un bord à l'autre de l'horizon. C'est la mer qui se brise sur six lieues de rochers.",
     {
      "if": {
       "has": "morvan:fers"
@@ -8177,7 +8177,7 @@
        }
       ]
      },
-     "text": "Un des hommes du second descend à la chaloupe avec une lanterne, soulève la bâche, et remonte en courant. Il parle à l'oreille du second. Le second jure, longuement."
+     "text": "Un des hommes du second descend à la chaloupe avec une lanterne, soulève la bâche, et remonte en courant. Il parle à l'oreille du second, qui jure, longuement, avec une variété de termes qui doit beaucoup aux ports."
     },
     {
      "if": {
@@ -8302,7 +8302,7 @@
    "title": "La nuit des Dents",
    "place": "pont",
    "text": [
-    "Tu descends au gaillard en courant. Tu réveilles ceux qui dorment, tu appelles ceux qui veillent. On sort des barres d'anspect, des haches, un vieux mousquet. Le grondement des brisants couvre tout."
+    "Tu descends au gaillard en courant. Tu réveilles ceux qui dorment, tu appelles ceux qui veillent. On sort des barres d'anspect, des haches, un vieux mousquet. Le grondement des brisants couvre tout le reste."
    ],
    "battle": "dents"
   },
@@ -8312,7 +8312,7 @@
    "place": "pont",
    "text": [
     "Le dernier des hommes du second jette son coutelas sur le pont et lève les mains. Le second lui-même est assis contre l'habitacle, une jambe repliée sous lui. Armelle lui tient le fer de sa hache sous le menton.",
-    "On l'attache au grand mât avec ses hommes. Il se laisse faire. Il regarde la ligne blanche des brisants, qui s'est beaucoup rapprochée.",
+    "On l'attache au grand mât avec ses hommes. Il se laisse faire, et regarde la ligne blanche des brisants, qui s'est beaucoup rapprochée.",
     "« Si tu veux voir Marbecq, dit-il, il faut virer maintenant. Je te laisse deviner de quel bord. »"
    ],
    "choices": [
@@ -8328,7 +8328,7 @@
    "place": "pont",
    "text": [
     "Un coup de crosse t'envoie rouler contre la lisse. Quand tu te relèves, la dunette est vide.",
-    "Le second et ses hommes ont mis la chaloupe à l'eau. Elle s'éloigne déjà sur la houle, quatre avirons de chaque bord, une lanterne à l'arrière. Avant de partir, le second a amarré la roue de la barre avec un bout de filin, bien serré. La Sterne court seule sur les brisants.",
+    "Le second et ses hommes ont mis la chaloupe à l'eau. Elle s'éloigne déjà sur la houle, quatre avirons de chaque bord, une lanterne à l'arrière. Avant de partir, le second a amarré la roue de la barre avec un bout de filin, serré de trois tours. La Sterne court seule sur les brisants.",
     "Kerlo se relève, du sang sur la tempe. Il tranche le filin d'un coup de couteau et se jette sur la roue."
    ],
    "fx": {
@@ -8348,7 +8348,7 @@
    "title": "La Passe des Veuves",
    "place": "pont",
    "text": [
-    "Kerlo tient la barre. Le grondement est partout, devant, à droite, à gauche. L'eau et le ciel se confondent. Les gerbes d'écume montent plus haut que les vergues et retombent en pluie sur le pont.",
+    "Kerlo tient la barre. Le grondement est partout : devant, à droite, à gauche. L'eau et le ciel se confondent. Les gerbes d'écume montent plus haut que les vergues et retombent en pluie sur le pont.",
     {
      "if": {
       "any": [
@@ -8357,7 +8357,7 @@
        }
       ]
      },
-     "text": "Le vieux Tréguer est monté à la dunette. Il a écarté Kerlo d'un geste et pris la roue dans ses mains noueuses. Il a les yeux fermés. Il écoute la mer."
+     "text": "Le vieux Tréguer est monté à la dunette. Il a écarté Kerlo d'un geste et pris la roue dans ses mains noueuses. Il garde les yeux fermés. Il écoute la mer."
     },
     {
      "if": {
@@ -8369,7 +8369,7 @@
        ]
       }
      },
-     "text": "Deux lueurs percent la nuit, devant. À droite, loin et haut, une lumière pâle, fixe, qui grossit très lentement. À gauche, plus près et plus bas, une lueur blanche, plus vive, qui tremble et s'allonge et s'éteint et se rallume au rythme de la houle."
+     "text": "Deux lueurs percent la nuit, devant. À droite, loin et haut, une lumière pâle et fixe, qui grossit très lentement. À gauche, plus près et plus bas, une lueur blanche et plus vive, qui tremble, s'allonge, s'éteint et se rallume au rythme de la houle."
     },
     {
      "if": {
@@ -8525,7 +8525,7 @@
    "title": "La Passe des Veuves",
    "place": "pont",
    "text": [
-    "Un choc formidable soulève la Sterne et la jette sur le flanc. Un grand bruit de bois déchiré monte de la cale. Les hommes roulent sur le pont. Le mât de misaine plie, craque et tient.",
+    "Un choc formidable soulève la Sterne et la jette sur le flanc. Un grand bruit de bois déchiré monte de la cale. Les hommes roulent sur le pont. Le mât de misaine plie, craque, et tient.",
     "Puis la houle soulève le navire et le reprend. La Sterne racle le rocher sur toute sa longueur, et passe.",
     {
      "if": {
@@ -8579,9 +8579,9 @@
    "title": "Le phare de Marbecq",
    "place": "pont",
    "text": [
-    "Le grondement s'éloigne sur l'arrière. La mer se creuse, longue et lente, et la Sterne se met à rouler comme un navire, au lieu de bondir comme une bête.",
-    "Devant, la lumière fixe grossit, et monte, et devient une tour sur une colline. Quand le jour se lève, gris et rose, on voit Marbecq au pied du phare : des toits blancs, un port, des barques qui sortent pour la pêche du matin.",
-    "Les hommes restent silencieux. Ils s'assoient sur le pont, là où ils sont, et regardent la terre."
+    "Le grondement s'éloigne sur l'arrière. La mer se creuse, longue et lente, et la Sterne se remet à rouler comme un navire, au lieu de bondir comme une bête.",
+    "Devant, la lumière fixe grossit, monte, et devient une tour sur une colline. Quand le jour se lève, gris et rose, Marbecq apparaît au pied du phare : des toits blancs, un port, des barques qui sortent pour la pêche du matin.",
+    "Les hommes gardent le silence. Ils s'assoient sur le pont, là où ils se trouvent, et regardent la terre."
    ],
    "fx": {
     "set": {
@@ -8631,7 +8631,7 @@
     "quest": "III_dents"
    },
    "text": [
-    "La Sterne entre au port de Marbecq à huit heures du matin, sous ses huniers, la coque balafrée et les pompes qui crachent. On s'attroupe sur le quai pour la regarder.",
+    "La Sterne entre au port de Marbecq à huit heures du matin, sous ses huniers, la coque balafrée, les pompes crachant toujours. On s'attroupe sur le quai pour la regarder.",
     "Le capitaine Coët est sur la dunette, appuyé sur Daoulas, pâle comme sa chemise. Il a voulu être debout pour l'entrée au port. Il donne les ordres d'une voix faible, et Guénolé les répète au sifflet.",
     {
      "if": {
@@ -8643,9 +8643,9 @@
      "if": {
       "has": "morvan:fui"
      },
-     "text": "La chaloupe du second n'est pas au port. Le capitaine fait porter sa plainte au lieutenant de l'amirauté, qui envoie un cotre fouiller la côte."
+     "text": "La chaloupe du second manque au port. Le capitaine porte plainte auprès du lieutenant de l'amirauté, qui envoie un cotre fouiller la côte."
     },
-    "Le lendemain, devant le lieutenant de l'amirauté, on ouvre les caisses de la cale une à une, sur le quai. Draps sur le dessus. Sable et galets en dessous. Les portefaix qui les déchargent s'arrêtent pour regarder, et la nouvelle fait le tour du port avant midi.",
+    "Le lendemain, devant le lieutenant de l'amirauté, on ouvre les caisses de la cale une à une, sur le quai : draps sur le dessus, sable et galets en dessous. Les portefaix qui les déchargent s'arrêtent pour regarder, et la nouvelle fait le tour du port avant midi.",
     {
      "if": {
       "has": "manifeste:refuse"
@@ -8690,8 +8690,8 @@
     "quest": "III_dents"
    },
    "text": [
-    "La Sterne entre au port de Marbecq à huit heures du matin, son pavillon en berne, la coque balafrée et les pompes qui crachent.",
-    "Le capitaine Coët est dans sa chambre, cousu dans sa toile, avec un boulet à ses pieds. On ne l'a pas immergé. L'équipage a voté qu'on l'enterrerait à terre, dans le cimetière des marins de Marbecq, face à la mer.",
+    "La Sterne entre au port de Marbecq à huit heures du matin, son pavillon en berne, la coque balafrée, les pompes crachant toujours.",
+    "Le capitaine Coët est dans sa chambre, cousu dans sa toile, un boulet à ses pieds. L'équipage a voté contre l'immersion : on l'enterrera à terre, dans le cimetière des marins de Marbecq, face à la mer.",
     "C'est toi qui as donné les ordres pendant la nuit. Guénolé les a répétés au sifflet. Kerlo les a suivis à la barre. Sur le quai, le lieutenant de l'amirauté demande à parler au capitaine. Guénolé te désigne du menton.",
     {
      "if": {
@@ -8703,9 +8703,9 @@
      "if": {
       "has": "morvan:fui"
      },
-     "text": "La chaloupe du second n'est pas au port. Le lieutenant envoie un cotre fouiller la côte."
+     "text": "La chaloupe du second manque au port. Le lieutenant envoie un cotre fouiller la côte."
     },
-    "Le lendemain, on ouvre les caisses de la cale sur le quai. Draps sur le dessus. Sable et galets en dessous. Le lieutenant fait mettre les scellés sur ce qui reste à bord.",
+    "Le lendemain, on ouvre les caisses de la cale sur le quai : draps sur le dessus, sable et galets en dessous. Le lieutenant fait mettre les scellés sur ce qui reste à bord.",
     "Au cimetière, Guénolé t'apporte la longue-vue du capitaine, dans son étui de cuir. « Il aurait voulu que ce soit toi », dit-il. Tu sais que c'est faux. Tu la prends quand même."
    ]
   },
@@ -8723,7 +8723,7 @@
    },
    "text": [
     "La Sterne touche la Mâchoire à pleine vitesse. Le choc arrache le mât de misaine, qui s'abat sur le pont dans un fracas de vergues et de cordages. L'eau entre partout à la fois.",
-    "Les caisses de la cale crèvent. Le sable se répand dans l'eau noire, et le navire s'enfonce par l'avant, lourd comme une pierre.",
+    "Les caisses de la cale crèvent. Le sable se répand dans l'eau noire, et le navire s'enfonce par l'avant, lourd comme la pierre qu'il transportait.",
     {
      "if": {
       "all": [
@@ -8735,10 +8735,10 @@
        }
       ]
      },
-     "text": "Gabin est passé par-dessus bord. Tu lui lances la bouée de liège, au jugé, dans le noir. La ligne se tend. Tu tires, tu tires, et tu le ramènes contre la coque, et des mains le hissent sur le rocher."
+     "text": "Gabin est passé par-dessus bord. Tu lui lances la bouée de liège, au jugé, dans le noir. La ligne se tend. Tu tires, tu tires encore, tu le ramènes contre la coque, et des mains le hissent sur le rocher."
     },
     "Tu te retrouves sur une roche plate, au milieu des brisants, avec une quinzaine d'hommes trempés qui se tiennent les uns aux autres. Le jour se lève sur la Sterne couchée sur le flanc, à cinquante brasses. Ses mâts pointent vers le ciel comme des doigts.",
-    "Les barques de Marbecq arrivent dans la matinée. On compte les vivants dans la première barque, puis dans la deuxième. Il en manque."
+    "Les barques de Marbecq arrivent dans la matinée. On compte les vivants dans la première barque, puis dans la deuxième. Le compte est court."
    ]
   },
   "F_chaloupe": {
@@ -8758,12 +8758,12 @@
    },
    "text": [
     "Tu te glisses à l'arrière pendant que les hommes regardent les brisants. Le second t'attend près de la chaloupe. Il te tend la main pour t'aider à enjamber le plat-bord. « Je savais que tu étais raisonnable », dit-il.",
-    "La chaloupe touche l'eau. Quatre hommes prennent les avirons. Derrière vous, la Sterne file sur la ligne blanche, toutes voiles dehors, sa barre amarrée. On entend des cris à bord, au moment où la chaloupe s'éloigne.",
+    "La chaloupe touche l'eau. Quatre hommes prennent les avirons. Derrière vous, la Sterne file sur la ligne blanche, toutes voiles dehors, sa barre amarrée. Au moment où la chaloupe s'éloigne, des cris montent du bord.",
     {
      "if": {
       "has": "chaloupe:videe"
      },
-     "text": "Les barils de la chaloupe sont vides. Le compas a disparu. Vous ramez trois jours sur la mer des Brumes, en buvant la pluie dans la voile tendue. Le troisième soir, une barque de pêche de Marbecq vous ramasse. Le second se tait depuis la veille."
+     "text": "Les barils de la chaloupe sont vides, et le compas a disparu. Vous ramez trois jours sur la mer des Brumes, en buvant la pluie recueillie dans la voile tendue. Le troisième soir, une barque de pêche de Marbecq vous ramasse. Le second se tait depuis la veille."
     },
     {
      "if": {
@@ -8773,7 +8773,7 @@
      },
      "text": "Le second gouverne au compas, tranquillement, en sifflotant. Au matin, il fait route vers le sud des Îles Blanches, loin de Marbecq. « On dira qu'on a été jetés à la côte, dit-il. Cinq rescapés. Comme la dernière fois. »"
     },
-    "Tu touches tes mille écus de Corbière six mois plus tard, par un homme de loi que tu ne revois jamais. La Chambre des Assurances a payé."
+    "Tu touches tes mille écus de Corbière six mois plus tard, par un homme de loi que tu ne reverras plus. La Chambre des Assurances a payé."
    ]
   },
   "F_retour": {
@@ -8790,7 +8790,7 @@
     "quest": "III_dents"
    },
    "text": [
-    "La Sterne vire de bord et remonte au nord, contre le vent, à petites bordées. Le voyage de retour dure neuf jours. On rationne l'eau jusqu'à Gavre, où l'on fait le plein.",
+    "La Sterne vire de bord et remonte au nord, contre le vent, à petites bordées. Le voyage de retour dure neuf jours. On rationne l'eau jusqu'à Gavre, où l'on refait le plein.",
     {
      "if": {
       "has": "morvan:fers"
@@ -8805,8 +8805,8 @@
      },
      "text": "La deuxième nuit, la chaloupe disparaît, avec le second et trois de ses hommes. Au matin, on trouve les saisines tranchées net. Guénolé regarde la mer vide et fait reprendre la route."
     },
-    "À Port-Aubier, tu descends à terre avec Guénolé, Daoulas et ce que tu as rassemblé. La greffière Dornac, à la Chambre des Assurances, écoute tout, puis elle va chercher son président. Le président va chercher le prévôt.",
-    "Le lendemain, on ouvre les caisses de la Sterne sur le quai des Morutiers, devant la moitié de la ville. Draps sur le dessus. Sable et galets en dessous.",
+    "À Port-Aubier, tu descends à terre avec Guénolé, Daoulas et tout ce que tu as rassemblé. À la Chambre des Assurances, la greffière Dornac écoute tout, puis elle va chercher son président. Le président va chercher le prévôt.",
+    "Le lendemain, on ouvre les caisses de la Sterne sur le quai des Morutiers, devant la moitié de la ville : draps sur le dessus, sable et galets en dessous.",
     "Maître Anselme Corbière est arrêté chez lui le soir même. Il ouvre la porte en robe de chambre, et il tend les mains."
    ]
   },
@@ -8824,7 +8824,7 @@
    "text": [
     "On te désarme. On te lie les mains, sans brutalité. Guénolé fait mettre le petit canot à l'eau, avec un baril d'eau, un sac de biscuit et une paire d'avirons.",
     "« L'île Ronce est à une journée dans le nord-est, dit-il. Le courant t'y portera. » Il te regarde dans les yeux. « Je regrette. Tu as choisi le mauvais côté de la porte. »",
-    "Le canot s'éloigne de la Sterne. Tu regardes le navire diminuer, puis disparaître dans la brume.",
+    "Le canot s'éloigne de la Sterne. Tu regardes le navire diminuer, puis se fondre dans la brume.",
     "Deux jours plus tard, une barque de pêcheurs de Ronce te trouve à moitié mort{e} de soif, à trois lieues de l'île. Soizic, la gardienne du phare, te soigne une semaine. Tu apprends le reste par les pêcheurs, des semaines plus tard, à Gavre."
    ]
   },
@@ -8844,10 +8844,10 @@
    "text": [
     "Tu fais un signe à Guénolé. Il porte son sifflet à sa bouche et donne trois coups brefs.",
     "En un instant, la bordée de Guénolé est sur la dunette. Les hommes du second sont désarmés avant d'avoir compris. Le second lui-même se retrouve à plat ventre sur le pont, le pied de Guénolé entre les épaules. Kerlo reprend la barre et vire de bord, loin des brisants.",
-    "On met la Sterne en panne au large des Dents, et l'on attend le jour. À l'aube, on passe la Passe des Veuves sous voilure réduite, à la sonde.",
-    "Devant Marbecq, l'équipage tient une dernière assemblée, sans toi. Quand tu remontes sur le pont, Guénolé t'annonce ce que les hommes ont décidé. La Sterne débarquera à Marbecq le capitaine, le chirurgien, le passager, le subrécargue, et le second les fers aux poignets. Puis elle repartira. Pour les Antilles, ou pour plus loin. Elle changera de nom en route.",
+    "On met la Sterne en panne au large des Dents, et l'on attend le jour. À l'aube, on franchit la Passe des Veuves sous voilure réduite, la sonde à la main.",
+    "Devant Marbecq, l'équipage tient une dernière assemblée, sans toi. Quand tu remontes sur le pont, Guénolé t'annonce la décision des hommes. La Sterne débarquera à Marbecq le capitaine, le chirurgien, le passager, le subrécargue, et le second les fers aux poignets. Puis elle repartira, pour les Antilles ou pour plus loin, et changera de nom en route.",
     "« Corbière voulait nous noyer pour quarante mille écus, dit Guénolé. Son navire, on le lui prend. C'est une dette. » Il te serre la main. « Tu n'as rien vu. »",
-    "Le lendemain matin, la Sterne quitte le port de Marbecq sur la marée. Elle a déjà mis à l'eau, dans la nuit, quatre-vingt-dix caisses de sable."
+    "Le lendemain matin, la Sterne quitte le port de Marbecq sur la marée. Dans la nuit, elle a déjà jeté à l'eau quatre-vingt-dix caisses de sable."
    ]
   }
  },
