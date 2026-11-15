@@ -449,7 +449,7 @@
   // Why: Clément, 15/11: objects that let the reader find, in the characters' lines, pieces of sentences that move,
   // and a tap shows the true text hidden beneath; a whole story built on it. The engine vouches for the rest: which
   // words stir, what a reveal sets (`voile:<id>`, the veil's own fx from story.veils), the lens's charges, the notebook.
-  var VEIL_RE = /\{\{([a-z0-9_]+)(?:#([a-z0-9_:-]+))?\|([^|{}]*)\|([^{}]*)\}\}/g;
+  var VEIL_RE = /\{\{([a-z0-9_]+)(?:#([a-z0-9_:-]+))?\|((?:[^|{}]|\{[A-Za-z_]+\})*)\|((?:[^{}]|\{[A-Za-z_]+\})*)\}\}/g; // {e}, {hero} allowed inside
   // The way the words stir on the page (the app draws them; without motion, a colour and a dotted line).
   var LENS_EFFECTS = ["tremble", "ondule", "lueur", "givre", "braise", "encre", "chuchote"];
   var VEIL_OPEN = "\uE000", VEIL_MID = "\uE001", VEIL_CLOSE = "\uE002";
@@ -2769,6 +2769,8 @@
     return (p.choices || []).filter(function (c) {
       if (hiddenChoice(story, s, c) || (c.who && !present(s, c.who))) return false;
       if (c.back === true && (!s.hubLast || s.hubLast === here)) return false;
+      // A refusal is offered only while there is a quest here to refuse (not once it is done, refused or never opened).
+      if (c.refuse === true && here && !questOfRefusal(story, s, c)) return false;
       // On a choice, `via` is what the choice gives to the page it leads to, not a condition: it is read there.
       if (!tagsOk(story, s, c.via != null ? Object.assign({}, c, { via: null }) : c, here)) return false;
       if (c.once && here && (s.once || {})["c|" + here + "|" + interp(s, c.label)]) return false;
@@ -2875,11 +2877,24 @@
       v.choices.forEach(function (c) { if (!c.sys) (byLabel[c.label] = byLabel[c.label] || []).push(c); });
       Object.keys(byLabel).forEach(function (l) {
         var tw = byLabel[l]; if (tw.length < 2) return;
+        // Companions offering the same words (« Laisse-moi faire ») are told apart by their names: these are not twins.
+        var whos = tw.map(function (c) { return c.who || ""; });
+        if (whos.every(function (w, i) { return w && whos.indexOf(w) === i; })) {
+          v.choices = v.choices.map(function (c) { return tw.indexOf(c) < 0 ? c : Object.assign({}, c, { label: nameOf(story, c.who) + " : " + c.label }); });
+          return;
+        }
         var keep = tw.filter(function (c) { return c.ok; })[0] || tw[0];
         if (tw.filter(function (c) { return c.ok; }).length > 1) guard(s, "deux choix possibles portent le même texte « " + l.slice(0, 40) + " »");
         v.choices = v.choices.filter(function (c) { return tw.indexOf(c) < 0 || c === keep; });
       });
       // Guarantee: no dead end. When nothing can be taken, the first choice opens rather than leaving the reader stuck.
+      // In « tout jouer », an act's exit waits for the other quests: a passage that only leads out sends the reader back
+      // to the last crossroads, where they are, instead of opening the exit.
+      if (!story.multi && s.toutJouer && v.kind !== "end" && v.choices.length && !v.choices.some(function (c) { return c.ok && !c.restart; })
+        && v.choices.some(function (c) { return c.exit; }) && s.hubLast && s.hubLast !== s.node && story.passages[s.hubLast]) {
+        var hb2 = story.passages[s.hubLast];
+        v.choices.push({ label: "Revenir : " + cap(interp(s, String(hb2.backName || hb2.title || "").replace(/\*/g, ""))), to: s.hubLast, back: s.hubLast, autoBack: true, ok: true, why: "" });
+      }
       if (!story.multi && v.kind !== "end" && v.choices.length && !v.choices.some(function (c) { return c.ok && !c.restart; })) {
         var open = v.choices.filter(function (c) { return !c.sys && !c.restart; })[0];
         if (open) { open.ok = true; open.why = ""; open.forced = true; guard(s, "aucun choix possible, le premier est ouvert d'office"); }

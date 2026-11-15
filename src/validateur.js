@@ -826,12 +826,13 @@
       Object.keys(s.accounts || {}).forEach(function (k) { if (!(s.doubts || {})[k] && rnd() < chance) M.doubt(story, s, k, true); });
     }
     // 8.5: a reader who holds a lens taps the words that stir on the page (and in the documents in the bag), often.
+    // Returns the view when nothing was revealed (the caller reuses it: a view costs much on a long story), else null.
     function tryVeils(s, chance, rnd) {
-      if (!story.lenses || !P[s.node]) return false;
-      var any = false, texts = M.view(story, s).text.slice();
+      if (!story.lenses || !P[s.node]) return null;
+      var any = false, v0 = M.view(story, s), texts = v0.text.slice();
       (s.items || []).forEach(function (k) { var it = (story.items || {})[k]; if (it && it.text) texts.push(M.veilMark(story, s, it.text)); });
       M.veilsIn(texts).forEach(function (x) { if (x.state === "cache" && rnd() < chance && M.reveal(story, s, x.id)) any = true; });
-      return any;
+      return any ? null : v0;
     }
     // At the accusation, the walk tries every who / why / proof and keeps the one that brings the target nearest.
     function accuseSearch(s, d) {
@@ -947,9 +948,9 @@
             var mark = function (k) { if (seen[k] || !P[k]) return; seen[k] = 1; found++; if (paid) richOnly.push(k); };
             for (var step = 0; step < 300; step++) {
               var v; fixed = null;
-              try { tryVeils(s, 1, rnd); v = M.view(story, s); } catch (e) { break; }
+              try { v = tryVeils(s, 1, rnd) || M.view(story, s); } catch (e) { break; }
               if (P[s.node]) { mark(s.node); keepSnap(s); }
-              Object.keys(s.seen).forEach(mark);
+              if (s.seen && s.seen[target]) mark(target); // the whole walk is marked once it ends (below): cheaper
               if (seen[target] || v.kind === "end") { if (v.kind === "end" && P[s.node]) endings[s.node] = (endings[s.node] || 0) + 1; break; }
               if (s.node === "@accuse" && s.acc && s.acc.step === "qui" && rnd() > wander) { var sa = accuseSearch(s, d); if (sa) { s = sa; continue; } }
               tryContra(s, 1, rnd); tryDoubt(s, 1, rnd);
@@ -966,6 +967,7 @@
               // Spending into the added money: what follows was paid with savings the games did not have.
               if (s._extra && ((s.gold || 0) < extra.gold || (s.food || 0) < extra.food)) paid = s._paid = true;
             }
+            if (s && s.seen) Object.keys(s.seen).forEach(mark);
           }
         });
         return false;
@@ -1016,8 +1018,7 @@
         keepSnap(s);
         if (P[s.node]) { var am = actMax[P[s.node].act] = actMax[P[s.node].act] || { gold: 0, food: 0 }; am.gold = Math.max(am.gold, s.gold || 0); am.food = Math.max(am.food, s.food || 0); }
         try {
-          tryVeils(s, mode === "explore" ? 1 : mode === "lose" ? 0.2 : 0.6, rnd);
-          v = M.view(story, s);
+          v = tryVeils(s, mode === "explore" ? 1 : mode === "lose" ? 0.2 : 0.6, rnd) || M.view(story, s);
           v.text.forEach(function (t) { if (/undefined|NaN|\[object|\{[a-z]+\}|\{autre:/.test(t)) throw new Error("texte suspect : " + t.slice(0, 80)); });
           // 8.6: a reader taps a hidden find, often; and nothing of a mark ever reaches the plain text.
           (v.marked || []).forEach(function (t) { M.marksOf(t).forEach(function (m) { if (m.kind === "or" && rnd() < 0.5) { try { M.trouve(story, s, m.arg); } catch (e) { errs["trouvaille " + m.arg + " : " + e.message] = 1; } } }); });
@@ -1064,7 +1065,10 @@
       play(mode, i * 7919, i % 2 === 0, i % 5 < 2);
       n++;
     }
+    var T = typeof process !== "undefined" && process.env && process.env.VALID_TIME, t0 = Date.now();
+    if (T) console.log("parties : " + n + ", passages jamais vus : " + ids.filter(function (id) { return !seen[id]; }).length);
     reachMissing();
+    if (T) console.log("recherche ciblée : " + (Date.now() - t0) + " ms");
     M.setRng(null);
     var unreached = ids.filter(function (id) { return !seen[id]; });
     var neverTaken = [];

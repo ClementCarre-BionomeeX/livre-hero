@@ -395,7 +395,7 @@ Idée de Clément (15/11, piste T4) : certains objets font bouger, dans le texte
 
 | Où | Clé | Sens |
 |---|---|---|
-| texte (paragraphe, `text` d'un objet `document`, épilogue) | `{{lentille\|dit\|dessous}}` · `{{lentille#id\|dit\|dessous}}` | Les mots dits, et ceux qu'ils cachent. Le dessous remplace le dessus dans la même phrase. Sans la lentille, le lecteur lit les mots dits, sans rien qui les distingue. Un voile sans `#id` est reconnu par sa lentille et ses mots dits. Jamais dans un bouton. |
+| texte (paragraphe, `text` d'un objet `document`, épilogue) | `{{lentille\|dit\|dessous}}` · `{{lentille#id\|dit\|dessous}}` | Les mots dits, et ceux qu'ils cachent. Le dessous remplace le dessus dans la même phrase. `{e}` et `{hero}` y sont permis. Sans la lentille, le lecteur lit les mots dits, sans rien qui les distingue. Un voile sans `#id` est reconnu par sa lentille et ses mots dits. Jamais dans un bouton. |
 | `story.lenses` | `{ <id>: { name, item \| if, effect, hint, say, charges, max, unit, empty, spent } }` | Ce qui fait entendre (ou voir) dessous. Tenue quand l'objet `item` est dans le sac (le sien ou celui d'un héros qui marche avec lui) et que `if` tient. `effect` : `tremble`, `ondule`, `lueur`, `givre`, `braise`, `encre`, `chuchote`. `charges` : chaque dévoilement en coûte une (sinon, illimité). `say` : la ligne dite la première fois qu'on la tient. |
 | `story.veils` | `{ <id>: { fx } }` | Ce qu'un dévoilement pose en plus de `voile:<id>` : un indice, un drapeau, de l'EP. |
 | fx | `recharge: { <lentille>: n }` | Rend des charges (jusqu'à `max`, ou `charges`). |
