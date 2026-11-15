@@ -47,14 +47,14 @@ module.exports = {
       { if: { any: [{ has: "lisandre:ilan_dit" }, { has: "lisandre:ilan_ment" }] }, text: "En face, dans la tribune de Corvanne, les manteaux bleus. Ilan est au premier rang. Il te cherche des yeux dans la foule. Il te trouve." },
       { if: { has: "lisandre:ilan_livre" }, text: "En face, dans la tribune de Corvanne, les manteaux bleus. Il manque quelqu'un au premier rang. Tu sais qui." },
       "Le dernier champion passe sans bannière. Une armure d'argent mat, sans armoiries, et sur le visage, au lieu d'un heaume, un masque lisse, blanc, comme taillé dans de la glace. Le héraut cherche son nom sur sa liste, hésite, cherche encore. Il n'y a rien d'écrit.",
-      "La foule regarde le chevalier au masque passer. Une seconde après, elle regarde déjà ailleurs.",
+      "La foule regarde le chevalier au masque passer. Un battement de cœur après, elle regarde déjà ailleurs.",
     ]),
     choices: [{ label: "La première joute", to: "II_S3_joute1" }] }),
 
   II_S3_joute1: P({ title: "Première joute", place: "vasselin",
     text: [
       { if: { not: champ("lisandre") }, text: "La lice, cent vingt pas de sable, la barrière de bois au milieu, la foule. En face de ton champion, Messire Baudran de Clairval, un gros chevalier jovial qui salue la foule avec sa lance avant chaque course et qui a déjà gagné trois tournois. Trois courses. L'emporte le premier qui désarçonne l'autre, ou qui brise deux lances sur son écu." },
-      { if: champ("lisandre"), text: "Tu n'es pas inscrite aux joutes. Tu regardes depuis la barrière. La première course oppose Messire Baudran de Clairval, gros et jovial, à un jeune seigneur de la côte qui tremble sur sa selle." },
+      { if: champ("lisandre"), text: "Les joutes se courent sans toi. Tu regardes depuis la barrière. La première course oppose Messire Baudran de Clairval, gros et jovial, à un jeune seigneur de la côte qui tremble sur sa selle." },
     ],
     choices: [
       { label: "Courir la première lance", hide: champ("lisandre"), test: { dom: "combat", label: "Lance", help: JOUTE.concat([{ if: { present: "pie" }, v: 5 }]) },
@@ -65,7 +65,7 @@ module.exports = {
 
   II_S3_joute1_ok: P({ title: "Clairval à terre", place: "vasselin",
     text: [
-      { if: champ("ysolde"), text: "Deux courses. À la deuxième, la lance d'Ysolde prend Clairval en plein écu, un peu haut, exactement là où il faut, et il bascule par-dessus la croupe de son cheval avec un bruit de casserole. La foule hurle. Ysolde lève sa lance et ne relève pas sa visière." },
+      { if: champ("ysolde"), text: "Deux courses. À la deuxième, la lance d'Ysolde prend Clairval en plein écu, un peu haut, exactement là où il faut, et il bascule par-dessus la croupe de son cheval avec un bruit de casserole. La foule hurle. Ysolde lève sa lance et garde sa visière baissée." },
       { if: champ("rodric"), text: "Rodric ne sait pas jouter. Il le fait quand même, comme il fait tout, de face. À la troisième course, il casse sa lance sur Clairval, et Clairval tombe, plus de surprise que du choc. La foule ne sait pas si elle doit applaudir un Corvannais. Elle applaudit." },
       { if: champ("enfant"), text: "L'enfant tient à peine sa lance. À la troisième course, son cheval fait un écart, Clairval le manque, et la lance de l'enfant, qui pendait, se prend dans la sangle de Clairval. La selle tourne. Clairval glisse, lentement, et s'assoit dans le sable, l'air étonné. La foule rit, puis applaudit. Clairval aussi rit. Il vient lui serrer la main." },
     ],
@@ -93,14 +93,14 @@ module.exports = {
   II_S3_joute2_ok: P({ title: "Le masque tombe", place: "vasselin",
     text: [
       "À la troisième course, les deux lances se brisent en même temps. Le chevalier au masque vacille. Son masque glisse, tombe dans le sable, et se brise comme une vitre.",
-      "Dessous, un visage jeune, très pâle, avec des yeux d'un gris presque blanc. Pendant une seconde, toute la tribune le voit. Puis il ramasse un éclat de masque, le pose sur sa joue, et la tribune ne voit plus rien. Le héraut proclame ton champion vainqueur d'un adversaire qu'il ne nomme pas.",
+      "Dessous, un visage jeune, très pâle, avec des yeux d'un gris presque blanc. Le temps d'un battement de cœur, toute la tribune le voit. Puis il ramasse un éclat de masque, le pose sur sa joue, et la tribune ne voit plus rien. Le héraut proclame ton champion vainqueur d'un adversaire resté sans nom.",
       "En sortant de la lice, le chevalier passe près de toi. Il te regarde. Il regarde ta main, où c'est écrit. Il sourit.",
     ],
     choices: [{ label: "Le suivre", to: "II_S3_masque" }] }),
 
   II_S3_joute2_rate: P({ title: "Le masque", place: "vasselin",
     text: [
-      "Il ne court pas : il glisse. Sa lance prend ton champion au défaut de l'épaule, et le jette dans le sable, très proprement, presque doucement. Il ne se retourne pas pour voir.",
+      "Il glisse plus qu'il ne court. Sa lance prend ton champion au défaut de l'épaule, et le jette dans le sable, très proprement, presque doucement. Il poursuit sa course sans un regard en arrière.",
       "En sortant de la lice, il passe près de toi. Il te regarde. Il regarde ta main, où c'est écrit. Il sourit.",
     ],
     choices: [{ label: "Le suivre", to: "II_S3_masque" }] }),
@@ -108,7 +108,7 @@ module.exports = {
   II_S3_loge: P({ title: "La loge", place: "vasselin",
     text: [
       "Tu regardes la loge royale plus que les joutes. La reine somnole. Mordace écrit. De temps en temps, un page vient lui apporter une feuille, et il la lit, et il la met dans un coffret à ses pieds.",
-      "Au deuxième tour, le chevalier au masque court contre Clairval et le jette dans le sable sans effort. Tu le regardes passer. Une seconde plus tard, tu te demandes qui a gagné. Tu te souviens que tu avais oublié.",
+      "Au deuxième tour, le chevalier au masque court contre Clairval et le jette dans le sable sans effort. Tu le regardes passer. Un instant plus tard, tu te demandes qui a gagné. Tu te souviens que tu avais oublié.",
       "Tu sors de ta manche un bout de charbon, et tu écris sur ta paume : *le masque.*",
       "En sortant de la lice, il passe près de la barrière, près de toi. Il regarde ta main. Il sourit.",
     ],
@@ -210,13 +210,13 @@ module.exports = {
 
   II_S3_suivre: P({ title: "Le chemin du Glaneur", place: "vasselin",
     text: [
-      "Il ne va pas à la Tour par la grande porte. Il traverse la ville basse, longe le port, entre dans les égouts par une grille de la halle aux poissons, et tu le perds dans le noir. Mais tu as vu la grille. Et en levant les yeux, tu vois, juste au-dessus, la Tour, droite comme un doigt.",
+      "Il évite la grande porte de la Tour. Il traverse la ville basse, longe le port, entre dans les égouts par une grille de la halle aux poissons, et tu le perds dans le noir. Mais tu as vu la grille. Et en levant les yeux, tu vois, juste au-dessus, la Tour, droite comme un doigt.",
     ],
     choices: [{ label: "Rentrer", to: "II_S3_nuit" }] }),
 
   II_S3_suivre_garde: P({ title: "Le chemin du garde", place: "vasselin",
     text: [
-      "Le garde ne prend pas la grande rue. Il passe par la ruelle des Tanneurs, frappe trois coups à une porte basse, au pied de la Tour, côté jardin. On lui ouvre. Tu entends, avant que la porte ne se referme, quelqu'un qui demande : « Combien ? » et le garde qui répond : « Dix-neuf. »",
+      "Le garde délaisse la grande rue. Il passe par la ruelle des Tanneurs, frappe trois coups à une porte basse, au pied de la Tour, côté jardin. On lui ouvre. Tu entends, avant que la porte ne se referme, quelqu'un qui demande : « Combien ? » et le garde qui répond : « Dix-neuf. »",
       "Tu retiens la porte, les trois coups, et le jardin.",
     ],
     choices: [{ label: "Rentrer", to: "II_S3_nuit" }] }),
@@ -225,7 +225,7 @@ module.exports = {
     text: [
       "À l'aube, le crieur passe dans le camp et lit des noms. Des champions qui, ce matin, ne se souviennent plus qu'ils sont champions. Il y en a dix-neuf.",
       { if: { all: [{ has: "sud:vrai_nom" }, { not: { has: "sud3:glaneur_battu" } }] }, text: "Rodric est assis devant sa tente, sa hache sur les genoux. Il la regarde comme un outil dont il ne sait plus l'usage. Il te demande, poliment, si c'est à lui. Il se souvient de toi. Il ne se souvient plus de pourquoi il est à Vasselin." },
-      { if: { all: [{ has: "sud:vrai_nom" }, { has: "sud3:glaneur_battu" }] }, text: "Rodric est assis devant sa tente, sa hache sur les genoux. Il a dormi comme un enfant. Il ne sait pas ce qui est passé à côté de lui cette nuit." },
+      { if: { all: [{ has: "sud:vrai_nom" }, { has: "sud3:glaneur_battu" }] }, text: "Rodric est assis devant sa tente, sa hache sur les genoux. Il a dormi comme un enfant. Il ignore ce qui est passé à côté de lui cette nuit." },
       { if: { all: [{ not: { has: "sud:vrai_nom" } }, { not: champ("lisandre") }] }, text: "Ton champion n'est pas sur la liste. Le faux nom a tenu une nuit de plus." },
       { if: champ("lisandre"), text: "Tu n'es pas sur la liste. Le faux nom a tenu une nuit de plus." },
       "La mêlée est à midi.",
