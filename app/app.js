@@ -1938,6 +1938,7 @@
     if (v.kind === "combat") page.appendChild(renderFight(s));
     if (v.battle) page.appendChild(renderBattle(v.battle));
     if (v.council) page.appendChild(renderCouncil(st, v.council));
+    if (v.puzzle) page.appendChild(renderPuzzle(v));
     if (G.multi && v.wait) page.appendChild(renderWait(v));
     else {
       if (v.urgent && !G.multi && !G.ephemeral && !folded) page.appendChild(urgentBar(G, v));
@@ -2273,7 +2274,7 @@
     }
     return box;
   }
-  var GROUPS = { conseil: "Le vote", bataille: "Tes ordres", dette: "Ce que tu dois", jeu: "À la table", route: "Prendre la route", shop: "Acheter et vendre", fight: "Que fais-tu ?", order: "Ce tour, tes compagnons · un ordre gratuit chacun ; sans ordre, ils agissent à leur guise", lead: "Qui mène ? · changer de héros ne coûte rien" };
+  var GROUPS = { duel: "Ta lame", enigme: "L'énigme", conseil: "Le vote", bataille: "Tes ordres", dette: "Ce que tu dois", jeu: "À la table", route: "Prendre la route", shop: "Acheter et vendre", fight: "Que fais-tu ?", order: "Ce tour, tes compagnons · un ordre gratuit chacun ; sans ordre, ils agissent à leur guise", lead: "Qui mène ? · changer de héros ne coûte rien" };
   // The « coup de pouce » (option for young readers, Clément, 12/11): NUDGES_PER_ACT per act, kept in the game.
   var NUDGES_PER_ACT = 2;
   function nudgesLeft(G) { var used = (G.s.nudges || {})[G.s.lastAct || "_"] || 0; return Math.max(0, NUDGES_PER_ACT - used); }
@@ -2320,7 +2321,7 @@
     if (nd) box.appendChild(h("div", { class: "notice soft nudge-note", role: "status" }, "💡 " + nd.text));
     var nth = 0;
     v.choices.forEach(function (c) {
-      if (c.restart) return;
+      if (c.restart || c.ui) return;   // a choice the page draws itself (a puzzle's « Essayer »)
       nth++;
       var g = c.group || null;
       if (g !== lastGroup && GROUPS[g]) box.appendChild(h("div", { class: "label group-label" }, GROUPS[g]));
@@ -3429,6 +3430,7 @@
     b.appendChild(h("div", { class: "label" }, "Domaines (jet : d100 ouvert + bonus, il faut 101)"));
     b.appendChild(h("div", { class: "kv" }, Object.keys(M.DOMAINS).map(function (k) { var v = M.bonus(st, s, k); return [h("span", null, M.DOMAINS[k]), bar("conf", v, 80), h("span", { class: "num" }, (v >= 0 ? "+" : "") + v)]; })));
     woundRows(b, st, s);
+    schoolRows(b, st, s);
     var w = M.weapon(st, s), ar = M.armor(st, s);
     if (!A.game.multi) b.appendChild(h("button", { class: "btn sm", onclick: function () { A.carnet = null; A.screen = "fiche"; render(); window.scrollTo(0, 0); } }, "🖨 Fiche du héros à imprimer"));
     if (st.heroes) tabHeroes(b, st, s);
@@ -3907,6 +3909,51 @@
         h("div", { class: "desc" }, (D.desc ? M.interp(s, D.desc) + " " : "") + (W0.tended ? "Pansée. " : "") + "Se refermera d'ici " + (left <= 1 ? "un jour" : left + " jours") + ".")));
     });
     scars.forEach(function (k) { var D = st.wounds[k]; b.appendChild(h("div", { class: "itemrow scar" }, h("b", null, "Cicatrice"), h("span"), h("div", { class: "desc" }, M.interp(s, D.scar)))); });
+  }
+  // At school (8.2): the traits of character and what practice has added, in the hero's tab.
+  function schoolRows(b, st, s) {
+    var ts = Object.keys(st.traits || {});
+    if (ts.length) {
+      b.appendChild(h("div", { class: "label" }, "Caractère"));
+      ts.forEach(function (k) {
+        var T = st.traits[k], v = M.traitOf(s, k), pos = Math.round((v + M.TRAIT_MAX) / (2 * M.TRAIT_MAX) * 100);
+        b.appendChild(h("div", { class: "itemrow trait" }, h("b", null, M.interp(s, T.name)), h("span", { class: "num" }, M.traitWord(st, s, k)),
+          h("div", { class: "trait-axis", role: "img", "aria-label": M.interp(s, T.low) + " ou " + M.interp(s, T.high) + " : " + M.traitWord(st, s, k) },
+            h("span", { class: "small muted" }, M.interp(s, T.low)), h("span", { class: "axis" }, h("i", { style: "left:" + pos + "%" })), h("span", { class: "small muted" }, M.interp(s, T.high)))));
+      });
+    }
+    var ps = Object.keys(s.prac || {}).filter(function (d) { return s.prac[d]; });
+    if (st.practice && ps.length) b.appendChild(h("div", { class: "small muted" }, "Gagné par la pratique : " + ps.map(function (d) { return M.DOMAINS[d] + " +" + s.prac[d]; }).join(", ") + "."));
+  }
+  // A puzzle to handle on the page (8.2): wheels to turn, a word to type, pieces to put back in order. The answer goes
+  // with the choice « Essayer »; the engine checks it.
+  function renderPuzzle(v) {
+    var z = v.puzzle, tryC = v.choices.filter(function (c) { return c.sys === "puzzleTry"; })[0], box = h("div", { class: "puzzle puzzle-" + z.kind, role: "group", "aria-label": v.title });
+    A.puz = A.puz && A.puz.id === z.id ? A.puz : { id: z.id, wheels: (z.wheels || []).map(function () { return 0; }), order: (z.pieces || []).map(function (x, i) { return i; }), text: "" };
+    var P = A.puz, answer;
+    if (z.kind === "molettes") {
+      box.appendChild(h("div", { class: "wheels" }, z.wheels.map(function (w, i) {
+        var turn = function (d) { P.wheels[i] = (P.wheels[i] + d + w.length) % w.length; render(); };
+        return h("div", { class: "wheel" }, h("button", { class: "btn ghost sm", "aria-label": "Molette " + (i + 1) + " : symbole précédent", onclick: function () { turn(-1); } }, "▲"),
+          h("div", { class: "wheel-face", "aria-live": "polite" }, w[P.wheels[i]]), h("button", { class: "btn ghost sm", "aria-label": "Molette " + (i + 1) + " : symbole suivant", onclick: function () { turn(1); } }, "▼"));
+      })));
+      answer = function () { return P.wheels.map(function (k, i) { return z.wheels[i][k]; }); };
+    } else if (z.kind === "ordre") {
+      box.appendChild(h("ol", { class: "pieces" }, P.order.map(function (pi, at) {
+        var mv = function (d) { var j = at + d; if (j < 0 || j >= P.order.length) return; var t = P.order[j]; P.order[j] = P.order[at]; P.order[at] = t; render(); };
+        return h("li", { class: "piece" }, h("span", { class: "piece-text", html: md(z.pieces[pi]) }),
+          h("span", { class: "piece-moves" }, h("button", { class: "btn ghost sm", "aria-label": "Monter ce morceau", disabled: at === 0 ? "disabled" : null, onclick: function () { mv(-1); } }, "↑"),
+            h("button", { class: "btn ghost sm", "aria-label": "Descendre ce morceau", disabled: at === P.order.length - 1 ? "disabled" : null, onclick: function () { mv(1); } }, "↓")));
+      })));
+      answer = function () { return P.order.slice(); };
+    } else {
+      var inp = h("input", { type: "text", class: "puzzle-input", "aria-label": "Ta réponse", value: P.text, autocomplete: "off", oninput: function (e) { P.text = e.target.value; },
+        onkeydown: function (e) { if (e.key === "Enter" && tryC) { e.preventDefault(); pick(Object.assign({}, tryC, { answer: P.text })); } } });
+      box.appendChild(inp);
+      answer = function () { return P.text; };
+    }
+    if (tryC) box.appendChild(h("button", { class: "btn primary", onclick: function () { pick(Object.assign({}, tryC, { answer: answer() })); } }, tryC.label));
+    return box;
   }
   // ------------------------------------------------------------------ a siege (8.0)
   // The pills of the stocks a story marks `pill: true` (« Blé 612 · 14 j »).

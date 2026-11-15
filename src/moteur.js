@@ -180,6 +180,8 @@
       // At sea (8.1): the sky and the wounds not yet closed weigh on the hero's rolls.
       if (story.weather) b += weatherMod(story, s, dom);
       if (s.wounds) b += woundMod(story, s, dom);
+      // At school (8.2): what practice has added.
+      if (story.practice) b += practiceOf(s, dom);
     }
     return b;
   }
@@ -201,6 +203,7 @@
     var b = bonus(story, s, t.dom, who), help = helpOf(story, s, t), diff = t.diff || 0, lv = diffOf(s).roll;
     var r = openD100(true), total = r.total + b + diff + help + lv, ok = total >= SUCCESS;
     stat(s, "tests"); if (ok) stat(s, "testsOk"); if (r.rolls[0] >= 96) stat(s, "open");
+    if (!who && story.practice) practiceUse(story, s, t.dom);
     return { die: r.total, rolls: r.rolls, bonus: b, help: help, diff: diff, total: total, target: SUCCESS, ok: ok,
       line: "d100 ouvert " + (r.rolls.length > 1 ? "(" + r.rolls.join(" ") + ") " : "") + r.total + " + " + DOMAINS[t.dom] + " " + b +
         (diff ? (diff > 0 ? " + " : " − ") + Math.abs(diff) + (DIFFS[diff] ? " (" + DIFFS[diff] + ")" : "") : "") + (help ? (help > 0 ? " + " : " − ") + Math.abs(help) + " (aide)" : "") + diffTerm(s) +
@@ -231,6 +234,9 @@
     if ("blessure" in c) return woundOk(story, s, c.blessure);
     if ("cicatrice" in c) return [].concat(c.cicatrice).some(function (k) { return !!s.flags["cicatrice:" + k]; });
     if ("fatigue" in c) return rng(s.fatigue || 0, c.min, c.max);
+    // At school (8.2): a trait of character, a duel fought.
+    if ("trait" in c) return rng(traitOf(s, c.trait), c.min, c.max);
+    if ("duel" in c) { var DU = (s.duels || {})[c.duel]; if (!DU) return c.is === null; return c.is == null || DU.out === c.is; }
     if ("missed" in c) { var mq = (story.quests || []).filter(function (q) { return q.id === c.missed; })[0]; return !!mq && questMissed(story, s, mq); }
     // count: [conditions], min / max: how many of them hold ("at least three of these").
     if ("count" in c) { var nc = c.count.filter(function (x) { return evalCond(story, s, x); }).length; return nc >= (c.min || 0) && (c.max == null || nc <= c.max); }
@@ -356,6 +362,7 @@
     if ("temps" in c) return "Pas par ce temps-ci.";
     if ("blessure" in c) return c.blessure === false ? "Pas avec une blessure ouverte." : "Seulement avec cette blessure.";
     if ("fatigue" in c) return c.max != null ? "La fatigue te le défend." : "Il faut avoir veillé davantage.";
+    if ("trait" in c) return "Ce n'est pas dans ton caractère.";
     if ("camp" in c) return c.camp && c.camp !== "none" ? "Seulement pour qui a rallié " + (((story.camps || {})[c.camp] || {}).name || c.camp) + "." : "Seulement tant que tu n'as rallié aucun camp.";
     return "Ce chemin est fermé pour l'instant.";
   }
@@ -622,6 +629,8 @@
     if (fx.fatigue) { var f0 = s.fatigue || 0; s.fatigue = Math.max(0, Math.min(FATIGUE_MAX, f0 + fx.fatigue)); if (s.fatigue !== f0) ev(s, "Fatigue " + (s.fatigue > f0 ? "+" : "−") + Math.abs(s.fatigue - f0) + " · " + interp(s, s.fatigue ? "−" + s.fatigue * 5 + " à tous les jets" : "reposé{e}"), s.fatigue > f0 ? "bad" : "good"); }
     if (fx.meteo) setWeather(story, s, fx.meteo);
     [].concat(fx.blessure || []).forEach(function (k) { woundOpen(story, s, k); });
+    if (fx.trait) traitMove(story, s, fx.trait);
+    if (fx.pratique) Object.keys(fx.pratique).forEach(function (d) { practiceUse(story, s, d, fx.pratique[d]); });
     [].concat(fx.soigner || []).forEach(function (k) { woundDef(story, k); var W0 = (s.wounds || {})[k]; if (W0 && !W0.healed && !W0.tended) { W0.tended = true; ev(s, "Blessure pansée : " + story.wounds[k].name + ".", "good wound"); woundsTick(story, s); } });
     [].concat(fx.guerir || []).forEach(function (k) { woundDef(story, k); woundClose(story, s, k); });
     if (fx.time) { s.time += fx.time; }
@@ -2080,6 +2089,196 @@
       .map(function (v) { return { sys: "vigil", to: v.to, group: "veillee", label: interp(s, v.label || ("Veiller avec " + nameOf(story, [].concat(v.with)[0]))) }; });
   }
 
+  // ------------------------------------------------------------------ at school (8.2, « L'école des arts »)
+  // Practice (story.practice: { every, step, max, doms, say }): each roll the hero makes in a domain counts as a use;
+  // every `every` uses the domain gains `step`, up to `max`, whatever the level. fx.pratique: { dom: n } counts n uses
+  // (a lesson, an afternoon at the workbench). The gain shows in the hero's bonus.
+  var PRACTICE_EVERY = 3, PRACTICE_STEP = 5, PRACTICE_MAX = 15;
+  function practiceOf(s, dom) { return ((s.prac || {})[dom]) || 0; }
+  function practiceUse(story, s, dom, n) {
+    var P = story.practice; if (!P || !dom || (P.doms && P.doms.indexOf(dom) < 0)) return;
+    s.usage = s.usage || {}; s.prac = s.prac || {};
+    var every = P.every || PRACTICE_EVERY, step = P.step || PRACTICE_STEP, max = P.max || PRACTICE_MAX;
+    for (var i = 0; i < (n || 1); i++) {
+      s.usage[dom] = (s.usage[dom] || 0) + 1;
+      if (s.usage[dom] % every === 0 && practiceOf(s, dom) < max) {
+        s.prac[dom] = Math.min(max, practiceOf(s, dom) + step);
+        ev(s, interp(s, String(P.say || "À force de pratique : {dom} +{n}.").replace("{dom}", DOMAINS[dom]).replace("{n}", s.prac[dom])), "good");
+      }
+    }
+  }
+  // Character traits (story.traits: { id: { name, low, high, mid, desc } }): fx.trait: { id: ±n } moves the hero along
+  // the axis, from -TRAIT_MAX (low) to +TRAIT_MAX (high); the condition { trait: "id", min, max } reads it, so that a
+  // reply or a way opens to a bold hero and stays shut to a careful one. The hero tab shows where the hero stands.
+  var TRAIT_MAX = 5;
+  function traitOf(s, k) { return ((s.traits || {})[k]) || 0; }
+  function traitWord(story, s, k) { var T = (story.traits || {})[k] || {}, v = traitOf(s, k); return interp(s, v === 0 ? (T.mid || "Entre les deux") : v > 0 ? T.high : T.low); }
+  function traitMove(story, s, d) {
+    s.traits = s.traits || {};
+    Object.keys(d).forEach(function (k) {
+      if (!(story.traits || {})[k]) throw new Error("trait inconnu " + k);
+      var v0 = traitOf(s, k), v = Math.max(-TRAIT_MAX, Math.min(TRAIT_MAX, v0 + d[k]));
+      s.traits[k] = v;
+      if (v !== 0 && (v0 === 0 || (v > 0) !== (v0 > 0))) ev(s, "Ce choix te ressemble : " + traitWord(story, s, k).toLowerCase() + ".", "conseq");
+    });
+  }
+  // Ruled duels (story.duels: { id: { title, foe, foeName, rule, touches, dom, skill, intro, style, tells, say, labels,
+  // adapt, winText, loseText, win: { to, fx }, lose: { to, fx } } }): a passage `duel: "id"` opens the duel. Each pass
+  // the hero picks a move (attaque, parade, feinte): the parry takes the attack, the attack takes the feint, the feint
+  // takes the parry; the same move on both sides is settled by a roll (dom against the foe's skill). The first to
+  // `touches` touches wins. The foe remembers the moves the hero used against them in earlier duels (s.duelMemo) and
+  // leans to the counter of the hero's habit: a rival who comes back has learnt. `tells` (lines by move) may give away
+  // what the foe prepares, the more often the better the hero is in the duel's domain.
+  var DUEL_MOVES = { attaque: "Attaquer", parade: "Parer", feinte: "Feinter" }, DUEL_BEATS = { parade: "attaque", attaque: "feinte", feinte: "parade" };
+  var DUEL_TOUCHES = 3, DUEL_TELL = 50, DUEL_ADAPT = 2;
+  var DUEL_SAY = {
+    "attaque>feinte": "{foe} amorce une feinte. Tu ne la suis pas : tu vas droit devant, et tu touches.",
+    "parade>attaque": "{foe} se fend. Tu attendais ce coup : tu le détournes, et ta riposte touche.",
+    "feinte>parade": "{foe} se ferme en parade. Tu menaces en haut, tu passes en bas, et tu touches.",
+    "feinte<attaque": "Tu amorces une feinte. {foe} va droit devant, et te touche.",
+    "attaque<parade": "Tu te fends. {foe} t'attendait : le coup est détourné, et la riposte te touche.",
+    "parade<feinte": "Tu te fermes en parade. {foe} menace en haut, passe en bas, et te touche.",
+    "=win": "Vous faites le même geste au même instant. Tu as un souffle d'avance : touché.",
+    "=lose": "Vous faites le même geste au même instant. {foe} a un souffle d'avance, et te touche."
+  };
+  function duelDef(story, id) { var d = (story.duels || {})[id]; if (!d) throw new Error("duel inconnu " + id); return d; }
+  function duelFoe(story, D) { return D.foeName || ((story.people || {})[D.foe] || {}).name || nameOf(story, D.foe); }
+  function duelChoices(story, s, p) {
+    if (!p || !p.duel || s.combat || ((s.duels || {})[p.duel] || {}).out) return [];
+    return [{ sys: "duel", group: "duel", label: interp(s, p.duelLabel || "Saluer, et prendre ta garde") }];
+  }
+  function duelCounter(m) { return Object.keys(DUEL_BEATS).filter(function (k) { return DUEL_BEATS[k] === m; })[0]; }
+  function duelFoeMove(story, s) {
+    var D = duelDef(story, s.duel.id), w = Object.assign({ attaque: 1, parade: 1, feinte: 1 }, D.style || {});
+    var memo = ((s.duelMemo || {})[D.foe]) || {}, habit = Object.keys(memo).sort(function (a, b) { return memo[b] - memo[a]; })[0];
+    if (D.adapt !== false && habit && memo[habit] >= 2) w[duelCounter(habit)] += D.adaptWeight || DUEL_ADAPT;
+    return weighted(Object.keys(w), function (k) { return w[k]; });
+  }
+  function duelPrepare(story, s) {
+    var d = s.duel, D = duelDef(story, d.id), tl = (D.tells || {});
+    d.next = duelFoeMove(story, s);
+    var lines = [].concat(tl[d.next] || []), see = DUEL_TELL + Math.floor(bonus(story, s, D.dom || "combat") / 2);
+    d.tell = lines.length && RNG() * 100 < see ? interp(s, lines[Math.floor(RNG() * lines.length)]) : null;
+  }
+  function duelStart(story, s) {
+    var p = story.passages[s.node];
+    s.duel = { id: p.duel, from: s.node, me: 0, them: 0, pass: 0, next: null, tell: null, last: null, over: null };
+    duelPrepare(story, s);
+    s.node = "@duel";
+  }
+  function duelPass(story, s, move) {
+    var d = s.duel, D = duelDef(story, d.id), foe = d.next, won, roll = null;
+    s.duelMemo = s.duelMemo || {}; var mm = s.duelMemo[D.foe] = s.duelMemo[D.foe] || {}; mm[move] = (mm[move] || 0) + 1;
+    if (DUEL_BEATS[move] === foe) won = true;
+    else if (DUEL_BEATS[foe] === move) won = false;
+    else {
+      roll = rollTest(story, s, { dom: D.dom || "combat", diff: -(D.skill || 0) });
+      ev(s, "jet de " + DOMAINS[D.dom || "combat"] + " · " + roll.line + " → " + (roll.ok ? "réussite" : "raté"), (roll.ok ? "good" : "bad") + " roll", { roll: roll });
+      won = roll.ok;
+    }
+    if (won) d.me++; else d.them++;
+    d.pass++; d.last = { me: move, them: foe, won: won, same: move === foe };
+    var T = D.touches || DUEL_TOUCHES;
+    if (d.me >= T || d.them >= T) d.over = d.me >= T ? "win" : "lose"; else duelPrepare(story, s);
+  }
+  function duelSay(story, s, D, L) {
+    var key = L.same ? (L.won ? "=win" : "=lose") : L.me + (L.won ? ">" : "<") + L.them;
+    return interp(s, String((D.say || {})[key] || DUEL_SAY[key]).replace(/\{foe\}/g, duelFoe(story, D)));
+  }
+  function duelEnd(story, s) {
+    var d = s.duel, D = duelDef(story, d.id), lose = d.over === "lose", br = (lose ? D.lose : D.win) || {};
+    s.duels = s.duels || {}; s.duels[d.id] = { out: lose ? "lose" : "win", me: d.me, them: d.them };
+    var set = {}; set["duel-" + d.id] = lose ? "perdu" : "gagne";
+    apply(story, s, { set: set, flag: "duel:" + d.id });
+    ev(s, interp(s, D.title) + " : " + (lose ? "perdu" : "gagné") + ", " + d.me + " touche" + (d.me > 1 ? "s" : "") + " à " + d.them + ".", lose ? "bad" : "good");
+    stat(s, lose ? "duelsLost" : "duelsWon");
+    s.duel = null; s.last = lose ? "lose" : "win"; s.via = br.via || null;
+    apply(story, s, br.fx);
+    go(story, s, br.to);
+  }
+  function duelView(story, s) {
+    var d = s.duel, D = duelDef(story, d.id), foe = duelFoe(story, D), T = D.touches || DUEL_TOUCHES, text = [], cs = [];
+    if (!d.pass && D.intro) text.push(interp(s, D.intro));
+    if (!d.pass && D.rule) text.push("*Règle : " + interp(s, D.rule) + "*");
+    if (d.last) text.push(duelSay(story, s, D, d.last));
+    text.push("**Touches** : toi " + d.me + ", " + foe + " " + d.them + ". La première lame à " + T + " l'emporte.");
+    if (d.over) {
+      text.push(interp(s, d.over === "win" ? (D.winText || "Le duel est à toi.") : (D.loseText || "Le duel est perdu.")));
+      cs.push({ sys: "duelEnd", group: "duel", label: "Continuer" });
+    } else {
+      if (d.tell) text.push("*" + d.tell + "*");
+      Object.keys(DUEL_MOVES).forEach(function (k) { cs.push({ sys: "duelMove", move: k, group: "duel", label: interp(s, (D.labels || {})[k] || DUEL_MOVES[k]) }); });
+    }
+    return { title: interp(s, D.title), kind: "duel", text: text, choices: cs, duel: { me: d.me, them: d.them, touches: T, foe: foe, last: d.last } };
+  }
+  // Puzzles to handle on the page (story.puzzles: { id: { kind, title, text, wheels, answer, cipher, pieces, hint: [{ if,
+  // text }], tries, wrongText, force: { dom, diff, takes, label, fail }, leave, win: { to, fx }, lose: { to, fx } } }):
+  // a passage `puzzle: "id"` opens it. kind "molettes": wheels of symbols to turn (answer: one symbol a wheel); "chiffre":
+  // a text to decipher (cipher), the reader types the answer (answer: a word or a list of accepted words); "ordre": pieces
+  // to put back in order (answer: the pieces' indices in the right order). The app gives the answer with the choice;
+  // `force` offers a roll instead (patience, a crowbar), once each time the puzzle is opened; `tries` wrong answers lose it.
+  function puzzleDef(story, id) { var z = (story.puzzles || {})[id]; if (!z) throw new Error("énigme inconnue " + id); return z; }
+  function puzzleChoices(story, s, p) {
+    if (!p || !p.puzzle || s.combat || (s.puzzles || {})[p.puzzle]) return [];
+    var D = puzzleDef(story, p.puzzle);
+    return [{ sys: "puzzle", group: "enigme", label: interp(s, p.puzzleLabel || D.label || ("Te pencher sur " + lowArt(interp(s, D.title)))) }];
+  }
+  function plain(x) { return String(x == null ? "" : x).toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9]/g, ""); }
+  function puzzleRight(D, ans) {
+    if (ans == null || ans === "") return false;
+    if (D.kind === "molettes" || D.kind === "ordre") return Array.isArray(ans) && ans.length === D.answer.length && ans.every(function (x, i) { return String(x) === String(D.answer[i]); });
+    return [].concat(D.answer).some(function (a) { return plain(a) === plain(ans); });
+  }
+  function puzzleOpen(story, s) { s.puzzle = { id: story.passages[s.node].puzzle, from: s.node, wrong: 0, msg: null, forced: false }; s.node = "@enigme"; }
+  function puzzleDone(story, s, ok) {
+    var z = s.puzzle, D = puzzleDef(story, z.id), br = (ok ? D.win : D.lose) || {};
+    s.puzzles = s.puzzles || {}; s.puzzles[z.id] = ok ? "ok" : "ko";
+    if (ok) { s.flags["enigme:" + z.id] = true; ev(s, "Énigme résolue : " + interp(s, D.title) + ".", "good"); stat(s, "puzzles"); }
+    s.puzzle = null; s.last = ok ? "win" : "lose";
+    apply(story, s, br.fx);
+    go(story, s, br.to || z.from);
+  }
+  function puzzleTry(story, s, ans) {
+    var z = s.puzzle, D = puzzleDef(story, z.id);
+    if (ans == null || ans === "" || (Array.isArray(ans) && !ans.length)) { z.msg = "Tu hésites, et tu ne tentes rien."; return; }
+    if (puzzleRight(D, ans)) return puzzleDone(story, s, true);
+    z.wrong++;
+    z.msg = interp(s, D.wrongText || "Ce n'est pas ça.");
+    if (D.tries && z.wrong >= D.tries) puzzleDone(story, s, false);
+  }
+  function puzzleForce(story, s) {
+    var z = s.puzzle, D = puzzleDef(story, z.id), F = D.force;
+    if (F.takes) s.time += F.takes;
+    var roll = rollTest(story, s, { dom: F.dom, diff: F.diff || 0 });
+    ev(s, "jet de " + interp(s, F.testLabel || DOMAINS[F.dom]) + " · " + roll.line + " → " + (roll.ok ? "réussite" : "raté"), (roll.ok ? "good" : "bad") + " roll", { roll: roll });
+    if (roll.ok) return puzzleDone(story, s, true);
+    z.forced = true; z.msg = interp(s, F.fail || "Peine perdue.");
+  }
+  function puzzleView(story, s) {
+    var z = s.puzzle, D = puzzleDef(story, z.id), text = [interp(s, D.text)], cs = [];
+    if (D.cipher) text.push("> " + interp(s, D.cipher));
+    (D.hint || []).forEach(function (hn) { if (evalCond(story, s, hn.if)) text.push("*" + interp(s, hn.text) + "*"); });
+    if (z.msg) text.push(z.msg);
+    if (D.tries) text.push("*Essais restants : " + (D.tries - z.wrong) + ".*");
+    cs.push({ sys: "puzzleTry", ui: true, group: "enigme", label: interp(s, D.tryLabel || "Essayer") });
+    if (D.force && !z.forced) cs.push({ sys: "puzzleForce", group: "enigme", label: interp(s, D.force.label || "Forcer"), test: { dom: D.force.dom, diff: D.force.diff || 0, label: D.force.testLabel } });
+    cs.push({ sys: "puzzleLeave", label: interp(s, D.leave || "Laisser cela pour l'instant") });
+    return { title: interp(s, D.title), kind: "enigme", text: text, choices: cs,
+      puzzle: { id: z.id, kind: D.kind, wheels: D.wheels || null, pieces: (D.pieces || []).map(function (x) { return interp(s, x); }), size: (D.answer || []).length || null } };
+  }
+  // Dreams (story.dreams: [{ to, if, weight }], story.dreamChance): arriving on a passage marked `reveil: true` (the
+  // morning after the night), the engine may first play a dream not dreamt yet whose condition holds, one a night. The
+  // dream ends with back: true, on the waking passage. Nothing in it is explained.
+  function dreamDue(story, s) {
+    if (!story.dreams || s.combat || s.travel) return null;
+    var dk = day(s); if (s.dreamDay === dk) return null;
+    var pool = story.dreams.filter(function (d) { return story.passages[d.to] && !s.seen[d.to] && evalCond(story, s, d.if); });
+    if (!pool.length) return null;
+    s.dreamDay = dk;
+    if (RNG() >= (story.dreamChance == null ? 1 : story.dreamChance)) return null;
+    return weighted(pool, function (d) { return d.weight || 1; }).to;
+  }
+
   // ------------------------------------------------------------------ the current view
   var BUILTIN = {
     "@jeu": function (story, s) {
@@ -2160,6 +2359,8 @@
       return { title: interp(s, C.title || "Le Conseil") + " · " + interp(s, D.title), kind: "conseil", text: text, choices: cs, council: { motion: v.m, rows: rows } };
     },
     "@bataille": function (story, s) { return battleView(story, s); },
+    "@duel": function (story, s) { return duelView(story, s); },
+    "@enigme": function (story, s) { return puzzleView(story, s); },
     "@road": function (story, s) {
       var t = s.travel, region = (W(story).regions || {})[t.region] || {}, r = routeById(story, t.route);
       var q = (region.quiet && region.quiet.length) ? region.quiet[(t.step + s.turn) % region.quiet.length] : "La route se déroule sans histoire. Les heures passent au pas, et tu gardes l'œil ouvert.";
@@ -2237,7 +2438,7 @@
         cs = cs.concat([{ to: s.hubLast, label: "Revenir : " + interp(s, hp.title || (W(story).places[hp.place] || {}).name || "…"), auto: "back" }]);
       }
       if (!cs.length) { var back = backChoice(story, s, p); if (back) cs = [back]; }
-      cs = cs.concat(councilChoices(story, s, p), battleChoices(story, s, p), montrerChoices(story, s, p), accuseChoices(story, s, p), repayChoices(story, s, p), shopChoices(story, s, p), tavernChoices(story, s, p), craftChoices(story, s, p), vigilChoices(story, s, p), travelChoices(story, s, p), leadChoices(story, s, p));
+      cs = cs.concat(councilChoices(story, s, p), battleChoices(story, s, p), montrerChoices(story, s, p), accuseChoices(story, s, p), repayChoices(story, s, p), shopChoices(story, s, p), tavernChoices(story, s, p), craftChoices(story, s, p), vigilChoices(story, s, p), duelChoices(story, s, p), puzzleChoices(story, s, p), travelChoices(story, s, p), leadChoices(story, s, p));
       var sec = [];
       v = { title: interp(s, p.title || ""), kind: p.end ? "end" : "passage", text: textList(story, s, p.text, null, sec), choices: cs, passage: p };
       // The people here at this hour, then the rumour heard on coming in (7.9).
@@ -2384,6 +2585,8 @@
     if (story.passages[id].hub) { var b = dueBanter(story, s, story.passages[id].act); if (b) { s.ret = id; id = b; } }
     // At sea (8.1): back on a crossroads, an encounter of the region, the season and the sky may come first.
     if (story.passages[id].hub && story.encounters) { var en = encounterDue(story, s); if (en) { s.hubLast = id; s.ret = id; id = en; } }
+    // At school (8.2): waking up, a dream may come first.
+    if (story.passages[id].reveil && story.dreams) { var dr = dreamDue(story, s); if (dr) { s.hubLast = id; s.ret = id; id = dr; } }
     // The passage left (a fight or a road in between does not count): read by the tag `via`.
     if (s.node && s.node.charAt(0) !== "@" && s.node !== id) s.from = s.node;
     s.node = id;
@@ -2542,6 +2745,13 @@
       case "councilVote": s.vote.hero = c.vote; break;
       case "councilEnd": s.holdWorld = true; voteEnd(story, s); break;
       case "battle": battleStart(story, s); break;
+      case "duel": duelStart(story, s); break;
+      case "duelMove": duelPass(story, s, c.move); break;
+      case "duelEnd": duelEnd(story, s); break;
+      case "puzzle": puzzleOpen(story, s); break;
+      case "puzzleTry": puzzleTry(story, s, c.answer); break;
+      case "puzzleForce": puzzleForce(story, s); break;
+      case "puzzleLeave": { var pf = s.puzzle.from; s.puzzle = null; go(story, s, pf); break; }
       case "bplace": { var bb = s.battle; bb.at[bb.troops[bb.i]] = c.post; bb.i++; if (bb.i >= bb.troops.length) bb.step = "wave"; break; }
       case "border": battleOrder(story, s, c); break;
       case "bnext": { var bn = s.battle, BN = battleDef(story, bn.id); if (bn.wave + 1 >= BN.waves.length || battleLostDay(story, s)) { s.holdWorld = true; battleEnd(story, s); } else { bn.wave++; bn.step = "wave"; bn.res = null; } break; }
@@ -2578,6 +2788,7 @@
     leanOf: leanOf, memberIds: memberIds, memberAbsent: memberAbsent, motionDef: motionDef, VOTES: VOTES, tiesKnown: tiesKnown, TIE_KINDS: TIE_KINDS, rivalsOf: rivalsOf, campOk: campOk,
     battleDef: battleDef, heroForce: heroForce, tick: tick, reached: reached,
     weatherOf: weatherOf, weatherKind: weatherKind, seasonOf: seasonOf, woundsOpen: woundsOpen, woundDef: woundDef, woundDays: woundDays, FATIGUE_MAX: FATIGUE_MAX,
+    traitOf: traitOf, traitWord: traitWord, practiceOf: practiceOf, TRAIT_MAX: TRAIT_MAX, DUEL_MOVES: DUEL_MOVES, puzzleRight: puzzleRight,
     item: item, weapon: weapon, armor: armor, useItem: useItem, day: day, timeLabel: timeLabel, routesFrom: routesFrom, isNight: isNight,
   };
   if (typeof module !== "undefined" && module.exports) module.exports = API; else root.Moteur = API;

@@ -253,3 +253,21 @@ recherche des passages jamais atteints sait montrer, relier et accuser.
 | `story.vigils` | `[{ to, with, label, if }]` | Sur un passage `veillee: true`, la nuit, veiller avec un compagnon présent : une veillée par nuit, chaque scène une fois. |
 | objet | `reveals: [lieux]` | Une carte : l'avoir fait paraître ces lieux sur la carte. |
 | `story` | `stocksTab`, `stocksLabel`, `battlesLabel` | Le nom de l'onglet des réserves et de ses rubriques (« Le navire » au lieu de « La ville »). |
+
+## L'école (15/11, 8.2) : pratique, traits de caractère, duels réglés, énigmes, rêves
+
+| Où | Clé | Sens |
+|---|---|---|
+| `story.practice` | `{ every, step, max, doms, say }` | Progresser par l'usage : chaque jet du héros compte un usage de son domaine ; tous les `every` usages (3 par défaut), le domaine gagne `step` (5) jusqu'à `max` (15). `doms` restreint les domaines, `say` s'écrit dans le fil (`{dom}`, `{n}`). |
+| fx | `pratique: { <dom>: n }` | Compte `n` usages d'un coup (une leçon, une nuit de travail). |
+| `story.traits` | `{ <id>: { name, low, high, mid } }` | Les traits de caractère : un axe de −5 à +5. `low` / `high` / `mid` nomment le héros selon son côté ; `{e}` s'accorde. Le portrait les montre. |
+| fx | `trait: { <id>: ±n }` | Déplace le héros sur l'axe. Quand il change de côté, le fil le dit. |
+| condition | `{ trait, min, max }` | Un choix grisé hors de ce caractère (« Ce n'est pas dans ton caractère »), un paragraphe qui ne paraît que pour ce caractère. |
+| `story.duels` | `{ <id>: { title, foe, foeName, rule, touches, dom, skill, intro, style, tells, say, labels, adapt, adaptWeight, winText, loseText, win, lose } }` | Un duel réglé contre un personnage de `people`. Attaque, parade, feinte : la parade arrête l'attaque, l'attaque perce la feinte, la feinte trompe la parade ; deux coups pareils se jouent au jet (`dom`, `skill`). `style` : les poids des coups de l'adversaire. `tells` : ce qui le trahit avant son coup (vu plus souvent avec un bon bonus). L'adversaire retient l'habitude du héros d'un duel à l'autre et joue ce qui la bat (`adapt: false` pour l'en empêcher). `win` / `lose` : `{ to, fx }`. |
+| passage | `duel: "<id>"`, `duelLabel` | Le passage ouvre le duel (choix « Saluer, et prendre ta garde »). Le duel fini pose `duel:<id>` et l'état `duel-<id>` (`gagne` ou `perdu`). |
+| condition | `{ duel: "<id>", is: "win" \| "lose" }` | |
+| `story.puzzles` | `{ <id>: { kind, title, text, answer, tries, wrongText, tryLabel, label, leave, hint, force, win, lose } }` | Une énigme qu'on manipule sur la page. `kind: "molettes"` (`wheels`: une liste de symboles par molette, `answer`: un symbole par molette), `"chiffre"` (`cipher`: le texte chiffré ; `answer`: une réponse ou une liste, sans compter accents, majuscules ni espaces), `"ordre"` (`pieces`: les morceaux, `answer`: leurs numéros dans le bon ordre). `tries` : les essais avant l'échec (`lose`). `hint: [{ if, text }]` : un indice qui paraît quand sa condition tient. `force: { dom, diff, takes, label, fail }` : un jet à la place, une fois par visite. Hésiter (rien proposé) ne coûte rien ; partir laisse l'énigme ouverte. Résolue, elle pose `enigme:<id>`. |
+| passage | `puzzle: "<id>"`, `puzzleLabel` | Le passage ouvre l'énigme. |
+| `story.dreams` | `[{ to, if, weight }]`, `story.dreamChance` | En arrivant sur un passage `reveil: true` (le matin), le moteur joue d'abord un rêve dont la condition tient, une fois chacun, un par nuit. Le rêve finit par `back: true`. |
+
+Pièges : un choix `test` sur une énigme compte aussi un usage pour la pratique ; une condition `after` lit un drapeau ou un passage vu, pas un indice (écrire `after: "enigme:<id>"` plutôt que l'id de l'indice). Les parties d'essai du validateur tapent la bonne réponse d'une énigme sept fois sur dix.

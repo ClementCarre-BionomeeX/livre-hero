@@ -703,3 +703,16 @@ ul.vote-res { list-style: none; padding: 0; margin: 0 0 12px; display: grid; gap
 .battle-plan .post-res { margin-top: 6px; font-weight: 600; }
 .battle-plan .r-tient .post-res { color: var(--good); } .battle-plan .r-plie .post-res { color: var(--warn); } .battle-plan .r-rompt .post-res { color: var(--bad); }
 .ev.world { color: var(--accent); } .ev.vote, .ev.camp, .ev.tie { color: var(--accent); } .ev.promise { color: var(--gold); }
+
+/* At school (8.2): puzzles on the page, the traits of character. */
+.puzzle { margin: 14px 0; padding: 12px; border: 1px solid var(--line); border-radius: 10px; background: var(--paper-2); display: flex; flex-direction: column; gap: 10px; align-items: flex-start; }
+.puzzle .wheels { display: flex; gap: 8px; flex-wrap: wrap; }
+.puzzle .wheel { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.puzzle .wheel-face { min-width: 2.4em; padding: 8px 6px; text-align: center; font-size: 1.4em; font-weight: 700; border: 1px solid var(--line); border-radius: 6px; background: var(--paper); }
+.puzzle .pieces { margin: 0; padding-left: 1.4em; width: 100%; }
+.puzzle .piece { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 6px 0; border-bottom: 1px dashed var(--line); }
+.puzzle .piece-moves { display: flex; gap: 4px; flex-shrink: 0; }
+.puzzle .puzzle-input { width: 100%; max-width: 360px; padding: 8px; font-size: 1.05em; border: 1px solid var(--line); border-radius: 6px; background: var(--paper); color: var(--ink); }
+.trait-axis { grid-column: 1 / -1; display: flex; align-items: center; gap: 8px; }
+.trait-axis .axis { position: relative; flex: 1; height: 4px; border-radius: 2px; background: var(--line); }
+.trait-axis .axis i { position: absolute; top: -4px; width: 12px; height: 12px; margin-left: -6px; border-radius: 50%; background: var(--accent); }

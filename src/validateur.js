@@ -9,14 +9,14 @@
   var COND_KEYS = ["is", "count", "has", "not", "all", "any", "clues", "clue", "mark", "present", "loyal", "met", "gone", "conf", "fear", "relics", "relic",
     "given", "item", "gold", "food", "pv", "clock", "fac", "level", "day", "since", "night", "seen", "arch", "quest", "place", "known", "person", "party",
     "lead", "away", "team", "souv", "souvenirs", "heroLevel", "second", "via", "regard", "fresh", "stock", "days", "promise", "vote", "lean", "battle", "camp", "missed",
-    "temps", "saison", "blessure", "cicatrice", "fatigue"];
+    "temps", "saison", "blessure", "cicatrice", "fatigue", "trait", "duel"];
   // The siege's conditions (8.0) carry a second key (is, member, hero, losses): they are read by their first key.
-  var SIEGE_KEYS = ["stock", "days", "promise", "vote", "lean", "battle", "camp", "missed", "fatigue"];
+  var SIEGE_KEYS = ["stock", "days", "promise", "vote", "lean", "battle", "camp", "missed", "fatigue", "trait", "duel"];
   var FX_KEYS = ["regard", "resume", "set", "flag", "flags", "unflag", "clue", "mark", "ep", "catchup", "catchupWhy", "join", "met", "leave", "conf", "fear", "fac", "relic",
     "give", "relicLose", "item", "drop", "gold", "food", "pv", "rest", "time", "until", "stamp", "reveal", "meet", "clock", "quest", "questSeen", "note", "noteCls",
     "assign", "team", "regroup", "away", "lead", "leadQuiet", "souv", "souvBack", "catchupAll", "awayUnless",
     "stock", "promise", "keep", "break", "forgive", "sway", "sound", "camp", "tie",
-    "meteo", "blessure", "soigner", "guerir", "fatigue"];
+    "meteo", "blessure", "soigner", "guerir", "fatigue", "trait", "pratique"];
   var DOM_KEYS = Object.keys(M.DOMAINS);
 
   // Collects every tag a condition reads (for the echo check).
@@ -174,6 +174,10 @@
       if (k === "saison") checkSea("saison", c.saison, where);
       if (k === "blessure" && typeof c.blessure !== "boolean") checkSea("blessure", c.blessure, where);
       if (k === "cicatrice") checkSea("cicatrice", c.cicatrice, where);
+      // At school (8.2).
+      if (k === "trait" && !(story.traits || {})[c.trait]) E(where + " : trait « " + c.trait + " » inconnu.");
+      if (k === "duel" && !(story.duels || {})[c.duel]) E(where + " : duel « " + c.duel + " » inconnu.");
+      if (k === "duel" && c.is != null && c.is !== "win" && c.is !== "lose") E(where + " : duel, « " + c.is + " » (attendu : win ou lose).");
       if (k === "souvenirs" && c.souvenirs !== "lead" && !(story.heroes || {})[c.souvenirs]) E(where + " : héros « " + c.souvenirs + " » inconnu.");
     }
     // A souvenir "id" belongs to whoever leads: it must exist for at least one hero; "hero:id" for that hero.
@@ -355,6 +359,36 @@
       checkCond(v.if, w);
       if (!Object.keys(P).some(function (id) { return P[id].veillee; })) E(w + " : aucun passage marqué veillee.");
     });
+    // At school (8.2): practice, traits, duels, puzzles, dreams.
+    if (story.practice) (story.practice.doms || []).forEach(function (d) { if (DOM_KEYS.indexOf(d) < 0) E("Pratique : domaine « " + d + " » inconnu."); });
+    Object.keys(story.traits || {}).forEach(function (k) { var T = story.traits[k]; if (!T.name || !T.low || !T.high) E("Trait « " + k + " » : il faut name, low et high."); });
+    Object.keys(story.duels || {}).forEach(function (k) {
+      var D = story.duels[k], w = "Duel « " + k + " »";
+      if (!people[D.foe] && !D.foeName) E(w + " : adversaire « " + D.foe + " » inconnu (people) et sans foeName.");
+      if (D.dom && DOM_KEYS.indexOf(D.dom) < 0) E(w + " : domaine « " + D.dom + " » inconnu.");
+      ["win", "lose"].forEach(function (o) { var b = D[o]; if (!b || !P[b.to]) E(w + " : issue « " + o + " » sans passage connu."); else checkFx(b.fx, w); });
+      Object.keys(D.style || {}).concat(Object.keys(D.tells || {}), Object.keys(D.labels || {})).forEach(function (m) { if (!M.DUEL_MOVES[m]) E(w + " : geste « " + m + " » inconnu (" + Object.keys(M.DUEL_MOVES).join(", ") + ")."); });
+      if (!Object.keys(P).some(function (id) { return P[id].duel === k; })) E(w + " : aucun passage ne l'ouvre (duel: \"" + k + "\").");
+    });
+    Object.keys(story.puzzles || {}).forEach(function (k) {
+      var Z = story.puzzles[k], w = "Énigme « " + k + " »";
+      if (["molettes", "chiffre", "ordre"].indexOf(Z.kind) < 0) E(w + " : sorte « " + Z.kind + " » inconnue (molettes, chiffre, ordre).");
+      if (!Z.title || !Z.text) E(w + " : il faut title et text.");
+      if (Z.kind === "molettes") { if (!Array.isArray(Z.wheels) || !Array.isArray(Z.answer) || Z.wheels.length !== Z.answer.length) E(w + " : autant de molettes que de symboles dans answer."); else Z.answer.forEach(function (a, i) { if (Z.wheels[i].indexOf(a) < 0) E(w + " : le symbole « " + a + " » manque sur la molette " + (i + 1) + "."); }); }
+      if (Z.kind === "ordre") { var n = (Z.pieces || []).length, ok = Array.isArray(Z.answer) && Z.answer.length === n && Z.answer.slice().sort().every(function (x, i) { return x === i; }); if (!ok) E(w + " : answer doit ranger chaque morceau une fois (indices de 0 à " + (n - 1) + ")."); }
+      if (Z.kind === "chiffre" && !Z.answer) E(w + " : il faut la réponse (answer).");
+      if (!Z.win || !P[Z.win.to]) E(w + " : issue win sans passage connu."); else checkFx(Z.win.fx, w);
+      if (Z.lose && Z.lose.to && !P[Z.lose.to]) E(w + " : issue lose vers un passage inconnu.");
+      if (Z.force && DOM_KEYS.indexOf(Z.force.dom) < 0) E(w + " : force, domaine « " + Z.force.dom + " » inconnu.");
+      (Z.hint || []).forEach(function (h) { checkCond(h.if, w); });
+      if (!Object.keys(P).some(function (id) { return P[id].puzzle === k; })) E(w + " : aucun passage ne l'ouvre (puzzle: \"" + k + "\").");
+    });
+    (story.dreams || []).forEach(function (d, i) {
+      var w = "Rêve " + (i + 1) + " (" + d.to + ")";
+      if (!P[d.to]) E(w + " : passage inconnu."); else if (!P[d.to].back && !(P[d.to].choices || []).length) E(w + " : le rêve ne ramène nulle part (back: true).");
+      checkCond(d.if, w);
+      if (!Object.keys(P).some(function (id) { return P[id].reveil; })) E(w + " : aucun passage marqué reveil.");
+    });
     Object.keys(items).forEach(function (k) { [].concat(items[k].reveals || []).forEach(function (x) { if (!places[x]) E("Objet « " + k + " » : reveals, lieu « " + x + " » inconnu."); }); });
     // A siege (8.0): stocks, the world that moves on, promises, councils and motions, camps, ties, battles, markets.
     var S0 = story.stocks || {}, LEANS = ["pour", "contre", "abstention", "indecis"];
@@ -445,6 +479,8 @@
         (Array.isArray(p.council.to) ? p.council.to : [{ to: p.council.to }]).forEach(function (x) { checkCond(x.if, where); if (!P[x.to]) E(where + " : après le vote, « " + x.to + " » n'existe pas."); });
       }
       if (p.battle && !(story.battles || {})[p.battle]) E(where + " : bataille « " + p.battle + " » inconnue.");
+      if (p.duel && !(story.duels || {})[p.duel]) E(where + " : duel « " + p.duel + " » inconnu.");
+      if (p.puzzle && !(story.puzzles || {})[p.puzzle]) E(where + " : énigme « " + p.puzzle + " » inconnue.");
       if (p.epilogue && !p.end) E(where + " : epilogue sur un passage qui n'est pas une fin.");
       [p].concat((p.text || []).filter(function (t) { return t && typeof t === "object"; }), p.choices || []).forEach(function (t) { [].concat(t.camp || []).forEach(function (x) { if (!(story.camps || {})[x]) E(where + " : tag camp, « " + x + " » inconnu."); }); });
       [].concat(p.creditor || []).forEach(function (x) { if (!people[x]) E(where + " : creditor, « " + x + " » inconnu."); });
@@ -456,7 +492,7 @@
       if (p.end) { ends++; return; }
       if (p.combat) { checkFight(p.combat, where); eachFx(p, function (fx) { checkFx(fx, where); }); return; }
       // back: true on the passage: the engine adds the way back to the crossroads the reader came from (7.9).
-      if ((!Array.isArray(p.choices) || !p.choices.length) && !p.routes && !p.shop && !p.back && !p.council && !p.battle) { E(where + " : aucun choix (seules les fins n'en ont pas)."); return; }
+      if ((!Array.isArray(p.choices) || !p.choices.length) && !p.routes && !p.shop && !p.back && !p.council && !p.battle && !p.duel && !p.puzzle) { E(where + " : aucun choix (seules les fins n'en ont pas)."); return; }
       if (p.place && !places[p.place]) E(where + " : lieu « " + p.place + " » inconnu.");
       if (p.shop && !(story.shops || {})[p.shop]) E(where + " : boutique « " + p.shop + " » inconnue.");
       if (p.urgent != null && !(typeof p.urgent === "number" && p.urgent >= 5 && p.urgent <= 120)) E(where + " : tag urgent, un nombre de secondes entre 5 et 120.");
@@ -663,6 +699,10 @@
       // 8.1: the encounters at sea come on any crossroads; the vigils, on a passage marked veillee.
       if (p.hub && story.encounters) (story.encounters.list || []).forEach(function (e) { add(e.to); });
       if (p.veillee) (story.vigils || []).forEach(function (v) { add(v.to); });
+      // 8.2: after a duel or a puzzle, and the dreams on waking.
+      if (p.duel && (story.duels || {})[p.duel]) { add(story.duels[p.duel].win.to); add(story.duels[p.duel].lose.to); }
+      if (p.puzzle && (story.puzzles || {})[p.puzzle]) { var ZZ = story.puzzles[p.puzzle]; add(ZZ.win.to); if (ZZ.lose && ZZ.lose.to) add(ZZ.lose.to); }
+      if (p.reveil) (story.dreams || []).forEach(function (d) { add(d.to); });
       return out;
     }
     var arrivals = [];
@@ -691,6 +731,9 @@
         if (c.sys === "accuse" && P[cur] && P[cur].accuse) { cand(P[cur].accuse.to, null); return { d: best, fixed: null }; }
         if (c.sys === "council" && P[cur] && P[cur].council) { cand(P[cur].council.to, null); return { d: best, fixed: null }; }
         if (c.sys === "vigil") { cand(c.to, null); return { d: best, fixed: null }; }
+        if (c.sys === "duel" && P[cur] && P[cur].duel) { var DD = story.duels[P[cur].duel]; cand(DD.win.to, null); cand(DD.lose.to, null); return { d: best, fixed: null }; }
+        if (c.sys === "puzzle" && P[cur] && P[cur].puzzle) { var PZ0 = story.puzzles[P[cur].puzzle]; cand(PZ0.win.to, null); if (PZ0.lose && PZ0.lose.to) cand(PZ0.lose.to, null); return { d: best, fixed: null }; }
+        if (c.sys === "puzzleTry" && P[cur] && P[cur].puzzle) { var PZ = story.puzzles[P[cur].puzzle]; cand(PZ.win.to || cur, 0.94); if (PZ.lose && PZ.lose.to) cand(PZ.lose.to, 0.02); return { d: best, fixed: out }; }
         if (c.sys === "battle" && P[cur] && P[cur].battle) { var BB = story.battles[P[cur].battle]; cand(BB.win.to, null); cand(BB.lose.to, null); return { d: best, fixed: null }; }
         if (c.sys) return { d: Infinity, fixed: null };
         var raw = c;
@@ -740,7 +783,7 @@
               if (s._extra && MONEY.test(JSON.stringify(pick.c.if || null))) paid = s._paid = true;
               fixed = pick.sc.fixed; calls = 0;
               if (!pick.c.sys) taken[s.node + " | " + pick.c.label] = 1;
-              try { M.choose(story, s, pick.c); } catch (e) { break; }
+              try { M.choose(story, s, answered(pick.c, s, rnd, fixed == null ? 0.7 : fixed > 0.5 ? 1 : 0)); } catch (e) { break; }
               // Spending into the added money: what follows was paid with savings the games did not have.
               if (s._extra && ((s.gold || 0) < extra.gold || (s.food || 0) < extra.food)) paid = s._paid = true;
             }
@@ -748,6 +791,15 @@
         });
         return false;
       });
+    }
+    // The games read like a reader: on a puzzle, they type the right answer most of the time, a wrong one otherwise.
+    // pr: the chance of typing the right answer (a lost game errs more; a targeted search answers as its target needs).
+    function answered(c, s, rnd, pr) {
+      if (c.sys !== "puzzleTry" || !s.puzzle) return c;
+      var Z = (story.puzzles || {})[s.puzzle.id] || {}, right = [].concat(Z.answer)[0];
+      if (Z.kind === "molettes" || Z.kind === "ordre") right = Z.answer;
+      var wrong = Z.kind === "molettes" ? (Z.wheels || []).map(function (w) { return w[0]; }) : Z.kind === "ordre" ? (Z.pieces || []).map(function (x, i) { return i; }) : "?";
+      return Object.assign({}, c, { answer: rnd() < (pr == null ? 0.7 : pr) ? right : wrong });
     }
     function play(mode, seed, toutJouer, second) {
       var rnd = seededRng(seed), s = null, fixed = mode === "win" ? 0.94 : mode === "lose" ? 0.02 : null;
@@ -797,7 +849,7 @@
           c = pool[Math.floor(rnd() * pool.length)];
         } else c = cs[Math.floor(rnd() * cs.length)];
         if (!c.sys) taken[s.node + " | " + c.label] = 1;
-        try { M.choose(story, s, c); } catch (e) { errs["§ " + s.node + " / « " + String(c.label).slice(0, 40) + " » : " + e.message] = 1; return; }
+        try { M.choose(story, s, answered(c, s, rnd, mode === "lose" ? 0.2 : 0.7)); } catch (e) { errs["§ " + s.node + " / « " + String(c.label).slice(0, 40) + " » : " + e.message] = 1; return; }
         tryContra(s, mode === "lose" ? 0.1 : 0.4, rnd);
         s.events.forEach(function (e) { if (/undefined|NaN/.test(e.text)) errs["§ " + s.node + " effet : " + e.text.slice(0, 80)] = 1; });
       }
