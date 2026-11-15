@@ -7,7 +7,7 @@ module.exports = {
   CO_Q_renne: P("corbeau", { title: "Le renne blanc",
     fx: { questSeen: "CO_Q_renne" },
     text: [
-      "Au bord du troupeau, une femelle de renne s'est écartée des autres, à vingt pas exactement, la distance où les loups prennent les bêtes. Elle a de la neige blanche sur le dos, comme tous, mais chez elle, la neige ne glisse pas quand elle s'ébroue. Elle s'est posée dans le poil et elle y reste. La bête regarde le nord. Elle ne mange plus.",
+      "Au bord du troupeau, une femelle de renne s'est écartée des autres, à vingt pas exactement, la distance où les loups prennent les bêtes. Elle a de la neige blanche sur le dos, comme tous, mais chez elle, la neige ne glisse pas quand elle s'ébroue. Elle s'est posée dans le poil et elle y reste. La bête regarde le nord. Elle a cessé de brouter.",
       "Le vieux Arnald, qui garde le troupeau, crache par terre. « Elle est à la Mère, maintenant. Elle ne connaît plus son nom, plus ses petits, plus le troupeau. Cette nuit, elle partira vers le col, et si on la suit, on ne revient pas. »",
       "C'est ta renne. Celle que tu as nourrie au biberon de corne, il y a quatre ans, quand sa mère est morte dans l'avalanche. Tu l'appelais Brindille, parce qu'elle était maigre.",
     ],
@@ -25,13 +25,13 @@ module.exports = {
     ],
     choices: [{ fx: { quest: "CO_Q_renne" }, back: "CO_camp" }] }),
   CO_Q_renne_partie: P("corbeau", { title: "La longe",
-    text: ["Au milieu de la nuit, tu t'endors. Quand tu te réveilles, la longe est rongée, et il y a des traces dans la neige, droites, vers le nord. Tu les suis jusqu'à la crête. Après la crête, tu ne vois plus de traces. Juste le blanc, et le col, très loin, avec sa lumière."],
+    text: ["Au milieu de la nuit, tu t'endors. Quand tu te réveilles, la longe est rongée, et il y a des traces dans la neige, droites, vers le nord. Tu les suis jusqu'à la crête. Après la crête, la neige est vierge. Il reste le blanc, et le col, très loin, avec sa lumière."],
     choices: [{ fx: { quest: "CO_Q_renne" }, back: "CO_camp" }] }),
   CO_Q_renne_laissee: P("corbeau", { title: "Vers le col",
-    text: ["Tu ouvres l'enclos. Elle sort, sans te regarder, et elle marche vers le nord d'un pas tranquille, comme une bête qui rentre à l'étable. Tu la regardes jusqu'à ce qu'elle ne soit plus qu'un point gris sur le blanc. Elle a marché droit devant elle. Pourquoi est-ce qu'elle se serait retournée ? Elle ne sait plus qui tu es."],
+    text: ["Tu ouvres l'enclos. Elle sort, sans te regarder, et elle marche vers le nord d'un pas tranquille, comme une bête qui rentre à l'étable. Tu la regardes jusqu'à ce qu'elle ne soit plus qu'un point gris sur le blanc. Elle a marché droit devant elle. Pour elle, tu es devenue une inconnue."],
     choices: [{ fx: { quest: "CO_Q_renne" }, back: "CO_camp" }] }),
   CO_Q_renne_tuee: P("corbeau", { title: "Le couteau",
-    text: ["Tu lui parles à l'oreille, et tu le fais d'un seul geste, comme on te l'a appris. Elle ne se débat pas. Le soir, la viande sèche sur les claies, et tout le camp mange. On te remercie. Tu ne manges pas."],
+    text: ["Tu lui parles à l'oreille, et tu le fais d'un seul geste, comme on te l'a appris. Elle se laisse faire. Le soir, la viande sèche sur les claies, et tout le camp mange. On te remercie. Ta part reste sur la claie."],
     choices: [{ fx: { quest: "CO_Q_renne" }, back: "CO_camp" }] }),
 
   // ------------------------------------------------------------ Hylas · le mur des greffiers
@@ -60,11 +60,11 @@ module.exports = {
   HY_Q_mur_dit: P("pallanche", { title: "Frère Gauvain",
     text: [
       "Le chapelain se tait longtemps. Puis il dit, très bas : « Qui grave le nom d'un homme avant sa mort ? » Tu connais la réponse. Un greffier. Un greffier qui inscrit les choses avant qu'elles arrivent, pour qu'elles arrivent comme elles sont écrites.",
-      "« Je vais prier pour vous, maître Hylas. » Tu le remercies. Tu ne lui dis pas que ce n'est pas pour toi qu'il faudrait prier. C'est pour celui qui a tenu le ciseau, et qui a appris à écrire dans ta propre main.",
+      "« Je vais prier pour vous, maître Hylas. » Tu le remercies, et tu gardes pour toi le fond de ta pensée : c'est pour celui qui a tenu le ciseau qu'il faudrait prier, celui qui a appris à écrire dans ta propre main.",
     ],
     choices: [{ fx: { quest: "HY_Q_mur", ep: ["perso", 800] }, back: "HY_tour" }] }),
   HY_Q_mur_tu: P("pallanche", { title: "De vieux noms",
-    text: ["« De vieux noms, frère. Des erreurs du tailleur de pierre. » Il te croit, parce qu'il veut te croire. Tu sors de la chapelle à ton pas habituel, ta canne devant toi. Dans l'escalier, tu t'arrêtes, et tu poses le front contre le mur, une minute. Puis tu reprends ta canne."],
+    text: ["« De vieux noms, frère. Des erreurs du tailleur de pierre. » Il te croit, parce qu'il veut te croire. Tu sors de la chapelle à ton pas habituel, ta canne devant toi. Dans l'escalier, tu t'arrêtes, et tu poses le front contre le mur, le temps d'un Pater. Puis tu reprends ta canne."],
     choices: [{ fx: { quest: "HY_Q_mur", ep: ["perso", 500] }, back: "HY_tour" }] }),
 
   // ------------------------------------------------------------ Lisandre · la lettre de Clémence
@@ -83,12 +83,12 @@ module.exports = {
     text: ["Tu l'écris en une heure, dans sa chambre, avec elle qui lit par-dessus ton épaule et rougit à chaque rime. C'est une belle lettre. C'est même une très belle lettre. En la pliant, tu te rends compte que c'est la première chose sincère que tu écris depuis un an, et qu'elle est adressée à un inconnu, de la part d'une autre."],
     choices: [{ fx: { quest: "LI_Q_clemence" }, back: "LI_cour" }] }),
   LI_Q_clemence_fade: P("vasselin", { title: "Une lettre de cour",
-    text: ["Tu écris une lettre de cour. Les rimes tombent juste, les compliments aussi. Clémence la lit, la relit, et dit « Merci » d'une petite voix déçue. Elle a raison. Il n'y a rien dedans."],
+    text: ["Tu écris une lettre de cour. Les rimes tombent juste, les compliments aussi. Clémence la lit, la relit, et dit « Merci » d'une petite voix déçue. Elle a raison. C'est une coquille vide."],
     choices: [{ fx: { quest: "LI_Q_clemence" }, back: "LI_cour" }] }),
   LI_Q_clemence_elle: P("vasselin", { title: "Ses mots",
     text: [
       "Elle proteste. Tu insistes. Tu lui donnes du papier, une plume, et tu t'en vas. Le soir, elle vient te montrer : six lignes, pleines de fautes, sans une rime. *Vous m'avez aidée à descendre. Je pense à vos mains depuis. Je ne sais pas votre nom. Moi c'est Clémence. Si vous voulez répondre, quelqu'un peut vous lire ceci.*",
-      "C'est mieux que tout ce que tu as écrit cette année. Tu ne le lui dis pas. Tu lui dis seulement de l'envoyer.",
+      "C'est mieux que tout ce que tu as écrit cette année. Tu le gardes pour toi. Tu lui dis seulement de l'envoyer.",
     ],
     choices: [{ fx: { quest: "LI_Q_clemence" }, back: "LI_cour" }] }),
 
@@ -107,11 +107,11 @@ module.exports = {
   PI_Q_mouche_recu: P("pallanche", { title: "Le reçu",
     text: [
       "Le registre des reçus est dans une armoire derrière le comptoir, et la serrure ne mérite pas son nom. Tu trouves la ligne du jour : *Mouche, dite Mouche, huit ans environ. Cédé : le chien des Poissonniers, l'hiver dernier. Six sous.*",
-      "Tu lis ça à Mouche, sur le toit, le soir. Elle écoute. Elle ne se souvient pas. Mais quand tu lui racontes, à ta façon, comment le chien des Poissonniers l'a coincée dans une impasse et comment elle s'est sauvée par le toit, elle hoche la tête, lentement. « C'est pour ça que j'ai peur, dit-elle. Ça a un sens, maintenant. » Elle a l'air soulagée. Elle a toujours peur des chiens.",
+      "Tu lis ça à Mouche, sur le toit, le soir. Elle écoute. Le souvenir est parti. Mais quand tu lui racontes, à ta façon, comment le chien des Poissonniers l'a coincée dans une impasse et comment elle s'est sauvée par le toit, elle hoche la tête, lentement. « C'est pour ça que j'ai peur, dit-elle. Ça a un sens, maintenant. » Elle a l'air soulagée. Elle a toujours peur des chiens.",
     ],
     choices: [{ fx: { quest: "PI_Q_mouche", conf: { pie: 5 } }, back: "PI_ville" }] }),
   PI_Q_mouche_rate: P("pallanche", { title: "Le chien de garde",
-    text: ["Le Bureau a un chien de garde, la nuit. Un gros. Tu ressors par la lucarne avec un bout de ton pantalon en moins et une morsure au mollet, et tu rentres raconter ça à Mouche, qui rit tellement qu'elle en oublie d'avoir peur, pendant cinq bonnes minutes."],
+    text: ["Le Bureau a un chien de garde, la nuit. Un gros. Tu ressors par la lucarne avec un bout de ton pantalon en moins et une morsure au mollet, et tu rentres raconter ça à Mouche, qui rit tellement qu'elle en oublie d'avoir peur, le temps de trois bons Pater."],
     choices: [{ fx: { quest: "PI_Q_mouche" }, back: "PI_ville" }] }),
   PI_Q_mouche_rien: P("pallanche", { title: "Ça passera",
     text: ["« Ça passera », dis-tu. Elle te croit, parce que c'est toi. Tu partages son pain. Au-dessous, dans la rue, un chien aboie, et elle se serre contre toi sans s'en rendre compte. Tu restes planté là, faute de mieux."],
@@ -144,7 +144,7 @@ module.exports = {
     fx: { questSeen: "EN_Q_mat" },
     text: [
       "Au bout de la place, le mât de cocagne : un tronc de sapin écorcé, haut comme trois hommes, enduit de suif sur toute sa longueur, à raison d'un pot par toise. En haut, une couronne de foin avec, pendus, un jambon, une bouteille d'eau-de-vie, un couteau neuf et un ruban bleu.",
-      "Les garçons du village s'y cassent les dents depuis midi. Le meilleur est arrivé aux deux tiers et a glissé jusqu'en bas sur le ventre, sous les rires. Le suif est noir de terre, maintenant, et plus personne n'ose.",
+      "Les garçons du village s'y cassent les dents depuis midi. Le meilleur est arrivé aux deux tiers et a glissé jusqu'en bas sur le ventre, sous les rires. Le suif est noir de terre, maintenant, et les candidats se sont évaporés.",
       "Tess Ferrand, au premier rang, les bras croisés, te regarde. Elle se tait, et son silence suffit.",
     ],
     choices: [
@@ -155,11 +155,11 @@ module.exports = {
   EN_Q_mat_haut: P("sauvelune", { title: "En haut",
     text: [
       "Tu frottes tes mains dans la poussière, tu serres le tronc entre tes genoux, et tu montes, une main, un genou, une main. À mi-hauteur, tu sens que tu glisses. Tu gardes les yeux sur le mât, loin du sol et loin de Tess. Tu montes.",
-      "En haut, il y a du vent, et tout Sauvelune sous toi : le moulin, le temple, les toits, les meules de foin. Tu restes là une seconde de trop, pour voir.",
+      "En haut, il y a du vent, et tout Sauvelune sous toi : le moulin, le temple, les toits, les meules de foin. Tu restes là un battement de cœur de trop, pour voir.",
       "Tu décroches le ruban bleu. Pas le jambon. On te hue gentiment. Tu redescends en glissant, et tu le donnes à Tess, qui le prend et le noue dans ses cheveux.",
     ],
     choices: [{ fx: { quest: "EN_Q_mat" }, back: "EN_place" }] }),
   EN_Q_mat_bas: P("sauvelune", { title: "Sur le ventre",
-    text: ["Tu arrives plus haut que le meilleur. Puis tu glisses, et tu redescends tout le mât sur le ventre, avec le suif noir dans ta chemise, sous les rires de tout Sauvelune. Tess rit aussi. Elle te tend la main pour te relever, et elle ne la lâche pas tout de suite."],
+    text: ["Tu arrives plus haut que le meilleur. Puis tu glisses, et tu redescends tout le mât sur le ventre, avec le suif noir dans ta chemise, sous les rires de tout Sauvelune. Tess rit aussi. Elle te tend la main pour te relever, et elle la garde un moment de plus."],
     choices: [{ fx: { quest: "EN_Q_mat" }, back: "EN_place" }] }),
 };
