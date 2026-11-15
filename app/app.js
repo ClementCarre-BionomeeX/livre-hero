@@ -2222,7 +2222,7 @@
       h("button", { class: "btn sm", onclick: function () { A.carnet = true; A.carnetTab = "carte"; render(); } }, "Carte"),
       st.lecture ? null : h("button", { class: "btn sm", onclick: function () { A.carnet = true; A.carnetTab = "quetes"; render(); } }, "Quêtes"),
       G.multi ? null : h("button", { class: "btn sm", onclick: function () { A.modal = { kind: "mark" }; render(); } }, "🔖 Marque-page"),
-      G.multi || G.ephemeral ? null : h("button", { class: "btn sm", "aria-pressed": groupOf(G) ? "true" : "false", onclick: function () { A.modal = { kind: "group" }; render(); } }, "👥 À plusieurs"),
+      G.multi || G.ephemeral || st.lecture ? null : h("button", { class: "btn sm", "aria-pressed": groupOf(G) ? "true" : "false", onclick: function () { A.modal = { kind: "group" }; render(); } }, "👥 À plusieurs"),
       h("button", { class: "btn sm", "aria-label": "Ambiance sonore", "aria-pressed": pref("ambiance") ? "true" : "false", onclick: function () { setPref("ambiance", !pref("ambiance")); } }, pref("ambiance") ? "🔊 Ambiance" : "🔇 Ambiance"),
       pref("nudge") && !G.multi && !st.lecture && v.kind !== "end" ? h("button", { class: "btn sm", disabled: nudgesLeft(G) <= 0, title: "Une phrase pour t'orienter, sans rien révéler", onclick: function () { askNudge(G); } }, "💡 Coup de pouce (" + nudgesLeft(G) + ")") : null,
       h("button", { class: "btn sm", onclick: function () { A.modal = { kind: "prefs" }; render(); } }, "⚙ Réglages"),
@@ -2354,7 +2354,7 @@
   // Why: Clément, 13/11.
   function actSnap(st, s) {
     return { met: Object.keys(s.met || {}).filter(function (k) { return s.met[k]; }), feats: Object.keys(s.feats || {}), quests: M.questsOf(st).filter(function (q) { return M.questDone(s, q); }).map(function (q) { return q.id; }),
-      ep: s.ep, time: s.time, places: s.place ? [s.place] : [] };
+      ep: s.ep, time: s.time, places: s.place ? [s.place] : [], people: Object.keys(s.people || {}) };
   }
   // Called around each choice: opens the act's record, follows the hero from place to place, tells when an act closed.
   function actTrack(G, before) {
@@ -2390,6 +2390,12 @@
       svgs.push("</svg>");
       b.appendChild(h("div", { html: svgs.join("") }));
     }
+    // A book to read (8.7): the chapter's summary and the people met in it, no days, experience or level.
+    if (st.lecture) {
+      if (act.recap) b.appendChild(h("p", { class: "chapter-stats" }, act.recap));
+      var newPeople = Object.keys(s.people || {}).filter(function (k) { return (L.people || []).indexOf(k) < 0 && (st.people || {})[k]; });
+      if (newPeople.length) b.appendChild(h("p", { class: "small" }, h("span", { class: "label" }, "Rencontrés "), newPeople.map(function (k) { return st.people[k].name; }).join(", ")));
+    } else {
     var hours = s.time - L.time, days = Math.max(1, Math.round(hours / 24)), ep = s.ep - L.ep;
     b.appendChild(h("p", { class: "chapter-stats" }, days + " jour" + (days > 1 ? "s" : "") + " de route et d'aventure" + (ep > 0 ? " · +" + ep.toLocaleString("fr-FR") + " points d'expérience" : "") + " · niveau " + M.level(s)));
     var newMet = Object.keys(s.met || {}).filter(function (k) { return s.met[k] && L.met.indexOf(k) < 0 && (st.companions || {})[k]; });
@@ -2400,6 +2406,7 @@
     var quests = M.questsOf(st).filter(function (q) { return M.questDone(s, q) && L.quests.indexOf(q.id) < 0; });
     if (feats.length || quests.length) b.appendChild(h("ul", { class: "plain chapter-list" },
       quests.map(function (q) { return h("li", null, "✔ " + q.title); }), feats.map(function (f) { return h("li", null, "★ " + f.title); })));
+    }
     var nextAct = (st.acts || []).filter(function (x) { return x.id === s.lastAct; })[0], nextMin = nextAct && nextAct.id !== m.act ? actMinutes(st, nextAct.id) : 0;
     if (nextMin) b.appendChild(h("p", { class: "small muted" }, "« " + nextAct.title + " » se lit en environ " + minutesLabel(nextMin) + "."));
     b.appendChild(h("button", { class: "btn primary", onclick: close }, "Tourner la page"));
@@ -2651,6 +2658,7 @@
     return box;
   }
   function renderEnding(st, s, v) {
+    if (st.lecture) return renderBookEnd(st, s);
     var qs = M.questsOf(st), done = qs.filter(function (q) { return M.questDone(s, q); });
     return h("div", { class: "ending" }, h("h3", null, "Fin de la lecture"),
       h("div", { class: "small muted" }, s.name + ", " + M.archOf(st, s).label + " de niveau " + M.level(s) + (qs.length ? " · " + done.length + " quêtes sur " + qs.length : "") + " · " + M.timeLabel(s)),
@@ -4886,6 +4894,19 @@
       }
     }
     return box;
+  }
+  // Intent: renderBookEnd(Story, State) -> Element = the last page of a book to read: its title and author, the
+  // chapters read, and only what makes sense for a book (read it again, read the notice again, see the people met,
+  // back to the library). No hero, level, quests or « autre héros ».
+  function renderBookEnd(st, s) {
+    var met = Object.keys(s.people || {}).length;
+    return h("div", { class: "ending" }, h("h3", null, "Fin du livre"),
+      h("div", { class: "small muted" }, st.title + (st.author ? " · " + st.author : "") + " · " + (st.acts || []).length + " chapitres" + (met ? " · " + met + " personnages rencontrés" : "")),
+      h("div", { class: "row" },
+        h("button", { class: "btn primary", onclick: function () { newGame(st.id); } }, "Relire le livre"),
+        st.notice ? h("button", { class: "btn", onclick: function () { A.modal = { kind: "bookNotice" }; render(); } }, "Relire la notice") : null,
+        met ? h("button", { class: "btn", onclick: function () { A.carnet = true; A.carnetTab = "gens"; render(); } }, "Les personnages") : null,
+        h("button", { class: "btn ghost", onclick: leaveGame }, "Bibliothèque")));
   }
   function endingNote(st, s) {
     var e = M.endingOf(st, s); if (!e || A.game.ephemeral) return null;
