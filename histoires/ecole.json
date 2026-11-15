@@ -1956,7 +1956,7 @@
     },
     {
      "with": "jodoc",
-     "text": "Jodoc te sert d'adversaire. Il est lent et ne recule jamais, et chaque fois que tu le touches, il rit comme si tu lui avais raconté une bonne histoire."
+     "text": "Jodoc te sert d'adversaire. Il est lent et tient toujours sa place, et chaque fois que tu le touches, il rit comme si tu lui avais raconté une bonne histoire."
     },
     {
      "without": "jodoc",
@@ -3370,7 +3370,7 @@
     {
      "again": true,
      "before": "A_defi",
-     "text": "Valérien ne prend pas la peine de fermer son livre. « Encore toi. Tu as quelque chose à me dire, ou tu aimes mon profil ? »"
+     "text": "Valérien garde son livre ouvert. « Encore toi. Tu as quelque chose à me dire, ou tu aimes mon profil ? »"
     },
     {
      "after": "val:battu",
@@ -3617,7 +3617,7 @@
    "text": [
     {
      "first": true,
-     "text": "Dame Castagnet te reçoit dans son bureau, une pièce nue avec une table, deux chaises et un diapason d'argent posé sur un coussin. Elle ne t'invite pas à t'asseoir. Elle écoute ce que tu as à dire, les mains croisées, sans te quitter des yeux."
+     "text": "Dame Castagnet te reçoit dans son bureau, une pièce nue avec une table, deux chaises et un diapason d'argent posé sur un coussin. Elle te laisse debout. Elle écoute ce que tu as à dire, les mains croisées, les yeux dans les tiens."
     },
     {
      "first": true,
@@ -3733,7 +3733,7 @@
    "title": "Maître Vilmorin",
    "back": true,
    "text": [
-    "Vilmorin feuillette le document en sifflotant, puis il s'arrête de siffler. Il te regarde par-dessus, et pour une fois, il ne sourit pas.",
+    "Vilmorin feuillette le document en sifflotant, puis il s'arrête de siffler. Il te regarde par-dessus, et pour une fois, il a le visage grave.",
     "« Je suis arrivé au collège il y a dix ans, dit-il. Je ne sais rien de ce qui s'est passé ici avant moi. Je sais seulement une chose : notre Recteur, le jour où un signe de la digue a cédé, est resté planté devant comme un illettré devant une affiche. » Il te rend le document. « Je dois de l'argent à tout le monde. Je n'ai pas le courage d'un lion. Mais pour l'examen, je peux t'apprendre à voir la lumière dans la pierre. Viens après les cours. Le reste, tu le feras seul{e}. »"
    ],
    "fx": {
@@ -3944,7 +3944,7 @@
    "title": "La seconde fois",
    "place": "cour",
    "text": [
-    "Cette fois, c'est Nanon qui te trouve, sa lanterne à la main, son châle sur la tête. Elle ne crie pas. Elle te regarde avec une grande tristesse, et elle va chercher Dame Castagnet.",
+    "Cette fois, c'est Nanon qui te trouve, sa lanterne à la main, son châle sur la tête. Elle te regarde en silence, avec une grande tristesse, et elle va chercher Dame Castagnet.",
     "La vice-rectrice ne dit qu'une phrase : « Je vous avais prévenu{e}. »"
    ],
    "choices": [
@@ -4217,7 +4217,7 @@
      "if": {
       "has": "rep:rusee"
      },
-     "text": "Il faut une seconde à la table pour comprendre, et une autre pour oser rire. Valérien ne rit pas. Il pose sa cuillère, très droit, et te regarde comme on regarde une guêpe qui s'est posée sur la nappe."
+     "text": "Il faut une seconde à la table pour comprendre, et une autre pour oser rire. Valérien, lui, pose sa cuillère, très droit, et te regarde comme on regarde une guêpe qui s'est posée sur la nappe."
     },
     {
      "if": {
@@ -4411,7 +4411,7 @@
    "title": "Le thé du jeudi",
    "place": "cour",
    "text": [
-    "Tu sers, tu ressers, tu ne renverses rien. Le thé sent la bergamote et la violette. Le Recteur te remercie chaque fois, en t'appelant par ton nom : il l'a retenu. À la fin, il te glisse une pièce dans la main, pour ta peine. « Revenez jeudi prochain, dit-il. Vous avez la main sûre. »",
+    "Tu sers, tu ressers, le plateau bien droit. Le thé sent la bergamote et la violette. Le Recteur te remercie chaque fois, en t'appelant par ton nom : il l'a retenu. À la fin, il te glisse une pièce dans la main, pour ta peine. « Revenez jeudi prochain, dit-il. Vous avez la main sûre. »",
     "Dans l'escalier, Maître Salvanhac te croise, son merle sur l'épaule, et te demande poliment si tu sais où se trouve le logis du Recteur. Il vient d'en sortir."
    ],
    "fx": {
@@ -4546,7 +4546,7 @@
    "title": "L'épreuve d'automne",
    "place": "atelier",
    "text": [
-    "L'après-midi du sixième jour, Mère Fage réunit toutes les premières années à l'atelier pour l'épreuve d'automne. Elle ne compte pas pour le grand examen, dit-elle, elle compte pour elle. Chacun doit graver un nœud de tenue dans une plaque de fer, devant elle, avant que le sablier ne se vide. Le métal doit se raidir.",
+    "L'après-midi du sixième jour, Mère Fage réunit toutes les premières années à l'atelier pour l'épreuve d'automne. Cette épreuve reste hors du grand examen, dit-elle : elle compte pour elle seule. Chacun doit graver un nœud de tenue dans une plaque de fer, devant elle, avant que le sablier ne se vide. Le métal doit se raidir.",
     "Les élèves passent un à un. Certains réussissent, beaucoup ratent, Valérien réussit sans y penser. Quand vient le tour de Jodoc, l'atelier se tait, parce que tout le monde connaît l'histoire."
    ],
    "choices": [
@@ -4876,7 +4876,7 @@
    "place": "cour",
    "text": [
     "Ta voix résonne dans la grande salle, plus fort que tu ne l'aurais voulu. Deux cents têtes se tournent vers toi.",
-    "Le Recteur ne se fâche pas. Il sourit plus largement. « Parce que la digue a été dessinée par un élève de troisième année, mon enfant, et qu'on m'a dit qu'il était fou. Il faut toujours donner sa chance à un fou. » La salle rit. Il te tend le billet. Tu le prends."
+    "Le Recteur, loin de se fâcher, sourit plus largement. « Parce que la digue a été dessinée par un élève de troisième année, mon enfant, et qu'on m'a dit qu'il était fou. Il faut toujours donner sa chance à un fou. » La salle rit. Il te tend le billet. Tu le prends."
    ],
    "choices": [
     {
@@ -4899,7 +4899,7 @@
      "with": "jodoc",
      "text": "Jodoc a tiré un petit signe de parapet, un nœud de tenue. Le même que l'épreuve d'automne. Il le regarde comme on regarde une condamnation."
     },
-    "Valérien passe près de toi sans s'arrêter. Il a tiré un signe de troisième année, l'Œil, et il ne s'en vante pas. Il te regarde, puis il regarde son oncle, qui sort de la salle au bras de Dame Castagnet en riant."
+    "Valérien passe près de toi sans s'arrêter. Il a tiré un signe de troisième année, l'Œil, et il garde cela pour lui. Il te regarde, puis il regarde son oncle, qui sort de la salle au bras de Dame Castagnet en riant."
    ],
    "choices": [
     {
@@ -4933,7 +4933,7 @@
    "title": "Le carnet",
    "place": "port",
    "text": [
-    "Tu poses la main sur le bras de Maître Salvanhac. Il se tourne vers toi, te regarde, et ses yeux pâles reviennent lentement de très loin. Il voit la halle, les poissons, ses pieds trempés, la femme devant lui. Il ne comprend pas ce qu'il fait là.",
+    "Tu poses la main sur le bras de Maître Salvanhac. Il se tourne vers toi, te regarde, et ses yeux pâles reviennent lentement de très loin. Il voit la halle, les poissons, ses pieds trempés, la femme devant lui. Il se demande ce qu'il fait là.",
     "« Pardonnez-moi, Madame, dit-il à la poissonnière. Je vous ai prise pour quelqu'un. » Elle le regarde comme on regarde un fantôme.",
     "Sur le chemin du collège, il marche lentement, appuyé sur ton bras, et grelotte dans sa robe. Au pied de la rue en escalier, il s'arrête, fouille dans sa poche et en sort un carnet de cuir noir, gonflé de feuilles volantes. « Gardez-le, dit-il. Je ne sais plus à qui il est. Je l'ai sur moi depuis des années, et chaque fois que je l'ouvre, je ne comprends plus mon écriture. Vous avez une main qui écoute. Peut-être qu'il vous parlera. »",
     "Il te met le carnet dans les mains, et il reprend la montée, et il te demande ton nom."
@@ -5260,9 +5260,9 @@
    "title": "Le neveu",
    "place": "salles",
    "text": [
-    "Au bout du couloir, au pied de l'escalier des maîtres, le Recteur attend son neveu. Tu t'arrêtes derrière une colonne. Le Recteur ne crie pas. Il parle bas, d'une voix très douce, que tu n'entends qu'à moitié.",
+    "Au bout du couloir, au pied de l'escalier des maîtres, le Recteur attend son neveu. Tu t'arrêtes derrière une colonne. Le Recteur parle bas, d'une voix très douce, que tu entends à moitié.",
     "« … devant un boursier. Devant Vilmorin, qui le racontera à tout le collège avant ce soir. Je t'ai élevé et je t'ai donné mon nom pour mieux que ça, Valérien. » Valérien se tient très droit, les yeux fixes. « Oui, mon oncle. » « Tu sais ce qu'on dit de moi, en ville. Tu sais ce que j'ai fait à dix-neuf ans. » « Oui, mon oncle. »",
-    "Le Recteur lui caresse la joue, tendrement, et remonte l'escalier. Valérien reste seul au pied des marches. Il ne pleure pas. Il reste immobile un long moment, puis il se tourne, et il te voit derrière ta colonne.",
+    "Le Recteur lui caresse la joue, tendrement, et remonte l'escalier. Valérien reste seul au pied des marches. Il reste immobile un long moment, les yeux secs, puis il se tourne, et il te voit derrière ta colonne.",
     "Il passe devant toi, les lèvres serrées, et s'éloigne."
    ],
    "fx": {
@@ -5402,7 +5402,7 @@
    "place": "cour",
    "text": [
     "Tu passes derrière le fauteuil du Recteur, tu poses le plateau, tu tends la main vers le godet d'argent. Le Recteur se retourne. Il te regarde, puis il regarde ta main, à un pouce du couvercle.",
-    "« Le sucre est à gauche, mon enfant », dit-il avec douceur. Il prend lui-même le godet, le glisse dans la poche de sa robe, et revient à la conversation. Il ne te regarde plus de tout le thé.",
+    "« Le sucre est à gauche, mon enfant », dit-il avec douceur. Il prend lui-même le godet, le glisse dans la poche de sa robe, et revient à la conversation. Il t'ignore jusqu'à la fin du thé.",
     "En partant, tu sens son regard dans ton dos jusqu'au bout du couloir."
    ],
    "fx": {
@@ -5857,7 +5857,7 @@
    "place": "dortoir",
    "text": [
     "Tu poses sur le lit d'Ysé le cahier de toile bleue et la page recollée. Tu lui racontes tout, à voix basse, pendant que le dortoir dort.",
-    "Ysé ne t'interrompt pas une fois. Quand tu as fini, elle reste longtemps silencieuse, la page sur les genoux. Puis elle prend une feuille blanche et une plume, et elle écrit un titre, en capitales, et elle le barre, et elle en écrit un autre, plus simple : « LE NOM DE SOLÈNE ARLAUD ».",
+    "Ysé t'écoute jusqu'au bout. Quand tu as fini, elle reste longtemps silencieuse, la page sur les genoux. Puis elle prend une feuille blanche et une plume, et elle écrit un titre, en capitales, et elle le barre, et elle en écrit un autre, plus simple : « LE NOM DE SOLÈNE ARLAUD ».",
     "« Je la compose cette semaine, dit-elle. Mille feuilles, chez le droguiste. Je ne la distribue que le jour où tu parles, et seulement si tu parles. C'est toi qui décides. » Elle sourit, de son sourire immense et de travers. « Mon père va être fier. Il va me tuer, mais il va être fier. »"
    ],
    "fx": {
@@ -5973,7 +5973,7 @@
      "if": {
       "has": "val:vu_oncle"
      },
-     "text": "Il ne te parle pas de ce que tu as vu au pied de l'escalier des maîtres. Tout est dans sa façon de regarder ailleurs."
+     "text": "Ce que tu as vu au pied de l'escalier des maîtres, il le tait. Tout est dans sa façon de regarder ailleurs."
     },
     "« Mon oncle m'a demandé de te surveiller, dit-il à voix basse. Il dit que tu fouilles. Que tu poses des questions à la vieille Mélisande, à Nanon, aux poissonnières. Il dit que tu veux salir la digue. » Il te regarde enfin. « Il ne m'a jamais rien demandé de toute ma vie. Alors je voudrais savoir ce que tu cherches. »"
    ],
@@ -6036,7 +6036,7 @@
    "place": "dortoir",
    "text": [
     "Tu lui dis ce que tu crois. Une élève, il y a trente ans. Une noyade. Des cahiers disparus. Un vieux maître qui oublie. Une encre, un thé, un godet d'argent.",
-    "Valérien t'écoute jusqu'au bout, sans t'interrompre, de plus en plus pâle. Puis il se lève. « Tu n'as rien, dit-il. Rien que des histoires de bonnes femmes et un vieux fou. Mon oncle a tenu cette ville au-dessus de l'eau pendant trente ans. » Sa voix tremble. « Après-demain, dans la cour, devant témoins. Duel d'honneur. Et tu retireras chaque mot. »",
+    "Valérien t'écoute jusqu'au bout, de plus en plus pâle. Puis il se lève. « Tu n'as rien, dit-il. Rien que des histoires de bonnes femmes et un vieux fou. Mon oncle a tenu cette ville au-dessus de l'eau pendant trente ans. » Sa voix tremble. « Après-demain, dans la cour, devant témoins. Duel d'honneur. Et tu retireras chaque mot. »",
     "Il s'en va à grands pas. Tout le dortoir a entendu."
    ],
    "fx": {
@@ -6276,7 +6276,7 @@
      "if": {
       "has": "jodoc:entraine2"
      },
-     "text": "Jodoc est assis sur son lit, une plaque de fer sur les genoux. Il y grave des nœuds de tenue, un après l'autre, en se racontant tes histoires de moutons. Ses mains ne tremblent pas."
+     "text": "Jodoc est assis sur son lit, une plaque de fer sur les genoux. Il y grave des nœuds de tenue, un après l'autre, en se racontant tes histoires de moutons. Ses mains sont sûres."
     },
     {
      "with": "jodoc",
@@ -6660,7 +6660,7 @@
      "if": {
       "has": "valerien:allie"
      },
-     "text": "Valérien sort du rang des élèves et monte les marches de l'estrade, et se tient de l'autre côté. Son oncle le regarde. Il ne baisse pas les yeux."
+     "text": "Valérien sort du rang des élèves et monte les marches de l'estrade, et se tient de l'autre côté. Son oncle le regarde. Valérien soutient ce regard."
     },
     {
      "if": {

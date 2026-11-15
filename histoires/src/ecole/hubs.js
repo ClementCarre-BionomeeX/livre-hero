@@ -65,7 +65,7 @@ module.exports = { moves: moves, SLEEP: SLEEP, passages: {
     title: "Sous les tilleuls", place: "cour", back: true,
     text: [
       { first: true, text: "Sous les tilleuls, les élèves s'exercent à la baguette deux par deux, entre les cours. La baguette de buis sert d'abord à tracer et à diriger, mais tout le collège sait qu'elle sert aussi à se battre, et Dame Castagnet ferme les yeux tant que personne ne saigne." },
-      { with: "jodoc", text: "Jodoc te sert d'adversaire. Il est lent et ne recule jamais, et chaque fois que tu le touches, il rit comme si tu lui avais raconté une bonne histoire." },
+      { with: "jodoc", text: "Jodoc te sert d'adversaire. Il est lent et tient toujours sa place, et chaque fois que tu le touches, il rit comme si tu lui avais raconté une bonne histoire." },
       { without: "jodoc", text: "Un élève de deuxième année accepte de croiser la baguette avec toi, en bâillant. Au bout d'une heure, il ne bâille plus." },
       "Tu apprends à lire une épaule, un pied qui avance, un regard qui part trop tôt. Attaque, parade, feinte : la parade arrête l'attaque, l'attaque perce la feinte, la feinte trompe la parade. Le reste est affaire de nerfs.",
     ],

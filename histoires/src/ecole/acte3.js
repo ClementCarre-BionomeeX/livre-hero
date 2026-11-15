@@ -49,7 +49,7 @@ module.exports = { passages: {
     act: "III", title: "La visite", place: "dortoir", montrer: "valerien",
     text: [
       "Le quatorzième soir, Valérien de Vaucombe entre dans le dortoir des premières années, où personne ne l'a jamais vu. Les conversations s'arrêtent. Il traverse l'allée centrale entre les lits, s'arrête devant le tien, et s'assoit sur ton coffre sans demander.",
-      { if: { has: "val:vu_oncle" }, text: "Il ne te parle pas de ce que tu as vu au pied de l'escalier des maîtres. Tout est dans sa façon de regarder ailleurs." },
+      { if: { has: "val:vu_oncle" }, text: "Ce que tu as vu au pied de l'escalier des maîtres, il le tait. Tout est dans sa façon de regarder ailleurs." },
       "« Mon oncle m'a demandé de te surveiller, dit-il à voix basse. Il dit que tu fouilles. Que tu poses des questions à la vieille Mélisande, à Nanon, aux poissonnières. Il dit que tu veux salir la digue. » Il te regarde enfin. « Il ne m'a jamais rien demandé de toute ma vie. Alors je voudrais savoir ce que tu cherches. »",
     ],
     choices: [
@@ -63,7 +63,7 @@ module.exports = { passages: {
     act: "III", title: "La visite", place: "dortoir",
     text: [
       "Tu lui dis ce que tu crois. Une élève, il y a trente ans. Une noyade. Des cahiers disparus. Un vieux maître qui oublie. Une encre, un thé, un godet d'argent.",
-      "Valérien t'écoute jusqu'au bout, sans t'interrompre, de plus en plus pâle. Puis il se lève. « Tu n'as rien, dit-il. Rien que des histoires de bonnes femmes et un vieux fou. Mon oncle a tenu cette ville au-dessus de l'eau pendant trente ans. » Sa voix tremble. « Après-demain, dans la cour, devant témoins. Duel d'honneur. Et tu retireras chaque mot. »",
+      "Valérien t'écoute jusqu'au bout, de plus en plus pâle. Puis il se lève. « Tu n'as rien, dit-il. Rien que des histoires de bonnes femmes et un vieux fou. Mon oncle a tenu cette ville au-dessus de l'eau pendant trente ans. » Sa voix tremble. « Après-demain, dans la cour, devant témoins. Duel d'honneur. Et tu retireras chaque mot. »",
       "Il s'en va à grands pas. Tout le dortoir a entendu.",
     ],
     fx: { flag: "val:defi" },
@@ -156,7 +156,7 @@ module.exports = { passages: {
     act: "III", title: "La veille", place: "dortoir",
     text: [
       "La veille de l'examen, le dortoir ne dort pas. On révise à la chandelle, on se fait réciter les signes, on se rassure, on se dispute. Quelqu'un pleure doucement sous sa couverture.",
-      { with: "jodoc", if: { has: "jodoc:entraine2" }, text: "Jodoc est assis sur son lit, une plaque de fer sur les genoux. Il y grave des nœuds de tenue, un après l'autre, en se racontant tes histoires de moutons. Ses mains ne tremblent pas." },
+      { with: "jodoc", if: { has: "jodoc:entraine2" }, text: "Jodoc est assis sur son lit, une plaque de fer sur les genoux. Il y grave des nœuds de tenue, un après l'autre, en se racontant tes histoires de moutons. Ses mains sont sûres." },
       { with: "jodoc", if: { not: { has: "jodoc:entraine2" } }, text: "Jodoc est couché tout habillé, les yeux ouverts, et il regarde le plafond. Quand tu lui parles, il te répond par des oui et des non." },
       { with: "yse", if: { has: "gazette:prete" }, text: "Ysé rentre tard, couverte d'encre jusqu'aux coudes. Elle a passé la soirée chez l'imprimeur de la rue des Drapiers. « Mille feuilles, te souffle-t-elle. Sous une bâche, dans la boutique. Il n'attend qu'un signe pour les distribuer sur la digue. »" },
       { with: "yse", if: { not: { has: "gazette:prete" } }, text: "Ysé révise ses signes à voix basse, en tapotant le rythme sur ton bras." },
@@ -256,7 +256,7 @@ module.exports = { passages: {
     text: [
       "Tu remontes sur l'estrade. La foule se tait peu à peu, intriguée. Les maîtres te regardent. Le Recteur, derrière toi, reste immobile.",
       { if: { has: "castagnet:allie" }, text: "Dame Castagnet se lève et vient se placer à côté de toi, les mains croisées. Personne n'osera te couper la parole." },
-      { if: { has: "valerien:allie" }, text: "Valérien sort du rang des élèves et monte les marches de l'estrade, et se tient de l'autre côté. Son oncle le regarde. Il ne baisse pas les yeux." },
+      { if: { has: "valerien:allie" }, text: "Valérien sort du rang des élèves et monte les marches de l'estrade, et se tient de l'autre côté. Son oncle le regarde. Valérien soutient ce regard." },
       { if: { has: "salvanhac:temoin" }, text: "Au bout de l'estrade, Maître Salvanhac s'est levé, appuyé sur sa canne." },
       { if: { has: "maud:viendra" }, text: "Au premier rang, Maud Arlaud s'avance jusqu'au pied de l'estrade." },
     ],

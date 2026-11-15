@@ -22,7 +22,7 @@ module.exports = {
     act: "II", title: "L'annonce", place: "cour",
     text: [
       "Ta voix résonne dans la grande salle, plus fort que tu ne l'aurais voulu. Deux cents têtes se tournent vers toi.",
-      "Le Recteur ne se fâche pas. Il sourit plus largement. « Parce que la digue a été dessinée par un élève de troisième année, mon enfant, et qu'on m'a dit qu'il était fou. Il faut toujours donner sa chance à un fou. » La salle rit. Il te tend le billet. Tu le prends.",
+      "Le Recteur, loin de se fâcher, sourit plus largement. « Parce que la digue a été dessinée par un élève de troisième année, mon enfant, et qu'on m'a dit qu'il était fou. Il faut toujours donner sa chance à un fou. » La salle rit. Il te tend le billet. Tu le prends.",
     ],
     choices: [{ label: "Sortir avec les autres", to: "B_hiver_suite" }],
   },
@@ -32,7 +32,7 @@ module.exports = {
       "Dans la cour, on s'écarte sur ton passage. Les uns te plaignent, les autres te jalousent, et la plupart pensent que le Recteur s'amuse à te voir échouer.",
       { with: "yse", text: "Ysé lit le billet par-dessus ton épaule. « La Tête. Il te déteste ou il t'adore. Dans les deux cas, je n'aimerais pas être à ta place. » Elle réfléchit. « Si, en fait. J'aimerais bien. »" },
       { with: "jodoc", text: "Jodoc a tiré un petit signe de parapet, un nœud de tenue. Le même que l'épreuve d'automne. Il le regarde comme on regarde une condamnation." },
-      "Valérien passe près de toi sans s'arrêter. Il a tiré un signe de troisième année, l'Œil, et il ne s'en vante pas. Il te regarde, puis il regarde son oncle, qui sort de la salle au bras de Dame Castagnet en riant.",
+      "Valérien passe près de toi sans s'arrêter. Il a tiré un signe de troisième année, l'Œil, et il garde cela pour lui. Il te regarde, puis il regarde son oncle, qui sort de la salle au bras de Dame Castagnet en riant.",
     ],
     choices: [{ back: "H_cour" }],
   },
@@ -51,7 +51,7 @@ module.exports = {
   B_carnet: {
     act: "II", title: "Le carnet", place: "port",
     text: [
-      "Tu poses la main sur le bras de Maître Salvanhac. Il se tourne vers toi, te regarde, et ses yeux pâles reviennent lentement de très loin. Il voit la halle, les poissons, ses pieds trempés, la femme devant lui. Il ne comprend pas ce qu'il fait là.",
+      "Tu poses la main sur le bras de Maître Salvanhac. Il se tourne vers toi, te regarde, et ses yeux pâles reviennent lentement de très loin. Il voit la halle, les poissons, ses pieds trempés, la femme devant lui. Il se demande ce qu'il fait là.",
       "« Pardonnez-moi, Madame, dit-il à la poissonnière. Je vous ai prise pour quelqu'un. » Elle le regarde comme on regarde un fantôme.",
       "Sur le chemin du collège, il marche lentement, appuyé sur ton bras, et grelotte dans sa robe. Au pied de la rue en escalier, il s'arrête, fouille dans sa poche et en sort un carnet de cuir noir, gonflé de feuilles volantes. « Gardez-le, dit-il. Je ne sais plus à qui il est. Je l'ai sur moi depuis des années, et chaque fois que je l'ouvre, je ne comprends plus mon écriture. Vous avez une main qui écoute. Peut-être qu'il vous parlera. »",
       "Il te met le carnet dans les mains, et il reprend la montée, et il te demande ton nom.",
@@ -174,9 +174,9 @@ module.exports = {
   B_duel_neveu: {
     act: "II", title: "Le neveu", place: "salles",
     text: [
-      "Au bout du couloir, au pied de l'escalier des maîtres, le Recteur attend son neveu. Tu t'arrêtes derrière une colonne. Le Recteur ne crie pas. Il parle bas, d'une voix très douce, que tu n'entends qu'à moitié.",
+      "Au bout du couloir, au pied de l'escalier des maîtres, le Recteur attend son neveu. Tu t'arrêtes derrière une colonne. Le Recteur parle bas, d'une voix très douce, que tu entends à moitié.",
       "« … devant un boursier. Devant Vilmorin, qui le racontera à tout le collège avant ce soir. Je t'ai élevé et je t'ai donné mon nom pour mieux que ça, Valérien. » Valérien se tient très droit, les yeux fixes. « Oui, mon oncle. » « Tu sais ce qu'on dit de moi, en ville. Tu sais ce que j'ai fait à dix-neuf ans. » « Oui, mon oncle. »",
-      "Le Recteur lui caresse la joue, tendrement, et remonte l'escalier. Valérien reste seul au pied des marches. Il ne pleure pas. Il reste immobile un long moment, puis il se tourne, et il te voit derrière ta colonne.",
+      "Le Recteur lui caresse la joue, tendrement, et remonte l'escalier. Valérien reste seul au pied des marches. Il reste immobile un long moment, les yeux secs, puis il se tourne, et il te voit derrière ta colonne.",
       "Il passe devant toi, les lèvres serrées, et s'éloigne.",
     ],
     fx: { flag: "val:vu_oncle" },
@@ -231,7 +231,7 @@ module.exports = {
     act: "II", title: "Le thé du jeudi", place: "cour",
     text: [
       "Tu passes derrière le fauteuil du Recteur, tu poses le plateau, tu tends la main vers le godet d'argent. Le Recteur se retourne. Il te regarde, puis il regarde ta main, à un pouce du couvercle.",
-      "« Le sucre est à gauche, mon enfant », dit-il avec douceur. Il prend lui-même le godet, le glisse dans la poche de sa robe, et revient à la conversation. Il ne te regarde plus de tout le thé.",
+      "« Le sucre est à gauche, mon enfant », dit-il avec douceur. Il prend lui-même le godet, le glisse dans la poche de sa robe, et revient à la conversation. Il t'ignore jusqu'à la fin du thé.",
       "En partant, tu sens son regard dans ton dos jusqu'au bout du couloir.",
     ],
     fx: { regard: { daubrac: "mefiant" }, flag: "recteur:soupconne" },

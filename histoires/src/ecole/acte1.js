@@ -74,7 +74,7 @@ module.exports = {
     act: "I", title: "Le premier dîner", place: "cour",
     text: [
       { if: { has: "rep:franche" }, text: "Un silence, puis un éclat de rire à l'autre bout de la table. Valérien rougit du cou jusqu'aux oreilles. Il te fixe avec une attention nouvelle, presque contente, comme quelqu'un qui vient de trouver un adversaire à sa taille." },
-      { if: { has: "rep:rusee" }, text: "Il faut une seconde à la table pour comprendre, et une autre pour oser rire. Valérien ne rit pas. Il pose sa cuillère, très droit, et te regarde comme on regarde une guêpe qui s'est posée sur la nappe." },
+      { if: { has: "rep:rusee" }, text: "Il faut une seconde à la table pour comprendre, et une autre pour oser rire. Valérien, lui, pose sa cuillère, très droit, et te regarde comme on regarde une guêpe qui s'est posée sur la nappe." },
       { if: { has: "rep:silence" }, text: "Valérien attend une réponse qui ne vient pas, puis il se désintéresse de toi et raconte à ses voisins une histoire de la capitale. Tu manges ta soupe. Elle est bonne, et elle te reste en travers de la gorge." },
       { with: "yse", if: { not: { has: "rep:silence" } }, text: "Sous la table, Ysé te donne un coup de genou approbateur." },
       "Au bout de la table, à la place des maîtres, le Recteur a suivi la scène. Il te sourit avec bienveillance, et se penche vers Dame Castagnet pour lui demander ton nom.",
@@ -152,7 +152,7 @@ module.exports = {
   A_the_service: {
     act: "I", title: "Le thé du jeudi", place: "cour",
     text: [
-      "Tu sers, tu ressers, tu ne renverses rien. Le thé sent la bergamote et la violette. Le Recteur te remercie chaque fois, en t'appelant par ton nom : il l'a retenu. À la fin, il te glisse une pièce dans la main, pour ta peine. « Revenez jeudi prochain, dit-il. Vous avez la main sûre. »",
+      "Tu sers, tu ressers, le plateau bien droit. Le thé sent la bergamote et la violette. Le Recteur te remercie chaque fois, en t'appelant par ton nom : il l'a retenu. À la fin, il te glisse une pièce dans la main, pour ta peine. « Revenez jeudi prochain, dit-il. Vous avez la main sûre. »",
       "Dans l'escalier, Maître Salvanhac te croise, son merle sur l'épaule, et te demande poliment si tu sais où se trouve le logis du Recteur. Il vient d'en sortir.",
     ],
     fx: { gold: 5 },
@@ -208,7 +208,7 @@ module.exports = {
   A_epreuve: {
     act: "I", title: "L'épreuve d'automne", place: "atelier",
     text: [
-      "L'après-midi du sixième jour, Mère Fage réunit toutes les premières années à l'atelier pour l'épreuve d'automne. Elle ne compte pas pour le grand examen, dit-elle, elle compte pour elle. Chacun doit graver un nœud de tenue dans une plaque de fer, devant elle, avant que le sablier ne se vide. Le métal doit se raidir.",
+      "L'après-midi du sixième jour, Mère Fage réunit toutes les premières années à l'atelier pour l'épreuve d'automne. Cette épreuve reste hors du grand examen, dit-elle : elle compte pour elle seule. Chacun doit graver un nœud de tenue dans une plaque de fer, devant elle, avant que le sablier ne se vide. Le métal doit se raidir.",
       "Les élèves passent un à un. Certains réussissent, beaucoup ratent, Valérien réussit sans y penser. Quand vient le tour de Jodoc, l'atelier se tait, parce que tout le monde connaît l'histoire.",
     ],
     choices: [

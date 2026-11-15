@@ -25,7 +25,7 @@ module.exports = { rumors: {
     title: "Valérien de Vaucombe", back: true, montrer: "valerien",
     text: [
       { first: true, text: "Valérien referme son livre sur un doigt et te regarde de bas en haut, comme on regarde une bête au marché. « Le berger. Tu t'es perdu ? Les moutons sont en bas, vers le port. »" },
-      { again: true, before: "A_defi", text: "Valérien ne prend pas la peine de fermer son livre. « Encore toi. Tu as quelque chose à me dire, ou tu aimes mon profil ? »" },
+      { again: true, before: "A_defi", text: "Valérien garde son livre ouvert. « Encore toi. Tu as quelque chose à me dire, ou tu aimes mon profil ? »" },
       { after: "val:battu", before: "B_duel", text: "Valérien te regarde venir avec une haine tranquille. « Une fois, dit-il. Une fois, avec de la chance et une baguette de village. »" },
       { after: "A_duel_perdu", before: "B_duel", text: "Valérien sourit en te voyant. « Tu viens prendre une autre leçon ? Je suis bon prince : je ne fais pas payer. »" },
       { after: "B_duel", before: "C_valerien", text: "Valérien lève les yeux de son livre, et pour une fois, il garde ses méchancetés pour lui. Il a l'air fatigué. « Qu'est-ce que tu veux ? »" },
@@ -119,7 +119,7 @@ module.exports = { rumors: {
   T_castagnet: {
     title: "Dame Castagnet", back: true, montrer: "castagnet",
     text: [
-      { first: true, text: "Dame Castagnet te reçoit dans son bureau, une pièce nue avec une table, deux chaises et un diapason d'argent posé sur un coussin. Elle ne t'invite pas à t'asseoir. Elle écoute ce que tu as à dire, les mains croisées, sans te quitter des yeux." },
+      { first: true, text: "Dame Castagnet te reçoit dans son bureau, une pièce nue avec une table, deux chaises et un diapason d'argent posé sur un coussin. Elle te laisse debout. Elle écoute ce que tu as à dire, les mains croisées, les yeux dans les tiens." },
       { first: true, text: "« Bien, dit-elle quand tu as fini. Vous êtes ici grâce à votre bourse, donc grâce à la ville, donc grâce à la digue. Souvenez-vous-en. Travaillez. Ne vous faites pas remarquer. Ce sera tout. »" },
       { again: true, before: "B_tempete", text: "Dame Castagnet lève les yeux de son registre et attend. Elle a toujours l'air d'attendre." },
       { again: true, after: "B_tempete", text: "Dame Castagnet a encore la voix voilée depuis la nuit de la tempête. Elle te fait signe d'entrer, et pour la première fois, elle te désigne une chaise." },
@@ -150,7 +150,7 @@ module.exports = { rumors: {
   K_vilmorin_cahier: {
     title: "Maître Vilmorin", back: true,
     text: [
-      "Vilmorin feuillette le document en sifflotant, puis il s'arrête de siffler. Il te regarde par-dessus, et pour une fois, il ne sourit pas.",
+      "Vilmorin feuillette le document en sifflotant, puis il s'arrête de siffler. Il te regarde par-dessus, et pour une fois, il a le visage grave.",
       "« Je suis arrivé au collège il y a dix ans, dit-il. Je ne sais rien de ce qui s'est passé ici avant moi. Je sais seulement une chose : notre Recteur, le jour où un signe de la digue a cédé, est resté planté devant comme un illettré devant une affiche. » Il te rend le document. « Je dois de l'argent à tout le monde. Je n'ai pas le courage d'un lion. Mais pour l'examen, je peux t'apprendre à voir la lumière dans la pierre. Viens après les cours. Le reste, tu le feras seul{e}. »",
     ],
     fx: { flag: "vilmorin:aide", pratique: { magie: 2 } },
@@ -259,7 +259,7 @@ module.exports = { rumors: {
   S_renvoi: {
     title: "La seconde fois", place: "cour",
     text: [
-      "Cette fois, c'est Nanon qui te trouve, sa lanterne à la main, son châle sur la tête. Elle ne crie pas. Elle te regarde avec une grande tristesse, et elle va chercher Dame Castagnet.",
+      "Cette fois, c'est Nanon qui te trouve, sa lanterne à la main, son châle sur la tête. Elle te regarde en silence, avec une grande tristesse, et elle va chercher Dame Castagnet.",
       "La vice-rectrice ne dit qu'une phrase : « Je vous avais prévenu{e}. »",
     ],
     choices: [{ label: "Faire ta malle", to: "F_renvoi" }],

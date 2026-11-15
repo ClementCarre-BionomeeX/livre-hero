@@ -88,7 +88,7 @@ module.exports = {
     title: "La gazette", place: "dortoir",
     text: [
       "Tu poses sur le lit d'Ysé le cahier de toile bleue et la page recollée. Tu lui racontes tout, à voix basse, pendant que le dortoir dort.",
-      "Ysé ne t'interrompt pas une fois. Quand tu as fini, elle reste longtemps silencieuse, la page sur les genoux. Puis elle prend une feuille blanche et une plume, et elle écrit un titre, en capitales, et elle le barre, et elle en écrit un autre, plus simple : « LE NOM DE SOLÈNE ARLAUD ».",
+      "Ysé t'écoute jusqu'au bout. Quand tu as fini, elle reste longtemps silencieuse, la page sur les genoux. Puis elle prend une feuille blanche et une plume, et elle écrit un titre, en capitales, et elle le barre, et elle en écrit un autre, plus simple : « LE NOM DE SOLÈNE ARLAUD ».",
       "« Je la compose cette semaine, dit-elle. Mille feuilles, chez le droguiste. Je ne la distribue que le jour où tu parles, et seulement si tu parles. C'est toi qui décides. » Elle sourit, de son sourire immense et de travers. « Mon père va être fier. Il va me tuer, mais il va être fier. »",
     ],
     fx: { flag: "gazette:prete", quest: "II_gazette", conf: { yse: 20 }, ep: ["histoire", 800] },
