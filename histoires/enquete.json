@@ -243,8 +243,8 @@
  "version": 1,
  "start": "A_reveil",
  "intro": [
-  "Orbeval tient sur l'Aune par onze ponts. Le plus beau, celui des Changeurs, porte des maisons à trois étages et des boutiques qui s'ouvrent sur l'eau. Le plus pauvre, celui des Lavandières, n'est qu'une passerelle de planches au-dessus du canal des Tanneurs.",
-  "Hier soir, c'était la Fête des Lanternes. Toute la ville a mis à l'eau des milliers de petites barques de papier, chacune avec sa chandelle, et le fleuve est descendu vers la mer en brûlant jusqu'à minuit. Tu as regardé ça depuis la fenêtre de ton auberge, un pot de vin chaud à la main. Tu t'es couché{e} tard."
+  "Orbeval tient sur l'Aune par onze ponts. Le plus beau, celui des Changeurs, porte des maisons à trois étages et des boutiques qui s'ouvrent sur l'eau. Le plus pauvre, celui des Lavandières, est une simple passerelle de planches au-dessus du canal des Tanneurs.",
+  "Hier soir, c'était la Fête des Lanternes. Toute la ville a mis à l'eau des milliers de petites barques de papier, chacune avec sa chandelle, et le fleuve est descendu vers la mer en brûlant jusqu'à minuit. Tu as regardé le spectacle depuis la fenêtre de ton auberge, un pot de vin chaud à la main. Tu t'es couché{e} tard."
  ],
  "acts": [
   {
@@ -1987,9 +1987,9 @@
    "title": "Le Pot d'Étain",
    "place": "pont",
    "text": [
-    "On frappe à ta porte comme on frappe chez un médecin : vite, fort, sans s'arrêter.",
-    "Le jour est à peine levé. Par la fenêtre, l'Aune roule une eau grise, lente, encombrée de débris de la nuit : des carcasses de petites barques en papier, des chandelles mortes, des rubans. Sur le Pont des Changeurs, les boutiquiers lèvent leurs volets un à un, en bâillant. Les cloches de la Haute-Ville sonnent sept heures.",
-    "Tu as la bouche pâteuse du vin chaud d'hier, et une chemise jetée sur le dossier de la chaise. On frappe encore.",
+    "On frappe à ta porte comme on frappe chez un médecin : vite, fort, et sans s'arrêter.",
+    "Le jour se lève à peine. Par la fenêtre, tu vois l'Aune rouler une eau grise et lente, encombrée des débris de la nuit : des carcasses de petites barques en papier, des chandelles mortes, des rubans. Sur le Pont des Changeurs, les boutiquiers lèvent leurs volets un à un, en bâillant. Les cloches de la Haute-Ville sonnent sept heures.",
+    "Tu as la bouche pâteuse du vin chaud d'hier, et ta chemise attend sur le dossier de la chaise, là où tu l'as jetée. On frappe encore.",
     "« S'il vous plaît, dit une voix de femme derrière la porte. S'il vous plaît. On m'a dit que c'était ici. »"
    ],
    "choices": [
@@ -2031,7 +2031,7 @@
      "text": "« J'ai frappé à toutes les portes, dit-elle. Vous êtes la seule personne qui a ouvert. » Elle te regarde comme on regarde un pont dont on n'est pas sûr qu'il tiendra, et dont on a besoin quand même."
     },
     "« Je m'appelle Gervaise Maupas. Mon fils s'appelle Hugon. Il a dix-neuf ans, il est batelier, il travaille sur les barges de sel. Ce matin, à l'ouverture des boutiques, le guet l'a pris sur le Pont des Changeurs. Ils disent qu'il a tué l'essayeur. »",
-    "Le mot essayeur t'est inconnu. Elle le voit.",
+    "Le mot « essayeur » t'est inconnu, et elle le voit.",
     "« Maître Ombreuil. Gaspard Ombreuil. L'essayeur-juré de la Monnaie, celui qui dit si les écus sont bons. On l'a trouvé à l'aube contre les portes de l'écluse des Tanneurs, noyé. Et mon fils avait sa bague dans la poche. Il voulait la vendre à la changeuse du pont. » Elle serre son panier. « Il dit qu'il ne l'a pas tué, et il s'arrête là. Il se tait même devant moi, sa mère. »",
     "« On le juge dans trois jours, à la cloche du soir, devant les échevins. Si personne ne dit rien d'autre, ils le pendront. Tout le monde sait qu'il s'était battu avec Maître Ombreuil, la veille. Tout le monde. »",
     "Elle fouille dans son tablier et pose sur ta table deux écus d'argent et un anneau de cuivre, mince, usé jusqu'à la corde. « C'est tout ce que j'ai. L'anneau, c'est celui de mon mariage. Il ne vaut rien, mais c'est tout ce que j'ai. »"
@@ -2070,8 +2070,8 @@
    "title": "La porte refermée",
    "place": "pont",
    "text": [
-    "Elle reprend ses deux écus et son anneau en silence. Elle ne supplie pas. Elle hoche la tête, deux fois, comme quelqu'un qui s'y attendait, et elle redescend l'escalier en tenant la rampe.",
-    "Tu fais ton sac. Le soleil se lève sur le Pont des Changeurs. Par la fenêtre, tu la vois traverser le pont, petite, son panier contre le ventre. Devant le comptoir de la changeuse, elle s'arrête, longtemps. Puis elle repart vers la Haute-Ville, là où est la tour du Guet, et la foule du matin la recouvre."
+    "Elle reprend ses deux écus et son anneau en silence, sans supplier. Elle hoche la tête deux fois, comme quelqu'un qui s'y attendait, et redescend l'escalier en tenant la rampe.",
+    "Tu fais ton sac. Le soleil se lève sur le Pont des Changeurs. Par la fenêtre, tu la vois traverser le pont, petite, son panier contre le ventre. Devant le comptoir de la changeuse, elle s'arrête longtemps. Puis elle repart vers la Haute-Ville, où se dresse la tour du Guet, et la foule du matin la recouvre."
    ],
    "choices": [
     {
@@ -2095,7 +2095,7 @@
    },
    "text": [
     "Tu prends la route du sud par la porte des Rouliers, à l'heure où les charrettes de légumes entrent en ville. Derrière toi, les cloches d'Orbeval sonnent neuf heures, puis dix, de plus en plus petites.",
-    "Trois jours plus tard, dans une auberge de bord de route, un colporteur raconte en mangeant sa soupe qu'on a pendu un jeune batelier à Orbeval, pour l'essayeur de la Monnaie. Il le raconte entre deux autres nouvelles, une histoire de grêle et le prix du sel. Personne à la table ne demande le nom du garçon.",
+    "Trois jours plus tard, dans une auberge de bord de route, un colporteur raconte en mangeant sa soupe qu'on a pendu à Orbeval un jeune batelier, pour l'essayeur de la Monnaie. Il le raconte entre deux autres nouvelles, une histoire de grêle et le prix du sel. Personne, à la table, ne demande le nom du garçon.",
     "Toi non plus."
    ]
   },
@@ -2106,15 +2106,15 @@
    "text": [
     {
      "via": "gratuit",
-     "text": "Elle ne reprend pas tout de suite ses écus. Elle les regarde sur la table, puis elle te regarde, et quelque chose dans sa figure se défait et se refait. « Vous êtes sûr{e} ? » Tu ramasses les pièces et l'anneau, et tu les lui mets dans la main. Elle referme les doigts dessus."
+     "text": "Elle laisse d'abord ses écus où ils sont. Elle les regarde sur la table, puis elle te regarde, et quelque chose dans sa figure se défait et se refait. « Vous êtes sûr{e} ? » Tu ramasses les pièces et l'anneau, et tu les lui mets dans la main. Elle referme les doigts dessus."
     },
     {
      "via": "paye",
-     "text": "Tu prends les deux écus. Tu lui rends l'anneau. Elle le remet à son doigt, et elle a l'air soulagée : on ne doit rien à quelqu'un qu'on a payé."
+     "text": "Tu prends les deux écus et tu lui rends l'anneau. Elle le remet à son doigt, et elle a l'air soulagée : on est quitte envers quelqu'un qu'on a payé."
     },
     {
      "via": "rattrape",
-     "text": "Tu la rattrapes devant le comptoir de la changeuse, au milieu du pont. Elle se retourne. Elle ne te demande pas pourquoi tu as changé d'avis. Elle te prend le bras, et elle le serre, fort."
+     "text": "Tu la rattrapes devant le comptoir de la changeuse, au milieu du pont. Elle se retourne, et garde pour elle la question de ton changement d'avis. Elle te prend le bras, et elle le serre, fort."
     },
     "« Il est à la tour du Guet, dit-elle. En haut de la ville. On peut lui porter du pain le matin, mais on ne peut pas lui parler longtemps. Moi, il ne me parle pas. Vous, peut-être. »",
     "« La sergente qui l'a pris s'appelle Hallard. Elle est encore à l'écluse, avec l'éclusier. Elle n'est pas méchante. Elle est pressée. Ici, tout le monde est pressé que ce soit fini. »",
@@ -2137,10 +2137,10 @@
     ]
    },
    "text": [
-    "Le Pont des Changeurs est une rue posée sur l'eau. Les maisons y ont trois étages, les boutiques s'ouvrent des deux côtés, et entre elles on ne voit le fleuve que par des fentes. Ce matin, il y a du monde : on parle bas, par petits groupes, et chaque groupe regarde le même endroit.",
-    "C'est un comptoir de changeuse, au milieu du pont. Une plaque de marbre, une balance de cuivre sous un globe de verre, des piles de pièces de tous les pays rangées dans des godets. Derrière, une vieille femme à lunettes, le dos très droit, fait sonner des écus un par un sur le marbre et les range sans lever la tête. On te dit son nom à voix basse, comme s'il pouvait la déranger : Dame Isaline Veillon. C'est à elle que le garçon a voulu vendre la bague.",
+    "Le Pont des Changeurs est une rue posée sur l'eau. Les maisons y ont trois étages, les boutiques s'ouvrent des deux côtés, et l'on aperçoit le fleuve seulement par les fentes entre elles. Ce matin, il y a du monde : on parle bas, par petits groupes, et chaque groupe regarde le même endroit.",
+    "C'est un comptoir de changeuse, au milieu du pont : une plaque de marbre, une balance de cuivre sous un globe de verre, des piles de pièces de tous les pays rangées dans des godets. Derrière, une vieille femme à lunettes, le dos très droit, fait sonner des écus un par un sur le marbre et les range sans lever la tête. On te dit son nom à voix basse, comme s'il pouvait la déranger : Dame Isaline Veillon. C'est à elle que le garçon a voulu vendre la bague.",
     "« Elle l'a reconnue tout de suite, dit un apprenti boulanger, avec son panier de pains sur la tête. Elle a fermé le globe de la balance dessus, elle a dit au garçon d'attendre, et elle a sifflé le guet. Il n'a même pas couru. »",
-    "Au bout du pont, le quai descend vers les Tanneurs. L'odeur change en cent pas : le pain, la cire et la poussière d'argent laissent place à l'eau croupie, au cuir mouillé, à la chaux."
+    "Au bout du pont, le quai descend vers les Tanneurs, et l'odeur change en cent pas : le pain, la cire et la poussière d'argent cèdent la place à l'eau croupie, au cuir mouillé et à la chaux."
    ],
    "choices": [
     {
@@ -2160,9 +2160,9 @@
     ]
    },
    "text": [
-    "L'écluse des Tanneurs est un bassin de pierre noire long comme une église, fermé à chaque bout par deux grandes portes de chêne bardées de fer. L'eau y dort, verte et lisse. Au-dessus, le canal arrive des Orfèvres ; au-dessous, il descend vers l'Aune et le port. Une maisonnette d'éclusier, des perches, des chaînes, un treuil.",
-    "Une trentaine de personnes regardent les portes d'aval, comme si le mort allait y revenir. Un vieil homme à barbe blanche, le pantalon trempé jusqu'aux cuisses, les tient à distance avec sa perche et une patience usée : l'éclusier. On l'appelle Barthe.",
-    "Au bord du bassin, une femme en manteau de cuir du guet prend des notes sur une tablette de cire, le pied posé sur une borne. Elle a des cheveux roux coupés court, une vieille cicatrice qui lui tire le coin de la bouche, et l'air de quelqu'un qui n'a pas dormi depuis la veille de la fête. La sergente Hallard.",
+    "L'écluse des Tanneurs est un bassin de pierre noire long comme une église, fermé à chaque bout par deux grandes portes de chêne bardées de fer. L'eau y dort, verte et lisse. En amont, le canal arrive des Orfèvres ; en aval, il descend vers l'Aune et le port. Autour du bassin, tu relèves une maisonnette d'éclusier, des perches, des chaînes et un treuil.",
+    "Une trentaine de personnes regardent les portes d'aval, comme si le mort allait y revenir. Un vieil homme à barbe blanche, le pantalon trempé jusqu'aux cuisses, les tient à distance avec sa perche et une patience usée : c'est l'éclusier, qu'on appelle Barthe.",
+    "Au bord du bassin, une femme en manteau de cuir du guet prend des notes sur une tablette de cire, le pied posé sur une borne. Elle a des cheveux roux coupés court, une vieille cicatrice qui lui tire le coin de la bouche, et l'air de quelqu'un qui veille depuis la veille de la fête. C'est la sergente Hallard.",
     {
      "regard": {
       "hallard": "cordial"
@@ -2203,7 +2203,7 @@
      "regard": {
       "hallard": "cordial"
      },
-     "text": "Tu lui dis le nom de ta ville et les trois années. Elle grogne : ça ne vaut pas grand-chose, le guet d'une autre ville, mais c'est mieux que rien. « Et maintenant tu travailles pour la mère du gamin. » Ce n'est pas une question. « Bon. Au moins tu sauras ce que c'est, une affaire qu'on boucle trop vite. »"
+     "text": "Tu lui dis le nom de ta ville et tes trois années de service. Elle grogne : le guet d'une autre ville, ça vaut peu, mais c'est mieux que rien. « Et maintenant tu travailles pour la mère du gamin. » Ce n'est pas une question. « Bon. Au moins tu sauras ce que c'est, une affaire qu'on boucle trop vite. »"
     },
     {
      "regard": {
@@ -2211,7 +2211,7 @@
      },
      "text": "Au nom de Gervaise Maupas, elle soupire. « La mère. Évidemment. » Elle te regarde mieux, cette fois, des pieds à la tête. « Elle a trouvé quelqu'un pour fouiller. Bon. Fouillez. Mais vous ne me gênez pas, et vous ne me mentez pas. L'un me prend mon temps, l'autre ma patience. »"
     },
-    "Elle t'emmène un peu à l'écart, contre le mur de la maison de l'éclusier, là où le vent ne porte pas les voix.",
+    "Elle t'emmène un peu à l'écart, contre le mur de la maison de l'éclusier, à l'abri du vent qui porte les voix.",
     "« Barthe l'a trouvé à cinq heures et demie, contre les portes d'aval, le visage dans l'eau. Les portes l'avaient bien abîmé ; on a eu du mal à le sortir. Il avait le manteau de l'essayeur, un manteau gris doublé de martre, il n'y en a pas deux comme ça en ville. La veuve est venue à l'Hôtel-Dieu. Elle l'a reconnu depuis la porte de la salle des morts. Au manteau. Elle n'a pas voulu approcher. »",
     "« À sept heures, le petit Maupas a posé la bague de l'essayeur sur le comptoir de la Veillon. La veille au soir, devant toute la Lanterne Sourde, Ombreuil l'avait giflé et menacé de le faire jeter dans l'Aune s'il revoyait sa fille. Le gamin avait les manches trempées et les mains écorchées. Il n'a pas d'endroit où il était cette nuit, ou il ne veut pas le dire. » Elle referme sa tablette. « Mettez-vous à la place des échevins. »",
     "« Il y a une chose qui me gêne, dit-elle encore, plus bas. Le second de l'essayeur, Théophane Lescot, a disparu cette nuit-là. Sa chambre, chez la mère Garnaude, a été vidée de son sac. Il a laissé ça. »",
@@ -2239,10 +2239,10 @@
    "title": "Les portes d'aval",
    "place": "tanneurs",
    "text": [
-    "La sergente est repartie vers la Haute-Ville, ses deux hommes derrière elle. La foule se disperse : il n'y a vraiment plus rien à voir.",
+    "La sergente est repartie vers la Haute-Ville, ses deux hommes derrière elle, et la foule se disperse : il reste vraiment peu de chose à voir.",
     "Tu restes un moment au bord du bassin. Les portes d'aval sont fermées. Elles sont plus hautes que deux hommes l'un sur l'autre, noires d'eau, couvertes d'une barbe d'algues que le courant peigne dans le même sens. Contre elles, à la surface, flottent encore des débris de la fête : des lambeaux de papier rouge, une chandelle, une rose.",
-    "Barthe s'est assis sur la marche de sa maison et bourre une pipe qu'il n'allume pas. Plus haut, sur le canal, on aperçoit le pont des Lavandières, une passerelle de planches. Une lavandière y bat son linge. Le battoir claque, régulier, et l'écho revient des murs.",
-    "Trois jours. La cloche du soir, dans trois jours. Tu as un jeton de cuivre, une lettre d'adieu, et une ville entière qui préférerait que tu ne demandes rien."
+    "Barthe s'est assis sur la marche de sa maison et bourre une pipe qu'il laisse éteinte. Plus haut, sur le canal, on aperçoit le pont des Lavandières, une passerelle de planches où une lavandière bat son linge. Le battoir claque, régulier, et l'écho revient des murs.",
+    "Tu as trois jours, jusqu'à la cloche du soir. Tu as un jeton de cuivre, une lettre d'adieu, et une ville entière qui préférerait garder ses réponses pour elle."
    ],
    "choices": [
     {
@@ -2263,16 +2263,16 @@
    "text": [
     {
      "first": true,
-     "text": "Le Pont des Changeurs, en plein jour, est la rue la plus riche d'Orbeval. On y pèse, on y compte, on y parle toutes les langues du fleuve. À sa tête, côté Haute-Ville, l'enseigne du Pot d'Étain grince au vent : c'est là que tu dors."
+     "text": "Le Pont des Changeurs, en plein jour, est la rue la plus riche d'Orbeval : on y pèse, on y compte, et l'on y parle toutes les langues du fleuve. À sa tête, côté Haute-Ville, grince au vent l'enseigne du Pot d'Étain, où tu dors."
     },
     {
      "again": true,
      "when": "day",
-     "text": "Le Pont des Changeurs, ses boutiques, ses balances, le bruit d'argent qui ne s'arrête jamais. L'enseigne du Pot d'Étain grince à sa tête."
+     "text": "Le Pont des Changeurs aligne ses boutiques et ses balances, dans un bruit d'argent qui dure du matin au soir. À sa tête, l'enseigne du Pot d'Étain grince."
     },
     {
      "when": "night",
-     "text": "La nuit, le pont n'est plus qu'un couloir de volets clos. Une seule lumière : celle du Pot d'Étain, où l'on boit encore."
+     "text": "La nuit, le pont devient un couloir de volets clos, avec une seule lumière : celle du Pot d'Étain, où l'on boit encore."
     },
     {
      "if": {
@@ -2326,16 +2326,16 @@
    "text": [
     {
      "first": true,
-     "text": "Le quai des Orfèvres longe un canal étroit, aux eaux sombres et propres, qui descend vers les Tanneurs. Les maisons y sont de pierre blanche, avec des portes cloutées et des marches qui descendent jusqu'à l'eau. D'un côté de la place, la Monnaie : un bâtiment carré, sans fenêtres au rez-de-chaussée, avec deux gardes en livrée à la porte. En face, plus petite, plus vieille, la Maison de l'Essai, où vivait et travaillait l'essayeur-juré."
+     "text": "Le quai des Orfèvres longe un canal étroit, aux eaux sombres et propres, qui descend vers les Tanneurs. Les maisons y sont de pierre blanche, avec des portes cloutées et des marches qui descendent jusqu'à l'eau. D'un côté de la place se dresse la Monnaie, un bâtiment carré, aveugle au rez-de-chaussée, avec deux gardes en livrée à la porte. En face, plus petite et plus vieille, se tient la Maison de l'Essai, où vivait et travaillait l'essayeur-juré."
     },
     {
      "first": true,
-     "text": "Les volets de la Maison de l'Essai sont tirés. Un crêpe noir pend au heurtoir. Côté canal, une porte d'eau, basse, fermée d'une chaîne, ouvre directement sur le quai."
+     "text": "Les volets de la Maison de l'Essai sont tirés, et un crêpe noir pend au heurtoir. Côté canal, une porte d'eau, basse, fermée d'une chaîne, ouvre directement sur le quai."
     },
     {
      "again": true,
      "when": "day",
-     "text": "Le quai des Orfèvres, la Monnaie et ses gardes, la Maison de l'Essai et son crêpe noir au heurtoir. Le canal file vers les Tanneurs."
+     "text": "Tu retrouves le quai des Orfèvres, la Monnaie et ses gardes, la Maison de l'Essai et son crêpe noir au heurtoir. Le canal file vers les Tanneurs."
     },
     {
      "when": "night",
@@ -2422,16 +2422,16 @@
    "text": [
     {
      "first": true,
-     "text": "Les Tanneurs vivent au bord du canal, entre l'écluse et le pont des Lavandières. L'eau y est trouble, l'air sent la chaux et l'écorce de chêne qu'on fait macérer dans les cuves. Des peaux sèchent sur des perches, au-dessus des têtes. Sur les marches qui descendent au canal, les lavandières battent le linge à genoux."
+     "text": "Les Tanneurs vivent au bord du canal, entre l'écluse et le pont des Lavandières. L'eau y est trouble, et l'air sent la chaux et l'écorce de chêne qu'on fait macérer dans les cuves. Des peaux sèchent sur des perches, au-dessus des têtes. Sur les marches qui descendent au canal, les lavandières battent le linge à genoux."
     },
     {
      "first": true,
-     "text": "Au coin de la rue des Cuves, une enseigne en fer découpé : une lanterne à volet fermé. La Lanterne Sourde, où la veille de la fête l'essayeur a giflé un batelier devant tout le monde."
+     "text": "Au coin de la rue des Cuves pend une enseigne en fer découpé, qui figure une lanterne à volet fermé : c'est la Lanterne Sourde, où l'essayeur, la veille de la fête, a giflé un batelier devant tout le monde."
     },
     {
      "again": true,
      "when": "day",
-     "text": "Les Tanneurs, l'odeur de chaux, les peaux sur les perches, le battoir des lavandières. L'écluse, en bas ; le pont des Lavandières, en haut ; la Lanterne Sourde au coin de la rue des Cuves."
+     "text": "Tu retrouves l'odeur de chaux, les peaux sur les perches, le battoir des lavandières ; l'écluse en bas, le pont des Lavandières en haut, et la Lanterne Sourde au coin de la rue des Cuves."
     },
     {
      "when": "night",
@@ -2453,7 +2453,7 @@
        }
       ]
      },
-     "text": "Le ciel se couvre lentement du côté de l'aval. Les lavandières regardent en l'air, et rentrent le linge des perches les plus hautes."
+     "text": "Le ciel se couvre lentement du côté de l'aval. Les lavandières regardent en l'air, puis rentrent le linge des perches les plus hautes."
     },
     {
      "if": {
@@ -2496,16 +2496,16 @@
    "text": [
     {
      "first": true,
-     "text": "On monte à la Haute-Ville par cent douze marches, ou par une rampe pour les voitures qui fait trois fois le tour de la colline. En haut, l'air est plus froid et plus propre. Une place pavée, l'Échevinage et ses arcades, sa grande horloge et sa cloche. À gauche, la tour du Guet, carrée, avec des fenêtres comme des meurtrières. À droite, derrière un mur, la cour de l'Hôtel-Dieu, où l'on soigne les pauvres et où l'on garde les morts."
+     "text": "On monte à la Haute-Ville par cent douze marches, ou par une rampe pour les voitures qui fait trois fois le tour de la colline. En haut, l'air est plus froid et plus propre. Sur une place pavée s'élèvent l'Échevinage, avec ses arcades, sa grande horloge et sa cloche ; à gauche, la tour du Guet, carrée, percée de fenêtres comme des meurtrières ; à droite, derrière un mur, la cour de l'Hôtel-Dieu, où l'on soigne les pauvres et où l'on garde les morts."
     },
     {
      "again": true,
      "when": "day",
-     "text": "La place de la Haute-Ville : les arcades de l'Échevinage, la tour du Guet, la cour de l'Hôtel-Dieu. L'horloge marque les heures, et chaque heure la cloche les dit."
+     "text": "Tu retrouves la place de la Haute-Ville : les arcades de l'Échevinage, la tour du Guet, la cour de l'Hôtel-Dieu. L'horloge marque les heures, et la cloche les dit."
     },
     {
      "when": "night",
-     "text": "La nuit, la place est vide. L'horloge de l'Échevinage brille d'une lanterne intérieure. Les hôtels des grandes familles ont leurs fenêtres éclairées derrière des rideaux."
+     "text": "La nuit, la place est vide. L'horloge de l'Échevinage brille d'une lanterne intérieure, et les hôtels des grandes familles ont leurs fenêtres éclairées derrière des rideaux."
     },
     {
      "if": {
@@ -2586,20 +2586,20 @@
    "text": [
     {
      "first": true,
-     "text": "En aval du grand pont, la ville se termine dans le port : des quais de bois, des grues, des barges de sel et de vin amarrées en rang, et derrière, les Teinturiers, où l'eau qui sort des cuves colore le fleuve en bleu, en rouge sang, en jaune, par longues traînées qui ne se mélangent pas tout de suite."
+     "text": "En aval du grand pont, la ville finit dans le port : des quais de bois, des grues, des barges de sel et de vin amarrées en rang, et derrière, les Teinturiers, où l'eau qui sort des cuves colore le fleuve en bleu, en rouge sang ou en jaune, par longues traînées qui mettent du temps à se mélanger."
     },
     {
      "first": true,
-     "text": "Sur le quai, une auberge de planches peintes en bleu : le Bassin Bleu. Plus loin, le bureau du port, avec son registre et son commis. Et au bout du quai, une longue barge à fond plat, plus grosse que les autres, son nom peint en lettres jaunes sur la poupe : la Vouivre."
+     "text": "Sur le quai se dressent une auberge de planches peintes en bleu, le Bassin Bleu, et plus loin le bureau du port, avec son registre et son commis. Au bout du quai est amarrée une longue barge à fond plat, plus grosse que les autres, son nom peint en lettres jaunes sur la poupe : la Vouivre."
     },
     {
      "again": true,
      "when": "day",
-     "text": "Le port, les grues, les traînées de couleur sur l'eau. Le Bassin Bleu, le bureau du port, la Vouivre au bout du quai."
+     "text": "Tu retrouves le port, les grues, les traînées de couleur sur l'eau ; le Bassin Bleu, le bureau du port, et la Vouivre au bout du quai."
     },
     {
      "when": "night",
-     "text": "La nuit, le port grince et clapote. Les barges se frottent contre les quais. Le Bassin Bleu a ses volets ouverts et sa lanterne bleue allumée."
+     "text": "La nuit, le port grince et clapote, et les barges se frottent contre les quais. Le Bassin Bleu a ses volets ouverts et sa lanterne bleue allumée."
     },
     {
      "if": {
@@ -2649,11 +2649,11 @@
    "text": [
     {
      "first": true,
-     "text": "La salle commune du Pot d'Étain est basse, enfumée, pleine de marchands de passage qui parlent de prix et de routes. On t'apporte un pot de vin coupé d'eau et une assiette de harengs. Tu écoutes."
+     "text": "La salle commune du Pot d'Étain est basse et enfumée, pleine de marchands de passage qui parlent de prix et de routes. On t'apporte un pot de vin coupé d'eau et une assiette de harengs, et tu écoutes."
     },
     {
      "again": true,
-     "text": "La salle commune, le vin coupé d'eau, les marchands. Tu écoutes encore."
+     "text": "Devant ton vin coupé d'eau, parmi les marchands, tu écoutes encore."
     }
    ]
   },
@@ -2664,7 +2664,7 @@
    "backName": "ta chambre du Pot d'Étain",
    "takes": "morning",
    "text": [
-    "Tu montes dans ta chambre, tu poses le jeton du guet et la lettre d'adieu sur la table, à côté de la chandelle. Tu t'allonges tout habillé{e}. Par la fenêtre, le pont dort ; le fleuve, lui, ne dort jamais.",
+    "Tu montes dans ta chambre et tu poses le jeton du guet et la lettre d'adieu sur la table, à côté de la chandelle. Tu t'allonges tout habillé{e}. Par la fenêtre, le pont dort ; le fleuve, lui, coule toute la nuit.",
     {
      "if": {
       "day": {
@@ -2672,7 +2672,7 @@
        "max": 2
       }
      },
-     "text": "Tu te réveilles à l'aube du deuxième jour. Il a plu toute la nuit ; les toits fument. Deux jours encore."
+     "text": "Tu te réveilles à l'aube du deuxième jour. Il a plu toute la nuit, et les toits fument. Il te reste deux jours."
     },
     {
      "if": {
@@ -2697,8 +2697,8 @@
    "place": "pont",
    "backName": "ta chambre du Pot d'Étain",
    "text": [
-    "Tu tires le rideau, tu t'allonges sur le lit sans te déshabiller, les mains sous la nuque. Tu somnoles. Tu remets dans l'ordre ce que tu as entendu, qui l'a dit, à quelle heure, et ce qui ne va pas ensemble.",
-    "Quand tu rouvres les yeux, la lumière a changé. Les cloches sonnent les vêpres."
+    "Tu tires le rideau et tu t'allonges sur le lit tout habillé{e}, les mains sous la nuque. Tu somnoles, et tu remets dans l'ordre ce que tu as entendu, qui l'a dit, à quelle heure, et ce qui jure avec le reste.",
+    "Quand tu rouvres les yeux, la lumière a changé, et les cloches sonnent les vêpres."
    ],
    "choices": [
     {
@@ -2720,7 +2720,7 @@
    "text": [
     {
      "first": true,
-     "text": "Dame Isaline Veillon ne lève pas la tête quand tu t'approches. Elle prend un écu dans une pile, le laisse tomber sur la plaque de marbre, écoute, le pose sur un des deux plateaux de sa balance, regarde l'aiguille, le range. Puis un autre. Elle a des mains brunes, sèches, très précises, et des lunettes rondes qui lui grossissent les yeux."
+     "text": "Dame Isaline Veillon garde la tête baissée quand tu t'approches. Elle prend un écu dans une pile, le laisse tomber sur la plaque de marbre, écoute, le pose sur l'un des deux plateaux de sa balance, regarde l'aiguille et le range. Puis elle en prend un autre. Elle a des mains brunes, sèches, très précises, et des lunettes rondes qui lui grossissent les yeux."
     },
     {
      "first": true,
@@ -2783,8 +2783,8 @@
     }
    },
    "text": [
-    "Dame Veillon prend un écu d'Orbeval dans une pile, un autre dans une boîte de fer à part, plus vieux, la tranche usée. Elle les laisse tomber l'un après l'autre sur le marbre.",
-    "Le vieux sonne clair, longtemps, comme un petit grelot. Le neuf sonne aussi, mais plus court, et plus bas. Un son mat, comme une cuillère sur une assiette fêlée.",
+    "Dame Veillon prend un écu d'Orbeval dans une pile, et un autre, plus vieux, la tranche usée, dans une boîte de fer à part. Elle les laisse tomber l'un après l'autre sur le marbre.",
+    "Le vieux sonne clair, longtemps, comme un petit grelot. Le neuf sonne aussi, mais plus court et plus bas, d'un son mat de cuillère sur une assiette fêlée.",
     "« Tu entends ? Les écus d'Orbeval pèsent juste. Je les pèse, ils pèsent juste. Mais ceux des dix dernières années sonnent mat. Il y a moins d'argent dedans qu'on ne le dit, et plus de cuivre. Pas beaucoup. Un rien par pièce. Mais multiplie ce rien par deux mille écus par semaine, pendant dix ans. » Elle range les deux pièces. « Je ne suis pas la seule à le savoir. Je suis la seule à le dire. Personne ne m'écoute : je suis une vieille femme, et je suis changeuse, et les changeurs disent toujours du mal de la monnaie des autres. »",
     "Elle se penche. « Celui qui dit si les écus sont bons, à la Monnaie, c'est l'essayeur-juré. Il signe chaque fonte. Il était mort, ce matin-là. Moi, je n'en tire rien. Je te le dis, c'est tout. »"
    ],
@@ -2803,7 +2803,7 @@
     "clue": "m_isaline_hugon"
    },
    "text": [
-    "Dame Veillon repose ses lunettes sur son nez et réfléchit, en regardant le fleuve entre deux maisons.",
+    "Dame Veillon remonte ses lunettes sur son nez et réfléchit, en regardant le fleuve entre deux maisons.",
     "« La nuit de la fête, je tenais la table de Chandelle à la Lanterne Sourde, comme tous les soirs. Le petit Maupas est venu s'asseoir à dix heures. Il a perdu trois sous contre moi, de dix heures à onze heures passées. Il jouait mal. Il regardait la porte, tout le temps, comme quelqu'un qui attend, ou qui a peur qu'on entre. »",
     "« À onze heures et demie, il est parti. Où, je n'en sais rien. Après, je ne l'ai plus vu jusqu'au matin, sur mon comptoir. »",
     "Elle hausse les épaules. « Les échevins ne m'ont rien demandé. Ils ne demandent jamais rien aux changeuses, sauf de leur prêter de l'argent. »"
@@ -2822,7 +2822,7 @@
     }
    },
    "text": [
-    "Dame Veillon prend la feuille de Théophane, l'approche de ses lunettes, et la lit lentement, une ligne après l'autre, en remuant les lèvres. Elle se tait longtemps.",
+    "Dame Veillon prend la feuille de Théophane, l'approche de ses lunettes et la lit lentement, une ligne après l'autre, en remuant les lèvres. Puis elle se tait longtemps.",
     "« Celui qui a écrit ça sait compter, dit-elle enfin. Ici, le titre du registre : onze deniers d'argent fin sur douze. Là, l'autre chiffre, le vrai, celui qu'il a trouvé en refaisant l'essai lui-même : dix deniers et demi. Un demi-denier sur chaque écu. » Elle pose la feuille sur le marbre et l'aplatit de la paume. « Deux mille écus par semaine. Dix ans. Tu sais combien ça fait, d'argent ? Assez pour acheter ce pont, avec ses maisons. »",
     "« *Tous les jeudis. Toujours lui.* » Elle relit la marge à voix basse. « Les fontes se font le jeudi, à la Monnaie. Et le jeudi, c'est l'essayeur-juré qui fait l'essai et qui signe. » Elle te rend la feuille. « Moi, je ne tire rien de rien. »",
     "Puis, comme tu t'en vas, sans lever les yeux de sa balance : « Si on me le demande, à l'Échevinage, je dirai ce que j'ai pesé. Devant tout le monde. Il serait temps. »"
@@ -2843,11 +2843,11 @@
    "text": [
     {
      "first": true,
-     "text": "La boutique de Maître Faverge est si étroite qu'on y entre de côté. Un établi sous la fenêtre, des burins rangés par taille, un petit fourneau, une odeur de cire chaude et de borax. Le vieil orfèvre a une loupe vissée à l'œil, et il ne l'enlève pas pour te parler."
+     "text": "La boutique de Maître Faverge est si étroite qu'on y entre de côté. Elle contient un établi sous la fenêtre, des burins rangés par taille, un petit fourneau, et une odeur de cire chaude et de borax. Le vieil orfèvre a une loupe vissée à l'œil, et il la garde pour te parler."
     },
     {
      "again": true,
-     "text": "Maître Faverge, sa loupe, son établi. « Encore des questions ? Pose-les vite, l'or refroidit. »"
+     "text": "Maître Faverge lève à peine sa loupe de l'établi. « Encore des questions ? Pose-les vite, l'or refroidit. »"
     },
     {
      "first": true,
@@ -2878,7 +2878,7 @@
     "clue": "m_doigt_theo"
    },
    "text": [
-    "Maître Faverge enlève enfin sa loupe. Il a un œil plus petit que l'autre, à force.",
+    "Maître Faverge enlève enfin sa loupe. À force de s'en servir, il a un œil plus petit que l'autre.",
     "« Le petit Lescot ? Il a été mon apprenti. De onze à quinze ans. Doué. Les mains un peu tremblantes, il se rongeait les ongles, je le grondais. À quinze ans, il est tombé d'une charrette, la veille de la Saint-Éloi, il s'est cassé le petit doigt de la main droite. Le rebouteux l'a mal remis. Après ça, il ne tenait plus le burin fin. » Il hausse les épaules. « Un orfèvre sans petit doigt, c'est un charpentier. Je l'ai recommandé à Ombreuil, pour l'Essai : là, on pèse, on fond, on écrit des chiffres. Pas besoin de petits doigts pour ça. »",
     "« Un voleur, lui ? » Il remet sa loupe. « Il comptait les pièces de sa paie deux fois pour être sûr qu'on ne lui en avait pas donné une de trop. »"
    ]
@@ -2893,9 +2893,9 @@
     "clue": "m_doigt_theo"
    },
    "text": [
-    "Maître Faverge écoute, puis il enlève sa loupe, lentement, et il la pose sur l'établi, à côté de la bague en cours. Il regarde ses propres mains.",
+    "Maître Faverge écoute, puis il enlève lentement sa loupe et la pose sur l'établi, à côté de la bague en cours. Il regarde ses propres mains.",
     "« Les ongles rongés. Et le petit doigt de la main droite, tordu, mal ressoudé. » Il ne te regarde pas. « J'ai eu un apprenti comme ça, autrefois. Le petit Lescot. Il est tombé d'une charrette à quinze ans. »",
-    "Il se tait. Il reprend sa loupe, ne la remet pas. Dans la boutique voisine, quelqu'un fait sonner une balance.",
+    "Il se tait. Il reprend sa loupe et la garde à la main. Dans la boutique voisine, quelqu'un fait sonner une balance.",
     "« Ombreuil, lui, il avait des mains sans un défaut, dit-il enfin. Sans un défaut. »"
    ]
   },
@@ -2925,11 +2925,11 @@
    "text": [
     {
      "first": true,
-     "text": "La porte d'eau de la Maison de l'Essai est une porte basse, ferrée, au ras du quai, par où l'on faisait entrer autrefois le bois et le charbon des fourneaux en barque. Elle ouvre sur trois marches qui descendent dans le canal. Une chaîne la ferme, passée dans deux anneaux et tenue par un cadenas."
+     "text": "La porte d'eau de la Maison de l'Essai est une porte basse et ferrée, au ras du quai, par où l'on faisait autrefois entrer en barque le bois et le charbon des fourneaux. Elle ouvre sur trois marches qui descendent dans le canal. Une chaîne la ferme, passée dans deux anneaux et tenue par un cadenas."
     },
     {
      "again": true,
-     "text": "La porte d'eau, ses trois marches, la chaîne et le cadenas."
+     "text": "Tu retrouves la porte d'eau, ses trois marches, la chaîne et le cadenas."
     },
     "La chaîne est rouillée sur toute sa longueur, d'un brun sale, écailleux. Sauf trois maillons, au milieu, qui brillent : frottés de frais, comme si on avait tiré dessus il y a peu, fort, et souvent.",
     {
@@ -2958,9 +2958,9 @@
    "place": "orfevres",
    "back": true,
    "text": [
-    "Tu t'accroupis dans la vase. Tu mesures la largeur de la roue avec ton pouce, la profondeur avec ton doigt. Tu suis la trace de la porte jusqu'à la dernière marche : elle descend droit dans l'eau, s'arrête au bord, puis repart, plus légère, en biais, jusqu'à la porte.",
+    "Tu t'accroupis dans la vase. Tu mesures la largeur de la roue avec ton pouce, et la profondeur avec ton doigt. Tu suis la trace de la porte jusqu'à la dernière marche : elle descend droit dans l'eau, s'arrête au bord, puis repart, plus légère, en biais, jusqu'à la porte.",
     "Quelqu'un a sorti de la Maison de l'Essai quelque chose de lourd, par la porte d'eau, de nuit, en brouette. Et l'a laissé au canal.",
-    "Au-dessus de toi, le ciel s'est encore assombri. Les premières gouttes tombent sur le quai, larges et espacées."
+    "Au-dessus de toi, le ciel s'est encore assombri, et les premières gouttes tombent sur le quai, larges et espacées."
    ]
   },
   "O_surpris": {
@@ -2975,8 +2975,8 @@
     "pv": -2
    },
    "text": [
-    "Le cadenas cède avec un bruit qui te semble énorme dans le silence du quai. Tu pousses la porte. Une marche, deux. Et une lumière, en haut de l'escalier intérieur, une servante en chemise de nuit avec une chandelle, qui hurle comme si tu étais le diable en personne.",
-    "Tu ressors à reculons, tu glisses sur les marches mouillées, tu te cognes l'épaule contre le chambranle. Le garde de la Monnaie arrive en courant, sa hallebarde en travers. Tu files le long du canal sans demander ton reste.",
+    "Le cadenas cède avec un bruit qui te semble énorme dans le silence du quai. Tu pousses la porte, tu montes une marche, puis deux. Une lumière paraît en haut de l'escalier intérieur : une servante en chemise de nuit, une chandelle à la main, qui hurle comme si tu étais le diable en personne.",
+    "Tu ressors à reculons, tu glisses sur les marches mouillées et tu te cognes l'épaule contre le chambranle. Le garde de la Monnaie arrive en courant, sa hallebarde en travers, et tu files le long du canal sans demander ton reste.",
     "Demain, toute la Maison de l'Essai saura qu'on a voulu entrer chez la veuve, la nuit. Et elle saura sans doute qui."
    ],
    "choices": [
@@ -3005,12 +3005,12 @@
     },
     {
      "via": "P_sibylle",
-     "text": "Dame Ombreuil ouvre elle-même la porte de la salle des essais avec une clé qu'elle porte à la ceinture. Elle ne te suit pas à l'intérieur. « Ne touchez à rien qui brûle », dit-elle, et elle referme derrière toi."
+     "text": "Dame Ombreuil ouvre elle-même la porte de la salle des essais, avec une clé qu'elle porte à la ceinture, et reste sur le seuil. « Ne touchez à rien qui brûle », dit-elle, et elle referme derrière toi."
     },
-    "La salle des essais est une longue pièce voûtée, au rez-de-chaussée. Un fourneau de briques à soufflet, éteint, froid. Des creusets, des pinces, des coupelles d'os calciné rangées sur une étagère. Une grande table de chêne, impeccable. Et sous un globe de verre, la balance d'essai, si fine qu'on dit qu'elle pèse un cheveu.",
+    "La salle des essais est une longue pièce voûtée, au rez-de-chaussée. Tu y relèves un fourneau de briques à soufflet, éteint et froid ; des creusets, des pinces, des coupelles d'os calciné rangées sur une étagère ; une grande table de chêne, impeccable ; et sous un globe de verre, la balance d'essai, si fine qu'on dit qu'elle pèse un cheveu.",
     "Sur la table, rangé au carré, le registre des essais : un gros livre relié de cuir, de la main de l'essayeur. Tu l'ouvres. Une écriture penchée, serrée, régulière, sans une rature. Fonte après fonte, dix ans durant : le nombre d'écus, le titre essayé, *conforme*, la signature. Tu recopies une page, en suivant les lettres de ton mieux.",
     "Dans un coin, contre le mur, un coffret de chêne ouvert, doublé de velours vert : les poids de laiton de l'Essai, du plus petit, gros comme une lentille, au plus lourd. Il y a un logement vide. Le plus grand, au bout de la rangée : un cube, à en juger par la forme du creux, de la taille d'un poing. Le reste du coffret est poussiéreux. Le logement vide, lui, est propre, et sent le vinaigre.",
-    "Le sol de dalles a été lavé. Tout le sol. Il est encore plus propre que la table.",
+    "Le sol de dalles a été lavé, tout entier, et il est encore plus propre que la table.",
     {
      "second": true,
      "text": "Sous la table, contre un pied, quelque chose a échappé au seau et à la brosse : un bouton de corne, arraché, avec un bout de fil brun. L'essayeur ne portait que du gris."
@@ -3031,17 +3031,17 @@
      "if": {
       "place": "orfevres"
      },
-     "text": "Une servante aux yeux rouges te fait entrer dans un salon aux volets clos, où brûlent quatre chandelles, même en plein jour. Au-dessus de la cheminée, un grand portrait : un homme assis, en robe grise, les mains posées sur une balance. Au-dessous, droite sur une chaise à dossier haut, une femme en noir t'attend sans se lever."
+     "text": "Une servante aux yeux rouges te fait entrer dans un salon aux volets clos, où brûlent quatre chandelles en plein jour. Au-dessus de la cheminée est accroché un grand portrait : un homme assis, en robe grise, les mains posées sur une balance. Au-dessous, droite sur une chaise à dossier haut, une femme en noir t'attend sans se lever."
     },
     {
      "if": {
       "place": "haute"
      },
-     "text": "La chapelle de l'Hôtel-Dieu est froide et sent la cire. Devant l'autel, sur deux tréteaux, une bière fermée sous un drap noir brodé d'argent. Une femme en noir veille, seule, droite sur sa chaise. Elle tourne à peine la tête quand tu t'assieds au bout de son banc."
+     "text": "La chapelle de l'Hôtel-Dieu est froide et sent la cire. Devant l'autel, sur deux tréteaux, repose une bière fermée sous un drap noir brodé d'argent. Une femme en noir veille, seule, droite sur sa chaise. Elle tourne à peine la tête quand tu t'assieds au bout de son banc."
     },
     {
      "first": true,
-     "text": "Dame Sibylle Ombreuil a quarante-cinq ans, un visage long et pâle, des cheveux blonds tirés en un chignon si serré qu'il lui relève les sourcils. Elle a les yeux secs, et le visage d'une femme qui les a toujours eus secs."
+     "text": "Dame Sibylle Ombreuil a quarante-cinq ans, un visage long et pâle, et des cheveux blonds tirés en un chignon si serré qu'il lui relève les sourcils. Elle a les yeux secs, et le visage d'une femme qui les a toujours eus secs."
     },
     {
      "regard": {
@@ -3078,11 +3078,11 @@
     },
     {
      "first": true,
-     "text": "Elle parle comme on récite. Elle regarde le mur, ou le portrait, ou la bière : pas toi."
+     "text": "Elle parle comme on récite, les yeux sur le mur, sur le portrait ou sur la bière, et jamais sur toi."
     },
     {
      "again": true,
-     "text": "Elle attend que tu parles, les mains croisées sur sa robe noire. Elle ne t'aidera pas à commencer."
+     "text": "Elle attend que tu parles, les mains croisées sur sa robe noire, et elle te laisse le soin de commencer."
     },
     {
      "first": true,
@@ -3197,7 +3197,7 @@
    "text": [
     "Quelque chose passe sur son visage, et s'en va aussitôt.",
     "« Vous l'avez vu ? Moi, on me l'a montré. Il avait passé la nuit contre les portes d'une écluse. Je l'ai reconnu à son manteau. Je n'avais pas besoin de voir le reste. Je n'ai pas *voulu* voir le reste. Est-ce que c'est un crime, à Orbeval, de ne pas vouloir regarder son mari mort ? »",
-    "Elle se lève. L'entretien est fini."
+    "Elle se lève, et l'entretien est fini."
    ]
   },
   "P_sibylle_portrait": {
@@ -3207,8 +3207,8 @@
    "montrer": "sibylle",
    "back": true,
    "text": [
-    "Le portrait est bien peint, par quelqu'un qui savait son métier et qu'on a bien payé. Gaspard Ombreuil y est assis dans un fauteuil à bras, en robe grise d'officier de la Monnaie. Un homme grand, même assis, et un peu voûté, comme les gens qui passent leur vie penchés sur une table. Le front haut, dégarni. Une barbe grise taillée court, carrée. Un grain de beauté sous l'œil gauche, que le peintre n'a pas osé effacer.",
-    "Ses mains sont posées sur une balance d'essai, très en lumière, longues, blanches, les ongles en amande. À l'annulaire gauche, une bague d'or rouge. Le peintre a mis plus de soin aux mains qu'au visage.",
+    "Le portrait est bien peint, par quelqu'un qui savait son métier et qu'on a bien payé. Gaspard Ombreuil y est assis dans un fauteuil à bras, en robe grise d'officier de la Monnaie. C'est un homme grand, même assis, et un peu voûté, comme les gens qui passent leur vie penchés sur une table. Il a le front haut et dégarni, une barbe grise taillée court et carrée, et sous l'œil gauche un grain de beauté que le peintre n'a pas osé effacer.",
+    "Ses mains sont posées sur une balance d'essai, en pleine lumière : longues, blanches, les ongles en amande. À l'annulaire gauche, il porte une bague d'or rouge. Le peintre a mis plus de soin aux mains qu'au visage.",
     "« Il l'a fait faire pour ses vingt ans de charge, dit Dame Ombreuil derrière toi. Il trouvait que le peintre l'avait vieilli. »"
    ]
   },
@@ -3227,7 +3227,7 @@
     "Tu lui dis ce que tu sais des mains du noyé.",
     "Elle devient blanche. Pas pâle : blanche, d'un coup, comme une chandelle. Ses mains à elle se serrent l'une contre l'autre sur ses genoux.",
     "« Je n'ai pas regardé ses mains. Je vous l'ai dit. Je n'ai rien regardé. » Elle respire. « Il y avait beaucoup de monde dans cette salle, et l'odeur, et la sergente qui me pressait. J'ai vu le manteau. J'ai dit oui. »",
-    "Elle se tait, et toi aussi, et dans le silence tu entends sa respiration, courte, comme celle de quelqu'un qui vient de monter un escalier trop vite.",
+    "Elle se tait, et toi aussi. Dans le silence, tu entends sa respiration, courte, comme celle de quelqu'un qui vient de monter un escalier trop vite.",
     "« Allez-vous-en, dit-elle. S'il vous plaît. »"
    ]
   },
@@ -3267,7 +3267,7 @@
    "text": [
     {
      "first": true,
-     "text": "Oriane Ombreuil te reçoit dans l'escalier, parce que sa mère ne veut personne au salon. Elle a dix-huit ans, des tresses noires, une robe de deuil trop grande, empruntée, qui lui tombe des épaules. Elle s'assied sur une marche, les genoux serrés, et toi deux marches plus bas."
+     "text": "Oriane Ombreuil te reçoit dans l'escalier, parce que sa mère refuse toute visite au salon. Elle a dix-huit ans, des tresses noires, et une robe de deuil empruntée, trop grande, qui lui tombe des épaules. Elle s'assied sur une marche, les genoux serrés, et toi deux marches plus bas."
     },
     {
      "again": true,
@@ -3367,7 +3367,7 @@
    "montrer": "oriane",
    "back": true,
    "text": [
-    "Elle baisse la tête. Ses doigts tirent sur un fil de sa manche.",
+    "Elle baisse la tête, et ses doigts tirent sur un fil de sa manche.",
     "« Il ne dira rien. Il est comme ça. Quand il a peur, il se tait, et plus il a peur, plus il se tait. » Elle tire le fil, qui casse. « Mon père disait que c'était un sournois. On l'a fait taire toute sa vie, alors les mots lui manquent. »",
     "« On devait partir, dit-elle tout à coup, très vite, comme on saute dans l'eau froide. La nuit de la fête. Tous les deux. À Basse-Aune, et plus loin. Il avait une place sur une barge de sel. Je devais le retrouver au pont des Lavandières, à une heure. »",
     "Elle relève les yeux. « Et il n'est pas venu. Pas à une heure. »"
@@ -3426,7 +3426,7 @@
     "Elle te regarde comme si tu venais de parler une langue étrangère.",
     "« C'est impossible, dit-elle. C'est impossible, parce qu'à une heure et demie je l'ai vu. Mon père. Du pont des Lavandières, où j'attendais Hugon. Il a traversé le quai des Tanneurs, de l'autre côté du canal, sous la lanterne de la rue des Cuves. Sa capuche grise, sa démarche, voûté, les mains dans les manches. Il venait de chez la mère Garnaude. Il ne m'a pas vue : je me suis cachée derrière la pile du pont. »",
     "« Hugon est arrivé à deux heures, trempé jusqu'aux genoux, blanc comme un linge. Il n'a rien voulu dire. Rien. Et le matin, on a trouvé père dans l'écluse, et Hugon avait sa bague. » Sa voix se casse. « Alors j'ai cru que… entre une heure et demie et deux heures… J'ai cru que Hugon l'avait suivi, et… »",
-    "Elle se tait. Elle te regarde. Et tu vois dans ses yeux qu'elle compte, elle aussi, les heures, et qu'elle n'arrive pas au bout du compte."
+    "Elle se tait et te regarde. Tu vois dans ses yeux qu'elle compte les heures, elle aussi, et que le compte lui échappe."
    ]
   },
   "P_oriane_voix": {
@@ -3442,7 +3442,7 @@
    },
    "text": [
     "Tu lui dis où était Hugon à dix heures : à la Lanterne Sourde, à perdre trois sous à la Chandelle contre une vieille changeuse qui s'en souvient très bien.",
-    "Oriane se tait. Elle porte la main à sa bouche. Puis elle se met à pleurer, en silence, à visage découvert, les yeux grands ouverts, comme on pose enfin un fardeau porté trop longtemps.",
+    "Oriane se tait et porte la main à sa bouche. Puis elle se met à pleurer, en silence, à visage découvert, les yeux grands ouverts, comme on pose enfin un fardeau porté trop longtemps.",
     "« Ce n'était pas lui, dit-elle. Dans la salle des essais. Ce n'était pas lui. »",
     "Elle s'essuie le visage d'un revers de manche. « Alors qui ? »"
    ]
@@ -3453,9 +3453,9 @@
    "montrer": "oriane",
    "back": true,
    "text": [
-    "Oriane prend la lettre d'adieu, la lit, une fois, deux fois. Elle fronce les sourcils.",
+    "Oriane prend la lettre d'adieu et la lit une fois, puis deux. Elle fronce les sourcils.",
     "« Théophane écrivait comme un écolier, dit-elle lentement. Tout rond, tout droit, en appuyant. Il me faisait ses comptes de couture quand j'étais petite, avec des lettres comme des pommes. Ça… ça penche. Ça serre. On dirait… »",
-    "Elle s'arrête. Elle te rend la lettre, vite, comme si elle brûlait.",
+    "Elle s'arrête, et te rend la lettre vite, comme si elle brûlait.",
     "« Non. Rien. Je ne sais pas. Les gens écrivent autrement quand ils ont peur. »"
    ]
   },
@@ -3474,17 +3474,17 @@
      "if": {
       "place": "orfevres"
      },
-     "text": "On te fait attendre une heure dans un vestibule de pierre nue, entre deux gardes qui ne te regardent pas. Puis on t'introduit dans un bureau aux murs couverts de registres, où un homme d'une cinquantaine d'années signe des papiers sans s'arrêter."
+     "text": "On te fait attendre une heure dans un vestibule de pierre nue, entre deux gardes qui regardent droit devant eux. Puis on t'introduit dans un bureau aux murs couverts de registres, où un homme d'une cinquantaine d'années signe des papiers à la chaîne."
     },
     {
      "if": {
       "place": "haute"
      },
-     "text": "À l'Échevinage, tu attrapes Malestroit entre deux portes, dans une galerie où des clercs courent avec des liasses. Il s'arrête, parce qu'il y a du monde et qu'un homme qui va être réélu ne bouscule personne en public."
+     "text": "À l'Échevinage, tu attrapes Malestroit entre deux portes, dans une galerie où des clercs courent avec des liasses. Il s'arrête, parce qu'il y a du monde et qu'un homme qui veut être réélu évite de bousculer les gens en public."
     },
     {
      "first": true,
-     "text": "Évrard Malestroit a des cheveux noirs, sans doute teints, une moustache impeccable, un visage carré, rasé de frais, et la voix basse d'un homme obéi depuis vingt ans."
+     "text": "Évrard Malestroit a des cheveux noirs, sans doute teints, une moustache impeccable, un visage carré rasé de frais, et la voix basse d'un homme obéi depuis vingt ans."
     },
     {
      "regard": {
@@ -3532,7 +3532,7 @@
    "montrer": "malestroit",
    "back": true,
    "text": [
-    "Un valet en livrée t'ouvre, te regarde, referme la porte, et la rouvre dix minutes plus tard. Malestroit te reçoit dans une bibliothèque où brûle un grand feu. Il est en robe de chambre, un verre à la main, et il a l'air beaucoup plus vieux que le matin.",
+    "Un valet en livrée t'ouvre, te regarde, referme la porte, et la rouvre dix minutes plus tard. Malestroit te reçoit dans une bibliothèque où brûle un grand feu. Il est en robe de chambre, un verre à la main, et paraît beaucoup plus vieux que le matin.",
     {
      "regard": {
       "malestroit": "hostile"
@@ -3558,7 +3558,7 @@
    },
    "text": [
     "Tu lui dis ce qu'a vu Brisson : le banquet quitté avant onze heures, le retour vers minuit, les souliers mouillés.",
-    "Malestroit te regarde longtemps, comme on évalue un adversaire au jeu de dames, et il décide que la partie est perdue, ou que tu es trop petit pour elle.",
+    "Malestroit te regarde longtemps, comme on évalue un adversaire au jeu de dames, et il décide que la partie est perdue, ou que tu pèses trop peu pour qu'elle compte.",
     "« Lescot m'a fait porter un billet, la veille de la fête. » Il sort de son pourpoint un petit papier plié, usé aux pliures, et te le met dans la main. « Lisez. Je sais d'où vient l'argent qui manque. Onze heures, à la Monnaie. Je suis allé au rendez-vous. Avec cent écus, dans une bourse. »",
     "« Oui. Pour qu'il se taise. Je savais depuis un an que les écus étaient légers. Je savais qu'on volait à la fonte. Je ne savais pas qui. Je ne voulais pas le savoir, pas avant les élections : un maître de la Monnaie sous qui l'on a volé dix ans n'est pas réélu, on le pend en effigie. J'aurais fait ce qu'il fallait, après. » Il hausse les épaules. « Cela vous dégoûte. Vous n'avez jamais été réélu{e}. »",
     "« Il n'est jamais venu. J'ai attendu une demi-heure dans la cour de la Monnaie, avec ma bourse, comme un imbécile. À onze heures et quart, il y avait de la lumière en face, à la Maison de l'Essai, au rez-de-chaussée, dans la salle des essais. Elle s'est éteinte un peu après. J'ai cru que Lescot était là-bas, chez son maître, à se donner du courage, ou à se faire acheter par un autre. Je suis rentré au banquet. J'avais marché dans le caniveau. »",
@@ -3578,10 +3578,10 @@
     "pv": -2
    },
    "text": [
-    "Malestroit lit. Son visage reste de pierre, sauf un petit muscle, au coin de la mâchoire, qui se serre et se desserre.",
-    "« Qui vous a donné ça ? » Il n'attend pas la réponse. Il sonne. Deux hommes entrent, plus grands que les gardes de la porte, sans livrée.",
+    "Malestroit lit. Son visage reste de pierre, sauf un petit muscle au coin de la mâchoire, qui se serre et se desserre.",
+    "« Qui vous a donné ça ? » Il coupe court à ta réponse et sonne. Deux hommes entrent, plus grands que les gardes de la porte, et sans livrée.",
     "« Raccompagnez. »",
-    "Ils te raccompagnent. Dans l'escalier, l'un d'eux te pousse, et tu rates trois marches. En bas, sur le quai, l'autre te dit à l'oreille, gentiment, que l'eau des canaux est froide en cette saison, et que des gens y tombent tous les jours."
+    "Ils te raccompagnent. Dans l'escalier, l'un d'eux te pousse, et tu rates trois marches. En bas, sur le quai, l'autre te dit gentiment à l'oreille que l'eau des canaux est froide en cette saison, et que des gens y tombent tous les jours."
    ]
   },
   "P_malestroit_manche": {
@@ -3590,7 +3590,7 @@
    "montrer": "malestroit",
    "back": true,
    "text": [
-    "Pour la première fois, Malestroit rit. Un vrai rire, bref, presque joyeux.",
+    "Pour la première fois, Malestroit rit, d'un vrai rire, bref, presque joyeux.",
     "« Du sang sur ma manche ? Du vin. Du vin de Bourgonne, renversé sur moi par l'échevin Brisson, qui me déteste et qui tient mal son verre. C'est lui qui le raconte partout, j'imagine ? Il raconte qu'il a vu le diable, aussi, une fois, derrière l'Échevinage. Demandez-lui. »"
    ]
   },
@@ -3607,17 +3607,17 @@
    "text": [
     {
      "first": true,
-     "text": "La Lanterne Sourde est une salle longue et basse, à moitié enterrée : on y descend par quatre marches, et les fenêtres sont au ras des pavés. Des bancs, des tables tachées, une cheminée où cuit une marmite de fèves. Le patron, un grand roux aux bras couverts de brûlures de chaux, sert lui-même. Au fond, sous une lanterne, une table ronde est réservée au jeu de Chandelle."
+     "text": "La Lanterne Sourde est une salle longue et basse, à moitié enterrée : on y descend par quatre marches, et les fenêtres sont au ras des pavés. Elle contient des bancs, des tables tachées, et une cheminée où cuit une marmite de fèves. Le patron, un grand roux aux bras couverts de brûlures de chaux, sert lui-même. Au fond, sous une lanterne, une table ronde est réservée au jeu de Chandelle."
     },
     {
      "again": true,
      "when": "day",
-     "text": "La Lanterne Sourde, à cette heure, est presque vide : deux tanneurs qui mangent leurs fèves, le patron qui rince ses pots."
+     "text": "À cette heure, la Lanterne Sourde est presque vide : deux tanneurs mangent leurs fèves, et le patron rince ses pots."
     },
     {
      "again": true,
      "when": "night",
-     "text": "La Lanterne Sourde est pleine. On chante, on joue, on se dispute ; la fumée de la cheminée descend jusqu'aux tables."
+     "text": "La Lanterne Sourde est pleine. On chante, on joue, on se dispute, et la fumée de la cheminée descend jusqu'aux tables."
     }
    ],
    "choices": [
@@ -3661,7 +3661,7 @@
    "text": [
     {
      "first": true,
-     "text": "Dame Isaline Veillon tient la table de Chandelle de la Lanterne Sourde comme elle tient son comptoir : droite, précise, économe de ses mots. Elle a ôté ses lunettes ; ses yeux, sans elles, sont petits et très noirs. Devant elle, une pile de sous, un gobelet de cuir, un dé."
+     "text": "Dame Isaline Veillon tient la table de Chandelle de la Lanterne Sourde comme elle tient son comptoir : droite, précise, économe de ses mots. Elle a ôté ses lunettes, et ses yeux, sans elles, sont petits et très noirs. Devant elle sont posés une pile de sous, un gobelet de cuir et un dé."
     },
     {
      "again": true,
@@ -3700,7 +3700,7 @@
    "text": [
     {
      "first": true,
-     "text": "Barthe a soixante ans, les jambes arquées, une barbe blanche jaunie par la pipe, et des mains qui ont tiré des chaînes toute leur vie. Il garde l'écluse des Tanneurs depuis quarante ans ; il y est né, dans la petite maison de pierre accrochée à la porte d'amont."
+     "text": "Barthe a soixante ans, les jambes arquées, une barbe blanche jaunie par la pipe, et des mains qui ont tiré des chaînes toute leur vie. Il garde l'écluse des Tanneurs depuis quarante ans ; il est né dans la petite maison de pierre accrochée à la porte d'amont."
     },
     {
      "again": true,
@@ -3713,7 +3713,7 @@
        "allie"
       ]
      },
-     "text": "Il te tend sa blague à tabac. C'est, chez lui, une grande marque d'amitié."
+     "text": "Il te tend sa blague à tabac, ce qui est, chez lui, une grande marque d'amitié."
     },
     {
      "first": true,
@@ -3776,10 +3776,10 @@
     "clue": "m_chaine"
    },
    "text": [
-    "Barthe tire sur sa pipe éteinte, et il regarde le canal vers l'amont, vers les Orfèvres, où les maisons blanches se perdent dans la brume.",
+    "Barthe tire sur sa pipe éteinte et regarde le canal vers l'amont, vers les Orfèvres, où les maisons blanches se perdent dans la brume.",
     "« Une chaîne, dit-il. Vers minuit moins le quart. Je fumais sur le pas de ma porte, en attendant les dernières barques. J'ai entendu une chaîne grincer, là-haut, du côté des Orfèvres. Une porte d'eau qu'on ouvre. C'est un bruit que je connais : j'en ai ouvert toute ma vie. Ça porte, sur l'eau, la nuit. On l'entend de loin comme si c'était à côté. »",
     "« Après, un peu après, un *plouf*. Un gros. Je me suis dit : un tonneau, des ordures, une bêtise de fête. Les gens jettent n'importe quoi à l'eau, la nuit des Lanternes. »",
-    "Il se tait. Il regarde ses portes. « Je l'ai dit à personne. On m'a rien demandé. »"
+    "Il se tait et regarde ses portes. « Je l'ai dit à personne. On m'a rien demandé. »"
    ]
   },
   "P_garnaude": {
@@ -3795,11 +3795,11 @@
    "text": [
     {
      "first": true,
-     "text": "La mère Garnaude loue trois chambres au-dessus d'une boutique de cordier fermée depuis longtemps. Elle est petite, ronde, très vieille, et elle parle sans s'arrêter, en battant son tapis, ou en pliant du linge, ou en épluchant des raves : ses mains ne se reposent jamais."
+     "text": "La mère Garnaude loue trois chambres au-dessus d'une boutique de cordier fermée depuis longtemps. Elle est petite, ronde, très vieille, et elle parle sans arrêt en battant son tapis, en pliant du linge ou en épluchant des raves : ses mains travaillent toujours."
     },
     {
      "again": true,
-     "text": "La mère Garnaude, son tapis, ses raves. « Ah, c'est vous. Entrez, entrez, il fait froid sur le pas. »"
+     "text": "La mère Garnaude lâche ses raves en te voyant. « Ah, c'est vous. Entrez, entrez, il fait froid sur le pas. »"
     },
     {
      "if": {
@@ -3808,7 +3808,7 @@
        "max": 1
       }
      },
-     "text": "Sur la table, un balluchon bien ficelé. « Je pars demain matin chez ma sœur, à Vieux-Gué. Je ne reste pas dans une maison où l'on vient la nuit chercher les affaires d'un garçon qui s'est enfui. Ça porte malheur. »"
+     "text": "Sur la table attend un balluchon bien ficelé. « Je pars demain matin chez ma sœur, à Vieux-Gué. Je ne reste pas dans une maison où l'on vient la nuit chercher les affaires d'un garçon qui s'est enfui. Ça porte malheur. »"
     },
     {
      "if": {
@@ -3816,7 +3816,7 @@
        "min": 2
       }
      },
-     "text": "Le balluchon est près de la porte. Une charrette attend dans la rue. « Je m'en vais, je m'en vais. Vous avez de la chance de m'attraper. »"
+     "text": "Le balluchon est près de la porte, et une charrette attend dans la rue. « Je m'en vais, je m'en vais. Vous avez de la chance de m'attraper. »"
     },
     {
      "first": true,
@@ -3850,9 +3850,9 @@
    "place": "tanneurs",
    "back": true,
    "text": [
-    "La chambre est sous le toit, si basse qu'on ne s'y tient debout qu'au milieu. Un lit étroit, une table, une chaise, une planche fixée au mur en guise d'étagère. Une lucarne sur le canal. Tout est propre et nu.",
-    "Le coffre au pied du lit est ouvert, vide. Le sac de voyage et les habits sont partis. Mais sur la planche, au-dessus du lit, il reste un rasoir, dans son étui de cuir, un peigne d'os, et un petit portrait de femme peint sur bois, grand comme la main, dans un cadre de cuivre. « Sa mère, dit la mère Garnaude derrière toi. Morte quand il avait dix ans. Il lui disait bonsoir, le soir. Je l'entendais à travers le plancher. »",
-    "La mère Garnaude s'est tue. Elle regarde le portrait aussi."
+    "La chambre est sous le toit, si basse qu'on s'y tient debout au milieu seulement. Elle contient un lit étroit, une table, une chaise, et une planche fixée au mur en guise d'étagère ; une lucarne donne sur le canal. Tout est propre et nu.",
+    "Le coffre au pied du lit est ouvert, et vide : le sac de voyage et les habits sont partis. Sur la planche, au-dessus du lit, il reste pourtant un rasoir dans son étui de cuir, un peigne d'os, et un petit portrait de femme peint sur bois, grand comme la main, dans un cadre de cuivre. « Sa mère, dit la mère Garnaude derrière toi. Morte quand il avait dix ans. Il lui disait bonsoir, le soir. Je l'entendais à travers le plancher. »",
+    "La mère Garnaude s'est tue, et elle regarde le portrait, elle aussi."
    ],
    "choices": [
     {
@@ -3873,7 +3873,7 @@
    "place": "tanneurs",
    "back": true,
    "text": [
-    "Le matelas est une paillasse mince. Dessous, sur les sangles, à plat, une feuille pliée en deux.",
+    "Le matelas est une paillasse mince. Dessous, à plat sur les sangles, tu trouves une feuille pliée en deux.",
     "Ce sont des chiffres. Une écriture ronde, droite, appuyée, d'écolier appliqué. Les fontes de l'année, une par ligne, avec leur date. Pour chacune, deux titres : celui du registre, toujours le même, *onze deniers*, et un autre, plus bas, qui change un peu d'une fonte à l'autre, mais toujours plus bas. *Dix et demi. Dix et demi. Dix, sept grains.*",
     "En marge, d'une encre plus fraîche, souligné deux fois : *Tous les jeudis. Toujours lui.*",
     "La mère Garnaude regarde par-dessus ton épaule. « Je ne sais pas lire, dit-elle. Mais ça, c'est son écriture. Il me faisait mes comptes, le petit. Des lettres comme des pommes. »"
@@ -3899,9 +3899,9 @@
     "clue": "m_doigt_theo"
    },
    "text": [
-    "La mère Garnaude cesse d'éplucher. Le couteau reste en l'air.",
+    "La mère Garnaude cesse d'éplucher, et le couteau reste en l'air.",
     "« Le petit doigt de la main droite ? Tordu ? » Elle pose la rave. « Le petit avait ça. Il était tombé d'une charrette, quand il était chez l'orfèvre. Il me le montrait, pour me faire rire : il le faisait craquer. Et il se rongeait les ongles, je lui disais, tu vas finir par te manger les doigts. »",
-    "Elle te regarde. Elle a compris quelque chose, ou elle a peur de l'avoir compris, et elle fait ce que font les vieilles femmes : elle reprend son couteau, et sa rave, et elle épluche, très vite.",
+    "Elle te regarde. Elle a compris quelque chose, ou elle a peur de l'avoir compris, et elle fait ce que font les vieilles femmes : elle reprend son couteau et sa rave, et elle épluche, très vite.",
     "« Allez-vous-en, dit-elle. Je pars chez ma sœur. Je ne veux rien savoir. »"
    ]
   },
@@ -3917,17 +3917,17 @@
      "if": {
       "place": "haute"
      },
-     "text": "Gervaise Maupas attend au pied de la tour du Guet, son panier sur le bras. On ne la laisse monter qu'à neuf heures ; elle est là depuis six. Elle ne se plaint pas. Elle regarde la porte."
+     "text": "Gervaise Maupas attend au pied de la tour du Guet, son panier sur le bras. On la laisse monter à neuf heures, et elle est là depuis six. Elle garde ses plaintes pour elle, et regarde la porte."
     },
     {
      "if": {
       "place": "tanneurs"
      },
-     "text": "Gervaise Maupas lave le linge des autres dans une cuve, dans sa cour, les bras rouges jusqu'aux coudes. Elle s'essuie les mains à son tablier quand elle te voit, et elle te fait asseoir sur la seule chaise."
+     "text": "Gervaise Maupas lave le linge des autres dans une cuve, au milieu de sa cour, les bras rouges jusqu'aux coudes. Elle s'essuie les mains à son tablier en te voyant, et elle te fait asseoir sur la seule chaise."
     },
     {
      "first": true,
-     "text": "« Alors ? » C'est tout ce qu'elle dit. Elle ne te demande pas si tu as trouvé : elle demande si tu cherches encore."
+     "text": "« Alors ? » C'est tout ce qu'elle dit. Elle laisse de côté la question de ce que tu as trouvé, et demande seulement si tu cherches encore."
     },
     {
      "again": true,
@@ -4009,15 +4009,15 @@
    "text": [
     {
      "first": true,
-     "text": "Le pont des Lavandières n'est qu'une passerelle de planches posée sur le canal, avec une rambarde de corde. En dessous, sur les marches, les lavandières battent le linge et se taisent quand quelqu'un passe. Au milieu de la passerelle, une jeune fille en noir, un panier vide au bras, regarde l'eau couler vers l'écluse."
+     "text": "Le pont des Lavandières est une simple passerelle de planches posée sur le canal, avec une rambarde de corde. En dessous, sur les marches, les lavandières battent le linge et se taisent quand quelqu'un passe. Au milieu de la passerelle, une jeune fille en noir, un panier vide au bras, regarde l'eau couler vers l'écluse."
     },
     {
      "first": true,
-     "text": "Elle a dix-huit ans, des tresses noires, une robe de deuil trop grande. Quand tu t'approches, elle ne s'en va pas. « Vous êtes la personne que la mère de Hugon a engagée, dit-elle. Les lavandières me l'ont dit. Elles disent tout. »"
+     "text": "Elle a dix-huit ans, des tresses noires et une robe de deuil trop grande. Quand tu t'approches, elle reste où elle est. « Vous êtes la personne que la mère de Hugon a engagée, dit-elle. Les lavandières me l'ont dit. Elles disent tout. »"
     },
     {
      "again": true,
-     "text": "Oriane est sur le pont, à sa place, le panier vide au bras. Elle te fait un petit signe de tête."
+     "text": "Oriane est sur le pont, à sa place, le panier vide au bras, et te fait un petit signe de tête."
     },
     "« Je viens ici avec le linge, dit-elle, comme on se justifie. On ne peut pas m'empêcher de porter le linge. »",
     {
@@ -4065,9 +4065,9 @@
    "place": "tanneurs",
    "montrer": "oriane",
    "text": [
-    "Oriane rougit, d'un coup, jusqu'aux oreilles. Elle regarde l'eau, les lavandières, toi.",
+    "Oriane rougit d'un coup, jusqu'aux oreilles. Elle regarde l'eau, les lavandières, puis toi.",
     "« Vous feriez ça ? » Elle fouille dans son panier, n'y trouve rien, cherche dans sa manche. « Je n'ai pas de quoi écrire. Et puis, si on vous fouille… Dites-lui… »",
-    "Elle s'arrête. Elle cherche longtemps, les lèvres serrées.",
+    "Elle s'arrête, et cherche longtemps, les lèvres serrées.",
     "« Dites-lui que j'ai attendu. Jusqu'à quatre heures. Que je n'ai pas cessé d'attendre. Et que je ne lui en veux pas. Il comprendra. »"
    ],
    "choices": [
@@ -4101,7 +4101,7 @@
    "text": [
     "Elle pose les coudes sur la corde de la rambarde.",
     "« C'est ici qu'on se voyait. Le soir, après le linge. Il disait qu'il connaissait tous les bateaux qui passent sous ce pont, et leurs patrons, et où ils vont. Il me les nommait, un par un. Basse-Aune, Vieux-Gué, la mer. Il disait qu'un jour on prendrait l'un d'eux. »",
-    "Elle se tait. Une barge passe sous le pont, chargée de peaux, et le batelier lève la main vers elle, pour la saluer, comme on salue quelqu'un qu'on connaît. Elle lui rend son salut.",
+    "Elle se tait. Une barge chargée de peaux passe sous le pont, et le batelier lève la main vers elle, comme on salue quelqu'un qu'on connaît. Elle lui rend son salut.",
     "« Tout le monde savait, dit-elle. Sauf mon père. Et quand il a su, il est allé à la Lanterne Sourde. » Elle n'en dit pas plus."
    ],
    "choices": [
@@ -4123,13 +4123,13 @@
      "if": {
       "place": "haute"
      },
-     "text": "Le bureau de la sergente Hallard, au premier étage de la tour, est une pièce voûtée où il fait froid même l'été. Un registre ouvert, une chandelle, une épée pendue au mur, et une fenêtre étroite qui donne sur la place."
+     "text": "Le bureau de la sergente Hallard, au premier étage de la tour, est une pièce voûtée où il fait froid même l'été. Tu y vois un registre ouvert, une chandelle, une épée pendue au mur, et une fenêtre étroite qui donne sur la place."
     },
     {
      "if": {
       "place": "tanneurs"
      },
-     "text": "Tu marches à côté de la sergente le long du canal, pendant que ses deux hommes vont devant avec la lanterne. Elle a les mains dans le dos et elle regarde les portes, les fenêtres, les ombres : tout, sauf toi."
+     "text": "Tu marches à côté de la sergente le long du canal, pendant que ses deux hommes vont devant avec la lanterne. Elle a les mains dans le dos, et elle regarde les portes, les fenêtres et les ombres, tout sauf toi."
     },
     {
      "first": true,
@@ -4140,7 +4140,7 @@
     },
     {
      "first": true,
-     "text": "La sergente Hallard a cinquante ans, une cicatrice qui lui tire la bouche vers le bas, et la réputation d'être la seule personne incorruptible du guet. On dit aussi que ses décisions sont définitives."
+     "text": "La sergente Hallard a cinquante ans, une cicatrice qui lui tire la bouche vers le bas, et la réputation d'être la seule personne incorruptible du guet. On dit aussi qu'elle revient rarement sur une décision."
     },
     {
      "regard": {
@@ -4226,7 +4226,7 @@
    "text": [
     {
      "first": true,
-     "text": "La sergente Hallard écoute jusqu'au bout sans t'interrompre, ce qui ne lui ressemble pas. Puis elle se lève, va à la fenêtre, et regarde dehors longtemps."
+     "text": "La sergente Hallard écoute jusqu'au bout sans t'interrompre, ce qui lui ressemble peu. Puis elle se lève, va à la fenêtre et regarde longtemps dehors."
     },
     {
      "first": true,
@@ -4259,7 +4259,7 @@
    "montrer": "hallard",
    "back": true,
    "text": [
-    "La sergente rit, un rire bref, qui lui tord encore plus la bouche.",
+    "La sergente rit, d'un rire bref qui lui tord encore plus la bouche.",
     "« Mahu ? Mahu a vu le second de l'essayeur monter sur une barge à l'aube du jour de la fête ? » Elle ouvre son registre, tourne trois pages, pose le doigt sur une ligne. « À l'aube du jour de la fête, Mahu cuvait dans ma cellule du rez-de-chaussée, où mes hommes l'avaient mis la veille au soir pour avoir uriné sur la porte de l'Échevinage. Il est sorti à midi. »",
     "« Il raconte ce qu'on veut entendre, à qui lui paie à boire. Il a vu le diable, la Dame Blanche et le roi de Basse-Aune. »"
    ]
@@ -4291,11 +4291,11 @@
    "text": [
     {
      "first": true,
-     "text": "Un garde te fait monter trois étages par un escalier en colimaçon, ouvre un judas, puis une porte. La cellule est une pièce de pierre de quatre pas sur trois, avec une fente pour fenêtre, une paillasse, un seau. Hugon Maupas est assis par terre, le dos au mur, les bras autour des genoux."
+     "text": "Un garde te fait monter trois étages par un escalier en colimaçon, ouvre un judas, puis une porte. La cellule est une pièce de pierre de quatre pas sur trois, avec une fente pour fenêtre, une paillasse et un seau. Hugon Maupas est assis par terre, le dos au mur, les bras autour des genoux."
     },
     {
      "first": true,
-     "text": "Il a dix-neuf ans, de larges épaules de batelier, des cheveux noirs coupés court par sa mère, et il a l'air d'un enfant. Il ne lève pas la tête."
+     "text": "Il a dix-neuf ans, de larges épaules de batelier, des cheveux noirs coupés court par sa mère, et l'air d'un enfant. Il garde la tête baissée."
     },
     {
      "again": true,
@@ -4309,7 +4309,7 @@
        "mefiant"
       ]
      },
-     "text": "Tu lui parles. Il se tait. Il regarde la fente de lumière sur le mur d'en face comme s'il pouvait passer par là."
+     "text": "Tu lui parles, et il se tait. Il regarde la fente de lumière sur le mur d'en face comme s'il pouvait s'en aller par là."
     },
     {
      "regard": {
@@ -4404,7 +4404,7 @@
    "place": "haute",
    "montrer": "hugon",
    "text": [
-    "Il reste immobile, mais quelque chose change dans sa façon de respirer.",
+    "Il reste immobile, mais sa respiration change.",
     "« Tous les matins ? » Il ne te regarde toujours pas. « Ils la laissent pas monter avant neuf heures. Elle doit être là depuis six. Elle a toujours été là trop tôt, partout. »",
     "Il frotte ses yeux avec la paume, très fort. « Dites-lui de rentrer. Dites-lui que je mange. C'est pas vrai, mais dites-lui. »"
    ],
@@ -4420,7 +4420,7 @@
    "place": "haute",
    "montrer": "hugon",
    "text": [
-    "Il se tait longtemps. Puis il parle, à voix basse, en regardant le mur, et tu sens qu'il choisit chaque mot pour ne pas dire les autres.",
+    "Il se tait longtemps. Puis il parle à voix basse, en regardant le mur, et tu sens qu'il choisit chaque mot pour taire les autres.",
     "« J'ai joué à la Lanterne. Après, je suis rentré chez ma mère. Après, je suis ressorti. Vers une heure, je suis passé à l'écluse, pour couper par le quai. Il était déjà dans l'eau, contre les portes d'aval. J'ai cru que c'était un sac. »",
     "« C'est tout. Je l'ai pas tué. Je l'ai pas poussé. Il était dans l'eau quand je suis arrivé. » Il serre les mâchoires. « Pour le reste, je dis rien. Ça regarde personne. »"
    ],
@@ -4437,8 +4437,8 @@
    "montrer": "hugon",
    "text": [
     "Tu lui répètes ce qu'a dit Oriane, sur le pont, mot pour mot : qu'elle a attendu jusqu'à quatre heures, qu'elle n'a pas cessé d'attendre, et qu'elle ne lui en veut pas.",
-    "Hugon reste immobile, muet. Puis il pose le front sur ses genoux, et ses épaules se mettent à trembler, et il pleure comme pleurent les garçons qui se retiennent depuis l'enfance, en silence, avec tout le corps.",
-    "Tu attends. Ça dure longtemps.",
+    "Hugon reste immobile et muet. Puis il pose le front sur ses genoux, ses épaules se mettent à trembler, et il pleure comme pleurent les garçons qui se retiennent depuis l'enfance : en silence, avec tout le corps.",
+    "Tu attends, longtemps.",
     "« Dites-lui… » Il relève la tête, s'essuie le nez sur sa manche. « Dites-lui que la barge de sel est partie sans nous, et que c'est ma faute, et que je lui expliquerai. Si je sors. Dites-lui que si je sors, on prendra la prochaine. »"
    ],
    "choices": [
@@ -4493,7 +4493,7 @@
    "text": [
     "Hugon te regarde sans comprendre.",
     "« Elle a vu son père ? À une heure et demie ? Sur le quai des Tanneurs ? » Il secoue la tête. « C'est pas possible. À une heure, il était… J'ai pris sa… »",
-    "Il s'arrête net. Il regarde ses mains. Ses lèvres bougent, sans bruit, comme quand on compte.",
+    "Il s'arrête net et regarde ses mains. Ses lèvres bougent sans bruit, comme quand on compte.",
     "« Je n'ai pas regardé sa figure, dit-il enfin, très bas. Je vous jure que je n'ai pas regardé sa figure. »"
    ]
   },
@@ -4518,12 +4518,12 @@
     "meet": "ermeline"
    },
    "text": [
-    "La salle des morts de l'Hôtel-Dieu est une cave voûtée, fraîche, qui sent le vinaigre et la chaux vive. Sœur Ermeline, une petite femme sèche aux manches retroussées, lit le jeton de la sergente, hoche la tête, et soulève le drap.",
+    "La salle des morts de l'Hôtel-Dieu est une cave voûtée et fraîche, qui sent le vinaigre et la chaux vive. Sœur Ermeline, une petite femme sèche aux manches retroussées, lit le jeton de la sergente, hoche la tête et soulève le drap.",
     "Tu as déjà vu des morts. Celui-là, tu le regardes vite, puis plus lentement. Le visage n'existe plus : les portes de l'écluse l'ont battu toute la nuit. Les cheveux sont châtains, mouillés encore, collés. Le corps est grand, maigre, plus maigre que tu ne l'aurais cru sous une robe d'essayeur.",
     "Ce sont les mains que tu regardes le plus longtemps. Les ongles sont rongés jusqu'à la chair, à chaque doigt. Et le petit doigt de la main droite est tordu, en dehors, avec une bosse à la deuxième phalange : un os cassé autrefois, et mal ressoudé.",
     {
      "second": true,
-     "text": "À l'annulaire gauche, là où la bague était, la peau est à peine plus pâle. La peau est à peine marquée : la trace légère d'un anneau porté peu de temps."
+     "text": "À l'annulaire gauche, là où était la bague, la peau est à peine plus pâle : la trace légère d'un anneau porté peu de temps."
     },
     "« On l'enterre demain à trois heures, dit Sœur Ermeline en remettant le drap. Après, ce sera trop tard pour regarder. »"
    ]
@@ -4541,7 +4541,7 @@
    "text": [
     {
      "first": true,
-     "text": "Sœur Ermeline soigne les pauvres de l'Hôtel-Dieu depuis trente ans, lave les morts et les veille. Elle a de petits yeux gris, une voix douce et des mains rouges, et elle n'a peur de rien, sauf des échevins."
+     "text": "Sœur Ermeline soigne les pauvres de l'Hôtel-Dieu depuis trente ans, et elle lave et veille les morts. Elle a de petits yeux gris, une voix douce et des mains rouges, et elle a peur des seuls échevins."
     },
     {
      "again": true,
@@ -4553,7 +4553,7 @@
     },
     {
      "first": true,
-     "text": "Elle hésite. Elle regarde autour d'elle, la cour, les fenêtres. « On ne m'a rien demandé, dit-elle. Le médecin de l'Échevinage est venu, il a regardé de loin, il a dit *noyé*, il est reparti. »"
+     "text": "Elle hésite, et regarde autour d'elle, la cour, les fenêtres. « On ne m'a rien demandé, dit-elle. Le médecin de l'Échevinage est venu, il a regardé de loin, il a dit *noyé*, il est reparti. »"
     },
     {
      "first": true,
@@ -4613,7 +4613,7 @@
      "if": {
       "clue": "m_poids"
      },
-     "text": "Sœur Ermeline réfléchit, les yeux fermés, comme si elle revoyait la plaie. Elle forme un poing, regarde l'angle de ses phalanges. « Un cube de laiton. Lourd. » Elle rouvre les yeux. « Oui. Ça ferait ça. Exactement ça. Un seul coup, de quelqu'un qui est debout, en face, et qui tient la chose dans sa main droite. »"
+     "text": "Sœur Ermeline réfléchit, les yeux fermés, comme si elle revoyait la plaie. Elle forme un poing et regarde l'angle de ses phalanges. « Un cube de laiton. Lourd. » Elle rouvre les yeux. « Oui. Ça ferait ça. Exactement ça. Un seul coup, de quelqu'un qui est debout, en face, et qui tient la chose dans sa main droite. »"
     },
     {
      "if": {
@@ -4637,11 +4637,11 @@
    "text": [
     {
      "first": true,
-     "text": "L'échevin Brisson est gros, rose, bien nourri, et il te prend le bras comme à un vieil ami avant même de savoir ton nom. Il connaît tout le monde, il serre toutes les mains, il rit fort ; et ses yeux, pendant qu'il rit, comptent qui le regarde."
+     "text": "L'échevin Brisson est gros, rose et bien nourri, et il te prend le bras comme à un vieil ami avant même de savoir ton nom. Il connaît tout le monde, serre toutes les mains et rit fort ; pendant qu'il rit, ses yeux comptent qui le regarde."
     },
     {
      "again": true,
-     "text": "Brisson te reconnaît de loin et lève la main. « Mon enquêteur ! Mon enquêteur préféré ! »"
+     "text": "Brisson te reconnaît de loin et lève la main. « Ah ! Voici qui fouille pour la mère Maupas ! Justement, je vous cherchais ! »"
     },
     {
      "first": true,
@@ -4738,7 +4738,7 @@
    "place": "haute",
    "back": true,
    "text": [
-    "La bourse est lourde, et chaude de sa manche. Brisson te serre la main, longuement, des deux siennes.",
+    "La bourse est lourde, et chaude de sa manche. Brisson te serre longuement la main entre les deux siennes.",
     "« À la cloche, dit-il. Je compte sur vous. » Il s'éloigne en saluant à droite et à gauche, et tu restes sous les arcades avec dix écus et l'impression d'avoir avalé quelque chose de froid."
    ]
   },
@@ -4748,7 +4748,7 @@
    "place": "haute",
    "back": true,
    "text": [
-    "Brisson remet la bourse dans sa manche sans cesser de sourire. Seuls ses yeux ont changé.",
+    "Brisson remet la bourse dans sa manche sans cesser de sourire ; seuls ses yeux ont changé.",
     "« Comme vous voudrez. Vous êtes jeune. » Il te tapote l'épaule, plus fort qu'il ne faudrait. « On se reverra à la cloche. Je suis curieux de voir ce que vous direz, sans amis. »"
    ]
   },
@@ -4760,7 +4760,7 @@
    "back": true,
    "text": [
     "Brisson éclate de rire, si fort qu'un clerc se retourne sous les arcades.",
-    "« Du sang ! On dit ça ? Charmant. Charmant. » Il s'essuie les yeux. « C'est du vin, mon ami. Du vin de Bourgonne. C'est moi qui le lui ai renversé dessus, au début du banquet, en lui portant un toast. Exprès ? Peut-être. Il était si fier de son pourpoint. » Il redevient grave, d'un coup, comme on ferme un volet. « Mais si on le dit, à la Lanterne… Les gens disent tant de choses. Je ne vais pas les en empêcher. »"
+    "« Du sang ! On dit ça ? Charmant. Charmant. » Il s'essuie les yeux. « C'est du vin, voyons. Du vin de Bourgonne. C'est moi qui le lui ai renversé dessus, au début du banquet, en lui portant un toast. Exprès ? Peut-être. Il était si fier de son pourpoint. » Il redevient grave, d'un coup, comme on ferme un volet. « Mais si on le dit, à la Lanterne… Les gens disent tant de choses. Je ne vais pas les en empêcher. »"
    ]
   },
   "T_bassin": {
@@ -4776,17 +4776,17 @@
    "text": [
     {
      "first": true,
-     "text": "Le Bassin Bleu est une auberge de planches peintes, posée sur pilotis au bord du quai. Le plancher bouge un peu quand passe une barge. On y boit un vin aigre des coteaux d'aval, on y mange des anguilles, et on y loge, à l'étage, les marchands qui attendent leur bateau. Les murs sont tachés de bleu jusqu'à hauteur d'épaule : les teinturiers s'y appuient en sortant des cuves."
+     "text": "Le Bassin Bleu est une auberge de planches peintes, posée sur pilotis au bord du quai, dont le plancher bouge un peu quand passe une barge. On y boit un vin aigre des coteaux d'aval, on y mange des anguilles, et l'on y loge, à l'étage, les marchands qui attendent leur bateau. Les murs sont tachés de bleu jusqu'à hauteur d'épaule, là où les teinturiers s'appuient en sortant des cuves."
     },
     {
      "again": true,
      "when": "day",
-     "text": "Le Bassin Bleu, l'odeur d'anguille grillée, le plancher qui tangue. À cette heure, il n'y a guère que des portefaix qui attendent un chargement."
+     "text": "Le Bassin Bleu sent l'anguille grillée, et son plancher tangue. À cette heure, il accueille surtout des portefaix qui attendent un chargement."
     },
     {
      "again": true,
      "when": "night",
-     "text": "Le Bassin Bleu, la nuit : des bateliers, des teinturiers aux mains bleues, des filles du port, et le bruit de l'eau sous le plancher."
+     "text": "La nuit, le Bassin Bleu se remplit de bateliers, de teinturiers aux mains bleues et de filles du port, et l'on entend l'eau sous le plancher."
     }
    ]
   },
@@ -4802,7 +4802,7 @@
    "text": [
     {
      "first": true,
-     "text": "Maître Ouen, le patron du Bassin Bleu, est un ancien batelier énorme et lent, aux avant-bras tatoués d'ancres et de sirènes, qui essuie ses pots avec un torchon toujours plus sale que les pots. Il parle peu, mais il écoute tout : derrière son comptoir, il est comme un pilier de pont, et tout le port coule autour de lui."
+     "text": "Maître Ouen, le patron du Bassin Bleu, est un ancien batelier énorme et lent, aux avant-bras tatoués d'ancres et de sirènes, qui essuie ses pots avec un torchon toujours plus sale que les pots. Il parle peu et écoute tout : derrière son comptoir, il tient comme une pile de pont, et tout le port coule autour de lui."
     },
     {
      "again": true,
@@ -4812,7 +4812,7 @@
      "if": {
       "has": "passe:fleuve"
      },
-     "text": "Il te regarde un moment, et il te sert sans que tu aies rien demandé, un fond de vin aigre. « T'as la tête de quelqu'un qui a dormi sur des barges. Celle-là, c'est la maison. »"
+     "text": "Il te regarde un moment, puis te sert, sans attendre ta commande, un fond de vin aigre. « T'as la tête de quelqu'un qui a dormi sur des barges. Celle-là, c'est la maison. »"
     }
    ],
    "choices": [
@@ -4865,7 +4865,7 @@
     "flag": "ganse:connu"
    },
    "text": [
-    "Maître Ouen lit la déclaration en remuant les lèvres, lentement, de bout en bout.",
+    "Maître Ouen lit la déclaration lentement, de bout en bout, en remuant les lèvres.",
     "« Trois tonneaux d'indigo, Maître Ganse. » Il hausse ses énormes épaules. « Il loge chez moi. La chambre du fond, depuis un mois. Drapier, qu'il dit. »",
     "Il renifle. « De l'indigo… J'ai porté sa malle dans l'escalier, quand il est arrivé. Elle sentait le charbon de bois et le métal chaud, sa malle. Pas l'indigo. L'indigo, ça pue : je le saurais. Ici, tout pue l'indigo. »"
    ]
@@ -4883,7 +4883,7 @@
     "Tu décris le portrait du salon de l'Essai à Maître Ouen : un homme grand, voûté, le front haut, une barbe grise taillée court, un grain de beauté sous l'œil gauche, de longues mains blanches.",
     "Maître Ouen prend son temps. Il essuie un pot, puis un autre.",
     "« Une barbe, non, dit-il enfin. J'ai pas de client avec une barbe grise. » Il pose le pot. « Mais les mains, oui. Et le grain de beauté. Il y en a un qui l'a juste là. » Il touche sa propre joue, sous l'œil gauche. « Et qui tient son pot comme si c'était une balance. »",
-    "Il ne dit pas le nom. Il te regarde, et il reprend son torchon."
+    "Il garde le nom pour lui. Il te regarde, et il reprend son torchon."
    ]
   },
   "P_ivon": {
@@ -4897,7 +4897,7 @@
    "text": [
     {
      "first": true,
-     "text": "Le bureau du port est une cabane de briques sur le quai, avec une seule fenêtre et un grand registre ouvert sur un pupitre. Le commis Ivon a vingt ans, des lunettes rafistolées avec du fil, et l'air de quelqu'un qui a lu toutes les règles du port et qui est le seul à les suivre."
+     "text": "Le bureau du port est une cabane de briques sur le quai, avec une seule fenêtre et un grand registre ouvert sur un pupitre. Le commis Ivon a vingt ans, des lunettes rafistolées avec du fil, et l'air de quelqu'un qui a lu toutes les règles du port et qui est seul à les suivre."
     },
     {
      "again": true,
@@ -4956,7 +4956,7 @@
    "text": [
     "« La déclaration de chargement ? » Ivon fouille dans une liasse. « La Vouivre a déclaré hier soir. Ah, voilà. Trois tonneaux d'indigo marqués G., Maître Ganse, valeur déclarée cent écus. »",
     "Il fronce les sourcils. « Cent écus pour trois tonneaux d'indigo ? C'est bien peu. Il paie moins de droits comme ça, bien sûr. Ce n'est pas à moi de juger, c'est à moi d'écrire. » Il prend une feuille vierge, une plume. « Je vous en fais une copie. On copie comme c'est écrit, c'est la règle, même les fautes. »",
-    "Il recopie, en tirant la langue, en imitant de son mieux l'écriture du drapier : penchée, serrée, régulière."
+    "Il recopie en tirant la langue, et en imitant de son mieux l'écriture du drapier : penchée, serrée, régulière."
    ],
    "choices": [
     {
@@ -4972,11 +4972,11 @@
    "text": [
     {
      "first": true,
-     "text": "La Vouivre est la plus grosse barge du port : soixante pieds de long, un fond plat goudronné, un roof de planches à l'arrière pour les passagers, et à l'avant une cale ouverte où l'on empile les marchandises sous des bâches. Son patron, Odin Ferrat, un petit homme sec à la barbe en pointe, surveille tout depuis le roof, une pipe à la main."
+     "text": "La Vouivre est la plus grosse barge du port : soixante pieds de long, un fond plat goudronné, un roof de planches à l'arrière pour les passagers et, à l'avant, une cale ouverte où l'on empile les marchandises sous des bâches. Son patron, Odin Ferrat, un petit homme sec à la barbe en pointe, surveille tout depuis le roof, une pipe à la main."
     },
     {
      "again": true,
-     "text": "La Vouivre, au bout du quai, toujours plus chargée."
+     "text": "Au bout du quai, la Vouivre s'enfonce un peu plus dans l'eau à chaque chargement."
     },
     {
      "first": true,
@@ -4992,7 +4992,7 @@
        "max": 1
       }
      },
-     "text": "On calfate la coque à grands coups de maillet. Le patron crie qu'on part à l'aube du quatrième jour, pas avant : l'Aune est trop haute pour passer les rapides."
+     "text": "On calfate la coque à grands coups de maillet. Le patron crie qu'on part à l'aube du quatrième jour, et pas avant : l'Aune est trop haute pour passer les rapides."
     },
     {
      "if": {
@@ -5000,7 +5000,7 @@
        "min": 2
       }
      },
-     "text": "Une grue de bois grince au bord du quai. Les portefaix y accrochent un tonneau marqué d'un G., et la grue plie, et les hommes jurent. Deux autres tonneaux semblables attendent sur le quai."
+     "text": "Une grue de bois grince au bord du quai. Les portefaix y accrochent un tonneau marqué d'un G. ; la grue plie, et les hommes jurent. Deux autres tonneaux semblables attendent sur le quai."
     },
     {
      "if": {
@@ -5008,7 +5008,7 @@
        "min": 3
       }
      },
-     "text": "Les trois tonneaux marqués G. sont à fond de cale, sous une bâche cordée. Un colosse est assis dessus, les bras croisés, du matin au soir."
+     "text": "Les trois tonneaux marqués G. sont à fond de cale, sous une bâche cordée, et un colosse y reste assis du matin au soir, les bras croisés."
     }
    ],
    "choices": [
@@ -5058,9 +5058,9 @@
    "place": "teinturiers",
    "back": true,
    "text": [
-    "Mahu est un batelier sans barge, d'âge incertain, au nez violet, qui raconte des histoires aux portefaix contre un coup à boire. Quand il voit que tu écoutes, il se tourne vers toi et il élève la voix.",
+    "Mahu est un batelier sans barge, d'âge incertain, au nez violet, qui raconte des histoires aux portefaix contre un coup à boire. Quand il voit que tu écoutes, il se tourne vers toi et élève la voix.",
     "« Le second de l'essayeur ? Celui qu'on cherche, celui qui a volé ? Je l'ai vu ! Moi, Mahu ! À l'aube du jour de la fête, il montait sur une barge de sel, vers l'aval. Un grand maigre, avec un sac. Il regardait derrière lui comme un voleur. Je le jurerais devant les échevins ! »",
-    "Il tend la main, paume en l'air. Les portefaix rient."
+    "Il tend la main, paume en l'air, et les portefaix rient."
    ]
   },
   "P_ganse": {
@@ -5074,11 +5074,11 @@
    "text": [
     {
      "first": true,
-     "text": "Il est assis dans le coin le plus sombre du Bassin Bleu, le dos au mur, face à la porte, un pot de vin devant lui auquel il ne touche presque pas. Un homme de cinquante-cinq ans peut-être, grand, voûté, en habit de drap brun de bonne coupe, un large chapeau de feutre rabattu sur les yeux."
+     "text": "Il est assis dans le coin le plus sombre du Bassin Bleu, le dos au mur, face à la porte, devant un pot de vin auquel il touche à peine. C'est un homme de cinquante-cinq ans peut-être, grand, voûté, en habit de drap brun de bonne coupe, un large chapeau de feutre rabattu sur les yeux."
     },
     {
      "again": true,
-     "text": "L'homme au chapeau est à sa place, dans le coin, le dos au mur. Il te voit entrer. Il reste immobile."
+     "text": "L'homme au chapeau est à sa place, dans le coin, le dos au mur. Il te voit entrer, et reste immobile."
     },
     "Ce que l'on voit de son visage, sous le chapeau, est rasé de près, et curieusement pâle du nez au menton, plus pâle que le front et les joues : comme une peau qui n'a pas vu le soleil depuis longtemps. Sous l'œil gauche, un grain de beauté.",
     "Ses mains sont posées à plat sur la table, de chaque côté du pot : longues, blanches, soignées. À l'annulaire de la main gauche, un linge noué, taché de brun, et sous le linge, quand il bouge les doigts, on devine une marque à vif, profonde, comme celle qu'aurait laissée un anneau arraché.",
@@ -5086,7 +5086,7 @@
      "if": {
       "has": "ganse:visage"
      },
-     "text": "Derrière son comptoir, Maître Ouen ne lève pas les yeux. Il essuie le même pot depuis que tu es entré{e}."
+     "text": "Derrière son comptoir, Maître Ouen garde les yeux baissés. Il essuie le même pot depuis que tu es entré{e}."
     },
     {
      "regard": {
@@ -5188,7 +5188,7 @@
     }
    },
    "text": [
-    "Il te laisse t'asseoir. Il a une voix grave, posée, qui pèse chaque syllabe avant de la poser sur la table.",
+    "Il te laisse t'asseoir. Il a une voix grave et posée, qui pèse chaque syllabe avant de la poser sur la table.",
     "« Ganse. Drapier, à Basse-Aune. J'attends mon bateau. » Il fait tourner son pot entre ses doigts, d'un quart de tour, puis d'un autre, avec une précision d'horloger. « On m'a dit qu'il y avait une enquête, en ville. Un essayeur. Triste affaire. Je ne connaissais pas l'homme. Je ne connais personne ici. »",
     "Ton nom, ce que tu veux : il a laissé passer les deux questions.",
     "« Le vin d'ici est mauvais, dit-il. Mais l'eau est pire. » Il se lève, pose une pièce sur la table, une pièce neuve, qui sonne court sur le bois. « Je vous souhaite le bonsoir. »",
@@ -5206,9 +5206,9 @@
    "title": "Un nom",
    "place": "teinturiers",
    "text": [
-    "Tu t'assieds en face de lui, et tu dis son nom. Pas fort. Juste assez pour qu'il l'entende, lui, et personne d'autre.",
+    "Tu t'assieds en face de lui, et tu dis son nom, à voix basse, juste assez fort pour qu'il l'entende, lui seul.",
     "« Gaspard Ombreuil. »",
-    "Il encaisse sans broncher. Son visage, déjà pâle, garde sa couleur. Il lève seulement la tête, et le bord du chapeau découvre ses yeux, gris, fatigués, très calmes, et il te regarde comme on regarde un poids qu'on pose sur le plateau, pour savoir ce qu'il vaut.",
+    "Il encaisse sans broncher, et son visage, déjà pâle, garde sa couleur. Il lève seulement la tête ; le bord du chapeau découvre ses yeux, gris, fatigués, très calmes, et il te regarde comme on regarde un poids posé sur le plateau, pour savoir ce qu'il vaut.",
     "« Oui », dit-il.",
     "C'est tout. Puis, après un long moment : « Vous êtes la personne de la mère Maupas. On m'en a parlé. Je me demandais combien de temps il vous faudrait. » Il fait tourner son pot d'un quart de tour. « Que voulez-vous ? De l'argent ? J'en ai. Plus que vous n'en verrez jamais. »",
     "Sous la table, sa main droite a quitté le pot."
@@ -5334,8 +5334,8 @@
      },
      "text": "Le couteau tombe sur le plancher et glisse sous une table. Gaspard Ombreuil se tient le poignet, le souffle court, adossé au mur. Dans la salle, personne n'a bougé ; Maître Ouen essuie un pot. Tu lui lies les mains avec sa propre ceinture, et tu le mènes dehors, à travers toute la ville endormie, jusqu'à la tour du Guet, où la sergente Hallard descend en chemise, une chandelle à la main."
     },
-    "On l'enferme au rez-de-chaussée, dans la cellule de dégrisement. Trois étages plus haut, Hugon Maupas dort, ou ne dort pas, et ne sait encore rien.",
-    "La sergente Hallard regarde longtemps l'homme derrière la grille, en silence. Il soutient son regard. Puis elle se tourne vers toi.",
+    "On l'enferme au rez-de-chaussée, dans la cellule de dégrisement. Trois étages plus haut, Hugon Maupas dort, ou veille, et ignore encore tout.",
+    "La sergente Hallard regarde longtemps l'homme derrière la grille, en silence, et il soutient son regard. Puis elle se tourne vers toi.",
     "« L'audience est à la cloche, dit-elle. Vous parlerez. Moi, je le présenterai. » Elle se frotte les yeux. « Vingt-six ans de métier. Je l'ai enterré, cet homme. J'étais à l'enterrement. »"
    ],
    "choices": [
@@ -5350,8 +5350,8 @@
    "title": "Le quai",
    "place": "teinturiers",
    "text": [
-    "Il est plus rapide que tu ne l'aurais cru, pour un homme de son âge. Une table renversée, un pot qui éclate, un batelier qui jure, et la porte du Bassin Bleu qui bat dans la nuit.",
-    "Quand tu arrives sur le quai, il reste l'eau noire, les barges qui se frottent contre les pilotis, et au bout du quai, la masse sombre de la Vouivre, tous feux éteints.",
+    "Il est plus rapide que tu ne l'aurais cru, pour un homme de son âge : une table renversée, un pot qui éclate, un batelier qui jure, et la porte du Bassin Bleu bat dans la nuit.",
+    "Quand tu arrives sur le quai, il reste l'eau noire, les barges qui se frottent contre les pilotis et, au bout du quai, la masse sombre de la Vouivre, tous feux éteints.",
     "Il ne reviendra pas au Bassin Bleu. Mais il n'a nulle part où aller, sauf là où sont ses tonneaux."
    ],
    "choices": [
@@ -5366,8 +5366,8 @@
    "title": "La porte",
    "place": "teinturiers",
    "text": [
-    "Tu te lèves. Il ne te retient pas. Quand tu passes la porte, tu sens son regard entre tes omoplates, comme une main posée là.",
-    "Dehors, la nuit est froide. Derrière toi, à travers les planches, tu entends une chaise qu'on recule, et des pas lourds dans l'escalier.",
+    "Tu te lèves, et il te laisse partir. Quand tu passes la porte, tu sens son regard entre tes omoplates, comme une main posée là.",
+    "Dehors, la nuit est froide. Derrière toi, à travers les planches, tu entends une chaise qu'on recule, puis des pas lourds dans l'escalier.",
     "Il ne restera pas au Bassin Bleu. Mais il n'a nulle part où aller, sauf là où sont ses tonneaux."
    ],
    "choices": [
@@ -5397,9 +5397,9 @@
        "has": "cloche:attendue"
       }
      },
-     "text": "La cloche de l'Échevinage se met à sonner. Six coups, lents, qui descendent sur toute la ville et roulent le long des canaux jusqu'au port. Où que tu sois, tu les entends. Tu n'as plus le temps de rien : tu prends les escaliers de la Haute-Ville en courant."
+     "text": "La cloche de l'Échevinage se met à sonner : six coups lents, qui descendent sur toute la ville et roulent le long des canaux jusqu'au port. Où que tu sois, tu les entends. Ton temps est écoulé, et tu prends les escaliers de la Haute-Ville en courant."
     },
-    "Sur la place, il y a des tanneurs et des lavandières, des orfèvres en manteau fourré, des bateliers, des enfants grimpés sur les bornes. Gervaise Maupas est au premier rang, dans sa robe noire du dimanche. Plus loin, seule, contre un pilier des arcades, une jeune fille en noir, un panier vide au bras.",
+    "Sur la place se pressent des tanneurs et des lavandières, des orfèvres en manteau fourré, des bateliers, des enfants grimpés sur les bornes. Gervaise Maupas est au premier rang, dans sa robe noire du dimanche. Plus loin, seule contre un pilier des arcades, se tient une jeune fille en noir, un panier vide au bras.",
     {
      "if": {
       "has": "gaspard:pris"
@@ -5484,8 +5484,8 @@
     ]
    },
    "text": [
-    "La grande salle de l'Échevinage est haute comme une église, avec des poutres peintes d'étoiles et des fenêtres où brûle encore le couchant. Au fond, sur une estrade, douze échevins en robe rouge, assis en demi-cercle. Au milieu, le premier échevin, très vieux, qui somnole déjà. À sa droite, Évrard Malestroit, maître de la Monnaie. À sa gauche, l'échevin Brisson, qui tient le registre et mène les débats, et qui sourit à la salle comme un hôte à ses invités.",
-    "On amène Hugon Maupas entre deux gardes, les mains liées devant lui. Il cherche quelqu'un des yeux dans la foule, et il le trouve, et il baisse la tête. Sa mère ne pleure pas.",
+    "La grande salle de l'Échevinage est haute comme une église, avec des poutres peintes d'étoiles et des fenêtres où brûle encore le couchant. Au fond, sur une estrade, douze échevins en robe rouge siègent en demi-cercle. Au milieu, le premier échevin, très vieux, somnole déjà. À sa droite siège Évrard Malestroit, maître de la Monnaie ; à sa gauche, l'échevin Brisson, qui tient le registre, mène les débats, et sourit à la salle comme un hôte à ses invités.",
+    "On amène Hugon Maupas entre deux gardes, les mains liées devant lui. Il cherche quelqu'un des yeux dans la foule, le trouve, et baisse la tête. Sa mère garde les yeux secs.",
     "La sergente Hallard témoigne de l'arrestation, debout, les mains dans le dos, d'une voix sans couleur : la bague sur le comptoir de la changeuse, la menace à la Lanterne Sourde, la nuit sans alibi.",
     {
      "if": {
@@ -5539,8 +5539,8 @@
    "title": "L'homme du rez-de-chaussée",
    "place": "haute",
    "text": [
-    "Tu dis le nom. Dans la salle, quelqu'un rit, nerveusement, et se tait aussitôt. Brisson ouvre la bouche, la referme.",
-    "Alors la sergente Hallard fait un signe, et deux de ses hommes amènent un homme grand, voûté, rasé, en habit de drap brun, les mains liées. Il marche droit. Il garde les yeux au sol. Au premier rang, quelqu'un pousse un cri : Dame Sibylle Ombreuil, qui s'est levée, et qui reste debout, une main sur la bouche.",
+    "Tu dis le nom. Dans la salle, quelqu'un rit nerveusement, et se tait aussitôt. Brisson ouvre la bouche, puis la referme.",
+    "Alors la sergente Hallard fait un signe, et deux de ses hommes amènent un homme grand, voûté, rasé, en habit de drap brun, les mains liées. Il marche droit, les yeux au sol. Au premier rang, quelqu'un pousse un cri : Dame Sibylle Ombreuil s'est levée, et reste debout, une main sur la bouche.",
     {
      "if": {
       "all": [
@@ -5554,13 +5554,13 @@
        }
       ]
      },
-     "text": "Elle ne regarde pas son visage. Elle regarde ses mains liées."
+     "text": "Elle évite son visage, et regarde ses mains liées."
     },
     {
      "if": {
       "has": "accuse:M:preuve"
      },
-     "text": "Tu poses devant le conseil ce que tu as : les preuves, une à une, dans l'ordre où tu les as trouvées. Personne ne t'interrompt. Brisson a cessé d'écrire."
+     "text": "Tu poses devant le conseil ce que tu as : les preuves, une à une, dans l'ordre où tu les as trouvées. Personne ne t'interrompt, et Brisson a cessé d'écrire."
     },
     {
      "if": {
@@ -5568,7 +5568,7 @@
        "has": "accuse:M:preuve"
       }
      },
-     "text": "Tu n'as pas grand-chose à poser devant le conseil. Mais tu peux t'en passer : la veuve, au premier rang, reconnaît d'elle-même le grain de beauté sous l'œil gauche, la façon de se tenir, les mains."
+     "text": "Tu as peu de chose à poser devant le conseil, mais tu peux t'en passer : la veuve, au premier rang, reconnaît d'elle-même le grain de beauté sous l'œil gauche, la façon de se tenir, les mains."
     },
     {
      "if": {
@@ -5598,9 +5598,9 @@
    "title": "L'homme du rez-de-chaussée",
    "place": "haute",
    "text": [
-    "Tu dis un nom. Ce n'est pas celui de l'homme que la sergente garde dans sa cellule, et elle te regarde, longtemps, avec une sorte de fatigue.",
+    "Tu dis un nom. Ce n'est pas celui de l'homme que la sergente garde dans sa cellule, et elle te regarde longtemps, avec une sorte de fatigue.",
     "Puis elle fait un signe à ses hommes, et l'on amène dans la salle un homme grand, voûté, rasé, en habit de drap brun. Au premier rang, Dame Sibylle Ombreuil se lève, et crie, et le nom qu'elle crie n'est pas celui que tu as dit.",
-    "Ce soir-là, la vérité sort quand même. Elle ne sort pas de ta bouche."
+    "Ce soir-là, la vérité sort quand même, mais d'une autre bouche que la tienne."
    ],
    "choices": [
     {
@@ -5614,7 +5614,7 @@
    "title": "L'ordre",
    "place": "haute",
    "text": [
-    "Tu dis le nom. La salle rit, puis cesse de rire, parce que tu continues de parler, et que ce que tu poses devant le conseil, une chose après l'autre, ne fait plus rire personne. Au premier rang, Dame Sibylle Ombreuil s'est mise à trembler.",
+    "Tu dis le nom. La salle rit, puis cesse de rire, parce que tu continues de parler, et que ce que tu poses devant le conseil, une chose après l'autre, ôte l'envie de rire à tout le monde. Au premier rang, Dame Sibylle Ombreuil s'est mise à trembler.",
     {
      "if": {
       "has": "accuse:M:mobile"
@@ -5650,7 +5650,7 @@
      "if": {
       "has": "hallard:allie"
      },
-     "text": "La sergente Hallard, seule, ne rit pas. Elle demande la parole, et elle dit que le conseil ferait bien de repousser son jugement d'une semaine, le temps qu'elle vérifie. Le vieux premier échevin, à moitié endormi, dit oui, pour en finir. Hugon retourne en cellule."
+     "text": "La sergente Hallard reste seule à garder son sérieux. Elle demande la parole, et dit que le conseil ferait bien de repousser son jugement d'une semaine, le temps qu'elle vérifie. Le vieux premier échevin, à moitié endormi, dit oui, pour en finir. Hugon retourne en cellule."
     },
     {
      "if": {
@@ -5720,16 +5720,16 @@
      "if": {
       "has": "aube:guet"
      },
-     "text": "La sergente Hallard et six hommes du guet, en manteau, attendent avec toi derrière les piles de bois du port. Le ciel pâlit à l'est. Tous se taisent. On entend l'eau."
+     "text": "La sergente Hallard et six hommes du guet, en manteau, attendent avec toi derrière les piles de bois du port. Le ciel pâlit à l'est. Tous se taisent, et l'on entend l'eau."
     },
     {
      "if": {
       "has": "aube:seul"
      },
-     "text": "Tu attends seul{e}, derrière les piles de bois du port, emmitouflé{e} dans ton manteau. Le ciel pâlit à l'est. Personne ne viendra t'aider : le guet dort, et le conseil rit encore."
+     "text": "Tu attends seul{e}, derrière les piles de bois du port, emmitouflé{e} dans ton manteau. Le ciel pâlit à l'est. Tu es sans renfort : le guet dort, et le conseil rit encore."
     },
-    "Sur la Vouivre, on largue les amarres d'arrière. Les passagers montent un par un, avec leurs malles : des marchands, une famille avec des enfants qui bâillent. Le patron compte, sur le roof.",
-    "Et le dernier, un homme grand, voûté, en habit de drap brun, un large chapeau rabattu sur les yeux, qui ne porte rien, et qui monte à bord en tenant la rambarde de sa main gauche, enveloppée d'un linge.",
+    "Sur la Vouivre, on largue les amarres d'arrière. Les passagers montent un par un, avec leurs malles : des marchands, et une famille avec des enfants qui bâillent. Le patron les compte, sur le roof.",
+    "Le dernier est un homme grand et voûté, en habit de drap brun, un large chapeau rabattu sur les yeux, les mains vides. Il monte à bord en tenant la rambarde de sa main gauche, enveloppée d'un linge.",
     "Sur les tonneaux, à l'avant, le colosse se lève."
    ],
    "choices": [
@@ -5769,7 +5769,7 @@
    "title": "Le quai",
    "place": "teinturiers",
    "text": [
-    "Le colosse tombe entre les tonneaux, et il ne se relève pas.",
+    "Le colosse tombe entre les tonneaux, et reste à terre.",
     {
      "if": {
       "has": "aube:guet"
@@ -5782,7 +5782,7 @@
      },
      "text": "L'homme au chapeau n'essaie pas de fuir : il n'y a nulle part où fuir, sur une barge, et les passagers le regardent. Il ôte son chapeau, de lui-même, et te le tend, comme on rend les armes. Le patron de la Vouivre, qui n'aime pas les histoires, fait chercher le guet."
     },
-    "Un portefaix soulève, avec une barre, le couvercle d'un des tonneaux marqués G. Il n'y a pas d'indigo. Il y a, serrés, les uns contre les autres, des lingots d'argent fin, gros comme des briques, qui luisent dans le petit jour."
+    "Un portefaix soulève avec une barre le couvercle d'un des tonneaux marqués G. Il ne contient pas d'indigo, mais des lingots d'argent fin, gros comme des briques, serrés les uns contre les autres, qui luisent dans le petit jour."
    ],
    "choices": [
     {
@@ -5808,9 +5808,9 @@
      "if": {
       "has": "aube:guet"
      },
-     "text": "Les hommes du guet courent le long du quai, en criant. Une barque se détache, trop tard. La Vouivre est déjà au milieu du fleuve, là où le courant de l'Aune file vers les rapides."
+     "text": "Les hommes du guet courent le long du quai, en criant, et une barque se détache, trop tard. La Vouivre est déjà au milieu du fleuve, là où le courant de l'Aune file vers les rapides."
     },
-    "Sur le roof, l'homme au chapeau ne se retourne pas."
+    "Sur le roof, l'homme au chapeau regarde droit devant lui."
    ],
    "choices": [
     {
@@ -5824,7 +5824,7 @@
    "title": "Le maître de la Monnaie",
    "place": "haute",
    "text": [
-    "Tu dis le nom. Il y a un silence, puis un bruit de chaises : tous les échevins se sont tournés vers Malestroit. Lui reste immobile.",
+    "Tu dis le nom. Il y a un silence, puis un bruit de chaises : tous les échevins se sont tournés vers Malestroit, qui reste immobile.",
     {
      "if": {
       "any": [
@@ -5863,7 +5863,7 @@
        ]
       }
      },
-     "text": "Tu n'as presque rien. Mais Brisson se lève, et il a, lui, tout ce qu'il faut : il a vu, dit-il, Malestroit quitter le banquet. La salle gronde."
+     "text": "Tu as peu de chose. Brisson se lève pourtant, et il a, lui, tout ce qu'il faut : il a vu, dit-il, Malestroit quitter le banquet. La salle gronde."
     },
     "Malestroit se lève. « J'étais à la Monnaie, dit-il. Je ne l'ai pas tué. Je n'ai tué personne. » Il le dit d'une voix si fatiguée qu'on ne le croit pas."
    ],
@@ -5931,7 +5931,7 @@
        }
       }
      },
-     "text": "Tu dis un nom, et ce que tu poses devant le conseil ne tient pas. Brisson démonte ton accusation en trois phrases, sans même hausser la voix, et la salle rit."
+     "text": "Tu dis un nom, et ce que tu poses devant le conseil s'effondre. Brisson démonte ton accusation en trois phrases, sans même hausser la voix, et la salle rit."
     }
    ],
    "choices": [
@@ -6010,7 +6010,7 @@
      "text": "Elle ne tremble plus du tout quand elle ajoute : « Et à dix heures, il n'était pas chez mon père. Il jouait à la Lanterne Sourde. Je le sais. »"
     },
     "Sa mère, au premier rang, ferme les yeux.",
-    "Les échevins délibèrent à voix basse, longtemps. Puis Brisson se lève. Un vol sur un mort, dit-il, n'est pas un meurtre. Mais c'est un vol, et un vol sacrilège."
+    "Les échevins délibèrent longtemps à voix basse. Puis Brisson se lève. Un vol sur un mort, dit-il, n'est pas un meurtre ; c'est pourtant un vol, et un vol sacrilège."
    ],
    "choices": [
     {
@@ -6289,7 +6289,7 @@
    },
    "text": [
     "Le conseil délibère le temps qu'il faut pour vider un pichet. Hugon Maupas est condamné à être pendu, le lendemain, à l'aube, pour le meurtre de Gaspard Ombreuil, essayeur-juré de la Monnaie d'Orbeval.",
-    "Il se tait, comme il s'est toujours tu. On l'emmène.",
+    "Il se tait, comme il s'est toujours tu, et on l'emmène.",
     "Le lendemain, à l'aube, pendant qu'on dresse la potence sur la place, une barge chargée de trois tonneaux d'indigo quitte le port des Teinturiers et descend l'Aune vers la mer.",
     "Gervaise Maupas t'épargne les reproches. Elle a simplement cessé de te parler. Quand tu la croises, au coin du pont des Lavandières, elle regarde ailleurs, comme on regarde ailleurs quand passe quelqu'un qu'on a connu autrefois."
    ]
