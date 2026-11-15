@@ -45,7 +45,7 @@ function play(st, n, seed) {
     where: g.players.map(function (p) { return p.name + " @" + p.s.node + (p.wait ? " (" + p.wait.kind + (p.wait.key ? " " + p.wait.key : "") + ")" : ""); }), g: g };
 }
 
-["vaudrenne", "pages"].forEach(function (id) {
+["vaudrenne", "pages", "adeux"].forEach(function (id) {
   var st = require(path.join(ROOT, "histoires/src", id, "index.js"));
   (st.multi ? [st.multi.min || 2, st.multi.max || 2].filter(function (x, i, a) { return a.indexOf(x) === i; }) : [2, 3]).forEach(function (n) {
     var tally = { over: 0, stuck: 0, cap: 0 }, syncs = 0, stuckWhere = {};

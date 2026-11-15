@@ -297,3 +297,25 @@ Pièges : un choix `test` sur une énigme compte aussi un usage pour la pratique
 | paragraphe, choix, passage | `tendre: true` (avec `else`) | Une ligne ou une scène tendre. Le lecteur choisit dans ses réglages de les montrer, de les rendre discrètes, ou de les masquer (alors `else` est dit à la place, et un choix tendre disparaît). |
 
 Pièges : une version n'est mise en doute qu'une fois ; le passage `belie` finit en général par `back: true`. Un souvenir ouvert depuis une page qui n'a qu'un seul choix y ramène : donner à cette page un retour (`back: true`) et cacher l'entrée du souvenir une fois vu. Les silences dans un souvenir comptent aussi.
+
+## À deux (15/11, 8.4) : secrets, apartés, interludes, accords avec l'autre joueur
+
+Pour une histoire à deux joueurs, un héros chacun (`multi`, voir GUIDE-MULTI.md). Le scénario déclare ; le moteur range les secrets, offre les aveux, joue les interludes et les fait passer d'un joueur à l'autre aux rendez-vous.
+
+| Où | Clé | Sens |
+|---|---|---|
+| `story.secrets` | `{ <id>: { title, text, aveu, say, if } }` | Ce qu'un héros cache à l'autre. `aveu` : la scène où il le dit (un passage sans acte ni lieu, qui finit par `back: true`). `say` : le libellé du choix (« Lui dire : <title> » sans lui). `if` : quand on peut le dire. |
+| fx | `secret: "<id>"` | Le héros porte ce secret (« Ce que tu caches »). |
+| fx | `surprend: "<id>"` | Le héros apprend le secret de l'autre dans son dos (« Ce que tu as surpris »). L'autre n'en sait rien, sauf si le scénario pose aussi une marque `monde:`. |
+| fx | `confier: "<id>"` | Le héros le dit à l'autre : la marque `monde:confie:<id>`, que l'autre joueur reçoit au rendez-vous suivant, avec une ligne « X t'a confié : … ». |
+| passage | `aparte: true` | Les deux héros sont seuls ensemble (une chambre, un refuge, un bac). Pour chaque secret que le héros garde encore et dont la scène d'aveu existe, le choix « Lui dire : … » s'ajoute ; la scène d'aveu revient à l'aparté. |
+| condition | `{ secret: "<id>" }` · `{ confie: "<id>" }` · `{ garde: "<id>" }` | Le héros le sait (le sien, surpris, ou confié par l'autre) · il a été dit · le héros le porte et ne l'a pas encore dit. |
+| `story.interludes` | `[{ act, to, if }]` | En entrant dans l'acte `act`, avant sa première page, le moteur joue le premier interlude dont la condition tient, une fois. Avec `if: { has: "role:…" }`, chaque joueur lit le sien. |
+| passage | `interlude: { who, where }` (ou `"Nom"`) | Une scène racontée du point de vue de quelqu'un d'autre (`who` : une personne de `people`, ou un nom). L'horloge s'arrête comme dans un souvenir ; `back: true` devient « Revenir à <héros> » et ramène à la première page de l'acte. Pas d'`act`, de `place`, de `hub` ni de fin. |
+| texte | `{autre:e}`, `{autre:il}`, `{autre:Il}`, `{autre:le}`, `{autre:lui}` | S'accordent avec le héros de l'autre joueur (« {autre} est assis{autre:e} »). À plusieurs autres : le pluriel ; seul : le masculin. |
+
+Onglet du carnet « Secrets » (seulement si l'histoire en déclare) : ce que tu caches (gardé ou dit), ce qu'on t'a confié, ce que tu as surpris. L'autre joueur ne le voit jamais.
+
+Le validateur joue une histoire à plusieurs en solo avec un **partenaire fantôme** : à chaque rendez-vous (nouvel acte, passage `charniere`), il pose au hasard des marques `monde:` que le scénario sait poser ailleurs que dans un choix du monde, et dit certains secrets, comme l'autre joueur aurait pu le faire. `node tests/multi-test.js` joue l'histoire à deux pour de vrai.
+
+Pièges : une scène d'aveu ou un interlude qui porterait `act` changerait l'acte du joueur et déclencherait un rendez-vous ; le validateur le refuse. Ce qu'un joueur fait n'arrive chez l'autre qu'au rendez-vous suivant : écrire les réactions de l'autre après une `charniere` ou un début d'acte. Ce qui ne regarde qu'un héros (« j'ai pris l'argent ») gagne à porter aussi une marque sans `monde:`, que le partenaire fantôme ne touche pas.

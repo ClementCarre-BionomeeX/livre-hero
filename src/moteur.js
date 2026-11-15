@@ -261,6 +261,10 @@
     if ("poids" in c) return rng(s.poids || 0, minOf(c, "poids"), maxOf(c, "poids"));
     if ("angoisse" in c) return rng(s.angoisse || 0, minOf(c, "angoisse"), maxOf(c, "angoisse"));
     if ("attache" in c) return rng(attachOf(s, c.attache), c.min, c.max);
+    // Two players (8.4): a secret known (own, overheard, or told by its holder), told, or still kept.
+    if ("secret" in c) return secretKnown(s, c.secret);
+    if ("confie" in c) return !!s.flags["monde:confie:" + c.confie];
+    if ("garde" in c) return secretOwn(s, c.garde) && !s.flags["monde:confie:" + c.garde];
     if ("missed" in c) { var mq = (story.quests || []).filter(function (q) { return q.id === c.missed; })[0]; return !!mq && questMissed(story, s, mq); }
     // count: [conditions], min / max: how many of them hold ("at least three of these").
     if ("count" in c) { var nc = c.count.filter(function (x) { return evalCond(story, s, x); }).length; return nc >= (c.min || 0) && (c.max == null || nc <= c.max); }
@@ -391,6 +395,7 @@
     if ("attache" in c) return "Ce lien n'est pas assez fort pour cela.";
     if ("doute" in c) return "Il faudrait d'abord douter de ce qu'on t'a dit.";
     if ("recit" in c) return "Tu n'as pas encore entendu cette version.";
+    if ("secret" in c) return "Tu ne le sais pas.";
     if ("camp" in c) return c.camp && c.camp !== "none" ? "Seulement pour qui a rallié " + (((story.camps || {})[c.camp] || {}).name || c.camp) + "." : "Seulement tant que tu n'as rallié aucun camp.";
     return "Ce chemin est fermé pour l'instant.";
   }
@@ -399,7 +404,11 @@
 
   // ------------------------------------------------------------------ text
   // {autre}: in a game with several players, the other players' heroes (s.allies, set by src/multi.js).
-  function interp(s, t) { return String(t).replace(/\{autre\}/g, s.allies && s.allies.length ? s.allies.join(" et ") : "l'autre").replace(/\{hero\}/g, heroName(s)).replace(/\{niveau\}/g, String(level(s))).replace(/\{marque\}/g, String(s.mark))
+  // {autre:e}, {autre:il}, {autre:Il}, {autre:le}, {autre:lui} (8.4, « À deux »): agreed with the other player's hero
+  // (s.alliesFem, set by src/multi.js); with several others, the plural; alone, the masculine of « l'autre ».
+  var AUTRE = { e: ["", "e", "s"], il: ["il", "elle", "ils"], Il: ["Il", "Elle", "Ils"], le: ["le", "la", "les"], lui: ["lui", "elle", "eux"] };
+  function autreForm(s, k) { var f = s.alliesFem || [], n = (s.allies || []).length; var F = AUTRE[k]; return n > 1 ? F[2] : f[0] ? F[1] : F[0]; }
+  function interp(s, t) { return String(t).replace(/\{autre:(e|il|Il|le|lui)\}/g, function (m, k) { return autreForm(s, k); }).replace(/\{autre\}/g, s.allies && s.allies.length ? s.allies.join(" et ") : "l'autre").replace(/\{hero\}/g, heroName(s)).replace(/\{niveau\}/g, String(level(s))).replace(/\{marque\}/g, String(s.mark))
     // {e}: the agreement of the lead hero ("assis{e}"), from the companion's own f: true.
     .replace(/\{e\}/g, s.fem ? "e" : ""); }
   // Intent: read(Story, State, Tagged, PassageId) -> Bool = do the tags a paragraph, a choice or a passage carries hold now
@@ -757,6 +766,10 @@
     });
     // A closed room (8.3).
     [].concat(fx.recit || []).forEach(function (id) { accountHear(story, s, id); });
+    // Two players (8.4): a secret of one's own, one overheard behind the other's back, one told to the other.
+    [].concat(fx.secret || []).forEach(function (id) { secretLearn(story, s, id, "own"); });
+    [].concat(fx.surprend || []).forEach(function (id) { secretLearn(story, s, id, "surpris"); });
+    [].concat(fx.confier || []).forEach(function (id) { secretTell(story, s, id); });
     [].concat(fx.geste || []).forEach(function (id) { gesteDo(story, s, id); });
     if (fx.angoisse) dreadMove(story, s, fx.angoisse);
     if (fx.attache) Object.keys(fx.attache).forEach(function (k) {
@@ -2349,6 +2362,60 @@
   // "d'Odile", "de Germain", "du docteur Fabre".
   function deName(n) { return /^[aeiouyàâäéèêëîïôöùûü]/i.test(String(n)) ? "d'" + n : withPrep("de", n); }
   function topicSolved(story, s, t) { var T = (story.topics || {})[t]; return !!(T && T.solved && happened(s, T.solved)); }
+  // ------------------------------------------------------------------ two players (8.4, « À deux »)
+  // Secrets (story.secrets: { id: { title, text, aveu, say, if } }): what one hero holds and the other does not know.
+  // fx.secret gives the hero a secret of their own; fx.surprend, one learnt behind its holder's back; fx.confier tells
+  // it to the other (the world flag monde:confie:<id>, which src/multi.js carries to the other player at the next
+  // rendezvous). On a passage `aparte: true` (the two heroes alone together), each secret the hero still keeps and whose
+  // `aveu` scene exists offers « Lui dire : … »; the scene ends with back: true, back to the aparte.
+  function secretDef(story, id) { var S = (story.secrets || {})[id]; if (!S) throw new Error("secret inconnu " + id); return S; }
+  function secretOwn(s, id) { return ((s.secrets || {})[id] || {}).how === "own"; }
+  function secretKnown(s, id) { return !!(s.secrets || {})[id] || !!s.flags["monde:confie:" + id]; }
+  function secretLearn(story, s, id, how) {
+    var S = secretDef(story, id); s.secrets = s.secrets || {};
+    if (s.secrets[id] && (s.secrets[id].how === "own" || how !== "own")) return;
+    s.secrets[id] = { how: how, at: timeLabel(s) };
+    ev(s, (how === "own" ? "Ce que tu caches · " : "Ce que tu as surpris · ") + interp(s, S.title), "secret");
+  }
+  function secretTell(story, s, id) {
+    var S = secretDef(story, id); if (s.flags["monde:confie:" + id]) return;
+    s.flags["monde:confie:" + id] = true; s.secrets = s.secrets || {};
+    if (!s.secrets[id]) s.secrets[id] = { how: "own", at: timeLabel(s) };
+    s.secrets[id].told = timeLabel(s);
+    ev(s, "Tu as confié à " + interp(s, "{autre}") + " : " + interp(s, S.title), "secret");
+  }
+  // Intent: secretsOf(Story, State) -> [{ id, title, text, how, at, told, from }] = the notebook's « Secrets » tab
+  function secretsOf(story, s) {
+    return Object.keys(story.secrets || {}).filter(function (id) { return secretKnown(s, id); }).map(function (id) {
+      var S = story.secrets[id], k = (s.secrets || {})[id] || null, told = !!s.flags["monde:confie:" + id];
+      return { id: id, title: interp(s, S.title), text: interp(s, S.text || ""), how: k ? k.how : "confie", at: k ? k.at : null, told: told };
+    });
+  }
+  function aparteChoices(story, s, p) {
+    if (!p || !p.aparte || !story.secrets || s.combat) return [];
+    return Object.keys(s.secrets || {}).filter(function (id) {
+      var S = story.secrets[id]; return S && S.aveu && secretOwn(s, id) && !s.flags["monde:confie:" + id] && story.passages[S.aveu] && evalCond(story, s, S.if) && sceneOk(story, s, story.passages[S.aveu]);
+    }).map(function (id) { var S = story.secrets[id]; return { label: interp(s, S.say || "Lui dire : " + S.title), to: S.aveu, fx: { confier: id }, auto: "aveu", group: "aveu" }; });
+  }
+  // Interludes (story.interludes: [{ to, act, if }], passage `interlude: { who, where }`): a short scene told from
+  // someone else's point of view. Entering a new act, the engine plays the first interlude of that act whose condition
+  // holds, once, before the act's first page. Inside, as in a remembrance, the clock stands still; back: true becomes
+  // « Revenir à <héros> » and leads to the page the interlude stood before.
+  function interludeDue(story, s, id) {
+    var p = story.passages[id];
+    if (!story.interludes || !p || !p.act || !s.lastAct || p.act === s.lastAct || s.combat || s.travel) return null;
+    var order = (story.acts || []).map(function (a) { return a.id; }), ai = order.indexOf(p.act), li = order.indexOf(s.lastAct); if (ai <= li) return null;
+    s.interActs = s.interActs || {}; if (s.interActs[p.act]) return null;
+    var it = story.interludes.filter(function (x) { return x.act === p.act && story.passages[x.to] && !s.seen[x.to] && evalCond(story, s, x.if); })[0];
+    s.interActs[p.act] = true;
+    return it ? it.to : null;
+  }
+  function interludeOf(story, s, p) {
+    var I = p.interlude; if (!I) return null;
+    if (typeof I === "string") I = { who: I };
+    var pe = (story.people || {})[I.who] || (story.companions || {})[I.who];
+    return { who: pe ? pe.name : interp(s, I.who || ""), person: pe ? I.who : null, where: I.where ? interp(s, I.where) : "" };
+  }
   function belieChoices(story, s, p) {
     if (!p || !story.accounts || s.combat) return [];
     var out = [];
@@ -2583,13 +2650,15 @@
       var cs = peopleChoices(story, s, p).concat(ownChoices(story, s, p));
       // A remembrance (8.3) that ends with back: true goes back to the present, to the page it opened from.
       if (p.back && p.souvenir && s.present && story.passages[s.present.node]) cs = cs.concat([{ to: s.present.node, label: "Revenir au présent", auto: "back" }]);
+      // An interlude (8.4) goes back to the hero, on the page it stood before.
+      else if (p.back && p.interlude && s.present && story.passages[s.present.node]) cs = cs.concat([{ to: s.present.node, label: "Revenir à " + heroName(s), auto: "back" }]);
       // back: true, the scene ends on the way back to the crossroads the reader came from, its label written by the engine.
       else if (p.back && s.hubLast && s.hubLast !== s.node && story.passages[s.hubLast]) {
         var hp = story.passages[s.hubLast];
         cs = cs.concat([{ to: s.hubLast, label: "Revenir : " + interp(s, hp.title || (W(story).places[hp.place] || {}).name || "…"), auto: "back" }]);
       }
       if (!cs.length) { var back = backChoice(story, s, p); if (back) cs = [back]; }
-      cs = cs.concat(councilChoices(story, s, p), battleChoices(story, s, p), montrerChoices(story, s, p), accuseChoices(story, s, p), repayChoices(story, s, p), shopChoices(story, s, p), tavernChoices(story, s, p), craftChoices(story, s, p), vigilChoices(story, s, p), duelChoices(story, s, p), puzzleChoices(story, s, p), belieChoices(story, s, p), travelChoices(story, s, p), leadChoices(story, s, p));
+      cs = cs.concat(councilChoices(story, s, p), battleChoices(story, s, p), montrerChoices(story, s, p), accuseChoices(story, s, p), repayChoices(story, s, p), shopChoices(story, s, p), tavernChoices(story, s, p), craftChoices(story, s, p), vigilChoices(story, s, p), duelChoices(story, s, p), puzzleChoices(story, s, p), belieChoices(story, s, p), aparteChoices(story, s, p), travelChoices(story, s, p), leadChoices(story, s, p));
       var sec = [];
       v = { title: interp(s, p.title || ""), kind: p.end ? "end" : "passage", text: textList(story, s, p.text, null, sec), choices: cs, passage: p };
       // The people here at this hour, then the rumour heard on coming in (7.9).
@@ -2601,7 +2670,8 @@
       // dread past its threshold troubles the page.
       if (s.echoNow && s.echoNow.node === s.node && s.echoNow.turn === s.turn) v.text.push("*" + s.echoNow.text + "*");
       if (p.souvenir) v.souvenir = interp(s, p.souvenir === true ? "Souvenir" : p.souvenir);
-      if (story.dread) { v.dread = { v: dreadOf(s), max: dreadMax(story), word: dreadWord(story, s) }; if (dreadTrouble(story, s) && !p.souvenir) v.trouble = true; }
+      if (p.interlude) v.interlude = interludeOf(story, s, p);
+      if (story.dread) { v.dread = { v: dreadOf(s), max: dreadMax(story), word: dreadWord(story, s) }; if (dreadTrouble(story, s) && !p.souvenir && !p.interlude) v.trouble = true; }
       // A scene that spends the night tells it at its end; one that waits for the evening, at its start.
       if (s.took && s.took.node === s.node && s.took.turn === s.turn) { v.text[s.took.end ? "push" : "unshift"]("*(" + s.took.say + ")*"); if (!s.took.end) sec = sec.map(function (i) { return i + 1; }); }
       // The paragraphs of a second reading: the page may mark them, lightly.
@@ -2734,8 +2804,11 @@
     if (!story.passages[id]) throw new Error("passage inconnu " + id + " (depuis " + s.node + ")");
     // A remembrance (8.3, passage `souvenir`): the present is kept (the page one came from, its hour); inside, the clock
     // stands still and the world waits. Back in the present, the hour is the one the reader left.
-    var mem = !!story.passages[id].souvenir;
-    if (mem && !s.present && s.node && story.passages[s.node] && !story.passages[s.node].souvenir) s.present = { node: s.node, time: s.time };
+    // An interlude (8.4) stands before the first page of a new act: that page is the present it returns to.
+    var inter = interludeDue(story, s, id);
+    if (inter) { s.present = { node: id, time: s.time }; enterIn(story, s, inter, true); return; }
+    var mem = !!(story.passages[id].souvenir || story.passages[id].interlude);
+    if (mem && !s.present && s.node && story.passages[s.node] && !story.passages[s.node].souvenir && !story.passages[s.node].interlude) s.present = { node: s.node, time: s.time };
     if (!mem && s.present) { s.time = s.present.time; s.present = null; }
     if (mem) { enterIn(story, s, id, true); return; }
     // Dread at its height (8.3): the page the story gives to panic, once until dread comes down.
@@ -2761,12 +2834,12 @@
     s.node = id;
     var p = story.passages[id];
     if (!sceneOk(story, s, p)) guard(s, "scène jouée alors que ses tags (with, without, when, after, before) ne sont pas remplis");
-    if (p.act) s.lastAct = p.act;
+    if (p.act && !p.interlude) s.lastAct = p.act;
     // A quest begun and now out of reach (its act is over, or its `closes` holds) is told once, and the journal keeps it.
     (story.quests || []).forEach(function (q) { if (!s.flags["quete-manquee:" + q.id] && questStarted(s, q) && questMissed(story, s, q)) { s.flags["quete-manquee:" + q.id] = true; ev(s, "Quête manquée : " + q.title + ".", "quest"); } });
     (story.quests || []).forEach(function (q) { if (q.start === id && s.seen[id] && questOpen(story, s, q)) ev(s, "(Tu reprends : " + q.title + ".)", "quest"); });
     if (p.place) { s.place = p.place; s.known[p.place] = true; }
-    if (p.hub || p.routes) s.hubLast = id;
+    if (p.hub || p.routes || p.aparte) s.hubLast = id;
     var first = !s.seen[id];
     s.seen[id] = (s.seen[id] || 0) + 1;
     (story.quests || []).forEach(function (q) { if (q.start === id && !s.flags["quete-vue:" + q.id]) { s.flags["quete-vue:" + q.id] = true; ev(s, "Nouvelle quête : " + q.title, "quest"); } });
@@ -2965,6 +3038,7 @@
     battleDef: battleDef, heroForce: heroForce, tick: tick, reached: reached,
     weatherOf: weatherOf, weatherKind: weatherKind, seasonOf: seasonOf, woundsOpen: woundsOpen, woundDef: woundDef, woundDays: woundDays, FATIGUE_MAX: FATIGUE_MAX,
     traitOf: traitOf, traitWord: traitWord, practiceOf: practiceOf, TRAIT_MAX: TRAIT_MAX, DUEL_MOVES: DUEL_MOVES, puzzleRight: puzzleRight,
+    secretsOf: secretsOf, secretKnown: secretKnown, secretDef: secretDef, interludeOf: interludeOf, autreForm: autreForm,
     doubt: doubt, accountBy: accountBy, topicSolved: topicSolved, dreadOf: dreadOf, dreadMax: dreadMax, dreadWord: dreadWord, dreadTrouble: dreadTrouble, attachOf: attachOf, ATTACH_MAX: ATTACH_MAX,
     item: item, weapon: weapon, armor: armor, useItem: useItem, day: day, timeLabel: timeLabel, routesFrom: routesFrom, isNight: isNight,
   };

@@ -1,0 +1,142 @@
+// « Le Pli de Brumefond » : the story for two (piste « À deux », Clément, 13/11). Two players, one hero each: one
+// carries a sealed answer of the Duchess of Vérenne to the Assembly of the Leagues at Brumefond, the other guides the
+// courier over the Ourse pass in winter. Each hides something from the other. The engine (8.4) carries what the pair
+// needs: secrets (story.secrets) told or kept on the nights alone together (aparte), learnt behind the other's back
+// (fx.surprend), and carried to the other player at the next rendezvous; interludes told from someone else's point of
+// view at the start of acts II and III, a different one for each role (story.interludes); the text agreed with the
+// other player's hero ({autre:e}, {autre:il}). From src/multi.js: roles (`role`), world choices (`monde`), rendezvous
+// (`charniere`), world marks (`monde:…`). The plot is in BIBLE.md, in the project folder, out of the repository.
+module.exports = {
+  id: "adeux",
+  title: "Le Pli de Brumefond",
+  subtitle: "À deux · un pli scellé, un col en hiver, deux voyageurs qui se taisent",
+  summary: "La duchesse de Vérenne a répondu à l'offre de paix des Ligues du lac. Sa réponse doit être lue devant l'Assemblée de Brumefond avant le vote de la nouvelle lune, dans cinq jours, de l'autre côté des Dents de Sorgue. Deux personnes partent avec elle : l'une porte le pli, l'autre connaît la route. Chacune a ses raisons, et les garde pour elle.",
+  author: "Claude, pour Clément",
+  age: 12,
+  skin: "parchemin",
+  cover: { motif: "ecu", color: "#3b4a5a" },
+  glossary: Object.assign({}, require("../glossaire.js"), {
+    "pli": "Une lettre pliée et fermée d'un cachet de cire. Rompre le cachet d'un pli qu'on porte pour un autre est une trahison.",
+    "chancelier|chancellerie": "Le chancelier tient le sceau et les écritures d'un prince ; la chancellerie, ce sont ses bureaux et ses clercs.",
+    "Ligues": "Les villes libres du lac de Brume, unies par un serment. Leur Assemblée siège à Brumefond et vote la paix ou la guerre.",
+    "relais": "Une maison au bord d'une route où l'on change de chevaux et où l'on dort une nuit.",
+    "crampon|crampons": "Des griffes de fer qu'on attache sous les bottes pour marcher sur la glace.",
+    "congère|congères": "Un amas de neige poussé par le vent, parfois plus haut qu'un homme.",
+    "bât": "La selle de bois et de cuir sur laquelle on charge un mulet.",
+    "bac": "Un grand bateau plat qui fait passer les gens et les bêtes d'une rive à l'autre, tiré par une corde.",
+  }),
+  voice: "deuxième personne, présent",
+  version: 1,
+  multi: { min: 2, max: 2 },
+  start: "D_aube",
+  intro: [
+    "Depuis trois ans, le duché de Vérenne et les Ligues du lac se disputent les salines de la Sorgue, de l'autre côté des montagnes. Il y a eu des villages brûlés, des convois pillés, un pont tombé. Cet automne, les Ligues ont offert la paix : les salines partagées, les morts pleurés de part et d'autre, et un traité.",
+    "La duchesse Ysaure a répondu. Sa réponse est partie ce matin de la chancellerie de Vérenne, dans un pli de cire rouge, et elle doit être lue à Brumefond avant le vote de la nouvelle lune. Sans réponse, l'Assemblée votera la guerre.",
+    "Cette histoire se joue à deux. Chacun de vous lit son héros, prend ses décisions, et garde pour lui ce que son héros sait. Vous vous retrouvez aux grandes heures du voyage.",
+  ],
+  acts: [
+    { id: "I", title: "Acte I · Vérenne", question: "Qui part avec toi ?", levels: [1, 1], start: "D_aube" },
+    { id: "II", title: "Acte II · Le col de l'Ourse", question: "Que vaut la parole de l'autre ?", levels: [1, 1], start: "B_matin" },
+    { id: "III", title: "Acte III · Brumefond", question: "Quelle réponse lira l'Assemblée ?", levels: [2, 2], start: "E_descente" },
+  ],
+  companions: {},
+  factions: { verenne: "Le duché de Vérenne", ligues: "Les Ligues du lac" },
+  relics: {},
+  mysteries: {
+    P: { title: "Que dit vraiment le pli ?", act: "I" },
+    S: { title: "Qui suit le pli ?", act: "I" },
+  },
+  clues: {
+    pli_cire: { rev: "P", text: "Sous le sceau de la chancellerie, la cire du pli a coulé en deux couches de rouge, l'une plus sombre que l'autre. On l'a refondue." },
+    cygne_brule: { rev: "P", text: "La nuit avant ton départ, le chancelier Oriel a brûlé une lettre fermée d'un cachet au cygne : le sceau privé de la duchesse." },
+    hesme_cor: { rev: "S", text: "La femme en gris porte à l'annulaire une bague au cor de chasse, l'emblème des postes et des relais de la duchesse." },
+    vert_relais: { rev: "S", text: "Au relais de Pont-Gelé, un homme en manteau vert a demandé au maître de poste à quelle heure passaient les courriers de Vérenne, et combien ils étaient." },
+    vert_sorgue: { rev: "S", text: "L'homme au manteau vert a pris la route de la gorge de l'Ourse, celle des contrebandiers, qui descend vers le lac sans passer par le col." },
+    gaut_ordre: { rev: "P", text: "Un billet de la main de Dame Hesmé, sur le cavalier mort : « Gaut, par l'Ourse. Que la réponse au cygne soit lue avant celle de la chancellerie. »" },
+    cygne_pli: { rev: "P", text: "Le cavalier de l'Ourse portait un second pli, fermé du sceau au cygne de la duchesse, adressé à la présidente Aude Lorge." },
+    ancelin_lettre: { rev: "S", text: "Sur l'homme au manteau vert, une lettre sans signature, de l'écriture du chancelier : « Qu'aucune autre réponse n'arrive. »" },
+    pere_registre: { rev: "P", text: "Le registre de la prévôté de Brumefond, il y a douze ans : « Aymon Cabrol, espion de Vérenne, pendu. Ses lettres venaient d'un clerc de la chancellerie, O. Daumas. »" },
+  },
+  // Two players (8.4): what each hero hides. `aveu`: the scene where the hero tells it, offered on a passage aparte.
+  secrets: {
+    p_pere: { title: "Ton père est mort à Brumefond", aveu: "S_aveu_pere",
+      text: "Ton père, Aymon Cabrol, a été pendu à Brumefond il y a douze ans, comme espion de Vérenne. Tu as demandé ce pli pour aller voir la ville qui l'a tué." },
+    p_vu: { title: "Ce que tu as vu par la porte", aveu: "S_aveu_vu",
+      text: "La nuit avant ton départ, par la porte entrouverte de son cabinet, tu as vu le chancelier Oriel écrire, sceller, et brûler une autre lettre." },
+    g_argent: { title: "Les quinze écus de la femme en gris", aveu: "S_aveu_argent",
+      text: "Une femme en gris t'a payé{e} quinze écus pour que le pli arrive à Brumefond un jour plus tard. Quinze autres t'attendent à l'auberge du Cygne, à Brumefond." },
+    g_offre: { title: "La femme en gris", aveu: "S_aveu_offre",
+      text: "Une femme en gris t'a offert de l'argent pour retarder le pli d'un jour. Tu as refusé. Elle a dit qu'elle trouverait un autre moyen." },
+    g_hiver: { title: "Tu n'as jamais passé le col en hiver", aveu: "S_aveu_hiver",
+      text: "Tu as dit au clerc de la chancellerie que tu avais passé le col de l'Ourse en hiver. Tu l'as passé onze fois, toujours entre la Saint-Jean et la Saint-Michel." },
+  },
+  // Interludes (8.4): another point of view, before the first page of an act; each role reads its own.
+  interludes: [
+    { act: "II", to: "I_hesme", if: { has: "role:pli" } },
+    { act: "II", to: "I_oriel", if: { has: "role:route" } },
+    { act: "III", to: "I_ancelin", if: { has: "role:pli" } },
+    { act: "III", to: "I_varrache", if: { has: "role:route" } },
+  ],
+  quests: [],
+  people: {
+    oriel: { name: "Maître Oriel Daumas", face: { age: "mur", skin: "clair", hair: "gris", coif: "court", beard: "sans", eyes: "lourds", iris: "gris", nose: "busque", lips: "fines", shape: "allonge", marks: [] }, desc: "Chancelier de Vérenne. Il garde le sceau de la duchesse et parle bas." },
+    hesme: { name: "Dame Hesmé de Laudes", face: { age: "mur", skin: "beige", hair: "gris", coif: "chignon", beard: "sans", eyes: "amande", iris: "noisette", nose: "fin", lips: "fines", shape: "ovale", marks: [] }, desc: "Maîtresse des postes de la duchesse. Elle tient les relais, les chevaux et les courriers." },
+    ancelin: { name: "L'homme au manteau vert", face: { age: "adulte", skin: "clair", hair: "chatain", coif: "court", beard: "barbe", eyes: "amande", iris: "vert", nose: "busque", lips: "fines", shape: "carre", marks: ["cicatrice"] }, desc: "Un cavalier qui vous précède sur la route et demande toujours où sont les courriers." },
+    tiburce: { name: "Le père Tiburce", face: { age: "ancien", skin: "clair", hair: "blanc", coif: "rase", beard: "longue", eyes: "tombants", iris: "bleu", nose: "large", lips: "pleines", shape: "rond", marks: [] }, desc: "Le maître du relais de Pont-Gelé. Il compte les chevaux et les voyageurs." },
+    berthe: { name: "Berthe", face: { age: "mur", skin: "beige", hair: "roux", coif: "chignon", beard: "sans", eyes: "ronds", iris: "brun", nose: "large", lips: "pleines", shape: "rond", marks: [] }, desc: "L'aubergiste de Sorgue-le-Haut, au pied du col. Elle connaît tous les guides du village depuis leur naissance." },
+    gaut: { name: "Gaut", face: { age: "jeune", skin: "brun", hair: "noir", coif: "court", beard: "sans", eyes: "amande", iris: "brun", nose: "fin", lips: "pleines", shape: "ovale", marks: [] }, desc: "Un cavalier des postes de la duchesse, trouvé dans la gorge de l'Ourse." },
+    lorge: { name: "Aude Lorge", face: { age: "ancien", skin: "ebene", hair: "blanc", coif: "tresses", beard: "sans", eyes: "lourds", iris: "noir", nose: "large", lips: "fines", shape: "allonge", marks: [] }, desc: "Présidente de l'Assemblée des Ligues. Elle a perdu deux fils dans la guerre des salines." },
+    varrache: { name: "Odo Varrache", face: { age: "adulte", skin: "clair", hair: "blond", coif: "court", beard: "moustache", eyes: "amande", iris: "bleu", nose: "busque", lips: "fines", shape: "carre", marks: [] }, desc: "Capitaine-général des Ligues. On dit qu'il a déjà choisi les capitaines de la prochaine campagne." },
+  },
+  items: {
+    pli: { name: "Le pli de la chancellerie", kind: "divers", keep: true, price: 0, desc: "Une lettre pliée en quatre, fermée de cire rouge au sceau de la chancellerie de Vérenne. Adressée « À l'Assemblée des Ligues, à Brumefond »." },
+    pli_cygne: { name: "Le pli au cygne", kind: "divers", keep: true, price: 0, desc: "Une lettre fermée de cire blanche au sceau privé de la duchesse, un cygne, adressée « À la présidente Aude Lorge, en main propre »." },
+    corde: { name: "Corde de chanvre", kind: "divers", keep: true, price: 3, desc: "Vingt brasses, goudronnée aux deux bouts." },
+    crampons: { name: "Crampons", kind: "divers", keep: true, price: 4, desc: "Deux griffes de fer à lacer sous les bottes." },
+    onguent: { name: "Onguent", kind: "soin", heal: 6, unique: false, price: 3, desc: "Un pot de graisse de marmotte et de sauge, contre le froid et les écorchures." },
+    dague: { name: "Dague", kind: "arme", dmg: 4, att: 5, price: 8, desc: "Courte, bien en main." },
+    epee: { name: "Épée", kind: "arme", dmg: 6, att: 0, price: 20, desc: "Une lame droite de Vérenne." },
+    arc: { name: "Arc court", kind: "arme", ranged: true, ammo: "fleche", dmg: 4, att: 0, price: 18, desc: "If et corne." },
+    baton: { name: "Bâton ferré", kind: "arme", dmg: 4, att: 0, price: 3, desc: "Un bâton de marche à pointe de fer." },
+    billet_hesme: { name: "Le billet de Dame Hesmé", kind: "document", form: "billet", hand: "hative", clue: "gaut_ordre", price: 0,
+      text: "Gaut, par l'Ourse. Que la réponse au cygne soit lue avant celle de la chancellerie. Ne t'arrête qu'au bac. H." },
+  },
+  enemies: {
+    loup: { name: "Loup des neiges", pv: 7, att: 20, def: 10, dmg: 3, flank: true },
+    homme_vert: { name: "Homme du manteau vert", pv: 9, att: 22, def: 8, dmg: 4 },
+    ancelin: { name: "L'homme au manteau vert", pv: 16, att: 32, def: 16, dmg: 5 },
+  },
+  shops: {},
+  past: [
+    { q: "Qu'emportes-tu toujours avec toi, quel que soit le voyage ?", answers: [
+      { label: "Un couteau à manche de corne qui vient de ta mère", fx: { flag: "passe:couteau" } },
+      { label: "Un petit livre d'heures aux pages cornées, que tu lis sans croire", fx: { flag: "passe:livre" } },
+      { label: "Une flûte de saule, pour les soirs où l'on ne parle pas", fx: { flag: "passe:flute" } },
+    ] },
+  ],
+  world: {
+    noFood: true,
+    money: { units: [{ name: "écu", plural: "écus", value: 1, short: "é." }] },
+    start: { place: "verenne", hour: 6, gold: 6, food: 0, items: [],
+      kits: { guerrier: ["epee"], rodeur: ["arc"], voleur: ["dague"], mage: ["baton"], pretre: ["baton"], barde: ["dague"] } },
+    places: {
+      verenne: { ambiance: "ville", name: "Vérenne", map: "monde", x: 18, y: 78, arrive: "D_aube", desc: "La ville de la duchesse, ses toits d'ardoise et sa chancellerie au-dessus du marché." },
+      pontgele: { ambiance: "village", name: "Le relais de Pont-Gelé", map: "monde", x: 30, y: 60, arrive: "C_relais", desc: "Un relais de poste au bord d'un torrent, à une journée au nord de Vérenne." },
+      sorgue: { ambiance: "village", name: "Sorgue-le-Haut", map: "monde", x: 42, y: 44, arrive: "B_sorgue", desc: "Le dernier village avant le col, ses maisons de pierre sèche et ses mulets." },
+      col: { ambiance: "neige", name: "Le col de l'Ourse", map: "monde", x: 52, y: 26, arrive: "B_col", desc: "Le passage entre deux Dents de Sorgue, à la hauteur où les arbres s'arrêtent." },
+      ourse: { ambiance: "montagne", name: "La gorge de l'Ourse", map: "monde", x: 66, y: 36, arrive: "E_gorge", desc: "Une fente dans la montagne où le torrent descend vers le lac. Le chemin des contrebandiers." },
+      brumefond: { ambiance: "ville", name: "Brumefond", map: "monde", x: 84, y: 52, arrive: "E_ville", desc: "La ville libre du lac de Brume, ses quais, ses ponts couverts et la salle de l'Assemblée." },
+    },
+    routes: [], regions: {}, events: {},
+  },
+  endings: {
+    paix: { title: "La paix des salines" },
+    cygne: { title: "Le cachet au cygne" },
+    treve: { title: "Un mois de trêve" },
+    guerre: { title: "La réponse de la chancellerie" },
+    tard: { title: "Trop tard" },
+    chemin: { title: "Le chemin du retour" },
+    fuite: { title: "La porte du lac" },
+  },
+  banter: [],
+};

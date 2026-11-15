@@ -149,7 +149,12 @@
   // Intent: refresh(Story, Game) -> () ! writes(Player.wait) for every player
   function refreshWaits(story, g) {
     g.players.forEach(function (p) {
-      if (p.s) p.s.allies = g.players.filter(function (o) { return o !== p && o.s; }).map(function (o) { return o.s.name || o.name; });
+      if (p.s) {
+        var others = g.players.filter(function (o) { return o !== p && o.s; });
+        p.s.allies = others.map(function (o) { return o.s.name || o.name; });
+        // 8.4: the text may agree with the other hero ({autre:e}, {autre:il}…).
+        p.s.alliesFem = others.map(function (o) { return !!o.s.fem; });
+      }
     });
     g.players.forEach(function (p) {
       if (!p.s) { p.wait = null; p.since = 0; return; }
@@ -244,7 +249,7 @@
       g.base = merged;
       g.players.forEach(function (p) { p.s = denormalize(story, merged, p.s); });
     } else {
-      var flags = {};
+      var flags = {}, before = g.players.map(function (p) { return Object.assign({}, p.s.flags || {}); });
       order.forEach(function (p) { Object.keys(p.s.flags || {}).forEach(function (f) { if (f.indexOf(WORLD_FLAG) === 0 && !(f in flags)) flags[f] = p.s.flags[f]; }); });
       g.players.forEach(function (p) { Object.keys(flags).forEach(function (f) { p.s.flags[f] = flags[f]; }); });
     }
@@ -259,6 +264,15 @@
     });
     g.round++;
     g.players.forEach(function (p) { p.s.events = []; p.round = g.round; });
+    // 8.4: a secret the other told arrives with the rendezvous, and the player is told so, once.
+    if (!multiHero(story) && story.secrets) g.players.forEach(function (p, i) {
+      Object.keys(p.s.flags || {}).forEach(function (f) {
+        if (f.indexOf(WORLD_FLAG + "confie:") !== 0 || before[i][f]) return;
+        var id = f.slice((WORLD_FLAG + "confie:").length), S = story.secrets[id]; if (!S) return;
+        var teller = g.players.filter(function (o) { return o !== p && o.s && o.s.flags[f]; })[0];
+        p.s.events.push({ text: (teller ? (teller.s.name || teller.name) : "L'autre") + " t'a confié : " + M.interp(p.s, S.title), cls: "secret" });
+      });
+    });
     refreshWaits(story, g);
     report.stuck = allWaiting(g) && !g.players.every(function (p) { return p.wait.kind === WAIT.END; });
     report.over = g.players.every(function (p) { return p.wait && p.wait.kind === WAIT.END; });

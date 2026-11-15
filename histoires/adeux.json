@@ -1,0 +1,5473 @@
+{
+ "id": "adeux",
+ "title": "Le Pli de Brumefond",
+ "subtitle": "À deux · un pli scellé, un col en hiver, deux voyageurs qui se taisent",
+ "summary": "La duchesse de Vérenne a répondu à l'offre de paix des Ligues du lac. Sa réponse doit être lue devant l'Assemblée de Brumefond avant le vote de la nouvelle lune, dans cinq jours, de l'autre côté des Dents de Sorgue. Deux personnes partent avec elle : l'une porte le pli, l'autre connaît la route. Chacune a ses raisons, et les garde pour elle.",
+ "author": "Claude, pour Clément",
+ "age": 12,
+ "skin": "parchemin",
+ "cover": {
+  "motif": "ecu",
+  "color": "#3b4a5a"
+ },
+ "glossary": {
+  "vasque|vasques": "Grand bassin de pierre peu profond, où coule une fontaine.",
+  "oriel|oriels": "Fenêtre qui avance sur la façade, comme un petit balcon fermé.",
+  "chevrier|chevrière|chevriers": "Celui ou celle qui garde les chèvres.",
+  "boyau|boyaux": "Passage long et étroit.",
+  "toise|toises": "Ancienne mesure de longueur, un peu moins de deux mètres.",
+  "coudée|coudées": "Ancienne mesure de longueur : du coude au bout des doigts.",
+  "lieue|lieues": "Ancienne mesure de distance, environ quatre kilomètres, une heure de marche.",
+  "arnica": "Plante dont on tire un remède contre les coups et les bleus.",
+  "gambison|gambisons": "Veste épaisse et rembourrée, portée seule ou sous une armure.",
+  "broigne|broignes": "Vêtement de cuir renforcé de plaques ou d'anneaux de métal.",
+  "cotte|cottes": "Tunique. La cotte de mailles est faite de petits anneaux de fer entrelacés.",
+  "cuirasse|cuirasses": "Armure qui protège la poitrine et le dos.",
+  "heaume|heaumes": "Grand casque qui couvre toute la tête.",
+  "pourpoint|pourpoints": "Veste ajustée qui couvre le buste.",
+  "tabard|tabards": "Tunique sans manches portée par-dessus l'armure, souvent aux couleurs d'un seigneur.",
+  "hallebarde|hallebardes": "Arme à long manche, terminée par une lame de hache et une pointe.",
+  "piquier|piquiers": "Soldat armé d'une pique, une très longue lance.",
+  "arbalète|arbalètes": "Arc monté sur un manche de bois, qu'on tend avec un mécanisme ; il tire des carreaux.",
+  "baudrier|baudriers": "Bande de cuir portée en travers du corps, qui soutient l'épée.",
+  "ceinturon|ceinturons": "Grosse ceinture qui porte une arme.",
+  "herboristerie|herboristeries": "Boutique où l'on vend des plantes qui soignent.",
+  "apothicairerie": "Boutique de l'apothicaire, qui prépare les remèdes.",
+  "onguent|onguents": "Pommade qui soigne.",
+  "ravine|ravines": "Petit ravin creusé par l'eau.",
+  "rotonde|rotondes": "Salle ou bâtiment de forme ronde.",
+  "coupole|coupoles": "Toit en forme de demi-boule.",
+  "charretière": "Une porte charretière est assez large pour laisser passer une charrette.",
+  "cochère": "Une porte cochère est assez large pour laisser passer une voiture à chevaux.",
+  "caillé": "Le lait caillé est un lait épaissi, un peu aigre.",
+  "écuelle|écuelles": "Bol large et creux.",
+  "jonc|joncs": "Plante à tige droite qui pousse au bord de l'eau.",
+  "muletier|muletiers|muletière": "Celui ou celle qui conduit les mulets.",
+  "chamelier|chameliers": "Celui qui conduit les chameaux.",
+  "caravanier|caravaniers|caravanière": "Celui ou celle qui conduit une caravane de marchands.",
+  "osselets": "Jeu de petits os qu'on lance et qu'on rattrape.",
+  "chaulé|chaulés|chaulée|chaulées": "Blanchi à la chaux.",
+  "chaux": "Poudre blanche tirée du calcaire : on en blanchit les murs, on en fait du mortier.",
+  "margelle|margelles": "Rebord de pierre autour d'un puits.",
+  "rouvre|rouvres": "Une espèce de chêne.",
+  "câprier|câpriers": "Arbuste qui pousse dans les murs ; on mange ses boutons, les câpres.",
+  "auvent|auvents": "Petit toit au-dessus d'une porte, d'une fenêtre ou d'un étal.",
+  "garance": "Plante dont la racine donne une teinture rouge.",
+  "guède": "Plante dont on tire une teinture bleue.",
+  "astrolabe|astrolabes": "Instrument ancien pour mesurer la hauteur des étoiles et s'orienter.",
+  "éboulis": "Amas de pierres tombées d'une pente.",
+  "gourdin|gourdins": "Bâton gros et court qui sert d'arme.",
+  "tisonne|tisonnes|tisonner": "Remuer les braises du feu.",
+  "tonsure|tonsures": "Cercle rasé sur le haut du crâne, que portent certains religieux.",
+  "amadou": "Matière très sèche, tirée d'un champignon, qui prend feu d'une étincelle.",
+  "éperon|éperons": "Avancée pointue d'une montagne, d'un rocher ou d'un mur ; ou pointe de métal au talon du cavalier.",
+  "vélin": "Parchemin très fin, fait de peau de veau.",
+  "feuillet|feuillets": "Feuille d'un cahier ou d'un livre.",
+  "tenture|tentures": "Grand tissu tendu sur un mur ou devant une ouverture.",
+  "écluse|écluses": "Ouvrage qui retient l'eau d'une rivière ou d'un canal, et la laisse passer à volonté.",
+  "fagot|fagots": "Paquet de petit bois attaché.",
+  "contrebas": "En contrebas : plus bas.",
+  "baluchon|baluchons": "Petit paquet d'affaires noué dans un tissu.",
+  "besace|besaces": "Sac qu'on porte à l'épaule.",
+  "cairn|cairns": "Tas de pierres empilées pour marquer un chemin ou un lieu.",
+  "pilotis": "Pieux enfoncés dans le sol ou dans l'eau, sur lesquels on bâtit.",
+  "soupente|soupentes": "Petit réduit sous un escalier ou sous le toit.",
+  "bourg|bourgs": "Gros village où se tient le marché.",
+  "hameau|hameaux": "Tout petit village.",
+  "gibet|gibets": "Potence où l'on pendait les condamnés.",
+  "poulie|poulies": "Roue sur laquelle passe une corde, pour soulever une charge.",
+  "billot|billots": "Gros bloc de bois sur lequel on coupe ou on fend.",
+  "colporteur|colporteurs|colporteuse|colporteuses": "Marchand qui va de village en village, sa marchandise sur le dos.",
+  "fioritures": "Ornements, détails décoratifs.",
+  "collet|collets": "Piège fait d'un nœud coulant.",
+  "visière|visières": "Partie d'un casque qui protège le visage.",
+  "crevasse|crevasses": "Fente profonde dans la roche ou dans la glace.",
+  "milicien|miliciens|milicienne": "Habitant armé chargé de garder un lieu, sans être un vrai soldat.",
+  "enclume|enclumes": "Bloc de fer sur lequel le forgeron frappe le métal.",
+  "chanvre": "Plante dont on fait des cordes et de la toile.",
+  "meule|meules": "Grosse pierre ronde qui écrase le grain ; ou grand tas de foin.",
+  "dédale|dédales": "Labyrinthe, lieu où l'on se perd.",
+  "sauge": "Plante au parfum fort, qui soigne.",
+  "reliquaire|reliquaires": "Coffret précieux qui garde les restes d'un saint.",
+  "portefaix": "Homme dont le métier est de porter les fardeaux.",
+  "greffier|greffiers|greffière|greffières": "Personne chargée d'écrire et de garder les actes officiels.",
+  "scriptorium": "Salle où l'on copie les livres à la main.",
+  "cocagne": "Le pays de cocagne est un pays imaginaire où tout abonde.",
+  "grelot|grelots": "Petite boule de métal creuse qui tinte.",
+  "luthier|luthiers": "Artisan qui fabrique les instruments à cordes.",
+  "crieur|crieurs|crieuse": "Personne qui annonce les nouvelles à voix haute dans les rues.",
+  "relieur|relieurs": "Artisan qui coud et habille les livres.",
+  "ossuaire|ossuaires": "Lieu où l'on rassemble les os des morts.",
+  "almanach|almanachs": "Petit livre qui donne le calendrier, les saisons, des conseils et des prédictions.",
+  "nacre": "Matière brillante aux reflets changeants, à l'intérieur des coquillages.",
+  "écritoire|écritoires": "Petit pupitre ou coffret qui contient de quoi écrire.",
+  "teinturier|teinturiers|teinturière|teinturières": "Artisan qui colore les tissus.",
+  "étal|étals": "Table où le marchand expose sa marchandise.",
+  "alpage|alpages|estive": "Pâturage de montagne où l'on monte les bêtes pour l'été.",
+  "tisserand|tisserands|tisserande": "Artisan qui fabrique les tissus sur un métier.",
+  "moutier": "Ancien mot pour un monastère.",
+  "cloître|cloîtres": "Galerie couverte qui entoure la cour d'un monastère.",
+  "combe|combes": "Petite vallée étroite.",
+  "liard|liards": "Petite pièce de monnaie de très peu de valeur.",
+  "denier|deniers": "Ancienne pièce de monnaie.",
+  "fascines": "Fagots de branches serrées, pour renforcer un talus ou combler un fossé.",
+  "mélèze|mélèzes": "Arbre de montagne, cousin du sapin, qui perd ses aiguilles en hiver.",
+  "surplomb": "Partie qui avance au-dessus du vide.",
+  "complies": "Dernière prière du soir, chez les moines.",
+  "vêpres": "Prière de la fin d'après-midi, chez les moines.",
+  "héraut|hérauts": "Messager officiel qui porte les annonces d'un seigneur.",
+  "ménestrel|ménestrels": "Musicien et chanteur qui va de château en château.",
+  "péage|péager": "Le péage est le droit qu'on paie pour passer un pont ou un chemin.",
+  "chamois": "Chèvre sauvage des montagnes.",
+  "tréteau|tréteaux": "Support à quatre pieds ; on pose une planche dessus pour faire une table.",
+  "muret|murets": "Petit mur bas.",
+  "lavoir|lavoirs": "Bassin public où l'on lave le linge.",
+  "lavandière|lavandières": "Femme qui lave le linge au lavoir ou à la rivière.",
+  "linteau|linteaux": "Pierre ou poutre posée au-dessus d'une porte ou d'une fenêtre.",
+  "tilleul|tilleuls": "Grand arbre aux fleurs parfumées, dont on fait des tisanes.",
+  "rucher|ruchers": "Ensemble de ruches.",
+  "levain": "Pâte qui fait lever le pain.",
+  "fournil": "Pièce où se trouve le four du boulanger.",
+  "pupitre|pupitres": "Petite table inclinée pour lire ou écrire.",
+  "lutrin|lutrins": "Grand pupitre sur pied où l'on pose un gros livre.",
+  "poterne|poternes": "Petite porte discrète dans le mur d'un château.",
+  "stalle|stalles": "Siège de bois dans le chœur d'une église ; ou case d'un cheval à l'écurie.",
+  "étuve|étuves": "Pièce très chaude, pleine de vapeur.",
+  "lauze|lauzes": "Pierre plate qui couvre les toits en montagne.",
+  "roulier|rouliers": "Charretier qui transporte des marchandises sur les routes.",
+  "lampion|lampions": "Petite lanterne de papier.",
+  "clerc|clercs": "Homme d'Église, ou personne instruite qui sait lire et écrire.",
+  "encrier|encriers": "Petit pot qui contient l'encre.",
+  "colimaçon": "Un escalier en colimaçon tourne sur lui-même.",
+  "chambranle|chambranles": "Encadrement d'une porte ou d'une fenêtre.",
+  "beffroi|beffrois": "Tour où l'on sonne la cloche de la ville.",
+  "claie|claies": "Treillage de branches ou d'osier.",
+  "râtelier|râteliers": "Support où l'on range les armes ; ou mangeoire à foin.",
+  "embrasure|embrasures": "Ouverture dans un mur où se loge une porte ou une fenêtre.",
+  "cantinière|cantinières": "Femme qui vend à boire et à manger aux soldats.",
+  "herse|herses": "Grille qui descend pour fermer l'entrée d'un château.",
+  "chapelain|chapelains": "Prêtre au service d'un château ou d'une chapelle.",
+  "quignon|quignons": "Gros morceau de pain.",
+  "raidillon": "Petit chemin en pente raide.",
+  "joute|joutes|jouter": "Combat à cheval, lance contre lance, pour l'honneur.",
+  "écuyer|écuyers": "Jeune homme au service d'un chevalier.",
+  "replat|replats": "Endroit plat sur une pente.",
+  "bivouac|bivouacs": "Campement en plein air pour la nuit.",
+  "copiste|copistes": "Personne qui recopie les livres à la main.",
+  "mâtin|mâtins": "Gros chien de garde.",
+  "mansarde|mansardes": "Chambre sous le toit.",
+  "houlette": "Bâton de berger.",
+  "rouet|rouets": "Roue qui sert à filer la laine.",
+  "falot|falots": "Grosse lanterne.",
+  "naufrageur|naufrageurs": "Pilleur qui attire les bateaux sur les rochers.",
+  "naseaux": "Narines du cheval.",
+  "colombages": "Charpente de bois apparente dans les murs d'une maison, remplie de terre ou de briques.",
+  "angélus": "Cloche qui sonne le matin, à midi et le soir pour la prière.",
+  "chaume": "Paille qui couvre le toit des maisons.",
+  "quenouille|quenouilles": "Bâton autour duquel on enroule la laine à filer.",
+  "plastron|plastrons": "Pièce qui protège ou orne la poitrine.",
+  "batelier|bateliers|batelière": "Personne qui conduit un bateau sur une rivière.",
+  "marinier|mariniers": "Personne qui conduit un bateau sur une rivière ou un canal.",
+  "gentiane|gentianes": "Fleur de montagne, bleue ou jaune.",
+  "paillasse|paillasses": "Matelas rempli de paille.",
+  "sacristain|sacristains": "Homme qui garde l'église et ses objets.",
+  "parvis": "Place devant une église.",
+  "margrave|margraves": "Seigneur qui gouverne une province de frontière.",
+  "charron|charrons": "Artisan qui fabrique les roues et les charrettes.",
+  "pierrier|pierriers": "Machine de guerre qui lance des pierres.",
+  "heurtoir|heurtoirs": "Anneau de métal fixé à une porte, pour frapper.",
+  "complainte|complaintes": "Chanson triste.",
+  "battoir|battoirs": "Palette de bois pour battre le linge au lavoir.",
+  "barrique|barriques": "Tonneau.",
+  "fenaison|fenaisons": "Moment où l'on coupe et fait sécher le foin.",
+  "luth|luths": "Instrument à cordes au ventre bombé.",
+  "rebec|rebecs": "Petit violon ancien.",
+  "rabot|rabots": "Outil pour aplanir le bois.",
+  "rayonnage|rayonnages": "Étagères.",
+  "plioir": "Lame d'os ou de bois pour plier le papier.",
+  "paneterie": "Pièce où l'on garde le pain.",
+  "bouquetin|bouquetins": "Chèvre sauvage des montagnes, aux grandes cornes.",
+  "palefrenier|palefreniers": "Homme qui soigne les chevaux.",
+  "cellérier": "Moine chargé des provisions du monastère.",
+  "aussière|aussières": "Gros cordage d'un bateau.",
+  "coursive|coursives": "Passage étroit à l'intérieur d'un bateau.",
+  "comite": "Officier qui commande les rameurs d'une galère.",
+  "cambuse": "Réserve à provisions d'un bateau.",
+  "sentine": "Fond de la cale d'un bateau, où s'amasse l'eau sale.",
+  "galère|galères": "Navire de guerre à rames.",
+  "tonnelier|tonneliers": "Artisan qui fabrique les tonneaux.",
+  "paraphe|paraphes": "Signature courte, en quelques traits.",
+  "postillon|postillons": "Cavalier qui conduit une voiture de poste.",
+  "soupirail|soupiraux": "Petite ouverture qui donne de l'air et du jour à une cave.",
+  "oratoire|oratoires": "Petite chapelle.",
+  "andain|andains": "Rangée d'herbe coupée, laissée sur le pré pour sécher.",
+  "écheveau|écheveaux": "Fil enroulé en grande boucle.",
+  "besicles": "Anciennes lunettes.",
+  "licol|licols": "Courroie passée à la tête d'un cheval pour le mener.",
+  "ramure|ramures": "Les branches d'un arbre ; ou les bois d'un cerf.",
+  "violoneux": "Joueur de violon de village.",
+  "hauban|haubans": "Cordages qui tiennent le mât d'un bateau.",
+  "alezan|alezane": "Cheval à la robe brun-roux.",
+  "lingère|lingères": "Femme qui s'occupe du linge d'une maison.",
+  "cordier|cordiers": "Artisan qui fabrique les cordes.",
+  "corderie|corderies": "Atelier où l'on fabrique les cordes.",
+  "filin|filins": "Cordage.",
+  "drisse|drisses": "Cordage qui sert à hisser une voile.",
+  "psautier|psautiers": "Livre de psaumes, chants de prière.",
+  "verrier|verriers": "Artisan qui travaille le verre.",
+  "lices": "Terrain clos où se déroulent les tournois.",
+  "prévôt|prévôte|prévôts": "Officier qui rend la justice au nom du seigneur.",
+  "strophe|strophes": "Groupe de vers dans un poème ou une chanson.",
+  "hampe|hampes": "Long manche d'une lance ou d'un drapeau.",
+  "orfèvre|orfèvres": "Artisan qui travaille l'or et l'argent.",
+  "sellier|selliers": "Artisan qui fabrique les selles.",
+  "fondeur|fondeurs": "Artisan qui fond le métal, par exemple pour faire les cloches.",
+  "épissoir": "Outil pointu qui sert à joindre deux cordes en entrelaçant leurs brins.",
+  "épisser|épisse": "Joindre deux cordes en entrelaçant leurs brins.",
+  "parapet|parapets": "Petit mur qui protège du vide, au bord d'un pont ou d'un rempart.",
+  "créneau|créneaux": "Ouverture en haut d'un rempart, entre deux pans de mur.",
+  "bandoulière": "Portée en bandoulière : en travers du corps, d'une épaule à la hanche opposée.",
+  "serpe|serpes": "Outil à lame courbe pour couper les branches.",
+  "salpêtre": "Dépôt blanc qui se forme sur les murs humides.",
+  "lichen|lichens": "Plante sans racines, en croûte ou en touffes, qui pousse sur les pierres et les arbres.",
+  "surlendemain": "Le jour qui suit le lendemain.",
+  "pli": "Une lettre pliée et fermée d'un cachet de cire. Rompre le cachet d'un pli qu'on porte pour un autre est une trahison.",
+  "chancelier|chancellerie": "Le chancelier tient le sceau et les écritures d'un prince ; la chancellerie, ce sont ses bureaux et ses clercs.",
+  "Ligues": "Les villes libres du lac de Brume, unies par un serment. Leur Assemblée siège à Brumefond et vote la paix ou la guerre.",
+  "relais": "Une maison au bord d'une route où l'on change de chevaux et où l'on dort une nuit.",
+  "crampon|crampons": "Des griffes de fer qu'on attache sous les bottes pour marcher sur la glace.",
+  "congère|congères": "Un amas de neige poussé par le vent, parfois plus haut qu'un homme.",
+  "bât": "La selle de bois et de cuir sur laquelle on charge un mulet.",
+  "bac": "Un grand bateau plat qui fait passer les gens et les bêtes d'une rive à l'autre, tiré par une corde."
+ },
+ "voice": "deuxième personne, présent",
+ "version": 1,
+ "multi": {
+  "min": 2,
+  "max": 2
+ },
+ "start": "D_aube",
+ "intro": [
+  "Depuis trois ans, le duché de Vérenne et les Ligues du lac se disputent les salines de la Sorgue, de l'autre côté des montagnes. Il y a eu des villages brûlés, des convois pillés, un pont tombé. Cet automne, les Ligues ont offert la paix : les salines partagées, les morts pleurés de part et d'autre, et un traité.",
+  "La duchesse Ysaure a répondu. Sa réponse est partie ce matin de la chancellerie de Vérenne, dans un pli de cire rouge, et elle doit être lue à Brumefond avant le vote de la nouvelle lune. Sans réponse, l'Assemblée votera la guerre.",
+  "Cette histoire se joue à deux. Chacun de vous lit son héros, prend ses décisions, et garde pour lui ce que son héros sait. Vous vous retrouvez aux grandes heures du voyage."
+ ],
+ "acts": [
+  {
+   "id": "I",
+   "title": "Acte I · Vérenne",
+   "question": "Qui part avec toi ?",
+   "levels": [
+    1,
+    1
+   ],
+   "start": "D_aube"
+  },
+  {
+   "id": "II",
+   "title": "Acte II · Le col de l'Ourse",
+   "question": "Que vaut la parole de l'autre ?",
+   "levels": [
+    1,
+    1
+   ],
+   "start": "B_matin"
+  },
+  {
+   "id": "III",
+   "title": "Acte III · Brumefond",
+   "question": "Quelle réponse lira l'Assemblée ?",
+   "levels": [
+    2,
+    2
+   ],
+   "start": "E_descente"
+  }
+ ],
+ "companions": {},
+ "factions": {
+  "verenne": "Le duché de Vérenne",
+  "ligues": "Les Ligues du lac"
+ },
+ "relics": {},
+ "mysteries": {
+  "P": {
+   "title": "Que dit vraiment le pli ?",
+   "act": "I"
+  },
+  "S": {
+   "title": "Qui suit le pli ?",
+   "act": "I"
+  }
+ },
+ "clues": {
+  "pli_cire": {
+   "rev": "P",
+   "text": "Sous le sceau de la chancellerie, la cire du pli a coulé en deux couches de rouge, l'une plus sombre que l'autre. On l'a refondue."
+  },
+  "cygne_brule": {
+   "rev": "P",
+   "text": "La nuit avant ton départ, le chancelier Oriel a brûlé une lettre fermée d'un cachet au cygne : le sceau privé de la duchesse."
+  },
+  "hesme_cor": {
+   "rev": "S",
+   "text": "La femme en gris porte à l'annulaire une bague au cor de chasse, l'emblème des postes et des relais de la duchesse."
+  },
+  "vert_relais": {
+   "rev": "S",
+   "text": "Au relais de Pont-Gelé, un homme en manteau vert a demandé au maître de poste à quelle heure passaient les courriers de Vérenne, et combien ils étaient."
+  },
+  "vert_sorgue": {
+   "rev": "S",
+   "text": "L'homme au manteau vert a pris la route de la gorge de l'Ourse, celle des contrebandiers, qui descend vers le lac sans passer par le col."
+  },
+  "gaut_ordre": {
+   "rev": "P",
+   "text": "Un billet de la main de Dame Hesmé, sur le cavalier mort : « Gaut, par l'Ourse. Que la réponse au cygne soit lue avant celle de la chancellerie. »"
+  },
+  "cygne_pli": {
+   "rev": "P",
+   "text": "Le cavalier de l'Ourse portait un second pli, fermé du sceau au cygne de la duchesse, adressé à la présidente Aude Lorge."
+  },
+  "ancelin_lettre": {
+   "rev": "S",
+   "text": "Sur l'homme au manteau vert, une lettre sans signature, de l'écriture du chancelier : « Qu'aucune autre réponse n'arrive. »"
+  },
+  "pere_registre": {
+   "rev": "P",
+   "text": "Le registre de la prévôté de Brumefond, il y a douze ans : « Aymon Cabrol, espion de Vérenne, pendu. Ses lettres venaient d'un clerc de la chancellerie, O. Daumas. »"
+  }
+ },
+ "secrets": {
+  "p_pere": {
+   "title": "Ton père est mort à Brumefond",
+   "aveu": "S_aveu_pere",
+   "text": "Ton père, Aymon Cabrol, a été pendu à Brumefond il y a douze ans, comme espion de Vérenne. Tu as demandé ce pli pour aller voir la ville qui l'a tué."
+  },
+  "p_vu": {
+   "title": "Ce que tu as vu par la porte",
+   "aveu": "S_aveu_vu",
+   "text": "La nuit avant ton départ, par la porte entrouverte de son cabinet, tu as vu le chancelier Oriel écrire, sceller, et brûler une autre lettre."
+  },
+  "g_argent": {
+   "title": "Les quinze écus de la femme en gris",
+   "aveu": "S_aveu_argent",
+   "text": "Une femme en gris t'a payé{e} quinze écus pour que le pli arrive à Brumefond un jour plus tard. Quinze autres t'attendent à l'auberge du Cygne, à Brumefond."
+  },
+  "g_offre": {
+   "title": "La femme en gris",
+   "aveu": "S_aveu_offre",
+   "text": "Une femme en gris t'a offert de l'argent pour retarder le pli d'un jour. Tu as refusé. Elle a dit qu'elle trouverait un autre moyen."
+  },
+  "g_hiver": {
+   "title": "Tu n'as jamais passé le col en hiver",
+   "aveu": "S_aveu_hiver",
+   "text": "Tu as dit au clerc de la chancellerie que tu avais passé le col de l'Ourse en hiver. Tu l'as passé onze fois, toujours entre la Saint-Jean et la Saint-Michel."
+  }
+ },
+ "interludes": [
+  {
+   "act": "II",
+   "to": "I_hesme",
+   "if": {
+    "has": "role:pli"
+   }
+  },
+  {
+   "act": "II",
+   "to": "I_oriel",
+   "if": {
+    "has": "role:route"
+   }
+  },
+  {
+   "act": "III",
+   "to": "I_ancelin",
+   "if": {
+    "has": "role:pli"
+   }
+  },
+  {
+   "act": "III",
+   "to": "I_varrache",
+   "if": {
+    "has": "role:route"
+   }
+  }
+ ],
+ "quests": [],
+ "people": {
+  "oriel": {
+   "name": "Maître Oriel Daumas",
+   "face": {
+    "age": "mur",
+    "skin": "clair",
+    "hair": "gris",
+    "coif": "court",
+    "beard": "sans",
+    "eyes": "lourds",
+    "iris": "gris",
+    "nose": "busque",
+    "lips": "fines",
+    "shape": "allonge",
+    "marks": []
+   },
+   "desc": "Chancelier de Vérenne. Il garde le sceau de la duchesse et parle bas."
+  },
+  "hesme": {
+   "name": "Dame Hesmé de Laudes",
+   "face": {
+    "age": "mur",
+    "skin": "beige",
+    "hair": "gris",
+    "coif": "chignon",
+    "beard": "sans",
+    "eyes": "amande",
+    "iris": "noisette",
+    "nose": "fin",
+    "lips": "fines",
+    "shape": "ovale",
+    "marks": []
+   },
+   "desc": "Maîtresse des postes de la duchesse. Elle tient les relais, les chevaux et les courriers."
+  },
+  "ancelin": {
+   "name": "L'homme au manteau vert",
+   "face": {
+    "age": "adulte",
+    "skin": "clair",
+    "hair": "chatain",
+    "coif": "court",
+    "beard": "barbe",
+    "eyes": "amande",
+    "iris": "vert",
+    "nose": "busque",
+    "lips": "fines",
+    "shape": "carre",
+    "marks": [
+     "cicatrice"
+    ]
+   },
+   "desc": "Un cavalier qui vous précède sur la route et demande toujours où sont les courriers."
+  },
+  "tiburce": {
+   "name": "Le père Tiburce",
+   "face": {
+    "age": "ancien",
+    "skin": "clair",
+    "hair": "blanc",
+    "coif": "rase",
+    "beard": "longue",
+    "eyes": "tombants",
+    "iris": "bleu",
+    "nose": "large",
+    "lips": "pleines",
+    "shape": "rond",
+    "marks": []
+   },
+   "desc": "Le maître du relais de Pont-Gelé. Il compte les chevaux et les voyageurs."
+  },
+  "berthe": {
+   "name": "Berthe",
+   "face": {
+    "age": "mur",
+    "skin": "beige",
+    "hair": "roux",
+    "coif": "chignon",
+    "beard": "sans",
+    "eyes": "ronds",
+    "iris": "brun",
+    "nose": "large",
+    "lips": "pleines",
+    "shape": "rond",
+    "marks": []
+   },
+   "desc": "L'aubergiste de Sorgue-le-Haut, au pied du col. Elle connaît tous les guides du village depuis leur naissance."
+  },
+  "gaut": {
+   "name": "Gaut",
+   "face": {
+    "age": "jeune",
+    "skin": "brun",
+    "hair": "noir",
+    "coif": "court",
+    "beard": "sans",
+    "eyes": "amande",
+    "iris": "brun",
+    "nose": "fin",
+    "lips": "pleines",
+    "shape": "ovale",
+    "marks": []
+   },
+   "desc": "Un cavalier des postes de la duchesse, trouvé dans la gorge de l'Ourse."
+  },
+  "lorge": {
+   "name": "Aude Lorge",
+   "face": {
+    "age": "ancien",
+    "skin": "ebene",
+    "hair": "blanc",
+    "coif": "tresses",
+    "beard": "sans",
+    "eyes": "lourds",
+    "iris": "noir",
+    "nose": "large",
+    "lips": "fines",
+    "shape": "allonge",
+    "marks": []
+   },
+   "desc": "Présidente de l'Assemblée des Ligues. Elle a perdu deux fils dans la guerre des salines."
+  },
+  "varrache": {
+   "name": "Odo Varrache",
+   "face": {
+    "age": "adulte",
+    "skin": "clair",
+    "hair": "blond",
+    "coif": "court",
+    "beard": "moustache",
+    "eyes": "amande",
+    "iris": "bleu",
+    "nose": "busque",
+    "lips": "fines",
+    "shape": "carre",
+    "marks": []
+   },
+   "desc": "Capitaine-général des Ligues. On dit qu'il a déjà choisi les capitaines de la prochaine campagne."
+  }
+ },
+ "items": {
+  "pli": {
+   "name": "Le pli de la chancellerie",
+   "kind": "divers",
+   "keep": true,
+   "price": 0,
+   "desc": "Une lettre pliée en quatre, fermée de cire rouge au sceau de la chancellerie de Vérenne. Adressée « À l'Assemblée des Ligues, à Brumefond »."
+  },
+  "pli_cygne": {
+   "name": "Le pli au cygne",
+   "kind": "divers",
+   "keep": true,
+   "price": 0,
+   "desc": "Une lettre fermée de cire blanche au sceau privé de la duchesse, un cygne, adressée « À la présidente Aude Lorge, en main propre »."
+  },
+  "corde": {
+   "name": "Corde de chanvre",
+   "kind": "divers",
+   "keep": true,
+   "price": 3,
+   "desc": "Vingt brasses, goudronnée aux deux bouts."
+  },
+  "crampons": {
+   "name": "Crampons",
+   "kind": "divers",
+   "keep": true,
+   "price": 4,
+   "desc": "Deux griffes de fer à lacer sous les bottes."
+  },
+  "onguent": {
+   "name": "Onguent",
+   "kind": "soin",
+   "heal": 6,
+   "unique": false,
+   "price": 3,
+   "desc": "Un pot de graisse de marmotte et de sauge, contre le froid et les écorchures."
+  },
+  "dague": {
+   "name": "Dague",
+   "kind": "arme",
+   "dmg": 4,
+   "att": 5,
+   "price": 8,
+   "desc": "Courte, bien en main."
+  },
+  "epee": {
+   "name": "Épée",
+   "kind": "arme",
+   "dmg": 6,
+   "att": 0,
+   "price": 20,
+   "desc": "Une lame droite de Vérenne."
+  },
+  "arc": {
+   "name": "Arc court",
+   "kind": "arme",
+   "ranged": true,
+   "ammo": "fleche",
+   "dmg": 4,
+   "att": 0,
+   "price": 18,
+   "desc": "If et corne."
+  },
+  "baton": {
+   "name": "Bâton ferré",
+   "kind": "arme",
+   "dmg": 4,
+   "att": 0,
+   "price": 3,
+   "desc": "Un bâton de marche à pointe de fer."
+  },
+  "billet_hesme": {
+   "name": "Le billet de Dame Hesmé",
+   "kind": "document",
+   "form": "billet",
+   "hand": "hative",
+   "clue": "gaut_ordre",
+   "price": 0,
+   "text": "Gaut, par l'Ourse. Que la réponse au cygne soit lue avant celle de la chancellerie. Ne t'arrête qu'au bac. H."
+  }
+ },
+ "enemies": {
+  "loup": {
+   "name": "Loup des neiges",
+   "pv": 7,
+   "att": 20,
+   "def": 10,
+   "dmg": 3,
+   "flank": true
+  },
+  "homme_vert": {
+   "name": "Homme du manteau vert",
+   "pv": 9,
+   "att": 22,
+   "def": 8,
+   "dmg": 4
+  },
+  "ancelin": {
+   "name": "L'homme au manteau vert",
+   "pv": 16,
+   "att": 32,
+   "def": 16,
+   "dmg": 5
+  }
+ },
+ "shops": {},
+ "past": [
+  {
+   "q": "Qu'emportes-tu toujours avec toi, quel que soit le voyage ?",
+   "answers": [
+    {
+     "label": "Un couteau à manche de corne qui vient de ta mère",
+     "fx": {
+      "flag": "passe:couteau"
+     }
+    },
+    {
+     "label": "Un petit livre d'heures aux pages cornées, que tu lis sans croire",
+     "fx": {
+      "flag": "passe:livre"
+     }
+    },
+    {
+     "label": "Une flûte de saule, pour les soirs où l'on ne parle pas",
+     "fx": {
+      "flag": "passe:flute"
+     }
+    }
+   ]
+  }
+ ],
+ "world": {
+  "noFood": true,
+  "money": {
+   "units": [
+    {
+     "name": "écu",
+     "plural": "écus",
+     "value": 1,
+     "short": "é."
+    }
+   ]
+  },
+  "start": {
+   "place": "verenne",
+   "hour": 6,
+   "gold": 6,
+   "food": 0,
+   "items": [],
+   "kits": {
+    "guerrier": [
+     "epee"
+    ],
+    "rodeur": [
+     "arc"
+    ],
+    "voleur": [
+     "dague"
+    ],
+    "mage": [
+     "baton"
+    ],
+    "pretre": [
+     "baton"
+    ],
+    "barde": [
+     "dague"
+    ]
+   }
+  },
+  "places": {
+   "verenne": {
+    "ambiance": "ville",
+    "name": "Vérenne",
+    "map": "monde",
+    "x": 18,
+    "y": 78,
+    "arrive": "D_aube",
+    "desc": "La ville de la duchesse, ses toits d'ardoise et sa chancellerie au-dessus du marché."
+   },
+   "pontgele": {
+    "ambiance": "village",
+    "name": "Le relais de Pont-Gelé",
+    "map": "monde",
+    "x": 30,
+    "y": 60,
+    "arrive": "C_relais",
+    "desc": "Un relais de poste au bord d'un torrent, à une journée au nord de Vérenne."
+   },
+   "sorgue": {
+    "ambiance": "village",
+    "name": "Sorgue-le-Haut",
+    "map": "monde",
+    "x": 42,
+    "y": 44,
+    "arrive": "B_sorgue",
+    "desc": "Le dernier village avant le col, ses maisons de pierre sèche et ses mulets."
+   },
+   "col": {
+    "ambiance": "neige",
+    "name": "Le col de l'Ourse",
+    "map": "monde",
+    "x": 52,
+    "y": 26,
+    "arrive": "B_col",
+    "desc": "Le passage entre deux Dents de Sorgue, à la hauteur où les arbres s'arrêtent."
+   },
+   "ourse": {
+    "ambiance": "montagne",
+    "name": "La gorge de l'Ourse",
+    "map": "monde",
+    "x": 66,
+    "y": 36,
+    "arrive": "E_gorge",
+    "desc": "Une fente dans la montagne où le torrent descend vers le lac. Le chemin des contrebandiers."
+   },
+   "brumefond": {
+    "ambiance": "ville",
+    "name": "Brumefond",
+    "map": "monde",
+    "x": 84,
+    "y": 52,
+    "arrive": "E_ville",
+    "desc": "La ville libre du lac de Brume, ses quais, ses ponts couverts et la salle de l'Assemblée."
+   }
+  },
+  "routes": [],
+  "regions": {},
+  "events": {}
+ },
+ "endings": {
+  "paix": {
+   "title": "La paix des salines"
+  },
+  "cygne": {
+   "title": "Le cachet au cygne"
+  },
+  "treve": {
+   "title": "Un mois de trêve"
+  },
+  "guerre": {
+   "title": "La réponse de la chancellerie"
+  },
+  "tard": {
+   "title": "Trop tard"
+  },
+  "chemin": {
+   "title": "Le chemin du retour"
+  },
+  "fuite": {
+   "title": "La porte du lac"
+  }
+ },
+ "banter": [],
+ "passages": {
+  "D_aube": {
+   "act": "I",
+   "title": "Vérenne, avant le jour",
+   "place": "verenne",
+   "text": [
+    "La cloche de Saint-Vaast sonne cinq heures sur Vérenne. Il gèle. Les toits d'ardoise sont blancs, les fontaines ont des barbes de glace, et le marché aux sels, sous les fenêtres de la chancellerie, est vide depuis trois ans.",
+    "Ce matin, deux personnes vont quitter la ville par la porte du Nord avec la réponse de la duchesse. L'une portera le pli. L'autre connaît la route du col de l'Ourse, la seule qui mène au lac de Brume en cinq jours.",
+    "Laquelle es-tu ?"
+   ],
+   "choices": [
+    {
+     "label": "Porter le pli de la duchesse : tu es courrier de la chancellerie",
+     "role": "qui",
+     "option": "pli",
+     "fx": {
+      "flag": "role:pli"
+     },
+     "to": "A_pli",
+     "big": true
+    },
+    {
+     "label": "Guider le pli à travers les montagnes : tu es guide du col",
+     "role": "qui",
+     "option": "route",
+     "fx": {
+      "flag": "role:route"
+     },
+     "to": "A_route",
+     "big": true
+    }
+   ]
+  },
+  "A_pli": {
+   "act": "I",
+   "title": "L'antichambre",
+   "place": "verenne",
+   "fx": {
+    "secret": "p_pere"
+   },
+   "text": [
+    "Tu as passé la nuit sur un banc de chêne, dans l'antichambre du chancelier, ton manteau roulé sous la tête. Hier soir, le clerc de garde t'a dit : « Maître Oriel te recevra avant l'aube. Tu ne bouges pas d'ici. »",
+    "Tu es courrier de la chancellerie depuis quatre ans. Tu as porté des lettres à Lunel, à Saint-Aubrac, aux comtes de la côte, et tu as appris à dormir n'importe où, la main sur la sacoche. Brumefond, jamais. Les courriers de Vérenne n'y vont plus depuis la guerre des salines.",
+    "Ce pli-là, tu l'as demandé. Deux fois : au clerc, puis au secrétaire du chancelier. Ton père, Aymon Cabrol, est mort à Brumefond il y a douze ans, sur la place du Marché-aux-Sels, au bout d'une corde. On l'a pendu comme espion de Vérenne. Tu avais neuf ans. Tu veux voir cette place.",
+    {
+     "if": {
+      "has": "passe:couteau"
+     },
+     "text": "Ta main trouve dans ta botte le couteau à manche de corne. Ta mère te l'a donné le soir où la nouvelle est arrivée de Brumefond, en disant : « Il était à lui. »"
+    },
+    {
+     "if": {
+      "has": "passe:livre"
+     },
+     "text": "Le livre d'heures de ton père est dans ta sacoche, contre le cuir. Tu le lis le soir, sans prier. Il a souligné des phrases au crayon, et tu cherches encore pourquoi celles-là."
+    },
+    {
+     "if": {
+      "has": "passe:flute"
+     },
+     "text": "Ta flûte de saule est dans ta manche. Ton père t'a appris trois airs avant de partir. Tu en joues un quatrième, que tu as inventé à quinze ans pour remplacer les autres."
+    },
+    "La porte du cabinet s'ouvre. Le chancelier est debout derrière sa table, en robe noire, une chandelle à la main. « Entre. »"
+   ],
+   "choices": [
+    {
+     "label": "Entrer dans le cabinet",
+     "to": "A_oriel"
+    }
+   ]
+  },
+  "A_oriel": {
+   "act": "I",
+   "title": "Maître Oriel",
+   "place": "verenne",
+   "fx": {
+    "item": "pli",
+    "meet": "oriel"
+   },
+   "text": [
+    "Le cabinet sent la cire chaude et le bois de la cheminée. Sur la table, un seul objet : un pli plié en quatre, fermé de cire rouge au sceau de la chancellerie, la tour et les trois clés.",
+    "Maître Oriel Daumas a soixante ans, des mains de clerc et une voix que tu dois tendre l'oreille pour entendre. « La réponse de Sa Grâce à l'Assemblée des Ligues. Tu la remettras à la présidente Aude Lorge, en séance, devant l'Assemblée réunie. Pas avant l'ouverture de la séance. Pas à un autre. La séance du vote se tient au soir de la nouvelle lune, dans cinq jours. »",
+    "Il pousse le pli vers toi du bout de deux doigts. « Ton guide t'attend dans la cour. Un muletier de Sorgue, qui connaît le col en hiver. Tu dormiras à Pont-Gelé ce soir, à Sorgue-le-Haut demain. »",
+    "Puis il te regarde, plus longtemps qu'il ne faut. « Cabrol. J'ai connu ton père. Il servait bien. »"
+   ],
+   "choices": [
+    {
+     "label": "Demander ce que répond la duchesse",
+     "to": "A_oriel_question",
+     "hide": {
+      "seen": "A_oriel_question"
+     }
+    },
+    {
+     "label": "Prendre le pli, saluer, et sortir",
+     "to": "A_escalier"
+    }
+   ]
+  },
+  "A_oriel_question": {
+   "act": "I",
+   "title": "Un courrier ne lit pas",
+   "place": "verenne",
+   "text": [
+    "Le chancelier sourit, à peine. « Un courrier ne lit pas. Un courrier porte. »",
+    "Il souffle la chandelle. Le jour gris entre par la fenêtre, et son visage devient un visage ordinaire, fatigué, un peu jaune. « Sa Grâce répond ce qu'une duchesse doit répondre. Tu l'entendras à Brumefond, avec tout le monde. »"
+   ],
+   "choices": [
+    {
+     "label": "Prendre le pli, saluer, et sortir",
+     "to": "A_escalier"
+    }
+   ]
+  },
+  "A_escalier": {
+   "act": "I",
+   "title": "L'escalier de la chancellerie",
+   "place": "verenne",
+   "text": [
+    {
+     "first": true,
+     "text": "Tu descends le grand escalier, le pli contre ta poitrine, sous la chemise, dans l'étui de cuir que les courriers portent en bandoulière. En bas, dans la cour, quelqu'un attend près de la fontaine gelée, à côté d'un mulet bai."
+    },
+    {
+     "again": true,
+     "text": "Tu es sur le palier du premier étage. En bas, dans la cour, le mulet bai piétine près de la fontaine."
+    },
+    "Sur le palier, il y a une fenêtre étroite où tombe le premier soleil."
+   ],
+   "choices": [
+    {
+     "label": "Regarder le cachet du pli à la lumière de la fenêtre",
+     "test": {
+      "dom": "savoir",
+      "diff": 0,
+      "label": "Savoir"
+     },
+     "hide": {
+      "any": [
+       {
+        "seen": "A_cachet"
+       },
+       {
+        "seen": "A_cachet_rien"
+       }
+      ]
+     },
+     "win": {
+      "fx": {
+       "clue": "pli_cire",
+       "flag": "monde:preuve_cire",
+       "ep": [
+        "perso",
+        300
+       ]
+      },
+      "to": "A_cachet"
+     },
+     "lose": {
+      "to": "A_cachet_rien"
+     }
+    },
+    {
+     "label": "Repenser à ce que tu as vu cette nuit",
+     "to": "A_souvenir",
+     "hide": {
+      "seen": "A_souvenir"
+     }
+    },
+    {
+     "label": "Descendre dans la cour",
+     "to": "C_cour"
+    }
+   ]
+  },
+  "A_cachet": {
+   "act": "I",
+   "title": "Deux rouges",
+   "place": "verenne",
+   "text": [
+    "Tu inclines le pli dans le soleil. Le sceau est net : la tour, les trois clés, le grènetis du bord. Mais autour du sceau, la cire a coulé en deux couches. Celle du dessous est d'un rouge sombre, presque brun ; celle du dessus, d'un rouge vif. Quelqu'un a fait fondre un second bâton de cire sur le premier.",
+    "Tu as vu sceller des centaines de lettres. Une seule couche suffit toujours."
+   ],
+   "choices": [
+    {
+     "back": "A_escalier"
+    }
+   ]
+  },
+  "A_cachet_rien": {
+   "act": "I",
+   "title": "Un cachet",
+   "place": "verenne",
+   "text": [
+    "Le sceau est net : la tour, les trois clés, le grènetis du bord. Le soleil passe derrière le clocher de Saint-Vaast et le palier redevient gris. Tu ranges le pli."
+   ],
+   "choices": [
+    {
+     "back": "A_escalier"
+    }
+   ]
+  },
+  "A_souvenir": {
+   "title": "Minuit, dans l'antichambre",
+   "souvenir": "Cette nuit, vers minuit",
+   "back": true,
+   "fx": {
+    "secret": "p_vu"
+   },
+   "text": [
+    "Tu ne dors pas encore. Le banc est dur, la chandelle du couloir s'est éteinte, et sous la porte du cabinet passe un trait de lumière jaune.",
+    "La porte est entrouverte d'un doigt. Par la fente, tu vois le chancelier assis à sa table, en chemise, les manches relevées. Il écrit. Il écrit lentement, en s'arrêtant à chaque ligne, comme on recopie. À côté de son coude, il y a une autre lettre, fermée, posée à plat.",
+    "Il termine, il sèche l'encre au sable, il plie, il scelle. Puis il prend la lettre fermée, la tourne une fois entre ses doigts, et l'approche de la chandelle. Le papier se recroqueville. Il le tient jusqu'au bout, jusqu'à ce que la flamme lui lèche les doigts, et il laisse tomber les cendres dans un bassin de cuivre."
+   ],
+   "choices": [
+    {
+     "label": "Te lever sans bruit et regarder de plus près",
+     "test": {
+      "dom": "discretion",
+      "diff": 0,
+      "label": "Discrétion"
+     },
+     "win": {
+      "fx": {
+       "clue": "cygne_brule",
+       "flag": "monde:preuve_cendre",
+       "ep": [
+        "perso",
+        400
+       ]
+      },
+      "to": "A_souvenir_cygne"
+     },
+     "lose": {
+      "to": "A_souvenir_banc"
+     }
+    }
+   ]
+  },
+  "A_souvenir_cygne": {
+   "title": "Le cachet blanc",
+   "souvenir": "Cette nuit, vers minuit",
+   "back": true,
+   "text": [
+    "Tu fais trois pas en chaussettes sur les dalles. Par la fente, juste avant que la flamme le prenne, tu vois le cachet de la lettre brûlée : de la cire blanche, et dedans un cygne aux ailes ouvertes.",
+    "Le sceau privé de la duchesse Ysaure. Celui qu'elle porte au doigt et qu'elle n'appose que de sa main.",
+    "Tu retournes à ton banc. Tu restes allongé{e} les yeux ouverts jusqu'à ce que le clerc vienne te chercher."
+   ],
+   "choices": []
+  },
+  "A_souvenir_banc": {
+   "title": "Le banc qui grince",
+   "souvenir": "Cette nuit, vers minuit",
+   "back": true,
+   "text": [
+    "Le banc grince quand tu te lèves. Dans le cabinet, la plume s'arrête. Une voix, celle du chancelier, plus forte que tu ne l'as jamais entendue : « Ancelin ? »",
+    "Tu te rallonges. Tu fermes les yeux. Des pas, la porte s'ouvre en grand, la lumière passe sur ton visage, et la porte se referme, tout à fait cette fois. Tu entends le loquet."
+   ],
+   "choices": []
+  },
+  "A_route": {
+   "act": "I",
+   "title": "À la Corne",
+   "place": "verenne",
+   "fx": {
+    "secret": "g_hiver",
+    "item": "corde"
+   },
+   "text": [
+    "La Corne est une auberge de rouliers, en bas de la ville, près de la porte du Nord. On y sert la soupe à cinq heures et le vin à toute heure. Tu manges ta soupe près du feu. Dans la cour, ta mule Brunette mâche le foin que tu as payé hier soir, et ta corde de chanvre est roulée sur le bât, comme toujours.",
+    "Tu es de Sorgue-le-Haut, au pied du col de l'Ourse. Depuis onze ans tu fais passer le sel et la laine de l'autre côté des Dents, avec des mules. Depuis trois ans, il n'y a plus de sel à passer : la guerre a fermé les salines, et les muletiers de Sorgue vendent leurs bêtes une à une.",
+    "Hier, un clerc de la chancellerie est venu à la Corne chercher un guide pour Brumefond. Dix écus. Il t'a demandé : « Tu as passé l'Ourse en hiver ? » Tu as répondu oui. Tu l'as passé onze fois, toujours entre la Saint-Jean et la Saint-Michel, quand la neige est dans les creux.",
+    {
+     "if": {
+      "has": "passe:couteau"
+     },
+     "text": "Tu coupes ton pain avec le couteau à manche de corne de ta mère. Elle a fait ce chemin avant toi, avec les mules de ton grand-père."
+    },
+    {
+     "if": {
+      "has": "passe:livre"
+     },
+     "text": "Ton petit livre d'heures est sur la table, ouvert à la page des voyageurs. Tu le lis avant chaque passage. Ce matin, tu le lis deux fois."
+    },
+    {
+     "if": {
+      "has": "passe:flute"
+     },
+     "text": "Ta flûte de saule dépasse de ta poche. Les mules marchent mieux quand on leur joue quelque chose dans les montées."
+    },
+    "Une femme vient s'asseoir en face de toi sans rien demander. Un manteau gris de bonne laine, un capuchon gris, un visage de cinquante ans, et des yeux qui ont l'habitude qu'on leur obéisse."
+   ],
+   "choices": [
+    {
+     "label": "Attendre qu'elle parle",
+     "to": "A_gris"
+    }
+   ]
+  },
+  "A_gris": {
+   "act": "I",
+   "title": "La femme en gris",
+   "place": "verenne",
+   "text": [
+    {
+     "first": true,
+     "text": "« Vous partez ce matin avec le courrier de la chancellerie, pour Brumefond, par l'Ourse. » Elle le dit comme on lit une adresse. Elle pose sur la table une bourse de cuir, et la bourse fait le bruit lourd des pièces d'argent."
+    },
+    {
+     "first": true,
+     "text": "« Quinze écus maintenant. Quinze autres à Brumefond, à l'auberge du Cygne, sur le quai aux Sels, quand vous y serez. Je vous demande une seule chose : que le pli arrive à Brumefond un jour plus tard que prévu. Un jour. Une mule qui boite, un temps qu'on attend, ce que vous voudrez. Qu'il arrive entier, et que personne ne soit blessé. »"
+    },
+    {
+     "again": true,
+     "text": "La femme en gris attend, les mains croisées sur la table, à côté de la bourse."
+    }
+   ],
+   "choices": [
+    {
+     "label": "Lui demander qui elle sert",
+     "to": "A_gris_qui",
+     "hide": {
+      "seen": "A_gris_qui"
+     }
+    },
+    {
+     "label": "Prendre les quinze écus",
+     "to": "A_gris_pris",
+     "fx": {
+      "gold": 15,
+      "secret": "g_argent",
+      "flag": [
+       "argent_pris",
+       "monde:argent_pris"
+      ]
+     }
+    },
+    {
+     "label": "Repousser la bourse",
+     "to": "A_gris_refus",
+     "fx": {
+      "secret": "g_offre",
+      "flag": "monde:argent_refuse"
+     }
+    }
+   ]
+  },
+  "A_gris_qui": {
+   "act": "I",
+   "title": "Une bonne raison",
+   "place": "verenne",
+   "text": [
+    "Elle sourit pour la première fois. « Je sers la même dame que votre courrier. Je vous dirais pourquoi, vous ne me croiriez pas, et vous auriez raison de vous méfier de ce que vous croyez trop vite. »",
+    "Elle pousse la bourse d'un doigt vers toi. « Un jour. Ni plus, ni moins. »"
+   ],
+   "choices": [
+    {
+     "back": "A_gris"
+    }
+   ]
+  },
+  "A_gris_pris": {
+   "act": "I",
+   "title": "Quinze écus",
+   "place": "verenne",
+   "fx": {
+    "clue": "hesme_cor"
+   },
+   "text": [
+    "La bourse est lourde dans ta main. Quinze écus, c'est le prix d'une mule. C'est l'hiver de Brunette payé, et celui de l'autre mule que tu as vendue à la Toussaint, si tu la rachètes.",
+    "La femme en gris se lève. En rabattant son capuchon, elle découvre sa main gauche : à l'annulaire, une bague d'argent gravée d'un cor de chasse, l'emblème des postes de la duchesse, qu'on voit peint sur la porte de tous les relais du duché.",
+    "« Au Cygne, à Brumefond », dit-elle. Elle sort par la cour. Brunette la regarde passer en remuant les oreilles."
+   ],
+   "choices": [
+    {
+     "label": "Aller seller Brunette",
+     "to": "A_brunette"
+    }
+   ]
+  },
+  "A_gris_refus": {
+   "act": "I",
+   "title": "Une bourse repoussée",
+   "place": "verenne",
+   "fx": {
+    "clue": "hesme_cor"
+   },
+   "text": [
+    "Tu repousses la bourse. Elle glisse sur la table jusqu'à ses mains. La femme en gris la reprend sans se fâcher, comme on reprend un pion sur un échiquier.",
+    "« Vous êtes honnête. C'est dommage, aujourd'hui. » Elle se lève. En rabattant son capuchon, elle découvre sa main gauche : à l'annulaire, une bague d'argent gravée d'un cor de chasse, l'emblème des postes de la duchesse, qu'on voit peint sur la porte de tous les relais du duché.",
+    "« Je trouverai un autre moyen. » Elle sort par la cour."
+   ],
+   "choices": [
+    {
+     "label": "Aller seller Brunette",
+     "to": "A_brunette"
+    }
+   ]
+  },
+  "A_brunette": {
+   "act": "I",
+   "title": "Brunette",
+   "place": "verenne",
+   "text": [
+    {
+     "first": true,
+     "text": "Brunette est une mule baie de neuf ans, au pied sûr et au caractère de chèvre. Elle connaît le col mieux que toi en été. En hiver, vous serez deux à le découvrir."
+    },
+    {
+     "first": true,
+     "text": "Tu charges le bât : la corde, une couverture de plus, un sac d'avoine, la marmite, la lanterne. À la boutique de la Corne, le roulier vend des crampons et de l'onguent de marmotte."
+    },
+    {
+     "again": true,
+     "text": "Brunette attend, chargée, les oreilles en arrière."
+    }
+   ],
+   "choices": [
+    {
+     "label": "Acheter des crampons (4 écus)",
+     "fx": {
+      "gold": -4,
+      "item": "crampons"
+     },
+     "hide": {
+      "item": "crampons"
+     },
+     "to": "A_brunette_achat"
+    },
+    {
+     "label": "Acheter un pot d'onguent (3 écus)",
+     "fx": {
+      "gold": -3,
+      "item": "onguent"
+     },
+     "hide": {
+      "seen": "A_brunette_onguent"
+     },
+     "to": "A_brunette_onguent"
+    },
+    {
+     "label": "Monter à la chancellerie, où t'attend le courrier",
+     "to": "C_cour"
+    }
+   ]
+  },
+  "A_brunette_achat": {
+   "act": "I",
+   "title": "Des griffes de fer",
+   "place": "verenne",
+   "text": [
+    "Les crampons sont de bon fer de Lunel, avec des lanières neuves. Le roulier te les vend en te regardant de travers. « Pour l'Ourse ? En cette saison ? » Tu lui dis que oui. Il compte tes pièces deux fois."
+   ],
+   "choices": [
+    {
+     "back": "A_brunette"
+    }
+   ]
+  },
+  "A_brunette_onguent": {
+   "act": "I",
+   "title": "Graisse de marmotte",
+   "place": "verenne",
+   "text": [
+    "Un petit pot de grès bouché à la cire. Ça sent la sauge et la bête. Sur le col, une main gercée devient une main ouverte en deux jours."
+   ],
+   "choices": [
+    {
+     "back": "A_brunette"
+    }
+   ]
+  },
+  "C_cour": {
+   "act": "I",
+   "title": "La cour de la chancellerie",
+   "place": "verenne",
+   "charniere": true,
+   "text": [
+    "Le soleil est levé. La cour de la chancellerie est pavée de gris, avec une fontaine au milieu, prise dans sa glace, et un clerc frileux qui tient un registre contre sa poitrine.",
+    {
+     "if": {
+      "has": "role:pli"
+     },
+     "text": "Ton guide est là, près de la fontaine, avec une mule baie chargée jusqu'aux oreilles : {autre}, de Sorgue-le-Haut. Un manteau de berger, des bottes qui ont marché, des mains abîmées par les cordes. {autre} te salue d'un signe de tête et regarde ta sacoche avant de regarder ton visage."
+    },
+    {
+     "if": {
+      "has": "role:route"
+     },
+     "text": "Le courrier descend l'escalier de la chancellerie : {autre}. Un manteau de drap bleu aux armes de Vérenne, une sacoche de cuir en bandoulière, et sous la chemise, à la façon dont la main y revient, l'étui du pli. {autre} te regarde, puis regarde Brunette, et a l'air de se demander qui, de la mule ou de toi, connaît le chemin."
+    },
+    "Le clerc lit son registre à voix haute, sans lever les yeux : « Départ ce jour, au lever du soleil. Pont-Gelé ce soir, Sorgue-le-Haut demain, le col de l'Ourse le troisième jour, Brumefond le cinquième au matin. Séance du vote le cinquième au soir. » Il ferme le registre. « Que Dieu vous garde du vent. »",
+    {
+     "if": {
+      "all": [
+       {
+        "has": "role:pli"
+       },
+       {
+        "has": "monde:argent_pris"
+       }
+      ]
+     },
+     "text": "En te saluant, {autre} pose la main sur sa ceinture, à l'endroit où pend une bourse neuve, trop ronde pour un muletier."
+    }
+   ],
+   "choices": [
+    {
+     "label": "Passer la porte du Nord",
+     "to": "C_route"
+    }
+   ]
+  },
+  "C_route": {
+   "act": "I",
+   "title": "La route des salines",
+   "place": "verenne",
+   "text": [
+    {
+     "first": true,
+     "text": "La route du nord suit la Sorgue entre des peupliers nus. Les charrettes de sel l'ont creusée de deux ornières profondes, et ces ornières sont pleines de glace. Personne ne les a usées depuis trois ans."
+    },
+    {
+     "first": true,
+     "text": "Vous marchez de part et d'autre de Brunette, qui fait la conversation pour vous deux en soufflant par les naseaux. À midi, vous vous arrêtez sur un muret, au soleil, pour manger."
+    },
+    {
+     "again": true,
+     "text": "La route continue entre les peupliers. Brunette souffle."
+    }
+   ],
+   "choices": [
+    {
+     "label": "Demander à {autre} d'où vient son métier",
+     "to": "C_metier",
+     "hide": {
+      "seen": "C_metier"
+     }
+    },
+    {
+     "label": "Partager ton pain avec {autre}",
+     "fx": {
+      "flag": "monde:pain"
+     },
+     "to": "C_pain",
+     "hide": {
+      "seen": "C_pain"
+     }
+    },
+    {
+     "label": "Reprendre la route",
+     "to": "C_vert"
+    }
+   ]
+  },
+  "C_metier": {
+   "act": "I",
+   "title": "Un métier",
+   "place": "verenne",
+   "text": [
+    {
+     "if": {
+      "has": "role:pli"
+     },
+     "text": "« Les mules, dit {autre}. Le sel, la laine, le col. Ma mère avant moi, mon grand-père avant elle. » {autre} regarde la route vide. « Il n'y a plus de sel. Alors je passe des courriers. »"
+    },
+    {
+     "if": {
+      "has": "role:pli"
+     },
+     "text": "« Et l'hiver ? » demandes-tu. {autre} met un temps à répondre. « L'hiver, c'est le même col, avec de la neige dessus. »"
+    },
+    {
+     "if": {
+      "has": "role:route"
+     },
+     "text": "« La chancellerie, dit {autre}. Quatre ans. On donne une lettre, je la porte, je reviens. » Une main se pose sur l'étui de cuir, sous la chemise, sans y penser."
+    },
+    {
+     "if": {
+      "has": "role:route"
+     },
+     "text": "« Et Brumefond ? » demandes-tu. « Jamais. » {autre} mâche son pain longtemps. « On n'y envoie personne depuis la guerre. »"
+    }
+   ],
+   "choices": [
+    {
+     "back": "C_route"
+    }
+   ]
+  },
+  "C_pain": {
+   "act": "I",
+   "title": "La moitié du pain",
+   "place": "verenne",
+   "text": [
+    "Tu romps ton pain en deux et tu tends une moitié. {autre} la prend, la regarde, et dit merci d'une voix qui n'a pas beaucoup servi ce matin.",
+    "Vous mangez côte à côte sur le muret. La Sorgue coule sous la glace avec un bruit de verre qu'on remue."
+   ],
+   "choices": [
+    {
+     "back": "C_route"
+    }
+   ]
+  },
+  "C_vert": {
+   "act": "I",
+   "title": "Le cavalier en vert",
+   "place": "verenne",
+   "text": [
+    "Au milieu de l'après-midi, un cheval vous rattrape au trot, puis ralentit au pas à votre hauteur. Un grand cheval noir, une housse verte, et dessus un homme en manteau vert, la barbe courte, une cicatrice blanche qui lui ferme à moitié l'œil gauche.",
+    "Il regarde la mule, puis la sacoche de cuir, puis vos deux visages, dans cet ordre. « Le bonjour. Vous allez loin ? »"
+   ],
+   "choices": [
+    {
+     "label": "Lui répondre que vous allez à Sorgue, voir de la famille",
+     "fx": {
+      "flag": "monde:menti_vert"
+     },
+     "via": "parle",
+     "to": "C_vert_parti"
+    },
+    {
+     "label": "Lui répondre que vous allez à Brumefond",
+     "fx": {
+      "flag": "monde:dit_vert"
+     },
+     "via": "parle",
+     "to": "C_vert_parti"
+    },
+    {
+     "label": "Le saluer de la tête, et laisser le silence répondre",
+     "to": "C_vert_parti"
+    }
+   ]
+  },
+  "C_vert_parti": {
+   "act": "I",
+   "title": "La poussière",
+   "place": "verenne",
+   "text": [
+    {
+     "via": "parle",
+     "text": "L'homme hoche la tête comme si tu lui avais appris ce qu'il savait déjà. « Bonne route. » Il donne du talon, et le cheval noir repart au trot vers le nord."
+    },
+    {
+     "if": {
+      "not": {
+       "via": "parle"
+      }
+     },
+     "text": "L'homme attend une réponse, la reçoit sous la forme de vos deux nuques, et sourit. « Bonne route. » Le cheval noir repart au trot vers le nord."
+    },
+    "Brunette le suit des yeux longtemps. Elle a les oreilles plates, comme devant les chiens.",
+    "Le soir tombe tôt en cette saison. Vous voyez la lanterne du relais de Pont-Gelé avant de voir le relais."
+   ],
+   "choices": [
+    {
+     "label": "Entrer au relais",
+     "to": "C_relais"
+    }
+   ]
+  },
+  "C_relais": {
+   "act": "I",
+   "title": "Le relais de Pont-Gelé",
+   "place": "pontgele",
+   "hub": true,
+   "takes": "evening",
+   "text": [
+    {
+     "first": true,
+     "text": "Le relais est une maison basse au bord du torrent, avec une écurie plus grande que la maison et, peint sur la porte, le cor de chasse des postes de la duchesse. Le maître de poste est un vieil homme à barbe blanche qui s'appelle le père Tiburce et qui compte tout : les chevaux, les voyageurs, les bûches."
+    },
+    {
+     "first": true,
+     "text": "Dans l'écurie, entre deux chevaux de poste, il y a un grand cheval noir sous une housse verte."
+    },
+    {
+     "again": true,
+     "text": "La salle du relais est chaude. Le père Tiburce compte ses bûches près du feu."
+    }
+   ],
+   "choices": [
+    {
+     "label": "Parler au père Tiburce",
+     "to": "C_tiburce",
+     "hide": {
+      "seen": "C_tiburce"
+     }
+    },
+    {
+     "label": "Aller voir le cheval noir à l'écurie",
+     "to": "C_ecurie",
+     "hide": {
+      "seen": "C_ecurie"
+     }
+    },
+    {
+     "label": "Monter à la chambre",
+     "to": "C_chambre"
+    }
+   ]
+  },
+  "C_tiburce": {
+   "act": "I",
+   "title": "Le père Tiburce",
+   "place": "pontgele",
+   "fx": {
+    "meet": "tiburce",
+    "clue": "vert_relais"
+   },
+   "text": [
+    "Le père Tiburce vous sert une soupe aux choux et s'assied en face, parce que c'est l'hiver et que plus personne ne passe. Il parle des salines, de la guerre, de son fils qui garde les mulets d'un capitaine.",
+    "« Drôle de jour. Quatre ans sans voir un courrier de Vérenne, et aujourd'hui j'en ai de partout. Ce matin, avant le jour, un garçon des postes a changé de cheval ici, sans presque descendre de selle. Et ce soir, on me demande des nouvelles des autres. » Il baisse la voix. « Le monsieur en vert, là-haut. Il m'a demandé à quelle heure passaient les courriers, et combien ils étaient. Je lui ai dit que je ne savais pas. Il m'a donné un écu quand même. »",
+    {
+     "if": {
+      "has": "monde:menti_vert"
+     },
+     "text": "« Il a ri quand je lui ai parlé de vous. Il a dit : “Ils vont voir de la famille à Sorgue.” »"
+    }
+   ],
+   "choices": [
+    {
+     "back": "C_relais"
+    }
+   ]
+  },
+  "C_ecurie": {
+   "act": "I",
+   "title": "Le cheval noir",
+   "place": "pontgele",
+   "text": [
+    "Le cheval noir est un cheval de guerre, haut, nerveux, avec une marque au fer sur la cuisse : un cercle et une croix. À ses fers, un forgeron a soudé des clous à glace, de ceux qu'on met pour la montagne.",
+    "Sur la selle pendue au mur, il y a une épée longue dans un fourreau de cuir vert, et une sacoche fermée d'un petit cadenas de cuivre."
+   ],
+   "choices": [
+    {
+     "label": "Ouvrir la sacoche à cadenas",
+     "test": {
+      "dom": "discretion",
+      "diff": -10,
+      "label": "Discrétion"
+     },
+     "win": {
+      "to": "C_ecurie_sacoche"
+     },
+     "lose": {
+      "to": "C_ecurie_surpris"
+     }
+    },
+    {
+     "back": "C_relais"
+    }
+   ]
+  },
+  "C_ecurie_sacoche": {
+   "act": "I",
+   "title": "Une sacoche de cuir vert",
+   "place": "pontgele",
+   "fx": {
+    "flag": "monde:carte_vert"
+   },
+   "text": [
+    "Le cadenas cède à la pointe d'un clou. Dans la sacoche, une chemise de rechange, un briquet, une carte des Dents de Sorgue tracée à l'encre, et dessus, au crayon, une ligne qui part de Sorgue-le-Haut et descend par la gorge de l'Ourse vers le lac, en évitant le col. Une croix au bas de la gorge, là où le torrent sort de la montagne.",
+    "Tu refermes, tu remets le cadenas. Le cheval noir te regarde faire."
+   ],
+   "choices": [
+    {
+     "back": "C_relais"
+    }
+   ]
+  },
+  "C_ecurie_surpris": {
+   "act": "I",
+   "title": "La lanterne",
+   "place": "pontgele",
+   "fx": {
+    "flag": "monde:vert_mefiant"
+   },
+   "text": [
+    "Le cadenas résiste. Une lanterne entre dans l'écurie : l'homme en vert, en chemise, qui vient voir son cheval. Il te voit à côté de sa selle. Il ne dit rien pendant un long moment.",
+    "« Il est beau, hein ? » Il caresse l'encolure du cheval noir sans te quitter des yeux. « Il mord. » Tu ressors. Tu sens son regard jusqu'à la porte."
+   ],
+   "choices": [
+    {
+     "back": "C_relais"
+    }
+   ]
+  },
+  "C_chambre": {
+   "act": "I",
+   "title": "La chambre sous le toit",
+   "place": "pontgele",
+   "aparte": true,
+   "text": [
+    {
+     "first": true,
+     "text": "Le père Tiburce n'a qu'une chambre de libre, sous le toit, avec deux lits étroits de part et d'autre d'un coffre, une chandelle, et un vasistas qui ferme mal. Vous vous déchaussez chacun de votre côté, le dos tourné."
+    },
+    {
+     "first": true,
+     "text": "Dehors, le torrent fait son bruit de pierres roulées. Brunette s'ébroue dans l'écurie. La chandelle entre vous deux éclaire le coffre, la sacoche de {autre} sur le coffre, et vos deux visages, à moitié."
+    },
+    {
+     "again": true,
+     "text": "La chandelle a baissé d'un doigt. {autre} est assis{autre:e} sur son lit, les coudes sur les genoux."
+    },
+    {
+     "if": {
+      "has": "passe:flute"
+     },
+     "text": "Ta flûte est sur la couverture."
+    }
+   ],
+   "choices": [
+    {
+     "label": "Jouer un air de flûte, à mi-voix",
+     "if": {
+      "has": "passe:flute"
+     },
+     "fx": {
+      "flag": "monde:flute"
+     },
+     "to": "C_flute",
+     "hide": {
+      "seen": "C_flute"
+     }
+    },
+    {
+     "label": "Attendre que {autre} dorme, et fouiller sa sacoche",
+     "if": {
+      "has": "role:route"
+     },
+     "hide": {
+      "any": [
+       {
+        "seen": "C_fouille"
+       },
+       {
+        "seen": "C_fouille_rate"
+       }
+      ]
+     },
+     "test": {
+      "dom": "discretion",
+      "diff": 0,
+      "label": "Discrétion"
+     },
+     "win": {
+      "fx": {
+       "surprend": "p_pere",
+       "flag": "monde:sac_fouille"
+      },
+      "to": "C_fouille"
+     },
+     "lose": {
+      "fx": {
+       "flag": "monde:fouille_vue"
+      },
+      "to": "C_fouille_rate"
+     }
+    },
+    {
+     "label": "Regarder la bourse que {autre} a posée sur le coffre",
+     "if": {
+      "has": "role:pli"
+     },
+     "hide": {
+      "any": [
+       {
+        "seen": "C_bourse"
+       },
+       {
+        "seen": "C_bourse_maigre"
+       }
+      ]
+     },
+     "to": [
+      {
+       "if": {
+        "has": "monde:argent_pris"
+       },
+       "to": "C_bourse"
+      },
+      {
+       "to": "C_bourse_maigre"
+      }
+     ]
+    },
+    {
+     "label": "Souffler la chandelle et dormir",
+     "takes": "morning",
+     "to": "B_matin"
+    }
+   ]
+  },
+  "C_flute": {
+   "act": "I",
+   "title": "Un air",
+   "place": "pontgele",
+   "text": [
+    "Tu joues l'air que tu as inventé à quinze ans, tout bas, pour toi. Il monte jusqu'aux poutres. Dans l'écurie, Brunette arrête de mâcher.",
+    "Quand tu baisses la flûte, {autre} a les yeux ouverts au plafond. « Encore », dit {autre}. Tu le rejoues."
+   ],
+   "choices": [
+    {
+     "back": "C_chambre"
+    }
+   ]
+  },
+  "C_fouille": {
+   "act": "I",
+   "title": "Un papier plié",
+   "place": "pontgele",
+   "text": [
+    "Tu attends que la respiration de {autre} devienne longue et lente. Tu ouvres la sacoche du bout des doigts. L'étui du pli n'y est pas : il dort sous la chemise de {autre}, contre sa peau. Dans la sacoche, du linge, un briquet, un livre d'heures usé, et entre ses pages, un papier jauni plié en huit.",
+    "C'est une affiche, de celles qu'on cloue aux portes des villes. *Prévôté de Brumefond. Aymon Cabrol, de Vérenne, convaincu d'espionnage pour le compte du duché, sera pendu au Marché-aux-Sels le jour de la Saint-Clair.* Il y a douze ans.",
+    "Le nom sur l'affiche est le même que celui que le clerc a inscrit ce matin dans son registre, à côté du mot *courrier*.",
+    "Tu replies l'affiche, tu refermes la sacoche, tu te recouches. Tu n'arrives pas à dormir tout de suite."
+   ],
+   "choices": [
+    {
+     "back": "C_chambre"
+    }
+   ]
+  },
+  "C_fouille_rate": {
+   "act": "I",
+   "title": "Une main sur la sacoche",
+   "place": "pontgele",
+   "text": [
+    "Tu as la main sur la boucle de la sacoche quand {autre} se retourne dans son lit en soupirant. Tu restes immobile, à genoux sur les planches, le cœur dans la gorge.",
+    "La respiration de {autre} reprend, régulière. Peut-être. Tu retournes à ton lit sans avoir rien ouvert."
+   ],
+   "choices": [
+    {
+     "back": "C_chambre"
+    }
+   ]
+  },
+  "C_bourse": {
+   "act": "I",
+   "title": "Une bourse trop ronde",
+   "place": "pontgele",
+   "fx": {
+    "surprend": "g_argent"
+   },
+   "text": [
+    "La bourse de {autre} est posée sur le coffre, à côté de la chandelle. Une bourse de cuir fauve, neuve, et brodée sur le rabat d'un petit cor de chasse en fil d'argent : l'emblème des postes de la duchesse, celui qui est peint sur la porte de ce relais.",
+    "Elle est ronde et lourde. Tu as vu le clerc payer ton guide ce matin : il a compté dix écus dans une main, et il ne s'est servi d'aucune bourse."
+   ],
+   "choices": [
+    {
+     "back": "C_chambre"
+    }
+   ]
+  },
+  "C_bourse_maigre": {
+   "act": "I",
+   "title": "Une bourse de muletier",
+   "place": "pontgele",
+   "text": [
+    "La bourse de {autre} est une bourse de muletier, en peau de chèvre, nouée d'un lacet. Elle est plate. Les dix écus de la chancellerie y sont sans doute, et pas grand-chose d'autre."
+   ],
+   "choices": [
+    {
+     "back": "C_chambre"
+    }
+   ]
+  },
+  "S_aveu_pere": {
+   "title": "Le Marché-aux-Sels",
+   "back": true,
+   "text": [
+    "Tu le dis d'abord au plafond, puis à {autre}. Ton père s'appelait Aymon Cabrol. Il vendait du sel de la Sorgue à Brumefond et il rapportait des lettres à Vérenne. Un jour de printemps, on l'a arrêté sur le quai aux Sels, et à la Saint-Clair on l'a pendu sur la place du marché, comme espion du duché.",
+    "Tu avais neuf ans. Ta mère a brûlé ses habits et gardé ses affaires. Tu as gardé l'affiche de la prévôté, celle qu'un roulier a rapportée de Brumefond, pliée en huit dans un livre.",
+    {
+     "if": {
+      "place": "pontgele"
+     },
+     "text": "« J'ai demandé ce pli pour voir cette place », dis-tu. La chandelle grésille. {autre} t'écoute jusqu'au bout, et la chambre reste silencieuse longtemps après."
+    },
+    {
+     "if": {
+      "place": "col"
+     },
+     "text": "Dehors, le vent cogne contre la porte du refuge. « J'ai demandé ce pli pour voir cette place. » Le feu de genévrier craque. {autre} te tend la gourde, et tu bois."
+    },
+    {
+     "if": {
+      "place": "brumefond"
+     },
+     "text": "Le bac glisse sur l'eau noire. Devant vous, les lumières de Brumefond. « C'est là. J'ai demandé ce pli pour voir cette place. » {autre} regarde les lumières avec toi."
+    }
+   ]
+  },
+  "S_aveu_vu": {
+   "title": "La porte du cabinet",
+   "back": true,
+   "text": [
+    "Tu racontes la nuit dans l'antichambre. Le trait de lumière sous la porte, le chancelier en chemise, la plume qui recopie lentement, le sable sur l'encre, le cachet. Et l'autre lettre, celle qu'il a tenue dans la flamme jusqu'à se brûler les doigts.",
+    {
+     "if": {
+      "clue": "cygne_brule"
+     },
+     "text": "« Elle était fermée de cire blanche, avec un cygne. » Tu poses la main sur l'étui du pli, sous ta chemise. « Celle-ci est fermée de cire rouge. »"
+    },
+    {
+     "if": {
+      "clue": "pli_cire"
+     },
+     "text": "« Et sur celle que je porte, la cire a coulé deux fois. Deux rouges l'un sur l'autre. »"
+    },
+    "Tu te tais. Tu viens de dire à quelqu'un que tu as rencontré hier que le pli de la duchesse est peut-être un mensonge. Un courrier qui dit cela, à Vérenne, perd sa place. Ou sa tête."
+   ]
+  },
+  "S_aveu_argent": {
+   "title": "La bourse au cor de chasse",
+   "back": true,
+   "text": [
+    "Tu poses la bourse entre vous deux. Tu racontes la femme en gris à la Corne, son manteau, sa bague au cor de chasse. Quinze écus maintenant, quinze au Cygne. Un jour de retard. Que le pli arrive entier et que personne ne soit blessé.",
+    {
+     "if": {
+      "has": "monde:retard_mule"
+     },
+     "text": "« Le caillou sous le fer de Brunette, c'est moi. » Tu le dis vite, avant de changer d'avis."
+    },
+    "« Je ne sais pas pour qui elle travaille. Elle a dit : la même dame que toi. » Tu regardes {autre} en face pour la première fois depuis Vérenne. « J'avais besoin de l'argent. »"
+   ]
+  },
+  "S_aveu_offre": {
+   "title": "La femme de la Corne",
+   "back": true,
+   "text": [
+    "Tu racontes la femme en gris à la Corne, la bourse qui sonnait sur la table, le marché qu'elle t'a proposé : un jour de retard pour trente écus. Tu as repoussé la bourse.",
+    "« Elle a dit qu'elle trouverait un autre moyen. Elle portait le cor de chasse des postes, à la bague. » Tu hausses les épaules. « Quelqu'un, à Vérenne, veut que ton pli arrive en retard. Ou veut savoir si on peut nous acheter. »"
+   ]
+  },
+  "S_aveu_hiver": {
+   "title": "Onze étés",
+   "back": true,
+   "text": [
+    "« J'ai menti au clerc. » Tu le dis tout de suite, comme on saute dans l'eau froide. « J'ai passé l'Ourse onze fois. L'été. Entre la Saint-Jean et la Saint-Michel. Jamais sous la neige. »",
+    {
+     "if": {
+      "place": "pontgele"
+     },
+     "text": "« Demain soir on sera à Sorgue, et après-demain là-haut. Je connais le chemin. Je ne sais pas ce qu'il devient quand il est blanc. » {autre} regarde le vasistas, où la nuit est claire et froide."
+    },
+    {
+     "if": {
+      "place": "col"
+     },
+     "text": "« Aujourd'hui, j'ai cherché les cairns sous la neige comme on cherche ses mots. » Le vent pousse la porte du refuge. {autre} met une bûche de plus dans le feu."
+    },
+    {
+     "if": {
+      "place": "brumefond"
+     },
+     "text": "« C'est fait, maintenant. On a passé le col. Je voulais que tu le saches quand même. » L'eau clapote contre le bac."
+    }
+   ]
+  },
+  "I_hesme": {
+   "title": "La maison des postes",
+   "interlude": {
+    "who": "hesme",
+    "where": "Vérenne, la nuit de votre départ"
+   },
+   "back": true,
+   "text": [
+    "La maison des postes de Vérenne est derrière l'écurie ducale, et à minuit il n'y a de lumière qu'à une fenêtre. Dame Hesmé de Laudes y est assise en manteau gris, devant une carte des Dents de Sorgue épinglée au mur.",
+    "Le garçon qui entre a vingt ans, des bottes de cavalier et la peau tannée des gens qui dorment dehors. Il s'appelle Gaut, et il est le meilleur courrier des postes depuis que les postes ne servent plus à rien.",
+    "« Tu pars cette nuit. Par la gorge de l'Ourse, le chemin des contrebandiers. Tu laisses le col à ta gauche, tu passes Sorgue de nuit, et tu gardes ta bouche fermée jusqu'au bac de Brume. » Elle lui tend une lettre fermée de cire blanche. Le cygne de la duchesse, aux ailes ouvertes. « À la présidente Aude Lorge, en main propre, avant que l'Assemblée entende la réponse de la chancellerie. »",
+    "Gaut tourne la lettre. « Il y a deux réponses ? »",
+    "« Sa Grâce a écrit une réponse, et l'a donnée au chancelier pour qu'il la fasse partir. Ensuite je lui ai demandé de l'écrire une seconde fois, pour moi. Elle n'a pas demandé pourquoi. Elle me connaît. » Dame Hesmé regarde la carte. « Maître Oriel a choisi lui-même le courrier. Il ne choisit jamais lui-même. Et il a choisi un Cabrol. »",
+    {
+     "if": {
+      "has": "monde:argent_pris"
+     },
+     "text": "« Le muletier a pris l'argent. Leur pli arrivera un jour après toi. Tu as un jour d'avance, Gaut. Ne le perds pas. »"
+    },
+    {
+     "if": {
+      "has": "monde:argent_refuse"
+     },
+     "text": "« Le muletier a refusé l'argent. Honnête. » Elle a un petit rire sans joie. « Leur pli arrivera le cinquième au matin. Tu dois y être avant. Tu as une nuit d'avance, Gaut. Une seule. »"
+    },
+    "« Et si on m'arrête ? »",
+    "« Le chancelier a fait partir un homme ce matin, un homme à lui, en manteau vert. Il suit le courrier. Il ne sait pas que tu existes. » Elle se lève. « Pour l'instant. »"
+   ]
+  },
+  "I_oriel": {
+   "title": "Le cabinet du chancelier",
+   "interlude": {
+    "who": "oriel",
+    "where": "Vérenne, la veille de votre départ"
+   },
+   "back": true,
+   "text": [
+    "Le cabinet du chancelier, la veille au soir. Le feu est bas. Maître Oriel Daumas tient une lettre fermée de cire blanche, au cygne de la duchesse, et devant lui se tient un homme en manteau vert, la barbe courte, une cicatrice qui lui ferme à moitié l'œil gauche.",
+    "« Sa Grâce dit oui, Ancelin. » Le chancelier a la voix de quelqu'un qui annonce un deuil. « Les salines partagées, une commission, un traité sur dix ans. J'ai sept cents muids de sel engagés sur la Sorgue, au nom de mon frère. Partager les salines, c'est partager ce qui me revient. »",
+    "« Et Varrache ? »",
+    "« Varrache veut sa guerre, et les salines de la rive nord, et il les aura, si l'Assemblée entend un non. Elle l'entendra. » Il pose la main sur une feuille blanche, à côté de la lettre au cygne. « J'écris bien comme Sa Grâce. J'ai écrit pour elle pendant vingt ans. »",
+    "« Le courrier lira peut-être. »",
+    "« Le courrier est un enfant d'Aymon Cabrol. Son père est mort pendu à Brumefond. Il a demandé ce pli lui-même, deux fois. Quelqu'un qui hait cette ville ne cherchera pas pourquoi on lui donne une bonne raison de la haïr. »",
+    "Ancelin hoche la tête. « Et moi ? »",
+    "« Tu les suis jusqu'au lac. Dame Hesmé tient les postes, et Dame Hesmé ne m'aime pas. Si un autre cavalier part vers Brumefond, avec une autre lettre, il n'arrive pas. » Le chancelier prend sa plume. « Va. J'ai à écrire. »"
+   ]
+  },
+  "I_ancelin": {
+   "title": "Le cheval dans la gorge",
+   "interlude": {
+    "who": "ancelin",
+    "where": "La gorge de l'Ourse, la nuit"
+   },
+   "back": true,
+   "text": [
+    "Le cheval des postes est couché dans la neige, au bord du torrent, un carreau d'arbalète dans le poitrail. Ancelin s'accroupit près de lui et ouvre les fontes une à une avec son couteau. Du pain, de l'avoine, une couverture, une gourde. Pas de lettre.",
+    "Le cavalier est tombé avec le cheval. Il s'est relevé, il a couru, et il a disparu entre les rochers, là où la gorge se resserre. Il y a du sang sur la neige, des taches de la taille d'une pièce, qui montent vers le noir.",
+    "Ancelin regarde le noir un long moment. Un homme blessé, sans cheval, dans la gorge de l'Ourse, en hiver, la nuit : il ne verra pas le lac. Et sa lettre ne le verra pas non plus.",
+    {
+     "if": {
+      "has": "monde:menti_vert"
+     },
+     "text": "Il pense aux deux voyageurs de la route du nord, qui allaient voir de la famille à Sorgue. Il sourit dans sa barbe."
+    },
+    "Il essuie son couteau sur la housse du cheval mort. Le chemin du col et celui de la gorge se rejoignent au pont de Brume, au-dessus du lac. Tout ce qui descend de la montagne passe par ce pont. Il ira les y attendre, avec ses deux hommes, au chaud, dans la maison du péager."
+   ]
+  },
+  "I_varrache": {
+   "title": "La salle de l'Assemblée",
+   "interlude": {
+    "who": "lorge",
+    "where": "Brumefond, deux jours avant le vote"
+   },
+   "back": true,
+   "text": [
+    "La séance est levée. La salle de l'Assemblée se vide de ses quarante délégués, et Aude Lorge reste assise sous les armes des Ligues, les mains à plat sur la table, parce que ses genoux lui font mal quand elle se lève trop vite.",
+    "Odo Varrache, capitaine-général, s'arrête à sa hauteur, les gants à la main. « Vérenne dira non, présidente. Vous le savez comme moi. »",
+    "« Vous le savez bien tôt, capitaine. » Elle ne lève pas les yeux. « La réponse n'est pas encore partie de Vérenne, qu'on sache. »",
+    "Varrache sourit. « Elle est partie ce matin. Ils envoient un enfant d'Aymon Cabrol pour la porter. Le chancelier Daumas a de l'humour. »",
+    "Quand il est sorti, Aude Lorge reste longtemps immobile. Elle se souvient du procès d'Aymon Cabrol. Elle y était, jeune déléguée de Port-Sauge. Cabrol n'a jamais dit qui l'envoyait. Mais dans ses affaires, on a trouvé des lettres signées d'un clerc de la chancellerie de Vérenne, un certain O. Daumas, et le prévôt a écrit ce nom dans son registre. Vérenne n'a jamais réclamé Cabrol. Daumas l'a laissé pendre.",
+    "Et Daumas, aujourd'hui, est chancelier. Elle appelle son secrétaire. « Les lettres de la duchesse Ysaure, celles des années de paix. Montrez-moi comment elles sont scellées. »",
+    "Le secrétaire revient avec une liasse. Chaque lettre porte au dehors le sceau rouge de la chancellerie, et au dedans, sur le pli intérieur, un petit cygne de cire blanche."
+   ]
+  },
+  "B_matin": {
+   "act": "II",
+   "title": "Le matin à Pont-Gelé",
+   "place": "pontgele",
+   "text": [
+    "Le père Tiburce vous réveille avec du lait chaud et la nouvelle de la nuit : le monsieur en vert est parti avant le jour, sans attendre la soupe, et il a pris la route de Sorgue.",
+    {
+     "if": {
+      "all": [
+       {
+        "has": "monde:flute"
+       },
+       {
+        "not": {
+         "seen": "C_flute"
+        }
+       }
+      ]
+     },
+     "text": "Hier soir, {autre} a joué un air de flûte, tout bas. Tu l'as encore dans la tête en laçant tes bottes."
+    },
+    {
+     "if": {
+      "all": [
+       {
+        "has": "monde:pain"
+       },
+       {
+        "not": {
+         "seen": "C_pain"
+        }
+       }
+      ]
+     },
+     "text": "Hier, sur le muret, {autre} t'a tendu la moitié de son pain."
+    },
+    {
+     "if": {
+      "all": [
+       {
+        "has": "role:route"
+       },
+       {
+        "confie": "p_pere"
+       }
+      ]
+     },
+     "text": "Tu repenses à ce que {autre} t'a dit cette nuit : un père, une corde, une place de Brumefond. Ce matin, quand {autre} boucle sa sacoche, tu regardes ses mains."
+    },
+    {
+     "if": {
+      "all": [
+       {
+        "has": "role:route"
+       },
+       {
+        "confie": "p_vu"
+       }
+      ]
+     },
+     "text": "Et la lettre brûlée dans le cabinet du chancelier. Tu ne sais pas ce que vaut un pli de duchesse. Tu sais ce que vaut une lettre qu'on brûle à minuit."
+    },
+    {
+     "if": {
+      "all": [
+       {
+        "has": "role:pli"
+       },
+       {
+        "confie": "g_argent"
+       }
+      ]
+     },
+     "text": "La bourse au cor de chasse est restée sur le coffre toute la nuit, entre vos deux lits. Ce matin, {autre} la range sans rien dire, et tu ne dis rien non plus."
+    },
+    {
+     "if": {
+      "all": [
+       {
+        "has": "role:pli"
+       },
+       {
+        "confie": "g_offre"
+       }
+      ]
+     },
+     "text": "Tu penses à la femme en gris. Quelqu'un, à Vérenne, a voulu acheter ton guide. Quelqu'un qui porte l'emblème des postes de la duchesse."
+    },
+    {
+     "if": {
+      "all": [
+       {
+        "has": "role:pli"
+       },
+       {
+        "confie": "g_hiver"
+       }
+      ]
+     },
+     "text": "Onze étés. Tu regardes la montagne au bout de la vallée, toute blanche, et tu regardes {autre} qui la regarde aussi."
+    },
+    {
+     "if": {
+      "all": [
+       {
+        "has": "role:pli"
+       },
+       {
+        "has": "monde:fouille_vue"
+       }
+      ]
+     },
+     "text": "Cette nuit, tu as entendu un genou sur les planches, près de ta sacoche. Tu as gardé les yeux fermés. Ce matin, tu ne sais plus si tu as rêvé."
+    },
+    {
+     "if": {
+      "all": [
+       {
+        "has": "role:pli"
+       },
+       {
+        "has": "monde:sac_fouille"
+       }
+      ]
+     },
+     "text": "Ta sacoche est bouclée au deuxième cran. Tu la boucles toujours au troisième."
+    }
+   ],
+   "choices": [
+    {
+     "label": "Prendre la route de Sorgue-le-Haut",
+     "to": "B_montee"
+    }
+   ]
+  },
+  "B_montee": {
+   "act": "II",
+   "title": "La montée",
+   "place": "pontgele",
+   "text": [
+    {
+     "first": true,
+     "text": "Au-dessus de Pont-Gelé, la vallée se resserre. Les peupliers deviennent des mélèzes, les mélèzes deviennent rares, et vers dix heures il commence à neiger, une neige fine et sèche qui crisse sous les sabots de Brunette."
+    },
+    {
+     "first": true,
+     "text": "Au loin, devant, les Dents de Sorgue ferment le ciel : deux pics noirs et entre eux une selle blanche, le col de l'Ourse. Un panache de neige s'envole du col, comme une fumée."
+    },
+    {
+     "again": true,
+     "text": "La neige tombe, fine et sèche. Le col fume au bout de la vallée."
+    }
+   ],
+   "choices": [
+    {
+     "label": "Glisser un caillou sous le fer de Brunette, pendant la halte",
+     "if": {
+      "has": "role:route"
+     },
+     "hide": {
+      "seen": "B_caillou"
+     },
+     "fx": {
+      "flag": "monde:retard_mule"
+     },
+     "to": "B_caillou"
+    },
+    {
+     "label": "Montrer à {autre} le panache sur le col",
+     "if": {
+      "has": "role:route"
+     },
+     "hide": {
+      "seen": "B_panache"
+     },
+     "to": "B_panache"
+    },
+    {
+     "label": "Demander à {autre} ce que veut dire la fumée sur le col",
+     "if": {
+      "has": "role:pli"
+     },
+     "hide": {
+      "seen": "B_panache"
+     },
+     "to": "B_panache"
+    },
+    {
+     "label": "Presser le pas jusqu'à Sorgue",
+     "to": "B_sorgue"
+    }
+   ]
+  },
+  "B_caillou": {
+   "act": "II",
+   "title": "Un caillou",
+   "place": "pontgele",
+   "text": [
+    "À la halte de midi, {autre} s'éloigne de quelques pas pour souffler dans ses mains. Tu prends le pied gauche de Brunette, comme pour le curer, et tu glisses entre le fer et la sole un petit caillou plat, de ceux que les muletiers appellent des menteurs.",
+    "Brunette tourne la tête et te regarde. Elle te connaît depuis neuf ans.",
+    "Elle boitera dans deux heures. Le maréchal de Sorgue dira qu'il faut un jour de repos. C'est le jour que la femme en gris a payé."
+   ],
+   "choices": [
+    {
+     "back": "B_montee"
+    }
+   ]
+  },
+  "B_panache": {
+   "act": "II",
+   "title": "La fumée du col",
+   "place": "pontgele",
+   "fx": {
+    "flag": "vent_su"
+   },
+   "text": [
+    {
+     "if": {
+      "has": "role:route"
+     },
+     "text": "« Tu vois la fumée ? C'est le vent qui arrache la neige des crêtes. » {autre} met la main en visière. Tu ajoutes : « Quand le col fume le matin, il hurle le lendemain. C'est ce qu'on dit à Sorgue. »"
+    },
+    {
+     "if": {
+      "has": "role:pli"
+     },
+     "text": "{autre} plisse les yeux vers le col. « C'est le vent qui arrache la neige des crêtes. Quand le col fume le matin, il hurle le lendemain. C'est ce qu'on dit à Sorgue. »"
+    },
+    "Vous regardez la fumée blanche s'en aller vers l'est, vers le lac que vous ne voyez pas."
+   ],
+   "choices": [
+    {
+     "back": "B_montee"
+    }
+   ]
+  },
+  "B_sorgue": {
+   "act": "II",
+   "title": "Sorgue-le-Haut",
+   "place": "sorgue",
+   "takes": "evening",
+   "text": [
+    {
+     "first": true,
+     "text": "Sorgue-le-Haut est le dernier village avant le col : trente maisons de pierre sèche serrées autour d'une église trapue, des toits de lauze chargés de neige, et partout des écuries vides. Avant la guerre, il y avait ici deux cents mules. Les gamins vous suivent jusqu'à l'auberge en criant le nom de Brunette."
+    },
+    {
+     "if": {
+      "has": "role:route"
+     },
+     "first": true,
+     "text": "C'est ton village. Le vieux Matthieu ferme sa forge en te voyant passer, puis la rouvre en voyant Brunette. Berthe est sur le pas de son auberge, les poings sur les hanches."
+    },
+    {
+     "if": {
+      "has": "role:pli"
+     },
+     "first": true,
+     "text": "Un forgeron vous regarde passer. Une femme rousse attend sur le pas de l'auberge, les poings sur les hanches, et elle regarde {autre} comme on regarde un neveu qui revient tard."
+    },
+    "Il y a deux choses à faire avant la nuit : retenir des lits et de la soupe chez Berthe, et faire voir Brunette et les crampons au maréchal."
+   ],
+   "choices": [
+    {
+     "label": "Aller chez Berthe retenir les lits",
+     "role": "sorgue",
+     "option": "berthe",
+     "to": "B_berthe",
+     "big": true
+    },
+    {
+     "label": "Mener Brunette chez le maréchal",
+     "role": "sorgue",
+     "option": "forge",
+     "to": "B_forge",
+     "big": true
+    }
+   ]
+  },
+  "B_berthe": {
+   "act": "II",
+   "title": "L'auberge de Berthe",
+   "place": "sorgue",
+   "fx": {
+    "meet": "berthe",
+    "clue": "vert_sorgue"
+   },
+   "text": [
+    {
+     "if": {
+      "has": "role:pli"
+     },
+     "text": "Berthe te fait entrer, t'assied près du feu, et te sert une écuelle de soupe à l'orge avant que tu aies rien demandé. « Deux lits, je sais. Avec {autre}, je sais aussi. Tout Sorgue le sait depuis que vous avez passé le pont. »"
+    },
+    {
+     "if": {
+      "has": "role:pli"
+     },
+     "text": "Elle s'assied en face de toi, les bras croisés. « Et vous allez où, comme ça, avec la mule ? » Tu lui dis : le col. Elle ouvre de grands yeux."
+    },
+    {
+     "if": {
+      "all": [
+       {
+        "has": "role:pli"
+       },
+       {
+        "not": {
+         "secret": "g_hiver"
+        }
+       }
+      ]
+     },
+     "text": "« Le col ? En cette saison ? Avec {autre} ? » Elle rit, puis elle ne rit plus. « Je l'ai vu{autre:e} naître. Onze ans de mules, onze étés. Je ne l'ai jamais vu{autre:e} monter là-haut après la Saint-Michel. Personne de Sorgue n'y monte en hiver. Sauf les morts qu'on va chercher au printemps. »"
+    },
+    {
+     "if": {
+      "all": [
+       {
+        "has": "role:pli"
+       },
+       {
+        "secret": "g_hiver"
+       }
+      ]
+     },
+     "text": "« Le col ? En cette saison ? » Elle te regarde, et elle comprend que tu sais déjà ce qu'elle allait dire. « Alors on vous l'a dit. Tant mieux. »"
+    },
+    {
+     "if": {
+      "has": "role:route"
+     },
+     "text": "Berthe t'attrape par les deux oreilles comme quand tu avais six ans. « Le col. Avec un courrier de la ville. En hiver. Toi. » Elle te lâche. « Ta mère se retournerait dans sa tombe, si elle avait une tombe. »"
+    },
+    {
+     "if": {
+      "has": "role:route"
+     },
+     "text": "Tu lui demandes de se taire devant {autre}. Elle hausse les épaules. « Je me tairai. Mais la montagne, elle, parlera. »"
+    },
+    "Elle baisse la voix. « Il est passé un homme à midi. Manteau vert, cheval noir, une cicatrice à l'œil. Il a payé le petit Jacou pour lui montrer le chemin de la gorge, celui des contrebandiers, qui descend vers le lac sans monter au col. »",
+    {
+     "if": {
+      "has": "role:route"
+     },
+     "text": "« Et hier, un cavalier des postes. Un jeune, très pressé, qui n'a même pas mangé. Il a pris la gorge lui aussi. Deux en deux jours, sur un chemin où il ne passe plus personne. »"
+    }
+   ],
+   "choices": [
+    {
+     "label": "Attendre {autre} pour la soupe du soir",
+     "to": "B_veillee"
+    }
+   ]
+  },
+  "B_forge": {
+   "act": "II",
+   "title": "La forge de Matthieu",
+   "place": "sorgue",
+   "fx": {
+    "flag": "ciel_su"
+   },
+   "text": [
+    "La forge sent le charbon et la corne brûlée. Le vieux Matthieu est un homme carré aux avant-bras couverts de petites brûlures blanches, qui regarde les bêtes avant de regarder les gens.",
+    {
+     "if": {
+      "all": [
+       {
+        "has": "role:route"
+       },
+       {
+        "has": "monde:retard_mule"
+       }
+      ]
+     },
+     "text": "Il prend le pied gauche de Brunette, gratte, et sort le caillou plat du bout de son crochet. Il le pose sur l'enclume, entre vous deux. « Un menteur. » Il te regarde longtemps. « Ta mère n'en mettait jamais. Un jour de repos, pas moins. Je lui mets un cataplasme. »"
+    },
+    {
+     "if": {
+      "all": [
+       {
+        "has": "role:route"
+       },
+       {
+        "not": {
+         "has": "monde:retard_mule"
+        }
+       }
+      ]
+     },
+     "text": "Il passe les mains sur les quatre jambes de Brunette, sur le dos, sous le bât. « Elle est bonne. Elle passera, si toi tu passes. » Il serre les lanières de tes crampons sans que tu le lui demandes."
+    },
+    {
+     "if": {
+      "has": "role:pli"
+     },
+     "text": "« La mule de {autre} ? Je la verrai ce soir, à l'écurie de Berthe. » Il prend tes bottes de ville, les retourne, et secoue la tête. « Avec ça, vous glisserez jusqu'au lac sur le derrière. » Il te vend une paire de vieux crampons pour deux écus, et te montre comment les lacer."
+    },
+    "En sortant, Matthieu lève le nez vers le col. « Il fume. Demain, il hurle. Après-demain, il dort. C'est réglé comme une horloge, l'Ourse, quand on sait la lire. »"
+   ],
+   "choices": [
+    {
+     "label": "Aller retrouver {autre} à l'auberge",
+     "to": [
+      {
+       "if": {
+        "has": "role:pli"
+       },
+       "to": "B_forge_crampons"
+      },
+      {
+       "to": "B_veillee"
+      }
+     ]
+    }
+   ]
+  },
+  "B_forge_crampons": {
+   "act": "II",
+   "title": "Des crampons d'occasion",
+   "place": "sorgue",
+   "fx": {
+    "gold": -2,
+    "item": "crampons"
+   },
+   "text": [
+    "Les crampons de Matthieu sont rouillés, et l'une des griffes a été ressoudée. Ils mordent quand même la glace de la cour, quand tu fais trois pas avec. Tu les accroches à ta ceinture."
+   ],
+   "choices": [
+    {
+     "label": "Aller retrouver {autre} à l'auberge",
+     "to": "B_veillee"
+    }
+   ]
+  },
+  "B_veillee": {
+   "act": "II",
+   "title": "La salle de Berthe",
+   "place": "sorgue",
+   "text": [
+    "Le soir, la salle de Berthe se remplit : des vieux muletiers sans mules, le curé, deux bergers, et le petit Jacou, très fier, qui raconte à tout le monde qu'il a gagné un écu à montrer la gorge à un monsieur.",
+    "On parle du col. Tout le monde a un avis, et chaque avis commence par une histoire de mort."
+   ],
+   "choices": [
+    {
+     "label": "S'asseoir avec {autre} au bout de la table",
+     "to": "B_conseil"
+    }
+   ]
+  },
+  "B_conseil": {
+   "act": "II",
+   "title": "Le col ou la vallée",
+   "place": "sorgue",
+   "charniere": true,
+   "text": [
+    "Vous avez pris le bout de la longue table, avec deux bols de soupe refroidie et la carte de {autre} étalée entre les bols.",
+    {
+     "if": {
+      "has": "monde:retard_mule"
+     },
+     "text": "Matthieu est passé à l'écurie : Brunette boite du pied gauche. Il a trouvé un caillou coincé sous le fer, un petit caillou plat bien enfoncé. Il faut un jour de repos à la mule."
+    },
+    {
+     "if": {
+      "all": [
+       {
+        "has": "role:pli"
+       },
+       {
+        "has": "monde:retard_mule"
+       }
+      ]
+     },
+     "text": "Un caillou qui se coince aussi bien, c'est de la malchance. Matthieu a dit le mot, en passant, sans regarder personne : « un menteur »."
+    },
+    "Il y a trois chemins. Le col de l'Ourse à l'aube, comme prévu, et l'on sera à Brumefond le cinquième au matin. Attendre un jour à Sorgue, que le vent tombe, et arriver au soir du vote. Ou la route de la vallée, qui contourne les Dents par les salines mortes : pas de col, pas de neige, et deux jours de plus.",
+    {
+     "if": {
+      "any": [
+       {
+        "has": "ciel_su"
+       },
+       {
+        "has": "vent_su"
+       }
+      ]
+     },
+     "text": "Demain, le col hurlera. Après-demain, il dormira."
+    },
+    {
+     "if": {
+      "has": "monde:retard_mule"
+     },
+     "text": "Avec la jambe de Brunette, partir à l'aube voudrait dire laisser la mule chez Berthe et porter le bât sur vos dos."
+    }
+   ],
+   "choices": [
+    {
+     "label": "Partir à l'aube par le col, malgré le ciel",
+     "monde": "depart",
+     "option": "aube",
+     "hide": {
+      "has": "monde:retard_mule"
+     },
+     "fx": {
+      "set": {
+       "depart": "aube"
+      }
+     },
+     "to": "B_nuit_sorgue",
+     "big": true
+    },
+    {
+     "label": "Laisser Brunette à Berthe, et partir à l'aube à pied",
+     "monde": "depart",
+     "option": "pied",
+     "if": {
+      "has": "monde:retard_mule"
+     },
+     "fx": {
+      "set": {
+       "depart": "aube"
+      },
+      "flag": "monde:sans_brunette"
+     },
+     "to": "B_nuit_sorgue",
+     "big": true
+    },
+    {
+     "label": "Attendre un jour à Sorgue que le vent tombe",
+     "monde": "depart",
+     "option": "attendre",
+     "fx": {
+      "set": {
+       "depart": "attendre"
+      },
+      "flag": "monde:retard_attente"
+     },
+     "to": "B_attente",
+     "big": true
+    },
+    {
+     "label": "Prendre la route de la vallée, sans col",
+     "monde": "depart",
+     "option": "vallee",
+     "fx": {
+      "set": {
+       "depart": "vallee"
+      },
+      "flag": "monde:retard_vallee"
+     },
+     "to": "B_vallee",
+     "big": true
+    }
+   ]
+  },
+  "B_nuit_sorgue": {
+   "act": "II",
+   "title": "Une nuit courte",
+   "place": "sorgue",
+   "text": [
+    "Berthe vous donne la chambre au-dessus de l'écurie, la plus chaude, et vous réveille à quatre heures avec du pain, du lard et un regard noir.",
+    {
+     "if": {
+      "has": "monde:sans_brunette"
+     },
+     "text": "Brunette reste à l'écurie, la jambe enveloppée d'un cataplasme qui sent la térébenthine. Vous vous partagez le bât : la corde, les couvertures, la lanterne, la marmite. Le sac pèse sur les épaules avant même le premier pas."
+    },
+    "Le col, au-dessus du village, est invisible dans la nuit. On entend seulement le vent qui commence."
+   ],
+   "choices": [
+    {
+     "label": "Monter",
+     "to": "B_col"
+    }
+   ]
+  },
+  "B_attente": {
+   "act": "II",
+   "title": "Un jour blanc",
+   "place": "sorgue",
+   "text": [
+    "Le col hurle toute la journée. Le vent passe par-dessus Sorgue avec un bruit de rivière, la neige vole à l'horizontale entre les maisons, et Berthe ferme les volets à midi. Personne ne sort.",
+    {
+     "if": {
+      "has": "monde:retard_mule"
+     },
+     "text": "Brunette se repose dans l'écurie, la jambe dans un cataplasme. Le soir, elle pose le pied par terre sans grimacer."
+    },
+    "Vous passez le jour dans la salle, devant le feu. Les vieux muletiers jouent aux cartes. Le petit Jacou vous apprend un jeu de ficelle. Le jour perdu pèse sur la table comme un troisième convive.",
+    "Le lendemain, à quatre heures, le vent est tombé. Le ciel est noir et plein d'étoiles."
+   ],
+   "choices": [
+    {
+     "label": "Monter au col",
+     "to": "B_col"
+    }
+   ]
+  },
+  "B_col": {
+   "act": "II",
+   "title": "Le col de l'Ourse",
+   "place": "col",
+   "text": [
+    {
+     "if": {
+      "is": {
+       "depart": "aube"
+      }
+     },
+     "text": "À neuf heures, vous êtes au-dessus des derniers mélèzes, et le col hurle comme Matthieu l'a dit. Le vent arrive de face, chargé de neige dure comme du sable. On ne voit plus les Dents. On voit à peine ses propres pieds, et la silhouette de {autre}, trois pas devant, qui se penche contre le vent."
+    },
+    {
+     "if": {
+      "not": {
+       "is": {
+        "depart": "aube"
+       }
+      }
+     },
+     "text": "À neuf heures, vous êtes au-dessus des derniers mélèzes, et le col dort. Le ciel est d'un bleu dur, l'air brûle les narines, la neige fraîche efface tout : le chemin, les cairns, les pierres. Les Dents de Sorgue se dressent de chaque côté, noires et nettes, si proches qu'on croit les toucher."
+    },
+    {
+     "if": {
+      "has": "monde:sans_brunette"
+     },
+     "text": "Le bât pèse sur tes épaules."
+    },
+    {
+     "if": {
+      "all": [
+       {
+        "has": "role:pli"
+       },
+       {
+        "secret": "g_hiver"
+       }
+      ]
+     },
+     "text": "{autre} cherche les cairns sous la neige, s'arrête, repart, revient. Tu sais maintenant pourquoi {autre:il} s'arrête."
+    },
+    "Le chemin d'été monte en lacets jusqu'à la selle du col. Sous la neige, il faut le deviner."
+   ],
+   "choices": [
+    {
+     "label": "Retrouver les cairns sous la neige",
+     "if": {
+      "has": "role:route"
+     },
+     "test": {
+      "dom": "nature",
+      "diff": -10,
+      "label": "Nature",
+      "help": [
+       {
+        "if": {
+         "item": "crampons"
+        },
+        "v": 10
+       },
+       {
+        "if": {
+         "confie": "g_hiver"
+        },
+        "v": 10
+       }
+      ]
+     },
+     "win": {
+      "fx": {
+       "ep": [
+        "perso",
+        400
+       ]
+      },
+      "to": "B_montee_col"
+     },
+     "lose": {
+      "fx": {
+       "pv": -3
+      },
+      "to": "B_egares"
+     }
+    },
+    {
+     "label": "Suivre {autre} pas à pas, dans ses traces",
+     "if": {
+      "has": "role:pli"
+     },
+     "test": {
+      "dom": "nature",
+      "diff": 0,
+      "label": "Nature",
+      "help": [
+       {
+        "if": {
+         "item": "crampons"
+        },
+        "v": 10
+       }
+      ]
+     },
+     "win": {
+      "fx": {
+       "ep": [
+        "perso",
+        300
+       ]
+      },
+      "to": "B_montee_col"
+     },
+     "lose": {
+      "fx": {
+       "pv": -3
+      },
+      "to": "B_glissade"
+     }
+    }
+   ]
+  },
+  "B_egares": {
+   "act": "II",
+   "title": "Le mauvais lacet",
+   "place": "col",
+   "text": [
+    "Tu prends un lacet pour un autre. Une heure plus tard, vous êtes au bord d'une barre de rochers que tu n'as jamais vue, avec le vide dessous et le chemin, peut-être, de l'autre côté.",
+    "Vous redescendez. Tu glisses deux fois. La seconde, ton genou rencontre une pierre sous la neige, et la douleur te monte jusqu'à la gorge. Quand tu retrouves le premier cairn, une pyramide de pierres plates à moitié enterrée, le soleil a tourné."
+   ],
+   "choices": [
+    {
+     "label": "Repartir du cairn",
+     "to": "B_montee_col"
+    }
+   ]
+  },
+  "B_glissade": {
+   "act": "II",
+   "title": "La pente",
+   "place": "col",
+   "text": [
+    "Ton pied part. Tu glisses sur le dos dans la pente, la neige dans le col de ta chemise, les mains qui cherchent quelque chose, n'importe quoi. Un rocher t'arrête, d'un coup, dans les côtes.",
+    "Quand tu remontes, {autre} t'attend en haut, la corde déjà déroulée à la main."
+   ],
+   "choices": [
+    {
+     "label": "Reprendre la montée",
+     "to": "B_montee_col"
+    }
+   ]
+  },
+  "B_montee_col": {
+   "act": "II",
+   "title": "Sous la selle",
+   "place": "col",
+   "text": [
+    "Vers midi, vous arrivez sous la selle du col. La pente est raide et lisse, et au milieu, sur toute sa largeur, une crevasse coupe le chemin : une fente bleue, sans fond visible, traversée par un pont de neige que le vent a construit pendant la nuit.",
+    {
+     "if": {
+      "is": {
+       "depart": "aube"
+      }
+     },
+     "text": "Le vent hurle dans la fente. Des loups ont laissé des traces sur le bord, des traces fraîches, et tu entends quelque part, dans la neige qui vole, un aboiement bref."
+    },
+    {
+     "if": {
+      "not": {
+       "is": {
+        "depart": "aube"
+       }
+      }
+     },
+     "text": "Sur le bord de la crevasse, des traces de loups, profondes, à peine un jour. Au-dessus, sur l'arête, trois silhouettes grises vous regardent, assises."
+    }
+   ],
+   "choices": [
+    {
+     "label": "Faire face aux loups",
+     "to": "B_loups"
+    }
+   ]
+  },
+  "B_loups": {
+   "act": "II",
+   "title": "Les loups de l'Ourse",
+   "place": "col",
+   "combat": {
+    "title": "Les loups de l'Ourse",
+    "enemies": [
+     {
+      "id": "loup",
+      "n": 2
+     }
+    ],
+    "range": "contact",
+    "terrain": "nature",
+    "win": {
+     "fx": {
+      "ep": [
+       "seance",
+       1200
+      ]
+     },
+     "to": "B_pont"
+    },
+    "lose": {
+     "fx": {
+      "flag": "loups_perdu"
+     },
+     "to": "B_loups_fuite"
+    },
+    "flee": {
+     "label": "Reculer jusqu'au bord de la crevasse, la lanterne allumée",
+     "dom": "nature",
+     "diff": -10,
+     "to": "B_pont"
+    }
+   },
+   "text": [
+    "Les loups descendent de l'arête sans se presser, en éventail, la tête basse. Ce sont des loups maigres de fin d'hiver, et deux voyageurs fatigués au bord d'une crevasse sont ce qu'ils ont vu de mieux depuis longtemps."
+   ]
+  },
+  "B_loups_fuite": {
+   "act": "II",
+   "title": "Les crocs",
+   "place": "col",
+   "text": [
+    "Un loup te prend au mollet et te tire dans la neige. Tu frappes, tu cries, quelque chose brille : {autre} agite la lanterne allumée au bout de la corde, et le loup lâche. Les loups reculent jusqu'à l'arête et restent là, assis, à regarder.",
+    "Ta jambe saigne à travers la toile. Tu la bandes avec ce que tu as."
+   ],
+   "choices": [
+    {
+     "label": "Se traîner jusqu'au pont de neige",
+     "to": "B_pont"
+    }
+   ]
+  },
+  "B_pont": {
+   "act": "II",
+   "title": "Le pont de neige",
+   "place": "col",
+   "text": [
+    {
+     "first": true,
+     "text": "Le pont de neige fait trois pas de long et la largeur d'une table. Il tiendra peut-être un homme. Il tiendra peut-être deux. Il faut passer un par un, encordés : l'un traverse, l'autre tient la corde, les talons plantés dans la neige."
+    },
+    {
+     "again": true,
+     "text": "Le pont de neige attend, bleu et blanc, au-dessus de la fente."
+    }
+   ],
+   "choices": [
+    {
+     "label": "Passer le premier, la corde à la taille",
+     "role": "pont",
+     "option": "passer",
+     "to": "B_pont_passer",
+     "big": true
+    },
+    {
+     "label": "Tenir la corde",
+     "role": "pont",
+     "option": "tenir",
+     "to": "B_pont_tenir",
+     "big": true
+    }
+   ]
+  },
+  "B_pont_passer": {
+   "act": "II",
+   "title": "Trois pas",
+   "place": "col",
+   "text": [
+    "Tu noues la corde à ta taille avec le nœud que {autre} t'a montré. Tu poses le premier pied sur le pont. La neige craque comme du pain. Tu poses le second. Sous toi, dans le bleu, rien."
+   ],
+   "choices": [
+    {
+     "label": "Traverser d'un seul élan",
+     "test": {
+      "dom": "nature",
+      "diff": 0,
+      "label": "Nature",
+      "help": [
+       {
+        "if": {
+         "item": "crampons"
+        },
+        "v": 10
+       }
+      ]
+     },
+     "win": {
+      "fx": {
+       "flag": "monde:pont_passe",
+       "ep": [
+        "perso",
+        400
+       ]
+      },
+      "to": "B_pont_ok"
+     },
+     "lose": {
+      "fx": {
+       "flag": "monde:pont_tombe",
+       "pv": -4
+      },
+      "to": "B_pont_chute"
+     }
+    }
+   ]
+  },
+  "B_pont_ok": {
+   "act": "II",
+   "title": "L'autre bord",
+   "place": "col",
+   "text": [
+    "Trois pas, et la neige dure de l'autre bord. Tu te retournes. {autre} est là-bas, les talons plantés, la corde tendue sur l'épaule, et vous vous regardez par-dessus la fente. Puis tu tiens la corde à ton tour, et {autre} passe."
+   ],
+   "choices": [
+    {
+     "label": "Monter à la selle du col",
+     "to": "B_selle"
+    }
+   ]
+  },
+  "B_pont_chute": {
+   "act": "II",
+   "title": "La fente bleue",
+   "place": "col",
+   "text": [
+    "Au deuxième pas, le pont s'ouvre sous toi. Tu tombes dans le bleu, une seconde, deux, et la corde t'arrête net sous les côtes. Tu pends contre la paroi de glace, les pieds dans le vide, et au-dessus, très loin, il y a un carré de ciel et un bout de corde qui tremble.",
+    "Tu remontes. Tu ne sais pas comment. Tu plantes les doigts dans la glace, tu pousses avec les bottes, et la corde tire, tire, à chaque fois que tu bouges, comme si quelqu'un là-haut sentait chacun de tes gestes. Quand tu roules sur le bord, tu restes couché{e} dans la neige, le visage dans le ciel."
+   ],
+   "choices": [
+    {
+     "label": "Monter à la selle du col",
+     "to": "B_selle"
+    }
+   ]
+  },
+  "B_pont_tenir": {
+   "act": "II",
+   "title": "Tenir",
+   "place": "col",
+   "text": [
+    "Tu enroules la corde autour de tes reins, tu plantes les talons, tu te penches en arrière. {autre} pose le premier pied sur le pont. Dans la neige qui vole, tu vois un dos, une capuche, et la corde qui file entre tes gants, pas après pas."
+   ],
+   "choices": [
+    {
+     "label": "Tenir, quoi qu'il arrive",
+     "test": {
+      "dom": "combat",
+      "diff": 0,
+      "label": "Force"
+     },
+     "win": {
+      "fx": {
+       "flag": "monde:corde_tenue",
+       "ep": [
+        "perso",
+        400
+       ]
+      },
+      "to": "B_tenir_ok"
+     },
+     "lose": {
+      "fx": {
+       "pv": -3,
+       "flag": "monde:corde_glisse"
+      },
+      "to": "B_tenir_glisse"
+     }
+    }
+   ]
+  },
+  "B_tenir_ok": {
+   "act": "II",
+   "title": "La corde tendue",
+   "place": "col",
+   "text": [
+    "Tu gardes la corde courte et ferme, les reins calés, les yeux sur la capuche de {autre}. Une rafale te pousse : tu te penches dedans, et tes talons tiennent. Tu tiens jusqu'au bout, jusqu'à ce que la corde se relâche entre tes mains et qu'une voix crie de l'autre bord.",
+    "Puis c'est ton tour. Tu passes les trois pas, et {autre} te tient."
+   ],
+   "choices": [
+    {
+     "label": "Monter à la selle du col",
+     "to": "B_selle"
+    }
+   ]
+  },
+  "B_tenir_glisse": {
+   "act": "II",
+   "title": "Les talons qui glissent",
+   "place": "col",
+   "text": [
+    "Une rafale te prend de côté. Tes talons labourent la neige, un mètre, deux, la corde te brûle les paumes à travers les gants, et ton dos rencontre un rocher. Tu t'y cales. Tu tiens, contre le rocher, jusqu'à ce qu'une voix crie de l'autre bord.",
+    "Puis c'est ton tour de passer, assuré{e} par {autre}. De l'autre côté, tu regardes tes paumes ouvertes."
+   ],
+   "choices": [
+    {
+     "label": "Monter à la selle du col",
+     "to": "B_selle"
+    }
+   ]
+  },
+  "B_selle": {
+   "act": "II",
+   "title": "La selle du col",
+   "place": "col",
+   "text": [
+    "La selle du col de l'Ourse est un plateau de neige entre deux pics, et de l'autre côté, d'un coup, le monde change : la montagne tombe vers l'est en grandes pentes douces, et tout en bas, à une journée de marche, il y a une tache grise et brillante qui est le lac de Brume.",
+    "Le refuge est là, sur le bord, une cabane de pierre à demi enterrée, avec une porte basse et un toit de lauzes. Le soleil se couche derrière vous."
+   ],
+   "choices": [
+    {
+     "label": "Entrer dans le refuge",
+     "to": "B_refuge"
+    }
+   ]
+  },
+  "B_refuge": {
+   "act": "II",
+   "title": "Le refuge de l'Ourse",
+   "place": "col",
+   "charniere": true,
+   "aparte": true,
+   "text": [
+    {
+     "first": true,
+     "text": "Le refuge sent la suie froide et la laine mouillée. Il y a un bat-flanc de planches, une cheminée, et un tas de genévrier sec laissé par les derniers passants, avec un mot gravé dans la porte au couteau : *Remets du bois.* Vous faites un feu. La fumée ne sait pas par où sortir, puis elle trouve."
+    },
+    {
+     "first": true,
+     "if": {
+      "all": [
+       {
+        "seen": "B_pont_passer"
+       },
+       {
+        "has": "monde:pont_tombe"
+       },
+       {
+        "has": "monde:corde_tenue"
+       }
+      ]
+     },
+     "text": "Tu repenses à la fente bleue. Au bout de la corde, là-haut, {autre} n'a pas cédé d'un pouce. Ce soir, vous avez tous les deux les mains écorchées par la même corde."
+    },
+    {
+     "first": true,
+     "if": {
+      "all": [
+       {
+        "seen": "B_pont_passer"
+       },
+       {
+        "has": "monde:pont_tombe"
+       },
+       {
+        "has": "monde:corde_glisse"
+       }
+      ]
+     },
+     "text": "Tu repenses à la fente bleue. {autre} a glissé jusqu'au rocher, les gants en lambeaux, et n'a pas lâché. Ce soir, {autre} tient ses paumes ouvertes vers le feu."
+    },
+    {
+     "first": true,
+     "if": {
+      "all": [
+       {
+        "seen": "B_pont_tenir"
+       },
+       {
+        "has": "monde:pont_tombe"
+       }
+      ]
+     },
+     "text": "Tu repenses au moment où la corde s'est tendue d'un coup, au poids qui pendait dans la fente. Tu as tenu. {autre} est là, de l'autre côté du feu, et frotte ses côtes là où la corde a mordu."
+    },
+    {
+     "first": true,
+     "if": {
+      "all": [
+       {
+        "seen": "B_pont_tenir"
+       },
+       {
+        "has": "monde:pont_passe"
+       }
+      ]
+     },
+     "text": "{autre} a passé le pont de neige d'un seul élan. Tu as tenu une corde qui n'a pas eu à servir, et tu t'en trouves très bien."
+    },
+    {
+     "first": true,
+     "if": {
+      "has": "loups_perdu"
+     },
+     "text": "Ta jambe te lance là où le loup a mordu. Tu la soignes près du feu."
+    },
+    {
+     "if": {
+      "all": [
+       {
+        "has": "role:pli"
+       },
+       {
+        "confie": "g_hiver"
+       }
+      ]
+     },
+     "text": "Onze étés, et un hiver maintenant."
+    },
+    {
+     "again": true,
+     "text": "Le feu de genévrier craque. Dehors, le vent tourne autour du refuge."
+    }
+   ],
+   "choices": [
+    {
+     "label": "Ouvrir le pli à la chaleur du feu, en soulevant la cire avec une lame chaude",
+     "if": {
+      "has": "role:pli"
+     },
+     "hide": {
+      "any": [
+       {
+        "seen": "B_pli_lu"
+       },
+       {
+        "seen": "B_pli_brise"
+       }
+      ]
+     },
+     "test": {
+      "dom": "discretion",
+      "diff": -10,
+      "label": "Discrétion"
+     },
+     "win": {
+      "fx": {
+       "flag": "monde:pli_lu"
+      },
+      "to": "B_pli_lu"
+     },
+     "lose": {
+      "fx": {
+       "flag": "monde:pli_brise"
+      },
+      "to": "B_pli_brise"
+     }
+    },
+    {
+     "label": "Monter la garde dehors, une heure, sous les étoiles",
+     "hide": {
+      "seen": "B_garde"
+     },
+     "to": "B_garde"
+    },
+    {
+     "label": "S'enrouler dans les couvertures et dormir",
+     "to": "E_descente"
+    }
+   ]
+  },
+  "B_pli_lu": {
+   "act": "II",
+   "title": "La réponse de la duchesse",
+   "place": "col",
+   "text": [
+    "Tu chauffes la lame de ton couteau dans la braise, tu la glisses sous la cire, et la cire se soulève d'un bloc, sceau intact. Tu déplies le pli à la lumière du feu.",
+    "*À l'Assemblée des Ligues du lac. Nous avons lu votre offre. Vous nous proposez de partager ce qui est à nous et de pleurer ensemble les morts que vous avez faits. Nous ne partageons pas les salines de la Sorgue. Nous ne pleurons pas avec ceux qui brûlent nos villages. Que l'Assemblée vote ce qu'elle voudra : Vérenne a voté. Ysaure, duchesse.*",
+    "Une écriture de chancellerie, belle et régulière. Un seul pli, une seule feuille. Rien à l'intérieur.",
+    "Tu replies, tu reposes la cire, tu chauffes encore la lame pour la recoller. Personne ne verra rien. Toi, tu as lu."
+   ],
+   "choices": [
+    {
+     "back": "B_refuge"
+    }
+   ]
+  },
+  "B_pli_brise": {
+   "act": "II",
+   "title": "La cire cassée",
+   "place": "col",
+   "text": [
+    "La lame était trop chaude, ou ta main trop pressée : la cire se fend en deux, le sceau de la chancellerie se casse net entre la tour et les clés. Tu restes immobile, le pli ouvert sur les genoux.",
+    "Tu lis quand même. *Nous ne partageons pas les salines de la Sorgue. Nous ne pleurons pas avec ceux qui brûlent nos villages. Que l'Assemblée vote ce qu'elle voudra : Vérenne a voté.*",
+    "Puis tu recolles les deux morceaux de cire comme tu peux. On verra la fente. Le premier qui prendra ce pli en main verra que le courrier l'a ouvert."
+   ],
+   "choices": [
+    {
+     "back": "B_refuge"
+    }
+   ]
+  },
+  "B_garde": {
+   "act": "II",
+   "title": "Une lumière dans la gorge",
+   "place": "col",
+   "fx": {
+    "flag": "monde:lumiere_gorge"
+   },
+   "text": [
+    "Dehors, le froid est si sec qu'il crépite. Les étoiles descendent jusqu'aux crêtes. Tu fais les cent pas devant la porte, les mains sous les aisselles.",
+    "En bas, au nord-est, là où la montagne se fend pour laisser passer le torrent de l'Ourse, une lumière bouge. Une lanterne, minuscule, qui descend la gorge, s'arrête, remonte un peu, et s'éteint.",
+    "En hiver, seuls les contrebandiers prennent la gorge."
+   ],
+   "choices": [
+    {
+     "back": "B_refuge"
+    }
+   ]
+  },
+  "B_vallee": {
+   "act": "II",
+   "title": "La route des salines mortes",
+   "place": "sorgue",
+   "text": [
+    "La route de la vallée redescend vers le sud, puis tourne à l'est autour des Dents, par le pays des salines. Il n'y a pas de neige sur cette route, seulement de la boue gelée et un vent qui sent le sel.",
+    {
+     "if": {
+      "has": "monde:retard_mule"
+     },
+     "text": "Brunette boite les deux premières heures, puis le cataplasme de Matthieu fait son effet, et elle reprend son pas de mule, régulier et têtu."
+    },
+    "Au milieu du premier jour, vous traversez Salins-Bas. Ou ce qu'il en reste : des murs noircis, une église sans toit, des bassins de sel crevés où l'eau de pluie a gelé en plaques roses. Sur la place, une vieille femme ramasse du bois dans les décombres."
+   ],
+   "choices": [
+    {
+     "label": "Aider la vieille femme à porter son bois",
+     "to": "B_salins"
+    },
+    {
+     "label": "Passer sans s'arrêter",
+     "to": "B_vallee_nuit"
+    }
+   ]
+  },
+  "B_salins": {
+   "act": "II",
+   "title": "Salins-Bas",
+   "place": "sorgue",
+   "text": [
+    "Elle s'appelle Mahaut. Elle vous fait entrer dans ce qui était sa cuisine et vous fait du feu avec le bois que vous avez porté. Elle raconte la nuit où les soldats des Ligues sont venus, il y a deux ans, et la nuit d'avant, où ceux de Vérenne étaient venus brûler l'autre rive. On ne sait plus qui a commencé, dit-elle. Les morts, eux, ne le demandent pas.",
+    "« Vous allez à Brumefond ? Avec la paix ? » Elle regarde la sacoche de cuir. « Dites-leur, là-bas, que Salins-Bas a voté. »"
+   ],
+   "choices": [
+    {
+     "label": "Reprendre la route",
+     "fx": {
+      "flag": "monde:mahaut"
+     },
+     "to": "B_vallee_nuit"
+    }
+   ]
+  },
+  "B_vallee_nuit": {
+   "act": "II",
+   "title": "La grange des sauniers",
+   "place": "sorgue",
+   "aparte": true,
+   "text": [
+    {
+     "first": true,
+     "text": "Le premier soir, vous dormez dans une grange de sauniers, sur de la paille qui sent le sel. Le vent passe entre les planches. {autre} a allumé la lanterne et l'a posée entre vous deux, sur un tonneau."
+    },
+    {
+     "again": true,
+     "text": "La lanterne brûle sur le tonneau, entre vous deux."
+    }
+   ],
+   "choices": [
+    {
+     "label": "Dormir, et repartir avant le jour",
+     "to": "E_descente"
+    }
+   ]
+  },
+  "E_descente": {
+   "act": "III",
+   "title": "La descente",
+   "place": "ourse",
+   "fx": {
+    "catchup": 2,
+    "catchupWhy": "la traversée des Dents de Sorgue"
+   },
+   "text": [
+    {
+     "if": {
+      "not": {
+       "has": "monde:retard_vallee"
+      }
+     },
+     "text": "Le matin se lève sur l'autre versant. Vous descendez du col par de grandes pentes douces, la neige jusqu'aux genoux, puis jusqu'aux chevilles, puis plus du tout : des pâturages jaunes, des mélèzes, un ruisseau qui chante sous la glace. En bas, le lac de Brume remplit tout l'horizon, gris et lisse comme une ardoise."
+    },
+    {
+     "if": {
+      "has": "monde:retard_vallee"
+     },
+     "text": "Le second jour de la route des salines, vous tournez autour de la dernière Dent, et le lac de Brume apparaît d'un coup au bout d'une vallée, gris et lisse comme une ardoise. La route remonte un peu vers le nord pour rejoindre le débouché de la gorge de l'Ourse, là où passe le chemin du lac."
+    },
+    {
+     "if": {
+      "all": [
+       {
+        "not": {
+         "has": "monde:retard_vallee"
+        }
+       },
+       {
+        "has": "monde:sans_brunette"
+       }
+      ]
+     },
+     "text": "Le bât vous scie les épaules. Vous pensez tous les deux à Brunette, au chaud chez Berthe."
+    },
+    {
+     "if": {
+      "any": [
+       {
+        "any": [
+         {
+          "has": "monde:retard_mule"
+         },
+         {
+          "has": "monde:retard_attente"
+         }
+        ]
+       },
+       {
+        "has": "monde:retard_vallee"
+       }
+      ]
+     },
+     "text": "Vous avez un jour de retard, ou deux, et ce matin vous les sentez tous les deux dans les jambes."
+    },
+    "Vers midi, le chemin rejoint le torrent de l'Ourse à l'endroit où il sort de la montagne par une fente de rocher noir. C'est là que la gorge des contrebandiers débouche sur le chemin du lac."
+   ],
+   "choices": [
+    {
+     "label": "Descendre jusqu'au débouché de la gorge",
+     "to": "E_gorge"
+    }
+   ]
+  },
+  "E_gorge": {
+   "act": "III",
+   "title": "Le débouché de la gorge",
+   "place": "ourse",
+   "text": [
+    {
+     "first": true,
+     "text": "Brunette s'arrête et refuse d'avancer, les naseaux ouverts. Au bord du torrent, dans la neige, un cheval est couché sur le flanc, raide, un carreau d'arbalète planté dans le poitrail. Une selle des postes, le cor de chasse brodé sur la housse."
+    },
+    {
+     "first": true,
+     "if": {
+      "has": "monde:sans_brunette"
+     },
+     "text": "Sans Brunette, vous ne l'auriez pas vu tout de suite : c'est le corbeau sur le flanc qui vous l'a montré."
+    },
+    {
+     "first": true,
+     "if": {
+      "has": "monde:lumiere_gorge"
+     },
+     "text": "La lanterne qui descendait la gorge, la nuit, depuis le refuge : elle venait d'ici."
+    },
+    {
+     "first": true,
+     "text": "Les fontes sont ouvertes et vidées dans la neige. Du pain, de l'avoine, une couverture. Et des taches rouges, de la taille d'une pièce, qui partent du cheval et montent entre les rochers de la gorge."
+    },
+    {
+     "again": true,
+     "text": "Le cheval des postes est couché au bord du torrent. Les taches rouges montent entre les rochers."
+    }
+   ],
+   "choices": [
+    {
+     "label": "Suivre les taches de sang entre les rochers",
+     "to": [
+      {
+       "if": {
+        "all": [
+         {
+          "not": {
+           "any": [
+            {
+             "has": "monde:retard_mule"
+            },
+            {
+             "has": "monde:retard_attente"
+            }
+           ]
+          }
+         },
+         {
+          "not": {
+           "has": "monde:retard_vallee"
+          }
+         }
+        ]
+       },
+       "to": "E_gaut_vivant"
+      },
+      {
+       "to": "E_gaut_mort"
+      }
+     ]
+    }
+   ]
+  },
+  "E_gaut_vivant": {
+   "act": "III",
+   "title": "Le cavalier des postes",
+   "place": "ourse",
+   "fx": {
+    "meet": "gaut"
+   },
+   "text": [
+    {
+     "first": true,
+     "text": "Il est assis dans un creux de rocher, à cent pas du cheval, les genoux contre la poitrine, une main serrée sur l'épaule gauche. Un garçon de vingt ans, la peau tannée, les lèvres bleues. Le carreau d'arbalète lui a traversé l'épaule. Il a passé la nuit là, sans feu, et il vous regarde arriver sans bouger, comme on regarde la neige tomber."
+    },
+    {
+     "first": true,
+     "text": "« Vérenne ? » Sa voix est un souffle. « Vous êtes le pli de la chancellerie. » Il rit, et ça lui fait mal. « Je m'appelle Gaut. J'avais un jour d'avance sur vous. »"
+    },
+    {
+     "first": true,
+     "text": "Il ouvre son manteau. Contre sa chemise, dans un étui de cuir comme le tien, il y a une lettre fermée de cire blanche, au cygne. « À la présidente Lorge. En séance. Avant l'autre. Dame Hesmé a dit : avant l'autre. »"
+    },
+    {
+     "again": true,
+     "text": "Gaut est adossé au rocher, la main sur l'épaule."
+    }
+   ],
+   "choices": [
+    {
+     "label": "Prendre le pli au cygne que Gaut te tend",
+     "role": "gaut",
+     "option": "pli",
+     "to": "E_gaut_pli",
+     "big": true
+    },
+    {
+     "label": "Panser l'épaule de Gaut et l'emmener avec vous",
+     "role": "gaut",
+     "option": "soin",
+     "to": "E_gaut_soin",
+     "big": true
+    }
+   ]
+  },
+  "E_gaut_pli": {
+   "act": "III",
+   "title": "Le pli au cygne",
+   "place": "ourse",
+   "fx": {
+    "item": [
+     "pli_cygne",
+     "billet_hesme"
+    ],
+    "clue": [
+     "cygne_pli",
+     "gaut_ordre"
+    ],
+    "flag": [
+     "monde:cygne_pris",
+     "monde:preuve_billet"
+    ],
+    "ep": [
+     "histoire",
+     1500
+    ]
+   },
+   "text": [
+    "La lettre est tiède de la chaleur de Gaut. Avec elle, il te donne un billet froissé, plié en quatre, de la même main pressée que l'adresse.",
+    {
+     "if": {
+      "has": "role:pli"
+     },
+     "text": "Tu as maintenant deux plis contre la poitrine. Un rouge et un blanc. Deux réponses de la même duchesse au même message. Elles pèsent le même poids."
+    },
+    {
+     "if": {
+      "has": "role:route"
+     },
+     "text": "Tu ranges le pli au cygne sous ta chemise, contre ta peau. Tu es guide, pas courrier. Tu portes maintenant une lettre de duchesse."
+    }
+   ],
+   "choices": [
+    {
+     "label": "Panser aussi l'épaule de Gaut",
+     "role": "gaut",
+     "option": "soin",
+     "hide": {
+      "has": "monde:gaut_soigne"
+     },
+     "to": "E_gaut_soin"
+    },
+    {
+     "label": "Descendre vers le pont de Brume",
+     "to": "E_pont"
+    }
+   ]
+  },
+  "E_gaut_soin": {
+   "act": "III",
+   "title": "Une épaule",
+   "place": "ourse",
+   "fx": {
+    "flag": [
+     "monde:gaut_soigne",
+     "monde:preuve_gaut"
+    ],
+    "ep": [
+     "perso",
+     600
+    ]
+   },
+   "text": [
+    "Tu casses le carreau au ras de la peau et tu tires l'autre bout, d'un coup, par derrière. Gaut crie dans ton gant. Tu bandes l'épaule avec une chemise découpée, tu lui fais boire ce qu'il reste dans la gourde, tu le frictionnes jusqu'à ce que ses lèvres changent de couleur.",
+    {
+     "if": {
+      "has": "monde:sans_brunette"
+     },
+     "text": "Il ne peut pas marcher seul. Vous le soutiendrez à deux, un bras sur chaque épaule, jusqu'au lac."
+    },
+    {
+     "if": {
+      "not": {
+       "has": "monde:sans_brunette"
+      }
+     },
+     "text": "Brunette accepte Gaut sur son bât en soufflant comme une forge. Il s'y couche, la joue contre la couverture."
+    },
+    "« Le pli au cygne, dit-il en fermant les yeux. Il ne me quitte pas. Je le donne à Lorge moi-même, ou à vous si je meurs en route. »"
+   ],
+   "choices": [
+    {
+     "label": "Prendre quand même le pli au cygne, par précaution",
+     "role": "gaut",
+     "option": "pli",
+     "hide": {
+      "has": "monde:cygne_pris"
+     },
+     "to": "E_gaut_pli"
+    },
+    {
+     "label": "Descendre vers le pont de Brume, avec Gaut",
+     "to": "E_pont"
+    }
+   ]
+  },
+  "E_gaut_mort": {
+   "act": "III",
+   "title": "Le cavalier des postes",
+   "place": "ourse",
+   "fx": {
+    "meet": "gaut"
+   },
+   "text": [
+    {
+     "first": true,
+     "text": "Il est assis dans un creux de rocher, à cent pas du cheval, les genoux contre la poitrine, une main serrée sur l'épaule gauche. Un garçon de vingt ans. Le givre lui a blanchi les cils. Il est mort pendant la nuit, ou la nuit d'avant, seul, en tenant son épaule."
+    },
+    {
+     "first": true,
+     "text": "Un carreau d'arbalète lui a traversé l'épaule. Son manteau est fermé jusqu'au menton, boutonné de travers, comme on boutonne les mains gelées."
+    },
+    {
+     "again": true,
+     "text": "Gaut est assis dans son creux de rocher, les cils blancs."
+    }
+   ],
+   "choices": [
+    {
+     "label": "Ouvrir son manteau et fouiller ses poches",
+     "role": "gaut",
+     "option": "pli",
+     "to": "E_gaut_fouille",
+     "big": true
+    },
+    {
+     "label": "Lui fermer les yeux et le couvrir de pierres",
+     "role": "gaut",
+     "option": "soin",
+     "to": "E_gaut_cairn",
+     "big": true
+    }
+   ]
+  },
+  "E_gaut_fouille": {
+   "act": "III",
+   "title": "Le manteau boutonné",
+   "place": "ourse",
+   "fx": {
+    "item": [
+     "pli_cygne",
+     "billet_hesme"
+    ],
+    "clue": [
+     "cygne_pli",
+     "gaut_ordre"
+    ],
+    "flag": [
+     "monde:cygne_pris",
+     "monde:preuve_billet"
+    ],
+    "ep": [
+     "histoire",
+     1500
+    ]
+   },
+   "text": [
+    "Contre sa chemise, dans un étui de cuir comme celui des courriers de la chancellerie, il y a une lettre fermée de cire blanche, au cygne de la duchesse, adressée à la présidente Aude Lorge, en main propre. Et un billet froissé, plié en quatre.",
+    "Il a boutonné son manteau par-dessus, avec ses mains gelées, pour que l'homme à l'arbalète ne la trouve pas."
+   ],
+   "choices": [
+    {
+     "label": "Lui fermer les yeux, ensuite, et le couvrir de pierres",
+     "role": "gaut",
+     "option": "soin",
+     "hide": {
+      "has": "monde:gaut_enterre"
+     },
+     "to": "E_gaut_cairn"
+    },
+    {
+     "label": "Descendre vers le pont de Brume",
+     "to": "E_pont"
+    }
+   ]
+  },
+  "E_gaut_cairn": {
+   "act": "III",
+   "title": "Un cairn",
+   "place": "ourse",
+   "fx": {
+    "flag": "monde:gaut_enterre"
+   },
+   "text": [
+    "Tu lui fermes les yeux. Les paupières résistent, puis cèdent. Tu poses des pierres sur lui, des pierres plates du torrent, une à une, jusqu'à ce qu'il soit une petite pyramide grise au bord de la gorge, comme les cairns du col.",
+    {
+     "if": {
+      "has": "passe:livre"
+     },
+     "text": "Tu lis la page des voyageurs, à voix haute, pour lui."
+    },
+    {
+     "if": {
+      "has": "passe:flute"
+     },
+     "text": "Tu joues l'air que tu as inventé à quinze ans. Le torrent fait le reste."
+    }
+   ],
+   "choices": [
+    {
+     "label": "Fouiller ses poches avant de poser la dernière pierre",
+     "role": "gaut",
+     "option": "pli",
+     "hide": {
+      "has": "monde:cygne_pris"
+     },
+     "to": "E_gaut_fouille"
+    },
+    {
+     "label": "Descendre vers le pont de Brume",
+     "to": "E_pont"
+    }
+   ]
+  },
+  "E_pont": {
+   "act": "III",
+   "title": "Le pont de Brume",
+   "place": "ourse",
+   "charniere": true,
+   "fx": {
+    "meet": "ancelin"
+   },
+   "text": [
+    {
+     "first": true,
+     "text": "Le pont de Brume est un pont couvert, en bois noirci, qui enjambe l'Ourse juste avant qu'elle se jette dans le lac. À son entrée, il y a la maison du péager, et sur le banc de la maison, au soleil d'hiver, trois hommes. L'un d'eux porte un manteau vert."
+    },
+    {
+     "first": true,
+     "text": "Il se lève sans hâte. Les deux autres se lèvent aussi, et l'un d'eux tient une arbalète, chargée, la pointe vers le sol."
+    },
+    {
+     "first": true,
+     "if": {
+      "has": "monde:menti_vert"
+     },
+     "text": "« La famille de Sorgue va bien ? » Il sourit. La cicatrice tire sur son œil gauche."
+    },
+    {
+     "first": true,
+     "if": {
+      "has": "monde:vert_mefiant"
+     },
+     "text": "« Le cheval noir mord toujours », dit-il. Il te regarde, toi, qui as touché à sa selle."
+    },
+    {
+     "first": true,
+     "if": {
+      "has": "monde:dit_vert"
+     },
+     "text": "« Brumefond, vous m'aviez dit. Vous voyez, je vous crois toujours. »"
+    },
+    {
+     "first": true,
+     "if": {
+      "has": "monde:carte_vert"
+     },
+     "text": "La croix sur sa carte, au bas de la gorge. Il vous attendait ici depuis le début."
+    },
+    {
+     "first": true,
+     "text": "« Je m'appelle Ancelin. Je ne vous veux pas de mal. Vous portez une lettre de la chancellerie, vous la porterez jusqu'au bout, c'est votre métier. » Il tend la main, paume ouverte. « Mais le cavalier des postes ne portait rien sur son cheval. Donc il portait sur lui. Je veux la lettre au cygne. »"
+    },
+    {
+     "first": true,
+     "if": {
+      "not": {
+       "all": [
+        {
+         "any": [
+          {
+           "has": "monde:cygne_pris"
+          },
+          {
+           "has": "monde:gaut_soigne"
+          }
+         ]
+        },
+        {
+         "not": {
+          "has": "monde:cygne_rendu"
+         }
+        },
+        {
+         "any": [
+          {
+           "not": {
+            "has": "monde:cygne_vole"
+           }
+          },
+          {
+           "has": "monde:ancelin_vaincu"
+          }
+         ]
+        }
+       ]
+      }
+     },
+     "text": "Ses hommes vous fouillent, vite, en professionnels. Ils ne trouvent que le pli de la chancellerie, et ils le laissent dans son étui. Ancelin hausse les épaules. « Alors elle est restée dans la gorge. Tant pis pour elle. Passez. »"
+    },
+    {
+     "again": true,
+     "text": "Ancelin attend, la main ouverte. L'arbalète regarde le sol."
+    }
+   ],
+   "choices": [
+    {
+     "label": "Passer le pont",
+     "hide": {
+      "all": [
+       {
+        "any": [
+         {
+          "has": "monde:cygne_pris"
+         },
+         {
+          "has": "monde:gaut_soigne"
+         }
+        ]
+       },
+       {
+        "not": {
+         "has": "monde:cygne_rendu"
+        }
+       },
+       {
+        "any": [
+         {
+          "not": {
+           "has": "monde:cygne_vole"
+          }
+         },
+         {
+          "has": "monde:ancelin_vaincu"
+         }
+        ]
+       }
+      ]
+     },
+     "to": "E_bac"
+    },
+    {
+     "label": "Lui donner le pli au cygne",
+     "if": {
+      "all": [
+       {
+        "any": [
+         {
+          "has": "monde:cygne_pris"
+         },
+         {
+          "has": "monde:gaut_soigne"
+         }
+        ]
+       },
+       {
+        "not": {
+         "has": "monde:cygne_rendu"
+        }
+       },
+       {
+        "any": [
+         {
+          "not": {
+           "has": "monde:cygne_vole"
+          }
+         },
+         {
+          "has": "monde:ancelin_vaincu"
+         }
+        ]
+       }
+      ]
+     },
+     "monde": "pont",
+     "option": "donner",
+     "fx": {
+      "flag": "monde:cygne_rendu"
+     },
+     "to": [
+      {
+       "if": {
+        "item": "pli_cygne"
+       },
+       "to": "E_pont_rendu_moi"
+      },
+      {
+       "to": "E_pont_rendu"
+      }
+     ],
+     "big": true
+    },
+    {
+     "label": "Lui tendre le billet de Dame Hesmé, plié comme une lettre",
+     "if": {
+      "all": [
+       {
+        "all": [
+         {
+          "any": [
+           {
+            "has": "monde:cygne_pris"
+           },
+           {
+            "has": "monde:gaut_soigne"
+           }
+          ]
+         },
+         {
+          "not": {
+           "has": "monde:cygne_rendu"
+          }
+         },
+         {
+          "any": [
+           {
+            "not": {
+             "has": "monde:cygne_vole"
+            }
+           },
+           {
+            "has": "monde:ancelin_vaincu"
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "item": "billet_hesme"
+       }
+      ]
+     },
+     "monde": "pont",
+     "option": "ruse",
+     "test": {
+      "dom": "discretion",
+      "diff": -10,
+      "label": "Discrétion"
+     },
+     "win": {
+      "fx": {
+       "drop": "billet_hesme",
+       "unflag": "monde:preuve_billet",
+       "flag": "monde:ruse_pont",
+       "ep": [
+        "seance",
+        1500
+       ]
+      },
+      "to": "E_pont_ruse"
+     },
+     "lose": {
+      "to": "E_pont_combat"
+     },
+     "big": true
+    },
+    {
+     "label": "Refuser, et tirer ton arme",
+     "if": {
+      "all": [
+       {
+        "any": [
+         {
+          "has": "monde:cygne_pris"
+         },
+         {
+          "has": "monde:gaut_soigne"
+         }
+        ]
+       },
+       {
+        "not": {
+         "has": "monde:cygne_rendu"
+        }
+       },
+       {
+        "any": [
+         {
+          "not": {
+           "has": "monde:cygne_vole"
+          }
+         },
+         {
+          "has": "monde:ancelin_vaincu"
+         }
+        ]
+       }
+      ]
+     },
+     "monde": "pont",
+     "option": "battre",
+     "to": "E_pont_combat",
+     "big": true
+    }
+   ]
+  },
+  "E_pont_rendu_moi": {
+   "act": "III",
+   "title": "La main ouverte",
+   "place": "ourse",
+   "fx": {
+    "drop": "pli_cygne"
+   },
+   "text": [
+    "Tu sors le pli au cygne de sous ta chemise et tu le poses dans la main ouverte d'Ancelin. La cire blanche est tiède encore."
+   ],
+   "choices": [
+    {
+     "label": "Regarder ce qu'il en fait",
+     "to": "E_pont_rendu"
+    }
+   ]
+  },
+  "E_pont_rendu": {
+   "act": "III",
+   "title": "La lettre au cygne",
+   "place": "ourse",
+   "text": [
+    "Ancelin tient le pli au cygne entre deux doigts. Il ne l'ouvre pas. Il le regarde, comme on regarde une carte qu'on vient de gagner, et il le glisse sous son manteau vert.",
+    {
+     "if": {
+      "has": "monde:gaut_soigne"
+     },
+     "text": "Sur le bât de Brunette, Gaut tourne la tête vers le lac et ferme les yeux."
+    },
+    "« Passez, dit Ancelin. Bonne séance. » Ses hommes s'écartent. Le pont couvert sent le bois humide et la fiente de pigeon. Vous le traversez sans vous retourner."
+   ],
+   "choices": [
+    {
+     "label": "Descendre vers le bac",
+     "to": "E_bac"
+    }
+   ]
+  },
+  "E_pont_ruse": {
+   "act": "III",
+   "title": "Un billet plié",
+   "place": "ourse",
+   "text": [
+    "Tu plies le billet de Dame Hesmé en quatre, comme une lettre, en cachant l'écriture dans ta paume, et tu le poses dans la main d'Ancelin avec la mine de quelqu'un qui perd. Il le glisse sous son manteau sans le déplier. Les gens qui gagnent ne vérifient pas.",
+    "« Passez. Bonne séance. » Vous traversez le pont couvert d'un pas égal. Au milieu du pont, tu entends derrière vous un juron, très loin, et puis rien : vous êtes déjà sur l'autre rive, et l'autre rive appartient aux Ligues, où un homme de Vérenne avec une arbalète ne se promène pas."
+   ],
+   "choices": [
+    {
+     "label": "Descendre vers le bac",
+     "to": "E_bac"
+    }
+   ]
+  },
+  "E_pont_combat": {
+   "act": "III",
+   "title": "Le pont couvert",
+   "place": "ourse",
+   "combat": {
+    "title": "Le pont de Brume",
+    "enemies": [
+     "ancelin",
+     "homme_vert"
+    ],
+    "range": "contact",
+    "terrain": "nature",
+    "win": {
+     "fx": {
+      "flag": [
+       "monde:ancelin_vaincu",
+       "monde:preuve_ancelin"
+      ],
+      "clue": "ancelin_lettre",
+      "ep": [
+       "seance",
+       2000
+      ]
+     },
+     "to": "E_pont_vaincu"
+    },
+    "lose": {
+     "to": [
+      {
+       "if": {
+        "item": "pli_cygne"
+       },
+       "to": "E_pont_vole"
+      },
+      {
+       "to": "E_pont_battu"
+      }
+     ]
+    },
+    "flee": {
+     "label": "Sauter du pont dans le torrent",
+     "dom": "nature",
+     "diff": -10,
+     "to": "E_pont_saut"
+    }
+   },
+   "text": [
+    "L'arbalète se lève. Le carreau part, siffle, et se plante dans le poteau du pont, à une main de ta tête. Ancelin tire son épée longue, et l'autre homme jette l'arbalète pour prendre une hache."
+   ]
+  },
+  "E_pont_vaincu": {
+   "act": "III",
+   "title": "Le manteau vert",
+   "place": "ourse",
+   "text": [
+    "Ancelin est à genoux sur les planches du pont, l'épée tombée à l'eau, une main sur la cuisse qui saigne. Ses hommes ont fui par la route du col. Il te regarde avec une sorte d'intérêt.",
+    "Dans son manteau, il y a une bourse, un briquet, et une lettre sans signature, d'une belle écriture de chancellerie : *Qu'aucune autre réponse n'arrive. Tu sais à qui t'adresser au lac.*",
+    "« Prends-la, dit Ancelin. Elle ne me servira plus. » Il sourit avec la moitié de la bouche. « Lui non plus ne me servira plus, quand il saura. »"
+   ],
+   "choices": [
+    {
+     "label": "Le laisser au péager, les mains liées",
+     "fx": {
+      "flag": "monde:ancelin_lie"
+     },
+     "to": "E_bac"
+    },
+    {
+     "label": "Le laisser partir, à pied, vers le col",
+     "to": "E_bac"
+    }
+   ]
+  },
+  "E_pont_vole": {
+   "act": "III",
+   "title": "Les planches du pont",
+   "place": "ourse",
+   "fx": {
+    "drop": "pli_cygne",
+    "flag": "monde:cygne_vole"
+   },
+   "text": [
+    "Tu te réveilles sur les planches du pont, la joue dans la poussière et le sel. Ta tête sonne. Ta chemise est ouverte, et l'étui du pli au cygne est vide.",
+    "Le pli de la chancellerie est toujours là, dans l'autre étui. Ancelin n'en voulait pas."
+   ],
+   "choices": [
+    {
+     "label": "Te relever et descendre vers le bac",
+     "to": "E_bac"
+    }
+   ]
+  },
+  "E_pont_battu": {
+   "act": "III",
+   "title": "Les planches du pont",
+   "place": "ourse",
+   "text": [
+    "Tu te réveilles sur les planches du pont, la joue dans la poussière et le sel. Ta tête sonne. Le péager te regarde depuis sa porte, une bassine d'eau à la main, sans oser approcher.",
+    "Tes poches ont été retournées. On t'a laissé tout ce qui était à toi."
+   ],
+   "choices": [
+    {
+     "label": "Te relever et descendre vers le bac",
+     "to": "E_bac"
+    }
+   ]
+  },
+  "E_pont_saut": {
+   "act": "III",
+   "title": "L'Ourse",
+   "place": "ourse",
+   "fx": {
+    "flag": "monde:pont_saut"
+   },
+   "text": [
+    "Tu sautes par-dessus le garde-fou. L'eau de l'Ourse est si froide qu'elle te prend le souffle avant de te prendre tout le reste. Le torrent t'emporte, te roule, te recrache cent pas plus bas sur une grève de galets, au bord du lac.",
+    "Tu as gardé tes plis. Tu les sens contre ta poitrine, mouillés, dans leurs étuis de cuir. Tu grelottes jusqu'au bac."
+   ],
+   "choices": [
+    {
+     "label": "Rejoindre le bac",
+     "to": "E_bac"
+    }
+   ]
+  },
+  "E_bac": {
+   "act": "III",
+   "title": "Le bac de Brume",
+   "place": "brumefond",
+   "aparte": true,
+   "text": [
+    {
+     "first": true,
+     "text": "Le bac est un grand radeau de planches tiré par une corde d'une rive à l'autre, et le passeur est un vieux qui chique et qui ne pose pas de questions. De l'autre côté de l'eau, à une heure, Brumefond allume ses lumières une à une : les quais, les ponts couverts, et au milieu, sur une butte, le toit d'ardoise de la salle de l'Assemblée."
+    },
+    {
+     "first": true,
+     "if": {
+      "has": "monde:gaut_soigne"
+     },
+     "text": "Gaut dort sur le bât de Brunette, ou sur vos manteaux. Il respire."
+    },
+    {
+     "first": true,
+     "if": {
+      "has": "monde:pont_saut"
+     },
+     "text": "Le passeur te jette une couverture de cheval sans rien dire."
+    },
+    {
+     "first": true,
+     "if": {
+      "any": [
+       {
+        "any": [
+         {
+          "has": "monde:retard_mule"
+         },
+         {
+          "has": "monde:retard_attente"
+         }
+        ]
+       },
+       {
+        "has": "monde:retard_vallee"
+       }
+      ]
+     },
+     "text": "« Le vote, c'est demain soir, dit le passeur en crachant dans l'eau. Toute la ville ne parle que de ça. »"
+    },
+    {
+     "again": true,
+     "text": "Le bac glisse sur l'eau noire. Les lumières de Brumefond se rapprochent."
+    }
+   ],
+   "choices": [
+    {
+     "label": "Dormir chez le passeur, et entrer dans Brumefond à l'aube",
+     "monde": "nuit",
+     "option": "dormir",
+     "to": "E_aube"
+    },
+    {
+     "label": "Ne pas dormir : marcher toute la nuit pour rattraper le temps perdu",
+     "monde": "nuit",
+     "option": "marcher",
+     "if": {
+      "any": [
+       {
+        "any": [
+         {
+          "has": "monde:retard_mule"
+         },
+         {
+          "has": "monde:retard_attente"
+         }
+        ]
+       },
+       {
+        "has": "monde:retard_vallee"
+       }
+      ]
+     },
+     "fx": {
+      "flag": "monde:nuit_forcee",
+      "pv": -2
+     },
+     "to": "E_aube"
+    }
+   ]
+  },
+  "E_aube": {
+   "act": "III",
+   "title": "Les portes de Brumefond",
+   "place": "brumefond",
+   "text": [
+    {
+     "if": {
+      "has": "monde:nuit_forcee"
+     },
+     "text": "Vous avez marché toute la nuit le long du lac, sans vous arrêter, en vous relayant pour porter la lanterne. À l'aube, vous avez les jambes en bois et les portes de Brumefond devant vous."
+    },
+    {
+     "if": {
+      "not": {
+       "has": "monde:nuit_forcee"
+      }
+     },
+     "text": "Le passeur vous réveille à l'aube avec un bol de lait de chèvre. Les portes de Brumefond ouvrent au son d'une cloche fêlée."
+    },
+    {
+     "if": {
+      "any": [
+       {
+        "all": [
+         {
+          "has": "monde:retard_vallee"
+         },
+         {
+          "any": [
+           {
+            "has": "monde:retard_mule"
+           },
+           {
+            "has": "monde:retard_attente"
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "all": [
+         {
+          "has": "monde:retard_vallee"
+         },
+         {
+          "not": {
+           "has": "monde:nuit_forcee"
+          }
+         }
+        ]
+       }
+      ]
+     },
+     "text": "La ville est pavoisée de rouge. Il y a des affiches fraîches sur toutes les portes, et la cloche de la salle de l'Assemblée sonne à toute volée."
+    },
+    {
+     "if": {
+      "all": [
+       {
+        "not": {
+         "any": [
+          {
+           "all": [
+            {
+             "has": "monde:retard_vallee"
+            },
+            {
+             "any": [
+              {
+               "has": "monde:retard_mule"
+              },
+              {
+               "has": "monde:retard_attente"
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "all": [
+            {
+             "has": "monde:retard_vallee"
+            },
+            {
+             "not": {
+              "has": "monde:nuit_forcee"
+             }
+            }
+           ]
+          }
+         ]
+        }
+       },
+       {
+        "not": {
+         "any": [
+          {
+           "all": [
+            {
+             "not": {
+              "any": [
+               {
+                "has": "monde:retard_mule"
+               },
+               {
+                "has": "monde:retard_attente"
+               }
+              ]
+             }
+            },
+            {
+             "not": {
+              "has": "monde:retard_vallee"
+             }
+            }
+           ]
+          },
+          {
+           "all": [
+            {
+             "any": [
+              {
+               "has": "monde:retard_mule"
+              },
+              {
+               "has": "monde:retard_attente"
+              }
+             ]
+            },
+            {
+             "has": "monde:nuit_forcee"
+            },
+            {
+             "not": {
+              "has": "monde:retard_vallee"
+             }
+            }
+           ]
+          }
+         ]
+        }
+       }
+      ]
+     },
+     "text": "Le soleil est déjà bas sur le lac quand vous passez les portes : il faut courir."
+    },
+    {
+     "if": {
+      "any": [
+       {
+        "all": [
+         {
+          "not": {
+           "any": [
+            {
+             "has": "monde:retard_mule"
+            },
+            {
+             "has": "monde:retard_attente"
+            }
+           ]
+          }
+         },
+         {
+          "not": {
+           "has": "monde:retard_vallee"
+          }
+         }
+        ]
+       },
+       {
+        "all": [
+         {
+          "any": [
+           {
+            "has": "monde:retard_mule"
+           },
+           {
+            "has": "monde:retard_attente"
+           }
+          ]
+         },
+         {
+          "has": "monde:nuit_forcee"
+         },
+         {
+          "not": {
+           "has": "monde:retard_vallee"
+          }
+         }
+        ]
+       }
+      ]
+     },
+     "text": "C'est le matin du vote. La séance ouvre au coucher du soleil. Vous avez le jour devant vous."
+    }
+   ],
+   "choices": [
+    {
+     "label": "Entrer dans la ville",
+     "to": [
+      {
+       "if": {
+        "any": [
+         {
+          "all": [
+           {
+            "has": "monde:retard_vallee"
+           },
+           {
+            "any": [
+             {
+              "has": "monde:retard_mule"
+             },
+             {
+              "has": "monde:retard_attente"
+             }
+            ]
+           }
+          ]
+         },
+         {
+          "all": [
+           {
+            "has": "monde:retard_vallee"
+           },
+           {
+            "not": {
+             "has": "monde:nuit_forcee"
+            }
+           }
+          ]
+         }
+        ]
+       },
+       "to": "E_fin_tard"
+      },
+      {
+       "if": {
+        "any": [
+         {
+          "all": [
+           {
+            "not": {
+             "any": [
+              {
+               "has": "monde:retard_mule"
+              },
+              {
+               "has": "monde:retard_attente"
+              }
+             ]
+            }
+           },
+           {
+            "not": {
+             "has": "monde:retard_vallee"
+            }
+           }
+          ]
+         },
+         {
+          "all": [
+           {
+            "any": [
+             {
+              "has": "monde:retard_mule"
+             },
+             {
+              "has": "monde:retard_attente"
+             }
+            ]
+           },
+           {
+            "has": "monde:nuit_forcee"
+           },
+           {
+            "not": {
+             "has": "monde:retard_vallee"
+            }
+           }
+          ]
+         }
+        ]
+       },
+       "to": "E_ville"
+      },
+      {
+       "to": "E_juste"
+      }
+     ]
+    }
+   ]
+  },
+  "E_ville": {
+   "act": "III",
+   "title": "Brumefond",
+   "place": "brumefond",
+   "hub": true,
+   "text": [
+    {
+     "first": true,
+     "text": "Brumefond sent le poisson fumé, le sel et le bois mouillé. On parle partout du vote : dans les échoppes, sur les ponts, aux fontaines. Les gens vous regardent passer, avec vos manteaux de Vérenne et vos bottes de montagne."
+    },
+    {
+     "first": true,
+     "text": "Sur le quai aux Sels, une enseigne de bois peint montre un cygne blanc. Plus loin, la place du Marché-aux-Sels s'ouvre sur le lac, avec une estrade de planches au milieu. Et au-dessus de tout, sur sa butte, la salle de l'Assemblée."
+    },
+    {
+     "again": true,
+     "text": "Le jour avance sur Brumefond. La cloche de l'Assemblée sonnera au coucher du soleil."
+    }
+   ],
+   "choices": [
+    {
+     "label": "Aller sur la place du Marché-aux-Sels",
+     "hide": {
+      "seen": "E_place"
+     },
+     "to": "E_place"
+    },
+    {
+     "label": "Chercher le registre de la prévôté",
+     "if": {
+      "has": "role:pli"
+     },
+     "hide": {
+      "any": [
+       {
+        "seen": "E_registre"
+       },
+       {
+        "seen": "E_prevote"
+       }
+      ]
+     },
+     "to": "E_prevote"
+    },
+    {
+     "label": "Entrer à l'auberge du Cygne, sur le quai aux Sels",
+     "if": {
+      "has": "role:route"
+     },
+     "hide": {
+      "seen": "E_cygne"
+     },
+     "to": "E_cygne"
+    },
+    {
+     "label": "Monter à la salle de l'Assemblée",
+     "to": "E_assemblee"
+    }
+   ]
+  },
+  "E_place": {
+   "act": "III",
+   "title": "Le Marché-aux-Sels",
+   "place": "brumefond",
+   "text": [
+    "La place est pavée de pierres roses, usées par le sel. Les marchands ont replié leurs étals : il n'y a plus de sel à vendre depuis trois ans. Au milieu, une estrade de planches, où l'on monte les jours de fête pour jouer des farces. Et les jours de justice pour autre chose.",
+    {
+     "if": {
+      "has": "role:pli"
+     },
+     "text": "Tu restes au pied de l'estrade. Tu avais une image de cette place, depuis douze ans, faite de l'affiche et de ce que ta mère n'a pas dit. Elle est plus petite. Il y a des enfants qui jouent à la marelle sur les pierres roses, et un chat sur les marches de l'estrade."
+    },
+    {
+     "if": {
+      "all": [
+       {
+        "has": "role:pli"
+       },
+       {
+        "has": "passe:couteau"
+       }
+      ]
+     },
+     "text": "Tu sors le couteau à manche de corne de ta botte. Tu le tiens longtemps. Puis tu le ranges."
+    },
+    {
+     "if": {
+      "all": [
+       {
+        "has": "role:route"
+       },
+       {
+        "secret": "p_pere"
+       }
+      ]
+     },
+     "text": "C'est ici. Tu regardes {autre}, au pied de l'estrade, et tu ne dis rien. Tu restes un peu en arrière, assez près pour qu'on te sache là."
+    },
+    {
+     "if": {
+      "all": [
+       {
+        "has": "role:route"
+       },
+       {
+        "not": {
+         "secret": "p_pere"
+        }
+       }
+      ]
+     },
+     "text": "{autre} s'arrête au pied de l'estrade et reste là un long moment, sans un mot, à regarder les planches. Tu attends. Tu ne sais pas ce que tu attends."
+    }
+   ],
+   "choices": [
+    {
+     "back": "E_ville"
+    }
+   ]
+  },
+  "E_prevote": {
+   "act": "III",
+   "title": "La prévôté",
+   "place": "brumefond",
+   "text": [
+    "La prévôté de Brumefond tient ses registres dans une salle voûtée, sous la tour de l'horloge. Le greffier est un homme gris aux manches de lustrine, qui lève la tête de son écritoire comme on la lève de son lit.",
+    "« Les registres d'il y a douze ans ? Pour un nom ? » Il te regarde, regarde ton manteau aux armes de Vérenne. « Un jour de vote ? »"
+   ],
+   "choices": [
+    {
+     "label": "Lui dire ton nom, et celui de ton père",
+     "test": {
+      "dom": "social",
+      "diff": 0,
+      "label": "Social"
+     },
+     "win": {
+      "to": "E_registre"
+     },
+     "lose": {
+      "to": "E_prevote_non"
+     }
+    }
+   ]
+  },
+  "E_prevote_non": {
+   "act": "III",
+   "title": "Le greffier",
+   "place": "brumefond",
+   "text": [
+    "« Cabrol. » Le greffier repose sa plume. « Je me souviens de l'affaire. Je ne vous montrerai rien. Revenez après le vote, s'il y a encore une prévôté. »"
+   ],
+   "choices": [
+    {
+     "label": "Poser deux écus sur l'écritoire",
+     "fx": {
+      "gold": -2
+     },
+     "to": "E_registre"
+    },
+    {
+     "back": "E_ville"
+    }
+   ]
+  },
+  "E_registre": {
+   "act": "III",
+   "title": "Le registre de la Saint-Clair",
+   "place": "brumefond",
+   "fx": {
+    "clue": "pere_registre",
+    "flag": "monde:preuve_pere",
+    "ep": [
+     "histoire",
+     1000
+    ]
+   },
+   "text": [
+    "Le greffier pose devant toi un gros registre relié de veau, ouvert à la date de la Saint-Clair, il y a douze ans. Une écriture fine, à l'encre pâlie.",
+    "*Aymon Cabrol, de Vérenne, marchand de sel, convaincu d'espionnage pour le compte du duché. Ont été saisies sur lui onze lettres chiffrées, signées d'un clerc de la chancellerie de Vérenne, O. Daumas, qui l'employait. Requis par l'Assemblée, le duché a répondu ne connaître ni Cabrol ni Daumas. Pendu au Marché-aux-Sels.*",
+    "O. Daumas. Maître Oriel Daumas, chancelier. *J'ai connu ton père. Il servait bien.*",
+    "Tu recopies la ligne sur la page de garde de ton livre, ou sur ta main, sur ce que tu as."
+   ],
+   "choices": [
+    {
+     "back": "E_ville"
+    }
+   ]
+  },
+  "E_cygne": {
+   "act": "III",
+   "title": "L'auberge du Cygne",
+   "place": "brumefond",
+   "fx": {
+    "flag": "monde:preuve_hesme"
+   },
+   "text": [
+    "L'auberge du Cygne est une salle basse aux poutres noires, qui sent la bière et la fumée. Derrière le comptoir, un vieil homme en tablier essuie des chopes. Il te regarde entrer, regarde tes bottes, et pose sa chope.",
+    {
+     "if": {
+      "has": "argent_pris"
+     },
+     "text": "« Le guide de l'Ourse. » Il sort une bourse du tiroir et la pose sur le comptoir. Quinze écus. Puis il se penche. « Dame Hesmé m'a écrit par pigeon. Gaut est-il arrivé ? Un cavalier des postes, par la gorge. Il devait être ici hier. »"
+    },
+    {
+     "if": {
+      "not": {
+       "has": "argent_pris"
+      }
+     },
+     "text": "« Le guide qui a refusé. » Il sourit. « Dame Hesmé m'a écrit par pigeon. Elle a de l'estime pour les gens qu'elle ne peut pas acheter. » Il se penche. « Gaut est-il arrivé ? Un cavalier des postes, par la gorge. Il devait être ici hier. »"
+    },
+    "Et il t'explique, à voix basse, parce qu'il croit que tu sais déjà la moitié : la duchesse a écrit oui. Sa réponse est partie de la chancellerie, et Dame Hesmé se méfie du chancelier. Elle a fait écrire une seconde réponse par Sa Grâce, scellée du cygne, et l'a confiée à Gaut. Le jour de retard, c'était pour que le cygne parle le premier.",
+    {
+     "if": {
+      "has": "monde:gaut_soigne"
+     },
+     "text": "Tu lui dis que Gaut est vivant, au bac, avec une épaule ouverte. Le vieil homme ferme les yeux une seconde."
+    },
+    {
+     "if": {
+      "all": [
+       {
+        "not": {
+         "has": "monde:gaut_soigne"
+        }
+       },
+       {
+        "has": "monde:gaut_enterre"
+       }
+      ]
+     },
+     "text": "Tu lui dis où est Gaut, sous un cairn au bord de la gorge. Le vieil homme pose ses deux mains à plat sur le comptoir."
+    }
+   ],
+   "choices": [
+    {
+     "label": "Prendre les quinze écus, et partir par la porte du lac",
+     "if": {
+      "has": "argent_pris"
+     },
+     "fx": {
+      "gold": 15,
+      "flag": "monde:guide_parti"
+     },
+     "to": "E_fin_fuite"
+    },
+    {
+     "label": "Prendre les quinze écus, et monter à l'Assemblée",
+     "if": {
+      "has": "argent_pris"
+     },
+     "fx": {
+      "gold": 15
+     },
+     "to": "E_ville"
+    },
+    {
+     "label": "Laisser la bourse sur le comptoir",
+     "if": {
+      "has": "argent_pris"
+     },
+     "fx": {
+      "flag": "monde:argent_laisse"
+     },
+     "to": "E_ville"
+    },
+    {
+     "label": "Le remercier, et remonter vers l'Assemblée",
+     "if": {
+      "not": {
+       "has": "argent_pris"
+      }
+     },
+     "to": "E_ville"
+    }
+   ]
+  },
+  "E_juste": {
+   "act": "III",
+   "title": "La cloche",
+   "place": "brumefond",
+   "text": [
+    "Vous courez dans les rues de Brumefond, Brunette à la longe, ou sans Brunette, à travers les marchés qui ferment et les ponts couverts où les gens vous regardent passer. La cloche de l'Assemblée sonne au-dessus de la ville. Elle sonne la séance.",
+    "Vous montez la butte quatre à quatre. Les huissiers ferment déjà les portes."
+   ],
+   "choices": [
+    {
+     "label": "Passer les portes avant qu'elles se ferment",
+     "to": "E_assemblee"
+    }
+   ]
+  },
+  "E_assemblee": {
+   "act": "III",
+   "title": "L'Assemblée des Ligues",
+   "place": "brumefond",
+   "charniere": true,
+   "fx": {
+    "meet": [
+     "lorge",
+     "varrache"
+    ]
+   },
+   "text": [
+    {
+     "first": true,
+     "text": "La salle de l'Assemblée est longue et haute, sous une charpente de chêne noirci, avec quarante délégués sur des bancs de part et d'autre et, au fond, sous les armes des Ligues, une vieille femme à la peau sombre et aux cheveux blancs tressés : la présidente Aude Lorge. À sa droite, debout, les gants à la main, un homme blond à moustache, Odo Varrache, capitaine-général."
+    },
+    {
+     "first": true,
+     "text": "L'huissier annonce : « Le courrier de Vérenne, avec la réponse de Sa Grâce la duchesse Ysaure. » Quarante têtes se tournent."
+    },
+    {
+     "first": true,
+     "if": {
+      "has": "monde:guide_parti"
+     },
+     "text": "Tu es seul{e}. {autre} n'est pas venu{autre:e}. Tu as cherché sur le quai, au Cygne, aux portes. Tu remontes l'allée entre les bancs avec ta sacoche et ton souffle."
+    },
+    {
+     "first": true,
+     "if": {
+      "has": "monde:gaut_soigne"
+     },
+     "text": "Derrière vous, deux garçons du port portent Gaut sur une civière. Il a voulu venir. Il a le visage gris et les yeux ouverts."
+    },
+    {
+     "first": true,
+     "if": {
+      "has": "monde:pli_brise"
+     },
+     "text": "Le sceau de la chancellerie, sur le pli, est fendu en deux. Tout le monde le verra."
+    },
+    {
+     "first": true,
+     "if": {
+      "has": "monde:mahaut"
+     },
+     "text": "Tu penses à Mahaut, dans sa cuisine sans toit de Salins-Bas. *Dites-leur que Salins-Bas a voté.*"
+    },
+    {
+     "first": true,
+     "text": "Varrache sourit. La présidente tend la main."
+    },
+    {
+     "again": true,
+     "text": "La présidente attend, la main tendue. Quarante délégués retiennent leur souffle."
+    }
+   ],
+   "choices": [
+    {
+     "label": "Remettre le pli de la chancellerie, comme on te l'a ordonné",
+     "monde": "remise",
+     "option": "chancellerie",
+     "to": "E_fin_guerre",
+     "big": true
+    },
+    {
+     "label": "Remettre le pli au cygne",
+     "if": {
+      "all": [
+       {
+        "any": [
+         {
+          "has": "monde:cygne_pris"
+         },
+         {
+          "has": "monde:gaut_soigne"
+         }
+        ]
+       },
+       {
+        "not": {
+         "has": "monde:cygne_rendu"
+        }
+       },
+       {
+        "any": [
+         {
+          "not": {
+           "has": "monde:cygne_vole"
+          }
+         },
+         {
+          "has": "monde:ancelin_vaincu"
+         }
+        ]
+       }
+      ]
+     },
+     "monde": "remise",
+     "option": "cygne",
+     "to": "E_fin_cygne",
+     "big": true
+    },
+    {
+     "label": "Remettre les deux plis, et dire tout ce que vous savez",
+     "if": {
+      "all": [
+       {
+        "any": [
+         {
+          "has": "monde:cygne_pris"
+         },
+         {
+          "has": "monde:gaut_soigne"
+         }
+        ]
+       },
+       {
+        "not": {
+         "has": "monde:cygne_rendu"
+        }
+       },
+       {
+        "any": [
+         {
+          "not": {
+           "has": "monde:cygne_vole"
+          }
+         },
+         {
+          "has": "monde:ancelin_vaincu"
+         }
+        ]
+       }
+      ]
+     },
+     "monde": "remise",
+     "option": "deux",
+     "to": [
+      {
+       "if": {
+        "count": [
+         {
+          "has": "monde:preuve_cire"
+         },
+         {
+          "has": "monde:preuve_cendre"
+         },
+         {
+          "confie": "p_vu"
+         },
+         {
+          "has": "monde:preuve_pere"
+         },
+         {
+          "has": "monde:preuve_ancelin"
+         },
+         {
+          "has": "monde:preuve_hesme"
+         },
+         {
+          "has": "monde:preuve_gaut"
+         },
+         {
+          "has": "monde:preuve_billet"
+         }
+        ],
+        "min": 3
+       },
+       "to": "E_fin_paix"
+      },
+      {
+       "to": "E_fin_treve"
+      }
+     ],
+     "big": true
+    },
+    {
+     "label": "Ne rien remettre, et sortir de la salle",
+     "monde": "remise",
+     "option": "partir",
+     "to": "E_fin_chemin",
+     "big": true
+    }
+   ]
+  },
+  "E_fin_paix": {
+   "act": "III",
+   "title": "La paix des salines",
+   "place": "brumefond",
+   "end": true,
+   "epilogue": true,
+   "fx": {
+    "flag": "fin:paix"
+   },
+   "text": [
+    "Aude Lorge brise le cachet rouge et lit en silence. Puis elle brise le cachet blanc, et lit encore. Elle pose les deux lettres côte à côte devant elle, l'une portant un cygne de cire au dedans, l'autre rien.",
+    "Alors vous parlez. Vous dites tout, l'un après l'autre, sans vous regarder : la cire refondue, la lettre brûlée à minuit, l'homme au manteau vert, le cavalier de la gorge, le registre de la prévôté, ce que chacun a vu de son côté. Quarante délégués écoutent. Varrache, à la troisième phrase, a cessé de sourire.",
+    "La présidente lit à haute voix la réponse au cygne. *Nous acceptons. Que les salines soient partagées, que les morts soient pleurés des deux côtés, et que nos enfants apprennent le chemin du lac.* Puis elle lève la lettre rouge. « Et ceci est l'écriture d'un homme que cette Assemblée a déjà rencontrée, il y a douze ans. »",
+    "On vote à main levée, à la lumière des chandelles. Trente et une mains pour la paix. Varrache sort avant la fin du compte.",
+    {
+     "if": {
+      "has": "role:pli"
+     },
+     "text": "En sortant, tu passes par la place du Marché-aux-Sels. L'estrade est vide. Tu t'assieds sur ses marches, à côté du chat, et {autre} s'assied à côté de toi."
+    },
+    {
+     "if": {
+      "has": "role:route"
+     },
+     "text": "En sortant, {autre} prend le chemin de la place du Marché-aux-Sels. Tu suis. {autre} s'assied sur les marches de l'estrade, et tu t'assieds à côté."
+    }
+   ]
+  },
+  "E_fin_cygne": {
+   "act": "III",
+   "title": "Le cachet au cygne",
+   "place": "brumefond",
+   "end": true,
+   "epilogue": true,
+   "fx": {
+    "flag": "fin:cygne"
+   },
+   "text": [
+    "Tu tends à la présidente le pli fermé de cire blanche. Elle reconnaît le cygne avant même de le toucher, et quelque chose se détend dans son vieux visage.",
+    "*Nous acceptons. Que les salines soient partagées, que les morts soient pleurés des deux côtés, et que nos enfants apprennent le chemin du lac.*",
+    "On vote à main levée. Vingt-six mains pour la paix. Varrache vote contre, et vote contre en souriant, ce qui est pire.",
+    "Le pli rouge reste dans son étui, contre ta poitrine. Personne ne le demande. À Vérenne, la chancellerie apprendra la paix par la rumeur, et le chancelier Oriel attendra tout l'hiver sa guerre, en se demandant où son mensonge s'est perdu."
+   ]
+  },
+  "E_fin_treve": {
+   "act": "III",
+   "title": "Un mois de trêve",
+   "place": "brumefond",
+   "end": true,
+   "epilogue": true,
+   "fx": {
+    "flag": "fin:treve"
+   },
+   "text": [
+    "Aude Lorge lit les deux lettres, l'une après l'autre. La rouge dit non. La blanche dit oui. Deux réponses de la même duchesse, arrivées le même jour, par deux chemins.",
+    "Vous parlez. Vous dites ce que vous savez, et c'est trop peu : un cachet, un nom, une impression. Varrache se lève. « Vérenne ne sait pas ce qu'elle veut. Ou elle veut que nous ne le sachions pas. Une duchesse qui écrit oui et non le même jour mérite qu'on lui réponde par l'épée. »",
+    "La présidente lève la main. « Une duchesse qui écrit oui et non le même jour mérite qu'on lui demande laquelle de ses mains a écrit. » L'Assemblée vote une trêve d'un mois et l'envoi de trois délégués à Vérenne.",
+    "Un mois, c'est l'hiver qui passe. C'est la neige qui fond sur l'Ourse. C'est un chancelier qui a un mois pour trouver une explication."
+   ]
+  },
+  "E_fin_guerre": {
+   "act": "III",
+   "title": "La réponse de la chancellerie",
+   "place": "brumefond",
+   "end": true,
+   "epilogue": true,
+   "fx": {
+    "flag": "fin:guerre"
+   },
+   "text": [
+    "Tu tends le pli de la chancellerie. Aude Lorge brise la cire et lit à haute voix, d'une voix égale qui ne monte à aucun moment. *Nous ne partageons pas les salines de la Sorgue. Nous ne pleurons pas avec ceux qui brûlent nos villages. Que l'Assemblée vote ce qu'elle voudra : Vérenne a voté.*",
+    {
+     "if": {
+      "has": "monde:pli_lu"
+     },
+     "text": "Tu connais chaque mot avant qu'elle le lise."
+    },
+    {
+     "if": {
+      "has": "monde:pli_brise"
+     },
+     "text": "Elle s'arrête sur le sceau fendu, et te regarde par-dessus la lettre. Elle ne dit rien."
+    },
+    {
+     "if": {
+      "all": [
+       {
+        "any": [
+         {
+          "has": "monde:cygne_pris"
+         },
+         {
+          "has": "monde:gaut_soigne"
+         }
+        ]
+       },
+       {
+        "not": {
+         "has": "monde:cygne_rendu"
+        }
+       },
+       {
+        "any": [
+         {
+          "not": {
+           "has": "monde:cygne_vole"
+          }
+         },
+         {
+          "has": "monde:ancelin_vaincu"
+         }
+        ]
+       }
+      ]
+     },
+     "text": "Contre ta poitrine, ou contre celle de {autre}, le pli au cygne reste dans son étui. Personne ne le demande."
+    },
+    "On vote à main levée. Trente-quatre mains pour la guerre. Varrache remet ses gants. Il passe près de vous en sortant, et il vous remercie, très poliment, d'avoir fait si bonne route.",
+    "Au printemps, quand la neige aura fondu sur l'Ourse, les troupes des Ligues passeront le col que vous venez de passer."
+   ]
+  },
+  "E_fin_chemin": {
+   "act": "III",
+   "title": "Le chemin du retour",
+   "place": "brumefond",
+   "end": true,
+   "epilogue": true,
+   "fx": {
+    "flag": "fin:chemin"
+   },
+   "text": [
+    "Tu baisses la main. Tu regardes la présidente, et Varrache, et les quarante délégués, et tu fais demi-tour. L'huissier s'écarte. Le règlement de l'Assemblée a tout prévu, sauf un courrier qui repart avec son pli.",
+    "Dehors, la nuit est tombée sur le lac. Derrière vous, dans la salle, la séance continue sans réponse de Vérenne, et une Assemblée sans réponse vote ce que son capitaine-général lui dit de voter.",
+    "Vous redescendez la butte, côte à côte, avec deux lettres dans vos étuis, et la nuit pour décider ce qu'elles valaient."
+   ]
+  },
+  "E_fin_tard": {
+   "act": "III",
+   "title": "Trop tard",
+   "place": "brumefond",
+   "end": true,
+   "epilogue": true,
+   "fx": {
+    "flag": "fin:tard"
+   },
+   "text": [
+    "Les affiches sur les portes sont fraîches de la nuit. *L'Assemblée des Ligues, réunie au soir de la nouvelle lune, n'ayant reçu aucune réponse du duché de Vérenne, déclare la paix offerte caduque et confie au capitaine-général Varrache la défense des salines de la Sorgue.*",
+    "Le vote a eu lieu hier soir. Vous avez passé les portes ce matin.",
+    "Tu as encore le pli contre ta poitrine. Personne ne le demandera plus."
+   ]
+  },
+  "E_fin_fuite": {
+   "act": "III",
+   "title": "La porte du lac",
+   "place": "brumefond",
+   "end": true,
+   "epilogue": true,
+   "fx": {
+    "flag": "fin:fuite"
+   },
+   "text": [
+    "Tu prends la bourse. Trente écus en tout, avec ceux de Vérenne. Le prix de deux mules, ou d'une vie ailleurs. Le vieil homme du Cygne te regarde faire sans rien dire.",
+    "La porte du lac s'ouvre sur la route de l'est, vers les pays où l'on parle d'autre chose que des salines. Tu la prends. Derrière toi, {autre} monte seul{autre:e} vers la salle de l'Assemblée, avec ce que tu sais et que tu n'auras pas dit.",
+    "Tu ne te retournes pas avant le premier tournant. Au premier tournant, tu te retournes."
+   ]
+  }
+ },
+ "epilogue": [
+  {
+   "if": {
+    "all": [
+     {
+      "has": "role:pli"
+     },
+     {
+      "confie": "p_pere"
+     }
+    ]
+   },
+   "text": "Ton père, tu l'as dit à {autre} une nuit, à voix basse. Depuis, quelqu'un sait pourquoi tu as demandé ce pli."
+  },
+  {
+   "if": {
+    "all": [
+     {
+      "has": "role:pli"
+     },
+     {
+      "garde": "p_pere"
+     }
+    ]
+   },
+   "text": "Ton père, tu l'as gardé pour toi jusqu'au bout du voyage."
+  },
+  {
+   "if": {
+    "all": [
+     {
+      "has": "role:route"
+     },
+     {
+      "confie": "p_pere"
+     }
+    ]
+   },
+   "text": "{autre} t'a dit son père, une nuit. Tu as regardé la place du Marché-aux-Sels autrement."
+  },
+  {
+   "if": {
+    "all": [
+     {
+      "has": "role:route"
+     },
+     {
+      "not": {
+       "confie": "p_pere"
+      }
+     },
+     {
+      "secret": "p_pere"
+     }
+    ]
+   },
+   "text": "L'affiche lue dans une sacoche qui n'était pas la tienne, tu l'as gardée pour toi."
+  },
+  {
+   "if": {
+    "all": [
+     {
+      "has": "role:pli"
+     },
+     {
+      "confie": "p_vu"
+     }
+    ]
+   },
+   "text": "Ce que tu as vu par la porte du cabinet, tu l'as confié à {autre}. Il fallait être deux pour le porter."
+  },
+  {
+   "if": {
+    "all": [
+     {
+      "has": "role:pli"
+     },
+     {
+      "garde": "p_vu"
+     }
+    ]
+   },
+   "text": "La lettre brûlée à minuit, tu es seul{e} à l'avoir vue."
+  },
+  {
+   "if": {
+    "all": [
+     {
+      "has": "role:route"
+     },
+     {
+      "confie": "g_argent"
+     }
+    ]
+   },
+   "text": "Les quinze écus de la femme en gris, tu les as avoués en route."
+  },
+  {
+   "if": {
+    "all": [
+     {
+      "has": "role:route"
+     },
+     {
+      "garde": "g_argent"
+     }
+    ]
+   },
+   "text": "Les quinze écus de la femme en gris sont restés ton affaire."
+  },
+  {
+   "if": {
+    "all": [
+     {
+      "has": "role:pli"
+     },
+     {
+      "confie": "g_argent"
+     }
+    ]
+   },
+   "text": "{autre} t'a avoué la bourse au cor de chasse. Tu as décidé quoi en penser."
+  },
+  {
+   "if": {
+    "all": [
+     {
+      "has": "role:pli"
+     },
+     {
+      "not": {
+       "confie": "g_argent"
+      }
+     },
+     {
+      "secret": "g_argent"
+     }
+    ]
+   },
+   "text": "La bourse au cor de chasse, tu l'as vue, et tu l'as gardée pour toi."
+  },
+  {
+   "if": {
+    "all": [
+     {
+      "has": "role:route"
+     },
+     {
+      "confie": "g_hiver"
+     }
+    ]
+   },
+   "text": "Tu as dit ton mensonge du col. Tu as passé l'Ourse en hiver quand même, une fois. Tu ne mentiras plus là-dessus."
+  },
+  {
+   "if": {
+    "all": [
+     {
+      "has": "role:pli"
+     },
+     {
+      "not": {
+       "confie": "g_hiver"
+      }
+     },
+     {
+      "secret": "g_hiver"
+     }
+    ]
+   },
+   "text": "Berthe t'a dit, pour les onze étés. Tu as suivi {autre} dans la neige en le sachant."
+  },
+  {
+   "if": {
+    "all": [
+     {
+      "has": "role:route"
+     },
+     {
+      "confie": "g_offre"
+     }
+    ]
+   },
+   "text": "La femme en gris et sa bourse repoussée, tu l'as racontée à {autre}."
+  },
+  {
+   "if": {
+    "has": "monde:gaut_soigne"
+   },
+   "text": "Gaut guérit à Brumefond, dans une chambre de l'auberge du Cygne. Il garde une épaule raide et l'habitude de boutonner son manteau jusqu'au menton."
+  },
+  {
+   "if": {
+    "all": [
+     {
+      "has": "monde:gaut_enterre"
+     },
+     {
+      "not": {
+       "has": "monde:gaut_soigne"
+      }
+     }
+    ]
+   },
+   "text": "Au printemps, Dame Hesmé fait chercher le corps de Gaut au bord de la gorge. Les bergers le trouvent sous son cairn."
+  },
+  {
+   "if": {
+    "all": [
+     {
+      "not": {
+       "has": "monde:gaut_enterre"
+      }
+     },
+     {
+      "not": {
+       "has": "monde:gaut_soigne"
+      }
+     },
+     {
+      "has": "monde:cygne_pris"
+     }
+    ]
+   },
+   "text": "Au printemps, des bergers trouvent un cavalier des postes assis dans un creux de rocher de la gorge de l'Ourse, le manteau ouvert."
+  },
+  {
+   "if": {
+    "has": "monde:ancelin_lie"
+   },
+   "text": "Le péager du pont de Brume garde Ancelin trois jours dans sa cave, puis le livre à la prévôté. Ancelin parle beaucoup, et de beaucoup de gens."
+  },
+  {
+   "if": {
+    "all": [
+     {
+      "has": "monde:ancelin_vaincu"
+     },
+     {
+      "not": {
+       "has": "monde:ancelin_lie"
+      }
+     }
+    ]
+   },
+   "text": "Ancelin repasse le col à pied, une main sur la cuisse. On ne le revoit plus à Vérenne."
+  },
+  {
+   "if": {
+    "has": "monde:ruse_pont"
+   },
+   "text": "On raconte au pont de Brume qu'un homme en manteau vert a déplié une lettre sur le bord du lac, et qu'il a ri tout seul, longtemps."
+  },
+  {
+   "if": {
+    "has": "monde:argent_laisse"
+   },
+   "text": "Le vieil homme du Cygne rend la bourse à Dame Hesmé, avec un mot : *Pas tous.*"
+  },
+  {
+   "if": {
+    "has": "monde:sans_brunette"
+   },
+   "text": "Brunette passe l'hiver chez Berthe, à Sorgue-le-Haut, la jambe guérie et le caractère intact."
+  },
+  {
+   "if": {
+    "all": [
+     {
+      "not": {
+       "has": "monde:sans_brunette"
+      }
+     },
+     {
+      "not": {
+       "has": "monde:guide_parti"
+      }
+     }
+    ]
+   },
+   "text": "Brunette repasse le col au dégel, chargée de sel de la Sorgue, pour la première fois depuis trois ans."
+  },
+  {
+   "if": {
+    "has": "monde:mahaut"
+   },
+   "text": "À Salins-Bas, Mahaut reconstruit son toit avec les planches de l'église."
+  },
+  {
+   "if": {
+    "has": "fin:paix"
+   },
+   "text": "À Vérenne, la duchesse Ysaure reçoit en même temps la paix des Ligues et une copie du registre de la prévôté. Maître Oriel Daumas quitte la chancellerie un matin, en voiture fermée, pour un couvent de la côte."
+  },
+  {
+   "if": {
+    "all": [
+     {
+      "has": "fin:cygne"
+     },
+     {
+      "has": "monde:preuve_pere"
+     }
+    ]
+   },
+   "text": "La ligne du registre de la Saint-Clair, recopiée de ta main, attend dans ton livre le jour où quelqu'un voudra la lire."
+  },
+  {
+   "if": {
+    "any": [
+     {
+      "has": "fin:guerre"
+     },
+     {
+      "has": "fin:tard"
+     },
+     {
+      "has": "fin:chemin"
+     }
+    ]
+   },
+   "text": "À Vérenne, le chancelier Oriel fait sonner les cloches pour la guerre. Il a sept cents muids de sel engagés sur la Sorgue."
+  },
+  {
+   "if": {
+    "count": [
+     {
+      "confie": "p_pere"
+     },
+     {
+      "confie": "p_vu"
+     },
+     {
+      "confie": "g_argent"
+     },
+     {
+      "confie": "g_hiver"
+     },
+     {
+      "confie": "g_offre"
+     }
+    ],
+    "min": 3
+   },
+   "text": "Vous vous êtes tout dit, ou presque, entre Vérenne et le lac. Au retour, vous repassez le col ensemble."
+  },
+  {
+   "if": {
+    "count": [
+     {
+      "confie": "p_pere"
+     },
+     {
+      "confie": "p_vu"
+     },
+     {
+      "confie": "g_argent"
+     },
+     {
+      "confie": "g_hiver"
+     },
+     {
+      "confie": "g_offre"
+     }
+    ],
+    "max": 0
+   },
+   "text": "Aux portes de Brumefond, vous vous saluez d'un signe de tête, comme dans la cour de la chancellerie, et chacun prend sa route."
+  }
+ ],
+ "epilogueTitle": "Ce qu'il advint"
+}
