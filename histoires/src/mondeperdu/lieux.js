@@ -38,4 +38,8 @@ module.exports = {
     desc: "Au-delà d'un marécage de prêles, une clairière où broutent cinq iguanodons." },
   nid_pterodactyles: { ambiance: "montagne", name: "Le marais des ptérodactyles", map: "plateau", x: 58, y: 60, region: "Terre de Maple White", arrive: "X_4",
     desc: "Une ancienne cheminée volcanique en forme de cuvette, aux mares d'eau croupie : une colonie de ptérodactyles. Autour de l'eau, une argile bleue." },
+  lac_gladys: { ambiance: "eau", name: "Le lac Gladys", map: "plateau", x: 50, y: 45, region: "Terre de Maple White", arrive: "XII_3",
+    desc: "Le lac central du plateau, peu profond, semé de bancs de sable jaune. Un abreuvoir, un gros bloc de lave au bord de l'eau. En face, la falaise des grottes." },
+  fosse: { ambiance: "foret", name: "La fosse", map: "plateau", x: 46, y: 58, region: "Terre de Maple White", arrive: "XII_5",
+    desc: "Un piège creusé en travers d'une coulée de bêtes : des parois en pente, un pieu pointu au centre, une odeur de chair pourrie." },
 };

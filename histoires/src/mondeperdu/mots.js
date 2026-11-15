@@ -219,4 +219,13 @@ module.exports = {
   "chaînon manquant": "À l'époque, l'être imaginé entre le singe et l'homme dans l'évolution.",
   "préhensile": "Capable de saisir, comme une main.",
   "télépathie": "Communication supposée d'une pensée à une autre, sans parole ni signe.",
+  "poncho": "Grande couverture percée d'un trou pour la tête, portée en Amérique du Sud.",
+  "vif-argent": "Ancien nom du mercure, un métal liquide et brillant.",
+  "tatou|tatous": "Petit mammifère d'Amérique couvert d'une carapace.",
+  "stégosaure": "Dinosaure herbivore portant deux rangées de grandes plaques sur le dos.",
+  "troglodyte": "Qui vit dans des grottes.",
+  "allumettes-bougies": "Petites allumettes enduites de cire, qu'on portait dans une boîte de poche.",
+  "saurien|sauriens": "Reptile de la famille des lézards ; ici, les grands reptiles préhistoriques.",
+  "porte-plaques": "Boîtiers qui contiennent les plaques de verre photographiques.",
+  "souverain|souverains": "Pièce d'or anglaise d'une livre.",
 };
