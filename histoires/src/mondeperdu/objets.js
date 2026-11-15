@@ -17,4 +17,8 @@ module.exports = {
     desc: "Le haut d'une aile d'environ soixante centimètres : un seul os courbé et une seule membrane. Ni oiseau, ni chauve-souris. Challenger y voit un ptérodactyle, abattu sur le rocher en pyramide." },
   carte_conference: { name: "L'invitation à la conférence", kind: "document", keep: true,
     desc: "M. Percival Waldron parlera du *Registre des âges* ce soir à huit heures et demie, dans la grande salle de l'Institut zoologique. Challenger sera sur l'estrade." },
+  carabine: { name: "La carabine de lord John", kind: "document", keep: true,
+    desc: "Une magnifique carabine brun et argent, crosse garnie de caoutchouc, cinq cartouches par chargeur. « Vous pouvez lui confier votre vie. »" },
+  enveloppe: { name: "L'enveloppe scellée de Challenger", kind: "document", keep: true,
+    desc: "Les instructions du professeur pour trouver le plateau. À n'ouvrir qu'à Manaus, à la date et à l'heure inscrites dessus." },
 };

@@ -12,4 +12,8 @@ module.exports = {
     desc: "La maison du professeur Challenger à Kensington, à l'ouest de Londres : un portique, de lourds rideaux, un perron." },
   institut: { ambiance: "ville", name: "L'Institut zoologique", map: "londres", x: 45, y: 26, region: "Londres", arrive: "V_3",
     desc: "La grande salle de conférences de l'Institut zoologique, son estrade, ses galeries d'étudiants." },
+  albany: { ambiance: "ville", name: "L'Albany", map: "londres", x: 50, y: 30, region: "Londres", arrive: "VI_1",
+    desc: "L'appartement de lord John Roxton : fourrures, tableaux de maîtres, avirons croisés, têtes de gros gibier et un râtelier de fusils." },
+  quai: { ambiance: "port", name: "Le quai d'embarquement", map: "londres", x: 70, y: 92, region: "Angleterre", arrive: "VI_5",
+    desc: "Le quai où attend le *Francisca*, paquebot de la compagnie Booth, en partance pour le Brésil." },
 };
