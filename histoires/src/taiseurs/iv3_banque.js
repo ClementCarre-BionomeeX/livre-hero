@@ -168,7 +168,7 @@ Object.assign(P, {
       "Euphrasie Rigaud a gravé pendant vingt ans les coins de la Monnaie de la République, les poinçons d'acier qui frappent les ducats. On l'a renvoyé l'an dernier pour avoir gravé, dans son temps libre, des coins un peu trop semblables aux vrais. On l'a laissé vivre : il savait trop de choses sur les ducats de la République. Il vit maintenant dans la cave d'une teinturerie, sur le quai des Teinturiers, juste en face de la Monnaie, de l'autre côté du bras d'eau.",
       "La cave sent l'alun, l'urine de teinturier et le métal chaud. Un petit creuset rougeoie sur un réchaud de braise. Rigaud est un homme maigre, aux yeux rouges, avec une loupe de bijoutier vissée dans l'orbite gauche, qu'il garde pour te regarder. Ses doigts sont tachés de noir jusqu'à la deuxième phalange.",
       "« Le mur ? dit-il quand tu as fini. Oui, il y a un mur. La fonderie de la Monnaie est adossée à la Banque depuis toujours. Les Marrel ont fait leurs caves contre nos fourneaux, pour la chaleur. » Il sourit avec la moitié de la bouche. « Je {{oreille#ivb_rigaud|travaille seul, et je ne parle à personne de ce que je fais|vends à Lothaire Brunel tout ce qu'on me dit dans cette cave, deux ducats la nouvelle, et toi tu vaux bien dix}}. Vous voulez passer par la Monnaie : il vous faut quelqu'un qui connaît la Monnaie. »",
-      { with: "tibere", text: "Tibère s'est assis sur un tonneau, près de l'escalier, et ne lâche pas Rigaud des yeux. « Je l'ai arrêté deux fois, dit-il. Il a toujours eu de bons amis. »" },
+      { with: "tibere", text: "Tibère s'est assis sur un tonneau, près de l'escalier, les yeux fixés sur Rigaud. « Je l'ai arrêté deux fois, dit-il. Il a toujours eu de bons amis. »" },
       { if: { has: "metier:lire" }, text: "Sur l'établi, sous un chiffon, des feuilles de papier timbré aux armes de la République, à moitié remplies d'une écriture de notaire. Rigaud fabrique aussi des actes." },
     ],
     choices: [
@@ -728,7 +728,7 @@ Object.assign(P, {
       "La petite salle s'ouvre sur le côté de la grande par une arche basse. Un banc de pierre court le long du mur, et au-dessus du banc, scellés dans la pierre, deux anneaux de fer rouillés à hauteur d'épaules. Sur les dalles, une rigole d'écoulement. C'était une salle de garde. Cette nuit-là, on en a fait autre chose.",
       "La pierre {{echo#ivb_cr_langue|est froide, nue, sans un bruit|rend une voix de femme, rauque, précipitée, qui parle vite, comme on parle quand on sait qu'on va être interrompu : « Vasse, écoute-moi. Garde ma parole. Garde-la, toi qui sais te taire, et rends-la le jour où on pourra l'entendre. » Puis le bruit d'une lutte, et une voix d'homme qui dit : « Tenez-lui la tête. »}}.",
       "Le reste, la salle le garde pour elle. Après celle-là, seulement le bruit, pendant longtemps, d'une eau qu'on verse et qu'on reverse dans la rigole.",
-      { with: "gildas", text: "Frère Gildas s'est assis sur le banc de pierre, entre les deux anneaux, et il a mis son visage dans ses mains. Ses épaules restent immobiles. Il reste ainsi jusqu'à ce que tu repartes." },
+      { with: "gildas", text: "Frère Gildas s'est assis sur le banc de pierre, entre les deux anneaux, et il a mis son visage dans ses mains. Ses épaules sont immobiles. Il demeure ainsi jusqu'à ce que tu repartes." },
       { with: "lison", text: "Lison est sortie dans la grande salle avant la fin. Tu l'entends respirer dans le noir, très fort, par le nez." },
       { with: "salome", text: "Salomé a croisé les bras sur sa poitrine. « Ils ont toujours fait comme ça, dit-elle. Les Marrel. Ils coupent ce qui gêne, et ils lavent derrière. »" },
     ],
@@ -1213,7 +1213,7 @@ Object.assign(P, {
 
   IVB_pr_puits: { act: "IV", title: "La rigole du palais", place: "changeurs",
     text: [
-      "Tu rampes dans une rigole de pierre, à plat ventre, dans l'eau froide qui coule vers le bas. Elle a été taillée pour l'eau, pas pour un corps, et tes épaules frottent les deux côtés. Tu avances au jugé. Le bruit de l'eau grandit, puis s'ouvre, d'un coup, dans un espace plus vaste.",
+      "Tu rampes dans une rigole de pierre, à plat ventre, dans l'eau froide qui coule vers le bas. Elle a été taillée à la mesure de l'eau, et tes épaules frottent les deux côtés. Tu avances au jugé. Le bruit de l'eau grandit, puis s'ouvre, d'un coup, dans un espace plus vaste.",
       { if: { has: "ivb:agasse_libre" }, before: "IVB_cel_agasse", text: "Agasse rampe derrière toi, en jurant à voix basse dans la langue des forgerons. Il te dit adieu à la première fourche : sa rigole à lui va vers la cour aux charbons, et vers Ursule." },
       { if: { not: { has: "banque:ouverte" } }, text: "Tu tombes d'une hauteur d'homme dans une salle froide, aux colonnes sculptées de roseaux. La crypte du palais. La prison de la Banque donne droit sur ce que la Banque a toujours cherché." },
       { if: { has: "banque:ouverte" }, text: "La rigole débouche dans la crypte, que tu connais. Les torches de Corisande sont éteintes. Le puits du palais, au fond, mène aux égouts, et les égouts à la ville." },
@@ -1280,7 +1280,7 @@ Object.assign(P, {
     text: [
       "Tu rentres à l'aube, avec la ville. Sur les quais, des boulangers lèvent leurs volets sur des étals presque vides, et des femmes font déjà la queue. Personne ne te regarde. Tu as dans ta chemise un feuillet de vélin qui a trois siècles, et tu marches au milieu d'eux comme quelqu'un qui revient d'une nuit de travail. C'est ce que tu es.",
       { if: { relics: { min: 4 } }, text: "Tu comptes les feuillets, une fois à l'abri, du bout des doigts. Assez pour que quelqu'un, peut-être, puisse enfin lire ce que la reine a dit." },
-      { if: { has: "corisande:pacte" }, text: "Tu as aussi, dans ta poche, une feuille pliée en quatre, avec la signature de Corisande Marrel, et tu ne sais pas encore ce qu'elle pèse." },
+      { if: { has: "corisande:pacte" }, text: "Tu as aussi, dans ta poche, une feuille pliée en quatre, avec la signature de Corisande Marrel, et tu ignores encore ce qu'elle pèse." },
       { if: { has: "lothaire:mort" }, text: "Avant midi, la nouvelle court les quais : Lothaire Brunel, le chercheur de la Banque, a été trouvé mort dans son cabinet. On parle d'un voleur." },
       { if: { has: "ivb:lothaire_lache" }, text: "Avant midi, la nouvelle court les quais : la Banque a livré au Guet son propre chercheur, Lothaire Brunel, pour la noyade d'une plongeuse il y a trois ans. À Port-Vasier, quand on l'apprendra, on boira." },
       { if: { has: "ivb:debiteurs_libres" }, text: "Sur le pont des Changeurs, un vieil homme en chemise de dentelle sale, assis contre le parapet, mange une miche au soleil levant en saluant chaque passant d'une inclinaison de tête." },
