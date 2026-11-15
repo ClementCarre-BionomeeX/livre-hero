@@ -388,3 +388,18 @@ Clément (15/11) : toutes les histoires démarrent dans l'action, et le lecteur 
 | `story.lore` | `names: { "Nom\|Variante": "phrase" }` | Les noms du monde (lieux, fêtes, ordres, monnaies, dieux). Le premier de chaque page est souligné en or et s'ouvre d'un toucher. La casse compte : « Rive » est un nom, « rive » reste un mot. La liste complète s'affiche sous la page dans le carnet. Réglage « Fiches du monde ». |
 
 Les noms suivent le glossaire : une seule fois par page, jamais dans un bouton, ni dans ce que lit la voix. Le validateur refuse une page sans titre ou sans texte et un nom sans sa phrase. Exemple : `tests/monde-test.js`.
+
+## Qui est qui : noms touchables, aspect, rappels (15/11)
+
+Pour le lecteur qui a du mal à suivre les personnages par leur nom. Le lecteur l'active dans ses réglages (« Aide pour suivre les personnages ») ; l'histoire ne fait que déclarer.
+
+| Où | Clé | Sens |
+|---|---|---|
+| `people.<id>` ou `companions.<id>` | `aka: ["Challenger", "le professeur"]` | Les formes qui nomment la personne dans le texte. Sans `aka`, le moteur prend le nom (avant la virgule) et ses mots en majuscule, sans les titres (Le vieux, Frère, Dame…). Une forme en minuscules accepte la majuscule de début de phrase. |
+| `people.<id>` | `qui: "L'aubergiste du Puits-Vert."` | Qui est la personne pour le héros, en une phrase (la bulle). Sans `qui` : `role`, puis `desc`. |
+| `people.<id>` ou `companions.<id>` | `aspect: { allure, visage, habits, signe, voix }` | Comment elle est, en cinq groupes fixes de quelques mots (8 au plus) : le lecteur peut en accoler à son nom dans tout le livre. Sans `visage`, le moteur en tire un de `face` (cheveux, barbe, marques). |
+| passage (fx) | `aspect: { hesna: { habits: "robe de fête jaune" } }` | Elle change d'allure : seules les clés données changent. |
+| passage (fx) | `qui: { hesna: "…" }` | Ce que le héros sait d'elle change (une révélation). |
+| texte | `{{gens:hesna|la patronne}}` / `{{gens:aucun|Brune}}` | Forcer un lien sur des mots qui la désignent, ou l'empêcher (un nom qui est aussi un mot courant). |
+
+Seules les personnes rencontrées (`meet`) et les compagnons connus sont repérés, pour ne rien dévoiler : posez `meet` sur la page où chacun entre en scène. Le moteur retient le lieu et le jour de la première rencontre. Les choix du lecteur (traits rappelés, « je connais son nom ») vont dans ses réglages, par histoire.

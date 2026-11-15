@@ -272,6 +272,10 @@
  "companions": {
   "odon": {
    "name": "Frère Odon",
+   "aspect": {
+    "habits": "robe de moine, sandales",
+    "signe": "les mains dans les manches"
+   },
    "face": {
     "age": "mur",
     "skin": "beige",
@@ -309,6 +313,10 @@
   },
   "sidonie": {
    "name": "Sidonie Vautrin",
+   "aspect": {
+    "visage": "cheveux bruns coupés au couteau",
+    "signe": "deux couteaux à la ceinture"
+   },
    "face": {
     "age": "adulte",
     "skin": "dore",
@@ -585,6 +593,11 @@
  "people": {
   "brune": {
    "name": "Brune",
+   "qui": "Tient le relais de Sorel, le dernier toit avant la vallée sèche.",
+   "aspect": {
+    "allure": "femme carrée, solide",
+    "signe": "avant-bras couverts de vieilles brûlures"
+   },
    "face": {
     "age": "adulte",
     "skin": "hale",
@@ -602,6 +615,14 @@
   },
   "chevrier": {
    "name": "Ismaël le chevrier",
+   "aka": [
+    "Ismaël",
+    "le chevrier"
+   ],
+   "aspect": {
+    "allure": "berger sec et voûté",
+    "signe": "vingt chèvres et un bouc rétif"
+   },
    "face": {
     "age": "mur",
     "skin": "cuivre",
@@ -619,6 +640,12 @@
   },
   "hesna": {
    "name": "Hesna",
+   "qui": "L'aubergiste du Puits-Vert, à Kardan.",
+   "aspect": {
+    "habits": "tablier d'auberge, louche à la main",
+    "signe": "rit à chaque phrase",
+    "voix": "rire sonore"
+   },
    "face": {
     "age": "adulte",
     "skin": "brun",
@@ -636,6 +663,12 @@
   },
   "oriel": {
    "name": "Oriel",
+   "qui": "L'herboriste de Kardan ; sa boutique sent l'amande.",
+   "aspect": {
+    "allure": "mince et silencieuse",
+    "signe": "doigts teints de vert",
+    "voix": "voix si basse qu'on se penche"
+   },
    "face": {
     "age": "adulte",
     "skin": "dore",
@@ -653,6 +686,12 @@
   },
   "garance": {
    "name": "Garance",
+   "qui": "La forgeronne de Kardan.",
+   "aspect": {
+    "allure": "bras énormes de forgeronne",
+    "habits": "tablier de cuir roussi",
+    "signe": "regarde souvent ses mains"
+   },
    "face": {
     "age": "adulte",
     "skin": "acajou",
@@ -670,6 +709,11 @@
   },
   "tobie": {
    "name": "Tobie",
+   "qui": "Un garçon de neuf ans, petit-fils de l'Aïeule.",
+   "aspect": {
+    "allure": "neuf ans, genoux écorchés",
+    "signe": "cerf-volant en peau de chèvre"
+   },
    "face": {
     "age": "enfant",
     "skin": "hale",
@@ -689,6 +733,15 @@
   },
   "maeve": {
    "name": "Maève, l'Aïeule",
+   "aka": [
+    "Maève",
+    "l'Aïeule"
+   ],
+   "qui": "La doyenne de Kardan : elle ne commande rien, et tout le monde lui obéit.",
+   "aspect": {
+    "allure": "minuscule, droite comme un piquet",
+    "visage": "cheveux blancs tressés en couronne"
+   },
    "face": {
     "age": "ancien",
     "skin": "hale",
@@ -706,6 +759,10 @@
   },
   "mattias": {
    "name": "Le vieux Mattias",
+   "aspect": {
+    "allure": "vieil homme maigre, yeux mi-clos",
+    "signe": "des mousses qui luisent"
+   },
    "face": {
     "age": "ancien",
     "skin": "ivoire",
@@ -742,6 +799,11 @@
   },
   "bastien": {
    "name": "Bastien",
+   "qui": "Le chef de la milice de Kardan.",
+   "aspect": {
+    "habits": "cuirasse de cuir, une lance",
+    "signe": "ne quitte pas la colline des yeux"
+   },
    "face": {
     "age": "adulte",
     "skin": "cuivre",

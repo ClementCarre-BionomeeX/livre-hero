@@ -1,0 +1,30 @@
+"use strict";
+// Who is who (15/11): the names found in a text, the aspect of a person and its changes, the checks of the validator.
+var path = require("path"), assert = require("assert"), fs = require("fs");
+var ROOT = path.join(__dirname, ".."), M = require(path.join(ROOT, "src/moteur.js")), V = require(path.join(ROOT, "src/validateur.js"));
+var st = JSON.parse(fs.readFileSync(path.join(ROOT, "histoires/kardan.json")));
+M.prepare(st);
+var forms = {}; M.nameForms(st).forEach(function (f) { forms[f[0]] = f[1]; });
+assert.strictEqual(forms["Hesna"], "hesna");
+assert.strictEqual(forms["Mattias"], "mattias", "titles left out: Le vieux Mattias → Mattias");
+assert.strictEqual(forms["l'Aïeule"], "maeve", "aka");
+assert.strictEqual(forms["Ismaël"], "chevrier");
+var s = M.freshState(st, {}); s.name = "Ivo"; s.arch = Object.keys(M.ARCHS)[0]; M.start(st, s);
+M.enter(st, s, "K_arrivee");
+assert.deepStrictEqual(s.metAt.hesna, { day: 1, place: "kardan" });
+var a = M.aspectOf(st, s, "hesna");
+assert.strictEqual(a.visage, "cheveux noirs bouclés", "visage read from the face when none is written");
+assert.strictEqual(a.habits, "tablier d'auberge, louche à la main");
+M.apply(st, s, { aspect: { hesna: { habits: "robe de fête jaune" } }, qui: { hesna: "Celle qui t'a menti." } });
+assert.strictEqual(M.aspectOf(st, s, "hesna").habits, "robe de fête jaune");
+assert.strictEqual(M.aspectOf(st, s, "hesna").signe, "rit à chaque phrase", "only the keys given change");
+assert.strictEqual(M.quiOf(st, s, "hesna"), "Celle qui t'a menti.");
+assert.strictEqual(M.plainOf(st, s, "Le {{gens:hesna|patronne}} rit."), "Le patronne rit.");
+// the validator
+var bad = JSON.parse(fs.readFileSync(path.join(ROOT, "histoires/kardan.json")));
+bad.people.hesna.aspect = { couleur: "rouge", habits: "un tablier rouge taché de vin avec des manches retroussées au coude" };
+bad.passages.K_arrivee.fx.aspect = { personne: { habits: "x" } };
+bad.passages.K_arrivee.text.push("Voici {{gens:inconnu|quelqu'un}}.");
+var errs = V.validate(bad, { games: 0 }).errors.join("\n");
+["« couleur » inconnu", "trop long", "aspect, personnage « personne » inconnu", "{{gens:inconnu|…}}"].forEach(function (w) { assert(errs.indexOf(w) >= 0, "attendu : " + w + "\n" + errs); });
+console.log("gens-test : OK");
