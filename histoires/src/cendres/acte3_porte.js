@@ -8,7 +8,7 @@ module.exports = {
   III_a_nuit: P({ backName: "la maison au pied du palais", title: "La dernière nuit", place: "valcendre", hub: true,
     text: [
       { first: true, text: "On vous a donné une maison, au pied du palais. La lumière y reste la même à toute heure, mais la ville s'est tue, et les fenêtres des tours se sont éteintes une à une, alors c'est la nuit." },
-      "Personne ne dort. Tu as une âme à choisir, et le monde à retrouver demain.",
+      "Toute la maison veille. Tu as une âme à choisir, et le monde à retrouver demain.",
     ],
     choices: [
       { label: "Monter sur le toit, où ton frère monte la garde", hide: { seen: "III_a_frere" }, to: "III_a_frere" },
@@ -27,9 +27,9 @@ module.exports = {
 
   III_a_frere: P({ title: "Le frère", place: "valcendre",
     text: [
-      "Il est assis sur le faîte, le masque à côté de lui, les jambes dans le vide. Tu t'assieds. Il ne te regarde pas.",
+      "Il est assis sur le faîte, le masque à côté de lui, les jambes dans le vide. Tu t'assieds. Il garde les yeux sur le blanc.",
       "« Je t'en voulais, dit-il au bout d'un moment. Avant de te connaître. Tu avais le soleil, et moi j'avais ça. » Il montre le blanc, d'un geste. « Puis je suis monté, à travers la fente, et j'ai compris : là-haut, on m'oublie entre deux portes. On me sert à boire, je me retourne, on me demande qui je suis. Toi, ils t'ont gardé vingt ans. Ils t'ont appris des chansons. »",
-      { if: { has: "sansnom:page" }, text: "« Ildaën, répète-t-il, comme pour s'assurer que le mot tient. Quelqu'un l'a écrit, là-haut, sur une page. Tant que la page existe, ils se souviennent un peu plus longtemps. Une heure, au lieu d'une minute. C'est beaucoup. »" },
+      { if: { has: "sansnom:page" }, text: "« Ildaën, répète-t-il, comme pour s'assurer que le mot tient. Quelqu'un l'a écrit, là-haut, sur une page. Tant que la page existe, ils se souviennent un peu plus longtemps. Une heure, au lieu d'un clin d'œil. C'est beaucoup. »" },
       "Il remet le masque sur ses genoux. « Notre père t'a parlé de la couronne. Ne la prends pas pour lui. S'il faut que quelqu'un la porte, prends-la pour toi, ou pas du tout. »",
     ],
     choices: [
@@ -39,7 +39,7 @@ module.exports = {
 
   III_a_frere2: P({ title: "Ce qu'il veut", place: "valcendre",
     text: [
-      "Il réfléchit longtemps. On voit qu'on ne lui a jamais posé la question.",
+      "Il réfléchit longtemps. La question est neuve pour lui, ça se voit.",
       "« Qu'une femme, quelque part, se retourne dans la rue et dise : tiens, c'est lui. Pas parce qu'il est écrit. Parce qu'elle s'en souvient. »",
       { if: { has: "sansnom:ancre_lisandre" }, text: "Laquelle, chacun le comprend." },
     ],
@@ -47,11 +47,11 @@ module.exports = {
 
   III_a_veille: P({ title: "La veille", place: "valcendre",
     text: [
-      { with: "ysolde", text: "Ysolde aiguise son épée, alors qu'elle n'en a pas besoin. « Là-haut, dit-elle, je vais retrouver la reine. Et je vais lui demander ce qu'elle a vendu. Et quand elle me répondra, je saurai de quel côté je suis. » Elle passe la pierre une dernière fois. « Pour l'instant, je suis du tien. »" },
-      { with: "pie", text: "Pie fait tourner une pomme de Valcendre entre ses doigts. Il ne la mange pas. « Je vais la garder, dit-il. Pour la montrer à Linette. Elle dira que c'est une pomme. Elle aura raison. »" },
+      { with: "ysolde", text: "Ysolde aiguise une épée déjà tranchante. « Là-haut, dit-elle, je vais retrouver la reine. Et je vais lui demander ce qu'elle a vendu. Et quand elle me répondra, je saurai de quel côté je suis. » Elle passe la pierre une dernière fois. « Pour l'instant, je suis du tien. »" },
+      { with: "pie", text: "Pie fait tourner une pomme de Valcendre entre ses doigts, intacte. « Je vais la garder, dit-il. Pour la montrer à Linette. Elle dira que c'est une pomme. Elle aura raison. »" },
       { with: "hylas", text: "Hylas regarde ses mains, encore. « Là-haut, je ne verrai plus, dit-il. Je le sais. Alors je regarde. » Il te regarde, toi, longtemps, sans honte. « Tu as grandi. »" },
-      { with: "corbe", text: "Corbe a posé son tambour sur ses genoux et ne le frappe pas. « Les morts d'ici ne veulent pas qu'on les venge, dit-elle. Ils veulent rentrer. Ce n'est pas la même chose. Le clan ne comprendra pas. »" },
-      { with: "lisandre", text: "Lisandre fredonne la musique des chœurs, sans le vouloir. Elle s'en aperçoit, et elle s'arrête, et elle reprend. « Je ne pourrai plus jamais chanter comme avant, dit-elle. Je ne sais pas si c'est une perte. »" },
+      { with: "corbe", text: "Corbe a posé son tambour sur ses genoux, les mains à plat sur la peau, immobiles. « Les morts d'ici ne veulent pas qu'on les venge, dit-elle. Ils veulent rentrer. Ce n'est pas la même chose. Le clan ne comprendra pas. »" },
+      { with: "lisandre", text: "Lisandre fredonne la musique des chœurs, sans le vouloir. Elle s'en aperçoit, et elle s'arrête, et elle reprend. « Je chanterai autrement, désormais, dit-elle. Perte ou gain, je l'ignore. »" },
     ],
     choices: [{ label: "Rester avec eux jusqu'à ce que tout le monde se taise", fx: { conf: { ysolde: 5, pie: 5, hylas: 5, corbe: 5, lisandre: 5 } }, to: "III_a_nuit" }] }),
 
@@ -59,15 +59,15 @@ module.exports = {
     text: [
       { after: "iii:pomme", text: "Givre est roulé en boule près de la porte. Tu lui tends une miette : le goût de la pomme du marché, le goût seul. Il la mange en fermant les yeux." },
       { before: "iii:pomme", text: "Givre est roulé en boule près de la porte. Tu lui tends une miette : l'odeur du pain qu'on vous a porté ce soir, l'odeur seule. Il la mange en fermant les yeux." },
-      "Il a grandi depuis la plaine. Il a la taille d'un vrai renard, maintenant, et le bout de sa queue est devenu gris. Tu te demandes ce qu'il deviendra là-haut, avec tout ce qu'on y oublie.",
+      "Il a grandi depuis la plaine. Il a la taille d'un vrai renard, maintenant, deux pieds du museau à la croupe, et le bout de sa queue est devenu gris. Tu te demandes ce qu'il deviendra là-haut, avec tout ce qu'on y oublie.",
     ],
     choices: [{ label: "Le laisser dormir", fx: { conf: { givre: 10 } }, to: "III_a_nuit" }] }),
 
   III_a_choix: P({ title: "Une âme", place: "valcendre",
     text: [
-      "Au matin, Ardaël t'attend au pied du palais. Il ne demande rien. Il attend que tu dises un nom.",
+      "Au matin, Ardaël t'attend au pied du palais, sans une question. Il attend que tu dises un nom.",
       "« Une seule, rappelle-t-il. Elle passera la porte avec toi et elle rentrera pour de bon : là-haut, on se souviendra d'elle, comme si elle rentrait de la veille. Les autres attendront. »",
-      { if: { not: { has: "nord:rendu=sauvelune" } }, text: "Ceux du moulin sont dans la plaine, avec les marcheurs. Tu le sais depuis hier soir : un enfant est venu te dire qu'un meunier et sa femme demandaient après toi, au bord de la ville, et qu'ils ne voulaient pas entrer." },
+      { if: { not: { has: "nord:rendu=sauvelune" } }, text: "Ceux du moulin sont dans la plaine, avec les marcheurs. Tu le sais depuis hier soir : un enfant est venu te dire qu'un meunier et sa femme demandaient après toi, au bord de la ville, et qu'ils restaient dehors." },
     ],
     choices: [
       { label: "Maëra, ta mère", if: { has: "maera:sait" }, why: "Tu ne lui as pas dit qui tu étais.", fx: ame("maera"), to: "III_a_maera" },
@@ -83,7 +83,7 @@ module.exports = {
     text: [
       "Ardaël ferme les yeux. C'est autre chose que de la colère, et le mot te manque.",
       "« Elle ne voudra pas, dit-il. Elle va dire qu'elle a fait son choix il y a vingt ans. » Il rouvre les yeux. « Elle viendra quand même. Tu lui ressembles trop. »",
-      "Elle arrive à midi, par la route d'Ellerune, son fuseau à la ceinture. Elle ne te dit pas bonjour. Elle te pousse une mèche derrière l'oreille. Puis elle regarde Ardaël, et ils ne se disent rien, et c'est un adieu de trois cents ans qui dure le temps d'un regard.",
+      "Elle arrive à midi, par la route d'Ellerune, son fuseau à la ceinture. Elle se passe de bonjour, et te pousse une mèche derrière l'oreille. Puis elle regarde Ardaël, et ils se taisent tous les deux, et c'est un adieu de trois cents ans qui dure le temps d'un regard.",
     ],
     choices: [{ label: "Partir", to: "III_a_route" }] }),
 
@@ -91,9 +91,9 @@ module.exports = {
     text: [
       "Tu les trouves au bord de la ville, assis sur une borne, comme des gens qui attendent la diligence. Joris a son chapeau sur les genoux. Agathe a les joues rouges, sans four.",
       { if: { souv: "enfant:agathe" }, text: "Elle te voit. Elle se lève. Elle te pousse une mèche derrière l'oreille." },
-      { if: { not: { souv: "enfant:agathe" } }, text: "Une femme se lève, large, rieuse. Tu ne reconnais pas son visage. Tu l'as donné, il y a longtemps, pour autre chose. Elle te pousse une mèche derrière l'oreille, et ça, tu le reconnais." },
+      { if: { not: { souv: "enfant:agathe" } }, text: "Une femme se lève, large, rieuse. Son visage t'est étranger. Tu l'as donné, il y a longtemps, pour autre chose. Elle te pousse une mèche derrière l'oreille, et ça, tu le reconnais." },
       "Pim court vers toi et te rentre dans les jambes. « On rentre ? » demande-t-il. « On rentre », dit Joris, et c'est la plus longue phrase qu'il ait dite de sa vie.",
-      { if: { has: "maera:sait" }, text: "Tu penses à Maëra, dans sa forêt, avec son fuseau. Tu as choisi. Tu penses qu'elle comprendrait. Tu n'en es pas sûr." },
+      { if: { has: "maera:sait" }, text: "Tu penses à Maëra, dans sa forêt, avec son fuseau. Tu as choisi. Tu penses qu'elle comprendrait, sans en être sûr." },
     ],
     choices: [{ label: "Partir", to: "III_a_route" }] }),
 
@@ -107,24 +107,24 @@ module.exports = {
 
   III_a_linette: P({ title: "Linette d'avant", place: "valcendre",
     text: [
-      "Elle arrive en courant, un bonnet de laine de travers, les genoux sales. Neuf ans. Un épi derrière la tête.",
+      "Elle arrive en courant, un bonnet de laine de travers, les genoux sales, un lacet défait. Neuf ans. Un épi derrière la tête.",
       "« C'est vrai qu'on va voir mon frère ? » demande-t-elle. Tu dis oui. Elle demande s'il est grand. Tu dis oui. Elle demande s'il vole toujours. Tu dis oui, et elle rit, d'un rire qui fait se retourner les gens.",
-      "« Là-haut, dit Ardaël, il y a déjà une petite fille qui porte ce nom et qui n'a pas ses souvenirs. Quand celle-ci passera la porte, elles ne seront plus qu'une. Je ne sais pas laquelle des deux se réveillera. »",
+      "« Là-haut, dit Ardaël, il y a déjà une petite fille qui porte ce nom et qui n'a pas ses souvenirs. Quand celle-ci passera la porte, elles ne seront plus qu'une. Laquelle des deux se réveillera ? Je l'ignore. »",
       { with: "pie", text: "Pie a tout entendu. Il s'est accroupi devant la petite fille, et il se tait, et elle lui touche la joue du bout du doigt comme on touche un objet qu'on avait perdu." },
     ],
     choices: [{ label: "Partir", fx: { conf: { pie: 20 } }, to: "III_a_route" }] }),
 
   III_a_askel: P({ title: "Askel", place: "valcendre",
     text: [
-      "« Celle qui chante à la porte, dit Ardaël. Si elle part, la porte aura une voix de moins pour la tenir. » Il hausse les épaules, lentement. « Elle n'a pas été faite pour ça. Elle l'a pris à la place de sa fille. Va la chercher. On verra ce que tient la porte. »",
+      "« Celle qui chante à la porte, dit Ardaël. Si elle part, la porte aura une voix de moins pour la tenir. » Il hausse les épaules, lentement. « Ce n'était pas sa place. Elle l'a pris à la place de sa fille. Va la chercher. On verra ce que tient la porte. »",
       { with: "corbe", text: "Corbe se tait. Elle a mis son manteau, et elle se tient près de toi, et ses mains tremblent sur la courroie du tambour." },
     ],
     choices: [{ label: "Partir", fx: { conf: { corbe: 20 } }, to: "III_a_route" }] }),
 
   III_a_sansnom: P({ title: "Ton frère", place: "valcendre",
     text: [
-      "Ardaël te regarde longtemps. « Tu me prends mes deux fils le même jour », dit-il. Il n'y a pas de reproche. Il y a quelque chose comme de la fierté, très bien cachée.",
-      "Le Sans-Nom a entendu. Il se tait. Il remet son masque. Puis il l'enlève, et il le pose sur les marches du palais, et il ne le reprend pas.",
+      "Ardaël te regarde longtemps. « Tu me prends mes deux fils le même jour », dit-il. Sans reproche. Avec quelque chose comme de la fierté, très bien cachée.",
+      "Le Sans-Nom a entendu. Il se tait. Il remet son masque. Puis il l'enlève, et il le pose sur les marches du palais, et l'y laisse.",
     ],
     choices: [{ label: "Partir", fx: { conf: { sansnom: 25 } }, to: "III_a_route" }] }),
 
@@ -137,17 +137,17 @@ module.exports = {
 
   III_a_route: P({ title: "Le bout du blanc", place: "valcendre",
     text: [
-      "Ardaël marche avec vous jusqu'aux portes de la ville, et s'arrête là. Il ne sort jamais de Valcendre. « Au bout du blanc, dit-il, il y a la porte. Tu la reconnaîtras. On ne peut pas la manquer. » Il pose la main sur ta tête, une dernière fois. « Aëlan. N'oublie pas que tu as un nom ici. »",
+      "Ardaël marche avec vous jusqu'aux portes de la ville, et s'arrête là. Valcendre est sa limite. « Au bout du blanc, dit-il, il y a la porte. Tu la reconnaîtras. Elle crève les yeux. » Il pose la main sur ta tête, une dernière fois. « Aëlan. N'oublie pas que tu as un nom ici. »",
       "Vous marchez longtemps. La plaine se resserre. Le blanc devient gris, puis gris sombre. Les marcheurs sont de plus en plus nombreux, serrés, épaule contre épaule, et tous vont dans la même direction que vous.",
-      "Puis vous la voyez. Une porte de pierre noire, haute comme une falaise, au milieu de rien, sans mur de part et d'autre. Une fente la traverse de haut en bas, large comme une main, et par la fente coule une lumière jaune, une lumière de soleil. Les marcheurs se pressent contre elle comme des papillons contre une vitre.",
-      "Et au pied de la porte, des formes blanches, qui ne marchent pas avec les autres. Elles ont une marque au front. Elles se penchent sur les marcheurs, une à une, et elles mangent.",
+      "Puis vous la voyez. Une porte de pierre noire, haute comme une falaise, au milieu du vide, seule, sans un mur de part et d'autre. Une fente la traverse de haut en bas, large comme une main, et par la fente coule une lumière jaune, une lumière de soleil. Les marcheurs se pressent contre elle comme des papillons contre une vitre.",
+      "Et au pied de la porte, des formes blanches, immobiles au milieu du flot. Elles ont une marque au front. Elles se penchent sur les marcheurs, une à une, et elles mangent.",
     ],
     choices: [{ label: "Approcher", to: "III_a_glaneurs" }] }),
 
   III_a_glaneurs: P({ title: "Les Glaneurs à la porte", place: "valcendre",
     text: [
-      "Des Glaneurs. Une dizaine, au sceau de cire noire, une plume et une clé croisées. Ils ne sont pas venus d'en haut par hasard. Ils trient. Ils prennent les noms des marcheurs qui arrivent à la fente, et ceux qui ont perdu leur nom s'arrêtent, s'asseyent, et ne bougent plus. Il y en a des centaines, assis au pied de la porte, qui regardent la lumière sans la voir.",
-      "Mordace ne veut pas qu'ils rentrent. Il veut qu'ils restent ici, sans nom, une digue de gens assis. Et il veut être prévenu de qui passe.",
+      "Des Glaneurs. Une dizaine, au sceau de cire noire, une plume et une clé croisées. Ils sont venus d'en haut exprès. Ils trient. Ils prennent les noms des marcheurs qui arrivent à la fente, et ceux qui ont perdu leur nom s'arrêtent, s'asseyent, et restent là. Il y en a des centaines, assis au pied de la porte, qui regardent la lumière sans la voir.",
+      "Mordace veut leur fermer le retour. Il veut qu'ils restent ici, sans nom, une digue de gens assis. Et il veut être prévenu de qui passe.",
       "Le plus grand des Glaneurs se redresse. Il t'a vu. Il tourne la tête vers la fente, comme pour appeler.",
     ],
     choices: [
@@ -167,19 +167,19 @@ module.exports = {
   III_a_porte_libres: P({ title: "Ceux qui étaient assis", place: "valcendre",
     text: [
       "Les Glaneurs tombent en neige. Dans la neige, il y a des noms, des centaines, qui brillent un instant comme des braises, puis s'éteignent. Ils retournent à ceux qui les ont perdus. Un homme assis se relève, puis une femme, puis tous.",
-      "Ils se remettent à marcher. Ils te passent devant sans te regarder, et ça te va.",
+      "Ils se remettent à marcher. Ils te passent devant, le regard sur la porte, et ça te va.",
     ],
     choices: [{ label: "Aller jusqu'à la porte", to: "III_a_porte" }] }),
 
   III_a_porte: P({ title: "La Porte des Cendres", place: "valcendre",
     text: [
-      "De près, la porte est couverte de noms. Gravés, des milliers, dans la langue d'Anselin, du haut jusqu'en bas. Et au milieu, devant la fente, une femme en robe blanche est assise sur une pierre, les yeux fermés, et elle chante. Une liste, toujours la même mélodie, des noms. Sa voix tient la fente, qui ne s'ouvre large comme une main.",
+      "De près, la porte est couverte de noms. Gravés, des milliers, dans la langue d'Anselin, du haut jusqu'en bas. Et au milieu, devant la fente, une femme en robe blanche est assise sur une pierre, les yeux fermés, et elle chante. Une liste, toujours la même mélodie, des noms. Sa voix tient la fente, et la fente reste large comme une main.",
       { if: { has: "askel:rite" }, text: "C'est Askel. Elle a maigri. Elle a la voix de Corbe, plus grave." },
-      { if: { not: { has: "askel:rite" } }, text: "Tu ne la connais pas. Elle a l'âge de toutes les vieilles femmes du monde. Elle chante depuis trois cents ans." },
+      { if: { not: { has: "askel:rite" } }, text: "Elle t'est inconnue. Elle a l'âge de toutes les vieilles femmes du monde. Elle chante depuis trois cents ans." },
       { if: { has: "porte:mordace_prevenu" }, text: "Un Glaneur blessé a réussi à se glisser par la fente avant vous. Là-haut, quelqu'un sait déjà que tu reviens." },
-      { if: { all: [{ has: "ame:askel" }, { present: "corbe" }] }, text: "Corbe s'agenouille devant sa mère. Elle ne la touche pas. Elle se met à chanter avec elle, la même liste, la même mélodie, et Askel ouvre les yeux, et ne s'arrête pas. Elles chantent ensemble jusqu'au bout de la liste. Puis Askel se lève, et la fente tremble, et tient quand même. Un peu moins." },
-      { if: { all: [{ has: "ame:askel" }, { not: { present: "corbe" } }] }, text: "Tu dis à Askel que sa fille l'attend. Elle ne s'arrête pas de chanter. Elle termine sa liste, jusqu'au dernier nom. Puis elle se lève. La fente tremble, et tient quand même. Un peu moins." },
-      { if: { all: [{ has: "askel:rite" }, { not: { has: "ame:askel" } }, { present: "corbe" }] }, text: "Corbe s'arrête à trois pas de sa mère. Askel ouvre les yeux, la voit, et ne s'arrête pas de chanter. Elle lève seulement la main, un instant, et Corbe lève la sienne. C'est tout. Assez ou trop peu : elles garderont toutes deux la réponse." },
+      { if: { all: [{ has: "ame:askel" }, { present: "corbe" }] }, text: "Corbe s'agenouille devant sa mère. Elle garde les mains sur ses genoux. Elle se met à chanter avec elle, la même liste, la même mélodie, et Askel ouvre les yeux, et ne s'arrête pas. Elles chantent ensemble jusqu'au bout de la liste. Puis Askel se lève, et la fente tremble, et tient quand même. Un peu moins." },
+      { if: { all: [{ has: "ame:askel" }, { not: { present: "corbe" } }] }, text: "Tu dis à Askel que sa fille l'attend. Elle continue de chanter. Elle termine sa liste, jusqu'au dernier nom. Puis elle se lève. La fente tremble, et tient quand même. Un peu moins." },
+      { if: { all: [{ has: "askel:rite" }, { not: { has: "ame:askel" } }, { present: "corbe" }] }, text: "Corbe s'arrête à trois pas de sa mère. Askel ouvre les yeux, la voit, et continue de chanter. Elle lève seulement la main, un instant, et Corbe lève la sienne. C'est tout. Assez ou trop peu : elles garderont toutes deux la réponse." },
       "La chanteuse s'écarte. La fente s'élargit, assez pour une personne à la fois. De l'autre côté, la lumière jaune, et une odeur que tu avais oubliée : l'herbe coupée.",
     ],
     choices: [{ label: "Passer", to: "III_a_passage", big: true }] }),
@@ -194,9 +194,9 @@ module.exports = {
 
   Z3_fin: P({ title: "Fin de l'Acte III", place: null,
     text: [
-      "Tu es couché dans l'herbe, au col de l'Ourse, à côté de la grande pierre plate. Il fait chaud. Les abeilles travaillent dans les gentianes. Il n'y a pas de neige. Pas un flocon.",
+      "Tu es couché dans l'herbe, au col de l'Ourse, à côté de la grande pierre plate. Il fait chaud. Les abeilles travaillent dans les gentianes. Le col est vert, d'un bout à l'autre, sans un flocon.",
       "Les autres se relèvent autour de toi, un à un, et regardent le ciel bleu comme pour la première fois.",
-      { if: { has: "ame:maera" }, text: "Maëra est debout, le visage levé vers le soleil, les yeux fermés. Elle n'en a pas vu depuis trois cents ans." },
+      { if: { has: "ame:maera" }, text: "Maëra est debout, le visage levé vers le soleil, les yeux fermés. Son dernier soleil date de trois cents ans." },
       { if: { has: "ame:moulin" }, text: "Pim est déjà en train de courir dans les gentianes. Agathe crie son nom, et il s'arrête, parce qu'on l'a appelé." },
       { if: { has: "ame:lisse" }, text: "Derrière vous, dans l'herbe, trois cents hommes se relèvent sans bruit, et se mettent en rang, par vieille habitude." },
       { if: { has: "ame:linette" }, text: "La petite fille au bonnet de travers regarde ses mains. Elle a l'air d'essayer de se rappeler une chose qu'on lui a dite en rêve." },
