@@ -16,9 +16,9 @@ module.exports = {
       { if: ALL, text: "Le soleil se couche sur les Passes. Les masques tombent. Demain soir, la Nuit des Lanternes." },
     ],
     choices: [
-      { label: "Sévan Aldric · le jour des masques", hide: done("sevan"), fx: { team: "sevan" }, to: "S2", big: true },
-      { label: "Jasse Ferrant · le jour des masques", hide: done("jasse"), fx: { team: "jasse" }, to: "J2", big: true },
-      { label: "Oriane Valcor · le jour des masques", hide: done("oriane"), fx: { team: "oriane" }, to: "O2", big: true },
+      { label: "Sévan Aldric · le jour des masques", hide: done("sevan"), fx: { team: "sevan" }, to: "S2V", big: true },
+      { label: "Jasse Ferrant · le jour des masques", hide: done("jasse"), fx: { team: "jasse" }, to: "J2V", big: true },
+      { label: "Oriane Valcor · le jour des masques", hide: done("oriane"), fx: { team: "oriane" }, to: "O2V", big: true },
       { label: "La Nuit des Lanternes", if: ALL, why: "Les trois journées doivent d'abord être racontées.", to: "C3", big: true },
     ] },
 };

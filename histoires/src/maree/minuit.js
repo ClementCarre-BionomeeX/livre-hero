@@ -12,14 +12,35 @@ var NELLA_LA = { all: [{ not: { is: { nella: ["prison", "partie", "morte"] } } }
 var SEVAN_LA = { any: [{ has: "sv3=conseil" }, { has: "sv3=anselme" }] };
 var LU = { any: [{ has: "testament=lu" }, { has: "testament=force" }, { has: "testament=tronque" }] };
 var EXPOSE = { any: [{ has: "testament=lu" }, { has: "testament=force" }, { has: "leonce=temoin" }, { has: "leonce:dernier_mot" },
-  { clock: "preuves", min: 5 }, { all: [{ has: "sv3=conseil" }, { clock: "preuves", min: 3 }] }] };
+  { clock: "preuves", min: 5 }, { all: [{ has: "sv3=conseil" }, { clock: "preuves", min: 3 }] },
+  { all: [{ has: "sevan_lettre3=helis" }, { clock: "preuves", min: 3 }] }] };
 var MORVAN_LIBRE = { not: { is: { morvan: ["arrete", "fui"] } } };
 var PACTE_TENU = { all: [{ has: "oriane=pacte" }, { not: { has: "oriane=rompu" } }] };
 module.exports = {
   Z: { branch: [
-    { if: { all: [{ has: "mo:chaine" }, { has: "ysabeau=allie" }, { is: { chaine: null } }] }, fx: { team: "oriane", set: { chaine: "gardee" }, flag: "chaine:mo" }, to: "Z_salle" },
-    { fx: { team: "oriane" }, to: "Z_salle" },
+    { if: { all: [{ has: "mo:chaine" }, { has: "ysabeau=allie" }, { is: { chaine: null } }] }, fx: { team: "oriane", set: { chaine: "gardee" }, flag: "chaine:mo" }, to: "Z_avant" },
+    { fx: { team: "oriane" }, to: "Z_avant" },
   ] },
+
+  // ---------------------------------------------------------------- a quarter to midnight: where each one stands
+  Z_avant: { act: "III", title: "Minuit moins le quart", place: "palais", ambiance: "eau", noLead: true,
+    text: [
+      "À minuit moins le quart, la marée est à son plus haut. L'eau recouvre la troisième marche du palais et lèche la quatrième. Les barques des conseillers s'amarrent aux pieux peints, les unes contre les autres, et leurs passeurs se passent des gourdes de vin d'une barque à l'autre en attendant leurs maîtres.",
+      "Sur la tour du palais, quatre hommes hissent la grande lanterne éteinte jusqu'à son crochet de fer. On l'allumera aux douze coups. Toute la ville a les yeux levés vers elle.",
+      { if: { has: "oriane_malade=oui" }, text: "Dans la galerie des Sceaux, Oriane Valcor s'appuie une minute au chambranle d'une fenêtre. Le vin d'orange d'hier soir lui tient encore les mains froides. Elle compte jusqu'à dix, se redresse, et entre." },
+      { if: { not: { has: "oriane_malade=oui" } }, text: "Dans la galerie des Sceaux, Oriane Valcor relit une dernière fois l'ordre du jour. Elle le connaît par cœur. Elle le relit quand même, pour occuper ses mains." },
+      { if: { has: "sv3=conseil" }, text: "Sévan Aldric monte les marches du palais dans sa robe de médecin, les chausses trempées. Il s'arrête sur la dernière, se retourne vers la lagune, et fait un signe de croix, sans savoir pour qui." },
+      { if: { has: "sv3=anselme" }, text: "Le cortège du Temple monte les marches en chantant. Sévan Aldric marche à la droite du Grand Prêtre, la tête basse. Il chante avec les autres, et sa voix ne porte pas." },
+      { if: { has: "sv3=tour" }, text: "Au pied de la Tour du Guet, Sévan Aldric est assis sur une borne, les yeux sur une fenêtre du deuxième étage. Il a choisi d'être là. Il se demande, une fois encore, si c'était le bon endroit." },
+      { if: { has: "sv3=fui" }, text: "Loin vers les Passes, une barque de pêche file vers le large avec un passager en manteau sombre. Sévan Aldric regarde la ville s'éloigner. La grande lanterne n'est pas encore allumée." },
+      { if: { has: "sv3=enferme" }, text: "Dans une cellule du Temple, Sévan Aldric entend le cortège partir sans lui. Il compte les pas qui s'éloignent sur le quai, jusqu'au dernier." },
+      { if: { has: "jasse3=vient" }, text: "Jasse Ferrant amarre sa barque à un pieu, entre deux gondoles de conseillers. Un passeur en livrée lui dit de dégager. Jasse le regarde. Le passeur en livrée trouve autre chose à faire." },
+      { if: { has: "jasse3=fuite" }, text: "Dans les roseaux du nord, une barque plate glisse sans lanterne. Deux neveux de la Mère Gouge rament. Jasse Ferrant, à la proue, tient la main de sa sœur, et ne se retourne pas vers le palais." },
+      { if: { has: "jasse3=pris" }, text: "Dans une cellule de la Tour, Jasse Ferrant a le front contre la grille. Par la lucarne, il voit le haut de la tour du palais, et la grande lanterne éteinte qui attend." },
+      { if: { has: "bp3=palais" }, text: "Devant le palais, la lagune se couvre de barques. Elles arrivent de Bas-Port par tous les canaux, une lanterne à la proue, sans un cri. Les conseillers qui montent les marches les regardent arriver, et pressent le pas." },
+      { if: { has: "bp3=digue" }, text: "Sur la digue d'en face, une ligne de lanternes s'allume, une à une. Bas-Port est venu regarder, de loin, sans approcher." },
+    ],
+    choices: [{ label: "Douze coups", to: "Z_salle" }] },
 
   Z_salle: { act: "III", title: "Le Conseil des Lanternes", place: "palais", ambiance: "chateau", noLead: true,
     fx: { until: 0 },
@@ -127,13 +148,15 @@ module.exports = {
       { if: { all: [{ has: "leonce=enfui" }, { has: "oriane:leonce_sorti" }] }, text: "Oriane pense à l'apothicaire qu'elle a fait sortir de la ville hier, à la demande de Morvan. Il aurait été le témoin de ce soir. Elle le sait, et Morvan aussi." },
       { if: { has: "leonce:dernier_mot" }, text: "Le greffier de la Tour lit la déposition d'un mort, signée d'une croix : Léonce Brisard, apothicaire, empoisonné ce soir dans sa cellule. La déposition d'un mourant vaut serment. C'est la loi de la mer." },
       { if: { has: "leonce=mort" }, text: "On dit, dans les rangs, que l'apothicaire de la Maison des Sels a été retrouvé mort ce soir. On le dit à voix basse." },
+      { if: { has: "sevan_lettre3=helis" }, text: "Hélis Arnaud pose sur la table quatre pages serrées, cachetées depuis six heures du soir, signées du médecin Sévan Aldric. Elle les lit à voix haute, sans hâte, en ajustant ses lunettes à chaque page." },
+      { if: { has: "oriane:ongles_morvan" }, text: "Pendant toute la déposition, Morvan évite de regarder Oriane. Ce matin, à la veillée, elle lui a demandé si les ongles de sa tante l'intéressaient." },
       { if: { all: [{ is: { sevan_dit: null } }, { not: { has: "leonce=temoin" } }, { not: { has: "leonce:dernier_mot" } }, { not: LU }] }, text: "Personne ne vient au banc des témoins. Hélis Arnaud attend une minute, par politesse envers les morts, puis passe à la suite." },
     ],
     choices: [{ label: "Morvan", to: "Z_accuse_br" }] },
   Z_accuse_br: { branch: [
     { if: { all: [EXPOSE, { has: "ysabeau=allie" }] }, fx: { set: { morvan: "arrete" } }, to: "Z_arrest" },
     { if: EXPOSE, fx: { set: { morvan: "fui" } }, to: "Z_fuite" },
-    { to: "Z_vote" },
+    { to: "Z_discours" },
   ] },
   Z_arrest: { act: "III", title: "La loi la plus vieille", place: "palais", ambiance: "chateau", noLead: true,
     text: [
@@ -152,9 +175,62 @@ module.exports = {
     ],
     choices: [{ label: "Le vote", fx: { clock: { voix: 2 } }, to: "Z_apres_morvan" }] },
   Z_apres_morvan: { branch: [
-    { if: PACTE_TENU, fx: { clock: { voix: -14 } }, to: "Z_vote" },
-    { to: "Z_vote" },
+    { if: PACTE_TENU, fx: { clock: { voix: -14 } }, to: "Z_discours" },
+    { to: "Z_discours" },
   ] },
+
+  // ---------------------------------------------------------------- the speech written at dawn (interludes.js)
+  Z_discours: { act: "III", title: "La parole", place: "palais", ambiance: "chateau", noLead: true,
+    text: [
+      "Hélis Arnaud frappe un coup de marteau. « Avant le vote, la secrétaire du Conseil a la parole. C'est l'usage. Personne ne l'écoute, d'habitude. »",
+      "Oriane se lève. Elle a dans la main la feuille écrite ce matin, à la lumière de la fenêtre, au chevet d'une morte. Le papier a pris l'humidité de la salle. L'encre tient.",
+      { if: { has: "discours=loi" }, text: "Elle y a écrit la loi : le coffre, les trois clefs, l'article quarante. Des phrases courtes, sans un adjectif." },
+      { if: { has: "discours=verite" }, text: "Elle y a écrit la vérité : le sel trop fin, les ongles striés, la Maison des Sels. Elle y a écrit le nom de Morvan quatre fois." },
+      { if: { has: "discours=basport" }, text: "Elle y a écrit Bas-Port : ceux qui paient la marée, qui curent les canaux, qui portent les lanternes, et qui n'en votent aucune." },
+      "Quarante paires d'yeux, et dehors toute la lagune. Elle peut lire. Elle peut aussi plier la feuille.",
+    ],
+    choices: [
+      { label: "Lire ce qui est écrit", to: "Z_discours_br", big: true },
+      { label: "Plier la feuille, et parler de la Doyenne", to: "Z_tante_br", big: true },
+    ] },
+  Z_discours_br: { branch: [
+    { if: { all: [{ has: "discours=loi" }, { any: [{ has: "testament=lu" }, { has: "testament=force" }] }] }, fx: { clock: { voix: 2 } }, to: "Z_discours_lu" },
+    { if: { all: [{ has: "discours=verite" }, { is: { morvan: ["arrete", "fui"] } }] }, fx: { clock: { voix: 3 } }, to: "Z_discours_lu" },
+    { if: { has: "discours=verite" }, fx: { clock: { voix: -2 } }, to: "Z_discours_lu" },
+    { if: { all: [{ has: "discours=basport" }, { has: "bp3=palais" }] }, fx: { clock: { voix: 3 } }, to: "Z_discours_lu" },
+    { if: { all: [{ has: "discours=basport" }, { has: "bp3=digue" }] }, fx: { clock: { voix: 1 } }, to: "Z_discours_lu" },
+    { if: { has: "discours=basport" }, fx: { clock: { voix: -1 } }, to: "Z_discours_lu" },
+    { to: "Z_discours_lu" },
+  ] },
+  Z_discours_lu: { act: "III", title: "Ce qui était écrit", place: "palais", ambiance: "chateau", noLead: true,
+    text: [
+      "Oriane lit. Sa voix tremble sur la première phrase, puis plus du tout.",
+      { if: { all: [{ has: "discours=loi" }, { any: [{ has: "testament=lu" }, { has: "testament=force" }] }] }, text: "La loi, après le testament qu'on vient d'entendre, sonne comme une suite. Les vieilles maisons hochent la tête. Deux conseillers des métiers, qui hésitaient, se tournent vers elle." },
+      { if: { all: [{ has: "discours=loi" }, { not: { any: [{ has: "testament=lu" }, { has: "testament=force" }] } }] }, text: "Elle parle d'un testament dont la salle a entendu, au mieux, des morceaux. La loi, sans le papier, sonne creux. On l'écoute poliment." },
+      { if: { all: [{ has: "discours=verite" }, { is: { morvan: ["arrete", "fui"] } }] }, text: "Le nom de Morvan tombe quatre fois dans une salle d'où Morvan est sorti. Chaque fois, quelqu'un, dans les rangs, baisse un peu plus la tête. Les autres comptent ceux qui la baissent." },
+      { if: { all: [{ has: "discours=verite" }, { not: { is: { morvan: ["arrete", "fui"] } } }] }, text: "Morvan l'écoute, assis, les mains croisées sur le ventre. Elle dit son nom quatre fois. Il sourit à chaque fois. Rien de ce qu'elle dit n'a été prouvé devant le Conseil, et tout le monde le sait, et les quatorze sièges le font savoir à mi-voix." },
+      { if: { all: [{ has: "discours=basport" }, { has: "bp3=palais" }] }, text: "Elle lit le mot « Bas-Port », et la lagune lui répond. Des centaines de lanternes se lèvent en même temps devant les vitres. Les métiers comprennent ce qu'elle leur dit, et ce que la lagune leur dit aussi." },
+      { if: { all: [{ has: "discours=basport" }, { has: "bp3=digue" }] }, text: "Elle lit le mot « Bas-Port ». Au loin, sur la digue, quelques lanternes bougent. Les vieilles maisons froncent le sourcil ; les métiers réfléchissent." },
+      { if: { all: [{ has: "discours=basport" }, { not: { any: [{ has: "bp3=palais" }, { has: "bp3=digue" }] } }] }, text: "Elle lit le mot « Bas-Port » devant une lagune vide. Les vieilles maisons s'en offusquent, et personne, dehors, ne la soutient." },
+      "Elle se rassoit. Hélis Arnaud note quelque chose dans la marge de son registre.",
+    ],
+    choices: [{ label: "Le vote", to: "Z_vote" }] },
+  Z_tante_br: { branch: [
+    { if: { has: "oriane:servir" }, fx: { clock: { voix: 2 } }, to: "Z_tante" },
+    { if: { all: [{ has: "oriane:aveu_ambition" }, { is: { morvan: ["arrete", "fui"] } }] }, fx: { clock: { voix: 3 } }, to: "Z_tante" },
+    { if: { has: "oriane:aveu_ambition" }, fx: { clock: { voix: -1 } }, to: "Z_tante" },
+    { to: "Z_tante" },
+  ] },
+  Z_tante: { act: "III", title: "La feuille pliée", place: "palais", ambiance: "chateau", noLead: true,
+    text: [
+      "Oriane plie la feuille en quatre et la glisse dans sa manche. Elle parle sans notes.",
+      "Elle raconte une jeune fille de seize ans arrivée au palais avec une seule robe, et une Doyenne qui lui a demandé, le premier soir, pourquoi elle était venue.",
+      { if: { has: "oriane:servir" }, text: "« J'ai répondu : pour vous servir. C'était vrai. Je l'ai servie douze ans. Je demande à la servir encore, à sa place, puisqu'elle n'y est plus. » Les vieilles maisons qui ont aimé Ermesinde se taisent. Quelques-unes lèvent les yeux vers elle avec une sorte de tendresse." },
+      { if: { all: [{ has: "oriane:aveu_ambition" }, { is: { morvan: ["arrete", "fui"] } }] }, text: "« J'ai répondu : pour apprendre à gouverner. Elle a ri. Elle m'a appris. » Dans une salle qui vient de voir tomber le Grand Argentier, l'aveu sonne comme une promesse. On aime, ce soir, quelqu'un qui dit ce qu'il veut." },
+      { if: { all: [{ has: "oriane:aveu_ambition" }, { not: { is: { morvan: ["arrete", "fui"] } } }] }, text: "« J'ai répondu : pour apprendre à gouverner. » Morvan se penche vers son voisin et dit quelque chose. Le voisin rit. Le rire passe de siège en siège : *la secrétaire avoue qu'elle voulait le siège depuis douze ans.*" },
+      "Elle se rassoit. La feuille, dans sa manche, est restée sèche.",
+    ],
+    choices: [{ label: "Le vote", to: "Z_vote" }] },
 
   // ---------------------------------------------------------------- the vote
   Z_vote: { act: "III", title: "Le vote", place: "palais", ambiance: "chateau", noLead: true,
@@ -166,12 +242,14 @@ module.exports = {
       { if: { clock: "voix", min: 21 }, text: "Oriane fait le compte, une dernière fois, sur les visages. Vingt et un. Peut-être plus." },
       { if: { clock: "voix", min: 14, max: 20 }, text: "Oriane fait le compte, une dernière fois, sur les visages. Il manque quelques voix. Peut-être pas beaucoup." },
       { if: { clock: "voix", max: 13 }, text: "Oriane fait le compte, une dernière fois, sur les visages. Le compte est vite fait." },
+      { if: { all: [{ has: "jasse:sauveur" }, { has: "jasse3=vient" }, { has: "bp3=palais" }] }, text: "Sur la lagune, une barque passe d'un bord à l'autre, entre les gaffes levées. Jasse Ferrant. On l'écoute : Bas-Port l'a vu ce matin sous le pont Bas. Les gaffes se baissent, une à une." },
+      { if: { all: [{ has: "jasse:registre" }, { has: "jasse3=vient" }] }, text: "Au fond de la salle, Jasse Ferrant serre contre sa poitrine un registre de batelier gonflé d'eau." },
       "Tout le monde la regarde. C'est à elle de parler la première. Elle a l'ordre du jour à la main, et le droit de se taire.",
     ],
     choices: [
       { label: "Te présenter", to: "Z_vote_oriane", big: true },
-      { label: "Proposer Nella Ferrant, fille de la Doyenne", if: { all: [LU, NELLA_LA] }, why: "Il faudrait que le testament ait été lu, et que Nella soit dans la salle.", to: "Z_vote_nella", big: true },
-      { label: "Demander que le Conseil ouvre d'abord dix sièges à Bas-Port, comme le veut la Doyenne", if: { all: [{ has: "testament=lu" }, { any: [{ has: "bp3=palais" }, { has: "bp3=digue" }] }, { has: "helis=allie" }] }, why: "Il faudrait un testament valide, Bas-Port devant le palais, et la présidente de ton côté.",
+      { label: "Proposer Nella Ferrant, fille de la Doyenne", if: { all: [NELLA_LA, { any: [LU, { all: [{ has: "jasse:registre" }, { has: "jasse3=vient" }] }] }] }, why: "Il faudrait une preuve de sa naissance devant le Conseil, et que Nella soit dans la salle.", to: "Z_vote_nella", big: true },
+      { label: "Demander que le Conseil ouvre d'abord dix sièges à Bas-Port, comme le veut la Doyenne", if: { all: [{ has: "testament=lu" }, { any: [{ has: "bp3=palais" }, { has: "bp3=digue" }] }, { any: [{ has: "helis=allie" }, { has: "oriane:gouge3" }] }] }, why: "Il faudrait un testament valide, Bas-Port devant le palais, et la présidente ou la Mère Gouge de ton côté.",
         fx: { set: { elu: "conseil" } }, to: "Z_lanternes", big: true },
       { label: "Te retirer pour le Grand Prêtre", hide: { has: "anselme=retire" }, to: "Z_vote_anselme" },
       { label: "Te taire, et laisser le sable passer", to: "Z_vote_silence" },
@@ -186,6 +264,8 @@ module.exports = {
     text: [
       "On vote à main levée, comme toujours. Hélis Arnaud compte à voix haute, en touchant chaque main du bout de son marteau. Dix-huit. Dix-neuf. Vingt.",
       "Vingt et un.",
+      { if: { has: "oriane:signature" }, text: "Hélis Arnaud lui tend le registre des séances pour qu'elle signe son élection. Oriane trempe la plume, et s'arrête une seconde : sa main voulait écrire *Ermesinde*. Elle écrit son propre nom, lentement, comme une écolière." },
+      { if: { has: "oriane:nom_propre" }, text: "Hélis Arnaud lui tend le registre des séances pour qu'elle signe son élection. Oriane signe vite. Ce nom-là, la salle l'a vu deux ans en bas de tous les décrets, sous celui de la Doyenne." },
       "Oriane Valcor monte les trois marches de l'estrade et s'assied dans le siège vide. Il est plus haut qu'elle ne croyait. On voit toute la salle, d'en haut. On voit surtout qui ne vous regarde pas.",
     ],
     choices: [{ label: "La marée tourne", to: "Z_fin_br" }] },
@@ -206,8 +286,10 @@ module.exports = {
   Z_nella: { act: "III", title: "La fille de l'eau", place: "palais", ambiance: "chateau", noLead: true,
     text: [
       "« Je propose Nella, fille d'Ermesinde Valcor et de Tomas Gouge. »",
+      { if: { all: [{ has: "jasse:registre" }, { has: "jasse3=vient" }, { not: LU }] }, text: "Jasse descend l'allée et pose sur la table de la présidente le registre de son père, ouvert à la page de l'hiver de la grande passe. *Reçu pour l'enfant. E. V.* Hélis Arnaud compare l'écriture avec celle des ordres de la Doyenne. Elle hoche la tête." },
       "Un silence. Puis quelqu'un rit. Puis personne ne rit plus, parce que, dehors, la lagune s'est mise à chanter : un vieux chant de bateliers, repris de barque en barque, qui monte jusqu'aux vitres.",
       { if: { has: "oriane:main_nella" }, text: "Oriane lui tend la main pour l'aider à monter les marches de l'estrade. Nella la prend, comme elle l'a prise hier, dans la cellule." },
+      { if: { all: [{ has: "jasse_dame=demande" }, { has: "jasse3=vient" }] }, text: "Au fond de la salle, Jasse Ferrant serre dans son poing une pièce d'argent au sceau de la ville. Il vient de comprendre qui était la dame en gris de la porte des cuisines." },
       "Nella s'avance au milieu de la salle, les pieds dans l'eau. Elle se tait. Elle a les yeux de sa mère, et ceux qui ont connu la Doyenne jeune baissent la tête.",
       "On vote. Les mains se lèvent lentement, d'abord celles d'Oriane, puis des vieilles maisons qui ont aimé Ermesinde, puis des métiers qui ont peur de Bas-Port, puis d'autres. Hélis Arnaud compte. Elle compte deux fois.",
       "Vingt et un.",
@@ -264,7 +346,7 @@ module.exports = {
 
   // ---------------------------------------------------------------- one o'clock: the resolver
   Z_fin_br: { branch: [
-    { if: { all: [{ has: "bp3=palais" }, { has: "basport=souleve" }, { any: [{ has: "elu=morvan" }, { has: "jasse3=pris" }, { has: "nella=prison" }] }] }, fx: { flag: "fin:incendie" }, to: "F_incendie" },
+    { if: { all: [{ has: "bp3=palais" }, { has: "basport=souleve" }, { not: { all: [{ has: "jasse:sauveur" }, { has: "jasse3=vient" }] } }, { any: [{ has: "elu=morvan" }, { has: "jasse3=pris" }, { has: "nella=prison" }] }] }, fx: { flag: "fin:incendie" }, to: "F_incendie" },
     { if: { all: [{ not: { is: { chaine: ["bloquee", "gardee"] } } },
       { any: [{ has: "elu=morvan" }, { has: "morvan=fui" }, { all: [{ has: "chaine_ordre=signe" }, { not: { has: "morvan=arrete" } }] }] }] },
       fx: { set: { chaine: "baissee" }, flag: "fin:orcanne" }, to: "F_orcanne" },
