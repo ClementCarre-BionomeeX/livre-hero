@@ -6,18 +6,18 @@ module.exports = {
   V_aube: { act: "II", title: "Vaugrenat", place: "village",
     fx: { meet: ["pelissier", "roussel", "vidal", "bastien"], flag: "combes:permis" },
     text: [
-      "Le prévôt ne te met pas en cellule. Il te loge au Chamois, l'auberge de la place, dans une chambre sous les toits dont la fenêtre donne sur l'église, et il met le sergent Bastien sur une chaise devant ta porte. « Vous n'êtes pas arrêté, répète-t-il. Vous êtes gardé. La différence, c'est que vous pouvez aller où vous voulez, tant que Bastien vous suit. »",
-      "Il te rend tes instruments, pas ta bourse. « Le bailli Dorval arrive dans trois jours pour ses assises. Il jugera l'affaire des Combes avec les autres : deux vols de chèvres, un bornage, une rixe. Il juge vite. D'ici là, retrouvez votre mémoire. Allez voir la maison, si vous voulez : Bastien vous y mènera. » Il remet son chapeau. « Et ne vous approchez pas de Matthias Hollier. Il loge ici aussi. »",
-      { if: { has: "jeanne:secret" }, text: "Sœur Odeline et sa nièce sont descendues au presbytère, chez le curé Vidal. Personne ne leur a posé de question. Une religieuse et une novice, au village, ça ne se remarque pas." },
-      { if: { has: "jeanne:revelee" }, text: "Sœur Odeline et Lise sont au presbytère, chez le curé Vidal. Le prévôt y passe deux fois par jour, sans en avoir l'air, en allant à la messe qu'il n'a jamais suivie." },
+      "Le prévôt t'épargne la cellule. Il te loge au Chamois, l'auberge de la place, dans une chambre sous les toits dont la fenêtre donne sur l'église, et il installe le sergent Bastien sur une chaise devant ta porte. « Vous n'êtes pas arrêté, répète-t-il. Vous êtes gardé. La différence, c'est que vous pouvez aller où vous voulez, tant que Bastien vous suit. »",
+      "Il te rend tes instruments et garde ta bourse. « Le bailli Dorval arrive dans trois jours pour ses assises. Il jugera l'affaire des Combes avec les autres : deux vols de chèvres, un bornage, une rixe. Il juge vite. D'ici là, retrouvez votre mémoire. Allez voir la maison, si vous voulez : Bastien vous y mènera. » Il remet son chapeau. « Et tenez-vous à distance de Matthias Hollier. Il loge ici aussi. »",
+      { if: { has: "jeanne:secret" }, text: "Sœur Odeline et sa nièce sont descendues au presbytère, chez le curé Vidal. Personne ne leur a posé de question. Au village, une religieuse et une novice passent aussi inaperçues que deux corneilles sur un toit." },
+      { if: { has: "jeanne:revelee" }, text: "Sœur Odeline et Lise sont au presbytère, chez le curé Vidal. Le prévôt y passe deux fois par jour, d'un air dégagé, sous prétexte d'une messe qu'il a toujours manquée." },
       "Le soir tombe sur la place. L'auberge sent la soupe aux choux et le vin aigre. Au comptoir, une grosse femme en tablier te regarde entrer avec une expression que tu mets un moment à lire : elle te reconnaît.",
     ],
     choices: [{ back: "V_place" }] },
 
   V_place: { act: "II", title: "La place de Vaugrenat", place: "village", hub: true, routes: true, backName: "la place",
     text: [
-      { first: true, text: "Une place en pente, pavée de galets, avec une fontaine gelée au milieu. Autour : l'église et son presbytère, l'auberge du Chamois, la forge, la prévôté avec son drapeau délavé, et la plus belle maison du village, deux étages de pierre de taille et une plaque de cuivre : *Maître Pélissier, notaire. Compagnie des Plombs, bureau de Vaugrenat.* En face, une maison plus étroite, des volets verts : *É. Corvin, docteur en médecine.* En contrebas, le lavoir." },
-      { again: true, text: "La place. Le sergent Bastien, deux pas derrière toi, les mains dans les poches. Les gens te regardent passer, et se taisent, et reprennent après." },
+      { first: true, text: "Une place en pente, pavée de galets, avec une fontaine gelée au milieu. Tu en fais le tour d'un regard : l'église et son presbytère, l'auberge du Chamois, la forge, la prévôté avec son drapeau délavé, et la plus belle maison du village, deux étages de pierre de taille et une plaque de cuivre : *Maître Pélissier, notaire. Compagnie des Plombs, bureau de Vaugrenat.* En face, une maison plus étroite, des volets verts : *É. Corvin, docteur en médecine.* En contrebas, le lavoir. La pierre de taille appartient à la Compagnie, le crépi à tous les autres." },
+      { again: true, text: "La place. Le sergent Bastien, deux pas derrière toi, les mains dans les poches. Les gens te regardent passer, se taisent, et reprennent ensuite." },
       { if: { has: "enterrement:sort" }, text: "Sur la porte de l'église, le faire-part des Hollier est encore cloué. Quatre noms. La neige a mouillé l'encre du dernier." },
     ],
     choices: [
@@ -32,15 +32,15 @@ module.exports = {
       { label: "La veille des assises", big: true, exit: true, to: "V_veille" },
     ] },
   V_forge: { act: "II", title: "La forge", place: "village", shop: "forge",
-    text: ["Le forgeron est un colosse taciturne qui ferre une mule sans te regarder. Il te vend ce que tu demandes. Il garde les yeux sur ta main bandée tout le temps que tu comptes ta monnaie."],
+    text: ["Le forgeron est un colosse taciturne qui ferre une mule, les yeux sur son sabot. Il te vend ce que tu demandes. Pendant que tu comptes ta monnaie, son regard reste sur ta main bandée."],
     choices: [{ back: "V_place" }] },
 
   // ------------------------------------------------------------------ the Chamois
   V_chamois: { act: "II", title: "Le Chamois", place: "village", shop: "chamois", backName: "le Chamois",
     text: [
-      "La salle basse du Chamois : des tables de sapin, un poêle, des bois de chamois cloués aux poutres. Des mineurs boivent dans un coin, des bergers dans l'autre, et les deux coins ne se parlent pas. Mère Roussel essuie des verres derrière son comptoir.",
-      { first: true, text: "Elle te regarde t'asseoir. Elle t'apporte un pichet sans que tu l'aies demandé. « Le même que l'autre soir ? » dit-elle. Puis, devant ta tête : « Ah. C'est vrai. On m'a dit que vous aviez tout oublié. » Elle repart. Elle a l'air de te plaindre, et d'avoir peur, les deux à la fois." },
-      { if: { has: "matthias:chamois" }, text: "Matthias Hollier boit seul à une table près de la porte. Il garde les yeux ailleurs : tout le monde, ici, te regarde pour lui." },
+      "La salle basse du Chamois : des tables de sapin, un poêle, des bois de chamois cloués aux poutres. Des mineurs boivent dans un coin, des bergers dans l'autre, et entre les deux coins, la salle fait une frontière aussi nette qu'un traité. Mère Roussel essuie des verres derrière son comptoir.",
+      { first: true, text: "Elle te regarde t'asseoir. Elle t'apporte un pichet que tu as oublié de commander. « Le même que l'autre soir ? » dit-elle. Puis, devant ta tête : « Ah. C'est vrai. On m'a dit que vous aviez tout oublié. » Elle repart. Elle a l'air de te plaindre et d'avoir peur, les deux à la fois." },
+      { if: { has: "matthias:chamois" }, text: "Matthias Hollier boit seul à une table près de la porte. Il garde les yeux ailleurs : la salle entière te regarde à sa place." },
     ],
     choices: [
       { label: "Goûter le vin", hide: { seen: "V_souvenir_chamois" }, to: "V_souvenir_chamois" },
@@ -55,7 +55,7 @@ module.exports = {
       "La même salle, plus pleine, plus bruyante, plus chaude. Toi, à cette table-ci. En face, un homme large, barbu, qui remplit ton verre chaque fois qu'il est à moitié vide. Il rit fort. Il te tape sur l'épaule. Il dit qu'il revient des mines du bas, qu'il en a assez de creuser pour les autres, qu'il voudrait creuser pour lui.",
       "Et tu t'entends répondre. Ta voix, pâteuse, trop forte. Tu dis : *ton frère est assis sur une fortune et il ne le sait même pas.* Tu dis : *de la galène. De l'argent. Sous ses vaches.* Tu dis : *la Compagnie paierait ce que tu veux.* Tu ris. Tu es content d'être celui qui sait.",
       { if: { has: "vice:vin" }, text: "Tu reconnais cette voix. C'est celle que tu as quand tu as bu, celle que tu détestes le lendemain. Celle qui dit tout." },
-      "L'homme ne rit plus. Il te regarde, très attentivement, et il remplit encore ton verre.",
+      "L'homme a cessé de rire. Il te regarde, très attentivement, et il remplit encore ton verre.",
     ],
     choices: [
       { label: "Garder ce souvenir", fx: { flag: "garde:chamois", ep: ["histoire", 2000] }, back: "V_chamois" },
@@ -63,15 +63,15 @@ module.exports = {
     ] },
   V_mineurs: { act: "II", title: "Les mineurs", place: "village",
     text: [
-      "Les mineurs de la Compagnie parlent de la paie, qui est en retard, et du docteur, qui est un saint. L'un d'eux, un vieux à la toux grasse, sort un petit flacon brun de sa poche, en boit une gorgée, et le range. Les autres font pareil, chacun à son tour, sans y penser, comme on se mouche.",
-      "Plus bas, l'un dit que la Compagnie va ouvrir un nouveau puits au printemps. Du côté des Combes. Il paraît que c'est déjà signé. Les autres lui disent de se taire, et il se tait.",
+      "Les mineurs de la Compagnie parlent de la paie, qui est en retard, et du docteur, qui est un saint. L'un d'eux, un vieux à la toux grasse, sort de sa poche un petit flacon brun, en boit une gorgée et le range. Les autres l'imitent, chacun à son tour, machinalement, comme on se mouche.",
+      "Plus bas, l'un dit que la Compagnie va ouvrir un nouveau puits au printemps. Du côté des Combes. Il paraît que c'est déjà signé. Les autres lui ordonnent de se taire, et il se tait.",
     ],
     fx: { flag: "mineurs:combes" },
     choices: [{ back: "V_chamois" }] },
   V_roussel: { act: "II", title: "Mère Roussel", place: "village",
     text: [
       "Mère Roussel continue d'essuyer le même verre. « J'ai rien entendu, dit-elle. J'entends jamais rien. C'est mon métier, de rien entendre. » Elle pose le verre. « Et puis l'auberge est à Maître Pélissier. Les murs, le comptoir, le tonneau, tout. Je lui paie un loyer. Il me le rappelle tous les mois. »",
-      "Elle reprend un autre verre. Elle évite ton regard. Mais elle reste.",
+      "Elle prend un autre verre. Elle évite ton regard. Mais elle reste.",
     ],
     fx: { recit: "v_roussel_rien" },
     choices: [
@@ -108,9 +108,9 @@ module.exports = {
   V_etude: { act: "II", title: "L'étude", place: "village", backName: "l'étude du notaire",
     fx: { meet: ["pelissier"] },
     text: [
-      "Une antichambre lambrissée, un clerc qui gratte, des cartons à dossiers jusqu'au plafond. Puis le bureau : un grand homme mou, en habit noir, des lunettes sur le front, qui se lève en te voyant avec un sourire d'enterrement. Maître Pélissier.",
-      { first: true, text: "« Ah, dit-il. Notre arpenteur. Quelle affaire. Quelle horrible affaire. » Il ne te tend pas la main. « Asseyez-vous. Vous ne vous souvenez de rien, m'a-t-on dit. C'est peut-être une bénédiction. Il y a des choses qu'il vaut mieux oublier. »" },
-      "Derrière lui, un coffre de fer à deux serrures, peint en vert, avec la marque de la Compagnie sur la porte : un C et un P entrelacés.",
+      "Une antichambre lambrissée, un clerc qui gratte, des cartons à dossiers jusqu'au plafond. Puis le bureau : un grand homme mou, en habit noir, les lunettes remontées sur le front, qui se lève en te voyant avec un sourire d'enterrement. Maître Pélissier. Son gilet a été élargi deux fois, à en juger par les rangées de trous d'aiguille au dos.",
+      { first: true, text: "« Ah, dit-il. Notre arpenteur. Quelle affaire. Quelle horrible affaire. » Il garde ses mains derrière son dos. « Asseyez-vous. Vous ne vous souvenez de rien, m'a-t-on dit. C'est peut-être une bénédiction. Il y a des choses qu'il vaut mieux oublier. »" },
+      "Derrière lui, un coffre de fer à deux serrures, peint en vert, porte sur sa face la marque de la Compagnie : un C et un P entrelacés.",
     ],
     choices: [
       { label: "« Vous m'avez payé vingt écus. Pour quoi faire ? »", hide: { seen: "V_etude_ecus" }, to: "V_etude_ecus" },
@@ -122,20 +122,20 @@ module.exports = {
   V_etude_ecus: { act: "II", title: "Vingt écus", place: "village",
     text: [
       "Pélissier ôte ses lunettes et les essuie, longtemps. « Vingt écus ? Je ne vois pas de quoi vous parlez. Je ne vous connais pas. Nous nous sommes salués sur la place, le premier soir, comme on salue un fonctionnaire du duc. » Il remet ses lunettes. « Si vous aviez vingt écus sur vous, c'est que quelqu'un vous les a donnés. Je vous suggère de chercher qui. Et pourquoi. »",
-      "Il sourit. Il a de très petites dents.",
+      "Il sourit. Il a de très petites dents, alignées comme des grains de riz.",
     ],
     fx: { recit: "v_pelissier_ecus" },
     choices: [{ back: "V_etude" }] },
   V_etude_registre: { act: "II", title: "Le registre", place: "village",
     text: [
-      "« Le registre des actionnaires est public, dit Pélissier, un peu pincé. Tout sujet du duc peut le consulter, en ma présence. » Il le sort d'un tiroir, l'ouvre, et le tourne vers toi en gardant le doigt sur la page, comme pour t'empêcher de la tourner.",
+      "« Le registre des actionnaires est public, dit Pélissier, un peu pincé. Tout sujet du duc peut le consulter, en ma présence. » Il le sort d'un tiroir, l'ouvre et le tourne vers toi, le doigt posé sur la page, pour la garder ouverte à celle-là et à aucune autre.",
       "Des noms, des chiffres. Le baron d'Aulnes, quatre-vingts parts. Un banquier de Lorvanne, soixante. Et juste au-dessus du baron, d'une écriture fine : *Corvin, Élias, docteur en médecine, à Vaugrenat : douze parts.*",
     ],
     fx: { clue: "c_compagnie", ep: ["perso", 500] },
     choices: [{ back: "V_etude" }] },
   V_etude_carnet: { act: "II", title: "Le reçu", place: "village",
     text: [
-      "Tu ouvres ton carnet à la page du reçu, et tu le poses sur son bureau. *Vingt écus, pour relevé discret de la parcelle 114.* Et sous la ligne, une signature : un P majuscule, une boucle, un trait.",
+      "Tu ouvres ton carnet à la page du reçu et tu le poses sur son bureau. *Vingt écus, pour relevé discret de la parcelle 114.* Et sous la ligne, une signature : un P majuscule, une boucle, un trait.",
       "Pélissier regarde la page. Il la laisse sur la table. Ses traits restent en place, mais son visage devient gris, lentement, comme une pâte qui cuit.",
       "« Un relevé, dit-il enfin, d'une voix très calme. Une étude préalable. La Compagnie fait faire des études préalables. Il n'y a rien d'illégal à cela. » Il lève les yeux. « Vous savez ce qui est illégal ? C'est de vendre au plus offrant ce qu'on a relevé pour le compte du duc. Un arpenteur du cadastre qui fait des relevés privés, payé en écus, cela s'appelle de la concussion. Cela se juge aussi, aux assises. » Il sourit avec ses petites dents. « Nous avons chacun une page dans ce carnet, voyez-vous. »",
     ],
@@ -153,7 +153,7 @@ module.exports = {
     text: [
       "La nuit, la place est noire et le sergent Bastien ronfle sur sa chaise, devant ta porte. Tu passes par la fenêtre, le toit de l'appentis, la ruelle. L'étude a une porte de derrière, sur la cour, fermée d'un simple loquet de bois.",
       "Le coffre, lui, a deux serrures.",
-      { if: { present: "lise" }, text: "Lise est là, derrière toi, en chemise sous la cape de Sœur Odeline. Elle a insisté, par gestes, furieusement. Elle s'agenouille devant le coffre et regarde les serrures comme on regarde un nœud." },
+      { if: { present: "lise" }, text: "Lise est là, derrière toi, en chemise sous la cape de Sœur Odeline. Elle a insisté, par gestes, furieusement. Elle s'agenouille devant le coffre et étudie les serrures comme on étudie un nœud." },
     ],
     choices: [
       { label: "Forcer les serrures avec ton couteau et la pointe de ton compas", test: { dom: "discretion", diff: -20, label: "Discrétion", help: [{ with: "lise", v: 25 }, { if: { has: "bastien:fidele" }, v: 10 }] },
@@ -165,12 +165,12 @@ module.exports = {
       "La première serrure cède avec un claquement qui te paraît assez fort pour réveiller la vallée. La seconde résiste, résiste, puis tourne. Dans le coffre, des liasses, des sacs d'écus, et un dossier de cuir marqué *Combes*.",
       "Dedans, une promesse de vente sur papier timbré. *Je soussigné Matthias Hollier, en qualité d'héritier…* Tu lis la date deux fois, puis une troisième. C'est le soir du deuxième de tes trois jours. Le soir où tu dormais dans le fenil des Combes, et où toute la famille Hollier dormait dans la maison, vivante.",
       "En bas, deux témoins : *Pélissier, notaire. É. Corvin, docteur en médecine.*",
-      { if: { present: "lise" }, text: "Lise lit par-dessus ton épaule. Elle lit lentement, en remuant les lèvres. Quand elle arrive au nom de son oncle, elle s'arrête. Elle ne bouge plus. Puis elle prend ta main valide et la serre, à te faire mal." },
+      { if: { present: "lise" }, text: "Lise lit par-dessus ton épaule, lentement, en remuant les lèvres. Arrivée au nom de son oncle, elle s'arrête et se fige. Puis elle prend ta main valide et la serre, à te faire mal." },
     ],
     choices: [{ label: "Refermer le coffre et filer", back: "V_place" }] },
   V_coffre_rate: { act: "II", title: "Le clerc", place: "village",
     text: [
-      "La lame de ton couteau casse dans la serrure. Le bruit, dans le silence, est énorme. À l'étage, une chandelle s'allume, une fenêtre s'ouvre, le clerc de Pélissier crie au voleur.",
+      "La lame de ton couteau casse dans la serrure. Dans le silence, le bruit est énorme. À l'étage, une chandelle s'allume, une fenêtre s'ouvre, le clerc de Pélissier crie au voleur.",
       "Tu files par la cour, la ruelle, le toit de l'appentis. Tu rentres par ta fenêtre. Bastien ronfle toujours. Le lendemain, tout le village sait qu'on a voulu forcer le coffre du notaire, et tout le village sait qui.",
     ],
     fx: { fac: { village: -10 }, drop: "couteau" },
@@ -179,8 +179,8 @@ module.exports = {
   // ------------------------------------------------------------------ Corvin's cabinet
   V_corvin: { act: "II", title: "Le cabinet du docteur", place: "village", backName: "le cabinet du docteur",
     text: [
-      "Un cabinet clair, propre, qui sent l'éther et la cire. Des bocaux, une bibliothèque, un squelette accroché à une potence, une table d'examen couverte d'un drap blanc, et le fauteuil à haut dossier, le même qu'à l'hospice, ou son frère.",
-      { first: true, text: "« Je vous attendais », dit le docteur Corvin. Il ne sourit pas, cette fois. Il a l'air d'un homme qui a un travail à finir. « Les assises sont dans trois jours. Le bailli Dorval ne fait pas de sentiment. Si vous arrivez devant lui avec rien dans la tête, il remplira le vide lui-même. Il vaut mieux que ce soit nous qui le remplissions, vous ne croyez pas ? »" },
+      "Un cabinet clair, propre, qui sent l'éther et la cire. Des bocaux, une bibliothèque, un squelette accroché à une potence, une table d'examen couverte d'un drap blanc, et le fauteuil à haut dossier, le même qu'à l'hospice, ou son frère jumeau.",
+      { first: true, text: "« Je vous attendais », dit le docteur Corvin. Cette fois, il garde son sourire pour lui. Il a l'air d'un homme qui a un travail à finir. « Les assises sont dans trois jours. Le bailli Dorval est un homme sec. Si vous arrivez devant lui la tête vide, il remplira le vide lui-même. Il vaut mieux que ce soit nous qui le remplissions, vous ne croyez pas ? »" },
     ],
     choices: [
       { label: "Une dernière séance", hide: { seen: "V_seance3" }, fx: { clock: { brume: 1 } }, to: "V_seance3" },
@@ -192,16 +192,16 @@ module.exports = {
     ] },
   V_corvin_gouttes: { act: "II", title: "Quelques gouttes", place: "village",
     text: [
-      "Le docteur verse dix gouttes dans un verre d'eau, en silence. Tu bois. La douleur de ta main recule, recule, devient une rumeur lointaine, puis un souvenir de douleur. Le monde a des bords plus doux.",
+      "Le docteur verse dix gouttes dans un verre d'eau, en silence ; tu les comptes avec lui. Tu bois. La douleur de ta main recule, recule, devient une rumeur lointaine, puis un souvenir de douleur. Le monde a des bords plus doux.",
       "« Revenez quand vous voulez, dit-il. Ma porte est toujours ouverte. »",
-      { if: { clock: "brume", min: 4 }, text: "Tu te surprends, en sortant, à compter les heures jusqu'à la prochaine fois. Tu n'aimes pas ça. Et ton propre calme t'inquiète." },
+      { if: { clock: "brume", min: 4 }, text: "En sortant, tu te surprends à compter les heures jusqu'à la prochaine fois. L'idée te déplaît. Et ton propre calme t'inquiète." },
     ],
     choices: [{ back: "V_corvin" }] },
   V_seance3: { act: "II", title: "Un souvenir", place: "village",
     text: [
       "Le fauteuil, le verre, la chaleur. La voix. Elle est plus proche que jamais, elle est dans ta tête, elle parle avec ta voix.",
       "*La porte. Vous êtes devant la porte de la maison. Dedans, il y a de la fumée. Ils frappent.*",
-      "Ils frappent. Des poings contre le bois, de l'autre côté. Des cris étouffés. Tu as la main sur le loquet, et tu ne tires pas. Tu tiens. Le fer est brûlant, il te mange la paume, et tu tiens, tu tiens, parce que tu as décidé de tenir.",
+      "Ils frappent. Des poings contre le bois, de l'autre côté. Des cris étouffés. Tu as la main sur le loquet, et tu tiens. Le fer est brûlant, il te mange la paume, et tu tiens, tu tiens, parce que tu as décidé de tenir.",
       "*Vous tenez la porte fermée*, dit la voix. *C'est pour ça que votre main est brûlée.*",
       "Puis les coups s'arrêtent. Et tu ouvres les yeux.",
       "Le docteur Corvin pose sa plume. « Voilà, dit-il doucement. C'est fini. C'est terrible, je sais. Mais maintenant, au moins, vous savez. »",
@@ -213,13 +213,13 @@ module.exports = {
   V_seance3_fin: { act: "II", title: "Le docteur", place: "village",
     text: [
       "Tu sors du cabinet en titubant. Le jour est trop blanc. Bastien te prend le bras.",
-      { if: { all: [{ has: "garde:main" }, { clue: "h_anneau" }] }, text: "Tu as la main sur la poitrine, et tu sens l'anneau, sous le pansement. Le côté de l'intérieur, disait Sœur Odeline. Le sens t'en échappe. Tout ce que tu savais se brouille." },
-      { if: { has: "doute:main" }, text: "Tu te répètes que ce n'était qu'une voix. Que les coups dans la porte, c'est le docteur qui les a mis là. Mais tu les entends encore." },
+      { if: { all: [{ has: "garde:main" }, { clue: "h_anneau" }] }, text: "Tu as la main sur la poitrine, et tu sens l'anneau sous le pansement. Le côté de l'intérieur, disait Sœur Odeline. Le sens t'en échappe. Tout ce que tu savais se brouille." },
+      { if: { has: "doute:main" }, text: "Tu te répètes que c'était une voix, rien de plus. Que les coups dans la porte, c'est le docteur qui les a mis là. Mais tu les entends encore." },
     ],
     choices: [{ back: "V_place" }] },
   V_corvin_refus: { act: "II", title: "Le cahier", place: "village",
     text: [
-      "Le docteur te regarde un long moment. Puis il pose la main sur le cahier noir, sur son bureau. Il ne l'ouvre pas.",
+      "Le docteur te regarde un long moment. Puis il pose la main sur le cahier noir, sur son bureau, et la laisse là, à plat, sans ouvrir.",
       "« J'ai écrit ce que vous avez dit, dit-il. Pendant vos séances. Mot pour mot. Le bailli aimera le lire, je pense. Les aveux d'un homme endormi sont les plus sincères : il ne peut pas mentir, il ne sait même pas qu'il parle. » Il sourit, doucement. « Mais je peux aussi ne pas le lui montrer. Un médecin est tenu au secret. Cela dépend de vous. »",
       "« De quoi ? »",
       "« De ce que vous direz, jeudi. De qui vous accuserez. » Il ouvre la porte. « Réfléchissez-y. »",
@@ -229,14 +229,14 @@ module.exports = {
   V_corvin_promesse: { act: "II", title: "Le témoin", place: "village",
     text: [
       "Tu poses la question doucement. Pourquoi un médecin signe-t-il comme témoin une promesse de vente, chez un notaire, un soir d'hiver, pour un homme dont toute la famille est vivante ?",
-      "Corvin prend son temps. Il range un bocal, puis un autre. « Je témoigne pour beaucoup de gens, dit-il. Pour les mineurs, qui ne savent pas lire. Pour les veuves. C'est un service. » Il se retourne. « Et puis, dans un pays comme le nôtre, quand un homme dit qu'il sera bientôt héritier, on ne lui demande pas comment il le sait. On a appris à ne pas le demander. »",
+      "Corvin prend son temps. Il range un bocal, puis un autre, étiquette en avant. « Je témoigne pour beaucoup de gens, dit-il. Pour les mineurs, qui ne savent pas lire. Pour les veuves. C'est un service. » Il se retourne. « Et puis, dans un pays comme le nôtre, quand un homme dit qu'il sera bientôt héritier, on ne lui demande pas comment il le sait. On a appris à ne pas le demander. »",
       "Il ouvre la porte. « Bonne journée. »",
     ],
     fx: { flag: "corvin:confronte", fac: { compagnie: -10 } },
     choices: [{ back: "V_place" }] },
   V_corvin_fouille: { act: "II", title: "Le cabinet", place: "village",
     text: [
-      "Une femme arrive avec un enfant qui tousse. Le docteur la fait passer dans la pièce du fond, et la porte se referme. Tu restes seul dans le cabinet, avec Bastien sur le seuil, qui regarde ailleurs, ou fait semblant.",
+      "Une femme arrive avec un enfant qui tousse. Le docteur la fait passer dans la pièce du fond, et la porte se referme. Tu restes seul dans le cabinet, avec Bastien sur le seuil, qui regarde ailleurs, ou en a l'air.",
       "Le cahier noir est sur le bureau.",
     ],
     choices: [
@@ -256,19 +256,19 @@ module.exports = {
   V_corvin_page: { act: "II", title: "La page", place: "village",
     text: [
       "Tu lis vite. *L'arpenteur. Sujet très suggestible. Lui rendre d'abord la dispute. Puis la lanterne. Puis la main : il a la brûlure, il faut lui donner l'histoire qui va avec.* Plus bas : *M. H. inquiet pour la petite.*",
-      "Tu arraches la page, d'un coup sec, au ras de la reliure. Tu la plies en quatre et tu la glisses dans ta botte. Le docteur ne s'en apercevra pas avant ce soir. Peut-être demain. Peut-être jamais : il a beaucoup de pages.",
+      "Tu arraches la page, d'un coup sec, au ras de la reliure. Tu la plies en quatre et la glisses dans ta botte. Le docteur s'en apercevra ce soir. Ou demain. Ou à la saint-glinglin : son cahier compte bien deux cents pages.",
     ],
     choices: [{ back: "V_place" }] },
   V_corvin_surpris: { act: "II", title: "Le docteur revient", place: "village",
-    text: ["La porte du fond s'ouvre plus tôt que prévu. Le docteur te voit penché sur son bureau. Il se tait. Il reprend le cahier, le range dans un tiroir, et ferme le tiroir à clé. « Le patient suivant attend », dit-il simplement."],
+    text: ["La porte du fond s'ouvre plus tôt que prévu. Le docteur te trouve penché sur son bureau. Il se tait. Il reprend le cahier, le range dans un tiroir et ferme le tiroir à clé. « Le patient suivant attend », dit-il simplement."],
     choices: [{ back: "V_place" }] },
 
   // ------------------------------------------------------------------ the provostry, Bastien
   V_prevote: { act: "II", title: "La prévôté", place: "village", backName: "la prévôté",
     text: [
-      "Deux pièces : un bureau qui sent le tabac froid et le papier humide, et une cellule avec une paillasse. Le prévôt Hennequin écrit, en manches de chemise, à côté d'un poêle éteint.",
-      { first: true, text: "« Asseyez-vous, dit-il sans lever les yeux. Je relis votre dossier. Il ne s'épaissit pas assez vite pour le bailli, et il s'épaissit trop vite pour moi. » Il pose sa plume. « Qu'est-ce que vous voulez ? »" },
-      "Derrière toi, le sergent Bastien attend près de la porte. Il a les yeux cernés, et une tache d'encre sur le pouce qui n'est pas celle de son écritoire.",
+      "Deux pièces : un bureau qui sent le tabac froid et le papier humide, et une cellule avec une paillasse. Le prévôt Hennequin écrit, en manches de chemise, à côté d'un poêle éteint. La prévôté, visiblement, économise son bois pour les prévenus.",
+      { first: true, text: "« Asseyez-vous, dit-il, les yeux sur sa page. Je relis votre dossier. Il s'épaissit trop lentement pour le bailli, et trop vite pour moi. » Il pose sa plume. « Qu'est-ce que vous voulez ? »" },
+      "Derrière toi, le sergent Bastien attend près de la porte. Il a les yeux cernés, et sur le pouce une tache d'encre d'une autre couleur que celle de son écritoire.",
     ],
     choices: [
       { label: "Lui montrer ce que tu as trouvé", hide: { all: [{ not: { item: "toile" } }, { not: { item: "promesse" } }, { not: { item: "carnet" } }, { not: { clue: "c_cahier" } }] }, to: "V_prevote_preuves" },
@@ -279,7 +279,7 @@ module.exports = {
     ] },
   V_prevote_aymar: { act: "II", title: "L'homme qu'on a pendu", place: "village",
     text: [
-      "Hennequin prend son temps. Il fait signe à Bastien de sortir, attend que la porte soit refermée, et regarde longtemps le poêle éteint. Puis il dit, sans te regarder :",
+      "Hennequin prend son temps. Il fait signe à Bastien de sortir, attend que la porte soit refermée, et contemple longtemps le poêle éteint. Puis il dit, les yeux sur le poêle :",
       "« Il s'appelait Josse Aymar. Un charbonnier. On l'avait trouvé près d'une bergère morte, avec du sang sur les mains. Il disait qu'il l'avait trouvée comme ça. Le docteur Corvin l'a fait dormir trois nuits de suite, dans ma cellule, avec ses gouttes. La quatrième nuit, Aymar a raconté comment il l'avait tuée. Avec des détails. Des détails que je lui avais donnés moi-même, sans le vouloir, en l'interrogeant. » Il marche. « Le bailli l'a pendu au printemps. L'hiver suivant, un berger de Sarre s'est vanté de la bergère, ivre, dans une auberge. »",
       "Il s'arrête. « Je ne vous dis pas ça pour que vous ayez pitié de moi. Je vous le dis pour que vous sachiez pourquoi je ne vous ai pas encore mis aux fers. »",
     ],
@@ -298,10 +298,10 @@ module.exports = {
     text: [
       "Tu poses sur son bureau ce que tu as. Hennequin regarde chaque chose sans la toucher, puis la touche, puis la retourne.",
       { if: { item: "toile" }, text: "La pierre, la corde, la toile roussie. « C. P., dit-il. Les sacs de minerai de la Compagnie. Il y en a mille dans la vallée. On les lave au lavoir, on les rend, on les reprend. » Il soupèse la pierre. « Mais personne ne met un sac de minerai dans un conduit de cheminée par hasard. »" },
-      { if: { item: "promesse" }, text: "La promesse de vente. Il la lit deux fois. Il regarde la date. Il devient très pâle sous sa moustache, et se tait si longtemps que Bastien tousse. « Où avez-vous eu ça ? » Puis : « Non. Ne me le dites pas. Je ne veux pas le savoir. »" },
-      { if: { item: "carnet" }, text: "Ton carnet. Il lit le relevé, le reçu, le dessin dans la marge. Il lit le nom. *Lise.* Il te regarde. « Vous étiez payé par la Compagnie. » Ce n'est pas une question." },
-      { if: { clue: "c_cahier" }, text: "Tu lui dis ce que tu as lu dans le cahier du docteur. *Lui rendre d'abord la dispute. Puis la lanterne. Puis la main.* Hennequin ferme les yeux. « Il y a douze ans, dit-il, j'ai fait pendre un homme sur des aveux. Le docteur m'avait aidé à les obtenir. »" },
-      "Il range tout dans un tiroir, et le ferme à clé. « Je garde ça. Pour le bailli. Pour que personne ne vous le reprenne. » Il te regarde. « Je ne vous crois pas encore. Mais je ne crois plus les autres. »",
+      { if: { item: "promesse" }, text: "La promesse de vente. Il la lit deux fois. Il regarde la date. Il devient très pâle sous sa moustache, et se tait si longtemps que Bastien tousse. « Où avez-vous eu ça ? » Puis : « Non. Ne me le dites pas. Je préfère l'ignorer. »" },
+      { if: { item: "carnet" }, text: "Ton carnet. Il lit le relevé, le reçu, le dessin dans la marge. Il lit le nom. *Lise.* Il te regarde. « Vous étiez payé par la Compagnie. » Le ton est celui d'un constat." },
+      { if: { clue: "c_cahier" }, text: "Tu lui répètes ce que tu as lu dans le cahier du docteur. *Lui rendre d'abord la dispute. Puis la lanterne. Puis la main.* Hennequin ferme les yeux. « Il y a douze ans, dit-il, j'ai fait pendre un homme sur des aveux. Le docteur m'avait aidé à les obtenir. »" },
+      "Il range tout dans un tiroir et le ferme à clé. « Je garde ça. Pour le bailli. Pour que personne ne vous le reprenne. » Il te regarde. « Je ne vous crois pas encore. Mais je ne crois plus les autres. »",
     ],
     fx: { flag: "prevot:preuves", conf: { hennequin: 20 }, ep: ["histoire", 2500] },
     choices: [{ back: "V_prevote" }] },
@@ -311,7 +311,7 @@ module.exports = {
     choices: [{ back: "V_prevote" }] },
   V_bastien: { act: "II", title: "Le sergent", place: "village",
     text: [
-      "Dehors, Bastien allume une pipe qui ne tire pas. Il a vingt-cinq ans et l'air d'en avoir quarante ce matin. Tu lui demandes si ça va. Il hausse les épaules.",
+      "Dehors, Bastien allume une pipe qui refuse de tirer. Il a vingt-cinq ans et l'air d'en avoir quarante ce matin. Tu lui demandes s'il va bien. Il hausse les épaules.",
       "« Ma femme, dit-il. Rosine. Elle a mal au ventre depuis l'automne. Le docteur la soigne. Il lui donne des gouttes. Elle dort toute la journée, maintenant. Elle ne se plaint plus. » Il tire sur sa pipe. « Le docteur ne me fait pas payer. Il dit que je le paierai autrement. » Il te regarde, puis regarde ailleurs. « Il me demande ce que vous dites. Tous les soirs. Je lui dis. Je vous le dis à vous parce que je n'en peux plus de le lui dire. »",
     ],
     choices: [
@@ -321,17 +321,17 @@ module.exports = {
     ] },
   V_bastien_odeline: { act: "II", title: "Rosine", place: "village",
     text: [
-      "Sœur Odeline monte chez les Roux le soir même. Elle reste trois heures. Quand elle redescend, elle a le visage fermé.",
+      "Sœur Odeline monte chez les Roux le soir même. Elle y reste trois heures. Quand elle redescend, elle a le visage fermé.",
       "« Les mêmes gouttes, dit-elle. Doublées chaque semaine depuis l'automne. Elle a mal au ventre parce qu'elle est enceinte, et personne ne le lui a dit, et lui le savait. » Elle serre les lèvres. « Je vais la sevrer. Ce sera dur. Elle va le haïr, elle va me haïr, elle va pleurer comme un enfant. Dans dix jours, elle sera elle-même. Si l'enfant tient. »",
-      "Bastien t'attend sur la place. Il te serre la main, la gauche, la main valide, très fort, longtemps.",
+      "Bastien t'attend sur la place. Il te serre la main, la gauche, la valide, très fort, longtemps.",
     ],
     fx: { quest: "V_bastien", flag: ["bastien:fidele", "bastien:sort"], conf: { odeline: 10 }, ep: ["histoire", 2500] },
     choices: [{ back: "V_place" }] },
   V_bastien_double: { act: "II", title: "Ce qu'on répète", place: "village",
-    text: ["Bastien te regarde comme s'il ne comprenait pas, puis il comprend, et il sourit pour la première fois. « Je vais lui dire que vous avez peur, dit-il. Que vous dormez mal. Que vous vous souvenez de plus en plus de la lanterne. Il aimera ça. »"],
+    text: ["Bastien te regarde sans comprendre ; puis il comprend, et il sourit pour la première fois. « Je vais lui dire que vous avez peur, dit-il. Que vous dormez mal. Que vous vous souvenez de plus en plus de la lanterne. Il aimera ça. »"],
     choices: [{ back: "V_place" }] },
   V_bastien_denonce: { act: "II", title: "Le rapport", place: "village",
-    text: ["Le prévôt écoute, pose sa plume, appelle Bastien dans son bureau, et ferme la porte. Tu n'entends rien. Quand Bastien ressort, il a les yeux rouges et il les détourne de toi. Le lendemain, c'est un autre sergent, un vieux, sourd, qui te suit sur la place."],
+    text: ["Le prévôt écoute, pose sa plume, appelle Bastien dans son bureau et ferme la porte. À travers le chêne, le silence est complet. Quand Bastien ressort, il a les yeux rouges et il les détourne de toi. Le lendemain, c'est un autre sergent, un vieux, sourd, qui te suit sur la place."],
     choices: [{ back: "V_place" }] },
 
   // ------------------------------------------------------------------ the church, the burial
@@ -339,8 +339,8 @@ module.exports = {
     fx: { meet: ["vidal"] },
     text: [
       "Une église de montagne, basse et sombre, des bancs cirés, une odeur de cire et d'encens froid. Devant l'autel, quatre cercueils de sapin, fermés, sur des tréteaux. Trois grands, un petit.",
-      { first: true, text: "Le curé Vidal est assis au premier rang, son bréviaire fermé sur les genoux. C'est un vieil homme maigre, voûté, avec des mains énormes de paysan. Il te regarde venir sans se lever." },
-      { if: { has: "enterrement:sort" }, text: "Les tréteaux sont vides. Il reste quatre marques claires sur les dalles, là où ils étaient posés." },
+      { first: true, text: "Le curé Vidal est assis au premier rang, son bréviaire fermé sur les genoux. C'est un vieil homme maigre, voûté, avec des mains énormes de paysan, des mains faites pour un manche de charrue et qui tiennent un livre. Il te regarde venir et reste assis." },
+      { if: { has: "enterrement:sort" }, text: "Les tréteaux sont vides. Il reste sur les dalles quatre marques claires, là où ils étaient posés." },
     ],
     choices: [
       { label: "Lui demander comment ils sont morts", hide: { seen: "V_vidal_morts" }, to: "V_vidal_morts" },
@@ -351,7 +351,7 @@ module.exports = {
   V_vidal_morts: { act: "II", title: "Le mauvais air", place: "village",
     fx: { clue: "h_morts", recit: "v_vidal_morts", ep: ["perso", 600] },
     text: [
-      "Le curé Vidal regarde les cercueils. « Je les ai lavés, dit-il. Tous les quatre. Il n'y avait personne d'autre pour le faire. » Il fait tourner son bréviaire entre ses grosses mains.",
+      "Le curé Vidal regarde les cercueils. « Je les ai lavés, dit-il. Tous les quatre. J'étais seul pour le faire. » Il fait tourner son bréviaire entre ses grosses mains.",
       "« Ils étaient roses. Les lèvres, les ongles, les joues du petit. Comme des gens qui ont trop chaud. Les morts du feu, j'en ai lavé, à la grande sécheresse : ils sont noirs, recroquevillés, les poings serrés. Ceux-là étaient dans leur lit, couchés, les mains ouvertes. Le feu les a pris après. Ils étaient déjà partis. » Il te regarde. « Le mauvais air. Ça arrive, l'hiver, quand un conduit se bouche. Une famille entière, sans un cri. On les trouve au matin. »",
       "« J'ai dit ça au prévôt. Il a écrit *accident*. Puis il a barré. Puis il a réécrit. »",
     ],
@@ -359,13 +359,13 @@ module.exports = {
   V_petit: { act: "II", title: "Benoît", place: "village",
     text: [
       "Le petit cercueil est en sapin blanc, sans vernis. Quelqu'un a posé dessus un jouet : un cheval de bois taillé au couteau, une patte cassée.",
-      { if: { has: "perte:fille" }, text: "Tu as porté un cercueil de cette taille, il y a six ans. Il pesait moins qu'un sac de grain. C'est ce que tu n'as jamais pu oublier : qu'il pesait si peu." },
-      { if: { not: { has: "perte:fille" } }, text: "Tu restes là longtemps. Tu ne pries pas. Tu essaies de te souvenir d'un enfant de neuf ans, aux Combes, et rien ne vient, et c'est peut-être pire que tout ce qui pourrait venir." },
+      { if: { has: "perte:fille" }, text: "Tu as porté un cercueil de cette taille, il y a six ans. Il pesait moins qu'un sac de grain. C'est cela qui t'est resté : qu'il pesait si peu." },
+      { if: { not: { has: "perte:fille" } }, text: "Tu restes là longtemps, sans prier. Tu essaies de te souvenir d'un enfant de neuf ans, aux Combes, et ta mémoire reste blanche, et ce blanc est peut-être pire que tout ce qui pourrait venir." },
     ],
     choices: [{ back: "V_eglise" }] },
   V_enterrement: { act: "II", title: "L'enterrement", place: "village",
     text: [
-      "On les enterre le lendemain, à dix heures, dans le cimetière derrière l'église, au pied du mur, là où le soleil vient en premier au printemps. Tout le village est là. Les mineurs en habit, les bergers, les femmes en noir. Matthias Hollier, au premier rang, tête nue.",
+      "On les enterre le lendemain, à dix heures, dans le cimetière derrière l'église, au pied du mur, là où le soleil arrive en premier au printemps. Tout le village est là : les mineurs en habit, les bergers, les femmes en noir. Matthias Hollier, au premier rang, tête nue.",
       "Sœur Odeline vient te trouver avant. « La petite veut y aller, dit-elle à voix basse. Elle s'est habillée toute seule. Elle a mis la robe de novice et un voile. Elle dit, par gestes, que c'est sa famille, et que personne ne l'empêchera. » Elle te regarde. « Si son oncle la voit… »",
     ],
     choices: [
@@ -375,29 +375,29 @@ module.exports = {
     ] },
   V_enterrement_lise: { act: "II", title: "Au premier rang", place: "village",
     text: [
-      "Lise se tient à côté de Sœur Odeline, derrière toi, le voile baissé. Elle ne pleure pas. Pendant que le curé parle, elle a les mains jointes si fort que les jointures sont blanches.",
-      "Quand on descend le petit cercueil, elle fait un pas en avant. Un seul. Sœur Odeline la retient par le bras. Mais au premier rang, Matthias Hollier a tourné la tête. Il regarde la novice voilée, longtemps. Il regarde ses mains. Puis il se retourne vers la fosse, et il ne bouge plus.",
+      "Lise se tient à côté de Sœur Odeline, derrière toi, le voile baissé, les yeux secs. Pendant que le curé parle, elle joint les mains si fort que les jointures blanchissent.",
+      "Quand on descend le petit cercueil, elle fait un pas en avant. Un seul. Sœur Odeline la retient par le bras. Mais au premier rang, Matthias Hollier a tourné la tête. Il regarde la novice voilée, longtemps. Il regarde ses mains. Puis il se retourne vers la fosse et se fige.",
     ],
     choices: [{ back: "V_eglise" }] },
   V_enterrement_sans: { act: "II", title: "Sans elle", place: "village",
     text: [
       "Tu restes au fond, contre le mur du cimetière. Le curé parle peu. Matthias jette la première pelletée sur chaque cercueil, et le bruit de la terre gelée sur le bois du petit est le pire bruit que tu aies entendu de ta vie.",
-      "Quand tu rentres au presbytère, Lise est assise dans la cuisine, devant l'ardoise. Elle a écrit, en grosses lettres, quatre prénoms. Elle ne te regarde pas.",
+      "Quand tu rentres au presbytère, Lise est assise dans la cuisine, devant l'ardoise. Elle y a écrit, en grosses lettres, quatre prénoms. Elle garde les yeux sur l'ardoise.",
     ],
     choices: [{ back: "V_eglise" }] },
   V_enterrement_clocher: { act: "II", title: "D'en haut", place: "village",
     text: [
-      "Tu restes en bas, au fond. Tu ne lèves pas les yeux vers le clocher. Personne ne les lève. Le curé parle peu. Matthias jette la première pelletée.",
-      { with: "odeline", text: "Le soir, au presbytère, Sœur Odeline te dit que Lise a tout regardé, sans bouger, à travers les abat-sons. À la fin, quand tout le monde est parti, elle est descendue au cimetière avec la sœur, à la nuit, et elle a posé sur chaque tombe une poupée de paille. Quatre poupées. Elle en a gardé une cinquième dans sa poche. Pour qui, Sœur Odeline ne le sait pas." },
+      "Tu restes en bas, au fond. Tu gardes les yeux loin du clocher, comme tout le monde. Le curé parle peu. Matthias jette la première pelletée.",
+      { with: "odeline", text: "Le soir, au presbytère, Sœur Odeline te dit que Lise a tout regardé, immobile, à travers les abat-sons. À la fin, quand tout le monde est parti, elle est descendue au cimetière avec la sœur, à la nuit, et elle a posé sur chaque tombe une poupée de paille. Quatre poupées. Elle en a gardé une cinquième dans sa poche. Pour qui, Sœur Odeline l'ignore." },
     ],
     choices: [{ back: "V_eglise" }] },
 
   // ------------------------------------------------------------------ the presbytery, Lise
   V_presbytere: { act: "II", title: "Le presbytère", place: "village", backName: "le presbytère",
     text: [
-      "Une maison basse collée à l'église, une cuisine, un jardin de curé sous la neige. Sœur Odeline y a pris ses quartiers comme si elle y avait toujours vécu : elle a déjà réorganisé les placards. Le curé Vidal la laisse faire, avec la tête d'un homme qui a renoncé à quelque chose.",
-      { if: { not: { has: "lise:connue" } }, text: "Jeanne est assise à la table de la cuisine, devant son ardoise. Elle lève les yeux quand tu entres." },
-      { if: { has: "lise:connue" }, text: "Lise est assise à la table de la cuisine, devant son ardoise. Elle lève les yeux quand tu entres. Personne ici ne l'appelle par son nom ; mais tout le monde le sait, maintenant, sauf le village." },
+      "Une maison basse collée à l'église, une cuisine, un jardin de curé sous la neige. Sœur Odeline y a pris ses quartiers comme si elle y avait toujours vécu : elle a déjà réorganisé les placards, et les casseroles pendent désormais par taille. Le curé Vidal la laisse faire, avec la tête d'un homme qui a renoncé à quelque chose.",
+      { if: { not: { has: "lise:connue" } }, text: "Jeanne est assise à la table de la cuisine, devant son ardoise. Elle lève les yeux à ton entrée." },
+      { if: { has: "lise:connue" }, text: "Lise est assise à la table de la cuisine, devant son ardoise. Elle lève les yeux à ton entrée. Ici, personne ne l'appelle par son nom, mais tout le monde le sait, maintenant, sauf le village." },
     ],
     choices: [
       { label: "Demander à Sœur Odeline de te dire la vérité sur Jeanne", hide: { has: "lise:connue" }, if: { conf: "odeline", min: 40 }, why: "Sœur Odeline ne te fait pas encore assez confiance.", to: "H_odeline_aveu_bas" },
@@ -409,14 +409,14 @@ module.exports = {
     ] },
   H_odeline_aveu_bas: { act: "II", title: "Ce que sait Sœur Odeline", place: "village",
     text: [
-      "Sœur Odeline t'emmène dans le jardin, sous la neige, là où le curé lui-même n'entend rien. Elle te raconte : le chien revenu seul, la fille pieds nus dans la neige, les mains en sang, les cheveux brûlés d'un côté. Le frère qui est monté le soir et qui a demandé une fille. Les ciseaux de couture, le registre.",
+      "Sœur Odeline t'emmène dans le jardin, sous la neige, hors de portée des oreilles du curé lui-même. Elle te raconte : le chien revenu seul, la fille pieds nus dans la neige, les mains en sang, les cheveux brûlés d'un côté. Le frère monté le soir, qui demandait une fille. Les ciseaux de couture, le registre.",
       "« Elle s'appelle Lise Hollier, dit-elle. Et je ne sais toujours pas si c'est de vous qu'elle a peur, ou de lui. Mais elle vous a laissé une poupée de paille, et elle ne l'a fait pour personne d'autre. »",
     ],
     fx: { flag: ["lise:connue", "odeline:confie"], ep: ["histoire", 3000] },
     choices: [{ back: "V_presbytere" }] },
   V_lise_ardoise: { act: "II", title: "L'ardoise", place: "village",
     text: [
-      "Tu t'assieds en face d'elle. Tu te tais. Elle non plus. Le curé fait du bruit avec des casseroles, dans l'arrière-cuisine, exprès, pour vous laisser seuls sans en avoir l'air.",
+      "Tu t'assieds en face d'elle. Vous gardez le silence tous les deux. Dans l'arrière-cuisine, le curé remue des casseroles avec application : c'est sa façon de vous laisser seuls sans en avoir l'air.",
       "Au bout d'un long moment, Lise efface son ardoise avec sa manche. Elle écrit, lentement, en lettres maladroites et appliquées :",
       { if: { has: "jeanne:foin" }, text: "*TU TENAIS LA LANTERNE POUR LE VEAU.*" },
       { if: { not: { has: "jeanne:foin" } }, text: "*TU DORMAIS DANS LE FOIN.*" },
@@ -429,29 +429,29 @@ module.exports = {
     ] },
   V_lise_veau: { act: "II", title: "Le veau", place: "village",
     text: [
-      "Lise ouvre de grands yeux. Puis, pour la première fois depuis que tu la connais, elle sourit. C'est un sourire minuscule, de travers, qui ne dure pas.",
-      "Elle écrit : *C'ÉTAIT UNE GÉNISSE.* Puis elle efface, et elle pose sa main sur la table, à côté de la tienne. Pas dessus. À côté.",
+      "Lise ouvre de grands yeux. Puis, pour la première fois depuis que tu la connais, elle sourit. Un sourire minuscule, de travers, qui dure le temps d'un battement de cils.",
+      "Elle écrit : *C'ÉTAIT UNE GÉNISSE.* Puis elle efface, et elle pose sa main sur la table, à côté de la tienne. Tout contre, sans la toucher.",
     ],
     choices: [{ back: "V_presbytere" }] },
   V_lise_honnete: { act: "II", title: "Je voudrais", place: "village",
-    text: ["Lise te regarde longtemps. Puis elle hoche la tête, une fois, comme pour dire que c'est une réponse acceptable. Elle reprend la craie, et elle dessine une étable, une vache couchée, et un bonhomme qui tient une lanterne. Elle tourne l'ardoise vers toi. *TOI*, écrit-elle dessous."],
+    text: ["Lise te regarde longtemps. Puis elle hoche la tête, une fois : la réponse est acceptable. Elle reprend la craie et dessine une étable, une vache couchée, et un bonhomme qui tient une lanterne. Elle tourne l'ardoise vers toi. *TOI*, écrit-elle dessous."],
     choices: [{ back: "V_presbytere" }] },
   V_lise_mensonge: { act: "II", title: "Tout", place: "village",
-    text: ["Lise te regarde. Elle efface l'ardoise, lentement, avec sa manche, jusqu'à ce qu'il ne reste plus une trace. Puis elle se lève, et elle va s'asseoir près du poêle, le dos tourné. Elle sait, elle, ce dont tu ne te souviens pas. Elle sait que tu mens."],
+    text: ["Lise te regarde. Elle efface l'ardoise, lentement, avec sa manche, jusqu'à la dernière trace de craie. Puis elle se lève et va s'asseoir près du poêle, le dos tourné. Elle sait, elle, ce que ta mémoire a perdu. Elle sait que tu mens."],
     choices: [{ back: "V_presbytere" }] },
   V_lise_carnet: { act: "II", title: "La rose des vents", place: "village",
     text: [
       "Tu ouvres ton carnet devant elle, à la page des Combes. Elle se penche. Elle voit, dans la marge, la rose des vents au crayon, le petit bonhomme avec sa chaîne, et son propre nom, *Lise*, de sa propre main.",
-      "Elle pose le doigt dessus. Elle reste comme ça très longtemps. Puis elle prend le crayon que tu lui tends, et sous la rose des vents, à côté du N, du S, de l'E, de l'O, elle ajoute une cinquième lettre, au milieu, là où se croisent les branches : *M*. Et elle entoure le M, deux fois, si fort que la mine casse.",
-      "Le sens t'en échappe. Elle, si.",
+      "Elle pose le doigt dessus et le laisse là très longtemps. Puis elle prend le crayon que tu lui tends, et sous la rose des vents, à côté du N, du S, de l'E, de l'O, elle ajoute une cinquième lettre, au milieu, là où se croisent les branches : *M*. Et elle entoure le M, deux fois, si fort que la mine casse.",
+      "Le sens t'en échappe. Elle le connaît, elle.",
     ],
     fx: { conf: { lise: 15 }, flag: "lise:m", ep: ["histoire", 2000] },
     choices: [{ back: "V_presbytere" }] },
   V_lise_toit: { act: "II", title: "Le toit", place: "village",
     text: [
-      "Tu lui poses la question doucement. Tu lui dis qu'elle n'est pas obligée de répondre. Qu'elle peut effacer l'ardoise à tout moment.",
+      "Tu lui poses la question doucement. Tu lui dis qu'elle est libre de répondre ou de se taire. Qu'elle peut effacer l'ardoise à tout moment.",
       "Lise prend la craie. Elle dessine la maison, le toit, la cheminée, comme à l'hospice, cent fois. L'homme sur le toit, avec sa lanterne. Puis, cette fois, elle ajoute des détails : une barbe, en petits traits serrés. Une hache passée dans la ceinture. Et dans sa main libre, quelque chose de carré, de mou, un sac, qu'il enfonce dans la cheminée.",
-      "Elle pose la craie. Elle ne regarde pas l'ardoise. Elle te regarde, toi. Elle a les lèvres qui tremblent, comme quelqu'un qui va parler. Puis elle les serre.",
+      "Elle pose la craie. Elle laisse l'ardoise et te regarde, toi. Ses lèvres tremblent, comme celles de quelqu'un qui va parler. Puis elle les serre.",
     ],
     fx: { quest: "V_lise", flag: ["lise:dessin", "lise:barbe"], item: "ardoise", conf: { lise: 10 }, ep: ["histoire", 5000] },
     choices: [
@@ -459,7 +459,7 @@ module.exports = {
       { label: "« C'est ton oncle ? »", fx: { conf: { lise: -10 }, flag: "lise:presse" }, to: "V_lise_presse" },
     ] },
   V_lise_presse: { act: "II", title: "Trop tôt", place: "village",
-    text: ["Lise se lève si brusquement que sa chaise tombe. Elle sort de la cuisine en courant, et tu entends la porte de sa chambre claquer, puis le verrou. Sœur Odeline te regarde, de l'arrière-cuisine, et secoue la tête. Elle t'avait dit : pas encore."],
+    text: ["Lise se lève si brusquement que sa chaise tombe. Elle sort de la cuisine en courant ; la porte de sa chambre claque, puis le verrou. De l'arrière-cuisine, Sœur Odeline te regarde et secoue la tête. Elle t'avait prévenu : pas encore."],
     choices: [{ back: "V_presbytere" }] },
   V_lise_monter: { act: "II", title: "Les Combes", place: "village",
     text: [
@@ -471,7 +471,7 @@ module.exports = {
   // ------------------------------------------------------------------ the wash-house, Marthe Gaudry
   V_lavoir: { act: "II", title: "Le lavoir", place: "village", backName: "le lavoir",
     text: [
-      "Un lavoir couvert, au bord du torrent, où l'eau fume dans le froid. Quatre femmes battent le linge, à genoux sur des planches. Des piles de toile grise attendent le long du mur, des sacs, des dizaines de sacs, marqués au pochoir : C. P.",
+      "Un lavoir couvert, au bord du torrent, où l'eau fume dans le froid. Quatre femmes battent le linge, à genoux sur des planches. Le long du mur attendent des piles de toile grise, des sacs, des dizaines de sacs, marqués au pochoir : C. P.",
       "« Les sacs de la Compagnie, dit l'une sans s'arrêter de battre. On les lave, on les rend. Trois deniers les dix. »",
     ],
     choices: [
@@ -481,8 +481,8 @@ module.exports = {
     ] },
   V_marthe: { act: "II", title: "Marthe", place: "village",
     text: [
-      "Marthe Gaudry est une femme de quarante ans, rouge, solide, les avant-bras crevassés. Elle se relève quand tu dis son nom, s'essuie les mains, et attend.",
-      "Tu lui dis que son père est mort. À l'hospice, il y a trois jours, sans souffrir. Elle hoche la tête. Elle ne pleure pas. Tu lui tends la lettre.",
+      "Marthe Gaudry est une femme de quarante ans, rouge, solide, les avant-bras crevassés. Elle se relève quand tu prononces son nom, s'essuie les mains, et attend.",
+      "Tu lui apprends que son père est mort. À l'hospice, il y a trois jours, sans souffrir. Elle hoche la tête, les yeux secs. Tu lui tends la lettre.",
     ],
     choices: [
       { label: "Lui donner la lettre, et t'en aller", fx: { drop: "lettre_gaudry", quest: "V_lettre", flag: ["lettre:remise", "lettre:sort"], fac: { village: 10 }, ep: ["seance", 2000] }, to: "V_marthe_lettre" },
@@ -490,14 +490,14 @@ module.exports = {
     ] },
   V_marthe_lettre: { act: "II", title: "La lettre", place: "village",
     text: [
-      "Marthe prend la lettre. Elle la regarde, la retourne, voit la cire de chandelle, l'écriture. Elle la glisse dans son corsage, sans l'ouvrir. « Je la lirai ce soir, dit-elle. Seule. » Puis elle te regarde, vraiment, pour la première fois. « Vous êtes l'arpenteur. Celui qu'on dit. »",
-      "Elle se remet à genoux et reprend son battoir. Puis elle s'arrête. « Si vous voulez savoir quelque chose sur les sacs, dit-elle sans se retourner, demandez-moi. Je compte tout ce qui passe ici. »",
+      "Marthe prend la lettre. Elle la regarde, la retourne, voit la cire de chandelle, l'écriture. Elle la glisse dans son corsage, cachet intact. « Je la lirai ce soir, dit-elle. Seule. » Puis elle te regarde, vraiment, pour la première fois. « Vous êtes l'arpenteur. Celui qu'on dit. »",
+      "Elle se remet à genoux et reprend son battoir. Puis elle s'arrête. « Si vous voulez savoir quelque chose sur les sacs, dit-elle, le dos tourné, demandez-moi. Je compte tout ce qui passe ici. »",
     ],
     choices: [{ back: "V_lavoir" }] },
   V_marthe_lue: { act: "II", title: "Ce qu'il n'a pas su dire", place: "village",
     text: [
-      "Marthe ne sait pas lire. Elle te tend la lettre, et tu lui lis, à voix basse, à l'écart, sous l'auvent. C'est court. Un vieil homme qui demande pardon d'être parti, d'avoir bu, d'avoir frappé une fois, une seule, la mère de Marthe, et d'être resté au loin, par honte. Qui dit qu'il l'a vue, une fois, au marché, il y a dix ans, et qu'il a passé son chemin. Qui dit : *tu avais ses mains*.",
-      "Marthe écoute jusqu'au bout. Puis elle reprend la lettre, la plie, et la garde serrée contre elle. Elle pleure en silence, les joues mouillées, comme on pleure quand on a l'habitude de travailler en même temps.",
+      "Marthe est illettrée. Elle te tend la lettre, et tu la lui lis, à voix basse, à l'écart, sous l'auvent. C'est court. Un vieil homme qui demande pardon d'être parti, d'avoir bu, d'avoir frappé une fois, une seule, la mère de Marthe, et d'être resté au loin, par honte. Qui raconte l'avoir vue, une fois, au marché, il y a dix ans, et avoir passé son chemin. Qui dit : *tu avais ses mains*.",
+      "Marthe écoute jusqu'au bout. Puis elle reprend la lettre, la plie et la garde serrée contre elle. Elle pleure en silence, les joues mouillées, comme pleurent les gens habitués à travailler en même temps.",
       "« Merci, dit-elle. Demandez-moi ce que vous voulez. Je compte tout ce qui passe ici. »",
     ],
     choices: [{ back: "V_lavoir" }] },
