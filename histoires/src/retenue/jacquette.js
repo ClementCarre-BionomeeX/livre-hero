@@ -12,6 +12,7 @@ module.exports = {
     choices: [
       { label: "Couper droit devant elle, tous feux éteints", test: { dom: "discretion", diff: -10, label: "Passer dans le noir" }, win: { to: "J_pied", via: "droit" }, lose: { to: "J_octroi_prise" } },
       { label: "Faire le grand tour par la pointe des Hêtres", test: { dom: "nature", diff: 0, label: "Ramer dans la houle" }, win: { to: "J_pied", via: "hetres", fx: { time: 0.5 } }, lose: { to: "J_octroi_prise", via: "hetres" } },
+      { label: "Jeter le sel par-dessus bord, et passer devant elle", if: { second: "J_octroi" }, to: "J_sel_jete" },
     ] },
   J_octroi_prise: { act: A, title: "La barque de l'octroi", place: "lac", fx: { time: 1.5 },
     text: [
@@ -21,7 +22,10 @@ module.exports = {
       "Ils t'abordent. Le plus vieux, Gaudry, te connaît depuis dix ans ; il t'a ratée vingt fois. Ce soir, il sourit. Il compte les sacs.",
       "Ils t'emmènent au poste de l'octroi, au bout du lac, côté Brême, à trois lieues de la digue. Ta barque en remorque.",
     ],
-    choices: [{ label: "Te taire", to: "J_octroi" }] },
+    choices: [
+      { label: "Te taire", to: "J_octroi" },
+      { label: "Proposer à Gaudry sa part du sel", test: { dom: "social", diff: -10, label: "Marchander" }, win: { to: "J_gaudry" }, lose: { to: "J_octroi" } },
+    ] },
   J_octroi: { act: A, title: "Le poste de l'octroi", place: "lac", end: true, fx: { time: 3 },
     text: [
       "Le poste de l'octroi est une cabane de pierre sur un ponton, avec un poêle, un registre, et une cage en bois de chêne où l'on met les fraudeurs jusqu'au matin. Gaudry t'y enferme et se met à écrire ton procès-verbal, en tirant la langue.",
@@ -53,6 +57,7 @@ module.exports = {
     ],
     choices: [
       { label: "Attendre encore", to: "J_attente_longue" },
+      { label: "Repenser à la nuit où le vieux t'a trouvée", hide: { has: "jacquette:souvenir" }, to: "J_souvenir" },
       { label: "Écrire un mot à la craie, laisser la pierre bleue, et partir au-devant par la route", if: { lore: "pierre_bleue" }, to: "J_audevant", fx: { item: "mot_jacquette" } },
       { label: "Partir au-devant par la berge des Aulnes", if: { lore: "cle" }, to: "J_aulnes" },
       { label: "Monter chez le vieux, et descendre au pointeau avec lui", if: { lore: "galerie" }, to: "J_galerie_monte" },
@@ -77,14 +82,15 @@ module.exports = {
     ] },
 
   // ------------------------------------------------------------------ to meet the parcel
-  J_audevant: { act: A, title: "Au-devant", place: "berge", fx: { time: 2 },
+  J_audevant: { act: A, title: "Au-devant", place: "berge", fx: { time: 0.75 },
     text: [
       "Tu écris à la craie, sur une planche que tu cloues à ta porte : *Partie au-devant. Laisse ce que tu portes sous la pierre bleue.* La pierre bleue, devant ta porte, c'est là que les clients de nuit te laissent leurs commandes depuis six ans.",
       "Tu prends la route de la Digue vers la ville, à grands pas. Dix bornes. Personne. À la dernière, tu vois le pont des Moulins, et la lanterne du guet au milieu, et trois hommes autour.",
-      "Si le paquet a pris ce pont, il est au poste. Tu ne vas pas au poste.",
-      "Tu refais les dix bornes dans l'autre sens. Le vent te gifle. Il est deux heures et demie quand tu revois ta cabane.",
     ],
-    choices: [{ label: "Soulever la pierre bleue", to: "J_pierre" }] },
+    choices: [
+      { label: "Faire demi-tour", to: "J_retour" },
+      { label: "Aller demander au sergent si quelqu'un est passé", to: "J_odon" },
+    ] },
   J_pierre: { act: A, title: "Sous la pierre bleue", place: "berge", fx: { item: "paquet" },
     text: [
       "Sous la pierre bleue, dans le creux de paille, il y a une toile cirée ficelée en croix, longue comme un avant-bras. Elle est froide et humide. Quelqu'un l'a apportée pendant que tu étais sur la route, par l'autre chemin, de l'autre côté de l'eau.",
@@ -100,12 +106,14 @@ module.exports = {
       "Elle ne lâche pas le caillou. Elle te tend le paquet.",
     ],
     choices: [
+      { label: "Lui demander son nom, et ce qu'elle a vu en route", to: "J_maelle_nom" },
       { label: "« Viens avec moi. Il me faut deux bras de plus. »", to: "J_chambre", via: "maelle", fx: { item: "paquet", time: 1.25 } },
       { label: "« Retourne aux Foulons. À deux heures, réveille tout le monde. »", to: "J_chambre", via: "seule", fx: { item: "paquet", flag: "foulons:leves", time: 1.25 } },
     ] },
   J_chambre: { act: A, title: "La roue", place: "digue", fx: { drop: "paquet", time: 1 },
     text: [
       "Tu rames dans le tunnel du canal de fuite, sous la digue, jusqu'à l'escalier de fer. Dans la chambre de la vanne, une lanterne brûle déjà. Le vieux est assis contre le mur.",
+      { if: { has: "jacquette:souvenir" }, text: "Le vieux te regarde arriver. « Tu es venue », dit-il, comme on constate qu'il fait jour." },
       "Il prend la clé de tes mains. Il la tourne, des deux mains, en serrant les dents.",
       { via: "maelle", text: "La courrière prend un rayon. Toi l'autre. Vous poussez." },
       { if: { not: { via: "maelle" } }, text: "Tu prends un rayon. Le vieux s'accroche à celui d'en face, et il pousse avec toi, de tout son corps qui ne pèse plus rien. Vous êtes trois bras, et le troisième tremble." },
@@ -122,7 +130,9 @@ module.exports = {
       "Au pied du mur, en passant, tu regardes l'endroit. Le bouillon brun a baissé. Il sort maintenant au ras de l'eau, plus faible, comme une respiration qui se calme.",
       { if: { has: "foulons:leves" }, text: "Aux Foulons, l'eau est dans les maisons jusqu'aux fenêtres basses. Le quartier est sur le parvis de Saint-Rieul. La courrière en châle gris est au premier rang. Elle t'a vue passer sur l'eau. Elle te fait un signe de la main." },
       { if: { not: { has: "foulons:leves" } }, text: "Aux Foulons, l'eau est dans les maisons jusqu'aux fenêtres basses. Personne n'a été prévenu. Les gens sont sur les toits, aux fenêtres de l'étage. Tu passes la matinée à aller de maison en maison avec ta barque, à charger des enfants, des vieux, une chèvre. Dans la rue du Lavoir, tu ramènes une vieille femme morte dans son fauteuil. Tu ne savais pas son nom." },
-      "L'octroi te cherchera la semaine prochaine pour les dix sacs de sel dans les roseaux. Tu les auras vendus avant.",
+      { if: { all: [{ not: { has: "sel:jete" } }, { not: { has: "gaudry:paye" } }] }, text: "L'octroi te cherchera la semaine prochaine pour les dix sacs de sel dans les roseaux. Tu les auras vendus avant." },
+      { if: { has: "gaudry:paye" }, text: "Gaudry viendra chercher son anguille fumée à la Saint-Martin. Tu la lui fumeras toi-même." },
+      { if: { has: "sel:jete" }, text: "Ton sel dort au fond de la Retenue. Le lac a baissé de trois pieds cette nuit. Il te le rendra peut-être, en sel ou en autre chose." },
       "Le vieux est mort à midi. On te l'a dit sur le quai. Tu as remonté ta barque, et tu es restée assise dedans, sous la pluie, longtemps.",
     ] },
   J_preuve_quai: { act: A, title: "La dame des forges", place: "foulons", fx: { time: 3 },
@@ -165,11 +175,12 @@ module.exports = {
     text: [
       "Tu regardes le bouillon brun sortir du mur. Puis tu fais pivoter ta barque, et tu repasses le canal dans l'autre sens.",
       "Le paquet du vieux, les Foulons, la ville, le Conseil : rien de tout ça ne t'a jamais rien donné. Un jour d'octroi, un procès-verbal, une cage. Tu as dix sacs de sel et une barque. De l'autre côté du lac, il y a Brême, et les marchands de Brême paient comptant.",
-      "Tu rames toute la nuit, contre le vent, vers la rive nord. Tu arrives au petit jour, épuisée, sur la grève de Saint-Vaast, sous la pluie.",
+      "Tu rames contre le vent, vers la rive nord. La digue rapetisse derrière toi, avec sa petite lumière.",
     ],
-    choices: [{ label: "Regarder le lac", to: "J_large" }] },
+    choices: [{ label: "Ramer", to: "J_demitour_lac" }] },
   J_large: { act: A, title: "Le large", place: "lac", end: true, fx: { time: 1 },
     text: [
+      "Tu arrives avant le jour, épuisée, sur la grève de Saint-Vaast, sous la pluie. Tu tires ta barque sur les galets.",
       "Vers cinq heures et demie, le lac bouge. Toute sa surface frémit d'un coup, comme la peau d'un cheval. Puis il se met à couler. Il coule vers le sud, vers la digue, vers la vallée. Le long de la grève de Saint-Vaast, l'eau recule d'un pas, de dix pas, de cent, et laisse la vase nue, avec des poissons qui sautent dedans.",
       "Au bout du lac, là où était la digue, une brume brune monte du sol.",
       "Le bruit arrive après, longtemps après, un grondement qui roule dans toute la vallée et fait s'envoler les corbeaux de la forêt.",
