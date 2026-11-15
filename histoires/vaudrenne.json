@@ -619,7 +619,7 @@
        "seen": "V_auberge"
       }
      },
-     "text": "La place est vide, à l'eau près. Les auvents du marché dégouttent sur des tréteaux nus. À l'enseigne de l'Anguille, un poisson de fer blanc grince au bout de sa chaîne."
+     "text": "La place est déserte, livrée à la pluie. Les auvents du marché dégouttent sur des tréteaux nus. À l'enseigne de l'Anguille, un poisson de fer blanc grince au bout de sa chaîne."
     },
     {
      "if": {
@@ -689,7 +689,7 @@
      "if": {
       "seen": "V_bailli"
      },
-     "text": "Elle jette un coup d'œil à ton manteau, encore trempé de la pluie de l'hôtel du bailli, et se tait. Son silence se voit comme une enseigne."
+     "text": "Elle jette un coup d'œil à ton manteau, encore trempé de la pluie de l'hôtel du bailli, et se tait. Elle se tait ostensiblement."
     }
    ],
    "choices": [
@@ -1376,7 +1376,7 @@
    "place": "vaudrenne",
    "text": [
     "Tu laisses son visage de côté et tu regardes ses gants. Au bout de l'index droit, ils portent une tache de poussière grise et fine, la poussière des caves. Et quand il dit *les tanneurs*, sa voix reste égale, mais ses doigts se referment un instant sur la plume.",
-    "Le désordre lui fait peu peur. Il le prépare."
+    "Il ne craint pas le désordre. Il le prépare."
    ],
    "choices": [
     {
@@ -1589,7 +1589,7 @@
    "charniere": true,
    "text": [
     "La salle du treuil est ronde, basse, pleine d'un grondement qui monte par le plancher. Au milieu trône la grande roue de chêne et de fer, avec sa serrure, une gueule de fer noir.",
-    "Vous êtes tous là, les voyageurs du bac. Et derrière vous, dans l'escalier, d'autres arrivent : des tanneurs, des meuniers, et des sergents qui ignorent désormais pour qui ils sont.",
+    "Vous êtes tous là, les voyageurs du bac. Et derrière vous, dans l'escalier, d'autres arrivent : des tanneurs, des meuniers, et des sergents qui ne savent plus dans quel camp ils sont.",
     {
      "if": {
       "has": "monde:joss_libre"
@@ -1764,7 +1764,7 @@
        }
       ]
      },
-     "text": "Le Bas-Port a dormi sans être prévenu. Ermengarde, dans la chapelle, prépare déjà son burin."
+     "text": "Personne n'avait prévenu le Bas-Port. Ermengarde, dans la chapelle, prépare déjà son burin."
     },
     {
      "if": {

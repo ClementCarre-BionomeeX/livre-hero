@@ -626,7 +626,7 @@
    "place": "vellane",
    "text": [
     "Le coq de Dame Héloïse chante faux, comme tous les matins, et comme tous les matins tu te réveilles avant lui avec la même pensée : *aujourd'hui, faire mieux que {autre}*.",
-    "La chambre des pages est un grenier sous les ardoises : deux paillasses, un coffre, une lucarne. Sur l'autre paillasse, {autre} lace déjà ses bottes, le dos tourné, avec l'application exaspérante de quelqu'un qui tient à être prêt le premier. Vous vous habillez en silence. Votre dernier bonjour date de la Toussaint, soit six semaines et deux jours, d'après ton compte.",
+    "La chambre des pages est un grenier sous les ardoises : deux paillasses, un coffre, une lucarne. Sur l'autre paillasse, {autre} lace déjà ses bottes, le dos tourné, avec l'application exaspérante de quelqu'un qui tient à être prêt le premier. Vous vous habillez en silence. Votre dernier bonjour date de la Toussaint. Tu tiens le compte des jours.",
     {
      "if": {
       "has": "passe:noble"
@@ -1155,7 +1155,7 @@
    },
    "text": [
     "Messire Aubert est couché tout habillé sur son lit, gris, les lèvres bleues. Dame Héloïse lui tient la main. Gauvard est parti avant l'aube, dit-on, « appelé à Morne pour une affaire urgente ».",
-    "Vous êtes là tous les deux, au pied du lit, {autre} et toi. Pour la première fois depuis la Toussaint, vous vous tenez épaule contre épaule, et vous êtes l'un et l'autre trop inquiets pour le remarquer.",
+    "Vous êtes là tous les deux, au pied du lit, {autre} et toi. Pour la première fois depuis la Toussaint, vous vous tenez épaule contre épaule, et vous ne vous en apercevez même pas.",
     {
      "if": {
       "has": "monde:coupe_renversee"

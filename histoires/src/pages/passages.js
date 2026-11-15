@@ -7,7 +7,7 @@ module.exports = {
   P_reveil: { act: "I", title: "Sous les combles", place: "vellane",
     text: [
       "Le coq de Dame Héloïse chante faux, comme tous les matins, et comme tous les matins tu te réveilles avant lui avec la même pensée : *aujourd'hui, faire mieux que {autre}*.",
-      "La chambre des pages est un grenier sous les ardoises : deux paillasses, un coffre, une lucarne. Sur l'autre paillasse, {autre} lace déjà ses bottes, le dos tourné, avec l'application exaspérante de quelqu'un qui tient à être prêt le premier. Vous vous habillez en silence. Votre dernier bonjour date de la Toussaint, soit six semaines et deux jours, d'après ton compte.",
+      "La chambre des pages est un grenier sous les ardoises : deux paillasses, un coffre, une lucarne. Sur l'autre paillasse, {autre} lace déjà ses bottes, le dos tourné, avec l'application exaspérante de quelqu'un qui tient à être prêt le premier. Vous vous habillez en silence. Votre dernier bonjour date de la Toussaint. Tu tiens le compte des jours.",
       { if: { has: "passe:noble" }, text: "Chez ton père, on avait des valets pour lacer les bottes. Ici, on t'a appris à lacer celles des autres. Tu as fini par classer cette leçon parmi les moins pénibles du métier." },
       { if: { has: "passe:forge" }, text: "Tu as encore dans les paumes la corne de la forge. Messire dit que c'est la seule armure qu'on garde toute sa vie." },
       { if: { has: "passe:cloitre" }, text: "Au monastère, on se levait à matines, dans le noir. Ici, au moins, il y a le coq. Faux, mais vivant." },
@@ -181,7 +181,7 @@ module.exports = {
     fx: { ep: ["histoire", 4000], item: "onguent" },
     text: [
       "Messire Aubert est couché tout habillé sur son lit, gris, les lèvres bleues. Dame Héloïse lui tient la main. Gauvard est parti avant l'aube, dit-on, « appelé à Morne pour une affaire urgente ».",
-      "Vous êtes là tous les deux, au pied du lit, {autre} et toi. Pour la première fois depuis la Toussaint, vous vous tenez épaule contre épaule, et vous êtes l'un et l'autre trop inquiets pour le remarquer.",
+      "Vous êtes là tous les deux, au pied du lit, {autre} et toi. Pour la première fois depuis la Toussaint, vous vous tenez épaule contre épaule, et vous ne vous en apercevez même pas.",
       { if: { has: "monde:coupe_renversee" }, text: "Il a bu une seule gorgée de trop, et il est lucide, par moments. Il ouvre les yeux, vous reconnaît, essaie de sourire." },
       { if: { not: { has: "monde:coupe_renversee" } }, text: "Il a tout bu. Il délire, il parle de batailles d'il y a trente ans, et puis, d'un coup, très clairement, d'autre chose." },
       "« La Pierre-Veille, dit-il. Gauvard. Il croit qu'il pourra commander le ver. Personne ne commande Ossaroth. Si la Pierre quitte son autel, la montagne s'ouvre, et le comté brûle. »",

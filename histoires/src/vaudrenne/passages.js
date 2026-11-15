@@ -14,7 +14,7 @@ module.exports = {
 
   V_place: { act: "I", title: "La place du Marché", place: "vaudrenne",
     text: [
-      { if: { not: { seen: "V_auberge" } }, text: "La place est vide, à l'eau près. Les auvents du marché dégouttent sur des tréteaux nus. À l'enseigne de l'Anguille, un poisson de fer blanc grince au bout de sa chaîne." },
+      { if: { not: { seen: "V_auberge" } }, text: "La place est déserte, livrée à la pluie. Les auvents du marché dégouttent sur des tréteaux nus. À l'enseigne de l'Anguille, un poisson de fer blanc grince au bout de sa chaîne." },
       { if: { seen: "V_auberge" }, text: "La place, encore. Le poisson de fer de l'Anguille grince. La pluie persiste dans son idée." },
       "D'ici, on embrasse tout d'un regard : la chapelle des Noyés à l'angle, ses murs verts de mousse ; la maison de l'éclusier au bout du quai haut, volets clos ; l'hôtel du bailli, seule façade de la place vitrée à chaque fenêtre ; et l'escalier des Tanneurs, qui plonge vers le Bas-Port.",
       { if: { has: "monde:cle_bailli" }, text: "Une lanterne verte brûle au balcon du bailli. Quelqu'un, dit-on, lui a porté la clé des vannes." },
@@ -34,7 +34,7 @@ module.exports = {
     text: [
       "Une salle basse, des poutres noires, un feu qui fume parce que le vent rabat dans la cheminée. Des meuniers en tablier blanc occupent une table, des tanneurs aux mains brunes une autre, et entre les deux s'étend un espace vide que tout le monde contourne.",
       "Mahaut est une femme sèche aux cheveux tirés, qui pose les bols en douceur et rend la monnaie d'un seul geste. « Paillasse au grenier, soupe, pain. Pour le reste, on verra. Vous êtes au moins le troisième étranger de la soirée. »",
-      { if: { seen: "V_bailli" }, text: "Elle jette un coup d'œil à ton manteau, encore trempé de la pluie de l'hôtel du bailli, et se tait. Son silence se voit comme une enseigne." },
+      { if: { seen: "V_bailli" }, text: "Elle jette un coup d'œil à ton manteau, encore trempé de la pluie de l'hôtel du bailli, et se tait. Elle se tait ostensiblement." },
     ],
     choices: [
       { label: "Demander à Mahaut où est passé l'éclusier", to: "V_auberge_joss", hide: { seen: "V_auberge_joss" } },
@@ -236,7 +236,7 @@ module.exports = {
   V_bailli_lu: { act: "I", title: "Les gants", place: "vaudrenne",
     text: [
       "Tu laisses son visage de côté et tu regardes ses gants. Au bout de l'index droit, ils portent une tache de poussière grise et fine, la poussière des caves. Et quand il dit *les tanneurs*, sa voix reste égale, mais ses doigts se referment un instant sur la plume.",
-      "Le désordre lui fait peu peur. Il le prépare.",
+      "Il ne craint pas le désordre. Il le prépare.",
     ],
     choices: [
       { label: "Accepter quand même, pour être là où il le veut", fx: { gold: 20, item: "bourse_morel", flag: "paye_bailli" }, to: "V_bailli_oui" },
@@ -299,7 +299,7 @@ module.exports = {
   V_treuil: { act: "II", title: "Le treuil des vannes hautes", place: "vaudrenne", charniere: true,
     text: [
       "La salle du treuil est ronde, basse, pleine d'un grondement qui monte par le plancher. Au milieu trône la grande roue de chêne et de fer, avec sa serrure, une gueule de fer noir.",
-      "Vous êtes tous là, les voyageurs du bac. Et derrière vous, dans l'escalier, d'autres arrivent : des tanneurs, des meuniers, et des sergents qui ignorent désormais pour qui ils sont.",
+      "Vous êtes tous là, les voyageurs du bac. Et derrière vous, dans l'escalier, d'autres arrivent : des tanneurs, des meuniers, et des sergents qui ne savent plus dans quel camp ils sont.",
       { if: { has: "monde:joss_libre" }, text: "Joss pose la main sur la roue, comme on la pose sur l'encolure d'une bête. « Si on ouvre, les prés du Haut boivent, les moulins chôment un mois, le bailli perd sa récolte. Si on n'ouvre pas, dans une heure le Bas-Port est sous l'eau jusqu'aux toits. C'est tout. C'est toujours tout. »" },
       { if: { not: { has: "monde:joss_libre" } }, text: "Ici, chacun ignore le mécanisme exact de cette roue. Mais tout le monde a vu l'encoche rouge sur les murs du Bas-Port." },
       { if: { has: "monde:cle_bailli" }, text: "La serrure est fermée, et la clé est restée à la ceinture de Ravel, en bas. Il faudra forcer." },
@@ -335,7 +335,7 @@ module.exports = {
       { if: { has: "monde:vannes_ouvertes" }, text: "Au matin, la pluie s'arrête, comme si on l'avait payée pour ça. Les prés du Haut sont un lac gris où flottent des gerbes et des piquets de clôture. Les trois roues des moulins ont de l'eau jusqu'à l'essieu. Le Bas-Port a les pieds mouillés, et c'est tout : l'eau s'est arrêtée à un pied sous l'encoche des sacs de Ninon." },
       { if: { has: "monde:vannes_fermees" }, text: "Au matin, la pluie s'arrête. Les prés du Haut sont verts et luisants, intacts, et les trois roues des moulins se remettent à tourner avant midi. Le Bas-Port, lui, a de l'eau jusqu'aux fenêtres de l'étage. Sur les murs des tanneries, une deuxième encoche viendra s'ajouter à la rouge." },
       { if: { all: [{ has: "monde:vannes_fermees" }, { has: "monde:basport_prevenu" }] }, text: "Les vieux et les petits ont passé la nuit dans la chapelle des Noyés, au sec, et Ermengarde aura cette année le burin au repos. Bastien a perdu ses peaux et sa maison. Il a gardé sa fille." },
-      { if: { all: [{ has: "monde:vannes_fermees" }, { not: { has: "monde:basport_prevenu" } }] }, text: "Le Bas-Port a dormi sans être prévenu. Ermengarde, dans la chapelle, prépare déjà son burin." },
+      { if: { all: [{ has: "monde:vannes_fermees" }, { not: { has: "monde:basport_prevenu" } }] }, text: "Personne n'avait prévenu le Bas-Port. Ermengarde, dans la chapelle, prépare déjà son burin." },
       { if: { has: "monde:joss_libre" }, text: "Joss Ferrand note la hauteur de l'eau dans son registre, comme tous les matins depuis trente ans. Puis, sous la ligne, il écrit autre chose, et il porte le registre au juge du roi, à Montclair, par le premier bac." },
       { if: { all: [{ not: { has: "monde:joss_libre" } }, { has: "monde:joss_laisse" }] }, text: "Quelqu'un finit par se souvenir de Joss. On le trouve dans la cave des chanoines, vivant, furieux. Le bailli jure qu'il n'en savait rien." },
       { if: { has: "paye_bailli" }, text: "Le bailli te fait savoir, par son valet, qu'il te remercie. De quoi, tu le sauras plus tard." },
