@@ -29,7 +29,7 @@ Object.assign(P, {
       { with: "salome", if: { has: "ivm:heure_juste" }, text: "Tu lui dis la ligne gravée au dos de l'astrolabe : la mer se tait à Sorne une demi-heure plus tard qu'à la Salve. Salomé corrige sa table d'un trait d'ongle. « Une demi-heure de plus au bout, dit-elle. Je la garde pour la remontée, pas pour l'or. »" },
       { without: "salome", if: { has: "ivm:heure_juste" }, text: "Sous la dernière ligne de la table, tu ajoutes d'un trait d'ongle la demi-heure du sel, gravée au dos de l'astrolabe. Tu la gardes pour la remontée." },
       { with: "lison", text: "Lison se tient debout à la proue, les bras croisés, et regarde la ville de ses ancêtres sortir de la mer. Elle a les yeux secs. « Ma grand-mère m'a chanté Sorne tous les soirs pendant quinze ans, dit-elle. Les rues, les portes, le nom des fontaines. Je {{oreille#vn_lison_sorne|croyais que c'étaient des berceuses|savais déjà que je viendrais ici un jour pour mourir, ou pour la venger}}. »" },
-      { with: "gildas", text: "Frère Gildas a joint les mains. Il ne prie pas : il regarde, les lèvres serrées, comme on regarde un visage qu'on a connu. « Les frères du Mont disent qu'aucun Taiseur n'est entré dans Sorne depuis cent ans, dit-il. Je ne sais pas si c'est vrai. »" },
+      { with: "gildas", text: "Frère Gildas a joint les mains, et il regarde, les lèvres serrées, comme on regarde un visage qu'on a connu. « Les frères du Mont disent qu'aucun Taiseur n'est entré dans Sorne depuis cent ans, dit-il. Je ne sais pas si c'est vrai. »" },
       { with: "tibere", text: "Tibère se gratte la moustache. « Au Guet, on racontait que les noyés de Sorne sortaient à la Grande Basse pour compter leurs sous. J'ai toujours trouvé que c'était une histoire de sergent. » Il regarde la galère dans sa place. « Je {{oreille#vn_tibere_noyes|vais finir par la croire|ai promis à Rosalie de revenir, et je n'ai jamais tenu une promesse de ma vie}}. »" },
       { with: "fauvette", text: "Fauvette s'est perchée sur le plat-bord, accroupie, les yeux brillants. « Des toits, souffle-t-elle. Une ville entière de toits, et personne dessus. » Puis, plus bas : « Ça glisse, les coquillages ? »" },
       "Tu as {{miroir#vn_debut_miroir|attendu cette nuit pour rendre la Charte à ceux qu'on a volés|attendu cette nuit parce que, depuis la mort d'Odeline, chercher est la seule chose qui te tienne debout}}.",
@@ -46,7 +46,7 @@ Object.assign(P, {
       { after: "lothaire:allie", text: "Lothaire Brunel descend de ta barque le dernier, ses gants gris à la main, en regardant ses bottes s'enfoncer dans la vase avec dégoût. Il a juré de t'aider contre Corisande. Il regarde le rempart comme on regarde le coffre de quelqu'un d'autre." },
       { if: { not: { any: [LIBRE, { has: "lothaire:allie" }] } }, text: "À l'est de la grève, une barge de la Banque est tirée sur la vase, large et plate, avec la bannière noire aux besants d'or roulée sur sa hampe. Une douzaine d'hommes en descendent avec des pelles, des cordes et des pinces. Sans Lothaire, ils ont l'air de déménageurs envoyés dans un cimetière." },
       { before: "prevot:dejoue", text: "Au large, dans l'ouest, trois coques plus hautes que les autres ont jeté l'ancre là où l'eau reste profonde. Des chaloupes en descendent, chargées d'hommes, et la lune accroche des cuirasses : des soldats d'Aveline. Le prévôt a vendu au duc l'heure de la Grande Basse avec le reste." },
-      { after: "prevot:dejoue", text: "Au large, la mer est vide jusqu'à l'horizon. Le duc d'Aveline ne sait rien de cette nuit : le prévôt n'a rien pu lui vendre." },
+      { after: "prevot:dejoue", text: "Au large, la mer est vide jusqu'à l'horizon. Le duc d'Aveline ignore tout de cette nuit : le prévôt a échoué à la lui vendre." },
       { if: { has: "basse:equipage" }, text: "Tes gens tirent la barque au-dessus de la ligne des algues et plantent une perche avec une lanterne au bout. « On tient la grève, dit le gros homme. On allume un feu si quelqu'un vient. On souffle dans la conque si la mer revient. »" },
       { if: { has: "basse:taiseurs" }, text: "Les trois Taiseurs ont tiré leur barque à côté de la tienne. L'Aîné marche jusqu'au rempart et pose la paume à plat sur la pierre, longtemps. Puis il revient vers toi et dit, sans te regarder : « La ville {{oreille#vn_aine_ville|est grande, il faut se hâter|a sept portes qui parlent, et je ne connais les mots que de deux}}. »" },
       { with: "fauvette", text: "Fauvette ramasse un coquillage sur la grève, le retourne, le jette. « Ils ont tous la même forme, dit-elle. Les toits, tout à l'heure. Ce sont des huîtres. Des millions d'huîtres. » Elle a l'air presque vexée qu'on ne puisse pas les voler toutes." },
@@ -60,7 +60,7 @@ Object.assign(P, {
     fx: { flag: "vn:guet", ep: ["perso", 400] },
     text: [
       "Tu t'accroupis derrière l'ancre géante et tu regardes. Chacun est pressé, chacun a ses ordres, et ton ombre se perd dans celle de l'ancre.",
-      { if: LIBRE, text: "Les hommes de Lothaire ne vont pas vers la porte de Mer. Ils longent le rempart vers l'est, à la file, avec une échelle de corde et un tonneau qu'ils portent à deux. Lothaire marche en tête, le cornet jumeau à l'oreille, en s'arrêtant tous les vingt pas pour écouter le mur. Il passera par le haut. Il aura besoin d'une heure pour trouver un endroit sûr, peut-être moins." },
+      { if: LIBRE, text: "Les hommes de Lothaire laissent la porte de Mer de côté et longent le rempart vers l'est, à la file, avec une échelle de corde et un tonneau qu'ils portent à deux. Lothaire marche en tête, le cornet jumeau à l'oreille, en s'arrêtant tous les vingt pas pour écouter le mur. Il passera par le haut. Il aura besoin d'une heure pour trouver un endroit sûr, peut-être moins." },
       { if: { not: LIBRE }, text: "Les hommes de la Banque se partagent la grève à grands cris. Celui qui commande est un homme carré, une chaîne d'argent sur la poitrine : Léandre Escoffe, le capitaine des gardes de Corisande. Il crie à ses gens de chercher {{oreille#vn_berald_or|la Charte avant toute chose|l'or d'abord, la Charte si on la croise, et de ne rien rapporter à la vieille de ce qui tient dans une poche}}." },
       { before: "prevot:dejoue", text: "Les chaloupes d'Aveline accostent plus au sud, du côté où le rempart s'est effondré en pente douce. Les soldats sautent dans la vase jusqu'aux genoux et se forment en carré, piques droites, comme sur un champ de foire. Un officier crie des ordres en langue du nord. Ils vont vers le port des galères : tu vois de là-bas la mâture des épaves." },
       "La barge de la Banque {{pie#vn_barge|est lourdement chargée de pelles, de barres et de cordages|est lourdement chargée, et sous la bâche il y a des barils de poix et de salpêtre : de quoi faire sauter une porte, ou un mur entier}}.",
@@ -98,7 +98,7 @@ Object.assign(P, {
       { if: { is: { vn_porte_mer: "taiseurs" } }, text: "L'Aîné s'avance, retire son capuchon de dentelle et approche sa bouche de la fente, au coin des lèvres de bronze. Il dit quelque chose que tu entends sans le comprendre : des mots de tous les jours, posés dans un ordre étrange, comme un inventaire. Puis il recule, et il te regarde enfin. « Mon grand-père me l'a appris, dit-il. Je ne l'avais jamais dit. »" },
       "D'abord rien. Puis, dans la tour de gauche, un bruit de chaîne qui se dévide, un grincement qui monte dans les pierres, et la herse s'arrache du sable avec un bruit de succion. Elle monte d'une toise, de deux, puis s'arrête, et l'eau de mer qui dormait dans ses barreaux tombe en pluie sur le seuil.",
       "Sous la voûte, des algues pendent comme des rideaux. Au bout, la ville.",
-      { with: "lison", text: "Lison passe la première, sans attendre, et touche du plat de la main le mur de la voûte en passant, comme on touche l'épaule de quelqu'un qu'on retrouve. Elle ne dit rien. Tu vois ses lèvres bouger." },
+      { with: "lison", text: "Lison passe la première, sans attendre, et touche du plat de la main le mur de la voûte en passant, comme on touche l'épaule de quelqu'un qu'on retrouve. Elle se tait, et pourtant ses lèvres bougent." },
       { with: "gildas", text: "Frère Gildas regarde la herse levée un long moment. « Trois cents ans, dit-il. Et elle obéit encore. » Il passe sous la voûte la tête baissée." },
     ],
     choices: [
@@ -198,7 +198,7 @@ Object.assign(P, {
       { if: M(5, 5), text: "L'eau sort des puits. Elle coule sur les margelles en nappes minces et court entre les pavés vers le centre de la place, où elle fait déjà une flaque large comme une chambre autour de la galère. La coque grince. La mer revient, et il te reste une heure, peut-être moins." },
       { if: MER, text: "La place est sous l'eau jusqu'aux chevilles, et l'eau monte encore pendant que tu la regardes. La galère bouge sur son flanc avec un long gémissement de bois. Les puits débordent en bouillonnant. Au loin, vers la porte de Mer, un grondement continu : le flot qui entre dans la ville." },
       { if: { all: [M(5), { has: "basse:equipage" }] }, text: "De la grève monte le son de la conque, trois fois, longuement : tes gens t'appellent." },
-      { if: M(4), with: "salome", text: "Salomé ne regarde plus les maisons. Elle regarde l'eau des puits, et elle compte à voix basse." },
+      { if: M(4), with: "salome", text: "Salomé a cessé de regarder les maisons. Elle regarde l'eau des puits, et elle compte à voix basse." },
       { if: { all: [COURSE, M(1, 2)] }, text: "Vers la chaussée des statues, une lanterne sourde bouge, s'arrête, repart. Lothaire cherche lui aussi." },
       { after: "vn:helis_sauvee", text: "Sur le toit de la rue des Tonneliers, la lanterne d'Hélis s'est éteinte : elle est redescendue vers la grève." },
       { after: "vn:helis_reste", if: M(0, 5), text: "Sur le toit de la rue des Tonneliers, la lanterne d'Hélis brûle toujours, immobile, au bout de sa gaffe." },
@@ -231,7 +231,7 @@ Object.assign(P, {
   V_maree: { act: "V", title: "Le flot", place: "sorne",
     fx: { flag: "vn:maree_haute" },
     text: [
-      "Le grondement vient de partout à la fois. Dans les rues basses, l'eau arrive en vague courte, haute comme un genou, qui pousse devant elle des algues, des coquilles, un tonneau défoncé. Elle ne monte plus : elle court. Les avirons de la galère se soulèvent un à un sur la place, et la coque roule sur le flanc avec un bruit de tonnerre.",
+      "Le grondement vient de partout à la fois. Dans les rues basses, l'eau arrive en vague courte, haute comme un genou, qui pousse devant elle des algues, des coquilles, un tonneau défoncé. Elle a cessé de monter : elle court. Les avirons de la galère se soulèvent un à un sur la place, et la coque roule sur le flanc avec un bruit de tonnerre.",
       "Une seule partie de Sorne est plus haute que le reste : la chaussée des statues, qui monte vers la dernière porte, au pied du palais. L'eau y viendra aussi, mais plus tard.",
       { if: { has: "basse:equipage" }, text: "La conque sonne encore sur la grève, puis elle se tait d'un coup. Tes gens ont dû remonter dans la barque, ou la tirer plus loin. Tu espères qu'ils l'ont fait." },
       { with: "salome", text: "Salomé t'attrape par le bras, si fort que tu sens ses ongles à travers ta manche. « Maintenant, dit-elle. On monte. On ne retourne nulle part. Tu m'entends ? Nulle part. »" },
@@ -239,7 +239,7 @@ Object.assign(P, {
       { with: "lison", text: "Lison se tait. Elle te pousse dans le dos, vers la chaussée." },
       { if: { has: "vn:helis_reste" }, text: "Sur un toit de la rue des Tonneliers, une lanterne brûle au-dessus de l'eau qui monte. Elle reste à sa place." },
       { with: "gildas", text: "Frère Gildas a relevé sa bure jusqu'aux genoux. « Montons », dit-il simplement." },
-      { without: "any", text: "Il n'y a personne pour te dire quoi faire. L'eau te touche les chevilles, froide comme une main de mort, et tire déjà vers le bas." },
+      { without: "any", text: "Tu es seul{e} à décider. L'eau te touche les chevilles, froide comme une main de mort, et tire déjà vers le bas." },
     ],
     choices: [
       { label: "Monter vers la chaussée des statues, maintenant", big: true, to: "VN_chaussee" },
@@ -268,7 +268,7 @@ Object.assign(P, {
       { first: true, text: "« Hélis Graumont, de Port-Vasier, dit-elle. Ne vous gênez pas pour moi. Je viens à chaque Grande Basse. C'est la quatorzième. » Elle a la voix râpée par le sel, des mains énormes, et une corde nouée autour de la taille dont l'autre bout est attaché à la cheminée." },
       { again: true, text: "Hélis est toujours sur son toit, la gaffe en travers des genoux. Elle te regarde venir." },
       "« Je {{oreille#vn_helis_cherche|cherche des choses qui se vendent, comme tout le monde|cherche mon fils, Aloïs, qui est resté ici à la Basse de l'an dernier, et que la mer n'a jamais rendu}}, dit-elle. Pour mes petits-enfants. Ils mangent, les petits-enfants. »",
-      { with: "salome", text: "Salomé s'est arrêtée net. « Hélis, dit-elle. C'est toi. » La vieille femme hausse les épaules. « C'est moi, Brac. Toi aussi, tu viens chercher quelqu'un ? » Salomé ne répond pas." },
+      { with: "salome", text: "Salomé s'est arrêtée net. « Hélis, dit-elle. C'est toi. » La vieille femme hausse les épaules. « C'est moi, Brac. Toi aussi, tu viens chercher quelqu'un ? » Salomé se tait." },
     ],
     choices: [
       { label: "« Votre fils. Parlez-moi de lui. »", hide: { not: { voile: "vn_helis_cherche" } }, to: "VN_helis_recit" },
@@ -326,7 +326,7 @@ Object.assign(P, {
       { if: { not: { item: "vn_couteau_alois" } }, text: "Hélis t'écoute en silence. Puis elle hoche la tête, deux fois, comme quand on vous annonce un prix trop cher." },
       { if: { seen: "VN_verrier" }, text: "« Il était là, dit-elle. Sous l'escalier. Je le savais. Je l'ai su tout de suite, l'an dernier, en nageant. »" },
       "Elle défait la corde de sa taille, et la laisse pendre le long de la cheminée. « Je vais rester encore un peu, dit-elle. Vous, partez. La mer {{oreille#vn_helis_fin|va revenir, il faut que je surveille ma barque|va revenir, et cette fois je l'attends ici, avec lui}}. »",
-      { with: "salome", text: "Salomé s'accroupit devant elle. « Maïwenn aussi, dit-elle. Je ne suis jamais allée la chercher. J'ai cru pendant trois ans que c'était de la lâcheté. » Hélis la regarde. Salomé ne baisse pas les yeux." },
+      { with: "salome", text: "Salomé s'accroupit devant elle. « Maïwenn aussi, dit-elle. Je ne suis jamais allée la chercher. J'ai cru pendant trois ans que c'était de la lâcheté. » Hélis la regarde. Salomé soutient son regard." },
     ],
     choices: [
       { label: "Lui répéter ce que dit la maison : « Dis à la Mère de ne pas revenir »", hide: { not: { voile: "vn_alois_voix" } }, fx: { quest: "VN_helis", flag: "vn:helis_sauvee", ep: ["seance", 2500], fac: { hautes: 5 } }, to: "VN_helis_part" },
@@ -386,7 +386,7 @@ Object.assign(P, {
   VN_patrouille_fin: { act: "V", title: "La rue du Sud", place: "sorne",
     text: [
       { outcome: "win", text: "Le dernier soldat tombe dans les algues, et ne se relève pas. Les autres ont reculé jusqu'au coin de la rue, ramassé leur lieutenant, et disparu vers le port en jurant dans leur langue." },
-      { outcome: "flee", text: "Vous courez dans une ruelle si étroite que les piques ne peuvent pas suivre. Derrière, des cris, des ordres, puis plus rien." },
+      { outcome: "flee", text: "Vous courez dans une ruelle trop étroite pour les piques. Derrière, des cris, des ordres, puis plus rien." },
       { if: { not: { any: [{ has: "vn:patrouille_battue" }] } }, text: "Tu reviens sur la place par un autre chemin. La patrouille est partie vers le sud, et elle te cherchera." },
       { after: "vn:patrouille_battue", text: "Tu essuies ta lame sur une algue. Sur la place, une lanterne de cuivre brûle encore, posée dans une flaque." },
     ],
@@ -459,7 +459,7 @@ Object.assign(P, {
 
   VN_palais_gildas: { act: "V", title: "Le moine et la porte", place: "sorne",
     text: [
-      { with: "gildas", text: "Frère Gildas monte les marches seul. Il regarde la devise un long moment, puis il prend le heurtoir et frappe, lentement, avec le soin qu'il met à tailler une plume. Il frappe sept coups. Entre chaque coup, il ne bouge pas, et son silence est d'une qualité que tu ne lui connaissais pas : il ne retient pas ses mots, il n'en a pas." },
+      { with: "gildas", text: "Frère Gildas monte les marches seul. Il regarde la devise un long moment, puis il prend le heurtoir et frappe, lentement, avec le soin qu'il met à tailler une plume. Il frappe sept coups. Entre chaque coup, il reste immobile, et son silence est d'une qualité nouvelle pour toi : celui d'un homme qui n'a aucun mot à retenir." },
       { with: "gildas", text: "Les battants s'ouvrent. Gildas descend une marche, se retourne vers toi. « Au Mont, dit-il, on apprend aux novices qu'une porte de Taiseur s'ouvre au silence, et à rien d'autre. Je croyais que c'était une image. »" },
       "Tu {{miroir#vn_gildas_miroir|lui sais gré, et rien de plus|te demandes ce qu'un homme doit avoir à taire pour se taire aussi bien}}.",
     ],
@@ -486,7 +486,7 @@ Object.assign(P, {
 
   VN_palais_repousse: { act: "V", title: "En bas du perron", place: "sorne",
     text: [
-      "Tu roules au bas du perron, le souffle coupé. Les deux gardiens s'arrêtent sur la dernière marche, et ils y restent, immobiles, comme si la cour n'était pas à eux. Ils gardent la porte. Ils ne chassent pas.",
+      "Tu roules au bas du perron, le souffle coupé. Les deux gardiens s'arrêtent sur la dernière marche, et ils y restent, immobiles, comme si la cour appartenait à d'autres. Ils gardent la porte, et rien au-delà.",
       "Tu reprends ton souffle dans l'ombre d'une colonne. Le battant abattu laisse une ouverture que les gardiens bouchent de leurs deux corps de fer.",
     ],
     choices: [
@@ -545,7 +545,7 @@ Object.assign(P, {
 
   VN_capitaine: { act: "V", title: "Le capitaine des gardes", place: "sorne",
     text: [
-      "De près, le capitaine est plus grand que toi d'une tête, même assis. Son armure porte, sur le plastron, la marque des Taiseurs : une bouche fermée d'un trait. Il ne bouge pas. Mais quand tu poses le pied sur la première dalle devant lui, quelque chose cliquette dans son épaule, et sa tête se relève d'un cran.",
+      "De près, le capitaine est plus grand que toi d'une tête, même assis. Son armure porte, sur le plastron, la marque des Taiseurs : une bouche fermée d'un trait. Il reste immobile. Mais quand tu poses le pied sur la première dalle devant lui, quelque chose cliquette dans son épaule, et sa tête se relève d'un cran.",
       "Le dallage, autour du tabouret, {{echo#vn_capitaine_ordre|est usé par les pas des gardes qui se relevaient ici|garde l'ordre d'un capitaine vivant à ses hommes : « La relève se fait au mot. Qui vient sans le mot, on l'arrête. Le mot est : la Muette veille »}}.",
       { if: { not: { voile: "vn_capitaine_ordre" } }, text: "Il attend quelque chose. Il attend depuis trois cents ans." },
     ],
@@ -562,13 +562,13 @@ Object.assign(P, {
     text: [
       "Tu dis les trois mots. Ils sonnent étrangement dans la grande salle, comme s'ils y avaient déjà été dits des milliers de fois.",
       "Le capitaine se lève. Il le fait lentement, en grinçant de toutes ses articulations, et l'eau qui dormait dans son armure coule par les jointures. Debout, il lève son épée devant son visage, la lame droite, le salut des gardes, puis il la remet au fourreau. Il fait un pas de côté. Derrière lui, au pied du trône, une petite porte basse.",
-      { with: "lison", text: "Lison s'approche du capitaine et pose la main sur son plastron, sur la bouche fermée gravée dans le fer. « Repos », lui dit-elle doucement. Il ne bouge pas." },
+      { with: "lison", text: "Lison s'approche du capitaine et pose la main sur son plastron, sur la bouche fermée gravée dans le fer. « Repos », lui dit-elle doucement. L'armure reste droite." },
     ],
     choices: [{ back: "VN_salle_trone" }] },
 
   VN_capitaine_defaite: { act: "V", title: "Hors de la salle", place: "sorne",
     text: [
-      "Le capitaine frappe comme une porte qui se ferme. Le coup te jette en arrière, à travers la salle, contre une colonne, et le monde devient blanc un moment. Quand tu rouvres les yeux, il s'est rassis sur son tabouret, l'épée plantée devant lui, la tête penchée. Il n'a pas bougé de sa place. Il garde, il ne poursuit pas.",
+      "Le capitaine frappe comme une porte qui se ferme. Le coup te jette en arrière, à travers la salle, contre une colonne, et le monde devient blanc un moment. Quand tu rouvres les yeux, il s'est rassis sur son tabouret, l'épée plantée devant lui, la tête penchée. Il est resté à sa place : sa tâche est de garder.",
       { with: "any", text: "On t'aide à te relever. Tu as du sang dans la bouche et une douleur dans le flanc qui te fait voir des étoiles plus nombreuses que celles de la voûte." },
     ],
     choices: [{ back: "VN_salle_trone" }] },
@@ -685,7 +685,7 @@ Object.assign(P, {
     text: [
       "Le tombeau est un gisant de marbre blanc, un évêque mitré, les mains jointes sur une crosse. La mer l'a poli comme un galet. Sur la dalle, son épitaphe : *{{loupe#vn_eveque|Ici repose Monseigneur Hildebert, pasteur fidèle, qui aima la paix|Ici repose Hildebert, qui scella les actes faux pour quatre cents ducats et une maison sur l'île des Changeurs, et qui en eut honte sur le tard}}.*",
       "Sous la crosse de marbre, la mer a creusé un trou dans la dalle. Dedans, tu vois briller une chaîne d'argent, prise dans la pierre. Elle {{pie#vn_chaine_eveque|est une belle chaîne d'argent, longue d'une coudée|est une chaîne d'argent noirci, sans valeur, la chaîne de la croix pectorale, et elle est restée accrochée au cou de l'évêque, en dessous}}.",
-      { with: "gildas", text: "Frère Gildas lit l'épitaphe par-dessus ton épaule, à la lumière de ta lanterne. Il ne dit rien. Il pose deux doigts sur la dalle, puis il les retire, et il s'essuie la main sur sa bure." },
+      { with: "gildas", text: "Frère Gildas lit l'épitaphe par-dessus ton épaule, à la lumière de ta lanterne. En silence, il pose deux doigts sur la dalle, puis il les retire, et il s'essuie la main sur sa bure." },
     ],
     choices: [{ back: "VN_nef" }] },
 
@@ -717,7 +717,7 @@ Object.assign(P, {
 
   VN_crypte: { act: "V", title: "L'escalier de la crypte", place: "sorne",
     text: [
-      "L'escalier de la crypte descend dans une eau noire et immobile qui monte jusqu'à la sixième marche. La mer n'est pas sortie d'ici. Ta lanterne éclaire des voûtes basses, des tombeaux à demi immergés, et à la surface, des remous lents, larges, qui vont et viennent. Quelque chose de gros vit là-dessous.",
+      "L'escalier de la crypte descend dans une eau noire et immobile qui monte jusqu'à la sixième marche. La mer est restée ici. Ta lanterne éclaire des voûtes basses, des tombeaux à demi immergés, et à la surface, des remous lents, larges, qui vont et viennent. Quelque chose de gros vit là-dessous.",
       { with: "salome", text: "Salomé regarde l'eau longtemps. « Un congre, dit-elle. Ou trois. Ils mangent tout ce qui tombe. » Elle défait sa ceinture, et commence à ôter ses bottes. « Je {{oreille#vn_salome_crypte|plonge, je sais faire|n'ai pas plongé depuis Maïwenn, et si je ne le fais pas maintenant, je ne le ferai plus jamais}}. »" },
     ],
     choices: [
@@ -787,7 +787,7 @@ Object.assign(P, {
     text: [
       "Ils entrent par le portail en colonne, une vingtaine, les piques droites, et se déploient dans la nef entre les bancs enfouis. Le capitaine qui les mène est un homme sec, grisonnant, une écharpe bleue en travers de la cuirasse. Il te voit, lève la main, et la colonne s'arrête.",
       "« Le duc vous remercie de lui avoir ouvert cette porte, dit-il en salvézan, avec un fort accent. La suite, nous la ferons nous-mêmes. {{oreille#vn_capitaine_aveline|Posez vos armes, et vous serez traités en prisonniers|Posez vos armes : j'ai ordre de ne laisser personne de Salvèze remonter dans une barque}}. »",
-      { with: "tibere", text: "Tibère recule d'un pas, puis d'un autre, en direction du pilier vert. Il te regarde, puis le pilier, puis toi. Il a compris quelque chose que tu n'as pas encore compris." },
+      { with: "tibere", text: "Tibère recule d'un pas, puis d'un autre, en direction du pilier vert. Il te regarde, puis le pilier, puis toi. Il a compris quelque chose avant toi." },
     ],
     choices: [
       { label: "Frapper le diapason contre le pilier vert, de toutes tes forces", hide: { any: [{ not: { voile: "vn_pilier" } }, { not: { item: "diapason" } }] }, fx: { ep: ["seance", 3000], flag: "vn:soldats_chasses" }, to: "VN_cath_chantent" },
@@ -892,7 +892,7 @@ Object.assign(P, {
   VN_fidele_fers: { act: "V", title: "Les fers", place: "sorne",
     fx: { quest: "VN_rameurs", flag: "vn:rameurs_libres", ep: ["seance", 3000], fac: { hautes: 10, taiseurs: 5 } },
     text: [
-      "Les fers sont rouillés jusqu'au cœur. Un coup de barre, et le rivet saute. Tu vas de banc en banc. Les os ne bougent pas quand le fer tombe : ils restent assis, les mains sur la rame. Mais les chevilles sont libres.",
+      "Les fers sont rouillés jusqu'au cœur. Un coup de barre, et le rivet saute. Tu vas de banc en banc. Quand le fer tombe, les os restent assis, les mains sur la rame. Mais les chevilles sont libres.",
       { with: "any", text: "Les autres s'y mettent avec toi, sans qu'on le leur demande. On entend seulement les coups de barre et le bruit des fers qui tombent sur le pont, cent quarante-quatre fois." },
       "Quand tu redescends, l'eau arrive sous la galère. Elle la soulève d'un pouce, la repose. À la prochaine marée, elle l'emportera, et les rameurs avec, chacun à son banc, libres.",
       "Tu {{miroir#vn_fers_miroir|as fait ce qu'il fallait faire|as donné une heure à des morts, et cette heure-là, tu la garderas toute ta vie}}.",
@@ -1047,7 +1047,7 @@ Object.assign(P, {
       "La chambre est simple : un lit à rideaux, deux coffres, un berceau de bois peint au pied du lit, poussé contre le mur. Dans le berceau, une poupée de chiffon que la mer a changée en boule de sel.",
       "La chambre {{echo#vn_aymeric_nuit|est silencieuse, et le sel crisse sous tes pas|garde deux voix, la nuit, très bas. Une femme : « Tu ne viendras pas avec nous. » Un homme : « Quelqu'un doit fermer les portes. » La femme : « Et après ? » L'homme, après un long temps : « Après, je me tairai, comme les autres »}}.",
       "Tu {{miroir#vn_berceau_miroir|regardes ce berceau sans rien ressentir de particulier|regardes ce berceau en te demandant si ta mère, aux Joncs-Bas, en avait un pour toi, avant de te donner}}.",
-      { with: "gildas", text: "Frère Gildas reste sur le seuil de la chambre. Il n'entre pas. Il regarde le berceau, et sa main droite monte, sans qu'il s'en aperçoive, toucher son front à la racine des cheveux." },
+      { with: "gildas", text: "Frère Gildas reste sur le seuil de la chambre. Il regarde le berceau, et sa main droite monte, sans qu'il s'en aperçoive, toucher son front à la racine des cheveux." },
     ],
     choices: [{ back: "VN_vasse_entree" }] },
 
@@ -1076,7 +1076,7 @@ Object.assign(P, {
   VN_comptoirs: { act: "V", title: "La place des Comptoirs", place: "sorne", backName: "la place des Comptoirs",
     text: [
       { first: true, text: "La rue des Arcades débouche sur la plus grande place de Sorne. Elle est bordée sur trois côtés d'arcades profondes, et sous chaque arcade, une porte, une enseigne de fer : les comptoirs des grandes maisons. Tu reconnais des emblèmes que tu as vus à Salvèze sur des façades bien vivantes : les besants des Marrel, la tour des Delisle, la gerbe des Fourcaud. Le quatrième côté est fermé par une halle à colonnes, la halle des Comptoirs, avec son fronton." },
-      { first: true, text: "Au milieu de la place, il n'y a rien. Une pierre plate et carrée, large comme une table, au ras des pavés. C'est là que, cette nuit-là, il y a trois siècles, les Comptoirs ont attendu la reine." },
+      { first: true, text: "Au milieu de la place, une seule chose : une pierre plate et carrée, large comme une table, au ras des pavés. C'est là que, cette nuit-là, il y a trois siècles, les Comptoirs ont attendu la reine." },
       { again: true, text: "La place des Comptoirs, ses arcades, ses enseignes, la halle au fond. La pierre carrée au milieu." },
       "La pierre carrée {{pie#vn_pierre_poids|est une dalle de granit noir, usée au centre|est une pierre de pesée, vert pâle et veinée de blanc : une pierre chantante, la plus grande que tu aies vue}}.",
       { if: { not: { has: "corisande:pacte" } }, text: "Devant la halle, des torches, des pelles qui sonnent sur la pierre, des cris : les gens de la Banque creusent sous les colonnes. Des barils sont alignés au pied du fronton." },
@@ -1100,7 +1100,7 @@ Object.assign(P, {
       "La pierre {{echo#vn_nuit_comptoirs|est froide sous tes semelles|garde des voix d'hommes, nombreux, essoufflés : « Tenez-la. » « Pas ici, Marrel, pas devant le peuple. » « Le peuple dort. Delisle, la lanterne. Plus près. » Et une femme qui se débat sans un mot, le bruit de ses talons sur la pierre}}.",
       "Les arcades {{echo#vn_couteau|te renvoient le bruit de tes propres pas|te renvoient un bruit de lutte, un cri étouffé dans une main, puis un homme, d'une voix très calme : « Voilà. Elle ne dira plus rien à personne. Demain, on écrit qu'elle est devenue muette de chagrin »}}.",
       "Sous l'arcade du coin nord, {{echo#vn_cle_comptoirs|une flaque reflète la lune|un homme chuchote très vite à quelqu'un qui pleure : « Écoute-moi, Isabeau. Retiens ces mots et oublie le reste : nous nous taisons pour qu'elle parle. À la septième bouche. Maintenant cours, cours jusqu'aux Joncs »}}.",
-      { with: "lison", text: "Lison s'est assise sur les marches d'une arcade, les coudes sur les genoux, et regarde la pierre. Elle n'a pas de diapason, elle n'entend rien. Elle te regarde écouter, et elle attend." },
+      { with: "lison", text: "Lison s'est assise sur les marches d'une arcade, les coudes sur les genoux, et regarde la pierre. Sans diapason, elle reste sourde à ces voix. Elle te regarde écouter, et elle attend." },
       { with: "tibere", text: "Tibère regarde l'enseigne aux besants, sous l'arcade d'en face. « Marrel », dit-il, et il crache par terre." },
     ],
     choices: [{ back: "VN_comptoirs" }] },
@@ -1155,7 +1155,7 @@ Object.assign(P, {
 
   VN_halle: { act: "V", title: "Le bureau du greffier", place: "sorne",
     text: [
-      { if: { any: [{ has: "vn:berald_tenu" }, { has: "vn:berald_achete" }] }, text: "Léandre Escoffe rappelle ses hommes d'un geste sec, et ils s'écartent pour te laisser descendre l'échelle. Il ne te regarde pas. Il regarde ses bottes." },
+      { if: { any: [{ has: "vn:berald_tenu" }, { has: "vn:berald_achete" }] }, text: "Léandre Escoffe rappelle ses hommes d'un geste sec, et ils s'écartent pour te laisser descendre l'échelle. Il garde les yeux sur ses bottes." },
       { if: { has: "vn:berald_battu" }, text: "Les gens de la Banque se sont repliés vers les arcades en traînant leurs blessés. Léandre Escoffe te crie des menaces de loin, puis se tait." },
       "Le bureau du greffier des Comptoirs est une salle basse, sous la halle, pleine de casiers. Au fond, le coffre de fer que les clercs n'ont pas pu ouvrir. Sur le couvercle, en relief, les armes des quatre maisons, et une serrure à quatre clés. Le coffre {{pie#vn_coffre_greffier|est d'un fer épais, sans faille|est d'un fer épais, mais ses charnières sont à l'extérieur, et le sel en a mangé les goupilles}}.",
       "Sur un pupitre, des copies d'actes, les mêmes en dix exemplaires. *{{loupe#vn_actes|Par la présente, la reine Ysaure, en pleine possession de ses esprits, cède aux maisons du Conseil les terres gagnées sur la mer|Écrit le lendemain de la Saint-Michel, la reine étant enfermée et privée de la parole, et le sceau apposé hors de sa présence}}.*",
@@ -1208,7 +1208,7 @@ Object.assign(P, {
       "« Vous voilà, dit-il de sa voix douce. J'ai entendu votre cloche, ou vos pas, ou vos pensées : ça fait du bruit, une personne qui cherche. » Il sourit. « Je {{oreille#vn_lothaire_or|ne veux que l'or. Gardez votre Charte, je n'en ai que faire|veux la Charte. Corisande la croit bonne à brûler ; le duc, lui, la paiera le prix d'une ville}}. »",
       { if: { has: "ivb:lothaire_libre" }, text: "« Nous nous sommes quittés chez Madame, ajoute-t-il. Je vous y ai laissé{e} avec ses gardes, et vous en êtes sorti{e} quand même. Je l'ai appris le lendemain. J'ai souri toute la journée. »" },
       "Il penche la tête, écoute. « Vous pensez que je mens. Vous avez raison, bien sûr. Mais vous pensez aussi que vous ne savez pas où est la porte. Et ça, c'est vrai. » Il montre le bout de la chaussée. « Moi, je le sais presque. »",
-      { with: "salome", if: { has: "salome:maiwenn" }, text: "Salomé ne dit rien. Elle a la main sur son coutelas, les jointures blanches, et elle regarde Lothaire comme on regarde une vague qui monte. Lothaire évite de la regarder. Tu remarques qu'il l'a vue avant toi." },
+      { with: "salome", if: { has: "salome:maiwenn" }, text: "Salomé se tait. Elle a la main sur son coutelas, les jointures blanches, et elle regarde Lothaire comme on regarde une vague qui monte. Lothaire évite de la regarder. Tu remarques qu'il l'a vue avant toi." },
       { with: "tibere", text: "Tibère se tient un pas en arrière. Lothaire lui adresse un petit signe de tête, aimable, comme à un employé. Tibère {{oreille#vn_tibere_lothaire|lui rend son salut, par politesse|serre les mâchoires, et pense à cinq ducats la semaine et à tout ce qu'ils lui ont coûté}}." },
     ],
     choices: [
@@ -1243,8 +1243,8 @@ Object.assign(P, {
     fx: { flag: "vn:lothaire_retarde" },
     text: [
       "Tu le dis assez fort pour que ses hommes l'entendent. Ils sont six, des spadassins de la Banque, des gens de Salvèze. Ils se regardent. Le plus vieux pose son bout du tonneau par terre.",
-      "« Le duc, dit-il. Vous nous aviez dit la Banque, maître Brunel. » Lothaire ouvre la bouche, la referme. Pour la première fois, tu le vois chercher ses mots. « La Banque, bien sûr, dit-il. Le duc paiera la Banque. » Personne ne le croit. Il n'a pas de cornet pour leur faire croire.",
-      "Les hommes repartent vers la grève, un par un, sans courir. Lothaire reste seul sur la chaussée, avec son tonneau qu'il ne peut pas porter. Il te regarde, et il te salue, très bas. « Joliment joué », dit-il. Puis il s'assied sur le tonneau, et il recommence à écouter la pierre, seul.",
+      "« Le duc, dit-il. Vous nous aviez dit la Banque, maître Brunel. » Lothaire ouvre la bouche, la referme. Pour la première fois, tu le vois chercher ses mots. « La Banque, bien sûr, dit-il. Le duc paiera la Banque. » Personne ne le croit. Son cornet sait entendre ; persuader, c'est une autre affaire.",
+      "Les hommes repartent vers la grève, un par un, sans courir. Lothaire reste seul sur la chaussée, avec son tonneau, trop lourd pour lui seul. Il te regarde, et il te salue, très bas. « Joliment joué », dit-il. Puis il s'assied sur le tonneau, et il recommence à écouter la pierre, seul.",
     ],
     choices: [{ back: "VN_chaussee" }] },
 
@@ -1272,7 +1272,7 @@ Object.assign(P, {
 
   VN_porte_soldats: { act: "V", title: "La compagnie de la place ronde", place: "sorne",
     text: [
-      "Sur la place ronde, une compagnie d'Aveline a pris position devant la porte : vingt piques en deux rangs, un capitaine à cheval sur un tonneau renversé, des torches plantées dans les joints des dalles. Ils ont trouvé la porte. Ils ne savent pas l'ouvrir. Le capitaine fait frapper dessus à la masse, à coups réguliers, depuis un moment, sans résultat.",
+      "Sur la place ronde, une compagnie d'Aveline a pris position devant la porte : vingt piques en deux rangs, un capitaine à cheval sur un tonneau renversé, des torches plantées dans les joints des dalles. Ils ont trouvé la porte, et ils ignorent comment l'ouvrir. Le capitaine fait frapper dessus à la masse, à coups réguliers, depuis un moment, sans résultat.",
       { if: { has: "vn:chaloupes" }, text: "Un soldat arrive en courant de la ville basse, essoufflé, et crie quelque chose au capitaine en langue du nord. Tu comprends un mot : *chaloupes*. Les soldats se regardent. Leurs barques sont parties avec la mer. Ils sont pris dans Sorne comme toi." },
       { if: { has: "vn:aveline_doute" }, text: "Dans le second rang, tu reconnais le jeune lieutenant blond de la place. Il te voit aussi. Il baisse les yeux." },
       "Le capitaine se tourne vers toi. « Vous arrivez à point, dit-il. Le duc {{oreille#vn_capitaine_porte|vous paiera bien pour ouvrir cette porte|vous fera pendre dès qu'elle sera ouverte, mais je ne suis pas obligé de vous le dire}}. Ouvrez-la. »",
@@ -1295,7 +1295,7 @@ Object.assign(P, {
       "Tu {{miroir#vn_porte_miroir|as fait tout ce chemin pour finir ce qu'Odeline a commencé|as fait tout ce chemin parce que tu as dit à Odeline qu'elle mourrait seule avec ses secrets, et que tu veux que ses secrets, au moins, trouvent quelqu'un}}.",
       { if: { has: "vn:soldats_porte" }, text: "Derrière toi, les piques d'Aveline attendent, en demi-cercle. Le capitaine a la main sur son épée." },
       { if: M(5, 5), text: "L'eau est au bas de la chaussée. Elle sera ici dans une heure." },
-      { if: MER, text: "L'eau entre sur la place ronde. Elle te couvre les pieds. Derrière toi, la ville a disparu sous un fleuve gris qui monte. Il n'y a plus d'autre chemin que cette porte." },
+      { if: MER, text: "L'eau entre sur la place ronde. Elle te couvre les pieds. Derrière toi, la ville a disparu sous un fleuve gris qui monte. Le seul chemin qui reste est cette porte." },
       { with: "gildas", text: "Frère Gildas lève les yeux vers le septième visage, celui qui n'a pas de bouche. Il le regarde longtemps, en silence." },
     ],
     choices: [
@@ -1326,13 +1326,13 @@ Object.assign(P, {
       "Tu poses la main sur le bronze lisse du septième visage. Tu dis la chose tout bas, à lui seul. Pas la Charte, pas Salvèze, pas le trésor. La dispute de la nuit des Lanternes, la porte claquée, la phrase. Et la raison qui t'a fait descendre jusqu'ici.",
       "Tu n'avais jamais dit ça à voix haute. Ta voix tremble sur le dernier mot.",
       "Le bronze se réchauffe sous ta paume. Dans la colline, un mécanisme s'ébranle, des cliquets, une roue, et la dalle recule, glisse de côté, ouvre sur un escalier qui descend. Les Taiseurs ont fait une porte qui s'ouvre au silence, à la parole cachée, ou à la vérité. Aymeric avait prévu les trois.",
-      { with: "gildas", text: "Frère Gildas a tout entendu. Il te regarde, et ses lèvres bougent, comme pour dire quelque chose qu'il garde depuis longtemps. Il ne le dit pas. Il baisse la tête et passe la porte derrière toi." },
+      { with: "gildas", text: "Frère Gildas a tout entendu. Il te regarde, et ses lèvres bougent, comme pour dire quelque chose qu'il garde depuis longtemps. Il le garde encore. Il baisse la tête et passe la porte derrière toi." },
     ],
     choices: [{ label: "Franchir la dernière porte", big: true, to: "VT_seuil" }] },
 
   VN_porte_mecanisme: { act: "V", title: "Les cliquets", place: "sorne",
     text: [
-      "Ta lame entre dans la fente sous le menton. Tu sens les cliquets un par un, de l'autre côté, comme on sent des dents sous un drap. Il y en a douze. Il faut les lever dans l'ordre, et tu ne connais pas l'ordre ; tu le trouves en tâtonnant, en revenant en arrière, en recommençant. Une heure passe. Ta main tremble de fatigue.",
+      "Ta lame entre dans la fente sous le menton. Tu sens les cliquets un par un, de l'autre côté, comme on sent des dents sous un drap. Il y en a douze. Il faut les lever dans l'ordre, et l'ordre t'est inconnu ; tu le trouves en tâtonnant, en revenant en arrière, en recommençant. Une heure passe. Ta main tremble de fatigue.",
       "Le douzième cliquet tombe avec un bruit de verrou. La dalle recule, glisse dans la paroi, et un escalier descend dans la colline.",
       { with: "fauvette", text: "Fauvette, qui t'a tenu la lanterne tout ce temps, siffle doucement. « Si un jour tu veux changer de métier, dit-elle, il y a de la place aux Gouttières. »" },
     ],
@@ -1347,7 +1347,7 @@ Object.assign(P, {
 
   VN_porte_taiseurs: { act: "V", title: "Les Taiseurs devant la porte", place: "sorne",
     text: [
-      "L'Aîné et les deux autres Taiseurs se placent sous le linteau, côte à côte, et regardent les sept visages. Ils se taisent, et se parlent par signes, très vite, les doigts contre les paumes, pendant que l'eau monte au bas de la chaussée. Ça dure une heure. Tu n'as jamais vu une heure si longue.",
+      "L'Aîné et les deux autres Taiseurs se placent sous le linteau, côte à côte, et regardent les sept visages. Ils se taisent, et se parlent par signes, très vite, les doigts contre les paumes, pendant que l'eau monte au bas de la chaussée. Ça dure une heure. C'est la plus longue heure de ta vie.",
       "Puis l'Aîné monte sur la pierre d'appui et murmure quelque chose au septième visage. La dalle s'ouvre. Il redescend, et il pleure, sans bruit, la bouche fermée. « Nous avons cherché la phrase pendant trois cents ans, dit-il. Elle était dans toutes nos chansons. »",
     ],
     choices: [{ label: "Franchir la dernière porte", big: true, to: "VT_seuil" }] },

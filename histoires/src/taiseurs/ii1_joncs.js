@@ -25,7 +25,7 @@ Object.assign(P, {
 
   IIJ_roseaux: { act: "II", title: "Dans la barque", with: "lison",
     text: [
-      "Lison prend son temps pour répondre. Elle prend un chenal plus étroit, où les roseaux se referment au-dessus de vos têtes en tunnel, et la lumière devient verte. Elle rame de la gaffe, un coup à gauche, un coup à droite, sans heurter une seule tige.",
+      "Lison prend son temps pour répondre. Elle engage la barque dans un chenal plus étroit, où les roseaux se referment au-dessus de vos têtes en tunnel, et la lumière devient verte. Elle rame de la gaffe, un coup à gauche, un coup à droite, sans heurter une seule tige.",
       "« Ma grand-mère est aveugle, dit-elle enfin. Elle fait de la dentelle. Elle a quatre-vingt-quatre ans et elle entend mieux que toi avec ton os de baleine. Ce que tu diras devant elle, elle l'entendra deux fois. Ce que tu penseras aussi. » Elle souffle sur ses doigts. « Elle {{oreille#iij_lison_ordre|voudra juste te voir, c'est une vieille curieuse|voudra savoir si j'ai repris le cornet, et je n'ai pas de réponse à lui donner}}. »",
       "Elle te regarde enfin, en biais. « Les Joncs n'aiment pas les étrangers. {{oreille|Toi, tu en es un, alors tiens-toi droit et ne touche à rien|Toi, tu n'en es pas un, et c'est bien ce qui m'agace}}. »",
       { after: "passe:voleur", text: "« Et garde tes mains dans tes poches, ajoute-t-elle. Une batelière sait reconnaître des doigts qui ont appris à prendre. »" },
@@ -76,7 +76,7 @@ Object.assign(P, {
       { after: "iij:bonnet", text: "Cyprien ne se retourne pas vers le bonnet rouge. Il lâche ta proue, et dit très bas, en t'aidant à monter : « Tu as de bonnes oreilles pour quelqu'un de la ville. Garde-les ouvertes, et la bouche fermée. On en reparlera. »" },
       { after: "iij:paye", text: "Cyprien ramasse les deux ducats et les fait sauter dans sa paume. « Le gîte, ici, c'est Mère Ancolie qui le donne, dit-il. Je lui porterai ça pour son huile. » Il ne te rend pas la monnaie." },
       { with: "lison", text: "Lison passe devant toi sur la passerelle, sa gaffe sur l'épaule. Les dentellières la saluent par son nom, et la suivent des yeux, puis toi, puis elle." },
-      "« Mère Ancolie veut te voir, dit Cyprien. Elle t'a entendu{e} arriver. » Tu ne vois pas comment, de si loin, au-dessus du clapot et des fuseaux. Il te montre du menton la plus haute maison des Joncs, au bout de la passerelle la plus longue, perchée sur des pieux de chêne noir.",
+      "« Mère Ancolie veut te voir, dit Cyprien. Elle t'a entendu{e} arriver. » Tu te demandes comment, de si loin, au-dessus du clapot et des fuseaux. Il te montre du menton la plus haute maison des Joncs, au bout de la passerelle la plus longue, perchée sur des pieux de chêne noir.",
     ],
     choices: [{ label: "Entrer dans les Joncs-Bas", big: true, to: "II_hub" }] },
 
@@ -758,7 +758,7 @@ Object.assign(P, {
       "Tu poses des questions de rien, l'après-midi, sur le ponton, à la Nasse, dans les barques, comme on fait quand on cherche un objet perdu : à tout le monde, et surtout à ceux qui n'ont rien perdu.",
       "Sylvain Huchet, le neveu, un grand garçon aux épaules de rameur, rit trop fort quand tu lui demandes ce qu'il fait la nuit. « Je sors {{oreille#iij_sylvain|pour les anguilles, comme mon oncle|pour le sel de la Saline, mais jamais sans lune : j'ai peur de l'eau noire depuis que j'ai vu passer un noyé}}. »",
       "Fortunée, à la Nasse, essuie son comptoir. « Ma soupente, je la loue {{oreille#iij_fortunee_soupente|à qui paie, je ne demande pas les noms|au bonnet rouge, et il paie double pour que je n'y monte jamais}}. »",
-      "Ardouin Mesle, enfin, sur le ponton, te regarde approcher en souriant, et ne cesse pas de nouer. « Je {{oreille#iij_ardouin|pêche ici depuis trois semaines, comme tout le monde. L'anguille est bonne|suis ici depuis trois semaines. Dans trois de plus, je serai riche, ou je serai au fond du bassin}}, dit-il. Vous êtes de la ville, vous aussi. On se comprend. »",
+      "Ardouin Mesle, enfin, sur le ponton, te regarde approcher en souriant, et continue de nouer. « Je {{oreille#iij_ardouin|pêche ici depuis trois semaines, comme tout le monde. L'anguille est bonne|suis ici depuis trois semaines. Dans trois de plus, je serai riche, ou je serai au fond du bassin}}, dit-il. Vous êtes de la ville, vous aussi. On se comprend. »",
     ],
     choices: [
       { label: "Le suivre, la prochaine nuit sans lune", hide: { seen: "IIJ_espion_nuit" }, to: "IIJ_espion_nuit" },
@@ -1031,7 +1031,7 @@ Object.assign(P, {
     fx: { quest: "IIJ_q_voile", flag: "iij:voile_rendu", item: "iij_tr_col", clock: { tresors: 1 }, ep: ["seance", 1500] },
     text: [
       "À la nouvelle lune, les Joncs-Bas allument toutes leurs lanternes. La barque de Mère Ancolie fait le tour du village, poussée par Cyprien à la gaffe. La vieille femme est assise à la poupe, droite, les yeux blancs grands ouverts sur la nuit. Le voile de la Muette est tendu entre les mains de la plus jeune des bonnes mains, debout à la proue.",
-      { after: "iij:jacinthe_partie", text: "Ce n'est pas Jacinthe qui le tient. Jacinthe est partie le matin, sur la gabare de Salvèze, avec deux ducats dans sa chaussure et un carreau de dentelle sous le bras. C'est une gamine de onze ans qui tient le voile, et qui ne respire pas.", else: "C'est Jacinthe Tessier qui le tient, les bras raides, la figure blanche. Quand la barque passe sous ta galerie, elle te regarde une seconde, et le voile tremble à peine." },
+      { after: "iij:jacinthe_partie", text: "Jacinthe est partie le matin, sur la gabare de Salvèze, avec deux ducats dans sa chaussure et un carreau de dentelle sous le bras. À sa place, une gamine de onze ans tient le voile, et retient son souffle.", else: "C'est Jacinthe Tessier qui le tient, les bras raides, la figure blanche. Quand la barque passe sous ta galerie, elle te regarde une seconde, et le voile tremble à peine." },
       "Sur les passerelles, tout le village chante, et c'est une chanson de fileuses dont tu comprends les mots, sauf qu'au cornet, chaque couplet en dit un autre, plus ancien, où il est question d'une reine et de sept hommes qui se taisent.",
       { with: "lison", tendre: true, text: "Après la procession, on danse sur la maison commune, une ronde qui fait trembler les pieux. Lison te prend la main sans demander, et ne la lâche pas quand la ronde se défait.", else: "Après la procession, on danse sur la maison commune, une ronde qui fait trembler les pieux. Lison danse avec tous les pêcheurs du ponton, l'un après l'autre, et te marche exprès sur le pied en passant." },
       "Tard dans la nuit, Thècle t'apporte un col de dentelle plié dans un papier gris, filé de lin et d'un fil d'argent. « Pour toi, dit-elle. Ne le vends pas aux dames de la ville. Ou alors, très cher. »",
@@ -1167,7 +1167,7 @@ Object.assign(P, {
 
   IIJ_ev_mort_suite: { act: "II", title: "Le mort des roseaux",
     text: [
-      { if: { item: "iij_lettre_noye" }, text: "Entre les deux cuirs de la ceinture, un billet plié en quatre, à peine mouillé, adressé *À la Mère, aux Joncs*. Une écriture soignée, qui parle du sel et de la fête de la dentelle.", else: "Tu ne trouves rien sur lui : un couteau, trois liards, une pierre à aiguiser. Celui qui l'a tué a fouillé avant toi, ou n'a pas cherché." },
+      { if: { item: "iij_lettre_noye" }, text: "Entre les deux cuirs de la ceinture, un billet plié en quatre, à peine mouillé, adressé *À la Mère, aux Joncs*. Une écriture soignée, qui parle du sel et de la fête de la dentelle.", else: "Sur lui, presque rien : un couteau, trois liards, une pierre à aiguiser. Celui qui l'a tué a fouillé avant toi, ou n'a pas cherché." },
       "Tu le laisses aux roseaux, ou tu l'emmènes. Les corbeaux attendent déjà sur les perches.",
     ],
     choices: [{ label: "Reprendre la route", back: R }] },

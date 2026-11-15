@@ -16,18 +16,18 @@ var TIB_LIBRE = { all: [{ present: "tibere" }, { not: { has: "tibere:espion" } }
 Object.assign(P, {
   IC_pont: { act: "I", title: "Le pont des Changeurs", place: "changeurs", hub: true, backName: "le pont des Changeurs",
     text: [
-      { first: true, text: "Le pont des Changeurs enjambe le grand bras de la Salve sur sept arches de pierre blonde. Des deux côtés de la chaussée, les changeurs ont leurs tables sous des auvents de toile rayée : un trébuchet de cuivre, une pierre de touche noire, des piles de pièces de toutes les frappes, et un registre ouvert que le changeur tient à plat sous sa main gauche. On parle ici quatre langues et toutes les monnaies du delta, et chaque phrase finit par un chiffre." },
-      { first: true, text: "Au bout du pont, l'île sort de l'eau comme une seule maison : des hôtels de pierre blanche serrés les uns contre les autres, des façades lisses, des fenêtres hautes et grillées, des portes cloutées gardées chacune par deux hommes en livrée. Les gardes de la Banque Marrel portent le noir et l'or, ceux de la maison Fourcaud le vert, ceux de la Monnaie le gris de la République. Le Guet laisse l'île à ses propriétaires." },
-      { first: true, text: "Sur la droite, le dôme bas du palais du Conseil des Comptoirs ; en face, la Banque Marrel, la plus haute façade de l'île, avec ses trois besants d'or sculptés au-dessus du portail ; plus loin, derrière une grille, les Archives de la République ; et collée au flanc de la Banque, la cour carrée de la Monnaie, dont les cheminées fument du matin au soir." },
+      { first: true, text: "Le pont des Changeurs enjambe le grand bras de la Salve sur sept arches de pierre blonde. Des deux côtés de la chaussée, les changeurs ont leurs tables sous des auvents de toile rayée, et chaque table porte le même équipement : un trébuchet de cuivre ; une pierre de touche noire ; des piles de pièces de toutes les frappes ; un registre ouvert, que le changeur tient à plat sous sa main gauche. On parle ici quatre langues et toutes les monnaies du delta, et chaque phrase finit par un chiffre." },
+      { first: true, text: "Au bout du pont, l'île sort de l'eau comme une seule maison : des hôtels de pierre blanche serrés les uns contre les autres, des façades lisses, des fenêtres hautes et grillées, des portes cloutées gardées chacune par deux hommes en livrée. On reconnaît les maisons à la couleur de leurs gardes : le noir et l'or pour la Banque Marrel, le vert pour la maison Fourcaud, le gris de la République pour la Monnaie. Le Guet laisse l'île à ses propriétaires." },
+      { first: true, text: "Sur la droite s'arrondit le dôme bas du palais du Conseil des Comptoirs ; en face se dresse la Banque Marrel, la plus haute façade de l'île, avec ses trois besants d'or sculptés au-dessus du portail ; plus loin, derrière une grille, s'étendent les Archives de la République ; et collée au flanc de la Banque, la cour carrée de la Monnaie fume par ses cheminées du matin au soir." },
       { first: true, with: "tibere", text: "Tibère regarde les gardes en livrée avec le mépris tranquille d'un sergent pour des valets armés. « Je connais l'île, dit-il, {{oreille#ic_tib_jeudi|j'y ai fait mes rondes pendant six ans|j'y viens chaque jeudi toucher mes cinq ducats à la petite porte de la Banque}}. » Il crache dans la Salve par-dessus le parapet." },
       { first: true, with: "lison", text: "Lison s'accoude au parapet et regarde le courant entre les piles. « Les barques des marais passent sous ce pont depuis trois cents ans, dit-elle. {{oreille|Le péage est d'un liard par barque|Le péage, nous le payons en titres de terre, une génération après l'autre}}. »" },
       { first: true, with: "gildas", text: "Frère Gildas lève les yeux vers les trois besants de la Banque et se signe, très vite, d'un geste qui tient de l'habitude plus que de la prière." },
-      { again: true, when: "day", text: "Le pont des Changeurs, ses auvents rayés, le cliquetis des pièces sur la pierre de touche. Les gardes en livrée devant les portes de l'île. La fumée de la Monnaie, tirée vers la mer par le vent." },
+      { again: true, when: "day", text: "Le pont des Changeurs, ses auvents rayés, le cliquetis des pièces sur la pierre de touche. Les gardes en livrée devant les portes de l'île. La fumée de la Monnaie, que le vent tire vers la mer." },
       { again: true, when: "night", text: "Le pont, la nuit. Les changeurs ont replié leurs tables et emporté leurs balances. Une lanterne brûle devant chaque porte de l'île, et sous chaque lanterne, deux gardes en livrée regardent le pont. Seule une lucarne de la Monnaie, sur le toit de l'aile nord, garde une lueur." },
       { again: true, text: "Sous l'arche du milieu, l'eau {{echo#ic_echo_pont|tourne en remous autour de la pile, avec un bruit de succion|garde une voix d'homme, essoufflée : « Jetez-les du pont, les actes de la reine, tous, et que la Salve les porte à la mer »}}." },
-      { after: "marrel:dessein", text: "Tu regardes la façade de la Banque autrement, maintenant. Trois besants d'or, et derrière, une vieille femme qui compte les jours jusqu'à la Saint-Jean." },
+      { after: "marrel:dessein", text: "Tu regardes à présent la façade de la Banque d'un autre œil. Trois besants d'or, et derrière, une vieille femme qui compte les jours jusqu'à la Saint-Jean." },
       { after: "tibere:parti", text: "Tu passes devant la petite porte de la Banque, sur le flanc de l'hôtel. Un jeudi prochain, un autre homme y touchera cinq ducats pour parler de toi." },
-      { after: "tibere:double", with: "tibere", text: "Tibère marche à ta hauteur et salue le portier de la Banque d'un signe de tête. Le portier lui rend son salut. Tibère sourit à peine." },
+      { after: "tibere:double", with: "tibere", text: "Tibère marche à ta hauteur et salue d'un signe de tête le portier de la Banque. Le portier lui rend son salut. Tibère sourit à peine." },
     ],
     choices: [
       { label: "La Banque Marrel, sous ses trois besants d'or", to: "IC_banque" },
@@ -47,20 +47,20 @@ Object.assign(P, {
   IC_dessein: { act: "I", title: "Ce que veut la Banque", place: "changeurs",
     fx: { flag: "marrel:dessein", ep: ["seance", 1500] },
     text: [
-      "Tu t'arrêtes au milieu du pont, les coudes sur la pierre froide, entre deux tables de changeurs. En bas, une gabare de sel passe sous l'arche en baissant son mât. Tu poses les choses une par une, comme Odeline posait les objets trouvés sur l'établi avant d'écrire l'étiquette.",
-      "La Banque Marrel porte la dette de la République, et la République ne peut pas la payer. Corisande Marrel veut l'or de la Muette pour payer le duc d'Aveline avant la Saint-Jean. Et elle veut le Registre de la reine, pour le brûler. L'or sauve sa maison ; les feuillets la menacent. Elle cherche les deux avec la même main.",
+      "Tu t'arrêtes au milieu du pont, les coudes sur la pierre froide, entre deux tables de changeurs. En bas, une gabare de sel passe sous l'arche en baissant son mât. Tu poses les faits un par un, comme Odeline posait les objets trouvés sur l'établi avant d'écrire l'étiquette.",
+      "Premier fait : la Banque Marrel porte la dette de la République, et la République est incapable de la payer. Deuxième fait : Corisande Marrel veut l'or de la Muette pour payer le duc d'Aveline avant la Saint-Jean. Troisième fait : elle veut aussi le Registre de la reine, pour le brûler. L'or sauve sa maison ; les feuillets la menacent. Elle cherche les deux avec la même main.",
       { with: "lison", text: "Lison t'écoute dire tout ça à mi-voix, sans te regarder. « Tu as mis le temps, dit-elle. Mais tu l'as dit dans le bon ordre. »" },
       { with: "tibere", text: "Tibère se gratte la moustache. « Une vieille qui veut l'or et le feu en même temps. J'ai connu des joueurs comme ça, aux dés. Ils finissent toujours par vendre la maison pour garder la table. »" },
       { with: "gildas", text: "Frère Gildas regarde l'eau sous l'arche. « Le Registre est un témoignage, dit-il. On brûle un témoignage quand on sait ce qu'il dira. »" },
-      "Sur la façade de la Banque, une fenêtre du deuxième étage est éclairée, en plein jour, par une lampe qu'on a oublié d'éteindre ou qu'on n'éteint plus.",
+      "Sur la façade de la Banque, une fenêtre du deuxième étage est éclairée en plein jour, par une lampe qu'on a oublié d'éteindre, ou qu'on n'éteint plus.",
     ],
     choices: [{ back: "IC_pont" }] },
 
   IC_tables: { act: "I", title: "Les tables des changeurs", place: "changeurs", backName: "les tables des changeurs",
     text: [
-      { first: true, text: "Tu remontes les tables une à une. Chaque changeur a sa spécialité : celui-ci ne prend que l'or d'Aveline, celle-là les liards de cuivre des marais au poids, cet autre les lettres de change des ports du sud. Le plus vieux, à la dernière table avant l'île, s'appelle Mainfroy Dumay ; il a soixante-dix ans, une loupe de corne vissée dans l'œil gauche et une voix de confesseur." },
+      { first: true, text: "Tu remontes les tables une à une. Chaque changeur a sa spécialité : celui-ci prend seulement l'or d'Aveline, celle-là les liards de cuivre des marais, au poids, cet autre les lettres de change des ports du sud. Le plus vieux, à la dernière table avant l'île, s'appelle Mainfroy Dumay ; il a soixante-dix ans, une loupe de corne vissée dans l'œil gauche et une voix de confesseur." },
       { first: true, text: "« Change, pesée, essai, dit-il sans lever la tête. Un liard le ducat pour la pesée, deux pour l'essai à la pierre. » Il fait tinter une pièce sur la pierre de touche et regarde la trace. « Le ducat de la République {{oreille#ic_dumay_cours|vaut ses vingt liards, aujourd'hui comme hier|je le prends à dix-huit et je le rends à vingt depuis la Chandeleur, comme tout le pont, et le Conseil le sait}}. »" },
-      { again: true, text: "Mainfroy Dumay pèse, essaie, inscrit. Les pièces passent de sa main à son registre sans qu'il lève les yeux." },
+      { again: true, text: "Mainfroy Dumay pèse, essaie, inscrit. Les pièces passent de sa main à son registre, et ses yeux restent sur la pierre de touche." },
       "À côté de son trébuchet, un plateau d'étain est rempli de pièces dépareillées, noires, rognées, percées : {{pie#ic_ysaure_piece|des monnaies mortes de dix frappes oubliées, au poids du cuivre|des monnaies mortes de dix frappes oubliées, et parmi elles, noircie au soufre pour passer pour du cuivre, une ysaure d'or frappée avant la nuit des Comptoirs}}. Un écriteau : *Au tas, cinq liards la poignée.*",
       { before: "ic:coffre", text: "À la table voisine, une femme d'une soixantaine d'années, en deuil de laine, pose sur le tapis une broche d'argent et la reprend, et la pose encore. Le changeur en face d'elle attend avec la patience des gens qui achètent." },
       { with: "lison", text: "Lison fait sauter un liard des marais dans sa paume. « Ici, ils pèsent même ce qu'on leur dit », souffle-t-elle." },
@@ -81,17 +81,17 @@ Object.assign(P, {
 
   IC_tables_rien: { act: "I", title: "Le tas", place: "changeurs",
     text: [
-      "Tu remues les pièces mortes un long moment. Des liards de la vieille Commune, des deniers d'Aveline percés pour un collier, un sou de plomb. Mainfroy Dumay te regarde faire, puis il pose la main à plat sur le plateau.",
-      "« Le tas est à cinq liards la poignée, dit-il. La fouille est gratuite, mais pas éternelle. » Il retire le plateau sous son comptoir. Tu as vu passer, entre tes doigts, une pièce plus lourde que les autres ; tu ne saurais plus dire laquelle.",
+      "Tu remues les pièces mortes un long moment : des liards de la vieille Commune, des deniers d'Aveline percés pour un collier, un sou de plomb. Mainfroy Dumay te regarde faire, puis il pose la main à plat sur le plateau.",
+      "« Le tas est à cinq liards la poignée, dit-il. La fouille est gratuite, mais elle a une fin. » Il retire le plateau sous son comptoir. Une pièce plus lourde que les autres a passé entre tes doigts ; tu serais incapable de dire laquelle.",
     ],
     choices: [{ back: "IC_tables" }] },
 
   IC_tables_ysaure: { act: "I", title: "Une poignée au tas", place: "changeurs",
     fx: { item: "ic_tr_ysaure", clock: { tresors: 1 }, flag: "tresor:ic_ysaure", ep: ["perso", 300] },
     text: [
-      "Tu poses cinq liards sur le tapis et tu plonges la main dans le plateau. Tu sais déjà où va ta main : la pièce noire, épaisse, un peu plus petite qu'un ducat, que tu as repérée. Tu la ramènes avec quatre autres, pour la forme.",
-      "Plus loin sur le pont, à l'abri d'un pilier, tu la frottes avec le pouce mouillé. Le noir part en poussière grasse, et dessous l'or apparaît, jaune et mou comme du beurre. Une femme couronnée de profil, la bouche ouverte, comme si elle parlait. Au revers, une barque et une étoile. *YSAVRA REGINA AQVARVM.*",
-      { with: "gildas", text: "Frère Gildas prend la pièce, la tourne vers la lumière. « On les a fondues presque toutes, après, dit-il. La République ne voulait plus voir cette bouche-là dans les bourses. » Il te la rend sans la garder plus longtemps qu'il ne faut." },
+      "Tu poses cinq liards sur le tapis et tu plonges la main dans le plateau. Ta main sait déjà où aller : vers la pièce noire, épaisse, un peu plus petite qu'un ducat, que tu as repérée. Tu la ramènes avec quatre autres, pour la forme.",
+      "Plus loin sur le pont, à l'abri d'un pilier, tu la frottes avec le pouce mouillé. Le noir part en poussière grasse, et dessous l'or apparaît, jaune et mou comme du beurre. Une femme couronnée y figure de profil, la bouche ouverte, comme si elle parlait. Au revers, une barque et une étoile. *YSAVRA REGINA AQVARVM.*",
+      { with: "gildas", text: "Frère Gildas prend la pièce et la tourne vers la lumière. « On les a fondues presque toutes, après, dit-il. La République ne voulait plus voir cette bouche-là dans les bourses. » Il te la rend aussitôt." },
       { with: "tibere", text: "Tibère siffle entre ses dents. « Le vieux Dumay vient de te vendre un an de mes gages pour cinq liards. Il ne faudra jamais le lui dire. »" },
     ],
     choices: [{ back: "IC_tables" }] },
@@ -101,19 +101,19 @@ Object.assign(P, {
     text: [
       "Mainfroy Dumay dévisse sa loupe de corne, l'essuie, la revisse. « Ce qu'on dit du ducat ? Que c'est une bonne pièce. Le titre est honnête, le poids est juste. » Il fait tinter un ducat neuf sur la pierre et le pose sur le plateau du trébuchet. Le fléau penche, hésite, se tient.",
       "« La Monnaie frappe {{oreille#ic_dumay_monnaie|comme elle a toujours frappé, au poids de la loi|un grain de moins par pièce depuis l'automne, et nous rognons nos cours d'autant, en silence}}, dit-il. Le pont n'a pas d'opinion. Le pont a des balances. »",
-      "Il range le ducat dans une boîte à part, une boîte de bois sombre où il y en a déjà une centaine, tous neufs. « Ceux-là, je les garde. Les vieux ducats, je les revends au poids aux orfèvres des Halles. »",
+      "Il range le ducat dans une boîte à part, une boîte de bois sombre qui en contient déjà une centaine, tous neufs. « Ceux-là, je les garde. Les vieux ducats, je les revends au poids aux orfèvres des Halles. »",
       { if: { has: "poids:dette" }, text: "Il te regarde par-dessus son trébuchet. « Vous avez une dette, dit-il. Ça se voit à la façon dont vous regardez les piles. Empruntez en ducats neufs, remboursez en ducats neufs, et ne laissez jamais un prêteur vous faire signer en or d'Aveline. »" },
     ],
     choices: [{ back: "IC_tables" }] },
 
   IC_bourse: { act: "I", title: "La bourse aux nouvelles", place: "changeurs", backName: "la bourse aux nouvelles",
     text: [
-      { first: true, text: "Sous les arcades du palais du Conseil, une longue galerie couverte sent l'encre fraîche, la cire chaude et la sueur de marchand. On y vend des nouvelles. Contre les piliers, des tableaux de bois noir où l'on cloue des avis écrits à la main : arrivées de navires, prix du sel à Port-Vasier, faillites, mariages de maisons. Des valets recopient les avis sur des tablettes et courent les porter à leurs maîtres." },
+      { first: true, text: "Sous les arcades du palais du Conseil, une longue galerie couverte sent l'encre fraîche, la cire chaude et la sueur de marchand. On y vend des nouvelles. Contre les piliers, des tableaux de bois noir portent des avis écrits à la main, cloués les uns sur les autres : arrivées de navires, prix du sel à Port-Vasier, faillites, mariages de maisons. Des valets recopient les avis sur des tablettes et courent les porter à leurs maîtres." },
       { first: true, text: "Au milieu de la galerie, sur une estrade basse, une crieuse lit à voix haute les lettres arrivées du nord, contre un liard par auditeur. Plus loin, sous la dernière arche, un vieil homme vend des papiers anciens étalés sur un drap : actes, quittances, lettres de noblesse, cartes marines." },
       { again: true, when: "day", text: "La bourse aux nouvelles bourdonne. La crieuse lit, les valets recopient, les marchands écoutent le prix du sel en faisant semblant de parler d'autre chose." },
       { again: true, when: "night", text: "La galerie est presque vide. Les tableaux restent cloués aux piliers, pleins d'avis d'hier. Un valet dort assis contre une colonne, sa tablette sur les genoux." },
       "Sur le tableau le plus proche, un avis récent, d'une belle écriture de chancellerie : *La Banque Marrel informe ses déposants que {{loupe#ic_avis_banque|les retraits se feront aux heures accoutumées|les retraits au-delà de cent ducats sont suspendus jusqu'à la Saint-Jean, sur ordre de Dame Corisande}}.*",
-      { with: "tibere", text: "Tibère paie un liard à la crieuse sans qu'on lui demande. « Les nouvelles du nord, je les écoute, dit-il. {{oreille#ic_tib_honte|Un vieux sergent garde ses habitudes|Je les écoute pour savoir ce que je pourrai revendre jeudi}}. »" },
+      { with: "tibere", text: "Tibère paie un liard à la crieuse avant qu'elle le lui demande. « Les nouvelles du nord, je les écoute, dit-il. {{oreille#ic_tib_honte|Un vieux sergent garde ses habitudes|Je les écoute pour savoir ce que je pourrai revendre jeudi}}. »" },
     ],
     choices: [
       { label: "Écouter la crieuse lire les lettres du nord (1 liard)", fx: { gold: -1 }, hide: { seen: "IC_bourse_lucette" }, to: "IC_bourse_lucette" },
@@ -125,7 +125,7 @@ Object.assign(P, {
   IC_bourse_lucette: { act: "I", title: "La crieuse", place: "changeurs",
     fx: { ep: ["perso", 200] },
     text: [
-      "La crieuse s'appelle Lucette. Une femme maigre, d'une quarantaine d'années, avec une voix de marinière qui porte jusqu'au bout de la galerie sans forcer. Elle déplie une lettre et la lit d'un trait, en appuyant sur les noms propres.",
+      "La crieuse s'appelle Lucette : une femme maigre, d'une quarantaine d'années, avec une voix de marinière qui porte jusqu'au bout de la galerie sans forcer. Elle déplie une lettre et la lit d'un trait, en appuyant sur les noms propres.",
       "« De Valrose, en Aveline, le dix du mois. Monseigneur le duc a tenu sa cour de printemps. {{oreille#ic_lucette|Il a chassé trois jours dans ses forêts, et le gibier était beau|Il a fait ferrer douze cents chevaux, et on me paie pour lire la chasse à la place}}. Les foires de Valrose ont été bonnes. Le sel de Salvèze y est monté de deux sous la livre. »",
       "Elle replie la lettre, en prend une autre. Un marchand de draps, au premier rang, note tout sur ses tablettes, en tirant la langue.",
       "« De Salvèze même, pour finir. On dit que Monseigneur Amaury de Sauveterre, envoyé du duc, a dîné trois fois ce mois-ci chez des gens du Conseil. On ne dit pas lesquels. » Lucette sourit. « On ne me paie pas assez pour le dire. »",
@@ -147,9 +147,9 @@ Object.assign(P, {
 
   IC_bourse_faillites: { act: "I", title: "Les avis de faillite", place: "changeurs",
     text: [
-      "Les avis de faillite occupent un pilier entier, du sol à hauteur d'homme. On les cloue les uns sur les autres ; les plus vieux, en dessous, ont jauni et pris l'eau. Tu lis les plus récents. Une maison de draps, une maison de vin, deux armateurs de Port-Vasier, un orfèvre des Halles. Chaque avis porte en bas la même mention : *créancier principal : Banque Marrel*.",
+      "Les avis de faillite occupent un pilier entier, du sol à hauteur d'homme. On les cloue les uns sur les autres ; les plus vieux, en dessous, ont jauni et pris l'eau. Tu lis les plus récents : une maison de draps, une maison de vin, deux armateurs de Port-Vasier, un orfèvre des Halles. Chaque avis porte en bas la même mention : *créancier principal : Banque Marrel*. Cinq faillites, un seul créancier.",
       "Un avis, presque au sommet, attire ton œil parce qu'il est écrit d'une autre main, maladroite, en lettres capitales : *ON CHERCHE LE COFFRE NUMÉRO DU GRAND-PÈRE JOSSELIN AGUESSE, BATELIER. RÉCOMPENSE. DEMANDER NICOLE, AUX TABLES.*",
-      { if: { has: "metier:lire" }, text: "Tu as l'habitude de ces avis-là. On les écrit quand on a déjà tout essayé, et on les cloue au pilier des faillites parce que c'est celui que tout le monde lit." },
+      { if: { has: "metier:lire" }, text: "Tu connais ces avis-là. On les écrit quand on a déjà tout essayé, et on les cloue au pilier des faillites parce que c'est celui que tout le monde lit." },
     ],
     choices: [
       { label: "Aller trouver Nicole Aguesse aux tables des changeurs", hide: { any: [{ has: "ic:coffre" }, { seen: "IC_coffre_nicole" }] }, to: "IC_coffre_nicole" },
@@ -162,12 +162,12 @@ Object.assign(P, {
   IC_reine_vendeur: { act: "I", title: "Le marchand de vieux papiers", place: "changeurs", backName: "l'étal de Gédéon",
     fx: { questSeen: "IC_reine", meet: "ic_gedeon" },
     text: [
-      { first: true, text: "Le vieux marchand de papiers s'appelle Gédéon. Il a des mitaines de laine, un nez rouge, une plume derrière chaque oreille, et il connaît le prix de tout ce qui s'écrit. Ses papiers sont rangés sur le drap par ordre de valeur, du plus cher, près de lui, au moins cher, près de tes bottes." },
+      { first: true, text: "Le vieux marchand de papiers s'appelle Gédéon. Il porte des mitaines de laine, un nez rouge et une plume derrière chaque oreille, et il connaît le prix de tout ce qui s'écrit. Ses papiers sont rangés sur le drap par ordre de valeur, du plus cher, près de lui, au moins cher, près de tes bottes. Le classement est instructif : les lettres d'amour sont au bout du drap." },
       { first: true, text: "Quand il te voit regarder, il soulève avec deux doigts le papier le plus proche de lui, sous une plaque de verre. « Voilà ce que personne n'a, dit-il. Une reconnaissance de dette, du temps de la reine. Signée de la maison Marrel, au profit de la Muette elle-même. Trente mille ducats. Les Marrel devaient de l'argent à la reine, vous vous rendez compte. » Il baisse la voix. « Trois ducats, et elle est à vous. »" },
       { again: true, text: "Gédéon lève les yeux de ses papiers et soulève sa plaque de verre, au cas où tu aurais changé d'avis." },
-      "Sous le verre, {{pie#ic_faux_parchemin|un parchemin jauni, piqué de rousseurs, avec un sceau de cire rouge à demi brisé|un parchemin de l'an passé, jauni au thé, avec un sceau coulé dans un moule pris sur un vrai}}. L'écriture est belle, appliquée, un peu trop régulière.",
+      "Sous le verre repose {{pie#ic_faux_parchemin|un parchemin jauni, piqué de rousseurs, avec un sceau de cire rouge à demi brisé|un parchemin de l'an passé, jauni au thé, avec un sceau coulé dans un moule pris sur un vrai}}. L'écriture est belle, appliquée, un peu trop régulière.",
       "« Je la tiens {{oreille#ic_gedeon_copie|d'une vieille famille ruinée, qui vendait ses archives au poids|de ma propre main : je l'ai recopiée sur l'original, et l'original dort dans mon coffre en attendant un vrai acheteur}}, dit Gédéon. »",
-      { with: "gildas", text: "Frère Gildas se penche sur la plaque de verre, longtemps. Il se redresse, et regarde Gédéon avec une curiosité tranquille." },
+      { with: "gildas", text: "Frère Gildas se penche longtemps sur la plaque de verre. Il se redresse, et regarde Gédéon avec une curiosité tranquille." },
     ],
     choices: [
       { label: "Payer les trois ducats (60 liards)", hide: { has: "ic:reine" }, fx: { gold: -60 }, to: "IC_reine_fausse" },
@@ -180,8 +180,8 @@ Object.assign(P, {
 
   IC_reine_examen: { act: "I", title: "Une belle écriture", place: "changeurs",
     text: [
-      "Gédéon soulève la plaque et te tend le parchemin du bout des doigts, sans le lâcher tout à fait. Tu lis : *Nous, Ricard Marrel, changeur sur le pont, reconnaissons tenir de notre dame la reine Ysaure la somme de trente mille ducats d'or…* L'encre est brune, le latin des formules est correct, le sceau porte bien les trois besants.",
-      "Tu cherches la faute et tu ne la trouves pas. Gédéon reprend son parchemin avec un sourire de grand-père. « Elle est belle, hein. Trois ducats. Je ne baisse pas, mais je ne la vends pas à n'importe qui. »",
+      "Gédéon soulève la plaque et te tend le parchemin du bout des doigts, en gardant une prise dessus. Tu lis : *Nous, Ricard Marrel, changeur sur le pont, reconnaissons tenir de notre dame la reine Ysaure la somme de trente mille ducats d'or…* L'encre est brune, le latin des formules est correct, le sceau porte bien les trois besants.",
+      "Tu cherches la faute, en vain. Gédéon reprend son parchemin avec un sourire de grand-père. « Elle est belle, hein. Trois ducats. Je ne baisse pas, mais je ne la vends pas à n'importe qui. »",
     ],
     choices: [{ back: "IC_reine_vendeur" }] },
 
@@ -189,8 +189,8 @@ Object.assign(P, {
     text: [
       "Gédéon cesse de sourire. Il regarde à droite, à gauche, puis il rabat un coin de son drap sur ses papiers les plus chers. « Parlez moins fort. » Il te fait passer derrière le pilier, où il garde un coffre de cèdre bardé de fer, un tabouret et un réchaud.",
       "« Bon. Oui. C'est une copie. Je fais des copies, comme tout le monde ici ; les gens veulent la Muette sur leur mur, je leur vends la Muette. L'original, je l'ai trouvé dans un lot de papiers des Archives, vendu au poids il y a dix ans. » Il pose la main sur le couvercle du coffre. « Celui-là, je le vends cinquante ducats. Ou je le garde. Monsieur Brunel, de la Banque, m'en a déjà offert trente, et je l'ai trouvé trop pressé. »",
-      { with: "tibere", text: "Tibère s'adosse au pilier, les pouces dans le ceinturon, et regarde Gédéon comme il regardait sans doute les faussaires quand il portait la plaque du Guet." },
-      { with: "lison", text: "Lison s'assied sur le tabouret sans qu'on l'y invite, et tend les mains au réchaud. Ses yeux vont du coffre à la ceinture de Gédéon, où pend une clé de fer." },
+      { with: "tibere", text: "Tibère s'adosse au pilier, les pouces dans le ceinturon, et regarde Gédéon comme il regardait sans doute les faussaires au temps où il portait la plaque du Guet." },
+      { with: "lison", text: "Lison s'assied sur le tabouret sans y être invitée, et tend les mains au réchaud. Ses yeux vont du coffre à la ceinture de Gédéon, où pend une clé de fer." },
     ],
     choices: [
       { label: "« Les faussaires, sur l'île, on les pend au pont. Je pourrais en parler aux gardes de la Monnaie. »",
@@ -211,8 +211,8 @@ Object.assign(P, {
   IC_reine_perdue: { act: "I", title: "Le coffre se referme", place: "changeurs",
     fx: { quest: "IC_reine", flag: "ic:reine", set: { ic_reine: "lothaire" } },
     text: [
-      "Gédéon se lève, d'un coup, et pose son tabouret sur le couvercle du coffre. « Dehors. » Il siffle entre ses doigts. Deux gardes gris de la Monnaie, qui passaient sous l'arcade, tournent la tête. Tu recules dans la galerie.",
-      "Le lendemain, son étal est vide. Un valet de la bourse te dit qu'un homme en gants gris est venu avec deux porteurs, la veille au soir, et qu'il a emporté le coffre de cèdre entier. Gédéon a payé sa tournée à toute la galerie, et il est parti voir sa sœur à Port-Vasier.",
+      "Gédéon se lève d'un coup et pose son tabouret sur le couvercle du coffre. « Dehors. » Il siffle entre ses doigts. Deux gardes gris de la Monnaie, qui passaient sous l'arcade, tournent la tête. Tu recules dans la galerie.",
+      "Le lendemain, son étal est vide. Un valet de la bourse te raconte qu'un homme en gants gris est venu la veille au soir avec deux porteurs, et qu'il a emporté le coffre de cèdre entier. Gédéon a payé sa tournée à toute la galerie, et il est parti voir sa sœur à Port-Vasier.",
     ],
     choices: [{ back: "IC_bourse" }] },
 
@@ -221,15 +221,15 @@ Object.assign(P, {
     text: [
       "Gédéon glisse le parchemin dans une chemise de cuir souple, noue le cordon et te le tend à deux mains, comme une relique. « Gardez-la au sec. Et ne la montrez pas à n'importe qui : la Banque n'aime pas qu'on lui rappelle ses dettes. »",
       "Tu ranges la chemise dans ton sac. Elle pèse moins que tu ne l'aurais cru.",
-      { if: { voile: "ic_faux_parchemin" }, text: "Tu sais ce que tu as acheté. Une belle copie, faite par un homme habile, pour le prix d'un mois de pain. Un jour, peut-être, quelqu'un l'achètera pour l'original." },
+      { if: { voile: "ic_faux_parchemin" }, text: "Tu sais ce que tu as acheté : une belle copie, faite par un homme habile, pour le prix d'un mois de pain. Un jour, peut-être, quelqu'un l'achètera pour l'original." },
     ],
     choices: [{ back: "IC_bourse" }] },
 
   IC_reine_vraie: { act: "I", title: "La reconnaissance de la reine", place: "changeurs",
     fx: { item: "ic_tr_reconnaissance", clock: { tresors: 1 }, flag: ["tresor:ic_reconnaissance", "ic:reine"], set: { ic_reine: "vraie" }, quest: "IC_reine", clue: "ic_c_reconnaissance", ep: ["perso", 600] },
     text: [
-      { outcome: "win", text: "Gédéon soupire, de tout son grand corps, et ouvre le coffre de cèdre avec sa clé de fer. Sous des liasses de quittances, une enveloppe de toile cirée ; dans l'enveloppe, un parchemin épais, souple, presque doux, couleur de vieil os. « Prenez-la. Et quand on vous la volera, ne dites pas que c'est moi qui vous l'ai vendue. »" },
-      "Le sceau est intact : trois besants, la cire brunie par trois siècles. L'écriture est plus rapide que celle de la copie, plus sûre, avec des ratures. *Nous, Ricard Marrel, changeur sur le pont, reconnaissons tenir de notre dame la reine Ysaure la somme de trente mille ducats d'or, que nous rendrons à la Saint-Jean de l'an mil quatorze, sur nos biens et sur nos tables.*",
+      { outcome: "win", text: "Gédéon soupire, de tout son grand corps, et ouvre le coffre de cèdre avec sa clé de fer. Sous des liasses de quittances, il y a une enveloppe de toile cirée ; dans l'enveloppe, un parchemin épais, souple, presque doux, couleur de vieil os. « Prenez-la. Et quand on vous la volera, ne dites pas que c'est moi qui vous l'ai vendue. »" },
+      "Le sceau est intact : trois besants, la cire brunie par trois siècles. L'écriture est plus rapide que celle de la copie, plus sûre, avec des ratures ; un faussaire, lui, n'en fait pas. *Nous, Ricard Marrel, changeur sur le pont, reconnaissons tenir de notre dame la reine Ysaure la somme de trente mille ducats d'or, que nous rendrons à la Saint-Jean de l'an mil quatorze, sur nos biens et sur nos tables.*",
       "Au bas, de l'autre main, une signature large : *Ysaure*. Et dessous, d'une encre plus pâle, {{loupe#ic_reconnaissance|une simple croix, tracée à la hâte|une ligne d'écriture fine : « Payable en sel des Hautes-Eaux, si l'or manque, à mes sauniers et non à moi »}}.",
       { with: "gildas", text: "Frère Gildas lit par-dessus ton épaule. « L'an mil quatorze, dit-il. La Saint-Jean de cette année-là, la reine était déjà dans sa tour. » Il se tait ensuite." },
     ],
@@ -254,8 +254,8 @@ Object.assign(C, {
 Object.assign(P, {
   IC_banque: { act: "I", title: "La Banque Marrel", place: "changeurs", when: "day", backName: "le grand hall de la Banque",
     text: [
-      { first: true, text: "Le portail de la Banque s'ouvre sur un hall plus haut que la nef d'une église de quartier. Le sol est un damier de marbre noir et blanc, usé en creux devant les guichets. Douze guichets, derrière douze grilles de fer forgé, et derrière chaque grille un commis en noir qui compte sans lever les yeux. Au fond, un escalier de pierre monte vers les étages ; à gauche, une porte basse, gardée, descend vers les chambres fortes." },
-      { first: true, text: "Ça sent la cire, le papier et l'argent, qui a une odeur : une odeur de cuivre tiède, de mains. Des gardes en livrée noir et or se tiennent aux quatre coins, les mains croisées sur la garde de leur épée courte. L'un d'eux te suit des yeux depuis le portail jusqu'aux guichets, sans bouger la tête." },
+      { first: true, text: "Le portail de la Banque s'ouvre sur un hall plus haut que la nef d'une église de quartier. Le sol est un damier de marbre noir et blanc, creusé devant les guichets par des générations de clients. Douze guichets s'alignent derrière douze grilles de fer forgé, et derrière chaque grille un commis en noir compte les yeux baissés. Au fond, un escalier de pierre monte vers les étages ; à gauche, une porte basse, gardée, descend vers les chambres fortes." },
+      { first: true, text: "L'air sent la cire, le papier et l'argent ; l'argent a une odeur, celle du cuivre tiède et des mains. Des gardes en livrée noir et or se tiennent aux quatre coins, les mains croisées sur la garde de leur épée courte. L'un d'eux te suit des yeux depuis le portail jusqu'aux guichets, la tête parfaitement immobile." },
       { first: true, with: "tibere", text: "Tibère s'arrête sur le seuil et rabat son chapeau sur ses yeux. « Je garde la porte, moi, dit-il. {{oreille#ic_tib_porte|Les banques, ça me donne la colique|À l'intérieur, trois commis sur quatre m'appellent par mon nom}}. » Il s'adosse au chambranle, dehors." },
       { first: true, with: "lison", text: "Lison regarde le damier de marbre, puis ses propres bottes, crottées de vase de canal, et elle marche exprès sur les cases blanches. « Je viens voir de près {{oreille|les gens qui ont de l'argent|qui t'achète, et pour combien, pour le dire à qui m'envoie}}, dit-elle. »" },
       { again: true, text: "Le hall de la Banque, le damier de marbre, les grilles et les commis. Les gardes noir et or aux quatre coins. Le bruit des pièces comptées monte jusqu'à la voûte et y reste." },
@@ -274,11 +274,11 @@ Object.assign(P, {
 
   IC_comptes: { act: "I", title: "La salle des comptes", place: "changeurs",
     text: [
-      { first: true, text: "Derrière les guichets, une salle longue et basse, éclairée par des fenêtres hautes sur la Salve. Quarante pupitres inclinés en quatre rangées, quarante commis penchés, quarante plumes qui grattent ensemble avec un bruit de pluie fine. Un maître des comptes passe entre les rangées et regarde les pages par-dessus les épaules, les mains dans le dos." },
+      { first: true, text: "Derrière les guichets s'étend une salle longue et basse, éclairée par des fenêtres hautes sur la Salve. Quarante pupitres inclinés y forment quatre rangées ; quarante commis s'y penchent ; quarante plumes grattent ensemble avec un bruit de pluie fine. Un maître des comptes passe entre les rangées et regarde les pages par-dessus les épaules, les mains dans le dos." },
       { first: true, text: "Au bout de la salle, sur un lutrin de chêne, le grand livre de la maison est ouvert, enchaîné au lutrin par une chaîne de cuivre. On y reporte chaque soir les comptes du jour. Un commis le tient ouvert à la page du mois, et un garde se tient à côté." },
       { again: true, text: "Les quarante plumes grattent. Le maître des comptes marche entre les pupitres. Le grand livre, sur son lutrin, est ouvert à une autre page qu'hier." },
       "Tu lis de loin, à l'envers, la ligne que le commis vient de reporter dans le grand livre : *Garantie de la dette d'Aveline : {{loupe#ic_grand_livre|close et soldée à la Chandeleur|quatre millions de ducats, portés sur nos fonds propres, gagés sur nos titres du delta}}.*",
-      "Au dernier pupitre de la dernière rangée, un commis très jeune, aux cheveux frisés et aux manchettes tachées d'encre, a cessé d'écrire pour te regarder. Il sourit comme on sourit à la première personne intéressante de la journée. Sur son pupitre, sous sa main, un petit registre relié de toile verte : *Menues dépenses*.",
+      "Au dernier pupitre de la dernière rangée, un commis très jeune, aux cheveux frisés et aux manchettes tachées d'encre, a cessé d'écrire pour te regarder. Il sourit comme on sourit à la première personne intéressante de la journée. Sur son pupitre, sous sa main, repose un petit registre relié de toile verte : *Menues dépenses*.",
       "Sur l'étagère derrière lui, {{pie#ic_coffret_commis|un coffret de bois noir, fermé par une serrure de cuivre|un coffret de bois noir, dont la serrure de cuivre est une façade : le couvercle s'ouvre en poussant le fond}}, où l'on range sans doute la petite caisse.",
     ],
     choices: [
@@ -297,8 +297,8 @@ Object.assign(P, {
     fx: { flag: ["ic:recu", "tibere:espion"], ep: ["perso", 400] },
     text: [
       "Le temps de trois battements de cœur, la page est sous tes yeux. Des colonnes de petites sommes : chandelles, encre, un pourboire au batelier, une course au Beffroi. Et, tous les jeudis depuis la nuit des Lanternes, la même ligne, de la même main de commis : *Au sieur T. G., pour avis, cinq ducats. Sur ordre de M. Brunel.*",
-      "Glissés entre les pages, des reçus : de petits carrés de papier pliés en deux. Tu en ouvres un. *Reçu cinq ducats. T. Gaucelm.* L'écriture est grosse, appuyée, celle d'un homme qui a appris à signer tard et qui signe en serrant la plume. Tu la connais. Tu l'as vue au bas du constat du Guet, le matin où l'on a emporté Odeline.",
-      { with: "lison", text: "Lison a vu ton visage. Elle ne demande rien. Elle ramasse l'encrier qu'elle a renversé, s'excuse auprès du commis avec une grâce que tu ne lui connaissais pas, et te prend le bras pour sortir." },
+      "Entre les pages sont glissés des reçus, de petits carrés de papier pliés en deux. Tu en ouvres un. *Reçu cinq ducats. T. Gaucelm.* L'écriture est grosse, appuyée, celle d'un homme qui a appris à signer tard et qui signe en serrant la plume. Tu la connais. Tu l'as vue au bas du constat du Guet, le matin où l'on a emporté Odeline.",
+      { with: "lison", text: "Lison a vu ton visage, et garde ses questions. Elle ramasse l'encrier qu'elle a renversé, s'excuse auprès du commis avec une grâce que tu ne lui connaissais pas, et te prend le bras pour sortir." },
       "Tu remets le reçu à sa place. Tu {{miroir#ic_miroir_tibere|sens la trahison, simplement|te souviens que tu l'as pris avec toi parce qu'il ne te posait jamais de questions, et que cela t'arrangeait}}. Dehors, sur le seuil, quelqu'un t'attend, qui sait déjà ce que tu as fait aujourd'hui, et le dira jeudi.",
     ],
     choices: [{ back: "IC_comptes" }] },
@@ -324,8 +324,8 @@ Object.assign(P, {
       { outcome: "win", text: "Le premier garde glisse sur le marbre et emporte un pupitre dans sa chute ; une pluie de feuilles s'abat sur la salle. Tu traverses le hall en courant, tu bouscules un client en fourrure, tu passes le portail." },
       { outcome: "lose", text: "Les deux gardes te prennent chacun un bras, te font traverser le hall au pas de charge et te jettent sur les marches du portail. Tu te relèves avec une épaule qui brûle et la paume écorchée." },
       { outcome: "flee", text: "Tu files entre les pupitres, courbé{e}, pendant que les commis lèvent leurs plumes comme des épées. Le portail, le pavé, le soleil." },
-      "Sur les marches, les gens du pont te regardent avec cet intérêt poli qu'on a pour les malheurs des autres. Un garde, sur le seuil, note quelque chose sur une tablette. On saura ton visage, désormais, dans la maison Marrel.",
-      { with: "tibere", text: "Tibère te tend la main pour t'aider à te relever. Il regarde le seuil, le garde à la tablette, et il baisse les yeux plus vite qu'il ne faudrait." },
+      "Sur les marches, les gens du pont te regardent avec cet intérêt poli qu'on a pour les malheurs des autres. Un garde, sur le seuil, note quelque chose sur une tablette. Ton visage figure désormais dans les papiers de la maison Marrel.",
+      { with: "tibere", text: "Tibère te tend la main pour t'aider à te relever. Il regarde le seuil, le garde à la tablette, et il baisse les yeux un peu trop vite." },
     ],
     choices: [{ back: "IC_pont" }] },
 
@@ -350,14 +350,14 @@ Object.assign(P, {
   IC_amedee_non: { act: "I", title: "La règle de la maison", place: "changeurs",
     text: [
       "Amédée rougit jusqu'aux oreilles et se penche sur son registre. « Je ne peux pas, dit-il. Le maître des comptes nous regarde. Les dépôts anciens, c'est le guichet douze, et il faut le numéro du reçu. Sans numéro, ils ne vous ouvriront rien, même si c'est la reine qui demande. »",
-      "Il recommence à écrire. Il a l'air de regretter, un peu. Le maître des comptes passe derrière lui et regarde sa page.",
+      "Il recommence à écrire, l'air de regretter un peu. Le maître des comptes passe derrière lui et regarde sa page.",
     ],
     choices: [{ back: "IC_comptes" }] },
 
   IC_amedee_vin: { act: "I", title: "La taverne du Trébuchet", place: "changeurs",
     fx: { ep: ["perso", 400] },
     text: [
-      "Le Trébuchet est une salle basse au pied des Archives, où les commis de toute l'île viennent boire à six heures. Amédée arrive en courant, s'assied, vide son premier gobelet comme un homme qui a soif depuis le matin, et parle. Il parle de son maître des comptes, de sa logeuse, d'une fille de la Monnaie qui ne le regarde pas. Au deuxième gobelet, il parle de Monsieur Brunel.",
+      "Le Trébuchet est une salle basse au pied des Archives, où les commis de toute l'île viennent boire à six heures. Amédée arrive en courant, s'assied, vide son premier gobelet comme un homme qui a soif depuis le matin, et parle. Il parle de son maître des comptes, de sa logeuse, d'une fille de la Monnaie qui refuse de le regarder. Au deuxième gobelet, il parle de Monsieur Brunel. Tu tiens le compte des gobelets comme on tient celui des marches d'un escalier.",
       "« Il a ses oreilles, je vous l'ai dit. Il y en a une qui vient tous les jeudis à la petite porte, sur le flanc de l'hôtel. Un vieux sergent, une balafre ici, qui sent le vin. Cinq ducats. C'est moi qui fais les reçus. » Il rit. « Il signe comme un enfant. »",
       { with: "tibere", text: "Tibère est resté au comptoir, de dos, à trois pas. Tu vois ses épaules se raidir, et sa main se refermer sur son gobelet." },
       "Au troisième gobelet, il se penche sur la table. « Et je vais vous dire autre chose, parce que vous avez une bonne figure. L'autre jour, sur le bureau de Monsieur Brunel, il y avait un billet de Madame. Je l'ai lu en posant le courrier. *Je veux tout, Lothaire. L'or pour Aveline, les feuillets pour ma cheminée.* » Il se redresse, effrayé de lui-même. « Je n'ai rien dit. »",
@@ -380,8 +380,8 @@ Object.assign(P, {
 Object.assign(P, {
   IC_antichambre: { act: "I", title: "L'antichambre", place: "changeurs",
     text: [
-      "Au deuxième étage, une antichambre tendue de cuir de Cordoue, des banquettes, une horloge à poids qui bat lourdement. Un secrétaire en noir, assis derrière une table nue, tient un registre de rendez-vous. Il a une voix aimable et des yeux qui ne le sont pas. « Dame Marrel reçoit sur rendez-vous, dit-il. Le prochain est dans onze jours. »",
-      "Deux marchands attendent déjà sur la banquette, leur chapeau sur les genoux. L'un d'eux a l'air d'attendre depuis le matin.",
+      "Au deuxième étage, une antichambre tendue de cuir de Cordoue abrite des banquettes et une horloge à poids qui bat lourdement. Un secrétaire en noir, assis derrière une table nue, tient un registre de rendez-vous. Il a une voix aimable et des yeux qui le sont beaucoup moins. « Dame Marrel reçoit sur rendez-vous, dit-il. Le prochain est dans onze jours. »",
+      "Deux marchands attendent déjà sur la banquette, leur chapeau sur les genoux. L'un d'eux a l'air d'attendre depuis le matin, et l'autre depuis la veille.",
       { with: "tibere", text: "Tibère t'a suivi{e} dans l'escalier, finalement, et il regarde la porte du cabinet. « {{oreille#ic_tib_corisande|Je ne suis jamais monté si haut, moi|Je suis monté ici une fois, la semaine de la mort d'Odeline, et la vieille m'a payé d'avance}}, dit-il. »" },
       { with: "gildas", text: "Frère Gildas s'assied sur la banquette à côté des marchands, les mains dans ses manches, avec la patience de quelqu'un qui a attendu des heures dans des endroits plus froids." },
     ],
@@ -400,10 +400,10 @@ Object.assign(P, {
   IC_corisande: { act: "I", title: "Corisande Marrel", place: "changeurs", backName: "le cabinet de Corisande Marrel",
     fx: { meet: "corisande", ep: ["perso", 400] },
     text: [
-      "Le secrétaire te fait entrer seul{e} : Dame Marrel reçoit une personne à la fois. Le cabinet est une pièce carrée, haute, avec une fenêtre sur toute la largeur de la Salve. Un feu de bois de pommier, une table de travail sans un papier dessus, un seul registre fermé par un fermoir de cuivre. Sur le mur, un portrait d'homme en fraise, très vieux, qui tient une balance.",
-      "Corisande Marrel est assise près du feu. Soixante-sept ans, des cheveux blancs tirés en chignon, une robe de laine noire sans un bijou, sauf une bague à trois besants d'or. Elle verse elle-même le vin dans deux verres. Près de la fenêtre, dos à la lumière, un homme en gants gris se tient debout. Il porte à la ceinture un petit cornet d'os cerclé d'argent, le frère du tien.",
+      "Le secrétaire te fait entrer seul{e} : Dame Marrel reçoit une personne à la fois. Le cabinet est une pièce carrée, haute, avec une fenêtre sur toute la largeur de la Salve. Tu en fais l'inventaire d'un regard : un feu de bois de pommier ; une table de travail nue ; un seul registre, fermé par un fermoir de cuivre. Sur le mur, un portrait d'homme en fraise, très vieux, tient une balance.",
+      "Corisande Marrel est assise près du feu. Elle a soixante-sept ans, des cheveux blancs tirés en chignon, une robe de laine noire sans un bijou, à l'exception d'une bague à trois besants d'or. Elle verse elle-même le vin dans deux verres. Près de la fenêtre, dos à la lumière, se tient un homme en gants gris. Il porte à la ceinture un petit cornet d'os cerclé d'argent, le frère du tien.",
       "« Asseyez-vous. Votre maîtresse {{oreille#ic_cori_odeline|avait du goût, et une réputation que je respectais|m'a demandé deux mille ducats pour une porte dans le Beffroi, et elle est morte la nuit où je devais les payer}}. Je suis désolée pour vous. » Elle te tend un verre. « Je vous ai fait monter parce que {{oreille|j'aime connaître les gens qui cherchent dans ma ville|Lothaire dit que vous avez le cornet, et que vous l'écoutez déjà}}. »",
-      "Lothaire Brunel n'a pas bougé. Il a seulement levé le cornet jusqu'à son oreille, sans se cacher, comme un homme qui met ses lunettes pour lire.",
+      "Lothaire Brunel est resté immobile. Il a seulement levé le cornet jusqu'à son oreille, sans se cacher, comme un homme qui met ses lunettes pour lire.",
     ],
     choices: [
       { label: "« On dit que la République vous doit beaucoup. »", hide: { seen: "IC_corisande_dette" }, to: "IC_corisande_dette" },
@@ -436,7 +436,7 @@ Object.assign(P, {
   IC_corisande_crainte: { act: "I", title: "Ce qui fait peur", place: "changeurs",
     fx: { flag: "ic:corisande_crainte", ep: ["perso", 400] },
     text: [
-      "Corisande Marrel te regarde longtemps. Le feu de pommier claque. Elle fait un geste de la main vers la fenêtre, et Lothaire sort du cabinet et ferme la porte derrière lui.",
+      "Corisande Marrel te regarde longtemps. Le feu de pommier claque. Elle fait un geste de la main vers la fenêtre ; Lothaire sort du cabinet et ferme la porte derrière lui.",
       "« {{oreille#ic_cori_crainte|Rien ne m'effraie, à mon âge|J'ai peur de mourir la dernière d'une maison de cinq siècles, et qu'on écrive aux Archives que c'est moi qui l'ai fermée}}, dit-elle. » Elle lève les yeux vers le portrait de l'homme à la balance. « Ricard Marrel. Il a commencé avec une table sur le pont, comme le vieux Dumay. Chaque génération depuis a ajouté un étage à cet hôtel. »",
       "« J'ai eu un fils. La fièvre des marais l'a pris à vingt ans, et sa femme après lui. Il me reste une petite-fille, Aliénor, qui a douze ans et qui dessine des chevaux. Je voudrais qu'elle hérite d'une maison, et pas d'un procès. » Elle se tait. Puis, plus bas : « Vous direz à Lothaire que nous avons parlé de l'or. »",
       { if: { voile: "ic_cori_odeline" }, text: "Tu penses aux deux mille ducats, et à la nuit où ils devaient changer de main. Corisande suit ton regard jusqu'au feu, et elle se tait." },
@@ -445,7 +445,7 @@ Object.assign(P, {
 
   IC_corisande_fin: { act: "I", title: "Prendre congé", place: "changeurs",
     text: [
-      "Corisande Marrel se lève quand tu te lèves, ce qu'elle ne fait sans doute pas pour les marchands. « Alors ? » Elle attend ta réponse avec l'air de quelqu'un qui connaît déjà les trois réponses possibles et le prix de chacune.",
+      "Corisande Marrel se lève quand tu te lèves, politesse qu'elle épargne sans doute aux marchands. « Alors ? » Elle attend ta réponse avec l'air de quelqu'un qui connaît déjà les trois réponses possibles, et le prix de chacune.",
       { if: { has: "lothaire:refuse" }, text: "« Lothaire me dit que vous lui avez déjà répondu non, sur le quai. Je préfère entendre les refus moi-même. Ils coûtent moins cher quand on les entend tôt. »" },
     ],
     choices: [
@@ -456,11 +456,11 @@ Object.assign(P, {
 
   IC_corisande_sortie: { act: "I", title: "L'escalier de la Banque", place: "changeurs",
     text: [
-      { if: { has: "ic:corisande_oui" }, text: "Le secrétaire te compte deux ducats neufs dans la paume, et te fait signer un reçu. Ta signature, sur le papier de la Banque, a l'air de celle de quelqu'un d'autre." },
+      { if: { has: "ic:corisande_oui" }, text: "Le secrétaire te compte deux ducats neufs dans la paume, et te fait signer un reçu. Sur le papier de la Banque, ta signature a l'air de celle de quelqu'un d'autre." },
       { if: { has: "ic:corisande_non" }, text: "Corisande Marrel incline la tête. « Bien. Vous changerez d'avis, ou quelqu'un d'autre trouvera à votre place. Les deux me conviennent. » Le secrétaire t'ouvre la porte." },
       { if: { has: "ic:corisande_peut_etre" }, text: "« Réfléchissez vite, dit Corisande Marrel. La Saint-Jean, elle, ne réfléchit pas. » Le secrétaire t'ouvre la porte." },
       "Tu descends l'escalier de pierre. Les marches sont creusées au milieu par cinq siècles de clients. En bas, le hall, le damier, le bruit des pièces.",
-      { with: "tibere", text: "Tibère t'attend au pied de l'escalier, son chapeau à la main, et il te demande comment c'était avec une curiosité trop pressée. Puis il ajoute, tout bas, sans te regarder : « Fais attention à ce que tu dis devant moi, petit{e}. » Il remet son chapeau, et sort le premier." },
+      { with: "tibere", text: "Tibère t'attend au pied de l'escalier, son chapeau à la main, et te demande comment c'était, avec une curiosité trop pressée. Puis il ajoute, tout bas, les yeux ailleurs : « Fais attention à ce que tu dis devant moi, petit{e}. » Il remet son chapeau, et sort le premier." },
       { with: "lison", text: "Lison se décolle du mur. « Tu as signé quelque chose ? » Elle regarde tes mains, puis ton visage. Elle a sa réponse avant toi." },
     ],
     choices: [
@@ -474,7 +474,7 @@ Object.assign(P, {
       { if: { has: "ic:corisande_oui" }, text: "« Vous avez trouvé quelque chose ? Non. Alors revenez quand vous aurez trouvé. Les avances, je les compte. »" },
       { if: { has: "ic:corisande_non" }, text: "« Vous revenez sur votre refus ? Non ? Alors c'est la curiosité qui vous ramène. Je n'ai pas le temps d'être curieuse. »" },
       { if: { has: "ic:corisande_peut_etre" }, text: "« Vous réfléchissez toujours. Moi aussi. Je réfléchis à qui d'autre pourrait chercher à votre place. »" },
-      { after: "marrel:dessein", text: "Elle te regarde un peu plus longtemps que d'habitude, comme si quelque chose dans ton visage avait changé de prix." },
+      { after: "marrel:dessein", text: "Elle te regarde un peu plus longtemps que d'habitude, comme si ton visage avait changé de prix." },
     ],
     choices: [
       { label: "Accepter enfin l'avance et la place", tag: "La Banque +10", stain: true, hide: { not: { has: "ic:corisande_peut_etre" } }, fx: { unflag: "ic:corisande_peut_etre", flag: "ic:corisande_oui", gold: 40, fac: { banque: 10, hautes: -5 } }, back: "IC_banque" },
@@ -504,7 +504,7 @@ Object.assign(P, {
   IC_lothaire: { act: "I", title: "La galerie des portraits", place: "changeurs", backName: "la galerie des portraits",
     fx: { meet: "lothaire", ep: ["perso", 300] },
     text: [
-      "La galerie longe le premier étage de la Banque, au-dessus du hall : un long couloir dallé, des fenêtres d'un côté, de l'autre une rangée de portraits, quinze générations de Marrel en fraise, en collerette, en col plat, tous la main posée sur une balance ou sur un livre de comptes. Lothaire Brunel t'attend devant le dernier, les mains croisées dans le dos. Gants gris. Une voix douce, presque timide.",
+      "La galerie longe le premier étage de la Banque, au-dessus du hall : un long couloir dallé, des fenêtres d'un côté, et de l'autre une rangée de portraits, quinze générations de Marrel en fraise, en collerette, en col plat, tous la main posée sur une balance ou sur un livre de comptes. La mode du col a changé quinze fois ; la balance, jamais. Lothaire Brunel t'attend devant le dernier portrait, les mains croisées dans le dos. Gants gris. Une voix douce, presque timide.",
       { if: { has: "lothaire:refuse" }, text: "« Vous m'avez déjà dit non une fois, sur le pont des Lanternes. Je reviens toujours une deuxième fois. La deuxième fois, les gens savent mieux ce qu'ils refusent. »", else: "« Nous ne nous sommes jamais parlé, et pourtant je vous connais un peu. Vous êtes l'apprenti{e} d'Odeline Carrus. Vous avez son cornet. Vous l'avez déjà porté à l'oreille. »" },
       "Il lève son propre cornet, un os blanchi cerclé d'argent, le jumeau du tien, et le tient contre son oreille sans plus faire semblant. « Votre maîtresse {{oreille#ic_lot_odeline|et moi, nous faisions affaire depuis longtemps|m'a vendu une seule chose en vingt ans, et c'était une promesse qu'elle n'a pas tenue}}. » Il incline la tête. « Vous dites : bonjour, Monsieur. Vous pensez : c'est lui. Oui, c'est moi. »",
       "« Votre sergent {{oreille#ic_lot_tibere|est un brave homme, qui boit un peu trop, c'est tout|me coûte cinq ducats le jeudi, et me raconte vos journées jusqu'à la couleur de vos chausses}}. Et Madame {{oreille#ic_lot_feu|collectionne les vieux papiers, c'est une passion de famille|veut un feu assez grand pour six feuillets, et c'est moi qui lui porterai le bois}}. »",
@@ -534,7 +534,7 @@ Object.assign(P, {
     text: [
       "Tu regardes Lothaire en face, et tu penses, fort, avec application, comme on récite une leçon : le caveau des Noyés, le caveau des Noyés, la dalle sous la troisième croix. Tu le penses en disant tout autre chose, une politesse sur les portraits, sur la lumière de la galerie.",
       "Lothaire écoute. Son regard se fige un instant, très court, le temps qu'il faut à un héron pour voir le poisson. « Les portraits sont mal éclairés, oui, dit-il. Vous avez raison. » Il te salue d'une inclinaison de tête, et il s'éloigne dans la galerie d'un pas plus rapide qu'à l'aller.",
-      "Cette nuit, au cimetière des Noyés, des hommes en gants gris lèveront une dalle sous la troisième croix, et ils n'y trouveront qu'un mort, qui ne leur dira rien.",
+      "Cette nuit, au cimetière des Noyés, des hommes en gants gris lèveront une dalle sous la troisième croix, et ils y trouveront un mort pour toute réponse.",
     ],
     choices: [{ back: "IC_banque" }] },
 
@@ -547,11 +547,11 @@ Object.assign(P, {
 
   IC_galerie: { act: "I", title: "La porte basse", place: "changeurs",
     text: [
-      "La porte basse, à gauche du hall, donne sur un escalier qui descend en tournant. Tu descends douze marches avant qu'une grille t'arrête. Derrière la grille, un garde assis sur un tabouret, une lanterne, et l'escalier qui continue plus bas, dans le noir.",
-      "Les murs changent au milieu de la descente. En haut, c'est la pierre blanche de l'île, bien taillée, jointoyée au mortier clair. En bas, ce sont de gros blocs gris, plus anciens, mal équarris, avec des traces de feu : les fondations du vieux palais de la reine. Sur l'un d'eux, un visage de femme sculpté en bas-relief, couronné, {{pie#ic_bas_relief|la bouche effacée par le temps|la bouche effacée au ciseau, d'un seul coup net, par quelqu'un qui savait où frapper}}.",
+      "La porte basse, à gauche du hall, donne sur un escalier qui descend en tournant. Au bout de douze marches, une grille t'arrête. Derrière la grille, un garde est assis sur un tabouret, près d'une lanterne, et l'escalier continue plus bas, dans le noir.",
+      "Les murs changent au milieu de la descente. En haut, c'est la pierre blanche de l'île, bien taillée, jointoyée au mortier clair. En bas, ce sont de gros blocs gris, plus anciens, mal équarris, marqués de traces de feu : les fondations du vieux palais de la reine. Sur l'un d'eux, un visage de femme est sculpté en bas-relief, couronné, {{pie#ic_bas_relief|la bouche effacée par le temps|la bouche effacée au ciseau, d'un seul coup net, par quelqu'un qui savait où frapper}}.",
       "La serrure de la grille est {{pie#ic_grille|une grosse serrure de fer, à trois pênes, neuve|une grosse serrure de fer à trois pênes, neuve, posée sur une vieille grille dont les gonds ne tiennent plus qu'à deux clous rouillés}}.",
       "L'air qui remonte est froid et sent la vase. Dans l'escalier, l'écho de tes pas {{echo#ic_echo_palais|tourne et se perd vers le bas|garde une voix de femme, rauque, qui crie : « Ouvrez à votre reine ! Ouvrez, je vous l'ordonne ! », puis des coups contre du bois}}.",
-      "« Les chambres fortes, c'est en bas, dit le garde sans se lever. Pour descendre, il faut un ordre écrit de Madame, ou de Monsieur Brunel. Vous avez un ordre ? » Tu n'en as pas. Il le sait.",
+      "« Les chambres fortes, c'est en bas, dit le garde, assis. Pour descendre, il faut un ordre écrit de Madame, ou de Monsieur Brunel. Vous avez un ordre ? » Tu n'en as pas. Il le sait.",
     ],
     choices: [{ back: "IC_banque" }] },
 });
@@ -561,11 +561,11 @@ Object.assign(P, {
   IC_coffre_nicole: { act: "I", title: "Nicole Aguesse", place: "changeurs", backName: "la table de Nicole Aguesse",
     fx: { questSeen: "IC_coffre", meet: "ic_nicole" },
     text: [
-      { first: true, text: "La femme en deuil s'appelle Nicole Aguesse. Elle a soixante et un ans, des mains de lavandière et un chapeau de veuve trop grand pour elle. Elle finit par ranger la broche dans son corsage, et te regarde comme on regarde la dernière personne à qui l'on n'a pas encore demandé." },
+      { first: true, text: "La femme en deuil s'appelle Nicole Aguesse. Elle a soixante et un ans, des mains de lavandière et un chapeau de veuve trop grand pour elle d'une bonne pointure. Elle finit par ranger la broche dans son corsage, et te regarde comme on regarde la dernière personne à qui l'on n'a pas encore demandé." },
       { first: true, text: "« Mon grand-père, Josselin Aguesse, était batelier sur la Salve. Le jour où il a vendu sa barque, il a mis notre bien au coffre de la Banque. Ce qu'il y avait, personne ne sait : il disait *notre bien*, c'est tout. Il est mort. Mon père est mort. Je suis la dernière. » Elle sort de son sac une lettre pliée en quatre, usée aux plis. « La Banque dit qu'un dépôt qu'on ne réclame pas pendant soixante ans revient à la maison. Les soixante ans tombent à Pâques. Et il faut le numéro du reçu, sinon ils n'ouvrent pas. »" },
-      { again: true, text: "Nicole Aguesse attend à sa table, la tabatière de son grand-père sous la main. Elle te regarde arriver avec un espoir qu'elle essaie de cacher." },
+      { again: true, text: "Nicole Aguesse attend à sa table, la tabatière de son grand-père sous la main. Elle te regarde arriver avec un espoir qu'elle essaie de cacher, et qu'elle cache mal." },
       "Elle déplie la lettre. Une écriture d'homme qui a peu écrit : *Notre bien est au coffre. Le numéro est avec moi, toujours, là où je prends mon plaisir. {{loupe#ic_lettre_josselin|Que Dieu vous garde|Le papier dans le coffre vaut plus que l'argent. Ne le montrez pas aux Fourcaud}}.*",
-      "Sur la table, à côté d'elle, une vieille tabatière de corne, {{pie#ic_tabatiere|toute simple, polie par les doigts, au couvercle orné d'une barque gravée|plus profonde dedans que dehors : sous le tabac, un double fond tient à la cire}}. « C'est tout ce que j'ai de lui, dit-elle. Il prisait. Ma grand-mère disait que c'était son seul plaisir. »",
+      "Sur la table, à côté d'elle, il y a une vieille tabatière de corne, {{pie#ic_tabatiere|toute simple, polie par les doigts, au couvercle orné d'une barque gravée|plus profonde dedans que dehors : sous le tabac, un double fond tient à la cire}}. « C'est tout ce que j'ai de lui, dit-elle. Il prisait. Ma grand-mère disait que c'était son seul plaisir. »",
       { with: "lison", text: "Lison regarde la barque gravée sur le couvercle. « Une barque de Salve à fond plat, dit-elle. Les bateliers les gravaient pour leurs enfants. » Elle parle doucement à Nicole, pour une fois." },
     ],
     choices: [
@@ -580,17 +580,17 @@ Object.assign(P, {
 
   IC_coffre_cherche: { act: "I", title: "Un numéro perdu", place: "changeurs",
     text: [
-      "Tu tournes la tabatière entre tes doigts, tu l'ouvres, tu respires une odeur de tabac éventé et de corne. Rien. Tu la rends à Nicole. Elle la serre contre elle.",
+      "Tu tournes la tabatière entre tes doigts, tu l'ouvres, tu respires une odeur de tabac éventé et de corne. Ton examen s'arrête là. Tu la rends à Nicole, qui la serre contre elle.",
       "« Les commis de la Banque disent que les numéros sont dans leurs registres, mais qu'ils ne cherchent pas pour les pauvres. Le vieux Dumay dit que la loi oblige la Banque à doubler ses reçus aux Archives de la République. » Elle hausse les épaules. « Aux Archives, il faut payer pour entrer, et payer pour lire. »",
-      "Tu gardes en tête les trois portes : le commis bavard, les Archives, la tabatière elle-même, qui t'a paru plus lourde qu'elle ne devrait.",
+      "Tu gardes en tête les trois portes : le commis bavard, les Archives, et la tabatière elle-même, qui t'a paru plus lourde qu'elle ne devrait.",
     ],
     choices: [{ back: "IC_coffre_nicole" }] },
 
   IC_coffre_tabatiere: { act: "I", title: "La tabatière", place: "changeurs",
     fx: { flag: "ic:coffre_numero", ep: ["perso", 300] },
     text: [
-      "Nicole te tend la tabatière en hésitant. Tu vides le tabac dans ta paume, une poussière brune et sèche. Au fond, du bout de la lame de ta dague, tu cherches le bord. La cire cède. Un disque de corne se soulève.",
-      "Dessous, plié en huit, un petit carré de papier jauni, imprégné d'odeur de tabac. *Banque Marrel. Dépôt reçu de Josselin Aguesse, batelier. Un coffret de chêne ferré. Cote quatre cent dix-sept.* Le cachet aux trois besants, un peu baveux.",
+      "Nicole te tend la tabatière en hésitant. Tu vides le tabac dans ta paume, une poussière brune et sèche. Au fond, de la pointe de ta dague, tu cherches le bord. La cire cède. Un disque de corne se soulève.",
+      "Dessous, plié en huit, repose un petit carré de papier jauni, imprégné d'odeur de tabac. *Banque Marrel. Dépôt reçu de Josselin Aguesse, batelier. Un coffret de chêne ferré. Cote quatre cent dix-sept.* Le cachet aux trois besants a un peu bavé.",
       "Nicole porte la main à sa bouche. « Là où il prenait son plaisir », dit-elle. Tu {{miroir|souris de la voir heureuse|penses à la boîte à double fond de l'établi d'Odeline, et à ce qu'Odeline cachait à toi}}. Elle rit, et puis elle pleure, et puis elle rit encore, et les changeurs des tables voisines font semblant de compter.",
     ],
     choices: [
@@ -607,9 +607,9 @@ Object.assign(P, {
 
   IC_coffre_guichet: { act: "I", title: "Le coffre quatre cent dix-sept", place: "changeurs", when: "day",
     text: [
-      "Nicole Aguesse entre dans le hall de la Banque comme on entre dans une église où l'on n'est pas sûr d'avoir le droit de prier. Au guichet douze, le vieux commis lit la cote, soupire, prend une lanterne et un trousseau, et disparaît par la porte basse.",
+      "Nicole Aguesse entre dans le hall de la Banque comme on entre dans une église où l'on doute d'avoir le droit de prier. Au guichet douze, le vieux commis lit la cote, soupire, prend une lanterne et un trousseau, et disparaît par la porte basse.",
       "Il revient longtemps après, suivi d'un garde qui porte un coffret de chêne noirci, ferré aux angles, gros comme un pain de quatre livres. Il souffle la poussière du couvercle. « Quatre cent dix-sept. Aguesse. À neuf jours près, il était à nous. » Il fait signer Nicole d'une croix, et toi comme témoin.",
-      "Le coffret n'a pas de clé. Le commis tend un petit levier de fer, par-dessus la grille, avec l'air de quelqu'un qui en a vu d'autres.",
+      "Le coffret est dépourvu de clé. Le commis tend un petit levier de fer par-dessus la grille, avec l'air de quelqu'un qui en a vu d'autres.",
       { with: "tibere", text: "Tibère se tient à l'écart, près du portail, et regarde le coffret de loin. Il a l'air d'un homme qui pense à une autre femme, plus jeune, et à ce qu'il lui laissera." },
     ],
     choices: [{ label: "Forcer le couvercle, sous les yeux de Nicole", to: "IC_coffre_dedans" }] },
@@ -617,10 +617,10 @@ Object.assign(P, {
   IC_coffre_dedans: { act: "I", title: "Notre bien", place: "changeurs",
     fx: { clue: "ic_c_titre_aguesse", ep: ["perso", 500] },
     text: [
-      "Le couvercle cède avec un craquement sec. Dans le coffret, sur un lit de paille de seigle devenue grise, deux choses. Un hanap d'argent, haut comme la main, dont le pied est une barque et la coupe une vague ; et un rouleau de parchemin, serré dans un étui de cuir.",
-      "Nicole ne touche pas au hanap. Elle prend le rouleau, le déroule à moitié, te le tend : elle ne sait pas lire. Tu lis. *Par la Charte des Hautes-Eaux, et de notre main, nous donnons à Guiot Aguesse et à ses hoirs les douze arpents gagnés sur la mer au lieu-dit la Pointe-aux-Hérons, pour en jouir à toujours. Ysaure, reine. L'an mil onze.* Le sceau pend encore, en cire verte, une barque et une étoile.",
+      "Le couvercle cède avec un craquement sec. Dans le coffret, sur un lit de paille de seigle devenue grise, reposent deux objets. Le premier est un hanap d'argent, haut comme la main, dont le pied est une barque et la coupe une vague. Le second est un rouleau de parchemin, serré dans un étui de cuir.",
+      "Nicole laisse le hanap où il est. Elle prend le rouleau, le déroule à moitié et te le tend : elle ne sait pas lire. Tu lis. *Par la Charte des Hautes-Eaux, et de notre main, nous donnons à Guiot Aguesse et à ses hoirs les douze arpents gagnés sur la mer au lieu-dit la Pointe-aux-Hérons, pour en jouir à toujours. Ysaure, reine. L'an mil onze.* Le sceau pend encore, en cire verte : une barque et une étoile.",
       "« La Pointe-aux-Hérons, dit Nicole. C'est la saline des Fourcaud, maintenant. Mon père y a travaillé toute sa vie. Comme journalier. »",
-      { with: "lison", text: "Lison s'est approchée sans bruit. Elle regarde le sceau vert, longuement, et quelque chose passe sur son visage, qu'elle range aussitôt." },
+      { with: "lison", text: "Lison s'est approchée sans bruit. Elle regarde longuement le sceau vert, et une émotion passe sur son visage, qu'elle range aussitôt." },
       "Nicole repose le rouleau dans l'étui et pousse le hanap vers toi. « Prenez-le. C'est votre part. Moi, je garde le papier. Je ne sais pas ce qu'il vaut. Mais c'est notre nom dessus. »",
     ],
     choices: [
@@ -631,17 +631,17 @@ Object.assign(P, {
 
   IC_coffre_fin: { act: "I", title: "Le parchemin des Aguesse", place: "changeurs",
     text: [
-      { if: { is: { ic_coffre: "partage" } }, text: "Tu prends le hanap. Il est lourd, froid, et la barque du pied a été polie par des doigts pendant des années avant d'aller dormir dans la paille. Nicole hoche la tête, satisfaite : le marché est juste, et elle le sait." },
+      { if: { is: { ic_coffre: "partage" } }, text: "Tu prends le hanap. Il est lourd, froid, et des doigts ont poli la barque du pied pendant des années avant qu'elle aille dormir dans la paille. Nicole hoche la tête, satisfaite : le marché est juste, et elle le sait." },
       { if: { is: { ic_coffre: "rendu" } }, text: "Tu repousses le hanap vers elle. Nicole te regarde sans comprendre, puis elle comprend, et elle le serre contre sa poitrine avec le rouleau, les deux ensemble, comme un enfant qu'on vient de lui rendre." },
-      "Sur les marches de la Banque, Nicole serre l'étui de cuir sous son châle. « Je vais le montrer à quelqu'un qui sait lire les vieux actes. Mon neveu connaît un tribun des Hautes-Eaux, au Conseil. » Elle s'en va par le pont, à petits pas pressés, la tête haute dans son chapeau trop grand.",
+      "Sur les marches de la Banque, Nicole serre l'étui de cuir sous son châle. « Je vais le montrer à quelqu'un qui sait lire les vieux actes. Mon neveu connaît un tribun des Hautes-Eaux, au Conseil. » Elle s'en va par le pont, à petits pas pressés, la tête haute sous son chapeau trop grand.",
       { with: "gildas", text: "Frère Gildas la regarde partir. « Un titre de la reine, dit-il à mi-voix. Il y en a d'autres, dans des coffres et des greniers. Les gens les gardent sans savoir lire, parce que c'est leur nom dessus. »" },
     ],
     choices: [{ back: "IC_banque" }] },
 
   IC_coffre_vol: { act: "I", title: "La paille", place: "changeurs",
     text: [
-      "Tu prends le hanap. Tu prends le rouleau. Nicole tend la main, puis la retire, comme on la retire d'un feu. Elle reste muette. Les gens comme elle ont appris à se taire dans les banques.",
-      "« C'était notre nom », dit-elle seulement. Elle remet la paille grise dans le coffret vide, referme le couvercle cassé, et elle sort, sans se retourner, avec le coffret dans les bras.",
+      "Tu prends le hanap. Tu prends le rouleau. Nicole tend la main, puis la retire, comme on la retire d'un feu. Elle garde le silence. Les gens comme elle ont appris à se taire dans les banques.",
+      "« C'était notre nom », dit-elle seulement. Elle remet la paille grise dans le coffret vide, referme le couvercle cassé, et elle sort, sans se retourner, le coffret dans les bras.",
       { with: "lison", text: "Lison te regarde comme elle regarderait une anguille crevée sur le ponton. Elle sort derrière Nicole. Tu la retrouves plus tard sur le pont, et elle garde le silence toute la soirée." },
       { with: "tibere", text: "Tibère se racle la gorge. « J'ai fait pire, dit-il. Mais j'étais ivre. »" },
     ],
@@ -664,9 +664,9 @@ Object.assign(C, {
 Object.assign(P, {
   IC_conseil: { act: "I", title: "Le palais du Conseil", place: "changeurs", when: "day", backName: "le palais du Conseil",
     text: [
-      { first: true, text: "Le palais du Conseil des Comptoirs est bas et large, coiffé d'un dôme de plomb verdi. Au-dessus de la porte, quarante écussons peints en deux rangées : la tour d'argent des Delisle, les trois besants des Marrel, la gerbe verte des Fourcaud, la navette des Vernier, et trente-six autres. Un banc de pierre court le long de la façade ; des solliciteurs y attendent, leur requête roulée dans la main." },
+      { first: true, text: "Le palais du Conseil des Comptoirs est bas et large, coiffé d'un dôme de plomb verdi. Au-dessus de la porte, quarante écussons peints s'alignent en deux rangées : la tour d'argent des Delisle, les trois besants des Marrel, la gerbe verte des Fourcaud, la navette des Vernier, et trente-six autres. Un banc de pierre court le long de la façade ; des solliciteurs y attendent, leur requête roulée dans la main." },
       { first: true, text: "Un huissier en robe bleue crie à intervalles réguliers, d'une voix qui a crié la même chose pendant trente ans : « Séance publique ! Les tribunes sont ouvertes au peuple de Salvèze ! Les armes au vestiaire ! »" },
-      { again: true, text: "Le dôme verdi, les quarante écussons, l'huissier en robe bleue. Les solliciteurs sur leur banc de pierre ont changé ; leurs requêtes roulées sont les mêmes." },
+      { again: true, text: "Le dôme verdi, les quarante écussons, l'huissier en robe bleue. Les solliciteurs de leur banc de pierre ont changé ; leurs requêtes roulées sont les mêmes." },
       "Dans le vestibule, sous la coupole, la pierre {{echo#ic_echo_conseil|renvoie le bruit des pas et des conversations|garde une voix d'homme, calme, qui dicte : « Qu'on lui coupe la langue, et qu'on écrive qu'elle est devenue folle. Le greffier notera : à l'unanimité des Comptoirs »}}.",
       { after: "ic:expulse", text: "L'huissier en robe bleue te reconnaît, et il croise sa masse en travers de l'escalier des tribunes." },
     ],
@@ -679,7 +679,7 @@ Object.assign(P, {
 
   IC_conseil_vide: { act: "I", title: "La salle vide", place: "changeurs",
     text: [
-      "Sans séance, la grande salle est un bois de bancs de chêne en fer à cheval, sous une lumière grise qui tombe du dôme. Un valet passe la cire sur le banc des Marrel. Un autre balaie les écorces de noix que le peuple des tribunes a jetées.",
+      "Sans séance, la grande salle est un bois de bancs de chêne en fer à cheval, sous une lumière grise qui tombe du dôme. Un valet passe la cire sur le banc des Marrel. Un autre balaie les écorces de noix que le peuple des tribunes a jetées ; à en juger par la quantité, le peuple suit les débats avec beaucoup d'appétit.",
       "Sur l'estrade du prévôt, le fauteuil à haut dossier est couvert d'une housse. Derrière, au mur, une grande tapisserie montre la fondation de la République : des marchands en robe autour d'une table, une charte qu'ils signent, et dans un coin, minuscule, à la fenêtre d'une tour, une femme couronnée {{pie#ic_tapisserie|qui regarde la scène|qui regarde la scène, la bouche cousue d'un fil rouge que le tisserand a repassé sur l'ancien, plus clair, d'une bouche ouverte}}.",
     ],
     choices: [{ back: "IC_conseil" }] },
@@ -687,19 +687,19 @@ Object.assign(P, {
   IC_seance: { act: "I", title: "La séance publique", place: "changeurs",
     fx: { meet: "delisle", ep: ["perso", 300] },
     text: [
-      "Tu montes avec les clercs, les commis et les curieux, et tu trouves une place sur le gradin du haut, entre un vendeur d'oublies et une vieille qui tricote. En bas, quarante bancs de chêne en fer à cheval, un par maison, et au bout du fer à cheval, plus bas que les autres, un banc sans écusson. Sur l'estrade, dans un fauteuil à haut dossier, le prévôt.",
-      "Haumont Delisle a soixante et onze ans, un crâne poli, une robe de velours gris et une voix qui caresse la salle. Derrière lui, un jeune clerc maigre et pâle tient ses papiers. Le prévôt ouvre la séance par une prière pour la République, puis il parle de la dette, avec des mots simples, comme on parle à des enfants inquiets.",
+      "Tu montes avec les clercs, les commis et les curieux, et tu trouves une place sur le gradin du haut, entre un vendeur d'oublies et une vieille qui tricote. En bas, quarante bancs de chêne forment un fer à cheval, un par maison, et au bout du fer à cheval, plus bas que les autres, se tient un banc sans écusson. Sur l'estrade, dans un fauteuil à haut dossier, siège le prévôt.",
+      "Haumont Delisle a soixante et onze ans, un crâne poli comme une boule de billard, une robe de velours gris et une voix qui caresse la salle. Derrière lui, un jeune clerc maigre et pâle tient ses papiers. Le prévôt ouvre la séance par une prière pour la République, puis il parle de la dette, avec des mots simples, comme on parle à des enfants inquiets.",
       "« Le duc d'Aveline est un voisin courtois, et Salvèze honore ses dettes. Salvèze paiera à la Saint-Jean, dit-il, {{oreille#ic_prevot|ou je rendrai ma charge le jour même, devant vous|ou elle paiera autrement, et j'aurai ma place à la table du duc}}. » On applaudit sur les bancs. Il sourit et lève la main pour faire taire les applaudissements, sans hâte.",
       { with: "tibere", text: "Tibère, à côté de toi, applaudit trois fois, mollement, en regardant ailleurs. « Il a toujours bien parlé, celui-là, grogne-t-il. C'est lui qui a signé ma révocation. Avec la même voix. »" },
-      { with: "lison", text: "Lison s'est assise sur la marche, les genoux sous le menton. Elle regarde le banc sans écusson, en bas, et pas le prévôt." },
+      { with: "lison", text: "Lison s'est assise sur la marche, les genoux sous le menton. Elle regarde le banc sans écusson, en bas, et laisse le prévôt aux autres." },
     ],
     choices: [{ label: "Écouter les conseillers qui demandent la parole", to: "IC_seance_comptoirs" }] },
 
   IC_seance_comptoirs: { act: "I", title: "Les Comptoirs", place: "changeurs",
     text: [
-      "Le prévôt propose un impôt sur le sel, un sou la livre, pour payer le duc. Maître Fourcaud se lève au banc de la gerbe verte : un homme rond, rose, aux mains baguées, qui parle en souriant comme s'il s'excusait d'avoir raison. « L'impôt est juste. Le grain aussi a ses peines. Les greniers Fourcaud sont pleins {{oreille#ic_fourcaud|à moitié, hélas, l'hiver a été dur|jusqu'aux poutres, et je ne les ouvrirai qu'à six sous la livre}}. » Il se rassied, content.",
-      "Au banc de la navette, une femme d'une soixantaine d'années se lève en s'appuyant sur une canne à pommeau d'ivoire. Dame Vernier. « La maison Vernier votera {{oreille|selon sa conscience, comme toujours|contre l'impôt, et puis elle votera pour, parce que la Banque tient ses billets}}. » Rires sur les bancs. Elle attend qu'ils passent, et se rassied sans avoir souri.",
-      "Un vieux conseiller du banc des Ancres se lève à son tour, parle longtemps des ancres, des taxes de quai, de son grand-père. La salle en profite pour bavarder, et lui-même regarde par la fenêtre en parlant.",
+      "Le prévôt propose un impôt sur le sel, un sou la livre, pour payer le duc. Maître Fourcaud se lève au banc de la gerbe verte : un homme rond, rose, aux mains baguées, qui parle en souriant, comme s'il s'excusait d'avoir raison. « L'impôt est juste. Le grain aussi a ses peines. Les greniers Fourcaud sont pleins {{oreille#ic_fourcaud|à moitié, hélas, l'hiver a été dur|jusqu'aux poutres, et je ne les ouvrirai qu'à six sous la livre}}. » Il se rassied, content.",
+      "Au banc de la navette, une femme d'une soixantaine d'années se lève en s'appuyant sur une canne à pommeau d'ivoire : Dame Vernier. « La maison Vernier votera {{oreille|selon sa conscience, comme toujours|contre l'impôt, et puis elle votera pour, parce que la Banque tient ses billets}}. » Rires sur les bancs. Elle attend qu'ils passent, et se rassied, le visage impassible.",
+      "Un vieux conseiller du banc des Ancres se lève à son tour et parle longtemps des ancres, des taxes de quai, de son grand-père. La salle en profite pour bavarder, et l'orateur lui-même regarde par la fenêtre en parlant.",
       { if: { has: "metier:parole" }, text: "Tu connais ces salles-là, en plus petit : les ventes aux enchères des Halles, les assemblées de la confrérie des brocanteurs. Tout s'y décide avant, dans les couloirs. La séance sert à le dire tout haut." },
     ],
     choices: [{ label: "Le banc sans écusson : un homme se lève", to: "IC_seance_tribun" }] },
@@ -707,7 +707,7 @@ Object.assign(P, {
   IC_seance_tribun: { act: "I", title: "Le tribun des Hautes-Eaux", place: "changeurs",
     fx: { meet: "ivc_vimeux" },
     text: [
-      "Au bout du fer à cheval, l'homme qui se lève est large, tanné, les avant-bras couverts de vieilles brûlures de sel. Achille Vimeux, saunier de Grisemotte, tribun des marais : les Hautes-Eaux ont une voix au Conseil depuis la grande crue, et aucun vote. Il parle sans notes, d'une voix faite pour porter d'un bassin à l'autre.",
+      "Au bout du fer à cheval, l'homme qui se lève est large, tanné, les avant-bras couverts de vieilles brûlures de sel. C'est Achille Vimeux, saunier de Grisemotte, tribun des marais : depuis la grande crue, les Hautes-Eaux ont une voix au Conseil, et aucun vote. Il parle sans notes, d'une voix faite pour porter d'un bassin à l'autre.",
       "« Un sou la livre sur le sel, c'est un sou la livre sur nous. Les Hautes-Eaux paieront leur part {{oreille#ic_vimeux|comme elles l'ont toujours payée, sans se plaindre|le jour où on leur rendra leurs terres, et pas un grain de sel avant}}. » Les bancs grondent. Il attend. « Nos salines sont à vous, sur vos registres. Nos pères disaient qu'il y en a eu d'autres, des registres, plus vieux, où elles étaient à eux. »",
       { if: { any: [{ is: { ic_coffre: "partage" } }, { is: { ic_coffre: "rendu" } }] }, text: "« Une veuve, ce matin, m'a montré un titre de la reine, ajoute-t-il, plus bas. Avec un sceau vert. » Il se rassied. Sur le banc des Fourcaud, Maître Fourcaud a cessé de sourire." },
       "Le prévôt remercie le tribun pour sa franchise, d'une voix si douce qu'on entend à peine les mots, et donne la parole à la Banque.",
@@ -716,7 +716,7 @@ Object.assign(P, {
 
   IC_seance_orateur: { act: "I", title: "L'orateur de la Banque", place: "changeurs",
     text: [
-      "La Banque Marrel n'a pas de banc au Conseil, elle en a trois. L'homme qui parle pour elle n'est pas un Marrel : c'est Maître Guérande, son avocat, un homme long, sec, vêtu de noir, qui parle sans jamais élever la voix, comme on lit un acte.",
+      "La Banque Marrel a trois bancs au Conseil, quand chaque maison en a un. L'homme qui parle pour elle est étranger à la famille : c'est Maître Guérande, son avocat, un homme long, sec, vêtu de noir, qui parle d'une voix égale, comme on lit un acte.",
       "« La Banque Marrel a répondu de la dette d'Aveline. Elle en répond encore. Messieurs les Comptoirs, la Banque garantit la dette {{oreille#ic_orateur|sur ses fonds propres, comme elle l'a toujours fait, sans rien demander à la ville|avec un or que personne n'a encore sorti de l'eau, et qu'elle sortira avant la Saint-Jean, quitte à brûler ce qui dort avec}}. L'impôt du sel n'est qu'un complément. Un geste de la ville envers elle-même. »",
       "Il se rassied. On applaudit sur les trois bancs de la Banque. Le prévôt fait signe au greffier de préparer le vote.",
       { with: "gildas", text: "Frère Gildas, à côté de toi, a fermé les yeux pendant tout le discours de Maître Guérande, comme on écoute une messe dans une langue qu'on comprend trop bien." },
@@ -725,8 +725,8 @@ Object.assign(P, {
 
   IC_seance_choix: { act: "I", title: "Avant le vote", place: "changeurs",
     text: [
-      "Le greffier déroule la liste des quarante maisons. Dans la salle, on parle à voix basse, on se penche d'un banc à l'autre. Aux tribunes, le vendeur d'oublies fait sa tournée. Pendant le temps du vote, n'importe qui peut crier quelque chose d'en haut, et se faire jeter dehors par les huissiers ; ça arrive une fois par séance, et le peuple des tribunes aime ça.",
-      "En bas, au bout des bancs, le tribun Vimeux est assis seul, les mains à plat sur la table. Derrière l'estrade, le jeune clerc pâle du prévôt range des papiers qui n'ont pas besoin de l'être. Un page en livrée bleue court d'un banc à l'autre avec des billets pliés : pour un liard, il porte un mot n'importe où dans la salle.",
+      "Le greffier déroule la liste des quarante maisons. Dans la salle, on parle à voix basse, on se penche d'un banc à l'autre. Aux tribunes, le vendeur d'oublies fait sa tournée. Pendant le temps du vote, n'importe qui peut crier quelque chose d'en haut, et se faire jeter dehors par les huissiers ; la chose arrive une fois par séance, et le peuple des tribunes l'attend comme on attend le clou d'un spectacle.",
+      "En bas, au bout des bancs, le tribun Vimeux est assis seul, les mains à plat sur la table. Derrière l'estrade, le jeune clerc pâle du prévôt range des papiers déjà rangés. Un page en livrée bleue court d'un banc à l'autre avec des billets pliés : pour un liard, il porte un mot n'importe où dans la salle.",
       { with: "tibere", text: "Tibère se penche vers toi. « Si tu cries, crie court. Les huissiers comptent jusqu'à trois avant de descendre. »" },
       { with: "lison", text: "Lison te regarde de côté. « Tu as quelque chose à dire, toi ? Dis-le bien, alors. Ou tais-toi bien. »" },
     ],
@@ -758,10 +758,10 @@ Object.assign(P, {
 
   IC_interpeller_suite: { act: "I", title: "Le silence de la salle", place: "changeurs",
     text: [
-      "Ta voix tombe dans la salle et, pendant un moment, il n'y a plus rien d'autre. Les quarante bancs regardent en l'air. Le greffier a levé sa plume. Puis la rumeur monte, d'un coup, des tribunes d'abord, où l'on répète ta phrase en la déformant déjà.",
-      { if: { has: "ic:interpelle_titres" }, text: "Sur les trois bancs de la Banque, Maître Guérande reste immobile. Il tourne seulement la tête vers les tribunes, et il te regarde, longtemps, comme on retient un visage. Au bout du fer à cheval, le tribun Vimeux s'est levé à moitié." },
-      { if: { has: "ic:interpelle_monnaie" }, text: "Le maître de la Monnaie, sur le banc gris de la République, devient rouge jusqu'au crâne. Le prévôt lève la main avec un sourire pour calmer la salle, et il ne le calme pas tout de suite." },
-      { if: { has: "ic:interpelle_grain" }, text: "Maître Fourcaud cesse de sourire. Il rit, un peu trop fort, et se tourne vers ses voisins pour qu'ils rient avec lui. Ils ne rient pas tous." },
+      "Ta voix tombe dans la salle et, pendant un moment, elle y règne seule. Les quarante bancs regardent en l'air. Le greffier a levé sa plume. Puis la rumeur monte d'un coup, des tribunes d'abord, où l'on répète ta phrase en la déformant déjà.",
+      { if: { has: "ic:interpelle_titres" }, text: "Sur les trois bancs de la Banque, Maître Guérande reste immobile. Il tourne seulement la tête vers les tribunes, et il te regarde longtemps, comme on retient un visage. Au bout du fer à cheval, le tribun Vimeux s'est levé à moitié." },
+      { if: { has: "ic:interpelle_monnaie" }, text: "Le maître de la Monnaie, sur le banc gris de la République, devient rouge jusqu'au crâne. Le prévôt lève la main avec un sourire pour calmer la salle, et la salle prend son temps pour se calmer." },
+      { if: { has: "ic:interpelle_grain" }, text: "Maître Fourcaud cesse de sourire. Il rit, un peu trop fort, et se tourne vers ses voisins pour qu'ils rient avec lui. Une partie seulement s'exécute." },
       "Les huissiers arrivent. Ils te prennent chacun par un coude, sans brutalité, parce que le peuple des tribunes les regarde, et ils te raccompagnent jusqu'au vestibule. Derrière toi, le vote reprend. Tu entends le greffier appeler les maisons une à une, et la rumeur couvrir sa voix.",
     ],
     choices: [{ label: "Attendre la fin de la séance sous les arcades", to: "IC_seance_fin" }] },
@@ -778,17 +778,17 @@ Object.assign(P, {
   IC_taire: { act: "I", title: "Sous le bruit", place: "changeurs",
     fx: { ep: ["perso", 300] },
     text: [
-      "Tu restes assis{e}. Tu fermes les yeux à moitié, le cornet contre l'oreille, la main en coquille par-dessus, comme quelqu'un qui a mal aux dents. Le vote est un bruit de fond : les noms des maisons, les « oui » et les « non », le grincement des bancs.",
+      "Tu restes assis{e}. Tu fermes les yeux à moitié, le cornet contre l'oreille, la main en coquille par-dessus, comme quelqu'un qui a mal aux dents. Le vote n'est plus qu'un bruit de fond : les noms des maisons, les « oui » et les « non », le grincement des bancs.",
       "Juste sous ta tribune, deux conseillers se penchent l'un vers l'autre. « Delisle a {{oreille#ic_conseillers|tenu la salle, comme toujours|déjà son carrosse attelé pour Valrose, dit-on, le soir de la Saint-Jean}}, souffle le premier. — On dit beaucoup de choses, répond l'autre. {{oreille|Moi, je vote, et je rentre dîner|Moi, j'ai vendu mes parts de la Banque hier, en or d'Aveline}}. »",
       "Plus loin, une femme, la Dame Vernier, murmure à son clerc : « Note mon vote : {{oreille|pour l'impôt, et que Dieu nous garde|pour l'impôt, et va dire à Guérande que la maison Vernier attend la remise de ses billets d'ici ce soir}}. »",
-      { with: "gildas", text: "Frère Gildas, à côté de toi, s'est tu aussi. Il écoute la salle avec une attention précise, les yeux mi-clos, et tu ne saurais pas dire ce qu'il entend." },
+      { with: "gildas", text: "Frère Gildas, à côté de toi, s'est tu aussi. Il écoute la salle avec une attention précise, les yeux mi-clos, et ce qu'il entend reste un mystère pour toi." },
     ],
     choices: [{ label: "Laisser finir le vote", to: "IC_seance_fin" }] },
 
   IC_mot_tribun: { act: "I", title: "Un billet pour le tribun", place: "changeurs",
     text: [
-      "Tu déchires un coin de ton mouchoir de poche, faute de papier, et tu écris dessus au charbon : *Les titres du delta. Je cherche ce que vos pères disaient. Ce soir, sous les arcades.* Le page prend ton liard, le billet, et dévale les gradins.",
-      "En bas, le tribun déplie le chiffon de toile. Il le lit, le relit, et lève les yeux vers les tribunes. Il ne cherche pas longtemps. Il te trouve, il te regarde un moment, et il glisse le billet dans sa manche. Puis il vote : *non*, d'une voix qui fait trembler le greffier.",
+      "Tu déchires un coin de ton mouchoir, faute de papier, et tu écris dessus au charbon : *Les titres du delta. Je cherche ce que vos pères disaient. Ce soir, sous les arcades.* Le page prend ton liard, le billet, et dévale les gradins.",
+      "En bas, le tribun déplie le chiffon de toile. Il le lit, le relit, et lève les yeux vers les tribunes. Il te trouve vite, te regarde un moment, et glisse le billet dans sa manche. Puis il vote : *non*, d'une voix qui fait trembler le greffier.",
       { with: "lison", text: "Lison a suivi le billet des yeux, du début à la fin. « Vimeux, dit-elle. Un saunier de Grisemotte. Il parle trop fort et il pense juste. On le connaît, aux Joncs. »" },
     ],
     choices: [{ label: "Laisser finir le vote", to: "IC_seance_fin" }] },
@@ -797,7 +797,7 @@ Object.assign(P, {
     fx: { flag: "ic:mot_clerc" },
     text: [
       "Tu écris trois mots sur un bout de papier : *Valrose. Le duc. Je sais.* C'est un coup de bluff. Le page prend ton liard et porte le billet derrière l'estrade, au jeune clerc pâle qui range ses papiers.",
-      "Le clerc lit. Ses mains se mettent à trembler si fort qu'il lâche sa liasse ; les feuilles glissent sur l'estrade, jusqu'au pied du fauteuil. Il les ramasse à genoux, très vite. Le prévôt ne tourne pas la tête. Il continue d'écouter le vote, la main sur l'accoudoir, et tu vois ses doigts se refermer, un à un, sur le bois.",
+      "Le clerc lit. Ses mains se mettent à trembler si fort qu'il lâche sa liasse ; les feuilles glissent sur l'estrade, jusqu'au pied du fauteuil. Il les ramasse à genoux, très vite. Le prévôt garde la tête droite. Il continue d'écouter le vote, la main sur l'accoudoir, et tu vois ses doigts se refermer, un à un, sur le bois.",
       "Le clerc garde les yeux baissés jusqu'à la fin.",
     ],
     choices: [{ label: "Laisser finir le vote", to: "IC_seance_fin" }] },
@@ -805,10 +805,10 @@ Object.assign(P, {
   IC_seance_fin: { act: "I", title: "La fin de la séance", place: "changeurs", takes: 3,
     text: [
       "L'impôt du sel passe à vingt-trois voix contre dix-sept. La maison Vernier a voté pour. Le prévôt lève la séance par une seconde prière pour la République, plus courte que la première, et quitte l'estrade par une porte dérobée, son clerc sur les talons.",
-      "Sous les arcades, la foule se défait en petits groupes. On répète les discours en les améliorant. Sur la place, devant le palais, un carrosse aux portières peintes de la tour d'argent attend le prévôt, et un deuxième, plus petit, sans armoiries, attend un peu plus loin, rideaux tirés.",
+      "Sous les arcades, la foule se défait en petits groupes. On répète les discours en les améliorant. Sur la place, devant le palais, un carrosse aux portières peintes de la tour d'argent attend le prévôt ; un deuxième, plus petit, sans armoiries, attend un peu plus loin, rideaux tirés.",
       { if: { has: "ic:interpelle" }, text: "Des gens des tribunes te reconnaissent, et te tapent sur l'épaule en passant. Une marchande de poisson te donne un hareng fumé, enveloppé dans une page d'avis." },
       { if: { has: "ic:mot_clerc" }, text: "Quand le carrosse du prévôt passe devant toi, le rideau de cuir s'écarte d'un doigt, et se referme." },
-      { with: "tibere", text: "Une jeune fille passe devant les arcades avec un carton à robes dans les bras, en courant presque. Tibère la suit des yeux jusqu'au pont. « {{oreille#ic_tib_rosalie|Je n'ai plus de famille, moi, ça simplifie la vie|J'ai une fille, Rosalie, qui coud rue des Dames, et qui traverse la rue quand elle me voit}}, dit-il. »" },
+      { with: "tibere", text: "Une jeune fille passe devant les arcades avec un carton à robes dans les bras, presque en courant. Tibère la suit des yeux jusqu'au pont. « {{oreille#ic_tib_rosalie|Je n'ai plus de famille, moi, ça simplifie la vie|J'ai une fille, Rosalie, qui coud rue des Dames, et qui traverse la rue quand elle me voit}}, dit-il. »" },
     ],
     choices: [
       { label: "Rejoindre le tribun Vimeux, qui t'attend sous la dernière arcade", hide: { not: { has: "ic:vimeux_attend" } }, to: "IC_tribun_apres" },
@@ -843,8 +843,8 @@ Object.assign(C, {
 Object.assign(P, {
   IC_archives: { act: "I", title: "Les Archives de la République", place: "changeurs", when: "day", backName: "la porte des Archives",
     text: [
-      { first: true, text: "Les Archives occupent l'aile nord de la Monnaie, derrière une grille, puis une porte basse cloutée de bronze. On entend, à travers le mur, les coups sourds des balanciers qui frappent les ducats. Dans le vestibule, un pupitre, un registre des visiteurs, un tarif cloué au mur : *Entrée, deux liards. Lecture d'un registre, deux liards l'heure. Copie, à la page.*" },
-      { first: true, text: "Derrière le pupitre, un homme d'une cinquantaine d'années, maigre, aux doigts jaunes de tabac et d'encre, une calotte de laine sur le crâne. « Ponce Larcher, sous-archiviste. Le maître des Archives, Maître Vauquelin, ne descend plus que le lundi, à cause de ses jambes. Les autres jours, c'est moi. » Il sourit avec beaucoup de dents. « Et les autres jours, tout est plus simple. »" },
+      { first: true, text: "Les Archives occupent l'aile nord de la Monnaie, derrière une grille, puis une porte basse cloutée de bronze. On entend, à travers le mur, les coups sourds des balanciers qui frappent les ducats, une soixantaine à la minute. Dans le vestibule, il y a un pupitre, un registre des visiteurs, et un tarif cloué au mur : *Entrée, deux liards. Lecture d'un registre, deux liards l'heure. Copie, à la page.*" },
+      { first: true, text: "Derrière le pupitre est assis un homme d'une cinquantaine d'années, maigre, aux doigts jaunes de tabac et d'encre, une calotte de laine sur le crâne. « Ponce Larcher, sous-archiviste. Le maître des Archives, Maître Vauquelin, ne descend plus que le lundi, à cause de ses jambes. Les autres jours, c'est moi. » Il sourit avec beaucoup de dents. « Et les autres jours, tout est plus simple. »" },
       { again: true, text: "Ponce Larcher lève les yeux de son pupitre, et son sourire se règle sur ce qu'il pense pouvoir tirer de toi." },
       { with: "gildas", text: "Frère Gildas regarde le tarif, puis les rayonnages qu'on devine derrière la porte intérieure. Il a l'air d'un homme affamé devant une boulangerie, et qui a fait vœu de jeûne." },
     ],
@@ -870,7 +870,7 @@ Object.assign(P, {
       "Ponce Larcher croise ses doigts jaunes sur son registre. « Que cherchez-vous ? Une généalogie, un bail, un procès ? Tout est ici. Trois siècles de République, rangés par année et par matière. Les registres sont {{oreille#ic_ponce_pages|complets, tous les feuillets cotés et paraphés, j'en réponds sur ma charge|complets, sauf onze pages au registre des titres, que la Banque m'a payées dix ducats la pièce}}. »",
       "Il ouvre un tiroir, en tire une tabatière, prise, éternue. « Il y a des registres qui se lisent au tarif, et d'autres qui demandent un supplément. Les titres de propriété du delta, par exemple. Une matière délicate. On ne les montre pas à n'importe qui. Dix liards. »",
       "« Le soir, bien sûr, tout est fermé. {{oreille#ic_ponce_lucarne|La lucarne du toit est condamnée depuis l'hiver, et la Monnaie a des gardes|La lucarne du toit ferme mal, et je la laisse ainsi pour mes amis de la nuit, qui paient mieux que le jour}}. »",
-      { if: { has: "metier:lire" }, text: "Tu as connu des archivistes comme lui, dans tes recherches pour Odeline : des hommes qui gardent les papiers des autres et qui finissent par croire que les papiers leur appartiennent. Ils vendent tout. Il faut seulement trouver le bon prix." },
+      { if: { has: "metier:lire" }, text: "Tu reconnais l'espèce. Dans tes recherches pour Odeline, tu en as croisé trois ou quatre, de ces hommes qui gardent les papiers des autres depuis assez longtemps pour les croire à eux. Ceux-là vendent tout. La seule question est le prix." },
     ],
     choices: [
       { label: "Payer le supplément pour le registre des titres (10 liards)", hide: { has: "ic:titres_ouvert" }, if: { gold: { min: 10 } }, why: "Il te faut dix liards.", fx: { gold: -10, flag: ["ic:titres_ouvert", "ic:ponce_achete", "ic:archives_entree"] }, to: "IC_registre_titres" },
@@ -892,7 +892,7 @@ Object.assign(P, {
   IC_ponce_aveu: { act: "I", title: "Onze pages", place: "changeurs",
     fx: { flag: ["ic:titres_ouvert", "ic:archives_entree"], ep: ["perso", 400] },
     text: [
-      "Le sourire de Ponce Larcher se défait par morceaux, en commençant par les yeux. Il regarde la porte du vestibule, se lève, la ferme, revient. Il ne se rassied pas.",
+      "Le sourire de Ponce Larcher se défait par morceaux, en commençant par les yeux. Il regarde la porte du vestibule, se lève, la ferme, revient. Il reste debout, une main sur le dossier de sa chaise.",
       "« Qui vous a… Peu importe. » Il se frotte les mains, longuement, comme pour les laver. « Monsieur Brunel est venu à la Toussaint. Il a lu le registre des titres pendant une heure, ici, avec une loupe. Il a choisi onze pages au début du registre, celles de la table, les pages de garde, où un greffier de l'ancien temps avait recopié la liste des titres d'avant. Il les a coupées avec un canif. Il les a brûlées dans mon poêle, là, devant moi. Il a payé dix ducats la page. »",
       "Il ouvre un tiroir fermé à clé et en sort une liasse de papier pelure, très fin, presque transparent. « Avant qu'il revienne, je les avais calquées. On ne sait jamais qui paiera le mieux, plus tard. » Il te regarde, et son sourire revient, à moitié. « Je vous les vends vingt liards. Et vous ne m'avez jamais vu. »",
     ],
@@ -906,8 +906,8 @@ Object.assign(P, {
 
   IC_registres: { act: "I", title: "La salle des registres", place: "changeurs", backName: "la salle des registres",
     text: [
-      { first: true, text: "La salle des registres est une longue nef voûtée, éclairée par des fenêtres hautes et étroites. Des rayonnages montent jusqu'à la voûte, desservis par des échelles sur rails. Les registres de la République y dorment par rangées, reliés de veau brun, le dos marqué d'une année en chiffres d'or. Trois cents ans de comptes, de baux, de procès. Ça sent la colle de peau, la poussière et la souris." },
-      { first: true, text: "Les registres de la République sont tenus en double écriture : chaque page porte, à gauche, l'acte en clair, à l'encre noire, et à droite, dans une colonne étroite, les notes du greffier, d'une encre de noix qui a pâli avec les siècles au point qu'on la devine à peine." },
+      { first: true, text: "La salle des registres est une longue nef voûtée, éclairée par des fenêtres hautes et étroites. Des rayonnages montent jusqu'à la voûte, desservis par des échelles sur rails. Les registres de la République y dorment par rangées, reliés de veau brun, le dos marqué d'une année en chiffres d'or : trois cents ans de comptes, de baux et de procès, à raison d'une travée par décennie, à vue d'œil. L'air sent la colle de peau, la poussière et la souris." },
+      { first: true, text: "Les registres sont tenus en double écriture. Sur chaque page, à gauche, l'acte en clair, à l'encre noire ; à droite, dans une colonne étroite, les notes du greffier, à l'encre de noix. Les siècles ont pâli cette encre au point qu'on la devine plus qu'on ne la lit." },
       { again: true, when: "day", text: "La nef des registres, ses échelles sur rails, la lumière grise des fenêtres hautes. Un vieux clerc lit au bout d'une table, le nez dans un registre de baux." },
       { again: true, when: "night", text: "La nef des registres, dans le noir. Ta lanterne éclaire trois rayonnages à la fois, et les dos dorés s'allument et s'éteignent à mesure que tu passes." },
       "Sur un pupitre, un registre resté ouvert porte en marge une note du greffier : *{{loupe#ic_marge|vu et collationné, conforme à l'original|l'original de cet acte a été remis à la maison Marrel sur ordre du prévôt, et le double que voici a été refait de ma main}}.*",
@@ -924,7 +924,7 @@ Object.assign(P, {
 
   IC_titres_ferme: { act: "I", title: "L'armoire grillée", place: "changeurs",
     text: [
-      "Au fond de la nef, une armoire de chêne fermée par une grille de fer. Derrière la grille, une rangée de gros registres reliés de rouge, plus vieux que les autres : *Titres et terres du delta.* La serrure est simple, et ancienne.",
+      "Au fond de la nef, une armoire de chêne fermée par une grille de fer. Derrière la grille, une rangée de gros registres reliés de rouge, plus vieux que les autres à en juger par le cuir craquelé : *Titres et terres du delta.* La serrure est ancienne, et d'un modèle simple.",
       { when: "day", text: "Le vieux clerc, au bout de la table, a levé le nez de son registre de baux, et il te regarde regarder l'armoire." },
     ],
     choices: [
@@ -941,7 +941,7 @@ Object.assign(P, {
   IC_registre_comptes: { act: "I", title: "Les comptes de la République", place: "changeurs",
     fx: { ep: ["perso", 300] },
     text: [
-      "Le registre des comptes de l'année est encore sur un pupitre, à portée de main, parce qu'on y écrit tous les jours. Recettes, dépenses : le sel, les péages, les gages du Guet, l'entretien des ponts. À la dernière page écrite, une colonne de chiffres qui ne tombe pas juste, et une ligne soulignée deux fois : *Reste dû au duc d'Aveline à la Saint-Jean : quatre millions de ducats.*",
+      "Le registre des comptes de l'année est encore sur un pupitre, à portée de main : on y écrit tous les jours. Recettes et dépenses, dans l'ordre : le sel, les péages, les gages du Guet, l'entretien des ponts. À la dernière page écrite, une colonne dont le total tombe faux, et une ligne soulignée deux fois : *Reste dû au duc d'Aveline à la Saint-Jean : quatre millions de ducats.*",
       "Dans la colonne étroite du greffier, à côté d'un ordre de la Monnaie, une note à l'encre pâle : *{{loupe#ic_comptes_monnaie|ordre exécuté|ordre du prévôt, de bouche, sans écrit : frapper au titre allégé d'un grain, et n'en rien porter au registre}}.*",
       "Plus haut, une autre ligne, d'une main différente, plus récente : *Avance de la Banque Marrel, en garantie, sur titres* — et le chiffre a été gratté et récrit trois fois. Dans la colonne du greffier, en face : *{{loupe#ic_comptes_avance|à vérifier|titres du delta remis en gage au duc lui-même, par lettre du prévôt, si la Saint-Jean passe}}.*",
       { with: "tibere", text: "Tibère suit les colonnes du doigt, en remuant les lèvres. Il s'arrête sur les gages du Guet. « Ils ont baissé les gages des sergents l'année où on m'a chassé, dit-il. Je croyais que c'était à cause de moi. »" },
@@ -951,26 +951,26 @@ Object.assign(P, {
   IC_registre_titres: { act: "I", title: "Le registre des titres du delta", place: "changeurs",
     fx: { clue: "ic_c_titres", ep: ["perso", 600] },
     text: [
-      "Le premier volume des titres est énorme, relié de cuir rouge, les coins cerclés de cuivre. Tu le poses sur la table et tu l'ouvres. Les premières pages manquent : on voit encore, contre la couture, les talons de onze feuillets coupés net, au canif.",
-      "Puis les actes commencent. Trois cent douze titres de terres des Hautes-Eaux, salines, prés salés, pêcheries, polders gagnés sur la mer. Tous datés du même jour de l'an mil quatorze. Tous de la même main, une main rapide de greffier pressé. Tous de la même encre. Et tous portent la même formule : *par achat, de bonne foi, des anciens tenanciers.* Sans un nom de vendeur.",
+      "Le premier volume des titres pèse autant qu'un pavé de quai, relié de cuir rouge, les coins cerclés de cuivre. Tu le poses sur la table et tu l'ouvres. Les premières pages manquent. Contre la couture, tu comptes les talons : onze feuillets, coupés net, au canif.",
+      "Puis les actes commencent. Trois cent douze titres de terres des Hautes-Eaux : salines, prés salés, pêcheries, polders gagnés sur la mer. Tous datés du même jour de l'an mil quatorze. Tous de la même main, rapide, celle d'un greffier pressé. Tous de la même encre. Et tous portent la même formule : *par achat, de bonne foi, des anciens tenanciers.* Aucun ne nomme le vendeur.",
       "Tu cherches la Pointe-aux-Hérons. Tu la trouves, au feuillet quarante : *douze arpents, maison Fourcaud.* Dans la colonne du greffier, en face, à l'encre de noix : *{{loupe#ic_titres_marge|collationné|l'ancien tenancier, Guiot Aguesse, n'a rien vendu ; il a été noyé la même nuit}}.*",
       "Sous la première ligne du premier acte, le parchemin est plus mince, comme usé. Si l'on penche la page contre la lumière, on devine qu'il a été gratté. {{loupe#ic_titres_encre|Une tache brune, rien de plus|Dessous, une écriture plus ancienne remonte : « Par la Charte des Hautes-Eaux, et de notre main, nous donnons… »}}.",
       { with: "gildas", text: "Frère Gildas penche la tête sur le registre et lit les premières lignes du bout du doigt, sans toucher le parchemin. « Une main de chancellerie, dit-il, qui a appris à écrire en hâte. On reconnaît les mains qui ont peur. » Il referme ses doigts sur la manche de sa bure." },
-      { if: { has: "metier:lire" }, text: "Tu as vu des milliers d'actes. Jamais trois cent douze titres le même jour. Même un incendie produit moins de ventes en une journée." },
+      { if: { has: "metier:lire" }, text: "Tu as vu passer des milliers d'actes. Une bonne étude de notaire en enregistre trois ou quatre par jour, dix les jours de foire. Trois cent douze en un jour : trente fois un jour de foire." },
     ],
     choices: [{ back: "IC_registres" }] },
 
   IC_registre_depots: { act: "I", title: "Les doubles des dépôts", place: "changeurs",
     text: [
-      "La galerie du fond est un boyau étroit, sans fenêtre, où des liasses de petits papiers pliés s'empilent sur des étagères jusqu'au plafond, chaque liasse ficelée et marquée d'une année à la craie. Ponce avait raison : personne n'y vient. La poussière est intacte, et tes pas y laissent des traces de neige grise.",
-      "Tu comptes soixante ans en arrière, et tu cherches. Une liasse, deux, trois. Des noms de marchands, de veuves, d'armateurs. Les doigts gris jusqu'au poignet, tu finis par trouver, dans la quatrième liasse, un double de reçu au cachet baveux : *Josselin Aguesse, batelier. Un coffret de chêne ferré. Cote quatre cent dix-sept.*",
+      "La galerie du fond est un boyau étroit, sans fenêtre. Des liasses de petits papiers pliés s'y empilent jusqu'au plafond, chacune ficelée et marquée d'une année à la craie. Ponce avait raison : personne n'y vient. La poussière, épaisse d'un ongle, est intacte, et tes pas y laissent des traces de neige grise.",
+      "Tu remontes soixante ans, travée par travée, et tu cherches. Une liasse, deux, trois : des noms de marchands, de veuves, d'armateurs. Les doigts gris jusqu'au poignet, tu trouves enfin, dans la quatrième, un double de reçu au cachet baveux : *Josselin Aguesse, batelier. Un coffret de chêne ferré. Cote quatre cent dix-sept.*",
       { if: { has: "metier:lire" }, text: "C'est le genre de recherche que tu faisais pour Odeline, autrefois, des journées entières. Tu y retrouves ton plaisir d'avant, et une douleur au milieu de la poitrine que tu laisses passer." },
     ],
     choices: [{ label: "Noter la cote, et ressortir dans la nef", fx: { flag: "ic:coffre_numero", ep: ["perso", 300] }, back: "IC_registres" }] },
 
   IC_archives_cave: { act: "I", title: "Les archives mortes", place: "changeurs",
     text: [
-      "L'escalier descend sous la nef, dans une cave voûtée basse où l'on entasse ce que la République ne garde plus : des sacs de papiers à vendre au poids, des registres moisis, des caisses de sceaux brisés, des coffres sans clé. C'est ici que Gédéon et ses pareils viennent acheter leurs lots.",
+      "L'escalier descend sous la nef, dans une cave voûtée et basse. La République y entasse ce qu'elle ne garde plus : des sacs de papiers à vendre au poids, des registres moisis, des caisses de sceaux brisés, des coffres sans clé. C'est ici que Gédéon et ses pareils viennent acheter leurs lots.",
       "Dans une caisse ouverte, des dizaines de matrices de sceaux de cuivre ou de plomb, cassées, rayées, annulées d'un coup de burin en croix. Parmi elles, {{pie#ic_sceau|une matrice de bronze noircie, rayée en croix comme les autres|une matrice de bronze noircie, que le burin a seulement effleurée : un sceau de chancellerie intact, une barque, une étoile, et un nom autour, Aymeric Vasse}}.",
       "Plus loin, contre le mur, un coffre ferré porte une étiquette : *Inventaire de la tour de la reine, l'an mil quatorze. Néant.* Le coffre est vide. Quelqu'un a écrit *néant* et a gardé le coffre.",
       { with: "lison", text: "Lison s'est arrêtée devant la caisse des sceaux. Elle ne touche à rien. Elle respire seulement un peu plus fort que d'habitude." },
@@ -988,15 +988,15 @@ Object.assign(P, {
 
   IC_archives_cave_rien: { act: "I", title: "Des sceaux brisés", place: "changeurs",
     text: [
-      "Tu sors les matrices une à une, tu les tournes vers la lanterne. Des sceaux de maisons faillies, de confréries dissoutes, de notaires morts. Tous rayés en croix. Au bout d'une heure, tu as les doigts verts de cuivre, et la caisse te paraît plus pleine qu'au début.",
+      "Tu sors les matrices une à une et tu les tournes vers la lanterne : des sceaux de maisons faillies, de confréries dissoutes, de notaires morts, tous rayés en croix. Tu en comptes quatre-vingts, puis tu cesses de compter. Au bout d'une heure, tu as les doigts verts de cuivre, et la caisse te paraît plus pleine qu'au début.",
     ],
     choices: [{ back: "IC_registres" }] },
 
   IC_archives_sceau: { act: "I", title: "Le sceau du chancelier", place: "changeurs",
     fx: { item: "ic_tr_sceau", clock: { tresors: 1 }, flag: "tresor:ic_sceau", ep: ["perso", 500] },
     text: [
-      "La matrice est lourde dans ta main, plus lourde que sa taille, une poignée de bronze en forme de tige, et au bout, le disque gravé en creux. Tu l'essuies avec ta manche. La barque, l'étoile, et la légende en lettres anciennes : *SIGILLVM AYMERICI VASSE CANCELLARII REGINAE*.",
-      "Celui qui a annulé les sceaux, il y a trois siècles, a donné son coup de burin à côté. Par fatigue, ou exprès.",
+      "La matrice pèse dans ta main plus que sa taille ne le promet : une tige de bronze pour la poignée et, au bout, le disque gravé en creux. Tu l'essuies avec ta manche. La barque, l'étoile, et la légende en lettres anciennes : *SIGILLVM AYMERICI VASSE CANCELLARII REGINAE*.",
+      "Celui qui a annulé les sceaux, il y a trois siècles, a donné ici son coup de burin à côté. Sur les autres matrices, la croix est franche et profonde ; sur celle-ci, elle effleure. Par fatigue, ou exprès.",
       { with: "gildas", text: "Frère Gildas regarde le sceau dans ta paume. Il tend la main, comme pour le prendre, puis il la retire. « Gardez-le, dit-il. Il est mieux dans une poche que dans une caisse. »" },
       { with: "lison", text: "Lison regarde le nom gravé autour de la barque, et elle regarde ailleurs aussitôt. « Vasse, dit-elle. C'est un nom courant, aux Joncs. »" },
     ],
@@ -1046,7 +1046,7 @@ Object.assign(P, {
     text: [
       "« J'ai la gorge comme un fourreau, dit Tibère en se frottant le cou. Je vais boire un vin chaud au Trébuchet. Tu me retrouves sur le pont. » Il s'éloigne vers la pointe de l'île, les mains dans les poches, de son pas lourd de sergent. Le Trébuchet est à gauche, au pied des Archives. Tibère prend à droite.",
       "Tu le laisses prendre vingt pas d'avance. Il longe la façade de la Banque, s'arrête pour lacer une botte qui n'en a pas besoin, regarde derrière lui. Tu te colles contre le pilier d'une arcade.",
-      { with: "lison", text: "Lison t'a vu{e} faire. Elle passe devant toi et marche dans le sillage de Tibère, à quinze pas, en regardant les vitrines des orfèvres, comme une fille qui n'a rien à faire de sa journée." },
+      { with: "lison", text: "Lison t'a vu{e} faire. Elle passe devant toi et marche dans le sillage de Tibère, à quinze pas, en regardant les vitrines des orfèvres, comme une fille qui a toute sa journée à perdre." },
     ],
     choices: [
       { label: "Le suivre de pilier en pilier, jusqu'au flanc de la Banque",
@@ -1059,7 +1059,7 @@ Object.assign(P, {
     fx: { flag: "tibere:espion" },
     text: [
       "Sur le flanc de la Banque, dans une ruelle qui descend vers l'eau, il y a une petite porte sans heurtoir, peinte en noir. Tibère y frappe deux coups, puis un. La porte s'entrouvre. Tu vois une manchette tachée d'encre, une main qui tend une bourse de cuir, et une autre main, gantée de gris, posée sur le chambranle derrière la première.",
-      "Tibère prend la bourse et la soupèse sans l'ouvrir. Il parle, à voix basse, longtemps. Tu n'entends pas les mots. Tu entends le ton : celui d'un homme qui fait un rapport, avec des pauses pour se souvenir. Une fois, il rit, sans joie.",
+      "Tibère prend la bourse et la soupèse sans l'ouvrir : un sergent sait compter au poids. Il parle à voix basse, longtemps. Les mots t'échappent ; le ton te parvient, celui d'un homme qui fait un rapport, avec des pauses pour se souvenir. Une fois, il rit, sans joie.",
       "La porte se referme. Tibère reste un moment devant, le front presque contre le bois. Puis il fourre la bourse sous sa chemise et remonte la ruelle. Il passe à trois pas de toi sans te voir, les yeux par terre, avec la tête d'un homme qui va réellement boire un vin chaud, et plusieurs.",
       { with: "lison", text: "Lison revient se poster à côté de toi. « Tu as vu la main grise, derrière ? » Elle le dit à plat." },
     ],
@@ -1098,11 +1098,11 @@ Object.assign(P, {
   IC_tibere_aveu: { act: "I", title: "L'aveu de Tibère", place: "changeurs", with: "tibere",
     fx: { flag: ["tibere:aveu", "ic:rosalie_rue"], questSeen: "IC_rosalie", ep: ["perso", 800] },
     text: [
-      { outcome: "win", text: "Il a la pierre du parapet dans les reins, et tes deux poings dans son col. Il pourrait te casser le bras ; il ne le fait pas. Il ferme les yeux." },
+      { outcome: "win", text: "Il a la pierre du parapet dans les reins, et tes deux poings dans son col. Il pèse le double de toi et pourrait te casser le bras ; il ferme les yeux." },
       { outcome: "lose", text: "Il se dégage d'un coup d'épaule, sans effort, et tu recules de trois pas. Il te regarde, la respiration courte, et puis ses épaules tombent d'un coup, comme une voile qu'on affale." },
       "« Bon, dit Tibère. Bon. » Il enlève son chapeau, le tourne entre ses mains. « Brunel est venu me trouver au Guet, le matin où on a ramassé Odeline. Il savait pour mes dettes, il savait à qui, il savait combien. Il a dit : cinq ducats la semaine, pour savoir ce que fait l'apprenti{e}. Où tu vas, qui tu vois. Rien de plus. Je me suis dit : rien de plus, ça ne fait de mal à personne. »",
       "« J'ai dit le Beffroi. J'ai dit le moine, et la batelière. J'ai dit tes heures. » Il remet son chapeau. « Les cinq ducats, j'en donne trois à la couturière qui loge Rosalie, ma fille, rue des Dames. Elle ne le sait pas. Elle croit que c'est sa maîtresse qui paie sa chambre. Les deux autres, je les bois. Voilà. Tu sais tout. »",
-      { with: "lison", text: "Lison a écouté, adossée au parapet, les bras croisés. Elle ne dit rien. Elle a l'air de quelqu'un qui entend une chanson qu'elle connaît, et qui n'aime pas le refrain." },
+      { with: "lison", text: "Lison a écouté, adossée au parapet, les bras croisés. Elle se tait. Elle a l'air de quelqu'un qui entend une chanson qu'elle connaît, et qui n'aime pas le refrain." },
       { with: "gildas", text: "Frère Gildas regarde Tibère avec une douceur grave, sans un mot de reproche. Tibère évite ce regard plus soigneusement que le tien." },
     ],
     choices: [
@@ -1142,8 +1142,8 @@ Object.assign(P, {
   IC_atelier: { act: "I", title: "La rue des Dames", place: "changeurs", backName: "l'atelier de la rue des Dames",
     fx: { questSeen: "IC_rosalie", meet: "rosalie" },
     text: [
-      { first: true, text: "La rue des Dames est une ruelle étroite derrière les hôtels de la pointe amont, où les couturières, les brodeuses et les lingères des grandes maisons ont leurs ateliers. Des robes à demi faites pendent aux fenêtres sur des mannequins d'osier, et de chaque porte sort un bruit de ciseaux et de rires." },
-      { first: true, text: "L'atelier de Maîtresse Jacinthe est le troisième. Six filles cousent autour d'une grande table, sous une verrière. La plus jeune, seize ans, des cheveux châtains noués en chignon serré, un dé d'argent au doigt, a la mâchoire carrée et les sourcils épais de son père. Elle coud une manche de soie bleue, sans lever les yeux." },
+      { first: true, text: "La rue des Dames est une ruelle étroite derrière les hôtels de la pointe amont. Les couturières, les brodeuses et les lingères des grandes maisons y ont leurs ateliers, une douzaine de portes de chaque côté. Des robes à demi faites pendent aux fenêtres sur des mannequins d'osier, et de chaque porte sort un bruit de ciseaux et de rires." },
+      { first: true, text: "L'atelier de Maîtresse Jacinthe est le troisième. Six filles cousent autour d'une grande table, sous une verrière. La plus jeune a seize ans, des cheveux châtains noués en chignon serré, un dé d'argent au doigt, la mâchoire carrée et les sourcils épais de son père. Elle coud une manche de soie bleue sans lever les yeux." },
       { again: true, text: "Les ciseaux, les rires, la verrière. Rosalie coud à sa place, au bout de la table, et elle sait déjà que tu es là." },
       "Sur la table, une robe d'enfant en soie bleue, presque finie, {{pie#ic_robe|brodée de petits chevaux d'argent sur tout l'ourlet|brodée de petits chevaux d'argent, et dans l'ourlet, cousue à points invisibles, une bande de toile pliée qui n'a rien à faire dans une robe d'enfant}}. « Pour la petite-fille de Dame Marrel, dit Maîtresse Jacinthe avec fierté. Aliénor. Elle aime les chevaux. »",
     ],
@@ -1181,7 +1181,7 @@ Object.assign(P, {
     fx: { quest: "IC_rosalie", flag: "ic:rosalie", set: { ic_rosalie: "vus" }, conf: { tibere: 15 }, ep: ["perso", 600] },
     text: [
       "Tibère s'arrête sur le seuil de l'atelier comme devant une porte de prison. Il a lissé sa moustache avec de l'eau de la Salve, et brossé son chapeau avec sa manche. Les six filles lèvent la tête. Rosalie, au bout de la table, pose son aiguille.",
-      "Ils sortent dans la cour, tous les deux. Tu restes près de la porte. Tu n'entends pas tout. Tu entends Tibère dire « trois ducats », et « Brunel », et « pardon », dans le désordre. Tu entends Rosalie se taire, longtemps. Tu la vois lever la main, une fois, comme pour le gifler, et la poser sur sa joue à lui, à la place, très vite, et la retirer.",
+      "Ils sortent dans la cour, tous les deux. Tu restes près de la porte. Tu entends Tibère prononcer trois mots, dans le désordre : « trois ducats », « Brunel », « pardon ». Puis Rosalie se tait, longtemps. Tu la vois lever la main, une fois, comme pour le gifler, et la poser à la place sur sa joue à lui, très vite, et la retirer.",
       "Quand ils reviennent, Tibère a les yeux rouges et le dos droit. Rosalie a repris son aiguille. « Dimanche, dit-elle sans lever la tête. À jeun. Sinon je ferme la porte. » Tibère hoche la tête, et il sort de la rue des Dames d'un pas de sergent à la parade.",
       "Sur le pont, il se tait un bon moment. Puis : « Elle a les sourcils de sa mère. Moi, je croyais qu'elle avait les miens. »",
     ],
@@ -1209,8 +1209,8 @@ Object.assign(V, {
 Object.assign(P, {
   IC_monnaie: { act: "I", title: "La Monnaie de la République", place: "changeurs", backName: "la cour de la Monnaie",
     text: [
-      { first: true, text: "La Monnaie est une cour carrée fermée de hauts murs, collée au flanc de la Banque comme un enfant à la jupe de sa mère. Tout autour, des bâtiments bas : la fonderie, d'où sort une chaleur qu'on sent depuis la porte, la salle des balanciers, où des hommes torse nu frappent les flans d'or entre deux coins d'acier, la salle des pesées, et le trésor, gardé par des hommes en gris. L'aile nord, plus haute, abrite les Archives." },
-      { first: true, text: "Chaque coup de balancier fait trembler le pavé. Une pluie de ducats neufs tombe dans des paniers d'osier, et des garçons courent porter les paniers à la salle des pesées. Ça sent le métal chaud, le charbon et la sueur." },
+      { first: true, text: "La Monnaie est une cour carrée fermée de hauts murs, collée au flanc de la Banque comme un enfant à la jupe de sa mère. Quatre bâtiments bas l'entourent : la fonderie, dont on sent la chaleur dès la porte ; la salle des balanciers, où des hommes torse nu frappent les flans d'or entre deux coins d'acier ; la salle des pesées ; et le trésor, gardé par des hommes en gris. L'aile nord, plus haute, abrite les Archives." },
+      { first: true, text: "Chaque coup de balancier fait trembler le pavé, un toutes les quatre respirations. Une pluie de ducats neufs tombe dans des paniers d'osier, que des garçons courent porter à la salle des pesées. L'air sent le métal chaud, le charbon et la sueur." },
       { again: true, when: "day", text: "La cour de la Monnaie, les coups des balanciers, la chaleur de la fonderie. Les paniers de ducats neufs passent de main en main." },
       { again: true, when: "night", text: "La cour de la Monnaie, la nuit. Les balanciers se taisent. La fonderie garde son feu couvert sous la cendre, et un garde gris fait sa ronde avec une lanterne, d'un mur à l'autre. Au-dessus de l'aile nord, le toit de plomb des Archives luit sous la lune." },
       "Dans un panier qui passe devant toi, {{pie#ic_ducats_neufs|des ducats neufs, ronds et lourds, qui sonnent clair|des ducats neufs, plus légers d'un grain que ceux de l'an passé, et quelques-uns, au fond, dont le cordon de la tranche a été refait à la lime}}.",
@@ -1225,7 +1225,7 @@ Object.assign(P, {
   IC_severin: { act: "I", title: "L'essayeur", place: "changeurs", backName: "la salle des pesées",
     fx: { meet: "ic_severin", questSeen: "IC_rogneur" },
     text: [
-      { first: true, text: "La salle des pesées est la seule pièce calme de la Monnaie. Des balances sous des cloches de verre, des poids de cuivre rangés par taille dans des boîtes de velours, une fenêtre sur la Salve. L'essayeur, Ludovic Mauduit, est un homme de cinquante ans, grand, voûté, les doigts brûlés par les acides, qui pèse les ducats un par un, à la pince." },
+      { first: true, text: "La salle des pesées est la seule pièce calme de la Monnaie : des balances sous des cloches de verre, des poids de cuivre rangés par taille dans des boîtes de velours, une fenêtre sur la Salve. L'essayeur, Ludovic Mauduit, cinquante ans, grand et voûté, a les doigts brûlés par les acides. Il pèse les ducats un par un, à la pince." },
       { again: true, text: "Ludovic Mauduit pèse, note, pèse encore. Il lève la tête et te fait signe d'attendre, d'un doigt brûlé." },
       "« Depuis l'automne, on me rapporte des ducats rognés, dit-il. Des ducats neufs, de notre frappe, de cette année. Quelqu'un leur enlève de l'or sur la tranche, à la lime, et refait le cordon. Du beau travail. Il faut une main de la maison. Depuis qu'on a renvoyé le graveur Rigaud, l'an dernier, on me regarde de travers, moi, parce que je pèse. »",
       "« La Monnaie {{oreille#ic_rogne_monnaie|frappe au titre de la loi, et je réponds de chaque grain|frappe un grain trop léger, sur ordre, et si je trouve le rogneur, on le pendra pour un grain pendant qu'on en vole un autre à chaque pièce}}, ajoute-t-il, en regardant la balance. Trouvez-moi cet homme, et la Monnaie vous paiera deux ducats. »",
@@ -1239,7 +1239,7 @@ Object.assign(P, {
 
   IC_rogneur_ateliers: { act: "I", title: "Les frappeurs", place: "changeurs",
     text: [
-      "Dans la salle des balanciers, douze frappeurs travaillent par paires : l'un pose le flan d'or sur le coin, l'autre tire la barre du balancier, et le coup tombe. Ils ont tous les bras luisants, des mitaines de cuir, et cette surdité des gens qui vivent dans le bruit. Au fond, près de la fenêtre, un homme lime les bavures des pièces sur un établi.",
+      "Dans la salle des balanciers, douze frappeurs travaillent par paires : l'un pose le flan d'or sur le coin, l'autre tire la barre, et le coup tombe. Ils ont tous les bras luisants, des mitaines de cuir, et cette surdité des gens qui vivent dans le bruit. Au fond, près de la fenêtre, un homme seul lime les bavures des pièces sur un établi.",
       "Il a une trentaine d'années, les épaules étroites, des cernes jusqu'au milieu des joues. Sur son établi, {{pie#ic_lime|une lime plate, une brosse, un petit tas de limaille de cuivre|une lime plate, une brosse, et dans la rainure de l'établi, sous la limaille de cuivre, une poussière d'or qu'on a mal balayée}}. Un frappeur te dit son nom en criant, entre deux coups : Noé Quint.",
       { with: "tibere", text: "Tibère regarde l'homme à la lime avec l'œil d'un sergent de quartier. « Celui-là ne dort pas, dit-il. Un homme qui ne dort pas a une raison. »" },
     ],
@@ -1267,8 +1267,8 @@ Object.assign(P, {
   IC_noe: { act: "I", title: "Noé Quint", place: "changeurs",
     fx: { flag: "ic:noe_vu", meet: "ic_noe" },
     text: [
-      "La ruelle des fondeurs est un boyau entre la Monnaie et le bras de la Salve, où les ouvriers logent à six par maison. Noé Quint habite une chambre au second, sous le toit. Quand il t'ouvre, tu vois derrière lui une femme couchée dans un lit clos, qui tousse, et une bassine de linge rougi.",
-      "« Vous êtes de l'essayeur. » Il le dit à plat. Il te laisse entrer, et referme. Il ne cherche pas à mentir longtemps. « Un grain par pièce. Dix pièces par jour. Le médecin de la Monnaie prend un ducat la visite, et elle a besoin de lui tous les deux jours. » Il soulève une latte du plancher. Dessous, un petit lingot d'or, gros comme un doigt, fondu dans un dé de terre.",
+      "La ruelle des fondeurs est un boyau entre la Monnaie et le bras de la Salve ; les ouvriers y logent à six par maison. Noé Quint habite une chambre au second, sous le toit. Quand il t'ouvre, tu vois derrière lui une femme couchée dans un lit clos, qui tousse, et une bassine de linge rougi.",
+      "« Vous êtes de l'essayeur. » Il le dit à plat. Il te laisse entrer, et referme. Il renonce vite au mensonge. « Un grain par pièce. Dix pièces par jour. Le médecin de la Monnaie prend un ducat la visite, et elle a besoin de lui tous les deux jours. » Il soulève une latte du plancher. Dessous, un petit lingot d'or, gros comme un doigt, fondu dans un dé de terre.",
       "« Ils allègent les ducats d'un grain sur ordre, eux, et personne n'est pendu, dit-il. {{oreille#ic_noe|Moi, j'ai pris ce qui traînait sur l'établi, rien de plus|Moi, je reprends le grain qu'on vole à tout le monde, et je l'aurais rendu si j'avais pu}}. »",
       { with: "gildas", text: "Frère Gildas s'est approché du lit clos sans demander. Il pose deux doigts sur le poignet de la femme, écoute son souffle, et fouille dans sa besace. Il pose sur la table un sachet d'herbes. « En tisane, trois fois le jour. Ça ne la guérira pas. Ça la fera dormir. »" },
     ],
@@ -1313,7 +1313,7 @@ Object.assign(P, {
 
   IC_archives_lucarne: { act: "I", title: "Le toit de plomb", place: "changeurs", when: "night",
     text: [
-      "Par l'échelle des couvreurs, contre le mur de la fonderie, tu montes sur le toit de l'aile nord. Le plomb est tiède sous tes paumes, à cause du feu de la fonderie dessous, et luit sous la lune. La lucarne des Archives est au milieu du toit : un châssis de bois et de vitres, fermé d'une barre intérieure.",
+      "Par l'échelle des couvreurs, appuyée contre le mur de la fonderie, tu montes sur le toit de l'aile nord. Le plomb, chauffé par le feu de la fonderie, est tiède sous tes paumes et luit sous la lune. La lucarne des Archives est au milieu du toit, à une vingtaine de pas : un châssis de bois et de vitres, fermé d'une barre intérieure.",
       "Le plomb, autour de la lucarne, {{pie#ic_plomb|est neuf, soudé au fer, sans une faille|a été soudé de travers, et un coin entier se soulève sous l'ongle}}.",
       "En bas, dans la cour, le garde gris fait sa ronde. Sa lanterne passe sous toi, s'éloigne, revient.",
       { with: "lison", text: "Lison s'accroupit sur le faîte comme sur le plat-bord d'une barque, sans un bruit. « Si tu tombes, chuchote-t-elle, tombe dans la Salve. C'est plus mou que la cour. »" },
@@ -1333,9 +1333,9 @@ Object.assign(P, {
   IC_archives_nuit: { act: "I", title: "Les Archives, la nuit", place: "changeurs",
     fx: { flag: "ic:archives_entree", ep: ["perso", 300] },
     text: [
-      "Tu te laisses glisser par la lucarne, tu te suspends au rebord, tu tombes sur le plancher d'une galerie haute qui fait le tour de la nef, à mi-hauteur des rayonnages. Un escalier de bois descend. Personne. L'odeur de colle de peau, de poussière, de souris.",
+      "Tu te laisses glisser par la lucarne, tu te suspends au rebord et tu lâches : six pieds plus bas, le plancher d'une galerie haute qui fait le tour de la nef, à mi-hauteur des rayonnages. Un escalier de bois descend. Personne. L'odeur de colle de peau, de poussière, de souris.",
       "Dans le noir, la nef {{echo#ic_echo_archives|craque doucement, comme tous les vieux bâtiments la nuit|garde un bruit de grattoir sur du parchemin, et une voix d'homme, jeune, qui pleure en écrivant : « Pardonne-moi, reine, j'efface ton nom pour garder ma main »}}.",
-      { with: "gildas", text: "Frère Gildas descend l'escalier derrière toi, sa bure relevée, plus agile que tu ne l'aurais cru. Il ne dit rien. Il lève seulement les yeux vers les rayonnages, dans l'ombre, avec une sorte de faim." },
+      { with: "gildas", text: "Frère Gildas descend l'escalier derrière toi, sa bure relevée, plus agile que tu ne l'aurais cru. Il se tait. Il lève seulement les yeux vers les rayonnages, dans l'ombre, avec une sorte de faim." },
       "Ta lanterne sourde, à demi ouverte, éclaire trois rayonnages à la fois. Au fond, l'armoire grillée des titres attend, fermée.",
     ],
     choices: [{ label: "Descendre dans la nef des registres", to: "IC_registres" }] },

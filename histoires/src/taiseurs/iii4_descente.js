@@ -403,7 +403,7 @@ Object.assign(P, {
       { if: LOT_ABSENT, text: "Par une fente des planches, tu vois des lanternes sourdes dans les vignes, six, qui avancent en ligne. Les manteaux noirs à boutons dorés. Un homme épais, à la voix de caserne, donne ses ordres à mi-voix : deux devant, deux derrière, deux sur le toit de l'appentis." },
       { if: { has: "tibere:vendu" }, text: "Ils vont droit au fond de la grange, là où tu as caché les feuillets sous la troisième barrique. Quelqu'un leur a dit où chercher." },
       { with: "lison", text: "Lison est déjà debout, la gaffe en main, collée au mur. Elle te montre du menton la petite porte de derrière, qui donne sur les vignes." },
-      { with: "salome", if: { has: "salome:maiwenn" }, text: "Salomé a entendu la voix. Elle s'est levée sans bruit, son coutelas à la main, et elle regarde la porte avec une figure que tu lui connais pas." },
+      { with: "salome", if: { has: "salome:maiwenn" }, text: "Salomé a entendu la voix. Elle s'est levée sans bruit, son coutelas à la main, et elle regarde la porte avec une figure nouvelle pour toi." },
     ],
     choices: [
       { label: "Tu savais pour le gué : ils trouvent une grange vide, et vous dans leur dos", hide: { not: { any: [{ voile: "iiid_gue" }, { voile: "iiid_gue_b" }, { voile: "iiid_cor_adieu" }] } }, fx: { ep: ["perso", 800] }, to: "IIID_emb_retourne" },
@@ -765,7 +765,7 @@ Object.assign(P, {
       { first: true, text: "Tu demandes la salle haute du Pressoir pour la nuit, deux chandelles de cire et une nappe propre. Tu sors les feuillets de leur toile cirée et tu les poses côte à côte, sans les toucher plus qu'il ne faut. Ils sont faits d'un vélin épais, jauni sur les bords, et d'une même main : de petits dessins serrés, des mains ouvertes, fermées, posées, croisées, et entre eux quelques mots de liaison." },
       { again: true, text: "Les feuillets attendent sur la nappe, entre deux chandelles neuves. Tu les reprends un à un, plus lentement que la première fois." },
       { if: { relic: "f_beffroi" }, text: "Le feuillet du Beffroi, le premier, porte en marge une couronne de sel dessinée à la plume, que tu as regardée cent fois sans la comprendre." },
-      { if: { relic: "f_saline" }, text: "Le feuillet de la Saline sent encore la saumure. Le sel a mangé un coin, mais pas l'encre." },
+      { if: { relic: "f_saline" }, text: "Le feuillet de la Saline sent encore la saumure. Le sel a mangé un coin et épargné l'encre." },
       { if: { relic: "f_ecueils" }, text: "Le feuillet des Écueils est taché de cire d'ambre, celle du phare de l'Ouïe, en trois gouttes alignées." },
       { if: { relic: "f_mont" }, text: "Le feuillet du Mont, le dernier venu, est le plus propre. Il a passé trois siècles derrière le miroir." },
       { if: { relics: { max: 2 } }, text: "C'est peu. Les signes s'arrêtent au bord d'un feuillet et reprennent au bord d'un autre, sans suite, comme une conversation dont on entendrait une phrase sur trois." },
@@ -975,7 +975,7 @@ Object.assign(P, {
 
   IIID_fin: { act: "III", title: "Les murs de Salvèze", place: null, takes: "evening",
     text: [
-      "Salvèze est là, au bout de la dernière lieue, et elle a changé de visage depuis ton départ. Des fumées montent de trois quartiers à la fois. Les cloches sonnent à toute heure, pas pour les offices. Sur les remparts du côté de la terre, on a dressé des palissades neuves, de bois blanc, et des hommes en armes s'y promènent.",
+      "Salvèze est là, au bout de la dernière lieue, et elle a changé de visage depuis ton départ. Des fumées montent de trois quartiers à la fois. Les cloches sonnent à toute heure, sans rapport avec les offices. Sur les remparts du côté de la terre, on a dressé des palissades neuves, de bois blanc, et des hommes en armes s'y promènent.",
       { if: { is: { iiid_route: "radeau" } }, text: "Vous arrivez par l'eau, au crépuscule, parmi les barques des pêcheurs d'anguilles qui rentrent. Le port aux Sauniers est à une portée de voix. Personne ne surveille les radeaux de vin." },
       { if: { is: { iiid_route: "cheval" } }, text: "Vous arrivez par la route de terre, au crépuscule. La porte des Sauniers est gardée par le Guet, qui fouille les chariots. Plus loin, au bord des marais, tu vois la porte des Sauniers, et devant elle des hommes en manteau gris, à la livrée d'une tour sur une vague." },
       { if: { is: { iiid_route: "sel" } }, text: "Vous arrivez par la vieille route du sel, qui finit dans les salines désaffectées au pied des remparts. Les dalles de la reine s'enfoncent sous la vase, et continuent, tu le sais, plus loin que la vase." },
@@ -983,7 +983,7 @@ Object.assign(P, {
       { if: { has: "mandat" }, text: "Le mandat t'attend derrière ces murs, avec ton nom dessus. Il faudra entrer sans qu'on te voie." },
       { with: "tibere", text: "Tibère regarde la ville en plissant les yeux. « La rue des Dames est là-bas, dit-il. Derrière la halle aux Draps. Ou derrière ce qu'il en reste. »" },
       { with: "lison", text: "Lison sent l'air. « Ça sent le brûlé et la marée basse, dit-elle. Ça sent la maison. »" },
-      { with: "gildas", text: "Frère Gildas a rabattu sa capuche. Il regarde la ville où il a tué une femme, sans rien dire." },
+      { with: "gildas", text: "Frère Gildas a rabattu sa capuche. Il regarde la ville où il a tué une femme, en silence." },
       { with: "salome", text: "Salomé compte les mâts dans le port. « La moitié manque, dit-elle. Ils sont partis avant la guerre. Les marins sentent ces choses-là. »" },
       "Tu {{miroir#iiid_m_retour|rentres pour sauver la ville, pour finir ce qu'Odeline a commencé|rentres parce que c'est la seule ville où quelqu'un a guetté ton retour, un soir, et que tu voudrais qu'on le guette encore}}.",
     ],

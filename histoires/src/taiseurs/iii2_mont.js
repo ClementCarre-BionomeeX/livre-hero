@@ -18,7 +18,7 @@ Object.assign(P, {
       { first: true, text: "Tu tires la chaîne. Une cloche sonne quelque part, très loin à l'intérieur, et le guichet s'ouvre sur un visage énorme, rasé, aux sourcils blancs. Le frère portier te regarde, regarde le chemin derrière toi, puis pose la main à plat sur sa poitrine et s'efface. La porte s'ouvre en grinçant sur une cour pavée où picorent trois poules." },
       { first: true, with: "gildas", text: "Quand Frère Gildas passe le seuil, le portier se fige. Puis il porte trois doigts à sa gorge, ferme la main, et incline la tête plus bas qu'il ne l'a fait pour toi. Gildas répond par le même geste, plus court, et il entre sans se retourner. Dans la cour, deux moines qui portaient une hotte de sarments l'ont vu aussi ; ils posent la hotte et font le geste à leur tour." },
       { first: true, with: "lison", text: "Lison regarde le linteau, puis toi. « Qui se tait entend, traduit-elle. Chez nous on le dit sans latin, et on le dit en premier aux enfants. »" },
-      { again: true, when: "day", text: "La cour de la porterie : les pavés usés en creux, les poules, la chaîne de la cloche qui pend contre le mur. Des frères passent en bure grise, une hotte au dos, un livre sous le bras, et ils ne font aucun bruit en dehors de leurs sandales." },
+      { again: true, when: "day", text: "La cour de la porterie : les pavés usés en creux, les poules, la chaîne de la cloche qui pend contre le mur. Des frères passent en bure grise, une hotte au dos, un livre sous le bras, et leurs sandales font tout leur bruit." },
       { again: true, when: "night", text: "La cour, la nuit. Une lanterne brûle à la porterie, derrière le guichet. Le clocher se découpe sur un ciel plein d'étoiles, et l'on entend, par l'église ouverte, un moine seul qui balaie." },
       "Le portail {{echo#iiim_porte_pelerin|grince sur ses gonds de fer quand le vent le pousse|rend une voix d'homme, polie, essoufflée : « Je suis pèlerin, mon frère, et je paierai mon écot en or de la Banque, comme convenu avec votre abbé »}}.",
       { after: "iiim:pelerin_vu", before: "iiim:pelerin_parti", text: "À une fenêtre de l'hôtellerie, un homme en manteau de pèlerin, une coquille cousue à l'épaule, regarde la cour en mangeant une pomme. Il te salue de la pomme." },
@@ -54,8 +54,8 @@ Object.assign(P, {
       { first: true, text: "Sur le registre, chaque hôte a écrit son nom et le jour. Les trois dernières lignes sont d'une même main nette et penchée : *Séverin Lambert, pèlerin, de Salvèze, pour la Saint-Gilles du Mont.* Le pèlerin est arrivé il y a six jours. {{loupe#iiim_registre_hotes|Sous son nom, la page est blanche|Sous son nom, d'une encre qui a pâli en séchant : « reçu de Dom Évrard la promesse du passage, contre la quittance »}}." },
       { again: true, text: "Frère Isidore lève les yeux de son brasero, pose la main à plat sur sa poitrine, et attend." },
       "Le tableau de clés {{pie|porte vingt clés de fer pendues à vingt clous, toutes semblables|porte vingt clés de fer, et une vingt et unième en bronze vert, accrochée derrière les autres, qui n'ouvre aucune porte de l'abbaye : elle a le panneton d'une serrure de crypte}}.",
-      { after: "iiim:acces_contourne", text: "Frère Isidore regarde la clé de bronze que tu portes, puis le clou vide derrière les autres. Il ne te la redemande pas." },
-      { after: "iiim:acces_novice", text: "Frère Isidore compte ses clés chaque matin, maintenant, du doigt, une à une. Il sait que la vingt et unième a voyagé une nuit. Il ne sait pas avec qui." },
+      { after: "iiim:acces_contourne", text: "Frère Isidore regarde la clé de bronze que tu portes, puis le clou vide derrière les autres. Il te la laisse." },
+      { after: "iiim:acces_novice", text: "Frère Isidore compte ses clés chaque matin, maintenant, du doigt, une à une. Il sait que la vingt et unième a voyagé une nuit. Avec qui, il l'ignore." },
       { with: "tibere", text: "Tibère regarde les clés avec l'œil d'un ancien sergent qui a gardé des prisons. « Un homme qui tient vingt clés dort mal, dit-il. Ou il dort sur la vingt et unième. »" },
     ],
     choices: [
@@ -81,7 +81,7 @@ Object.assign(P, {
       "Tu montres du doigt la clé de bronze, cachée derrière les autres. Le portier suit ton doigt. Son visage reste le même ; ses mains, posées sur ses genoux, se ferment lentement.",
       "Il fait le signe du non, poing au front. Puis, plus lentement, il fait un autre signe que tu ne connais pas encore : le pouce qui frotte deux doigts sur la paume ouverte. Il montre l'hôtellerie du menton. Il refait le signe, plus fort.",
       { if: { has: "iiim:sg_dette" }, text: "Le pouce sur la paume : *argent*, *dette*. Il te dit que quelqu'un, à l'hôtellerie, a voulu payer pour cette clé." },
-      { if: SIGNES3, text: "Tu lui réponds avec ce que tu as : la main sur le cœur, *paix* ; puis les mains jointes qui s'ouvrent, *passage*, et le poing au front, *non*, en montrant l'hôtellerie. Le pèlerin n'aura pas le passage. Frère Isidore te regarde longtemps. Puis il décroche la clé de bronze et la pose dans ta main, et il referme tes doigts dessus avec les siens.", else: "Tu ne sais pas lui répondre dans sa langue, et ta voix, ici, sonne trop fort. Frère Isidore remet la clé derrière les autres et retourne à son brasero." },
+      { if: SIGNES3, text: "Tu lui réponds avec ce que tu as : la main sur le cœur, *paix* ; puis les mains jointes qui s'ouvrent, *passage*, et le poing au front, *non*, en montrant l'hôtellerie. Le pèlerin n'aura pas le passage. Frère Isidore te regarde longtemps. Puis il décroche la clé de bronze et la pose dans ta main, et il referme tes doigts dessus avec les siens.", else: "Sa langue te manque pour lui répondre, et ta voix, ici, sonne trop fort. Frère Isidore remet la clé derrière les autres et retourne à son brasero." },
     ],
     choices: [
       { label: "Garder la clé de bronze", if: SIGNES3, why: "Il faudrait savoir lui parler en signes (trois signes au moins).", fx: { item: "iiim_cle_bronze", flag: "iiim:cle_crypte", fac: { moines: 5 }, ep: ["perso", 1200] }, back: "IIIM_portier" },
@@ -211,7 +211,7 @@ Object.assign(P, {
     text: [
       "Derrière le chevet de l'église, entre le mur et la falaise, un pré de tombes basses, chacune marquée d'une croix de fer forgé sans nom. Les moines du Mont se taisent aussi dans la mort. Une seule pierre, contre le mur, plus ancienne que les autres, porte une inscription.",
       "*{{loupe#iiim_tombe|HIC IACET AYMERICVS FRATER CONVERSVS|HIC IACET AYMERICVS VASSE · CANCELLARIVS YSAVRAE REGINAE · QVI TACVIT VT ILLA LOQVERETVR}}*",
-      "Au pied de la pierre, quelqu'un a déposé une poignée de roseaux secs, liés d'un fil rouge. Ce ne sont pas des roseaux de montagne.",
+      "Au pied de la pierre, quelqu'un a déposé une poignée de roseaux secs, liés d'un fil rouge. Des roseaux de marais, à deux jours de rivière du premier marais.",
       { with: "lison", text: "Lison s'accroupit devant les roseaux et touche le fil rouge. « On en dépose aux Joncs, sur les tombes des Vasse, dit-elle. Ma grand-mère en a envoyé ici, ou quelqu'un pour elle. »" },
       { when: "night", text: "La nuit, le vent qui descend de la falaise fait chanter les croix de fer, toutes ensemble, sur une seule note." },
     ],
@@ -259,7 +259,7 @@ Object.assign(P, {
   IIIM_eglise: { act: "III", title: "L'église abbatiale", place: "mont", backName: "l'église abbatiale",
     text: [
       { first: true, text: "L'église est plus grande que l'abbaye ne le laissait croire de dehors : une nef unique, haute et nue, sans une peinture, éclairée par des fenêtres d'albâtre qui donnent au jour la couleur du miel. Les stalles des moines, de chêne noir, se font face de part et d'autre du chœur. Au fond, derrière l'autel, une grille de fer ferme une petite chapelle où brillent des châsses." },
-      { first: true, text: "Il n'y a rien pour s'asseoir, côté hôtes, qu'un banc de pierre le long du mur. La pierre de la nef rend chaque pas, chaque toux, chaque froissement de manche, et le rend deux fois." },
+      { first: true, text: "Côté hôtes, pour s'asseoir, un seul banc de pierre le long du mur. La pierre de la nef rend chaque pas, chaque toux, chaque froissement de manche, et le rend deux fois." },
       { again: true, when: "day", text: "La nef couleur de miel, les stalles vides, la grille du trésor qui brille au fond." },
       { again: true, when: "night", text: "La nef dans le noir, une seule lampe rouge devant l'autel. Tes pas sonnent jusqu'à la voûte." },
       { after: "iiim:calice_rendu", text: "Derrière la grille, le calice de saint Taciturne a retrouvé son coussin. Le vieux sacristain l'astique chaque matin, et chaque matin il le touche longtemps, pour être sûr." },
@@ -281,7 +281,7 @@ Object.assign(P, {
       "La cloche sonne sept coups lents. Les frères entrent deux par deux, s'inclinent devant l'autel, gagnent leurs stalles. Dom Évrard entre le dernier, appuyé sur sa crosse : un homme lourd, au visage rouge de vigneron, qui marche comme si le sol était en pente. Il ne regarde personne.",
       "Puis ils chantent, et l'église change de taille. Les voix {{echo#iiim_vepres|montent sur le psaume du soir d'une seule coulée, sans un chef pour battre la mesure|montent sur le psaume, et sous le latin elles disent autre chose, dans la langue des Combes : « L'abbé a vendu la grange. L'abbé vend la crypte. Gardez la porte, frères, gardez la porte »}}.",
       "La seconde antienne {{echo#iiim_vepres_deux|est à deux chœurs, qui se répondent d'un côté à l'autre du chœur|est à deux chœurs : « Qui a reçu l'étranger ? » demande le côté droit. « Le cellérier, avec l'or », répond le côté gauche}}.",
-      { with: "gildas", text: "Frère Gildas chante avec eux, debout contre le mur, les yeux fermés. Sa voix est grave et juste, et il ne se trompe pas d'une syllabe." },
+      { with: "gildas", text: "Frère Gildas chante avec eux, debout contre le mur, les yeux fermés. Sa voix est grave et juste, à la syllabe près." },
       { with: "lison", text: "Lison se penche vers toi. « Aux Joncs, on chante comme ça en ramendant les filets, dit-elle, tout bas. Un air pour les enfants, et un autre dessous. »" },
     ],
     fx: { ep: ["perso", 900] },
@@ -305,7 +305,7 @@ Object.assign(P, {
       "On te réveille, ou tu ne dormais pas. La cloche sonne dans le noir, une seule fois. Dans l'église, les frères chantent sans lumière, de mémoire, les longs psaumes de la nuit. Le froid monte des dalles jusqu'aux genoux. Tu ne vois rien ; tu entends les voix venir de partout à la fois, comme si la voûte chantait.",
       "Au troisième nocturne, le chant {{echo#iiim_vigiles|se fait plus lent, plus grave, et la voix du chantre le porte seule un moment|se fait plus lent, et la voix du chantre dit, sous les mots : « Sous la Dame aux doigts, la clé de bronze. Sous la salle des voix, la porte des Reflets. Qui se tait en dedans passe »}}.",
       "Puis tous reprennent. La psalmodie {{echo#iiim_vigiles_deux|roule d'un côté à l'autre du chœur jusqu'au matin|roule d'un côté à l'autre, et une voix basse, au fond, reprend un vieux couplet : « Le banquier dort à l'hôtellerie. Le banquier ne dort pas »}}.",
-      { with: "gildas", text: "Dans le noir, tu sens Frère Gildas tourner la tête vers toi, quand la voix du chantre change. Il n'en dit rien après l'office." },
+      { with: "gildas", text: "Dans le noir, tu sens Frère Gildas tourner la tête vers toi, quand la voix du chantre change. Après l'office, il garde cela pour lui." },
       { when: "night", text: "Quand tu sors, la cour est blanche de lune et de givre. Une lanterne passe au loin, vers le logis de l'abbé, puis s'éteint." },
     ],
     fx: { ep: ["perso", 1000] },
@@ -357,7 +357,7 @@ Object.assign(P, {
     text: [
       "On t'a fait attendre sous l'arcade jusqu'au chapitre du matin. Les frères sont assis sur les bancs de pierre, quarante hommes en bure grise, les mains sur les genoux. Dom Évrard est sur son siège, au fond, la crosse en travers des cuisses. Frère Romaric se tient à côté de lui, debout : c'est lui qui parlera pour la maison.",
       "« Le chapitre t'écoute, dit Romaric. Il ne te répondra pas avec la bouche. Dis ce que tu veux. »",
-      "Tu demandes le passage vers la crypte, la cache des Taiseurs. Un murmure de mains court sur les bancs. Des poings se lèvent au front, beaucoup ; des mains se posent sur des cœurs, quelques-unes. Dom Évrard ne fait aucun geste.",
+      "Tu demandes le passage vers la crypte, la cache des Taiseurs. Un murmure de mains court sur les bancs. Des poings se lèvent au front, beaucoup ; des mains se posent sur des cœurs, quelques-unes. Dom Évrard garde les mains immobiles sur sa crosse.",
       { if: SIGNES3, text: "Tu lis les mains. *Non, non, défendu.* *Paix.* Un frère, au fond, fait le pouce sur la paume et montre l'abbé du menton, et son voisin lui rabat la main. Un autre fait le signe de la porte, puis pose deux doigts sur ses lèvres, longtemps.", else: "Les mains volent trop vite pour toi. Tu reconnais seulement le poing au front, qui revient souvent, et une main qui montre l'abbé." },
       "Romaric se penche vers l'abbé. Puis il se redresse. « Le chapitre dit que la porte des Reflets ne s'ouvre pas pour qui la demande. Il dit aussi que la règle est plus vieille que le chapitre. La règle dit : *qui a passé la nuit dans la salle des voix sans dire un mot a droit au passage.* » Il ajoute, d'une voix plus sèche : « {{oreille#iiim_prosper_epreuve|Personne ne l'a fait depuis trente ans|Le dernier qui l'a fait, il y a trente ans, est debout près de la porte}}. »",
       { with: "gildas", text: "Les têtes, sur les bancs, ne se tournent pas vers Frère Gildas. C'est ce qui les trahit : quarante hommes qui s'appliquent à ne pas regarder le même endroit." },
@@ -412,7 +412,7 @@ Object.assign(P, {
       { first: true, text: "Frère Romaric t'accueille debout, une main sur la grille. Il a des lunettes de corne pincées sur le nez et une voix qui a servi : elle s'éraille au bout des phrases. « Un hôte qui monte à la bibliothèque, dit-il. Ça arrive une fois l'an. D'habitude, ils montent au cellier. »" },
       { again: true, text: "Les pupitres, les chaînes, l'odeur de colle de peau et de poussière. Frère Romaric lève la tête de son registre." },
       "Les livres enchaînés {{pie|sont des psautiers et des vies de saints, comme dans toutes les abbayes|sont des psautiers et des vies de saints, sauf trois, dont les reliures de veau couvrent des ais de bois creusés}}.",
-      { with: "gildas", text: "Frère Romaric voit Frère Gildas, et pour une fois il ne parle pas : il fait le signe des trois doigts, très vite, et ses lunettes glissent. Gildas les lui remet sur le nez d'un doigt, comme on fait à un vieux maître." },
+      { with: "gildas", text: "Frère Romaric voit Frère Gildas, et pour une fois il se tait : il fait le signe des trois doigts, très vite, et ses lunettes glissent. Gildas les lui remet sur le nez d'un doigt, comme on fait à un vieux maître." },
     ],
     choices: [
       { label: "Parler avec Frère Romaric", to: "IIIM_prosper" },
@@ -483,7 +483,7 @@ Object.assign(P, {
       "*An premier après la nuit des Comptoirs. Aymeric Vasse, qui fut chancelier de la reine, monte au Mont avec douze secrétaires de la chancellerie. Ils prennent l'habit des mains du vieil ermite qui gardait la source, et ils font vœu de taire ce qu'ils savent, et de le garder jusqu'à ce qu'on le leur redemande.*",
       "*An quatrième. On creuse sous l'église une salle pour les voix. On y apprend aux jeunes frères à se taire en dedans, à la manière de la chancellerie. {{loupe#iiim_annales_registre|La reine a béni la salle avant de mourir|La reine a dicté ici, par signes, le témoignage que sa langue ne pouvait plus porter. Le frère qui tenait la plume l'a mis en écriture dans la langue des mains, si bien que seul un frère du Mont, ou un Taiseur, saura le lire.}}*",
       "*An quarantième. La mer a pris Sorne. On a fondu au Mont la grosse cloche.*",
-      { with: "gildas", text: "Frère Gildas lit par-dessus ton épaule. Il ne dit rien. Au mot *Taiseur*, il pose la main sur la page, à plat, comme pour la tenir ouverte au vent." },
+      { with: "gildas", text: "Frère Gildas lit par-dessus ton épaule, en silence. Au mot *Taiseur*, il pose la main sur la page, à plat, comme pour la tenir ouverte au vent." },
     ],
     fx: { clue: "iiim_c_fondation", ep: ["perso", 1500] },
     choices: [{ back: "IIIM_biblio" }] },
@@ -606,7 +606,7 @@ Object.assign(P, {
     text: [
       { first: true, text: "Derrière le dernier rideau, un vieillard si maigre qu'il ne creuse pas le matelas. Ses yeux sont ouverts, voilés de blanc. Ses mains, posées sur le drap, bougent toutes seules : elles font des signes, lentement, sans arrêt, des phrases entières adressées au plafond. Frère Ursmer écrit sur l'ardoise : *IGNACE. MAÎTRE DES NOVICES. QUATRE-VINGT-DIX ANS. IL PARLE LA NUIT.*" },
       { again: true, text: "Frère Ignace, derrière son rideau. Ses mains parlent toujours." },
-      { with: "gildas", text: "Quand Frère Gildas s'approche du lit, les mains du vieillard s'arrêtent. Il tourne la tête. « Petit, dit-il, d'une voix de feuille sèche. Tu es revenu. {{oreille#iiim_ignace_gildas|Tu as bien travaillé, je l'entends|Tu portes quelque chose de lourd, je l'entends à ton pas, et tu le portes bien, comme je t'ai appris}}. » Gildas s'agenouille et pose le front sur la main du vieil homme. Il reste ainsi longtemps. Il ne dit rien." },
+      { with: "gildas", text: "Quand Frère Gildas s'approche du lit, les mains du vieillard s'arrêtent. Il tourne la tête. « Petit, dit-il, d'une voix de feuille sèche. Tu es revenu. {{oreille#iiim_ignace_gildas|Tu as bien travaillé, je l'entends|Tu portes quelque chose de lourd, je l'entends à ton pas, et tu le portes bien, comme je t'ai appris}}. » Gildas s'agenouille et pose le front sur la main du vieil homme. Il reste ainsi longtemps, en silence." },
       { without: "gildas", text: "Quand tu t'approches, les mains du vieillard s'arrêtent. Il tourne la tête vers ta voix, avant même que tu aies parlé. « Un étranger, dit-il. {{oreille#iiim_ignace_etranger|Bienvenue, mon enfant|Un étranger qui a les mains de la vallée et la voix de chez nous : une Vasse t'a porté}}. »" },
       "« Le pèlerin est venu aussi, dit Ignace. Il m'a demandé où était la porte. {{oreille#iiim_ignace_porte|Je lui ai dit que je ne savais plus|Je lui ai dit sous la salle des voix, parce que j'ai peur de mourir et qu'il m'a promis une messe à Salvèze}}. »",
     ],
@@ -652,14 +652,14 @@ Object.assign(P, {
 
   IIIM_voix_gildas: { act: "III", title: "Le Gardien descend", place: "mont", with: "gildas",
     text: [
-      "Frère Gildas monte vers le gardien. Il ne fait aucun signe. Il se tient devant lui, simplement, et le gardien se lève, s'efface contre le mur, et baisse les yeux jusqu'à ce que vous soyez passés.",
+      "Frère Gildas monte vers le gardien. Sans un signe, il se tient devant lui, simplement, et le gardien se lève, s'efface contre le mur, et baisse les yeux jusqu'à ce que vous soyez passés.",
       "Dans l'escalier, Gildas dit, sans se retourner : « Ici, on m'a appris tout ce que je sais. Fais attention à ce que tu entendras. Les murs ne choisissent pas. »",
     ],
     choices: [{ label: "Descendre dans la salle des voix", to: "IIIM_voix" }] },
 
   IIIM_voix: { act: "III", title: "La salle des voix", place: "mont", backName: "la salle des voix",
     text: [
-      { first: true, text: "La salle est ronde, taillée dans le roc, avec une voûte basse en cul-de-four et, tout autour, un banc de pierre où trente hommes tiendraient assis. Au centre, une dalle carrée, usée en creux. Pas de fenêtre ; une lampe à huile dans une niche. Le moindre souffle fait le tour de la salle et te revient dans le dos, un peu plus tard, un peu changé." },
+      { first: true, text: "La salle est ronde, taillée dans le roc, avec une voûte basse en cul-de-four et, tout autour, un banc de pierre où trente hommes tiendraient assis. Au centre, une dalle carrée, usée en creux. Pour toute lumière, une lampe à huile dans une niche. Le moindre souffle fait le tour de la salle et te revient dans le dos, un peu plus tard, un peu changé." },
       { again: true, text: "La salle ronde, la lampe dans sa niche, ton souffle qui fait le tour des murs et te revient." },
       "Au fond, en face de l'escalier, une porte de chêne cloutée de bronze, sans poignée. Au-dessus, gravée dans le roc, une main ouverte devant des yeux.",
       "Le banc du nord {{echo#iiim_voix_ignace|est creusé à deux places, par des siècles de novices assis côte à côte|rend deux voix, il y a trente ans : un jeune homme qui pleure, et un homme mûr qui parle bas, très lentement : « Tu apprendras à dire vrai en taisant tout. »}}.",
@@ -777,7 +777,7 @@ Object.assign(P, {
       "La cloche des Laudes sonne au-dessus de ta tête, à travers trente pieds de roc, et la salle entière la reprend. Tu as les jambes mortes et la gorge sèche. Tu n'as rien dit.",
       "La porte de l'escalier s'ouvre. Frère Romaric descend, et derrière lui Dom Évrard lui-même, en chape, appuyé sur sa crosse, essoufflé par les marches. L'abbé te regarde un long moment. Puis il fait, lentement, de ses grosses mains de vigneron, le signe de la porte : les mains jointes, qui s'ouvrent.",
       "Au fond de la salle, la porte aux clous de bronze est entrouverte. Elle s'est ouverte seule, pendant la nuit.",
-      { with: "gildas", text: "Frère Gildas est en haut des marches, derrière l'abbé. Il ne fait aucun signe. Il te regarde comme on regarde un apprenti qui vient de réussir sa première pièce, et qui ne sait pas encore ce qu'elle lui coûtera." },
+      { with: "gildas", text: "Frère Gildas est en haut des marches, derrière l'abbé. Il garde les mains dans ses manches. Il te regarde comme on regarde un apprenti qui vient de réussir sa première pièce, et qui ignore encore ce qu'elle lui coûtera." },
       { with: "lison", text: "Lison, à côté de lui, a les yeux rouges. « Une nuit entière sans parler, dit-elle. Je ne te reconnais pas. Ça te va mal. »" },
     ],
     fx: { flag: ["mont:acces", "iiim:acces_epreuve"], fac: { moines: 15, taiseurs: 5 }, ep: ["seance", 3500] },
@@ -790,7 +790,7 @@ Object.assign(P, {
     text: [
       "Le mot est sorti. Il fait le tour de la salle, une fois, deux fois, et il te revient de partout à la fois, ta voix, changée, plus aiguë que tu ne la crois. La salle le gardera, comme elle a gardé tous les autres.",
       { if: { seen: "IIIM_epreuve_voix" }, text: "Séverin est déjà parti. C'est la voix d'Odeline que tu as voulu couvrir, et elle s'est tue sous la tienne.", else: "Séverin se lève, satisfait, et remonte l'escalier sans se presser. « Merci », dit-il en passant la porte." },
-      "Au matin, Frère Romaric vient te chercher. Il n'a pas l'air surpris. « La plupart parlent avant minuit, dit-il. Moi, j'ai tenu jusqu'à deux heures, à vingt ans. » Il t'aide à te lever. « La règle permet qu'on recommence. Et le Mont a plus d'une porte. »",
+      "Au matin, Frère Romaric vient te chercher. Il a l'air de quelqu'un qui s'y attendait. « La plupart parlent avant minuit, dit-il. Moi, j'ai tenu jusqu'à deux heures, à vingt ans. » Il t'aide à te lever. « La règle permet qu'on recommence. Et le Mont a plus d'une porte. »",
     ],
     fx: { fac: { moines: 3 } },
     choices: [{ back: "IIIM_porte" }] },
@@ -819,7 +819,7 @@ Object.assign(P, {
   IIIM_evrard: { act: "III", title: "Dom Évrard", place: "mont", devant: "iiim_evrard",
     text: [
       "Le cabinet de l'abbé sent le vin et la cire. Dom Évrard est assis derrière une table chargée de registres, en bure comme ses moines, une croix de bois sur la poitrine. Il te fait signe de t'asseoir. Puis, à ta surprise, il parle : une voix grave, éraillée, de quelqu'un qui s'en sert peu. « L'abbé a le droit de parler à l'hôte, seul à seul, une fois. Usons-en. »",
-      "« Vous venez pour la cache. » Il ne pose pas de question. « {{oreille#iiim_evrard_cache|Il n'y a rien sous l'abbaye que des morts et de l'eau|Il y a sous l'abbaye une porte que je n'ai plus le droit d'ouvrir à personne, parce que je l'ai vendue}}. Les Taiseurs sont une histoire de bonnes femmes des marais. Ici, nous prions. »",
+      "« Vous venez pour la cache. » Il l'affirme, sans interroger. « {{oreille#iiim_evrard_cache|Il n'y a rien sous l'abbaye que des morts et de l'eau|Il y a sous l'abbaye une porte que je n'ai plus le droit d'ouvrir à personne, parce que je l'ai vendue}}. Les Taiseurs sont une histoire de bonnes femmes des marais. Ici, nous prions. »",
       "« Le pèlerin ? » Il remplit deux gobelets. « {{oreille#iiim_evrard_pelerin|Un homme pieux, que nous recevons comme tous les hôtes|Un homme qui me tient par le cou avec un papier, et qui attend que je cède pour me serrer}}. »",
       { with: "gildas", text: "Frère Gildas est resté debout près de la porte. Dom Évrard ne l'a pas regardé une seule fois. « Le Gardien n'a pas d'ordre à donner à l'abbé, dit-il enfin, sans tourner la tête. — Je n'en donne pas, répond Gildas. Je suis là. »" },
       { if: { has: "ib:abbe_lu" }, text: "Tu lui dis que tu as lu sa lettre à Frère Gildas, et la ligne sous la ligne : reprendre ce que tu portes à l'oreille, avant que tu ne parles. Dom Évrard tourne son gobelet entre ses doigts. « Je lui ai écrit cela, dit-il. Ce que le Gardien en a fait le regarde. Il obéit à un serment plus vieux que ma crosse. »" },
@@ -852,7 +852,7 @@ Object.assign(P, {
   IIIM_evrard_convaincre: { act: "III", title: "Convaincre l'abbé", place: "mont",
     text: [
       "Tu parles. De la reine sans langue, du témoignage qu'elle a dicté ici, dans la salle des voix, de la Banque qui veut le brûler. Dom Évrard écoute, les mains autour de son gobelet.",
-      { after: "voile:iiim_vepres", text: "Tu lui dis ce que chantent ses frères sous le psaume des Vêpres. *L'abbé vend la crypte. Gardez la porte.* Il pâlit sous sa couperose. Il ne savait pas qu'un étranger pouvait l'entendre." },
+      { after: "voile:iiim_vepres", text: "Tu lui dis ce que chantent ses frères sous le psaume des Vêpres. *L'abbé vend la crypte. Gardez la porte.* Il pâlit sous sa couperose. Il ignorait qu'un étranger pouvait l'entendre." },
       { after: "voile:iiim_chapitre_aveu", text: "Tu lui répètes, mot pour mot, ce que le banc du chapitre a gardé : *je romps le silence pour vous le dire, et je ne le dirai qu'une fois.* Il ferme les yeux." },
       { after: "voile:iiim_stalles", text: "Tu lui dis que sa stalle se souvient de ce qu'il y chuchote. *Pardonnez-moi, mes frères.* Il pose son gobelet." },
       "« Vous me demandez de trahir la Maison Marrel, dit-il. Elle tient ma quittance. Si j'ouvre, elle réclame les trois mille ducats demain, et le Mont est vendu à l'encan. Les frères à la route. {{oreille#iiim_evrard_peur|Je ne peux pas faire ça à la maison|Je ne peux pas être l'abbé qui a perdu le Mont, j'aime mieux être celui qui l'a vendu en douce}}. »",
@@ -876,7 +876,7 @@ Object.assign(P, {
 
   IIIM_evrard_gildas: { act: "III", title: "Le Gardien et l'abbé", place: "mont", with: "gildas",
     text: [
-      "Frère Gildas s'avance jusqu'à la table. Il ne parle pas à l'abbé : il pose les deux mains à plat sur la table, devant lui, et il attend. Dom Évrard regarde les mains. Toi aussi. Elles sont parfaitement immobiles.",
+      "Frère Gildas s'avance jusqu'à la table. Sans un mot pour l'abbé, il pose les deux mains à plat sur la table, devant lui, et il attend. Dom Évrard regarde les mains. Toi aussi. Elles sont parfaitement immobiles.",
       "« Tu étais novice quand j'étais cellérier, dit enfin l'abbé. Tu faisais trembler les gobelets rien qu'en entrant. » Il soupire. « Et maintenant tu te tiens là comme une pierre, et c'est moi qui tremble. »",
       "« Ouvre, dit Gildas. La porte n'est pas à toi. Elle n'a jamais été à toi. Tu ne pouvais pas la vendre. » Dom Évrard baisse la tête. Après un long temps, il fait le signe de la porte.",
     ],
@@ -906,8 +906,8 @@ Object.assign(P, {
   IIIM_evrard_cede_menace: { act: "III", title: "L'abbé cède", place: "mont",
     text: [
       "Dom Évrard prend une plume, écrit trois mots sur un billet, le plie, et le tend à Frère Romaric sans te regarder. Romaric lit, et devient gris. « Pour le portier, dit-il. La vingt et unième clé. » Il ajoute, plus bas : « Garde ton acte. Il a payé pour qu'il reste dans ta poche. »",
-      "L'abbé ne se lève pas quand tu sors. Il regarde le dernier portrait, à droite de la porte. Le sien.",
-      { if: { fac: "moines", max: 0 }, text: "Dans la cour, un frère crache par terre derrière toi. Les moines du Mont ne parlent pas ; ils ont d'autres façons de dire." },
+      "L'abbé reste assis quand tu sors. Il regarde le dernier portrait, à droite de la porte. Le sien.",
+      { if: { fac: "moines", max: 0 }, text: "Dans la cour, un frère crache par terre derrière toi. Les moines du Mont se taisent ; ils ont d'autres façons de dire." },
     ],
     choices: [ACCES, { back: "IIIM_porte" }] },
 
@@ -989,7 +989,7 @@ Object.assign(P, {
   IIIM_calice_rendu: { act: "III", title: "Le calice rendu", place: "mont",
     text: [
       "Tu ôtes le calice de cuivre du coussin et tu poses le vrai à sa place. Le velours garde encore la marque de son pied ; il s'y loge exactement. Les trois grenats prennent la lumière de l'albâtre.",
-      "Le vieux sacristain, qui balayait le chœur, s'approche, le calice de cuivre dans les mains, puis le vrai sous les yeux. Il ne voit pas bien, mais il touche. Il touche longtemps. Puis il fait la main à plat sur le cœur, et il garde la main là.",
+      "Le vieux sacristain, qui balayait le chœur, s'approche, le calice de cuivre dans les mains, puis le vrai sous les yeux. Il voit mal, alors il touche. Il touche longtemps. Puis il fait la main à plat sur le cœur, et il garde la main là.",
       { if: { has: "iiim:calice_gage" }, text: "Le soir, aux Vêpres, Frère Mériadec est à sa stalle. Il chante, pour la première fois depuis des semaines, à pleine voix, et faux." },
     ],
     choices: [{ back: "IIIM_eglise" }] },
@@ -1231,7 +1231,7 @@ Object.assign(P, {
       { if: { has: "iiim:cavaliers_battus" }, text: "Les trois cavaliers remontent en selle, l'un d'eux tenant son bras contre lui, et partent au trot vers Orle sans un regard pour la grange. « Ils reviendront à dix », dit Landry. Puis il ajoute : « Mais pas pour la vigne du saule. Elle ne vaut pas dix hommes. »" },
       { if: { has: "iiim:borne_remise" }, text: "Au matin, la borne est revenue près du saule, dans son creux, comme si elle n'en était jamais partie. Les cavaliers la regardent longtemps, se grattent la tête, consultent leur acte, et finissent par charger leurs sacoches. Le plus vieux crache dans la source en partant." },
       { if: { all: [{ has: "iiim:terres_rendues" }, { not: { has: "iiim:cavaliers_battus" } }, { not: { has: "iiim:borne_remise" } }] }, text: "Le plus vieux des cavaliers lit l'acte, regarde la borne, regarde la terre fraîche, regarde Landry. Il replie le papier. « La Maison n'a pas besoin de trois vignes de plus pour se faire des procès », dit-il. Ils boivent le reste de la cruche et s'en vont." },
-      { if: { has: "iiim:terres_rendues" }, text: "Landry Courtet décharge sa charrette en silence. Sa mère, sur le coffre, ne bouge pas jusqu'à ce que le coffre lui-même soit rentré. Puis Landry revient vers toi avec un tonnelet de vin de six ans, tiré de sous la paille. « Le meilleur de la vigne du saule. Pour la route. Et si vous voyez mon neveu, là-haut, dites-lui qu'il y a du travail en bas. »" },
+      { if: { has: "iiim:terres_rendues" }, text: "Landry Courtet décharge sa charrette en silence. Sa mère, sur le coffre, reste assise jusqu'à ce que le coffre lui-même soit rentré. Puis Landry revient vers toi avec un tonnelet de vin de six ans, tiré de sous la paille. « Le meilleur de la vigne du saule. Pour la route. Et si vous voyez mon neveu, là-haut, dites-lui qu'il y a du travail en bas. »" },
       { if: { has: "iiim:terres_perdues" }, text: "Le soir, la charrette des Courtet descend le chemin d'Orle, la vieille femme sur le coffre, Landry à la tête du cheval. Il ne se retourne pas. Les cavaliers ont planté un piquet au besant noir au pied de la borne. Les vignes du saule seront à la Banque aux vendanges." },
     ],
     fx: { food: 2 },
@@ -1293,7 +1293,7 @@ Object.assign(P, {
     text: [
       { if: { has: "iiim:novice_gildas" }, text: "Frère Gildas va lui-même au-devant du frère de nuit, et lui fait un signe que tu ne vois pas. La lanterne s'éloigne. Gildas revient, prend Florent par les épaules, le regarde, puis le pousse vers les marches du mur. « Va, dit-il. Il y a des gens à qui le silence va, et d'autres à qui il ne va pas. Le Seigneur a fait les uns et les autres. » Florent passe le mur. Gildas reste longtemps à regarder l'endroit où il a disparu." },
       { if: { all: [{ has: "iiim:novice_parti" }, { not: { has: "iiim:novice_gildas" } }] }, text: "Florent monte sur tes mains, attrape le chaperon du mur, se hisse. La lanterne du frère de nuit tourne au coin du verger à ce moment-là, et passe, et ne lève pas les yeux. De l'autre côté, un bruit de chute dans la terre meuble, un juron très bas, puis des pas qui courent dans les vignes, vers la grange." },
-      { if: { has: "iiim:novice_pris" }, text: "La lanterne arrive trop tôt. Florent est à cheval sur le mur quand le frère de nuit lève sa lumière sur lui. Ils se regardent. Le frère fait le poing au front. Florent redescend du bon côté, le mauvais. Au chapitre du lendemain, on le met au pain sec pour un mois, et on le change de garde. Il ne te regarde plus quand tu passes." },
+      { if: { has: "iiim:novice_pris" }, text: "La lanterne arrive trop tôt. Florent est à cheval sur le mur quand le frère de nuit lève sa lumière sur lui. Ils se regardent. Le frère fait le poing au front. Florent redescend du bon côté, le mauvais. Au chapitre du lendemain, on le met au pain sec pour un mois, et on le change de garde. Quand tu passes, il regarde ailleurs." },
       { if: { has: "iiim:novice_parti" }, text: "Au chapitre du lendemain, la place de Florent est vide. Les frères font devant elle un signe que tu n'as pas vu jusqu'ici : l'index qui pointe vers la vallée, puis la main sur le cœur. *L'étranger. Paix.* Les poings restent sur les genoux." },
     ],
     choices: [{ back: "IIIM_jardin" }] },
@@ -1301,7 +1301,7 @@ Object.assign(P, {
   IIIM_novice_reste: { act: "III", title: "La bénédiction de l'abbé", place: "mont",
     text: [
       "Dom Évrard écoute Romaric lui exposer ta demande. Il fait venir Florent, qui se tient devant lui tout pâle, les mains derrière le dos pour qu'on ne les voie pas trembler.",
-      "L'abbé le regarde longtemps. Puis il se lève, pose ses grosses mains sur la tête du garçon, et trace une croix sur son front avec le pouce. Il fait l'index vers la vallée, puis la main sur le cœur. Florent ne comprend pas tout de suite. Romaric le lui dit : « Tu peux partir. Avec la paix. »",
+      "L'abbé le regarde longtemps. Puis il se lève, pose ses grosses mains sur la tête du garçon, et trace une croix sur son front avec le pouce. Il fait l'index vers la vallée, puis la main sur le cœur. Florent met un moment à comprendre. Romaric le lui dit : « Tu peux partir. Avec la paix. »",
       "Florent part le lendemain matin, par la grande porte, sa bure pliée dans les bras pour la rendre au portier. Frère Isidore la prend, et lui donne en échange un pain et une pomme.",
     ],
     fx: { flag: ["iiim:novice", "iiim:novice_parti"], quest: "IIIM_novice", fac: { moines: 5 }, ep: ["seance", 2000] },

@@ -10,16 +10,16 @@ module.exports = {
     // ================================================================ the town, the day after (hub)
     PF_ville: { act: "P", title: "Salvèze, le lendemain", place: "quai", hub: true, backName: "le quai, au lendemain de la fête",
       text: [
-        { first: true, text: "Salvèze se réveille tard, et mal. Sur le canal des Lanternes, l'eau a la couleur du plomb, et la fête de la nuit flotte encore à sa surface : des lanternes de papier crevées, des coquilles de noix, des rubans, une manche de chemise. Le reflux en a jeté des dizaines contre les marches du quai, où elles sèchent en tas mous, vertes, rouges, jaunes, le papier collé à la pierre." },
-        { first: true, text: "Les cabarets ont fermé à l'aube. Un homme dort assis contre une borne d'amarrage, un tambourin sur les genoux. Une servante vide un seau de cendres froides dans le canal, et le seau suivant, et le suivant. Les volets des brocanteurs s'ouvrent l'un après l'autre, avec lenteur, et chacun regarde la boutique d'Odeline, trois marches, la porte fermée, puis détourne les yeux." },
-        { first: true, text: "Tu as le cornet d'os dans la poche intérieure de ta veste, contre les côtes. Tu le sens à chaque pas. Il faut enterrer Odeline, payer ce qu'elle devait, savoir ce qu'elle a laissé. Et le reste, que tu ne formules pas encore." },
-        { first: true, if: { has: "odeline:meurtre" }, text: "Le reste a un nom, depuis la cave. Quelqu'un était là, cette nuit, au haut de l'escalier. Tu marches au milieu de la ville qui dort encore, et tu regardes les mains des gens." },
-        { first: true, with: "tibere", text: "Tibère Gaucelm marche à côté de toi, la masse de sergent pendue à la ceinture, et bâille à s'en décrocher la mâchoire. « La moitié de la ville a bu, dit-il. L'autre moitié a volé la première. Ça nous fait une bonne journée pour poser des questions. Personne ne se souviendra qu'on les a posées. »" },
+        { first: true, text: "Salvèze se réveille tard, et mal. Sur le canal des Lanternes, l'eau a la couleur du plomb, et la fête de la nuit flotte encore à sa surface ; l'inventaire en serait long : des lanternes de papier crevées, des coquilles de noix, des rubans, une manche de chemise dont le propriétaire doit se poser des questions. Le reflux en a jeté des dizaines contre les marches du quai, où elles sèchent en tas mous, vertes, rouges, jaunes, le papier collé à la pierre." },
+        { first: true, text: "Les cabarets ont fermé à l'aube. Un homme dort assis contre une borne d'amarrage, un tambourin sur les genoux. Une servante vide un seau de cendres froides dans le canal, puis un deuxième, puis un troisième. Les volets des brocanteurs s'ouvrent l'un après l'autre, avec lenteur, et chacun regarde la boutique d'Odeline, ses trois marches, sa porte fermée, puis détourne les yeux." },
+        { first: true, text: "Tu portes le cornet d'os dans la poche intérieure de ta veste, contre les côtes, et tu le sens à chaque pas. Ta liste du jour tient en trois articles : enterrer Odeline, payer ce qu'elle devait, savoir ce qu'elle a laissé. Un quatrième attend en dessous, que tu n'as pas encore écrit." },
+        { first: true, if: { has: "odeline:meurtre" }, text: "Ce quatrième article a un nom, depuis la cave. Quelqu'un était là, cette nuit, en haut de l'escalier. Tu marches au milieu de la ville qui dort encore, et tu regardes les mains des gens." },
+        { first: true, with: "tibere", text: "Tibère Gaucelm marche à côté de toi, la masse de sergent pendue à la ceinture, et bâille à s'en décrocher la mâchoire. « La moitié de la ville a bu, dit-il. L'autre moitié a volé la première. Ça nous fait une bonne journée pour poser des questions : demain, tout le monde aura oublié qu'on les a posées. »" },
         { again: true, when: "day", text: "Le quai des Lanternes, au lendemain de la fête. On balaie le papier mouillé, on rentre les tréteaux, on compte ce qui manque. La boutique d'Odeline garde ses volets clos." },
         { again: true, when: "night", text: "Le quai, la nuit tombée. Quelques lanternes rescapées brûlent encore aux fenêtres, pour les noyés de l'année. L'eau du canal clapote contre les marches, et le Beffroi sonne l'heure, loin, au-dessus des toits." },
         { first: true, text: "Au bout du quai, le pont des Noyés {{echo#pf_pont|enjambe le canal en trois arches basses, gluantes de mousse|garde une voix de vieille femme, basse et nette, d'il y a huit jours : « Deux mille, sous la Muette, à minuit. Pas un liard de moins. »}}." },
-        { after: "pf:enterree", text: "Sur la porte de la boutique, quelqu'un a noué un ruban noir. Un brin de jonc est passé dans le nœud." },
-        { after: "carnet:beffroi", text: "Au-dessus des toits, le Beffroi de la reine dépasse tout le reste, carré, gris, avec son cadran d'or terni. Tu le regardes à présent comme on regarde une porte." },
+        { after: "pf:enterree", text: "Sur la porte de la boutique, une main a noué un ruban noir. Un brin de jonc est passé dans le nœud." },
+        { after: "carnet:beffroi", text: "Au-dessus des toits, le Beffroi de la reine domine tout le reste, carré, gris, avec son cadran d'or terni. Tu le regardes à présent comme on regarde une porte." },
       ],
       choices: [
         { label: "La berge aux lanternes échouées, sous le pont des Tanneurs", to: "PF_berge" },
@@ -41,10 +41,10 @@ module.exports = {
     PF_berge: { act: "P", title: "Les lanternes échouées", place: "quai", backName: "la berge des Tanneurs",
       fx: { questSeen: "PF_lanternes" },
       text: [
-        { first: true, text: "Sous le pont des Tanneurs, la berge descend en pente douce jusqu'à l'eau, pavée de galets gras. Le courant de la nuit y a poussé les lanternes de la fête par centaines. Une bande d'enfants pieds nus les ramasse à la gaffe, les égoutte, arrache le papier et jette les carcasses de fil de fer dans une hotte. Le fil de fer se revend au poids, chez les chaudronniers." },
+        { first: true, text: "Sous le pont des Tanneurs, la berge descend en pente douce jusqu'à l'eau, pavée de galets gras. Le courant de la nuit y a poussé les lanternes de la fête par centaines. Une bande d'enfants pieds nus les ramasse à la gaffe avec une efficacité de manufacture : on égoutte, on arrache le papier, on jette les carcasses de fil de fer dans une hotte. Le fil de fer se revend au poids, chez les chaudronniers." },
         { first: true, text: "Une femme en châle brun marche lentement au bord de l'eau, de lanterne en lanterne. Elle se penche sur chacune, lit ce qui reste de peint sur le papier, la repose. Les enfants la laissent faire. L'un d'eux te souffle en passant : « La veuve Lasalle. Elle cherche celle de son fils. Ça fait trois heures. »" },
         { again: true, text: "La berge des Tanneurs. Les enfants ont presque fini leur récolte, et le galet est couvert de lambeaux de papier peint." },
-        { after: "pf:lanternes", text: "La veuve Lasalle n'est plus sur la berge. À sa place, une gamine trie le fil de fer par grosseur, en chantant." },
+        { after: "pf:lanternes", text: "La veuve Lasalle a quitté la berge. À sa place, une gamine trie le fil de fer par grosseur, en chantant." },
       ],
       choices: [
         { label: "Aborder la veuve Lasalle", hide: { any: [{ seen: "PF_lant_veuve" }, { has: "pf:lanternes" }] }, to: "PF_lant_veuve" },
@@ -55,7 +55,7 @@ module.exports = {
     PF_lant_veuve: { act: "P", title: "La veuve Lasalle", place: "quai",
       fx: { meet: "pf_lasalle" },
       text: [
-        "De près, la veuve Lasalle a quarante ans et en paraît soixante. Les mains rouges des laveuses, une alliance de cuivre à un doigt trop maigre pour elle. Elle te reconnaît : tout le quai te connaît. « La petite de Carrus, dit-elle, ou le petit, je ne sais plus. Pardon. Je suis désolée pour ta maîtresse. »",
+        "De près, la veuve Lasalle a quarante ans et en paraît soixante. Elle a les mains rouges des laveuses et, à un doigt devenu trop maigre, une alliance de cuivre qui tourne librement. Elle te reconnaît : tout le quai te connaît. « La petite de Carrus, dit-elle, ou le petit, je ne sais plus. Pardon. Je suis désolée pour ta maîtresse. »",
         "Elle montre l'eau. « Mon fils s'appelait Noé. Il est tombé d'une gabare à la Saint-Michel, entre deux quais, et on l'a repêché trois jours après. Hier soir, j'ai mis sa lanterne à l'eau avec les autres. Une lanterne bleue, avec son nom peint en blanc. Si elle est partie en mer, c'est qu'il est parti aussi. Si elle s'est échouée… » Elle n'achève pas.",
         "« {{oreille#pf_lasalle|Je veux seulement savoir où elle est allée|Je veux qu'on me dise qu'elle est partie en mer, même si c'est faux}}, dit-elle. Vous êtes chercheur de choses perdues. Je peux payer un peu. »",
         { with: "tibere", text: "Tibère regarde ailleurs, vers le pont, et se gratte la moustache. « Une lanterne sur mille arrive à la mer, dit-il à voix basse. Les autres finissent sur cette berge ou dans la grille de l'écluse. Tout le monde le sait. Tout le monde en met quand même. »" },
@@ -67,14 +67,14 @@ module.exports = {
       ] },
     PF_lant_menti: { act: "P", title: "Un mensonge charitable", place: "quai",
       text: [
-        "La veuve Lasalle te regarde longtemps. Puis elle ferme les yeux, et quelque chose dans ses épaules descend d'un pouce. « Bleue, dit-elle. Avec le nom en blanc. — Bleue, dis-tu. Elle a passé le pont des Changeurs vers minuit, au milieu du canal, bien droite. »",
-        "Elle te prend la main et la serre, fort, avec ses doigts de laveuse. « Que la marée le garde », dit-elle. Puis elle remonte la berge sans se retourner, et tu restes avec ta main mouillée et le mensonge que tu viens de lui donner, qui pèse moins que tu ne l'aurais cru.",
+        "La veuve Lasalle te regarde longtemps. Puis elle ferme les yeux, et ses épaules descendent d'un pouce. « Bleue, dit-elle. Avec le nom en blanc. — Bleue, dis-tu. Elle a passé le pont des Changeurs vers minuit, au milieu du canal, bien droite. »",
+        "Elle te prend la main et la serre, fort, avec ses doigts de laveuse. « Que la marée le garde », dit-elle. Puis elle remonte la berge sans se retourner. Tu restes avec ta main mouillée et le mensonge que tu viens de lui donner. Il pèse moins lourd que tu ne l'aurais cru.",
         { with: "tibere", text: "Tibère attend qu'elle soit loin. « J'ai menti comme ça à des mères pendant vingt ans, dit-il. Au Guet, on appelle ça le rapport du soir. Ça ne s'apprend pas. Tu l'avais déjà. »" },
       ],
       choices: [{ back: "PF_berge" }] },
     PF_lant_gamins: { act: "P", title: "La récolte", place: "quai",
       text: [
-        "Le chef de la bande a douze ans, une casquette de marin trois fois trop grande et un œil poché de la veille. On l'appelle Petit-Liard, et il compte sa récolte à voix haute : tant de fil de fer, tant de bougies à demi fondues, tant de papier à vendre aux colleurs d'affiches.",
+        "Le chef de la bande a douze ans, une casquette de marin trois fois trop grande et un œil poché de la veille. On l'appelle Petit-Liard, et il compte sa récolte à voix haute, en vrai négociant : tant de fil de fer, tant de bougies à demi fondues, tant de papier à vendre aux colleurs d'affiches.",
         "« Une bleue avec un nom ? dit-il. {{oreille#pf_petitliard|On n'en a pas vu de bleue ce matin|Les bleues, on les laisse à la grille de l'écluse, parce que la veuve les cherche et qu'elle pleure}}. » Il crache par terre, pour l'honnêteté. « Par contre, on a trouvé ça. »",
         "Il te montre, sur le galet, une carcasse de lanterne plus lourde que les autres : un fond de métal noirci, ciselé, que le courant a cabossé. {{pie#pf_fond|Du fer-blanc noirci par la suie|De l'argent massif, aux armes d'une grande maison, sous la suie}}. « Celui-là, on le garde pour le chaudronnier. Il en donnera deux liards. »",
         { with: "tibere", text: "Tibère fait sauter une pièce dans sa paume. Petit-Liard la suit des yeux. « Tu as l'air d'un garçon qui sait où se trouvent les choses, dit Tibère. — Ça dépend du prix, dit Petit-Liard. »" },
@@ -86,14 +86,14 @@ module.exports = {
       ] },
     PF_lant_fond: { act: "P", title: "Un fond de lanterne", place: "quai",
       text: [
-        "Tu paies. Petit-Liard empoche les deux liards en te regardant comme on regarde un client qui s'est fait voler et ne le sait pas encore. Tu frottes le fond de lanterne avec ta manche. Sous la suie, le métal est blanc, doux sous le pouce, et une tour à trois créneaux apparaît, gravée au centre, entourée d'une devise latine.",
-        "Une lanterne d'argent, mise à l'eau par une grande maison qui avait un noyé à pleurer, ou une réputation à soigner. Le fondeur de la rue des Chaudronniers t'en donnerait le prix d'un mois de loyer, et ne poserait pas de question.",
+        "Tu paies. Petit-Liard empoche les deux liards en te regardant comme on regarde un client qui s'est fait voler et l'ignore encore. Tu frottes le fond de lanterne avec ta manche. Sous la suie, le métal est blanc, doux sous le pouce, et une tour à trois créneaux apparaît, gravée au centre, entourée d'une devise latine. Petit-Liard, pour une fois, a mal fait ses comptes.",
+        "Une lanterne d'argent, mise à l'eau par une grande maison qui avait un noyé à pleurer, ou une réputation à soigner. Le fondeur de la rue des Chaudronniers t'en donnerait le prix d'un mois de loyer, sans poser de question.",
         { if: { has: "metier:lire" }, text: "Tu connais ces armes : tu as vu la tour à trois créneaux sur des actes de vente, aux Archives. La maison Fourcaud, une des quarante. Ils ont perdu un fils en mer, l'automne dernier." },
       ],
       choices: [{ back: "PF_berge" }] },
     PF_lant_ecluse: { act: "P", title: "L'écluse des Tanneurs", place: "quai",
       text: [
-        "L'écluse des Tanneurs ferme le canal à l'endroit où il rejoint la Salve. Une porte de chêne noir, deux treuils, une cabane d'éclusier, et devant la porte, en travers du courant, la grille de fer qui arrête les épaves. Ce matin, la grille est un mur de lanternes : des centaines, collées les unes aux autres par l'eau, une croûte de papier de toutes les couleurs que le courant presse contre les barreaux.",
+        "L'écluse des Tanneurs ferme le canal à l'endroit où il rejoint la Salve : une porte de chêne noir, deux treuils, une cabane d'éclusier, et devant la porte, en travers du courant, la grille de fer qui arrête les épaves. Ce matin, la grille est un mur de lanternes. Elles sont des centaines, collées les unes aux autres par l'eau, et forment une croûte de papier de toutes les couleurs que le courant presse contre les barreaux.",
         "Au milieu, à trois toises du bord, une tache bleue. Tu distingues des lettres blanches.",
         "L'éclusier fume sa pipe sur le seuil de sa cabane, en sabots. « {{oreille#pf_eclusier|On lève la grille demain, pour le nettoyage|On lève la grille ce soir, pour le nettoyage, et tout part dans la Salve, et la veuve n'en saura rien}}, dit-il. D'ici là, personne ne marche sur ma grille. Les gens tombent. »",
         "Une odeur de rat mouillé monte de l'eau, et quelque chose bouge sous le papier.",
@@ -109,7 +109,7 @@ module.exports = {
       ] },
     PF_lant_rats: { act: "P", title: "Sous le papier", place: "quai",
       text: [
-        "Tu t'agenouilles au bord de la grille, sur la pierre verte, et tu tends le bras dans le papier mouillé, vers la tache bleue. Le papier bouge. Trois rats des canaux en sortent, gros comme des chats, et ils n'ont pas l'air d'avoir peur de toi.",
+        "Tu t'agenouilles au bord de la grille, sur la pierre verte, et tu tends le bras dans le papier mouillé, vers la tache bleue. Le papier bouge. Trois rats des canaux en sortent, gros comme des chats, et parfaitement indifférents à ta présence.",
       ],
       choices: [
         { label: "Les chasser", fight: { title: "La grille de l'écluse", enemies: [{ id: "rat", n: 3 }],
@@ -119,10 +119,10 @@ module.exports = {
     PF_lant_bleue: { act: "P", title: "La lanterne bleue", place: "quai",
       fx: { flag: "pf:lanterne_bleue", ep: ["perso", 200] },
       text: [
-        { outcome: ["lose", "flee"], text: "Tu glisses, et tu tombes dans le canal jusqu'à la taille. L'eau de la fin d'hiver te coupe le souffle. Les rats s'égaillent. L'éclusier pose sa pipe, descend trois marches et te tend sa perche, l'air de quelqu'un dont la journée vient de s'éclairer. Quand tu remontes sur la pierre, trempé{e} et grelottant{e}, tu tiens la lanterne bleue contre ta poitrine, et tu ignores à quel moment tu l'as attrapée." },
-        "C'est une lanterne de papier huilé, teint au pastel, tendue sur six baguettes d'osier. Elle a pris l'eau d'un côté, mais le nom tient encore, en grandes lettres blanches maladroites : *NOÉ*. Dessous, plus petit, une main d'enfant ou de femme qui sait mal écrire a ajouté : *reviens manger*.",
-        "La bougie a brûlé jusqu'au bout. Elle est restée accrochée à la grille toute la nuit, allumée, au milieu de cent autres, à trois toises de la Salve.",
-        { with: "tibere", text: "Tibère la regarde par-dessus ton épaule et se racle la gorge. « Rosalie m'en faisait, des comme ça, dit-il. Avec mon nom dessus. Pour rire. Quand j'étais de garde la nuit des Lanternes. » Il se tait. Il garde pour lui depuis quand elle a cessé." },
+        { outcome: ["lose", "flee"], text: "Tu glisses, et tu tombes dans le canal jusqu'à la taille. L'eau de la fin d'hiver te coupe le souffle. Les rats s'égaillent. L'éclusier pose sa pipe, descend trois marches et te tend sa perche, de l'air d'un homme dont la journée vient de s'éclairer. Quand tu remontes sur la pierre, trempé{e} et grelottant{e}, tu tiens la lanterne bleue contre ta poitrine, et tu serais incapable de dire à quel moment tu l'as attrapée." },
+        "C'est une lanterne de papier huilé, teint au pastel, tendue sur six baguettes d'osier. Elle a pris l'eau d'un côté, mais le nom tient encore, en grandes lettres blanches maladroites : *NOÉ*. Dessous, plus petit, une main d'enfant, ou de femme qui sait mal écrire, a ajouté : *reviens manger*.",
+        "La bougie a brûlé jusqu'au bout. La lanterne est restée accrochée à la grille toute la nuit, allumée, au milieu de cent autres, à trois toises de la Salve.",
+        { with: "tibere", text: "Tibère la regarde par-dessus ton épaule et se racle la gorge. « Rosalie m'en faisait, des comme ça, dit-il. Avec mon nom dessus. Pour rire. Quand j'étais de garde la nuit des Lanternes. » Il se tait, et garde pour lui l'année où elle a cessé." },
       ],
       choices: [
         { label: "La rapporter à la veuve Lasalle, telle qu'elle est", fx: { flag: ["pf:lanternes", "pf:lasalle_verite"], quest: "PF_lanternes", ep: ["perso", 300] }, to: "PF_lant_rendue" },
@@ -137,18 +137,18 @@ module.exports = {
       choices: [{ label: "La laisser avec sa lanterne", fx: { gold: 2 }, back: "PF_berge" }] },
     PF_lant_mer: { act: "P", title: "La jetée, au reflux", place: "quai",
       text: [
-        "Au bout de la jetée du port aux Sauniers, la Salve rejoint le large, et le reflux tire l'eau vers le large. Tu as fait sécher la lanterne au brasero d'un marchand de marrons, tu as acheté une bougie neuve, tu l'as allumée à l'abri de ta veste.",
-        "Tu la poses sur l'eau. Elle tourne sur elle-même, hésite, et puis le courant la prend, et elle file, bleue et petite, entre deux gabares de sel, vers la ligne grise où le fleuve devient la mer. Tu la regardes jusqu'à ce qu'elle soit un point, puis plus rien.",
-        "Le soir, quand tu passes sur la berge, la veuve Lasalle t'attend. Quelqu'un lui a dit. Elle ne dit rien ; elle te serre la main, longtemps, et elle murmure : « Que la marée le garde. »",
+        "Au bout de la jetée du port aux Sauniers, la Salve rejoint le large, et le reflux tire l'eau vers la haute mer. Tu as fait sécher la lanterne au brasero d'un marchand de marrons, tu as acheté une bougie neuve, tu l'as allumée à l'abri de ta veste.",
+        "Tu la poses sur l'eau. Elle tourne sur elle-même, hésite, puis le courant la prend, et elle file, bleue et petite, entre deux gabares de sel, vers la ligne grise où le fleuve devient la mer. Tu la suis des yeux jusqu'à ce qu'elle soit un point, puis plus rien.",
+        "Le soir, quand tu passes sur la berge, la veuve Lasalle t'attend. Quelqu'un lui a dit. Elle garde le silence ; elle te serre la main, longtemps, et elle murmure : « Que la marée le garde. »",
       ],
       choices: [{ back: "PF_berge" }] },
     // ================================================================ the notary, maître Rivaud
     PF_notaire: { act: "P", title: "L'étude de maître Rivaud", place: "quai", backName: "l'étude de maître Rivaud",
       fx: { meet: "pf_rivaud", flag: "pf:fun_prete" },
       text: [
-        { first: true, text: "Rue des Greffes, au deuxième étage d'une maison étroite, une plaque de cuivre : *Me Honorat Rivaud, notaire juré de la République*. L'escalier sent la cire et le papier humide. Dans l'antichambre, un clerc de quinze ans recopie un acte en tirant la langue, et lève sur toi des yeux de lapin." },
-        { first: true, text: "Maître Rivaud est petit, rond, la perruque poudrée de travers, avec des doigts tachés d'encre jusqu'à la deuxième phalange. Il se lève quand tu entres, et il reste debout, gêné, derrière son bureau couvert de liasses ficelées. « Je vous attendais, dit-il. Asseyez-vous. Je suis navré. Odeline Carrus était une cliente de trente ans, et une femme d'esprit. Elle m'a fait rire deux fois en trente ans, ce qui est beaucoup, dans ce métier. »" },
-        { again: true, text: "L'étude de maître Rivaud, ses liasses, son odeur de cire. Le clerc recopie toujours le même acte. Le notaire t'accueille d'un signe de tête et d'un soupir." },
+        { first: true, text: "Rue des Greffes, au deuxième étage d'une maison étroite, une plaque de cuivre annonce : *Me Honorat Rivaud, notaire juré de la République*. L'escalier sent la cire et le papier humide. Dans l'antichambre, un clerc de quinze ans recopie un acte en tirant la langue, et lève sur toi des yeux de lapin." },
+        { first: true, text: "Maître Rivaud est petit, rond, la perruque poudrée de travers, les doigts tachés d'encre jusqu'à la deuxième phalange. Il se lève quand tu entres, et il reste debout, gêné, derrière son bureau couvert de liasses ficelées. « Je vous attendais, dit-il. Asseyez-vous. Je suis navré. Odeline Carrus était une cliente de trente ans, et une femme d'esprit. Elle m'a fait rire deux fois en trente ans, ce qui est beaucoup, dans ce métier. »" },
+        { again: true, text: "L'étude de maître Rivaud, ses liasses, son odeur de cire. Le clerc recopie toujours le même acte ; à ce train, il le finira pour la Saint-Jean. Le notaire t'accueille d'un signe de tête et d'un soupir." },
         { if: { has: "passe:gage" }, text: "Rivaud te regarde par-dessus ses lunettes. « Je me souviens de vous, dit-il. C'est moi qui ai rédigé l'acte, quand votre père vous a laissé{e} chez elle. Elle a déchiré la reconnaissance de dette devant moi, le jour même. Je ne crois pas qu'elle vous l'ait jamais dit. »" },
       ],
       choices: [
@@ -161,17 +161,17 @@ module.exports = {
     PF_not_testament: { act: "P", title: "Le testament", place: "quai",
       fx: { ep: ["perso", 200] },
       text: [
-        "Rivaud déplie une feuille unique, écrite de la main d'Odeline, avec sa signature en pattes de mouche et le sceau rouge de l'étude. Il la lit d'une voix de lecteur public, sans lever les yeux. *Je laisse à mon apprenti{e}, que tout le quai connaît, la boutique, le fonds, l'établi et ce qui est dedans, et mes dettes avec, qui sont à moi et à personne d'autre. Je veux être enterrée au cimetière des Noyés, au soir, à la marée montante. {{loupe#pf_testament|C'est payé.|C'est payé. Qu'on me couche face au sud, vers les Joncs, et qu'on ne dise rien.}}*",
+        "Rivaud déplie une feuille unique, écrite de la main d'Odeline, avec sa signature en pattes de mouche et le sceau rouge de l'étude. Il la lit d'une voix de lecteur public, les yeux sur le papier. *Je laisse à mon apprenti{e}, que tout le quai connaît, la boutique, le fonds, l'établi et ce qui est dedans, et mes dettes avec, qui sont à moi et à personne d'autre. Je veux être enterrée au cimetière des Noyés, au soir, à la marée montante. {{loupe#pf_testament|C'est payé.|C'est payé. Qu'on me couche face au sud, vers les Joncs, et qu'on ne dise rien.}}*",
         "« C'est tout, dit Rivaud. Elle a payé sa place chez les Noyés il y a douze ans. Je lui ai fait remarquer qu'elle ne s'était jamais noyée. Elle m'a répondu : chez les Noyés, au moins, on est entre gens qui écoutent l'eau. C'était une des deux fois où elle m'a fait rire. »",
         "Il roule la feuille. « {{oreille#pf_rivaud_banque|Personne d'autre n'a demandé à voir ses papiers, rassurez-vous|Un homme de la Banque Marrel est venu ce matin à l'ouverture, avec des gants gris, et je lui ai montré l'inventaire, parce qu'on ne refuse rien à la Banque}}. Le prêtre de la chapelle des Noyés a fixé le jour : ce soir, à la marée. Les passeurs sont prévenus. Il vous suffira d'être là. »",
-        { if: { has: "odeline:meurtre" }, text: "Tu demandes si quelqu'un, au Guet, a parlé d'autre chose que d'une chute. Rivaud range ses lunettes dans leur étui, le referme, le rouvre. « Le Guet a écrit : chute dans l'escalier. Le Guet a signé. Le Guet a bu toute la nuit des Lanternes, comme tout le monde. » Il s'en tient là. Il ne te donne pas tort." },
+        { if: { has: "odeline:meurtre" }, text: "Tu demandes si quelqu'un, au Guet, a parlé d'autre chose que d'une chute. Rivaud range ses lunettes dans leur étui, le referme, le rouvre. « Le Guet a écrit : chute dans l'escalier. Le Guet a signé. Le Guet a bu toute la nuit des Lanternes, comme tout le monde. » Il s'en tient là, et son silence te donne raison." },
       ],
       choices: [{ back: "PF_notaire" }] },
     PF_not_creanciers: { act: "P", title: "Les créanciers", place: "quai",
       text: [
-        "Rivaud tire d'une liasse une feuille couverte de chiffres. « Les dettes de la boutique. Rien de déshonorant. » Il suit les lignes du doigt. « Le chandelier de la rue Basse : neuf liards. Le loyer du grenier à l'étage, payé jusqu'à Pâques. Le père Gobelin, votre voisin : six ducats, prêtés l'été dernier sans reçu, il me l'a dit lui-même ce matin, en pleurant un peu. Maître Escarbol, prêteur, rue des Chaudronniers : trois ducats, sur un billet sans témoin. »",
+        "Rivaud tire d'une liasse une feuille couverte de chiffres. « Les dettes de la boutique. Rien de déshonorant. » Il suit les lignes du doigt. « Le chandelier de la rue Basse : neuf liards. Le loyer du grenier à l'étage, payé jusqu'à Pâques. Le père Gobelin, votre voisin : six ducats, prêtés l'été dernier sans reçu ; il me l'a dit lui-même ce matin, en pleurant un peu. Maître Escarbol, prêteur, rue des Chaudronniers : trois ducats, sur un billet sans témoin. »",
         "Il s'arrête sur la dernière ligne, et sa bouche se pince. « Et maître Ursin Gaudrel, au pont aux Liards. Il réclame quarante ducats sur une reconnaissance signée de sa main à elle. {{oreille#pf_rivaud_gaudrel|Je n'ai aucune raison de douter de cette reconnaissance|J'ai reçu de ses mains à elle, il y a un mois, une quittance de Gaudrel, et Gaudrel l'ignore}}. Il veut saisir le fonds de la boutique dès demain, si on ne le paie pas. »",
-        { if: { has: "poids:dette" }, text: "Gaudrel. Tu sens ta nuque se raidir. Ton nom à toi est aussi dans le grand registre de Gaudrel, pour une somme que tu n'as jamais dite à Odeline. Rivaud ne le sait pas. Gaudrel, si." },
+        { if: { has: "poids:dette" }, text: "Gaudrel. Ta nuque se raidit. Ton nom à toi figure aussi dans le grand registre de Gaudrel, pour une somme que tu as toujours cachée à Odeline. Rivaud l'ignore. Gaudrel, lui, le sait." },
       ],
       choices: [
         { label: "« Cette quittance, maître Rivaud. Celle qu'elle vous a confiée il y a un mois. »", hide: { any: [{ not: { voile: "pf_rivaud_gaudrel" } }, { item: "pf_quittance" }] }, fx: { item: "pf_quittance", ep: ["perso", 300] }, to: "PF_not_quittance" },
@@ -179,14 +179,14 @@ module.exports = {
       ] },
     PF_not_quittance: { act: "P", title: "La quittance", place: "quai",
       text: [
-        "Rivaud devient très rouge, puis très pâle. Il te regarde, regarde la porte, regarde le cornet qui dépasse de ta poche sans savoir ce que c'est. « Comment le savez-vous ? Elle vous l'a dit ? »",
-        "Il ouvre un tiroir à clé, en tire une enveloppe, et en sort un petit papier plié en quatre. *Reçu de dame Carrus la somme de quarante ducats, pour solde de tout compte. U. Gaudrel.* Signé, daté de la Saint-Valentin. « Elle m'a dit : gardez-le, maître Rivaud, et ne le montrez qu'à qui le demandera par son nom. Personne ne l'a demandé. J'avais peur de Gaudrel. Il prête aussi aux notaires. »",
+        "Rivaud devient très rouge, puis très pâle. Il te regarde, regarde la porte, regarde le cornet qui dépasse de ta poche, sans savoir ce que c'est. « Comment le savez-vous ? Elle vous l'a dit ? »",
+        "Il ouvre un tiroir à clé, en tire une enveloppe, et en sort un petit papier plié en quatre. *Reçu de dame Carrus la somme de quarante ducats, pour solde de tout compte. U. Gaudrel.* Le papier est signé et daté de la Saint-Valentin. « Elle m'a dit : gardez-le, maître Rivaud, et ne le montrez qu'à qui le demandera par son nom. Personne ne l'a demandé. J'avais peur de Gaudrel. Il prête aussi aux notaires. »",
         "Il te le tend. Sa main tremble un peu. « Prenez-le. Et ne dites pas d'où il vient. »",
       ],
       choices: [{ back: "PF_notaire" }] },
     PF_not_carnet: { act: "P", title: "Les effets d'Odeline", place: "quai",
       text: [
-        { if: { seen: "PF_morgue" }, text: "« La chapelle des Noyés me les a fait porter à midi, dit Rivaud, comme le veut l'usage : tout ce qui est écrit va au notaire. » Il pose sur le bureau un paquet ficelé, l'ouvre. Un mouchoir, trois liards, une clé, une paire de lunettes. Et un carnet à couverture de toile cirée, gros comme la main, que la vieille Rixende a fini par trouver cousu dans la doublure de sa jupe.", else: "« Mon clerc revient à l'instant de la chapelle des Noyés, dit Rivaud. Tout ce qui est écrit va au notaire, c'est l'usage. » Il pose sur le bureau un paquet ficelé, l'ouvre. Un mouchoir, trois liards, une clé, une paire de lunettes. Et un carnet à couverture de toile cirée, gros comme la main, que la vieille Rixende a trouvé cousu dans la doublure de sa jupe." },
+        { if: { seen: "PF_morgue" }, text: "« La chapelle des Noyés me les a fait porter à midi, dit Rivaud, comme le veut l'usage : tout ce qui est écrit va au notaire. » Il pose sur le bureau un paquet ficelé et l'ouvre. Un mouchoir, trois liards, une clé, une paire de lunettes. Et un carnet à couverture de toile cirée, gros comme la main, que la vieille Rixende a fini par trouver cousu dans la doublure de sa jupe.", else: "« Mon clerc revient à l'instant de la chapelle des Noyés, dit Rivaud. Tout ce qui est écrit va au notaire, c'est l'usage. » Il pose sur le bureau un paquet ficelé et l'ouvre. Un mouchoir, trois liards, une clé, une paire de lunettes. Et un carnet à couverture de toile cirée, gros comme la main, que la vieille Rixende a trouvé cousu dans la doublure de sa jupe." },
         "Il tient le carnet un moment de trop. « {{oreille#pf_rivaud_carnet|Ce sont des comptes de boutique, sans valeur pour personne d'autre que vous|L'homme aux gants gris m'a offert dix ducats pour tout carnet que je trouverais, et je les ai refusés en tremblant}}. » Il te le donne, et s'essuie les doigts à son mouchoir.",
       ],
       choices: [{ label: "Prendre le carnet", fx: { item: "pf_carnet", flag: "pf:carnet", ep: ["perso", 200] }, back: "PF_notaire" }] },
@@ -195,7 +195,7 @@ module.exports = {
       text: [
         "Rivaud enlève ses lunettes. Sans elles, il a des yeux de myope, gonflés, très doux. « Il s'appelle Brunel, Lothaire Brunel. Il travaille pour la Banque Marrel. Il cherche des choses pour elle, comme vous en cherchez pour les veuves. Il ne m'a pas menacé. Ces gens-là menacent rarement. Ils demandent. »",
         "« Il m'a demandé si l'inventaire de la boutique portait un cornet, une loupe, des instruments. Il a dit le mot : instruments. Je lui ai dit que l'inventaire portait des parapluies, des clés et des dentiers, et c'est la vérité. Il a souri. Il a des gants gris, et il ne les retire pas pour écrire. »",
-        { with: "tibere", text: "Tibère, adossé au chambranle, se met à examiner ses ongles avec une grande attention. Il reste muet toute la conversation." },
+        { with: "tibere", text: "Tibère, adossé au chambranle, se met à examiner ses ongles avec une grande attention, et les examine jusqu'à la fin de la conversation." },
       ],
       choices: [{ back: "PF_notaire" }] },
 
@@ -203,8 +203,8 @@ module.exports = {
     PF_morgue: { act: "P", title: "La salle des morts", place: "quai", backName: "la salle des morts de la chapelle des Noyés",
       fx: { meet: "pf_rixende", flag: "pf:fun_prete" },
       text: [
-        { first: true, text: "La chapelle des Noyés ferme le quai, au pied du pont du même nom, et derrière sa nef s'ouvre la salle où l'on dépose les corps que le canal rend. Une salle basse et voûtée, blanchie à la chaux, froide, avec six tables de pierre et une rigole au milieu du sol. Ça sent le vinaigre, la lavande, et sous la lavande, autre chose. Au lendemain de la nuit des Lanternes, quatre tables sont occupées." },
-        { first: true, text: "La gardienne s'appelle Rixende. Soixante-dix ans, un tablier de cuir, des avant-bras de lavandière, et une façon tranquille de marcher entre les tables. « La Carrus ? dit-elle. Au fond, à gauche. {{oreille#pf_rixende_ongles|Je l'ai lavée ce matin, elle était légère, les vieilles sont toujours légères|Je l'ai lavée ce matin, elle avait trois ongles cassés comme si elle s'était battue, et je les ai limés pour qu'on ne le voie pas}}. »" },
+        { first: true, text: "La chapelle des Noyés ferme le quai, au pied du pont du même nom, et derrière sa nef s'ouvre la salle où l'on dépose les corps que le canal rend. C'est une salle basse et voûtée, blanchie à la chaux, froide, avec six tables de pierre et une rigole au milieu du sol. Elle sent le vinaigre, la lavande, et sous la lavande, une odeur que la lavande est chargée de couvrir. Au lendemain de la nuit des Lanternes, quatre tables sont occupées." },
+        { first: true, text: "La gardienne s'appelle Rixende. Elle a soixante-dix ans, un tablier de cuir, des avant-bras de lavandière, et une façon tranquille de marcher entre les tables, comme une ménagère dans sa cuisine. « La Carrus ? dit-elle. Au fond, à gauche. {{oreille#pf_rixende_ongles|Je l'ai lavée ce matin, elle était légère, les vieilles sont toujours légères|Je l'ai lavée ce matin, elle avait trois ongles cassés comme si elle s'était battue, et je les ai limés pour qu'on ne le voie pas}}. »" },
         { again: true, text: "La salle voûtée, la chaux, le vinaigre. Rixende t'adresse un signe du menton depuis la table où elle coud un linceul." },
         { with: "tibere", text: "Tibère reste sur le seuil, le chapeau à la main. « Je n'entre pas là-dedans, dit-il. J'y suis entré trop souvent avec le Guet. Fais ce que tu as à faire. »" },
       ],
@@ -216,11 +216,11 @@ module.exports = {
       ] },
     PF_morgue_corps: { act: "P", title: "Odeline", place: "quai",
       text: [
-        "Elle est sous un drap de lin, et Rixende rabat le drap jusqu'aux épaules sans que tu le demandes. On lui a fermé les yeux et noué un linge sous le menton. Ses cheveux blancs, que tu n'as jamais vus défaits, sont peignés et tressés. Elle a l'air plus petite que vivante, et plus sévère, comme si elle allait te demander où tu as rangé la pince à sertir.",
+        "Elle est sous un drap de lin, et Rixende rabat le drap jusqu'aux épaules sans attendre ta demande. On lui a fermé les yeux et noué un linge sous le menton. Ses cheveux blancs, que tu voyais toujours relevés, sont peignés et tressés. Elle paraît plus petite que vivante, et plus sévère, comme si elle allait te demander où tu as rangé la pince à sertir.",
         "Une ecchymose sombre lui marque la tempe, et une autre l'épaule, là où les marches l'ont frappée. Rixende tire le drap un peu plus bas, pour que tu voies les mains croisées sur la poitrine. « Je n'arrive pas à la ravoir, celle-là », dit-elle en montrant la main droite.",
         "La paume droite d'Odeline porte une large trace vert-de-gris, en bande, d'un bord à l'autre : la marque d'une poignée de cuivre serrée fort, longtemps, ou à la dernière seconde.",
         { if: { has: "odeline:meurtre" }, text: "Tu regardes cette paume, et ta gorge se serre. Odeline tenait quelque chose de cuivre quand elle est tombée. Elle le tenait comme on tient une arme." },
-        { with: "tibere", text: "Depuis le seuil, Tibère tousse, et détourne les yeux de la main d'Odeline. Il a écrit *chute* dans son rapport, ce matin, de sa grosse écriture de sergent." },
+        { with: "tibere", text: "Depuis le seuil, Tibère tousse, et détourne les yeux de la main d'Odeline. Ce matin, de sa grosse écriture de sergent, il a écrit *chute* dans son rapport." },
       ],
       choices: [
         { label: "« Ce n'est pas un accident. »", hide: { has: "odeline:meurtre" }, fx: { flag: "odeline:meurtre", clue: "pf_c_paume", ep: ["perso", 300] }, to: "PF_morgue_adieu" },
@@ -232,7 +232,7 @@ module.exports = {
         "Rixende s'éloigne vers une autre table, et tu restes seul{e} avec Odeline, autant qu'on peut l'être dans une salle où dorment trois noyés.",
         "Tu cherches ce qu'on dit. Quarante ans de quai, de clés perdues, d'alliances retrouvées dans les égouts, de testaments glissés derrière les lambris. Elle t'a appris à reconnaître le son d'une latte creuse, à lire une reconnaissance de dette à l'envers, à mentir aux huissiers. Elle t'a appris à te taire quand on cherche.",
         "{{miroir#pf_adieu|Tu lui dis que tu l'aimais, et c'est vrai|Tu lui dis que tu l'aimais, et tu penses à la porte que tu as claquée hier soir, et à ce que tu as crié avant de la claquer}}.",
-        { if: { has: "metier:mains" }, text: "Tes mains, elles, font ce qu'elles savent faire. Elles lissent le drap, et s'arrêtent sur le côté de la jupe, à hauteur de la hanche, où le lin fait une bosse carrée, cousue serré, que Rixende n'a pas vue." },
+        { if: { has: "metier:mains" }, text: "Tes mains, elles, font ce qu'elles savent faire. Elles lissent le drap, et s'arrêtent sur le côté de la jupe, à hauteur de la hanche. Le lin y fait une bosse carrée, cousue serré, qui a échappé à Rixende." },
       ],
       choices: [
         { label: "Découdre la doublure de la jupe", hide: { any: [{ not: { has: "metier:mains" } }, { item: "pf_carnet" }, { seen: "PF_not_carnet" }] }, fx: { item: "pf_carnet", flag: "pf:carnet", ep: ["perso", 300] }, to: "PF_morgue_carnet" },
@@ -254,30 +254,30 @@ module.exports = {
     PF_morgue_pot: { act: "P", title: "La doublure", place: "quai",
       fx: { item: "pf_carnet", flag: "pf:carnet", ep: ["perso", 200] },
       text: [
-        { with: "tibere", text: "Tibère a soudain retrouvé le courage d'entrer. Il pose son chapeau sur une table vide, et il parle à Rixende avec la voix du Guet, celle qui fait reculer les ivrognes. Rixende le connaît : elle le regarde d'un œil sans indulgence. Mais elle va chercher ses ciseaux." },
+        { with: "tibere", text: "Tibère a soudain retrouvé le courage d'entrer. Il pose son chapeau sur une table vide, et il parle à Rixende avec la voix du Guet, celle qui fait reculer les ivrognes. Rixende le connaît : elle le toise d'un œil sévère. Elle va tout de même chercher ses ciseaux." },
         { without: "tibere", text: "Rixende pèse les liards dans sa poche sans les regarder, puis elle va chercher ses ciseaux. « Il y a une bosse dans sa jupe, dit-elle. Je l'ai sentie en la lavant. Je comptais la donner au notaire. Le notaire ne m'a jamais rien glissé dans le tablier, à moi. »" },
-        "Elle découd la doublure en trois coups de ciseaux, adroits, sans abîmer le lin, et en tire un carnet à couverture de toile cirée, gros comme la main, tenu par un élastique de boyau. Elle te le tend. « Je ne l'ai pas vu, dit-elle. Vous non plus. »",
+        "Elle découd la doublure en trois coups de ciseaux adroits, sans abîmer le lin, et en tire un carnet à couverture de toile cirée, gros comme la main, tenu par un élastique de boyau. Elle te le tend. « Je ne l'ai pas vu, dit-elle. Vous non plus. »",
       ],
       choices: [{ label: "Glisser le carnet sous ta veste, contre le cornet", back: "PF_morgue" }] },
     PF_morgue_carnet: { act: "P", title: "Le carnet", place: "quai",
       text: [
-        "Un carnet à couverture de toile cirée, gros comme la main, tenu par un élastique de boyau, que tu as vu cent fois dans la poche de son tablier et que tu n'as jamais ouvert. Odeline le sortait pour noter un prix, une adresse, un nom, et le rangeait aussitôt, en tapotant la poche du plat de la main.",
+        "C'est un carnet à couverture de toile cirée, gros comme la main, tenu par un élastique de boyau. Tu l'as vu cent fois dans la poche de son tablier, et jamais ouvert. Odeline le sortait pour noter un prix, une adresse, un nom, et le rangeait aussitôt, en tapotant la poche du plat de la main.",
         "Il est tiède de la jupe, ou de ta main. Tu le glisses sous ta veste, contre le cornet. Les deux objets se touchent à travers la doublure, et tu as l'impression absurde qu'ils se reconnaissent.",
       ],
       choices: [{ back: "PF_morgue" }] },
     PF_morgue_prise: { act: "P", title: "La main dans la jupe", place: "quai",
       text: [
-        "Rixende se retourne au moment où tes doigts trouvent la bosse carrée sous le lin. Elle ne crie pas. Elle traverse la salle en trois pas, te prend le poignet avec une force de lavandière et le retire de la jupe.",
+        "Rixende se retourne au moment où tes doigts trouvent la bosse carrée sous le lin. Elle garde son calme. Elle traverse la salle en trois pas, te prend le poignet avec une force de lavandière et le retire de la jupe.",
         "« Quarante ans que je garde les morts, dit-elle, et ce sont toujours les vivants qui les volent. Les papiers vont au notaire. Allez voir votre notaire. Et revenez ce soir pour l'enterrer, au moins, puisque vous l'aimez tant. »",
-        "Elle te tourne simplement le dos.",
+        "Elle te tourne le dos, et l'entretien est clos.",
       ],
       choices: [{ back: "PF_morgue" }] },
 
     // ================================================================ the chapel, Brother Gildas
     PF_chapelle: { act: "P", title: "La chapelle des Noyés", place: "quai", backName: "la chapelle des Noyés",
       text: [
-        { first: true, text: "La nef de la chapelle des Noyés communique avec la salle des morts par une porte basse, qu'on laisse ouverte pour que les morts entendent la messe. Une nef unique, étroite comme une coque retournée, et c'en est une, dit-on : la charpente est faite de bordages de gabares échouées, goudronnés, cloués à l'envers. Aux murs, des ex-voto par centaines, des petits bateaux de bois, des rames, des bouées de liège peintes de noms. Au fond, une Vierge de bois tient sur son bras une ancre au lieu d'un enfant. La nef est {{echo#pf_nef|silencieuse, et sent le goudron chaud et la cire|pleine de voix de veuves, des centaines, qui disent chacune un nom d'homme, et puis : « Que la marée te garde »}}." },
-        { first: true, text: "Un moine prie à genoux devant la Vierge des Noyés. Une bure brune, usée, ceinte d'une corde ; des sandales de route, couvertes de la boue grise des Combes ; le capuchon tiré bas sur le front. Il prie sans remuer les lèvres." },
+        { first: true, text: "La nef de la chapelle des Noyés communique avec la salle des morts par une porte basse, qu'on laisse ouverte pour que les morts entendent la messe. La nef est unique, étroite comme une coque retournée, et c'en est une, dit-on : la charpente est faite de bordages de gabares échouées, goudronnés, cloués à l'envers. Aux murs pendent des ex-voto par centaines : des petits bateaux de bois, des rames, des bouées de liège peintes de noms. Au fond, une Vierge de bois porte sur son bras une ancre au lieu d'un enfant. La nef est {{echo#pf_nef|silencieuse, et sent le goudron chaud et la cire|pleine de voix de veuves, des centaines, qui disent chacune un nom d'homme, et puis : « Que la marée te garde »}}." },
+        { first: true, text: "Un moine prie à genoux devant la Vierge des Noyés. Il porte une bure brune, usée, ceinte d'une corde, et des sandales de route couvertes de la boue grise des Combes ; le capuchon est tiré bas sur le front. Il prie les lèvres immobiles." },
         { again: true, before: "gildas:rencontre", text: "La nef de bordages goudronnés, les ex-voto, la Vierge à l'ancre. Le moine prie toujours, au même endroit." },
         { again: true, after: "gildas:rencontre", text: "La nef de bordages goudronnés, les ex-voto, la Vierge à l'ancre. Il flotte encore une odeur de cierge." },
         { if: { voile: "pf_cv_de" }, text: "La Vierge des Noyés repose sur un socle de pierre, à hauteur de hanche. Une des pierres du socle, sur le côté, est plus claire que les autres, et le mortier qui l'entoure est neuf." },
@@ -290,10 +290,10 @@ module.exports = {
     PF_gildas: { act: "P", title: "Frère Gildas", place: "quai",
       fx: { flag: "gildas:rencontre", met: "gildas" },
       text: [
-        "Le moine t'entend venir, finit sa prière, se signe, et se relève en s'appuyant sur un bâton de pèlerin. Il a la cinquantaine passée, une barbe grise taillée court, de grandes mains de paysan aux ongles noirs d'encre. Sous le capuchon, tu ne vois de son front qu'une ombre.",
+        "Le moine t'entend venir, finit sa prière, se signe, et se relève en s'appuyant sur un bâton de pèlerin. Il a la cinquantaine passée, une barbe grise taillée court, de grandes mains de paysan aux ongles noirs d'encre, mains de laboureur et ongles de copiste. Sous le capuchon, son front reste dans l'ombre.",
         "« Frère Gildas, du Mont-Taciturne, dit-il. Je suis copiste. Je suis venu prier pour une ancienne amie. » Il regarde vers la porte basse, vers la salle des morts. « Odeline Carrus. Nous nous étions perdus de vue depuis trente ans. Je suis arrivé trop tard. »",
-        "Il a une voix basse et égale, une voix de lecteur de réfectoire, qui pose chaque mot à sa place et n'en ajoute pas. « Vous êtes son apprenti{e}. Elle m'avait écrit, autrefois, qu'elle avait trouvé quelqu'un sur son quai. Elle vous a laissé ses affaires, je suppose. Ses papiers. »",
-        { with: "tibere", text: "Tibère, qui t'a suivi{e} jusqu'au seuil, ôte son chapeau, puis le remet, puis l'ôte encore. Les églises le mettent mal à l'aise, et les moines davantage. « Le Mont, dit-il. C'est à six jours de barque, le Mont. Vous avez fait vite, mon frère. » Gildas incline la tête. « Les nouvelles vont vite, sur l'eau. »" },
+        "Il a une voix basse et égale, une voix de lecteur de réfectoire, qui pose chaque mot à sa place et s'arrête au dernier. « Vous êtes son apprenti{e}. Elle m'avait écrit, autrefois, qu'elle avait trouvé quelqu'un sur son quai. Elle vous a laissé ses affaires, je suppose. Ses papiers. »",
+        { with: "tibere", text: "Tibère, qui t'a suivi{e} jusqu'au seuil, ôte son chapeau, le remet, puis l'ôte encore. Les églises le mettent mal à l'aise, et les moines davantage. « Le Mont, dit-il. C'est à six jours de barque, le Mont. Vous avez fait vite, mon frère. » Gildas incline la tête. « Les nouvelles vont vite, sur l'eau. »" },
       ],
       choices: [
         { label: "Lui montrer le cornet d'os", hide: { seen: "PF_gildas_cornet" }, to: "PF_gildas_cornet" },
@@ -302,7 +302,7 @@ module.exports = {
     PF_gildas_cornet: { act: "P", title: "La ligne gravée", place: "quai",
       fx: { clue: "pf_c_devise", ep: ["perso", 200] },
       text: [
-        "Tu sors le cornet. Gildas garde les mains dans ses manches. Il se penche, et regarde la ligne gravée sur le cercle d'argent noirci, longtemps, comme on regarde un visage qu'on a connu enfant.",
+        "Tu sors le cornet. Gildas garde les mains dans ses manches. Il se penche et regarde longtemps la ligne gravée sur le cercle d'argent noirci, comme on regarde un visage qu'on a connu enfant.",
         "« L'os est de baleine, dit-il. Le travail est vieux. Trois siècles, peut-être. La ligne est en écriture du delta, l'ancienne, celle d'avant la République. On ne l'enseigne plus qu'au Mont. » Il suit les signes sans les toucher. « Elle dit : *Ce qui se tait demeure.* »",
         "Il se redresse. « Gardez-le près de vous. Les choses anciennes attirent les gens pressés. »",
       ],
@@ -321,9 +321,9 @@ module.exports = {
       ] },
     PF_gildas_oui: { act: "P", title: "Un moine sur le quai", place: "quai",
       text: [
-        { with: "gildas", text: "Frère Gildas incline la tête, ramasse une besace de toile au pied d'un banc, et se met à marcher à côté de toi, un demi-pas en arrière, comme marchent les moines derrière leur abbé. Il marche sans bruit, malgré les sandales." },
-        { with: "gildas", text: "Sur le seuil de la chapelle, il se retourne vers la Vierge à l'ancre et la salue d'un geste de la main, deux doigts levés, un geste que tu n'as jamais vu faire aux prêtres de la ville. « Pour Odeline, dit-il. Elle n'aimait pas les prières longues. »" },
-        { with: ["gildas", "tibere"], text: "Tibère marche de l'autre côté, la masse à la ceinture, et se tait. Il te regarde par-dessus le capuchon du moine, une fois, et cette fois ses sourcils restent immobiles." },
+        { with: "gildas", text: "Frère Gildas incline la tête, ramasse une besace de toile au pied d'un banc, et se met à marcher à côté de toi, un demi-pas en arrière, comme marchent les moines derrière leur abbé. Malgré les sandales, son pas est silencieux." },
+        { with: "gildas", text: "Sur le seuil de la chapelle, il se retourne vers la Vierge à l'ancre et la salue d'un geste de la main, deux doigts levés. Tu n'as jamais vu ce geste aux prêtres de la ville. « Pour Odeline, dit-il. Elle n'aimait pas les prières longues. »" },
+        { with: ["gildas", "tibere"], text: "Tibère marche de l'autre côté, la masse à la ceinture, et se tait. Il te regarde une fois par-dessus le capuchon du moine, et cette fois ses sourcils restent immobiles." },
       ],
       choices: [{ back: "PF_morgue" }] },
     PF_gildas_non: { act: "P", title: "Seul{e}", place: "quai",
@@ -344,22 +344,22 @@ module.exports = {
     PF_chapelle_de: { act: "P", title: "Sous la Vierge des Noyés", place: "quai",
       fx: { item: "pf_tr_de", clock: { tresors: 1 }, flag: "tresor:pf_de", ep: ["perso", 400] },
       text: [
-        "Le mortier neuf s'effrite sous la pointe de ta dague. La pierre claire vient en deux tractions. Derrière, dans un creux de la taille d'un poing, un petit sac de cuir huilé, noué d'un fil rouge, le fil rouge qu'Odeline utilisait pour les étiquettes de la boutique.",
-        "Dedans, un dé à coudre d'argent. Ancien, lourd, le bord usé par des années d'aiguille, ciselé tout autour d'une frise de joncs et de petites vagues. À l'intérieur, au fond, une marque minuscule que tu dois pencher vers la lumière des cierges pour voir : trois traits ondulés, superposés.",
-        { with: "gildas", text: "Frère Gildas, derrière toi, regarde le dé dans ta paume. Il ne dit rien. Puis il se tourne vers la Vierge, et il remet lui-même la pierre claire à sa place, avec soin, en appuyant le mortier du pouce." },
-        "Tu remets la pierre en place, et tu glisses le dé dans ta poche. Il est froid, puis il prend la chaleur de ta peau.",
+        "Le mortier neuf s'effrite sous la pointe de ta dague. La pierre claire vient en deux tractions. Derrière, dans un creux de la taille d'un poing, repose un petit sac de cuir huilé, noué d'un fil rouge : le fil rouge qu'Odeline utilisait pour les étiquettes de la boutique.",
+        "Dedans, il y a un dé à coudre d'argent, ancien, lourd, le bord usé par des années d'aiguille, ciselé tout autour d'une frise de joncs et de petites vagues. À l'intérieur, au fond, une marque minuscule t'oblige à pencher le dé vers la lumière des cierges : trois traits ondulés, superposés.",
+        { with: "gildas", text: "Frère Gildas, derrière toi, regarde le dé dans ta paume, en silence. Puis il se tourne vers la Vierge, et il remet lui-même la pierre claire à sa place, avec soin, en appuyant le mortier du pouce." },
+        "Tu remets la pierre en place et tu glisses le dé dans ta poche. Il est froid, puis il prend la chaleur de ta peau.",
       ],
       choices: [{ back: "PF_chapelle" }] },
     // ================================================================ the notebook, read silently and aloud
     PF_carnet: { act: "P", title: "Le carnet d'Odeline", place: "quai", backName: "le carnet d'Odeline",
       text: [
-        { first: true, text: "Tu t'assieds sur une borne d'amarrage, le dos au canal, et tu retires l'élastique de boyau. Les pages sont fines, couleur de thé, couvertes de l'écriture minuscule et serrée d'Odeline. Des adresses, des noms, des sommes, des listes d'objets perdus et retrouvés sur quarante ans, et tout au bout, sur les dernières pages, une liste plus courte, d'une encre plus fraîche." },
-        { first: true, text: "Les prix sont notés dans la clé de la boutique. Odeline te l'a apprise à douze ans, en te tapant sur les doigts avec une règle chaque fois que tu te trompais : CHAMBOULER, dix lettres pour dix chiffres, le C pour un, le H pour deux, et ainsi de suite jusqu'au R, qui vaut zéro. Tout le quai a sa clé. Personne ne connaît celle des autres." },
+        { first: true, text: "Tu t'assieds sur une borne d'amarrage, le dos au canal, et tu retires l'élastique de boyau. Les pages sont fines, couleur de thé, couvertes de l'écriture minuscule et serrée d'Odeline : des adresses, des noms, des sommes, des listes d'objets perdus et retrouvés sur quarante ans. Tout au bout, sur les dernières pages, une liste plus courte est écrite d'une encre plus fraîche." },
+        { first: true, text: "Les prix sont notés dans la clé de la boutique. Odeline te l'a apprise à douze ans, en te tapant sur les doigts avec une règle à chaque erreur : CHAMBOULER, dix lettres pour dix chiffres, le C pour un, le H pour deux, et ainsi de suite jusqu'au R, qui vaut zéro. Tout le quai a sa clé, et chacun garde la sienne pour soi." },
         { again: true, text: "Le carnet à couverture de toile cirée, l'élastique de boyau, l'écriture serrée. Tu reviens à la dernière liste." },
         "*Montre de gousset, boîtier d'argent, arrêtée sur midi. — H.R.* Vingt ducats. *Sept muets de buis, le huitième perdu. — U.R.* Soixante-dix. *Cloche de bronze fêlée, sans battant. — A.R.R.* Trois cents. *Dé à coudre d'argent. Perdu. Jamais retrouvé. Lanterne de papier, comme chaque année.*",
-        "Tu connais chaque objet de l'établi et de la cave. Une montre arrêtée sur midi, des muets de buis, une cloche : cette liste décrit des choses qu'Odeline n'a jamais tenues.",
+        "Tu connais chaque objet de l'établi et de la cave. Une montre arrêtée sur midi, des muets de buis, une cloche : cette liste décrit des choses qu'Odeline n'a jamais tenues entre ses mains.",
         "La dernière ligne est d'une encre plus noire, appuyée. *Vendu à L. B., la nuit des Lanternes, sous la Muette. — H.R.R.R.* Deux mille ducats.",
-        { with: "tibere", text: "Tibère lit par-dessus ton épaule, en remuant les lèvres. Il ne connaît pas la clé. Il s'arrête sur *L. B.*, et ses lèvres cessent de remuer." },
+        { with: "tibere", text: "Tibère lit par-dessus ton épaule, en remuant les lèvres. Il ignore la clé. Il s'arrête sur *L. B.*, et ses lèvres cessent de remuer." },
       ],
       choices: [
         { label: "Lire la liste à voix haute, le cornet à l'oreille", if: { item: "cornet" }, why: "Il te faudrait le cornet.", fx: { clue: "pf_c_vente" }, to: "PF_carnet_voix" },
@@ -371,14 +371,14 @@ module.exports = {
       ] },
     PF_carnet_voix: { act: "P", title: "À voix haute", place: "quai",
       text: [
-        "Tu portes le cornet à ton oreille gauche, et tu lis à voix haute, pas trop fort, d'une voix de tous les jours. Le quai continue sa vie autour de toi. Un charretier jure contre son cheval. Ta propre voix revient dans l'os, un peu plus grave que tu ne l'entends d'habitude, et au troisième mot, quelque chose bouge.",
+        "Tu portes le cornet à ton oreille gauche, et tu lis à voix haute, pas trop fort, d'une voix de tous les jours. Le quai continue sa vie autour de toi. Un charretier jure contre son cheval. Ta propre voix revient dans l'os, un peu plus grave que d'habitude, et au troisième mot, quelque chose bouge.",
         "« Montre de gousset, boîtier d'argent, {{oreille#pf_cv_midi|arrêtée sur midi, vingt ducats|à midi la reine sort, et derrière elle la niche reste ouverte le temps de sept coups}}. »",
         "« {{oreille#pf_cv_muets|Sept muets de buis, le huitième perdu, soixante-dix ducats|Les sept muets de l'horloge tiennent chacun une note, et celui qui sort le dernier tient la clé}}. »",
         "« {{oreille#pf_cv_cloche|Cloche de bronze fêlée, sans battant, trois cents ducats|Trois cents ans que la cloche fêlée du Beffroi attend qu'on lui chante la comptine}}. »",
         "« {{oreille#pf_cv_de|Dé à coudre d'argent, perdu, jamais retrouvé|Dé à coudre d'argent, caché sous la Vierge des Noyés, pour toi, quand tu en auras besoin}}. »",
         "« {{oreille#pf_cv_lanterne|Lanterne de papier, comme chaque année|Une lanterne pour ma mère, sur l'eau des Hautes-Eaux, et que la marée la garde}}. »",
-        "Tu baisses le carnet. Les mots étaient ceux d'Odeline. Ils ont tremblé dans ta bouche comme ils devaient trembler dans la sienne quand elle les écrivait, et elle n'avait personne à qui les lire.",
-        { with: "tibere", text: "Tibère te regarde avec une drôle de tête. « Tu parles tout seul, dit-il, et tu fais des yeux comme si quelqu'un te répondait. »" },
+        "Tu baisses le carnet. Les mots étaient ceux d'Odeline. Ils ont tremblé dans ta bouche comme ils devaient trembler dans la sienne quand elle les écrivait, seule, sans personne à qui les lire.",
+        { with: "tibere", text: "Tibère te regarde d'un drôle d'air. « Tu parles tout seul, dit-il, et tu fais des yeux comme si quelqu'un te répondait. »" },
         { with: "gildas", text: "Frère Gildas a fermé les yeux pendant que tu lisais. Il les rouvre. « Elle avait une belle écriture, dit-il. Serrée. Elle gardait tout. »" },
       ],
       choices: [
@@ -388,8 +388,8 @@ module.exports = {
       ] },
     PF_carnet_rate: { act: "P", title: "Des objets qui n'existent pas", place: "quai",
       text: [
-        "Tu lis et relis la liste jusqu'à ce que les mots se brouillent. Une montre, des muets, une cloche. Tu penses à l'horloger de la rue des Orfèvres, au fondeur de cloches de Saint-Vaast, à un marchand de jouets de buis qui tenait boutique sur le pont des Changeurs il y a dix ans. Rien ne tient.",
-        "Le seul mot qui accroche, c'est *la Muette*. Tu l'as entendu dans la bouche des vieux du quai, quand tu étais petit{e}. Le père Gobelin, deux portes plus loin, dit *la Muette* quand il parle de quelque chose, et tu ne t'es jamais demandé de quoi.",
+        "Tu lis et relis la liste jusqu'à ce que les mots se brouillent. Une montre, des muets, une cloche. Tu passes en revue l'horloger de la rue des Orfèvres, le fondeur de cloches de Saint-Vaast, un marchand de jouets de buis qui tenait boutique sur le pont des Changeurs il y a dix ans. Aucune piste ne tient.",
+        "Un seul mot accroche : *la Muette*. Tu l'as entendu dans la bouche des vieux du quai, quand tu étais petit{e}. Le père Gobelin, deux portes plus loin, dit *la Muette* quand il parle de quelque chose, et tu ne t'es jamais demandé de quoi.",
       ],
       choices: [
         { label: "Aller trouver le père Gobelin", to: "PF_coq_carnet" },
@@ -397,7 +397,7 @@ module.exports = {
       ] },
     PF_carnet_gildas: { act: "P", title: "Le copiste lit", place: "quai",
       text: [
-        { with: "gildas", text: "Frère Gildas prend le carnet à deux mains, comme on prend un livre d'heures, et le tient loin de ses yeux. Il lit la liste une fois en silence. Il ne s'attarde sur aucune ligne, et il s'attarde sur toutes." },
+        { with: "gildas", text: "Frère Gildas prend le carnet à deux mains, comme on prend un livre d'heures, et le tient loin de ses yeux, en presbyte. Il lit la liste une fois en silence. Il passe sur chaque ligne le même temps exactement." },
         { with: "gildas", text: "« Une montre arrêtée sur midi, dit-il. Sept muets. Une cloche fêlée. La Muette. » Il referme le carnet et te le rend. « À Salvèze, on appelle encore la tour de l'horloge le Beffroi de la reine, et les vieux disent la tour de la Muette. L'horloge a une reine et sept muets, qui sortent à midi. La cloche du haut est fêlée depuis toujours. Votre maîtresse écrivait l'inventaire du Beffroi. »" },
         { with: "gildas", text: "Il dit cela d'une voix égale, sans hâte, et il ajoute, plus bas : « Elle avait toujours aimé les horloges. » Puis il se tait, et regarde l'eau du canal." },
       ],
@@ -411,7 +411,7 @@ module.exports = {
     PF_carnet_beffroi: { act: "P", title: "Le Beffroi de la reine", place: "quai",
       fx: { flag: "carnet:beffroi", ep: ["perso", 600] },
       text: [
-        "Tu relèves la tête. Par-dessus les toits du quai, par-dessus les cheminées et les pignons, le Beffroi de la reine dépasse tout le reste : une tour carrée de pierre grise, trois siècles d'âge, avec son cadran d'or terni et, sous le cadran, la petite galerie de bois d'où sortent à midi la reine et ses sept muets, pour la joie des enfants et des marchands d'oublies.",
+        "Tu relèves la tête. Par-dessus les toits du quai, par-dessus les cheminées et les pignons, le Beffroi de la reine domine tout le reste : une tour carrée de pierre grise, trois siècles d'âge, avec son cadran d'or terni et, sous le cadran, la petite galerie de bois d'où sortent à midi la reine et ses sept muets, pour la joie des enfants et des marchands d'oublies.",
         "La montre arrêtée sur midi. Les sept muets. La cloche fêlée tout en haut, que personne ne sonne. Odeline a écrit l'inventaire d'une tour, avec des prix de brocanteuse, pour que personne d'autre qu'une brocanteuse ne la lise. Et elle a vendu cette tour, ou ce qu'elle cache, deux mille ducats, à quelqu'un qui signe *L. B.*",
         { if: { has: "odeline:meurtre" }, text: "Deux mille ducats. La nuit des Lanternes. Quelqu'un l'a poussée dans l'escalier la nuit où elle devait vendre. Tu refermes le carnet sur ton pouce, si fort que l'élastique claque." },
         { with: "tibere", text: "Tibère suit ton regard jusqu'au cadran. « Bon, dit-il. On monte à la Muette. J'espère que tu as de bonnes jambes. »" },
@@ -423,8 +423,8 @@ module.exports = {
     PF_gobelin: { act: "P", title: "Chez le père Gobelin", place: "quai", backName: "la boutique du père Gobelin",
       fx: { meet: "pf_gobelin" },
       text: [
-        { first: true, text: "La boutique du père Gobelin est la sœur pauvre de celle d'Odeline : même quai, même enseigne de bois, *Gobelin — Tout se rachète*, mais deux marches au lieu de trois et une vitrine qu'on n'a pas lavée depuis le dernier prévôt. Dedans, des parapluies, des chaises percées, des oiseaux empaillés, dont un héron {{pie#pf_heron|mité, l'œil de verre de travers, invendable depuis vingt ans|mité, dont le ventre recousu cache la caisse du père Gobelin, une bourse de liards et deux ducats d'or}}, et, pendus au plafond par des ficelles, des dizaines de cornets de sourd en corne de vache, qui tournent doucement dans le courant d'air." },
-        { first: true, text: "Le père Gobelin a quatre-vingts ans, un bonnet de laine, une loupe d'horloger vissée à l'œil. Il pleure en te voyant. Il pleure sans honte, à gros sanglots secs, puis il se mouche dans un mouchoir à carreaux et redevient commerçant. « Quarante ans qu'on se volait nos clients, elle et moi, dit-il. Quarante ans. Qui je vais voler, maintenant ? »" },
+        { first: true, text: "La boutique du père Gobelin est la sœur pauvre de celle d'Odeline : même quai, même enseigne de bois, *Gobelin — Tout se rachète*, mais deux marches au lieu de trois, et une vitrine qu'on n'a pas lavée depuis le dernier prévôt. Dedans s'entassent des parapluies, des chaises percées, des oiseaux empaillés, dont un héron {{pie#pf_heron|mité, l'œil de verre de travers, invendable depuis vingt ans|mité, dont le ventre recousu cache la caisse du père Gobelin, une bourse de liards et deux ducats d'or}}, et, pendus au plafond par des ficelles, des dizaines de cornets de sourd en corne de vache, qui tournent doucement dans le courant d'air." },
+        { first: true, text: "Le père Gobelin a quatre-vingts ans, un bonnet de laine, une loupe d'horloger vissée à l'œil. Il pleure en te voyant. Il pleure sans honte, à gros sanglots secs, puis il se mouche dans un mouchoir à carreaux et redevient commerçant en l'espace d'une respiration. « Quarante ans qu'on se volait nos clients, elle et moi, dit-il. Quarante ans. Qui je vais voler, maintenant ? »" },
         { again: true, text: "Les parapluies, les oiseaux empaillés, les cornets de corne qui tournent au plafond. Le père Gobelin lève sa loupe d'horloger pour te regarder entrer." },
         "« {{oreille#pf_gobelin_dette|Elle ne me devait rien du tout, tu entends, rien|Elle me devait six ducats, et je les lui aurais donnés vingt fois pour un sourire de plus}}. Si le notaire te parle de moi, tu lui dis ça. »",
       ],
@@ -436,7 +436,7 @@ module.exports = {
       ] },
     PF_coq_carnet: { act: "P", title: "La Muette", place: "quai",
       text: [
-        "Le père Gobelin chausse une deuxième loupe par-dessus la première, et lit le carnet en le tenant contre son nez. Il ne connaît pas la clé d'Odeline. Il n'en a pas besoin. Il s'arrête sur *sous la Muette*, et il rit, un petit rire mouillé.",
+        "Le père Gobelin chausse une deuxième loupe par-dessus la première et lit le carnet en le tenant contre son nez. Il ignore la clé d'Odeline, et il s'en passe. Il s'arrête sur *sous la Muette*, et il rit, d'un petit rire mouillé.",
         "« La Muette ! Il n'y a plus que nous, les vieux, pour dire ça. La tour de la Muette, c'est le Beffroi, petit. Le Beffroi de la reine. Ma grand-mère disait : la reine a perdu sa langue, et la tour l'a gardée. On disait *se donner rendez-vous sous la Muette*, quand on était jeunes, pour aller se bécoter sous l'horloge. » Il s'essuie l'œil. « Elle avait des rendez-vous sous la Muette, à soixante-huit ans, la Carrus ? Tant mieux pour elle. »",
         "Il te rend le carnet, et ajoute, sans te regarder : « {{oreille#pf_gobelin_muette|Je ne sais rien d'autre là-dessus|Elle m'a demandé, il y a un mois, si je me souvenais de la comptine des sept muets, et j'ai fait semblant d'avoir oublié, parce qu'on m'a appris à l'oublier}}. »",
       ],
@@ -456,8 +456,8 @@ module.exports = {
     PF_coq_cornets: { act: "P", title: "Les cornets de sourd", place: "quai",
       text: [
         "Le père Gobelin décroche un cornet du plafond et te le tend. C'est un cornet de sourd ordinaire, en corne de vache bouillie et polie, long comme l'avant-bras, cerclé de laiton à l'embouchure. {{pie#pf_corne|Une belle corne blonde, lustrée, presque de l'ivoire|De la corne de vache à trois liards, cirée pour faire de l'ivoire, et le laiton s'en va déjà}}.",
-        "« Trois liards, dit-il. J'en vends un par an, aux vieux des Changeurs qui deviennent sourds et ne veulent pas le dire. Les autres, je les garde pour le plafond. Ils font joli. »",
-        "Tu tiens ce cornet de corne dans une main. Dans l'autre poche, contre tes côtes, le cornet d'os d'Odeline a à peu près la même forme, si on ne le regarde pas de près. À la lumière d'une lanterne, dans une main gantée, par exemple.",
+        "« Trois liards, dit-il. J'en vends un par an, aux vieux des Changeurs qui deviennent sourds et refusent de l'avouer. Les autres, je les garde pour le plafond. Ils font joli. »",
+        "Tu tiens ce cornet de corne dans une main. Dans l'autre poche, contre tes côtes, le cornet d'os d'Odeline a à peu près la même forme, pour qui le regarde de loin. À la lumière d'une lanterne, dans une main gantée, par exemple.",
       ],
       choices: [
         { label: "Acheter un cornet de corne (3 liards)", fx: { gold: -3, item: "pf_faux_cornet" }, back: "PF_gobelin" },
@@ -465,7 +465,7 @@ module.exports = {
       ] },
     PF_coq_visites: { act: "P", title: "Les visites", place: "quai",
       text: [
-        "« De la visite ? » Le père Gobelin compte sur ses doigts noueux. « Le chandelier, pour sa note. La veuve Lasalle, pour ses dentelles. Un homme bien mis, trois fois en un mois, avec des gants gris. Il est resté longtemps, la troisième fois. Elle a fermé les volets en plein jour, ce qu'elle ne faisait jamais. »",
+        "« De la visite ? » Le père Gobelin compte sur ses doigts noueux, et il lui en faut trois. « Le chandelier, pour sa note. La veuve Lasalle, pour ses dentelles. Un homme bien mis, trois fois en un mois, avec des gants gris. Il est resté longtemps, la troisième fois. Elle a fermé les volets en plein jour, chose qu'elle ne faisait jamais. »",
         "Il baisse la voix. « {{oreille#pf_gobelin_dispute|Et puis rien d'autre, la nuit des Lanternes, j'étais à la fête|Et la nuit des Lanternes, à dix heures, je vous ai entendus vous crier dessus tous les deux, toi et elle, à travers le mur, et la porte a claqué derrière toi}}. »",
         { if: { voile: "pf_gobelin_dispute" }, text: "Le père Gobelin te regarde, et tu comprends qu'il sait que tu as entendu. Il gardera ça pour lui, au Guet comme ailleurs. Il a quatre-vingts ans, et il a tout entendu à travers les murs du quai." },
       ],
@@ -474,11 +474,11 @@ module.exports = {
     PF_lothaire: { act: "P", title: "Les gants gris", place: "quai",
       fx: { flag: "lothaire:offre", meet: "lothaire" },
       text: [
-        "Il est assis sur le parapet du pont des Noyés, les jambes croisées, et il se lève quand tu arrives, sans hâte, comme on se lève pour une dame. Un homme de quarante-cinq ans, mince, rasé de frais à part une moustache fine, un manteau sombre de bon drap sans un seul ornement. Des gants gris, de peau, ajustés à chaque doigt. Il se tient comme un héron au bord d'un bassin, sur une seule idée.",
-        "À son oreille gauche pend une chaînette d'argent, et au bout de la chaînette, un petit cornet d'os poli, cerclé d'argent noirci. Il le porte à son oreille d'un geste distrait, de temps en temps, comme on lisse une moustache.",
+        "Il est assis sur le parapet du pont des Noyés, les jambes croisées, et il se lève quand tu arrives, sans hâte, comme on se lève pour une dame. C'est un homme de quarante-cinq ans, mince, rasé de frais à l'exception d'une moustache fine, vêtu d'un manteau sombre de bon drap sans un seul ornement. Ses gants gris, de peau, sont ajustés à chaque doigt comme une seconde peau. Il se tient comme un héron au bord d'un bassin, tout entier occupé d'une seule idée.",
+        "À son oreille gauche pend une chaînette d'argent, et au bout de la chaînette, un petit cornet d'os poli, cerclé d'argent noirci. De temps en temps, il le porte à son oreille d'un geste distrait, comme d'autres lissent leur moustache.",
         { if: { has: "pf:lothaire_averti" }, text: "Brunel. Lothaire Brunel. Le chercheur de la Banque Marrel, celui qui demandait à maître Rivaud si l'inventaire portait des instruments." },
         "« Lothaire Brunel, dit-il. Je cherche des choses pour la Banque Marrel, comme vous en cherchez pour les veuves du quai. {{oreille#pf_loth_attente|Je suis navré pour votre maîtresse, sincèrement navré|Votre maîtresse me devait une porte, et je l'ai attendue toute la nuit des Lanternes sous le Beffroi, avec l'argent, jusqu'à l'aube}}. » Il incline la tête. « Je viens vous faire une offre. Je rachète les instruments de votre maîtresse. Tous. {{oreille#pf_loth_ordre|À un bon prix, le vôtre sera le mien|À n'importe quel prix, parce que Corisande Marrel me l'a ordonné et que je n'ai jamais échoué devant elle}}. »",
-        { with: "tibere", text: "Tibère s'est arrêté deux pas en arrière, la main sur sa masse. Brunel le regarde une demi-seconde, pas davantage. Tibère regarde le canal. « {{oreille#pf_tib_lothaire|Je ne connais pas ce monsieur, je l'ai jamais vu|Ce monsieur me paie dix ducats d'avance pour vous suivre, et il sait que je ne dirai rien}} », grogne-t-il, à personne." },
+        { with: "tibere", text: "Tibère s'est arrêté deux pas en arrière, la main sur sa masse. Brunel le regarde une demi-seconde, pas davantage. Tibère regarde le canal. « {{oreille#pf_tib_lothaire|Je ne connais pas ce monsieur, je l'ai jamais vu|Ce monsieur me paie dix ducats d'avance pour vous suivre, et il sait que je ne dirai rien}} », grogne-t-il, à la cantonade." },
         "Tu penses à la boutique, aux dettes, au loyer jusqu'à Pâques. Tu penses : un bon prix, c'est combien ? Tu dis : « Non. »",
         "Lothaire Brunel sourit, à peine. Il porte le cornet à son oreille, le laisse retomber au bout de sa chaînette. « Vous dites non, dit-il doucement. Vous pensez : combien. »",
       ],
@@ -494,7 +494,7 @@ module.exports = {
       text: [
         "Pour la première fois, Lothaire Brunel cesse de sourire. Il te regarde, puis il regarde ta poche, à l'endroit exact où le cornet d'Odeline fait une bosse contre tes côtes. « Ah, dit-il. Vous l'avez à l'oreille. Elle vous l'a laissé. »",
         "Il s'appuie au parapet, à côté de toi, épaule contre épaule, comme deux promeneurs qui regardent l'eau. « Puisque vous entendez, je vais dire vrai, ça nous fera gagner du temps. Votre maîtresse devait me retrouver sous le Beffroi à minuit. Elle n'est pas venue. J'ai attendu jusqu'à ce que les allumeurs éteignent les réverbères. Je suis rentré dormir. Le matin, j'ai appris qu'elle était morte. » Il ôte un gant, un doigt après l'autre, et le remet. « Je n'ai aucun intérêt à la mort d'une femme qui allait me vendre quelque chose. Les morts ne livrent pas. »",
-        { if: { has: "odeline:meurtre" }, text: "Tu écoutes sa voix dans l'os. Elle ne tremble plus. Il dit vrai, ou il a appris à le dire comme si c'était vrai, et tu ne sais pas encore entendre la différence." },
+        { if: { has: "odeline:meurtre" }, text: "Tu écoutes sa voix dans l'os. Elle a cessé de trembler. Il dit vrai, ou il a appris à le dire comme si c'était vrai, et ton oreille est encore trop neuve pour entendre la différence." },
         "« L'offre tient, dit-il. Elle tiendra longtemps. La Banque est patiente. Moi aussi. »",
       ],
       choices: [
@@ -504,7 +504,7 @@ module.exports = {
     PF_loth_prix: { act: "P", title: "Le prix", place: "quai",
       text: [
         "« {{oreille#pf_loth_mille|Deux cents ducats, c'est mon dernier mot|Deux cents ducats, et j'irais jusqu'à mille si vous saviez ce que vous tenez}}, dit Lothaire Brunel. Pour le cornet, et pour tout ce qu'elle vous a laissé d'autre qui lui ressemble. Dix ducats d'arrhes tout de suite, ici, sur ce pont. Le reste chez le changeur de votre choix, à la remise. » Il sort de son manteau une bourse de cuir noir et la soupèse. Elle tinte.",
-        "Deux cents ducats. La boutique, les dettes, Gaudrel, le loyer, dix ans de pain. Tu le penses si fort que tu as l'impression de l'avoir dit.",
+        "Deux cents ducats. Tu fais le compte malgré toi : la boutique, les dettes, Gaudrel, le loyer, dix ans de pain. Tu le penses si fort que tu as l'impression de l'avoir dit.",
         "« Oui, dit Brunel. Dix ans de pain. C'est exactement ça. » Il sourit. « Et vous pensez aussi qu'elle n'aurait pas voulu. Les deux pensées sont vraies en même temps. C'est fatigant, n'est-ce pas ? Je les entends toute la journée. »",
       ],
       choices: [
@@ -516,9 +516,9 @@ module.exports = {
     PF_loth_refus: { act: "P", title: "Non", place: "quai",
       fx: { flag: "lothaire:refuse", ep: ["perso", 300] },
       text: [
-        "Lothaire Brunel range sa bourse, ou n'a jamais eu à la sortir. Il ne paraît ni surpris ni contrarié. « Vous dites non, et cette fois vous le pensez aussi, dit-il. C'est rare. Je le note. »",
+        "Lothaire Brunel range sa bourse, à supposer qu'il l'ait jamais sortie. Il ne paraît ni surpris ni contrarié ; tout au plus intéressé. « Vous dites non, et cette fois vous le pensez aussi, dit-il. C'est rare. Je le note. »",
         "Il remet son chapeau. « Je vous laisse enterrer votre maîtresse. Je ne viendrai pas au cimetière ; ce serait de mauvais goût. Vous me trouverez à la Banque, sur l'île des Changeurs, ou je vous trouverai, ce qui est plus probable. » Il s'éloigne sur le pont, les mains gantées croisées dans le dos, et il ne se retourne pas.",
-        { with: "tibere", text: "Quand il a disparu, Tibère crache dans le canal. « Je n'aime pas les gens qui ne transpirent pas, dit-il. » Il a le front mouillé." },
+        { with: "tibere", text: "Quand il a disparu, Tibère crache dans le canal. « Je n'aime pas les gens qui ne transpirent pas, dit-il. » Lui-même a le front mouillé." },
         { if: { has: "odeline:meurtre" }, text: "Tu le regardes partir, et tu te demandes si c'est à cet homme-là qu'Odeline a ouvert sa porte, à minuit." },
       ],
       choices: [{ back: "PF_ville" }] },
@@ -526,14 +526,14 @@ module.exports = {
       fx: { flag: "lothaire:refuse", ep: ["perso", 400] },
       text: [
         "Tu penses à la soupe aux poireaux du Lumignon. Au bruit de l'eau contre les marches. À la couleur exacte du canal ce matin, entre l'ardoise et le plomb. Tu penses à la soupe, et à l'eau, et à l'ardoise, et tu remplis ta tête de cette eau grise jusqu'au bord.",
-        "Lothaire Brunel porte le cornet à son oreille. Le laisse retomber. Le reporte. Une ride fine se creuse entre ses sourcils. « Vous apprenez vite, dit-il enfin. Elle ne vous a rien appris, je le sais, et vous apprenez vite quand même. »",
-        "Il se lève du parapet. « Gardez votre soupe. Je reviendrai quand vous aurez faim. » Il s'en va sur le pont, et pour la première fois, tu le vois marcher un peu plus vite qu'il ne voudrait.",
+        "Lothaire Brunel porte le cornet à son oreille, le laisse retomber, le reporte. Une ride fine se creuse entre ses sourcils. « Vous apprenez vite, dit-il enfin. Elle ne vous a rien appris, je le sais, et vous apprenez vite quand même. »",
+        "Il se lève du parapet. « Gardez votre soupe. Je reviendrai quand vous aurez faim. » Il s'en va sur le pont, et pour la première fois, tu le vois marcher un peu plus vite qu'il ne le voudrait.",
       ],
       choices: [{ back: "PF_ville" }] },
     PF_loth_lu: { act: "P", title: "Lu à livre ouvert", place: "quai",
       fx: { flag: "lothaire:refuse", ep: ["perso", 200] },
       text: [
-        "Tu essaies de penser à la soupe. Tu penses à la soupe, et puis au cornet dans ta veste, du côté gauche, contre la troisième côte, et puis tu penses très fort à ne pas penser au cornet, et c'est pire.",
+        "Tu essaies de penser à la soupe. Tu penses à la soupe, puis au cornet dans ta veste, du côté gauche, contre la troisième côte, puis tu t'appliques très fort à oublier le cornet, et c'est pire.",
         "« Du côté gauche, dit Lothaire Brunel avec douceur. Contre les côtes. Ne vous inquiétez pas, je ne vais pas vous le prendre ici. Il y a du monde. » Il tapote son propre cornet au bout de la chaînette. « Il faut des années. Moi, il m'a fallu dix ans pour ne plus penser à mes poches. »",
         "Il te salue d'un mouvement de chapeau. « Je vous laisse à votre deuil. L'offre tient. » Tu le regardes partir, avec l'impression d'avoir été déshabillé{e} sur un pont, en plein jour.",
       ],
@@ -541,9 +541,9 @@ module.exports = {
     PF_loth_vente: { act: "P", title: "Dix ducats", place: "quai",
       text: [
         "Tu sors le cornet d'os de ta veste. Il est tiède. La bourse de Lothaire Brunel passe dans ta main gauche pendant que le cornet quitte ta main droite, et tu sens la différence de poids dans les deux bras à la fois.",
-        { with: "tibere", text: "Au moment où tu le tends, Tibère s'interpose avec un grognement de sergent. « Laisse, dit-il. Une pièce de valeur, ça se remet en mains propres, avec un témoin. Le Guet fait comme ça. » Il prend le cornet dans ta paume, le tourne vers la lumière comme pour l'inventorier, et le dépose dans le gant gris de Brunel. Il a fait tout cela très vite, avec des mains de sergent qui ont manipulé des pièces à conviction pendant vingt ans." },
+        { with: "tibere", text: "Au moment où tu le tends, Tibère s'interpose avec un grognement de sergent. « Laisse, dit-il. Une pièce de valeur, ça se remet en mains propres, avec un témoin. Le Guet fait comme ça. » Il prend le cornet dans ta paume, le tourne vers la lumière comme pour l'inventorier, et le dépose dans le gant gris de Brunel. Il a fait tout cela très vite, avec les mains d'un sergent qui a manipulé des pièces à conviction pendant vingt ans." },
         { without: "tibere", text: "Lothaire Brunel prend le cornet d'os dans son gant gris, le regarde à peine, le glisse dans la poche intérieure de son manteau. « Merci », dit-il. Puis il s'éloigne sur le pont des Noyés, vers les Changeurs, du pas tranquille d'un homme qui a fini sa journée avant midi." },
-        "Tu restes sur le pont avec dix ducats. Ta poche gauche est légère, et ta tête se met à tourner.",
+        "Tu restes sur le pont avec dix ducats. Ta poche gauche est légère, et la tête te tourne.",
       ],
       choices: [
         { label: "Regarder Tibère", hide: { not: { present: "tibere" } }, to: "PF_loth_echange" },
@@ -552,8 +552,8 @@ module.exports = {
     PF_loth_echange: { act: "P", title: "Les mains du sergent", place: "quai",
       fx: { flag: "pf:faux_vendu", ep: ["perso", 300] },
       text: [
-        { without: "tibere", text: "Ta main trouve dans ta poche un cornet d'os poli, cerclé d'argent noirci. Le tien, tiède. Tibère l'y a glissé pendant que Brunel comptait, et il remonte déjà le quai vers le Guet sans se retourner." },
-        { with: "tibere", text: "Tibère attend que Brunel ait disparu au bout du pont. Puis il sort de sa manche, avec un soupir, un cornet d'os poli, cerclé d'argent noirci, et te le met dans la main. Le tien. Tiède encore." },
+        { without: "tibere", text: "Ta main trouve dans ta poche un cornet d'os poli, cerclé d'argent noirci : le tien, tiède. Tibère l'y a glissé pendant que Brunel comptait, et il remonte déjà le quai vers le Guet sans se retourner." },
+        { with: "tibere", text: "Tibère attend que Brunel ait disparu au bout du pont. Puis il sort de sa manche, avec un soupir, un cornet d'os poli, cerclé d'argent noirci, et te le met dans la main. C'est le tien, tiède encore." },
         { with: "tibere", text: "« Le père Gobelin a quarante cornets de corne pendus à son plafond, dit-il. Il en manque un depuis ce matin. Je le lui paierai. Ton homme aux gants a regardé ta figure, pas l'objet. Ces gens-là regardent toujours les figures. »" },
         { with: "tibere", text: "Tu lui demandes pourquoi. Il hausse les épaules. « {{oreille#pf_tib_echange|Parce que ta maîtresse n'aurait pas voulu, voilà tout|Parce que si tu le vends, la Banque n'a plus besoin de moi, et mes cinq ducats la semaine s'arrêtent}}. » Il te tape sur l'épaule. « Et garde les dix ducats. Il a les moyens. »" },
         { with: "tibere", text: "Il ajoute, plus bas, sans te regarder : « Il le saura avant ce soir. Peut-être demain. Il a une oreille, lui aussi. Ce jour-là, tu diras que c'est moi. »" },
@@ -564,21 +564,21 @@ module.exports = {
       text: [
         "Tu tends le cornet de corne en pensant au canal, à l'ardoise, au plomb, à la soupe. Lothaire Brunel le prend dans son gant gris, le regarde à peine, le glisse dans la poche intérieure de son manteau. Sa propre oreille est pleine de ta soupe. Il pose la bourse dans ta main.",
         "« Merci, dit-il. Vous faites une bonne affaire. » Il s'en va vers les Changeurs du pas tranquille d'un homme qui a fini sa journée avant midi.",
-        "Contre tes côtes, du côté gauche, le cornet d'os d'Odeline n'a pas bougé. Tu attends que Brunel ait tourné au bout du pont pour respirer.",
+        "Contre tes côtes, du côté gauche, le cornet d'os d'Odeline est resté à sa place. Tu attends que Brunel ait tourné au bout du pont pour respirer.",
         { with: "tibere", text: "Tibère te regarde avec une admiration mêlée d'inquiétude. « Il reviendra, dit-il. Il reviendra en colère. Ces gens-là ne crient pas, mais ils reviennent. »" },
       ],
       choices: [{ back: "PF_ville" }] },
     PF_loth_corne: { act: "P", title: "Vous pensez : de la corne", place: "quai",
       fx: { flag: "lothaire:refuse", ep: ["perso", 200] },
       text: [
-        "Tu tends le cornet de corne. Lothaire Brunel le regarde dans ta main, sans le prendre, et porte son propre cornet à son oreille. « Vous dites : voici. Vous pensez : de la corne. Trois liards, chez le vieux d'à côté. » Il éclate de rire, un vrai rire, bref et surpris, qui fait se retourner une marchande d'oublies.",
+        "Tu tends le cornet de corne. Lothaire Brunel le regarde dans ta main, sans le prendre, et porte son propre cornet à son oreille. « Vous dites : voici. Vous pensez : de la corne. Trois liards, chez le vieux d'à côté. » Il éclate de rire, d'un vrai rire, bref et surpris, qui fait se retourner une marchande d'oublies.",
         "« Gardez-le, dit-il. Offrez-le à un sourd. » Il range sa bourse. « Vous me plaisez. C'est ennuyeux, parce que cela ne change rien. L'offre tient. » Il te tourne le dos et s'en va sur le pont, en riant encore un peu, tout seul, dans son col.",
       ],
       choices: [{ back: "PF_ville" }] },
     PF_loth_vol: { act: "P", title: "Le pont des Noyés", place: "quai",
       text: [
-        { without: "tibere", text: "Lothaire Brunel marche au milieu du pont, entre les tréteaux qu'on démonte, les charrettes, les porteurs d'eau. Un gamin pieds nus, une casquette de marin trop grande, déboule d'une ruelle en poussant une hotte de fil de fer et le heurte de plein fouet. Brunel vacille, rattrape son chapeau. Le gamin s'excuse en trois mots et file sous l'arche." },
-        { without: "tibere", text: "Petit-Liard. Tu le reconnais à sa casquette. Brunel époussette son manteau, porte la main à sa poche intérieure, et s'arrête net. Il porte le cornet à son oreille, se retourne, cherche dans la foule une pensée qui fuit. Il n'en trouve pas. Un gamin qui court ne pense qu'à courir." },
+        { without: "tibere", text: "Lothaire Brunel marche au milieu du pont, entre les tréteaux qu'on démonte, les charrettes, les porteurs d'eau. Un gamin pieds nus, coiffé d'une casquette de marin trop grande, déboule d'une ruelle en poussant une hotte de fil de fer et le heurte de plein fouet. Brunel vacille, rattrape son chapeau. Le gamin s'excuse en trois mots et file sous l'arche." },
+        { without: "tibere", text: "Petit-Liard : tu le reconnais à sa casquette. Brunel époussette son manteau, porte la main à sa poche intérieure, et s'arrête net. Il porte le cornet à son oreille, se retourne, cherche dans la foule une pensée qui fuit, et la cherche en vain. Un gamin qui court ne pense qu'à courir." },
         { without: "tibere", text: "Brunel reste un moment immobile au milieu du pont, les mains gantées ouvertes. Puis il se tourne vers toi, de loin, et te regarde longtemps." },
       ],
       choices: [
@@ -598,7 +598,7 @@ module.exports = {
     PF_loth_retour: { act: "P", title: "Il revient", place: "quai",
       fx: { flag: "lothaire:refuse", ep: ["perso", 300] },
       text: [
-        "Quand tu remontes de l'arche, Lothaire Brunel t'attend en haut des marches, appuyé au parapet, exactement à l'endroit où il t'a fait son offre. Il porte le cornet à son oreille, et il sourit, un sourire mince et fatigué.",
+        "Quand tu remontes de l'arche, Lothaire Brunel t'attend en haut des marches, appuyé au parapet, exactement à l'endroit où il t'a fait son offre. Il porte le cornet à son oreille, et il sourit, d'un sourire mince et fatigué.",
         "« Vous pensez : il ne peut pas savoir. Vous pensez : la poche gauche. Vous pensez : dix ducats. » Il tend la main, paume ouverte. « Mes arrhes, je vous prie. Je ne vous accuse de rien ; ce gamin travaillait pour lui-même. Mais une vente qui n'a pas eu lieu se rembourse. »",
       ],
       choices: [
@@ -608,15 +608,15 @@ module.exports = {
     PF_loth_quitte: { act: "P", title: "Les arrhes", place: "quai",
       text: [
         { if: { not: { has: "pf:lothaire_dette" } }, text: "Tu poses la bourse dans le gant gris. Lothaire Brunel la soupèse sans l'ouvrir, et la range. « Vous êtes honnête, dit-il. C'est un défaut, dans notre métier, mais il en faut quelques-uns. L'offre tient. Un jour, vous aurez faim, ou peur, ou les deux. Ce jour-là, vous saurez où me trouver. » Il s'éloigne sur le pont. Ta poche gauche pèse de nouveau ce qu'elle doit peser." },
-        { if: { has: "pf:lothaire_dette" }, text: "Lothaire Brunel ferme lentement la main tendue. Il n'insiste pas. « Bien, dit-il. Alors vous me devez dix ducats, et la Banque ne perd jamais une dette. Elle la laisse mûrir. » Il soulève son chapeau. « L'offre tient toujours, mais le prix vient de baisser de dix ducats. Mes condoléances. » Il traverse le pont sans se retourner, et tu sens dans ta nuque, longtemps après qu'il a disparu, quelque chose qui ressemble à un regard." },
+        { if: { has: "pf:lothaire_dette" }, text: "Lothaire Brunel referme lentement la main tendue, sans insister. « Bien, dit-il. Alors vous me devez dix ducats, et la Banque ne perd jamais une dette. Elle la laisse mûrir. » Il soulève son chapeau. « L'offre tient toujours, mais le prix vient de baisser de dix ducats. Mes condoléances. » Il traverse le pont sans se retourner. Longtemps après qu'il a disparu, tu sens dans ta nuque une sorte de regard." },
       ],
       choices: [{ back: "PF_ville" }] },
     // ================================================================ the fair of things fished from the canals
     PF_marche: { act: "P", title: "La foire aux repêchés", place: "quai", backName: "la foire aux repêchés",
       text: [
-        { first: true, text: "Sous les arches du pont des Changeurs, chaque lendemain de fête, se tient la foire aux repêchés. Les bateliers, les gamins des berges, les éclusiers étalent sur des toiles goudronnées tout ce que les canaux ont avalé pendant la nuit et rendu au matin : des chaussures dépareillées, des chapeaux, des éventails, une flûte, une jambe de bois, des bourses vides et quelques pleines, des bagues, des dents. Le Guet ferme les yeux, et vient faire ses emplettes en civil." },
+        { first: true, text: "Sous les arches du pont des Changeurs, chaque lendemain de fête, se tient la foire aux repêchés. Les bateliers, les gamins des berges, les éclusiers étalent sur des toiles goudronnées tout ce que les canaux ont avalé pendant la nuit et rendu au matin. L'inventaire tient du cauchemar d'huissier : des chaussures dépareillées ; des chapeaux ; des éventails ; une flûte ; une jambe de bois ; des bourses vides et quelques pleines ; des bagues ; des dents. Le Guet ferme les yeux, et vient faire ses emplettes en civil." },
         { again: true, text: "La foire aux repêchés, sous les arches. Les toiles goudronnées se vident. Il reste les chaussures dépareillées, et l'homme au collier." },
-        "Au milieu de la foire, un homme en tablier de cuir a étalé, seul sur un carré de velours noir, un collier d'or à mailles fines, avec un pendentif en forme de couronne. Les badauds s'arrêtent, regardent, repartent. Il crie à mi-voix, comme on dit un secret : « Le collier de la Muette ! Repêché cette nuit ! L'or de la reine, pour qui a l'œil ! »",
+        "Au milieu de la foire, un homme en tablier de cuir a étalé, seul sur un carré de velours noir, un collier d'or à mailles fines, avec un pendentif en forme de couronne. Les badauds s'arrêtent, regardent, repartent. Il crie à mi-voix, comme on confie un secret : « Le collier de la Muette ! Repêché cette nuit ! L'or de la reine, pour qui a l'œil ! »",
         "Le collier est {{pie#pf_collier|d'un or pâle et doux, aux mailles serrées, d'un travail ancien|du laiton passé au jaune d'œuf et au safran, et la couronne est en plomb doré ; il verdira dans la semaine}}.",
         "L'homme te voit regarder et se penche. « Pour une chercheuse de choses perdues, ou un chercheur, je fais un prix. {{oreille#pf_marchand|Repêché cette nuit sous le pont des Changeurs, je le jure sur mes enfants|Fondu la semaine dernière chez mon beau-frère, rue des Chaudronniers, et j'en ai encore six au fond du sac}}. Quinze liards. C'est donné. »",
         { with: "tibere", text: "Tibère se penche par-dessus ton épaule, et renifle. « Je le connais, celui-là, dit-il tout bas. Je l'ai coffré deux fois. Ou alors c'est son frère. Ils se ressemblent tous, dans cette famille. »" },
@@ -629,7 +629,7 @@ module.exports = {
     PF_marche_frere: { act: "P", title: "Le beau-frère", place: "quai",
       fx: { ep: ["perso", 300] },
       text: [
-        "L'homme au tablier devient blanc sous son hâle. Il regarde à droite, à gauche, la foule, les uniformes du Guet en civil qui marchandent une flûte à deux toiles de là. Puis il replie son velours noir sur le collier, très vite.",
+        "L'homme au tablier blanchit sous son hâle. Il regarde à droite, à gauche, la foule, les sergents du Guet en civil qui marchandent une flûte à deux toiles de là. Puis il replie son velours noir sur le collier, très vite.",
         "« Parlez moins fort, dit-il. Six. Il en a fait six. Les gens de la Banque en ont acheté un hier, pour voir, un monsieur avec des gants gris, il a ri. » Il fouille dans son tablier et te met dans la main une poignée de liards, chauds et gras. « Pour votre silence. Et ça aussi. »",
         "Il ajoute, plus bas, en rangeant ses affaires : « Le vrai collier de la Muette, s'il existe, les vieux disent qu'il est sous l'eau. Pas sous ce pont. Sous la mer. Là où était la ville d'avant. » Il hausse les épaules. « Ce sont des histoires de vieux. Ça fait vendre. »",
       ],
@@ -638,12 +638,12 @@ module.exports = {
     // ================================================================ the Falot
     PF_falot: { act: "P", title: "Le Falot", place: "quai", backName: "le Falot",
       text: [
-        { first: true, text: "Le Falot occupe la cave d'une maison du pont des Changeurs, sous la chaussée : on y descend par six marches, et le plafond voûté tremble chaque fois qu'une charrette passe au-dessus. Ce matin, la salle sent le vin renversé, la sciure mouillée et la sueur de la nuit. On y sert de la soupe à l'oignon aux survivants de la fête, et du vin chaud à ceux qui ne veulent pas encore savoir qu'ils ont survécu." },
+        { first: true, text: "Le Falot occupe la cave d'une maison du pont des Changeurs, sous la chaussée : on y descend par six marches, et le plafond voûté tremble chaque fois qu'une charrette passe au-dessus. Ce matin, la salle sent le vin renversé, la sciure mouillée et la sueur de la nuit. On y sert de la soupe à l'oignon aux survivants de la fête, et du vin chaud à ceux qui préfèrent ignorer encore qu'ils ont survécu." },
         { again: true, text: "La cave du Falot, la sciure, la soupe à l'oignon. Les mêmes têtes, un peu plus grises." },
         "À une table, un garde du Guet, la tunique ouverte, raconte sa nuit de garde à la Muette, le poste du Beffroi, à qui veut l'entendre. « Deux cents marches, et là-haut, rien. Le vent. Les pigeons. {{oreille#pf_garde_muette|J'ai rien vu de la nuit, rien, j'ai dormi comme un sac|Depuis un mois, une vieille dame montait à la tour la nuit, et me donnait un liard pour que je dorme, et cette nuit elle n'est pas venue}}. »",
         "Au comptoir, un jeune commis de banque en pourpoint taché se tient la tête à deux mains. « {{oreille#pf_commis|La Banque se porte à merveille, mes amis, à merveille|La Banque a vendu hier sa vaisselle d'argent en secret, et on ne nous paie plus depuis la Chandeleur}}, dit-il à son verre. Buvons à la Banque ! »",
         "Dans un coin, une vieille femme des Hautes-Eaux, un panier d'anguilles fumées à ses pieds, boit une soupe sans lever les yeux. Quand elle se lève pour partir, elle touche l'épaule du tavernier et murmure : « Que la marée te garde. » Le tavernier répond la même chose, sans y penser. Puis il se tourne vers toi en essuyant un gobelet. « {{oreille#pf_tavernier|Ta maîtresse ? Une brave femme, je la connaissais à peine|Ta maîtresse venait boire ici le jeudi avec un homme aux gants gris, et elle payait, et lui la regardait payer}}. »",
-        { with: "tibere", text: "Tibère commande deux vins chauds, et les boit tous les deux. Il fait tourner la pièce de monnaie sur le comptoir. « {{oreille#pf_tib_rosalie|Je bois à ta maîtresse, voilà tout|Je bois parce que Rosalie est passée devant moi ce matin sans me voir, avec un panier de linge, de l'autre côté du pont}}. »" },
+        { with: "tibere", text: "Tibère commande deux vins chauds, et les boit tous les deux, l'un après l'autre, sans reprendre son souffle. Il fait tourner la pièce de monnaie sur le comptoir. « {{oreille#pf_tib_rosalie|Je bois à ta maîtresse, voilà tout|Je bois parce que Rosalie est passée devant moi ce matin sans me voir, avec un panier de linge, de l'autre côté du pont}}. »" },
       ],
       choices: [
         { label: "« La vieille dame qui montait la nuit. Elle montait où, exactement ? »", hide: { any: [{ not: { voile: "pf_garde_muette" } }, { seen: "PF_falot_garde" }] }, to: "PF_falot_garde" },
@@ -653,9 +653,9 @@ module.exports = {
     PF_falot_garde: { act: "P", title: "Le garde de la Muette", place: "quai",
       fx: { flag: "pf:garde_muette", ep: ["perso", 300] },
       text: [
-        "Le garde te regarde d'un œil rouge. Puis il rit, un rire de nez. « T'es la petite de la Carrus, toi. Ou le petit. Bon. Elle est morte, ça ne lui fera plus de tort. » Il boit. « Elle montait jusqu'à la galerie de l'horloge, là où sortent les muets. Elle restait une heure, avec une lanterne sourde et une montre de gousset. Elle regardait les muets, dans leur niche, avec la montre à la main, comme un médecin qui prend le pouls. »",
+        "Le garde te regarde d'un œil rouge. Puis il rit, d'un rire de nez. « T'es la petite de la Carrus, toi. Ou le petit. Bon. Elle est morte, ça ne lui fera plus de tort. » Il boit. « Elle montait jusqu'à la galerie de l'horloge, là où sortent les muets. Elle restait une heure, avec une lanterne sourde et une montre de gousset. Elle regardait les muets, dans leur niche, avec la montre à la main, comme un médecin qui prend le pouls. »",
         "« La dernière fois, il y a six jours, elle est redescendue toute blanche, et elle a dit : *trois cents ans qu'ils attendent, les pauvres.* Je lui ai demandé qui. Elle m'a donné deux liards au lieu d'un. » Il vide son verre. « Je l'aimais bien. Elle me donnait des liards, et elle ne me demandait rien de difficile. »",
-        { if: { has: "carnet:beffroi" }, text: "Une montre de gousset. Les muets. Trois cents ans. Tu te tais, et tu poses un liard sur la table, à côté de son verre." },
+        { if: { has: "carnet:beffroi" }, text: "Une montre de gousset. Les muets. Trois cents ans. Tu gardes le silence, et tu poses un liard sur la table, à côté de son verre." },
       ],
       choices: [{ back: "PF_falot" }] },
 
@@ -663,10 +663,10 @@ module.exports = {
     PF_usurier: { act: "P", title: "Le pont aux Liards", place: "quai", backName: "le comptoir de Gaudrel",
       fx: { meet: "pf_gaudrel", questSeen: "PF_dette" },
       text: [
-        { first: true, text: "Le pont aux Liards porte des maisons des deux côtés, si serrées qu'on ne voit plus l'eau. Le comptoir d'Ursin Gaudrel est la plus étroite et la plus haute : une seule fenêtre par étage, et au rez-de-chaussée, derrière une grille, une table, une balance de changeur et un registre relié de fer, épais de quatre doigts." },
-        { first: true, text: "Gaudrel est un homme maigre aux mains très blanches, vêtu de noir comme un notaire, avec un bonnet de fourrure de lapin. Deux débardeurs aux bras nus jouent aux osselets sur le seuil ; ils s'arrêtent de jouer quand tu entres. « L'apprenti{e} de la Carrus, dit Gaudrel sans se lever. Je vous attendais. Quarante ducats. Une reconnaissance signée de sa main, en bonne forme. »", },
+        { first: true, text: "Le pont aux Liards porte des maisons des deux côtés, si serrées qu'on en oublie l'eau dessous. Le comptoir d'Ursin Gaudrel est la plus étroite et la plus haute : une seule fenêtre par étage, cinq étages, et au rez-de-chaussée, derrière une grille, une table, une balance de changeur et un registre relié de fer, épais de quatre doigts." },
+        { first: true, text: "Gaudrel est un homme maigre aux mains très blanches, vêtu de noir comme un notaire, coiffé d'un bonnet de fourrure de lapin. Deux débardeurs aux bras nus jouent aux osselets sur le seuil ; ils s'arrêtent de jouer quand tu entres. « L'apprenti{e} de la Carrus, dit Gaudrel, assis. Je vous attendais. Quarante ducats. Une reconnaissance signée de sa main, en bonne forme. »", },
         { again: true, text: "Le comptoir de Gaudrel, la grille, la balance, le registre de fer. Les deux débardeurs sur le seuil, et leurs osselets." },
-        "Il tourne le registre vers toi. La signature d'Odeline, au bas d'une feuille épinglée : tu la reconnaîtrais entre mille. « {{oreille#pf_gaudrel_blanc|Cette reconnaissance est en règle, signée de sa main devant témoin|Elle a signé cette feuille en blanc le jour où elle m'a tout rendu, et j'ai écrit la somme hier soir, en apprenant sa mort}}. Je saisis le fonds demain à l'aube, si je ne suis pas payé. »",
+        "Il tourne le registre vers toi. Au bas d'une feuille épinglée, la signature d'Odeline : tu la reconnaîtrais entre mille. « {{oreille#pf_gaudrel_blanc|Cette reconnaissance est en règle, signée de sa main devant témoin|Elle a signé cette feuille en blanc le jour où elle m'a tout rendu, et j'ai écrit la somme hier soir, en apprenant sa mort}}. Je saisis le fonds demain à l'aube, si je ne suis pas payé. »",
         { if: { has: "poids:dette" }, text: "Il tourne une autre page, plus loin, sans se presser, et pose le doigt sur une ligne. Ton nom. « Et vous-même, vous me devez de quoi, n'est-ce pas ? Je ne l'oublie pas. Nous en reparlerons. Je suis un homme patient. »" },
       ],
       choices: [
@@ -683,13 +683,13 @@ module.exports = {
       fx: { flag: ["pf:dette", "pf:dette_quittance"], quest: "PF_dette", ep: ["perso", 500] },
       text: [
         "Tu déplies la quittance et tu la poses à plat sur le registre, à côté de la reconnaissance. *Reçu de dame Carrus la somme de quarante ducats, pour solde de tout compte. U. Gaudrel.* Sa propre écriture, sa propre signature, datée de la Saint-Valentin.",
-        "Gaudrel regarde le papier sans le toucher. Ses mains blanches restent posées à plat sur la table. Sur le seuil, les osselets se sont arrêtés. « D'où tenez-vous cela ? — De la poche de quelqu'un qui n'a pas peur de vous, dis-tu. Ou qui a moins peur que de la Carrus morte. »",
+        "Gaudrel regarde le papier sans le toucher. Ses mains blanches restent posées à plat sur la table. Sur le seuil, les osselets se sont arrêtés. « D'où tenez-vous cela ? — De la poche de quelqu'un qui n'a pas peur de vous, dis-tu. Ou qui a moins peur de vous que de la Carrus morte. »",
         "Il arrache lui-même la reconnaissance épinglée, la plie en quatre, en huit, et la tient au-dessus de la chandelle jusqu'à ce qu'elle prenne. « Une erreur d'écriture, dit-il. Mon commis. Je le renverrai. » Il souffle sur ses doigts. « Vous êtes bien son élève. Elle aussi gardait tout. »",
       ],
       choices: [{ back: "PF_ville" }] },
     PF_us_blanc: { act: "P", title: "Hier soir", place: "quai",
       text: [
-        "Gaudrel reste immobile. Puis il sourit, un sourire de dents serrées. « Vous avez une imagination de chercheur. C'est un métier où on invente beaucoup. » Mais ses mains, posées sur la table, se sont rapprochées l'une de l'autre, et le pouce droit frotte l'index, comme pour effacer une tache d'encre qui n'y est plus.",
+        "Gaudrel reste immobile. Puis il sourit, d'un sourire de dents serrées. « Vous avez une imagination de chercheur. C'est un métier où on invente beaucoup. » Ses mains, posées sur la table, se sont pourtant rapprochées l'une de l'autre, et le pouce droit frotte l'index, comme pour effacer une tache d'encre disparue depuis longtemps.",
         "« {{oreille#pf_gaudrel_peur|Le Guet me donnera raison, j'ai des amis au Guet|Si le Guet compare l'encre de la somme et celle de la signature, je suis pendu au pont aux Liards, devant ma propre fenêtre}}, dit-il. »",
       ],
       choices: [
@@ -700,10 +700,10 @@ module.exports = {
       ] },
     PF_us_fin: { act: "P", title: "La feuille déchirée", place: "quai",
       text: [
-        { if: { has: "pf:dette_force" }, text: "Les deux débardeurs sont assis dans la sciure, l'un se tient le nez, l'autre cherche une dent. Tu arraches la feuille épinglée du registre et tu la jettes dans le brasero du changeur. Gaudrel ne se lève pas. Il te regarde faire avec une sorte d'intérêt. « Le Guet saura que vous avez frappé mes hommes, dit-il. — Le Guet saura aussi pourquoi », réponds-tu." },
+        { if: { has: "pf:dette_force" }, text: "Les deux débardeurs sont assis dans la sciure : l'un se tient le nez, l'autre cherche une dent. Tu arraches la feuille épinglée du registre et tu la jettes dans le brasero du changeur. Gaudrel reste assis. Il te regarde faire avec une sorte d'intérêt. « Le Guet saura que vous avez frappé mes hommes, dit-il. — Le Guet saura aussi pourquoi », réponds-tu." },
         { if: { has: "pf:dette_saisie" }, text: "Tu te retrouves sur le pavé du pont, la joue contre une pierre froide, un débardeur assis sur ton dos. Gaudrel descend les trois marches de son comptoir, se penche, et te parle à l'oreille, d'une voix aimable. « Je saisis le fonds demain. Les meilleures pièces. Le reste, je vous le laisse ; je ne suis pas un monstre. » Le débardeur se relève. Tu respires." },
         { if: { has: "pf:dette_bluff" }, text: "Gaudrel regarde longtemps la reconnaissance. Puis il la décroche, la déchire en deux, en quatre, et en jette les morceaux dans le brasero du changeur. « Une erreur d'écriture, dit-il. Mon commis. » Il te raccompagne lui-même jusqu'à la grille, et la referme derrière toi avec un soin particulier." },
-        { if: { has: "pf:dette_saisie" }, text: "Le lendemain, tu verras deux charrettes de Gaudrel devant la boutique, et ses hommes emporter les plus belles pendules, les miroirs, le coffre de cuir de l'atelier. Ils laisseront l'établi. Personne ne veut d'un établi.", else: "La boutique est à toi, et elle ne doit rien à personne. Sur le pont aux Liards, les deux débardeurs reprennent leurs osselets." },
+        { if: { has: "pf:dette_saisie" }, text: "Le lendemain, tu verras deux charrettes de Gaudrel devant la boutique, et ses hommes emporter les plus belles pendules, les miroirs, le coffre de cuir de l'atelier. Ils laisseront l'établi. Un établi ne tente personne.", else: "La boutique est à toi, et elle est quitte envers tout le monde. Sur le pont aux Liards, les deux débardeurs reprennent leurs osselets." },
       ],
       choices: [{ back: "PF_ville" }] },
     PF_us_promesse: { act: "P", title: "Une dette", place: "quai",
@@ -716,26 +716,26 @@ module.exports = {
     // ================================================================ the burial at the cemetery of the Drowned
     PF_fun_depart: { act: "P", title: "La grande barque", place: "quai", takes: "evening",
       text: [
-        "Au soir, à la marée montante, la grande barque des Noyés accoste au pied de l'escalier d'eau de la boutique. Elle est longue, étroite et noire, avec à la proue une lanterne de fer et six rameurs en bonnets noirs, qui rament debout, à l'aviron long. On y pose le cercueil de sapin clair, et le cercueil est petit.",
-        "Le quai est venu. Les brocanteurs, les rempailleurs, l'écrivain public, les laveuses, les gamins des berges, et ceux que tu ne connais pas et qui la connaissaient. Ils montent dans des barques de louage, dans des bachots, dans la gabare d'un marchand de sel, et chacun tient une lanterne de la fête, rescapée, rallumée, crevée sur un côté. Le canal s'emplit de petites lumières.",
-        "Le chef des passeurs est un vieil homme sec, la peau tannée, une boucle d'argent à l'oreille. Il s'appelle Hippolyte et il enterre les Noyés depuis cinquante ans. « {{oreille#pf_hippolyte|Elle a payé pour la grande barque, la plus belle, voilà tout|Elle a payé pour la grande barque, et pour qu'on la mène par le canal des Joncs, l'ancien chemin, celui qu'on prend pour les gens des marais}}, dit-il. Montez à l'avant, près d'elle. C'est votre place. »",
+        "Au soir, à la marée montante, la grande barque des Noyés accoste au pied de l'escalier d'eau de la boutique. Elle est longue, étroite et noire, avec à la proue une lanterne de fer et six rameurs en bonnets noirs, qui rament debout, à l'aviron long. On y pose le cercueil de sapin clair. Il mesure à peine cinq pieds.",
+        "Le quai est venu au complet : les brocanteurs, les rempailleurs, l'écrivain public, les laveuses, les gamins des berges, et des inconnus qui la connaissaient. Ils montent dans des barques de louage, dans des bachots, dans la gabare d'un marchand de sel, et chacun tient une lanterne de la fête, rescapée, rallumée, crevée sur un côté. Le canal s'emplit de petites lumières ; tu en comptes plus de cent avant de renoncer.",
+        "Le chef des passeurs est un vieil homme sec, la peau tannée comme une voile, une boucle d'argent à l'oreille. Il s'appelle Hippolyte et il enterre les Noyés depuis cinquante ans. « {{oreille#pf_hippolyte|Elle a payé pour la grande barque, la plus belle, voilà tout|Elle a payé pour la grande barque, et pour qu'on la mène par le canal des Joncs, l'ancien chemin, celui qu'on prend pour les gens des marais}}, dit-il. Montez à l'avant, près d'elle. C'est votre place. »",
         { with: "tibere", text: "Tibère monte après toi et s'assied sur le banc de nage, sa masse entre les genoux, le chapeau à la main. Il se tait. Il regarde les lanternes sur l'eau, et ses lèvres remuent, comme quelqu'un qui compte." },
         { with: "gildas", text: "Frère Gildas monte le dernier, sans bruit. Il s'assied à la poupe, près des rameurs, le plus loin possible du cercueil, et il tire son capuchon un peu plus bas." },
       ],
       choices: [{ label: "« Allons. »", to: "PF_fun_canal" }] },
     PF_fun_canal: { act: "P", title: "Le canal des Joncs", place: "quai",
       text: [
-        "La grande barque quitte le canal des Lanternes, passe sous le pont des Noyés où des gens se découvrent, longe l'arrière des tanneries, et s'engage dans un canal que tu n'as jamais pris, étroit, bordé de roseaux, qui file vers le sud entre des murs de jardins abandonnés. Les rameurs se taisent. On n'entend que les avirons, et derrière, le cortège des barques, qui chuchote.",
+        "La grande barque quitte le canal des Lanternes, passe sous le pont des Noyés où des gens se découvrent, longe l'arrière des tanneries, et s'engage dans un canal que tu n'as jamais pris : étroit, bordé de roseaux, il file vers le sud entre des murs de jardins abandonnés. Les rameurs se taisent. On entend les avirons, et derrière, le cortège des barques, qui chuchote.",
         "Le canal des Joncs est {{echo#pf_canal|silencieux sous les barques, et sent la vase et la menthe d'eau|plein d'une voix de femme jeune, qui chante très bas, il y a quarante ans : « Odeline, tu reviendras ? » et d'une autre qui répond : « Jamais »}}.",
-        "Derrière le cortège, à bonne distance, une barque plate des marais suit sans lanterne. Une femme la mène, debout à l'arrière, à la perche, enveloppée de noir de la tête aux pieds. On ne la voit que quand une lanterne du cortège tourne vers elle. Puis le roseau la reprend.",
-        { if: { has: "odeline:meurtre" }, text: "Tu regardes chaque barque du cortège, chaque visage éclairé par en dessous, et tu te demandes s'il y en a un qui pense à l'escalier." },
+        "Derrière le cortège, à bonne distance, une barque plate des marais suit sans lanterne. Une femme la mène, debout à l'arrière, à la perche, enveloppée de noir de la tête aux pieds. Elle apparaît chaque fois qu'une lanterne du cortège tourne vers elle. Puis le roseau la reprend.",
+        { if: { has: "odeline:meurtre" }, text: "Tu regardes chaque barque du cortège, chaque visage éclairé par en dessous, et tu te demandes lequel pense à l'escalier." },
       ],
       choices: [{ label: "Le cimetière des Noyés", to: "PF_fun_paroles" }] },
     PF_fun_paroles: { act: "P", title: "Le cimetière des Noyés", place: "quai",
       fx: { flag: "gildas:rencontre", met: "gildas", clue: "pf_c_voix", ep: ["perso", 500] },
       text: [
-        "Le cimetière des Noyés occupe une île basse au bout du canal, là où le delta commence à sentir la mer. Une île de sable gris, plantée de tamaris tordus par le vent, et couverte de tombes : des croix de bois flotté, des avirons fichés en terre, des pierres plates gravées d'une barque, et sur chaque tombe, ce soir, une lanterne de la fête. La fosse d'Odeline est ouverte au bord de l'eau, face au sud.",
-        "On pose le cercueil sur deux tréteaux. Le quai fait cercle. Hippolyte fait un signe, et ceux qui veulent parler s'avancent, l'un après l'autre, comme c'est l'usage chez les Noyés, où le prêtre bénit la barque au départ et laisse la tombe aux vivants.",
+        "Le cimetière des Noyés occupe une île basse au bout du canal, là où le delta commence à sentir la mer : une île de sable gris, plantée de tamaris tordus par le vent, et couverte de tombes. On y voit des croix de bois flotté, des avirons fichés en terre, des pierres plates gravées d'une barque, et sur chaque tombe, ce soir, une lanterne de la fête. La fosse d'Odeline est ouverte au bord de l'eau, face au sud.",
+        "On pose le cercueil sur deux tréteaux. Le quai fait cercle. Hippolyte fait un signe, et ceux qui veulent parler s'avancent l'un après l'autre. C'est l'usage chez les Noyés : le prêtre bénit la barque au départ et laisse la tombe aux vivants.",
         "Le père Gobelin s'avance le premier, le bonnet à la main, et il pleure. « {{oreille#pf_fun_gobelin|Elle était la meilleure d'entre nous, et la plus honnête|Elle était la meilleure d'entre nous, elle m'a volé mon plus beau client l'hiver des Glaces, et je l'ai aimée toute ma vie sans le lui dire}}. »",
         "Maître Rivaud, en manteau noir, la perruque bien droite pour une fois, lit trois lignes qu'il a préparées. « {{oreille#pf_fun_rivaud|Ses affaires étaient en ordre, parfaitement en ordre|Ses affaires étaient en ordre, sauf un acte de vente sans nom d'acheteur, qu'elle m'a fait rédiger il y a huit jours et qu'elle n'a jamais signé}}. »",
         { if: { seen: "PF_lant_veuve" }, text: "La veuve Lasalle s'avance, son châle brun sur la tête. « {{oreille#pf_fun_lasalle|Elle me donnait ses dentelles à laver, c'est tout|Elle me payait double pour laver ses dentelles, depuis Noé, pour que j'aie de quoi manger}}. »" },
@@ -743,18 +743,18 @@ module.exports = {
         { with: "gildas", text: "Frère Gildas s'avance le dernier. Il reste à distance du cercueil. Il dit, de sa voix égale, sans lever les yeux : « Seigneur, reçois Odeline, qui a beaucoup cherché. Elle a trouvé ce qu'elle cherchait. Pardonne-lui ce qu'elle a trouvé, et à nous ce que nous avons fait. » Il recule, et ramène ses mains dans ses manches." },
         { without: "gildas", if: { seen: "PF_gildas" }, text: "Frère Gildas, le moine de la chapelle, se tient un peu à l'écart, le capuchon bas. Hippolyte lui fait signe. Il s'avance, sans s'approcher du cercueil, et dit, de sa voix égale : « Seigneur, reçois Odeline, qui a beaucoup cherché. Elle a trouvé ce qu'elle cherchait. Pardonne-lui ce qu'elle a trouvé, et à nous ce que nous avons fait. » Il recule." },
         { without: "gildas", if: { not: { seen: "PF_gildas" } }, text: "Un moine en bure brune, que personne n'a invité, se tient un peu à l'écart, sous un tamaris, le capuchon bas sur le front. Hippolyte lui fait signe. Il s'avance, sans s'approcher du cercueil. « Frère Gildas, du Mont-Taciturne, dit-il. Elle était une ancienne amie. » Puis, de la même voix égale : « Seigneur, reçois Odeline, qui a beaucoup cherché. Elle a trouvé ce qu'elle cherchait. Pardonne-lui ce qu'elle a trouvé, et à nous ce que nous avons fait. » Il recule." },
-        "Tu as gardé le cornet d'os à l'oreille pendant les paroles, la main en coquille, comme on se protège du vent. Chaque voix, au bord de la fosse, a tremblé à un endroit ou à un autre. Celle de Frère Gildas est restée lisse.",
+        "Tu as gardé le cornet d'os à l'oreille pendant les paroles, la main en coquille, comme on se protège du vent. Chaque voix, au bord de la fosse, a tremblé à un endroit ou à un autre. Celle de Frère Gildas est restée lisse d'un bout à l'autre.",
       ],
       choices: [{ label: "Descendre Odeline en terre", to: "PF_fun_tombe" }] },
     PF_fun_tombe: { act: "P", title: "En terre", place: "quai",
       fx: { flag: "pf:enterree", clue: "pf_c_maree", ep: ["perso", 500] },
       text: [
-        "Les rameurs descendent le cercueil avec des cordes de chanvre, lentement. Le sable gris s'éboule sur le couvercle. Hippolyte prend dans une écope un peu d'eau du canal et la jette sur le bois, comme on fait chez les Noyés. Les plus vieux du cortège l'imitent, chacun avec une poignée d'eau dans le creux de la main, et chacun dit, en la jetant, la même chose.",
+        "Les rameurs descendent le cercueil avec des cordes de chanvre, lentement. Le sable gris s'éboule sur le couvercle. Hippolyte prend dans une écope un peu d'eau du canal et la jette sur le bois, comme on fait chez les Noyés. Les plus vieux du cortège l'imitent, chacun avec une poignée d'eau dans le creux de la main, et chacun dit, en la jetant, la même formule.",
         "« {{oreille#pf_maree|Que la marée te garde|Que la marée te garde, et ta langue avec}} », dit Hippolyte. « Que la marée te garde », dit le père Gobelin. « Que la marée te garde », disent trois vieilles laveuses, d'une seule voix. Les jeunes se taisent : ils ignorent la formule, ou ils la trouvent vieillotte.",
         "{{miroir#pf_terre|Tu jettes ta poignée de sable sur le cercueil, et tu as la conscience tranquille|Tu jettes ta poignée de sable sur le cercueil, et c'est la porte de la boutique que tu entends claquer, hier soir, à dix heures}}.",
         "On pose sur la fosse la pierre qu'Odeline a payée il y a douze ans : une dalle plate de grès gris, gravée d'une barque et de quelques mots. *{{loupe#pf_dalle|Odeline Carrus. Elle trouvait.|Odeline, fille des Hautes-Eaux, qui a gardé la langue jusqu'au bout. Que la marée la garde.}}*",
-        "La femme en noir est descendue de sa barque pendant que tout le monde regardait la fosse. Elle se tient au bord du cercle, sans lanterne. Elle s'avance quand on a fini, pose sur la dalle un brin de jonc noué trois fois, et repart vers l'eau sans avoir dit un mot.",
-        { with: "tibere", text: "Tibère se mouche bruyamment, et fait semblant que c'est le vent." },
+        "La femme en noir est descendue de sa barque pendant que tout le monde regardait la fosse. Elle se tient au bord du cercle, sans lanterne. Quand on a fini, elle s'avance, pose sur la dalle un brin de jonc noué trois fois, et repart vers l'eau, muette.",
+        { with: "tibere", text: "Tibère se mouche bruyamment, et prétend que c'est le vent." },
       ],
       choices: [
         { label: "Suivre la femme en noir jusqu'au ponton", hide: { seen: "PF_fun_femme" }, to: "PF_fun_femme" },
@@ -764,8 +764,8 @@ module.exports = {
     PF_fun_femme: { act: "P", title: "La femme en noir", place: "quai",
       fx: { clue: "pf_c_jonc", ep: ["perso", 300] },
       text: [
-        "Tu la rattrapes au ponton de planches, où sa barque plate est amarrée par une simple boucle de corde. Elle a déjà un pied dedans. Elle se retourne. Sous le voile noir, tu ne vois qu'un menton, une bouche mince, des mains brunes et très fines, des mains de dentellière, avec un fil blanc encore pris sous un ongle.",
-        "Elle te regarde. Elle regarde ta main, qui tient encore le cornet d'os contre ton oreille. Elle se tait. Elle pose deux doigts sur ses propres lèvres, un instant, le geste qu'on fait pour dire *chut* à un enfant, ou pour bénir. Puis elle défait la boucle de corde, pousse sur la perche, et la barque glisse vers l'aval, vers les roseaux, vers les marais, sans lanterne.",
+        "Tu la rattrapes au ponton de planches, où sa barque plate est amarrée par une simple boucle de corde. Elle a déjà un pied dedans. Elle se retourne. Sous le voile noir, tu distingues un menton, une bouche mince, des mains brunes et très fines, des mains de dentellière, avec un fil blanc encore pris sous un ongle.",
+        "Elle te regarde. Elle regarde ta main, qui tient encore le cornet d'os contre ton oreille. Elle reste muette. Elle pose deux doigts sur ses propres lèvres, un instant : le geste qu'on fait pour dire *chut* à un enfant, ou pour bénir. Puis elle défait la boucle de corde, pousse sur la perche, et la barque glisse vers l'aval, vers les roseaux, vers les marais, sans lanterne.",
         "Hippolyte est derrière toi, les mains dans le dos. « {{oreille#pf_hippolyte_femme|C'est une pleureuse qu'on loue, il en vient parfois|C'est une femme des Joncs-Bas ; ils viennent quand un des leurs s'en va, et ils ne parlent jamais aux gens de la ville}}, dit-il. Ne vous en faites pas pour elle. Elle connaît le chemin. »",
         { with: "gildas", text: "Frère Gildas est resté près de la tombe, le dos tourné au ponton. Il prie." },
       ],
@@ -787,10 +787,10 @@ module.exports = {
       ] },
     PF_fun_medaille: { act: "P", title: "La médaille", place: "quai",
       text: [
-        "Le fossoyeur s'appelle Mamert, et il a honte. Il pose sa bêche. « Ils sont venus ce midi, deux huissiers en noir avec un papier du Conseil. La République doit de l'argent au duc, il paraît. Ils reprennent les ors. Les chandeliers des églises, les plats des corporations, et la médaille de Faustin. Ils ont dit : un mort n'a pas besoin d'or. » Il crache. « Faustin m'a tiré du toit de ma mère, j'avais six ans. »",
+        "Le fossoyeur s'appelle Mamert, et il a honte. Il pose sa bêche. « Ils sont venus ce midi, deux huissiers en noir avec un papier du Conseil. La République doit de l'argent au duc, il paraît. Ils reprennent les ors : les chandeliers des églises, les plats des corporations, et la médaille de Faustin. Ils ont dit : un mort n'a pas besoin d'or. » Il crache. « Faustin m'a tiré du toit de ma mère, j'avais six ans. »",
         "Il regarde la tombe. « Par le côté, on passe sous la dalle sans la bouger. La médaille est dans une boîte de plomb, sur sa poitrine. Si elle n'y est plus demain matin, les huissiers écriront : volée. Et personne ne cherchera. »",
         { with: "tibere", text: "Tibère regarde le trou, la tombe, le fossoyeur. « Au Guet, dit-il, on appelait ça recel de sépulture. Six mois. » Il se gratte la moustache. « Je n'ai rien vu. Je suis un vieil homme, la nuit tombe, j'ai de mauvais yeux. »" },
-        { with: "gildas", text: "Frère Gildas s'est approché. Il pose la main sur la barque de pierre, sur le bras tendu du passeur. « Les morts n'ont pas besoin d'or, dit-il. C'est vrai. Les vivants non plus, la plupart du temps. » Le reste, il te le laisse." },
+        { with: "gildas", text: "Frère Gildas s'est approché. Il pose la main sur la barque de pierre, sur le bras tendu du passeur. « Les morts n'ont pas besoin d'or, dit-il. C'est vrai. Les vivants non plus, la plupart du temps. » Il te laisse le reste." },
       ],
       choices: [
         { label: "Descendre dans le trou et prendre la médaille, pour la garder à l'abri", fx: { item: "pf_tr_medaille", clock: { tresors: 1 }, flag: ["tresor:pf_medaille", "pf:faustin_prise"], quest: "PF_faustin", ep: ["perso", 500] }, to: "PF_fun_cachee" },
@@ -798,7 +798,7 @@ module.exports = {
       ] },
     PF_fun_cachee: { act: "P", title: "Sous la dalle", place: "quai",
       text: [
-        "Le trou de Mamert passe sous le bord de la dalle. Tu t'y glisses sur le dos, la lanterne entre les dents, dans une odeur de sable mouillé et de racines. La boîte de plomb est là, sur ce qui reste d'un homme, petite, cabossée, fermée d'un fil de fer. Tu la défais sans regarder ce qu'il y a dessous.",
+        "Le trou de Mamert passe sous le bord de la dalle. Tu t'y glisses sur le dos, la lanterne entre les dents, dans une odeur de sable mouillé et de racines. La boîte de plomb est là, sur ce qui reste d'un homme, petite, cabossée, fermée d'un fil de fer. Tu la défais en gardant les yeux sur tes doigts.",
         "La médaille est grande comme la paume, d'or épais, frappée d'une barque sur une vague et de la tour de la République. Au revers : *À Faustin Lerouge, la ville reconnaissante.* Tu la mets dans ta chemise. Tu remets la boîte vide en place, et le fil de fer.",
         "Quand tu remontes, Mamert rebouche déjà le côté à grandes pelletées, les yeux sur sa bêche. « Les huissiers trouveront une boîte vide, dit-il. Ils écriront : volée. C'est la vérité. » Il tasse la terre du plat de sa bêche.",
       ],
@@ -820,14 +820,14 @@ module.exports = {
     PF_fin: { act: "P", title: "Vers le Beffroi", place: "quai", takes: "morning",
       fx: { quest: "P_odeline", ep: ["seance", 800] },
       text: [
-        "Le lendemain matin, tu sors de la boutique à l'heure où les marchands d'oublies installent leurs tréteaux. Le quai des Lanternes a balayé ses papiers mouillés ; il ne reste de la fête que des taches de cire sur les marches et une odeur de suif. Sur la porte, le ruban noir. Dans ta poche intérieure, contre les côtes, le cornet d'os et le carnet d'Odeline, l'un contre l'autre.",
-        "Tu as enterré Odeline. Tu as payé ce qui pouvait l'être, rendu ce qui pouvait l'être. Ce qui reste : une liste d'objets introuvables, une tour de trois cents ans, et deux mille ducats que quelqu'un était prêt à payer pour ce qu'elle cachait.",
-        { if: { has: "odeline:meurtre" }, text: "Et quelqu'un, la nuit des Lanternes, au haut de l'escalier de la cave. Tu ne sais pas encore qui. Tu sais où elle allait." },
-        { if: { has: "lothaire:refuse" }, text: "Sur le pont des Noyés, le parapet où Lothaire Brunel t'attendait hier est vide. Tu regardes quand même." },
+        "Le lendemain matin, tu sors de la boutique à l'heure où les marchands d'oublies installent leurs tréteaux. Le quai des Lanternes a balayé ses papiers mouillés ; de la fête, il reste des taches de cire sur les marches et une odeur de suif. Sur la porte pend le ruban noir. Dans ta poche intérieure, contre les côtes, le cornet d'os et le carnet d'Odeline se tiennent l'un contre l'autre.",
+        "Tu as enterré Odeline. Tu as payé ce qui pouvait l'être, rendu ce qui pouvait l'être. Le reste tient en trois articles : une liste d'objets introuvables, une tour de trois cents ans, et deux mille ducats que quelqu'un était prêt à payer pour ce qu'elle cachait.",
+        { if: { has: "odeline:meurtre" }, text: "Il y a aussi quelqu'un, la nuit des Lanternes, en haut de l'escalier de la cave. Tu ignores encore qui. Tu sais où elle allait." },
+        { if: { has: "lothaire:refuse" }, text: "Sur le pont des Noyés, le parapet où Lothaire Brunel t'attendait hier est vide. Tu le regardes quand même." },
         { if: { has: "pf:faux_vendu" }, text: "Quelque part sur l'île des Changeurs, un homme aux gants gris porte à son oreille un cornet de corne à trois liards, et n'entend que sa propre voix. Pour peu de temps." },
         { with: "tibere", text: "Tibère t'attend sur la borne du pont, la masse à la ceinture, un quignon de pain à la main. « Deux cents marches, dit-il. J'ai compté, l'hiver où j'y étais de garde. Deux cent douze, exactement. » Il se lève en grognant." },
         { with: "gildas", text: "Frère Gildas est debout à côté de lui, appuyé sur son bâton, le capuchon bas. Il regarde la tour au-dessus des toits, en silence." },
-        "Au-dessus des toits, le Beffroi de la reine sonne neuf heures. La cloche du haut, la fêlée, reste muette.",
+        "Au-dessus des toits, le Beffroi de la reine sonne neuf heures. La cloche du haut, la fêlée, garde le silence.",
       ],
       choices: [{ label: "Monter vers la place du Beffroi", big: true, exit: true, to: "I_debut" }] },
     // @@PASSAGES

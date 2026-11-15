@@ -34,7 +34,7 @@ Object.assign(P, {
       { after: "ivc:dette_corisande", text: "Une voiture noire, sans armoiries, passe parfois sur la place quand tu y es, au pas, sans s'arrêter. Tu dois quelque chose à la Banque Marrel, et la Banque le sait." },
       { after: "gilet:verite", when: "day", text: "Aux fontaines, les laveuses se taisent quand passe un homme en livrée grise, et le regardent jusqu'au bout de la rue." },
       { after: "ivv:sable", text: "Au pied de l'estrade du prévôt, sur les dalles, quelqu'un a posé un sac au cercle blanc, crevé, d'où coule un ruisseau de sable gris. Les huissiers l'ont laissé là. Les conseillers l'enjambent pour gagner leurs bancs." },
-      { after: "tribun:fils_perdu", text: "Au banc des Hautes-Eaux, le tribun ne se lève plus pour parler. Il reste assis, les mains à plat sur la table." },
+      { after: "tribun:fils_perdu", text: "Au banc des Hautes-Eaux, le tribun parle désormais assis, les mains à plat sur la table." },
       { after: "ivc:seance", before: "prevot:demasque", text: "Le prévôt, à chaque séance, dit qu'il défendra la ville. Tu as maintenant des raisons d'écouter ce qu'il dit en dessous." },
     ],
     choices: [
@@ -239,7 +239,7 @@ Object.assign(P, {
       { first: true, text: "Dame Vernier te reçoit debout, derrière une table couverte de registres, appuyée sur sa canne. Sur un dressoir, seul, un hanap posé comme on pose une chose qu'on veut voir partir : une coupe sur pied, {{pie#ivc_p_hanap|d'argent massif, ciselée de cygnes, le cadeau d'un duc|de vermeil sur un pied bien plus ancien que la coupe, marqué d'une couronne de sel, l'orfèvrerie de Sorne, qu'Aveline a dû piller il y a trois siècles}}. « Le cadeau de l'envoyé, dit-elle en voyant ton regard. Il en a fait porter un à chaque banc qui vote. Le mien est le plus laid. »" },
       { again: true, text: "La halle aux draps, l'escalier, le comptoir. Dame Vernier lève les yeux de ses registres." },
       { first: true, if: RECHERCHE, text: "« Je sais qui vous êtes, ajoute-t-elle. Votre nom est sur le portail du Conseil. Vous avez le temps de me dire ce que vous voulez avant que mon commis aille chercher le Guet. Il est lent. »" },
-      { again: true, after: "tresor:ivc_hanap", text: "Sur le dressoir, la place du hanap est vide. La poussière en garde le rond, et Dame Vernier ne l'essuie pas." },
+      { again: true, after: "tresor:ivc_hanap", text: "Sur le dressoir, la place du hanap est vide. La poussière en garde le rond, et Dame Vernier la laisse." },
       { after: "ivc:vernier", text: "Elle te fait asseoir, maintenant, et elle fait apporter du vin coupé. « Dites-moi ce que vous avez sur lui. »" },
     ],
     choices: [
@@ -398,7 +398,7 @@ Object.assign(P, {
 
   IVC_lettre: { act: "IV", title: "Le pli du noyé", place: S,
     text: [
-      "Le pli a séché de travers et ondule comme une feuille de chou. Le sceau du Conseil est brisé. Dedans, une seule feuille, couverte de quarante lignes de chiffres romains séparés par des points, d'une écriture régulière de clerc. Pas un mot. Pas une signature. Seulement, au bas, une initiale : *H.*",
+      "Le pli a séché de travers et ondule comme une feuille de chou. Le sceau du Conseil est brisé. Dedans, une seule feuille, couverte de quarante lignes de chiffres romains séparés par des points, d'une écriture régulière de clerc. Aucun mot en clair, aucune signature. Au bas, seulement, une initiale : *H.*",
       "Tu le sais d'Odeline : un chiffre de chancellerie se lit avec une grille, un livre que l'écrivain et le lecteur possèdent tous deux. Sans la grille, on peut y passer un hiver.",
       { if: { has: "metier:lire" }, text: "Les nombres vont de un à cent cinquante, jamais au-delà. Un livre de cent cinquante pièces, ou de cent cinquante pages. Tu en connais un, très commun, qu'on trouve dans chaque chapelle." },
     ],
@@ -719,7 +719,7 @@ Object.assign(P, {
     text: [
       { outcome: "win", text: "Le maître d'armes est assis sur une marche, la main sur la cuisse, et le sang coule entre ses doigts. Il te regarde passer sans bouger. Il est d'une race d'hommes qui savent quand le combat est fini." },
       "Tu dévales l'escalier, tu traverses le quai en courant, et le port te prend dans ses ombres, ses cordages, ses tas de sel couverts de bâches. Derrière toi, quelqu'un crie. Puis plus rien.",
-      "Le prévôt saura qu'on l'a entendu. Il ne saura pas tout ce qu'on a entendu. Tu gardes cela dans un coin de ta tête, comme une pièce dans une poche cousue.",
+      "Le prévôt saura qu'on l'a entendu. Ce qu'on a entendu au juste, il l'ignore. Tu gardes cela dans un coin de ta tête, comme une pièce dans une poche cousue.",
     ],
     choices: [{ back: "IVC_seance" }] },
 
@@ -802,7 +802,7 @@ Object.assign(P, {
     text: [
       "Tu lis debout, dans le réduit, à la lueur qui vient du cabinet. Le brouillon tient en sept articles numérotés, corrigés, recorrigés, avec des mots barrés et d'autres ajoutés au-dessus. Tu as le texte en entier dans ton sac, maintenant.",
       "Le premier article parle de la porte des Sauniers. Le deuxième, des florins. Le troisième, de la charge de gouverneur, *viagère et héréditaire*, le mot *héréditaire* ajouté d'une autre encre. Le septième, du Registre. Tu reviens au quatrième, parce qu'il est plus court que les autres et plus raturé.",
-      { if: { has: "passe:voleur" }, text: "Tu as appris à quatorze ans qu'on ne prend jamais une chose sans regarder par où on ressort. Odeline te l'a appris la main sur ton col. Tu regardes la porte." },
+      { if: { has: "passe:voleur" }, text: "Tu as appris à quatorze ans qu'avant de prendre une chose, on regarde par où on ressort. Odeline te l'a appris la main sur ton col. Tu regardes la porte." },
     ],
     choices: [{ back: "IVC_cabinet" }] },
 
@@ -883,7 +883,7 @@ Object.assign(P, {
       { again: true, text: "Le Conseil, l'envoyé, la rue, la Banque. Chacun te demandera quelque chose." },
       { if: { has: "ivc:prevot_peur" }, text: "Le prévôt a eu peur, dans son cabinet. Il va se presser. Il te reste moins de temps qu'à lui." },
       { if: { has: "ivc:digues" }, text: "Trois cents hommes sur les digues, la nuit de la Grande Basse. Les éclusiers de Grisemotte. La quatrième heure." },
-      { if: { has: "ivc:conseil_echec" }, text: "Le Conseil t'a entendu{e} une fois, et il a voté. Il ne t'entendra pas une seconde fois avant la Saint-Jean." },
+      { if: { has: "ivc:conseil_echec" }, text: "Le Conseil t'a entendu{e} une fois, et il a voté. La prochaine fois qu'il t'entendra, ce sera après la Saint-Jean." },
       { if: { has: "ivc:amaury_vainqueur" }, text: "Tu as donné ta parole à l'envoyé, l'épée à la main, d'oublier ce que tu sais jusqu'à la Grande Basse. Chaque pas que tu fais contre le prévôt, maintenant, tu le fais en reniant cette parole." },
     ],
     choices: [
@@ -968,7 +968,7 @@ Object.assign(V, {
 Object.assign(P, {
   IVC_amaury_face: { act: "IV", title: "L'envoyé, seul", place: S,
     text: [
-      { if: { seen: "IVC_tour_sauniers" }, text: "L'envoyé descend l'escalier de la tour seul, enveloppé dans un manteau sans broderie. Quand tu sors de l'ombre de l'arche, il a la main sur son épée avant que tu aies dit un mot. Puis il te reconnaît, et la main se relâche, pas tout à fait.", else: "Amaury de Sauveterre te reçoit dans sa bibliothèque, au premier étage de l'hôtel du Cygne, debout, une main sur la cheminée. Il a renvoyé ses valets. « Vous avez l'air de quelqu'un qui vient dire une chose désagréable, dit-il. Allez-y. Je suis payé pour en entendre. »" },
+      { if: { seen: "IVC_tour_sauniers" }, text: "L'envoyé descend l'escalier de la tour seul, enveloppé dans un manteau sans broderie. Quand tu sors de l'ombre de l'arche, il a la main sur son épée avant que tu aies dit un mot. Puis il te reconnaît, et la main se relâche, à moitié.", else: "Amaury de Sauveterre te reçoit dans sa bibliothèque, au premier étage de l'hôtel du Cygne, debout, une main sur la cheminée. Il a renvoyé ses valets. « Vous avez l'air de quelqu'un qui vient dire une chose désagréable, dit-il. Allez-y. Je suis payé pour en entendre. »" },
       "Tu lui dis ce que tu sais. Il t'écoute sans t'interrompre, le visage immobile, jusqu'au moment où tu parles des digues.",
       { if: { has: "ivc:digues" }, text: "« Trois cents hommes, répète-t-il. Il me l'a dit, cette nuit, dans la tour. J'ai cru à une manière de parler. » Il se tait. « {{oreille#ivc_v_amaury_digues|Monseigneur jugera de ce qu'il convient de faire|Je suis venu prendre une ville, pas noyer sa garde dans la vase pour le confort d'un vieillard}}. »" },
       "« Vous me demandez de refuser une ville qu'on m'offre, dit-il enfin. Mon duc la veut. Il la prendra à la Saint-Jean de toute façon, si on ne le paie pas. Qu'est-ce que j'y gagne, à part le plaisir de vous rendre service ? »",
@@ -1258,7 +1258,7 @@ Object.assign(P, {
     fx: { flag: "tribun:fils_perdu", quest: "IVC_q_fils", fac: { hautes: -5 } },
     text: [
       "On donne l'alarme avant que tu aies pu atteindre la troisième meurtrière. Des torches, des cris, le tocsin de la tour qui sonne pour une évasion. Tu dois fuir par les quais, et tu n'as pas revu le garçon.",
-      "Le lendemain, le prévôt fait transférer Galmier Vimeux, avec six émeutiers, sur les pontons du port, les vieilles coques démâtées où l'on garde les condamnés aux galères d'État. Les pontons sont ancrés au milieu de la Salve, sous la garde de deux barques armées. On n'en revient pas avant cinq ans.",
+      "Le lendemain, le prévôt fait transférer Galmier Vimeux, avec six émeutiers, sur les pontons du port, les vieilles coques démâtées où l'on garde les condamnés aux galères d'État. Les pontons sont ancrés au milieu de la Salve, sous la garde de deux barques armées. On y reste cinq ans au moins.",
       "À la Grenouille, le tribun t'écoute raconter jusqu'au bout, sans un reproche. Il pose les deux mains à plat sur la table, et tu vois ses brûlures de sel. « Je vais parler moins fort au Conseil, maintenant, dit-il. Et je vais penser aux vannes. »",
     ],
     choices: [{ back: "IVC_seance" }] },
@@ -1308,7 +1308,7 @@ Object.assign(P, {
   IVC_gilet_verite: { act: "IV", title: "Le battoir", place: S,
     text: [
       "Tu lui dis tout. Babette écoute à genoux sur sa planche, le battoir dans la main. Quand tu as fini, elle se relève, et les autres laveuses se sont tues autour d'elle. « La tour carrée, dit-elle. C'est sur les draps que je lave pour l'hôtel Delisle, brodé dans le coin. Je lave leurs draps depuis trois ans. »",
-      "Elle ramasse son panier. « Je vais le dire, dit-elle. À toutes les laveuses de la ville. On lave pour toutes les maisons de l'île. Dans huit jours, toutes les cuisines de Salvèze sauront ce que fait le maître d'armes du prévôt. » Les laveuses reprennent leurs battoirs, toutes ensemble, et cette fois elles ne chantent pas.",
+      "Elle ramasse son panier. « Je vais le dire, dit-elle. À toutes les laveuses de la ville. On lave pour toutes les maisons de l'île. Dans huit jours, toutes les cuisines de Salvèze sauront ce que fait le maître d'armes du prévôt. » Les laveuses reprennent leurs battoirs, toutes ensemble, et cette fois en silence.",
     ],
     choices: [{ back: "IVC_seance" }] },
 

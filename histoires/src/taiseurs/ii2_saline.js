@@ -42,7 +42,7 @@ Object.assign(P, {
       "Le commis lève la tête de son registre sans lever la plume. Il est jeune, pâle, enrhumé, avec une écharpe de laine nouée trois fois autour du cou. « Droit de digue, dit-il. Deux ducats par personne, au profit de la Maison du Sel. Les marchandises se déclarent à part. »",
       "Derrière lui, les deux hommes en casaque noire se sont décollés de la barrière. Le plus grand tient un gourdin de chêne posé sur l'épaule, comme un outil de travail.",
       "« Depuis quand paie-t-on pour marcher sur une digue ? » demandes-tu. Le commis se mouche. « C'est {{oreille#iis_droit|l'usage depuis toujours|l'usage depuis la Saint-Martin, depuis que la Banque a signé avec les maîtres, et je n'ai jamais vu l'acte}}, dit-il. Deux ducats. »",
-      { after: "mandat", text: "Sur la table, sous la pierre, à côté du registre, une feuille imprimée porte le sceau de la République. Le vent en soulève un coin. Tu reconnais le mot *recherché*, puis tu n'essaies pas de lire la suite. Le commis, lui, ne l'a pas lue non plus : il s'en sert pour caler son encrier." },
+      { after: "mandat", text: "Sur la table, sous la pierre, à côté du registre, une feuille imprimée porte le sceau de la République. Le vent en soulève un coin. Tu reconnais le mot *recherché*, et tu en restes là. Le commis n'en a pas lu davantage : il s'en sert pour caler son encrier." },
       { with: "lison", text: "Lison te touche le coude et montre du menton, en contrebas, les talus étroits qui courent entre les bassins jusqu'aux maisons. « Il y a cent chemins dans une saline, souffle-t-elle. La Banque en garde un. »" },
       { with: "gildas", text: "Frère Gildas croise les mains dans ses manches et regarde la barrière avec une patience de pierre. « Un droit de passage se lève au nom d'un seigneur, dit-il doucement. Je me demande au nom de qui on lève celui-ci. »" },
     ],
@@ -141,7 +141,7 @@ Object.assign(P, {
       { again: true, text: "Les mulons blancs, sous leurs voiles grises. Le vent siffle dans les cordes des lests." },
       "Un clerc de la Maison du Sel les mesure à la perche et note dans un carnet, en mouillant sa mine. Il passe vite devant les grands et s'attarde devant les petits, ceux des familles qui doivent.",
       "Au bout de la rangée, un mulon plus petit que les autres porte un piquet rayé de noir. Sa voile est rapiécée en trois couleurs. Le tas {{pie#iis_mulon_creux|a l'air tassé, mouillé, oublié de tous|sonne creux sous la croûte : dessous, une armature de planches, et un vide où un homme tiendrait accroupi}}.",
-      { after: "iis:greve_jour", before: "iis:greve_finie", text: "Ce matin, les mulons restent seuls sous leurs voiles. Les clercs sont restés à la Maison du Sel, et les sauniers sont à la grange." },
+      { after: "iis:greve_jour", before: "iis:greve_finie", text: "Ce matin, les mulons restent seuls sous leurs voiles. Les clercs sont à la Maison du Sel, et les sauniers à la grange." },
     ],
     choices: [
       { label: "Fouiller le petit mulon au piquet noir", hide: { any: [{ not: { any: [{ voile: "iis_mulon_creux" }, { has: "iis:taille_mulon" }] } }, { seen: "IIS_taille_mulon" }] }, to: "IIS_taille_mulon" },
@@ -1064,7 +1064,7 @@ Object.assign(P, {
   IIS_tibere_soir: { act: "II", title: "Le papier de Tibère", place: "saline", with: "tibere",
     text: [
       "Tibère plie son papier en quatre quand tu t'assieds en face de lui. Le feu de tourbe fume entre vous. « J'écris {{oreille#iis_tibere_rapport|à ma fille, pour une fois|à Brunel : où tu es, ce que tu cherches, qui t'accompagne ; le gamin de la gabare le portera demain à Salvèze}}, dit-il. Rosalie. Elle ne répond jamais, mais j'écris quand même. »",
-      { after: "tibere:espion", text: "Il te regarde, puis il déplie le papier et le pose devant toi, à plat. Ce n'est pas une lettre à Rosalie. C'est un rapport, en phrases de sergent, et ton nom est dedans trois fois. « Dis-moi ce que je mets, dit-il. Je mettrai ce que tu dis. »" },
+      { after: "tibere:espion", text: "Il te regarde, puis il déplie le papier et le pose devant toi, à plat. Au lieu d'une lettre à Rosalie, tu lis un rapport, en phrases de sergent, et ton nom y figure trois fois. « Dis-moi ce que je mets, dit-il. Je mettrai ce que tu dis. »" },
     ],
     choices: [
       { label: "Lui dicter un rapport où tu cherches encore, en vain, du côté des Joncs", hide: { not: { any: [{ has: "tibere:espion" }, { voile: "iis_tibere_rapport" }] } }, fx: { flag: "iis:tibere_rapport_faux", conf: { tibere: 5 }, ep: ["perso", 500] }, back: "IIS_nuit" },

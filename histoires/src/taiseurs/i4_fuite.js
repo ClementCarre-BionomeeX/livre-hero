@@ -390,7 +390,7 @@ Object.assign(P, {
     fx: { flag: ["i4:boutique_pillee", "i4:boutique_reglee"], ep: ["perso", 500] },
     text: [
       "Tu ouvres la porte en grand, tu cales le battant avec la jambe de bois, et tu cries sur le quai, assez fort pour que le pont l'entende : que la boutique d'Odeline est ouverte, et que chacun prenne ce qu'elle lui aurait donné.",
-      "Il ne se passe rien, pendant un moment. Puis le vieux Couzi monte de sa barque, entre, et ressort avec une gaffe neuve qu'il regardait depuis deux ans. Les gamins du pont viennent ensuite, puis le rempailleur, puis tout le monde. Prosper Galabru repart avec une brouette pleine, et revient la remplir. Maître Lagrue prend un seul livre. Clarmonde reste sur son seuil, les bras croisés, et ne prend rien.",
+      "Pendant un moment, le quai reste immobile. Puis le vieux Couzi monte de sa barque, entre, et ressort avec une gaffe neuve qu'il regardait depuis deux ans. Les gamins du pont viennent ensuite, puis le rempailleur, puis tout le monde. Prosper Galabru repart avec une brouette pleine, et revient la remplir. Maître Lagrue prend un seul livre. Clarmonde reste sur son seuil, les bras croisés, et ne prend rien.",
       "Fortunat court chercher son maître. Le temps que Tiercelin arrive, essoufflé, il ne reste que les murs et la poussière. Il écrit *pillage* sur son carnet, et il cite ton nom.",
       { with: "fauvette", text: "Fauvette, assise sur le comptoir, regarde le quai se servir avec un respect de professionnelle. « Je n'aurais pas fait mieux, dit-elle. Et moi, au moins, j'aurais gardé quelque chose. »" },
     ],
@@ -629,7 +629,7 @@ Object.assign(P, {
   IF_toinon_gratte: { act: "I", title: "Une cuiller", place: "port",
     text: [
       "Tu grattes le bloc. Le sel s'effrite, la vase dessous aussi, et le bout de métal grandit sous ta lame : une tige, un rebord. Toinon te regarde faire en souriant de sa dent unique. « C'est une cuiller, dit-il. Ou c'est le pied d'un chandelier. Six liards pour le savoir. » Il reprend le bloc et le pose de l'autre côté de la couverture, hors de ta portée. « Ou douze, maintenant que vous avez gratté. »",
-      "Tu ne sais pas. Tu repars sans savoir. Toinon remet le bloc au milieu de sa couverture.",
+      "Tu repars sans savoir. Toinon remet le bloc au milieu de sa couverture.",
     ],
     choices: [{ back: "IF_toinon" }] },
 
@@ -702,7 +702,7 @@ Object.assign(P, {
 
   IF_toits: { act: "I", title: "Les toits du quai",
     text: [
-      "L'échelle de Prosper Galabru est appuyée à sa façade, comme toujours, pour monter les ballots au grenier. Tu y es en trois enjambées, Galabru te regarde passer au-dessus de sa tête avec une poêle dans une main et la bouche ouverte, et tu prends pied sur les tuiles. Les toits du quai des Lanternes se touchent tous, penchés les uns contre les autres comme les maisons dessous, mais ils ne sont pas à la même hauteur, et ils n'ont pas tous été réparés depuis l'hiver.",
+      "L'échelle de Prosper Galabru est appuyée à sa façade, comme toujours, pour monter les ballots au grenier. Tu y es en trois enjambées, Galabru te regarde passer au-dessus de sa tête avec une poêle dans une main et la bouche ouverte, et tu prends pied sur les tuiles. Les toits du quai des Lanternes se touchent tous, penchés les uns contre les autres comme les maisons dessous, mais à des hauteurs inégales, et la moitié attend encore les couvreurs depuis l'hiver.",
       "En bas, des cris, un sifflet du Guet, puis deux. Quelqu'un monte à l'échelle derrière toi, lourdement.",
       { if: { has: "pq:gants_gris" }, text: "Puis un fracas de bois. Prosper Galabru a couché son échelle dans la rue d'un coup d'épaule, avec l'homme du Guet au troisième barreau. « Pardon, pardon, crie-t-il. Mes ballots ! » Il ne te regarde pas. Il a dit non à l'homme aux gants gris, et il le dit encore." },
       { with: "lison", text: "Lison est montée avant toi, sans que tu l'aies vue faire. Elle court sur le faîtage les bras écartés, comme sur le plat-bord d'une barque." },
@@ -797,7 +797,7 @@ Object.assign(P, {
   IF_marche_paniers: { act: "I", title: "Sous le cresson",
     fx: { ep: ["perso", 600] },
     text: [
-      "Une grosse femme en tablier bleu, la cressonnière du pont, la femme du rempailleur, te prend par le bras et te pousse sous son tréteau, entre deux paniers vides. Elle jette par-dessus toi trois bottes de cresson mouillé et une toile à sac. Tu ne vois plus que du vert et des bottes de soldats qui passent, à un pied de ton nez.",
+      "Une grosse femme en tablier bleu, la cressonnière du pont, la femme du rempailleur, te prend par le bras et te pousse sous son tréteau, entre deux paniers vides. Elle jette par-dessus toi trois bottes de cresson mouillé et une toile à sac. Ton monde se réduit à du vert et à des bottes de soldats qui passent, à un pied de ton nez.",
       { if: { is: { i4_gages: "rendus" } }, text: "« Pour la timbale du petit, dit-elle tout bas au-dessus de toi, sans arrêter de crier ses prix. Mon homme ne l'aurait jamais revue. »" },
       { if: { has: "i4:boutique_pillee" }, text: "« J'ai eu les ciseaux de la Carrus, quand tu as ouvert sa porte, dit-elle tout bas. Des ciseaux de tailleur, des vrais. Je n'oublie pas. »" },
       { if: { has: "pf:lasalle_verite" }, text: "Au tréteau voisin, la veuve Lasalle rince ses bottes de cresson. C'est elle qui t'a montré{e} du menton à la cressonnière. « La lanterne de Noé est pendue au-dessus de mon lit, dit-elle sans tourner la tête. Je n'oublie pas qui me l'a rapportée. »" },

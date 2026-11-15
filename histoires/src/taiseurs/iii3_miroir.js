@@ -40,7 +40,7 @@ Object.assign(P, {
       "Au-dessus de la bouche, une ligne est gravée en lettres anciennes : *{{loupe#iiir_l_porte|Dis ton nom à la reine, et entre|La reine ne peut plus entendre les noms. Tais-toi le temps de cent battements, et la pierre t'entendra}}.*",
       "La porte est {{echo#iiir_e_porte|froide et muette sous ta main|pleine d'une voix jeune et lasse : « Tais-toi, frère, et compte jusqu'à cent. Elle t'ouvrira quand elle n'entendra plus rien. »}}.",
       { if: { has: "metier:mains" }, text: "Tu passes la paume sur la pierre, autour de la bouche. Tes doigts trouvent une veine plus lisse, de la largeur d'un pouce, qui descend de la fente jusqu'au sol et disparaît dans la dalle." },
-      { with: "lison", text: "Lison regarde la bouche de très près, sans la toucher. « Chez nous, les portes, on les écoute avant de leur parler », dit-elle. Elle ne dit pas si c'est un proverbe ou un conseil." },
+      { with: "lison", text: "Lison regarde la bouche de très près, sans la toucher. « Chez nous, les portes, on les écoute avant de leur parler », dit-elle. Proverbe ou conseil, elle laisse la question ouverte." },
       { with: "tibere", text: "Tibère a déjà mesuré la porte des yeux, et l'interstice en bas, et le levier qu'il faudrait. « Avec une barre de fer et deux hommes, dit-il, ça se discute. »" },
     ],
     choices: [
@@ -56,7 +56,7 @@ Object.assign(P, {
   IIIR_porte_parole: { act: "III", title: "Le nom de la reine", place: "mont",
     text: [
       "« Ysaure », dis-tu, distinctement, devant les lèvres de pierre.",
-      "Ta voix part dans la fente. Derrière la pierre, très loin, quelque chose de petit et de dur roule, tinte contre une paroi, et retombe. Puis plus rien. La porte n'a pas bougé d'un cheveu.",
+      "Ta voix part dans la fente. Derrière la pierre, très loin, quelque chose de petit et de dur roule, tinte contre une paroi, et retombe. Puis le silence. La porte est restée où elle était, au cheveu près.",
       { if: { has: "metier:mains" }, text: "Ta paume posée sur la veine lisse a senti la pierre frémir pendant que tu parlais, et s'arrêter ensuite." },
       { with: "tibere", text: "« Elle a peut-être un autre nom, propose Tibère. Les reines en ont plusieurs. La Muette, la Folle. » Il dit « la Folle » un peu fort, et derrière la pierre, la petite chose roule encore, et retombe encore." },
       { with: "salome", text: "Salomé a penché la tête. « Tu as entendu ? Chaque fois qu'on parle, ça retombe. Comme un plomb de sonde qui touche et remonte. »" },
@@ -66,7 +66,7 @@ Object.assign(P, {
   IIIR_porte_silence: { act: "III", title: "Cent battements", place: "mont",
     fx: { ep: ["perso", 900] },
     text: [
-      { after: "iiir:porte_gildas", text: "Frère Gildas passe devant toi. Il pose les deux mains à plat sur la porte, de chaque côté de la bouche, baisse la tête, et ne bouge plus. Il ne vous explique rien. Il attend que vous ayez compris." },
+      { after: "iiir:porte_gildas", text: "Frère Gildas passe devant toi. Il pose les deux mains à plat sur la porte, de chaque côté de la bouche, baisse la tête, et s'immobilise. Sans un mot d'explication, il attend que vous ayez compris." },
       { after: "iiir:porte_lison", text: "Lison pose l'oreille contre la pierre, près des lèvres, et lève une main ouverte vers vous : silence. Elle garde l'oreille collée, les yeux fermés, comme on écoute un enfant dormir à travers une cloison." },
       "Vous vous taisez. C'est plus long qu'on croit, cent battements de cœur, dans le noir, avec une lampe qui grésille. Tu entends l'eau qui goutte quelque part, ta propre respiration, le cuir de ta ceinture qui craque quand tu respires.",
       { with: "tibere", text: "Vers le soixantième battement, Tibère s'éclaircit la gorge. Derrière la pierre, la petite chose roule et retombe. Il reçoit quatre regards à la fois. Vous recommencez à zéro." },
@@ -317,7 +317,7 @@ Object.assign(P, {
       "Au-dessus de l'entrée, une règle est gravée : *{{loupe#iiir_l_offrandes|Ce qu'on donne à la reine reste à la reine|Ce qu'on donne à la reine reste à la reine, sauf pour la servir. Qui prend pour elle laisse son nom dans la niche}}.*",
       "Dans une niche du milieu, sept peignes sont alignés sur la même étoffe, {{pie#iiir_p_peigne|tous d'ivoire jauni, tous pareils|six d'os teint au thé, et le septième d'ivoire véritable, à dents d'argent, avec au dos un Y couronné}}. Plus loin, seul dans une grande niche, un reliquaire doré gros comme un pain de seigle est serti de pierres rouges {{pie#iiir_p_reliquaire|qui valent à elles seules une maison sur l'île des Changeurs|en verre coloré, sur une âme de plomb doré à la feuille ; dedans roule une langue de cire}}.",
       "Tu regardes les peignes {{miroir#iiir_m_peignes|avec l'œil du métier|en pensant au peigne d'écaille d'Odeline, resté sur sa table de nuit, que tu n'as pas eu le courage de toucher}}.",
-      { with: "lison", text: "Lison s'arrête devant une niche de l'entrée : une petite nasse à anguilles, tressée serré. Sous la niche, *Vasse*, et une date d'il y a six ans. « Ma mère l'a faite, dit-elle. Je l'ai portée jusqu'ici à dix-huit ans. On m'avait bandé les yeux pour la descente. » Elle ne touche pas la nasse." },
+      { with: "lison", text: "Lison s'arrête devant une niche de l'entrée : une petite nasse à anguilles, tressée serré. Sous la niche, *Vasse*, et une date d'il y a six ans. « Ma mère l'a faite, dit-elle. Je l'ai portée jusqu'ici à dix-huit ans. On m'avait bandé les yeux pour la descente. » Elle laisse la nasse où elle est." },
     ],
     choices: [
       { label: "Prendre le peigne d'ivoire, et laisser ton nom dans la niche", hide: { any: [{ not: { voile: "iiir_p_peigne" } }, { not: { voile: "iiir_l_offrandes" } }, { has: "tresor:iiir_peigne" }] }, fx: { set: { iiir_peigne: "nom" } }, to: "IIIR_offr_peigne" },
@@ -333,7 +333,7 @@ Object.assign(P, {
       "Le peigne est plus léger que les six autres. L'ivoire a la couleur d'un vieux miel, et les dents d'argent ont noirci sans se tordre. Au dos, le Y couronné est si petit qu'il faut l'incliner sous la lampe pour le voir. Il a été fait pour une main de femme, et pour des cheveux longs.",
       { if: { is: { iiir_peigne: "nom" } }, text: "Tu prends ton couteau et tu graves ton nom sur le bord de la niche, à côté de la date. La pierre est tendre. Les lettres sont maladroites. *{hero}, pour la reine.*" },
       { if: { is: { iiir_peigne: "pris" } }, text: "Tu le glisses dans ta veste. Sur l'étoffe grise, la place du peigne reste marquée en plus clair, sept dents nettes dans la poussière." },
-      { with: "lison", if: { is: { iiir_peigne: "pris" } }, text: "Lison a vu. Elle regarde la marque dans la poussière, puis toi. « Chez nous, on coupe une main pour moins que ça, dit-elle. Dans les histoires. » Elle n'a pas l'air de plaisanter tout à fait." },
+      { with: "lison", if: { is: { iiir_peigne: "pris" } }, text: "Lison a vu. Elle regarde la marque dans la poussière, puis toi. « Chez nous, on coupe une main pour moins que ça, dit-elle. Dans les histoires. » Elle a l'air de plaisanter à moitié." },
       { with: "gildas", text: "Frère Gildas regarde le peigne dans ta main. « Celui-là, dit-il, a été apporté par une femme qui avait coiffé la reine, la dernière année. Elle l'a descendu ici à soixante-dix ans. »" },
     ],
     choices: [{ back: "IIIR_offrandes" }] },
@@ -359,7 +359,7 @@ Object.assign(P, {
       "Une chandelle a brûlé ici il y a peu. La cire en est encore molle au bord, et le réchaud est tiède sous ta main. L'autel est {{echo#iiir_e_autel|froid, et la cire des chandelles y a coulé en longues larmes figées|plein d'une voix d'homme, basse, égale, que tu connais : « Je l'ai repoussée, et elle est tombée. Odeline Vasse, au pied de son escalier, la nuit des Lanternes. Je n'ai pas couru chercher de l'aide. J'ai cherché le cornet. »}}.",
       "La dernière tablette de la rangée a été lissée et réécrite de frais. Une seule ligne, d'une écriture d'onciale très régulière : *{{loupe#iiir_l_tablette|Seigneur, garde ma langue, et garde celle de mes frères|J'ai fait tomber Odeline Vasse dans son escalier. Je ne voulais pas sa mort. Je voulais assez son silence pour monter chez elle. G.}}*",
       "Derrière l'autel, dans une niche, un coffret de bois {{pie#iiir_p_coffret|vermoulu, vide, qu'on a oublié là|vermoulu, à double fond ; sous la planchette, sur un lit de sel, repose une langue d'or de la taille d'une vraie}}.",
-      { with: "gildas", text: "Frère Gildas est resté à l'entrée de la chapelle, dans l'ombre de la galerie. Il ne s'approche pas de l'autel." },
+      { with: "gildas", text: "Frère Gildas est resté à l'entrée de la chapelle, dans l'ombre de la galerie. Il garde ses distances avec l'autel." },
     ],
     choices: [
       { label: "Rester devant l'autel avec ce que tu as entendu", hide: { any: [{ not: { voile: "iiir_e_autel" } }, { seen: "IIIR_autel_entendu" }] }, to: "IIIR_autel_entendu" },
@@ -380,7 +380,7 @@ Object.assign(P, {
       "Odeline n'est pas tombée seule. Quelqu'un était là, en haut des marches, à minuit, et ce quelqu'un est descendu avec toi dans la montagne. Il a cherché le cornet. Il a remis les choses en place. Il est reparti, et le lendemain il est venu prier pour elle.",
       { if: { has: "gildas:mort" }, text: "Il est mort, et tu le sais maintenant. Il reste la cire et la voix." },
       { with: "gildas", text: "Tu te retournes. Frère Gildas est toujours à l'entrée de la chapelle. Il a vu ton visage, et il sait ce que tu as entendu. Il ne recule pas. Il attend." },
-      { without: "gildas", text: "Frère Gildas n'est pas avec toi. Mais la chandelle de l'autel est encore molle, et le réchaud encore tiède : il est quelque part dans la montagne, devant toi." },
+      { without: "gildas", text: "Frère Gildas est absent. Mais la chandelle de l'autel est encore molle, et le réchaud encore tiède : il est quelque part dans la montagne, devant toi." },
       { with: "tibere", text: "Tibère a pâli. « J'ai écrit accident, dit-il. Sur le rapport. J'ai écrit accident en trois lignes. »" },
     ],
     choices: [
@@ -435,14 +435,14 @@ Object.assign(P, {
       "Frère Gildas regarde le rectangle gratté. Il ne fait pas semblant de chercher lequel.",
       "« Moi, dit-il. J'avais dix-sept ans. Frère Ignace m'a donné le ciseau et le maillet, et il est resté derrière moi pendant que je le faisais. Elle était partie à la ville l'hiver d'avant. On m'a appris son nom en même temps qu'on m'a appris à l'effacer. »",
       "Il se tait un moment. « C'était un travail propre, ajoute-t-il. Frère Ignace l'a dit. »",
-      { if: { has: "gildas:demasque" }, text: "Tu le regardes, et tu penses à l'escalier de la cave. Lui aussi y pense. Vous ne le dites ni l'un ni l'autre." },
+      { if: { has: "gildas:demasque" }, text: "Tu le regardes, et tu penses à l'escalier de la cave. Lui aussi y pense. Vous le gardez pour vous, l'un et l'autre." },
     ],
     choices: [{ back: "IIIR_noms" }] },
 
   IIIR_noms_graver: { act: "III", title: "Le nom d'Odeline", place: "mont",
     fx: { flag: "iiir:noms", set: { iiir_nom: "grave" }, quest: "IIIR_q_noms", fac: { taiseurs: 5 }, ep: ["seance", 1500] },
     text: [
-      "Tu prends un ciseau et le maillet dans la boîte. Tu n'as jamais gravé la pierre. Tu le fais mal, et lentement, et les éclats te sautent au visage. Tu traces le nom dans le rectangle gratté, par-dessus les creux de l'ancien, en suivant ce qui reste des lettres comme on suit une piste.",
+      "Tu prends un ciseau et le maillet dans la boîte. C'est ta première pierre. Tu la graves mal, et lentement, et les éclats te sautent au visage. Tu traces le nom dans le rectangle gratté, par-dessus les creux de l'ancien, en suivant ce qui reste des lettres comme on suit une piste.",
       "*Odeline Vasse, des Joncs-Bas.* Tu hésites sur la suite. Puis tu ajoutes, en plus petit, de ta propre autorité : *Carrus, du quai des Lanternes.*",
       { with: "lison", text: "Lison te prend le maillet des mains pour la dernière ligne, parce que tu tapes de travers. Elle grave la date de la mort, proprement, en vraie fille des marais qui a appris à tailler les pieux. Quand elle a fini, elle souffle sur la poussière." },
       { with: "gildas", text: "Frère Gildas tient la lampe pendant que tu graves, et se tait. Sa main reste ferme. Quand tu as fini, il lit le nom, à voix basse, en entier." },
@@ -454,7 +454,7 @@ Object.assign(P, {
   IIIR_noms_laisser: { act: "III", title: "Le rectangle gratté", place: "mont",
     fx: { flag: "iiir:noms", set: { iiir_nom: "laisse" }, quest: "IIIR_q_noms", ep: ["perso", 600] },
     text: [
-      "Tu poses la main sur le rectangle rugueux. La pierre est froide, plus froide que les lettres autour. Odeline a quitté ce mur à trente ans, de son plein gré, pour vendre des choses perdues sur un quai. Elle ne voulait pas y être.",
+      "Tu poses la main sur le rectangle rugueux. La pierre est froide, plus froide que les lettres autour. Odeline a quitté ce mur à trente ans, de son plein gré, pour vendre des choses perdues sur un quai. Elle voulait en sortir.",
       "Tu {{miroir#iiir_m_mur|laisses le mur comme elle l'a voulu|laisses le mur tel qu'il est parce que tu ne sais plus ce qu'elle voulait, et que tu as peur de te tromper encore une fois sur elle}}.",
       { with: "lison", text: "Lison hoche la tête, une fois. « Chez nous, dit-elle, on dirait que tu as bien fait. Moi, je ne sais pas. »" },
     ],
@@ -466,7 +466,7 @@ Object.assign(P, {
   IIIR_eboulis: { act: "III", title: "L'éboulis", place: "mont", backName: "l'éboulis",
     fx: { questSeen: "IIIR_q_carrier" },
     text: [
-      { first: true, text: "La quatrième galerie s'arrête au bout de quarante pas sur un éboulis frais : des blocs de calcaire blanc, de la poussière qui n'a pas eu le temps de noircir, un étai de bois cassé net qui dépasse des pierres. Ce n'est pas un ouvrage des Taiseurs. L'étai est du chêne neuf, équarri à la hache de carrier." },
+      { first: true, text: "La quatrième galerie s'arrête au bout de quarante pas sur un éboulis frais : des blocs de calcaire blanc, de la poussière qui n'a pas eu le temps de noircir, un étai de bois cassé net qui dépasse des pierres. L'ouvrage est étranger aux Taiseurs : l'étai est du chêne neuf, équarri à la hache de carrier." },
       { first: true, text: "Derrière les pierres, quelqu'un frappe. Trois coups, une pause, trois coups. Puis une voix d'homme, éraillée, qui crie quelque chose que les pierres mangent à moitié." },
       { first: true, after: "iiir:porte_forcee", text: "Les coups ont commencé quand tu as forcé la porte. La poussière, au pied de l'éboulis, est encore en train de retomber." },
       { again: true, text: "L'éboulis de calcaire blanc, l'étai cassé." },
@@ -647,7 +647,7 @@ Object.assign(P, {
     text: [
       { if: { has: "mont:ouverte" }, text: "La niche est déjà ouverte. Tu poses la coupe de sel à côté de toi, et tu restes un moment à regarder la lumière." },
       { if: { not: { has: "mont:ouverte" } }, text: "Le premier disque de bronze est le plus lourd. Il tourne sur son pivot avec un grondement sourd, et la lumière du puits de jour glisse sur la paroi, cherche, trouve un miroir d'argent. Le miroir d'argent, à son tour, pivote dans son cadre de pierre sous ta main, et la lumière plonge vers le bassin." },
-      { after: "iiir:gildas_ouvre", if: { not: { has: "mont:ouverte" } }, text: "C'est Frère Gildas qui t'indique chaque miroir, du bout de son bâton, sans hésiter, dans l'ordre. Tu fais tourner. Il ne touche à rien." },
+      { after: "iiir:gildas_ouvre", if: { not: { has: "mont:ouverte" } }, text: "C'est Frère Gildas qui t'indique chaque miroir, du bout de son bâton, sans hésiter, dans l'ordre. Tu fais tourner. Lui-même garde les mains sur son bâton." },
       { if: { not: { has: "mont:ouverte" } }, text: "La lumière frappe l'eau noire du bassin, au centre, à l'endroit exact où la voûte s'y reflète, et l'eau la renvoie, plus pâle, en une tache tremblante qui traverse la salle et va tomber droit dans le trou de la dalle ronde, au fond de la niche." },
       { if: { not: { has: "mont:ouverte" } }, text: "Pendant un moment, rien. Puis dans la pierre, derrière la dalle, quelque chose chauffe, se dilate, glisse. Un contrepoids descend avec un bruit de chaîne. La dalle ronde roule sur le côté dans sa rainure, lentement, et la lumière entre dans la niche." },
     ],
@@ -829,7 +829,7 @@ Object.assign(P, {
   IIIR_souv_dispute: { act: "III", title: "La dispute", souvenir: NUIT,
     text: [
       "Tu as haussé le ton. Tu t'entends : ta voix de ce soir-là, plus aiguë que tu croyais, qui reproche, qui accuse, qui compte. Les dettes de la boutique, les créanciers, les mois sans un client, et elle qui fait des affaires dans ton dos avec des gens qui portent des gants.",
-      "Odeline ne hausse pas le ton. Elle ne le haussait jamais. « Il y a des choses, dit-elle, {{oreille#iiir_od_aime|qu'on ne dit pas à ses apprentis, voilà tout|qu'on ne dit pas aux gens qu'on aime, quand elles peuvent les tuer}}. »",
+      "Odeline garde sa voix égale, comme toujours. « Il y a des choses, dit-elle, {{oreille#iiir_od_aime|qu'on ne dit pas à ses apprentis, voilà tout|qu'on ne dit pas aux gens qu'on aime, quand elles peuvent les tuer}}. »",
       "Tu as les mains qui tremblent. Tu les mets dans tes poches. Tu sais ce qui vient. Tu sais ce que tu vas dire, et tu voudrais dire autre chose.",
     ],
     choices: [
@@ -846,7 +846,7 @@ Object.assign(P, {
       { if: { is: { iiir_dit: "vrai" } }, text: "Tu ouvres la bouche, et tu ne cherches pas à te sauver." },
       "Ta bouche dit : « Tu mourras seule avec tes secrets. »",
       { if: { not: { is: { iiir_dit: "vrai" } } }, text: "Le souvenir ne connaît que cette phrase. Tu as beau pousser d'autres mots devant elle, c'est elle qui sort, avec ta voix de ce soir-là, nette, chaque syllabe à sa place." },
-      "Odeline ne répond pas tout de suite. Elle ôte ses lunettes. Elle frotte, du pouce, la marque rouge qu'elles lui laissent sur le nez. Elle a l'air très fatiguée, et pas surprise.",
+      "Odeline prend son temps pour répondre. Elle ôte ses lunettes. Elle frotte, du pouce, la marque rouge qu'elles lui laissent sur le nez. Elle a l'air très fatiguée, et pas surprise.",
       "« {{oreille#iiir_od_seule|Peut-être bien|Pas seule. Tu seras là. Tu es toujours là, à l'aube}} », dit-elle. Et elle se remet à écrire.",
     ],
     choices: [{ label: "Prendre ton manteau sur le comptoir", to: "IIIR_souv_porte" }] },
@@ -872,7 +872,7 @@ Object.assign(P, {
   IIIR_souv_reste: { act: "III", title: "Rester", souvenir: NUIT, back: true,
     text: [
       "Tu lâches la poignée. La clochette ne sonne pas. Tu poses ton manteau sur le comptoir, et tu vas t'asseoir sur la troisième marche de l'escalier de l'atelier, celle d'où tu la regardais travailler quand tu étais petit{e}.",
-      "Odeline ne dit rien. Elle écrit. Au bout d'un moment, sans lever la tête, elle pousse vers toi, sur l'établi, la boîte de dattes sèches qu'elle garde pour les clients difficiles. Tu en prends une. Dehors, on cesse de crier ton nom.",
+      "Odeline écrit, en silence. Au bout d'un moment, sans lever la tête, elle pousse vers toi, sur l'établi, la boîte de dattes sèches qu'elle garde pour les clients difficiles. Tu en prends une. Dehors, on cesse de crier ton nom.",
       "Le souvenir tient jusqu'à onze heures, à peu près. Puis il s'use, il se défait sur les bords comme une étoffe trop lavée, parce qu'il ne sait pas la suite : tu n'étais pas là pour la voir. Odeline pâlit sous la lampe. La boutique pâlit autour d'elle.",
       "Et très loin, quelque part dans un autre soir, tu entends quand même une porte claquer, et une vitre trembler dans son plomb. Celle-là, c'est la vraie.",
     ] },
@@ -919,7 +919,7 @@ Object.assign(P, {
     text: [
       "Tu lèves les yeux du miroir. Frère Gildas est debout devant toi, à deux pas. Il a vu ton visage pendant que tu lisais.",
       "« Tu as menti au Guet, dit-il. Tu as dit que tu ne l'avais pas vue depuis le matin. »",
-      "Ce n'est pas une question. Tu ne lui as jamais dit ce que tu as déclaré au Guet. Personne, à part le commis et toi, ne sait ce qu'il y a sur cette feuille.",
+      "Il l'affirme, sans interroger. Tu ne lui as jamais dit ce que tu as déclaré au Guet. Personne, à part le commis et toi, ne sait ce qu'il y a sur cette feuille.",
       "« Je savais que tu mentais, dit Gildas. Depuis le premier jour. Je savais que tu l'avais vue le soir, et que vous vous étiez disputé{e}s, parce qu'elle me l'a dit. À minuit. » Il s'arrête. « Tu as menti au Guet sur une heure. Moi, je n'ai rien dit à personne, sur tout le reste. C'est pire. Il est temps. »",
     ],
     choices: [{ label: "« Dites-le. »", big: true, to: "IIIR_gildas_aveu" }] },
@@ -955,7 +955,7 @@ Object.assign(P, {
 
   IIIR_gildas_apres: { act: "III", title: "Le silence d'après", place: "mont", with: "gildas",
     text: [
-      "Personne ne parle pendant longtemps. La lumière du puits de jour a encore bougé ; elle n'éclaire plus la niche, elle est montée sur la voûte. Frère Gildas reste debout là où il a parlé, les mains vides, la capuche sur les épaules.",
+      "Le silence dure longtemps. La lumière du puits de jour a encore bougé ; elle a quitté la niche pour la voûte. Frère Gildas reste debout là où il a parlé, les mains vides, la capuche sur les épaules.",
       "La lettre d'Odeline est dans ta main. Tu reconnais l'écriture, la tache d'encre de l'index au coin. *Monsieur Brunel*, commence-t-elle.",
       { with: "lison", text: "Lison s'est mise entre Gildas et le pont, sans y penser, la gaffe à la main. Elle a les lèvres serrées en un trait blanc." },
       { with: "tibere", text: "Tibère s'est assis par terre, le dos contre la margelle, comme un homme qui a couru. Il regarde ses mains." },
@@ -1063,8 +1063,8 @@ Object.assign(P, {
   IIIR_sursis: { act: "III", title: "Rien", place: "mont", with: "gildas",
     fx: { flag: "iiir:gildas_sursis" },
     text: [
-      "Tu ne réponds pas. Tu ne sais pas ce que tu veux faire de lui, et tu refuses de le décider ici, sous la montagne, avec le miroir contre ta poitrine et la lettre d'Odeline dans la main.",
-      "Frère Gildas comprend. Il ramasse son bâton. Quand tu te remets en marche, il te suit, à trois pas derrière, comme avant. Il a remis sa capuche. La cicatrice ne se voit plus.",
+      "Tu gardes le silence. Ce que tu veux faire de lui, tu l'ignores encore, et tu refuses de le décider ici, sous la montagne, avec le miroir contre ta poitrine et la lettre d'Odeline dans la main.",
+      "Frère Gildas comprend. Il ramasse son bâton. Quand tu te remets en marche, il te suit, à trois pas derrière, comme avant. Il a remis sa capuche. La cicatrice a disparu sous l'étoffe.",
       "Vous le savez tous les deux : c'est une question que tu emportes, et qu'il porte avec toi.",
     ],
     choices: [{ back: "IIIR_reflets" }] },
@@ -1143,8 +1143,8 @@ Object.assign(P, {
         meche: "Tu coupes une mèche de tes cheveux avec ton couteau, tu la noues avec un fil tiré de ta manche, et tu la poses sur la pierre nue. Elle a l'air de rien. Toutes les mèches de cette galerie ont l'air de rien.",
         clochette: "Tu poses la clochette d'argent sur la pierre nue. Elle a passé trois siècles au fond d'une citerne. Elle retrouve une niche, avec une couronne gravée sur le rebord et trois mots : *pour qu'elle appelle*.",
       } },
-      "Puis, avec la pointe de ton couteau, tu graves sous la niche la date d'aujourd'hui, et un nom de famille qui n'est pas des marais : *Carrus*.",
-      { with: "lison", text: "Lison regarde le nom. « Il n'y a jamais eu de Carrus ici », dit-elle. « Maintenant si », dis-tu. Elle ne répond pas, mais elle se penche et souffle la poussière de pierre dans les lettres, pour qu'on les lise mieux." },
+      "Puis, avec la pointe de ton couteau, tu graves sous la niche la date d'aujourd'hui, et un nom de famille étranger aux marais : *Carrus*.",
+      { with: "lison", text: "Lison regarde le nom. « Il n'y a jamais eu de Carrus ici », dit-elle. « Maintenant si », dis-tu. Elle garde le silence, mais elle se penche et souffle la poussière de pierre dans les lettres, pour qu'on les lise mieux." },
       { with: "gildas", text: "Frère Gildas lit le nom de loin, et fait sur sa poitrine le signe des trois doigts." },
     ],
     choices: [{ back: "IIIR_offrandes" }] },
@@ -1163,7 +1163,7 @@ Object.assign(P, {
     text: [
       "Vous dormez près du puits, roulés dans les manteaux, sur la pierre que la dalle qui chante fait vibrer toutes les dix respirations. Sous la montagne, le jour et la nuit se réduisent à la lampe qu'on baisse, et à la goutte qui tombe.",
       "Le miroir sans tain est contre ta poitrine, sous ta chemise, enveloppé de sa soie. Tu dors {{miroir#iiir_m_dors|bien, pour la première fois depuis longtemps|mal, et c'est la première fois depuis la nuit des Lanternes que tu dors mal, et c'est presque un soulagement, comme une fièvre qui sort}}.",
-      { with: "gildas", text: "Frère Gildas ne dort pas. Il est assis contre une statue de moine, le bâton en travers des genoux, et il veille, comme on veille un mort ou une écurie." },
+      { with: "gildas", text: "Frère Gildas reste éveillé. Il est assis contre une statue de moine, le bâton en travers des genoux, et il veille, comme on veille un mort ou une écurie." },
       { with: "any", text: "Autour de toi, des respirations. Quelqu'un se retourne, quelqu'un tousse, quelqu'un murmure un nom dans son sommeil." },
     ],
     choices: [
@@ -1179,7 +1179,7 @@ Object.assign(P, {
       "Lison se glisse près de toi, sur ton manteau, sans demander. Elle parle tout bas, pour ne pas réveiller les autres. « Qu'est-ce que tu as lu, dans ce truc ? »",
       "Tu le lui dis. La phrase. La porte. Le Guet. Tu le dis très vite, d'une traite, comme on avale un remède. Elle écoute sans t'interrompre.",
       "« Chez nous, dit-elle ensuite, on dit {{oreille#iiir_o_lison2|que les morts n'entendent plus ce qu'on leur a dit de travers|que les morts gardent la dernière phrase, et qu'il faut leur en apporter une autre au cimetière, à voix haute, pour qu'ils puissent choisir}}. »",
-      { tendre: true, text: "Elle reste. Elle pose sa tête contre ton épaule, dans le noir, et tu sens ses cheveux, qui sentent la vase et la fumée de tourbe. Elle ne dit plus rien. Toi non plus. Vous vous endormez comme ça, contre la margelle, et au matin vous faites semblant de rien.", else: "Elle reste assise à côté de toi un long moment, les genoux dans les bras, à regarder la lampe baissée. Puis elle retourne à sa place." },
+      { tendre: true, text: "Elle reste. Elle pose sa tête contre ton épaule, dans le noir, et tu sens ses cheveux, qui sentent la vase et la fumée de tourbe. Elle se tait. Toi aussi. Vous vous endormez comme ça, contre la margelle, et au matin vous faites semblant de rien.", else: "Elle reste assise à côté de toi un long moment, les genoux dans les bras, à regarder la lampe baissée. Puis elle retourne à sa place." },
     ],
     choices: [{ back: "IIIR_galeries" }] },
 
