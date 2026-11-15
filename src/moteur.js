@@ -106,6 +106,19 @@
   // A passage may name itself as a destination (backName) when its title is a moment ("Le soir") rather than a place.
   function prepare(story) {
     if (!story || !story.passages || story.__prepared) return story;
+    // A book to read (story.lecture, 8.7): no choices are written; each page leads to the next one in the order of the
+    // source, « Suivant », or « Chapitre II · <title> » when the next page opens a chapter (an act). The last page ends.
+    // Why: Clément, 15/11 — a public-domain novel kept as its author wrote it, with the engine's people, places and words.
+    if (story.lecture) {
+      var order = Object.keys(story.passages);
+      order.forEach(function (id, i) {
+        var P = story.passages[id], nx = order[i + 1], N = nx && story.passages[nx];
+        if ((P.choices && P.choices.length) || P.end) return;
+        if (!N) { P.end = true; return; }
+        var A = N.act && N.act !== P.act ? actOf(story, N.act) : null;
+        P.choices = [{ label: A ? String(A.title || "Chapitre " + A.id).replace(/\*/g, "") : "Suivant", to: nx, auto: "next" }];
+      });
+    }
     Object.keys(story.passages).forEach(function (id) {
       // A roll's or a fight's outcome may also say back: "PASSAGE" (a way back after the roll).
       var P0 = story.passages[id], branches = [];

@@ -1240,6 +1240,7 @@
     w.appendChild(h("div", null, h("div", { class: "label" }, C.multi ? C.multi.title : "Nouvelle partie"), h("h1", null, C.multi && C.multi.who ? C.multi.who + ", qui es-tu ?" : "Qui es-tu ?")));
     // The intro and the questions of the past agree with the hero as soon as the reader has said how the book speaks.
     var ac = function (t) { return st.heroes ? t : String(t).replace(/\{e\}/g, C.fem ? "e" : ""); };
+    if (st.lecture) { renderOpenBook(w, st, C); app.appendChild(w); return; }
     if (st.intro) w.appendChild(h("div", { class: "prose", html: st.intro.map(function (p) { return "<p>" + md(ac(p)) + "</p>"; }).join("") }));
     var nameIn = h("input", { value: C.name, placeholder: "Ton nom", maxlength: 30, "aria-label": "Nom du héros", oninput: function (e) { C.name = e.target.value; startBtn.disabled = !ready(); } });
     w.appendChild(h("div", { class: "stack" }, h("span", { class: "label" }, "Ton nom"), nameIn));
@@ -1289,6 +1290,29 @@
     var startBtn = h("button", { class: "btn primary", disabled: !ready(), onclick: startGame }, C.multi && C.multi.next ? C.multi.next : "Commencer la lecture");
     w.appendChild(h("div", { class: "row" }, startBtn, h("span", { class: "small muted" }, byStory ? "Il faut un nom et une réponse à chaque question." : "Il faut un nom, une voie et une réponse à chaque question.")));
     app.appendChild(w);
+  }
+  // Intent: renderOpenBook(Element, Story, Creation) -> nothing = the opening of a book to read (story.lecture, 8.7): the
+  // historical notice first, set apart, then the author's foreword and « Commencer la lecture ». No name, calling, face,
+  // difficulty or « tout jouer » : the hero is the narrator of the book.
+  // Why: Clément, 15/11 — « Le Monde perdu » kept as Doyle wrote it, with a notice « bien visible » on its context.
+  function renderOpenBook(w, st, C) {
+    var nar = (st.people || {})[st.narrator] || {};
+    C.name = C.name || nar.name || "Le lecteur"; C.arch = C.arch || "barde"; C.fem = !!nar.f; C.toutJouer = false; C.difficulty = "conteur";
+    w.querySelector("h1").textContent = st.title;
+    if (st.author) w.appendChild(h("div", { class: "small muted" }, st.author));
+    if (st.notice) w.appendChild(bookNotice(st, true));
+    if (st.intro) w.appendChild(h("div", { class: "prose", html: st.intro.map(function (p) { return "<p>" + md(p) + "</p>"; }).join("") }));
+    w.appendChild(h("div", { class: "row" }, h("button", { class: "btn primary", onclick: startGame }, "Commencer la lecture"),
+      nar.name ? h("span", { class: "small muted" }, "Le livre est raconté par " + nar.name + ".") : null));
+  }
+  // Intent: bookNotice(Story, full) -> Element = the notice of a book to read: its whole text (opening, « En savoir
+  // plus »), or the short reminder at the head of a chapter that needs it, with a way to read it all again.
+  function bookNotice(st, full) {
+    var N = st.notice;
+    if (full) return h("aside", { class: "book-notice", role: "note" }, h("div", { class: "label" }, "⚠ " + (N.title || "Avant de lire")),
+      h("div", { class: "prose", html: [].concat(N.text || []).map(function (p) { return "<p>" + md(p) + "</p>"; }).join("") }));
+    return h("aside", { class: "book-notice short", role: "note" }, h("span", { html: md("⚠ " + (N.reminder || N.title || "")) }), " ",
+      h("button", { class: "btn ghost sm", onclick: function () { A.modal = { kind: "bookNotice" }; render(); } }, "Relire la notice"));
   }
   // Intent: renderFacePicker(Creation, Story) -> Element = « Ton visage » : the portrait as drawn from the name, and
   // every trait of Moteur.FACE to change it: age, skin, shape, eyes, nose, mouth, hair, beard, and the particular
@@ -1387,6 +1411,7 @@
     box.appendChild(h("div", { class: "small" }, facts.join(" · ")));
     var mech = mechanicsOf(st);
     if (mech.length) box.appendChild(h("div", { class: "small" }, h("b", null, "On y trouve : "), mech.join(", ") + "."));
+    if (st.notice) box.appendChild(bookNotice(st, true));
     var th = (st.adult && st.adult.themes) || [];
     if (th.length) box.appendChild(h("div", { class: "small" }, h("b", null, "Thèmes : "), th.join(" ; ") + "."));
     var who = (A.profiles || []).filter(function (p) { return (A.allGames || []).some(function (g) { return g.profil === p.id && g.story === m.id && !g.test; }); }).map(function (p) { return p.name; });
@@ -2131,7 +2156,7 @@
       skyPill(st, s),
       dreadPill(st, s),
       s.mark ? h("span", { class: "pill mark", title: "La Marque" }, "Marque " + s.mark) : null,
-      h("span", { class: "pill small" }, M.timeLabel(s)),
+      st.lecture ? null : h("span", { class: "pill small" }, M.timeLabel(s)),
       s.ironman ? h("span", { class: "pill small", title: "Sans retour : chaque choix est définitif. Jetons de destin restants dans cet acte : " + fateLeft(s), "aria-label": "Sans retour, " + fateLeft(s) + " jetons de destin" }, "⚔ 🎲" + fateLeft(s)) : null,
       h("button", { class: "btn sm primary", onclick: function () { A.carnet = true; render(); } }, "Carnet")]));
     var w = h("main", { class: "wrap" });
@@ -2152,6 +2177,7 @@
     else if (nr) page.appendChild(h("aside", { class: "recap" }, h("div", { class: "row" }, h("span", { class: "grow" }), h("button", { class: "btn ghost sm", onclick: function () { A.recap = false; render(); } }, "Fermer")), nr));
     var actStart = cur >= 0 && acts[cur].start === s.node && actMin;
     page.appendChild(h("div", { class: "page-head" }, h("div", null, h("h2", { id: "page-title", tabindex: "-1" }, v.title || ""), h("div", { class: "where" }, [v.souvenir ? "Souvenir · " + v.souvenir : null, v.interlude ? "Interlude · " + v.interlude.who + (v.interlude.where ? " · " + v.interlude.where : "") : null, cur >= 0 && !v.souvenir && !v.interlude ? acts[cur].title : null, v.souvenir || v.interlude ? null : where(st, s), actStart ? "environ " + minutesLabel(actMin) + " de lecture" : null].filter(Boolean).join(" · "))), num ? h("span", { class: "para-num", title: "Numéro du paragraphe" }, "§ " + num) : null));
+    if (st.notice && actFirst && acts[cur].notice) page.appendChild(bookNotice(st, false));
     var gb = groupBanner(G, s); if (gb) page.appendChild(gb);
     var fu = firstUse(G, v); if (fu) page.appendChild(fu);
     if (A.notice) page.appendChild(h("div", { class: "notice" }, A.notice));
@@ -2187,16 +2213,18 @@
     if (v.kind === "end") page.appendChild(renderEnding(st, s, v));
     w.appendChild(page);
     w.appendChild(h("div", { class: "tools" },
-      s.ironman ? null : h("button", { class: "btn sm", disabled: !G.undo.length, onclick: undo, title: G.multi ? "Revenir avant ton dernier choix (pas avant un choix du monde ni une charnière)" : "Revenir avant ton dernier choix" }, "↶ Choix précédent"),
+      st.lecture ? h("button", { class: "btn sm", disabled: !G.undo.length, onclick: undo }, "← Page précédente") : null,
+      st.lecture ? h("button", { class: "btn sm", "aria-pressed": A.recap ? "true" : "false", onclick: function () { A.recap = !A.recap; render(); } }, "Où en étais-je ?") : null,
+      s.ironman || st.lecture ? null : h("button", { class: "btn sm", disabled: !G.undo.length, onclick: undo, title: G.multi ? "Revenir avant ton dernier choix (pas avant un choix du monde ni une charnière)" : "Revenir avant ton dernier choix" }, "↶ Choix précédent"),
       G.multi && A.multi.kind === "local" && !v.wait ? h("button", { class: "btn sm", onclick: function () { stopSpeaking(); passTurn(); } }, "Passer la main") : null,
       A.tts ? h("button", { class: "btn sm", onclick: function () { A.speaking ? stopSpeaking() : speak(v); } }, A.speaking ? "■ Arrêter la lecture" : "🔈 Lire à voix haute") : null,
       pref("voiceChoice") && VoiceChoice.available() && !G.multi && v.kind !== "end" ? h("button", { class: "btn sm" + (VoiceChoice.listening ? " primary" : ""), "aria-pressed": VoiceChoice.listening ? "true" : "false", title: "Dis « le deuxième » ou quelques mots du choix", onclick: function () { VoiceChoice.listening ? VoiceChoice.stop() : VoiceChoice.listen(); } }, VoiceChoice.listening ? "🎤 J'écoute…" : "🎤 Choisir à la voix") : null,
       h("button", { class: "btn sm", onclick: function () { A.carnet = true; A.carnetTab = "carte"; render(); } }, "Carte"),
-      h("button", { class: "btn sm", onclick: function () { A.carnet = true; A.carnetTab = "quetes"; render(); } }, "Quêtes"),
+      st.lecture ? null : h("button", { class: "btn sm", onclick: function () { A.carnet = true; A.carnetTab = "quetes"; render(); } }, "Quêtes"),
       G.multi ? null : h("button", { class: "btn sm", onclick: function () { A.modal = { kind: "mark" }; render(); } }, "🔖 Marque-page"),
       G.multi || G.ephemeral ? null : h("button", { class: "btn sm", "aria-pressed": groupOf(G) ? "true" : "false", onclick: function () { A.modal = { kind: "group" }; render(); } }, "👥 À plusieurs"),
       h("button", { class: "btn sm", "aria-label": "Ambiance sonore", "aria-pressed": pref("ambiance") ? "true" : "false", onclick: function () { setPref("ambiance", !pref("ambiance")); } }, pref("ambiance") ? "🔊 Ambiance" : "🔇 Ambiance"),
-      pref("nudge") && !G.multi && v.kind !== "end" ? h("button", { class: "btn sm", disabled: nudgesLeft(G) <= 0, title: "Une phrase pour t'orienter, sans rien révéler", onclick: function () { askNudge(G); } }, "💡 Coup de pouce (" + nudgesLeft(G) + ")") : null,
+      pref("nudge") && !G.multi && !st.lecture && v.kind !== "end" ? h("button", { class: "btn sm", disabled: nudgesLeft(G) <= 0, title: "Une phrase pour t'orienter, sans rien révéler", onclick: function () { askNudge(G); } }, "💡 Coup de pouce (" + nudgesLeft(G) + ")") : null,
       h("button", { class: "btn sm", onclick: function () { A.modal = { kind: "prefs" }; render(); } }, "⚙ Réglages"),
       h("button", { class: "btn sm", onclick: function () { A.modal = { kind: "report" }; render(); } }, "⚑ Signaler")));
     app.appendChild(w);
@@ -4471,11 +4499,15 @@
   }
 
   // ------------------------------------------------------------------ dialogs: settings, report, real dice, bookmark
+  function modalBookNotice(box, close) {
+    box.appendChild(bookNotice(A.game ? A.game.story : A.create.story, true));
+    box.appendChild(h("div", { class: "row" }, h("button", { class: "btn primary", autofocus: true, onclick: close }, "Reprendre la lecture")));
+  }
   function renderModal() {
     var m = A.modal, close = function () { if (m.kind === "send" || m.kind === "receive") Transfer.stop(); A.modal = null; render(); };
     var box = h("div", { class: "modal", role: "dialog", "aria-modal": "true" });
     var bg = h("div", { class: "drawer-bg", onclick: close });
-    ({ prefs: modalPrefs, report: modalReport, dice: modalDice, mark: modalMark, bedtime: modalBedtime, send: modalSend, receive: modalReceive, words: modalWords, sync: modalSync, chapter: modalChapter, shake: modalShake, adult: modalAdult, keys: modalKeys, news: modalNews, group: modalGroup, vote: modalVote, doc: modalDoc })[m.kind](box, close, m);
+    ({ prefs: modalPrefs, report: modalReport, dice: modalDice, mark: modalMark, bedtime: modalBedtime, send: modalSend, receive: modalReceive, words: modalWords, sync: modalSync, chapter: modalChapter, shake: modalShake, adult: modalAdult, keys: modalKeys, news: modalNews, group: modalGroup, vote: modalVote, doc: modalDoc, bookNotice: modalBookNotice })[m.kind](box, close, m);
     app.appendChild(bg); app.appendChild(box);
     var f = box.querySelector("[autofocus]"); if (f) setTimeout(function () { f.focus(); }, 0);
   }
@@ -4665,6 +4697,7 @@
 
   // ------------------------------------------------------------------ "Précédemment…", the timeline, the dice
   function renderRecap(G) {
+    if (G.story.lecture) return readingRecap(G);
     var lines = G.log.slice(-7, -1).filter(function (e) { return e.title; });
     if (!lines.length) return null;
     var keep = /Indice|Quête|rejoint|quitte|Haut fait|Niveau|Acheté|Tu reçois|Tu obtiens/;
@@ -4673,6 +4706,17 @@
         var evs = (e.ev || []).filter(function (x) { return keep.test(x); }).slice(0, 2);
         return h("li", null, h("b", null, String(e.title).replace(/\*/g, "")), e.c ? h("span", null, " : tu as choisi « " + e.c + " »") : null, evs.length ? h("div", { class: "small muted" }, evs.join(" · ")) : null);
       })));
+  }
+  // Intent: readingRecap(Game) -> Element = « Où en étais-je ? » in a book to read: the summary of each chapter already
+  // finished (acts[].recap), then the pages of the current chapter read so far. Nothing of what comes next.
+  function readingRecap(G) {
+    var st = G.story, s = G.s, acts = st.acts || [], cur = acts.map(function (a) { return a.id; }).indexOf(s.lastAct);
+    var done = acts.slice(0, Math.max(0, cur)).filter(function (a) { return a.recap; });
+    var here = G.log.slice(0, -1).filter(function (e) { return e.title && e.act === s.lastAct; });
+    if (!done.length && !here.length) return null;
+    return h("aside", { class: "recap" }, h("div", { class: "row" }, h("span", { class: "label grow" }, "Où en étais-je ?"), h("button", { class: "btn ghost sm", onclick: function () { A.recap = false; render(); } }, "Fermer")),
+      done.length ? h("ol", null, done.map(function (a) { return h("li", null, h("b", null, String(a.title).replace(/\*/g, "")), h("div", { class: "small" }, a.recap)); })) : null,
+      here.length ? h("div", { class: "small muted" }, "Dans ce chapitre : " + here.map(function (e) { return String(e.title).replace(/\*/g, ""); }).join(" · ") + ".") : null);
   }
   var REDUCED = (function () { try { return window.matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) { return false; } })();
   // Intent: leadsIn(Event) -> Bool = shown before the text: a roll, or what the choice did before the page opened;
