@@ -1207,10 +1207,10 @@ module.exports = {
   passages: P,
   extras: {
     people: {
-      iie_goulven: { name: "Loïg Ker", f: false, face: { age: "ancien", coif: "degarni", beard: "barbe" }, desc: "Le dernier gardien du phare de l'Ouïe. Quarante ans de lampe, huit hivers seul." },
-      iie_jobic: { name: "Jobic", f: false, face: { age: "jeune", coif: "court", hair: "roux", marks: ["rousseur"] }, desc: "Ancien mousse du cotre de la Banque. Il boit pour dormir, et dort mal." },
-      iie_ravaud: { name: "Ravaud", f: false, face: { age: "mur", coif: "court", beard: "barbe", marks: ["balafre"] }, desc: "Écumeur chassé de Port-Vasier par la Veuve Corbière. Il campe sur l'île Plate avec ceux que personne ne veut." },
-      iie_klervi: { name: "Klervi", f: true, face: { age: "adulte", coif: "foulard", skin: "hale" }, desc: "Ramasseuse d'œufs de Port-Vasier. Elle descend les falaises de l'île aux Fous au bout d'une corde depuis vingt ans." },
+      iie_goulven: { name: "Loïg Ker", qui: "Le dernier gardien du phare de l'Ouïe.", aspect: { allure: "vieil homme maigre comme une gaffe", visage: "barbe en broussaille, yeux très pâles", habits: "tricot de laine rapiécé", signe: "harpon" }, f: false, face: { age: "ancien", coif: "degarni", beard: "barbe" }, desc: "Le dernier gardien du phare de l'Ouïe. Quarante ans de lampe, huit hivers seul." },
+      iie_jobic: { name: "Jobic", qui: "Un jeune mousse de l'île Plate.", aspect: { allure: "vingt ans, visage d'enfant", visage: "taches de son, yeux rouges de buveur", signe: "maquereaux et couteau" }, f: false, face: { age: "jeune", coif: "court", hair: "roux", marks: ["rousseur"] }, desc: "Ancien mousse du cotre de la Banque. Il boit pour dormir, et dort mal." },
+      iie_ravaud: { name: "Ravaud", qui: "Écumeur chassé de Port-Vasier, maître de l'île Plate.", aspect: { allure: "cinquante ans, sabre à la ceinture", visage: "barbe grise en pointe, balafre sur l'œil gauche", habits: "pourpoint de velours vert mité", signe: "trois dents d'or" }, f: false, face: { age: "mur", coif: "court", beard: "barbe", marks: ["balafre"] }, desc: "Écumeur chassé de Port-Vasier par la Veuve Corbière. Il campe sur l'île Plate avec ceux que personne ne veut." },
+      iie_klervi: { name: "Klervi", qui: "Ramasseuse d'œufs de Port-Vasier.", aspect: { allure: "femme de falaise, épaule démise", signe: "corde et paniers d'œufs bleutés", voix: "rire cassé, jurons" }, f: true, face: { age: "adulte", coif: "foulard", skin: "hale" }, desc: "Ramasseuse d'œufs de Port-Vasier. Elle descend les falaises de l'île aux Fous au bout d'une corde depuis vingt ans." },
     },
     items: {
       iie_tr_lampe: { name: "La lampe des gardiens", kind: "tresor", price: 60, desc: "Une lampe de voyage en argent ciselé de croissants, noircie par l'huile. Les gardiens de l'Ouïe se la passaient de père en fils." },

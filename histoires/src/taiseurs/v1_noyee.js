@@ -1386,8 +1386,8 @@ module.exports = {
   passages: P,
   extras: {
     people: {
-      vn_helis: { name: "Hélis Graumont", f: true, face: { age: "ancien", coif: "foulard" }, desc: "Une vieille femme de Port-Vasier qui vient à chaque Grande Basse pêcher à la gaffe dans les rues de Sorne. Son fils Aloïs y est resté l'an dernier." },
-      vn_berald: { name: "Léandre Escoffe", f: false, face: { age: "mur", coif: "court", beard: "barbe" }, desc: "Capitaine des gardes de Corisande Marrel. Une chaîne d'argent sur la poitrine, des mains de débardeur." },
+      vn_helis: { name: "Hélis Graumont", qui: "Une vieille femme de Port-Vasier, pêcheuse à la gaffe.", aspect: { allure: "vieille femme sur un toit, encordée", signe: "mains énormes, gaffe et lanterne", voix: "râpée par le sel" }, f: true, face: { age: "ancien", coif: "foulard" }, desc: "Une vieille femme de Port-Vasier qui vient à chaque Grande Basse pêcher à la gaffe dans les rues de Sorne. Son fils Aloïs y est resté l'an dernier." },
+      vn_berald: { name: "Léandre Escoffe", qui: "Capitaine des gardes de Corisande Marrel.", aspect: { allure: "homme carré, poings sur les hanches", signe: "chaîne d'argent sur la poitrine, mains de débardeur" }, f: false, face: { age: "mur", coif: "court", beard: "barbe" }, desc: "Capitaine des gardes de Corisande Marrel. Une chaîne d'argent sur la poitrine, des mains de débardeur." },
     },
     items: {
       vn_couteau_alois: { name: "Le couteau d'Aloïs", kind: "outil", price: 1, desc: "Un couteau de pêche à manche de corne, une encoche au pouce. Il appartenait au fils d'Hélis Graumont." },

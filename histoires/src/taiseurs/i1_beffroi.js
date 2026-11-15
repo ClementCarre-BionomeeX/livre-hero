@@ -1310,10 +1310,10 @@ module.exports = {
   passages: P,
   extras: {
     people: {
-      ib_medard: { name: "Médard Coquart", f: false, face: { age: "ancien", coif: "degarni", beard: "barbe" }, desc: "Le plus vieux carillonneur de la confrérie du Beffroi. Il a sonné quarante ans les cloches de la reine, et il est sourd d'une oreille." },
-      ib_baptistine: { name: "Baptistine Coquart", f: true, face: { age: "jeune", coif: "tresses", hair: "roux", marks: ["rousseur"] }, desc: "Petite-fille de Médard, apprentie carillonneuse, la seule fille de la confrérie." },
-      ib_eudes: { name: "Le chanoine Sidoine Mainfroy", f: false, face: { age: "mur", coif: "couronne" }, desc: "Chanoine du Beffroi : il a la garde de la tour, de la chapelle du rez-de-chaussée et des clés." },
-      ib_aldebert: { name: "Maître Aldebert Vauquelin", f: false, face: { age: "mur", coif: "court", beard: "moustache" }, desc: "Maître horloger de la République, chargé de l'horloge de la reine." },
+      ib_medard: { name: "Médard Coquart", qui: "Le plus vieux carillonneur de la confrérie du Beffroi.", aspect: { allure: "vieux sonneur assis sur le banc", visage: "barbe blanche coupée au couteau", signe: "oreille bouchée de coton, mains énormes déformées" }, f: false, face: { age: "ancien", coif: "degarni", beard: "barbe" }, desc: "Le plus vieux carillonneur de la confrérie du Beffroi. Il a sonné quarante ans les cloches de la reine, et il est sourd d'une oreille." },
+      ib_baptistine: { name: "Baptistine Coquart", qui: "Petite-fille de Médard, apprentie carillonneuse.", aspect: { allure: "quinze ans, frappe à coups réguliers", visage: "tresses rousses", signe: "poignets bandés de toile", voix: "franche, piquante" }, f: true, face: { age: "jeune", coif: "tresses", hair: "roux", marks: ["rousseur"] }, desc: "Petite-fille de Médard, apprentie carillonneuse, la seule fille de la confrérie." },
+      ib_eudes: { name: "Le chanoine Sidoine Mainfroy", qui: "Chanoine du Beffroi, gardien de la tour et des clés.", aspect: { allure: "homme rond", visage: "joues couperosées", habits: "surplis taché", signe: "énorme trousseau de clés qui tinte" }, f: false, face: { age: "mur", coif: "couronne" }, desc: "Chanoine du Beffroi : il a la garde de la tour, de la chapelle du rez-de-chaussée et des clés." },
+      ib_aldebert: { name: "Maître Aldebert Vauquelin", qui: "Maître horloger de la République, chargé de l'horloge de la reine.", aspect: { allure: "affairé, penché sur l'établi", visage: "moustache cirée", habits: "manches retroussées", signe: "rouages et loupe de verre" }, f: false, face: { age: "mur", coif: "court", beard: "moustache" }, desc: "Maître horloger de la République, chargé de l'horloge de la reine." },
     },
     items: {
       ib_billet_lothaire: { name: "Le billet de Lothaire Brunel", kind: "document", form: "billet",

@@ -1276,7 +1276,7 @@ module.exports = {
   passages: P,
   extras: {
     people: {
-      iiir_varon: { name: "Sulpice Varon", f: false, face: { age: "adulte", coif: "court", beard: "barbe" }, desc: "Carrier d'Orle, payé par le pèlerin de la Banque pour creuser un chemin vers la salle des Reflets par en dessous. Il s'est emmuré lui-même." },
+      iiir_varon: { name: "Sulpice Varon", qui: "Carrier d'Orle, emmuré dans une vieille galerie.", aspect: { allure: "carrier couché derrière l'éboulis", signe: "pioche de carrier", voix: "toute proche, qui tousse" }, f: false, face: { age: "adulte", coif: "court", beard: "barbe" }, desc: "Carrier d'Orle, payé par le pèlerin de la Banque pour creuser un chemin vers la salle des Reflets par en dessous. Il s'est emmuré lui-même." },
     },
     items: {
       iiir_tr_clochette: { name: "La clochette sans battant", kind: "tresor", price: 40, unique: true, desc: "Une petite clochette d'argent noirci, sans battant, roulée trois siècles par l'eau d'une citerne. Sur le rebord : *pour qu'elle appelle*." },

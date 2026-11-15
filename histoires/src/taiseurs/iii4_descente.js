@@ -89,8 +89,8 @@ Object.assign(P, {
 });
 
 Object.assign(X.people, {
-  iiid_gauvin: { name: "Gauvin", f: false, face: { age: "jeune", coif: "court" }, desc: "Courrier du Conseil des Comptoirs, vingt ans, deux mois de solde en retard." },
-  iiid_blandine: { name: "Blandine", f: true, face: { age: "adulte", coif: "foulard" }, desc: "Lavandière du quartier des Teinturiers, partie de Salvèze avec un sac de grain et deux enfants." },
+  iiid_gauvin: { name: "Gauvin", qui: "Courrier du Conseil des Comptoirs.", aspect: { allure: "vingt ans, bottes aux pieds", signe: "sacoche de cuir scellée, mains gercées", voix: "bavarde" }, f: false, face: { age: "jeune", coif: "court" }, desc: "Courrier du Conseil des Comptoirs, vingt ans, deux mois de solde en retard." },
+  iiid_blandine: { name: "Blandine", qui: "Lavandière du quartier des Teinturiers, partie de Salvèze avec ses deux enfants.", aspect: { allure: "trentaine, parle pour tous", signe: "sac de grain noué d'une ficelle rouge" }, f: true, face: { age: "adulte", coif: "foulard" }, desc: "Lavandière du quartier des Teinturiers, partie de Salvèze avec un sac de grain et deux enfants." },
 });
 Object.assign(X.items, {
   iiid_lettre_prevot: { name: "La lettre du prévôt au bailli d'Orle", kind: "document", form: "lettre", hand: "soignee", unique: true,
@@ -191,9 +191,9 @@ Object.assign(P, {
 });
 
 Object.assign(X.people, {
-  iiid_hector: { name: "Hector", f: false, face: { age: "jeune", coif: "court" }, desc: "Un soldat d'Aveline de dix-neuf ans, déserteur, accent du nord, ongles rongés." },
-  iiid_theodule: { name: "Théodule", f: false, face: { age: "adulte", coif: "degarni" }, desc: "Greffier adjoint du Conseil des Comptoirs, en fuite, les doigts noirs d'encre de galle." },
-  iiid_fissot: { name: "Maître Philibert Fissot", f: false, face: { age: "mur", coif: "degarni", marks: ["lunettes"] }, desc: "Premier commis de la Maison Marrel. Maigre, lunettes rondes, il compte tout, même les mots." },
+  iiid_hector: { name: "Hector", qui: "Un soldat d'Aveline de dix-neuf ans, déserteur.", aspect: { allure: "garçon accroché aux barreaux", habits: "chemise, cuirasse bleue à ses pieds", signe: "ongles rongés jusqu'au sang", voix: "accent du nord, rapide" }, f: false, face: { age: "jeune", coif: "court" }, desc: "Un soldat d'Aveline de dix-neuf ans, déserteur, accent du nord, ongles rongés." },
+  iiid_theodule: { name: "Théodule", qui: "Greffier adjoint du Conseil des Comptoirs.", aspect: { allure: "homme en noir, inquiet", habits: "habit de laine élimé aux coudes", signe: "doigts noirs d'encre, besace sur les genoux" }, f: false, face: { age: "adulte", coif: "degarni" }, desc: "Greffier adjoint du Conseil des Comptoirs, en fuite, les doigts noirs d'encre de galle." },
+  iiid_fissot: { name: "Maître Philibert Fissot", qui: "Premier commis de la Maison Marrel.", aspect: { allure: "maigre, précis", signe: "lunettes rondes" }, f: false, face: { age: "mur", coif: "degarni", marks: ["lunettes"] }, desc: "Premier commis de la Maison Marrel. Maigre, lunettes rondes, il compte tout, même les mots." },
 });
 Object.assign(X.items, {
   iiid_ecusson: { name: "L'écusson d'Aveline", kind: "outil", price: 2, unique: true, desc: "Un écusson de drap bleu brodé d'argent : la tour couronnée d'Aveline et le chiffre d'une compagnie. Hector te l'a laissé." },
@@ -1232,8 +1232,8 @@ Object.assign(P, {
 });
 
 Object.assign(X.people, {
-  iiid_seraphin: { name: "Séraphin", f: false, face: { age: "ancien", coif: "degarni", beard: "barbe" }, desc: "Ancien moine du Mont, ermite au bord du lac de Combe-Blanche. Il en est parti le jour où il a eu envie de parler." },
-  iiid_josette: { name: "Josette", f: true, face: { age: "mur", coif: "foulard" }, desc: "Gardienne de chèvres aux Argentières, petite-fille du dernier mineur de la reine." },
+  iiid_seraphin: { name: "Séraphin", qui: "Ancien moine du Mont, ermite au bord du lac de Combe-Blanche.", aspect: { allure: "vieux pêcheur de truites", visage: "yeux délavés par la neige, barbe jaunie", signe: "ligne et grappin de puits" }, f: false, face: { age: "ancien", coif: "degarni", beard: "barbe" }, desc: "Ancien moine du Mont, ermite au bord du lac de Combe-Blanche. Il en est parti le jour où il a eu envie de parler." },
+  iiid_josette: { name: "Josette", qui: "Gardienne de chèvres aux Argentières, petite-fille du dernier mineur de la reine.", aspect: { allure: "chevrière des hauteurs", signe: "ses chèvres entre les pierres" }, f: true, face: { age: "mur", coif: "foulard" }, desc: "Gardienne de chèvres aux Argentières, petite-fille du dernier mineur de la reine." },
 });
 Object.assign(X.items, {
   iiid_tr_coupe: { name: "La coupe d'ambre chantant", kind: "tresor", price: 90, unique: true, desc: "Une coupe taillée dans l'ambre des Écueils. Un doigt mouillé sur le bord lui fait rendre une note longue et pure. La reine voulait qu'on y boive à la Charte." },
@@ -1469,10 +1469,10 @@ Object.assign(P, {
 });
 
 Object.assign(X.people, {
-  iiid_bertrande: { name: "Bertrande", f: true, face: { age: "mur", coif: "foulard" }, desc: "Syndique des charbonniers des Essarts, les bras noirs jusqu'aux coudes." },
-  iiid_vachon: { name: "Le vieux Vachon", f: false, face: { age: "ancien", coif: "degarni" }, desc: "Vigneron du clos Vachon, au-dessus de l'Orle. Il garde le secret de son père, et de la reine." },
-  iiid_apolline: { name: "Apolline Vachon", f: true, face: { age: "adulte", coif: "chignon" }, desc: "La fille du vieux Vachon. Elle porte le noir avant l'heure." },
-  iiid_cosme: { name: "Cosme", f: false, face: { age: "adulte", coif: "court" }, desc: "Le gendre du vieux Vachon. Gilet brodé, bottes neuves, quatre cents ducats de dettes." },
+  iiid_bertrande: { name: "Bertrande", qui: "Syndique des charbonniers des Essarts.", aspect: { allure: "cinquante ans, bras épais", habits: "tablier de cuir brûlé par les braises", signe: "bras noirs jusqu'aux coudes", voix: "forte, qu'on écoute" }, f: true, face: { age: "mur", coif: "foulard" }, desc: "Syndique des charbonniers des Essarts, les bras noirs jusqu'aux coudes." },
+  iiid_vachon: { name: "Le vieux Vachon", qui: "Vigneron du clos Vachon, au-dessus de l'Orle.", aspect: { allure: "vieillard alité sous trois couvertures", voix: "rire qui le fait tousser" }, f: false, face: { age: "ancien", coif: "degarni" }, desc: "Vigneron du clos Vachon, au-dessus de l'Orle. Il garde le secret de son père, et de la reine." },
+  iiid_apolline: { name: "Apolline Vachon", qui: "La fille du vieux Vachon.", aspect: { allure: "silencieuse au chevet de son père", habits: "robe noire de deuil" }, f: true, face: { age: "adulte", coif: "chignon" }, desc: "La fille du vieux Vachon. Elle porte le noir avant l'heure." },
+  iiid_cosme: { name: "Cosme", qui: "Le gendre du vieux Vachon.", aspect: { allure: "compte à voix haute", habits: "gilet brodé, bottes neuves" }, f: false, face: { age: "adulte", coif: "court" }, desc: "Le gendre du vieux Vachon. Gilet brodé, bottes neuves, quatre cents ducats de dettes." },
 });
 Object.assign(X.enemies, {
   iiid_romuald: { name: "Romuald, sergent d'Aveline", look: "humain", pv: 64, att: 60, def: 24, dmg: 8, desc: "Vingt ans de service, une balafre sur l'œil gauche, une cuirasse astiquée. Il se bat comme on fait l'exercice." },
