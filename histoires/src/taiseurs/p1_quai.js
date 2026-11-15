@@ -52,7 +52,7 @@ module.exports = {
       text: [
         "Tu sors sur les marches et tu appelles. Ta voix part sur l'eau, rebondit sur les façades d'en face, et les volets s'ouvrent l'un après l'autre.",
         "Clarmonde Pujol arrive la première, de la pension d'à côté, un châle sur sa chemise de nuit et un bonnet de travers. Elle a cinquante ans, des bras de lavandière et un trousseau de clés à la ceinture qu'elle n'enlève jamais. Derrière elle, Prosper Galabru, le brocanteur d'en face, en bras de chemise, une bougie à la main en plein jour. Maître Lagrue, l'écrivain public, descend de son échoppe avec son chapeau, qu'il ôte sur la dernière marche.",
-        "En bas, sur l'escalier d'eau, le vieux Couzi lève la tête de sa barque. Il a sa gaffe à la main et, empilées derrière lui, trois douzaines de lanternes mouillées. Il amarre sa barque sans un mot et monte, lentement, une marche à la fois.",
+        "En bas, sur l'escalier d'eau, le vieux Couzi lève la tête de sa barque. Il a sa gaffe à la main et, empilées derrière lui, trois douzaines de lanternes mouillées. Il amarre sa barque et monte, lentement, une marche à la fois.",
         "« Titou ! crie Clarmonde par-dessus son épaule. Cours au poste du Guet. Dis qu'il y a une morte chez Carrus. Cours, je te dis ! » Un gamin en chemise file le long du quai, pieds nus.",
       ],
       choices: [{ label: "Les faire entrer", to: "P_voisins" }] },
@@ -63,7 +63,7 @@ module.exports = {
         "Maître Lagrue regarde depuis le haut des marches, son chapeau contre la poitrine. C'est un homme maigre aux doigts tachés d'encre, qui écrit pour les autres les lettres d'amour, les suppliques et les testaments, à deux liards la page. « Quarante ans, dit-il. {{oreille|Quarante ans qu'elle monte et descend cet escalier|Et je lui dois encore deux ducats, que Dieu me pardonne}}. » Il ne s'adresse à personne en particulier.",
         "Prosper Galabru, lui, reste près des étagères. Il regarde les objets, un par un, avec l'œil du métier : le prix de chaque chose passe sur son visage. Il s'en aperçoit, rougit, et pose sa bougie sur le comptoir.",
         "Le vieux Couzi descend jusqu'en bas, s'agenouille sur la terre battue avec un craquement de genoux, et dit à voix basse la prière des Noyés, celle qu'on dit sur les lanternes. Il la dit en entier. Personne ne l'interrompt.",
-        { if: { has: "metier:parole" }, text: "Tu les connais tous depuis des années. Tu sais qui prête à qui sur ce quai, qui a vendu quoi à Odeline, qui lui doit encore. Ce matin, tu les regardes autrement, et tu ne sais pas pourquoi." },
+        { if: { has: "metier:parole" }, text: "Tu les connais tous depuis des années. Tu sais qui prête à qui sur ce quai, qui a vendu quoi à Odeline, qui lui doit encore. Ce matin, tu les regardes autrement, et la raison t'échappe." },
       ],
       choices: [{ label: "Attendre le Guet", to: "P_commis" }] },
 
@@ -481,7 +481,7 @@ module.exports = {
       text: [
         "Tu lui demandes comment va Rosalie, l'apprentie couturière. Tibère s'arrête de mâcher. Il te regarde comme on regarde un homme qui vient de sortir une carte de sa manche.",
         "« Qui vous a parlé de Rosalie ? » Tu dis : tout le quai la connaît. C'est faux, et il le sait, et il décide de te croire. « Elle va bien, dit-il. Elle coud des boutonnières chez la veuve Aubrac, rue des Ciseaux. Elle a de bons doigts. Sa mère avait de bons doigts. »",
-        "« Je l'attends le dimanche à la sortie de Saint-Rieul. Elle passe de l'autre côté de la rue. Je ne lui en veux pas. J'ai joué la dot de sa sœur aînée aux dés, l'hiver où sa sœur est morte de la fièvre. » Il dit ça d'une voix égale, en regardant le canal. Puis il reprend son pain et mord dedans, et vous restez un moment ainsi, sans rien dire, toi debout, lui sur sa borne.",
+        "« Je l'attends le dimanche à la sortie de Saint-Rieul. Elle passe de l'autre côté de la rue. Je ne lui en veux pas. J'ai joué la dot de sa sœur aînée aux dés, l'hiver où sa sœur est morte de la fièvre. » Il dit ça d'une voix égale, en regardant le canal. Puis il reprend son pain et mord dedans, et vous restez un moment ainsi, en silence, toi debout, lui sur sa borne.",
       ],
       choices: [{ back: "PQ_tibere" }] },
 
@@ -489,7 +489,7 @@ module.exports = {
       fx: { flag: ["odeline:meurtre", "pq:tibere_paye"], ep: ["perso", 400] },
       text: [
         "Tu le dis à voix basse, tout près : on l'a payé pour écrire *accident*. Tibère devient d'une couleur de suif. Il te prend par le bras, avec une poigne de sergent qui a traîné des ivrognes toute sa vie, et t'emmène sous l'arche du pont, à l'ombre, là où l'eau couvre les voix.",
-        "« Qui vous a dit ça ? » Tu ne réponds pas. Il te lâche le bras. Il regarde l'eau. « Il y a huit jours, dit-il enfin, un homme est venu me trouver au poste. Bien mis, des gants gris, une voix douce. Il m'a payé dix ducats d'avance pour lui rapporter ce qui se passe sur le quai, chez Carrus surtout. Et en partant, il a dit : *s'il arrive quelque chose à la vieille dame, ce sera un accident. Vous l'écrirez vite.* »",
+        "« Qui vous a dit ça ? » Tu te tais. Il te lâche le bras. Il regarde l'eau. « Il y a huit jours, dit-il enfin, un homme est venu me trouver au poste. Bien mis, des gants gris, une voix douce. Il m'a payé dix ducats d'avance pour lui rapporter ce qui se passe sur le quai, chez Carrus surtout. Et en partant, il a dit : *s'il arrive quelque chose à la vieille dame, ce sera un accident. Vous l'écrirez vite.* »",
         { if: { has: "pq:tibere_attendait" }, text: "Tu lui répètes ce que t'a dit le petit Titou : quand il est arrivé au poste, le sergent était assis, habillé, son manteau sur le dos et sa masse à la ceinture. Tibère ferme les yeux une seconde. « J'attendais ce gamin depuis huit jours, dit-il. Je ne savais pas lequel ce serait. Je savais qu'il viendrait. »" },
         "« Il l'a dit il y a huit jours, répète Tibère. Avant. Ce matin, quand le gamin est arrivé au poste en criant, c'est à cette phrase que j'ai pensé d'abord. Pas à elle. » Il se frotte la balafre. « J'ai écrit accident. C'est peut-être vrai. Je n'en sais rien. Je ne suis pas descendu assez longtemps pour le savoir. »",
         "« Le nom de l'homme, je ne le sais pas. Il vient de l'île des Changeurs ; il a l'accent de là-bas, et des bottes plus propres que les miennes un jour de procession. Il me retrouve au Lumignon le jeudi. »",
@@ -708,7 +708,7 @@ module.exports = {
     PQ_galabru_cave: { act: "P", title: "Le verrou du menuisier", place: "quai",
       text: [
         "Prosper descend l'escalier de la cave en se tenant à la rampe à deux mains, et il passe loin de la tache sombre, au pied des marches, en se signant. Il va droit à l'établi. Il reconnaît la caisse aux clous du premier coup d'œil.",
-        "Il la vide dans une bassine, sans un mot, puis il enfonce l'ongle de son pouce dans une fente du coin, où le bois est plus usé, et il pousse en tournant. Il y a un petit claquement. « Voilà, dit-il. Je te laisse. Ce qu'il y a dedans, je ne veux pas le savoir. » Il remonte, plus vite qu'il n'est descendu.",
+        "Il la vide dans une bassine, puis il enfonce l'ongle de son pouce dans une fente du coin, où le bois est plus usé, et il pousse en tournant. Il y a un petit claquement. « Voilà, dit-il. Je te laisse. Ce qu'il y a dedans, je ne veux pas le savoir. » Il remonte, plus vite qu'il n'est descendu.",
       ],
       choices: [{ label: "Soulever le double fond", to: "PQ_cave" }] },
 
@@ -862,7 +862,7 @@ module.exports = {
       text: [
         "Vous ramenez la barque à l'escalier d'eau. Couzi l'amarre d'un nœud qu'il fait sans regarder, et range ses trois paniers sur la marche, côte à côte.",
         { if: { has: "pq:lanterne_donnee" }, text: "Il met la lanterne d'Odeline tout en haut du panier des noms, à part, sur le dessus. « Je la brûlerai avec elle, dit-il. Le jour de l'enterrement. C'est mieux. »" },
-        { if: { item: "pq_lanterne" }, text: "Tu plies la lanterne au nom d'Odeline avec soin, le papier encore humide, et tu la glisses dans ton sac. Couzi te regarde faire sans rien dire. « Fais-la sécher à plat, dit-il seulement. Sinon l'encre file. »" },
+        { if: { item: "pq_lanterne" }, text: "Tu plies la lanterne au nom d'Odeline avec soin, le papier encore humide, et tu la glisses dans ton sac. Couzi te regarde faire en silence. « Fais-la sécher à plat, dit-il seulement. Sinon l'encre file. »" },
         { if: { item: "pq_tr_bague" }, text: "L'anneau d'or pèse dans ta poche. Il est gravé à l'intérieur : *à toujours, J.* Couzi a vu le geste, et il a vu aussi que tu as vingt ans de moins que lui et une boutique à faire tourner. Il ne dit rien." },
         "« Tu as fait une bonne pêche, dit-il. Elle aurait été contente. » Il réfléchit. « Elle aurait dit que tu as gaffé comme un pied, mais elle aurait été contente. »",
       ],
@@ -1008,7 +1008,7 @@ module.exports = {
       fx: { flag: "odeline:meurtre", ep: ["perso", 400] },
       text: [
         "Tu descends l'escalier d'eau devant la boutique et tu t'assieds sur la dernière marche, les pieds au ras du canal. Tu repasses ce que tu as vu, un objet après l'autre, comme elle t'a appris à faire l'inventaire d'une pièce avant d'y chercher une bague.",
-        "Tu ne sais pas qui. Tu ne sais pas pourquoi. Tu sais seulement qu'Odeline n'est pas tombée seule dans cet escalier.",
+        "Tu ignores qui. Tu ignores pourquoi. Tu sais seulement qu'Odeline n'est pas tombée seule dans cet escalier.",
         { with: "tibere", text: "En haut des marches, Tibère te regarde. Puis il descend s'asseoir deux marches au-dessus de toi, sa masse sur les genoux, et attend que tu aies fini de réfléchir." },
         "Tu remontes les marches. Le quai a son air de tous les jours, ses volets, son linge, sa marchande d'oublies. Tu le regardes autrement.",
       ],

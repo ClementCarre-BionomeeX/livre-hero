@@ -99,7 +99,7 @@ Object.assign(P, {
       { first: true, text: "La meneuse de chant pose son râteau en travers de l'œillet, s'essuie les mains sur son tablier de cuir et vient à ta rencontre sur le talus. « Domitille Goulard, dit-elle. Je tiens trois œillets, ici, et je chante pour les autres. Vous n'êtes pas de la Banque : vous marchez trop mal sur nos talus. Alors vous êtes quoi ? »" },
       { again: true, text: "Domitille te voit venir et laisse le chant à sa voisine. Elle a du sel jusque dans les cils." },
       "Tu dis que tu cherches des choses perdues, ce qui est vrai. Elle rit, d'un rire bref. « Ici, tout le monde a perdu quelque chose depuis la Saint-Martin. Les maîtres ont signé pour nous avec la Banque. On ne nous a {{oreille#iis_domitille_greve|rien demandé, et on s'en arrange|rien demandé, et je compte bien le leur faire payer avant la Saint-Jean}}. »",
-      { with: "tibere", text: "Tibère se tient un pas en arrière, les pouces dans la ceinture. Domitille le regarde de haut en bas. « Et lui, c'est votre garde ? Il a une tête de Guet. » Tibère sourit sans rien dire." },
+      { with: "tibere", text: "Tibère se tient un pas en arrière, les pouces dans la ceinture. Domitille le regarde de haut en bas. « Et lui, c'est votre garde ? Il a une tête de Guet. » Tibère sourit en silence." },
       { with: "lison", text: "Domitille aperçoit Lison et son visage change : il se ferme et s'ouvre en même temps. « La petite Vasse. Ta grand-mère va bien ? » Lison répond : « {{oreille#iis_lison_garant|Elle te salue, et elle tricote toujours aussi mal|Elle te salue, et elle répond de ce qu'on entendra ici}}. » Domitille hoche la tête une seule fois." },
     ],
     choices: [
@@ -359,7 +359,7 @@ Object.assign(P, {
 
   IIS_croze_retournee: { act: "II", title: "Hermine Croze", place: "saline", fx: { flag: "iis:croze", fac: { hautes: 5, banque: -5 }, ep: ["perso", 800] },
     text: [
-      "Hermine Croze pose ses jetons. Elle va jusqu'au vestibule, tu la suis. Elle regarde le contrat sous le verre, puis elle tend la main sans rien dire, et tu y poses la loupe.",
+      "Hermine Croze pose ses jetons. Elle va jusqu'au vestibule, tu la suis. Elle regarde le contrat sous le verre, puis elle tend la main, et tu y poses la loupe.",
       { with: "gildas", text: "Frère Gildas lui tient la chandelle, d'une main parfaitement immobile." },
       "Elle lit longtemps. Quand elle te rend la loupe, elle a les lèvres blanches. « Les œillets de mon mari, dit-elle. Et de son père. Ils avaient prévu de tout prendre à la Saint-Jean, et de nous laisser dire merci. »",
       "Elle se redresse dans sa robe noire, et quelque chose de raide et d'ancien remonte en elle, une colère de propriétaire. « Si les sauniers posent le râteau, ils l'auront posé dans mes œillets aussi. Dites-le à Domitille Goulard. Et dites-lui que je viendrai à la grange, moi, si elle veut bien de moi. »",
@@ -461,7 +461,7 @@ Object.assign(P, {
   IIS_moulin_garde: { act: "II", title: "Les gardes du moulin", place: "saline",
     text: [
       "Une main t'attrape par l'épaule. Les deux casaques noires sont sur toi, et la plus jeune lève déjà son gourdin. Puis la porte de l'arche s'ouvre, et Ogier le meunier passe la tête, une lanterne au poing. « Lâchez ça, dit-il. C'est quelqu'un qui me livrait du tabac. Vous voulez que j'aille dire à Mâchefer que vous dormiez ? »",
-      "Les gardes te lâchent en grognant. Ogier te pousse vers la digue sans un mot. Avant de refermer, il dit seulement, à voix basse : « Pas comme ça. Revenez me parler, le jour. »",
+      "Les gardes te lâchent en grognant. Ogier te pousse vers la digue. Avant de refermer, il dit seulement, à voix basse : « Pas comme ça. Revenez me parler, le jour. »",
     ],
     fx: { flag: "iis:alerte" },
     choices: [{ back: "IIS_arrivee" }] },
@@ -528,7 +528,7 @@ Object.assign(P, {
 
   IIS_etale: { act: "II", title: "La basse mer", place: "saline", takes: 3,
     text: [
-      "La retenue est presque sèche, une plaine de vase luisante où les crabes courent de travers. Le coursier ne roule plus qu'un filet d'eau. La mer s'est retirée si loin dans la Goule que tu ne la vois plus. C'est l'étale de basse mer : un moment immobile, qui ne dure pas.",
+      "La retenue est presque sèche, une plaine de vase luisante où les crabes courent de travers. Le coursier ne roule plus qu'un filet d'eau. La mer s'est retirée si loin dans la Goule qu'elle a disparu de ta vue. C'est l'étale de basse mer : un moment immobile, et bref.",
       "La roue tourne encore sur son élan, de plus en plus lentement, et ses douze pales passent l'une après l'autre au fond du coursier en raclant la pierre. Les pales {{pie#iis_pale|sont toutes pareilles, grises de sel et de vase|sont toutes pareilles, sauf une, dont la croûte de sel cache une couronne gravée dans le chêne}}. Le frein de corde pend à portée de ta main.",
       { with: "gildas", text: "Frère Gildas regarde passer les pales, et ses lèvres bougent sur un air que tu reconnais, très bas, sans paroles. Il s'en aperçoit et se tait." },
       { if: { has: "iis:alerte" }, text: "Sur la digue, des voix approchent, et des lanternes." },
@@ -571,7 +571,7 @@ Object.assign(P, {
       "Le coffret de plomb n'est pas fermé à clef. Dedans, roulé dans une toile cirée, un feuillet de parchemin épais, jauni, couvert d'une écriture serrée et, au bas, d'une rangée de petits dessins : des mains, des doigts pliés, des signes. Les mots qu'une femme sans langue a dits avec les mains, et qu'un chancelier a écrits sous sa dictée.",
       "Tu le tiens entre tes doigts. Il ne pèse rien.",
       { with: "gildas", text: "Frère Gildas est resté sur la dernière marche. Il regarde le feuillet dans ta main, et il fait sur sa poitrine un signe que tu ne connais pas, les deux doigts repliés sur la paume." },
-      { with: "lison", text: "Lison ne dit rien. Elle pose la main à plat sur la banquette de pierre, comme on la pose sur l'épaule de quelqu'un." },
+      { with: "lison", text: "Lison garde le silence. Elle pose la main à plat sur la banquette de pierre, comme on la pose sur l'épaule de quelqu'un." },
       "Au-dessus de vous, dans le coursier, un premier filet d'eau tombe de la roue et éclabousse l'escalier.",
     ],
     choices: [
@@ -596,7 +596,7 @@ Object.assign(P, {
   IIS_flot_pris: { act: "II", title: "Pris par le flot", place: "saline", fx: { pv: -4 },
     text: [
       "L'eau te prend aux jambes, te couche, te roule contre la pierre du coursier. Tu tiens le coffret de plomb à deux bras contre ta poitrine, et c'est tout ce que tu tiens. Le courant t'emporte sous l'arche, te jette dans la retenue, et tu bois une gorgée de mer qui a le goût de la vase et du sel.",
-      "Une gaffe t'accroche par la ceinture. Tu ne sais pas qui la tient. On te tire sur la vase, on te retourne, on te tape dans le dos jusqu'à ce que tu craches.",
+      "Une gaffe t'accroche par la ceinture. Tu ignores qui la tient. On te tire sur la vase, on te retourne, on te tape dans le dos jusqu'à ce que tu craches.",
       { with: "lison", text: "C'est Lison, à genoux dans la boue, trempée jusqu'aux épaules. « Tu ne lâches rien, toi, hein, dit-elle. Même pas le coffret. »", else: "C'est Ogier le meunier, sa lanterne posée sur le talus. « Le coffret, dit-il. Vous l'avez gardé. » Il a l'air soulagé, et pas pour toi seul{e}." },
     ],
     choices: [{ label: "Reprendre ton souffle sur la digue", to: "IIS_sortie" }] },
@@ -662,7 +662,7 @@ Object.assign(P, {
 
   IIS_eudes_chant: { act: "II", title: "Le couplet de la reine", place: "saline", fx: { quest: "IIS_eudes", flag: "iis:eudes", fac: { hautes: 3 }, ep: ["seance", 1200] },
     text: [
-      { if: { has: "iis:meen_revenu" }, text: "Méen marche devant toi jusqu'à la cabane qui penche, la casaque noire roulée sous le bras. Devant son grand-père, il ne dit rien. Il s'assied sur le billot, à côté de lui, et pose la casaque par terre, entre eux. Eudes la regarde longtemps. Puis il pose sa main blanche de sel sur la nuque du garçon, une seule fois, et la retire." },
+      { if: { has: "iis:meen_revenu" }, text: "Méen marche devant toi jusqu'à la cabane qui penche, la casaque noire roulée sous le bras. Devant son grand-père, il se tait. Il s'assied sur le billot, à côté de lui, et pose la casaque par terre, entre eux. Eudes la regarde longtemps. Puis il pose sa main blanche de sel sur la nuque du garçon, une seule fois, et la retire." },
       { if: { all: [{ has: "iis:eudes_lison" }, { not: { has: "iis:meen_revenu" } }] }, text: "Le vieil homme regarde Lison, puis toi. « Une Vasse me le demande, crie-t-il. Une Vasse, ça ne se refuse pas. Mais vous le chanterez au gamin, un jour, vous. »" },
       { if: { all: [{ has: "iis:meen_perdu" }, { not: { has: "iis:meen_revenu" } }, { not: { has: "iis:eudes_lison" } }] }, text: "Eudes lit l'ardoise, longtemps. « Vous me promettez ça, crie-t-il. Moi, je n'ai plus le temps d'attendre qu'il revienne. » Il s'essuie les yeux avec le dos de la main, comme on chasse une mouche." },
       "Puis il chante. Sa voix est cassée, trop forte, et il ne l'entend pas. Il bat la mesure sur son genou avec le plat de la main, comme on bat le sel au râteau, et la mesure est juste : *« La reine se couche au fond de l'eau, {{oreille#iis_c3|sa couronne en bas, son cœur en haut|arrête la roue quand la pale couronnée touche le fond du coursier, et la dalle se lève sous elle}}. »*",
@@ -774,7 +774,7 @@ Object.assign(P, {
     text: [
       "Mâchefer se retourne lentement. Il te regarde de haut en bas, la badine encore levée, et quelque chose passe dans ses yeux, très vite, qu'il rattrape. Il baisse la badine. « Vous êtes qui, vous, pour me parler de pendaison ? »",
       "Il ne frappe plus. Il ramasse le panier dans la vase, le pose sur le talus, et s'éloigne vers la Maison du Sel sans se retourner, à grands pas, en fouettant l'air. Derrière lui, quelqu'un rit, un rire bref, aussitôt étouffé. Puis le chant reprend dans le bassin, plus fort, sur le même couplet, et le couplet n'a jamais sonné aussi juste.",
-      "Avoye Quéré se tient le bras. Elle te regarde sans rien dire, et recommence à râteler, plus vite.",
+      "Avoye Quéré se tient le bras. Elle te regarde, et recommence à râteler, plus vite.",
       { with: "tibere", text: "Tibère desserre la main de sa masse, doigt après doigt. « Ces types-là, dit-il, il faut leur parler de leur propre cou. Ils n'en ont qu'un. »" },
     ],
     choices: [{ back: "IIS_bassins" }] },
@@ -999,7 +999,7 @@ Object.assign(P, {
 
   IIS_gaucher_parti: { act: "II", title: "Le Gaucher s'en va", place: "saline", fx: { flag: ["iis:gaucher_fini", "iis:gaucher_parti", "iis:lettre_gaucher"], item: "iis_lettre_gaucher", ep: ["seance", 800] },
     text: [
-      "Le Gaucher reste longtemps sans rien dire. Puis il regarde sa main droite bandée, comme si elle venait de lui rappeler quelque chose. « Mon frère s'appelait Ivain, dit-il. Il a volé pour Brunel pendant dix ans. Quand le Guet l'a pris, Brunel était à un dîner. »",
+      "Le Gaucher reste longtemps silencieux. Puis il regarde sa main droite bandée, comme si elle venait de lui rappeler quelque chose. « Mon frère s'appelait Ivain, dit-il. Il a volé pour Brunel pendant dix ans. Quand le Guet l'a pris, Brunel était à un dîner. »",
       "Il tire de son pourpoint une lettre pliée en huit et te la tend. « Tenez. C'est ce qu'il m'a écrit. Montrez-la à qui vous voudrez. Je ne l'ai jamais reçue. »",
       "Il fait un signe de tête à ses hommes. Ils rengainent, l'un après l'autre, sans comprendre, et le suivent vers la barrière. Avant l'aube, quatre chevaux passent sur la route des roseaux et prennent vers le nord, à l'opposé de Salvèze.",
       { with: "lison", text: "Lison souffle entre ses dents, longuement. « Tu as gagné un combat avec une phrase, dit-elle. Ma grand-mère va vouloir te connaître de plus près. »" },
@@ -1010,7 +1010,7 @@ Object.assign(P, {
     text: [
       "Le Gaucher est assis sur la digue, la main gauche serrée sur une entaille à la cuisse, sa lame dans la retenue. Ses hommes sont à terre, ou en fuite. Il te regarde fouiller son pourpoint sans résister, et sourit quand tu trouves la lettre.",
       "« Monsieur Brunel n'aimera pas ça, dit-il. Il n'aime pas qu'on lise son courrier. Moi, je m'en moque, maintenant. Je crois que je vais aller voir comment est la mer, du côté d'Aveline. »",
-      { with: "gildas", text: "Frère Gildas s'agenouille près de lui et bande la plaie, sans un mot, avec la ceinture de sa propre bure. Le Gaucher le regarde faire avec stupéfaction." },
+      { with: "gildas", text: "Frère Gildas s'agenouille près de lui et bande la plaie avec la ceinture de sa propre bure. Le Gaucher le regarde faire avec stupéfaction." },
     ],
     choices: [{ back: "IIS_arrivee" }] },
 
@@ -1064,7 +1064,7 @@ Object.assign(P, {
   IIS_tibere_soir: { act: "II", title: "Le papier de Tibère", place: "saline", with: "tibere",
     text: [
       "Tibère plie son papier en quatre quand tu t'assieds en face de lui. Le feu de tourbe fume entre vous. « J'écris {{oreille#iis_tibere_rapport|à ma fille, pour une fois|à Brunel : où tu es, ce que tu cherches, qui t'accompagne ; le gamin de la gabare le portera demain à Salvèze}}, dit-il. Rosalie. Elle ne répond jamais, mais j'écris quand même. »",
-      { after: "tibere:espion", text: "Il te regarde, puis il déplie le papier et le pose devant toi, à plat, sans rien dire. Ce n'est pas une lettre à Rosalie. C'est un rapport, en phrases de sergent, et ton nom est dedans trois fois. « Dis-moi ce que je mets, dit-il. Je mettrai ce que tu dis. »" },
+      { after: "tibere:espion", text: "Il te regarde, puis il déplie le papier et le pose devant toi, à plat. Ce n'est pas une lettre à Rosalie. C'est un rapport, en phrases de sergent, et ton nom est dedans trois fois. « Dis-moi ce que je mets, dit-il. Je mettrai ce que tu dis. »" },
     ],
     choices: [
       { label: "Lui dicter un rapport où tu cherches encore, en vain, du côté des Joncs", hide: { not: { any: [{ has: "tibere:espion" }, { voile: "iis_tibere_rapport" }] } }, fx: { flag: "iis:tibere_rapport_faux", conf: { tibere: 5 }, ep: ["perso", 500] }, back: "IIS_nuit" },
@@ -1074,7 +1074,7 @@ Object.assign(P, {
 
   IIS_gildas_soir: { act: "II", title: "Gildas à la chapelle", place: "saline", with: "gildas",
     text: [
-      "Frère Gildas est agenouillé devant l'autel, sur la pierre nue, une chandelle posée près de lui. Il ne prie pas à voix haute. Ses lèvres ne bougent pas. Ses mains, posées sur la nappe de dentelle, font de petits gestes, très lents, les doigts pliés et dépliés, comme les dessins de mains au bas d'un vieux parchemin.",
+      "Frère Gildas est agenouillé devant l'autel, sur la pierre nue, une chandelle posée près de lui. Il prie en silence, les lèvres immobiles. Ses mains, posées sur la nappe de dentelle, font de petits gestes, très lents, les doigts pliés et dépliés, comme les dessins de mains au bas d'un vieux parchemin.",
       "Le dallage de la chapelle {{echo#iis_echo_gildas|garde le froid de la nuit et l'odeur de la cire|rend la voix de Gildas, tout à l'heure, à peine un souffle : « Pour celle du quai. Pour la marche de l'escalier. Je n'ai pas d'autre prière »}}.",
       "Il t'entend venir et se relève sans hâte. « La Saline est un lieu où l'on prie bien, dit-il. Tout est blanc, et le vent emporte ce qu'on dit. »",
       "Tu lui demandes pour qui il priait. Il te regarde avec ses yeux calmes. « Pour ceux que j'ai connus et qui sont morts, dit-il. C'est une longue liste, à mon âge. » Il souffle la chandelle.",

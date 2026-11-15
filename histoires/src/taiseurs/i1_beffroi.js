@@ -60,7 +60,7 @@ Object.assign(P, {
       "Elle ramène le panier, l'égoutte, le jette au fond de la barque et lève les yeux sur toi comme si tu étais en retard. « C'est toi, la boutique Carrus. Lison Vasse. Je fais la course sur les canaux, trois liards le pont. Je {{oreille#ib_lison_hasard|passais par hasard, ce matin, et j'ai entendu parler de toi|savais à quelle heure tu traverserais la place, on me l'a dit hier soir, aux Joncs}}. »",
       "Elle monte deux marches, s'essuie les mains sur sa jupe. « Tout le quai dit que tu cherches quelque chose dans la tour. Moi, je connais les carillonneurs, les gardes, et l'heure où ils boivent. {{oreille#ib_lison_aide|Je t'aide pour le plaisir de voir un cambriolage bien fait|Je t'aide pour être là le jour où tu poseras ce que tu portes à l'oreille}}. »",
       { with: "tibere", text: "Tibère la toise. « Une Vasse des marais. On les voyait au port, au Guet. Toujours un couteau dans la botte. » Lison lui sourit. « Et toi, toujours un pichet dans la main. Chacun son outil, sergent. »" },
-      { with: "gildas", text: "Lison regarde Frère Gildas une seconde de plus que les autres. « Un moine du Mont, dit-elle. {{oreille#ib_lison_moine|On n'en voit jamais en ville|J'en ai vu un pareil aux Joncs, à la Saint-Aymeric, assis à la droite de ma grand-mère}}. » Gildas incline la tête, sans répondre." },
+      { with: "gildas", text: "Lison regarde Frère Gildas une seconde de plus que les autres. « Un moine du Mont, dit-elle. {{oreille#ib_lison_moine|On n'en voit jamais en ville|J'en ai vu un pareil aux Joncs, à la Saint-Aymeric, assis à la droite de ma grand-mère}}. » Gildas incline la tête pour toute réponse." },
     ],
     choices: [
       { label: "« Monte. Enfin, descends. Bref, viens. »", fx: { join: "lison", flag: "lison:rencontre", conf: { lison: 5 } }, to: HUB },
@@ -87,7 +87,7 @@ Object.assign(P, {
   I_lison_mission: { act: "I", title: "Ce que dit Lison", place: "beffroi", backName: "le bord du canal",
     fx: { join: "lison", flag: ["lison:rencontre", "lison:mission"], clue: "ib_c_lison", ep: ["perso", 400] },
     text: [
-      "Tu le lui dis tout bas, au bord du canal : les Joncs, la grand-mère, l'os qu'elle doit rapporter. Lison ne bouge pas. Elle regarde l'eau, puis ton oreille, puis la poche où tu ranges le cornet. Elle fait claquer sa langue, une fois.",
+      "Tu le lui dis tout bas, au bord du canal : les Joncs, la grand-mère, l'os qu'elle doit rapporter. Lison reste où elle est. Elle regarde l'eau, puis ton oreille, puis la poche où tu ranges le cornet. Elle fait claquer sa langue, une fois.",
       "« Tu m'écoutes avec ça, dit-elle. Évidemment. Odeline te l'a laissé, et toi tu t'en sers sur la première fille qui te parle gentiment. » Elle se mord la joue. « Bon. Ma grand-mère s'appelle Ancolie. Elle est aveugle, elle fait de la dentelle, et elle sait des choses que la ville a oubliées. Elle m'a dit : va voir ce que vaut l'héritier d'Odeline, et si l'héritier ne vaut rien, reprends ce qui est à nous. »",
       "« Ce qui est à vous ? » Elle hausse les épaules. « À nous, aux Joncs, à des gens morts depuis longtemps. Je ne vais pas te faire l'histoire au bord d'un canal. {{oreille#ib_lison_choix|Pour l'instant, je fais ce qu'on m'a dit|Pour l'instant, tu ne m'as pas encore donné de raison de lui désobéir}}. »",
       "Elle te tend la main, sèche et dure, une main de rameuse. « Je reste. Tu sais pourquoi je suis là, je sais que tu le sais. C'est plus propre comme ça. Et si un jour je te prends ton os, je te préviendrai la veille. »",
@@ -244,10 +244,10 @@ Object.assign(P, {
   IB_medard_air: { act: "I", title: "L'air de la reine", place: "beffroi", backName: "le banc des arcades",
     fx: { ep: ["perso", 500], conf: { lison: 3 } },
     text: [
-      "Médard regarde longtemps ses mains. Puis il se met à fredonner, très bas, les yeux fermés, en battant la mesure du pouce sur son genou. Ce n'est plus la comptine des enfants : c'est un air plus lent, en sept temps, qui descend comme on descend un escalier. Les autres vieux du banc se taisent. L'un d'eux ôte son bonnet.",
+      "Médard regarde longtemps ses mains. Puis il se met à fredonner, très bas, les yeux fermés, en battant la mesure du pouce sur son genou. La comptine des enfants a laissé place à un air plus lent, en sept temps, qui descend comme on descend un escalier. Les autres vieux du banc se taisent. L'un d'eux ôte son bonnet.",
       "« On commence par la Grosse Ysaure, murmure Médard entre deux notes, et on descend. La Bavarde, la Veuve, le Bourdon, la Clarine, la Mouche. Et {{oreille#ib_air|la Petite, pour finir, aussi fort qu'on peut|la Petite, on lève le battant, et on la laisse se taire : c'est le silence qui ouvre}}. »",
       "Il rouvre les yeux. Ils sont mouillés, et il s'en fâche. « Voilà. Tu l'as. Mon grand-père me l'a donné sur ce banc, quand j'avais douze ans, et il m'a dit : {{oreille#ib_medard_grandpere|tu ne le joueras jamais, c'est un air qui porte malheur|tu le donneras à quelqu'un qui l'entend deux fois, et à personne d'autre}}. » Il te regarde, et regarde ton oreille. « Je ne sais pas ce que tu entends, toi. Mais tu as la tête de quelqu'un qui entend. »",
-      { with: "lison", text: "Lison s'est accroupie devant le vieux pendant qu'il chantait. Elle lui remet son bonnet sur la tête, doucement, sans un mot, et Médard la laisse faire." },
+      { with: "lison", text: "Lison s'est accroupie devant le vieux pendant qu'il chantait. Elle lui remet son bonnet sur la tête, doucement, et Médard la laisse faire." },
       { with: "gildas", text: "Frère Gildas a fermé les yeux, lui aussi. Ses lèvres bougent sur les sept temps, sans un son. Il les rouvre quand Médard se tait, et il demande le nom de la septième cloche. « La Petite, dit Médard. On l'appelait la Muette, avant. »" },
     ],
     choices: [
@@ -327,7 +327,7 @@ Object.assign(P, {
       { if: { has: "pf:garde_muette" }, text: "Le petit garde, tu l'as entendu au Falot, le lendemain de la fête, raconter ses nuits sur le palier. Il te reconnaît aussi. Il bâille pour se donner une contenance." },
       "Le petit bâille. « Et le chanoine n'en donne plus depuis {{oreille#ib_gants|le printemps dernier|que les gants gris lui ont payé ses dettes de la semaine dernière}}. » Le grand lui jette un regard noir, et le petit se tait.",
       "« Personne ne monte {{oreille#ib_garde_nuit|la nuit, même pas nous|la nuit, sauf Norbert qui dort sur le palier du deuxième avec sa bouteille}}, ajoute le grand. Circulez. »",
-      { with: "tibere", text: "Tibère salue le grand garde d'un doigt sur le front. « Oudin. Ta femme va mieux ? » Le garde rougit, grogne qu'elle va bien, et regarde ailleurs. Tibère ne dit rien de plus, mais il a l'air content de lui." },
+      { with: "tibere", text: "Tibère salue le grand garde d'un doigt sur le front. « Oudin. Ta femme va mieux ? » Le garde rougit, grogne qu'elle va bien, et regarde ailleurs. Tibère s'en tient là, mais il a l'air content de lui." },
     ],
     choices: [
       { label: "Glisser deux ducats dans le gant du petit garde", fx: { gold: -40 }, hide: { has: "ib:permis" },
@@ -342,7 +342,7 @@ Object.assign(P, {
     fx: { clue: "ib_c_gants", flag: "ib:permis", ep: ["perso", 300] },
     text: [
       "Le petit garde blêmit. Le grand le regarde, puis toi, puis la façade du Conseil de l'autre côté de la place, comme pour mesurer la distance jusqu'aux fenêtres des échevins. « Qui vous a dit ça ? »",
-      "Tu ne réponds pas. Le silence fait son travail. Le petit garde finit par cracher le morceau, très bas : « Un homme en gants gris, poli, la voix douce. Il est venu trois fois, avec deux types qui ne disaient rien. Il a payé le chanoine, il a payé Norbert, et il est monté une nuit. Il est redescendu à l'aube, de mauvaise humeur. »",
+      "Tu te tais. Le silence fait son travail. Le petit garde finit par cracher le morceau, très bas : « Un homme en gants gris, poli, la voix douce. Il est venu trois fois, avec deux types qui ne disaient rien. Il a payé le chanoine, il a payé Norbert, et il est monté une nuit. Il est redescendu à l'aube, de mauvaise humeur. »",
       "Le grand garde soupire. « Bon. Si quelqu'un d'autre monte, on ne l'a pas plus vu que celui-là. Deuxième heure de nuit. On fait la ronde du canal. » Il ajoute, sans te regarder : « Et vous ne nous avez jamais parlé. »",
     ],
     choices: [{ back: "IB_pied" }] },
@@ -616,7 +616,7 @@ Object.assign(P, {
     text: [
       "Dedans, il fait plus froid que dehors. L'air sent la pierre mouillée, le chanvre et la fiente. Une lanterne sourde, ou la lune par une meurtrière, suffit à voir l'escalier : une vis de pierre qui monte dans le mur, marche après marche, usée en creux au milieu par trois siècles de sonneurs.",
       { outcome: "win", text: "Le passage a été plus facile que tu ne le pensais. Cela t'inquiète un peu." },
-      { if: { has: "ib:permis" }, text: "Le garde a lu le paraphe en escargot à la lueur de sa lanterne, ou fait semblant, et il a ouvert sans un mot." },
+      { if: { has: "ib:permis" }, text: "Le garde a lu le paraphe en escargot à la lueur de sa lanterne, ou fait semblant, et il a ouvert." },
       { if: { has: "ib:bruit" }, text: "La porte a fait un bruit de tonnerre en cédant. Tu tends l'oreille. Le garde de nuit chante, quelque part en haut, une chanson de marinier. Il n'a rien entendu, ou il a décidé de ne rien entendre." },
       { after: "ib:bapt_promesse", text: "Baptistine passe devant, sans lumière, une main sur le mur. Elle compte les marches à mi-voix, en carillonneuse." },
     ],
@@ -626,8 +626,8 @@ Object.assign(P, {
     text: [
       "L'escalier monte en tournant, si étroit qu'on y frotte les deux épaules. Tous les vingt tours, une meurtrière laisse voir la place, de plus en plus petite. À la chapelle haute, une veilleuse rouge brûle devant une statue de la reine qu'on a repeinte en sainte. Plus haut, une voix chante faux, et une odeur d'eau-de-vie descend les marches.",
       "Sur le mur de la vis, à hauteur d'œil, des sonneurs ont gravé leurs noms au couteau, siècle après siècle. Des centaines de noms. Près du deuxième palier, une inscription plus ancienne que les autres, d'une main soignée : *{{loupe#ib_vis|Ici monta Aymeric, chancelier, la nuit des Comptoirs|Ici monta Aymeric Vasse, chancelier, la nuit des Comptoirs, avec la parole de la reine dans sa manche}}.*",
-      { with: "gildas", text: "Frère Gildas pose deux doigts sur l'inscription ancienne, un instant, comme on touche une relique. Puis il retire sa main et continue de monter, sans un mot." },
-      { with: "lison", text: "Lison s'arrête devant le même nom gravé, et elle lève les sourcils. Elle ne dit rien, mais elle monte la marche suivante plus lentement." },
+      { with: "gildas", text: "Frère Gildas pose deux doigts sur l'inscription ancienne, un instant, comme on touche une relique. Puis il retire sa main et continue de monter." },
+      { with: "lison", text: "Lison s'arrête devant le même nom gravé, et elle lève les sourcils. Elle se tait, mais elle monte la marche suivante plus lentement." },
     ],
     choices: [
       { label: "Une échelle de meunier, à gauche, vers le colombier", hide: { seen: "IB_pigeons" }, to: "IB_pigeons" },
@@ -641,7 +641,7 @@ Object.assign(P, {
       "Le colombier occupe tout un étage de la tour, sous un plancher de chêne fendu. Des centaines de boulins creusés dans la brique, du sol au plafond, et dans chaque boulin un pigeon, ou un nid, ou un squelette de pigeon. Le sol est une croûte de fiente blanche épaisse comme un doigt. Quand tu entres, deux cents ailes battent ensemble, et le vent qu'elles font sent la plume et la poussière.",
       "Dans un boulin du fond, plus grand que les autres, un nid ancien, abandonné, tressé de paille et de fil d'or arraché à quelque chose. Au milieu du nid, un anneau terni. Il {{pie#ib_anneau|est un anneau de cuivre vert-de-grisé, un anneau de pauvre|est une chevalière d'or sous le vert-de-gris, gravée d'une tour et d'une plume, l'ancien sceau du Conseil du temps de la reine}}.",
       "Sur une poutre, quelqu'un a installé une cage d'osier neuve, avec trois pigeons bagués de rouge, et un sac de grain. La cage n'a pas trois siècles : elle a trois semaines.",
-      { with: "tibere", text: "Tibère regarde les pigeons bagués, et il ne dit rien. Il a l'air de quelqu'un qui reconnaît une couleur." },
+      { with: "tibere", text: "Tibère regarde les pigeons bagués, et il se tait. Il a l'air de quelqu'un qui reconnaît une couleur." },
     ],
     choices: [
       { label: "Prendre l'anneau dans le vieux nid", once: true, fx: { item: "ib_tr_chevaliere", clock: { tresors: 1 }, flag: "tresor:ib_chevaliere" }, back: "IB_pigeons" },
@@ -801,7 +801,7 @@ Object.assign(P, {
       "Sur la planche du clavier, au-dessus des leviers, une inscription gravée, à demi effacée par les poings des sonneurs : *{{loupe#ib_clavier|Sonne pour la reine, et sonne juste|Sonne pour la reine, et retiens la dernière : sa parole est dans le silence}}.*",
       "Au loin, une horloge de couvent sonne les trois quarts. Minuit approche. En bas, sous tes pieds, le rail des automates attend.",
       { after: "ib:bapt_promesse", text: "Baptistine s'est figée devant le vrai clavier. Elle pose ses poignets bandés sur les leviers, sans appuyer, et elle tremble de la tête aux pieds. « Les vrais, dit-elle. Ils sont plus durs. »" },
-      { with: "gildas", text: "Frère Gildas s'est approché de l'inscription. Il la lit, il la relit, la tête penchée. Il ne dit rien pendant un long moment." },
+      { with: "gildas", text: "Frère Gildas s'est approché de l'inscription. Il la lit, il la relit, la tête penchée. Il se tait un long moment." },
       { if: { has: "ib:alerte" }, text: "Sur la place, en bas, les gardes de l'autre nuit font leur ronde à deux. Au premier faux pas, ils monteront." },
     ],
     choices: [
@@ -924,7 +924,7 @@ Object.assign(P, {
       "Tu redescends les deux cents tours de l'escalier avec le feuillet contre la poitrine et la loupe au fond d'une poche cousue. Les marches te semblent plus nombreuses qu'à la montée. Sur les murs de la vis, à la lueur de la loupe, quelques-uns des noms gravés par les sonneurs se mettent à luire ; tu ne t'arrêtes pas pour les lire.",
       { if: { has: "ib:lothaire_evite" }, text: "Au pied de la tour, contre la petite porte, Lothaire Brunel t'attend, seul, les gants croisés sur le pommeau de sa canne. Il a entendu l'air, comme toute la ville, et il a compris trop tard. Il te regarde descendre la dernière marche. « Vous pensez : une loupe, dit-il doucement. Et vous pensez : il ne l'aura pas. » Il incline la tête. « Nous verrons. » Il s'écarte pour te laisser passer, et il ne te suit pas." },
       { if: { has: "ib:casse" }, text: "Derrière toi, là-haut, le septième muet reste immobile sur son rail, la poitrine ouverte. Demain, à midi, il ne rentrera pas. La ville en parlera une semaine." },
-      { with: "lison", text: "*L'Effrontée* attend sous la petite porte. Lison détache l'amarre et vous emmène sur le canal noir, sans un bruit, jusqu'aux marches de la place. Elle rame bien, pour une fois, et elle ne dit rien." },
+      { with: "lison", text: "*L'Effrontée* attend sous la petite porte. Lison détache l'amarre et vous emmène sur le canal noir, sans un bruit, jusqu'aux marches de la place. Elle rame bien, pour une fois, et elle se tait." },
       { without: "lison", text: "Tu sors par la petite porte du canal, longes la niche de pierre dans le noir, et reprends pied sur la place par l'escalier des barques." },
     ],
     choices: [{ label: "Attendre le jour sur la place", to: "IB_aube" }] },
@@ -979,7 +979,7 @@ Object.assign(P, {
     fx: { item: "ib_tr_sonneur", clock: { tresors: 1 }, flag: "tresor:ib_sonneur" },
     text: [
       "La borne du crieur est un gros cylindre de pierre grise, à l'angle des arcades, poli sur le dessus par des générations de semelles. Tu attends que la place se vide, tu glisses ta lame entre la borne et le pavé, et tu creuses. Le mortier est vieux, friable. Au bout d'une heure, ta lame touche du métal.",
-      "Un coffret de plomb, aplati par le poids des siècles, pas plus grand qu'une main. Dedans, une médaille d'argent pendue à un ruban pourri : une cloche gravée, sept traits dessous, et autour, en lettres minuscules, *{{loupe#ib_medaille|Au premier sonneur de la reine|Au sonneur qui gardera l'air, de la part d'Aymeric, pour qu'il ne le joue que pour qui l'entend deux fois}}.*",
+      "Un coffret de plomb, aplati par le poids des siècles, grand comme une main. Dedans, une médaille d'argent pendue à un ruban pourri : une cloche gravée, sept traits dessous, et autour, en lettres minuscules, *{{loupe#ib_medaille|Au premier sonneur de la reine|Au sonneur qui gardera l'air, de la part d'Aymeric, pour qu'il ne le joue que pour qui l'entend deux fois}}.*",
     ],
     choices: [
       { label: "Porter la médaille à Médard, sur le banc des vieux", hide: { not: { seen: "IB_medard" } }, fx: { drop: "ib_tr_sonneur", fac: { taiseurs: 5 }, conf: { lison: 5 }, note: "Médard prend la médaille dans ses grosses mains déformées et la regarde longtemps. Il ne dit rien. Il la passe à son cou, sous sa chemise." }, back: "IB_marche" },
@@ -1111,7 +1111,7 @@ Object.assign(P, {
     ],
     choices: [
       { label: "Lui refermer la main sur son ducat", fx: { conf: { tibere: 10 } }, back: "IB_bonneteau" },
-      { label: "Le laisser jouer : c'est son argent", fx: { conf: { tibere: -5 }, note: "Tibère perd le ducat. Il s'en va sans un mot vers le canal, et revient une heure plus tard, les yeux rouges, en disant qu'il avait une poussière." }, back: "IB_bonneteau" },
+      { label: "Le laisser jouer : c'est son argent", fx: { conf: { tibere: -5 }, note: "Tibère perd le ducat. Il s'en va vers le canal, et revient une heure plus tard, les yeux rouges, en disant qu'il avait une poussière." }, back: "IB_bonneteau" },
     ] },
 
   IB_bonneteau_fin: { act: "I", title: "La main de Bréval", place: "beffroi", backName: "la planche du bonneteau",
@@ -1119,7 +1119,7 @@ Object.assign(P, {
     text: [
       "Tu tiens le poignet de Bréval au-dessus de la planche et tu lui ouvres les doigts un par un, devant tout le monde. La boulette de liège roule sur la planche, tombe, rebondit sur les pavés. Il y a un silence. Puis un débardeur qui a perdu trois parties dit un mot très laid, et le cercle des badauds se referme sur Bréval comme une main.",
       "Bréval saute par-dessus un tonneau et s'enfuit vers le canal, ses compères sur les talons, sous une pluie de trognons de chou. Il laisse sa planche, ses tonneaux, et ses trois gobelets d'étain. Les badauds se partagent les liards de la planche.",
-      { with: "tibere", text: "Tibère ramasse un des gobelets, le soupèse, et te le tend sans un mot. Puis il reste un moment à regarder le canal par où Bréval s'est enfui, avec une drôle de tête, comme on regarde partir quelqu'un qui vous ressemble." },
+      { with: "tibere", text: "Tibère ramasse un des gobelets, le soupèse, et te le tend. Puis il reste un moment à regarder le canal par où Bréval s'est enfui, avec une drôle de tête, comme on regarde partir quelqu'un qui vous ressemble." },
     ],
     choices: [
       { label: "Ramasser le gobelet le plus terne", hide: { not: { voile: "ib_gobelet" } }, once: true, fx: { item: "ib_tr_gobelet", clock: { tresors: 1 }, flag: "tresor:ib_gobelet" }, back: "IB_marche" },
@@ -1216,7 +1216,7 @@ Object.assign(P, {
 
   IB_lison_nuit: { act: "I", title: "La nuit sur l'Effrontée", place: "beffroi", backName: "la barque de Lison", with: "lison", takes: "night",
     text: [
-      { with: "lison", text: "La nuit d'après la tour, Lison te propose une course pour rien, sans destination. *L'Effrontée* glisse sous les ponts de la ville endormie, de canal en canal, entre les façades noires et les reflets des lanternes. Lison rame lentement. Elle ne dit rien pendant longtemps." },
+      { with: "lison", text: "La nuit d'après la tour, Lison te propose une course pour rien, sans destination. *L'Effrontée* glisse sous les ponts de la ville endormie, de canal en canal, entre les façades noires et les reflets des lanternes. Lison rame lentement. Elle se tait longtemps." },
       { with: "lison", text: "« La cousine dont je t'ai parlé, dit-elle enfin. Ta mère, alors. Je me souviens d'elle comme on se souvient à cinq ans : une jupe, une voix qui chantait faux, une barque qui partait. Aux Joncs, on ne dit plus son nom. Ma grand-mère te le dira, si elle le veut. Moi, je n'en ai pas le droit. » Elle relève les rames. « Je viens d'en dire plus qu'on ne m'en a jamais dit. »" },
       { with: "lison", text: "La barque dérive. Lison regarde l'eau. « Ma grand-mère m'a envoyée te surveiller, et reprendre l'os si tu ne valais rien. {{oreille#ib_lison_nuit|Je vais lui dire que tu ne vaux pas grand-chose, mais que tu peux servir|Je vais lui dire qu'elle m'a menti, et je ne sais pas encore si je rentrerai aux Joncs pour le lui dire en face}}. »" },
       { with: "lison", tendre: true, else: "Elle reprend les rames, et ramène la barque vers la place, sans se presser.", text: "Elle te regarde, dans le noir, et elle soutient ton regard, pour une fois. Puis elle reprend les rames, et ramène la barque vers la place, sans se presser, en chantonnant la comptine, juste, cette fois." },
@@ -1231,7 +1231,7 @@ Object.assign(P, {
     text: [
       { with: "gildas", text: "Le soir, Frère Gildas va prier dans la chapelle basse du Beffroi, contre le socle de la tour, à l'heure où les dévotes sont parties. Tu l'y trouves agenouillé sur la pierre nue, sans prie-Dieu, la capuche rabattue, les mains jointes contre le front. Il prie en latin, à voix basse, très vite, comme on récite une chose apprise par cœur il y a longtemps." },
       "La chapelle {{echo#ib_chapelle|est silencieuse, à part la prière du moine|garde encore la voix d'une femme, trois siècles plus tôt : « Aymeric, prends la page, et apprends-leur à se taire »}}. Une veilleuse rouge brûle devant une statue de la reine repeinte en sainte, les mains jointes elle aussi, la bouche fermée.",
-      { with: "gildas", text: "Gildas ne t'a pas entendu{e} entrer, ou il fait comme si. Il prie longtemps pour une seule âme, et il ne dit pas son nom. Quand il se relève, il a les genoux raides et les yeux secs. « Vous étiez là, dit-il. Pardon. Je prie mal, ces temps-ci. »" },
+      { with: "gildas", text: "Gildas ne t'a pas entendu{e} entrer, ou il fait comme si. Il prie longtemps pour une seule âme, et il tait son nom. Quand il se relève, il a les genoux raides et les yeux secs. « Vous étiez là, dit-il. Pardon. Je prie mal, ces temps-ci. »" },
       "Tu {{miroir#ib_miroir_gildas|le regardes sortir sans arrière-pensée|le regardes sortir en te demandant, pour la première fois, pour qui il prie, et tu chasses la question parce qu'elle te fait peur}}.",
     ],
     choices: [{ back: HUB }] },
@@ -1243,7 +1243,7 @@ Object.assign(P, {
       "Il remet la roue sur l'établi, la regarde encore. « Celui qui a fait cette horloge était meilleur que moi. Il a compté trois cents ans d'avance. {{oreille#ib_vauquelin|Je ne veux rien savoir de plus|Je voudrais savoir son nom, pour le graver sur la roue, et ne le dire à personne}}. »",
     ],
     choices: [
-      { label: "« Il s'appelait Aymeric Vasse. »", hide: { any: [{ not: { voile: "ib_vauquelin" } }, { not: { any: [{ voile: "ib_vis" }, { voile: "ib_registre" }] } }] }, once: true, fx: { fac: { taiseurs: 3 }, note: "Vauquelin prend son burin le plus fin et grave, sur le moyeu de la roue, deux lettres minuscules : A. V. Puis il la remet en place sans un mot." }, back: "IB_horloger_apres" },
+      { label: "« Il s'appelait Aymeric Vasse. »", hide: { any: [{ not: { voile: "ib_vauquelin" } }, { not: { any: [{ voile: "ib_vis" }, { voile: "ib_registre" }] } }] }, once: true, fx: { fac: { taiseurs: 3 }, note: "Vauquelin prend son burin le plus fin et grave, sur le moyeu de la roue, deux lettres minuscules : A. V. Puis il la remet en place." }, back: "IB_horloger_apres" },
       { back: "IB_pied" },
     ] },
 });
@@ -1269,7 +1269,7 @@ Object.assign(P, {
       { with: "lison", text: "Elle tend la main, paume ouverte. Ses doigts ne tremblent pas. Ses yeux, si." },
     ],
     choices: [
-      { label: "Lui donner la loupe", fx: { conf: { lison: 15 }, flag: "ib:loupe_confiee", note: "Lison regarde le moucheron à travers l'ambre, longtemps, contre le ciel. Puis elle te rend la loupe, et elle se lève sans un mot, et elle va pêcher au bout du quai." }, back: HUB },
+      { label: "Lui donner la loupe", fx: { conf: { lison: 15 }, flag: "ib:loupe_confiee", note: "Lison regarde le moucheron à travers l'ambre, longtemps, contre le ciel. Puis elle te rend la loupe, et elle se lève, et elle va pêcher au bout du quai." }, back: HUB },
       { label: "« Je sais ce que tu ferais avec. Tiens-la quand même. »", hide: { not: { voile: "ib_lison_loupe" } }, fx: { conf: { lison: 20 }, flag: ["ib:loupe_confiee", "lison:mission"] }, to: "IB_lison_loupe_suite" },
       { label: "« Pas aujourd'hui. »", fx: { conf: { lison: -3 } }, back: HUB },
     ] },
@@ -1286,7 +1286,7 @@ Object.assign(P, {
     text: [
       "La maison des Carillonneurs bourdonne comme une ruche. Le doyen, en tablier, fait les cent pas devant le clavier d'étude. Baptistine est assise sur l'estrade, les poignets bandés de frais, le menton levé. Les compagnons de la confrérie l'entourent à distance, comme on entoure un chien inconnu.",
       "« Tout le monde a entendu, dit le doyen. Toute la ville. L'air de la reine, à minuit, juste, et la septième retenue. Personne de la confrérie n'était monté. » Il regarde Baptistine. « Elle dit que c'est elle. » Un compagnon ricane. Le doyen le fait taire d'un regard. « Je la crois. Personne ici ne joue la Mouche aussi net. »",
-      "Il soupire, longuement. « Elle montera. Le dimanche, pour la messe basse. Pas les jours de foire. » Baptistine ne dit rien. Elle a les yeux qui brillent, et elle serre les poings sur ses genoux pour qu'ils ne se mettent pas à frapper tout seuls.",
+      "Il soupire, longuement. « Elle montera. Le dimanche, pour la messe basse. Pas les jours de foire. » Baptistine garde le silence. Elle a les yeux qui brillent, et elle serre les poings sur ses genoux pour qu'ils ne se mettent pas à frapper tout seuls.",
       { if: { seen: "IB_medard_air" }, text: "Au fond de la salle, assis sur un banc, Médard Coquart regarde sa petite-fille avec ses mains énormes posées à plat sur les genoux. Il garde la bouche close. Il bat la mesure, sept temps, le dernier sans frapper." },
     ],
     choices: [{ back: HUB }] },

@@ -81,7 +81,7 @@ Object.assign(P, {
 
   IC_tables_rien: { act: "I", title: "Le tas", place: "changeurs",
     text: [
-      "Tu remues les pièces mortes un long moment. Des liards de la vieille Commune, des deniers d'Aveline percés pour un collier, un sou de plomb. Mainfroy Dumay te regarde faire sans rien dire, puis il pose la main à plat sur le plateau.",
+      "Tu remues les pièces mortes un long moment. Des liards de la vieille Commune, des deniers d'Aveline percés pour un collier, un sou de plomb. Mainfroy Dumay te regarde faire, puis il pose la main à plat sur le plateau.",
       "« Le tas est à cinq liards la poignée, dit-il. La fouille est gratuite, mais pas éternelle. » Il retire le plateau sous son comptoir. Tu as vu passer, entre tes doigts, une pièce plus lourde que les autres ; tu ne saurais plus dire laquelle.",
     ],
     choices: [{ back: "IC_tables" }] },
@@ -167,7 +167,7 @@ Object.assign(P, {
       { again: true, text: "Gédéon lève les yeux de ses papiers et soulève sa plaque de verre, au cas où tu aurais changé d'avis." },
       "Sous le verre, {{pie#ic_faux_parchemin|un parchemin jauni, piqué de rousseurs, avec un sceau de cire rouge à demi brisé|un parchemin de l'an passé, jauni au thé, avec un sceau coulé dans un moule pris sur un vrai}}. L'écriture est belle, appliquée, un peu trop régulière.",
       "« Je la tiens {{oreille#ic_gedeon_copie|d'une vieille famille ruinée, qui vendait ses archives au poids|de ma propre main : je l'ai recopiée sur l'original, et l'original dort dans mon coffre en attendant un vrai acheteur}}, dit Gédéon. »",
-      { with: "gildas", text: "Frère Gildas se penche sur la plaque de verre, longtemps. Il se redresse sans un mot, et regarde Gédéon avec une curiosité tranquille." },
+      { with: "gildas", text: "Frère Gildas se penche sur la plaque de verre, longtemps. Il se redresse, et regarde Gédéon avec une curiosité tranquille." },
     ],
     choices: [
       { label: "Payer les trois ducats (60 liards)", hide: { has: "ic:reine" }, fx: { gold: -60 }, to: "IC_reine_fausse" },
@@ -436,7 +436,7 @@ Object.assign(P, {
   IC_corisande_crainte: { act: "I", title: "Ce qui fait peur", place: "changeurs",
     fx: { flag: "ic:corisande_crainte", ep: ["perso", 400] },
     text: [
-      "Corisande Marrel te regarde longtemps. Le feu de pommier claque. Elle fait un geste de la main vers la fenêtre, et Lothaire, sans un mot, sort du cabinet et ferme la porte derrière lui.",
+      "Corisande Marrel te regarde longtemps. Le feu de pommier claque. Elle fait un geste de la main vers la fenêtre, et Lothaire sort du cabinet et ferme la porte derrière lui.",
       "« {{oreille#ic_cori_crainte|Rien ne m'effraie, à mon âge|J'ai peur de mourir la dernière d'une maison de cinq siècles, et qu'on écrive aux Archives que c'est moi qui l'ai fermée}}, dit-elle. » Elle lève les yeux vers le portrait de l'homme à la balance. « Ricard Marrel. Il a commencé avec une table sur le pont, comme le vieux Dumay. Chaque génération depuis a ajouté un étage à cet hôtel. »",
       "« J'ai eu un fils. La fièvre des marais l'a pris à vingt ans, et sa femme après lui. Il me reste une petite-fille, Aliénor, qui a douze ans et qui dessine des chevaux. Je voudrais qu'elle hérite d'une maison, et pas d'un procès. » Elle se tait. Puis, plus bas : « Vous direz à Lothaire que nous avons parlé de l'or. »",
       { if: { voile: "ic_cori_odeline" }, text: "Tu penses aux deux mille ducats, et à la nuit où ils devaient changer de main. Corisande suit ton regard jusqu'au feu, et elle se tait." },
@@ -509,7 +509,7 @@ Object.assign(P, {
       "Il lève son propre cornet, un os blanchi cerclé d'argent, le jumeau du tien, et le tient contre son oreille sans plus faire semblant. « Votre maîtresse {{oreille#ic_lot_odeline|et moi, nous faisions affaire depuis longtemps|m'a vendu une seule chose en vingt ans, et c'était une promesse qu'elle n'a pas tenue}}. » Il incline la tête. « Vous dites : bonjour, Monsieur. Vous pensez : c'est lui. Oui, c'est moi. »",
       "« Votre sergent {{oreille#ic_lot_tibere|est un brave homme, qui boit un peu trop, c'est tout|me coûte cinq ducats le jeudi, et me raconte vos journées jusqu'à la couleur de vos chausses}}. Et Madame {{oreille#ic_lot_feu|collectionne les vieux papiers, c'est une passion de famille|veut un feu assez grand pour six feuillets, et c'est moi qui lui porterai le bois}}. »",
       { with: "gildas", text: "Lothaire regarde Frère Gildas, une seule fois, de la tête aux sandales. « Votre moine prie beaucoup, dit-il. C'est bien. Quelqu'un doit le faire, dans cette affaire. »" },
-      { with: "lison", text: "Lothaire regarde Lison, et son sourire s'élargit d'un rien. « Une Vasse, dit-il. Je reconnais la façon de se tenir près des portes. Saluez votre grand-mère de ma part. » Lison ne répond pas. Sa main s'est posée sur le manche de sa gaffe." },
+      { with: "lison", text: "Lothaire regarde Lison, et son sourire s'élargit d'un rien. « Une Vasse, dit-il. Je reconnais la façon de se tenir près des portes. Saluez votre grand-mère de ma part. » Lison se tait. Sa main s'est posée sur le manche de sa gaffe." },
     ],
     choices: [
       { label: "« Que fait ce cornet, exactement ? »", hide: { seen: "IC_lothaire_cornet" }, to: "IC_lothaire_cornet" },
@@ -668,7 +668,7 @@ Object.assign(P, {
       { first: true, text: "Un huissier en robe bleue crie à intervalles réguliers, d'une voix qui a crié la même chose pendant trente ans : « Séance publique ! Les tribunes sont ouvertes au peuple de Salvèze ! Les armes au vestiaire ! »" },
       { again: true, text: "Le dôme verdi, les quarante écussons, l'huissier en robe bleue. Les solliciteurs sur leur banc de pierre ont changé ; leurs requêtes roulées sont les mêmes." },
       "Dans le vestibule, sous la coupole, la pierre {{echo#ic_echo_conseil|renvoie le bruit des pas et des conversations|garde une voix d'homme, calme, qui dicte : « Qu'on lui coupe la langue, et qu'on écrive qu'elle est devenue folle. Le greffier notera : à l'unanimité des Comptoirs »}}.",
-      { after: "ic:expulse", text: "L'huissier en robe bleue te reconnaît, et il croise sa masse en travers de l'escalier des tribunes, sans un mot." },
+      { after: "ic:expulse", text: "L'huissier en robe bleue te reconnaît, et il croise sa masse en travers de l'escalier des tribunes." },
     ],
     choices: [
       { label: "Monter aux tribunes publiques pour la séance", big: true, hide: { any: [{ seen: "IC_seance" }, { has: "ic:expulse" }] }, to: "IC_seance" },
@@ -759,7 +759,7 @@ Object.assign(P, {
   IC_interpeller_suite: { act: "I", title: "Le silence de la salle", place: "changeurs",
     text: [
       "Ta voix tombe dans la salle et, pendant un moment, il n'y a plus rien d'autre. Les quarante bancs regardent en l'air. Le greffier a levé sa plume. Puis la rumeur monte, d'un coup, des tribunes d'abord, où l'on répète ta phrase en la déformant déjà.",
-      { if: { has: "ic:interpelle_titres" }, text: "Sur les trois bancs de la Banque, Maître Guérande ne bouge pas. Il tourne seulement la tête vers les tribunes, et il te regarde, longtemps, comme on retient un visage. Au bout du fer à cheval, le tribun Vimeux s'est levé à moitié." },
+      { if: { has: "ic:interpelle_titres" }, text: "Sur les trois bancs de la Banque, Maître Guérande reste immobile. Il tourne seulement la tête vers les tribunes, et il te regarde, longtemps, comme on retient un visage. Au bout du fer à cheval, le tribun Vimeux s'est levé à moitié." },
       { if: { has: "ic:interpelle_monnaie" }, text: "Le maître de la Monnaie, sur le banc gris de la République, devient rouge jusqu'au crâne. Le prévôt lève la main avec un sourire pour calmer la salle, et il ne le calme pas tout de suite." },
       { if: { has: "ic:interpelle_grain" }, text: "Maître Fourcaud cesse de sourire. Il rit, un peu trop fort, et se tourne vers ses voisins pour qu'ils rient avec lui. Ils ne rient pas tous." },
       "Les huissiers arrivent. Ils te prennent chacun par un coude, sans brutalité, parce que le peuple des tribunes les regarde, et ils te raccompagnent jusqu'au vestibule. Derrière toi, le vote reprend. Tu entends le greffier appeler les maisons une à une, et la rumeur couvrir sa voix.",
@@ -806,7 +806,7 @@ Object.assign(P, {
     text: [
       "L'impôt du sel passe à vingt-trois voix contre dix-sept. La maison Vernier a voté pour. Le prévôt lève la séance par une seconde prière pour la République, plus courte que la première, et quitte l'estrade par une porte dérobée, son clerc sur les talons.",
       "Sous les arcades, la foule se défait en petits groupes. On répète les discours en les améliorant. Sur la place, devant le palais, un carrosse aux portières peintes de la tour d'argent attend le prévôt, et un deuxième, plus petit, sans armoiries, attend un peu plus loin, rideaux tirés.",
-      { if: { has: "ic:interpelle" }, text: "Des gens des tribunes te reconnaissent, et te tapent sur l'épaule en passant. Une marchande de poisson te donne un hareng fumé, enveloppé dans une page d'avis, sans rien dire." },
+      { if: { has: "ic:interpelle" }, text: "Des gens des tribunes te reconnaissent, et te tapent sur l'épaule en passant. Une marchande de poisson te donne un hareng fumé, enveloppé dans une page d'avis." },
       { if: { has: "ic:mot_clerc" }, text: "Quand le carrosse du prévôt passe devant toi, le rideau de cuir s'écarte d'un doigt, et se referme." },
       { with: "tibere", text: "Une jeune fille passe devant les arcades avec un carton à robes dans les bras, en courant presque. Tibère la suit des yeux jusqu'au pont. « {{oreille#ic_tib_rosalie|Je n'ai plus de famille, moi, ça simplifie la vie|J'ai une fille, Rosalie, qui coud rue des Dames, et qui traverse la rue quand elle me voit}}, dit-il. »" },
     ],
@@ -1046,7 +1046,7 @@ Object.assign(P, {
     text: [
       "« J'ai la gorge comme un fourreau, dit Tibère en se frottant le cou. Je vais boire un vin chaud au Trébuchet. Tu me retrouves sur le pont. » Il s'éloigne vers la pointe de l'île, les mains dans les poches, de son pas lourd de sergent. Le Trébuchet est à gauche, au pied des Archives. Tibère prend à droite.",
       "Tu le laisses prendre vingt pas d'avance. Il longe la façade de la Banque, s'arrête pour lacer une botte qui n'en a pas besoin, regarde derrière lui. Tu te colles contre le pilier d'une arcade.",
-      { with: "lison", text: "Lison t'a vu{e} faire. Sans un mot, elle passe devant toi et marche dans le sillage de Tibère, à quinze pas, en regardant les vitrines des orfèvres, comme une fille qui n'a rien à faire de sa journée." },
+      { with: "lison", text: "Lison t'a vu{e} faire. Elle passe devant toi et marche dans le sillage de Tibère, à quinze pas, en regardant les vitrines des orfèvres, comme une fille qui n'a rien à faire de sa journée." },
     ],
     choices: [
       { label: "Le suivre de pilier en pilier, jusqu'au flanc de la Banque",
@@ -1170,7 +1170,7 @@ Object.assign(P, {
   IC_rosalie_fin: { act: "I", title: "Le dé d'argent", place: "changeurs",
     fx: { quest: "IC_rosalie", flag: "ic:rosalie", set: { ic_rosalie: "sait" }, ep: ["perso", 500] },
     text: [
-      "Rosalie ne dit rien pendant un long moment. Un drap claque dans le vent de la cour. Elle enlève son dé d'argent, le regarde, le remet.",
+      "Rosalie se tait un long moment. Un drap claque dans le vent de la cour. Elle enlève son dé d'argent, le regarde, le remet.",
       { if: { voile: "ic_rosalie_brunel" }, text: "« Brunel, dit-elle enfin. Il me demande comment va mon père, et je lui réponds. Je lui dis où il boit, à qui il doit. Je croyais faire la conversation. » Elle serre les lèvres. « Je ne prendrai plus son argent. »" },
       { if: { has: "tibere:aveu" }, text: "« Trois ducats, dit-elle. Chaque semaine. Et il boit le reste, évidemment. » Elle rit, d'un rire qui ressemble à celui de son père, et elle s'en aperçoit, et elle s'arrête." },
       "Elle retire le dé de son doigt et te le tend. « Donnez-lui ça. C'est lui qui me l'a offert, quand j'ai commencé l'apprentissage. Dites-lui que je le lui prête. Qu'il me le rapporte lui-même, à jeun, un dimanche. » Elle rentre dans l'atelier sans attendre ta réponse.",
@@ -1183,7 +1183,7 @@ Object.assign(P, {
       "Tibère s'arrête sur le seuil de l'atelier comme devant une porte de prison. Il a lissé sa moustache avec de l'eau de la Salve, et brossé son chapeau avec sa manche. Les six filles lèvent la tête. Rosalie, au bout de la table, pose son aiguille.",
       "Ils sortent dans la cour, tous les deux. Tu restes près de la porte. Tu n'entends pas tout. Tu entends Tibère dire « trois ducats », et « Brunel », et « pardon », dans le désordre. Tu entends Rosalie se taire, longtemps. Tu la vois lever la main, une fois, comme pour le gifler, et la poser sur sa joue à lui, à la place, très vite, et la retirer.",
       "Quand ils reviennent, Tibère a les yeux rouges et le dos droit. Rosalie a repris son aiguille. « Dimanche, dit-elle sans lever la tête. À jeun. Sinon je ferme la porte. » Tibère hoche la tête, et il sort de la rue des Dames d'un pas de sergent à la parade.",
-      "Sur le pont, il ne dit rien pendant un bon moment. Puis : « Elle a les sourcils de sa mère. Moi, je croyais qu'elle avait les miens. »",
+      "Sur le pont, il se tait un bon moment. Puis : « Elle a les sourcils de sa mère. Moi, je croyais qu'elle avait les miens. »",
     ],
     choices: [{ back: "IC_pont" }] },
 

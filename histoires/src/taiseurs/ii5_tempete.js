@@ -31,7 +31,7 @@ Object.assign(P, {
       { after: "iit:anguilles", text: "Cyprien Huchet, le doyen des pêcheurs d'anguilles, te reconnaît et te tape sur l'épaule. « Celui ou celle qui a fait taire la Vieille peut bien tenir un bout de corde. » Ses hommes rient, et tirent plus fort." },
       { after: "iit:prevenu", text: "Tu leur dis ce que le ponton t'a rendu. Les pêcheurs se regardent. Ils te croient sur parole, et ils te demandent seulement où. Une demi-heure plus tard, six hommes avec des gaffes et des tridents à anguilles se couchent dans les roseaux du sud, près du chêne mort, et deux barques bouchent l'entrée du chenal avec une chaîne de nasses." },
       "Un vieux pêcheur, la barbe trempée, crie dans le vent : « Les douaniers {{oreille#iit_douane_barques|sont rentrés à leur tour de bonne heure|nous ont loué nos barques plates hier, et payé d'avance, en argent de la Banque}} ! Ils auront plus chaud que nous ! »",
-      { with: "tibere", text: "Tibère tire avec toi sans un mot. Une fois, sa main glisse, et il reste un moment immobile, l'aussière sciant ses paumes, à regarder vers le sud." },
+      { with: "tibere", text: "Tibère tire avec toi en silence. Une fois, sa main glisse, et il reste un moment immobile, l'aussière sciant ses paumes, à regarder vers le sud." },
       { with: "salome", text: "Salomé passe d'une barque à l'autre en refaisant les nœuds des autres, sans demander la permission, et les pêcheurs la laissent faire." },
     ],
     choices: [
@@ -92,7 +92,7 @@ Object.assign(P, {
 
   IIT_tibere_chasse: { act: "II", title: "La barque de Tibère", place: "joncs",
     text: [
-      "Tibère obéit sans un mot. Il descend l'échelle, détache la plus petite barque du ponton et pose sa masse de sergent au fond. La pluie lui colle les cheveux au crâne. Il te regarde une dernière fois, d'en bas, la gaffe à la main.",
+      "Tibère obéit. Il descend l'échelle, détache la plus petite barque du ponton et pose sa masse de sergent au fond. La pluie lui colle les cheveux au crâne. Il te regarde une dernière fois, d'en bas, la gaffe à la main.",
       "« Si tu vois Rosalie, dit-il, ne lui dis rien de moi. Ni le bon ni le mauvais. Elle a assez à porter. »",
       "Il pousse sur la gaffe. La barque glisse dans les roseaux et la nuit la prend tout de suite. Au sud, la lumière s'allume deux fois, et attend une réponse. L'eau reste noire.",
     ],
@@ -438,7 +438,7 @@ Object.assign(P, {
     text: [
       "Tu cours sur la vasière avec les patins de planche des pêcheurs aux pieds, en suivant les perches qui balisent le gué. La vase aspire, souffle, sent l'œuf pourri et le sel. La pluie tombe moins dru. Derrière toi, le feu fait un halo rouge sur les nuages bas.",
       { if: { has: "iit:anguilles" }, text: "Deux pêcheurs de Cyprien courent avec toi. Ils connaissent la vasière pied à pied et te tirent par la manche quand tu vas mettre le pied là où la vase avale." },
-      { if: { has: "iit:passeur" }, text: "Maclou le passeur est sorti des roseaux à ta hauteur, sa perche à la main, sans un mot. Il te montre le raccourci des fugitifs : une ligne de pieux sous la vase, qu'on sent avec le talon." },
+      { if: { has: "iit:passeur" }, text: "Maclou le passeur est sorti des roseaux à ta hauteur, sa perche à la main. Il te montre le raccourci des fugitifs : une ligne de pieux sous la vase, qu'on sent avec le talon." },
       "Tu arrives à l'embouchure du chenal des Anguilles juste comme la barque à proue noire s'y engage. La marée baisse. L'eau se retire du chenal à vue d'œil. La barque racle, ralentit, s'arrête. Quesnel saute dans la vase jusqu'aux cuisses et pousse en jurant. Le rouleau de toile huilée est passé dans sa ceinture.",
       "Il te voit. Il tire son couteau. « {{oreille#iit_quesnel|Approche, et je te saigne comme une anguille|Lothaire me paie au feuillet. S'il le perd, il dira que c'est moi qui l'ai vendu, et on me retrouvera dans un canal}}. »",
     ],
@@ -518,7 +518,7 @@ Object.assign(P, {
       { again: true, text: "Le matin avance sur les Joncs. On cloue, on lave, on compte. La lampe de Mère Ancolie brûle en plein jour, là-haut, et c'est le signe qu'elle attend." },
       { if: { has: "joncs:sauves" }, text: "La maison commune est debout, sans toit, noire jusqu'à hauteur d'homme, et les femmes y ont déjà tendu une voile de barque en guise de plafond. Dans la rangée des dentellières, on étend la dentelle mouillée sur les rambardes pour la faire sécher. Quelqu'un chante, faux, et on le laisse chanter.",
         else: "À la place de la maison commune, quarante pilotis noirs sortent de l'eau. La rangée des dentellières est un alignement de poutres. Les gens des maisons brûlées se sont répartis chez les autres. On compte les carreaux de dentelle sauvés : onze, sur soixante. Le village se tait." },
-      { first: true, after: "iit:douane_partie", text: "Au sud, la tour des douanes garde ses volets fermés. À l'aube, un douanier sans casque a déposé sur le ponton un sac de farine et une barrique d'eau douce, puis il est reparti sans un mot." },
+      { first: true, after: "iit:douane_partie", text: "Au sud, la tour des douanes garde ses volets fermés. À l'aube, un douanier sans casque a déposé sur le ponton un sac de farine et une barrique d'eau douce, puis il est reparti." },
       { first: true, after: "iit:douane_reste", text: "Au sud, deux barques de la douane croisent devant le chenal, lentement. Un commis y compte les pilotis noircis et les note sur une tablette. Les pêcheurs le regardent faire en silence." },
       { if: { has: "iit:ancolie_blessee" }, text: "Mère Ancolie a un bandeau de toile autour de la tête, taché de brun à la tempe. Elle refuse qu'on la plaigne. Elle s'est fait apporter un carreau neuf, et elle a recommencé à travailler, plus lentement." },
       { with: "gildas", text: "Frère Gildas a passé la nuit sur les brûlures des autres. Il a les manches roussies jusqu'aux coudes et les doigts luisants de graisse de mouton. Il dort assis, contre un pilotis, la tête droite." },
@@ -808,7 +808,7 @@ Object.assign(P, {
   IIT_anguilles: { act: "II", title: "Les nasses crevées", place: "joncs",
     fx: { meet: "iit_ysore" },
     text: [
-      "Au bout du ponton des pêcheurs, une rangée de nasses d'osier sèche au soleil, et chacune est crevée : des trous ronds, larges comme une tête, les brins d'osier cassés vers l'intérieur. Cyprien Huchet, le doyen des pêcheurs, les montre d'un geste du menton, sans rien dire.",
+      "Au bout du ponton des pêcheurs, une rangée de nasses d'osier sèche au soleil, et chacune est crevée : des trous ronds, larges comme une tête, les brins d'osier cassés vers l'intérieur. Cyprien Huchet, le doyen des pêcheurs, les montre d'un geste du menton.",
       "« La Vieille, dit-il enfin. L'anguille des Vasières-Rouges. Elle remonte du large tous les vingt ans, à ce qu'on dit, et elle mange les nasses avec ce qu'il y a dedans. {{oreille#iit_ang_cyprien|Elle nous a pris trois semaines de pêche|Elle a retourné la barque de mon petit-fils, mardi, et il a fallu le repêcher par les cheveux. Sa mère ne le sait pas}}. »",
       "Au fumoir, une vieille femme vide des anguilles en chantonnant, le couteau rapide, sans regarder ses mains. C'est Ysoré, la sœur de Cyprien. Elle chante une berceuse des marais, à mi-voix : « {{oreille#iit_ang_berceuse|Dors, anguille, dors dans la vase, la lune est sur l'eau|Va-t'en, Vieille, va-t'en au large, la mer est à toi, et le marais est à nous}}. »",
       "« Il faudrait quelqu'un, dit Cyprien, qui monte la garde cette nuit aux Vasières-Rouges. Quelqu'un qui n'a pas peur, ou qui a peur moins que nous. On paiera en argent et en anguilles. »",
@@ -897,7 +897,7 @@ Object.assign(P, {
   IIT_ang_fin: { act: "II", title: "La part des pêcheurs", place: "joncs",
     fx: { quest: "IIT_anguilles" },
     text: [
-      { if: { has: "iit:vieille_partie" }, text: "Cyprien écoute ton récit sans rien dire, en hochant la tête. Puis il va au fumoir, et tu l'entends parler à sa sœur. Ysoré sort, s'essuie les mains à son tablier, et te regarde longtemps. « Tu as entendu ce qu'il y avait dessous, dit-elle. Ma mère me l'a appris. Toi, qui te l'a appris ? » Elle hausse les épaules, sans attendre la réponse, et retourne à ses anguilles." },
+      { if: { has: "iit:vieille_partie" }, text: "Cyprien écoute ton récit en hochant la tête. Puis il va au fumoir, et tu l'entends parler à sa sœur. Ysoré sort, s'essuie les mains à son tablier, et te regarde longtemps. « Tu as entendu ce qu'il y avait dessous, dit-elle. Ma mère me l'a appris. Toi, qui te l'a appris ? » Elle hausse les épaules, sans attendre la réponse, et retourne à ses anguilles." },
       { if: { has: "iit:vieille_morte" }, text: "Cyprien te paie devant tout le ponton, en comptant les pièces à voix haute, et les pêcheurs frappent leurs crocs contre le bois. On te donne une anguille fumée longue comme le bras." },
       { if: { has: "iit:anguilles_ratee" }, text: "Cyprien te donne quand même une anguille fumée, et une tape sur l'épaule qui te fait tousser. « Tu as tenu la nuit, dit-il. C'est déjà ça. On ira poser nos nasses ailleurs. Le marais est grand. »" },
       { if: { has: "iit:anguilles" }, text: "« Si un jour tu as besoin de bras sur l'eau, ajoute-t-il, les pêcheurs des Joncs savent où tu dors. »" },
@@ -1012,7 +1012,7 @@ Object.assign(P, {
   IIT_pass_firmine: { act: "II", title: "Firmine", place: "joncs",
     fx: { meet: "iit_firmine" },
     text: [
-      "Ils attendent dans une hutte de roseaux, sur une butte, à une demi-heure des Joncs : une femme de trente ans aux mains rongées par le sel jusqu'au sang, et deux enfants, un garçon de huit ans et une fillette de cinq, qui te regardent sans rien dire. Firmine. Elle a un baluchon, et un couteau de saunière à la ceinture.",
+      "Ils attendent dans une hutte de roseaux, sur une butte, à une demi-heure des Joncs : une femme de trente ans aux mains rongées par le sel jusqu'au sang, et deux enfants, un garçon de huit ans et une fillette de cinq, qui te regardent en silence. Firmine. Elle a un baluchon, et un couteau de saunière à la ceinture.",
       "Elle tend à Maclou trois pièces, sorties d'un nœud de son mouchoir. « C'est ce qu'il me reste de mon homme. Il les avait trouvées dans le vieux bassin, sous la vase. » Les pièces sont {{pie#iit_pass_pieces|de cuivre noirci, des liards d'avant|d'or fin, frappées d'une reine qui tient un doigt sur ses lèvres : des ducats à la Muette, qui valent chacun le prix d'une barque}}.",
       "Maclou les prend sans les regarder et les fourre dans sa poche. « Ça ira », dit-il.",
     ],
@@ -1066,7 +1066,7 @@ Object.assign(P, {
       "De l'autre côté de la chaîne, le chenal s'élargit, et l'eau sent la mer. Au bout, dans l'aube grise, un bateau de pêche de Port-Vasier attend, voile brune affalée, et un homme fait signe d'une lanterne.",
       "Firmine fait monter les enfants. Puis elle se retourne vers toi.",
       { if: { has: "iit:firmine_dit" }, text: "Elle te met une des pièces dans la main et te referme les doigts dessus, très fort, avec sa main râpeuse de saunière. « Une pour toi. Tu aurais pu te taire. » Elle monte à bord sans attendre de réponse.",
-        else: "Elle te serre la main, très fort, sans un mot. Quand le bateau a pris le large, Maclou sort une des trois pièces de sa poche et te la tend. « Ta part. » Il la regarde à peine. Tu la regardes, toi, longtemps." },
+        else: "Elle te serre la main, très fort. Quand le bateau a pris le large, Maclou sort une des trois pièces de sa poche et te la tend. « Ta part. » Il la regarde à peine. Tu la regardes, toi, longtemps." },
       "La voile brune monte. Le garçon, à l'arrière, lève la main, et la garde levée jusqu'à ce que la brume le prenne.",
     ],
     choices: [

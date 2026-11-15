@@ -42,7 +42,7 @@ Object.assign(P, {
       { if: { all: [LIBRE, { not: { has: "vn:lothaire_devant" } }, { not: { has: "vn:lothaire_retarde" } }] }, text: "Au-dessus, dans l'escalier, des pas. Loin encore. Quelqu'un descend derrière toi." },
       { if: { all: [AVELINE_ICI, { has: "vn:soldats_porte" }] }, text: "Les soldats d'Aveline descendent derrière toi en file, les piques baissées pour ne pas heurter la voûte. Leur capitaine compte les marches à voix haute, dans sa langue." },
       { first: true, with: "lison", text: "Lison s'arrête devant le banc et regarde les sept morts un par un. « Les sept secrétaires du chancelier, dit-elle. Ma grand-mère raconte qu'ils sont partis en mer et qu'on ne les a jamais revus. Je {{oreille#vt_lison_sept|croyais à cette histoire|savais qu'ils s'étaient enfermés ici de leur plein gré, et je me suis toujours demandé si j'aurais eu ce courage}}. »" },
-      { first: true, with: "gildas", text: "Frère Gildas s'incline devant le banc, très bas, à la façon du Mont devant l'autel. Il se relève sans un mot." },
+      { first: true, with: "gildas", text: "Frère Gildas s'incline devant le banc, très bas, à la façon du Mont devant l'autel. Il se relève." },
       { first: true, with: "tibere", text: "Tibère ôte son chapeau, regarde les morts, et le remet aussitôt, gêné de son propre geste." },
     ],
     choices: [
@@ -71,7 +71,7 @@ Object.assign(P, {
     text: [
       "Tu lis les noms. Ta voix sonne bas sous la voûte. « Ivona Vasse. Pol Brac. Enora Kerhoas. Alan Danic. Gwenn Lannuzel. Tiphaine Ruellan. Judicaël Riou. »",
       "Au septième nom, les jetons sur les genoux des morts se mettent à vibrer, tous ensemble, très doucement. L'accord monte, tient, s'éteint. Ensuite la chambre est plus calme qu'avant.",
-      { with: "lison", text: "Lison a pâli au premier nom. « Ivona Vasse, répète-t-elle. Il y a une Ivona dans la généalogie que ma grand-mère récite à Noël. Elle s'arrête toujours sur ce nom-là, et elle passe au suivant sans rien dire. » Elle pose deux doigts sur l'épaule de la morte, et les retire." },
+      { with: "lison", text: "Lison a pâli au premier nom. « Ivona Vasse, répète-t-elle. Il y a une Ivona dans la généalogie que ma grand-mère récite à Noël. Elle s'arrête toujours sur ce nom-là, et elle passe au suivant. » Elle pose deux doigts sur l'épaule de la morte, et les retire." },
       { with: "salome", text: "« Brac », dit Salomé derrière toi. Elle descend la dernière marche. Elle regarde l'homme assis à la place de Pol Brac, ses os longs, ses grandes mains. « Les Brac de Port-Vasier ont toujours dit qu'un des leurs avait servi la reine. Mon père disait que c'était une vantardise de buveur. » Elle reste un moment à côté de lui." },
       { if: { has: "basse:taiseurs" }, text: "L'Aîné, qui t'a suivi{e} dans l'escalier, s'agenouille devant le banc. Il touche le front de chaque mort avec le pouce, sept fois, et il dit les noms après toi, à voix basse, comme un répons." },
       "Tu {{miroir#vt_secr_miroir|as fait ce qu'il fallait, voilà tout|penses à Odeline, qu'on a enterrée au cimetière des Noyés sous un nom de ville, et tu te demandes qui dira le sien dans trois cents ans}}.",
@@ -401,7 +401,7 @@ Object.assign(P, {
       { if: { has: "vt:coffre_cale" }, text: "Le coffre de lingots fait un bruit terrible en heurtant le bronze, mais il tient. La porte reste fermée sur lui, et tu sais déjà qu'on ne le dégagera plus." },
       { if: { voile: "vt_porte_mot" }, text: "Sous la septième dalle, dans un creux, il y a un poids de bronze en forme de bouche fermée. Tu le poses sur sa tige. La porte se referme d'elle-même, lentement, comme on referme un livre." },
       "Le battant claque. L'eau se retire de la mosaïque par les rigoles, en sifflant. Le bruit de la mer, de l'autre côté, devient sourd, lointain, un bruit de voisins.",
-      { with: "any", text: "Vous restez un moment immobiles, trempés, à vous regarder sans rien dire." },
+      { with: "any", text: "Vous restez un moment immobiles, trempés, à vous regarder." },
     ],
     choices: [
       { label: "Monter, maintenant, par l'escalier du dôme", big: true, hide: { not: MER }, to: "VT_puits" },
@@ -598,7 +598,7 @@ Object.assign(P, {
     text: [
       { with: "salome", text: "Salomé s'avance entre toi et Lothaire. Elle a le coutelas à la main, la lame tournée vers le sol. « L'écueil des Sourds, dit-elle. Il y a trois ans. Maïwenn est descendue au coffre de l'épave, et toi tu tenais la corde. »" },
       "Lothaire ôte le cornet jumeau de son oreille. Il le pose sur le lutrin, à côté de lui. « Je vais vous le dire sans ça, dit-il. Pour une fois. » Il regarde Salomé. « J'ai coupé la corde. Le coffret était petit, il tenait dans une main, et j'ai pensé que je ne le partagerais pas. Je l'ai pensé une seconde. Une seconde suffit. »",
-      { with: "salome", text: "Salomé ne bouge pas. Le coutelas tremble dans sa main, de plus en plus, puis plus du tout." },
+      { with: "salome", text: "Salomé reste immobile. Le coutelas tremble dans sa main, de plus en plus, puis plus du tout." },
       { with: "salome", if: { has: "salome:plonge" }, text: "« J'ai replongé, dit-elle. Pour elle. Tu ne le savais pas. Je suis descendue sur l'écueil, et je l'ai trouvée. Elle avait encore la corde à la taille. Coupée net. »" },
     ],
     choices: [
@@ -619,7 +619,7 @@ Object.assign(P, {
   VT_lo_allie: { act: "V", title: "Contre Corisande", place: "sorne",
     fx: { flag: ["lothaire:allie", "vt:banque_reglee", "vt:allie_regle", "vt:lothaire_tourne"], fac: { banque: -10 }, ep: ["histoire", 3500] },
     text: [
-      "Lothaire te regarde un long moment sans rien dire. Puis il rit, un vrai rire, bref, qui le surprend lui-même.",
+      "Lothaire te regarde un long moment en silence. Puis il rit, un vrai rire, bref, qui le surprend lui-même.",
       "« Par billet, dit-il. Vingt ans de service, et un billet, plié en quatre, cacheté à la cire noire. Oui. » Il ôte ses gants, un doigt après l'autre, et les glisse dans sa ceinture. « Elle a un petit-fils en otage chez le duc, vous savez. Bérold. Il est aux cadets d'Aveline depuis l'automne. Elle ne l'a dit à personne. Je l'ai entendu, un soir, sous ses mots. C'est pour lui qu'elle paiera le duc, bien plus que pour la ville. »",
       "Il fait signe à ses hommes, dans l'escalier. Les arbalètes se lèvent vers la voûte, désarmées. « Je vous suis. Jusqu'en haut de la tour. Ensuite, nous verrons ce que vous pensez de moi. »",
       { with: "lison", text: "Lison le regarde de travers. « S'il t'entend penser à le pousser dans la mer, dit-elle à mi-voix, tâche de le penser fort. »" },
@@ -863,7 +863,7 @@ Object.assign(P, {
   VT_co_berold: { act: "V", title: "Bérold", place: "sorne",
     fx: { unflag: "corisande:pacte", flag: ["vt:banque_reglee", "vt:cori_berold"], fac: { banque: 5 } },
     text: [
-      "Corisande Marrel ne bouge pas. Ses mains, sur la loutre, se serrent l'une sur l'autre jusqu'à ce que les bagues lui mordent les doigts. C'est la seule chose qui bouge.",
+      "Corisande Marrel reste immobile. Ses mains, sur la loutre, se serrent l'une sur l'autre jusqu'à ce que les bagues lui mordent les doigts. C'est la seule chose qui bouge.",
       "« Qui vous l'a dit ? » Tu ne réponds pas. Elle regarde ton oreille, longtemps. « Ah. Bien sûr. »",
       "Elle parle très bas, pour toi seul{e}. « Il a dix-sept ans. Il voulait être soldat. Le duc l'a pris aux cadets à l'automne, avec les fils de trois autres maisons. Nous avons tous fait semblant que c'était un honneur. Si le duc n'est pas payé à la Saint-Jean, il sera le premier à payer. »",
       "Tu lui dis ce que tu proposes. Une part de l'or pour Bérold, une part seulement, versée au duc par ta main et pour son nom à lui. La Charte, lue. La Banque, laissée à son sort.",
@@ -886,7 +886,7 @@ Object.assign(P, {
   VT_co_lothaire: { act: "V", title: "Au passé", place: "sorne",
     fx: { unflag: "corisande:pacte", flag: ["vt:banque_reglee", "lothaire:allie", "vt:allie_regle", "vt:lothaire_tourne"], fac: { banque: -10 }, ep: ["histoire", 3000] },
     text: [
-      "Lothaire Brunel ne répond pas tout de suite. Il regarde Corisande, qui regarde ailleurs. Il remet son cornet jumeau à l'oreille, et il l'écoute, elle, longtemps. Elle ne dit rien. Il n'en a pas besoin.",
+      "Lothaire Brunel prend son temps pour répondre. Il regarde Corisande, qui regarde ailleurs. Il remet son cornet jumeau à l'oreille, et il l'écoute, elle, longtemps. Elle ne dit rien. Il n'en a pas besoin.",
       "« Oui, dit-il enfin, très doucement. Au passé. Le billet est déjà écrit, n'est-ce pas, Madame ? Dans votre écritoire, avec les autres. » Corisande se tait. Elle assume toujours ce qu'elle a fait ; c'est une de ses qualités.",
       "Lothaire traverse la mosaïque et vient se placer à côté de toi. Les arbalétriers se regardent : ils connaissent Lothaire depuis plus longtemps que leur paie. Un à un, ils désarment.",
       "Corisande soupire. « Vingt ans, dit-elle. Vous avez toujours eu le sens du moment, Brunel. » Elle fait signe à ses porteurs. « Remontez-moi. Il fait froid, ici. »",
@@ -944,7 +944,7 @@ Object.assign(P, {
     text: [
       { with: "fauvette", text: "Fauvette s'est faufilée derrière le second rang pendant que le capitaine parlait. Un coup de rasoir dans le cercle de fer, un coup de pointe dans la douve, et l'huile se met à couler sur la mosaïque en filet noir. Elle est déjà revenue à côté de toi quand le premier soldat le remarque." },
       { without: "fauvette", text: "Tu fais un pas de côté, un seul, comme pour t'écarter des piques, et tu enfonces ta lame dans la douve du tonneau, au ras du fond. L'huile se met à couler sur la mosaïque en filet noir." },
-      "L'huile suit les rigoles, comme les Taiseurs l'ont voulu pour l'eau, et file vers le conduit. Le capitaine la regarde partir. Il ne dit rien pendant longtemps.",
+      "L'huile suit les rigoles, comme les Taiseurs l'ont voulu pour l'eau, et file vers le conduit. Le capitaine la regarde partir. Il se tait longtemps.",
       "« Bien, dit-il enfin. Il n'y aura pas de feu sur votre tour. » Il range son épée. « Je ne me bats pas pour une Charte quand je n'ai plus de quoi l'annoncer. Le duc me fera pendre, ou il me donnera une autre compagnie. Il hésite toujours entre les deux. »",
       "Les soldats d'Aveline remontent l'escalier en bon ordre, sans tonneau.",
     ],
@@ -1100,9 +1100,9 @@ Object.assign(P, {
       "L'escalier du dôme tourne dans l'épaisseur du mur, étroit, éclairé de loin en loin par une meurtrière où passe une lumière verte, puis grise, puis rose. Il monte plus haut que la salle, plus haut que la colline, dans le fût de la tour de la Reine qui domine Sorne. Tu comptes les marches jusqu'à deux cents, puis tu arrêtes de compter.",
       { if: MER, text: "Sous tes pieds, l'eau monte dans l'escalier derrière toi, marche après marche, sans se presser. Elle s'arrête quelque part vers la cent-cinquantième. Les Taiseurs avaient mesuré." },
       { if: { all: [{ is: { or: "remonte" } }, { has: "vt:corde_doublee" }] }, text: "Le treuil grince à chaque tour de manivelle. Les coffres de lingots montent dans le puits central, un à un, au bout de leur corde doublée, et la corde tient." },
-      { if: { all: [{ is: { or: "remonte" } }, CORI, { has: "vt:pacte_tenu" }] }, text: "Les porteurs de Corisande tournent le treuil à quatre, sans un mot, comme on tourne une meule." },
+      { if: { all: [{ is: { or: "remonte" } }, CORI, { has: "vt:pacte_tenu" }] }, text: "Les porteurs de Corisande tournent le treuil à quatre, comme on tourne une meule." },
       { with: "tibere", text: "Tibère monte derrière toi en soufflant, une main sur le mur. « Deux cents marches, dit-il. Au Guet, on me faisait monter au Beffroi pour punition. Je n'aurais jamais cru le regretter. »" },
-      { if: { has: "vt:lothaire_delie" }, text: "Lothaire Brunel monte devant toi, les poignets encore liés, sans un mot. De temps en temps, il s'arrête pour souffler, et il repart avant que tu le pousses." },
+      { if: { has: "vt:lothaire_delie" }, text: "Lothaire Brunel monte devant toi, les poignets encore liés. De temps en temps, il s'arrête pour souffler, et il repart avant que tu le pousses." },
     ],
     choices: [
       { label: "Lothaire, lié sur le banc des secrétaires", big: true, hide: { not: LIE }, to: "VT_lo_banc" },
@@ -1186,7 +1186,7 @@ Object.assign(P, {
     text: [
       { if: { has: "vt:double_feu" }, text: "Salomé a allumé un second feu à l'autre bout du parapet, avec de l'étoupe et l'huile du tonneau, et elle l'entretient à coups de manteau. Deux feux, sur la tour de la Reine. Au large, les trois coques d'Aveline restent où elles sont. Puis l'une d'elles vire de bord, lentement, vers le nord." },
       { if: { not: { has: "vt:double_feu" } }, text: "Le tonneau bascule par-dessus le parapet, la mèche allumée, et tombe dans la mer avec un bruit sourd, très loin en bas. Une fumée blanche, une odeur de soufre, et plus rien. Au large, les trois coques d'Aveline attendent un feu qui ne vient pas." },
-      { if: { voile: "vt_av_lieut" }, text: "Le jeune lieutenant a soufflé la mèche entre ses doigts. Il regarde ses doigts brûlés, puis son capitaine, sans rien dire." },
+      { if: { voile: "vt_av_lieut" }, text: "Le jeune lieutenant a soufflé la mèche entre ses doigts. Il regarde ses doigts brûlés, puis son capitaine." },
       "Le capitaine d'Aveline range son briquet. Il a l'air d'un homme qui vient de perdre une partie de cartes à laquelle il ne tenait pas tant que ça. « Le duc attendra, dit-il. Il sait attendre. Votre prévôt, lui, va devoir vivre avec ce qu'il a promis. »",
       { if: { has: "vt:charte_aveline" }, text: "Il sort la Charte de sous sa cuirasse et te la tend, sans cérémonie. « Elle ne me sert plus à rien sans le feu, dit-il. Et je n'aime pas porter les choses des autres. »" },
     ],
@@ -1202,7 +1202,7 @@ Object.assign(P, {
       "Au large, les trois coques d'Aveline hissent leurs voiles. Elles virent vers le nord, toutes ensemble, vers l'embouchure de la Salve. Le capitaine les regarde partir, la main en visière.",
       "« À midi, dit-il, la porte des Sauniers sera ouverte. Le prévôt Delisle l'a promis au duc, et c'est un homme qui tient ses promesses, quand elles lui rapportent. » Il se tourne vers toi. « Vous pouvez garder votre or. Le duc vous le prendra à Salvèze, avec le reste. »",
       "Au nord, très loin, la fumée de Salvèze monte toujours droite dans le matin. Dans quelques heures, il y aura des bannières bleues sur le Beffroi.",
-      { with: "lison", text: "Lison regarde la fumée noire sans un mot. Puis elle tourne le dos à la mer." },
+      { with: "lison", text: "Lison regarde la fumée noire en silence. Puis elle tourne le dos à la mer." },
     ],
     choices: [{ label: "Regarder vers Salvèze", big: true, to: "VF_duc" }] },
 
@@ -1370,7 +1370,7 @@ Object.assign(P, {
   VT_salome_plonge: { act: "V", title: "Salomé plonge", place: "sorne", with: "salome",
     fx: { set: { or: "remonte" }, flag: ["salome:plonge", "vt:salome_coffre"], ep: ["histoire", 3000] },
     text: [
-      { with: "salome", text: "Salomé ôte ses bottes, sa veste, sa ceinture. Elle noue la corde cassée autour de sa taille, d'un nœud de chaise, et te tend l'autre bout sans rien dire. Ses mains ne tremblent pas. Sa mâchoire, si." },
+      { with: "salome", text: "Salomé ôte ses bottes, sa veste, sa ceinture. Elle noue la corde cassée autour de sa taille, d'un nœud de chaise, et te tend l'autre bout. Ses mains ne tremblent pas. Sa mâchoire, si." },
       { with: "salome", if: { not: { has: "salome:plonge" } }, text: "« Trois ans, dit-elle. Trois ans que je ne suis pas descendue. » Elle regarde le puits, l'eau noire au fond. « Tiens la corde. Ne la lâche pas. Quoi qu'il arrive, ne la lâche pas. » Tu comprends à qui elle pense." },
       { with: "salome", if: { has: "salome:plonge" }, text: "« J'ai replongé une fois, dit-elle. Je peux bien replonger deux fois. Tiens la corde. »" },
       "Elle descend le puits à la force des bras, entre dans l'eau sans un bruit, et disparaît. Tu comptes. Trente. Soixante. La corde se tend, se détend, se tend. Quatre-vingt-dix. Tu tiens la corde à t'en blanchir les doigts.",
