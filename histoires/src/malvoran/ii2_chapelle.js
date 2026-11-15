@@ -139,7 +139,7 @@ Object.assign(P, {
     text: [
       "Quand c'est fini, il reste sur les planches des corps gris qui continuent à onduler sans tête, et une odeur de vase qui s'accroche à tes mains, même quand tu les frottes dans l'herbe.",
       "Le fossé s'est calmé. L'eau y est redevenue plate et noire, et garde pour elle le compte de celles qui restent dessous.",
-      { with: "gloup", text: "Gloup regarde les anguilles mortes avec une tristesse que tu lui découvres. Il en touche une du bout de sa bave. Puis il se détourne et vient se coller à ta botte." },
+      { with: "gloup", text: "Gloup regarde les anguilles mortes avec une tristesse inattendue chez lui. Il en touche une du bout de sa bave. Puis il se détourne et vient se coller à ta botte." },
     ],
     choices: [{ label: "Reprendre la route", back: R }] },
   EIIC_anguilles_mordu: { act: "II", title: "La morsure", place: null,

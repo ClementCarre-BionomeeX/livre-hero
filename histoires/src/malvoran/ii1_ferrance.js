@@ -967,7 +967,7 @@ add({
     text: [
       "Tu plies les genoux, tu prends les deux anneaux, tu respires, et tu te relèves avec la Belle-Mère contre le ventre. Tes épaules craquent. Tes bras s'allongent, te semble-t-il, d'un pouce à chaque pas. Un pas. Deux. Au dixième, tu vois une brume rouge, et plus rien autour. Au quinzième, ton cœur couvre tous les bruits.",
       "Au vingtième, tu la poses au pied de l'enclume noire, et tu tombes à genoux à côté d'elle. Il y a un bruit dans la halle, que tu mets un moment à reconnaître : les compagnons frappent du marteau sur leurs enclumes, tous ensemble, un coup, un seul.",
-      { with: "thavary", text: "Thavary se relève à côté de toi, les mains en sang, et elle rit, la tête renversée, d'un rire que tu lui découvres." },
+      { with: "thavary", text: "Thavary se relève à côté de toi, les mains en sang, et elle rit, la tête renversée, d'un grand rire de soldat, le premier que tu lui entends." },
     ],
     choices: [{ label: "« Le nom. »", big: true, to: "IIF_nom" }] },
   IIF_poids_ruse: { act: "II", title: "Le poids", place: "ferrance",
@@ -1411,7 +1411,7 @@ add({
     ] },
   IIF_archives_pris: { act: "II", title: "La porte des archives", place: "ferrance",
     text: [
-      "Isembart reste bien éveillé. Il attend que tu aies la main sur la poignée, puis il dit, les yeux sur sa page : « J'ai quatre-vingts ans, et je garde cette porte depuis cinquante. J'ai vu passer des voleurs plus doués que vous, et des étudiants plus bêtes. » Il tourne une page. « Revenez avec le jeton. Ou avec quelqu'un qui connaît la tenture. Je fais semblant de ne pas la connaître depuis trente ans, celle-là. »",
+      "Isembart reste bien éveillé. Il attend que tu aies la main sur la poignée, puis il dit, le nez dans son livre : « J'ai quatre-vingts ans, et je garde cette porte depuis cinquante. J'ai vu passer des voleurs plus doués que vous, et des étudiants plus bêtes. » Il tourne une page. « Revenez avec le jeton. Ou avec quelqu'un qui connaît la tenture. Je fais semblant de ne pas la connaître depuis trente ans, celle-là. »",
     ],
     choices: [{ back: "IIF_bibliotheque" }] },
   IIF_registre: { act: "II", title: "Le registre des fondations", place: "ferrance",
