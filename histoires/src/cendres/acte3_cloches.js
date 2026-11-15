@@ -7,7 +7,7 @@ function P(o) { return Object.assign({}, A, o); }
 module.exports = {
   III_c_dieu: P({ title: "Le petit dieu", place: null,
     text: [
-      "Le petit dieu de bois marche à côté de toi. Il t'arrive au genou. Il a un visage rond, usé par les mains, et une bouche peinte qui sourit. Une fente dans le ventre, pour les offrandes.",
+      "Le petit dieu de bois marche à côté de toi. Il t'arrive au genou. Il a un visage rond, usé par les mains jusqu'au grain du bois, et une bouche peinte qui sourit. Une fente dans le ventre, pour les offrandes, large juste assez pour un sou.",
       "Il te regarde de temps en temps, plein d'espoir. Tu fouilles tes poches.",
     ],
     choices: [
@@ -25,7 +25,7 @@ module.exports = {
 
   III_c_seule: P({ title: "La cloche seule", place: null,
     text: [
-      "Au milieu du blanc, toute seule, une cloche posée par terre, sur sa lèvre, comme un chapeau oublié. Une petite cloche de chapelle, verte de vert-de-gris.",
+      "Au milieu du blanc, toute seule, une cloche posée par terre, sur sa lèvre, comme un chapeau oublié. Une petite cloche de chapelle, verte de vert-de-gris, de la taille d'un seau.",
       "Quand tu passes à côté, elle sonne. Un coup. Seule.",
       "Quelque part, là-haut, quelqu'un vient de penser à un endroit. Une seconde. Puis il est passé à autre chose. La cloche se tait.",
     ],
@@ -33,8 +33,8 @@ module.exports = {
 
   III_c_ville: P({ title: "Bourdonne", place: "cloches", hub: true,
     text: [
-      { first: true, text: "Une ville de clochers. Rien que des clochers, serrés comme des arbres, de toutes les tailles, de toutes les époques, en pierre, en bois, en brique. Pas de maisons. Des rues entre les tours, pavées de blanc. Et dans chaque tour, une cloche." },
-      "La plupart se taisent. De temps en temps, quelque part, une cloche sonne un coup, deux, puis s'arrête. Le son traverse la ville, et les gens qui y vivent lèvent la tête pour savoir laquelle.",
+      { first: true, text: "Une ville de clochers. Rien que des clochers, serrés comme des arbres, de toutes les tailles, de toutes les époques, en pierre, en bois, en brique. Aucune maison : des rues entre les tours, pavées de blanc, et larges tout juste de deux charrettes. Et dans chaque tour, une cloche." },
+      "La plupart restent muettes. De temps en temps, quelque part, une cloche sonne un coup, deux, puis s'arrête. Le son traverse la ville, et les gens qui y vivent lèvent la tête pour savoir laquelle.",
       { if: { has: "iii:sonneuse" }, text: "La Sonneuse t'attend sur sa pierre, au milieu de la grand-place, son trousseau de clés de clocher sur les genoux." },
     ],
     choices: [
@@ -57,7 +57,7 @@ module.exports = {
   III_c_sonneuse: P({ title: "La Sonneuse", place: "cloches",
     fx: { flag: "iii:sonneuse", meet: "sonneuse" },
     text: [
-      "Elle est vieille comme une souche, enveloppée de châles, et elle tient sur ses genoux un trousseau de clés grosses comme des poignards. Elle te regarde arriver avec un plaisir évident.",
+      "Elle est vieille comme une souche, enveloppée de châles, cinq au moins, et elle tient sur ses genoux un trousseau de clés grosses comme des poignards. Elle te regarde arriver avec un plaisir évident.",
       "« Un visiteur ! Qui marche dans le bon sens ! » Elle tapote la pierre à côté d'elle. « J'étais sonneuse à Vaure-sur-Lac. Il y a deux cents ans, on a fait un barrage, et le lac a monté, et Vaure est dessous. Plus personne ne s'en souvient. Ma cloche est là-bas, au coin. Elle n'a pas sonné depuis cent cinquante ans. »",
       "« Ici viennent toutes les cloches des endroits oubliés. Chaque fois que quelqu'un, là-haut, se souvient d'un endroit, sa cloche sonne. Un coup par pensée. » Elle sourit de toutes ses gencives. « Je les connais toutes. Demande. »",
       { with: "hylas", text: "Puis elle voit Hylas, derrière toi. Son sourire s'efface. « Toi, dit-elle. Le greffier. Tu es déjà venu. Tu es reparti avec quelque chose qui n'était pas à toi. »" },
@@ -69,7 +69,7 @@ module.exports = {
 
   III_c_sonneuse_hylas: P({ title: "Ce qu'il a pris", place: "cloches",
     text: [
-      "Hylas reste immobile. La Sonneuse le regarde longtemps, puis te regarde toi, et quelque chose change sur son visage. Elle ne dit plus rien. Elle hausse les épaules, et laisse à d'autres le soin de le dire.",
+      "Hylas reste immobile. La Sonneuse le regarde longtemps, puis te regarde toi, et quelque chose change sur son visage. Elle se tait. Elle hausse les épaules, et laisse à d'autres le soin de le dire.",
       "« Demande-lui, dit-elle seulement. C'est son histoire. Les miennes, c'est les cloches. »",
       "Hylas a les yeux fermés. Il ne les a pas fermés depuis qu'il voit.",
     ],
@@ -79,8 +79,8 @@ module.exports = {
     text: [
       { first: true, text: "La Sonneuse te mène elle-même, en clopinant, jusqu'à un clocher de pierre grise, le dernier venu, au bout d'une rue. Tu le reconnais. Le clocher du temple de Sauvelune, avec la fissure au-dessus de la porte et le nid d'hirondelles sous l'avant-toit." },
       { again: true, text: "Tu redescends au pied du clocher de Sauvelune." },
-      { if: { has: "nord:rendu=sauvelune" }, text: "Il est vide. La cloche n'y est plus. Sur le plancher du beffroi, une trace ronde, propre, là où elle était posée. La Sonneuse se gratte la tête. « Elle est arrivée il y a un mois, et repartie il y a quelques jours. D'un coup. Je n'avais jamais vu ça. Quelqu'un, là-haut, a dû se souvenir très fort. »" },
-      { if: { not: { has: "nord:rendu=sauvelune" } }, text: "La cloche est là. Elle est arrivée il y a un mois. Elle est encore tiède. Elle se tait. Personne, là-haut, ne pense à Sauvelune. Personne sauf toi, et tu n'es plus là-haut." },
+      { if: { has: "nord:rendu=sauvelune" }, text: "Il est vide. Sur le plancher du beffroi, une trace ronde, propre, là où elle était posée. La Sonneuse se gratte la tête. « Elle est arrivée il y a un mois, et repartie il y a quelques jours. D'un coup. Je n'avais jamais vu ça. Quelqu'un, là-haut, a dû se souvenir très fort. »" },
+      { if: { not: { has: "nord:rendu=sauvelune" } }, text: "La cloche est là. Elle est arrivée il y a un mois. Elle est encore tiède. Elle se tait. Là-haut, Sauvelune a quitté toutes les pensées, sauf la tienne, et tu es ici." },
     ],
     choices: [
       { label: "Pleurer, ou rire, tu hésites", hide: { not: { has: "nord:rendu=sauvelune" } }, fx: { ep: ["perso", 1000] }, to: "III_c_ville" },
@@ -93,7 +93,7 @@ module.exports = {
   III_c_sauvelune_main: P({ title: "Un coup", place: "cloches",
     text: [
       "Tu montes au beffroi. Tu prends la corde. Tu tires.",
-      "La cloche sonne un coup, puis rien. Tu tires encore. Un coup. Elle ne sonne qu'une fois par pensée, et la seule pensée, c'est la tienne. Tu peux tirer toute la journée.",
+      "La cloche sonne un coup, puis se tait. Tu tires encore. Un coup. Elle ne sonne qu'une fois par pensée, et la seule pensée, c'est la tienne. Tu peux tirer toute la journée.",
       "La Sonneuse, en bas, hoche la tête. « Il faut que ce soit eux, là-haut. Ou que tu lui donnes quelque chose qui sonne tout seul. »",
     ],
     choices: [{ back: "III_c_sauvelune" }] }),
@@ -109,24 +109,24 @@ module.exports = {
 
   III_c_pallanche: P({ title: "Les cent clochettes", place: "cloches",
     text: [
-      "Une tour de bois très haute, et dedans, accrochées à des poutres, des clochettes. Des dizaines. Des cloches de quartier, de couvent, de corporation, de porte.",
+      "Une tour de bois très haute, et dedans, accrochées à des poutres, des clochettes, par rangées, comme des jambons au fumoir. Des dizaines. Des cloches de quartier, de couvent, de corporation, de porte.",
       { if: { has: "anseau:cloches" }, text: "« Pallanche, dit la Sonneuse. Une partie. Celles qu'on n'a pas sauvées. » Elle compte. « Il en manque beaucoup. Quelqu'un, là-haut, a dû empêcher les autres de venir. Un sonneur têtu, peut-être. »" },
       { if: { not: { has: "anseau:cloches" } }, text: "« Pallanche, dit la Sonneuse. Toutes. Arrivées en une seule nuit. Je n'avais jamais vu ça : cent cloches d'un coup. » Elle les regarde avec pitié. « Elles ne sonnent pas. La ville a oublié qu'elle avait des cloches. »" },
-      { with: "pie", text: "Pie lève la tête vers une petite cloche fêlée, tout en haut. « La cloche des Teinturiers. C'est elle qui m'a réveillé tous les matins de ma vie. » Il s'en tient là. Il reste là longtemps." },
+      { with: "pie", text: "Pie lève la tête vers une petite cloche fêlée, tout en haut. « La cloche des Teinturiers. C'est elle qui m'a réveillé tous les matins de ma vie. » Il s'en tient là, et reste planté sous la poutre, longtemps." },
     ],
     choices: [
       { label: "Grimper jusqu'à la petite cloche fêlée, tout en haut, et la toucher", fx: { ep: ["perso", 300] }, to: "III_c_pallanche_felee" },
       { back: "III_c_ville" },
     ] }),
   III_c_pallanche_felee: P({ title: "La cloche fêlée", place: "cloches",
-    text: ["Tu grimpes, de poutre en poutre. La petite cloche est fêlée du haut en bas, d'une fente à peine plus large qu'un fil. Tu poses le doigt sur le bronze. Elle ne sonne pas. Elle frémit. Et dans le frémissement, tu entends, très loin, une rue étroite qui sent l'indigo, un ruisseau de trois couleurs, des volets qu'on ouvre, un matin. Pas un son. Un réveil. Elle se souvient de tous les matins qu'elle a sonnés. C'est tout ce qu'elle garde. C'est déjà beaucoup."],
+    text: ["Tu grimpes, de poutre en poutre. La petite cloche est fêlée du haut en bas, d'une fente à peine plus large qu'un fil. Tu poses le doigt sur le bronze. Elle frémit, sans un son. Et dans le frémissement, tu entends, très loin, une rue étroite qui sent l'indigo, un ruisseau de trois couleurs, des volets qu'on ouvre, un matin. Un réveil, sans le bruit. Elle se souvient de tous les matins qu'elle a sonnés. C'est tout ce qu'elle garde. C'est déjà beaucoup."],
     choices: [{ label: "Redescendre, et revenir sur la place", back: "III_c_ville" }] }),
 
   III_c_lisse: P({ title: "Le clocher carré", place: "cloches",
     text: [
-      "Un clocher carré, de pierre jaune, à la manière de Corvanne. Au pied, assis par terre, dans la rue, des gens. Beaucoup. Trois cents, peut-être. Des femmes, des vieux, des enfants. Ils ne marchent pas avec les autres. Ils attendent.",
+      "Un clocher carré, de pierre jaune, à la manière de Corvanne. Au pied, assis par terre, dans la rue, des gens. Beaucoup. Trois cents, peut-être. Des femmes, des vieux, des enfants. Ils laissent passer les files. Ils attendent.",
       "« Lisse-en-Corvanne, dit la Sonneuse. Ils sont arrivés tous ensemble, il y a deux ans et demi. Ils ne veulent pas partir. Ils disent qu'ils attendent quelqu'un. »",
-      { with: "ysolde", text: "Derrière toi, Ysolde s'est arrêtée net. Elle regarde les gens assis. Elle ne se souvient pas d'eux. Ils lèvent la tête, et eux se souviennent d'elle." },
+      { with: "ysolde", text: "Derrière toi, Ysolde s'est arrêtée net. Elle regarde les gens assis. Leurs visages lui sont étrangers. Ils lèvent la tête, et eux se souviennent d'elle." },
       { without: "ysolde", text: "Une vieille femme se lève, s'approche, te regarde. « Tu n'es pas elle, dit-elle, déçue. On attend la capitaine. Celle du pont. Il faut qu'elle sache nos noms. On ne partira pas avant. »" },
     ],
     choices: [
@@ -136,11 +136,11 @@ module.exports = {
 
   III_c_lisse_ysolde: P({ title: "La capitaine", place: "cloches",
     text: [
-      "Ysolde avance. Les gens se lèvent. Ils ne s'écartent pas. Ils l'entourent.",
+      "Ysolde avance. Les gens se lèvent, et l'entourent.",
       "Une femme dit son nom. Puis celui de son fils, qu'elle tient par la main, huit ans. Puis un vieux dit le sien. Puis tous, l'un après l'autre, lentement, calmement, en la regardant dans les yeux. Ça dure longtemps. Ysolde reste debout. Elle les écoute tous.",
       { if: { has: "ysolde:lisse_sait" }, text: "Elle savait ce qu'elle avait fait. Elle ne savait pas à qui. Maintenant, elle sait." },
       { if: { not: { has: "ysolde:lisse_sait" } }, text: "Elle ne savait pas. Ils le lui disent, simplement. Le pont, la nuit, l'ordre. Elle sur la rive. Elle qui regarde." },
-      "Quand le dernier a parlé, elle tombe à genoux. Personne ne la touche. La vieille femme dit : « Voilà. Maintenant tu sais. Nous, on peut partir. »",
+      "Quand le dernier a parlé, elle tombe à genoux. On la laisse là, sans la toucher. La vieille femme dit : « Voilà. Maintenant tu sais. Nous, on peut partir. »",
     ],
     choices: [
       { label: "« Attendez. » Ysolde se relève. Elle veut qu'ils viennent témoigner, là-haut", fx: { flag: "lisse:temoins_veulent", conf: { ysolde: 10 }, ep: ["perso", 2500] }, to: "III_c_lisse_temoins" },
@@ -149,7 +149,7 @@ module.exports = {
 
   III_c_lisse_noms: P({ title: "Trois cents noms", place: "cloches",
     text: [
-      "Ils te les disent. Un par un. Trois cents. Tu les répètes, à voix basse, pour les garder. Tu n'y arriveras pas. Tu en gardes une poignée : une femme qui s'appelait Berthe Aulier, son fils Colin, huit ans. Un vieux, Mathieu Gros-Louis, qui était passeur.",
+      "Ils te les disent. Un par un. Trois cents. Tu les répètes, à voix basse, pour les garder. C'est trop pour une seule tête. Tu en gardes une poignée : une femme qui s'appelait Berthe Aulier, son fils Colin, huit ans. Un vieux, Mathieu Gros-Louis, qui était passeur.",
       "« Dis-les-lui, dit la vieille femme. Si tu la vois. On attendra encore un peu. »",
     ],
     choices: [{ back: "III_c_ville" }] }),
@@ -157,7 +157,7 @@ module.exports = {
   III_c_lisse_temoins: P({ title: "Les témoins", place: "cloches",
     text: [
       "« Là-haut, dit Ysolde, il y a une guerre qui recommence à cause de ce pont, et personne ne sait pourquoi. Corvanne a oublié ses morts. Esquarre a oublié son crime. Moi, j'avais tout oublié. » Elle les regarde. « Si vous partez, ça continuera. Si vous venez, et que vous dites vos noms devant les deux royaumes, ça s'arrêtera peut-être. »",
-      "Ils se regardent. La vieille femme dit : « On ne revient pas, d'ici. Personne. Sauf si quelqu'un nous ramène. » Elle te regarde, toi. Elle ne sait pas pourquoi elle te regarde.",
+      "Ils se regardent. La vieille femme dit : « On ne revient pas, d'ici. Personne. Sauf si quelqu'un nous ramène. » Elle te regarde, toi. Pourquoi toi ? Elle l'ignore elle-même.",
     ],
     choices: [{ back: "III_c_ville" }] }),
 
@@ -167,7 +167,7 @@ module.exports = {
 
   III_c_linette: P({ title: "La petite fille qui rit", place: "cloches",
     text: [
-      "Dans la rue des carillons, une petite fille de six ans joue à la marelle sur les pavés blancs. Elle rit toute seule. Elle a des taches de rousseur, un nez retroussé, une robe trop grande, et elle saute à cloche-pied en chantant une comptine des bas-quartiers.",
+      "Dans la rue des carillons, une petite fille de six ans joue à la marelle sur les pavés blancs. Elle rit toute seule. Elle a des taches de rousseur, un nez retroussé, une robe trop grande retroussée à la ceinture par une ficelle, et elle saute à cloche-pied en chantant une comptine des bas-quartiers.",
       { with: "pie", text: "Pie s'arrête si brusquement que tu lui rentres dedans. Il regarde la petite fille. Il a la bouche ouverte. « Linette », dit-il, tout bas." },
       "Elle lève la tête. Elle sourit. « Tu connais mon frère ? demande-t-elle. Il s'appelle Pie. Il est très fort. Il va venir me chercher. Il l'a promis. »",
       "La Sonneuse, derrière toi, dit à voix basse : « Celle d'avant. Quand on vend quelqu'un aux Greffiers, ce qu'il était arrive ici. Le reste continue là-haut, sans. »",
@@ -180,7 +180,7 @@ module.exports = {
   III_c_linette_pie: P({ title: "Il l'a promis", place: "cloches",
     fx: { flag: ["linette_avant:vue"] },
     text: [
-      "Pie s'agenouille devant elle. Elle le regarde, la tête penchée. Elle ne le reconnaît pas : il a vingt ans de plus que le frère dont elle se souvient.",
+      "Pie s'agenouille devant elle. Elle le regarde, la tête penchée. Elle le regarde en étranger : il a vingt ans de plus que le frère dont elle se souvient.",
       "« Tu es qui, toi ? »",
       "Pie ouvre la bouche. Il la referme. Il fait apparaître une pièce derrière son oreille à elle. Elle éclate de rire. « Mon frère sait faire ça aussi ! Mieux que toi ! »",
       "« Sûrement », dit Pie. Sa voix casse. Il reste à genoux à faire des tours de pièce pendant une heure, dans la rue des carillons, pour une petite fille qui attend son frère.",
@@ -194,14 +194,14 @@ module.exports = {
   III_c_aymeric: P({ title: "Le prince", place: "cloches",
     text: [
       "Un garçon de dix ans, en pourpoint de velours bleu brodé de lys, court entre les tours en riant, poursuivi par personne. Il s'arrête devant toi, essoufflé. « Tu as vu ma mère ? Elle est reine. Elle devait venir. »",
-      "Il n'est pas vraiment là. Il est fait de ce qu'elle se rappelait de lui : il change, quand on le regarde. Tantôt il a dix ans, tantôt quatre, tantôt il en a seize et une épée. Il est mort il y a dix ans. Il est ici parce qu'elle l'a donné.",
+      "Il est là à moitié, fait de ce qu'elle se rappelait de lui : il change, quand on le regarde. Tantôt il a dix ans, tantôt quatre, tantôt il en a seize et une épée. Il est mort il y a dix ans. Il est ici parce qu'elle l'a donné.",
       { with: "lisandre", text: "Lisandre s'est accroupie devant lui. « Elle va venir, lui dit-elle. Elle te cherche. Je lui dirai où tu es. » Elle le dit avec la voix des ballades tristes. Puis elle se relève, et elle n'a plus cette voix du tout." },
     ],
     choices: [{ label: "Le regarder repartir en courant", to: "III_c_ville" }] }),
 
   III_c_bourdon: P({ title: "Le bourdon", place: "cloches",
     text: [
-      "Au centre de la ville, une tour plus haute que toutes les autres, blanche, fine, pointue. Dedans, une cloche énorme, noire de vieillesse, avec sur le flanc un ours couronné, en relief.",
+      "Au centre de la ville, une tour plus haute que toutes les autres, blanche, fine, pointue. Dedans, une cloche énorme, haute comme deux hommes, noire de vieillesse, avec sur le flanc un ours couronné, en relief.",
       "« Valcendre, dit la Sonneuse. La plus vieille d'ici. Elle est arrivée avant moi, avant toutes. Elle n'a jamais sonné. » Elle baisse la voix. « On dit qu'elle ne sonnera pas pour une pensée. Seulement pour une main. Une main de là-bas. »",
       "Tu montes. La corde est là, épaisse comme ton bras, toute neuve, vierge de toute main.",
     ],
@@ -210,10 +210,10 @@ module.exports = {
   III_c_bourdon_sonne: P({ title: "Une main de là-bas", place: "cloches",
     fx: { flag: ["acte3:cloches_fini"], ep: ["histoire", 4000] },
     text: [
-      "Tu tires. Rien. Tu tires encore, de tout ton poids.",
+      "Tu tires. Le bronze reste immobile. Tu tires encore, de tout ton poids.",
       "Elle sonne.",
       "Ce n'est pas un son. C'est un tremblement, qui part de la tour, traverse la ville, fait sonner toutes les autres cloches d'un seul coup, des milliers, et roule sur la plaine blanche jusqu'aux tours lointaines. Les marcheurs, dans la plaine, s'arrêtent tous et se tournent vers toi.",
-      "Quand tu redescends, la Sonneuse est à genoux au pied de la tour. Elle ne te regarde pas en face.",
+      "Quand tu redescends, la Sonneuse est à genoux au pied de la tour. Elle évite ton regard.",
       { with: "hylas", text: "Hylas est adossé au mur. Il pleure, sans bruit, ses yeux qui voient grands ouverts." },
       "Au loin, à l'horizon, devant les tours blanches, une forêt d'arbres noirs est apparue, qui n'y était pas.",
     ],
