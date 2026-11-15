@@ -10,7 +10,7 @@ module.exports = {
       "Vous traversez le quartier endormi, Tibo devant, toi derrière. Les volets sont clos. Les chats se sauvent sous les cuves. Au coin de la rue du Lavoir, la troisième maison après la fontaine a encore une chandelle derrière le volet : Nine veille, ou son homme.",
     ],
     choices: [
-      { label: "Frapper chez Nine, en passant", if: { lore: "veine" }, to: "M_fuite_nine" },
+      { label: "Frapper chez Nine, en passant", if: { savoir: "veine" }, to: "M_fuite_nine" },
       { label: "Passer sans t'arrêter", to: "M_fuite_col", fx: { time: 2 } },
     ] },
   M_fuite_nine: { act: A, title: "Une chandelle derrière le volet", place: "foulons", fx: { flag: "nine:prevenue", time: 0.25 },

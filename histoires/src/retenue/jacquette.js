@@ -59,9 +59,9 @@ module.exports = {
     choices: [
       { label: "Attendre encore", to: "J_attente_longue" },
       { label: "Repenser à la nuit où le vieux t'a trouvée", hide: { has: "jacquette:souvenir" }, to: "J_souvenir" },
-      { label: "Écrire un mot à la craie, laisser la pierre bleue, et partir au-devant par la route", if: { lore: "pierre_bleue" }, to: "J_audevant", fx: { item: "mot_jacquette" } },
-      { label: "Partir au-devant par la berge des Aulnes", if: { lore: "cle" }, to: "J_aulnes" },
-      { label: "Monter chez le vieux, et descendre au pointeau avec lui", if: { lore: "galerie" }, to: "J_galerie_monte" },
+      { label: "Écrire un mot à la craie, laisser la pierre bleue, et partir au-devant par la route", if: { savoir: "pierre_bleue" }, to: "J_audevant", fx: { item: "mot_jacquette" } },
+      { label: "Partir au-devant par la berge des Aulnes", if: { savoir: "cle" }, to: "J_aulnes" },
+      { label: "Monter chez le vieux, et descendre au pointeau avec lui", if: { savoir: "galerie" }, to: "J_galerie_monte" },
     ] },
   J_attente_longue: { act: A, title: "Rien sur la route", place: "berge", fx: { time: 1.75 },
     text: [
@@ -123,7 +123,7 @@ module.exports = {
     ],
     choices: [
       { label: "Redescendre au jour, par la Sorge", to: "J_vanne" },
-      { label: "Aller chercher quelqu'un qui verra le pied du mur de ses yeux", if: { lore: "proces_verbal" }, to: "J_preuve_quai" },
+      { label: "Aller chercher quelqu'un qui verra le pied du mur de ses yeux", if: { savoir: "proces_verbal" }, to: "J_preuve_quai" },
     ] },
   J_vanne: { act: A, title: "La Loutre à la roue", place: "foulons", end: true, fx: { time: 3 },
     text: [

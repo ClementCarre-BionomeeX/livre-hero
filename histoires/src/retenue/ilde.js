@@ -57,7 +57,7 @@ module.exports = {
       { label: "Appeler la courrière", to: "I_courriere" },
       { label: "Porter le paquet toi-même, par la berge des Aulnes", to: "I_aulnes" },
       { label: "Aller chez Nine, rue du Lavoir : son homme est batelier", to: "I_guillot" },
-      { label: "Le porter toi-même, par le ponceau des Teinturiers et la route de la Digue", if: { lore: "ponceau" }, to: "I_ponceau" },
+      { label: "Le porter toi-même, par le ponceau des Teinturiers et la route de la Digue", if: { savoir: "ponceau" }, to: "I_ponceau" },
     ] },
   I_courriere: { act: A, title: "Un écu d'argent", place: "foulons", fx: { drop: "paquet", time: 0.25 },
     text: [
@@ -68,8 +68,8 @@ module.exports = {
     choices: [
       { label: "« Ne prends pas le pont. Passe par les Aulnes. »", to: "I_fulbert_vient", fx: { flag: "route:aulnes" } },
       { label: "« Fais vite. » Et rien d'autre.", to: "I_fulbert_vient", fx: { flag: "route:pont" } },
-      { label: "« Passe sous le pont, par le vieux ponceau. La grille tient par un gond. »", if: { lore: "ponceau" }, to: "I_fulbert_vient", fx: { flag: "route:ponceau" } },
-      { label: "« Je ne te demande pas de porter. Je te demande de frapper aux portes, à deux heures. »", if: { lore: "ponceau" }, to: "I_ponceau", via: "maelle", fx: { item: "paquet", flag: "maelle:portes" } },
+      { label: "« Passe sous le pont, par le vieux ponceau. La grille tient par un gond. »", if: { savoir: "ponceau" }, to: "I_fulbert_vient", fx: { flag: "route:ponceau" } },
+      { label: "« Je ne te demande pas de porter. Je te demande de frapper aux portes, à deux heures. »", if: { savoir: "ponceau" }, to: "I_ponceau", via: "maelle", fx: { item: "paquet", flag: "maelle:portes" } },
     ] },
   I_fulbert_vient: { act: A, title: "Le voisin", place: "foulons", fx: { time: 0.5 },
     text: [
@@ -83,7 +83,7 @@ module.exports = {
       { label: "Lui dire ce qui va arriver, et lui demander de l'aide pour deux heures", to: "I_fulbert_aide" },
       { label: "Lui dire que le vieux est mourant, rien de plus", to: "I_attente" },
       { label: "Lui offrir une tisane, avec quelques gouttes du troisième tiroir", to: "I_tisane" },
-      { label: "Lui demander depuis quand il fume sa pipe sur le seuil de la maison Corlay", if: { lore: "rambert_paye" }, to: "I_fulbert_demasque" },
+      { label: "Lui demander depuis quand il fume sa pipe sur le seuil de la maison Corlay", if: { savoir: "rambert_paye" }, to: "I_fulbert_demasque" },
     ] },
   I_fulbert_aide: { act: A, title: "Un bon voisin", place: "foulons", fx: { time: 3 },
     text: [
@@ -198,7 +198,7 @@ module.exports = {
     ],
     choices: [
       { label: "Lui donner le paquet et monter avec elle par le canal", to: "I_canal" },
-      { label: "Lui donner le paquet, et lui demander de te monter jusqu'à Anselme", if: { lore: "plan_corlay" }, to: "I_veille_monte" },
+      { label: "Lui donner le paquet, et lui demander de te monter jusqu'à Anselme", if: { savoir: "plan_corlay" }, to: "I_veille_monte" },
     ] },
   I_canal: { act: A, title: "Quatre bras", place: "digue", fx: { drop: "paquet", time: 3.5 },
     text: [
@@ -226,7 +226,7 @@ module.exports = {
       "Anselme se rassoit. Il regarde longtemps le lac par la fenêtre.",
       "« Alors il faut ouvrir, dit-il. Et il faut que je sois encore vivant à huit heures. »",
     ],
-    choices: [{ label: "Rester avec lui toute la nuit", to: "I_veille" }, { label: "Descendre au Conseil à sa place, à huit heures", if: { lore: "proces_verbal" }, to: "I_conseil" }] },
+    choices: [{ label: "Rester avec lui toute la nuit", to: "I_veille" }, { label: "Descendre au Conseil à sa place, à huit heures", if: { savoir: "proces_verbal" }, to: "I_conseil" }] },
   I_veille: { act: A, title: "La veille", place: "digue", end: true, fx: { time: 5 },
     text: [
       "À trois heures, vous descendez tous les trois dans la chambre de la vanne. Anselme tourne la clé. Jacquette et toi, vous poussez la roue. Quarante tours. La digue rugit, puis gronde, puis gronde moins.",

@@ -11,7 +11,7 @@ module.exports = {
       "Une femme en gris, à un pupitre, lève les yeux vers la fenêtre. Elle te voit dans la rue, sous ta lanterne, ton insigne à la manche. Elle ne dit rien à son maître.",
     ],
     choices: [
-      { label: "Attendre qu'elle descende", if: { lore: "veine" }, to: "O_pernelle" },
+      { label: "Attendre qu'elle descende", if: { savoir: "veine" }, to: "O_pernelle" },
       { label: "Rentrer chez toi", to: "O_chambre" },
     ] },
   O_pernelle: { act: A, title: "La porte du jardin", place: "hauteville", fx: { time: 0.75 },

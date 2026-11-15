@@ -14,7 +14,7 @@ module.exports = {
     choices: [
       { label: "Saluer, et prendre la lanterne", to: "O_descente", fx: { time: 0.25 } },
       { label: "« Le Conseil, ou un conseiller ? »", to: "O_question" },
-      { label: "« C'est la clé des vannes qu'on cherche, capitaine ? »", if: { lore: "cle" }, to: "O_cle" },
+      { label: "« C'est la clé des vannes qu'on cherche, capitaine ? »", if: { savoir: "cle" }, to: "O_cle" },
     ] },
   O_question: { act: A, title: "Un conseiller", place: "hauteville",
     text: [
@@ -60,12 +60,12 @@ module.exports = {
       "Elle s'arrête. Elle est jeune, les joues rouges de vent, un regard qui calcule la distance jusqu'au bout du pont. Elle répond à la deuxième question, pas à la première.",
       "« Une course pour l'apothicaire Saunier. »",
       "Ilde Saunier. Elle a soigné ta femme pendant tout le dernier hiver, sans jamais te demander un sou, et elle lui tenait la main quand c'est arrivé.",
-      { if: { lore: "veine" }, text: "Tu sais ce qu'il y a dans ce paquet. Tu sais aussi pourquoi Anselme Vellard le veut avant trois heures, et ce qui arrive aux Foulons s'il ne l'a pas." },
+      { if: { savoir: "veine" }, text: "Tu sais ce qu'il y a dans ce paquet. Tu sais aussi pourquoi Anselme Vellard le veut avant trois heures, et ce qui arrive aux Foulons s'il ne l'a pas." },
     ],
     choices: [
       { label: "L'arrêter quand même : ce sont les ordres", to: "O_saisie" },
       { label: "La laisser passer", to: "O_laisse", via: "ilde" },
-      { label: "La laisser passer, et lui montrer le ponceau pour le retour", if: { lore: "veine" }, to: "O_passe", fx: { flag: "odon:passe" } },
+      { label: "La laisser passer, et lui montrer le ponceau pour le retour", if: { savoir: "veine" }, to: "O_passe", fx: { flag: "odon:passe" } },
     ] },
 
   // ------------------------------------------------------------------ duty
@@ -89,8 +89,8 @@ module.exports = {
       { label: "Rentrer chez toi", to: "O_chambre" },
       { label: "Sortir derrière le valet vert, et le suivre de loin", if: { second: "O_rapport" }, to: "O_valet" },
       { label: "Lui donner la lettre, et lui dire ce qu'elle dit", hide: { not: { has: "odon:lettre" } }, to: "O_lettre_dite" },
-      { label: "Descendre aux Foulons chercher Nine", if: { lore: "veine" }, to: "O_nine_rue" },
-      { label: "Fermer la porte derrière toi, et dire au capitaine ce que tu viens de voir", if: { all: [{ lore: "veine" }, { lore: "proces_verbal" }] }, to: "O_reprendre" },
+      { label: "Descendre aux Foulons chercher Nine", if: { savoir: "veine" }, to: "O_nine_rue" },
+      { label: "Fermer la porte derrière toi, et dire au capitaine ce que tu viens de voir", if: { all: [{ savoir: "veine" }, { savoir: "proces_verbal" }] }, to: "O_reprendre" },
     ] },
   O_chambre: { act: A, title: "La chambre du sergent", place: "hauteville", fx: { time: 3.5 },
     text: [
@@ -131,11 +131,11 @@ module.exports = {
       "Rambert te regarde longtemps. Tu soutiens son regard. Vingt-deux ans de service t'ont appris à mentir à un capitaine avec le visage d'un homme qui s'ennuie.",
       "« Bien, dit-il. Continue. » Il remonte avec Bastien. Bastien se retourne deux fois.",
       "Tu restes seul avec la lanterne, et Colin, et Thomin qui ne dira rien parce qu'il te doit trois mois de soupe.",
-      { if: { lore: "veine" }, text: "Tu sais ce que porte la courrière. Tu sais ce qui arrive aux Foulons à trois heures, quoi qu'il arrive à la digue. Et personne, en bas, ne le sait." },
+      { if: { savoir: "veine" }, text: "Tu sais ce que porte la courrière. Tu sais ce qui arrive aux Foulons à trois heures, quoi qu'il arrive à la digue. Et personne, en bas, ne le sait." },
     ],
     choices: [
       { label: "Tenir ton pont jusqu'au matin", to: "O_insigne", via: "pont" },
-      { label: "Laisser le pont à Colin, et aller chercher la clé du tocsin", if: { lore: "veine" }, to: "O_pichet" },
+      { label: "Laisser le pont à Colin, et aller chercher la clé du tocsin", if: { savoir: "veine" }, to: "O_pichet" },
     ] },
   O_insigne_ote: { act: A, title: "L'insigne", place: "pont", fx: { drop: "insigne", time: 0.5 },
     text: [
@@ -148,7 +148,7 @@ module.exports = {
     ],
     choices: [
       { label: "Descendre chez Nine, aux Foulons", to: "O_insigne", via: "nine" },
-      { label: "Aller chercher la clé du tocsin", if: { lore: "veine" }, to: "O_pichet", fx: { flag: "odon:sans_insigne" } },
+      { label: "Aller chercher la clé du tocsin", if: { savoir: "veine" }, to: "O_pichet", fx: { flag: "odon:sans_insigne" } },
     ] },
   O_insigne: { act: A, title: "Sans insigne", place: "foulons", end: true, fx: { time: 2, learn: "loutre" },
     text: [
@@ -273,7 +273,7 @@ module.exports = {
       "« Il descend. »",
       "« Ça ne fait plus rien », dit Anselme, et il ferme les yeux.",
       "À quatre heures, la pluie. Aux Foulons, l'eau entre dans les maisons vers cinq heures, par surprise, par les portes et les soupiraux.",
-      { if: { lore: "tocsin" }, text: "Personne n'a sonné le tocsin. Le père Anicet dort au Pichet, sa clé au cou. Tu y as pensé trop tard, sur la jument grise, à la huitième borne." },
+      { if: { savoir: "tocsin" }, text: "Personne n'a sonné le tocsin. Le père Anicet dort au Pichet, sa clé au cou. Tu y as pensé trop tard, sur la jument grise, à la huitième borne." },
       "On compte trois noyés, dans les rez-de-chaussée de la rue du Lavoir : deux vieux et un enfant. Nine est vivante. Elle s'est réveillée les pieds dans l'eau et elle a grimpé au grenier avec Guillot.",
       "Au jour, tu redescends à pied, la jument par la bride, derrière la rousse qui rame sur la Sorge gonflée. Tu as sauvé la ville. Tu penses aux trois de la rue du Lavoir, et c'est leurs noms que tu retiens.",
     ] },

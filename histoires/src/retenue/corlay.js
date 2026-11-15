@@ -44,7 +44,7 @@ module.exports = {
     choices: [
       { label: "Ranger la clé au coffre jusqu'au vote", to: "C_coffre" },
       { label: "Faire monter Tassin, seul, et lui reposer la question", to: "C_tassin_seul" },
-      { label: "Faire monter le fils", if: { lore: "veine" }, to: "C_bastien" },
+      { label: "Faire monter le fils", if: { savoir: "veine" }, to: "C_bastien" },
       { label: "Demander son avis à Pernelle", hide: { has: "corlay:pernelle" }, to: "C_pernelle" },
     ] },
   C_coffre: { act: A, title: "Le coffre", place: "hauteville", fx: { learn: "proces_verbal", time: 1 },
@@ -90,7 +90,7 @@ module.exports = {
     ],
     choices: [
       { label: "Le renvoyer, et garder la clé jusqu'au vote", to: "C_tassin" },
-      { label: "Aller voir toi-même le pied de la digue, cette nuit", if: { lore: "veine_vue" }, to: "C_route" },
+      { label: "Aller voir toi-même le pied de la digue, cette nuit", if: { savoir: "veine_vue" }, to: "C_route" },
     ] },
   C_tassin: { act: A, title: "Le rapport", place: "hauteville", end: true, fx: { time: 6 },
     text: [
@@ -112,7 +112,7 @@ module.exports = {
     ],
     choices: [
       { label: "Le renvoyer, et garder la clé jusqu'au vote", to: "C_rupture_nuit" },
-      { label: "Aller voir toi-même le pied de la digue, cette nuit", if: { lore: "veine_vue" }, to: "C_route" },
+      { label: "Aller voir toi-même le pied de la digue, cette nuit", if: { savoir: "veine_vue" }, to: "C_route" },
     ] },
   C_route: { act: A, title: "La voiture", place: "berge", fx: { time: 1.5 },
     text: [
@@ -155,8 +155,8 @@ module.exports = {
     ],
     choices: [
       { label: "Dire au Conseil que tu as ordonné l'ouverture cette nuit, et rien de plus", to: "C_ordre" },
-      { label: "Dire au Conseil que les Vellard ont caché la fissure", if: { lore: "plan_corlay" }, to: "C_bouc" },
-      { label: "Dire tout, depuis la séance d'il y a trois ans", if: { lore: "proces_verbal" }, to: "C_demission" },
+      { label: "Dire au Conseil que les Vellard ont caché la fissure", if: { savoir: "plan_corlay" }, to: "C_bouc" },
+      { label: "Dire tout, depuis la séance d'il y a trois ans", if: { savoir: "proces_verbal" }, to: "C_demission" },
     ] },
   C_ordre: { act: A, title: "Le premier drapier a ordonné", place: "hauteville", end: true, fx: { time: 2 },
     text: [

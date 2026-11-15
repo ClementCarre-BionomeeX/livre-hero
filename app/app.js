@@ -1419,7 +1419,7 @@
     if (!C.multi && A.profile) { var known = recordOf(A.profile, st.id).endings || {}; if (Object.keys(known).length) { s.second = {}; Object.keys(known).forEach(function (k) { s.second[k] = 1; }); } }
     // Paths that unveil (8.9): what this reader learned in earlier games (lore), and the pages already read there (lu,
     // from the trail: a page where a choice was taken), for the shortcuts over a known scene.
-    if (!C.multi && A.profile && (st.lore || st.leads)) { var rec0 = recordOf(A.profile, st.id); s.lore = Object.assign({}, rec0.lore || {}); s.lore0 = Object.assign({}, s.lore); s.lu = {}; Object.keys(rec0.trail || {}).forEach(function (k) { s.lu[k] = 1; }); }
+    if (!C.multi && A.profile && (st.savoirs || st.leads)) { var rec0 = recordOf(A.profile, st.id); s.lore = Object.assign({}, rec0.lore || {}); s.lore0 = Object.assign({}, s.lore); s.lu = {}; Object.keys(rec0.trail || {}).forEach(function (k) { s.lu[k] = 1; }); }
     s.events = [];
     (st.past || []).forEach(function (q, qi) { M.apply(st, s, q.answers[C.past[qi]].fx); });
     var pastEvents = s.events.slice();
@@ -3656,7 +3656,7 @@
     // 8.5 (Clément, 15/11): a tab shows only when the story has something to put in it.
     var n = function (o) { return Object.keys(o || {}).length; }, places = n((st.world || {}).places);
     has.quetes = n(st.quests) > 0; has.indices = n(st.clues) > 0; has.soupcons = has.tableau = n(st.mysteries) > 0;
-    has.intrigue = n(st.lore) > 0 || n(st.leads) > 0; has.compagnons = n(st.companions) > 0; has.gens = n(st.people) > 0; has.carte = places > 1; has.codex = n(st.enemies) > 0 || places > 1;
+    has.intrigue = n(st.savoirs) > 0 || n(st.leads) > 0; has.compagnons = n(st.companions) > 0; has.gens = n(st.people) > 0; has.carte = places > 1; has.codex = n(st.enemies) > 0 || places > 1;
     // A story names its stocks' tab (8.1: « Le navire »).
     return TABS.filter(function (t) { return (t[0] !== "documents" || docs) && (t[0] !== "reconst" || plan) && (has[t[0]] == null || has[t[0]]); })
       .map(function (t) { return t[0] === "ville" && st.stocksTab ? [t[0], st.stocksTab] : t; });
@@ -4941,11 +4941,11 @@
           : h("li", { class: "muted" }, "🔒 ", L.hint || "Une autre partie ouvrira ce chemin.");
       })));
     }
-    var ks = Object.keys(st.lore || {});
+    var ks = Object.keys(st.savoirs || {});
     if (ks.length) {
       var got = ks.filter(function (k) { return lore[k]; });
       b.appendChild(h("h3", null, "Ce que tu sais d'une partie à l'autre · " + got.length + " sur " + ks.length));
-      b.appendChild(got.length ? h("ul", { class: "plain plot-lore" }, got.map(function (k) { var x = st.lore[k]; return h("li", null, h("b", null, x.title), x.text ? h("div", { class: "small" }, x.text) : null, (s.loreNew || {})[k] ? h("span", { class: "small muted" }, " · appris dans cette partie") : null); }))
+      b.appendChild(got.length ? h("ul", { class: "plain plot-lore" }, got.map(function (k) { var x = st.savoirs[k]; return h("li", null, h("b", null, x.title), x.text ? h("div", { class: "small" }, x.text) : null, (s.loreNew || {})[k] ? h("span", { class: "small muted" }, " · appris dans cette partie") : null); }))
         : h("p", { class: "muted small" }, "Rien encore. Ce que tu apprendras ici restera pour les parties suivantes."));
     }
     var ends = M.endingsOf(st), nE = ends.filter(function (e) { return r.endings[e.id]; }).length;

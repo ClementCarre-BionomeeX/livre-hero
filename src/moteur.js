@@ -354,7 +354,7 @@
     if ("is" in c) return Object.keys(c.is).every(function (k) { var v = stateOf(s, k); return c.is[k] === null ? v == null : [].concat(c.is[k]).indexOf(v) >= 0; });
     if ("second" in c) return secondOk(s, c.second);
     // What this reader has kept from earlier games (8.9): a thing learned (fx.learn), a page already read.
-    if ("lore" in c) return [].concat(c.lore).every(function (k) { return !!(s.lore || {})[k]; });
+    if ("savoir" in c) return [].concat(c.savoir).every(function (k) { return !!(s.lore || {})[k]; });
     if ("lu" in c) return !!(s.lu || {})[c.lu];
     if ("via" in c) return [].concat(c.via).some(function (k) { return k === s.via || k === s.from; });
     if ("regard" in c) return regardOk(s, c.regard);
@@ -435,7 +435,7 @@
     if ("quest" in c) return "Il faut d'abord finir « " + questTitle(story, c.quest) + " ».";
     if ("fac" in c) return "Il faut la confiance de " + ((story.factions || {})[c.fac] || c.fac) + ".";
     if ("known" in c) return "Tu ne connais pas encore ce lieu.";
-    if ("lore" in c || "lu" in c || "second" in c) return "Une autre partie ouvrira ce chemin.";
+    if ("savoir" in c || "lu" in c || "second" in c) return "Une autre partie ouvrira ce chemin.";
     if ("lead" in c) return "Il faut que " + nameOf(story, c.lead) + " mène le groupe.";
     if ("souv" in c) return "Ce souvenir n'est plus à toi.";
     if ("souvenirs" in c) return c.min != null ? "Il faut avoir gardé au moins " + c.min + " souvenirs." : "Il faut avoir donné plus de souvenirs.";
@@ -763,12 +763,12 @@
     if (fx.team) switchTeam(story, s, fx.team, fx.resume);
     if (fx.regroup) regroup(story, s);
     if (fx.lead) setLead(story, s, fx.lead, fx.leadQuiet);
-    // learn (8.9): a thing the reader keeps for every later game of this story (story.lore: { id: { title, text } }).
+    // learn (8.9): a thing the reader keeps for every later game of this story (story.savoirs: { id: { title, text } }).
     [].concat(fx.learn || []).forEach(function (k) {
-      if (!(story.lore || {})[k]) throw new Error("savoir inconnu " + k);
+      if (!(story.savoirs || {})[k]) throw new Error("savoir inconnu " + k);
       s.lore = s.lore || {}; if (s.lore[k]) return;
       s.lore[k] = 1; (s.loreNew = s.loreNew || {})[k] = 1;
-      ev(s, "Tu gardes pour les parties suivantes : " + story.lore[k].title + ".", "good lore");
+      ev(s, "Tu gardes pour les parties suivantes : " + story.savoirs[k].title + ".", "good lore");
     });
     [].concat(fx.away || []).forEach(function (c3) { if (!story.companions[c3]) throw new Error("compagnon inconnu " + c3); if (c3 !== s.lead && s.met[c3] === "party") { s.met[c3] = "away"; if (!fx.leadQuiet) ev(s, nameOf(story, c3) + " n'est plus avec toi.", "bad"); } });
     // "awayUnless" {companion: condition}: sends each companion away unless its condition holds (e.g. who fell with the lead)
@@ -2951,14 +2951,14 @@
     if (!list.length || list.some(function (x) { return x !== list[0]; }) || !list[0] || list[0] === s.place || !places[list[0]]) return null;
     return places[list[0]].name;
   }
-  // Intent: unveils(Choice) -> bool = the choice is open only thanks to an earlier game (lore, lu, second): a path unveiled.
+  // Intent: unveils(Choice) -> bool = the choice is open only thanks to an earlier game (savoir, lu, second): a path unveiled.
   function unveils(c) {
     if (c.skip || c.second != null) return !c.skip && c.second !== false;
     return unveilsIf(c.if);
   }
   function unveilsIf(cond) {
     var hit = false;
-    (function walk(x) { if (!x || typeof x !== "object" || hit) return; if (Array.isArray(x)) return x.forEach(walk); if ("not" in x) return; if ("lore" in x || "lu" in x || ("second" in x && x.second !== false)) { hit = true; return; } ["all", "any", "count"].forEach(function (k) { if (x[k]) walk(x[k]); }); })(cond);
+    (function walk(x) { if (!x || typeof x !== "object" || hit) return; if (Array.isArray(x)) return x.forEach(walk); if ("not" in x) return; if ("savoir" in x || "lu" in x || ("second" in x && x.second !== false)) { hit = true; return; } ["all", "any", "count"].forEach(function (k) { if (x[k]) walk(x[k]); }); })(cond);
     return hit;
   }
   function allowed(story, s, p, c) {

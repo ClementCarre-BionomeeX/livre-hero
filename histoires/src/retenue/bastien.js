@@ -15,7 +15,7 @@ module.exports = {
       { label: "Repenser au banc", hide: { has: "bastien:souvenir" }, to: "B_souvenir" },
       { label: "Demander du papier, et écrire à ton père", if: { second: true }, hide: { has: "bastien:lettre" }, to: "B_lettre" },
       { label: "Boire", to: "B_boire" },
-      { label: "Prendre l'argent, et quitter Corvèze cette nuit", if: { lore: "plan_corlay" }, to: "B_fuite_route" },
+      { label: "Prendre l'argent, et quitter Corvèze cette nuit", if: { savoir: "plan_corlay" }, to: "B_fuite_route" },
     ] },
   B_jeu: { act: A, title: "Les dés", place: "hauteville", fx: { time: 0.5 },
     text: [
@@ -67,7 +67,7 @@ module.exports = {
     ],
     choices: [
       { label: "Accepter, et prendre congé", to: "B_dette_nuit" },
-      { label: "« La digue cède cette nuit. Mon père l'a mesurée. »", if: { lore: "veine" }, to: "B_avertir" },
+      { label: "« La digue cède cette nuit. Mon père l'a mesurée. »", if: { savoir: "veine" }, to: "B_avertir" },
       { label: "Prendre la clé sur le bureau, et t'enfuir", test: { dom: "discretion", diff: -20, label: "Prendre la clé" }, win: { to: "B_vol" }, lose: { to: "B_vol_rate" } },
     ] },
   B_dette_nuit: { act: A, title: "Trois cents écus l'an", place: "hauteville", fx: { time: 1, item: "bourse_corlay", learn: "tassin" },
@@ -94,10 +94,10 @@ module.exports = {
       "Tassin croise ses mains gantées. « J'ai examiné l'ouvrage il y a quinze jours, Monsieur. Les suintements sont ordinaires. Le garde-vannes est un vieil homme malade, sous laudanum. »",
       "Il ne te regarde pas en le disant. Il a les yeux sur le feu. Ses gants sont parfaitement propres.",
       "« Vous voyez, dit Corlay. Votre père a peur, et je le comprends. Demain, quand j'aurai la Charge, on ouvrira la vanne, tranquillement, après avoir vidé les entrepôts des Foulons. Pas cette nuit. Cette nuit, on n'inonde pas neuf cents tisserands sur la parole d'un mourant. »",
-      { if: { lore: "tassin" }, text: "Tu sais, toi, que Tassin n'a jamais mis le pied dans la galerie." },
+      { if: { savoir: "tassin" }, text: "Tu sais, toi, que Tassin n'a jamais mis le pied dans la galerie." },
     ],
     choices: [
-      { label: "« Maître Tassin, de quelle couleur est la pierre de la galerie basse ? »", if: { lore: "tassin" }, to: "B_tassin" },
+      { label: "« Maître Tassin, de quelle couleur est la pierre de la galerie basse ? »", if: { savoir: "tassin" }, to: "B_tassin" },
       { label: "Prendre la clé sur le bureau, et t'enfuir", test: { dom: "discretion", diff: -10, label: "Prendre la clé" }, win: { to: "B_vol" }, lose: { to: "B_vol_rate" } },
       { label: "Te taire, et accepter le poste", to: "B_charge_nuit" },
     ] },
@@ -130,7 +130,7 @@ module.exports = {
     ],
     choices: [
       { label: "« Chez mon père. Il a besoin de moi, pour une fois. »", to: "B_route" },
-      { label: "« Chez mon père. Et vous, sergent, faites sonner le tocsin à deux heures. Les Foulons vont être dans l'eau. »", if: { lore: "tocsin" }, to: "B_route", fx: { flag: "tocsin:demande" } },
+      { label: "« Chez mon père. Et vous, sergent, faites sonner le tocsin à deux heures. Les Foulons vont être dans l'eau. »", if: { savoir: "tocsin" }, to: "B_route", fx: { flag: "tocsin:demande" } },
     ] },
   B_route: { act: A, title: "La route de la Digue", place: "berge", fx: { time: 1 },
     text: [
@@ -172,7 +172,7 @@ module.exports = {
     ],
     choices: [
       { label: "Rester avec ton père jusqu'au jour", to: "B_pere" },
-      { label: "Descendre au Conseil à huit heures, avec le carnet", if: { lore: "veine_vue" }, to: "B_aveu_nuit" },
+      { label: "Descendre au Conseil à huit heures, avec le carnet", if: { savoir: "veine_vue" }, to: "B_aveu_nuit" },
     ] },
   B_pere: { act: A, title: "Le fils du garde-vannes", place: "digue", end: true, fx: { time: 4 },
     text: [

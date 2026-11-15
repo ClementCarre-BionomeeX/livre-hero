@@ -42,9 +42,9 @@ module.exports = {
     choices: [
       { label: "Donner la clé à Ilde, avec une lettre pour Jacquette, comme tu l'avais prévu", to: "A_plan" },
       { label: "Garder la clé ici. Confier à Ilde une lettre pour Jacquette, rien de plus", to: "A_garde", fx: { item: "cle_vannes" } },
-      { label: "Réveiller Bastien, et lui mettre la clé dans les mains", if: { lore: "plan_corlay" }, to: "A_bastien_porte", fx: { flag: "gouttes:dix" } },
+      { label: "Réveiller Bastien, et lui mettre la clé dans les mains", if: { savoir: "plan_corlay" }, to: "A_bastien_porte", fx: { flag: "gouttes:dix" } },
       { label: "Garder Ilde auprès de toi cette nuit", to: "A_ilde_reste", fx: { item: "cle_vannes" } },
-      { label: "Descendre à la Haute-Ville, au bras d'Ilde, chez Corlay, ce soir", if: { lore: "tassin" }, to: "A_descente", fx: { item: "cle_vannes" } },
+      { label: "Descendre à la Haute-Ville, au bras d'Ilde, chez Corlay, ce soir", if: { savoir: "tassin" }, to: "A_descente", fx: { item: "cle_vannes" } },
     ] },
 
   // ------------------------------------------------------------------ the plan as it was

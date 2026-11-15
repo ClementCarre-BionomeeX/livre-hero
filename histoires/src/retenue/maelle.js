@@ -12,7 +12,7 @@ module.exports = {
     choices: [
       { label: "Prendre le paquet et l'écu, et partir", to: "M_rue", fx: { item: "paquet", time: 0.25 } },
       { label: "Demander ce qu'il y a dedans", to: "M_question" },
-      { label: "Lui dire que tu sais ce qu'il y a dedans", if: { lore: "cle" }, to: "M_ilde_dit" },
+      { label: "Lui dire que tu sais ce qu'il y a dedans", if: { savoir: "cle" }, to: "M_ilde_dit" },
     ] },
   M_question: { act: A, title: "Ce qu'on porte", place: "foulons",
     text: [
@@ -25,12 +25,12 @@ module.exports = {
     text: [
       "Ilde pâlit d'un coup. Elle va à la porte, tire le verrou, souffle la chandelle de la vitrine. Il ne reste que la lampe du comptoir.",
       "« Anselme Vellard me l'a donnée à sept heures, là-haut, dans sa maison, dit-elle très bas. Il n'y en a qu'une. Celle qui l'attend doit l'avoir avant trois heures. »",
-      { if: { lore: "veine" }, text: "Elle te prend le poignet. « Tu sais pourquoi, toi aussi. Alors écoute : à deux heures, il faut que les Foulons soient debout. Tous. S'ils me voient courir les rues, ils sauront qu'il se passe quelque chose, et d'autres le sauront aussi. Toi, on ne te regarde pas. »" },
+      { if: { savoir: "veine" }, text: "Elle te prend le poignet. « Tu sais pourquoi, toi aussi. Alors écoute : à deux heures, il faut que les Foulons soient debout. Tous. S'ils me voient courir les rues, ils sauront qu'il se passe quelque chose, et d'autres le sauront aussi. Toi, on ne te regarde pas. »" },
       "« En descendant, dit Ilde, j'ai vu une lanterne sur le pont des Moulins, et trois hommes du guet. Ils ne sont jamais trois. »",
     ],
     choices: [
       { label: "Prendre le paquet et partir", to: "M_rue", fx: { item: "paquet", time: 0.25 } },
-      { label: "Promettre de faire lever les Foulons à deux heures", if: { lore: "veine" }, to: "M_rue", fx: { item: "paquet", time: 0.25, flag: "maelle:promis" } },
+      { label: "Promettre de faire lever les Foulons à deux heures", if: { savoir: "veine" }, to: "M_rue", fx: { item: "paquet", time: 0.25, flag: "maelle:promis" } },
     ] },
 
   M_rue: { act: A, title: "La rue des Teinturiers", place: "foulons",
@@ -45,10 +45,10 @@ module.exports = {
       { label: "Prendre le pont des Moulins, puis la route de la Digue", hide: { has: "pont:refoulee" }, to: "M_moulins", fx: { time: 0.25 } },
       { label: "Prendre la berge des Aulnes", to: "M_aulnes", fx: { time: 0.25 } },
       { label: "Couper par la place du Lavoir", hide: { has: "lavoir:vu" }, to: "M_lavoir" },
-      { label: "Passer sous le pont, par le ponceau des Teinturiers", if: { lore: "ponceau" }, to: "M_ponceau", fx: { time: 0.25 } },
+      { label: "Passer sous le pont, par le ponceau des Teinturiers", if: { savoir: "ponceau" }, to: "M_ponceau", fx: { time: 0.25 } },
       { label: "T'arrêter sous un porche et défaire la ficelle", hide: { has: "paquet:ouvert" }, to: "M_ouvrir" },
-      { label: "Passer d'abord chez toi, et réveiller Tibo", if: { lore: "veine" }, hide: { has: "tibo:reveille" }, to: "M_tibo" },
-      { label: "Monter à la Haute-Ville, chez Corlay, et vendre ce que tu portes", if: { all: [{ lore: "plan_corlay" }, { has: "paquet:ouvert" }] }, to: "M_moulins", via: "vendre", fx: { time: 0.25 } },
+      { label: "Passer d'abord chez toi, et réveiller Tibo", if: { savoir: "veine" }, hide: { has: "tibo:reveille" }, to: "M_tibo" },
+      { label: "Monter à la Haute-Ville, chez Corlay, et vendre ce que tu portes", if: { all: [{ savoir: "plan_corlay" }, { has: "paquet:ouvert" }] }, to: "M_moulins", via: "vendre", fx: { time: 0.25 } },
     ] },
   M_ouvrir: { act: A, title: "Sous le porche", place: "foulons",
     text: [
@@ -65,12 +65,12 @@ module.exports = {
       "La cire se casse net. L'écriture est grande, penchée, tremblée sur les fins de mots.",
       "*Trois heures, la vanne de fond. Il faut quatre bras. Qu'Ilde fasse lever les Foulons à deux heures.*",
       "Tu relis la ligne. La vanne de fond, c'est la grande porte de fer au bas de la digue. Quand on l'ouvre, le lac descend dans la Sorge. Et la Sorge, au bout de son lit, c'est ici : la rue des Teinturiers, le lavoir, la chambre où Tibo dort contre le poêle.",
-      { if: { not: { lore: "veine" } }, text: "Quelqu'un veut lâcher le lac sur les Foulons cette nuit. Et c'est toi qui portes la clé." },
-      { if: { lore: "veine" }, text: "Tu sais pourquoi on ouvre. Tu sais aussi ce que ça coûte, en bas, et qui le paiera." },
+      { if: { not: { savoir: "veine" } }, text: "Quelqu'un veut lâcher le lac sur les Foulons cette nuit. Et c'est toi qui portes la clé." },
+      { if: { savoir: "veine" }, text: "Tu sais pourquoi on ouvre. Tu sais aussi ce que ça coûte, en bas, et qui le paiera." },
     ],
     choices: [
       { label: "Repartir quand même : on t'a payée pour porter", back: "M_rue", via: "lue", fx: { flag: "lettre:lue" } },
-      { label: "Porter la lettre au guet, sur le pont", if: { not: { lore: "veine" } }, to: "M_moulins", via: "denonce", fx: { flag: "lettre:lue", time: 0.25 } },
+      { label: "Porter la lettre au guet, sur le pont", if: { not: { savoir: "veine" } }, to: "M_moulins", via: "denonce", fx: { flag: "lettre:lue", time: 0.25 } },
     ] },
   M_tibo: { act: A, title: "La chambre du poêle", place: "foulons", fx: { flag: "tibo:reveille", time: 0.25 },
     text: [
@@ -99,7 +99,7 @@ module.exports = {
       { label: "Faire demi-tour", hide: { via: ["denonce", "vendre"] }, to: "M_demitour" },
       { label: "Courir vers l'autre bout du pont", hide: { via: ["denonce", "vendre"] }, to: "M_course" },
       { label: "Dire au sergent que Nine l'embrasse", if: { all: [{ second: true }, { has: "nine:vue" }] }, hide: { via: ["denonce", "vendre"] }, to: "M_pont_nine" },
-      { label: "Dire au sergent que tu sais qui paie son capitaine", if: { lore: "rambert_paye" }, hide: { via: ["denonce", "vendre"] }, to: "M_pont_odon" },
+      { label: "Dire au sergent que tu sais qui paie son capitaine", if: { savoir: "rambert_paye" }, hide: { via: ["denonce", "vendre"] }, to: "M_pont_odon" },
       { label: "« Je porte ceci à la maison Corlay. On m'y attend. »", hide: { not: { via: "vendre" } }, to: "M_pernelle", fx: { time: 0.5 } },
       { label: "Attendre ce que va dire le sergent", hide: { not: { via: "denonce" } }, to: "M_pont_arrete", via: "denonce" },
     ] },
@@ -208,9 +208,9 @@ module.exports = {
     choices: [
       { label: "Glisser le paquet sous la pierre bleue", hide: { not: { item: "paquet" } }, to: "M_pierre", via: "pose" },
       { label: "Garder le paquet et attendre Jacquette", hide: { not: { item: "paquet" } }, to: "M_attente" },
-      { label: "Lever les yeux vers la Maison des Vannes", if: { lore: "signal" }, to: "M_signal" },
+      { label: "Lever les yeux vers la Maison des Vannes", if: { savoir: "signal" }, to: "M_signal" },
       { label: "Faire le tour de la cabane", hide: { has: "cabane:tour" }, to: "M_cabane_tour" },
-      { label: "Chercher la porte de la galerie, et le pointeau", if: { lore: "galerie" }, hide: { not: { item: "paquet" } }, to: "M_galerie_porte" },
+      { label: "Chercher la porte de la galerie, et le pointeau", if: { savoir: "galerie" }, hide: { not: { item: "paquet" } }, to: "M_galerie_porte" },
     ] },
   M_attente: { act: A, title: "L'attente", place: "berge", fx: { time: 1.25 },
     text: [
@@ -293,7 +293,7 @@ module.exports = {
     ],
     choices: [
       { label: "T'asseoir sur le ponton et attendre", to: "M_jacquette", via: "attente", fx: { time: 0.75 } },
-      { label: "Monter sur la berge du canal et siffler : deux coups courts, un long", if: { lore: "loutre" }, to: "M_jacquette", via: "sifflet", fx: { time: 0.25 } },
+      { label: "Monter sur la berge du canal et siffler : deux coups courts, un long", if: { savoir: "loutre" }, to: "M_jacquette", via: "sifflet", fx: { time: 0.25 } },
     ] },
   M_jacquette: { act: A, title: "La Loutre", place: "berge", fx: { learn: ["veine", "loutre"] },
     text: [
@@ -365,14 +365,14 @@ module.exports = {
       "« Une copie, dit-il. Ce que le Conseil a décidé il y a trois ans, et ce qu'il m'a payé pour me taire. Je voulais la porter moi-même ce matin. Je ne descendrai plus ces marches. »",
     ],
     choices: [
-      { label: "Prendre le carnet et descendre au Conseil, à huit heures", if: { lore: "proces_verbal" }, to: "M_conseil", fx: { item: "proces_verbal" } },
+      { label: "Prendre le carnet et descendre au Conseil, à huit heures", if: { savoir: "proces_verbal" }, to: "M_conseil", fx: { item: "proces_verbal" } },
       { label: "Lui laisser son carnet, et rester encore", to: "M_vanne", via: "aube" },
     ] },
   M_redescendre: { act: A, title: "Redescendre", place: "berge", fx: { time: 1.25 },
     text: [
       "Tu cours sur la route de la Digue, dans l'autre sens, de borne en borne. Le vent te pousse dans le dos maintenant. Au loin, Saint-Rieul sonne une heure.",
-      { if: { lore: "ponceau" }, text: "Au pont, la lanterne du guet est toujours là. Tu te jettes dans les orties, tu trouves la bouche du ponceau à tâtons, et tu repasses sous les bottes du sergent." },
-      { if: { not: { lore: "ponceau" } }, text: "Au pont, la lanterne du guet a disparu. Les gardes sont partis se chauffer au poste. Tu traverses en courant." },
+      { if: { savoir: "ponceau" }, text: "Au pont, la lanterne du guet est toujours là. Tu te jettes dans les orties, tu trouves la bouche du ponceau à tâtons, et tu repasses sous les bottes du sergent." },
+      { if: { not: { savoir: "ponceau" } }, text: "Au pont, la lanterne du guet a disparu. Les gardes sont partis se chauffer au poste. Tu traverses en courant." },
       "Les Foulons dorment. Pas une fenêtre allumée dans la rue des Teinturiers. La Sorge coule à ras des quais, noire, rapide, et le vent fait claquer les volets.",
     ],
     choices: [{ label: "Frapper à la première porte", to: "M_foulons_cris" }] },
@@ -426,7 +426,7 @@ module.exports = {
     ],
     choices: [
       { label: "Dormir à l'auberge du Cerf", to: "M_vendue" },
-      { label: "Laisser Tibo dormir au Cerf, et redescendre aux Foulons", if: { lore: "veine" }, to: "M_vendue_portes" },
+      { label: "Laisser Tibo dormir au Cerf, et redescendre aux Foulons", if: { savoir: "veine" }, to: "M_vendue_portes" },
     ] },
   M_corlay_refus: { act: A, title: "La porte de service", place: "hauteville", fx: { flag: "corlay:refus", time: 0.25 },
     text: [
@@ -489,7 +489,7 @@ module.exports = {
       "Il commence au bout de la vallée et il descend. Il fait trembler les vitres de l'auberge et l'eau dans le broc. De la fenêtre, tu vois la Sorge se soulever entre ses rives comme un drap qu'on secoue, une seule vague brune, haute comme une maison, chargée d'arbres entiers, qui passe sur les Foulons.",
       "Quand elle est passée, il n'y a plus de rue des Teinturiers. Il y a des toits, quelques-uns. Des poutres. Le clocher de Saint-Blaise, seul debout dans l'eau.",
       "Tibo dort.",
-      { if: { lore: "veine" }, text: "Tu savais. Tu savais, et tu as pris l'argent, et tu as sauvé un enfant. Tu te le répéteras dans cet ordre-là, ou dans un autre, toute ta vie." },
+      { if: { savoir: "veine" }, text: "Tu savais. Tu savais, et tu as pris l'argent, et tu as sauvé un enfant. Tu te le répéteras dans cet ordre-là, ou dans un autre, toute ta vie." },
       "À huit heures, le Conseil vote. Le soir, toute la ville sait qui a la Charge des Vannes.",
     ] },
   M_route: { act: A, title: "La route de Lyre", place: "berge", end: true, fx: { time: 3 },

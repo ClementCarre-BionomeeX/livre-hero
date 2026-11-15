@@ -1,7 +1,7 @@
 // « La Nuit de la Retenue » : the paths that unveil (Clément, 15/11 : « plusieurs nouveaux chemins se dévoilent à chaque
 // fois et on repasse peu par le même chemin »). One night at Corvèze, seven people. The first game follows Maëlle alone
 // and stops early, twice; each ending opens another person to follow (story.leads), and what a reader learns stays for
-// every later game (story.lore, fx.learn, 8.9). The plot is in BIBLE.md, in the project folder, out of the repository.
+// every later game (story.savoirs, fx.learn, 8.9). The plot is in BIBLE.md, in the project folder, out of the repository.
 module.exports = {
   id: "retenue",
   title: "La Nuit de la Retenue",
@@ -71,15 +71,15 @@ module.exports = {
     ilde: { name: "Ilde", desc: "apothicaire, 19 h, sur la digue", start: "I_maison", fx: { voie: "apothicaire" },
       if: { second: "M_pierre" }, hint: "Quelqu'un a écrit l'adresse sur le paquet." },
     bastien: { name: "Bastien", desc: "fils du garde-vannes, 21 h 30, au Chat Ferré", start: "B_chat", fx: { voie: "heritier" },
-      if: { any: [{ second: "I_suivie" }, { lore: "bastien_vu" }] }, hint: "Quelqu'un a écouté derrière une porte." },
+      if: { any: [{ second: "I_suivie" }, { savoir: "bastien_vu" }] }, hint: "Quelqu'un a écouté derrière une porte." },
     jacquette: { name: "Jacquette", desc: "passeuse, 22 h, sur le lac", start: "J_lac", fx: { voie: "passeuse" },
-      if: { any: [{ second: "I_fulbert" }, { second: "O_insigne" }, { lore: "loutre" }] }, hint: "Quelqu'un attend sur l'eau." },
+      if: { any: [{ second: "I_fulbert" }, { second: "O_insigne" }, { savoir: "loutre" }] }, hint: "Quelqu'un attend sur l'eau." },
     corlay: { name: "Enguerrand Corlay", desc: "premier drapier, 21 h, rue Haute", start: "C_souper", fx: { voie: "drapier" },
       if: { any: [{ second: "O_rapport" }, { second: "B_dette" }] }, hint: "Quelqu'un compte des voix, ce soir." },
     anselme: { name: "Anselme", desc: "garde-vannes, 18 h, dans la digue", start: "A_galerie", fx: { voie: "gardevannes" },
-      if: { all: [{ lore: "veine" }, { lore: "proces_verbal" }] }, hint: "Quelqu'un sait tout depuis trois ans. Il faudra savoir deux choses avant de le suivre." },
+      if: { all: [{ savoir: "veine" }, { savoir: "proces_verbal" }] }, hint: "Quelqu'un sait tout depuis trois ans. Il faudra savoir deux choses avant de le suivre." },
   },
-  lore: {
+  savoirs: {
     cle: { title: "Le paquet d'Ilde contient une clé", text: "Une clé de fer longue comme un avant-bras, roulée dans une toile cirée avec une lettre cachetée." },
     pierre_bleue: { title: "La pierre bleue", text: "Devant la cabane des Loutres, une pierre plate peinte en bleu : on laisse dessous ce qu'on apporte à Jacquette." },
     ponceau: { title: "Le ponceau des Teinturiers", text: "Sous le pont des Moulins, l'ancien égout des teinturiers passe sous la rue, à sec en automne. La grille, côté Foulons, tient par un seul gond." },

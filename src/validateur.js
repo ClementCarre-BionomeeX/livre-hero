@@ -11,7 +11,7 @@
     "lead", "away", "team", "souv", "souvenirs", "heroLevel", "second", "via", "regard", "fresh", "stock", "days", "promise", "vote", "lean", "battle", "camp", "missed",
     "temps", "saison", "blessure", "cicatrice", "fatigue", "trait", "duel",
     "recit", "doute", "dementi", "silences", "geste", "poids", "angoisse", "attache",
-    "secret", "confie", "garde", "lore", "lu"];
+    "secret", "confie", "garde", "savoir", "lu"];
   // The siege's conditions (8.0) carry a second key (is, member, hero, losses): they are read by their first key.
   var SIEGE_KEYS = ["stock", "days", "promise", "vote", "lean", "battle", "camp", "missed", "fatigue", "trait", "duel"];
   var FX_KEYS = ["voie", "regard", "resume", "set", "flag", "flags", "unflag", "clue", "mark", "ep", "catchup", "catchupWhy", "join", "met", "leave", "conf", "fear", "fac", "relic",
@@ -194,7 +194,7 @@
       if (["gold", "food", "pv"].indexOf(k) >= 0 && (c[k] === null || typeof c[k] !== "object")) E(where + " : la condition « " + k + " » s'écrit { min: …, max: … }.");
       if (k === "clues" && !story.mysteries[c.clues]) E(where + " : mystère « " + c.clues + " » inconnu.");
       if (k === "clue" && !story.clues[c.clue]) E(where + " : indice « " + c.clue + " » inconnu.");
-      if (k === "lore") [].concat(c.lore).forEach(function (x) { if (!(story.lore || {})[x]) E(where + " : savoir « " + x + " » inconnu (story.lore)."); });
+      if (k === "savoir") [].concat(c.savoir).forEach(function (x) { if (!(story.savoirs || {})[x]) E(where + " : savoir « " + x + " » inconnu (story.savoirs)."); });
       if (k === "lu" && !story.passages[c.lu]) E(where + " : passage « " + c.lu + " » inconnu (condition lu).");
       if (["present", "loyal", "met", "gone", "conf", "fear"].indexOf(k) >= 0 && !story.companions[c[k]]) E(where + " : compagnon « " + c[k] + " » inconnu.");
       if ((k === "relic" || k === "given") && !story.relics[c[k]]) E(where + " : relique « " + c[k] + " » inconnue.");
@@ -250,7 +250,7 @@
       if (typeof fx !== "object" || Array.isArray(fx)) { E(where + " : effets mal formés."); return; }
       Object.keys(fx).forEach(function (k) { if (FX_KEYS.indexOf(k) < 0) E(where + " : effet inconnu « " + k + " »."); });
       [].concat(fx.clue || []).forEach(function (x) { if (!story.clues[x]) E(where + " : indice « " + x + " » inconnu."); });
-      [].concat(fx.learn || []).forEach(function (x) { if (!(story.lore || {})[x]) E(where + " : savoir « " + x + " » inconnu (story.lore)."); });
+      [].concat(fx.learn || []).forEach(function (x) { if (!(story.savoirs || {})[x]) E(where + " : savoir « " + x + " » inconnu (story.savoirs)."); });
       if (fx.voie && !(story.voies || {})[fx.voie]) E(where + " : voie « " + fx.voie + " » inconnue.");
       [].concat(fx.join || [], fx.met || [], fx.leave || []).concat(Object.keys(fx.conf || {}), Object.keys(fx.fear || {}))
         .forEach(function (x) { if (!story.companions[x]) E(where + " : compagnon « " + x + " » inconnu."); });
@@ -973,7 +973,7 @@
       // Two games in five are a second reading: the reader has reached every ending before (tag second).
       if (second) { s.second = {}; M.endingsOf(story).forEach(function (e) { s.second[e.id] = 1; }); }
       // 8.9: in a second reading, the reader has kept some things learned and read some pages in earlier games.
-      if (second) { s.lore = {}; Object.keys(story.lore || {}).forEach(function (k) { if (rnd() < 0.75) s.lore[k] = 1; }); s.lu = {}; Object.keys(P).forEach(function (k) { if (rnd() < 0.3) s.lu[k] = 1; }); }
+      if (second) { s.lore = {}; Object.keys(story.savoirs || {}).forEach(function (k) { if (rnd() < 0.75) s.lore[k] = 1; }); s.lu = {}; Object.keys(P).forEach(function (k) { if (rnd() < 0.3) s.lu[k] = 1; }); }
       // 8.3: one game in four, the reader has masked the tender lines.
       if (seed % 4 === 1) s.tendre = "masquer";
       (story.past || []).forEach(function (q) { var a = q.answers[Math.floor(rnd() * q.answers.length)]; try { M.apply(story, s, a.fx); } catch (e) { errs["Ton passé : " + e.message] = 1; } });

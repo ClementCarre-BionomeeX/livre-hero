@@ -523,7 +523,7 @@
       "second": "I_suivie"
      },
      {
-      "lore": "bastien_vu"
+      "savoir": "bastien_vu"
      }
     ]
    },
@@ -545,7 +545,7 @@
       "second": "O_insigne"
      },
      {
-      "lore": "loutre"
+      "savoir": "loutre"
      }
     ]
    },
@@ -580,17 +580,17 @@
    "if": {
     "all": [
      {
-      "lore": "veine"
+      "savoir": "veine"
      },
      {
-      "lore": "proces_verbal"
+      "savoir": "proces_verbal"
      }
     ]
    },
    "hint": "Quelqu'un sait tout depuis trois ans. Il faudra savoir deux choses avant de le suivre."
   }
  },
- "lore": {
+ "savoirs": {
   "cle": {
    "title": "Le paquet d'Ilde contient une clé",
    "text": "Une clé de fer longue comme un avant-bras, roulée dans une toile cirée avec une lettre cachetée."
@@ -924,7 +924,7 @@
     {
      "label": "Lui dire que tu sais ce qu'il y a dedans",
      "if": {
-      "lore": "cle"
+      "savoir": "cle"
      },
      "to": "M_ilde_dit"
     }
@@ -959,7 +959,7 @@
     "« Anselme Vellard me l'a donnée à sept heures, là-haut, dans sa maison, dit-elle très bas. Il n'y en a qu'une. Celle qui l'attend doit l'avoir avant trois heures. »",
     {
      "if": {
-      "lore": "veine"
+      "savoir": "veine"
      },
      "text": "Elle te prend le poignet. « Tu sais pourquoi, toi aussi. Alors écoute : à deux heures, il faut que les Foulons soient debout. Tous. S'ils me voient courir les rues, ils sauront qu'il se passe quelque chose, et d'autres le sauront aussi. Toi, on ne te regarde pas. »"
     },
@@ -977,7 +977,7 @@
     {
      "label": "Promettre de faire lever les Foulons à deux heures",
      "if": {
-      "lore": "veine"
+      "savoir": "veine"
      },
      "to": "M_rue",
      "fx": {
@@ -1041,7 +1041,7 @@
     {
      "label": "Passer sous le pont, par le ponceau des Teinturiers",
      "if": {
-      "lore": "ponceau"
+      "savoir": "ponceau"
      },
      "to": "M_ponceau",
      "fx": {
@@ -1058,7 +1058,7 @@
     {
      "label": "Passer d'abord chez toi, et réveiller Tibo",
      "if": {
-      "lore": "veine"
+      "savoir": "veine"
      },
      "hide": {
       "has": "tibo:reveille"
@@ -1070,7 +1070,7 @@
      "if": {
       "all": [
        {
-        "lore": "plan_corlay"
+        "savoir": "plan_corlay"
        },
        {
         "has": "paquet:ouvert"
@@ -1125,14 +1125,14 @@
     {
      "if": {
       "not": {
-       "lore": "veine"
+       "savoir": "veine"
       }
      },
      "text": "Quelqu'un veut lâcher le lac sur les Foulons cette nuit. Et c'est toi qui portes la clé."
     },
     {
      "if": {
-      "lore": "veine"
+      "savoir": "veine"
      },
      "text": "Tu sais pourquoi on ouvre. Tu sais aussi ce que ça coûte, en bas, et qui le paiera."
     }
@@ -1150,7 +1150,7 @@
      "label": "Porter la lettre au guet, sur le pont",
      "if": {
       "not": {
-       "lore": "veine"
+       "savoir": "veine"
       }
      },
      "to": "M_moulins",
@@ -1270,7 +1270,7 @@
     {
      "label": "Dire au sergent que tu sais qui paie son capitaine",
      "if": {
-      "lore": "rambert_paye"
+      "savoir": "rambert_paye"
      },
      "hide": {
       "via": [
@@ -1622,7 +1622,7 @@
     {
      "label": "Lever les yeux vers la Maison des Vannes",
      "if": {
-      "lore": "signal"
+      "savoir": "signal"
      },
      "to": "M_signal"
     },
@@ -1636,7 +1636,7 @@
     {
      "label": "Chercher la porte de la galerie, et le pointeau",
      "if": {
-      "lore": "galerie"
+      "savoir": "galerie"
      },
      "hide": {
       "not": {
@@ -1858,7 +1858,7 @@
     {
      "label": "Monter sur la berge du canal et siffler : deux coups courts, un long",
      "if": {
-      "lore": "loutre"
+      "savoir": "loutre"
      },
      "to": "M_jacquette",
      "via": "sifflet",
@@ -2049,7 +2049,7 @@
     {
      "label": "Prendre le carnet et descendre au Conseil, à huit heures",
      "if": {
-      "lore": "proces_verbal"
+      "savoir": "proces_verbal"
      },
      "to": "M_conseil",
      "fx": {
@@ -2074,14 +2074,14 @@
     "Tu cours sur la route de la Digue, dans l'autre sens, de borne en borne. Le vent te pousse dans le dos maintenant. Au loin, Saint-Rieul sonne une heure.",
     {
      "if": {
-      "lore": "ponceau"
+      "savoir": "ponceau"
      },
      "text": "Au pont, la lanterne du guet est toujours là. Tu te jettes dans les orties, tu trouves la bouche du ponceau à tâtons, et tu repasses sous les bottes du sergent."
     },
     {
      "if": {
       "not": {
-       "lore": "ponceau"
+       "savoir": "ponceau"
       }
      },
      "text": "Au pont, la lanterne du guet a disparu. Les gardes sont partis se chauffer au poste. Tu traverses en courant."
@@ -2224,7 +2224,7 @@
     {
      "label": "Laisser Tibo dormir au Cerf, et redescendre aux Foulons",
      "if": {
-      "lore": "veine"
+      "savoir": "veine"
      },
      "to": "M_vendue_portes"
     }
@@ -2405,7 +2405,7 @@
     "Tibo dort.",
     {
      "if": {
-      "lore": "veine"
+      "savoir": "veine"
      },
      "text": "Tu savais. Tu savais, et tu as pris l'argent, et tu as sauvé un enfant. Tu te le répéteras dans cet ordre-là, ou dans un autre, toute ta vie."
     },
@@ -3181,7 +3181,7 @@
     {
      "label": "Frapper chez Nine, en passant",
      "if": {
-      "lore": "veine"
+      "savoir": "veine"
      },
      "to": "M_fuite_nine"
     },
@@ -3360,7 +3360,7 @@
     {
      "label": "« C'est la clé des vannes qu'on cherche, capitaine ? »",
      "if": {
-      "lore": "cle"
+      "savoir": "cle"
      },
      "to": "O_cle"
     }
@@ -3485,7 +3485,7 @@
     "Ilde Saunier. Elle a soigné ta femme pendant tout le dernier hiver, sans jamais te demander un sou, et elle lui tenait la main quand c'est arrivé.",
     {
      "if": {
-      "lore": "veine"
+      "savoir": "veine"
      },
      "text": "Tu sais ce qu'il y a dans ce paquet. Tu sais aussi pourquoi Anselme Vellard le veut avant trois heures, et ce qui arrive aux Foulons s'il ne l'a pas."
     }
@@ -3503,7 +3503,7 @@
     {
      "label": "La laisser passer, et lui montrer le ponceau pour le retour",
      "if": {
-      "lore": "veine"
+      "savoir": "veine"
      },
      "to": "O_passe",
      "fx": {
@@ -3585,7 +3585,7 @@
     {
      "label": "Descendre aux Foulons chercher Nine",
      "if": {
-      "lore": "veine"
+      "savoir": "veine"
      },
      "to": "O_nine_rue"
     },
@@ -3594,10 +3594,10 @@
      "if": {
       "all": [
        {
-        "lore": "veine"
+        "savoir": "veine"
        },
        {
-        "lore": "proces_verbal"
+        "savoir": "proces_verbal"
        }
       ]
      },
@@ -3710,7 +3710,7 @@
     "Tu restes seul avec la lanterne, et Colin, et Thomin qui ne dira rien parce qu'il te doit trois mois de soupe.",
     {
      "if": {
-      "lore": "veine"
+      "savoir": "veine"
      },
      "text": "Tu sais ce que porte la courrière. Tu sais ce qui arrive aux Foulons à trois heures, quoi qu'il arrive à la digue. Et personne, en bas, ne le sait."
     }
@@ -3724,7 +3724,7 @@
     {
      "label": "Laisser le pont à Colin, et aller chercher la clé du tocsin",
      "if": {
-      "lore": "veine"
+      "savoir": "veine"
      },
      "to": "O_pichet"
     }
@@ -3765,7 +3765,7 @@
     {
      "label": "Aller chercher la clé du tocsin",
      "if": {
-      "lore": "veine"
+      "savoir": "veine"
      },
      "to": "O_pichet",
      "fx": {
@@ -4150,7 +4150,7 @@
     "À quatre heures, la pluie. Aux Foulons, l'eau entre dans les maisons vers cinq heures, par surprise, par les portes et les soupiraux.",
     {
      "if": {
-      "lore": "tocsin"
+      "savoir": "tocsin"
      },
      "text": "Personne n'a sonné le tocsin. Le père Anicet dort au Pichet, sa clé au cou. Tu y as pensé trop tard, sur la jument grise, à la huitième borne."
     },
@@ -4713,7 +4713,7 @@
     {
      "label": "Le porter toi-même, par le ponceau des Teinturiers et la route de la Digue",
      "if": {
-      "lore": "ponceau"
+      "savoir": "ponceau"
      },
      "to": "I_ponceau"
     }
@@ -4750,7 +4750,7 @@
     {
      "label": "« Passe sous le pont, par le vieux ponceau. La grille tient par un gond. »",
      "if": {
-      "lore": "ponceau"
+      "savoir": "ponceau"
      },
      "to": "I_fulbert_vient",
      "fx": {
@@ -4760,7 +4760,7 @@
     {
      "label": "« Je ne te demande pas de porter. Je te demande de frapper aux portes, à deux heures. »",
      "if": {
-      "lore": "ponceau"
+      "savoir": "ponceau"
      },
      "to": "I_ponceau",
      "via": "maelle",
@@ -4813,7 +4813,7 @@
     {
      "label": "Lui demander depuis quand il fume sa pipe sur le seuil de la maison Corlay",
      "if": {
-      "lore": "rambert_paye"
+      "savoir": "rambert_paye"
      },
      "to": "I_fulbert_demasque"
     }
@@ -5185,7 +5185,7 @@
     {
      "label": "Lui donner le paquet, et lui demander de te monter jusqu'à Anselme",
      "if": {
-      "lore": "plan_corlay"
+      "savoir": "plan_corlay"
      },
      "to": "I_veille_monte"
     }
@@ -5277,7 +5277,7 @@
     {
      "label": "Descendre au Conseil à sa place, à huit heures",
      "if": {
-      "lore": "proces_verbal"
+      "savoir": "proces_verbal"
      },
      "to": "I_conseil"
     }
@@ -5642,7 +5642,7 @@
     {
      "label": "Prendre l'argent, et quitter Corvèze cette nuit",
      "if": {
-      "lore": "plan_corlay"
+      "savoir": "plan_corlay"
      },
      "to": "B_fuite_route"
     }
@@ -5760,7 +5760,7 @@
     {
      "label": "« La digue cède cette nuit. Mon père l'a mesurée. »",
      "if": {
-      "lore": "veine"
+      "savoir": "veine"
      },
      "to": "B_avertir"
     },
@@ -5831,7 +5831,7 @@
     "« Vous voyez, dit Corlay. Votre père a peur, et je le comprends. Demain, quand j'aurai la Charge, on ouvrira la vanne, tranquillement, après avoir vidé les entrepôts des Foulons. Pas cette nuit. Cette nuit, on n'inonde pas neuf cents tisserands sur la parole d'un mourant. »",
     {
      "if": {
-      "lore": "tassin"
+      "savoir": "tassin"
      },
      "text": "Tu sais, toi, que Tassin n'a jamais mis le pied dans la galerie."
     }
@@ -5840,7 +5840,7 @@
     {
      "label": "« Maître Tassin, de quelle couleur est la pierre de la galerie basse ? »",
      "if": {
-      "lore": "tassin"
+      "savoir": "tassin"
      },
      "to": "B_tassin"
     },
@@ -5941,7 +5941,7 @@
     {
      "label": "« Chez mon père. Et vous, sergent, faites sonner le tocsin à deux heures. Les Foulons vont être dans l'eau. »",
      "if": {
-      "lore": "tocsin"
+      "savoir": "tocsin"
      },
      "to": "B_route",
      "fx": {
@@ -6065,7 +6065,7 @@
     {
      "label": "Descendre au Conseil à huit heures, avec le carnet",
      "if": {
-      "lore": "veine_vue"
+      "savoir": "veine_vue"
      },
      "to": "B_aveu_nuit"
     }
@@ -6657,7 +6657,7 @@
     {
      "label": "Écrire un mot à la craie, laisser la pierre bleue, et partir au-devant par la route",
      "if": {
-      "lore": "pierre_bleue"
+      "savoir": "pierre_bleue"
      },
      "to": "J_audevant",
      "fx": {
@@ -6667,14 +6667,14 @@
     {
      "label": "Partir au-devant par la berge des Aulnes",
      "if": {
-      "lore": "cle"
+      "savoir": "cle"
      },
      "to": "J_aulnes"
     },
     {
      "label": "Monter chez le vieux, et descendre au pointeau avec lui",
      "if": {
-      "lore": "galerie"
+      "savoir": "galerie"
      },
      "to": "J_galerie_monte"
     }
@@ -6838,7 +6838,7 @@
     {
      "label": "Aller chercher quelqu'un qui verra le pied du mur de ses yeux",
      "if": {
-      "lore": "proces_verbal"
+      "savoir": "proces_verbal"
      },
      "to": "J_preuve_quai"
     }
@@ -7317,7 +7317,7 @@
     {
      "label": "Faire monter le fils",
      "if": {
-      "lore": "veine"
+      "savoir": "veine"
      },
      "to": "C_bastien"
     },
@@ -7427,7 +7427,7 @@
     {
      "label": "Aller voir toi-même le pied de la digue, cette nuit",
      "if": {
-      "lore": "veine_vue"
+      "savoir": "veine_vue"
      },
      "to": "C_route"
     }
@@ -7471,7 +7471,7 @@
     {
      "label": "Aller voir toi-même le pied de la digue, cette nuit",
      "if": {
-      "lore": "veine_vue"
+      "savoir": "veine_vue"
      },
      "to": "C_route"
     }
@@ -7572,14 +7572,14 @@
     {
      "label": "Dire au Conseil que les Vellard ont caché la fissure",
      "if": {
-      "lore": "plan_corlay"
+      "savoir": "plan_corlay"
      },
      "to": "C_bouc"
     },
     {
      "label": "Dire tout, depuis la séance d'il y a trois ans",
      "if": {
-      "lore": "proces_verbal"
+      "savoir": "proces_verbal"
      },
      "to": "C_demission"
     }
@@ -7942,7 +7942,7 @@
     {
      "label": "Réveiller Bastien, et lui mettre la clé dans les mains",
      "if": {
-      "lore": "plan_corlay"
+      "savoir": "plan_corlay"
      },
      "to": "A_bastien_porte",
      "fx": {
@@ -7959,7 +7959,7 @@
     {
      "label": "Descendre à la Haute-Ville, au bras d'Ilde, chez Corlay, ce soir",
      "if": {
-      "lore": "tassin"
+      "savoir": "tassin"
      },
      "to": "A_descente",
      "fx": {
@@ -8667,7 +8667,7 @@
     {
      "label": "Attendre qu'elle descende",
      "if": {
-      "lore": "veine"
+      "savoir": "veine"
      },
      "to": "O_pernelle"
     },
