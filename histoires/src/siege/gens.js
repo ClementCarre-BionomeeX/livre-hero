@@ -109,7 +109,7 @@ module.exports = {
     title: "L'arrestation",
     text: [
       "Aussonne fait fermer les portes du château et appeler Oudart de Lys dans la salle du Conseil. Tu attends dans l'embrasure d'une fenêtre.",
-      "Oudart entre en souriant, voit les quatre sergents, voit ta présence, et cesse de sourire. Il laisse son épée au fourreau, défait lui-même son ceinturon et le pose sur la table.",
+      "Oudart entre en souriant, voit les quatre sergents, te voit, et cesse de sourire. Il laisse son épée au fourreau, défait lui-même son ceinturon et le pose sur la table.",
       "« Vous me remercierez un jour, capitaine, dit-il. Le jour où le Margrave entrera par la brèche et que vous compterez les morts. »",
       "On l'emmène dans la tour basse. Aussonne reste debout, seul au milieu de la salle, et tu sors sans qu'il te le demande.",
     ],
@@ -388,7 +388,7 @@ module.exports = {
     title: "Mère Ysaure", back: true,
     text: [
       { first: true, text: "Mère Ysaure est petite, ridée, les manches roulées sur des avant-bras de lavandière. Elle a un grain de beauté sur la joue et une voix qui porte jusqu'au fond de la salle sans jamais crier." },
-      { first: true, text: "« C'est vous, le nouvel intendant ? » Elle ne te laisse pas répondre. « Alors c'est à vous que je demande du pain. J'ai quatre-vingts malades, des blessés, et sept cents réfugiés dans mon cloître. Ils mangent tous. »" },
+      { first: true, text: "« C'est vous, l'intendance ? » Elle ne te laisse pas répondre. « Alors c'est à vous que je demande du pain. J'ai quatre-vingts malades, des blessés, et sept cents réfugiés dans mon cloître. Ils mangent tous. »" },
       { again: true, text: "Mère Ysaure s'essuie les mains à son tablier. « Faites vite, on m'attend. »" },
       { regard: { ysaure: ["trahi", "hostile"] }, text: "Elle te regarde comme on regarde quelqu'un qu'on a cessé d'attendre." },
     ],
@@ -561,7 +561,7 @@ module.exports = {
   TM_verite: {
     title: "La vérité",
     text: [
-      "Tu lui dis tout, dans un coin du cloître, assise sur le bord du puits. La demande faite en son nom, la garde relevée, les lumières, le parapet. Le nom.",
+      "Tu lui dis tout, dans un coin du cloître, où elle s'est assise sur le bord du puits. La demande faite en son nom, la garde relevée, les lumières, le parapet. Le nom.",
       "Mahaut écoute sans pleurer. Quand tu as fini, elle reste un long moment à regarder ses mains, rouges de l'eau des baquets.",
       { if: { has: "oudart:arrete" }, text: "« Il est dans la tour basse ? » Tu dis oui. « Alors je n'ai plus rien à demander à personne. »" },
       { if: { has: "oudart:fui" }, text: "« Il est de l'autre côté de la rivière. » Elle hoche la tête. « Il reviendra avec le Margrave. Je l'attendrai. »" },

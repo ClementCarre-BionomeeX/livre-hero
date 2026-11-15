@@ -18,25 +18,25 @@ var SEUL = { has: "monde:guide_parti" };
 var passages = {
   E_descente: { act: "III", title: "La descente", place: "ourse", fx: { catchup: 2, catchupWhy: "la traversée des Dents de Sorgue" },
     text: [
-      { if: { not: VALLEE }, text: "Le matin se lève sur l'autre versant. Vous descendez du col par de grandes pentes douces, la neige jusqu'aux genoux, puis jusqu'aux chevilles, puis plus du tout : des pâturages jaunes, des mélèzes, un ruisseau qui chante sous la glace. En bas, le lac de Brume remplit tout l'horizon, gris et lisse comme une ardoise." },
+      { if: { not: VALLEE }, text: "Le matin se lève sur l'autre versant. Vous descendez du col par de grandes pentes douces, la neige jusqu'aux genoux, puis jusqu'aux chevilles, puis plus une trace : des pâturages jaunes, des mélèzes, un ruisseau qui chante sous la glace. En bas, le lac de Brume remplit tout l'horizon, gris et lisse comme une ardoise." },
       { if: VALLEE, text: "Le second jour de la route des salines, vous tournez autour de la dernière Dent, et le lac de Brume apparaît d'un coup au bout d'une vallée, gris et lisse comme une ardoise. La route remonte un peu vers le nord pour rejoindre le débouché de la gorge de l'Ourse, là où passe le chemin du lac." },
-      { if: { all: [{ not: VALLEE }, { has: "monde:sans_brunette" }] }, text: "Le bât vous scie les épaules. Vous pensez tous les deux à Brunette, au chaud chez Berthe." },
+      { if: { all: [{ not: VALLEE }, { has: "monde:sans_brunette" }] }, text: "Le bât vous scie les épaules, et vos pensées vont à Brunette, au chaud chez Berthe." },
       { if: RETARD, text: "Vous avez un jour de retard, ou deux, et ce matin vous les sentez tous les deux dans les jambes." },
       "Vers midi, le chemin rejoint le torrent de l'Ourse à l'endroit où il sort de la montagne par une fente de rocher noir. C'est là que la gorge des contrebandiers débouche sur le chemin du lac.",
     ],
     choices: [{ label: "Descendre jusqu'au débouché de la gorge", to: "E_gorge" }] },
   E_gorge: { act: "III", title: "Le débouché de la gorge", place: "ourse",
     text: [
-      { first: true, text: "Brunette s'arrête et refuse d'avancer, les naseaux ouverts. Au bord du torrent, dans la neige, un cheval est couché sur le flanc, raide, un carreau d'arbalète planté dans le poitrail. Une selle des postes, le cor de chasse brodé sur la housse." },
-      { first: true, if: { has: "monde:sans_brunette" }, text: "Sans Brunette, vous ne l'auriez pas vu tout de suite : c'est le corbeau sur le flanc qui vous l'a montré." },
+      { first: true, text: "Brunette s'arrête net, les naseaux ouverts, et refuse le pas suivant. Au bord du torrent, dans la neige, un cheval est couché sur le flanc, raide, un carreau d'arbalète planté dans le poitrail. Une selle des postes, le cor de chasse brodé sur la housse." },
+      { first: true, if: { has: "monde:sans_brunette" }, text: "Sans Brunette, le cheval vous aurait échappé un moment encore : c'est le corbeau posé sur son flanc qui vous l'a montré." },
       { first: true, if: { has: "monde:lumiere_gorge" }, text: "La lanterne qui descendait la gorge, la nuit, depuis le refuge : elle venait d'ici." },
-      { first: true, text: "Les fontes sont ouvertes et vidées dans la neige. Du pain, de l'avoine, une couverture. Et des taches rouges, de la taille d'une pièce, qui partent du cheval et montent entre les rochers de la gorge." },
+      { first: true, text: "Les fontes sont ouvertes et vidées dans la neige. Du pain, de l'avoine, une couverture : on cherchait autre chose que de quoi manger. Et des taches rouges, de la taille d'une pièce, espacées d'un pas court, qui partent du cheval et montent entre les rochers de la gorge." },
       { again: true, text: "Le cheval des postes est couché au bord du torrent. Les taches rouges montent entre les rochers." },
     ],
     choices: [{ label: "Suivre les taches de sang entre les rochers", to: [{ if: VIVANT, to: "E_gaut_vivant" }, { to: "E_gaut_mort" }] }] },
   E_gaut_vivant: { act: "III", title: "Le cavalier des postes", place: "ourse", fx: { meet: "gaut" },
     text: [
-      { first: true, text: "Il est assis dans un creux de rocher, à cent pas du cheval, les genoux contre la poitrine, une main serrée sur l'épaule gauche. Un garçon de vingt ans, la peau tannée, les lèvres bleues. Le carreau d'arbalète lui a traversé l'épaule. Il a passé la nuit là, sans feu, et il vous regarde arriver sans bouger, comme on regarde la neige tomber." },
+      { first: true, text: "Il est assis dans un creux de rocher, à cent pas du cheval, les genoux contre la poitrine, une main serrée sur l'épaule gauche. Un garçon de vingt ans, la peau tannée, les lèvres bleues. Le carreau d'arbalète lui a traversé l'épaule. Il a passé la nuit là, sans feu, et il vous regarde arriver, immobile, comme on regarde la neige tomber." },
       { first: true, text: "« Vérenne ? » Sa voix est un souffle. « Vous êtes le pli de la chancellerie. » Il rit, et ça lui fait mal. « Je m'appelle Gaut. J'avais un jour d'avance sur vous. »" },
       { first: true, text: "Il ouvre son manteau. Contre sa chemise, dans un étui de cuir comme le tien, il y a une lettre fermée de cire blanche, au cygne. « À la présidente Lorge. En séance. Avant l'autre. Dame Hesmé a dit : avant l'autre. »" },
       { again: true, text: "Gaut est adossé au rocher, la main sur l'épaule." },
@@ -71,7 +71,7 @@ var passages = {
   E_gaut_mort: { act: "III", title: "Le cavalier des postes", place: "ourse", fx: { meet: "gaut" },
     text: [
       { first: true, text: "Il est assis dans un creux de rocher, à cent pas du cheval, les genoux contre la poitrine, une main serrée sur l'épaule gauche. Un garçon de vingt ans. Le givre lui a blanchi les cils. Il est mort pendant la nuit, ou la nuit d'avant, seul, en tenant son épaule." },
-      { first: true, text: "Un carreau d'arbalète lui a traversé l'épaule. Son manteau est fermé jusqu'au menton, boutonné de travers, comme on boutonne les mains gelées." },
+      { first: true, text: "Un carreau d'arbalète lui a traversé l'épaule. Son manteau est fermé jusqu'au menton, boutonné de travers, à la façon des mains gelées." },
       { again: true, text: "Gaut est assis dans son creux de rocher, les cils blancs." },
     ],
     choices: [
@@ -82,7 +82,7 @@ var passages = {
     fx: { item: ["pli_cygne", "billet_hesme"], clue: ["cygne_pli", "gaut_ordre"], flag: ["monde:cygne_pris", "monde:preuve_billet"], ep: ["histoire", 1500] },
     text: [
       "Contre sa chemise, dans un étui de cuir comme celui des courriers de la chancellerie, il y a une lettre fermée de cire blanche, au cygne de la duchesse, adressée à la présidente Aude Lorge, en main propre. Et un billet froissé, plié en quatre.",
-      "Il a boutonné son manteau par-dessus, avec ses mains gelées, pour que l'homme à l'arbalète ne la trouve pas.",
+      "Il a boutonné son manteau par-dessus, avec ses mains gelées, pour la cacher à l'homme à l'arbalète.",
     ],
     choices: [
       { label: "Lui fermer les yeux, ensuite, et le couvrir de pierres", role: "gaut", option: "soin", hide: { has: "monde:gaut_enterre" }, to: "E_gaut_cairn" },
@@ -102,14 +102,14 @@ var passages = {
   // ---------------------------------------------------------------- the bridge
   E_pont: { act: "III", title: "Le pont de Brume", place: "ourse", charniere: true, fx: { meet: "ancelin" },
     text: [
-      { first: true, text: "Le pont de Brume est un pont couvert, en bois noirci, qui enjambe l'Ourse juste avant qu'elle se jette dans le lac. À son entrée, il y a la maison du péager, et sur le banc de la maison, au soleil d'hiver, trois hommes. L'un d'eux porte un manteau vert." },
+      { first: true, text: "Le pont de Brume est un pont couvert, en bois noirci, long d'une quarantaine de pas, qui enjambe l'Ourse juste avant qu'elle se jette dans le lac. À son entrée, il y a la maison du péager, et sur le banc de la maison, au soleil d'hiver, trois hommes. L'un d'eux porte un manteau vert." },
       { first: true, text: "Il se lève sans hâte. Les deux autres se lèvent aussi, et l'un d'eux tient une arbalète, chargée, la pointe vers le sol." },
       { first: true, if: { has: "monde:menti_vert" }, text: "« La famille de Sorgue va bien ? » Il sourit. La cicatrice tire sur son œil gauche." },
       { first: true, if: { has: "monde:vert_mefiant" }, text: "« Le cheval noir mord toujours », dit-il. Il te regarde, toi, qui as touché à sa selle." },
       { first: true, if: { has: "monde:dit_vert" }, text: "« Brumefond, vous m'aviez dit. Vous voyez, je vous crois toujours. »" },
       { first: true, if: { has: "monde:carte_vert" }, text: "La croix sur sa carte, au bas de la gorge. Il vous attendait ici depuis le début." },
       { first: true, text: "« Je m'appelle Ancelin. Je ne vous veux pas de mal. Vous portez une lettre de la chancellerie, vous la porterez jusqu'au bout, c'est votre métier. » Il tend la main, paume ouverte. « Mais le cavalier des postes ne portait rien sur son cheval. Donc il portait sur lui. Je veux la lettre au cygne. »" },
-      { first: true, if: { not: CYGNE }, text: "Ses hommes vous fouillent, vite, en professionnels. Ils ne trouvent que le pli de la chancellerie, et ils le laissent dans son étui. Ancelin hausse les épaules. « Alors elle est restée dans la gorge. Tant pis pour elle. Passez. »" },
+      { first: true, if: { not: CYGNE }, text: "Ses hommes vous fouillent, vite, en professionnels. Ils trouvent seulement le pli de la chancellerie, et le laissent dans son étui. Ancelin hausse les épaules. « Alors elle est restée dans la gorge. Tant pis pour elle. Passez. »" },
       { again: true, text: "Ancelin attend, la main ouverte. L'arbalète regarde le sol." },
     ],
     choices: [
@@ -128,13 +128,13 @@ var passages = {
     text: [
       "Ancelin tient le pli au cygne entre deux doigts. Il le garde fermé. Il le regarde, comme on regarde une carte qu'on vient de gagner, et il le glisse sous son manteau vert.",
       { if: { has: "monde:gaut_soigne" }, text: "Sur le bât de Brunette, Gaut tourne la tête vers le lac et ferme les yeux." },
-      "« Passez, dit Ancelin. Bonne séance. » Ses hommes s'écartent. Le pont couvert sent le bois humide et la fiente de pigeon. Vous le traversez sans vous retourner.",
+      "« Passez, dit Ancelin. Bonne séance. » Ses hommes s'écartent. Le pont couvert sent le bois humide et la fiente de pigeon. Vous le traversez les yeux devant vous.",
     ],
     choices: [{ label: "Descendre vers le bac", to: "E_bac" }] },
   E_pont_ruse: { act: "III", title: "Un billet plié", place: "ourse",
     text: [
-      "Tu plies le billet de Dame Hesmé en quatre, comme une lettre, en cachant l'écriture dans ta paume, et tu le poses dans la main d'Ancelin avec la mine de quelqu'un qui perd. Il le glisse sous son manteau sans le déplier. Les gens qui gagnent ne vérifient pas.",
-      "« Passez. Bonne séance. » Vous traversez le pont couvert d'un pas égal. Au milieu du pont, tu entends derrière vous un juron, très loin, et puis rien : vous êtes déjà sur l'autre rive, et l'autre rive appartient aux Ligues, où un homme de Vérenne avec une arbalète ne se promène pas.",
+      "Tu plies le billet de Dame Hesmé en quatre, comme une lettre, en cachant l'écriture dans ta paume, et tu le poses dans la main d'Ancelin avec la mine de quelqu'un qui perd. Il le glisse sous son manteau sans le déplier. Les gens qui gagnent vérifient rarement.",
+      "« Passez. Bonne séance. » Vous traversez le pont couvert d'un pas égal. Au milieu du pont, tu entends derrière vous un juron, très loin, et puis plus rien : vous êtes déjà sur l'autre rive, et l'autre rive appartient aux Ligues, où un homme de Vérenne avec une arbalète se ferait vite remarquer.",
     ],
     choices: [{ label: "Descendre vers le bac", to: "E_bac" }] },
   E_pont_combat: { act: "III", title: "Le pont couvert", place: "ourse",
@@ -147,7 +147,7 @@ var passages = {
     ] },
   E_pont_vaincu: { act: "III", title: "Le manteau vert", place: "ourse",
     text: [
-      "Ancelin est à genoux sur les planches du pont, l'épée tombée à l'eau, une main sur la cuisse qui saigne. Ses hommes ont fui par la route du col. Il te regarde avec une sorte d'intérêt.",
+      "Ancelin est à genoux sur les planches du pont, l'épée tombée à l'eau, une main sur la cuisse qui saigne. Ses hommes ont fui par la route du col. Il te regarde avec une sorte d'intérêt, comme on regarde un cheval qu'on a mal jugé.",
       "Dans son manteau, il y a une bourse, un briquet, et une lettre sans signature, d'une belle écriture de chancellerie : *Qu'aucune autre réponse n'arrive. Tu sais à qui t'adresser au lac.*",
       "« Prends-la, dit Ancelin. Elle ne me servira plus. » Il sourit avec la moitié de la bouche. « Lui non plus ne me servira plus, quand il saura. »",
     ],
@@ -163,7 +163,7 @@ var passages = {
     choices: [{ label: "Te relever et descendre vers le bac", to: "E_bac" }] },
   E_pont_battu: { act: "III", title: "Les planches du pont", place: "ourse",
     text: [
-      "Tu te réveilles sur les planches du pont, la joue dans la poussière et le sel. Ta tête sonne. Le péager te regarde depuis sa porte, une bassine d'eau à la main, sans oser approcher.",
+      "Tu te réveilles sur les planches du pont, la joue dans la poussière et le sel. Ta tête sonne. Le péager te regarde depuis sa porte, une bassine d'eau à la main, trop prudent pour approcher.",
       "Tes poches ont été retournées. On t'a laissé tout ce qui était à toi.",
     ],
     choices: [{ label: "Te relever et descendre vers le bac", to: "E_bac" }] },
@@ -179,8 +179,8 @@ var passages = {
     text: [
       { first: true, text: "Le bac est un grand radeau de planches tiré par une corde d'une rive à l'autre, et le passeur est un vieux qui chique et qui garde ses questions pour lui. De l'autre côté de l'eau, à une heure, Brumefond allume ses lumières une à une : les quais, les ponts couverts, et au milieu, sur une butte, le toit d'ardoise de la salle de l'Assemblée." },
       { first: true, if: { has: "monde:gaut_soigne" }, text: "Gaut dort sur le bât de Brunette, ou sur vos manteaux. Il respire." },
-      { first: true, if: { has: "monde:pont_saut" }, text: "Le passeur te jette une couverture de cheval sans rien dire." },
-      { first: true, if: RETARD, text: "« Le vote, c'est demain soir, dit le passeur en crachant dans l'eau. Toute la ville ne parle que de ça. »" },
+      { first: true, if: { has: "monde:pont_saut" }, text: "Le passeur te jette une couverture de cheval, en silence." },
+      { first: true, if: RETARD, text: "« Le vote, c'est demain soir, dit le passeur en crachant dans l'eau. Toute la ville en parle. »" },
       { again: true, text: "Le bac glisse sur l'eau noire. Les lumières de Brumefond se rapprochent." },
     ],
     choices: [
@@ -189,7 +189,7 @@ var passages = {
     ] },
   E_aube: { act: "III", title: "Les portes de Brumefond", place: "brumefond",
     text: [
-      { if: FORCE, text: "Vous avez marché toute la nuit le long du lac, sans vous arrêter, en vous relayant pour porter la lanterne. À l'aube, vous avez les jambes en bois et les portes de Brumefond devant vous." },
+      { if: FORCE, text: "Vous avez marché toute la nuit le long du lac, d'une traite, en vous relayant pour porter la lanterne. À l'aube, vous avez les jambes en bois et les portes de Brumefond devant vous." },
       { if: { not: FORCE }, text: "Le passeur vous réveille à l'aube avec un bol de lait de chèvre. Les portes de Brumefond ouvrent au son d'une cloche fêlée." },
       { if: TARD, text: "La ville est pavoisée de rouge. Il y a des affiches fraîches sur toutes les portes, et la cloche de la salle de l'Assemblée sonne à toute volée." },
       { if: { all: [{ not: TARD }, { not: MATIN }] }, text: "Le soleil est déjà bas sur le lac quand vous passez les portes : il faut courir." },
@@ -212,11 +212,11 @@ var passages = {
     ] },
   E_place: { act: "III", title: "Le Marché-aux-Sels", place: "brumefond",
     text: [
-      "La place est pavée de pierres roses, usées par le sel. Les marchands ont replié leurs étals : il n'y a plus de sel à vendre depuis trois ans. Au milieu, une estrade de planches, où l'on monte les jours de fête pour jouer des farces. Et les jours de justice pour autre chose.",
-      { if: PLI, text: "Tu restes au pied de l'estrade. Tu avais une image de cette place, depuis douze ans, faite de l'affiche et de ce que ta mère n'a pas dit. Elle est plus petite. Il y a des enfants qui jouent à la marelle sur les pierres roses, et un chat sur les marches de l'estrade." },
+      "La place est pavée de pierres roses, usées par le sel. Les marchands ont replié leurs étals : depuis trois ans, le sel manque. Au milieu, une estrade de planches, où l'on monte les jours de fête pour jouer des farces. Et les jours de justice pour autre chose.",
+      { if: PLI, text: "Tu restes au pied de l'estrade. Tu avais une image de cette place, depuis douze ans, faite de l'affiche et des silences de ta mère. Elle est plus petite. Il y a des enfants qui jouent à la marelle sur les pierres roses, et un chat sur les marches de l'estrade." },
       { if: { all: [PLI, { has: "passe:couteau" }] }, text: "Tu sors le couteau à manche de corne de ta botte. Tu le tiens longtemps. Puis tu le ranges." },
       { if: { all: [ROUTE, { secret: "p_pere" }] }, text: "C'est ici. Tu regardes {autre}, au pied de l'estrade, et tu te tais. Tu restes un peu en arrière, assez près pour qu'on te sache là." },
-      { if: { all: [ROUTE, { not: { secret: "p_pere" } }] }, text: "{autre} s'arrête au pied de l'estrade et reste là un long moment, sans un mot, à regarder les planches. Tu attends. Tu ne sais pas ce que tu attends." },
+      { if: { all: [ROUTE, { not: { secret: "p_pere" } }] }, text: "{autre} s'arrête au pied de l'estrade et reste là un long moment, sans un mot, à regarder les planches. Tu attends, sans trop savoir quoi." },
     ],
     choices: [{ back: "E_ville" }] },
   E_prevote: { act: "III", title: "La prévôté", place: "brumefond",
@@ -230,7 +230,7 @@ var passages = {
     ] },
   E_prevote_non: { act: "III", title: "Le greffier", place: "brumefond",
     text: [
-      "« Cabrol. » Le greffier repose sa plume. « Je me souviens de l'affaire. Je ne vous montrerai rien. Revenez après le vote, s'il y a encore une prévôté. »",
+      "« Cabrol. » Le greffier repose sa plume. « Je me souviens de l'affaire. Vous verrez le registre après le vote, s'il y a encore une prévôté. »",
     ],
     choices: [
       { label: "Poser deux écus sur l'écritoire", fx: { gold: -2 }, to: "E_registre" },
@@ -239,7 +239,7 @@ var passages = {
   E_registre: { act: "III", title: "Le registre de la Saint-Clair", place: "brumefond",
     fx: { clue: "pere_registre", flag: "monde:preuve_pere", ep: ["histoire", 1000] },
     text: [
-      "Le greffier pose devant toi un gros registre relié de veau, ouvert à la date de la Saint-Clair, il y a douze ans. Une écriture fine, à l'encre pâlie.",
+      "Le greffier pose devant toi un gros registre relié de veau, ouvert à la date de la Saint-Clair, il y a douze ans. Une écriture fine, à l'encre pâlie, et dans la marge, d'une autre main, un petit trait vertical : la marque des affaires closes.",
       "*Aymon Cabrol, de Vérenne, marchand de sel, convaincu d'espionnage pour le compte du duché. Ont été saisies sur lui onze lettres chiffrées, signées d'un clerc de la chancellerie de Vérenne, O. Daumas, qui l'employait. Requis par l'Assemblée, le duché a répondu ne connaître ni Cabrol ni Daumas. Pendu au Marché-aux-Sels.*",
       "O. Daumas. Maître Oriel Daumas, chancelier. *J'ai connu ton père. Il servait bien.*",
       "Tu recopies la ligne sur la page de garde de ton livre, ou sur ta main, sur ce que tu as.",
@@ -250,7 +250,7 @@ var passages = {
     text: [
       "L'auberge du Cygne est une salle basse aux poutres noires, qui sent la bière et la fumée. Derrière le comptoir, un vieil homme en tablier essuie des chopes. Il te regarde entrer, regarde tes bottes, et pose sa chope.",
       { if: { has: "argent_pris" }, text: "« Le guide de l'Ourse. » Il sort une bourse du tiroir et la pose sur le comptoir. Quinze écus. Puis il se penche. « Dame Hesmé m'a écrit par pigeon. Gaut est-il arrivé ? Un cavalier des postes, par la gorge. Il devait être ici hier. »" },
-      { if: { not: { has: "argent_pris" } }, text: "« Le guide qui a refusé. » Il sourit. « Dame Hesmé m'a écrit par pigeon. Elle a de l'estime pour les gens qu'elle ne peut pas acheter. » Il se penche. « Gaut est-il arrivé ? Un cavalier des postes, par la gorge. Il devait être ici hier. »" },
+      { if: { not: { has: "argent_pris" } }, text: "« Le guide qui a refusé. » Il sourit. « Dame Hesmé m'a écrit par pigeon. Elle estime les gens qu'elle échoue à acheter. » Il se penche. « Gaut est-il arrivé ? Un cavalier des postes, par la gorge. Il devait être ici hier. »" },
       "Et il t'explique, à voix basse, parce qu'il croit que tu sais déjà la moitié : la duchesse a écrit oui. Sa réponse est partie de la chancellerie, et Dame Hesmé se méfie du chancelier. Elle a fait écrire une seconde réponse par Sa Grâce, scellée du cygne, et l'a confiée à Gaut. Le jour de retard, c'était pour que le cygne parle le premier.",
       { if: { has: "monde:gaut_soigne" }, text: "Tu lui dis que Gaut est vivant, au bac, avec une épaule ouverte. Le vieil homme ferme les yeux une seconde." },
       { if: { all: [{ not: { has: "monde:gaut_soigne" } }, { has: "monde:gaut_enterre" }] }, text: "Tu lui dis où est Gaut, sous un cairn au bord de la gorge. Le vieil homme pose ses deux mains à plat sur le comptoir." },
@@ -291,7 +291,7 @@ var passages = {
   E_fin_paix: { act: "III", title: "La paix des salines", place: "brumefond", end: true, epilogue: true, fx: { flag: "fin:paix" },
     text: [
       "Aude Lorge brise le cachet rouge et lit en silence. Puis elle brise le cachet blanc, et lit encore. Elle pose les deux lettres côte à côte devant elle, l'une portant un cygne de cire au dedans, l'autre rien.",
-      "Alors vous parlez. Vous dites tout, l'un après l'autre, sans vous regarder : la cire refondue, la lettre brûlée à minuit, l'homme au manteau vert, le cavalier de la gorge, le registre de la prévôté, ce que chacun a vu de son côté. Quarante délégués écoutent. Varrache, à la troisième phrase, a cessé de sourire.",
+      "Alors vous parlez. Vous dites tout, tour à tour, sans vous regarder : la cire refondue, la lettre brûlée à minuit, l'homme au manteau vert, le cavalier de la gorge, le registre de la prévôté, ce que chacun a vu de son côté. Quarante délégués écoutent. Varrache, à la troisième phrase, a cessé de sourire.",
       "La présidente lit à haute voix la réponse au cygne. *Nous acceptons. Que les salines soient partagées, que les morts soient pleurés des deux côtés, et que nos enfants apprennent le chemin du lac.* Puis elle lève la lettre rouge. « Et ceci est l'écriture d'un homme que cette Assemblée a déjà rencontrée, il y a douze ans. »",
       "On vote à main levée, à la lumière des chandelles. Trente et une mains pour la paix. Varrache sort avant la fin du compte.",
       { if: PLI, text: "En sortant, tu passes par la place du Marché-aux-Sels. L'estrade est vide. Tu t'assieds sur ses marches, à côté du chat, et {autre} s'assied à côté de toi." },
@@ -302,7 +302,7 @@ var passages = {
       "Tu tends à la présidente le pli fermé de cire blanche. Elle reconnaît le cygne avant même de le toucher, et quelque chose se détend dans son vieux visage.",
       "*Nous acceptons. Que les salines soient partagées, que les morts soient pleurés des deux côtés, et que nos enfants apprennent le chemin du lac.*",
       "On vote à main levée. Vingt-six mains pour la paix. Varrache vote contre, et vote contre en souriant, ce qui est pire.",
-      "Le pli rouge reste dans son étui, contre ta poitrine. Personne ne le demande. À Vérenne, la chancellerie apprendra la paix par la rumeur, et le chancelier Oriel attendra tout l'hiver sa guerre, en se demandant où son mensonge s'est perdu.",
+      "Le pli rouge reste dans son étui, contre ta poitrine. Personne ne le réclame. À Vérenne, la chancellerie apprendra la paix par la rumeur, et le chancelier Oriel attendra tout l'hiver sa guerre, en se demandant où son mensonge s'est perdu.",
     ] },
   E_fin_treve: { act: "III", title: "Un mois de trêve", place: "brumefond", end: true, epilogue: true, fx: { flag: "fin:treve" },
     text: [
@@ -313,10 +313,10 @@ var passages = {
     ] },
   E_fin_guerre: { act: "III", title: "La réponse de la chancellerie", place: "brumefond", end: true, epilogue: true, fx: { flag: "fin:guerre" },
     text: [
-      "Tu tends le pli de la chancellerie. Aude Lorge brise la cire et lit à haute voix, d'une voix égale qui ne monte à aucun moment. *Nous ne partageons pas les salines de la Sorgue. Nous ne pleurons pas avec ceux qui brûlent nos villages. Que l'Assemblée vote ce qu'elle voudra : Vérenne a voté.*",
+      "Tu tends le pli de la chancellerie. Aude Lorge brise la cire et lit à haute voix, d'une voix égale, sans une inflexion. *Nous ne partageons pas les salines de la Sorgue. Nous ne pleurons pas avec ceux qui brûlent nos villages. Que l'Assemblée vote ce qu'elle voudra : Vérenne a voté.*",
       { if: { has: "monde:pli_lu" }, text: "Tu connais chaque mot avant qu'elle le lise." },
-      { if: { has: "monde:pli_brise" }, text: "Elle s'arrête sur le sceau fendu, et te regarde par-dessus la lettre. Elle ne dit rien." },
-      { if: CYGNE, text: "Contre ta poitrine, ou contre celle de {autre}, le pli au cygne reste dans son étui. Personne ne le demande." },
+      { if: { has: "monde:pli_brise" }, text: "Elle s'arrête sur le sceau fendu, et te regarde par-dessus la lettre, en silence." },
+      { if: CYGNE, text: "Contre ta poitrine, ou contre celle de {autre}, le pli au cygne reste dans son étui. Personne ne le réclame." },
       "On vote à main levée. Trente-quatre mains pour la guerre. Varrache remet ses gants. Il passe près de vous en sortant, et il vous remercie, très poliment, d'avoir fait si bonne route.",
       "Au printemps, quand la neige aura fondu sur l'Ourse, les troupes des Ligues passeront le col que vous venez de passer.",
     ] },

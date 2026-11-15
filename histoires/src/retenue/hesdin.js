@@ -30,16 +30,16 @@ module.exports = {
 
   H_forges: { act: A, title: "La maison à l'enclume", place: "hauteville", skip: { to: "H_choix", label: "Tu connais la suite : la roue des forges tourne trop vite", fx: { time: 0.5 } },
     text: [
-      "Ta maison est au bout de la rue Haute, contre le rempart. Une enclume de fer sur le linteau, seule, sans autre ornement. Ton bureau est au premier, au-dessus de la cour des forges. Le feu de chêne. Tes deux chiens couchés devant. Tes registres.",
-      "Sur ton bureau, l'invitation d'Enguerrand Corlay, à souper ce soir. Tu ne l'as pas ouverte. Tu sais ce qu'il veut : ta voix demain à huit heures, pour la Charge des Vannes. Quatre contre trois, s'il l'a.",
-      "Tu as soixante-dix ans. Tu fais travailler cent quarante hommes. Il y a trois ans, dans la petite salle de l'Hôtel, tu as voté contre le secret de la digue. Seule. Puis tu es rentrée chez toi, et tu t'es tue, comme les six autres. Tu te répètes depuis que tu as eu raison de voter contre. Tu évites de te répéter le reste.",
+      "Ta maison est au bout de la rue Haute, contre le rempart. Une enclume de fer sur le linteau, seule, pour tout ornement. Ton bureau est au premier, au-dessus de la cour des forges. Le feu de chêne. Tes deux chiens couchés devant. Tes registres.",
+      "Sur ton bureau, l'invitation d'Enguerrand Corlay, à souper ce soir, encore cachetée. Tu sais ce qu'il veut : ta voix demain à huit heures, pour la Charge des Vannes. Quatre contre trois, s'il l'a.",
+      "Tu as soixante-dix ans. Tu fais travailler cent quarante hommes. Il y a trois ans, dans la petite salle de l'Hôtel, tu as voté contre le secret de la digue. Seule. Puis tu es rentrée chez toi, et tu t'es tue, comme les six autres. Tu te répètes depuis que tu as eu raison de voter contre. Le reste, tu évites de te le répéter.",
       "Barthélemy, ton maître fondeur, frappe à la porte. Il a les cheveux mouillés.",
       "« Madame. La roue de la forge tourne trop vite. Le canal est plein jusqu'au bord. J'ai jamais vu ça en novembre. Les gars disent que le lac est haut comme au printemps. »",
     ],
     choices: [{ label: "Descendre voir la roue", to: "H_choix", fx: { time: 0.5 } }] },
   H_choix: { act: A, title: "La roue de la forge", place: "hauteville",
     text: [
-      "Dans la cour, la roue à aubes tourne dans son coursier, plus vite que tu ne l'as jamais vue tourner, en projetant de l'eau sur les pavés. Le canal des Moulins déborde par-dessus la vanne de la forge.",
+      "Dans la cour, la roue à aubes tourne dans son coursier, plus vite qu'à aucun jour de ta vie, en projetant de l'eau sur les pavés. Le canal des Moulins déborde par-dessus la vanne de la forge.",
       "Au mur de la cour, la vieille échelle de crue de ton père, peinte en rouge. L'eau est au trait du printemps de la grande crue, il y a vingt ans.",
       "Tu penses à la petite salle de l'Hôtel. À la fissure. Au mot de Corlay ce jour-là : *suintement*. Au rapport de Tassin, signé cette semaine, que tu as lu sans le croire.",
       "Il est neuf heures et demie. Dans dix heures et demie, on vote.",
@@ -52,7 +52,7 @@ module.exports = {
     ] },
   H_notes: { act: A, title: "Ce que tu as noté", place: "hauteville", fx: { flag: "hesdin:notes" },
     text: [
-      "Une feuille, une seule, de ton écriture de comptable. Tu l'as écrite le soir de la séance, en rentrant, et tu ne l'as jamais relue.",
+      "Une feuille, une seule, de ton écriture de comptable. Tu l'as écrite le soir de la séance, en rentrant, et tu l'as rangée sans la relire.",
       "*2 octobre. Vellard : fissure, galerie basse, deux mètres. Vider le lac = un an sans moulins. Corlay : mortier. Six pour. Moi contre. Les dettes du fils payées par le Conseil. Vellard a dit merci.*",
       "En bas de la feuille, une ligne que tu avais oubliée : *Je n'ai rien dit en sortant. Pourquoi ?*",
       "Tu as la réponse, maintenant, trois ans après. Tu avais peur de perdre ta place au Conseil, et le marché des hallebardes du guet que Corlay t'avait fait donner l'année d'avant.",
@@ -75,7 +75,7 @@ module.exports = {
     text: [
       "Corlay s'en va. Tu l'entends descendre l'escalier, puis la porte de la rue. Ses pas remontent la rue Haute, vers ses fenêtres allumées.",
       "Barthélemy est resté dans le couloir. Il a tout entendu. Il attend.",
-      "Il est onze heures. Tu as attendu qu'on vienne te parler, et on est venu, et tu n'as rien appris que tu ne savais déjà.",
+      "Il est onze heures. Tu as attendu qu'on vienne te parler, on est venu, et tu as appris ce que tu savais déjà.",
     ],
     choices: [
       { label: "Faire atteler, et monter voir la digue toi-même", to: "H_voiture" },
@@ -86,7 +86,7 @@ module.exports = {
   // ------------------------------------------------------------------ to the dam
   H_voiture: { act: A, title: "La voiture des forges", place: "pont", fx: { time: 0.75 },
     text: [
-      { via: "corlay", text: "Corlay monte dans ta voiture sans un mot, en habit de soirée. Il regarde par la portière. Tu le regardes, lui." },
+      { via: "corlay", text: "Corlay monte dans ta voiture, en habit de soirée. Il regarde par la portière. Tu le regardes, lui." },
       "Ta voiture descend à la porte Saint-Rieul, qu'on t'ouvre, puis le raidillon. Barthélemy est sur le siège à côté du cocher, une corde et une lanterne sur les genoux.",
       "Au milieu du pont des Moulins, un sergent du guet lève la main devant tes chevaux. Il lève sa lanterne vers la portière. Il voit l'enclume peinte. Il voit une vieille dame en noir.",
       "« Ordre du capitaine, Madame. Rien ne monte vers la digue. »",
@@ -96,11 +96,11 @@ module.exports = {
     choices: [{ label: "Monter à la Maison des Vannes", to: "H_maison_vannes", fx: { time: 1 } }] },
   H_maison_vannes: { act: A, title: "Deux cents marches", place: "digue", fx: { time: 0.5 },
     text: [
-      "Deux cents marches. Tu les montes au bras de Barthélemy, avec ta canne, en t'arrêtant tous les vingt pas. Il te faut vingt minutes. Tu ne te plains pas.",
+      "Deux cents marches. Tu les montes au bras de Barthélemy, avec ta canne, en t'arrêtant tous les vingt pas. Il te faut vingt minutes, sans une plainte.",
       "Anselme Vellard t'ouvre lui-même, une couverture sur les épaules. Il te reconnaît. Il recule d'un pas, comme devant une apparition.",
       "« Dame Hesdin. »",
       "« Vellard. Il y a trois ans, vous avez dit merci. Moi, je n'ai rien dit du tout. Montrez-moi. »",
-      "Il te regarde longtemps. Puis il te dit, d'une voix sans colère, que sa clé est partie à sept heures avec l'apothicaire, qu'elle n'est pas arrivée, et qu'il sait pourquoi.",
+      "Il te regarde longtemps. Puis il te dit, d'une voix sans colère, que sa clé est partie à sept heures avec l'apothicaire, qu'elle n'est jamais arrivée, et qu'il sait pourquoi.",
     ],
     choices: [
       { label: "Descendre avec lui dans la galerie", to: "H_galerie" },
@@ -110,7 +110,7 @@ module.exports = {
     text: [
       "Barthélemy porte le vieux dans l'escalier de service. Tu descends derrière, une main sur la paroi glacée, ta robe noire relevée dans l'autre.",
       { if: { has: "hesdin:corlay" }, text: "Corlay descend le dernier. Tu l'entends souffler dans l'escalier étroit, et jurer à mi-voix quand l'eau lui prend les jambes." },
-      "En bas, l'eau à la taille. Tu entres dedans. Le froid te coupe le souffle. Tu avances jusqu'à la lanterne que le vieux lève.",
+      "En bas, l'eau à la taille. Tu y entres. Le froid te coupe le souffle. Tu avances jusqu'à la lanterne que le vieux lève.",
       "La veine. Une fente du sol à la voûte, qui pleure une eau trouble. Tu enlèves ton gant. Tu poses ta main nue sur la pierre.",
       "Elle vibre. Un bourdonnement très bas, continu, que tu sens jusque dans les dents. La pierre chante.",
       "« Le pointeau, dit Vellard à Barthélemy. Sous l'eau, à deux pas. Vingt tours à gauche. Et tenir quand il lâche. »",
@@ -124,15 +124,15 @@ module.exports = {
       { if: { not: { has: "barthelemy:blesse" } }, text: "Barthélemy ressort avec le pointeau dans le poing, en riant comme un homme qui vient de couler une cloche." },
       "Tu envoies ta voiture aux Foulons, avec ordre au cocher de réveiller toutes les maisons au nom des forges Hesdin. À deux heures et demie, le quartier monte.",
       { if: { has: "hesdin:corlay" }, text: "Corlay reste assis sur la dernière marche de l'escalier de service, trempé jusqu'à la poitrine, en habit de soirée. Il regarde ses mains. Tu le laisses à ses mains. Il a compris seul." },
-      "À huit heures, tu entres au Conseil dans ta robe noire encore mouillée jusqu'à la taille. Tu ne t'es pas changée. Tu poses ton gant sur la table ovale, taché de sable.",
+      "À huit heures, tu entres au Conseil dans ta robe noire encore mouillée jusqu'à la taille, telle qu'elle est sortie de la galerie. Tu poses ton gant sur la table ovale, taché de sable.",
       "« J'ai mis la main sur la fissure, cette nuit. Il y a trois ans, j'ai voté contre et je me suis tue. Je propose qu'on vide le lac au printemps, et qu'on nomme un garde-vannes qui ne doive rien à personne dans cette salle. »",
       { if: { has: "hesdin:corlay" }, text: "Corlay lève la main le premier." },
-      "Le vieux Vellard meurt à midi. Tu fais porter des fleurs de fer forgé sur sa tombe : une roue à douze rayons, que Barthélemy a coulée lui-même.",
+      "Le vieux Vellard meurt à midi. Tu fais porter sur sa tombe des fleurs de fer forgé : une roue à douze rayons, que Barthélemy a coulée lui-même.",
     ] },
   H_attente_vannes: { act: A, title: "La cuisine du garde-vannes", place: "digue", fx: { time: 4.5 },
     text: [
       "Tu t'assois dans la cuisine, en face de lui. Il te sert son vin. Vous attendez la clé.",
-      "Il te raconte la digue. Ferréol, la pierre, les quarante ans de mesures. Tu lui racontes tes forges. Vous avez le même âge à quatre ans près, et vous ne vous êtes jamais parlé plus de dix minutes en trente ans de Conseil.",
+      "Il te raconte la digue. Ferréol, la pierre, les quarante ans de mesures. Tu lui racontes tes forges. Vous avez le même âge à quatre ans près, et en trente ans de Conseil, vous vous êtes parlé dix minutes au plus.",
       "Minuit. Une heure. Une rousse trempée monte par l'escalier intérieur, les mains vides. Elle te regarde comme une erreur.",
       "Deux heures. Trois heures. Rien. Une seule lanterne à la fenêtre.",
       "« Il y a un autre moyen, dit le vieux à trois heures et demie. En bas. Il faut un homme qui n'a pas peur de l'eau. »",
@@ -144,7 +144,7 @@ module.exports = {
     ] },
   H_galerie_tard: { act: A, title: "Quatre heures moins le quart", place: "digue", end: true, fx: { time: 4 },
     text: [
-      "Vous descendez tous les quatre. L'eau de la galerie est plus haute qu'à minuit : elle te monte à la poitrine. La veine est plus large. Elle ne pleure plus, elle coule.",
+      "Vous descendez tous les quatre. L'eau de la galerie est plus haute qu'à minuit : elle te monte à la poitrine. La veine est plus large. Elle a cessé de pleurer : elle coule.",
       "Barthélemy plonge. La rousse tient la corde. Tu tiens la lanterne. Vellard compte. Au vingtième tour, la vanne s'ouvre, et le courant manque d'emporter tout le monde.",
       "À quatre heures, la pluie. Le lac descend. Au jour, la Sorge est dans les Foulons jusqu'aux fenêtres, et personne n'a fait lever le quartier. On monte sur les toits. L'eau monte lentement. On a le temps, presque toujours.",
       "Presque. Deux vieux de la rue des Cardeurs, qu'on n'a pas pu sortir à temps. Tu apprends leurs noms à midi, sur le parvis. Tu les écris sur ta feuille de la séance, sous la ligne *Pourquoi ?*.",
@@ -152,7 +152,7 @@ module.exports = {
     ] },
   H_temoin: { act: A, title: "Le témoin", place: "digue", end: true, fx: { time: 2.5 },
     text: [
-      "Tu restes assise. Vellard te regarde. Il ne te demande rien. Il retourne à sa fenêtre.",
+      "Tu restes assise. Vellard te regarde un long moment. Il retourne à sa fenêtre.",
       "À quatre heures, la pluie. À cinq heures, le sol se met à trembler sous la cuisine, très doucement. Les tasses tintent sur le buffet.",
       "À cinq heures et demie, la digue s'ouvre, au milieu, à trois cents pas de la Maison des Vannes. Tu le vois de la fenêtre. Le mur se fend en long, puis il s'ouvre comme une porte, et tout le lac passe par là, en une seule vague brune qui descend la vallée.",
       "La Maison des Vannes est sur la culée de rocher. Elle tient. Vous êtes debout tous les trois devant la fenêtre, le vieux, la rousse et toi, et vous regardez la ville en bas.",
@@ -162,9 +162,9 @@ module.exports = {
   // ------------------------------------------------------------------ a Council at two in the morning
   H_rouvray: { act: A, title: "Le vieux Rouvray", place: "hauteville", fx: { time: 0.75 },
     text: [
-      "La règle des Sept Maisons date de Ferréol : *Quatre maisons réunies font le Conseil, à toute heure, si la ville est en péril.* Personne ne s'en est servi depuis quarante ans. Tu la connais par cœur.",
+      "La règle des Sept Maisons date de Ferréol : *Quatre maisons réunies font le Conseil, à toute heure, si la ville est en péril.* Elle dort depuis quarante ans. Tu la connais par cœur.",
       "Tu commences par Rouvray, au coin de la rue des Cordiers. Il a quatre-vingts ans. Il vient t'ouvrir lui-même, en bonnet de nuit, une bougie à la main. Tu lui dis la roue de ta forge, l'échelle de crue, la séance d'il y a trois ans.",
-      "Le vieux Rouvray pleure. Il pleure comme un enfant, sans cacher son visage. Puis il va chercher son manteau.",
+      "Le vieux Rouvray pleure. Il pleure comme un enfant, à visage découvert. Puis il va chercher son manteau.",
       "« J'ai voté avec Corlay, dit-il. J'ai dit merci à Vellard dans le couloir. Je vais avec vous. »",
     ],
     choices: [{ label: "Aller chez Pons", to: "H_pons", fx: { time: 0.5 } }] },
@@ -201,7 +201,7 @@ module.exports = {
       "Tu restes dans la rue Haute, sous la lanterne, avec Rouvray en bonnet de nuit.",
       { if: { not: { has: "voix:pons_non" } }, text: "Et Pons, qui regarde le ciel en attendant que tu décides." },
       { if: { not: { has: "voix:pons_non" } }, text: "Vous êtes trois. Il en faut quatre. Il est une heure. Au Chat Ferré, rue des Orfèvres, on joue encore. Malzieu y descend tous les soirs après les soupers de Corlay. Il signe n'importe quoi quand il a bu." },
-      { if: { has: "voix:pons_non" }, text: "Vous êtes deux. Il est une heure du matin, et il n'y a plus de porte où frapper." },
+      { if: { has: "voix:pons_non" }, text: "Vous êtes deux. Il est une heure du matin, et toutes les portes ont été frappées." },
     ],
     choices: COMPTE },
   H_garnier_oui: { act: A, title: "Garnier s'habille", place: "hauteville", fx: { time: 0.25 },
@@ -214,7 +214,7 @@ module.exports = {
   H_seance: { act: A, title: "La petite salle, à deux heures", place: "hauteville", fx: { time: 0.75 },
     text: [
       "La petite salle de l'Hôtel du Conseil, au premier étage. La même table ovale qu'il y a trois ans. Le concierge allume les chandelles en bâillant, en chemise sous sa livrée.",
-      { if: { has: "voix:malzieu" }, text: "Malzieu sent le vin. Il s'assoit de travers. Il demande deux fois ce qu'on vote. Tu le lui dis deux fois. Il signe. Tu sais ce que vaut une voix d'ivrogne, et tu sais que la règle de Ferréol n'en demande pas davantage." },
+      { if: { has: "voix:malzieu" }, text: "Malzieu sent le vin. Il s'assoit de travers. Il demande deux fois ce qu'on vote. Tu le lui dis deux fois. Il signe. Tu sais ce que vaut une voix d'ivrogne, et tu sais que la règle de Ferréol en demande autant, sans plus." },
       { if: { has: "voix:garnier" }, text: "Garnier signe le dernier, d'une main qui tremble. Il regarde sa signature comme une dette de plus." },
       "Quatre maisons. Le Conseil. Tu dictes l'ordre toi-même au concierge, qui écrit mieux que vous tous : *Le Conseil des Sept Maisons, réuni en péril, ordonne l'ouverture immédiate de la vanne de fond de la Grande Digue, la levée du quartier des Foulons par le guet, et la remise au garde-vannes de la clé des vannes, en quelque main qu'elle se trouve.*",
       "Tu fais appeler le capitaine Rambert.",
@@ -236,14 +236,14 @@ module.exports = {
       "Corlay te regarde. Il comprend tout d'un coup : la règle de Ferréol, les quatre maisons, l'heure. Il a les mains vides et une robe de chambre.",
       "« Vous m'avez battu en pleine nuit, Bérangère. »",
       "« J'ai arrêté de me taire, Enguerrand. Pour vous, ça revient au même. »",
-      "C'est Aude qui va chercher la clé au coffre. Elle la met dans les mains de Barthélemy, pas dans celles de Rambert. Barthélemy part à cheval, avec deux hommes du guet. À la même heure, aux Foulons, les hallebardes frappent aux portes.",
+      "C'est Aude qui va chercher la clé au coffre. Elle la met dans les mains de Barthélemy, et laisse Rambert les mains vides. Barthélemy part à cheval, avec deux hommes du guet. À la même heure, aux Foulons, les hallebardes frappent aux portes.",
     ],
     choices: [{ label: "Attendre le jour à l'Hôtel", to: "H_quatre_voix", fx: { time: 3 } }] },
   H_quatre_voix: { act: A, title: "Quatre maisons", place: "hauteville", end: true, fx: { time: 2 },
     text: [
       "À trois heures et demie, de la fenêtre de la petite salle, tu vois trois lanternes s'allumer au bout de la vallée. À quatre heures, la pluie. Au jour, la Sorge est dans les Foulons jusqu'aux fenêtres basses, le quartier est sur le parvis, et la digue tient.",
       "À huit heures, le Conseil se réunit pour le vote de la Charge. Il y a sept maisons autour de la table, et une nuit entre elles.",
-      "Corlay se lève le premier. Il retire sa candidature à la Charge. Il dit qu'il demandera au printemps que le Conseil rende public le procès-verbal d'il y a trois ans. Il le dit d'une voix égale, sans te regarder.",
+      "Corlay se lève le premier. Il retire sa candidature à la Charge. Il dit qu'il demandera au printemps que le Conseil rende public le procès-verbal d'il y a trois ans. Il le dit d'une voix égale, les yeux loin de toi.",
       { if: { has: "voix:malzieu" }, text: "Malzieu, dégrisé, demande qu'on retire son nom de l'ordre de la nuit. On le lui refuse. Il dira toute sa vie qu'il était ivre, et toute sa vie on lui répondra qu'il a bien voté." },
       { if: { has: "voix:garnier" }, text: "Garnier vient te voir à midi, avec ses billets. Tu les rachètes, comme promis. Tu les brûles devant lui. Tu lui dis que tu les lui rendras quand il aura voté une fois contre toi. Il rit, pour la première fois depuis un an." },
       "On donne la Charge au fils Vellard, à cinq voix contre deux, sous la tutelle d'un ingénieur qui descendra dans la galerie. Le vieux est mort à midi, sans le savoir. Tu sors de l'Hôtel sous la pluie. Tu as soixante-dix ans, et tu as fait, une nuit, ce que tu aurais dû faire un après-midi d'octobre. Les trois ans, tu les laisses de côté ce matin. Tu sais déjà qu'ils reviendront.",
@@ -251,11 +251,11 @@ module.exports = {
   H_trois_voix: { act: A, title: "Il en fallait quatre", place: "hauteville", end: true, fx: { time: 4.5 },
     text: [
       "Tu rentres chez toi à deux heures, au bras de Rouvray, qui pleure encore un peu. Tu le raccompagnes jusqu'à sa porte. Il te serre la main longtemps.",
-      "Dans ton bureau, le feu est mort. Tu ne le rallumes pas. Tu t'assois à la fenêtre qui donne sur la vallée.",
-      "Barthélemy frappe à trois heures. « Madame. Je peux prendre vingt gars et aller chez Corlay. » Tu lui dis non. Tu lui dis : sans le Conseil, ce sont des forgerons qui enfoncent la porte d'un drapier, et demain on pendra des forgerons. Il s'en va. Tu sais que tu as raison, et tu sais que ça ne suffit pas.",
+      "Dans ton bureau, le feu est mort. Tu le laisses mort. Tu t'assois à la fenêtre qui donne sur la vallée.",
+      "Barthélemy frappe à trois heures. « Madame. Je peux prendre vingt gars et aller chez Corlay. » Tu lui dis non. Tu lui dis : sans le Conseil, ce sont des forgerons qui enfoncent la porte d'un drapier, et demain on pendra des forgerons. Il s'en va. Tu sais que tu as raison, et tu sais que cela ne suffit pas.",
       "À cinq heures et demie, la digue cède. La vague passe sur les Foulons, sur la rue des Cardeurs, sur le lavoir. Tu la regardes de ta fenêtre. Elle s'arrête au pied du rocher, comme toutes les crues.",
       "À huit heures, le Conseil se réunit dans une ville qui compte ses morts. Tu poses sur la table l'ordre de la nuit, avec ses signatures, et la place vide de la quatrième. Tu dis qui a refusé. Tu le dis sans colère, puisque tu as refusé aussi, il y a trois ans.",
-      "Ce que tu as fait cette nuit servira au procès. Ça ne sert à rien d'autre. La règle de Ferréol demandait quatre maisons. Tu en as trouvé trois, et la tienne a trois ans de retard.",
+      "Ce que tu as fait cette nuit servira au procès, et à rien d'autre. La règle de Ferréol demandait quatre maisons. Tu en as trouvé trois, et la tienne a trois ans de retard.",
     ] },
 
   // ------------------------------------------------------------------ the forge men
@@ -279,7 +279,7 @@ module.exports = {
   H_force_fin: { act: A, title: "La clé prise", place: "digue", end: true, fx: { flag: "foulons:leves", time: 6 },
     text: [
       "Les forgerons passent. Un garde tombe, un forgeron saigne de l'arcade. La porte de la maison Corlay cède au deuxième coup de barre. Barthélemy monte au cabinet, renverse la carte de la vallée, et trouve le coffre fermé. Il le porte dans l'escalier, sur son épaule, comme un sac de charbon.",
-      "Dans ta cour, il le force au burin. Dedans, une clé de fer sur une liasse attachée d'un ruban noir. Tu prends les deux.",
+      "Dans ta cour, il le force au burin. Dedans, une clé de fer sur une liasse nouée d'un ruban noir. Tu prends les deux.",
       "Barthélemy part à cheval avec la clé. Tu envoies dix hommes aux Foulons, frapper aux portes. À trois heures et demie, au bout de la vallée, trois lanternes. La digue tient.",
       "À huit heures, tu entres au Conseil avec la liasse au ruban noir. Tu la lis. Personne ne t'interrompt.",
       "Puis on t'arrête, parce qu'une maison du Conseil a forcé la porte d'une autre avec vingt hommes et des barres de fer. Tu le savais en sonnant la cloche. On te juge au printemps, en même temps que Corlay. Vous êtes assis sur le même banc, à deux pas l'un de l'autre. Tu es condamnée à une amende que tu paies le jour même. Lui, à tout le reste.",
@@ -289,8 +289,8 @@ module.exports = {
     text: [
       "Les forgerons avancent. Le guet baisse ses hallebardes. Rambert crie un ordre. Un forgeron tombe, la cuisse ouverte. Les autres reculent, portant le blessé. Barthélemy reste le dernier, seul devant la porte, une barre de fer à la main. Rambert le fait désarmer et lier.",
       "On te raccompagne chez toi avec des égards. On te laisse ta canne.",
-      "Barthélemy passe la nuit au poste, dans la cellule d'à côté d'une courrière des Foulons qu'on a arrêtée sur le pont à neuf heures et demie.",
-      "À cinq heures et demie, la digue cède. Tu le vois de ta fenêtre. Le Conseil de huit heures ne parle que de la vague. Corlay parle le premier. Il dit qu'une maison du Conseil, cette nuit, a voulu forcer sa porte. Il dit pourquoi. Il dit que le garde-vannes a caché la fissure trois ans.",
+      "Barthélemy passe la nuit au poste, dans la cellule voisine de celle d'une courrière des Foulons, arrêtée sur le pont à neuf heures et demie.",
+      "À cinq heures et demie, la digue cède. Tu le vois de ta fenêtre. Le Conseil de huit heures parle seulement de la vague. Corlay parle le premier. Il dit qu'une maison du Conseil, cette nuit, a voulu forcer sa porte. Il dit pourquoi. Il dit que le garde-vannes a caché la fissure trois ans.",
       "Tu te lèves pour répondre. Tu as voté contre, il y a trois ans. Tu t'es tue. Cette nuit, tu as envoyé des forgerons au lieu d'y aller toi-même. Tu cherches par quoi commencer.",
     ] },
 };

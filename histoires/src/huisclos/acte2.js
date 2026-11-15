@@ -62,7 +62,7 @@ module.exports = {
     text: [
       { if: { has: "vente:promise" }, text: "Germain se lève et te serre la main, très fort. « Je savais qu'on s'entendrait. Après l'enterrement, alors. On ira chez Combaz ensemble, ou il montera, ça m'est égal. »" },
       { if: { has: "germain:refus" }, text: "Germain garde son sourire, mais le sourire est devenu une chose qu'il tient à bout de bras. « Réfléchis, dit-il. Tu as trois jours. Tu ne connais pas les affaires d'ici. »" },
-      { if: { all: [{ has: "vente:tacite" }, { not: { any: ["vente:promise", "germain:refus"] } }] }, text: "Tu ne dis rien. Germain prend ton silence pour ce qu'il veut qu'il soit. « Bon. On en reparlera après l'enterrement, mais je vois qu'on est d'accord. » Il te tape sur l'épaule. Tu n'as rien promis. Il est persuadé du contraire." },
+      { if: { all: [{ has: "vente:tacite" }, { not: { any: ["vente:promise", "germain:refus"] } }] }, text: "Tu te tais. Germain prend ton silence pour ce qu'il veut qu'il soit. « Bon. On en reparlera après l'enterrement, mais je vois qu'on est d'accord. » Il te tape sur l'épaule. Tu n'as rien promis. Il est persuadé du contraire." },
       "Par la fenêtre du bureau, à travers la neige qui file, on devine à peine le versant des Fayards, une masse plus sombre dans le blanc.",
     ],
     choices: [{ label: "Laisser Germain à ses comptes", to: "H_salle" }],
@@ -105,7 +105,7 @@ module.exports = {
     text: [
       "À neuf heures, on est tous dans la grande salle, parce que c'est la seule pièce où le feu tient tête au vent. Germain fait une réussite. Jeanne coud. Odile raccommode. Le docteur boit. Mariette tricote près de la porte de la cuisine, une oreille vers l'étage.",
       "Une rafale plus forte que les autres secoue les volets, la porte de la cour s'ouvre d'un coup, et un tourbillon de neige entre, et la lampe s'éteint. Le feu se couche sous le vent. Pendant quelques secondes, il n'y a plus rien que le noir et le hurlement de la tempête dans la cheminée.",
-      { trouble: true, text: "Dans le noir, quelqu'un respire tout près de toi. Tu sens un souffle froid sur ta nuque, comme d'une bouche mouillée. Tu ne bouges pas. Tu n'oses pas bouger." },
+      { trouble: true, text: "Dans le noir, quelqu'un respire tout près de toi. Tu sens un souffle froid sur ta nuque, comme d'une bouche mouillée. Tu restes immobile. Tu n'oses pas bouger." },
       { calme: true, text: "Dans le noir, tu entends Germain qui jure, Mariette qui se lève pour aller fermer la porte, le docteur qui rit tout seul." },
       { tendre: true, text: "Une main trouve la tienne sur la table, et la serre, une fois, fort. Une main de femme, avec une alliance. Puis elle s'en va.", else: "Une main frôle la tienne sur la table, et s'en va." },
       "Puis la voix du docteur, dans le noir, pâteuse et très douce : « Je l'ai laissée sur la cheminée, cette fiole. Hors de ses mains. »",

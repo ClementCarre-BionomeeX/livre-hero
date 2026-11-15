@@ -20,7 +20,7 @@ module.exports = {
     text: [
       "Tu lèves la lanterne. Au sommet de la voûte, au-dessus de la veine, la clé de voûte porte une inscription que tu as lue dix mille fois. Ferréol l'a fait graver de sa main, l'été où il a fermé la digue.",
       "*CE QUE JE RETIENS, QU'UN AUTRE LE RELÂCHE À TEMPS.*",
-      "Tu avais huit ans. Tu lui as demandé ce que ça voulait dire. Il a ri. Il a dit : *Ça veut dire que l'eau gagne toujours. Le métier, c'est de choisir le jour où on la laisse gagner.*",
+      "Tu avais huit ans. Tu lui as demandé ce que cela voulait dire. Il a ri. Il a dit : *Ça veut dire que l'eau gagne toujours. Le métier, c'est de choisir le jour où on la laisse gagner.*",
       "La fente de la veine passe à un pied de la clé de voûte. Elle monte vers elle.",
     ],
     choices: [{ label: "Baisser la lanterne", back: "A_galerie" }] },
@@ -29,7 +29,7 @@ module.exports = {
   A_tibo: { act: A, title: "Le gamin de quatre sous", place: "digue", fx: { time: 0.25 },
     text: [
       "Le gamin qui a porté ton mot à Jacquette cet après-midi est revenu à six heures te dire que c'était fait. Tu l'as laissé se chauffer devant ton poêle, avec du pain et un bol de lait. Il est encore là. Il lit ton almanach, le doigt sous les lignes.",
-      "Il s'appelle Tibo. Douze ans. Une sœur courrière, aux Foulons, qui court les rues la nuit pour quatre sous la lettre. Il a des yeux noirs qui regardent tout et ne demandent rien.",
+      "Il s'appelle Tibo. Douze ans. Une sœur courrière, aux Foulons, qui court les rues la nuit pour quatre sous la lettre. Il a des yeux noirs qui regardent tout et gardent leurs questions.",
       "Il est six heures et demie. Le pont est libre. La route est libre. Ce que tu as prévu pour sept heures, avec Ilde, pourrait partir maintenant.",
     ],
     choices: [
@@ -53,7 +53,7 @@ module.exports = {
     text: [
       "Tu dis tout à Ilde, dans l'ordre, de ta voix de garde-vannes, celle qui porte au-dessus du bruit de l'eau. La veine. L'orage. La clé partie avec le gamin, sous la pierre bleue. Jacquette qui la trouvera en rentrant. Trois heures, la vanne. Deux heures, les Foulons.",
       "Ilde t'écoute. Ses yeux vont une fois vers la porte entrouverte. Tu es trop occupé à parler pour le remarquer.",
-      "Elle redescend à huit heures moins le quart. Tu restes seul. Tu prépares tes lanternes. Le banc, dans la pièce d'à côté, est vide. Tu ne l'as pas entendu partir.",
+      "Elle redescend à huit heures moins le quart. Tu restes seul. Tu prépares tes lanternes. Le banc, dans la pièce d'à côté, est vide. Il est parti sans un bruit.",
       "À dix heures, par ta fenêtre, tu vois deux lanternes descendre la route de la Digue depuis le pont, vite, et s'arrêter au pied du mur, devant la cabane. Elles restent là longtemps. Puis elles remontent vers la ville.",
     ],
     choices: [{ label: "Attendre Jacquette", to: "A_cabane_gardee" }] },
@@ -62,8 +62,8 @@ module.exports = {
       "Jacquette monte à minuit. Elle a le visage blanc. Elle a trouvé la pierre bleue retournée, la paille éparpillée, et des empreintes de bottes partout devant sa porte.",
       "« Le guet, dit-elle. Ils savaient où chercher. »",
       "Tu regardes la porte de la pièce d'à côté. Le banc vide. Tu comprends, et Jacquette te voit comprendre. Elle détourne les yeux, par pitié.",
-      "Vous restez dans la cuisine. Elle parle d'un autre moyen. Tu lui parles du pointeau. Elle veut descendre. Tu sais ce que coûte cette descente pour quelqu'un qui ne l'a jamais faite, avec l'eau à la taille, à deux pas de la veine.",
-      "Ce que vous déciderez à trois heures, et ce que le gamin de quatre sous fera quand il saura que sa cachette n'a servi à rien, la nuit le dira à d'autres. Toi, tu as dit ton secret tout haut, une fois de trop, dans une maison où ton fils écoutait. Quarante ans de digue t'ont appris à mesurer l'eau. Personne ne t'a appris à mesurer un fils.",
+      "Vous restez dans la cuisine. Elle parle d'un autre moyen. Tu lui parles du pointeau. Elle veut descendre. Tu sais ce que coûte cette descente pour qui la fait la première fois, avec l'eau à la taille, à deux pas de la veine.",
+      "Ce que vous déciderez à trois heures, et ce que le gamin de quatre sous fera quand il saura que sa cachette a servi pour rien, la nuit le dira à d'autres. Toi, tu as dit ton secret tout haut, une fois de trop, dans une maison où ton fils écoutait. Quarante ans de digue t'ont appris à mesurer l'eau. Pour mesurer un fils, tu n'as eu aucun maître.",
     ] },
   A_ardoise: { act: A, title: "L'ardoise", place: "digue", fx: { time: 0.5 },
     text: [
@@ -88,7 +88,7 @@ module.exports = {
       "Au quinzième tour, la digue rugit. Tibo crie de peur, puis de joie. Au quarantième, il s'endort par terre, contre la roue, avant que tu aies lâché ton rayon.",
       "À deux heures, en bas, la cloche du lavoir sonne. Ilde a fait lever les Foulons.",
       "Au jour, il pleut. Le lac descend. Tu allumes les deux autres lanternes, pour la forme, parce que tu l'avais promis. Puis tu regardes le gamin dormir sur le banc de la pièce d'à côté, sous ta couverture, à la place de ton fils.",
-      "Bastien remonte à huit heures. Il voit la clé dans le moyeu, le lac qui baisse, le gamin sur son banc. Il comprend ce qu'il a vendu, et ce qui ne s'est pas vendu. Il s'assoit par terre, dans l'embrasure de la porte.",
+      "Bastien remonte à huit heures. Il voit la clé dans le moyeu, le lac qui baisse, le gamin sur son banc. Il comprend ce qu'il a vendu, et ce qui a échappé à la vente. Il s'assoit par terre, dans l'embrasure de la porte.",
       "Tu meurs à midi. Avant, tu donnes à Tibo ta règle de laiton, celle de quarante ans de mesures. Tu lui dis qu'il s'en servira mieux que toi. Tu dis à Bastien de le ramener chez lui, aux Foulons, à pied, par la route. Tu sais que la route est longue, et qu'il faudra bien se parler.",
     ] },
 
@@ -114,7 +114,7 @@ module.exports = {
   A_hesdin_galerie: { act: A, title: "La dame dans l'eau", place: "digue", fx: { time: 1 },
     text: [
       "Barthélemy te porte dans l'escalier de service comme un enfant. Dame Hesdin descend derrière, une main sur la paroi, la robe noire relevée. Jacquette ferme la marche.",
-      "En bas, l'eau à la taille. Dame Hesdin entre dedans sans un cri. Elle avance jusqu'à la veine. Tu lèves la lanterne. Elle pose sa main gantée sur la pierre qui pleure, et elle l'y laisse.",
+      "En bas, l'eau à la taille. Dame Hesdin y entre sans un cri. Elle avance jusqu'à la veine. Tu lèves la lanterne. Elle pose sa main gantée sur la pierre qui pleure, et elle l'y laisse.",
       "« Le pointeau, dis-tu à Barthélemy. Sous l'eau, à deux pas. Un volant de bronze. Il faut tourner à gauche, vingt tours, et tenir quand il lâche. »",
       "Barthélemy regarde sa maîtresse. Elle hoche la tête. Il ôte son tablier.",
     ],
@@ -126,9 +126,9 @@ module.exports = {
       "Barthélemy plonge. Jacquette tient la corde. Toi, tu comptes les tours à voix haute, à mesure qu'il remonte pour respirer. Au vingtième, la vanne se lève avec un bruit de canon. L'eau de la galerie part d'un coup vers le fond.",
       { if: { not: { has: "barthelemy:blesse" } }, text: "La corde tient. Barthélemy ressort de l'eau, le pointeau dans le poing, en riant comme un homme qui vient de couler une cloche." },
       { if: { has: "barthelemy:blesse" }, text: "La corde file. Barthélemy est jeté contre la paroi. Jacquette le rattrape par le col. Il ressort avec l'épaule démise et le pointeau dans l'autre main, sans un cri." },
-      "Dame Hesdin n'a pas bougé. Elle a toujours la main sur la veine. Elle sent la pierre changer de chant sous son gant.",
+      "Dame Hesdin est restée immobile. Elle a toujours la main sur la veine. Elle sent la pierre changer de chant sous son gant.",
       "Elle envoie sa voiture aux Foulons, à deux heures et demie, avec ordre à son cocher de réveiller toutes les maisons au nom des forges Hesdin. Puis elle s'assoit dans ta cuisine, trempée jusqu'à la poitrine, et elle accepte un verre de ton vin.",
-      "Au jour, le lac descend. Les Foulons sont dans l'eau, et le quartier sur le parvis. À huit heures, Dame Hesdin entre au Conseil avec sa robe noire encore mouillée jusqu'à la taille. Elle ne s'est pas changée. Elle dit qu'elle a mis la main sur la fissure, cette nuit, et elle montre son gant, taché de sable.",
+      "Au jour, le lac descend. Les Foulons sont dans l'eau, et le quartier sur le parvis. À huit heures, Dame Hesdin entre au Conseil avec sa robe noire encore mouillée jusqu'à la taille, telle qu'elle est sortie de la galerie. Elle dit qu'elle a mis la main sur la fissure, cette nuit, et elle montre son gant, taché de sable.",
       "Tu meurs à midi. Avant, tu as le temps d'apprendre que le vote est remis, et que le lac sera vidé au printemps. Ferréol l'avait écrit dans la pierre. Tu as choisi le jour.",
     ] },
 };

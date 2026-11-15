@@ -18,7 +18,7 @@ module.exports = {
     text: [
       "Tu descends dans les orties, au pied de la culée, avec la lanterne. La grille du ponceau pend sur son gond, la rouille en écailles. Derrière, la bouche noire de l'égout souffle un air froid qui sent la garance.",
       "Tu la soulèves, tu la laisses retomber. Elle tombe de travers, à moitié ouverte. Ce printemps encore, tu as écrit au capitaine : *grille du ponceau à refaire*. Il a contresigné, et la grille est restée sur son gond.",
-      "Tu pourrais la caler avec une pierre. Personne ne passerait plus. Tu remontes sur le pont sans y toucher. Tu sais très bien pourquoi, et tu préfères ne pas y penser.",
+      "Tu pourrais la caler avec une pierre, et le passage serait fermé. Tu remontes sur le pont sans y toucher. Tu sais très bien pourquoi, et tu préfères éviter d'y penser.",
     ],
     choices: [{ label: "Remonter à ta lanterne", back: "O_pont" }] },
   O_hommes: { act: A, title: "Colin et Thomin", place: "pont", fx: { flag: "colin:mere", time: 0.25 },
@@ -27,7 +27,7 @@ module.exports = {
       "« Sergent, dit Thomin. On attend qui, au juste ? »",
       "« Des porteurs. »",
       "« Qui portent quoi ? »",
-      "Tu ne réponds pas. Colin souffle sur ses doigts. « Ma mère dit que le lavoir déborde, ce soir. Elle dit que la dernière fois qu'il a débordé en novembre, c'était l'année où mon grand-père s'est noyé. » Il rit, pour que personne ne croie qu'il a peur.",
+      "Tu gardes le silence. Colin souffle sur ses doigts. « Ma mère dit que le lavoir déborde, ce soir. Elle dit que la dernière fois qu'il a débordé en novembre, c'était l'année où mon grand-père s'est noyé. » Il rit, pour qu'on le croie sans peur.",
     ],
     choices: [{ label: "Remonter à ta lanterne", back: "O_pont" }] },
   O_courriere: { act: A, title: "Neuf heures et demie", place: "pont",
@@ -46,7 +46,7 @@ module.exports = {
       "« Tu viens d'en bas ? Tu es passée par le lavoir ? Tu as vu ma fille ? »",
       "La jeune femme s'arrête. Elle te regarde mieux. « Nine ? Vous êtes le père de Nine ? » Et d'un coup, tu la reconnais : la petite Ternier, qui jouait aux osselets avec Nine sur les pavés du lavoir, les genoux toujours écorchés. Maëlle. Elle a grandi. Elle fait la course de nuit, maintenant.",
       "« Elle essorait les draps de l'hospice, dit Maëlle. Elle a dit que vous l'aviez embrassée sur le front, à huit heures, et que vous faites ça quand vous avez des ordres qui ne vous plaisent pas. »",
-      "Colin, derrière toi, étouffe un rire. Tu ne te retournes pas.",
+      "Colin, derrière toi, étouffe un rire. Tu gardes le dos tourné.",
     ],
     choices: [
       { label: "« Et ce paquet, petite ? »", to: "O_parle" },
@@ -56,7 +56,7 @@ module.exports = {
   // ------------------------------------------------------------------ the parcel, on the way up
   O_montee: { act: A, title: "La Côte, avec le paquet", place: "hauteville", fx: { time: 0.25 },
     text: [
-      "Tu remontes vers la Haute-Ville par la Côte, le paquet sous le bras. Les deux cent douze marches. À chaque palier, le paquet pèse un peu plus.",
+      "Tu remontes vers la Haute-Ville par la Côte, le paquet sous le bras. Deux cent douze marches. À chaque palier, le paquet pèse un peu plus.",
       "Au palier de la Vierge, sous la niche où brûle une veilleuse, tu t'arrêtes pour souffler. La ficelle est un nœud de courrier, propre, serré. La toile cirée luit à la veilleuse.",
       "Le capitaine a dit : sans l'ouvrir.",
     ],
@@ -78,7 +78,7 @@ module.exports = {
       "L'écriture est grande, penchée, tremblée sur les fins de mots.",
       "*Trois heures, la vanne de fond. Il faut quatre bras. Qu'Ilde fasse lever les Foulons à deux heures.*",
       "Tu relis. Les Foulons. Faire lever les Foulons. La rue du Lavoir, la troisième maison après la fontaine.",
-      "Tu replies la lettre. Le cachet ne se recolle pas. Tu remontes les dernières marches avec le paquet sous le bras et la lettre dans ta poche de poitrine, contre l'insigne.",
+      "Tu replies la lettre. Le cachet refuse de se recoller. Tu remontes les dernières marches avec le paquet sous le bras et la lettre dans ta poche de poitrine, contre l'insigne.",
     ],
     choices: [{ label: "Entrer chez le capitaine", to: "O_bureau" }] },
   O_lettre_dite: { act: A, title: "Ce que dit la lettre", place: "hauteville", fx: { time: 0.25 },
@@ -97,7 +97,7 @@ module.exports = {
   // ------------------------------------------------------------------ the tower
   O_anicet: { act: A, title: "Le garçon de vannes", place: "hauteville", fx: { learn: "veine", time: 0.25 },
     text: [
-      "Dans la rue des Cordiers, Anicet s'arrête pour vomir contre un mur, puis il se redresse, plus droit.",
+      "Dans la rue des Cordiers, Anicet s'arrête pour vomir contre un mur, puis il se redresse, plus droit qu'avant.",
       "« J'avais quinze ans, dit-il. Garçon de vannes, chez le vieux Ferréol. On a fini la digue au printemps de mes seize. Le jour de la fête, le vieux m'a pris par l'épaule et il m'a emmené dans la galerie basse. Il m'a montré un joint, au pied du mur, côté vallée. Il pleurait déjà, ce joint-là. Il m'a dit : *Mon fils et le fils de mon fils devront le surveiller. Un jour, il faudra vider le lac pour le refaire. Ce jour-là, ils diront que c'est trop cher.* »",
       "Il crache. « Soixante ans que je sonne pour les autres. Je n'ai jamais sonné pour ça. »",
     ],
@@ -128,7 +128,7 @@ module.exports = {
   O_cloche_nuit: { act: A, title: "La cloche du lavoir", place: "foulons", fx: { time: 0.5 },
     text: [
       "La cloche du lavoir pend sous l'auvent, au pilier du milieu. On la sonne le lundi à l'aube pour la grande lessive, et quand un enfant tombe à l'eau.",
-      "Tu tires sur la corde. Elle est graisseuse, froide. La cloche est petite, aigre, elle crie plus qu'elle ne sonne. Tu tires à coups pressés, à coups courts.",
+      "Tu tires sur la corde. Elle est graisseuse, froide. La cloche est petite, aigre ; elle crie plus qu'elle ne sonne. Tu tires à coups pressés, à coups courts.",
       "Les volets s'ouvrent un à un. Des gens sortent, en chemise, une lanterne, un enfant sur la hanche. Ils voient le sergent du guet pendu à la corde de leur cloche, et ils se taisent d'un coup.",
       "« Montez ! cries-tu. Tous à Saint-Rieul ! Prenez les couvertures, laissez le reste ! L'eau descend du lac cette nuit ! »",
       "Nine sort la dernière, avec Guillot, le berceau dans les bras. Elle te regarde. Elle commence à crier les noms des maisons, une par une, de sa voix de lavoir.",
@@ -141,7 +141,7 @@ module.exports = {
       "À quatre heures, la pluie. À cinq heures et demie, la tour du guet tremble. Un grondement descend la vallée, énorme, continu. La Sorge se soulève entre ses rives comme une bête qui se lève. La vague passe sur les Foulons. Quand elle est passée, il reste des toits, et le clocher de Saint-Blaise.",
       "Sur le parvis, huit cents personnes regardent l'endroit où étaient leurs maisons. D'abord le silence. Puis une femme se met à pleurer, et toutes les autres.",
       { if: { has: "gosse:sauvee" }, text: "La veuve Gosse est assise sur les marches, dans son fauteuil, que deux teinturiers ont monté avec elle dedans. Elle garde le silence. Elle te tient la main." },
-      { if: { not: { has: "gosse:sauvee" } }, text: "Il manque des gens. La veuve Gosse, du bout de la rue du Lavoir. Un vieux foulon qui dormait près de sa porte. Ceux qui n'ont pas cru la cloche." },
+      { if: { not: { has: "gosse:sauvee" } }, text: "Il manque des gens. La veuve Gosse, du bout de la rue du Lavoir. Un vieux foulon qui dormait près de sa porte. Ceux qui ont tenu la cloche pour une farce." },
       "La digue a cédé. La clé est restée en bas, dans la rue Haute. Tu as fait lever les vivants, et le lac a pris tout le reste : les maisons, les métiers, les cuves, les draps.",
       "À huit heures, le Conseil se réunit dans une ville sans quartier bas. Quelqu'un demande qui a fait sonner la cloche du lavoir à minuit, et pourquoi. On cherche le sergent Brasseur. Pour le remercier, ou pour lui demander ce qu'il savait.",
     ] },
