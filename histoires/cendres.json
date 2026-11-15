@@ -327,6 +327,9 @@
  "companions": {
   "enfant": {
    "name": "L'enfant de Sauvelune",
+   "aka": [
+    "l'enfant de Sauvelune"
+   ],
    "f": false,
    "role": "Toi, quand un autre mène",
    "likes": "qu'on se souvienne",
@@ -335,6 +338,13 @@
   },
   "ysolde": {
    "name": "Ysolde de Brenne",
+   "aka": [
+    "Ysolde"
+   ],
+   "aspect": {
+    "allure": "chevalière, capitaine de fort",
+    "visage": "chignon noir, cicatrice"
+   },
    "face": {
     "age": "adulte",
     "skin": "cuivre",
@@ -359,6 +369,10 @@
   },
   "pie": {
    "name": "Pie",
+   "aspect": {
+    "allure": "faussaire des bas-quartiers",
+    "visage": "boucles noires"
+   },
    "face": {
     "age": "jeune",
     "skin": "dore",
@@ -381,6 +395,9 @@
   },
   "hylas": {
    "name": "Maître Hylas",
+   "aspect": {
+    "allure": "vieux greffier aveugle"
+   },
    "face": {
     "age": "ancien",
     "skin": "clair",
@@ -405,6 +422,10 @@
   },
   "corbe": {
    "name": "Corbe",
+   "aspect": {
+    "allure": "chamane du clan du Corbeau",
+    "visage": "tresses rousses, tatouage"
+   },
    "face": {
     "age": "adulte",
     "skin": "clair",
@@ -429,6 +450,10 @@
   },
   "lisandre": {
    "name": "Lisandre",
+   "aspect": {
+    "allure": "chanteuse de cour",
+    "visage": "longs cheveux, grain de beauté"
+   },
    "face": {
     "age": "adulte",
     "skin": "hale",
@@ -453,6 +478,9 @@
   },
   "givre": {
    "name": "Givre",
+   "aspect": {
+    "allure": "renardeau fait de neige"
+   },
    "f": false,
    "role": "Un renardeau fait de neige, qui mange les petits oublis",
    "likes": "les miettes de souvenirs, qu'on lui parle",
@@ -474,6 +502,10 @@
   },
   "sansnom": {
    "name": "Le Sans-Nom",
+   "aspect": {
+    "habits": "capuche",
+    "visage": "masque de givre"
+   },
    "face": {
     "age": "adulte",
     "skin": "#dfe9ef",
@@ -546,6 +578,12 @@
   },
   "rodric": {
    "name": "Rodric Trois-Cloches",
+   "aspect": {
+    "allure": "homme immense",
+    "visage": "barbe grise",
+    "signe": "une hache d'armes",
+    "voix": "voix de rocaille"
+   },
    "face": {
     "age": "mur",
     "skin": "clair",
@@ -581,6 +619,9 @@
   },
   "linette": {
    "name": "Linette",
+   "aspect": {
+    "visage": "tête rasée"
+   },
    "face": {
     "age": "enfant",
     "skin": "dore",
@@ -2040,6 +2081,11 @@
  "people": {
   "agathe": {
    "name": "Agathe",
+   "aspect": {
+    "allure": "meunière large d'épaules",
+    "visage": "chignon, peau cuivrée",
+    "signe": "rieuse, jamais assise"
+   },
    "face": {
     "age": "adulte",
     "skin": "beige",
@@ -2057,6 +2103,11 @@
   },
   "joris": {
    "name": "Joris",
+   "aspect": {
+    "allure": "meunier taiseux",
+    "signe": "des mains comme des pelles",
+    "voix": "rire bref et rauque"
+   },
    "face": {
     "age": "adulte",
     "skin": "hale",
@@ -2074,6 +2125,11 @@
   },
   "pim": {
    "name": "Pim",
+   "aspect": {
+    "allure": "huit ans, genoux couronnés",
+    "visage": "boucles, une dent en moins",
+    "signe": "des questions sans fin"
+   },
    "face": {
     "age": "enfant",
     "skin": "beige",
@@ -2093,6 +2149,11 @@
   },
   "tess": {
    "name": "Tess Ferrand",
+   "aspect": {
+    "allure": "fille du maréchal-ferrant",
+    "visage": "longs cheveux noirs",
+    "signe": "des mûres plein la jupe"
+   },
    "face": {
     "age": "jeune",
     "skin": "dore",
@@ -2110,6 +2171,11 @@
   },
   "anselme": {
    "name": "Père Anselme",
+   "aspect": {
+    "allure": "vieux prêtre patient",
+    "visage": "lunettes, couronne blanche",
+    "signe": "le registre sur les genoux"
+   },
    "face": {
     "age": "ancien",
     "skin": "clair",
@@ -2129,6 +2195,11 @@
   },
   "mathurin": {
    "name": "Le vieux Mathurin",
+   "aspect": {
+    "allure": "vieil apiculteur conteur",
+    "visage": "longue barbe blanche",
+    "signe": "ses ruches et ses chansons"
+   },
    "face": {
     "age": "ancien",
     "skin": "hale",
@@ -2146,6 +2217,10 @@
   },
   "gautier": {
    "name": "Sergent Gautier",
+   "aspect": {
+    "allure": "vieux soldat bougon",
+    "visage": "crâne rasé, moustache, cicatrice"
+   },
    "face": {
     "age": "ancien",
     "skin": "cuivre",
@@ -2165,6 +2240,12 @@
   },
   "sevrin": {
    "name": "Frère Sévrin",
+   "aspect": {
+    "allure": "poli, frileux",
+    "habits": "robe grise de greffier",
+    "signe": "compte en remuant les lèvres",
+    "voix": "voix aiguë"
+   },
    "face": {
     "age": "adulte",
     "skin": "porcelaine",
@@ -2182,6 +2263,10 @@
   },
   "maelle": {
    "name": "Maëlle",
+   "aspect": {
+    "allure": "tisserande qui ne baisse pas les yeux",
+    "visage": "chignon gris"
+   },
    "face": {
     "age": "adulte",
     "skin": "beige",
@@ -2199,6 +2284,11 @@
   },
   "ilse": {
    "name": "Ilse",
+   "aspect": {
+    "allure": "fillette de six ans",
+    "visage": "boucles rousses, taches de rousseur",
+    "signe": "parle à sa poupée"
+   },
    "face": {
     "age": "enfant",
     "skin": "clair",
@@ -2218,6 +2308,10 @@
   },
   "thibaut": {
    "name": "Thibaut",
+   "aspect": {
+    "allure": "jeune soldat de dix-neuf ans",
+    "visage": "blond"
+   },
    "face": {
     "age": "jeune",
     "skin": "clair",
@@ -2252,6 +2346,14 @@
   },
   "veuve": {
    "name": "La Veuve",
+   "aka": [
+    "la Veuve"
+   ],
+   "aspect": {
+    "allure": "petite et ronde",
+    "habits": "vêtue de noir",
+    "signe": "un tricot, des yeux gentils"
+   },
    "face": {
     "age": "mur",
     "skin": "dore",
@@ -2269,6 +2371,10 @@
   },
   "corneille": {
    "name": "Maître Corneille",
+   "aspect": {
+    "allure": "vieux faussaire",
+    "visage": "moustache, lunettes"
+   },
    "face": {
     "age": "ancien",
     "skin": "ivoire",
@@ -2288,6 +2394,11 @@
   },
   "baudoin": {
    "name": "Frère Baudoin",
+   "aspect": {
+    "allure": "jeune greffier au visage doux",
+    "habits": "robe grise",
+    "voix": "voix douce"
+   },
    "face": {
     "age": "jeune",
     "skin": "hale",
@@ -2305,6 +2416,10 @@
   },
   "anseau": {
    "name": "Anseau",
+   "aspect": {
+    "allure": "vieux sonneur de cloches",
+    "visage": "barbe blanche"
+   },
    "face": {
     "age": "ancien",
     "skin": "brun",
@@ -2322,6 +2437,15 @@
   },
   "linette_p": {
    "name": "Page Onze",
+   "aka": [
+    "Page Onze"
+   ],
+   "aspect": {
+    "allure": "scribe de dix ans",
+    "habits": "robe grise",
+    "visage": "tête rasée, un épi derrière",
+    "voix": "voix plate"
+   },
    "face": {
     "age": "enfant",
     "skin": "dore",
@@ -2339,6 +2463,13 @@
   },
   "hylas_p": {
    "name": "Un greffier aveugle",
+   "aka": [
+    "le greffier aveugle"
+   ],
+   "aspect": {
+    "allure": "vieil homme aux yeux blancs",
+    "signe": "canne d'ébène"
+   },
    "face": {
     "age": "ancien",
     "skin": "clair",
@@ -2358,6 +2489,11 @@
   },
   "hrodna": {
    "name": "Hrodna",
+   "aspect": {
+    "allure": "cheffe de clan",
+    "visage": "tresses grises, visage peint",
+    "signe": "le grand tambour"
+   },
    "face": {
     "age": "mur",
     "skin": "ivoire",
@@ -2375,6 +2511,9 @@
   },
   "askel": {
    "name": "Askel",
+   "aspect": {
+    "signe": "elle coud"
+   },
    "face": {
     "age": "mur",
     "skin": "clair",
@@ -2392,6 +2531,10 @@
   },
   "ylva": {
    "name": "Ylva",
+   "aspect": {
+    "allure": "fillette de sept ans",
+    "visage": "tresses noires"
+   },
    "face": {
     "age": "enfant",
     "skin": "ivoire",
@@ -2409,6 +2552,11 @@
   },
   "mathias": {
    "name": "Mathias des vallées",
+   "aspect": {
+    "allure": "colporteur",
+    "visage": "barbe noire",
+    "signe": "sel, aiguilles et fer"
+   },
    "face": {
     "age": "adulte",
     "skin": "cuivre",
@@ -2426,6 +2574,12 @@
   },
   "bran": {
    "name": "Le garde roux",
+   "aka": [
+    "le garde roux"
+   ],
+   "aspect": {
+    "visage": "roux, barbe"
+   },
    "face": {
     "age": "adulte",
     "skin": "clair",
@@ -2445,6 +2599,10 @@
   },
   "isaure": {
    "name": "Isaure d'Esquarre",
+   "aspect": {
+    "allure": "cinquante ans, l'air d'en avoir quarante",
+    "signe": "des mains plus vieilles"
+   },
    "face": {
     "age": "adulte",
     "skin": "ivoire",
@@ -2462,6 +2620,10 @@
   },
   "ermengarde": {
    "name": "Dame Ermengarde",
+   "aspect": {
+    "allure": "dame de compagnie",
+    "signe": "sait où sont les clés"
+   },
    "face": {
     "age": "mur",
     "skin": "beige",
@@ -2479,6 +2641,11 @@
   },
   "orlan": {
    "name": "Frère Orlan",
+   "aspect": {
+    "allure": "maigre, toujours froid",
+    "habits": "robe grise",
+    "signe": "mouchoirs brodés, mains d'enfant"
+   },
    "face": {
     "age": "adulte",
     "skin": "clair",
@@ -2513,6 +2680,14 @@
   },
   "arnoul": {
    "name": "Dom Arnoul",
+   "aka": [
+    "Dom Arnoul",
+    "Arnoul"
+   ],
+   "aspect": {
+    "allure": "prieur de quatre-vingt-dix ans",
+    "voix": "voix de vieux soldat"
+   },
    "face": {
     "age": "ancien",
     "skin": "hale",
@@ -2549,6 +2724,9 @@
   },
   "sonneuse": {
    "name": "La Sonneuse",
+   "aka": [
+    "la Sonneuse"
+   ],
    "face": {
     "age": "mur",
     "skin": "ivoire",
@@ -2566,6 +2744,10 @@
   },
   "maera": {
    "name": "Maëra",
+   "aspect": {
+    "visage": "yeux gris presque blancs",
+    "signe": "chante en filant"
+   },
    "face": {
     "age": "adulte",
     "skin": "clair",
@@ -2583,6 +2765,11 @@
   },
   "aubrac": {
    "name": "Messire Aubrac",
+   "aspect": {
+    "allure": "chanteur de cour",
+    "visage": "blond, moustache",
+    "voix": "voix superbe"
+   },
    "face": {
     "age": "adulte",
     "skin": "beige",
@@ -2600,6 +2787,11 @@
   },
   "mordace": {
    "name": "Mordace",
+   "aspect": {
+    "allure": "toujours froid",
+    "visage": "crâne rasé",
+    "signe": "regarde le sablier"
+   },
    "face": {
     "age": "mur",
     "skin": "beige",
@@ -2617,6 +2809,11 @@
   },
   "colporteuse": {
    "name": "Fanchon la colporteuse",
+   "aspect": {
+    "allure": "courbée sous une hotte",
+    "habits": "foulard",
+    "signe": "rubans, almanachs, nouvelles inventées"
+   },
    "face": {
     "age": "mur",
     "skin": "hale",

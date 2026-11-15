@@ -1281,6 +1281,10 @@
  "companions": {
   "yse": {
    "name": "Ysé Lorne",
+   "aspect": {
+    "visage": "tresses noires",
+    "signe": "tapote des rythmes du bout des doigts"
+   },
    "f": true,
    "face": {
     "age": "jeune",
@@ -1315,6 +1319,11 @@
   },
   "jodoc": {
    "name": "Jodoc Marchal",
+   "aspect": {
+    "allure": "grand, se tient comme un mur",
+    "visage": "cheveux roux, taches de rousseur",
+    "signe": "rougit jusqu'aux oreilles"
+   },
    "f": false,
    "face": {
     "age": "jeune",
@@ -1353,6 +1362,12 @@
  "people": {
   "valerien": {
    "name": "Valérien de Vaucombe",
+   "aspect": {
+    "allure": "quinze ans, manières de cour",
+    "visage": "cheveux blonds mi-longs",
+    "signe": "un livre fermé sur un doigt",
+    "voix": "langue cruelle"
+   },
    "f": false,
    "face": {
     "age": "jeune",
@@ -1408,6 +1423,11 @@
   },
   "salvanhac": {
    "name": "Maître Orbéric Salvanhac",
+   "aspect": {
+    "allure": "très vieux, très droit",
+    "signe": "un merle sur l'épaule",
+    "voix": "voix étonnamment jeune"
+   },
    "f": false,
    "face": {
     "age": "ancien",
@@ -1443,6 +1463,11 @@
   },
   "castagnet": {
    "name": "Dame Ernestine Castagnet",
+   "aspect": {
+    "allure": "sévère, exacte",
+    "signe": "un diapason d'argent",
+    "voix": "parle toujours bas"
+   },
    "f": true,
    "face": {
     "age": "mur",
@@ -1481,6 +1506,11 @@
   },
   "vilmorin": {
    "name": "Maître Octave Vilmorin",
+   "aspect": {
+    "allure": "charmant, toujours en retard",
+    "visage": "boucles brunes, moustache",
+    "signe": "des tours de lumière"
+   },
    "f": false,
    "face": {
     "age": "adulte",
@@ -1515,6 +1545,12 @@
   },
   "fage": {
    "name": "Mère Aubine Fage",
+   "aspect": {
+    "allure": "petite et large",
+    "habits": "un foulard sur la tête",
+    "signe": "avant-bras couverts de brûlures",
+    "voix": "grogne et jure"
+   },
    "f": true,
    "face": {
     "age": "mur",
@@ -1531,6 +1567,10 @@
   },
   "daubrac": {
    "name": "Le Recteur Évariste Daubrac",
+   "aspect": {
+    "allure": "aimable, attentif",
+    "signe": "lunettes, sert le thé le jeudi"
+   },
    "f": false,
    "face": {
     "age": "mur",
@@ -1549,6 +1589,11 @@
   },
   "melisande": {
    "name": "Sœur Mélisande",
+   "aspect": {
+    "allure": "vieille bibliothécaire",
+    "visage": "foulard, appareil à l'oreille",
+    "signe": "toujours penchée sur une reliure"
+   },
    "f": true,
    "face": {
     "age": "ancien",
@@ -1586,6 +1631,11 @@
   },
   "nanon": {
    "name": "Nanon",
+   "aspect": {
+    "allure": "vieille portière",
+    "visage": "petits yeux vifs, chignon gris",
+    "signe": "tricot et confiture de coings"
+   },
    "f": true,
    "face": {
     "age": "ancien",
@@ -1607,6 +1657,11 @@
   },
   "maud": {
    "name": "Maud Arlaud",
+   "aspect": {
+    "allure": "poissonnière de soixante ans",
+    "signe": "mains rouges",
+    "voix": "voix qui porte"
+   },
    "f": true,
    "face": {
     "age": "ancien",

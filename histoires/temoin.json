@@ -282,6 +282,10 @@
  "companions": {
   "odeline": {
    "name": "Sœur Odeline",
+   "aspect": {
+    "allure": "infirmière",
+    "signe": "les mains sur les genoux"
+   },
    "f": true,
    "face": {
     "age": "mur"
@@ -313,6 +317,12 @@
   },
   "hennequin": {
    "name": "Le prévôt Hennequin",
+   "aspect": {
+    "allure": "carré, cinquante ans",
+    "habits": "manteau à collet rouge",
+    "visage": "moustache grise",
+    "signe": "aligne ses gants"
+   },
    "f": false,
    "face": {
     "age": "mur",
@@ -345,6 +355,9 @@
   },
   "lise": {
    "name": "Lise Hollier",
+   "aspect": {
+    "allure": "quatorze ans"
+   },
    "f": true,
    "face": {
     "age": "enfant",
@@ -597,6 +610,11 @@
  "people": {
   "agnes": {
    "name": "Mère Agnès",
+   "aspect": {
+    "allure": "petite femme sèche",
+    "visage": "lunettes à monture de fer",
+    "signe": "doigts tachés d'encre"
+   },
    "f": true,
    "face": {
     "age": "ancien",
@@ -608,6 +626,11 @@
   },
   "abel": {
    "name": "Abel Fournier",
+   "aspect": {
+    "allure": "ancien sergent",
+    "habits": "uniforme de la Croisette, médailles",
+    "signe": "jambe de bois, joue aux cartes"
+   },
    "face": {
     "age": "ancien",
     "beard": "barbe",
@@ -619,6 +642,12 @@
   },
   "jeanne": {
    "name": "Jeanne",
+   "aspect": {
+    "allure": "une quinzaine d'années",
+    "habits": "robe de novice",
+    "visage": "cheveux courts",
+    "voix": "elle ne parle pas"
+   },
    "f": true,
    "face": {
     "age": "enfant",
@@ -628,6 +657,11 @@
   },
   "corvin": {
    "name": "Le docteur Élias Corvin",
+   "aspect": {
+    "visage": "lunettes",
+    "signe": "une mallette de cuir",
+    "voix": "voix douce"
+   },
    "face": {
     "age": "mur",
     "marks": [
@@ -638,6 +672,11 @@
   },
   "matthias": {
    "name": "Matthias Hollier",
+   "aspect": {
+    "allure": "mineur",
+    "visage": "barbe, yeux rouges",
+    "signe": "une hache à la ceinture"
+   },
    "face": {
     "age": "adulte",
     "beard": "barbe"
@@ -650,6 +689,10 @@
   },
   "gaudry": {
    "name": "Le vieux Gaudry",
+   "aspect": {
+    "allure": "vieillard mourant",
+    "voix": "une toux au bout du couloir"
+   },
    "face": {
     "age": "ancien"
    },
@@ -657,6 +700,10 @@
   },
   "pelissier": {
    "name": "Maître Pélissier",
+   "aspect": {
+    "allure": "notaire",
+    "signe": "essuie ses lunettes"
+   },
    "face": {
     "age": "mur",
     "marks": [
@@ -667,6 +714,10 @@
   },
   "roussel": {
    "name": "Mère Roussel",
+   "aspect": {
+    "habits": "tablier",
+    "signe": "s'essuie les mains longuement"
+   },
    "f": true,
    "face": {
     "age": "mur"
@@ -675,6 +726,14 @@
   },
   "bastien": {
    "name": "Le sergent Bastien Roux",
+   "aka": [
+    "le sergent Bastien",
+    "Bastien"
+   ],
+   "aspect": {
+    "allure": "jeune sergent",
+    "signe": "ne te quitte pas des yeux"
+   },
    "face": {
     "age": "jeune"
    },
@@ -682,6 +741,10 @@
   },
   "vidal": {
    "name": "Le curé Vidal",
+   "aspect": {
+    "allure": "vieux curé",
+    "signe": "grandes mains"
+   },
    "face": {
     "age": "ancien"
    },
@@ -689,6 +752,10 @@
   },
   "dorval": {
    "name": "Le bailli Dorval",
+   "aspect": {
+    "allure": "vieil homme aux yeux pâles",
+    "signe": "lunettes sur le bout du nez"
+   },
    "face": {
     "age": "ancien",
     "marks": [
@@ -699,6 +766,10 @@
   },
   "brac": {
    "name": "Brac",
+   "aspect": {
+    "allure": "grand chien de montagne",
+    "visage": "poil roux"
+   },
    "desc": "Le chien de l'hospice, un grand chien de montagne au poil roux. C'est lui qui t'a trouvé."
   }
  },

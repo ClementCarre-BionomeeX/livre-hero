@@ -314,6 +314,10 @@
  "people": {
   "aubert": {
    "name": "Messire Aubert de Vellane",
+   "aspect": {
+    "allure": "soixante ans, une jambe raide",
+    "visage": "barbe grise"
+   },
    "face": {
     "age": "mur",
     "skin": "clair",
@@ -331,6 +335,10 @@
   },
   "heloise": {
    "name": "Dame Héloïse",
+   "aspect": {
+    "signe": "les clés et les comptes",
+    "visage": "chignon gris"
+   },
    "face": {
     "age": "mur",
     "skin": "clair",
@@ -348,6 +356,11 @@
   },
   "gauvard": {
    "name": "Sire Gauvard de Morne",
+   "aspect": {
+    "allure": "beau et aimable",
+    "visage": "boucles châtains",
+    "signe": "mains baguées"
+   },
    "face": {
     "age": "adulte",
     "skin": "beige",
@@ -365,6 +378,10 @@
   },
   "thibaud": {
    "name": "Thibaud",
+   "aspect": {
+    "allure": "garçon maigre de seize ans",
+    "visage": "yeux cernés"
+   },
    "face": {
     "age": "jeune",
     "skin": "ivoire",
@@ -382,6 +399,11 @@
   },
   "anselme": {
    "name": "Frère Anselme",
+   "aspect": {
+    "allure": "vieil ermite",
+    "visage": "longue barbe blanche",
+    "signe": "des chats autour des chevilles"
+   },
    "face": {
     "age": "ancien",
     "skin": "cuivre",

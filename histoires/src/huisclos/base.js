@@ -235,7 +235,7 @@ module.exports = {
 
   // ------------------------------------------------------------------ people (the house is small: everyone is somewhere)
   people: {
-    odile: { name: "Odile", f: true, face: { age: "adulte", skin: "clair", hair: "chatain", coif: "chignon", eyes: "lourds", iris: "gris", nose: "fin", lips: "fines", shape: "allonge" },
+    odile: { name: "Odile", aspect: { allure: "trente-quatre ans, droite, peu de mots", habits: "robe de deuil", voix: "parle peu, et ça coupe" }, f: true, face: { age: "adulte", skin: "clair", hair: "chatain", coif: "chignon", eyes: "lourds", iris: "gris", nose: "fin", lips: "fines", shape: "allonge" },
       desc: "Ta sœur aînée, trente-quatre ans. Elle est restée. Elle a soigné ta mère pendant trois ans. Elle parle peu, et quand elle parle, ça coupe.",
       at: [
         { when: "matin", place: "cuisine", talk: "T_odile", label: "Parler à Odile", see: "Odile, à la table de la cuisine, coupe du pain qu'elle ne mange pas." },
@@ -246,7 +246,7 @@ module.exports = {
       ],
       confront: { n_fiole: "M_odile_fiole", n_cuiller: "M_odile_fiole", n_manche: "M_odile_fiole", e_fenetre: "M_odile_fenetre", e_lettre: "M_odile_lettre" },
       shrug: ["Odile regarde la chose, puis toi. « Et alors ? »", "« Range ça, dit Odile. Ce n'est pas le jour. »"] },
-    germain: { name: "Germain Rouvière", f: false, face: { age: "adulte", skin: "hale", hair: "brun", coif: "court", beard: "moustache", eyes: "ronds", iris: "brun", nose: "large", shape: "carre" },
+    germain: { name: "Germain Rouvière", aspect: { allure: "homme aimable, prudent", visage: "moustache brune", signe: "fait attention à ses bottes" }, f: false, face: { age: "adulte", skin: "hale", hair: "brun", coif: "court", beard: "moustache", eyes: "ronds", iris: "brun", nose: "large", shape: "carre" },
       desc: "Le mari d'Odile, quarante et un ans. Il tient la scierie depuis la mort de ton père, ou depuis qu'Odile l'a épousé, selon qui raconte. Un homme aimable qui fait attention à ses bottes.",
       at: [
         { when: "matin", place: "cour", talk: "T_germain", label: "Descendre voir Germain à la scierie", see: "En contrebas, Germain tourne autour de la grande scie immobile, les mains dans les poches." },
@@ -256,7 +256,7 @@ module.exports = {
       ],
       confront: { n_acte: "M_germain_acte", n_voix: "M_germain_acte", n_germain: "M_germain_acte", n_vernet: "M_germain_vernet", lettre_vernet: "M_germain_vernet" },
       shrug: ["Germain sourit. « Je ne vois pas. »", "« Garde tes papiers, dit Germain. On réglera les affaires après l'enterrement. »"] },
-    mariette: { name: "Mariette Coulon", f: true, face: { age: "ancien", skin: "hale", hair: "blanc", coif: "foulard", eyes: "tombants", iris: "noir", nose: "busque", marks: ["grain"] },
+    mariette: { name: "Mariette Coulon", aspect: { allure: "soixante-dix ans, jamais assise", habits: "tablier, foulard", signe: "s'essuie les mains à son tablier" }, f: true, face: { age: "ancien", skin: "hale", hair: "blanc", coif: "foulard", eyes: "tombants", iris: "noir", nose: "busque", marks: ["grain"] },
       desc: "La servante de la maison depuis quarante ans. Elle t'a appris à lire l'heure, à plumer une poule et à te taire. Elle a soixante-dix ans et le pas d'une femme qui n'a jamais été assise.",
       at: [
         { when: ["matin", "midi", "apresmidi", "soir"], place: "cuisine", talk: "T_mariette", label: "Parler à Mariette", see: "Mariette est au fourneau. Elle ne se retourne pas, mais elle sait que tu es là." },
@@ -264,7 +264,7 @@ module.exports = {
       ],
       confront: { e_engelures: "M_mariette_bras", e_lanterne: "M_mariette_bras", n_fiole: "M_mariette_fiole", n_cuiller: "M_mariette_fiole" },
       shrug: ["Mariette regarde à peine. « Je n'ai pas mes lunettes. »", "« Ça, dit Mariette, c'est à ta sœur qu'il faut le montrer. »"] },
-    fabre: { name: "Le docteur Fabre", f: false, face: { age: "mur", skin: "clair", hair: "gris", coif: "degarni", beard: "barbe", eyes: "lourds", iris: "bleu", nose: "busque", marks: ["lunettes"] },
+    fabre: { name: "Le docteur Fabre", aspect: { habits: "gilet noir", visage: "lunettes, barbe grise", signe: "un verre à la main" }, f: false, face: { age: "mur", skin: "clair", hair: "gris", coif: "degarni", beard: "barbe", eyes: "lourds", iris: "bleu", nose: "busque", marks: ["lunettes"] },
       desc: "Anselme Fabre, médecin de Saint-Amans, cinquante-huit ans. Il est monté constater le décès et la neige l'a gardé. Il a soigné toute la famille, et il boit comme un homme qui a décidé de ne plus compter.",
       at: [
         { when: ["matin", "midi"], place: "salle", talk: "T_fabre", label: "Parler au docteur Fabre", see: "Le docteur Fabre lit un almanach vieux de trois ans près du feu, un verre à portée de main." },
@@ -273,7 +273,7 @@ module.exports = {
       ],
       confront: { e_carnet: "M_fabre_carnet", carnet_fabre: "M_fabre_carnet", n_fiole: "D_fabre_nuit", n_cuiller: "D_fabre_nuit", e_engelures: "M_fabre_bras" },
       shrug: ["Fabre plisse les yeux derrière ses lunettes. « Je suis médecin, pas juge de paix. »", "« Montre ça à qui ça regarde », dit Fabre, et il boit."] },
-    jeanne: { name: "Jeanne Gerbaud", f: true, face: { age: "jeune", skin: "beige", hair: "noir", coif: "chignon", eyes: "amande", iris: "vert", nose: "retrousse", lips: "pleines", shape: "ovale", marks: ["rousseur"] },
+    jeanne: { name: "Jeanne Gerbaud", aspect: { allure: "l'institutrice, ton amie d'autrefois", signe: "aiguille et drap noir", voix: "voix si basse qu'on se penche" }, f: true, face: { age: "jeune", skin: "beige", hair: "noir", coif: "chignon", eyes: "amande", iris: "vert", nose: "retrousse", lips: "pleines", shape: "ovale", marks: ["rousseur"] },
       desc: "Jeanne Pradel, devenue Gerbaud. L'institutrice de Saint-Amans, mariée au meunier. Elle est montée aider Odile pour la toilette de ta mère, et la neige l'a gardée. Vous aviez seize et dix-sept ans, autrefois.",
       at: [
         { when: ["matin", "midi"], place: "chambre", talk: "T_jeanne", label: "Parler à Jeanne", see: "Jeanne coud le linceul au pied du lit, l'aiguille très vite, le fil entre les dents." },

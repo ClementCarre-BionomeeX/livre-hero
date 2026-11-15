@@ -308,6 +308,11 @@
  "people": {
   "mahaut": {
    "name": "Mahaut",
+   "aspect": {
+    "allure": "femme sèche",
+    "visage": "cheveux tirés en chignon",
+    "signe": "rend la monnaie d'un seul geste"
+   },
    "face": {
     "age": "mur",
     "skin": "beige",
@@ -325,6 +330,11 @@
   },
   "morel": {
    "name": "Guérand Morel",
+   "aspect": {
+    "allure": "homme rond et soigné",
+    "habits": "gants de peau fine",
+    "voix": "voix douce"
+   },
    "face": {
     "age": "mur",
     "skin": "clair",
@@ -342,6 +352,11 @@
   },
   "ninon": {
    "name": "Ninon",
+   "aspect": {
+    "allure": "fille de quatorze ans",
+    "visage": "tresses noires",
+    "signe": "mains tannées"
+   },
    "face": {
     "age": "jeune",
     "skin": "brun",
@@ -359,6 +374,10 @@
   },
   "bastien": {
    "name": "Bastien",
+   "aspect": {
+    "allure": "tanneur aux larges épaules",
+    "visage": "cheveux crépus, barbe"
+   },
    "face": {
     "age": "mur",
     "skin": "brun",
@@ -376,6 +395,10 @@
   },
   "ermengarde": {
    "name": "Ermengarde",
+   "aspect": {
+    "allure": "vieille sacristine",
+    "visage": "foulard sur des cheveux blancs"
+   },
    "face": {
     "age": "ancien",
     "skin": "ivoire",
@@ -393,6 +416,11 @@
   },
   "joss": {
    "name": "Joss Ferrand",
+   "aspect": {
+    "allure": "debout, les bras croisés",
+    "visage": "moustache châtain",
+    "signe": "regarde toujours l'eau"
+   },
    "face": {
     "age": "adulte",
     "skin": "hale",

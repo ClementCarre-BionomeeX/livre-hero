@@ -1397,10 +1397,10 @@ module.exports = {
   passages: PASS,
   extras: {
     people: {
-      aglae: { name: "Aglaé", f: true, face: { age: "mur", coif: "foulard", shape: "rond" }, desc: "Une cuisinière de la crête, enlevée par les trolls il y a deux hivers. Elle a appris au roi des trolls à dire merci." },
-      pt_bourle: { name: "Bourle", f: false, desc: "Un jeune troll aux oreilles trop grandes, qui tourne la broche aux cuisines du château et apprend à faire le pain." },
-      pt_ragne: { name: "Ragne", f: false, desc: "Le troll qui garde la grande porte du château, assis sur sa borne, une souche de chêne en travers des genoux. Il a l'air moins méchant que fatigué." },
-      pt_moufle: { name: "Moufle", f: false, desc: "Un gros troll mou au bonnet de laine rouge, qui dort mal dans les dortoirs du château." },
+      aglae: { name: "Aglaé", aspect: { allure: "maigre, poings sur les hanches", habits: "fichu taillé dans un sac de farine" }, f: true, face: { age: "mur", coif: "foulard", shape: "rond" }, desc: "Une cuisinière de la crête, enlevée par les trolls il y a deux hivers. Elle a appris au roi des trolls à dire merci." },
+      pt_bourle: { name: "Bourle", aspect: { allure: "jeune troll gris de pierre mouillée", signe: "oreilles trop grandes" }, f: false, desc: "Un jeune troll aux oreilles trop grandes, qui tourne la broche aux cuisines du château et apprend à faire le pain." },
+      pt_ragne: { name: "Ragne", aspect: { allure: "troll fatigué sur sa borne", signe: "une souche de chêne sur les genoux" }, f: false, desc: "Le troll qui garde la grande porte du château, assis sur sa borne, une souche de chêne en travers des genoux. Il a l'air moins méchant que fatigué." },
+      pt_moufle: { name: "Moufle", aspect: { allure: "gros troll mou", habits: "bonnet de laine rouge" }, f: false, desc: "Un gros troll mou au bonnet de laine rouge, qui dort mal dans les dortoirs du château." },
     },
     items: {
       pt_jambon: { name: "Jambon fumé", kind: "quete", desc: "Un jambon noir, trop salé pour le roi des trolls. Assez bon pour ses chiens." },
