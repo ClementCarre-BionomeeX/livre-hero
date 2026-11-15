@@ -1509,6 +1509,7 @@
   // Intent: once per new version, a short note of what changed (NEWS, newest first), only the versions the reader has
   // not seen on this device. Why: Clément, 13/11 (piste 33).
   var NEWS = [
+    { v: "8.4", items: ["Nouvelle histoire à deux : « Le Pli de Brumefond ». L'un porte le pli, l'autre connaît la route, et chacun garde ses secrets.", "Nouvel onglet du carnet, dans les histoires à deux : Secrets (ce que tu caches, ce qu'on t'a confié, ce que tu as surpris).", "Interludes : au début d'un acte, une courte scène vue par quelqu'un d'autre, différente pour chaque joueur.", "Le texte s'accorde maintenant avec le héros de l'autre joueur."] },
     { v: "8.0", items: ["Nouvelle histoire : « Le Pain de Sarance », une ville assiégée dont tu tiens les greniers : chaque jour mange le blé, le monde avance sans toi, et le Conseil vote.", "Nouveaux onglets du carnet, quand l'histoire en a : La ville (les réserves, ce qui a changé), Conseil (qui vote quoi), Dettes et promesses, Qui est avec qui.", "Batailles rangées : tu places tes troupes sur les postes, puis tu donnes un ordre à chaque vague."] },
     { v: "7.9", items: ["Nouvelle histoire : « L'Écluse des Tanneurs », une enquête de trois jours dans une ville qui vit : chacun a ses heures et ses lieux, et le temps presse jusqu'à la cloche du soir.", "On peut montrer un indice ou un document à un témoin, et relier deux déclarations qui se contredisent, dans le carnet ou sur le tableau.", "L'accusation se fait en trois temps : qui, pourquoi, et la preuve.", "Nouveaux onglets du carnet, quand l'histoire en a : Documents (les lettres et registres trouvés, à relire) et Reconstitution (qui était où, heure par heure)."] },
     { v: "7.8", items: ["Nouvelle histoire : « La Veillée des Aubiers », une soirée d'une demi-heure, à finir avant le coucher, et à relire.", "Une page peut s'ouvrir autrement selon le chemin par lequel on y arrive.", "Seconde lecture : une fois une fin trouvée, une histoire peut montrer en la relisant des passages nouveaux, marqués d'un ✧ dans la marge.", "Les boutons s'accordent au masculin ou au féminin, comme le texte."] },
@@ -1907,7 +1908,7 @@
     w.appendChild(h("div", { class: "acts", role: "img", "aria-label": cur >= 0 ? acts[cur].title + ", acte " + (cur + 1) + " sur " + acts.length : "", title: cur >= 0 ? acts[cur].title + (actMin ? " · environ " + minutesLabel(actMin) + " de lecture" : "") : "" }, acts.map(function (a, i) { return h("span", { class: i < cur ? "done" : i === cur ? "on" : "" }); })));
     var turnIn = A.turned && pref("pageTurn") && !REDUCED; A.turned = false;
     // A remembrance is set apart (8.3); dread past its threshold troubles the page, unless the reader declined it.
-    var page = h("article", { class: "page read" + (turnIn ? " turn-in" : "") + (v.souvenir ? " souvenir" : "") + (v.trouble && pref("trouble") && !REDUCED ? " trouble" : ""), "aria-labelledby": "page-title" });
+    var page = h("article", { class: "page read" + (turnIn ? " turn-in" : "") + (v.souvenir ? " souvenir" : "") + (v.interlude ? " interlude" : "") + (v.trouble && pref("trouble") && !REDUCED ? " trouble" : ""), "aria-labelledby": "page-title" });
     if (pref("swipe") && !G.multi) swipeOn(page, v, G);
     var num = v.passage ? paraNum(st, s.node) : null;
     var actFirst = cur >= 0 && acts[cur].start === s.node && !G.multi;
@@ -1917,7 +1918,7 @@
     if (rc) { if (nr) rc.appendChild(nr); page.appendChild(rc); }
     else if (nr) page.appendChild(h("aside", { class: "recap" }, h("div", { class: "row" }, h("span", { class: "grow" }), h("button", { class: "btn ghost sm", onclick: function () { A.recap = false; render(); } }, "Fermer")), nr));
     var actStart = cur >= 0 && acts[cur].start === s.node && actMin;
-    page.appendChild(h("div", { class: "page-head" }, h("div", null, h("h2", { id: "page-title", tabindex: "-1" }, v.title || ""), h("div", { class: "where" }, [v.souvenir ? "Souvenir · " + v.souvenir : null, cur >= 0 && !v.souvenir ? acts[cur].title : null, v.souvenir ? null : where(st, s), actStart ? "environ " + minutesLabel(actMin) + " de lecture" : null].filter(Boolean).join(" · "))), num ? h("span", { class: "para-num", title: "Numéro du paragraphe" }, "§ " + num) : null));
+    page.appendChild(h("div", { class: "page-head" }, h("div", null, h("h2", { id: "page-title", tabindex: "-1" }, v.title || ""), h("div", { class: "where" }, [v.souvenir ? "Souvenir · " + v.souvenir : null, v.interlude ? "Interlude · " + v.interlude.who + (v.interlude.where ? " · " + v.interlude.where : "") : null, cur >= 0 && !v.souvenir && !v.interlude ? acts[cur].title : null, v.souvenir || v.interlude ? null : where(st, s), actStart ? "environ " + minutesLabel(actMin) + " de lecture" : null].filter(Boolean).join(" · "))), num ? h("span", { class: "para-num", title: "Numéro du paragraphe" }, "§ " + num) : null));
     var gb = groupBanner(G, s); if (gb) page.appendChild(gb);
     if (A.notice) page.appendChild(h("div", { class: "notice" }, A.notice));
     if (A.bedWarn && !G.multi) page.appendChild(h("div", { class: "notice soft" }, "🌙 Bientôt l'heure de refermer le livre : le récit te proposera de t'arrêter à une page calme."));
@@ -3373,13 +3374,13 @@
   })();
 
   // ------------------------------------------------------------------ the notebook
-  var TABS = [["heros", "Héros"], ["sac", "Sac"], ["quetes", "Quêtes"], ["indices", "Indices"], ["notes", "Notes"], ["soupcons", "Soupçons"], ["tableau", "Tableau d'enquête"], ["documents", "Documents"], ["reconst", "Reconstitution"], ["ville", "La ville"], ["conseil", "Conseil"], ["dettes", "Dettes et promesses"], ["liens", "Qui est avec qui"], ["versions", "Versions"], ["compagnons", "Compagnons"], ["carte", "Carte"], ["gens", "Gens"], ["frise", "Frise"], ["marques", "Marque-pages"], ["exploits", "Hauts faits"], ["codex", "Bestiaire et atlas"], ["mots", "Mots"], ["journal", "Journal"], ["coulisses", "Coulisses"]];
+  var TABS = [["heros", "Héros"], ["sac", "Sac"], ["quetes", "Quêtes"], ["indices", "Indices"], ["notes", "Notes"], ["soupcons", "Soupçons"], ["tableau", "Tableau d'enquête"], ["documents", "Documents"], ["reconst", "Reconstitution"], ["ville", "La ville"], ["conseil", "Conseil"], ["dettes", "Dettes et promesses"], ["liens", "Qui est avec qui"], ["versions", "Versions"], ["secrets", "Secrets"], ["compagnons", "Compagnons"], ["carte", "Carte"], ["gens", "Gens"], ["frise", "Frise"], ["marques", "Marque-pages"], ["exploits", "Hauts faits"], ["codex", "Bestiaire et atlas"], ["mots", "Mots"], ["journal", "Journal"], ["coulisses", "Coulisses"]];
   // Documents and Reconstitution only show in a story that has them (7.9).
   function tabsOf(st) {
     var docs = Object.keys(st.items || {}).some(function (k) { return st.items[k].kind === "document" && st.items[k].text; });
     var plan = Object.keys(st.mysteries || {}).some(function (k) { return st.mysteries[k].plan; });
     // A siege (8.0): the city's stocks, the council, debts and promises, who is with whom, when the story has them.
-    var has = { ville: !!(st.stocks || st.march), conseil: !!st.councils, dettes: !!st.promises, liens: !!st.ties, versions: !!st.accounts };
+    var has = { ville: !!(st.stocks || st.march), conseil: !!st.councils, dettes: !!st.promises, liens: !!st.ties, versions: !!st.accounts, secrets: !!st.secrets };
     // A story names its stocks' tab (8.1: « Le navire »).
     return TABS.filter(function (t) { return (t[0] !== "documents" || docs) && (t[0] !== "reconst" || plan) && (has[t[0]] == null || has[t[0]]); })
       .map(function (t) { return t[0] === "ville" && st.stocksTab ? [t[0], st.stocksTab] : t; });
@@ -3405,7 +3406,7 @@
     var fill = function () {
       body.textContent = "";
       if ((A.carnetQ || "").trim().length >= SEARCH_MIN) { searchCarnet(body, G.story, G.s, A.carnetQ.trim()); return; }
-      ({ heros: tabHero, sac: tabBag, quetes: tabQuests, indices: tabClues, notes: tabNotes, soupcons: tabSuspects, tableau: tabBoard, documents: tabDocs, reconst: tabRecon, ville: tabCity, conseil: tabCouncil, dettes: tabDebts, liens: tabTies, versions: tabVersions, compagnons: tabCompanions, carte: tabMap, gens: tabPeople, frise: tabFrise, marques: tabMarks, exploits: tabFeats, codex: tabCodex, mots: tabWords, journal: tabLog, coulisses: tabBackstage })[A.carnetTab](body, G.story, G.s);
+      ({ heros: tabHero, sac: tabBag, quetes: tabQuests, indices: tabClues, notes: tabNotes, soupcons: tabSuspects, tableau: tabBoard, documents: tabDocs, reconst: tabRecon, ville: tabCity, conseil: tabCouncil, dettes: tabDebts, liens: tabTies, versions: tabVersions, secrets: tabSecrets, compagnons: tabCompanions, carte: tabMap, gens: tabPeople, frise: tabFrise, marques: tabMarks, exploits: tabFeats, codex: tabCodex, mots: tabWords, journal: tabLog, coulisses: tabBackstage })[A.carnetTab](body, G.story, G.s);
     };
     fill();
     q.addEventListener("input", function () { A.carnetQ = q.value; fill(); });
@@ -4113,6 +4114,20 @@
             truth ? h("span", { class: "small truth " + truth[1] }, truth[0]) : null,
             ro || bel ? (bel ? h("span", { class: "small muted" }, "mise en doute") : null) : h("button", { class: "btn ghost sm", "aria-pressed": dbt ? "true" : "false", onclick: function () { M.doubt(st, s, k, !dbt); persist(); render(); } }, dbt ? "Tu en doutes" : "J'en doute")),
           h("blockquote", { class: "said", html: md("« " + M.interp(s, Ac.text) + " »") })));
+      });
+    });
+  }
+  // Two players (8.4): what the hero hides, what the other told, what was overheard. The other player never sees this tab.
+  function tabSecrets(b, st, s) {
+    var list = M.secretsOf(st, s);
+    if (!list.length) { b.appendChild(h("div", { class: "notice" }, "Rien encore. Ce que tu caches, et ce qu'on te confiera, s'inscrira ici.")); return; }
+    b.appendChild(h("p", { class: "small muted" }, "Cet onglet n'appartient qu'à toi. Un secret se dit à l'autre quand vous êtes seuls tous les deux ; on l'apprend au rendez-vous suivant."));
+    [["own", "Ce que tu caches"], ["confie", "Ce qu'on t'a confié"], ["surpris", "Ce que tu as surpris"]].forEach(function (g) {
+      var xs = list.filter(function (x) { return x.how === g[0]; }); if (!xs.length) return;
+      b.appendChild(h("div", { class: "label" }, g[1]));
+      xs.forEach(function (x) {
+        b.appendChild(h("div", { class: "itemrow" }, h("b", null, x.title), g[0] === "own" ? h("span", { class: "small muted" }, x.told ? "dit à " + M.interp(s, "{autre}") : "gardé") : null,
+          h("div", { class: "desc", html: md(x.text) })));
       });
     });
   }
