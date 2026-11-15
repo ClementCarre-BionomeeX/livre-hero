@@ -3638,7 +3638,7 @@
     "Tu penses à la courrière, en bas, dans ta cellule, qui t'a regardé comme pour se souvenir de ton visage. Tu penses à la clé dans la toile cirée, et au valet vert qui l'a emportée sans un mot. Tu penses au tiroir du capitaine, et aux quatre bourses dedans.",
     "Tu penses à Nine, rue du Lavoir, la troisième maison après la fontaine, au rez-de-chaussée, à deux pas de la Sorge.",
     "Le mercure, dans le baromètre de Vellard, continue de descendre.",
-    "Tu remets tes bottes. Tu ne sais pas encore où tu vas. Tu sais seulement que tu ne peux plus rester là.",
+    "Tu remets tes bottes. Tu ignores encore où tu vas. Tu sais seulement que tu ne peux plus rester là.",
     "Ce qu'on a fait de la clé, cette nuit, dans la maison aux fenêtres allumées de la rue Haute : quelqu'un d'autre l'a vu."
    ]
   },
@@ -3794,7 +3794,7 @@
     },
     {
      "via": "nine",
-     "text": "Tu ne lui racontes rien. Tu regardes ses mains de lavandière, rouges et gercées, poser deux tasses sur la table, et tu penses que tu ne sais plus à quoi sert un sergent."
+     "text": "Tu gardes tout pour toi. Tu regardes ses mains de lavandière, rouges et gercées, poser deux tasses sur la table, et tu penses que tu ne sais plus à quoi sert un sergent."
     },
     "Vers une heure, sur la Sorge, sous les fenêtres, quelqu'un siffle. Deux coups courts, un long. Une barque passe sans lanterne, à contre-courant, vite, avec une seule silhouette à la rame.",
     "Le sifflet se répète plus loin, en amont, vers la digue. Puis plus rien que le vent.",
@@ -3873,7 +3873,7 @@
    "text": [
     {
      "via": "coupe",
-     "text": "Le lacet cède sous ton couteau. Anicet ne se réveille pas. Le patron ne dit rien."
+     "text": "Le lacet cède sous ton couteau. Anicet dort toujours. Le patron laisse faire."
     },
     {
      "via": "anicet",
@@ -3923,7 +3923,7 @@
     "Tu tires. Le bourdon bascule, hésite, frappe. Le son te traverse les os. Tu tires encore, à coups pressés, à coups courts, comme pour un incendie, comme pour la peste.",
     {
      "via": "trappe",
-     "text": "Sous la trappe, Rambert cogne, crie, jure, menace. Tu ne l'entends pas. Tu n'entends plus rien que la cloche."
+     "text": "Sous la trappe, Rambert cogne, crie, jure, menace. Tu n'entends plus que la cloche."
     },
     {
      "via": "lutte",
@@ -4023,11 +4023,11 @@
      "if": {
       "has": "gosse:sauvee"
      },
-     "text": "La veuve Gosse est là aussi, dans son fauteuil, sous une couverture. Tu as enfoncé sa porte. Elle ne t'a pas encore dit un mot, et elle ne lâche pas ta manche."
+     "text": "La veuve Gosse est là aussi, dans son fauteuil, sous une couverture. Tu as enfoncé sa porte. Elle se tait encore, et elle tient ta manche serrée."
     },
     {
      "via": "seuls",
-     "text": "Elle te demande : « Tu savais ? » Tu ne réponds pas. Elle n'a pas besoin que tu répondes."
+     "text": "Elle te demande : « Tu savais ? » Tu te tais. Elle n'a pas besoin que tu répondes."
     },
     "À huit heures, le Conseil siège dans une ville qui compte ses morts. La Charge des Vannes n'a plus de vannes à garder."
    ]
@@ -4537,7 +4537,7 @@
      "if": {
       "has": "gosse:sauvee"
      },
-     "text": "La veuve Gosse est assise sur les marches, dans son fauteuil, que deux teinturiers ont monté avec elle dedans. Elle ne te parle pas. Elle te tient la main."
+     "text": "La veuve Gosse est assise sur les marches, dans son fauteuil, que deux teinturiers ont monté avec elle dedans. Elle garde le silence. Elle te tient la main."
     },
     {
      "if": {
@@ -5200,7 +5200,7 @@
     "time": 3.5
    },
    "text": [
-    "Jacquette rame vers l'arche du canal de fuite, ouvre la grille avec la clé pendue à son cou, et vous entrez dans le ventre de la digue. Tu ne dis rien pendant tout le trajet. L'eau est noire, l'air résonne.",
+    "Jacquette rame vers l'arche du canal de fuite, ouvre la grille avec la clé pendue à son cou, et vous entrez dans le ventre de la digue. Tu te tais pendant tout le trajet. L'eau est noire, l'air résonne.",
     "Dans la chambre de la vanne, Anselme vous attend, assis contre le mur. Il voit qui tient la lanterne. Il dit ton nom comme on le disait il y a quarante ans.",
     "Il tourne la clé de ses deux mains. Jacquette prend un rayon de la roue, toi l'autre. Tu as cinquante-huit ans et des genoux de vieille femme. Tu as aussi des bras d'apothicaire qui ont pilé trente ans de racines.",
     {
@@ -5681,7 +5681,7 @@
    },
    "text": [
     "Tu bois. Le premier pichet pour la ligne rayée. Le deuxième pour ton père. Le troisième, tu ne sais plus.",
-    "Maître Lucas te regarde de derrière son comptoir. Il ne t'arrête pas. Il ne t'arrête jamais. C'est pour ça qu'on vient chez lui.",
+    "Maître Lucas te regarde de derrière son comptoir. Il te laisse faire. Il ne t'arrête jamais. C'est pour ça qu'on vient chez lui.",
     "À dix heures et quart, la porte du haut s'ouvre. Le capitaine Rambert descend l'escalier, regarde la salle, te trouve.",
     "« Vellard. Monsieur Corlay voudrait vous voir. »"
    ],
@@ -6029,7 +6029,7 @@
      "text": "Sur la table, à côté du baromètre, une feuille de livre de comptes est dépliée, réglée en colonnes. Ta lettre. Le gamin du Chat Ferré a couru plus vite que toi."
     },
     "Tu la poses sur ses genoux. Tu dis : « C'est moi. Je t'ai entendu, à sept heures. Je l'ai dit à Corlay. Pour quatre cents écus. »",
-    "Il ne dit rien. Il pose la main sur la clé.",
+    "Il se tait. Il pose la main sur la clé.",
     "Sur la table, à côté de son baromètre, il y a son carnet de mesures, ouvert. Entre deux pages, trois feuilles de sa main : *Séance secrète du Conseil des Sept Maisons… le Conseil prendra à sa charge les dettes du sieur Bastien Vellard, soit onze cents écus, en reconnaissance des services de son père.*",
     "Tu lis la ligne deux fois.",
     "« Je n'ai jamais voulu que tu le saches », dit ton père.",
@@ -6127,7 +6127,7 @@
     "Tu lis le procès-verbal. Puis tu racontes la nuit. La porte entrouverte, le banc, les quatre cents écus. La rue Haute, le cabinet vert, la clé sur le bureau, le poste d'inspecteur, et ce que Corlay comptait faire dire de ton père.",
     "Tu dis tout. Tu ne t'épargnes pas. Tu le dis pour ton père, qui ne peut plus le dire.",
     "Dame Hesdin, au bout de la table, se lève. « Il y a trois ans, j'ai voté contre. J'ai perdu, je me suis tue. Je propose que le Conseil confie la Charge, pour un an, à une commission, et qu'on vide le lac au printemps. »",
-    "Corlay ne dit rien. Il regarde la carte de la vallée, au mur, comme s'il y cherchait une route.",
+    "Corlay se tait. Il regarde la carte de la vallée, au mur, comme s'il y cherchait une route.",
     "On vote. Six voix contre une. La sienne.",
     "En sortant, sur les marches, une rousse aux bras nus t'attend sous la pluie. « Ton père est mort à sept heures, dit Jacquette. Il a demandé si tu avais tout dit. Je lui ai dit que oui. »"
    ]
@@ -6182,7 +6182,7 @@
     "La Maison des Vannes n'est plus au bout de la digue. Il n'y a plus de bout de la digue.",
     "À huit heures, le Conseil se réunit dans une ville qui pleure. Corlay parle le premier. Il dit que le garde-vannes Anselme Vellard a caché trois ans l'état de la digue, et qu'il a payé de sa vie son silence. Il te demande de confirmer. Les sept te regardent.",
     "Tu confirmes.",
-    "Le soir, Corlay a la Charge des Vannes, et tu es inspecteur d'une digue qui n'existe plus, pour trois cents écus l'an. Personne ne parle des onze cents écus d'il y a trois ans. Personne ne parle de la clé.",
+    "Le soir, Corlay a la Charge des Vannes, et tu es inspecteur d'une digue qui n'existe plus, pour trois cents écus l'an. On se tait sur les onze cents écus d'il y a trois ans. On se tait sur la clé.",
     "Tu as de l'argent pour la première fois de ta vie. Tu ne joues plus. Tu ne bois plus. Tu ne fais plus rien du tout."
    ]
   },
@@ -6712,7 +6712,7 @@
     "Il te fait asseoir. Il te raconte, enfin. La galerie, la fissure qu'il appelle la veine, trois ans de mortier, le Conseil qui a su et qui a voté de se taire. La clé, qu'il a donnée à Ilde à sept heures. La vanne de fond, qu'il fallait ouvrir à trois heures.",
     "« Sans la clé, la roue ne tourne pas », dit-il.",
     "Tu lui dis ce que tu as vu au pied du mur. Le bouillon brun, gros comme un bras. Il ferme les yeux.",
-    "Trois heures sonnent, très loin, à Saint-Rieul. Il n'y a qu'une lanterne à la fenêtre. Le vieux regarde son baromètre. Il ne dit plus rien.",
+    "Trois heures sonnent, très loin, à Saint-Rieul. Il n'y a qu'une lanterne à la fenêtre. Le vieux regarde son baromètre. Il se tait.",
     "À quatre heures, la pluie. Elle frappe les vitres. Le vieux se lève, tout seul, et il se tient debout devant sa fenêtre, une main sur la vitre froide.",
     "« Il y a peut-être un autre moyen, dit-il. Mais il faudrait un garçon qui l'a appris quand il avait huit ans. »",
     "Il ne dit pas lequel. Ce garçon-là, il faudra le suivre, une autre nuit."
@@ -7010,7 +7010,7 @@
     "Au bout du lac, là où était la digue, une brume brune monte du sol.",
     "Le bruit arrive après, longtemps après, un grondement qui roule dans toute la vallée et fait s'envoler les corbeaux de la forêt.",
     "Tu vends ton sel le jour même, au double du prix, parce que les routes de la vallée sont coupées. Tu as de l'argent pour un an.",
-    "On ne t'a rien demandé, cette nuit-là. On ne t'a jamais rien demandé. Tu te le répètes à Brême, puis à Saint-Vaast, puis ailleurs. Tu ne retournes jamais au bord de l'eau."
+    "On ne t'a jamais rien demandé, cette nuit-là comme les autres. Tu te le répètes à Brême, puis à Saint-Vaast, puis ailleurs. Tu vis désormais loin de l'eau."
    ]
   },
   "J_sel_jete": {
@@ -7397,7 +7397,7 @@
     "De la fenêtre du salon, on voit toute la vallée, quand il fait jour. La nuit, on ne voit rien. Ce soir, au bout du noir, il y a une petite lumière, une seule, très loin, à la fenêtre de la Maison des Vannes.",
     "Tu la regardes un moment. Le vieux ne dort pas, lui non plus.",
     "Tu retournes te coucher. Aude dort, cette fois. Dans quatre heures, tu auras la Charge des Vannes. Tu as compté les voix dix fois.",
-    "Tu ne sais pas ce que fait Dame Hesdin cette nuit. Tu ne sais pas ce que fait le vieux Vellard, au bout de la vallée, avec sa seule lanterne. Il faudra le suivre, lui, pour le savoir. Il faudra d'abord en savoir assez pour le comprendre."
+    "Tu ignores ce que fait Dame Hesdin cette nuit, et ce que fait le vieux Vellard, au bout de la vallée, avec sa seule lanterne. Il faudra le suivre, lui, pour le savoir. Il faudra d'abord en savoir assez pour le comprendre."
    ]
   },
   "C_tassin_seul": {
@@ -7513,7 +7513,7 @@
      "via": "verite",
      "text": "Le sergent t'écoute jusqu'au bout, la lanterne baissée. Puis il dit : « Ma fille dort rue du Lavoir. » Il crie à ses deux hommes de le suivre, et ils partent en courant vers les Foulons, sans attendre le capitaine."
     },
-    "La route de la Digue. Les bornes passent dans la lanterne. Pernelle ne dit rien. Au bout de la route, au pied du mur, il y a une cabane de planches goudronnées, de la lumière dedans, et une femme rousse sur le ponton, un couteau à la main.",
+    "La route de la Digue. Les bornes passent dans la lanterne. Pernelle se tait. Au bout de la route, au pied du mur, il y a une cabane de planches goudronnées, de la lumière dedans, et une femme rousse sur le ponton, un couteau à la main.",
     "La femme te regarde, toi, ton manteau, ta voiture. Elle te reconnaît. Tout le monde te reconnaît dans cette vallée.",
     "Elle te fait monter dans sa barque sans un mot. Elle longe le parement à la rame, jusqu'à un endroit qu'elle connaît. Elle lève la lanterne.",
     "Entre deux pierres, un mètre au-dessus de l'eau, un bouillon sort du mur. Il est gros comme un bras. Il est brun, chargé de sable. Il gargouille. La pierre autour est mouillée sur toute sa hauteur.",
@@ -7535,7 +7535,7 @@
     "time": 0.75
    },
    "text": [
-    "Anselme Vellard t'ouvre lui-même, une couverture sur les épaules. Il voit la clé dans ta main. Il ne dit rien pendant longtemps.",
+    "Anselme Vellard t'ouvre lui-même, une couverture sur les épaules. Il voit la clé dans ta main. Il garde longtemps le silence.",
     "Vous avez le même âge, à quelques années près. Vous étiez à l'école ensemble, chez les frères de Saint-Rieul. Il était meilleur que toi en calcul. Tu étais meilleur que lui en tout le reste.",
     "« Tu es venu », dit-il.",
     "« J'ai vu le mur. »",
@@ -7596,7 +7596,7 @@
    "text": [
     "À huit heures, tu entres dans la grande salle de l'Hôtel du Conseil, en habit de soirée trempé, les mains bandées. Les six autres te regardent comme on regarde un homme revenu d'une guerre.",
     "Tu dis : la digue fuyait. Tu dis : je suis allé voir, cette nuit. Tu dis : j'ai fait ouvrir la vanne de fond, et j'ai fait monter les Foulons à Saint-Rieul par le guet. Tu dis : personne n'est mort.",
-    "Tout est vrai. Tu ne dis pas la séance d'il y a trois ans. Tu ne dis pas le rapport de Tassin. Tu ne dis pas la clé saisie sur le pont.",
+    "Tout est vrai. Tu tais la séance d'il y a trois ans. Tu tais le rapport de Tassin. Tu tais la clé saisie sur le pont.",
     "On vote. Six voix pour toi. Dame Hesdin s'abstient. Elle te regarde pendant tout le vote.",
     {
      "if": {
@@ -7605,7 +7605,7 @@
      "text": "Elle t'avait demandé de lui montrer quelque chose. Tu lui as montré tes mains bandées. Elle sait compter : il manque trois ans à ton récit."
     },
     "Le soir, toute la ville sait que le premier drapier a sauvé Corvèze. On t'acclame sur la place. Tes entrepôts sont perdus, la laine de la saison est perdue, et tu as la Charge des Vannes pour vingt ans.",
-    "Pernelle Daguet range son écritoire dans un tiroir de ton cabinet. Elle ne te la montre pas. Tu ne lui demandes pas ce qu'elle a écrit cette nuit."
+    "Pernelle Daguet range son écritoire dans un tiroir de ton cabinet. Elle la garde pour elle. Tu ne lui demandes pas ce qu'elle a écrit cette nuit."
    ]
   },
   "C_bouc": {
@@ -7679,7 +7679,7 @@
    "text": [
     "De la fenêtre du salon, tu vois la vallée dans le petit jour gris. La digue n'est plus entière. Au milieu, il y a un trou, et par ce trou le lac sort tout entier, une seule vague brune qui descend la vallée en emportant la forêt.",
     "Elle passe sur les Foulons. Sur tes entrepôts. Sur le pont des Moulins. Quand elle est passée, la Sorge est un lac boueux d'une rive à l'autre, avec des toits qui flottent.",
-    "Aude est derrière toi. Elle ne dit rien.",
+    "Aude est derrière toi. Elle se tait.",
     "À huit heures, le Conseil se réunit dans une ville qui compte ses morts. Tu présides. Tu dis que le garde-vannes a caché l'état de la digue. On te croit, pendant une semaine.",
     "Puis Pernelle Daguet quitte ton service. Elle emporte une copie de tout ce qu'elle a écrit depuis trois ans. Puis Dame Hesdin demande l'ouverture de ton coffre devant le Conseil.",
     "On te juge au printemps, quand le lac est vide et qu'on peut voir, dans la boue, ce qui reste de la Grande Digue. On ne te pend pas. On te prend tout. Tu finis l'hiver dans une chambre de la Haute-Ville, d'où l'on voit l'endroit où était la Retenue."
@@ -7715,7 +7715,7 @@
    },
    "text": [
     "Tu laisses tes invités au dessert et tu fais atteler. La maison Hesdin est au bout de la rue Haute, contre le rempart : une maison de maître de forges, grande, sans ornements, avec une enclume de fer sur le linteau.",
-    "Dame Bérangère Hesdin te reçoit dans son bureau, en robe noire, devant un feu de bois de chêne. Elle a soixante-dix ans et un regard de fondeur. Elle ne t'offre pas de t'asseoir.",
+    "Dame Bérangère Hesdin te reçoit dans son bureau, en robe noire, devant un feu de bois de chêne. Elle a soixante-dix ans et un regard de fondeur. Elle te laisse debout.",
     "« Votre pâté était excellent, Corlay. Mes chiens l'ont dit. »",
     "Tu parles. Tu parles bien : la stabilité, les tisserands, la Charge en de bonnes mains, la digue reprise dans les règles. Elle t'écoute jusqu'au bout.",
     "« Une seule question, dit-elle. Vous êtes descendu dans la galerie, vous ? Une fois, dans votre vie ? »",
@@ -7793,7 +7793,7 @@
    "text": [
     "Tu te retournes vers elle dans le noir.",
     "« Il y a trois ans, le vieux Vellard est venu au Conseil avec ses mesures. Une fissure dans la galerie. Il fallait vider le lac. On a voté de se taire. J'ai présidé. On a payé les dettes de son fils pour qu'il se taise aussi. » Tu respires. « Ce soir, il a voulu ouvrir la vanne. J'ai fait saisir la clé. Elle est dans le coffre. »",
-    "Aude ne dit rien pendant un long moment. Puis elle se lève, allume la bougie, et commence à s'habiller.",
+    "Aude garde le silence un long moment. Puis elle se lève, allume la bougie, et commence à s'habiller.",
     "« Fais atteler, dit-elle. Tu vas aller voir. Moi, je vais réveiller Pernelle. »",
     "« Il est une heure du matin. »",
     "« Il était une heure du matin il y a trois ans aussi, Enguerrand. Ça fait trois ans qu'il est une heure du matin. »"
@@ -7978,7 +7978,7 @@
    "text": [
     "Tu lui donnes la toile cirée et la lettre au cachet vert. *Trois heures, la vanne de fond. Il faut quatre bras. Qu'Ilde fasse lever les Foulons à deux heures.*",
     "« Trois lanternes à cette fenêtre, quand je serai prêt. »",
-    "Ilde se lève. Elle va jusqu'à la porte de la pièce d'à côté, entrouverte. Elle regarde Bastien sur son banc. Elle revient, et elle ne dit rien. Elle t'embrasse sur le front, comme on embrasse un enfant malade, et elle s'en va.",
+    "Ilde se lève. Elle va jusqu'à la porte de la pièce d'à côté, entrouverte. Elle regarde Bastien sur son banc. Elle revient en silence. Elle t'embrasse sur le front, comme on embrasse un enfant malade, et elle s'en va.",
     "À huit heures, Bastien se lève. Il dit qu'il va faire un tour. Il ne te regarde pas en le disant. Tu entends son pas décroître dans l'escalier de la digue, plus vite qu'il ne descend d'habitude."
    ],
    "choices": [
@@ -8242,7 +8242,7 @@
    "text": [
     "À sept heures, Ilde arrive. Elle trouve le père et le fils assis côte à côte, les yeux rouges tous les deux. Elle ne pose pas de question.",
     "Tu gardes la clé. Tu lui donnes une lettre pour Jacquette : *Trois heures, par le canal.* Et tu lui demandes de faire lever les Foulons à deux heures, sans rien dire à personne d'autre.",
-    "Personne ne descend à la rue Haute ce soir. Personne ne parle au capitaine Rambert. Le pont des Moulins n'a pas de lanterne, cette nuit-là.",
+    "Ce soir, Bastien reste là-haut. Le capitaine Rambert n'apprend rien. Le pont des Moulins reste noir, cette nuit-là.",
     "À minuit, Bastien t'aide à descendre l'escalier de service. Tu lui apprends tout ce que tu sais, en bas, à la lanterne, en attendant. Les mesures, la mousse, le chant du parement quand l'eau monte. Le pointeau. Il écoute comme il n'a jamais écouté.",
     "À trois heures moins le quart, une barque dans le tunnel. Jacquette."
    ],
@@ -8471,7 +8471,7 @@
    },
    "text": [
     "Au jour, la pluie, et le lac qui descend. Tu es dans ton fauteuil. Ilde est assise par terre contre ton genou. Elle compte tes gouttes : dix.",
-    "De la fenêtre, on voit les Foulons au bout de la vallée, sous l'eau jusqu'aux fenêtres basses. On voit des barques entre les maisons, des gens sur les toits. Personne ne les a réveillés à deux heures. Ilde le voit aussi. Elle ne dit rien. Tu sais ce qu'elle pense : elle aurait pu y être.",
+    "De la fenêtre, on voit les Foulons au bout de la vallée, sous l'eau jusqu'aux fenêtres basses. On voit des barques entre les maisons, des gens sur les toits. Personne ne les a réveillés à deux heures. Ilde le voit aussi. Elle se tait. Tu sais ce qu'elle pense : elle aurait pu y être.",
     "« On en comptera combien ? » demande-t-elle.",
     "« Moins que si tu étais partie avec la clé et qu'on t'avait arrêtée sur la berge. Plus que si tu étais descendue sans elle. Je ne sais pas, Ilde. Je ne sais plus compter, ce matin. »",
     "On en compte cinq.",
@@ -8777,7 +8777,7 @@
    },
    "text": [
     "Bastien descend l'escalier de la digue. Tu entends son pas décroître : lent au début, puis plus vite, puis très vite, comme quelqu'un qui court vers la ville.",
-    "Ilde reste. Elle ne dit rien. Elle compte tes gouttes. À neuf heures, elle redescend aux Foulons pour faire lever le quartier à deux heures, comme prévu. Elle t'embrasse sur le front en partant.",
+    "Ilde reste. En silence, elle compte tes gouttes. À neuf heures, elle redescend aux Foulons pour faire lever le quartier à deux heures, comme prévu. Elle t'embrasse sur le front en partant.",
     "Dix heures. Onze. Minuit. Personne. Une seule lanterne à ta fenêtre. Tu ne t'étonnes de rien. Tu attends quand même.",
     "À deux heures et quart, on gratte à la porte de l'escalier intérieur."
    ],

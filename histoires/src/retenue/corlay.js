@@ -75,7 +75,7 @@ module.exports = {
       "De la fenêtre du salon, on voit toute la vallée, quand il fait jour. La nuit, on ne voit rien. Ce soir, au bout du noir, il y a une petite lumière, une seule, très loin, à la fenêtre de la Maison des Vannes.",
       "Tu la regardes un moment. Le vieux ne dort pas, lui non plus.",
       "Tu retournes te coucher. Aude dort, cette fois. Dans quatre heures, tu auras la Charge des Vannes. Tu as compté les voix dix fois.",
-      "Tu ne sais pas ce que fait Dame Hesdin cette nuit. Tu ne sais pas ce que fait le vieux Vellard, au bout de la vallée, avec sa seule lanterne. Il faudra le suivre, lui, pour le savoir. Il faudra d'abord en savoir assez pour le comprendre.",
+      "Tu ignores ce que fait Dame Hesdin cette nuit, et ce que fait le vieux Vellard, au bout de la vallée, avec sa seule lanterne. Il faudra le suivre, lui, pour le savoir. Il faudra d'abord en savoir assez pour le comprendre.",
     ] },
   C_tassin_seul: { act: A, title: "Les gants de chevreau", place: "hauteville", fx: { learn: "tassin", item: "rapport_tassin", time: 0.5 },
     text: [
@@ -126,7 +126,7 @@ module.exports = {
     text: [
       { via: "ordre", text: "Le sergent arrache sa hallebarde des pavés et s'écarte. Il te salue. Il ne te regarde pas." },
       { via: "verite", text: "Le sergent t'écoute jusqu'au bout, la lanterne baissée. Puis il dit : « Ma fille dort rue du Lavoir. » Il crie à ses deux hommes de le suivre, et ils partent en courant vers les Foulons, sans attendre le capitaine." },
-      "La route de la Digue. Les bornes passent dans la lanterne. Pernelle ne dit rien. Au bout de la route, au pied du mur, il y a une cabane de planches goudronnées, de la lumière dedans, et une femme rousse sur le ponton, un couteau à la main.",
+      "La route de la Digue. Les bornes passent dans la lanterne. Pernelle se tait. Au bout de la route, au pied du mur, il y a une cabane de planches goudronnées, de la lumière dedans, et une femme rousse sur le ponton, un couteau à la main.",
       "La femme te regarde, toi, ton manteau, ta voiture. Elle te reconnaît. Tout le monde te reconnaît dans cette vallée.",
       "Elle te fait monter dans sa barque sans un mot. Elle longe le parement à la rame, jusqu'à un endroit qu'elle connaît. Elle lève la lanterne.",
       "Entre deux pierres, un mètre au-dessus de l'eau, un bouillon sort du mur. Il est gros comme un bras. Il est brun, chargé de sable. Il gargouille. La pierre autour est mouillée sur toute sa hauteur.",
@@ -136,7 +136,7 @@ module.exports = {
     choices: [{ label: "Monter chez le garde-vannes", to: "C_maison" }] },
   C_maison: { act: A, title: "Deux vieux hommes", place: "digue", fx: { time: 0.75 },
     text: [
-      "Anselme Vellard t'ouvre lui-même, une couverture sur les épaules. Il voit la clé dans ta main. Il ne dit rien pendant longtemps.",
+      "Anselme Vellard t'ouvre lui-même, une couverture sur les épaules. Il voit la clé dans ta main. Il garde longtemps le silence.",
       "Vous avez le même âge, à quelques années près. Vous étiez à l'école ensemble, chez les frères de Saint-Rieul. Il était meilleur que toi en calcul. Tu étais meilleur que lui en tout le reste.",
       "« Tu es venu », dit-il.",
       "« J'ai vu le mur. »",
@@ -162,11 +162,11 @@ module.exports = {
     text: [
       "À huit heures, tu entres dans la grande salle de l'Hôtel du Conseil, en habit de soirée trempé, les mains bandées. Les six autres te regardent comme on regarde un homme revenu d'une guerre.",
       "Tu dis : la digue fuyait. Tu dis : je suis allé voir, cette nuit. Tu dis : j'ai fait ouvrir la vanne de fond, et j'ai fait monter les Foulons à Saint-Rieul par le guet. Tu dis : personne n'est mort.",
-      "Tout est vrai. Tu ne dis pas la séance d'il y a trois ans. Tu ne dis pas le rapport de Tassin. Tu ne dis pas la clé saisie sur le pont.",
+      "Tout est vrai. Tu tais la séance d'il y a trois ans. Tu tais le rapport de Tassin. Tu tais la clé saisie sur le pont.",
       "On vote. Six voix pour toi. Dame Hesdin s'abstient. Elle te regarde pendant tout le vote.",
       { if: { has: "corlay:hesdin" }, text: "Elle t'avait demandé de lui montrer quelque chose. Tu lui as montré tes mains bandées. Elle sait compter : il manque trois ans à ton récit." },
       "Le soir, toute la ville sait que le premier drapier a sauvé Corvèze. On t'acclame sur la place. Tes entrepôts sont perdus, la laine de la saison est perdue, et tu as la Charge des Vannes pour vingt ans.",
-      "Pernelle Daguet range son écritoire dans un tiroir de ton cabinet. Elle ne te la montre pas. Tu ne lui demandes pas ce qu'elle a écrit cette nuit.",
+      "Pernelle Daguet range son écritoire dans un tiroir de ton cabinet. Elle la garde pour elle. Tu ne lui demandes pas ce qu'elle a écrit cette nuit.",
     ] },
   C_bouc: { act: A, title: "Le nom des Vellard", place: "hauteville", end: true, fx: { time: 2 },
     text: [
@@ -199,7 +199,7 @@ module.exports = {
     text: [
       "De la fenêtre du salon, tu vois la vallée dans le petit jour gris. La digue n'est plus entière. Au milieu, il y a un trou, et par ce trou le lac sort tout entier, une seule vague brune qui descend la vallée en emportant la forêt.",
       "Elle passe sur les Foulons. Sur tes entrepôts. Sur le pont des Moulins. Quand elle est passée, la Sorge est un lac boueux d'une rive à l'autre, avec des toits qui flottent.",
-      "Aude est derrière toi. Elle ne dit rien.",
+      "Aude est derrière toi. Elle se tait.",
       "À huit heures, le Conseil se réunit dans une ville qui compte ses morts. Tu présides. Tu dis que le garde-vannes a caché l'état de la digue. On te croit, pendant une semaine.",
       "Puis Pernelle Daguet quitte ton service. Elle emporte une copie de tout ce qu'elle a écrit depuis trois ans. Puis Dame Hesdin demande l'ouverture de ton coffre devant le Conseil.",
       "On te juge au printemps, quand le lac est vide et qu'on peut voir, dans la boue, ce qui reste de la Grande Digue. On ne te pend pas. On te prend tout. Tu finis l'hiver dans une chambre de la Haute-Ville, d'où l'on voit l'endroit où était la Retenue.",

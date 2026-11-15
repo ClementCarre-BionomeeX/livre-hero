@@ -12,7 +12,7 @@ module.exports = {
   C_hesdin: { act: A, title: "La dame des forges", place: "hauteville", fx: { flag: "corlay:hesdin", time: 0.75 },
     text: [
       "Tu laisses tes invités au dessert et tu fais atteler. La maison Hesdin est au bout de la rue Haute, contre le rempart : une maison de maître de forges, grande, sans ornements, avec une enclume de fer sur le linteau.",
-      "Dame Bérangère Hesdin te reçoit dans son bureau, en robe noire, devant un feu de bois de chêne. Elle a soixante-dix ans et un regard de fondeur. Elle ne t'offre pas de t'asseoir.",
+      "Dame Bérangère Hesdin te reçoit dans son bureau, en robe noire, devant un feu de bois de chêne. Elle a soixante-dix ans et un regard de fondeur. Elle te laisse debout.",
       "« Votre pâté était excellent, Corlay. Mes chiens l'ont dit. »",
       "Tu parles. Tu parles bien : la stabilité, les tisserands, la Charge en de bonnes mains, la digue reprise dans les règles. Elle t'écoute jusqu'au bout.",
       "« Une seule question, dit-elle. Vous êtes descendu dans la galerie, vous ? Une fois, dans votre vie ? »",
@@ -43,7 +43,7 @@ module.exports = {
     text: [
       "Tu te retournes vers elle dans le noir.",
       "« Il y a trois ans, le vieux Vellard est venu au Conseil avec ses mesures. Une fissure dans la galerie. Il fallait vider le lac. On a voté de se taire. J'ai présidé. On a payé les dettes de son fils pour qu'il se taise aussi. » Tu respires. « Ce soir, il a voulu ouvrir la vanne. J'ai fait saisir la clé. Elle est dans le coffre. »",
-      "Aude ne dit rien pendant un long moment. Puis elle se lève, allume la bougie, et commence à s'habiller.",
+      "Aude garde le silence un long moment. Puis elle se lève, allume la bougie, et commence à s'habiller.",
       "« Fais atteler, dit-elle. Tu vas aller voir. Moi, je vais réveiller Pernelle. »",
       "« Il est une heure du matin. »",
       "« Il était une heure du matin il y a trois ans aussi, Enguerrand. Ça fait trois ans qu'il est une heure du matin. »",

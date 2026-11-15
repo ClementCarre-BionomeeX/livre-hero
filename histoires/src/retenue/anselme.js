@@ -52,7 +52,7 @@ module.exports = {
     text: [
       "Tu lui donnes la toile cirée et la lettre au cachet vert. *Trois heures, la vanne de fond. Il faut quatre bras. Qu'Ilde fasse lever les Foulons à deux heures.*",
       "« Trois lanternes à cette fenêtre, quand je serai prêt. »",
-      "Ilde se lève. Elle va jusqu'à la porte de la pièce d'à côté, entrouverte. Elle regarde Bastien sur son banc. Elle revient, et elle ne dit rien. Elle t'embrasse sur le front, comme on embrasse un enfant malade, et elle s'en va.",
+      "Ilde se lève. Elle va jusqu'à la porte de la pièce d'à côté, entrouverte. Elle regarde Bastien sur son banc. Elle revient en silence. Elle t'embrasse sur le front, comme on embrasse un enfant malade, et elle s'en va.",
       "À huit heures, Bastien se lève. Il dit qu'il va faire un tour. Il ne te regarde pas en le disant. Tu entends son pas décroître dans l'escalier de la digue, plus vite qu'il ne descend d'habitude.",
     ],
     choices: [{ label: "Préparer les lanternes", to: "A_lanternes" }] },
@@ -156,7 +156,7 @@ module.exports = {
     text: [
       "À sept heures, Ilde arrive. Elle trouve le père et le fils assis côte à côte, les yeux rouges tous les deux. Elle ne pose pas de question.",
       "Tu gardes la clé. Tu lui donnes une lettre pour Jacquette : *Trois heures, par le canal.* Et tu lui demandes de faire lever les Foulons à deux heures, sans rien dire à personne d'autre.",
-      "Personne ne descend à la rue Haute ce soir. Personne ne parle au capitaine Rambert. Le pont des Moulins n'a pas de lanterne, cette nuit-là.",
+      "Ce soir, Bastien reste là-haut. Le capitaine Rambert n'apprend rien. Le pont des Moulins reste noir, cette nuit-là.",
       "À minuit, Bastien t'aide à descendre l'escalier de service. Tu lui apprends tout ce que tu sais, en bas, à la lanterne, en attendant. Les mesures, la mousse, le chant du parement quand l'eau monte. Le pointeau. Il écoute comme il n'a jamais écouté.",
       "À trois heures moins le quart, une barque dans le tunnel. Jacquette.",
     ],
@@ -241,7 +241,7 @@ module.exports = {
   A_ilde: { act: A, title: "Ilde", place: "digue", end: true, fx: { time: 3 },
     text: [
       "Au jour, la pluie, et le lac qui descend. Tu es dans ton fauteuil. Ilde est assise par terre contre ton genou. Elle compte tes gouttes : dix.",
-      "De la fenêtre, on voit les Foulons au bout de la vallée, sous l'eau jusqu'aux fenêtres basses. On voit des barques entre les maisons, des gens sur les toits. Personne ne les a réveillés à deux heures. Ilde le voit aussi. Elle ne dit rien. Tu sais ce qu'elle pense : elle aurait pu y être.",
+      "De la fenêtre, on voit les Foulons au bout de la vallée, sous l'eau jusqu'aux fenêtres basses. On voit des barques entre les maisons, des gens sur les toits. Personne ne les a réveillés à deux heures. Ilde le voit aussi. Elle se tait. Tu sais ce qu'elle pense : elle aurait pu y être.",
       "« On en comptera combien ? » demande-t-elle.",
       "« Moins que si tu étais partie avec la clé et qu'on t'avait arrêtée sur la berge. Plus que si tu étais descendue sans elle. Je ne sais pas, Ilde. Je ne sais plus compter, ce matin. »",
       "On en compte cinq.",

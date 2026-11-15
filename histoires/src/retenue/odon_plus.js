@@ -140,7 +140,7 @@ module.exports = {
       "On t'insulte un peu. On te demande ce que tu sais. Tu dis : la digue. On te croit à moitié. Tout le monde reste.",
       "À quatre heures, la pluie. À cinq heures et demie, la tour du guet tremble. Un grondement descend la vallée, énorme, continu. La Sorge se soulève entre ses rives comme une bête qui se lève. La vague passe sur les Foulons. Quand elle est passée, il reste des toits, et le clocher de Saint-Blaise.",
       "Sur le parvis, huit cents personnes regardent l'endroit où étaient leurs maisons. D'abord le silence. Puis une femme se met à pleurer, et toutes les autres.",
-      { if: { has: "gosse:sauvee" }, text: "La veuve Gosse est assise sur les marches, dans son fauteuil, que deux teinturiers ont monté avec elle dedans. Elle ne te parle pas. Elle te tient la main." },
+      { if: { has: "gosse:sauvee" }, text: "La veuve Gosse est assise sur les marches, dans son fauteuil, que deux teinturiers ont monté avec elle dedans. Elle garde le silence. Elle te tient la main." },
       { if: { not: { has: "gosse:sauvee" } }, text: "Il manque des gens. La veuve Gosse, du bout de la rue du Lavoir. Un vieux foulon qui dormait près de sa porte. Ceux qui n'ont pas cru la cloche." },
       "La digue a cédé. La clé est restée en bas, dans la rue Haute. Tu as fait lever les vivants, et le lac a pris tout le reste : les maisons, les métiers, les cuves, les draps.",
       "À huit heures, le Conseil se réunit dans une ville sans quartier bas. Quelqu'un demande qui a fait sonner la cloche du lavoir à minuit, et pourquoi. On cherche le sergent Brasseur. Pour le remercier, ou pour lui demander ce qu'il savait.",

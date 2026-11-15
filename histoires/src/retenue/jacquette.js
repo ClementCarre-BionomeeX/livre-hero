@@ -76,7 +76,7 @@ module.exports = {
       "Il te fait asseoir. Il te raconte, enfin. La galerie, la fissure qu'il appelle la veine, trois ans de mortier, le Conseil qui a su et qui a voté de se taire. La clé, qu'il a donnée à Ilde à sept heures. La vanne de fond, qu'il fallait ouvrir à trois heures.",
       "« Sans la clé, la roue ne tourne pas », dit-il.",
       "Tu lui dis ce que tu as vu au pied du mur. Le bouillon brun, gros comme un bras. Il ferme les yeux.",
-      "Trois heures sonnent, très loin, à Saint-Rieul. Il n'y a qu'une lanterne à la fenêtre. Le vieux regarde son baromètre. Il ne dit plus rien.",
+      "Trois heures sonnent, très loin, à Saint-Rieul. Il n'y a qu'une lanterne à la fenêtre. Le vieux regarde son baromètre. Il se tait.",
       "À quatre heures, la pluie. Elle frappe les vitres. Le vieux se lève, tout seul, et il se tient debout devant sa fenêtre, une main sur la vitre froide.",
       "« Il y a peut-être un autre moyen, dit-il. Mais il faudrait un garçon qui l'a appris quand il avait huit ans. »",
       "Il ne dit pas lequel. Ce garçon-là, il faudra le suivre, une autre nuit.",
@@ -186,6 +186,6 @@ module.exports = {
       "Au bout du lac, là où était la digue, une brume brune monte du sol.",
       "Le bruit arrive après, longtemps après, un grondement qui roule dans toute la vallée et fait s'envoler les corbeaux de la forêt.",
       "Tu vends ton sel le jour même, au double du prix, parce que les routes de la vallée sont coupées. Tu as de l'argent pour un an.",
-      "On ne t'a rien demandé, cette nuit-là. On ne t'a jamais rien demandé. Tu te le répètes à Brême, puis à Saint-Vaast, puis ailleurs. Tu ne retournes jamais au bord de l'eau.",
+      "On ne t'a jamais rien demandé, cette nuit-là comme les autres. Tu te le répètes à Brême, puis à Saint-Vaast, puis ailleurs. Tu vis désormais loin de l'eau.",
     ] },
 };

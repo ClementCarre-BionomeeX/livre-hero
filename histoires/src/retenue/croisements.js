@@ -61,7 +61,7 @@ module.exports = {
   A_confiance_nuit: { act: A, title: "L'escalier", place: "digue", fx: { time: 4.5 },
     text: [
       "Bastien descend l'escalier de la digue. Tu entends son pas décroître : lent au début, puis plus vite, puis très vite, comme quelqu'un qui court vers la ville.",
-      "Ilde reste. Elle ne dit rien. Elle compte tes gouttes. À neuf heures, elle redescend aux Foulons pour faire lever le quartier à deux heures, comme prévu. Elle t'embrasse sur le front en partant.",
+      "Ilde reste. En silence, elle compte tes gouttes. À neuf heures, elle redescend aux Foulons pour faire lever le quartier à deux heures, comme prévu. Elle t'embrasse sur le front en partant.",
       "Dix heures. Onze. Minuit. Personne. Une seule lanterne à ta fenêtre. Tu ne t'étonnes de rien. Tu attends quand même.",
       "À deux heures et quart, on gratte à la porte de l'escalier intérieur.",
     ],

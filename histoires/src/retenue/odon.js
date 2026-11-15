@@ -106,7 +106,7 @@ module.exports = {
       "Tu penses à la courrière, en bas, dans ta cellule, qui t'a regardé comme pour se souvenir de ton visage. Tu penses à la clé dans la toile cirée, et au valet vert qui l'a emportée sans un mot. Tu penses au tiroir du capitaine, et aux quatre bourses dedans.",
       "Tu penses à Nine, rue du Lavoir, la troisième maison après la fontaine, au rez-de-chaussée, à deux pas de la Sorge.",
       "Le mercure, dans le baromètre de Vellard, continue de descendre.",
-      "Tu remets tes bottes. Tu ne sais pas encore où tu vas. Tu sais seulement que tu ne peux plus rester là.",
+      "Tu remets tes bottes. Tu ignores encore où tu vas. Tu sais seulement que tu ne peux plus rester là.",
       "Ce qu'on a fait de la clé, cette nuit, dans la maison aux fenêtres allumées de la rue Haute : quelqu'un d'autre l'a vu.",
     ] },
 
@@ -154,7 +154,7 @@ module.exports = {
     text: [
       { via: "pont", text: "Tu tiens ton pont. À minuit, Colin dort debout. À une heure, Thomin chante pour ne pas dormir. Le vent tourne au nord, puis au nord-ouest, puis il vient droit du lac, chargé d'une odeur de pluie." },
       { via: "nine", text: "Nine t'ouvre en chemise, le ventre en avant, la chandelle à la main. Elle voit ta manche nue. Elle ne pose pas de questions. Elle fait chauffer de l'eau pour une tisane et te met une couverture sur les épaules." },
-      { via: "nine", text: "Tu ne lui racontes rien. Tu regardes ses mains de lavandière, rouges et gercées, poser deux tasses sur la table, et tu penses que tu ne sais plus à quoi sert un sergent." },
+      { via: "nine", text: "Tu gardes tout pour toi. Tu regardes ses mains de lavandière, rouges et gercées, poser deux tasses sur la table, et tu penses que tu ne sais plus à quoi sert un sergent." },
       "Vers une heure, sur la Sorge, sous les fenêtres, quelqu'un siffle. Deux coups courts, un long. Une barque passe sans lanterne, à contre-courant, vite, avec une seule silhouette à la rame.",
       "Le sifflet se répète plus loin, en amont, vers la digue. Puis plus rien que le vent.",
       "Qui siffle ainsi sur l'eau à une heure du matin, et qui elle cherche : une autre le sait.",
@@ -181,7 +181,7 @@ module.exports = {
     ] },
   O_tour: { act: A, title: "La tour du guet", place: "hauteville", fx: { time: 0.75 },
     text: [
-      { via: "coupe", text: "Le lacet cède sous ton couteau. Anicet ne se réveille pas. Le patron ne dit rien." },
+      { via: "coupe", text: "Le lacet cède sous ton couteau. Anicet dort toujours. Le patron laisse faire." },
       { via: "anicet", text: "Anicet se réveille mal, puis d'un coup. Quand tu dis la digue, il ne pose pas de question. Il a été garçon de vannes chez le vieux Ferréol, à quinze ans. Il te suit dans la rue en se tenant aux murs." },
       "La tour du guet a cent quarante marches. Tu les montes dans le noir, la main sur le mur, le souffle court. En haut, la chambre des cloches est ouverte aux quatre vents. Le gros bourdon pend au milieu, et la corde du tocsin descend jusqu'au plancher, usée en son milieu par cent ans de mains.",
       "D'ici, on voit toute la vallée. Les Foulons noirs. La Sorge, plus large qu'à la tombée de la nuit. Et au bout du lac, sur la digue, trois petites lumières côte à côte.",
@@ -196,7 +196,7 @@ module.exports = {
   O_tocsin: { act: A, title: "Le tocsin", place: "hauteville", end: true, fx: { time: 4 },
     text: [
       "Tu tires. Le bourdon bascule, hésite, frappe. Le son te traverse les os. Tu tires encore, à coups pressés, à coups courts, comme pour un incendie, comme pour la peste.",
-      { via: "trappe", text: "Sous la trappe, Rambert cogne, crie, jure, menace. Tu ne l'entends pas. Tu n'entends plus rien que la cloche." },
+      { via: "trappe", text: "Sous la trappe, Rambert cogne, crie, jure, menace. Tu n'entends plus que la cloche." },
       { via: "lutte", text: "Rambert passe la trappe. Il t'empoigne, tu le repousses, il glisse, il se rattrape à la corde, et le bourdon sonne sous vos deux poids mêlés. Il finit par lâcher. Il redescend sans un mot, la lèvre fendue. Tu reprends la corde." },
       { if: { not: { via: ["trappe", "lutte"] } }, text: "Rambert arrive au sommet de l'escalier. Il te regarde sonner. Il ne monte pas la dernière marche. Il redescend." },
       "En bas, les fenêtres s'allument. Toutes. La Haute-Ville d'abord, puis les Foulons, rue par rue. Des lanternes sortent sur les quais. Tes hommes, Colin et Thomin et les autres, réveillés au poste, descendent vers le quartier bas en criant.",
@@ -229,8 +229,8 @@ module.exports = {
       "Vers cinq heures et demie, la tour tremble. Un grondement descend la vallée, énorme, continu, et la Sorge se soulève entre ses rives comme une bête qui se lève. La vague passe sur les Foulons. Quand elle est passée, il reste des toits, et le clocher de Saint-Blaise.",
       "Nine s'est réveillée. Elle est à côté de toi, les mains sur son ventre. Elle regarde l'endroit où était sa rue.",
       { via: "rue", text: "Quatre familles, sur le palier de la tour, pleurent leurs maisons. Elles sont vivantes. Les sept autres portes, tu les revois une par une." },
-      { if: { has: "gosse:sauvee" }, text: "La veuve Gosse est là aussi, dans son fauteuil, sous une couverture. Tu as enfoncé sa porte. Elle ne t'a pas encore dit un mot, et elle ne lâche pas ta manche." },
-      { via: "seuls", text: "Elle te demande : « Tu savais ? » Tu ne réponds pas. Elle n'a pas besoin que tu répondes." },
+      { if: { has: "gosse:sauvee" }, text: "La veuve Gosse est là aussi, dans son fauteuil, sous une couverture. Tu as enfoncé sa porte. Elle se tait encore, et elle tient ta manche serrée." },
+      { via: "seuls", text: "Elle te demande : « Tu savais ? » Tu te tais. Elle n'a pas besoin que tu répondes." },
       "À huit heures, le Conseil siège dans une ville qui compte ses morts. La Charge des Vannes n'a plus de vannes à garder.",
     ] },
   O_reprendre: { act: A, title: "La porte fermée", place: "hauteville",

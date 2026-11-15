@@ -202,7 +202,7 @@ module.exports = {
     ] },
   I_canal: { act: A, title: "Quatre bras", place: "digue", fx: { drop: "paquet", time: 3.5 },
     text: [
-      "Jacquette rame vers l'arche du canal de fuite, ouvre la grille avec la clé pendue à son cou, et vous entrez dans le ventre de la digue. Tu ne dis rien pendant tout le trajet. L'eau est noire, l'air résonne.",
+      "Jacquette rame vers l'arche du canal de fuite, ouvre la grille avec la clé pendue à son cou, et vous entrez dans le ventre de la digue. Tu te tais pendant tout le trajet. L'eau est noire, l'air résonne.",
       "Dans la chambre de la vanne, Anselme vous attend, assis contre le mur. Il voit qui tient la lanterne. Il dit ton nom comme on le disait il y a quarante ans.",
       "Il tourne la clé de ses deux mains. Jacquette prend un rayon de la roue, toi l'autre. Tu as cinquante-huit ans et des genoux de vieille femme. Tu as aussi des bras d'apothicaire qui ont pilé trente ans de racines.",
       { if: { has: "ilde:souvenir" }, text: "Au premier tour, Anselme te regarde pousser, et il dit, pour toi seule : « Le panier. » Tu ris, et tu pousses plus fort." },
