@@ -720,8 +720,11 @@
       mine[id] = Object.assign({ t: (mine[id] && mine[id].t) || (pref("gensDefaut") || []).slice() }, mine[id] || {}, patch);
       setPref("gensSuivi", all);
     }
+    // The person's aspect, plus the reader's own words for this person (« Ma description », Clément 15/11).
+    var MINE = "perso", MINE_LABEL = "Ma description", MINE_MAX = 80;
+    function aspectPlus(st, s, id) { var a = M.aspectOf(st, s, id), f = follow(st, id); if (f && f.perso) a[MINE] = f.perso; return a; }
     function reminder(st, s, id) {
-      var a = M.aspectOf(st, s, id), keys = traits(st, id).filter(function (k) { return a[k]; });
+      var a = aspectPlus(st, s, id), keys = traits(st, id).filter(function (k) { return a[k]; });
       return keys.length ? "<span class=\"pp-rappel\" aria-hidden=\"true\">" + keys.map(function (k) { return esc(a[k]); }).join(" · ") + "</span>" : "";
     }
     function button(st, s, id, text, used) {
@@ -769,27 +772,38 @@
     function portrait(st, s, id, size) { return (st.people || {})[id] ? personFace(st, id, size) : portraitOf(st, id, s, size); }
     // The card of a person: who, how the person looks now, what the reader keeps beside the name.
     function card(st, s, id, opts) {
-      var P = M.personOf(st, id), a = M.aspectOf(st, s, id), f = follow(st, id) || {}, chosen = traits(st, id), keys = Object.keys(M.ASPECT_KEYS).filter(function (k) { return a[k]; });
+      var P = M.personOf(st, id), a = aspectPlus(st, s, id), f = follow(st, id) || {}, chosen = traits(st, id), keys = Object.keys(M.ASPECT_KEYS).filter(function (k) { return a[k]; });
+      var label = function (k) { return k === MINE ? MINE_LABEL : M.ASPECT_KEYS[k]; };
+      if (a[MINE]) keys.push(MINE);
       var ro = A.game && A.game.multi && A.multi && A.multi.kind !== "local";
       var box = h("div", { class: "pp-card" + (opts && opts.cls ? " " + opts.cls : "") },
         h("div", { class: "pp-head" }, h("span", { class: "pp-face", html: portrait(st, s, id, opts && opts.big ? 72 : 52) }),
           h("div", null, h("b", { class: "pp-name" }, P.name), h("div", { class: "pp-qui" }, M.quiOf(st, s, id)),
             h("div", { class: "pp-tags" }, regardTag(s, id), attachTag(st, s, id)))),
         metLine(st, s, id),
-        keys.length ? h("dl", { class: "pp-aspect" }, keys.map(function (k) { return [h("dt", null, M.ASPECT_KEYS[k]), h("dd", null, a[k])]; })) : null);
-      if (keys.length && !ro) {
+        keys.length ? h("dl", { class: "pp-aspect" }, keys.map(function (k) { return [h("dt", null, label(k)), h("dd", { class: k === MINE ? "mine" : null }, a[k])]; })) : null);
+      if (!ro) {
         box.appendChild(h("div", { class: "pp-pick" }, h("div", { class: "small muted" }, f.connu ? "Tu connais son nom : plus de rappel dans le texte." : "À rappeler à côté du nom, dans tout le livre :"),
           f.connu ? null : h("div", { class: "pp-checks" }, keys.map(function (k) {
             return h("label", { class: "pp-check" }, h("input", { type: "checkbox", checked: chosen.indexOf(k) >= 0, onchange: function (e) {
               var t = traits(st, id).slice(); if (e.target.checked) { if (t.indexOf(k) < 0) t.push(k); } else t = t.filter(function (x) { return x !== k; });
-              setFollow(st, id, { t: t });
-            } }), M.ASPECT_KEYS[k]);
+              setFollow(st, id, { t: t }); refresh(id);
+            } }), label(k));
           })),
-          h("label", { class: "pp-check pp-connu" }, h("input", { type: "checkbox", checked: !!f.connu, onchange: function (e) { setFollow(st, id, { connu: e.target.checked }); } }), "Je connais son nom maintenant")));
+          h("label", { class: "pp-own" }, h("span", { class: "small muted" }, "Ma description, avec mes mots :"),
+            h("input", { type: "text", maxlength: MINE_MAX, value: f.perso || "", placeholder: "ex. la dame qui rit fort", "aria-label": "Ma description de " + P.name,
+              onkeydown: function (e) { if (e.key === "Enter") e.target.blur(); },
+              onchange: function (e) {
+                var v = e.target.value.trim().slice(0, MINE_MAX), t = traits(st, id).filter(function (x) { return x !== MINE; });
+                if (v) t.push(MINE);   // written for a reason: kept beside the name at once
+                setFollow(st, id, { perso: v, t: t }); refresh(id);
+              } })),
+          h("label", { class: "pp-check pp-connu" }, h("input", { type: "checkbox", checked: !!f.connu, onchange: function (e) { setFollow(st, id, { connu: e.target.checked }); refresh(id); } }), "Je connais son nom maintenant")));
       }
       return box;
     }
     function close() { if (pop) { pop.remove(); pop = null; } }
+    function refresh(id) { var G = A.game; if (pop && pop.dataset.for === id && G) pop.replaceChild(card(G.story, G.s, id), pop.firstChild); }
     function open(btn) {
       close(); var G = A.game; if (!G) return;
       var id = btn.getAttribute("data-pp"); if (!M.personOf(G.story, id)) return;
@@ -798,6 +812,19 @@
       pop.dataset.for = id; document.body.appendChild(pop);
       var r = btn.getBoundingClientRect(), w = Math.min(340, innerWidth - 24);
       pop.style.width = w + "px"; pop.style.left = Math.max(12, Math.min(innerWidth - w - 12, r.left + r.width / 2 - w / 2)) + window.scrollX + "px"; pop.style.top = r.bottom + 8 + window.scrollY + "px";
+    }
+    // « Dans cette scène » (Clément, 15/11, an option): the faces of the people the page names, in the order they come.
+    function scene(G, v) {
+      if (!on() || !pref("gensScene") || !v || !v.text) return null;
+      var st = G.story, s = G.s, c = prepare(st, s), ids = [];
+      if (c.re) v.text.forEach(function (t) { String(t).replace(c.re, function (all, pre, w) { var id = c.map[w.charAt(0).toLowerCase() + w.slice(1)]; if (id && ids.indexOf(id) < 0) ids.push(id); return all; }); });
+      (v.marked || []).forEach(function (t) { String(t).replace(/\{\{gens:([a-z0-9_]+)\|/g, function (all, id) { if (id !== "aucun" && M.personOf(st, id) && ids.indexOf(id) < 0) ids.push(id); return all; }); });
+      if (!ids.length) return null;
+      return h("div", { class: "pp-scene", role: "group", "aria-label": "Dans cette scène" }, h("span", { class: "label" }, "Dans cette scène"),
+        h("div", { class: "pp-scene-row" }, ids.map(function (id) {
+          var b = h("button", { type: "button", class: "pp pp-face-btn", "data-pp": id }, h("span", { html: portrait(st, s, id, 34) }), h("span", null, String(M.personOf(st, id).name).split(",")[0]));
+          return b;
+        })));
     }
     // The first meeting: under the text of the page where the person comes in, the whole card once.
     function firstMeet(G, v) {
@@ -813,7 +840,7 @@
       if (!(e.target.closest && e.target.closest(".pp-pop"))) close();
     }, true);
     document.addEventListener("keydown", function (e) { if (e.key === "Escape") close(); });
-    return { on: on, mark: mark, button: function (st, s, id, t) { return button(st, s, id, t, null); }, card: card, firstMeet: firstMeet, close: close, traits: traits };
+    return { on: on, mark: mark, scene: scene, button: function (st, s, id, t) { return button(st, s, id, t, null); }, card: card, firstMeet: firstMeet, close: close, traits: traits };
   })();
 
   // ------------------------------------------------------------------ pass a game to another device by QR codes
@@ -2303,6 +2330,7 @@
     var actStart = cur >= 0 && acts[cur].start === s.node && actMin;
     page.appendChild(h("div", { class: "page-head" }, h("div", null, h("h2", { id: "page-title", tabindex: "-1" }, v.title || ""), h("div", { class: "where" }, [v.souvenir ? "Souvenir · " + v.souvenir : null, v.interlude ? "Interlude · " + v.interlude.who + (v.interlude.where ? " · " + v.interlude.where : "") : null, cur >= 0 && !v.souvenir && !v.interlude ? acts[cur].title : null, v.souvenir || v.interlude ? null : where(st, s), actStart ? "environ " + minutesLabel(actMin) + " de lecture" : null].filter(Boolean).join(" · "))), num ? h("span", { class: "para-num", title: "Numéro du paragraphe" }, "§ " + num) : null));
     var gb = groupBanner(G, s); if (gb) page.appendChild(gb);
+    var sc = G.multi ? null : People.scene(G, v); if (sc) page.appendChild(sc);
     var fu = firstUse(G, v); if (fu) page.appendChild(fu);
     if (A.notice) page.appendChild(h("div", { class: "notice" }, A.notice));
     if (A.bedWarn && !G.multi) page.appendChild(h("div", { class: "notice soft" }, "🌙 Bientôt l'heure de refermer le livre : le récit te proposera de t'arrêter à une page calme."));
@@ -4584,7 +4612,7 @@
   // ------------------------------------------------------------------ reading preferences (per reader)
   // Intent: pref(Key) -> Value = the reader's own setting, else the default
   // Why: Clément (12/11): text size, spacing, theme, voice, real dice, sound… follow the reader, not the device.
-  var PREFS = { skin: "histoire", size: "m", spacing: "normal", theme: "auto", font: "livre", lettrine: true, voice: "", highlight: true, ruler: false, dialogue: false, glossary: true, lore: true, nudge: false, syllables: false, voiceChoice: false, autoListen: true, battlePlan: true, relations: true, urgent: true, sfx: true, shakeDice: false, fog: true, rate: 1, autoRead: false, dice: "ecran", ambiance: false, music: false, volume: 0.6, spread: "auto", pageTurn: true, swipe: false, contrast: false, cvd: false, quietFx: false, dice3d: true, attachements: "discret", trouble: true, textFx: "anime", gens: "aucun", gensRappel: "chaque", gensCarte: true, gensDefaut: [], gensSuivi: {} };
+  var PREFS = { skin: "histoire", size: "m", spacing: "normal", theme: "auto", font: "livre", lettrine: true, voice: "", highlight: true, ruler: false, dialogue: false, glossary: true, lore: true, nudge: false, syllables: false, voiceChoice: false, autoListen: true, battlePlan: true, relations: true, urgent: true, sfx: true, shakeDice: false, fog: true, rate: 1, autoRead: false, dice: "ecran", ambiance: false, music: false, volume: 0.6, spread: "auto", pageTurn: true, swipe: false, contrast: false, cvd: false, quietFx: false, dice3d: true, attachements: "discret", trouble: true, textFx: "anime", gens: "aucun", gensRappel: "chaque", gensCarte: true, gensScene: false, gensDefaut: [], gensSuivi: {} };
   var SIZES = { s: ["Petit", 16], m: ["Normal", 18], l: ["Grand", 21], xl: ["Très grand", 24] };
   var SPACINGS = { serre: ["Serré", 1.5], normal: ["Normal", 1.72], aere: ["Aéré", 2] };
   var THEMES = { auto: "Comme l'appareil", light: "Clair", sepia: "Sépia", dark: "Sombre", soir: "Lumière du soir" };
@@ -4705,6 +4733,7 @@
     b.appendChild(h("p", { class: "small muted" }, "Les noms des gens rencontrés se touchent : on lit qui c'est, ce qui te lie à cette personne, à quoi elle ressemble. On peut garder un trait (ses habits, un signe) à côté de son nom dans tout le livre, jusqu'à « Je connais son nom maintenant »."));
     if (pref("gens") === "noms") {
       b.appendChild(prefToggle("gensCarte", "Carte de première rencontre", "Sous la page où quelqu'un entre dans l'histoire, son portrait et sa description en entier."));
+      b.appendChild(prefToggle("gensScene", "Bandeau « Dans cette scène »", "En haut de chaque page, les visages des personnes dont elle parle ; on les touche comme leurs noms."));
       b.appendChild(seg({ chaque: "À chaque fois", page: "Une fois par page" }, "gensRappel", "Rappel à côté du nom"));
       b.appendChild(h("div", { class: "label" }, "Pour toute nouvelle personne, rappeler d'office :"));
       b.appendChild(h("div", { class: "pp-checks" }, Object.keys(M.ASPECT_KEYS).map(function (k) {
