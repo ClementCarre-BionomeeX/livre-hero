@@ -270,7 +270,7 @@ recherche des passages jamais atteints sait montrer, relier et accuser.
 | passage | `puzzle: "<id>"`, `puzzleLabel` | Le passage ouvre l'énigme. |
 | `story.dreams` | `[{ to, if, weight }]`, `story.dreamChance` | En arrivant sur un passage `reveil: true` (le matin), le moteur joue d'abord un rêve dont la condition tient, une fois chacun, un par nuit. Le rêve finit par `back: true`. |
 
-Pièges : un choix `test` sur une énigme compte aussi un usage pour la pratique ; une condition `after` lit un drapeau ou un passage vu, pas un indice (écrire `after: "enigme:<id>"` plutôt que l'id de l'indice). Les parties d'essai du validateur tapent la bonne réponse d'une énigme sept fois sur dix.
+Pièges : un choix `test` sur une énigme compte aussi un usage pour la pratique ; une condition `after` lit un drapeau ou un passage vu, pas un indice (écrire `after: "enigme:<id>"` plutôt que l'id de l'indice). Les parties d'essai du validateur tapent la bonne réponse d'une énigme sept fois sur dix. Un passage `duel` déjà joué n'a plus de choix : cacher son entrée avec `hide: { duel: "<id>" }`.
 
 ## Le huis clos (15/11, 8.3) : versions, souvenirs, se taire, conscience, angoisse, attachements
 
@@ -361,3 +361,7 @@ Réglage « Mots à effets » : animés, discrets (couleurs sans mouvement), auc
 Le validateur refuse une balise inconnue ou mal fermée, un effet, un mot-clé, une trouvaille ou un objet inconnus, une trouvaille cachée nulle part, un mot-clé d'histoire sans définition, une humeur inconnue. Les parties au hasard touchent la moitié des trouvailles visibles, et une balise restée dans le texte lu est une erreur.
 
 Exemple en place : « Le Cahier de Solène » (six lettres d'or, le miroir du cours de Verre, la lanterne qui révèle le carnet).
+
+## Tous ensemble (15/11)
+
+`tests/ensemble-test.js` fait jouer dans une seule petite histoire la voie, la route avec un combat et une compagne, la météo, les saisons, une blessure, les rencontres, une veillée, les réserves, le monde en marche, une dette, un conseil, une bataille, l'épilogue, la pratique, un trait, un duel, une énigme, un rêve, une version, un souvenir, un silence, un geste, l'angoisse, les mots à effets et une trouvaille. C'est aussi l'exemple le plus court de chaque mécanisme : partir de là pour en essayer un dans une nouvelle histoire.
