@@ -5,10 +5,10 @@ module.exports = {
   Q_cuisines: { act: "I", title: "Les cuisines", place: "palais", backName: "les cuisines",
     fx: { meet: "bertin" },
     text: [
-      { first: true, text: "Les cuisines du palais occupent tout le rez-de-chaussée de l'aile nord : une salle immense, des cheminées où l'on rôtirait un bœuf, des tables de marbre, des cuivres alignés. D'habitude, quarante personnes y travaillent en criant. Ce matin, elles sont dix, et elles chuchotent." },
-      { first: true, text: "Une fille de cuisine, quinze ans, les avant-bras rouges, se précipite vers toi avant que quiconque ait pu la retenir. « Ils ont pris maître Bertin ! Les marins de l'amiral, à l'aube, ils l'ont tiré de son lit, ils l'ont emmené à l'Arsenal en chemise ! Ils disent qu'il a empoisonné le prince ! Il est innocent, il pleure quand on tue les poulets ! »" },
-      { again: true, text: "Les cuisines ont repris un peu de bruit. Nina, la fille de cuisine, te guette depuis le fond de la salle, entre deux chaudrons." },
-      { after: "bertin:libre", text: "Bertin est revenu à ses fourneaux. Il est livide, il parle par monosyllabes, et il cuisine. Quand tu passes, il essuie ses mains sur son tablier et s'incline, très bas, en silence." },
+      { first: true, text: "Les cuisines du palais occupent tout le rez-de-chaussée de l'aile nord. Tu y comptes quatre cheminées où l'on rôtirait un bœuf, six tables de marbre, et sur les murs, des cuivres alignés par taille, du chaudron à la cuiller. D'habitude, quarante personnes y travaillent en criant. Ce matin, elles sont dix, et elles chuchotent." },
+      { first: true, text: "Une fille de cuisine, quinze ans, les avant-bras rouges jusqu'au coude, se précipite vers toi avant que quiconque ait pu la retenir. « Ils ont pris maître Bertin ! Les marins de l'amiral, à l'aube, ils l'ont tiré de son lit, ils l'ont emmené à l'Arsenal en chemise ! Ils disent qu'il a empoisonné le prince ! Il est innocent, il pleure quand on tue les poulets ! »" },
+      { again: true, text: "Les cuisines ont retrouvé un peu de bruit. Nina, la fille de cuisine, te guette du fond de la salle, entre deux chaudrons." },
+      { after: "bertin:libre", text: "Bertin est revenu à ses fourneaux. Il est livide, il parle par monosyllabes, et il cuisine. Sur ton passage, il essuie ses mains sur son tablier et s'incline très bas, en silence." },
     ],
     choices: [
       { label: "Demander à Nina ce que Bertin a servi au prince, la dernière nuit", hide: { clue: "m_bertin" }, to: "Q_cuis_bouillon" },
@@ -24,7 +24,7 @@ module.exports = {
     choices: [{ back: "Q_cuisines" }] },
   Q_cuis_promesse: { act: "I", title: "Une promesse", place: "palais",
     text: [
-      "Nina te prend la main et la serre, sans façons, avec ses mains rouges et mouillées. « Il est seul au monde, dit-elle. Sa famille, c'est nous et ses casseroles. Il n'a que vous pour le sortir de là. »",
+      "Nina te prend la main et la serre, sans façons, de ses mains rouges et mouillées. « Il est seul au monde, dit-elle. Sa famille, c'est nous et ses casseroles. Il n'a que vous pour le sortir de là. »",
       "Le cuisinier est à l'Arsenal, chez l'amiral.",
     ],
     choices: [{ back: "Q_cuisines" }] },
@@ -33,11 +33,11 @@ module.exports = {
   Q_arsenal: { act: "I", title: "L'Arsenal", place: "arsenal", backName: "l'Arsenal",
     fx: { meet: "ghislain" },
     text: [
-      { first: true, text: "On entre à l'Arsenal par une porte entre deux tours, sous un lion ailé qui tient un livre fermé. Derrière, une ville dans la ville : des cales sèches où dorment des galères à moitié construites, des corderies longues comme des rues, des forges, des montagnes de bois qui sèchent. Trois mille hommes y travaillent d'habitude. Aujourd'hui, la moitié sont assis sur les quais, les bras croisés, et te regardent passer." },
-      { first: true, text: "L'amiral te reçoit dans la salle des cartes, debout, devant une table couverte de plans de navires. La pièce n'a aucun siège. Sur un coin de la table, posé sur une pile de rapports, un médaillon d'argent ouvert : la miniature d'une fillette de deux ou trois ans, dans un médaillon usé à force d'être ouvert. Il le referme en te voyant." },
-      { again: true, text: "L'amiral est à sa table de cartes, comme toujours. Il lève les yeux, il attend. Il a le visage d'un homme qui veille depuis la mort de son frère, et qui veillera jusqu'au quarantième jour." },
-      { after: "solde:payee", text: "Sur les quais, on travaille de nouveau. Les marins te saluent, quand tu passes : un geste court, de la main au front." },
-      { after: "solde:attente", text: "Sur les quais, les marins sont toujours assis. Quand tu passes, quelqu'un siffle, entre ses dents, l'air d'une chanson à boire sur les gens qui promettent." },
+      { first: true, text: "On entre à l'Arsenal par une porte entre deux tours, sous un lion ailé qui tient un livre fermé. Derrière s'étend une ville dans la ville : des cales sèches où dorment des galères à moitié bordées, des corderies longues de trois cents pas, des forges, des montagnes de bois qui sèchent. Trois mille hommes y travaillent d'habitude. Aujourd'hui, la moitié sont assis sur les quais, les bras croisés, et te regardent passer. Un chantier où l'on s'assoit à cette heure est un chantier qu'on ne paie plus." },
+      { first: true, text: "L'amiral te reçoit dans la salle des cartes, debout, devant une table couverte de plans de navires. La pièce est dépourvue de sièges : on y tient conseil debout, et donc vite. Sur un coin de la table, posé sur une pile de rapports, un médaillon d'argent ouvert montre la miniature d'une fillette de deux ou trois ans. Le métal est usé à la charnière, à force d'être ouvert. L'amiral le referme en te voyant." },
+      { again: true, text: "L'amiral est à sa table de cartes, comme toujours. Il lève les yeux et attend. Il a le visage d'un homme qui veille depuis la mort de son frère, et qui veillera jusqu'au quarantième jour." },
+      { after: "solde:payee", text: "Sur les quais, le travail a repris. Les marins te saluent au passage d'un geste court, de la main au front." },
+      { after: "solde:attente", text: "Sur les quais, les marins sont toujours assis. À ton passage, quelqu'un siffle entre ses dents l'air d'une chanson à boire sur les gens qui promettent." },
     ],
     choices: [
       { label: "Lui parler des hommes assis sur les quais", hide: { any: [{ seen: "Q_solde" }, { quest: "Q_solde" }] }, to: "Q_solde" },
@@ -49,7 +49,7 @@ module.exports = {
   Q_solde: { act: "I", title: "La solde", place: "arsenal",
     fx: { questSeen: "Q_solde", clue: "i_portrait" },
     text: [
-      "L'amiral ouvre un registre et le tourne vers toi. Des colonnes de chiffres, une écriture de comptable militaire, et en bas de chaque page la même ligne : *non payé*.",
+      "L'amiral ouvre un registre et le tourne vers toi. Des colonnes de chiffres, une écriture de comptable militaire, et au bas de chaque page la même ligne : *non payé*.",
       "« Cinq mois, dit-il. Cinq mois que mes hommes attendent leur solde. Mon frère attendait l'argent du sel de la Hanse, et la Hanse attendait que mon frère baisse la taxe du sel, et pendant qu'ils attendaient l'un l'autre, mes marins ont mangé leurs économies, puis leurs meubles. Dix-huit mille besants. Ils ont tenu pour lui. Pour le Sceau, ils lâcheront. »",
       "Il referme le registre. « Aimez-les ou non, peu m'importe. Payez-les avant qu'ils trouvent quelqu'un d'autre qui le fasse. Il y a, dans cette ville, au moins un ambassadeur qui a les moyens. »",
     ],
@@ -59,7 +59,7 @@ module.exports = {
     ] },
   Q_solde_reponse: { act: "I", title: "La réponse", place: "arsenal",
     text: [
-      "L'amiral attend, de l'air d'un homme qui laisse aux autres le temps de se tromper.",
+      "L'amiral attend, en homme qui laisse aux autres le temps de se tromper.",
     ],
     choices: [
       { label: "« Ils attendront le quarantième jour. »", to: "Q_solde_attente" },
@@ -71,22 +71,22 @@ module.exports = {
   Q_solde_attente: { act: "I", title: "Attendre", place: "arsenal",
     fx: { quest: "Q_solde", flag: ["solde:attente", "solde:sort"], fac: { mer: -15 }, conf: { joris: -10 } },
     text: [
-      "L'amiral hoche la tête, lentement, comme quelqu'un qui prend note d'un fait, et il retourne à ses cartes.",
+      "L'amiral hoche la tête, lentement, à la façon d'un greffier qui enregistre un fait, et il retourne à ses cartes.",
       { with: "joris", text: "En sortant, Joris marche à côté de toi en silence jusqu'à la porte des tours. Puis : « J'ai été payé, moi. Le Sceau paie sa garde. Ça me fait drôle, ce matin, de l'avoir été. »" },
     ],
     choices: [{ back: "Q_cabinet" }] },
   Q_solde_paye: { act: "I", title: "La paie", place: "arsenal",
     text: [
-      "On paie sur les quais, le lendemain, à des tables dressées en plein vent, sous les yeux de l'amiral. Les marins défilent, signent d'une croix, empochent, et s'en vont boire. L'Arsenal rouvre ses forges.",
+      "On paie sur les quais le lendemain, à des tables dressées en plein vent, sous les yeux de l'amiral. Les marins défilent, signent d'une croix, empochent et s'en vont boire ; tu en comptes deux cents à l'heure. L'Arsenal rallume ses forges.",
       "L'amiral te rejoint au bout du quai. « Gardez pour vous le comment, dit-il. Je suppose que ça coûtera cher à quelqu'un. » Il regarde ses hommes. « Merci. C'est un mot que je dis rarement. »",
-      { with: "joris", text: "Joris serre la main de trois hommes qu'il connaît, puis de dix, puis il disparaît dans une taverne et reparaît une heure plus tard, très content." },
+      { with: "joris", text: "Joris serre la main de trois hommes qu'il connaît, puis de dix, puis il disparaît dans une taverne et reparaît une heure plus tard, très content et légèrement voûté." },
     ],
     choices: [{ back: "Q_cabinet" }] },
   Q_solde_therance: { act: "I", title: "L'argent de Thérance", place: "arsenal",
     text: [
-      "L'amiral pâlit sous son hâle. Il pose les deux mains à plat sur sa table, comme pour l'empêcher de se renverser.",
+      "L'amiral pâlit sous son hâle. Il pose les deux mains à plat sur la table, comme pour la retenir de se renverser.",
       "« Vous faites payer la flotte de Sarvelle par Thérance, dit-il très doucement. Mes hommes vont porter dans leur poche de l'argent théran. Ils vont le boire, le donner à leurs femmes, et se souvenir de qui l'a donné. » Il te regarde. « Ou vous ignorez ce que vous avez fait, ou vous le savez très bien. Je me demande ce qui est pire. »",
-      "Mais les marins sont payés, et ils empochent sans regarder l'effigie.",
+      "Les marins, eux, sont payés, et ils empochent sans regarder l'effigie.",
     ],
     choices: [{ back: "Q_cabinet" }] },
   Q_ar_nuit: { act: "I", title: "La onzième heure", place: "arsenal",
@@ -94,12 +94,12 @@ module.exports = {
     text: [
       "L'amiral te regarde avec une sorte de lassitude.",
       "« J'ai appris le soir même que mon frère était au plus mal. Un de mes hommes l'avait entendu dire par un valet. Je suis venu. J'ai renoncé à monter chez lui : il m'aurait chassé, il me chassait toujours quand il était malade. Je suis allé prévenir la princesse. C'était mon devoir de frère. »",
-      "Il roule une carte, pour s'occuper les mains. « Si vous voulez m'accuser de quelque chose, accusez-moi. Mais faites-le devant le Conseil. »",
+      "Il roule une carte, pour occuper ses mains. « Si vous voulez m'accuser de quelque chose, accusez-moi. Mais faites-le devant le Conseil. »",
     ],
     choices: [{ back: "Q_arsenal" }] },
   Q_bertin_cellule: { act: "I", title: "Le cachot de l'Arsenal", place: "arsenal",
     text: [
-      "On te conduit dans une cave humide, sous la corderie. Bertin est assis sur une planche, en chemise, un œil fermé et violet. C'est un homme gros et doux, avec des mains de femme et un visage d'enfant inquiet. Quand il te voit, il se met à pleurer tout bas, et il s'excuse de pleurer.",
+      "On te conduit dans une cave humide, sous la corderie, où l'eau suinte des joints. Bertin est assis sur une planche, en chemise, un œil fermé et violet. C'est un homme gros et doux, avec des mains de femme et un visage d'enfant inquiet. En te voyant, il se met à pleurer tout bas, et il s'excuse de pleurer.",
       "« Je suis innocent, dit-il. Je le jure sur ma mère et sur les Eaux. Ils veulent que je dise que c'est un homme de Thérance qui m'a payé. Ils m'ont dit qu'ils me laisseraient partir si je le disais. Je ne connais personne de Thérance. Je connais mes fourneaux. »",
       "Derrière toi, l'amiral attend, les bras croisés.",
     ],
@@ -113,22 +113,22 @@ module.exports = {
     ] },
   Q_bertin_libre: { act: "I", title: "Libre", place: "arsenal",
     text: [
-      "L'amiral t'écoute jusqu'au bout. Il regarde Bertin, longuement, comme on regarde une carte qui ne correspond plus au rivage. Puis il fait un signe à ses hommes. « Qu'on lui rende ses habits. »",
-      "Dans la barque du retour, Bertin garde les deux mains serrées sur ses genoux, et toutes les trois minutes, il les desserre pour se toucher l'œil, comme pour vérifier que l'œil est encore là. À l'embarcadère des cuisines, Nina l'attend. Elle lui tend un tablier propre.",
+      "L'amiral t'écoute jusqu'au bout. Il regarde Bertin, longuement, avec l'air d'un pilote devant une carte qui ne colle plus au rivage. Puis il fait un signe à ses hommes. « Qu'on lui rende ses habits. »",
+      "Dans la barque du retour, Bertin garde les deux mains serrées sur ses genoux. Toutes les trois minutes, il les desserre pour se toucher l'œil, comme pour vérifier que l'œil est encore là. À l'embarcadère des cuisines, Nina l'attend. Elle lui tend un tablier propre.",
       "L'amiral a dit qu'on lui rende ses habits. Il s'en est tenu là.",
     ],
     choices: [{ back: "Q_cabinet" }] },
   Q_bertin_garde: { act: "I", title: "Sous la garde du Sceau", place: "arsenal",
     text: [
-      "L'amiral te laisse emmener Bertin, mais sous écrou : le cuisinier passe d'une cave de l'Arsenal à une cellule du palais, où il a au moins un lit et une fenêtre. Il reste accusé. La rumeur reste debout.",
+      "L'amiral te laisse emmener Bertin, mais sous écrou : le cuisinier passe d'une cave de l'Arsenal à une cellule du palais, où il gagne un lit et une fenêtre. Il reste accusé. La rumeur reste debout.",
       "« Vous l'avez déplacé, dit l'amiral. Rien de plus. Le jour où le Conseil voudra un coupable, il saura où le trouver. Et ce sera chez vous. »",
     ],
     choices: [{ back: "Q_cabinet" }] },
   Q_bertin_laisse: { act: "I", title: "Ce qu'on laisse", place: "arsenal",
     text: [
-      "Tu ressors de la cave sans Bertin. Il te regarde partir en silence, avec l'air de quelqu'un qui savait.",
-      { with: "ansel", text: "Ansel marche derrière toi, très lentement, en s'appuyant sur sa canne. Au moment de monter dans la barque, il s'arrête et regarde la porte de la cave. Il ouvre la bouche, et la referme." },
-      { with: "livia", text: "Livia, elle, le dit. « On n'a pas le droit de faire ça. » Tu te tais. Elle monte dans la barque." },
+      "Tu ressors de la cave sans Bertin. Il te regarde partir en silence, de l'air d'un homme qui s'y attendait.",
+      { with: "ansel", text: "Ansel marche derrière toi, très lentement, appuyé sur sa canne. Au moment de monter dans la barque, il s'arrête et se retourne vers la porte de la cave. Il ouvre la bouche, puis la referme." },
+      { with: "livia", text: "Livia, elle, le dit. « On n'a pas le droit de faire ça. » Tu gardes le silence. Elle monte dans la barque." },
     ],
     choices: [{ back: "Q_cabinet" }] },
 
@@ -136,9 +136,9 @@ module.exports = {
   Q_loge: { act: "I", title: "La Loge du Sel", place: "loge", backName: "la Loge du Sel",
     fx: { meet: ["orsanne", "grizzo"] },
     text: [
-      { first: true, text: "La Loge du Sel ressemble à un gâteau de mariage posé au bord du port : marbre blanc, marbre bleu, statues de Prudence et d'Abondance sur la corniche, et, dans l'entrée, une balance d'or haute comme un homme. Au rez-de-chaussée, cent commis écrivent en silence. Au premier, Ser Matteo Orsanne mange." },
-      { first: true, text: "Il t'invite à sa table d'un geste, de son fauteuil : un turbot entier, des huîtres, un pâté de lièvre, du vin de Corne dans des verres fins comme des bulles. « Mangez, dit-il. Un homme qui mange, on peut lui faire confiance : il a des besoins. Ce sont les ascètes qu'il faut surveiller. » Un jeune commis à la plume derrière l'oreille, nommé Grizzo, lui apporte des papiers à signer entre deux bouchées, et repart en courant." },
-      { again: true, text: "Orsanne est à table. Il est toujours à table. Il te fait servir d'office, et il attend que tu aies goûté avant de parler affaires." },
+      { first: true, text: "La Loge du Sel ressemble à un gâteau de mariage posé au bord du port : marbre blanc, marbre bleu, statues de Prudence et d'Abondance sur la corniche, et dans l'entrée, une balance d'or haute comme un homme. Au rez-de-chaussée, cent commis écrivent en silence ; on n'entend que les plumes, comme une pluie fine. Au premier étage, Ser Matteo Orsanne mange." },
+      { first: true, text: "Il t'invite à sa table d'un geste, sans quitter son fauteuil. Le menu tient en une liste : un turbot entier ; des huîtres ; un pâté de lièvre ; du vin de Corne dans des verres fins comme des bulles. « Mangez, dit-il. Un homme qui mange, on peut lui faire confiance : il a des besoins. Ce sont les ascètes qu'il faut surveiller. » Un jeune commis, la plume derrière l'oreille, nommé Grizzo, lui apporte des papiers à signer entre deux bouchées et repart en courant." },
+      { again: true, text: "Orsanne est à table. Orsanne est toujours à table. Il te fait servir d'office, et il attend que tu aies goûté avant de parler affaires." },
       { if: { has: "secret:dette" }, once: true, text: "Entre la poire et le fromage, il dit sur le ton de la conversation : « Le prince avait des comptes très curieux, vous savez. Il rachetait les dettes des autres. C'était sa façon de collectionner les gens. » Il te sourit, et revient à son assiette." },
     ],
     choices: [
@@ -163,7 +163,7 @@ module.exports = {
     ] },
   Q_solde_gage_ok: { act: "I", title: "Scellé", place: "loge",
     text: [
-      "Tu scelles. Grizzo apporte l'acte, déjà rédigé : Orsanne savait que tu viendrais. Il te serre la main, une main grasse et étonnamment forte. « Vous avez fait la seule chose raisonnable, dit-il. On vous le reprochera toute votre vie. »",
+      "Tu scelles. Grizzo apporte l'acte, déjà rédigé ; Orsanne savait donc que tu viendrais. Il te serre la main, une main grasse et étonnamment forte. « Vous avez fait la seule chose raisonnable, dit-il. On vous le reprochera toute votre vie. »",
       "Reste à l'annoncer à l'amiral.",
     ],
     choices: [{ back: "Q_loge" }] },
@@ -181,14 +181,14 @@ module.exports = {
     ] },
   Q_pain_accord: { act: "I", title: "Une main lave l'autre", place: "loge",
     text: [
-      "Grizzo apporte deux actes au lieu d'un. Tu scelles les deux. Dès le lendemain, le pain redescend de deux deniers aux Canaux, et on chante le nom d'Orsanne sur le marché, ce qui l'amuse beaucoup.",
-      { with: "livia", text: "Livia calcule ce que la suspension de la taxe coûte au trésor de la ville. Elle te montre le chiffre, en bas d'une colonne. Le chiffre parle pour elle." },
+      "Grizzo apporte deux actes au lieu d'un. Tu scelles les deux. Dès le lendemain, le pain redescend de deux deniers aux Canaux, et l'on chante le nom d'Orsanne sur le marché, ce qui l'amuse beaucoup.",
+      { with: "livia", text: "Livia calcule ce que la suspension de la taxe coûte au trésor de la ville. Elle te montre le chiffre, au bas d'une colonne. Le chiffre parle pour elle." },
     ],
     choices: [{ back: "Q_loge" }] },
   Q_pain_force: { act: "I", title: "Le marchand", place: "loge",
     text: [
-      "Tu lui parles de ce qui arrive aux Hanses quand les Canaux ont faim. Tu lui rappelles l'an des Rames, il y a trente ans, et les entrepôts qui brûlaient. Tu lui dis que la Loge est en marbre, et que le marbre, ça se casse.",
-      "Orsanne t'écoute en souriant, puis son sourire tombe, puis il éclate de rire et frappe la table. « Vous êtes un voleur ! dit-il, ravi. Un voleur d'État ! Corradin avait l'œil. » Il signe. Le pain redescend le lendemain. La Hanse repart les mains vides, et Orsanne s'en souviendra, mais il s'en souviendra avec une sorte d'estime.",
+      "Tu lui parles de ce qui arrive aux Hanses quand les Canaux ont faim. Tu lui rappelles l'an des Rames, il y a trente ans, et les entrepôts en flammes. Tu lui fais observer que la Loge est en marbre, et que le marbre se casse.",
+      "Orsanne t'écoute en souriant. Son sourire tombe ; puis il éclate de rire et frappe la table. « Vous êtes un voleur ! dit-il, ravi. Un voleur d'État ! Corradin avait l'œil. » Il signe. Le pain redescend le lendemain. La Hanse repart les mains vides, et Orsanne s'en souviendra, avec une sorte d'estime.",
     ],
     choices: [{ back: "Q_loge" }] },
   Q_pain_refus: { act: "I", title: "Non", place: "loge",
@@ -201,11 +201,11 @@ module.exports = {
   Q_temple: { act: "I", title: "Le Temple des Eaux", place: "temple", backName: "le Temple des Eaux", shop: "temple",
     fx: { meet: ["ysaure", "ancille"] },
     text: [
-      { first: true, text: "Le Temple des Eaux est une coupole verte posée sur une île de pierre, au milieu du bassin de Saint-Aubin. On y entre en barque, par un porche bas où il faut courber la tête. Dedans, sous la coupole, un bassin rond où l'eau de la lagune monte et descend avec la marée. On dit que c'est la lagune qui respire. Les fidèles viennent s'asseoir au bord, et attendre." },
-      { first: true, text: "Mère Ysaure te reçoit dans une cellule nue, au-dessus du bassin. Une table, deux chaises, une cruche d'eau. Elle te sert elle-même. Elle te regarde boire. Une vieille sœur aux doigts tachés d'encre, Sœur Ancille, écrit dans un coin, penchée sur sa page." },
+      { first: true, text: "Le Temple des Eaux est une coupole verte posée sur une île de pierre, au milieu du bassin de Saint-Aubin. On y entre en barque, par un porche bas où il faut courber la tête ; la hauteur en a été calculée pour cela. Sous la coupole, un bassin rond où l'eau de la lagune monte et descend avec la marée. On dit que c'est la lagune qui respire. Les fidèles viennent s'asseoir au bord, et attendre." },
+      { first: true, text: "Mère Ysaure te reçoit dans une cellule nue, au-dessus du bassin. Le mobilier s'énumère vite : une table, deux chaises, une cruche d'eau. Elle te sert elle-même et te regarde boire. Dans un coin, une vieille sœur aux doigts tachés d'encre, Sœur Ancille, écrit, penchée sur sa page." },
       { again: true, text: "Mère Ysaure est à la même place, dans la même pose. Elle te sert de l'eau." },
-      { with: "livia", first: true, text: "Livia est restée sur le seuil. Sœur Ancille l'a vue ; elle a posé sa plume, une seconde, puis elle l'a reprise." },
-      { if: { has: "secret:sang" }, once: true, text: "Mère Ysaure dit, en reposant la cruche : « Le Temple a des maisons dans toutes les villes de la mer, jusqu'à Port-Varenne. L'eau va partout. Elle porte les nouvelles, et elle les garde. » Elle le dit en regardant l'eau de la cruche." },
+      { with: "livia", first: true, text: "Livia est restée sur le seuil. Sœur Ancille l'a vue : elle a posé sa plume une seconde, puis l'a reprise." },
+      { if: { has: "secret:sang" }, once: true, text: "Mère Ysaure dit, en reposant la cruche : « Le Temple a des maisons dans toutes les villes de la mer, jusqu'à Port-Varenne. L'eau va partout. Elle porte les nouvelles, et elle les garde. » Elle le dit les yeux sur l'eau de la cruche." },
     ],
     choices: [
       { label: "Lui demander ce qu'elle attend du Sceau", hide: { seen: "Q_temple_veut" }, to: "Q_temple_veut" },
@@ -236,7 +236,7 @@ module.exports = {
     ] },
   Q_solde_temple_ok: { act: "I", title: "Loué", place: "temple",
     text: [
-      "Ysaure te tend la main, une main sèche et froide comme un caillou de rivière. Sœur Ancille, dans son coin, a écrit une ligne, que son bras te cache.",
+      "Ysaure te tend la main, une main sèche et froide comme un caillou de rivière. Dans son coin, Sœur Ancille a écrit une ligne, que son bras te cache.",
       "Reste à l'annoncer à l'amiral.",
       { with: "livia", text: "En descendant l'escalier, Livia murmure, les yeux sur les marches : « Elle achète toujours. Louer, c'est le nom qu'elle donne à la chose. »" },
     ],
@@ -246,12 +246,12 @@ module.exports = {
   Q_canaux: { act: "I", title: "Les Canaux", place: "canaux", backName: "les Canaux",
     fx: { meet: ["nello", "tessa", "pippo"], questSeen: "Q_pain" },
     text: [
-      { first: true, text: "Les Canaux, ce sont trois îles basses au sud de la ville, serrées les unes contre les autres et cousues de petits ponts. Ici, les maisons se penchent, le linge sèche d'une fenêtre à l'autre, et les enfants nagent dans des eaux dont le reste de la ville se bouche le nez. On y vit de la rame, du chargement, de la pêche, et du pain, quand il y en a." },
-      { first: true, text: "Nello Brisse t'attend au marché au pain, sur une petite place devant l'église des Bateliers. La file d'attente fait le tour de la place et repart dans une ruelle. Une femme de trente ans, en tablier de cuir, les manches retroussées sur des bras de débardeuse, distribue des miches à raison d'une par famille, en vérifiant les jetons : Tessa, sa sœur. Elle garde les yeux sur ses jetons." },
-      { again: true, text: "Au marché au pain, la file est toujours là. Tessa distribue. Nello parle à quelqu'un, puis à quelqu'un d'autre. Un gamin pieds nus, Pippo, court entre les gens avec des messages, deux deniers la course." },
-      { if: { all: [{ vote: "pain_taxe", is: "adopte" }, { not: { has: "pain:sort" } }] }, text: "Le Conseil a taxé le pain au prix de la veille. Sur les volets des boulangers, le prix est écrit à la craie ; derrière les volets, les étagères sont vides avant midi." },
-      { after: "pain:accord", text: "Le pain est redescendu. Les visages restent fermés, mais la file est plus courte, et on y parle d'autre chose que de pain." },
-      { after: "pain:requisition", text: "Les sacs de la Hanse, réquisitionnés, s'empilent sous le porche de l'église des Bateliers. Il y a de la farine sur tous les pavés de la place, et des enfants qui la ramassent avec les doigts." },
+      { first: true, text: "Les Canaux, ce sont trois îles basses au sud de la ville, serrées les unes contre les autres et cousues de petits ponts ; tu en traverses sept avant d'arriver. Ici, les maisons se penchent, le linge sèche d'une fenêtre à l'autre, et les enfants nagent dans des eaux devant lesquelles le reste de la ville se bouche le nez. On y vit de la rame, du chargement, de la pêche, et du pain, quand il y en a." },
+      { first: true, text: "Nello Brisse t'attend au marché au pain, sur une petite place devant l'église des Bateliers. La file fait le tour de la place et repart dans une ruelle ; tu estimes à trois cents le nombre des gens qui attendent. Une femme de trente ans, en tablier de cuir, les manches retroussées sur des bras de débardeuse, distribue les miches à raison d'une par famille, en vérifiant chaque jeton : Tessa, sa sœur. Elle garde les yeux sur ses jetons." },
+      { again: true, text: "Au marché au pain, la file est toujours là. Tessa distribue. Nello parle à un homme, puis à une femme, puis à un autre. Un gamin pieds nus, Pippo, court entre les gens avec des messages, deux deniers la course." },
+      { if: { all: [{ vote: "pain_taxe", is: "adopte" }, { not: { has: "pain:sort" } }] }, text: "Le Conseil a taxé le pain au prix de la veille. Sur les volets des boulangers, le prix est écrit à la craie ; derrière les volets, les étagères sont vides avant midi. La loi fixe le prix ; elle a oublié de fixer la farine." },
+      { after: "pain:accord", text: "Le pain est redescendu. Les visages restent fermés, mais la file a raccourci, et l'on y parle d'autre chose que de pain." },
+      { after: "pain:requisition", text: "Les sacs de la Hanse, réquisitionnés, s'empilent sous le porche de l'église des Bateliers. Il y a de la farine sur tous les pavés de la place, et des enfants qui la ramassent du bout des doigts." },
     ],
     choices: [
       { label: "Parler avec Nello", hide: { seen: "Q_canaux_nello" }, to: "Q_canaux_nello" },
@@ -275,14 +275,14 @@ module.exports = {
   Q_pain_requisition: { act: "I", title: "Les greniers", place: "canaux",
     fx: { quest: "Q_pain", flag: ["pain:requisition", "pain:sort"], fac: { sel: -25, rames: 20 }, clock: { emprise: 1 }, conf: { joris: 5, livia: -5 }, ep: ["seance", 2000], regard: { orsanne: "hostile" } },
     text: [
-      "Tu rédiges l'ordre sur le parapet d'un pont, avec la plume de Livia, et tu scelles sur la pierre. Joris prend vingt hommes. Les gardes de la Hanse, devant les greniers du port, regardent l'ordre, regardent les vingt hommes, et s'écartent.",
-      "Dans l'après-midi, des sacs de farine traversent les ponts sur des dos de débardeurs, et Tessa les compte, un par un, la bouche serrée. Le soir, Ser Orsanne t'envoie un billet de trois mots : *Je prends note.*",
-      { with: "livia", text: "Livia a rédigé l'ordre comme tu le lui as dicté. Elle a seulement demandé, avant : « Sur quel article de la Coutume ? » Sur aucun. Elle l'a rédigé quand même." },
+      "Tu rédiges l'ordre sur le parapet d'un pont, avec la plume de Livia, et tu scelles sur la pierre. Joris prend vingt hommes. Devant les greniers du port, les gardes de la Hanse lisent l'ordre, comptent les vingt hommes, et s'écartent.",
+      "Dans l'après-midi, des sacs de farine traversent les ponts sur le dos des débardeurs, et Tessa les compte un par un, la bouche serrée. Le soir, Ser Orsanne t'envoie un billet de trois mots : *Je prends note.*",
+      { with: "livia", text: "Livia a rédigé l'ordre sous ta dictée. Elle a seulement demandé, avant : « Sur quel article de la Coutume ? » Sur aucun. Elle l'a rédigé quand même." },
     ],
     choices: [{ back: "Q_canaux" }] },
   Q_pain_bourse: { act: "I", title: "Les biens du prince", place: "canaux",
     text: [
-      "Livia fait le compte. Les biens propres du prince, ce qui n'appartient ni à la ville ni à l'héritière, ce sont trois maisons, des terres en terre ferme, des cartes marines, et un peu d'argent : de quoi nourrir les Canaux pendant huit jours.",
+      "Livia fait le compte. Les biens propres du prince, ceux qui reviennent ni à la ville ni à l'héritière, tiennent en une ligne : trois maisons ; des terres en terre ferme ; des cartes marines ; un peu d'argent. De quoi nourrir les Canaux pendant huit jours.",
       "« C'est l'héritage d'Iselda, dit Livia. Une partie. »",
     ],
     choices: [
@@ -292,7 +292,7 @@ module.exports = {
   Q_pain_bourse_ok: { act: "I", title: "Huit jours", place: "canaux",
     text: [
       "On distribue le pain du prince sous le porche de l'église des Bateliers, avec un crêpe noir sur chaque corbeille. Les gens prennent leur miche et se signent. Certains pleurent. C'est la première fois qu'on pleure le prince aux Canaux.",
-      "Tessa vient te trouver, le soir. « Huit jours, dit-elle. Et après ? » Elle repart avant la réponse.",
+      "Tessa vient te trouver le soir. « Huit jours, dit-elle. Et après ? » Elle repart avant la réponse.",
     ],
     choices: [{ back: "Q_canaux" }] },
 
@@ -300,9 +300,9 @@ module.exports = {
   Q_ambassade: { act: "I", title: "L'ambassade de Thérance", place: "ambassade", backName: "l'ambassade de Thérance",
     fx: { meet: ["merande", "odile"] },
     text: [
-      { first: true, text: "La villa Mérande est la seule maison de Sarvelle qui ait un jardin. On y entre par une grille sur le canal des Dames, et soudain il y a des orangers en pots, du gravier blanc qui crisse, une fontaine où nagent des poissons rouges. L'ambassadeur te reçoit dans sa bibliothèque : quatre murs de livres, un jeu d'échecs en cours, du thé de Thérance, noir et amer." },
-      { first: true, text: "Le comte Lothaire Mérande a cinquante ans, des cheveux gris coupés court, et ce genre de politesse qui met à l'aise et fait peur. Sa secrétaire, Odile Varn, une femme brune d'une trentaine d'années, vous sert puis s'assied à une petite table, avec une plume. Elle sent l'iris. Elle écrit tout ce que vous dites." },
-      { again: true, text: "Le comte t'accueille comme un ami qu'on attendait, et te sert du thé. La partie d'échecs a avancé ; il joue contre lui-même. Odile Varn reprend sa plume." },
+      { first: true, text: "La villa Mérande est la seule maison de Sarvelle qui ait un jardin. On y entre par une grille sur le canal des Dames, et soudain il y a des orangers en pots, du gravier blanc qui crisse, une fontaine où nagent des poissons rouges. Dans une ville où la terre se paie au pied carré, ce gravier est une déclaration politique. L'ambassadeur te reçoit dans sa bibliothèque : quatre murs de livres, une partie d'échecs en cours, du thé de Thérance, noir et amer." },
+      { first: true, text: "Le comte Lothaire Mérande a cinquante ans, des cheveux gris coupés court, et une politesse qui met à l'aise et fait peur à la fois. Sa secrétaire, Odile Varn, une femme brune d'une trentaine d'années, vous sert, puis s'assied à une petite table avec une plume. Elle sent l'iris. Elle écrit tout ce que vous dites." },
+      { again: true, text: "Le comte t'accueille comme un ami attendu et te sert du thé. La partie d'échecs a avancé ; il joue contre lui-même, et, à en juger par l'échiquier, il est en train de se battre. Odile Varn reprend sa plume." },
       { if: { has: "secret:theran" }, once: true, text: "En te servant, le comte dit, distraitement : « J'ai toujours eu de l'estime pour les gens qui savent compter les navires d'une flotte. C'est plus difficile qu'on ne croit, la nuit, depuis un quai. » Il te tend la tasse. Il sourit." },
     ],
     choices: [

@@ -7,7 +7,7 @@ module.exports = {
   // ------------------------------------------------------------------ the lagoon
   E_pecheurs: { title: "Les pêcheurs de Torre",
     text: [
-      "Trois barques à fond plat barrent le chenal, nez à nez, comme des chiens qui se reniflent. Des pêcheurs de Torre, l'îlot aux cabanes, relèvent un filet commun. Ils ont l'air maigres. Le filet aussi.",
+      "Trois barques à fond plat barrent le chenal, nez à nez, comme des chiens qui se reniflent. Des pêcheurs de Torre, l'îlot aux cabanes, relèvent un filet commun. Ils ont l'air maigres. Le filet aussi : une seiche par brasse de filet, et encore.",
       "Le plus vieux se redresse en voyant ta barque et le lion ailé de la proue. Il ôte son bonnet. « C'est le Sceau ? » Il crache dans l'eau, poliment, de côté. « Alors dites au Sceau qu'on vend la seiche à la Hanse au prix d'il y a dix ans, et qu'on rachète le pain au prix de demain. »",
     ],
     choices: [
@@ -17,8 +17,8 @@ module.exports = {
     ] },
   E_pecheurs_paye: { title: "Le prix juste",
     text: [
-      "Le vieux compte les pièces deux fois. Puis il te tend le panier, et une bouteille d'eau-de-vie de figue, en prime. « Pour la route, dit-il. Et pour que vous vous souveniez de Torre quand vous voterez. »",
-      "Le prix des seiches est loin du vote du Sceau, et le vieux le sait sans doute. Il voulait être payé au bon prix, une fois.",
+      "Le vieux compte les pièces deux fois. Puis il te tend le panier, et en prime une bouteille d'eau-de-vie de figue. « Pour la route, dit-il. Et pour que vous vous souveniez de Torre quand vous voterez. »",
+      "Le prix des seiches pèse peu sur le vote du Sceau, et le vieux le sait sans doute. Il voulait être payé au bon prix, une fois.",
     ],
     choices: [{ back: ROUTE }] },
   E_pecheurs_ecoute: { title: "Torre",
@@ -30,7 +30,7 @@ module.exports = {
 
   E_brouillard: { title: "Le brouillard",
     text: [
-      "Le brouillard tombe d'un coup, comme un drap qu'on jette. En vingt coups de rame, la proue disparaît. Les rameurs lèvent les avirons et attendent, immobiles, en écoutant. On entend l'eau, et quelque part, très près, une autre barque qui avance tous feux éteints.",
+      "Le brouillard tombe d'un coup, comme un drap qu'on jette. En vingt coups de rame, la proue disparaît. Les rameurs lèvent les avirons et attendent, immobiles, l'oreille tendue. On entend l'eau, et quelque part, très près, une autre barque qui avance tous feux éteints.",
     ],
     choices: [
       { label: "Rester immobile, et laisser passer", test: { dom: "discretion", label: "Discrétion" },
@@ -39,13 +39,13 @@ module.exports = {
     ] },
   E_brouillard_passe: { title: "Une ombre",
     text: [
-      "L'autre barque passe à trois brasses, longue et basse, chargée de sacs. L'équipage se tait. Un homme, à la poupe, suce une pipe éteinte. Il regarde droit devant lui. Le brouillard le reprend.",
+      "L'autre barque passe à trois brasses, longue et basse, chargée de sacs. L'équipage se tait. À la poupe, un homme suce une pipe éteinte, les yeux droit devant lui. Le brouillard le reprend.",
       "Le batelier attend encore un long moment avant de reprendre la rame. « Des sacs qui voyagent dans le noir, dit-il, c'est des sacs qui ont sauté la douane. » Il s'en tient là.",
     ],
     choices: [{ back: ROUTE }] },
   E_brouillard_hele: { title: "Qui va là",
     text: [
-      "« Qui va là ? » La réponse met longtemps à venir. « Personne », dit une voix, et la barque accélère, et le bruit des rames s'éloigne vers le sud, vers les salines, beaucoup trop vite pour une barque de pêcheur.",
+      "« Qui va là ? » La réponse met longtemps à venir. « Personne », dit une voix ; la barque accélère, et le bruit des rames s'éloigne vers le sud, vers les salines, à une cadence de régate. Les pêcheurs rentrent rarement chez eux aussi pressés.",
     ],
     choices: [{ back: ROUTE }] },
   E_brouillard_choc: { title: "La collision",
@@ -53,24 +53,24 @@ module.exports = {
       win: { fx: { gold: 18, ep: ["perso", 600] }, to: "E_brouillard_fouille" }, lose: { fx: { pv: -2 }, to: "E_brouillard_fuite" },
       flee: { label: "Faire force de rames dans le brouillard", dom: "nature", diff: 0, to: "E_brouillard_fuite" } },
     text: [
-      "Un raclement, un juron, et la proue de l'autre barque heurte la vôtre par le travers. Des visages surgissent du brouillard, des gaffes, un couteau. Qui vous êtes, ils l'ignorent. Vous les avez vus, et cela leur suffit.",
+      "Un raclement, un juron, et la proue de l'autre barque heurte la vôtre par le travers. Des visages surgissent du brouillard, avec des gaffes et un couteau. Qui vous êtes, ils l'ignorent. Vous les avez vus, et cela leur suffit.",
     ] },
   E_brouillard_fouille: { title: "Les sacs",
     text: [
-      "Les contrebandiers sautent à l'eau et disparaissent dans le brouillard en nageant. Leur barque reste là, à la dérive. Dans les sacs, du sel blanc, du beau, vierge de toute marque. Dans une bourse cousue sous le banc, quelques besants.",
+      "Les contrebandiers sautent à l'eau et disparaissent dans le brouillard à la nage. Leur barque reste là, à la dérive. Dans les sacs, du sel blanc, du beau, vierge de toute marque. Dans une bourse cousue sous le banc, quelques besants.",
       "Tu laisses le sel. Tu prends la bourse. Le batelier hoche la tête, comme si tu venais de passer un examen.",
     ],
     choices: [{ back: ROUTE }] },
   E_brouillard_fuite: { title: "Les rames",
     text: [
-      "Tes rameurs se jettent sur les avirons. On se cogne à un pieu, à un banc de vase, à un autre pieu, et puis le silence, le brouillard, le cœur qui bat. Vous êtes seuls sur l'eau.",
+      "Tes rameurs se jettent sur les avirons. On se cogne à un pieu, à un banc de vase, à un autre pieu ; puis viennent le silence, le brouillard, le cœur qui bat. Vous êtes seuls sur l'eau.",
     ],
     choices: [{ back: ROUTE }] },
 
   E_noye: { title: "Le noyé",
     text: [
-      "Quelque chose flotte contre un pieu du chenal, retenu par un pan de vêtement. Le batelier détourne la barque, puis la ramène, parce que tu le lui demandes.",
-      "C'est un homme, sur le ventre, depuis deux ou trois jours. Un débardeur, à ses mains. Il a une corde nouée au poignet, et l'autre bout de la corde flotte, libre.",
+      "Quelque chose flotte contre un pieu du chenal, retenu par un pan de vêtement. Le batelier détourne la barque, puis la ramène, à ta demande.",
+      "C'est un homme, sur le ventre, depuis deux ou trois jours. Un débardeur : les paumes sont calleuses en travers, à l'endroit où l'on agrippe un sac. Une corde est nouée à son poignet, et l'autre bout flotte, libre.",
     ],
     choices: [
       { label: "Le faire hisser dans la barque, pour le rendre aux Canaux", fx: { fac: { rames: 5 }, ep: ["perso", 300] }, to: "E_noye_rendu" },
@@ -80,7 +80,7 @@ module.exports = {
     ] },
   E_noye_rendu: { title: "Le passager",
     text: [
-      "On l'enveloppe dans une voile. Le batelier dit une prière, très vite, en dialecte. Il fera le reste du chemin sous la voile, au fond de la barque, et vous le laisserez au premier ponton des Canaux, où quelqu'un saura son nom.",
+      "On l'enveloppe dans une voile. Le batelier dit une prière, très vite, en dialecte. Le mort fera le reste du chemin sous la voile, au fond de la barque, et vous le laisserez au premier ponton des Canaux, où quelqu'un saura son nom.",
       "Quelqu'un le sait, en effet. Le soir, on te dit que c'était un homme de la distribution de pain, et qu'il avait parlé trop fort, au marché, de grain qui dormait quelque part.",
     ],
     choices: [{ back: ROUTE }] },
@@ -98,7 +98,7 @@ module.exports = {
 
   E_douane: { title: "Les gabelous",
     text: [
-      "Une barque de la Hanse vous rattrape, six rameurs en livrée blanche et un gabelou à la proue, qui tient un registre contre sa poitrine comme un bréviaire. « Contrôle du sel ! Vous allez aux salines ? Pour quel motif ? »",
+      "Une barque de la Hanse vous rattrape : six rameurs en livrée blanche, et à la proue un gabelou qui serre un registre contre sa poitrine comme un bréviaire. « Contrôle du sel ! Vous allez aux salines ? Pour quel motif ? »",
       "Le lion ailé de ta proue lui a échappé. Ou bien on lui a dit de regarder ailleurs.",
     ],
     choices: [
@@ -127,7 +127,7 @@ module.exports = {
   // ------------------------------------------------------------------ the mainland
   E_refugies: { title: "Ceux qui descendent",
     text: [
-      "Sur le chemin de halage, une file de charrettes descend vers la lagune, à contresens. Des familles entières, avec des lits, des poules, une horloge de parquet ficelée debout comme un passager. Elles viennent des villages de la frontière.",
+      "Sur le chemin de halage, une file de charrettes descend vers la lagune, à contresens. Tu en dresses l'inventaire en les croisant : des familles entières, des lits, des poules, une horloge de parquet ficelée debout comme un passager. Elles viennent des villages de la frontière.",
       "« Les tentes noires, te dit une femme en marchant. Ils réquisitionnent. Le foin, les bêtes, les garçons. On va chez ma sœur, à Sarvelle. Il paraît qu'on y mange encore. »",
     ],
     choices: [
@@ -144,7 +144,7 @@ module.exports = {
     choices: [{ back: ROUTE }] },
   E_refugies_vu: { title: "Ce qu'ils ont vu",
     text: [
-      "Un homme, finalement, s'arrête. Il était charron. Il a ferré des chevaux pour les tentes noires, la semaine dernière, à la forteresse. « Des chevaux de bât, dit-il. Beaucoup. Et des barques, des barques plates, qu'ils font descendre de l'amont sur des chariots. Pour quoi faire, des barques, sur une route ? »",
+      "Un homme finit par s'arrêter. Il était charron. Il a ferré des chevaux pour les tentes noires, la semaine dernière, à la forteresse. « Des chevaux de bât, dit-il. Beaucoup. Et des barques, des barques plates, qu'ils font descendre de l'amont sur des chariots. Pour quoi faire, des barques, sur une route ? »",
       "Il repart avant que tu aies trouvé une réponse.",
     ],
     choices: [{ back: ROUTE }] },
@@ -180,11 +180,11 @@ module.exports = {
       win: { fx: { ep: ["perso", 800] }, to: "E_patrouille_apres" }, lose: { fx: { pv: -2, gold: -10 }, to: "E_patrouille_depouille" },
       flee: { label: "Couper à travers les roseaux du fleuve", dom: "nature", diff: -10, to: "E_patrouille_roseaux" } },
     text: [
-      "Le cavalier sourit, et tire l'épée. Les autres mettent pied à terre, à l'aise, comme des gens qui font ça souvent.",
+      "Le cavalier sourit et tire l'épée. Les autres mettent pied à terre, à l'aise, en gens qui font cela souvent.",
     ] },
   E_patrouille_apres: { title: "Le chemin libre",
     text: [
-      "Les survivants remontent en selle et partent au galop vers l'est. Sur le chemin, un manteau noir, et dans la poche du manteau, un billet de solde au nom de la forteresse de Castel-Brume, signé d'un capitaine. Ils opèrent à visage découvert, désormais.",
+      "Les survivants remontent en selle et partent au galop vers l'est. Sur le chemin reste un manteau noir ; dans sa poche, un billet de solde au nom de la forteresse de Castel-Brume, signé d'un capitaine. Ils opèrent à visage découvert, désormais.",
     ],
     choices: [{ back: ROUTE }] },
   E_patrouille_depouille: { title: "Dans le fossé",
@@ -200,7 +200,7 @@ module.exports = {
 
   E_bac: { title: "Le bac",
     text: [
-      "Pour passer sur la rive droite, il faut prendre le bac : une plate-forme de planches, tirée sur un câble par un vieux passeur et son âne. Le passeur prend son temps. Il regarde ta bourse avant de regarder ton visage.",
+      "Pour passer sur la rive droite, il faut prendre le bac : une plate-forme de planches, tirée sur un câble par un vieux passeur et son âne. Le passeur prend son temps. Il regarde ta bourse avant de regarder ton visage, ce qui t'indique l'ordre de ses priorités.",
       "« Deux deniers le passage, dit-il. Dix, si vous voulez que je vous oublie quand les manteaux noirs passeront me demander qui j'ai fait traverser. »",
     ],
     choices: [
@@ -211,12 +211,12 @@ module.exports = {
     ] },
   E_bac_oubli: { title: "La mémoire du passeur",
     text: [
-      "Le passeur empoche les pièces, et te regarde enfin, longuement, comme pour s'imprimer ton visage. « Voilà, dit-il. Maintenant, je vous ai oublié. » Il tire sur le câble. L'âne avance. Le fleuve passe sous les planches, jaune et lent.",
+      "Le passeur empoche les pièces et te regarde enfin, longuement, comme pour s'imprimer ton visage. « Voilà, dit-il. Maintenant, je vous ai oublié. » Il tire sur le câble. L'âne avance. Le fleuve passe sous les planches, jaune et lent.",
     ],
     choices: [{ back: ROUTE }] },
   E_bac_passe: { title: "La traversée",
     text: [
-      "Le bac traverse lentement, en grinçant. Au milieu du fleuve, le passeur se met à chanter une chanson de Thérance, une chanson de moisson, très douce. Il s'arrête net quand il voit que tu écoutes.",
+      "Le bac traverse lentement, en grinçant. Au milieu du fleuve, le passeur se met à chanter une chanson de Thérance, une chanson de moisson, très douce. Il s'arrête net en voyant que tu écoutes.",
     ],
     choices: [{ back: ROUTE }] },
   E_bac_bavard: { title: "Ce qu'on demande",
