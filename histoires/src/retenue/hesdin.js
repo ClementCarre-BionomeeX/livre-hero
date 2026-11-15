@@ -19,7 +19,7 @@ module.exports = {
       hesdin: { arch: "guerrier", time: 21, place: "hauteville", level: 1 },
     },
     companions: {
-      hesdin: { name: "Bérangère Hesdin", f: true, desc: "Maîtresse des forges Hesdin, soixante-dix ans. Une voix au Conseil.", face: { age: "ancien", coif: "foulard" } },
+      hesdin: { name: "Bérangère Hesdin", aspect: { allure: "vieille dame appuyée sur une canne", visage: "foulard sur les cheveux", habits: "robe noire", signe: "canne à la main" }, f: true, desc: "Maîtresse des forges Hesdin, soixante-dix ans. Une voix au Conseil.", face: { age: "ancien", coif: "foulard" } },
     },
     leads: {
       hesdin: { name: "Dame Hesdin", desc: "maîtresse de forges, 21 h, rue Haute", start: "H_forges", fx: { voie: "forges" },
