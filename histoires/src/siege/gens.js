@@ -6,7 +6,7 @@ module.exports = {
   T_aussonne: {
     title: "Le capitaine d'Aussonne", back: true,
     text: [
-      { first: true, text: "Le capitaine d'Aussonne t'écoute jusqu'au bout, debout, et te laisse debout toi aussi. Il a une balafre blanche de la tempe au menton, des yeux lourds et fatigués, et la manie de regarder vers le sud quand il réfléchit." },
+      { first: true, text: "Le capitaine d'Aussonne t'écoute jusqu'au bout, debout, et te laisse debout toi aussi. Il porte une balafre blanche de la tempe au menton, il a les yeux lourds et fatigués, et la manie de regarder vers le sud quand il réfléchit." },
       { again: true, text: "Aussonne te salue d'un signe de tête. « L'intendance. Parlez. »" },
       { regard: { aussonne: ["allie", "admiratif"] }, text: "Il te serre l'avant-bras, à la manière des soldats." },
     ],
@@ -44,7 +44,7 @@ module.exports = {
   TA_solde_payee: {
     title: "La solde payée",
     text: [
-      "Aussonne compte les écus deux fois, puis il les fait porter dans la cour, où l'on appelle les sergents un à un. Tu entends les noms résonner contre les murs, et chaque fois le bruit d'une main qui frappe une épaule.",
+      "Aussonne compte les écus deux fois, puis les fait porter dans la cour, où l'on appelle les sergents un à un. Tu entends les noms résonner contre les murs, et chaque fois le bruit d'une main qui frappe une épaule.",
       "« Je n'oublierai pas », dit le capitaine. Venant de lui, c'est un discours.",
     ],
     choices: [{ back: "T_aussonne" }],
@@ -53,7 +53,7 @@ module.exports = {
     title: "L'armée du Roi",
     text: [
       "« Le Roi viendra. » Aussonne regarde vers le sud, par la fenêtre, la route vide. « Il a promis. Le Roi tient parole. »",
-      { once: true, text: "Sa main gauche s'est fermée sur le pommeau de son épée pendant qu'il parlait, et elle ne s'est pas rouverte." },
+      { once: true, text: "Pendant qu'il parlait, sa main gauche s'est fermée sur le pommeau de son épée, et elle y reste." },
     ],
     choices: [{ back: "T_aussonne" }],
   },
@@ -72,14 +72,14 @@ module.exports = {
     title: "Avec la garnison",
     text: [
       "Aussonne hoche la tête une fois. « Bien. » Il appelle un sergent et lui dit, devant toi, que l'intendance a désormais accès au château à toute heure, et que ses ordres valent les siens dans la Basse-Ville.",
-      "En redescendant la rampe, tu croises Oudart de Lys qui monte. Il te sourit, et son sourire a quelque chose de pensif.",
+      "En redescendant la rampe, tu croises Oudart de Lys qui monte. Il te sourit, d'un sourire où entre quelque chose de pensif.",
     ],
     choices: [{ back: "T_aussonne" }],
   },
   TA_lettre: {
     title: "La lettre du Roi",
     text: [
-      { if: { not: { item: "lettre_roi" } }, text: "Tu lui parles d'un pli au sceau rouge, arrivé au neuvième jour du siège. Aussonne te regarde longtemps, sans ciller. « Le courrier du Roi ne regarde que moi. » C'est tout ce que tu obtiens. Il se garde de nier, et s'en tient là." },
+      { if: { not: { item: "lettre_roi" } }, text: "Tu lui parles d'un pli au sceau rouge, arrivé au neuvième jour du siège. Aussonne te regarde longtemps, sans ciller. « Le courrier du Roi ne regarde que moi. » C'est tout ce que tu obtiens : il se garde de nier, et s'en tient là." },
       { if: { item: "lettre_roi" }, text: "Tu poses la lettre sur la table, le sceau rompu tourné vers lui. Aussonne la laisse où elle est. Il devient très pâle, puis très calme." },
       { if: { item: "lettre_roi" }, text: "« À Pont-Aubert, le Margrave a pendu le capitaine au créneau de sa propre porte, avec ses trois sergents. Il avait rendu la place à bonnes conditions. » Il parle bas. « Si je lis cette lettre au Conseil, la ville ouvre ses portes le lendemain, et c'est mon tour. Alors je tiens. Je tiens jusqu'à ce que le Margrave se lasse, ou que l'hiver le chasse, ou que le Roi change d'avis. »" },
       { if: { item: "lettre_roi" }, text: "« Faites ce que vous voulez de ce papier. Lisez-le au Conseil, si vous croyez que c'est juste. Vous m'aurez pendu avant le Margrave, voilà tout. »" },
@@ -95,7 +95,7 @@ module.exports = {
     title: "Le lieutenant",
     text: [
       "Tu racontes au capitaine ce que tu sais : la demande faite à Bréhal en son nom, la garde de la Tour du Sel, les lumières des Moulins à minuit.",
-      { if: { any: [{ item: "bouton" }, { item: "carnet" }, { has: "oudart:vu" }] }, text: "Tu poses sur la table ce que tu as de plus solide. Aussonne le regarde longtemps." },
+      { if: { any: [{ item: "bouton" }, { item: "carnet" }, { has: "oudart:vu" }] }, text: "Tu poses sur la table ce que tu as de plus solide, et Aussonne le regarde longtemps." },
       { if: { item: "bouton" }, text: "Il prend le bouton d'argent au lys, le retourne, et le pose à côté de son propre gant. « Il m'a fait broder ces lys lui-même, quand je l'ai fait lieutenant. Il en était fier. »" },
       { if: { not: { any: [{ item: "bouton" }, { item: "carnet" }, { has: "oudart:vu" }] } }, text: "Aussonne t'écoute jusqu'au bout. « Des lumières dans la nuit, et des racontars de sentinelle. Vous accusez l'homme qui m'a sauvé la vie à Saint-Clair. » Il se lève. « Revenez avec une preuve, ou ne revenez pas. »" },
     ],
@@ -111,7 +111,7 @@ module.exports = {
       "Aussonne fait fermer les portes du château et appeler Oudart de Lys dans la salle du Conseil. Tu attends dans l'embrasure d'une fenêtre.",
       "Oudart entre en souriant, voit les quatre sergents, te voit, et cesse de sourire. Il laisse son épée au fourreau, défait lui-même son ceinturon et le pose sur la table.",
       "« Vous me remercierez un jour, capitaine, dit-il. Le jour où le Margrave entrera par la brèche et que vous compterez les morts. »",
-      "On l'emmène dans la tour basse. Aussonne reste debout, seul au milieu de la salle, et tu sors sans qu'il te le demande.",
+      "On l'emmène dans la tour basse. Aussonne reste debout, seul au milieu de la salle, et tu sors sans attendre qu'il te le demande.",
     ],
     fx: { ep: ["histoire", 2000], tie: "oudart_margrave" },
     choices: [{ label: "Descendre dans la cour", to: "H_chateau" }],
@@ -121,10 +121,10 @@ module.exports = {
   T_oudart: {
     title: "Oudart de Lys", back: true,
     text: [
-      { first: true, text: "Oudart de Lys te salue avec une révérence de cour, à moitié pour rire. Il a des yeux clairs, une moustache soignée, un pourpoint bleu à boutons d'argent, et cette facilité des gens qui savent qu'on les aime." },
+      { first: true, text: "Oudart de Lys te salue d'une révérence de cour, à moitié pour rire. Il a les yeux clairs, la moustache soignée, un pourpoint bleu à boutons d'argent, et cette aisance des gens qui se savent aimés." },
       { first: true, text: "« L'intendance ! Enfin quelqu'un qui saura dire au capitaine combien de jours il nous reste. Moi, il ne m'écoute plus. »" },
       { again: true, text: "Oudart te sourit. « Que puis-je pour les greniers ? »" },
-      { if: { item: "bouton" }, text: "Au deuxième bouton de son pourpoint, il manque un bouton d'argent. Un fil bleu pend à sa place." },
+      { if: { item: "bouton" }, text: "Au deuxième rang de son pourpoint, un bouton d'argent manque. Un fil bleu pend à sa place." },
     ],
     choices: [
       { label: "Lui parler de Josse Bréhal", hide: { seen: "TO_brehal" }, to: "TO_brehal" },
@@ -165,9 +165,9 @@ module.exports = {
   O_confrontation: {
     title: "Face à Oudart",
     text: [
-      "Tu lui dis ce que tu sais. Tu le dis dans l'ordre, sans hausser la voix, comme on lit un registre : la demande au nom du capitaine, la garde relevée, le vin sur le manteau d'un homme qui ne buvait plus, les lumières des Moulins.",
+      "Tu lui dis ce que tu sais. Tu le dis dans l'ordre, sans hausser la voix, comme on lit un registre : la demande au nom du capitaine, la garde relevée, le vin sur le manteau d'un homme qui avait cessé de boire, les lumières des Moulins.",
       { if: { item: "bouton" }, text: "À la fin, tu poses le bouton d'argent sur la table, entre vous deux." },
-      "Oudart t'écoute jusqu'au bout. Puis il s'assied, se sert un gobelet, t'en sert un autre.",
+      "Oudart t'écoute jusqu'au bout. Puis il s'assied, se sert un gobelet, et t'en sert un autre.",
       "« Je ne voulais pas le tuer. Il m'a attrapé par le pourpoint, sur le parapet, en criant qu'il allait tout dire au capitaine. On s'est battus. Il est tombé. » Il boit. « Le vin, c'est moi. C'était plus propre. »",
       "« Maintenant, écoutez-moi, parce que personne d'autre ne vous le dira. Le Roi ne viendra pas. Le capitaine a reçu sa lettre il y a quinze jours, et il la cache. Le Margrave prendra la ville, cet hiver ou le prochain. Une ville prise d'assaut, on la donne aux soldats trois jours. Vous savez ce que ça veut dire. »",
       "« Moi, j'ouvre la Poterne des Moulins la nuit du douzième jour, au signal des trois lumières. Le Margrave entre sans combat, et il a juré qu'il n'y aurait pas de sac. Il me fera seigneur de Sarance. Je ne vous mens pas : je le fais aussi pour moi. »",
@@ -190,9 +190,9 @@ module.exports = {
   O_fuite: {
     title: "Le lieutenant s'en va",
     text: [
-      "Oudart soupire. « Je m'en doutais. » Il se lève sans hâte, prend son manteau. « Le temps que vous trouviez le capitaine, je serai de l'autre côté de la Dorve. Jacquemin connaît la passe. »",
+      "Oudart soupire. « Je m'en doutais. » Il se lève sans hâte et prend son manteau. « Le temps que vous trouviez le capitaine, je serai de l'autre côté de la Dorve. Jacquemin connaît la passe. »",
       "Il s'arrête à la porte. « Ma poterne ne s'ouvrira pas. Mais le Margrave viendra quand même, par la brèche. Souvenez-vous, ce jour-là, que je vous avais offert autre chose. »",
-      "Quand tu arrives chez Aussonne avec deux sergents, la chambre du lieutenant est vide. On retrouve son cheval à l'écurie, et sa barque, au matin, échouée sur l'autre rive.",
+      "Quand tu arrives chez Aussonne avec deux sergents, la chambre du lieutenant est vide. On retrouve son cheval à l'écurie et, au matin, sa barque échouée sur l'autre rive.",
     ],
     fx: { flag: ["oudart:fui", "oudart:denonce"], ep: ["histoire", 1500] },
     choices: [{ label: "Descendre dans la cour", to: "H_chateau" }],
@@ -202,7 +202,7 @@ module.exports = {
   T_alienor: {
     title: "Dame Vassal", back: true,
     text: [
-      { first: true, text: "Dame Aliénor Vassal est une femme grande et sèche, vêtue de gris, avec un trousseau de clés à la ceinture comme une abbesse. Elle te regarde de haut en bas, et tu as la sensation très nette d'être pesé{e}." },
+      { first: true, text: "Dame Aliénor Vassal est une femme grande et sèche, vêtue de gris, qui porte un trousseau de clés à la ceinture comme une abbesse. Elle te regarde de haut en bas, et tu as la sensation très nette d'être pesé{e}." },
       { first: true, text: "« L'étranger{e} qu'on a fait intendant{e}. C'était une idée de Carbonnel, je suppose. Il a toujours aimé les choses qui ne lui coûtent rien. »" },
       { again: true, text: "Dame Vassal t'accorde un regard. « Encore vous. »" },
       { regard: { alienor: ["hostile", "rancunier"] }, text: "Elle te reçoit debout, sans t'offrir de siège, avec une politesse qui gèle l'air." },
@@ -245,7 +245,7 @@ module.exports = {
   TL_souper: {
     title: "Le souper des jurés",
     text: [
-      "La salle à manger des Vassal sent la cire et le chapon. Sur la table, du pain blanc, du vin de la côte, des poires. Autour, Carbonnel, deux maîtres de la guilde des drapiers, un chanoine, et Dame Vassal en bout de table, qui découpe elle-même.",
+      "La salle à manger des Vassal sent la cire et le chapon. Sur la table, il y a du pain blanc, du vin de la côte et des poires. Autour sont assis Carbonnel, deux maîtres de la guilde des drapiers et un chanoine ; Dame Vassal, en bout de table, découpe elle-même.",
       "On parle de tout sauf du siège jusqu'aux poires. Puis Dame Vassal pose son couteau. « Messire de Rouvre, le héraut du Margrave, m'a fait savoir que les conditions tiennent jusqu'au soir du dixième jour, et pas une heure de plus. » Personne ne demande comment elle le sait. Tout le monde le sait.",
       "« Les vies et les biens saufs. Les franchises confirmées. C'est mieux que ce que nous aurions du Roi, qui nous oublie, et du capitaine, qui nous fera tous mourir pour son honneur. » Elle te regarde. « Il nous manque une voix. »",
     ],
@@ -258,8 +258,8 @@ module.exports = {
   TL_souper_oui: {
     title: "Avec les jurés",
     text: [
-      "Les verres se lèvent. Carbonnel boit le sien d'un trait, soulagé comme un homme à qui l'on ôte une épine. Dame Vassal te fait asseoir à sa droite pour le reste du repas.",
-      "En sortant, son commis te glisse que les gardes de la maison Vassal seront à tes ordres si les choses tournent mal, et une bourse, « pour les menus frais de l'intendance ».",
+      "Les verres se lèvent. Carbonnel vide le sien d'un trait, soulagé comme un homme à qui l'on ôte une épine. Dame Vassal te fait asseoir à sa droite pour le reste du repas.",
+      "En sortant, son commis te glisse que les gardes de la maison Vassal seront à tes ordres si les choses tournent mal, et il te remet une bourse, « pour les menus frais de l'intendance ».",
     ],
     fx: { gold: 400 },
     choices: [{ back: "T_alienor" }],
@@ -267,7 +267,7 @@ module.exports = {
   G_negoce: {
     title: "Ce que tu veux",
     text: [
-      "Dame Vassal attend, les mains croisées. Elle a déjà fait le compte de ce que tu peux exiger et de ce que tu peux offrir. Elle attend de voir si tu sais compter aussi.",
+      "Dame Vassal attend, les mains croisées. Elle a déjà fait le compte de ce que tu peux exiger et de ce que tu peux offrir, et elle attend de voir si tu sais compter aussi.",
       { if: { has: "grain:vendu" }, text: "« Je vous préviens : il n'en reste pas trois cents. J'en ai vendu une part, ces derniers jours. Il y a des gens qui paient très cher le pain blanc, en temps de siège. »" },
     ],
     choices: [
@@ -291,7 +291,7 @@ module.exports = {
     title: "Le marché conclu",
     text: [
       "Dame Vassal te tend la main par-dessus la table. Sa poigne est sèche et ferme. « Je savais qu'on finirait par s'entendre. »",
-      "À la nuit, des charrettes bâchées traversent la place du Marché sans lanternes, et des hommes de la maison Vassal montent des sacs aux greniers de la Halle. Les gardes de nuit ont reçu chacun un écu pour ne pas savoir compter.",
+      "À la nuit, des charrettes bâchées traversent la place du Marché sans lanternes, et des hommes de la maison Vassal montent des sacs aux greniers de la Halle. Les gardes de nuit ont reçu chacun un écu pour oublier l'arithmétique.",
     ],
     fx: { flag: "g:trouve", quest: "II_grain", ep: ["seance", 1500] },
     choices: [{ label: "Faire la tournée des greniers pour voir les sacs rentrer", to: "G_versement" }],
@@ -299,7 +299,7 @@ module.exports = {
   G_rendu: {
     title: "Le grain rendu",
     text: [
-      "Dame Vassal se lève. « Vous ne ferez pas carrière, intendant{e}. » Mais elle appelle son commis, et lui donne l'ordre à voix basse.",
+      "Dame Vassal se lève. « Vous ne ferez pas carrière, intendant{e}. » Elle appelle pourtant son commis, et lui donne l'ordre à voix basse.",
       "À la nuit, des charrettes bâchées traversent la place du Marché. Tu les suis jusqu'à la Halle, et tu comptes toi-même les sacs qu'on monte aux greniers.",
     ],
     fx: { flag: ["g:trouve", "g:rendu"], quest: "II_grain", ep: ["seance", 1500] },
@@ -308,8 +308,8 @@ module.exports = {
   G_saisie: {
     title: "La saisie",
     text: [
-      "Aussonne t'écoute, demande à voir le bon, le lit deux fois. « Une jurée du Conseil. » Il se lève. « Je ne fais pas la loi dans les caves des marchands. Mais je la fais dans une ville assiégée. »",
-      "Une heure plus tard, vingt sergents enfoncent la porte des caves de la maison Vassal sous les yeux de toute la place. Dame Vassal, debout sur son perron, garde le silence. On l'emmène au château, avec Carbonnel qu'on est allé chercher à l'Hôtel de ville en chemise.",
+      "Aussonne t'écoute, demande à voir le bon et le lit deux fois. « Une jurée du Conseil. » Il se lève. « Je ne fais pas la loi dans les caves des marchands. Mais je la fais dans une ville assiégée. »",
+      "Une heure plus tard, vingt sergents enfoncent la porte des caves de la maison Vassal sous les yeux de toute la place. Dame Vassal, debout sur son perron, garde le silence. On l'emmène au château, avec Carbonnel, qu'on est allé chercher en chemise à l'Hôtel de ville.",
       "La place du Marché applaudit les sacs qui sortent, un à un, cousus du S couronné des greniers.",
     ],
     fx: { flag: ["g:trouve", "g:rendu", "alienor:arretee"], quest: "II_grain", stock: { moral: 8 }, regard: { alienor: "hostile", carbonnel: "craintif", gilles: "admiratif" }, ep: ["seance", 1500] },
@@ -334,7 +334,7 @@ module.exports = {
   T_carbonnel: {
     title: "Maître Carbonnel", back: true,
     text: [
-      { first: true, text: "Maître Carbonnel te reçoit dans son cabinet de l'Hôtel de ville, entre des piles de registres et un sceau de bronze grand comme une assiette. Il essuie ses lunettes sans arrêt, et sourit avant de répondre à chaque question, comme pour s'excuser de la réponse." },
+      { first: true, text: "Maître Carbonnel te reçoit dans son cabinet de l'Hôtel de ville, entre des piles de registres et un sceau de bronze grand comme une assiette. Il essuie sans arrêt ses lunettes, et sourit avant chaque réponse, comme pour s'en excuser." },
       { again: true, text: "Carbonnel essuie ses lunettes. « Ah. L'intendance. »" },
       { regard: { carbonnel: "craintif" }, text: "Il se lève quand tu entres, et reste debout." },
     ],
@@ -349,7 +349,7 @@ module.exports = {
     title: "Bréhal, selon Carbonnel",
     text: [
       "Carbonnel pâlit, essuie ses lunettes. « Bréhal… oui. Il est venu me voir, la veille de… Une histoire de papiers. Un bon. Je lui ai dit de voir ça avec le greffier. Les bons, on les copie tous au registre, vous savez. Tous. C'est la règle. »",
-      "Il le dit trop vite, et il le regrette aussitôt, à voir sa tête.",
+      "Il l'a dit trop vite, et sa tête montre qu'il le regrette aussitôt.",
     ],
     fx: { flag: "carbonnel:registre" },
     choices: [{ back: "T_carbonnel" }],
@@ -357,7 +357,7 @@ module.exports = {
   TC_registre: {
     title: "Le registre des bons",
     text: [
-      "Le greffier de l'Hôtel de ville te donne le registre sans discuter : l'intendance a le droit de tout voir. Tu remontes les pages jusqu'au début du mois.",
+      "Le greffier de l'Hôtel de ville te donne le registre sans discuter, puisque l'intendance a le droit de tout voir. Tu remontes les pages jusqu'au début du mois.",
       "La copie est là, au deuxième jour : un bon de sortie pour trois cents setiers de grain gâté, au sceau de la ville, signé R. Carbonnel. Tu en fais faire une copie conforme par le greffier, qui tremble un peu en appliquant le sceau.",
     ],
     fx: { item: "bon", clue: "g_bon" },
@@ -366,7 +366,7 @@ module.exports = {
   TC_bon: {
     title: "Le bon",
     text: [
-      "Carbonnel regarde le bon comme on regarde un serpent sur son oreiller. Ses lunettes tombent sur le registre. Il les laisse là.",
+      "Carbonnel regarde le bon comme on regarde un serpent sur son oreiller. Ses lunettes tombent sur le registre, et il les y laisse.",
       "« Elle m'a tenu, dit-il enfin. Vassal. Mes dettes. Trois mille écus, depuis la mauvaise année des draps. Elle a dit qu'elle effacerait tout. Elle a dit que le grain serait mieux gardé dans ses caves que dans les greniers de la ville, que c'était une précaution, qu'on le rendrait. » Il se tord les mains. « Ce n'était pas du grain gâté. C'était du bon blé. Je le savais. »",
       "« Ne me faites pas pendre. J'ai des petits-enfants. »",
     ],
@@ -376,7 +376,7 @@ module.exports = {
   TC_tresor: {
     title: "Le trésor de la ville",
     text: [
-      "« Le trésor ? » Carbonnel ouvre la bouche pour dire qu'il est vide. Il croise ton regard, la referme. Il se lève, va jusqu'à un coffre ferré derrière la tapisserie, et l'ouvre avec une clé qu'il porte au cou.",
+      "« Le trésor ? » Carbonnel ouvre la bouche pour dire qu'il est vide, croise ton regard et la referme. Il se lève, va jusqu'à un coffre ferré caché derrière la tapisserie, et l'ouvre avec une clé qu'il porte au cou.",
       "« Soixante écus. C'est tout ce qu'il reste. Je les gardais pour… pour après. » Il te les compte d'une main tremblante.",
     ],
     fx: { gold: 1200, flag: "tresor:pris", regard: { carbonnel: "craintif" } },
@@ -387,7 +387,7 @@ module.exports = {
   T_ysaure: {
     title: "Mère Ysaure", back: true,
     text: [
-      { first: true, text: "Mère Ysaure est petite, ridée, les manches roulées sur des avant-bras de lavandière. Elle a un grain de beauté sur la joue et une voix qui porte jusqu'au fond de la salle sans jamais crier." },
+      { first: true, text: "Mère Ysaure est petite et ridée, les manches roulées sur des avant-bras de lavandière. Elle a un grain de beauté sur la joue, et une voix qui porte jusqu'au fond de la salle sans qu'elle ait besoin de crier." },
       { first: true, text: "« C'est vous, l'intendance ? » Elle ne te laisse pas répondre. « Alors c'est à vous que je demande du pain. J'ai quatre-vingts malades, des blessés, et sept cents réfugiés dans mon cloître. Ils mangent tous. »" },
       { again: true, text: "Mère Ysaure s'essuie les mains à son tablier. « Faites vite, on m'attend. »" },
       { regard: { ysaure: ["trahi", "hostile"] }, text: "Elle te regarde comme on regarde quelqu'un qu'on a cessé d'attendre." },
@@ -416,7 +416,7 @@ module.exports = {
   T_ysaure_flux: {
     title: "Le flux",
     text: [
-      "Mère Ysaure t'emmène derrière les draps tendus au fond de la salle. Une vingtaine de paillasses, des bassins, des enfants trop calmes, l'odeur.",
+      "Mère Ysaure t'emmène derrière les draps tendus au fond de la salle : une vingtaine de paillasses, des bassins, des enfants trop calmes, et l'odeur.",
       "« Ça vient de la faim et de l'eau croupie. Ça tue les petits et les vieux d'abord. » Elle parle sans émotion, comme on dicte une ordonnance. « Il me faut du pain blanc, du bouillon, et de l'eau bouillie. Il me faut du bois. Et il me faut que la ville cesse d'entasser les gens comme des harengs. »",
       "« Le capitaine, lui, veut la ration pleine pour ses soldats. Il y a un assaut qui vient, dit-il. Il a sûrement raison. Les deux ne tiendront pas dans vos greniers. »",
     ],
@@ -425,9 +425,9 @@ module.exports = {
   D_soldats: {
     title: "Le grain des uns et des autres",
     text: [
-      "Les soldats veulent la ration pleine pour l'assaut qui vient. L'Hôtel-Dieu veut du pain blanc et du bouillon pour ses malades. Tu fais le compte une fois, puis une deuxième, puis une troisième, et le compte reste le même : tu ne peux pas donner aux deux.",
+      "Les soldats veulent la ration pleine pour l'assaut qui vient ; l'Hôtel-Dieu veut du pain blanc et du bouillon pour ses malades. Tu fais le compte une fois, puis une deuxième, puis une troisième, et il reste le même : tes greniers suffisent à l'un ou à l'autre.",
       { if: { has: "hospice:promis" }, text: "Tu as promis à Mère Ysaure que ses malades garderaient leur ration." },
-      { if: { has: "solde:payee" }, text: "Les sergents t'ont salué{e} ce matin quand tu es passé{e} dans la cour. Ils savent qui a payé leur solde." },
+      { if: { has: "solde:payee" }, text: "Ce matin, dans la cour, les sergents t'ont salué{e} à ton passage. Ils savent qui a payé leur solde." },
     ],
     choices: [
       { label: "Donner la ration pleine aux soldats", fx: { flag: "soldats:pleine", quest: "II_flux", regard: { aussonne: "cordial", ysaure: "distant" } }, via: "soldats", to: "D_choix" },
@@ -438,9 +438,9 @@ module.exports = {
   D_choix: {
     title: "Le partage", back: true,
     text: [
-      { via: "soldats", text: "Les sergents reçoivent leurs miches entières, sous les regards de la file. À l'Hôtel-Dieu, Mère Ysaure coupe le pain blanc en tranches de plus en plus fines. Pour tout reproche, elle t'envoie, chaque soir, le nombre des morts." },
+      { via: "soldats", text: "Les sergents reçoivent leurs miches entières, sous les regards de la file. À l'Hôtel-Dieu, Mère Ysaure coupe le pain blanc en tranches de plus en plus fines. Pour tout reproche, elle t'envoie chaque soir le nombre des morts." },
       { via: "hospice", text: "On porte à l'Hôtel-Dieu des sacs de farine et du bois. Dans la cour du château, les sergents mangent la demi-ration comme tout le monde, et le capitaine te salue désormais d'un mouvement de tête plus court." },
-      { via: "partage", text: "Tu coupes la part en deux. Les soldats ont un peu plus, les malades ont un peu plus, et personne n'en a assez. Le capitaine et l'abbesse te remercient du bout des lèvres, chacun persuadé que l'autre a eu la meilleure part." },
+      { via: "partage", text: "Tu coupes la part en deux. Les soldats ont un peu plus, les malades aussi, et personne n'en a assez. Le capitaine et l'abbesse te remercient du bout des lèvres, chacun persuadé que l'autre a eu la meilleure part." },
     ],
   },
 
@@ -448,7 +448,7 @@ module.exports = {
   T_gilles: {
     title: "Gilles Aubron", back: true,
     text: [
-      { first: true, text: "Gilles Aubron est roux, large, les mains comme des battoirs, et il parle pour être entendu de l'autre rive. Les bateliers autour de lui se taisent quand il ouvre la bouche, et rient quand il rit." },
+      { first: true, text: "Gilles Aubron est roux et large, avec des mains comme des battoirs, et il parle pour être entendu de l'autre rive. Autour de lui, les bateliers se taisent quand il ouvre la bouche, et rient quand il rit." },
       { first: true, text: "« Tiens, l'intendance ! Tu viens compter nos dents ? » Il te détaille. « Je t'ai vu{e} au Chat-Huant, avant. Tu payais tes chopes. C'est déjà ça. »" },
       { again: true, text: "Gilles Aubron te fait une place sur sa barque retournée. « Alors ? »" },
       { regard: { gilles: ["hostile", "trahi", "rancunier"] }, text: "Il crache dans l'eau avant de te répondre." },
@@ -487,7 +487,7 @@ module.exports = {
     title: "La poix des tanneries",
     text: [
       "« De la poix ? » Gilles appelle un tanneur. « On en a des tonneaux, pour les cuirs. C'est la ville qui les aura payés, de toute façon, d'une manière ou d'une autre. »",
-      "Le soir même, vingt pots de poix sont rangés dans la tour d'Angle.",
+      "Le soir même, vingt pots de poix attendent dans la tour d'Angle.",
     ],
     fx: { flag: "poix" },
     choices: [{ back: "T_gilles" }],
@@ -524,9 +524,9 @@ module.exports = {
   TG_assemblee: {
     title: "L'assemblée de nuit",
     text: [
-      "Ils sont deux cents sur le quai, à la lueur des torches : bateliers, tanneurs, meuniers, foulons, des femmes aussi, les bras croisés sous le châle. Gilles est debout sur une barque retournée.",
+      "Ils sont deux cents sur le quai, à la lueur des torches : bateliers, tanneurs, meuniers, foulons, et des femmes aussi, les bras croisés sous le châle. Gilles se tient debout sur une barque retournée.",
       "« Le capitaine veut tenir pour son Roi. Les jurés veulent rendre la ville pour leurs caves. Et nous ? On nous demande de mourir pour les uns, ou de nous taire pour les autres. » Un grondement. « Je dis que Sarance est à ceux qui la font tourner. Je dis qu'on jure, ici, ensemble, que nous ne laisserons personne vendre la ville par-dessus nos têtes. »",
-      "Les mains se lèvent, une à une. Gilles te regarde, en bas de sa barque. Tout le quai te regarde.",
+      "Les mains se lèvent, une à une. Gilles te regarde, du haut de sa barque, et tout le quai te regarde avec lui.",
     ],
     choices: [
       { label: "Lever la main avec eux", fx: { camp: "commune", regard: { gilles: "allie" } }, to: "TG_assemblee_oui" },
@@ -536,7 +536,7 @@ module.exports = {
   TG_assemblee_oui: {
     title: "Le serment",
     text: [
-      "Ta main se lève, et un cri monte du quai, qui fait aboyer les chiens jusque dans le camp du Margrave. Gilles saute de sa barque et te serre dans ses bras comme un frère.",
+      "Ta main se lève, et un cri monte du quai, assez fort pour faire aboyer les chiens jusque dans le camp du Margrave. Gilles saute de sa barque et te serre dans ses bras comme un frère.",
       "« L'intendance est avec nous ! » Tu entends ton titre répété par deux cents voix, et tu comprends que tu viens de choisir pour toi, et pour beaucoup d'autres.",
     ],
     choices: [{ back: "T_gilles" }],
@@ -561,8 +561,8 @@ module.exports = {
   TM_verite: {
     title: "La vérité",
     text: [
-      "Tu lui dis tout, dans un coin du cloître, où elle s'est assise sur le bord du puits. La demande faite en son nom, la garde relevée, les lumières, le parapet. Le nom.",
-      "Mahaut écoute sans pleurer. Quand tu as fini, elle reste un long moment à regarder ses mains, rouges de l'eau des baquets.",
+      "Tu lui dis tout, dans un coin du cloître, où elle s'est assise sur la margelle du puits : la demande faite en son nom, la garde relevée, les lumières, le parapet, et le nom.",
+      "Mahaut écoute sans pleurer. Quand tu as fini, elle reste un long moment à regarder ses mains, rougies par l'eau des baquets.",
       { if: { has: "oudart:arrete" }, text: "« Il est dans la tour basse ? » Tu dis oui. « Alors je n'ai plus rien à demander à personne. »" },
       { if: { has: "oudart:fui" }, text: "« Il est de l'autre côté de la rivière. » Elle hoche la tête. « Il reviendra avec le Margrave. Je l'attendrai. »" },
       { if: { has: "pacte:oudart" }, text: "« Et vous l'avez laissé libre. » Elle te regarde enfin. « Pour la ville. » Elle le constate, et tu gardes le silence." },
@@ -576,7 +576,7 @@ module.exports = {
   T_hoel: {
     title: "Hoël", back: true,
     text: [
-      { first: true, text: "Hoël a vingt-deux ans, des joues de laboureur, des yeux qui fuient. Il serre son gobelet ou sa pique, selon l'heure, comme une main tendue pour ne pas tomber." },
+      { first: true, text: "Hoël a vingt-deux ans, des joues de laboureur et des yeux qui fuient. Selon l'heure, il serre son gobelet ou sa pique, comme on s'accroche à une main tendue pour ne pas tomber." },
       { again: true, text: "Hoël te salue d'un hochement de tête." },
     ],
     choices: [
@@ -596,7 +596,7 @@ module.exports = {
   TH_muet: {
     title: "Hoël se tait",
     text: [
-      "Hoël devient rouge, puis blanc. « J'ai fait ma garde, j'ai rien vu. » Il le répète deux fois, et il s'en va pisser contre le mur pour ne plus avoir à te regarder.",
+      "Hoël devient rouge, puis blanc. « J'ai fait ma garde, j'ai rien vu. » Il le répète deux fois, puis il s'en va pisser contre le mur, pour éviter ton regard.",
     ],
     choices: [{ back: "T_hoel" }],
   },
@@ -671,7 +671,7 @@ module.exports = {
   S_pernette: {
     title: "La boulangerie de Pernette", place: "marche", back: true, shop: "pernette",
     text: [
-      { first: true, text: "Pernette pétrit dans l'arrière-boutique, les avant-bras blancs jusqu'aux coudes, et vend par une fenêtre ouverte sur la place. Les jetons de la ration d'un côté, les pièces de ceux qui achètent en plus de l'autre." },
+      { first: true, text: "Pernette pétrit dans l'arrière-boutique, les avant-bras blancs jusqu'aux coudes, et vend par une fenêtre ouverte sur la place : d'un côté les jetons de la ration, de l'autre les pièces de ceux qui achètent en plus." },
       { again: true, text: "Pernette te fait signe par sa fenêtre." },
       { if: { day: { max: 3 } }, text: "« Le pain de quatre livres à quatre sous, pour ceux qui ont de quoi. Après, ça montera. Ça monte toujours. »" },
       { if: { day: { min: 4 } }, text: "Pernette baisse la voix : « Je pourrais vendre ma miche le triple, il y aurait des acheteurs. Les prix, c'est la peur qui les fixe. »" },
@@ -680,7 +680,7 @@ module.exports = {
   T_tasca: {
     title: "Le comptoir du Lombard", back: true,
     text: [
-      { first: true, text: "Ugolin Tasca te reçoit derrière une grille de fer, entre deux balances et un registre ouvert. Il porte des lunettes rondes, une moustache fine, et il te sourit avec tout le visage, sauf les yeux." },
+      { first: true, text: "Ugolin Tasca te reçoit derrière une grille de fer, entre deux balances et un registre ouvert. Il porte des lunettes rondes et une moustache fine, et il te sourit de tout le visage, sauf des yeux." },
       { first: true, text: "« L'intendance ! Je vous attendais. Tout le monde vient me voir, tôt ou tard. Le capitaine a besoin de soixante écus pour la solde, je le sais, le Conseil ne les a pas, je le sais aussi. Moi, je les ai. »" },
       { again: true, text: "Ugolin Tasca lève les yeux de sa balance. « Que puis-je ? »" },
     ],
@@ -711,7 +711,7 @@ module.exports = {
   TP_logis: {
     title: "Un toit",
     text: [
-      "Tu passes la journée à chercher. Les entrepôts des drapiers, vides depuis le siège, sont fermés à clé, et la clé est chez Carbonnel. La nef de Saint-Aubin est grande, sèche, et Mère Ysaure en a la garde.",
+      "Tu passes la journée à chercher. Les entrepôts des drapiers, vides depuis le siège, sont fermés à clé, et la clé est chez Carbonnel. La nef de Saint-Aubin est grande et sèche, et Mère Ysaure en a la garde.",
     ],
     choices: [
       { label: "Faire ouvrir les entrepôts des drapiers, au nom de l'intendance", fx: { quest: "I_plessis", flag: "plessis:abri", regard: { carbonnel: "mefiant", alienor: "mefiant", adelaide: "cordial" }, ep: ["seance", 600] }, via: "drapiers", to: "TP_logis_fait" },
@@ -722,7 +722,7 @@ module.exports = {
     title: "Sous un toit",
     text: [
       { via: "drapiers", text: "Le greffier de Carbonnel t'apporte la clé en traînant les pieds. Le soir même, deux cents personnes dorment au sec sur des balles de laine, et les drapiers de la place te regardent passer comme on regarde un voleur." },
-      { via: "eglise", text: "Mère Ysaure hésite une seconde, puis elle fait pousser les bancs contre les murs. Le soir, la nef de Saint-Aubin sent la paille et le lait, et le curé dit sa messe au milieu des dormeurs." },
+      { via: "eglise", text: "Mère Ysaure hésite un instant, puis fait pousser les bancs contre les murs. Le soir, la nef de Saint-Aubin sent la paille et le lait, et le curé dit sa messe au milieu des dormeurs." },
       "Adélaïde te remercie sans phrases, d'un regard.",
     ],
     choices: [{ back: "T_adelaide" }],
