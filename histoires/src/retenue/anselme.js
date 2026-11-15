@@ -11,7 +11,11 @@ module.exports = {
       "À deux pas de la veine, sous l'eau, le pointeau de bronze. Ton grand-père Ferréol disait : une clé, ça se perd, et les fils aussi.",
       "Là-haut, au-dessus de quarante mètres de pierre, le lac pèse sur toi de tout son poids. Ce soir, le mercure tombe.",
     ],
-    choices: [{ label: "Remonter", to: "A_fauteuil", fx: { time: 0.5 } }] },
+    choices: [
+      { label: "Poser la main sur la veine", hide: { has: "anselme:main" }, to: "A_veine_main" },
+      { label: "Graisser le pointeau, comme chaque soir", hide: { has: "pointeau:graisse" }, to: "A_pointeau_vu" },
+      { label: "Remonter", to: "A_fauteuil", fx: { time: 0.5 } },
+    ] },
   A_fauteuil: { act: A, title: "Le fauteuil et le flacon", place: "digue",
     text: [
       "L'escalier de service a soixante marches. Tu les montes en une demi-heure. En haut, ton fauteuil, la fenêtre sur le lac, le baromètre au mur. Le mercure est plus bas qu'il ne l'a jamais été en quarante ans.",
@@ -23,6 +27,7 @@ module.exports = {
       { label: "Vingt gouttes", to: "A_ilde_vient", fx: { flag: "gouttes:vingt", time: 0.25 } },
       { label: "Dix gouttes, pour garder la tête", to: "A_ilde_vient", fx: { flag: "gouttes:dix", time: 0.25 } },
       { label: "Rien. Réveiller ton fils.", to: "A_fils_parle", fx: { time: 0.25 } },
+      { label: "Relire les trois feuilles du carnet", hide: { has: "anselme:seance" }, to: "A_seance" },
     ] },
   A_ilde_vient: { act: A, title: "Ilde", place: "digue", fx: { time: 0.25 },
     text: [
@@ -49,7 +54,7 @@ module.exports = {
       "Ilde se lève. Elle va jusqu'à la porte de la pièce d'à côté, entrouverte. Elle regarde Bastien sur son banc. Elle revient, et elle ne dit rien. Elle t'embrasse sur le front, comme on embrasse un enfant malade, et elle s'en va.",
       "À huit heures, Bastien se lève. Il dit qu'il va faire un tour. Il ne te regarde pas en le disant. Tu entends son pas décroître dans l'escalier de la digue, plus vite qu'il ne descend d'habitude.",
     ],
-    choices: [{ label: "Attendre", to: "A_attente" }] },
+    choices: [{ label: "Préparer les lanternes", to: "A_lanternes" }] },
   A_attente: { act: A, title: "Les gardes de minuit", place: "digue", fx: { time: 4 },
     text: [
       "Tu attends. Neuf heures. Dix. Onze. Le vent tourne au nord-ouest. Le lac cogne contre le parement, tu l'entends à travers le plancher.",
@@ -60,11 +65,14 @@ module.exports = {
     choices: [
       { label: "Leur servir ton vin, avec quarante gouttes dans la deuxième bouteille", to: "A_vide", fx: { flag: "gardes:endormis" } },
       { label: "Les laisser faire, et attendre ta clé", to: "A_vide" },
+      { label: "Leur dire la vérité sur la digue", to: "A_gardes_parle" },
       { label: "Prendre quarante gouttes, toi, et dormir", to: "A_sommeil_nuit" },
     ] },
   A_vide: { act: A, title: "Les mains vides", place: "digue", fx: { time: 2.5 },
     text: [
       { if: { has: "gardes:endormis" }, text: "À une heure, les deux gardes ronflent sur la table de la cuisine." },
+      { if: { has: "gardes:foulons" }, text: "Les deux gamins sont partis vers les Foulons en courant, la casquette à la main, Gilles devant." },
+      { via: "gilles", text: "Gilles est parti seul vers les Foulons, en courant. Mathurin est resté dans la cuisine, la tête dans les mains, à côté de la bouteille." },
       "Une heure. Deux heures. Pas de clé. Une seule lanterne à ta fenêtre.",
       "À deux heures et demie, on gratte à la porte de l'escalier intérieur. Jacquette Morand, trempée, une tresse rousse collée dans le dos. Elle a les mains vides.",
       "« Pas de paquet, dit-elle. J'ai attendu jusqu'à minuit et demi. J'ai été jusqu'au pont. Le guet y est. »",
@@ -80,6 +88,7 @@ module.exports = {
       "Tu lui dis le pointeau. Le bouchon de bronze sous l'eau, à deux pas de la veine, vingt tours, et le contrepoids. Tu lui dis que l'eau est à la taille, et froide à arrêter le cœur. Tu lui dis qu'il faut s'attacher.",
       "Elle prend ta corde, ta lanterne, et elle descend.",
       "Tu t'assois en haut de l'escalier de service, la tête contre le mur, et tu lui parles. Tout le temps. Tu lui dis où poser les pieds, où est l'anneau du mur, de combien de pouces le pointeau dépasse. Ta voix descend les soixante marches et revient en écho.",
+      { if: { has: "pointeau:graisse" }, text: "Tu entends le volant grincer, puis tourner, plus vite que tu ne l'espérais. Ton suif de six heures." },
       "Elle ne répond pas. Puis elle jure, très fort, un juron de batelière. Puis la vanne de fond se lève avec un bruit qui fait trembler toute la digue.",
     ],
     choices: [{ label: "Attendre qu'elle remonte", to: "A_loutre" }] },
@@ -87,7 +96,8 @@ module.exports = {
     text: [
       "Elle remonte au bout d'un temps qui n'en finit pas, à quatre pattes, bleue de froid, du sang aux ongles. Tu la couvres de ta propre couverture. Tu lui fais boire ton eau-de-vie. Elle rit en claquant des dents.",
       "Au jour, la pluie bat le lac, et le lac descend. Sous vos pieds, la digue gronde moins.",
-      "Aux Foulons, personne n'a été prévenu : Ilde a été arrêtée sur la berge, ou chez elle, tu ne le sauras qu'à midi. L'eau est entrée dans les maisons à trois heures et demie. On compte quatre morts.",
+      { if: { not: { has: "gardes:foulons" } }, text: "Aux Foulons, personne n'a été prévenu : Ilde a été arrêtée sur la berge, ou chez elle, tu ne le sauras qu'à midi. L'eau est entrée dans les maisons à trois heures et demie. On compte quatre morts." },
+      { if: { has: "gardes:foulons" }, text: "Aux Foulons, deux gamins du guet ont frappé aux portes à deux heures, en criant ton nom. Le quartier les a crus à moitié. L'eau est entrée dans les maisons à trois heures et demie. On compte un mort, un vieux qui a voulu remonter chercher son chat." },
       "Tu meurs à onze heures, dans ton fauteuil. Jacquette est restée. Elle a ouvert ton carnet, et elle a lu la copie de la séance, et elle te demande ce qu'il faut en faire.",
       "Tu lui dis : « Ce que tu voudras. » Tu n'as plus la force de vouloir quelque chose pour les autres. Elle met le carnet sous sa chemise.",
     ] },
@@ -103,8 +113,10 @@ module.exports = {
   A_seul: { act: A, title: "Le garde-vannes", place: "digue", end: true, fx: { time: 3 },
     text: [
       "Le bronze est froid comme la mort. Tes doigts ne serrent plus. Tu tournes avec les paumes, avec les poignets, avec ce qui te reste.",
+      { if: { has: "pointeau:graisse" }, text: "Le volant tourne sous tes paumes. Le suif de six heures a fait son travail. Tu n'aurais pas eu la force du premier quart de tour." },
       "Un tour. Deux. Tu comptes à voix haute, comme tu as toujours compté. Au douzième, tu ne sens plus rien sous ta poitrine. Au vingtième, le pointeau te reste dans les mains, et la vanne se lève, et l'eau te prend.",
       "On te trouve au jour, quand le lac est descendu de quatre mètres et que la galerie s'est vidée. Tu es assis contre la paroi, sous la veine, le pointeau de bronze sur les genoux.",
+      { if: { has: "gardes:foulons" }, text: "Avant elle, à deux heures, deux gamins du guet avaient déjà frappé aux portes en criant ton nom." },
       "Aux Foulons, une barque est passée à trois heures, et une femme rousse a crié dans toutes les rues. La moitié du quartier s'est levée. On compte deux morts.",
       "Le Conseil vote à huit heures. Personne, dans la salle, ne sait encore pourquoi la Sorge est si haute. Ils le sauront à midi, quand Jacquette Morand apportera ton carnet à l'Hôtel, trempé, et le posera devant Dame Hesdin.",
     ] },
