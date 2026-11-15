@@ -11,7 +11,7 @@ module.exports = {
     fx: { questSeen: "II_Q_nouveau_ne" },
     text: [
       "Dans une tente au bord du camp, une jeune femme, Runa, allaite un nouveau-né, gros comme deux poings et rouge comme une baie. Né il y a neuf jours. Au clan, on nomme un enfant le neuvième jour, devant le feu, et la Bouche peint le nom sur une bande d'écorce. C'est aujourd'hui.",
-      "Personne n'est venu. Runa te regarde entrer, et elle serre l'enfant contre elle. « Hrodna ne peint plus les noms, dit-elle. Elle les donne à la Mère. Si je lui dis le nom de mon fils, elle le donnera. Si je ne le dis à personne, il n'a pas de nom. » Elle baisse les yeux sur l'enfant. « Il n'a pas de nom depuis neuf jours. Il pleure tout le temps. »",
+      "La tente est vide de visiteurs. Runa te regarde entrer, et elle serre l'enfant contre elle. « Hrodna ne peint plus les noms, dit-elle. Elle les donne à la Mère. Si je lui dis le nom de mon fils, elle le donnera. Si je ne le dis à personne, il n'a pas de nom. » Elle baisse les yeux sur l'enfant. « Il n'a pas de nom depuis neuf jours. Il pleure tout le temps. »",
     ],
     choices: [
       { label: "« Dis-le-moi. Je le garderai. »", to: "II_Q_nouveau_ne_garder" },
@@ -29,13 +29,13 @@ module.exports = {
   II_Q_nouveau_ne_peint: P({ title: "L'écorce", place: "corbeau",
     text: [
       "Tu prends une bande d'écorce de bouleau, de l'ocre, de la suie. Tu ne sais pas écrire. Mais tu sais peindre les signes du clan, ceux qu'Askel t'a peints sur le visage.",
-      { after: "corbe:blanc", text: "Et tu sais, maintenant, ce que veut dire le blanc autour. Tu peins le nom de l'enfant, que Runa te dit à l'oreille. Tu ne mets pas de blanc. Rien. Le nom tout seul, nu, serré contre le bord de l'écorce. Un nom qui ne passera pas." },
-      { before: "corbe:blanc", text: "Tu peins le nom de l'enfant, que Runa te dit à l'oreille. Tu n'as pas de blanc : la craie du lac ne sort que pour la Bouche. Le nom tout seul, nu, serré contre le bord de l'écorce." },
+      { after: "corbe:blanc", text: "Et tu sais, maintenant, ce que veut dire le blanc autour. Tu peins le nom de l'enfant, que Runa te dit à l'oreille. Tu laisses l'écorce brute autour. Le nom tout seul, nu, serré contre le bord de l'écorce. Un nom qui ne passera pas." },
+      { before: "corbe:blanc", text: "Tu peins le nom de l'enfant, que Runa te dit à l'oreille. Le blanc te manque : la craie du lac est réservée à la Bouche. Le nom tout seul, nu, serré contre le bord de l'écorce." },
       "Runa coud l'écorce dans la doublure du bonnet de l'enfant. « Elle ne regardera pas là, dit-elle. Personne ne regarde dans un bonnet. »",
     ],
     choices: [{ fx: { quest: "II_Q_nouveau_ne", conf: { corbe: 10 } }, back: "II_N_camp" }] }),
   II_Q_nouveau_ne_rate: P({ title: "La peinture", place: "corbeau",
-    text: ["Tu peins. Le signe ne vient pas. Ta main tremble, l'ocre bave, le nom ressemble à un autre nom, à rien. Tu recommences, deux fois. Runa te prend le pinceau, doucement. « Laisse, dit-elle. Je le lui dirai tous les soirs, moi. Ça suffira peut-être. » Cela suffira-t-il ? Elle non plus."],
+    text: ["Tu peins. Le signe se dérobe. Ta main tremble, l'ocre bave, le nom ressemble à un autre nom, à rien. Tu recommences, deux fois. Runa te prend le pinceau, doucement. « Laisse, dit-elle. Je le lui dirai tous les soirs, moi. Ça suffira peut-être. » Elle l'ignore autant que toi."],
     choices: [{ fx: { quest: "II_Q_nouveau_ne" }, back: "II_N_camp" }] }),
 
   // ---------------------------------------------------------------- La course sur le lac

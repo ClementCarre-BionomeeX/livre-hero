@@ -52,7 +52,7 @@ module.exports = {
     text: [
       "Tu montes sur la pierre. Elle est tiède sous tes pieds nus. Tu chantes les trois vers, avec ta voix trop haute, trop mince, et le clan chante avec toi, et cette fois tu les comprends.",
       "Puis tu donnes ton nom. Pas en le disant : en le lâchant. Corbe. La fille d'Askel. Celle qui a volé une bague à un corbeau, celle qui ne savait pas lire, celle qui a écrit son nom dans la cendre. Tout. Tu le sens partir comme une rivière qui quitte son lit.",
-      "Tu descends de la pierre. Tu marches vers la déchirure. Qui marche ? Tu en doutes. Derrière toi, quelqu'un crie un mot étranger.",
+      "Tu descends de la pierre. Tu marches vers la déchirure, ou quelqu'un marche à ta place, avec tes pieds. Derrière toi, quelqu'un crie un mot étranger.",
       { if: { has: "corbe:lettres" }, text: "C'est Pie. Il crie ton nom, en l'épelant, lettre par lettre, comme une leçon." },
       "Tu entres dans le blanc. La déchirure se referme sur toi, d'un coup, comme un œil.",
       "Pendant trois battements de cœur, le col est silencieux, et vert, et entier.",
@@ -80,7 +80,7 @@ module.exports = {
 
   II_R_refus: P({ title: "Personne", place: "col",
     text: [
-      "Tu ne montes pas sur la pierre. Tu le dis à voix haute, devant le clan : personne n'entrera. Ni toi, ni ta mère, ni personne. On ne bouche pas un trou avec des gens.",
+      "Tu restes au pied de la pierre. Tu le dis à voix haute, devant le clan : personne n'entrera. Ni toi, ni ta mère, ni personne. On ne bouche pas un trou avec des gens.",
       "Hrodna ferme les yeux. Askel, dans sa robe blanche, se rassoit. Un murmure court dans le cercle ; colère ou soulagement, tu hésites.",
       "La déchirure continue de grandir. Les gens de l'autre côté sont au seuil, maintenant. Ils te regardent.",
     ],
@@ -89,7 +89,7 @@ module.exports = {
   II_R_rupture: P({ title: "La Rupture", place: "col",
     text: [
       "Le bruit vient de partout à la fois, et de très loin. Un craquement de glace qui cède, sous tout le royaume. Comme si le monde était un lac gelé, et que quelqu'un venait de marcher au milieu.",
-      { if: { has: "corbe:rite_ii" }, text: "La déchirure s'est refermée. Ça ne sert à rien. Le col tient, et le reste lâche. Au sud, très loin, sur toutes les crêtes, des lueurs blanches s'allument, l'une après l'autre, comme des feux de signal." },
+      { if: { has: "corbe:rite_ii" }, text: "La déchirure s'est refermée. C'est peine perdue. Le col tient, et le reste lâche. Au sud, très loin, sur toutes les crêtes, des lueurs blanches s'allument, l'une après l'autre, comme des feux de signal." },
       { if: { not: { has: "corbe:rite_ii" } }, text: "La déchirure court, d'un coup, d'un bout à l'autre du col. Et au sud, très loin, sur toutes les crêtes, des lueurs blanches s'allument, l'une après l'autre, comme des feux de signal." },
       { if: { any: [{ has: "registre:reine" }, { has: "registre:greffiers" }] }, text: "Vers Vasselin, le ciel blanchit." },
       "Le sol s'ouvre sous le col. Pas la terre : le monde. Une fente noire qui court à travers la neige, à travers le cercle du clan, à travers votre feu, et sous la fente, du blanc.",
