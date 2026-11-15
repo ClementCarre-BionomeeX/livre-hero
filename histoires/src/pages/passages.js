@@ -178,7 +178,7 @@ module.exports = {
 
   // ---------------------------------------------------------------- act II · the road
   P_chevet: { act: "II", title: "Au chevet de Messire", place: "vellane",
-    fx: { ep: ["histoire", 4000] },
+    fx: { ep: ["histoire", 4000], item: "onguent" },
     text: [
       "Messire Aubert est couché tout habillé sur son lit, gris, les lèvres bleues. Dame Héloïse lui tient la main. Gauvard est parti avant l'aube, dit-on, « appelé à Morne pour une affaire urgente ».",
       "Vous êtes là tous les deux, au pied du lit, {autre} et toi. Pour la première fois depuis la Toussaint, vous vous tenez épaule contre épaule, et vous ne vous en apercevez même pas.",
@@ -190,6 +190,7 @@ module.exports = {
       { if: { has: "monde:fiole_vue" }, text: "Et la fiole, dans la manche gauche. Il n'y a plus de doute à avoir." },
       { if: { any: [{ has: "monde:rancune_dague" }, { has: "monde:rancune_ecu" }] }, text: "Messire vous regarde l'un après l'autre. « Je vous ai vus vous déchirer pour une sangle, pour une dague, pour un regard. Vous voulez savoir lequel de vous deux sera mon écuyer ? Celui qui comprendra qu'il ne peut rien faire seul. »" },
       "« Frère Anselme, souffle-t-il. Au moulin des Saules. Il saura pour le poison, et il sait pour la Pierre. Et quelqu'un doit suivre Gauvard. » Sa main cherche les vôtres. « Ensemble. Ou pas du tout. »",
+      "Sur le seuil, Dame Héloïse te met dans la main un pot de grès de sa cuisine, fermé d'un linge. « Un onguent, pour la route. Vous en aurez besoin. »",
     ],
     choices: [
       { label: "Courir au moulin des Saules chercher Frère Anselme", role: "route", option: "remede", fx: { clue: "p_legende" }, to: "P_route_saules", big: true },
@@ -398,8 +399,8 @@ module.exports = {
       { if: { has: "monde:thibaud" }, text: "Thibaud vous attend dehors avec les chevaux. Il n'a pas levé l'épée. Il ira témoigner contre son maître devant le comte, dit-il, et tant pis pour la corde." },
       { if: { has: "monde:remede" }, text: "À Vellane, Messire Aubert est assis dans son lit, gris encore, furieux d'être assis dans son lit. Il boite un peu plus. Il boitait déjà." },
       { if: { not: { has: "monde:remede" } }, text: "À Vellane, Messire Aubert a passé la nuit entre deux mondes, et il en est revenu, à force de mauvais caractère, dit Dame Héloïse. Il a vieilli de dix ans en trois jours." },
-      { if: { any: [{ has: "monde:amitie_dague" }, { has: "monde:amitie_ecu" }] }, text: "À la Saint-Michel, Messire Aubert fait venir ses deux pages dans la grande salle. Il dit qu'il n'a jamais su compter, et qu'il aura deux écuyers. Dame Héloïse lève les yeux au ciel et ajoute une ligne à ses comptes." },
-      { if: { not: { any: [{ has: "monde:amitie_dague" }, { has: "monde:amitie_ecu" }] } }, text: "À la Saint-Michel, Messire Aubert fait venir ses deux pages dans la grande salle. Il vous regarde longtemps. « Je voulais un écuyer. Il m'en faut deux, et qui se parlent. Vous avez un an pour apprendre. » Vous vous regardez. Un an, c'est long. Ce n'est pas si long." },
+      { if: { any: AMIS }, text: "À la Saint-Michel, Messire Aubert fait venir ses deux pages dans la grande salle. Il dit qu'il n'a jamais su compter, et qu'il aura deux écuyers. Dame Héloïse lève les yeux au ciel et ajoute une ligne à ses comptes." },
+      { if: { not: { any: AMIS } }, text: "À la Saint-Michel, Messire Aubert fait venir ses deux pages dans la grande salle. Il vous regarde longtemps. « Je voulais un écuyer. Il m'en faut deux, et qui se parlent. Vous avez un an pour apprendre. » Vous vous regardez. Un an, c'est long. Ce n'est pas si long." },
     ],
     choices: [] },
 };

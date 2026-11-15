@@ -392,7 +392,7 @@ module.exports = {
       "« Là-haut, dit Aurèle d'une voix rauque, les fontaines vont baisser. Puis les canaux. Puis les puits. » Il te prend la main. Sa main est chaude. « Je m'en fiche. Que Dieu me pardonne, je m'en fiche. »",
     ],
     choices: [{ label: "L'aider à se relever", to: "D_sortie" }] },
-  D_lien: { act: "II", title: "Le lien", place: "coeur",
+  D_lien: { act: "II", title: "Le lien", place: "coeur", with: "aurele",
     fx: { ep: ["seance", 4000] },
     text: [
       "Tu fais ce que dit la dernière page. Tu poses ta main à côté de celle d'Aurèle, sur la pierre, et tu ne bois pas. Tu prends l'eau dans le creux de ta main et tu la verses dans le petit canal qui sort de la vasque, celui qui file vers le haut, vers le village, vers la fontaine de la place. Une fois. Et tu dis, comme l'a écrit l'architecte : *que chacun porte sa part.*",

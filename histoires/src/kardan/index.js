@@ -4,4 +4,6 @@ var base = require("./base.js");
   var ps = require("./" + f);
   Object.keys(ps).forEach(function (k) { if (base.passages[k]) throw new Error("passage en double : " + k); base.passages[k] = ps[k]; });
 });
+// The epilogue read on every ending (piste 7, 15/11).
+base.epilogue = require("./epilogue.js");
 module.exports = base;
