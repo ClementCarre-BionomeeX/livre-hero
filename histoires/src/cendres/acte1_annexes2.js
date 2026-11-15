@@ -44,7 +44,7 @@ module.exports = {
     text: ["Monseigneur te regarde de son œil rond, mange tes noisettes, et répète, plus fort : « Dis-moi seulement si c'est le mien. » Un valet passe et éclate de rire. Avant le soir, toute la cour le saura. C'est hors de ta portée, comme presque tout à la cour."],
     choices: [{ fx: { quest: "LI_Q_perroquet" }, back: "LI_cour" }] }),
   LI_Q_perroquet_retenu: P("vasselin", { title: "Une voix du nord",
-    text: ["Tu ne fais rien. Tu écoutes la voix d'homme, encore, et tu la ranges dans un coin de ta tête, là où tu ranges les choses qui pourront servir. Un accent du nord. Grave. Qui demande si quelque chose est à lui. À la cour, toutes les voix servent un jour."],
+    text: ["Tu laisses faire. Tu écoutes la voix d'homme, encore, et tu la ranges dans un coin de ta tête, là où tu ranges les choses qui pourront servir. Un accent du nord. Grave. Qui demande si quelque chose est à lui. À la cour, toutes les voix servent un jour."],
     choices: [{ fx: { quest: "LI_Q_perroquet" }, back: "LI_cour" }] }),
 
   // ------------------------------------------------------------ Hylas · Page Onze

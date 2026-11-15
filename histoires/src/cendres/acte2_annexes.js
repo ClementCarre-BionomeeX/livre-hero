@@ -58,12 +58,12 @@ module.exports = {
     ],
     choices: [{ label: "Redescendre au camp", to: "II_Q_torgal_fin" }] }),
   II_Q_aire_fuite: P({ title: "En bas", place: "corbeau",
-    text: ["Tu redescends. Tu n'as pas le nom. Torgal hoche la tête quand tu le lui dis, sans reproche. Il recommence à chanter, trois noms, et il s'arrête au même endroit. Tu l'entendras s'arrêter là, chaque soir, jusqu'à ce que tu quittes le camp."],
+    text: ["Tu redescends. Le nom t'a échappé. Torgal hoche la tête quand tu le lui dis, sans reproche. Il recommence à chanter, trois noms, et il s'arrête au même endroit. Tu l'entendras s'arrêter là, chaque soir, jusqu'à ce que tu quittes le camp."],
     choices: [{ fx: { quest: "II_Q_lignees" }, back: "II_N_camp" }] }),
   II_Q_torgal_fin: P({ title: "Après Haldis", place: "corbeau",
     text: [
       "Torgal t'écoute dire le nom. Il garde son merci : au clan, entre gens de la même lignée, on s'en passe. Il frappe le tambour, et il chante, d'une traite. Haldis. Sigrun. Et les trente générations qui suivent, qui tiennent de nouveau à quelque chose.",
-      "Des gens sortent des tentes pour écouter. Il n'est pas l'heure du rite. Ils écoutent quand même. Quand il arrive à ton nom, tout au bout, il ne s'arrête pas, et personne ne crache.",
+      "Des gens sortent des tentes pour écouter. Il n'est pas l'heure du rite. Ils écoutent quand même. Quand il arrive à ton nom, tout au bout, il va d'une traite jusqu'au bout, et le clan écoute sans cracher.",
     ],
     choices: [{ fx: { quest: "II_Q_lignees", flag: "nord:lignee", conf: { corbe: 10 } }, back: "II_N_camp" }] }),
 
@@ -138,7 +138,7 @@ module.exports = {
       lose: { fx: { gold: 3, ep: ["perso", 400] }, to: "II_Q_troupe_rate" } }] }),
   II_Q_troupe_ok: P({ title: "Le quatrième acte", place: "vasselin",
     text: [
-      "Tu ne joues pas la Reine. Tu joues dame Orane, que tu as regardée toute la journée, ses mains à plat sur le texte. La place se tait. Quelque part, une femme sanglote. Quand le rideau tombe, personne n'applaudit d'abord, puis tout le monde à la fois.",
+      "Plutôt que la Reine, tu joues dame Orane, que tu as regardée toute la journée, ses mains à plat sur le texte. La place se tait. Quelque part, une femme sanglote. Quand le rideau tombe, personne n'applaudit d'abord, puis tout le monde à la fois.",
       "Dans la coulisse, dame Orane t'attend. Elle a pleuré aussi. « C'était ça, dit-elle. C'était exactement ça. » Elle ne se souvient toujours pas du visage. Mais elle sait de nouveau ce que ça faisait, de le perdre, et elle te remercie de le lui avoir rendu, ce qui est la chose la plus étrange qu'on t'ait jamais dite.",
     ],
     choices: [{ fx: { quest: "II_Q_troupe", conf: { lisandre: 10 } }, back: "II_S_vasselin" }] }),
@@ -201,7 +201,7 @@ module.exports = {
     fx: { questSeen: "II_Q_fioles" },
     text: [
       "Quai des Cordiers, entre un marchand de voiles et une taverne, une petite boutique de verrerie. Des carafes, des verres à pied, des encriers, et, sur une étagère du fond, des fioles. Des centaines. Toutes pareilles, toutes vides, avec leur bouchon de cire grise.",
-      "Le verrier est un homme rond, doux, aux avant-bras sans un poil, brûlés par trente ans de four, qui souffle une bulle au bout de sa canne quand tu entres. Il ne s'arrête pas. « Je ne vends que du verre, madame. Ce que les gens mettent dedans, ce n'est pas mon affaire. »",
+      "Le verrier est un homme rond, doux, aux avant-bras sans un poil, brûlés par trente ans de four, qui souffle une bulle au bout de sa canne quand tu entres. Il continue de souffler. « Je ne vends que du verre, madame. Ce que les gens mettent dedans, ce n'est pas mon affaire. »",
     ],
     choices: [
       { label: "Lui demander qui les remplit", test: { dom: "social", label: "Le verrier", help: [{ if: { present: "linette" }, v: 15 }, { if: { has: "sud:passeur_parle" }, v: 15 }, { if: { present: "pie" }, v: 10 }] },
@@ -235,7 +235,7 @@ module.exports = {
   II_Q_fioles_cave: P({ title: "La greffière", place: "vasselin",
     text: [
       "La cave est basse, chaude, propre : six pas sur quatre, le sol balayé, une table, une lampe, un lutrin, et un encrier rempli à ras bord, en greffière soigneuse. Une femme de quarante ans, en robe grise de greffière, la plume à la main, écrit dans un petit livre noir. À côté d'elle, une file de fioles pleines : on dirait de l'eau, et ça ne reflète pas la lampe.",
-      "Elle lève la tête. Elle n'a pas peur. « Vous venez acheter ou vous venez casser, dit-elle. Les deux arrivent. »",
+      "Elle lève la tête. Elle garde son calme. « Vous venez acheter ou vous venez casser, dit-elle. Les deux arrivent. »",
       "« Je m'appelle Bertrade. J'étais à la tour. Je copiais les cessions. Un jour, j'en ai copié une de trop, et j'ai lu le nom qu'il y avait dedans, et c'était celui de ma sœur, et je ne me souvenais plus d'avoir eu une sœur. Alors je suis partie avec la plume. » Elle sourit. « Je vends l'oubli à ceux qui en ont besoin et qui n'ont pas les moyens de la tour. Une veuve. Un soldat qui revient. Une actrice. Je ne force personne. »",
     ],
     choices: [
@@ -247,7 +247,7 @@ module.exports = {
     ] }),
   II_Q_fioles_brisees: P({ title: "Le verre", place: "vasselin",
     text: [
-      "Tu balaies la table d'un revers de bras. Les fioles éclatent sur les dalles. Ce qu'il y avait dedans ne coule pas : ça monte, comme une buée, et ça passe par la lucarne, et ça s'en va dans la ville, chercher qui ça peut.",
+      "Tu balaies la table d'un revers de bras. Les fioles éclatent sur les dalles. Au lieu de couler, ce qu'il y avait dedans monte, comme une buée, et ça passe par la lucarne, et ça s'en va dans la ville, chercher qui ça peut.",
       "Bertrade regarde la buée s'en aller. « Vous croyez que c'est rendu, dit-elle. Ce n'est pas rendu. C'est lâché. Ça va tomber sur n'importe qui. Une femme, ce soir, va se mettre à pleurer un fils qu'elle n'a jamais eu. » Elle range sa plume. « Mais vous avez raison. Ça ne m'appartenait pas. »",
       "Elle part avant l'aube. Tu ne la revois pas.",
     ],
@@ -255,13 +255,13 @@ module.exports = {
   II_Q_fioles_rendu: P({ title: "La fiole d'Orane", place: "vasselin",
     text: [
       "Bertrade cherche longtemps sur l'étagère, en comparant les étiquettes à son livre. Elle te tend une fiole. « Je ne rends jamais, dit-elle. Mais elle, je me souviens d'elle. Elle a payé et elle a pleuré, et c'est rare, les gens qui pleurent en payant. »",
-      "Tu portes la fiole à dame Orane, dans son chariot. Elle la débouche. Elle respire. Et elle pose la main sur sa bouche, et elle reste comme ça, très longtemps, à regarder quelque chose qui n'est pas dans le chariot.",
+      "Tu portes la fiole à dame Orane, dans son chariot. Elle la débouche. Elle respire. Et elle pose la main sur sa bouche, et elle reste comme ça, très longtemps, à regarder quelque chose de très loin du chariot.",
       "« Il avait les cheveux qui rebiquaient, dit-elle enfin. Là. Derrière. Je les mouillais le matin. Ça ne servait à rien. »",
     ],
     choices: [{ fx: { quest: "II_Q_fioles", conf: { lisandre: 10, hylas: 5 } }, back: "II_S_vasselin" }] }),
   II_Q_fioles_livre: P({ title: "Le livre noir", place: "vasselin",
     text: [
-      "Pendant qu'elle te parle, une main passe derrière son dos et le petit livre noir change de table. Elle ne le remarque que quand vous êtes déjà sur l'escalier.",
+      "Pendant qu'elle te parle, une main passe derrière son dos et le petit livre noir change de table. Elle s'en aperçoit quand vous êtes déjà sur l'escalier.",
       "Dans la ruelle, tu l'ouvres à la lampe. Des colonnes : un nom, une chose vendue, un prix. Et, à la dernière page, d'une autre main, plus serrée : « Remise mensuelle à M. Une fiole sur dix. »",
     ],
     choices: [{ fx: { quest: "II_Q_fioles" }, back: "II_S_vasselin" }] }),
@@ -284,11 +284,11 @@ module.exports = {
   II_Q_peche_reve: P({ takes: "morning", title: "Les truites noires", place: "lacnoir",
     text: [
       "Elles mordent au crépuscule, d'un coup, toutes ensemble, comme si on leur avait donné un signal. Tu en sors quatre, lourdes, noires du dos au ventre. Vous les faites griller sur des pierres, à l'entrée de la grotte.",
-      "Cette nuit-là, tout le monde rêve. Tu rêves d'une roue de moulin qui tourne à l'envers, et d'eau qui remonte la rivière, et d'un enfant debout sur la roue, qui ne tombe pas. Au matin, chacun garde son rêve pour soi. Personne n'a envie de comparer.",
+      "Cette nuit-là, tout le monde rêve. Tu rêves d'une roue de moulin qui tourne à l'envers, et d'eau qui remonte la rivière, et d'un enfant debout sur la roue, qui ne tombe pas. Au matin, chacun garde son rêve pour soi, et se garde bien de comparer.",
     ],
     choices: [{ fx: { quest: "II_Q_peche" }, back: "II_N2_grotte" }] }),
   II_Q_peche_rien: P({ takes: "night", title: "L'eau noire", place: "lacnoir",
-    text: ["Rien ne mord. À la nuit, une seule truite, maigre, qui se décroche au bord et retombe dans l'eau sans faire de rond. Le lac se referme dessus comme un livre. Tu manges ton pain sec."],
+    text: ["Le poisson boude. À la nuit, une seule truite, maigre, qui se décroche au bord et retombe dans l'eau sans faire de rond. Le lac se referme dessus comme un livre. Tu manges ton pain sec."],
     choices: [{ fx: { quest: "II_Q_peche" }, back: "II_N2_grotte" }] }),
 
   // ------------------------------------------------------------ nord · les cairns des Bouches
@@ -310,7 +310,7 @@ module.exports = {
     ],
     choices: [{ fx: { quest: "II_Q_bouches" }, back: "II_N5_col" }] }),
   II_Q_bouches_laisse: P({ title: "Vingt-trois", place: "col",
-    text: ["Tu poses la main sur le vingt-troisième cairn, une seconde. La pierre est froide. Ta grand-mère n'y a pas de nom, et c'est ce qu'elle a voulu, ou ce qu'on a voulu pour elle. Tu ne sauras jamais lequel. Tu retournes au feu."],
+    text: ["Tu poses la main sur le vingt-troisième cairn, un instant. La pierre est froide. Ta grand-mère n'y a pas de nom, et c'est ce qu'elle a voulu, ou ce qu'on a voulu pour elle. Tu ne sauras jamais lequel. Tu retournes au feu."],
     choices: [{ fx: { quest: "II_Q_bouches" }, back: "II_N5_col" }] }),
 
   // ------------------------------------------------------------ sud · les écuries du tournoi
@@ -335,6 +335,6 @@ module.exports = {
     ],
     choices: [{ fx: { quest: "II_Q_ecuries" }, back: "II_S3_soir" }] }),
   II_Q_ecuries_rien: P({ title: "La paille", place: "vasselin",
-    text: ["Tu ne trouves rien. Le palefrenier dit que ça arrive, les chevaux qui deviennent fous la veille d'un tournoi. Il le dit trop vite. Tu ressors avec l'impression d'avoir regardé au mauvais endroit, au bon moment."],
+    text: ["Tes recherches restent vaines. Le palefrenier dit que ça arrive, les chevaux qui deviennent fous la veille d'un tournoi. Il le dit trop vite. Tu ressors avec l'impression d'avoir regardé au mauvais endroit, au bon moment."],
     choices: [{ fx: { quest: "II_Q_ecuries" }, back: "II_S3_soir" }] }),
 };
