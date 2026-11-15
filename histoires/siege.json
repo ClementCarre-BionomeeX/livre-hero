@@ -373,6 +373,39 @@
    ]
   }
  ],
+ "lore": {
+  "pages": [
+   {
+    "title": "Sarance",
+    "text": [
+     "**Sarance** tient sur un éperon de roche, dans une boucle de la Dorve. En haut, la **Haute-Ville** : le château du capitaine, l'église Saint-Aubin, l'Hôtel-Dieu tenu par les sœurs. En bas, au bord de l'eau, la **Basse-Ville** des bateliers, des tanneurs et des meuniers, avec sa Halle aux grains, la plus grande du pays.",
+     "Les remparts font le tour des deux villes. La Tour du Sel garde l'angle nord-est ; la Porte des Tanneurs ouvre sur les pâtures du nord.",
+     "On paie en sous. Les boulangers jurés prennent leur farine à la Halle, et la Maison des Greniers tient les comptes de ce que la ville a en réserve."
+    ]
+   },
+   {
+    "title": "Qui gouverne",
+    "text": [
+     "Le vieux comte est mort sans fils l'hiver dernier. Le **Margrave** de Hautpré a épousé sa sœur et dit que la ville lui revient. Le capitaine du Roi lui a fermé les portes.",
+     "Pendant le siège, la ville est tenue par le **Conseil** : le capitaine du Roi et son lieutenant, la jurée des marchands, le prévôt, l'abbesse et l'élu du port."
+    ]
+   }
+  ],
+  "names": {
+   "Sarance": "La ville sur son éperon de roche, dans une boucle de la Dorve.",
+   "Dorve": "La rivière qui entoure Sarance.",
+   "Margrave": "Le Margrave de Hautpré, beau-frère du comte mort, qui réclame la ville.",
+   "Hautpré": "Le pays du Margrave, au nord.",
+   "Haute-Ville": "Le haut de Sarance : le château, Saint-Aubin, l'Hôtel-Dieu.",
+   "Basse-Ville": "Le bas de Sarance, au bord de l'eau : bateliers, tanneurs, meuniers, la Halle aux grains.",
+   "Halle aux grains": "La grande halle de la Basse-Ville, avec les greniers de la ville sous ses combles.",
+   "Hôtel-Dieu": "L'hôpital de Sarance, tenu par les sœurs.",
+   "Tour du Sel": "La tour ronde à l'angle nord-est des remparts.",
+   "Porte des Tanneurs": "La porte qui ouvre sur les pâtures du nord.",
+   "Conseil": "Les six qui tiennent la ville pendant le siège.",
+   "Maison des Greniers": "Le bureau qui tient les comptes des greniers de la ville, contre le pignon de la Halle."
+  }
+ },
  "world": {
   "noFood": true,
   "money": {
