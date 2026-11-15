@@ -63,6 +63,23 @@ module.exports = {
     anguille: { sells: [{ item: "onguent", price: 4 }, { item: "dague", price: 8 }], food: 2 },
   },
   past: [],
+  // The world of this book (8.6): what an inhabitant knows before the first page. Nothing of the plot.
+  lore: {
+    pages: [
+      { title: "Vaudrenne", text: [
+        "**Vaudrenne** est une ville de moulins, coupée en deux par l'Aune. En haut, la ville des meuniers, ses toits d'ardoise, son clocher et les trois grandes roues des moulins. En bas, le **Bas-Port** des tanneurs, son odeur d'écorce et de chaux. Les deux villes se parlent peu : à l'auberge, meuniers et tanneurs ont chacun leur table.",
+        "Le bailli gouverne la ville depuis son hôtel sur la place. L'écluse et ses vannes règlent la rivière, et quand l'Aune monte, celui qui tient la clé des vannes décide où va l'eau.",
+        "On paie en sous. Au coin de la place, la chapelle des Noyés garde la mémoire de ceux que la rivière a pris.",
+      ] },
+    ],
+    names: {
+      "Vaudrenne": "Une ville de moulins coupée en deux par l'Aune.",
+      "Aune": "La rivière de Vaudrenne, qui fait tourner les moulins et monte à chaque crue.",
+      "Bas-Port": "Le bas de Vaudrenne, au bord de l'eau : les tanneurs.",
+      "Anguille": "L'auberge de la place, à l'enseigne d'un poisson de fer blanc.",
+      "Noyés": "La chapelle des Noyés, au coin de la place, pour ceux que la rivière a pris.",
+    },
+  },
   world: {
     start: { place: "vaudrenne", gold: 8, food: 1, items: ["dague"],
       kits: { guerrier: ["epee_courte"], rodeur: ["arc_court"], voleur: ["dague_jet"], mage: ["baton"], pretre: ["baton"] } },
