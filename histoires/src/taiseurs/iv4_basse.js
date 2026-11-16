@@ -11,7 +11,7 @@ Object.assign(P, {
       { first: true, text: "L'almanach du Conseil, cloué au mur de la taverne d'en face, donne la date : l'équinoxe tombe dans trois jours. Trois jours pour trouver comment on va en mer à l'heure où la mer s'en va, avec quoi, avec qui. La ville, dehors, a faim et couvre-feu. Les cloches du Beffroi sonnent la fermeture des ponts à la tombée du jour, et des patrouilles passent sous la fenêtre, hallebardes droites." },
       { first: true, text: "Il te faut la table des marées de la reine, celle qui disait l'heure exacte de la Grande Basse au-dessus de Sorne. Il te faut un bateau, un équipage, et l'accord de ceux qui gardent la porte depuis trois siècles. Le reste, tu l'apprendras en route." },
       { again: true, when: "day", text: "La salle basse, ses volets mi-clos, les feuillets sous un linge. Sur le mur, une craie tient les comptes : ce que tu as, ce qui manque. Dehors, une charrette de soldats passe vers le pont des Changeurs." },
-      { again: true, when: "night", text: "La salle basse à la chandelle. Le couvre-feu a vidé la rue ; tu entends l'eau du canal contre les marches et, très loin, un chien. Les feuillets dorment sous leur linge." },
+      { again: true, when: "night", text: "La salle basse à la chandelle. Le couvre-feu a vidé la rue ; tu entends l'eau du canal contre les marches et, très loin, un chien ; une ville qui a faim fait, la nuit, moins de bruit qu'une autre. Les feuillets dorment sous leur linge." },
       { first: true, if: { has: "feuillet:repris" }, text: "Le feuillet repris dans le cabinet de Lothaire Brunel porte encore, épinglée au coin, une petite étiquette à l'encre violette, avec une date et un lieu. Tu la décroches et tu la jettes au feu." },
       { after: "ivb:cs_laisse", once: true, text: "Au matin du premier jour, un valet en livrée noire laisse à ta porte un billet sans cachet, d'une petite écriture droite. Un seul mot : *Bérold.* Et deux initiales : *C. M.*" },
       { after: "ivm:cotre_vole", text: "Sur la porte du Beffroi, une feuille neuve promet vingt ducats à qui rendra *La Vigilante*, le cotre du Guet. On y décrit une voile rouge." },
@@ -331,7 +331,7 @@ Object.assign(P, {
 
   IVM_gabares: { act: "IV", title: "Le marché des coques", place: "salveze",
     text: [
-      "Au bout du port, là où l'eau sent la vase et le goudron, deux bateaux portent un balai attaché en haut du mât : à vendre. Le courtier, un petit homme en manteau de loutre qui sent la violette, te les présente de loin, sans descendre sur le ponton.",
+      "Au bout du port, là où l'eau sent la vase et le goudron, deux bateaux portent un balai attaché en haut du mât : à vendre. Le courtier, un petit homme en manteau de loutre qui sent la violette, te les présente de loin, sans descendre sur le ponton, en homme qui vend des bateaux et se garde d'y monter.",
       "*La Pimpante* est une gabare de sel repeinte de frais, rouge et bleu, avec des voiles neuves. Elle {{pie#ivm_pimpante|brille comme au premier jour, une affaire à quarante ducats|a des bordages pourris sous la peinture fraîche, et une voie d'eau qu'on a bouchée avec de l'étoupe et du suif}}.",
       "*Le Saint-Gué*, à côté, est un vieux bateau de pêche du large, gris, rapiécé, à soixante ducats. Sa coque {{pie#ivm_saintgue|est grise, rapiécée, fatiguée|est en chêne de l'ancien temps, chevillée de bois, plus solide que le ponton où il est amarré}}.",
       "« {{oreille|Le Saint-Gué, son patron est parti chez sa sœur|Le Saint-Gué, son patron s'est noyé à la Saint-Michel, et sa veuve vendra à n'importe quel prix pour payer les cierges}} », dit le courtier.",
@@ -756,7 +756,7 @@ Object.assign(P, {
 
   IVM_maclou: { act: "IV", title: "Le cabinet du secrétaire", place: "salveze", takes: "night",
     text: [
-      "Le secrétaire du prévôt, le clerc Anséric, travaille tard dans un cabinet au rez-de-chaussée de l'hôtel Delisle, derrière une fenêtre à petits carreaux qui donne sur une cour de service. Il recopie des ordres à la chandelle, les scelle, les range dans une boîte de fer. À minuit, il souffle sa chandelle et monte se coucher. La boîte reste sur la table.",
+      "Le secrétaire du prévôt, le clerc Anséric, travaille tard dans un cabinet au rez-de-chaussée de l'hôtel Delisle, derrière une fenêtre à petits carreaux qui donne sur une cour de service. Il recopie des ordres à la chandelle, les scelle, les range dans une boîte de fer. À minuit, il souffle sa chandelle et monte se coucher. La boîte reste sur la table ; chez les Delisle, on range une trahison comme un compte de blanchisseuse.",
       "Tu entres par la fenêtre. Dans la boîte, une vingtaine d'ordres de garde, tous pareils, tous scellés de cire verte. Un seul porte, en marge, un petit trait de plume.",
       "Tu le décachettes. *{{loupe#ivm_ordre|Ordre au capitaine de la porte des Sauniers : la garde ira au port, la porte restera close|Ordre au capitaine de la porte des Sauniers : à l'heure de la basse mer, laissez passer ceux qui montreront le sceau à la tour d'Aveline. Delisle, de sa main}}.*",
     ],
@@ -868,7 +868,7 @@ Object.assign(P, {
 
   IVM_lothaire_rival: { act: "IV", title: "Le pont des Muets", place: "salveze", takes: "night",
     text: [
-      "La cloche du couvre-feu finit de sonner quand il apparaît au milieu du pont, en manteau gris, les mains gantées sur le parapet. Le pont est désert. L'eau du canal passe dessous, noire, avec des reflets de lanternes de garde.",
+      "La cloche du couvre-feu finit de sonner quand il apparaît au milieu du pont, en manteau gris, les mains gantées sur le parapet. Le pont est désert. L'eau du canal passe dessous, noire, avec des reflets de lanternes de garde, qu'elle emporte un instant et rend toujours à la même place.",
       "« La Banque part avant vous, dit-il. Avec plus de monde. Je pourrais vous dire de rester chez vous. » Il penche la tête. « Vous pensez : pourquoi me le dit-il ? Parce que vous m'intéressez. Parce que vous entendez, comme moi, et que nous sommes deux dans cette ville. » Il se tourne vers l'eau. « {{oreille#ivm_lot_rival|Je vous retrouverai sur le sable|Corisande veut le Registre au feu, et moi je veux voir la reine ; nous ne voulons pas la même chose, elle et moi, depuis longtemps}}. »",
       { if: { has: "ivb:lothaire_libre" }, text: "« La dernière fois, ajoute-t-il, je vous ai laissé{e} dans mon cabinet, la clé tournée de mon côté. Vous en êtes sorti{e}. Je l'ai noté dans mon carnet, à l'encre violette. »" },
       { if: { has: "taiseurs:serment" }, text: "Il fronce les sourcils, agacé : il n'entend de toi que la couche du dessus, et il sait qu'il y en a une autre." },
@@ -1076,7 +1076,7 @@ Object.assign(P, {
 Object.assign(P, {
   IVM_q_pilote: { act: "IV", title: "La Tour aux Dettes", place: "salveze",
     text: [
-      "La Tour aux Dettes se dresse au coin du marché aux Poissons, carrée, aveugle, avec une seule porte et un guichet. On y enferme ceux qui doivent plus qu'ils n'ont, jusqu'à ce que quelqu'un paie, ou qu'ils meurent. La Banque Marrel y loge à elle seule un tiers des prisonniers.",
+      "La Tour aux Dettes se dresse au coin du marché aux Poissons, carrée, aveugle, avec une seule porte et un guichet. On y enferme ceux qui doivent plus qu'ils n'ont, jusqu'à ce que quelqu'un paie, ou qu'ils meurent. La Banque Marrel y loge à elle seule un tiers des prisonniers, et c'est la seule maison de Salvèze où elle loge quelqu'un sans loyer.",
       "Yannick Lannec a trente ans, la barbe de son père, et une toux qui ne lui ressemble pas. Il te parle à travers la grille du parloir, les doigts accrochés aux barreaux. « Trente ducats, dit-il. J'en ai emprunté douze, pour une barque. La tempête l'a prise. Le reste, ce sont les intérêts. » Il tousse. « {{oreille#ivm_yannick|Mon père ne doit pas payer pour moi|Mon père vendra l'astrolabe pour moi, et il en mourra, parce que c'est tout ce qui lui reste de la mer}}. »",
       "Le greffier de la Tour, un petit homme jaune derrière son guichet, tient le registre des écrous. Sur la page de Yannick, la reconnaissance de dette est épinglée : *{{loupe#ivm_dette|Douze ducats au denier cinq, payables à la Saint-Martin|Douze ducats au denier vingt ; le cinq a été écrit par-dessus, d'une autre encre, après la signature}}*.",
       { if: { has: "ivm:promesse_lannec" }, text: "L'astrolabe de son père est dans ton sac. Tu l'as payé d'une parole, et la parole est derrière cette grille, avec la toux." },
