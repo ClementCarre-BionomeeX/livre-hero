@@ -35,7 +35,7 @@ module.exports = {
     text: [
       { via: "gaudry", text: "Gaudry rame, Firmin tient la lanterne, toi les trois haches entre tes genoux. Vous accostez à la pointe des Hêtres à minuit et demi." },
       { via: "seule", text: "Tu reprends le lac à rebours, ton sel sous la bâche, jusqu'à la pointe des Hêtres. Tu accostes à minuit et demi, une hache de bûcheron à la main." },
-      "Le déversoir est un seuil de pierre long de vingt pas, entre deux culées, au ras du lac. Sur le seuil, six planches de chêne épaisses comme une main, calées dans des rainures et serrées par des coins de fer. Le lac les pousse de tout son poids. L'eau passe déjà par-dessus, en une lame mince et noire.",
+      "Le déversoir est un seuil de pierre long de vingt pas, entre deux culées, au ras du lac. Sur le seuil, six planches de chêne épaisses comme une main, calées dans des rainures et serrées par des coins de fer. Le lac les pousse de tout son poids. L'eau passe déjà par-dessus, en une lame mince et noire, lisse comme du verre, qui se brise en contrebas sans que l'œil ait vu où elle commence à tomber.",
       "En contrebas du seuil, le coursier de pierre descend dans la forêt, vers le ruisseau de la Combe. Au bout du coursier, dans la clairière, il y a trois lueurs rouges : les meules des charbonniers. Ils dorment à côté, dans leurs huttes, pour surveiller le feu.",
     ],
     choices: [
@@ -88,7 +88,7 @@ module.exports = {
       "Le vieux garde-vannes est sorti sur le seuil de sa maison, au bout de la digue, du côté qui tient. Il regarde l'eau partir. Gaudry ôte son chapeau.",
       { if: { has: "charbonniers:surpris" }, text: "Le soir, tu apprends qu'un charbonnier s'est cassé la jambe en fuyant la clairière dans le noir, et que leurs meules sont perdues. Tu leur porteras du sel tout l'hiver, gratis." },
       { if: { has: "charbonniers:aident" }, text: "Le soir, les charbonniers descendent en ville, noirs de suie, voir ce qu'est devenue la vallée. Le plus vieux te serre la main. Leurs meules sont perdues. Ils sont vivants, et ils savent ce qu'ils ont fait de leur nuit." },
-      "Au Conseil, Gaudry raconte les hausses, posées en août et oubliées. Le Conseil cherche longtemps qui devait donner l'ordre de les retirer. Le registre du Conseil dit : la maison Corlay.",
+      "Au Conseil, Gaudry raconte les hausses, posées en août et oubliées. Le Conseil cherche longtemps qui devait donner l'ordre de les retirer ; il cherche avec le soin des gens qui craignent de trouver. Le registre du Conseil dit : la maison Corlay.",
     ] },
   J_hausse_seule: { act: A, title: "Un quart d'heure", place: "foulons", end: true, fx: { time: 2 },
     text: [
@@ -113,7 +113,7 @@ module.exports = {
     ] },
   J_bastien_canal: { act: A, title: "Le canal de fuite", place: "digue", fx: { time: 0.5 },
     text: [
-      "Tu prends une corde de chanvre, ta lanterne sourde, et tu le fais asseoir à l'avant. Tu passes la grille. Le canal de fuite s'enfonce sous la digue en tunnel, noir, voûté, avec l'eau qui coule vers toi.",
+      "Tu prends une corde de chanvre, ta lanterne sourde, et tu le fais asseoir à l'avant. Tu passes la grille. Le canal de fuite s'enfonce sous la digue en tunnel, noir, voûté, avec l'eau qui coule vers toi ; ta lanterne y fait un rond jaune de la taille d'une assiette, et au-delà de ce rond on entend la voûte goutter dans le noir, sans hâte, sur toute sa longueur.",
       "Bastien parle tout bas, sans que tu lui demandes rien. Il dit qu'il a fait quelque chose ce soir. Il garde pour lui ce que c'est. Il dit que c'est à cause de lui que le paquet n'arrive pas.",
       "Au bout du tunnel, une échelle de fer monte vers la galerie. Vous montez. L'eau de la galerie vous prend à la taille. Il fait si froid que Bastien se met aussitôt à claquer des dents.",
       "La veine est là, une fente noire qui pleure. Bastien passe devant elle sans la regarder. Il compte ses pas jusqu'à un anneau scellé au mur.",

@@ -14,7 +14,7 @@ module.exports = { passages: {
       { if: { has: "cap:soigne" }, text: "Le capitaine Coët est vivant. Il a repris des couleurs, mais Daoulas lui interdit de se lever avant trois jours : son cœur bat encore trop lentement. Il a fait dire à l'équipage qu'il acceptait par avance ce que l'assemblée déciderait pour ces trois jours." },
       { if: { all: [{ not: { has: "cap:soigne" } }, { has: "marche:malade" }] }, text: "Depuis la nuit dernière, le capitaine Coët regarde les visages sans les reconnaître. Daoulas sort de sa chambre pour l'assemblée, les yeux rouges, et reste debout près de l'escalier de la dunette." },
       { if: { has: "mutinerie" }, text: "Depuis la mutinerie, le second commande. L'assemblée doit dire si l'équipage le garde." },
-      "Le second monte sur le cabestan, à côté de Guénolé. Il parle bien, comme toujours. Il parle du capitaine, qu'il respecte ; des Dents, qu'il connaît ; de Marbecq, à deux jours à peine. Il appelle chaque homme par son prénom, et il n'en oublie aucun. Quand il descend, plusieurs lui tapent sur l'épaule.",
+      "Le second monte sur le cabestan, à côté de Guénolé. Il parle bien, comme toujours, avec cet art des prédicateurs et des sergents recruteurs, qui laissent chaque auditeur persuadé qu'on parlait pour lui seul. Il parle du capitaine, qu'il respecte ; des Dents, qu'il connaît ; de Marbecq, à deux jours à peine. Il appelle chaque homme par son prénom, et il n'en oublie aucun. Quand il descend, plusieurs lui tapent sur l'épaule.",
       "Guénolé se tourne vers toi. « Le subrécargue a une voix, lui aussi. C'est l'usage. »",
     ],
     fx: { set: { mer: "brumes" } },
@@ -112,7 +112,7 @@ module.exports = { passages: {
     act: "III", title: "Les Dents de Morgue", place: "pont",
     text: [
       "Le dixième jour, à neuf heures du soir, la vigie annonce les Dents.",
-      "On les entend avant de les voir : un grondement sourd, à l'avant, qui monte et retombe avec la houle. Puis, dans le noir, une longue ligne blanche se dessine d'un bord à l'autre de l'horizon. C'est la mer qui se brise sur six lieues de rochers.",
+      "On les entend avant de les voir : un grondement sourd, à l'avant, qui monte et retombe avec la houle, et que l'oreille prend d'abord pour le bruit de son propre sang. Puis, dans le noir, une longue ligne blanche se dessine d'un bord à l'autre de l'horizon, mince, presque paisible ; il faut un moment à l'esprit pour consentir à ce qu'elle signifie. C'est la mer qui se brise sur six lieues de rochers.",
       { if: FERS, text: "Le second est aux fers sous le gaillard. Sur la dunette, Guénolé et Kerlo t'attendent à côté de la barre, avec Daoulas qui tient une lanterne. « À toi de dire », dit Guénolé." },
       { if: { not: FERS }, text: "Sur la dunette, le second a pris la barre lui-même. Quatre de ses hommes se tiennent en haut de l'escalier, des coutelas passés dans la ceinture et des pistolets à la main. Il a écarté Kerlo d'un mot. La Sterne court droit sur la partie ouest de la ligne blanche, là où elle est la plus large." },
       { if: { all: [{ not: FERS }, { has: "chaloupe:videe" }] }, text: "Un des hommes du second descend à la chaloupe avec une lanterne, soulève la bâche, et remonte en courant. Il parle à l'oreille du second, qui jure, longuement, avec une variété de termes qui doit beaucoup aux ports." },
@@ -155,7 +155,7 @@ module.exports = { passages: {
   X_passe: {
     act: "III", title: "La Passe des Veuves", place: "pont",
     text: [
-      "Kerlo tient la barre. Le grondement est partout : devant, à droite, à gauche. L'eau et le ciel se confondent. Les gerbes d'écume montent plus haut que les vergues et retombent en pluie sur le pont.",
+      "Kerlo tient la barre. Le grondement est partout : devant, à droite, à gauche ; il entre par la plante des pieds et monte jusqu'aux dents. L'eau et le ciel se confondent. Les gerbes d'écume montent plus haut que les vergues et retombent en pluie sur le pont.",
       { if: PILOTE, text: "Le vieux Tréguer est monté à la dunette. Il a écarté Kerlo d'un geste et pris la roue dans ses mains noueuses. Il garde les yeux fermés. Il écoute la mer." },
       { if: { not: PILOTE }, text: "Deux lueurs percent la nuit, devant. À droite, loin et haut, une lumière pâle et fixe, qui grossit très lentement. À gauche, plus près et plus bas, une lueur blanche et plus vive, qui tremble, s'allonge, s'éteint et se rallume au rythme de la houle." },
       { if: { all: [{ not: PILOTE }, { item: "routier" }] }, text: "Le routier de Tréguer est ouvert sur l'habitacle, sous la lanterne, trempé." },

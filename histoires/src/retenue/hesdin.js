@@ -170,7 +170,7 @@ module.exports = {
     choices: [{ label: "Aller chez Pons", to: "H_pons", fx: { time: 0.5 } }] },
   H_pons: { act: A, title: "Pons, qui compte", place: "hauteville",
     text: [
-      "Pons, le marchand de laines, te reçoit en robe de chambre de soie, dans son salon, avec un verre de cognac à la main. Il écoute. Pons, lui, compte.",
+      "Pons, le marchand de laines, te reçoit en robe de chambre de soie, dans son salon, un verre de cognac à la main ; c'est un homme que les mauvaises nouvelles trouvent toujours confortablement assis. Il écoute. Pons, lui, compte.",
       "« Si on vote cette nuit l'ouverture de la vanne, dit-il, on reconnaît qu'on savait. Il y a trois ans. Nous tous. Moi aussi. » Il fait tourner son cognac. « Vous voulez que je signe ma propre faute, Bérangère. »",
       "« Je veux que vous la signiez avant qu'elle tue quelqu'un. Après, elle aura un autre nom. »",
       "Pons te regarde par-dessus son verre.",
@@ -181,7 +181,7 @@ module.exports = {
   H_pons_non: { act: A, title: "Pons refuse", place: "hauteville", fx: { flag: "voix:pons_non", time: 0.25 },
     text: [
       "« Non, dit Pons. Je vous aime bien, Bérangère. Mais non. Demain, à huit heures, je verrai. »",
-      "Il te raccompagne à la porte avec une politesse parfaite. Rouvray t'attend dans la rue, sous la lanterne, en se frottant les mains.",
+      "Il te raccompagne à la porte avec une politesse parfaite ; c'est la monnaie dont il paie les gens à qui il vient de tout refuser. Rouvray t'attend dans la rue, sous la lanterne, en se frottant les mains.",
       "Deux voix. Il en faut quatre.",
     ],
     choices: [{ label: "Aller chez Garnier quand même", to: "H_garnier" }] },
@@ -243,7 +243,7 @@ module.exports = {
     text: [
       "À trois heures et demie, de la fenêtre de la petite salle, tu vois trois lanternes s'allumer au bout de la vallée. À quatre heures, la pluie. Au jour, la Sorge est dans les Foulons jusqu'aux fenêtres basses, le quartier est sur le parvis, et la digue tient.",
       "À huit heures, le Conseil se réunit pour le vote de la Charge. Il y a sept maisons autour de la table, et une nuit entre elles.",
-      "Corlay se lève le premier. Il retire sa candidature à la Charge. Il dit qu'il demandera au printemps que le Conseil rende public le procès-verbal d'il y a trois ans. Il le dit d'une voix égale, les yeux loin de toi.",
+      "Corlay se lève le premier. Il retire sa candidature à la Charge. Il dit qu'il demandera au printemps que le Conseil rende public le procès-verbal d'il y a trois ans. Il le dit d'une voix égale, tourné vers les autres.",
       { if: { has: "voix:malzieu" }, text: "Malzieu, dégrisé, demande qu'on retire son nom de l'ordre de la nuit. On le lui refuse. Il dira toute sa vie qu'il était ivre, et toute sa vie on lui répondra qu'il a bien voté." },
       { if: { has: "voix:garnier" }, text: "Garnier vient te voir à midi, avec ses billets. Tu les rachètes, comme promis. Tu les brûles devant lui. Tu lui dis que tu les lui rendras quand il aura voté une fois contre toi. Il rit, pour la première fois depuis un an." },
       "On donne la Charge au fils Vellard, à cinq voix contre deux, sous la tutelle d'un ingénieur qui descendra dans la galerie. Le vieux est mort à midi, sans le savoir. Tu sors de l'Hôtel sous la pluie. Tu as soixante-dix ans, et tu as fait, une nuit, ce que tu aurais dû faire un après-midi d'octobre. Les trois ans, tu les laisses de côté ce matin. Tu sais déjà qu'ils reviendront.",

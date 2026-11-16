@@ -179,7 +179,7 @@ module.exports = {
   // ------------------------------------------------------------------ Corvin's cabinet
   V_corvin: { act: "II", title: "Le cabinet du docteur", place: "village", backName: "le cabinet du docteur",
     text: [
-      "Un cabinet clair, propre, qui sent l'éther et la cire. Des bocaux, une bibliothèque, un squelette accroché à une potence, une table d'examen couverte d'un drap blanc, et le fauteuil à haut dossier, le même qu'à l'hospice, ou son frère jumeau.",
+      "Un cabinet clair, propre, qui sent l'éther et la cire. Des bocaux, une bibliothèque, un squelette accroché à une potence, le seul patient du docteur qui se soit laissé examiner jusqu'au bout, une table d'examen couverte d'un drap blanc, et le fauteuil à haut dossier, le même qu'à l'hospice, ou son frère jumeau.",
       { first: true, text: "« Je vous attendais », dit le docteur Corvin. Cette fois, il garde son sourire pour lui. Il a l'air d'un homme qui a un travail à finir. « Les assises sont dans trois jours. Le bailli Dorval est un homme sec. Si vous arrivez devant lui la tête vide, il remplira le vide lui-même. Il vaut mieux que ce soit nous qui le remplissions, vous ne croyez pas ? »" },
     ],
     choices: [

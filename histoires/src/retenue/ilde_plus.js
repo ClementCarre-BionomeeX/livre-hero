@@ -7,7 +7,7 @@ module.exports = {
   I_galerie: { act: A, title: "Le compas d'Anselme", place: "digue", fx: { learn: "veine_vue", flag: "ilde:vu_veine", time: 0.5 },
     text: [
       "« Je veux la voir », dis-tu. Anselme te tend son compas de fer et une lanterne sourde. Les soixante marches de l'escalier intérieur sont devenues trop hautes pour lui. Il te dit où poser les pointes.",
-      "La galerie basse est un couloir de pierre qui sent la cave et la rivière. Il y fait plus chaud que dehors. L'eau ruisselle partout, sur les murs, sous tes semelles, dans les rigoles.",
+      "La galerie basse est un couloir de pierre qui sent la cave et la rivière. Il y fait plus chaud que dehors, d'une tiédeur de chambre de malade ; l'eau ruisselle partout, sur les murs, sous tes semelles, dans les rigoles, et ta lanterne sourde allume sur la paroi des luisances qui bougent quand tu bouges.",
       "La veine court dans la paroi de gauche, du sol à la voûte. Elle est couverte de plâtres de toutes les couleurs, posés l'un sur l'autre, comme des pansements sur une vieille plaie. Tous suintent. Tu poses les pointes du compas comme il l'a dit, sur les deux clous de cuivre plantés de part et d'autre. Deux doigts.",
       "Tu as vu des plaies. Tu sais distinguer celles qu'on soigne de celles qu'on panse en attendant. Ici, on a pansé pendant trois ans.",
     ],
@@ -24,7 +24,7 @@ module.exports = {
   // ------------------------------------------------------------------ the road down
   I_route: { act: A, title: "La sixième borne", place: "berge", fx: { time: 0.25 },
     text: [
-      "Tu descends la route de la Digue à petits pas, le paquet sous ton manteau. Il fait noir. Les bornes blanches sortent de la nuit une à une.",
+      "Tu descends la route de la Digue à petits pas, le paquet sous ton manteau. Il fait noir. Les bornes blanches sortent de la nuit une à une, pâles et droites comme les pierres d'un cimetière de campagne.",
       "À la sixième borne, des pas pressés te rattrapent. Quelqu'un court derrière toi, sans lanterne, sur l'herbe du bas-côté. Tu te retournes. Il te dépasse sans ralentir, à trois pas, la tête dans le col.",
       "Tu reconnais la silhouette, l'épaule gauche plus basse que l'autre : Bastien Vellard. Il dormait sur le banc il y a une heure. Il court vers la ville comme un homme qui a rendez-vous.",
     ],
@@ -38,7 +38,7 @@ module.exports = {
       "Il s'arrête. Il se retourne lentement. Dans le noir, son visage t'échappe ; tu vois sa respiration, une petite fumée blanche, rapide.",
       "« Madame Saunier. » Sa voix est gaie, trop gaie. « Je descends jouer. Je joue tous les soirs, vous savez. Mon père vous l'a dit, je suppose. »",
       "« Ton père va mourir, Bastien. Cette semaine, ou la suivante. Il t'aime. Il n'a jamais su te le dire autrement qu'en payant. »",
-      "Il garde le silence. La fumée blanche s'arrête, une seconde. Puis il rit, un rire de taverne, et il repart en courant vers les lumières de Corvèze.",
+      "Il laisse passer ta phrase. La fumée blanche s'arrête, une seconde. Puis il rit, un rire de taverne, et il repart en courant vers les lumières de Corvèze.",
     ],
     choices: [{ label: "Reprendre la route", to: "I_descente" }] },
 

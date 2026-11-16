@@ -5,7 +5,7 @@ module.exports = {
   B_lettre: {
     act: "II", title: "La lettre disparue", place: "cuisine", devant: "mariette",
     text: [
-      "Le deuxième jour commence dans un vent qui fait gémir toute la maison. Il neige à l'horizontale, et de la fenêtre de la cuisine, la grange elle-même a disparu dans le blanc.",
+      "Le deuxième jour commence dans un vent qui fait gémir toute la maison ; il trouve chaque fente des volets, chaque tuile mal jointe, et en tire une note longue qui monte et retombe comme une plainte dans une pièce voisine. Il neige à l'horizontale, et de la fenêtre de la cuisine, la grange elle-même a disparu dans le blanc.",
       "Mariette te sert ton café et reste debout à côté de toi, la cafetière à la main, plus longtemps qu'il ne faut. Puis elle parle bas et vite, en regardant la porte.",
       "« Ta mère t'avait écrit. L'après-midi d'avant, en quatre heures, avec la plume attachée à la main. C'est moi qui ai posé la lettre sur le bureau, sous l'encrier, à ton nom. Hier matin, elle n'y était plus. » Elle repose la cafetière sur le fourneau. « Je n'ai rien vu. Je te le dis parce qu'elle était à toi. »",
       "Elle retourne à son évier : elle a dit tout ce qu'elle dira.",

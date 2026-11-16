@@ -52,8 +52,8 @@ module.exports = {
   version: 1,
   start: "A_comptoir",
   intro: [
-    "Port-Aubier vit de la mer. Ses quais de granit ferment une rade grise où mouillent les navires de trois royaumes ; ses entrepôts sentent le goudron, la morue et le poivre ; ses rues montent en escaliers vers la ville haute, où les armateurs comptent leur argent derrière des fenêtres à petits carreaux.",
-    "Au sud-ouest, à onze jours de mer quand le vent est bon, s'étendent les Îles Blanches, une colonie de pêcheurs et de planteurs qui manque de tout. Entre les deux, il y a la mer des Brumes, et au bout de la mer des Brumes, une barre de récifs que les marins appellent les Dents de Morgue.",
+    "Port-Aubier vit de la mer, comme un héritier vit d'une tante riche : en la craignant, en la flattant, et en comptant ce qu'elle rapporte. Ses quais de granit ferment une rade grise où mouillent les navires de trois royaumes ; ses entrepôts sentent le goudron, la morue et le poivre ; ses rues montent en escaliers vers la ville haute, où les armateurs comptent leur argent derrière des fenêtres à petits carreaux.",
+    "Au sud-ouest, à onze jours de mer quand le vent est bon, s'étendent les Îles Blanches, une colonie de pêcheurs et de planteurs qui manque de tout. Entre les deux, il y a la mer des Brumes, et au bout de la mer des Brumes, une barre de récifs que les marins appellent les Dents de Morgue, d'un nom qu'ils prononcent vite, et plus bas que les autres.",
     "Toi, tu es à Port-Aubier depuis un mois. Tu as fini ton dernier engagement et une partie de ton argent, et tu cherches un embarquement. Hier soir, un commis t'a remis un billet : Maître Anselme Corbière, armateur, te prie de passer à son comptoir à huit heures.",
   ],
   acts: [
@@ -135,7 +135,7 @@ module.exports = {
       brise: { name: "Bonne brise", desc: "Un vent régulier, la mer qui moutonne à peine.", say: "La brise revient, fraîche et régulière. La Sterne se couche un peu et prend sa vitesse." },
       frais: { name: "Vent frais", desc: "Un vent fort et franc ; la mer se creuse.", mod: { nature: -5 }, say: "Le vent fraîchit. Les crêtes des vagues blanchissent, et le pont se met à danser." },
       grain: { name: "Grain", desc: "Rafales, pluie froide, ciel bas.", mod: { nature: -10, combat: -5 }, say: "Un grain arrive par l'ouest : un rideau gris sur la mer, puis la pluie qui fouette le pont." },
-      brume: { name: "Brume", desc: "Un mur blanc à trente pas, l'humidité qui colle aux vêtements.", mod: { nature: -10, discretion: 15 }, say: "La brume monte de la mer. En quelques minutes, on ne voit plus le beaupré depuis la barre." },
+      brume: { name: "Brume", desc: "Un mur blanc à trente pas, l'humidité qui colle aux vêtements.", mod: { nature: -10, discretion: 15 }, say: "La brume monte de la mer comme une haleine, sans vent pour la porter. En quelques minutes, on ne voit plus le beaupré depuis la barre." },
       tempete: { name: "Tempête", desc: "Vent de tempête, lames énormes, tout le monde sur le pont.", mod: { nature: -20, combat: -15, discretion: 10 }, say: "Le vent forcit encore. Il hurle dans le gréement, et les lames passent par-dessus le bastingage." },
     },
     regions: {
@@ -216,7 +216,7 @@ module.exports = {
     { id: "gavre", at: { day: 3, hour: 9 }, to: "G_arrivee", acts: ["I"] },
     { id: "depart_gavre", at: { day: 3, hour: 18 }, to: "G_depart", acts: ["I"] },
     { id: "brumes", at: { day: 5, hour: 6 }, title: "La Sterne entre dans la mer des Brumes", fx: { set: { mer: "brumes" } },
-      say: "Au petit jour, la couleur de la mer change. Elle passe du bleu au gris de plomb, et l'air sent l'algue et le froid. La vigie annonce la mer des Brumes." },
+      say: "Au petit jour, la couleur de la mer change. Elle passe du bleu au gris de plomb, et l'air sent l'algue et le froid ; l'horizon, net jusque-là comme un trait de plume, s'épaissit et se rapproche. La vigie annonce la mer des Brumes." },
     { id: "sabotage", at: { day: 4, hour: 23 }, title: "Quatorze tonneaux d'eau vidés dans la cale", fx: { stock: { eau: -14 } } },
     { id: "decouverte", at: { day: 5, hour: 7 }, to: "D_tonneaux", acts: ["II"] },
     { id: "malade", at: { day: 5, hour: 9 }, title: "Le capitaine Coët garde la chambre", fx: { questSeen: "II_capitaine" },

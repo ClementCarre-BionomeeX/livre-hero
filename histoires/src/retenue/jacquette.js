@@ -5,7 +5,7 @@ module.exports = {
   J_lac: { act: A, title: "Le sel de Brême", place: "lac", skip: { to: "J_pied", label: "Tu connais la suite : passer l'octroi", fx: { time: 1 } },
     text: [
       "Dix sacs de sel de Brême dans la barque, sous une bâche goudronnée, cinquante livres le sac. Quinze livres de profit si l'octroi ne te voit pas. Six mois de prison s'il te voit.",
-      "La Retenue est noire et lisse comme de l'encre, mais elle bouge par en dessous : une houle longue, lente, qui vient du fond du lac. Le vent tourne au nord. Le lac est plus haut qu'à aucun mois de novembre de ta vie. L'eau lèche le pied des hêtres sur la rive, là où il y a d'habitude trois pas de grève.",
+      "La Retenue est noire et lisse comme de l'encre, mais elle bouge par en dessous : une houle longue, lente, qui vient du fond du lac et soulève la barque sans un bruit, du mouvement qu'ont les poitrines endormies. Le vent tourne au nord. Le lac est plus haut qu'à aucun mois de novembre de ta vie. L'eau lèche le pied des hêtres sur la rive, là où il y a d'habitude trois pas de grève.",
       "Cet après-midi, un gamin t'a apporté un mot du vieux Vellard : *Ce soir, attends un paquet à ta cabane, avant minuit. Ne bouge pas de là.* En six ans, le vieux t'a demandé ceci, et rien d'autre. Il t'a laissée passer son canal, il t'a fait du café, il t'a parlé de son grand-père. Tu as dit oui au gamin avant d'avoir lu jusqu'au bout.",
       "Au milieu du lac, une lanterne se balance : la barque de l'octroi. Deux hommes, une perche, un fusil. Elle croise entre toi et la digue.",
     ],
@@ -19,7 +19,7 @@ module.exports = {
       { via: "hetres", text: "À la pointe des Hêtres, la houle te prend de travers. Un sac glisse, la barque gîte, tu rattrapes la rame d'une main, et tu cognes le plat-bord. Le bruit roule sur l'eau. La lanterne de l'octroi se tourne vers toi." },
       { if: { not: { via: "hetres" } }, text: "À cinquante brasses, un sac glisse sous la bâche et tombe à l'eau. Le bruit roule sur le lac. La lanterne de l'octroi se tourne vers toi." },
       "« Morand ! Ne bouge plus, la Loutre ! »",
-      "Ils t'abordent. Le plus vieux, Gaudry, te connaît depuis dix ans ; il t'a ratée vingt fois. Ce soir, il sourit. Il compte les sacs, à voix haute, en mouillant son pouce.",
+      "Ils t'abordent. Le plus vieux, Gaudry, te connaît depuis dix ans ; il t'a ratée vingt fois, ce qui fait à l'octroi une moyenne honorable. Ce soir, il sourit. Il compte les sacs, à voix haute, en mouillant son pouce.",
       "Ils t'emmènent au poste de l'octroi, au bout du lac, côté Brême, à trois lieues de la digue. Ta barque suit en remorque.",
     ],
     choices: [
@@ -28,7 +28,7 @@ module.exports = {
     ] },
   J_octroi: { act: A, title: "Le poste de l'octroi", place: "lac", end: true, fx: { time: 3 },
     text: [
-      "Le poste de l'octroi est une cabane de pierre sur un ponton, avec un poêle, un registre, et une cage en bois de chêne où l'on met les fraudeurs jusqu'au matin. Gaudry t'y enferme et se met à écrire ton procès-verbal, en tirant la langue.",
+      "Le poste de l'octroi est une cabane de pierre sur un ponton, avec un poêle, un registre, et une cage en bois de chêne où l'on met les fraudeurs jusqu'au matin ; la cage est le seul meuble du poste qu'on ait fait solide. Gaudry t'y enferme et se met à écrire ton procès-verbal, en tirant la langue.",
       "Tu penses au gamin de cet après-midi. *Avant minuit. Ne bouge pas de là.*",
       "À minuit, tu es dans une cage, à trois lieues de ta cabane.",
       "Vers deux heures, le vent tombe d'un coup. Puis il revient, plus fort, du nord-ouest. Le lac se met à cogner contre le ponton. Gaudry lève la tête de son registre. « Il est haut, le lac. Jamais vu si haut. »",

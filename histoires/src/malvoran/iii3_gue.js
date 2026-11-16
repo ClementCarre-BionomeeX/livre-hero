@@ -377,7 +377,7 @@ module.exports = {
     IIIF_citerne_dedans: { act: "III", title: "La citerne", place: "gaudre",
       fx: { flag: "IIIF:dedans" },
       text: [
-        "Tu passes sous la grille dans une eau si froide qu'elle te coupe le souffle, et tu remontes dans le noir, de l'autre côté, sur une marche de pierre creusée par cent ans de seaux. La citerne est une grande salle voûtée, à moitié pleine, à l'eau immobile. Un escalier en colimaçon monte dans le mur. Tout en haut, une trappe ; et par la trappe, des voix, des sabots, le bruit d'une cour.",
+        "Tu passes sous la grille dans une eau si froide qu'elle te coupe le souffle, et tu remontes dans le noir, de l'autre côté, sur une marche de pierre creusée par cent ans de seaux. La citerne est une grande salle voûtée, à moitié pleine, à l'eau immobile ; le moindre de tes mouvements y court en rides jusqu'aux murs et en revient, et la voûte rend chaque goutte tombée de tes manches, grossie, comme un coup frappé à une porte. Un escalier en colimaçon monte dans le mur. Tout en haut, une trappe ; et par la trappe, des voix, des sabots, le bruit d'une cour.",
         "Tu attends que tes dents cessent de claquer. Puis tu montes.",
         { with: "coliane", text: "Coliane passe la première par la trappe, regarde, et te fait signe : la voie est libre. Elle a de l'eau jusque dans les cils, et elle sourit pour la première fois depuis Merle." },
       ],
@@ -523,7 +523,7 @@ module.exports = {
     IIIF_cachot: { act: "III", title: "Le cachot des frères", place: "gaudre",
       fx: { questSeen: "IIIF_freres" },
       text: [
-        "On descend au cachot par un escalier qui sue, sous la tour de l'eau. Une lanterne pend à un clou. Le geôlier, un gros homme en manteau d'Aldaran, dort sur un tabouret, la tête contre le mur ; son compagnon pèle une pomme avec une dague, d'un seul ruban. Derrière la grille de la grande cellule, il y a quatre frères de Gaudre, maigres et sales. L'un d'eux, le bras en écharpe, te reconnaît pour ce que tu es avant même que tu ouvres la bouche.",
+        "On descend au cachot par un escalier qui sue, sous la tour de l'eau ; la rivière est là, derrière la pierre, et on l'entend passer contre le mur, d'un frottement long, égal, de chose qui cherche l'entrée. Une lanterne pend à un clou. Le geôlier, un gros homme en manteau d'Aldaran, dort sur un tabouret, la tête contre le mur ; son compagnon pèle une pomme avec une dague, d'un seul ruban. Derrière la grille de la grande cellule, il y a quatre frères de Gaudre, maigres et sales. L'un d'eux, le bras en écharpe, te reconnaît pour ce que tu es avant même que tu ouvres la bouche.",
         "« Si tu es venu{e} nous sortir, dit-il tout bas, fais-le vite. Si tu es venu{e} nous regarder, va-t'en. On en a assez d'être regardés. »",
         { if: { has: "IIIF:geole" }, text: "Ce sont les frères que tu as vus à travers la grille de ta propre cellule. Ils occupent la même place, dans la même posture, comme si leurs corps avaient oublié le mouvement." },
       ],
@@ -1003,7 +1003,7 @@ module.exports = {
     IIIG_aube: { act: "III", title: "L'aube sur l'Isarde", place: "merle", takes: "morning",
       fx: { ep: ["seance", 1500] },
       text: [
-        "La brume monte de l'Isarde avant le jour, épaisse et blanche, si dense que l'autre rive et la colline disparaissent. Il reste les bruits : des chevaux qui s'ébrouent ; des ordres criés à mi-voix ; le cliquetis des piques qu'on lève ; et partout, sous tout le reste, l'eau. Une odeur de vase et de feu froid.",
+        "La brume monte de l'Isarde avant le jour, épaisse et blanche, si dense que l'autre rive et la colline disparaissent, et que chaque homme, à trois pas, devient une ombre grise au visage effacé. Il reste les bruits : des chevaux qui s'ébrouent ; des ordres criés à mi-voix ; le cliquetis des piques qu'on lève ; et partout, sous tout le reste, l'eau. Une odeur de vase et de feu froid.",
         { if: { is: { couronne: "aldaran" } }, text: "Tu es dans les rangs de l'avant-garde d'Aldaran, au bord du gué, avec des piquiers des hautes terres qui ont froid et qui prient. Un sergent te tend une gourde d'eau-de-vie. « Pour le courage », dit-il, et il boit le premier. Derrière, sur la colline, la bannière à la tour d'argent pend, mouillée, faute de vent." },
         { if: { is: { couronne: "velorin" } }, text: "Tu es sur la rive basse, avec les arbalétriers de Vel-Orin, à genoux derrière des pavois plantés dans les galets. Ils tendent leurs arcs de fer avec des manivelles, en silence, et posent les carreaux sur le pavois devant eux, un par un, comme des pièces sur un comptoir." },
         { if: { is: { couronne: "paix" } }, text: "Tu es sur l'île du gué, dans la chapelle sans toit, avec les bateliers de Merle. La trêve interdit de traverser. Les deux armées sont rangées sur les deux rives, à quatre cents pas l'une de l'autre, et attendent midi. Et dans la brume, en amont, tu entends des chevaux qui entrent dans l'eau." },

@@ -6,7 +6,7 @@ module.exports = {
   A_reveil: { act: "I", title: "Le Pot d'Étain", place: "pont",
     text: [
       "On frappe à ta porte comme on frappe chez un médecin : vite, fort, et sans s'arrêter.",
-      "Le jour se lève à peine. Par la fenêtre, tu vois l'Aune rouler une eau grise et lente, encombrée des débris de la nuit : des carcasses de petites barques en papier, des chandelles mortes, des rubans. Sur le Pont des Changeurs, les boutiquiers lèvent leurs volets un à un, en bâillant. Les cloches de la Haute-Ville sonnent sept heures.",
+      "Le jour se lève à peine. Par la fenêtre, tu vois l'Aune rouler une eau grise et lente, encombrée des débris de la nuit : des carcasses de petites barques en papier, des chandelles mortes, des rubans ; une fête, vue le lendemain, ressemble toujours un peu à un naufrage. Sur le Pont des Changeurs, les boutiquiers lèvent leurs volets un à un, en bâillant. Les cloches de la Haute-Ville sonnent sept heures.",
       "Tu as la bouche pâteuse du vin chaud d'hier, et ta chemise attend sur le dossier de la chaise, là où tu l'as jetée. On frappe encore.",
       "« S'il vous plaît, dit une voix de femme derrière la porte. S'il vous plaît. On m'a dit que c'était ici. »",
     ],
@@ -67,7 +67,7 @@ module.exports = {
   A_pont_matin: { act: "I", title: "Le Pont des Changeurs", place: "pont",
     fx: { meet: ["isaline"] },
     text: [
-      "Le Pont des Changeurs est une rue posée sur l'eau. Les maisons y ont trois étages, les boutiques s'ouvrent des deux côtés, et l'on aperçoit le fleuve seulement par les fentes entre elles. Ce matin, il y a du monde : on parle bas, par petits groupes, et chaque groupe regarde le même endroit.",
+      "Le Pont des Changeurs est une rue posée sur l'eau. Les maisons y ont trois étages, les boutiques s'ouvrent des deux côtés, et l'on aperçoit le fleuve seulement par les fentes entre elles : Orbeval a trop d'affaires sur ce pont pour y perdre de la place à regarder couler l'Aune. Ce matin, il y a du monde : on parle bas, par petits groupes, et chaque groupe regarde le même endroit.",
       "C'est un comptoir de changeuse, au milieu du pont : une plaque de marbre, une balance de cuivre sous un globe de verre, des piles de pièces de tous les pays rangées dans des godets. Derrière, une vieille femme à lunettes, le dos très droit, fait sonner des écus un par un sur le marbre et les range sans lever la tête. On te dit son nom à voix basse, comme s'il pouvait la déranger : Dame Isaline Veillon. C'est à elle que le garçon a voulu vendre la bague.",
       "« Elle l'a reconnue tout de suite, dit un apprenti boulanger, avec son panier de pains sur la tête. Elle a fermé le globe de la balance dessus, elle a dit au garçon d'attendre, et elle a sifflé le guet. Il n'a même pas couru. »",
       "Au bout du pont, le quai descend vers les Tanneurs, et l'odeur change en cent pas : le pain, la cire et la poussière d'argent cèdent la place à l'eau croupie, au cuir mouillé et à la chaux.",
@@ -79,7 +79,7 @@ module.exports = {
   A_ecluse: { act: "I", title: "L'écluse des Tanneurs", place: "tanneurs",
     fx: { meet: ["barthe", "hallard"] },
     text: [
-      "L'écluse des Tanneurs est un bassin de pierre noire long comme une église, fermé à chaque bout par deux grandes portes de chêne bardées de fer. L'eau y dort, verte et lisse. En amont, le canal arrive des Orfèvres ; en aval, il descend vers l'Aune et le port. Autour du bassin, tu relèves une maisonnette d'éclusier, des perches, des chaînes et un treuil.",
+      "L'écluse des Tanneurs est un bassin de pierre noire long comme une église, fermé à chaque bout par deux grandes portes de chêne bardées de fer. L'eau y dort, verte et lisse, d'un sommeil si épais que les murs s'y reflètent sans trembler ; à la regarder, on lui prête la patience des choses qui ont tout leur temps. En amont, le canal arrive des Orfèvres ; en aval, il descend vers l'Aune et le port. Autour du bassin, tu relèves une maisonnette d'éclusier, des perches, des chaînes et un treuil.",
       "Une trentaine de personnes regardent les portes d'aval, comme si le mort allait y revenir. Un vieil homme à barbe blanche, le pantalon trempé jusqu'aux cuisses, les tient à distance avec sa perche et une patience usée : c'est l'éclusier, qu'on appelle Barthe.",
       "Au bord du bassin, une femme en manteau de cuir du guet prend des notes sur une tablette de cire, le pied posé sur une borne. Elle a des cheveux roux coupés court, une vieille cicatrice qui lui tire le coin de la bouche, et l'air de quelqu'un qui veille depuis la veille de la fête. C'est la sergente Hallard.",
       { regard: { hallard: "cordial" }, text: "Elle lève les yeux sur toi, et quelque chose dans ta façon de te tenir, de regarder d'abord les mains des gens, puis leurs pieds, lui fait plisser les yeux. « Toi, tu as porté le manteau du guet. Ça se voit. Où ça ? »" },

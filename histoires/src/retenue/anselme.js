@@ -9,7 +9,7 @@ module.exports = {
       "Deux doigts. Dimanche, c'était un doigt.",
       "Tu écris le chiffre dans ton carnet, sous les autres. Ta main tremble ; le chiffre tremble aussi. Entre deux pages du carnet, il y a trois feuilles pliées de ta main : la copie de ce que le Conseil a décidé il y a trois ans, dans la petite salle de l'Hôtel. Tu l'as recopiée le soir même, de mémoire. Ta mémoire de garde-vannes retient les chiffres et les noms.",
       "À deux pas de la veine, sous l'eau, le pointeau de bronze. Ton grand-père Ferréol disait : une clé, ça se perd, et les fils aussi.",
-      "Là-haut, au-dessus de quarante mètres de pierre, le lac pèse sur toi de tout son poids. Ce soir, le mercure tombe.",
+      "Là-haut, au-dessus de quarante mètres de pierre, le lac pèse sur toi de tout son poids ; depuis toujours tu l'entends vivre derrière ce mur comme un voisin derrière une cloison, et ce soir le voisin marche de long en large. Ce soir, le mercure tombe.",
     ],
     choices: [
       { label: "Poser la main sur la veine", hide: { has: "anselme:main" }, to: "A_veine_main" },
@@ -53,7 +53,7 @@ module.exports = {
       "Tu lui donnes la toile cirée et la lettre au cachet vert. *Trois heures, la vanne de fond. Il faut quatre bras. Qu'Ilde fasse lever les Foulons à deux heures.*",
       "« Trois lanternes à cette fenêtre, quand je serai prêt. »",
       "Ilde se lève. Elle va jusqu'à la porte de la pièce d'à côté, entrouverte. Elle regarde Bastien sur son banc. Elle revient en silence. Elle t'embrasse sur le front, comme on embrasse un enfant malade, et elle s'en va.",
-      "À huit heures, Bastien se lève. Il dit qu'il va faire un tour, les yeux ailleurs. Tu entends son pas décroître dans l'escalier de la digue, plus vite que d'habitude.",
+      "À huit heures, Bastien se lève. Il dit qu'il va faire un tour, sans tourner la tête vers toi. Tu entends son pas décroître dans l'escalier de la digue, plus vite que d'habitude.",
     ],
     choices: [{ label: "Préparer les lanternes", to: "A_lanternes" }] },
   A_attente: { act: A, title: "Les gardes de minuit", place: "digue", fx: { time: 4 },
@@ -194,7 +194,7 @@ module.exports = {
     text: [
       "Tu donnes à Ilde la lettre pour Jacquette, et tu gardes la clé. « Trois heures, par le canal. Qu'elle vienne les mains vides, la clé est ici. Et toi, les Foulons, à deux heures. »",
       "Ilde part. Bastien, sur le banc, a tout entendu. À huit heures, il se lève, il dit qu'il va faire un tour.",
-      "À minuit, deux jeunes du guet frappent à ta porte. « Le capitaine Rambert nous envoie veiller sur votre santé, monsieur Vellard. » Ils regardent partout. Ils cherchent quelque chose. Sous la couverture d'un vieillard, l'idée de chercher leur échappe.",
+      "À minuit, deux jeunes du guet frappent à ta porte. « Le capitaine Rambert nous envoie veiller sur votre santé, monsieur Vellard. » Ils regardent partout. Le guet cherche bien, pourvu que la chose soit à hauteur d'yeux ; sous la couverture d'un vieillard, l'idée leur échappe.",
       "Ils s'installent dans la cuisine. Ils ont froid.",
     ],
     choices: [

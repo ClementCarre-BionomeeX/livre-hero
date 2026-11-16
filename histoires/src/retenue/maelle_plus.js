@@ -38,7 +38,7 @@ module.exports = {
       "« Nine vous embrasse, sergent. Je l'ai vue au lavoir, il y a une demi-heure. »",
       "Le sergent baisse sa lanterne. Il te regarde autrement, d'un coup : la fille qui jouait aux osselets avec la sienne. Il grogne, comme Nine l'avait dit.",
       "Il se tourne vers les deux jeunes. « Allez voir au bout du pont si j'y suis. » Ils s'éloignent en traînant les pieds.",
-      "Il parle bas, sans te regarder, les yeux sur la Sorge. « Mon capitaine veut ce que tu portes. Je ne veux pas savoir ce que c'est. Je ne t'ai pas vue. Tu repars par où tu es venue. » Il tousse. « Au bout de la rue des Teinturiers, contre la culée, il y a une vieille bouche d'égout avec une grille qui tient par un gond. Quand j'avais ton âge, on passait par là pour aller voler des pommes en Haute-Ville. »",
+      "Il parle bas, sans te regarder, tourné vers la Sorge. « Mon capitaine veut ce que tu portes. Je ne veux pas savoir ce que c'est. Je ne t'ai pas vue. Tu repars par où tu es venue. » Il tousse. « Au bout de la rue des Teinturiers, contre la culée, il y a une vieille bouche d'égout avec une grille qui tient par un gond. Quand j'avais ton âge, on passait par là pour aller voler des pommes en Haute-Ville. »",
       "Puis il relève la lanterne et dit très fort : « Allez, rentre chez toi, petite ! Il fait trop froid pour les courses ! »",
     ],
     choices: [{ label: "Redescendre vers la rue des Teinturiers", back: "M_rue" }] },
@@ -64,7 +64,7 @@ module.exports = {
   M_aulnes_haut: { act: A, title: "La haie des Prêcheurs", place: "berge", fx: { time: 0.5 },
     text: [
       "Tu remontes le déversoir jusqu'à la haie des Prêcheurs, comme Margot l'a dit. Derrière la haie court un sentier de vaches, plus haut que la berge, sec sous les feuilles mortes.",
-      "D'en haut, tu vois la Sorge dans le noir : une bande grise et vivante qui charrie des choses. Une barrique passe en tournant sur elle-même. Puis une porte de grange entière, à plat, avec ses gonds.",
+      "D'en haut, tu vois la Sorge dans le noir : une bande grise et vivante qui charrie des choses. Une barrique passe en tournant sur elle-même. Puis une porte de grange entière, à plat, avec ses gonds, qui descend le courant comme si elle allait s'ouvrir quelque part.",
       "Le sentier redescend vers la berge après le moulin Brûlé, au-delà du déversoir. Tu as les pieds secs.",
     ],
     choices: [{ label: "Redescendre sur la berge", to: "M_aulnes_ombre", via: "haut" }] },
@@ -151,7 +151,7 @@ module.exports = {
   M_cavalier: { act: A, title: "Dix bornes", place: "hauteville", end: true, fx: { time: 3 },
     text: [
       "Il te faut deux heures pour revenir à pied à Corvèze, les mains liées. Le garçon blond parle à son cheval pour éviter de te parler.",
-      "À la porte Saint-Rieul, le capitaine Rambert vous attend sous la voûte, en bottes et en robe de chambre, avec un domestique de la maison Corlay. Le domestique prend le paquet et part en courant vers la rue Haute.",
+      "À la porte Saint-Rieul, le capitaine Rambert vous attend sous la voûte, en bottes et en robe de chambre, tenue d'un homme que le devoir a tiré du lit sans le réveiller tout à fait ; un domestique de la maison Corlay se tient près de lui. Le domestique prend le paquet et part en courant vers la rue Haute.",
       "« Bon travail », dit le capitaine au garçon blond. Devant toi, il se tait. On te met dans la petite salle de la porte, avec un tabouret et une fenêtre grillagée qui donne sur la vallée.",
       "De cette fenêtre, on voit la digue, très loin, et la lumière de la Maison des Vannes. Vers quatre heures, la pluie se met à tomber. Tu regardes la petite lumière à travers la pluie jusqu'au matin.",
       "Elle reste seule toute la nuit, cette lumière. Quelqu'un attendait, là-haut, et tu sais maintenant qu'il attendra en vain.",
@@ -227,7 +227,7 @@ module.exports = {
     text: [
       "La cabane est vide, et la clé seule ne fait pas tourner la roue : il faut quatre bras, la lettre le dit. Mais quelqu'un t'a parlé d'une autre manière d'ouvrir. Un pointeau, en bas, dans la galerie, qu'on dévisse à la main, sous l'eau.",
       "Au fond du canal de fuite, une porte de fer est entrouverte. Derrière, un couloir descend dans la digue. Tu allumes ta chandelle de courrière, celle qu'on garde dans la poche du châle pour lire les adresses.",
-      "Le couloir sent la vase et le fer mouillé. L'eau te monte aux chevilles au dixième pas, aux mollets au trentième.",
+      "Le couloir sent la vase et le fer mouillé. L'eau te monte aux chevilles au dixième pas, aux mollets au trentième ; ta chandelle éclaire trois pas devant toi, et le reste du couloir t'attend dans le noir, sans se presser.",
     ],
     choices: [
       { label: "Descendre", to: "M_galerie_eau" },

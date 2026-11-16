@@ -10,12 +10,12 @@ var ROI_PASSE = { quest: "P_roi" };
 add({
   PT_abords: { act: "P", title: "Sous le rempart", place: "chateau", hub: true, routes: true, backName: "le pied du rempart",
     text: [
-      { first: true, text: "Le sentier finit sur un replat d'herbe rase, tondue par le vent, et le château est là, posé sur l'arête comme une dent cassée. Les murs sont de la vieille pierre grise de la crête. Là où ils ont crevé, les trolls ont bouché les trous avec ce qu'ils avaient sous la main : des troncs de sapin entiers, encore couverts d'écorce, calés de travers et liés avec des chaînes de charrette. Un maçon en pleurerait. Mais ça tient." },
-      { first: true, text: "Une fumée grasse monte d'une cheminée, du côté sud. Le reste est immobile. Le rempart est vide : aucune sentinelle, aucun troll adossé au mur, aucun os jeté par-dessus. Or des trolls, on en a toujours eu sur la crête, et des trolls, ça se repère de loin : ça braille, ça casse, ça descend voler. Ceux-là se taisent derrière leurs troncs comme des gens qui ont fermé leurs volets." },
+      { first: true, text: "Le sentier finit sur un replat d'herbe rase, tondue par le vent, et le château est là, posé sur l'arête comme une dent cassée. De près, il déçoit et il inquiète à la fois ; il est moins haut que la peur l'avait bâti, et plus vieux. Les murs sont de la pierre grise de la crête, et là où ils ont crevé, les trolls ont bouché les trous avec ce qu'ils avaient sous la main : des troncs de sapin entiers, encore couverts d'écorce, calés de travers et liés avec des chaînes de charrette. Un maçon en pleurerait. Mais ça tient, comme tiennent beaucoup de choses dont les gens du métier ont prédit la ruine." },
+      { first: true, text: "Une fumée grasse monte d'une cheminée, du côté sud. Le reste est immobile, d'une immobilité qui a l'air voulue. Le rempart est vide : aucune sentinelle, aucun troll adossé au mur, aucun os jeté par-dessus. Or des trolls, on en a toujours eu sur la crête, et des trolls, ça se repère de loin : ça braille, ça casse, ça descend voler. Ceux-là se taisent derrière leurs troncs comme des gens qui ont fermé leurs volets ; et tu sais, pour l'avoir vu en bas, ce que vaut un volet fermé par temps doux." },
       { first: true, text: "Tu fais le tour du regard. En face de toi, la grande porte : deux battants de chêne rapiécés de planches neuves, et devant, assis sur une borne, un troll aux yeux ouverts. Au nord, collé contre le mur, un appentis de rondins d'où montent une odeur de chien et de paille sale, des grognements, des bruits de chaînes. Au sud, sous la fumée, la vieille cheminée des cuisines s'est effondrée vers l'extérieur et a laissé dans la muraille une brèche haute et étroite, où l'on voit le conduit noir grimper à l'intérieur." },
       { again: true, before: "P:pierre", text: "Le château se tait derrière ses troncs. La fumée des cuisines monte droit quand le vent tombe, et se couche sur la crête quand il reprend." },
-      { when: "night", before: "P:pierre", text: "La nuit change tout. Des lueurs passent derrière les meurtrières, des voix grosses comme des tonneaux roulent dans la cour, et de temps en temps tout s'arrête d'un coup, toutes les voix ensemble, comme si quelqu'un avait levé la main pour imposer silence et écouter quelque chose en dessous." },
-      { again: true, after: "P:pierre", text: "Le château a les mêmes pierres, et un autre visage. Sous tes semelles, la vibration s'est tue. Les trolls sont sortis sur le rempart, pour la première fois depuis longtemps sans doute, et ils regardent la vallée en clignant des yeux comme des convalescents qu'on a assis au soleil." },
+      { when: "night", before: "P:pierre", text: "La nuit change tout. Des lueurs passent derrière les meurtrières ; des voix grosses comme des tonneaux roulent dans la cour ; et de temps en temps tout s'arrête d'un coup, toutes les voix ensemble, comme si quelqu'un avait levé la main pour imposer silence et écouter quelque chose en dessous. Ces silences durent peu. Ils suffisent à te faire écouter aussi, et à te faire regretter d'avoir l'oreille fine." },
+      { again: true, after: "P:pierre", text: "Le château a les mêmes pierres, et un autre visage. Sous tes semelles, la vibration s'est tue. Les trolls sont sortis sur le rempart, pour la première fois depuis longtemps sans doute, et ils regardent la vallée en clignant des yeux, pareils à des convalescents qu'on a assis au soleil et qui se méfient encore de leur guérison." },
       { after: "P:pierre", with: "pip", text: "Pip s'est réfugié dans ton col. Il regarde les murs d'où vous êtes sortis par en dessous, et il se tait. Puis : « C'était grand, dedans. Ça a l'air petit, d'ici. »" },
       { after: "aglae=ramenee", text: "Aglaé attend près de ta halte, assise sur son baluchon, les mains sur les genoux. Elle a vu passer deux saisons par une meurtrière. Elle peut bien attendre encore un peu que tu redescendes avec elle." },
       { after: "poivre:libre", before: "P:pierre", text: "Poivre est couché près de ton sac, le museau sur les pattes, la corde lâche. Il lève une oreille chaque fois qu'un chien-loup aboie dans le chenil, puis la rabat." },
@@ -37,9 +37,9 @@ add({
     text: [
       "Un bloc de granit gros comme une grange domine le replat, à cinquante pas du mur. Tu y grimpes par la face nord, où la mousse donne prise, et tu t'allonges à plat ventre sur le sommet, le menton sur les mains. D'ici, la vue plonge par-dessus le rempart.",
       "La cour est une fosse de boue piétinée, encombrée de tout ce que les trolls ont rapporté de la vallée au fil des ans. Tu dresses l'inventaire : une roue de moulin ; des tonneaux ; une charrette sans essieu ; une cloche de chèvre grande comme un seau. Au fond, le corps de logis, avec ses fenêtres bouchées de paille. À gauche, une tour s'est effondrée sur elle-même et n'est plus qu'un chicot de pierre ouvert au ciel. À droite, la fumée des cuisines.",
-      "Ce qui te frappe, c'est la façon dont les trolls se déplacent. Les trois ou quatre que tu vois traverser la cour longent les murs, et aucun ne passe par le milieu. L'un d'eux porte un seau d'eau ; arrivé au centre de la cour, à l'endroit où une grande dalle ronde ferme l'ancien puits, il fait un détour de dix pas pour l'éviter. Un troll qui fait un détour : voilà une chose que tu n'avais encore jamais vue.",
+      "Ce qui te frappe, c'est la façon dont les trolls se déplacent. Les trois ou quatre que tu vois traverser la cour longent les murs, et aucun ne passe par le milieu. L'un d'eux porte un seau d'eau ; arrivé au centre de la cour, à l'endroit où une grande dalle ronde ferme l'ancien puits, il fait un détour de dix pas pour l'éviter. Un troll qui fait un détour : voilà une chose que tu n'avais encore jamais vue. Le troll est une créature qui traverse, c'est même à peu près toute sa philosophie ; et tu te demandes ce qu'il faut mettre sous une dalle pour enseigner la prudence à des gens pareils.",
       { when: "night", text: "Il fait nuit, et le corps de logis est éclairé de l'intérieur par un grand feu. Par les fenêtres crevées monte une seule voix, grave, lente ; les autres se taisent pour l'écouter. Le roi, sans doute." },
-      { when: "day", text: "Il fait jour, et la plupart des trolls dorment : leurs ronflements portent jusqu'ici, un bruit de scie dans du bois mouillé. Derrière une fenêtre du corps de logis, pourtant, une silhouette énorme est assise, immobile, les yeux ouverts." },
+      { when: "day", text: "Il fait jour, et la plupart des trolls dorment : leurs ronflements portent jusqu'ici, un bruit de scie dans du bois mouillé. Derrière une fenêtre du corps de logis, pourtant, une silhouette énorme est assise, immobile, les yeux ouverts, et veille au milieu de tout ce sommeil comme un malade veille dans un dortoir." },
     ],
     choices: [{ back: "PT_abords" }] },
 
@@ -47,11 +47,11 @@ add({
     fxEvery: { rest: true, pv: "max" },
     text: [
       "Au pied du mur, entre deux contreforts, s'ouvre un creux à l'abri du vent. Quelqu'un y a déjà fait du feu : une ronde de pierres noircies, des os de mouton rongés, très vieux. Tu ramasses du bois mort sous les pins rabougris de l'arête et tu allumes un petit feu, de ceux qui restent invisibles à cent pas.",
-      { before: "P:pierre", text: "La nuit, derrière le mur, les trolls parlent fort, puis se taisent tous ensemble, puis reprennent. Plusieurs fois, tu crois sentir sous ton dos, à travers la pierre et la terre, une sorte de bourdonnement, très bas, comme celui d'une ruche enfouie. Tu poses ta main à plat sur le sol. Le bourdonnement continue." },
+      { before: "P:pierre", text: "La nuit, derrière le mur, les trolls parlent fort, puis se taisent tous ensemble, puis reprennent. Plusieurs fois, tu crois sentir sous ton dos, à travers la pierre et la terre, une sorte de bourdonnement, très bas, comme celui d'une ruche enfouie. Tu te dis que c'est ton sang, ou le vent dans une faille ; l'esprit a toujours deux ou trois mensonges prêts pour ces occasions. Tu poses ta main à plat sur le sol. Le bourdonnement continue." },
       { after: "P:pierre", text: "La nuit est calme. Pour la première fois, la crête est simplement une crête : du vent, des étoiles, le cri d'une chouette sur l'autre versant. Sous ton dos, la terre se tait." },
       { with: "pip", text: "Pip s'est installé dans le bout de ta botte retournée, près du feu, comme dans une niche. Il regarde longtemps les braises. « Elles sont comme moi, dit-il, mais elles ne parlent pas. » Puis il s'endort, ou fait ce qu'il fait à la place, et sa lumière baisse jusqu'à n'être plus qu'une lueur de ver luisant." },
       { after: "poivre:libre", before: "P:pierre", text: "Poivre dort contre ta jambe, en tressaillant. De temps en temps il gémit, les pattes agitées, et tu poses la main sur son flanc jusqu'à ce qu'il se calme." },
-      "Au matin, tu as les os raides et la tête claire.",
+      "Au matin, tu as les os raides et la tête claire, ce qui est l'inverse de ce que promettent les auberges.",
     ],
     choices: [{ back: "PT_abords" }] },
 });
@@ -61,7 +61,7 @@ add({
   PT_porte: { act: "P", title: "La grande porte", place: "chateau",
     fx: { meet: "pt_ragne" },
     text: [
-      "Le troll est assis sur une borne de pierre, à côté des battants, une massue posée en travers des genoux. La massue est une souche de chêne avec ses racines, polie par l'usage. Le troll lui-même est gris, verruqueux, large comme une porte de grange, avec une barbe de lichen où l'on pourrait faire paître une chèvre et de petits yeux jaunes, très enfoncés, qui te regardent arriver depuis le bas du sentier.",
+      "Le troll est assis sur une borne de pierre, à côté des battants, une massue posée en travers des genoux. La massue est une souche de chêne avec ses racines, polie par l'usage, et l'on préfère ne pas rechercher quel usage. Le troll lui-même est gris, verruqueux, large comme une porte de grange, avec une barbe de lichen où l'on pourrait faire paître une chèvre et de petits yeux jaunes, très enfoncés, qui te regardent arriver depuis le bas du sentier.",
       "Il reste assis. Quand tu n'es plus qu'à dix pas, il soulève la massue d'une main, la laisse retomber sur le sol devant lui, et la terre te remonte dans les talons.",
       "« Ragne garde porte, dit-il. Grauk dit : pas d'homme. Pas d'homme qui entre. Pas de troll qui sort. » Il penche la tête. Il a l'air plus fatigué que méchant. « Toi, homme. Toi, partir. »",
     ],
@@ -86,7 +86,7 @@ add({
     fx: { flag: "PT:hote", regard: { pt_ragne: "cordial" } },
     text: [
       "Tu poses cinq sous sur la borne, à côté de sa cuisse, un par un. Ragne les regarde. Il en prend un entre deux doigts énormes, le porte à sa bouche, le mord, et l'examine encore, avec la marque de ses dents dedans.",
-      "« Joli », dit-il. Il les ramasse tous dans le creux de sa main, où ils ont l'air de miettes, et les fourre dans une bourse de cuir pendue à son cou, qui tinte déjà. À en juger par le son, tu es loin d'être le premier client. Puis il se lève et pousse un battant de l'épaule.",
+      "« Joli », dit-il. Il les ramasse tous dans le creux de sa main, où ils ont l'air de miettes, et les fourre dans une bourse de cuir pendue à son cou, qui tinte déjà. À en juger par le son, tu es loin d'être le premier client, et la consigne du roi nourrit convenablement son portier. Puis il se lève et pousse un battant de l'épaule.",
       "« Toi pas dire à Grauk. Ragne pas dire à Grauk. Toi entrer. » Il a l'air soulagé, comme si c'était toi qui lui rendais service.",
     ],
     choices: [{ label: "Entrer dans la cour", to: "PT_cour" }] },
@@ -127,7 +127,7 @@ add({
     text: [
       "Le coup arrive sans que tu le voies. Tu sens le monde basculer, puis l'herbe, puis la pente, et tu roules jusqu'à une touffe de genêts, vingt pas plus bas, le souffle coupé.",
       "Quand tu peux de nouveau lever la tête, Ragne s'est rassis sur sa borne. Il t'a laissé{e} rouler sans te poursuivre. Il te regarde de loin, la massue en travers des genoux, avec une sorte de regret. « Ragne dit : partir », crie-t-il, sans colère.",
-      "Tu te relèves en boitant et tu fais l'inventaire : aucun os cassé. La porte, de ce côté, est fermée. Le château a d'autres entrées.",
+      "Tu te relèves en boitant et tu fais l'inventaire : aucun os cassé, une dignité fêlée. La porte, de ce côté, est fermée. Le château a d'autres entrées.",
     ],
     choices: [{ back: "PT_abords" }] },
 });
@@ -136,7 +136,7 @@ add({
 add({
   PT_cheminee: { act: "P", title: "La brèche de la cheminée", place: "chateau",
     text: [
-      "La vieille cheminée des cuisines était adossée au mur sud. Un hiver, le gel a eu raison du mortier, et tout le pan de mur est tombé vers l'extérieur, dans la pente, en entraînant la hotte. Il reste une brèche haute de deux hommes et large d'un seul, et dedans le conduit noir, qui monte, puis redescend vers un foyer invisible d'ici.",
+      "La vieille cheminée des cuisines était adossée au mur sud. Un hiver, le gel a eu raison du mortier, et tout le pan de mur est tombé vers l'extérieur, dans la pente, en entraînant la hotte. Il reste une brèche haute de deux hommes et large d'un seul, et dedans le conduit noir, qui monte, puis redescend vers un foyer invisible d'ici. C'est une entrée de ramoneur ou de diable, et tu n'as la patente ni de l'un ni de l'autre.",
       "Il en sort de la fumée, et une odeur de lard, d'oignon et de pain trop cuit. Une marmite bout quelque part. Et une voix, une voix de femme, humaine, chante à mi-voix une chanson de veillée de la vallée, en se trompant de couplet. Une femme, ici, qui chante : la chose mérite qu'on s'y arrête.",
       "Les pierres de la brèche sont couvertes de suie grasse. Pour passer, il faudra grimper dans le conduit, ramper en haut du coude, et se laisser glisser de l'autre côté en évitant la marmite.",
     ],
@@ -149,7 +149,7 @@ add({
   PT_cheminee_descente: { act: "P", title: "Dans le conduit", place: "chateau",
     fx: { flag: "PT:cheminee" },
     text: [
-      "Le conduit est étroit, tiède, et tu y montes les coudes écartés, les genoux contre la pierre, en crachant la suie. En haut du coude, un rebord porte des générations de nids de choucas ; tu t'y reposes un instant, couché{e} sur les brindilles, et tu regardes en bas.",
+      "Le conduit est étroit, tiède comme une gorge, et tu y montes les coudes écartés, les genoux contre la pierre, en crachant la suie. En haut du coude, un rebord porte des générations de nids de choucas ; tu t'y reposes un instant, couché{e} sur les brindilles, et tu regardes en bas.",
       "En bas, c'est la cuisine. Un foyer large comme une chambre ; une marmite pendue à une crémaillère ; à côté, une femme, petite, en tablier, les manches roulées, qui remue avec une louche de bois plus longue que son bras. Un jeune troll tourne une broche où grille un mouton entier.",
       "Tu te laisses glisser le long du conduit, doucement, les pieds en avant, et tu te poses dans la cendre froide, sur le côté du foyer, en silence. La femme se retourne quand même. Elle a dû sentir l'air changer.",
     ],
@@ -170,7 +170,7 @@ add({
   PT_chenil_dehors: { act: "P", title: "Le chenil", place: "chateau",
     text: [
       "Le chenil est un appentis de rondins collé contre le mur nord, couvert de lauzes à moitié glissées. Tu es encore à vingt pas que les chiens t'ont déjà senti{e}. Un grognement d'abord, un seul ; puis tout le chenil se jette contre les planches en aboyant, et les chaînes claquent.",
-      "Par les fentes, tu les vois. Des chiens-loups de troll : hauts comme des veaux, gris, maigres, le poil ras sur des côtes saillantes. Tu en comptes quatre ou cinq enchaînés chacun à un poteau, et deux libres. À leurs côtes, tu conclus que les trolls les nourrissent mal.",
+      "Par les fentes, tu les vois. Des chiens-loups de troll : hauts comme des veaux, gris, maigres, le poil ras sur des côtes saillantes. Tu en comptes quatre ou cinq enchaînés chacun à un poteau, et deux libres. À leurs côtes, tu conclus que les trolls les nourrissent mal ; à leurs yeux, qu'ils comptent sur toi pour réparer cette négligence.",
       "Dans le fond, à part, dans une cage de branches tressées, un chien reste silencieux. Un chien de berger, noir et feu, une oreille dressée et l'autre cassée, couché la tête sur les pattes. Il te regarde à travers les fentes et remue la queue, une seule fois, sans y croire.",
     ],
     choices: [
@@ -218,7 +218,7 @@ add({
 
   PT_chenil: { act: "P", title: "Dans le chenil", place: "chateau", backName: "le chenil",
     text: [
-      { first: true, text: "Dedans, l'odeur prend à la gorge : paille pourrie, urine, os rongés, et la viande crue qui traîne dans une auge. Le jour passe entre les rondins en lames minces où danse la poussière. Les chiens-loups sont enchaînés de part et d'autre d'un couloir de terre battue. Au bout, il y a la cage tressée, et le chien de berger." },
+      { first: true, text: "Dedans, l'odeur prend à la gorge : paille pourrie, urine, os rongés, et la viande crue qui traîne dans une auge. Le jour passe entre les rondins en lames minces où danse la poussière. Les chiens-loups sont enchaînés de part et d'autre d'un couloir de terre battue, juste assez large pour qu'un homme y passe en regrettant ses épaules. Au bout, il y a la cage tressée, et le chien de berger." },
       { first: true, text: "Une petite porte, dans le mur du château, donne sur la cour. Elle ferme d'un simple loquet de bois. Les trolls passent par là pour nourrir leurs bêtes, quand ils y pensent, c'est-à-dire rarement." },
       { again: true, text: "Les chiens-loups lèvent la tête quand tu entres, et grondent pour la forme. La paille, l'odeur, les lames de jour entre les rondins." },
       { if: { has: "PT:chiens" }, text: "Les chiens-loups te laissent passer. Ils grondent bas, la tête basse, couchés.", else: "Les chiens-loups se dressent tous ensemble quand tu entres, et le plus gros, libre de toute chaîne, vient se planter au milieu du couloir, les babines retroussées sur des crocs jaunes." },
@@ -266,13 +266,13 @@ add({
 add({
   PT_cour: { act: "P", title: "La cour du château", place: "chateau", hub: true, backName: "la cour du château",
     text: [
-      { first: true, text: "La cour est plus grande qu'elle n'en avait l'air de l'extérieur, et plus sale. La boue y est profonde d'une main, mêlée de paille, d'os et de tessons, et partout s'entassent les prises de trente ans de rapines : des roues, des tonneaux, un soc de charrue, une cuve de lavoir, la moitié d'une barque. On se demande ce qu'un troll compte faire d'une moitié de barque, à deux mille pieds au-dessus de la première rivière. Une odeur de fumée, de suif et de bête mouillée flotte sur tout ça." },
-      { first: true, text: "Au centre, une dalle ronde, épaisse, ferme l'ancien puits. Autour, la boue est lisse, vierge de toute trace de pas. Les trolls qui traversent la cour la contournent tous, les yeux ailleurs, en rasant les murs. Au fond, le corps de logis, et sa grande porte ouverte sur l'ombre d'une salle. À gauche, les cuisines qui fument. À droite, une porte basse cerclée de fer, des bâtiments longs, et le chicot de la tour effondrée." },
+      { first: true, text: "La cour est plus grande qu'elle n'en avait l'air de l'extérieur, et plus sale. La boue y est profonde d'une main, mêlée de paille, d'os et de tessons, et partout s'entassent les prises de trente ans de rapines : des roues, des tonneaux, un soc de charrue, une cuve de lavoir, la moitié d'une barque. On se demande ce qu'un troll compte faire d'une moitié de barque, à deux mille pieds au-dessus de la première rivière ; mais le troll, comme le prince, prend d'abord et réfléchit ensuite, quand il réfléchit. Une odeur de fumée, de suif et de bête mouillée flotte sur tout ça." },
+      { first: true, text: "Au centre, une dalle ronde, épaisse, ferme l'ancien puits. Autour d'elle, la boue est lisse, vierge de toute trace de pas, sur un cercle si net qu'on le croirait tracé au cordeau ; et ce cercle intact, au milieu de tant de saleté piétinée, est la chose la plus inquiétante de la cour. Les trolls qui traversent la contournent tous, les yeux ailleurs, en rasant les murs. Au fond, le corps de logis, et sa grande porte ouverte sur l'ombre d'une salle. À gauche, les cuisines qui fument. À droite, une porte basse cerclée de fer, des bâtiments longs, et le chicot de la tour effondrée." },
       { first: true, if: { has: "PT:hote" }, text: "Les trolls te regardent passer à distance. Ragne a dû le dire, ou bien ça se voit : tu es entré{e} par la porte, tu es une affaire du roi.", else: "Tu te glisses le long du mur, dans l'ombre d'un tas de fagots. Les trolls que tu croises te regardent sans te voir, ou font semblant. Ils ont l'esprit ailleurs, en dessous." },
       { again: true, before: "quete:P_roi", text: "La boue, les tas de rapines, la dalle ronde que tout le monde évite. Les trolls rasent les murs." },
       { again: true, after: "quete:P_roi", before: "P:pierre", text: "La nouvelle a fait le tour du château : tu as le droit d'aller où tu veux. Les trolls s'arrêtent de parler quand tu passes, et reprennent derrière toi, plus bas." },
       { again: true, after: "P:pierre", text: "La boue sèche au soleil. Quelqu'un a soulevé un coin de la dalle du puits, pour voir, et l'a laissée retomber. Les trolls traversent la cour par le milieu, maintenant, en se regardant les uns les autres, étonnés de leur propre audace." },
-      { when: "night", before: "P:pierre", text: "Il fait nuit, et la cour est pleine de trolls éveillés et désœuvrés : ils sont assis le long des murs, autour de petits feux, et ils écoutent. Quand ils se taisent tous ensemble, tu écoutes aussi. Sous la terre tient une sorte de note, très basse, que l'on sent dans les dents plus qu'on ne l'entend." },
+      { when: "night", before: "P:pierre", text: "Il fait nuit, et la cour est pleine de trolls éveillés et désœuvrés : ils sont assis le long des murs, autour de petits feux, et ils écoutent. Quand ils se taisent tous ensemble, tu écoutes aussi. Sous la terre tient une sorte de note, très basse, égale, interminable, que l'on sent dans les dents plus qu'on ne l'entend ; et l'on comprend, au bout d'une minute, pourquoi ces gens-là dorment si mal." },
       { when: "day", before: "P:pierre", text: "Il fait jour, et le château dort à moitié. On entend ronfler par les fenêtres des dortoirs. Seuls quelques trolls de corvée traînent des seaux ou des fagots, les yeux plissés contre la lumière." },
       { with: "pip", text: "Pip reste dans ton col. Il regarde les trolls, un par un, avec une curiosité sans fond, et il te souffle des questions à l'oreille : pourquoi ils sont gris, pourquoi ils sont si grands, s'ils ont des noms." },
     ],
@@ -296,7 +296,7 @@ add({
     fx: { ep: ["perso", 200] },
     text: [
       "La dalle est une meule de moulin, épaisse comme un avant-bras, qu'on a roulée jusque-là et couchée sur la margelle. Tu estimes son poids à celui de trois trolls, au bas mot. Tout autour, sur la pierre de la margelle, on a gratté des marques avec quelque chose de dur : des traits, des croix, des ronds, comme les dessins que font les enfants pour conjurer.",
-      "Tu poses la main sur la meule. Elle est tiède, et l'air de la crête est froid. Sous ta paume, très loin, tu crois sentir une vibration, régulière, lente, plus lente que celle de ton propre sang.",
+      "Tu poses la main sur la meule. Elle est tiède, et l'air de la crête est froid. Sous ta paume, très loin, tu crois sentir une vibration, régulière, lente, plus lente que celle de ton propre sang ; et ta main, sans te consulter, voudrait déjà être ailleurs.",
       { before: "P:pierre", text: "Un troll s'est arrêté au bord de la cour et te regarde faire, un fagot sur l'épaule, la bouche ouverte. Quand tu lèves les yeux, il secoue la tête, lentement, avec une gravité d'enfant qui voit un adulte mettre la main dans le feu.", else: "Elle est froide, maintenant. Simplement froide." },
     ],
     choices: [{ back: "PT_cour" }] },
@@ -326,12 +326,12 @@ add({
   PT_cuisines: { act: "P", title: "Les cuisines", place: "chateau", backName: "les cuisines",
     fx: { meet: ["aglae", "pt_bourle"], questSeen: "P_aglae" },
     text: [
-      { first: true, text: "Les cuisines sont la seule pièce propre du château, et tu le remarques avant tout le reste. Le sol de dalles a été balayé ; les marmites, récurées au sable, pendent par taille au-dessus d'une table longue comme une barque ; les herbes sèchent en bottes aux poutres : thym, sauge, laurier, chapelets d'oignons. Il fait chaud. Ça sent le pain." },
+      { first: true, text: "Les cuisines sont la seule pièce propre du château, et tu le remarques avant tout le reste, comme on remarquerait une nappe blanche dans une porcherie. Le sol de dalles a été balayé ; les marmites, récurées au sable, pendent par taille au-dessus d'une table longue comme une barque ; les herbes sèchent en bottes aux poutres : thym, sauge, laurier, chapelets d'oignons. Il fait chaud. Ça sent le pain." },
       { first: true, after: "PT:cheminee", text: "La femme repose sa louche dans la marmite, les yeux sur toi. Elle a une cinquantaine d'années, un visage qui a dû être rond et que deux hivers ont creusé, des avant-bras de boulangère, et le regard de quelqu'un qui a fini d'avoir peur il y a longtemps." },
       { first: true, before: "PT:cheminee", text: "Une femme est à la table, une cinquantaine d'années, un visage qui a dû être rond et que deux hivers ont creusé, des avant-bras de boulangère. Elle pétrit. Elle lève les yeux quand tu entres par la porte de la cour, et ses mains s'arrêtent dans la pâte. Un jeune troll, accroupi près de la broche, se cache derrière un sac de farine deux fois plus petit que lui." },
       { first: true, text: "« Quelqu'un du bas », dit-elle, et sa voix tremble à peine. « Deux hivers. Deux hivers que personne ne monte, et voilà qu'on monte. » Elle s'essuie les mains à son tablier, très lentement. « Je m'appelle Aglaé. Et lui, c'est Bourle. Il ne mord pas. Moi, ça dépend. »" },
       { again: true, text: "Aglaé est à ses fourneaux. Bourle tourne la broche, ou épluche, ou dort sur un sac de farine, le pouce dans la bouche. La chaleur, l'odeur du pain." },
-      { again: true, after: "aglae=reste", text: "Aglaé a mis un tablier propre. Elle commande la cuisine comme on commande un navire, et Bourle file doux." },
+      { again: true, after: "aglae=reste", text: "Aglaé a mis un tablier propre. Elle commande la cuisine comme on commande un navire, et Bourle file doux, en matelot qui a goûté une fois à la louche." },
       { with: "pip", text: "Aglaé voit la lumière dans ton col et pose sa louche. Elle garde son calme. Elle se signe à l'ancienne, de la main ouverte, et elle dit à Pip, très poliment : « Bonjour. Tu as faim ? » Pip ignore s'il a faim. Il le dit." },
     ],
     choices: [
@@ -461,7 +461,7 @@ add({
   PT_tresor_porte: { act: "P", title: "La porte basse", place: "chateau",
     text: [
       "La porte est basse, épaisse, en chêne noirci, cerclée de bandes de fer cloutées comme une porte de prison. Ce devait être la salle des archives du vieux seigneur, ou sa réserve de vin. Les trolls l'ont fermée avec une chaîne de charrette passée trois fois dans les anneaux, et un cadenas de marchand gros comme un poing, sans doute venu avec la charrette.",
-      "Au-dessus de la porte, quelqu'un a cloué une tête de mouton desséchée, les orbites pleines de paille. C'est la façon des trolls d'écrire : à moi.",
+      "Au-dessus de la porte, quelqu'un a cloué une tête de mouton desséchée, les orbites pleines de paille. C'est la façon des trolls d'écrire : à moi. Les notaires de la vallée mettent plus de mots pour dire la même chose, et la tête de mouton a sur eux l'avantage de la franchise.",
       { if: { has: "roi=parole" }, text: "Grauk t'a dit, d'un geste large, que tu pouvais prendre ce qui était à toi. Il suffit de demander la clé à Ragne. Il te la donne sans discuter, avec le regard qu'on porte à quelqu'un qui va se servir dans le garde-manger d'un ami." },
     ],
     choices: [
@@ -499,7 +499,7 @@ add({
   PT_tresor: { act: "P", title: "La salle du trésor", place: "chateau", backName: "la salle du trésor",
     text: [
       { first: true, outcome: "win", text: "La chaîne tombe à tes pieds avec un bruit de serpent. La porte s'ouvre vers l'intérieur, lourdement." },
-      { first: true, text: "C'est une cave voûtée, éclairée par un soupirail. Et c'est le trésor des trolls : un tas, au sens propre, qui monte jusqu'à la voûte. L'inventaire en serait long ; tu en saisis le début : des chaudrons percés, des fers à cheval, des cloches de vache, une selle, des pots de chambre, un rouet, des bougeoirs d'étain, la statue d'un saint sans tête, des bottes dépareillées, une baignoire de cuivre. Tout ce qui brille, tout ce qui sonne, tout ce qui a appartenu à quelqu'un d'autre. Le principe de sélection est clair : la valeur compte peu, l'éclat beaucoup." },
+      { first: true, text: "C'est une cave voûtée, éclairée par un soupirail. Et c'est le trésor des trolls : un tas, au sens propre, qui monte jusqu'à la voûte. L'inventaire en serait long ; tu en saisis le début : des chaudrons percés, des fers à cheval, des cloches de vache, une selle, des pots de chambre, un rouet, des bougeoirs d'étain, la statue d'un saint sans tête, des bottes dépareillées, une baignoire de cuivre. Tout ce qui brille, tout ce qui sonne, tout ce qui a appartenu à quelqu'un d'autre. Le principe de sélection est clair, et plus d'une cour princière le reconnaîtrait pour sien : la valeur compte peu, l'éclat beaucoup." },
       { first: true, text: "Il faut un moment pour distinguer le reste. Fiché dans un billot, au pied du tas, un marteau de forge à manche de frêne. Couchée en travers d'un coffre, une épée longue dans un fourreau de cuir moisi. Et dans le coffre ouvert, sous une couche de poussière, de l'argent : des sous, des deniers, quelques couronnes même, en vrac, mêlés à des boutons et à des clous." },
       { again: true, text: "Le tas, la poussière, le soupirail. Tout est à sa place. Les trolls viennent ici pour ajouter, jamais pour compter." },
       { with: "pip", text: "Pip fait le tour du tas, lentement, en éclairant chaque objet. « Tout ça est à quelqu'un, dit-il. À quelqu'un d'autre. On le sent. »" },
@@ -531,7 +531,7 @@ add({
 
   PT_tresor_or: { act: "P", title: "L'argent des trolls", place: "chateau",
     text: [
-      "Tu plonges les mains dans le coffre. Il y a là, en vrac, ce qu'on prend aux voyageurs de la crête depuis des années : des sous d'Aldaran à la tour, des sous de Vel-Orin au croissant, des deniers de cuivre verdis, et quelques couronnes d'or, lourdes, que les trolls ont dû garder parce qu'elles brillaient. Tu estimes le tout, au poids, à de quoi vivre un an, en étant économe.",
+      "Tu plonges les mains dans le coffre. Il y a là, en vrac, ce qu'on prend aux voyageurs de la crête depuis des années : des sous d'Aldaran à la tour, des sous de Vel-Orin au croissant, réconciliés dans le même coffre comme ils ne le seront jamais sur une carte ; des deniers de cuivre verdis ; et quelques couronnes d'or, lourdes, que les trolls ont dû garder parce qu'elles brillaient. Tu estimes le tout, au poids, à de quoi vivre un an, en étant économe.",
       "Tout ça a appartenu à quelqu'un. À des colporteurs, des bergers, des pèlerins. À des gens des Trois-Bornes, peut-être. Ceux-là ne reviendront pas le chercher, et les trolls ignorent jusqu'à l'usage de l'argent.",
       { if: { has: "maitre:hauberte" }, text: "Hauberte t'a écrit : ne prends rien que tu ne saurais rendre. Elle le disait déjà quand tu étais petit{e}, en te tapant sur les doigts avec le plat de son épée." },
       { if: { has: "maitre:ortie" }, text: "Ortie t'a écrit : ne prends rien que tu ne saurais rendre. Elle le disait des plantes, autrefois : on laisse toujours la dernière." },
@@ -550,7 +550,7 @@ add({
   PT_dortoirs: { act: "P", title: "Les dortoirs", place: "chateau", backName: "les dortoirs",
     text: [
       { first: true, text: "Les dortoirs occupent l'ancienne écurie : une longue salle basse, voûtée, où les mangeoires de pierre sont encore scellées aux murs. Les trolls dorment dedans. Chaque mangeoire est un lit, garni de paille, de peaux de mouton et de couvertures volées ; entre les mangeoires traînent des os, des bottes, des cruches vides." },
-      { when: "day", before: "P:pierre", text: "Il fait jour, et les dortoirs sont pleins. Une douzaine de trolls ronflent dans leurs mangeoires, les uns sur les autres, en tas, comme des chiots qui ont froid. Leur sommeil est agité. Ils remuent, grognent, se bouchent les oreilles en dormant.", else: "Les mangeoires sont presque vides. Un seul troll y dort, dans le fond, roulé sous une couverture rouge, et il gémit en dormant." },
+      { when: "day", before: "P:pierre", text: "Il fait jour, et les dortoirs sont pleins. Une douzaine de trolls ronflent dans leurs mangeoires, les uns sur les autres, en tas, comme des chiots qui ont froid. Leur sommeil est agité, et il y a quelque chose de pénible à voir de si grands corps dormir si mal : ils remuent, grognent, se bouchent les oreilles en dormant.", else: "Les mangeoires sont presque vides. Un seul troll y dort, dans le fond, roulé sous une couverture rouge, et il gémit en dormant." },
       { again: true, text: "L'odeur de paille et de troll, les ronflements, les mangeoires." },
       { after: "P:pierre", text: "Les trolls dorment, cette fois. Ils dorment vraiment, immobiles, la bouche ouverte, d'un sommeil de pierre. Certains sourient." },
     ],
@@ -575,7 +575,7 @@ add({
     text: [
       "Il est couché sur le dos dans une mangeoire au bout de la salle, un vieux troll à la barbe blanche de lichen, et il parle. Tout bas. Des mots de troll, d'abord, incompréhensibles, puis des mots d'homme, appris de travers, qui reviennent toujours dans le même ordre.",
       "« Pas mon nom. Pas mon nom. Toi pas savoir mon nom. Grauk dit : pas dire nom. » Ses mains se lèvent, à plat, et poussent contre rien, contre l'air au-dessus de lui, comme pour retenir un couvercle. « Lourd. Lourd. Toi tenir. Moi pas tenir. »",
-      "Il se réveille d'un coup, les yeux grands ouverts, et regarde le plafond sans te voir. Puis il se retourne, se cache la tête sous la paille, et se rendort en tremblant. Tu en tires une conclusion peu rassurante : ce qui fait peur à un troll de cette taille, dans son sommeil, est bien autre chose qu'un homme avec une épée.",
+      "Il se réveille d'un coup, les yeux grands ouverts, et regarde le plafond sans te voir. Puis il se retourne, se cache la tête sous la paille, et se rendort en tremblant. Tu en tires une conclusion peu rassurante : ce qui fait peur à un troll de cette taille, dans son sommeil, est bien autre chose qu'un homme avec une épée. Tu es, toi, une personne avec une épée, et tu vas du côté de cette autre chose.",
     ],
     choices: [{ back: "PT_dortoirs" }] },
 
@@ -614,7 +614,7 @@ add({
   PT_dortoirs_apres: { act: "P", title: "Le silence revient", place: "chateau",
     text: [
       { outcome: "calm", text: "Le troll s'est rendormi, assis, la tête sur la poitrine, et il ronfle paisiblement. Les autres, à moitié levés, le regardent, te regardent, et se recouchent en grognant. Ils mettront ça sur le compte d'un rêve.", else: "Le troll s'effondre dans sa mangeoire, sonné, les bras en croix, et il y reste. Les autres, à moitié levés, regardent, hésitent, et se recouchent en grognant : l'affaire regarde un autre, et ils ont sommeil." },
-      "Tu restes immobile un long moment, le cœur battant, au milieu de la salle. Puis tu sors à reculons, les mains vides. Certains endroits se fouillent une fois.",
+      "Tu restes immobile un long moment, le cœur battant, au milieu de la salle. Puis tu sors à reculons, les mains vides. Certains endroits se fouillent une fois, comme certains oncles s'empruntent une fois.",
     ],
     choices: [{ back: "PT_cour" }] },
 });
@@ -623,7 +623,7 @@ add({
 add({
   PT_tour: { act: "P", title: "La tour effondrée", place: "chateau", backName: "la tour effondrée",
     text: [
-      { first: true, text: "La tour s'est effondrée sur elle-même, un hiver, il y a longtemps : les étages se sont empilés au fond comme des assiettes cassées, et seule la coque de pierre tient debout, ouverte au ciel, avec ses fenêtres vides où passent les choucas. Les trolls l'évitent. Ils ont peur de ce qui est tombé, et de ce qui pourrait tomber encore." },
+      { first: true, text: "La tour s'est effondrée sur elle-même, un hiver, il y a longtemps : les étages se sont empilés au fond comme des assiettes cassées, et seule la coque de pierre tient debout, ouverte au ciel, avec ses fenêtres vides où passent les choucas. Le vent y entre par le haut et y tourne avec une plainte creuse, la plainte d'une chose vide qui se souvient d'avoir été pleine. Les trolls l'évitent. Ils ont peur de ce qui est tombé, et de ce qui pourrait tomber encore." },
       { first: true, text: "Au pied, sous les décombres, on devine les restes d'un coffre de fer écrasé sous une poutre. À mi-hauteur, accroché au mur par un miracle de maçonnerie, subsiste un bout de plancher, la chambre du dernier seigneur peut-être, avec un lit à baldaquin qui pend dans le vide." },
       { again: true, text: "La coque de pierre, le ciel au-dessus, les choucas qui crient. Le plancher pend toujours à mi-hauteur." },
     ],
@@ -639,7 +639,7 @@ add({
     text: [
       "Tu fais levier avec un bout de poutre, tu pousses ; la poutre glisse dans un grincement et une pluie de plâtre, et le couvercle du coffre, tordu, s'ouvre à moitié. Dedans, des étoffes pourries, une odeur de cave et de souris. Dessous, protégé par une toile cirée, un registre relié de cuir.",
       "C'est le livre de cave du dernier seigneur, tenu de sa main jusqu'à la fin : des colonnes de chiffres, des noms de vins, des dates. L'écriture penche un peu plus à chaque page, ce qui en dit long sur la façon dont il goûtait ses vins. À la dernière page, un plan dessiné à l'encre brune : la tour, vue en coupe, et sous la tour un caveau voûté, avec des tonneaux dessinés un par un, quarante ; dans le coin, un coffre cerclé, et cette note : *Le meilleur, et le coffre de ma mère. Que les héritiers boivent à ma santé.*",
-      "Les héritiers sont restés chez eux. La tour est tombée sur le caveau, et sans doute sur les quarante tonneaux. Mais le dessin est beau, net, avec ses tonneaux bien ronds et son coffre bien carré. Même sans savoir lire, on comprend qu'il y a là-dessous quelque chose qui vaut qu'on creuse.",
+      "Les héritiers sont restés chez eux, ce qui est la seule façon dont les héritiers déçoivent. La tour est tombée sur le caveau, et sans doute sur les quarante tonneaux. Mais le dessin est beau, net, avec ses tonneaux bien ronds et son coffre bien carré. Même sans savoir lire, on comprend qu'il y a là-dessous quelque chose qui vaut qu'on creuse.",
     ],
     choices: [{ back: "PT_tour" }] },
 
@@ -655,7 +655,7 @@ add({
   PT_tour_chute: { act: "P", title: "La chute", place: "chateau",
     text: [
       "À mi-hauteur, une pierre que tu croyais scellée te reste dans la main. Tu glisses le long du mur, tu te rattrapes, tu glisses encore, et tu tombes les trois dernières toises dans les décombres, sur le dos, dans un nuage de plâtre.",
-      "Tu restes un moment allongé{e} à regarder le ciel tourner au-dessus de la coque de pierre. Les choucas, là-haut, crient de rire. Tes os sont entiers, mais ce chemin-là est fermé pour aujourd'hui.",
+      "Tu restes un moment allongé{e} à regarder le ciel tourner au-dessus de la coque de pierre. Les choucas, là-haut, crient de rire, et tu leur trouves l'accent des parterres de théâtre. Tes os sont entiers, mais ce chemin-là est fermé pour aujourd'hui.",
     ],
     choices: [{ back: "PT_tour" }] },
 });
@@ -665,13 +665,13 @@ add({
   PT_trone: { act: "P", title: "Le trône de Grauk", place: "chateau", backName: "la grande salle",
     fx: { meet: "grauk", clue: "p_chant" },
     text: [
-      { first: true, text: "La grande salle est longue et basse, noire de suie jusqu'aux poutres. Au milieu, un feu de troncs entiers brûle dans une fosse, et la fumée cherche seule son chemin vers les trous du toit. Des tapisseries pourrissent aux murs, où l'on devine encore des cavaliers et des cerfs. Trois trolls sont assis par terre, près du feu, et se taisent quand tu entres." },
-      { first: true, text: "Au fond, il y a le trône. C'est l'avant d'une charrette de foin, roues comprises, posé sur une souche de chêne et garni de peaux de mouton. Tu remarques aussitôt sa place : il est adossé à une porte basse, voûtée, qui devait mener aux caves. Du côté de la salle, on a bouché cette porte de tonneaux empilés jusqu'au linteau. Des tonneaux pleins : des pierres dépassent des bondes. Tu en tires la conclusion évidente. Cette barricade sert moins à empêcher de descendre qu'à empêcher quelque chose de monter." },
-      { first: true, text: "Et sur le trône, il y a Grauk. Il est énorme, même pour un troll : assis, il te dépasse d'une tête. Vieux, la peau grise craquelée comme une écorce, une barbe de lichen blanc qui lui descend jusqu'au ventre, et sur le crâne, en guise de couronne, un cercle de fer de tonneau planté de dents de loup. Ses yeux sont rouges, gonflés, cernés de noir : les yeux de quelqu'un qui a cessé de dormir depuis des mois." },
+      { first: true, text: "La grande salle est longue et basse, noire de suie jusqu'aux poutres. Au milieu, un feu de troncs entiers brûle dans une fosse, et la fumée cherche seule son chemin vers les trous du toit ; elle le trouve rarement, et s'attarde sous les poutres en nappes lentes où la lueur du feu se noie. Des tapisseries pourrissent aux murs, où l'on devine encore des cavaliers et des cerfs, les uns poursuivant les autres depuis deux siècles avec le même insuccès. Trois trolls sont assis par terre, près du feu, et se taisent quand tu entres." },
+      { first: true, text: "Au fond, il y a le trône. C'est l'avant d'une charrette de foin, roues comprises, posé sur une souche de chêne et garni de peaux de mouton ; on a vu des dynasties assises sur moins solide. Tu remarques aussitôt sa place : il est adossé à une porte basse, voûtée, qui devait mener aux caves. Du côté de la salle, on a bouché cette porte de tonneaux empilés jusqu'au linteau. Des tonneaux pleins : des pierres dépassent des bondes. Tu en tires la conclusion évidente. Cette barricade sert moins à empêcher de descendre qu'à empêcher quelque chose de monter." },
+      { first: true, text: "Et sur le trône, il y a Grauk. Il est énorme, même pour un troll : assis, il te dépasse d'une tête. Vieux, la peau grise craquelée comme une écorce, une barbe de lichen blanc qui lui descend jusqu'au ventre, et sur le crâne, en guise de couronne, un cercle de fer de tonneau planté de dents de loup. Ses yeux sont rouges, gonflés, cernés de noir ; ce sont les yeux de quelqu'un qui a cessé de dormir depuis des mois, et qui écoute, même en te regardant, autre chose que toi." },
       { first: true, if: { has: "PT:hote" }, text: "« Ragne dit : homme à la porte, dit Grauk, d'une voix grave et lente, qui roule comme un tonneau dans une cave. Ragne dit : homme parler bien. Viens, homme. Grauk écoute. Grauk ne mange pas pendant qu'il écoute. »", else: "« Toi, dans l'ombre, dit Grauk, immobile, le regard ailleurs. Viens. Grauk voit. Grauk ne dort plus, alors Grauk voit tout. » Il a une voix grave et lente, qui roule comme un tonneau dans une cave." },
       { again: true, before: "quete:P_roi", text: "Grauk est sur son trône, adossé aux tonneaux. Il te regarde venir de ses yeux rouges, immobile. Le feu craque dans la fosse." },
       { again: true, after: "roi=parole", text: "Grauk est debout près du feu, loin de son trône. Il a fait rouler les tonneaux contre le mur, et la porte des caves est ouverte, noire. Il te fait un signe de tête, grave, d'égal à égal." },
-      { again: true, after: "grauk:mort", text: "Le trône est vide. On a tiré le corps de Grauk dehors, et la salle sent encore le sang et la fumée. Le trône fait peur aux trolls : ils le laissent vide, à sa place." },
+      { again: true, after: "grauk:mort", text: "Le trône est vide. On a tiré le corps de Grauk dehors, et la salle sent encore le sang et la fumée. Le trône fait peur aux trolls : ils le laissent vide, à sa place, devant la porte qu'il gardait, et qu'il garde encore un peu." },
       { again: true, after: "roi=ruse", text: "Grauk est revenu sur son trône, couvert de terre jusqu'aux coudes. Il te regarde entrer avec une rancune lourde et fatiguée, et il se tait. La porte des caves est ouverte derrière lui. Il lui tourne le dos." },
       { again: true, after: "roi=combat", before: "grauk:mort", text: "Grauk est assis sur son trône, une main pressée sur ses côtes. Quand tu entres, il baisse la tête, une fois, comme on salue quelqu'un de plus fort. La porte des caves est ouverte derrière lui." },
     ],
@@ -714,7 +714,7 @@ add({
 
   PT_grauk_colere: { act: "P", title: "La colère du roi", place: "chateau",
     text: [
-      "Grauk se lève. C'est long. Il se déplie pan après pan, et quand il est debout, sa couronne de fer touche les poutres. Les trois trolls, près du feu, se sont aplatis par terre. Il garde une voix basse, et c'est bien pire qu'un cri.",
+      "Grauk se lève. C'est long. Il se déplie pan après pan, comme une falaise qui changerait d'avis, et quand il est debout, sa couronne de fer touche les poutres. Les trois trolls, près du feu, se sont aplatis par terre. Il garde une voix basse, et c'est bien pire qu'un cri.",
       "« Toi bête, dit-il tout bas. Ou toi menteur. Grauk pas savoir lequel pire. » Il ramasse, appuyée contre le trône, une poutre de chêne garnie de clous, qui lui sert de sceptre et de gourdin. « Toi partir. Maintenant. Ou toi rester, pour toujours. »",
     ],
     choices: [
@@ -727,7 +727,7 @@ add({
     text: [
       { if: { seen: "PT_grauk_devinette" }, text: "Grauk ouvre les yeux. Il te dévisage, puis un sourire lui fend la barbe, un sourire de vieux troll avec plus de trous que de dents. « Des pas, dit-il. Aglaé dit pareil. Toi malin. »" },
       "Grauk se laisse aller contre le dossier de son trône, et il pousse un soupir si long que le feu se couche dans la fosse. « Bon, dit-il. Bon. Toi descendre. Toi faire taire. » Il lève un doigt gros comme un manche d'outil. « Si toi faire taire, Grauk dormir. Si Grauk dormir, Grauk ami. Trolls de Grauk amis de toi. Grauk dit, Grauk fait. Toujours. »",
-      "Il claque des mains. Les trois trolls se lèvent et se mettent à rouler les tonneaux contre le mur, un par un, en grognant sous le poids, les yeux détournés de la porte qui se découvre. Elle est noire. Il en sort un air tiède, qui sent la cave, la pierre mouillée, et autre chose, de douceâtre, comme une vase de mare au soleil.",
+      "Il claque des mains. Les trois trolls se lèvent et se mettent à rouler les tonneaux contre le mur, un par un, en grognant sous le poids, les yeux détournés de la porte qui se découvre. Elle est noire, d'un noir qui semble moins l'absence de la lumière que la présence d'autre chose. Il en sort un air tiède, qui sent la cave, la pierre mouillée, et autre chose encore, de douceâtre, comme une vase de mare au soleil.",
       "Grauk te tend une torche de résine, de sa propre main. « Hurle, frère de Grauk, descendu avec torche comme ça. Hurle pas remonté. » Il te regarde. « Toi remonter. »",
     ],
     choices: [{ label: "Descendre par la porte des caves", big: true, to: "PT_caves_escalier" }] },
@@ -739,7 +739,7 @@ add({
       lose: { to: "PT_cage" },
       flee: { label: "Te jeter derrière le feu et filer vers la cour", dom: "discretion", diff: -10, to: "PT_cour" } },
     text: [
-      "Grauk prend son temps. Il descend de son trône, sa poutre cloutée à la main, et les trois trolls s'écartent jusqu'aux murs. Il est vieux, il est fatigué, il a des mois de veille dans les yeux. Mais il est roi depuis quarante ans, et on reste rarement roi des trolls quarante ans sans savoir ce qu'on fait avec une poutre.",
+      "Grauk prend son temps. Il descend de son trône, sa poutre cloutée à la main, et les trois trolls s'écartent jusqu'aux murs. Il est vieux, il est fatigué, il a des mois de veille dans les yeux. Mais il est roi depuis quarante ans, et l'on reste rarement roi des trolls quarante ans sans savoir ce qu'on fait avec une poutre ; c'est une charge où l'opposition s'exprime à coups de massue, et où les abdications sont rares.",
     ] },
 
   PT_grauk_vaincu: { act: "P", title: "Le roi à genoux", place: "chateau",
@@ -776,7 +776,7 @@ add({
     text: [
       "Grauk s'arrête au milieu d'un pas. La poutre cloutée s'abaisse, lentement, jusqu'à toucher le sol. Ses paupières tombent sur ses yeux rouges, se relèvent, retombent. Il tangue. Et il s'assoit, par terre, au milieu de la salle, le dos contre son trône, comme un vieil homme qui s'assoit au soleil.",
       "Il dort. Le roi des trolls dort, pour la première fois depuis des mois, la bouche ouverte, avec un ronflement doux, presque timide. Les trois trolls, près du feu, le regardent avec des yeux ronds. L'un d'eux s'approche à quatre pattes, examine son roi de tout près, et se retourne vers toi avec un respect immense.",
-      "Tu lui montres les tonneaux. Il comprend. Les trois trolls se mettent à les rouler contre le mur, tout doucement, en se faisant signe de se taire, avec les gestes exagérés des gens qui ont peur de réveiller un bébé. La porte des caves apparaît, noire. Grauk ronfle.",
+      "Tu lui montres les tonneaux. Il comprend. Les trois trolls se mettent à les rouler contre le mur, tout doucement, en se faisant signe de se taire, avec les gestes exagérés des gens qui ont peur de réveiller un bébé ; et le bébé, qui pèse dans les douze quintaux, a une poutre cloutée en guise de hochet. La porte des caves apparaît, noire. Grauk ronfle.",
     ],
     choices: [{ label: "Descendre par la porte des caves", big: true, to: "PT_caves_escalier" }] },
 });
@@ -786,7 +786,7 @@ add({
   PT_cage: { act: "P", title: "La cage", place: "chateau", takes: 6,
     fx: { pv: 5 },
     text: [
-      "Tu te réveilles dans le noir, avec un goût de sang dans la bouche et une douleur sourde partout. Tu es couché{e} sur de la paille, dans une cage de troncs de frêne liés au cuir, au fond de ce qui devait être le garde-manger du château : des crocs de boucher au plafond, une odeur de lard rance. Une lucarne grillagée laisse passer un peu de jour gris.",
+      "Tu te réveilles dans le noir, avec un goût de sang dans la bouche et une douleur sourde partout. Tu es couché{e} sur de la paille, dans une cage de troncs de frêne liés au cuir, au fond de ce qui devait être le garde-manger du château : des crocs de boucher au plafond, une odeur de lard rance. Le choix du local laisse songeur. Une lucarne grillagée laisse passer un peu de jour gris.",
       "On t'a laissé la vie, et même les mains libres. On t'a mis{e} de côté, comme on range une chose dont on décidera plus tard ce qu'on fera. On t'a laissé tes affaires, sauf ton arme, posée sur une table, hors de portée. Les trolls ont épargné tes poches : ils ignorent ce qui a de la valeur.",
       "Les liens de cuir qui tiennent les barreaux sont gros, durcis par le temps. Il faudrait des heures pour en défaire un avec les doigts. Ou de bons ongles, et de la patience.",
     ],
@@ -845,10 +845,10 @@ add({
 
   PT_ruse_creuse: { act: "P", title: "Les trolls creusent", place: "chateau", takes: 2,
     text: [
-      { if: { has: "PT:ruse_tresor" }, text: "Il faut moins d'une heure. Un troll ramasse un sou dans la boue de la cour et le mord, puis un deuxième, puis Bourle court partout en criant « Trésor ! Trésor sous tour ! », et enfin Grauk se lève de son trône, lourdement, pour voir. Il voit. Il regarde la tour. Il regarde ses tonneaux. Le trésor gagne." },
+      { if: { has: "PT:ruse_tresor" }, text: "Il faut moins d'une heure. Un troll ramasse un sou dans la boue de la cour et le mord, puis un deuxième, puis Bourle court partout en criant « Trésor ! Trésor sous tour ! », et enfin Grauk se lève de son trône, lourdement, pour voir. Il voit. Il regarde la tour. Il regarde ses tonneaux. Le trésor gagne, comme il gagne chez les rois de toutes les tailles." },
       { if: { has: "PT:ruse_chant" }, text: "Tu as dit à Grauk, tout bas, que le chant s'était déplacé, que tu l'avais entendu sous la tour, plus fort, plus près, en quête d'une autre sortie. Grauk a pâli, ce qui chez un troll donne une couleur de cendre. Il a rugi des ordres. Tout le château s'est mis en branle pour aller murer la tour, avec des pierres, avec des troncs, avec tout ce qui traînait, et Grauk est parti en tête, pour surveiller." },
       "Bientôt, toute la tribu est dans la tour effondrée, à creuser, à déblayer, à se disputer, avec des pelles, des pioches, des marmites, avec les mains. Grauk dirige depuis le seuil, à grands coups de poutre sur le sol. Le vacarme monte jusqu'au ciel. Les choucas s'enfuient en criant.",
-      "La grande salle est déserte. Le feu brûle seul dans sa fosse. Le trône de charrette est vide, et derrière lui, les tonneaux attendent.",
+      "La grande salle est déserte. Le feu brûle seul dans sa fosse. Le trône de charrette est vide, et derrière lui, les tonneaux attendent, avec la patience un peu trop parfaite des choses qu'on a chargées de retenir une porte.",
     ],
     choices: [{ label: "Aller aux tonneaux, vite", to: "PT_ruse_escalier" }] },
 
@@ -889,7 +889,7 @@ add({
     fx: { set: { roi: "ruse" }, flag: "grauk:vivant", quest: "P_roi", ep: ["seance", 700] },
     text: [
       { if: { seen: "PT_ruse_bruit" }, text: "Tu te glisses par le trou, les pieds d'abord, et tu te laisses tomber sur les marches. Au-dessus de toi, quelqu'un arrive dans la grande salle et s'arrête devant le trou, sans te suivre. Tu l'entends respirer fort, longtemps. Puis repartir en courant.", else: "Tu poses le dernier tonneau contre le mur et tu essuies tes mains sur tes cuisses. La porte des caves est ouverte, et la salle est restée vide de témoins. Là-bas, dans la tour, ils creusent toujours, et Grauk hurle toujours." },
-      "Tu es dans l'escalier. Les marches sont usées en creux par des siècles de pieds, glissantes, humides. D'en bas monte un air tiède, qui sent la cave, la pierre mouillée, et une douceur de vase au soleil. Là-haut, Grauk finira par comprendre. Mais Grauk restera là-haut. Ils resteront tous là-haut.",
+      "Tu es dans l'escalier. Les marches sont usées en creux par des siècles de pieds, glissantes, humides. D'en bas monte un air tiède, qui sent la cave, la pierre mouillée, et une douceur de vase au soleil. Là-haut, Grauk finira par comprendre. Mais Grauk restera là-haut. Ils resteront tous là-haut ; et cette certitude, qui devrait te rassurer, est de toutes la moins rassurante.",
       "Tu souffles sur la mèche de ce que tu as pour t'éclairer, jusqu'à ce que la flamme tienne. Et tu descends.",
     ],
     choices: [{ label: "Descendre dans les caves", big: true, to: "PT_caves_haut" }] },
@@ -902,9 +902,9 @@ add({
       { first: true, if: { has: "roi=parole" }, text: "Grauk se tient en haut des marches, sa torche levée au-dessus de ta tête, aussi loin dans l'escalier qu'il ose aller : une marche, et pas une de plus. « Grauk attendre ici », dit-il. Tu l'entends respirer derrière toi longtemps après que sa lumière t'a quitté{e}." },
       { first: true, if: { has: "grauk:mort" }, text: "Les trolls te regardent descendre depuis la grande salle, groupés autour du corps de leur roi. Ils restent en haut, muets. Pas un vœu, pas un adieu." },
       { first: true, if: { all: [{ has: "roi=combat" }, { has: "grauk:vivant" }] }, text: "Grauk s'est assis sur la première marche, une main sur ses côtes, et il te regarde passer à côté de lui. « Toi remonter », dit-il. Le ton est celui d'une prière plus que d'un ordre." },
-      { first: true, text: "L'escalier tourne sur lui-même, taillé dans le roc de la crête, et les marches sont usées en creux par des siècles de pieds, glissantes, humides. L'air qui monte est tiède. Voilà qui cloche : sous une montagne, en automne, l'air des caves est froid. Celui-là sent la pierre mouillée et, par-dessous, une douceur de vase au soleil." },
+      { first: true, text: "L'escalier tourne sur lui-même, taillé dans le roc de la crête, et les marches sont usées en creux par des siècles de pieds, glissantes, humides. L'air qui monte est tiède. Voilà qui cloche : sous une montagne, en automne, l'air des caves est froid. Celui-là sent la pierre mouillée et, par-dessous, une douceur de vase au soleil ; il te passe sur le visage avec une lenteur égale, tiède et patiente, et tu as, à chaque tour de la vis, la sensation de descendre dans une haleine." },
       { again: true, before: "P:pierre", text: "L'escalier tourne dans le noir. L'air tiède, la douceur de vase." },
-      { after: "P:pierre", text: "L'escalier s'arrête vite. À la dixième marche, il plonge dans une eau noire, immobile, lisse comme une ardoise, qui a noyé les caves jusqu'à la voûte. Là-dessous, le chant s'est tu, et tout est immobile. Tu jettes un caillou : il entre dans l'eau en silence, sans une ride." },
+      { after: "P:pierre", text: "L'escalier s'arrête vite. À la dixième marche, il plonge dans une eau noire, immobile, lisse comme une ardoise, qui a noyé les caves jusqu'à la voûte. Là-dessous, le chant s'est tu, et tout est immobile. Tu jettes un caillou : il entre dans l'eau en silence, sans une ride, et l'eau garde ce qu'on lui donne." },
     ],
     choices: [
       { label: "Descendre jusqu'aux caves", big: true, hide: { has: "P:pierre" }, to: "PT_caves_haut" },
@@ -913,8 +913,8 @@ add({
 
   PT_caves_haut: { act: "P", title: "La cave aux tonneaux", place: "chateau", ambiance: "souterrain", backName: "la cave aux tonneaux",
     text: [
-      { first: true, text: "L'escalier débouche dans une cave voûtée, longue, où s'alignaient autrefois les tonneaux des seigneurs. Il en reste quelques-uns, éventrés, avec des casiers à bouteilles vides et des brocs renversés. Les trolls ont bu le reste depuis longtemps. Ta flamme fait danser ton ombre sur la voûte, énorme, puis minuscule." },
-      { first: true, text: "Et sur les murs, partout, il y a des mains. Des empreintes noires, posées à plat sur la pierre, par centaines. Tu t'approches. La suie est hors de cause : c'est une matière grasse, sombre, qui brille un peu à la lumière. Les empreintes couvrent les murs du sol jusqu'à hauteur d'homme, et plus haut encore, là où seul un troll aurait pu atteindre." },
+      { first: true, text: "L'escalier débouche dans une cave voûtée, longue, où s'alignaient autrefois les tonneaux des seigneurs. Il en reste quelques-uns, éventrés, avec des casiers à bouteilles vides et des brocs renversés. Les trolls ont bu le reste depuis longtemps, sans distinction de crus, en gens qui jugent un vin à la contenance. Ta flamme fait danser ton ombre sur la voûte, énorme, puis minuscule." },
+      { first: true, text: "Et sur les murs, partout, il y a des mains. Des empreintes noires, posées à plat sur la pierre, par centaines. Tu t'approches. La suie est hors de cause : c'est une matière grasse, sombre, qui brille un peu à la lumière. Les empreintes couvrent les murs du sol jusqu'à hauteur d'homme, et plus haut encore, là où seul un troll aurait pu atteindre ; elles se pressent, se chevauchent, se disputent la pierre, et ta flamme, en passant, leur prête un frémissement dont tu te serais volontiers passé." },
       { again: true, text: "La cave aux tonneaux, et les mains noires sur tous les murs." },
       "Au fond de la cave, un couloir s'enfonce plus bas. C'est de là que monte l'air tiède. Et le bourdonnement, qu'on sentait sous la cour, est plus fort ici : il fait vibrer le fond des brocs renversés.",
     ],
@@ -950,7 +950,7 @@ add({
       { outcome: "flee", text: "Les rats t'ont laissé{e} filer dans le couloir. Ils restent sur le seuil, à te regarder partir, comme des chiens au bout de leur chaîne." },
       { first: true, text: "Le couloir est taillé dans le roc, assez haut pour un troll, assez large pour deux. Il descend en pente douce. Au bout de trente pas, il se divise. À gauche, une rangée de portes basses, cerclées de fer rouillé : des cachots. À droite, un escalier étroit qui plonge vers un bruit d'eau. Tout droit, le couloir continue et s'élargit, et c'est de là, tu en es sûr{e} maintenant, que vient le chant." },
       { again: true, text: "Le couloir se divise : les cachots à gauche, l'escalier de l'eau à droite, et tout droit, le chant." },
-      "Car c'en est un. Dans la cour, ce n'était qu'un bourdonnement ; ici, c'est une note, une seule, tenue sans fin, parfaitement égale, et qui n'a jamais besoin de reprendre son souffle.",
+      "Car c'en est un. Dans la cour, ce n'était qu'un bourdonnement ; ici, c'est une note, une seule, tenue sans fin, parfaitement égale, et qui n'a jamais besoin de reprendre son souffle. L'oreille attend malgré elle la respiration qui devrait venir ; elle l'attend de mesure en mesure, avec une angoisse croissante, et c'est cette attente toujours trompée qui finit par faire le fond de l'épouvante.",
     ],
     choices: [
       { label: "Les cachots, à gauche", hide: { seen: "PT_cachots" }, to: "PT_cachots" },
@@ -962,7 +962,7 @@ add({
   PT_cachots: { act: "P", title: "Les cachots", place: "chateau", ambiance: "souterrain",
     fx: { ep: ["perso", 300] },
     text: [
-      "Les portes des cachots sont ouvertes, sauf la dernière. Dans les premières, de la paille pourrie, des anneaux scellés au mur, et sur la porte de l'une d'elles, gravés au clou, des traits par groupes de cinq. Tu en comptes deux cents avant de renoncer : le calendrier d'un prisonnier mort depuis deux siècles.",
+      "Les portes des cachots sont ouvertes, sauf la dernière. Dans les premières, de la paille pourrie, des anneaux scellés au mur, et sur la porte de l'une d'elles, gravés au clou, des traits par groupes de cinq. Tu en comptes deux cents avant de renoncer : le calendrier d'un prisonnier mort depuis deux siècles, et dont le seigneur, là-haut, buvait pendant ce temps le meilleur de sa cave.",
       "Devant la dernière porte, par terre, un bonnet de laine noirci de charbon et une lanterne de fer renversée, sa chandelle mangée jusqu'au bout. Tu lis la scène comme un procès-verbal : quelqu'un est venu jusqu'ici, et il a tout lâché pour remonter en courant. Un homme, à la taille du bonnet ; un charbonnier, à sa couleur.",
       "La dernière porte est sans serrure, mais bloquée de l'intérieur par quelque chose de lourd. Quand tu pousses, elle cède d'un pouce, et une odeur sort, sèche, de pierre et de vieux cuir. Tu pousses encore. Un troll est assis contre la porte. Un grand troll, mort depuis longtemps, gris comme le roc. Assis le dos à la porte, face au mur du fond, les deux mains posées à plat sur la pierre, doigts vers le sol. Sa torche éteinte entre ses pieds. Tu cherches une blessure et tu n'en trouves aucune. Il s'est assis là, et il a tenu, jusqu'à ce qu'il n'y ait plus rien à tenir.",
       { if: { has: "PT:hurle" }, text: "Autour de son cou, un torque de bronze épais comme un pouce. Hurle, frère de Grauk. Moufle avait dit : Hurle fort, Hurle pas peur.", else: "Autour de son cou, un torque de bronze épais comme un pouce, un bijou de chef." },
@@ -983,9 +983,9 @@ add({
 
   PT_caves_eau: { act: "P", title: "L'escalier de l'eau", place: "chateau", ambiance: "souterrain",
     text: [
-      "L'escalier de droite descend vingt marches, et la vingt et unième est sous l'eau. Une eau noire, parfaitement immobile, remplit une salle basse dont le fond se perd dans l'ombre. Aucun clapotis. Une goutte tombe de la voûte : elle entre dans l'eau en silence, sans une ride, et l'eau se referme dessus. Tu as vu des étangs gelés plus agités.",
+      "L'escalier de droite descend vingt marches, et la vingt et unième est sous l'eau. Une eau noire, parfaitement immobile, remplit une salle basse dont le fond se perd dans l'ombre. Aucun clapotis. Une goutte tombe de la voûte : elle entre dans l'eau en silence, sans une ride, et l'eau se referme dessus comme une bouche sur un secret. Tu as vu des étangs gelés plus agités.",
       "Tu t'accroupis et tu effleures la surface du bout des doigts. Elle est tiède, plus tiède que l'air. Et quand tu retires la main, l'eau a laissé sur ta peau un film gras, sombre, qu'il te faut essuyer longtemps contre la pierre.",
-      "De l'autre côté, à trente pas peut-être, une corniche sort de l'eau et file vers la gauche, vers le chant. On pourrait traverser. L'eau paraît basse, et sans danger.",
+      "De l'autre côté, à trente pas peut-être, une corniche sort de l'eau et file vers la gauche, vers le chant. On pourrait traverser. L'eau paraît basse, et sans danger ; et tu notes que c'est précisément ce qu'elle paraîtrait si elle tenait à être traversée.",
     ],
     choices: [
       { label: "Traverser à gué jusqu'à la corniche", test: { dom: "nature", diff: 0, label: "Traverser l'eau noire", help: [{ if: { item: "lanterne" }, v: 10 }] },
@@ -997,7 +997,7 @@ add({
     text: [
       { outcome: "win", text: "Tu sors de l'eau noire sur la corniche, trempé{e} jusqu'aux cuisses, et tu suis la paroi jusqu'à une ouverture." },
       { outcome: "lose", text: "À mi-chemin, le fond se dérobe. Tu coules. L'eau tiède se referme sur ta tête, et pendant un instant tu entends, dedans, très près, quelqu'un qui dit ton nom. Tu remontes en suffoquant, tu nages, tu te hisses sur la corniche, et tu restes longtemps à cracher une eau qui a le goût de la vase." },
-      "Le couloir s'ouvre sur une salle naturelle, une grotte immense, plus grande que la grande salle du château, plus haute que sa tour. La voûte se perd dans le noir. Le sol descend en gradins de roc, comme les marches d'un théâtre, vers un fond que ta lumière n'atteint pas encore. L'air est chaud, presque moite, comme dans une étable l'hiver.",
+      "Le couloir s'ouvre sur une salle naturelle, une grotte immense, plus grande que la grande salle du château, plus haute que sa tour. La voûte se perd dans le noir. Le sol descend en gradins de roc, comme les marches d'un théâtre, vers un fond que ta lumière n'atteint pas encore ; et ta flamme, qui emplissait le couloir, se trouve réduite ici à ce qu'elle est : une chandelle au bord d'une nuit. L'air est chaud, presque moite, comme dans une étable l'hiver.",
       "Et le chant est là, partout : dans la roche, dans l'air, dans tes dents. Ni voix ni instrument : une note qui ne finit pas. Et dans la note, quand on s'arrête pour l'écouter, il y a des mots, ou des choses qui ressemblent à des mots. Des noms. Ragne. Bourle. Aglaé. Grauk. Hurle. Et d'autres, inconnus de toi, des centaines, des noms anciens.",
       "Et puis le tien. {hero}. Tout bas, gentiment.",
     ],
@@ -1010,7 +1010,7 @@ add({
   PT_salle_ecoute: { act: "P", title: "Ce que dit le chant", place: "chateau", ambiance: "souterrain",
     text: [
       { outcome: "win", text: "Tu fermes les yeux, et tu écoutes, longtemps. Peu à peu, tu distingues deux choses dans le chant. Il y a la note : grave, tenue, immense, vide de sens, pareille au bruit que fait quelqu'un qui retient une porte contre le vent en serrant les dents. Et il y a, par-dessus, comme une eau qui coule sur une pierre, une autre voix, plus douce, plus proche, qui dit les noms. Elles viennent de deux endroits, et veulent deux choses." },
-      { outcome: "lose", text: "Tu écoutes, et le chant entre en toi. Il te remplit la tête, il te pousse les yeux de l'intérieur, et pendant un moment le sol se dérobe. Tu te retrouves à genoux sur le roc, sans savoir comment, avec le goût du sang dans la bouche, et une seule chose dans la tête : ton nom, dit par quelqu'un qui le connaissait avant toi." },
+      { outcome: "lose", text: "Tu écoutes, et le chant entre en toi. Il te remplit la tête, il te pousse les yeux de l'intérieur, et pendant un moment le sol se dérobe ; la grotte, la flamme et toi-même vous effacez devant cette seule note, et quelque part au fond d'elle une attention tournée vers toi. Tu te retrouves à genoux sur le roc, sans savoir comment, avec le goût du sang dans la bouche, et une seule chose dans la tête : ton nom, dit par quelqu'un qui le connaissait avant toi." },
       "Tu te relèves. Tu descends les gradins, un à un, vers le fond de la grotte, ta lumière tendue devant toi. Le chant grandit à chaque marche.",
     ],
     choices: [{ label: "Descendre jusqu'au fond de la grotte", big: true, to: "PT_pierre" }] },
@@ -1022,9 +1022,9 @@ add({
     fx: { clue: "p_main_pierre", ep: ["seance", 800] },
     text: [
       "Au fond de la grotte, il y a une main.",
-      "Elle sort du roc, au bas de la paroi, comme sortirait d'une eau la main d'un noyé qui appelle : un poignet, une paume, cinq doigts. Mais elle est de pierre, et grande comme une charrette. Une pierre grise, lisse, plus lisse que le roc qui l'entoure, avec des plis aux jointures et des lignes dans la paume, comme une vraie main. La paume est ouverte, tournée vers le haut : vers la voûte, vers le château, vers le ciel invisible.",
+      "Elle sort du roc, au bas de la paroi, comme sortirait d'une eau la main d'un noyé qui appelle : un poignet, une paume, cinq doigts. Mais elle est de pierre, et grande comme une charrette. Une pierre grise, lisse, plus lisse que le roc qui l'entoure, avec des plis aux jointures et des lignes dans la paume, comme une vraie main ; et c'est cette exactitude qui épouvante, car aucun sculpteur ne s'attarde aux rides d'une paume que personne ne viendra voir. La paume est ouverte, tournée vers le haut : vers la voûte, vers le château, vers le ciel invisible.",
       "Elle est fendue. Une fissure noire, large comme un doigt, part du poignet et monte jusqu'à la base du majeur. De la fissure suinte quelque chose de sombre, de luisant, qui coule le long de la pierre et forme au pied de la main une petite flaque immobile, noire comme de l'encre. Tu reconnais la matière : c'est celle des murs de la cave.",
-      "C'est la main qui chante. Tu en as la certitude à présent. La note grave vient d'elle, de l'intérieur de la pierre, et la pierre tremble à peine, comme tremble un bras qui porte trop lourd depuis trop longtemps.",
+      "C'est la main qui chante. Tu en as la certitude à présent. La note grave vient d'elle, de l'intérieur de la pierre, et la pierre tremble à peine, d'un tremblement continu, presque imperceptible, celui d'un bras qui porte trop lourd depuis trop longtemps et qui a décidé de porter encore.",
       "Et dans le creux de la paume, au milieu, il y a une lumière. Toute petite, de la taille d'une noix. Elle tremble, elle aussi.",
     ],
     choices: [
@@ -1035,7 +1035,7 @@ add({
   PT_pierre_fente: { act: "P", title: "La fissure", place: "chateau", ambiance: "souterrain",
     fx: { ep: ["perso", 300] },
     text: [
-      "Tu t'approches de la fissure en évitant la flaque. Il en sort un souffle chaud, régulier, qui sent la vase et le fer. La matière noire suinte des deux lèvres de la fente, lentement, comme suinte la sève d'un arbre blessé.",
+      "Tu t'approches de la fissure en évitant la flaque. Il en sort un souffle chaud, régulier, qui sent la vase et le fer, et qui va et vient contre ta joue avec la lenteur d'une respiration endormie. La matière noire suinte des deux lèvres de la fente, lentement, comme suinte la sève d'un arbre blessé.",
       "Au bord de la fissure, à hauteur de ta poitrine, un éclat de pierre est en train de se détacher. Un fragment gros comme un pouce, à moitié décollé, retenu par un fil de roche. Il est plus sombre que le reste. Et il bat : doucement, régulièrement, comme un cœur. Tu le vois bouger d'un cheveu à chaque battement.",
       { if: { arch: "mage" }, text: "Tu sens la force qu'il y a dedans avant même de le toucher. Une force brute, sans forme, qui ne demande qu'à servir. Il te suffirait de tendre la main pour qu'elle soit à toi. C'est si facile que c'en est inquiétant." },
       { if: { has: "passe:profite" }, text: "Tu connais cette sensation dans le ventre. Tu l'as eue à Saint-Gilles, il y a sept ans, devant les terres des gens qui partaient : la chose est là, à l'abandon, il suffit de la prendre." },
@@ -1088,7 +1088,7 @@ add({
   PT_voix: { act: "P", title: "La voix dans la flaque", place: "chateau", ambiance: "souterrain",
     fx: { meet: "voix" },
     text: [
-      { first: true, text: "Tu redescends de la main, Pip dans ton col. La flaque s'est élargie et allongée. Dans l'eau noire, à la surface, quelque chose se dessine, comme se dessine un visage dans les nuages quand on le cherche. Une tête. Des cheveux longs, qui flottent, et qui sont des algues. Une bouche. Elle reste dans l'eau, à fleur, tournée vers toi." },
+      { first: true, text: "Tu redescends de la main, Pip dans ton col. La flaque s'est élargie et allongée. Dans l'eau noire, à la surface, quelque chose se dessine, comme se dessine un visage dans les nuages quand on le cherche ; seulement, tu ne cherchais rien, et le visage se dessine tout de même. Une tête. Des cheveux longs, qui flottent, et qui sont des algues. Une bouche. Elle reste dans l'eau, à fleur, tournée vers toi." },
       { first: true, text: "« {hero} », dit-elle. Sa voix est douce. C'est la voix qui disait les noms, dans le chant ; de près, elle est toute de velours. Une voix de femme, un peu voilée, une voix qui a l'air de comprendre. « Tu es venu{e} de loin. Tu as froid. Tu as eu peur dans l'escalier, et tu es descendu{e} quand même. C'est bien. »" },
       { again: true, text: "Le visage de vase attend à la surface de la flaque, patient, les cheveux d'algue étalés autour de lui." },
       { with: "pip", text: "Pip s'est enfoncé dans ton col jusqu'à disparaître. Tu sens sa chaleur contre ta peau, et tu sens qu'il tremble." },
@@ -1110,7 +1110,7 @@ add({
     text: [
       "« Qui je suis ? » Le visage de vase penche la tête, et ses cheveux d'algue glissent sur l'eau. « Quelqu'un qui a eu très froid, très longtemps, dans le noir. Quelqu'un qui écoute. J'écoute tout le monde. Je sais le nom de tout le monde. C'est le mien qu'on a oublié. »",
       "Elle rit, un rire doux, sans méchanceté. « Tu veux une réponse simple. Je n'en ai pas. Je suis ce qui pousse là où on pleure trop longtemps. Je suis ce qui reste. Ça ne te dit rien, je sais. Ça te dira, plus tard. »",
-      "Elle a dit vrai. Tu le sens. Mais tu sens aussi qu'elle a choisi chaque mot, l'un après l'autre, comme on choisit ses pierres pour traverser un gué.",
+      "Elle a dit vrai. Tu le sens. Mais tu sens aussi qu'elle a choisi chaque mot, l'un après l'autre, comme on choisit ses pierres pour traverser un gué ; et tu songes que les menteurs ordinaires sont moins à craindre, eux qui du moins se donnent la peine d'inventer.",
     ],
     choices: [{ back: "PT_voix" }] },
 
@@ -1125,7 +1125,7 @@ add({
   PT_eclat_prendre: { act: "P", title: "L'éclat", place: "chateau", ambiance: "souterrain",
     fx: { mark: 1, item: "eclat", flag: "marque:eclat", fear: { pip: 10 }, conf: { pip: -5 }, ep: ["seance", 600] },
     text: [
-      "Tu te baisses, et tu le ramasses. Il est tiède, presque chaud, plus lourd que sa taille ne l'annonce, et il bat contre ta paume, régulièrement, au rythme de ton propre cœur, puis un peu plus vite, comme pour te montrer le chemin. Une force douce te remonte dans le bras, dans l'épaule, dans la tête. Tout devient plus net. Les ombres de la grotte, les lignes de la pierre, les mots que tu pourrais dire : tout est là, à portée.",
+      "Tu te baisses, et tu le ramasses. Il est tiède, presque chaud, plus lourd que sa taille ne l'annonce, et il bat contre ta paume, régulièrement, au rythme de ton propre cœur, puis un peu plus vite, comme pour te montrer le chemin. Une force douce te remonte dans le bras, dans l'épaule, dans la tête. Tout devient plus net. Les ombres de la grotte, les lignes de la pierre, les mots que tu pourrais dire : tout est là, à portée, rangé pour toi comme les outils d'un atelier dont on t'aurait remis la clé.",
       "Quand tu ouvres la main pour le regarder, ta paume porte une tache, là où il était posé. Petite, ronde, noire, de la taille d'une lentille. Elle résiste quand tu frottes. Elle est indolore.",
       "« Merci », dit la voix. Seulement ça. Elle a l'air sincèrement heureuse, et c'est peut-être ce qui te glace le plus.",
       { with: "pip", text: "Pip est sorti de ton col. Il s'est posé sur ton autre épaule, celle de la main propre, et il regarde en silence la tache sur ta paume. Il reste de ce côté-là." },
@@ -1158,7 +1158,7 @@ add({
     text: [
       "La main de pierre se met à chanter. Un autre chant que la note grave, la note tenue et paisible : un chant plus haut, plus fort, qui remplit la grotte d'un coup, fait tomber de la voûte des pierres et de la poussière, et te fait mal aux dents et aux yeux. Comme un cri longtemps retenu, qui sort enfin.",
       { with: "pip", text: "« C'est parce que je pars, crie Pip contre ton oreille. C'est moi. Elle ne veut pas que je parte. » De la main ou de la voix ? Il te laisse deviner." },
-      "Et la flaque monte. Elle déborde, elle s'étale sur les gradins ; de toutes les fentes du roc, l'eau noire sourd et la rejoint. Puis la flaque se lève, comme se lève quelqu'un qui était couché : d'abord une épaule, puis une tête, puis un corps entier, de vase et d'eau sale, haut comme deux hommes, avec la forme vague d'une personne, sans visage, et deux bras qui pendent jusqu'au sol.",
+      "Et la flaque monte. Elle déborde, elle s'étale sur les gradins ; de toutes les fentes du roc, l'eau noire sourd et la rejoint. Puis la flaque se lève, comme se lève quelqu'un qui était couché : d'abord une épaule, puis une tête, puis un corps entier, de vase et d'eau sale, haut comme deux hommes, avec la forme vague d'une personne, sans visage, et deux bras qui pendent jusqu'au sol. La chose se tient là, ruisselante, et l'on dirait l'ébauche d'un être qu'un ouvrier pressé aurait abandonnée avant d'en venir aux traits.",
       "Le visage de femme a disparu. Devant toi se tient une chose sans figure. C'est un gardien, une chose faite pour garder, et elle avance vers toi, entre toi et le couloir, en traînant derrière elle des filets de vase. Derrière, quelque part, un courant d'air froid. Un vrai courant d'air, qui sent le dehors.",
     ],
     choices: [
@@ -1176,7 +1176,7 @@ add({
       lose: { to: "PT_gardien_defaite" },
       flee: { label: "Plonger sous ses bras vers le courant d'air", dom: "discretion", diff: -10, to: "PT_fuite" } },
     text: [
-      "Le gardien frappe le premier. Son bras s'abat comme une vague, et là où il touche le roc, la vase éclabousse et brûle comme de la chaux vive. Il est sans yeux, et il sait pourtant où tu es. Il le sait toujours. Il a appris ton nom.",
+      "Le gardien frappe le premier. Son bras s'abat comme une vague, et là où il touche le roc, la vase éclabousse et brûle comme de la chaux vive. Il est sans yeux, et il sait pourtant où tu es. Il le sait toujours, avec une sûreté d'aiguille aimantée. Il a appris ton nom.",
       { with: "pip", text: "Pip tourne autour de sa tête en jetant de petits éclairs dorés, inoffensifs mais agaçants : la chose se détourne chaque fois, une fraction de seconde, comme on chasse une mouche." },
     ] },
 
@@ -1191,7 +1191,7 @@ add({
   PT_gardien_defaite: { act: "P", title: "Sous la vase", place: "chateau", ambiance: "souterrain",
     fx: { pv: 4 },
     text: [
-      "Le bras du gardien t'atteint en pleine poitrine et te jette contre le roc. Tu glisses. La vase se referme sur toi, sur tes jambes, sur ton ventre, chaude, lourde, vivante, et elle te tire vers le bas, vers la flaque, doucement, comme on tire une couverture sur un enfant. Tout près, une voix dit ton nom.",
+      "Le bras du gardien t'atteint en pleine poitrine et te jette contre le roc. Tu glisses. La vase se referme sur toi, sur tes jambes, sur ton ventre, chaude, lourde, vivante, et elle te tire vers le bas, vers la flaque, doucement, comme on tire une couverture sur un enfant ; et le plus affreux est que ton corps, rompu, trouve à cette douceur quelque chose d'acceptable. Tout près, une voix dit ton nom.",
       "Puis une lumière éclate. Une lumière blanche, dorée, violente, qui explose juste au-dessus de toi, et la vase se rétracte en sifflant comme de l'eau sur un fer rouge. Elle te lâche. Tu roules sur le côté. Tu rampes à l'aveugle, tu suis la lumière qui file devant toi, qui revient te chercher, qui repart.",
       "Quand tu reprends tes esprits, tu es couché{e} dans un boyau étroit, dans le noir et le froid, et l'air sent la pierre sèche. Pip est posé sur ta poitrine, tout pâle, à peine une lueur. « Je ne savais pas que je pouvais faire ça, dit-il d'une toute petite voix. Je ne veux plus jamais le faire. »",
     ],
@@ -1216,7 +1216,7 @@ add({
   PT_eclat_ordre: { act: "P", title: "La vase obéit", place: "chateau", ambiance: "souterrain",
     text: [
       "Tu lèves l'éclat au-dessus de ta tête, et tu dis : couche-toi. Les mots sont sortis d'eux-mêmes, avec la force qui monte de l'éclat dans ton bras, et ta voix sonne dans la grotte plus fort que le chant.",
-      "Le gardien s'arrête. Il te regarde, s'il regarde. Puis il se couche. Il s'affaisse, lentement, docilement, comme un chien qu'on a grondé, redevient flaque à tes pieds, et la flaque s'écarte pour te laisser passer. Tout s'est fait sans effort, et c'est bien ce qui t'effraie.",
+      "Le gardien s'arrête. Il te regarde, s'il regarde. Puis il se couche. Il s'affaisse, lentement, docilement, comme un chien qu'on a grondé, redevient flaque à tes pieds, et la flaque s'écarte pour te laisser passer. Tout s'est fait sans effort, et c'est bien ce qui t'effraie : les choses qui obéissent si vite ont d'ordinaire leurs raisons.",
       "Sur ta paume, autour de l'éclat, la tache noire a grandi. Elle a maintenant la taille d'un sou. Et quelque part dans l'eau, une voix douce rit, sans méchanceté, comme on rit d'un enfant qui fait ses premiers pas.",
       { with: "pip", text: "Pip s'est réfugié tout en haut, dans les ombres de la voûte. Il redescend seulement quand tu as rangé l'éclat, et il évite ton épaule. Il vole devant toi, à distance, vers le courant d'air." },
     ],
@@ -1227,7 +1227,7 @@ add({
 add({
   PT_souterrain: { act: "P", title: "Le souterrain", place: "chateau", ambiance: "souterrain", backName: "le souterrain",
     text: [
-      "Le boyau naturel s'élargit au bout de quarante pas et débouche dans un vrai couloir, taillé de main d'homme : un souterrain voûté, étroit, avec des marches par endroits, qui file vers l'est sous la crête. Les marques de pic dans la pierre sont régulières, inclinées toutes du même côté : l'œuvre d'un seul ouvrier patient, ou d'une équipe bien commandée. Les seigneurs du château l'avaient creusé pour s'enfuir en cas de siège, et sans doute oublié depuis. Le sol est sec. L'air est froid, et sent la terre, la racine, le dehors.",
+      "Le boyau naturel s'élargit au bout de quarante pas et débouche dans un vrai couloir, taillé de main d'homme : un souterrain voûté, étroit, avec des marches par endroits, qui file vers l'est sous la crête. Les marques de pic dans la pierre sont régulières, inclinées toutes du même côté : l'œuvre d'un seul ouvrier patient, ou d'une équipe bien commandée. Les seigneurs du château l'avaient creusé pour s'enfuir en cas de siège, la bravoure des grandes maisons ayant toujours eu sa porte de derrière, et sans doute oublié depuis. Le sol est sec. L'air est froid, et sent la terre, la racine, le dehors.",
       { with: "pip", text: "Pip éclaire les parois. Il a repris un peu de couleur. Il regarde tout, les marques des pics dans la pierre, les toiles d'araignée, un vieux clou rouillé, avec la même curiosité affamée que dans la cour du château. « Quelqu'un a fait ça ? demande-t-il. Avec ses mains ? Pour sortir ? »" },
       "Derrière vous, très loin, la note grave continue. Tes dents l'ont oubliée. Seuls tes pieds la sentent encore, faiblement, comme le pouls de quelqu'un qui dort.",
     ],
@@ -1239,7 +1239,7 @@ add({
   PT_souterrain_garde: { act: "P", title: "La salle de garde", place: "chateau", ambiance: "souterrain",
     fx: { food: 1, ep: ["perso", 200] },
     text: [
-      "Une porte basse ouvre sur une petite salle carrée : deux bat-flanc de bois vermoulu, une table, un coffre. Les gardes qui devaient tenir le souterrain en cas de siège ont laissé leur partie de dés sur la table, les dés en os encore posés : un trois et un cinq. La partie attend son tour depuis deux siècles.",
+      "Une porte basse ouvre sur une petite salle carrée : deux bat-flanc de bois vermoulu, une table, un coffre. Les gardes qui devaient tenir le souterrain en cas de siège ont laissé leur partie de dés sur la table, les dés en os encore posés : un trois et un cinq. La partie attend son tour depuis deux siècles, et le joueur qui devait relancer a eu, de toute évidence, un empêchement.",
       "Dans le coffre, enveloppés dans de la toile cirée, des biscuits de guerre, durs comme du bois, mais secs, mangeables. Les soldats d'autrefois savaient faire des provisions qui durent ; celles-ci ont survécu à leurs propriétaires d'une bonne dizaine de générations. Tu en remplis ton sac.",
       { with: "pip", text: "Pip s'est posé sur la table et regarde les dés. Il en pousse un, du bout de sa lumière, et le fait rouler. Un six. Il ignore ce que ça veut dire, mais il est très content." },
     ],
@@ -1327,7 +1327,7 @@ add({
     text: [
       "Les trolls sortent du château par la grande porte, un par un, en file, avec leurs baluchons de rapines sur le dos. Leur destination, ils l'ignorent. C'est Grauk qui décidait de rester. Sans lui, ils partent vers le nord, vers les forêts plus hautes, loin des hommes.",
       { if: { has: "aglae=reste" }, text: "Pas tous. Une demi-douzaine restent sur le seuil avec Aglaé, qui leur crie dessus en agitant sa louche, et Bourle à côté d'elle, droit comme un piquet. Ceux-là ont choisi la soupe plutôt que la forêt." },
-      "Ragne passe le dernier. Il s'arrête devant toi, il te regarde de ses petits yeux jaunes. « Toi tuer Grauk, dit-il. Coutume dit : toi roi. » Il attend. Tu te tais. Il hoche la tête, comme quelqu'un qui s'y attendait. « Pas de roi, alors. » Et il s'en va, sa massue sur l'épaule, le dos tourné.",
+      "Ragne passe le dernier. Il s'arrête devant toi, il te regarde de ses petits yeux jaunes. « Toi tuer Grauk, dit-il. Coutume dit : toi roi. » Il attend. Tu te tais. Il hoche la tête, comme quelqu'un qui s'y attendait. « Pas de roi, alors. » Et il s'en va vers le nord, sa massue sur l'épaule, du pas d'un portier qui n'a plus de porte.",
     ],
     choices: [
       { label: "Rattraper Ragne, et lui confier le torque de Hurle pour les siens", if: { item: "pt_torque" }, hide: { not: { item: "pt_torque" } }, fx: { drop: "pt_torque", flag: "PT:torque_rendu", regard: { pt_ragne: "redevable" }, ep: ["perso", 300] }, back: "PT_abords" },
@@ -1338,7 +1338,7 @@ add({
     fx: { quest: "P_pierre", catchup: 3, catchupWhy: "Les semaines passées aux Trois-Bornes à reprendre des forces, à t'exercer, et à apprendre à vivre avec une petite lumière dans ton col." },
     text: [
       "Tu redescends aux Trois-Bornes, et tu y restes plus longtemps que prévu. Le mois des Brumes avance. Les feuilles tombent des hêtres de la crête, les premières gelées blanchissent les prés au matin, et les bergers redescendent leurs bêtes. Tu dors, tu manges, tu t'exerces, tu laisses tes plaies se fermer. Tu écris une lettre que tu gardes dans ta poche.",
-      { with: "pip", after: "pip:trouve", text: "Pip découvre tout. Le lait, la pluie, les chats, les enfants qui le suivent dans la rue en criant, qu'il fuit, et vers qui il revient. Il pose mille questions par jour ; tu en as compté trois cents un matin avant de renoncer. Il dort dans ta botte. Les gens du hameau ont fini par s'habituer à lui, à peu près, comme on s'habituerait à un chien qui parle." },
+      { with: "pip", after: "pip:trouve", text: "Pip découvre tout. Le lait, la pluie, les chats, les enfants qui le suivent dans la rue en criant, qu'il fuit, et vers qui il revient. Il pose mille questions par jour ; tu en as compté trois cents un matin avant de renoncer, et tu as découvert à cette occasion que tu ignorais pourquoi le lait est blanc. Il dort dans ta botte. Les gens du hameau ont fini par s'habituer à lui, à peu près, comme on s'habituerait à un chien qui parle." },
       { if: { has: "grauk:allie" }, text: "Une nuit, sur la crête, on entend chanter les trolls. Rien à voir avec le chant d'en dessous : une vraie chanson de trolls, fausse et joyeuse, qui dure jusqu'au matin. De mémoire de hameau, c'est une première. Mère Ternes dit que ça veut dire qu'ils dorment, à présent, et qu'ils se réveillent contents." },
       { after: "PT:torque_rendu", text: "Le torque de bronze de Hurle est retourné aux trolls. Tu y repenses parfois, à ce grand corps gris assis le dos à la porte, les mains contre la pierre, et tu te demandes combien d'autres, avant lui, ont tenu ainsi dans l'ignorance de tous." },
       { if: { has: "grauk:mort" }, text: "On dit au hameau que les trolls sont partis vers le nord, sauf quelques-uns. On dit aussi que tu as tué leur roi. Depuis, on te regarde autrement : avec plus de respect, et un peu moins de chaleur." },
@@ -1357,8 +1357,8 @@ add({
   PT_rempart: { act: "P", title: "Le rempart", place: "chateau",
     fx: { ep: ["perso", 200] },
     text: [
-      "Un escalier sans rampe monte le long du mur, contre la tour effondrée, jusqu'au chemin de ronde. Les trolls l'ont renforcé de rondins, à leur mesure, et chaque marche t'arrive au genou. En haut, le vent te prend de face, froid, chargé de l'odeur d'une neige encore à venir.",
-      { when: "night", before: "P:pierre", text: "Il fait nuit. Dans la cour, en bas, les feux des trolls dessinent un cercle autour de la dalle du puits, à bonne distance. Ils sont assis, ils écoutent, muets. Le rempart est désert : ce qu'ils guettent est dedans, et dessous.", else: "D'ici, la vue embrasse toute la vallée des Trois-Bornes : les six fumées, les prés en lanières, la bergerie d'Isaure accrochée à la pente. Derrière toi, au-dessus de la cour, la crête file vers l'est, vers un autre versant caché." },
+      "Un escalier sans rampe monte le long du mur, contre la tour effondrée, jusqu'au chemin de ronde. Les trolls l'ont renforcé de rondins, à leur mesure, et chaque marche t'arrive au genou ; on y monte comme un enfant monte chez les grandes personnes. En haut, le vent te prend de face, froid, chargé de l'odeur d'une neige encore à venir.",
+      { when: "night", before: "P:pierre", text: "Il fait nuit. Dans la cour, en bas, les feux des trolls dessinent un cercle autour de la dalle du puits, à bonne distance. Ils sont assis, ils écoutent, muets. Le rempart est désert, et c'est la première forteresse que tu voies monter la garde vers le dedans : ce qu'ils guettent est entre leurs murs, et dessous.", else: "D'ici, la vue embrasse toute la vallée des Trois-Bornes : les six fumées, les prés en lanières, la bergerie d'Isaure accrochée à la pente. Derrière toi, au-dessus de la cour, la crête file vers l'est, vers un autre versant caché." },
       { after: "P:pierre", text: "Les trolls sont sortis sur le rempart, eux aussi. Ils regardent dehors, maintenant, pour la première fois depuis un an. L'un d'eux te montre la vallée du doigt et répète un mot en troll, plusieurs fois, avec une sorte d'émerveillement." },
       "Le long du parapet, tous les dix pas, quelqu'un a gravé dans la pierre, il y a très longtemps, une main ouverte. Les trolls ont accroché leurs lanternes aux doigts.",
     ],

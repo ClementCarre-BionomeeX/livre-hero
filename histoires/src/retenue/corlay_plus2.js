@@ -24,7 +24,7 @@ module.exports = {
     text: [
       "Tu ranges la lettre du vieux dans ton gilet. Le vieux Vellard se trompe peut-être sur la digue. Il a peut-être raison. Dans les deux cas, ta laine est au bord de la Sorge, dans trois entrepôts de briques, et elle vaut quarante mille écus.",
       "« Pernelle. Envoyez le valet réveiller Gervais, aux Foulons. Qu'il prenne ses hommes, toutes les charrettes de la fabrique, et qu'il monte la laine dans les greniers de la Côte. Cette nuit. »",
-      "Pernelle Daguet écrit l'ordre, les yeux sur la feuille. Puis elle demande : « Et la clé, Monsieur ? »",
+      "Pernelle Daguet écrit l'ordre jusqu'au dernier mot. Puis elle demande : « Et la clé, Monsieur ? »",
     ],
     choices: [
       { label: "La ranger au coffre, et descendre surveiller le chargement", to: "C_gervais", fx: { time: 1.25 } },
@@ -106,7 +106,7 @@ module.exports = {
     choices: [{ label: "Partir par le plateau", to: "C_carriers" }] },
   C_carriers: { act: A, title: "Le chemin des carriers", place: "lac", fx: { time: 1.25 },
     text: [
-      "Le chemin des carriers longe le lac par le haut, dans les sapins. La voiture cahote dans les ornières. Le vent se lève vers une heure et fait claquer la capote.",
+      "Le chemin des carriers longe le lac par le haut, dans les sapins. La voiture cahote dans les ornières ; les troncs défilent dans la lueur des lanternes, serrés, noirs, et entre eux la nuit a l'épaisseur d'un mur. Le vent se lève vers une heure et fait claquer la capote.",
       "Tassin parle tout le long de la route. Il parle de ses calculs, des plans de Ferréol, des coefficients de la pierre. Il parle de sa mère, qui l'empêchait d'aller à la rivière quand il était petit. Puis il se tait, et il regarde le lac en contrebas, noir, immense, plus haut que tu l'aies jamais vu.",
       "Pernelle Daguet écrit à la lueur de la lanterne. Tu te demandes comment elle fait, avec les cahots.",
       "Au bout du chemin, la digue, et à son bout la Maison des Vannes. Une seule lanterne à la fenêtre.",
@@ -116,7 +116,7 @@ module.exports = {
     text: [
       "Anselme Vellard ouvre lui-même. Il voit la clé, puis toi, puis Tassin. Il sourit, pour la première fois depuis longtemps, d'un sourire qui fait peur.",
       "« Maître Tassin. Vous venez enfin voir mes suintements. »",
-      "L'escalier de service descend en colimaçon dans la pierre, si étroit que tes épaules frottent. En bas, la galerie est noyée jusqu'à la taille. L'eau est glacée. Le vieux marche devant avec la lanterne. Tassin te suit, puis Pernelle, la robe relevée dans une main et l'écritoire dans l'autre.",
+      "L'escalier de service descend en colimaçon dans la pierre, si étroit que tes épaules frottent ; la lanterne du vieux tourne devant toi, disparaît à chaque spire, et tu descends alors à l'aveugle, dans une odeur de cave qui épaissit de marche en marche. En bas, la galerie est noyée jusqu'à la taille. L'eau est glacée. Le vieux marche devant avec la lanterne. Tassin te suit, puis Pernelle, la robe relevée dans une main et l'écritoire dans l'autre.",
       "À l'endroit des plâtres, le vieux lève la lanterne. La pierre pleure par une fente longue comme un homme couché. On entend l'eau passer derrière, un bruit sourd, continu.",
       "Tassin reste figé. L'eau lui arrive à la poitrine. Ses gants de chevreau flottent devant lui.",
     ],
@@ -219,7 +219,7 @@ module.exports = {
   C_garde_maison: { act: A, title: "Au voleur", place: "hauteville", end: true, fx: { time: 5 },
     text: [
       "Tu ouvres la fenêtre. Tu cries. Les deux valets de nuit sortent de l'office avec des gourdins, et le sergent part en courant dans la rue Haute, le paquet contre la poitrine. Pernelle reste sur le seuil du jardin, les mains vides, la tête haute.",
-      "Rambert arrive à une heure avec six hommes. Il cherche le sergent dans toute la Haute-Ville. À deux heures, on lui dit qu'un cheval du guet est sorti par la poterne. Rambert envoie deux cavaliers derrière.",
+      "Rambert arrive à une heure avec six hommes. Il fouille toute la Haute-Ville avec le zèle d'un homme payé au mois. À deux heures, on lui dit qu'un cheval du guet est sorti par la poterne. Rambert envoie deux cavaliers derrière.",
       "Tu attends au salon, à la fenêtre, toute la nuit. À trois heures et demie, au bout de la vallée, la lumière de la Maison des Vannes devient deux lumières, puis trois.",
       "À quatre heures, la pluie. À cinq heures, l'eau monte dans la Sorge, haute et brune. Les Foulons sont noyés jusqu'aux fenêtres basses. La digue tient.",
       "Au Conseil, à huit heures, tu dis qu'on t'a volé la clé des vannes cette nuit, chez toi, par ta propre secrétaire, avec la complicité d'un sergent du guet. Dame Hesdin te demande ce que la clé faisait dans ton coffre. Tu gardes pour toi la seule réponse vraie. Pernelle Daguet reste en prison jusqu'au procès. Au procès, elle apporte ses registres.",

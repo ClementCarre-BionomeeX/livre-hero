@@ -21,8 +21,8 @@ module.exports = { rumors: {
   T_coet: {
     title: "Le capitaine Coët", back: true,
     text: [
-      { first: true, text: "Le capitaine garde les yeux sur la voilure pendant que tu lui parles. Quand tu as fini, il dit : « Vous avez une question, ou vous faites la conversation ? Je ne fais pas la conversation. »" },
-      { first: true, text: "Tu insistes. Il soupire. « Quarante ans de mer. Sept navires. Aucun perdu. Corbière m'a donné la Sterne parce que je suis le dernier capitaine de Port-Aubier qui ne lui demande pas de part sur la cargaison. Voilà. Maintenant, laissez-moi travailler. »" },
+      { first: true, text: "Le capitaine garde les yeux sur la voilure pendant que tu lui parles. Quand tu as fini, il dit : « Vous avez une question, ou vous faites la conversation ? Je ne fais pas la conversation. C'est l'occupation des gens qui n'ont pas de navire. »" },
+      { first: true, text: "Tu insistes. Il soupire. « Quarante ans de mer. Sept navires. Aucun perdu, et pourtant j'ai eu des armateurs, des seconds et des subrécargues plein les jambes. Corbière m'a donné la Sterne parce que je suis le dernier capitaine de Port-Aubier qui ne lui demande pas de part sur la cargaison. Voilà. Maintenant, laissez-moi travailler. »" },
       { again: true, text: "Le capitaine Coët t'écoute en regardant ailleurs, te répond en trois mots, et retourne à sa voilure, qui a visiblement plus de conversation que toi." },
       { with: "gabin", once: true, text: "Avant que tu partes, il ajoute sans tourner la tête : « Le petit. Qu'il ne monte pas dans la mâture. Son père n'avait pas le pied marin non plus. »" },
     ],

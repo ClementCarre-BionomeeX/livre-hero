@@ -5,14 +5,14 @@ module.exports = {
   A_comptoir: {
     act: "I", title: "Le comptoir Corbière", place: "aubier_comptoir",
     text: [
-      "Le comptoir de la maison Corbière occupe tout le rez-de-chaussée d'une haute maison de la ville haute. Une douzaine de commis y écrivent debout à des pupitres, sous des maquettes de navires alignées sur des consoles comme des bibelots de famille. On te fait traverser la salle, puis monter un escalier, et l'on te laisse devant une porte capitonnée de cuir vert, où l'on entend seulement le grattement d'une plume.",
-      "Maître Anselme Corbière est un homme rond, en habit de drap gris, qui parle doucement en regardant ses mains posées à plat sur son bureau, comme s'il les consultait. Derrière lui, la fenêtre embrasse toute la rade, et tout au bout du quai des Morutiers, un trois-mâts noir à bande jaune.",
+      "Le comptoir de la maison Corbière occupe tout le rez-de-chaussée d'une haute maison de la ville haute. Une douzaine de commis y écrivent debout à des pupitres, avec la ferveur muette de moines qui auraient fait vœu de pauvreté pour le compte d'un autre ; au-dessus de leurs têtes, des maquettes de navires s'alignent sur des consoles comme des bibelots de famille. On te fait traverser la salle, puis monter un escalier, et l'on te laisse devant une porte capitonnée de cuir vert, où l'on entend seulement le grattement d'une plume.",
+      "Maître Anselme Corbière est un homme rond, en habit de drap gris, qui parle avec la douceur des gens à qui l'on obéit depuis trente ans, en regardant ses mains posées à plat sur son bureau, comme s'il les consultait. Derrière lui, la fenêtre embrasse toute la rade ; et tout au bout du quai des Morutiers, un trois-mâts noir à bande jaune.",
       "« La Sterne, dit-il sans se retourner. Elle part ce soir, à la marée de sept heures, pour Marbecq. Mon subrécargue, Lerac, s'est cassé la jambe avant-hier dans l'escalier de mon entrepôt. À son âge, ces choses arrivent. Il me faut quelqu'un pour répondre de la cargaison, signer le manifeste, tenir le coffre de bord et me rendre des comptes au retour. On m'a dit que tu savais compter et que tu n'avais pas d'attaches ici. »",
       { if: { has: "passe:marin" }, text: "Il ajoute, sans lever les yeux : « Et que tu as le pied marin. C'est rare, chez les gens qui savent compter. »" },
       { if: { has: "passe:commis" }, text: "Il ajoute, sans lever les yeux : « Et que tu as tenu les livres d'une maison de Valcourt. Ils disent du bien de toi, à Valcourt. »" },
       { if: { has: "passe:garde" }, text: "Il ajoute, sans lever les yeux : « Et que tu as escorté des convois. Un coffre de bord, c'est un convoi qui flotte. »" },
       "Il pousse vers toi un manifeste de trois feuilles et une clé de fer au bout d'un lacet. « Deux écus par jour de mer, payés à Marbecq par mon comptoir, et une prime si la cargaison arrive entière. »",
-      "On frappe. Un garçon de quinze ans entre avant d'y être invité : maigre, des cheveux trop longs, un livre sous le bras et un manteau de voyage déjà boutonné jusqu'au menton. Corbière reste assis. « Mon neveu, Gabin. Il embarque aussi. Il va apprendre le métier au comptoir de Marbecq. Tu veilleras sur lui. »",
+      "On frappe. Un garçon de quinze ans entre avant d'y être invité : maigre, des cheveux trop longs, un livre sous le bras et un manteau de voyage déjà boutonné jusqu'au menton, comme un colis ficelé d'avance. Corbière reste assis. « Mon neveu, Gabin. Il embarque aussi. Il va apprendre le métier au comptoir de Marbecq. Tu veilleras sur lui. »",
       "Gabin te salue d'un signe de tête poli, puis se tourne vers la fenêtre et regarde la rade, exactement comme son oncle. Tu notes que c'est le seul trait qu'ils semblent avoir en commun.",
     ],
     fx: { meet: "corbiere", item: ["manifeste", "cle_coffre"], join: "gabin", set: { escale: "aubier", rations: "pleine", mer: "port" }, ep: ["seance", 300] },
@@ -24,7 +24,7 @@ module.exports = {
   A_avance: {
     title: "L'avance", place: "aubier_comptoir",
     text: [
-      "Corbière lève enfin les yeux sur toi. Ils sont gris pâle, sans cils, et ils te pèsent comme on pèse une marchandise. Il ouvre un tiroir, compte dix écus en cinq piles de deux et les pousse vers toi du bout des doigts. « On ne part pas en mer les poches vides. C'est juste. »",
+      "Corbière lève enfin les yeux sur toi. Ils sont gris pâle, sans cils, et ils te pèsent comme on pèse une marchandise ; tu as le sentiment désagréable de figurer déjà dans un de ses livres, à une colonne que tu ignores. Il ouvre un tiroir, compte dix écus en cinq piles de deux et les pousse vers toi du bout des doigts. « On ne part pas en mer les poches vides. C'est juste. »",
       "Dans l'escalier, Gabin te dit à voix basse : « Il ne m'a jamais donné dix écus. »",
     ],
     fx: { gold: 200 },
@@ -42,11 +42,11 @@ module.exports = {
   A_bord: {
     act: "I", title: "À bord", place: "pont",
     text: [
-      "Tu montes la planche avec le manifeste sous le bras. Sur le pont, tout le monde travaille et personne ne lève la tête, à une exception près : un homme debout près de la barre, soixante ans passés, barbe blanche taillée court, une tache de vin sur la tempe, un chapeau noir enfoncé jusqu'aux sourcils. Le capitaine Ysembart Coët te détaille de la tête aux pieds, avec le soin qu'on met à vérifier un cordage douteux, puis te tourne le dos.",
-      "« Le subrécargue, dit-il au vent. Vous logerez à l'arrière. Vous ne touchez pas aux manœuvres, vous ne parlez pas aux hommes de quart, et vous ne descendez pas dans ma cale sans me prévenir. »",
+      "Tu montes la planche avec le manifeste sous le bras. Sur le pont, tout le monde travaille et personne ne lève la tête, à une exception près : un homme debout près de la barre, soixante ans passés, barbe blanche taillée court, une tache de vin sur la tempe, un chapeau noir enfoncé jusqu'aux sourcils. Le capitaine Ysembart Coët te détaille de la tête aux pieds, avec le soin qu'on met à vérifier un cordage douteux, puis te tourne le dos ; et ce dos, large et noir, t'apprend le résultat de l'examen.",
+      "« Le subrécargue, dit-il au vent. Vous logerez à l'arrière. Vous ne touchez pas aux manœuvres, vous ne parlez pas aux hommes de quart, et vous ne descendez pas dans ma cale sans me prévenir. J'ai porté dans ma vie des moutons, des barriques et un percepteur ; les moutons seuls ne m'ont causé aucun ennui. Tâchez de leur ressembler. »",
       "Un autre homme vient à toi, la main tendue : trente-huit ans, beau, une fine cicatrice au menton, des yeux très bleus, une veste de drap bleu à boutons de corne. « Morvan Le Hir, le second. Ne fais pas attention au capitaine, il est comme ça avec tout le monde. Avec moi aussi, depuis douze ans. » Il rit, et les matelots autour de lui sourient avec lui, d'un même mouvement.",
       { with: "gabin", text: "Le second aperçoit Gabin derrière toi, et son visage change. Il le prend aux épaules. « Le fils d'Hervé. Tu as grandi. » Gabin rougit et cherche une réponse qui ne vient pas. Plus tard, il te dira que Morvan Le Hir était le second de son père, et le dernier à l'avoir vu vivant." },
-      "Morvan te présente l'équipage comme on présente sa famille. Guénolé Le Bihan, le maître d'équipage, les bras couverts d'ancres tatouées ; Yves Kerlo, le timonier, qui touche son bonnet en silence ; Rozenn Le Dû, la cuisinière, qui passe la tête par l'écoutille de la cambuse et la retire aussitôt ; Maître Daoulas, le chirurgien, des lunettes cerclées de fer et une main moite qu'il te tend comme un objet prêté. En haut des haubans, un gamin roux vous regarde, assis sur une vergue, les jambes dans le vide.",
+      "Morvan te présente l'équipage comme on présente sa famille. Guénolé Le Bihan, le maître d'équipage, les bras couverts d'ancres tatouées ; Yves Kerlo, le timonier, qui touche son bonnet en silence ; Rozenn Le Dû, la cuisinière, qui passe la tête par l'écoutille de la cambuse et la retire aussitôt, en femme qui a vu assez de subrécargues pour une vie entière ; Maître Daoulas, le chirurgien, des lunettes cerclées de fer et une main moite qu'il te tend comme un objet prêté. En haut des haubans, un gamin roux vous regarde, assis sur une vergue, les jambes dans le vide.",
       "« Et la charpentière, Armelle, est en bas, dit le second. Elle se dispute avec une pompe. Ne la dérange pas. »",
     ],
     fx: { meet: ["coet", "morvan", "guenole", "kerlo", "rozenn", "daoulas"], regard: { morvan: "cordial" } },
@@ -162,7 +162,7 @@ module.exports = {
   V_assurances: {
     act: "I", title: "La Chambre des Assurances", place: "aubier_ville",
     text: [
-      "La Chambre des Assurances de Port-Aubier tient dans une grande salle dallée de noir et de blanc, où des messieurs en perruque parlent à voix basse devant un tableau noir couvert de noms de navires et de chiffres. Au mur pend une cloche de bronze. On la sonne une fois, une seule, quand un navire est perdu, et sa corde est usée à hauteur de main.",
+      "La Chambre des Assurances de Port-Aubier tient dans une grande salle dallée de noir et de blanc, où des messieurs en perruque parlent à voix basse devant un tableau noir couvert de noms de navires et de chiffres ; on y parie sur les naufrages avec le recueillement qu'on met ailleurs à prier contre eux. Au mur pend une cloche de bronze. On la sonne une fois, une seule, quand un navire est perdu, et sa corde est usée à hauteur de main.",
       "Derrière un grillage de cuivre, une greffière d'une trentaine d'années, lunettes et manchettes de lustrine, recopie un registre d'une écriture si régulière qu'on la croirait imprimée. Une plaque de bois porte son nom : P. Dornac.",
       "Tu te présentes : le subrécargue de la Sterne. Elle lève les yeux. « La Sterne, de la maison Corbière. » Elle le dit de mémoire, son registre fermé.",
     ],
@@ -193,8 +193,8 @@ module.exports = {
   V_haudry: {
     act: "I", title: "L'apothicairerie", place: "aubier_ville", shop: "haudry", back: true,
     text: [
-      { first: true, text: "L'apothicairerie de Maître Haudry est une boutique tapissée de bocaux de faïence bleue, de pots de grès et de tiroirs étiquetés en latin. Ça sent le camphre, la cire et la réglisse. Maître Haudry, gros et barbu, broie quelque chose dans un mortier en chantonnant faux." },
-      { first: true, text: "« Pour la mer ? De l'onguent, de l'eau-de-vie, du sel de corne de cerf pour les évanouissements. » Il s'interrompt. « Vous êtes de quel navire ? La Sterne ? Ah ! Votre second est passé avant-hier. Un homme charmant. Une once de feuilles de digitale séchées, pour le cœur de son capitaine. Dites-lui bien, au capitaine, une pincée dans un bol, pas plus, et pas tous les jours. La digitale, c'est le remède et le poison dans la même feuille. » Il rit, et reprend son mortier." },
+      { first: true, text: "L'apothicairerie de Maître Haudry est une boutique tapissée de bocaux de faïence bleue, de pots de grès et de tiroirs étiquetés en latin, langue commode, qui permet de vendre du chiendent au prix de la rhubarbe. Ça sent le camphre, la cire et la réglisse. Maître Haudry, gros et barbu, broie quelque chose dans un mortier en chantonnant faux." },
+      { first: true, text: "« Pour la mer ? De l'onguent, de l'eau-de-vie, du sel de corne de cerf pour les évanouissements. Mes confrères de la ville haute vous proposeraient de la poudre de vipère ; moi, je vends ce qui guérit, et ils me le pardonnent mal. » Il s'interrompt. « Vous êtes de quel navire ? La Sterne ? Ah ! Votre second est passé avant-hier. Un homme charmant. Une once de feuilles de digitale séchées, pour le cœur de son capitaine. Dites-lui bien, au capitaine, une pincée dans un bol, pas plus, et pas tous les jours. La digitale, c'est le remède et le poison dans la même feuille. » Il rit, et reprend son mortier." },
       { again: true, text: "Maître Haudry lève la tête de son mortier et te salue d'un geste de son pilon." },
     ],
     fx: { meet: "haudry", clue: "c_digitale" },
@@ -266,7 +266,7 @@ module.exports = {
   G_auberge: {
     act: "I", title: "L'auberge du Cormoran", place: "gavre", back: true, rumeur: "gavre", taverne: { mise: 3, adversaire: "un pêcheur de homards" },
     text: [
-      { first: true, text: "Le Cormoran est une salle basse au plafond noirci, où des pêcheurs en vareuse boivent du cidre chaud autour d'une cheminée qui fume dans la pièce plus que dans le conduit. Derrière le comptoir, une grande femme aux cheveux gris tressés, Mère Ozanne, essuie des bols sans les regarder." },
+      { first: true, text: "Le Cormoran est une salle basse au plafond noirci, où des pêcheurs en vareuse boivent du cidre chaud autour d'une cheminée qui fume dans la pièce plus que dans le conduit. Derrière le comptoir, une grande femme aux cheveux gris tressés, Mère Ozanne, essuie des bols sans les regarder, avec la majesté d'un juge qui connaît déjà le verdict." },
       { again: true, text: "Le Cormoran, sa fumée, ses pêcheurs, et Mère Ozanne à son comptoir." },
     ],
     choices: [
@@ -289,7 +289,7 @@ module.exports = {
     title: "Le pilote", place: "gavre",
     text: [
       "Il faut deux seaux d'eau du puits, un pot de café noir et une heure de marche sur le môle, Tréguer pendu à ton épaule. Il vomit deux fois dans le port. Puis il s'arrête, regarde la Sterne, et dit d'une voix enrouée : « C'est le navire de Corbière, ça. Le jaune. »",
-      "Il se tait longtemps. « Mon fils était gabier sur la Bergeronnette. » Il crache. « Je viens. Je passerai ta Sterne entre les Dents, et je la poserai à Marbecq comme un œuf dans un panier. Et je veux voir la tête de ton second quand je monterai la planche. »",
+      "Il se tait longtemps. « Mon fils était gabier sur la Bergeronnette. » Il crache. « Je viens. Je passerai ta Sterne entre les Dents, et je la poserai à Marbecq comme un œuf dans un panier. Ivre, je pilote mieux que la moitié des pilotes du roi à jeun ; et je serai à jeun. Et je veux voir la tête de ton second quand je monterai la planche. »",
     ],
     fx: { flag: ["treguer:abord", "dents:passe"], quest: "I_pilote", regard: { treguer: "redevable" }, ep: ["seance", 800] },
     choices: [{ label: "Le ramener à bord", to: "G_treguer_bord" }],
@@ -338,7 +338,7 @@ module.exports = {
   G_chapelle: {
     act: "I", title: "La chapelle des noyés", place: "gavre",
     text: [
-      "La chapelle est une nef basse blanchie à la chaux, dont les seuls ornements sont ses ex-voto : des maquettes de navires pendues à la voûte par des fils, des tableaux naïfs de tempêtes, des béquilles, une ancre rouillée. Le long des murs, des plaques de bois peint portent des listes de noms, navire par navire, comme les pages d'un registre qu'on aurait clouées.",
+      "La chapelle est une nef basse blanchie à la chaux, froide comme une cale, où le vent du large entre par la porte et fait tourner lentement, au bout de leurs fils, les maquettes de navires pendues à la voûte ; elles naviguent ainsi depuis des générations, toutes voiles dehors, au-dessus des têtes de ceux qui prient pour les vrais. Les autres ex-voto couvrent les murs : des tableaux naïfs de tempêtes, des béquilles, une ancre rouillée. Plus bas, des plaques de bois peint portent des listes de noms, navire par navire, comme les pages d'un registre qu'on aurait clouées ; et la mer, à en juger par leur longueur, tient ses comptes avec plus d'exactitude que bien des notaires.",
       "Une plaque récente, encore claire, attire ton regard. *La Bergeronnette, trois-mâts de la maison Corbière, perdue corps et biens sur les Dents de Morgue, la nuit du 3e jour de l'équinoxe, il y a deux ans.* Tu comptes les noms des noyés : vingt-six.",
       "En dessous, plus petit : *Rescapés, arrivés à Marbecq en chaloupe le 6e jour.* Cinq noms. Le premier est *M. Le Hir, second*.",
       { with: "gabin", text: "Gabin s'est arrêté devant la même plaque. Il pose le doigt sur un nom, au milieu de la liste des noyés : *Hervé Corbière, armateur, passager*. Il reste un long moment ainsi, en silence, puis il retire sa main et l'essuie sur son manteau." },
@@ -353,7 +353,7 @@ module.exports = {
     act: "I", title: "Le départ de Gavre", place: "pont",
     text: [
       { if: { is: { terre: "oui" } }, text: "Le coup de canon du départ te rappelle à bord. Tu montes la planche en courant, et on la tire derrière tes talons." },
-      "À six heures, la Sterne quitte Gavre. La chapelle blanche reste longtemps en vue sur sa pointe, puis la nuit l'efface. Devant, il reste le large, et au bout du large, la mer des Brumes.",
+      "À six heures, la Sterne quitte Gavre. La chapelle blanche reste longtemps en vue sur sa pointe, pâle et obstinée dans le crépuscule ; puis la nuit l'efface, comme elle efface tout. Devant, il reste le large, et au bout du large, la mer des Brumes.",
       { if: { has: "treguer:abord" }, text: "Tréguer s'est installé sur un rouleau de cordage près de la barre, et cette place sera désormais la sienne. Il regarde les étoiles sortir une à une, et les nomme à mi-voix, comme on fait l'appel." },
       { if: { not: { has: "treguer:abord" } }, text: "Le capitaine Coët fait le tour du pont, la mâchoire serrée. Le pilote manque à bord. Selon le second, Tréguer refuse de rembarquer, et lui-même connaît la passe aussi bien que le vieux pilote." },
     ],

@@ -16,7 +16,7 @@ module.exports = {
   I_rambert: { act: A, title: "Le patient du mardi", place: "hauteville", fx: { time: 0.5 },
     text: [
       "Tu caches le paquet derrière les bocaux de sangsues, tu mets ton manteau et tu prends ta trousse. Au pont, le sergent Brasseur te laisse passer : tu montes, et tu as les mains vides.",
-      "Le corps de garde est au pied de la tour du guet. Le capitaine Rambert te reçoit dans son bureau, une pièce chaude, avec un tapis et un fauteuil de cuir. Il est en robe de chambre. Il a les joues roses et les ongles faits.",
+      "Le corps de garde est au pied de la tour du guet. Le capitaine Rambert te reçoit dans son bureau, une pièce chaude, avec un tapis et un fauteuil de cuir ; ses hommes battent le pavé du pont, et leur capitaine s'en console très bien. Il est en robe de chambre. Il a les joues roses et les ongles faits.",
       "« Madame Saunier ! Ce n'est pas mardi. »",
       "Depuis deux ans, chaque mardi, tu lui apportes une boîte de pilules bleues, au mercure, et tu lui regardes la gorge. Sa femme le croit soigné pour l'estomac. Toi seule sais de quoi il est soigné. C'est le métier : on te confie le corps, et le secret avec.",
       "Tu poses la boîte de pilules sur son bureau. Tu gardes la main dessus.",
@@ -26,7 +26,7 @@ module.exports = {
     ] },
   I_rambert_cede: { act: A, title: "La garde levée", place: "hauteville", fx: { time: 0.5 },
     text: [
-      "Rambert garde longtemps le silence. Ses joues ont perdu leur rose. Il regarde la boîte sous ta main.",
+      "Rambert se tait longtemps. Ses joues ont perdu leur rose. Il regarde la boîte sous ta main.",
       "« Corlay me paie, dit-il enfin, à voix basse. Il saura que j'ai levé le pont. »",
       "« Dites-lui qu'il ne s'est rien passé sur le pont. Ce sera vrai. »",
       "Il appelle son ordonnance. Il dicte un ordre au sergent Brasseur : rentrer au poste avec ses hommes, le pont est libre. Il signe. Ses yeux évitent les tiens.",

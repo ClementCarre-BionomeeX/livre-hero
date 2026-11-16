@@ -34,9 +34,9 @@ module.exports = {
   H_salle: {
     title: "La grande salle", place: "salle", hub: true, backName: "la grande salle",
     text: [
-      { first: true, text: "La grande salle tient tout le rez-de-chaussée côté vallée : un plafond bas à poutres noires, une cheminée où l'on entrerait debout, la longue table où l'on a mangé à douze les jours de battage. Contre le mur, la pendule de ton grand-père a les aiguilles arrêtées sur minuit vingt. Le miroir au-dessus du buffet est couvert d'un drap noir." },
+      { first: true, text: "La grande salle tient tout le rez-de-chaussée côté vallée : un plafond bas à poutres noires, une cheminée où l'on entrerait debout, la longue table où l'on a mangé à douze les jours de battage, et qui paraît deux fois plus longue depuis qu'on n'en occupe plus qu'un bout. Contre le mur, la pendule de ton grand-père a les aiguilles arrêtées sur minuit vingt. Le miroir au-dessus du buffet est couvert d'un drap noir." },
       { again: true, when: "day", text: "La grande salle, le feu, la table. Par les fenêtres, la neige efface la vallée." },
-      { again: true, when: "night", text: "La grande salle à la nuit : le feu baisse, la lampe à huile fait un rond jaune sur la table, et tout le reste de la pièce appartient aux ombres." },
+      { again: true, when: "night", text: "La grande salle à la nuit : le feu baisse, la lampe à huile fait un rond jaune sur la table, et tout le reste de la pièce appartient aux ombres ; elles montent le long des poutres, s'épaississent dans les angles, et le drap du miroir y fait un rectangle plus noir encore, où l'œil revient malgré lui." },
       { after: "B_lampe", before: "C_matin", once: true, text: "Depuis la tempête, on a remplacé la lampe par des chandelles. Il en coule sur la table, en petites flaques blanches." },
       { after: "M_cheminee_brule", text: "Dans la cheminée, au fond, un reste de papier noirci s'est pris dans les cendres." },
     ],
@@ -226,7 +226,7 @@ module.exports = {
     text: [
       { first: true, text: "L'escalier de bois tourne deux fois et débouche sur le long couloir de l'étage, celui où vous couriez en chaussettes, Lucien et toi, pour glisser jusqu'au bout. Six portes : la chambre de ta mère, au fond ; la chambre d'Odile et de Germain ; la chambre d'amis, où l'on a mis le docteur ; la petite chambre de couture, où dort Jeanne ; ta chambre d'enfant ; et la chambre de Lucien, fermée à clef." },
       { again: true, text: "Le couloir de l'étage, ses six portes, le plancher qui craque à la troisième latte." },
-      { when: "night", text: "Une veilleuse brûle au bout du couloir, devant la porte de ta mère. Partout ailleurs, le noir." },
+      { when: "night", text: "Une veilleuse brûle au bout du couloir, devant la porte de ta mère, petite flamme rouge qui éclaire juste assez pour montrer combien le couloir est long. Partout ailleurs, le noir ; les cinq autres portes s'y devinent au toucher, et la maison, autour de toi, craque et se tasse sous le poids de la neige." },
     ],
     choices: [
       { label: "Entrer dans ta chambre d'enfant", to: "K_ma_chambre" },
@@ -388,7 +388,7 @@ module.exports = {
     text: [
       { first: true, text: "La cour est un carré de neige piétinée entre la maison, la grange et le bûcher. En contrebas, sur le ruisseau, la scierie : un long hangar de planches noires, la grande roue à aubes prise dans la glace, les piles de grumes sous leur capuchon blanc. Plus loin, derrière le jardin, un sentier descend entre les saules vers l'étang." },
       { again: true, when: "day", text: "La cour, la neige, la scierie muette sur le ruisseau gelé." },
-      { again: true, when: "night", text: "La cour, la nuit. La neige éclaire un peu d'elle-même. Les fenêtres de la maison sont des carrés jaunes, et au-delà, plus rien." },
+      { again: true, when: "night", text: "La cour, la nuit. La neige éclaire un peu d'elle-même, d'une lueur bleue et morte qui dessine la grange, le bûcher, et le toit de la scierie en contrebas. Les fenêtres de la maison sont des carrés jaunes ; au-delà, la montagne et la vallée ont disparu, et le monde s'arrête à la barrière du jardin." },
       { after: "C_matin", text: "Le ciel s'est dégagé. On entend, très loin dans la vallée, des voix d'hommes et des pelles : on dégage la route, depuis Saint-Amans." },
     ],
     choices: [
@@ -420,7 +420,7 @@ module.exports = {
       { first: true, text: "L'étang est un ovale de glace grise, grand comme deux prés, fermé par des saules qui laissent tomber leurs branches jusqu'au sol. La neige le recouvre à demi. À l'autre bout, la cabane aux barques, son toit effondré d'un côté. Et près de la berge du nord, là où sort la source, une tache sombre que la neige ne couvre jamais : l'eau qui bouge sous la glace, et la glace plus mince." },
       { first: true, text: "Tu ne voulais pas descendre ici. Tes jambes l'ont fait sans toi." },
       { again: true, when: "day", text: "L'étang, la glace grise, la tache sombre de la source." },
-      { when: "night", text: "La nuit, l'étang n'est plus qu'une plaque pâle sous les saules noirs. La glace craque de temps en temps, un bruit long qui court d'une rive à l'autre." },
+      { when: "night", text: "La nuit, l'étang n'est plus qu'une plaque pâle sous les saules noirs. La glace craque de temps en temps, un bruit long qui court d'une rive à l'autre et meurt du côté de la source ; après lui, le silence est si entier que tu entends la neige glisser des branches." },
       { trouble: true, text: "Tu entends, très loin sous la glace, quelque chose qui frappe. Trois petits coups. Tu retiens ton souffle. Plus rien." },
     ],
     fx: { angoisse: 1 },
