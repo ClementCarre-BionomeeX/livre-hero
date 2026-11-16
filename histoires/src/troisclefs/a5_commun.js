@@ -1,0 +1,511 @@
+// Les Trois Clefs d'Aiguemorne · act V, the common opening: back to Aiguemorne on the eve of the Saint-Éloi (30/11).
+// The hill, Fifrelin's boat, the hiding place (the dead Winder's house, under the rampart), the eve (hub): the dream,
+// Loridan at the chapel, what the vote of act IV leads to, the Bas-Fonds by lantern light, Crochemore and the forty
+// clocks. Then the night, and the council (posts `a5`), chaired from prison by a letter of the Douairière.
+// Shared marks set here (all three read the same pages): monde:a5:elle (her answer, the plinth known beforehand),
+// monde:a5:loi (the provost will stand under the Tower with clerks), monde:cadenas:treve, monde:a5:comte (the count
+// will hold the stairs), monde:a5:macon (the mason is ordered for nine). Personal: a5:lor_*, a5:reve.
+var INT = function (o) { return { scrutin: "intention_a4", is: o }; };
+var VOIR = { not: { any: [INT("elle"), INT("loi"), INT("comte")] } };
+var CAD_OUVERT = { any: [{ has: "monde:cadenas:allie" }, { has: "monde:cadenas:aveu" }, { has: "monde:cadenas:dossier" }, { has: "monde:cadenas:doute2" }] };
+var COMTE_AVEC = { any: [{ has: "monde:a4:reponse=non" }, { has: "monde:a4:vie_due" }, { has: "monde:brandelis:parole" }, { has: "monde:a4:comte_libre" }] };
+module.exports = {
+  passages: {
+    A5c_retour: { act: "V", title: "Trente mille lanternes", place: "croixdefer", ambiance: "plaine",
+      fx: { until: 17, catchup: 17, catchupWhy: "vingt jours de route" },
+      text: [
+        "Vous revoyez Aiguemorne le 30 novembre, à la tombée du jour, du haut de la Croix-de-Fer, où vous l'aviez quittée par une nuit de brouillard avec un mort derrière vous et le guet aux trousses. Il y a six semaines de cela. On dirait six ans.",
+        "Le piton sort de la plaine comme un poing. La Morne et l'Aigue se rejoignent à son pied, noires toutes deux, et la ville monte par-dessus en trois étages, les ateliers, les enseignes, les remparts ; tout en haut, la Tour de l'Horloge-Close lève dans le dernier jour son cadran sans aiguilles, cette grande face pâle où il y a des heures et rien qui les montre.",
+        "Puis la ville s'allume. Cela commence par le bas, au ras de l'eau : un point, dix, cent. Cela gagne de rue en rue, par traînées, comme le feu prend à une lettre. Maître Crochemore a ôté son chapeau.",
+        "« La veille des Clefs, dit-il. Chaque maison pend sa lanterne à sa porte, avec la clef de la maison dedans, au bout d'un fil. On laisse sa porte ouverte toute la nuit. C'est le seul soir de sept années où cette ville dorme sans verrou. » Il se mouche. « Mon père me portait sur ses épaules pour voir cela. Je trouvais que nous avions la plus belle. »",
+        "Trente mille lanternes, et dans chacune une clef qui brille. La ville entière est accrochée là, par petites flammes, sous une tour aveugle.",
+        "Aux trois portes, il y a des casaques bleues, des torches, et une affiche neuve que l'on distingue d'ici par sa blancheur. Vous savez ce qu'elle dit. La route s'arrête donc à cette croix. Le reste se fera par l'eau : au moulin de la Morne, à un quart de lieue en amont, quelqu'un doit attendre avec un bachot depuis trois soirs.",
+      ],
+      choices: [{ label: "Descendre vers le moulin, par les saules", to: "A5c_barque", big: true }] },
+
+    A5c_barque: { act: "V", title: "Le bachot", place: "basfonds", ambiance: "eau",
+      text: [
+        "Il attend sous la roue, assis sur le plat-bord, les pieds dans le vide. Il a grandi d'un pouce en six semaines, comme font les enfants dès qu'on a le dos tourné, et il a coupé les manches de sa veste d'homme au lieu de les rouler.",
+        "« Trois soirs, dit Fifrelin. Trois soirs que je me gèle. Vous avez pris par où, par la Chine ? »",
+        "Il vous regarde monter, l'un après l'autre, en comptant sur ses doigts jusqu'à trois ; au quatrième, qui est un horloger en habit puce et qui manque de tomber à l'eau, il siffle entre ses dents. Puis il pousse du fond, et le bachot glisse sous les saules, sans une rame, au fil d'une rivière qu'il connaît caillou par caillou.",
+        "La Morne entre en ville par une arche basse, sous le rempart, entre deux grilles dont l'une est levée ce soir pour les barques à poisson. Fifrelin vous fait coucher sous une bâche qui sent la carpe. On entend au-dessus de soi un pas de factionnaire, un bâillement, une voix qui demande l'heure ; puis l'écho change, l'air s'épaissit de fumée de tourbe et de limaille mouillée, et l'on sait, les yeux fermés, que l'on est rentré dans les Bas-Fonds.",
+        "Il parle bas, sans tourner la tête, en homme qui fait son rapport.",
+      ],
+      choices: [
+        { label: "« La vieille ? »", to: "A5c_fif_berlue", once: true },
+        { label: "« La ville ? »", to: "A5c_fif_ville", once: true },
+        { label: "« Et la maison ? »", to: "A5c_fif_maison", once: true },
+        { label: "Le laisser mener, jusqu'où il vous mène", to: "A5c_planque", big: true },
+      ] },
+
+    A5c_fif_berlue: { act: "V", title: "La cellule de la Lanterne", place: "basfonds", ambiance: "eau",
+      text: [
+        "« Aux Plombs. Troisième étage, au bout, la cellule de la Lanterne : c'est celle qui a la fenêtre sur le chemin de ronde, et le réverbère juste devant. On y met ceux qu'on veut voir dormir. » Il crache dans l'eau. « Elle dort très bien. C'est le guichetier qui a maigri. »",
+        "Il raconte cela avec un orgueil de neveu. Marjolaine Berlue est entrée aux Plombs le lendemain de votre départ, entre quatre casaques, son trousseau à la ceinture ; on le lui a ôté, on a compté dessus soixante-trois clefs, et le greffier a dû ouvrir un cahier exprès. Depuis, elle tricote. Elle a fait changer sa paillasse, puis son geôlier. Elle reçoit le dimanche, par la grille, des dames du marché qui lui portent des œufs et en remportent des conseils.",
+        "« Elle me fait passer ses ordres dans le linge. La lavandière des Plombs me doit quelque chose, je vous dirai pas quoi. » Il tire de sa chemise un torchon plié en huit. « Le dernier, c'est d'avant-hier. Je sais pas lire, alors elle fait des dessins. »",
+        "Sur le torchon, au charbon : trois oiseaux sur une branche ; une maison barrée ; une autre maison, avec quarante petits ronds dedans ; et un seul mot, en capitales, qu'elle a dû juger à sa portée. *APRÈS.*",
+        "« Je lui ai fait demander quand on la sortait. Elle a renvoyé ça. *Après.* » Il hausse une épaule. « Elle dit qu'elle est très bien où elle est, qu'elle a la plus belle fenêtre de la ville sur ce qui va se passer, et que si un de vous monte la chercher avant l'heure, elle le déshérite. »",
+      ],
+      choices: [{ back: "A5c_barque" }] },
+
+    A5c_fif_ville: { act: "V", title: "Trois cortèges", place: "basfonds", ambiance: "eau",
+      text: [
+        "« Pleine. On a jamais vu autant de monde, et tous ces gens-là se regardent de travers. »",
+        "Les trois Clavaires sont rentrés, chacun par sa porte, à trois jours différents, comme le veut l'usage. Le Syndic le premier, par la porte du Nord, avec quarante casaques rousses et des chariots bâchés que l'on a montés droit à la citadelle. Monseigneur d'Ossevaux par la porte du Midi, en litière fermée, derrière ses hallebardes noires ; il loge à l'évêché de la Ville-Haute, où l'on a tendu les fenêtres. Le Connétable le dernier, hier, par la porte du Couchant, à cheval, en saluant les femmes. « Lui, on l'a applaudi. Il doit de l'argent à la moitié de la rue des Ferronniers, et ils l'applaudissent. »",
+        { if: { has: "monde:a4:comte_blesse" }, text: "« Il avait le bras en écharpe. Ça lui allait bien. Il y a des gens à qui tout va. »" },
+        "« Et puis il y a les autres. Ceux qu'on attendait pas. »",
+        { if: { has: "monde:mineurs:allies" }, text: "« Trente bonshommes de Ferrières, gris comme des rats, avec une grande femme à cheveux blancs qui les mène. Ils ont fait la route à pied. Ils campent au quai aux Fers et ils parlent à personne ; mais ils ont demandé où logeait la maison Berlue, poliment, comme on demande une adresse d'amis. »" },
+        { if: { has: "monde:mineurs:trahis" }, text: "« Trente bonshommes de Ferrières, gris comme des rats, avec une grande femme à cheveux blancs qui les mène. Ils campent au quai aux Fers. Ils ont demandé où logeait la maison Berlue. » Il vous regarde de côté. « Pas poliment. »" },
+        { if: { has: "monde:pleureuses:alliees" }, text: "« Quarante bonnes femmes en noir, descendues du coche d'Ossevaux, avec une patronne qui a un lorgnon au bout d'un manche. Elles ont loué le lavoir des Tanneurs pour trois jours, payé d'avance. Elles répètent. On les entend du pont : ça vous retourne l'estomac, c'est superbe. »" },
+        { if: { has: "monde:douce:alliee" }, text: "« Et Sans-Bruit est rentrée. Seule, sans ses hommes, par les toits. Elle a passé hier devant la Clef Tordue, elle a regardé les scellés, et elle a ôté un gant. Je l'avais jamais vue ôter un gant. »" },
+        { if: { has: "monde:douce:doyen" }, text: "« Et les Gants-Noirs sont rentrés. Ils logent à l'évêché, par la porte de derrière, avec les hallebardes. Depuis quand Sans-Bruit va à la messe, je vous le demande. »" },
+        "Il godille un moment sans rien dire.",
+        "« Ici, en bas, on cause. On cause du vieux Balancier, qu'on aimait bien. On cause de la vieille, qu'on aime pas, mais qui est à nous. Et on cause d'une chose que j'ai pas comprise : il paraît que cette année le Bronze va nommer un Gouverneur *pour toujours*. Le père Cubizolle, le chaînetier, dit qu'un juge qui nomme pour toujours, c'est un juge qui a envie de prendre sa retraite. Tout le quai a ri. Ils riaient jaune. »",
+      ],
+      choices: [{ back: "A5c_barque" }] },
+
+    A5c_fif_maison: { act: "V", title: "Les scellés", place: "basfonds", ambiance: "eau",
+      text: [
+        "Le bachot passe devant elle au même instant, et le gamin se tait, parce qu'il n'y a rien à ajouter.",
+        "La Clef Tordue est noire. C'est la seule façade du quai qui n'ait pas de lumière aux fenêtres. Sur la porte, deux bandes de toile en croix, avec le cachet du guet à chaque bout, comme on en met aux maisons de pestiférés. L'enseigne pend toujours à sa potence, la grande clef de fer forgé que le premier mari de la Douairière avait tordue lui-même, dit-on, un soir de colère, et qu'elle avait gardée par économie.",
+        "À la potence, sous l'enseigne, quelqu'un a accroché une lanterne. Elle brûle, petite, jaune, avec sa clef dedans au bout d'un fil.",
+        "« C'est pas moi, dit Fifrelin. Je l'ai trouvée là ce soir. Le guet l'a décrochée à six heures ; à sept, il y en avait une autre. » Il renifle. « Dans cette rue-là, une maison sans lanterne la veille des Clefs, ça porte malheur à tout le pâté. Ils l'ont pas fait pour elle. Ils l'ont fait pour eux. »",
+        "On regarde cette petite flamme s'éloigner, à l'arrière, jusqu'au tournant du quai.",
+      ],
+      choices: [{ back: "A5c_barque" }] },
+
+    // ───────────────────────────── The hiding place ─────────────────────────────
+    A5c_planque: { act: "V", title: "Quarante horloges arrêtées", place: "poids", ambiance: "nuit",
+      fx: { until: 19 },
+      text: [
+        "Il vous débarque à l'escalier des Teinturiers et vous mène par des venelles où l'on marche de profil. Cela monte. On passe sous des linges, sous des passerelles, sous un chat. On débouche au pied du rempart, dans une fente entre six maisons noires, et vous reconnaissez l'endroit avant qu'il ait rien dit.",
+        "« L'impasse des Poids, souffle Fifrelin. C'est la vieille qui a trouvé. Elle dit : *le guet cherche partout, sauf où il a déjà cherché.* »",
+        "La maison du Remonteur est au fond. Elle a ses scellés, elle aussi ; mais Fifrelin passe par la cour, par un soupirail dont la barre tourne, et vous montez derrière lui un escalier que vous avez descendu une fois, très vite.",
+        "L'atelier est tel qu'on l'a laissé. On a emporté le corps, la burette, et la lampe. On a laissé le reste, parce que le reste n'intéressait pas la justice : l'établi avec sa tache, les limes rangées par taille, et sur les quatre murs, du plancher aux solives, les quarante horloges.",
+        "Elles sont mortes. Personne n'est venu les remonter. Elles se sont arrêtées l'une après l'autre, dans les jours qui ont suivi, chacune à son heure, selon ce qu'il lui restait de corde ; et elles montrent à présent quarante heures différentes, immobiles, dans un silence que cette pièce n'avait pas connu depuis quarante ans. On se rappelle la foule de balanciers, le soir du meurtre. C'est la même foule. Elle a cessé de respirer.",
+        "Maître Crochemore reste sur le seuil, son sac contre lui. Il regarde tout cela comme un médecin regarde une salle d'hôpital après une épidémie.",
+        "« Il les avait toutes à la seconde, dit-il enfin. Quarante. Je lui disais que c'était de l'orgueil. » Il pose le sac sur l'établi, à côté de la tache, sans y toucher. « Qu'on ne me demande pas d'en remonter une seule. Elles sonneraient. »",
+        "C'est là que vous passerez la dernière nuit : sous le rempart, à cent pas de la Tour, chez le seul homme de cette ville qui avait voulu dire la vérité.",
+      ],
+      choices: [{ label: "Poser les sacs", to: "A5c_veille", big: true }] },
+
+    A5c_veille: { act: "V", title: "La veille des Clefs", place: "poids", ambiance: "nuit", hub: true, backName: "l'atelier du Remonteur",
+      text: [
+        { first: true, text: "Fifrelin a apporté un pain, un fromage, une cruche, et trois pots de l'onguent de la Douairière, qu'il a sauvés de la cave avant les scellés en passant par où passent les chats. Il les aligne sur l'établi. « Elle a dit : un chacun. Elle a dit aussi que c'était compté. »" },
+        { first: true, text: "Par la lucarne, on voit le haut du rempart, un morceau de ciel, et, en se penchant, la Tour. Elle est toute proche. Elle monte dans la nuit au-dessus des trente mille lanternes sans en porter une seule, et son cadran nu reçoit d'en bas une lueur de four." },
+        { first: true, text: "Il reste une soirée. Chacun la prend comme il l'entend ; on se retrouve ici pour dormir." },
+        { again: true, text: "L'atelier du Remonteur, ses quarante cadrans arrêtés, l'établi. Par la lucarne, la Tour, sans une lumière, au-dessus de la ville allumée." },
+      ],
+      fx: { item: "onguent" },
+      choices: [
+        { label: "Sortir seul{e}, une heure, où tes pieds te mènent", to: "A5c_reve", once: true },
+        { label: "Monter à la chapelle Sainte-Clavis, où Loridan a dit qu'il serait", to: "A5c_loridan", once: true },
+        { label: "Aller où le vote du bac vous envoyait", to: "A5c_int", once: true },
+        { label: "Descendre voir les lanternes des Bas-Fonds", to: "A5c_bas_soir", once: true },
+        { label: "T'asseoir près de Maître Crochemore, qui ne se couche pas", to: "A5c_croch_soir", once: true },
+        { label: "Dormir, puisqu'il le faut", to: "A5c_nuit", big: true },
+      ] },
+
+    // ───────────────────────────── The dream, one last time ─────────────────────────────
+    A5c_reve: { act: "V", title: "Une heure à soi", place: "basfonds",
+      branch: [
+        { if: { is: { reve: "atelier" } }, to: "A5c_reve_atelier" },
+        { if: { is: { reve: "plombs" } }, to: "A5c_reve_plombs" },
+        { if: { is: { reve: "nom" } }, to: "A5c_reve_nom" },
+        { to: "A5c_reve_large" },
+      ] },
+
+    A5c_reve_atelier: { act: "V", title: "À louer", place: "ferronniers", ambiance: "ville",
+      fx: { ep: ["perso", 600], flag: "a5:reve" },
+      text: [
+        "Tu montes rue des Ferronniers, le col relevé, dans la foule de la veille. Personne ne regarde personne : on regarde les lanternes.",
+        "Elles pendent sous les enseignes, cent d'un côté, cent de l'autre, et le vent les fait tourner ensemble avec les fers. Chaque maître a mis à la sienne sa plus belle clef, la clef de chef-d'œuvre, celle qu'il a forgée à vingt ans devant les jurés ; on s'arrête pour les comparer, on se les montre du doigt, on dit *celle des Lambrequin a toujours eu trop de dents*.",
+        "Au milieu de la rue, côté du levant, il y a un trou dans la lumière. Une boutique étroite, volets clos. Au-dessus de la porte, une potence de fer forgé tend le bras dans le vide ; elle a ses deux crochets, sa volute, et rien au bout. Sur le volet, un papier : *À LOUER À LA SAINT-ÉLOI. Forge, soufflet, enclume du fonds. S'adresser au greffe des Maîtres.*",
+        "Tu restes devant. Tu sais ce que tu as dans ta ceinture, et ce que vaut un bail dans cette rue ; le compte tombe juste, pour la première fois de ta vie, avec de quoi acheter le charbon du premier hiver.",
+        "Quelqu'un a pendu une lanterne à la potence vide, par charité, comme à la maison de la Douairière. Elle éclaire le papier. Il y a dedans une clef de rien, une clef de cave, prêtée par un voisin.",
+        "Tu penses à deux lignes gravées de travers, au bord d'une plaque, dans une tour de Brandelis. Tu penses que demain, à cette heure, il y aura sous cette potence une enseigne à ton nom, ou bien une affiche avec ton nom dessus, et que ces deux papiers sortiront du même greffe.",
+        "Tu redescends. Derrière toi, la petite clef de cave tourne au bout de son fil.",
+      ],
+      choices: [{ back: "A5c_veille" }] },
+
+    A5c_reve_plombs: { act: "V", title: "Troisième étage", place: "citadelle", ambiance: "nuit",
+      fx: { ep: ["perso", 600], flag: "a5:reve" },
+      text: [
+        "Tu montes par le rempart du nord, où il y a un escalier de ronde que le guet abandonne à la nuit tombée. De la dernière marche, on a les Plombs à hauteur d'yeux, de l'autre côté d'un fossé sec.",
+        "Trois étages de petites fenêtres. Tu les connais par cœur ; tu les as comptées en septembre, de la cour, avec ce pas que le guichetier reconnaît. Celle que tu cherches est la sixième du deuxième rang. Elle n'a pas de lumière. On ne donne de chandelle aux débiteurs que s'ils la paient, et c'est porté sur leur dette.",
+        "Au troisième, tout au bout, il y en a une qui brille : un réverbère est planté devant, sur le chemin de ronde, et l'on voit derrière les barreaux une ombre droite, assise, dont les coudes vont et viennent. La Douairière tricote. Elle a toute la citadelle sous sa fenêtre, et elle lui tricote une paire de bas.",
+        "Deux des tiens sous le même toit. Tu avais fait ce calcul au grenier, un matin d'octobre, et tu l'avais trouvé amer. Ce soir, tu en fais un autre.",
+        "Trois cents écus. Tu les as sur toi, dix fois. Tu pourrais descendre au greffe des Plombs demain à l'ouverture, poser l'argent sur le comptoir, signer la levée d'écrou, et ressortir à neuf heures avec quelqu'un à ton bras, sous le nez de trois Clavaires. Seulement le greffier demande un nom à qui paie. Le tien est sur toutes les portes.",
+        "Il faut donc que la nuit de demain se passe bien. Il le faut pour une raison de plus que les deux autres ; et cette raison-là tousse, à la sixième fenêtre du deuxième rang, sans chandelle.",
+        "Tu attends qu'une quinte vienne. Elle vient. Tu la reconnais. Tu redescends avec cela.",
+      ],
+      choices: [{ back: "A5c_veille" }] },
+
+    A5c_reve_nom: { act: "V", title: "Le tour", place: "basfonds", ambiance: "ville",
+      fx: { ep: ["perso", 600], flag: "a5:reve" },
+      text: [
+        "Tes pieds te mènent où ils t'ont toujours mené : au bout du quai, là où la Morne fait un coude, devant le long bâtiment gris qui porte une cloche au pignon.",
+        "L'hospice de la Morne a sa lanterne, comme tout le monde. Elle est grande, de fer battu, et l'on y a mis la clef de la porte des Enfants : une clef énorme, usée, que tu as vue pendre à la ceinture de trois sœurs tourières l'une après l'autre.",
+        "Tu n'étais jamais revenu{e} la nuit. Tu lèves les yeux au linteau. Il y a là une inscription que tu as eue devant toi pendant douze ans, à chaque sortie en rang, et que tu n'avais jamais lue, parce qu'on ne lit pas les murs de sa maison.",
+        "*CETTE MAISON FUT FONDÉE PAR SENTENCE DU BRONZE, LA DEUXIÈME ANNÉE DE LA SIXIÈME SEPTAINE, SUR LE DENIER DES SERRURES, POUR QUE NUL ENFANT RENDU PAR LA MORNE NE SOIT SANS TOIT NI SANS CLEF.*",
+        "La sixième Septaine. Tu comptes. Cela fait quarante-trois ans.",
+        "À droite de la porte, dans le mur, il y a le tour. C'est une boîte de bois ronde, ouverte d'un côté, qui pivote sur un axe : on y pose ce qu'on apporte, on tire la cloche, on s'en va ; quelqu'un, de l'autre côté du mur, fait tourner la boîte et prend ce qu'il y trouve. Ni l'un ni l'autre ne se voient. Tu es entré{e} dans ce monde par là, un matin de février, avec une clef de fer au cou et un numéro.",
+        { if: { has: "a4:registre_promis" }, text: "Une femme t'a fait dire, au bord d'un fleuve, qu'elle gardait ton registre. Tu regardes cette boîte de bois, et tu te demandes dans quelle sorte de chambre on peut bien garder le registre de quelqu'un d'autre pendant tant d'années, et pour quelle raison l'on s'en donne la peine." },
+        "Tu poses la main sur le tour. Il tourne encore, sans un bruit : on le graisse.",
+      ],
+      choices: [{ back: "A5c_veille" }] },
+
+    A5c_reve_large: { act: "V", title: "Le Pont-aux-Clefs", place: "basfonds", ambiance: "eau",
+      fx: { ep: ["perso", 600], flag: "a5:reve" },
+      text: [
+        "Tu descends au Pont-aux-Clefs, parce que c'est le seul endroit de cette ville d'où l'on voit l'eau partir.",
+        "Les deux rivières se joignent sous la troisième arche. D'un côté la Morne, lente, brune, qui a lavé tous les ateliers ; de l'autre l'Aigue, verte et pressée, descendue des montagnes. Elles vont côte à côte pendant cent pas sans se mêler, puis elles renoncent, et c'est un seul fleuve qui s'en va vers le sud, sous les lanternes des dernières maisons, puis sous rien.",
+        "Aux parapets, il y a des clefs. Des milliers, rouillées, liées aux barreaux par des fils de fer : celles des gens qui ont quitté la ville. L'usage veut qu'on laisse là sa clef de baptême en partant, pour que la cité vous garde une porte. Tu en soulèves quelques-unes. Elles sont légères. La plupart ont perdu leur numéro.",
+        "Sous le pont, une gabarre est à quai, bâchée, chargée de serrures en caisses pour les ports. Un marinier fume à l'arrière, les pieds sur le gouvernail.",
+        "« On démarre le 2, à la pointe du jour, dit-il sans que tu aies rien demandé. Onze jours jusqu'à la mer. Je prends du monde, si le monde sait tenir une perche. » Il te regarde, puis il regarde ton cou. « Faudra laisser ça au parapet. C'est la coutume. Moi, la mienne y est depuis trente ans, et la ville se porte très bien sans moi. »",
+        "Le 2, à la pointe du jour. Tu calcules : cela fait une nuit après la nuit. Tu portes la main à ta clef de fer, et tu la laisses où elle est, pour un jour encore.",
+      ],
+      choices: [{ back: "A5c_veille" }] },
+
+    // ───────────────────────────── Loridan ─────────────────────────────
+    A5c_loridan: { act: "V", title: "L'offrande du Bronze", place: "citadelle", ambiance: "temple",
+      fx: { meet: "loridan" },
+      text: [
+        "La veille des Clefs, la citadelle ouvre sa cour jusqu'au couvre-feu, pour que le peuple monte toucher le seuil de la Tour. On y entre avec la foule, un cierge à la main, les yeux baissés ; c'est la tenue de tout le monde.",
+        "La chapelle Sainte-Clavis est pleine de petites flammes et de vieilles femmes. Au fond, à gauche de l'autel, il y a dans le mur une niche de pierre, fermée d'un demi-cylindre de chêne noirci par les mains. C'est le tour. Les gens le touchent en passant, du bout des doigts, et se signent.",
+        "Loridan est à genoux devant, sur la dalle, ses gants gris joints. Il a devant lui un panier couvert d'un linge.",
+        "« Le clerc m'a cédé son office pour ce soir, dit-il sans se retourner. Je le lui ai demandé comme une dévotion. Il a rougi. » Il pose le panier dans la niche : un pain, une écuelle couverte, un pichet. Sa main s'attarde sur le pain. Puis il pousse le chêne, qui tourne sans bruit et présente à la chapelle son dos plein. « Trente et un ans que je mets une lettre dans la mie. Celle-ci a quatre mots. *Ils sont dans la ville.* »",
+        "Il se relève. Ses genoux craquent.",
+        { if: { has: "monde:tour:mure" }, text: "« Regardez le bas de la niche. » Il y a là, contre le mur, sous une bâche, une auge de bois, un sac, et un tas de briques neuves, rangées comme des pains. « On les a montées ce matin. Le maçon est commandé pour demain, neuf heures, *après l'offrande de la veille et avant celle de midi*. C'est l'ordre du chapitre, signé des trois. Elle aura donc eu son dernier pain de ma main. Je n'avais pas prévu que cela me ferait quelque chose. »", else: "« Ils voulaient un maçon, dit-il plus bas. Il leur manque une signature. Cette niche tournera donc demain comme elle a tourné tous les jours depuis cent cinq ans ; et après-demain, cela dépend de vous. »" },
+        "« Écoutez, à présent, parce que c'est le dernier service que je sais vous rendre. Demain soir, la procession entre à la citadelle à dix heures et demie. À onze, les trois Clavaires passent cette porte, seuls, et s'agenouillent ici, chacun à son prie-Dieu, sans se regarder. Cela s'appelle la Veille. Elle dure jusqu'aux trois quarts. C'est la seule heure de sept années où ces trois hommes se taisent ensemble. Ensuite ils montent. »",
+        "« Ils ont cent quatre-vingts marches, et le plus jeune a cinquante-cinq ans. Vous aurez sur eux trois quarts d'heure et un étage. C'est tout ce que j'ai pu vous obtenir d'une liturgie. »",
+      ],
+      choices: [
+        { label: "« Et vous, demain soir ? »", to: "A5c_lor_lui", once: true },
+        { label: "« Que sait-elle de nous ? »", to: "A5c_lor_nous", once: true },
+        { label: "« Si elle demande une chose que l'on ne veut pas donner ? »", to: "A5c_lor_refus", once: true },
+        { label: "Le laisser à sa dalle", back: "A5c_veille" },
+      ] },
+
+    A5c_lor_lui: { act: "V", title: "Devant la niche", place: "citadelle", ambiance: "temple",
+      fx: { flag: "a5:lor_lui" },
+      text: [
+        "« Ici. » Il montre la dalle où il était. « J'y serai dès la nuit tombée. »",
+        { if: { has: "monde:tour:mure" }, text: "« Si le maçon vient à neuf heures, il me trouvera devant. Je ne suis pas un homme d'épée ; je suis un ancien clerc, de cinquante et un ans, qui a mal aux genoux. Mais il faut du temps pour déplacer quelqu'un qui prie, dans une chapelle, un jour de fête, devant des vieilles femmes. On hésite. On va chercher un supérieur. J'espère lui coûter une heure. »", else: "« Je ne suis bon à rien dans un escalier. Mais il faut que quelqu'un se tienne en bas, près de ce chêne, la nuit où l'on ouvre en haut. S'il se passe une chose qu'elle veuille dire et que vous n'ayez pas entendue, elle me la tournera. C'est notre seule conversation depuis trente et un ans ; elle est assez au point. »" },
+        "Il regarde ses gants.",
+        "« Vous vous êtes demandé pourquoi je les garde. C'est que j'ai été le clerc du plateau, à vingt ans. Un jour, par étourderie, j'ai laissé la main dans la niche pendant qu'elle tournait de son côté. Quelqu'un l'a touchée. Deux doigts, très froids, une seconde. » Il plie et déplie la main droite. « J'ai mis des gants le lendemain. Je me suis dit que si cette main-là devait retoucher quelque chose au monde, ce serait la même chose, ou rien. »",
+        "Il a dit cela de sa voix de sacristie, égale et basse, comme on lit un inventaire.",
+      ],
+      choices: [{ back: "A5c_loridan" }] },
+
+    A5c_lor_nous: { act: "V", title: "Trois noms dans la mie", place: "citadelle", ambiance: "temple",
+      fx: { flag: "a5:lor_nous" },
+      text: [
+        "« Tout ce que j'en sais ; et j'en sais plus que vous ne croyez, puisque je vous ai suivis d'auberge en auberge. Elle a vos trois noms. Elle sait qui de vous est descendu sous une fonderie, qui a pleuré à gages dans une cathédrale, qui a tenu la laisse d'un chien. Elle m'a fait recommencer Ferrières deux fois. »",
+        "Il a presque souri.",
+        "« Comprenez ce que c'est. Depuis quarante-cinq ans, on lui passe la ville par une fente : des procès, des comptes, des suppliques, sept causes tous les sept ans, toutes déjà mortes quand elles lui arrivent. Vous êtes la première histoire qu'elle ait suivie pendant qu'elle se faisait. Elle me réclamait la suite. »",
+        { if: { has: "monde:douce:alliee" }, text: "« Elle m'a demandé si cette demoiselle Malatrait aimait toujours la Douairière. J'ai répondu que je l'ignorais. Elle m'a écrit : *Sotte question, vous ne regardez jamais ces choses-là.* »" },
+        { if: { has: "monde:celeste:libre" }, text: "« Elle a voulu savoir ce qu'était devenue la fille du Syndic. Je le lui ai dit. Elle a renvoyé l'écuelle avec un mot : *En voilà une qui est sortie par la porte.* »" },
+        "« Il y a une chose qu'elle ne m'a jamais demandée : si vous étiez honnêtes. J'en ai conclu qu'elle le savait, ou que cela lui était égal. »",
+      ],
+      choices: [{ back: "A5c_loridan" }] },
+
+    A5c_lor_refus: { act: "V", title: "Une femme que l'on n'interrompt pas", place: "citadelle", ambiance: "temple",
+      fx: { flag: "a5:lor_refus" },
+      text: [
+        "Il met du temps à répondre. Autour de vous, les vieilles femmes passent, touchent le chêne, s'en vont.",
+        "« Alors vous le lui direz. En face. » Il baisse encore la voix. « Personne ne lui a dit non depuis qu'elle a vingt ans. Elle écrit, et une ville obéit, et ceux qui la haïssent obéissent les premiers. Je me suis souvent demandé ce que cela fait à quelqu'un. Je crois que cela rend très juste, et très seul, et qu'à la longue on ne distingue plus l'un de l'autre. »",
+        "« Elle a tranché deux cent quatre-vingts procès. Elle sait ce que pèse un refus : elle en a prononcé de terribles. Si vous lui en opposez un, elle le pèsera comme le reste, et elle vous dira s'il est bon. Je ne vous garantis pas qu'il lui plaira. »",
+        "Il reprend son cierge.",
+        "« Ne lui obéissez pas par pitié. C'est la seule injure qu'elle ne pardonnerait pas. Elle n'a pas eu pitié d'elle-même une seule fois, en quarante-cinq ans. Elle trouverait mauvais que des étrangers s'y mettent. »",
+      ],
+      choices: [{ back: "A5c_loridan" }] },
+
+    // ───────────────────────────── Where the vote of the ferry was sending the three ─────────────────────────────
+    A5c_int: { act: "V", title: "La première intention", place: "poids",
+      branch: [
+        { if: INT("elle"), to: "A5c_int_elle" },
+        { if: INT("loi"), to: "A5c_int_loi" },
+        { if: INT("comte"), to: "A5c_int_comte" },
+        { to: "A5c_int_voir" },
+      ] },
+
+    A5c_int_elle: { act: "V", title: "Quatre lignes dans une écuelle", place: "citadelle", ambiance: "temple",
+      fx: { flag: "monde:a5:elle", clue: "j5_socle", ep: ["histoire", 1500] },
+      text: [
+        "Vous aviez voté la plume, au bac : on irait à elle, et l'on ferait ce qu'elle dirait. Loridan a porté cela dans la mie d'un pain, il y a huit jours, avec une question : *que faut-il préparer ?*",
+        "La réponse est revenue ce soir. Savinien l'a trouvée en reprenant la vaisselle, pliée sous l'écuelle, et il l'a remise à l'homme aux gants gris sans la lire, en rougissant, comme il fait tout. Loridan vous la tend sous le porche, à la lueur des cierges.",
+        "C'est un carré de papier fort, écrit d'une encre très noire, d'une main droite, sans une reprise. On sent que celle qui écrit a l'habitude de n'avoir qu'une feuille.",
+        "*Vous ferez ce que je dirai ? Voilà une promesse que l'on m'a beaucoup faite. Gardez-la. Écoutez-moi, et faites ensuite ce que vous croirez : j'ai été assez obéie.*",
+        "*Puisque vous demandez ce qu'il faut savoir : la porte n'est que la porte. Vos trois clefs servent deux fois. Dans la chambre, le Bronze est assis sur un socle à trois pans, et chaque pan a son entrée, tournée vers un mur différent, de sorte que celui qui tourne ne voit pas les mains des deux autres. Maître Aubry connaissait ses Clavaires. Tant que les trois n'ont pas tourné ensemble, rien ne sonne, rien ne s'ouvre, et je reste où je suis.*",
+        "*Apportez de la lumière. La mienne est petite.*",
+        "Il n'y a pas de signature. Maître Crochemore relit le passage du socle, trois fois, en remuant les lèvres. « À trois pans, murmure-t-il. Tournés vers les murs. Le vieux brigand. Il a mis la méfiance dans le plan. »",
+      ],
+      choices: [{ back: "A5c_veille" }] },
+
+    A5c_int_loi: { act: "V", title: "Le poste de la porte Haute", place: "citadelle", ambiance: "nuit",
+      fx: { meet: "cadenas" },
+      text: [
+        "Vous aviez voté le sifflet, au bac : on porterait tout au prévôt. Il faut donc, la veille du plus grand coup de la maison Berlue, aller frapper de soi-même à un corps de garde. Maître Crochemore refuse d'en être. Il dit qu'il a une réputation.",
+        "Le prévôt d'Aiguemorne n'a pas de bureau. Il a une table, dans le poste de la porte Haute, entre le râtelier aux hallebardes et le poêle où les hommes font sécher leurs bas. Il y est seul, à dix heures du soir, une chandelle à sa gauche, un clou de girofle entre les dents.",
+        "La table est coupée en deux par une règle de fer. À gauche, une pile de papiers. À droite, une autre.",
+        { if: { has: "monde:cadenas:allie" }, text: "Il lève les yeux, et ne se lève pas. « Fermez la porte. Il y a un courant d'air, et trois de mes hommes qui savent lire les affiches. » Il vous regarde entrer l'un derrière l'autre. « Vingt-six ans de guet. C'est la première fois que des gens que je cherche viennent me trouver. J'aurais dû l'écrire quelque part. »", else: "Il lève les yeux. Sa main gauche va au sifflet qu'il porte au cou, s'y pose, et y reste. « Fermez la porte », dit-il. On la ferme. Il vous regarde entrer l'un derrière l'autre, de ce regard lent qui compte les pavés. « Vous êtes d'une insolence qui mérite que je l'écoute une minute. Elle est commencée. »" },
+        "Vous posez sur la table, du côté droit, ce que vous avez : la lettre d'une femme qui signe d'une initiale, et le reste.",
+      ],
+      choices: [{ label: "Attendre qu'il ait lu", to: "A5c_int_loi2", big: true }] },
+
+    A5c_int_loi2: { act: "V", title: "La pile de droite", place: "citadelle", ambiance: "nuit",
+      branch: [
+        { if: { has: "monde:cadenas:allie" }, fx: { flag: "monde:a5:loi" }, to: "A5c_int_loi_ok" },
+        { if: CAD_OUVERT, fx: { flag: ["monde:a5:loi", "monde:cadenas:treve"] }, to: "A5c_int_loi_treve" },
+        { to: "A5c_int_loi_non" },
+      ] },
+
+    A5c_int_loi_ok: { act: "V", title: "Douze hommes qui savent écrire", place: "citadelle", ambiance: "nuit",
+      fx: { ep: ["histoire", 1500], clue: "r5_prevot" },
+      text: [
+        "Il lit la lettre deux fois. La seconde, il suit les lignes avec son clou de girofle.",
+        "« *On vous a dit que je prie. J'écris.* » Il repose le papier, bien droit, contre la règle de fer. « J'ai prêté serment sur le Bronze, moi, en entrant dans le guet. La main dessus. Sur un moulage, plutôt, qu'on a au greffe. J'ai juré à une femme de la Morne, à ce qu'il paraît. » Il mâche. « Il y a pire. J'ai connu des magistrats. »",
+        { if: { has: "monde:cadenas:aveu" }, text: "« J'ai l'aveu du Connétable, devant trois cents personnes, avec l'heure. J'ai un folio, un carnet, deux cachets. Il me manquait de savoir *pourquoi* on tue un vieil homme qui graisse une horloge. Vous venez de me l'apporter. »", else: "« J'ai un folio, un carnet, des cachets, et un mort. Il me manquait de savoir *pourquoi* on tue un vieil homme qui graisse une horloge. Vous venez de me l'apporter. »" },
+        "Il se lève enfin, et va au râtelier, où il n'y a rien à prendre ; c'est sa façon de marcher de long en large.",
+        "« Voici ce que je peux, et ce que je ne peux pas. Je ne peux pas monter dans cette Tour : le guet s'arrête à sa porte depuis cent cinq ans, c'est dans la charte, et je ne déchire pas une charte la nuit où j'en défends une autre. Je ne peux pas arrêter un Clavaire la veille des Clefs : la ville me lapiderait, et elle aurait raison, de son point de vue. »",
+        "« Mais je peux être en bas. Demain, à minuit, au pied de la Tour, avec mon greffier et douze hommes que j'ai choisis parce qu'ils savent écrire. S'il sort quelque chose de ce cadran, il y aura treize procès-verbaux, datés, signés, de treize mains. Une chose que treize sergents ont écrite la même nuit, monsieur le Syndic lui-même ne la rachète pas : cela ferait trop de quittances. »",
+        "Il revient à la table et fait passer votre lettre, du bout du doigt, sur la pile de droite.",
+        "« Quant à vous, je vous cherche. Je vous cherche jusqu'à minuit, très activement, dans la ville basse. Tâchez d'être dans la haute. »",
+      ],
+      choices: [{ back: "A5c_veille" }] },
+
+    A5c_int_loi_treve: { act: "V", title: "Jusqu'à minuit", place: "citadelle", ambiance: "nuit",
+      fx: { ep: ["histoire", 1200], clue: "r5_prevot" },
+      text: [
+        "Il lit la lettre. Il la relit. Sa main a quitté le sifflet.",
+        "« Vous m'avez déjà fait tenir des papiers, sur la route. Je les ai mis à droite. » Il montre la pile. « Je me disais : ce sont des voleurs, ils fabriquent. Seulement, des voleurs qui fabriquent, cela fabrique toujours du même côté ; et dans ce que vous m'envoyiez, il y avait des choses qui vous chargeaient. J'en ai mal dormi. »",
+        "Il pose la lettre sur les autres.",
+        "« Je ne vous crois pas. Entendez-moi bien : je ne crois personne, c'est mon état. Mais je sais reconnaître une affaire où l'on m'a donné le coupable trop vite, avec trop de témoins bien habillés. On m'a servi trois Rossignols sur un plat, le soir même, dans une maison que personne ne m'avait priée de visiter. J'ai le défaut de me demander qui a mis la table. »",
+        "Il se lève, ouvre le poêle, y jette son clou de girofle, en prend un autre.",
+        "« Vous avez jusqu'à minuit, demain. Jusque-là, mes hommes vous cherchent où je leur dirai de chercher, et ce ne sera pas en haut. À minuit, je serai au pied de la Tour avec mon greffier et douze sergents qui savent écrire, parce que, s'il y a quelque chose à voir, je veux l'avoir vu moi-même. Ensuite, selon ce que j'aurai vu, je vous arrête ou je vous salue. Je vous préviens loyalement que j'ai plus l'habitude de l'un que de l'autre. »",
+        "Il vous ouvre la porte lui-même, et regarde dans la rue avant de vous laisser sortir.",
+      ],
+      choices: [{ back: "A5c_veille" }] },
+
+    A5c_int_loi_non: { act: "V", title: "La pile de gauche", place: "citadelle", ambiance: "nuit",
+      fx: { ep: ["histoire", 800] },
+      text: [
+        "Il lit la lettre, une fois, vite, en homme qui en a beaucoup reçu.",
+        "« Une femme dans le Bronze. » Il la repose. « La semaine dernière, on m'a amené un tanneur qui avait vu le diable sortir de la citerne. Il était de bonne foi. Il avait aussi bu. »",
+        "Il fait glisser le papier sur la pile de gauche.",
+        "« Je vais vous dire ce que j'ai, moi. J'ai un vieil homme assommé à son établi. J'ai trois personnes dans sa maison, à minuit, qui se sauvent par les toits. J'ai une receleuse qui se livre pour qu'on ne les suive pas, ce qui est la chose la plus propre de toute l'affaire, et qui ne les innocente en rien. Et j'ai ce soir les mêmes trois, qui m'apportent une lettre sans signature et me demandent de regarder ailleurs. »",
+        "Il se lève. Il est entre vous et le râtelier. Il le sait.",
+        "« Je devrais siffler. J'ai six hommes derrière cette cloison. » Il mâche son clou, longuement. « Seulement vous êtes venus. Les coupables que j'ai connus ne venaient pas ; ils écrivaient, ou ils envoyaient un cousin. Cela me gêne. Je n'aime pas arrêter des gens pendant qu'une chose me gêne. »",
+        "Il ouvre la porte.",
+        "« Sortez. Je compte jusqu'à cent, lentement, et je siffle. Demain est jour de fête : j'aurai tout mon monde dans la rue. Si vous êtes ce que je crois, on se reverra avant minuit. Si vous êtes ce que vous dites, tâchez donc de me le montrer : j'ai de bons yeux. »",
+        "Vous êtes au bout de la rue quand le sifflet part. Il a compté jusqu'à cent. Il a même, vous semble-t-il, compté un peu au-delà.",
+      ],
+      choices: [{ back: "A5c_veille" }] },
+
+    A5c_int_comte: { act: "V", title: "L'hôtel de Brandelis", place: "citadelle", ambiance: "chateau",
+      fx: { meet: "brandelis" },
+      text: [
+        "Vous aviez voté le dé, au bac : on s'entendrait avec le comte. Il loge en Ville-Haute, rue de l'Épée, dans un hôtel à tourelles que ses pères ont bâti du temps qu'ils gagnaient leurs batailles.",
+        "On y entre comme on entre partout chez lui : par la cuisine, où un marmiton vous prend pour des fournisseurs. Maître Ravaudet est dans l'escalier, son registre sur le bras, en larmes devant une note de cirier. Il vous reconnaît. Il ouvre la bouche. Il la referme, et s'efface contre le mur, de l'air d'un homme à qui l'on ne peut plus rien apprendre de fâcheux.",
+        "Le comte est dans la salle d'armes, en bras de chemise, devant un mannequin de paille. Il lui porte des bottes, l'une après l'autre, avec une application d'écolier. Il a toujours son ruban cramoisi au cou.",
+        { if: { has: "monde:a4:comte_blesse" }, text: "Il tire de la main gauche. La droite est dans une écharpe de soie noire, et il n'a pas l'air de s'en plaindre : cela lui fait une difficulté de plus." },
+        "Il vous voit dans la glace. La pointe de son épée s'arrête à un pouce de la paille.",
+        { if: { has: "monde:a4:clef=echangee" }, text: "« Mes horlogers ! » Il rit, se retourne, et son rire tombe à mesure qu'il vous regarde. Il porte la main à son ruban. Il tire. Il amène au jour une clef rouge, courte, dont l'anneau est un cœur ; il la regarde de près, à la chandelle, comme il ne l'avait jamais regardée. « Ah, dit-il. Depuis quand ? » Puis, sans attendre : « Ne me le dites pas. J'aime mieux croire que c'était cette nuit. »", else: "« Tiens, dit-il sans se retourner. Mes voleurs. » Il achève sa botte, proprement, et salue le mannequin. « Je me demandais si vous auriez le front de venir. J'avais parié que oui. Contre moi-même : c'est la seule partie où je sois sûr d'être payé. »" },
+      ],
+      choices: [{ label: "Lui dire pourquoi l'on est venu", to: "A5c_int_comte2", big: true }] },
+
+    A5c_int_comte2: { act: "V", title: "Le dé", place: "citadelle", ambiance: "chateau",
+      branch: [
+        { if: COMTE_AVEC, fx: { flag: "monde:a5:comte" }, to: "A5c_int_comte_ok" },
+        { to: "A5c_int_comte_non" },
+      ] },
+
+    A5c_int_comte_ok: { act: "V", title: "Tenir un escalier", place: "citadelle", ambiance: "chateau",
+      fx: { ep: ["histoire", 1500], clue: "s5_comte" },
+      text: [
+        "Il vous écoute en essuyant sa lame, debout, un pied sur un tabouret. Quand il est question d'elle, il cesse d'essuyer.",
+        "« Ma mère l'a entendue. Elle me l'a dit en mourant, avec le reste de ses commissions : la lingerie, les fermages, et *il y a quelqu'un derrière cette porte, Thibert, quelqu'un qui tousse.* J'avais quarante ans. J'ai fait ce que font les gens bien nés quand on leur apprend une chose gênante : j'ai été à la chasse. »",
+        { if: { has: "monde:a4:reponse=oui" }, text: "« Et j'ai signé leur mur. Le 10, à minuit, sur le dos de ce gros homme. Vous y étiez, je crois, dans une galerie. » Il remet l'épée au râtelier. « J'ai signé parce que je devais quarante mille écus et que j'avais bu. Ce sont deux raisons. Je n'en ai jamais eu de meilleures pour rien de ce que j'ai fait. On ne se dédit pas d'une signature ; mais on peut arriver en retard à ce qu'elle promet, et faire attendre tout le monde. C'est un talent que l'on m'a toujours reconnu. »", else: "« Ils voulaient mon nom au bas d'un mur. J'ai dit non. Je ne m'en vante pas : c'est le seul non de ma vie, il est venu tard, et il m'a coûté mes bois. » Il remet l'épée au râtelier. « Mais quand on n'en a dit qu'un, on y tient. »" },
+        { if: { has: "monde:a4:vie_due" }, text: "Il regarde {qui:a4:oeil}. « Et il y a une affaire d'étang. Je paie mal mes dettes d'argent. Les autres, on me les a toujours vu régler. »" },
+        { if: { has: "monde:brandelis:parole" }, text: "« J'ai perdu cette clef au jeu, devant témoins, et j'ai donné ma parole de me taire. Je me suis tu. Remarquez que c'est la première fois que perdre me rapporte quelque chose : je monte demain dans cette Tour sans rien avoir à ouvrir, et l'esprit très libre. »" },
+        "Il va à la fenêtre. On voit d'ici la Tour, noire, au-dessus des toits.",
+        "« Voici ce que sait faire un Connétable. Demain, aux trois quarts, nous montons, ces deux messieurs et moi. L'usage veut que l'épée marche la dernière, pour garder les degrés. À mi-vis, il y a un palier, avec une meurtrière ; un homme seul y arrête qui il veut. J'y aurai un malaise. Ou un scrupule. Ou une querelle avec un Suisse. Je tiendrai cet escalier un quart d'heure contre mes propres collègues, ce qui, à tout prendre, est la plus jolie position que j'aie occupée. »",
+        "Il se retourne.",
+        "« Je ne vous demande pas ce que vous ferez là-haut. Si c'est une sottise, j'aime mieux l'apprendre avec tout le monde. Dites-lui seulement, à celle qui tousse, qu'il y avait une Brandelis qui l'avait entendue, et qui s'en est souvenue jusqu'au bout. »",
+      ],
+      choices: [{ back: "A5c_veille" }] },
+
+    A5c_int_comte_non: { act: "V", title: "Une porte que l'on vous tient", place: "citadelle", ambiance: "chateau",
+      fx: { ep: ["histoire", 800] },
+      text: [
+        "Il vous écoute en essuyant sa lame. Il a ce visage aimable et fermé des gens à qui l'on vient demander de l'argent.",
+        { if: { has: "monde:a4:clef=echangee" }, text: "« Vous m'avez mis du plomb au cou pendant que je dormais. C'est de bonne guerre : je l'aurais fait. Mais ne venez pas ensuite me proposer une alliance. On ne trinque pas avec l'homme à qui l'on a fait les poches. »", else: "« Vous m'avez pris ma clef. De force ou d'adresse, peu importe : vous l'avez prise, et vous venez à présent me proposer d'être de votre côté. J'admire. Il y a là un culot que je n'ai rencontré que chez mes créanciers. »" },
+        "« J'ai signé, le 10. Tout. Le cylindre, le mur. On m'a rendu mes bois pour cela, et mon intendant a cessé de pleurer pendant une demi-journée, ce que personne n'avait vu depuis la mort de ma mère. Je ne suis pas fier de ce marché. Mais c'est le mien, et je n'ai pas coutume de reprendre une mise parce que la carte est laide. »",
+        "Il remet l'épée au râtelier, et sonne.",
+        "« Je ne vous fais pas arrêter. Vous êtes entrés chez moi sans armes, pour me parler ; cela se respecte, même venant de vous. Ravaudet va vous reconduire par la cuisine. » Il vous salue, du même salut qu'il a fait au mannequin. « Demain soir, je monte le dernier, avec l'épée. Je vous engage à être redescendus avant. Je me bats très bien dans les escaliers, et je n'y mets aucune rancune, ce qui est le plus dangereux. »",
+        "Dans la cuisine, l'intendant vous tient la porte. Il ne dit rien. Il vous glisse seulement, au passage, d'une voix mouillée : « Il ne dort plus. Il s'exerce jusqu'à trois heures. On ne s'exerce pas ainsi contre des gens que l'on méprise. »",
+      ],
+      choices: [{ back: "A5c_veille" }] },
+
+    A5c_int_voir: { act: "V", title: "On ira voir", place: "poids", ambiance: "nuit",
+      fx: { ep: ["histoire", 800], pv: 6 },
+      text: [
+        "Au bac, il était sorti du chapeau une plume, un sifflet et un dé. Vous n'alliez donc nulle part, ce soir : ni chez elle, ni chez le prévôt, ni chez le comte. On avait dit que l'on irait voir.",
+        "Alors vous montez voir. La maison du Remonteur a une échelle de toit, pour le ramoneur ; elle mène à une plate-forme de zinc, entre deux cheminées, où le vieil homme avait installé un banc et un pot de giroflées, mortes depuis. On y tient à trois, serrés, les genoux au menton.",
+        "D'ici, on a toute l'affaire sous les yeux, comme la Douairière l'avait dessinée au charbon sur une table, il y a six semaines. Le rempart. Les Plombs, avec une fenêtre éclairée au bout du troisième rang. Le clocheton de Sainte-Clavis. Et la Tour, à cent pas, si haute de près qu'il faut renverser la tête pour en voir le cadran.",
+        "Personne ne propose de voter. On a assez voté. On reste là, sans parler, dans le froid, à regarder une porte que l'on n'aperçoit même pas, tout en haut de cette pierre, derrière laquelle quelqu'un a peut-être levé la tête au même moment.",
+        "« Trois avis, dit enfin l'un de vous. La vieille dirait que c'est un de trop. »",
+        "« La vieille dirait que c'est deux de trop, et que le bon est le sien. »",
+        "On rit, tout bas, pour ne pas réveiller les six maisons. Cela fait du bien. Il y a des veilles d'armes où l'on prie, et d'autres où l'on s'aperçoit, sur un toit de zinc, que l'on n'a jamais été d'accord sur rien et que l'on est encore là tous les trois.",
+      ],
+      choices: [{ back: "A5c_veille" }] },
+
+    // ───────────────────────────── The Bas-Fonds by lantern light ─────────────────────────────
+    A5c_bas_soir: { act: "V", title: "Les portes ouvertes", place: "basfonds", ambiance: "ville", hub: true, backName: "le quai aux lanternes",
+      text: [
+        { first: true, text: "Tu redescends dans les Bas-Fonds par l'escalier des Teinturiers, un cierge à la main, comme tout le monde. Ce soir, un visage que le cierge éclaire par en dessous ressemble à tous les autres." },
+        { first: true, text: "Les portes sont ouvertes. Toutes. C'est une chose que l'on sait depuis l'enfance et que l'on redécouvre tous les sept ans avec le même saisissement : cette ville qui passe sa vie à fabriquer des verrous les tire tous ensemble, pour une nuit, et se laisse regarder. On voit les tables, les lits, les établis, les grands-mères près du feu. On voit que le serrurier d'en face a les mêmes trois chaises que soi. Les gens se tiennent sur leurs seuils, un peu gênés, comme en chemise." },
+        { first: true, text: "Sous chaque lanterne, sur le mur, il y a l'affiche. Elle est neuve. *TROIS DE LA BANDE DITE DU ROSSIGNOL, pour le meurtre de Maître Symphorien Balancier, Remonteur du Bronze. Cinq cents écus.* On a ajouté trois portraits, gravés de mémoire par quelqu'un qui ne vous avait jamais vus. Tu passes devant le tien sans qu'il te reconnaisse." },
+        { again: true, text: "Le quai, ses portes ouvertes, ses lanternes où tournent les clefs. L'affiche est à tous les murs. Personne ne la lit plus." },
+      ],
+      choices: [
+        { label: "Écouter ce qui se dit devant le chaînetier", to: "A5c_bas_cubizolle", once: true },
+        { label: "Aller au quai aux Fers, où campent ceux de Ferrières", if: { any: [{ has: "monde:mineurs:allies" }, { has: "monde:mineurs:trahis" }] }, to: "A5c_bas_mineurs", once: true, hide: { not: { any: [{ has: "monde:mineurs:allies" }, { has: "monde:mineurs:trahis" }] } } },
+        { label: "Pousser jusqu'au lavoir des Tanneurs, d'où vient ce chant", if: { has: "monde:pleureuses:alliees" }, to: "A5c_bas_pleureuses", once: true, hide: { not: { has: "monde:pleureuses:alliees" } } },
+        { label: "T'arrêter à l'échoppe d'écrivain public, sous le pont", if: { has: "monde:celeste:libre" }, to: "A5c_bas_celeste", once: true, hide: { not: { has: "monde:celeste:libre" } } },
+        { label: "Lever les yeux vers ce toit, d'où l'on a sifflé deux notes", if: { has: "monde:douce:alliee" }, to: "A5c_bas_douce", once: true, hide: { not: { has: "monde:douce:alliee" } } },
+        { label: "Remonter à l'impasse", back: "A5c_veille" },
+      ] },
+
+    A5c_bas_cubizolle: { act: "V", title: "Un juge qui prend sa retraite", place: "basfonds", ambiance: "ville",
+      fx: { clue: "s5_rumeur" },
+      text: [
+        "Le père Cubizolle, chaînetier, a sorti son banc sur le quai et tient séance. Il a quatre-vingts ans, les mains comme des tenailles, et il a vu onze Nuits des Clefs, ce qui, dans cette rue, vaut un doctorat.",
+        "« Onze ! Et jamais, vous m'entendez, jamais le Bronze n'a nommé pour plus de sept ans. C'est la règle du vieux Aubry. *Sept ans, et l'on recompte.* Mon père me la faisait réciter. Un Gouverneur qui sait qu'on le recompte, ça se tient. »",
+        "« On dit que c'est le Bronze qui le veut », hasarde une femme.",
+        "« On dit ! Qui dit ? » Il frappe son genou. « C'est écrit sur la cloche de Ferrières, à ce qu'il paraît, avant que le Bronze ait ouvert la bouche. Mon neveu l'a vue fondre. *Gouverneur perpétuel, an premier.* Vous trouvez ça naturel, vous, qu'un fondeur sache en octobre ce que le Juge dira en décembre ? Ou bien le Bronze cause dans son sommeil, ou bien quelqu'un cause à sa place. »",
+        "Il y a un silence. Dans les Bas-Fonds, on ne dit pas de ces choses la veille des Clefs. On les pense. Plusieurs regardent la Tour, là-haut, et baissent aussitôt les yeux, comme on fait devant quelqu'un dont on vient de médire.",
+        "« Et le Remonteur, reprend le vieux, plus bas. Quarante ans qu'il la graissait, cette mécanique, sans une histoire. Il meurt six semaines avant qu'elle se mette à dire des choses qu'elle n'a jamais dites. On nous a trouvé trois voleurs pour ça. » Il crache. « Moi, je veux bien. La vieille Berlue m'a vendu des chaînes volées pendant trente ans, je sais ce qu'elle vaut. Elle vaut pas grand-chose. Mais elle a jamais fait tuer un homme qui travaillait. »",
+        "Autour du banc, on hoche la tête. Personne ne conclut. C'est une ville où l'on a l'habitude d'attendre que quelqu'un d'autre conclue, de très haut, tous les sept ans.",
+      ],
+      choices: [{ back: "A5c_bas_soir" }] },
+
+    A5c_bas_mineurs: { act: "V", title: "Le quai aux Fers", place: "basfonds", ambiance: "ville",
+      fx: { meet: "zenobie" },
+      text: [
+        "Ils ont allumé un seul feu, de houille, qu'ils ont apportée sur leur dos : ils disent que le bois d'ici ne chauffe pas. Ils sont trente autour, assis sur leurs talons, à la façon des gens qui ont passé leur vie sous des plafonds bas.",
+        "Zénobie la Grise est debout. Elle regarde la ville, de bas en haut, étage par étage, en charpentier.",
+        { if: { has: "monde:mineurs:allies" }, text: "Elle te reconnaît sous ton cierge, et elle ne fait pas un geste qui te désigne. « Tiens. Un pèlerin. » Elle te fait place au feu. « On est venus voir le Bronze. Trente, tirés au sort, avec la paie de tout le Crassier pour la route. Il y a une de vos Sept Causes qui est la nôtre : *les jetons de l'Économat sont-ils une monnaie ?* Ça fait onze ans qu'on la pose. Le Syndic a toujours trouvé un greffier pour l'égarer. Cette année, elle y est. Je me demande bien qui l'a remise dans le sac. »", else: "Elle te reconnaît sous ton cierge. Elle ne dit rien. Trente têtes se tournent, une par une, et le feu de houille leur fait à toutes le même visage." },
+        { if: { has: "monde:mineurs:allies" }, text: "« On a tenu, là-bas. Ça nous a coûté trois semaines de pain, et il y a deux hommes à l'infirmerie. Mais le bronze a coulé de travers, sa cloche sonne faux, et tout Ferrières l'entend à chaque heure. » Elle a un sourire bref. « Dis à tes deux autres que les gueules grises seront au pied de cette tour demain, à minuit, et qu'elles ont la voix qui porte. On a l'habitude de crier dans des trous. »", else: "« Tu nous as vendus », dit-elle enfin, sans colère, comme on lit un chiffre. « Les casaques savaient l'heure. Il y a deux hommes à l'infirmerie, et un au cimetière, qui s'appelait Anselme et qui était aveugle. » Elle se rassoit. « On est venus pour le Syndic. Pas pour toi. Mais si demain tu te trouves entre lui et nous, ne compte pas qu'on fasse le tour. »" },
+        { if: { has: "monde:mineurs:allies" }, text: "Un vieux te passe une gamelle. C'est de la soupe au lard, sans lard. Tu la bois." },
+      ],
+      choices: [{ back: "A5c_bas_soir" }] },
+
+    A5c_bas_pleureuses: { act: "V", title: "La répétition", place: "basfonds", ambiance: "eau",
+      fx: { meet: "scholastique" },
+      text: [
+        "Le lavoir des Tanneurs est un grand hangar ouvert sur la rivière. On en a ôté les battoirs. Quarante femmes en noir y sont rangées sur quatre lignes, par tailles, les mains jointes sur le ventre, et elles pleurent.",
+        "C'est une chose que l'on n'oublie pas quand on l'a entendue à Ossevaux. Cela commence par une seule voix, très basse, qui tient une note comme on tient une porte. Une deuxième s'y pose, puis dix ; et tout le hangar se met à trembler d'une plainte longue, réglée, d'une justesse affreuse, qui monte par paliers et retombe, et où l'on jurerait que quarante personnes viennent de perdre le même enfant. Sur le pont, les passants se sont arrêtés. Un batelier a ôté son bonnet.",
+        "Dame Scholastique Onfroy bat la mesure avec son face-à-main. Elle arrête tout d'un coup sec.",
+        "« Le troisième rang traîne. Mesdames, nous ne sommes pas à un enterrement de marchand : je veux de l'attaque. Et la petite Perpétue respire au milieu de la phrase. On reprend à *miserere*. »",
+        "Elle t'aperçoit, lève son lorgnon, et vient à toi de son pas de sergent, son carnet ouvert.",
+        "« Vous voilà. J'ai tenu parole : quarante, voyage payé, logées, nourries, cela me fait une Toussaint de manque à gagner que je porte en compte. » Elle tourne une page. « J'ai demandé au chapitre pour quoi nous étions commandées. On m'a répondu : *pour le deuil du Juge, si la Sentence déplaît.* C'est un usage ; il n'a jamais servi. J'ai donc quarante gorges, demain à minuit, sur les marches de la citadelle, avec un permis en règle. Vous me ferez dire qui l'on pleure. »",
+        "Elle referme le carnet.",
+        "« Je ne vous demande pas ce que vous préparez. Je vous préviens seulement d'une chose de métier : une foule ne sait jamais ce qu'elle éprouve avant qu'on le lui chante. Si demain cette ville doit avoir peur, ou honte, ou pitié, c'est nous qui donnerons le ton, et nous le donnerons juste. Tâchez de nous fournir un beau sujet. »",
+      ],
+      choices: [{ back: "A5c_bas_soir" }] },
+
+    A5c_bas_celeste: { act: "V", title: "Écritures en tous genres", place: "basfonds", ambiance: "ville",
+      fx: { meet: "celeste" },
+      text: [
+        "Sous la première arche du pont, il y a une échoppe de planches, large comme un confessionnal, avec une lanterne et un écriteau : *LETTRES, COMPTES, PLACETS. On relit les baux. Deux sous la page.* Une file de six personnes attend devant, sagement, leur papier à la main.",
+        "Celle qui écrit a une robe de droguet gris, des manches de lustrine, et de l'encre jusqu'au poignet. Elle relève la tête pour appeler le suivant, et tu reconnais la bouche moqueuse, les yeux qui jugent.",
+        "Céleste Quincarnon te regarde une seconde. Puis elle dit, très haut, de sa voix un peu rauque : « C'est pour un placet ? Asseyez-vous. Les autres, cinq minutes : celui-ci est long. »",
+        "Elle trempe sa plume et fait semblant d'écrire.",
+        "« Six semaines, dit-elle sans remuer les lèvres. Je suis descendue du coche avec onze écus et une paire de boucles. J'ai vendu les boucles. Je gagne quatorze sous par jour, je loge chez une repasseuse, et j'ai appris hier que je savais faire cuire un œuf. » Elle souligne un mot. « Je relis leurs baux. Vous n'imaginez pas ce que mon père leur fait signer. Je le savais en gros. Je ne l'avais jamais lu à la ligne, avec la figure du client en face. »",
+        "Elle retourne la feuille.",
+        "« Il est en ville. Il me fait chercher par Florimond, qui passe sur ce pont deux fois le jour et qui ne regarde pas les échoppes : il ne lui viendrait pas à l'idée qu'une Quincarnon travaille. Hyacinthe aussi me cherche. Lui m'a trouvée. Il est venu avant-hier, il a attendu son tour dans la file, et il m'a fait écrire une lettre. » Elle a un rire bref. « À mon père. *Monsieur, j'ai le regret de ne pouvoir accepter la charge que vous me destinez.* Je lui ai compté deux sous. Il n'osera jamais l'envoyer ; mais il l'a dans sa poche, et il la touche. »",
+        "Elle te tend la feuille, pliée, comme un placet fini. Dedans, il n'y a qu'une ligne.",
+        "*Le caveau, c'était ODILE. Le cylindre, il l'a fait essayer chez nous, un soir : il parle avec une voix qui est presque celle du Bronze. Presque. Ceux qui ont l'oreille entendront qu'il manque quelqu'un.*",
+      ],
+      choices: [{ back: "A5c_bas_soir" }] },
+
+    A5c_bas_douce: { act: "V", title: "Un gant", place: "basfonds", ambiance: "nuit",
+      fx: { meet: "douce" },
+      text: [
+        "Deux notes, la seconde plus basse. Tu les as apprises au bord d'un fleuve, d'une femme qui n'est d'aucune maison.",
+        "Elle est assise au bord d'un toit, juste au-dessus de la Clef Tordue, les jambes pendantes, et elle regarde la petite lanterne que quelqu'un a pendue sous l'enseigne. Tu montes par la gouttière. Elle se pousse pour te faire place.",
+        "Sa main droite est nue. Tu ne l'avais jamais vue. Elle est fine, brune, et le dos en est marqué d'une vieille brûlure ronde, large comme un écu, bien nette : la marque d'un fer de voleur, que le bourreau d'Aiguemorne posait autrefois aux enfants pris la main dans une poche.",
+        "« J'avais neuf ans, dit Douce. C'est la vieille qui m'a ramassée au pied de l'échafaud, qui m'a mis du saindoux dessus, et qui m'a dit : *à présent, tu mettras des gants, et tu ne te feras plus prendre.* J'ai fait les deux. » Elle remet le gant, doigt par doigt. « Je l'ai quittée en lui prenant la moitié de ses pratiques. Elle a dit que c'était bien, que cela prouvait que j'avais appris. Je crois que je ne lui ai jamais pardonné de l'avoir si bien pris. »",
+        "Elle regarde les scellés.",
+        "« Vous m'avez sortie d'une boîte, à Ossevaux. Je vous devais cela, je vous l'ai payé à Brandelis ; nous sommes quittes, et je déteste être quitte, cela ne laisse aucune raison de revoir les gens. Alors voici du surplus. Demain soir, mes hommes sont sur les toits de la citadelle. Tous. S'il faut qu'une corde pende quelque part, ou qu'une échelle manque à quelqu'un, vous sifflez. » Elle se lève, sans un bruit, sur les tuiles. « Et si la vieille demande qui a pendu cette lanterne, vous direz que vous n'en savez rien. »",
+      ],
+      choices: [{ back: "A5c_bas_soir" }] },
+
+    // ───────────────────────────── Crochemore, the last evening ─────────────────────────────
+    A5c_croch_soir: { act: "V", title: "Trois montres", place: "poids", ambiance: "nuit",
+      fx: { ep: ["histoire", 800] },
+      text: [
+        "Il s'est assis à l'établi du mort, de biais, pour n'avoir pas la tache devant lui. Il a ouvert son sac, étalé sa trousse, et il travaille à la chandelle, les bésicles au bout du nez, avec de tout petits gestes.",
+        "Tu t'approches. Il a devant lui les trois montres de son gilet, ouvertes, leurs boîtiers à plat comme des huîtres.",
+        "« J'en porte trois depuis l'âge de vingt ans. On s'est beaucoup moqué. Je disais que c'était pour la précision : une montre ment, deux se contredisent, trois votent. » Il souffle sur un rouage. « La vérité, c'est qu'elles viennent de lui. Aubry en a fait trois, pour ses trois fils. Mon grand-père a eu celle-ci. Les deux autres me sont revenues par des cousins morts sans enfants. Je les portais comme on porte un blason. »",
+        "Il referme la première, la porte à son oreille, la pose.",
+        "« Il avait aussi une fille. Aubrine. On m'a toujours dit qu'elle était entrée en religion, loin, et qu'elle y était morte jeune. Il n'y avait pas de quatrième montre. Je ne m'étais jamais demandé pourquoi il n'avait rien fait pour elle. » Sa voix est très unie. « Il lui avait fait autre chose. »",
+        "Il referme la deuxième, puis la troisième. Il les met toutes trois à la même seconde, en les tenant ensemble dans le creux de sa main, comme on tient des œufs.",
+        "« Demain, vous en aurez chacun une. À onze heures, à la salle des Poids, je veux trois personnes qui aient la même heure à un battement près, parce que tout ce que nous ferons là-haut se fera ensemble ou ne se fera pas. Je n'en aurai plus. » Il renifle. « Cela me fera une drôle de sensation au gilet. Je compte m'y habituer : il paraît que je dois m'habituer à beaucoup de choses. »",
+        "Il te regarde par-dessus ses verres.",
+        "« J'ai passé soixante ans à réciter que mon aïeul avait fait penser le bronze. Demain, je monte lui présenter mes excuses. Pas à lui. À celle qui est dedans. Ce sera la première fois de ma vie que j'entrerai quelque part sans avoir raison, et je vous serais obligé de ne pas me regarder à ce moment-là. »",
+      ],
+      choices: [{ back: "A5c_veille" }] },
+
+    // ───────────────────────────── The night, and the council ─────────────────────────────
+    A5c_nuit: { act: "V", title: "La dernière nuit", place: "poids", ambiance: "nuit",
+      fx: { until: 6, pv: 20 },
+      text: [
+        "On dort mal dans une chambre où quarante horloges se taisent. L'oreille les cherche. Elle attend un battement, et le silence qu'elle reçoit à la place a quelque chose de retenu, comme une salle pleine de gens qui se seraient tous arrêtés de parler à votre entrée.",
+        "Maître Crochemore ne s'est pas couché. Vers trois heures, tu le vois debout devant le mur du fond, sa chandelle levée, qui passe d'un cadran à l'autre et lit les heures où elles sont mortes. Il remue les lèvres. Il fait le compte de ce qu'il restait de corde à chacune, et il en tire, heure par heure, combien de jours cette maison a mis à se taire.",
+        "Plus tard, tu t'éveilles encore. La chandelle est éteinte. Par la lucarne tombe une lueur rousse, celle des trente mille lanternes, qui brûleront jusqu'au matin. La Tour est dedans, découpée, noire.",
+        "Il y a une lumière à son sommet.",
+        "Elle est toute petite, d'un jaune de veilleuse, et elle sort de la muraille même, sous le hourd, à un endroit où il n'y a pas de fenêtre : d'une fente entre deux briques, peut-être, de celles qu'un oiseau aurait élargies. Elle brille une minute. On dirait que quelqu'un a approché une lampe d'un mur pour regarder dehors, par un trou grand comme une pièce de deux sous, trente mille clefs allumées.",
+        "Puis elle s'écarte, et la Tour redevient aveugle.",
+        "Tu ne réveilles personne. Au matin, tu ne sauras plus si tu l'as vue.",
+      ],
+      choices: [{ label: "Le matin de la Saint-Éloi", to: "A5c_conseil", big: true }] },
+
+    A5c_conseil: { act: "V", title: "Un conseil dans un torchon", place: "poids", ambiance: "nuit",
+      fx: { until: 7 },
+      text: [
+        "Fifrelin arrive avant le jour, par le soupirail, avec un pain chaud et un torchon. Le torchon vient des Plombs, dans le linge de la veille. Celui-ci est écrit : la Douairière a dû trouver quelqu'un à qui dicter, ou bien elle a jugé que l'heure des dessins était passée.",
+        "On le déplie sur l'établi. C'est du charbon sur de la toile, en grosses lettres penchées, et l'on entend la voix.",
+        "*Mes enfants. Vous êtes rentrés avec les trois, on me l'a dit. Je ne vous félicite pas : c'était le travail. Reste la porte. Je préside d'ici, n'ayant rien d'autre à faire.*",
+        "*Un coup, c'est trois choses. Ce soir comme les autres soirs.*",
+        "**La main.** *La Tour, par le dedans. L'horloger a le droit d'y monter le jour de la Saint-Éloi pour donner l'heure : c'est un vieux privilège de son nom, qu'il ait la bonté de s'en souvenir. Celui de vous qui porte sa trousse entre avec lui ce matin et n'en ressort plus. Il a la journée pour me tenir trois choses prêtes : le vieux soldat du palier, un chemin par le haut pour qui viendra des toits, et un quart d'heure. Les Clavaires montent sur la cloche. Une cloche, cela se retarde.* Le mouvement, la salle des Poids, le guichet vu par son autre bout, et ce que le Syndic a fait monter là-dedans en chariots bâchés.",
+        "**L'œil.** *La ville basse, et les Plombs. Il y a ce soir dans Aiguemorne plus de monde qui se doute de quelque chose qu'il n'y en a jamais eu. Du monde qui se doute, cela reste chez soi, à moins qu'on aille le chercher. Je veux à minuit, sous cette Tour, assez de gens pour que ce qui se passera en haut se soit passé devant quelqu'un. Et puis il y a moi. On viendra me prendre à dix heures, pas avant : j'ai un tricot à finir.* Les quais, les alliés que l'on s'est faits en route et ceux que l'on a perdus, le guet, la prison, et le chemin des toits jusqu'au hourd.",
+        "**La voix.** *La procession. Trois cortèges, trois Clavaires, et derrière eux tout ce que cette ville a de robes. Il me faut quelqu'un là-dedans, au plus près, qui sache avant onze heures ce que chacun de ces messieurs a dans sa poche en guise de clef, et ce qu'il compte en faire. Il y a aussi un emploi à prendre : celui qui lit les Sept Causes devant la porte monte avant tout le monde, pour dresser son pupitre. Le greffe le tire au sort ce matin. Les sorts, cela s'arrange.* L'évêché, l'hôtel du Syndic, la rue de l'Épée, et un escalier que l'on monte par la grande porte, en robe.",
+        "*Rendez-vous à onze heures à la salle des Poids, sous le Juge. Vous n'aurez pas besoin de moi pour la suite, et c'est bien ce qui m'ennuie.*",
+        "*Marjolaine Berlue, veuve, en sa cellule.*",
+        "Maître Crochemore tire de son gilet trois montres, et les pose sur le torchon, une devant chacun.",
+        "*Chaque poste revient à un seul d'entre vous, et l'on peut changer depuis Brandelis. Mettez-vous d'accord à voix haute ; le premier qui choisit est servi.*",
+      ],
+      choices: [
+        { label: "La main : tu prends la trousse, et tu montes avec l'horloger", role: "a5", option: "main", to: "A5m_aube", big: true },
+        { label: "L'œil : tu redescends aux quais avec Fifrelin", role: "a5", option: "oeil", to: "A5o_aube", big: true },
+        { label: "La voix : tu vas au greffe, où l'on tire un lecteur au sort", role: "a5", option: "voix", to: "A5v_aube", big: true },
+      ] },
+  },
+
+  extras: {
+    clues: {
+      j5_socle: { rev: "J", text: "De sa main : dans la chambre, le Bronze est assis sur un socle à trois pans. Chaque pan a son entrée de clef, tournée vers un mur différent ; qui tourne ne voit pas les mains des deux autres. Tant que les trois n'ont pas tourné ensemble, rien ne s'ouvre." },
+      r5_prevot: { rev: "R", text: "Le prévôt sera au pied de la Tour à minuit, avec son greffier et douze sergents qui savent écrire. Le guet s'arrête à la porte de la Tour : c'est dans la charte." },
+      s5_comte: { rev: "S", text: "À la Nuit des Clefs, l'épée monte la dernière. À mi-vis, il y a un palier où un homme seul arrête qui il veut. Le Connétable a promis d'y être pris d'un scrupule." },
+      s5_rumeur: { rev: "S", text: "Les Bas-Fonds savent pour la cloche de Ferrières : « Gouverneur perpétuel, an premier », fondu en octobre. « Ou bien le Bronze cause dans son sommeil, ou bien quelqu'un cause à sa place. »" },
+    },
+    places: {
+      horloge_close: { ambiance: "chateau", region: "aiguemorne", name: "La Tour de l'Horloge-Close", map: "pays", x: 51, y: 46, arrive: "A5c_rdv", desc: "Cent quatre-vingts marches, une salle où soupire un balancier, un palier, une porte à trois serrures." },
+      plombs: { ambiance: "chateau", region: "aiguemorne", name: "Les Plombs", map: "pays", x: 50, y: 47, arrive: "A5o_plombs", desc: "La prison de la citadelle : trois étages de petites fenêtres sous un toit de plomb." },
+      ville_haute: { ambiance: "ville", region: "aiguemorne", name: "La Ville-Haute", map: "pays", x: 52, y: 48, arrive: "A5v_aube", desc: "Les hôtels à tourelles, l'évêché, le greffe : la ville de ceux qui ont une robe." },
+    },
+  },
+};
