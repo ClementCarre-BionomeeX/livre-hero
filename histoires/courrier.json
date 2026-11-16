@@ -470,7 +470,10 @@
    "cachet_double",
    "cachet_double",
    "couteau",
+   "couteau",
    "heure_payer",
+   "heure_payer",
+   "cire_ongle",
    "cire_ongle",
    "faux_ami",
    "raccourci"
@@ -629,7 +632,7 @@
      "if": {
       "fil": "dette"
      },
-     "text": "Au gué de la Saulne, Gilles Tranchemer t'attend avec la patience d'un huissier. Ta dette court toujours, et elle a pris des intérêts."
+     "text": "Au gué de la Saulne, Gilles Tranchemer t'attend avec la constance d'un percepteur. Ta dette court toujours, et elle a pris des intérêts."
     },
     {
      "id": "inconnu",
@@ -954,7 +957,7 @@
    },
    "text": [
     "Tu parles trop vite, trop fort, avec la boue de deux jours sur tes bottes. Le cavalier, lui, parle doucement, avec des gants propres. Le conseil croit les gants.",
-    "On te reconduit à la porte. Derrière toi, le prévôt brise la cire du faux pli, et le conseil vote l'abstention, comme la fausse margrave le lui demande.",
+    "On te reconduit à la porte. Derrière toi, le prévôt brise la cire du faux pli, et le conseil vote l'abstention, comme le faux pli le lui demande.",
     "Tu gardes le vrai pli. Il pèse plus lourd, à présent, qu'à Orbec."
    ]
   },
@@ -1841,7 +1844,7 @@
   "R_presage_ok": {
    "title": "Le chemin vu d'en haut",
    "text": [
-    "L'oiseau s'envole vers l'aval, et en suivant son vol tu remarques ce que tu n'avais pas vu : l'endroit où le terrain est sûr, l'endroit où il ment. Tu repars avec une confiance qui ressemble à de l'élan."
+    "L'oiseau s'envole vers l'aval, et en suivant son vol tu remarques ce qui t'avait échappé : l'endroit où le terrain est sûr, l'endroit où il ment. Tu repars avec une confiance qui ressemble à de l'élan."
    ],
    "choices": [
     {
@@ -1851,7 +1854,7 @@
    ]
   },
   "R_presage_ko": {
-   "title": "Un oiseau, et rien de plus",
+   "title": "Un oiseau, voilà tout",
    "text": [
     "L'oiseau s'envole. C'était un oiseau. Tu repars, un peu vexé{e} d'avoir attendu un message d'un volatile."
    ],
