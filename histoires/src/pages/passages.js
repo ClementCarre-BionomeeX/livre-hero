@@ -118,7 +118,7 @@ module.exports = {
 
   P_banquet: { act: "I", title: "Le banquet", place: "vellane",
     text: [
-      "La grande salle de Vellane a rarement vu autant de chandelles ; la dernière fois, c'était pour préparer la noce de Dame Héloïse, qui n'a jamais eu lieu. Gauvard est assis à la droite de Messire. Il est beau, gai, il a un mot pour chacun ; il complimente le sanglier, la sauce, la tapisserie, et il regarde son cousin comme on regarde un coffre.",
+      "La grande salle de Vellane a rarement vu autant de chandelles ; la dernière fois, c'était pour préparer la noce de Dame Héloïse, qui n'a jamais eu lieu. Gauvard est assis à la droite de Messire. Il est beau, gai, il a un mot pour chacun, ce qui est la façon la plus économique d'être généreux ; il complimente le sanglier, la sauce, la tapisserie, et il regarde son cousin comme on regarde un coffre.",
       "Vous servez, {autre} et toi, comme il se doit : chacun une cruche, chacun un bout de table. Dame Héloïse vous indique d'un regard qui sert qui.",
       { if: { has: "monde:amitie_dague" }, text: "En passant derrière toi avec les tranchoirs, {autre} murmure, sans tourner la tête : « Merci pour la dague. » Ce sont les premiers mots depuis la Toussaint." },
       { if: { has: "monde:rancune_ecu" }, text: "{autre} évite ton regard. Quelqu'un lui a parlé de la sangle." },
@@ -150,7 +150,7 @@ module.exports = {
     choices: [{ label: "Continuer le service", to: "P_nuit" }] },
   P_banquet_gauvard: { act: "I", title: "La manche de Gauvard", place: "vellane",
     text: [
-      "Servir Gauvard, c'est se tenir derrière lui, la cruche à la main, et regarder sa nuque, ses boucles, le jeu de ses mains baguées pendant qu'il raconte une chasse où il s'est montré très brave.",
+      "Servir Gauvard, c'est se tenir derrière lui, la cruche à la main, et regarder sa nuque, ses boucles, le jeu de ses mains baguées pendant qu'il raconte une chasse où il s'est montré très brave, à l'en croire ; le sanglier, pour sa part, a cessé de donner son avis.",
       "C'est ainsi que tu le vois. Au moment où Messire se tourne vers Dame Héloïse, la main gauche de Gauvard passe au-dessus de la cruche de son cousin, une seconde. Quelque chose glisse de sa manche dans sa paume, puis de sa paume dans le vin : une fiole grande comme un doigt. Il la remet dans sa manche sans même baisser les yeux.",
       "Il est gaucher. Le détail t'avait échappé.",
     ],
@@ -207,7 +207,7 @@ module.exports = {
   P_anselme: { act: "II", title: "Frère Anselme", place: "saules",
     text: [
       "Le moulin a cessé de tourner depuis longtemps. Dedans, des herbes pendent partout, entre des pots, des alambics et des chats. Un vieil homme en robe brune épluche des racines avec un petit couteau courbe.",
-      "Il écoute tout, jusqu'au bout. Puis il pose son couteau. « Amande amère. Gauvard a toujours manqué d'imagination. » Il se lève, fouille, mélange, bouche une fiole à la cire. « Ceci pour Aubert, trois gouttes sur la langue, toutes les heures. Il vivra. Il boitera un peu plus. Il boitait déjà. »",
+      "Il écoute tout, jusqu'au bout. Puis il pose son couteau. « Amande amère. Gauvard a toujours manqué d'imagination. Un empoisonneur qui se respecte choisit un poison que le premier marmiton venu ne flaire pas dans la cruche. » Il se lève, fouille, mélange, bouche une fiole à la cire. « Ceci pour Aubert, trois gouttes sur la langue, toutes les heures. Il vivra. Il boitera un peu plus. Il boitait déjà. »",
       "« Et pour la Pierre ? »",
       "Il te regarde longtemps. « Assieds-toi. »",
     ],
@@ -293,7 +293,7 @@ module.exports = {
   P_pied: { act: "III", title: "Au pied du Mont-Veille", place: "montveille",
     fx: { ep: ["histoire", 5000] },
     text: [
-      "Le Mont-Veille est une montagne ronde et nue, toute en pierre et en vent, avec une seule entaille dans son flanc : la Gorge. Le soleil se couche. C'est le troisième soir.",
+      "Le Mont-Veille est une montagne ronde et nue, toute en pierre et en vent, avec une seule entaille dans son flanc : la Gorge. L'herbe s'arrête à mi-pente, d'un seul trait, comme une foule devant un cordon, et le silence commence au même endroit. Le soleil se couche. C'est le troisième soir.",
       "Et à l'entrée de la Gorge, sur une pierre, quelqu'un t'attend : {autre}.",
       "Vous vous regardez. Vous avez couru toute la journée, chacun de son côté, et vous voilà au même endroit, à la même heure : la montagne offrait un seul endroit et une seule heure.",
       { if: { all: [{ has: "monde:amitie_dague" }, { has: "monde:amitie_ecu" }] }, text: "Quelques mots suffisent. La dague sur la paillasse, la sangle changée en silence : chacun de vous sait ce que l'autre a fait. Depuis quand, vous seriez bien en peine de le dire." },
@@ -321,7 +321,7 @@ module.exports = {
     choices: [{ label: "Entrer dans la Gorge", to: "P_grille" }] },
   P_grille: { act: "III", title: "La grille", place: "montveille",
     text: [
-      "Au fond de la Gorge, une grille de fer noir ferme une caverne. Elle a neuf cents ans, et son fer est resté net, sans une trace de rouille, ce qui est étrange.",
+      "Au fond de la Gorge, une grille de fer noir ferme une caverne. Elle a neuf cents ans, et son fer est resté net, sans une trace de rouille ; le temps, qui ronge tout dans le comté, semble avoir reçu ici l'ordre d'attendre dehors.",
       { if: { has: "monde:clef_grille" }, text: "La clé de Gauvard tourne dans la serrure comme dans du beurre." },
     ],
     choices: [
@@ -336,7 +336,7 @@ module.exports = {
     choices: [{ label: "Le suivre dans la caverne", fx: { flag: "gauvard_devant" }, to: "P_caverne" }] },
   P_caverne: { act: "III", title: "L'autel", place: "montveille",
     text: [
-      "La caverne est immense, et chaude. Le sol est fait d'écailles. Il te faut un moment pour le comprendre : vous marchez sur Ossaroth, sur un flanc qui se soulève et s'abaisse très lentement, tous les cent battements de cœur.",
+      "La caverne est immense, et chaude, d'une chaleur d'étable. Le sol est fait d'écailles larges comme des boucliers, et ton esprit met un long moment à admettre ce que tes pieds savent déjà : vous marchez sur Ossaroth, sur un flanc qui se soulève et s'abaisse très lentement, tous les cent battements de cœur. Tu comptes malgré toi, et tu arrives à cent chaque fois.",
       "Au milieu se dresse un autel de pierre, et sur l'autel une pierre ronde, grise, grosse comme une tête d'enfant, qui luit faiblement. La Pierre-Veille.",
       { if: { has: "gauvard_devant" }, text: "Gauvard est déjà devant l'autel. Il tend les mains." },
       { if: { not: { has: "gauvard_devant" } }, text: "Vous arrivez les premiers. Mais derrière vous, des pas résonnent dans la Gorge, et une voix gaie qui dit : « Les enfants de mon cousin ! »" },
