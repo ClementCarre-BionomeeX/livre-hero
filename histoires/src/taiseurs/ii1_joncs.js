@@ -39,8 +39,8 @@ Object.assign(P, {
 
   IIJ_arrivee: { act: "II", title: "Les pilotis", place: "joncs", backName: "l'arrivée aux Joncs-Bas",
     text: [
-      "Le village se lève de l'eau par morceaux. D'abord les pieux, des centaines, noirs de goudron jusqu'à hauteur d'homme et verts de mousse au-dessus ; puis les maisons, posées dessus comme des cages, en planches grises et en roseau tressé, reliées entre elles par des passerelles qui tanguent. Des filets sèchent sur des perches. Une fumée lourde sort d'un long bâtiment au toit bas : le fumoir, et l'odeur d'anguille fumée te prend à la gorge à cent pas.",
-      "Sur les galeries, des femmes travaillent assises, un carreau de dentelle sur les genoux. Leurs fuseaux claquent comme une pluie fine. Elles lèvent toutes la tête au même moment, et le bruit s'arrête.",
+      "Le village se lève de l'eau par morceaux. D'abord les pieux, des centaines, noirs de goudron jusqu'à hauteur d'homme et verts de mousse au-dessus ; puis les maisons, posées dessus comme des cages, en planches grises et en roseau tressé, reliées entre elles par des passerelles qui tanguent. Des filets sèchent sur des perches. Une fumée lourde sort d'un long bâtiment au toit bas : le fumoir, et l'odeur d'anguille fumée te prend à la gorge à cent pas ; c'est, tu l'apprendras, la seule chose que le village donne d'avance.",
+      "Sur les galeries, des femmes travaillent assises, un carreau de dentelle sur les genoux. Leurs fuseaux claquent comme une pluie fine. Elles lèvent toutes la tête au même moment, et le bruit s'arrête, si net que tu entends l'eau reprendre sa place sous les pieux.",
       "Au bout du ponton, une dizaine de pêcheurs démaillent des nasses. Un homme au bonnet rouge, plus propre que les autres, range sous un banc {{pie#iij_nasse_neuve|une nasse d'osier tressé serré, pareille aux autres|une nasse d'osier de Salvèze, toute neuve, lestée de plombs frappés d'un besant, la marque de la Banque Marrel}}. Il te regarde accoster sans cesser de nouer son fil.",
       "Un vieux pêcheur aux bras nus descend l'échelle du ponton jusqu'à l'eau et attrape ta proue d'une main. Il a des avant-bras couverts de petites cicatrices blanches, des morsures. Il te dévisage longtemps.",
     ],
@@ -86,7 +86,7 @@ Object.assign(P, {
       { first: true, text: "Un seul morceau de terre émerge de l'eau, à l'ouest : un tertre herbu planté de poteaux de bois gravés, le cimetière des noyés. À côté, sur des pieux brûlés jusqu'à l'eau, les restes noircis d'une grande maison laissée telle quelle depuis des siècles. Et tout au bout de la passerelle du nord, plus haute que le reste, la maison de Mère Ancolie, avec une lampe allumée en plein jour derrière la fenêtre." },
       { text: "Sous le ponton, l'eau {{echo#iij_ponton_iris|clapote contre les pieux goudronnés, et les anguilles des viviers remuent dans leurs paniers immergés|rend une voix de jeune femme, essoufflée, sur ce même ponton : « Mère, j'emmène l'enfant à la ville cette nuit. Qu'il vive hors du silence. » Puis une voix plus vieille, la même que tu connais : « Iris, si tu passes la coulée, tu ne repasseras pas. »}}." },
       { again: true, when: "day", text: "Les Joncs-Bas au grand jour : les fuseaux qui claquent sur la passerelle de l'est, les pêcheurs qui démaillent au ponton, la fumée bleue du fumoir. Une barque passe sous les maisons, et une femme en descend sans la faire tanguer." },
-      { again: true, when: "night", text: "Les Joncs-Bas la nuit : des lanternes aux galeries, la lumière jaune de la Nasse sur l'eau noire, et sur le bassin le bruit des anguilles qui chassent. La lampe de Mère Ancolie brûle tout en haut, comme toujours." },
+      { again: true, when: "night", text: "Les Joncs-Bas la nuit : des lanternes aux galeries, la lumière jaune de la Nasse sur l'eau noire, et sur le bassin le bruit des anguilles qui chassent. Entre les pieux, l'eau est d'un noir sans fond, et chaque maison semble posée sur sa propre nuit. La lampe de Mère Ancolie brûle tout en haut, comme toujours." },
       { after: "mandat", before: "IIJ_rafle", text: "Sur un pieu du ponton, quelqu'un a cloué le placard des douaniers, ton visage à la plume, *cent ducats*. Un autre l'a recouvert d'une anguille fendue, mise à sécher." },
       { after: "saline:ouverte", text: "Depuis la Saline, les sauniers passent aux Joncs plus souvent, avec des sacs de sel qu'ils ne déclarent pas, et ils te saluent de la tête." },
       { after: "ecueils:ouverte", text: "Le vent a tourné au suroît. Sur la passerelle, les vieilles regardent le ciel du large et rentrent leur dentelle plus tôt que d'habitude." },
@@ -385,7 +385,7 @@ Object.assign(P, {
 
   IIJ_lison_cornet: { act: "II", title: "La nuit, le cornet", place: "joncs", with: "lison", takes: "night",
     text: [
-      "On t'a donné une paillasse dans la pièce commune de Mère Ancolie, sous la fenêtre. La lampe est éteinte. Tu entends la vieille femme respirer dans le lit clos, et l'eau sous le plancher, et le vent dans les roseaux.",
+      "On t'a donné une paillasse dans la pièce commune de Mère Ancolie, sous la fenêtre. La lampe est éteinte. Tu entends la vieille femme respirer dans le lit clos, et l'eau sous le plancher, et le vent dans les roseaux ; la maison entière bouge sur ses pieux, imperceptiblement, à la façon d'une barque qui dormirait à l'ancre.",
       "Au milieu de la nuit, une latte grince. Une ombre s'agenouille près de toi. Tu sens une main, légère, se poser sur ta hanche, sur la poche de cuir. Elle reste là.",
       { after: "iij:cornet_offert", text: "La main ne prend rien. Elle tapote la poche, deux fois, comme on flatte une bête, et s'en va. Tu entends Lison rire tout bas en se recouchant." },
       { if: { all: [{ not: { has: "iij:cornet_offert" } }, { conf: "lison", min: 50 }] }, text: "La main ne prend rien. Elle reste posée là un long moment, puis elle se retire. « Je t'avais dit que je te préviendrais la veille, chuchote Lison dans le noir. Je te préviens : ce ne sera pas cette nuit. »" },
@@ -492,7 +492,7 @@ Object.assign(P, {
 
   IIJ_maison_vasse: { act: "II", title: "Les pieux brûlés", place: "joncs", backName: "les pieux brûlés de la maison Vasse",
     text: [
-      "Il ne reste de la maison d'Aymeric Vasse qu'un carré de pieux noircis jusqu'à l'eau, plus gros que tous ceux du village, et quelques poutres effondrées dans la vase. Les Joncs amarrent leurs barques ailleurs. Les enfants jouent plus loin. Une bergeronnette sautille sur la poutre du seuil, la seule restée à peu près droite.",
+      "Il ne reste de la maison d'Aymeric Vasse qu'un carré de pieux noircis jusqu'à l'eau, plus gros que tous ceux du village, et quelques poutres effondrées dans la vase. L'eau, entre ces pieux, est plus sombre qu'autour, et trois siècles de marées y ont laissé la suie. Les Joncs amarrent leurs barques ailleurs. Les enfants jouent plus loin. Une bergeronnette sautille sur la poutre du seuil, la seule restée à peu près droite.",
       "Le vent {{echo#iij_aymeric|siffle dans les pieux brûlés et fait trembler l'eau entre eux|ramène une voix d'homme, posée, la voix de quelqu'un qui dicte : « Le fuseau d'ambre sous le seuil, pour celle qui filera la dernière. Que la Banque brûle la maison, elle ne brûlera pas l'eau. »}}.",
       "La poutre du seuil {{pie#iij_seuil|est noire de suie, comme le reste|porte, sous la suie, une encoche taillée de main d'homme, juste à la hauteur de l'eau basse}}.",
     ],
@@ -543,7 +543,7 @@ Object.assign(P, {
   IIJ_nasse: { act: "II", title: "La Nasse", place: "joncs", backName: "la Nasse", shop: "iij_nasse", taverne: { mise: 20, adversaire: "un pêcheur d'anguilles" },
     fx: { meet: "iij_fortunee" },
     text: [
-      { first: true, text: "La Nasse est une seule pièce de planches posée sur douze pieux, avec un comptoir fait d'une coque de barque retournée et sciée en long. Au plafond pendent des anguilles fumées, des bottes d'ail, des lanternes, et une vraie nasse d'osier où dort un chat roux. Ça sent le vin de prune, la tourbe et le poisson. Une femme ronde au chignon serré essuie des gobelets derrière la coque." },
+      { first: true, text: "La Nasse est une seule pièce de planches posée sur douze pieux, avec un comptoir fait d'une coque de barque retournée et sciée en long. Au plafond pendent des anguilles fumées, des bottes d'ail, des lanternes, et une vraie nasse d'osier où dort un chat roux, seul habitant des Joncs qui n'ait jamais rien pêché. Ça sent le vin de prune, la tourbe et le poisson. Une femme ronde au chignon serré essuie des gobelets derrière la coque." },
       { first: true, text: "« Fortunée, dit-elle. Je sers à boire, je sers à manger, je prête sur gages et je n'entends rien. » Elle te dévisage. « {{oreille#iij_fortunee|Vous avez une tête que je ne connais pas|Vous avez la tête du placard, et le placard vaut cent ducats, et je ne suis pas riche}}. »" },
       { again: true, when: "day", text: "La Nasse, presque vide à cette heure : deux vieux qui jouent aux dés, le chat roux dans sa nasse, Fortunée qui compte ses gages dans un cahier." },
       { again: true, when: "night", text: "La Nasse le soir, bondée, enfumée, bruyante. On joue à la Chandelle près de la fenêtre. Fortunée passe entre les tables avec son pichet." },
@@ -609,7 +609,7 @@ Object.assign(P, {
     text: [
       { first: true, text: "Le ponton des pêcheurs avance dans le bassin sur cinquante pas. Sous les planches, attachés aux pieux, des paniers d'osier immergés où tournent les anguilles du jour, vivantes, en attendant le fumoir ou le marché. Les pêcheurs y démaillent leurs nasses, y réparent leurs gaffes, y règlent leurs comptes, y dorment parfois." },
       { again: true, when: "day", text: "Le ponton au soleil, les nasses empilées, les pêcheurs accroupis. Cyprien fume sa pipe de terre au bout, assis sur un tonneau." },
-      { again: true, when: "night", text: "Le ponton la nuit, désert, sauf deux lanternes au bout où l'on prépare les lignes de fond. Dessous, les paniers remuent." },
+      { again: true, when: "night", text: "Le ponton la nuit, désert, sauf deux lanternes au bout où l'on prépare les lignes de fond. Dessous, les paniers remuent ; on entend, sous les planches, ce froissement mouillé de choses vivantes qui se cherchent dans le noir." },
       "Ardouin Mesle, le bonnet rouge, répare une nasse un peu à l'écart des autres. Ses nœuds {{pie#iij_noeuds|sont serrés et réguliers, des nœuds de pêcheur|sont des nœuds de marin de rivière, les nœuds qu'on fait sur les gabares de la Salve, et pas un seul nœud des marais}}.",
       { before: "iij:espion_pris", text: "Quand tu passes, il te salue d'un « bonjour » trop poli pour un pêcheur." },
       "Plus loin, un colporteur de Port-Vasier a ouvert sa boîte sur un tonneau et montre des bijoux de pacotille aux femmes qui passent.",
@@ -624,7 +624,7 @@ Object.assign(P, {
 
   IIJ_marchand: { act: "II", title: "La perle des marais", place: "joncs",
     text: [
-      "Le colporteur a de beaux yeux tristes et une moustache cirée. Il te prend tout de suite pour quelqu'un qui a de l'argent. Il sort de sa boîte un carré de velours, le déplie avec lenteur : dedans, une grosse perle grise, ronde comme un pois chiche.",
+      "Le colporteur a de beaux yeux tristes et une moustache cirée. Il te prend tout de suite pour quelqu'un qui a de l'argent, erreur qui honore son optimisme plus que son coup d'œil. Il sort de sa boîte un carré de velours, le déplie avec lenteur : dedans, une grosse perle grise, ronde comme un pois chiche.",
       "« Une perle des marais, dit-il. On en trouve une tous les dix ans, dans une moule d'eau douce, au fond de la grande coulée. Celle-là {{pie#iij_perle|a l'orient laiteux des vraies perles d'eau douce, avec ce reflet rose qu'on ne peut pas imiter|est une bille de verre trempée dans de la colle d'écaille, et le reflet rose vient d'un trait de cochenille passé au pinceau}}. Trois ducats. Pour vous. »",
       { with: "lison", text: "Lison regarde la perle par-dessus ton épaule et se tait. Elle a la bouche d'une fille qui s'empêche de rire." },
     ],
@@ -666,7 +666,7 @@ Object.assign(P, {
   IIJ_peche: { act: "II", title: "La pêche de nuit", place: "joncs", takes: "night",
     text: [
       "Cyprien t'emmène à la nuit tombée dans une barque plate, sans lanterne. Vous posez les lignes de fond à la sortie du bassin, là où l'eau du marais rencontre l'eau du chenal : cent hameçons boëttés de vers de vase, sur une corde lestée de pierres. Puis on attend, couchés dans la barque, en regardant les étoiles. Cyprien raconte des histoires de pêche, toutes à double fond.",
-      "Vers minuit, la corde se tend d'un coup et la barque pivote. Quelque chose de lourd tire vers le fond, puis remonte, et tu vois passer sous la surface, dans la lueur des étoiles, un dos noir plus long que la barque.",
+      "Vers minuit, la corde se tend d'un coup et la barque pivote. Quelque chose de lourd tire vers le fond, puis remonte, et tu vois passer sous la surface, dans la lueur des étoiles, un dos noir plus long que la barque ; il passe sans hâte, et l'eau se referme sur lui comme sur une chose qu'elle connaît.",
       "« La Mère-Anguille, souffle Cyprien. Cinquante ans que je la cherche. Elle a mangé deux de mes doigts de pied et la moitié de mes lignes. » Il te tend la gaffe. « Elle est à toi, si tu la veux. »",
       { with: "lison", text: "Lison, à la proue, a déjà sorti son couteau à démailler. Elle rit tout bas, les yeux brillants." },
     ],
@@ -769,7 +769,7 @@ Object.assign(P, {
 
   IIJ_espion_nuit: { act: "II", title: "La nuit sans lune", place: "joncs", takes: "night",
     text: [
-      "Tu attends la nuit sans lune, couché{e} dans une barque amarrée sous la passerelle, une couverture sur la tête. Le village s'éteint galerie par galerie. Vers minuit, une échelle grince du côté de la Nasse. Une silhouette descend dans une barque, sans lanterne, et s'éloigne vers la coulée à la pagaie, à petits coups silencieux.",
+      "Tu attends la nuit sans lune, couché{e} dans une barque amarrée sous la passerelle, une couverture sur la tête. Le village s'éteint galerie par galerie, et le noir qui s'installe est de ceux où l'on doute d'avoir encore des mains. Vers minuit, une échelle grince du côté de la Nasse. Une silhouette descend dans une barque, sans lanterne, et s'éloigne vers la coulée à la pagaie, à petits coups silencieux.",
       { with: "lison", text: "Lison est à l'arrière de ta barque. Elle détache l'amarre et pousse sur sa gaffe. Votre barque glisse derrière l'autre." },
     ],
     choices: [
@@ -899,7 +899,7 @@ Object.assign(P, {
 
   IIJ_pilotis_plonge: { act: "II", title: "Sous les maisons", place: "joncs",
     text: [
-      "L'eau est froide à couper le souffle, et brune. Tu descends le long du pilotis en te tenant aux algues, une corde à la taille dont Vivien tient le bout. Au fond, la vase t'avale jusqu'aux genoux.",
+      "L'eau est brune, et d'un froid qui te serre les côtes comme une main. Tu descends le long du pilotis en te tenant aux algues, une corde à la taille dont Vivien tient le bout. Au fond, la vase t'avale jusqu'aux genoux, sans hâte, avec une douceur de créancier sûr de son gage.",
       { with: "lison", text: "Lison plonge derrière toi, sans corde, et passe de l'autre côté du pieu comme une loutre." },
     ],
     choices: [
@@ -1088,7 +1088,7 @@ Object.assign(P, {
     fx: { ep: ["perso", 500] },
     text: [
       "Le deuxième jour, la coulée s'élargit tant qu'on ne voit plus ses rives. Les roseaux cèdent la place aux vasières, puis la vase au sable. Des carcasses de bateaux apparaissent, échouées sur les bancs : une gabare couchée sur le flanc, une coque de navire au ventre ouvert, des membrures noires qui sortent de la boue comme des côtes.",
-      "Puis le vent tourne, et c'est la mer, d'un coup : l'odeur de goémon, de sel, de poisson, le bruit sourd des vagues sur une barre de sable. Port-Vasier est là, au bout du delta, un tas de maisons basses et de mâts de travers, et une jetée faite d'épaves.",
+      "Puis le vent tourne, et c'est la mer, d'un coup : l'odeur de goémon, de sel, de poisson, le bruit sourd des vagues sur une barre de sable. Port-Vasier est là, au bout du delta, un tas de maisons basses et de mâts de travers, et une jetée faite d'épaves, car ici le naufrage des uns fait depuis toujours le quai des autres.",
       { with: "lison", text: "Lison renifle l'air, et sa figure change. « Ici, dit-elle, on ne parle pas à double sens. On parle à coups de couteau. Garde ta bourse sous ta chemise, et ton os aussi. »" },
       { with: "tibere", text: "Tibère se redresse dans la barque pour la première fois depuis deux jours. Une ville, même une ville d'épaves, le remet d'aplomb." },
     ],
@@ -1108,7 +1108,7 @@ Object.assign(P, {
 Object.assign(P, {
   IIJ_ev_brume: { act: "II", title: "La brume",
     text: [
-      "La brume tombe en quelques instants, épaisse, blanche, mouillée, et le marais disparaît. Tu ne vois plus la proue. Les perches qui marquaient le chenal se sont effacées. Le bruit de l'eau vient de partout à la fois.",
+      "La brume tombe en quelques instants, épaisse, blanche, mouillée, et le marais disparaît. Tu ne vois plus la proue. Les perches qui marquaient le chenal se sont effacées. Le bruit de l'eau vient de partout à la fois. Tu lèves la main devant ton visage, et tu la regardes s'effacer au bout de ton bras.",
       "Le silence {{echo#iij_brume|est total, sauf le goutte-à-goutte de la brume sur les roseaux|rend une voix d'homme, un passeur d'autrefois, qui chantonne pour lui-même : « À droite des trois perches, à gauche du saule mort, et tout droit jusqu'au chant du butor »}}.",
     ],
     choices: [

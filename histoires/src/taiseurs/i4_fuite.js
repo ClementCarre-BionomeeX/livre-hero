@@ -11,7 +11,7 @@ Object.assign(P, {
   IQ_boutique: { act: "I", title: "La boutique d'Odeline", backName: "la boutique d'Odeline",
     text: [
       { first: true, text: "La boutique d'Odeline est la troisième après le pont, et tu la reconnais de loin à son enseigne : une main de bois peinte qui tient une clé, et dessous, en lettres jaunes écaillées, *Carrus — Choses perdues, choses retrouvées.* Quelqu'un a tendu une cordelette en croix sur la porte, d'un montant à l'autre, et l'a fixée au milieu par un pain de cire rouge où l'on a pressé la tour du Guet." },
-      { first: true, text: "Sous le scellé, une affiche clouée, encore fraîche : *Vente par autorité de justice des biens meubles de la défunte Odeline Carrus, à la requête de Maître Josserand Tiercelin, prêteur sur gages. Jeudi, à la cloche de tierce.* Sur les trois marches, un jeune homme maigre en manteau de serge noire tient une écritoire sur ses genoux. Il regarde par la fenêtre et il écrit. C'est Fortunat, le commis de Tiercelin : il dresse l'inventaire de ce qu'il voit à travers les carreaux." },
+      { first: true, text: "Sous le scellé, une affiche clouée, encore fraîche : *Vente par autorité de justice des biens meubles de la défunte Odeline Carrus, à la requête de Maître Josserand Tiercelin, prêteur sur gages. Jeudi, à la cloche de tierce.* Sur les trois marches, un jeune homme maigre en manteau de serge noire tient une écritoire sur ses genoux. Il regarde par la fenêtre et il écrit. C'est Fortunat, le commis de Tiercelin : il dresse l'inventaire de ce qu'il voit à travers les carreaux, méthode qui permet de saisir une maison sans y mettre le pied." },
       { first: true, text: "Le pas de porte {{echo#iq_echo_porte|garde ses trois marches usées au milieu par quarante ans de clients|garde une voix de femme, la nuit de la fête, lancée dans la rue après un claquement de porte : « Va donc à ta fête, et reviens quand tu sauras te taire »}}. Les volets du premier étage sont fermés. Celui de gauche pend d'un gond, comme depuis toujours." },
       { again: true, before: "i4:boutique_reglee", text: "La cordelette en croix, la cire rouge, l'affiche de Tiercelin. Fortunat a changé de marche ; il écrit toujours." },
       { after: "i4:boutique_vendue", text: "Les volets sont ouverts et la boutique est vide jusqu'aux murs. Sur la porte, une affiche neuve : *À louer. S'adresser à Maître Tiercelin.* L'enseigne à la clé a disparu ; il reste ses deux crochets de fer, et la trace plus claire qu'elle a laissée sur la pierre." },
@@ -69,7 +69,7 @@ Object.assign(P, {
   IQ_soupirail: { act: "I", title: "Le soupirail du canal",
     text: [
       "La cave d'Odeline a un soupirail sur le canal des Lanternes, au ras de l'eau : une grille de fer scellée dans la pierre, que la rouille a mangée à la base. Odeline y faisait passer ses colis lourds, depuis une barque, quand elle ne voulait pas que le quai les voie entrer. Tu sais que le barreau de gauche tient par habitude.",
-      "Pour l'atteindre, il faut longer le quai par l'eau, sous les fenêtres, sans que le commis de Tiercelin ou les fenêtres de la pension te voient passer. Le canal est vert et froid. Une barque de légumes descend vers les Halles en poussant un tas de lanternes de papier mortes.",
+      "Pour l'atteindre, il faut longer le quai par l'eau, sous les fenêtres, sans que le commis de Tiercelin ou les fenêtres de la pension te voient passer. Le canal est vert et froid, d'un vert opaque qui garde pour lui ce qu'il recouvre. Une barque de légumes descend vers les Halles en poussant un tas de lanternes de papier mortes.",
       { with: "lison", text: "Lison regarde le soupirail, puis sa barque, amarrée trois maisons plus loin. « Tu montes, tu te couches au fond, tu ne bouges plus, dit-elle. Je fais ça depuis l'âge de six ans. »" },
     ],
     choices: [
@@ -126,7 +126,7 @@ Object.assign(P, {
 Object.assign(P, {
   IQ_dedans: { act: "I", title: "Dans la boutique", backName: "la boutique, dedans",
     text: [
-      { first: true, text: "La boutique sent ce qu'elle a toujours senti : la poussière chaude, la cire d'abeille, le camphre des tiroirs à gants, et dessous, l'odeur froide de la cave qui monte par la trappe ouverte. Rien n'a bougé depuis le matin où tu l'as trouvée. Les étagères montent jusqu'au plafond, chargées de choses perdues sous leur ficelle et leur étiquette : des clés par grappes, des gants seuls, une jambe de bois ferrée, une cage à perroquet, un violon sans cordes. Chacune attend quelqu'un qui ne viendra plus la réclamer." },
+      { first: true, text: "La boutique sent ce qu'elle a toujours senti : la poussière chaude, la cire d'abeille, le camphre des tiroirs à gants, et dessous, l'odeur froide de la cave qui monte par la trappe ouverte. Rien n'a bougé depuis le matin où tu l'as trouvée ; le silence seul est nouveau, et il occupe la pièce à la façon d'un meuble qu'on aurait livré en ton absence. Les étagères montent jusqu'au plafond, chargées de choses perdues sous leur ficelle et leur étiquette : des clés par grappes, des gants seuls, une jambe de bois ferrée, une cage à perroquet, un violon sans cordes. Chacune attend quelqu'un qui ne viendra plus la réclamer." },
       { first: true, text: "La boutique {{echo#iq_echo_dispute|est silencieuse, à l'heure où Odeline remontait d'ordinaire la pendule|garde deux voix, la nuit de la fête, vers dix heures. La tienne, qui crie : « Tu mourras seule avec tes secrets. » Celle d'Odeline, plus basse, après la porte claquée : « C'est pour toi que je les garde, imbécile »}}. Le fauteuil à oreilles {{echo#iq_echo_onze|est tourné vers la porte, comme elle le tournait pour guetter les clients|garde une voix de femme seule qui compte tout bas, vers onze heures : « Deux mille. La petite maison de la digue pour l'enfant, les remèdes de l'apothicaire, et rien pour la Banque »}}." },
       { again: true, text: "La boutique, ses étagères, sa poussière. La trappe de la cave est ouverte sur le noir. Le fauteuil vert est tourné vers la porte." },
       "Sur le comptoir, la tasse de thé d'Odeline est toujours là, avec un fond brun sec. À côté, le tiroir-caisse {{pie#iq_tiroir|est ouvert et vide, raclé jusqu'au bois|est ouvert et vide, mais son fond est plus haut d'un pouce que celui du tiroir voisin}}.",
@@ -154,7 +154,7 @@ Object.assign(P, {
   IQ_escalier: { act: "I", title: "L'escalier de la cave",
     text: [
       { first: true, text: "La trappe de la cave est dans le coin du fond, derrière le comptoir. Un palier de trois planches, puis quatorze marches de chêne, raides comme une échelle de meunier, avec une main courante polie par les paumes. Odeline les descendait vingt fois par jour, une chandelle à la main, en comptant à mi-voix. Tu l'as trouvée en bas, la tête contre la dernière marche." },
-      { again: true, text: "Le palier, les quatorze marches, la main courante. Le noir au fond." },
+      { again: true, text: "Le palier, les quatorze marches, la main courante. Au fond, le noir, d'où monte un froid de puits." },
       "Le palier {{echo#iq_echo_minuit|sent la cire et la poussière, et grince sous le pied|garde deux voix, à minuit. Une voix d'homme, basse et lente : « Odeline, tu as juré comme nous tous. Rends-moi ce que ta mère a gardé. » Et Odeline, essoufflée : « Sors de chez moi, Gildas, ou je crie jusqu'au pont »}}. Les quatorze marches {{echo#iq_echo_chute|descendent dans le noir, usées au milieu, raides comme une échelle|rendent un coup sourd de cuivre contre un front, un juron d'homme, puis une chute qui dure, marche après marche, et la même voix d'homme, tout en bas, qui répète : « Odeline. Odeline, je t'en prie »}}.",
       { with: "gildas", text: "Frère Gildas s'est arrêté sur le seuil de la boutique, la main à son capuchon. Il ne s'approche pas de la trappe. Quand tu te retournes vers lui, il a baissé les yeux sur ses sandales, et il prie sans remuer les lèvres." },
     ],
@@ -177,7 +177,7 @@ Object.assign(P, {
 
   IQ_cave: { act: "I", title: "La cave",
     text: [
-      { first: true, text: "La cave d'Odeline est plus grande que la boutique : une voûte de brique basse, des rayonnages jusqu'au fond, des tonneaux vides qui servent de tables, des malles empilées, et l'établi sous le soupirail, avec ses étaux et ses tiroirs à outils. Une lumière verte entre par la grille du canal et bouge au plafond avec l'eau. C'est ici qu'elle démontait les serrures et recousait les doublures, ici que tu as trouvé la boîte au cornet." },
+      { first: true, text: "La cave d'Odeline est plus grande que la boutique : une voûte de brique basse, des rayonnages jusqu'au fond, des tonneaux vides qui servent de tables, des malles empilées, et l'établi sous le soupirail, avec ses étaux et ses tiroirs à outils. Une lumière verte entre par la grille du canal et bouge au plafond avec l'eau, si bien que la cave entière semble reposer au fond du canal, et toi avec elle. C'est ici qu'elle démontait les serrures et recousait les doublures, ici que tu as trouvé la boîte au cornet." },
       { again: true, text: "La voûte de brique, l'établi sous le soupirail, la lumière verte qui bouge au plafond." },
       "Les tiroirs de l'établi {{echo#iq_echo_cave|sont fermés et rangés comme Odeline les rangeait, chaque outil à son clou|claquent l'un après l'autre sous une main pressée, et une voix d'homme prie entre ses dents en cherchant : « Où l'as-tu mis. Où l'as-tu mis, Odeline »}}. Le mur du fond {{pie#iq_pie_grenats|suinte un peu, comme tous les murs du quai, autour d'un crochet à lanterne|suinte comme tous les murs du quai, sauf la troisième brique sous le crochet à lanterne : elle est sèche, posée sans mortier, et creuse derrière}}.",
       "Sur l'établi, la boîte à double fond est restée ouverte, vide, telle que tu l'as laissée. À côté, un bougeoir de cuivre {{pie#iq_bougeoir|propre et droit, posé à sa place habituelle|propre et droit, mais son pied est faussé d'un côté, comme après un choc, et on l'a calé pour qu'il tienne}}.",
@@ -198,7 +198,7 @@ Object.assign(P, {
 
   IQ_atelier: { act: "I", title: "L'atelier",
     text: [
-      { first: true, text: "L'escalier intérieur monte à l'étage, où Odeline avait son atelier et son lit dans la même pièce : une alcôve fermée d'un rideau de serge, une table sous la fenêtre du canal, des pots de colle et de vernis, des loupes de bijoutier rangées par taille, et contre le mur, son secrétaire de noyer, dont elle gardait la clé au cou. Quelqu'un l'a forcé. Le bois est fendu autour de la serrure, et les papiers débordent des casiers." },
+      { first: true, text: "L'escalier intérieur monte à l'étage, où Odeline avait son atelier et son lit dans la même pièce : une alcôve fermée d'un rideau de serge, une table sous la fenêtre du canal, des pots de colle et de vernis, des loupes de bijoutier rangées par taille, et contre le mur, son secrétaire de noyer, dont elle gardait la clé au cou. Quelqu'un l'a forcé. Le bois est fendu autour de la serrure, et les papiers débordent des casiers, comme d'une bouche qu'on a fait parler de force." },
       { again: true, text: "L'atelier, l'alcôve, le secrétaire forcé. Le canal, par la fenêtre, gris et lent." },
       "Le rideau de l'alcôve est tiré. Le lit est fait au carré. Sur l'oreiller, son bonnet de nuit plié en deux, et sur la table de chevet, une pendule de voyage {{pie|en laiton, sans valeur, qu'elle remontait chaque soir avant de souffler la chandelle|en laiton, sans valeur, dont le balancier a été lesté d'un plomb pour qu'elle retarde d'un quart d'heure exactement}}.",
       { with: "tibere", text: "Tibère regarde le secrétaire fendu. « Pas le Guet, dit-il. Le Guet casse la serrure, il ne fend pas le bois autour. Ça, c'est quelqu'un qui n'avait pas d'outil et beaucoup de colère. »" },
@@ -401,10 +401,10 @@ Object.assign(P, {
 Object.assign(P, {
   IF_port: { act: "I", title: "Le port aux Sauniers", place: "port", hub: true, backName: "le port aux Sauniers",
     text: [
-      { first: true, text: "Le port aux Sauniers est le plus vieux de Salvèze, et il en a l'air : des quais de pierre noire mangés d'algues jusqu'à mi-hauteur, des anneaux de fer gros comme des têtes, et le long de l'eau, les greniers à sel, hauts et sans fenêtres, dont les portes ouvertes soufflent une poussière blanche qui poudre les épaules des passants. Tout ici a le goût du sel : l'air, les cordages, la peau des porteurs." },
+      { first: true, text: "Le port aux Sauniers est le plus vieux de Salvèze, et il en a l'air : des quais de pierre noire mangés d'algues jusqu'à mi-hauteur, des anneaux de fer gros comme des têtes, et le long de l'eau, les greniers à sel, hauts et sans fenêtres, dont les portes ouvertes soufflent une poussière blanche qui poudre les épaules des passants. Tout ici a le goût du sel : l'air, les cordages, la peau des porteurs, et jusqu'aux conversations, qui en ont plus qu'ailleurs." },
       { first: true, text: "Deux sortes de bateaux se partagent l'eau. Les gabares de sel, larges et lentes, à voile carrée, chargées jusqu'au plat-bord de sacs gris venus de Grisemotte. Et entre elles, comme des poissons entre des bœufs, les barques des marais : noires, plates, sans quille, menées à la perche par des gens maigres en sabots, avec des nasses à anguilles empilées à l'arrière. Au bout du port, la maison de la douane barre le chenal d'une chaîne tendue entre deux bornes, et des hommes en casaque verte lisent chaque bateau qui passe." },
       { again: true, when: "day", text: "Le port aux Sauniers, sa poussière blanche, ses gabares au mouillage. Les porteurs montent les sacs de sel aux greniers en file, courbés, un sac par homme. La chaîne de la douane est tendue." },
-      { again: true, when: "night", text: "Le port, la nuit. Les greniers sont fermés, et le sel tombé sur les pavés luit sous la lune. Une lanterne brûle à la douane, une autre à la proue de chaque gabare. Les barques des marais sont serrées les unes contre les autres le long du vieux quai, et quelqu'un y chante tout bas, dans une langue qui ressemble à la tienne et n'en est pas tout à fait une." },
+      { again: true, when: "night", text: "Le port, la nuit. Les greniers sont fermés ; leurs façades aveugles dressent le long de l'eau une muraille que la lune laisse entière à l'ombre, et le sel tombé sur les pavés luit à leur pied, sous la lune, d'une pâleur de givre. Une lanterne brûle à la douane, une autre à la proue de chaque gabare. Les barques des marais sont serrées les unes contre les autres le long du vieux quai, et quelqu'un y chante tout bas, dans une langue qui ressemble à la tienne et n'en est pas tout à fait une." },
       { with: "lison", first: true, text: "Lison a changé de pas en arrivant sur le quai : plus long, plus lent, le pas des gens qui marchent sur des planches. Une femme dans une barque lui fait un signe de la tête. Lison le lui rend, à peine." },
       { after: "IF_saisie_fin", text: "Au vieux quai, la barque de Mélisende a repris sa place entre les autres, ses nasses empilées à l'arrière." },
     ],
@@ -494,9 +494,9 @@ Object.assign(P, {
 
   IF_saisie_nuit: { act: "I", title: "La chaîne, la nuit", place: "port", takes: "night",
     text: [
-      "La nuit, le port aux Sauniers appartient aux rats, aux chats et aux deux douaniers de garde, qui ont rentré leur tonneau dans la guérite et jouent à la lueur d'une chandelle. La barque de Mélisende flotte au bout de sa chaîne neuve. L'anneau est scellé dans la pierre du quai ; le cadenas pend à hauteur de l'eau.",
+      "La nuit, le port aux Sauniers appartient aux rats, aux chats et aux deux douaniers de garde, qui ont rentré leur tonneau dans la guérite et jouent à la lueur d'une chandelle. La barque de Mélisende flotte au bout de sa chaîne neuve, sur une eau si noire qu'elle semble posée sur rien. L'anneau est scellé dans la pierre du quai ; le cadenas pend à hauteur de l'eau.",
       "Mélisende t'attend dans le noir, au pied de l'escalier d'eau, sa perche à la main. « Si tu ouvres, je pars, dit-elle tout bas. Je ne m'arrête pas avant les premiers roseaux. »",
-      { with: "fauvette", text: "Fauvette regarde le cadenas comme on regarde un plat qu'on aime. « Douane, dit-elle. Ils achètent leurs serrures au même serrurier que le Guet. Le même, depuis dix ans, et il fait toujours la même bêtise. »" },
+      { with: "fauvette", text: "Fauvette couve le cadenas d'un œil de gourmande. « Douane, dit-elle. Ils achètent leurs serrures au même serrurier que le Guet. Le même, depuis dix ans, et il fait toujours la même bêtise. »" },
     ],
     choices: [
       { label: "« Laisse-moi faire », dit Fauvette, son crochet déjà entre les dents", who: "fauvette", test: { dom: "discretion", diff: 0, label: "Fauvette ouvre le cadenas" },
@@ -600,7 +600,7 @@ Object.assign(P, {
 
   IF_saumure: { act: "I", title: "La Saumure", place: "port",
     text: [
-      "La Saumure est une cave voûtée, {{echo#if_echo_saumure|plus basse que le quai, où l'humidité ronge les tonneaux|plus basse que le quai, où une voix d'homme a dit, la veille au soir, entre deux pots : « Demain, l'affiche. Cinquante ducats. Le reste, c'est l'allumeur qui le dira »}}, où l'eau du port suinte par les murs les jours de grande marée. On boit du cidre aigre dans des pots de grès, assis sur des tonneaux. Dans le fond, des porteurs jouent aux osselets ; au comptoir, la patronne écoute tout et ne répète rien.",
+      "La Saumure est une cave voûtée, {{echo#if_echo_saumure|plus basse que le quai, où l'humidité ronge les tonneaux|plus basse que le quai, où une voix d'homme a dit, la veille au soir, entre deux pots : « Demain, l'affiche. Cinquante ducats. Le reste, c'est l'allumeur qui le dira »}}, où l'eau du port suinte par les murs les jours de grande marée. On boit du cidre aigre dans des pots de grès, assis sur des tonneaux ; l'endroit tient de la taverne et de la cale, et le client y descend comme une marchandise. Dans le fond, des porteurs jouent aux osselets ; au comptoir, la patronne écoute tout et ne répète rien.",
       "Tu écoutes. On parle de la chaîne de la douane, qui ne s'abaisse plus pour les barques des marais. On parle d'un batelier qui a vu passer, la semaine dernière, à minuit, une barque noire chargée d'hommes en gants gris vers les Hautes-Eaux. Et on parle, plus bas, d'une affiche que le Guet ferait imprimer chez l'imprimeur de la rue des Presses, avec un nom dessus, et cent ducats au bout.",
       { if: { has: "ic:expulse_cri" }, text: "Au fond, un porteur lève son pot et crie, pour faire rire les autres : « Le sel paie pour les banquiers ! » On rit, on trinque. Il ne sait pas que tu as été jeté{e} du Conseil pour l'avoir dit la première fois." },
       { with: "tibere", text: "Tibère boit son pot d'un trait et en commande un autre sans te regarder. « Les affiches, dit-il, c'est toujours le capitaine qui les commande. Et le capitaine les fait payer par qui les demande. » Il fixe le fond de son pot. « Qui les demande, je ne sais pas. »" },
@@ -667,7 +667,7 @@ Object.assign(P, {
   IF_passeur_marche: { act: "I", title: "Le marché de Roudil", place: "port",
     text: [
       { if: { has: "i4:passeur_tenu" }, text: "Roudil s'arrête de mâcher. Il te regarde, puis il regarde ton oreille, longtemps, et quelque chose passe sur son visage, entre la peur et le respect. « Alors c'est toi, dit-il. La petite de chez Carrus. Ou le petit. On m'avait dit que la vieille avait gardé l'os. » Il crache sa racine. « Bon. Je ne te vendrai pas. Je te passerai pour rien, le jour venu, et je ne dirai pas ton nom. Ma barque te cachera, si tu en as besoin. Et toi, tu ne diras pas le mien. »", else: "Roudil prend tes deux ducats, les mord l'un après l'autre, et les glisse dans sa botte. « Le jour où tu en as besoin, dit-il, tu viens au bout de l'estacade, et tu montes dans la barque sans parler. Je m'occupe du reste. » Il te serre la main. Il a la main sèche et chaude." },
-      { with: "lison", if: { has: "i4:passeur_tenu" }, text: "Lison a entendu. Elle regarde Roudil comme on regarde un oncle surpris à voler dans le tronc de l'église. Roudil baisse les yeux le premier." },
+      { with: "lison", if: { has: "i4:passeur_tenu" }, text: "Lison a entendu. Elle regarde Roudil comme on regarde un oncle surpris à tricher aux cartes un soir de veillée funèbre. Roudil baisse les yeux le premier." },
     ],
     choices: [{ back: "IF_passeur" }] },
 });
@@ -767,7 +767,7 @@ Object.assign(P, {
 
   IF_plongeon: { act: "I", title: "Le canal",
     text: [
-      "L'eau du canal est froide à couper le souffle, verte, épaisse de tout ce que la ville y jette. Tu nages sous l'arche, entre les piles, dans l'ombre, en gardant la bouche fermée. Au-dessus de toi, des pas courent sur le pont, et quelqu'un crie qu'on lui apporte une gaffe.",
+      "L'eau du canal est froide à couper le souffle, verte, épaisse de tout ce que la ville y jette. Tu nages sous l'arche, entre les piles, dans l'ombre, en gardant la bouche fermée, sage précaution dans une eau qui a servi à toute la ville avant toi. Au-dessus de toi, des pas courent sur le pont, et quelqu'un crie qu'on lui apporte une gaffe.",
       "De l'autre côté, le canal longe des arrière-cours, des escaliers d'eau, des lavoirs, des hangars à barques au ras de l'eau.",
     ],
     choices: [
@@ -777,7 +777,7 @@ Object.assign(P, {
 
   IF_marche: { act: "I", title: "Le marché aux herbes",
     text: [
-      "Le marché aux herbes se tient tous les matins sur le pont-aux-Herbes et sur la petite place qui le prolonge : des tréteaux, des paniers, des bottes de cresson, de poireaux, de menthe, des cages à poules, et une foule serrée de servantes, de cuisinières, de commis, de mendiants, qui sent la terre mouillée et l'oignon. On y avance à coups d'épaules.",
+      "Le marché aux herbes se tient tous les matins sur le pont-aux-Herbes et sur la petite place qui le prolonge : des tréteaux, des paniers, des bottes de cresson, de poireaux, de menthe, des cages à poules, et une foule serrée de servantes, de cuisinières, de commis, de mendiants, qui sent la terre mouillée et l'oignon. On y avance à coups d'épaules, et les plus polis s'excusent après.",
       { outcome: "lose", text: "Tu glisses sur les tuiles, tu te rattrapes à une gouttière qui plie, et tu tombes dans la toile d'un auvent, qui se déchire et te dépose, avec trois bottes de poireaux, au milieu des paniers du marché. Une marchande hurle. Le reste du marché se retourne." },
       "Derrière toi, au bout du pont, les casques ronds du Guet fendent la foule. Une servante te regarde trop longtemps, puis dit à sa voisine : « {{oreille#if_servante|Je n'ai rien vu, moi, je fais mes courses|Cinquante ducats, c'est trois ans de gages, et le Guet est à vingt pas}}. » Un mendiant aussi te regarde.",
       { if: { has: "ig:bocquet_tenu" }, text: "Au coin du pont, Alexis Bocquet marchande une cage à poules, sa loupe de borgne vissée à l'œil. Il te voit, et il se met à regarder la cage avec beaucoup d'application." },
@@ -813,7 +813,7 @@ Object.assign(P, {
       { again: true, text: "Le hangar de Couzi, ses lanternes mortes, ses barques retournées. Couzi n'a pas bougé." },
       { first: true, if: { has: "pf:lanterne_bleue" }, text: "Tu regardes les lanternes pendues, une à une, par habitude de métier. Il n'y en a pas de bleue." },
       { if: { has: "pq:odeline_marais" }, text: "En pendant ses lanternes, Couzi chante tout bas, sans s'en apercevoir, une chanson des marais qui chante sur la fin des mots. Il s'arrête net quand il voit que tu l'écoutes." },
-      { first: true, text: "Tu t'assieds par terre, dans le noir, le dos contre une coque goudronnée. Le feuillet du Beffroi crisse sous ta chemise. Dehors, les sifflets du Guet passent et repassent sur le quai, de plus en plus loin. Les cloches sonnent none, puis la demie. Il faut attendre vêpres." },
+      { first: true, text: "Tu t'assieds par terre, dans le noir, le dos contre une coque goudronnée. Le feuillet du Beffroi crisse sous ta chemise. Au-dessus de toi, les lanternes mortes tournent au bout de leurs ficelles, au moindre souffle, toutes ensemble et sans bruit ; on dirait une assemblée qui délibère sur ton cas. Dehors, les sifflets du Guet passent et repassent sur le quai, de plus en plus loin. Les cloches sonnent none, puis la demie. Il faut attendre vêpres." },
       { if: { has: "i4:guet_battu" }, first: true, text: "Les sifflets passent plus souvent qu'ailleurs, et plus fort. Deux hommes du Guet rentrent au poste en se tenant la tête, et tout le Guet le sait." },
       { with: "lison", first: true, text: "Lison s'est assise en face de toi, les genoux sous le menton. « À la nuit, dit-elle. Sous le pont de la Reine. Après, tu ne reverras pas Salvèze avant longtemps. Si tu as quelque chose à faire ici, c'est maintenant. »" },
       { if: { seen: "IF_saisie_fin" }, first: true, text: "Un peu plus tard, une barque noire glisse le long du hangar, et une voix de femme dit à travers les planches, tout bas, dans le parler des marais, une phrase que tu ne comprends pas. Puis, plus clair : « La sortie de l'égout. Ce soir. On y sera. » Mélisende." },
@@ -965,7 +965,7 @@ Object.assign(P, {
   IF_geole: { act: "I", title: "Le cachot du quai",
     fx: { flag: "i4:pris" },
     text: [
-      "Le cachot du poste du quai est une cave sous la guérite, trois pas sur quatre, avec un pouce d'eau du canal sur le sol et une grille à hauteur de visage sur l'escalier. On t'y a poussé{e} sans brutalité excessive, et on t'a pris ta dague, ta bourse et ta ceinture. Le feuillet du Beffroi est toujours sous ta chemise ; personne n'a pensé à te fouiller là. La loupe aussi, au fond de la poche cousue.",
+      "Le cachot du poste du quai est une cave sous la guérite, trois pas sur quatre, avec sur le sol un pouce d'eau du canal, qui te prend aux chevilles et s'y installe, et une grille à hauteur de visage sur l'escalier. On t'y a poussé{e} sans brutalité excessive, et on t'a pris ta dague, ta bourse et ta ceinture. Le feuillet du Beffroi est toujours sous ta chemise ; personne n'a pensé à te fouiller là. La loupe aussi, au fond de la poche cousue.",
       { if: { has: "i4:rendu" }, text: "Tu es venu{e} toi-même. Brunon t'a écouté{e} jusqu'au bout, devant la boutique, devant tout le quai, en hochant la tête. Puis il a dit : « Je te crois peut-être. Le mandat, lui, ne me demande pas de te croire. » Et il t'a pris le bras." },
       { with: "any", text: "Les autres se sont dispersés quand on t'a pris, comme on disperse des pigeons. Tu ignores où ils sont. Tu sais qu'ils savent où tu es." },
       "Brunon s'assied sur la marche, de l'autre côté de la grille, et pèle une pomme. « Le capitaine viendra te chercher à minuit, dit-il. Avec un monsieur de la Banque. {{oreille#if_brunon_doute|Je fais mon travail, et le mandat est signé en règle|Je ne crois pas une ligne de ce mandat, et le capitaine non plus, mais le capitaine doit trois mille ducats à la Banque}}. » La spirale de pomme tombe dans l'eau du cachot.",
@@ -1034,7 +1034,7 @@ Object.assign(P, {
 
   IF_oeil_gamin: { act: "I", title: "Le gamin des toits",
     text: [
-      "Le sifflement vient du parapet, deux notes, puis une corde à nœuds tombe le long de l'arche. Un gamin des Gouttières s'y laisse glisser jusqu'à la marche, pieds nus, un paquet de chiffon serré contre la poitrine. Il a dix ans, une oreille en chou-fleur, et il regarde la grille levée comme on regarde la gueule d'un four.",
+      "Le sifflement vient du parapet, deux notes, puis une corde à nœuds tombe le long de l'arche. Un gamin des Gouttières s'y laisse glisser jusqu'à la marche, pieds nus, un paquet de chiffon serré contre la poitrine. Il a dix ans, une oreille en chou-fleur, et il se tient de biais devant la grille levée, en garçon qui évite de tourner le dos aux bouches noires.",
       "« C'est de la part de la Reine, dit-il. Margaux Pelle. » Il défait le chiffon. Dedans, un anneau de corne et une lentille de quartz fumé, au bout d'un cordon de cuir tranché. « Boscot l'a pris au cou de la rousse, contre ce qu'elle devait. Elle a gardé ses mains. La Reine dit que c'était à la Carrus, et que ce qui était à la Carrus revient à la Carrus. La Banque en offrait cinquante ducats. La Reine aime faire attendre la Banque. »",
       { if: { has: "ig:reine_vue" }, text: "Tu revois Margaux sous sa fenêtre propre, ses bésicles d'acier sur le nez. Elle sait donc où tu pars, et par où." },
       { if: { all: [{ has: "ig:reine_connue" }, { not: { has: "ig:reine_vue" } }] }, text: "La Reine des Gouttières. Tu ne l'as jamais vue. Hermance, au Pot Fêlé, t'a dit que tout ce qui se vole à Salvèze passe par sa balance." },
@@ -1104,7 +1104,7 @@ Object.assign(P, {
 
   IF_egouts_rats: { act: "I", title: "Les rats de la reine",
     text: [
-      "Après la salle des colonnes, le tunnel redescend, plus bas, plus étroit, et la pierre blanche se couvre d'une mousse grise. L'eau sent de nouveau la vase. Sur les corniches, de chaque côté de la barque, des yeux rouges s'allument dans la lanterne, par dizaines, par centaines. Les rats de l'égout ne fuient pas. Ils regardent la barque comme on regarde un plat qu'on apporte.",
+      "Après la salle des colonnes, le tunnel redescend, plus bas, plus étroit, et la pierre blanche se couvre d'une mousse grise. L'eau sent de nouveau la vase. Sur les corniches, de chaque côté de la barque, des yeux rouges s'allument dans la lanterne, par dizaines, par centaines ; les corniches en paraissent semées de braises. Les rats de l'égout ne fuient pas. Ils regardent la barque comme on regarde un plat qu'on apporte.",
       "Le premier saute. Il atterrit sur la proue, gros comme un chat, et il est aussitôt suivi de trois autres.",
       { with: "lison", text: "Lison jure dans le parler des marais et empoigne sa gaffe à deux mains. « Ils sont trop nombreux, dit-elle. On ne s'arrête pas. Tu tiens la proue, moi je pousse. »" },
     ],

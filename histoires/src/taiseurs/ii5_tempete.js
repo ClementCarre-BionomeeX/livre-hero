@@ -11,7 +11,7 @@ var AIDE_MARAIS = [{ with: "lison", v: 10 }, { if: { has: "iit:anguilles" }, v: 
 Object.assign(P, {
   IIT_raid: { act: "II", title: "Le coup de suroît", place: "joncs", takes: "evening",
     text: [
-      "Tu reviens aux Joncs-Bas par le chenal du nord, à l'heure où les hérons rentrent. À l'ouest, le ciel a pris une couleur de plomb neuf, et une barre noire monte de la mer, basse, épaisse, ourlée de blanc. Les roseaux se couchent tous du même côté. Sur les pilotis, les femmes décrochent la dentelle des séchoirs et la roulent dans des toiles cirées.",
+      "Tu reviens aux Joncs-Bas par le chenal du nord, à l'heure où les hérons rentrent. À l'ouest, le ciel a pris une couleur de plomb neuf, et une barre noire monte de la mer, basse, épaisse, ourlée de blanc ; on dirait un couvercle qu'une main lente tire sur le monde. Les roseaux se couchent tous du même côté. Sur les pilotis, les femmes décrochent la dentelle des séchoirs et la roulent dans des toiles cirées.",
       "Dans ton sac, entre deux chemises, les feuillets de la Muette font un paquet plat, serré dans une toile huilée. Tu le sens contre ton dos à chaque coup de rame. Deux caches ouvertes en un mois : aux Joncs, on te salue maintenant par ton nom, et on baisse la voix après ton passage.",
       { with: "lison", text: "Lison lève le nez vers la barre noire. « {{oreille#iit_lison_ciel|Belle soirée pour rentrer|Ma grand-mère a rêvé de feu trois nuits de suite}} », dit-elle, et elle rame plus fort." },
       { with: "salome", text: "Salomé renifle le vent comme on goûte un vin. « Coup de suroît avant minuit. Ça va souffler à décoiffer les clochers. » Elle compte les barques amarrées au ponton, puis elle les recompte." },
@@ -42,7 +42,7 @@ Object.assign(P, {
     text: [
       "La maison de Mère Ancolie est la plus haute des Joncs : trois pièces sur des pilotis de chêne, un escalier de bois raide, une lampe à huile qui tremble à chaque rafale. La vieille femme est assise à son carreau de dentellière, les fuseaux entre ses doigts. Elle travaille dans le noir aussi bien qu'à la lampe, et le cliquetis des fuseaux continue quand tu entres.",
       "« Assieds-toi, dit-elle. Tu sens la vase et le chanvre. La pluie sera là avant que tu aies séché. » Elle tend la main, paume ouverte, vers le paquet que tu portes. Ses doigts passent sur la toile huilée sans l'ouvrir. « {{oreille#iit_ancolie_veille|Range tes papiers, le vent les prendrait|Garde-les sur toi, sous la chemise. Le sac, on l'arrache. La peau, il faut la couper}}. »",
-      "La pluie arrive. Elle frappe le toit de roseaux comme une poignée de gravier, puis sans arrêt. Par la fenêtre, tu vois les lanternes du village s'éteindre une à une, sauf celle de la maison commune, où les familles des pilotis du bord se sont réfugiées pour la nuit, avec les vieux et les enfants.",
+      "La pluie arrive. Elle frappe le toit de roseaux comme une poignée de gravier, puis sans arrêt. La maison entière se met à trembler sur ses pieux, et la lampe avec elle ; les ombres des fuseaux courent sur le mur comme des pattes. Par la fenêtre, tu vois les lanternes du village s'éteindre une à une, sauf celle de la maison commune, où les familles des pilotis du bord se sont réfugiées pour la nuit, avec les vieux et les enfants.",
       { with: "lison", text: "Lison s'est assise par terre, le dos contre le genou de sa grand-mère, comme une petite fille. Elle fait semblant de dormir. Mère Ancolie lui pose la main sur la tête sans cesser de travailler de l'autre." },
       { with: "gildas", text: "Frère Gildas reste debout près de la porte. Mère Ancolie tourne vers lui ses yeux blancs. « Le Mont envoie toujours ses frères quand il pleut, Gildas. » « Je suis venu parce qu'on m'a appelé, Mère. » Elle sourit à ses fuseaux." },
       { with: "tibere", if: { all: [{ not: { has: "tibere:espion" } }, { not: { has: "tibere:double" } }] }, text: "Tibère se sèche les mains au-dessus de la lampe. Il a les paumes à vif. « C'est une nuit à rester chez soi, dit-il. {{oreille#iit_tibere_rapport|Personne de sensé ne sortira par ce temps|Je lui ai écrit que tu rentrais ce soir, et que les feuillets dormaient ici. Il a payé dix ducats pour cette ligne}}. »" },
@@ -186,7 +186,7 @@ Object.assign(P, {
 
   IIT_passerelle: { act: "II", title: "La passerelle du sud", place: "joncs",
     text: [
-      "La passerelle du sud relie le village aux roseaux : trente pas de planches sur des pieux, large comme deux hommes, sans garde-fou. C'est par là que les barques de la Banque débarquent leurs gens. Tu te plantes au milieu. La pluie te coule dans les yeux.",
+      "La passerelle du sud relie le village aux roseaux : trente pas de planches sur des pieux, large comme deux hommes, sans garde-fou. C'est par là que les barques de la Banque débarquent leurs gens. Tu te plantes au milieu. La pluie te coule dans les yeux. Sous les planches, l'eau est noire et pleine de reflets rouges ; elle a l'air d'attendre le premier qui tombera.",
       "Ils arrivent à trois de front, puis à deux, parce que la passerelle est étroite : deux spadassins aux gants gris, et derrière eux un douanier en manteau sombre, la hallebarde courte en avant. Plus loin, sur une barque, une lanterne éclaire un homme qui donne des ordres d'une voix calme.",
       { with: "salome", text: "Salomé se met à ta gauche, le coutelas de bord à la main. « Une passerelle, c'est un pont de bateau, dit-elle. Je connais. »" },
       { with: "tibere", text: "Tibère se met à ta droite et fait tourner sa masse de sergent. « Douanier, crie-t-il, rentre chez toi ! Ta solde ne vaut pas une nuit pareille ! »" },
@@ -394,7 +394,7 @@ Object.assign(P, {
 
   IIT_lothaire_roseaux: { act: "II", title: "Le banc de vase", place: "joncs",
     text: [
-      "Au bout du chenal, la lanterne est posée sur un banc de vase. La barque de Lothaire s'y est échouée, la marée basse l'a prise. Lothaire Brunel est assis sur le plat-bord, trempé, les gants gris ruisselants, et il t'attend comme on attend un client en retard.",
+      "Au bout du chenal, la lanterne est posée sur un banc de vase. Autour, les roseaux font un mur, et le silence, après les cris du village, a quelque chose d'une pièce dont on vient de fermer la porte sur toi. La barque de Lothaire s'y est échouée, la marée basse l'a prise. Lothaire Brunel est assis sur le plat-bord, trempé, les gants gris ruisselants, et il t'attend comme on attend un client en retard.",
       { if: { has: "iit:lothaire_main" }, text: "Il tient sa main droite contre lui, enveloppée d'un mouchoir rouge. Il est pâle. Il te voit regarder la main. « Votre capitaine a la mémoire longue, dit-il. Je la croyais en vase, elle aussi. »" },
       { if: { all: [{ has: "iit:lothaire_main" }, { has: "iie:lothaire_blesse" }] }, text: "La gauche, celle que Salomé a entaillée aux Écueils, repose sur son genou, et elle tremble." },
       "« Ce n'est pas moi qui ai le feuillet, dit-il. Vous le savez maintenant. Quesnel l'emporte par un autre chenal, et la marée lui est favorable. Vous avez choisi le mauvais bateau, {hero}. » Il regarde derrière toi, vers la lueur orange au-dessus des roseaux. « Et la mauvaise nuit. Je vous entends penser à la maison, d'ici. »",
@@ -714,7 +714,7 @@ Object.assign(P, {
 
   IIT_chap_clocher: { act: "II", title: "Le clocher dans les roseaux", place: "joncs", backName: "le clocher de Notre-Dame-des-Joncs",
     text: [
-      "Après une heure de gaffe entre les roseaux, le clocher sort de l'eau d'un coup : une tour carrée de pierre grise, mangée de lichen orange, avec un toit d'ardoise à moitié tombé et une baie ouverte aux quatre vents. Autour, sous la surface, on devine le toit de la nef, une arête sombre où des moules s'accrochent. La marée baisse. Une porte apparaît, au ras de l'eau, dans le flanc de la tour.",
+      "Après une heure de gaffe entre les roseaux, le clocher sort de l'eau d'un coup : une tour carrée de pierre grise, mangée de lichen orange, seule debout au milieu d'une eau qui a tout couché, avec un toit d'ardoise à moitié tombé et une baie ouverte aux quatre vents. Autour, sous la surface, on devine le toit de la nef, une arête sombre où des moules s'accrochent. La marée baisse. Une porte apparaît, au ras de l'eau, dans le flanc de la tour.",
       "Tu montes l'escalier à vis jusqu'à la chambre des cloches. La cloche est là, grosse comme un tonneau, verte, couverte d'une écriture qu'on ne lit plus. Le battant manque. La courroie qui le tenait pend, un bout de cuir noir.",
       "Les murs du clocher {{echo#iit_chap_clocher|suintent, couverts de sel et de fientes de mouettes|rendent un bruit de pas, et une voix d'homme, essoufflée, il y a un mois : « Elle sonne trop fort, cette cloche. On l'entend jusqu'à la tour. Le capitaine veut qu'elle se taise »}}.",
       "En bas, Romée a amarré sa barque à l'anneau de la porte. « La nef est à sec jusqu'aux genoux, à cette heure, crie-t-elle. Tu as le temps d'une marée. Pas plus. »",
@@ -725,7 +725,7 @@ Object.assign(P, {
 
   IIT_chap_nef: { act: "II", title: "La nef noyée", place: "joncs", backName: "la nef noyée",
     text: [
-      { first: true, text: "La nef est une grotte. L'eau t'arrive aux genoux, verte, froide, et la lumière entre par les fenêtres hautes en longues barres qui tremblent. Les bancs ont pourri sur place ; il en reste des lignes de pieux noirs. Sur les murs, sous une croûte de sel, des fresques : des barques, des poissons, une femme couronnée qui tient un doigt sur ses lèvres." },
+      { first: true, text: "La nef est une grotte. L'eau t'arrive aux genoux, verte, froide, et la lumière entre par les fenêtres hautes en longues barres qui tremblent. Les bancs ont pourri sur place ; il en reste des lignes de pieux noirs, rangés face à l'autel comme une assemblée qui aurait attendu l'office assez longtemps pour prendre racine. Sur les murs, sous une croûte de sel, des fresques : des barques, des poissons, une femme couronnée qui tient un doigt sur ses lèvres." },
       { again: true, text: "La nef noyée : l'eau verte jusqu'aux genoux, les barres de lumière, les rangées de pieux noirs. La marée attend son heure." },
       "Au pied de l'autel, à demi enfoui dans la vase, le battant de la cloche : une masse de fer en forme de poire, longue comme un bras. À côté, le bout de sa courroie. Le cuir {{pie#iit_chap_courroie|a pourri dans l'humidité|est coupé net, d'un coup de lame, et les bords sont encore clairs}}.",
       "L'autel {{pie#iit_chap_autel|est un bloc de pierre plein, scellé dans le sol|est creux : la pierre du dessus est une dalle posée, et elle sonne vide sous l'ongle}}. Devant lui, une dalle funéraire porte une inscription usée : *{{loupe#iit_chap_dalle|Ici reposent les fidèles des Joncs, que la mer les garde|Ici Aymeric Vasse a lu à six familles ce que la reine avait dit, et chaque famille a juré de garder une page jusqu'au jour de la Grande Basse}}*.",
@@ -829,7 +829,7 @@ Object.assign(P, {
 
   IIT_ang_affut: { act: "II", title: "L'affût des Vasières-Rouges", place: "joncs", takes: "night",
     text: [
-      "Les Vasières-Rouges sont un grand plat de boue, rouge sombre à cause du fer, coupé de chenaux où l'eau reste à marée basse. Les pêcheurs y posent leurs nasses en ligne, sur des piquets. Tu t'installes dans une barque plate, au milieu, avec une lanterne sourde, une gaffe, et un seau de têtes de poisson pour appât.",
+      "Les Vasières-Rouges sont un grand plat de boue, rouge sombre à cause du fer, à ce qu'assurent les pêcheurs, qui tiennent beaucoup à cette explication, et coupé de chenaux où l'eau reste à marée basse. Les pêcheurs y posent leurs nasses en ligne, sur des piquets. Tu t'installes dans une barque plate, au milieu, avec une lanterne sourde, une gaffe, et un seau de têtes de poisson pour appât.",
       { with: "lison", text: "Lison s'est allongée au fond de la barque, sur une toile, les bras sous la nuque. « Réveille-moi quand elle arrive. Ou quand tu as peur. Le premier des deux. »" },
       "Vers minuit, l'eau du chenal se soulève sans vent. Une vague lente passe sous la barque, la soulève, la repose. Puis une tête sort de l'eau, à quatre longueurs : large comme un tonneau, plate, grise, avec deux yeux de verre trouble, et une gueule qui s'ouvre sur une double rangée de dents jaunes. Derrière la tête, le corps continue de sortir, longtemps.",
       "La Vieille regarde ta lanterne. Elle a l'air de réfléchir.",
@@ -875,7 +875,7 @@ Object.assign(P, {
   IIT_ang_repaire: { act: "II", title: "La carcasse de la gabare", place: "joncs",
     fx: { item: "iit_tr_anneau", clock: { tresors: 1 }, flag: "tresor:iit_anneau", ep: ["perso", 500] },
     text: [
-      "La carcasse est celle d'une gabare de sel, très ancienne, couchée sur le flanc, la coque ouverte comme un panier. La Vieille y nichait : l'intérieur est tapissé d'une vase lisse, polie par son corps, et semé d'os de poissons, de carapaces, de choses brillantes qu'elle a avalées et recrachées.",
+      "La carcasse est celle d'une gabare de sel, très ancienne, couchée sur le flanc, la coque ouverte comme un panier. La Vieille y nichait : l'intérieur est tapissé d'une vase lisse, polie par son corps, et semé d'os de poissons, de carapaces, de choses brillantes qu'elle a avalées et recrachées ; on s'y tient comme dans une chambre dont l'occupante viendrait de sortir.",
       "Au milieu des os, un anneau. Tu le ramasses, tu le frottes sur ta manche. Un anneau de sceau, lourd, gravé d'un écu {{pie#iit_ang_anneau|de laiton, de ceux qu'on vend aux foires|d'or rouge massif : un écu à trois fers de lance, les armes des Fourcaud, l'une des quarante maisons, avant la nuit des Comptoirs}}.",
       "La quille porte un nom, à demi effacé, peint en lettres de l'ancien temps : *La Patiente de Sorne*.",
     ],
@@ -935,7 +935,7 @@ Object.assign(P, {
 
   IIT_dent_tour: { act: "II", title: "La tour des douanes", place: "joncs",
     text: [
-      "La tour des douanes garde l'entrée du grand chenal, au sud des Joncs : une tour carrée de brique sur des pilotis de pierre, avec un drapeau de la République qui pend, mouillé, et une chaîne de fer tendue d'une berge à l'autre au ras de l'eau. Un douanier somnole sur le ponton, la hallebarde contre l'épaule. Une odeur de soupe aux choux descend des fenêtres.",
+      "La tour des douanes garde l'entrée du grand chenal, au sud des Joncs : une tour carrée de brique sur des pilotis de pierre, avec un drapeau de la République qui pend, mouillé, comme une chose qu'on a oublié de rentrer, et une chaîne de fer tendue d'une berge à l'autre au ras de l'eau. Un douanier somnole sur le ponton, la hallebarde contre l'épaule. Une odeur de soupe aux choux descend des fenêtres.",
       "Herlé est là-haut, quelque part. Pour monter, il faut une raison, ou une échelle.",
       { with: "tibere", text: "Tibère regarde la tour avec un œil de métier. « Une garnison de douane, à cette heure, c'est la soupe, puis la sieste. L'échelle des latrines est derrière, côté roseaux. Il y en a toujours une. »" },
     ],

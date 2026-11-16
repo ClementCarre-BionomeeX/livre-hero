@@ -19,7 +19,7 @@ Object.assign(P, {
       { first: true, with: "gildas", text: "Quand Frère Gildas passe le seuil, le portier se fige. Puis il porte trois doigts à sa gorge, ferme la main, et incline la tête plus bas qu'il ne l'a fait pour toi. Gildas répond par le même geste, plus court, et il entre sans se retourner. Dans la cour, deux moines qui portaient une hotte de sarments l'ont vu aussi ; ils posent la hotte et font le geste à leur tour." },
       { first: true, with: "lison", text: "Lison regarde le linteau, puis toi. « Qui se tait entend, traduit-elle. Chez nous on le dit sans latin, et on le dit en premier aux enfants. »" },
       { again: true, when: "day", text: "La cour de la porterie : les pavés usés en creux, les poules, la chaîne de la cloche qui pend contre le mur. Des frères passent en bure grise, une hotte au dos, un livre sous le bras, et leurs sandales font tout leur bruit." },
-      { again: true, when: "night", text: "La cour, la nuit. Une lanterne brûle à la porterie, derrière le guichet. Le clocher se découpe sur un ciel plein d'étoiles, et l'on entend, par l'église ouverte, un moine seul qui balaie." },
+      { again: true, when: "night", text: "La cour, la nuit. Une lanterne brûle à la porterie, derrière le guichet. Le clocher se découpe sur un ciel plein d'étoiles, et l'on entend, par l'église ouverte, un moine seul qui balaie ; le bruit du balai sur les dalles est le seul que la maison se permette à cette heure, et il a la régularité d'une pénitence." },
       "Le portail {{echo#iiim_porte_pelerin|grince sur ses gonds de fer quand le vent le pousse|rend une voix d'homme, polie, essoufflée : « Je suis pèlerin, mon frère, et je paierai mon écot en or de la Banque, comme convenu avec votre abbé »}}.",
       { after: "iiim:pelerin_vu", before: "iiim:pelerin_parti", text: "À une fenêtre de l'hôtellerie, un homme en manteau de pèlerin, une coquille cousue à l'épaule, regarde la cour en mangeant une pomme. Il te salue de la pomme." },
       { after: "iiim:pelerin_chasse", text: "La fenêtre de l'hôtellerie est fermée. Depuis que le chapitre a mis le pèlerin dehors, le portier lave le seuil chaque matin à grande eau, et il le fait en te regardant." },
@@ -99,7 +99,7 @@ Object.assign(P, {
 
   IIIM_hotellerie: { act: "III", title: "L'hôtellerie", place: "mont", backName: "l'hôtellerie",
     text: [
-      { first: true, text: "L'hôtellerie est une longue salle blanchie à la chaux, au-dessus des celliers : huit lits de sangles, huit coffres, une table et un crucifix de bois. Il y fait plus chaud qu'ailleurs, à cause des cuves qui fermentent en dessous, et l'air sent le moût. Un frère convers y apporte matin et soir du pain, des noix et une cruche de vin clair des Combes." },
+      { first: true, text: "L'hôtellerie est une longue salle blanchie à la chaux, au-dessus des celliers : huit lits de sangles, huit coffres, une table et un crucifix de bois. Il y fait plus chaud qu'ailleurs, à cause des cuves qui fermentent en dessous, et l'air sent le moût, si bien que l'hôte du Mont s'endort sobre et se réveille avec le sentiment d'avoir bu. Un frère convers y apporte matin et soir du pain, des noix et une cruche de vin clair des Combes." },
       { first: true, text: "Un seul autre lit est occupé. Sur le coffre qui va avec, un bâton de pèlerin, un chapeau à large bord, une besace de cuir fermée d'une boucle neuve." },
       { again: true, text: "Les huit lits de l'hôtellerie, la table, l'odeur du moût qui monte des celliers." },
       "La besace du pèlerin {{pie|est un sac de route usé, comme on en voit sur tous les chemins de Compostelle|est neuve sous une couche de poussière frottée exprès, et sa boucle est d'argent sous le fer noirci}}.",
@@ -132,7 +132,7 @@ Object.assign(P, {
   IIIM_cloitre: { act: "III", title: "Le cloître", place: "mont", backName: "le cloître",
     text: [
       { first: true, text: "Le cloître est un carré de galeries basses autour d'un préau d'herbe où pousse un buis taillé en boule. Les chapiteaux des colonnes sont sculptés de bêtes et de feuillages ; la pierre est si ancienne que les têtes des bêtes ont fondu sous la pluie. Au milieu de la galerie nord, une dalle plus grande que les autres, polie comme un galet, porte un cercle gravé." },
-      { first: true, text: "Des moines vont et viennent, et se parlent. Leurs mains volent, s'arrêtent, repartent : deux frères qui se croisent échangent en trois gestes ce que deux bourgeois mettraient une phrase à se dire. L'un rit, sans un son, la main devant la bouche." },
+      { first: true, text: "Des moines vont et viennent, et se parlent. Leurs mains volent, s'arrêtent, repartent : deux frères qui se croisent échangent en trois gestes ce que deux bourgeois de Salvèze mettraient un quart d'heure et trois politesses à se dire. L'un rit, sans un son, la main devant la bouche." },
       { again: true, text: "Le cloître, le buis en boule, les galeries où les mains des frères parlent à voix basse." },
       "La galerie de l'est {{echo#iiim_cloitre_nuit|garde l'odeur de la cire et de la pierre froide|garde deux voix d'hommes, la nuit dernière, très bas : « Trois cents ducats, frère cellérier, et le livre de comptes oublie la grange. » « L'abbé a déjà signé pour la grange. Il faut payer pour la crypte. »}}.",
       { with: "gildas", text: "Frère Gildas fait le tour des galeries une fois, lentement, une main qui touche chaque colonne au passage. Les frères qu'il croise s'arrêtent et lui font le signe des trois doigts. À la quatrième colonne de l'ouest, il s'arrête un peu plus longtemps." },
@@ -213,7 +213,7 @@ Object.assign(P, {
       "*{{loupe#iiim_tombe|HIC IACET AYMERICVS FRATER CONVERSVS|HIC IACET AYMERICVS VASSE · CANCELLARIVS YSAVRAE REGINAE · QVI TACVIT VT ILLA LOQVERETVR}}*",
       "Au pied de la pierre, quelqu'un a déposé une poignée de roseaux secs, liés d'un fil rouge. Des roseaux de marais, à deux jours de rivière du premier marais.",
       { with: "lison", text: "Lison s'accroupit devant les roseaux et touche le fil rouge. « On en dépose aux Joncs, sur les tombes des Vasse, dit-elle. Ma grand-mère en a envoyé ici, ou quelqu'un pour elle. »" },
-      { when: "night", text: "La nuit, le vent qui descend de la falaise fait chanter les croix de fer, toutes ensemble, sur une seule note." },
+      { when: "night", text: "La nuit, le vent qui descend de la falaise fait chanter les croix de fer, toutes ensemble, sur une seule note ; c'est l'office de ceux qui se sont tus toute leur vie, et l'on tend l'oreille, malgré soi, au cas où viendraient des paroles." },
     ],
     choices: [{ back: "IIIM_cloitre" }] },
 
@@ -261,7 +261,7 @@ Object.assign(P, {
       { first: true, text: "L'église est plus grande que l'abbaye ne le laissait croire de dehors : une nef unique, haute et nue, sans une peinture, éclairée par des fenêtres d'albâtre qui donnent au jour la couleur du miel. Les stalles des moines, de chêne noir, se font face de part et d'autre du chœur. Au fond, derrière l'autel, une grille de fer ferme une petite chapelle où brillent des châsses." },
       { first: true, text: "Côté hôtes, pour s'asseoir, un seul banc de pierre le long du mur. La pierre de la nef rend chaque pas, chaque toux, chaque froissement de manche, et le rend deux fois." },
       { again: true, when: "day", text: "La nef couleur de miel, les stalles vides, la grille du trésor qui brille au fond." },
-      { again: true, when: "night", text: "La nef dans le noir, une seule lampe rouge devant l'autel. Tes pas sonnent jusqu'à la voûte." },
+      { again: true, when: "night", text: "La nef dans le noir, une seule lampe rouge devant l'autel ; les stalles font de part et d'autre deux rangs d'ombre plus dense, où l'on jurerait que quarante hommes retiennent leur souffle. Tes pas sonnent jusqu'à la voûte." },
       { after: "iiim:calice_rendu", text: "Derrière la grille, le calice de saint Taciturne a retrouvé son coussin. Le vieux sacristain l'astique chaque matin, et chaque matin il le touche longtemps, pour être sûr." },
       { after: "iiim:calice_garde", text: "Derrière la grille, le calice de cuivre brille sur son coussin. Le sacristain l'astique sans rien voir. Le vrai pèse dans ton sac." },
       "Les stalles du chœur {{echo#iiim_stalles|sentent la cire et le vieux bois|rendent un chuchotement, dans la stalle de l'abbé : « Pardonnez-moi, mes frères, j'ai signé pour sauver la maison, et la maison ne le saura pas »}}.",
@@ -306,7 +306,7 @@ Object.assign(P, {
       "Au troisième nocturne, le chant {{echo#iiim_vigiles|se fait plus lent, plus grave, et la voix du chantre le porte seule un moment|se fait plus lent, et la voix du chantre dit, sous les mots : « Sous la Dame aux doigts, la clé de bronze. Sous la salle des voix, la porte des Reflets. Qui se tait en dedans passe »}}.",
       "Puis tous reprennent. La psalmodie {{echo#iiim_vigiles_deux|roule d'un côté à l'autre du chœur jusqu'au matin|roule d'un côté à l'autre, et une voix basse, au fond, reprend un vieux couplet : « Le banquier dort à l'hôtellerie. Le banquier ne dort pas »}}.",
       { with: "gildas", text: "Dans le noir, tu sens Frère Gildas tourner la tête vers toi, quand la voix du chantre change. Après l'office, il garde cela pour lui." },
-      { when: "night", text: "Quand tu sors, la cour est blanche de lune et de givre. Une lanterne passe au loin, vers le logis de l'abbé, puis s'éteint." },
+      { when: "night", text: "Quand tu sors, la cour est blanche de lune et de givre, et le silence y a pris, avec le froid, une dureté de verre. Une lanterne passe au loin, vers le logis de l'abbé, puis s'éteint." },
     ],
     fx: { ep: ["perso", 1000] },
     choices: [
@@ -325,7 +325,7 @@ Object.assign(P, {
 
   IIIM_reliquaire: { act: "III", title: "Le trésor de l'église", place: "mont",
     text: [
-      "Derrière la grille, dans une chapelle grande comme une armoire, les reliques du Mont : trois châsses de cuivre doré, un bras-reliquaire d'argent, et sur un coussin de velours râpé, le calice de saint Taciturne, le fondateur légendaire, dont l'abbaye garde la fête à la Saint-Gilles.",
+      "Derrière la grille, dans une chapelle grande comme une armoire, les reliques du Mont : trois châsses de cuivre doré, un bras-reliquaire d'argent, et sur un coussin de velours râpé, le calice de saint Taciturne, le fondateur légendaire, dont on ne rapporte, comme il se doit, aucune parole, et dont l'abbaye garde la fête à la Saint-Gilles.",
       "Le calice {{pie#iiim_calice_faux|est d'or fin, ciselé de vigne, serti de trois grenats|est de cuivre doré, ciselé à la hâte il y a moins d'un an, et ses trois grenats sont des verres teints}}.",
       "Le bras-reliquaire {{pie|est d'argent repoussé, et la petite fenêtre de cristal montre un os|est d'argent repoussé, ancien et vrai ; derrière le cristal, l'os est un os de mouton, mais il l'a toujours été}}.",
       { with: "tibere", text: "Tibère siffle entre ses dents. « Un calice comme ça, à Salvèze, ça paie un an de loyer. Si c'est de l'or. »" },
@@ -542,7 +542,7 @@ Object.assign(P, {
 
   IIIM_biblio_nuit: { act: "III", title: "La bibliothèque, la nuit", place: "mont", takes: "night",
     text: [
-      "Tu montes l'escalier du chapitre après Complies, quand le grand silence est tombé. La porte de la bibliothèque n'a qu'un loquet. Dedans, la lune passe par les lucarnes et pose des carrés blancs sur les pupitres ; les chaînes des livres brillent comme du givre.",
+      "Tu montes l'escalier du chapitre après Complies, quand le grand silence est tombé. La porte de la bibliothèque n'a qu'un loquet. Dedans, la lune passe par les lucarnes et pose des carrés blancs sur les pupitres ; les chaînes des livres brillent comme du givre. Six cents volumes se taisent là dans l'ombre, avec plus d'application encore que les moines.",
       "Le cabinet grillé a une serrure, une vraie, de fer, neuve.",
     ],
     choices: [
@@ -801,7 +801,7 @@ var ACCES = { label: "Descendre vers la salle des Reflets", big: true, if: { has
 Object.assign(P, {
   IIIM_abbatiale: { act: "III", title: "Le logis de l'abbé", place: "mont", backName: "l'antichambre de l'abbé",
     text: [
-      { first: true, text: "Le logis de l'abbé est une maison dans la maison : deux étages de pierre contre le flanc de l'église, une antichambre au carrelage rouge, un banc pour attendre. Aux murs, les portraits des abbés, quarante visages graves peints sur bois, de plus en plus sombres à mesure qu'on remonte le temps. Le dernier, à droite de la porte, est encore clair : un homme lourd, rouge, aux mains épaisses posées sur une crosse." },
+      { first: true, text: "Le logis de l'abbé est une maison dans la maison : deux étages de pierre contre le flanc de l'église, une antichambre au carrelage rouge, un banc pour attendre. Aux murs, les portraits des abbés, quarante visages graves peints sur bois, de plus en plus sombres à mesure qu'on remonte le temps ; tous ont l'air d'avoir trouvé le siège dur. Le dernier, à droite de la porte, est encore clair : un homme lourd, rouge, aux mains épaisses posées sur une crosse." },
       { again: true, text: "L'antichambre au carrelage rouge, les quarante abbés aux murs, la porte fermée." },
       { after: "iiim:abbe_menace", text: "La porte du cabinet est fermée à clé, et la tablette de cire du plateau porte un seul mot, écrit gros : *NON.* Il est pour toi." },
       { after: "iiim:acces_achat", text: "Derrière la porte, tu entends l'abbé compter, à mi-voix, des pièces dans son coffre de fer, et recommencer quand il se trompe." },
@@ -942,7 +942,7 @@ Object.assign(P, {
   IIIM_evrard_quittance: { act: "III", title: "La quittance", place: "mont",
     text: [
       "Tu poses sur la table la quittance de la Maison Marrel, prise dans la besace du pèlerin : *Reconnaissance de dette du Mont-Taciturne, trois mille ducats, payables à présentation.* Le sceau noir des Marrel, la signature de l'abbé, tremblée.",
-      "Dom Évrard la regarde comme on regarde une corde qu'on vient d'ôter de son cou. Il la prend, la tourne, la retourne. Puis il la tend à la flamme de la chandelle, et il la tient jusqu'à ce que le feu lui lèche les doigts.",
+      "Dom Évrard la regarde comme une corde qu'on vient de lui ôter du cou. Il la prend, la tourne, la retourne. Puis il la tend à la flamme de la chandelle, et il la tient jusqu'à ce que le feu lui lèche les doigts.",
       "« La Banque en a un double à Salvèze, dit Romaric doucement. — Je sais, fait l'abbé, de la main. Mais pas ici. Pas dans ma maison. » Et il fait le signe de la porte.",
     ],
     fx: { drop: "iiim_quittance", flag: ["mont:acces", "iiim:acces_quittance"], fac: { moines: 12 }, ep: ["seance", 3000] },
@@ -1279,7 +1279,7 @@ Object.assign(P, {
 
   IIIM_novice_mur: { act: "III", title: "Le mur du verger", place: "mont", takes: "night",
     text: [
-      "Le verger, la nuit. Les ruches bourdonnent. Florent a roulé sa bure de novice sous son bras et mis une chemise de laine trouvée à l'hôtellerie. À l'angle des ruches, les trois pierres descellées font des marches dans le mur ; au-dessus, deux toises de vide, et les vignes.",
+      "Le verger, la nuit. Les ruches bourdonnent, d'un bourdon bas et continu, comme une maison où l'on parlerait derrière toutes les portes. Florent a roulé sa bure de novice sous son bras et mis une chemise de laine trouvée à l'hôtellerie. À l'angle des ruches, les trois pierres descellées font des marches dans le mur ; au-dessus, deux toises de vide, et les vignes.",
       "Il faut passer avant la ronde du frère de nuit, qui fait le tour du verger avec une lanterne à chaque heure.",
     ],
     choices: [

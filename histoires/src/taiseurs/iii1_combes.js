@@ -136,7 +136,7 @@ Object.assign(P, {
 Object.assign(P, {
   III_nuit: { act: "III", title: "La nuit à bord", place: null, takes: "night", backName: "le pont de La Patience, la nuit",
     text: [
-      { first: true, text: "La gabare passe la nuit amarrée à deux pieux, sous un coteau noir. Les haleurs dorment dans une grange, les chevaux dans un pré. À bord, Gilduin allume un fanal à l'arrière et s'endort assis contre la barre. On entend la rivière parler contre la coque, un chien très loin, et le vent dans les ceps morts de l'hiver." },
+      { first: true, text: "La gabare passe la nuit amarrée à deux pieux, sous un coteau noir. Les haleurs dorment dans une grange, les chevaux dans un pré. À bord, Gilduin allume un fanal à l'arrière et s'endort assis contre la barre. On entend la rivière parler contre la coque, un chien très loin, et le vent dans les ceps morts de l'hiver ; le coteau pèse sur l'eau de toute sa hauteur, et le fanal y creuse un rond de jour jaune, grand comme une table, au bord duquel la nuit se tient debout." },
       { again: true, text: "Le fanal fume à l'arrière. La rivière parle toujours contre la coque." },
       { without: "any", text: "Tu es seul{e} sur le pont avec le fanal et la rivière. Tu as l'habitude, depuis le quai des Lanternes, de parler tout bas aux choses qui ne répondent pas. Tu t'en abstiens. Les berges sont trop proches." },
       { with: "any", text: "Tes compagnons ne dorment pas encore. Il fait trop froid pour dormir tout de suite, et la journée a été trop longue pour se taire." },
@@ -299,7 +299,7 @@ Object.assign(P, {
     text: [
       "On te met aux fers sur le bachot des soldats, une chaîne au pied, l'autre bout cadenassé à un anneau de la pile du pont. Le sergent Ravier te regarde avec une sorte de gêne. « On vous redescend à Salvèze demain, dit-il. J'attends une barque du Conseil. » Il reste là un moment. « {{oreille#iiic_ravier_doute|Je ne suis pas sûr que vous l'ayez fait|J'ai vu la prime de l'avis déjà promise à un homme du Guet avant même qu'on vous ait cherché}}. Mais ce n'est pas moi qui décide. »",
       { if: { has: "iiic:rendu" }, text: "Tu as levé les mains sans te battre, et le sergent Ravier l'a vu. Il te laisse ton manteau, et il fait serrer la chaîne assez lâche pour qu'elle ne mange pas la cheville." },
-      "La nuit tombe. Les soldats boivent autour du feu, sur le pont. L'eau court sous le bachot, noire, froide, pressée.",
+      "La nuit tombe. Les soldats boivent autour du feu, sur le pont. L'eau court sous le bachot, noire, froide, pressée ; elle le tire sur son amarre par à-coups, en voyageuse qui a rendez-vous plus bas et supporte mal qu'on la retienne.",
       { with: "lison", text: "Vers minuit, une ombre glisse contre la coque du bachot. Lison, à la nage, un couteau entre les dents, puis un crochet de fil de fer. Le cadenas cède au troisième essai. « Tu me dois une barque, souffle-t-elle. Et une nuit de sommeil. »" },
       { without: "lison", with: "any", text: "Vers minuit, une ombre glisse contre la coque du bachot. Un de tes compagnons, trempé, une pince à la main, prise dans la caisse à outils de Gilduin. La chaîne cède au troisième coup, étouffé dans un manteau." },
       { without: "any", text: "Vers minuit, une ombre glisse contre la coque du bachot. Le jeune soldat blond, celui aux oreilles rouges. Il ouvre le cadenas avec la clé du sergent, et repart à la nage vers le pont. Tu ne sauras jamais pourquoi." },
@@ -324,11 +324,11 @@ Object.assign(P, {
 Object.assign(P, {
   III_hub: { act: "III", title: "Orle-le-Bourg", place: "orle", hub: true, routes: true, backName: "la place d'Orle-le-Bourg",
     text: [
-      { first: true, text: "Du quai, une rue en pente monte entre des maisons de pierre blonde aux portes cochères, chacune avec sa cave voûtée qui ouvre sur la rue et son odeur de vin froid. La rue débouche sur une place carrée : une halle de bois sur des piliers de pierre, une fontaine à quatre goulots, l'église Saint-Vincent avec son clocher carré, l'enseigne de l'auberge du Pressoir, et une maison plus haute que les autres, aux volets peints aux couleurs de Salvèze, où une plaque de cuivre dit *Recette des tailles de la République*." },
+      { first: true, text: "Du quai, une rue en pente monte entre des maisons de pierre blonde aux portes cochères, chacune avec sa cave voûtée qui ouvre sur la rue et son odeur de vin froid. La rue débouche sur une place carrée : une halle de bois sur des piliers de pierre, une fontaine à quatre goulots, l'église Saint-Vincent avec son clocher carré, l'enseigne de l'auberge du Pressoir, et une maison plus haute que les autres, aux volets peints aux couleurs de Salvèze, où une plaque de cuivre dit *Recette des tailles de la République* ; c'est le seul cuivre du bourg qu'on astique tous les matins." },
       { first: true, text: "Au bout de la place, la rue continue vers les chantiers des carriers, où des blocs équarris attendent sous des bâches. Au-dessus des toits, la montagne monte d'un trait, et sur son épaule, très haut, l'abbaye du Mont-Taciturne regarde le bourg sans rien dire. Un sentier en lacets y grimpe à travers les dernières vignes." },
       { first: true, text: "La fontaine de la place {{echo#iiic_fontaine|coule sur sa pierre usée, verdie autour des goulots|garde une voix de femme, très ancienne, claire, qui rit et dit : « Laissez, Aymeric. L'eau des Combes ne m'a jamais fait de mal. Elle me fera du bien quand je n'aurai plus de voix »}}. Les femmes y rincent des cuves à vendange en parlant fort." },
       { again: true, when: "day", text: "La place d'Orle-le-Bourg, la halle, la fontaine, le clocher carré de Saint-Vincent. Des charrettes de pierre passent en grinçant vers le quai. Là-haut, le Mont." },
-      { again: true, when: "night", text: "La place, la nuit. Une lanterne à l'auberge du Pressoir, une autre à la Recette des tailles, où un garde dort assis contre la porte. La fontaine coule pour personne. Là-haut, une seule lueur au Mont, qui ne bouge pas." },
+      { again: true, when: "night", text: "La place, la nuit. Une lanterne à l'auberge du Pressoir, une autre à la Recette des tailles, où un garde dort assis contre la porte. La fontaine coule pour personne. Sous la halle, les piliers gardent entre eux une ombre plus épaisse que celle du ciel, et le bruit de l'eau y revient, affaibli, comme un pas qui s'éloignerait toujours. Là-haut, une seule lueur au Mont, qui ne bouge pas." },
       { after: "mandat", before: "IIIC_avis", text: "Sur un pilier de la halle, un papier neuf est cloué par-dessus les vieux. Tu reconnais la forme de l'avis avant d'en lire un mot." },
       { after: "iiic:avis_arrache", text: "Sur le pilier de la halle, un avis neuf remplace celui que tu as arraché. Le crieur de la Recette l'a cloué plus haut, hors de portée de main." },
       { after: "iiic:controle=combat", text: "On parle beaucoup, sous la halle, d'une gabare qui a forcé le pont de Pont-Ravel et cogné des soldats. On en parle avec un plaisir mal caché. Personne ne te regarde trop longtemps." },
@@ -444,7 +444,7 @@ Object.assign(P, {
       { first: true, text: "La foire aux vins de printemps tient toute la halle et déborde sur la place : des tonneaux en perce sur des chevalets, des tables de planches, des gobelets d'étain enchaînés aux tables pour qu'on ne les emporte pas, des marchands qui crient leurs crus, des paysans qui goûtent tout et n'achètent rien. Ça sent le vin répandu, la sciure mouillée, le saucisson et le crottin." },
       { again: true, text: "La foire, sous la halle : les tonneaux en perce, les cris, la sciure mouillée." },
       { after: "iiic:veuve_payee", text: "Un gamin te tire par la manche et te tend un gobelet d'étain cabossé. « De la part de la veuve du cabaret, dit-il. Pour la coupe. Elle a payé son loyer avec vos ducats. »" },
-      "Devant la Recette des tailles, le receveur en personne, un homme gras en robe noire, regarde ses commis poser des scellés de cire rouge sur des barriques saisies. À chaque scellé, un vigneron baisse la tête.",
+      "Devant la Recette des tailles, le receveur en personne, un homme gras en robe noire, regarde ses commis poser des scellés de cire rouge sur des barriques saisies. À chaque scellé, un vigneron baisse la tête. Le receveur, lui, suit la cire des yeux avec la tendresse d'un homme qui regarde tirer son propre vin.",
       "Un crieur annonce, pour midi, le concours du Taste-vin : le meilleur palais de la foire gagne une coupe d'argent et le droit de vendre sans péage jusqu'à la Saint-Jean.",
     ],
     choices: [
@@ -583,7 +583,7 @@ Object.assign(P, {
 
   IIIC_haquin_gache: { act: "III", title: "Le frêne fendu", place: "orle", takes: "night",
     text: [
-      "Au-dessus de la carrière, dans le bois de la Gâche, il y a un frêne fendu par la foudre. La charrette s'arrête là. Haquin descend, allume une lanterne et attend. Tu te couches dans les feuilles mortes, à vingt pas, le menton sur une racine.",
+      "Au-dessus de la carrière, dans le bois de la Gâche, il y a un frêne fendu par la foudre. La charrette s'arrête là. Haquin descend, allume une lanterne et attend. La lumière monte dans la fente de l'arbre et s'y perd ; autour, les chênes verts serrent leurs rangs, et le bois fait ce silence attentif des lieux où l'on a l'habitude d'attendre quelqu'un. Tu te couches dans les feuilles mortes, à vingt pas, le menton sur une racine.",
       "Ils arrivent sans bruit : six hommes maigres, en manteaux de laine sale, et devant eux un grand rouquin à la barbe taillée court, qui porte encore, cousue à l'épaule, une aigle d'Aveline à moitié arrachée. Il s'arrête à trois pas de Haquin et ne salue pas.",
       "« Reinold, dit Haquin. Le duc pardonne. Il pardonne tout, et il paie double, à qui guidera ses colonnes par les Combes. Vous connaissez les gués. Vous connaissez les ponts. » Le rouquin : « Le duc pend les déserteurs. » Haquin : « Le duc {{oreille#iiic_haquin_pardon|tient toujours sa parole envers ceux qui le servent|pendra les guides après la ville prise, comme les autres, et je le sais, et je le dis quand même}}. »",
       "« Et quand ? dit Reinold. » Haquin regarde la lune, entre les branches. « {{oreille#iiic_haquin_date|Quand le duc le dira, pas avant|La nuit de la Grande Basse, quand toute la ville aura les yeux sur la mer et qu'une porte s'ouvrira du dedans}}. »",
@@ -752,7 +752,7 @@ Object.assign(P, {
 
   IIIC_recette: { act: "III", title: "La Recette des tailles", place: "orle", backName: "la Recette des tailles",
     text: [
-      { first: true, text: "La Recette des tailles d'Orle est une belle maison de pierre aux volets peints aux couleurs de Salvèze, avec un perron de quatre marches, un garde endormi sur une chaise, et un bureau qui donne sur la place par une fenêtre grillée. Dedans, une odeur de cire à cacheter, d'encre et de vin." },
+      { first: true, text: "La Recette des tailles d'Orle est une belle maison de pierre aux volets peints aux couleurs de Salvèze, avec un perron de quatre marches, un garde endormi sur une chaise, car la République, qui ne paie plus la veille, obtient encore le sommeil à crédit, et un bureau qui donne sur la place par une fenêtre grillée. Dedans, une odeur de cire à cacheter, d'encre et de vin." },
       { again: true, text: "La Recette, son perron, son garde, ses volets aux couleurs de Salvèze." },
       "Le receveur Ortolan est un homme gras, rose, aux yeux très petits et très mobiles, en robe noire de magistrat trop étroite aux épaules. Il compte des liards dans une sébile, d'un doigt, sans regarder. Sur le bureau, un grand registre relié de rouge, ouvert. Le tiroir du bureau est fermé à clé.",
       "« La République a besoin d'argent, dit-il avant qu'on lui ait rien demandé. Je ne fais que mon devoir. {{oreille#iiic_ortolan|J'applique les rôles tels qu'ils viennent de Salvèze|Je double les rôles qui viennent de Salvèze, et Salvèze n'en sait rien, et la Banque m'a promis l'Aiguier à moitié prix quand je le mettrai aux enchères}}. »",
@@ -773,7 +773,7 @@ Object.assign(P, {
 
   IIIC_recette_nuit: { act: "III", title: "La Recette, la nuit", place: "orle", takes: "night",
     text: [
-      "La nuit, la Recette dort. Le garde ronfle sur sa chaise, le chapeau de fer sur le nez. Le receveur dort au-dessus du bureau, on l'entend : il ronfle plus fort que le garde. La fenêtre grillée du bureau donne sur la place. La porte de derrière donne sur un jardin, où un chien est attaché à une niche.",
+      "La nuit, la Recette dort. Le garde ronfle sur sa chaise, le chapeau de fer sur le nez. Le receveur dort au-dessus du bureau, on l'entend : il ronfle plus fort que le garde, ainsi qu'il sied à son rang. La fenêtre grillée du bureau donne sur la place. La porte de derrière donne sur un jardin, où un chien est attaché à une niche.",
       { with: "lison", text: "Lison regarde le chien, puis toi. Elle sort de sa poche un morceau d'anguille fumée qu'elle garde pour les grandes occasions. « Il va m'aimer, dit-elle. Tous les chiens m'aiment. C'est les gens qui ont du mal. »" },
     ],
     choices: [
@@ -873,7 +873,7 @@ Object.assign(P, {
       { first: true, text: "Le chemin des Ânes finit dans un grand cirque de pierre blonde, taillé à angles droits dans la montagne, haut comme trois églises. Les parois portent encore les traces des coins de fer, en lignes régulières, comme les pages d'un livre ouvert. Des genêts, des ronces, de jeunes pins ont poussé sur les gradins. Au fond du cirque, au milieu d'une esplanade de gravats, un bloc énorme se dresse seul, à peine dégrossi, haut de deux hommes : le dernier bloc." },
       { first: true, text: "Au-dessus de la paroi nord commence le bois de la Gâche, sombre, des chênes verts et des frênes. Une galerie s'ouvre au pied de la paroi est, une bouche noire étayée de poutres pourries." },
       { again: true, when: "day", text: "Le cirque de la carrière, ses parois blondes rayées de coins, le dernier bloc au milieu des gravats." },
-      { again: true, when: "night", text: "La carrière, la nuit. Les parois sont pâles sous la lune, comme de l'os. Le dernier bloc fait une ombre plus noire que la nuit." },
+      { again: true, when: "night", text: "La carrière, la nuit. Les parois sont pâles sous la lune, comme de l'os, et les lignes des coins de fer y dessinent des côtes ; on marche au fond du cirque comme entre les flancs d'une carcasse immense, que trois siècles de pluie ont nettoyée. Le dernier bloc y jette une ombre plus noire que la nuit." },
       "Le cirque {{echo#iiic_carriere_echo|est silencieux, et le vent tourne dans le fond sans faire de bruit|rend des coups de masse, des centaines, et une voix d'homme qui chante pour donner la cadence, et une autre, plus loin, qui crie : « Celui-là pour la salle des Reflets ! Celui-là pour Sorne ! »}}.",
       { after: "iiic:carriere=rouverte", text: "Des carriers travaillent sur les gradins, des échafaudages neufs sont dressés contre la paroi est, et on a tendu une bâche sur le dernier bloc, pour le protéger de la poussière, comme on couvre un autel." },
     ],
@@ -897,7 +897,7 @@ Object.assign(P, {
 
   IIIC_carriere_galerie: { act: "III", title: "La galerie", place: "iiic_carriere",
     text: [
-      "La galerie s'enfonce dans la montagne, haute de deux toises, étayée de poutres de chêne noircies, couvertes de champignons blancs. Le sol est plat, poli par les traîneaux. Au bout de trente pas, la lumière du jour n'est plus qu'une tache. Il fait froid, d'un froid de cave, et l'eau goutte quelque part.",
+      "La galerie s'enfonce dans la montagne, haute de deux toises, étayée de poutres de chêne noircies, couvertes de champignons blancs. Le sol est plat, poli par les traîneaux. Au bout de trente pas, la lumière du jour n'est plus qu'une tache. Il fait froid, d'un froid de cave, et l'eau goutte quelque part, sans hâte, dans un noir si ancien que ton pas a l'air d'y déranger quelqu'un.",
       "Au fond, la galerie s'élargit en une salle ronde. Au milieu de la paroi, une veine de pierre plus sombre, presque verte, court en biais, lisse et grasse au toucher. Quand tu la frôles de la main, elle {{echo#iiic_veine|reste froide et muette sous les doigts|répond par une note longue, très basse, et une voix de femme, très lointaine, qui dit en riant : « Elle chante, Aymeric ! Taillez-m'en une pour mon diapason »}}.",
       { if: { item: "diapason" }, text: "Le diapason de Sorne, dans ton sac, s'est mis à vibrer de lui-même, très bas, comme un chat qui ronronne contre la pierre. La veine est une pierre chantante. Il suffit d'y poser la fourche de bronze." },
       { with: "salome", text: "Salomé reste à l'entrée de la galerie, les bras croisés, et s'arrête là. « Sous la mer, dit-elle, je veux bien. Sous une montagne, non. Je vous attends. »" },
@@ -962,7 +962,7 @@ Object.assign(P, {
 Object.assign(P, {
   IIIC_bois: { act: "III", title: "Le bois de la Gâche", place: "iiic_carriere", backName: "le bois de la Gâche",
     text: [
-      { first: true, text: "Au-dessus de la carrière, le bois de la Gâche est un bois de chênes verts et de frênes, serré, sombre en plein jour, où les sentiers se perdent dans les ronces. On y faisait du charbon, autrefois. Il en reste des places rondes, noires et nues." },
+      { first: true, text: "Au-dessus de la carrière, le bois de la Gâche est un bois de chênes verts et de frênes, serré, sombre en plein jour, où les sentiers se perdent dans les ronces. On y faisait du charbon, autrefois. Il en reste des places rondes, noires et nues, que les arbres contournent depuis cent ans ; l'herbe même s'y refuse, et l'on presse le pas en les traversant, sans bien savoir pourquoi." },
       { again: true, text: "La Gâche, ses chênes verts, ses places de charbonnier." },
       "Sur le chemin des Ânes, à la lisière, un frêne fendu par la foudre : un creux noir dans le tronc, à hauteur d'homme. Il y a des empreintes de bottes autour, et des miettes de pain. Plus loin, sur une souche, des coquilles de noix, un bout de corde, une petite croix de bois taillée au couteau, avec soin, et laissée là.",
       { if: { has: "iiic:chemin_gache" }, text: "Tu sais ce que veut dire le creux du frêne. Tu sais aussi quel chemin prend le fils de la femme du Pressoir, le soir, après avoir posé le pain : celui qui monte à gauche, entre deux rochers." },
@@ -1043,7 +1043,7 @@ Object.assign(P, {
     text: [
       { if: { has: "iiic:refus_gues" }, text: "Reinold se lève, sans colère. « Tu ne sais pas ce que tu demandes, dit-il. Tenir un gué contre une colonne, avec quatorze hommes qui ont faim. J'ai vu ce que ça donne. Ça donne quatorze pendus de plus. »" },
       { if: { has: "iiic:refus_cols" }, text: "Reinold hausse les épaules. « Par les cols, il y a l'armée. Par la rivière, il y a la République. Toi, tu as un portrait sur les piliers, et tu me dis de partir. » Il rit. « On reste. Le pain est bon, ici. »" },
-      "Il se rassied près du feu, et ses hommes reprennent leur soupe. Personne ne te chasse. Personne ne t'invite à rester non plus. La sentinelle, réveillée, te regarde par-dessus son arbalète avec curiosité, comme on regarde un chien qui a perdu son maître.",
+      "Il se rassied près du feu, et ses hommes reprennent leur soupe. Personne ne te chasse. Personne ne t'invite à rester non plus. La sentinelle, réveillée, t'examine par-dessus son arbalète avec la curiosité qu'on accorde à un chien sans maître.",
       { with: "any", text: "Tes compagnons attendent ton signe, la main près de leurs armes, ou loin, selon leur nature." },
     ],
     choices: [
@@ -1096,7 +1096,7 @@ Object.assign(P, {
 
   IIIC_leg_col: { act: "III", title: "Le col de la Taciturne", place: null,
     text: [
-      "Le sentier sort des pins et franchit un col nu, balayé par le vent, où la neige a durci en croûte grise. Au-delà, il y a une combe suspendue, et au fond de la combe, adossée à la montagne, l'abbaye : une longue muraille de pierre pâle, percée de fenêtres étroites, un clocher sans cloche visible, un toit de lauzes chargé de neige. Une fumée droite monte d'une cheminée. Pas un bruit.",
+      "Le sentier sort des pins et franchit un col nu, balayé par le vent, où la neige a durci en croûte grise. Au-delà, il y a une combe suspendue, et au fond de la combe, adossée à la montagne, l'abbaye : une longue muraille de pierre pâle, percée de fenêtres étroites, un clocher sans cloche visible, un toit de lauzes chargé de neige. Une fumée droite monte d'une cheminée. Le silence de l'abbaye descend jusqu'au col ; il a, à cette distance, quelque chose de tendu, celui d'une maison où l'on vous a entendu venir et où chacun s'est arrêté pour écouter.",
       "Au bord du col, une borne de pierre porte une main sculptée, les doigts serrés sur les lèvres. Le chemin, au-delà, est bordé de petits cairns, un tous les dix pas, réguliers comme des chiffres.",
       "Un frère convers, en tablier de cuir sur sa bure, descend vers toi avec une hotte de bois. Il s'arrête, te regarde, regarde ceux qui t'accompagnent, et lève la main droite, la paume ouverte, puis la ferme lentement en poing. Il continue sa descente.",
       { with: "gildas", text: "« Il dit : bienvenue, et faites vite, traduit Frère Gildas. Ou bien : bienvenue, et méfiez-vous. Le même signe dit les deux. Ça dépend de la vitesse de la main. » Il regarde le frère s'éloigner. « Il a fermé vite. »" },
@@ -1119,7 +1119,7 @@ Object.assign(P, {
 Object.assign(P, {
   IIIC_ev_neige: { act: "III", title: "La neige tardive", place: null,
     text: [
-      "Le ciel se ferme d'un coup, au-dessus des crêtes, comme un couvercle. Le vent tourne au nord. En moins d'une heure, la neige tombe à gros flocons mouillés, de biais, et le sentier disparaît sous tes pieds. On ne voit plus le prochain lacet, ni le précédent.",
+      "Le ciel se ferme d'un coup, au-dessus des crêtes, comme une trappe. Le vent tourne au nord. En moins d'une heure, la neige tombe à gros flocons mouillés, de biais, et le sentier disparaît sous tes pieds. On ne voit plus le prochain lacet, ni le précédent.",
       "Tu avances {{miroir#iiic_neige_miroir|courageusement, un pas après l'autre, sans peur|en te répétant que tu n'as peur de rien, comme tu te le répétais enfant sous l'étal d'Odeline, et tu as froid jusqu'aux os}}.",
       { with: "salome", text: "Salomé a relevé le nez, flairé le vent comme en mer. « Ça va durer une heure, dit-elle. Pas plus. Il faut un abri, pas une route. »" },
       { with: "lison", text: "Lison a pris la corde de ton sac et l'a nouée à sa ceinture, puis à la tienne. « Dans le brouillard, chez nous, on s'attache. Sinon on se retrouve au printemps, dans les roseaux. »" },
@@ -1207,7 +1207,7 @@ Object.assign(P, {
 
   IIIC_ev_moine: { act: "III", title: "Le moine muet", place: null,
     text: [
-      "Le brouillard monte de la vallée et noie le sentier. Au bout de quelques pas, tu ne vois plus tes mains. Et dans le blanc, devant toi, une silhouette : un moine en bure grise, sans âge, un bâton à la main, immobile au milieu du sentier, comme s'il t'attendait.",
+      "Le brouillard monte de la vallée et noie le sentier. Au bout de quelques pas, tu ne vois plus tes mains ; le blanc a une épaisseur de laine, il étouffe ton pas, et tu avances dans un monde réduit à la longueur de ton souffle. Et dans le blanc, devant toi, une silhouette : un moine en bure grise, sans âge, un bâton à la main, immobile au milieu du sentier, comme s'il t'attendait.",
       "Sans un mot, il lève la main et montre la gauche, deux doigts. Puis la droite, la paume tournée vers le sol. Puis il se tourne et marche, lentement, dans le brouillard.",
       "Le sentier, à cet endroit, {{echo#iiic_moine_echo|est noyé de blanc et de silence, et l'on n'entend que vos pas|garde la voix du moine, de l'été d'il y a dix ans, avant qu'il ait fait vœu : « À gauche au deuxième cairn, et pas à droite, jamais, à droite c'est le vide sous la neige »}}.",
       { with: "gildas", text: "Frère Gildas lit les signes à mesure. « Deux, à gauche. Paume en bas : le vide. Il nous dit de prendre à gauche au deuxième cairn. » Le moine se retourne, voit Gildas, et s'arrête. Il fait un autre signe, très lent, la main sur le cœur puis ouverte vers lui. Gildas baisse la tête. Celui-là, il le garde pour lui." },
@@ -1279,7 +1279,7 @@ Object.assign(P, {
 
   IIIC_ev_receveur: { act: "III", title: "Les commis de la Recette", place: null,
     text: [
-      "Sur le chemin, un commis de la Recette des tailles, en robe noire, monte à mule vers un hameau, suivi de deux soldats de la République à pied, la pique sur l'épaule. Il a un registre sous le bras et un sac de cuir vide à l'arçon. Il vient lever les tailles.",
+      "Sur le chemin, un commis de la Recette des tailles, en robe noire, monte à mule vers un hameau, suivi de deux soldats de la République à pied, la pique sur l'épaule. Il a un registre sous le bras et un sac de cuir vide à l'arçon. Il vient lever les tailles ; la mule, seule de la compagnie, a l'air d'en éprouver du scrupule.",
       { after: "mandat", text: "L'un des soldats te regarde, longtemps, comme on cherche un nom qu'on a sur le bout de la langue." },
       "« Bonjour, voyageur, dit le commis. {{oreille#iiic_commis_recette|Belle journée pour les Combes|J'espère qu'ils auront caché moins que l'an dernier, parce que le receveur me retient sur mes gages ce que je ne ramène pas}}. »",
     ],
@@ -1348,7 +1348,7 @@ Object.assign(P, {
 
   IIIC_lison_murs: { act: "III", title: "Les murets", place: "orle", with: "lison",
     text: [
-      "Lison s'est arrêtée devant un muret de vigne, au-dessus du bourg, et le regarde comme on regarde un visage connu dans une foule. Elle passe la main sur les pierres sèches, l'une après l'autre.",
+      "Lison s'est arrêtée devant un muret de vigne, au-dessus du bourg, et s'y attarde comme sur un visage connu dans une foule. Elle passe la main sur les pierres sèches, l'une après l'autre.",
       "« Regarde, dit-elle. Celle-ci. Et celle-là. Et là-bas. » Certaines pierres du muret portent une petite entaille, toujours la même : trois traits courts, et un long. Le muret {{pie#iiic_muret|est fait de pierres des champs, empilées sans ordre, comme partout|est monté avec ordre : les pierres entaillées dessinent, de loin, une flèche couchée qui montre le Mont, et sous chacune, un vide de la largeur d'une main où l'on peut glisser un message}}.",
       "« C'est un signe de chez nous, dit Lison. Ma grand-mère le brode dans ses dentelles, au bord. Il veut dire : *quelqu'un écoute ici*. » Elle se redresse. « {{oreille#iiic_lison_signe|Les Taiseurs sont passés par là il y a longtemps, c'est tout|Ma grand-mère savait que je verrais ces murs. Elle savait tout depuis le début, que je viendrais jusqu'ici avec toi, et elle m'a laissée faire comme si je choisissais}}. »",
       { if: { has: "lison:loyale" }, text: "Elle donne un coup de pied dans le muret, pas assez fort pour faire tomber une pierre. « Eh bien, j'ai choisi quand même. Elle peut broder ce qu'elle veut. »" },

@@ -164,7 +164,7 @@ Object.assign(P, {
 
   IIID_corisande_arrivee: { act: "III", title: "Les attelages de la Banque", place: "orle", backName: "la cour du Pressoir",
     text: [
-      "Ils montent la route d'en bas au pas lent des bêtes fatiguées : trois voitures de voyage aux portières noires, peintes du besant d'or des Marrel, et douze gardes à cheval en manteau noir à boutons dorés. Les vignerons se rangent contre les murs. Les enfants courent devant. Dans la cour du Pressoir, la première voiture s'arrête, et un homme en habit de commis descend déplier le marchepied.",
+      "Ils montent la route d'en bas au pas lent des bêtes fatiguées : trois voitures de voyage aux portières noires, peintes du besant d'or des Marrel, et douze gardes à cheval en manteau noir à boutons dorés. Les vignerons se rangent contre les murs, avec le respect qu'on doit à ses créanciers quand ils se déplacent. Les enfants courent devant. Dans la cour du Pressoir, la première voiture s'arrête, et un homme en habit de commis descend déplier le marchepied.",
       "Corisande Marrel descend la dernière. Soixante-sept ans, une canne d'ébène à pommeau d'argent, un manteau de voyage gris fourré de petit-gris, et des yeux pâles qui font le tour de la cour en une fois, comme on compte une caisse. Elle a fait cinq jours de route dans une voiture de louage pour venir jusqu'ici. Elle te voit sur la place, et elle te salue d'une inclinaison de tête exacte, celle qu'on accorde à un égal.",
       { if: { all: [{ not: { has: "lothaire:mort" } }, { not: { has: "lothaire:vaincu" } }, { not: { has: "lothaire:allie" } }] }, text: "Derrière la dernière voiture, un cavalier seul, en gants gris, la bride courte. Lothaire Brunel. Il met pied à terre dans la cour, il te regarde un instant, et il conduit son cheval à l'écurie au lieu de suivre sa maîtresse à l'intérieur. Au cordon de son cou pend le cornet jumeau, poli comme le tien.",
         else: "Lothaire Brunel manque au voyage. Corisande s'appuie sur le bras de son commis, un homme maigre aux lunettes rondes, et c'est lui qui donne les ordres aux gardes." },
@@ -222,7 +222,7 @@ var LOT_ABSENT = { any: [{ has: "lothaire:mort" }, { has: "lothaire:vaincu" }, {
 Object.assign(P, {
   IIID_corisande: { act: "III", title: "La salle haute du Pressoir", place: "orle", backName: "la table de Corisande Marrel",
     text: [
-      { first: true, text: "La salle haute du Pressoir est basse de plafond, lambrissée de sapin, chauffée par un brasero que l'aubergiste a monté lui-même. Sur la table, une nappe de lin, deux couverts, un pain de seigle, un pâté de lièvre et un pichet de vin de l'Orle coupé d'eau. Corisande Marrel est assise dos à la cloison de planches, sa canne contre la cuisse. Elle désigne la chaise en face d'elle, face à la fenêtre." },
+      { first: true, text: "La salle haute du Pressoir est basse de plafond, lambrissée de sapin, chauffée par un brasero que l'aubergiste a monté elle-même, pour voir de près à qui elle louait sa salle. Sur la table, une nappe de lin, deux couverts, un pain de seigle, un pâté de lièvre et un pichet de vin de l'Orle coupé d'eau. Corisande Marrel est assise dos à la cloison de planches, sa canne contre la cuisse. Elle désigne la chaise en face d'elle, face à la fenêtre." },
       { first: true, if: LOT_ACTIF, text: "La salle haute {{echo#iiid_cloison|garde l'odeur du sapin chaud et le silence des pièces où l'on a peu vécu|garde encore une voix d'homme, douce, d'il y a une heure : « Asseyez-le face à la fenêtre, Madame. Je serai derrière la cloison. Je vous dirai ce qu'il pense. »}}." },
       { first: true, if: LOT_ABSENT, text: "La salle haute {{echo#iiid_caisse|garde l'odeur du sapin chaud et le calme des pièces où l'on a peu vécu|garde encore la voix du commis, d'il y a une heure, très bas : « Madame, il reste trois semaines de caisse. Après, nous fermons les guichets. »}}." },
       { first: true, text: "« Je mange peu, dit-elle. Servez-vous. J'ai fait cinq jours de route pour vous parler, et je parle mal le ventre plein. » Elle rompt un morceau de pain et le laisse sur la nappe. « Vous avez trouvé ce que mon chercheur cherche depuis vingt ans. {{oreille#iiid_cor_respect|Je suis venue vous en féliciter|Je suis venue parce que je n'ai plus le temps de vous faire suivre, ni l'argent}}. »" },
@@ -884,9 +884,9 @@ Object.assign(P, {
 
   IIID_cheval: { act: "III", title: "Le pont de Saint-Vrain", place: null, takes: "day",
     text: [
-      "La route des Combes descend la vallée de l'Orle par la rive droite, entre les vignes et les carrières, et elle passe la rivière cinq fois sur cinq ponts de pierre. Vous chevauchez au trot, les bêtes fraîches, et les villages défilent : des volets clos, des enfants sur les murets, un curé qui vous bénit sans savoir qui vous êtes.",
+      "La route des Combes descend la vallée de l'Orle par la rive droite, entre les vignes et les carrières, et elle passe la rivière cinq fois sur cinq ponts de pierre. Vous chevauchez au trot, les bêtes fraîches, et les villages défilent : des volets clos, des enfants sur les murets, un curé qui vous bénit sans savoir qui vous êtes, ce qui reste la façon la plus sûre de bénir.",
       { if: { has: "iiid:relais_banque" }, text: "Au relais de la Banque, le palefrenier a lu le sauf-conduit, puis l'a relu, en remuant les lèvres, et vous a donné ses trois meilleures bêtes en soupirant." },
-      "Le deuxième soir, au pont de Saint-Vrain, vous vous arrêtez dans les saules. Sur le pont, à la lueur d'une lanterne sourde, quatre hommes en cuirasse bleue mesurent le tablier à la toise et notent sur une tablette. Un cinquième, en manteau gris, leur tient la lanterne. Sur l'épaule de son manteau, une broderie : {{pie#iiid_broderie|un simple écusson de ville|la tour sur une vague, la livrée des gens du prévôt Delisle}}.",
+      "Le deuxième soir, au pont de Saint-Vrain, vous vous arrêtez dans les saules. L'Orle passe sous les arches large et sans bruit, et chaque arche pose sur elle une ombre ronde où l'eau paraît plus épaisse. Sur le pont, à la lueur d'une lanterne sourde, quatre hommes en cuirasse bleue mesurent le tablier à la toise et notent sur une tablette. Un cinquième, en manteau gris, leur tient la lanterne. Sur l'épaule de son manteau, une broderie : {{pie#iiid_broderie|un simple écusson de ville|la tour sur une vague, la livrée des gens du prévôt Delisle}}.",
       { if: { has: "iiid:lettre_prevot" }, text: "Les ponts de l'Orle sans garde, au premier jour de mai. Tu as la lettre dans ton pourpoint." },
       { if: { has: "iiid:romuald_pont" }, text: "Sous la première arche, dans les orties, tu reconnais des cuirasses bleues sans écusson, couchées à plat ventre. Les hommes de Romuald tiennent le pont, comme leur sergent l'a promis. Ils attendent un signal." },
     ],
@@ -975,7 +975,7 @@ Object.assign(P, {
 
   IIID_fin: { act: "III", title: "Les murs de Salvèze", place: null, takes: "evening",
     text: [
-      "Salvèze est là, au bout de la dernière lieue, et elle a changé de visage depuis ton départ. Des fumées montent de trois quartiers à la fois. Les cloches sonnent à toute heure, sans rapport avec les offices. Sur les remparts du côté de la terre, on a dressé des palissades neuves, de bois blanc, et des hommes en armes s'y promènent.",
+      "Salvèze est là, au bout de la dernière lieue, et elle a changé de visage depuis ton départ. Des fumées montent de trois quartiers à la fois. Les cloches sonnent à toute heure, sans rapport avec les offices : une ville qui a peur sonne comme elle respire, trop vite. Sur les remparts du côté de la terre, on a dressé des palissades neuves, de bois blanc, et des hommes en armes s'y promènent.",
       { if: { is: { iiid_route: "radeau" } }, text: "Vous arrivez par l'eau, au crépuscule, parmi les barques des pêcheurs d'anguilles qui rentrent. Le port aux Sauniers est à une portée de voix. Personne ne surveille les radeaux de vin." },
       { if: { is: { iiid_route: "cheval" } }, text: "Vous arrivez par la route de terre, au crépuscule. La porte des Sauniers est gardée par le Guet, qui fouille les chariots. Plus loin, au bord des marais, tu vois la porte des Sauniers, et devant elle des hommes en manteau gris, à la livrée d'une tour sur une vague." },
       { if: { is: { iiid_route: "sel" } }, text: "Vous arrivez par la vieille route du sel, qui finit dans les salines désaffectées au pied des remparts. Les dalles de la reine s'enfoncent sous la vase, et continuent, tu le sais, plus loin que la vase." },
@@ -1122,7 +1122,7 @@ Object.assign(P, {
 Object.assign(P, {
   IIID_mine: { act: "III", title: "Les Argentières de la reine", place: "iiid_mine", hub: true, routes: true, backName: "l'entrée des Argentières",
     text: [
-      { first: true, text: "Les Argentières s'ouvrent au fond d'un vallon pelé, au-dessus des derniers mélèzes : des terrils de pierre grise qui dégringolent jusqu'au torrent, des fondations de cabanes sans toit, une roue à eau effondrée dans son bief. Au-dessus de l'entrée principale, une galerie basse étayée de mélèze noir, on a taillé dans le roc une couronne, et dessous trois pics croisés." },
+      { first: true, text: "Les Argentières s'ouvrent au fond d'un vallon pelé, au-dessus des derniers mélèzes : des terrils de pierre grise qui dégringolent jusqu'au torrent, des fondations de cabanes sans toit, une roue à eau effondrée dans son bief, à côté de laquelle le torrent passe sans plus rien lui devoir. Au-dessus de l'entrée principale, une galerie basse étayée de mélèze noir, on a taillé dans le roc une couronne, et dessous trois pics croisés." },
       { first: true, text: "Une femme d'une soixantaine d'années garde une vingtaine de chèvres sur les terrils. Elle a un bâton, un chien jaune et un capuchon de laine rouge. Elle te regarde venir avec l'air de quelqu'un qui a déjà vu monter des chercheurs, et les a vus redescendre." },
       { again: true, text: "Les terrils gris, la roue effondrée, la galerie noire sous sa couronne taillée. Les chèvres de Josette broutent ce qu'elles trouvent entre les pierres." },
       { again: true, after: "iiid:mine", text: "Une pierre de plus a roulé devant l'entrée de la galerie. Josette l'a laissée là, comme une porte." },
@@ -1147,7 +1147,7 @@ Object.assign(P, {
     text: [
       "La galerie descend en pente douce, assez haute pour marcher courbé. Les étais de mélèze sont noirs, durs comme du fer, et chacun porte des marques taillées au couteau : des chiffres, des croix, des initiales de mineurs morts depuis trois siècles. L'eau suinte des parois et coule dans une rigole au milieu.",
       "Au premier carrefour, trois galeries partent dans le noir. Sur l'étai d'angle, à hauteur d'œil, une inscription grattée dans le bois : *{{loupe#iiid_etai|Galerie du Roy. Galerie de l'Eau. Galerie Neuve|Galerie du Roy, murée par ordre du chancelier, la nuit des Comptoirs. Suivre les trois pics. Ne pas suivre l'eau}}.*",
-      { if: { item: "lanterne" }, text: "Ta lanterne sourde fait un cercle jaune sur la roche mouillée. Le volet de fer cliquette quand tu marches." },
+      { if: { item: "lanterne" }, text: "Ta lanterne sourde fait un cercle jaune sur la roche mouillée. Le volet de fer cliquette quand tu marches ; hors du cercle, le noir se referme à mesure, sans bruit, comme l'eau derrière une barque." },
     ],
     choices: [
       { label: "Suivre les étais marqués de trois pics croisés", hide: { not: { any: [{ voile: "iiid_josette" }, { voile: "iiid_etai" }] } }, fx: { ep: ["perso", 400] }, to: "IIID_mine_mur" },
@@ -1401,7 +1401,7 @@ Object.assign(P, {
 
   IIID_clos_cave: { act: "III", title: "Le cellier du clos", place: "iiid_clos", backName: "le cellier du clos Vachon",
     text: [
-      "Le cellier est une longue voûte de pierre, fraîche, où l'on entend l'eau goutter quelque part. Quarante barriques sur leurs chantiers de chêne, deux rangées de vingt, numérotées à la craie. À l'entrée, sur un tréteau à part, une barrique {{pie#iiid_doree|cerclée de cuivre doré, ciselée de grappes, une pièce de maître|cerclée de laiton mince sur un bois neuf, vieilli au brou de noix : elle date de cinq ans à peine}}.",
+      "Le cellier est une longue voûte de pierre, fraîche, où une goutte tombe, de loin en loin, dans quelque chose de plein. Quarante barriques sur leurs chantiers de chêne, deux rangées de vingt, numérotées à la craie. À l'entrée, sur un tréteau à part, une barrique {{pie#iiid_doree|cerclée de cuivre doré, ciselée de grappes, une pièce de maître|cerclée de laiton mince sur un bois neuf, vieilli au brou de noix : elle date de cinq ans à peine}}.",
       "Au fond, contre le mur, dans l'ombre, la dernière barrique est {{pie#iiid_laide|la plus laide, gercée, cerclée de fer rouillé, bonne pour le feu|cerclée de fer rouillé sur un chêne de trois siècles, et son fond sonne plus court que les autres de deux doigts : un double fond}}. Une date à la craie, presque effacée : l'année des Glaces.",
       "Cosme est descendu derrière toi, avec ses deux porteurs. Il s'appuie au chambranle. « Le vieux vous a parlé du trésor, je parie. Allez-y, cherchez. Mais ce que vous trouvez dans mes barriques est à moi. »",
     ],

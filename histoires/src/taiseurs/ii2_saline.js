@@ -10,11 +10,11 @@ Object.assign(P, {
     text: [
       { first: true, text: "La route des roseaux finit sur une digue de terre battue, haute de deux hommes, et la Saline s'ouvre d'un coup sous tes pieds : un damier de bassins à perte de vue, gris, verts, roses selon l'eau qu'ils tiennent, séparés par des talus étroits où marchent des silhouettes courbées. Sur les talus, des tas de sel blanc en pyramide, couverts de paille et de vieilles voiles. Au bout de la digue, là où elle touche la baie, un moulin de pierre noire tient les pieds dans l'eau, avec sa grande roue arrêtée." },
       { first: true, text: "L'air pique les lèvres. Ça sent la vase, l'iode, la fumée de tourbe des maisons basses blotties contre la digue, et une odeur propre, presque sucrée, qui monte des bassins quand le vent tourne : le sel qui sèche. Des bassins monte aussi un chant à plusieurs voix, lent, mesuré sur le geste des râteaux." },
-      { first: true, text: "En travers de la digue, une barrière de bois neuf. Deux hommes en casaque noire s'y appuient, et un commis assis derrière une table pliante tient un registre ouvert sous une pierre, à cause du vent." },
+      { first: true, text: "En travers de la digue, une barrière de bois neuf. Deux hommes en casaque noire s'y appuient, et un commis assis derrière une table pliante tient un registre ouvert sous une pierre, à cause du vent, le seul à Grisemotte qui passe encore sans payer." },
       { first: true, with: "lison", text: "Lison s'arrête au bord de la digue et regarde les bassins comme on regarde une maison où l'on a dormi enfant. « Grisemotte, dit-elle. Ma grand-mère dit que le sel d'ici {{oreille|est le meilleur du delta|a été payé deux fois, une fois en sueur et une fois en sang}}. »" },
       { first: true, with: "tibere", text: "Tibère plisse les yeux vers la barrière. « Casaques noires, liseré jaune. Ce sont des gens de la Banque, ça. Je les croyais au chaud dans leurs comptoirs. »" },
       { again: true, when: "day", text: "La digue de Grisemotte, ses bassins à perte de vue, le chant des sauniers qui monte et retombe avec les râteaux. Au bout, le moulin de la reine, noir dans la lumière blanche." },
-      { again: true, when: "night", text: "La digue, la nuit. Les bassins renvoient la lune en cent morceaux. Une lumière au cabaret, une autre à la Maison du Sel, et le moulin, au bout, qui gronde quand la mer descend." },
+      { again: true, when: "night", text: "La digue, la nuit. Les bassins renvoient la lune en cent morceaux. Une lumière au cabaret, une autre à la Maison du Sel, et le moulin, au bout, qui gronde quand la mer descend, d'une voix de bête qu'on aurait enfermée sous la digue." },
       { after: "iis:greve_jour", before: "iis:greve_finie", text: "Les bassins sont déserts et le chant s'est tu. Sur les talus, les râteaux sont plantés droit dans la vase, en rang, comme des piques." },
       { after: "iis:greve_gagnee", text: "Le chant des bassins a repris, plus fort qu'avant, et quelqu'un a peint sur la barrière, en grandes lettres de chaux : *SEL LIBRE*." },
       { after: "iis:greve_brisee", text: "On travaille de nouveau dans les bassins, sans chanter. Les hommes en casaque noire sont trois à la barrière, maintenant." },
@@ -78,7 +78,7 @@ Object.assign(P, {
     text: [
       { first: true, text: "Les bassins se suivent en escalier d'eau, du plus grand au plus petit : la vasière, où la mer dépose sa boue ; les cobiers, où elle chauffe ; les adernes, où elle s'épaissit ; les œillets enfin, carrés de quelques toises, où le sel naît. Chaque famille a ses œillets, et chaque œillet a un nom, gravé sur un piquet : *la Bonne-Mère*, *le Trou-Rose*, *la Quéré*, *le Petit-Bonheur*." },
       { again: true, when: "day", text: "Les bassins, sous le ciel blanc. Les râteaux montent et descendent, et le chant suit." },
-      { again: true, when: "night", text: "Les bassins, la nuit : de l'eau noire, des talus pâles, et le craquement du sel qui se forme dans le froid." },
+      { again: true, when: "night", text: "Les bassins, la nuit : de l'eau noire, des talus pâles, et le craquement du sel qui se forme dans le froid ; on dirait que quelque chose, sous la croûte, essaie patiemment ses dents." },
       { when: "day", text: "Un rang d'hommes ramène le gros sel en petits tas au bord des œillets, et chante un autre air, plus lourd, que le geste coupe en deux : *« Lève la pelle, laisse aller l'eau, {{oreille#iis_c2|sept tours de roue pour mon fardeau|ôte la meule de son fer, lève la vanne, et laisse la roue courir à vide}}. »*" },
       { when: "day", text: "Le chant des femmes revient de l'autre côté, comme une réponse : *« Quand la mer est pleine, {{oreille#iis_c1|la porte dort, le saunier dort, la reine dort|cale la porte d'un pieu de frêne, qu'elle reste ouverte au jusant}}. »*" },
       { when: "day", before: "iis:machefer_fini", text: "Sur le talus du milieu, un homme ne râtelle pas. Il marche, les mains dans le dos, une badine de jonc sous le bras, et partout où il passe, le chant baisse d'un ton." },
@@ -161,10 +161,10 @@ Object.assign(P, {
 
   IIS_cabaret: { act: "II", title: "Le cabaret de la Pelle", place: "saline", backName: "le cabaret de la Pelle",
     text: [
-      { first: true, text: "Le cabaret de la Pelle est creusé à moitié dans la digue, pour le vent : une salle basse, des poutres noires de fumée de tourbe, un comptoir fait d'une pelle à sel géante clouée sur deux tonneaux. Ça sent la soupe de poisson, le cidre aigre et la laine mouillée. La patronne est une grande femme borgne qui sert sans parler et rend la monnaie juste." },
+      { first: true, text: "Le cabaret de la Pelle est creusé à moitié dans la digue, pour le vent : une salle basse, des poutres noires de fumée de tourbe, un comptoir fait d'une pelle à sel géante clouée sur deux tonneaux. Ça sent la soupe de poisson, le cidre aigre et la laine mouillée. La patronne est une grande femme borgne qui sert sans parler et rend la monnaie juste, deux vertus qui lui tiennent lieu de conversation." },
       { again: true, when: "day", text: "La Pelle, presque vide à cette heure : deux vieux au coin du feu, et le bruit d'un couteau sur une planche, en cuisine." },
       { again: true, when: "night", text: "La Pelle, le soir, pleine de sauniers qui parlent bas. Le feu de tourbe fume plus qu'il ne chauffe." },
-      { before: "iis:gaucher_fini", text: "À la table du fond, dos au mur, quatre hommes qui ne sont pas d'ici : bottes de ville, gants de cuir gris passés à la ceinture, lames courtes. Ils boivent peu et regardent la porte. Le plus vieux a la main droite bandée et mange de la gauche, avec une adresse tranquille." },
+      { before: "iis:gaucher_fini", text: "À la table du fond, dos au mur, quatre hommes qui ne sont pas d'ici : bottes de ville, gants de cuir gris passés à la ceinture, lames courtes. Ils boivent peu et regardent la porte ; autour de leur table, la salle a laissé un vide de la largeur d'un banc, que chacun contourne. Le plus vieux a la main droite bandée et mange de la gauche, avec une adresse tranquille." },
       { with: "tibere", before: "iis:gaucher_fini", text: "Tibère s'est arrêté net sur le seuil. Il regarde les gants gris, puis le plancher. « Je m'assiérais plutôt près du feu », dit-il." },
       { with: "salome", before: "iis:gaucher_fini", text: "Salomé crache dans les cendres. « Les gants gris. Brunel habille ses chiens comme lui. »" },
       "Près de la porte, un colporteur a étalé sur un banc un tapis de feutre et sa marchandise : des aiguilles, du fil, des images pieuses, des médailles.",
@@ -280,7 +280,7 @@ Object.assign(P, {
   IIS_maison: { act: "II", title: "La Maison du Sel", place: "saline", backName: "la Maison du Sel",
     text: [
       { first: true, text: "La Maison du Sel est la seule bâtisse de pierre de taille de la Saline, en dehors du moulin : deux étages, des arcades au rez-de-chaussée où l'on pèse le sel, un perron de six marches et, au-dessus de la porte, un écusson repeint de frais où les armes de la Banque Marrel, un besant d'or sur fond noir, ont remplacé l'ancien râteau croisé des sauniers. La peinture noire bave un peu sur la pierre." },
-      { again: true, when: "day", text: "Sous les arcades de la Maison du Sel, les balances grincent. Un clerc crie des poids, un autre les écrit." },
+      { again: true, when: "day", text: "Sous les arcades de la Maison du Sel, les balances grincent. Un clerc crie des poids, un autre les écrit, et le sel, de la bouche de l'un à la plume de l'autre, trouve toujours moyen de maigrir." },
       { again: true, when: "night", text: "La Maison du Sel, la nuit. Deux fenêtres éclairées au premier étage. Une casaque noire somnole sur le perron." },
       "Dans le vestibule, sous un carreau de verre, le contrat de la Saint-Martin est affiché, comme la loi l'exige : deux grandes feuilles couvertes d'une écriture de notaire, avec trois sceaux de cire au bas.",
       { after: "iis:greve_jour", before: "iis:greve_finie", text: "Les volets du rez-de-chaussée sont fermés et barrés. Mâchefer a posté six hommes sous les arcades." },
@@ -406,7 +406,7 @@ Object.assign(P, {
 Object.assign(P, {
   IIS_moulin: { act: "II", title: "Le moulin de la reine", place: "saline", backName: "le moulin de la reine",
     text: [
-      { first: true, text: "Le moulin ferme la digue comme un verrou. Il est bâti de grosses pierres noires, rongées de sel jusqu'à hauteur d'homme, avec un toit d'ardoise et une seule fenêtre. D'un côté, la baie, que les sauniers appellent la Goule ; de l'autre, la retenue, un étang carré que la mer remplit à chaque marée par deux portes de chêne. Entre les deux, sous une arche, la grande roue à pales plonge dans un canal de pierre, le coursier, et tourne quand la retenue se vide vers la mer." },
+      { first: true, text: "Le moulin ferme la digue comme un verrou. Il est bâti de grosses pierres noires, rongées de sel jusqu'à hauteur d'homme, avec un toit d'ardoise et une seule fenêtre, étroite, par où il a l'air de surveiller la mer. D'un côté, la baie, que les sauniers appellent la Goule ; de l'autre, la retenue, un étang carré que la mer remplit à chaque marée par deux portes de chêne. Entre les deux, sous une arche, la grande roue à pales plonge dans un canal de pierre, le coursier, et tourne quand la retenue se vide vers la mer." },
       { again: true, when: "day", text: "Le moulin de la reine, ses pierres noires, sa roue. L'eau parle sous l'arche." },
       { again: true, when: "night", text: "Le moulin, la nuit. Une lanterne à la fenêtre, et le grondement de la roue quand la mer descend." },
       "Au-dessus de la porte, un linteau de granit porte une inscription en lettres anciennes, presque effacée : *{{loupe#iis_linteau|La mer moud pour la reine|La mer garde la reine : trois chants pour l'ouvrir, et la mer pour la refermer}}.*",
@@ -468,7 +468,7 @@ Object.assign(P, {
 
   IIS_moulin_dedans: { act: "II", title: "Sous l'arche", place: "saline", backName: "la salle de la roue",
     text: [
-      { first: true, text: "Sous l'arche, l'eau fait tout le bruit. La salle de la roue est une cave voûtée à demi ouverte sur le coursier, où la grande roue de chêne, haute de trois hommes, plonge ses douze pales. Un axe gros comme un tronc traverse le mur et monte vers les meules, à l'étage, par un engrenage de bois dur. Contre le mur de la retenue, la vanne de chasse, une porte de chêne qu'on lève au treuil. Contre le mur de la mer, on entend battre les deux portes à flot." },
+      { first: true, text: "Sous l'arche, l'eau fait tout le bruit. La salle de la roue est une cave voûtée à demi ouverte sur le coursier, où la grande roue de chêne, haute de trois hommes, plonge ses douze pales. Un axe gros comme un tronc traverse le mur et monte vers les meules, à l'étage, par un engrenage de bois dur. Contre le mur de la retenue, la vanne de chasse, une porte de chêne qu'on lève au treuil. Contre le mur de la mer, on entend battre les deux portes à flot, à coups sourds et espacés, comme un cœur beaucoup trop grand pour la maison qui le loge." },
       { again: true, text: "La salle de la roue, l'axe, la vanne, l'eau qui gronde. Ogier a laissé une lanterne sur un crochet." },
       "Au mur, entre deux crochets de fer, pend un vieux pieu {{pie#iis_pieu|gris et fendillé, oublié là depuis toujours|de frêne ferré, taillé exactement à la mesure de l'écart des portes à flot, et usé en un seul endroit, là où le chêne le serre}}.",
       "L'axe de la roue tourne dans une crapaudine noire, encrassée de suif. La crapaudine {{pie#iis_ambre|est un bloc de pierre dure, comme partout|est un bloc d'ambre des Écueils gros comme une noix, poli par trois siècles de rotation}}.",
@@ -557,7 +557,7 @@ Object.assign(P, {
 
   IIS_fosse: { act: "II", title: "La dalle", place: "saline",
     text: [
-      "La pale à la couronne descend contre le fond du coursier, et tu sens dans la corde du frein, au lieu du choc du bois sur la pierre, un enfoncement mou, comme une marche qui cède sous un pied. Sous la roue, une dalle carrée bascule sur un axe de bronze, avec un bruit d'os, et découvre un trou noir d'où monte un air froid, sec, qui sent la poussière et la cire.",
+      "La pale à la couronne descend contre le fond du coursier, et tu sens dans la corde du frein, au lieu du choc du bois sur la pierre, un enfoncement mou, comme une marche qui cède sous un pied. Sous la roue, une dalle carrée bascule sur un axe de bronze, avec un bruit d'os, et découvre un trou noir d'où monte un air froid, sec, qui sent la poussière et la cire ; c'est l'air d'une chambre qu'on a fermée sur un secret, et qui l'a tenu.",
       { outcome: "win", text: "La dalle cède sous la barre, et tu la sens basculer sur un axe caché, comme elle l'aurait fait d'elle-même sous la bonne pale." },
       "Un escalier de pierre descend sous le coursier. Les marches sont sèches. Trois siècles de marées sont passés au-dessus sans en mouiller une seule.",
       { with: "lison", text: "Lison s'accroupit au bord du trou et regarde l'escalier. « On y est », dit-elle, et sa voix tremble un peu, de froid ou d'autre chose." },
@@ -888,7 +888,7 @@ Object.assign(P, {
   IIS_greve_jour: { act: "II", title: "Le matin de la grève", place: "saline", takes: "morning", fx: { flag: "iis:greve_jour" },
     text: [
       "À l'aube, la Saline se tait. Dans les bassins, les râteaux sont plantés dans la vase, droits, en rangs serrés, des centaines de manches de bois gris qui sortent de l'eau comme une forêt noyée. Les sauniers sont devant la Maison du Sel, en silence, les bras croisés. Le seul bruit est celui de la mer qui monte dans l'étier.",
-      { before: "iis:machefer_parti", text: "Sur le perron, Mâchefer, douze casaques noires derrière lui, gourdins au poing. À la fenêtre du premier, Maître Pallu, le visage gris. Et un peu à l'écart, adossé à une arcade, un homme aux gants gris qui mange une pomme de la main gauche et regarde la scène comme on regarde un spectacle." },
+      { before: "iis:machefer_parti", text: "Sur le perron, Mâchefer, douze casaques noires derrière lui, gourdins au poing. À la fenêtre du premier, Maître Pallu, le visage gris. Et un peu à l'écart, adossé à une arcade, un homme aux gants gris qui mange une pomme de la main gauche et suit la scène en homme qui a payé sa place." },
       { after: "iis:machefer_parti", text: "Sur le perron, douze casaques noires, sans chef. Elles se regardent entre elles. Le clerc à la perche essaie de leur donner des ordres, d'une voix trop aiguë. À la fenêtre du premier, Maître Pallu, le visage gris." },
       { after: "iis:croze", text: "Hermine Croze sort de son cabinet, sous les arcades, et va se placer au premier rang des sauniers, à côté de Domitille, dans sa robe noire. Un murmure court dans les rangs." },
       { if: { all: [{ has: "iis:croze_hesite" }, { not: { has: "iis:croze" } }] }, text: "Sous les arcades, la porte du cabinet de Maîtresse Croze s'entrouvre d'un doigt, et reste ainsi tout le temps que dure la matinée." },
@@ -1095,7 +1095,7 @@ Object.assign(P, {
 
   IIS_grange_veille: { act: "II", title: "La veille de la grange", place: "saline", takes: "night",
     text: [
-      "Tu passes la nuit avec Domitille et quatre sauniers dans l'ombre de la grange au sel, assis sur des sacs, sans lumière. Les râteaux de toute la Saline sont rangés là, debout contre les murs, prêts pour l'aube. Vers minuit, quelqu'un gratte une pierre à feu derrière la salorge.",
+      "Tu passes la nuit avec Domitille et quatre sauniers dans l'ombre de la grange au sel, assis sur des sacs, sans lumière. Les râteaux de toute la Saline sont rangés là, debout contre les murs, prêts pour l'aube ; dans le noir, leurs manches font le long des planches une haie de choses maigres et debout, qu'on jurerait attentives. Vers minuit, quelqu'un gratte une pierre à feu derrière la salorge.",
       "Trois casaques noires s'approchent en se courbant, avec un pot de poix et des torches éteintes. Le plus jeune porte le pot à deux bras, et marche derrière les autres, comme on marche quand on voudrait être ailleurs.",
       { if: { has: "iis:meen_revenu" }, text: "Tu reconnais la démarche du plus jeune. C'est un autre garçon de la Saline, que Mâchefer a pris à la place de Méen. Méen, lui, est assis à côté de toi dans le noir, et il serre les poings.", else: "Tu reconnais le plus jeune à sa casaque trop large et à ses manches retroussées : Méen, le petit-fils d'Eudes." },
     ],

@@ -15,10 +15,10 @@ var P = {};
 Object.assign(P, {
   IG_entree: { act: "I", title: "Les Gouttières", place: "gouttieres", hub: true, backName: "les Gouttières",
     text: [
-      { first: true, text: "Les Gouttières commencent rue des Tanneurs, à l'endroit précis où le pavé s'arrête. Suivent la terre battue, des planches posées sur la boue, et des maisons qui penchent l'une vers l'autre jusqu'à se toucher par le haut. Là-haut, des passerelles de planches vont d'une lucarne à l'autre, des cordes à linge servent de rampes, et tout un peuple circule à hauteur des cheminées. En bas, l'eau des toits tombe en fils sur les têtes ; elle a donné son nom au quartier." },
+      { first: true, text: "Les Gouttières commencent rue des Tanneurs, à l'endroit précis où le pavé s'arrête. Suivent la terre battue, des planches posées sur la boue, et des maisons qui penchent l'une vers l'autre jusqu'à se toucher par le haut. Là-haut, des passerelles de planches vont d'une lucarne à l'autre, des cordes à linge servent de rampes, et tout un peuple circule à hauteur des cheminées. En bas, l'eau des toits tombe en fils sur les têtes ; elle a donné son nom au quartier, et c'est à peu près tout ce que le quartier a jamais reçu gratis." },
       { first: true, text: "Un gamin assis sur une borne te regarde passer en comptant tes poches ; il en trouve trois, à en juger par ses yeux. Une femme vide un seau par une fenêtre du second. Au bout de la rue, le canal des Gouttières fait un coude, vert et lent, et quelque part derrière les toits une fontaine coule avec un bruit de voix basses." },
       { again: true, when: "day", text: "Les Gouttières : la boue, les planches, le linge tendu entre les toits. L'eau tombe en fils devant les portes, et là-haut, sur les passerelles, quelqu'un siffle pour annoncer ton passage." },
-      { again: true, when: "night", text: "Les Gouttières, la nuit. Une lanterne à une fenêtre sur dix, et des pas sur les toits, plus nombreux que dans la rue. On marche au milieu de la ruelle, loin des porches." },
+      { again: true, when: "night", text: "Les Gouttières, la nuit. Une lanterne brûle à une fenêtre sur dix, et l'on entend des pas sur les toits, plus nombreux que dans la rue ; le quartier semble alors habiter au-dessus de lui-même, et te regarder d'en haut. On marche au milieu de la ruelle, loin des porches." },
       { first: true, with: "tibere", text: "Tibère a remonté son col. « J'ai fait trois rafles ici, du temps du Guet. On m'a vidé un pot de chambre sur le casque à chaque fois. Le même pot, je crois bien. »" },
       { first: true, with: "lison", text: "Lison lève le nez vers les passerelles. « Là-haut, ils nous ont déjà vus, pesés et vendus deux fois. Marche comme quelqu'un qui habite ici. »" },
       { first: true, with: "gildas", text: "Frère Gildas rabat sa capuche. Trois enfants le suivent un moment en chantonnant un bénédicité de travers, puis se lassent et remontent sur un auvent." },
@@ -57,7 +57,7 @@ Object.assign(P, {
 
   IG_pot_rousse: { act: "I", title: "Le Pot Fêlé", place: "gouttieres", backName: "le comptoir du Pot Fêlé",
     text: [
-      "Hermance pose la bière, prend ton liard, le mord. Elle écoute ta question sans s'arrêter d'essuyer. Tu parles de la nuit des Lanternes, de la boutique Carrus, de ce qui a disparu de l'établi.",
+      "Hermance pose la bière, prend ton liard, le mord, par principe : aux Gouttières, on se méfie moins des étrangers que de leur monnaie. Elle écoute ta question sans s'arrêter d'essuyer. Tu parles de la nuit des Lanternes, de la boutique Carrus, de ce qui a disparu de l'établi.",
       "« Le lendemain de la fête, dit-elle, une fille a payé sa tournée avec une bague d'argent. Toute la salle a bu. Une rousse. » Elle repose le chiffon. « La rousse ? {{oreille#ig_he_rousse|Je la connais de vue, sans plus|C'est Fauvette, elle dort dans la cage aux pigeons de la tour des Drapiers, et je l'ai nourrie deux hivers}}. »",
       "« La Reine la cherche aussi, ajoute-t-elle plus bas. Elle lui doit de l'argent. Quand la Reine cherche quelqu'un, je conseille aux gens de se faire tout petits. »",
       { if: { has: "passe:voleur" }, text: "Tu connais ce genre de tournée. Tu en as payé une, à quatorze ans, avec une timbale volée sur un étal. C'est ce qu'on fait quand on a peur de ce qu'on porte : on s'en débarrasse en le buvant avec les autres." },
@@ -161,7 +161,7 @@ Object.assign(P, {
 
   IG_cour: { act: "I", title: "La Cour des Pelles", place: "gouttieres", backName: "la Cour des Pelles",
     text: [
-      { first: true, text: "Derrière le lavoir, une voûte basse donne sur une cour pavée de briques. C'était une fabrique de pelles : il en reste des centaines, plantées en faisceaux le long des murs, rouillées, emmanchées de frêne gris. Au fond, un grand atelier à deux étages, aux fenêtres grillées. Devant la voûte, trois hommes jouent aux osselets sur un tonneau. Ils ont des mains de débardeurs, et chacun un bâton ferré posé à portée." },
+      { first: true, text: "Derrière le lavoir, une voûte basse donne sur une cour pavée de briques. C'était une fabrique de pelles : il en reste des centaines, plantées en faisceaux le long des murs, rouillées, emmanchées de frêne gris ; il y aurait là de quoi enterrer la ville entière, si la fantaisie en prenait à la propriétaire. Au fond, un grand atelier à deux étages, aux fenêtres grillées. Devant la voûte, trois hommes jouent aux osselets sur un tonneau. Ils ont des mains de débardeurs, et chacun un bâton ferré posé à portée." },
       { first: true, text: "Le plus gros se lève. Il a le crâne rasé, une oreille en chou-fleur, et la voix douce. « Boscot. C'est moi qui pèse les gens avant la Reine. Tu viens pour quoi ? »" },
       { again: true, before: "ig:cour_ouverte", text: "Boscot et ses osselets, devant la voûte de la Cour des Pelles. Il lève les yeux, et il attend." },
       { again: true, after: "ig:cour_ouverte", text: "Boscot s'écarte de la voûte sans quitter son tonneau des yeux. Tu peux passer." },
@@ -230,7 +230,7 @@ Object.assign(P, {
 Object.assign(P, {
   IG_reine: { act: "I", title: "La Reine des Gouttières", place: "gouttieres", backName: "l'atelier de la Reine",
     text: [
-      { first: true, text: "L'atelier des Pelles est une halle de poutres où des cordes tendues portent des manteaux, des bottes, des harnais, des chasubles. Sur de longues tables, le butin est trié par métal : les cuivres, les étains, les argents, et les ors sous une cloche de verre. Partout des balances, de la romaine de boucher au trébuchet d'orfèvre ; tu en comptes onze avant de renoncer. Des commis écrivent. Personne ne parle fort." },
+      { first: true, text: "L'atelier des Pelles est une halle de poutres où des cordes tendues portent des manteaux, des bottes, des harnais, des chasubles. Sur de longues tables, le butin est trié par métal : les cuivres, les étains, les argents, et les ors sous une cloche de verre. Partout des balances, de la romaine de boucher au trébuchet d'orfèvre ; tu en comptes onze avant de renoncer. Des commis écrivent. Personne ne parle fort : le vol, porté à ce degré d'ordre, devient une administration." },
       { first: true, text: "Sur un pilier, près de l'entrée, une ardoise porte d'une écriture de commis : *{{loupe#ig_mg_ardoise|Dîme des toits : un liard par ducat, payable le lundi|Dîme des toits : un liard par ducat ; Boscot en garde un sur dix, et je le laisse faire}}*." },
       { first: true, text: "Au fond, sous la seule fenêtre propre, une femme de cinquante ans pèse une cuiller d'argent. Elle est large, vêtue de laine grise, les cheveux pris dans une résille, des bésicles d'acier sur le nez. Elle ne lève pas les yeux. « Tu es l'apprenti{e} de la Carrus, dit Margaux Pelle. Assieds-toi. Ne touche à rien : tout ce qui est ici a déjà été volé une fois. »" },
       { first: true, text: "« Odeline Carrus ? {{oreille#ig_mg_odeline|Une cliente comme une autre|La seule du quai qui me payait le prix juste, et je lui en voulais pour ça}}. Elle venait le jeudi, elle achetait ce que les gens pleuraient, et elle le leur rendait au double. C'était du commerce honnête. Je n'ai jamais compris comment elle en vivait. »" },
@@ -338,7 +338,7 @@ Object.assign(P, {
     text: [
       { first: true, text: "L'escalier des Fileuses monte en colimaçon dans une tour de brique et débouche sur un toit plat, couvert de plomb, où l'on a mis à sécher des peaux. De là, la ville change de forme. Les toits des Gouttières font une seconde ville posée sur la première, avec ses rues de planches, ses ponts de cordes, ses carrefours autour des cheminées. On y croise des couvreurs, des ramoneurs, des enfants, des chats, et des gens qui préfèrent ne croiser personne." },
       { again: true, when: "day", text: "Les toits, leurs passerelles de planches, leurs cordes à linge. Le vent sent la suie et l'eau du canal. Au loin, les Halles font une grande carène de tuiles brunes." },
-      { when: "night", text: "La nuit, les toits sont plus peuplés que les rues. Des silhouettes passent devant la lune d'une cheminée à l'autre, sans bruit, et chacune feint d'ignorer les autres." },
+      { when: "night", text: "La nuit, les toits sont plus peuplés que les rues. Des silhouettes passent devant la lune d'une cheminée à l'autre, sans bruit, et chacune feint d'ignorer les autres ; c'est une politesse d'ici, et la seule que tout le monde observe." },
       { first: true, text: "Sur la cheminée de l'ancienne teinturerie, à deux toises au-dessus de toi, une pie a bâti un nid énorme, hérissé de brindilles et de choses qui brillent." },
       { with: "lison", text: "Lison marche sur les planches comme sur le plat-bord de sa barque, sans regarder ses pieds. « Les toits, c'est un canal sans eau, dit-elle. On y tombe pareil. »" },
       { with: "tibere", text: "Tibère se tient à une cheminée, le teint gris. « Le Guet avait une règle, dit-il. On n'arrête personne au-dessus du deuxième étage. Je comprends pourquoi. »" },
@@ -381,7 +381,7 @@ Object.assign(P, {
 
   IG_traque: { act: "I", title: "Au-dessus des Halles", place: "gouttieres", takes: "morning",
     text: [
-      "Tu attends dans le froid, à plat ventre sur un faîtage, avant l'aube. En bas, la rue des Halles s'emplit de chariots : des choux, des barriques, des cages de poules, des balles de laine. Les charretiers se crient dessus, les commis comptent, et tous ont les yeux sur la marchandise.",
+      "Tu attends dans le froid, à plat ventre sur un faîtage, avant l'aube. L'attente, à cette hauteur et à cette heure, a ceci de particulier qu'on finit par se prendre soi-même pour le gibier. En bas, la rue des Halles s'emplit de chariots : des choux, des barriques, des cages de poules, des balles de laine. Les charretiers se crient dessus, les commis comptent, et tous ont les yeux sur la marchandise.",
       "Elle arrive par l'est, d'un toit à l'autre, sans hâte. Une fille mince, en veste de futaine, les cheveux roux coupés court au couteau. Elle s'accroupit au bord d'une gouttière au-dessus d'un chariot de drapier, laisse descendre une ficelle lestée d'un hameçon, et remonte une bourse comme on remonte un goujon. Ensuite elle reste là, et elle porte quelque chose à son œil, un petit disque sombre, pour regarder dans la bourse.",
       { with: "lison", text: "Lison souffle : « C'est joli. C'est du travail de batelière, ça, la ficelle. »" },
       { with: "tibere", text: "Tibère souffle : « Au Guet, on l'aurait laissée faire, pour voir à qui elle revend. »" },
@@ -452,7 +452,7 @@ Object.assign(P, {
 
   IG_nid: { act: "I", title: "La tour des Drapiers", place: "gouttieres", backName: "la tour des Drapiers",
     text: [
-      "La tour des Drapiers est carrée, de pierre grise, avec une horloge qui a perdu ses aiguilles. La porte est murée depuis la faillite de la guilde. Sur la face nord, des trous de boulin font une échelle à qui sait les voir, jusqu'à la cage aux pigeons du sommet : une loge de bois et de grillage, où roucoule une centaine d'oiseaux.",
+      "La tour des Drapiers est carrée, de pierre grise, avec une horloge qui a perdu ses aiguilles et gardé son cadran, comme un visage dont on aurait ôté les yeux. La porte est murée depuis la faillite de la guilde. Sur la face nord, des trous de boulin font une échelle à qui sait les voir, jusqu'à la cage aux pigeons du sommet : une loge de bois et de grillage, où roucoule une centaine d'oiseaux.",
       { if: { has: "ig:fauvette_vendue" }, text: "Le grillage de la cage pend, arraché. Sur la pierre, en dessous, des plumes, une couverture déchirée, un bol renversé. Les hommes de la Reine sont passés. Au loin, du côté du canal, on entend crier.", else: "Dans la cage, entre les perchoirs, il y a une paillasse, une couverture de cheval, un bol, un pot de miel, et une collection de choses brillantes alignées sur une poutre comme dans une vitrine." },
       { when: "night", if: { not: { has: "ig:fauvette_vendue" } }, text: "Fauvette dort, roulée dans la couverture, le poing fermé sur un cordon passé autour de son cou. Les pigeons dorment autour d'elle. Elle respire vite, comme ceux qui dorment en guettant." },
       { when: "day", if: { not: { has: "ig:fauvette_vendue" } }, text: "La cage est vide, à cette heure. Fauvette travaille. Elle reviendra au crépuscule, quand les toits se vident." },
@@ -568,7 +568,7 @@ Object.assign(P, {
 
   IG_guetapens: { act: "I", title: "Sous le pont des Cordiers", place: "gouttieres", takes: "evening",
     text: [
-      "Sous l'arche du pont des Cordiers, le quai fait une petite plage de vase où l'on remise les barques. Trois hommes y tiennent Fauvette contre une bitte d'amarrage. Deux casseurs de la Cour des Pelles lui tiennent les bras, et le troisième, Boscot, tient un maillet de tonnelier. Il a posé la main droite de la fille à plat sur le bois de la bitte, et il la maintient là, doucement, avec la sienne.",
+      "Sous l'arche du pont des Cordiers, le quai fait une petite plage de vase où l'on remise les barques. Trois hommes y tiennent Fauvette contre une bitte d'amarrage. Deux casseurs de la Cour des Pelles lui tiennent les bras, et le troisième, Boscot, tient un maillet de tonnelier. Il a posé la main droite de la fille à plat sur le bois de la bitte, et il la maintient là, doucement, avec la sienne ; cette douceur glace plus sûrement que le maillet.",
       "Fauvette ne crie plus. Elle regarde sa main.",
       "Boscot te voit arriver. Il ne lâche pas la main. « La Reine {{oreille#ig_bo_mains|veut ses trois ducats, c'est tout|m'a dit de lui casser les mains, et j'en ai pas envie, je l'ai vue grandir sur ce quai}}, dit-il de sa voix douce. Va-t'en. C'est une affaire des Gouttières. »",
       { if: { has: "ig:reine_accord" }, text: "Puis il te reconnaît. « Ah. L'associé{e} de la Reine. Tu tombes mal. La Reine a changé d'avis : la lentille, c'est Boscot qui la rapporte, et la fille avec. Tes dix ducats, tu les demanderas à elle. »" },
@@ -801,7 +801,7 @@ Object.assign(P, {
 
   IG_cloche_nuit: { act: "I", title: "La marée du coude", place: "gouttieres", takes: "night",
     text: [
-      "La nuit, l'eau monte dans le canal, poussée par la marée qui remonte la Salve. Lubin t'a fait asseoir dans sa barque, au coude, la lanterne posée sur le banc. Il ne dit rien. Les rats ont quitté les pieux.",
+      "La nuit, l'eau monte dans le canal, poussée par la marée qui remonte la Salve. Lubin t'a fait asseoir dans sa barque, au coude, la lanterne posée sur le banc. Il ne dit rien. Les rats ont quitté les pieux, détail que tu aurais préféré ignorer.",
       "Vers la deuxième heure, l'eau se met à frissonner autour de la barque. Puis vient le son : une note ronde, très basse, qui monte de l'eau elle-même, et qui fait trembler le bois sous tes mains. Elle dure le temps de dix respirations, et elle ne finit pas tout à fait. Les deux pieux noirs, devant toi, frémissent.",
       "« Là, dit Lubin. Tu l'as entendue. Maintenant, tu sais. »",
       { with: "lison", text: "Lison a posé la main à plat sur l'eau, les yeux fermés. « Elle est vivante, dit-elle. Je veux dire : elle a de l'air. »" },
@@ -842,7 +842,7 @@ Object.assign(P, {
 
   IG_cloche_plonge: { act: "I", title: "Entre les pieux noirs", place: "gouttieres",
     text: [
-      "Tu te déshabilles sur la barque de Lubin, en grelottant. L'eau du canal est noire, même en plein jour, et froide comme une lame. Lubin a noué une corde à ta cheville et l'autre bout au banc de la barque. « Trois tirs, je te remonte. Pas de tirs, je te remonte aussi. »",
+      "Tu te déshabilles sur la barque de Lubin, en grelottant. L'eau du canal est noire, même en plein jour, et froide comme une lame ; tu la regardes comme on regarde une porte derrière laquelle quelqu'un se tait. Lubin a noué une corde à ta cheville et l'autre bout au banc de la barque. « Trois tirs, je te remonte. Pas de tirs, je te remonte aussi. »",
       { with: "lison", text: "Lison s'est déshabillée elle aussi, en silence. « J'irai devant, dit-elle. Je vois mieux que toi dans l'eau trouble. C'est de famille. »" },
       { if: { voile: "ig_lu_cloche" }, text: "Tu sais ce que Lubin a gardé pour lui pendant cinquante-cinq ans : il y a de l'air dedans, assez pour respirer trois fois. Ce savoir change la façon dont on remplit ses poumons." },
     ],
@@ -914,7 +914,7 @@ Object.assign(P, {
       { first: true, text: "La place est un triangle de pavés gras entre trois maisons à encorbellement. Au milieu, la fontaine : un bassin octogonal de pierre grise et, adossé à une colonne au-dessus, un mascaron de femme couronnée, les yeux ouverts, les lèvres serrées. L'eau sort de ses deux oreilles, en deux filets minces, et tombe dans le bassin avec un bruit de conversation." },
       { first: true, text: "On l'appelle la Fontaine-Sourde parce que personne, dit-on, ne l'écoute. Les porteuses d'eau du quartier y remplissent leurs seaux à la file, avec des jougs d'épaule et des chapeaux de paille, et elles se taisent en le faisant, toutes, comme on se tait à l'église." },
       { again: true, when: "day", text: "La Fontaine-Sourde, son mascaron à la bouche close, ses deux filets d'eau. Les porteuses font la queue, leurs seaux à la main." },
-      { again: true, when: "night", text: "La place est vide, la nuit. L'eau coule des oreilles de la reine de pierre, et ce bruit tient compagnie à qui passe." },
+      { again: true, when: "night", text: "La place est vide, la nuit. L'eau coule des oreilles de la reine de pierre ; et ce bruit, qui passe le jour pour une conversation, ressemble la nuit à la voix de quelqu'un qui parlerait seul depuis trois siècles." },
       "Le bassin est {{pie#ig_fo_bassin|de pierre commune, comme le mascaron, comme tout le reste|de pierre commune ; la couronne du mascaron, elle, est de bronze sous la mousse, montée sur un pivot, et elle a tourné, autrefois}}.",
       { with: "gildas", text: "Frère Gildas s'arrête devant le mascaron et lit la ligne gravée sur le socle, effacée par l'eau. « Des lettres anciennes, dit-il. Un nom, je crois, et un mot que je ne sais pas lire. »" },
       { after: "ig:fontaine_ouverte", text: "La couronne du mascaron a été tournée, et les porteuses le savent. Elles regardent la reine de pierre d'un autre œil, et toi aussi." },
@@ -1031,7 +1031,7 @@ Object.assign(P, {
 
   IG_grenier: { act: "I", title: "Le grenier de Ravoux", place: "gouttieres",
     text: [
-      "Tu te laisses glisser dans le grenier. Il sent la colle de peau, le brou de noix et l'encens bon marché. Sous les poutres, c'est un atelier : un établi couvert de petits pots, des limes, des pinces, des reliquaires d'étain empilés comme des gobelets à la foire. Dans un baquet, des dents trempent dans une eau brune. Sur une corde, des mèches de cheveux sèchent, roux, blonds, gris, étiquetées à la plume.",
+      "Tu te laisses glisser dans le grenier. Il sent la colle de peau, le brou de noix et l'encens bon marché. Sous les poutres, c'est un atelier : un établi couvert de petits pots, des limes, des pinces, des reliquaires d'étain empilés comme des gobelets à la foire. Dans un baquet, des dents trempent dans une eau brune ; elles ont l'air d'attendre, avec la patience des choses qui ont déjà servi, qu'on veuille bien leur attribuer une sainte. Sur une corde, des mèches de cheveux sèchent, roux, blonds, gris, étiquetées à la plume.",
       "Sur l'établi, un registre relié de basane, ouvert. À côté, pour tenir la page, une saucière {{pie#ig_gr_nef|d'étain noirci, pleine de colle de peau figée|d'argent massif sous la crasse et la colle : une nef de table, une salière de banquet, avec un écu couronné sur la poupe}}. Et partout, des petites étiquettes : *Dent de la reine Ysaure, {{loupe#ig_gr_etiquette|trouvée à Sorne par un pêcheur pieux|veau, abattoir de la rue aux Veaux, lot de mars, au jus de citron pour mémoire}}.*",
       { with: "lison", text: "Lison prend une mèche rousse sur la corde, la regarde, la remet en place avec un soin étrange. « Il faudrait le noyer, dit-elle calmement. Avec ses dents. »" },
     ],
@@ -1089,7 +1089,7 @@ Object.assign(P, {
       { first: true, text: "Les Halles de Salvèze sont une nef de bois plus longue que la cathédrale, posée sur des piliers de chêne gros comme des tours. Le toit de tuiles brunes descend presque jusqu'au sol. Dessous, dans une pénombre traversée de rayons de poussière, mille étals : la viande, le poisson, le sel, les draps, le fer, les livres, les épices, les choses de la mer, et, tout au fond, sous la grande poutre, ceux qui vendent ce qui a appartenu à quelqu'un d'autre." },
       { first: true, text: "Le bruit est un mur. Les marchands crient leurs prix, les acheteurs crient les leurs, les débardeurs crient qu'on s'écarte. L'air sent la marée, le cuir, le pain chaud, le crottin. Un crieur juré, sur une estrade, annonce la criée des épaves pour la prochaine heure." },
       { again: true, when: "day", text: "Les Halles, leur pénombre pleine de cris, leurs rayons de poussière. Sous la grande poutre, les receleurs ont déplié leurs tapis." },
-      { again: true, when: "night", text: "Les Halles la nuit : les étals bâchés, les piliers comme une forêt. Des gardiens font leur ronde avec des chiens. Sous la grande poutre, quelques lanternes encore, autour de marchands qui ne vendent qu'à la nuit tombée." },
+      { again: true, when: "night", text: "Les Halles la nuit : les étals bâchés ont des formes de bêtes couchées, et les piliers font une forêt où la voix se perd avant d'atteindre le toit. Des gardiens font leur ronde avec des chiens. Sous la grande poutre veillent encore quelques lanternes, autour de marchands qui ne vendent qu'à la nuit tombée." },
       { if: { item: "oeil_pie" }, text: "Avec l'œil de pie dans ta poche, les Halles deviennent un autre endroit : un musée du faux, où chaque étal attend que tu regardes." },
       { with: "tibere", first: true, text: "Tibère se tâte la ceinture par réflexe. « Aux Halles, on se fait voler deux fois : une fois en achetant, une fois en sortant. »" },
       { with: "fauvette", text: "Fauvette marche à côté de toi les mains dans le dos, très sage, pour montrer qu'elle ne vole pas aujourd'hui. Les marchands, eux, la reconnaissent et rapprochent leurs marchandises." },
@@ -1237,7 +1237,7 @@ Object.assign(P, {
   IG_reliques_demasque: { act: "I", title: "La dent de la Muette", place: "halles",
     text: [
       "Tu le dis fort, assez fort pour la rangée entière. Une dent de veau. L'abattoir de la rue aux Veaux. Le brou de noix. Les quarante autres. Il se fait un silence d'une étendue étonnante, dans les Halles, pour un endroit aussi bruyant.",
-      "Ravoux ouvre la bouche, la referme. Il regarde la foule qui s'est massée, les saunières, les débardeurs, un chanoine en camail qui fronce les sourcils. « Calomnie », dit-il, d'une voix trop aiguë. Un boucher de la rue aux Veaux, son tablier taché, s'avance, prend la dent sous la cloche, la regarde. « C'est une des miennes, dit-il. Je les reconnais, je les arrache moi-même. Tu me les paies un liard la douzaine, Ravoux. »",
+      "Ravoux ouvre la bouche, la referme. Il regarde la foule qui s'est massée, les saunières, les débardeurs, un chanoine en camail qui fronce les sourcils. « Calomnie ! dit-il d'une voix trop aiguë. Calomnie et sacrilège ! J'ai des chanoines dans ma clientèle ! » Un boucher de la rue aux Veaux, son tablier taché, s'avance, prend la dent sous la cloche, la regarde. « C'est une des miennes, dit-il. Je les reconnais, je les arrache moi-même. Tu me les paies un liard la douzaine, Ravoux. »",
       "La foule rit, puis cesse de rire. La veuve Pérenne range ses deux ducats dans sa coiffe, très lentement. Ravoux replie son velours sous les regards.",
       { if: { has: "ig:preuve_ravoux" }, text: "L'étiquette que tu as posée sur le velours passe de main en main : *Dent de la reine Ysaure.* L'écriture est celle de l'apprenti, qui baisse la tête et sourit dans son col." },
     ],
@@ -1314,7 +1314,7 @@ Object.assign(P, {
 
   IG_encheres: { act: "I", title: "La criée des épaves", place: "halles", takes: 2,
     text: [
-      "Sur l'estrade, le crieur juré vend ce que le canal, le port et les noyés ont rendu dans le mois : des barriques, des cordages, une ancre, un coffre de marin, des sacs détrempés. On enchérit en levant le doigt. Un clerc de la République inscrit tout, et prend un dixième.",
+      "Sur l'estrade, le crieur juré vend ce que le canal, le port et les noyés ont rendu dans le mois : des barriques, des cordages, une ancre, un coffre de marin, des sacs détrempés. On enchérit en levant le doigt. Un clerc de la République inscrit tout, et prend un dixième ; c'est la part des noyés, dit-on, et les noyés la laissent volontiers à la République.",
       "Lot douze : un coffret de chêne cerclé de fer, trouvé dans la vase du port aux Sauniers, scellé. Le crieur le soulève à deux mains, en ployant. Il est {{pie#ig_en_coffret|lourd, plein à en juger par le poids et le bruit sourd|lesté de deux briques calées dans de la paille, et le sceau a été posé hier, à la cire de chandelle}}. La salle s'anime. Un gros homme en pelisse lève le doigt avant même la mise à prix.",
       "Lot treize : un sac de cordages pourris {{pie#ig_en_sac|bon à faire de l'étoupe|avec, roulé au milieu des cordes, un drap de soie brodée de fils d'argent, enveloppé dans une toile cirée qui l'a gardé sec}}. Personne ne lève le doigt. Le crieur bâille.",
       { with: "tibere", text: "Tibère se penche : « {{oreille#ig_ti_encheres|Le gros en pelisse, je ne le connais pas|Le gros en pelisse, c'est le beau-frère du crieur ; ils font monter les lots à deux et partagent}}. »" },
@@ -1337,7 +1337,7 @@ Object.assign(P, {
 
   IG_livres: { act: "I", title: "Le bouquiniste", place: "halles", backName: "le pilier des libraires",
     text: [
-      { first: true, text: "Contre le pilier des libraires, un vieil homme en lunettes vend des livres empilés dans des paniers à poisson : des almanachs, des psautiers, des romans de chevalerie sans couverture, des feuilles volantes imprimées à deux liards, avec des chansons, des complaintes de pendus, des prédictions pour l'année." },
+      { first: true, text: "Contre le pilier des libraires, un vieil homme en lunettes vend des livres empilés dans des paniers à poisson : des almanachs, des psautiers, des romans de chevalerie sans couverture, des feuilles volantes imprimées à deux liards, avec des chansons, des complaintes de pendus, des prédictions pour l'année, qui se vendent mieux en janvier qu'en décembre." },
       { again: true, text: "Le bouquiniste et ses paniers à poisson pleins de papier. Il lit, en attendant, et ne lève les yeux que pour les pièces." },
       "Dans un panier, entre une complainte et un almanach, une feuille plus vieille que les autres : un parchemin gratté et réécrit, où quelqu'un a copié à la main, d'une écriture ancienne, *La chanson des Gouttières*. « Celle-là, dit le bouquiniste, je l'ai trouvée dans la reliure d'un psautier. Un liard. Personne n'en veut, les gamins la savent par cœur. »",
       "Un almanach des marées, à côté, {{pie#ig_li_almanach|de cette année, imprimé à Salvèze|de l'an passé, la date grattée et corrigée à la plume, les marées toutes fausses d'un jour}}.",
