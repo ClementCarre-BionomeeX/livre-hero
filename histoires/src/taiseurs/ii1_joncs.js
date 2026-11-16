@@ -899,7 +899,7 @@ Object.assign(P, {
 
   IIJ_pilotis_plonge: { act: "II", title: "Sous les maisons", place: "joncs",
     text: [
-      "L'eau est brune, et d'un froid qui te serre les côtes comme une main. Tu descends le long du pilotis en te tenant aux algues, une corde à la taille dont Vivien tient le bout. Au fond, la vase t'avale jusqu'aux genoux, sans hâte, avec la douceur des choses qui ont le temps.",
+      "L'eau est brune, et d'un froid qui te serre les côtes comme une main. Tu descends le long du pilotis en te tenant aux algues, une corde à la taille dont Vivien tient le bout. Au fond, la vase t'avale jusqu'aux genoux, sans hâte, avec une douceur de créancier sûr de son gage.",
       { with: "lison", text: "Lison plonge derrière toi, sans corde, et passe de l'autre côté du pieu comme une loutre." },
     ],
     choices: [

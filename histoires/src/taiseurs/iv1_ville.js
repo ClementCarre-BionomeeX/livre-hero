@@ -62,7 +62,7 @@ Object.assign(P, {
       "La chaîne s'abaisse dans un grincement de treuil, juste assez pour qu'une barque passe dessus en raclant. Puis elle remonte derrière toi, et tu es dans Salvèze.",
       { with: "tibere", text: "Tibère décroche sa vieille plaque et la fourre dans son sac sans la regarder. Il a les mains qui tremblent un peu, et il les met dans ses poches." },
       { with: "gildas", text: "Frère Gildas bénit l'enfant d'une femme assise sur un ballot, au passage, deux doigts sur le front. La femme le remercie trois fois." },
-      "Le canal d'Amont mène droit au cœur de la ville. Les quais sont vides. Aux fenêtres, des volets fermés, et des lumières derrière ; toute la ville veille ainsi, à huis clos, comme une maison où il y a un malade. Au bout, la masse du Beffroi, et la place, d'où monte une rumeur de foule.",
+      "Le canal d'Amont mène droit au cœur de la ville. Les quais sont vides. Aux fenêtres, des volets fermés, et des lumières derrière ; toute la ville veille ainsi, à huis clos, comme au chevet d'un malade. Au bout, la masse du Beffroi, et la place, d'où monte une rumeur de foule.",
     ],
     choices: [{ label: "Gagner la place du Beffroi", big: true, to: "IV_hub" }] },
 

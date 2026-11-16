@@ -203,7 +203,7 @@ Object.assign(P, {
 
   IIM_chapelle: { act: "II", title: "La chapelle des noyés", place: "vasier", backName: "la chapelle des noyés",
     text: [
-      { first: true, text: "Sur la butte qui domine le port, une chapelle basse, aux murs chaulés, au toit de lauzes vertes de mousse. La porte est un panneau de cale. Dedans, les murs sont couverts du sol au plafond de planches de bordé, et sur chaque planche, un nom gravé au couteau, une date, parfois un bateau. Des ex-voto pendent à la charpente : des navires de bois, de cire, d'os, qui tournent doucement dans le courant d'air, chacun sur son fil, avec la lenteur des choses qui ont renoncé à arriver." },
+      { first: true, text: "Sur la butte qui domine le port, une chapelle basse, aux murs chaulés, au toit de lauzes vertes de mousse. La porte est un panneau de cale. Dedans, les murs sont couverts du sol au plafond de planches de bordé, et sur chaque planche, un nom gravé au couteau, une date, parfois un bateau. Des ex-voto pendent à la charpente : des navires de bois, de cire, d'os, qui tournent doucement dans le courant d'air, chacun sur son fil, avec la lenteur de ce qui a renoncé à arriver." },
       { first: true, text: "Un vieil homme en soutane rapiécée grave un nom à la lueur d'une chandelle, la langue entre les dents : Tugdual, le sacristain. Il te fait signe d'attendre, finit sa lettre, souffle sur les copeaux." },
       { again: true, text: "La chapelle des noyés, les noms aux murs, les navires qui tournent. Tugdual grave, toujours un nom de plus." },
       "La chapelle {{echo#iim_chapelle_maiwenn|sent la cire froide et le sel|garde une voix de femme, basse, un matin : « Il veut que je descende seule, et c'est lui qui tiendra la corde. Salomé, s'il remonte sans moi, regarde ses mains »}}. Devant l'autel, quelqu'un a laissé une lanterne de la nuit des Lanternes, éteinte, et une cordelette de chanvre nouée en huit.",
@@ -478,7 +478,7 @@ Object.assign(P, {
 
   IIM_service_nuit: { act: "II", title: "La chaîne, la nuit", place: "vasier", when: "night", backName: "la vase, sous La Bavarde",
     text: [
-      "La marée est basse, la lune cachée. Tu descends sur la vase par la planche, sans lanterne. La Bavarde est une grande ombre couchée, plus noire que la nuit autour, et la vase, sous tes bottes, cède et se referme avec un soupir à chaque pas. À vingt pas, une cabane de planches, une lueur sous la porte : le garde de la Banque, qui veille la saisie, et qui tousse.",
+      "La marée est basse, la lune cachée. Tu descends sur la vase par la planche, sans lanterne. La Bavarde est une grande ombre couchée, d'un noir plus épais que celui du port, et la vase, sous tes bottes, cède et se referme avec un soupir à chaque pas. À vingt pas, une cabane de planches, une lueur sous la porte : le garde de la Banque, qui veille la saisie, et qui tousse.",
       "La chaîne fait trois tours autour de la mèche du gouvernail et finit dans un cadenas gros comme un poing, {{pie#iim_cadenas|neuf et solide, de fer forgé|neuf, mais à ressort de laiton, de ceux qu'on ouvre avec un clou tordu si l'on sait où appuyer}}.",
       { with: "tibere", text: "Tibère regarde la cabane. « Je connais ce genre de garde, murmure-t-il. Il a froid, il s'ennuie, il est payé une misère. Je vais lui tenir compagnie. Ce que tu fais pendant ce temps, je ne l'ai pas vu. »" },
     ],
