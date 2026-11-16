@@ -56,3 +56,7 @@ Une histoire à deux peut donner à chaque héros des secrets (`story.secrets`),
 ## Salle commune (plusieurs appareils)
 
 Les joueurs doivent être connectés à claude.ai et invités sur la page par e-mail avec le droit **Éditeur** (sur un compte individuel, c'est le seul droit qui permet d'écrire dans la sauvegarde partagée ; pas si la page est aussi partagée par lien public). La salle est gardée dans la base de la page : `salles/<id>`, une fiche par place (`joueurs/`), une par choix du monde ou rôle (`monde/`).
+
+## Deux héros séparés (9.6)
+
+Quand les deux héros ne sont pas au même endroit (ou pas à la même époque), ils se retrouvent sur une page commune `charniere: true, aparte: true` dont le texte dépend du rôle. Un héros peut y laisser un objet à l'autre (`story.depots`, tag `depot`), et un livre que l'un relit peut changer selon ce que l'autre a fait (`story.chroniques`). Voir GUIDE-TAGS.md, « À deux, séparés ». Exemple : `douzieme` (« Le Douzième Coup »).
