@@ -264,6 +264,86 @@ Object.assign(P, {
       { label: "Fermer le Cahier, et embarquer sur la première plate", hide: R, to: "K07j_route", big: true },
       { label: "Fermer le Cahier : cinq lieues jusqu'à la Thiorne", hide: J, to: "K07r_route", big: true },
     ] },
+  M07: { act: "II", title: "Midi, sans une cloche", backName: "la borne", charniere: true, aparte: true, depot: { put: ["cahier"], take: ["borne_arvoise", "cahier"] },
+    text: [
+      { first: true, if: J, text: "Les bâtons t'attendent. Ils sont petits, serrés, écrits sur un genou. *J'AI FAIT CINQ LIEUES. PASSÉ UNE CORDE, LE PAYS EST RAYÉ : UN ÉTÉ, UN HIVER, UN ÉTÉ, VINGT FOIS. IL Y A DE LA NEIGE QUI A QUATORZE ANS. LES GENS SONT PARTIS EN ORDRE. ILS ONT LAISSÉ DES MOTS SUR LES PORTES.*" },
+      { first: true, if: J, text: "*JE SUIS À ARVOISE. LA RIVIÈRE EST DEBOUT. ELLE A ÉTÉ PRISE UNE NUIT DE CRUE ET ELLE EST RESTÉE COMME ÇA, PLUS HAUTE QUE LE QUAI. IL Y A DEUX CENTS GARDES ET ILS ONT PLANTÉ LEUR DRAPEAU DANS TA BORNE. J'AI CREUSÉ QUAND MÊME.*" },
+      { first: true, if: { all: [J, { has: "monde:pont_reporte" }] }, text: "*TON PONT EST LÀ. CINQ ARCHES. IL PORTE. IL Y A UN FIL À PLOMB SCULPTÉ DESSUS.* Tu relis ces trois lignes plus lentement que les autres. Avant-hier, c'était une lampe sur un tablier désert, et un homme qui descendait un poids dans le noir. C'est devenu une chose que l'on sculpte." },
+      { first: true, if: { all: [J, { not: { has: "monde:pont_reporte" } }] }, text: "*DE TON PONT IL RESTE UN BOUT DE CHAQUE CÔTÉ. ILS EN ONT FAIT UN EN PLANCHES, POSÉ SUR L'EAU.*" },
+      { first: true, if: J, text: "*LA VIEILLE EST ICI, DANS UNE TENTE. JE NE L'AI PAS ENCORE VUE. JE L'ENTENDS.* Tu sais ce que {autre} entend. Tu l'as entendu tout l'hiver." },
+      { first: true, if: J, text: "Tu écris à ton tour, adossé{e} à la petite sainte. La plate, les vignes, un clocher de village. La Tour, vue de la douzième borne, de la taille d'une aiguille. Une maison où des femmes chantent sans reprendre haleine, et le livre qu'elles gardent." },
+      { first: true, if: R, text: "L'écriture penchée est là, pressée, en travers des lignes. *J'ai vu la Tour. De la douzième borne, elle a la taille d'une aiguille de montre, et elle brille par moments. Je ne l'avais jamais vue autrement qu'en gravure.*" },
+      { first: true, if: R, text: "*Je suis à l'abbaye de Sainte-Aure, à la neuvième. On l'entend avant de la voir. Elles chantent les douze Heures sans s'arrêter, de jour, de nuit, depuis quatre cents ans. Leur clocher n'a pas d'horloge. Il y a ici le livre dont Line parlait.*" },
+      { first: true, if: R, text: "Tu lèves les yeux vers le levant, par-dessus le fleuve debout. L'abbaye est à cinq lieues, dans le cercle de 555. Tous les glaneurs en savent une chose, une seule, qu'on se dit à voix basse : le chœur y a été pris en chantant, la bouche ouverte, et ceux qui y sont entrés jurent qu'on entend encore la note. *Sans s'arrêter depuis quatre cents ans.* De ton côté, elles se sont arrêtées. {autre} les écoute en ce moment." },
+      { first: true, if: R, text: "Tu écris, le Cahier sur les genoux, à dix pas d'une sentinelle. Les bâtons viennent petits." },
+      { again: true, if: J, text: "La borne de la neuvième lieue, sous les tilleuls : une petite sainte de pierre, le cadran sur la poitrine. Derrière le mur, on chante." },
+      { again: true, if: R, text: "La borne de la quatorzième lieue, au bout du quai, l'étendard planté dans son chapeau. La sentinelle fait ses douze pas." },
+    ],
+    choices: [
+      { label: "Écrire à {autre} ce que tu as trouvé dans la malle du gué", hide: { any: [J, { not: { has: "r:sait_bond" } }, { has: "monde:su:bond" }] }, to: "E_bond" },
+      { label: "Écrire à {autre} ce que la vieille a dit d'une certaine écriture", hide: { any: [J, { not: { has: "r:sait_main" } }, { has: "monde:su:main" }] }, to: "E_main" },
+      { label: "Répondre à {autre} sur la langueur grise", hide: { any: [J, { not: { has: "monde:placard" } }, { has: "monde:su:remede" }] }, to: "E_remede" },
+      { label: "Fermer le Cahier : le tour de l'hôtellerie a tourné", hide: R, to: "K07j_tantot", big: true },
+      { label: "Fermer le Cahier, et reboucher le trou", hide: J, to: "K07r_tantot", big: true },
+    ] },
+  E_vairons: { title: "Un œil de chaque couleur", back: true, fx: { flag: "monde:su:vairons" },
+    text: [
+      "*J'AI VU LE MAÎTRE DES SABLES. IL EST VENU HIER À QUATRE HEURES. IL A L'AIR D'AVOIR QUARANTE-CINQ ANS. IL A UN ŒIL GRIS ET UN ŒIL BRUN.*",
+      { if: { has: "r:sait_commande" }, text: "*À ROQUEBISE, LE VERRIER A ÉCRIT DANS SON LIVRE QUE LE MONSIEUR DE LA GUILDE QUI A COMMANDÉ LES CUVES EN 541 AVAIT UN ŒIL DE CHAQUE COULEUR. C'EST CHEZ TOI, ÇA. C'EST CETTE SEMAINE.*" },
+      "*LA VIEILLE LUI A PARLÉ. ELLE DIT QUE C'EST LE MÊME. PAS LE FILS : LE MÊME. IL S'APPELLE MELCHIOR AUBESPIN. S'IL Y A DE TON CÔTÉ UN HOMME DE TRENTE ANS AVEC CES YEUX-LÀ, C'EST LUI, ET IL A SOIXANTE ANS DE MOINS.*",
+      "Tu regardes ce que tu viens d'écrire. De ton côté, c'est un grand officier que deux cents hommes saluent. Du côté d'{autre}, c'est quelqu'un qu'on peut croiser dans une rue, et à qui l'on peut encore parler.",
+    ] },
+  E_recolte: { title: "Douze bouteilles", back: true, fx: { flag: "monde:su:recolte" },
+    text: [
+      "*JE SAIS CE QU'IL VEUT. JE L'AI ENTENDU LE DIRE À LA VIEILLE, À TRAVERS UNE TOILE. DANS CINQ JOURS LA DORMANTE PREND TOUT. IL LE SAIT. IL NE FERA RIEN CONTRE. IL DIT QUE C'EST UNE RÉCOLTE.*",
+      "*IL A DOUZE CUVES DE VERRE. IL LES MÈNE À LA TOUR. ELLES BOIRONT TOUT LE SABLE QUE RENDRA LE MONDE, ET CEUX QUI EN AURONT MARCHERONT DEDANS COMME CHEZ EUX. LUI, ET DES GENS QUI ONT PAYÉ.*",
+      "*LA VIEILLE LUI A ÉCRIT IL Y A QUARANTE ANS COMMENT DÉFAIRE LA CHOSE. IL A DIT QUE C'ÉTAIT JUSTE. IL A DIT QUE C'EST POUR ÇA QU'IL N'A PAS RÉPONDU.*",
+      "Tu t'arrêtes là. Il te reste une ligne en bas de la page, et tu ne trouves rien qui tienne dedans.",
+    ] },
+  E_line: { title: "En bâtons, que ce soit lisible", back: true, fx: { flag: "monde:su:line" },
+    text: [
+      "*J'AI VU LA VIEILLE. ELLE EST DANS UNE TENTE, SUR UN LIT DE CAMP. ELLE DÉMONTE LA MONTRE D'UN GARDE AVEC UNE ÉPINGLE À CHEVEUX. ELLE N'A PAS VOULU QUE JE LA SORTE. IL L'EMMÈNE À MÉRIDANE DANS SA VOITURE. ELLE DIT QUE C'EST LUI QUI PAIE LE VOYAGE.*",
+      "*ELLE A LU TES PAGES. ELLE A MIS LA MAIN DESSUS.*",
+      "*ELLE M'A DIT D'ÉCRIRE CECI EN BÂTONS : ELLE N'A PAS PEUR.*",
+      "Tu regardes les trois derniers mots. Tu les as écrits plus gros que les autres, sans le vouloir. Elle avait les pommettes trop rouges. Tu gardes cela pour toi : on t'a demandé d'écrire une phrase, et tu l'as écrite.",
+    ] },
+  B07: { act: "III", title: "Ce que défend le Livre", backName: "la borne", charniere: true, aparte: true, depot: { put: ["borne_abbaye", "cahier"], take: ["cahier"] },
+    text: [
+      { first: true, if: J, text: "Les bâtons sont venus dans la nuit. *LE MAÎTRE DES SABLES EST ARRIVÉ HIER, AVEC DOUZE VOITURES BÂCHÉES. IL A PARLÉ À LA VIEILLE. IL L'EMMÈNE À MÉRIDANE CE MATIN, DANS SA VOITURE. ELLE VA. ELLE TOUSSE.*" },
+      { first: true, if: J, text: "*Elle tousse.* Tu restes sur ces deux mots plus longtemps que sur les autres. Tu as promis de ne rien dire, et tu ne dis rien ; mais {autre} a des yeux, et les bâtons, par endroits, appuient." },
+      { first: true, if: J, text: "*ILS ONT PASSÉ LE PONT. JE PASSE DERRIÈRE EUX, PAR UN GUÉ. CE SOIR JE SUIS OÙ TU ES.*" },
+      { first: true, if: { all: [J, { has: "j:sait_douzieme" }] }, text: "Tu écris. Tu commences par le Livre, avant tout le reste, de peur qu'il t'arrive quelque chose avant la fin de la page. Tu recopies le chapitre de l'Interdit, mot pour mot, avec la glose. Tu soulignes deux fois la dernière ligne. *À la portée d'un enfant, s'il atteint la corde.*" },
+      { first: true, if: { all: [J, { has: "monde:livre_sauve" }] }, text: "Tu écris la nuit : qu'on est venu pour le Livre, et qu'il est sur son lutrin, avec des vis de fer." },
+      { first: true, if: { all: [J, { has: "monde:livre_pris" }, { not: { has: "monde:livre_sauve" } }] }, text: "Tu écris la nuit : la chaîne qui pend, la platine, quatre trous. Tu écris qu'il roule vers Méridane, dans un sac fait à sa mesure. Ta plume accroche." },
+      { first: true, if: { all: [J, { has: "j:ecorce_colin" }] }, text: "Tu écris ce que tu as fait de l'écorce. Une ligne. Tu ne t'en excuses pas, et tu ne t'en vantes pas : tu dis le nom du garçon, son âge, et qu'il était assis dans son lit ce matin." },
+      { first: true, if: { all: [J, { has: "j:ecorce_gardee" }] }, text: "Tu écris que l'écorce est toujours entre les pages, de ton côté, et pour qui tu la gardes. Tu écris aussi qu'il y avait un garçon de sept ans, à quatre pas, et tu laisses {autre} en penser ce qu'{autre:il} voudra." },
+      { first: true, if: J, text: "Puis tu creuses, au pied de la petite sainte, du côté où elle fait de l'ombre à midi." },
+      { first: true, if: R, text: "Le cadran de la quatorzième t'a rendu deux pincées. Tu ouvres le Cahier au pied de la borne, sur le quai vide. L'écriture penchée tient trois pages, et elle commence sans bonjour." },
+      { first: true, if: { all: [R, { has: "monde:lu:interdit" }] }, text: "*J'ai lu le Livre. Écoute bien, je recopie. « Qui tient le Balancier entre deux coups de la cloche tient avec lui tout ce qui a ouï le premier ; et cela demeure tenu jusqu'à ce que le second soit sonné. Ce qui est tenu tire à soi ce qui l'entoure, d'année en année, tant que le coup n'est pas rendu. Rendre le coup défait la prise. Il n'est point d'autre remède, et celui-là est à la portée d'un enfant, s'il atteint la corde. »*" },
+      { first: true, if: { all: [R, { has: "monde:lu:interdit" }] }, text: "Tu relis. On t'a appris cela avant de t'apprendre à marcher : onze coups, un jour de fête, et tout ce qui les avait entendus est resté à attendre le douzième. C'était une façon de parler. Tu as grandi au bord d'une façon de parler, tu y as perdu ta maison, et c'était écrit à la lettre, depuis quatre cents ans, dans un livre que personne n'ouvrait. *À la portée d'un enfant.* Tu regardes le fleuve debout, le bonnet rouge, le pays rayé derrière toi. Il manque un coup de cloche à tout cela." },
+      { first: true, if: { all: [R, { not: { has: "monde:lu:interdit" } }] }, text: "*Il y a ici un livre, enchaîné à un lutrin, où tout est écrit. Je l'ai vu. Je ne l'ai pas lu : on ne le montre qu'aux Jurés. Je sais seulement qu'il y a dedans un chapitre qui défend quelque chose, et qu'un apprenti de la Guilde est venu le copier avant un vote.*" },
+      { first: true, if: { all: [R, { has: "monde:livre_sauve" }] }, text: "*On a voulu le voler cette nuit. Un homme envoyé de Méridane, avec un sac fait à la mesure. Il est resté ici. On lui a mis des vis de fer.*" },
+      { first: true, if: { all: [R, { has: "monde:livre_pris" }, { not: { has: "monde:livre_sauve" } }] }, text: "*On l'a volé cette nuit. Un homme envoyé de Méridane, avec un sac fait à la mesure. Il a ôté quatre vis, et il est parti avec. Je n'ai pas su l'empêcher. Si tu passes par ici, ne le cherche pas au bout de la chaîne.*" },
+      { first: true, if: { all: [R, { has: "monde:colin_gueri" }] }, text: "*Ton écorce est dans un bol. Je l'ai donnée à un garçon de sept ans, qui s'appelle Colin, et qui avait les ongles gris. Je n'en ai plus pour personne. Il était assis dans son lit, ce matin. Dis-moi que j'ai bien fait, ou ne me dis rien.*" },
+      { first: true, if: { all: [R, { has: "monde:remede_dit" }] }, text: "*J'ai dit le nom de ton arbre à la sœur qui soigne. Elle l'a écrit à la craie sur sa cheminée, en gros. Elle va écrire aux navires.* Tu ouvres la Chronique, par acquit. Il y a une ligne que tu ne lui connaissais pas." },
+      { first: true, if: { all: [R, { has: "monde:tiphaine_partie" }] }, text: "*Je ne repars pas seul{autre:e}. Il y a une novice qui a ôté son voile sur le seuil et qui marche avec nous jusqu'à Méridane. Elle s'appelle Tiphaine. Elle sait le Livre par cœur.*" },
+      { first: true, if: { all: [R, { has: "monde:tiphaine_message" }, { not: { has: "monde:tiphaine_partie" } }] }, text: "*Il y a ici une novice qui s'appelle Tiphaine, et qui sait le Livre par cœur. Elle reste. Elle va écrire ce qu'elle sait pour quelqu'un qui viendra dans longtemps. Elle a dit : dans le seul endroit de la maison où personne ne s'assoit jamais, du côté gauche.*" },
+      { first: true, if: { all: [R, { has: "monde:annales_mot" }] }, text: "*Je t'ai laissé une ligne dans leurs annales, au seize de juin. C'est une vieille sœur sourde qui l'a écrite. Il y est question d'une poire.*" },
+      { first: true, if: { all: [R, { has: "monde:annales_etranger" }] }, text: "*J'ai dit mon nom à la sœur qui tient les annales. Il est dans leur registre, au seize de juin, avec mon village. Si un jour on te dit que personne n'a su nommer l'inconnu de la Tour, tu sauras où envoyer les gens.*" },
+      { first: true, if: R, text: "Tu écris à ton tour. Monseigneur, les douze voitures, la tente. Il te faut choisir ce que tu mets ; la page est courte, et le convoi a une lieue d'avance." },
+      { again: true, if: J, text: "La petite sainte de pierre, sous les tilleuls, et la terre fraîche à son pied. La route de Méridane monte entre les coteaux." },
+      { again: true, if: R, text: "La borne de la quatorzième lieue, le quai vide, le bonnet rouge au cabestan. De l'autre côté du fleuve, la chaussée continue." },
+    ],
+    choices: [
+      { label: "Écrire à {autre} de quelle couleur sont les yeux du Maître des Sables", hide: { any: [J, { not: { has: "r:vu_vairons" } }, { has: "monde:su:vairons" }] }, to: "E_vairons" },
+      { label: "Écrire à {autre} ce que le Maître des Sables a dit sous la tente", hide: { any: [J, { not: { has: "r:sait_recolte" } }, { has: "monde:su:recolte" }] }, to: "E_recolte" },
+      { label: "Écrire à {autre} ce que la vieille t'a demandé d'écrire", hide: { any: [J, { not: { has: "r:line_plan" } }, { has: "monde:su:line" }] }, to: "E_line" },
+      { label: "Écrire à {autre} ce que tu as trouvé dans la malle du gué", hide: { any: [J, { not: { has: "r:sait_bond" } }, { has: "monde:su:bond" }] }, to: "E_bond" },
+      { label: "Écrire à {autre} ce que la vieille a dit d'une certaine écriture", hide: { any: [J, { not: { has: "r:sait_main" } }, { has: "monde:su:main" }] }, to: "E_main" },
+      { label: "Répondre à {autre} sur la langueur grise", hide: { any: [J, { not: { has: "monde:placard" } }, { has: "monde:su:remede" }] }, to: "E_remede" },
+      { label: "Fermer le Cahier : neuf lieues jusqu'aux portes de Méridane", hide: R, to: "K08j_route", big: true },
+      { label: "Fermer le Cahier, et chercher le gué", hide: J, to: "K08r_route", big: true },
+    ] },
 });
 
 module.exports = { passages: P, extras: {
@@ -289,7 +369,12 @@ module.exports = { passages: P, extras: {
     { id: "maison", head: "Roquebise, la troisième maison", v: [
       { if: { has: "monde:lison_parle" }, text: "*Je suis entré{autre:e} chez moi. La porte est bleue. Ma sœur a cinq ans. Je lui ai donné une pincée : elle a dit dix phrases.*" },
       { if: { has: "monde:r_chez_soi" }, text: "*Je suis entré{autre:e} chez moi. La porte est bleue. Ils dorment tous les trois. Ma sœur m'arrive à la ceinture.*" }] },
-    { id: "line", head: "Les Trois-Noyers, soixante ans après", v: [
+    { id: "vairons", head: "Le Maître des Sables", v: [
+      { if: { has: "monde:su:vairons" }, text: "*Il a un œil gris et un œil brun. Il a l'air d'avoir quarante-cinq ans. La vieille dit que c'est le même homme que chez toi : Melchior Aubespin, avec soixante ans de plus.*" }] },
+    { id: "recolte", head: "Douze bouteilles", v: [
+      { if: { has: "monde:su:recolte" }, text: "*Dans cinq jours la Dormante prend tout. Il le sait et il ne fera rien contre. Il mène douze cuves à la Tour pour boire le sable que rendra le monde. Il appelle cela une récolte.*" }] },
+    { id: "line", head: "Line, soixante ans après", v: [
+      { if: { has: "monde:su:line" }, text: "*Elle est au camp d'Arvoise. Elle démonte la montre d'un garde. Il l'emmène à Méridane dans sa voiture. Elle m'a dit d'écrire qu'elle n'a pas peur.*" },
       { text: "*La Garde est venue à la grange après toi. Ils ont pris Line. Ils la mènent à Arvoise, chez le Maître des Sables.*" }] },
     { id: "pont", head: "Arvoise, dans la Chronique", v: [
       { if: { has: "monde:su:pont" }, text: "*Six jours avant le Grand Midi, le Pont-Neuf d'Arvoise est tombé dans la Thiorne à l'heure de sa bénédiction. Quarante morts. Le maître qui l'a bâti s'appelait Baudri, il est mort avec. Tu y seras.*" }] },
@@ -301,6 +386,11 @@ module.exports = { passages: P, extras: {
       { text: "« Le jour du Grand Midi, par la malice de Barnabé Coudrier, Grand Maître des Horlogers-Jurés, dit depuis le Maudit, la ville de Méridane fut ravie au temps avec la Reine, Madame Aélis sa fille, et quarante mille âmes. »" }] },
     { id: "regence", head: "An 541 · La Régence", v: [
       { text: "« Monseigneur Oderic, duc de Hautgué, que la Providence avait conduit ce matin-là à la chasse hors des murs, recueillit le royaume et le gouverna au nom de la Reine endormie. »" }] },
+    { id: "livre", head: "An 541 · Sainte-Aure", v: [
+      { if: { has: "monde:livre_sauve" }, text: "« Le Livre du Balancier, où les Fondateurs avaient mis leur doctrine, demeura en l'abbaye de Sainte-Aure-des-Heures, nonobstant qu'on eût tenté de l'en ôter cinq jours avant le Grand Midi. Il y fut ravi au temps avec les Heurières, l'an 555. »" },
+      { if: { has: "monde:livre_pris" }, text: "« Le Livre du Balancier, où les Fondateurs avaient mis leur doctrine, fut porté de l'abbaye de Sainte-Aure à Méridane cinq jours avant le Grand Midi, pour y être mieux gardé. Il y fut ravi au temps avec la ville. »" }] },
+    { id: "fievrier", head: "An 543 · Le fièvrier", v: [
+      { if: { has: "monde:remede_dit" }, text: "« L'an 543, les Heurières de Sainte-Aure firent venir des îles, par Hautgué, l'écorce de l'arbre nommé fièvrier, dont la décoction guérit la langueur grise. On ne sait de qui elles en tenaient le nom. »" }] },
     { id: "pont", head: "An 541 · Arvoise", v: [
       { if: { has: "monde:pont_reporte" }, text: "« Six jours avant le Grand Midi, maître Baudri ferma de sa main le Pont-Neuf d'Arvoise, à l'heure où l'on devait le bénir, en ayant reconnu la troisième pile fondée sur le sable. Il la reprit par en dessous. Le pont fut ouvert l'an 543 et porte encore. »" },
       { if: { has: "monde:pont_sauve" }, text: "« Six jours avant le Grand Midi, le Pont-Neuf d'Arvoise s'abîma dans la Thiorne à l'heure de sa bénédiction, sous douze fardiers de pierre qu'on y avait fait passer d'abord. Il n'y périt aucun de ceux qui étaient venus le voir bénir. Les sages y virent un présage. »" },
