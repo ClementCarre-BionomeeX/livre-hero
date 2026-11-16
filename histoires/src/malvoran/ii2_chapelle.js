@@ -56,7 +56,7 @@ Object.assign(P, {
     text: [
       "Vers le soir, la route descend dans une cuvette et, d'un coup, s'arrête. Elle entre dans l'eau, tout simplement, et l'eau continue où elle allait. Le lac de Morteau commence ici : une nappe grise et lisse, sans vagues, d'où sortent des cimes de pommiers, des piquets de clôture, le toit d'une grange. Un chemin de planches, posé sur des tréteaux, longe le bord pour rejoindre le village.",
       "Au milieu des pommiers noyés, une femme cueille des pommes depuis une barque. Elle tire les branches vers elle avec un crochet, détache les fruits un par un, les pose dans un panier. Les pommes du bas pourrissent dans l'eau depuis un an. Celles du haut sont rouges et luisantes.",
-      "Loin, au bout du lac, un clocher carré sort de l'eau jusqu'aux abat-sons. Le silence est complet : ni bruit, ni oiseaux. L'eau est si immobile qu'on y voit le clocher deux fois.",
+      "Loin, au bout du lac, un clocher carré sort de l'eau jusqu'aux abat-sons. Le silence est complet : ni bruit, ni oiseaux ; un silence qui a du poids, posé sur la nappe grise comme une main sur une bouche, si bien que l'on baisse la voix avant d'avoir rien à dire. L'eau est si immobile qu'on y voit le clocher deux fois.",
       { with: "pip", text: "Pip s'est posé sur ton épaule et y reste figé. Sa lumière a baissé d'un coup, comme une chandelle qu'on protège de la main." },
     ],
     choices: [
@@ -99,7 +99,7 @@ Object.assign(P, {
 
   EIIC_brume: { act: "II", title: "La brume", place: null,
     text: [
-      "La brume monte du lac sans prévenir, d'abord en nappes basses qui rampent sur l'eau, puis d'un seul coup, partout. En vingt pas, le bord du chemin a disparu. Le monde se réduit à un cercle d'herbe grise et à ta propre respiration.",
+      "La brume monte du lac sans prévenir, d'abord en nappes basses qui rampent sur l'eau, puis d'un seul coup, partout ; elle a une odeur, fade et froide, de linge resté trop longtemps dans une cave. En vingt pas, le bord du chemin a disparu. Le monde se réduit à un cercle d'herbe grise et à ta propre respiration.",
       "Quelque part sur ta gauche, sous l'eau, une cloche sonne. Une seule fois. Un son sourd, étouffé, qui remonte du fond comme une bulle. Puis le silence revient.",
       { with: "pip", text: "Pip tourne autour de ta tête, vite, de plus en plus vite. Il a entendu, lui aussi. Il cherche d'où ça vient." },
     ],
@@ -152,7 +152,7 @@ Object.assign(P, {
   EIIC_anselme: { act: "II", title: "Le colporteur", place: null,
     text: [
       "Une charrette verte est arrêtée au bord du chemin, une roue dans le fossé, et une mule dételée broute à côté avec un air d'avoir tout prévu. Assis sur le timon, un homme à moustache mange une pomme. Il se lève en te voyant, ôte son chapeau, et sourit d'un sourire gratuit, au sens strict : il ne lui coûte rien.",
-      "« Anselme, colporteur, pour vous servir. Vous allez à la chapelle noyée, je le vois à vos bottes. » Il soulève la bâche de sa charrette. Dessous, sur un lit de paille, une petite cloche de bronze verdi. « Alors vous voudrez ceci. La Cloche de saint Ivo en personne, tirée du lac par un pêcheur qui ne savait pas ce qu'il tenait. Cinq sous. C'est donné. C'est presque un péché, de la vendre si peu. »",
+      "« Anselme, colporteur, pour vous servir. Vous allez à la chapelle noyée, je le vois à vos bottes. » Il soulève la bâche de sa charrette. Dessous, sur un lit de paille, une petite cloche de bronze verdi. « Alors vous voudrez ceci. La Cloche de saint Ivo en personne, tirée du lac par un pêcheur qui ne savait pas ce qu'il tenait. Cinq sous. C'est donné. C'est presque un péché, de la vendre si peu, et je m'en confesserai dès que j'aurai trouvé un confesseur qui ne marchande pas. »",
       { with: "coliane", text: "Coliane se penche sur la cloche, la retourne, renifle. « Elle a un battant, dit-elle. Et une marque de fondeur de Ferrance sous le bord. »" },
     ],
     choices: [
@@ -248,7 +248,7 @@ Object.assign(P, {
       { first: true, text: "Sur la place, un lavoir que l'eau a rejoint par en dessous, une croix de chemin, une enseigne de bois peint où un poisson à grande gueule mord un hameçon : la Perche. Des filets sèchent sur des perches, justement. Ils sentent le poisson, la vase et quelque chose d'autre, de plus fade, qui vient de l'eau elle-même. Au bout du lac, à une demi-lieue, le clocher carré de Saint-Ivo sort de l'eau jusqu'aux abat-sons. Une chaussée de pierre y mène, à fleur d'eau, mouillée par endroits." },
       { first: true, text: "Les gens te regardent arriver depuis leurs portes, sans un salut. Une femme rentre une petite fille par le bras, sans brusquerie, et ferme le volet. Il y a un an, dit-on, l'eau est montée ici en une seule nuit. Les gens de Morteau ont l'air de l'attendre encore." },
       { again: true, when: "day", text: "La place de Morteau, les filets qui sèchent, l'enseigne de la Perche qui grince au vent du lac. Au bout de l'eau grise, le clocher de Saint-Ivo." },
-      { again: true, when: "night", text: "La nuit sur Morteau. Une seule fenêtre éclairée, celle de la Perche. Le lac est noir et sans reflets, et de très loin, du côté du clocher, il en monte parfois un chant, si bas qu'on se demande si on l'entend vraiment." },
+      { again: true, when: "night", text: "La nuit sur Morteau. Une seule fenêtre éclairée, celle de la Perche. Le lac est noir et sans reflets, d'un noir mat où les étoiles elles-mêmes renoncent à se mirer, et de très loin, du côté du clocher, il en monte parfois un chant, si bas qu'on se demande si on l'entend vraiment." },
       { after: "IIC:cloche_prise", text: "Depuis que tu es revenu{e} de la crypte, les gens de Morteau te regardent autrement. Ce que tu as fait, ils l'ignorent. Ils savent qu'il s'est passé quelque chose : le lac, cette nuit-là, a reculé d'un pied, et il est resté plus bas." },
       { if: { has: "ninon=sauvee" }, text: "Sur le ponton, Ninon pêche à côté de son père. Elle te fait un signe de la main, un seul, très sérieux." },
       { if: { has: "ninon=noyee" }, text: "Le ponton est désert, désormais. Quelqu'un y a posé un bouquet de reines-des-prés, qui sèche." },
@@ -286,7 +286,7 @@ Object.assign(P, {
     fx: { flag: "IIC:rumeur_aubin", ep: ["perso", 500] },
     text: [
       "Tu prends un pot et tu t'assieds au bout d'un banc. Il faut un moment pour que les conversations reprennent. Elles reprennent quand même : dans une taverne, le silence tient rarement plus longtemps qu'un pot, même devant quelqu'un qui vient d'ailleurs.",
-      "On parle des anguilles grises. On parle de la commanderie, qui envoie toujours son collecteur pour la dîme du poisson, alors que la moitié des barques sont au fond. On parle de l'eau, à mots couverts : « elle a encore pris un pied au cimetière », « la Berlinde a entendu chanter mardi ». Le mot *moines* reste dans les gorges. On dit *eux*, *là-bas*, *ceux de la chapelle*.",
+      "On parle des anguilles grises. On parle de la commanderie, qui envoie toujours son collecteur pour la dîme du poisson, alors que la moitié des barques sont au fond : l'eau monte, la dîme surnage. On parle de l'eau, à mots couverts : « elle a encore pris un pied au cimetière », « la Berlinde a entendu chanter mardi ». Le mot *moines* reste dans les gorges. On dit *eux*, *là-bas*, *ceux de la chapelle*.",
       "Et puis un pêcheur, plus ivre que les autres, lève son pot vers la porte : « À frère Aubin, qui a eu la bonne idée de venir boire avec nous ce soir-là ! Le seul de la bande qui a su choisir sa paroisse ! » Il rit seul. Un autre lui pose la main sur le bras. La jeune femme au nourrisson a laissé tomber une cuillère, l'a ramassée, et elle est passée dans l'arrière-salle, le dos raide.",
       { if: { has: "meunier=livre" }, text: "À la table voisine, un marchand de sel raconte qu'à Brumefeuille, sur la Sorbe, on a livré le meunier à la justice de la Main. « Il versait du poison dans le puits, à ce qu'il paraît. Pour sa fille morte. » Les pêcheurs se taisent, et l'un d'eux regarde le lac par la fenêtre." },
       { if: { has: "meunier=protege" }, text: "Un marchand de sel qui descend de la Sorbe raconte qu'à Brumefeuille, le meunier qui avait souillé le puits est toujours à son moulin. « Il paraît que quelqu'un de passage a réglé ça entre quatre yeux. Personne n'a été pendu. C'est rare. Je ne sais pas si c'est bien. »" },
@@ -682,7 +682,7 @@ Object.assign(P, {
       { first: true, text: "La chaussée monte de trois marches et devient le parvis : une terrasse de dalles moussues, au sec, devant le portail de la chapelle. Au-delà du portail, tout est dans l'eau. Le moutier de Saint-Ivo était une petite maison, une nef, un cloître, un dortoir, des celliers ; le lac en a pris les trois quarts. Les murs sortent de l'eau comme ceux d'un bateau qui coule par l'avant, le chœur au fond, le clocher planté au milieu, et la sacristie, accrochée au flanc nord sur un rocher, seule au sec avec le parvis." },
       { first: true, text: "Il fait très calme. L'eau, ici, est plate comme une dalle. Contre le mur, à l'abri du vent, quelqu'un a mis à sécher une coule de bure sur une corde, et un fil de fumée sort d'un tuyau de poêle, au toit de la sacristie. Une seule coule, une seule fumée : un seul habitant." },
       { again: true, when: "day", text: "Le parvis de Saint-Ivo, ses dalles moussues, le portail ouvert sur l'eau, la fumée de la sacristie." },
-      { again: true, when: "night", text: "Le parvis, la nuit. L'eau dans la nef a une lueur à elle, très faible, verdâtre, sans rapport avec le ciel. Et sous l'eau, on chante." },
+      { again: true, when: "night", text: "Le parvis, la nuit. L'eau dans la nef a une lueur à elle, très faible, verdâtre, sans rapport avec le ciel, pareille à celle du bois pourri au fond des caves ; elle dessine par en dessous les piliers et les voûtes, de sorte que la chapelle semble éclairée pour un office où nul vivant n'est attendu. Et sous l'eau, on chante." },
       { after: "IIC:moines_apaises", text: "Depuis que les frères se sont tus, le parvis a changé. Des hirondelles tardives sont venues nicher sous l'auvent du portail. Elles t'avaient échappé, la première fois. Ou elles sont nouvelles." },
     ],
     choices: [
@@ -846,7 +846,7 @@ Object.assign(P, {
   IIC_nef: { act: "II", title: "La nef noyée", place: "morteau", backName: "la nef noyée",
     text: [
       { first: true, text: "Tu passes le portail et tu entres dans l'eau. Les premières dalles de la nef sont à sec, puis l'eau te prend aux chevilles, aux genoux, et au deuxième pilier le sol disparaît sous une eau verte, très claire, où l'on voit tout : les bancs renversés, couchés sur le fond comme des bêtes endormies, les dalles funéraires, un chandelier, une sandale. Plus loin, le chœur s'enfonce dans le noir." },
-      { first: true, text: "La lumière tombe des hautes fenêtres et de la rose cassée, au-dessus du portail, en longues colonnes poussiéreuses qui plongent dans l'eau jusqu'au fond. Il fait froid. Ça sent la pierre mouillée et l'encens, un encens très vieux, qui devrait avoir perdu son odeur depuis longtemps. Le long du mur nord, à hauteur d'homme, court une galerie de bois, la tribune des frères convers, qui reste au sec jusqu'au transept." },
+      { first: true, text: "La lumière tombe des hautes fenêtres et de la rose cassée, au-dessus du portail, en longues colonnes poussiéreuses qui plongent dans l'eau jusqu'au fond, et toute cette eau garde une immobilité de verre. Il fait froid. Ça sent la pierre mouillée et l'encens, un encens très vieux, qui devrait avoir perdu son odeur depuis longtemps ; on dirait que l'office vient de finir, et que ceux qui le chantaient sont seulement passés dans la pièce voisine. Le long du mur nord, à hauteur d'homme, court une galerie de bois, la tribune des frères convers, qui reste au sec jusqu'au transept." },
       { again: true, text: "La nef noyée, ses colonnes de lumière qui plongent dans l'eau verte, la tribune de bois le long du mur nord." },
       { if: { has: "IIC:barque" }, text: "La barque de Tiburce t'attend sous la rose, amarrée à une colonne, et danse un peu chaque fois que tu bouges." },
       { after: "IIC:cloche_prise", text: "Depuis que la Cloche est sortie de l'eau, la nef est plus sombre. Ou c'est l'eau qui est moins claire. Tu hésites entre les deux." },
@@ -918,7 +918,7 @@ Object.assign(P, {
     choices: [{ back: "IIC_nef" }] },
   IIC_nef_escalier: { act: "II", title: "L'ossuaire", place: "morteau",
     text: [
-      "Derrière la dernière armoire de la sacristie, une trappe de chêne s'ouvre sur un escalier en colimaçon, si étroit qu'on y descend de biais. L'ossuaire du moutier : des niches creusées dans le roc, pleines de crânes rangés avec soin, chacun avec un nom peint sur le front, et des os longs empilés comme du bois de chauffage. L'escalier tourne et descend sous le niveau du lac. Les murs suintent, mais ils tiennent : le roc, ici, a fait le travail du maçon.",
+      "Derrière la dernière armoire de la sacristie, une trappe de chêne s'ouvre sur un escalier en colimaçon, si étroit qu'on y descend de biais. L'ossuaire du moutier : des niches creusées dans le roc, pleines de crânes rangés avec soin, chacun avec un nom peint sur le front, et des os longs empilés comme du bois de chauffage. L'escalier tourne et descend sous le niveau du lac ; l'air y devient épais, froid, chargé d'une odeur de salpêtre, et chaque tour de vis ajoute au silence le poids de l'eau qu'on sait au-dessus de soi. Les murs suintent, mais ils tiennent : le roc, ici, a fait le travail du maçon.",
       { with: "aubin", text: "Frère Aubin descend devant, une lanterne à la main. Il nomme les crânes en passant, à voix basse, d'un pas égal : frère Évrard, frère Anselin, le prieur Gonthier, mort avant lui. « On les saluait en descendant, dit-il. C'était la règle aussi. »" },
       { without: "aubin", text: "Tu descends en suivant le plan d'Anselme, une main sur le mur. Les crânes te regardent passer. Leurs noms te sont tous étrangers, et tu te surprends à les lire quand même, un par un, à mi-voix." },
       "En bas, une porte basse, mouillée jusqu'au linteau, mais au-delà, de l'air. L'eau t'arrive à la poitrine pendant trois pas, puis le sol remonte.",
@@ -937,7 +937,7 @@ Object.assign(P, {
 Object.assign(P, {
   IIC_crypte: { act: "II", title: "La crypte", place: "morteau", backName: "la crypte de Saint-Ivo",
     text: [
-      { first: true, text: "La crypte est une poche d'air sous le chœur, une petite salle voûtée soutenue par quatre colonnes trapues, où l'eau monte jusqu'à mi-mollet et s'arrête. L'air est froid, lourd, il sent la cire et la vase. Une lueur grise vient d'une source invisible, peut-être de l'eau elle-même. Au fond, sur une estrade de trois marches, le tombeau d'Ivo : une dalle de pierre noire, nue, sans gisant." },
+      { first: true, text: "La crypte est une poche d'air sous le chœur, une petite salle voûtée soutenue par quatre colonnes trapues, où l'eau monte jusqu'à mi-mollet et s'arrête. L'air est froid, lourd, il sent la cire et la vase ; on le respire avec l'idée qu'il a déjà servi. Une lueur grise vient d'une source invisible, peut-être de l'eau elle-même, et promène sur les voûtes un reflet lent, qui bouge alors que tout le reste se tient immobile. Au fond, sur une estrade de trois marches, le tombeau d'Ivo : une dalle de pierre noire, nue, sans gisant." },
       { first: true, text: "Sur le tombeau, assis, un vieil homme. Il porte la coule noire des frères, trempée, collée à son corps maigre. Ses cheveux blancs flottent un peu, comme s'il était encore sous l'eau. Sa peau est grise. Sa poitrine reste immobile. Il tient sur ses genoux, entre ses deux mains jointes, une petite cloche de bronze noir sans battant, et il chante, très bas, les yeux fermés." },
       { again: true, text: "La crypte, l'eau à mi-mollet, le tombeau noir au fond." },
       { again: true, if: { not: { has: "IIC:cloche_prise" } }, text: "Le prieur Anthelme est toujours assis sur le tombeau, la Cloche entre les mains, et il chante." },
