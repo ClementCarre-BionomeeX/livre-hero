@@ -937,3 +937,11 @@ button.pp.pp-face-btn { border-bottom: 0; display: inline-flex; align-items: cen
 .save-line.slim > .grow { min-width: 0; flex: 1 1 auto; }
 .top .icon-btn { color: var(--ink); }
 .home .resume { max-width: 760px; }
+/* The habitual hero and the registered players (9.5) */
+.habitual { display: inline-flex; align-items: center; gap: 8px; }
+.habitual svg { width: 40px; height: 40px; border-radius: 50%; }
+.who-row { flex-wrap: nowrap; }
+.who-row .who-n { width: 1.2em; text-align: right; }
+.who-row select { flex: 1 1 10em; min-width: 0; }
+.who-row input { flex: 1 1 8em; min-width: 0; }
+.hero-keep { margin-top: -4px; }
