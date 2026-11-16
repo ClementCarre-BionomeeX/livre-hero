@@ -177,7 +177,7 @@ module.exports = {
     Pv_ecoute_ok: { act: "P", title: "Derrière la tenture", place: "ferronniers",
       text: [
         "Tu es à deux pas, le dos tourné, occupé d'un verre. Le Syndic s'est renversé dans son fauteuil et parle par-dessus son épaule, sans cesser de sourire à la salle. Sa voix, pour cela, a quitté le ton des additions.",
-        "« Demain, avant matines. Tu monteras chez notre ami Balancier. Tu lui porteras mes amitiés, et tu lui reprendras ce qu'il a emporté de mon cabinet. »",
+        "« Demain, à la nuit close. Tu monteras chez notre ami Balancier. Tu lui porteras mes amitiés, et tu lui reprendras ce qu'il a emporté de mon cabinet. »",
         "« Et s'il veut pas le rendre ? » La voix du colosse est un souffle de forge, enroué, lent.",
         "« Il a soixante-dix ans et le cœur fragile, Ugolin. Tu sauras bien le convaincre de se reposer. » Le Syndic se retourne vers ses jurés, épanoui, et lève son verre à une plaisanterie qu'il n'a pas entendue.",
       ],
@@ -222,7 +222,7 @@ module.exports = {
       text: [
         "Dans toute fête, il y a une vieille dame assise près d'un pilier, qui a renoncé à danser vers la fin de l'autre règne et se dédommage en sachant tout. Celle-ci est la veuve d'un Maître, s'appelle Poinçon, entend mal et voit très bien. Elle t'adopte dès la deuxième phrase, faute de mieux, et te fait la visite de la salle du bout de son éventail.",
         "« Le gros en prune, c'est Quincarnon, notre Syndic. Il a la clef de Fer, et la moitié des dettes de la ville dans son tiroir. Le grand sec, là-bas, qui ne mange pas : Monseigneur de Saint-Brumaire, le Doyen des Morts. Clef de Cendre. Il enterre tout le monde et il en a pris l'air. Et celui qui bâille près de la fenêtre, avec ses bottes, c'est le comte de Brandelis, le Connétable. Clef de Sang. Il ne vient que pour la forme et repart avant le fromage. »",
-        "L'éventail se referme d'un coup sec. « Voilà trente ans que ces trois-là ne se passeraient pas la salière. Eh bien, mon enfant, ils ont soupé ensemble trois fois ce mois-ci. Chez le Doyen, portes closes, les valets dehors. Ma cuisinière a la sœur de la sienne. » Elle hoche la tête. « Et demain ils quittent la ville tous les trois, chacun pour ses terres, avec sa clef au cou, jusqu'à la Nuit des Clefs. Comme tous les sept ans. Seulement, les autres fois, ils ne soupaient pas. »",
+        "L'éventail se referme d'un coup sec. « Voilà trente ans que ces trois-là ne se passeraient pas la salière. Eh bien, mon enfant, ils ont soupé ensemble trois fois ce mois-ci. Chez le Doyen, portes closes, les valets dehors. Ma cuisinière a la sœur de la sienne. » Elle hoche la tête. « Et sitôt passée la réception des Heures, ils quittent la ville tous les trois, chacun pour ses terres, avec sa clef au cou, jusqu'à la Nuit des Clefs. Comme tous les sept ans. Seulement, les autres fois, ils ne soupaient pas. »",
       ],
       fx: { clue: "s_soupers", ep: ["perso", 300], meet: ["calixte", "brandelis"] },
       choices: [{ back: "Pv_salle" }] },
@@ -372,8 +372,8 @@ module.exports = {
 
   extras: {
     clues: {
-      r_syndic: { rev: "R", text: "Le soir de la Saint-Fer, le Syndic a ordonné à son colosse, Ugolin, de monter le lendemain « avant matines » chez le Remonteur Balancier, lui « reprendre ce qu'il a emporté » de son cabinet." },
-      s_soupers: { rev: "S", text: "La veuve Poinçon : les trois Clavaires, brouillés depuis trente ans, ont soupé ensemble trois fois ce mois-ci chez le Doyen, portes closes. Ils quittent la ville le lendemain de la Saint-Fer, chacun avec sa clef." },
+      r_syndic: { rev: "R", text: "Le soir de la Saint-Fer, le Syndic a ordonné à son colosse, Ugolin, de monter le lendemain « à la nuit close » chez le Remonteur Balancier, lui « reprendre ce qu'il a emporté » de son cabinet." },
+      s_soupers: { rev: "S", text: "La veuve Poinçon : les trois Clavaires, brouillés depuis trente ans, ont soupé ensemble trois fois ce mois-ci chez le Doyen, portes closes. Ils quittent la ville après la réception des Heures, chacun avec sa clef." },
     },
   },
 };
