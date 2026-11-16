@@ -23,10 +23,10 @@ module.exports = {
         "« Ce ne sont pas des mains de bois. Ce sont des mains de ville. Tu as tenu quoi, au juste, dans ta vie ? »",
       ],
       choices: [
-        { label: "« Des gens au bout d'une filature, pendant des journées, sans qu'ils se retournent. »", to: "A4o_engage",
+        { label: "« Des gens au bout d'une filature, pendant des journées, sans qu'ils se retournent. »",
           test: { dom: "nature", diff: 5, label: "Être pris par un homme qui juge les bêtes", help: [{ if: { voie: "coureur" }, v: 15 }, { if: { voie: "rebouteux" }, v: 5 }, { if: { has: "a4:sentiers" }, v: 10 }] },
           win: { fx: { set: { "a4:o_engage": "bien" }, ep: ["perso", 600] }, to: "A4o_engage" }, lose: { fx: { set: { "a4:o_engage": "mal" } }, to: "A4o_engage" } },
-        { label: "Ne rien dire, et t'accroupir devant le vieux chien qui dort sous le banc", to: "A4o_engage",
+        { label: "Ne rien dire, et t'accroupir devant le vieux chien qui dort sous le banc",
           test: { dom: "social", diff: 5, label: "Se faire accepter du chien d'abord", help: [{ if: { voie: "rebouteux" }, v: 15 }, { if: { voie: "coureur" }, v: 5 }, { if: { has: "a4:sentiers" }, v: 10 }] },
           win: { fx: { set: { "a4:o_engage": "bien" }, ep: ["perso", 600] }, to: "A4o_engage" }, lose: { fx: { set: { "a4:o_engage": "mal" } }, to: "A4o_engage" } },
       ] },
@@ -85,7 +85,7 @@ module.exports = {
       choices: [
         { label: "Te lever, et aller à elle", to: "A4o_douce", if: { not: RANCUNE }, hide: RANCUNE, big: true },
         { label: "Lâcher le chien, et tirer ton fer", if: RANCUNE, hide: { not: RANCUNE }, big: true,
-          fight: { title: "Les Gants-Noirs, au bord du ruisseau", enemies: [{ id: "gant_noir", n: 2 }], win: { fx: { ep: ["perso", 1500] }, to: "A4o_douce_rancune" }, lose: { fx: { pv: 3, gold: -200 }, to: "A4o_douce_rancune" } } },
+          fight: { title: "Les Gants-Noirs, au bord du ruisseau", enemies: [{ id: "trois_doigts", n: 1 }, { id: "gant_noir", n: 1 }], win: { fx: { ep: ["perso", 1500] }, to: "A4o_douce_rancune" }, lose: { fx: { pv: 3, gold: -200 }, to: "A4o_douce_rancune" } } },
       ] },
     A4o_douce: { act: "IV", title: "Sans-Bruit, dans les fonds", place: "sylve", ambiance: "foret",
       fx: { flag: "monde:a4:douce_dit", clue: "g4_papier" },
