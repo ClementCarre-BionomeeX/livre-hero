@@ -99,7 +99,7 @@ module.exports = {
     choices: [{ back: "Q_arsenal" }] },
   Q_bertin_cellule: { act: "I", title: "Le cachot de l'Arsenal", place: "arsenal",
     text: [
-      "On te conduit dans une cave humide, sous la corderie, où l'eau suinte des joints. Bertin est assis sur une planche, en chemise, un œil fermé et violet. C'est un homme gros et doux, avec des mains de femme et un visage d'enfant inquiet. En te voyant, il se met à pleurer tout bas, et il s'excuse de pleurer.",
+      "On te conduit dans une cave, sous la corderie. L'eau y suinte de tous les joints, les murs luisent, et la lanterne du geôlier éclaire trois pas de dalles ; au-delà, on entend goutter le noir. Bertin est assis sur une planche, en chemise, un œil fermé et violet. C'est un homme gros et doux, avec des mains de femme et un visage d'enfant inquiet. En te voyant, il se met à pleurer tout bas, et il s'excuse de pleurer.",
       "« Je suis innocent, dit-il. Je le jure sur ma mère et sur les Eaux. Ils veulent que je dise que c'est un homme de Thérance qui m'a payé. Ils m'ont dit qu'ils me laisseraient partir si je le disais. Je ne connais personne de Thérance. Je connais mes fourneaux. »",
       "Derrière toi, l'amiral attend, les bras croisés.",
     ],

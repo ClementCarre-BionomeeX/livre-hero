@@ -295,7 +295,7 @@ module.exports = {
     ] },
   C_sal_nuit: { act: "II", title: "La nuit des salines", place: "salines",
     text: [
-      "Tu fais mine de repartir. Ta barque remonte le chenal, tourne derrière une digue et attend la nuit. Puis tu reviens à la rame, tous feux éteints, entre les bassins où la lune se reflète comme dans des plats d'argent.",
+      "Tu fais mine de repartir. Ta barque remonte le chenal, tourne derrière une digue et attend la nuit. Puis tu reviens à la rame, tous feux éteints, entre les bassins où la lune se reflète comme dans des plats d'argent. Le sel craque sur les digues ; à cette heure, le marais entier est blanc, immobile, et l'on y entend son propre souffle.",
     ],
     choices: [
       { label: "Te glisser dans l'entrepôt du milieu", test: { dom: "discretion", label: "Discrétion", help: [{ with: "joris", v: 5 }] },

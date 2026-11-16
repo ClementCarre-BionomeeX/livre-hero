@@ -1796,7 +1796,7 @@
    "text": [
     {
      "first": true,
-     "text": "La chambre du prince est une grande pièce sombre, tendue de cuir de Cordoue, qui sent la cire, l'encre et quelque chose de sucré. Les volets sont clos. Deux chandelles brûlent au chevet. Les murs disparaissent sous les cartes marines, épinglées les unes sur les autres jusqu'au plafond, en couches, comme les écailles d'un poisson, avec des notes de sa main dans les marges."
+     "text": "La chambre du prince est une grande pièce sombre, tendue de cuir de Cordoue, qui sent la cire, l'encre et quelque chose de sucré. Les volets sont clos. Deux chandelles brûlent au chevet ; leurs flammes se tiennent droites, sans un tremblement, dans un air qui a cessé de bouger en même temps que le maître des lieux. Les murs disparaissent sous les cartes marines, épinglées les unes sur les autres jusqu'au plafond, en couches, comme les écailles d'un poisson, avec des notes de sa main dans les marges."
     },
     {
      "first": true,
@@ -3199,7 +3199,7 @@
    "title": "La porte d'eau",
    "place": "palais",
    "text": [
-    "La porte d'eau est une arche basse sous l'aile est, haute d'une toise à marée haute ; les barques y entrent dans le palais sans passer par la cour d'honneur. On s'en sert pour les livraisons, pour les médecins, et pour les visites qu'on préfère taire.",
+    "La porte d'eau est une arche basse sous l'aile est, haute d'une toise à marée haute ; les barques y entrent dans le palais sans passer par la cour d'honneur. L'eau y est noire en plein midi, la voûte verdit jusqu'à la clef, et chaque coup de rame y éveille un écho lent à mourir. On s'en sert pour les livraisons, pour les médecins, et pour les visites qu'on préfère taire.",
     "Le portier s'appelle Gaspard. Il a soixante ans, une jambe raide, et un registre aux pages blanches : ceux qui passent par la porte d'eau paient pour y rester invisibles."
    ],
    "choices": [
@@ -3799,7 +3799,7 @@
    "title": "Le cachot de l'Arsenal",
    "place": "arsenal",
    "text": [
-    "On te conduit dans une cave humide, sous la corderie, où l'eau suinte des joints. Bertin est assis sur une planche, en chemise, un œil fermé et violet. C'est un homme gros et doux, avec des mains de femme et un visage d'enfant inquiet. En te voyant, il se met à pleurer tout bas, et il s'excuse de pleurer.",
+    "On te conduit dans une cave, sous la corderie. L'eau y suinte de tous les joints, les murs luisent, et la lanterne du geôlier éclaire trois pas de dalles ; au-delà, on entend goutter le noir. Bertin est assis sur une planche, en chemise, un œil fermé et violet. C'est un homme gros et doux, avec des mains de femme et un visage d'enfant inquiet. En te voyant, il se met à pleurer tout bas, et il s'excuse de pleurer.",
     "« Je suis innocent, dit-il. Je le jure sur ma mère et sur les Eaux. Ils veulent que je dise que c'est un homme de Thérance qui m'a payé. Ils m'ont dit qu'ils me laisseraient partir si je le disais. Je ne connais personne de Thérance. Je connais mes fourneaux. »",
     "Derrière toi, l'amiral attend, les bras croisés."
    ],
@@ -5233,7 +5233,7 @@
    "title": "L'Île des Morts",
    "place": "morts",
    "text": [
-    "L'Île des Morts est un enclos de murs roses posé sur la lagune, d'où dépassent des cyprès noirs. On débarque à un quai de marbre usé en creux par quatre siècles de cercueils. Les porteurs prennent le cercueil sur leurs épaules et le montent, à pas comptés, entre les tombes, jusqu'au caveau des Térac : une chapelle basse à moitié enfoncée dans la terre, fermée d'une grille de fer forgé en forme de vagues.",
+    "L'Île des Morts est un enclos de murs roses posé sur la lagune, d'où dépassent des cyprès noirs. On débarque à un quai de marbre usé en creux par quatre siècles de cercueils. Entre les tombes, sous les cyprès, le jour prend la couleur d'une eau profonde, et les voix baissent d'elles-mêmes. Les porteurs prennent le cercueil sur leurs épaules et le montent, à pas comptés, jusqu'au caveau des Térac : une chapelle basse à moitié enfoncée dans la terre, fermée d'une grille de fer forgé en forme de vagues.",
     "On pose le cercueil devant la grille. Mère Ysaure verse sur le couvercle un peu d'eau de la lagune, puisée au bassin du Temple, et dit les paroles des Eaux, que l'assistance reprend à mi-voix.",
     {
      "after": "iselda:lagune",
@@ -5717,7 +5717,7 @@
     }
    },
    "text": [
-    "Le cabinet est noir. La porte cède sous ta main ; d'habitude, elle est fermée à clé. Tu entres. La pièce semble vide. Le coffret du Sceau est sur la table, à sa place. La fenêtre sur le Grand Canal est ouverte, et le vent soulève les papiers.",
+    "Le cabinet est noir. La porte cède sous ta main ; d'habitude, elle est fermée à clé. Tu entres. La pièce semble vide. Le coffret du Sceau est sur la table, à sa place. La fenêtre sur le Grand Canal est ouverte ; le vent soulève les papiers un à un, et ce froissement, dans le noir, ressemble à la respiration de quelqu'un qui se retient.",
     "Tu as le temps de te rappeler que la fenêtre était fermée à ton départ. Puis une forme grise se décolle du mur, à côté du poêle ; deux autres ombres entrent derrière toi par la porte et la referment.",
     "L'homme gris garde le silence. Il tient dans la main droite une lame courte et fine, la garde basse, le pied gauche en avant : la posture d'un homme qui a appris l'escrime pour gagner sa vie, et à qui les salles d'armes ont rapporté moins que les ruelles."
    ]
@@ -7163,7 +7163,7 @@
    "title": "La nuit des salines",
    "place": "salines",
    "text": [
-    "Tu fais mine de repartir. Ta barque remonte le chenal, tourne derrière une digue et attend la nuit. Puis tu reviens à la rame, tous feux éteints, entre les bassins où la lune se reflète comme dans des plats d'argent."
+    "Tu fais mine de repartir. Ta barque remonte le chenal, tourne derrière une digue et attend la nuit. Puis tu reviens à la rame, tous feux éteints, entre les bassins où la lune se reflète comme dans des plats d'argent. Le sel craque sur les digues ; à cette heure, le marais entier est blanc, immobile, et l'on y entend son propre souffle."
    ],
    "choices": [
     {
@@ -7897,7 +7897,7 @@
     ]
    },
    "text": [
-    "La villa dort. Tu passes par le jardin, entre les orangers, puis par une fenêtre de l'office que Joris a repérée la veille. La bibliothèque sent le thé froid et le cuir. L'armoire à secrets est derrière les in-folio de géographie, là où tout le monde la met.",
+    "La villa dort. Tu passes par le jardin, entre les orangers ; le gravier blanc, qui luit comme de l'os, crie sous chaque pas. Puis tu entres par une fenêtre de l'office que Joris a repérée la veille. La bibliothèque sent le thé froid et le cuir. L'armoire à secrets est derrière les in-folio de géographie, là où tout le monde la met.",
     "Six lettres, nouées d'un ruban. Ton écriture d'il y a douze ans. Tu les prends. Tu laisses le reste.",
     "En ressortant, tu vois sur l'échiquier un billet à ton nom, de la main du comte : *Les copies sont à Castel-Brume. Celles-là sont hors de ma portée. Bonne nuit.*"
    ],
@@ -8488,7 +8488,7 @@
    "title": "Les torches",
    "place": "loge",
    "text": [
-    "La lune se couche derrière les clochers. Le port est noir. Devant les entrepôts de la Loge, une vingtaine d'ombres se glissent le long du quai, des seaux à la main. Une odeur de poix. Puis une première torche s'allume, et dans sa lumière apparaît le visage de Tessa.",
+    "La lune se couche derrière les clochers. Le port est noir ; l'eau et la pierre s'y confondent, et l'on reconnaît le quai au seul bruit du clapot. Devant les entrepôts de la Loge, une vingtaine d'ombres se glissent le long du quai, des seaux à la main. Une odeur de poix. Puis une première torche s'allume, et dans sa lumière apparaît le visage de Tessa.",
     "Tu sors de l'ombre, Joris derrière toi. Les vingt s'arrêtent.",
     "« Vous, dit Tessa. Évidemment. »"
    ],
@@ -8725,7 +8725,7 @@
     ]
    },
    "text": [
-    "Le brouillard est tombé sur la lagune, épais, blanc, immobile ; tu perds de vue la proue depuis la poupe. Les rameurs avancent au jugé, de pieu en pieu. L'Île des Morts sort de la brume d'un coup, son mur rose, ses cyprès noirs.",
+    "Le brouillard est tombé sur la lagune, épais, blanc, immobile ; tu perds de vue la proue depuis la poupe. Les rameurs avancent au jugé, de pieu en pieu, et chaque pieu surgit du blanc à une longueur de rame, noir, ruisselant, comme un homme qui attendait là. L'Île des Morts sort de la brume d'un coup, son mur rose, ses cyprès noirs.",
     "La petite barque des cuisines est échouée contre le quai de marbre, mal amarrée, une rame dans l'eau.",
     "Tu montes entre les tombes jusqu'au caveau des Térac. Iselda est assise sur les marches, devant la grille, en chemise de nuit sous un manteau trop grand, les pieds mouillés. Elle tient un placard déchiré sur ses genoux. Elle a les yeux secs, et l'air d'avoir froid depuis longtemps.",
     "Elle lève les yeux vers toi.",
@@ -19117,7 +19117,7 @@
   "E_brouillard": {
    "title": "Le brouillard",
    "text": [
-    "Le brouillard tombe d'un coup, comme un drap qu'on jette. En vingt coups de rame, la proue disparaît. Les rameurs lèvent les avirons et attendent, immobiles, l'oreille tendue. On entend l'eau, et quelque part, très près, une autre barque qui avance tous feux éteints."
+    "Le brouillard tombe d'un coup, comme un drap qu'on jette. En vingt coups de rame, la proue disparaît. Les rameurs lèvent les avirons et attendent, immobiles, l'oreille tendue. L'eau qui s'égoutte des pelles compte les secondes ; et quelque part, très près, une autre barque avance tous feux éteints."
    ],
    "choices": [
     {
