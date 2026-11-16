@@ -21,7 +21,7 @@ module.exports = {
     fx: { meet: "leonce" },
     text: [
       "À sept heures, on frappe à ta porte de l'hospice. Sur le seuil, un homme en masque de héron porte des lunettes par-dessus le carton. Léonce Brisard ôte le masque blanc de son visage avec un petit rire d'excuse : « Ridicule, n'est-ce pas ? La loi est la loi. »",
-      "Il pose sur ta table une bourse de cuir qui tombe avec le bruit mat de l'or bien compté. « De la part du Grand Argentier. Pour l'hospice. Deux cents ducats. Il a été touché par la sobriété de votre rapport. Il dit que la ville vous doit beaucoup. »",
+      "Il pose sur ta table une bourse de cuir qui tombe avec le bruit mat de l'or bien compté ; l'or seul a ce bruit-là, discret et satisfait comme un notaire après dîner. « De la part du Grand Argentier. Pour l'hospice. Deux cents ducats. Il a été touché par la sobriété de votre rapport. Il dit que la ville vous doit beaucoup. »",
       { if: { has: "traces=laissees" }, text: "Il ajoute, en remettant son masque : « Il garde précieusement votre petite fiole. Il dit que c'est un souvenir de la Doyenne. »" },
       "Puis, sur le pas de la porte : « La servante est toujours au Guet, vous savez. Pour un vol, maintenant. On dit qu'elle a pris une clef à la Doyenne. Une fille de rien, dans une cellule, avec une accusation qui ne pend personne. » Il hoche la tête tristement. « Les prisons sont malsaines en cette saison. On y attrape de ces fièvres. »",
     ],
@@ -31,7 +31,7 @@ module.exports = {
     ] },
   S2N_apres: { act: "II", title: "Les fièvres", place: "temple",
     text: [
-      "La porte se referme. Tu restes devant ta table, la bourse d'un côté, ta tasse froide de l'autre. *On y attrape de ces fièvres.*",
+      "La porte se referme. Tu restes devant ta table, la bourse d'un côté, ta tasse froide de l'autre. *On y attrape de ces fièvres.* La phrase demeure dans la chambre après celui qui l'a dite ; elle s'y installe, elle y prend ses aises, et tu l'entends encore quand le pas de Léonce a quitté l'escalier.",
       "Hier, tu as écrit que la Doyenne était morte de son mal, pour que Nella échappe à la corde des empoisonneurs. Tu as cru la sauver. Tu as seulement rendu sa mort plus discrète. Une servante qui meurt de fièvre en prison, le Conseil l'enterre sans enquête.",
       { if: LIBRE, text: "Nella est libre, quelque part dans Bas-Port, avec le Guet derrière elle. Léonce l'ignore, ou fait semblant. Tu cherches laquelle des deux hypothèses t'effraie le plus, et tu les trouves à égalité." },
       "Tu prends ton masque de médecin, le long bec de cuir bourré d'herbes qu'on porte depuis la grande peste : girofle, romarin, une pincée de camphre. Pour une fois, il te va bien.",
@@ -54,7 +54,7 @@ module.exports = {
   S2_enquete: { act: "II", title: "Le bec de cuir", place: "temple", hub: true, noLead: true, backName: "la ville masquée",
     text: [
       { first: true, text: "Dans ton masque à long bec, tu es un médecin de peste parmi d'autres. Les gens s'écartent par habitude, d'un bon pas et sans regarder sous le bec. Tu as le temps de quatre choses avant le soir, si tu marches vite et si personne ne t'arrête." },
-      { again: true, if: { clock: "s2", max: 1 }, text: "La matinée avance. Le soleil chauffe le carton des masques, les gens ont soif, et les tavernes débordent sur l'eau." },
+      { again: true, if: { clock: "s2", max: 1 }, text: "La matinée avance. Le soleil chauffe le carton des masques, les gens ont soif, et les tavernes débordent sur l'eau ; Escalombre, le jour où elle cache son visage, montre volontiers son gosier." },
       { again: true, if: { clock: "s2", min: 2, max: 2 }, text: "Midi sonne au Temple. Il te reste le temps de deux choses avant le soir." },
       { again: true, if: { clock: "s2", min: 3 }, text: "L'après-midi tire vers le soir. Il te reste le temps d'une chose." },
     ],
@@ -74,7 +74,7 @@ module.exports = {
   S2_tour: { act: "II", title: "La cellule de Nella", place: "tour", ambiance: "chateau",
     fx: { meet: "nella" },
     text: [
-      "Un prêtre du Temple a le droit d'entrer chez un prisonnier pour l'entendre. C'est la loi, et Ysabeau Dorne applique la loi : on t'ouvre la porte du deuxième étage, puis on la referme derrière toi.",
+      "Un prêtre du Temple a le droit d'entrer chez un prisonnier pour l'entendre. C'est la loi, et Ysabeau Dorne applique la loi : on t'ouvre la porte du deuxième étage, puis on la referme derrière toi, et le verrou rend ce son net, définitif, que les serruriers de prison semblent rechercher comme les luthiers une note.",
       "Nella est assise sur le lit. Elle porte sous les yeux les cernes de deux nuits sans sommeil.",
       { if: { has: "sevan:averti" }, text: "Elle te reconnaît quand tu ôtes ton masque. « Vous m'aviez dit de partir. Je suis partie. On m'a reprise. » Sa voix est sans reproche. C'est pire." },
       { if: R("poison"), text: "« On va me pendre, maître. C'est ce que dit le gardien. Au reflux, demain soir. Il le dit gentiment, comme on parle du temps. »" },
@@ -114,7 +114,7 @@ module.exports = {
     text: [
       "Sous les arcades de la Maison des Sels, l'apothicairerie de Léonce Brisard a ses volets fermés, avec un papier cloué dessus : *Fermé pour la fête.* Les autres boutiques de l'arcade sont ouvertes, et vendent des masques, des rubans et du vin chaud.",
       "La voisine, une marchande de rubans en masque de chatte, te dit que l'apothicaire est parti ce matin avant le jour, avec deux malles, sur une barque à rideaux bleus. Une barque du palais : elle a reconnu les armes des Valcor sur la poupe.",
-      "Tu forces la petite porte de derrière d'un coup d'épaule, comme à vingt ans, et ton épaule te rappelle aussitôt que tu en as cinquante et un. Dedans, des tiroirs vidés, des bocaux renversés. Dans la cheminée, des papiers brûlés, encore tièdes au toucher. Une seule chose oubliée sous l'établi : un pot de grès à moitié plein de poudre blanche, avec l'étiquette de la Maison des Sels.",
+      "Tu forces la petite porte de derrière d'un coup d'épaule, comme à vingt ans, et ton épaule te rappelle aussitôt que tu en as cinquante et un. Dedans, des tiroirs vidés, des bocaux renversés, tout le désordre d'un lieu qu'on a quitté en regardant derrière soi. Dans la cheminée, des papiers brûlés, encore tièdes au toucher. Une seule chose oubliée sous l'établi : un pot de grès à moitié plein de poudre blanche, avec l'étiquette de la Maison des Sels.",
     ],
     choices: [{ label: "Emporter le pot, et partir", fx: { flag: "preuve:pot_leonce", clock: { preuves: 1 } }, to: "S2_suite" }] },
   S2_leonce_guet: { act: "II", title: "Les scellés", place: "sels", ambiance: "ville",
@@ -126,7 +126,7 @@ module.exports = {
     choices: [{ label: "Repartir", to: "S2_suite" }] },
   S2_leonce_boutique: { act: "II", title: "L'apothicairerie", place: "sels", ambiance: "ville",
     text: [
-      "L'apothicairerie de Léonce Brisard est une longue boutique fraîche sous les arcades de la Maison des Sels. Tu en fais l'inventaire d'un coup d'œil : trois rangées de bocaux étiquetés à la main, deux balances, dont une de précision sous globe, et une odeur de camphre. Léonce est derrière son comptoir, sans masque, en train de peser quelque chose avec des gestes de dentellière.",
+      "L'apothicairerie de Léonce Brisard est une longue boutique fraîche sous les arcades de la Maison des Sels. Tu en fais l'inventaire d'un coup d'œil : trois rangées de bocaux étiquetés à la main, deux balances, dont une de précision sous globe, et une odeur de camphre. Tout y est net, rangé, aligné ; c'est la boutique d'un homme qui dort bien, ou qui s'y applique. Léonce est derrière son comptoir, sans masque, en train de peser quelque chose avec des gestes de dentellière.",
       "Il lève les yeux. Il reconnaît ton bec de cuir, ou ta façon de te tenir. « Maître Aldric. » Il pose sa balance. « Vous venez acheter, ou vous venez voir ? »",
       "Il a peur. Ses doigts le disent : ils cherchent quelque chose à tenir et passent de la balance à l'encrier, puis de l'encrier au bord du comptoir.",
     ],
@@ -182,7 +182,7 @@ module.exports = {
   // ---------------------------------------------------------------- the palace kitchen
   S2_cuisine: { act: "II", title: "Les cuisines du palais", place: "palais", ambiance: "chateau",
     text: [
-      "Les cuisines du palais sont en sous-sol, au ras de l'eau, avec une porte qui ouvre directement sur le canal : la porte de l'eau, celle des livreurs. Sur la marche, l'eau a laissé quatre lignes vertes, une par marée d'équinoxe. Le cuisinier, maître Aubin, porte un masque de bœuf et pleure dedans. Il a servi la Doyenne trente ans.",
+      "Les cuisines du palais sont en sous-sol, au ras de l'eau, sous des voûtes basses que la fumée a vernies de noir ; une porte y ouvre directement sur le canal : la porte de l'eau, celle des livreurs. Sur la marche, l'eau a laissé quatre lignes vertes, une par marée d'équinoxe. Le cuisinier, maître Aubin, porte un masque de bœuf et pleure dedans. Il a servi la Doyenne trente ans.",
       { if: { has: "pot=garde" }, text: "« Le sel ? La capitaine est venue ce matin avec la secrétaire. Elles ont tout pris. Le pot du lundi, le pot d'avant, les registres de livraison. » Il se mouche. « Elles avaient des têtes de gens qui ont trouvé quelque chose. »" },
       { if: { not: { has: "pot=garde" } }, text: "« Le sel de madame ? Il arrivait le lundi, de la Maison des Sels, dans un pot scellé. Personne n'y touchait, à part la petite Nella pour remplir la salière. » Il ouvre un placard. Un pot de grès, encore aux trois quarts plein, avec le cachet de cire de la Maison des Sels brisé. « Celui de cette semaine. Il est arrivé jeudi, pas lundi. Je me suis dit qu'ils avaient changé de jour. »" },
     ],
@@ -201,8 +201,8 @@ module.exports = {
   S2_anselme: { act: "II", title: "La sacristie", place: "temple", ambiance: "temple",
     fx: { meet: "anselme" },
     text: [
-      "Le père Anselme t'attend dans la sacristie, à visage nu : un Grand Prêtre se passe de masque, la Marée le voit tel qu'il est. Il a fait servir du vin d'orange et te sert lui-même, d'une main qui mesure exactement deux doigts.",
-      "« Sévan. Il y aura un Doyen après-demain. Si c'est Morvan, il nous mangera. Si c'est la nièce, elle nous ignorera, comme sa tante. Le Temple a six sièges, et une clef. Avec la clef, on peut ouvrir le coffre, ou le garder fermé. Ça vaut beaucoup de voix, un coffre. »",
+      "Le père Anselme t'attend dans la sacristie, à visage nu : un Grand Prêtre se passe de masque, la Marée le voit tel qu'il est. Il a fait servir du vin d'orange et te sert lui-même, d'une main qui mesure exactement deux doigts ; la charité du Temple a toujours su compter.",
+      "« Sévan. Il y aura un Doyen après-demain. Si c'est Morvan, il nous mangera, et sans dire le bénédicité. Si c'est la nièce, elle nous ignorera, comme sa tante, qui a ignoré le Temple toute sa vie avec une constance digne d'une meilleure cause. Le Temple a six sièges, et une clef. Avec la clef, on peut ouvrir le coffre, ou le garder fermé. Ça vaut beaucoup de voix, un coffre. »",
       "Il tend la main, paume ouverte. « La clef de fer appartient au Temple. Rends-la au Temple. »",
       { if: { has: "anselme:menti" }, text: "Il ajoute, très doucement : « Hier, tu m'as dit que tu n'en savais rien. Je te pardonne. Rends-la. »" },
     ],
@@ -253,7 +253,7 @@ module.exports = {
       "Tu lui dis tout. Le poison lent. Le sel. Les ongles. Et la nuit, le pavot.",
       { if: { has: "pavot=donne" }, text: "« Elle me l'a demandé. Je l'ai préparé. J'ai compté jusqu'à quatre-vingts. »" },
       { if: { has: "pavot=pris" }, text: "« Elle me l'a demandé. J'ai refusé. Je me suis endormi. Elle l'a pris dans ma sacoche. C'était ma fiole, et c'est moi qui ai dormi. »" },
-      "Ysabeau Dorne pose sa plume. Elle regarde par la fenêtre la digue des Pendus et ses poteaux noirs.",
+      "Ysabeau Dorne pose sa plume. Elle regarde par la fenêtre la digue des Pendus et ses poteaux noirs, longuement, comme d'autres consultent un code.",
       "« La loi d'Escalombre ne connaît pas votre cas, maître. Elle connaît l'empoisonneur, et elle connaît le médecin. Pas le médecin qui fait ce que vous avez fait. » Elle se tourne vers toi. « Je ne vous arrête pas. Vous direz ça au Conseil, demain soir, vous-même. Si vous ne le dites pas, c'est moi qui le dirai. »",
     ],
     choices: [{ label: "Repartir", to: "S2_suite" }] },
@@ -269,9 +269,9 @@ module.exports = {
     fx: { until: 21 },
     text: [
       "Le soleil s'est couché sur les Passes. Les masques tombent dans toute la ville en même temps, et pendant une minute, sur les canaux, monte un grand soupir de soulagement, comme d'un seul visage.",
-      "Tu rentres à l'hospice. Ta chambre est telle que tu l'as laissée : le lit fait au carré, les livres en pile, la bourse de Morvan à la même place.",
+      "Tu rentres à l'hospice. Ta chambre est telle que tu l'as laissée : le lit fait au carré, les livres en pile, la bourse de Morvan à la même place, patiente comme tout ce qui vient de lui.",
       { if: { has: "sevan:ecuelle" }, text: "Tu verses la soupe de Nella dans un bol de verre et tu y plonges une lame d'argent. La lame noircit en trois minutes, du bout vers le manche. Quelqu'un, au Guet ou au-dehors, voulait qu'une servante meure de fièvre." },
-      { if: { any: [{ has: "leonce=avoue" }, { has: "leonce=alerte" }, { has: "leonce=garde" }] }, text: "Vers dix heures, tu entends des rames sous ta fenêtre. Trois hommes descendent d'une barque sans lanterne, au ras de l'eau, au pied du mur de l'hospice. Tu reconnais les manteaux de la Maison des Sels." },
+      { if: { any: [{ has: "leonce=avoue" }, { has: "leonce=alerte" }, { has: "leonce=garde" }] }, text: "Vers dix heures, tu entends des rames sous ta fenêtre : un bruit étouffé, prudent, de rames qu'on a garnies de chiffons. Trois hommes descendent d'une barque sans lanterne, au ras de l'eau, au pied du mur de l'hospice. Tu reconnais les manteaux de la Maison des Sels." },
     ],
     choices: [
       { label: "Les attendre derrière ta porte, avec un tisonnier", if: { any: [{ has: "leonce=avoue" }, { has: "leonce=alerte" }, { has: "leonce=garde" }] }, to: "S2_nuit_combat" },
@@ -311,7 +311,7 @@ module.exports = {
     choices: [FIN] },
   S2_nuit_calme: { act: "II", title: "Le sommeil", place: "temple",
     text: [
-      "Le sommeil te fuit. Tu restes allongé, les yeux ouverts, à compter les cloches. À trois heures, tu te lèves et tu écris, pour personne, tout ce que tu sais. Puis tu plies la feuille et tu la ranges avec la clef.",
+      "Le sommeil te fuit. Tu restes allongé, les yeux ouverts, à compter les cloches ; entre deux cloches la maison craque, l'eau travaille contre le mur, et chaque bruit prend à son tour la forme d'un pas. À trois heures, tu te lèves et tu écris, pour personne, tout ce que tu sais. Puis tu plies la feuille et tu la ranges avec la clef.",
       "Demain soir, la Nuit des Lanternes.",
     ],
     choices: [FIN] },
@@ -320,7 +320,7 @@ module.exports = {
   S2T_cellule: { act: "II", title: "En retraite", place: "temple", ambiance: "temple",
     text: [
       "On t'a donné une cellule de novice au-dessus du cloître : un lit, une cruche, et une fenêtre grillagée de quatre barreaux qui donne sur la coupole verte. Un frère convers garde la porte. Il s'appelle Gildas, il a vingt ans, et il t'apporte ton pain en s'excusant.",
-      "Tu es en retraite. C'est le mot du Grand Prêtre. Une retraite, au Temple de la Marée, est une prison dont la porte reste ouverte et que garde la seule obéissance.",
+      "Tu es en retraite. C'est le mot du Grand Prêtre. Une retraite, au Temple de la Marée, est une prison dont la porte reste ouverte et que garde la seule obéissance ; c'est la moins coûteuse des geôles, et le Temple, bon ménager, s'en est toujours contenté.",
       "À neuf heures, le père Anselme entre et s'assied sur ton lit.",
     ],
     choices: [{ label: "L'écouter", to: "S2T_anselme" }] },
@@ -340,7 +340,7 @@ module.exports = {
       "Tu défais l'ourlet de ta robe, là où tu l'avais cousue. Anselme prend la clef comme on reçoit une hostie.",
       "« Tu as bien fait, mon fils. » Il se lève. « Repose-toi. Demain soir, tu viendras avec moi au Conseil, et tu diras ce que je te dirai de dire. »",
       "Il sort. Gildas referme la porte, sans la verrouiller. L'obéissance suffit, désormais.",
-      "Tu passes la journée à regarder la coupole verte par la grille. Les masques défilent sur le canal en contrebas. Tu penses à une servante en cellule, et à une vieille femme qui t'a dit : *protège-la*.",
+      "Tu passes la journée à regarder la coupole verte par la grille. Les masques défilent sur le canal en contrebas, et leurs rires montent jusqu'à toi, amortis, comme d'un monde où tu aurais vécu autrefois. Tu penses à une servante en cellule, et à une vieille femme qui t'a dit : *protège-la*.",
     ],
     choices: [
       { label: "Écrire une lettre à Nella, et la confier à Gildas", to: "S2T_lettre" },
@@ -357,7 +357,7 @@ module.exports = {
     text: [
       "« Non, mon père. »",
       "Anselme te regarde longtemps. Puis il se lève et va à la porte. « Gildas. Personne n'entre, personne ne sort. Il prie. » Il se retourne. « Tu as jusqu'à demain soir pour changer d'avis, Sévan. Après, le Temple dira au Conseil ce que tu as fait cette nuit-là. Avec tes mots. Je les ai gardés. »",
-      "La porte se referme. Cette fois, tu entends la clef tourner deux fois.",
+      "La porte se referme. Cette fois, tu entends la clef tourner deux fois, lentement, avec l'application d'une main qui veut être entendue.",
     ],
     choices: [
       { label: "Parler à Gildas à travers la porte", test: { dom: "social", diff: 0, label: "Social" },

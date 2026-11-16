@@ -8,7 +8,7 @@ module.exports = {
   O1_bureau: { act: "I", title: "Le cabinet de la Doyenne", place: "palais", ambiance: "chateau",
     fx: { meet: "renaud" },
     text: [
-      "Tu as passé la journée dans le cabinet d'Ermesinde, porte fermée, à faire ce que tu fais depuis douze ans : trier. Les lettres à répondre, les lettres à brûler, les lettres à garder. Trois tas sur la table, et le troisième est toujours le plus mince. Ta tante est morte cette nuit ; le courrier continue d'arriver à la même cadence.",
+      "Tu as passé la journée dans le cabinet d'Ermesinde, porte fermée, à faire ce que tu fais depuis douze ans : trier. Les lettres à répondre, les lettres à brûler, les lettres à garder. Trois tas sur la table, et le troisième est toujours le plus mince. Ta tante est morte cette nuit ; le courrier continue d'arriver à la même cadence, avec des condoléances en tête et la même demande en bas de page.",
       "Tu as trente-quatre ans. Tu es sa nièce, la fille de son frère mort, et sa secrétaire. Tu as écrit sous sa dictée quelque vingt mille lettres, à raison de cinq par jour ouvrable. Tu connais sa façon de raturer, ses tics de syntaxe, les mots qu'elle bannissait. Personne ne la connaissait mieux que toi. Entre vous deux, le mot « aimer » est resté au fond de l'encrier, des deux côtés.",
       "La clef d'argent du coffre pend à une chaîne sous ton col. Tu la sens chaque fois que tu te penches sur la table.",
       "Cinq heures sonnent. La porte s'ouvre sans qu'on frappe : c'est Renaud, ton mari, en habit de conseiller, le sourire déjà en place. « Morvan t'attend dans la salle des Cartes. Avant la séance. Il dit que c'est important. »",
@@ -37,7 +37,7 @@ module.exports = {
     choices: [{ back: "O1_bureau" }] },
   O1_renaud: { act: "I", title: "Renaud", place: "palais",
     text: [
-      "Renaud de Querelle est beau, aimable, et conseiller des Lanternes par héritage. Vous êtes mariés depuis neuf ans. Il te fait rire quand il est heureux. Depuis un an, il dort mal.",
+      "Renaud de Querelle est beau, aimable, et conseiller des Lanternes par héritage : trois qualités qui dispensent d'ordinaire d'en acquérir une quatrième. Vous êtes mariés depuis neuf ans. Il te fait rire quand il est heureux. Depuis un an, il dort mal.",
       "« Je ne fais les commissions de personne. Morvan m'a croisé dans la galerie, c'est tout. » Il ajuste ses manchettes. Il les ajuste toujours quand il ment.",
     ],
     choices: [
@@ -61,7 +61,7 @@ module.exports = {
   O1_morvan: { act: "I", title: "La salle des Cartes", place: "palais",
     fx: { meet: "morvan" },
     text: [
-      "La salle des Cartes est une longue pièce dont les murs portent la lagune entière : chaque île, chaque canal, chaque banc de sable, peints il y a deux cents ans et restés tels depuis. Trois bancs ont disparu depuis sous la marée, et deux autres sont nés, que la carte ignore. Hugues Morvan se tient devant la carte des Passes, les mains dans le dos.",
+      "La salle des Cartes est une longue pièce dont les murs portent la lagune entière : chaque île, chaque canal, chaque banc de sable, peints il y a deux cents ans et restés tels depuis. Trois bancs ont disparu depuis sous la marée, et deux autres sont nés, que la carte ignore ; le Conseil gouverne d'après la carte, ce qui explique bien des naufrages. Hugues Morvan se tient devant la carte des Passes, les mains dans le dos.",
       "« Madame. Mes condoléances. Vraiment. » Il le dit bien ; Morvan sait dire les choses. « Je vais être bref, parce que nous avons peu de temps. Le Conseil élira quelqu'un dans deux nuits. Si c'est moi, la moitié de la ville me haïra. Si c'est le père Anselme, nous serons gouvernés par des sermons. Si c'est vous, la ville pleurera sa Doyenne en applaudissant sa nièce. »",
       "« Mes quatorze sièges sont à vous. Avec vos amis des vieilles maisons, vous passez au premier tour. En échange, deux petites choses. Le coffre reste fermé jusqu'après les lanternes : les testaments de mourants sont des humeurs, et la ville n'a pas besoin d'humeurs cette semaine. Et vous me confiez votre clef, en gage, jusqu'à l'élection. »",
     ],
@@ -86,13 +86,13 @@ module.exports = {
   O1_seance: { act: "I", title: "Le Conseil des Lanternes", place: "palais",
     fx: { meet: ["helis", "anselme", "ysabeau"], until: 19 },
     text: [
-      "La salle du Conseil est ronde, sous une coupole de verre. Quarante fauteuils s'étagent en gradins, chacun avec sa lanterne éteinte, qu'on allumera la troisième nuit. Au centre, le fauteuil de la Doyenne reste vide, un crêpe noir sur le dossier. Tu es assise au premier rang, à ta place de secrétaire, la plume à la main, comme toujours.",
-      "Dame Hélis Arnaud préside. Elle a soixante-quinze ans, des tresses blanches, et une voix qui reste basse et qu'on entend jusqu'au dernier rang. Elle ouvre la séance par le règlement : le siège est vide ; on élira la troisième nuit, avant le reflux ; et la loi veut que le testament d'un Doyen soit lu avant les lanternes, tiré du coffre aux trois serrures.",
+      "La salle du Conseil est ronde, sous une coupole de verre où le soir met un ciel couleur d'encre. Quarante fauteuils s'étagent en gradins, chacun avec sa lanterne éteinte, qu'on allumera la troisième nuit. Au centre, le fauteuil de la Doyenne reste vide, un crêpe noir sur le dossier ; quarante regards l'évitent avec soin et y reviennent sans cesse. Tu es assise au premier rang, à ta place de secrétaire, la plume à la main, comme toujours.",
+      "Dame Hélis Arnaud préside. Elle a soixante-quinze ans, des tresses blanches, et une voix qui reste basse et qu'on entend jusqu'au dernier rang ; elle sait le règlement comme d'autres savent leurs péchés, et le cite plus volontiers. Elle ouvre la séance par le règlement : le siège est vide ; on élira la troisième nuit, avant le reflux ; et la loi veut que le testament d'un Doyen soit lu avant les lanternes, tiré du coffre aux trois serrures.",
       "Puis on lit le rapport du médecin.",
       { if: R("naturelle"), text: "Ysabeau Dorne le lit d'une voix neutre. *Morte de la maladie de langueur qui la minait depuis l'automne. Dans le sommeil, sans souffrance.* Un murmure de soulagement. Au troisième rang, Morvan fronce les sourcils, un seul instant. Tu le vois parce que tu regardes toujours les gens qui écoutent." },
       { if: R("poison"), text: "Ysabeau Dorne le lit d'une voix neutre. *Empoisonnée. Une poudre d'arsenic, chaque jour, depuis l'automne, dans ce qu'elle mangeait.* La salle se lève à moitié. Puis la capitaine annonce que la servante qui portait les plateaux a été arrêtée, et la salle se rassoit, comme une marmite dont on remet le couvercle." },
       { if: R("temple"), text: "C'est le père Anselme qui se lève. *Le Temple de la Marée a recueilli le témoignage de son médecin. La Doyenne a été rappelée à la Marée. Les causes de sa mort seront dites en temps voulu, quand le Temple aura achevé son examen.* Hélis Arnaud demande où est le médecin. « En retraite, dans nos murs. Il prie. » Tu notes : *en retraite*. Tu notes aussi le sourire d'Anselme quand il se rassoit." },
-      { if: R("public"), text: "Ysabeau Dorne le lit debout, et la coupole elle-même semble retenir son souffle. *Empoisonnée, depuis l'automne, par une poudre d'arsenic dans son sel.* Puis : *Cette nuit, à sa demande, la Doyenne a reçu de moi une dose de lait de pavot dont elle ne s'est pas réveillée.* Quelqu'un crie « Assassin ! » au fond. La capitaine annonce que maître Aldric est à la Tour du Guet et qu'il s'est livré lui-même. Morvan garde le silence. Il regarde ses mains." },
+      { if: R("public"), text: "Ysabeau Dorne le lit debout, et la coupole elle-même semble retenir son souffle. *Empoisonnée, depuis l'automne, par une poudre d'arsenic dans son sel.* Puis : *Cette nuit, à sa demande, la Doyenne a reçu de moi une dose de lait de pavot dont elle ne s'est pas réveillée.* Quelqu'un crie « Assassin ! » au fond. La capitaine annonce que maître Aldric est à la Tour du Guet et qu'il s'est livré lui-même. Morvan se tait. Il regarde ses mains." },
       { if: { all: [PRISON, { not: R("poison") }] }, text: "La capitaine ajoute qu'une servante, Nella Ferrant, est retenue à la Tour du Guet pour ses réponses : elle portait le sel." },
       { if: { all: [LIBRE, { has: "canal:attaque" }] }, text: "La capitaine ajoute, les mâchoires serrées, que la servante qui portait le sel a été arrachée à la barque de la prison, à une heure, sous le pont des Sels, par des gens de Bas-Port. Deux gardes sont blessés. La salle gronde. Morvan dit : « Voilà ce que nous coûte la faiblesse. »" },
       { if: { all: [LIBRE, { not: { has: "canal:attaque" } }] }, text: "La capitaine ajoute que la servante qui portait le sel s'est enfuie du palais ce matin, avant qu'on l'interroge. « Une innocente ne s'enfuit pas », dit Morvan, doucement. La salle hoche la tête." },
@@ -122,7 +122,7 @@ module.exports = {
     fx: { regard: { morvan: "allie", helis: "distant" }, clock: { voix: 14 } },
     text: [
       "Tu annonces ta candidature. Tu dis que la ville a besoin de continuité, et que la Maison des Sels t'a fait l'honneur de son soutien. Tu dis que le coffre sera ouvert, bien sûr, après les lanternes, quand la ville aura retrouvé son calme.",
-      "Les quatorze sièges de Morvan applaudissent ensemble, comme une seule main. Les vieilles maisons hésitent, puis applaudissent aussi, plus mollement. Hélis Arnaud te regarde longtemps par-dessus ses lunettes et note quelque chose.",
+      "Les quatorze sièges de Morvan applaudissent ensemble, comme une seule main ; c'est du reste ce qu'ils sont. Les vieilles maisons hésitent, puis applaudissent aussi, plus mollement. Hélis Arnaud te regarde longtemps par-dessus ses lunettes et note quelque chose.",
       "Après la séance, dans la galerie, Morvan te rejoint. « Bien parlé. » Il tend la main, paume ouverte. « La clef, madame. Comme convenu. »",
     ],
     choices: [
@@ -147,7 +147,7 @@ module.exports = {
     fx: { regard: { morvan: "hostile", helis: "curieux" }, clock: { voix: 8 } },
     text: [
       "Tu annonces ta candidature. Tu dis que tu te présentes seule, et que tu demanderas des soutiens après avoir lu, avec eux, ce que la Doyenne a laissé. Le coffre s'ouvrira avant les lanternes. C'est la loi. Tu la cites de mémoire, article et alinéa.",
-      "Un silence. Puis huit fauteuils applaudissent : les vieilles maisons qui ont connu ton père. Les quatorze de Morvan croisent les bras. Le Temple attend de voir d'où souffle le vent.",
+      "Un silence. Puis huit fauteuils applaudissent : les vieilles maisons qui ont connu ton père. Les quatorze de Morvan croisent les bras. Le Temple attend de voir d'où souffle le vent, exercice où il a une longue pratique.",
       "Huit voix. Il en faut vingt et une. Tu as deux jours, et tu sais compter.",
       "Dans la galerie, après la séance, Morvan passe près de toi sans s'arrêter. « Dommage », dit-il, à la cantonade.",
     ],
@@ -166,8 +166,8 @@ module.exports = {
   // ---------------------------------------------------------------- the night
   O1_nuit: { act: "I", title: "Onze heures", place: "palais", fx: { until: 23 },
     text: [
-      "La séance est levée à dix heures et demie. Les conseillers rentrent chez eux en barque, sous les lanternes de la fête. La musique de Bas-Port arrive par bouffées sur l'eau.",
-      { if: { has: "basport=agite" }, text: "Du côté de la digue des Pendus brille une ligne de lumières immobiles : les barques de Bas-Port, à l'ancre, qui attendent." },
+      "La séance est levée à dix heures et demie. Les conseillers rentrent chez eux en barque, sous les lanternes de la fête, chacun avec son rameur, son manteau et son opinion de rechange. La musique de Bas-Port arrive par bouffées sur l'eau.",
+      { if: { has: "basport=agite" }, text: "Du côté de la digue des Pendus brille une ligne de lumières immobiles : les barques de Bas-Port, à l'ancre, qui attendent. Elles attendent en silence, et ce silence de deux cents barques s'entend de plus loin que la musique." },
       "Tu as la fatigue d'une nuit blanche, et c'est la deuxième.",
     ],
     choices: [
@@ -177,7 +177,7 @@ module.exports = {
   O1_tour: { act: "I", title: "La cellule", place: "tour",
     fx: { meet: "nella" },
     text: [
-      "La capitaine Dorne te laisse entrer parce que tu es la secrétaire de la Doyenne et qu'il est trop tard pour discuter. La cellule est au deuxième étage, propre, avec une fenêtre sur la lagune. Nella est assise sur le lit, les genoux contre la poitrine.",
+      "La capitaine Dorne te laisse entrer parce que tu es la secrétaire de la Doyenne et qu'il est trop tard pour discuter. L'escalier de la Tour tourne sur lui-même entre deux murs qui suintent ; à chaque palier, une porte ferrée, et derrière chaque porte, quelqu'un qui écoute monter ton pas. La cellule est au deuxième étage, propre, avec une fenêtre sur la lagune. Nella est assise sur le lit, les genoux contre la poitrine.",
       "Elle se lève quand tu entres. Elle te connaît : elle a servi ton thé cent fois, et pendant ces cent fois tu as regardé ta tasse.",
       "Tu la regardes maintenant. Dix-neuf ans, des tresses noires, des taches de son. Des yeux gris, très clairs, qui soutiennent les tiens. Tu as vu ce gris-là toute ta vie, chaque matin, au-dessus d'une table de travail.",
     ],
@@ -202,8 +202,8 @@ module.exports = {
     choices: [{ label: "Partir", fx: { clue: "leonce_cuisine" }, to: "O1_saules" }] },
   O1_saules: { act: "I", title: "Le quai des Saules", place: "saules",
     text: [
-      "La maison du quai des Saules est fraîche et sombre, avec son jardin clos et son vieux saule qui trempe ses branches dans le canal. Ta tante y est née. Tu y vis depuis ton mariage.",
-      { if: { has: "renaud=aveu" }, text: "Renaud t'attend dans la chambre, assis sur le lit, en chemise. Il garde le silence ; toi aussi. Tu t'allonges à côté de lui. Il prend ta main dans le noir, et vous restez ainsi, avec trois mille ducats entre vous." },
+      "La maison du quai des Saules est fraîche et sombre, avec son jardin clos et son vieux saule qui trempe ses branches dans le canal. Ta tante y est née. Tu y vis depuis ton mariage ; et ce soir, pour la première fois, chaque marche de l'escalier craque comme sous un pas qui précéderait le tien.",
+      { if: { has: "renaud=aveu" }, text: "Renaud t'attend dans la chambre, assis sur le lit, en chemise. Il se tait ; toi aussi. Tu t'allonges à côté de lui. Il prend ta main dans le noir, et vous restez ainsi, avec trois mille ducats entre vous." },
       { if: { not: { has: "renaud=aveu" } }, text: "Renaud dort déjà, ou fait semblant. Il a laissé sa veste sur une chaise. En la rangeant, tu sens dans la poche un papier plié. Tu le remets tel quel." },
       { if: { has: "clef1=morvan" }, text: "Tu passes la main à ton cou, par habitude. Tes doigts trouvent la peau nue." },
       { if: { has: "clef1=oriane" }, text: "Tu glisses la clef d'argent sous ton oreiller, comme une petite fille, et tu t'en veux de le faire." },
