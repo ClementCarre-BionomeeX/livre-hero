@@ -184,7 +184,7 @@ module.exports = {
 
   E2_heraut: P({ title: "Le héraut", place: null,
     text: [
-      "Sur la place d'un bourg, un héraut aux couleurs de la Chancellerie lit une liste, debout sur une charrette. Une liste de noms : des villages.",
+      "Sur la place d'un bourg, un héraut aux couleurs de la Chancellerie lit une liste, debout sur une charrette, de la voix égale dont on annonce le prix du sel. Une liste de noms : des villages.",
       "« Rayés du rôle du royaume, pour cause de dépeuplement : Ormeaux. Les Granges-Hautes. Saint-Vincent-du-Gué. Mallefosse. Par ordre du Greffier-Majeur, ces lieux sont déchargés de la taille, de la levée des hommes et de l'accueil des cloches. »",
       "Les gens écoutent sans comprendre. Ces villages sont des inconnus pour tout le bourg. C'est bien le problème.",
     ],

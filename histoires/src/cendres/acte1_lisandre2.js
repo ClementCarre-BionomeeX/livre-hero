@@ -9,7 +9,7 @@ module.exports = {
   LI_k_nursery: P({ title: "La chambre de l'aile est",
     text: [
       "Au bout de l'aile est, après la galerie des portraits, il y a une porte que tu as toujours vue fermée, la seule de l'aile avec un verrou de cuivre. Ce matin, elle est ouverte. Une vieille femme en coiffe noire, un plumeau à la main, époussette une pièce interdite à tous. Elle te voit. Elle laisse la porte ouverte.",
-      "Une chambre d'enfant. Un berceau de noyer, sculpté de cerfs et de colombes. Un cheval de bois, à bascule, qui a perdu sa crinière. Une petite épée de parade, accrochée trop haut pour qu'un enfant l'atteigne. Tout est propre. Tout brille. La poussière a été chassée jusqu'au dernier grain, et le silence règne.",
+      "Une chambre d'enfant. Un berceau de noyer, sculpté de cerfs et de colombes. Un cheval de bois, à bascule, qui a perdu sa crinière. Une petite épée de parade, accrochée trop haut pour qu'un enfant l'atteigne. Tout est propre. Tout brille. La poussière a été chassée jusqu'au dernier grain ; et cette netteté, dans une chambre où rien ne bouge, serre le cœur plus sûrement que des toiles d'araignée.",
       "« Sa Majesté l'a fait fermer, dit la vieille. Il y a deux ans. Ses visites ont cessé, ses questions aussi. Moi, je viens. Tous les matins. » Elle passe le plumeau sur le cheval de bois. « Il faut bien que quelqu'un vienne. »",
     ],
     choices: [

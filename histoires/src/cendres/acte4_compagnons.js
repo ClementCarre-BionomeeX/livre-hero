@@ -8,7 +8,7 @@ module.exports = {
   IV_C_ysolde: P({ title: "La crypte de Brenne", place: "brenne",
     fx: { questSeen: "IV_C_ysolde" },
     text: [
-      "La nuit, Ysolde prend une lanterne et descend sous le fort. Elle te fait signe de la suivre. Un escalier taillé dans le rocher, trente marches suintantes, une porte de chêne bardée de fer, une crypte basse où dorment les seigneurs de Brenne, couchés sur leurs tombeaux, les mains jointes sur leurs épées de pierre.",
+      "La nuit, Ysolde prend une lanterne et descend sous le fort. Elle te fait signe de la suivre. Un escalier taillé dans le rocher, trente marches suintantes, une porte de chêne bardée de fer, puis une crypte basse où l'air garde le froid immobile des caves et l'odeur fade de la pierre mouillée. Les seigneurs de Brenne dorment là, couchés sur leurs tombeaux, les mains jointes sur leurs épées de pierre ; la lanterne, en passant, prête à chacun un instant de visage, puis le lui reprend.",
       "« Je venais ici enfant, dit-elle. Mon père m'apprenait leurs noms. Tous ont le loup sur la tour. » Elle lève la lanterne vers le fond. « Sauf le premier. Son écu est lisse. On disait qu'il avait été effacé par l'humidité. »",
       "Le premier tombeau. Un jeune homme, maigre, le visage d'un garçon. Sur son écu de pierre, une surface polie, trop polie, plus claire d'un ton que le reste du tombeau.",
     ],

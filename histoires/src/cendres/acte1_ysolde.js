@@ -131,7 +131,7 @@ module.exports = {
   YS_archives: { act: "I", title: "Les archives du fort", place: "brenne",
     fx: { questSeen: "YS_trou" },
     text: [
-      "Sous la tour du Loup, une salle voûtée qui sent le salpêtre : les registres du fort depuis sa fondation, rangés sur des étagères de chêne noir, soixante-dix volumes, deux siècles de rondes et de rations. Les tiens sont sur la dernière, cinq gros volumes reliés de veau, remplis de ton écriture droite et serrée. Les rondes, les rations, les chevaux ferrés, les déserteurs, les morts. Et la couleur du ciel, les jours de bataille.",
+      "Sous la tour du Loup, une salle voûtée qui sent le salpêtre : les registres du fort depuis sa fondation, rangés sur des étagères de chêne noir, soixante-dix volumes, deux siècles de rondes et de rations. La chandelle y brûle bas, comme si l'air lui-même avait été consigné avec le reste. Les tiens sont sur la dernière étagère, cinq gros volumes reliés de veau, remplis de ton écriture droite et serrée. Les rondes, les rations, les chevaux ferrés, les déserteurs, les morts. Et la couleur du ciel, les jours de bataille.",
       { after: "gautier:refuse", text: "Gautier a raison." },
       "Le registre de l'an de la paix. Brumaire. Tu tournes les pages. Le treize : *ciel bas, pluie fine, l'ennemi masse ses gens sur la rive est.* Le quinze : *ciel clair. Quarante-trois hommes valides. Trois blessés. Paix signée à Varre.*",
       "Entre les deux, le quatorze manque. Tu passes l'ongle dans la reliure et tu trouves le talon de la page : coupé au rasoir, à un cheveu du fil, par une main sûre d'elle. Il fallait le chercher pour le voir.",
@@ -162,7 +162,7 @@ module.exports = {
   YS_chambre: { act: "I", title: "La chambre des hôtes", place: "brenne",
     fx: { flag: "YS:chambre" },
     text: [
-      "La chambre des hôtes est au-dessus de la porte, une pièce étroite de huit pieds sur douze avec un lit, un coffre, une fenêtre sur la route. Sévrin a allumé un feu, en juillet, avec une brassée de bûches de chêne prise sur la réserve d'hiver. La pièce est une étuve. Sa sacoche est posée sur le lit, ouverte. Il n'en a sorti qu'un carnet gris et un étui à plumes. Le reste est encore dedans, enveloppé dans un linge noir.",
+      "La chambre des hôtes est au-dessus de la porte, une pièce étroite de huit pieds sur douze avec un lit, un coffre, une fenêtre sur la route. Sévrin a allumé un feu, en juillet, avec une brassée de bûches de chêne prise sur la réserve d'hiver : la Chancellerie se sert d'abord et inscrit ensuite. La pièce est une étuve. Sa sacoche est posée sur le lit, ouverte. Il n'en a sorti qu'un carnet gris et un étui à plumes. Le reste est encore dedans, enveloppé dans un linge noir.",
       "Tu as le temps d'un chapelet. Le temps qu'il revienne des latrines, au bout du chemin de ronde.",
     ],
     choices: [
@@ -186,7 +186,7 @@ module.exports = {
   YS_reliquaire: { act: "I", title: "Le linge noir", place: "brenne",
     text: [
       "Sous le linge noir, une boîte de plomb grande comme la main, scellée de cire noire, plume et clé croisées. Elle est froide, si froide que tes doigts collent au métal. Tu la soulèves, et ta main, qui a pesé toute sa vie des fers et des boulets, te donne une réponse absurde : le double de ce que pèse le plomb.",
-      "Et elle chuchote. Tu approches l'oreille, malgré toi. Ce sont des voix, très loin, très faibles, des centaines, qui disent toutes quelque chose en même temps. Des noms. Tu crois en reconnaître un, au milieu des autres, et ton cœur s'arrête : *Bruyère.* Le nom de ta jument, morte sous toi à Corvanne.",
+      "Et elle chuchote. Tu approches l'oreille, malgré toi, avec cette curiosité que l'effroi traîne après lui comme un chien. Ce sont des voix, très loin, très faibles, des centaines, qui disent toutes quelque chose en même temps. Des noms. Tu crois en reconnaître un, au milieu des autres, et ton cœur s'arrête : *Bruyère.* Le nom de ta jument, morte sous toi à Corvanne.",
       "Non. Tu as dû rêver. Tu reposes la boîte, tu remets le linge. Tes doigts sont blancs de froid jusqu'aux phalanges.",
     ],
     choices: [{ label: "Sortir avant qu'il revienne", back: "YS_cour" }] },
@@ -216,7 +216,7 @@ module.exports = {
   YS_hautvent: { act: "I", title: "Hautvent, à l'aube", place: "hautvent",
     fx: { meet: ["maelle"], questSeen: "YS_thibaut", until: 5 },
     text: [
-      "Vous arrivez à Hautvent avant l'aube, au pas, sans torches. Le village dort dans un repli de la Lisse, quarante maisons basses aux toits de lauze, les métiers à tisser silencieux sous les auvents, une chaîne de laine encore tendue sur chacun. Le linge sèche entre les maisons. Un chien aboie, puis se tait.",
+      "Vous arrivez à Hautvent avant l'aube, au pas, sans torches. Le village dort dans un repli de la Lisse, quarante maisons basses aux toits de lauze, les métiers à tisser silencieux sous les auvents, une chaîne de laine encore tendue sur chacun. Le linge sèche entre les maisons. Un chien aboie, puis se tait, et tu aurais préféré qu'il continue.",
       "Tu as disposé tes hommes en cercle autour des dernières maisons, sur la berge, sur le chemin de Corvanne. Personne ne sortira. Frère Sévrin attend derrière toi, en selle, sa sacoche contre le ventre.",
       "Au milieu du village, devant la maison la plus grande, une femme est déjà debout, les bras croisés. La quarantaine, des cheveux gris tirés en arrière, un châle de laine écarlate, et des souliers déjà lacés pour la route. Elle te regarde venir. Elle savait : à Hautvent, les nouvelles traversent la Lisse plus vite que les ordres.",
       "« Capitaine de Brenne, dit-elle, en esquarrois, avec l'accent de l'autre rive. Je m'appelle Maëlle. Qu'est-ce que vous venez prendre, cette fois ? »",

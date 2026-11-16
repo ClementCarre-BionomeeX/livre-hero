@@ -33,7 +33,7 @@ module.exports = {
 
   III_c_ville: P({ title: "Bourdonne", place: "cloches", hub: true,
     text: [
-      { first: true, text: "Une ville de clochers. Rien que des clochers, serrés comme des arbres, de toutes les tailles, de toutes les époques, en pierre, en bois, en brique. Aucune maison : des rues entre les tours, pavées de blanc, et larges tout juste de deux charrettes. Et dans chaque tour, une cloche." },
+      { first: true, text: "Une ville de clochers. Rien que des clochers, serrés comme des arbres, de toutes les tailles, de toutes les époques, en pierre, en bois, en brique ; chacun a gardé l'aplomb, les lézardes et la mousse du pays qu'il a quitté, et leur réunion fait une ville comme un cimetière fait une assemblée. Aucune maison : des rues entre les tours, pavées de blanc, et larges tout juste de deux charrettes. Et dans chaque tour, une cloche." },
       "La plupart restent muettes. De temps en temps, quelque part, une cloche sonne un coup, deux, puis s'arrête. Le son traverse la ville, et les gens qui y vivent lèvent la tête pour savoir laquelle.",
       { if: { has: "iii:sonneuse" }, text: "La Sonneuse t'attend sur sa pierre, au milieu de la grand-place, son trousseau de clés de clocher sur les genoux." },
     ],

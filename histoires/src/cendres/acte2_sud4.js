@@ -127,7 +127,7 @@ module.exports = {
 
   II_S4_tour: P({ title: "La Tour des Archives", place: "vasselin",
     text: [
-      "On monte à pied. Deux cents marches, dans une tour carrée de trente pieds de côté, entre des étagères qui montent jusqu'aux voûtes, chargées de registres, la plupart reliés de veau fauve et datés au dos, siècle après siècle. Il fait de plus en plus froid. Aux paliers, les deux archivistes que Mordace a gardés, assis à leurs pupitres, écrivent sans lever la tête.",
+      "On monte à pied. Deux cents marches, dans une tour carrée de trente pieds de côté, entre des étagères qui montent jusqu'aux voûtes, chargées de registres, la plupart reliés de veau fauve et datés au dos, siècle après siècle. L'air se refroidit à chaque palier ; et les registres, au-dessus des têtes, ont la patience des choses où l'on finit toujours par être rangé. Aux paliers, les deux archivistes que Mordace a gardés, assis à leurs pupitres, écrivent sans lever la tête.",
       { if: { item: "plan_tour" }, text: "Tu reconnais tout : le palier de la serrure à trois pênes, le palier du chien, le palier où les Mouettes ont écrit *ne pas*. Le chien a disparu. Sa niche est pleine de neige." },
       "La grande salle est au sommet. Ronde, sous une coupole de verre. Au centre, sur une estrade, le coffre de fer noir, cerclé, couvert de givre. Autour, sur le dallage, un cercle de neige qui ne fond pas.",
       "La reine s'assied sur un trône qu'on a monté pour elle. Mordace se tient à côté du coffre, la main posée dessus.",

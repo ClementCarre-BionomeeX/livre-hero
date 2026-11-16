@@ -19,7 +19,7 @@ module.exports = {
 
   HY_tour: P({ title: "La tour", hub: true,
     text: [
-      "La tour de la Chancellerie, tu la connais à l'oreille et au nez, mieux que la plupart des greffiers ne la connaissent avec leurs yeux. L'escalier principal, qui sent la cire. Le scriptorium au quatrième, et son bruit de pluie. Le Bureau, en bas, qui sent la sueur des pauvres. Les archives au troisième, la poussière, le plomb. Et plus bas que le Bureau, plus bas que les caves, une porte que tu n'as passée qu'une fois.",
+      "La tour de la Chancellerie, tu la connais à l'oreille et au nez, mieux que la plupart des greffiers ne la connaissent avec leurs yeux. L'escalier principal, qui sent la cire, car on cire volontiers ce que voient les visiteurs. Le scriptorium au quatrième, et son bruit de pluie. Le Bureau, en bas, qui sent la sueur des pauvres. Les archives au troisième, la poussière, le plomb. Et plus bas que le Bureau, plus bas que les caves, une porte que tu n'as passée qu'une fois.",
       { if: { has: "hylas:page" }, text: "Page Onze marche à ta gauche, un pas en arrière, comme on le lui a appris. Tu entends ses sabots : elle pose le pied droit plus lourdement, à cause d'une semelle fendue. Elle parle quand tu lui parles, et le reste du temps elle se tait." },
       "Ce soir, après complies, Mordace.",
     ],
@@ -101,7 +101,7 @@ module.exports = {
   HY_caveau: P({ title: "La porte sous les caves",
     fx: { questSeen: "HY_noir" },
     text: [
-      "On descend par l'escalier des caves, puis par un autre, plus étroit, taillé dans le roc, dont les marches sont usées en creux. Il fait froid. Il fait de plus en plus froid. En bas, une porte de fer. Tu poses la main sur la serrure. Le métal est neuf, l'entrée de clé plus étroite, et les vis ont encore leurs arêtes vives. Quelqu'un l'a changée, et depuis peu.",
+      "On descend par l'escalier des caves, puis par un autre, plus étroit, taillé dans le roc, dont les marches sont usées en creux. Le froid vient à ta rencontre ; il s'épaissit à chaque marche, et tu le traverses comme on traverse des tentures, l'une après l'autre. En bas, une porte de fer. Tu poses la main sur la serrure. Le métal est neuf, l'entrée de clé plus étroite, et les vis ont encore leurs arêtes vives. Quelqu'un l'a changée, et depuis peu.",
       "Derrière la porte, tu le sais, il y a une salle ronde, et au milieu de la salle, sur un pupitre de pierre, le premier registre de la Chancellerie, celui des Fondateurs. Le registre noir. Tu l'as touché une fois. Tu en es ressorti aveugle, et tu gardes pour toi le lien entre les deux choses, faute de certitude.",
     ],
     choices: [
@@ -129,7 +129,7 @@ module.exports = {
   HY_salle_noire: P({ title: "Le registre noir",
     fx: { clue: "n_noir", quest: "HY_noir" },
     text: [
-      "La salle ronde est la même. Le froid, le silence, et cette odeur de pierre et de neige qui n'existe qu'ici. Tu traverses jusqu'au pupitre. Tu poses les mains sur le registre.",
+      "La salle ronde est la même. Le froid, le silence, et cette odeur de pierre et de neige qui n'existe qu'ici. Tes pas y sonnent sans écho, comme si la salle les gardait pour elle. Tu traverses jusqu'au pupitre. Tu poses les mains sur le registre.",
       "Le vélin est lisse comme une joue. Tu cherches le creux des plumes. Il y a, sur la première page, une liste de noms qui ne sont dans aucune langue d'Esquarre, gravés si profond que la plume a percé le vélin par endroits. Puis, en travers de chaque nom, un trait.",
       "Tu tournes les pages. Des centaines de pages, des milliers de noms barrés. Et à la fin, sur les dernières pages, des noms d'ici, d'une écriture récente, à peine sèche. *Roncière. Chaumont. Les Aulnes.* Et sur la toute dernière ligne, une ligne qui n'a pas trois jours :",
       "*Sauvelune.*",
@@ -197,7 +197,7 @@ module.exports = {
 
   HY_nuit: P({ title: "La cellule, la nuit",
     text: [
-      "Tu es allongé dans le noir, qui est le même que le jour. La tour respire autour de toi. Quelque part au-dessus, sous la plume et la clé, Mordace veille aussi.",
+      "Tu es allongé dans le noir, qui est le même que le jour. La tour respire autour de toi : des pas lointains, une porte, le travail du bois ; et par-dessous, à la limite de l'oreille, un froissement continu qui est peut-être le scriptorium, peut-être ton sang. Quelque part au-dessus, sous la plume et la clé, Mordace veille aussi.",
     ],
     choices: [{ label: "Attendre le matin", fx: { flag: "ch:hylas:1", resume: "HY_jour" }, to: "C_carrefour" }] }),
 
@@ -268,7 +268,7 @@ module.exports = {
 
   HY_tissot: P({ title: "Chez la mère Tissot",
     text: [
-      "La mère Tissot tient une taverne de quatre tables dans une ruelle des Teinturiers, et elle sert le seul vin de Corvanne de tout Pallanche, sous le comptoir, depuis la guerre. Tu viens ici tous les soirs depuis trente ans. Elle pose ton verre devant toi, et elle te parle de ses rhumatismes.",
+      "La mère Tissot tient une taverne de quatre tables dans une ruelle des Teinturiers, et elle sert le seul vin de Corvanne de tout Pallanche, sous le comptoir, depuis la guerre. Tu viens ici tous les soirs depuis trente ans. Elle pose ton verre devant toi, et elle te parle de ses rhumatismes, qui sont, après le vin, ce que la maison a de plus ancien.",
       { if: { has: "croise:pie_enfant" }, text: "Ce soir, quelqu'un est assis à la table du fond. Tu entends un souffle jeune, une respiration de quelqu'un qui a marché longtemps, et le froissement d'un papier qu'on plie et qu'on déplie. L'inconnu reste à sa table." },
       { if: { not: { has: "croise:pie_enfant" } }, text: "Ce soir, il n'y a personne d'autre que toi. La mère Tissot a mis des lampions pour la Fête. Tu entends leur papier frémir au vent." },
       { if: { has: "hylas:oublie_enfant" }, text: "Tu as oublié pourquoi tu viens ici tous les soirs depuis trois jours, à vêpres, au lieu de complies, comme avant. Tu sais seulement que tu dois y être." },

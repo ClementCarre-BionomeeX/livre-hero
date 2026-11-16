@@ -5,8 +5,8 @@ module.exports = {
   EN_matin: { act: "I", title: "Le moulin de Sauvelune", place: "sauvelune",
     fx: { meet: ["agathe", "joris", "pim"], questSeen: "EN_neige" },
     text: [
-      "Tu te réveilles au bruit de la roue. Tac, tac, tac, à travers le plancher, comme toutes les nuits de ta vie, sauf que ce n'est plus la nuit : le soleil passe entre les planches du volet et coupe la chambre en tranches dorées où dansent la poussière et la farine. Dehors, quelqu'un accorde un violon, mal, puis recommence, plus mal encore. Ce violon vaut un calendrier : c'est le onze juillet, la fête des foins.",
-      "En bas, Agathe a déjà allumé le four. Tu la reconnais à son pas avant de la voir : un pas lourd et pressé, qui fait le tour de la cuisine en onze enjambées et repart aussitôt. Elle a les joues rouges du feu et de la farine jusqu'aux coudes, et elle te pousse une mèche derrière l'oreille en passant, sans te regarder, comme elle le fait depuis que tu as trois ans.",
+      "Tu te réveilles au bruit de la roue. Tac, tac, tac, à travers le plancher, comme toutes les nuits de ta vie ; mais la nuit est finie depuis longtemps : le soleil passe entre les planches du volet et coupe la chambre en tranches dorées où dansent la poussière et la farine. Dehors, quelqu'un accorde un violon, mal, puis recommence, plus mal encore, avec la persévérance des gens qui se savent indispensables. Ce violon vaut un calendrier : c'est le onze juillet, la fête des foins.",
+      "En bas, Agathe a déjà allumé le four. Tu la reconnais à son pas avant de la voir : un pas lourd et pressé, qui fait le tour de la cuisine en onze enjambées et repart aussitôt, comme un général fait le tour d'une place qu'il entend défendre seul. Elle a les joues rouges du feu et de la farine jusqu'aux coudes, et elle te pousse une mèche derrière l'oreille en passant, sans te regarder, comme elle le fait depuis que tu as trois ans.",
       "« Ton père est à la roue, dit-elle. Le bief a encore charrié des branches. Et ton frère est perché sur le toit du poulailler depuis l'aube, à guetter les musiciens. Si tu pouvais le faire descendre avant qu'il se rompe le cou, je t'en serais reconnaissante jusqu'à la fin de mes jours, qui ne sont plus très nombreux, vu la vie que vous me faites. »",
       { if: { has: "passe:trouve" }, text: "Dans le village, on t'appelle encore *l'enfant trouvé du moulin*, vingt ans après. Agathe, elle, ne l'a jamais dit. Pas une fois." },
       { if: { has: "passe:reveur" }, text: "Cette nuit encore, tu as rêvé de la plaine blanche. Tu ne t'en souviens jamais bien au réveil : seulement le froid, et une voix qui chantait." },
@@ -20,7 +20,7 @@ module.exports = {
 
   EN_roue: { act: "I", title: "La roue", place: "sauvelune",
     text: [
-      "Joris est dans le bief jusqu'à la taille, en chemise, les manches roulées sur des avant-bras qui soulèvent soixante sacs par jour depuis trente ans ; tu as fait le compte un hiver, et tu as renoncé à mi-chemin. Une souche grosse comme un tonneau, emportée par l'orage d'avant-hier, s'est coincée entre deux aubes, et la grande roue tremble sans tourner, avec un gémissement de bête.",
+      "Joris est dans le bief jusqu'à la taille, en chemise, les manches roulées sur des avant-bras qui soulèvent soixante sacs par jour depuis trente ans ; tu as fait le compte un hiver, et tu as renoncé à mi-chemin. Une souche grosse comme un tonneau, emportée par l'orage d'avant-hier, s'est coincée entre deux aubes, et la grande roue tremble sans tourner, avec le gémissement d'une bête prise au piège.",
       "Il te voit arriver et se tait. Joris dépense ses mots comme sa farine, au poids, et il en garde toujours en réserve. Il fait un signe du menton vers la perche ferrée posée contre le mur : *tiens-toi là, et pousse quand je tire.*",
       "L'eau est glacée, même en juillet. Elle descend des Hautes-Combes, où les vieux disent qu'il neige toute l'année.",
     ],
@@ -43,7 +43,7 @@ module.exports = {
 
   EN_joris: { act: "I", title: "Ce que Joris tait", place: "sauvelune",
     text: [
-      "Vous vous asseyez tous les deux sur le muret du bief pour sécher au soleil. Joris bourre sa pipe sans l'allumer ; il ne l'allume jamais avant midi, c'est une règle qu'il tient de son père et dont personne ne connaît la raison.",
+      "Vous vous asseyez tous les deux sur le muret du bief pour sécher au soleil. Joris bourre sa pipe sans l'allumer ; il ne l'allume jamais avant midi. C'est une règle qu'il tient de son père, dont personne ne connaît la raison, et qu'on respecte d'autant mieux.",
       "« Il faisait froid comme ça, la nuit où on t'a trouvé », dit-il soudain.",
       "Tu attends. Joris garde cette nuit-là pour lui, et Agathe aussi. Tout ce que tu sais, tu le tiens des commères du lavoir, qui en ont tiré vingt ans de conversation : un enfant de trois ou quatre ans sur le seuil du moulin, dans une couverture, muet, anonyme.",
       "« C'était en juillet aussi. Et il neigeait. Pas beaucoup. Juste sur le seuil, autour de toi. Le lendemain il n'y avait plus rien. » Il tourne la pipe entre ses gros doigts. « Je me suis toujours dit que j'avais rêvé. Agathe dit que oui. »",
@@ -151,7 +151,7 @@ module.exports = {
   EN_place: { act: "I", title: "La fête des foins", place: "sauvelune", hub: true, shop: "fete",
     fx: { meet: ["anselme", "mathurin"] },
     text: [
-      { first: true, text: "La place de Sauvelune n'est pas grande : la fontaine, le temple des Saints-Gardiens avec son clocher carré, la maison commune, l'auberge du Mouton Bleu et une douzaine de façades dont les linteaux portent, peints en ocre, les noms des familles qui y vivent. C'est l'usage, ici. *Aubry. Ferrand. Roux-Lavallée.* On repeint les noms chaque printemps." },
+      { first: true, text: "La place de Sauvelune tient dans un regard : la fontaine, le temple des Saints-Gardiens avec son clocher carré, la maison commune, où l'on délibère, l'auberge du Mouton Bleu, où l'on décide, et une douzaine de façades dont les linteaux portent, peints en ocre, les noms des familles qui y vivent. C'est l'usage, ici. *Aubry. Ferrand. Roux-Lavallée.* On repeint les noms chaque printemps." },
       { first: true, text: "Aujourd'hui la place déborde : tu y comptes plus de monde qu'à Pâques et aux enterrements réunis. Des guirlandes de bleuets et de foin tressé courent de façade en façade ; les violons de Pont-de-Saule jouent sur le perron de l'auberge, à peu près ensemble ; les étals sentent le pain d'anis, le miel, la bière tiède. Les enfants courent entre les jambes, les chiens courent derrière les enfants, et au milieu de tout, plantée sur sa chaise comme un roi sur son trône, la doyenne Mathilde Aubry, cent un ans, compte les jeunes filles qui n'ont pas encore de fiancé." },
       { again: true, text: "La place déborde toujours. Les violons jouent sur le perron de l'auberge, les étals sentent le pain d'anis et la bière tiède, et les chiens courent derrière les enfants." },
       { if: { not: { seen: "EN_soir" } }, text: "Le soleil est haut. La ronde, autour des meules, c'est pour ce soir." },
@@ -251,7 +251,7 @@ module.exports = {
   EN_ruches: { act: "I", title: "Le rucher", place: "sauvelune",
     text: [
       "Le rucher de Mathurin est un pré de thym et de bruyère accroché à la pente, avec vingt ruches de paille tressée alignées sous un auvent de bardeaux. D'habitude, à cette heure, l'air y vibre comme une corde de luth, et on y entre en gardant la bouche fermée.",
-      "Aujourd'hui, le pré est muet. Les abeilles sont là, comme il l'a dit, posées sur le devant des ruches en grappes si serrées qu'on dirait de la mousse brune. Tu approches la main à un pouce de la plus proche : elle reste à sa place. Sur les ailes, tu relèves une poussière blanche, très fine, que le soleil de midi laisse intacte.",
+      "Aujourd'hui, le pré se tait, et ce silence a quelque chose d'une maison dont on vient de fermer les volets en plein jour. Les abeilles sont là, comme Mathurin l'a dit, posées sur le devant des ruches en grappes si serrées qu'on dirait de la mousse brune. Tu approches la main à un pouce de la plus proche : elle reste à sa place. Sur les ailes, tu relèves une poussière blanche, très fine, que le soleil de midi laisse intacte.",
       "« Ça vient d'en haut, dit Mathurin. Des Hautes-Combes. Le vent du nord a soufflé cette nuit, une heure à peine. » Il crache. « Il n'a jamais soufflé en juillet. »",
     ],
     choices: [
@@ -281,7 +281,7 @@ module.exports = {
   // ---------------------------------------------------------------- Father Anselme
   EN_anselme: { act: "I", title: "Les marches du temple", place: "sauvelune",
     text: [
-      "Le Père Anselme bénit les gerbes qu'on lui apporte, une par une, avec une patience inépuisable. Il a soixante-dix ans, une barbe blanche taillée court et des lunettes de corne qu'il réserve à la lecture, c'est-à-dire qu'il les porte du matin au soir. C'est lui qui tient le registre de Sauvelune : les naissances, les mariages, les morts, depuis quarante ans, et avant lui son prédécesseur, et avant, d'autres, jusqu'à la première page, qui date de la fondation du village et qu'il ne montre à personne.",
+      "Le Père Anselme bénit les gerbes qu'on lui apporte, une par une, avec la patience d'un homme qui a l'éternité pour associée. Il a soixante-dix ans, une barbe blanche taillée court et des lunettes de corne qu'il réserve à la lecture, c'est-à-dire qu'il les porte du matin au soir. C'est lui qui tient le registre de Sauvelune : les naissances, les mariages, les morts, depuis quarante ans, et avant lui son prédécesseur, et avant, d'autres, jusqu'à la première page, qui date de la fondation du village et qu'il ne montre à personne.",
       { if: { has: "passe:temple" }, text: "« Te voilà, dit-il. J'ai besoin de toi ce soir, après la ronde. Les naissances du printemps ne sont pas encore recopiées, et ma main tremble. Tu as la plus belle écriture du village, après la mienne. »" },
       { if: { not: { has: "passe:temple" } }, text: "« Un nom, dit-il en bénissant la gerbe que lui tend une petite fille, c'est ce qui reste quand tout le reste est parti. C'est pour ça qu'on les écrit. C'est pour ça qu'on les peint au-dessus des portes. » Il te voit. « N'est-ce pas, enfant du moulin ? Toi qui n'en avais pas, quand tu es arrivé. »" },
       "Il te regarde un moment par-dessus ses lunettes, et tu as l'impression qu'il va dire quelque chose d'autre. Puis une femme lui tend un bébé à bénir, et le moment passe.",
@@ -309,8 +309,8 @@ module.exports = {
       { if: { has: "EN:lutte_gagnee" }, text: "Corentin, en face, te salue de la tête comme on salue un égal. Il boite un peu. Il ne le dit à personne." },
       "Les violons attaquent la chanson des foins, et tout le village chante, faux, fort, heureux. *Fauche le pré, fauche la nuit, fauche la peine et le souci…* La ronde tourne de plus en plus vite. Tu vois passer les visages, rouges, riants, Agathe, Joris qui ne chante pas mais qui tape du pied, Pim qui hurle les paroles en se trompant exprès, Mathurin, le Père Anselme, les lanternes, les meules, les étoiles.",
       "Et au troisième refrain, il commence à neiger.",
-      "Le ciel est vide, d'un bleu sans nuage. Le ciel est clair, plein d'étoiles d'été, et de ce ciel tombent de gros flocons blancs, lents, parfaits, qui descendent en tournant dans la lumière des lanternes. Ils ne sont pas froids. Ils se posent sur les cheveux, sur les épaules, sur les guirlandes de bleuets, et ils ne fondent pas.",
-      "La ronde s'arrête. Les violons s'arrêtent. Les enfants rient, tendent la langue, tendent les mains. Les adultes regardent le ciel en silence. Quelque part, un chien se met à hurler, et un autre lui répond, et puis tous les chiens du village.",
+      "Le ciel est clair, d'un bleu de nuit où brillent toutes les étoiles de juillet ; et de ce ciel sans un nuage tombent de gros flocons blancs, lents, parfaits, qui descendent en tournant dans la lumière des lanternes. Ils ne sont pas froids. Ils se posent sur les cheveux, sur les épaules, sur les guirlandes de bleuets, et ils y demeurent, intacts, avec une tranquillité plus inquiétante que tous les orages.",
+      "La ronde s'arrête. Les violons s'arrêtent. Les enfants rient, tendent la langue, tendent les mains. Les adultes regardent le ciel et se taisent, de ce silence des gens qui attendent qu'un autre parle le premier. Quelque part, un chien se met à hurler, et un autre lui répond, et puis tous les chiens du village.",
     ],
     choices: [
       { label: "Attraper un flocon dans ta main et le regarder de près", to: "EN_flocon" },
@@ -322,7 +322,7 @@ module.exports = {
   EN_flocon: { act: "I", title: "Un flocon", place: "sauvelune",
     text: [
       "Il se pose au creux de ta paume. Tu l'examines comme Anselme examine une signature : grand comme l'ongle de ton pouce, six branches, chacune si fine qu'elle a l'air tracée à la plume. Il ne fond pas. Ta main est chaude, et il ne fond pas.",
-      "Tu le regardes de plus près, et tu vois que les branches ne sont pas faites de glace. Elles sont faites de quelque chose qui ressemble à de l'écriture : des traits minuscules, des boucles, des barres, comme une ligne de registre qu'on aurait enroulée sur elle-même.",
+      "Tu le regardes de plus près. Les branches sont faites de traits minuscules, de boucles, de barres : une écriture plutôt qu'une glace, comme une ligne de registre qu'on aurait enroulée sur elle-même.",
       "Sans réfléchir, tu murmures, pour toi : « Agathe. »",
       "Le flocon fond. D'un coup, en laissant ta paume sèche. Comme s'il n'avait jamais existé.",
     ],
@@ -354,9 +354,9 @@ module.exports = {
   EN_temple_soir: { act: "I", title: "Le temple, le soir de la neige", place: "sauvelune",
     fx: { clue: "n_registre", ep: ["perso", 400] },
     text: [
-      "Le Père Anselme est dans la sacristie, penché sur le registre, une chandelle de suif de chaque côté et une troisième, déjà à moitié consumée, dans la main. Il ne t'entend pas entrer. Il tourne les pages, vite, de plus en plus vite, avec un petit bruit de feuilles sèches.",
+      "Le Père Anselme est dans la sacristie, penché sur le registre, une chandelle de suif de chaque côté et une troisième, déjà à moitié consumée, dans la main. Il ne t'entend pas entrer. Il tourne les pages, vite, de plus en plus vite, avec un petit bruit de feuilles sèches ; et les trois flammes jettent au mur une ombre qui a l'air de les tourner plus vite que lui.",
       "« Regarde », dit-il sans lever la tête.",
-      "Tu regardes. Sur les pages les plus récentes, l'encre est noire, nette, ordinaire. Mais plus on remonte, plus elle pâlit : brune, puis grise, puis presque rien, comme si quelqu'un aspirait les noms par le bas de la page. Sous tes yeux, une ligne s'efface. *Hubert Aubry, fils de…* et puis rien. Le papier blanc, propre, sans même la trace d'un trait.",
+      "Tu regardes. Sur les pages les plus récentes, l'encre est noire, nette, ordinaire. Mais plus on remonte, plus elle pâlit : brune, puis grise, puis presque rien, comme si quelqu'un aspirait les noms par le bas de la page. Sous tes yeux, une ligne s'efface. *Hubert Aubry, fils de…* et puis rien. Le papier blanc, propre, sans même la trace d'un trait. La chose se fait en silence, avec un soin d'huissier ; et c'est ce soin qui te soulève le cœur.",
       "« Ils partent, dit le prêtre. Les noms. Ils retournent dans la plume. » Il te regarde enfin, et ses yeux derrière les lunettes sont ceux d'un homme qui a vu le diable et n'a pas eu le temps d'avoir peur. « Va chez toi, enfant. Dis le nom des tiens. Dis-le toute la nuit, s'il le faut. »",
       { if: { has: "tess:temple" }, text: "Tess te serre le bras à te faire mal. Elle se tait. Elle regarde la page où devrait être le nom de sa mère." },
     ],
@@ -368,7 +368,7 @@ module.exports = {
     text: [
       { if: { has: "EN:pim_ramene" }, text: "Sur le chemin, Pim n'a pas lâché ta main. Il a demandé onze fois si la neige allait fondre. Tu as répondu onze fois que oui." },
       "Le moulin est silencieux. Joris a arrêté la roue, pour la première fois depuis des années, sans dire pourquoi. Agathe a mis Pim au lit, avec des gestes plus lents que d'habitude, et elle est restée longtemps assise au bord du lit à lui caresser les cheveux.",
-      "Dehors, la neige tombe toujours. Tu mesures son épaisseur au rebord de la fenêtre : un pouce à minuit moins le quart, deux pouces un peu plus tard. Elle étouffe les pas, les chiens, l'eau du bief. Par la fenêtre de ta chambre, tu vois le village sous la lune, blanc, doux, irréel, comme un village en sucre sur un gâteau de noces.",
+      "Dehors, la neige tombe toujours. Tu mesures son épaisseur au rebord de la fenêtre : un pouce à minuit moins le quart, deux pouces un peu plus tard. Elle étouffe les pas, les chiens, l'eau du bief ; elle épaissit jusqu'au silence, qui devient une chose proche, posée contre la vitre. Par la fenêtre de ta chambre, tu vois le village sous la lune, blanc, doux, irréel, comme un village en sucre sur un gâteau de noces ; et tu songes que les gâteaux de noces sont faits pour être mangés.",
       "Tu ne dors pas. Tu te dis les noms. Agathe. Joris. Pim. Tess. Agathe. Joris. Pim. Tess.",
       "Vers minuit, tu entends quelque chose marcher dans la rue.",
     ],
@@ -379,7 +379,7 @@ module.exports = {
 
   EN_nuit_dehors: { act: "I", title: "Ce qui marche dans la neige", place: "sauvelune",
     text: [
-      "C'est grand. Tu cherches un repère, et tu prends le linteau de la maison d'en face : ça le dépasse d'une tête, puis de deux. La taille change pendant que tu la mesures. Ça a la forme d'un homme, ou d'une femme, sous un long manteau qui serait fait de neige tassée, et ça marche dans la rue du moulin sans s'enfoncer dans la neige, à pas lents, la tête penchée.",
+      "C'est grand. Tu cherches un repère, car une chose qu'on mesure effraie déjà moins, et tu prends le linteau de la maison d'en face : ça le dépasse d'une tête, puis de deux. La taille change pendant que tu la mesures, et cette ressource-là t'est retirée. Ça a la forme d'un homme, ou d'une femme, sous un long manteau qui serait fait de neige tassée, et ça marche dans la rue du moulin sans s'enfoncer dans la neige, à pas lents, la tête penchée.",
       "Devant chaque maison, ça s'arrête. Ça lève ce qui lui sert de visage vers le linteau, vers le nom peint au-dessus de la porte. Et ça souffle. Un souffle long, patient, comme on souffle sur une soupe, et tu vois l'ocre des lettres pâlir, se décoller, monter en fumée blanche dans la bouche de la chose.",
       "Au milieu de son front, il y a une tache noire. La seule chose noire de toute la rue.",
       "Elle arrive devant le moulin.",
@@ -422,7 +422,7 @@ module.exports = {
 
   EN_nuit_veille: { act: "I", title: "Au chevet", place: "sauvelune",
     text: [
-      "Tu restes assis sur le coffre au pied du lit de Pim, ton couteau sur les genoux, et tu écoutes. Le pas dans la rue s'approche, s'arrête devant le moulin. Un long souffle, comme le vent sous une porte. Puis le pas s'éloigne.",
+      "Tu restes assis sur le coffre au pied du lit de Pim, ton couteau sur les genoux, et tu écoutes, de cette écoute tendue qui finit par fabriquer elle-même les bruits qu'elle redoute. Celui-ci est réel : le pas dans la rue s'approche, s'arrête devant le moulin. Un long souffle, comme le vent sous une porte. Puis le pas s'éloigne.",
       "Pim dort, la bouche ouverte, un bras hors de la couverture. Tu lui dis son nom, tout bas, à chaque fois qu'il respire. *Pim, fils de Joris et d'Agathe, de Sauvelune.* Tu comptes ses souffles par centaines, et tu perds le fil vers le deuxième mille. Vers trois heures du matin, il sourit en dormant.",
     ],
     choices: [{ label: "Attendre le jour", fx: { flag: "pim:veille" }, to: "EN_aube" }] },

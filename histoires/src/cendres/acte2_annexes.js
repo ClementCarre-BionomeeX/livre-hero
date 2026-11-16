@@ -217,7 +217,7 @@ module.exports = {
     choices: [{ label: "Descendre", to: "II_Q_fioles_cave" }] }),
   II_Q_fioles_nuit: P({ takes: "night", title: "L'arrière-cour", place: "vasselin",
     text: [
-      "La nuit, l'arrière-cour est éclairée par une lucarne au ras du sol. Une cave. Devant la lucarne, deux hommes en gris, armés, qui jouent aux dés sur un tonneau et regardent toutes les ombres.",
+      "La nuit, l'arrière-cour reçoit toute sa lumière d'une lucarne au ras du sol, un rectangle jaune couché sur les pavés ; une cave veille là-dessous. Devant la lucarne, deux hommes en gris, armés, jouent aux dés sur un tonneau et lèvent la tête à chaque ombre, avec l'assiduité des gens payés à la nuit.",
     ],
     choices: [
       { label: "Les éviter", test: { dom: "discretion", label: "La cour", help: [{ if: { present: "pie" }, v: 20 }] }, win: { to: "II_Q_fioles_cave" }, lose: { to: "II_Q_fioles_combat" } },

@@ -17,9 +17,9 @@ module.exports = {
     ] }),
   IV_O_galeries: P({ title: "L'ossuaire", place: "pallanche", hub: true,
     text: [
-      { first: true, text: "Un escalier en colimaçon, très étroit, quarante-deux marches usées en cuvette, qui sent la terre et le froid. En bas, des galeries basses, voûtées, où un homme de taille moyenne marche la tête rentrée, et partout, le long des murs, du sol au plafond, des os. Des tibias empilés comme du bois de chauffe. Et des crânes, en rangs, sur des étagères de pierre, qui te regardent passer." },
+      { first: true, text: "Un escalier en colimaçon, très étroit, quarante-deux marches usées en cuvette, qui sent la terre et le froid ; à chaque tour la lumière du parvis perd un peu de son droit, et à la trentième marche ta lanterne est seule à répondre du monde. En bas, des galeries basses, voûtées, où un homme de taille moyenne marche la tête rentrée, et partout, le long des murs, du sol au plafond, des os. Des tibias empilés comme du bois de chauffe, avec le soin qu'une ménagère met à son bûcher. Et des crânes, en rangs, sur des étagères de pierre, qui te regardent passer : six siècles de paroissiens, enfin réunis sans dispute de préséance." },
       "Ta lanterne fait bouger les ombres dans les orbites.",
-      { once: true, text: "Quelque part, loin, au fond, un bruit léger, régulier. Comme quelqu'un qui lape." },
+      { once: true, text: "Quelque part, loin, au fond, un bruit léger, régulier, mouillé, que l'oreille voudrait prendre pour une infiltration et reconnaît malgré elle. Comme quelqu'un qui lape." },
     ],
     choices: [
       { label: "La galerie des crânes peints", hide: { seen: "IV_O_cranes" }, to: "IV_O_cranes" },

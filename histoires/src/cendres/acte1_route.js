@@ -25,7 +25,7 @@ module.exports = {
 
   E_mendiant: P({ title: "Le frère mendiant",
     text: [
-      "Un frère mendiant, assis au bord d'un fossé, pieds nus, la robe grise trouée aux coudes, la plante des pieds aussi dure que de la corne de sabot. Il a une écuelle vide et un sourire plein de dents. « Un morceau de pain, mon fils, et je te dis ton avenir. »",
+      "Un frère mendiant, assis au bord d'un fossé, pieds nus, la robe grise trouée aux coudes, la plante des pieds aussi dure que de la corne de sabot. Il a une écuelle vide, un sourire plein de dents, et la mine prospère des gens qui vivent de la Providence. « Un morceau de pain, mon fils, et je te dis ton avenir. »",
     ],
     choices: [
       { label: "Lui donner du pain", fx: { food: -1 }, to: "E_mendiant_avenir" },

@@ -12,7 +12,7 @@ module.exports = {
         rodric: false, linette: false, ombeline: false, gaspard: false, givre: false, sansnom: false } },
     text: [
       "Tu te réveilles couché sur le dos. Au-dessus de toi, à la place du ciel, du blanc, uni, lumineux, sans soleil, comme l'intérieur d'une coquille d'œuf.",
-      "L'air est sans température : ton souffle ne fume pas, ta peau ne frissonne pas. Tu te lèves. Le sol est blanc aussi, une matière douce, entre neige et sable, où les pas s'effacent aussitôt.",
+      "L'air est sans température : ton souffle reste invisible, ta peau égale, et cette absence de froid inquiète davantage que le froid, car le corps y cherche en vain de quoi se plaindre. Tu te lèves. Le sol est blanc aussi, une matière douce, entre neige et sable, où les pas s'effacent aussitôt.",
       { if: { souv: "enfant:reve" }, text: "Tu connais cet endroit. C'est ton rêve, ton plus vieux souvenir, celui que tu faisais enfant et que tu as gardé pour toi. Une plaine blanche sans fin. Il manque seulement la voix qui chante." },
       { if: { not: { souv: "enfant:reve" } }, text: "Tu as l'impression d'être déjà venu. Quand ? C'est comme un mot sur le bout de la langue." },
       { if: avec("ysolde"), text: "À trois pas, Ysolde se relève, l'épée déjà à la main. Elle regarde autour d'elle comme on inspecte un terrain avant la bataille. Le terrain est vide jusqu'au bout du regard." },

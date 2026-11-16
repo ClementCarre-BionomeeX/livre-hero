@@ -7,7 +7,7 @@ function P(o) { return Object.assign({}, A, o); }
 module.exports = {
   III_e_lisiere: P({ title: "Les arbres noirs", place: null,
     text: [
-      "La forêt commence d'un coup, sans lisière, comme un mur. Des arbres hauts, droits, noirs du pied à la cime, à quatre ou cinq pas les uns des autres. Du charbon en guise d'écorce. Des branches nues. Ils ont brûlé debout, il y a longtemps, et ils sont restés debout.",
+      "La forêt commence d'un coup, sans lisière, comme un mur. Des arbres hauts, droits, noirs du pied à la cime, à quatre ou cinq pas les uns des autres, d'un espacement si égal que l'œil, d'où qu'il regarde, enfile des allées. Du charbon en guise d'écorce. Des branches nues. Ils ont brûlé debout, il y a longtemps, et ils sont restés debout ; le silence, entre eux, a l'épaisseur des lieux où quelque chose s'est achevé.",
       "Sous le blanc, le sol est gris. Tu y mets la main. De la cendre, fine, tiède : ton bras s'y enfonce jusqu'au coude, et le fond reste hors d'atteinte.",
       { with: "corbe", text: "Corbe s'est arrêtée à l'entrée. « La Vallée des Cendres, dit-elle. C'est le nom qu'on ne dit pas, au clan. Je le croyais inventé. »" },
       { with: "hylas", text: "Hylas s'est arrêté aussi. Il connaît le chemin. Ça se voit à ses pieds, qui trouvent leur place sans chercher." },
