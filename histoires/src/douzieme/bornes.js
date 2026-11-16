@@ -235,6 +235,9 @@ module.exports = { passages: P, extras: {
     { id: "regence", head: "An 541 · La Régence", v: [
       { text: "« Monseigneur Oderic, duc de Hautgué, que la Providence avait conduit ce matin-là à la chasse hors des murs, recueillit le royaume et le gouverna au nom de la Reine endormie. »" }] },
     { id: "pont", head: "An 541 · Arvoise", v: [
+      { if: { has: "monde:pont_reporte" }, text: "« Six jours avant le Grand Midi, maître Baudri ferma de sa main le Pont-Neuf d'Arvoise, à l'heure où l'on devait le bénir, en ayant reconnu la troisième pile fondée sur le sable. Il la reprit par en dessous. Le pont fut ouvert l'an 543 et porte encore. »" },
+      { if: { has: "monde:pont_sauve" }, text: "« Six jours avant le Grand Midi, le Pont-Neuf d'Arvoise s'abîma dans la Thiorne à l'heure de sa bénédiction, sous douze fardiers de pierre qu'on y avait fait passer d'abord. Il n'y périt aucun de ceux qui étaient venus le voir bénir. Les sages y virent un présage. »" },
+      { if: { all: [{ has: "monde:pont_tombe" }, { has: "monde:pont_secours" }] }, text: "« Six jours avant le Grand Midi, le Pont-Neuf d'Arvoise s'abîma dans la Thiorne à l'heure de sa bénédiction. Les passeurs du bac, qu'on congédiait ce jour-là, tirèrent de l'eau cent quatorze personnes. Il en périt onze. Les sages y virent un présage. »" },
       { text: "« Six jours avant le Grand Midi, le Pont-Neuf d'Arvoise s'abîma dans la Thiorne à l'heure de sa bénédiction. Il y périt quarante personnes, dont maître Baudri qui l'avait bâti. Les sages y virent un présage. »" }] },
   ],
 } };
