@@ -407,7 +407,7 @@ module.exports = {
       text: [
         "Tu le lui dis à l'oreille, toi, avant qu'il se soit penché.",
         "Il ne recule pas. Il ferme les yeux, comme un homme à qui l'on vient de rendre, dans la rue, un objet qu'il croyait avoir seul.",
-        "« Vous l'avez lu chez lui. Dans le registre à fermoir. » Sa voix n'est plus qu'un souffle. « Il y a quarante-cinq ans que personne n'avait prononcé ce nom devant moi. Je ne l'ai moi-même jamais dit tout haut. Elle me l'a écrit une fois, sur un billet, par le tour, et elle a ajouté : *brûlez.* »",
+        "« Vous l'avez lu chez lui. Dans le registre à fermoir. » Sa voix n'est plus qu'un souffle. « Personne n'avait jamais prononcé ce nom devant moi. Je ne l'ai moi-même jamais dit tout haut. Elle me l'a écrit une fois, sur un billet, par le tour, et elle a ajouté : *brûlez.* »",
         "Il rouvre les yeux. Ils sont secs, et très fatigués.",
         "« Je ne vous dirai pas oui. Je n'ai pas le droit de dire oui : c'est le seul bien qu'elle ait, et je ne le donne pas sans elle. Je lui écrirai ce soir que vous le savez. Vous aurez sa réponse à Brandelis. » Il se redresse. « Ne le dites pas sur une route. Ne le dites pas devant l'horloger : il a assez de la moitié qu'il porte. »",
       ],
@@ -441,7 +441,7 @@ module.exports = {
         "Il regarde la route, où le corbillard s'éloigne.",
         "« Un soir d'hiver, le plateau m'est revenu avec un papier dessous. Il y avait écrit, d'une écriture toute droite : *Le pain est bon. Dites au boulanger que sa femme guérira ; qu'il cesse de mettre moins de sel, je sais pourquoi il le fait, et cela ne sert à rien.* » Il a un souffle, qui n'est pas un rire. « Le boulanger mettait moins de sel par pénitence, pour sa femme, depuis un mois. Personne ne le savait. Elle l'avait goûté. »",
         "Il remet ses gants gris, qu'il avait ôtés sans y penser.",
-        "« Voilà ce que je suis pour elle : le clerc du plateau. Je le suis resté quarante-cinq ans, sous d'autres habits. On m'a renvoyé de la Tour quand on a vu que je restais trop longtemps devant le tour. Je n'en suis jamais vraiment parti. »",
+        "« Voilà ce que je suis pour elle : le clerc du plateau. Je le suis resté trente et un ans, sous d'autres habits. On m'a renvoyé de la Tour quand on a vu que je restais trop longtemps devant le tour. Je n'en suis jamais vraiment parti. »",
         "Tu marches mieux, après. Tu ne saurais dire si c'est d'avoir appris quelque chose sur lui, ou sur toi.",
       ],
       choices: [{ label: "Reprendre ta place", to: "A3c_fin", big: true }] },
