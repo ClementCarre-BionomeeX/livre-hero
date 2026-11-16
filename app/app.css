@@ -76,6 +76,9 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .avatar { width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; color: #fff; font: 600 13px/1 var(--sans); }
 .save-line { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; padding: 12px 14px; border: 1px solid var(--line); border-radius: 10px; background: var(--paper); }
 .save-line b { font: 18px/1.2 var(--title); font-weight: normal; }
+.saved-games .archives-fold { margin-top: 10px; }
+.archives { display: grid; gap: 8px; margin-top: 6px; }
+.save-line.archived { background: transparent; border-style: dashed; }
 .confirm { display: inline-flex; gap: 6px; align-items: center; }
 .prose .reread { font-style: italic; }
 .notice { padding: 10px 14px; border-radius: 8px; background: var(--paper); border: 1px dashed var(--line); color: var(--muted); font-size: 14px; }
