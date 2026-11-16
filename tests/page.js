@@ -42,6 +42,7 @@ function assemble(storiesJson, opts) {
     "<style>" + grimoireCss() + "</style>",
     "<style>" + read("app/app.css") + "</style>",
     '<div id="app"></div>',
+    "<script>" + read("app/demarrage.js") + "</script>",
     opts.external ? '<script type="application/json" id="histoires-resume">' + safe(JSON.stringify(storiesJson.map(cardOf))) + "</script>"
       : '<script type="application/json" id="histoires-fournies">[' + storiesJson.map(safe).join(",") + "]</script>",
     "<script>window.LIVRE_BUILD = " + JSON.stringify(opts.build || buildOf(storiesJson)) + ";</script>",

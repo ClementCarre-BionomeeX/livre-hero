@@ -193,14 +193,30 @@
   // file), or, on the site, beside it in histoires/<id>.json, fetched after the library shows (from the cache offline).
   // Why: Clément, 13/11 (piste 35): start faster on an old phone. The library needs only each book's card
   // (histoires-resume); a book's whole text is read when it is there, and a game waits for it.
+  var BUILTIN_BREATH_MS = 30;
   function loadBuiltins() {
     var el = document.getElementById("histoires-fournies"), res = document.getElementById("histoires-resume");
     if (el) { JSON.parse(el.textContent).forEach(function (st) { A.builtins[st.id] = st; A.builtinMeta[st.id] = storyMeta(st); }); A.builtinsReady = Promise.resolve(); return; }
     var list = res ? JSON.parse(res.textContent) : [];
     list.forEach(function (m) { A.builtinMeta[m.id] = m; });
-    A.builtinsReady = Promise.all(list.map(function (m) {
-      return fetch(m.file).then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); }).then(function (st) { A.builtins[st.id] = st; });
-    })).then(function () { render(); }, function () { A.builtinsErr = true; render(); });
+    // One book after the other, the smallest first, with a breath between two: an old tablet (Clément, 16/11: Galaxy
+    // Tab A of 2016) never holds the eighteen texts half-read at once, and the short books are ready first.
+    var order = list.slice().sort(function (a, b) { return (a.passages || 0) - (b.passages || 0); });
+    A.builtinsReady = order.reduce(function (p, m) {
+      return p.then(function () {
+        if (A.builtins[m.id]) return null;
+        return fetchBuiltin(m).then(function () { return new Promise(function (res) { setTimeout(res, BUILTIN_BREATH_MS); }); }, function () { A.builtinsErr = true; });
+      });
+    }, Promise.resolve()).then(function () { render(); });
+  }
+  // Intent: fetchBuiltin(meta) -> Story ! one book's text from histoires/, asked once even when two screens want it.
+  var builtinFetches = {};
+  function fetchBuiltin(m) {
+    if (!builtinFetches[m.id]) {
+      builtinFetches[m.id] = fetch(m.file).then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); }).then(function (st) { A.builtins[st.id] = st; return st; });
+      builtinFetches[m.id].catch(function () { delete builtinFetches[m.id]; });
+    }
+    return builtinFetches[m.id];
   }
   function storyMeta(st) { return { id: st.id, title: st.title, subtitle: st.subtitle || "", summary: st.summary || "", version: st.version || 1, acts: (st.acts || []).length, passages: Object.keys(st.passages || {}).length, multi: st.multi || null, kid: st.kid || null, adult: st.adult || null, cover: st.cover || null, age: st.age || null, author: st.author || null }; }
   function allStories() {
@@ -211,7 +227,8 @@
   // Intent: load(StoryId) -> Story ! reads(Store)
   function loadStory(id) {
     if (A.builtins[id]) return Promise.resolve(A.builtins[id]);
-    if (A.builtinMeta[id]) return A.builtinsReady.then(function () { if (!A.builtins[id]) throw new Error(BUILTINS_MISSING); return A.builtins[id]; });
+    // A book not read yet goes before the others (a game resumed on the biggest book waits for it alone).
+    if (A.builtinMeta[id]) return (A.builtinMeta[id].file ? fetchBuiltin(A.builtinMeta[id]) : A.builtinsReady).then(function () { if (!A.builtins[id]) throw new Error(BUILTINS_MISSING); return A.builtins[id]; }, function () { throw new Error(BUILTINS_MISSING); });
     return Store.get("scenarios", id).then(function (meta) {
       if (!meta) throw new Error("Histoire introuvable : " + id);
       var parts = [];
@@ -7146,6 +7163,7 @@
     }
     return refresh();
   }).then(function () { A.busy = false; render(); }, function () { A.busy = false; render(); }).then(function () {
+    window.LIVRE_OUVERT = true;   // app/demarrage.js: the book did open, its help note stays away
     Sync.start();
   });
 })();
