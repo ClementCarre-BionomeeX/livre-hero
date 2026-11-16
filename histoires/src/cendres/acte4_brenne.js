@@ -26,7 +26,7 @@ module.exports = {
 
   IV_br: P({ title: "Brenne", place: "brenne", hub: true,
     text: [
-      "Le camp bourdonne. Partout, des hommes qui aiguisent, qui comptent, qui écrivent des lettres promises au fond d'un sac. Sur les tentes des officiers, on a peint les noms en grosses lettres. Sur les tentes des soldats, chacun a écrit le sien, à la craie, au-dessus de l'entrée.",
+      "Le camp bourdonne. Partout, des hommes qui aiguisent, qui comptent, qui écrivent des lettres promises au fond d'un sac. Sur les tentes des officiers, on a peint les noms en grosses lettres, à l'huile et aux frais de la reine. Sur les tentes des soldats, chacun a écrit le sien, à la craie, au-dessus de l'entrée ; la pluie, qui connaît les grades, effacera ceux-là d'abord.",
     ],
     choices: [
       { label: "Le fort, et la compagnie de Brenne", hide: { seen: "IV_br_fort" }, to: "IV_br_fort" },
