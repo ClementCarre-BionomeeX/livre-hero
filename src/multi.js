@@ -171,6 +171,8 @@
   function choose(story, g, pid, c) {
     var p = player(g, pid), v = view(story, g, pid);
     var mine = v.choices.filter(function (x) { return choiceKey(x) === choiceKey(c); })[0] || c;
+    // What the reader typed travels with the choice (the answer of a puzzle): the fresh choice of the view has none.
+    if (c.answer != null && mine !== c) mine = Object.assign({}, mine, { answer: c.answer });
     if (v.wait || !mine.ok) throw new Error("Ce choix est fermé : " + (v.wait ? v.wait.text : mine.why));
     var d = decide(g, p, mine);
     M.choose(story, p.s, mine);

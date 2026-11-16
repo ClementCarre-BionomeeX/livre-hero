@@ -133,7 +133,7 @@ Object.assign(P, {
       { first: true, text: "Un écriteau : *De par Monseigneur le Maître des Sables, la colline est close jusqu'au Serment. Passent les gens de la Maîtrise, les gens de Son Altesse, et les pèlerins à billet, le 21, de l'aube à onze heures.*" },
       { again: true, text: "La barrière noire, les douze piques, le lieutenant sur sa chaise. Plus haut, les manteaux blancs." },
       { first: true, after: "r:line_signe", text: "Tu regardes le pavé, par habitude de glaneur. À dix pas au-delà de la barrière, au milieu de la chaussée, quelque chose brille, bleu, de ce bleu de gorge de pigeon. Et plus haut, à la fontaine suivante, encore. Elle a semé sa route, de cent pas en cent pas, avec ce qu'on lui a laissé dans le coin de son tablier." },
-      { first: true, with: "jehan", text: "« Brassac, dit Jehan, tout bas. Le lieutenant. Il lit des romans pendant ses gardes. Il ne lève les yeux que si l'on fait du bruit ou si l'on a un papier. » Il recule d'un pas, dans l'ombre d'un porche. « Je l'ai servi. Il me reconnaîtrait à mon dos. »" },
+      { first: true, with: "jehan", text: "« Courtenvaux, dit Jehan, tout bas. Le lieutenant. Il lit des romans pendant ses gardes. Il ne lève les yeux que si l'on fait du bruit ou si l'on a un papier. » Il recule d'un pas, dans l'ombre d'un porche. « Je l'ai servi. Il me reconnaîtrait à mon dos. »" },
       { first: true, after: "r:regente_parle", text: "*Les gens de Son Altesse.* Elle t'a dit, à Sainte-Aure, de lui porter un papier au Palais. Elle n'a pas dit comment on passait devant douze piques pour le lui remettre." },
     ],
     choices: [

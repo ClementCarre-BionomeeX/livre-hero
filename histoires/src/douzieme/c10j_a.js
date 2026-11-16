@@ -340,7 +340,7 @@ Object.assign(P, {
       "« Eh bien ? »",
     ],
     choices: [
-      { label: "« Je m'assois. » Et savoir, après-demain, où il aura les mains", fx: { flag: "j:aubespin_apprenti", regard: { aubespin: "cordial" }, ep: ["histoire", 400] }, to: "K10j_aubespin_fin" },
+      { label: "« Je m'assois. » Et savoir, après-demain, où il aura les mains", fx: { flag: ["j:aubespin_apprenti", "monde:dixieme_etabli"], regard: { aubespin: "cordial" }, ep: ["histoire", 400] }, to: "K10j_aubespin_fin" },
       { label: "« Non. Elle ne sait pas qu'elle est arrêtée : c'est bien ce que je vous reproche. »", fx: { flag: "j:aubespin_refuse", regard: { aubespin: "curieux" }, ep: ["perso", 400] }, to: "K10j_aubespin_fin" },
       { label: "« Laissez-moi la journée. »", to: "K10j_aubespin_porte" },
     ] },
@@ -404,7 +404,7 @@ Object.assign(P, {
       "Sa main retombe. Le brouillard revient, tu le vois revenir. « Il faut que je m'en souvienne demain. Je ne m'en souviendrai pas. Je ne me souviens que du dernier. »",
     ],
     choices: [
-      { label: "Écrire *481* sur sa manchette, à l'encre, en gros", fx: { sway: { suspension: { lunel: "contre" } }, flag: "j:voix_lunel", ep: ["perso", 500] }, to: "K10j_lunel" },
+      { label: "Écrire *481* sur sa manchette, à l'encre, en gros", fx: { sway: { suspension: { lunel: "contre" } }, flag: ["j:voix_lunel", "monde:lunel_manchette"], ep: ["perso", 500] }, to: "K10j_lunel" },
       { label: "Lui promettre d'être le dernier à lui parler, demain", fx: { flag: "j:lunel_promis" }, to: "K10j_lunel" },
     ] },
 
@@ -582,7 +582,7 @@ module.exports = {
           parade: ["Baudouin ouvre un peu la main, la baguette en travers, et attend."],
           feinte: ["Baudouin regarde ton coude, et son poignet tourne.", "Il a un demi-sourire, pour la galerie."],
         },
-        win: { to: "K10j_assaut_gagne", fx: { flag: "j:assaut_gagne", ep: ["seance", 700], conf: { josquin: 10 } } },
+        win: { to: "K10j_assaut_gagne", fx: { flag: ["j:assaut_gagne", "monde:assaut_gagne"], ep: ["seance", 700], conf: { josquin: 10 } } },
         lose: { to: "K10j_assaut_perdu", fx: { pv: -2, ep: ["seance", 300] } } },
     },
   },

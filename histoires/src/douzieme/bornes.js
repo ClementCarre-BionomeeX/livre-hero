@@ -431,6 +431,9 @@ var E_ECRIRE = [
   { label: "Écrire à {autre} ce qu'on a préparé chez le duc", hide: { any: [J, { not: { has: "r:vu_hotel_vide" } }, { has: "monde:su:dais" }] }, to: "E_dais" },
   { label: "Écrire à {autre} qui dort sous le pont des Trois-Chandelles", hide: { any: [J, { not: { has: "r:vu_brindille" } }, { has: "monde:su:brindille" }] }, to: "E_brindille" },
   { label: "Écrire à {autre} ce que portait l'enfant de cuivre", hide: { any: [J, { not: { has: "r:lettre_coudrier" } }, { has: "monde:su:carillon" }] }, to: "E_carillon" },
+  { label: "Écrire à {autre} lequel doit être en haut, et lequel en bas", hide: { any: [J, { not: { has: "r:sait_lesquelles" } }, { has: "monde:su:lesquelles" }] }, to: "E_lesquelles" },
+  { label: "Écrire à {autre} ce que le portier a vu, la veille et le matin", hide: { any: [J, { not: { has: "r:sait_arret" } }, { has: "monde:su:arret" }] }, to: "E_arret" },
+  { label: "Écrire à {autre} ce qu'il y avait sous le neuvième oreiller", hide: { any: [J, { not: { has: "r:lu_ansel" } }, { has: "monde:su:ansel" }] }, to: "E_ansel" },
   { label: "Écrire à {autre} qui se tient sur le chemin du canal", hide: { any: [J, { not: { seen: "K09r_girard" } }, { has: "monde:su:girard" }] }, to: "E_girard" },
   { label: "Écrire à {autre} de quelle couleur sont les yeux du Maître des Sables", hide: { any: [J, { not: { has: "r:vu_vairons" } }, { has: "monde:su:vairons" }] }, to: "E_vairons" },
   { label: "Écrire à {autre} ce que le Maître des Sables a dit sous la tente", hide: { any: [J, { not: { has: "r:sait_recolte" } }, { has: "monde:su:recolte" }] }, to: "E_recolte" },
@@ -585,6 +588,92 @@ Object.assign(P, {
     ]) },
 });
 
+// ---------------------------------------------------------------- chapter 11: the Palace | the Guild taken
+Object.assign(P, {
+  M11: { act: "III", title: "Midi, la veille", backName: "la borne", charniere: true, aparte: true, depot: { put: ["cahier"], take: ["borne_guilde", "cahier"] },
+    text: [
+      { first: true, if: J, text: "Les bâtons ont du gris dans leurs creux : {autre} a écrit sous quelque chose qui tombait. *JE SUIS DANS TA COUR. LE CADRAN EST LÀ, ET LES DEUX MOTS. IL TOMBE DU GRIS DE LA TOUR, DROIT, SANS ARRÊT, DEPUIS SOIXANTE ANS. J'EN AI AUX CHEVILLES.*" },
+      { first: true, if: J, text: "*TES HOMMES DE CUIVRE MARCHENT. PERSONNE NE LES NOURRIT PLUS. ILS BOIVENT CE QUI TOMBE.*" },
+      { first: true, if: J, text: "*LA MAISON ÉTAIT VIDE À MIDI. TOUS À LA FÊTE. IL RESTE UN VIEUX À UNE FENÊTRE, QUI SOURIT, ET UN PORTIER QUI DORMAIT DÉJÀ.*" },
+      { first: true, if: { all: [J, { has: "monde:lunel_manchette" }] }, text: "*TON VIEUX A UN CHIFFRE SUR SA MANCHETTE. 481. C'EST TON ÉCRITURE. L'ENCRE A BRUNI.*" },
+      { first: true, if: J, text: "*DANS LE GRIS IL Y A UNE TRACE, UNE SEULE. DES SOULIERS FINS ET UNE CANNE. ELLE VA DU PORTAIL À LA PORTE AU PAPILLON, ET DE LÀ À L'ESCALIER DE TON GRAND MAÎTRE. QUELQU'UN VIENT ICI DEPUIS SOIXANTE ANS, ET IL VIENT SEUL.*" },
+      { first: true, if: J, text: "Tu lis cela entre deux tortues de bronze. Tu as quitté cette cour à prime, pleine d'apprentis qu'on menait au dortoir ; {autre} s'y tient à cette heure, sous un drap gris, avec un vieillard qui sourit. Et tu connais, de ton côté du temps, un homme en habit gris qui soigne ses souliers." },
+      { first: true, if: J, text: "Tu écris sur le bronze tiède. Le sable de l'esplanade, la grille, les girouettes. Une aile où l'on brûle des cierges en plein jour. Une femme en noir, à une fenêtre, qui tend une enfant aux douze coups comme on tend à boire. Tu écris qu'on vote à none, de l'autre côté du sable, et qu'il te reste trois heures." },
+      { first: true, if: { all: [J, { has: "monde:aelis_ecorce" }] }, text: "Tu écris que l'écorce est entrée au Palais par la porte des Simples, dans la manche d'un médecin, et qu'il lui faut vingt et un jours." },
+      { first: true, if: { all: [J, { has: "monde:hardouin_tour" }] }, text: "Tu écris qu'un capitaine d'archers tiendra demain le pied de l'escalier, avec trente hommes, de dix heures à ce qu'il faudra." },
+      { first: true, if: R, text: "L'écriture penchée est plus fine que d'habitude, et très droite : on a écrit sur du bronze, dans un jardin. *Je suis au Palais. Entre la Guilde et lui, il y a une esplanade de sable blanc que personne ne traverse en courant. Derrière la grille, des tilleuls, des jardiniers, et un cadran solaire porté par deux tortues. C'est là que j'écris.*" },
+      { first: true, if: R, text: "*Une aile a ses volets clos. On y brûle des cierges en plein midi, pour que la nuit n'y vienne jamais. À midi, les fenêtres se sont ouvertes du dedans. Une femme en noir a porté une enfant à la croisée, dans une couverture, et l'a tenue au soleil pendant les douze coups. Elle penchait la tête, à chacun, pour voir si la petite entendait.*" },
+      { first: true, if: R, text: "*C'est la Reine. Elle a trente ans. On lui a promis une chambre et un an. Personne ne lui a parlé de soixante, ni de quarante mille.*" },
+      { first: true, if: { all: [R, { has: "monde:aelis_ecorce" }] }, text: "*Ton écorce est entrée. Un médecin l'a pesée devant moi, copeau par copeau. Il lui faut vingt et un jours. Il dit que l'enfant en a peut-être quinze. Il court quand même.*" },
+      { first: true, if: { all: [R, { has: "monde:hardouin_tour" }] }, text: "*Il y a ici un capitaine qui couche en travers d'une porte depuis la mort du Roi. Demain il tiendra le pied de la Tour, avec trente archers, de dix heures à ce qu'il faudra.*" },
+      { first: true, if: R, text: "*On vote à none. Sept hommes, portes closes, de l'autre côté du sable. Tu es assis{e} à vingt pas de leur salle.*" },
+      { first: true, if: R, text: "Tu regardes le logis du sud, et sa porte. Sept hommes y entreront à none, hier, dans soixante ans. Tu écris à ton tour, en bâtons, le gris plein les genoux : la barrière, la chute, les hommes de cuivre nourris de pluie, la cour sous son drap, et la trace aux souliers fins." },
+      { again: true, if: J, text: "Le cadran aux tortues. L'ombre du style a passé le douze." },
+      { again: true, if: R, text: "Le cadran solaire des Jurés, son ombre arrêtée, la dalle qui sonne creux." },
+    ],
+    choices: E_ECRIRE.concat([
+      { label: "Fermer le Cahier, et rendre le bronze aux jardiniers", hide: R, to: "K11j_tantot", big: true },
+      { label: "Fermer le Cahier, et remettre la dalle", hide: J, to: "K11r_tantot", big: true },
+    ]) },
+
+  E_lesquelles: { title: "Lequel en haut, lequel en bas", back: true, fx: { flag: "monde:su:lesquelles" },
+    text: [
+      "*J'AI OUVERT SA PORTE. SA COPIE DU LIVRE EST SUR SA TABLE. ELLE DIT LESQUELS. LIS DEUX FOIS.*",
+      "*CELUI D'EN HAUT DOIT ÊTRE SOUS LA CLOCHE QUAND ELLE SE TAIT. IL FAUT QU'IL Y RESTE. C'EST LUI QUI SAIT OÙ LE COMPTE S'EST ARRÊTÉ. LUI SEUL PEUT LE REPRENDRE.*",
+      "*CELUI D'EN BAS DOIT VENIR D'UNE AUTRE HEURE. LA BARRE PÈSE SUR CEUX QU'ELLE A TENUS. C'EST POUR ÇA QUE TON GRAND MAÎTRE N'A PAS PU. IL L'A ÉCRIT DANS LA MARGE : NI MOI, NI MELCHIOR.*",
+      "*EN BAS C'EST MOI. EN HAUT C'EST TOI. DEMAIN, AU ONZIÈME COUP, IL FAUT QUE TU SOIS SOUS LA CLOCHE. LE COUP TE PRENDRA. JE TE TROUVERAI DE MON CÔTÉ, DEBOUT, À LA MÊME PLACE, ET J'AURAI DU SABLE.*",
+      "*IL A ÉCRIT AUSSI : QUI CONSENT À CELA ? JE NE TE LE DEMANDE PAS. JE TE LE DIS POUR QUE TU LE SACHES AVANT.*",
+      "Tu regardes la dernière ligne. Tu as mis moins de temps à écrire le reste de ce Cahier qu'à tracer ces quatre mots : *AVANT. PAS APRÈS.* Tu les ajoutes.",
+    ] },
+
+  E_arret: { title: "Quatre rubans verts", back: true, fx: { flag: "monde:su:arret" },
+    text: [
+      "*J'AI ÉVEILLÉ TON PORTIER. POUR LUI C'EST LE 21 AU MATIN. ÉCOUTE CE QU'IL DIT DE LA VEILLE. LA VEILLE, C'EST CE SOIR CHEZ TOI.*",
+      "*APRÈS LA SÉANCE, QUATRE RUBANS VERTS EMMÈNENT TON GRAND MAÎTRE PAR LA POTERNE. ILS ONT UN PAPIER AVEC PLUS DE CIRE QUE D'ÉCRITURE.*",
+      "*ET LE 21 À LA POINTE DU JOUR IL EST REVENU. SANS CHAÎNE, SANS CHAPEAU, DE LA TOILE D'ARAIGNÉE PLEIN LE DOS. QUELQU'UN L'A SORTI CETTE NUIT, PAR UN ENDROIT OÙ IL Y A DES ARAIGNÉES.*",
+      "*JE CROIS QUE C'EST TOI.*",
+      "Tu relis. C'est la première fois que tu écris à {autre} ce qu'{autre:il} va faire, et tu ne sais pas si cela aide, ou si cela pèse.",
+    ] },
+
+  E_ansel: { title: "Sous le neuvième oreiller", back: true, fx: { flag: "monde:su:ansel" },
+    text: [
+      "*AU DORTOIR, NEUF LITS FAITS, NEUF CLEFS SUR NEUF OREILLERS. ILS LES ONT RENDUES LE MATIN. ILS SAVAIENT QU'ILS NE REVIENDRAIENT PAS.*",
+      "*LE PLUS PETIT S'APPELLE ANSEL. IL A TREIZE ANS. IL A LAISSÉ UNE LETTRE POUR SA MÈRE, LA VEUVE HUREL, RUE DE LA POULIE, À L'ENSEIGNE DU DÉ. ELLE N'EST JAMAIS PARTIE.*",
+      "*C'EST LUI QUI PORTE LE MAILLET. IL PASSE SOUS LA BARRE. IL A VU L'EAU DEBOUT, À L'ESSAI, ET IL A EU PEUR. IL N'A PAS DE SIGNE POUR LE DIRE.*",
+      "*IL EST VIVANT CHEZ TOI CE SOIR. IL A UNE MONTRE NEUVE ET IL A PEUR. SI QUELQU'UN LUI PARLE AVEC LES MAINS, IL ÉCOUTERA.*",
+      { if: { item: "lettre_ansel" }, text: "Tu as la lettre contre le Cahier. Elle est plate. Elle peut faire le chemin que tes bâtons font, et arriver hier." },
+    ] },
+
+  B11: { act: "IV", title: "None, de part et d'autre du sable", backName: "la borne", charniere: true, aparte: true, depot: { put: ["borne_palais", "cahier"], take: ["cahier"] },
+    text: [
+      { first: true, if: J, text: "Les bâtons de ce soir sont enfoncés comme des clous. *IL EST VENU. À NONE, SEUL, À PIED, AVEC UNE CANNE. LES HOMMES DE CUIVRE S'ÉCARTENT DEVANT LUI. IL A QUARANTE-CINQ ANS SUR LA FIGURE ET QUATRE-VINGT-DIX DANS LES MAINS.*" },
+      { first: true, if: J, text: "*IL MONTE ICI TOUS LES VINGT JUIN. IL VA À LA PORTE DE TON GRAND MAÎTRE, IL MET DOUZE, ET IL REDESCEND. SOIXANTE FOIS.*" },
+      { first: true, if: J, text: "*IL SAIT QUE J'Y ÉTAIS. IL A LU MES SABOTS DANS LE GRIS. IL SAIT L'ÂGE DE MA SŒUR.*" },
+      { first: true, if: J, text: "*DEMAIN, LA TOUR. TOI D'UN CÔTÉ DU COUP, MOI DE L'AUTRE. VINGT TOISES ET SOIXANTE ANS.*" },
+      { first: true, if: J, text: "Tu es à genoux dans le thym. La Patiente vient de dire none ; la cloche maigre de la Guilde lui a répondu, et à cent pas d'ici sept hommes s'assoient devant une maquette. L'homme en gris est parmi eux. Il a trente ans. Il ignore qu'il montera soixante fois un escalier pour mettre douze à une porte." },
+      { first: true, if: J, text: "Tu écris vite. Une antichambre, une femme qui garde une porte. Une chambre où l'on a supprimé les ombres. Une enfant de huit ans qui a les ongles gris et des idées sur les pendules." },
+      { first: true, if: { all: [J, { has: "monde:reine_avertie" }] }, text: "Tu écris que la Reine sait, de ce soir, ce que son beau-frère a acheté ; et qu'elle le laisse partir à la chasse." },
+      { first: true, if: { all: [J, { has: "monde:reine_renonce" }] }, text: "Tu écris qu'une femme a décidé d'entendre midi tout entier, et qu'elle le dira ce soir à l'horloger. Tu écris que tu ne sais pas ce que fait cet homme-là d'une permission qu'on lui retire." },
+      { first: true, if: { all: [J, { has: "monde:lettres_garde" }] }, text: "Tu écris qu'il y aura sous le thym, entre la tortue du nord et le socle, un vélin plié en quatre, avec une femme assise dans la cire. Qu'il nomme trois personnes pour garder le royaume. Qu'il vaut *en quelque temps qu'on le produise*, et qu'il faut le produire le sceau entier." },
+      { first: true, if: { all: [J, { has: "monde:garde_porteur" }] }, text: "Tu écris que le troisième nom est en blanc, et qu'il appartient à qui tiendra le vélin." },
+      { first: true, if: R, text: "L'écriture penchée a tremblé au début, puis elle s'est reprise. *J'ai vu la Reine. De près, dans une chambre où quarante cierges tournent en rond pour qu'il n'y ait pas d'ombre. Elle reste debout pour rester éveillée. Elle a bâti tout cela pour éviter de regarder un lit.*" },
+      { first: true, if: R, text: "*Dans le lit, il y a une enfant de huit ans, les ongles gris. Elle m'a pris le poignet. Elle a dit : je ne veux pas qu'on m'arrête comme la pendule. On ne m'a pas demandé.*" },
+      { first: true, if: { all: [R, { has: "monde:reine_avertie" }] }, text: "*La Reine sait pour le duc. Je lui ai mis les papiers dans la main. Elle ne peut pas le faire prendre : il a les barons. Elle a dit qu'il lui restait une nuit, une main et un sceau.*" },
+      { first: true, if: { all: [R, { has: "monde:reine_renonce" }] }, text: "*Elle renonce. Elle montera demain à la Tour pour entendre midi, les douze coups, avec sa fille éveillée. Elle le dit ce soir à l'homme en gris. Je crois qu'il se passera de sa permission.*" },
+      { first: true, if: { all: [R, { has: "monde:lettres_garde" }, { has: "monde:garde_coudrier" }] }, text: "*J'enterre sous le cadran du Palais, dans le thym, entre la tortue du nord et le socle. C'est un vélin, scellé du grand sceau. La Reine y nomme trois gardiens du royaume : un capitaine, un médecin, et Barnabé Coudrier. Il vaut en quelque temps qu'on le produise. Tu connais quelqu'un qui jure demain sur un parvis. Ne casse pas la cire.*" },
+      { first: true, if: { all: [R, { has: "monde:lettres_garde" }, { has: "monde:garde_porteur" }, { not: { has: "monde:garde_coudrier" } }] }, text: "*J'enterre sous le cadran du Palais, dans le thym, entre la tortue du nord et le socle. C'est un vélin, scellé du grand sceau. La Reine y nomme trois gardiens du royaume : un capitaine, un médecin, et la personne qui produira la lettre. C'est toi, si tu la tiens. Il vaut en quelque temps qu'on le produise. Ne casse pas la cire.*" },
+      { first: true, if: { all: [R, { not: { has: "monde:lettres_garde" } }] }, text: "*J'enterre sous le cadran du Palais, dans le thym, entre la tortue du nord et le socle. Tu creuseras demain.*" },
+      { first: true, if: R, text: "*Ils entrent en séance. J'entends leur cloche d'ici.*" },
+      { first: true, if: R, text: "Tu relèves la tête vers le logis du sud. Le fauteuil du milieu y est par terre depuis soixante ans, les pieds en l'air, et {autre} entend sonner la cloche qui les y fait asseoir. Tu tailles ton charbon. Tu as une cour à écrire, et l'homme qui y est entré." },
+      { again: true, if: J, text: "Le cadran aux tortues, le thym remué. De l'autre côté du mur, la Guilde s'est tue." },
+      { again: true, if: R, text: "Le cadran solaire, sous les deux mots. La rigole a son bord neuf." },
+    ],
+    choices: E_ECRIRE.concat([
+      { label: "Fermer le Cahier : ils votent", hide: R, to: "K12j_route", big: true },
+      { label: "Fermer le Cahier : demain, la Régente", hide: J, to: "K12r_route", big: true },
+    ]) },
+});
+
 module.exports = { passages: P, extras: {
   quests: [
     { id: "I_porte", act: "I", kind: "principale", title: "La porte de la grange", start: "B01" },
@@ -629,6 +718,12 @@ module.exports = { passages: P, extras: {
       { if: { has: "monde:su:brindille" }, text: "*Une petite de quatre ans, les ongles gris. Le coup l'a prise en chemin et la garde. Si la ville repart, sa maladie repart avec. Il lui faut l'écorce avant. De même aux Tanneurs, et là-haut.*" }] },
     { id: "carillon", head: "À qui bouge encore", v: [
       { if: { has: "monde:su:carillon" }, text: "*Le 21 à onze heures, le Grand Maître descend seul, avec une baguette, ôter le levier à l'autre. Il a écrit : si vous lisez ceci, j'ai échoué. Ne le laisse pas descendre seul.*" }] },
+    { id: "lesquelles", head: "Lequel en haut, lequel en bas", v: [
+      { if: { has: "monde:su:lesquelles" }, text: "*Celui d'en haut doit se trouver sous la cloche quand elle se tait, et y rester : lui seul peut reprendre le compte. Celui d'en bas doit venir d'une autre heure : la barre pèse sur ceux qu'elle a tenus. En bas, c'est moi. En haut, c'est toi.*" }] },
+    { id: "arret", head: "Le soir du 20, le matin du 21", v: [
+      { if: { has: "monde:su:arret" }, text: "*Après la séance, quatre rubans verts emmènent le Grand Maître par la poterne. Le 21, à la pointe du jour, il est de retour chez lui, sans chaîne, de la toile d'araignée plein le dos. Quelqu'un l'a sorti dans la nuit.*" }] },
+    { id: "ansel", head: "Le neuvième oreiller", v: [
+      { if: { has: "monde:su:ansel" }, text: "*Ansel, treize ans, le plus petit des neuf. C'est lui qui porte le maillet et passe sous la barre. Il a vu l'eau debout à l'essai, il a eu peur, et il a écrit à sa mère, la veuve Hurel, rue de la Poulie, à l'enseigne du Dé.*" }] },
     { id: "pont", head: "Arvoise, dans la Chronique", v: [
       { if: { has: "monde:su:pont" }, text: "*Six jours avant le Grand Midi, le Pont-Neuf d'Arvoise est tombé dans la Thiorne à l'heure de sa bénédiction. Quarante morts. Le maître qui l'a bâti s'appelait Baudri, il est mort avec. Tu y seras.*" }] },
   ],
