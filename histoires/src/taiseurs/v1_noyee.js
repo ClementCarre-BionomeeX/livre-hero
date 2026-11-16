@@ -166,7 +166,7 @@ Object.assign(P, {
     text: [
       "Vous longez le rempart vers le sud, les pieds dans la vase jusqu'aux chevilles. Le mur a cédé à un endroit, il y a longtemps : un éboulis de blocs gros comme des coffres monte en pente jusqu'aux créneaux, et redescend de l'autre côté dans une ruelle. L'escalade prend du temps. Chaque bloc bouge un peu sous le pied, couvert de varech qui glisse.",
       { before: "prevot:dejoue", text: "En haut de l'éboulis, tu vois, à quatre cents pas plus au sud, une autre brèche, plus large, par où entrent les soldats d'Aveline en colonne, au pas. Leurs piques dépassent du rempart comme des roseaux." },
-      "Tu redescends dans une ruelle si étroite que tes épaules frottent les deux murs. Des algues pendent des fenêtres. Une porte entrouverte {{echo#vn_breche_porte|grince sur ses gonds au moindre souffle|garde une dispute : « Ferme, ferme, la mer monte ! » et une autre voix : « Le berceau, d'abord, le berceau ! »}}. La ruelle débouche sur une place.",
+      "Tu redescends dans une ruelle si étroite que tes épaules frottent les deux murs. Des algues pendent des fenêtres, à la place exacte où pendait le linge. Une porte entrouverte {{echo#vn_breche_porte|grince sur ses gonds au moindre souffle|garde une dispute : « Ferme, ferme, la mer monte ! » et une autre voix : « Le berceau, d'abord, le berceau ! »}}. La ruelle débouche sur une place.",
       { with: "salome", text: "Salomé regarde vers la mer en redescendant, comme elle le fera maintenant toutes les dix minutes. « Une heure de perdue », dit-elle seulement." },
     ],
     choices: [
@@ -430,7 +430,7 @@ Object.assign(P, {
 
   VN_palais: { act: "V", title: "La cour d'honneur", place: "sorne", backName: "la cour d'honneur du palais",
     text: [
-      { first: true, text: "En haut de la rampe, la cour d'honneur du palais s'ouvre devant toi, vaste et nue, pavée de dalles de marbre que les algues n'ont pas pu prendre. Tout au fond, sur un perron de neuf marches, deux battants de bronze hauts comme trois hommes. Au-dessus, la devise de la reine, en lettres de cuivre vert, et au milieu de chaque battant, un heurtoir en forme de main fermée." },
+      { first: true, text: "En haut de la rampe, la cour d'honneur du palais s'ouvre devant toi, vaste et nue, pavée de dalles de marbre que les algues n'ont pas pu prendre ; la lune y est si égale qu'on hésite à y poser le pied, comme sur une eau. Tout au fond, sur un perron de neuf marches, deux battants de bronze hauts comme trois hommes. Au-dessus, la devise de la reine, en lettres de cuivre vert, et au milieu de chaque battant, un heurtoir en forme de main fermée." },
       { again: true, text: "La cour d'honneur, ses dalles nues, les deux battants de bronze en haut du perron." },
       { after: "vn:palais_ouvert", text: "Les battants sont restés entrouverts. Un filet d'eau coule entre eux et descend le perron marche après marche." },
       "La devise dit : *{{loupe#vn_palais_devise|Je garde ma parole|Frappe sept coups, tais-toi jusqu'au septième, et la reine t'ouvrira}}.*",
@@ -467,7 +467,7 @@ Object.assign(P, {
 
   VN_palais_ouvert_suite: { act: "V", title: "Le vestibule", place: "sorne",
     text: [
-      "Le vestibule est une salle haute, aux murs couverts de tapisseries que la mer a changées en draperies de vase verte. Elles pendent, lourdes, et quand tu passes, elles bougent à peine. Sous l'une d'elles, tu devines une chasse : des chiens, un cerf, une femme à cheval.",
+      "Le vestibule est une salle haute, aux murs couverts de tapisseries que la mer a changées en draperies de vase verte. Elles pendent, lourdes, et quand tu passes, elles bougent à peine, un instant après toi, lorsque l'air de ton passage est déjà retombé. Sous l'une d'elles, tu devines une chasse : des chiens, un cerf, une femme à cheval.",
       "Au fond, une seconde porte, ouverte celle-là. La salle du trône.",
     ],
     choices: [{ label: "Entrer dans la salle du trône", to: "VN_salle_trone" }] },
@@ -1075,7 +1075,7 @@ Object.assign(P, {
 Object.assign(P, {
   VN_comptoirs: { act: "V", title: "La place des Comptoirs", place: "sorne", backName: "la place des Comptoirs",
     text: [
-      { first: true, text: "La rue des Arcades débouche sur la plus grande place de Sorne. Elle est bordée sur trois côtés d'arcades profondes, et sous chaque arcade, une porte, une enseigne de fer : les comptoirs des grandes maisons. Tu reconnais des emblèmes que tu as vus à Salvèze sur des façades bien vivantes : les besants des Marrel, la tour des Delisle, la gerbe des Fourcaud. Le quatrième côté est fermé par une halle à colonnes, la halle des Comptoirs, avec son fronton." },
+      { first: true, text: "La rue des Arcades débouche sur la plus grande place de Sorne. Elle est bordée sur trois côtés d'arcades profondes, et sous chaque arcade, une porte, une enseigne de fer : les comptoirs des grandes maisons. Tu reconnais des emblèmes que tu as vus à Salvèze sur des façades bien vivantes : les besants des Marrel, la tour des Delisle, la gerbe des Fourcaud ; ces maisons-là ont perdu une ville et sauvé leurs enseignes. Le quatrième côté est fermé par une halle à colonnes, la halle des Comptoirs, avec son fronton." },
       { first: true, text: "Au milieu de la place, une seule chose : une pierre plate et carrée, large comme une table, au ras des pavés. C'est là que, cette nuit-là, il y a trois siècles, les Comptoirs ont attendu la reine." },
       { again: true, text: "La place des Comptoirs, ses arcades, ses enseignes, la halle au fond. La pierre carrée au milieu." },
       "La pierre carrée {{pie#vn_pierre_poids|est une dalle de granit noir, usée au centre|est une pierre de pesée, vert pâle et veinée de blanc : une pierre chantante, la plus grande que tu aies vue}}.",
@@ -1096,7 +1096,7 @@ Object.assign(P, {
     fx: { ep: ["seance", 2500] },
     text: [
       { if: { seen: "VN_comptoirs_echo" }, text: "La pierre de pesée chante sous le diapason, une note si basse qu'elle fait trembler les arcades. Le bronze se réchauffe dans ta main, plein de nouveau." },
-      "Tu te tiens sur la pierre carrée. Autour de toi, la place est vide et blanche de lune. Il fait froid.",
+      "Tu te tiens sur la pierre carrée. Autour de toi, la place est vide et blanche de lune ; ton ombre y est la seule, et elle se tient très près de toi. Il fait froid.",
       "La pierre {{echo#vn_nuit_comptoirs|est froide sous tes semelles|garde des voix d'hommes, nombreux, essoufflés : « Tenez-la. » « Pas ici, Marrel, pas devant le peuple. » « Le peuple dort. Delisle, la lanterne. Plus près. » Et une femme qui se débat sans un mot, le bruit de ses talons sur la pierre}}.",
       "Les arcades {{echo#vn_couteau|te renvoient le bruit de tes propres pas|te renvoient un bruit de lutte, un cri étouffé dans une main, puis un homme, d'une voix très calme : « Voilà. Elle ne dira plus rien à personne. Demain, on écrit qu'elle est devenue muette de chagrin »}}.",
       "Sous l'arcade du coin nord, {{echo#vn_cle_comptoirs|une flaque reflète la lune|un homme chuchote très vite à quelqu'un qui pleure : « Écoute-moi, Isabeau. Retiens ces mots et oublie le reste : nous nous taisons pour qu'elle parle. À la septième bouche. Maintenant cours, cours jusqu'aux Joncs »}}.",
@@ -1272,7 +1272,7 @@ Object.assign(P, {
 
   VN_porte_soldats: { act: "V", title: "La compagnie de la place ronde", place: "sorne",
     text: [
-      "Sur la place ronde, une compagnie d'Aveline a pris position devant la porte : vingt piques en deux rangs, un capitaine à cheval sur un tonneau renversé, des torches plantées dans les joints des dalles. Ils ont trouvé la porte, et ils ignorent comment l'ouvrir. Le capitaine fait frapper dessus à la masse, à coups réguliers, depuis un moment, sans résultat.",
+      "Sur la place ronde, une compagnie d'Aveline a pris position devant la porte : vingt piques en deux rangs, un capitaine à cheval sur un tonneau renversé, des torches plantées dans les joints des dalles. Ils ont trouvé la porte, et ils ignorent comment l'ouvrir. Le capitaine fait frapper dessus à la masse, à coups réguliers, depuis un moment, sans résultat : Aveline frappe aux portes comme elle fait tout le reste, en mesure.",
       { if: { has: "vn:chaloupes" }, text: "Un soldat arrive en courant de la ville basse, essoufflé, et crie quelque chose au capitaine en langue du nord. Tu comprends un mot : *chaloupes*. Les soldats se regardent. Leurs barques sont parties avec la mer. Ils sont pris dans Sorne comme toi." },
       { if: { has: "vn:aveline_doute" }, text: "Dans le second rang, tu reconnais le jeune lieutenant blond de la place. Il te voit aussi. Il baisse les yeux." },
       "Le capitaine se tourne vers toi. « Vous arrivez à point, dit-il. Le duc {{oreille#vn_capitaine_porte|vous paiera bien pour ouvrir cette porte|vous fera pendre dès qu'elle sera ouverte, mais je ne suis pas obligé de vous le dire}}. Ouvrez-la. »",
