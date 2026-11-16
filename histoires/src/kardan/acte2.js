@@ -8,14 +8,14 @@ module.exports = {
   D_fosse: { act: "II", title: "La Fosse", place: "fosse",
     fx: { catchup: 3, catchupWhy: "Kardan, la route, la nuit de la Lune", food: 1 },
     text: [
-      { if: WAKING, else: "Tu es toujours au fond du puits, sous le même rond de ciel. La paille, les os et la galerie noire t'attendent avec la patience des choses inanimées.", text: "Tu reprends conscience sur le dos, la bouche pleine de poussière. Ton premier soin est de faire l'inventaire de ta personne : deux bras, deux jambes, des courbatures partout, aucun os cassé. Ton second soin est de lever les yeux. Très haut, à une quinzaine de toises, soit trois maisons posées l'une sur l'autre, un rond de ciel de la taille d'une pièce d'argent pâlit autour des dernières étoiles. Tu es couché au fond d'un puits sans margelle, aux parois polies comme l'intérieur d'un vase, sur un lit de paille pourrie et de choses qui craquent quand tu bouges." },
-      { if: WAKING, text: "Les choses qui craquent sont des os. Tu les examines de près, avec l'attention de quelqu'un qui préfère savoir. Les plus anciens sont gris et poreux comme de la pierre ponce ; d'autres gardent encore une teinte d'ivoire. Entre eux traînent des lambeaux de laine, une semelle cloutée, une boucle de ceinture en laiton. Tu tires de cet inventaire une conclusion simple et peu flatteuse : avant toi, on en a jeté beaucoup d'autres ici." },
-      { if: { all: [WAKING, { has: "capture:bu" }] }, text: "Les gens de Kardan ont travaillé avec méthode. Ils ont pris tes armes, ta bourse et tes vivres. Ils t'ont laissé tes vêtements, et une miche de pain posée sur la poitrine, comme on pose une fleur sur un mort. Le pain te fait plaisir. La comparaison, beaucoup moins." },
-      { if: { all: [WAKING, { has: "capture:bu" }, { has: "couteau:aurele" }] }, text: "Il y a aussi, passé dans ta ceinture, le couteau d'Aurèle. Hier soir, il n'y était pas. Quelqu'un l'y a mis, et tu ranges ce fait dans un coin de ta tête." },
-      { if: { all: [WAKING, { has: "capture:feinte" }] }, text: "Ta lame et ta lanterne sont à ta ceinture : quelqu'un les y a glissées avant de te pousser dans le vide. Tu as fait semblant de dormir assez bien pour tromper un village entier, et tu as vu les visages. Tu les gardes en mémoire, un par un, comme une liste." },
-      { if: { all: [WAKING, { has: "capture:combat" }] }, text: "Ta main tient encore ton arme, si serrée que tu dois déplier les doigts un à un. Ton crâne bourdonne comme une cloche après l'office. Tu as vu les visages : ceux qui frappaient, et ceux qui pleuraient en frappant." },
-      { if: { all: [WAKING, { present: "odon" }] }, text: "À côté de toi, une forme se redresse en gémissant et frotte une tonsure grise de poussière. C'est Odon. Le moine considère le rond de ciel, puis les os, puis toi, avec le calme de quelqu'un qui vérifie une addition. « Eh bien, dit-il. Nous savons maintenant ce que veut dire *rester à Kardan pour toujours*. »" },
-      { if: WAKING, text: "Dans la paroi s'ouvre une galerie à hauteur d'homme, noire comme un four éteint. Autour de l'ouverture, la pierre porte des traces de doigts. Elles se comptent par centaines et se recouvrent les unes les autres. Les plus anciennes ont poli la roche comme une rampe d'escalier." },
+      { if: WAKING, else: "Tu es toujours au fond du puits, sous le même rond de ciel. La paille, les os et la galerie noire t'attendent avec la patience des choses inanimées, qui est la plus longue de toutes.", text: "La conscience te revient par degrés, et d'abord par la bouche, qui est pleine de poussière. Vient ensuite ton dos, posé sur quelque chose de mou et d'humide ; puis, enfin, tes yeux. Très haut au-dessus de toi, à quinze toises au moins, un rond de ciel de la taille d'un écu laisse mourir une à une les dernières étoiles. Tout le reste est pierre : un puits sans margelle, aux parois polies comme l'intérieur d'un vase, où l'air a l'odeur d'une cave qu'on a fermée sur ses morts. Sous toi, de la paille pourrie ; et dans la paille, des choses qui craquent au moindre mouvement, d'une manière que tu trouves aussitôt suspecte." },
+      { if: WAKING, text: "Tes soupçons sont fondés : ce sont des os. Tu les tâtes quand même, car l'esprit, dans la peur, réclame la certitude comme une faveur. Les plus anciens sont gris et légers comme de la pierre ponce ; d'autres gardent une blancheur qui date d'hier, ou peu s'en faut. Parmi eux traînent des lambeaux de laine, une semelle cloutée, une boucle de ceinture en laiton. Le puits a reçu beaucoup de visiteurs avant toi, et tous ont négligé de laisser leur adresse." },
+      { if: { all: [WAKING, { has: "capture:bu" }] }, text: "Les gens de Kardan sont des hôtes accomplis : ils ont pensé à tout. Ils ont pris tes armes, pour t'éviter de te blesser ; ta bourse, pour t'éviter de la perdre ; tes vivres, pour t'épargner la peine de les porter. En échange, ils t'ont laissé tes vêtements, et sur ta poitrine une miche de pain, posée comme on pose une fleur sur un mort. Cette délicatesse te glace davantage que la chute elle-même." },
+      { if: { all: [WAKING, { has: "capture:bu" }, { has: "couteau:aurele" }] }, text: "Ils ont aussi glissé dans ta ceinture le couteau d'Aurèle. Hier soir, il n'y était pas. Quelqu'un l'y a mis." },
+      { if: { all: [WAKING, { has: "capture:feinte" }] }, text: "Ta lame et ta lanterne sont à ta ceinture : une main charitable les y a glissées avant qu'une autre te pousse dans le vide. Tu as joué le sommeil assez bien pour tromper un village entier, et tu as reconnu les voix. Tu les gardes en mémoire, une par une, comme on garde des reconnaissances de dette." },
+      { if: { all: [WAKING, { has: "capture:combat" }] }, text: "Ta main tient encore ton arme, si serrée que tu dois déplier les doigts un à un. Ton crâne bourdonne comme une cloche après l'office, et l'office a été long. Tu as vu les visages : ceux qui frappaient, et ceux qui pleuraient en frappant." },
+      { if: { all: [WAKING, { present: "odon" }] }, text: "À côté de toi, un tas de bure se soulève, gémit et devient Odon. Le moine frotte sa tonsure, considère le rond de ciel, puis les os, puis toi, avec la mine d'un chanoine à qui l'on sert un vin bouchonné. « Eh bien, dit-il. Nous savons maintenant ce que veut dire *rester à Kardan pour toujours*. » Il secoue la poussière de sa manche. « Je tiens à le dire pour la postérité : de toutes les hospitalités que j'ai subies, celle-ci est la plus mal élevée. Et j'ai dîné chez un évêque. »" },
+      { if: WAKING, text: "Dans la paroi s'ouvre une galerie à hauteur d'homme, noire comme la conscience d'un cardinal. Autour de l'ouverture, la pierre est couverte d'empreintes de doigts, des centaines, superposées, si nombreuses que les plus anciennes ont poli la roche comme une rampe d'escalier. Tu comprends, avec une netteté désagréable, que chacune d'elles est un instant d'hésitation." },
     ],
     choices: [
       { label: "Fouiller les restes de ceux qui sont tombés avant toi", to: "D_fosse_restes", hide: { seen: "D_fosse_restes" } },
@@ -25,25 +25,25 @@ module.exports = {
   D_fosse_restes: { act: "II", title: "Les restes", place: "fosse",
     fx: { item: ["epee_rouillee", "torche"], food: 1, ep: ["perso", 300] },
     text: [
-      "Tu fouilles. C'est un travail lent, et tu le mènes avec le soin qu'on doit aux morts et la méthode qu'on doit aux vivants, c'est-à-dire à toi. Au bout d'une heure, l'inventaire tient en cinq articles : une épée rongée de rouille mais droite ; une gourde de cuir encore étanche ; un sac où trois torches de résine ont survécu à l'humidité ; un pain de voyage dur comme une tuile ; un briquet d'amadou, qui prend à la deuxième étincelle.",
-      "Sur un fémur, quelqu'un a gravé à la pointe d'un clou, en lettres appliquées : *ils ne mangent pas les gens. Je ne sais pas ce qu'ils font. Hob.*",
-      "Hob. C'est le premier nom que le dédale te donne, et tu le retiens.",
+      "Tu fouilles. La besogne est lente et lugubre. Tu la mènes avec le respect qu'on doit aux morts, en t'excusant à mi-voix auprès des propriétaires, tandis que ton imagination, que tu voudrais faire taire, commente chaque trouvaille. Au bout d'une heure, l'inventaire tient en cinq articles : une épée rongée de rouille, mais droite ; une gourde de cuir encore étanche ; un sac où trois torches de résine ont bravé l'humidité ; un pain de voyage dur comme une tuile ; un briquet d'amadou.",
+      "Sur un fémur, quelqu'un a gravé à la pointe d'un clou : *ils ne mangent pas les gens. Je ne sais pas ce qu'ils font. Hob.*",
+      "Hob. Tu retiens le nom, et avec lui le tremblé des lettres.",
     ],
     choices: [{ label: "Te relever", to: "D_fosse" }] },
   D_fosse_appel: { act: "II", title: "Le rond de ciel", place: "fosse",
     text: [
-      "Tu cries. Ta voix monte le long du puits, se brise contre les parois et te revient en éclats, avec deux battements de cœur de retard. Tu cries ton nom, puis celui d'Aurèle, puis celui d'Hesna. L'écho te les rend dans le désordre, et rien d'autre. Le rond de ciel passe du bleu au blanc. Un oiseau le traverse, très haut, et poursuit sa route avec l'indifférence parfaite des oiseaux.",
-      "Quand tu te tais, un autre bruit occupe le silence, loin dans la galerie. Il est sourd, d'une régularité d'horloge. On dirait de l'eau qui tombe dans de l'eau. On dirait aussi un cœur.",
+      "Tu cries. Ta voix monte le long du puits, se brise contre les parois et te revient en éclats, avec deux battements de cœur de retard, défigurée, comme si une autre gorge la répétait là-haut. Tu cries ton nom ; puis celui d'Aurèle ; puis celui d'Hesna. L'écho seul te répond, et l'écho est un mauvais correspondant : il répète tout et n'apprend rien. Le rond de ciel bleuit, puis blanchit. Un oiseau le traverse, très haut, sans même tourner la tête.",
+      "Quand tu te tais, un son s'élève dans le silence, loin dans la galerie. Il est sourd, d'une régularité d'horloge qui finit par t'oppresser : de l'eau, peut-être, qui tombe dans de l'eau. Ou un cœur.",
     ],
     choices: [{ label: "Baisser les yeux vers la galerie", to: "D_fosse" }] },
   D_fosse_depart: { act: "II", title: "L'entrée de la galerie", place: "fosse", routes: true,
     text: [
-      "Tu allumes ta lumière. Le noir recule d'un pas, un seul, et se tient là, au bord de la flamme, comme un chien qui attend. La galerie descend en pente douce. À intervalles réguliers, ses murs portent des griffures. À côté des griffures, quelqu'un a tracé des flèches à la suie. À côté de ces flèches, une autre main en a tracé d'autres, qui montrent le sens opposé. Ceux qui sont tombés avant toi ont laissé leur avis sur la route à suivre, et ces avis se contredisent.",
+      "Tu allumes ta lumière. Les ténèbres reculent d'un pas, d'un seul, et se tiennent là, à la lisière de la flamme, attentives, comme un duelliste qui rompt pour mieux revenir. La galerie descend en pente douce. Sur ses murs, à intervalles réguliers, des griffures ; près des griffures, des flèches tracées à la suie ; près de ces flèches, d'autres flèches, qui désignent le sens opposé. Tes prédécesseurs ont tenu conseil sur ce mur, et le conseil s'est séparé en deux partis, comme tous les conseils.",
     ],
     choices: [] },
   D_fosse_retour: { act: "II", title: "La Fosse", place: "fosse", routes: true,
     text: [
-      "Tu reviens au fond du puits. Le rond de ciel est à sa place, quinze toises plus haut, d'un bleu de porcelaine. Les os sont à leur place aussi. La seule chose qui a changé, c'est toi : tu sais maintenant comment ils sont arrivés là.",
+      "Tu reviens au fond du puits. Le rond de ciel est à sa place, quinze toises plus haut, d'un bleu de porcelaine, aussi accessible qu'une faveur de prince. Les os sont à leur place aussi ; ils ont l'exactitude des gens qui n'ont plus d'autre rendez-vous. Le seul changement est en toi : tu sais maintenant comment ils sont arrivés là.",
     ],
     choices: [{ label: "Fouiller les restes de ceux qui sont tombés avant toi", to: "D_fosse_restes", hide: { seen: "D_fosse_restes" } }] },
 
@@ -51,10 +51,10 @@ module.exports = {
   D_camp: { act: "II", title: "Le camp des perdus", place: "camp", hub: true, routes: true,
     fx: { met: "sidonie", meet: "mattias", ep: ["perso", 500] },
     text: [
-      { if: { not: { seen: "D_sidonie" } }, text: "La galerie débouche dans une salle basse, où brûle un feu de la taille d'une assiette. Il fume à peine : on y brûle donc autre chose que du bois. La question attendra. Au deuxième pas, une lame se pose sous ton menton, froide et ferme. Celui qui la tient s'est approché sans un bruit.", else: "Le feu de mousse brûle toujours au milieu du camp, d'une flamme basse et propre. Mattias tisonne, ou dort, ou parle à ses mousses. Sidonie affûte quelque chose." },
-      { if: { not: { seen: "D_sidonie" } }, text: "« Doucement, dit une voix de femme. Doucement, le nouveau. Pose ta lumière. Voilà. » La lame recule. Sa propriétaire est une femme d'une trentaine d'années, sèche comme un sarment, brune, les cheveux coupés au couteau et sans miroir. Elle t'examine de la tête aux pieds avec l'œil d'un maquignon qui hésite sur le prix. « Sidonie Vautrin, dit-elle. Contrebandière. Trois semaines dans ce trou. Et toi, tu es le cadeau de la Lune sèche. Bienvenue chez les perdus. »" },
-      { if: { not: { seen: "D_sidonie" } }, text: "Près du feu, un vieillard te fait un petit signe de la main sans lever les yeux. Sa barbe est si longue qu'il l'a enroulée deux fois autour de son cou, comme une écharpe. Il arrose des plaques de mousse posées sur des pierres plates, une goutte à la fois, avec une cuillère, et il met à ce travail la gravité d'un apothicaire. « Mattias, dit Sidonie. Trente ans qu'il est là. Il est gentil. Il est fou. L'un n'empêche pas l'autre. »" },
-      "Aux murs, des entailles comptent les jours par paquets de cinq. Tu les estimes par carrés de paroi, à la manière d'un arpenteur, et tu cesses de compter au-delà de trois mille.",
+      { if: { not: { seen: "D_sidonie" } }, text: "La galerie débouche dans une salle basse, où brûle un feu de la taille d'une assiette. Il fume à peine, ce qui est singulier : on y brûle donc autre chose que du bois. La question attendra. Au deuxième pas, une lame vient se poser sous ton menton avec la délicatesse d'une invitation à danser.", else: "Le feu de mousse brûle toujours au milieu du camp, d'une flamme basse et propre. Mattias tisonne, ou dort, ou fait la leçon à ses mousses, qui l'écoutent mieux qu'un auditoire. Sidonie affûte quelque chose, avec une patience qui vise quelqu'un." },
+      { if: { not: { seen: "D_sidonie" } }, text: "« Doucement, dit une voix de femme. Doucement, le nouveau. Pose ta lumière. Voilà. » La lame recule de deux pouces : c'est peu, mais assez pour regarder sa propriétaire. C'est une femme d'une trentaine d'années, sèche comme un sarment, brune, les cheveux coupés au couteau et sans miroir, qui te détaille comme un maquignon détaille un cheval qu'il soupçonne d'être volé. « Sidonie Vautrin, dit-elle. Contrebandière. Trois semaines dans ce trou. Et toi, tu es le cadeau de la Lune sèche. Bienvenue chez les perdus. »" },
+      { if: { not: { seen: "D_sidonie" } }, text: "Près du feu, un vieillard te salue d'un petit geste, sans lever les yeux. Sa barbe est d'une longueur prodigieuse ; il l'a enroulée deux fois autour de son cou, comme une écharpe. Il arrose avec une cuillère, goutte à goutte, des plaques de mousse alignées sur des pierres plates, et il met à ce travail la gravité d'un apothicaire et la mauvaise humeur d'un savant qu'on dérange. « Pas maintenant, grogne-t-il. La rouge boit. » « Mattias, dit Sidonie. Trente ans qu'il est là. Il est gentil. Il est fou. L'un n'empêche pas l'autre. »" },
+      "Aux murs, des entailles comptent les jours par paquets de cinq. Tu entreprends de les dénombrer, et le vertige t'arrête au troisième millier. Tu te promets d'en ajouter le moins possible.",
     ],
     choices: [
       { label: "Écouter l'histoire de Sidonie", to: "D_sidonie", hide: { seen: "D_sidonie" } },
@@ -74,9 +74,9 @@ module.exports = {
   D_sidonie: { act: "II", title: "Sidonie Vautrin", place: "camp",
     fx: { flag: "sidonie:demande", questSeen: "D_anneau" },
     text: [
-      "« On était deux, dit Sidonie. Lucas et moi. On passait du sel et des épices par la vallée sèche, et les péages, on les laissait aux honnêtes gens. On a fait halte à Kardan parce qu'on avait soif, et parce qu'on était fatigués d'être prudents. Dans notre métier, c'est la fatigue qui tue. Ils nous ont fêtés trois jours. La troisième nuit… » Elle désigne la voûte d'un geste vague, et derrière la voûte le rond de ciel qu'on ne voit pas d'ici. « Tu connais la suite. »",
-      "« On a cherché la sortie. On a trouvé le puits aux os : une crevasse où le dédale jette ce qu'il ne veut pas. Il y a quelque chose au fond. Pâle. Long. Ça a pris Lucas par la jambe. Il m'a poussée vers le haut, il m'a crié de courir, et j'ai couru. » Sidonie raconte cela d'une voix égale, comme on récite un inventaire, et cette voix égale te fait plus d'effet qu'un sanglot. « Il avait un anneau. Le même que le mien. » Elle lève la main : un anneau de cuivre, deux initiales entrelacées. « Je veux le sien. Je veux le rapporter à sa mère, à Vasque. Et après, je veux voir Kardan brûler. »",
-      "Elle te regarde. « Tu as de la lumière et deux bras. Moi, j'ai le courage. Le reste me manque. On fait équipe ? »",
+      "« On était deux, dit Sidonie. Lucas et moi. On passait du sel et des épices par la vallée sèche, et les péages, on les laissait à ceux qui aiment payer. On a fait halte à Kardan parce qu'on avait soif, et parce qu'on était fatigués d'être prudents. Dans notre métier, c'est la fatigue qui tue. Ils nous ont fêtés trois jours. La troisième nuit… » Elle désigne la voûte d'un geste las, comme si son regard pouvait la traverser jusqu'au rond de ciel qu'on ne voit pas d'ici. « Tu connais la suite. »",
+      "« On a cherché la sortie. On a trouvé le puits aux os : une crevasse où le dédale jette ce qu'il ne veut pas. Il y a quelque chose au fond. Pâle. Long. Ça a pris Lucas par la jambe. Il m'a poussée vers le haut, il m'a crié de courir, et j'ai couru. » Elle prononce ces mots d'une voix parfaitement égale, et cette égalité t'effraie davantage qu'un cri. « Il avait un anneau. Le même que le mien. » Elle lève la main : un anneau de cuivre, deux initiales entrelacées. « Je veux le sien. Je veux le rapporter à sa mère, à Vasque. Et après, je veux voir Kardan brûler. »",
+      "Elle te regarde bien en face. « Tu as de la lumière et deux bras. Moi, j'ai le courage. Le reste me manque. On fait équipe ? »",
     ],
     choices: [
       { label: "« On fait équipe. »", fx: { join: "sidonie", conf: { sidonie: 10 } }, to: "D_camp" },
@@ -93,10 +93,10 @@ module.exports = {
   D_mattias: { act: "II", title: "Les mousses de Mattias", place: "camp",
     fx: { flag: "mattias:demande", questSeen: "D_mousses" },
     text: [
-      "Mattias te présente ses mousses une par une, avec la fierté d'un père et la précision d'un naturaliste. La grise se mange. La brune brûle sans fumée. La rouge ferme les plaies. « Trente ans, dit-il. On m'a jeté là l'année de la grande comète. J'avais vingt ans et des dettes. »",
-      "« Je connais les galeries comme ma poche. J'ai trouvé des passages que l'architecte lui-même avait oubliés. Il y en a un qui remonte jusqu'à un éboulis, sous les jardins. » Il sourit avec ses quatre dents. « Je ne l'ai jamais pris. Qu'est-ce que je ferais, dehors ? Ici, j'ai mes mousses. »",
+      "Mattias te présente ses mousses une par une, avec la fierté d'un père et le mépris d'un savant pour le reste de l'humanité. « La grise se mange. La brune brûle sans fumée : tu l'as remarqué en entrant, j'espère, à moins que ta cervelle vaille celle des autres. La rouge ferme les plaies. Trois espèces, entends-tu ? Trois ! Et pendant ce temps, les docteurs de la plaine saignent les fiévreux pour leur rendre des forces. » Il repose sa cuillère. « Trente ans, dit-il. On m'a jeté là l'année de la grande comète. J'avais vingt ans et des dettes. »",
+      "« Je connais les galeries comme ma poche. J'ai trouvé des passages que l'architecte lui-même avait oubliés, ce qui en dit long sur l'architecte. Il y en a un qui remonte jusqu'à un éboulis, sous les jardins. » Il sourit avec ses quatre dents. « Je ne l'ai jamais pris. Qu'est-ce que je ferais, dehors ? Écouter des imbéciles ? Ici, j'ai mes mousses, et les mousses ont le bon goût de se taire. »",
       "« Et le cœur ? »",
-      "Le sourire s'efface. « Je n'y suis jamais allé. On l'entend battre, la nuit. Le Gardien est là. » Le vieil homme baisse la voix et jette un coup d'œil vers le fond de la salle. « Dans le jardin noyé pousse une mousse qui luit. Une mousse-lumière. Je n'ai jamais osé y aller seul, à cause de l'eau. Si tu m'en rapportais une poignée, je te dirais ce que j'ai compris en trente ans. Et je te montrerais mon passage. »",
+      "Le sourire s'efface d'un coup, et le vieil homme redevient très vieux. « Je n'y suis jamais allé. On l'entend battre, la nuit. Le Gardien est là. » Il baisse la voix et jette un coup d'œil vers le fond de la salle, là où la lueur du feu s'arrête. « Dans le jardin noyé pousse une mousse qui luit. Une mousse-lumière. Je n'ai jamais osé y aller seul, à cause de l'eau. Si tu m'en rapportais une poignée, je te dirais ce que j'ai compris en trente ans. Et je te montrerais mon passage. »",
     ],
     choices: [{ label: "Promettre d'essayer", to: "D_camp" }] },
   D_mattias_mousse: { act: "II", title: "La mousse-lumière", place: "camp",
@@ -122,7 +122,7 @@ module.exports = {
   // ---------------------------------------------------------------- the bone well
   D_puits: { act: "II", title: "Le puits aux os", place: "puits_os",
     text: [
-      "La pente s'arrête au bord d'une crevasse large de trois pas, si longue que ta lumière se perd avant d'en trouver le bout. Elle sent la cave, le vieux bouillon, l'humidité. Tu tends ta lumière au-dessus du vide. Quatre ou cinq toises plus bas, sur un fond d'éboulis, s'entassent des os blancs par centaines, jetés là en vrac depuis des siècles.",
+      "La pente s'arrête au bord d'une crevasse large de trois pas, si longue que ta lumière se perd avant d'en trouver le bout. Il en monte une haleine de cave et de vieux bouillon, humide et tiède, comme si quelque chose respirait en bas. Tu tends ta lumière au-dessus du vide. Quatre ou cinq toises plus bas, sur un fond d'éboulis, s'entassent des os blancs par centaines, jetés là en vrac depuis des siècles.",
       "Entre deux côtes brille un éclat de cuivre.",
       "En bas, tout est immobile, d'une immobilité de chambre où quelqu'un retient son souffle. C'est ce silence qui te fait reculer d'un pas.",
       { if: { present: "sidonie" }, text: "Sidonie s'est arrêtée à bonne distance du bord, les mâchoires serrées. « C'est là, dit-elle. Il est là. »" },
@@ -161,7 +161,7 @@ module.exports = {
       flee: { label: "Remonter à toute vitesse", dom: "discretion", diff: -10, to: "D_puits_fuite" } },
     text: [
       "Les os roulent sous tes pieds avec un bruit de vaisselle qu'on débarrasse. Tu avances vers l'éclat de cuivre, courbé, ta lumière tendue. Au cinquième pas, les os, devant toi, se mettent à bouger d'eux-mêmes.",
-      "La chose en émerge comme on sort de l'eau. Elle est longue, blanche, aveugle, avec des membres trop nombreux et trop fins qui se plient à l'envers. Pour bouche, elle a une fente qui lui fend la tête d'un bord à l'autre. Elle avance sans un bruit.",
+      "La chose en émerge comme on sort de l'eau. Elle est longue, blanche, aveugle, avec des membres trop nombreux et trop fins qui se plient à l'envers ; ton esprit s'obstine un instant à les compter, comme si un chiffre pouvait la rendre raisonnable. Pour bouche, elle a une fente qui lui fend la tête d'un bord à l'autre. Elle avance sans un bruit.",
       { if: { present: "sidonie" }, text: "Au-dessus, Sidonie hurle le nom de Lucas, et saute." },
     ] },
   D_puits_anneau: { act: "II", title: "L'anneau de cuivre", place: "puits_os", routes: true,
@@ -185,7 +185,7 @@ module.exports = {
   D_noms: { act: "II", title: "La salle des noms", place: "noms", routes: true,
     fx: { clue: "g_noms", meet: "theoz", ep: ["perso", 600] },
     text: [
-      "La salle est ronde, sous une coupole si haute que ta lumière s'y perd. Les murs sont couverts de noms, du sol jusqu'à hauteur de bras levé, gravés au clou, au couteau, à la pierre. Tu en estimes le nombre à plusieurs milliers. Les plus anciens sont tracés dans une écriture inconnue ; les plus récents sont bas, près du sol, là où il restait de la place.",
+      "La salle est ronde, sous une coupole si haute que ta lumière s'y perd. Les murs sont couverts de noms, du sol jusqu'à hauteur de bras levé, gravés au clou, au couteau, à la pierre ; il y en a plusieurs milliers, serrés comme les lignes d'un registre, et la salle a le silence particulier des lieux où beaucoup de gens ont voulu dire une seule chose. Les plus anciens sont tracés dans une écriture inconnue ; les plus récents sont bas, près du sol, là où il restait de la place.",
       "Tu les lis en marchant, la main sur la pierre. *Aldric. Mérovée la Boiteuse. Jehan des Saules.* Puis : *THÉOZ DE KARDAN*, d'une main tremblante, et au-dessous, d'une autre écriture, fine, appliquée, une écriture de femme : *mon fils.*",
       "Et juste à côté :",
       "**AURÈLE**",
@@ -212,15 +212,15 @@ module.exports = {
     ],
     choices: [] },
   D_noms_rien: { act: "II", title: "Les pierres muettes", place: "noms", routes: true,
-    text: ["Tu frappes les pierres une à une pendant deux heures. Toutes sonnent plein. Il te faudrait savoir où chercher."],
+    text: ["Tu frappes les pierres une à une pendant deux heures. Toutes sonnent plein, avec l'unanimité d'un chœur bien dressé. Il te faudrait savoir où chercher."],
     choices: [] },
 
   // ---------------------------------------------------------------- the drowned garden
   D_jardin: { act: "II", title: "Le jardin noyé", place: "jardin", routes: true,
     fx: { questSeen: "D_journal", ep: ["perso", 400] },
     text: [
-      "Tu entends l'eau bien avant de la voir. Le couloir s'élargit, s'abaisse, et tu entres dans une salle immense où la roche ruisselle de partout. L'eau descend les murs en nappes lentes et brillantes, puis s'étale sur le sol en un lac noir et tiède, qui monte à mi-mollet.",
-      "Dans ce lac poussent des champignons d'une espèce que tu chercherais en vain dans les sous-bois : des colonnes blanches et grises, hautes comme des enfants, coiffées de chapeaux larges comme des tables. Certains luisent faiblement. L'air sent la terre, le pain, et une pourriture douceâtre.",
+      "Tu entends l'eau bien avant de la voir. Le couloir s'élargit, s'abaisse, et tu entres dans une salle immense où la roche ruisselle de partout. L'eau descend les murs en nappes lentes et brillantes, puis s'étale sur le sol en un lac noir qui monte à mi-mollet, tiède comme un bain qu'un autre vient de quitter.",
+      "Dans ce lac poussent des champignons d'une espèce que tu chercherais en vain dans les sous-bois : des colonnes blanches et grises, hautes comme des enfants, coiffées de chapeaux larges comme des tables. Ils se tiennent dans l'eau, immobiles et pâles, comme une assemblée qui s'est tue à ton entrée. Certains luisent faiblement. L'air sent la terre, le pain, et une pourriture douceâtre.",
       "Sur la paroi du fond, une mousse brille d'un vert de lune. Et sous l'eau, près d'une colonne effondrée, luit un reflet métallique.",
     ],
     choices: [
@@ -253,7 +253,7 @@ module.exports = {
   D_atelier: { act: "II", title: "L'atelier de Kardan", place: "atelier", routes: true,
     fx: { ep: ["perso", 500] },
     text: [
-      "Voici une porte de bois, la seule de tout le dédale, gonflée d'humidité. Tu la pousses de l'épaule. Derrière s'ouvre une salle carrée, sèche, presque chaude, figée depuis deux siècles. Sur une grande table, des plans roulés et déroulés sont tenus par des pierres. Les outils pendent au mur, rangés par ordre de taille. Il y a un lit de camp, une couverture pliée au carré, et près de la porte une corde lovée, prête à servir.",
+      "Voici une porte de bois, la seule de tout le dédale, gonflée d'humidité. Tu la pousses de l'épaule. Derrière s'ouvre une salle carrée, sèche, presque chaude, figée depuis deux siècles. Sur une grande table, des plans roulés et déroulés sont tenus par des pierres. Les outils pendent au mur, rangés par ordre de taille. Il y a un lit de camp, une couverture pliée au carré, et près de la porte une corde lovée, prête à servir. Tout est en ordre, d'un ordre qui met mal à l'aise : on dirait que l'occupant est sorti prendre l'air, et qu'il va rentrer s'étonner de te trouver là.",
       "Sur le mur du fond, au charbon, quelqu'un a dessiné le dédale tout entier. Au centre, une coupe. À côté de la coupe, minuscule, un homme debout, les bras écartés, comme s'il empêchait quelque chose de tomber.",
     ],
     choices: [
@@ -264,7 +264,7 @@ module.exports = {
     ] },
   D_atelier_plans: { act: "II", title: "Les plans", place: "atelier", routes: true,
     text: [
-      "Les plans sont d'une précision maniaque : chaque galerie, chaque marche, chaque pente, en coupe et en élévation, avec des cotes en pieds et en pouces. Tu trouves la Fosse, le camp, le jardin. Tu trouves la salle des noms, et sur le mur nord, une petite croix au crayon rouge, avec une note : *derrière la quatrième*.",
+      "Les plans sont d'une précision maniaque : chaque galerie, chaque marche, chaque pente, en coupe et en élévation, avec des cotes en pieds et en pouces. L'homme qui a dessiné cela comptait ses marches comme un avare ses écus. Tu trouves la Fosse, le camp, le jardin. Tu trouves la salle des noms, et sur le mur nord, une petite croix au crayon rouge, avec une note : *derrière la quatrième*.",
       "Et tu trouves le cœur : une salle ronde, au plus bas, avec une vasque au centre, et un escalier qui y descend depuis l'atelier même, derrière une tenture qui t'avait échappé. *La Source*, a écrit Kardan, et au-dessous, plus petit : *pardonnez-moi.*",
     ],
     choices: [] },
@@ -303,7 +303,7 @@ module.exports = {
   // ---------------------------------------------------------------- the heart
   D_coeur: { act: "II", title: "Le cœur", place: "coeur",
     text: [
-      "L'escalier débouche dans une salle ronde, haute comme une église, éclairée par en bas. La lumière vient d'une vasque de pierre verte, large comme une table de festin, posée au centre sur un pied unique. L'eau y bouillonne doucement et reste au ras du bord. Elle éclaire tout d'une lueur glauque et mouvante, comme le fond d'une rivière par beau temps. Le bruit que tu entends depuis des jours vient d'elle : un battement lent et profond, qui fait vibrer la pierre sous tes pieds.",
+      "L'escalier débouche dans une salle ronde, haute comme une église, éclairée par en bas. La lumière vient d'une vasque de pierre verte, large comme une table de festin, posée au centre sur un pied unique. L'eau y bouillonne doucement et reste au ras du bord. Elle éclaire tout d'une lueur glauque et mouvante, comme le fond d'une rivière par beau temps. Le bruit que tu entends depuis des jours vient d'elle : un battement lent et profond, qui fait vibrer la pierre sous tes pieds ; ici, il emplit tout, et ton propre cœur, après quelques instants, se met malgré toi à son pas.",
       "Autour de la vasque pourrissent des offrandes : des pains de pierre, des fleurs séchées depuis des années. Et contre la vasque, assis par terre, adossé au pied comme on s'adosse à un arbre, quelqu'un.",
       "Il se lève. Il est grand, très maigre, vêtu de lambeaux. Ses cheveux et sa barbe ont poussé jusqu'à sa taille, blancs, ou presque, et sa peau a la couleur de l'eau. Ses yeux luisent du même vert que la vasque. Une de ses mains reste posée sur la pierre, comme collée.",
       "Il te regarde. Il a l'air d'un homme qui attend depuis très longtemps et qui a cessé d'espérer.",
@@ -437,7 +437,7 @@ module.exports = {
     fx: { flag: "mattias:reste" },
     text: [
       "Vous remontez du cœur jusqu'à la galerie haute. Le rai de soleil s'est éteint : par la fente, on voit seulement un morceau de nuit.",
-      "Tu lances la corde par la fente ; au troisième essai, elle accroche une racine. Le premier monté hisse les autres, un par un. Quand tu passes la tête dehors, le vent te frappe au visage, et c'est si bon que tu ris tout seul, à plat ventre dans l'herbe sèche.",
+      "Tu lances la corde par la fente ; au troisième essai, elle accroche une racine. Le premier monté hisse les autres, un par un. Quand tu passes la tête dehors, le vent te frappe au visage, et c'est si bon que tu en ris tout haut, à plat ventre dans l'herbe sèche.",
       "Il fait nuit, une nuit immense et pleine d'étoiles. En contrebas, Kardan dort, avec ses jardins noirs et sa fontaine qui brille sous la lune.",
       { if: { has: "mattias:ami" }, text: "Mattias a préféré rester avec ses mousses. « Je viendrai peut-être, a-t-il dit. Une autre fois. »" },
     ],
@@ -457,11 +457,11 @@ module.exports = {
       win: { fx: { ep: ["perso", 300], food: 1 }, to: ROUTE }, lose: { to: ROUTE },
       flee: { label: "Reculer en agitant ta lumière", dom: "discretion", diff: 0, to: ROUTE } },
     text: [
-      "Un grattement, devant, puis des dizaines d'yeux rouges dans le noir. Les rats des galeries sont gros comme des chats, pelés, et la lumière les laisse indifférents. Trois s'avancent ; les autres attendent de voir comment l'affaire tourne.",
+      "Un grattement, devant, puis des dizaines d'yeux rouges dans le noir. Les rats des galeries sont gros comme des chats, pelés, et la lumière les laisse indifférents. Trois s'avancent ; les autres attendent de voir comment l'affaire tourne, en gens d'expérience.",
     ] },
   E_eboulement: { act: "II", title: "L'éboulement",
     text: [
-      "Un craquement au-dessus de ta tête. D'abord une pluie de gravier, puis la voûte entière qui se met à descendre, lentement, presque sans bruit.",
+      "Un craquement au-dessus de ta tête. D'abord une pluie de gravier, puis la voûte entière qui se met à descendre, lentement, presque sans bruit, comme un plafond qui aurait changé d'avis.",
     ],
     choices: [
       { label: "Te jeter en avant", test: { dom: "nature", label: "Réflexes", help: [{ if: { present: "sidonie" }, v: 10 }] },
@@ -488,13 +488,13 @@ module.exports = {
   E_cadavre: { act: "II", title: "Le mort assis",
     fx: { item: "cuir", food: 1, ep: ["perso", 200] },
     text: [
-      "Contre le mur, un homme est assis, la tête sur les genoux, comme quelqu'un qui dort. Il est mort depuis longtemps ; l'air sec du dédale l'a momifié au lieu de le corrompre. Il porte une cuirasse de cuir bouilli presque neuve, et sa besace contient un reste de viande séchée enveloppé dans de la cire.",
+      "Contre le mur, un homme est assis, la tête sur les genoux, comme quelqu'un qui dort. Il est mort depuis longtemps ; l'air sec du dédale l'a momifié au lieu de le corrompre, et lui a gardé cette pose de lassitude, si naturelle que tu attends un instant qu'il relève la tête. Il porte une cuirasse de cuir bouilli presque neuve, et sa besace contient un reste de viande séchée enveloppé dans de la cire.",
       "Sur le mur, au-dessus de lui, il a écrit avec son sang : *JE NE BOIRAI PAS.* Il a tenu parole, jusqu'au bout.",
     ],
     choices: [{ label: "Prendre ce qu'il ne peut plus porter, et lui fermer les yeux", to: ROUTE }] },
   E_torche: { act: "II", title: "La flamme qui baisse",
     text: [
-      "Ta lumière baisse. Elle crachote, bleuit, se réduit à une petite goutte jaune qui éclaire ta main et rien de plus. Autour, le noir se rapproche, et dans le noir, quelque chose a l'air d'attendre.",
+      "Ta lumière baisse. Elle crachote, bleuit, se réduit à une petite goutte jaune qui éclaire ta main et rien de plus. Autour, les ténèbres regagnent le terrain cédé, pouce par pouce, avec l'exactitude d'un usurier ; et dans ces ténèbres, quelque chose a l'air d'attendre.",
     ],
     choices: [
       { label: "Ralentir, protéger la flamme et ménager ce qui reste", test: { dom: "nature", label: "Débrouille" },
@@ -504,7 +504,7 @@ module.exports = {
     text: ["Tu racles un peu de résine sur une paroi, tu la mêles à la mèche, tu souffles doucement. La flamme reprend, petite et têtue. Le noir recule d'un pas, de mauvaise grâce."],
     choices: [{ label: "Continuer", to: ROUTE }] },
   E_torche_noir: { act: "II", title: "Le noir",
-    text: ["La flamme meurt. Tu restes dans le noir absolu pendant une heure, ou trois, à tâtonner, à te cogner, à essayer de rallumer avec des doigts qui tremblent. Quand la flamme revient enfin, tu as les genoux en sang et tu as perdu ta direction."],
+    text: ["La flamme meurt. Le noir qui suit est entier, d'une seule pièce ; tu y restes une heure, ou trois, car le temps s'y défait le premier, à tâtonner, à te cogner, à tenter de rallumer avec des doigts qui tremblent. Quand la flamme revient enfin, tu as les genoux en sang et tu as perdu ta direction."],
     choices: [{ back: ROUTE }] },
   E_pas: { act: "II", title: "Les pas",
     text: [
