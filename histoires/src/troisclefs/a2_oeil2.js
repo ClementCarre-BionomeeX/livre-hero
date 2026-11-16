@@ -336,7 +336,7 @@ module.exports = {
         { if: { has: "a2:o_invite=jacquot" }, text: "Tu montres l'oignon, sans un mot. La main le prend, le flaire, le rend. La planche s'écarte." },
         { if: { has: "a2:o_invite=trieuses" }, text: "« Thècle a vu mon tas », dis-tu. Un silence. Puis une voix jeune, que tu reconnais : « C'est bon. Je réponds. » La planche s'écarte." },
         { if: { has: "a2:o_invite=bannis" }, text: "« J'apporte un mot du Bois-Noir, dis-tu. De ceux qui attendent le jour de la cloche. » La planche hésite, puis s'écarte." },
-        { if: { has: "a2:o_invite=barbette" }, text: "Barbette te précède, son sac sur l'épaule. « Il est avec moi. Il est nul à la grenaille, mais il paie. » Un rire étouffé. La planche s'écarte." },
+        { if: { has: "a2:o_invite=barbette" }, text: "Barbette te précède, son sac sur l'épaule. « C'est avec moi. C'est nul à la grenaille, mais ça paie. » Un rire étouffé. La planche s'écarte." },
         "Tu entres courbé{e}. On remet la planche derrière toi.",
       ],
       choices: [{ label: "Entrer dans le four", to: "A2o_four", big: true }] },

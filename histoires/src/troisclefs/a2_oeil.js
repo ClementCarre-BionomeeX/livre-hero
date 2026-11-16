@@ -250,7 +250,7 @@ module.exports = {
         "Ta voix part avant que tu aies fini d'y réfléchir. Deux cents têtes grises se tournent.",
         "« Et vous êtes ? » dit le commis.",
         "Tu n'as pas le temps de l'inventer. La casaque rousse du guichet a fait trois pas ; le bois de sa pertuisane te prend au creux de l'estomac, proprement, sans colère, et tu te retrouves assis{e} dans la rigole à chercher de l'air.",
-        "« Un qu'a pas de plaque, dit le garde par-dessus toi, et qui compte les berlines des autres. » Il te regarde bien, pour se souvenir. « Ôte-toi de la file. »",
+        "« Pas de plaque, dit le garde par-dessus toi, et ça compte les berlines des autres. » Il te regarde bien, pour se souvenir. « Ôte-toi de la file. »",
         "Le jeune aux oreilles décollées a ramassé ses jetons, ceux qu'on lui donnait. Mais en passant, il te tend la main, et te remet debout. C'est un geste que deux cents personnes voient. Un petit homme à sabots neufs, au coin du mur, le voit aussi, et te regarde avec intérêt.",
         "« Lazare, dit le jeune, entre ses dents. Fils de Thècle. Personne avait jamais dit ça tout haut. Ce soir, sept heures : on te fera une place, si t'arrives à venir seul{e}. »",
       ],
