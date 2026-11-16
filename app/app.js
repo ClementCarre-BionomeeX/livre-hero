@@ -93,6 +93,10 @@
   // Intent: copy(Doc) -> Doc
   // Why: db documents come back frozen; the page adds an id and updates saves in place (Clément's "read only property 'id'").
   function thaw(o) { return JSON.parse(JSON.stringify(o)); }
+  // Intent: freshness(Doc) -> Time = the last change of a saved document: played (`updated`) or put away / taken back
+  // from the archive (`archivedAt`). Every merge (db, backup file, shared folder, QR transfer) keeps the fresher copy.
+  // Why: archiving must travel to the other devices without passing for a game played just now.
+  function freshness(o) { return Math.max((o && o.updated) || 0, (o && o.archivedAt) || 0); }
 
   // ------------------------------------------------------------------ storage: the db capability, else this browser
   // Intent: create() -> Store
@@ -128,7 +132,7 @@
     // `updated` on both, the db wins as before (a room other players write).
     newer: function (coll, id, remote, local) {
       if (!remote) return local;
-      if (local && remote.updated != null && (local.updated || 0) > remote.updated) {
+      if (local && remote.updated != null && freshness(local) > freshness(remote)) {
         var repaired = JSON.parse(JSON.stringify(local)); delete repaired.id;
         if (this.db) this.timed(this.db.doc(coll + "/" + id).set(repaired)).catch(function () {});
         return local;
@@ -354,20 +358,7 @@
     w.appendChild(prof);
 
     // Saved games
-    if (A.profile) {
-      var sg = h("section", { class: "section" }, h("h2", null, "Parties de " + A.profile.name));
-      if (!A.games.length) sg.appendChild(h("div", { class: "notice" }, "Aucune partie en cours. Ouvre un livre ci-dessous."));
-      A.games.forEach(function (g) {
-        var del = A.confirmDel === g.id
-          ? h("span", { class: "confirm small" }, "Effacer cette partie ?", h("button", { class: "btn sm danger", onclick: function () { Store.del("parties", g.id).then(refresh).then(function () { A.confirmDel = null; render(); }); } }, "Oui, effacer"), h("button", { class: "btn sm", onclick: function () { A.confirmDel = null; render(); } }, "Non"))
-          : h("button", { class: "btn sm ghost", onclick: function () { A.confirmDel = g.id; render(); } }, "Effacer");
-        sg.appendChild(h("div", { class: "save-line" },
-          h("div", { class: "grow" }, h("b", null, g.hero + " · " + g.storyTitle + (g.test ? " (essai)" : "")), h("div", { class: "small muted" }, (g.archLabel || "") + " niveau " + (g.level || 1) + " · " + (g.where || "") + (g.ended ? " · terminée" : "") + " · " + when(g.updated))),
-          Transfer.available() && !g.test && A.builtins[g.story] ? h("button", { class: "btn sm ghost", title: "Envoyer cette partie vers un autre appareil par codes QR", onclick: function () { Transfer.send(g.id); } }, "📱 Envoyer") : null,
-          h("button", { class: "btn primary sm", onclick: function () { openGame(g.id); } }, g.ended ? "Relire la fin" : "Reprendre"), del));
-      });
-      w.appendChild(sg);
-    }
+    if (A.profile) w.appendChild(renderSavedGames());
 
     var live = renderLiveList(); if (live) w.appendChild(live);
     w.appendChild(renderMultiList());
@@ -438,6 +429,55 @@
     w.appendChild(renderAtelier());
     w.appendChild(buildLine());
     app.appendChild(w);
+  }
+  // ------------------------------------------------------------------ saved games, and their archive (Clément, 16/11)
+  // Intent: renderSavedGames() -> Element = the reader's games still in the list, then « Archives (n) », folded.
+  // Why: finished games piled up into an endless list. Archived ones leave it without being deleted, travel with the
+  // shared folder like any save, and come back with « Remettre dans la liste » (or by playing on).
+  var ARCHIVE_ALL_MIN = 2;   // from this many finished games in the list, one button puts them all away
+  function renderSavedGames() {
+    var sg = h("section", { class: "section saved-games" }, h("h2", null, "Parties de " + A.profile.name));
+    var shown = A.games.filter(function (g) { return !g.archived; }), stored = A.games.filter(function (g) { return g.archived; });
+    var done = shown.filter(function (g) { return g.ended; });
+    if (!shown.length) sg.appendChild(h("div", { class: "notice" }, stored.length ? "Aucune partie en cours : les autres sont aux archives." : "Aucune partie en cours. Ouvre un livre ci-dessous."));
+    shown.forEach(function (g) { sg.appendChild(savedGameLine(g)); });
+    if (done.length >= ARCHIVE_ALL_MIN) sg.appendChild(h("div", { class: "row" }, h("button", { class: "btn sm", onclick: function () { archiveGames(done, true); } }, "🗄 Archiver les " + done.length + " parties terminées")));
+    if (stored.length) {
+      var open = !!A.open.archives;
+      sg.appendChild(h("button", { class: "btn ghost fold archives-fold", "aria-expanded": open ? "true" : "false", onclick: function () { A.open.archives = !open; render(); } }, (open ? "▾ " : "▸ ") + "Archives (" + stored.length + ")"));
+      if (open) {
+        var box = h("div", { class: "archives" });
+        stored.slice().sort(function (a, b) { return (b.archivedAt || 0) - (a.archivedAt || 0); }).forEach(function (g) { box.appendChild(savedGameLine(g)); });
+        sg.appendChild(box);
+      }
+    }
+    return sg;
+  }
+  function savedGameLine(g) {
+    var del = A.confirmDel === g.id
+      ? h("span", { class: "confirm small" }, "Effacer cette partie ?", h("button", { class: "btn sm danger", onclick: function () { Store.del("parties", g.id).then(refresh).then(function () { A.confirmDel = null; render(); }); } }, "Oui, effacer"), h("button", { class: "btn sm", onclick: function () { A.confirmDel = null; render(); } }, "Non"))
+      : h("button", { class: "btn sm ghost", onclick: function () { A.confirmDel = g.id; render(); } }, "Effacer");
+    return h("div", { class: "save-line" + (g.archived ? " archived" : "") },
+      h("div", { class: "grow" }, h("b", null, g.hero + " · " + g.storyTitle + (g.test ? " (essai)" : "")), h("div", { class: "small muted" }, (g.archLabel || "") + " niveau " + (g.level || 1) + " · " + (g.where || "") + (g.ended ? " · terminée" : "") + " · " + when(g.updated))),
+      Transfer.available() && !g.test && A.builtins[g.story] ? h("button", { class: "btn sm ghost", title: "Envoyer cette partie vers un autre appareil par codes QR", onclick: function () { Transfer.send(g.id); } }, "📱 Envoyer") : null,
+      h("button", { class: "btn primary sm", onclick: function () { openGame(g.id); } }, g.ended ? "Relire la fin" : "Reprendre"),
+      g.archived ? h("button", { class: "btn sm", onclick: function () { archiveGames([g], false); } }, "Remettre dans la liste")
+        : h("button", { class: "btn sm ghost", title: "Ranger cette partie aux archives : elle quitte la liste sans être effacée.", onclick: function () { archiveGames([g], true); } }, "Archiver"),
+      del);
+  }
+  // Intent: archiveGames([Game], Bool) -> () ! writes(Store) = puts games away or back; the list changes at once
+  function archiveGames(games, on) {
+    var now = Date.now();
+    games.forEach(function (g) { g.archived = on; g.archivedAt = now; });
+    A.notice = on ? (games.length > 1 ? games.length + " parties rangées" : "Partie rangée") + " dans « Archives », sous la liste." : "Partie remise dans la liste.";
+    A.noticeBad = false; render();
+    Promise.all(games.map(function (g) {
+      return Store.get("parties", g.id).then(function (d) {
+        if (!d) return null;
+        delete d.id; d.archived = on; d.archivedAt = now;
+        return Store.put("parties", g.id, d);
+      });
+    })).catch(function (e) { flash("L'archivage n'a pas pu être enregistré partout (" + ((e && e.code) || "erreur") + ") ; il reste fait dans ce navigateur.", true); });
   }
   // Intent: remove(Profile, [Game]) -> () ! deletes(Store)
   // Why: duplicate readers appeared after the storage fix (Clément, 11/11); a reader goes with their saves.
@@ -539,12 +579,12 @@
       var docs = b.collections[c] || [];
       return Store.list(c).then(function (have) {
         var byId = {}; have.forEach(function (o) { byId[o.id] = o; });
-        var gone = have.filter(function (o) { var t = tombs[c + "/" + o.id]; return t && t >= (o.updated || 0); });
+        var gone = have.filter(function (o) { var t = tombs[c + "/" + o.id]; return t && t >= freshness(o); });
         return Promise.all(gone.map(function (o) { added++; delete byId[o.id]; return Store.del(c, o.id, true); }).concat(docs.map(function (o) {
           if (!o || !o.id) return null;
-          var t = tombs[c + "/" + o.id]; if (t && t >= (o.updated || 0)) return null;
+          var t = tombs[c + "/" + o.id]; if (t && t >= freshness(o)) return null;
           var mine = byId[o.id];
-          if (mine && (mine.updated || 0) >= (o.updated || 0)) { kept++; return null; }
+          if (mine && freshness(mine) >= freshness(o)) { kept++; return null; }
           var id = o.id, doc = clone(o); delete doc.id; added++;
           return Store.put(c, id, doc, true).catch(function () {});
         })));
@@ -1001,7 +1041,7 @@
       var jobs = [], prof = p.profil;
       if (prof && !A.profiles.some(function (x) { return x.id === prof.id; })) { A.profiles.push(prof); jobs.push(Store.put("profils", prof.id, prof).catch(function () {})); }
       return Promise.all(jobs).then(function () { return Store.get("parties", p.game.id); }).then(function (old) {
-        if (old && (old.updated || 0) > (p.game.updated || 0)) return "Cet appareil avait déjà une version plus récente de cette partie : rien n'a été changé.";
+        if (old && freshness(old) > freshness(p.game)) return "Cet appareil avait déjà une version plus récente de cette partie : rien n'a été changé.";
         return Store.put("parties", p.game.id, p.game).then(function () {
           if (prof) { A.profile = A.profiles.filter(function (x) { return x.id === prof.id; })[0] || A.profile; lsSet("profil", A.profile.id); }
           return "La partie de " + (p.game.hero || "ton héros") + " (" + (p.game.storyTitle || "") + ") est arrivée sur cet appareil.";
@@ -1753,6 +1793,7 @@
     if (A.game.ephemeral) return;
     var G = A.game, s = G.s, st = G.story, d = G.doc, v = M.view(st, s);
     d.state = JSON.stringify(s); d.undo = G.undo; d.log = G.log; d.updated = Date.now();
+    if (d.archived && v.kind !== "end") { d.archived = false; d.archivedAt = d.updated; }   // played again: back in the list
     d.hero = s.name; d.arch = s.arch; d.archLabel = M.archOf(st, s).label; d.level = M.level(s); d.where = where(st, s) || v.title; d.ended = v.kind === "end";
     while (JSON.stringify(d).length > DOC_MAX_CHARS && d.undo.length) d.undo = d.undo.slice(1);
     while (JSON.stringify(d).length > DOC_MAX_CHARS && d.log.length > 20) d.log = d.log.slice(Math.ceil(d.log.length / 4));
@@ -1995,6 +2036,7 @@
   // Intent: once per new version, a short note of what changed (NEWS, newest first), only the versions the reader has
   // not seen on this device. Why: Clément, 13/11 (piste 33).
   var NEWS = [
+    { v: "9.3", items: ["Archives : une partie (surtout finie) se range aux archives d'un bouton, ou toutes les parties terminées d'un coup. Elle quitte la liste sans être effacée ; « Archives », sous la liste, la montre et « Remettre dans la liste » la ramène. Le rangement suit le dossier de sauvegarde partagé sur les autres appareils."] },
     { v: "9.1", items: ["Nouveau grand livre : « Le Trésor des Taiseurs », une chasse au trésor dans une république marchande où chacun parle à double fond.", "Paroles cachées : avec certains objets, des mots se mettent à bouger sur la page (ils tremblent, luisent, ondulent). Touche-les : le texte caché dessous remonte.", "Nouvel onglet du carnet, dans les histoires qui en ont : Sous les mots (ce que tu as entendu dessous, et ce qui te fait entendre)."] },
     { v: "9.0", items: ["Nouveau livre à lire : « Le Monde perdu » d'Arthur Conan Doyle (1912), traduit en entier. Pas de choix : un bouton « Suivant », et les noms des personnages touchables.", "Une notice ouvre le livre et revient en tête des chapitres qui en ont besoin : le texte de 1912 contient des mots et des idées racistes de son époque, gardés tels quels.", "« Où en étais-je ? » résume les chapitres déjà lus, et « ← Page précédente » revient en arrière."] },
     { v: "8.9", items: ["Nouvelle histoire : « La Nuit de la Retenue », une nuit à Corvèze vue par sept personnes. La première partie est courte et s'arrête trop tôt ; chaque fin ouvre une autre personne à suivre, et ce que tu apprends reste d'une partie à l'autre.", "Un ✧ devant un choix : un chemin qu'une partie précédente t'a ouvert.", "Sur une scène déjà lue dans une autre partie, « Tu connais la suite » saute au prochain carrefour.", "Nouvel onglet du carnet, quand l'histoire en a : L'intrigue (les personnes à suivre, ce que tu sais, les fins trouvées)."] },
@@ -5870,7 +5912,7 @@
       if (Object.keys(mine.tombs).some(function (k) { return !tk[k]; })) return true;
       return BACKUP_COLLS.some(function (cname) {
         var byId = {}; (theirs.collections[cname] || []).forEach(function (o) { if (o && o.id) byId[o.id] = o; });
-        return (mine.collections[cname] || []).some(function (o) { var t = byId[o.id]; return !t || (o.updated || 0) > (t.updated || 0); });
+        return (mine.collections[cname] || []).some(function (o) { var t = byId[o.id]; return !t || freshness(o) > freshness(t); });
       });
     }
     // A key passed by QR: the code opens the site with #sync=… and this device is set up.
