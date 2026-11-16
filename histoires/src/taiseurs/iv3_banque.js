@@ -51,7 +51,7 @@ Object.assign(P, {
 Object.assign(P, {
   IVB_eg_depart: { act: "IV", title: "Les égouts de la reine", place: "changeurs", takes: "night",
     text: [
-      "Une heure avant minuit, dans une ruelle derrière la halle aux poissons, une plaque de fonte se soulève sur un trou rond. Une odeur monte, d'eau croupie, de vase et de vieux sel. Des barreaux de fer scellés dans la paroi descendent dans le noir.",
+      "Une heure avant minuit, dans une ruelle derrière la halle aux poissons, une plaque de fonte se soulève sur un trou rond. Une odeur monte, d'eau croupie, de vase et de vieux sel. Des barreaux de fer scellés dans la paroi descendent dans le noir, et le noir, trois barreaux plus bas, les a déjà pris.",
       "Les égouts de la reine ont trois cents ans. Les marchands ont bâti la ville dessus, et ils y ont jeté leurs eaux sales, sans jamais y descendre. Les égoutiers disent que les voûtes sont plus hautes qu'une église, que les galeries vont jusqu'à la mer, et qu'il y a dessous des salles où l'on entend parler des gens morts. Les égoutiers boivent beaucoup.",
       { with: "lison", text: "Lison descend la première, sans lumière, comme on descend un escalier de chez soi. Sa voix remonte, déjà lointaine. « Pose les pieds où je les pose, et ne touche pas l'eau avec les mains. Il y a des choses dedans. »" },
       { with: "fauvette", without: "lison", text: "Fauvette s'est noué un foulard sur le nez. « Les gamins des Gouttières descendent là-dedans pour échapper au Guet, dit-elle. Ceux qui connaissent le chemin remontent. » Elle te regarde. « Je connais le chemin jusqu'à l'île. Après, on verra. »" },
@@ -86,7 +86,7 @@ Object.assign(P, {
   IVB_eg_galerie: { act: "IV", title: "La grande galerie", place: "changeurs",
     text: [
       "La galerie s'élargit d'un coup, et la lanterne ne trouve plus la voûte. Tu marches sur un trottoir de pierre, large comme une rue, le long d'un canal d'eau noire qui coule lentement vers l'île. Les pierres {{pie#ivb_eg_pierres|sont noires, grasses, sans âge|sont taillées à l'équerre et marquées chacune d'un petit signe de tâcheron : un croissant, le même partout, celui des Taiseurs}}.",
-      "Tous les cinquante pas, une niche dans la paroi, avec un banc de pierre. On a fait ces égouts pour que des gens y marchent et s'y reposent. Dans l'une des niches, quelqu'un a laissé une bouteille vide et un bout de corde neuve.",
+      "Tous les cinquante pas, une niche dans la paroi, avec un banc de pierre. On a fait ces égouts pour que des gens y marchent et s'y reposent : la reine logeait mieux ses eaux sales que la République ses pauvres. Dans l'une des niches, quelqu'un a laissé une bouteille vide et un bout de corde neuve.",
       "L'endroit {{echo#ivb_eg_contre|résonne de l'eau qui coule, et de rien d'autre|résonne d'une voix d'homme, enrouée, d'il y a quelques nuits : « Le troisième barreau de la grille de la Banque, je l'ai scié à l'hiver. Il tient avec de la cire noire. Tu tires, il vient. »}}.",
       { with: "lison", text: "Lison s'arrête devant une niche et passe la main sur le banc. « Ma grand-mère dit que la reine est sortie par ici, la nuit des Comptoirs. Qu'on l'a rattrapée plus loin. » Elle reprend la marche sans attendre de réponse." },
       { with: "fauvette", text: "Fauvette ramasse la bouteille vide, la renifle et la repose. « Des contrebandiers. Ils passent le sel de la Saline sous l'île sans payer la gabelle. Ils doivent avoir une porte, quelque part. »" },
@@ -203,7 +203,7 @@ Object.assign(P, {
 
   IVB_mo_nuit: { act: "IV", title: "La cour de la Monnaie", place: "changeurs", takes: "night",
     text: [
-      "La Monnaie de la République est une cour carrée, fermée de hauts murs, avec des bâtiments bas tout autour : la fonderie, la salle des balanciers, la salle des pesées, le trésor. La nuit, tout y est éteint sauf une lanterne au-dessus de la loge du veilleur. L'air sent encore la braise et le métal.",
+      "La Monnaie de la République est une cour carrée, fermée de hauts murs, avec des bâtiments bas tout autour : la fonderie, la salle des balanciers, la salle des pesées, le trésor. La nuit, tout y est éteint sauf une lanterne au-dessus de la loge du veilleur, et cette cour où l'on fabrique tout l'or de la République a l'air, à cette heure, d'une cour de ferme pauvre. L'air sent encore la braise et le métal.",
       { if: { has: "ivb:rigaud_tenu" }, text: "La clé de Rigaud tourne dans la petite porte avec un bruit gras. Personne ne t'attend de l'autre côté." },
       { if: { not: { has: "ivb:rigaud_tenu" } }, text: "Rigaud t'attend devant la petite porte, sa clé à la main. Il ouvre, s'efface, te fait signe de passer. Il reste un pas derrière toi." },
       "Dans la salle des pesées, sous une fenêtre, des piles de ducats neufs attendent dans des plateaux de bois, rangées par cent. Les pièces {{pie#ivb_mo_ducats|brillent d'un or jaune et franc, de la frappe de l'année|sont d'un or pâle, coupé d'un quart de cuivre : la République paie ses dettes en fausse monnaie, et sa propre Monnaie la frappe}}.",
@@ -313,7 +313,7 @@ Object.assign(P, {
 
   IVB_bal_porte: { act: "IV", title: "La porte de l'hôtel Marrel", place: "changeurs", takes: "night",
     text: [
-      "L'hôtel Marrel donne sur le quai par une cour d'honneur pavée de blanc, où des valets en livrée noire portent des torches. Les carrosses s'arrêtent au portail, et les masques descendent : des loups de velours, des visages d'oiseaux, une lune d'argent. La musique vient des fenêtres du premier étage, toutes ouvertes malgré le froid.",
+      "L'hôtel Marrel donne sur le quai par une cour d'honneur pavée de blanc, où des valets en livrée noire portent des torches. Les carrosses s'arrêtent au portail, et les masques descendent : des loups de velours, des visages d'oiseaux, une lune d'argent. La musique vient des fenêtres du premier étage, toutes ouvertes malgré le froid : on chauffe ce soir le quai des Changeurs aux frais de la maison.",
       { if: { has: "ivb:valet" }, text: "Tu entres par la porte des cuisines, en livrée, avec un plateau. Personne ne regarde un plateau." },
       { if: { not: { has: "ivb:valet" } }, text: "Au pied du perron, le majordome reçoit les cartons. C'est un homme grand et pâle, aux mains gantées de blanc, qui regarde chaque carton et chaque masque, l'un après l'autre." },
       { if: { not: { has: "ivb:valet" } }, text: "« La maison {{oreille#ivb_majordome|vous souhaite une belle soirée, et vous prie d'entrer|a ordre de signaler à Monsieur Brunel tout masque qui arrive seul après dix heures, et vous arrivez sans compagnie}}, dit-il en te rendant ton carton. »" },
@@ -462,7 +462,7 @@ Object.assign(P, {
 
   IVB_cm_nuit: { act: "IV", title: "La porte des commis", place: "changeurs",
     text: [
-      "La ruelle des Peseurs est une fente entre deux murs aveugles, à l'arrière de la Banque, où l'on sort les ordures et rentre le bois. À la deuxième heure, la porte des commis s'entrouvre sur un rai de chandelle, et le visage blanc de Sabran apparaît dans l'entrebâillement.",
+      "La ruelle des Peseurs est une fente entre deux murs aveugles, à l'arrière de la Banque, où l'on sort les ordures et rentre le bois ; les plus belles façades de Salvèze ont toutes cet envers-là, et c'est par lui qu'on les connaît. À la deuxième heure, la porte des commis s'entrouvre sur un rai de chandelle, et le visage blanc de Sabran apparaît dans l'entrebâillement.",
       { if: { has: "ivb:sabran_tenu" }, text: "« Vite, souffle-t-il. La ronde du bas passe dans une demi-heure. » Il te met une clé dans la main, une grosse clé de fer, et s'efface dans le noir de la ruelle avant que tu aies pu le remercier. Ses pas s'éloignent en courant." },
       { if: { not: { has: "ivb:sabran_tenu" } }, text: "« Entrez, dit-il, et il recule pour te laisser passer, plus loin qu'il ne faudrait. Je {{oreille#ivb_sabran_nuit|reste ici pour faire le guet, la ronde passe bientôt|ai vendu cette porte une deuxième fois, à Lothaire Brunel, pour mes quatre-vingts ducats}}. »" },
     ],
@@ -548,7 +548,7 @@ Object.assign(P, {
   IVB_sous: { act: "IV", title: "Sous la Banque", place: "changeurs", hub: true, backName: "le couloir des chambres fortes",
     text: [
       { first: true, outcome: ["win", "flee"], text: "Tu reprends ton souffle contre un mur. Personne derrière toi, pour l'instant." },
-      { first: true, text: "Le premier sous-sol de la Banque Marrel est un couloir voûté, long de cent pas, pavé de dalles usées en creux par trois siècles de commis. Des lanternes de fer pendent de la voûte, une sur deux allumée. De chaque côté, des portes épaisses, bardées de fer, avec des numéros peints : les chambres fortes. Au bout, une grille ouvragée ferme la salle des dépôts. Une porte plus basse, sur la gauche, porte un judas grillagé : les cellules." },
+      { first: true, text: "Le premier sous-sol de la Banque Marrel est un couloir voûté, long de cent pas, pavé de dalles usées en creux par trois siècles de commis. Des lanternes de fer pendent de la voûte, une sur deux allumée, par économie, si bien qu'on y marche d'une flaque de lumière à une flaque d'ombre. De chaque côté, des portes épaisses, bardées de fer, avec des numéros peints : les chambres fortes. Au bout, une grille ouvragée ferme la salle des dépôts. Une porte plus basse, sur la gauche, porte un judas grillagé : les cellules." },
       { first: true, text: "Ça sent la cire, l'encre, la pierre humide et l'argent : une odeur de métal froid, que tu connais des boutiques de changeurs. Quelque part, très loin au-dessus, une horloge sonne la deuxième heure. Le couloir {{echo#ivb_sous|est silencieux, sous la ville endormie|garde la voix de Corisande, il y a trois nuits : « Si le duc entre, Lothaire, tu brûles le registre premier, et ensuite tu brûles la crypte. Tout. »}}." },
       { again: true, text: "Le couloir des chambres fortes, ses lanternes, ses portes numérotées. Au bout, la grille des dépôts. À gauche, le judas des cellules." },
       { if: { has: "ivb:alerte" }, before: "IVB_ronde", text: "Au-dessus de toi, des pas pressés traversent un plancher, et une cloche sonne trois coups, s'arrête, recommence. On te cherche." },
@@ -696,8 +696,8 @@ Object.assign(P, {
 Object.assign(P, {
   IVB_crypte: { act: "IV", title: "La crypte du vieux palais", place: "changeurs", hub: true, backName: "la crypte du palais",
     text: [
-      { first: true, text: "Tu descends longtemps. Des marches de pierre grise, usées au milieu, tournent dans un puits étroit ; puis le puits s'ouvre, et ta lanterne n'éclaire plus qu'un cercle de dalles autour de tes pieds. Une salle. Tu la devines plus que tu ne la vois : des colonnes trapues, sculptées de roseaux et de vagues, une voûte basse en berceau, et au fond, très loin, un reflet de bronze." },
-      { first: true, text: "C'était la salle basse du palais de la reine Ysaure, où l'on tenait audience l'été, au frais. Les Marrel l'ont murée et ont bâti leur Banque par-dessus. Des gravats de leur chantier sont restés en tas contre un mur, avec une brouette pourrie et une pelle à manche cassé, abandonnés là depuis deux siècles." },
+      { first: true, text: "Tu descends longtemps. Des marches de pierre grise, usées au milieu, tournent dans un puits étroit ; puis le puits s'ouvre, les parois te quittent d'un coup, et ta lanterne n'éclaire plus qu'un cercle de dalles autour de tes pieds, au milieu d'une obscurité dont tu sens l'étendue sur ta peau, comme on sent la mer avant de la voir. Une salle. Tu la devines plus que tu ne la vois : des colonnes trapues, sculptées de roseaux et de vagues, une voûte basse en berceau, et au fond, très loin, un reflet de bronze." },
+      { first: true, text: "C'était la salle basse du palais de la reine Ysaure, où l'on tenait audience l'été, au frais. Les Marrel l'ont murée et ont bâti leur Banque par-dessus. Des gravats de leur chantier sont restés en tas contre un mur, avec une brouette pourrie et une pelle à manche cassé, abandonnés là depuis deux siècles : les Marrel, qui comptent tout, ont passé cette pelle en pertes." },
       { first: true, text: "La salle {{echo#ivb_cr_salle|est muette, comme une cave qu'on a oubliée|répond au moindre pas par d'autres pas, plus anciens, des bottes, beaucoup de bottes, et une voix d'homme qui crie : « Les portes ! Fermez les portes de la reine ! »}}." },
       { again: true, text: "La salle basse du palais, ses colonnes à roseaux, le reflet de bronze au fond. Ta lanterne y fait un cercle étroit, et le froid monte des dalles." },
       { with: "gildas", first: true, text: "Frère Gildas s'est arrêté sur la dernière marche. Il a rabattu sa capuche, et tu vois à la lanterne, à la racine de ses cheveux, la cicatrice pâle qu'il porte au front. Il fait le signe des Taiseurs, deux doigts sur les lèvres, et descend." },
