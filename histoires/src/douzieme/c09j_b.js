@@ -87,7 +87,7 @@ Object.assign(P, {
       { label: "Lire le registre à l'envers, en quatre pas", hide: { has: "j:lu_registre" }, test: { dom: "savoir", diff: 5, label: "Lire à l'envers, sous une caisse", help: [{ if: { voie: "rouage" }, v: 10 }, { if: { voie: "heurier" }, v: 10 }] },
         win: { fx: { flag: "j:lu_registre", ep: ["histoire", 300] }, to: "K09j_registre" }, lose: { to: "K09j_registre" } },
       { label: "Poser ta caisse pour refaire ta sangle, contre le pied de la table", hide: { any: [{ has: "j:lettre_oderic" }, { seen: "K09j_lettre" }] }, test: { dom: "discretion", diff: 15, label: "Deux doigts dans un portefeuille", help: [{ if: { voie: "leste" }, v: 15 }, { if: { has: "j:guigne_alliee" }, v: 15 }, { if: { has: "j:lu_registre" }, v: 5 }] },
-        win: { fx: { flag: ["j:lettre_oderic", "j:preuve_oderic"], item: "lettre_oderic", ep: ["histoire", 600] }, to: "K09j_lettre" }, lose: { fx: { flag: "j:quai_brule" }, to: "K09j_alerte" } },
+        win: { fx: { flag: ["j:lettre_oderic", "j:preuve_oderic", "monde:lu:lettre"], item: "lettre_oderic", ep: ["histoire", 600] }, to: "K09j_lettre" }, lose: { fx: { flag: "j:quai_brule" }, to: "K09j_alerte" } },
       { back: "K09j_portage" },
     ] },
 
@@ -124,8 +124,8 @@ Object.assign(P, {
       "Livré le douze. Il y a une Reine à Méridane, jeune, debout, et une princesse de huit ans. Le royaume a de quoi attendre un régent pendant un demi-siècle. Monseigneur a fait graver le sien il y a six jours, et l'a payé comptant.",
     ],
     choices: [
-      { label: "Glisser une épreuve dans ta chemise : il en restera cinq, et le papier de soie", hide: { has: "j:epreuve_sceau" }, fx: { flag: ["j:epreuve_sceau", "j:preuve_oderic"], item: "epreuve_sceau", ep: ["histoire", 500] }, to: "K09j_cale_fin" },
-      { label: "Prendre l'empreinte de l'empreinte, dans ta cire tiède, et tout remettre", hide: { any: [{ has: "j:epreuve_sceau" }, { not: { item: "pain_cire" } }] }, fx: { flag: ["j:epreuve_sceau", "j:preuve_oderic", "j:epreuve_moulee"], item: "epreuve_sceau", ep: ["histoire", 600] }, to: "K09j_cale_fin" },
+      { label: "Glisser une épreuve dans ta chemise : il en restera cinq, et le papier de soie", hide: { has: "j:epreuve_sceau" }, fx: { flag: ["j:epreuve_sceau", "j:preuve_oderic", "monde:lu:sceau"], item: "epreuve_sceau", ep: ["histoire", 500] }, to: "K09j_cale_fin" },
+      { label: "Prendre l'empreinte de l'empreinte, dans ta cire tiède, et tout remettre", hide: { any: [{ has: "j:epreuve_sceau" }, { not: { item: "pain_cire" } }] }, fx: { flag: ["j:epreuve_sceau", "j:preuve_oderic", "j:epreuve_moulee", "monde:lu:sceau"], item: "epreuve_sceau", ep: ["histoire", 600] }, to: "K09j_cale_fin" },
       { label: "Renouer la ficelle : tu l'as lu, cela te suffit", hide: { has: "j:epreuve_sceau" }, fx: { flag: "j:vu_sceau" }, to: "K09j_cale_fin" },
     ] },
 
@@ -214,7 +214,7 @@ Object.assign(P, {
       "À deux cents, le jour annoncé : un rectangle de lueur jaune, barré de trois fers, à une coudée au-dessus de l'eau. Des voix en tombent. Quarante pas plus loin, la voûte s'ouvre sur du ciel, entre deux pieux noirs, et la poupe d'une barge.",
     ],
     choices: [
-      { label: "T'arrêter sous le soupirail, l'eau au menton", hide: { seen: "K09j_marche" }, fx: { flag: ["j:oui_marche", "j:vu_paiement"], ep: ["histoire", 600] }, to: "K09j_marche" },
+      { label: "T'arrêter sous le soupirail, l'eau au menton", hide: { seen: "K09j_marche" }, fx: { flag: ["j:oui_marche", "j:vu_paiement", "monde:lu:marche"], ep: ["histoire", 600] }, to: "K09j_marche" },
       { label: "Aller jusqu'aux pieux", to: "K09j_sous_quai" },
     ] },
 
@@ -228,7 +228,7 @@ Object.assign(P, {
     ],
     choices: [
       { label: "Te hisser par le safran, sous la bâche", hide: { seen: "K09j_cale" }, to: "K09j_cale" },
-      { label: "Le soupirail, quarante pas en arrière", hide: { seen: "K09j_marche" }, fx: { flag: ["j:oui_marche", "j:vu_paiement"], ep: ["histoire", 600] }, to: "K09j_marche" },
+      { label: "Le soupirail, quarante pas en arrière", hide: { seen: "K09j_marche" }, fx: { flag: ["j:oui_marche", "j:vu_paiement", "monde:lu:marche"], ep: ["histoire", 600] }, to: "K09j_marche" },
       { label: "Rentrer sous la voûte : l'eau monte", test: { dom: "nature", diff: 0, label: "Deux cent quarante pas contre le flot", help: [{ if: { voie: "coureur" }, v: 10 }, { if: { voie: "tetu" }, v: 10 }, { if: { all: [{ seen: "K09j_cale" }, { seen: "K09j_marche" }] }, v: -15 }] },
         win: { to: "K09j_maree" }, lose: { fx: { pv: -3 }, to: "K09j_maree" }, big: true },
     ] },
@@ -265,7 +265,7 @@ Object.assign(P, {
     choices: [
       { label: "Gagner les pieux, quarante pas plus loin", hide: { not: BIEF }, to: "K09j_sous_quai" },
       { label: "Te laisser couler par l'œil-de-bœuf, dans l'escalier : trois lettres en éventail", hide: { not: TOITS }, test: { dom: "discretion", diff: 10, label: "Descendre dans une maison qu'on habite", help: LESTE },
-        win: { fx: { flag: ["j:lettre_oderic", "j:preuve_oderic"], item: "lettre_oderic", ep: ["histoire", 600] }, to: "K09j_cabinet" }, lose: { fx: { flag: "j:quai_brule" }, to: "K09j_alerte" } },
+        win: { fx: { flag: ["j:lettre_oderic", "j:preuve_oderic", "monde:lu:lettre"], item: "lettre_oderic", ep: ["histoire", 600] }, to: "K09j_cabinet" }, lose: { fx: { flag: "j:quai_brule" }, to: "K09j_alerte" } },
       { label: "Rester sur le plomb : tu as entendu, et tu as tes deux jambes", hide: { not: TOITS }, to: "K09j_dix" },
     ] },
 
@@ -278,7 +278,7 @@ Object.assign(P, {
       "Tu les fais. De l'autre côté, le toit du duc est d'ardoise fine, avec des lucarnes à fronton ; et, au ras de la gouttière, côté cour, un œil-de-bœuf d'où monte une lueur de bougies et un bruit de voix.",
     ],
     choices: [
-      { label: "Te coucher à plat ventre contre l'œil-de-bœuf", fx: { flag: ["j:oui_marche", "j:vu_paiement", "j:vu_duc"], ep: ["histoire", 600] }, to: "K09j_marche", big: true },
+      { label: "Te coucher à plat ventre contre l'œil-de-bœuf", fx: { flag: ["j:oui_marche", "j:vu_paiement", "j:vu_duc", "monde:lu:marche"], ep: ["histoire", 600] }, to: "K09j_marche", big: true },
     ] },
 
   K09j_toits_rate: { act: "III", title: "Douze pas sans rien", place: "basse", ambiance: "ville",
@@ -389,7 +389,7 @@ Object.assign(P, {
       "La lune est à gauche de la Tour, à une main de la lanterne. En bas, le veilleur du quai marche, d'un pas, d'un pas, et son falot promène un rond sur le plafond de la soupente. Tu as les membres rompus et la tête claire, ce qui est le contraire de ce qu'il faut pour dormir.",
       "Tu attends onze heures. Autant les compter.",
     ],
-    choices: [{ label: "Compter", fx: { flag: "j:vu_hoquet", ep: ["histoire", 800] }, to: "K09j_hoquet", big: true }] },
+    choices: [{ label: "Compter", fx: { flag: ["j:vu_hoquet", "monde:lu:hoquet"], ep: ["histoire", 800] }, to: "K09j_hoquet", big: true }] },
 
   K09j_hoquet: { act: "III", title: "Entre le huitième et le neuvième", place: "basse", ambiance: "ville",
     text: [

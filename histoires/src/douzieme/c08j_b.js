@@ -248,7 +248,7 @@ Object.assign(P, {
       { if: { not: WIN }, text: "L'établi douze n'a pas son compte. Aymon Foliot a deux blanches, malgré le barillet, et un pivot que le juge fait admirer à la ronde. On lui remet la bourse et la clef. Il salue comme un garçon bien élevé à qui l'on a dit toute sa vie que cela arriverait ; il a seulement, en se relevant, un coup d'œil vers ton bout d'estrade, où il a vu des doigts qui en savaient autant que les siens." },
     ],
     choices: [
-      { label: "Monter sous le dais", hide: { not: WIN }, fx: { gold: 30, item: "clef_apprenti", flag: ["j:concours_gagne", "j:aubespin_invite"], ep: ["perso", 800], regard: { aubespin: "curieux" } }, to: "K08j_estrade", big: true },
+      { label: "Monter sous le dais", hide: { not: WIN }, fx: { gold: 30, item: "clef_apprenti", flag: ["j:concours_gagne", "j:aubespin_invite", "monde:concours_gagne"], ep: ["perso", 800], regard: { aubespin: "curieux" } }, to: "K08j_estrade", big: true },
       { label: "Rendre ton tablier, et descendre", hide: WIN, fx: { flag: "j:aubespin_invite" }, to: "K08j_estrade", big: true },
     ] },
   K08j_estrade: { act: "III", title: "Un œil gris, un œil brun", place: "foire", ambiance: "ville",

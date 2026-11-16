@@ -422,6 +422,88 @@ Object.assign(P, {
     ] },
 });
 
+// ---------- chapter 9 : the dial of the port (541) and the First milestone (601) ----------
+// What the one who stays may write to the other, carried from rendezvous to rendezvous.
+var E_ECRIRE = [
+  { label: "Écrire à {autre} ce que la sœur du chœur a compris", hide: { any: [J, { not: { has: "r:sait_deux" } }, { has: "monde:su:deux" }] }, to: "E_deux" },
+  { label: "Écrire à {autre} ce que le Livre dit des hommes de cuivre", hide: { any: [J, { not: { has: "r:sait_cuivre" } }, { has: "monde:su:clef" }] }, to: "E_clef" },
+  { label: "Écrire à {autre} les lignes rouges de la clepsydre", hide: { any: [J, { not: { has: "r:sait_hoquets" } }, { has: "monde:su:hoquets" }] }, to: "E_hoquets" },
+  { label: "Écrire à {autre} qui se tient sur le chemin du canal", hide: { any: [J, { not: { seen: "K09r_girard" } }, { has: "monde:su:girard" }] }, to: "E_girard" },
+  { label: "Écrire à {autre} de quelle couleur sont les yeux du Maître des Sables", hide: { any: [J, { not: { has: "r:vu_vairons" } }, { has: "monde:su:vairons" }] }, to: "E_vairons" },
+  { label: "Écrire à {autre} ce que le Maître des Sables a dit sous la tente", hide: { any: [J, { not: { has: "r:sait_recolte" } }, { has: "monde:su:recolte" }] }, to: "E_recolte" },
+  { label: "Écrire à {autre} ce que la vieille t'a demandé d'écrire", hide: { any: [J, { not: { has: "r:line_plan" } }, { has: "monde:su:line" }] }, to: "E_line" },
+  { label: "Écrire à {autre} ce que tu as trouvé dans la malle du gué", hide: { any: [J, { not: { has: "r:sait_bond" } }, { has: "monde:su:bond" }] }, to: "E_bond" },
+  { label: "Écrire à {autre} ce que la vieille a dit d'une certaine écriture", hide: { any: [J, { not: { has: "r:sait_main" } }, { has: "monde:su:main" }] }, to: "E_main" },
+  { label: "Répondre à {autre} sur la langueur grise", hide: { any: [J, { not: { has: "monde:placard" } }, { has: "monde:su:remede" }] }, to: "E_remede" },
+];
+
+Object.assign(P, {
+  M09: { act: "III", title: "Onze", backName: "la borne", charniere: true, aparte: true, depot: { put: ["cahier"], take: ["borne_foire", "cahier"] },
+    text: [
+      { first: true, if: J, text: "Les bâtons t'attendaient. Ils sont appuyés, creusés dans le papier : {autre} écrivait sur ses genoux, serré{autre:e} entre des gens. *JE SUIS À TA FOIRE. ELLE EST ENTIÈRE. ILS SONT DIX MILLE, DEBOUT, ET ILS REGARDENT TOUS LA TOUR. ILS COMPTENT. ILS EN SONT À ONZE. ILS ONT LA BOUCHE OUVERTE SUR DOUZE.*" },
+      { first: true, if: J, text: "*LE ONZIÈME COUP EST ENCORE EN L'AIR. ON L'ENTEND EN MARCHANT. QUAND ON S'ARRÊTE IL SE TAIT. IL TIENT TOUTE LA PLAINE DEPUIS SOIXANTE ANS. JE MARCHE DEDANS POUR T'ÉCRIRE.*" },
+      { first: true, if: J, text: "*IL Y A UN PONT DE BOIS PAR-DESSUS LES TÊTES, POUR LA RÉGENTE. ON NE PEUT PAS LES POUSSER. J'AI CREUSÉ À TA BORNE SOUS LE TALON D'UN BOURGEOIS. IL N'A RIEN SENTI.*" },
+      { first: true, if: J, text: "Tu relis, assis{e} sur la marche du cadran. Tu viens de les entendre compter : quarante mille, des lèvres, jusqu'à douze. Tu sais à présent quelle figure ils auront à onze. {autre} l'a regardée ce matin, sur dix mille visages, et te la décrit en six mots." },
+      { first: true, if: J, text: "Tu écris. La porte, le billet, la ville bâtie sur l'eau. Le cadran du port, que les gens appellent la Petite. Midi dans les murs : la main à plat sur la poitrine, le bassin qui se ride d'un bord à l'autre. Tu écris que tout le monde l'entend, jusqu'au dernier mousse, et que c'est cela que le Livre appelle *avoir ouï*." },
+      { first: true, if: R, text: "L'écriture penchée t'attendait, au fond du Cahier que tu viens de tirer de la terre. *Je suis dans les murs. La ville basse est bâtie sur l'eau autant qu'à côté : des canaux qui entrent sous les maisons, des ponts bossus, des gabares sur trois rangs. Il y a sur le quai un pilier avec un cadran à deux faces. Les gens l'appellent la Petite. J'écris assis{autre:e} sur sa marche d'en haut.*" },
+      { first: true, if: R, text: "*Il vient de sonner midi. Hier, à une lieue, cela me semblait une habitude de foule. Ici, c'est une loi : le grutier lâche sa roue, la marchande ferme la bouche au milieu d'un prix, et quarante mille personnes lèvent la tête du même côté. L'eau du bassin se ride d'un seul frisson. Ils comptent des lèvres. Les enfants, sur les doigts.*" },
+      { first: true, if: R, text: "*Ils l'ont tous entendu. Tous. C'est cela, avoir ouï. Dans trois jours, on leur en donnera onze.*" },
+      { first: true, if: R, text: "Tu lèves les yeux du papier. Ils sont autour de toi. Un homme plie les doigts de son fils, et il en est au premier de la seconde main. {autre} a vu ce geste ce matin, vivant, sur un quai, à une lieue d'ici, il y a soixante ans ; et te l'envoie, sans savoir que tu as le nez dessus." },
+      { first: true, if: R, text: "Tu écris à ton tour, en bâtons, le Cahier sur la cuisse, entre le bourgeois prune et l'enfant de chœur. Les dix mille dos. La note qu'on traverse. Le pont de bois de la Régente. Tu marches un peu sur place, de temps en temps, pour ravoir la cloche : elle tient compagnie." },
+      { again: true, if: J, text: "Le cadran du port, sur ses trois marches. Le quai a repris son bruit." },
+      { again: true, if: R, text: "La Première, sa grappe de curieux, le gamin à califourchon. Le talon du bourgeois prune est sur la dalle." },
+    ],
+    choices: E_ECRIRE.concat([
+      { label: "Fermer le Cahier, et rendre le quai à ses affaires", hide: R, to: "K09j_tantot", big: true },
+      { label: "Fermer le Cahier, et regarder où tu es", hide: J, to: "K09r_tantot", big: true },
+    ]) },
+
+  E_hoquets: { title: "Les lignes rouges", back: true, fx: { flag: "monde:su:hoquets" },
+    text: [
+      "*TES SŒURS AVAIENT UNE HORLOGE À EAU. ELLES NOTAIENT EN ROUGE CHAQUE FOIS QUE LA GOUTTE S'ARRÊTAIT EN L'AIR. J'AI COPIÉ LES ROUGES DE TON MOIS.*",
+      "*LE 2 JUIN À MATINES, UN AVE. LE 7, DEUX AVE. LE 11 DE NUIT, UN PATER. LE 14. LE 15. LE 18 DE NUIT, UN PSAUME ENTIER. LE 19. LE 20, DEUX FOIS. LE 21 À MIDI, ET ÇA NE FINIT PLUS.*",
+      "*QUELQU'UN ESSAIE LA BARRE, CHEZ TOI, LA NUIT. UN PEU PLUS LONGTEMPS CHAQUE FOIS. ELLES L'ONT SU À NEUF LIEUES PAR UNE GOUTTE D'EAU.*",
+      "*TU AS ENCORE LE 19 ET DEUX FOIS LE 20. SI TU VEUX LE PRENDRE LA MAIN SUR LA BARRE, TU SAIS QUELLES NUITS.*",
+    ] },
+  E_girard: { title: "Le chemin du canal", back: true, fx: { flag: "monde:su:girard" },
+    text: [
+      "*J'AI TROUVÉ GIRARD. LE GRAND FRÈRE DE TA PETITE. QUATORZE ANS. IL EST SUR LE CHEMIN DU CANAL, DERRIÈRE LA FOIRE, DEBOUT SUR UNE CHARRETTE BLEUE, LE FOUET EN L'AIR.*",
+      "*QUELQU'UN LUI AVAIT DIT D'ATTELER LE MATIN DE LA FÊTE. JE CROIS SAVOIR QUI. ÇA A MARCHÉ. IL A JETÉ SON HUILE, IL A SORTI LA PETITE AVANT LE ONZIÈME, IL L'A POSÉE À UN PONT, DEHORS.*",
+      "*ET IL A FAIT DEMI-TOUR. IL EST REVENU CHERCHER SON PÈRE. IL A ÉTÉ PRIS À TRENTE PAS DU BORD.*",
+      { if: { has: "r:message_girard" }, text: "*JE L'AI ÉVEILLÉ. IL M'A DONNÉ UNE COMMISSION : LE FER NE BRANLAIT PAS. IL DIT QU'ELLE COMPRENDRA. TOI AUSSI, PEUT-ÊTRE.*" },
+      "*LE JOUR VENU, TU SERAS LÀ ET PAS MOI. IL NE FAUT PAS QU'IL TOURNE. OU ALORS IL FAUT QUE LE PÈRE SOIT DANS LA CHARRETTE.*",
+      "Tu regardes ce que tu viens d'écrire. De ton côté, c'est une chose faite, vieille de soixante ans, avec des encoches sur une ridelle. Du sien, c'est dans trois jours, et l'huile est encore dans les cruches.",
+    ] },
+
+  B09: { act: "III", title: "Minuit, de part et d'autre du mur", backName: "la borne", charniere: true, aparte: true, depot: { put: ["borne_basse", "cahier"], take: ["cahier"] },
+    text: [
+      { first: true, if: J, text: "Les bâtons de ce soir sont longs. {autre} a écrit tard, à une lumière qui ne tremble pas. *J'AI PASSÉ LE JOUR DANS TA FOIRE. LES QUARANTE HORLOGERS SE SONT TUS. QUAND ON MARCHE DEVANT LEURS ÉTALS LES MONTRES REPARTENT, ET ELLES NE SONT TOUJOURS PAS D'ACCORD.*" },
+      { first: true, if: J, text: "*LA RÉGENTE EST PASSÉE À LA BRUNE, SUR SON PONT, AU-DESSUS DES TÊTES. L'HOMME AUX DEUX YEUX MARCHAIT DERRIÈRE. LA VIEILLE SUIVAIT DANS UNE CHAISE FERMÉE, PORTÉE À QUATRE. ILS SONT DANS LA VILLE CE SOIR. MOI DEMAIN.*" },
+      { first: true, if: J, text: "*AUTRE CHOSE. LA NUIT, DE MON CÔTÉ, TA COLLINE LUIT. DU PIED DE LA TOUR JUSQU'AUX TOITS. C'EST DU SABLE. LES GLANEURS SE BATTENT POUR UNE FIOLE, ET LÀ-HAUT IL Y EN A UNE COLLINE. JE SAIS POURQUOI IL Y MONTE SES CUVES.*" },
+      { first: true, if: { all: [J, { has: "monde:concours_gagne" }] }, text: "*TON NOM EST À LA CRAIE SUR UN TABLEAU, AU BOUT DE L'ALLÉE DES HORLOGERS. PREMIER. TRENTE ÉCUS ET LA CLEF. LA CRAIE A TENU.* Tu souris, tout{e} seul{e}, sur un quai, à minuit." },
+      { first: true, if: J, text: "Tu écris à la lueur d'une lanterne de quai. Tu as beaucoup à dire, et la main qui tremble un peu : le quai des Barges, les trois gabares assises dans l'eau, cent vingt caisses par barge et par nuit depuis le neuf. Puis ce qui s'est passé à onze heures, que tu mets longtemps à tourner en phrases. Tu finis par l'écrire comme tu l'as appris : par la chandelle." },
+      { first: true, if: J, text: "Puis tu fais venir la pierre de l'anneau, et tu mets la main dans le sable." },
+      { first: true, if: R, text: "L'écriture penchée tient cinq pages, et elle a couru. Il y a un pâté au bas de la troisième. *Le duc de Hautgué déménage. Il a un hôtel sur le port, à trente fenêtres, et trois barges qui partent chaque soir à dix heures, si chargées que l'eau lèche le bord. Cent vingt caisses par barge. Sur les caisses, on a peint FOIN. Cela dure depuis le neuf. Un vieux marinier a dit, à côté de moi : il déménage bien, pour un homme qui reste.*" },
+      { first: true, if: { all: [R, { has: "monde:lu:marche" }] }, text: "*J'ai entendu le marché. Le duc et l'homme aux deux yeux, dans une salle basse. Le duc veut la Reine dans la Chambre haute, avec l'enfant, à midi. Il veut que cela tienne un an, le temps que les barons prennent le pli. Il a payé douze mille écus. L'autre a répondu : Monseigneur aura ce qu'il a payé. Il a dit aussi qu'il avait de quoi caler le levier.*" },
+      { first: true, if: { all: [R, { has: "monde:lu:lettre" }] }, text: "*J'ai une lettre de la main du duc, datée d'aujourd'hui. Il fait tendre un dais chez lui pour le vingt-deux. Il convoque ses barons « durant l'empêchement de la Reine ». Il chassera le vingt et un, et il veut douze gentilshommes pour le jurer. Elle finit par : brûlez ceci.*" },
+      { first: true, if: { all: [R, { has: "monde:lu:sceau" }] }, text: "*J'ai trouvé son sceau, dans une cale. Un homme à cheval sous un dais, et autour : ODERIC, PAR LA GRÂCE DE DIEU, RÉGENT D'AURIME. Le graveur l'a livré le douze.*" },
+      { first: true, if: { all: [R, { any: [{ has: "monde:lu:marche" }, { has: "monde:lu:lettre" }, { has: "monde:lu:sceau" }] }] }, text: "Tu as dans ton sac un gros livre de toile noire, qui dit que la Providence avait conduit Monseigneur à la chasse ce matin-là. La Chronique a été écrite à Hautgué. Sa petite-fille est passée au-dessus de ta tête il y a six heures, en blanc, et s'est penchée sur les dormants." },
+      { first: true, if: { all: [R, { has: "monde:lu:hoquet" }] }, text: "*Ceci encore, et je ne sais comment le dire. À onze heures, j'ai compté les coups. Huit, neuf, d'affilée. Je n'ai rien senti. Mais entre le huit et le neuf ma chandelle avait perdu un doigt, et la lune avait passé de l'autre côté de la Tour. Un psaume, à peu près. J'étais dedans. Nous y étions tous.*" },
+      { first: true, if: { all: [R, { has: "monde:lu:hoquet" }, { has: "r:sait_hoquets" }] }, text: "*Le dix-huit, de nuit : un psaume entier.* Tu l'as lu avant-hier, à l'encre rouge, sur le pupitre d'une clepsydre. Une sœur l'a noté à neuf lieues. {autre} l'a passé debout à une lucarne, sans le sentir." },
+      { first: true, if: { all: [R, { has: "monde:lu:droit" }] }, text: "*On m'a parlé d'un boyau, sous la ville. Les enfants des ponts l'appellent le Droit. Il part de sous une vieille église, Saint-Gnomon-le-Vieux, et il monte sans un coude jusque sous la Tour. Au bout, une grille de bronze. Derrière la grille, on entend un pas : un seul, très lourd, et puis rien le temps de compter quatre.*" },
+      { first: true, if: { all: [R, { has: "monde:perrine_avertie" }] }, text: "*J'ai dit à Perrine d'être de l'autre côté de la deuxième borne, le jour, à midi. Elle y sera. Elle a compris toute seule que la Foire était dedans : elle sait compter les lieues.* Tu as passé la Deuxième ce matin. Il y a là une barrière, un drapeau noir, une file de vieux. Tu n'y as cherché personne." },
+      { first: true, if: { all: [R, { has: "monde:tannerie_partage" }] }, text: "*Ton écorce est chez les tanneurs. Il y avait quatre petites aux ongles gris, dans la même rue. La mère a coupé le morceau en quatre.*" },
+      { first: true, if: R, text: "*J'enterre ici, sous le cadran du port, à la marche du milieu, côté rivière : il y a un anneau, et la pierre de l'anneau a du jeu. Demain, la colline des Jurés.*" },
+      { first: true, if: R, text: "Tu écris dans la clarté blanche, qui dispense de chandelle. Les quarante étals. La femme sur sa corde. Les semelles. La colline. Autour de toi, dix mille personnes attendent, sans impatience, que tu aies fini." },
+      { again: true, if: J, text: "Le cadran du port, à minuit. La pierre de l'anneau est remise. Les gabares dorment." },
+      { again: true, if: R, text: "La Première, dans son midi de soixante ans. Au-dessus, la Passerelle et ses points jaunes." },
+    ],
+    choices: E_ECRIRE.concat([
+      { label: "Fermer le Cahier : demain, la colline des Jurés", hide: R, to: "K10j_route", big: true },
+      { label: "Fermer le Cahier : demain, on entre", hide: J, to: "K10r_route", big: true },
+    ]) },
+});
+
 module.exports = { passages: P, extras: {
   quests: [
     { id: "I_porte", act: "I", kind: "principale", title: "La porte de la grange", start: "B01" },
@@ -456,6 +538,10 @@ module.exports = { passages: P, extras: {
       { if: { has: "monde:su:deux" }, text: "*Il faut être deux. Un à la corde, sous la cloche. Un au levier, au bord du puits. La barre ne remonte que pendant que la cloche sonne, le temps d'un coup. 360 marches entre les deux.*" }] },
     { id: "clef", head: "Les hommes de cuivre", v: [
       { if: { has: "monde:su:clef" }, text: "*Les veilleurs de cuivre de la Guilde marchent encore. Ils laissent passer qui porte la clef de bronze des apprentis. Il m'en faut une : mets-la dans la terre, au pied d'une borne.*" }] },
+    { id: "hoquets", head: "Les lignes rouges", v: [
+      { if: { has: "monde:su:hoquets" }, text: "*La clepsydre de Sainte-Aure s'est arrêtée le 2 juin, le 7, le 11, le 14, le 15 ; le 18 de nuit, un psaume entier ; puis le 19, et deux fois le 20. Quelqu'un essaie la barre, la nuit, un peu plus longtemps chaque fois.*" }] },
+    { id: "girard", head: "Le chemin du canal", v: [
+      { if: { has: "monde:su:girard" }, text: "*Girard a sorti la petite avant le onzième coup, l'a posée à un pont, et il est revenu chercher son père. Il a été pris à trente pas du bord. Il ne faut pas qu'il tourne, ou il faut que le père soit dans la charrette.*" }] },
     { id: "pont", head: "Arvoise, dans la Chronique", v: [
       { if: { has: "monde:su:pont" }, text: "*Six jours avant le Grand Midi, le Pont-Neuf d'Arvoise est tombé dans la Thiorne à l'heure de sa bénédiction. Quarante morts. Le maître qui l'a bâti s'appelait Baudri, il est mort avec. Tu y seras.*" }] },
   ],

@@ -240,7 +240,7 @@ Object.assign(P, {
       { again: true, after: "j:sibylle", text: "La portière de toile noire est rabattue. On a épinglé dessus un bout de papier : *Fermé pour ce jour.* La foule fait son coude." },
     ],
     choices: [
-      { label: "Poser un écu sur la table, et tendre la main", hide: { has: "j:sibylle" }, if: { gold: { min: 1 } }, why: "Tu n'as pas un écu.", fx: { flag: "j:sibylle" }, to: "K08j_sibylle_main" },
+      { label: "Poser un écu sur la table, et tendre la main", hide: { has: "j:sibylle" }, if: { gold: { min: 1 } }, why: "Tu n'as pas un écu.", fx: { flag: ["j:sibylle", "monde:sibylle"] }, to: "K08j_sibylle_main" },
       { back: "K08j_foire" },
     ] },
   K08j_sibylle_main: { act: "III", title: "Une main qui commence trop tard", place: "foire", ambiance: "ville",

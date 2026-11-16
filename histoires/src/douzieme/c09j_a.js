@@ -309,9 +309,9 @@ Object.assign(P, {
       "« Un pas. » Elle a baissé la voix, et les petits, autour, se sont tus. « Un seul. Lent. Très lourd. Comme quelqu'un qui marcherait sur place, dans une cave, depuis toujours. Boum. Et puis rien, le temps de compter quatre. Et boum. On est redescendus en courant. J'y remets pas les pieds pour dix écus. Mais je sais où est l'entrée, et pour ce prix-là je te la montre. »",
     ],
     choices: [
-      { label: "Payer d'une lame : celle que Moineau te doit", hide: { any: [{ not: DETTE }, { has: "j:lame_payee" }, { has: "j:guigne_alliee" }] }, fx: { flag: ["j:sait_dessous", "j:lame_payee"], ep: ["histoire", 400] }, to: "K09j_guigne" },
-      { label: "Payer deux écus", hide: { has: "j:guigne_alliee" }, if: { gold: { min: 2 } }, why: "Tu n'as pas deux écus.", fx: { gold: -2, flag: "j:sait_dessous", ep: ["histoire", 400] }, to: "K09j_guigne" },
-      { label: "« Entre nous, on ne compte plus. »", hide: { not: { has: "j:guigne_alliee" } }, fx: { flag: "j:sait_dessous", ep: ["histoire", 400] }, to: "K09j_guigne" },
+      { label: "Payer d'une lame : celle que Moineau te doit", hide: { any: [{ not: DETTE }, { has: "j:lame_payee" }, { has: "j:guigne_alliee" }] }, fx: { flag: ["j:sait_dessous", "j:lame_payee", "monde:lu:droit"], ep: ["histoire", 400] }, to: "K09j_guigne" },
+      { label: "Payer deux écus", hide: { has: "j:guigne_alliee" }, if: { gold: { min: 2 } }, why: "Tu n'as pas deux écus.", fx: { gold: -2, flag: ["j:sait_dessous", "monde:lu:droit"], ep: ["histoire", 400] }, to: "K09j_guigne" },
+      { label: "« Entre nous, on ne compte plus. »", hide: { not: { has: "j:guigne_alliee" } }, fx: { flag: ["j:sait_dessous", "monde:lu:droit"], ep: ["histoire", 400] }, to: "K09j_guigne" },
     ] },
   K09j_guigne_petite: { act: "III", title: "La sœur de Moineau", place: "basse", ambiance: "eau",
     text: [
