@@ -81,7 +81,7 @@ module.exports = {
   // ---------------------------------------------------------------- Acte III : Valcendre
   III_v_masques: P3({ title: "L'atelier des masques", place: "valcendre",
     text: [
-      "Une boutique étroite, sous les arcades, six pas de profondeur. Aux murs, des masques, accrochés en rangs serrés jusqu'au plafond : de cuir, de bois, de papier, d'argent, plusieurs centaines. Des visages sans yeux, qui regardent. Une femme les fabrique, assise à son établi, un masque blanc sur le visage, elle aussi.",
+      "Une boutique étroite, sous les arcades, six pas de profondeur. Aux murs, des masques, accrochés en rangs serrés jusqu'au plafond : de cuir, de bois, de papier, d'argent, plusieurs centaines. Des visages sans yeux, qui regardent ; et l'on se surprend, sous ces centaines d'orbites vides, à rectifier sa tenue comme devant une assemblée. Une femme les fabrique, assise à son établi, un masque blanc sur le visage, elle aussi.",
       "« Pour ceux qu'on a oubliés jusqu'au visage, dit-elle. Là-haut, quelqu'un se souvient de leur nom, parfois. Jamais de leur figure. Alors ici, ils n'en ont plus. Je leur en fais une. » Elle te montre un masque inachevé. « Celui-là, c'est un enfant de Lisse. Personne ne se souvient de son visage. Je fais un visage d'enfant, n'importe lequel. Il est content. »",
       { with: "sansnom", text: "Ton frère reste sur le seuil. Il touche, sans y penser, son propre masque. La femme le regarde. « Le tien, dit-elle, c'est moi qui l'ai fait. Il y a longtemps. Tu avais six ans. Tu voulais une figure de garçon qui sourit. »" },
     ],

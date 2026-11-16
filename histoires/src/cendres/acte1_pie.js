@@ -11,7 +11,7 @@ module.exports = {
     fx: { questSeen: "PI_linette" },
     text: [
       "D'en haut, Pallanche est une autre ville. Les rues, la boue, les milices, les mendiants qui dorment debout contre les murs : tout disparaît. On voit des toits. Des milliers de toits d'ardoise et de tuile, qui se chevauchent comme les écailles d'un poisson mort, et des cheminées, et entre les cheminées, les clochers. Cent, dit-on. Tu les as comptés, une fois, à quatorze ans. Il y en a quatre-vingt-dix-sept. Tu n'as jamais dit à personne que la ville mentait.",
-      "C'est le soir du onze juillet. Il fait lourd. Assis à califourchon sur le faîte de la maison des Tanneurs, les jambes dans le vide, tu manges une poire volée en regardant la seule chose de Pallanche qui ne soit pas un toit : la tour noire de la Chancellerie des Noms, au milieu de la ville, sans une fenêtre, avec à son sommet la plume et la clé croisées, en fer, qui se découpent sur le couchant.",
+      "C'est le soir du onze juillet. Il fait lourd. Assis à califourchon sur le faîte de la maison des Tanneurs, les jambes dans le vide, tu manges une poire volée en regardant la seule chose de Pallanche qui ne soit pas un toit : la tour noire de la Chancellerie des Noms, au milieu de la ville, sans une fenêtre, avec à son sommet la plume et la clé croisées, en fer, qui se découpent sur le couchant. Une tour aveugle a pourtant sa manière de regarder ; tous les toits de Pallanche le sentent, et lui tournent le dos de leurs lucarnes.",
       "Linette est là-dedans. Ça fait un an. Un an et onze jours.",
       "Tu étais au cachot de la porte Saint-Gilles pour un faux laissez-passer, trois mois, quand Maître Corneille l'a vendue. Corneille, le vieux faussaire qui t'avait appris à tenir une plume, qui vous avait recueillis tous les deux sous le pont des Teinturiers à la mort de votre mère. Il l'a vendue aux Greffiers pour payer ses dettes. Ils achètent les orphelins, paraît-il. Ils en font des scribes. Des *pages blanches*, comme on dit dans les bas-quartiers, en baissant la voix.",
       "Quand tu es sorti, Corneille avait disparu, et la tour n'avait toujours pas de porte pour les gens comme toi.",
@@ -193,7 +193,7 @@ module.exports = {
   PI_bureau: P({ title: "Le Bureau des Cessions",
     fx: { questSeen: "PI_bureau", meet: "baudoin" },
     text: [
-      "Le Bureau des Cessions occupe une salle basse au pied de la tour, avec une porte à elle, sur la rue, et une file d'attente qui fait le tour du pâté de maisons. Tu la mesures en marchant : trois cent quarante pas. Des pauvres gens. Des femmes avec des enfants dans les bras, des vieux, des soldats démobilisés avec leur jambe de bois. Ils avancent en silence, d'un pas tous les deux Pater.",
+      "Le Bureau des Cessions occupe une salle basse au pied de la tour, avec une porte à elle, sur la rue, et une file d'attente qui fait le tour du pâté de maisons. Tu la mesures en marchant : trois cent quarante pas. Des pauvres gens. Des femmes avec des enfants dans les bras, des vieux, des soldats démobilisés avec leur jambe de bois. Ils avancent en silence, d'un pas tous les deux Pater, avec la docilité des files où chacun a déjà fait le compte de ce qui lui reste à vendre.",
       "À l'intérieur, derrière un comptoir, un jeune greffier au visage doux, Frère Baudoin, reçoit chacun avec un sourire. « Qu'est-ce que vous voulez céder ? » On lui dit. Il écrit. Puis il ouvre un petit coffret de plomb, il en sort une pincée de quelque chose de blanc, et il souffle doucement, comme sur une bougie, au visage du cédant.",
       { first: true, text: "La femme devant toi a vendu le souvenir de son premier enfant, mort à deux ans. Trois sous. Elle sort en souriant." },
       "Chaque cédant reçoit un jeton de bois, pour revenir. Derrière le comptoir, une porte mène aux étages. Un garde l'ouvre pour les *gros cédants*, ceux qui reviennent, ceux qu'on monte voir là-haut.",
@@ -369,7 +369,7 @@ module.exports = {
     text: [
       "Les lavandières du quai Saint-Jean sont six, fortes comme des portefaix, les avant-bras rougis par la cendre de lessive, et la plus vieille te regarde grimper dans la charrette en silence. Elle tire un drap sur toi. Il sent la sueur, le sang, l'urine, l'encre. Le linge des greffiers. La charrette s'ébranle.",
       "Tu comptes les tours de roue pour tenir le temps, et tu perds le compte vers huit cents. Puis des voix, une grille, des pavés plus lisses. Une main soulève le drap, à un pouce de ton visage, et le laisse retomber. Puis on décharge. Tu attends d'être seul. Tu sors.",
-      "L'escalier du linge monte en colimaçon dans l'épaisseur du mur.",
+      "L'escalier du linge monte en colimaçon dans l'épaisseur du mur, étroit et tiède comme une gorge ; et tu t'y engages avec le sentiment précis d'être avalé.",
     ],
     choices: [
       { label: "Monter, en sautant la troisième marche", hide: { not: { has: "pie:marche" } }, fx: { ep: ["perso", 400] }, to: "PI_scriptorium" },
@@ -467,7 +467,7 @@ module.exports = {
   PI_archives: P({ title: "Les archives des cessions",
     fx: { meet: "hylas_p" },
     text: [
-      "Derrière le scriptorium, une porte basse, et derrière la porte, des étagères qui montent jusqu'à la voûte, chargées de petites boîtes de plomb, chacune avec une étiquette. Tu fais le calcul d'un regard, rangées par étagères, étagères par travées : plusieurs milliers. *Peyrol, Jehan. Lebas, Marion.*",
+      "Derrière le scriptorium, une porte basse, et derrière la porte, des étagères qui montent jusqu'à la voûte, chargées de petites boîtes de plomb, chacune avec une étiquette. Tu fais le calcul d'un regard, rangées par étagères, étagères par travées : plusieurs milliers. Il règne ici un froid de cave, et un silence d'une espèce particulière, attentif, pareil à celui d'une foule qui retient son souffle. *Peyrol, Jehan. Lebas, Marion.*",
       { after: "pie:linette_suit", text: "Linette s'est arrêtée sur le seuil, sans lâcher le chambranle. Elle regarde les étagères." },
       "Tu trouves la boîte de Linette au troisième rang. *Page Onze. Cession complète.* Elle est lourde, et froide, et quand tu la prends, tu entends à travers le plomb un rire de petite fille.",
       "Sur le grand pupitre du fond, ouvert, un registre relié de rouge sombre, plus grand que les autres, et sur la page, une liste, d'une écriture fine et serrée : *Nuit des Cloches. Les cent, ensemble, à minuit. Grand Livre : versement complet.*",
