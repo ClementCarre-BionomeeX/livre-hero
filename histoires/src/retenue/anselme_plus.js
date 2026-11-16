@@ -34,7 +34,7 @@ module.exports = {
     choices: [{ label: "T'asseoir, et attendre", to: "A_attente" }] },
   A_gardes_parle: { act: A, title: "Deux gamins", place: "digue", fx: { time: 0.5 },
     text: [
-      "Tu les fais asseoir. Tu leur sers du vin, sans rien dedans. Ils s'appellent Mathurin et Gilles. Ils ont dix-huit et dix-neuf ans, et ils te regardent comme on regarde un vieillard qui va mourir : avec respect, et de loin.",
+      "Tu les fais asseoir. Tu leur sers du vin, sans rien dedans. Ils s'appellent Mathurin et Gilles. Ils ont dix-huit et dix-neuf ans, et ils te regardent en vieillard qui va mourir : avec respect, et de loin.",
       "Tu leur dis la veine, et l'orage. Tu leur montres ton carnet, tes mesures, ta main qui tremble. Tu leur dis : vos familles habitent où ?",
       "Gilles a une sœur aux Foulons. Il se lève avant que tu aies fini.",
     ],

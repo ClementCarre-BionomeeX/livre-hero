@@ -62,7 +62,7 @@ module.exports = {
   // ------------------------------------------------------------------ Maëlle in the cell
   M_colin: { act: A, title: "Le garde du poêle", place: "hauteville", fx: { time: 0.5 },
     text: [
-      "Le jeune garde a dix-neuf ans, un duvet de moustache, et le dos tourné. Tu l'appelles. Il garde le dos tourné.",
+      "Le jeune garde a dix-neuf ans, un duvet de moustache, et il te présente son dos. Tu l'appelles. Le dos reste où il est.",
       "« Ta mère vend des beignets, place du Lavoir. Je lui en achète le dimanche, pour mon frère. »",
       "Il se retourne. Il s'appelle Colin. Il dit que sa mère dit que le lavoir déborde, ce soir. Il dit que la dernière fois qu'il a débordé en novembre, c'était l'année de la grande crue.",
       "Tu lui dis ce que tu sais : le paquet, la digue, l'apothicaire qui devait faire lever les Foulons à deux heures. Le paquet est parti chez un drapier avec un valet vert.",
@@ -93,7 +93,7 @@ module.exports = {
   C_quatre_maisons: { act: A, title: "Deux heures et demie", place: "hauteville", fx: { time: 0.25 },
     text: [
       "On frappe à ta porte à coups de pommeau d'épée. Tu descends en robe de chambre. Aude est derrière toi sur le palier.",
-      "Dans ton vestibule, sous ton baromètre, le capitaine Rambert, les yeux ailleurs, et Dame Hesdin, en manteau noir, appuyée sur sa canne. Derrière elle, un colosse en tablier de cuir.",
+      "Dans ton vestibule, sous ton baromètre, le capitaine Rambert, fort occupé de ses gants, et Dame Hesdin, en manteau noir, appuyée sur sa canne. Derrière elle, un colosse en tablier de cuir.",
       "Rambert lit un papier à voix haute. *Le Conseil des Sept Maisons, réuni en péril.* Quatre signatures. La règle de Ferréol, qui dort depuis quarante ans. Tu la connais. Tu l'avais oubliée.",
       "« La clé, Corlay », dit Dame Hesdin.",
     ],
@@ -166,13 +166,13 @@ module.exports = {
     text: [
       "Tu prends Malzieu sous le bras. Tu lui fais boire un pot d'eau froide. Tu lui dis, lentement, ce qu'on attend de lui, avec la voix que tu prends pour emprunter de l'argent : chaude, simple, sûre. Malzieu t'aime bien. Tout le monde aime bien Bastien Vellard, à une heure du matin.",
       "Il signe. Dans la petite salle de l'Hôtel, à deux heures, avec Dame Hesdin, Rouvray et Pons. Tu tiens la chandelle. Personne ne te demande de sortir.",
-      "Dame Hesdin te regarde par-dessus la table. « Vous êtes le fils. Vous écoutiez, ce soir, derrière une porte. » Elle l'affirme. Tu gardes le silence. Elle hoche la tête. « Vous écoutez bien. Ça peut servir. »",
+      "Dame Hesdin te regarde par-dessus la table. « Vous êtes le fils. Vous écoutiez, ce soir, derrière une porte. » Elle l'affirme. Tu la laisses dire. Elle hoche la tête. « Vous écoutez bien. Ça peut servir. »",
       "À trois heures et demie, de la fenêtre de la petite salle, trois lanternes au bout de la vallée. C'est ton père, avec la clé que Corlay a rendue. Tu restes à la fenêtre jusqu'au jour.",
       "Ton père meurt à midi. Tu arrives trop tard pour lui dire ce que tu as fait à huit heures, et ce que tu as fait à une heure. Il meurt en ignorant les deux. Tu porteras les deux. L'un pèse un peu moins que l'autre, et tu sais lequel.",
     ] },
   B_malzieu_rit: { act: A, title: "Malzieu rit", place: "hauteville", end: true, fx: { time: 6.5 },
     text: [
-      "Malzieu rit encore. Il propose à Dame Hesdin de jouer sa voix aux dés. Elle le regarde comme on regarde un cheval boiteux. Elle remonte l'escalier, une marche après l'autre, avec Rouvray derrière elle.",
+      "Malzieu rit encore. Il propose à Dame Hesdin de jouer sa voix aux dés. Elle l'examine comme un cheval boiteux qu'on voudrait lui vendre. Elle remonte l'escalier, une marche après l'autre, avec Rouvray derrière elle.",
       "La salle reprend ses dés. Tu restes à ta table. Tu as baissé les yeux pendant qu'une vieille femme cherchait quatre voix pour sauver ton père. Tu l'as fait avec le même visage qu'à huit heures, à la porte du jardin.",
       "À cinq heures et demie, le Chat Ferré tremble. Les bouteilles tombent. Maître Lucas court à la porte, puis il revient très lentement s'asseoir derrière son comptoir.",
       "Tu remontes dans la rue des Orfèvres. Au bout, entre deux maisons, on voit la vallée. Au bout de la vallée, la digue a disparu, et la fenêtre de la Maison des Vannes avec elle.",
@@ -183,7 +183,7 @@ module.exports = {
   I_hesdin: { act: A, title: "La goutte de Dame Hesdin", place: "hauteville", fx: { time: 0.75 },
     text: [
       "Tu caches le paquet derrière les bocaux. Tu prends ta trousse, ton baume de colchique. Au pont, le sergent Brasseur te laisse monter : une apothicaire chez une patiente, à dix heures du soir, c'est l'ordinaire.",
-      "Dame Hesdin te reçoit dans son bureau, devant le feu, son pied malade sur un tabouret. Elle a soixante-dix ans et un regard de fondeur. Tu lui défais sa bande. Tu lui étales le baume. Et tu parles, les yeux sur son pied.",
+      "Dame Hesdin te reçoit dans son bureau, devant le feu, son pied malade sur un tabouret. Elle a soixante-dix ans et un regard de fondeur. Tu lui défais sa bande. Tu lui étales le baume. Et tu parles, sans quitter son pied du regard.",
       "La veine. Deux doigts. L'orage de quatre heures. La clé dans ta boutique, derrière les sangsues. Le pont gardé. Le fils derrière la porte.",
       "Dame Hesdin écoute jusqu'au bout, le pied immobile. Puis elle dit : « Il y a trois ans, j'ai voté contre. Ensuite je me suis tue. Ilde, vous êtes la première personne qui me le fait payer. »",
       "Elle appelle Barthélemy, son maître fondeur.",

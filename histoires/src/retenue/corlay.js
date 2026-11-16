@@ -4,7 +4,7 @@ var A = "I";
 module.exports = {
   C_souper: { act: A, title: "Le souper de la rue Haute", place: "hauteville", skip: { to: "C_cabinet", label: "Tu connais la suite : les voix comptées", fx: { time: 1 } },
     text: [
-      "Ta salle à manger est tendue de drap vert, du drap de ta fabrique, le plus beau de la vallée. Six couverts. Aude à l'autre bout de la table, droite, en gris perle. Aubrac et Malzieu, tes deux voix sûres, qui parlent laine et prix de l'alun. Et maître Tassin, l'ingénieur du Conseil, qui mange peu et garde ses gants de chevreau jusqu'au potage.",
+      "Ta salle à manger est tendue de drap vert, du drap de ta fabrique, le plus beau de la vallée. Six couverts. Aude à l'autre bout de la table, droite, en gris perle. Aubrac et Malzieu, tes deux voix sûres, parlent laine et prix de l'alun ; sur ces sujets-là au moins, ils ont un avis à eux. Et maître Tassin, l'ingénieur du Conseil, qui mange peu et garde ses gants de chevreau jusqu'au potage.",
       "Demain à huit heures, le Conseil vote la Charge des Vannes. Tu as compté les voix dix fois. Toi, Aubrac, Malzieu : trois. Rouvray, Pons et Garnier voteront pour le fils Vellard, par fidélité au vieux : trois. Reste Dame Hesdin, qui a laissé ton invitation sans réponse.",
       "Tu as soixante et un ans. Tu fais travailler neuf cents tisserands, deux cents fouleurs, quatre-vingts teinturiers. Tes entrepôts, aux Foulons, au bord de la Sorge, contiennent toute la laine de la saison : trois mois de pain pour mille familles.",
       "Il y a une heure, Pernelle Daguet est venue te dire à l'oreille que le fils Vellard était à la porte du jardin, et ce qu'il avait à vendre. Tu as payé. Tu as donné des ordres à Rambert. Tu es revenu à table et tu as servi le vin.",
@@ -63,7 +63,7 @@ module.exports = {
       "« Tu crois vraiment qu'elle tient ? » dit-elle.",
       "« Tassin le croit. »",
       "« Je ne t'ai pas demandé ce que croit Tassin. »",
-      "Tu gardes le silence. Tu fais semblant de dormir, et puis tu dors.",
+      "Tu laisses la question sans réponse. Tu fais semblant de dormir, et puis tu dors.",
     ],
     choices: [
       { label: "Dormir", to: "C_vote", fx: { time: 3 } },
@@ -105,7 +105,7 @@ module.exports = {
   // ------------------------------------------------------------------ the son, the road, the wall
   C_bastien: { act: A, title: "Le fils", place: "hauteville", fx: { time: 0.5 },
     text: [
-      "Le fils Vellard monte. Il est pâle, il sent le vin, il regarde la clé sur ton bureau comme on regarde un mort dans son cercueil.",
+      "Le fils Vellard monte. Il est pâle, il sent le vin, et la clé, sur ton bureau, lui fait l'effet d'un mort dans son cercueil.",
       "« C'est elle », dit-il avant qu'on le lui demande.",
       "Puis : « La digue cède cette nuit, Monsieur. La veine a doublé depuis dimanche. Mon père l'a mesurée à six heures. Avec l'orage, elle lâche avant le jour. »",
       "Tu regardes ce garçon qui a vendu son père deux heures plus tôt, et qui vient maintenant te demander de le croire.",
@@ -124,9 +124,9 @@ module.exports = {
     choices: [{ label: "Passer le pont", to: "C_pont_odon" }] },
   C_pied: { act: A, title: "Le pied du mur", place: "digue", fx: { time: 0.5 },
     text: [
-      { via: "ordre", text: "Le sergent arrache sa hallebarde des pavés et s'écarte. Il te salue, les yeux ailleurs." },
+      { via: "ordre", text: "Le sergent arrache sa hallebarde des pavés et s'écarte. Il te salue en regardant ses bottes." },
       { via: "verite", text: "Le sergent t'écoute jusqu'au bout, la lanterne baissée. Puis il dit : « Ma fille dort rue du Lavoir. » Il crie à ses deux hommes de le suivre, et ils partent en courant vers les Foulons, sans attendre le capitaine." },
-      "La route de la Digue. Les bornes passent dans la lanterne. Pernelle se tait. Au bout de la route, au pied du mur, il y a une cabane de planches goudronnées, de la lumière dedans, et une femme rousse sur le ponton, un couteau à la main.",
+      "La route de la Digue. Les bornes passent dans la lanterne, l'une après l'autre, et entre deux bornes la nuit se referme sur la voiture comme une eau. Pernelle se tait. Au bout de la route, au pied du mur, il y a une cabane de planches goudronnées, de la lumière dedans, et une femme rousse sur le ponton, un couteau à la main.",
       "La femme te regarde, toi, ton manteau, ta voiture. Elle te reconnaît. Tout le monde te reconnaît, dans cette vallée.",
       "Elle te fait monter dans sa barque. Elle longe le parement à la rame, jusqu'à un endroit qu'elle connaît. Elle lève la lanterne.",
       "Entre deux pierres, un mètre au-dessus de l'eau, un bouillon sort du mur, gros comme un bras, brun, chargé de sable. Il gargouille. La pierre autour est mouillée sur toute sa hauteur.",
@@ -136,7 +136,7 @@ module.exports = {
     choices: [{ label: "Monter chez le garde-vannes", to: "C_maison" }] },
   C_maison: { act: A, title: "Deux vieux hommes", place: "digue", fx: { time: 0.75 },
     text: [
-      "Anselme Vellard t'ouvre lui-même, une couverture sur les épaules. Il voit la clé dans ta main. Il garde longtemps le silence.",
+      "Anselme Vellard t'ouvre lui-même, une couverture sur les épaules. Il voit la clé dans ta main. Il la regarde longtemps avant de parler.",
       "Vous avez eu les mêmes maîtres, chez les frères de Saint-Rieul, à treize ans de distance. Les frères disaient qu'il avait été meilleur que toi en calcul. Tu étais meilleur que lui en tout le reste.",
       "« Tu es venu », dit-il.",
       "« J'ai vu le mur. »",
@@ -160,7 +160,7 @@ module.exports = {
     ] },
   C_ordre: { act: A, title: "Le premier drapier a ordonné", place: "hauteville", end: true, fx: { time: 2 },
     text: [
-      "À huit heures, tu entres dans la grande salle de l'Hôtel du Conseil, en habit de soirée trempé, les mains bandées. Les six autres te regardent comme on regarde un homme revenu d'une guerre.",
+      "À huit heures, tu entres dans la grande salle de l'Hôtel du Conseil, en habit de soirée trempé, les mains bandées. Les six autres te considèrent comme un homme revenu d'une guerre.",
       "Tu dis : la digue fuyait. Tu dis : je suis allé voir, cette nuit. Tu dis : j'ai fait ouvrir la vanne de fond, et j'ai fait monter les Foulons à Saint-Rieul par le guet. Tu dis : personne n'est mort.",
       "Tout est vrai. Tu tais la séance d'il y a trois ans. Tu tais le rapport de Tassin. Tu tais la clé saisie sur le pont.",
       "On vote. Six voix pour toi. Dame Hesdin s'abstient. Elle te regarde pendant tout le vote.",
@@ -181,7 +181,7 @@ module.exports = {
     text: [
       "À huit heures, tu entres dans la grande salle de l'Hôtel du Conseil, les mains bandées, avec la liasse au ruban noir sous le bras.",
       "Tu racontes la nuit. Puis tu dénoues le ruban, et tu lis. *Séance secrète du Conseil des Sept Maisons, le 2 octobre.* Tu lis tout. Les six voix contre une. Le mortier. Les onze cents écus. Ton nom en bas. Tu lis ensuite le rapport de Tassin, et tu dis qu'il ne sait pas nager. Tu dis la clé saisie sur le pont cette nuit, par le guet, sur ton ordre.",
-      "Aubrac et Malzieu gardent les yeux sur la table. Rouvray pleure, un vieux qui pleure comme un enfant, à visage découvert.",
+      "Aubrac et Malzieu étudient le bois de la table. Rouvray pleure, un vieux qui pleure comme un enfant, à visage découvert.",
       "Dame Hesdin se lève. « J'ai voté contre, il y a trois ans. Je me suis tue avec vous. Monsieur Corlay vient de faire ce qu'aucun de nous n'a fait. Je propose qu'on vide le lac au printemps, et qu'on rende au garde-vannes l'honneur qu'on lui a pris. »",
       "Tu quittes la présidence du Conseil le jour même. Tu vends la fabrique en deux ans, à perte, pour rembourser la laine des petits drapiers noyée dans tes entrepôts.",
       { if: { has: "corlay:odon" }, text: "Sur les marches, le sergent Brasseur te regarde passer. Il porte la main à son chapeau, lentement." },

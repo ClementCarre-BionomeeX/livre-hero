@@ -4,7 +4,7 @@ var A = "I";
 module.exports = {
   O_garde: { act: A, title: "Le corps de garde", place: "hauteville", skip: { to: "O_descente", label: "Tu connais la suite : l'ordre du capitaine", fx: { time: 0.25 } },
     text: [
-      "Le corps de garde est au pied de la tour du guet : une salle voûtée qui sent la soupe, le cuir mouillé et le poêle. Douze hallebardes au râtelier, un banc, une table couverte d'entailles, et au fond la cellule, vide, la paille fraîche.",
+      "Le corps de garde est au pied de la tour du guet : une salle voûtée qui sent la soupe, le cuir mouillé et le poêle. Douze hallebardes au râtelier, un banc, une table où des générations de gardes ont gravé leur ennui à la pointe du couteau, et au fond la cellule, vide, la paille fraîche.",
       "Le capitaine Rambert entre à huit heures et demie, les bottes neuves, cirées jusqu'au genou. Il reste debout.",
       "« Brasseur. Tu prends le pont des Moulins cette nuit, avec Colin et Thomin. Tout ce qui monte vers la digue, tu l'arrêtes. Les porteurs surtout. Ce qu'ils portent, tu le saisis, sans l'ouvrir, et tu me l'apportes ici. Les porteurs, en cellule. »",
       "Tu sers le guet depuis vingt-deux ans. Tu as tenu ce pont pour la peste, pour l'émeute du pain, pour la visite de l'évêque. Pour une chose pareille, jamais.",
@@ -18,7 +18,7 @@ module.exports = {
     ] },
   O_question: { act: A, title: "Un conseiller", place: "hauteville",
     text: [
-      "Rambert te regarde comme on regarde un chien qui vient de parler.",
+      "Rambert te considère avec la surprise qu'on aurait devant un chien qui vient de parler.",
       "« Le Conseil des Sept Maisons, sergent. Il n'y en a qu'un. Il siège demain à huit heures, et d'ici là, tu tiens ton pont. »",
       "Il sort. Colin et Thomin, au fond de la salle, font semblant de chercher leurs gants.",
     ],
@@ -95,7 +95,7 @@ module.exports = {
   O_chambre: { act: A, title: "La chambre du sergent", place: "hauteville", fx: { time: 3.5 },
     text: [
       "Ta chambre est sous les toits, derrière la tour : un lit, un coffre, le portrait de ta femme au fusain, et un baromètre que le vieux Vellard t'a donné l'an dernier pour t'avoir ramené son fils. Le mercure est plus bas qu'à aucun jour de ta vie.",
-      "Tu te couches tout habillé. Le sommeil reste dehors. Tu entends le vent tourner, les volets taper, la tour craquer.",
+      "Tu te couches tout habillé. Le sommeil reste dehors. Tu entends le vent tourner, les volets taper, et la vieille tour craquer de toutes ses poutres, avec des bruits de navire à l'ancre.",
       "Vers deux heures, tu te lèves et tu vas à la lucarne. De là, on voit toute la vallée. Les Foulons sont noirs. Au bout du lac, sur la digue, une seule petite lumière brille à la fenêtre de la Maison des Vannes.",
       "Elle brille toute la nuit, immobile.",
     ],
@@ -120,7 +120,7 @@ module.exports = {
       "À dix heures et demie, des pas descendent de la Haute-Ville. Le capitaine Rambert, en manteau, et derrière lui, se tenant aux murs, Bastien Vellard.",
       "« Alors, Brasseur ? Rien passé ? »",
       { if: { has: "odon:doute" }, text: "Rambert te regarde, toi seul. Depuis ta question sur la clé, il est descendu deux fois voir si tu tenais ton pont." },
-      "Bastien a les yeux sur toi. Il sait. Comment, tu l'ignores, mais il sait.",
+      "Bastien te fixe. Il sait. Comment, tu l'ignores, mais il sait.",
     ],
     choices: [
       { label: "« Rien, capitaine. »", test: { dom: "social", diff: -20, label: "Mentir" }, win: { to: "O_menti" }, lose: { to: "O_insigne_ote" } },
@@ -171,7 +171,7 @@ module.exports = {
   O_pichet: { act: A, title: "Le Pichet", place: "hauteville", fx: { learn: "tocsin", time: 1 },
     text: [
       "La corde du tocsin pend dans la tour du guet, derrière une porte de chêne fermée à clé. La clé, c'est le père Anicet, le sonneur, qui la garde. Et le père Anicet, à minuit, on le trouve au Pichet.",
-      "Le Pichet est une cave sous la rue des Cordiers : trois tables, un tonneau, une odeur de vin aigre. Anicet dort la tête sur la table, une chope renversée à côté de sa main. La clé pend à son cou, au bout d'un lacet de cuir gras.",
+      "Le Pichet est une cave sous la rue des Cordiers : trois tables, un tonneau, une odeur de vin aigre. Anicet dort la tête sur la table, une chope renversée à côté de sa main. La clé pend à son cou, au bout d'un lacet de cuir gras ; Corvèze a confié son tocsin à l'homme le plus facile à trouver de toute la ville, et le plus difficile à réveiller.",
       "Le patron te regarde entrer. Il regarde ta manche.",
       { if: { has: "odon:sans_insigne" }, text: "Il voit la place vide de la plaque. Il hausse les épaules et retourne à ses verres." },
     ],
@@ -183,7 +183,7 @@ module.exports = {
     text: [
       { via: "coupe", text: "Le lacet cède sous ton couteau. Anicet dort toujours. Le patron laisse faire." },
       { via: "anicet", text: "Anicet se réveille mal, puis d'un coup. Quand tu dis la digue, il hoche la tête. Il a été garçon de vannes chez le vieux Ferréol, à quinze ans. Il te suit dans la rue en se tenant aux murs." },
-      "La tour du guet a cent quarante marches. Tu les montes dans le noir, la main sur le mur, le souffle court. En haut, la chambre des cloches est ouverte aux quatre vents. Le gros bourdon pend au milieu, et la corde du tocsin descend jusqu'au plancher, usée en son milieu par cent ans de mains.",
+      "La tour du guet a cent quarante marches. Tu les montes dans le noir, la main sur le mur, le souffle court. En haut, la chambre des cloches est ouverte aux quatre vents ; le vent y entre par une baie, sort par l'autre, et le gros bourdon, pendu au milieu, rend sous ce passage une plainte basse, à peine un son. La corde du tocsin descend jusqu'au plancher, usée en son milieu par cent ans de mains.",
       "D'ici, on voit toute la vallée. Les Foulons noirs. La Sorge, plus large qu'à la tombée de la nuit. Et au bout du lac, sur la digue, trois petites lumières côte à côte.",
       "Saint-Rieul sonne deux heures.",
       "Dans l'escalier, sous tes pieds, quelqu'un monte. Des bottes. Le pas du capitaine Rambert.",

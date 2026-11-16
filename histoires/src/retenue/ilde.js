@@ -4,7 +4,7 @@ var A = "I";
 module.exports = {
   I_maison: { act: A, title: "La Maison des Vannes", place: "digue", fx: { learn: ["veine", "signal"] }, skip: { to: "I_descente", label: "Tu connais la suite : la clé, la lettre, et ce qu'il te demande", fx: { item: "paquet", time: 1 } },
     text: [
-      "La Maison des Vannes sent le tabac froid, la laine mouillée et la maladie. Anselme Vellard est dans son fauteuil, près de la fenêtre qui donne sur le lac, une couverture sur les genoux. Au mur, son baromètre, un vieux tube de mercure dans un cadre de noyer. Il le regarde plus souvent que toi.",
+      "La Maison des Vannes sent le tabac froid, la laine mouillée et la maladie. Anselme Vellard est dans son fauteuil, une couverture sur les genoux, près de la fenêtre qui donne sur le lac ; derrière la vitre, l'eau commence au ras du mur, grise, sans rive visible à cette heure, et toute la maison a l'air posée au bord d'elle par tolérance. Au mur, son baromètre, un vieux tube de mercure dans un cadre de noyer. Il le regarde plus souvent que toi.",
       "Tu comptes vingt gouttes de laudanum dans un verre d'eau. Il le boit d'un trait, grimace, et attend que la douleur recule. Tu le connais depuis quarante ans. Il y a eu un printemps, il y a longtemps, où vous auriez pu vous marier. Il a épousé la digue.",
       "« Le mercure tombe, Ilde. L'orage sera là vers quatre heures. La veine a doublé depuis dimanche. Je l'ai mesurée à six heures : deux doigts. Avec la crue de cette nuit, elle lâche avant le jour. »",
       "Il sort de sous la couverture une toile cirée ficelée en croix, longue comme un avant-bras, et une lettre cachetée de vert.",
@@ -40,7 +40,7 @@ module.exports = {
   I_descente: { act: A, title: "Le pont, à neuf heures moins le quart", place: "pont",
     text: [
       "Deux cents marches, la route de la Digue, dix bornes. Tes genoux te font payer chaque pas. Le paquet pèse comme un enfant endormi.",
-      "Au pont des Moulins, tu croises une lanterne qui descend de la Haute-Ville : trois hommes du guet, une hallebarde, un sergent large d'épaules. D'ordinaire, ils vont par deux. Le sergent te salue de la tête. C'est Odon Brasseur, dont tu as soigné la femme jusqu'à la fin. Il garde les yeux loin de ton paquet. Ses deux jeunes gardes, eux, le regardent.",
+      "Au pont des Moulins, tu croises une lanterne qui descend de la Haute-Ville : trois hommes du guet, une hallebarde, un sergent large d'épaules. D'ordinaire, ils vont par deux. Le sergent te salue de la tête. C'est Odon Brasseur, dont tu as soigné la femme jusqu'à la fin. Son regard évite ton paquet avec soin. Ses deux jeunes gardes, eux, le regardent.",
       "Tu passes. Derrière toi, tu entends la hallebarde qu'on plante entre deux pavés.",
       "Rue des Teinturiers, Fulbert Cosson fume sur son seuil. Il te regarde arriver, un paquet sous le bras, à neuf heures du soir, de la route de la Digue.",
       "« Belle soirée pour la promenade, voisine. »",
@@ -62,7 +62,7 @@ module.exports = {
   I_courriere: { act: A, title: "Un écu d'argent", place: "foulons", fx: { drop: "paquet", time: 0.25 },
     text: [
       "Tu frappes à la vitre. Elle entre. Tu lui poses le paquet dans les bras ; elle plie les genoux sans le vouloir.",
-      "« Pour Jacquette, à la cabane des Loutres, au pied de la digue. Avant minuit. À elle, et à personne d'autre. » Tu poses un écu d'argent sur le comptoir. Elle le regarde comme on regarde un piège.",
+      "« Pour Jacquette, à la cabane des Loutres, au pied de la digue. Avant minuit. À elle, et à personne d'autre. » Tu poses un écu d'argent sur le comptoir. Elle le regarde avec les égards qu'on doit à un piège.",
       "Il te reste une phrase à dire, et tu dois la choisir vite.",
     ],
     choices: [
@@ -152,7 +152,7 @@ module.exports = {
   I_aulnes: { act: A, title: "La berge des Aulnes", place: "berge", fx: { time: 1 },
     text: [
       "Tu mets ton vieux manteau, tu prends le paquet sous le bras et une lanterne sourde, et tu sors par la cour de derrière. Le sentier des Aulnes commence après le lavoir.",
-      "Tu marches une heure. Tes genoux te brûlent. Les saules te griffent le visage. Deux fois tu t'arrêtes, le souffle court, appuyée à un tronc.",
+      "Tu marches une heure. Tes genoux te brûlent. Les saules te griffent le visage ; le sentier se devine à peine entre le bruit de l'eau et le noir des prés, et ta lanterne sourde éclaire tout juste la boue où poser le pied suivant. Deux fois tu t'arrêtes, le souffle court, appuyée à un tronc.",
       "Au pré du moulin Brûlé, il y a des lanternes. Deux. Elles viennent vers toi, depuis la route.",
       { if: { has: "ilde:sait" }, text: "Bastien a parlé. Tu le savais en refermant la porte sur le banc." },
     ],
@@ -202,7 +202,7 @@ module.exports = {
     ] },
   I_canal: { act: A, title: "Quatre bras", place: "digue", fx: { drop: "paquet", time: 3.5 },
     text: [
-      "Jacquette rame vers l'arche du canal de fuite, ouvre la grille avec la clé pendue à son cou, et vous entrez dans le ventre de la digue. Tu te tais pendant tout le trajet. L'eau est noire, l'air résonne.",
+      "Jacquette rame vers l'arche du canal de fuite, ouvre la grille avec la clé pendue à son cou, et vous entrez dans le ventre de la digue. Tu te tais pendant tout le trajet. L'eau est noire, l'air résonne ; chaque coup de rame revient de la voûte un instant plus tard, comme si une seconde barque vous suivait dans le noir.",
       "Dans la chambre de la vanne, Anselme vous attend, assis contre le mur. Il voit qui tient la lanterne. Il dit ton nom comme on le disait il y a quarante ans.",
       "Il tourne la clé de ses deux mains. Jacquette prend un rayon de la roue, toi l'autre. Tu as cinquante-huit ans et des genoux de vieille femme. Tu as aussi des bras d'apothicaire qui ont pilé trente ans de racines.",
       { if: { has: "ilde:souvenir" }, text: "Au premier tour, Anselme te regarde pousser, et il dit, pour toi seule : « Le panier. » Tu ris, et tu pousses plus fort." },
@@ -220,7 +220,7 @@ module.exports = {
     ] },
   I_veille_monte: { act: A, title: "Le vieil homme et ses gardes", place: "digue", fx: { drop: "paquet", time: 1.5 },
     text: [
-      "Jacquette te monte par le canal, puis par l'escalier intérieur, jusqu'à la Maison des Vannes. Dans la cuisine, deux gardes du guet dorment sur la table, devant deux bouteilles vides. Ils ronflent.",
+      "Jacquette te monte par le canal, puis par l'escalier intérieur, jusqu'à la Maison des Vannes. Dans la cuisine, deux gardes du guet dorment sur la table, devant deux bouteilles vides. Ils ronflent ; c'est encore ce que le guet a fait de plus utile de toute la nuit.",
       "Anselme est dans son fauteuil. Il se lève à moitié en te voyant.",
       "« Bastien t'a vendu, lui dis-tu. À Corlay. Et Corlay a son plan pour demain : si la digue fait parler d'elle, il dira au Conseil que les Vellard l'ont cachée, et la Charge sera à lui. Il ne dira pas qui a payé tes silences. »",
       "Anselme se rassoit. Il regarde longtemps le lac par la fenêtre.",

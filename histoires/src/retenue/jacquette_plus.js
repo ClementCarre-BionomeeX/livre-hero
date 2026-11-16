@@ -7,7 +7,7 @@ module.exports = {
       "Tu tranches les cordes de la bâche. Un sac, deux sacs. Ils tombent dans le lac avec un bruit mou et restent au fond. Quinze livres de profit fondent dans l'eau noire de la Retenue.",
       "La barque se soulève, allégée. Tu rames droit sur la lanterne de l'octroi, en pleine lumière.",
       "« Morand ! La Loutre ! » Gaudry t'aborde, fouille la barque, soulève les planches du fond, sonde la cale avec sa perche. Il trouve de l'eau et une couverture. Il te regarde, déçu comme un enfant.",
-      "« Promenade de santé, dis-tu. Le lac est beau, ce soir. »",
+      "« Promenade de santé, dis-tu. On m'a recommandé l'air du lac et la compagnie des honnêtes gens. J'ai déjà trouvé l'air. »",
       "Il te laisse passer en jurant. Tu as perdu ta saison. Tu as gagné une heure.",
     ],
     choices: [{ label: "Filer vers la digue", to: "J_pied", via: "droit" }] },

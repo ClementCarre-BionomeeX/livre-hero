@@ -4,7 +4,7 @@ var A = "I";
 module.exports = {
   B_chat: { act: A, title: "Le Chat Ferré", place: "hauteville", skip: { to: "B_corlay", label: "Tu connais la suite : le capitaine vient te chercher", fx: { time: 1 } },
     text: [
-      "Le Chat Ferré est une cave voûtée sous la rue des Orfèvres, qui sent la chandelle de suif, le vin chaud et l'argent des autres. Quatre tables de dés, une de cartes, et au fond, derrière son comptoir, maître Lucas, qui note tout dans un grand livre noir.",
+      "Le Chat Ferré est une cave voûtée sous la rue des Orfèvres, qui sent la chandelle de suif, le vin chaud et l'argent des autres. La voûte est basse et noire de fumée ; les chandelles y brûlent court, dans un air épais, et les visages penchés sur les quatre tables de dés ont tous la pâleur des gens qui vivent sous terre. Il y a une table de cartes, et au fond, derrière son comptoir, maître Lucas, qui note tout dans un grand livre noir.",
       "Ce soir, quand tu es entré, maître Lucas a ouvert son livre noir à ta page et il a rayé ta ligne. Quatre cents écus, d'un seul trait de plume. Il s'est dispensé de demander d'où venait l'argent. Il sait.",
       "Tu as vingt écus dans ta poche. Pernelle Daguet te les a donnés à la porte du jardin, *pour vos frais*, sans lever les yeux.",
       "Il y a deux heures, tu étais allongé sur le banc chez ton père, les yeux fermés. Tu as entendu la vanne, la clé, Ilde, trois heures, deux heures. Tu es descendu à la rue Haute en courant, et tu as tout répété à une femme en gris qui prenait des notes.",
@@ -29,7 +29,7 @@ module.exports = {
   B_boire: { act: A, title: "Le vin chaud", place: "hauteville", fx: { time: 0.75 },
     text: [
       "Tu bois. Le premier pichet pour la ligne rayée. Le deuxième pour ton père. Le troisième, tu as oublié pour qui.",
-      "Maître Lucas te regarde de derrière son comptoir. Il te laisse faire. Il laisse toujours faire. C'est pour cela qu'on vient chez lui.",
+      "Maître Lucas te regarde de derrière son comptoir. Il te laisse faire. Il laisse toujours faire : c'est la seule vertu qu'on lui connaisse, et elle suffit à remplir sa cave.",
       "À dix heures et quart, la porte du haut s'ouvre. Le capitaine Rambert descend l'escalier, parcourt la salle des yeux, te trouve.",
       "« Vellard. Monsieur Corlay voudrait vous voir. »",
     ],
@@ -57,7 +57,7 @@ module.exports = {
   // ------------------------------------------------------------------ the key on the desk
   B_corlay: { act: A, title: "Le cabinet de Monsieur", place: "hauteville", fx: { learn: "plan_corlay", time: 0.5 },
     text: [
-      "Le cabinet d'Enguerrand Corlay est tendu de drap vert, du drap de sa fabrique. Un feu, des livres de comptes, une carte de la vallée sous verre. Corlay est debout près du feu, en habit de soirée, un verre à la main. Pernelle Daguet écrit à un pupitre. Dans un fauteuil, un homme maigre en gants de chevreau se lève à moitié en te voyant : maître Tassin, l'ingénieur du Conseil.",
+      "Le cabinet d'Enguerrand Corlay est tendu de drap vert, du drap de sa fabrique : jusque sur ses murs, l'argent de monsieur Corlay reste dans la maison. Un feu, des livres de comptes, une carte de la vallée sous verre. Corlay est debout près du feu, en habit de soirée, un verre à la main. Pernelle Daguet écrit à un pupitre. Dans un fauteuil, un homme maigre en gants de chevreau se lève à moitié en te voyant : maître Tassin, l'ingénieur du Conseil.",
       "Sur le bureau, dans sa toile cirée ouverte, la clé.",
       "« Votre père a une belle écriture, dit Corlay. » Il tient la lettre au cachet vert, ouverte. « Est-ce sa clé ? »",
       "Tu t'approches. Le fer, l'anneau large comme une paume. *F. V.* Ton arrière-grand-père. Tu as joué avec, enfant, sur le tapis de la Maison des Vannes. Ton père te la reprenait des mains en riant.",
@@ -73,7 +73,7 @@ module.exports = {
   B_dette_nuit: { act: A, title: "Trois cents écus l'an", place: "hauteville", fx: { time: 1, item: "bourse_corlay", learn: "tassin" },
     text: [
       "Tu dis oui. Tu dis merci. Corlay te serre la main. Elle est sèche et chaude.",
-      "Pernelle Daguet te raccompagne à la porte du jardin. Elle te met une bourse dans la main : *une avance*. Au moment de fermer, elle dit, très bas, les yeux ailleurs : « Maître Tassin n'est jamais descendu dans la galerie. Il a peur de l'eau. »",
+      "Pernelle Daguet te raccompagne à la porte du jardin. Elle te met une bourse dans la main : *une avance*. Au moment de fermer, elle dit, très bas, tournée vers le jardin : « Maître Tassin n'est jamais descendu dans la galerie. Il a peur de l'eau. »",
       "Elle referme.",
       "Tu restes dans la rue Haute, la bourse dans la main. Elle pèse vingt écus. La clé pesait davantage.",
     ],
@@ -92,7 +92,7 @@ module.exports = {
       "« La digue cède cette nuit. La veine a doublé depuis dimanche. Avec l'orage, elle lâche avant le jour, si on n'ouvre pas la vanne de fond. Mon père l'a mesurée à six heures. »",
       "Corlay se tourne vers Tassin. « Maître ? »",
       "Tassin croise ses mains gantées. « J'ai examiné l'ouvrage il y a quinze jours, Monsieur. Les suintements sont ordinaires. Le garde-vannes est un vieil homme malade, sous laudanum. »",
-      "Il garde les yeux sur le feu en le disant. Ses gants sont parfaitement propres.",
+      "Il adresse son rapport au feu. Ses gants sont parfaitement propres.",
       "« Vous voyez, dit Corlay. Votre père a peur, et je le comprends. Demain, quand j'aurai la Charge, on ouvrira la vanne, tranquillement, après avoir vidé les entrepôts des Foulons. Pas cette nuit. Cette nuit, on n'inonde pas neuf cents tisserands sur la parole d'un mourant. »",
       { if: { savoir: "tassin" }, text: "Tassin, tu le sais, n'a jamais mis le pied dans la galerie." },
     ],
@@ -204,7 +204,7 @@ module.exports = {
   B_galerie_seul: { act: A, title: "Le pointeau", place: "digue", end: true, fx: { time: 3, learn: "galerie" },
     text: [
       "Tu cours dix bornes sous la pluie qui commence. Tu montes les deux cents marches. La Maison des Vannes est éteinte. Ton père dort, ou il est mort, dans son fauteuil, une seule lanterne à côté de lui. Le temps te manque pour le savoir.",
-      "Tu descends dans la galerie basse par l'escalier de service. L'eau t'arrive aux genoux, puis à la taille. Il fait un froid de tombe. Au fond, sur la paroi de droite, une fente noire pleure, large de deux doigts, et la pierre gémit tout autour.",
+      "Tu descends dans la galerie basse par l'escalier de service. L'eau t'arrive aux genoux, puis à la taille ; elle est noire, immobile, d'un froid de tombe, et ta lanterne y traîne derrière toi un reflet qui a l'air de te suivre. Au fond, sur la paroi de droite, une fente noire pleure, large de deux doigts, et la pierre gémit tout autour.",
       "Le pointeau est là où ton père te l'a montré quand tu avais huit ans : un gros bouchon de bronze, sous l'eau, à deux pas de la veine. Tu plonges les mains. Tu tournes. Il résiste. Tu tournes encore. Tes ongles cassent.",
       "Au septième tour, il cède. Au vingtième, il te reste dans les mains, et la vanne de fond se lève toute seule, tirée par son contrepoids, avec un bruit qui te jette contre la paroi.",
       "Tu remontes à quatre pattes. Tu as les mains en sang et l'eau du lac dans la bouche. La digue gronde, puis gronde moins.",
@@ -214,7 +214,7 @@ module.exports = {
   B_charge_nuit: { act: A, title: "L'inspecteur", place: "hauteville", fx: { time: 6 },
     text: [
       "Tu te tais. Tu acceptes le poste. Corlay te serre la main. Elle est sèche et chaude.",
-      "Tu passes la nuit chez lui, dans une chambre d'ami tendue de drap vert, parce qu'il est tard et que Pernelle Daguet l'a proposé. Tu gardes les yeux ouverts. À quatre heures, la pluie. À cinq heures et demie, le grondement.",
+      "Tu passes la nuit chez lui, dans une chambre d'ami tendue de drap vert, parce qu'il est tard et que Pernelle Daguet l'a proposé. Tu gardes les yeux ouverts. Le drap des murs boit la lueur de ta chandelle et tous les bruits de la maison ; il te laisse seulement, derrière la vitre, la nuit qui pèse sur la vallée. À quatre heures, la pluie. À cinq heures et demie, le grondement.",
     ],
     choices: [{ label: "Aller à la fenêtre", to: "B_charge" }] },
   B_charge: { act: A, title: "La Charge des Vannes", place: "hauteville", end: true, fx: { time: 3 },
