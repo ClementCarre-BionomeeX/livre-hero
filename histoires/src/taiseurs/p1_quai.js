@@ -12,13 +12,13 @@ module.exports = {
     P_matin: { act: "P", title: "L'aube sur le canal", place: "quai",
       fx: { questSeen: "P_odeline" },
       text: [
-        "L'aube monte sur le canal des Lanternes, grise, avec une odeur de suif froid et d'eau remuée. Des centaines de lanternes de papier dérivent encore au fil du courant. Tu en comptes une vingtaine qui brûlent ; les autres sont éteintes et viennent buter contre les marches de pierre des escaliers d'eau. Sur le pont des Noyés, derrière toi, deux ivrognes chantent la même chanson à un couplet d'écart, et chacun semble persuadé que l'autre se trompe.",
+        "L'aube monte sur le canal des Lanternes, grise, avec une odeur de suif froid et d'eau remuée. Des centaines de lanternes de papier dérivent encore au fil du courant ; tu en comptes une vingtaine qui brûlent, et les autres, éteintes, viennent buter une à une contre les marches des escaliers d'eau, avec l'obstination des choses qui n'ont plus d'autre endroit où aller. La ville a prié toute la nuit pour ses noyés ; elle cuve à présent sa piété. Sur le pont des Noyés, derrière toi, deux ivrognes chantent la même chanson à un couplet d'écart, et chacun tient visiblement l'autre pour un hérétique.",
         "Tu as les jambes lourdes, la bouche sèche du vin de la fête et de la fumée plein les cheveux. Tu as passé la nuit sur le pont, entre les feux et les barques, à regarder les gens poser leurs lanternes sur l'eau en disant tout bas un nom.",
         { if: { has: "poids:amour" }, text: "Tu as dansé deux fois avec la personne que tu aimes, et la seconde fois elle a ri d'une chose que tu avais dite. Tu emportes ce rire chez toi, avec précaution." },
         { if: { has: "poids:dette" }, text: "Sur le pont, tu as changé deux fois de côté pour éviter un visage. On te doit un délai ; toi, tu dois quinze ducats. La fête a duré assez longtemps pour que tu oublies la somme pendant une heure, ce qui est déjà beaucoup." },
         { if: { has: "poids:rien" }, text: "Tu as dormi deux heures sur un banc, ta veste roulée sous la tête, et tu te réveilles reposé{e}. Le fait t'étonne chaque fois." },
         "La boutique est la troisième après le pont. Au-dessus des trois marches pend l'enseigne : une main de bois peinte qui tient une clé, et dessous, en lettres d'or écaillées, *Carrus — Choses perdues, choses retrouvées*. Les volets sont clos. La porte cède sous ta main. Odeline pousse le verrou chaque soir à onze heures, fête comprise, et cela depuis quarante ans.",
-        "La clochette tinte au-dessus de ta tête. Dans la boutique, l'air est plus froid que sur le quai. Au fond, derrière le comptoir, la porte basse de la cave est ouverte, et le froid monte de là.",
+        "La clochette tinte au-dessus de ta tête. Dans la boutique, l'air est plus froid que sur le quai : un froid immobile, déposé là depuis des heures, comme il s'en forme dans les pièces où plus personne ne remue. Au fond, derrière le comptoir, la porte basse de la cave est ouverte, et c'est de cette bouche noire que le froid monte.",
       ],
       choices: [
         { label: "Descendre à la cave", to: "P_odeline" },
@@ -30,7 +30,7 @@ module.exports = {
         { if: { has: "pq:appele" }, text: "Tu dis son nom. La boutique te le rend, et rien d'autre. Tu le dis plus fort. Alors tu fais le tour du comptoir et tu te penches sur l'escalier de la cave." },
         "Odeline est en bas des marches, couchée sur la terre battue, la tête contre le dernier degré et le bras gauche replié sous elle. Sa robe de laine grise est remontée sur un genou. Elle porte encore son tablier de travail, les poches pleines : le manche d'une brosse, un bout de ficelle, la petite loupe dont elle se sert pour lire les poinçons.",
         "Tu descends. Tu poses la main sur sa joue, et la joue a le froid de toute une nuit. Ses yeux sont entrouverts. Une mèche blanche s'est défaite sur sa tempe. Sa bouche est un peu tirée sur le côté, avec la moue agacée qu'elle prenait devant une serrure têtue.",
-        "Quelque part dans la cave, l'eau du canal goutte à travers le mur, une goutte par battement de cœur, avec la régularité d'une horloge. Au-dessus de toi, la clochette de la porte achève de se balancer.",
+        "Quelque part dans la cave, l'eau du canal goutte à travers le mur, une goutte par battement de cœur, avec la régularité d'une horloge que personne n'a songé à prévenir. Au-dessus de toi, la clochette de la porte achève de se balancer.",
       ],
       choices: [
         { label: "Lui fermer les yeux, et rester un moment près d'elle", to: "P_veille" },
@@ -51,7 +51,7 @@ module.exports = {
     P_appel: { act: "P", title: "Le quai se réveille", place: "quai",
       text: [
         "Tu sors sur les marches et tu appelles. Ta voix part sur l'eau, rebondit sur les façades d'en face, et les volets s'ouvrent l'un après l'autre, de proche en proche, comme une rangée de dominos qui tomberait à l'envers.",
-        "Clarmonde Pujol arrive la première, de la pension d'à côté, un châle sur sa chemise de nuit et un bonnet de travers. Elle a cinquante ans, des bras de lavandière et, à la ceinture, un trousseau de clés qu'elle garde même pour dormir. Derrière elle vient Prosper Galabru, le brocanteur d'en face, en bras de chemise, une bougie allumée à la main en plein jour. Maître Lagrue, l'écrivain public, descend de son échoppe coiffé de son chapeau, qu'il ôte sur la dernière marche.",
+        "Clarmonde Pujol arrive la première, de la pension d'à côté, un châle sur sa chemise de nuit et un bonnet de travers. Elle a cinquante ans, des bras de lavandière et, à la ceinture, un trousseau de clés qu'elle garde même pour dormir. Derrière elle vient Prosper Galabru, le brocanteur d'en face, en bras de chemise, une bougie allumée à la main en plein jour. Maître Lagrue, l'écrivain public, descend de son échoppe coiffé de son chapeau, qu'il ôte sur la dernière marche, en homme qui sait au pied près où commence le respect.",
         "En bas, sur l'escalier d'eau, le vieux Couzi lève la tête de sa barque. Il tient sa gaffe, et derrière lui s'empilent trois douzaines de lanternes mouillées, sa récolte de la nuit. Il amarre la barque et monte lentement, une marche à la fois, en laissant à chaque genou le temps de donner son avis.",
         "« Titou ! crie Clarmonde par-dessus son épaule. Cours au poste du Guet. Dis qu'il y a une morte chez Carrus. Cours, je te dis ! » Un gamin en chemise file le long du quai, pieds nus.",
       ],
@@ -140,10 +140,10 @@ module.exports = {
     // ================================================================== the quay (hub)
     PQ_quai: { act: "P", title: "Le quai des Lanternes", place: "quai", hub: true, backName: "le quai des Lanternes",
       text: [
-        { first: true, text: "Le quai des Lanternes s'étire le long du canal, du pont des Noyés jusqu'au poste du Guet, sur trois cents pas : une rangée de maisons étroites à pans de bois, penchées les unes contre les autres comme des vieillards sur un banc, avec des boutiques au rez-de-chaussée et du linge aux fenêtres. L'inventaire du quai est vite fait : des brocanteurs, des chercheurs de choses perdues, un rempailleur, un écrivain public, une pension, et une taverne au bout, le Lumignon. Devant chaque porte, un escalier de pierre descend jusqu'à l'eau." },
+        { first: true, text: "Le quai des Lanternes s'étire le long du canal, du pont des Noyés jusqu'au poste du Guet, sur trois cents pas : une rangée de maisons étroites à pans de bois, penchées les unes contre les autres comme des vieillards sur un banc, avec des boutiques au rez-de-chaussée et du linge aux fenêtres. L'inventaire du quai est vite fait : des brocanteurs, des chercheurs de choses perdues, un rempailleur, un écrivain public, une pension, et une taverne au bout, le Lumignon ; de sorte qu'on peut ici perdre une chose, la faire chercher, écrire pour la réclamer et se consoler de sa perte sans faire plus de trois cents pas. Devant chaque porte, un escalier de pierre descend jusqu'à l'eau." },
         { first: true, text: "Ce matin, le canal est couvert de lanternes mortes. Sur le quai, les gens vont et viennent comme chaque jour, mais ils baissent la voix en passant devant la boutique d'Odeline, et certains se signent. La main de bois de l'enseigne tourne un peu au vent, avec sa clé." },
         { again: true, when: "day", text: "Le quai des Lanternes, ses façades penchées, ses escaliers d'eau. Une marchande d'oublies crie sa marchandise sur le pont. Devant la boutique d'Odeline, une main anonyme a posé un brin de buis sur la première marche." },
-        { again: true, when: "night", text: "Le quai, de nuit. Une lanterne à la porte du Lumignon, une autre au poste du Guet, et entre les deux trois cents pas de noir. Le canal clapote contre les marches. La boutique d'Odeline est noire, et l'enseigne grince." },
+        { again: true, when: "night", text: "Le quai, de nuit. Une lanterne brûle à la porte du Lumignon, une autre au poste du Guet, et entre les deux s'étendent trois cents pas d'une obscurité où le canal clapote contre les marches avec un bruit de bouche. La boutique d'Odeline est noire. Son enseigne grince par intervalles, et tu te surprends à attendre chaque grincement." },
         { again: true, after: "guet:mensonge", once: true, text: "Tu repenses à la soirée d'hier, comme on repasse un chemin pour retrouver une chose tombée. Tu {{miroir#pq_soiree|as quitté la boutique vers midi, et tu ne l'as plus revue|as poussé la porte de la boutique vers dix heures, tu as crié contre elle, tu lui as lancé qu'elle mourrait seule avec ses secrets, et tu as claqué la porte derrière toi}}. Le reste de la nuit, tu l'as passé sur le pont, au milieu des feux. Tu t'en souviens très bien." },
         { after: "cornet:trouve", text: "Le cornet d'os pèse dans ta poche. Les voix du quai ont pris un autre timbre." },
         { with: "tibere", text: "Tibère marche un pas derrière toi, la main sur sa masse, et salue d'un hochement de menton les gens qu'il connaît. Au bout de cent pas, son menton a beaucoup travaillé." },
@@ -178,7 +178,7 @@ module.exports = {
         { first: true, text: "La boutique est une longue pièce basse, deux fois plus profonde que large, qui sent la cire, la poussière et l'eau du canal. Des étagères montent jusqu'aux solives, chargées d'objets ficelés ; chacun porte son étiquette de carton, de l'écriture serrée d'Odeline. On y trouve un parapluie ; une selle d'enfant ; un luth sans cordes ; des clés par dizaines sur des anneaux de fil de fer. Au milieu trône le comptoir de chêne, poli par quarante ans de coudes. Près de la porte, la petite vitrine aux coussins de velours attend les choses fines." },
         { first: true, text: "Au fond, un escalier de bois monte à l'atelier, où elle dormait aussi, dans une alcôve. À côté s'ouvre la porte basse de la cave. Tu l'as laissée ouverte. Tu vas la fermer, puis tu la rouvres, parce qu'il faudra bien redescendre." },
         { again: true, when: "day", text: "La boutique, ses étagères, ses étiquettes. Le jour entre en biais par les volets entrouverts et fait briller les clés sur leurs anneaux." },
-        { again: true, when: "night", text: "La boutique, de nuit, à la lueur d'une chandelle. Les objets ficelés projettent sur les murs des ombres plus grandes qu'eux. Sous le plancher, le canal travaille." },
+        { again: true, when: "night", text: "La boutique, de nuit, à la lueur d'une chandelle. Les objets ficelés projettent sur les murs des ombres plus grandes qu'eux, qui bougent quand la flamme bouge ; l'étagère entière semble alors respirer. Sous le plancher, le canal travaille." },
         { with: "tibere", text: "Tibère fait le tour des étagères, les mains derrière le dos, en lisant les étiquettes à mi-voix, avec l'application d'un visiteur au cabinet de curiosités. « Une selle d'enfant, dit-il. Qui perd une selle d'enfant ? »" },
         { after: "cornet:trouve", text: "La porte de la cave est fermée, maintenant. Tu as remis le crochet." },
       ],
@@ -272,7 +272,7 @@ module.exports = {
       fx: { clue: "pq_c_fouille", ep: ["perso", 150] },
       text: [
         "Tu ouvres le premier tiroir par habitude, pour y prendre un clou, et tu t'arrêtes. L'atelier {{echo#pq_tiroirs_echo|est silencieux sous le toit, avec le canal qui clapote en bas|garde un bruit de tiroirs tirés un à un, quarante fois, et une respiration d'homme, lente, qui ne s'impatiente jamais}}.",
-        "Chaque tiroir a son étiquette de carton à l'intérieur, posée sur le contenu, pour qu'on sache d'un coup d'œil ce qu'il y a dedans. Odeline les tournait toujours vers l'avant, lisibles depuis l'établi. Ce matin, dans les quarante tiroirs, les quarante étiquettes sont tournées vers le fond. Les vis sont avec les vis, les clés avec les clés. Tout est là, rangé.",
+        "Chaque tiroir a son étiquette de carton à l'intérieur, posée sur le contenu, pour qu'on sache d'un coup d'œil ce qu'il y a dedans. Odeline les tournait toujours vers l'avant, lisibles depuis l'établi. Ce matin, dans les quarante tiroirs, les quarante étiquettes sont tournées vers le fond. Les vis sont avec les vis, les clés avec les clés. Tout est là, rangé, avec un soin qui te donne froid dans le dos.",
         { if: { has: "metier:mains" }, text: "Tu tires un tiroir à fond. Sur le bois du fond, la poussière garde des traces de doigts larges, qui ont tâté les coins à la recherche d'un double fond." },
       ],
       choices: [{ back: "PQ_atelier" }] },
@@ -301,9 +301,9 @@ module.exports = {
     // ================================================================== the cellar
     PQ_escalier: { act: "P", title: "L'escalier de la cave", place: "quai", backName: "l'escalier de la cave",
       text: [
-        { first: true, text: "L'escalier de la cave compte douze marches de chêne, raides, creusées au milieu en forme de cuvette par des années de pas. Une rampe de bois brut court le long du mur de gauche ; à droite, c'est le vide. Odeline descendait de profil, la main sur la rampe, un bougeoir dans l'autre main. Tu l'as vue faire dix mille fois." },
+        { first: true, text: "L'escalier de la cave compte douze marches de chêne, raides, creusées au milieu en forme de cuvette par des années de pas. Une rampe de bois brut court le long du mur de gauche ; à droite s'ouvre le vide, et au fond du vide une obscurité qui sent l'eau. Odeline descendait de profil, la main sur la rampe, un bougeoir dans l'autre main. Tu l'as vue faire dix mille fois." },
         "Les marches {{echo#pq_escalier_echo|craquent sous ton poids, comme elles ont toujours craqué|gardent un bruit de cuivre contre un os, un souffle d'homme coupé net, puis une voix d'homme qui dit tout bas, en haut : « Non. Non. Odeline. »}}.",
-        { again: true, text: "Les douze marches de chêne, la rampe brute, le noir en bas." },
+        { again: true, text: "Les douze marches de chêne, la rampe brute, et en bas le noir, qui attend qu'on descende." },
         { with: "tibere", text: "Tibère regarde l'escalier depuis le haut, sans descendre, avec une moue de connaisseur. « Un escalier de cave, dit-il. J'en ai fait monter, des gens, dans ces escaliers-là. Et descendre. »" },
       ],
       choices: [
@@ -331,10 +331,10 @@ module.exports = {
 
     PQ_cave_bas: { act: "P", title: "La cave", place: "quai", backName: "la cave",
       text: [
-        { first: true, text: "La cave est longue et basse, voûtée de briques, et un homme de belle taille y marche la tête rentrée. Le mur du fond est celui du canal ; il suinte, et une brique plus sombre que les autres pleure un filet d'eau dans une rigole. Le long du mur de droite s'alignent des tonneaux d'objets pas encore lavés : de la vase sèche, des clous, des boucles de ceinture, tout ce que les pêcheurs et les gamins rapportent du canal. Au milieu se tient l'établi de lavage d'Odeline, avec ses bassines, ses brosses, ses fioles d'acide et de vinaigre, et la vieille caisse aux clous rouillés." },
+        { first: true, text: "La cave est longue et basse, voûtée de briques, et un homme de belle taille y marche la tête rentrée, comme un pénitent. Le mur du fond est celui du canal ; toute l'eau du quartier pèse derrière lui, et il suinte sous la charge. Une brique plus sombre que les autres y pleure un filet d'eau dans une rigole. Le long du mur de droite s'alignent des tonneaux d'objets pas encore lavés : de la vase sèche, des clous, des boucles de ceinture, tout ce que les pêcheurs et les gamins rapportent du canal, et que le canal avait pris à des gens qui n'en ont plus l'usage. Au milieu se tient l'établi de lavage d'Odeline, avec ses bassines, ses brosses, ses fioles d'acide et de vinaigre, et la vieille caisse aux clous rouillés." },
         { first: true, text: "Au pied de l'escalier, la terre battue est plus sombre sur une largeur de main. Tu poses le pied à côté." },
         "Quelque part, l'eau du canal {{echo#pq_cave_echo|goutte à travers le mur, toujours au même rythme|répète une voix de femme, furieuse et cassée : « Tu ne l'auras pas. Je l'ai rangée là où tu ne chercheras jamais. »}}.",
-        { again: true, text: "La cave, ses voûtes de briques, le mur qui pleure. L'établi de lavage, ses bassines." },
+        { again: true, text: "La cave, ses voûtes de briques, le mur qui pleure. L'établi de lavage, ses bassines. Le froid y est resté le même, et il t'attendait." },
         { with: "tibere", text: "Tibère est descendu derrière toi. Il se tient près des tonneaux, les pouces dans le ceinturon, et ses yeux font le tour de la cave en évitant la tache au pied de l'escalier." },
         { after: "cornet:trouve", text: "La caisse aux clous est ouverte sur l'établi, son double fond posé à côté." },
       ],
@@ -414,7 +414,7 @@ module.exports = {
         "« Il faudra bien que quelqu'un s'occupe de la boutique, dit Clarmonde. {{oreille|Ça ne pourra jamais se tenir sans elle|Si la boutique ferme, je reprends le bail pour ma nièce, et la cave avec}}. »",
         "« Je donnerais {{oreille|n'importe quoi pour qu'elle soit encore là|trente ducats pour le stock, et l'homme de l'île en donnerait cent}}, dit Prosper. »",
         "Certains de leurs mots tremblent. Le mot est exact : ils tremblent dans ton oreille, et quand tu y prêtes attention, ils s'ouvrent, et dessous il y a autre chose, dit de la même voix, plus bas. Tu ôtes le cornet. Les voix redeviennent des voix. Tu le remets. Les mots tremblent de nouveau. Tu répètes l'expérience trois fois, par acquit de conscience, et trois fois le résultat est le même.",
-        "Tu restes un long moment en bas des marches, le cornet dans la main, à côté de la tache sombre sur la terre battue.",
+        "Tu restes un long moment en bas des marches, le cornet dans la main, à côté de la tache sombre sur la terre battue. Tu viens d'apprendre en une minute ce que tes voisins pensent depuis vingt ans ; il te semble que la cave en est devenue plus étroite.",
       ],
       choices: [
         { label: "Lire la lettre", hide: { seen: "PQ_lettre" }, to: "PQ_lettre" },
@@ -605,7 +605,7 @@ module.exports = {
     PQ_lagrue: { act: "P", title: "L'échoppe de l'écrivain public", place: "quai", backName: "l'échoppe de Maître Lagrue",
       fx: { meet: "pq_lagrue" },
       text: [
-        { first: true, text: "L'échoppe de Bénézet Lagrue est un réduit sous l'escalier d'une maison, ouvert sur le quai, tout juste assez large pour un pupitre, deux tabourets et un brasero. Au mur sont épinglés des modèles de lettres : *Pour demander la main d'une veuve. Pour réclamer un salaire. Pour annoncer un décès à la famille.* Lagrue écrit pour une femme en deuil qui pleure en silence, et il trempe sa plume entre chaque ligne avec une grande délicatesse, comme on ménage un malade." },
+        { first: true, text: "L'échoppe de Bénézet Lagrue est un réduit sous l'escalier d'une maison, ouvert sur le quai, tout juste assez large pour un pupitre, deux tabourets et un brasero. Au mur sont épinglés des modèles de lettres, qui font à eux trois le tour d'une existence : *Pour demander la main d'une veuve. Pour réclamer un salaire. Pour annoncer un décès à la famille.* Lagrue écrit pour une femme en deuil qui pleure en silence, et il trempe sa plume entre chaque ligne avec une grande délicatesse, comme on ménage un malade." },
         { again: true, text: "Maître Lagrue lève le nez de son pupitre et pose sa plume." },
         { if: CORNET, text: "Quand la femme est partie, il te fait asseoir. « Une sainte femme, dit-il, la main sur le cœur, {{oreille|que Dieu la garde dans sa paix|qui m'a prêté deux ducats et ne me les a jamais réclamés, jusqu'à la semaine dernière}}. » Il soupire. « Elle venait parfois me faire {{oreille#pq_copie|relire ses factures, sa vue baissait|recopier au propre des lettres qu'elle ne voulait pas écrire de sa main, la dernière pour un homme de l'île des Changeurs}}. »", else: "Quand la femme est partie, il te fait asseoir. « Une sainte femme, dit-il, la main sur le cœur, que Dieu la garde dans sa paix. » Il soupire. « Elle venait parfois me faire relire ses factures, sa vue baissait. »" },
         { with: "tibere", text: "Tibère reste debout dehors, adossé au mur, et Lagrue lui jette des regards inquiets, ceux d'un débiteur qui a reconnu un sergent." },
@@ -725,7 +725,7 @@ module.exports = {
     PQ_lumignon: { act: "P", title: "Le Lumignon", place: "quai", backName: "le Lumignon",
       text: [
         { first: true, text: "Le Lumignon est la taverne du bout du quai : une salle basse aux poutres noires, un comptoir de zinc cabossé, des tonneaux en guise de tables, et une cheminée où grillent des anguilles. Le matin, les débardeurs y boivent un coup avant l'embauche ; à midi, les petits commis de l'île y mangent la soupe, parce qu'elle coûte un liard de moins qu'au pont, et qu'un liard est un liard." },
-        { again: true, text: "Le Lumignon, sa fumée d'anguille, son comptoir de zinc. Les mêmes têtes aux mêmes tonneaux, à croire qu'on les y cloue." },
+        { again: true, text: "Le Lumignon, sa fumée d'anguille, son comptoir de zinc. Les mêmes têtes sont aux mêmes tonneaux, à croire que le tavernier les y cloue le soir pour les retrouver le matin." },
         { if: { has: "pq:objets_pris" }, text: "Près de la porte, un grand débardeur au crâne rasé boit seul, les coudes sur son tonneau. Au fond, près de la cheminée, une femme en robe sombre de commise, des lunettes sur le nez, mange sa soupe en lisant un livre de comptes, la cuillère d'une main et l'index de l'autre sur la colonne." },
         { with: "tibere", text: "Le tavernier salue Tibère par son nom et lui sert un vin avant qu'il le demande. Tibère le boit d'un trait, debout." },
       ],
@@ -814,7 +814,7 @@ module.exports = {
 
     PQ_couzi_aide: { act: "P", title: "La pêche aux lanternes", place: "quai",
       text: [
-        "Couzi te donne la seconde gaffe, une perche de frêne au crochet de fer, et vous poussez la barque au milieu du canal. Les lanternes mortes tournent lentement sur l'eau grise, par grappes, accrochées les unes aux autres par leurs ficelles. Certaines gardent un bout de chandelle. Sur d'autres, l'encre des noms a coulé.",
+        "Couzi te donne la seconde gaffe, une perche de frêne au crochet de fer, et vous poussez la barque au milieu du canal. Les lanternes mortes tournent lentement sur l'eau grise, par grappes, liées les unes aux autres par leurs ficelles, comme des gens qui auraient eu peur de se perdre. Certaines gardent un bout de chandelle. Sur d'autres, l'encre des noms a coulé.",
         "Le courant les mène toutes dans le même sens, vers l'écluse des Tanneurs, deux cents pas plus loin, où l'eau s'engouffre sous une vanne de bois. Il faut les cueillir avant, une à une, en ménageant le papier et l'équilibre de la barque. Couzi rame, tu gaffes. Au bout d'une demi-heure, tu as appris que le papier mouillé se déchire au moindre reproche.",
         { with: "tibere", text: "Tibère s'est assis à l'avant, les bras croisés, et refuse de toucher une gaffe. « Je ne sais pas nager, dit-il. Je ne vais pas commencer aujourd'hui. » En revanche, il te montre du doigt, avec beaucoup de zèle, chacune des lanternes que tu manques." },
       ],
@@ -875,7 +875,7 @@ module.exports = {
         "Devant la boutique, un homme t'attend, appuyé sur une canne à pommeau d'argent. Il a la cinquantaine, une moustache noire cirée en deux pointes, un manteau doublé de renard malgré la douceur du matin, et une bague à chaque doigt de la main gauche, cinq en tout, ce qui doit gêner pour compter. Derrière lui, deux débardeurs gardent une charrette à bras vide. L'un d'eux a le crâne rasé et une cicatrice blanche au menton.",
         "« Maître Félicien Escarbol, prêteur, rue des Chaudronniers, dit-il en soulevant son chapeau. Mes condoléances. » Il sort de son manteau une copie du billet d'Odeline, la déplie, la tend sans la lâcher. « Trois ducats, et l'intérêt au denier dix. Je {{oreille|viens en ami, présenter mes condoléances et mon billet|viens pour le compte d'un autre, qui veut le contenu de la boutique avant ce soir}}. »",
         "« La défunte n'avait pas d'autre bien que son stock. Le stock {{oreille#pq_gage|m'est gagé, c'est écrit en toutes lettres dans le billet|ne m'est gagé nulle part, le billet ne dit rien de tel, mais les apprentis ne savent pas lire les billets}}. Mes hommes vont charger ce qu'il faut pour couvrir la somme. C'est l'affaire d'une heure. »",
-        { if: { has: "poids:dette" }, text: "Il te regarde de plus près, et sourit. « Tiens. Je vous connais, vous aussi. Mon confrère du pont Marchand a un papier à votre nom. Le monde est petit, sur les quais. »" },
+        { if: { has: "poids:dette" }, text: "Il te regarde de plus près, et sourit. « Tiens. Je vous connais, vous aussi. Mon confrère du pont Marchand a un papier à votre nom. Le monde est petit, sur les quais ; il tient presque tout entier dans nos tiroirs. »" },
         { with: "tibere", text: "Tibère s'est placé sur la première marche de la boutique, les bras croisés, et Escarbol fait semblant de ne pas le voir, ce qui, vu la largeur du sergent, demande un certain effort." },
       ],
       choices: [
@@ -906,7 +906,7 @@ module.exports = {
       text: [
         "Tu tends la main. « La ligne du gage. Montrez-la-moi. »",
         "Escarbol garde le billet contre sa poitrine une seconde de trop. Puis il le déplie, fait semblant de chercher, suit les lignes du doigt avec beaucoup d'application. Les deux débardeurs se regardent. Le plus jeune laisse échapper un rire bref, aussitôt ravalé.",
-        "« Il me semble que le gage est implicite, dit Escarbol. Dans l'usage. » Tu dis : à la Saint-Jean, avec intérêt, comme il est écrit, et pas un liard avant. Il replie le billet. « À la Saint-Jean, donc. » Il te salue avec une politesse parfaite, glaciale, et la charrette repart vide.",
+        "« Le gage est implicite, dit Escarbol, avec la dignité d'un homme qu'on vient de surprendre la main dans le tronc des pauvres. Dans l'usage. L'usage est la moitié du droit, et la meilleure. » Tu dis : à la Saint-Jean, avec intérêt, comme il est écrit, et pas un liard avant. Il replie le billet. « À la Saint-Jean, donc. » Il te salue avec une politesse parfaite, glaciale, et la charrette repart vide.",
       ],
       choices: [{ back: "PQ_quai" }] },
 
@@ -951,7 +951,7 @@ module.exports = {
       fx: { set: { escarbol: "saisie" }, quest: "PQ_escarbol", ep: ["perso", 100] },
       text: [
         { outcome: "lose", text: "Tu te retrouves assis{e} sur la marche, la lèvre fendue, pendant que les débardeurs passent devant toi avec les premières caisses." },
-        "Les débardeurs chargent la charrette pendant une heure. Ils commencent par les objets de la vitrine, coussins compris. Puis viennent les étagères de gauche, celles des objets à vendre : le luth sans cordes, le psautier de veau, le portrait de chien. Escarbol note chaque objet dans un carnet et l'estime à voix haute, très bas.",
+        "Les débardeurs chargent la charrette pendant une heure. Ils commencent par les objets de la vitrine, coussins compris. Puis viennent les étagères de gauche, celles des objets à vendre : le luth sans cordes, le psautier de veau, le portrait de chien. Escarbol note chaque objet dans un carnet et l'estime à voix haute, très bas, comme on récite un bénédicité.",
         "Ils laissent la cave de côté. « De la ferraille mouillée », dit le prêteur en regardant l'escalier, avec une grimace de dégoût. Ils laissent aussi l'atelier.",
         "La charrette s'en va, pleine. La boutique paraît plus grande, et plus pauvre. Sur le quai, Clarmonde secoue la tête, et Prosper rentre son étal.",
       ],
@@ -960,7 +960,7 @@ module.exports = {
     // ================================================================== the chapel, the quay heard, the doubt
     PQ_chapelle: { act: "P", title: "La chapelle des Noyés", place: "quai", backName: "la chapelle des Noyés",
       text: [
-        { first: true, text: "La chapelle des Noyés est une petite église de brique au bout du quai, plus basse que les maisons, avec une cloche fêlée et une porte peinte en bleu. Dedans, l'air sent la cire et la vase. Les murs disparaissent sous les ex-voto : des barques peintes, des ancres de bois, des tresses de cheveux, des noms gravés sur des planchettes. Tu renonces à les compter après la deuxième centaine." },
+        { first: true, text: "La chapelle des Noyés est une petite église de brique au bout du quai, plus basse que les maisons, avec une cloche fêlée et une porte peinte en bleu. Dedans, l'air sent la cire et la vase, et le jour entre par deux fenêtres étroites, verdi comme s'il avait traversé le canal avant d'arriver. Les murs disparaissent sous les ex-voto : des barques peintes, des ancres de bois, des tresses de cheveux, des noms gravés sur des planchettes. Tu renonces à les compter après la deuxième centaine ; la mer, elle, a tenu ses comptes jusqu'au bout." },
         { first: true, text: "Odeline est couchée sur une table à tréteaux devant l'autel, sous un drap blanc, entre quatre lanternes allumées. Quelqu'un lui a croisé les mains et a glissé dedans un brin de buis. Ses souliers dépassent du drap. Ils sont ressemelés de neuf ; c'est toi qui les as portés au cordonnier, la semaine dernière." },
         { again: true, text: "La chapelle des Noyés, ses ex-voto, la cire. Odeline sous son drap, entre ses quatre lanternes." },
         "La sacristine, une vieille femme en noir qui sent le suif, change une chandelle et te fait un signe de tête.",
@@ -1025,7 +1025,7 @@ module.exports = {
 
     PQ_porte: { act: "P", title: "La porte et la clochette", place: "quai",
       text: [
-        "La porte de la boutique est une porte de chêne à deux battants, dont un seul s'ouvre, avec un judas grillagé à hauteur d'œil et un gros verrou de fer à l'intérieur. Au-dessus, la clochette pend à son ressort de laiton.",
+        "La porte de la boutique est une porte de chêne à deux battants, dont un seul s'ouvre, avec un judas grillagé à hauteur d'œil et un gros verrou de fer à l'intérieur : une porte faite pour qu'on y réfléchisse avant de frapper. Au-dessus, la clochette pend à son ressort de laiton.",
         "Le verrou est ouvert, la gâche intacte, le pêne propre. On a ouvert de l'intérieur, et refermé la porte en sortant, sans clé. La porte {{echo#pq_porte_echo|ferme mal depuis l'hiver, le bois a joué|garde une voix d'homme, basse et patiente, juste derrière le battant : « Odeline. Ouvre. Il faut qu'on parle avant que tu vendes. »}}",
         "Tu fais jouer le battant. La clochette tinte, claire. Tu la prends dans ta main et tu refais le geste. Le battant passe, et la clochette, dans ta paume, rend un petit bruit sourd, à peine un coup.",
       ],
