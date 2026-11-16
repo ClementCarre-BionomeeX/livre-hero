@@ -586,7 +586,7 @@ module.exports = {
     A4m_jeu_nuit: { act: "IV", title: "Ce que l'on n'a pas eu à la lumière", place: "tour_horloge", ambiance: "nuit",
       fx: { until: 3 },
       text: [
-        { if: { has: "monde:a4:k=perdu" }, text: "Tu as vu, par le judas, soixante dos se voûter d'un coup, et {qui:a4:voix} rester assis très droit devant un tapis vide." },
+        { if: { has: "monde:a4:k=perdu" }, text: "Tu as vu, par le judas, soixante dos se voûter d'un coup, et {qui:a4:voix} rester à sa place, sans un geste, devant un tapis vide." },
         { if: { has: "monde:a4:k=triche" }, text: "Tu as vu, par le judas, une dague fendre un dé sur le chêne, et {qui:a4:voix} traverser la salle entre deux haies de dos." },
         { if: { has: "monde:a4:k=rompu" }, text: "Tu as vu, par le judas, un cornet retourné sur le drap, une main gantée de fil sur une épaule, et {qui:a4:voix} sortir, sa mise sous le bras." },
         "On se le dit en trois mots, sous le balancier : ce que l'on n'a pas eu à la lumière, on le prendra dans le noir. C'est ton pays. On aurait dû commencer par là.",
