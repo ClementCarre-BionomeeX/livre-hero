@@ -66,7 +66,7 @@ Object.assign(P, {
       "Un valet de la ferme, venu voir, épelle le titre et s'en retourne. « La petite princesse. Huit ans. Ma mère dit que ça se voit sur les monnaies neuves, que la reine a maigri. »",
       "Tu relis. *La langueur grise.* Tu n'as jamais entendu ce nom-là. De ton côté, soixante ans plus tard, on ne meurt plus de grand-chose qui porte un nom de couleur ; quelqu'un, là-bas, saurait peut-être de quoi il s'agit.",
     ],
-    fx: { flag: "j:placard_lu" },
+    fx: { flag: ["j:placard_lu", "monde:placard"] },
     choices: [{ back: "K04j_tantot" }] },
 
   // ------------------------------------------------------------ the debt and the walnut tree

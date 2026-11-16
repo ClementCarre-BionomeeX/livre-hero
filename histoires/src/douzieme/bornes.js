@@ -131,6 +131,81 @@ Object.assign(P, {
     ] },
 });
 
+// ------------------------------------------------------------------------ chapter 5
+Object.assign(P, {
+  M05: { act: "II", title: "Midi, à quatre lieues l'un de l'autre", backName: "la borne", charniere: true, aparte: true, depot: { put: ["cahier"], take: ["borne_ferme", "cahier"] },
+    text: [
+      { first: true, if: J, text: "Les bâtons ont rempli une demi-page. Ils sont plus serrés que la veille : celui qui écrit prend de l'habitude, ou manque de place. *ON M'A CHERCHÉ{autre:E} TOUTE LA NUIT DANS LES PRÉS AVEC DES LANTERNES. JE SUIS PASSÉ{autre:E}. J'AI QUELQU'UN AVEC MOI, UN GAMIN DE LA BANDE, ROUGET. IL PORTE MON SAC. IL MANGE TOUT.*" },
+      { first: true, if: J, text: "*JE SUIS DANS TA FERME. ELLE EST VIDE DEPUIS MARS. LE CHAT EST TOUJOURS EN L'AIR.*" },
+      { first: true, if: { all: [J, { has: "monde:noyer_sauve" }] }, text: "*IL Y A TROIS NOYERS. AVANT-HIER IL Y EN AVAIT DEUX ET UNE SOUCHE. JE LE SAIS, J'Y ÉTAIS. PERSONNE D'AUTRE NE LE SAIT. C'EST TOI QUI AS FAIT ÇA.* Tu relis cette ligne, le dos contre la pierre chaude. Là-haut, on danse. Tu n'avais pas encore compris, tout à fait, que cela marchait." },
+      { first: true, if: { all: [J, { not: { has: "monde:noyer_sauve" } }] }, text: "*LA SOUCHE EST LÀ. ELLE A ÉCRIT DESSUS, PETITE : ICI ÉTAIT LE PLUS GROS.* Tu fermes les yeux. Là-haut, on danse." },
+      { first: true, if: { all: [J, { has: "monde:marque_poutre" }] }, text: "*J'AI LEVÉ LA LANTERNE. C'EST DANS LA POUTRE. C'EST VIEUX, C'EST PLEIN DE POUSSIÈRE. AVANT-HIER ELLE ÉTAIT LISSE.*" },
+      { first: true, if: { all: [J, { has: "monde:rouget_dessin" }] }, text: "Au bas de la page, il y a un dessin. Deux bonshommes qui se tiennent par la main : un petit, avec des cheveux en flammes et une fronde, un grand, avec des sabots énormes. Au-dessus, une chose à quatre pattes qui flotte. Personne n'a signé. Tu regardes longtemps le plus grand des deux, et ses sabots." },
+      { first: true, if: J, text: "*JE VAIS CREUSER À LA BORNE.* Tu trempes ta plume. Tu as une noce à raconter, et un bourg entier." },
+      { first: true, if: R, text: "La terre est dure comme une croûte de pain. Ton couteau y entre d'un doigt, puis d'un autre. Tu ouvres le Cahier à côté de toi, à plat sur l'herbe raide, pendant que tu creuses ; et pendant que tu creuses, la page se remplit." },
+      { first: true, if: R, text: "*La route est pleine. Des oies, des moines, des charrettes. Chaque borne a son cadran propre et l'on y a ôté le lierre. Je porte une hotte pour une colporteuse qui s'appelle Perrine et qui compte tout sur ses doigts. Je suis à Roquebise. Il y a dix fumées. Tout le bourg est d'une noce.*" },
+      { first: true, if: { all: [R, { has: "monde:croix_bordes" }] }, text: "*Je suis monté{autre:e} à la croix des Hautes-Bordes. Regarde au pied, du côté de Roquebise, quand tu y passeras.*" },
+      { first: true, if: { all: [R, { has: "monde:lison_berceau" }] }, text: "*La troisième maison après la fontaine. La porte est en chêne, sans peinture. Il y a là un potier qui s'appelle Tiennot, et dans un berceau sa fille, qui a six mois. Elle s'appelle Lison. Il dit qu'il y en a une par génération.*" },
+      { first: true, if: { all: [R, { has: "monde:lison_berceau" }] }, text: "Ton couteau s'arrête. Ta grand-mère s'appelait Lison. Tu l'as connue vieille, les mains mangées par la terre, assise devant la porte bleue à écosser des pois ; on l'a portée au cimetière l'hiver d'avant le Bond, et ta mère a dit que c'était une grâce. {autre} l'a vue ce matin dans un panier d'osier." },
+      { first: true, if: R, text: "Sous la lame, quelque chose sonne." },
+      { again: true, if: J, text: "La borne de la dix-neuvième lieue, sa couronne de buis, le Cahier ouvert. Les violons, là-haut, ont changé d'air." },
+      { again: true, if: R, text: "La borne de la vingt-troisième lieue, le trou que tu as fait à son pied, le Cahier ouvert sur l'herbe raide." },
+    ],
+    choices: [
+      { label: "Lire dans la Chronique ce qu'elle dit de l'étranger du Grand Midi", hide: { any: [J, { seen: "K05r_chronique" }] }, to: "K05r_chronique" },
+      { label: "Recopier pour {autre} ce que la Chronique dit du pont d'Arvoise", hide: { any: [J, { has: "monde:su:pont" }] }, to: "E_pont" },
+      { label: "Écrire à {autre} ce que la vieille a dit d'une certaine écriture", hide: { any: [J, { not: { has: "r:sait_main" } }, { has: "monde:su:main" }] }, to: "E_main" },
+      { label: "Répondre à {autre} sur la langueur grise", hide: { any: [J, { not: { has: "monde:placard" } }, { has: "monde:su:remede" }] }, to: "E_remede" },
+      { label: "Refermer le Cahier, et remonter à la noce", hide: R, to: "K05j_tantot", big: true },
+      { label: "Refermer le Cahier, et prendre la chaussée vers le levant", hide: J, to: "K05r_route", big: true },
+    ] },
+  K05r_chronique: { title: "Ce que dit le livre noir", back: true, fx: { secret: "r_chronique" },
+    text: [
+      "Tu tires de ton sac le gros livre relié de toile. Tu ne l'avais ouvert, jusqu'ici, qu'où la vieille avait mis ses signets. Tu cherches seul{e}, cette fois, en suivant les lignes du doigt : l'an 541, le Grand Midi, la malice du Maudit, les quarante mille âmes. Plus bas, en plus petit, un paragraphe que les maîtres d'école sautent.",
+      "*« On vit ce jour-là dans la Tour des Heures un inconnu, jeune, que nul ne put nommer, et que plusieurs témoins tinrent pour le complice du Maudit, l'ayant vu monter derrière lui. Il fut mis à mort par les gardes sur les marches de la Tour, au onzième coup. »*",
+      "Tu relis. *Jeune. Que nul ne put nommer.* Dans la marge, la vieille n'a rien écrit. C'est la seule page du livre où elle n'ait rien écrit.",
+      "Tu regardes le Cahier, ouvert à côté de toi, où l'encre penchée parle d'oies et de noce. Tu sais qui est monté dans cette tour. Tu sais qui n'en est pas redescendu. Cela a déjà eu lieu, il y a soixante ans, dans sept jours.",
+      "La vieille le savait en lui donnant le sablier.",
+    ] },
+  E_main: { title: "Un d qui recule", back: true, fx: { flag: "monde:su:main" },
+    text: [
+      "Tu écris ce que la vieille a dit, par le soupirail, la bouche contre le plancher. *IL Y A À LA GUILDE UN NOMMÉ AUBESPIN. REGARDE COMMENT IL ÉCRIT. SON D PENCHE EN ARRIÈRE, COMME UN HOMME QUI RECULE. LA VIEILLE A DEUX LETTRES DE LA MAÎTRISE DES SABLES, À TRENTE-HUIT ANS D'ÉCART, LE PÈRE ET LE FILS. C'EST LA MÊME MAIN.*",
+      "Tu ne sais pas ce que {autre} fera de cela. Tu ne sais pas bien toi-même ce qu'il faut en penser. Tu l'envoies comme on l'a reçu.",
+    ] },
+  E_remede: { title: "Trois semaines de tisane", back: true, fx: { flag: "monde:su:remede" },
+    text: [
+      "*La langueur grise.* {autre} a écrit ces deux mots comme on écrit le nom d'une bête inconnue. Tu les lis, et tu sens dans ta bouche un goût amer, qui a neuf ans d'âge.",
+      "Tu l'as eue. Presque tous les enfants l'ont, une fois, vers sept ans : les ongles qui grisonnent, l'envie de dormir à toute heure. Ta mère t'a tenu la tête et fait boire une tisane brune pendant trois semaines, matin et soir, en te pinçant le nez. Tu en as voulu à la terre entière. Puis tu es retourné{e} courir.",
+      "Tu écris, en appuyant : *ON EN GUÉRIT. TOUTES LES MÈRES SAVENT. C'EST L'ÉCORCE DE FIÈVRIER, BOUILLIE, TROIS SEMAINES. C'EST UN ARBRE DES ÎLES. LES BATEAUX EN RAPPORTENT DEPUIS VINGT ANS, IL Y EN A CHEZ TOUS LES APOTHICAIRES.* Tu t'arrêtes. Depuis vingt ans. De son côté, les bateaux ne sont pas encore partis.",
+      "Tu ajoutes : *CHEZ TOI IL N'Y EN A PAS. J'EN CHERCHERAI.*",
+    ] },
+
+  B05: { act: "II", title: "Ce qui se dit à l'aube", backName: "la borne", charniere: true, aparte: true, depot: { put: ["borne_roquebise", "cahier"], take: ["cahier"] },
+    text: [
+      { first: true, if: J, text: "La borne de la dix-neuvième lieue sent le feu éteint, comme tout Roquebise ce matin. Tu t'y adosses. Perrine s'est assise à dix pas, sur sa hotte, et fait semblant de recompter ses rubans pour te laisser à ce que tu fais dans ce cahier gris, dont elle n'a pas encore demandé le prix." },
+      { first: true, if: J, text: "*J'AI CREUSÉ.* Les bâtons sont là, sous ta page d'hier. *J'AI MARCHÉ DEUX LIEUES. LA ROUTE EST VIDE ET IL Y A DES GENS DEDANS, QUI VONT TRÈS LENTEMENT. JE SUIS AUX HAUTES-BORDES, SOUS LA CROIX. DE LÀ ON VOIT ROQUEBISE. IL N'Y A PLUS UNE FUMÉE. DEMAIN J'Y SUIS.*" },
+      { first: true, if: { all: [J, { has: "monde:croix_bordes" }] }, text: "*J'AI TROUVÉ, AU PIED DE LA CROIX. LE LICHEN A POUSSÉ DEDANS.*" },
+      { first: true, if: { all: [J, { has: "monde:su:cuves" }] }, text: "*J'AI ENTENDU DES GENS DE LA MAÎTRISE. ILS MÈNENT À MÉRIDANE DOUZE CUVES DE VERRE HAUTES COMME UN HOMME, POUR LE JOUR DU SERMENT. ILS Y METTENT TOUT LE SABLE DE LA ROUTE.*" },
+      { first: true, if: J, text: "Tu écris à ton tour. La coupe, la fontaine, les jeux. Puis la nuit : la voiture noire, la cuve de verre haute d'une toise, les onze autres qu'il faut couler en six jours, les étincelles. Tu écris vite ; l'encre a du mal à suivre." },
+      { first: true, if: { all: [J, { has: "j:vu_vairons" }] }, text: "Tu écris l'homme en gris, sa voix, sa bague, la pincée de sable qui coulait dans le verre comme dans une eau lourde. Tu hésites sur un détail, qui a l'air de rien. Tu le mets quand même : *il a un œil gris et l'autre brun.*" },
+      { first: true, if: R, text: "Tu as gratté le cadran de la vingt et unième lieue avant le jour, sous la croix, et tu t'es rendormi{e} contre la pierre. C'est le Cahier qui t'éveille : il est ouvert sur tes genoux, et l'écriture penchée y court si vite que les lignes se chevauchent." },
+      { first: true, if: R, text: "Tu lis la noce. Tu lis la place qui penche, les tilleuls, saint Gnomon qui tire la langue sous l'eau. Tu connais chaque pavé de cette place : tu y as joué. Tu ne l'avais jamais entendue. Dans ta tête, Roquebise a toujours fait le bruit que font les tessons sous les sabots d'un seul enfant." },
+      { first: true, if: { all: [R, { has: "monde:coupe_noce" }] }, text: "*La mariée a bu dans une coupe qu'on gardera sur le manteau de la cheminée, chez les Hureau, rue des Potiers. Elle a dit qu'on dirait mon nom en la montrant.* Les Hureau. La maison en face de la tienne." },
+      { first: true, if: { all: [R, { has: "monde:cuves_vues" }] }, text: "*Douze cuves de verre, hautes comme un homme, pour la Guilde. Un sous-maître est venu voir la première cette nuit. Il y a mis une pincée de sable gris, et un papillon s'est arrêté en l'air.* Tu lis cela deux fois. Du sable. En 541, sept jours avant qu'il y ait une Dormante pour en donner." },
+      { first: true, if: { all: [R, { has: "monde:four_sauve" }] }, text: "*Le feu a pris au bois du Grand Four. On l'a éteint. Le four est entier.* Tu lèves la tête. Le Grand Four, au bas de la rue des Potiers : tu y as joué aussi, dans une ruine, un dôme crevé plein de ronces où les grands faisaient peur aux petits. Tu ouvres la Chronique à la page de Roquebise. La ligne a changé." },
+      { first: true, if: { all: [R, { not: { has: "monde:four_sauve" } }] }, text: "*Le feu a pris au bois du Grand Four. On n'a pas pu. Il s'est fendu à deux heures du matin, je l'ai entendu.* Le dôme crevé, au bas de ta rue, plein de ronces, où les grands faisaient peur aux petits. Tu ne t'étais jamais demandé depuis quand il était crevé." },
+      { again: true, if: J, text: "La borne, l'odeur de feu éteint, la chaussée qui descend vers la Thiorne. Perrine tape du pied." },
+      { again: true, if: R, text: "La borne de la vingt et unième lieue, la croix au-dessus, et là-bas, sur sa butte, Roquebise, où rien ne fume." },
+    ],
+    choices: [
+      { label: "Recopier pour {autre} ce que la Chronique dit du pont d'Arvoise", hide: { any: [J, { has: "monde:su:pont" }] }, to: "E_pont" },
+      { label: "Écrire à {autre} ce que la vieille a dit d'une certaine écriture", hide: { any: [J, { not: { has: "r:sait_main" } }, { has: "monde:su:main" }] }, to: "E_main" },
+      { label: "Répondre à {autre} sur la langueur grise", hide: { any: [J, { not: { has: "monde:placard" } }, { has: "monde:su:remede" }] }, to: "E_remede" },
+      { label: "Fermer le Cahier : cinq lieues jusqu'à la Thiorne", hide: R, to: "K06j_route", big: true },
+      { label: "Fermer le Cahier, et descendre vers Roquebise", hide: J, to: "K06r_descente", big: true },
+    ] },
+});
+
 module.exports = { passages: P, extras: {
   quests: [
     { id: "I_porte", act: "I", kind: "principale", title: "La porte de la grange", start: "B01" },
@@ -141,12 +216,20 @@ module.exports = { passages: P, extras: {
   // What the kingdom says of the year 541 (the one who stays reads it; the lines change with what the other does).
   // What the one who stays has copied for the other, from the years to come.
   avenir: [
+    { id: "main", head: "Une écriture", v: [
+      { if: { has: "monde:su:main" }, text: "*Il y a à la Guilde un nommé Aubespin. Regarde comment il écrit. Son d penche en arrière, comme un homme qui recule. La vieille a deux lettres de la Maîtrise des Sables, à trente-huit ans d'écart, le père et le fils. C'est la même main.*" }] },
+    { id: "cuves", head: "Douze cuves", v: [
+      { if: { has: "monde:su:cuves" }, text: "*La Maîtrise des Sables mène à Méridane douze cuves de verre hautes comme un homme, pour le jour du Serment. Elle y met tout le sable de la route.*" }] },
+    { id: "remede", head: "La langueur grise", v: [
+      { if: { has: "monde:su:remede" }, text: "*On en guérit. Toutes les mères savent. C'est l'écorce de fièvrier, bouillie, trois semaines. C'est un arbre des îles. Chez toi il n'y en a pas. J'en chercherai.*" }] },
     { id: "line", head: "Les Trois-Noyers, soixante ans après", v: [
       { text: "*La Garde est venue à la grange après toi. Ils ont pris Line. Ils la mènent à Arvoise, chez le Maître des Sables.*" }] },
     { id: "pont", head: "Arvoise, dans la Chronique", v: [
       { if: { has: "monde:su:pont" }, text: "*Six jours avant le Grand Midi, le Pont-Neuf d'Arvoise est tombé dans la Thiorne à l'heure de sa bénédiction. Quarante morts. Le maître qui l'a bâti s'appelait Baudri, il est mort avec. Tu y seras.*" }] },
   ],
   chronique: [
+    { id: "etranger", head: "An 541 · L'inconnu de la Tour", v: [
+      { if: { seen: "K05r_chronique" }, text: "« On vit ce jour-là dans la Tour des Heures un inconnu, jeune, que nul ne put nommer, et que plusieurs témoins tinrent pour le complice du Maudit. Il fut mis à mort par les gardes sur les marches de la Tour, au onzième coup. »" }] },
     { id: "grandmidi", head: "An 541 · Le Grand Midi", v: [
       { text: "« Le jour du Grand Midi, par la malice de Barnabé Coudrier, Grand Maître des Horlogers-Jurés, dit depuis le Maudit, la ville de Méridane fut ravie au temps avec la Reine, Madame Aélis sa fille, et quarante mille âmes. »" }] },
     { id: "regence", head: "An 541 · La Régence", v: [

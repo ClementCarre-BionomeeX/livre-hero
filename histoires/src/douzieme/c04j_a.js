@@ -202,7 +202,7 @@ Object.assign(P, {
       "Une échelle mène au fenil. De là-haut, en se penchant, on atteint le bois avec un couteau. Ce qu'on y graverait y serait encore dans soixante ans, à la lueur d'une lanterne, pour quelqu'un qui saurait où lever les yeux.",
     ],
     choices: [
-      { label: "Y graver deux initiales : la tienne, et celle de {autre}", fx: { flag: ["monde:marque_poutre", "j:poutre_initiales"], ep: ["perso", 300] }, to: "K04j_poutre_grave" },
+      { label: "Y graver deux initiales : la tienne, et celle de {autre}", fx: { flag: ["monde:marque_poutre", "monde:poutre_lettres", "j:poutre_initiales"], ep: ["perso", 300] }, to: "K04j_poutre_grave" },
       { label: "Y graver douze traits, le douzième plus long", fx: { flag: ["monde:marque_poutre", "j:poutre_traits"], ep: ["perso", 300] }, to: "K04j_poutre_grave" },
       { label: "Laisser cette poutre comme elle est", back: "K04j_grange" },
     ] },
