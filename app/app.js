@@ -338,7 +338,7 @@
     if (!cur || A.open.readers) w.appendChild(renderReaders());
     var tab = A.homeTab || lsGet("homeTab") || "livres";
     if (!HOME_TABS.some(function (t) { return t[0] === tab; })) tab = "livres";
-    var shownGames = A.games.filter(function (g) { return !g.archived; }).length + (A.multis || []).length;
+    var shownGames = A.games.filter(function (g) { return !g.archived; }).length + myMultis().filter(function (m) { return !m.archived; }).length;
     w.appendChild(h("nav", { class: "home-tabs", role: "tablist", "aria-label": "Pages de l'accueil" }, HOME_TABS.map(function (t) {
       return h("button", { class: "home-tab" + (tab === t[0] ? " on" : ""), role: "tab", "aria-selected": tab === t[0] ? "true" : "false", onclick: function () { A.homeTab = t[0]; lsSet("homeTab", t[0]); A.notice = ""; render(); window.scrollTo(0, 0); } },
         t[1], t[0] === "parties" && shownGames ? h("span", { class: "count" }, String(shownGames)) : null);
@@ -2139,6 +2139,7 @@
   // Intent: once per new version, a short note of what changed (NEWS, newest first), only the versions the reader has
   // not seen on this device. Why: Clément, 13/11 (piste 33).
   var NEWS = [
+    { v: "9.8", items: ["« Mes parties » ne montre plus que les parties à plusieurs où joue le lecteur choisi.", "Les parties à plusieurs s'archivent aussi, une par une ou toutes les terminées d'un coup, et se retrouvent dans leurs « Archives »."] },
     { v: "9.7", items: ["Nouveau : les histoires à cartes. À chaque halte, tu joues une carte de ta main (une rencontre, un obstacle, un détour, une trahison…) et l'histoire te dit ce qu'elle devient à cet endroit. Les cartes ont une enseigne (Lame, Masque, Lanterne, Racine) qui aide les jets de sa manière, un coût en élan, et certaines ouvrent ou nouent des fils que la fin relit.", "Première histoire à cartes : « Le Courrier de Vèze », trois haltes et un pli scellé, à rejouer avec une autre main."] },
     { v: "9.5", items: ["Héros habituel : chaque lecteur garde un nom et un visage d'une histoire à l'autre. Le premier héros créé le devient (case cochée) ; ensuite, chaque nouvelle histoire commence avec lui, et on peut le changer pour une partie ou pour de bon.", "À plusieurs : « Qui joue » propose la liste des lecteurs enregistrés, chacun avec son héros habituel, ou « Autre joueur… » pour taper un nom."] },
     { v: "9.4", items: ["Accueil rangé en trois onglets. « Bibliothèque » : la partie à reprendre en tête, puis les livres en cartes courtes (« En savoir plus » ouvre le reste). « Mes parties » : les parties et leurs archives. « Plus » : sauvegardes, ajout d'histoires, famille, espace parent, atelier.", "Le lecteur se change d'un toucher sur son nom, en haut ; ⚙ ouvre ses réglages.", "Une partie s'efface depuis les archives : on la range d'abord."] },
@@ -3267,7 +3268,7 @@
     var st = S.story;
     var g = MU.create(st, S.seats.map(function (p, i) { return { id: p.id, name: p.name, color: p.color, heroes: p.heroes, s: st.heroes ? null : S.states[i] }; }), shared);
     MU.refreshWaits(st, g);
-    var doc = { id: uid(), kind: "local", story: st.id, storyTitle: st.title, storyVersion: st.version || 1, created: Date.now() };
+    var doc = { id: uid(), kind: "local", story: st.id, storyTitle: st.title, storyVersion: st.version || 1, created: Date.now(), readers: S.seats.map(function (p) { return p.reader || null; }) };
     A.multi = { kind: "local", doc: doc, story: st, g: g, cur: g.players[0].id, undo: {}, logs: {}, note: "" };
     g.players.forEach(function (p) { A.multi.undo[p.id] = []; A.multi.logs[p.id] = []; });
     A.create = null; A.msetup = null;
@@ -3402,9 +3403,10 @@
     Object.keys(X.logs).forEach(function (k) { if (X.logs[k].length > MULTI_LOG) X.logs[k].splice(0, X.logs[k].length - MULTI_LOG); });
     d.game = JSON.stringify(X.g); d.undo = X.undo; d.logs = X.logs; d.cur = X.cur; d.updated = Date.now();
     d.players = X.g.players.map(function (p) { return p.name; });
+    d.ended = multiEnded(X.g); if (d.archived && !d.ended) { d.archived = false; d.archivedAt = d.updated; }
     Object.keys(X.undo).forEach(function (k) { while (JSON.stringify(d).length > DOC_MAX_CHARS && X.undo[k].length) X.undo[k].shift(); });
     Object.keys(X.logs).forEach(function (k) { while (JSON.stringify(d).length > DOC_MAX_CHARS && X.logs[k].length > 10) X.logs[k].splice(0, 10); });
-    var meta = { id: d.id, kind: d.kind, story: d.story, storyTitle: d.storyTitle, players: d.players, updated: d.updated };
+    var meta = { id: d.id, kind: d.kind, story: d.story, storyTitle: d.storyTitle, players: d.players, readers: d.readers, ended: d.ended, archived: d.archived, archivedAt: d.archivedAt, updated: d.updated };
     A.multis = (A.multis || []).filter(function (m) { return m.id !== d.id; }).concat([meta]);
     Store.put("multis", d.id, d).catch(function (e) { A.notice = "La sauvegarde a échoué (" + ((e && e.code) || "erreur") + ") ; la partie continue dans cette page."; });
   }
@@ -3415,21 +3417,71 @@
     if (A.multi && A.multi.unsub) A.multi.unsub.forEach(function (u) { try { u(); } catch (e) { /* already closed */ } });
     A.multi = null; A.game = null; A.carnet = null; A.screen = "home"; refresh().then(render).then(function () { if (Sync.on() && Sync.dirty) Sync.run(true); });
   }
+  // ------------------------------------------------------------------ games for several: whose, finished, archived
+  // Intent: multiEnded(Game) -> Bool = every player has reached an ending
+  function multiEnded(g) { return !!g && (g.players || []).length > 0 && g.players.every(function (p) { return p.wait && p.wait.kind === MU.WAIT.END; }); }
+  // Intent: multiEndedDoc(MultiDoc) -> Bool = the same, read from a saved game (local: its game; the list may hold only `ended`)
+  function multiEndedDoc(m) {
+    if (m.ended != null) return !!m.ended;
+    if (m.kind !== "salle" && m.game) { try { return multiEnded(JSON.parse(m.game)); } catch (e) { return false; } }
+    return false;
+  }
+  // Intent: belongsTo(MultiDoc, Profile) -> Bool = the reader plays in it
+  // Why: Clément, 16/11: on « Papa », the children's game for two was offered. A game made since 9.5 knows its readers;
+  // an older one only its players' names: matched to the readers' names, and shown to all when no name is a reader's.
+  function belongsTo(m, prof) {
+    if (!prof) return true;
+    var readers = (m.readers || (m.seats || []).map(function (x) { return x.reader; })).filter(Boolean);
+    if (readers.length) return readers.indexOf(prof.id) >= 0;
+    var names = (m.kind === "salle" ? (m.seats || []).map(function (x) { return x.name; }) : (m.players || [])).map(function (n) { return String(n || "").trim().toLowerCase(); });
+    var known = (A.profiles || []).map(function (p) { return String(p.name || "").trim().toLowerCase(); });
+    if (!names.some(function (n) { return known.indexOf(n) >= 0; })) return true;
+    return names.indexOf(String(prof.name || "").trim().toLowerCase()) >= 0;
+  }
+  function myMultis() { return (A.multis || []).filter(function (m) { return belongsTo(m, A.profile); }); }
   function renderMultiList() {
-    var sec = h("section", { class: "section" }, h("h2", null, "Parties à plusieurs"));
-    var list = A.multis || [];
-    if (!list.length) sec.appendChild(h("div", { class: "notice" }, "Aucune pour l'instant. Sur un livre, « À plusieurs » en lance une : sur cet appareil, ou dans une salle commune."));
-    list.forEach(function (m) {
-      var names = m.kind === "salle" ? (m.seats || []).map(function (x) { return x.name; }) : (m.players || []);
-      var del = A.confirmDel === "m:" + m.id
-        ? h("span", { class: "confirm small" }, "Effacer ?", h("button", { class: "btn sm danger", onclick: function () { (m.kind === "salle" ? Room.del("salles", m.id) : Store.del("multis", m.id)).then(refresh).then(function () { A.confirmDel = null; render(); }); } }, "Oui"), h("button", { class: "btn sm", onclick: function () { A.confirmDel = null; render(); } }, "Non"))
-        : h("button", { class: "btn sm ghost", onclick: function () { A.confirmDel = "m:" + m.id; render(); } }, "Effacer");
-      sec.appendChild(h("div", { class: "save-line" },
-        h("div", { class: "grow" }, h("b", null, m.storyTitle + " · " + (m.kind === "salle" ? "salle commune" : "sur cet appareil")), h("div", { class: "small muted" }, names.join(", ") + " · " + when(m.updated))),
-        h("button", { class: "btn primary sm", onclick: function () { if (m.kind === "salle") openSalle(m.id); else openLocal(m.id); } }, m.kind === "salle" ? "Entrer" : "Reprendre"), del));
-    });
+    var mine = myMultis(), shown = mine.filter(function (m) { return !m.archived; }), stored = mine.filter(function (m) { return m.archived; });
+    var done = shown.filter(multiEndedDoc);
+    var sec = h("section", { class: "section multi-games" }, h("h2", null, "Parties à plusieurs"));
+    if (!shown.length) sec.appendChild(h("div", { class: "notice" }, stored.length ? "Aucune en cours : les autres sont aux archives." : "Aucune pour l'instant. Sur un livre, « À plusieurs » en lance une : sur cet appareil, ou dans une salle commune."));
+    shown.forEach(function (m) { sec.appendChild(multiLine(m)); });
+    if (done.length >= ARCHIVE_ALL_MIN) sec.appendChild(h("div", { class: "row" }, h("button", { class: "btn sm", onclick: function () { archiveMultis(done, true); } }, "🗄 Archiver les " + done.length + " parties terminées")));
+    if (stored.length) {
+      var open = !!A.open.marchives;
+      sec.appendChild(h("button", { class: "btn ghost fold archives-fold", "aria-expanded": open ? "true" : "false", onclick: function () { A.open.marchives = !open; render(); } }, (open ? "▾ " : "▸ ") + "Archives (" + stored.length + ")"));
+      if (open) sec.appendChild(h("div", { class: "archives" }, stored.slice().sort(function (a, b) { return (b.archivedAt || 0) - (a.archivedAt || 0); }).map(multiLine)));
+    }
     return sec;
   }
+  function multiLine(m) {
+    var names = m.kind === "salle" ? (m.seats || []).map(function (x) { return x.name; }) : (m.players || []), ended = multiEndedDoc(m);
+    var del = A.confirmDel === "m:" + m.id
+      ? h("span", { class: "confirm small" }, "Effacer ?", h("button", { class: "btn sm danger", onclick: function () { (m.kind === "salle" ? Room.del("salles", m.id) : Store.del("multis", m.id)).then(refresh).then(function () { A.confirmDel = null; render(); }); } }, "Oui"), h("button", { class: "btn sm", onclick: function () { A.confirmDel = null; render(); } }, "Non"))
+      : h("button", { class: "btn sm ghost", onclick: function () { A.confirmDel = "m:" + m.id; render(); } }, "Effacer");
+    return h("div", { class: "save-line" + (m.archived ? " archived" : "") },
+      h("div", { class: "grow" }, h("b", null, m.storyTitle + " · " + (m.kind === "salle" ? "salle commune" : "sur cet appareil")), h("div", { class: "small muted" }, names.join(", ") + (ended ? " · terminée" : "") + " · " + when(m.updated))),
+      h("div", { class: "save-actions" },
+        h("button", { class: "btn primary sm", onclick: function () { if (m.kind === "salle") openSalle(m.id); else openLocal(m.id); } }, m.kind === "salle" ? "Entrer" : ended ? "Relire" : "Reprendre"),
+        m.archived ? h("button", { class: "btn sm", onclick: function () { archiveMultis([m], false); } }, "Remettre dans la liste")
+          : h("button", { class: "btn sm ghost", title: "Ranger cette partie aux archives : elle quitte la liste sans être effacée.", onclick: function () { archiveMultis([m], true); } }, "🗄 Archiver"),
+        m.archived ? del : null));
+  }
+  // Intent: archiveMultis([MultiDoc], Bool) -> () ! writes(Store | Room) = the same archive as the games of one reader
+  function archiveMultis(list, on) {
+    var now = Date.now();
+    list.forEach(function (m) { m.archived = on; m.archivedAt = now; });
+    A.notice = on ? (list.length > 1 ? list.length + " parties rangées" : "Partie rangée") + " dans « Archives », sous la liste." : "Partie remise dans la liste.";
+    A.noticeBad = false; render();
+    Promise.all(list.map(function (m) {
+      var get = m.kind === "salle" ? Room.get("salles", m.id) : Store.get("multis", m.id);
+      return get.then(function (d) {
+        if (!d) return null;
+        delete d.id; d.archived = on; d.archivedAt = now;
+        return m.kind === "salle" ? Room.put("salles", m.id, d) : Store.put("multis", m.id, d);
+      });
+    })).catch(function (e) { flash("L'archivage n'a pas pu être enregistré partout (" + ((e && e.code) || "erreur") + ") ; il reste fait dans ce navigateur.", true); });
+  }
+
 
 
   // ------------------------------------------------------------------ shared room on the site (several devices)
