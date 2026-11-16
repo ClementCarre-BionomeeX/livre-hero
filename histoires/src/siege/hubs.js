@@ -15,10 +15,10 @@ module.exports = { moves: moves, SLEEP: SLEEP, passages: {
   H_halle: {
     title: "La Halle aux grains", place: "halle", hub: true, backName: "la Halle aux grains",
     text: [
-      { first: true, text: "La Halle aux grains occupe tout un côté de la Basse-Ville : une nef de chêne sur quarante piliers, un toit de tuiles qui descend presque jusqu'au sol, et sous les combles, les greniers de la ville. Au rez-de-chaussée, les boulangers jurés viennent chercher leur farine, et la ville vient chercher son pain." },
-      { first: true, text: "La Maison des Greniers est collée contre le pignon : deux pièces, un bureau et une chambre. Les livres de Bréhal sont encore sur la table, ses lunettes posées sur le dernier registre, et sa cape pend au clou." },
+      { first: true, text: "La Halle aux grains occupe tout un côté de la Basse-Ville : une nef de chêne sur quarante piliers, un toit de tuiles qui descend presque jusqu'au sol, et sous les combles, les greniers de la ville. Sarance a bâti pour son blé une nef plus vaste que pour son Dieu, et sait fort bien pourquoi. Au rez-de-chaussée, les boulangers jurés viennent chercher leur farine, et la ville vient chercher son pain." },
+      { first: true, text: "La Maison des Greniers est collée contre le pignon : deux pièces, un bureau et une chambre. Les livres de Bréhal sont encore sur la table, ses lunettes posées sur le dernier registre, et sa cape pend au clou ; la pièce a gardé l'ordre d'un homme qui comptait revenir dans l'heure." },
       { again: true, when: "day", text: "La Halle sent la farine et la poussière entre ses piliers de chêne, et la file s'allonge devant les comptoirs des boulangers." },
-      { again: true, when: "night", text: "La Halle dort dans la nuit. Deux gardes somnolent devant les escaliers des greniers, une lanterne entre eux." },
+      { again: true, when: "night", text: "La Halle, la nuit, est une forêt de piliers où la lanterne des gardes fait bouger plus d'ombres qu'elle n'en chasse. Les deux hommes somnolent devant les escaliers des greniers ; au-dessus d'eux, dans les combles, les souris tiennent leur propre intendance." },
       { after: "marche:bombarde", before: "halle:reparee", text: "Au milieu du toit, la pierre de la Truie a ouvert un trou grand comme une charrette. Quand il pleut, l'eau tombe droit sur les sacs du grenier ouest." },
       { after: "halle:reparee", text: "Des tuiles neuves, plus rouges que les autres, marquent l'endroit où la pierre est tombée." },
       { by: "rations", cases: { demi: "Sur les comptoirs, les pains de la demi-ration, plus petits que la main.", quart: "Sur les comptoirs, des pains du quart de ration, durs comme des galets. Les gens les regardent longtemps avant de les prendre." }, else: "Sur les comptoirs, les grosses miches de la ration pleine, que l'on compte encore une par bouche." },
@@ -102,7 +102,7 @@ module.exports = { moves: moves, SLEEP: SLEEP, passages: {
       { first: true, text: "Sur l'autre rive, à portée d'arbalète, brûlent les feux d'un poste du Margrave. Les bateliers sortent désormais leurs barques de nuit seulement, et près de la rive." },
       { first: true, text: "Le Chat-Huant, où tu logeais encore hier, ouvre sa porte basse sur le quai." },
       { again: true, when: "day", text: "Les barques dorment sur le port, les Moulins tournent au fil de l'eau et, en face, brûlent les feux du poste du Margrave." },
-      { again: true, when: "night", text: "Le port est plongé dans la nuit. Les roues des Moulins grincent dans le noir, et une lanterne brûle au Chat-Huant." },
+      { again: true, when: "night", text: "Le port est plongé dans la nuit. La Dorve passe, noire et lourde, avec un bruit de soie qu'on déchire ; les roues des Moulins grincent quelque part au-dessus d'elle, et une lanterne brûle au Chat-Huant." },
     ],
     choices: [
       { label: "Entrer au Chat-Huant", to: "P_chathuant" },

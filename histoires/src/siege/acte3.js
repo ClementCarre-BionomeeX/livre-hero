@@ -109,7 +109,7 @@ module.exports = { passages: {
   B2_alerte: {
     act: "III", title: "La nuit des trois lumières", place: "remparts",
     text: [
-      "C'est le douzième jour, à dix heures du soir. Dans le camp du Margrave, tous les feux s'éteignent en même temps, et le silence qui suit est pire que les cors.",
+      "C'est le douzième jour, à dix heures du soir. Dans le camp du Margrave, tous les feux s'éteignent en même temps, comme soufflés par une seule bouche ; et le silence qui suit est pire que les cors, car l'oreille, privée de tout, se met à entendre ce qu'elle redoute.",
       "Tu es sur le chemin de ronde avec tes gens : les tanneurs, les bateliers, les sergents qu'Aussonne t'a donnés.",
       { if: { not: { has: "expulsion" } }, text: "Les hommes du Plessis sont venus d'eux-mêmes, avec leurs fourches." },
       { if: { has: "pacte:oudart" }, text: "En bas, du côté des Moulins, une lumière s'allume au Moulin du milieu. Elle s'éteint et se rallume, trois fois." },
