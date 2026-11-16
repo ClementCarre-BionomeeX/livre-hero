@@ -1,0 +1,2793 @@
+{
+ "id": "courrier",
+ "title": "Le Courrier de Vèze",
+ "subtitle": "Histoire à cartes · trois haltes, un pli scellé",
+ "summary": "La margrave d'Orbec te confie un pli scellé pour le conseil de Vèze, qui vote après-demain au soir. Deux jours de route, un gué, un col, une porte. À chaque halte, tu joues une carte de ta main : une rencontre, un obstacle, un détour, une trahison. La route se construit avec ce que tu joues, et elle se rejoue autrement à chaque partie.",
+ "author": "Claude, pour Clément",
+ "age": 12,
+ "cover": {
+  "motif": "cle",
+  "color": "#4a3a2a"
+ },
+ "glossary": {
+  "vasque|vasques": "Grand bassin de pierre peu profond, où coule une fontaine.",
+  "oriel|oriels": "Fenêtre qui avance sur la façade, comme un petit balcon fermé.",
+  "chevrier|chevrière|chevriers": "Celui ou celle qui garde les chèvres.",
+  "boyau|boyaux": "Passage long et étroit.",
+  "toise|toises": "Ancienne mesure de longueur, un peu moins de deux mètres.",
+  "coudée|coudées": "Ancienne mesure de longueur : du coude au bout des doigts.",
+  "lieue|lieues": "Ancienne mesure de distance, environ quatre kilomètres, une heure de marche.",
+  "arnica": "Plante dont on tire un remède contre les coups et les bleus.",
+  "gambison|gambisons": "Veste épaisse et rembourrée, portée seule ou sous une armure.",
+  "broigne|broignes": "Vêtement de cuir renforcé de plaques ou d'anneaux de métal.",
+  "cotte|cottes": "Tunique. La cotte de mailles est faite de petits anneaux de fer entrelacés.",
+  "cuirasse|cuirasses": "Armure qui protège la poitrine et le dos.",
+  "heaume|heaumes": "Grand casque qui couvre toute la tête.",
+  "pourpoint|pourpoints": "Veste ajustée qui couvre le buste.",
+  "tabard|tabards": "Tunique sans manches portée par-dessus l'armure, souvent aux couleurs d'un seigneur.",
+  "hallebarde|hallebardes": "Arme à long manche, terminée par une lame de hache et une pointe.",
+  "piquier|piquiers": "Soldat armé d'une pique, une très longue lance.",
+  "arbalète|arbalètes": "Arc monté sur un manche de bois, qu'on tend avec un mécanisme ; il tire des carreaux.",
+  "baudrier|baudriers": "Bande de cuir portée en travers du corps, qui soutient l'épée.",
+  "ceinturon|ceinturons": "Grosse ceinture qui porte une arme.",
+  "herboristerie|herboristeries": "Boutique où l'on vend des plantes qui soignent.",
+  "apothicairerie": "Boutique de l'apothicaire, qui prépare les remèdes.",
+  "onguent|onguents": "Pommade qui soigne.",
+  "ravine|ravines": "Petit ravin creusé par l'eau.",
+  "rotonde|rotondes": "Salle ou bâtiment de forme ronde.",
+  "coupole|coupoles": "Toit en forme de demi-boule.",
+  "charretière": "Une porte charretière est assez large pour laisser passer une charrette.",
+  "cochère": "Une porte cochère est assez large pour laisser passer une voiture à chevaux.",
+  "caillé": "Le lait caillé est un lait épaissi, un peu aigre.",
+  "écuelle|écuelles": "Bol large et creux.",
+  "jonc|joncs": "Plante à tige droite qui pousse au bord de l'eau.",
+  "muletier|muletiers|muletière": "Celui ou celle qui conduit les mulets.",
+  "chamelier|chameliers": "Celui qui conduit les chameaux.",
+  "caravanier|caravaniers|caravanière": "Celui ou celle qui conduit une caravane de marchands.",
+  "osselets": "Jeu de petits os qu'on lance et qu'on rattrape.",
+  "chaulé|chaulés|chaulée|chaulées": "Blanchi à la chaux.",
+  "chaux": "Poudre blanche tirée du calcaire : on en blanchit les murs, on en fait du mortier.",
+  "margelle|margelles": "Rebord de pierre autour d'un puits.",
+  "rouvre|rouvres": "Une espèce de chêne.",
+  "câprier|câpriers": "Arbuste qui pousse dans les murs ; on mange ses boutons, les câpres.",
+  "auvent|auvents": "Petit toit au-dessus d'une porte, d'une fenêtre ou d'un étal.",
+  "garance": "Plante dont la racine donne une teinture rouge.",
+  "guède": "Plante dont on tire une teinture bleue.",
+  "astrolabe|astrolabes": "Instrument ancien pour mesurer la hauteur des étoiles et s'orienter.",
+  "éboulis": "Amas de pierres tombées d'une pente.",
+  "gourdin|gourdins": "Bâton gros et court qui sert d'arme.",
+  "tisonne|tisonnes|tisonner": "Remuer les braises du feu.",
+  "tonsure|tonsures": "Cercle rasé sur le haut du crâne, que portent certains religieux.",
+  "amadou": "Matière très sèche, tirée d'un champignon, qui prend feu d'une étincelle.",
+  "éperon|éperons": "Avancée pointue d'une montagne, d'un rocher ou d'un mur ; ou pointe de métal au talon du cavalier.",
+  "vélin": "Parchemin très fin, fait de peau de veau.",
+  "feuillet|feuillets": "Feuille d'un cahier ou d'un livre.",
+  "tenture|tentures": "Grand tissu tendu sur un mur ou devant une ouverture.",
+  "écluse|écluses": "Ouvrage qui retient l'eau d'une rivière ou d'un canal, et la laisse passer à volonté.",
+  "fagot|fagots": "Paquet de petit bois attaché.",
+  "contrebas": "En contrebas : plus bas.",
+  "baluchon|baluchons": "Petit paquet d'affaires noué dans un tissu.",
+  "besace|besaces": "Sac qu'on porte à l'épaule.",
+  "cairn|cairns": "Tas de pierres empilées pour marquer un chemin ou un lieu.",
+  "pilotis": "Pieux enfoncés dans le sol ou dans l'eau, sur lesquels on bâtit.",
+  "soupente|soupentes": "Petit réduit sous un escalier ou sous le toit.",
+  "bourg|bourgs": "Gros village où se tient le marché.",
+  "hameau|hameaux": "Tout petit village.",
+  "gibet|gibets": "Potence où l'on pendait les condamnés.",
+  "poulie|poulies": "Roue sur laquelle passe une corde, pour soulever une charge.",
+  "billot|billots": "Gros bloc de bois sur lequel on coupe ou on fend.",
+  "colporteur|colporteurs|colporteuse|colporteuses": "Marchand qui va de village en village, sa marchandise sur le dos.",
+  "fioritures": "Ornements, détails décoratifs.",
+  "collet|collets": "Piège fait d'un nœud coulant.",
+  "visière|visières": "Partie d'un casque qui protège le visage.",
+  "crevasse|crevasses": "Fente profonde dans la roche ou dans la glace.",
+  "milicien|miliciens|milicienne": "Habitant armé chargé de garder un lieu, sans être un vrai soldat.",
+  "enclume|enclumes": "Bloc de fer sur lequel le forgeron frappe le métal.",
+  "chanvre": "Plante dont on fait des cordes et de la toile.",
+  "meule|meules": "Grosse pierre ronde qui écrase le grain ; ou grand tas de foin.",
+  "dédale|dédales": "Labyrinthe, lieu où l'on se perd.",
+  "sauge": "Plante au parfum fort, qui soigne.",
+  "reliquaire|reliquaires": "Coffret précieux qui garde les restes d'un saint.",
+  "portefaix": "Homme dont le métier est de porter les fardeaux.",
+  "greffier|greffiers|greffière|greffières": "Personne chargée d'écrire et de garder les actes officiels.",
+  "scriptorium": "Salle où l'on copie les livres à la main.",
+  "cocagne": "Le pays de cocagne est un pays imaginaire où tout abonde.",
+  "grelot|grelots": "Petite boule de métal creuse qui tinte.",
+  "luthier|luthiers": "Artisan qui fabrique les instruments à cordes.",
+  "crieur|crieurs|crieuse": "Personne qui annonce les nouvelles à voix haute dans les rues.",
+  "relieur|relieurs": "Artisan qui coud et habille les livres.",
+  "ossuaire|ossuaires": "Lieu où l'on rassemble les os des morts.",
+  "almanach|almanachs": "Petit livre qui donne le calendrier, les saisons, des conseils et des prédictions.",
+  "nacre": "Matière brillante aux reflets changeants, à l'intérieur des coquillages.",
+  "écritoire|écritoires": "Petit pupitre ou coffret qui contient de quoi écrire.",
+  "teinturier|teinturiers|teinturière|teinturières": "Artisan qui colore les tissus.",
+  "étal|étals": "Table où le marchand expose sa marchandise.",
+  "alpage|alpages|estive": "Pâturage de montagne où l'on monte les bêtes pour l'été.",
+  "tisserand|tisserands|tisserande": "Artisan qui fabrique les tissus sur un métier.",
+  "moutier": "Ancien mot pour un monastère.",
+  "cloître|cloîtres": "Galerie couverte qui entoure la cour d'un monastère.",
+  "combe|combes": "Petite vallée étroite.",
+  "liard|liards": "Petite pièce de monnaie de très peu de valeur.",
+  "denier|deniers": "Ancienne pièce de monnaie.",
+  "fascines": "Fagots de branches serrées, pour renforcer un talus ou combler un fossé.",
+  "mélèze|mélèzes": "Arbre de montagne, cousin du sapin, qui perd ses aiguilles en hiver.",
+  "surplomb": "Partie qui avance au-dessus du vide.",
+  "complies": "Dernière prière du soir, chez les moines.",
+  "vêpres": "Prière de la fin d'après-midi, chez les moines.",
+  "héraut|hérauts": "Messager officiel qui porte les annonces d'un seigneur.",
+  "ménestrel|ménestrels": "Musicien et chanteur qui va de château en château.",
+  "péage|péager": "Le péage est le droit qu'on paie pour passer un pont ou un chemin.",
+  "chamois": "Chèvre sauvage des montagnes.",
+  "tréteau|tréteaux": "Support à quatre pieds ; on pose une planche dessus pour faire une table.",
+  "muret|murets": "Petit mur bas.",
+  "lavoir|lavoirs": "Bassin public où l'on lave le linge.",
+  "lavandière|lavandières": "Femme qui lave le linge au lavoir ou à la rivière.",
+  "linteau|linteaux": "Pierre ou poutre posée au-dessus d'une porte ou d'une fenêtre.",
+  "tilleul|tilleuls": "Grand arbre aux fleurs parfumées, dont on fait des tisanes.",
+  "rucher|ruchers": "Ensemble de ruches.",
+  "levain": "Pâte qui fait lever le pain.",
+  "fournil": "Pièce où se trouve le four du boulanger.",
+  "pupitre|pupitres": "Petite table inclinée pour lire ou écrire.",
+  "lutrin|lutrins": "Grand pupitre sur pied où l'on pose un gros livre.",
+  "poterne|poternes": "Petite porte discrète dans le mur d'un château.",
+  "stalle|stalles": "Siège de bois dans le chœur d'une église ; ou case d'un cheval à l'écurie.",
+  "étuve|étuves": "Pièce très chaude, pleine de vapeur.",
+  "lauze|lauzes": "Pierre plate qui couvre les toits en montagne.",
+  "roulier|rouliers": "Charretier qui transporte des marchandises sur les routes.",
+  "lampion|lampions": "Petite lanterne de papier.",
+  "clerc|clercs": "Homme d'Église, ou personne instruite qui sait lire et écrire.",
+  "encrier|encriers": "Petit pot qui contient l'encre.",
+  "colimaçon": "Un escalier en colimaçon tourne sur lui-même.",
+  "chambranle|chambranles": "Encadrement d'une porte ou d'une fenêtre.",
+  "beffroi|beffrois": "Tour où l'on sonne la cloche de la ville.",
+  "claie|claies": "Treillage de branches ou d'osier.",
+  "râtelier|râteliers": "Support où l'on range les armes ; ou mangeoire à foin.",
+  "embrasure|embrasures": "Ouverture dans un mur où se loge une porte ou une fenêtre.",
+  "cantinière|cantinières": "Femme qui vend à boire et à manger aux soldats.",
+  "herse|herses": "Grille qui descend pour fermer l'entrée d'un château.",
+  "chapelain|chapelains": "Prêtre au service d'un château ou d'une chapelle.",
+  "quignon|quignons": "Gros morceau de pain.",
+  "raidillon": "Petit chemin en pente raide.",
+  "joute|joutes|jouter": "Combat à cheval, lance contre lance, pour l'honneur.",
+  "écuyer|écuyers": "Jeune homme au service d'un chevalier.",
+  "replat|replats": "Endroit plat sur une pente.",
+  "bivouac|bivouacs": "Campement en plein air pour la nuit.",
+  "copiste|copistes": "Personne qui recopie les livres à la main.",
+  "mâtin|mâtins": "Gros chien de garde.",
+  "mansarde|mansardes": "Chambre sous le toit.",
+  "houlette": "Bâton de berger.",
+  "rouet|rouets": "Roue qui sert à filer la laine.",
+  "falot|falots": "Grosse lanterne.",
+  "naufrageur|naufrageurs": "Pilleur qui attire les bateaux sur les rochers.",
+  "naseaux": "Narines du cheval.",
+  "colombages": "Charpente de bois apparente dans les murs d'une maison, remplie de terre ou de briques.",
+  "angélus": "Cloche qui sonne le matin, à midi et le soir pour la prière.",
+  "chaume": "Paille qui couvre le toit des maisons.",
+  "quenouille|quenouilles": "Bâton autour duquel on enroule la laine à filer.",
+  "plastron|plastrons": "Pièce qui protège ou orne la poitrine.",
+  "batelier|bateliers|batelière": "Personne qui conduit un bateau sur une rivière.",
+  "marinier|mariniers": "Personne qui conduit un bateau sur une rivière ou un canal.",
+  "gentiane|gentianes": "Fleur de montagne, bleue ou jaune.",
+  "paillasse|paillasses": "Matelas rempli de paille.",
+  "sacristain|sacristains": "Homme qui garde l'église et ses objets.",
+  "parvis": "Place devant une église.",
+  "margrave|margraves": "Seigneur qui gouverne une province de frontière.",
+  "charron|charrons": "Artisan qui fabrique les roues et les charrettes.",
+  "pierrier|pierriers": "Machine de guerre qui lance des pierres.",
+  "heurtoir|heurtoirs": "Anneau de métal fixé à une porte, pour frapper.",
+  "complainte|complaintes": "Chanson triste.",
+  "battoir|battoirs": "Palette de bois pour battre le linge au lavoir.",
+  "barrique|barriques": "Tonneau.",
+  "fenaison|fenaisons": "Moment où l'on coupe et fait sécher le foin.",
+  "luth|luths": "Instrument à cordes au ventre bombé.",
+  "rebec|rebecs": "Petit violon ancien.",
+  "rabot|rabots": "Outil pour aplanir le bois.",
+  "rayonnage|rayonnages": "Étagères.",
+  "plioir": "Lame d'os ou de bois pour plier le papier.",
+  "paneterie": "Pièce où l'on garde le pain.",
+  "bouquetin|bouquetins": "Chèvre sauvage des montagnes, aux grandes cornes.",
+  "palefrenier|palefreniers": "Homme qui soigne les chevaux.",
+  "cellérier": "Moine chargé des provisions du monastère.",
+  "aussière|aussières": "Gros cordage d'un bateau.",
+  "coursive|coursives": "Passage étroit à l'intérieur d'un bateau.",
+  "comite": "Officier qui commande les rameurs d'une galère.",
+  "cambuse": "Réserve à provisions d'un bateau.",
+  "sentine": "Fond de la cale d'un bateau, où s'amasse l'eau sale.",
+  "galère|galères": "Navire de guerre à rames.",
+  "tonnelier|tonneliers": "Artisan qui fabrique les tonneaux.",
+  "paraphe|paraphes": "Signature courte, en quelques traits.",
+  "postillon|postillons": "Cavalier qui conduit une voiture de poste.",
+  "soupirail|soupiraux": "Petite ouverture qui donne de l'air et du jour à une cave.",
+  "oratoire|oratoires": "Petite chapelle.",
+  "andain|andains": "Rangée d'herbe coupée, laissée sur le pré pour sécher.",
+  "écheveau|écheveaux": "Fil enroulé en grande boucle.",
+  "besicles": "Anciennes lunettes.",
+  "licol|licols": "Courroie passée à la tête d'un cheval pour le mener.",
+  "ramure|ramures": "Les branches d'un arbre ; ou les bois d'un cerf.",
+  "violoneux": "Joueur de violon de village.",
+  "hauban|haubans": "Cordages qui tiennent le mât d'un bateau.",
+  "alezan|alezane": "Cheval à la robe brun-roux.",
+  "lingère|lingères": "Femme qui s'occupe du linge d'une maison.",
+  "cordier|cordiers": "Artisan qui fabrique les cordes.",
+  "corderie|corderies": "Atelier où l'on fabrique les cordes.",
+  "filin|filins": "Cordage.",
+  "drisse|drisses": "Cordage qui sert à hisser une voile.",
+  "psautier|psautiers": "Livre de psaumes, chants de prière.",
+  "verrier|verriers": "Artisan qui travaille le verre.",
+  "lices": "Terrain clos où se déroulent les tournois.",
+  "prévôt|prévôte|prévôts": "Officier qui rend la justice au nom du seigneur.",
+  "strophe|strophes": "Groupe de vers dans un poème ou une chanson.",
+  "hampe|hampes": "Long manche d'une lance ou d'un drapeau.",
+  "orfèvre|orfèvres": "Artisan qui travaille l'or et l'argent.",
+  "sellier|selliers": "Artisan qui fabrique les selles.",
+  "fondeur|fondeurs": "Artisan qui fond le métal, par exemple pour faire les cloches.",
+  "épissoir": "Outil pointu qui sert à joindre deux cordes en entrelaçant leurs brins.",
+  "épisser|épisse": "Joindre deux cordes en entrelaçant leurs brins.",
+  "parapet|parapets": "Petit mur qui protège du vide, au bord d'un pont ou d'un rempart.",
+  "créneau|créneaux": "Ouverture en haut d'un rempart, entre deux pans de mur.",
+  "bandoulière": "Portée en bandoulière : en travers du corps, d'une épaule à la hanche opposée.",
+  "serpe|serpes": "Outil à lame courbe pour couper les branches.",
+  "salpêtre": "Dépôt blanc qui se forme sur les murs humides.",
+  "lichen|lichens": "Plante sans racines, en croûte ou en touffes, qui pousse sur les pierres et les arbres.",
+  "surlendemain": "Le jour qui suit le lendemain."
+ },
+ "voice": "deuxième personne, présent",
+ "version": 1,
+ "start": "A_depart",
+ "intro": [
+  "Les histoires à cartes se jouent avec une main de cartes. À chaque halte, tu en choisis une : elle décide du genre de chose qui t'arrive, et l'histoire te dit ce qu'elle devient à cet endroit. Les cartes fortes coûtent de l'élan ; deux cartes de la même enseigne à la suite t'en rendent un."
+ ],
+ "acts": [
+  {
+   "id": "I",
+   "title": "Acte I · La route",
+   "question": "Arriveras-tu à Vèze avant le vote ?",
+   "levels": [
+    1,
+    1
+   ],
+   "start": "A_depart"
+  },
+  {
+   "id": "II",
+   "title": "Acte II · Vèze",
+   "question": "Que diras-tu au conseil ?",
+   "levels": [
+    1,
+    1
+   ],
+   "start": "H3_porte"
+  }
+ ],
+ "cartes": {
+  "inconnu_manteau": {
+   "titre": "L'Inconnu au manteau",
+   "type": "rencontre",
+   "enseigne": "masque",
+   "rarete": "commune",
+   "elan": 0,
+   "texte": "Il a le col relevé jusqu'aux yeux et une politesse de prêteur sur gages."
+  },
+  "colporteur": {
+   "titre": "Le Colporteur bavard",
+   "type": "rencontre",
+   "enseigne": "lanterne",
+   "rarete": "commune",
+   "elan": 0,
+   "texte": "Il vend des aiguilles, des almanachs, et toutes les nouvelles des trois vallées."
+  },
+  "pont_emporte": {
+   "titre": "Le Pont emporté",
+   "type": "obstacle",
+   "enseigne": "lame",
+   "rarete": "commune",
+   "elan": 0,
+   "texte": "Il reste deux piles de pierre et, entre elles, l'eau qui gronde."
+  },
+  "peagers": {
+   "titre": "La Barrière des péagers",
+   "type": "obstacle",
+   "enseigne": "masque",
+   "rarete": "commune",
+   "elan": 0,
+   "texte": "Une perche en travers du chemin, trois hommes et un tarif qui change à chaque voyageur."
+  },
+  "sentier_chevres": {
+   "titre": "Le Sentier des chèvres",
+   "type": "detour",
+   "enseigne": "racine",
+   "rarete": "commune",
+   "elan": 0,
+   "texte": "Les bêtes connaissent un chemin que les cartes ignorent."
+  },
+  "grange": {
+   "titre": "La Grange ouverte",
+   "type": "refuge",
+   "enseigne": "racine",
+   "rarete": "commune",
+   "elan": 0,
+   "texte": "Du foin, un toit, et la porte qu'on a oublié de barrer."
+  },
+  "auberge": {
+   "titre": "L'Auberge des Trois-Clous",
+   "type": "refuge",
+   "enseigne": "lanterne",
+   "rarete": "peu",
+   "elan": 1,
+   "texte": "Un feu, une soupe, et des conversations qu'on écoute en faisant semblant de dormir."
+  },
+  "mot_de_trop": {
+   "titre": "Le Mot de trop",
+   "type": "revelation",
+   "enseigne": "lanterne",
+   "rarete": "peu",
+   "elan": 1,
+   "texte": "Quelqu'un parle un instant trop longtemps."
+  },
+  "bourse": {
+   "titre": "La Bourse oubliée",
+   "type": "tresor",
+   "enseigne": "masque",
+   "rarete": "commune",
+   "elan": 0,
+   "texte": "Elle pend à une ceinture qui ne la surveille plus."
+  },
+  "loups": {
+   "titre": "Les Loups de l'hiver",
+   "type": "peril",
+   "enseigne": "lame",
+   "rarete": "commune",
+   "elan": 0,
+   "texte": "Ils suivent à distance, avec la patience des créanciers."
+  },
+  "corbeau": {
+   "titre": "Le Corbeau sur la borne",
+   "type": "presage",
+   "enseigne": "lanterne",
+   "rarete": "commune",
+   "elan": 0,
+   "texte": "Il regarde le chemin que tu vas prendre, et il le regarde d'un air entendu."
+  },
+  "bergere": {
+   "titre": "La Bergère du col",
+   "type": "allie",
+   "enseigne": "racine",
+   "rarete": "peu",
+   "elan": 1,
+   "texte": "Elle connaît chaque pierre de la montagne, et le prix de chacune."
+  },
+  "rival": {
+   "titre": "Le Cavalier qui te dépasse",
+   "type": "rencontre",
+   "enseigne": "lame",
+   "rarete": "rare",
+   "elan": 1,
+   "ouvre": "rival",
+   "texte": "Il te salue de la cravache, et il va dans la même direction que toi."
+  },
+  "passeur": {
+   "titre": "La Dette du passeur",
+   "type": "allie",
+   "enseigne": "masque",
+   "rarete": "rare",
+   "elan": 1,
+   "ouvre": "dette",
+   "texte": "Il t'aide aujourd'hui. Il te le rappellera demain."
+  },
+  "cachet_double": {
+   "titre": "Le Cachet doublé",
+   "type": "revelation",
+   "enseigne": "lanterne",
+   "rarete": "rare",
+   "elan": 2,
+   "ouvre": "secret",
+   "texte": "Deux cires l'une sur l'autre : quelqu'un a déjà ouvert ce qu'on t'a confié."
+  },
+  "couteau": {
+   "titre": "Le Couteau dans le dos",
+   "type": "trahison",
+   "enseigne": "masque",
+   "rarete": "rare",
+   "elan": 2,
+   "noue": "rival",
+   "texte": "La main qui te serre l'épaule tient déjà la lame."
+  },
+  "heure_payer": {
+   "titre": "L'Heure de payer",
+   "type": "peril",
+   "enseigne": "racine",
+   "rarete": "peu",
+   "elan": 1,
+   "noue": "dette",
+   "texte": "On ne choisit jamais le jour où les dettes reviennent."
+  },
+  "cire_ongle": {
+   "titre": "La Cire sous l'ongle",
+   "type": "revelation",
+   "enseigne": "masque",
+   "rarete": "peu",
+   "elan": 1,
+   "noue": "secret",
+   "texte": "Une trace rouge là où personne n'aurait dû toucher."
+  },
+  "faux_ami": {
+   "titre": "Le Faux Ami",
+   "type": "trahison",
+   "enseigne": "racine",
+   "rarete": "commune",
+   "elan": 0,
+   "texte": "Il t'a offert à boire. Il a payé avec ton nom."
+  },
+  "raccourci": {
+   "titre": "Le Raccourci du contrebandier",
+   "type": "detour",
+   "enseigne": "masque",
+   "rarete": "commune",
+   "elan": 0,
+   "texte": "Plus court, plus sombre, et fréquenté par des gens qui n'aiment pas les témoins."
+  }
+ },
+ "fils": {
+  "rival": {
+   "titre": "Le cavalier",
+   "ouvert": "Un cavalier en manteau gris va à Vèze par ta route, et il presse son cheval.",
+   "noue": "Le cavalier a montré son jeu : il voulait ton pli."
+  },
+  "dette": {
+   "titre": "La dette du passeur",
+   "ouvert": "Gilles Tranchemer t'a aidé{e}. Il viendra chercher son prix.",
+   "noue": "Tu as payé ce que tu devais à Gilles Tranchemer."
+  },
+  "secret": {
+   "titre": "Le cachet doublé",
+   "ouvert": "Deux cires sur ton pli : quelqu'un l'a ouvert avant toi.",
+   "noue": "Tu sais qui a ouvert ton pli."
+  }
+ },
+ "jeu": {
+  "main": 5,
+  "elan": {
+   "depart": 1,
+   "halte": 1
+  },
+  "deck": [
+   "inconnu_manteau",
+   "colporteur",
+   "pont_emporte",
+   "peagers",
+   "sentier_chevres",
+   "grange",
+   "auberge",
+   "mot_de_trop",
+   "bourse",
+   "loups",
+   "corbeau",
+   "bergere",
+   "rival",
+   "rival",
+   "passeur",
+   "passeur",
+   "cachet_double",
+   "cachet_double",
+   "couteau",
+   "heure_payer",
+   "cire_ongle",
+   "faux_ami",
+   "raccourci"
+  ]
+ },
+ "companions": {},
+ "factions": {},
+ "relics": {},
+ "mysteries": {},
+ "clues": {},
+ "quests": [
+  {
+   "id": "pli",
+   "act": "I",
+   "kind": "principale",
+   "title": "Porter le pli à Vèze",
+   "start": "A_depart"
+  }
+ ],
+ "people": {
+  "margrave": {
+   "name": "La margrave d'Orbec",
+   "f": true,
+   "aspect": {
+    "allure": "grande femme sèche",
+    "visage": "cheveux gris tirés",
+    "voix": "parle par ordres brefs"
+   },
+   "face": {
+    "age": "mur",
+    "hair": "gris",
+    "coif": "chignon"
+   },
+   "desc": "Héloïse d'Orbec, margrave de la marche. Elle gouverne trois vallées, et elle a besoin du vote de Vèze."
+  },
+  "fremond": {
+   "name": "Ancel Frémond",
+   "aspect": {
+    "allure": "cavalier en manteau gris",
+    "visage": "moustache cirée",
+    "signe": "une cravache à pommeau d'argent"
+   },
+   "face": {
+    "age": "adulte",
+    "beard": "moustache"
+   },
+   "desc": "Un cavalier en manteau gris, poli comme un huissier, pressé comme un héritier."
+  },
+  "gilles": {
+   "name": "Gilles Tranchemer",
+   "aspect": {
+    "allure": "passeur au dos voûté",
+    "signe": "un anneau de fer à l'oreille"
+   },
+   "face": {
+    "age": "mur",
+    "marks": [
+     "cicatrice"
+    ]
+   },
+   "desc": "Passeur, guide, contrebandier quand il le faut. Il rend des services, et il tient des comptes."
+  },
+  "aubertin": {
+   "name": "Le prévôt Aubertin",
+   "aspect": {
+    "allure": "gros homme en robe noire",
+    "visage": "triple menton",
+    "voix": "voix de chantre"
+   },
+   "face": {
+    "age": "mur",
+    "shape": "rond"
+   },
+   "desc": "Le prévôt du conseil de Vèze. Il préside le vote, et il aime qu'on le sache."
+  }
+ },
+ "items": {
+  "pli": {
+   "name": "Le pli scellé",
+   "kind": "document",
+   "desc": "Une lettre pliée en quatre, cachetée de cire rouge aux armes d'Orbec : une tour et trois clés."
+  }
+ },
+ "world": {
+  "start": {
+   "items": [
+    "pli"
+   ],
+   "gold": 6,
+   "food": 2,
+   "hour": 16
+  }
+ },
+ "enemies": {},
+ "shops": {},
+ "endings": {
+  "livre": {
+   "title": "Le pli remis"
+  },
+  "verite": {
+   "title": "La cire et la vérité"
+  },
+  "tard": {
+   "title": "Trop tard pour le vote"
+  },
+  "devance": {
+   "title": "Le courrier devancé"
+  }
+ },
+ "epilogueTitle": "Ce qu'il advint",
+ "fates": [
+  {
+   "who": "fremond",
+   "label": "Le cavalier",
+   "list": [
+    {
+     "id": "demasque",
+     "title": "le cavalier démasqué",
+     "if": {
+      "fil": "rival",
+      "is": "noue"
+     },
+     "text": "Ancel Frémond quitte Vèze par la porte du nord avant le jour, sans son cheval, qu'on a saisi pour dettes. On dit qu'il sert à présent un autre maître ; on dit aussi qu'il se plaint beaucoup de toi."
+    },
+    {
+     "id": "court",
+     "title": "le cavalier court toujours",
+     "if": {
+      "fil": "rival"
+     },
+     "text": "Le cavalier en manteau gris disparaît de la marche aussi vite qu'il y était venu. À Vèze, on ignore pour qui il courait, et tu l'ignores aussi."
+    },
+    {
+     "id": "aucun",
+     "title": "une route sans cavalier",
+     "text": "Sur la route du retour, tu croises des charrettes, des pèlerins, un troupeau d'oies. Aucun cavalier ne te dépasse."
+    }
+   ]
+  },
+  {
+   "who": "gilles",
+   "label": "Le passeur",
+   "list": [
+    {
+     "id": "quitte",
+     "title": "le passeur payé",
+     "if": {
+      "fil": "dette",
+      "is": "noue"
+     },
+     "text": "Gilles Tranchemer a raturé ton nom dans son carnet ; il le dit en te croisant au gué, et il ajoute qu'il garde la page, au cas où."
+    },
+    {
+     "id": "creancier",
+     "title": "le passeur attend",
+     "if": {
+      "fil": "dette"
+     },
+     "text": "Au gué de la Saulne, Gilles Tranchemer t'attend avec la patience d'un huissier. Ta dette court toujours, et elle a pris des intérêts."
+    },
+    {
+     "id": "inconnu",
+     "title": "aucune dette",
+     "text": "Tu es quitte envers tout le monde sur cette route, ce qui est rare, et presque suspect."
+    }
+   ]
+  }
+ ],
+ "banter": [],
+ "passages": {
+  "A_depart": {
+   "act": "I",
+   "title": "Le pli de la margrave",
+   "fx": {
+    "meet": "margrave"
+   },
+   "text": [
+    "La salle d'audience du château d'Orbec sent la cire froide et le chien mouillé. La margrave t'y reçoit debout, parce qu'une femme assise accorde du temps, et qu'elle garde le sien pour elle.",
+    "« Le conseil de Vèze vote après-demain au soir. Douze voix, et il m'en faut sept. » Elle te tend un pli cacheté de rouge : la tour et les trois clés d'Orbec. « Ceci les fera tomber du bon côté. Tu le remets au prévôt Aubertin en main propre, dans la salle du conseil, devant témoins. À lui seul. Son clerc, sa femme et son confesseur attendront, le confesseur surtout, qui lui répète tout. »",
+    "Elle ajoute six sous pour la route, ce qui donne une idée de l'estime où elle tient ses courriers, et deux jours de pain. Puis elle te jauge comme un maquignon jauge un cheval avant la foire : « Il y a des gens, dans cette marche, qui paieraient cher pour lire ce pli avant le prévôt. Tu en croiseras peut-être. »",
+    "La route de Vèze passe par le gué de la Saulne, puis par le col des Corneilles. Deux jours, si le ciel se tient."
+   ],
+   "choices": [
+    {
+     "label": "Glisser le pli contre ta poitrine et prendre la route",
+     "to": "H1_gue"
+    }
+   ]
+  },
+  "H1_gue": {
+   "act": "I",
+   "title": "Le gué de la Saulne",
+   "halte": {
+    "id": "gue",
+    "nom": "le gué de la Saulne",
+    "suite": "T1_nuit"
+   },
+   "text": [
+    "Tu arrives au gué à l'heure où l'eau devient plus sombre que le ciel. La Saulne a gonflé des pluies de la semaine ; elle roule, jaune et lourde, entre deux rangées de pieux qui marquent le passage, et sous son grondement on entend le choc patient des pierres qu'elle emporte vers l'aval, une à une, comme un compte qu'on égrène. Chaque pieu porte un anneau de fer, et chaque anneau une traînée de rouille qui descend vers l'eau.",
+    "Sur l'autre rive, une cabane de passeur, une barque tirée au sec, une lanterne. Sur ta rive, la route, la boue, et le soir qui tombe."
+   ]
+  },
+  "T1_nuit": {
+   "act": "I",
+   "title": "La nuit sur la route",
+   "text": [
+    "Le gué est derrière toi. La route monte entre les châtaigniers, et la nuit monte avec elle ; tu dors deux heures contre un muret, le pli serré sous ta veste, et tu repars avant l'aube parce que le froid a décidé pour toi.",
+    {
+     "fil": "rival",
+     "text": "Vers minuit, un cheval passe au trot sur la route, en contrebas. Tu reconnais le pas : un cavalier pressé, sur une bête ferrée de neuf."
+    },
+    {
+     "fil": "dette",
+     "text": "Tu penses à Gilles Tranchemer et à son carnet. Une dette envers un passeur se rembourse rarement en argent, et toujours au moment le plus mal choisi."
+    },
+    {
+     "fil": "secret",
+     "text": "À la première lueur, tu regardes encore le cachet. Deux couches de cire, l'une sur l'autre. La maison d'Orbec ? Quelqu'un d'autre ? Le pli garde son secret, et tu le portes quand même."
+    },
+    "Au matin, le col des Corneilles se découpe au-dessus de toi, blanc de givre, et les oiseaux qui lui donnent son nom tournent déjà autour de la croix de pierre."
+   ],
+   "choices": [
+    {
+     "label": "Monter vers le col",
+     "to": "H2_col"
+    }
+   ]
+  },
+  "H2_col": {
+   "act": "I",
+   "title": "Le col des Corneilles",
+   "halte": {
+    "id": "col",
+    "nom": "le col des Corneilles",
+    "suite": "T2_descente"
+   },
+   "text": [
+    "Le col est une selle de rocaille entre deux sommets chauves. Une chapelle sans toit y tient encore debout par habitude ; à côté, la croix de pierre, et autour de la croix les corneilles, qui se querellent avec l'acharnement d'un chapitre de chanoines devant une succession. Le vent arrive par rafales, chargé de grésil, et il cherche l'ouverture de chaque vêtement avec une obstination de douanier.",
+    "De l'autre côté, la route plonge vers la vallée de Vèze. On devine la ville, au fond, sous une fumée bleue."
+   ]
+  },
+  "T2_descente": {
+   "act": "I",
+   "title": "La descente",
+   "text": [
+    "La descente prend la journée. Le grésil devient pluie, la pluie devient bruine, et vers le soir les murs de Vèze sortent de la brume, avec leurs tours carrées et la flèche de la maison du conseil.",
+    {
+     "fil": "rival",
+     "text": "Devant la porte, un cheval gris attend, attaché à un anneau, la robe encore fumante."
+    },
+    {
+     "if": {
+      "clock": "retard",
+      "min": 1
+     },
+     "text": "Le soleil est déjà bas. Tu as perdu du temps sur la route, et la porte de Vèze ferme au dernier coup de vêpres."
+    },
+    "La file des charrettes s'étire jusqu'au pont-levis. Les gardes fouillent les ballots avec la lenteur de gens payés à l'heure."
+   ],
+   "choices": [
+    {
+     "label": "Prendre ta place dans la file",
+     "to": "H3_porte"
+    }
+   ]
+  },
+  "H3_porte": {
+   "act": "II",
+   "title": "La porte de Vèze",
+   "halte": {
+    "id": "porte",
+    "nom": "la porte de Vèze",
+    "suite": "Z_conseil",
+    "types": [
+     "rencontre",
+     "obstacle",
+     "detour",
+     "revelation",
+     "allie",
+     "trahison"
+    ]
+   },
+   "text": [
+    "La porte de Vèze est une gueule de pierre sous une herse à demi levée, et la file avance dedans par saccades, comme une soupe dans un gosier. Les gardes portent la livrée verte de la ville et l'air excédé des gens qui ont vu passer trop de monde. Au-dessus de la voûte, une niche abrite un saint de bois dont la pluie a mangé le visage.",
+    "Les vêpres sonneront bientôt. Le conseil siège ce soir."
+   ]
+  },
+  "Z_conseil": {
+   "act": "II",
+   "branch": [
+    {
+     "if": {
+      "fil": "rival"
+     },
+     "to": "Z_devance"
+    },
+    {
+     "if": {
+      "clock": "retard",
+      "min": 2
+     },
+     "to": "Z_tard"
+    },
+    {
+     "to": "Z_salle"
+    }
+   ]
+  },
+  "Z_devance": {
+   "act": "II",
+   "title": "Un autre courrier",
+   "fx": {
+    "meet": "fremond"
+   },
+   "text": [
+    "Dans la salle du conseil, sous les poutres peintes, douze conseillers sont assis en fer à cheval, et le prévôt Aubertin trône au milieu, dans une robe noire qui pourrait abriter une famille. Devant lui, debout, l'homme au manteau gris. Ancel Frémond tient un pli à la main, cacheté de rouge, et il parle avec l'aisance d'un acteur qui connaît son rôle.",
+    "« … de la part de Madame la margrave d'Orbec, qui prie le conseil de voter selon sa conscience, et de s'abstenir. »",
+    "Le prévôt soupèse le pli. Tu sens contre ta poitrine le poids du tien."
+   ],
+   "choices": [
+    {
+     "label": "Comparer les deux cachets devant le conseil",
+     "if": {
+      "fil": "secret",
+      "is": "noue"
+     },
+     "fx": {
+      "fil": {
+       "noue": "rival"
+      },
+      "ep": [
+       "perso",
+       400
+      ]
+     },
+     "to": "Z_salle"
+    },
+    {
+     "label": "Démasquer le cavalier devant le conseil",
+     "test": {
+      "dom": "social",
+      "label": "Social"
+     },
+     "win": {
+      "fx": {
+       "fil": {
+        "noue": "rival"
+       },
+       "ep": [
+        "perso",
+        300
+       ]
+      },
+      "to": "Z_salle"
+     },
+     "lose": {
+      "to": "F_devance"
+     }
+    }
+   ]
+  },
+  "Z_tard": {
+   "act": "II",
+   "title": "La salle vide",
+   "text": [
+    "Tu entres dans la salle du conseil au moment où les valets éteignent les chandelles. Douze fauteuils vides en fer à cheval, une odeur de suif et de laine mouillée, et sur la table, l'urne renversée, encore pleine de fèves. Les blanches sont cinq, les noires sept.",
+    "Le prévôt Aubertin enfile son manteau dans un coin. Il te regarde, il regarde le cachet d'Orbec, et il soupire avec la satisfaction d'un homme qui n'aura pas à se décider."
+   ],
+   "choices": [
+    {
+     "label": "Lui tendre le pli quand même",
+     "to": "F_tard"
+    }
+   ]
+  },
+  "Z_salle": {
+   "act": "II",
+   "title": "La salle du conseil",
+   "fx": {
+    "meet": "aubertin"
+   },
+   "text": [
+    "La salle du conseil a des poutres peintes de feuillages et de vertus, et des conseillers peints de la même façon : beaucoup de dorure, et peu de couleurs vraies. Le prévôt Aubertin préside au centre du fer à cheval. Il a une voix de chantre, et il s'en sert pour dire les choses les plus simples, comme un homme qui chante la messe pour commander son dîner.",
+    {
+     "noue": "rival",
+     "text": "Les gardes ont emmené Ancel Frémond par la petite porte. Sa cravache est restée sur les dalles, et personne ne la ramasse."
+    },
+    {
+     "fil": "secret",
+     "text": "Tu sens le pli contre toi, avec sa double cire. Tu ignores qui l'a ouvert, et ce qu'on y a lu."
+    },
+    "« Courrier d'Orbec ? » chante le prévôt. « Approche. Le conseil t'écoute, et la margrave aussi, sans doute, par quelque moyen que la Providence lui a donné. »"
+   ],
+   "choices": [
+    {
+     "label": "Remettre le pli au prévôt, devant témoins",
+     "to": "F_livre"
+    },
+    {
+     "label": "Remettre le pli, et dire au conseil qui l'a ouvert sur la route",
+     "if": {
+      "fil": "secret",
+      "is": "noue"
+     },
+     "to": "F_verite"
+    }
+   ]
+  },
+  "F_livre": {
+   "act": "II",
+   "title": "Le pli remis",
+   "end": true,
+   "epilogue": true,
+   "fx": {
+    "flag": "fin:livre",
+    "quest": "pli",
+    "ep": [
+     "histoire",
+     1200
+    ]
+   },
+   "text": [
+    "Le prévôt brise la cire et lit. Il lit deux fois. Puis il plie la lettre, la pose sur la table, et regarde ses douze conseillers avec l'œil d'un berger qui recompte son troupeau.",
+    "On vote aux fèves. Sept noires pour Orbec, cinq blanches contre. La margrave a ses sept voix.",
+    {
+     "fil": "secret",
+     "text": "Pendant le vote, tu observes un conseiller aux mains fines qui ne quitte pas la lettre des yeux. Il vote blanc. Il était peut-être le lecteur de la première cire ; tu ne le sauras pas ce soir."
+    },
+    "On te donne une chambre au-dessus de l'écurie de la ville, un souper chaud, et un reçu signé du prévôt, de sa plus belle écriture."
+   ]
+  },
+  "F_verite": {
+   "act": "II",
+   "title": "La cire et la vérité",
+   "end": true,
+   "epilogue": true,
+   "fx": {
+    "flag": "fin:verite",
+    "quest": "pli",
+    "ep": [
+     "histoire",
+     1200
+    ]
+   },
+   "text": [
+    "Tu poses le pli sur la table, et tu montres la double cire au conseil. Puis tu dis ce que tu as appris sur la route : la main qui a ouvert la lettre, et le nom de celui qui l'avait payée.",
+    "Le silence qui suit est de ceux qu'on entend. Un conseiller aux mains fines se lève, se rassied, se relève, et quitte la salle sans demander la permission. Le prévôt le regarde partir avec la sérénité d'un homme qui vient de gagner un siège à bon compte.",
+    "Le vote a lieu quand même. Huit noires pour Orbec. Le prévôt te serre la main à deux mains, comme un notaire serre un héritage."
+   ]
+  },
+  "F_tard": {
+   "act": "II",
+   "title": "Trop tard pour le vote",
+   "end": true,
+   "epilogue": true,
+   "fx": {
+    "flag": "fin:tard",
+    "quest": "pli",
+    "ep": [
+     "histoire",
+     1200
+    ]
+   },
+   "text": [
+    "Le prévôt prend le pli, le soupèse, et le glisse dans sa manche sans l'ouvrir. « Le conseil a voté. Je le lirai demain, par politesse pour Madame la margrave. »",
+    "Tu repars le lendemain avec un reçu en bonne forme et la certitude que la margrave lira, sur ton visage, le compte exact de tes heures perdues."
+   ]
+  },
+  "F_devance": {
+   "act": "II",
+   "title": "Le courrier devancé",
+   "end": true,
+   "epilogue": true,
+   "fx": {
+    "flag": "fin:devance",
+    "quest": "pli",
+    "ep": [
+     "histoire",
+     1200
+    ]
+   },
+   "text": [
+    "Tu parles trop vite, trop fort, avec la boue de deux jours sur tes bottes. Le cavalier, lui, parle doucement, avec des gants propres. Le conseil croit les gants.",
+    "On te reconduit à la porte. Derrière toi, le prévôt brise la cire du faux pli, et le conseil vote l'abstention, comme la fausse margrave le lui demande.",
+    "Tu gardes le vrai pli. Il pèse plus lourd, à présent, qu'à Orbec."
+   ]
+  },
+  "R_rencontre": {
+   "title": "Quelqu'un sur la route",
+   "resout": {
+    "type": "rencontre"
+   },
+   "text": [
+    {
+     "halte": "gue",
+     "text": "Sur la berge, près des pieux, quelqu'un attend que l'eau baisse, assis sur une borne, et surveille la rivière comme un créancier surveille la porte d'un débiteur."
+    },
+    {
+     "halte": "col",
+     "text": "Contre le mur de la chapelle, à l'abri du vent, quelqu'un s'est fait un nid de couvertures et souffle sur un feu de brindilles qui fume plus qu'il ne chauffe."
+    },
+    {
+     "halte": "porte",
+     "text": "Dans la file, juste devant toi, quelqu'un se retourne, te détaille de la tête aux bottes, et décide visiblement que tu mérites la conversation."
+    },
+    {
+     "carte": "inconnu_manteau",
+     "text": "C'est un homme en manteau sombre, le col relevé jusqu'aux yeux, qui parle bas et sourit trop. Il veut savoir d'où tu viens. Il le demande trois fois, de trois façons différentes."
+    },
+    {
+     "carte": "colporteur",
+     "text": "C'est un colporteur, la hotte de bois sur le dos, chargé d'aiguilles, de rubans et d'almanachs de l'an passé. Il parle comme d'autres respirent, et dans le flot surnagent les nouvelles de la marche : les prix, les mariages, les pendus, et ce que le conseil de Vèze votera dimanche."
+    }
+   ],
+   "choices": [
+    {
+     "label": "Le faire parler en restant vague sur toi-même",
+     "enseigne": "masque",
+     "test": {
+      "dom": "social",
+      "label": "Social"
+     },
+     "win": {
+      "fx": {
+       "ep": [
+        "perso",
+        200
+       ]
+      },
+      "to": "R_rencontre_ok"
+     },
+     "lose": {
+      "fx": {
+       "clock": {
+        "retard": 1
+       },
+       "note": "Tu as perdu du temps."
+      },
+      "to": "R_rencontre_ko"
+     }
+    },
+    {
+     "label": "Lui acheter un almanach, et l'écouter vider son sac",
+     "enseigne": "lanterne",
+     "test": {
+      "dom": "savoir",
+      "label": "Savoir"
+     },
+     "win": {
+      "fx": {
+       "ep": [
+        "perso",
+        200
+       ]
+      },
+      "to": "R_rencontre_ok"
+     },
+     "lose": {
+      "fx": {
+       "clock": {
+        "retard": 1
+       },
+       "note": "Tu as perdu du temps."
+      },
+      "to": "R_rencontre_ko"
+     }
+    },
+    {
+     "label": "Le saluer et passer ton chemin",
+     "to": "R_rencontre_passe"
+    }
+   ]
+  },
+  "R_rencontre_ok": {
+   "title": "Ce qu'on apprend en écoutant",
+   "fx": {
+    "elan": 1
+   },
+   "text": [
+    "Tu laisses venir les mots, et dans le flot il y en a un qui vaut le détour : sur la route de Vèze, quelqu'un pose des questions sur les courriers d'Orbec, et il paie les réponses en argent blanc.",
+    "Tu sais désormais qu'on te cherche. C'est une mauvaise nouvelle, et un avantage."
+   ],
+   "choices": [
+    {
+     "label": "Reprendre la route",
+     "halte": [
+      "gue",
+      "col"
+     ],
+     "to": "@suite"
+    },
+    {
+     "label": "Passer la porte de Vèze",
+     "halte": "porte",
+     "to": "@suite"
+    }
+   ]
+  },
+  "R_rencontre_ko": {
+   "title": "Une heure perdue",
+   "text": [
+    "La conversation tourne comme une meule, et elle te broie une heure entière. Quand tu t'en dégages, tu as appris le prix du seigle dans trois vallées, et ton interlocuteur a appris ton nom, ta route et l'heure de ton départ."
+   ],
+   "choices": [
+    {
+     "label": "Reprendre la route",
+     "halte": [
+      "gue",
+      "col"
+     ],
+     "to": "@suite"
+    },
+    {
+     "label": "Passer la porte de Vèze",
+     "halte": "porte",
+     "to": "@suite"
+    }
+   ]
+  },
+  "R_rencontre_passe": {
+   "title": "Un salut, et rien de plus",
+   "text": [
+    "Tu salues d'un signe de tête et tu continues. Derrière toi, la voix se tait un moment, puis reprend avec le suivant. Sur une route, les bavards ont toujours un suivant."
+   ],
+   "choices": [
+    {
+     "label": "Reprendre la route",
+     "halte": [
+      "gue",
+      "col"
+     ],
+     "to": "@suite"
+    },
+    {
+     "label": "Passer la porte de Vèze",
+     "halte": "porte",
+     "to": "@suite"
+    }
+   ]
+  },
+  "R_obstacle": {
+   "title": "Le passage barré",
+   "resout": {
+    "type": "obstacle"
+   },
+   "text": [
+    {
+     "halte": "gue",
+     "carte": "pont_emporte",
+     "text": "La passerelle des piétons, en amont du gué, a cédé dans la nuit. Il en reste deux piles de pierre et, entre elles, l'eau qui gronde, avec des planches qui tournent dans les remous comme des feuilles mortes."
+    },
+    {
+     "halte": "col",
+     "carte": "pont_emporte",
+     "text": "Sous le col, le chemin franchit un torrent sur deux troncs liés de corde. Les troncs sont là ; la corde a lâché, et l'un des deux pend dans le vide, retenu par une racine."
+    },
+    {
+     "halte": "porte",
+     "carte": "pont_emporte",
+     "text": "Le pont-levis de Vèze s'est bloqué à mi-course, une chaîne sautée de sa poulie. Une planche jetée en travers du fossé sert de passage aux plus pressés, et les gardes regardent qui se risque."
+    },
+    {
+     "carte": "peagers",
+     "text": "Une perche en travers du chemin, trois hommes autour d'un brasero, et un tarif qui change selon la tête du voyageur. L'un d'eux te détaille, puis annonce : « Quatre sous. » Le marchand de bois, juste avant toi, en a payé un."
+    }
+   ],
+   "choices": [
+    {
+     "label": "Passer en force",
+     "enseigne": "lame",
+     "test": {
+      "dom": "combat",
+      "label": "Combat"
+     },
+     "win": {
+      "fx": {
+       "ep": [
+        "perso",
+        200
+       ]
+      },
+      "to": "R_obstacle_ok"
+     },
+     "lose": {
+      "fx": {
+       "pv": -2,
+       "clock": {
+        "retard": 1
+       }
+      },
+      "to": "R_obstacle_ko"
+     }
+    },
+    {
+     "label": "Trouver la faille et passer sans payer",
+     "enseigne": "masque",
+     "test": {
+      "dom": "discretion",
+      "label": "Discrétion"
+     },
+     "win": {
+      "fx": {
+       "ep": [
+        "perso",
+        200
+       ]
+      },
+      "to": "R_obstacle_ok"
+     },
+     "lose": {
+      "fx": {
+       "clock": {
+        "retard": 1
+       },
+       "note": "Tu as perdu du temps."
+      },
+      "to": "R_obstacle_ko"
+     }
+    },
+    {
+     "label": "Payer, ou attendre que le passage se libère",
+     "to": "R_obstacle_attente"
+    }
+   ]
+  },
+  "R_obstacle_ok": {
+   "title": "De l'autre côté",
+   "text": [
+    "Un geste juste, au bon moment, et tu es de l'autre côté, avec tes bottes, ton pli et ta dignité. Les deux premiers comptent davantage."
+   ],
+   "choices": [
+    {
+     "label": "Reprendre la route",
+     "halte": [
+      "gue",
+      "col"
+     ],
+     "to": "@suite"
+    },
+    {
+     "label": "Passer la porte de Vèze",
+     "halte": "porte",
+     "to": "@suite"
+    }
+   ]
+  },
+  "R_obstacle_ko": {
+   "title": "Le prix du passage",
+   "text": [
+    "Tu passes, mais en y laissant du temps, de la peau, et une part de ton amour-propre. Tu vérifies le pli : il est sec, il est entier. Toi, moins."
+   ],
+   "choices": [
+    {
+     "label": "Reprendre la route",
+     "halte": [
+      "gue",
+      "col"
+     ],
+     "to": "@suite"
+    },
+    {
+     "label": "Passer la porte de Vèze",
+     "halte": "porte",
+     "to": "@suite"
+    }
+   ]
+  },
+  "R_obstacle_attente": {
+   "title": "Attendre son tour",
+   "fx": {
+    "clock": {
+     "retard": 1
+    },
+    "gold": -1
+   },
+   "text": [
+    "Tu paies un sou, ou tu attends ; souvent les deux. Le passage s'ouvre enfin, avec la lenteur des choses qui savent qu'on n'a pas le choix."
+   ],
+   "choices": [
+    {
+     "label": "Reprendre la route",
+     "halte": [
+      "gue",
+      "col"
+     ],
+     "to": "@suite"
+    },
+    {
+     "label": "Passer la porte de Vèze",
+     "halte": "porte",
+     "to": "@suite"
+    }
+   ]
+  },
+  "R_detour": {
+   "title": "Un autre chemin",
+   "resout": {
+    "type": "detour"
+   },
+   "text": [
+    {
+     "halte": "gue",
+     "text": "Le gué est noyé. Mais en amont, la rive porte des traces : le passage d'un troupeau, ou de gens qui préfèrent les endroits sans passeur."
+    },
+    {
+     "halte": "col",
+     "text": "La route du col fait un long lacet sur la gauche. À droite, droit dans la pente, un sentier part entre deux rochers, à peine marqué."
+    },
+    {
+     "halte": "porte",
+     "text": "La file avance au pas. Le long du rempart, une ruelle de tanneurs longe le fossé et finit, d'après l'odeur, quelque part où l'on travaille sans demander de laissez-passer."
+    },
+    {
+     "carte": "sentier_chevres",
+     "text": "Des chèvres y sont passées ce matin ; elles ont laissé des crottes rondes et la certitude qu'il y a un chemin. Les chèvres sont d'excellentes topographes, et de mauvaises guides."
+    },
+    {
+     "carte": "raccourci",
+     "text": "Un bout de chiffon rouge noué à une branche marque le départ. Les contrebandiers balisent leurs chemins pour eux-mêmes, et pour personne d'autre."
+    }
+   ],
+   "choices": [
+    {
+     "label": "Suivre les traces des bêtes",
+     "enseigne": "racine",
+     "test": {
+      "dom": "nature",
+      "label": "Nature"
+     },
+     "win": {
+      "fx": {
+       "ep": [
+        "perso",
+        200
+       ],
+       "elan": 1
+      },
+      "to": "R_detour_ok"
+     },
+     "lose": {
+      "fx": {
+       "clock": {
+        "retard": 1
+       },
+       "note": "Tu as perdu du temps."
+      },
+      "to": "R_detour_ko"
+     }
+    },
+    {
+     "label": "Prendre le raccourci sans te faire voir",
+     "enseigne": [
+      "masque",
+      "lame",
+      "lanterne"
+     ],
+     "test": {
+      "dom": "discretion",
+      "label": "Discrétion"
+     },
+     "win": {
+      "fx": {
+       "ep": [
+        "perso",
+        200
+       ],
+       "elan": 1
+      },
+      "to": "R_detour_ok"
+     },
+     "lose": {
+      "fx": {
+       "clock": {
+        "retard": 1
+       },
+       "note": "Tu as perdu du temps."
+      },
+      "to": "R_detour_ko"
+     }
+    },
+    {
+     "label": "Rester sur la route connue",
+     "to": "R_detour_reste"
+    }
+   ]
+  },
+  "R_detour_ok": {
+   "title": "Le chemin des connaisseurs",
+   "text": [
+    "Le détour tient ses promesses : il est raide, sale, et court. Tu retrouves la route bien plus loin que tu ne l'espérais, avec de l'avance sur ta propre journée."
+   ],
+   "choices": [
+    {
+     "label": "Reprendre la route",
+     "halte": [
+      "gue",
+      "col"
+     ],
+     "to": "@suite"
+    },
+    {
+     "label": "Passer la porte de Vèze",
+     "halte": "porte",
+     "to": "@suite"
+    }
+   ]
+  },
+  "R_detour_ko": {
+   "title": "Le chemin qui tourne en rond",
+   "text": [
+    "Le sentier se divise, se redivise, et finit contre une paroi, ou contre un mur, ou contre un chien qui garde une cour. Tu reviens sur tes pas avec le sentiment d'avoir été berné{e} par une chèvre."
+   ],
+   "choices": [
+    {
+     "label": "Reprendre la route",
+     "halte": [
+      "gue",
+      "col"
+     ],
+     "to": "@suite"
+    },
+    {
+     "label": "Passer la porte de Vèze",
+     "halte": "porte",
+     "to": "@suite"
+    }
+   ]
+  },
+  "R_detour_reste": {
+   "title": "La route connue",
+   "text": [
+    "Tu restes sur la route. Elle est longue, elle est sûre, et elle a pour elle la vertu des choses ennuyeuses : on sait où elle mène."
+   ],
+   "choices": [
+    {
+     "label": "Reprendre la route",
+     "halte": [
+      "gue",
+      "col"
+     ],
+     "to": "@suite"
+    },
+    {
+     "label": "Passer la porte de Vèze",
+     "halte": "porte",
+     "to": "@suite"
+    }
+   ]
+  },
+  "R_refuge": {
+   "title": "Un toit",
+   "resout": {
+    "type": "refuge"
+   },
+   "text": [
+    {
+     "halte": "gue",
+     "carte": "grange",
+     "text": "Sur la rive, une grange de ferme, la porte entrouverte, du foin jusqu'aux poutres. Personne dans la cour. Le chien dort, ou fait semblant, ce qui revient au même pour toi."
+    },
+    {
+     "halte": "col",
+     "carte": "grange",
+     "text": "Sous le col, une bergerie de pierre sèche, au toit de lauzes, avec une litière de fougères et un reste de chaleur animale."
+    },
+    {
+     "halte": "gue",
+     "carte": "auberge",
+     "text": "Près du gué, une auberge à l'enseigne de trois clous rouillés, où l'on attend la décrue en buvant. Il y a un feu, une soupe, et une salle pleine de gens qui parlent fort."
+    },
+    {
+     "halte": "col",
+     "carte": "auberge",
+     "text": "Au pied du col, une auberge de muletiers s'accroche à la pente ; elle porte trois clous plantés sur sa porte en guise d'enseigne. Le feu y brûle, la soupe y épaissit, et les muletiers y racontent la montagne."
+    }
+   ],
+   "choices": [
+    {
+     "label": "Dormir dans le foin, la main sur le pli",
+     "enseigne": "racine",
+     "fx": {
+      "pv": 4,
+      "elan": 1
+     },
+     "to": "R_refuge_repos"
+    },
+    {
+     "label": "Faire semblant de dormir, et écouter la salle",
+     "enseigne": [
+      "lanterne",
+      "masque",
+      "lame"
+     ],
+     "test": {
+      "dom": "savoir",
+      "label": "Savoir"
+     },
+     "win": {
+      "fx": {
+       "ep": [
+        "perso",
+        250
+       ],
+       "elan": 1
+      },
+      "to": "R_refuge_ok"
+     },
+     "lose": {
+      "fx": {
+       "pv": 2
+      },
+      "to": "R_refuge_repos"
+     }
+    }
+   ]
+  },
+  "R_refuge_repos": {
+   "title": "Une heure de sommeil",
+   "text": [
+    "Tu dors d'un sommeil de pierre, sans rêve, et tu te réveilles reposé{e}, avec une paille dans l'oreille et le pli à sa place."
+   ],
+   "choices": [
+    {
+     "label": "Reprendre la route",
+     "to": "@suite"
+    }
+   ]
+  },
+  "R_refuge_ok": {
+   "title": "Ce qu'on dit à la veillée",
+   "text": [
+    "Dans la conversation, une phrase te réveille tout à fait : un homme a payé pour qu'on lui signale tout courrier portant la cire d'Orbec. Tu gardes les yeux fermés, et tu retiens la voix."
+   ],
+   "choices": [
+    {
+     "label": "Reprendre la route",
+     "to": "@suite"
+    }
+   ]
+  },
+  "R_revelation": {
+   "title": "Une parole de trop",
+   "resout": {
+    "type": "revelation"
+   },
+   "text": [
+    {
+     "halte": "gue",
+     "text": "Près des pieux, deux bateliers discutent en ramendant un filet, sans voir que la rivière porte leurs voix jusqu'à toi."
+    },
+    {
+     "halte": "col",
+     "text": "Dans la chapelle sans toit, deux muletiers se sont mis à l'abri du vent, et le vent, qui n'a aucun respect, t'apporte leur conversation."
+    },
+    {
+     "halte": "porte",
+     "text": "Sous la voûte de la porte, deux gardes parlent de la séance du conseil en croyant que la file ne les entend pas."
+    },
+    "L'un d'eux dit un nom, puis un chiffre : celui qui paiera, et combien, pour que le conseil vote contre Orbec."
+   ],
+   "choices": [
+    {
+     "label": "Retenir chaque mot",
+     "enseigne": [
+      "lanterne",
+      "masque"
+     ],
+     "test": {
+      "dom": "savoir",
+      "label": "Savoir"
+     },
+     "win": {
+      "fx": {
+       "ep": [
+        "perso",
+        250
+       ],
+       "elan": 1
+      },
+      "to": "R_revelation_ok"
+     },
+     "lose": {
+      "to": "R_revelation_ko"
+     }
+    }
+   ]
+  },
+  "R_revelation_ok": {
+   "title": "Un nom à garder",
+   "text": [
+    "Le nom est celui d'un conseiller de Vèze, le chiffre celui d'une fortune modeste. Tu les gardes pour toi. Un courrier qui sait ce qu'on achète à Vèze marche plus droit."
+   ],
+   "choices": [
+    {
+     "label": "Reprendre la route",
+     "halte": [
+      "gue",
+      "col"
+     ],
+     "to": "@suite"
+    },
+    {
+     "label": "Passer la porte de Vèze",
+     "halte": "porte",
+     "to": "@suite"
+    }
+   ]
+  },
+  "R_revelation_ko": {
+   "title": "Des mots emportés",
+   "text": [
+    "Le vent tourne, une charrette passe, et les mots se perdent. Tu gardes un chiffre sans nom, ce qui vaut à peu près le prix d'un almanach de l'an passé."
+   ],
+   "choices": [
+    {
+     "label": "Reprendre la route",
+     "halte": [
+      "gue",
+      "col"
+     ],
+     "to": "@suite"
+    },
+    {
+     "label": "Passer la porte de Vèze",
+     "halte": "porte",
+     "to": "@suite"
+    }
+   ]
+  },
+  "R_tresor": {
+   "title": "Une bourse",
+   "resout": {
+    "type": "tresor"
+   },
+   "text": [
+    {
+     "halte": "gue",
+     "text": "Accrochée à un pieu, à fleur d'eau, une sacoche de cuir oscille dans le courant. Son propriétaire l'a perdue au passage, ou l'a laissée là pour quelqu'un."
+    },
+    {
+     "halte": "col",
+     "text": "Au pied de la croix, sous une pierre plate posée de travers, quelque chose brille : une bourse, dans une niche creusée exprès."
+    },
+    "Elle est pleine. Ou presque."
+   ],
+   "choices": [
+    {
+     "label": "La prendre sans que personne te voie",
+     "enseigne": [
+      "masque",
+      "lame",
+      "lanterne",
+      "racine"
+     ],
+     "test": {
+      "dom": "discretion",
+      "label": "Discrétion"
+     },
+     "win": {
+      "fx": {
+       "gold": 5,
+       "ep": [
+        "perso",
+        150
+       ]
+      },
+      "to": "R_tresor_ok"
+     },
+     "lose": {
+      "fx": {
+       "gold": 2,
+       "clock": {
+        "retard": 1
+       }
+      },
+      "to": "R_tresor_ko"
+     }
+    },
+    {
+     "label": "La laisser où elle est",
+     "to": "R_tresor_laisse"
+    }
+   ]
+  },
+  "R_tresor_ok": {
+   "title": "Cinq sous de mieux",
+   "text": [
+    "Cinq sous d'argent, et une médaille de pèlerin. Le pèlerin aura prié pour rien, et toi, tu as gagné sans prier."
+   ],
+   "choices": [
+    {
+     "label": "Reprendre la route",
+     "to": "@suite"
+    }
+   ]
+  },
+  "R_tresor_ko": {
+   "title": "Un témoin",
+   "text": [
+    "Tu as la bourse en main quand un berger surgit du brouillard et crie au voleur. Tu lui en laisses la moitié pour qu'il se taise, et tu perds une heure à le convaincre de garder l'autre moitié du secret."
+   ],
+   "choices": [
+    {
+     "label": "Reprendre la route",
+     "to": "@suite"
+    }
+   ]
+  },
+  "R_tresor_laisse": {
+   "title": "L'honnêteté",
+   "text": [
+    "Tu laisses la bourse. L'honnêteté est une vertu qui ne rapporte rien sur le moment, et c'est précisément ce qui la distingue des autres."
+   ],
+   "choices": [
+    {
+     "label": "Reprendre la route",
+     "to": "@suite"
+    }
+   ]
+  },
+  "R_peril": {
+   "title": "Le danger",
+   "resout": {
+    "type": "peril"
+   },
+   "text": [
+    {
+     "halte": "gue",
+     "text": "Au bord de l'eau, la nuit tombe d'un coup, et dans les saules, sur l'autre rive, deux yeux s'allument, puis deux autres, puis encore deux."
+    },
+    {
+     "halte": "col",
+     "text": "Dans le grésil, entre les rochers, des formes grises avancent par bonds courts, en éventail, avec la méthode d'une compagnie de sergents qui encercle une taverne."
+    },
+    {
+     "carte": "heure_payer",
+     "text": "Quelque chose te suit. Tu le sens dans ta nuque avant de l'entendre, et quand tu te retournes, les loups sont là, trois, maigres comme des procès."
+    },
+    {
+     "carte": "loups",
+     "text": "Les loups de l'hiver ont faim, et ils ont le temps. Ils te suivent à distance égale, chaque fois que tu te retournes."
+    }
+   ],
+   "choices": [
+    {
+     "label": "Faire face, le bâton levé",
+     "enseigne": [
+      "lame",
+      "racine"
+     ],
+     "test": {
+      "dom": "combat",
+      "label": "Combat"
+     },
+     "win": {
+      "fx": {
+       "ep": [
+        "perso",
+        300
+       ]
+      },
+      "to": "R_peril_ok"
+     },
+     "lose": {
+      "fx": {
+       "pv": -4
+      },
+      "to": "R_peril_ko"
+     }
+    },
+    {
+     "label": "Fuir, droit devant",
+     "to": "R_peril_fuite"
+    }
+   ]
+  },
+  "R_peril_ok": {
+   "title": "La meute recule",
+   "text": [
+    "La meute hésite, recule, et se fond dans le gris. Tu restes un long moment immobile, le cœur battant à grands coups, à compter les ombres. Elles ne reviennent pas."
+   ],
+   "choices": [
+    {
+     "label": "Reprendre la route",
+     "to": "@suite"
+    }
+   ]
+  },
+  "R_peril_ko": {
+   "title": "Des crocs",
+   "text": [
+    "Tu t'en sors, avec une morsure au mollet et une manche en lambeaux. Le pli est intact. Ta jambe, beaucoup moins."
+   ],
+   "choices": [
+    {
+     "label": "Reprendre la route",
+     "to": "@suite"
+    }
+   ]
+  },
+  "R_peril_fuite": {
+   "title": "La fuite",
+   "fx": {
+    "clock": {
+     "retard": 1
+    },
+    "pv": -1
+   },
+   "text": [
+    "Tu cours, tu tombes, tu te relèves, tu cours encore, et tu t'arrêtes quand ton souffle t'y oblige. La meute a abandonné ; la route aussi, d'ailleurs. Tu la retrouves au prix d'une heure."
+   ],
+   "choices": [
+    {
+     "label": "Reprendre la route",
+     "to": "@suite"
+    }
+   ]
+  },
+  "R_presage": {
+   "title": "Un signe",
+   "resout": {
+    "type": "presage"
+   },
+   "text": [
+    {
+     "halte": "gue",
+     "text": "Sur la borne du gué, un corbeau s'est posé. Il te regarde arriver, la tête penchée, puis il regarde l'eau, puis encore toi, et il croasse une seule fois."
+    },
+    {
+     "halte": "col",
+     "text": "Sur le bras de la croix, une corneille plus grosse que les autres se tient immobile au milieu de la querelle générale, et elle te fixe de son œil rond."
+    },
+    "On dit dans la marche que ces oiseaux voient le chemin avant les voyageurs. On dit beaucoup de choses dans la marche."
+   ],
+   "choices": [
+    {
+     "label": "Lire le signe",
+     "enseigne": [
+      "lanterne",
+      "masque",
+      "lame",
+      "racine"
+     ],
+     "test": {
+      "dom": "savoir",
+      "label": "Savoir"
+     },
+     "win": {
+      "fx": {
+       "ep": [
+        "perso",
+        200
+       ],
+       "elan": 2
+      },
+      "to": "R_presage_ok"
+     },
+     "lose": {
+      "to": "R_presage_ko"
+     }
+    },
+    {
+     "label": "Hausser les épaules",
+     "to": "R_presage_ko"
+    }
+   ]
+  },
+  "R_presage_ok": {
+   "title": "Le chemin vu d'en haut",
+   "text": [
+    "L'oiseau s'envole vers l'aval, et en suivant son vol tu remarques ce que tu n'avais pas vu : l'endroit où le terrain est sûr, l'endroit où il ment. Tu repars avec une confiance qui ressemble à de l'élan."
+   ],
+   "choices": [
+    {
+     "label": "Reprendre la route",
+     "to": "@suite"
+    }
+   ]
+  },
+  "R_presage_ko": {
+   "title": "Un oiseau, et rien de plus",
+   "text": [
+    "L'oiseau s'envole. C'était un oiseau. Tu repars, un peu vexé{e} d'avoir attendu un message d'un volatile."
+   ],
+   "choices": [
+    {
+     "label": "Reprendre la route",
+     "to": "@suite"
+    }
+   ]
+  },
+  "R_allie": {
+   "title": "Une main tendue",
+   "resout": {
+    "type": "allie"
+   },
+   "text": [
+    {
+     "halte": "gue",
+     "text": "Une femme descend vers le gué avec un troupeau de chèvres, et elle te regarde hésiter devant l'eau avec l'indulgence qu'on réserve aux citadins."
+    },
+    {
+     "halte": "col",
+     "text": "Une bergère remonte vers le col avec ses bêtes, enveloppée dans une cape de feutre raide comme une guérite, un bâton ferré à la main."
+    },
+    {
+     "halte": "porte",
+     "text": "Une femme du marché, un panier sous le bras, remarque ta boue, ta fatigue et le cachet qui dépasse de ta veste, et elle fait un signe de tête vers une poterne."
+    },
+    {
+     "carte": "bergere",
+     "halte": [
+      "gue",
+      "col"
+     ],
+     "text": "Elle connaît chaque pierre de cette montagne, dit-elle, et le prix de chacune. Le prix, ce soir, c'est que tu portes une chèvre boiteuse jusqu'au prochain enclos."
+    }
+   ],
+   "choices": [
+    {
+     "label": "Accepter son aide, et payer son prix",
+     "enseigne": [
+      "racine",
+      "lame",
+      "lanterne",
+      "masque"
+     ],
+     "test": {
+      "dom": "nature",
+      "label": "Nature"
+     },
+     "win": {
+      "fx": {
+       "ep": [
+        "perso",
+        200
+       ],
+       "elan": 1
+      },
+      "to": "R_allie_ok"
+     },
+     "lose": {
+      "fx": {
+       "clock": {
+        "retard": 1
+       },
+       "note": "Tu as perdu du temps."
+      },
+      "to": "R_allie_ko"
+     }
+    },
+    {
+     "label": "La remercier, et continuer seul{e}",
+     "to": "R_allie_seul"
+    }
+   ]
+  },
+  "R_allie_ok": {
+   "title": "Le bon chemin",
+   "text": [
+    "Elle te mène par où elle seule passe, et elle te laisse à l'endroit exact où la route reprend, avec un conseil sur les gens de Vèze que tu n'oublieras pas : « Ils votent comme ils mangent. Avec le plus offrant. »"
+   ],
+   "choices": [
+    {
+     "label": "Reprendre la route",
+     "halte": [
+      "gue",
+      "col"
+     ],
+     "to": "@suite"
+    },
+    {
+     "label": "Passer la porte de Vèze",
+     "halte": "porte",
+     "to": "@suite"
+    }
+   ]
+  },
+  "R_allie_ko": {
+   "title": "Une chèvre de trop",
+   "text": [
+    "La chèvre boiteuse pèse le poids d'un remords, et elle bêle sans interruption. L'aide promise arrive, mais au bout d'une heure de détour."
+   ],
+   "choices": [
+    {
+     "label": "Reprendre la route",
+     "halte": [
+      "gue",
+      "col"
+     ],
+     "to": "@suite"
+    },
+    {
+     "label": "Passer la porte de Vèze",
+     "halte": "porte",
+     "to": "@suite"
+    }
+   ]
+  },
+  "R_allie_seul": {
+   "title": "Seul{e}",
+   "text": [
+    "Tu remercies et tu continues seul{e}. Elle hausse les épaules. Les gens de la montagne ont l'habitude des voyageurs qui préfèrent se perdre par eux-mêmes."
+   ],
+   "choices": [
+    {
+     "label": "Reprendre la route",
+     "halte": [
+      "gue",
+      "col"
+     ],
+     "to": "@suite"
+    },
+    {
+     "label": "Passer la porte de Vèze",
+     "halte": "porte",
+     "to": "@suite"
+    }
+   ]
+  },
+  "R_trahison": {
+   "title": "Un faux ami",
+   "resout": {
+    "type": "trahison"
+   },
+   "text": [
+    {
+     "halte": "gue",
+     "text": "Le passeur de l'autre rive te fait signe : il te prendra dans sa barque, pour un sou, et il t'offre même une gorgée d'eau-de-vie pour le froid."
+    },
+    {
+     "halte": "col",
+     "text": "Un muletier t'invite sous la bâche de sa charrette, te tend son outre, et te demande, entre deux histoires de mules, où va un courrier si pressé."
+    },
+    {
+     "halte": "porte",
+     "text": "Un sergent du guet sort de la file, te prend familièrement par le bras, et te dit qu'il connaît un passage pour les gens de la margrave."
+    },
+    {
+     "carte": "couteau",
+     "text": "Sa main serre ton épaule un peu trop fort, et de l'autre côté, sous sa cape, quelque chose de dur et d'étroit se tient prêt."
+    },
+    {
+     "carte": "faux_ami",
+     "text": "Il est aimable. Il est trop aimable : l'amabilité a un prix, et tu viens de comprendre qui le paiera."
+    }
+   ],
+   "choices": [
+    {
+     "label": "Le laisser parler, et ne rien boire",
+     "enseigne": [
+      "racine",
+      "masque",
+      "lame",
+      "lanterne"
+     ],
+     "test": {
+      "dom": "social",
+      "label": "Social"
+     },
+     "win": {
+      "fx": {
+       "ep": [
+        "perso",
+        250
+       ]
+      },
+      "to": "R_trahison_ok"
+     },
+     "lose": {
+      "fx": {
+       "clock": {
+        "retard": 1
+       },
+       "gold": -2
+      },
+      "to": "R_trahison_ko"
+     }
+    }
+   ]
+  },
+  "R_trahison_ok": {
+   "title": "Démasqué",
+   "text": [
+    "Tu vois venir le piège à temps : un compère attendait un peu plus loin, pour la bourse ou pour le pli. Tu changes de côté, de rythme et de chemin. Les deux compères restent avec leur plan sur les bras."
+   ],
+   "choices": [
+    {
+     "label": "Reprendre la route",
+     "halte": [
+      "gue",
+      "col"
+     ],
+     "to": "@suite"
+    },
+    {
+     "label": "Passer la porte de Vèze",
+     "halte": "porte",
+     "to": "@suite"
+    }
+   ]
+  },
+  "R_trahison_ko": {
+   "title": "Délesté{e}",
+   "text": [
+    "Tu te réveilles, ou tu te relèves, la tête lourde et la bourse plus légère. Le pli, lui, est toujours contre ta poitrine. Le voleur cherchait de l'argent. Il a eu de la chance, et toi davantage."
+   ],
+   "choices": [
+    {
+     "label": "Reprendre la route",
+     "halte": [
+      "gue",
+      "col"
+     ],
+     "to": "@suite"
+    },
+    {
+     "label": "Passer la porte de Vèze",
+     "halte": "porte",
+     "to": "@suite"
+    }
+   ]
+  },
+  "C_rival": {
+   "title": "Le cavalier en manteau gris",
+   "resout": {
+    "carte": "rival"
+   },
+   "fx": {
+    "meet": "fremond"
+   },
+   "text": [
+    {
+     "halte": "gue",
+     "text": "Un cheval gris arrive au trot derrière toi, entre dans l'eau sans ralentir, et s'arrête au milieu du gué, de l'eau jusqu'au poitrail, comme on s'arrête dans une rue. Le cavalier se retourne sur sa selle."
+    },
+    {
+     "halte": "col",
+     "text": "Un cheval gris monte le lacet du col au pas, fumant comme une marmite, et son cavalier le retient à ta hauteur."
+    },
+    {
+     "halte": "porte",
+     "text": "Un cheval gris remonte la file des charrettes au pas, et les gardes s'écartent devant lui comme devant un évêque en tournée. Le cavalier s'arrête à ta hauteur."
+    },
+    "Il porte un manteau gris, une moustache cirée en pointes, et une cravache à pommeau d'argent qu'il agite pour souligner ses phrases. « Courrier d'Orbec, n'est-ce pas ? On reconnaît la maison à la qualité des bottes : excellentes, et jamais payées. Vous allez à Vèze, je suppose. Moi aussi. Nous nous reverrons. »",
+    "Il te salue de la cravache, et il pique des deux."
+   ],
+   "choices": [
+    {
+     "label": "Retenir son visage, son cheval et ses bottes",
+     "fx": {
+      "ep": [
+       "perso",
+       150
+      ]
+     },
+     "halte": [
+      "gue",
+      "col"
+     ],
+     "to": "@suite"
+    },
+    {
+     "label": "Le suivre des yeux jusqu'à la porte",
+     "halte": "porte",
+     "to": "@suite"
+    }
+   ]
+  },
+  "C_rival_revient": {
+   "title": "Le cavalier, encore",
+   "resout": {
+    "type": [
+     "rencontre",
+     "obstacle",
+     "peril",
+     "detour"
+    ],
+    "fil": "rival"
+   },
+   "text": [
+    {
+     "halte": "col",
+     "text": "Le cheval gris est attaché à la croix du col, et le cavalier en manteau gris t'attend, assis sur le muret de la chapelle, en se curant les ongles avec la pointe d'un couteau."
+    },
+    {
+     "halte": "porte",
+     "text": "À la porte de Vèze, le cavalier en manteau gris a quitté sa selle, et il parle à l'oreille du sergent de garde en te désignant du menton."
+    },
+    "« Je vous rachète votre pli, » dit Ancel Frémond, sans préambule. « Dix écus d'argent. Vous direz à la margrave que vous l'avez perdu dans la rivière. Elle vous croira : elle perd des courriers tous les mois. »"
+   ],
+   "choices": [
+    {
+     "label": "Refuser, et le faire dire pour qui il travaille",
+     "test": {
+      "dom": "social",
+      "label": "Social"
+     },
+     "win": {
+      "fx": {
+       "fil": {
+        "noue": "rival"
+       },
+       "ep": [
+        "perso",
+        400
+       ]
+      },
+      "to": "C_rival_noue"
+     },
+     "lose": {
+      "fx": {
+       "clock": {
+        "retard": 1
+       }
+      },
+      "to": "C_rival_echappe"
+     }
+    },
+    {
+     "label": "Le planter là, et presser le pas",
+     "fx": {
+      "clock": {
+       "retard": 1
+      }
+     },
+     "to": "C_rival_echappe"
+    }
+   ]
+  },
+  "C_rival_noue": {
+   "title": "Le jeu du cavalier",
+   "text": [
+    "Il parle trop, comme tous ceux qui se croient plus fins que leur interlocuteur. Un nom lui échappe : celui d'un conseiller de Vèze, qui paie ses courses et ses chevaux.",
+    "Tu as son nom, son visage et son prix. Il remonte en selle avec la mine d'un joueur qui a montré ses cartes avant la fin de la partie."
+   ],
+   "choices": [
+    {
+     "label": "Reprendre la route",
+     "halte": [
+      "gue",
+      "col"
+     ],
+     "to": "@suite"
+    },
+    {
+     "label": "Passer la porte de Vèze",
+     "halte": "porte",
+     "to": "@suite"
+    }
+   ]
+  },
+  "C_rival_echappe": {
+   "title": "Le cavalier passe devant",
+   "text": [
+    "Il hausse les épaules, salue de la cravache, et repart au galop. Il a un cheval ; tu as des bottes. Sur la route de Vèze, cela fait une différence de plusieurs heures."
+   ],
+   "choices": [
+    {
+     "label": "Reprendre la route",
+     "halte": [
+      "gue",
+      "col"
+     ],
+     "to": "@suite"
+    },
+    {
+     "label": "Passer la porte de Vèze",
+     "halte": "porte",
+     "to": "@suite"
+    }
+   ]
+  },
+  "C_couteau": {
+   "title": "La main sur l'épaule",
+   "resout": {
+    "carte": "couteau",
+    "fil": "rival"
+   },
+   "text": [
+    {
+     "halte": "col",
+     "text": "Dans la chapelle sans toit, où tu t'es abrité{e} du grésil, une main se pose sur ton épaule. Le cavalier était là avant toi, assis dans l'ombre de l'abside."
+    },
+    {
+     "halte": "porte",
+     "text": "Sous la voûte de la porte, dans la presse, une main se pose sur ton épaule. Le cavalier s'est glissé dans la file derrière toi."
+    },
+    "Sa main serre. Son autre main, sous le manteau gris, tient une lame courte. « Le pli, » dit Ancel Frémond, très aimablement. « Doucement. »"
+   ],
+   "choices": [
+    {
+     "label": "Te dégager d'un coup de coude et lui tordre le poignet",
+     "test": {
+      "dom": "combat",
+      "label": "Combat"
+     },
+     "win": {
+      "fx": {
+       "ep": [
+        "perso",
+        400
+       ]
+      },
+      "to": "C_couteau_ok"
+     },
+     "lose": {
+      "fx": {
+       "pv": -3,
+       "clock": {
+        "retard": 1
+       }
+      },
+      "to": "C_couteau_ko"
+     }
+    },
+    {
+     "label": "Lui tendre un faux pli, et filer avec le vrai",
+     "test": {
+      "dom": "discretion",
+      "label": "Discrétion"
+     },
+     "win": {
+      "fx": {
+       "ep": [
+        "perso",
+        400
+       ]
+      },
+      "to": "C_couteau_ok"
+     },
+     "lose": {
+      "fx": {
+       "pv": -3,
+       "clock": {
+        "retard": 1
+       }
+      },
+      "to": "C_couteau_ko"
+     }
+    }
+   ]
+  },
+  "C_couteau_ok": {
+   "title": "Le cavalier désarmé",
+   "text": [
+    "La lame tombe. Le cavalier recule, se tient le poignet, et te regarde pour la première fois comme un adversaire. Il disparaît. Il a perdu sa chance, et il le sait : un courrier prévenu en vaut deux."
+   ],
+   "choices": [
+    {
+     "label": "Reprendre la route",
+     "halte": [
+      "gue",
+      "col"
+     ],
+     "to": "@suite"
+    },
+    {
+     "label": "Passer la porte de Vèze",
+     "halte": "porte",
+     "to": "@suite"
+    }
+   ]
+  },
+  "C_couteau_ko": {
+   "title": "Une estafilade",
+   "text": [
+    "La lame t'ouvre l'avant-bras avant que tu le repousses. Il s'enfuit sans le pli, mais tu saignes, et tu perds une heure à bander ta blessure avec un morceau de ta chemise."
+   ],
+   "choices": [
+    {
+     "label": "Reprendre la route",
+     "halte": [
+      "gue",
+      "col"
+     ],
+     "to": "@suite"
+    },
+    {
+     "label": "Passer la porte de Vèze",
+     "halte": "porte",
+     "to": "@suite"
+    }
+   ]
+  },
+  "C_passeur": {
+   "title": "Gilles Tranchemer",
+   "resout": {
+    "carte": "passeur"
+   },
+   "fx": {
+    "meet": "gilles",
+    "elan": 1
+   },
+   "text": [
+    {
+     "halte": "gue",
+     "text": "L'homme de la cabane descend à la barque avec une lanterne. Il a le dos voûté, un anneau de fer à l'oreille, et la voix de quelqu'un qui marchande depuis l'enfance. « Le gué ? Ce soir ? Vous voulez mourir mouillé{e}. Montez. »"
+    },
+    {
+     "halte": "col",
+     "text": "Un homme au dos voûté sort de la chapelle, un anneau de fer à l'oreille, et te montre du doigt un passage entre deux rochers que tu n'avais pas vu. « Par là, c'est deux heures de moins. Suivez-moi, et regardez où je mets les pieds. »"
+    },
+    {
+     "halte": "porte",
+     "text": "Un homme au dos voûté, un anneau de fer à l'oreille, te tire par la manche hors de la file. « Une poterne, derrière la tannerie. Le garde me doit de l'argent. Venez. »"
+    },
+    "Il te fait passer, vite et bien, sans un mot de plus. De l'autre côté, il sort un petit carnet graisseux et y écrit quelque chose. « Gilles Tranchemer. Je ne demande rien aujourd'hui. Je viendrai chercher mon prix. »"
+   ],
+   "choices": [
+    {
+     "label": "Reprendre la route",
+     "halte": [
+      "gue",
+      "col"
+     ],
+     "to": "@suite"
+    },
+    {
+     "label": "Passer la porte de Vèze",
+     "halte": "porte",
+     "to": "@suite"
+    }
+   ]
+  },
+  "C_dette_revient": {
+   "title": "Le carnet du passeur",
+   "resout": {
+    "type": [
+     "allie",
+     "refuge",
+     "trahison",
+     "tresor"
+    ],
+    "fil": "dette"
+   },
+   "text": [
+    {
+     "halte": "col",
+     "text": "Gilles Tranchemer t'attend au col, assis sur une pierre, son carnet ouvert sur le genou."
+    },
+    {
+     "halte": "porte",
+     "text": "Gilles Tranchemer t'attend sous la voûte de la porte, adossé au mur, son carnet ouvert à la page de ton nom."
+    },
+    "« Mon prix, » dit-il. « Un paquet à porter dans Vèze. Petit, léger. Vous ne l'ouvrez pas, vous le laissez chez le tanneur de la rue Basse, et nous sommes quittes. Ou quatre sous, si vous préférez la vertu. »"
+   ],
+   "choices": [
+    {
+     "label": "Prendre le paquet",
+     "fx": {
+      "fil": {
+       "noue": "dette"
+      },
+      "elan": 1
+     },
+     "to": "C_dette_paquet"
+    },
+    {
+     "label": "Payer quatre sous",
+     "if": {
+      "gold": {
+       "min": 4
+      }
+     },
+     "fx": {
+      "gold": -4,
+      "fil": {
+       "noue": "dette"
+      }
+     },
+     "to": "C_dette_payee"
+    },
+    {
+     "label": "Lui demander du temps",
+     "to": "C_dette_attend"
+    }
+   ]
+  },
+  "C_dette_paquet": {
+   "title": "Le paquet",
+   "text": [
+    "Le paquet est petit, léger, ficelé serré, et il sent le poivre. Tu le portes avec le pli. Un courrier porte ce qu'on lui confie ; il arrive qu'on lui confie deux choses, et que l'une des deux soit moins honorable."
+   ],
+   "choices": [
+    {
+     "label": "Reprendre la route",
+     "halte": [
+      "gue",
+      "col"
+     ],
+     "to": "@suite"
+    },
+    {
+     "label": "Passer la porte de Vèze",
+     "halte": "porte",
+     "to": "@suite"
+    }
+   ]
+  },
+  "C_dette_payee": {
+   "title": "Quitte",
+   "text": [
+    "Gilles Tranchemer compte les sous deux fois, les glisse dans sa ceinture, et rature ton nom avec un soin de copiste. « Quitte. C'est rare, des gens comme vous. »"
+   ],
+   "choices": [
+    {
+     "label": "Reprendre la route",
+     "halte": [
+      "gue",
+      "col"
+     ],
+     "to": "@suite"
+    },
+    {
+     "label": "Passer la porte de Vèze",
+     "halte": "porte",
+     "to": "@suite"
+    }
+   ]
+  },
+  "C_dette_attend": {
+   "title": "Les intérêts",
+   "text": [
+    "Il referme son carnet sans colère. « Du temps, j'en ai. Les intérêts aussi. » Il s'en va en sifflant."
+   ],
+   "choices": [
+    {
+     "label": "Reprendre la route",
+     "halte": [
+      "gue",
+      "col"
+     ],
+     "to": "@suite"
+    },
+    {
+     "label": "Passer la porte de Vèze",
+     "halte": "porte",
+     "to": "@suite"
+    }
+   ]
+  },
+  "C_heure": {
+   "title": "L'heure de payer",
+   "resout": {
+    "carte": "heure_payer",
+    "fil": "dette"
+   },
+   "text": [
+    {
+     "halte": "col",
+     "text": "Au col, trois silhouettes se détachent de la chapelle. Gilles Tranchemer marche devant ; les deux autres ont des gourdins."
+    },
+    "« J'avais dit que je viendrais chercher mon prix, » dit le passeur. « Le voici : tu me dis ce qu'il y a dans ton pli. Pas le pli. Juste ce qu'il dit. »"
+   ],
+   "choices": [
+    {
+     "label": "Lui offrir tout ton argent à la place",
+     "if": {
+      "gold": {
+       "min": 2
+      }
+     },
+     "fx": {
+      "gold": -6
+     },
+     "to": "C_heure_argent"
+    },
+    {
+     "label": "Le convaincre que tu n'en sais rien",
+     "test": {
+      "dom": "social",
+      "label": "Social"
+     },
+     "win": {
+      "fx": {
+       "ep": [
+        "perso",
+        300
+       ]
+      },
+      "to": "C_heure_ok"
+     },
+     "lose": {
+      "fx": {
+       "pv": -3
+      },
+      "to": "C_heure_ko"
+     }
+    }
+   ]
+  },
+  "C_heure_argent": {
+   "title": "Les poches vides",
+   "text": [
+    "Tu vides ta bourse dans sa main. Il compte, il soupire, il accepte. « C'est moins que ce que vaut un secret. C'est plus que ce que vaut un courrier. » Ta dette est payée, et tu marches à présent avec des poches légères."
+   ],
+   "choices": [
+    {
+     "label": "Reprendre la route",
+     "to": "@suite"
+    }
+   ]
+  },
+  "C_heure_ok": {
+   "title": "Un courrier ignorant",
+   "text": [
+    "Tu jures que tu ignores tout du pli, ce qui est vrai, et tu le jures assez mal pour qu'il te croie. Il rature ton nom. « Un courrier qui ne lit pas. Les vertus se perdent. »"
+   ],
+   "choices": [
+    {
+     "label": "Reprendre la route",
+     "to": "@suite"
+    }
+   ]
+  },
+  "C_heure_ko": {
+   "title": "Les gourdins",
+   "text": [
+    "Il te croit à moitié, et ses compagnons se chargent de l'autre moitié. Tu as le dos endolori, la dette payée, et le pli toujours scellé. Ils cherchaient ce qu'il dit, et tu l'ignores."
+   ],
+   "choices": [
+    {
+     "label": "Reprendre la route",
+     "to": "@suite"
+    }
+   ]
+  },
+  "C_cachet": {
+   "title": "Deux cires",
+   "resout": {
+    "carte": "cachet_double"
+   },
+   "text": [
+    {
+     "halte": "gue",
+     "text": "En sortant le pli pour le mettre au sec, à la lumière de la lanterne du passeur, tu remarques le bord de la cire."
+    },
+    {
+     "halte": "col",
+     "text": "À l'abri de la chapelle, tu sors le pli pour vérifier qu'il a passé le grésil sans dommage, et le jour gris éclaire le bord de la cire."
+    },
+    {
+     "halte": "porte",
+     "text": "Dans la file, pendant que les gardes fouillent la charrette de devant, tu sors le pli de ta veste pour la première fois depuis Orbec, et tu regardes la cire en plein jour."
+    },
+    "Le sceau est net : la tour, les trois clés. Mais autour, la cire a coulé en deux couches, l'une sombre, presque brune, l'autre d'un rouge vif. Quelqu'un a fondu un second bâton de cire sur le premier."
+   ],
+   "choices": [
+    {
+     "label": "Ranger le pli contre ta poitrine",
+     "fx": {
+      "ep": [
+       "perso",
+       200
+      ]
+     },
+     "halte": [
+      "gue",
+      "col"
+     ],
+     "to": "@suite"
+    },
+    {
+     "label": "Ranger le pli, et avancer vers les gardes",
+     "fx": {
+      "ep": [
+       "perso",
+       200
+      ]
+     },
+     "halte": "porte",
+     "to": "@suite"
+    }
+   ]
+  },
+  "C_secret_revient": {
+   "title": "Le clerc d'Orbec",
+   "resout": {
+    "type": [
+     "rencontre",
+     "revelation",
+     "refuge",
+     "presage"
+    ],
+    "fil": "secret"
+   },
+   "text": [
+    {
+     "halte": "col",
+     "text": "Dans la chapelle du col, un homme en robe de clerc s'est mis à l'abri du grésil, un coffret serré contre lui."
+    },
+    {
+     "halte": "porte",
+     "text": "Dans la file, deux charrettes devant toi, un homme en robe de clerc tient un coffret contre lui comme une nourrice tient un enfant."
+    },
+    "Tu le reconnais : tu l'as vu au château d'Orbec, debout derrière la margrave, la plume à la main."
+   ],
+   "choices": [
+    {
+     "label": "Lui demander ce qu'il porte à Vèze",
+     "test": {
+      "dom": "social",
+      "label": "Social"
+     },
+     "win": {
+      "fx": {
+       "fil": {
+        "noue": "secret"
+       },
+       "ep": [
+        "perso",
+        400
+       ]
+      },
+      "to": "C_secret_noue"
+     },
+     "lose": {
+      "to": "C_secret_muet"
+     }
+    },
+    {
+     "label": "Regarder ses mains",
+     "test": {
+      "dom": "savoir",
+      "label": "Savoir"
+     },
+     "win": {
+      "fx": {
+       "fil": {
+        "noue": "secret"
+       },
+       "ep": [
+        "perso",
+        400
+       ]
+      },
+      "to": "C_secret_noue"
+     },
+     "lose": {
+      "to": "C_secret_muet"
+     }
+    }
+   ]
+  },
+  "C_secret_noue": {
+   "title": "La cire sous l'ongle",
+   "text": [
+    "Sous l'ongle de son pouce, une trace rouge vif. Il voit que tu la vois. Il pâlit, il bredouille, et il finit par tout dire, avec le soulagement des faibles à qui l'on retire un poids.",
+    "Il a ouvert le pli à Orbec, la nuit avant ton départ, à la demande d'un conseiller de Vèze, maître Bérard. Il l'a lu, recacheté, et il porte à Bérard une copie, dans le coffret."
+   ],
+   "choices": [
+    {
+     "label": "Reprendre la route",
+     "halte": [
+      "gue",
+      "col"
+     ],
+     "to": "@suite"
+    },
+    {
+     "label": "Passer la porte de Vèze",
+     "halte": "porte",
+     "to": "@suite"
+    }
+   ]
+  },
+  "C_secret_muet": {
+   "title": "Un clerc qui se tait",
+   "text": [
+    "Il serre son coffret, il détourne la tête, et il se perd dans la foule à la première occasion. Tu retiens son visage, à défaut de son secret."
+   ],
+   "choices": [
+    {
+     "label": "Reprendre la route",
+     "halte": [
+      "gue",
+      "col"
+     ],
+     "to": "@suite"
+    },
+    {
+     "label": "Passer la porte de Vèze",
+     "halte": "porte",
+     "to": "@suite"
+    }
+   ]
+  },
+  "C_cire": {
+   "title": "Une trace rouge",
+   "resout": {
+    "carte": "cire_ongle",
+    "fil": "secret"
+   },
+   "text": [
+    {
+     "halte": "col",
+     "text": "Près de la croix du col, un homme en robe de clerc gratte son pouce avec la pointe d'un canif, pour en ôter quelque chose."
+    },
+    {
+     "halte": "porte",
+     "text": "Sous la voûte de la porte, un homme en robe de clerc tend ses papiers au garde, et sur le pouce qui tient les papiers, il y a une trace rouge."
+    },
+    "C'est de la cire. De la cire rouge vif, la même que la seconde couche de ton pli. Et l'homme, tu le reconnais : le clerc de la margrave d'Orbec."
+   ],
+   "choices": [
+    {
+     "label": "Le prendre à part et le faire parler",
+     "fx": {
+      "ep": [
+       "perso",
+       400
+      ]
+     },
+     "to": "C_secret_noue"
+    }
+   ]
+  }
+ }
+}
