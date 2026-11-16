@@ -92,9 +92,9 @@ module.exports = {
       ],
       choices: [
         { label: "Mener le président à la pendule", to: "A2m_pendule", once: true },
-        { label: "Suivre l'odeur de l'écurie", to: "A2m_ecurie", once: true },
-        { label: "Aller voir une taille, au bout de la voie de roulage", to: "A2m_taille", once: true },
-        { label: "Fausser compagnie à la casaque rousse", to: "A2m_semer", once: true, if: { all: [{ has: "a2:m_suivi" }, { not: "a2:m_libre" }] }, hide: { not: { has: "a2:m_suivi" } } },
+        { label: "Suivre l'odeur de l'écurie", to: "A2m_ecurie" },
+        { label: "Aller voir une taille, au bout de la voie de roulage", to: "A2m_taille" },
+        { label: "Fausser compagnie à la casaque rousse", to: "A2m_semer", if: { all: [{ has: "a2:m_suivi" }, { not: "a2:m_libre" }] }, hide: { not: { has: "a2:m_suivi" } } },
         { label: "Prendre la galerie condamnée", to: "A2m_serrement", big: true, if: { all: [{ has: "a2:m_chemin" }, { any: [{ not: "a2:m_suivi" }, { has: "a2:m_libre" }] }] }, why: "Il te faut quelqu'un pour te dire le chemin, et personne sur tes talons." },
       ] },
 
