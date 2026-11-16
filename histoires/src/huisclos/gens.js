@@ -268,7 +268,7 @@ module.exports = {
     text: [
       { first: true, text: "Mariette se retourne enfin. Elle te regarde des pieds à la tête, longtemps, et tu as de nouveau dix ans et de la boue jusqu'aux genoux. « Tu as maigri, dit-elle. Assieds-toi. » C'est tout. C'est tout ce qu'elle dira de ton retour, et c'est beaucoup." },
       { again: true, when: "day", text: "Mariette pousse un bol vers toi sur la table, sans demander si tu as faim." },
-      { when: "night", text: "Mariette veille dans la chambre de ta mère, droite sur sa chaise paillée. Ses lèvres bougent sur des prières qu'elle ne dit pas à voix haute." },
+      { when: "night", text: "Mariette veille dans la chambre de ta mère, droite sur sa chaise paillée. Ses lèvres bougent sur des prières qu'elle ne dit pas à voix haute ; les quatre cierges ont déjà perdu un doigt de cire, et leur lumière monte et descend au plafond avec la lenteur d'une respiration." },
     ],
     choices: [
       { label: "Lui demander comment Lucien est mort", hide: { seen: "K_mariette_etang" }, to: "K_mariette_etang" },
